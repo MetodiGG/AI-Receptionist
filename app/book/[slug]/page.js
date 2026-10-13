@@ -202,7 +202,7 @@ export default function PublicBookingPage() {
   }, [slug])
 
   if (status === 'loading') return <LoadingPage />
-  if (status === 'error') return <main className="booking-state-page"><span className="booking-logo-mark">!</span><h1>Не успяхме да отворим страницата</h1><p>{error}</p></main>
+  if (status === 'error') return <main className="booking-state-page"><span className="booking-logo-mark">!</span><h1>Не успяхме да отворим страницата</h1><p>{error}</p><button className="booking-primary booking-retry" type="button" onClick={() => window.location.reload()}>Опитай отново</button></main>
 
   return (
     <main className={`public-booking-page ${embedded ? 'embedded-booking' : ''}`} style={{ '--business-color': business.theme_color || '#173e2a' }}>

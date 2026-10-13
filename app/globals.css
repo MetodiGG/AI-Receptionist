@@ -102,22 +102,45 @@ a {
 .legal-actions { display: flex; gap: 18px; margin-top: 32px; }
 .legal-actions a { color: var(--forest); font-weight: 800; }
 
-.share-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 22px; }
+.share-page { --share-radius: 24px; }
+.share-message { position: sticky; z-index: 5; top: 16px; margin: -12px 0 18px; padding: 12px 16px; color: #245d1d; background: #ecf9e3; border: 1px solid #ccebbd; border-radius: 12px; font-size: 13px; font-weight: 750; box-shadow: 0 12px 30px rgba(30,70,40,.1); }
+.share-quick-card { margin-bottom: 22px; padding: clamp(22px, 4vw, 34px); color: #f6fff2; background: radial-gradient(circle at 92% 0, rgba(184,243,107,.24), transparent 36%), #153d29; border-radius: var(--share-radius); box-shadow: 0 20px 55px rgba(23,62,42,.18); }
+.share-link-intro { display: flex; align-items: center; gap: 12px; }
+.share-link-intro > div { display: grid; gap: 4px; }
+.share-link-intro strong { font-size: 17px; }
+.share-link-intro small { color: rgba(246,255,242,.66); line-height: 1.45; }
+.share-live-dot { width: 10px; height: 10px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 0 6px rgba(184,243,107,.13); }
+.share-link-box { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; margin-top: 20px; padding: 7px; color: var(--ink); background: #fff; border-radius: 15px; }
+.share-link-box span { align-self: center; min-width: 0; padding: 0 12px; overflow: hidden; font-size: 14px; font-weight: 680; text-overflow: ellipsis; white-space: nowrap; }
+.share-link-box button { min-height: 46px; padding: 0 18px; color: var(--forest); background: var(--accent); border: 0; border-radius: 11px; cursor: pointer; font-weight: 850; }
+.share-actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 16px; }
+.share-actions button, .share-actions a { min-height: 40px; padding: 0 14px; display: inline-flex; align-items: center; justify-content: center; color: rgba(255,255,255,.9); background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.13); border-radius: 999px; cursor: pointer; font-size: 12px; font-weight: 780; text-decoration: none; transition: background 150ms ease, transform 150ms ease; }
+.share-actions button:hover, .share-actions a:hover { background: rgba(255,255,255,.14); transform: translateY(-1px); }
+.share-grid { display: grid; grid-template-columns: 1.08fr .92fr; gap: 22px; }
 .share-grid .settings-panel { margin: 0; }
 .calendar-feed-card { grid-column: 1 / -1; }
 .copy-row { display: flex; gap: 10px; }
 .copy-row input, .embed-code { width: 100%; padding: 13px 15px; color: #3d4a42; background: #f7f8f5; border: 1px solid var(--line); border-radius: 12px; }
 .copy-row input { min-width: 0; }
 .copy-row .secondary-button { flex: 0 0 auto; }
-.qr-card { display: grid; grid-template-columns: 176px 1fr; align-items: center; gap: 24px; margin-top: 28px; padding: 22px; background: #f3f7ef; border-radius: 20px; }
-.qr-card img { width: 176px; height: 176px; padding: 8px; background: #fff; border-radius: 14px; }
+.qr-card { display: grid; grid-template-columns: 190px 1fr; align-items: center; gap: 26px; margin-top: 24px; padding: 22px; background: linear-gradient(135deg, #edf5e7, #f8fbf6); border: 1px solid #e0e9dc; border-radius: 20px; }
+.qr-preview { display: grid; place-items: center; padding: 10px; background: #fff; border: 1px solid #e3e8e1; border-radius: 18px; box-shadow: 0 14px 34px rgba(23,62,42,.09); }
+.qr-card img { display: block; width: 168px; height: 168px; }
 .qr-card h4 { margin: 0 0 8px; font-size: 20px; }
 .qr-card p, .security-note { color: var(--ink-soft); line-height: 1.5; }
-.qr-card a { color: var(--forest); font-weight: 850; }
+.share-step { display: block; margin-bottom: 10px; color: #568c2e; font-size: 10px; font-weight: 900; letter-spacing: .09em; }
+.qr-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 18px; }
+.qr-actions a { color: var(--ink); text-decoration: none; }
 .embed-code { min-height: 126px; resize: none; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; line-height: 1.55; }
-.widget-preview { display: flex; align-items: center; justify-content: space-between; margin-top: 26px; padding: 22px; background: linear-gradient(135deg, #eef2ea, #fff); border: 1px dashed #ccd7c8; border-radius: 18px; }
+.widget-preview { display: flex; align-items: center; justify-content: space-between; margin-top: 24px; padding: 22px; background: linear-gradient(135deg, #eef2ea, #fff); border: 1px dashed #ccd7c8; border-radius: 18px; }
 .widget-preview > span { color: var(--ink-soft); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
 .widget-preview button { padding: 14px 18px; color: #fff; background: var(--forest); border: 0; border-radius: 999px; font-weight: 800; box-shadow: 0 12px 28px rgba(23,62,42,.2); }
+.embed-details { margin-top: 18px; }
+.embed-details summary { color: var(--forest); cursor: pointer; font-size: 13px; font-weight: 850; }
+.embed-details .embed-code { margin-top: 14px; }
+.embed-details .secondary-button { margin-top: 9px; }
+.share-warning { margin: 0; padding: 14px; color: #855b11; background: #fff8e6; border: 1px solid #f3dfad; border-radius: 12px; }
+.booking-retry { width: auto; margin-top: 16px; padding-inline: 24px; }
 
 .analytics-kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 22px; }
 .analytics-kpis article { padding: 24px; background: #fff; border: 1px solid var(--line); border-radius: 20px; box-shadow: 0 10px 35px rgba(24,52,35,.05); }
@@ -184,8 +207,12 @@ a {
 }
 
 @media (max-width: 600px) {
+  .share-link-box { grid-template-columns: 1fr; }
+  .share-link-box span { padding: 10px 8px 4px; white-space: normal; overflow-wrap: anywhere; }
+  .share-actions { display: grid; grid-template-columns: 1fr 1fr; }
   .qr-card { grid-template-columns: 1fr; }
-  .qr-card img { width: 150px; height: 150px; }
+  .qr-preview { width: fit-content; }
+  .qr-card img { width: 160px; height: 160px; }
   .copy-row { flex-direction: column; }
   .analytics-kpis { grid-template-columns: 1fr 1fr; gap: 10px; }
   .analytics-kpis article { padding: 18px; }

@@ -202,18 +202,23 @@ export default function PublicBookingPage() {
 
   return (
     <main className="public-booking-page" style={{ '--business-color': business.theme_color || '#173e2a' }}>
+      <div className="booking-ambient" aria-hidden="true"><i /><i /><i /></div>
       <header className="booking-topbar">
         <SparkLogo businessName={business.name} />
         <div className="booking-contact">{business.phone && <a href={`tel:${business.phone}`}>{business.phone}</a>}<span className="booking-live"><i /> Онлайн</span></div>
       </header>
       <section className="booking-hero">
-        <div><p className="booking-eyebrow">Онлайн записване · 24/7</p><h1>Твоят час,<br /><em>без чакане.</em></h1><p>Избери удобен час или използвай онлайн асистента. Потвърждението е мигновено.</p>{business.address && <span className="booking-address">⌖ {business.address}</span>}</div>
-        <div className="booking-mode-switch" role="tablist" aria-label="Начин за записване">
-          <button role="tab" aria-selected={mode === 'booking'} className={mode === 'booking' ? 'active' : ''} onClick={() => setMode('booking')}>Резервирай час</button>
-          <button role="tab" aria-selected={mode === 'chat'} className={mode === 'chat' ? 'active' : ''} onClick={() => setMode('chat')}><span className="booking-online-dot" /> Онлайн асистент</button>
+        <div className="booking-hero-copy"><p className="booking-eyebrow"><span /> Онлайн записване · 24/7</p><h1>Запази време<br /><em>за себе си.</em></h1><p>Избери услугата и най-удобния свободен час. Без обаждане, без регистрация и без чакане за отговор.</p>{business.address && <span className="booking-address">⌖ {business.address}</span>}</div>
+        <div className="booking-hero-aside">
+          <div className="booking-mode-switch" role="tablist" aria-label="Начин за записване">
+            <button role="tab" aria-selected={mode === 'booking'} aria-controls="booking-experience" className={mode === 'booking' ? 'active' : ''} onClick={() => setMode('booking')}>Резервирай час</button>
+            <button role="tab" aria-selected={mode === 'chat'} aria-controls="booking-experience" className={mode === 'chat' ? 'active' : ''} onClick={() => setMode('chat')}><span className="booking-online-dot" /> Онлайн асистент</button>
+          </div>
+          <div className="booking-proof-list"><span><b>01</b> Избираш услуга</span><span><b>02</b> Виждаш свободните часове</span><span><b>03</b> Получаваш потвърждение</span></div>
         </div>
       </section>
-      <div className="booking-content">{mode === 'booking' ? <BookingPanel business={business} /> : <GuidedBookingChat business={business} onShowBooking={() => setMode('booking')} />}</div>
+      <div className="booking-reassurance" aria-label="Предимства"><span>✓ Без профил</span><span>✓ Реална наличност</span><span>✓ Сигурно управление</span></div>
+      <div className="booking-content" id="booking-experience"><div className="booking-experience-enter" key={mode}>{mode === 'booking' ? <BookingPanel business={business} /> : <GuidedBookingChat business={business} onShowBooking={() => setMode('booking')} />}</div></div>
       <footer className="booking-footer"><span>Защитена резервация</span><span>Задвижвано от AI Рецепционист</span></footer>
     </main>
   )

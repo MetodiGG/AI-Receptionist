@@ -62,6 +62,14 @@ create table if not exists public.conversations (
   updated_at timestamptz not null default now()
 );
 
+create table if not exists public.api_rate_limits (
+  rate_key text not null,
+  bucket bigint not null,
+  request_count int not null default 1,
+  created_at timestamptz not null default now(),
+  primary key (rate_key, bucket)
+);
+
 alter table public.messages
   add column if not exists conversation_id uuid references public.conversations(id) on delete cascade,
   add column if not exists metadata jsonb not null default '{}'::jsonb;
@@ -75,6 +83,7 @@ create index if not exists appointments_staff_starts_idx on public.appointments 
 alter table public.staff_services enable row level security;
 alter table public.time_off enable row level security;
 alter table public.conversations enable row level security;
+alter table public.api_rate_limits enable row level security;
 
 do $$
 declare
@@ -108,5 +117,47 @@ grant select, insert, update, delete on table
   public.time_off,
   public.conversations
 to authenticated, service_role;
+
+revoke all privileges on table public.api_rate_limits from public, anon, authenticated;
+grant select, insert, update, delete on table public.api_rate_limits to service_role;
+
+create or replace function public.consume_api_rate_limit(
+  input_key text,
+  request_limit int,
+  window_seconds int
+)
+returns boolean
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  current_bucket bigint;
+  current_count int;
+begin
+  if input_key is null or length(input_key) > 128
+    or request_limit < 1 or request_limit > 10000
+    or window_seconds < 1 or window_seconds > 86400 then
+    return false;
+  end if;
+
+  current_bucket := floor(extract(epoch from now()) / window_seconds);
+
+  insert into public.api_rate_limits (rate_key, bucket, request_count)
+  values (input_key, current_bucket, 1)
+  on conflict (rate_key, bucket)
+  do update set request_count = public.api_rate_limits.request_count + 1
+  returning request_count into current_count;
+
+  if random() < 0.01 then
+    delete from public.api_rate_limits where created_at < now() - interval '2 days';
+  end if;
+
+  return current_count <= request_limit;
+end;
+$$;
+
+revoke all privileges on function public.consume_api_rate_limit(text, int, int) from public, anon, authenticated;
+grant execute on function public.consume_api_rate_limit(text, int, int) to service_role;
 
 commit;

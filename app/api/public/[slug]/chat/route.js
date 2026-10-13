@@ -4,6 +4,7 @@ import { z } from 'zod'
 import { apiError, getSafeError } from '../../../../../lib/api-response'
 import { createPublicBooking, getAvailableSlots, getPublicBusiness } from '../../../../../lib/public-booking'
 import { getSupabaseAdmin } from '../../../../../lib/supabase-admin'
+import { consumeRateLimit } from '../../../../../lib/rate-limit'
 
 const chatRequestSchema = z.object({
   conversationId: z.string().uuid().optional(),
@@ -155,6 +156,9 @@ async function runTool({ call, business, conversation }) {
 export async function POST(request, context) {
   try {
     const { slug } = await context.params
+    if (!await consumeRateLimit(request, { scope: `chat:${slug}`, limit: 30, windowSeconds: 600 })) {
+      return apiError('Твърде много съобщения. Опитай отново след няколко минути.', 429, 'RATE_LIMITED')
+    }
     const business = await getPublicBusiness(slug)
     if (!business) return apiError('Този бизнес не е открит.', 404, 'NOT_FOUND')
 

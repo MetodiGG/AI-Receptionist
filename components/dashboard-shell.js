@@ -8,7 +8,7 @@ const NAV_ITEMS = [
   { icon: 'grid', label: 'Начало', href: '/dashboard' },
   { icon: 'calendar', label: 'Резервации', href: '/dashboard/appointments' },
   { icon: 'users', label: 'Клиенти', href: '/dashboard/customers' },
-  { icon: 'chat', label: 'AI асистент', href: '/dashboard/assistant' },
+  { icon: 'chat', label: 'Асистент', href: '/dashboard/assistant' },
   { icon: 'settings', label: 'Настройки', href: '/dashboard/settings' },
 ]
 

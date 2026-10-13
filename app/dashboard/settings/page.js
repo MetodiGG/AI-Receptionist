@@ -126,9 +126,9 @@ function SettingsContent({ business, refreshBusiness }) {
 
   return (
     <main className="dashboard-content admin-page settings-page">
-      <div className="admin-page-head"><div><p className="auth-kicker">Конфигурация</p><h2>Настройки</h2><p>Промените се отразяват веднага в публичната страница и AI асистента.</p></div><Link className="secondary-button" href={`/book/${business.slug}`} target="_blank">Преглед на страницата ↗</Link></div>
+      <div className="admin-page-head"><div><p className="auth-kicker">Конфигурация</p><h2>Настройки</h2><p>Промените се отразяват веднага в публичната страница и онлайн асистента.</p></div><Link className="secondary-button" href={`/book/${business.slug}`} target="_blank">Преглед на страницата ↗</Link></div>
       <div className="settings-tabs">
-        {[['business', 'Бизнес'], ['services', 'Услуги'], ['staff', 'Екип'], ['hours', 'Работно време'], ['assistant', 'AI инструкции']].map(([value, label]) => <button type="button" className={section === value ? 'active' : ''} onClick={() => setSection(value)} key={value}>{label}</button>)}
+        {[['business', 'Бизнес'], ['services', 'Услуги'], ['staff', 'Екип'], ['hours', 'Работно време'], ['assistant', 'Асистент']].map(([value, label]) => <button type="button" className={section === value ? 'active' : ''} onClick={() => setSection(value)} key={value}>{label}</button>)}
       </div>
       {message && <p className={`form-message ${message.type === 'success' ? 'success' : ''}`} role="alert">{message.text}</p>}
 
@@ -145,9 +145,9 @@ function SettingsContent({ business, refreshBusiness }) {
             <label><span>Часова зона</span><select value={profile.timezone} onChange={(event) => setProfile({ ...profile, timezone: event.target.value })}><option value="Europe/Sofia">София</option><option value="Europe/Berlin">Берлин</option><option value="Europe/London">Лондон</option></select></label>
           </div>
         </> : <>
-          <div className="settings-panel-head"><h3>Поведение на AI асистента</h3><p>Дай му тона и специфичните правила на бизнеса.</p></div>
-          <label className="settings-field"><span>Приветствие</span><textarea value={profile.welcome_message} onChange={(event) => setProfile({ ...profile, welcome_message: event.target.value })} placeholder={`Здравей! Аз съм AI асистентът на ${business.name}.`} maxLength={500} /></label>
-          <label className="settings-field"><span>Допълнителни инструкции</span><textarea value={profile.bot_instructions} onChange={(event) => setProfile({ ...profile, bot_instructions: event.target.value })} placeholder="Напр. При закъснение над 15 минути помоли клиента да се обади..." maxLength={3000} /></label>
+          <div className="settings-panel-head"><h3>Онлайн асистент</h3><p>Настрой приветствието и правилата, които клиентите могат да отварят в разговора.</p></div>
+          <label className="settings-field"><span>Приветствие</span><textarea value={profile.welcome_message} onChange={(event) => setProfile({ ...profile, welcome_message: event.target.value })} placeholder={`Здравей! Аз съм онлайн асистентът на ${business.name}.`} maxLength={500} /></label>
+          <label className="settings-field"><span>Допълнителни правила</span><textarea value={profile.bot_instructions} onChange={(event) => setProfile({ ...profile, bot_instructions: event.target.value })} placeholder="Напр. При закъснение над 15 минути се обади предварително..." maxLength={3000} /></label>
         </>}
         <div className="settings-actions"><button className="primary-button" type="submit" disabled={saving}>{saving ? 'Запазване...' : 'Запази промените'}</button></div>
       </form>}

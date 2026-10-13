@@ -2667,6 +2667,302 @@ a {
   padding-bottom: 12px;
 }
 
+.guided-chat-card .chat-messages {
+  min-height: 300px;
+  max-height: 430px;
+}
+
+.guided-chat-controls {
+  padding: 16px 18px;
+  border-top: 1px solid #e1e7df;
+  background: #fff;
+}
+
+.guided-action-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.guided-action-grid button,
+.guided-step-head > button,
+.guided-pagination button {
+  min-height: 40px;
+  padding: 9px 12px;
+  color: #315c35;
+  background: #f3f7f0;
+  border: 1px solid #dbe5d7;
+  border-radius: 12px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.guided-action-grid button:hover,
+.guided-option-list button:hover,
+.guided-date-grid button:hover,
+.guided-slot-grid button:hover {
+  border-color: #9fc392;
+  background: #edf6e8;
+}
+
+.guided-action-grid .guided-primary-action {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 52px;
+  padding-inline: 16px;
+  color: #fff;
+  background: var(--business-color);
+  border-color: var(--business-color);
+  font-size: 14px;
+}
+
+.guided-action-grid .guided-primary-action:hover {
+  color: #fff;
+  background: var(--business-color);
+  border-color: var(--business-color);
+  filter: brightness(1.08);
+}
+
+.guided-step,
+.guided-details-form,
+.guided-confirmation,
+.guided-success {
+  display: grid;
+  gap: 13px;
+}
+
+.guided-step-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.guided-step-head > div {
+  display: grid;
+  gap: 2px;
+}
+
+.guided-step-head small {
+  color: #7d887f;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.guided-step-head strong {
+  color: #14271b;
+  font-size: 15px;
+}
+
+.guided-step-head > button {
+  min-height: auto;
+  padding: 7px 10px;
+  background: transparent;
+  border-color: #e1e7df;
+}
+
+.guided-option-list {
+  display: grid;
+  gap: 8px;
+}
+
+.guided-option-list button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  padding: 12px 14px;
+  text-align: left;
+  color: #14271b;
+  background: #fbfcfa;
+  border: 1px solid #dfe6dc;
+  border-radius: 13px;
+  cursor: pointer;
+  font: inherit;
+}
+
+.guided-option-list button > span {
+  display: grid;
+  gap: 2px;
+}
+
+.guided-option-list button small {
+  color: #7a867d;
+  font-size: 11px;
+}
+
+.guided-option-list button b {
+  color: #315c35;
+  white-space: nowrap;
+  font-size: 12px;
+}
+
+.guided-option-list.compact {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.guided-option-list.compact button b {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  background: #eaf3e5;
+  border-radius: 10px;
+}
+
+.guided-date-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.guided-date-grid button {
+  display: grid;
+  justify-items: center;
+  gap: 1px;
+  min-width: 0;
+  padding: 8px 3px;
+  color: #24382a;
+  background: #f8faf6;
+  border: 1px solid #e0e7de;
+  border-radius: 11px;
+  cursor: pointer;
+}
+
+.guided-date-grid button small,
+.guided-date-grid button span {
+  color: #7d887f;
+  font-size: 9px;
+  text-transform: capitalize;
+}
+
+.guided-date-grid button strong {
+  font-size: 16px;
+}
+
+.guided-pagination {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.guided-pagination button:disabled,
+.guided-action-grid button:disabled,
+.guided-option-list button:disabled,
+.guided-date-grid button:disabled,
+.guided-slot-grid button:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+
+.guided-slot-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 7px;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.guided-slot-grid button {
+  display: grid;
+  gap: 2px;
+  padding: 10px 7px;
+  color: #193021;
+  background: #f8faf6;
+  border: 1px solid #dfe6dc;
+  border-radius: 11px;
+  cursor: pointer;
+}
+
+.guided-slot-grid button small {
+  overflow: hidden;
+  color: #7a867d;
+  font-size: 9px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.guided-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.guided-form-grid label {
+  display: grid;
+  gap: 5px;
+  color: #26392d;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.guided-form-grid input {
+  min-width: 0;
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid #d9e1d7;
+  border-radius: 11px;
+  font: inherit;
+}
+
+.guided-details-form .booking-primary,
+.guided-confirmation .booking-primary {
+  margin-top: 0;
+}
+
+.guided-booking-summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.guided-booking-summary > span {
+  display: grid;
+  gap: 2px;
+  padding: 11px 12px;
+  background: #f3f7f0;
+  border-radius: 12px;
+}
+
+.guided-booking-summary small {
+  color: #758078;
+  font-size: 10px;
+}
+
+.guided-booking-summary strong {
+  overflow-wrap: anywhere;
+  color: #1d3324;
+  font-size: 12px;
+}
+
+.guided-success {
+  justify-items: center;
+  padding: 12px 4px 4px;
+  text-align: center;
+}
+
+.guided-success > strong {
+  color: #173522;
+  font-size: 18px;
+}
+
+.guided-success p {
+  margin: 0;
+  color: #667269;
+  font-size: 12px;
+}
+
+.guided-success .manage-booking-link {
+  margin: 0;
+}
+
 .booking-footer {
   display: flex;
   justify-content: space-between;
@@ -2926,6 +3222,36 @@ a {
 
   .chat-message {
     max-width: 88%;
+  }
+}
+
+@media (max-width: 720px) {
+  .guided-action-grid,
+  .guided-option-list.compact,
+  .guided-form-grid,
+  .guided-booking-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .guided-date-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .guided-slot-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .guided-chat-controls {
+    padding: 14px;
+  }
+
+  .chat-head {
+    align-items: flex-start;
+  }
+
+  .chat-head .booking-text-button {
+    max-width: 120px;
+    text-align: right;
   }
 }
 

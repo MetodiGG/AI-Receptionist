@@ -1,89 +1,75 @@
-import OpenAI from 'openai'
 import { DateTime } from 'luxon'
 import { z } from 'zod'
 import { apiError, getSafeError } from '../../../../../lib/api-response'
+import { buildGuidedReply, describeDate, detectGuidedTopic, getEligibleStaff } from '../../../../../lib/guided-assistant.mjs'
 import { createPublicBooking, getAvailableSlots, getPublicBusiness } from '../../../../../lib/public-booking'
-import { getSupabaseAdmin } from '../../../../../lib/supabase-admin'
 import { consumeRateLimit } from '../../../../../lib/rate-limit'
+import { getSupabaseAdmin } from '../../../../../lib/supabase-admin'
 
-const chatRequestSchema = z.object({
-  conversationId: z.string().uuid().optional(),
-  message: z.string().trim().min(1).max(1200),
-})
+const conversationField = { conversationId: z.string().uuid().optional() }
+const serviceField = { serviceId: z.string().uuid() }
+const staffField = { staffId: z.string().uuid().nullable() }
 
-function getTools() {
-  return [
-    {
-      type: 'function',
-      name: 'get_available_slots',
-      description: 'Проверява реалните свободни часове за конкретна услуга и дата.',
-      strict: true,
-      parameters: {
-        type: 'object',
-        properties: {
-          service_id: { type: 'string', description: 'UUID на услугата от предоставения бизнес контекст.' },
-          date: { type: 'string', description: 'Дата във формат YYYY-MM-DD в часовата зона на бизнеса.' },
-          staff_id: { type: ['string', 'null'], description: 'UUID на предпочитан служител или null.' },
-        },
-        required: ['service_id', 'date', 'staff_id'],
-        additionalProperties: false,
-      },
-    },
-    {
-      type: 'function',
-      name: 'create_booking',
-      description: 'Създава резервация само след изрично потвърждение от клиента за услугата, служителя, датата и часа.',
-      strict: true,
-      parameters: {
-        type: 'object',
-        properties: {
-          service_id: { type: 'string' },
-          staff_id: { type: 'string' },
-          starts_at: { type: 'string', description: 'ISO 8601 дата и час с timezone offset.' },
-          customer_name: { type: 'string' },
-          customer_phone: { type: 'string' },
-          customer_email: { type: ['string', 'null'] },
-          notes: { type: ['string', 'null'] },
-        },
-        required: ['service_id', 'staff_id', 'starts_at', 'customer_name', 'customer_phone', 'customer_email', 'notes'],
-        additionalProperties: false,
-      },
-    },
-  ]
+const chatRequestSchema = z.discriminatedUnion('action', [
+  z.object({ action: z.literal('ask'), message: z.string().trim().min(1).max(500), ...conversationField }),
+  z.object({ action: z.literal('faq'), topic: z.enum(['services', 'hours', 'contact', 'cancellation', 'rules']), ...conversationField }),
+  z.object({ action: z.literal('start_booking'), ...conversationField }),
+  z.object({ action: z.literal('select_service'), ...serviceField, ...conversationField }),
+  z.object({ action: z.literal('select_staff'), ...serviceField, ...staffField, ...conversationField }),
+  z.object({ action: z.literal('select_date'), ...serviceField, ...staffField, date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/), ...conversationField }),
+  z.object({ action: z.literal('select_slot'), ...serviceField, staffId: z.string().uuid(), startsAt: z.string().datetime({ offset: true }), ...conversationField }),
+  z.object({
+    action: z.literal('book'),
+    ...serviceField,
+    staffId: z.string().uuid(),
+    startsAt: z.string().datetime({ offset: true }),
+    customer: z.object({
+      name: z.string().trim().min(2).max(100),
+      phone: z.string().trim().min(6).max(32),
+      email: z.string().trim().email().max(180).optional().or(z.literal('')),
+    }),
+    notes: z.string().trim().max(600).optional().default(''),
+    ...conversationField,
+  }),
+])
+
+const FAQ_LABELS = {
+  services: 'Какви услуги и цени предлагате?',
+  hours: 'Какво е работното ви време?',
+  contact: 'Къде се намирате и как да се свържа с вас?',
+  cancellation: 'Как мога да отменя резервация?',
+  rules: 'Имате ли допълнителни правила?',
 }
 
-function getInstructions(business) {
-  const services = business.services.map((service) => `${service.name} [${service.id}] — ${service.duration_min} мин., ${service.price} ${service.currency}`).join('\n')
-  const staff = business.staff.map((person) => `${person.name} [${person.id}]`).join('\n')
-  const today = DateTime.now().setZone(business.timezone).toFormat('yyyy-MM-dd, cccc')
+function validationError(message) {
+  const error = new Error(message)
+  error.code = 'VALIDATION_ERROR'
+  return error
+}
 
-  return `Ти си внимателният AI рецепционист на ${business.name}. Отговаряй на български, кратко, топло и конкретно.
-Днешна дата в часовата зона ${business.timezone}: ${today}.
+function findService(business, serviceId) {
+  const service = business.services.find((item) => item.id === serviceId)
+  if (!service) throw validationError('Тази услуга вече не е налична. Избери друга.')
+  return service
+}
 
-УСЛУГИ:
-${services || 'Няма активни услуги.'}
-
-ЕКИП:
-${staff || 'Няма активни служители.'}
-
-АДРЕС: ${business.address || 'Не е посочен'}
-ТЕЛЕФОН: ${business.phone || 'Не е посочен'}
-ДОПЪЛНИТЕЛНИ ИНСТРУКЦИИ: ${business.bot_instructions || 'Няма.'}
-
-Правила:
-- Никога не измисляй свободни часове. Използвай get_available_slots.
-- Преди create_booking събери име и телефон и повтори услугата, служителя и точния час за потвърждение.
-- Не създавай резервация без ясно „да“ или равностойно потвърждение.
-- При неясен избор за служител предложи най-ранния свободен час.
-- Не показвай вътрешни UUID идентификатори на клиента.
-- Ако клиентът не иска чат, насочи го към формата за резервация на същата страница.`
+function findStaff(business, serviceId, staffId) {
+  if (!staffId) return null
+  const person = getEligibleStaff(business, serviceId).find((item) => item.id === staffId)
+  if (!person) throw validationError('Този специалист не предлага избраната услуга. Избери друг.')
+  return person
 }
 
 async function ensureConversation(businessId, conversationId) {
   const supabase = getSupabaseAdmin()
 
   if (conversationId) {
-    const { data, error } = await supabase.from('conversations').select('id,customer_id').eq('id', conversationId).eq('business_id', businessId).maybeSingle()
+    const { data, error } = await supabase
+      .from('conversations')
+      .select('id,customer_id,status')
+      .eq('id', conversationId)
+      .eq('business_id', businessId)
+      .maybeSingle()
     if (error) throw error
     if (data) return data
   }
@@ -97,149 +83,181 @@ async function ensureConversation(businessId, conversationId) {
 
   const { data: conversation, error: conversationError } = await supabase
     .from('conversations')
-    .insert({ business_id: businessId, customer_id: customer.id, channel: 'web' })
-    .select('id,customer_id')
+    .insert({ business_id: businessId, customer_id: customer.id, channel: 'guided-web' })
+    .select('id,customer_id,status')
     .single()
   if (conversationError) throw conversationError
   return conversation
 }
 
-async function runTool({ call, business, conversation }) {
-  const args = JSON.parse(call.arguments)
+async function appendExchange({ businessId, conversation, userText, reply, action }) {
+  const supabase = getSupabaseAdmin()
+  const rows = [
+    { business_id: businessId, customer_id: conversation.customer_id, conversation_id: conversation.id, role: 'customer', content: userText, metadata: { action } },
+    { business_id: businessId, customer_id: conversation.customer_id, conversation_id: conversation.id, role: 'bot', content: reply, metadata: { action } },
+  ]
+  const { error: messageError } = await supabase.from('messages').insert(rows)
+  if (messageError) throw messageError
 
-  if (call.name === 'get_available_slots') {
-    const slots = await getAvailableSlots({
-      business,
-      serviceId: args.service_id,
-      staffId: args.staff_id || undefined,
-      date: args.date,
-    })
-    return { slots: slots.slice(0, 16), timezone: business.timezone }
-  }
+  const { error: conversationError } = await supabase
+    .from('conversations')
+    .update({ updated_at: new Date().toISOString() })
+    .eq('id', conversation.id)
+    .eq('business_id', businessId)
+  if (conversationError) throw conversationError
+}
 
-  if (call.name === 'create_booking') {
-    const result = await createPublicBooking({
-      business,
-      input: {
-        serviceId: args.service_id,
-        staffId: args.staff_id,
-        startsAt: args.starts_at,
-        customer: {
-          name: args.customer_name,
-          phone: args.customer_phone,
-          email: args.customer_email || '',
-        },
-        notes: args.notes || '',
-        source: 'bot',
-      },
-    })
+function compactSlots(slots, hasPreferredStaff) {
+  if (hasPreferredStaff) return slots.slice(0, 24)
 
-    const supabase = getSupabaseAdmin()
-    const { error: conversationError } = await supabase
-      .from('conversations')
-      .update({ customer_id: result.customer.id, updated_at: new Date().toISOString() })
-      .eq('id', conversation.id)
-    if (conversationError) throw conversationError
-    conversation.customer_id = result.customer.id
-
-    return {
-      success: true,
-      appointment_id: result.appointment.id,
-      service: result.service.name,
-      staff: result.staff.name,
-      starts_at: result.appointment.starts_at,
-      timezone: business.timezone,
-    }
-  }
-
-  return { error: 'Unknown tool.' }
+  const seen = new Set()
+  return slots.filter((slot) => {
+    if (seen.has(slot.startsAt)) return false
+    seen.add(slot.startsAt)
+    return true
+  }).slice(0, 24)
 }
 
 export async function POST(request, context) {
   try {
     const { slug } = await context.params
-    if (!await consumeRateLimit(request, { scope: `chat:${slug}`, limit: 30, windowSeconds: 600 })) {
-      return apiError('Твърде много съобщения. Опитай отново след няколко минути.', 429, 'RATE_LIMITED')
+    if (!await consumeRateLimit(request, { scope: `guided-chat:${slug}`, limit: 40, windowSeconds: 600 })) {
+      return apiError('Твърде много действия. Опитай отново след няколко минути.', 429, 'RATE_LIMITED')
     }
+
     const business = await getPublicBusiness(slug)
     if (!business) return apiError('Този бизнес не е открит.', 404, 'NOT_FOUND')
 
     const input = chatRequestSchema.parse(await request.json())
     const conversation = await ensureConversation(business.id, input.conversationId)
     const supabase = getSupabaseAdmin()
-
-    const { count, error: countError } = await supabase.from('messages').select('*', { count: 'exact', head: true }).eq('conversation_id', conversation.id)
-    if (countError) throw countError
-    if ((count || 0) >= 40) return apiError('Този разговор достигна лимита си. Започни нов разговор.', 429, 'CHAT_LIMIT')
-
-    const { error: userMessageError } = await supabase.from('messages').insert({
-      business_id: business.id,
-      customer_id: conversation.customer_id,
-      conversation_id: conversation.id,
-      role: 'customer',
-      content: input.message,
-    })
-    if (userMessageError) throw userMessageError
-
-    if (!process.env.OPENAI_API_KEY) {
-      const reply = 'AI асистентът се конфигурира в момента. Можеш да използваш формата „Резервирай час“ на тази страница.'
-      const { error: fallbackMessageError } = await supabase.from('messages').insert({ business_id: business.id, customer_id: conversation.customer_id, conversation_id: conversation.id, role: 'bot', content: reply })
-      if (fallbackMessageError) throw fallbackMessageError
-      return Response.json({ conversationId: conversation.id, message: reply, configured: false })
-    }
-
-    const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
-    const tools = getTools()
-    const { data: storedMessages, error: historyError } = await supabase
+    const { count, error: countError } = await supabase
       .from('messages')
-      .select('role,content,created_at')
+      .select('*', { count: 'exact', head: true })
       .eq('conversation_id', conversation.id)
-      .order('created_at', { ascending: false })
-      .limit(12)
-    if (historyError) throw historyError
-    const messages = storedMessages.reverse().map((message) => ({
-      role: message.role === 'bot' ? 'assistant' : 'user',
-      content: message.content,
-    }))
-    let response = await openai.responses.create({
-      model: process.env.OPENAI_MODEL || 'gpt-6-luna',
-      instructions: getInstructions(business),
-      input: messages,
-      tools,
-      max_output_tokens: 500,
-    })
+    if (countError) throw countError
+    if ((count || 0) >= 60) return apiError('Този разговор достигна лимита си. Започни нов разговор.', 429, 'CHAT_LIMIT')
 
-    for (let iteration = 0; iteration < 4; iteration += 1) {
-      const calls = response.output.filter((item) => item.type === 'function_call')
-      if (!calls.length) break
+    let userText = ''
+    let reply = ''
+    let responseData = {}
+    let bookingSucceeded = false
 
-      const toolOutputs = []
-      for (const call of calls) {
-        try {
-          const result = await runTool({ call, business, conversation })
-          toolOutputs.push({ type: 'function_call_output', call_id: call.call_id, output: JSON.stringify(result) })
-        } catch (toolError) {
-          toolOutputs.push({ type: 'function_call_output', call_id: call.call_id, output: JSON.stringify({ error: toolError.message }) })
-        }
-      }
-
-      response = await openai.responses.create({
-        model: process.env.OPENAI_MODEL || 'gpt-6-luna',
-        instructions: getInstructions(business),
-        previous_response_id: response.id,
-        input: toolOutputs,
-        tools,
-        max_output_tokens: 500,
-      })
+    if (input.action === 'ask') {
+      const topic = detectGuidedTopic(input.message)
+      userText = input.message
+      reply = buildGuidedReply(business, topic)
+      responseData = { topic }
     }
 
-    const reply = response.output_text?.trim() || 'Не успях да подготвя отговор. Опитай отново.'
-    const { error: botMessageError } = await supabase.from('messages').insert({ business_id: business.id, customer_id: conversation.customer_id, conversation_id: conversation.id, role: 'bot', content: reply })
-    if (botMessageError) throw botMessageError
-    const { error: updatedConversationError } = await supabase.from('conversations').update({ updated_at: new Date().toISOString() }).eq('id', conversation.id)
-    if (updatedConversationError) throw updatedConversationError
+    if (input.action === 'faq') {
+      userText = FAQ_LABELS[input.topic]
+      reply = buildGuidedReply(business, input.topic)
+    }
 
-    return Response.json({ conversationId: conversation.id, message: reply, configured: true })
+    if (input.action === 'start_booking') {
+      userText = 'Искам да резервирам час.'
+      reply = buildGuidedReply(business, 'booking')
+    }
+
+    if (input.action === 'select_service') {
+      const service = findService(business, input.serviceId)
+      userText = `Избирам „${service.name}“.`
+      reply = `Чудесен избор. ${service.name} е с продължителност ${service.duration_min} минути. При кого предпочиташ да бъде часът?`
+    }
+
+    if (input.action === 'select_staff') {
+      const service = findService(business, input.serviceId)
+      const person = findStaff(business, service.id, input.staffId)
+      userText = person ? `Предпочитам ${person.name}.` : 'Нямам предпочитание за специалист.'
+      reply = 'Добре. Избери удобна дата и ще проверя реално свободните часове.'
+    }
+
+    if (input.action === 'select_date') {
+      const service = findService(business, input.serviceId)
+      findStaff(business, service.id, input.staffId)
+      const slots = compactSlots(await getAvailableSlots({
+        business,
+        serviceId: service.id,
+        staffId: input.staffId || undefined,
+        date: input.date,
+      }), Boolean(input.staffId))
+      const readableDate = describeDate(input.date, business.timezone)
+      userText = `Проверка за ${readableDate}.`
+      reply = slots.length
+        ? `Имаме ${slots.length} подходящи часа за ${readableDate}. Избери най-удобния.`
+        : `За ${readableDate} няма свободни часове. Избери друга дата.`
+      responseData = { slots }
+    }
+
+    if (input.action === 'select_slot') {
+      const service = findService(business, input.serviceId)
+      const person = findStaff(business, service.id, input.staffId)
+      const localStart = DateTime.fromISO(input.startsAt).setZone(business.timezone)
+      const slots = await getAvailableSlots({
+        business,
+        serviceId: service.id,
+        staffId: person.id,
+        date: localStart.toISODate(),
+      })
+      const slot = slots.find((item) => item.staffId === person.id && item.startsAt === localStart.toUTC().toISO())
+      if (!slot) {
+        const error = new Error('Този час вече не е свободен. Избери друг час.')
+        error.code = 'SLOT_UNAVAILABLE'
+        throw error
+      }
+      userText = `Избирам ${slot.localTime} при ${person.name}.`
+      reply = 'Остава само да въведеш име и телефон за потвърждение на резервацията.'
+      responseData = { slot }
+    }
+
+    if (input.action === 'book') {
+      if (!await consumeRateLimit(request, { scope: `guided-booking:${slug}`, limit: 10, windowSeconds: 600 })) {
+        return apiError('Твърде много опити за резервация. Изчакай няколко минути.', 429, 'RATE_LIMITED')
+      }
+      const result = await createPublicBooking({
+        business,
+        existingCustomerId: conversation.customer_id,
+        input: {
+          serviceId: input.serviceId,
+          staffId: input.staffId,
+          startsAt: input.startsAt,
+          customer: input.customer,
+          notes: input.notes,
+          source: 'bot',
+        },
+      })
+      const localStart = DateTime.fromISO(result.appointment.starts_at).setZone(business.timezone).setLocale('bg')
+      userText = 'Потвърждавам резервацията.'
+      reply = `Готово! Запазих ${result.service.name} за ${localStart.toFormat('cccc, d LLLL')} в ${localStart.toFormat('HH:mm')} при ${result.staff.name}.`
+      responseData = {
+        booking: {
+          appointment: result.appointment,
+          service: result.service,
+          staff: result.staff,
+          localTime: localStart.toFormat('HH:mm'),
+          localDate: localStart.toISODate(),
+        },
+      }
+      bookingSucceeded = true
+      const { error: conversationError } = await supabase
+        .from('conversations')
+        .update({ customer_id: result.customer.id, status: 'resolved', updated_at: new Date().toISOString() })
+        .eq('id', conversation.id)
+        .eq('business_id', business.id)
+      if (conversationError) console.error('Неуспешно обновяване на разговора след създадена резервация.', conversationError)
+      conversation.customer_id = result.customer.id
+    }
+
+    try {
+      await appendExchange({ businessId: business.id, conversation, userText, reply, action: input.action })
+    } catch (messageError) {
+      // След успешно записан час не връщаме подвеждаща грешка, която може да
+      // накара клиента да повтори заявката и да създаде дублиращ опит.
+      if (!bookingSucceeded) throw messageError
+      console.error('Неуспешно записване на съобщенията след създадена резервация.', messageError)
+    }
+    return Response.json({ conversationId: conversation.id, message: reply, mode: 'guided', ...responseData })
   } catch (error) {
     const safe = getSafeError(error)
     return apiError(safe.message, safe.status, safe.code)

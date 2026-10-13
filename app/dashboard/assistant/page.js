@@ -40,7 +40,7 @@ function AssistantContent({ business }) {
 
   return (
     <main className="dashboard-content admin-page assistant-admin-page">
-      <div className="admin-page-head"><div><p className="auth-kicker">Разговори</p><h2>AI асистент</h2><p>Виж как асистентът помага на клиентите ти.</p></div><span className="status-chip"><span className="online-dot" /> Активен</span></div>
+      <div className="admin-page-head"><div><p className="auth-kicker">Разговори</p><h2>Онлайн асистент</h2><p>Виж как асистентът води клиентите през резервацията.</p></div><span className="status-chip"><span className="online-dot" /> Активен</span></div>
       {error && <p className="form-message" role="alert">{error}</p>}
       {loading && <div className="admin-loading"><span className="button-spinner" /> Зареждаме разговорите...</div>}
       {!loading && conversations.length === 0 && <div className="empty-state"><h3>Все още няма разговори</h3><p>Разговорите от публичната страница ще се появят тук.</p></div>}
@@ -56,5 +56,5 @@ function AssistantContent({ business }) {
 }
 
 export default function AssistantPage() {
-  return <OwnerPage title="AI асистент">{(props) => <AssistantContent {...props} />}</OwnerPage>
+  return <OwnerPage title="Онлайн асистент">{(props) => <AssistantContent {...props} />}</OwnerPage>
 }

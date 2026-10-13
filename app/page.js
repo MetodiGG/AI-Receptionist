@@ -112,9 +112,9 @@ export default function Home() {
           </div>
         </div>
         <div className="conversation-preview" aria-hidden="true">
-          <div className="conversation-head"><span className="online-dot" /> AI асистентът е онлайн</div>
-          <div className="message-bubble">Имате ли свободен час утре следобед?</div>
-          <div className="message-bubble bot">Да — имаме свободен час в 15:30. Да го запазя ли за вас?</div>
+          <div className="conversation-head"><span className="online-dot" /> Онлайн асистентът е активен</div>
+          <div className="message-bubble">Искам да резервирам час.</div>
+          <div className="message-bubble bot">Разбира се. Първо избери услуга, за да ти покажа реалните свободни часове.</div>
         </div>
         <div className="brand-foot">Създадено за модерния малък бизнес.</div>
       </section>

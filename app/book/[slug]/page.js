@@ -1,9 +1,10 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { DateTime } from 'luxon'
 import { useParams } from 'next/navigation'
+import { GuidedBookingChat } from '../../../components/guided-booking-chat'
 
 function formatMoney(value, currency = 'EUR') {
   return new Intl.NumberFormat('bg-BG', { style: 'currency', currency }).format(Number(value || 0))
@@ -24,68 +25,6 @@ function SparkLogo({ businessName }) {
 
 function LoadingPage() {
   return <main className="booking-state-page"><span className="button-spinner" /><p>Подготвяме свободните часове...</p></main>
-}
-
-function ChatPanel({ business, onShowBooking }) {
-  const [messages, setMessages] = useState([
-    { role: 'assistant', content: business.welcome_message || `Здравей! Аз съм AI асистентът на ${business.name}. Как мога да помогна?` },
-  ])
-  const [value, setValue] = useState('')
-  const [conversationId, setConversationId] = useState(null)
-  const [sending, setSending] = useState(false)
-  const [error, setError] = useState('')
-  const endRef = useRef(null)
-
-  useEffect(() => { endRef.current?.scrollIntoView({ behavior: 'smooth' }) }, [messages, sending])
-
-  async function send(event) {
-    event.preventDefault()
-    const content = value.trim()
-    if (!content || sending) return
-
-    const nextMessages = [...messages, { role: 'user', content }]
-    setMessages(nextMessages)
-    setValue('')
-    setError('')
-    setSending(true)
-
-    try {
-      const response = await fetch(`/api/public/${business.slug}/chat`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ conversationId, message: content }),
-      })
-      const result = await response.json()
-      if (!response.ok) throw new Error(result.error?.message || 'Не успяхме да изпратим съобщението.')
-      setConversationId(result.conversationId)
-      setMessages((current) => [...current, { role: 'assistant', content: result.message }])
-    } catch (requestError) {
-      setError(requestError.message)
-    } finally {
-      setSending(false)
-    }
-  }
-
-  return (
-    <section className="booking-card chat-card" aria-label="AI асистент">
-      <div className="chat-head">
-        <div><span className="booking-online-dot" /><strong>AI асистент</strong><small>Отговаря веднага</small></div>
-        <button type="button" className="booking-text-button" onClick={onShowBooking}>Резервирай с форма</button>
-      </div>
-      <div className="chat-messages" aria-live="polite">
-        {messages.map((message, index) => <div className={`chat-message ${message.role}`} key={`${message.role}-${index}`}>{message.content}</div>)}
-        {sending && <div className="chat-message assistant typing"><i /><i /><i /></div>}
-        <div ref={endRef} />
-      </div>
-      {error && <p className="booking-inline-error" role="alert">{error}</p>}
-      <form className="chat-composer" onSubmit={send}>
-        <label className="sr-only" htmlFor="chat-message">Съобщение</label>
-        <input id="chat-message" value={value} onChange={(event) => setValue(event.target.value)} placeholder="Напр. Имате ли час утре следобед?" maxLength={1200} disabled={sending} />
-        <button type="submit" disabled={sending || !value.trim()} aria-label="Изпрати">→</button>
-      </form>
-      <p className="chat-note">AI може да допусне грешка. Провери детайлите преди потвърждение.</p>
-    </section>
-  )
 }
 
 function BookingPanel({ business }) {
@@ -268,13 +207,13 @@ export default function PublicBookingPage() {
         <div className="booking-contact">{business.phone && <a href={`tel:${business.phone}`}>{business.phone}</a>}<span className="booking-live"><i /> Онлайн</span></div>
       </header>
       <section className="booking-hero">
-        <div><p className="booking-eyebrow">Онлайн записване · 24/7</p><h1>Твоят час,<br /><em>без чакане.</em></h1><p>Избери удобен час или попитай AI асистента. Потвърждението е мигновено.</p>{business.address && <span className="booking-address">⌖ {business.address}</span>}</div>
+        <div><p className="booking-eyebrow">Онлайн записване · 24/7</p><h1>Твоят час,<br /><em>без чакане.</em></h1><p>Избери удобен час или използвай онлайн асистента. Потвърждението е мигновено.</p>{business.address && <span className="booking-address">⌖ {business.address}</span>}</div>
         <div className="booking-mode-switch" role="tablist" aria-label="Начин за записване">
           <button role="tab" aria-selected={mode === 'booking'} className={mode === 'booking' ? 'active' : ''} onClick={() => setMode('booking')}>Резервирай час</button>
-          <button role="tab" aria-selected={mode === 'chat'} className={mode === 'chat' ? 'active' : ''} onClick={() => setMode('chat')}><span className="booking-online-dot" /> Попитай AI</button>
+          <button role="tab" aria-selected={mode === 'chat'} className={mode === 'chat' ? 'active' : ''} onClick={() => setMode('chat')}><span className="booking-online-dot" /> Онлайн асистент</button>
         </div>
       </section>
-      <div className="booking-content">{mode === 'booking' ? <BookingPanel business={business} /> : <ChatPanel business={business} onShowBooking={() => setMode('booking')} />}</div>
+      <div className="booking-content">{mode === 'booking' ? <BookingPanel business={business} /> : <GuidedBookingChat business={business} onShowBooking={() => setMode('booking')} />}</div>
       <footer className="booking-footer"><span>Защитена резервация</span><span>Задвижвано от AI Рецепционист</span></footer>
     </main>
   )

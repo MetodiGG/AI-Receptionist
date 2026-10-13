@@ -5,7 +5,6 @@ import { buildGuidedReply, describeDate, detectGuidedTopic, getEligibleStaff } f
 import { createPublicBooking, getAvailableSlots, getPublicBusiness } from '../../../../../lib/public-booking'
 import { consumeRateLimit } from '../../../../../lib/rate-limit'
 import { getSupabaseAdmin } from '../../../../../lib/supabase-admin'
-import { createGroundedAnswer } from '../../../../../lib/openai-assistant'
 import { trackEvent } from '../../../../../lib/analytics'
 
 const conversationField = { conversationId: z.string().uuid().optional() }
@@ -145,20 +144,11 @@ export async function POST(request, context) {
     let reply = ''
     let responseData = {}
     let bookingSucceeded = false
-    let responseMode = 'guided'
 
     if (input.action === 'ask') {
       const topic = detectGuidedTopic(input.message)
       userText = input.message
-      if (topic === 'help') {
-        try {
-          const aiReply = await createGroundedAnswer({ business, conversationId: conversation.id, message: input.message })
-          if (aiReply) { reply = aiReply; responseMode = 'ai' }
-        } catch (aiError) {
-          console.error('AI answer failed; guided fallback used.', aiError)
-        }
-      }
-      if (!reply) reply = buildGuidedReply(business, topic)
+      reply = buildGuidedReply(business, topic)
       responseData = { topic }
     }
 
@@ -273,11 +263,11 @@ export async function POST(request, context) {
     await trackEvent({
       businessId: business.id,
       eventType: input.action === 'start_booking' ? 'chat_started' : 'chat_message',
-      source: responseMode,
+      source: 'guided',
       sessionKey: conversation.id,
       metadata: { action: input.action },
     })
-    return Response.json({ conversationId: conversation.id, message: reply, mode: responseMode, ...responseData })
+    return Response.json({ conversationId: conversation.id, message: reply, mode: 'guided', ...responseData })
   } catch (error) {
     const safe = getSafeError(error)
     return apiError(safe.message, safe.status, safe.code)

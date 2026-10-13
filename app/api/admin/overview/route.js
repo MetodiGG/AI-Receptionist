@@ -9,7 +9,7 @@ export async function GET(request) {
     const supabase = getSupabaseAdmin()
     const since = new Date(Date.now() - 30 * 86400000).toISOString()
     const [businessesResult, appointmentsResult, notificationsResult] = await Promise.all([
-      supabase.from('businesses').select('id,name,slug,industry,active,created_at,ai_enabled,contact_email').order('created_at', { ascending: false }),
+      supabase.from('businesses').select('id,name,slug,industry,active,created_at,contact_email').order('created_at', { ascending: false }),
       supabase.from('appointments').select('id,business_id,status,source,created_at').gte('created_at', since),
       supabase.from('notification_outbox').select('id,business_id,status,kind,created_at').gte('created_at', since),
     ])

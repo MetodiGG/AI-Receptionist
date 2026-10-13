@@ -21,8 +21,7 @@ function SettingsContent({ business, refreshBusiness }) {
     minimum_notice_minutes: business.minimum_notice_minutes || 60, cancellation_notice_hours: business.cancellation_notice_hours || 12,
     industry: business.industry || 'other', contact_email: business.contact_email || '', website_url: business.website_url || '',
     privacy_contact_email: business.privacy_contact_email || '', booking_terms: business.booking_terms || '',
-    email_notifications_enabled: business.email_notifications_enabled ?? true, ai_enabled: business.ai_enabled || false,
-    ai_monthly_budget_cents: business.ai_monthly_budget_cents ?? 100,
+    email_notifications_enabled: business.email_notifications_enabled ?? true,
   })
   const [services, setServices] = useState([])
   const [staff, setStaff] = useState([])
@@ -74,7 +73,6 @@ function SettingsContent({ business, refreshBusiness }) {
       booking_window_days: Number(profile.booking_window_days),
       minimum_notice_minutes: Number(profile.minimum_notice_minutes),
       cancellation_notice_hours: Number(profile.cancellation_notice_hours),
-      ai_monthly_budget_cents: Number(profile.ai_monthly_budget_cents),
       contact_email: profile.contact_email.trim() || null,
       website_url: profile.website_url.trim() || null,
       privacy_contact_email: profile.privacy_contact_email.trim() || null,
@@ -159,7 +157,7 @@ function SettingsContent({ business, refreshBusiness }) {
 
   async function exportBusinessData() {
     setSaving(true); setMessage(null)
-    const tables = ['services', 'staff', 'staff_services', 'working_hours', 'time_off', 'customers', 'appointments', 'conversations', 'messages', 'analytics_events', 'ai_usage_events', 'notification_outbox']
+    const tables = ['services', 'staff', 'staff_services', 'working_hours', 'time_off', 'customers', 'appointments', 'conversations', 'messages', 'analytics_events', 'notification_outbox']
     const results = await Promise.all(tables.map(async (table) => {
       const { data, error } = await supabase.from(table).select('*').eq('business_id', business.id)
       if (error) throw error
@@ -203,7 +201,7 @@ function SettingsContent({ business, refreshBusiness }) {
           <div className="settings-panel-head"><h3>Онлайн асистент</h3><p>Настрой приветствието и правилата, които клиентите могат да отварят в разговора.</p></div>
           <label className="settings-field"><span>Приветствие</span><textarea value={profile.welcome_message} onChange={(event) => setProfile({ ...profile, welcome_message: event.target.value })} placeholder={`Здравей! Аз съм онлайн асистентът на ${business.name}.`} maxLength={500} /></label>
           <label className="settings-field"><span>Допълнителни правила</span><textarea value={profile.bot_instructions} onChange={(event) => setProfile({ ...profile, bot_instructions: event.target.value })} placeholder="Напр. При закъснение над 15 минути се обади предварително..." maxLength={3000} /></label>
-          <div className="assistant-mode-card"><label className="settings-toggle"><input type="checkbox" checked={profile.ai_enabled} onChange={(event) => setProfile({ ...profile, ai_enabled: event.target.checked })} /><span><strong>AI отговори за свободни въпроси</strong><small>Резервациите винаги минават през проверимия процес. При липса на ключ, проблем или достигнат бюджет се използва безплатният guided fallback.</small></span></label><label><span>Месечен лимит за AI (€)</span><input type="number" min="0" max="1000" step="0.50" value={(Number(profile.ai_monthly_budget_cents || 0) / 100)} onChange={(event) => setProfile({ ...profile, ai_monthly_budget_cents: Math.round(Number(event.target.value || 0) * 100) })} /></label></div>
+          <div className="guided-assistant-note"><strong>Безплатен guided асистент</strong><p>Отговорите се създават само от публикуваните услуги, цени, графици и правила. Не се използва платен AI API и няма цена на съобщение.</p></div>
         </>}
         <div className="settings-actions"><button className="primary-button" type="submit" disabled={saving}>{saving ? 'Запазване...' : 'Запази промените'}</button></div>
       </form>}

@@ -1,5 +1,5 @@
 -- Pre-pilot product layer: industry templates, consent, notifications,
--- analytics, bounded AI usage and private calendar feeds.
+-- analytics and private calendar feeds.
 begin;
 
 alter table public.businesses
@@ -9,9 +9,6 @@ alter table public.businesses
   add column if not exists privacy_contact_email text,
   add column if not exists booking_terms text,
   add column if not exists email_notifications_enabled boolean not null default true,
-  add column if not exists ai_enabled boolean not null default false,
-  add column if not exists ai_model text not null default 'gpt-6-luna',
-  add column if not exists ai_monthly_budget_cents int not null default 100,
   add column if not exists calendar_feed_token uuid not null default gen_random_uuid(),
   add column if not exists embed_enabled boolean not null default true;
 
@@ -23,10 +20,6 @@ begin
   if not exists (select 1 from pg_constraint where conname = 'businesses_industry_check') then
     alter table public.businesses add constraint businesses_industry_check
       check (industry in ('beauty', 'auto', 'health', 'fitness', 'education', 'consulting', 'home_services', 'pets', 'other'));
-  end if;
-  if not exists (select 1 from pg_constraint where conname = 'businesses_ai_monthly_budget_check') then
-    alter table public.businesses add constraint businesses_ai_monthly_budget_check
-      check (ai_monthly_budget_cents between 0 and 100000);
   end if;
 end $$;
 
@@ -69,29 +62,14 @@ create table if not exists public.analytics_events (
 create index if not exists analytics_events_business_created_idx
   on public.analytics_events (business_id, created_at desc);
 
-create table if not exists public.ai_usage_events (
-  id bigint generated always as identity primary key,
-  business_id uuid not null references public.businesses(id) on delete cascade,
-  conversation_id uuid references public.conversations(id) on delete set null,
-  model text not null,
-  input_tokens int not null default 0,
-  output_tokens int not null default 0,
-  estimated_cost_microusd bigint not null default 0,
-  created_at timestamptz not null default now()
-);
-
-create index if not exists ai_usage_events_business_created_idx
-  on public.ai_usage_events (business_id, created_at desc);
-
 alter table public.notification_outbox enable row level security;
 alter table public.analytics_events enable row level security;
-alter table public.ai_usage_events enable row level security;
 
 do $$
 declare
   target_table text;
 begin
-  foreach target_table in array array['notification_outbox', 'analytics_events', 'ai_usage_events'] loop
+  foreach target_table in array array['notification_outbox', 'analytics_events'] loop
     if not exists (
       select 1 from pg_policies
       where schemaname = 'public' and tablename = target_table and policyname = 'owner reads own rows'
@@ -106,20 +84,17 @@ end $$;
 
 revoke all privileges on table
   public.notification_outbox,
-  public.analytics_events,
-  public.ai_usage_events
+  public.analytics_events
 from public, anon;
 
 grant select on table
   public.notification_outbox,
-  public.analytics_events,
-  public.ai_usage_events
+  public.analytics_events
 to authenticated;
 
 grant select, insert, update, delete on table
   public.notification_outbox,
-  public.analytics_events,
-  public.ai_usage_events
+  public.analytics_events
 to service_role;
 
 grant usage, select on all sequences in schema public to service_role;

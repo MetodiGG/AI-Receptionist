@@ -138,7 +138,12 @@ async function runTool({ call, business, conversation }) {
     })
 
     const supabase = getSupabaseAdmin()
-    await supabase.from('conversations').update({ customer_id: result.customer.id, updated_at: new Date().toISOString() }).eq('id', conversation.id)
+    const { error: conversationError } = await supabase
+      .from('conversations')
+      .update({ customer_id: result.customer.id, updated_at: new Date().toISOString() })
+      .eq('id', conversation.id)
+    if (conversationError) throw conversationError
+    conversation.customer_id = result.customer.id
 
     return {
       success: true,
@@ -171,17 +176,19 @@ export async function POST(request, context) {
     if (countError) throw countError
     if ((count || 0) >= 40) return apiError('Този разговор достигна лимита си. Започни нов разговор.', 429, 'CHAT_LIMIT')
 
-    await supabase.from('messages').insert({
+    const { error: userMessageError } = await supabase.from('messages').insert({
       business_id: business.id,
       customer_id: conversation.customer_id,
       conversation_id: conversation.id,
       role: 'customer',
       content: lastUserMessage.content,
     })
+    if (userMessageError) throw userMessageError
 
     if (!process.env.OPENAI_API_KEY) {
       const reply = 'AI асистентът се конфигурира в момента. Можеш да използваш формата „Резервирай час“ на тази страница.'
-      await supabase.from('messages').insert({ business_id: business.id, customer_id: conversation.customer_id, conversation_id: conversation.id, role: 'bot', content: reply })
+      const { error: fallbackMessageError } = await supabase.from('messages').insert({ business_id: business.id, customer_id: conversation.customer_id, conversation_id: conversation.id, role: 'bot', content: reply })
+      if (fallbackMessageError) throw fallbackMessageError
       return Response.json({ conversationId: conversation.id, message: reply, configured: false })
     }
 
@@ -221,8 +228,10 @@ export async function POST(request, context) {
     }
 
     const reply = response.output_text?.trim() || 'Не успях да подготвя отговор. Опитай отново.'
-    await supabase.from('messages').insert({ business_id: business.id, customer_id: conversation.customer_id, conversation_id: conversation.id, role: 'bot', content: reply })
-    await supabase.from('conversations').update({ updated_at: new Date().toISOString() }).eq('id', conversation.id)
+    const { error: botMessageError } = await supabase.from('messages').insert({ business_id: business.id, customer_id: conversation.customer_id, conversation_id: conversation.id, role: 'bot', content: reply })
+    if (botMessageError) throw botMessageError
+    const { error: updatedConversationError } = await supabase.from('conversations').update({ updated_at: new Date().toISOString() }).eq('id', conversation.id)
+    if (updatedConversationError) throw updatedConversationError
 
     return Response.json({ conversationId: conversation.id, message: reply, configured: true })
   } catch (error) {

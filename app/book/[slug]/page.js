@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { DateTime } from 'luxon'
 import { useParams } from 'next/navigation'
@@ -179,6 +180,7 @@ function BookingPanel({ business }) {
           {business.address && <span>{business.address}</span>}
         </div>
         <p>Запази тези детайли. При нужда се свържи с {business.name}{business.phone ? ` на ${business.phone}` : ''}.</p>
+        <Link className="manage-booking-link" href={`/booking/${confirmation.appointment.cancellation_token}`}>Преглед и управление на резервацията</Link>
         <button className="booking-primary" type="button" onClick={() => { setConfirmation(null); setSlot(null); setDate(''); setDetails({ name: '', phone: '', email: '', notes: '' }) }}>Запази още един час</button>
       </section>
     )

@@ -53,7 +53,7 @@ function ChatPanel({ business, onShowBooking }) {
       const response = await fetch(`/api/public/${business.slug}/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ conversationId, messages: nextMessages }),
+        body: JSON.stringify({ conversationId, message: content }),
       })
       const result = await response.json()
       if (!response.ok) throw new Error(result.error?.message || 'Не успяхме да изпратим съобщението.')
@@ -108,8 +108,9 @@ function BookingPanel({ business }) {
   }, [business, serviceId])
   const dates = useMemo(() => {
     const start = DateTime.now().setZone(business.timezone).startOf('day')
-    return Array.from({ length: 14 }, (_, index) => start.plus({ days: index }).toISODate())
-  }, [business.timezone])
+    const days = Math.min(Math.max(Number(business.booking_window_days) || 14, 1), 365)
+    return Array.from({ length: days + 1 }, (_, index) => start.plus({ days: index }).toISODate())
+  }, [business.booking_window_days, business.timezone])
 
   useEffect(() => {
     if (!serviceId || !date) { setSlots([]); return }

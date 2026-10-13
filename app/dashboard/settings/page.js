@@ -110,11 +110,15 @@ function SettingsContent({ business, refreshBusiness }) {
 
   async function saveSchedule() {
     if (!selectedStaff) return
+    const invalidDay = schedule.find((day) => day.enabled && day.close <= day.open)
+    if (invalidDay) { setMessage({ type: 'error', text: `Крайният час за ${invalidDay.label} трябва да е след началния.` }); return }
     setSaving(true); setMessage(null)
-    const { error: deleteError } = await supabase.from('working_hours').delete().eq('business_id', business.id).eq('staff_id', selectedStaff)
-    if (deleteError) { setSaving(false); setMessage({ type: 'error', text: deleteError.message }); return }
-    const rows = schedule.filter((day) => day.enabled).map((day) => ({ business_id: business.id, staff_id: selectedStaff, weekday: day.weekday, open_time: day.open, close_time: day.close }))
-    const { error: insertError } = rows.length ? await supabase.from('working_hours').insert(rows) : { error: null }
+    const rows = schedule.filter((day) => day.enabled).map((day) => ({ weekday: day.weekday, open_time: day.open, close_time: day.close }))
+    const { error: insertError } = await supabase.rpc('replace_working_hours', {
+      input_business_id: business.id,
+      input_staff_id: selectedStaff,
+      input_hours: rows,
+    })
     setSaving(false)
     if (insertError) { setMessage({ type: 'error', text: insertError.message }); return }
     await loadCollections(); showSuccess('Работното време е запазено.')

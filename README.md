@@ -2,12 +2,16 @@
 
 Модерна SaaS платформа за малки бизнеси, която управлява услуги, екип, работно време и резервации чрез AI асистент.
 
-## Текущ етап
+## Функционалности
 
 - вход и регистрация със Supabase Auth;
-- защитено табло за собственици;
+- защитено multi-tenant табло за собственици;
 - onboarding за бизнес профил, услуги, екип и седмичен график;
-- записване на данните в multi-tenant Supabase схемата;
+- управление на резервации, клиенти, AI разговори и настройки;
+- публична страница `/book/[slug]` с реална наличност и онлайн резервации;
+- страница за сигурен преглед и отказ чрез уникален cancellation token;
+- AI чат през OpenAI Responses API, който проверява наличност и записва часове;
+- server-side rate limiting, RLS, tenant-integrity проверки и защита срещу двойни резервации;
 - responsive интерфейс за desktop и mobile.
 
 ## Локално стартиране
@@ -34,7 +38,12 @@ OPENAI_MODEL=gpt-6-luna
 
 ## Supabase база данни
 
-SQL промените се пазят в `supabase/migrations`. При нов или съществуващ Supabase проект изпълнявай миграциите по ред през **SQL Editor**.
+SQL промените се пазят в `supabase/migrations`. При нов или съществуващ Supabase проект изпълнявай миграциите по ред през **SQL Editor**:
+
+1. `20261013160000_initial_schema.sql`
+2. `20261013164000_grant_data_api_access.sql`
+3. `20261013170000_product_foundation.sql`
+4. `20261013171000_tenant_integrity.sql`
 
 Ако таблото покаже `permission denied for table businesses`, изпълни:
 
@@ -47,6 +56,7 @@ supabase/migrations/20261013164000_grant_data_api_access.sql
 ## Проверка
 
 ```bash
+pnpm test
 pnpm build
 pnpm audit --prod
 ```

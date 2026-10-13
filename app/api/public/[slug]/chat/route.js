@@ -8,10 +8,7 @@ import { consumeRateLimit } from '../../../../../lib/rate-limit'
 
 const chatRequestSchema = z.object({
   conversationId: z.string().uuid().optional(),
-  messages: z.array(z.object({
-    role: z.enum(['user', 'assistant']),
-    content: z.string().trim().min(1).max(1200),
-  })).min(1).max(20),
+  message: z.string().trim().min(1).max(1200),
 })
 
 function getTools() {
@@ -170,7 +167,6 @@ export async function POST(request, context) {
     const input = chatRequestSchema.parse(await request.json())
     const conversation = await ensureConversation(business.id, input.conversationId)
     const supabase = getSupabaseAdmin()
-    const lastUserMessage = [...input.messages].reverse().find((message) => message.role === 'user')
 
     const { count, error: countError } = await supabase.from('messages').select('*', { count: 'exact', head: true }).eq('conversation_id', conversation.id)
     if (countError) throw countError
@@ -181,7 +177,7 @@ export async function POST(request, context) {
       customer_id: conversation.customer_id,
       conversation_id: conversation.id,
       role: 'customer',
-      content: lastUserMessage.content,
+      content: input.message,
     })
     if (userMessageError) throw userMessageError
 
@@ -194,7 +190,17 @@ export async function POST(request, context) {
 
     const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
     const tools = getTools()
-    const messages = input.messages.slice(-12).map((message) => ({ role: message.role, content: message.content }))
+    const { data: storedMessages, error: historyError } = await supabase
+      .from('messages')
+      .select('role,content,created_at')
+      .eq('conversation_id', conversation.id)
+      .order('created_at', { ascending: false })
+      .limit(12)
+    if (historyError) throw historyError
+    const messages = storedMessages.reverse().map((message) => ({
+      role: message.role === 'bot' ? 'assistant' : 'user',
+      content: message.content,
+    }))
     let response = await openai.responses.create({
       model: process.env.OPENAI_MODEL || 'gpt-6-luna',
       instructions: getInstructions(business),

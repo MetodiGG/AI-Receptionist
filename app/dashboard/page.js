@@ -3,6 +3,8 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { hasSupabaseConfig, supabase } from '../../lib/supabase'
+import { DashboardShell } from '../../components/dashboard-shell'
+import { Icon } from '../../components/icon'
 
 const WEEK = [
   { weekday: 1, label: 'Понеделник', short: 'Пон' },
@@ -29,33 +31,6 @@ const STEPS = [
   ['Преглед', 'Потвърждение'],
 ]
 
-function Icon({ name }) {
-  const paths = {
-    spark: <><path d="m12 3-1.4 4.1a5 5 0 0 1-3.1 3.1L3.4 12l4.1 1.4a5 5 0 0 1 3.1 3.1L12 20.6l1.4-4.1a5 5 0 0 1 3.1-3.1l4.1-1.4-4.1-1.8a5 5 0 0 1-3.1-3.1L12 3Z"/></>,
-    grid: <><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></>,
-    calendar: <><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M16 3v4M8 3v4M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></>,
-    users: <><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></>,
-    chat: <><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v8Z"/><path d="M8 9h8M8 13h5"/></>,
-    settings: <><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.83 2.83-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .6 1.7 1.7 0 0 0-.4 1.1V21h-4v-.09A1.7 1.7 0 0 0 8.6 19.4a1.7 1.7 0 0 0-1.88.34l-.06.06-2.83-2.83.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-.6-1 1.7 1.7 0 0 0-1.1-.4H3v-4h.09A1.7 1.7 0 0 0 4.6 8.6a1.7 1.7 0 0 0-.34-1.88l-.06-.06 2.83-2.83.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-.6 1.7 1.7 0 0 0 .4-1.1V3h4v.09A1.7 1.7 0 0 0 15.4 4.6a1.7 1.7 0 0 0 1.88-.34l.06-.06 2.83 2.83-.06.06A1.7 1.7 0 0 0 19.4 9c.2.36.31.76.31 1.17V10h1.2v4h-.09A1.7 1.7 0 0 0 19.4 15Z"/></>,
-    logout: <><path d="M10 17l5-5-5-5M15 12H3"/><path d="M14 3h5a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-5"/></>,
-    check: <path d="m5 12 4 4L19 6"/>,
-    arrow: <><path d="M5 12h14M13 6l6 6-6 6"/></>,
-    back: <><path d="M19 12H5M11 18l-6-6 6-6"/></>,
-    plus: <><path d="M12 5v14M5 12h14"/></>,
-    trash: <><path d="M3 6h18M8 6V4h8v2M19 6l-1 15H6L5 6M10 11v5M14 11v5"/></>,
-    store: <><path d="M3 9l2-6h14l2 6"/><path d="M5 13v8h14v-8M9 21v-6h6v6"/><path d="M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0"/></>,
-    briefcase: <><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18M10 12v2h4v-2"/></>,
-    clock: <><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></>,
-    pin: <><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></>,
-    phone: <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2.1Z"/>,
-  }
-  return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[name]}</svg>
-}
-
-function Logo() {
-  return <div className="app-logo"><span className="logo-mark"><Icon name="spark" /></span><span>AI Рецепционист</span></div>
-}
-
 function slugify(value) {
   const map = { а: 'a', б: 'b', в: 'v', г: 'g', д: 'd', е: 'e', ж: 'zh', з: 'z', и: 'i', й: 'y', к: 'k', л: 'l', м: 'm', н: 'n', о: 'o', п: 'p', р: 'r', с: 's', т: 't', у: 'u', ф: 'f', х: 'h', ц: 'ts', ч: 'ch', ш: 'sh', щ: 'sht', ъ: 'a', ь: '', ю: 'yu', я: 'ya' }
   return value.toLowerCase().split('').map((char) => map[char] ?? char).join('').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 48)
@@ -71,40 +46,6 @@ function getDatabaseErrorMessage(error) {
   }
 
   return error?.message || 'Възникна неочаквана грешка. Опитай отново.'
-}
-
-function AppShell({ email, title, children, onLogout }) {
-  const nav = [
-    ['grid', 'Начало', true],
-    ['calendar', 'Резервации'],
-    ['users', 'Клиенти'],
-    ['chat', 'AI асистент'],
-    ['settings', 'Настройки'],
-  ]
-  return (
-    <div className="app-shell">
-      <aside className="sidebar">
-        <Logo />
-        <nav className="sidebar-nav" aria-label="Основна навигация">
-          {nav.map(([icon, label, active]) => <button className={`nav-item ${active ? 'active' : ''}`} type="button" key={label} aria-current={active ? 'page' : undefined}><Icon name={icon} /><span>{label}</span></button>)}
-        </nav>
-        <div className="sidebar-account">
-          <p className="account-email">{email}</p>
-          <button className="logout-button" type="button" onClick={onLogout}><Icon name="logout" /><span>Изход</span></button>
-        </div>
-      </aside>
-      <div className="main-area">
-        <header className="topbar">
-          <h1>{title}</h1>
-          <div className="topbar-actions">
-            <span className="status-chip"><span className="online-dot" /> Системата е активна</span>
-            <button className="topbar-logout" type="button" onClick={onLogout} aria-label="Изход" title="Изход"><Icon name="logout" /></button>
-          </div>
-        </header>
-        {children}
-      </div>
-    </div>
-  )
 }
 
 function Wizard({ session, onComplete }) {
@@ -397,7 +338,7 @@ export default function Dashboard() {
   if (status === 'loading' || !session) return <div className="loading-screen"><div className="loading-box"><span className="button-spinner" /><span>Подготвяме твоето табло...</span></div></div>
 
   return (
-    <AppShell email={session.user.email} title={data?.business?.name || 'Настройка на бизнеса'} onLogout={logout}>
+    <DashboardShell email={session.user.email} title={data?.business?.name || 'Настройка на бизнеса'} businessSlug={data?.business?.slug} onLogout={logout}>
       <main className="dashboard-content">
         <div className="page-intro">
           <div>
@@ -410,6 +351,6 @@ export default function Dashboard() {
         {status === 'setup' && <Wizard session={session} onComplete={(result) => { setData({ ...result, appointmentsCount: 0 }); setStatus('ready') }} />}
         {status === 'ready' && <ReadyDashboard data={data} />}
       </main>
-    </AppShell>
+    </DashboardShell>
   )
 }

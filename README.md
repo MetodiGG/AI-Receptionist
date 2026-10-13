@@ -25,9 +25,12 @@ pnpm dev
 ```env
 NEXT_PUBLIC_SUPABASE_URL=...
 NEXT_PUBLIC_SUPABASE_ANON_KEY=...
+SUPABASE_SERVICE_ROLE_KEY=...
+OPENAI_API_KEY=...
+OPENAI_MODEL=gpt-6-luna
 ```
 
-Файловете `.env*` с реални стойности са изключени от Git. Никога не добавяй `service_role` ключ в клиентската част на приложението.
+Файловете `.env*` с реални стойности са изключени от Git. `SUPABASE_SERVICE_ROLE_KEY` и `OPENAI_API_KEY` са server-only тайни — никога не ги именувай с `NEXT_PUBLIC_` и не ги използвай в Client Components.
 
 ## Supabase база данни
 

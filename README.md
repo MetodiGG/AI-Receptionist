@@ -29,6 +29,18 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=...
 
 Файловете `.env*` с реални стойности са изключени от Git. Никога не добавяй `service_role` ключ в клиентската част на приложението.
 
+## Supabase база данни
+
+SQL промените се пазят в `supabase/migrations`. При нов или съществуващ Supabase проект изпълнявай миграциите по ред през **SQL Editor**.
+
+Ако таблото покаже `permission denied for table businesses`, изпълни:
+
+```text
+supabase/migrations/20261013164000_grant_data_api_access.sql
+```
+
+Миграцията дава нужните права на вписаните потребители, запазва Row Level Security политиките активни и не позволява директен анонимен достъп до бизнес данните.
+
 ## Проверка
 
 ```bash

@@ -65,6 +65,14 @@ function formatPrice(value) {
   return new Intl.NumberFormat('bg-BG', { style: 'currency', currency: 'EUR' }).format(Number(value || 0))
 }
 
+function getDatabaseErrorMessage(error) {
+  if (error?.code === '42501') {
+    return 'Достъпът до базата данни още не е конфигуриран. Свържи се с поддръжката.'
+  }
+
+  return error?.message || 'Възникна неочаквана грешка. Опитай отново.'
+}
+
 function AppShell({ email, title, children, onLogout }) {
   const nav = [
     ['grid', 'Начало', true],
@@ -338,7 +346,7 @@ export default function Dashboard() {
   const loadBusiness = useCallback(async (activeSession) => {
     setStatus('loading')
     const { data: business, error } = await supabase.from('businesses').select('*').eq('owner_id', activeSession.user.id).order('created_at', { ascending: true }).limit(1).maybeSingle()
-    if (error) { setLoadError(error.message); setStatus('error'); return }
+    if (error) { setLoadError(getDatabaseErrorMessage(error)); setStatus('error'); return }
     if (!business) { setStatus('setup'); return }
 
     const [servicesResult, staffResult, hoursResult, appointmentsResult] = await Promise.all([
@@ -348,7 +356,7 @@ export default function Dashboard() {
       supabase.from('appointments').select('*', { count: 'exact', head: true }).eq('business_id', business.id),
     ])
     const firstError = [servicesResult, staffResult, hoursResult, appointmentsResult].find((result) => result.error)?.error
-    if (firstError) { setLoadError(firstError.message); setStatus('error'); return }
+    if (firstError) { setLoadError(getDatabaseErrorMessage(firstError)); setStatus('error'); return }
 
     const schedule = WEEK.map((day) => {
       const hours = hoursResult.data.find((row) => row.weekday === day.weekday)

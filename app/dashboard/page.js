@@ -50,7 +50,7 @@ function getDatabaseErrorMessage(error) {
 
 function Wizard({ session, onComplete }) {
   const [step, setStep] = useState(0)
-  const [business, setBusiness] = useState({ name: '', slug: '', phone: '', address: '', timezone: 'Europe/Sofia' })
+  const [business, setBusiness] = useState({ name: '', slug: '', phone: '', contact_email: session.user.email || '', address: '', timezone: 'Europe/Sofia', industry: 'other' })
   const [services, setServices] = useState([{ name: '', price: '25', duration_min: '30' }])
   const [staff, setStaff] = useState([{ name: '' }])
   const [schedule, setSchedule] = useState(INITIAL_SCHEDULE)
@@ -111,8 +111,10 @@ function Wizard({ session, onComplete }) {
         name: business.name.trim(),
         slug: business.slug.trim(),
         phone: business.phone.trim() || null,
+        contact_email: business.contact_email.trim() || null,
         address: business.address.trim() || null,
         timezone: business.timezone,
+        industry: business.industry,
         languages: ['bg'],
       }).select().single()
       if (businessError) throw businessError
@@ -172,6 +174,8 @@ function Wizard({ session, onComplete }) {
             <div className="form-grid">
               <div className="field full"><label htmlFor="business-name">Име на бизнеса *</label><input id="business-name" className="text-input" value={business.name} onChange={(event) => updateBusiness('name', event.target.value)} placeholder="Напр. Studio Forma" autoFocus /></div>
               <div className="field"><label htmlFor="business-phone">Телефон</label><input id="business-phone" className="text-input" value={business.phone} onChange={(event) => updateBusiness('phone', event.target.value)} placeholder="+359 88 123 4567" type="tel" /></div>
+              <div className="field"><label htmlFor="business-email">Имейл за резервации</label><input id="business-email" className="text-input" value={business.contact_email} onChange={(event) => updateBusiness('contact_email', event.target.value)} placeholder="office@business.bg" type="email" /></div>
+              <div className="field"><label htmlFor="business-industry">Тип бизнес</label><select id="business-industry" className="select-input" value={business.industry} onChange={(event) => updateBusiness('industry', event.target.value)}><option value="beauty">Красота и салони</option><option value="auto">Авто услуги и сервизи</option><option value="fitness">Спорт и фитнес</option><option value="education">Обучение</option><option value="consulting">Консултации</option><option value="home_services">Услуги на адрес</option><option value="pets">Домашни любимци</option><option value="health">Здравни услуги</option><option value="other">Друг бизнес с часове</option></select></div>
               <div className="field"><label htmlFor="business-timezone">Часова зона</label><select id="business-timezone" className="select-input" value={business.timezone} onChange={(event) => updateBusiness('timezone', event.target.value)}><option value="Europe/Sofia">София (GMT+2/+3)</option><option value="Europe/London">Лондон</option><option value="Europe/Berlin">Берлин</option></select></div>
               <div className="field full"><label htmlFor="business-address">Адрес</label><input id="business-address" className="text-input" value={business.address} onChange={(event) => updateBusiness('address', event.target.value)} placeholder="ул. Примерна 12, София" /></div>
               <div className="field full"><label htmlFor="business-slug">Адрес на публичната страница *</label><input id="business-slug" className="text-input" value={business.slug} onChange={(event) => { setSlugTouched(true); updateBusiness('slug', slugify(event.target.value)) }} placeholder="studio-forma" /><p className="helper-text">ai-receptionist.app/{business.slug || 'твоят-бизнес'}</p></div>

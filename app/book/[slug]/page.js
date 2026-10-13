@@ -34,7 +34,7 @@ function BookingPanel({ business }) {
   const [slot, setSlot] = useState(null)
   const [slots, setSlots] = useState([])
   const [loadingSlots, setLoadingSlots] = useState(false)
-  const [details, setDetails] = useState({ name: '', phone: '', email: '', notes: '' })
+  const [details, setDetails] = useState({ name: '', phone: '', email: '', notes: '', consent: false })
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState('')
   const [confirmation, setConfirmation] = useState(null)
@@ -94,6 +94,7 @@ function BookingPanel({ business }) {
           startsAt: slot.startsAt,
           customer: { name: details.name, phone: details.phone, email: details.email },
           notes: details.notes,
+          consent: details.consent,
           source: 'web',
         }),
       })
@@ -121,7 +122,7 @@ function BookingPanel({ business }) {
         </div>
         <p>Запази тези детайли. При нужда се свържи с {business.name}{business.phone ? ` на ${business.phone}` : ''}.</p>
         <Link className="manage-booking-link" href={`/booking/${confirmation.appointment.cancellation_token}`}>Преглед и управление на резервацията</Link>
-        <button className="booking-primary" type="button" onClick={() => { setConfirmation(null); setSlot(null); setDate(''); setDetails({ name: '', phone: '', email: '', notes: '' }) }}>Запази още един час</button>
+        <button className="booking-primary" type="button" onClick={() => { setConfirmation(null); setSlot(null); setDate(''); setDetails({ name: '', phone: '', email: '', notes: '', consent: false }) }}>Запази още един час</button>
       </section>
     )
   }
@@ -167,11 +168,12 @@ function BookingPanel({ business }) {
           <label><span>Телефон *</span><input required minLength={6} type="tel" value={details.phone} onChange={(event) => setDetails({ ...details, phone: event.target.value })} placeholder="+359 88 123 4567" /></label>
           <label className="full"><span>Имейл</span><input type="email" value={details.email} onChange={(event) => setDetails({ ...details, email: event.target.value })} placeholder="name@example.com" /></label>
           <label className="full"><span>Бележка</span><textarea value={details.notes} onChange={(event) => setDetails({ ...details, notes: event.target.value })} placeholder="Допълнителна информация (по желание)" maxLength={600} /></label>
+          <label className="booking-consent full"><input required type="checkbox" checked={details.consent} onChange={(event) => setDetails({ ...details, consent: event.target.checked })} /><span>Съгласен/на съм данните ми да бъдат използвани за тази резервация и приемам <Link href="/privacy" target="_blank">политиката за поверителност</Link>.</span></label>
         </div>
         <div className="booking-summary"><span><small>Избран час</small><strong>{formatDate(date, business.timezone)}, {slot.localTime}</strong><small>{service.name} · {slot.staffName}</small></span><b>{formatMoney(service.price, service.currency)}</b></div>
         {error && <p className="booking-inline-error" role="alert">{error}</p>}
         <button className="booking-primary" type="submit" disabled={submitting}>{submitting ? <><span className="button-spinner" /> Запазване...</> : 'Потвърди резервацията'}</button>
-        <p className="booking-privacy">С потвърждението се съгласяваш данните да бъдат използвани единствено за управление на резервацията.</p>
+        <p className="booking-privacy">Данните се използват единствено за обслужване и управление на резервацията.</p>
       </form>}
       {!slot && error && <p className="booking-inline-error" role="alert">{error}</p>}
     </section>
@@ -184,8 +186,10 @@ export default function PublicBookingPage() {
   const [status, setStatus] = useState('loading')
   const [error, setError] = useState('')
   const [mode, setMode] = useState('booking')
+  const [embedded, setEmbedded] = useState(false)
 
   useEffect(() => {
+    setEmbedded(new URLSearchParams(window.location.search).get('embed') === '1')
     let active = true
     fetch(`/api/public/${slug}`)
       .then(async (response) => {
@@ -201,7 +205,7 @@ export default function PublicBookingPage() {
   if (status === 'error') return <main className="booking-state-page"><span className="booking-logo-mark">!</span><h1>Не успяхме да отворим страницата</h1><p>{error}</p></main>
 
   return (
-    <main className="public-booking-page" style={{ '--business-color': business.theme_color || '#173e2a' }}>
+    <main className={`public-booking-page ${embedded ? 'embedded-booking' : ''}`} style={{ '--business-color': business.theme_color || '#173e2a' }}>
       <div className="booking-ambient" aria-hidden="true"><i /><i /><i /></div>
       <header className="booking-topbar">
         <SparkLogo businessName={business.name} />
@@ -218,8 +222,9 @@ export default function PublicBookingPage() {
         </div>
       </section>
       <div className="booking-reassurance" aria-label="Предимства"><span>✓ Без профил</span><span>✓ Реална наличност</span><span>✓ Сигурно управление</span></div>
+      {business.booking_terms && <details className="booking-terms"><summary>Условия за резервация</summary><p>{business.booking_terms}</p></details>}
       <div className="booking-content" id="booking-experience"><div className="booking-experience-enter" key={mode}>{mode === 'booking' ? <BookingPanel business={business} /> : <GuidedBookingChat business={business} onShowBooking={() => setMode('booking')} />}</div></div>
-      <footer className="booking-footer"><span>Защитена резервация</span><span>Задвижвано от AI Рецепционист</span></footer>
+      <footer className="booking-footer"><span>Защитена резервация</span><span><Link href="/privacy">Поверителност</Link> · <Link href="/terms">Условия</Link></span><span>Задвижвано от AI Рецепционист</span></footer>
     </main>
   )
 }

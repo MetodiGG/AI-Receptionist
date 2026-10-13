@@ -9,6 +9,8 @@ const NAV_ITEMS = [
   { icon: 'calendar', label: 'Резервации', href: '/dashboard/appointments' },
   { icon: 'users', label: 'Клиенти', href: '/dashboard/customers' },
   { icon: 'chat', label: 'Асистент', href: '/dashboard/assistant' },
+  { icon: 'chart', label: 'Резултати', href: '/dashboard/analytics' },
+  { icon: 'external', label: 'Споделяне', href: '/dashboard/share' },
   { icon: 'settings', label: 'Настройки', href: '/dashboard/settings' },
 ]
 

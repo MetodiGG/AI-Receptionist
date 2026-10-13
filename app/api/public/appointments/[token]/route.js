@@ -3,6 +3,8 @@ import { z } from 'zod'
 import { apiError, getSafeError } from '../../../../../lib/api-response'
 import { consumeRateLimit } from '../../../../../lib/rate-limit'
 import { getSupabaseAdmin } from '../../../../../lib/supabase-admin'
+import { sendCancellationNotification } from '../../../../../lib/notifications'
+import { trackEvent } from '../../../../../lib/analytics'
 
 const tokenSchema = z.string().uuid()
 
@@ -10,7 +12,7 @@ async function getAppointment(token) {
   const supabase = getSupabaseAdmin()
   const { data, error } = await supabase
     .from('appointments')
-    .select('id,starts_at,ends_at,status,cancellation_token,notes,business:businesses(name,slug,phone,address,timezone,cancellation_notice_hours),service:services(name,duration_min,price,currency),staff:staff(name),customer:customers(name,email,phone)')
+    .select('id,business_id,starts_at,ends_at,status,cancellation_token,notes,business:businesses(name,slug,phone,address,timezone,cancellation_notice_hours),service:services(name,duration_min,price,currency),staff:staff(name),customer:customers(name,email,phone)')
     .eq('cancellation_token', tokenSchema.parse(token))
     .maybeSingle()
   if (error) throw error
@@ -63,6 +65,11 @@ export async function POST(request, context) {
       .maybeSingle()
     if (error) throw error
     if (!data) return apiError('Резервацията вече е променена. Обнови страницата.', 409, 'STATE_CHANGED')
+
+    await Promise.allSettled([
+      sendCancellationNotification({ appointment }),
+      trackEvent({ businessId: appointment.business_id, eventType: 'booking_cancelled', source: 'customer-link' }),
+    ])
 
     return Response.json({ appointment: { ...appointment, ...data } })
   } catch (error) {

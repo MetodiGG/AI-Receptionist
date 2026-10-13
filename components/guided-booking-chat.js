@@ -32,7 +32,7 @@ export function GuidedBookingChat({ business, onShowBooking }) {
   const [selection, setSelection] = useState({ serviceId: '', staffId: null, date: '', slot: null })
   const [slots, setSlots] = useState([])
   const [dateOffset, setDateOffset] = useState(0)
-  const [details, setDetails] = useState({ name: '', phone: '', email: '', notes: '' })
+  const [details, setDetails] = useState({ name: '', phone: '', email: '', notes: '', consent: false })
   const [confirmation, setConfirmation] = useState(null)
   const [value, setValue] = useState('')
   const [sending, setSending] = useState(false)
@@ -147,6 +147,7 @@ export function GuidedBookingChat({ business, onShowBooking }) {
       startsAt: selection.slot.startsAt,
       customer: { name: details.name, phone: details.phone, email: details.email },
       notes: details.notes,
+      consent: details.consent,
     }, 'Потвърждавам резервацията.')
     if (!result?.booking) return
     setConfirmation(result.booking)
@@ -169,7 +170,7 @@ export function GuidedBookingChat({ business, onShowBooking }) {
     setSelection({ serviceId: '', staffId: null, date: '', slot: null })
     setSlots([])
     setDateOffset(0)
-    setDetails({ name: '', phone: '', email: '', notes: '' })
+    setDetails({ name: '', phone: '', email: '', notes: '', consent: false })
     setConfirmation(null)
     setError('')
   }
@@ -228,6 +229,7 @@ export function GuidedBookingChat({ business, onShowBooking }) {
             <label><span>Телефон *</span><input required minLength={6} type="tel" value={details.phone} onChange={(event) => setDetails({ ...details, phone: event.target.value })} placeholder="+359 88 123 4567" /></label>
             <label><span>Имейл</span><input type="email" value={details.email} onChange={(event) => setDetails({ ...details, email: event.target.value })} placeholder="name@example.com" /></label>
             <label><span>Бележка</span><input value={details.notes} onChange={(event) => setDetails({ ...details, notes: event.target.value })} placeholder="По желание" maxLength={600} /></label>
+            <label className="booking-consent full"><input required type="checkbox" checked={details.consent} onChange={(event) => setDetails({ ...details, consent: event.target.checked })} /><span>Приемам <Link href="/privacy" target="_blank">политиката за поверителност</Link> за тази резервация.</span></label>
           </div>
           <button className="booking-primary" type="submit">Продължи към преглед</button>
         </form>}

@@ -44,6 +44,13 @@ function CustomersContent({ business }) {
     setEditing(null)
   }
 
+  async function anonymizeCustomer(customer) {
+    if (!window.confirm(`Да премахнем ли личните данни на ${customer.name || 'този клиент'}? Историята на резервациите ще остане само за статистика и действието не може да бъде отменено.`)) return
+    const { error: requestError } = await supabase.rpc('anonymize_customer', { input_business_id: business.id, input_customer_id: customer.id })
+    if (requestError) { setError(requestError.message); return }
+    setCustomers((current) => current.map((item) => item.id === customer.id ? { ...item, name: 'Изтрит клиент', phone: null, email: null, notes: null, external_id: null } : item))
+  }
+
   return (
     <main className="dashboard-content admin-page">
       <div className="admin-page-head"><div><p className="auth-kicker">CRM</p><h2>Клиенти</h2><p>Контакти и история на посещенията на едно място.</p></div><div className="admin-count"><strong>{customers.length}</strong><span>клиенти</span></div></div>
@@ -58,7 +65,7 @@ function CustomersContent({ business }) {
           <div className="customer-info"><h3>{customer.name || 'Посетител от чата'}</h3><a href={customer.phone ? `tel:${customer.phone}` : undefined}>{customer.phone || 'Без телефон'}</a><small>{customer.email || customer.channel}</small></div>
           <div className="customer-stats"><span><strong>{customerStats.total}</strong> резервации</span><span><strong>{customerStats.completed}</strong> посещения</span></div>
           {customer.notes && <p className="customer-notes">{customer.notes}</p>}
-          <button className="ghost-button" type="button" onClick={() => { setEditing(customer); setNotes(customer.notes || '') }}>Бележки</button>
+          <div className="customer-actions"><button className="ghost-button" type="button" onClick={() => { setEditing(customer); setNotes(customer.notes || '') }}>Бележки</button>{customer.name !== 'Изтрит клиент' && <button className="danger-link" type="button" onClick={() => anonymizeCustomer(customer)}>Анонимизирай</button>}</div>
         </article>
       })}</div>
       {editing && <div className="modal-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) setEditing(null) }}><section className="admin-modal" role="dialog" aria-modal="true" aria-labelledby="notes-title"><h3 id="notes-title">Бележки за {editing.name || 'клиента'}</h3><textarea className="text-area" value={notes} onChange={(event) => setNotes(event.target.value)} placeholder="Предпочитания, важна информация..." /><div><button className="secondary-button" type="button" onClick={() => setEditing(null)}>Отказ</button><button className="primary-button" type="button" onClick={saveNotes}>Запази</button></div></section></div>}

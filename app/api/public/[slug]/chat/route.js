@@ -5,6 +5,8 @@ import { buildGuidedReply, describeDate, detectGuidedTopic, getEligibleStaff } f
 import { createPublicBooking, getAvailableSlots, getPublicBusiness } from '../../../../../lib/public-booking'
 import { consumeRateLimit } from '../../../../../lib/rate-limit'
 import { getSupabaseAdmin } from '../../../../../lib/supabase-admin'
+import { createGroundedAnswer } from '../../../../../lib/openai-assistant'
+import { trackEvent } from '../../../../../lib/analytics'
 
 const conversationField = { conversationId: z.string().uuid().optional() }
 const serviceField = { serviceId: z.string().uuid() }
@@ -29,6 +31,7 @@ const chatRequestSchema = z.discriminatedUnion('action', [
       email: z.string().trim().email().max(180).optional().or(z.literal('')),
     }),
     notes: z.string().trim().max(600).optional().default(''),
+    consent: z.literal(true),
     ...conversationField,
   }),
 ])
@@ -142,11 +145,20 @@ export async function POST(request, context) {
     let reply = ''
     let responseData = {}
     let bookingSucceeded = false
+    let responseMode = 'guided'
 
     if (input.action === 'ask') {
       const topic = detectGuidedTopic(input.message)
       userText = input.message
-      reply = buildGuidedReply(business, topic)
+      if (topic === 'help') {
+        try {
+          const aiReply = await createGroundedAnswer({ business, conversationId: conversation.id, message: input.message })
+          if (aiReply) { reply = aiReply; responseMode = 'ai' }
+        } catch (aiError) {
+          console.error('AI answer failed; guided fallback used.', aiError)
+        }
+      }
+      if (!reply) reply = buildGuidedReply(business, topic)
       responseData = { topic }
     }
 
@@ -224,6 +236,7 @@ export async function POST(request, context) {
           startsAt: input.startsAt,
           customer: input.customer,
           notes: input.notes,
+          consent: input.consent,
           source: 'bot',
         },
       })
@@ -257,7 +270,14 @@ export async function POST(request, context) {
       if (!bookingSucceeded) throw messageError
       console.error('Неуспешно записване на съобщенията след създадена резервация.', messageError)
     }
-    return Response.json({ conversationId: conversation.id, message: reply, mode: 'guided', ...responseData })
+    await trackEvent({
+      businessId: business.id,
+      eventType: input.action === 'start_booking' ? 'chat_started' : 'chat_message',
+      source: responseMode,
+      sessionKey: conversation.id,
+      metadata: { action: input.action },
+    })
+    return Response.json({ conversationId: conversation.id, message: reply, mode: responseMode, ...responseData })
   } catch (error) {
     const safe = getSafeError(error)
     return apiError(safe.message, safe.status, safe.code)

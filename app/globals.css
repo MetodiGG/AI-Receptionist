@@ -4351,9 +4351,9 @@ a {
   }
 
   .booking-reassurance {
-    justify-content: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
     width: calc(100% - 24px);
-    overflow-x: auto;
     padding-bottom: 4px;
   }
 

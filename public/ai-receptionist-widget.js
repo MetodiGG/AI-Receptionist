@@ -6,9 +6,9 @@
   if (!slug) return
   const source = new URL(script.src)
   const origin = source.origin
-  const label = script.dataset.label || 'Запази час'
-  const color = script.dataset.color || '#173e2a'
   const locale = script.dataset.lang === 'en' ? 'en' : 'bg'
+  const label = script.dataset.label || (locale === 'en' ? 'Book now' : 'Запази час')
+  const color = script.dataset.color || '#173e2a'
 
   const root = document.createElement('div')
   root.style.cssText = 'position:fixed;z-index:2147483000;right:20px;bottom:20px;font-family:Inter,system-ui,sans-serif'

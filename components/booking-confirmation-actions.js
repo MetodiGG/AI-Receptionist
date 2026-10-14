@@ -12,6 +12,9 @@ export function BookingConfirmationActions({ appointment, business, service, sta
   async function saveLink() {
     const url = new URL(`/booking/${appointment.cancellation_token}?lang=${locale}`, window.location.origin).href
     setLink(url)
+    // Always leave a selectable address as a fallback for embedded browsers
+    // that report clipboard success but do not expose the host clipboard.
+    setShowLink(true)
     try {
       await navigator.clipboard.writeText(url)
       setMessage(en ? 'Private confirmation link copied. Save it for later.' : 'Личният линк е копиран. Запази го за по-късно.')

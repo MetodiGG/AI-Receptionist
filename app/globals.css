@@ -5405,6 +5405,8 @@ a {
 .confirmation-save > .confirmation-save-message { margin-top: 14px; font-weight: 700; }
 .confirmation-save small { display: block; margin-top: 12px; color: #596d5c; font-size: 12px; line-height: 1.5; }
 .confirmation-save input { width: 100%; min-width: 0; margin-top: 10px; padding: 12px; color: #173e2a; background: #fff; border: 1px solid #d4e1cb; border-radius: 10px; }
+.legal-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 24px; }
+.legal-header .legal-logo { margin-bottom: 0; }
 
 @media (max-width: 920px) {
   .demo-readiness-card { grid-template-columns: 1fr; }

@@ -230,7 +230,8 @@ function BookingPanel({ business, locale }) {
           <label className="full"><span>{en ? 'Note' : 'Бележка'}</span><textarea value={details.notes} onChange={(event) => setDetails({ ...details, notes: event.target.value })} placeholder={en ? 'Additional information (optional)' : 'Допълнителна информация (по желание)'} maxLength={600} /></label>
         </div>
         <BookingIntakeFields industry={business.industry} locale={locale} value={intake} onChange={setIntake} />
-        <label className="booking-consent"><input required type="checkbox" checked={details.consent} onChange={(event) => setDetails({ ...details, consent: event.target.checked })} /><span>{en ? 'I agree that my data may be used for this booking and accept the ' : 'Съгласен/на съм данните ми да бъдат използвани за тази резервация и приемам '}<Link href="/privacy" target="_blank">{en ? 'privacy policy' : 'политиката за поверителност'}</Link>.</span></label>
+        <p className="booking-privacy">{en ? 'Confirmation is shown on this page. No email, SMS or Viber message will be sent.' : 'Потвърждението се показва на тази страница. Не се изпращат имейл, SMS или Viber съобщения.'}</p>
+        <label className="booking-consent"><input required type="checkbox" checked={details.consent} onChange={(event) => setDetails({ ...details, consent: event.target.checked })} /><span>{en ? 'I agree that my data may be used for this booking and accept the ' : 'Съгласен/на съм данните ми да бъдат използвани за тази резервация и приемам '}<Link href={`/privacy?lang=${locale}`} target="_blank">{en ? 'privacy policy' : 'политиката за поверителност'}</Link>.</span></label>
         <div className="booking-summary"><span><small>{en ? 'Selected time' : 'Избран час'}</small><strong>{formatDate(date, business.timezone, locale)}, {slot.localTime}</strong><small>{service.name} · {slot.staffName}</small></span><b>{formatMoney(service.price, service.currency, locale)}</b></div>
         {error && <p className="booking-inline-error" role="alert">{error}</p>}
         <button className="booking-primary" type="submit" disabled={submitting}>{submitting ? <><span className="button-spinner" /> {en ? 'Booking…' : 'Запазване...'}</> : (en ? 'Confirm booking' : 'Потвърди резервацията')}</button>
@@ -301,7 +302,7 @@ export default function PublicBookingPage() {
       <section className="booking-hero">
         <div className="booking-hero-copy"><p className="booking-eyebrow"><span /> {copy.eyebrow}</p><h1>{copy.hero}<br /><em>{copy.heroEm}</em></h1><p>{copy.lead}</p>{business.address && <span className="booking-address">⌖ {business.address}</span>}</div>
         <div className="booking-hero-aside">
-          <div className="booking-mode-switch" role="tablist" aria-label="Начин за записване">
+          <div className="booking-mode-switch" role="tablist" aria-label={locale === 'en' ? 'Booking method' : 'Начин за записване'}>
             <button role="tab" aria-selected={mode === 'booking'} aria-controls="booking-experience" className={mode === 'booking' ? 'active' : ''} onClick={() => setMode('booking')}>{copy.book}</button>
             <button role="tab" aria-selected={mode === 'chat'} aria-controls="booking-experience" className={mode === 'chat' ? 'active' : ''} onClick={() => setMode('chat')}><span className="booking-online-dot" /> {copy.assistant}</button>
           </div>
@@ -311,7 +312,7 @@ export default function PublicBookingPage() {
       <div className="booking-reassurance" aria-label={locale === 'bg' ? 'Предимства' : 'Benefits'}>{copy.reassurance.map((item) => <span key={item}>✓ {item}</span>)}</div>
       {business.booking_terms && <details className="booking-terms"><summary>{copy.terms}</summary><p>{business.booking_terms}</p></details>}
       <div className="booking-content" id="booking-experience"><div className="booking-experience-enter" key={`${mode}-${locale}`}>{mode === 'booking' ? <BookingPanel business={business} locale={locale} /> : <GuidedBookingChat business={business} locale={locale} onShowBooking={() => setMode('booking')} />}</div></div>
-      <footer className="booking-footer"><span>{copy.secure}</span><span><Link href="/privacy">{copy.privacy}</Link> · <Link href="/terms">{copy.legalTerms}</Link></span><span>{copy.powered}</span></footer>
+      <footer className="booking-footer"><span>{copy.secure}</span><span><Link href={`/privacy?lang=${locale}`}>{copy.privacy}</Link> · <Link href={`/terms?lang=${locale}`}>{copy.legalTerms}</Link></span><span>{copy.powered}</span></footer>
     </main>
   )
 }

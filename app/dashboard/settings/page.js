@@ -5,6 +5,7 @@ import { DateTime } from 'luxon'
 import { useCallback, useEffect, useState } from 'react'
 import { OwnerPage } from '../../../components/owner-page'
 import { supabase } from '../../../lib/supabase'
+import { getBookingIntake } from '../../../lib/booking-intake.mjs'
 
 const WEEK = {
   bg: [[1, 'Понеделник'], [2, 'Вторник'], [3, 'Сряда'], [4, 'Четвъртък'], [5, 'Петък'], [6, 'Събота'], [7, 'Неделя']],
@@ -35,6 +36,7 @@ function SettingsContent({ business, refreshBusiness, locale }) {
   const [section, setSection] = useState('business')
   const [saving, setSaving] = useState(false)
   const [message, setMessage] = useState(null)
+  const bookingIntake = getBookingIntake(profile.industry, locale)
 
   const loadCollections = useCallback(async () => {
     const [servicesResult, staffResult, hoursResult, timeOffResult] = await Promise.all([
@@ -190,6 +192,7 @@ function SettingsContent({ business, refreshBusiness, locale }) {
             <label><span>{en ? 'Phone' : 'Телефон'}</span><input value={profile.phone} onChange={(event) => setProfile({ ...profile, phone: event.target.value })} /></label>
             <label><span>{en ? 'New booking email' : 'Имейл за нови резервации'}</span><input type="email" value={profile.contact_email} onChange={(event) => setProfile({ ...profile, contact_email: event.target.value })} placeholder="office@business.com" /></label>
             <label className="full"><span>{en ? 'Address' : 'Адрес'}</span><input value={profile.address} onChange={(event) => setProfile({ ...profile, address: event.target.value })} /></label>
+            {bookingIntake.fields.length > 0 && <div className="settings-intake-preview full"><strong>{en ? 'Client booking questions' : 'Въпроси при резервация'}</strong><p>{en ? 'Saving this business type adds these questions to your booking form and assistant. Answers appear in each appointment.' : 'След запазване на типа бизнес тези въпроси се показват във формата и асистента. Отговорите се виждат при съответната резервация.'}</p><ul>{bookingIntake.fields.map((field) => <li key={field.key}>{field.label}{field.required ? ' *' : ''}</li>)}</ul><small>{en ? '* Required for booking' : '* Задължително за резервация'}</small></div>}
             <label className="full"><span>{en ? 'Website' : 'Уебсайт'}</span><input type="url" value={profile.website_url} onChange={(event) => setProfile({ ...profile, website_url: event.target.value })} placeholder="https://business.com" /></label>
             <label><span>{en ? 'Booking window (days)' : 'Резервации до (дни)'}</span><input type="number" min="1" max="365" value={profile.booking_window_days} onChange={(event) => setProfile({ ...profile, booking_window_days: event.target.value })} /></label>
             <label><span>{en ? 'Minimum notice (minutes)' : 'Минимално предизвестие (минути)'}</span><input type="number" min="0" max="10080" value={profile.minimum_notice_minutes} onChange={(event) => setProfile({ ...profile, minimum_notice_minutes: event.target.value })} /></label>

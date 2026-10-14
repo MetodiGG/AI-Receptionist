@@ -31,6 +31,7 @@ const chatRequestSchema = z.discriminatedUnion('action', [
       email: z.string().trim().email().max(180).optional().or(z.literal('')),
     }),
     notes: z.string().trim().max(600).optional().default(''),
+    intake: z.record(z.string().max(40), z.string().max(300)).optional().default({}),
     consent: z.literal(true),
     ...localeField,
     ...conversationField,
@@ -211,7 +212,7 @@ export async function POST(request, context) {
         throw error
       }
       userText = `Избирам ${slot.localTime} при ${person.name}.`
-      reply = input.locale === 'en' ? 'All that remains is to enter your name and phone number for confirmation.' : 'Остава само да въведеш име и телефон за потвърждение на резервацията.'
+      reply = input.locale === 'en' ? 'Enter your contact information and appointment details, then review your booking before confirming.' : 'Въведи данните за контакт и посещението, след което прегледай резервацията преди потвърждение.'
       responseData = { slot }
     }
 
@@ -228,6 +229,8 @@ export async function POST(request, context) {
           startsAt: input.startsAt,
           customer: input.customer,
           notes: input.notes,
+          intake: input.intake,
+          locale: input.locale,
           consent: input.consent,
           source: 'bot',
         },

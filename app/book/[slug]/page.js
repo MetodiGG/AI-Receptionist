@@ -6,6 +6,7 @@ import { DateTime } from 'luxon'
 import { useParams, useRouter } from 'next/navigation'
 import { BrandLogo } from '../../../components/brand-logo'
 import { GuidedBookingChat } from '../../../components/guided-booking-chat'
+import { BookingIntakeFields, BookingIntakeSummary } from '../../../components/booking-intake-fields'
 import { LanguageSwitch } from '../../../components/language-switch'
 import { usePublicLocale } from '../../../hooks/use-public-locale'
 import { collapseSlotsByLocalTime, formatBulgarianMonthShort, groupSlotsByPeriod, resolveVisibleBookingDays } from '../../../lib/booking-window.mjs'
@@ -56,6 +57,7 @@ function BookingPanel({ business, locale }) {
   const [slots, setSlots] = useState([])
   const [loadingSlots, setLoadingSlots] = useState(false)
   const [details, setDetails] = useState({ name: '', phone: '', email: '', notes: '', consent: false })
+  const [intake, setIntake] = useState({})
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState('')
   const [confirmation, setConfirmation] = useState(null)
@@ -119,6 +121,8 @@ function BookingPanel({ business, locale }) {
           startsAt: slot.startsAt,
           customer: { name: details.name, phone: details.phone, email: details.email },
           notes: details.notes,
+          intake,
+          locale,
           consent: details.consent,
           source: 'web',
         }),
@@ -145,9 +149,10 @@ function BookingPanel({ business, locale }) {
           <span>{en ? 'with' : 'при'} {confirmation.slot.staffName}</span>
           {business.address && <span>{business.address}</span>}
         </div>
+        <BookingIntakeSummary industry={business.industry} locale={locale} value={intake} />
         <p>{en ? 'Keep these details. If needed, contact' : 'Запази тези детайли. При нужда се свържи с'} {business.name}{business.phone ? ` ${en ? 'at' : 'на'} ${business.phone}` : ''}.</p>
         <Link className="manage-booking-link" href={`/booking/${confirmation.appointment.cancellation_token}?lang=${locale}`}>{en ? 'View and manage booking' : 'Преглед и управление на резервацията'}</Link>
-        <button className="booking-primary" type="button" onClick={() => { setConfirmation(null); setSlot(null); setDate(''); setDetails({ name: '', phone: '', email: '', notes: '', consent: false }) }}>{en ? 'Book another appointment' : 'Запази още един час'}</button>
+        <button className="booking-primary" type="button" onClick={() => { setConfirmation(null); setSlot(null); setDate(''); setIntake({}); setDetails({ name: '', phone: '', email: '', notes: '', consent: false }) }}>{en ? 'Book another appointment' : 'Запази още един час'}</button>
       </section>
     )
   }
@@ -219,8 +224,9 @@ function BookingPanel({ business, locale }) {
           <label><span>{en ? 'Phone *' : 'Телефон *'}</span><input required minLength={6} type="tel" value={details.phone} onChange={(event) => setDetails({ ...details, phone: event.target.value })} placeholder="+359 88 123 4567" /></label>
           <label className="full"><span>{en ? 'Email' : 'Имейл'}</span><input type="email" value={details.email} onChange={(event) => setDetails({ ...details, email: event.target.value })} placeholder="name@example.com" /></label>
           <label className="full"><span>{en ? 'Note' : 'Бележка'}</span><textarea value={details.notes} onChange={(event) => setDetails({ ...details, notes: event.target.value })} placeholder={en ? 'Additional information (optional)' : 'Допълнителна информация (по желание)'} maxLength={600} /></label>
-          <label className="booking-consent full"><input required type="checkbox" checked={details.consent} onChange={(event) => setDetails({ ...details, consent: event.target.checked })} /><span>{en ? 'I agree that my data may be used for this booking and accept the ' : 'Съгласен/на съм данните ми да бъдат използвани за тази резервация и приемам '}<Link href="/privacy" target="_blank">{en ? 'privacy policy' : 'политиката за поверителност'}</Link>.</span></label>
         </div>
+        <BookingIntakeFields industry={business.industry} locale={locale} value={intake} onChange={setIntake} />
+        <label className="booking-consent"><input required type="checkbox" checked={details.consent} onChange={(event) => setDetails({ ...details, consent: event.target.checked })} /><span>{en ? 'I agree that my data may be used for this booking and accept the ' : 'Съгласен/на съм данните ми да бъдат използвани за тази резервация и приемам '}<Link href="/privacy" target="_blank">{en ? 'privacy policy' : 'политиката за поверителност'}</Link>.</span></label>
         <div className="booking-summary"><span><small>{en ? 'Selected time' : 'Избран час'}</small><strong>{formatDate(date, business.timezone, locale)}, {slot.localTime}</strong><small>{service.name} · {slot.staffName}</small></span><b>{formatMoney(service.price, service.currency, locale)}</b></div>
         {error && <p className="booking-inline-error" role="alert">{error}</p>}
         <button className="booking-primary" type="submit" disabled={submitting}>{submitting ? <><span className="button-spinner" /> {en ? 'Booking…' : 'Запазване...'}</> : (en ? 'Confirm booking' : 'Потвърди резервацията')}</button>

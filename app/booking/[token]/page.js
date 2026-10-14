@@ -63,6 +63,7 @@ export default function ManageBookingPage() {
           <div><small>{en ? 'Specialist' : 'Специалист'}</small><strong>{appointment.staff.name}</strong></div>
           <div><small>{en ? 'Client' : 'Клиент'}</small><strong>{appointment.customer.name}</strong></div>
         </div>
+        {appointment.notes && <details className="appointment-notes manage-appointment-notes"><summary>{en ? 'Appointment details' : 'Детайли за посещението'}</summary><p>{appointment.notes}</p></details>}
         {appointment.business.address && <p className="manage-address">⌖ {appointment.business.address}</p>}
         {error && <p className="booking-inline-error" role="alert">{error}</p>}
         {canCancel && <button className="cancel-booking-button" type="button" disabled={cancelling} onClick={cancelBooking}>{cancelling ? (en ? 'Cancelling...' : 'Отменяне...') : (en ? 'Cancel booking' : 'Отмени резервацията')}</button>}

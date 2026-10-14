@@ -4,6 +4,8 @@ import Link from 'next/link'
 import { DateTime } from 'luxon'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { formatBulgarianMonthShort, resolveVisibleBookingDays } from '../lib/booking-window.mjs'
+import { BookingIntakeFields, BookingIntakeSummary } from './booking-intake-fields'
+import { validateBookingIntake } from '../lib/booking-intake.mjs'
 
 const PAGE_SIZE = 14
 
@@ -35,6 +37,7 @@ export function GuidedBookingChat({ business, locale = 'bg', onShowBooking }) {
   const [slots, setSlots] = useState([])
   const [dateOffset, setDateOffset] = useState(0)
   const [details, setDetails] = useState({ name: '', phone: '', email: '', notes: '', consent: false })
+  const [intake, setIntake] = useState({})
   const [confirmation, setConfirmation] = useState(null)
   const [value, setValue] = useState('')
   const [sending, setSending] = useState(false)
@@ -135,6 +138,8 @@ export function GuidedBookingChat({ business, locale = 'bg', onShowBooking }) {
 
   function reviewDetails(event) {
     event.preventDefault()
+    try { validateBookingIntake(business.industry, intake, locale) }
+    catch (validationError) { setError(validationError.message); return }
     addMessage('user', en ? 'I entered my contact details.' : 'Въведох данните си за контакт.')
     addMessage('assistant', en ? 'Review the summary and confirm if everything is correct.' : 'Провери обобщението и потвърди само ако всичко е правилно.')
     setStep('confirm')
@@ -149,6 +154,7 @@ export function GuidedBookingChat({ business, locale = 'bg', onShowBooking }) {
       startsAt: selection.slot.startsAt,
       customer: { name: details.name, phone: details.phone, email: details.email },
       notes: details.notes,
+      intake,
       consent: details.consent,
     }, en ? 'I confirm the booking.' : 'Потвърждавам резервацията.')
     if (!result?.booking) return
@@ -173,6 +179,7 @@ export function GuidedBookingChat({ business, locale = 'bg', onShowBooking }) {
     setSlots([])
     setDateOffset(0)
     setDetails({ name: '', phone: '', email: '', notes: '', consent: false })
+    setIntake({})
     setConfirmation(null)
     setError('')
   }
@@ -234,8 +241,9 @@ export function GuidedBookingChat({ business, locale = 'bg', onShowBooking }) {
             <label><span>{en ? 'Phone *' : 'Телефон *'}</span><input required minLength={6} type="tel" value={details.phone} onChange={(event) => setDetails({ ...details, phone: event.target.value })} placeholder="+359 88 123 4567" /></label>
             <label><span>{en ? 'Email' : 'Имейл'}</span><input type="email" value={details.email} onChange={(event) => setDetails({ ...details, email: event.target.value })} placeholder="name@example.com" /></label>
             <label><span>{en ? 'Note' : 'Бележка'}</span><input value={details.notes} onChange={(event) => setDetails({ ...details, notes: event.target.value })} placeholder={en ? 'Optional' : 'По желание'} maxLength={600} /></label>
-            <label className="booking-consent full"><input required type="checkbox" checked={details.consent} onChange={(event) => setDetails({ ...details, consent: event.target.checked })} /><span>{en ? 'I accept the ' : 'Приемам '}<Link href="/privacy" target="_blank">{en ? 'privacy policy' : 'политиката за поверителност'}</Link>{en ? ' for this booking.' : ' за тази резервация.'}</span></label>
           </div>
+          <BookingIntakeFields industry={business.industry} locale={locale} value={intake} onChange={setIntake} />
+          <label className="booking-consent"><input required type="checkbox" checked={details.consent} onChange={(event) => setDetails({ ...details, consent: event.target.checked })} /><span>{en ? 'I accept the ' : 'Приемам '}<Link href="/privacy" target="_blank">{en ? 'privacy policy' : 'политиката за поверителност'}</Link>{en ? ' for this booking.' : ' за тази резервация.'}</span></label>
           <button className="booking-primary" type="submit">{en ? 'Continue to review' : 'Продължи към преглед'}</button>
         </form>}
 
@@ -247,6 +255,7 @@ export function GuidedBookingChat({ business, locale = 'bg', onShowBooking }) {
             <span><small>{en ? 'Specialist' : 'Специалист'}</small><strong>{selection.slot.staffName}</strong></span>
             <span><small>{en ? 'Client' : 'Клиент'}</small><strong>{details.name}</strong><small>{details.phone}</small></span>
           </div>
+          <BookingIntakeSummary industry={business.industry} locale={locale} value={intake} />
           <button className="booking-primary" type="button" onClick={confirmBooking} disabled={sending}>{sending ? (en ? 'Confirming…' : 'Потвърждаване...') : t.confirm}</button>
           <p className="booking-privacy">{en ? 'The booking is created only after you press this button.' : 'Резервацията се създава едва след натискането на този бутон.'}</p>
         </div>}

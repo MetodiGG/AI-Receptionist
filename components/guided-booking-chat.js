@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { DateTime } from 'luxon'
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { resolveVisibleBookingDays } from '../lib/booking-window.mjs'
+import { formatBulgarianMonthShort, resolveVisibleBookingDays } from '../lib/booking-window.mjs'
 
 const PAGE_SIZE = 14
 
@@ -211,7 +211,10 @@ export function GuidedBookingChat({ business, onShowBooking }) {
 
         {step === 'date' && <div className="guided-step">
           <div className="guided-step-head"><div><small>Стъпка 3 от 5</small><strong>Избери дата</strong></div><button type="button" onClick={() => setStep('staff')}>Назад</button></div>
-          <div className="guided-date-grid">{visibleDates.map((item) => <button type="button" onClick={() => chooseDate(item)} disabled={sending} key={item}><small>{DateTime.fromISO(item).setLocale('bg').toFormat('ccc')}</small><strong>{DateTime.fromISO(item).toFormat('d')}</strong><span>{DateTime.fromISO(item).setLocale('bg').toFormat('LLL')}</span></button>)}</div>
+          <div className="guided-date-grid">{visibleDates.map((item) => {
+            const itemDate = DateTime.fromISO(item).setLocale('bg')
+            return <button type="button" onClick={() => chooseDate(item)} disabled={sending} key={item}><small>{itemDate.toFormat('ccc')}</small><strong>{itemDate.toFormat('d')}</strong><span>{formatBulgarianMonthShort(itemDate.month)}</span></button>
+          })}</div>
           {allDates.length > PAGE_SIZE && <div className="guided-pagination">
             <button type="button" onClick={() => setDateOffset((current) => Math.max(0, current - PAGE_SIZE))} disabled={dateOffset === 0}>← Предишни</button>
             <button type="button" onClick={() => setDateOffset((current) => Math.min(Math.max(0, allDates.length - PAGE_SIZE), current + PAGE_SIZE))} disabled={dateOffset + PAGE_SIZE >= allDates.length}>Следващи →</button>

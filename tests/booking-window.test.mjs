@@ -1,6 +1,6 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { groupSlotsByPeriod, resolveVisibleBookingDays } from '../lib/booking-window.mjs'
+import { collapseSlotsByLocalTime, formatBulgarianMonthShort, groupSlotsByPeriod, resolveVisibleBookingDays } from '../lib/booking-window.mjs'
 
 test('shows at most the next fourteen booking days', () => {
   assert.equal(resolveVisibleBookingDays(60), 14)
@@ -20,5 +20,23 @@ test('groups available hours into intuitive parts of the day', () => {
     ['morning', 1],
     ['afternoon', 1],
     ['evening', 1],
+  ])
+})
+
+test('formats the month clearly in Bulgarian', () => {
+  assert.equal(formatBulgarianMonthShort(10), 'окт.')
+  assert.equal(formatBulgarianMonthShort(1), 'яну.')
+})
+
+test('shows a time only once when the customer has no staff preference', () => {
+  const slots = collapseSlotsByLocalTime([
+    { localTime: '09:00', staffId: 'one' },
+    { localTime: '09:00', staffId: 'two' },
+    { localTime: '09:30', staffId: 'one' },
+  ])
+
+  assert.deepEqual(slots.map(({ localTime, staffId }) => [localTime, staffId]), [
+    ['09:00', 'one'],
+    ['09:30', 'one'],
   ])
 })

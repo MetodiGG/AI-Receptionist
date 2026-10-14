@@ -5,7 +5,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { DateTime } from 'luxon'
 import { useParams } from 'next/navigation'
 import { GuidedBookingChat } from '../../../components/guided-booking-chat'
-import { groupSlotsByPeriod, resolveVisibleBookingDays } from '../../../lib/booking-window.mjs'
+import { collapseSlotsByLocalTime, formatBulgarianMonthShort, groupSlotsByPeriod, resolveVisibleBookingDays } from '../../../lib/booking-window.mjs'
 
 function formatMoney(value, currency = 'EUR') {
   return new Intl.NumberFormat('bg-BG', { style: 'currency', currency }).format(Number(value || 0))
@@ -61,8 +61,9 @@ function BookingPanel({ business }) {
     return Array.from({ length: days }, (_, index) => start.plus({ days: index }).toISODate())
   }, [business.booking_window_days, business.timezone])
   const chosenDate = date ? DateTime.fromISO(date, { zone: business.timezone }).setLocale('bg') : null
-  const slotPeriods = useMemo(() => groupSlotsByPeriod(slots), [slots])
-  const availableTimes = useMemo(() => new Set(slots.map((item) => item.localTime)).size, [slots])
+  const visibleSlots = useMemo(() => staffId ? slots : collapseSlotsByLocalTime(slots), [slots, staffId])
+  const slotPeriods = useMemo(() => groupSlotsByPeriod(visibleSlots), [visibleSlots])
+  const availableTimes = visibleSlots.length
 
   useEffect(() => {
     if (!serviceId || !date) { setSlots([]); return }
@@ -174,7 +175,7 @@ function BookingPanel({ business }) {
               return <button type="button" aria-label={itemDate.toFormat('cccc, d LLLL yyyy')} aria-pressed={date === item} className={date === item ? 'selected' : ''} onClick={() => { setDate(item); setSlot(null) }} key={item}>
                 <span className="date-weekday">{index === 0 ? 'Днес' : itemDate.toFormat('ccc')}</span>
                 <strong>{itemDate.toFormat('d')}</strong>
-                <span className="date-month">{itemDate.toFormat('LLL')}</span>
+                <span className="date-month">{formatBulgarianMonthShort(itemDate.month)}</span>
               </button>
             })}
           </div>

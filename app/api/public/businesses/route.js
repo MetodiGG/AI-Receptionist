@@ -1,6 +1,7 @@
 import { apiError, getSafeError } from '../../../../lib/api-response'
 import { consumeRateLimit } from '../../../../lib/rate-limit'
 import { getSupabaseAdmin } from '../../../../lib/supabase-admin'
+import { resolvePublicIndustry } from '../../../../lib/public-locale.mjs'
 
 export async function GET(request) {
   try {
@@ -23,7 +24,7 @@ export async function GET(request) {
       slug: business.slug,
       address: business.address,
       phone: business.phone,
-      industry: business.industry || 'other',
+      industry: resolvePublicIndustry(business),
       theme_color: business.theme_color,
       services: (business.services || [])
         .filter((service) => service.active)

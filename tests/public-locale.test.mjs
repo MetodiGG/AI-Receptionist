@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
-import { filterDirectoryBusinesses, getIndustryLabel, normalizeLocale } from '../lib/public-locale.mjs'
+import { filterDirectoryBusinesses, getIndustryLabel, normalizeLocale, resolvePublicIndustry } from '../lib/public-locale.mjs'
 import { getIndustryServiceTemplate } from '../lib/industry-templates.mjs'
 
 test('normalizes public locale and translates industry labels', () => {
@@ -21,4 +21,10 @@ test('auto businesses receive relevant starter services without shared mutation'
   first[0].name = 'changed'
   const second = getIndustryServiceTemplate('auto')
   assert.match(second[0].name, /Диагностика/i)
+})
+
+test('places legacy uncategorized businesses in an obvious public category', () => {
+  assert.equal(resolvePublicIndustry({ name: 'MG Barbershop', industry: 'other', services: [] }), 'beauty')
+  assert.equal(resolvePublicIndustry({ name: 'Сервиз 24', industry: 'other', services: [{ name: 'Диагностика' }] }), 'auto')
+  assert.equal(resolvePublicIndustry({ name: 'Адвокат', industry: 'consulting', services: [] }), 'consulting')
 })

@@ -12,7 +12,8 @@ function formatMoney(value, currency = 'EUR') {
 }
 
 function formatDate(date, zone) {
-  return DateTime.fromISO(date, { zone }).setLocale('bg').toFormat('ccc, d LLL')
+  const parsed = DateTime.fromISO(date, { zone }).setLocale('bg')
+  return `${parsed.toFormat('ccc')}, ${parsed.day} ${formatBulgarianMonthShort(parsed.month)}`
 }
 
 function formatDateRange(dates, zone) {

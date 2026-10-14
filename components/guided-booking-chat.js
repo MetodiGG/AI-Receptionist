@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { DateTime } from 'luxon'
 import { useEffect, useMemo, useRef, useState } from 'react'
+import { resolveVisibleBookingDays } from '../lib/booking-window.mjs'
 
 const PAGE_SIZE = 14
 
@@ -47,8 +48,8 @@ export function GuidedBookingChat({ business, onShowBooking }) {
   }, [business.staff, business.staffServices, selection.serviceId])
   const allDates = useMemo(() => {
     const start = DateTime.now().setZone(business.timezone).startOf('day')
-    const days = Math.min(Math.max(Number(business.booking_window_days) || 14, 1), 365)
-    return Array.from({ length: days + 1 }, (_, index) => start.plus({ days: index }).toISODate())
+    const days = resolveVisibleBookingDays(business.booking_window_days)
+    return Array.from({ length: days }, (_, index) => start.plus({ days: index }).toISODate())
   }, [business.booking_window_days, business.timezone])
   const visibleDates = allDates.slice(dateOffset, dateOffset + PAGE_SIZE)
 
@@ -211,10 +212,10 @@ export function GuidedBookingChat({ business, onShowBooking }) {
         {step === 'date' && <div className="guided-step">
           <div className="guided-step-head"><div><small>Стъпка 3 от 5</small><strong>Избери дата</strong></div><button type="button" onClick={() => setStep('staff')}>Назад</button></div>
           <div className="guided-date-grid">{visibleDates.map((item) => <button type="button" onClick={() => chooseDate(item)} disabled={sending} key={item}><small>{DateTime.fromISO(item).setLocale('bg').toFormat('ccc')}</small><strong>{DateTime.fromISO(item).toFormat('d')}</strong><span>{DateTime.fromISO(item).setLocale('bg').toFormat('LLL')}</span></button>)}</div>
-          <div className="guided-pagination">
+          {allDates.length > PAGE_SIZE && <div className="guided-pagination">
             <button type="button" onClick={() => setDateOffset((current) => Math.max(0, current - PAGE_SIZE))} disabled={dateOffset === 0}>← Предишни</button>
             <button type="button" onClick={() => setDateOffset((current) => Math.min(Math.max(0, allDates.length - PAGE_SIZE), current + PAGE_SIZE))} disabled={dateOffset + PAGE_SIZE >= allDates.length}>Следващи →</button>
-          </div>
+          </div>}
         </div>}
 
         {step === 'slot' && <div className="guided-step">

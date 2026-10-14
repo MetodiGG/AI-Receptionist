@@ -5,6 +5,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { DateTime } from 'luxon'
 import { useParams } from 'next/navigation'
 import { GuidedBookingChat } from '../../../components/guided-booking-chat'
+import { groupSlotsByPeriod, resolveVisibleBookingDays } from '../../../lib/booking-window.mjs'
 
 function formatMoney(value, currency = 'EUR') {
   return new Intl.NumberFormat('bg-BG', { style: 'currency', currency }).format(Number(value || 0))
@@ -12,6 +13,15 @@ function formatMoney(value, currency = 'EUR') {
 
 function formatDate(date, zone) {
   return DateTime.fromISO(date, { zone }).setLocale('bg').toFormat('ccc, d LLL')
+}
+
+function formatDateRange(dates, zone) {
+  if (!dates.length) return ''
+  const first = DateTime.fromISO(dates[0], { zone }).setLocale('bg')
+  const last = DateTime.fromISO(dates[dates.length - 1], { zone }).setLocale('bg')
+  if (first.hasSame(last, 'month')) return `${first.toFormat('d')} – ${last.toFormat('d LLLL yyyy')}`
+  if (first.hasSame(last, 'year')) return `${first.toFormat('d LLLL')} – ${last.toFormat('d LLLL yyyy')}`
+  return `${first.toFormat('d LLLL yyyy')} – ${last.toFormat('d LLLL yyyy')}`
 }
 
 function SparkLogo({ businessName }) {
@@ -47,9 +57,12 @@ function BookingPanel({ business }) {
   }, [business, serviceId])
   const dates = useMemo(() => {
     const start = DateTime.now().setZone(business.timezone).startOf('day')
-    const days = Math.min(Math.max(Number(business.booking_window_days) || 14, 1), 365)
-    return Array.from({ length: days + 1 }, (_, index) => start.plus({ days: index }).toISODate())
+    const days = resolveVisibleBookingDays(business.booking_window_days)
+    return Array.from({ length: days }, (_, index) => start.plus({ days: index }).toISODate())
   }, [business.booking_window_days, business.timezone])
+  const chosenDate = date ? DateTime.fromISO(date, { zone: business.timezone }).setLocale('bg') : null
+  const slotPeriods = useMemo(() => groupSlotsByPeriod(slots), [slots])
+  const availableTimes = useMemo(() => new Set(slots.map((item) => item.localTime)).size, [slots])
 
   useEffect(() => {
     if (!serviceId || !date) { setSlots([]); return }
@@ -150,13 +163,39 @@ function BookingPanel({ business }) {
 
         <div className="booking-divider" />
         <div className="booking-section-head"><span>3</span><div><h2>Избери дата и час</h2><p>Показваме само реално свободните часове.</p></div></div>
-        <div className="date-strip">
-          {dates.map((item) => <button type="button" className={date === item ? 'selected' : ''} onClick={() => { setDate(item); setSlot(null) }} key={item}><small>{DateTime.fromISO(item).setLocale('bg').toFormat('ccc')}</small><strong>{DateTime.fromISO(item).toFormat('d')}</strong><small>{DateTime.fromISO(item).setLocale('bg').toFormat('LLL')}</small></button>)}
+        <div className="booking-calendar-shell">
+          <div className="booking-calendar-head">
+            <div><span>Следващите {dates.length} дни</span><strong>{formatDateRange(dates, business.timezone)}</strong></div>
+            <small>Избери удобен ден</small>
+          </div>
+          <div className="date-strip" role="group" aria-label="Дати за резервация">
+            {dates.map((item, index) => {
+              const itemDate = DateTime.fromISO(item, { zone: business.timezone }).setLocale('bg')
+              return <button type="button" aria-label={itemDate.toFormat('cccc, d LLLL yyyy')} aria-pressed={date === item} className={date === item ? 'selected' : ''} onClick={() => { setDate(item); setSlot(null) }} key={item}>
+                <span className="date-weekday">{index === 0 ? 'Днес' : itemDate.toFormat('ccc')}</span>
+                <strong>{itemDate.toFormat('d')}</strong>
+                <span className="date-month">{itemDate.toFormat('LLL')}</span>
+              </button>
+            })}
+          </div>
         </div>
-        {date && <div className="slot-area">
-          {loadingSlots && <p className="slot-status"><span className="button-spinner" /> Проверяваме календара...</p>}
-          {!loadingSlots && slots.length === 0 && <p className="empty-slots">Няма свободни часове за тази дата. Избери следващ ден.</p>}
-          {!loadingSlots && slots.length > 0 && <div className="slot-grid">{slots.map((item) => <button type="button" className={slot?.startsAt === item.startsAt && slot?.staffId === item.staffId ? 'selected' : ''} onClick={() => setSlot(item)} key={`${item.staffId}-${item.startsAt}`}><strong>{item.localTime}</strong>{!staffId && <small>{item.staffName}</small>}</button>)}</div>}
+        {date && <div className="selected-date-panel">
+          <div className="selected-date-summary">
+            <span className="selected-date-icon" aria-hidden="true">▦</span>
+            <div><small>Избрана дата</small><strong>{chosenDate.toFormat('cccc, d LLLL yyyy')}</strong></div>
+            <span className="available-times-label">{loadingSlots ? 'Проверяваме...' : availableTimes ? `${availableTimes} часа за избор` : 'Няма свободни часове'}</span>
+          </div>
+          <div className="slot-area">
+            {loadingSlots && <p className="slot-status"><span className="button-spinner" /> Проверяваме календара...</p>}
+            {!loadingSlots && slots.length === 0 && <p className="empty-slots">Няма свободни часове за тази дата. Избери следващ ден.</p>}
+            {!loadingSlots && slots.length > 0 && <div className="time-periods">{slotPeriods.map((period) => <section className="time-period" key={period.key}>
+              <div className="time-period-head"><h3>{period.label}</h3><span>{period.range}</span></div>
+              <div className="slot-grid">{period.slots.map((item) => {
+                const selected = slot?.startsAt === item.startsAt && slot?.staffId === item.staffId
+                return <button type="button" aria-pressed={selected} className={selected ? 'selected' : ''} onClick={() => setSlot(item)} key={`${item.staffId}-${item.startsAt}`}><span className="slot-time"><strong>{item.localTime}</strong>{selected && <i aria-hidden="true">✓</i>}</span>{!staffId && <small>{item.staffName}</small>}</button>
+              })}</div>
+            </section>)}</div>}
+          </div>
         </div>}
       </>}
 

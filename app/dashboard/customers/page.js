@@ -54,11 +54,19 @@ function CustomersContent({ business, locale }) {
     setDeleting(true)
     setError('')
     setDeleteError('')
-    const { error: requestError } = await supabase.rpc('anonymize_customer', { input_business_id: business.id, input_customer_id: customerToDelete.id })
-    setDeleting(false)
-    if (requestError) { setDeleteError(`${en ? 'We could not delete the client' : 'Не успяхме да изтрием клиента'}: ${requestError.message}`); return }
-    setCustomers((current) => current.filter((item) => item.id !== customerToDelete.id))
-    setCustomerToDelete(null)
+    try {
+      const { data } = await supabase.auth.getSession()
+      if (!data.session) throw new Error(en ? 'Sign in again.' : 'Влез отново в профила си.')
+      const response = await fetch(`/api/owner/customers/${customerToDelete.id}`, { method: 'DELETE', headers: { Authorization: `Bearer ${data.session.access_token}` } })
+      const body = await response.json()
+      if (!response.ok) throw new Error(body.error?.message || (en ? 'Please try again.' : 'Опитай отново.'))
+      setCustomers((current) => current.filter((item) => item.id !== customerToDelete.id))
+      setCustomerToDelete(null)
+    } catch (requestError) {
+      setDeleteError(`${en ? 'We could not delete the client' : 'Не успяхме да изтрием клиента'}: ${requestError.message}`)
+    } finally {
+      setDeleting(false)
+    }
   }
 
   return (

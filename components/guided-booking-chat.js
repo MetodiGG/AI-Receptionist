@@ -6,6 +6,8 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { formatBulgarianMonthShort, resolveVisibleBookingDays } from '../lib/booking-window.mjs'
 import { BookingIntakeFields, BookingIntakeSummary } from './booking-intake-fields'
 import { validateBookingIntake } from '../lib/booking-intake.mjs'
+import { BookingConfirmationActions } from './booking-confirmation-actions'
+import { localizedApiMessage } from '../lib/localized-api-message.mjs'
 
 const PAGE_SIZE = 14
 
@@ -76,7 +78,7 @@ export function GuidedBookingChat({ business, locale = 'bg', onShowBooking }) {
         body: JSON.stringify({ ...payload, locale, conversationId: conversationId || undefined }),
       })
       const result = await response.json()
-      if (!response.ok) throw new Error(result.error?.message || (en ? 'We could not continue the conversation.' : 'Не успяхме да продължим разговора.'))
+      if (!response.ok) throw new Error(localizedApiMessage(result.error, locale))
       setConversationId(result.conversationId)
       addMessage('assistant', result.message)
       return result
@@ -265,6 +267,7 @@ export function GuidedBookingChat({ business, locale = 'bg', onShowBooking }) {
           <strong>{t.confirmed}</strong>
           <p>{confirmation.service.name} · {DateTime.fromISO(confirmation.appointment.starts_at).setZone(business.timezone).setLocale(locale).toFormat('d LLLL, HH:mm')} · {confirmation.staff.name}</p>
           <Link className="manage-booking-link" href={`/booking/${confirmation.appointment.cancellation_token}?lang=${locale}`}>{t.manage}</Link>
+          <BookingConfirmationActions appointment={confirmation.appointment} business={business} service={confirmation.service} staff={confirmation.staff} locale={locale} />
           <button type="button" className="secondary-button" onClick={startOver}>{t.newChat}</button>
         </div>}
 

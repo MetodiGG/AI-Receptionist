@@ -1,226 +1,136 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { LanguageSwitch } from '../components/language-switch'
+import { usePublicLocale } from '../hooks/use-public-locale'
+import { HOME_COPY } from '../lib/home-copy'
+import { filterDirectoryBusinesses, getIndustryLabel, INDUSTRY_KEYS, INDUSTRY_META } from '../lib/public-locale.mjs'
 import { hasSupabaseConfig, supabase } from '../lib/supabase'
 
 function Icon({ name }) {
   const paths = {
     spark: <><path d="m12 3-1.4 4.1a5 5 0 0 1-3.1 3.1L3.4 12l4.1 1.4a5 5 0 0 1 3.1 3.1L12 20.6l1.4-4.1a5 5 0 0 1 3.1-3.1l4.1-1.4-4.1-1.8a5 5 0 0 1-3.1-3.1L12 3Z"/><path d="m19 3-.5 1.4a2 2 0 0 1-1.2 1.2L16 6l1.3.5a2 2 0 0 1 1.2 1.2L19 9l.5-1.3a2 2 0 0 1 1.2-1.2L22 6l-1.3-.4a2 2 0 0 1-1.2-1.2L19 3Z"/></>,
-    mail: <><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></>,
-    lock: <><rect x="5" y="10" width="14" height="11" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"/></>,
-    check: <path d="m5 12 4 4L19 6"/>,
-    shield: <><path d="M12 22s8-3.5 8-10V5l-8-3-8 3v7c0 6.5 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></>,
     arrow: <><path d="M5 12h14M13 6l6 6-6 6"/></>,
-    calendar: <><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M16 3v4M8 3v4M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></>,
-    message: <><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/><path d="M8 10h8M8 14h5"/></>,
-    users: <><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></>,
-    clock: <><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></>,
+    check: <path d="m5 12 4 4L19 6"/>,
   }
-
   return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[name]}</svg>
 }
 
-function Logo({ inverse = false }) {
-  return <span className={`marketing-logo ${inverse ? 'inverse' : ''}`}><span className="logo-mark"><Icon name="spark" /></span><span>AI Рецепционист</span></span>
+function Logo() {
+  return <span className="marketing-logo"><span className="logo-mark"><Icon name="spark" /></span><span>AI Receptionist</span></span>
 }
 
-const PERSPECTIVES = {
-  client: {
-    kicker: 'За клиента',
-    title: 'От „имате ли час?“ до потвърдена резервация.',
-    text: 'Клиентът отваря един линк, избира услуга и вижда само реално свободните часове. Без регистрация, обаждане или чакане за отговор.',
-    points: ['Удобно от телефон', 'Реална наличност', 'Линк за управление'],
-  },
-  owner: {
-    kicker: 'За собственика',
-    title: 'Всичко пристига подредено в едно табло.',
-    text: 'Новите резервации, клиентите и разговорите се записват автоматично. Графикът остава актуален, а двойните часове се блокират.',
-    points: ['Един общ календар', 'История на клиентите', 'Настройки без програмист'],
-  },
-}
+function BusinessDirectory({ locale, copy }) {
+  const [businesses, setBusinesses] = useState([])
+  const [industry, setIndustry] = useState('all')
+  const [selectedSlug, setSelectedSlug] = useState('')
+  const [status, setStatus] = useState('loading')
+  const [error, setError] = useState('')
+  const filtered = useMemo(() => filterDirectoryBusinesses(businesses, industry), [businesses, industry])
+  const selected = filtered.find((business) => business.slug === selectedSlug) || filtered[0]
 
-function ProductStage() {
-  return (
-    <div className="marketing-product-stage" aria-label="Преглед на продукта">
-      <div className="stage-glow" aria-hidden="true" />
-      <div className="owner-window">
-        <div className="window-bar"><i /><i /><i /><span>Табло на бизнеса</span></div>
-        <div className="owner-window-body">
-          <aside><span className="mini-logo">✦</span><b /><b /><b /><b /></aside>
-          <div className="owner-canvas">
-            <div className="owner-canvas-head"><span><small>ДНЕС</small><strong>Добър ден, MG Barbershop</strong></span><em>Системата е активна</em></div>
-            <div className="mini-stats"><span><small>Резервации</small><strong>6</strong></span><span><small>Свободни часа</small><strong>12</strong></span><span><small>Клиенти</small><strong>48</strong></span></div>
-            <div className="mini-appointment"><time>14:30</time><span><strong>Подстригване</strong><small>Нова онлайн резервация</small></span><i>Потвърдена</i></div>
-            <div className="mini-appointment muted"><time>16:00</time><span><strong>Подстригване</strong><small>Предстоящ час</small></span><i>Запазена</i></div>
-          </div>
-        </div>
-      </div>
-
-      <div className="client-phone">
-        <div className="phone-speaker" />
-        <div className="phone-business"><span>✦</span><div><small>ОНЛАЙН ЗАПИСВАНЕ</small><strong>MG Barbershop</strong></div></div>
-        <p>Избери удобен час.</p>
-        <div className="phone-service"><span>Подстригване<small>30 минути</small></span><b>25 €</b></div>
-        <div className="phone-dates"><span><small>Ср</small>14</span><span className="active"><small>Чт</small>15</span><span><small>Пт</small>16</span></div>
-        <div className="phone-times"><span>14:30</span><span>15:15</span><span>16:00</span></div>
-        <button type="button" tabIndex={-1}>Продължи <Icon name="arrow" /></button>
-      </div>
-
-      <div className="floating-status status-booked"><span>✓</span><div><strong>Нова резервация</strong><small>Днес, 14:30</small></div></div>
-      <div className="floating-status status-live"><i /><span>Приема резервации 24/7</span></div>
-    </div>
-  )
-}
-
-function PerspectiveVisual({ perspective }) {
-  if (perspective === 'owner') {
-    return (
-      <div className="perspective-visual owner-perspective" aria-label="Примерно табло на собственик">
-        <div className="perspective-top"><span>Днешен график</span><small>3 предстоящи</small></div>
-        <div className="schedule-line"><time>09:30</time><i /><span><strong>Мария Петрова</strong><small>Подстригване · Анелия</small></span><em>Потвърдена</em></div>
-        <div className="schedule-line"><time>11:00</time><i /><span><strong>Иван Димитров</strong><small>Подстригване · Методи</small></span><em>Потвърдена</em></div>
-        <div className="schedule-line new"><time>14:30</time><i /><span><strong>Нова резервация</strong><small>Току-що от публичната страница</small></span><em>Нова</em></div>
-      </div>
-    )
+  function loadBusinesses() {
+    setStatus('loading')
+    setError('')
+    fetch('/api/public/businesses')
+      .then(async (response) => {
+        const result = await response.json()
+        if (!response.ok) throw new Error(result.error?.message || copy.empty)
+        setBusinesses(result.businesses || [])
+        setStatus('ready')
+      })
+      .catch((requestError) => { setError(requestError.message); setStatus('error') })
   }
 
-  return (
-    <div className="perspective-visual client-perspective" aria-label="Примерно клиентско преживяване">
-      <div className="client-journey-head"><span className="journey-avatar">М</span><span><small>MG BARBERSHOP</small><strong>Здравей! Как да помогна?</strong></span><i>Онлайн</i></div>
-      <div className="journey-message user">Искам да резервирам час.</div>
-      <div className="journey-message">Разбира се. Първо избери услуга.</div>
-      <div className="journey-choice"><span><strong>Подстригване</strong><small>30 минути</small></span><b>25 €</b></div>
-      <div className="journey-confirm"><span>✓</span><div><strong>Часът е потвърден</strong><small>Четвъртък, 15 октомври · 14:30</small></div></div>
+  useEffect(loadBusinesses, [])
+  useEffect(() => { setSelectedSlug(filtered[0]?.slug || '') }, [industry, businesses.length])
+
+  return <section className="business-directory" id="clients">
+    <div className="directory-heading"><p className="marketing-kicker dark"><span /> {copy.directoryKicker}</p><h2>{copy.directoryTitle}</h2><p>{copy.directoryLead}</p></div>
+    <div className="directory-shell">
+      <aside className="directory-filters">
+        <label htmlFor="industry-filter">{copy.category}</label>
+        <select id="industry-filter" value={industry} onChange={(event) => setIndustry(event.target.value)}>
+          <option value="all">{copy.all}</option>
+          {INDUSTRY_KEYS.map((key) => <option value={key} key={key}>{INDUSTRY_META[key].icon} {getIndustryLabel(key, locale)}</option>)}
+        </select>
+        <label htmlFor="business-filter">{copy.chooseBusiness}</label>
+        <select id="business-filter" value={selected?.slug || ''} onChange={(event) => setSelectedSlug(event.target.value)} disabled={!filtered.length}>
+          {filtered.map((business) => <option value={business.slug} key={business.id}>{business.name}</option>)}
+        </select>
+        <div className="category-chips" aria-label={copy.category}>
+          {INDUSTRY_KEYS.slice(0, 4).map((key) => <button type="button" className={industry === key ? 'active' : ''} onClick={() => setIndustry(key)} key={key}><span>{INDUSTRY_META[key].icon}</span>{getIndustryLabel(key, locale)}</button>)}
+        </div>
+      </aside>
+      <div className="directory-result" aria-live="polite">
+        {status === 'loading' && <div className="directory-state"><span className="button-spinner" />{copy.loading}</div>}
+        {status === 'error' && <div className="directory-state"><p>{error}</p><button type="button" onClick={loadBusinesses}>{copy.retry}</button></div>}
+        {status === 'ready' && !selected && <div className="directory-state"><p>{copy.empty}</p></div>}
+        {status === 'ready' && selected && <article className="directory-business-card" style={{ '--card-color': selected.theme_color || '#173e2a' }}>
+          <div className="directory-business-head"><span className="directory-business-icon">{INDUSTRY_META[selected.industry]?.icon || '✶'}</span><div><small>{getIndustryLabel(selected.industry, locale)}</small><h3>{selected.name}</h3>{selected.address && <p>⌖ {selected.address}</p>}</div><span className="directory-live"><i /> {copy.online}</span></div>
+          <div className="directory-services"><small>{copy.services}</small><div>{selected.services.slice(0, 5).map((service) => <span key={service.id}>{service.name}<b>{service.duration_min} min</b></span>)}</div></div>
+          <Link className="directory-book-button" href={`/book/${selected.slug}?lang=${locale}`}>{copy.book} <Icon name="arrow" /></Link>
+        </article>}
+      </div>
     </div>
-  )
+  </section>
+}
+
+function HeroVisual({ locale }) {
+  const english = locale === 'en'
+  return <div className="platform-hero-visual" aria-hidden="true">
+    <div className="hero-service-card beauty"><span>✂</span><small>{getIndustryLabel('beauty', locale)}</small><strong>{english ? 'Haircut' : 'Подстригване'}</strong><i>10:30</i></div>
+    <div className="hero-service-card auto"><span>⚙</span><small>{getIndustryLabel('auto', locale)}</small><strong>{english ? 'Diagnostics' : 'Диагностика'}</strong><i>14:00</i></div>
+    <div className="hero-service-card health"><span>+</span><small>{getIndustryLabel('health', locale)}</small><strong>{english ? 'Consultation' : 'Консултация'}</strong><i>16:15</i></div>
+    <div className="hero-calendar-card"><small>{english ? 'AVAILABLE TIMES' : 'СВОБОДНИ ЧАСОВЕ'}</small><div><span>09:30</span><span>11:00</span><span>13:30</span></div><strong>✓ {english ? 'Confirmed' : 'Потвърдено'}</strong></div>
+  </div>
 }
 
 export default function Home() {
   const router = useRouter()
+  const { locale, setLocale } = usePublicLocale()
+  const copy = HOME_COPY[locale]
   const [mode, setMode] = useState('login')
-  const [perspective, setPerspective] = useState('client')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [message, setMessage] = useState(null)
   const [loading, setLoading] = useState(false)
+  const isLogin = mode === 'login'
 
-  useEffect(() => {
-    if (!hasSupabaseConfig) return
-    supabase.auth.getSession().then(({ data }) => {
-      if (data.session) router.replace('/dashboard')
-    })
-  }, [router])
-
-  function switchMode() {
-    setMode((current) => current === 'login' ? 'signup' : 'login')
-    setMessage(null)
-  }
+  function switchMode() { setMode((current) => current === 'login' ? 'signup' : 'login'); setMessage(null) }
 
   async function submit(event) {
     event.preventDefault()
     setMessage(null)
-    if (!hasSupabaseConfig) {
-      setMessage({ type: 'error', text: 'Supabase настройките липсват. Добави environment variables и опитай отново.' })
-      return
-    }
-
+    if (!hasSupabaseConfig) { setMessage({ type: 'error', text: 'Supabase configuration is missing.' }); return }
     const normalizedEmail = email.trim().toLowerCase()
-    if (!normalizedEmail || !normalizedEmail.includes('@')) {
-      setMessage({ type: 'error', text: 'Въведи валиден имейл адрес.' })
-      return
-    }
-    if (password.length < 6) {
-      setMessage({ type: 'error', text: 'Паролата трябва да е поне 6 символа.' })
-      return
-    }
-
+    if (!normalizedEmail.includes('@')) { setMessage({ type: 'error', text: locale === 'bg' ? 'Въведи валиден имейл адрес.' : 'Enter a valid email address.' }); return }
+    if (password.length < 6) { setMessage({ type: 'error', text: locale === 'bg' ? 'Паролата трябва да е поне 6 символа.' : 'Password must be at least 6 characters.' }); return }
     setLoading(true)
-    const result = mode === 'login'
-      ? await supabase.auth.signInWithPassword({ email: normalizedEmail, password })
-      : await supabase.auth.signUp({ email: normalizedEmail, password })
+    const result = isLogin ? await supabase.auth.signInWithPassword({ email: normalizedEmail, password }) : await supabase.auth.signUp({ email: normalizedEmail, password })
     setLoading(false)
-
-    if (result.error) {
-      const friendlyMessages = {
-        'Invalid login credentials': 'Невалиден имейл или парола.',
-        'Email not confirmed': 'Потвърди имейла си, преди да влезеш.',
-        'User already registered': 'Вече има профил с този имейл.',
-      }
-      setMessage({ type: 'error', text: friendlyMessages[result.error.message] || result.error.message })
-      return
-    }
-    if (result.data.session) {
-      router.push('/dashboard')
-      return
-    }
-    setMessage({ type: 'success', text: 'Профилът е създаден. Провери имейла си и потвърди регистрацията.' })
+    if (result.error) { setMessage({ type: 'error', text: result.error.message }); return }
+    if (result.data.session) { router.push('/dashboard'); return }
+    setMessage({ type: 'success', text: locale === 'bg' ? 'Профилът е създаден. Провери имейла си.' : 'Your profile is ready. Check your email to confirm it.' })
   }
 
-  const isLogin = mode === 'login'
-  const activePerspective = PERSPECTIVES[perspective]
+  return <main className="marketing-page platform-home">
+    <nav className="marketing-nav platform-nav" aria-label={locale === 'bg' ? 'Основна навигация' : 'Main navigation'}>
+      <a href="#top" aria-label="AI Receptionist"><Logo /></a>
+      <div className="marketing-nav-links"><a href="#clients">{copy.navClients}</a><a href="#how">{copy.how}</a><a href="#business">{copy.navBusiness}</a></div>
+      <div className="platform-nav-actions"><LanguageSwitch locale={locale} onChange={setLocale} compact /><a className="marketing-nav-cta" href="#business">{copy.login} <Icon name="arrow" /></a></div>
+    </nav>
 
-  return (
-    <main className="marketing-page">
-      <nav className="marketing-nav" aria-label="Основна навигация">
-        <Logo />
-        <div className="marketing-nav-links"><a href="#experience">Как работи</a><a href="#client-view">За клиента</a><a href="#access">За бизнеса</a></div>
-        <a className="marketing-nav-cta" href="#access">Вход за бизнес <Icon name="arrow" /></a>
-      </nav>
+    <section className="platform-hero" id="top"><div className="hero-orb orb-one" aria-hidden="true" /><div className="hero-orb orb-two" aria-hidden="true" /><div className="platform-hero-copy"><p className="marketing-kicker"><span /> {copy.eyebrow}</p><h1>{copy.titleA}<br /><em>{copy.titleB}</em><br />{copy.titleC}</h1><p>{copy.lead}</p><div className="marketing-hero-actions"><a className="marketing-primary-cta" href="#clients">{copy.find} <Icon name="arrow" /></a><a className="marketing-secondary-cta" href="#business">{copy.add}</a></div><div className="marketing-trust-row">{copy.trust.map((item) => <span key={item}><Icon name="check" /> {item}</span>)}</div></div><HeroVisual locale={locale} /></section>
 
-      <section className="marketing-hero-section">
-        <div className="hero-orb orb-one" aria-hidden="true" /><div className="hero-orb orb-two" aria-hidden="true" />
-        <div className="marketing-hero-copy">
-          <p className="marketing-kicker"><span /> Онлайн рецепция за малкия бизнес</p>
-          <h1>Клиентите резервират.<br />Ти <em>печелиш време.</em></h1>
-          <p className="marketing-hero-lead">Един красив линк приема резервации, показва реалните свободни часове и подрежда всичко в твоето табло — дори когато си зает.</p>
-          <div className="marketing-hero-actions"><Link className="marketing-primary-cta" href="/book/mg-barbershop">Виж като клиент <Icon name="arrow" /></Link><a className="marketing-secondary-cta" href="#experience">Разгледай как работи</a></div>
-          <div className="marketing-trust-row"><span><Icon name="check" /> Без платени AI съобщения</span><span><Icon name="check" /> Без двойни резервации</span><span><Icon name="check" /> На български</span></div>
-        </div>
-        <ProductStage />
-      </section>
+    <BusinessDirectory locale={locale} copy={copy} />
 
-      <div className="marketing-marquee" aria-label="Основни възможности"><div><span>РЕЗЕРВАЦИИ 24/7</span><i>✦</i><span>РЕАЛНА НАЛИЧНОСТ</span><i>✦</i><span>КЛИЕНТСКА ИСТОРИЯ</span><i>✦</i><span>БЕЗ ДВОЙНИ ЧАСОВЕ</span><i>✦</i><span>РЕЗЕРВАЦИИ 24/7</span><i>✦</i><span>РЕАЛНА НАЛИЧНОСТ</span></div></div>
+    <section className="platform-process" id="how"><div className="directory-heading"><p className="marketing-kicker"><span /> {copy.processKicker}</p><h2>{copy.processTitle}</h2></div><div className="platform-steps">{copy.steps.map(([title, text], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{text}</p></article>)}</div></section>
 
-      <section className="experience-section" id="experience">
-        <div className="section-heading"><p className="marketing-kicker dark"><span /> Две гледни точки. Една система.</p><h2>Лесно за клиента.<br /><em>Подредено за бизнеса.</em></h2><p>Покажи на собственика не просто софтуер, а как изглежда целият път — от първото клиентско запитване до новия час в календара.</p></div>
-        <div className="perspective-switch" role="tablist" aria-label="Гледна точка">
-          <button role="tab" aria-selected={perspective === 'client'} className={perspective === 'client' ? 'active' : ''} onClick={() => setPerspective('client')}><Icon name="users" /> Клиент</button>
-          <button role="tab" aria-selected={perspective === 'owner'} className={perspective === 'owner' ? 'active' : ''} onClick={() => setPerspective('owner')}><Icon name="calendar" /> Собственик</button>
-        </div>
-        <div className="perspective-panel" key={perspective}>
-          <div className="perspective-copy"><p>{activePerspective.kicker}</p><h3>{activePerspective.title}</h3><span>{activePerspective.text}</span><ul>{activePerspective.points.map((point) => <li key={point}><Icon name="check" /> {point}</li>)}</ul>{perspective === 'client' && <Link href="/book/mg-barbershop">Отвори реалното преживяване <Icon name="arrow" /></Link>}</div>
-          <PerspectiveVisual perspective={perspective} />
-        </div>
-      </section>
+    <section className="platform-business" id="business"><div className="platform-business-copy"><p className="marketing-kicker"><span /> {copy.ownerKicker}</p><h2>{copy.ownerTitle}</h2><p>{copy.ownerLead}</p><div className="platform-benefits">{copy.benefits.map((item) => <span key={item}><Icon name="check" /> {item}</span>)}</div></div><div className="access-card platform-auth-card"><p className="auth-kicker">{isLogin ? copy.auth.loginKicker : copy.auth.signupKicker}</p><h2>{isLogin ? copy.auth.loginTitle : copy.auth.signupTitle}</h2><p className="auth-subtitle">{isLogin ? copy.auth.loginSub : copy.auth.signupSub}</p><form className="auth-form" onSubmit={submit} noValidate><div className="field"><label htmlFor="email">{copy.auth.email}</label><input id="email" className="text-input" type="email" autoComplete="email" placeholder="name@business.com" value={email} onChange={(event) => setEmail(event.target.value)} disabled={loading} /></div><div className="field"><label htmlFor="password">{copy.auth.password}</label><input id="password" className="text-input" type="password" autoComplete={isLogin ? 'current-password' : 'new-password'} placeholder={copy.auth.min} value={password} onChange={(event) => setPassword(event.target.value)} disabled={loading} /></div>{message && <p className={`form-message ${message.type === 'success' ? 'success' : ''}`} role="alert">{message.text}</p>}<button className="primary-button" type="submit" disabled={loading}>{loading ? copy.auth.wait : isLogin ? copy.auth.login : copy.auth.signup}{!loading && <Icon name="arrow" />}</button></form><p className="auth-switch">{isLogin ? copy.auth.noAccount : copy.auth.hasAccount} <button className="link-button" type="button" onClick={switchMode}>{isLogin ? copy.auth.register : copy.auth.signIn}</button></p></div></section>
 
-      <section className="client-story-section" id="client-view">
-        <div className="client-story-intro"><p className="marketing-kicker"><span /> Клиентското преживяване</p><h2>Никакво чудене.<br />Само три ясни стъпки.</h2><p>Страницата е създадена за телефон, защото точно там клиентът най-често решава да запази час.</p><Link href="/book/mg-barbershop">Тествай на живо <Icon name="arrow" /></Link></div>
-        <div className="journey-steps">
-          <article><span>01</span><div className="journey-icon"><Icon name="message" /></div><h3>Отваря един линк</h3><p>От Instagram, Google профил, сайт или съобщение — без регистрация.</p></article>
-          <article><span>02</span><div className="journey-icon"><Icon name="clock" /></div><h3>Избира реален час</h3><p>Вижда услуги, специалисти и само часовете, които наистина са свободни.</p></article>
-          <article><span>03</span><div className="journey-icon"><Icon name="check" /></div><h3>Получава потвърждение</h3><p>Резервацията влиза в таблото и може да бъде прегледана или отказана от личен линк.</p></article>
-        </div>
-      </section>
-
-      <section className="live-demo-section"><div className="demo-pulse" aria-hidden="true"><span>✦</span></div><div><p>Готово за показване</p><h2>Влез в ролята на клиент.</h2><span>Това е работеща публична страница с примерен бизнес и реална проверка на свободните часове.</span></div><Link href="/book/mg-barbershop">Отвори клиентското демо <Icon name="arrow" /></Link></section>
-
-      <section className="access-section" id="access">
-        <div className="access-copy"><Logo inverse /><p className="marketing-kicker"><span /> Контролният център</p><h2>Твоят бизнес.<br /><em>Твоите правила.</em></h2><p>Настрой услуги, екип, графици и клиентската страница от едно място. Промените се отразяват веднага.</p><div className="access-benefits"><span><Icon name="shield" /> Данните са защитени</span><span><Icon name="calendar" /> Календар в реално време</span></div></div>
-        <div className="access-card">
-          <p className="auth-kicker">{isLogin ? 'Профил за бизнес' : 'Започни безплатно'}</p><h2>{isLogin ? 'Добре дошъл отново' : 'Създай бизнес профил'}</h2><p className="auth-subtitle">{isLogin ? 'Влез в таблото и управлявай своите резервации.' : 'Настрой публичната си страница само за няколко минути.'}</p>
-          <form className="auth-form" onSubmit={submit} noValidate>
-            <div className="field"><label htmlFor="email">Имейл адрес</label><div className="input-wrap"><Icon name="mail" /><input id="email" className="text-input" type="email" autoComplete="email" placeholder="name@business.bg" value={email} onChange={(event) => setEmail(event.target.value)} disabled={loading} /></div></div>
-            <div className="field"><label htmlFor="password">Парола</label><div className="input-wrap"><Icon name="lock" /><input id="password" className="text-input" type="password" autoComplete={isLogin ? 'current-password' : 'new-password'} placeholder="Поне 6 символа" value={password} onChange={(event) => setPassword(event.target.value)} disabled={loading} /></div></div>
-            {message && <p className={`form-message ${message.type === 'success' ? 'success' : ''}`} role="alert">{message.text}</p>}
-            <button className="primary-button" type="submit" disabled={loading}>{loading ? <span className="button-spinner" /> : null}{loading ? 'Момент...' : isLogin ? 'Вход в профила' : 'Създай профил'}{!loading ? <Icon name="arrow" /> : null}</button>
-          </form>
-          <p className="auth-switch">{isLogin ? 'Все още нямаш профил? ' : 'Вече имаш профил? '}<button className="link-button" type="button" onClick={switchMode}>{isLogin ? 'Регистрация' : 'Вход'}</button></p>
-        </div>
-      </section>
-
-      <footer className="marketing-footer"><Logo /><span>Онлайн резервации с човешко усещане.</span><Link href="/book/mg-barbershop">Клиентско демо ↗</Link></footer>
-    </main>
-  )
+    <footer className="marketing-footer platform-footer"><Logo /><span>{copy.footer}</span><div><a href="#clients">{copy.navClients}</a><a href="#business">{copy.navBusiness}</a></div></footer>
+  </main>
 }

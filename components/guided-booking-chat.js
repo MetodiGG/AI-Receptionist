@@ -7,27 +7,28 @@ import { formatBulgarianMonthShort, resolveVisibleBookingDays } from '../lib/boo
 
 const PAGE_SIZE = 14
 
-const TOPICS = [
-  ['services', 'Услуги и цени'],
-  ['hours', 'Работно време'],
-  ['contact', 'Адрес и контакт'],
-  ['cancellation', 'Отказване на час'],
-]
+const TEXT = {
+  bg: { topics: [['services', 'Услуги и цени'], ['hours', 'Работно време'], ['contact', 'Адрес и контакт'], ['cancellation', 'Отказване на час']], title: 'Онлайн асистент', subtitle: 'Безплатен · проверява календара в реално време', form: 'Отвори стандартната форма', book: 'Запази час', back: 'Назад', chooseService: 'Избери услуга', chooseStaff: 'Избери специалист', chooseDate: 'Избери дата', chooseTime: 'Избери свободен час', noPreference: 'Без предпочитание', earliest: 'Най-ранният свободен час', previous: 'Предишни', next: 'Следващи', otherDate: 'Друга дата', details: 'Данни за потвърждение', review: 'Прегледай резервацията', confirm: 'Потвърди резервацията', confirmed: 'Резервацията е потвърдена', manage: 'Преглед и управление', newChat: 'Нов разговор', placeholder: 'Или напиши въпрос с твои думи…', note: 'Асистентът използва само публикуваните услуги, графици и свободни часове.' },
+  en: { topics: [['services', 'Services & prices'], ['hours', 'Business hours'], ['contact', 'Address & contact'], ['cancellation', 'Cancel a booking']], title: 'Online assistant', subtitle: 'Free · checks live availability', form: 'Open standard form', book: 'Book an appointment', back: 'Back', chooseService: 'Choose a service', chooseStaff: 'Choose a specialist', chooseDate: 'Choose a date', chooseTime: 'Choose an available time', noPreference: 'No preference', earliest: 'Earliest available time', previous: 'Previous', next: 'Next', otherDate: 'Another date', details: 'Contact details', review: 'Review your booking', confirm: 'Confirm booking', confirmed: 'Your booking is confirmed', manage: 'View and manage', newChat: 'New conversation', placeholder: 'Or ask a question in your own words…', note: 'The assistant only uses published services, schedules and available times.' },
+}
 
-function formatMoney(value, currency = 'EUR') {
-  return new Intl.NumberFormat('bg-BG', { style: 'currency', currency }).format(Number(value || 0))
+function formatMoney(value, currency = 'EUR', locale = 'bg') {
+  return new Intl.NumberFormat(locale === 'en' ? 'en-GB' : 'bg-BG', { style: 'currency', currency }).format(Number(value || 0))
 }
 
 function createMessage(role, content) {
   return { id: `${Date.now()}-${Math.random()}`, role, content }
 }
 
-function defaultWelcome(business) {
-  return business.welcome_message || `Здравей! Аз съм онлайн асистентът на ${business.name}. Мога да ти помогна да запазиш час или да намериш важна информация.`
+function defaultWelcome(business, locale) {
+  if (locale === 'bg' && business.welcome_message) return business.welcome_message
+  return locale === 'en' ? `Hello! I am ${business.name}'s online assistant. I can help you book an appointment or find important information.` : `Здравей! Аз съм онлайн асистентът на ${business.name}. Мога да ти помогна да запазиш час или да намериш важна информация.`
 }
 
-export function GuidedBookingChat({ business, onShowBooking }) {
-  const [messages, setMessages] = useState([createMessage('assistant', defaultWelcome(business))])
+export function GuidedBookingChat({ business, locale = 'bg', onShowBooking }) {
+  const t = TEXT[locale]
+  const en = locale === 'en'
+  const [messages, setMessages] = useState([createMessage('assistant', defaultWelcome(business, locale))])
   const [conversationId, setConversationId] = useState(null)
   const [step, setStep] = useState('menu')
   const [selection, setSelection] = useState({ serviceId: '', staffId: null, date: '', slot: null })
@@ -69,10 +70,10 @@ export function GuidedBookingChat({ business, onShowBooking }) {
       const response = await fetch(`/api/public/${business.slug}/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...payload, conversationId: conversationId || undefined }),
+        body: JSON.stringify({ ...payload, locale, conversationId: conversationId || undefined }),
       })
       const result = await response.json()
-      if (!response.ok) throw new Error(result.error?.message || 'Не успяхме да продължим разговора.')
+      if (!response.ok) throw new Error(result.error?.message || (en ? 'We could not continue the conversation.' : 'Не успяхме да продължим разговора.'))
       setConversationId(result.conversationId)
       addMessage('assistant', result.message)
       return result
@@ -85,7 +86,7 @@ export function GuidedBookingChat({ business, onShowBooking }) {
   }
 
   async function startBooking() {
-    const result = await perform({ action: 'start_booking' }, 'Искам да резервирам час.')
+    const result = await perform({ action: 'start_booking' }, en ? 'I would like to book an appointment.' : 'Искам да резервирам час.')
     if (result && business.services.length && business.staff.length) setStep('service')
   }
 
@@ -94,7 +95,7 @@ export function GuidedBookingChat({ business, onShowBooking }) {
   }
 
   async function chooseService(item) {
-    const result = await perform({ action: 'select_service', serviceId: item.id }, `Избирам „${item.name}“.`)
+    const result = await perform({ action: 'select_service', serviceId: item.id }, en ? `I choose “${item.name}”.` : `Избирам „${item.name}“.`)
     if (!result) return
     setSelection({ serviceId: item.id, staffId: null, date: '', slot: null })
     setSlots([])
@@ -103,7 +104,7 @@ export function GuidedBookingChat({ business, onShowBooking }) {
 
   async function chooseStaff(person) {
     const staffId = person?.id || null
-    const display = person ? `Предпочитам ${person.name}.` : 'Нямам предпочитание за специалист.'
+    const display = person ? (en ? `I prefer ${person.name}.` : `Предпочитам ${person.name}.`) : (en ? 'I have no specialist preference.' : 'Нямам предпочитание за специалист.')
     const result = await perform({ action: 'select_staff', serviceId: selection.serviceId, staffId }, display)
     if (!result) return
     setSelection((current) => ({ ...current, staffId, date: '', slot: null }))
@@ -112,8 +113,8 @@ export function GuidedBookingChat({ business, onShowBooking }) {
   }
 
   async function chooseDate(date) {
-    const readable = DateTime.fromISO(date, { zone: business.timezone }).setLocale('bg').toFormat('cccc, d LLLL')
-    const result = await perform({ action: 'select_date', serviceId: selection.serviceId, staffId: selection.staffId, date }, `Провери за ${readable}.`)
+    const readable = DateTime.fromISO(date, { zone: business.timezone }).setLocale(locale).toFormat('cccc, d LLLL')
+    const result = await perform({ action: 'select_date', serviceId: selection.serviceId, staffId: selection.staffId, date }, en ? `Check ${readable}.` : `Провери за ${readable}.`)
     if (!result) return
     setSelection((current) => ({ ...current, date, slot: null }))
     setSlots(result.slots || [])
@@ -126,7 +127,7 @@ export function GuidedBookingChat({ business, onShowBooking }) {
       serviceId: selection.serviceId,
       staffId: slot.staffId,
       startsAt: slot.startsAt,
-    }, `Избирам ${slot.localTime} при ${slot.staffName}.`)
+    }, en ? `I choose ${slot.localTime} with ${slot.staffName}.` : `Избирам ${slot.localTime} при ${slot.staffName}.`)
     if (!result) return
     setSelection((current) => ({ ...current, staffId: slot.staffId, slot: result.slot || slot }))
     setStep('details')
@@ -134,8 +135,8 @@ export function GuidedBookingChat({ business, onShowBooking }) {
 
   function reviewDetails(event) {
     event.preventDefault()
-    addMessage('user', 'Въведох данните си за контакт.')
-    addMessage('assistant', 'Провери обобщението и потвърди само ако всичко е правилно.')
+    addMessage('user', en ? 'I entered my contact details.' : 'Въведох данните си за контакт.')
+    addMessage('assistant', en ? 'Review the summary and confirm if everything is correct.' : 'Провери обобщението и потвърди само ако всичко е правилно.')
     setStep('confirm')
     setError('')
   }
@@ -149,7 +150,7 @@ export function GuidedBookingChat({ business, onShowBooking }) {
       customer: { name: details.name, phone: details.phone, email: details.email },
       notes: details.notes,
       consent: details.consent,
-    }, 'Потвърждавам резервацията.')
+    }, en ? 'I confirm the booking.' : 'Потвърждавам резервацията.')
     if (!result?.booking) return
     setConfirmation(result.booking)
     setStep('done')
@@ -165,7 +166,7 @@ export function GuidedBookingChat({ business, onShowBooking }) {
   }
 
   function startOver() {
-    setMessages([createMessage('assistant', defaultWelcome(business))])
+    setMessages([createMessage('assistant', defaultWelcome(business, locale))])
     setConversationId(null)
     setStep('menu')
     setSelection({ serviceId: '', staffId: null, date: '', slot: null })
@@ -177,10 +178,10 @@ export function GuidedBookingChat({ business, onShowBooking }) {
   }
 
   return (
-    <section className="booking-card chat-card guided-chat-card" aria-label="Онлайн асистент">
+    <section className="booking-card chat-card guided-chat-card" aria-label={t.title}>
       <div className="chat-head">
-        <div><span className="booking-online-dot" /><strong>Онлайн асистент</strong><small>Безплатен · проверява календара в реално време</small></div>
-        <button type="button" className="booking-text-button" onClick={onShowBooking}>Отвори стандартната форма</button>
+        <div><span className="booking-online-dot" /><strong>{t.title}</strong><small>{t.subtitle}</small></div>
+        <button type="button" className="booking-text-button" onClick={onShowBooking}>{t.form}</button>
       </div>
 
       <div className="chat-messages" aria-live="polite">
@@ -191,82 +192,82 @@ export function GuidedBookingChat({ business, onShowBooking }) {
 
       <div className="guided-chat-controls">
         {step === 'menu' && <div className="guided-action-grid">
-          <button className="guided-primary-action" type="button" onClick={startBooking} disabled={sending}>Запази час <span>→</span></button>
-          {TOPICS.map(([topic, label]) => <button type="button" onClick={() => showTopic(topic, label)} disabled={sending} key={topic}>{label}</button>)}
-          {business.bot_instructions && <button type="button" onClick={() => showTopic('rules', 'Имате ли допълнителни правила?')} disabled={sending}>Правила и условия</button>}
+          <button className="guided-primary-action" type="button" onClick={startBooking} disabled={sending}>{t.book} <span>→</span></button>
+          {t.topics.map(([topic, label]) => <button type="button" onClick={() => showTopic(topic, label)} disabled={sending} key={topic}>{label}</button>)}
+          {business.bot_instructions && <button type="button" onClick={() => showTopic('rules', en ? 'Do you have additional rules?' : 'Имате ли допълнителни правила?')} disabled={sending}>{en ? 'Rules and terms' : 'Правила и условия'}</button>}
         </div>}
 
         {step === 'service' && <div className="guided-step">
-          <div className="guided-step-head"><div><small>Стъпка 1 от 5</small><strong>Избери услуга</strong></div><button type="button" onClick={() => setStep('menu')}>Назад</button></div>
-          <div className="guided-option-list">{business.services.map((item) => <button type="button" onClick={() => chooseService(item)} disabled={sending} key={item.id}><span><strong>{item.name}</strong><small>{item.duration_min} минути</small></span><b>{formatMoney(item.price, item.currency)}</b></button>)}</div>
+          <div className="guided-step-head"><div><small>{en ? 'Step 1 of 5' : 'Стъпка 1 от 5'}</small><strong>{t.chooseService}</strong></div><button type="button" onClick={() => setStep('menu')}>{t.back}</button></div>
+          <div className="guided-option-list">{business.services.map((item) => <button type="button" onClick={() => chooseService(item)} disabled={sending} key={item.id}><span><strong>{item.name}</strong><small>{item.duration_min} {en ? 'minutes' : 'минути'}</small></span><b>{formatMoney(item.price, item.currency, locale)}</b></button>)}</div>
         </div>}
 
         {step === 'staff' && <div className="guided-step">
-          <div className="guided-step-head"><div><small>Стъпка 2 от 5</small><strong>Избери специалист</strong></div><button type="button" onClick={() => setStep('service')}>Назад</button></div>
+          <div className="guided-step-head"><div><small>{en ? 'Step 2 of 5' : 'Стъпка 2 от 5'}</small><strong>{t.chooseStaff}</strong></div><button type="button" onClick={() => setStep('service')}>{t.back}</button></div>
           <div className="guided-option-list compact">
-            <button type="button" onClick={() => chooseStaff(null)} disabled={sending}><span><strong>Без предпочитание</strong><small>Най-ранният свободен час</small></span><b>✦</b></button>
-            {availableStaff.map((person) => <button type="button" onClick={() => chooseStaff(person)} disabled={sending} key={person.id}><span><strong>{person.name}</strong><small>{person.bio || 'Специалист'}</small></span><b>{person.name.slice(0, 1).toUpperCase()}</b></button>)}
+            <button type="button" onClick={() => chooseStaff(null)} disabled={sending}><span><strong>{t.noPreference}</strong><small>{t.earliest}</small></span><b>✦</b></button>
+            {availableStaff.map((person) => <button type="button" onClick={() => chooseStaff(person)} disabled={sending} key={person.id}><span><strong>{person.name}</strong><small>{person.bio || (en ? 'Specialist' : 'Специалист')}</small></span><b>{person.name.slice(0, 1).toUpperCase()}</b></button>)}
           </div>
         </div>}
 
         {step === 'date' && <div className="guided-step">
-          <div className="guided-step-head"><div><small>Стъпка 3 от 5</small><strong>Избери дата</strong></div><button type="button" onClick={() => setStep('staff')}>Назад</button></div>
+          <div className="guided-step-head"><div><small>{en ? 'Step 3 of 5' : 'Стъпка 3 от 5'}</small><strong>{t.chooseDate}</strong></div><button type="button" onClick={() => setStep('staff')}>{t.back}</button></div>
           <div className="guided-date-grid">{visibleDates.map((item) => {
-            const itemDate = DateTime.fromISO(item).setLocale('bg')
-            return <button type="button" onClick={() => chooseDate(item)} disabled={sending} key={item}><small>{itemDate.toFormat('ccc')}</small><strong>{itemDate.toFormat('d')}</strong><span>{formatBulgarianMonthShort(itemDate.month)}</span></button>
+            const itemDate = DateTime.fromISO(item).setLocale(locale)
+            return <button type="button" onClick={() => chooseDate(item)} disabled={sending} key={item}><small>{itemDate.toFormat('ccc')}</small><strong>{itemDate.toFormat('d')}</strong><span>{en ? itemDate.toFormat('LLL') : formatBulgarianMonthShort(itemDate.month)}</span></button>
           })}</div>
           {allDates.length > PAGE_SIZE && <div className="guided-pagination">
-            <button type="button" onClick={() => setDateOffset((current) => Math.max(0, current - PAGE_SIZE))} disabled={dateOffset === 0}>← Предишни</button>
-            <button type="button" onClick={() => setDateOffset((current) => Math.min(Math.max(0, allDates.length - PAGE_SIZE), current + PAGE_SIZE))} disabled={dateOffset + PAGE_SIZE >= allDates.length}>Следващи →</button>
+            <button type="button" onClick={() => setDateOffset((current) => Math.max(0, current - PAGE_SIZE))} disabled={dateOffset === 0}>← {t.previous}</button>
+            <button type="button" onClick={() => setDateOffset((current) => Math.min(Math.max(0, allDates.length - PAGE_SIZE), current + PAGE_SIZE))} disabled={dateOffset + PAGE_SIZE >= allDates.length}>{t.next} →</button>
           </div>}
         </div>}
 
         {step === 'slot' && <div className="guided-step">
-          <div className="guided-step-head"><div><small>Стъпка 3 от 5</small><strong>Избери свободен час</strong></div><button type="button" onClick={() => setStep('date')}>Друга дата</button></div>
+          <div className="guided-step-head"><div><small>{en ? 'Step 3 of 5' : 'Стъпка 3 от 5'}</small><strong>{t.chooseTime}</strong></div><button type="button" onClick={() => setStep('date')}>{t.otherDate}</button></div>
           <div className="guided-slot-grid">{slots.map((slot) => <button type="button" onClick={() => chooseSlot(slot)} disabled={sending} key={`${slot.staffId}-${slot.startsAt}`}><strong>{slot.localTime}</strong><small>{slot.staffName}</small></button>)}</div>
         </div>}
 
         {step === 'details' && <form className="guided-details-form" onSubmit={reviewDetails}>
-          <div className="guided-step-head"><div><small>Стъпка 4 от 5</small><strong>Данни за потвърждение</strong></div><button type="button" onClick={() => setStep('slot')}>Назад</button></div>
+          <div className="guided-step-head"><div><small>{en ? 'Step 4 of 5' : 'Стъпка 4 от 5'}</small><strong>{t.details}</strong></div><button type="button" onClick={() => setStep('slot')}>{t.back}</button></div>
           <div className="guided-form-grid">
-            <label><span>Име *</span><input required minLength={2} value={details.name} onChange={(event) => setDetails({ ...details, name: event.target.value })} placeholder="Твоето име" /></label>
-            <label><span>Телефон *</span><input required minLength={6} type="tel" value={details.phone} onChange={(event) => setDetails({ ...details, phone: event.target.value })} placeholder="+359 88 123 4567" /></label>
-            <label><span>Имейл</span><input type="email" value={details.email} onChange={(event) => setDetails({ ...details, email: event.target.value })} placeholder="name@example.com" /></label>
-            <label><span>Бележка</span><input value={details.notes} onChange={(event) => setDetails({ ...details, notes: event.target.value })} placeholder="По желание" maxLength={600} /></label>
-            <label className="booking-consent full"><input required type="checkbox" checked={details.consent} onChange={(event) => setDetails({ ...details, consent: event.target.checked })} /><span>Приемам <Link href="/privacy" target="_blank">политиката за поверителност</Link> за тази резервация.</span></label>
+            <label><span>{en ? 'Name *' : 'Име *'}</span><input required minLength={2} value={details.name} onChange={(event) => setDetails({ ...details, name: event.target.value })} placeholder={en ? 'Your name' : 'Твоето име'} /></label>
+            <label><span>{en ? 'Phone *' : 'Телефон *'}</span><input required minLength={6} type="tel" value={details.phone} onChange={(event) => setDetails({ ...details, phone: event.target.value })} placeholder="+359 88 123 4567" /></label>
+            <label><span>{en ? 'Email' : 'Имейл'}</span><input type="email" value={details.email} onChange={(event) => setDetails({ ...details, email: event.target.value })} placeholder="name@example.com" /></label>
+            <label><span>{en ? 'Note' : 'Бележка'}</span><input value={details.notes} onChange={(event) => setDetails({ ...details, notes: event.target.value })} placeholder={en ? 'Optional' : 'По желание'} maxLength={600} /></label>
+            <label className="booking-consent full"><input required type="checkbox" checked={details.consent} onChange={(event) => setDetails({ ...details, consent: event.target.checked })} /><span>{en ? 'I accept the ' : 'Приемам '}<Link href="/privacy" target="_blank">{en ? 'privacy policy' : 'политиката за поверителност'}</Link>{en ? ' for this booking.' : ' за тази резервация.'}</span></label>
           </div>
-          <button className="booking-primary" type="submit">Продължи към преглед</button>
+          <button className="booking-primary" type="submit">{en ? 'Continue to review' : 'Продължи към преглед'}</button>
         </form>}
 
         {step === 'confirm' && <div className="guided-confirmation">
-          <div className="guided-step-head"><div><small>Стъпка 5 от 5</small><strong>Прегледай резервацията</strong></div><button type="button" onClick={() => setStep('details')}>Редактирай</button></div>
+          <div className="guided-step-head"><div><small>{en ? 'Step 5 of 5' : 'Стъпка 5 от 5'}</small><strong>{t.review}</strong></div><button type="button" onClick={() => setStep('details')}>{en ? 'Edit' : 'Редактирай'}</button></div>
           <div className="guided-booking-summary">
-            <span><small>Услуга</small><strong>{service?.name}</strong></span>
-            <span><small>Дата и час</small><strong>{DateTime.fromISO(selection.slot.startsAt).setZone(business.timezone).setLocale('bg').toFormat('d LLLL, HH:mm')}</strong></span>
-            <span><small>Специалист</small><strong>{selection.slot.staffName}</strong></span>
-            <span><small>Клиент</small><strong>{details.name}</strong><small>{details.phone}</small></span>
+            <span><small>{en ? 'Service' : 'Услуга'}</small><strong>{service?.name}</strong></span>
+            <span><small>{en ? 'Date and time' : 'Дата и час'}</small><strong>{DateTime.fromISO(selection.slot.startsAt).setZone(business.timezone).setLocale(locale).toFormat('d LLLL, HH:mm')}</strong></span>
+            <span><small>{en ? 'Specialist' : 'Специалист'}</small><strong>{selection.slot.staffName}</strong></span>
+            <span><small>{en ? 'Client' : 'Клиент'}</small><strong>{details.name}</strong><small>{details.phone}</small></span>
           </div>
-          <button className="booking-primary" type="button" onClick={confirmBooking} disabled={sending}>{sending ? 'Потвърждаване...' : 'Потвърди резервацията'}</button>
-          <p className="booking-privacy">Резервацията се създава едва след натискането на този бутон.</p>
+          <button className="booking-primary" type="button" onClick={confirmBooking} disabled={sending}>{sending ? (en ? 'Confirming…' : 'Потвърждаване...') : t.confirm}</button>
+          <p className="booking-privacy">{en ? 'The booking is created only after you press this button.' : 'Резервацията се създава едва след натискането на този бутон.'}</p>
         </div>}
 
         {step === 'done' && confirmation && <div className="guided-success">
           <span className="success-mark">✓</span>
-          <strong>Резервацията е потвърдена</strong>
-          <p>{confirmation.service.name} · {DateTime.fromISO(confirmation.appointment.starts_at).setZone(business.timezone).setLocale('bg').toFormat('d LLLL, HH:mm')} · {confirmation.staff.name}</p>
-          <Link className="manage-booking-link" href={`/booking/${confirmation.appointment.cancellation_token}`}>Преглед и управление</Link>
-          <button type="button" className="secondary-button" onClick={startOver}>Нов разговор</button>
+          <strong>{t.confirmed}</strong>
+          <p>{confirmation.service.name} · {DateTime.fromISO(confirmation.appointment.starts_at).setZone(business.timezone).setLocale(locale).toFormat('d LLLL, HH:mm')} · {confirmation.staff.name}</p>
+          <Link className="manage-booking-link" href={`/booking/${confirmation.appointment.cancellation_token}`}>{t.manage}</Link>
+          <button type="button" className="secondary-button" onClick={startOver}>{t.newChat}</button>
         </div>}
 
         {error && <p className="booking-inline-error" role="alert">{error}</p>}
       </div>
 
       {step !== 'done' && <form className="chat-composer" onSubmit={sendQuestion}>
-        <label className="sr-only" htmlFor="chat-message">Задай въпрос</label>
-        <input id="chat-message" value={value} onChange={(event) => setValue(event.target.value)} placeholder="Или напиши въпрос с твои думи..." maxLength={500} disabled={sending} />
-        <button type="submit" disabled={sending || !value.trim()} aria-label="Изпрати">→</button>
+        <label className="sr-only" htmlFor="chat-message">{en ? 'Ask a question' : 'Задай въпрос'}</label>
+        <input id="chat-message" value={value} onChange={(event) => setValue(event.target.value)} placeholder={t.placeholder} maxLength={500} disabled={sending} />
+        <button type="submit" disabled={sending || !value.trim()} aria-label={en ? 'Send' : 'Изпрати'}>→</button>
       </form>}
-      <p className="chat-note">Асистентът използва само публикуваните услуги, графици и свободни часове.</p>
+      <p className="chat-note">{t.note}</p>
     </section>
   )
 }

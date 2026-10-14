@@ -8,17 +8,18 @@ import { getSupabaseAdmin } from '../../../../../lib/supabase-admin'
 import { trackEvent } from '../../../../../lib/analytics'
 
 const conversationField = { conversationId: z.string().uuid().optional() }
+const localeField = { locale: z.enum(['bg', 'en']).optional().default('bg') }
 const serviceField = { serviceId: z.string().uuid() }
 const staffField = { staffId: z.string().uuid().nullable() }
 
 const chatRequestSchema = z.discriminatedUnion('action', [
-  z.object({ action: z.literal('ask'), message: z.string().trim().min(1).max(500), ...conversationField }),
-  z.object({ action: z.literal('faq'), topic: z.enum(['services', 'hours', 'contact', 'cancellation', 'rules']), ...conversationField }),
-  z.object({ action: z.literal('start_booking'), ...conversationField }),
-  z.object({ action: z.literal('select_service'), ...serviceField, ...conversationField }),
-  z.object({ action: z.literal('select_staff'), ...serviceField, ...staffField, ...conversationField }),
-  z.object({ action: z.literal('select_date'), ...serviceField, ...staffField, date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/), ...conversationField }),
-  z.object({ action: z.literal('select_slot'), ...serviceField, staffId: z.string().uuid(), startsAt: z.string().datetime({ offset: true }), ...conversationField }),
+  z.object({ action: z.literal('ask'), message: z.string().trim().min(1).max(500), ...localeField, ...conversationField }),
+  z.object({ action: z.literal('faq'), topic: z.enum(['services', 'hours', 'contact', 'cancellation', 'rules']), ...localeField, ...conversationField }),
+  z.object({ action: z.literal('start_booking'), ...localeField, ...conversationField }),
+  z.object({ action: z.literal('select_service'), ...serviceField, ...localeField, ...conversationField }),
+  z.object({ action: z.literal('select_staff'), ...serviceField, ...staffField, ...localeField, ...conversationField }),
+  z.object({ action: z.literal('select_date'), ...serviceField, ...staffField, date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/), ...localeField, ...conversationField }),
+  z.object({ action: z.literal('select_slot'), ...serviceField, staffId: z.string().uuid(), startsAt: z.string().datetime({ offset: true }), ...localeField, ...conversationField }),
   z.object({
     action: z.literal('book'),
     ...serviceField,
@@ -31,6 +32,7 @@ const chatRequestSchema = z.discriminatedUnion('action', [
     }),
     notes: z.string().trim().max(600).optional().default(''),
     consent: z.literal(true),
+    ...localeField,
     ...conversationField,
   }),
 ])
@@ -148,31 +150,31 @@ export async function POST(request, context) {
     if (input.action === 'ask') {
       const topic = detectGuidedTopic(input.message)
       userText = input.message
-      reply = buildGuidedReply(business, topic)
+      reply = buildGuidedReply(business, topic, input.locale)
       responseData = { topic }
     }
 
     if (input.action === 'faq') {
-      userText = FAQ_LABELS[input.topic]
-      reply = buildGuidedReply(business, input.topic)
+      userText = input.locale === 'en' ? `Question: ${input.topic}` : FAQ_LABELS[input.topic]
+      reply = buildGuidedReply(business, input.topic, input.locale)
     }
 
     if (input.action === 'start_booking') {
-      userText = 'Искам да резервирам час.'
-      reply = buildGuidedReply(business, 'booking')
+      userText = input.locale === 'en' ? 'I would like to book an appointment.' : 'Искам да резервирам час.'
+      reply = buildGuidedReply(business, 'booking', input.locale)
     }
 
     if (input.action === 'select_service') {
       const service = findService(business, input.serviceId)
       userText = `Избирам „${service.name}“.`
-      reply = `Чудесен избор. ${service.name} е с продължителност ${service.duration_min} минути. При кого предпочиташ да бъде часът?`
+      reply = input.locale === 'en' ? `Great choice. ${service.name} takes ${service.duration_min} minutes. Who would you prefer?` : `Чудесен избор. ${service.name} е с продължителност ${service.duration_min} минути. При кого предпочиташ да бъде часът?`
     }
 
     if (input.action === 'select_staff') {
       const service = findService(business, input.serviceId)
       const person = findStaff(business, service.id, input.staffId)
       userText = person ? `Предпочитам ${person.name}.` : 'Нямам предпочитание за специалист.'
-      reply = 'Добре. Избери удобна дата и ще проверя реално свободните часове.'
+      reply = input.locale === 'en' ? 'Choose a convenient date and I will check live availability.' : 'Добре. Избери удобна дата и ще проверя реално свободните часове.'
     }
 
     if (input.action === 'select_date') {
@@ -184,11 +186,11 @@ export async function POST(request, context) {
         staffId: input.staffId || undefined,
         date: input.date,
       }), Boolean(input.staffId))
-      const readableDate = describeDate(input.date, business.timezone)
+      const readableDate = describeDate(input.date, business.timezone, input.locale)
       userText = `Проверка за ${readableDate}.`
       reply = slots.length
-        ? `Имаме ${slots.length} подходящи часа за ${readableDate}. Избери най-удобния.`
-        : `За ${readableDate} няма свободни часове. Избери друга дата.`
+        ? (input.locale === 'en' ? `There are ${slots.length} available times on ${readableDate}. Choose the one that suits you.` : `Имаме ${slots.length} подходящи часа за ${readableDate}. Избери най-удобния.`)
+        : (input.locale === 'en' ? `There are no available times on ${readableDate}. Choose another date.` : `За ${readableDate} няма свободни часове. Избери друга дата.`)
       responseData = { slots }
     }
 
@@ -209,7 +211,7 @@ export async function POST(request, context) {
         throw error
       }
       userText = `Избирам ${slot.localTime} при ${person.name}.`
-      reply = 'Остава само да въведеш име и телефон за потвърждение на резервацията.'
+      reply = input.locale === 'en' ? 'All that remains is to enter your name and phone number for confirmation.' : 'Остава само да въведеш име и телефон за потвърждение на резервацията.'
       responseData = { slot }
     }
 
@@ -230,9 +232,9 @@ export async function POST(request, context) {
           source: 'bot',
         },
       })
-      const localStart = DateTime.fromISO(result.appointment.starts_at).setZone(business.timezone).setLocale('bg')
+      const localStart = DateTime.fromISO(result.appointment.starts_at).setZone(business.timezone).setLocale(input.locale)
       userText = 'Потвърждавам резервацията.'
-      reply = `Готово! Запазих ${result.service.name} за ${localStart.toFormat('cccc, d LLLL')} в ${localStart.toFormat('HH:mm')} при ${result.staff.name}.`
+      reply = input.locale === 'en' ? `Done! ${result.service.name} is booked for ${localStart.toFormat('cccc, d LLLL')} at ${localStart.toFormat('HH:mm')} with ${result.staff.name}.` : `Готово! Запазих ${result.service.name} за ${localStart.toFormat('cccc, d LLLL')} в ${localStart.toFormat('HH:mm')} при ${result.staff.name}.`
       responseData = {
         booking: {
           appointment: result.appointment,

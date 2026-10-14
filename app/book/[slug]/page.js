@@ -5,41 +5,49 @@ import { useEffect, useMemo, useState } from 'react'
 import { DateTime } from 'luxon'
 import { useParams, useRouter } from 'next/navigation'
 import { GuidedBookingChat } from '../../../components/guided-booking-chat'
+import { LanguageSwitch } from '../../../components/language-switch'
+import { usePublicLocale } from '../../../hooks/use-public-locale'
 import { collapseSlotsByLocalTime, formatBulgarianMonthShort, groupSlotsByPeriod, resolveVisibleBookingDays } from '../../../lib/booking-window.mjs'
 import { hasSupabaseConfig, supabase } from '../../../lib/supabase'
 
-function formatMoney(value, currency = 'EUR') {
-  return new Intl.NumberFormat('bg-BG', { style: 'currency', currency }).format(Number(value || 0))
+const BOOKING_COPY = {
+  bg: { loading: 'Подготвяме свободните часове…', home: 'Начало', dashboard: 'Към таблото', logout: 'Изход', loggingOut: 'Излизане…', online: 'Онлайн', eyebrow: 'Онлайн записване · 24/7', hero: 'Запази време', heroEm: 'за себе си.', lead: 'Избери услугата и най-удобния свободен час. Без обаждане, без регистрация и без чакане за отговор.', book: 'Резервирай час', assistant: 'Онлайн асистент', proof: ['Избираш услуга', 'Виждаш свободните часове', 'Получаваш потвърждение'], reassurance: ['Без профил', 'Реална наличност', 'Сигурно управление'], terms: 'Условия за резервация', privacy: 'Поверителност', legalTerms: 'Условия', powered: 'Задвижвано от AI Receptionist', secure: 'Защитена резервация', notOpen: 'Не успяхме да отворим страницата', retry: 'Опитай отново' },
+  en: { loading: 'Preparing available times…', home: 'Home', dashboard: 'Dashboard', logout: 'Sign out', loggingOut: 'Signing out…', online: 'Online', eyebrow: 'Online booking · 24/7', hero: 'Book time', heroEm: 'for yourself.', lead: 'Choose a service and the most convenient available time. No calls, no registration and no waiting for a reply.', book: 'Book an appointment', assistant: 'Online assistant', proof: ['Choose a service', 'See available times', 'Get confirmation'], reassurance: ['No account needed', 'Live availability', 'Secure management'], terms: 'Booking terms', privacy: 'Privacy', legalTerms: 'Terms', powered: 'Powered by AI Receptionist', secure: 'Secure booking', notOpen: 'We could not open this page', retry: 'Try again' },
 }
 
-function formatDate(date, zone) {
-  const parsed = DateTime.fromISO(date, { zone }).setLocale('bg')
-  return `${parsed.toFormat('ccc')}, ${parsed.day} ${formatBulgarianMonthShort(parsed.month)}`
+function formatMoney(value, currency = 'EUR', locale = 'bg') {
+  return new Intl.NumberFormat(locale === 'bg' ? 'bg-BG' : 'en-GB', { style: 'currency', currency }).format(Number(value || 0))
 }
 
-function formatDateRange(dates, zone) {
+function formatDate(date, zone, locale = 'bg') {
+  const parsed = DateTime.fromISO(date, { zone }).setLocale(locale)
+  return locale === 'bg' ? `${parsed.toFormat('ccc')}, ${parsed.day} ${formatBulgarianMonthShort(parsed.month)}` : parsed.toFormat('ccc, d LLL')
+}
+
+function formatDateRange(dates, zone, locale = 'bg') {
   if (!dates.length) return ''
-  const first = DateTime.fromISO(dates[0], { zone }).setLocale('bg')
-  const last = DateTime.fromISO(dates[dates.length - 1], { zone }).setLocale('bg')
+  const first = DateTime.fromISO(dates[0], { zone }).setLocale(locale)
+  const last = DateTime.fromISO(dates[dates.length - 1], { zone }).setLocale(locale)
   if (first.hasSame(last, 'month')) return `${first.toFormat('d')} – ${last.toFormat('d LLLL yyyy')}`
   if (first.hasSame(last, 'year')) return `${first.toFormat('d LLLL')} – ${last.toFormat('d LLLL yyyy')}`
   return `${first.toFormat('d LLLL yyyy')} – ${last.toFormat('d LLLL yyyy')}`
 }
 
-function SparkLogo({ businessName }) {
+function SparkLogo({ businessName, locale }) {
   return (
-    <Link className="booking-brand booking-brand-link" href="/" aria-label="Към началната страница">
+    <Link className="booking-brand booking-brand-link" href={`/?lang=${locale}`} aria-label={locale === 'bg' ? 'Към началната страница' : 'Go to homepage'}>
       <span className="booking-logo-mark" aria-hidden="true">✦</span>
       <span><small>AI Рецепционист</small><strong>{businessName || 'Онлайн резервации'}</strong></span>
     </Link>
   )
 }
 
-function LoadingPage() {
-  return <main className="booking-state-page"><span className="button-spinner" /><p>Подготвяме свободните часове...</p></main>
+function LoadingPage({ copy }) {
+  return <main className="booking-state-page"><span className="button-spinner" /><p>{copy.loading}</p></main>
 }
 
-function BookingPanel({ business }) {
+function BookingPanel({ business, locale }) {
+  const en = locale === 'en'
   const [serviceId, setServiceId] = useState('')
   const [staffId, setStaffId] = useState('')
   const [date, setDate] = useState('')
@@ -62,7 +70,7 @@ function BookingPanel({ business }) {
     const days = resolveVisibleBookingDays(business.booking_window_days)
     return Array.from({ length: days }, (_, index) => start.plus({ days: index }).toISODate())
   }, [business.booking_window_days, business.timezone])
-  const chosenDate = date ? DateTime.fromISO(date, { zone: business.timezone }).setLocale('bg') : null
+  const chosenDate = date ? DateTime.fromISO(date, { zone: business.timezone }).setLocale(locale) : null
   const visibleSlots = useMemo(() => staffId ? slots : collapseSlotsByLocalTime(slots), [slots, staffId])
   const slotPeriods = useMemo(() => groupSlotsByPeriod(visibleSlots), [visibleSlots])
   const availableTimes = visibleSlots.length
@@ -79,13 +87,13 @@ function BookingPanel({ business }) {
     fetch(`/api/public/${business.slug}/availability?${query}`)
       .then(async (response) => {
         const result = await response.json()
-        if (!response.ok) throw new Error(result.error?.message || 'Не успяхме да заредим свободните часове.')
+        if (!response.ok) throw new Error(result.error?.message || (en ? 'We could not load the available times.' : 'Не успяхме да заредим свободните часове.'))
         if (active) setSlots(result.slots)
       })
       .catch((requestError) => { if (active) setError(requestError.message) })
       .finally(() => { if (active) setLoadingSlots(false) })
     return () => { active = false }
-  }, [business.slug, date, serviceId, staffId])
+  }, [business.slug, date, en, serviceId, staffId])
 
   function chooseService(id) {
     setServiceId(id)
@@ -115,7 +123,7 @@ function BookingPanel({ business }) {
         }),
       })
       const result = await response.json()
-      if (!response.ok) throw new Error(result.error?.message || 'Не успяхме да запазим часа.')
+      if (!response.ok) throw new Error(result.error?.message || (en ? 'We could not book this appointment.' : 'Не успяхме да запазим часа.'))
       setConfirmation({ ...result.booking, service, slot })
     } catch (requestError) {
       setError(requestError.message)
@@ -128,56 +136,56 @@ function BookingPanel({ business }) {
     return (
       <section className="booking-card booking-success" aria-live="polite">
         <span className="success-mark">✓</span>
-        <p className="booking-eyebrow">Резервацията е потвърдена</p>
-        <h2>Очакваме те!</h2>
+        <p className="booking-eyebrow">{en ? 'Your booking is confirmed' : 'Резервацията е потвърдена'}</p>
+        <h2>{en ? 'See you soon!' : 'Очакваме те!'}</h2>
         <div className="confirmation-details">
           <strong>{confirmation.service.name}</strong>
-          <span>{formatDate(date, business.timezone)} в {confirmation.slot.localTime}</span>
-          <span>при {confirmation.slot.staffName}</span>
+          <span>{formatDate(date, business.timezone, locale)} {en ? 'at' : 'в'} {confirmation.slot.localTime}</span>
+          <span>{en ? 'with' : 'при'} {confirmation.slot.staffName}</span>
           {business.address && <span>{business.address}</span>}
         </div>
-        <p>Запази тези детайли. При нужда се свържи с {business.name}{business.phone ? ` на ${business.phone}` : ''}.</p>
-        <Link className="manage-booking-link" href={`/booking/${confirmation.appointment.cancellation_token}`}>Преглед и управление на резервацията</Link>
-        <button className="booking-primary" type="button" onClick={() => { setConfirmation(null); setSlot(null); setDate(''); setDetails({ name: '', phone: '', email: '', notes: '', consent: false }) }}>Запази още един час</button>
+        <p>{en ? 'Keep these details. If needed, contact' : 'Запази тези детайли. При нужда се свържи с'} {business.name}{business.phone ? ` ${en ? 'at' : 'на'} ${business.phone}` : ''}.</p>
+        <Link className="manage-booking-link" href={`/booking/${confirmation.appointment.cancellation_token}`}>{en ? 'View and manage booking' : 'Преглед и управление на резервацията'}</Link>
+        <button className="booking-primary" type="button" onClick={() => { setConfirmation(null); setSlot(null); setDate(''); setDetails({ name: '', phone: '', email: '', notes: '', consent: false }) }}>{en ? 'Book another appointment' : 'Запази още един час'}</button>
       </section>
     )
   }
 
   return (
     <section className="booking-card">
-      <div className="booking-section-head"><span>1</span><div><h2>Избери услуга</h2><p>Какво искаш да резервираш?</p></div></div>
+      <div className="booking-section-head"><span>1</span><div><h2>{en ? 'Choose a service' : 'Избери услуга'}</h2><p>{en ? 'What would you like to book?' : 'Какво искаш да резервираш?'}</p></div></div>
       <div className="service-grid">
         {business.services.map((item) => (
           <button type="button" className={`service-option ${serviceId === item.id ? 'selected' : ''}`} onClick={() => chooseService(item.id)} key={item.id}>
             <span className="service-accent" style={{ background: item.color }} />
-            <span><strong>{item.name}</strong>{item.description && <small>{item.description}</small>}<small>{item.duration_min} мин.</small></span>
-            <b>{formatMoney(item.price, item.currency)}</b>
+            <span><strong>{item.name}</strong>{item.description && <small>{item.description}</small>}<small>{item.duration_min} {en ? 'min' : 'мин.'}</small></span>
+            <b>{formatMoney(item.price, item.currency, locale)}</b>
           </button>
         ))}
       </div>
 
       {serviceId && <>
         <div className="booking-divider" />
-        <div className="booking-section-head"><span>2</span><div><h2>Избери специалист</h2><p>Или остави системата да избере най-ранния час.</p></div></div>
+        <div className="booking-section-head"><span>2</span><div><h2>{en ? 'Choose a specialist' : 'Избери специалист'}</h2><p>{en ? 'Or let the system find the earliest option.' : 'Или остави системата да избере най-ранния час.'}</p></div></div>
         <div className="staff-options">
-          <button type="button" className={!staffId ? 'selected' : ''} onClick={() => { setStaffId(''); setSlot(null) }}><i>✦</i><span><strong>Без предпочитание</strong><small>Най-ранен свободен час</small></span></button>
-          {availableStaff.map((person) => <button type="button" className={staffId === person.id ? 'selected' : ''} onClick={() => { setStaffId(person.id); setSlot(null) }} key={person.id}><i>{person.name.slice(0, 1).toUpperCase()}</i><span><strong>{person.name}</strong><small>{person.bio || 'Специалист'}</small></span></button>)}
+          <button type="button" className={!staffId ? 'selected' : ''} onClick={() => { setStaffId(''); setSlot(null) }}><i>✦</i><span><strong>{en ? 'No preference' : 'Без предпочитание'}</strong><small>{en ? 'Earliest available time' : 'Най-ранен свободен час'}</small></span></button>
+          {availableStaff.map((person) => <button type="button" className={staffId === person.id ? 'selected' : ''} onClick={() => { setStaffId(person.id); setSlot(null) }} key={person.id}><i>{person.name.slice(0, 1).toUpperCase()}</i><span><strong>{person.name}</strong><small>{person.bio || (en ? 'Specialist' : 'Специалист')}</small></span></button>)}
         </div>
 
         <div className="booking-divider" />
-        <div className="booking-section-head"><span>3</span><div><h2>Избери дата и час</h2><p>Показваме само реално свободните часове.</p></div></div>
+        <div className="booking-section-head"><span>3</span><div><h2>{en ? 'Choose a date and time' : 'Избери дата и час'}</h2><p>{en ? 'Only genuinely available times are shown.' : 'Показваме само реално свободните часове.'}</p></div></div>
         <div className="booking-calendar-shell">
           <div className="booking-calendar-head">
-            <div><span>Следващите {dates.length} дни</span><strong>{formatDateRange(dates, business.timezone)}</strong></div>
-            <small>Избери удобен ден</small>
+            <div><span>{en ? `Next ${dates.length} days` : `Следващите ${dates.length} дни`}</span><strong>{formatDateRange(dates, business.timezone, locale)}</strong></div>
+            <small>{en ? 'Choose a convenient day' : 'Избери удобен ден'}</small>
           </div>
           <div className="date-strip" role="group" aria-label="Дати за резервация">
             {dates.map((item, index) => {
-              const itemDate = DateTime.fromISO(item, { zone: business.timezone }).setLocale('bg')
+              const itemDate = DateTime.fromISO(item, { zone: business.timezone }).setLocale(locale)
               return <button type="button" aria-label={itemDate.toFormat('cccc, d LLLL yyyy')} aria-pressed={date === item} className={date === item ? 'selected' : ''} onClick={() => { setDate(item); setSlot(null) }} key={item}>
-                <span className="date-weekday">{index === 0 ? 'Днес' : itemDate.toFormat('ccc')}</span>
+                <span className="date-weekday">{index === 0 ? (en ? 'Today' : 'Днес') : itemDate.toFormat('ccc')}</span>
                 <strong>{itemDate.toFormat('d')}</strong>
-                <span className="date-month">{formatBulgarianMonthShort(itemDate.month)}</span>
+                <span className="date-month">{en ? itemDate.toFormat('LLL') : formatBulgarianMonthShort(itemDate.month)}</span>
               </button>
             })}
           </div>
@@ -185,12 +193,12 @@ function BookingPanel({ business }) {
         {date && <div className="selected-date-panel">
           <div className="selected-date-summary">
             <span className="selected-date-icon" aria-hidden="true">▦</span>
-            <div><small>Избрана дата</small><strong>{chosenDate.toFormat('cccc, d LLLL yyyy')}</strong></div>
-            <span className="available-times-label">{loadingSlots ? 'Проверяваме...' : availableTimes ? `${availableTimes} часа за избор` : 'Няма свободни часове'}</span>
+            <div><small>{en ? 'Selected date' : 'Избрана дата'}</small><strong>{chosenDate.toFormat('cccc, d LLLL yyyy')}</strong></div>
+            <span className="available-times-label">{loadingSlots ? (en ? 'Checking…' : 'Проверяваме...') : availableTimes ? (en ? `${availableTimes} times available` : `${availableTimes} часа за избор`) : (en ? 'No available times' : 'Няма свободни часове')}</span>
           </div>
           <div className="slot-area">
-            {loadingSlots && <p className="slot-status"><span className="button-spinner" /> Проверяваме календара...</p>}
-            {!loadingSlots && slots.length === 0 && <p className="empty-slots">Няма свободни часове за тази дата. Избери следващ ден.</p>}
+            {loadingSlots && <p className="slot-status"><span className="button-spinner" /> {en ? 'Checking the calendar…' : 'Проверяваме календара...'}</p>}
+            {!loadingSlots && slots.length === 0 && <p className="empty-slots">{en ? 'No available times for this date. Choose another day.' : 'Няма свободни часове за тази дата. Избери следващ ден.'}</p>}
             {!loadingSlots && slots.length > 0 && <div className="time-periods">{slotPeriods.map((period) => <section className="time-period" key={period.key}>
               <div className="time-period-head"><h3>{period.label}</h3><span>{period.range}</span></div>
               <div className="slot-grid">{period.slots.map((item) => {
@@ -204,18 +212,18 @@ function BookingPanel({ business }) {
 
       {slot && <form className="booking-details" onSubmit={submit}>
         <div className="booking-divider" />
-        <div className="booking-section-head"><span>4</span><div><h2>Твоите данни</h2><p>За потвърждение и връзка при промяна.</p></div></div>
+        <div className="booking-section-head"><span>4</span><div><h2>{en ? 'Your details' : 'Твоите данни'}</h2><p>{en ? 'For confirmation and contact if anything changes.' : 'За потвърждение и връзка при промяна.'}</p></div></div>
         <div className="booking-form-grid">
-          <label><span>Име *</span><input required minLength={2} value={details.name} onChange={(event) => setDetails({ ...details, name: event.target.value })} placeholder="Твоето име" /></label>
-          <label><span>Телефон *</span><input required minLength={6} type="tel" value={details.phone} onChange={(event) => setDetails({ ...details, phone: event.target.value })} placeholder="+359 88 123 4567" /></label>
-          <label className="full"><span>Имейл</span><input type="email" value={details.email} onChange={(event) => setDetails({ ...details, email: event.target.value })} placeholder="name@example.com" /></label>
-          <label className="full"><span>Бележка</span><textarea value={details.notes} onChange={(event) => setDetails({ ...details, notes: event.target.value })} placeholder="Допълнителна информация (по желание)" maxLength={600} /></label>
-          <label className="booking-consent full"><input required type="checkbox" checked={details.consent} onChange={(event) => setDetails({ ...details, consent: event.target.checked })} /><span>Съгласен/на съм данните ми да бъдат използвани за тази резервация и приемам <Link href="/privacy" target="_blank">политиката за поверителност</Link>.</span></label>
+          <label><span>{en ? 'Name *' : 'Име *'}</span><input required minLength={2} value={details.name} onChange={(event) => setDetails({ ...details, name: event.target.value })} placeholder={en ? 'Your name' : 'Твоето име'} /></label>
+          <label><span>{en ? 'Phone *' : 'Телефон *'}</span><input required minLength={6} type="tel" value={details.phone} onChange={(event) => setDetails({ ...details, phone: event.target.value })} placeholder="+359 88 123 4567" /></label>
+          <label className="full"><span>{en ? 'Email' : 'Имейл'}</span><input type="email" value={details.email} onChange={(event) => setDetails({ ...details, email: event.target.value })} placeholder="name@example.com" /></label>
+          <label className="full"><span>{en ? 'Note' : 'Бележка'}</span><textarea value={details.notes} onChange={(event) => setDetails({ ...details, notes: event.target.value })} placeholder={en ? 'Additional information (optional)' : 'Допълнителна информация (по желание)'} maxLength={600} /></label>
+          <label className="booking-consent full"><input required type="checkbox" checked={details.consent} onChange={(event) => setDetails({ ...details, consent: event.target.checked })} /><span>{en ? 'I agree that my data may be used for this booking and accept the ' : 'Съгласен/на съм данните ми да бъдат използвани за тази резервация и приемам '}<Link href="/privacy" target="_blank">{en ? 'privacy policy' : 'политиката за поверителност'}</Link>.</span></label>
         </div>
-        <div className="booking-summary"><span><small>Избран час</small><strong>{formatDate(date, business.timezone)}, {slot.localTime}</strong><small>{service.name} · {slot.staffName}</small></span><b>{formatMoney(service.price, service.currency)}</b></div>
+        <div className="booking-summary"><span><small>{en ? 'Selected time' : 'Избран час'}</small><strong>{formatDate(date, business.timezone, locale)}, {slot.localTime}</strong><small>{service.name} · {slot.staffName}</small></span><b>{formatMoney(service.price, service.currency, locale)}</b></div>
         {error && <p className="booking-inline-error" role="alert">{error}</p>}
-        <button className="booking-primary" type="submit" disabled={submitting}>{submitting ? <><span className="button-spinner" /> Запазване...</> : 'Потвърди резервацията'}</button>
-        <p className="booking-privacy">Данните се използват единствено за обслужване и управление на резервацията.</p>
+        <button className="booking-primary" type="submit" disabled={submitting}>{submitting ? <><span className="button-spinner" /> {en ? 'Booking…' : 'Запазване...'}</> : (en ? 'Confirm booking' : 'Потвърди резервацията')}</button>
+        <p className="booking-privacy">{en ? 'Your details are used only to provide and manage this booking.' : 'Данните се използват единствено за обслужване и управление на резервацията.'}</p>
       </form>}
       {!slot && error && <p className="booking-inline-error" role="alert">{error}</p>}
     </section>
@@ -225,6 +233,8 @@ function BookingPanel({ business }) {
 export default function PublicBookingPage() {
   const { slug } = useParams()
   const router = useRouter()
+  const { locale, setLocale } = usePublicLocale()
+  const copy = BOOKING_COPY[locale]
   const [business, setBusiness] = useState(null)
   const [status, setStatus] = useState('loading')
   const [error, setError] = useState('')
@@ -247,12 +257,12 @@ export default function PublicBookingPage() {
     fetch(`/api/public/${slug}`)
       .then(async (response) => {
         const result = await response.json()
-        if (!response.ok) throw new Error(result.error?.message || 'Страницата не е намерена.')
+        if (!response.ok) throw new Error(result.error?.message || (locale === 'en' ? 'Page not found.' : 'Страницата не е намерена.'))
         if (active) { setBusiness(result.business); setStatus('ready') }
       })
       .catch((requestError) => { if (active) { setError(requestError.message); setStatus('error') } })
     return () => { active = false }
-  }, [slug])
+  }, [locale, slug])
 
   async function logout() {
     setSigningOut(true)
@@ -260,36 +270,37 @@ export default function PublicBookingPage() {
     router.replace('/')
   }
 
-  if (status === 'loading') return <LoadingPage />
-  if (status === 'error') return <main className="booking-state-page"><span className="booking-logo-mark">!</span><h1>Не успяхме да отворим страницата</h1><p>{error}</p><button className="booking-primary booking-retry" type="button" onClick={() => window.location.reload()}>Опитай отново</button></main>
+  if (status === 'loading') return <LoadingPage copy={copy} />
+  if (status === 'error') return <main className="booking-state-page"><span className="booking-logo-mark">!</span><h1>{copy.notOpen}</h1><p>{error}</p><button className="booking-primary booking-retry" type="button" onClick={() => window.location.reload()}>{copy.retry}</button></main>
 
   return (
     <main className={`public-booking-page ${embedded ? 'embedded-booking' : ''}`} style={{ '--business-color': business.theme_color || '#173e2a' }}>
       <div className="booking-ambient" aria-hidden="true"><i /><i /><i /></div>
       <header className="booking-topbar">
-        <SparkLogo businessName={business.name} />
+        <SparkLogo businessName={business.name} locale={locale} />
         <div className="booking-top-actions">
-          <div className="booking-contact">{business.phone && <a className="booking-phone" href={`tel:${business.phone}`}>{business.phone}</a>}<span className="booking-live"><i /> Онлайн</span></div>
-          {ownerSession ? <nav className="booking-owner-nav" aria-label="Навигация за собственик">
-            <Link className="booking-dashboard-link" href="/dashboard"><span aria-hidden="true">←</span> Към таблото</Link>
-            <button type="button" className="booking-signout" onClick={logout} disabled={signingOut}>{signingOut ? 'Излизане...' : 'Изход'}</button>
-          </nav> : <Link className="booking-home-link" href="/"><span aria-hidden="true">←</span> Начало</Link>}
+          <div className="booking-contact">{business.phone && <a className="booking-phone" href={`tel:${business.phone}`}>{business.phone}</a>}<span className="booking-live"><i /> {copy.online}</span></div>
+          <LanguageSwitch locale={locale} onChange={setLocale} compact />
+          {ownerSession ? <nav className="booking-owner-nav" aria-label={locale === 'bg' ? 'Навигация за собственик' : 'Owner navigation'}>
+            <Link className="booking-dashboard-link" href="/dashboard"><span aria-hidden="true">←</span> {copy.dashboard}</Link>
+            <button type="button" className="booking-signout" onClick={logout} disabled={signingOut}>{signingOut ? copy.loggingOut : copy.logout}</button>
+          </nav> : <Link className="booking-home-link" href={`/?lang=${locale}`}><span aria-hidden="true">←</span> {copy.home}</Link>}
         </div>
       </header>
       <section className="booking-hero">
-        <div className="booking-hero-copy"><p className="booking-eyebrow"><span /> Онлайн записване · 24/7</p><h1>Запази време<br /><em>за себе си.</em></h1><p>Избери услугата и най-удобния свободен час. Без обаждане, без регистрация и без чакане за отговор.</p>{business.address && <span className="booking-address">⌖ {business.address}</span>}</div>
+        <div className="booking-hero-copy"><p className="booking-eyebrow"><span /> {copy.eyebrow}</p><h1>{copy.hero}<br /><em>{copy.heroEm}</em></h1><p>{copy.lead}</p>{business.address && <span className="booking-address">⌖ {business.address}</span>}</div>
         <div className="booking-hero-aside">
           <div className="booking-mode-switch" role="tablist" aria-label="Начин за записване">
-            <button role="tab" aria-selected={mode === 'booking'} aria-controls="booking-experience" className={mode === 'booking' ? 'active' : ''} onClick={() => setMode('booking')}>Резервирай час</button>
-            <button role="tab" aria-selected={mode === 'chat'} aria-controls="booking-experience" className={mode === 'chat' ? 'active' : ''} onClick={() => setMode('chat')}><span className="booking-online-dot" /> Онлайн асистент</button>
+            <button role="tab" aria-selected={mode === 'booking'} aria-controls="booking-experience" className={mode === 'booking' ? 'active' : ''} onClick={() => setMode('booking')}>{copy.book}</button>
+            <button role="tab" aria-selected={mode === 'chat'} aria-controls="booking-experience" className={mode === 'chat' ? 'active' : ''} onClick={() => setMode('chat')}><span className="booking-online-dot" /> {copy.assistant}</button>
           </div>
-          <div className="booking-proof-list"><span><b>01</b> Избираш услуга</span><span><b>02</b> Виждаш свободните часове</span><span><b>03</b> Получаваш потвърждение</span></div>
+          <div className="booking-proof-list">{copy.proof.map((item, index) => <span key={item}><b>0{index + 1}</b> {item}</span>)}</div>
         </div>
       </section>
-      <div className="booking-reassurance" aria-label="Предимства"><span>✓ Без профил</span><span>✓ Реална наличност</span><span>✓ Сигурно управление</span></div>
-      {business.booking_terms && <details className="booking-terms"><summary>Условия за резервация</summary><p>{business.booking_terms}</p></details>}
-      <div className="booking-content" id="booking-experience"><div className="booking-experience-enter" key={mode}>{mode === 'booking' ? <BookingPanel business={business} /> : <GuidedBookingChat business={business} onShowBooking={() => setMode('booking')} />}</div></div>
-      <footer className="booking-footer"><span>Защитена резервация</span><span><Link href="/privacy">Поверителност</Link> · <Link href="/terms">Условия</Link></span><span>Задвижвано от AI Рецепционист</span></footer>
+      <div className="booking-reassurance" aria-label={locale === 'bg' ? 'Предимства' : 'Benefits'}>{copy.reassurance.map((item) => <span key={item}>✓ {item}</span>)}</div>
+      {business.booking_terms && <details className="booking-terms"><summary>{copy.terms}</summary><p>{business.booking_terms}</p></details>}
+      <div className="booking-content" id="booking-experience"><div className="booking-experience-enter" key={`${mode}-${locale}`}>{mode === 'booking' ? <BookingPanel business={business} locale={locale} /> : <GuidedBookingChat business={business} locale={locale} onShowBooking={() => setMode('booking')} />}</div></div>
+      <footer className="booking-footer"><span>{copy.secure}</span><span><Link href="/privacy">{copy.privacy}</Link> · <Link href="/terms">{copy.legalTerms}</Link></span><span>{copy.powered}</span></footer>
     </main>
   )
 }

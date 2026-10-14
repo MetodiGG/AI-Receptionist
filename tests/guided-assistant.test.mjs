@@ -55,3 +55,10 @@ test('does not start a booking flow without active services or staff', () => {
   assert.match(buildGuidedReply({ ...business, services: [] }, 'booking'), /няма активни услуги/)
   assert.match(buildGuidedReply({ ...business, staff: [] }, 'booking'), /няма активен специалист/)
 })
+
+test('builds English guided answers from the same verified business data', () => {
+  const answer = buildGuidedReply(business, 'services', 'en')
+  assert.match(answer, /Services:/)
+  assert.match(answer, /Подстригване/)
+  assert.match(buildGuidedReply(business, 'booking', 'en'), /First choose/i)
+})

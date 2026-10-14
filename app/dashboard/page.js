@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import { hasSupabaseConfig, supabase } from '../../lib/supabase'
 import { DashboardShell } from '../../components/dashboard-shell'
 import { Icon } from '../../components/icon'
+import { getIndustryServiceTemplate } from '../../lib/industry-templates.mjs'
 
 const WEEK = [
   { weekday: 1, label: 'Понеделник', short: 'Пон' },
@@ -184,6 +185,7 @@ function Wizard({ session, onComplete }) {
 
           {step === 1 && (
             <div>
+              <div className="service-template-callout"><div><strong>Готови предложения за твоя тип бизнес</strong><span>Зареди примерни услуги и ги промени според цените и времената си.</span></div><button type="button" onClick={() => setServices(getIndustryServiceTemplate(business.industry))}>Зареди предложения</button></div>
               <div className="repeat-list">
                 {services.map((service, index) => (
                   <div className="repeat-row" key={index}>

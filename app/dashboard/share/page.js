@@ -13,7 +13,7 @@ function ShareContent({ business, locale }) {
   const bookingUrl = `${buildPublicBookingUrl(publicOrigin, business.slug)}?lang=${locale}`
   const calendarUrl = business.calendar_feed_token ? `${publicOrigin}/api/calendar/${business.calendar_feed_token}` : ''
   const qrUrl = `${runtimeOrigin}/api/public/${encodeURIComponent(business.slug)}/qr?lang=${locale}`
-  const widgetCode = `<script src="${publicOrigin}/ai-receptionist-widget.js" data-business="${business.slug}" data-label="${en ? 'Book now' : 'Запази час'}" async></script>`
+  const widgetCode = `<script src="${publicOrigin}/ai-receptionist-widget.js" data-business="${business.slug}" data-lang="${locale}" data-label="${en ? 'Book now' : 'Запази час'}" async></script>`
   const shareText = `${en ? 'Book an appointment at' : 'Запази час в'} ${business.name}: ${bookingUrl}`
   const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`
   const emailUrl = `mailto:?subject=${encodeURIComponent(`${en ? 'Online booking at' : 'Онлайн резервация в'} ${business.name}`)}&body=${encodeURIComponent(shareText)}`

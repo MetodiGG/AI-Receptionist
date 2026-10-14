@@ -5398,6 +5398,14 @@ a {
 .demo-steps article .secondary-button { min-width: 165px; }
 .demo-steps article .secondary-button svg { width: 15px; }
 
+.confirmation-save { margin: 22px 0; padding: 20px; text-align: left; background: #f2f7ed; border: 1px solid #d4e1cb; border-radius: 18px; }
+.confirmation-save > p { margin: 0 0 14px; color: #425847; font-size: 14px; line-height: 1.6; }
+.confirmation-save-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+.confirmation-save-buttons .secondary-button { min-height: 46px; flex: 1 1 190px; color: #173e2a; background: #fff; }
+.confirmation-save > .confirmation-save-message { margin-top: 14px; font-weight: 700; }
+.confirmation-save small { display: block; margin-top: 12px; color: #596d5c; font-size: 12px; line-height: 1.5; }
+.confirmation-save input { width: 100%; min-width: 0; margin-top: 10px; padding: 12px; color: #173e2a; background: #fff; border: 1px solid #d4e1cb; border-radius: 10px; }
+
 @media (max-width: 920px) {
   .demo-readiness-card { grid-template-columns: 1fr; }
   .demo-readiness-card .primary-button { width: fit-content; }

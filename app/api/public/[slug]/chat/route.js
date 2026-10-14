@@ -6,6 +6,7 @@ import { createPublicBooking, getAvailableSlots, getPublicBusiness } from '../..
 import { consumeRateLimit } from '../../../../../lib/rate-limit'
 import { getSupabaseAdmin } from '../../../../../lib/supabase-admin'
 import { trackEvent } from '../../../../../lib/analytics'
+import { PRIVATE_RESPONSE_HEADERS } from '../../../../../lib/booking-safety.mjs'
 
 const conversationField = { conversationId: z.string().uuid().optional() }
 const localeField = { locale: z.enum(['bg', 'en']).optional().default('bg') }
@@ -76,7 +77,8 @@ async function ensureConversation(businessId, conversationId) {
       .eq('business_id', businessId)
       .maybeSingle()
     if (error) throw error
-    if (data) return data
+    // A completed conversation is immutable from the public booking flow.
+    if (data?.status === 'open') return data
   }
 
   const { data: customer, error: customerError } = await supabase
@@ -167,14 +169,14 @@ export async function POST(request, context) {
 
     if (input.action === 'select_service') {
       const service = findService(business, input.serviceId)
-      userText = `Избирам „${service.name}“.`
+      userText = input.locale === 'en' ? `I choose ${service.name}.` : `Избирам „${service.name}“.`
       reply = input.locale === 'en' ? `Great choice. ${service.name} takes ${service.duration_min} minutes. Who would you prefer?` : `Чудесен избор. ${service.name} е с продължителност ${service.duration_min} минути. При кого предпочиташ да бъде часът?`
     }
 
     if (input.action === 'select_staff') {
       const service = findService(business, input.serviceId)
       const person = findStaff(business, service.id, input.staffId)
-      userText = person ? `Предпочитам ${person.name}.` : 'Нямам предпочитание за специалист.'
+      userText = input.locale === 'en' ? (person ? `I prefer ${person.name}.` : 'No specialist preference.') : (person ? `Предпочитам ${person.name}.` : 'Нямам предпочитание за специалист.')
       reply = input.locale === 'en' ? 'Choose a convenient date and I will check live availability.' : 'Добре. Избери удобна дата и ще проверя реално свободните часове.'
     }
 
@@ -188,7 +190,7 @@ export async function POST(request, context) {
         date: input.date,
       }), Boolean(input.staffId))
       const readableDate = describeDate(input.date, business.timezone, input.locale)
-      userText = `Проверка за ${readableDate}.`
+      userText = input.locale === 'en' ? `Check availability on ${readableDate}.` : `Проверка за ${readableDate}.`
       reply = slots.length
         ? (input.locale === 'en' ? `There are ${slots.length} available times on ${readableDate}. Choose the one that suits you.` : `Имаме ${slots.length} подходящи часа за ${readableDate}. Избери най-удобния.`)
         : (input.locale === 'en' ? `There are no available times on ${readableDate}. Choose another date.` : `За ${readableDate} няма свободни часове. Избери друга дата.`)
@@ -211,7 +213,7 @@ export async function POST(request, context) {
         error.code = 'SLOT_UNAVAILABLE'
         throw error
       }
-      userText = `Избирам ${slot.localTime} при ${person.name}.`
+      userText = input.locale === 'en' ? `I choose ${slot.localTime} with ${person.name}.` : `Избирам ${slot.localTime} при ${person.name}.`
       reply = input.locale === 'en' ? 'Enter your contact information and appointment details, then review your booking before confirming.' : 'Въведи данните за контакт и посещението, след което прегледай резервацията преди потвърждение.'
       responseData = { slot }
     }
@@ -236,7 +238,7 @@ export async function POST(request, context) {
         },
       })
       const localStart = DateTime.fromISO(result.appointment.starts_at).setZone(business.timezone).setLocale(input.locale)
-      userText = 'Потвърждавам резервацията.'
+      userText = input.locale === 'en' ? 'I confirm the booking.' : 'Потвърждавам резервацията.'
       reply = input.locale === 'en' ? `Done! ${result.service.name} is booked for ${localStart.toFormat('cccc, d LLLL')} at ${localStart.toFormat('HH:mm')} with ${result.staff.name}.` : `Готово! Запазих ${result.service.name} за ${localStart.toFormat('cccc, d LLLL')} в ${localStart.toFormat('HH:mm')} при ${result.staff.name}.`
       responseData = {
         booking: {
@@ -272,7 +274,7 @@ export async function POST(request, context) {
       sessionKey: conversation.id,
       metadata: { action: input.action },
     })
-    return Response.json({ conversationId: conversation.id, message: reply, mode: 'guided', ...responseData })
+    return Response.json({ conversationId: conversation.id, message: reply, mode: 'guided', ...responseData }, { headers: PRIVATE_RESPONSE_HEADERS })
   } catch (error) {
     const safe = getSafeError(error)
     return apiError(safe.message, safe.status, safe.code)

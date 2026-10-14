@@ -5,6 +5,7 @@ import { consumeRateLimit } from '../../../../../lib/rate-limit'
 import { getSupabaseAdmin } from '../../../../../lib/supabase-admin'
 import { sendCancellationNotification } from '../../../../../lib/notifications'
 import { trackEvent } from '../../../../../lib/analytics'
+import { PRIVATE_RESPONSE_HEADERS } from '../../../../../lib/booking-safety.mjs'
 
 const tokenSchema = z.string().uuid()
 
@@ -27,7 +28,7 @@ export async function GET(request, context) {
     }
     const appointment = await getAppointment(token)
     if (!appointment) return apiError('Резервацията не е намерена.', 404, 'NOT_FOUND')
-    return Response.json({ appointment })
+    return Response.json({ appointment }, { headers: PRIVATE_RESPONSE_HEADERS })
   } catch (error) {
     const safe = getSafeError(error)
     return apiError(safe.message, safe.status, safe.code)
@@ -45,7 +46,7 @@ export async function POST(request, context) {
 
     const appointment = await getAppointment(token)
     if (!appointment) return apiError('Резервацията не е намерена.', 404, 'NOT_FOUND')
-    if (appointment.status === 'cancelled') return Response.json({ appointment })
+    if (appointment.status === 'cancelled') return Response.json({ appointment }, { headers: PRIVATE_RESPONSE_HEADERS })
     if (!['booked', 'confirmed'].includes(appointment.status)) return apiError('Тази резервация вече не може да бъде отменена.', 409, 'CANNOT_CANCEL')
 
     const cutoff = DateTime.fromISO(appointment.starts_at).minus({ hours: appointment.business.cancellation_notice_hours || 0 })
@@ -71,7 +72,7 @@ export async function POST(request, context) {
       trackEvent({ businessId: appointment.business_id, eventType: 'booking_cancelled', source: 'customer-link' }),
     ])
 
-    return Response.json({ appointment: { ...appointment, ...data } })
+    return Response.json({ appointment: { ...appointment, ...data } }, { headers: PRIVATE_RESPONSE_HEADERS })
   } catch (error) {
     const safe = getSafeError(error)
     return apiError(safe.message, safe.status, safe.code)

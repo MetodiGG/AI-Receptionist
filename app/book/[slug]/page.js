@@ -7,6 +7,8 @@ import { useParams, useRouter } from 'next/navigation'
 import { BrandLogo } from '../../../components/brand-logo'
 import { GuidedBookingChat } from '../../../components/guided-booking-chat'
 import { BookingIntakeFields, BookingIntakeSummary } from '../../../components/booking-intake-fields'
+import { BookingConfirmationActions } from '../../../components/booking-confirmation-actions'
+import { localizedApiMessage } from '../../../lib/localized-api-message.mjs'
 import { LanguageSwitch } from '../../../components/language-switch'
 import { usePublicLocale } from '../../../hooks/use-public-locale'
 import { collapseSlotsByLocalTime, formatBulgarianMonthShort, groupSlotsByPeriod, resolveVisibleBookingDays } from '../../../lib/booking-window.mjs'
@@ -75,27 +77,28 @@ function BookingPanel({ business, locale }) {
   }, [business.booking_window_days, business.timezone])
   const chosenDate = date ? DateTime.fromISO(date, { zone: business.timezone }).setLocale(locale) : null
   const visibleSlots = useMemo(() => staffId ? slots : collapseSlotsByLocalTime(slots), [slots, staffId])
-  const slotPeriods = useMemo(() => groupSlotsByPeriod(visibleSlots), [visibleSlots])
+  const slotPeriods = useMemo(() => groupSlotsByPeriod(visibleSlots, locale), [visibleSlots, locale])
   const availableTimes = visibleSlots.length
 
   useEffect(() => {
-    if (!serviceId || !date) { setSlots([]); return }
-    let active = true
+    if (!serviceId || !date) { setSlots([]); setLoadingSlots(false); return }
+    const controller = new AbortController()
+    setSlots([])
     setLoadingSlots(true)
     setSlot(null)
     setError('')
     const query = new URLSearchParams({ service_id: serviceId, date })
     if (staffId) query.set('staff_id', staffId)
 
-    fetch(`/api/public/${business.slug}/availability?${query}`)
+    fetch(`/api/public/${business.slug}/availability?${query}`, { signal: controller.signal, cache: 'no-store' })
       .then(async (response) => {
         const result = await response.json()
-        if (!response.ok) throw new Error(result.error?.message || (en ? 'We could not load the available times.' : 'Не успяхме да заредим свободните часове.'))
-        if (active) setSlots(result.slots)
+        if (!response.ok) throw new Error(localizedApiMessage(result.error, locale))
+        if (!controller.signal.aborted) setSlots(result.slots)
       })
-      .catch((requestError) => { if (active) setError(requestError.message) })
-      .finally(() => { if (active) setLoadingSlots(false) })
-    return () => { active = false }
+      .catch((requestError) => { if (!controller.signal.aborted) setError(requestError.message) })
+      .finally(() => { if (!controller.signal.aborted) setLoadingSlots(false) })
+    return () => { controller.abort() }
   }, [business.slug, date, en, serviceId, staffId])
 
   function chooseService(id) {
@@ -107,7 +110,7 @@ function BookingPanel({ business, locale }) {
 
   async function submit(event) {
     event.preventDefault()
-    if (!service || !slot) return
+    if (!service || !slot || submitting) return
     setSubmitting(true)
     setError('')
 
@@ -128,7 +131,7 @@ function BookingPanel({ business, locale }) {
         }),
       })
       const result = await response.json()
-      if (!response.ok) throw new Error(result.error?.message || (en ? 'We could not book this appointment.' : 'Не успяхме да запазим часа.'))
+      if (!response.ok) throw new Error(localizedApiMessage(result.error, locale))
       setConfirmation({ ...result.booking, service, slot })
     } catch (requestError) {
       setError(requestError.message)
@@ -152,6 +155,7 @@ function BookingPanel({ business, locale }) {
         <BookingIntakeSummary industry={business.industry} locale={locale} value={intake} />
         <p>{en ? 'Keep these details. If needed, contact' : 'Запази тези детайли. При нужда се свържи с'} {business.name}{business.phone ? ` ${en ? 'at' : 'на'} ${business.phone}` : ''}.</p>
         <Link className="manage-booking-link" href={`/booking/${confirmation.appointment.cancellation_token}?lang=${locale}`}>{en ? 'View and manage booking' : 'Преглед и управление на резервацията'}</Link>
+        <BookingConfirmationActions appointment={confirmation.appointment} business={business} service={confirmation.service} staff={confirmation.staff} locale={locale} />
         <button className="booking-primary" type="button" onClick={() => { setConfirmation(null); setSlot(null); setDate(''); setIntake({}); setDetails({ name: '', phone: '', email: '', notes: '', consent: false }) }}>{en ? 'Book another appointment' : 'Запази още един час'}</button>
       </section>
     )
@@ -185,7 +189,7 @@ function BookingPanel({ business, locale }) {
             <div><span>{en ? `Next ${dates.length} days` : `Следващите ${dates.length} дни`}</span><strong>{formatDateRange(dates, business.timezone, locale)}</strong></div>
             <small>{en ? 'Choose a convenient day' : 'Избери удобен ден'}</small>
           </div>
-          <div className="date-strip" role="group" aria-label="Дати за резервация">
+          <div className="date-strip" role="group" aria-label={en ? 'Booking dates' : 'Дати за резервация'}>
             {dates.map((item, index) => {
               const itemDate = DateTime.fromISO(item, { zone: business.timezone }).setLocale(locale)
               return <button type="button" aria-label={itemDate.toFormat('cccc, d LLLL yyyy')} aria-pressed={date === item} className={date === item ? 'selected' : ''} onClick={() => { setDate(item); setSlot(null) }} key={item}>
@@ -264,7 +268,7 @@ export default function PublicBookingPage() {
     fetch(`/api/public/${slug}`)
       .then(async (response) => {
         const result = await response.json()
-        if (!response.ok) throw new Error(result.error?.message || (locale === 'en' ? 'Page not found.' : 'Страницата не е намерена.'))
+        if (!response.ok) throw new Error(localizedApiMessage(result.error, locale))
         if (active) { setBusiness(result.business); setStatus('ready') }
       })
       .catch((requestError) => { if (active) { setError(requestError.message); setStatus('error') } })

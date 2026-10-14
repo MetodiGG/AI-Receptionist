@@ -6,6 +6,8 @@ import { OwnerPage } from '../../../components/owner-page'
 import { BookingIntakeFields } from '../../../components/booking-intake-fields'
 import { AppointmentCalendar } from '../../../components/appointment-calendar'
 import { supabase } from '../../../lib/supabase'
+import { bookingSlotKey } from '../../../lib/booking-safety.mjs'
+import { localizedApiMessage } from '../../../lib/localized-api-message.mjs'
 
 function AppointmentsContent({ business, locale }) {
   const en = locale === 'en'
@@ -45,6 +47,12 @@ function AppointmentsContent({ business, locale }) {
   }, [business.id])
 
   useEffect(() => { load() }, [load])
+  useEffect(() => {
+    const refreshVisible = () => { if (document.visibilityState === 'visible') load() }
+    window.addEventListener('focus', refreshVisible)
+    const timer = window.setInterval(refreshVisible, 60000)
+    return () => { window.removeEventListener('focus', refreshVisible); window.clearInterval(timer) }
+  }, [load])
   useEffect(() => {
     if (!manualOpen || !manual.serviceId || !manual.date) { setSlots([]); setSlotsLoading(false); return }
     const controller = new AbortController()
@@ -86,13 +94,15 @@ function AppointmentsContent({ business, locale }) {
 
   async function createManualAppointment(event) {
     event.preventDefault()
-    const slot = slots.find((item) => item.startsAt === manual.startsAt)
+    const slot = slots.find((item) => bookingSlotKey(item) === manual.startsAt)
     if (!slot) { setError(en ? 'Choose an available time.' : 'Избери свободен час.'); return }
     setSaving(true); setError('')
     try {
-      const response = await fetch(`/api/public/${business.slug}/bookings`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ serviceId: manual.serviceId, staffId: slot.staffId, startsAt: slot.startsAt, customer: { name: manual.name, phone: manual.phone, email: manual.email }, notes: manual.notes, intake: manualIntake, locale, consent: true, source: 'manual' }) })
+      const { data } = await supabase.auth.getSession()
+      if (!data.session) throw new Error(en ? 'Please sign in again.' : 'Влез отново в профила си.')
+      const response = await fetch(`/api/public/${business.slug}/bookings`, { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${data.session.access_token}` }, body: JSON.stringify({ serviceId: manual.serviceId, staffId: slot.staffId, startsAt: slot.startsAt, customer: { name: manual.name, phone: manual.phone, email: manual.email }, notes: manual.notes, intake: manualIntake, locale, consent: true, source: 'manual' }) })
       const body = await response.json()
-      if (!response.ok) throw new Error(body.error?.message || (en ? 'The booking could not be created.' : 'Резервацията не беше създадена.'))
+      if (!response.ok) throw new Error(localizedApiMessage(body.error, locale))
       setManualOpen(false); setManual({ serviceId: '', staffId: '', date: '', startsAt: '', name: '', phone: '', email: '', notes: '' }); setSlots([])
       setManualIntake({})
       await load()
@@ -101,12 +111,12 @@ function AppointmentsContent({ business, locale }) {
 
   async function moveAppointment(event) {
     event.preventDefault()
-    const slot = moveSlots.find((item) => item.startsAt === move.startsAt)
+    const slot = moveSlots.find((item) => bookingSlotKey(item) === move.startsAt)
     if (!slot) { setError(en ? 'Choose a new available time.' : 'Избери нов свободен час.'); return }
     setSaving(true); setError('')
-    const { error: updateError } = await supabase.from('appointments').update({ staff_id: slot.staffId, starts_at: slot.startsAt, ends_at: slot.endsAt, updated_at: new Date().toISOString() }).eq('id', move.appointment.id).eq('business_id', business.id)
+    const { data, error: updateError } = await supabase.from('appointments').update({ staff_id: slot.staffId, starts_at: slot.startsAt, ends_at: slot.endsAt, updated_at: new Date().toISOString() }).eq('id', move.appointment.id).eq('business_id', business.id).in('status', ['booked', 'confirmed']).select('id').maybeSingle()
     setSaving(false)
-    if (updateError) { setError(updateError.code === '23P01' ? (en ? 'This time is no longer available.' : 'Този час вече е зает.') : updateError.message); return }
+    if (updateError || !data) { setError(updateError?.code === '23P01' ? (en ? 'This time is no longer available.' : 'Този час вече е зает.') : updateError?.message || (en ? 'The booking changed. Refresh before trying again.' : 'Резервацията е променена. Обнови преди нов опит.')); return }
     setMove(null); setMoveSlots([]); await load()
   }
 
@@ -126,7 +136,7 @@ function AppointmentsContent({ business, locale }) {
             <label><span>{en ? 'Service' : 'Услуга'} *</span><select required value={manual.serviceId} onChange={(event) => setManual({ ...manual, serviceId: event.target.value, startsAt: '' })}><option value="">{en ? 'Choose' : 'Избери'}</option>{services.map((item) => <option value={item.id} key={item.id}>{item.name}</option>)}</select></label>
             <label><span>{en ? 'Specialist' : 'Специалист'}</span><select value={manual.staffId} onChange={(event) => setManual({ ...manual, staffId: event.target.value, startsAt: '' })}><option value="">{en ? 'No preference' : 'Без предпочитание'}</option>{staff.map((person) => <option value={person.id} key={person.id}>{person.name}</option>)}</select></label>
             <label><span>{en ? 'Date' : 'Дата'} *</span><input required type="date" min={DateTime.now().setZone(business.timezone).toISODate()} value={manual.date} onChange={(event) => setManual({ ...manual, date: event.target.value, startsAt: '' })} /></label>
-            <label><span>{en ? 'Available time' : 'Свободен час'} *</span><select required disabled={slotsLoading} value={manual.startsAt} onChange={(event) => setManual({ ...manual, startsAt: event.target.value })}><option value="">{slotsLoading ? (en ? 'Checking availability…' : 'Проверяваме часовете…') : manual.date ? (en ? 'Choose a time' : 'Избери час') : (en ? 'Choose a date first' : 'Първо избери дата')}</option>{slots.map((slot) => <option value={slot.startsAt} key={`${slot.staffId}-${slot.startsAt}`}>{slot.localTime} · {slot.staffName}</option>)}</select></label>
+            <label><span>{en ? 'Available time' : 'Свободен час'} *</span><select required disabled={slotsLoading} value={manual.startsAt} onChange={(event) => setManual({ ...manual, startsAt: event.target.value })}><option value="">{slotsLoading ? (en ? 'Checking availability…' : 'Проверяваме часовете…') : manual.date ? (en ? 'Choose a time' : 'Избери час') : (en ? 'Choose a date first' : 'Първо избери дата')}</option>{slots.map((slot) => <option value={bookingSlotKey(slot)} key={bookingSlotKey(slot)}>{slot.localTime} · {slot.staffName}</option>)}</select></label>
             <label><span>{en ? 'Name' : 'Име'} *</span><input required minLength={2} value={manual.name} onChange={(event) => setManual({ ...manual, name: event.target.value })} /></label>
             <label><span>{en ? 'Phone' : 'Телефон'} *</span><input required minLength={6} type="tel" value={manual.phone} onChange={(event) => setManual({ ...manual, phone: event.target.value })} /></label>
             <label className="full"><span>{en ? 'Email' : 'Имейл'}</span><input type="email" value={manual.email} onChange={(event) => setManual({ ...manual, email: event.target.value })} /></label>
@@ -143,7 +153,7 @@ function AppointmentsContent({ business, locale }) {
           <div className="settings-form-grid">
             <label><span>{en ? 'Specialist' : 'Специалист'}</span><select value={move.staffId} onChange={(event) => setMove({ ...move, staffId: event.target.value, startsAt: '' })}><option value="">{en ? 'No preference' : 'Без предпочитание'}</option>{staff.map((person) => <option value={person.id} key={person.id}>{person.name}</option>)}</select></label>
             <label><span>{en ? 'New date' : 'Нова дата'} *</span><input required type="date" min={DateTime.now().setZone(business.timezone).toISODate()} value={move.date} onChange={(event) => setMove({ ...move, date: event.target.value, startsAt: '' })} /></label>
-            <label className="full"><span>{en ? 'New available time' : 'Нов свободен час'} *</span><select required disabled={moveSlotsLoading} value={move.startsAt} onChange={(event) => setMove({ ...move, startsAt: event.target.value })}><option value="">{moveSlotsLoading ? (en ? 'Checking availability…' : 'Проверяваме часовете…') : move.date ? (en ? 'Choose a time' : 'Избери час') : (en ? 'Choose a date first' : 'Първо избери дата')}</option>{moveSlots.map((slot) => <option value={slot.startsAt} key={`${slot.staffId}-${slot.startsAt}`}>{slot.localTime} · {slot.staffName}</option>)}</select></label>
+            <label className="full"><span>{en ? 'New available time' : 'Нов свободен час'} *</span><select required disabled={moveSlotsLoading} value={move.startsAt} onChange={(event) => setMove({ ...move, startsAt: event.target.value })}><option value="">{moveSlotsLoading ? (en ? 'Checking availability…' : 'Проверяваме часовете…') : move.date ? (en ? 'Choose a time' : 'Избери час') : (en ? 'Choose a date first' : 'Първо избери дата')}</option>{moveSlots.map((slot) => <option value={bookingSlotKey(slot)} key={bookingSlotKey(slot)}>{slot.localTime} · {slot.staffName}</option>)}</select></label>
           </div>
           <p className="security-note">{en ? 'The calendar updates immediately. Contact the client to confirm the new time; no automatic notification is sent.' : 'Календарът се обновява веднага. Свържи се с клиента за новия час; автоматично известие не се изпраща.'}</p>
           {error && <p className="form-message" role="alert">{error}</p>}

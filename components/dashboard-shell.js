@@ -16,7 +16,7 @@ const NAV_ITEMS = [
 ]
 
 function Logo() {
-  return <Link className="app-logo" href="/dashboard" aria-label="GoRez · Начало"><BrandLogo compact decorative /></Link>
+  return <Link className="app-logo" href="/dashboard" aria-label="GoRez · Начало"><BrandLogo compact decorative eager /></Link>
 }
 
 export function DashboardShell({ email, title, businessSlug, children, onLogout }) {

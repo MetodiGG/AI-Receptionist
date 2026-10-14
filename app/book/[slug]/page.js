@@ -37,7 +37,7 @@ function formatDateRange(dates, zone, locale = 'bg') {
 function SparkLogo({ businessName, locale }) {
   return (
     <Link className="booking-brand booking-brand-link" href={`/?lang=${locale}`} aria-label={locale === 'bg' ? 'Към началната страница' : 'Go to homepage'}>
-      <BrandLogo compact decorative />
+      <BrandLogo compact decorative eager />
       <span className="booking-business-name"><small>GoRez</small><strong>{businessName || 'Онлайн резервации'}</strong></span>
     </Link>
   )

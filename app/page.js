@@ -4,23 +4,15 @@ import Link from 'next/link'
 import { useEffect, useMemo, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { BrandLogo } from '../components/brand-logo'
+import { Icon } from '../components/icon'
 import { LanguageSwitch } from '../components/language-switch'
 import { usePublicLocale } from '../hooks/use-public-locale'
 import { HOME_COPY } from '../lib/home-copy'
 import { filterDirectoryBusinesses, getIndustryLabel, INDUSTRY_KEYS, INDUSTRY_META } from '../lib/public-locale.mjs'
 import { hasSupabaseConfig, supabase } from '../lib/supabase'
 
-function Icon({ name }) {
-  const paths = {
-    spark: <><path d="m12 3-1.4 4.1a5 5 0 0 1-3.1 3.1L3.4 12l4.1 1.4a5 5 0 0 1 3.1 3.1L12 20.6l1.4-4.1a5 5 0 0 1 3.1-3.1l4.1-1.4-4.1-1.8a5 5 0 0 1-3.1-3.1L12 3Z"/><path d="m19 3-.5 1.4a2 2 0 0 1-1.2 1.2L16 6l1.3.5a2 2 0 0 1 1.2 1.2L19 9l.5-1.3a2 2 0 0 1 1.2-1.2L22 6l-1.3-.4a2 2 0 0 1-1.2-1.2L19 3Z"/></>,
-    arrow: <><path d="M5 12h14M13 6l6 6-6 6"/></>,
-    check: <path d="m5 12 4 4L19 6"/>,
-  }
-  return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[name]}</svg>
-}
-
-function Logo() {
-  return <BrandLogo className="marketing-logo" />
+function Logo({ eager = false }) {
+  return <BrandLogo className="marketing-logo" eager={eager} />
 }
 
 function BusinessDirectory({ locale, copy }) {
@@ -54,15 +46,15 @@ function BusinessDirectory({ locale, copy }) {
       <aside className="directory-filters">
         <label htmlFor="industry-filter">{copy.category}</label>
         <select id="industry-filter" value={industry} onChange={(event) => setIndustry(event.target.value)}>
-          <option value="all">{copy.all}</option>
-          {INDUSTRY_KEYS.map((key) => <option value={key} key={key}>{INDUSTRY_META[key].icon} {getIndustryLabel(key, locale)}</option>)}
+          <option value="all">🗂️ {copy.all}</option>
+          {INDUSTRY_KEYS.map((key) => <option value={key} key={key}>{INDUSTRY_META[key].symbol} {getIndustryLabel(key, locale)}</option>)}
         </select>
         <label htmlFor="business-filter">{copy.chooseBusiness}</label>
         <select id="business-filter" value={selected?.slug || ''} onChange={(event) => setSelectedSlug(event.target.value)} disabled={!filtered.length}>
           {filtered.map((business) => <option value={business.slug} key={business.id}>{business.name}</option>)}
         </select>
         <div className="category-chips" aria-label={copy.category}>
-          {INDUSTRY_KEYS.slice(0, 4).map((key) => <button type="button" className={industry === key ? 'active' : ''} onClick={() => setIndustry(key)} key={key}><span>{INDUSTRY_META[key].icon}</span>{getIndustryLabel(key, locale)}</button>)}
+          {INDUSTRY_KEYS.slice(0, 4).map((key) => <button type="button" className={industry === key ? 'active' : ''} onClick={() => setIndustry(key)} key={key}><span><Icon name={INDUSTRY_META[key].icon} /></span>{getIndustryLabel(key, locale)}</button>)}
         </div>
       </aside>
       <div className="directory-result" aria-live="polite">
@@ -70,7 +62,7 @@ function BusinessDirectory({ locale, copy }) {
         {status === 'error' && <div className="directory-state"><p>{error}</p><button type="button" onClick={loadBusinesses}>{copy.retry}</button></div>}
         {status === 'ready' && !selected && <div className="directory-state"><p>{copy.empty}</p></div>}
         {status === 'ready' && selected && <article className="directory-business-card" style={{ '--card-color': selected.theme_color || '#173e2a' }}>
-          <div className="directory-business-head"><span className="directory-business-icon">{INDUSTRY_META[selected.industry]?.icon || '✶'}</span><div><small>{getIndustryLabel(selected.industry, locale)}</small><h3>{selected.name}</h3>{selected.address && <p>⌖ {selected.address}</p>}</div><span className="directory-live"><i /> {copy.online}</span></div>
+          <div className="directory-business-head"><span className="directory-business-icon"><Icon name={(INDUSTRY_META[selected.industry] || INDUSTRY_META.other).icon} /></span><div><small>{getIndustryLabel(selected.industry, locale)}</small><h3>{selected.name}</h3>{selected.address && <p>⌖ {selected.address}</p>}</div><span className="directory-live"><i /> {copy.online}</span></div>
           <div className="directory-services"><small>{copy.services}</small><div>{selected.services.slice(0, 5).map((service) => <span key={service.id}>{service.name}<b>{service.duration_min} min</b></span>)}</div></div>
           <Link className="directory-book-button" href={`/book/${selected.slug}?lang=${locale}`}>{copy.book} <Icon name="arrow" /></Link>
         </article>}
@@ -82,9 +74,9 @@ function BusinessDirectory({ locale, copy }) {
 function HeroVisual({ locale }) {
   const english = locale === 'en'
   return <div className="platform-hero-visual" aria-hidden="true">
-    <div className="hero-service-card beauty"><span>✂</span><small>{getIndustryLabel('beauty', locale)}</small><strong>{english ? 'Haircut' : 'Подстригване'}</strong><i>10:30</i></div>
-    <div className="hero-service-card auto"><span>⚙</span><small>{getIndustryLabel('auto', locale)}</small><strong>{english ? 'Diagnostics' : 'Диагностика'}</strong><i>14:00</i></div>
-    <div className="hero-service-card health"><span>+</span><small>{getIndustryLabel('health', locale)}</small><strong>{english ? 'Consultation' : 'Консултация'}</strong><i>16:15</i></div>
+    <div className="hero-service-card beauty"><span><Icon name="scissors" /></span><small>{getIndustryLabel('beauty', locale)}</small><strong>{english ? 'Haircut' : 'Подстригване'}</strong><i>10:30</i></div>
+    <div className="hero-service-card auto"><span><Icon name="wrench" /></span><small>{getIndustryLabel('auto', locale)}</small><strong>{english ? 'Diagnostics' : 'Диагностика'}</strong><i>14:00</i></div>
+    <div className="hero-service-card health"><span><Icon name="stethoscope" /></span><small>{getIndustryLabel('health', locale)}</small><strong>{english ? 'Consultation' : 'Консултация'}</strong><i>16:15</i></div>
     <div className="hero-calendar-card"><small>{english ? 'AVAILABLE TIMES' : 'СВОБОДНИ ЧАСОВЕ'}</small><div><span>09:30</span><span>11:00</span><span>13:30</span></div><strong>✓ {english ? 'Confirmed' : 'Потвърдено'}</strong></div>
   </div>
 }
@@ -119,7 +111,7 @@ export default function Home() {
 
   return <main className="marketing-page platform-home">
     <nav className="marketing-nav platform-nav" aria-label={locale === 'bg' ? 'Основна навигация' : 'Main navigation'}>
-      <a href="#top" aria-label="GoRez"><Logo /></a>
+      <a href="#top" aria-label="GoRez"><Logo eager /></a>
       <div className="marketing-nav-links"><a href="#clients">{copy.navClients}</a><a href="#how">{copy.how}</a><a href="#business">{copy.navBusiness}</a></div>
       <div className="platform-nav-actions"><LanguageSwitch locale={locale} onChange={setLocale} compact /><a className="marketing-nav-cta" href="#business">{copy.login} <Icon name="arrow" /></a></div>
     </nav>

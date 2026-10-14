@@ -19,6 +19,14 @@ export function Icon({ name }) {
     phone: <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2.1Z" />,
     external: <><path d="M14 3h7v7M10 14 21 3" /><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5" /></>,
     chart: <><path d="M4 20V10M10 20V4M16 20v-7M22 20H2" /></>,
+    scissors: <><circle cx="6" cy="7" r="3" /><circle cx="6" cy="17" r="3" /><path d="m8.7 8.4 12.1 6.8M8.7 15.6 20.8 8.8" /></>,
+    wrench: <path d="M14.7 6.3a4 4 0 0 0-5-5L12 3.6 9.6 6 7.3 3.7a4 4 0 0 0 5 5L4 17a2.1 2.1 0 1 0 3 3l8.3-8.3a4 4 0 0 0 5-5L18 9l-2.4-2.4 2.3-2.3a4 4 0 0 0-3.2 2Z" />,
+    dumbbell: <><path d="M6.5 6.5v11M17.5 6.5v11M3.5 9v6M20.5 9v6M6.5 12h11" /><path d="M2 10v4M22 10v4" /></>,
+    graduation: <><path d="m2 9 10-5 10 5-10 5L2 9Z" /><path d="M6 11.2V16c3.4 2.5 8.6 2.5 12 0v-4.8M22 9v6" /></>,
+    house: <><path d="m3 11 9-8 9 8" /><path d="M5 10v11h14V10M9 21v-7h6v7" /></>,
+    paw: <><circle cx="7.5" cy="8" r="2" /><circle cx="16.5" cy="8" r="2" /><circle cx="5" cy="13" r="2" /><circle cx="19" cy="13" r="2" /><path d="M8.2 19.4c1.3 1.4 6.3 1.4 7.6 0 1.8-1.8-.3-6.4-3.8-6.4s-5.6 4.6-3.8 6.4Z" /></>,
+    stethoscope: <><path d="M6 3v6a4 4 0 0 0 8 0V3M4 3h4M12 3h4" /><path d="M10 15v1a5 5 0 0 0 10 0v-2" /><circle cx="20" cy="11" r="2" /></>,
+    calendarSearch: <><rect x="3" y="5" width="18" height="16" rx="3" /><path d="M16 3v4M8 3v4M3 10h18" /><circle cx="11" cy="15" r="2.5" /><path d="m13 17 2 2" /></>,
   }
 
   return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[name]}</svg>

@@ -49,7 +49,7 @@ export default function ManageBookingPage() {
   return (
     <main className="manage-booking-page">
       <section className="manage-booking-card">
-        <div className="booking-brand"><BrandLogo compact decorative /><span className="booking-business-name"><small>GoRez</small><strong>{appointment.business.name}</strong></span></div>
+        <div className="booking-brand"><BrandLogo compact decorative eager /><span className="booking-business-name"><small>GoRez</small><strong>{appointment.business.name}</strong></span></div>
         <div className={`manage-status ${appointment.status === 'cancelled' ? 'cancelled' : ''}`}><span>{appointment.status === 'cancelled' ? '×' : '✓'}</span><div><small>Статус</small><strong>{appointment.status === 'cancelled' ? 'Резервацията е отменена' : 'Резервацията е активна'}</strong></div></div>
         <h1>{appointment.service.name}</h1>
         <div className="manage-details">

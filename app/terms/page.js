@@ -1,9 +1,10 @@
-import Link from 'next/link'
-import { BrandLogo } from '../../components/brand-logo'
+import { LegalPage } from '../../components/legal-page'
 
-export const metadata = { title: 'Условия' }
+export async function generateMetadata({ searchParams }) {
+  return { title: (await searchParams)?.lang === 'en' ? 'Terms of use' : 'Условия', alternates: { canonical: '/terms' } }
+}
 
-export default function TermsPage() {
-  return <main className="legal-page"><article><Link className="legal-logo" href="/" aria-label="GoRez · Начало"><BrandLogo eager /></Link><p className="auth-kicker">Условия</p><h1>Условия за използване</h1><p className="legal-updated">Версия от 14 октомври 2026 г.</p><h2>Резервации</h2><p>Платформата предава избраните от клиента данни към конкретния бизнес. Самият бизнес предоставя услугата, определя цените, работното време, правилата за закъснение и отказ.</p><h2>Потвърждение</h2><p>Резервацията е създадена, когато екранът покаже потвърждение и личен линк за управление. Допълнителните известия не отменят успешно създадения час.</p><h2>Промени и отказ</h2><p>Онлайн отказ е възможен в срока, публикуван от бизнеса. След този срок клиентът трябва да се свърже директно с бизнеса.</p><h2>Онлайн асистент</h2><p>Асистентът използва публикуваните услуги, графици и правила. Само изричното потвърждение в процеса за резервация може да създаде час.</p><h2>Наличност</h2><p>Работим за постоянна достъпност, но временни прекъсвания са възможни. При съмнение клиентът следва да използва контактите на бизнеса.</p><p className="legal-note">Условията се актуализират при промяна на фирмените данни, плановете, плащанията, поддръжката или договорените нива на услугата.</p><div className="legal-actions"><Link href="/privacy">Поверителност</Link><Link href="/">Към началото</Link></div></article></main>
+export default async function TermsPage({ searchParams }) {
+  return <LegalPage type="terms" initialLocale={(await searchParams)?.lang === 'en' ? 'en' : 'bg'} />
 }
 

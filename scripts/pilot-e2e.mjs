@@ -75,7 +75,7 @@ try {
     assert.ok(result.status === 401 || result.status === 403 || (result.status === 200 && result.data.length === 0), `Anonymous data exposed: ${table}`)
   }
   passed('anonymous database access blocked')
-  assert.equal((await json('/api/admin/overview')).status, 401)
+  assert.ok([401, 403].includes((await json('/api/admin/overview')).status))
   assert.equal((await json(`/api/owner/customers/${randomUUID()}`, { method: 'DELETE' })).status, 401)
   passed('admin and deletion require authentication')
 

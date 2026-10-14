@@ -5,6 +5,7 @@ import { DateTime } from 'luxon'
 import { useParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { BrandLogo } from '../../../components/brand-logo'
+import { Icon } from '../../../components/icon'
 
 export default function ManageBookingPage() {
   const { token } = useParams()
@@ -61,7 +62,7 @@ export default function ManageBookingPage() {
         {appointment.business.address && <p className="manage-address">⌖ {appointment.business.address}</p>}
         {error && <p className="booking-inline-error" role="alert">{error}</p>}
         {canCancel && <button className="cancel-booking-button" type="button" disabled={cancelling} onClick={cancelBooking}>{cancelling ? 'Отменяне...' : 'Отмени резервацията'}</button>}
-        {appointment.business.phone && <a className="booking-primary" href={`tel:${appointment.business.phone}`}>Свържи се с бизнеса</a>}
+        {appointment.business.phone && <a className="booking-primary manage-contact-button" href={`tel:${appointment.business.phone}`}><Icon name="phone" /> Обади се на {appointment.business.phone}</a>}
         <Link className="manage-back-link" href={`/book/${appointment.business.slug}`}>← Към страницата за резервации</Link>
       </section>
     </main>

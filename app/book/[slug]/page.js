@@ -3,9 +3,10 @@
 import Link from 'next/link'
 import { useEffect, useMemo, useState } from 'react'
 import { DateTime } from 'luxon'
-import { useParams } from 'next/navigation'
+import { useParams, useRouter } from 'next/navigation'
 import { GuidedBookingChat } from '../../../components/guided-booking-chat'
 import { collapseSlotsByLocalTime, formatBulgarianMonthShort, groupSlotsByPeriod, resolveVisibleBookingDays } from '../../../lib/booking-window.mjs'
+import { hasSupabaseConfig, supabase } from '../../../lib/supabase'
 
 function formatMoney(value, currency = 'EUR') {
   return new Intl.NumberFormat('bg-BG', { style: 'currency', currency }).format(Number(value || 0))
@@ -27,10 +28,10 @@ function formatDateRange(dates, zone) {
 
 function SparkLogo({ businessName }) {
   return (
-    <div className="booking-brand">
+    <Link className="booking-brand booking-brand-link" href="/" aria-label="Към началната страница">
       <span className="booking-logo-mark" aria-hidden="true">✦</span>
       <span><small>AI Рецепционист</small><strong>{businessName || 'Онлайн резервации'}</strong></span>
-    </div>
+    </Link>
   )
 }
 
@@ -223,11 +224,22 @@ function BookingPanel({ business }) {
 
 export default function PublicBookingPage() {
   const { slug } = useParams()
+  const router = useRouter()
   const [business, setBusiness] = useState(null)
   const [status, setStatus] = useState('loading')
   const [error, setError] = useState('')
   const [mode, setMode] = useState('booking')
   const [embedded, setEmbedded] = useState(false)
+  const [ownerSession, setOwnerSession] = useState(null)
+  const [signingOut, setSigningOut] = useState(false)
+
+  useEffect(() => {
+    if (!hasSupabaseConfig) return
+    let active = true
+    supabase.auth.getSession().then(({ data }) => { if (active) setOwnerSession(data.session) })
+    const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => { if (active) setOwnerSession(session) })
+    return () => { active = false; listener.subscription.unsubscribe() }
+  }, [])
 
   useEffect(() => {
     setEmbedded(new URLSearchParams(window.location.search).get('embed') === '1')
@@ -242,6 +254,12 @@ export default function PublicBookingPage() {
     return () => { active = false }
   }, [slug])
 
+  async function logout() {
+    setSigningOut(true)
+    await supabase.auth.signOut()
+    router.replace('/')
+  }
+
   if (status === 'loading') return <LoadingPage />
   if (status === 'error') return <main className="booking-state-page"><span className="booking-logo-mark">!</span><h1>Не успяхме да отворим страницата</h1><p>{error}</p><button className="booking-primary booking-retry" type="button" onClick={() => window.location.reload()}>Опитай отново</button></main>
 
@@ -250,7 +268,13 @@ export default function PublicBookingPage() {
       <div className="booking-ambient" aria-hidden="true"><i /><i /><i /></div>
       <header className="booking-topbar">
         <SparkLogo businessName={business.name} />
-        <div className="booking-contact">{business.phone && <a href={`tel:${business.phone}`}>{business.phone}</a>}<span className="booking-live"><i /> Онлайн</span></div>
+        <div className="booking-top-actions">
+          <div className="booking-contact">{business.phone && <a className="booking-phone" href={`tel:${business.phone}`}>{business.phone}</a>}<span className="booking-live"><i /> Онлайн</span></div>
+          {ownerSession ? <nav className="booking-owner-nav" aria-label="Навигация за собственик">
+            <Link className="booking-dashboard-link" href="/dashboard"><span aria-hidden="true">←</span> Към таблото</Link>
+            <button type="button" className="booking-signout" onClick={logout} disabled={signingOut}>{signingOut ? 'Излизане...' : 'Изход'}</button>
+          </nav> : <Link className="booking-home-link" href="/"><span aria-hidden="true">←</span> Начало</Link>}
+        </div>
       </header>
       <section className="booking-hero">
         <div className="booking-hero-copy"><p className="booking-eyebrow"><span /> Онлайн записване · 24/7</p><h1>Запази време<br /><em>за себе си.</em></h1><p>Избери услугата и най-удобния свободен час. Без обаждане, без регистрация и без чакане за отговор.</p>{business.address && <span className="booking-address">⌖ {business.address}</span>}</div>

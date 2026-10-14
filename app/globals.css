@@ -3044,6 +3044,19 @@ a {
   gap: 12px;
 }
 
+.booking-brand-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.booking-brand-link:focus-visible,
+.booking-home-link:focus-visible,
+.booking-dashboard-link:focus-visible,
+.booking-signout:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--business-color) 28%, transparent);
+  outline-offset: 3px;
+}
+
 .booking-logo-mark {
   display: grid;
   place-items: center;
@@ -3084,6 +3097,74 @@ a {
 
 .booking-contact a {
   text-decoration: none;
+}
+
+.booking-top-actions,
+.booking-owner-nav {
+  display: flex;
+  align-items: center;
+}
+
+.booking-top-actions {
+  gap: 18px;
+}
+
+.booking-owner-nav {
+  gap: 8px;
+  padding-left: 18px;
+  border-left: 1px solid rgba(18, 32, 25, 0.12);
+}
+
+.booking-home-link,
+.booking-dashboard-link,
+.booking-signout {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 38px;
+  padding: 0 13px;
+  color: #415047;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid #d9e2d7;
+  border-radius: 11px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform 150ms ease, border-color 150ms ease, background 150ms ease;
+}
+
+.booking-home-link:hover,
+.booking-dashboard-link:hover,
+.booking-signout:hover:not(:disabled) {
+  transform: translateY(-1px);
+  background: #fff;
+  border-color: #b9c8b7;
+}
+
+.booking-dashboard-link {
+  color: #fff;
+  background: var(--business-color);
+  border-color: var(--business-color);
+}
+
+.booking-dashboard-link:hover {
+  color: #fff;
+  background: color-mix(in srgb, var(--business-color) 90%, #000);
+  border-color: var(--business-color);
+}
+
+.booking-signout {
+  color: #8f3d35;
+  background: transparent;
+  border-color: #e4c9c5;
+}
+
+.booking-signout:disabled {
+  cursor: wait;
+  opacity: 0.65;
 }
 
 .booking-live {
@@ -4452,6 +4533,18 @@ a {
 }
 
 @media (max-width: 850px) {
+  .booking-phone {
+    display: none;
+  }
+
+  .booking-top-actions {
+    gap: 10px;
+  }
+
+  .booking-owner-nav {
+    padding-left: 10px;
+  }
+
   .booking-hero {
     grid-template-columns: 1fr;
     gap: 30px;
@@ -4484,19 +4577,37 @@ a {
     padding-inline: 16px;
   }
 
-  .booking-contact > a {
-    display: none;
-  }
-
   .booking-brand small {
     display: none;
   }
 
   .booking-brand strong {
-    max-width: 170px;
+    max-width: 112px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+  }
+
+  .booking-contact {
+    display: none;
+  }
+
+  .booking-owner-nav {
+    gap: 6px;
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .booking-home-link,
+  .booking-dashboard-link,
+  .booking-signout {
+    min-height: 36px;
+    padding-inline: 10px;
+    font-size: 10px;
+  }
+
+  .booking-dashboard-link span {
+    display: none;
   }
 
   .booking-hero,

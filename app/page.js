@@ -105,7 +105,7 @@ export default function Home() {
     const result = isLogin ? await supabase.auth.signInWithPassword({ email: normalizedEmail, password }) : await supabase.auth.signUp({ email: normalizedEmail, password })
     setLoading(false)
     if (result.error) { setMessage({ type: 'error', text: result.error.message }); return }
-    if (result.data.session) { router.push('/dashboard'); return }
+    if (result.data.session) { router.push(`/dashboard?lang=${locale}`); return }
     setMessage({ type: 'success', text: locale === 'bg' ? 'Профилът е създаден. Провери имейла си.' : 'Your profile is ready. Check your email to confirm it.' })
   }
 

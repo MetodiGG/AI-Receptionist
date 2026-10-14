@@ -146,7 +146,7 @@ function BookingPanel({ business, locale }) {
           {business.address && <span>{business.address}</span>}
         </div>
         <p>{en ? 'Keep these details. If needed, contact' : 'Запази тези детайли. При нужда се свържи с'} {business.name}{business.phone ? ` ${en ? 'at' : 'на'} ${business.phone}` : ''}.</p>
-        <Link className="manage-booking-link" href={`/booking/${confirmation.appointment.cancellation_token}`}>{en ? 'View and manage booking' : 'Преглед и управление на резервацията'}</Link>
+        <Link className="manage-booking-link" href={`/booking/${confirmation.appointment.cancellation_token}?lang=${locale}`}>{en ? 'View and manage booking' : 'Преглед и управление на резервацията'}</Link>
         <button className="booking-primary" type="button" onClick={() => { setConfirmation(null); setSlot(null); setDate(''); setDetails({ name: '', phone: '', email: '', notes: '', consent: false }) }}>{en ? 'Book another appointment' : 'Запази още един час'}</button>
       </section>
     )

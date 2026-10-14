@@ -21,6 +21,7 @@ test('auto businesses receive relevant starter services without shared mutation'
   first[0].name = 'changed'
   const second = getIndustryServiceTemplate('auto')
   assert.match(second[0].name, /Диагностика/i)
+  assert.equal(getIndustryServiceTemplate('auto', 'en')[0].name, 'Computer diagnostics')
 })
 
 test('places legacy uncategorized businesses in an obvious public category', () => {

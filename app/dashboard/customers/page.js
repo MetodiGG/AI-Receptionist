@@ -5,7 +5,8 @@ import { Icon } from '../../../components/icon'
 import { OwnerPage } from '../../../components/owner-page'
 import { supabase } from '../../../lib/supabase'
 
-function CustomersContent({ business }) {
+function CustomersContent({ business, locale }) {
+  const en = locale === 'en'
   const [customers, setCustomers] = useState([])
   const [appointments, setAppointments] = useState([])
   const [query, setQuery] = useState('')
@@ -55,34 +56,34 @@ function CustomersContent({ business }) {
     setDeleteError('')
     const { error: requestError } = await supabase.rpc('anonymize_customer', { input_business_id: business.id, input_customer_id: customerToDelete.id })
     setDeleting(false)
-    if (requestError) { setDeleteError(`Не успяхме да изтрием клиента: ${requestError.message}`); return }
+    if (requestError) { setDeleteError(`${en ? 'We could not delete the client' : 'Не успяхме да изтрием клиента'}: ${requestError.message}`); return }
     setCustomers((current) => current.filter((item) => item.id !== customerToDelete.id))
     setCustomerToDelete(null)
   }
 
   return (
     <main className="dashboard-content admin-page">
-      <div className="admin-page-head"><div><p className="auth-kicker">CRM</p><h2>Клиенти</h2><p>Контакти и история на посещенията на едно място.</p></div><div className="admin-count"><strong>{customers.length}</strong><span>клиенти</span></div></div>
-      <label className="admin-search"><span className="sr-only">Търси клиенти</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Търси по име, телефон или имейл..." /></label>
+      <div className="admin-page-head"><div><p className="auth-kicker">CRM</p><h2>{en ? 'Clients' : 'Клиенти'}</h2><p>{en ? 'Contacts and appointment history in one place.' : 'Контакти и история на посещенията на едно място.'}</p></div><div className="admin-count"><strong>{customers.length}</strong><span>{en ? 'clients' : 'клиенти'}</span></div></div>
+      <label className="admin-search"><span className="sr-only">{en ? 'Search clients' : 'Търси клиенти'}</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder={en ? 'Search by name, phone or email...' : 'Търси по име, телефон или имейл...'} /></label>
       {error && <p className="form-message" role="alert">{error}</p>}
-      {status === 'loading' && <div className="admin-loading"><span className="button-spinner" /> Зареждаме клиентите...</div>}
-      {status === 'ready' && visible.length === 0 && <div className="empty-state"><h3>Няма намерени клиенти</h3><p>Новите клиенти ще се появят тук след първата им резервация.</p></div>}
+      {status === 'loading' && <div className="admin-loading"><span className="button-spinner" /> {en ? 'Loading clients...' : 'Зареждаме клиентите...'}</div>}
+      {status === 'ready' && visible.length === 0 && <div className="empty-state"><h3>{en ? 'No clients found' : 'Няма намерени клиенти'}</h3><p>{en ? 'New clients will appear here after their first booking.' : 'Новите клиенти ще се появят тук след първата им резервация.'}</p></div>}
       <div className="customer-grid">{visible.map((customer) => {
         const customerStats = stats(customer.id)
         return <article className="customer-card" key={customer.id}>
           <div className="customer-avatar">{(customer.name || '?').slice(0, 1).toUpperCase()}</div>
-          <div className="customer-info"><h3>{customer.name || 'Посетител от чата'}</h3><a href={customer.phone ? `tel:${customer.phone}` : undefined}>{customer.phone || 'Без телефон'}</a><small>{customer.email || customer.channel}</small></div>
-          <div className="customer-stats"><span><strong>{customerStats.total}</strong> резервации</span><span><strong>{customerStats.completed}</strong> посещения</span></div>
+          <div className="customer-info"><h3>{customer.name || (en ? 'Chat visitor' : 'Посетител от чата')}</h3><a href={customer.phone ? `tel:${customer.phone}` : undefined}>{customer.phone || (en ? 'No phone' : 'Без телефон')}</a><small>{customer.email || customer.channel}</small></div>
+          <div className="customer-stats"><span><strong>{customerStats.total}</strong> {en ? 'bookings' : 'резервации'}</span><span><strong>{customerStats.completed}</strong> {en ? 'visits' : 'посещения'}</span></div>
           {customer.notes && <p className="customer-notes">{customer.notes}</p>}
-          <div className="customer-actions"><button className="ghost-button" type="button" onClick={() => { setEditing(customer); setNotes(customer.notes || '') }}>Бележки</button><button className="danger-link" type="button" onClick={() => { setCustomerToDelete(customer); setDeleteError('') }}><Icon name="trash" /> Изтрий</button></div>
+          <div className="customer-actions"><button className="ghost-button" type="button" onClick={() => { setEditing(customer); setNotes(customer.notes || '') }}>{en ? 'Notes' : 'Бележки'}</button><button className="danger-link" type="button" onClick={() => { setCustomerToDelete(customer); setDeleteError('') }}><Icon name="trash" /> {en ? 'Delete' : 'Изтрий'}</button></div>
         </article>
       })}</div>
-      {editing && <div className="modal-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) setEditing(null) }}><section className="admin-modal" role="dialog" aria-modal="true" aria-labelledby="notes-title"><h3 id="notes-title">Бележки за {editing.name || 'клиента'}</h3><textarea className="text-area" value={notes} onChange={(event) => setNotes(event.target.value)} placeholder="Предпочитания, важна информация..." /><div><button className="secondary-button" type="button" onClick={() => setEditing(null)}>Отказ</button><button className="primary-button" type="button" onClick={saveNotes}>Запази</button></div></section></div>}
-      {customerToDelete && <div className="modal-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget && !deleting) setCustomerToDelete(null) }}><section className="admin-modal delete-customer-modal" role="alertdialog" aria-modal="true" aria-labelledby="delete-customer-title" aria-describedby="delete-customer-description"><span className="delete-customer-icon"><Icon name="trash" /></span><h3 id="delete-customer-title">Изтриване на клиент</h3><p id="delete-customer-description">Сигурен ли си, че искаш да изтриеш <strong>{customerToDelete.name || 'този клиент'}</strong>? Личните данни, бележките и разговорите ще бъдат премахнати окончателно. Историята на резервациите ще остане само като анонимна статистика.</p>{deleteError && <p className="delete-error" role="alert">{deleteError}</p>}<div><button className="secondary-button" type="button" onClick={() => setCustomerToDelete(null)} disabled={deleting}>Отказ</button><button className="danger-button" type="button" onClick={deleteCustomer} disabled={deleting}>{deleting ? 'Изтриване…' : 'Изтрий клиента'}</button></div></section></div>}
+      {editing && <div className="modal-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) setEditing(null) }}><section className="admin-modal" role="dialog" aria-modal="true" aria-labelledby="notes-title"><h3 id="notes-title">{en ? 'Notes for' : 'Бележки за'} {editing.name || (en ? 'the client' : 'клиента')}</h3><textarea className="text-area" value={notes} onChange={(event) => setNotes(event.target.value)} placeholder={en ? 'Preferences, important information...' : 'Предпочитания, важна информация...'} /><div><button className="secondary-button" type="button" onClick={() => setEditing(null)}>{en ? 'Cancel' : 'Отказ'}</button><button className="primary-button" type="button" onClick={saveNotes}>{en ? 'Save' : 'Запази'}</button></div></section></div>}
+      {customerToDelete && <div className="modal-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget && !deleting) setCustomerToDelete(null) }}><section className="admin-modal delete-customer-modal" role="alertdialog" aria-modal="true" aria-labelledby="delete-customer-title" aria-describedby="delete-customer-description"><span className="delete-customer-icon"><Icon name="trash" /></span><h3 id="delete-customer-title">{en ? 'Delete client' : 'Изтриване на клиент'}</h3><p id="delete-customer-description">{en ? 'Are you sure you want to delete' : 'Сигурен ли си, че искаш да изтриеш'} <strong>{customerToDelete.name || (en ? 'this client' : 'този клиент')}</strong>? {en ? 'Personal details, notes and conversations will be permanently removed. Booking history will remain only as anonymous statistics.' : 'Личните данни, бележките и разговорите ще бъдат премахнати окончателно. Историята на резервациите ще остане само като анонимна статистика.'}</p>{deleteError && <p className="delete-error" role="alert">{deleteError}</p>}<div><button className="secondary-button" type="button" onClick={() => setCustomerToDelete(null)} disabled={deleting}>{en ? 'Cancel' : 'Отказ'}</button><button className="danger-button" type="button" onClick={deleteCustomer} disabled={deleting}>{deleting ? (en ? 'Deleting…' : 'Изтриване…') : (en ? 'Delete client' : 'Изтрий клиента')}</button></div></section></div>}
     </main>
   )
 }
 
 export default function CustomersPage() {
-  return <OwnerPage title="Клиенти">{(props) => <CustomersContent {...props} />}</OwnerPage>
+  return <OwnerPage title={{ bg: 'Клиенти', en: 'Clients' }}>{(props) => <CustomersContent {...props} />}</OwnerPage>
 }

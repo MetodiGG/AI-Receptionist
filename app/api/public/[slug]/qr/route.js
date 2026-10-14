@@ -12,7 +12,8 @@ export async function GET(request, context) {
     if (!business) return apiError('Този бизнес не е открит.', 404, 'NOT_FOUND')
     const requestUrl = new URL(request.url)
     const origin = resolvePublicOrigin(process.env.NEXT_PUBLIC_APP_URL, requestUrl.origin)
-    const bookingUrl = buildPublicBookingUrl(origin, business.slug)
+    const locale = requestUrl.searchParams.get('lang') === 'en' ? 'en' : 'bg'
+    const bookingUrl = `${buildPublicBookingUrl(origin, business.slug)}?lang=${locale}`
     const svg = await QRCode.toString(bookingUrl, { type: 'svg', width: 512, margin: 2, color: { dark: '#173e2a', light: '#ffffff' }, errorCorrectionLevel: 'M' })
     const headers = {
       'Content-Type': 'image/svg+xml; charset=utf-8',

@@ -5,9 +5,12 @@ import { useCallback, useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { hasSupabaseConfig, supabase } from '../lib/supabase'
 import { DashboardShell } from './dashboard-shell'
+import { usePublicLocale } from '../hooks/use-public-locale'
 
 export function OwnerPage({ title, children }) {
   const router = useRouter()
+  const { locale, setLocale } = usePublicLocale()
+  const en = locale === 'en'
   const [state, setState] = useState({ status: 'loading', session: null, business: null, error: '' })
 
   const load = useCallback(async () => {
@@ -31,14 +34,14 @@ export function OwnerPage({ title, children }) {
     router.replace('/')
   }
 
-  if (state.status === 'loading') return <div className="loading-screen"><div className="loading-box"><span className="button-spinner" /><span>Зареждаме...</span></div></div>
-  if (state.status === 'config') return <div className="config-warning"><h2>Липсва Supabase конфигурация</h2></div>
+  if (state.status === 'loading') return <div className="loading-screen"><div className="loading-box"><span className="button-spinner" /><span>{en ? 'Loading...' : 'Зареждаме...'}</span></div></div>
+  if (state.status === 'config') return <div className="config-warning"><h2>{en ? 'Supabase configuration is missing' : 'Липсва Supabase конфигурация'}</h2></div>
 
   return (
-    <DashboardShell email={state.session?.user.email} title={state.business?.name || title} businessSlug={state.business?.slug} onLogout={logout}>
-      {state.status === 'setup' && <main className="dashboard-content"><div className="empty-state"><h2>Завърши първоначалната настройка</h2><p>Преди да използваш тази секция, добави бизнеса, услугите и работното време.</p><Link className="primary-button" href="/dashboard">Към настройката</Link></div></main>}
+    <DashboardShell email={state.session?.user.email} title={state.business?.name || (typeof title === 'string' ? title : title?.[locale])} businessSlug={state.business?.slug} onLogout={logout} locale={locale} onLocaleChange={setLocale}>
+      {state.status === 'setup' && <main className="dashboard-content"><div className="empty-state"><h2>{en ? 'Complete the initial setup' : 'Завърши първоначалната настройка'}</h2><p>{en ? 'Add your business, services and working hours before using this section.' : 'Преди да използваш тази секция, добави бизнеса, услугите и работното време.'}</p><Link className="primary-button" href="/dashboard">{en ? 'Go to setup' : 'Към настройката'}</Link></div></main>}
       {state.status === 'error' && <main className="dashboard-content"><p className="form-message">{state.error}</p></main>}
-      {state.status === 'ready' && children({ session: state.session, business: state.business, refreshBusiness: load })}
+      {state.status === 'ready' && children({ session: state.session, business: state.business, refreshBusiness: load, locale, setLocale })}
     </DashboardShell>
   )
 }

@@ -4487,6 +4487,13 @@ a {
   box-shadow: 0 26px 75px rgba(22, 50, 33, 0.12);
 }
 
+.manage-booking-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
 .manage-status {
   display: flex;
   align-items: center;
@@ -4620,6 +4627,22 @@ a {
 }
 
 @media (max-width: 520px) {
+  .topbar {
+    padding-inline: 14px;
+  }
+
+  .topbar .status-chip {
+    display: none;
+  }
+
+  .manage-booking-head {
+    align-items: flex-start;
+  }
+
+  .manage-booking-head .language-switch {
+    flex: 0 0 auto;
+  }
+
   .manage-details { grid-template-columns: 1fr; }
 }
 

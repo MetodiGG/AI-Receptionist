@@ -255,7 +255,7 @@ export function GuidedBookingChat({ business, locale = 'bg', onShowBooking }) {
           <span className="success-mark">✓</span>
           <strong>{t.confirmed}</strong>
           <p>{confirmation.service.name} · {DateTime.fromISO(confirmation.appointment.starts_at).setZone(business.timezone).setLocale(locale).toFormat('d LLLL, HH:mm')} · {confirmation.staff.name}</p>
-          <Link className="manage-booking-link" href={`/booking/${confirmation.appointment.cancellation_token}`}>{t.manage}</Link>
+          <Link className="manage-booking-link" href={`/booking/${confirmation.appointment.cancellation_token}?lang=${locale}`}>{t.manage}</Link>
           <button type="button" className="secondary-button" onClick={startOver}>{t.newChat}</button>
         </div>}
 

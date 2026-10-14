@@ -12,6 +12,7 @@ const NAV_ITEMS = [
   { icon: 'users', label: { bg: 'Клиенти', en: 'Clients' }, href: '/dashboard/customers' },
   { icon: 'chat', label: { bg: 'Асистент', en: 'Assistant' }, href: '/dashboard/assistant' },
   { icon: 'chart', label: { bg: 'Резултати', en: 'Results' }, href: '/dashboard/analytics' },
+  { icon: 'spark', label: { bg: 'Демо', en: 'Demo' }, href: '/dashboard/demo' },
   { icon: 'external', label: { bg: 'Споделяне', en: 'Share' }, href: '/dashboard/share' },
   { icon: 'settings', label: { bg: 'Настройки', en: 'Settings' }, href: '/dashboard/settings' },
 ]

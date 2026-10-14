@@ -44,7 +44,7 @@ export async function GET(_request, context) {
       'END:VEVENT',
     ])
 
-    const body = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//AI Receptionist//Booking Calendar//BG', 'CALSCALE:GREGORIAN', fold(`X-WR-CALNAME:${icsEscape(business.name)}`), ...events, 'END:VCALENDAR', ''].join('\r\n')
+    const body = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//GoRez//Booking Calendar//BG', 'CALSCALE:GREGORIAN', fold(`X-WR-CALNAME:${icsEscape(business.name)}`), ...events, 'END:VCALENDAR', ''].join('\r\n')
     return new Response(body, { headers: { 'Content-Type': 'text/calendar; charset=utf-8', 'Content-Disposition': `inline; filename="${business.slug}.ics"`, 'Cache-Control': 'private, max-age=300' } })
   } catch {
     return new Response('Not found', { status: 404 })

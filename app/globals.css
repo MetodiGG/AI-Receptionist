@@ -67,7 +67,31 @@ a {
   border: 0;
 }
 
-/* Pre-pilot product surfaces */
+/* Product surfaces */
+.gorez-logo,
+.gorez-lockup {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+}
+
+.gorez-logo-image,
+.gorez-mark-image {
+  display: block;
+  width: auto;
+  object-fit: contain;
+}
+
+.gorez-logo-image { height: 64px; }
+.gorez-lockup { gap: 9px; }
+.gorez-mark-image { width: 44px; height: 30px; }
+.gorez-wordmark {
+  color: inherit;
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: -0.055em;
+}
+
 .booking-consent {
   display: flex !important;
   flex-direction: row !important;
@@ -94,6 +118,7 @@ a {
 
 .legal-page article { max-width: 800px; margin: 0 auto; padding: clamp(28px, 5vw, 64px); background: #fff; border: 1px solid var(--line); border-radius: 28px; box-shadow: var(--shadow); }
 .legal-logo { display: inline-flex; margin-bottom: 48px; color: var(--forest); font-weight: 900; text-decoration: none; }
+.legal-logo .gorez-logo-image { height: 86px; }
 .legal-page h1 { margin: 0 0 8px; font-size: clamp(36px, 7vw, 64px); line-height: .98; letter-spacing: -.055em; }
 .legal-page h2 { margin: 36px 0 10px; font-size: 20px; }
 .legal-page p { color: #536158; line-height: 1.75; }
@@ -257,6 +282,8 @@ a {
   font-weight: 850;
   letter-spacing: -0.035em;
 }
+
+.marketing-logo .gorez-logo-image { height: 62px; }
 
 .marketing-logo .logo-mark {
   width: 38px;
@@ -1493,6 +1520,10 @@ a {
   color: #fff;
   text-decoration: none;
 }
+
+.sidebar .app-logo .gorez-lockup { color: #fff; }
+.sidebar .app-logo .gorez-mark-image { width: 48px; height: 33px; }
+.sidebar .app-logo .gorez-wordmark { font-size: 19px; }
 
 .sidebar-nav {
   display: grid;
@@ -3043,6 +3074,10 @@ a {
   align-items: center;
   gap: 12px;
 }
+
+.booking-brand .gorez-lockup { flex: 0 0 auto; gap: 0; }
+.booking-brand .gorez-mark-image { width: 50px; height: 34px; }
+.booking-brand .gorez-wordmark { display: none; }
 
 .booking-brand-link {
   color: inherit;
@@ -4881,6 +4916,7 @@ a {
 .platform-auth-card .text-input { padding-left: 16px; }
 .platform-footer > div { display: flex; justify-self: end; gap: 20px; }
 .platform-footer > div a { color: #315b36; font-size: 11px; font-weight: 850; text-decoration: none; }
+.platform-footer .gorez-logo-image { height: 56px; }
 .service-template-callout { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 22px; padding: 18px 20px; background: linear-gradient(135deg, #eef8e7, #f9fcf7); border: 1px solid #d9e8d2; border-radius: 16px; }
 .service-template-callout > div { display: grid; gap: 5px; }
 .service-template-callout strong { font-size: 13px; }
@@ -4914,7 +4950,7 @@ a {
 }
 
 @media (max-width: 520px) {
-  .platform-nav .marketing-logo > span:last-child { display: none; }
+  .platform-nav .marketing-logo .gorez-logo-image { height: 50px; }
   .language-switch button { padding-inline: 7px; }
   .platform-hero-visual { min-height: 430px; }
   .hero-service-card { grid-template-columns: 46px 1fr auto; padding: 13px; }

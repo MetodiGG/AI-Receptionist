@@ -2,8 +2,8 @@ import './globals.css'
 import { PwaRegister } from '../components/pwa-register'
 
 export const metadata = {
-  title: 'AI Рецепционист',
-  description: 'Умен асистент, който поема запитванията и записва часове денонощно.',
+  title: { default: 'GoRez', template: '%s · GoRez' },
+  description: 'Онлайн резервации за всеки бизнес, който работи с часове.',
   manifest: '/manifest.webmanifest',
 }
 

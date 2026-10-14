@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useEffect, useMemo, useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { BrandLogo } from '../components/brand-logo'
 import { LanguageSwitch } from '../components/language-switch'
 import { usePublicLocale } from '../hooks/use-public-locale'
 import { HOME_COPY } from '../lib/home-copy'
@@ -19,7 +20,7 @@ function Icon({ name }) {
 }
 
 function Logo() {
-  return <span className="marketing-logo"><span className="logo-mark"><Icon name="spark" /></span><span>AI Receptionist</span></span>
+  return <BrandLogo className="marketing-logo" />
 }
 
 function BusinessDirectory({ locale, copy }) {
@@ -118,7 +119,7 @@ export default function Home() {
 
   return <main className="marketing-page platform-home">
     <nav className="marketing-nav platform-nav" aria-label={locale === 'bg' ? 'Основна навигация' : 'Main navigation'}>
-      <a href="#top" aria-label="AI Receptionist"><Logo /></a>
+      <a href="#top" aria-label="GoRez"><Logo /></a>
       <div className="marketing-nav-links"><a href="#clients">{copy.navClients}</a><a href="#how">{copy.how}</a><a href="#business">{copy.navBusiness}</a></div>
       <div className="platform-nav-actions"><LanguageSwitch locale={locale} onChange={setLocale} compact /><a className="marketing-nav-cta" href="#business">{copy.login} <Icon name="arrow" /></a></div>
     </nav>

@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useEffect, useMemo, useState } from 'react'
 import { DateTime } from 'luxon'
 import { useParams, useRouter } from 'next/navigation'
+import { BrandLogo } from '../../../components/brand-logo'
 import { GuidedBookingChat } from '../../../components/guided-booking-chat'
 import { LanguageSwitch } from '../../../components/language-switch'
 import { usePublicLocale } from '../../../hooks/use-public-locale'
@@ -11,8 +12,8 @@ import { collapseSlotsByLocalTime, formatBulgarianMonthShort, groupSlotsByPeriod
 import { hasSupabaseConfig, supabase } from '../../../lib/supabase'
 
 const BOOKING_COPY = {
-  bg: { loading: 'Подготвяме свободните часове…', home: 'Начало', dashboard: 'Към таблото', logout: 'Изход', loggingOut: 'Излизане…', online: 'Онлайн', eyebrow: 'Онлайн записване · 24/7', hero: 'Запази време', heroEm: 'за себе си.', lead: 'Избери услугата и най-удобния свободен час. Без обаждане, без регистрация и без чакане за отговор.', book: 'Резервирай час', assistant: 'Онлайн асистент', proof: ['Избираш услуга', 'Виждаш свободните часове', 'Получаваш потвърждение'], reassurance: ['Без профил', 'Реална наличност', 'Сигурно управление'], terms: 'Условия за резервация', privacy: 'Поверителност', legalTerms: 'Условия', powered: 'Задвижвано от AI Receptionist', secure: 'Защитена резервация', notOpen: 'Не успяхме да отворим страницата', retry: 'Опитай отново' },
-  en: { loading: 'Preparing available times…', home: 'Home', dashboard: 'Dashboard', logout: 'Sign out', loggingOut: 'Signing out…', online: 'Online', eyebrow: 'Online booking · 24/7', hero: 'Book time', heroEm: 'for yourself.', lead: 'Choose a service and the most convenient available time. No calls, no registration and no waiting for a reply.', book: 'Book an appointment', assistant: 'Online assistant', proof: ['Choose a service', 'See available times', 'Get confirmation'], reassurance: ['No account needed', 'Live availability', 'Secure management'], terms: 'Booking terms', privacy: 'Privacy', legalTerms: 'Terms', powered: 'Powered by AI Receptionist', secure: 'Secure booking', notOpen: 'We could not open this page', retry: 'Try again' },
+  bg: { loading: 'Подготвяме свободните часове…', home: 'Начало', dashboard: 'Към таблото', logout: 'Изход', loggingOut: 'Излизане…', online: 'Онлайн', eyebrow: 'Онлайн записване · 24/7', hero: 'Запази време', heroEm: 'за себе си.', lead: 'Избери услугата и най-удобния свободен час. Без обаждане, без регистрация и без чакане за отговор.', book: 'Резервирай час', assistant: 'Онлайн асистент', proof: ['Избираш услуга', 'Виждаш свободните часове', 'Получаваш потвърждение'], reassurance: ['Без профил', 'Реална наличност', 'Сигурно управление'], terms: 'Условия за резервация', privacy: 'Поверителност', legalTerms: 'Условия', powered: 'Задвижвано от GoRez', secure: 'Защитена резервация', notOpen: 'Не успяхме да отворим страницата', retry: 'Опитай отново' },
+  en: { loading: 'Preparing available times…', home: 'Home', dashboard: 'Dashboard', logout: 'Sign out', loggingOut: 'Signing out…', online: 'Online', eyebrow: 'Online booking · 24/7', hero: 'Book time', heroEm: 'for yourself.', lead: 'Choose a service and the most convenient available time. No calls, no registration and no waiting for a reply.', book: 'Book an appointment', assistant: 'Online assistant', proof: ['Choose a service', 'See available times', 'Get confirmation'], reassurance: ['No account needed', 'Live availability', 'Secure management'], terms: 'Booking terms', privacy: 'Privacy', legalTerms: 'Terms', powered: 'Powered by GoRez', secure: 'Secure booking', notOpen: 'We could not open this page', retry: 'Try again' },
 }
 
 function formatMoney(value, currency = 'EUR', locale = 'bg') {
@@ -36,8 +37,8 @@ function formatDateRange(dates, zone, locale = 'bg') {
 function SparkLogo({ businessName, locale }) {
   return (
     <Link className="booking-brand booking-brand-link" href={`/?lang=${locale}`} aria-label={locale === 'bg' ? 'Към началната страница' : 'Go to homepage'}>
-      <span className="booking-logo-mark" aria-hidden="true">✦</span>
-      <span><small>AI Рецепционист</small><strong>{businessName || 'Онлайн резервации'}</strong></span>
+      <BrandLogo compact decorative />
+      <span className="booking-business-name"><small>GoRez</small><strong>{businessName || 'Онлайн резервации'}</strong></span>
     </Link>
   )
 }

@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { BrandLogo } from './brand-logo'
 import { Icon } from './icon'
 
 const NAV_ITEMS = [
@@ -15,7 +16,7 @@ const NAV_ITEMS = [
 ]
 
 function Logo() {
-  return <Link className="app-logo" href="/dashboard"><span className="logo-mark"><Icon name="spark" /></span><span>AI Рецепционист</span></Link>
+  return <Link className="app-logo" href="/dashboard" aria-label="GoRez · Начало"><BrandLogo compact decorative /></Link>
 }
 
 export function DashboardShell({ email, title, businessSlug, children, onLogout }) {

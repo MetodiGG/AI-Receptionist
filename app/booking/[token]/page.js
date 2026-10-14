@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { DateTime } from 'luxon'
 import { useParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import { BrandLogo } from '../../../components/brand-logo'
 
 export default function ManageBookingPage() {
   const { token } = useParams()
@@ -48,7 +49,7 @@ export default function ManageBookingPage() {
   return (
     <main className="manage-booking-page">
       <section className="manage-booking-card">
-        <div className="booking-brand"><span className="booking-logo-mark">✦</span><span><small>AI Рецепционист</small><strong>{appointment.business.name}</strong></span></div>
+        <div className="booking-brand"><BrandLogo compact decorative /><span className="booking-business-name"><small>GoRez</small><strong>{appointment.business.name}</strong></span></div>
         <div className={`manage-status ${appointment.status === 'cancelled' ? 'cancelled' : ''}`}><span>{appointment.status === 'cancelled' ? '×' : '✓'}</span><div><small>Статус</small><strong>{appointment.status === 'cancelled' ? 'Резервацията е отменена' : 'Резервацията е активна'}</strong></div></div>
         <h1>{appointment.service.name}</h1>
         <div className="manage-details">

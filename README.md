@@ -1,4 +1,4 @@
-# AI Рецепционист
+# GoRez
 
 Модерна SaaS платформа за малки бизнеси, която управлява услуги, екип, работно време и резервации чрез онлайн асистент.
 
@@ -48,7 +48,7 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000
 
 ```env
 RESEND_API_KEY=...
-EMAIL_FROM=AI Receptionist <bookings@your-domain.bg>
+EMAIL_FROM=GoRez <bookings@your-domain.bg>
 CRON_SECRET=...
 PLATFORM_ADMIN_EMAILS=owner@example.com
 ```

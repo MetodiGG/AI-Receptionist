@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { bookingCalendarFile } from '../lib/booking-confirmation.mjs'
+import { notificationNotice } from '../lib/notification-copy.mjs'
 
 export function BookingConfirmationActions({ appointment, business, service, staff, locale = 'bg' }) {
   const en = locale === 'en'
@@ -34,7 +35,7 @@ export function BookingConfirmationActions({ appointment, business, service, sta
   }
 
   return <div className="confirmation-save">
-    <p>{en ? 'No email, SMS or Viber confirmation is sent. Save this private link to view or cancel your booking.' : 'Не се изпраща потвърждение по имейл, SMS или Viber. Запази личния линк, за да преглеждаш или отмениш часа.'}</p>
+    <p>{notificationNotice(business.notifications, locale)}</p>
     <div className="confirmation-save-buttons"><button className="secondary-button" type="button" onClick={saveLink}>{en ? 'Copy confirmation link' : 'Копирай потвърждението'}</button>{['booked', 'confirmed'].includes(appointment.status) && <button className="secondary-button" type="button" onClick={downloadCalendar}>{en ? 'Add to my calendar' : 'Добави в моя календар'}</button>}</div>
     {message && <p className="confirmation-save-message" role="status">{message}</p>}
     {showLink && <label><span className="sr-only">{en ? 'Private booking link' : 'Личен линк за резервацията'}</span><input readOnly value={link} onFocus={(event) => event.target.select()} /></label>}

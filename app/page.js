@@ -8,6 +8,7 @@ import { Icon } from '../components/icon'
 import { LanguageSwitch } from '../components/language-switch'
 import { usePublicLocale } from '../hooks/use-public-locale'
 import { HOME_COPY } from '../lib/home-copy'
+import { PASSWORD_RECOVERY_COPY } from '../lib/password-recovery-copy.mjs'
 import { filterDirectoryBusinesses, getIndustryLabel, INDUSTRY_KEYS, INDUSTRY_META } from '../lib/public-locale.mjs'
 import { hasSupabaseConfig, supabase } from '../lib/supabase'
 
@@ -126,7 +127,20 @@ export default function Home() {
 
     <section className="platform-process" id="how"><div className="directory-heading"><p className="marketing-kicker"><span /> {copy.processKicker}</p><h2>{copy.processTitle}</h2></div><div className="platform-steps">{copy.steps.map(([title, text], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{text}</p></article>)}</div></section>
 
-    <section className="platform-business" id="business"><div className="platform-business-copy"><p className="marketing-kicker"><span /> {copy.ownerKicker}</p><h2>{copy.ownerTitle}</h2><p>{copy.ownerLead}</p><div className="platform-benefits">{copy.benefits.map((item) => <span key={item}><Icon name="check" /> {item}</span>)}</div></div><div className="access-card platform-auth-card"><p className="auth-kicker">{isLogin ? copy.auth.loginKicker : copy.auth.signupKicker}</p><h2>{isLogin ? copy.auth.loginTitle : copy.auth.signupTitle}</h2><p className="auth-subtitle">{isLogin ? copy.auth.loginSub : copy.auth.signupSub}</p><form className="auth-form" onSubmit={submit} noValidate><div className="field"><label htmlFor="email">{copy.auth.email}</label><input id="email" className="text-input" type="email" autoComplete="email" placeholder="name@business.com" value={email} onChange={(event) => setEmail(event.target.value)} disabled={loading} /></div><div className="field"><label htmlFor="password">{copy.auth.password}</label><input id="password" className="text-input" type="password" autoComplete={isLogin ? 'current-password' : 'new-password'} placeholder={copy.auth.min} value={password} onChange={(event) => setPassword(event.target.value)} disabled={loading} /></div>{message && <p className={`form-message ${message.type === 'success' ? 'success' : ''}`} role="alert">{message.text}</p>}<button className="primary-button" type="submit" disabled={loading}>{loading ? copy.auth.wait : isLogin ? copy.auth.login : copy.auth.signup}{!loading && <Icon name="arrow" />}</button></form><p className="auth-switch">{isLogin ? copy.auth.noAccount : copy.auth.hasAccount} <button className="link-button" type="button" onClick={switchMode}>{isLogin ? copy.auth.register : copy.auth.signIn}</button></p></div></section>
+    <section className="platform-business" id="business">
+      <div className="platform-business-copy"><p className="marketing-kicker"><span /> {copy.ownerKicker}</p><h2>{copy.ownerTitle}</h2><p>{copy.ownerLead}</p><div className="platform-benefits">{copy.benefits.map((item) => <span key={item}><Icon name="check" /> {item}</span>)}</div></div>
+      <div className="access-card platform-auth-card">
+        <p className="auth-kicker">{isLogin ? copy.auth.loginKicker : copy.auth.signupKicker}</p><h2>{isLogin ? copy.auth.loginTitle : copy.auth.signupTitle}</h2><p className="auth-subtitle">{isLogin ? copy.auth.loginSub : copy.auth.signupSub}</p>
+        <form className="auth-form" onSubmit={submit} noValidate>
+          <div className="field"><label htmlFor="email">{copy.auth.email}</label><input id="email" className="text-input" type="email" autoComplete="email" placeholder="name@business.com" value={email} onChange={(event) => setEmail(event.target.value)} disabled={loading} /></div>
+          <div className="field"><label htmlFor="password">{copy.auth.password}</label><input id="password" className="text-input" type="password" autoComplete={isLogin ? 'current-password' : 'new-password'} placeholder={copy.auth.min} value={password} onChange={(event) => setPassword(event.target.value)} disabled={loading} /></div>
+          {isLogin && <Link className="auth-forgot" href={`/forgot-password?lang=${locale}`}>{PASSWORD_RECOVERY_COPY[locale].forgotTitle}</Link>}
+          {message && <p className={`form-message ${message.type === 'success' ? 'success' : ''}`} role="alert">{message.text}</p>}
+          <button className="primary-button" type="submit" disabled={loading}>{loading ? copy.auth.wait : isLogin ? copy.auth.login : copy.auth.signup}{!loading && <Icon name="arrow" />}</button>
+        </form>
+        <p className="auth-switch">{isLogin ? copy.auth.noAccount : copy.auth.hasAccount} <button className="link-button" type="button" onClick={switchMode}>{isLogin ? copy.auth.register : copy.auth.signIn}</button></p>
+      </div>
+    </section>
 
     <footer className="marketing-footer platform-footer"><Logo /><span>{copy.footer}</span><div><a href="#clients">{copy.navClients}</a><Link href={`/for-businesses?lang=${locale}`}>{copy.navBusiness}</Link><Link href={`/privacy?lang=${locale}`}>{locale === 'bg' ? 'Поверителност' : 'Privacy'}</Link><Link href={`/terms?lang=${locale}`}>{locale === 'bg' ? 'Условия' : 'Terms'}</Link></div></footer>
   </main>

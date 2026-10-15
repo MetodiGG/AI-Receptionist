@@ -1452,6 +1452,18 @@ a {
   font-size: 14px;
 }
 
+.auth-forgot { justify-self: end; color: var(--forest); font-size: 14px; font-weight: 750; text-underline-offset: 4px; }
+.recovery-page { min-height: 100dvh; padding: 24px; background: radial-gradient(ellipse at 15% 0, #e5f6cf, transparent 60%), #f4f6f0; }
+.recovery-nav { max-width: 1080px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.recovery-nav .gorez-lockup { color: var(--forest); }
+.recovery-card { width: min(100%, 500px); margin: clamp(32px, 8vh, 90px) auto; background: #fff; border-color: var(--line); box-shadow: 0 24px 70px #173e2a12; }
+.recovery-card h1 { margin: 0 0 16px; font-size: clamp(30px, 5vw, 40px); line-height: 1.12; letter-spacing: -.04em; overflow-wrap: anywhere; }
+.recovery-note { margin: 0; color: #66746b; font-size: 13px; line-height: 1.6; }
+.recovery-links { display: grid; justify-items: center; gap: 16px; margin-top: 28px; font-size: 14px; color: var(--forest); text-underline-offset: 4px; }
+.recovery-action { width: 100%; text-align: center; text-decoration: none; }
+.recovery-page a:focus-visible { outline: 3px solid #75b72e; outline-offset: 4px; border-radius: 4px; }
+@media (max-width: 420px) { .recovery-page { padding: 20px 14px; } .recovery-card { padding: 26px 20px; } .recovery-nav .gorez-lockup { gap: 4px; } .recovery-nav .gorez-wordmark { font-size: 20px; } }
+
 .link-button {
   padding: 0;
   color: var(--forest);

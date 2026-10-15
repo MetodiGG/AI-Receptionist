@@ -8,6 +8,7 @@ import { supabase } from '../../../lib/supabase'
 import { getBookingIntake } from '../../../lib/booking-intake.mjs'
 import { BusinessLocationFields } from '../../../components/business-location-fields'
 import { WeeklyScheduleFields } from '../../../components/weekly-schedule-fields'
+import { AccountDeletionPanel } from '../../../components/account-deletion-panel'
 import { businessLocationFields, findCity } from '../../../lib/business-location.mjs'
 import { DURATION_OPTIONS, validDuration, scheduleFromHours, scheduleProblem, scheduleRows, scheduleErrorText, scheduleWriteError } from '../../../lib/business-schedule.mjs'
 
@@ -190,7 +191,7 @@ function SettingsContent({ business, refreshBusiness, locale }) {
     <main className="dashboard-content admin-page settings-page">
       <div className="admin-page-head"><div><p className="auth-kicker">{en ? 'Configuration' : 'Конфигурация'}</p><h2>{en ? 'Settings' : 'Настройки'}</h2><p>{en ? 'Changes appear immediately on the public page and in the online assistant.' : 'Промените се отразяват веднага в публичната страница и онлайн асистента.'}</p></div><Link className="secondary-button" href={`/book/${business.slug}?lang=${locale}`} target="_blank">{en ? 'Open public page' : 'Преглед на страницата'} ↗</Link></div>
       <div className="settings-tabs">
-        {[['business', en ? 'Business' : 'Бизнес'], ['services', en ? 'Services' : 'Услуги'], ['staff', en ? 'Team' : 'Екип'], ['hours', en ? 'Hours & breaks' : 'Работно време и почивки'], ['timeoff', en ? 'One-off closure' : 'Еднократно отсъствие'], ['assistant', en ? 'Assistant' : 'Асистент'], ['data', en ? 'Data' : 'Данни']].map(([value, label]) => <button type="button" className={section === value ? 'active' : ''} onClick={() => setSection(value)} key={value}>{label}</button>)}
+        {[['business', en ? 'Business' : 'Бизнес'], ['services', en ? 'Services' : 'Услуги'], ['staff', en ? 'Team' : 'Екип'], ['hours', en ? 'Hours & breaks' : 'Работно време и почивки'], ['timeoff', en ? 'One-off closure' : 'Еднократно отсъствие'], ['assistant', en ? 'Assistant' : 'Асистент'], ['data', en ? 'Data' : 'Данни'], ['account', en ? 'Account' : 'Акаунт']].map(([value, label]) => <button type="button" className={section === value ? 'active' : ''} onClick={() => setSection(value)} key={value}>{label}</button>)}
       </div>
       {message && <p className={`form-message ${message.type === 'success' ? 'success' : ''}`} role="alert">{message.text}</p>}
 
@@ -252,6 +253,7 @@ function SettingsContent({ business, refreshBusiness, locale }) {
       </section>}
 
       {section === 'data' && <section className="settings-panel data-control-card"><div className="settings-panel-head"><h3>{en ? 'Data controls' : 'Контрол върху данните'}</h3><p>{en ? 'Download a machine-readable archive of the business profile, settings, clients, bookings, conversations and operational events.' : 'Изтегли машинно четим архив на бизнес профила, настройките, клиентите, резервациите, разговорите и оперативните събития.'}</p></div><div className="data-export-box"><div><strong>{en ? 'Complete JSON archive' : 'Пълен JSON архив'}</strong><span>{en ? 'The file may contain personal data. Store it securely.' : 'Файлът може да съдържа лични данни. Съхранявай го защитено.'}</span></div><button className="primary-button" type="button" onClick={exportBusinessData} disabled={saving}>{saving ? (en ? 'Preparing...' : 'Подготвяне...') : (en ? 'Download archive' : 'Изтегли архив')}</button></div><p className="security-note">{en ? 'Individual client deletion requests are handled from the Clients section. Booking history remains without identifying data so the calendar stays intact.' : 'Заявките за изтриване на отделен клиент се изпълняват от секция „Клиенти“. Историята на часа остава без идентифициращи данни, за да не се наруши календарът.'}</p></section>}
+      {section === 'account' && <AccountDeletionPanel businessId={business.id} locale={locale} onExport={() => setSection('data')} />}
     </main>
   )
 }

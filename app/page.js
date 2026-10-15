@@ -90,7 +90,10 @@ export default function Home() {
   const [password, setPassword] = useState('')
   const [message, setMessage] = useState(null)
   const [loading, setLoading] = useState(false)
+  const [accountDeleted, setAccountDeleted] = useState(false)
   const isLogin = mode === 'login'
+
+  useEffect(() => { setAccountDeleted(new URLSearchParams(window.location.search).get('account') === 'deleted') }, [])
 
   function switchMode() { setMode((current) => current === 'login' ? 'signup' : 'login'); setMessage(null) }
 
@@ -110,6 +113,7 @@ export default function Home() {
   }
 
   return <main className="marketing-page platform-home">
+    {accountDeleted && <p className="account-deleted-notice" role="status">{locale === 'en' ? 'Your account has been deleted. You have been signed out.' : 'Акаунтът е изтрит. Излезе от профила си.'}</p>}
     <nav className="marketing-nav platform-nav" aria-label={locale === 'bg' ? 'Основна навигация' : 'Main navigation'}>
       <a href="#top" aria-label="GoRez"><Logo eager /></a>
       <div className="marketing-nav-links"><a href="#clients">{copy.navClients}</a><a href="#how">{copy.how}</a><Link href={`/for-businesses?lang=${locale}`}>{copy.navBusiness}</Link></div>

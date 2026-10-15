@@ -5451,6 +5451,29 @@ a {
 .slot-time .slot-end-time { display: block; margin-top: 3px; color: #617263; font-size: 11px; font-weight: 500; }
 .guided-slot-grid button > strong { font-size: 13px; white-space: nowrap; }
 .booking-setup-preview { max-width: 1000px; margin: auto; padding: 32px 18px; }
+.account-danger-zone { border-color: #e5b9b1; }
+.account-danger-zone > p, .account-delete-modal p { font-size: 14px; line-height: 1.65; }
+.account-delete-button { min-height: 46px; padding: 12px 20px; border: 1px solid #9b302a; border-radius: 11px; background: #a6372f; color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+.account-delete-button:hover:not(:disabled) { background: #83251f; }
+.account-delete-button:disabled { opacity: .45; cursor: not-allowed; }
+.account-delete-backdrop { z-index: 150; overflow-y: auto; align-items: center; padding: 24px; }
+.account-delete-modal { width: min(660px, 100%); max-height: calc(100dvh - 48px); overflow-y: auto; }
+.account-delete-modal > div:not(.settings-actions) { display: block; margin-top: 0; }
+.account-delete-modal .settings-actions { flex-wrap: wrap; }
+.account-delete-modal h3 { color: #8f3028; outline: none; }
+.account-delete-warning { padding: 12px 14px; color: #7f3028; background: #fff3ef; border-radius: 9px; }
+.account-delete-summary { padding: 15px; background: #f5f6f3; border: 1px solid var(--line); border-radius: 10px; }
+.account-delete-summary ul { margin: 8px 0; padding-left: 20px; }
+.account-delete-summary li { padding: 4px 0; overflow-wrap: anywhere; }
+.account-delete-summary small { display: block; color: #657166; }
+.account-delete-fields { display: grid; gap: 16px; min-width: 0; margin: 18px 0; padding: 0; border: 0; }
+.account-delete-fields label { display: grid; gap: 7px; font-size: 13px; font-weight: 650; }
+.account-delete-fields input:not([type="checkbox"]) { width: 100%; min-width: 0; min-height: 46px; padding: 12px; border: 1px solid #cad4c9; border-radius: 9px; color: var(--ink); background: #fff; font: inherit; }
+.account-delete-fields small { color: #657166; font-size: 12px; line-height: 1.5; font-weight: 400; }
+.account-delete-fields .account-delete-ack { display: flex; align-items: flex-start; gap: 10px; font-weight: 500; line-height: 1.6; }
+.account-delete-ack input { flex: 0 0 19px; width: 19px; height: 19px; margin-top: 2px; accent-color: #a6372f; }
+.account-deleted-notice { margin: 0; padding: 16px 24px; color: #243b2e; background: #edf2e9; text-align: center; }
+@media (max-width: 680px) { .account-delete-backdrop { padding: 10px; } .account-delete-modal { padding: 20px; max-height: calc(100dvh - 20px); } .account-delete-modal .settings-actions > button { width: 100%; } }
 @media (max-width: 680px) {
   .business-location-fields { grid-template-columns: minmax(0, 1fr); }
   .weekly-day-hours, .weekly-day-break { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 10px; }

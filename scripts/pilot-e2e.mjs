@@ -13,8 +13,8 @@ const owners = []
 let config
 
 function passed(name) { checks.push(name); console.log(`PASS ${name}`) }
-async function json(path, { method = 'GET', body, token, raw } = {}) {
-  const response = await fetch(base + path, { method, headers: { ...(body || raw ? { 'Content-Type': 'application/json' } : {}), ...(token ? { Authorization: `Bearer ${token}` } : {}) }, body: raw ?? (body ? JSON.stringify(body) : undefined) })
+async function json(path, { method = 'GET', body, token, raw, origin } = {}) {
+  const response = await fetch(base + path, { method, headers: { ...(body || raw ? { 'Content-Type': 'application/json' } : {}), ...(token ? { Authorization: `Bearer ${token}` } : {}), ...(origin ? { Origin: origin } : {}) }, body: raw ?? (body ? JSON.stringify(body) : undefined) })
   const data = await response.json()
   return { status: response.status, data, headers: response.headers }
 }
@@ -42,7 +42,7 @@ async function signup(label) {
   const login = await loginResponse.json()
   assert.equal(loginResponse.status, 200, 'Test password login failed')
   assert.equal(login.user?.id, data.user.id)
-  const owner = { token: login.access_token, id: data.user.id, label }
+  const owner = { token: login.access_token, refreshToken: login.refresh_token, email, password, id: data.user.id, label, deleted: false }
   owners.push(owner)
   return owner
 }
@@ -225,13 +225,58 @@ try {
   const finalSlots = (await json(`${publicPath}/availability?service_id=${a.service.id}&date=${date}`)).data.slots
   assert.ok(finalSlots.some(item => item.startsAt === moveSlot.startsAt && item.staffId === moveSlot.staffId))
   passed('cancellation is repeat-safe and immediately frees the slot')
+
+  assert.equal((await json('/api/owner/account')).status, 401)
+  assert.equal((await json('/api/owner/account', { method: 'DELETE', body: { businessId: a.business.id, confirmation: 'DELETE', acknowledged: true } })).status, 401)
+  assert.equal((await json('/api/owner/account', { method: 'DELETE', token: a.owner.token, body: { businessId: a.business.id, confirmation: 'wrong', acknowledged: true } })).status, 422)
+  assert.equal((await json('/api/owner/account', { method: 'DELETE', token: a.owner.token, origin: 'https://attacker.example', body: { businessId: a.business.id, confirmation: 'DELETE', acknowledged: true } })).status, 403)
+  assert.equal((await json('/api/owner/account', { method: 'DELETE', token: b.owner.token, body: { businessId: a.business.id, confirmation: 'DELETE', acknowledged: true } })).status, 404)
+  passed('account deletion rejects anonymous users, missing confirmation and foreign businesses')
+
+  const secondOwnedBusiness = await createTenant(a.owner)
+  const finalBooking = await json(`${publicPath}/bookings`, { method: 'POST', body: { ...payload, startsAt: moveSlot.startsAt, staffId: moveSlot.staffId } })
+  assert.equal(finalBooking.status, 201)
+  const accountSummary = await json('/api/owner/account', { token: a.owner.token })
+  assert.equal(accountSummary.status, 200)
+  assert.match(accountSummary.headers.get('cache-control'), /no-store/)
+  assert.equal(accountSummary.data.account.businesses.length, 2)
+  assert.equal(accountSummary.data.account.upcomingBookings, 1)
+  assert.ok(accountSummary.data.account.businesses.every(business => [a.business.id, secondOwnedBusiness.business.id].includes(business.id)))
+  passed('deletion warning lists every owned business and counts upcoming bookings privately')
+
+  for (const owner of [a.owner, b.owner]) {
+    // Reauthenticate immediately before the irreversible operation. Only these
+    // freshly generated, disposable QA identities are ever targets of this test.
+    const loginResponse = await fetch(config.url + '/auth/v1/token?grant_type=password', { method: 'POST', headers: { apikey: config.key, 'Content-Type': 'application/json' }, body: JSON.stringify({ email: owner.email, password: owner.password }) })
+    const login = await loginResponse.json()
+    assert.equal(loginResponse.status, 200)
+    const ownBusiness = owner === a.owner ? a.business : b.business
+    const deleted = await json('/api/owner/account', { method: 'DELETE', token: login.access_token, origin: base, body: { businessId: ownBusiness.id, confirmation: 'DELETE', acknowledged: true } })
+    assert.equal(deleted.status, 200, `QA account deletion failed (${deleted.data.error?.code || deleted.status})`)
+    assert.equal(deleted.data.deleted, true)
+    owner.deleted = true
+    assert.equal((await json('/api/owner/account', { token: owner.token })).status, 401)
+    const loginAfter = await fetch(config.url + '/auth/v1/token?grant_type=password', { method: 'POST', headers: { apikey: config.key, 'Content-Type': 'application/json' }, body: JSON.stringify({ email: owner.email, password: owner.password }) })
+    assert.equal(loginAfter.status, 400)
+    const refreshAfter = await fetch(config.url + '/auth/v1/token?grant_type=refresh_token', { method: 'POST', headers: { apikey: config.key, 'Content-Type': 'application/json' }, body: JSON.stringify({ refresh_token: owner.refreshToken }) })
+    assert.ok(refreshAfter.status >= 400)
+    if (owner === a.owner) {
+      assert.equal((await json(publicPath)).status, 404)
+      assert.equal((await json(`/api/public/${secondOwnedBusiness.slug}`)).status, 404)
+      assert.equal((await json(`/api/public/appointments/${finalBooking.data.booking.appointment.cancellation_token}`)).status, 404)
+      assert.equal((await json('/api/owner/account', { token: b.owner.token })).data.account.businesses[0].id, b.business.id)
+    }
+  }
+  passed('hard account deletion removes all owned businesses and booking links, prevents sign-in and refresh, and preserves other owners')
 } finally {
   for (const item of createdBusinesses.reverse()) {
+    if (item.owner.deleted) continue
     const result = await rest(`businesses?id=eq.${item.id}`, item.owner, 'DELETE')
     assert.ok(result.status >= 200 && result.status < 300, 'Test business cleanup failed')
   }
   for (const owner of owners) {
+    if (owner.deleted) continue
     await fetch(config.url + '/auth/v1/logout', { method: 'POST', headers: { apikey: config.key, Authorization: `Bearer ${owner.token}` } })
   }
-  console.log(JSON.stringify({ checks: checks.length, testBusinessesRemoved: createdBusinesses.length, testAuthIdentitiesRetained: owners.length, existingDataModified: false }))
+  console.log(JSON.stringify({ checks: checks.length, testBusinessesRemoved: createdBusinesses.length, testAuthIdentitiesRetained: owners.filter(owner => !owner.deleted).length, existingDataModified: false }))
 }

@@ -49,12 +49,12 @@ async function signup(label) {
 
 async function createTenant(owner) {
   const slug = `gorez-qa-${randomUUID()}`
-  const [business] = await write('businesses', owner, 'POST', { owner_id: owner.id, name: `QA TEST ONLY — NOT A PARTNER (${owner.label})`, slug, industry: 'auto', active: false, timezone: 'Europe/Sofia', phone: '0000000000', booking_window_days: 14, minimum_notice_minutes: 0, cancellation_notice_hours: 0, email_notifications_enabled: false })
+  const [business] = await write('businesses', owner, 'POST', { owner_id: owner.id, name: `QA TEST ONLY — NOT A PARTNER (${owner.label})`, slug, industry: 'auto', active: false, timezone: 'Europe/Sofia', phone: '0000000000', booking_window_days: 14, minimum_notice_minutes: 0, cancellation_notice_hours: 0, email_notifications_enabled: false, default_duration_min: 60, city_ekatte: '68134', city: 'София', neighborhood: 'Младост 1', address: 'QA street 1' })
   createdBusinesses.push({ id: business.id, owner })
-  const [service] = await write('services', owner, 'POST', { business_id: business.id, name: 'QA diagnostics', price: 0, duration_min: 30 })
+  const [service] = await write('services', owner, 'POST', { business_id: business.id, name: 'QA diagnostics', price: 0, duration_min: 45 })
   const staff = await write('staff', owner, 'POST', [{ business_id: business.id, name: 'QA Alex' }, { business_id: business.id, name: 'QA Sam' }])
   for (const person of staff) {
-    await write('rpc/replace_working_hours', owner, 'POST', { input_business_id: business.id, input_staff_id: person.id, input_hours: Array.from({ length: 7 }, (_, i) => ({ weekday: i + 1, open_time: '09:00', close_time: '12:00' })) })
+    await write('rpc/replace_working_hours', owner, 'POST', { input_business_id: business.id, input_staff_id: person.id, input_hours: Array.from({ length: 7 }, (_, i) => ({ weekday: i + 1, open_time: '09:00', close_time: '18:00', break_start: '12:00', break_end: '13:00' })) })
   }
   return { business, service, staff, owner, slug }
 }
@@ -109,6 +109,25 @@ try {
   assert.ok(availability.data.slots.length > 0)
   assert.equal(availability.data.slots.some(slot => slot.staffId === a.staff[0].id && slot.startsAt === local.toUTC().toISO()), false)
   assert.ok(availability.data.slots.some(slot => slot.staffId === a.staff[1].id && slot.startsAt === local.toUTC().toISO()))
+  assert.ok(availability.data.slots.some(slot => slot.localTime === '11:15' && slot.localEndTime === '12:00'))
+  assert.equal(availability.data.slots.some(slot => ['11:30', '11:45', '12:00', '12:15', '12:30', '12:45'].includes(slot.localTime)), false)
+  assert.ok(availability.data.slots.some(slot => slot.localTime === '13:00'))
+  const nextWeek = (await json(`${publicPath}/availability?service_id=${a.service.id}&date=${local.plus({ days: 7 }).toISODate()}`)).data.slots
+  assert.ok(nextWeek.length > 0)
+  assert.equal(nextWeek.some(slot => ['11:30', '11:45', '12:00', '12:15', '12:30', '12:45'].includes(slot.localTime)), false)
+  passed('recurring lunch blocks crossing services for every specialist in both weeks')
+  const publicBusiness = (await json(publicPath)).data.business
+  assert.equal(publicBusiness.city_ekatte, '68134')
+  assert.ok(publicBusiness.address.includes('Младост 1'))
+  assert.equal(a.business.default_duration_min, 60)
+  assert.equal(a.service.duration_min, 45)
+  passed('city, neighbourhood and usual duration persist independently of individual service duration')
+  const noon = local.plus({ hours: 3 })
+  const blocked = await rest('appointments', a.owner, 'POST', { business_id: a.business.id, staff_id: a.staff[1].id, service_id: a.service.id, customer_id: customer.id, starts_at: noon.toUTC().toISO(), ends_at: noon.plus({ minutes: 45 }).toUTC().toISO() })
+  assert.ok(blocked.status >= 400 && blocked.data.message.includes('SCHEDULE_UNAVAILABLE'))
+  const tooShort = await rest('appointments', a.owner, 'POST', { business_id: a.business.id, staff_id: a.staff[1].id, service_id: a.service.id, customer_id: customer.id, starts_at: local.toUTC().toISO(), ends_at: local.plus({ minutes: 15 }).toUTC().toISO() })
+  assert.ok(tooShort.status >= 400 && tooShort.data.message.includes('SCHEDULE_UNAVAILABLE'))
+  passed('database rejects direct bookings in lunch or shorter than the selected service')
   assert.deepEqual((await json(`${publicPath}/availability?service_id=${a.service.id}&date=2020-01-01`)).data.slots, [])
   passed('availability respects staff time off, working hours, timezone and past dates')
   await write(`time_off?id=eq.${off.id}`, a.owner, 'DELETE')
@@ -135,6 +154,24 @@ try {
   assert.equal(bookedRows.data.length, 1)
   assert.deepEqual((await rest(`notification_outbox?business_id=eq.${a.business.id}`, a.owner)).data, [])
   passed('real booking, single race winner, private confirmation and no notification queue')
+
+  const protectedClosure = await rest('time_off', a.owner, 'POST', { business_id: a.business.id, staff_id: null, starts_at: slot.startsAt, ends_at: slot.endsAt, reason: 'QA conflicting closure' })
+  assert.equal(protectedClosure.data.code, '23P01')
+  const overlapping = await rest('appointments', a.owner, 'POST', { business_id: a.business.id, staff_id: slot.staffId, service_id: a.service.id, customer_id: customer.id, starts_at: DateTime.fromISO(slot.startsAt).plus({ minutes: 15 }).toISO(), ends_at: DateTime.fromISO(slot.startsAt).plus({ minutes: 60 }).toISO() })
+  assert.equal(overlapping.data.code, '23P01')
+  const conflictingHours = await rest('rpc/replace_working_hours', a.owner, 'POST', { input_business_id: a.business.id, input_staff_id: slot.staffId, input_hours: Array.from({ length: 7 }, (_, i) => ({ weekday: i + 1, open_time: '09:00', close_time: '18:00', break_start: '09:00', break_end: '10:00' })) })
+  assert.equal(conflictingHours.data.code, '23P01')
+  const untouchedHours = (await rest(`working_hours?staff_id=eq.${slot.staffId}`, a.owner)).data
+  assert.ok(untouchedHours.every(row => row.break_start === '12:00:00'))
+  assert.equal((await json(viewPath)).data.appointment.status, 'booked')
+  passed('lunch and whole-business closures cannot silently override existing bookings; 15-minute overlapping starts are rejected')
+
+  const allStaffClosureStart = local.plus({ hours: 5 })
+  const [allStaffClosure] = await write('time_off', a.owner, 'POST', { business_id: a.business.id, staff_id: null, starts_at: allStaffClosureStart.toUTC().toISO(), ends_at: allStaffClosureStart.plus({ hours: 1 }).toUTC().toISO(), reason: 'QA all-staff lunch' })
+  const closedSlots = (await json(`${publicPath}/availability?service_id=${a.service.id}&date=${date}`)).data.slots
+  assert.equal(closedSlots.some(item => ['13:30','13:45','14:00','14:15','14:30','14:45'].includes(item.localTime)), false)
+  await write(`time_off?id=eq.${allStaffClosure.id}`, a.owner, 'DELETE')
+  passed('one-off closure removes overlapping starts for the entire business')
 
   const customerId = bookedRows.data[0].customer_id
   const availableNow = (await json(`${publicPath}/availability?service_id=${a.service.id}&date=${date}`)).data.slots

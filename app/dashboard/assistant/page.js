@@ -50,7 +50,7 @@ function AssistantContent({ business, locale }) {
 
   return (
     <main className="dashboard-content admin-page assistant-admin-page">
-      <div className="admin-page-head"><div><p className="auth-kicker">{en ? 'Conversations' : 'Разговори'}</p><h2>{en ? 'Online assistant' : 'Онлайн асистент'}</h2><p>{en ? 'See how the assistant guides clients through booking.' : 'Виж как асистентът води клиентите през резервацията.'}</p></div><span className="status-chip"><span className="online-dot" /> {en ? 'Active' : 'Активен'}</span></div>
+      <div className="admin-page-head"><div><p className="auth-kicker">{en ? 'Conversations' : 'Разговори'}</p><h2>{en ? 'Online assistant' : 'Онлайн асистент'}</h2><p>{en ? 'See how the assistant guides clients through booking.' : 'Виж как асистентът води клиентите през резервацията.'}</p></div></div>
       {error && <p className="form-message" role="alert">{error}</p>}
       {loading && <div className="admin-loading"><span className="button-spinner" /> {en ? 'Loading conversations...' : 'Зареждаме разговорите...'}</div>}
       {!loading && conversations.length === 0 && <div className="empty-state"><h3>{en ? 'No conversations yet' : 'Все още няма разговори'}</h3><p>{en ? 'Conversations from the public page will appear here.' : 'Разговорите от публичната страница ще се появят тук.'}</p></div>}

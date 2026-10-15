@@ -2,6 +2,7 @@ import { apiError, getSafeError } from '../../../../lib/api-response'
 import { consumeRateLimit } from '../../../../lib/rate-limit'
 import { getSupabaseAdmin } from '../../../../lib/supabase-admin'
 import { resolvePublicIndustry } from '../../../../lib/public-locale.mjs'
+import { businessAddress } from '../../../../lib/business-location.mjs'
 
 export async function GET(request) {
   try {
@@ -12,7 +13,7 @@ export async function GET(request) {
     const supabase = getSupabaseAdmin()
     const { data, error } = await supabase
       .from('businesses')
-      .select('id,name,slug,address,phone,industry,theme_color,services(id,name,description,price,currency,duration_min,active,sort_order)')
+      .select('id,name,slug,address,city_ekatte,city,neighborhood,phone,industry,theme_color,services(id,name,description,price,currency,duration_min,active,sort_order)')
       .eq('active', true)
       .order('name')
 
@@ -22,7 +23,8 @@ export async function GET(request) {
       id: business.id,
       name: business.name,
       slug: business.slug,
-      address: business.address,
+      address: businessAddress(business),
+      city_ekatte: business.city_ekatte, city: business.city, neighborhood: business.neighborhood,
       phone: business.phone,
       industry: resolvePublicIndustry(business),
       theme_color: business.theme_color,

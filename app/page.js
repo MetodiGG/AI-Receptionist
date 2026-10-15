@@ -62,7 +62,7 @@ function BusinessDirectory({ locale, copy }) {
         {status === 'error' && <div className="directory-state"><p>{error}</p><button type="button" onClick={loadBusinesses}>{copy.retry}</button></div>}
         {status === 'ready' && !selected && <div className="directory-state"><p>{copy.empty}</p></div>}
         {status === 'ready' && selected && <article className="directory-business-card" style={{ '--card-color': selected.theme_color || '#173e2a' }}>
-          <div className="directory-business-head"><span className="directory-business-icon"><Icon name={(INDUSTRY_META[selected.industry] || INDUSTRY_META.other).icon} /></span><div><small>{getIndustryLabel(selected.industry, locale)}</small><h3>{selected.name}</h3>{selected.address && <p>⌖ {selected.address}</p>}</div><span className="directory-live"><i /> {copy.online}</span></div>
+          <div className="directory-business-head"><span className="directory-business-icon"><Icon name={(INDUSTRY_META[selected.industry] || INDUSTRY_META.other).icon} /></span><div><small>{getIndustryLabel(selected.industry, locale)}</small><h3>{selected.name}</h3>{selected.address && <p>⌖ {selected.address}</p>}</div></div>
           <div className="directory-services"><small>{copy.services}</small><div>{selected.services.slice(0, 5).map((service) => <span key={service.id}>{service.name}<b>{service.duration_min} min</b></span>)}</div></div>
           <Link className="directory-book-button" href={`/book/${selected.slug}?lang=${locale}`}>{copy.book} <Icon name="arrow" /></Link>
         </article>}

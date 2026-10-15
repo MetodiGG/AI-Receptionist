@@ -189,7 +189,7 @@ export function GuidedBookingChat({ business, locale = 'bg', onShowBooking }) {
   return (
     <section className="booking-card chat-card guided-chat-card" aria-label={t.title}>
       <div className="chat-head">
-        <div><span className="booking-online-dot" /><strong>{t.title}</strong><small>{t.subtitle}</small></div>
+        <div><strong>{t.title}</strong><small>{t.subtitle}</small></div>
         <button type="button" className="booking-text-button" onClick={onShowBooking}>{t.form}</button>
       </div>
 
@@ -233,7 +233,7 @@ export function GuidedBookingChat({ business, locale = 'bg', onShowBooking }) {
 
         {step === 'slot' && <div className="guided-step">
           <div className="guided-step-head"><div><small>{en ? 'Step 3 of 5' : 'Стъпка 3 от 5'}</small><strong>{t.chooseTime}</strong></div><button type="button" onClick={() => setStep('date')}>{t.otherDate}</button></div>
-          <div className="guided-slot-grid">{slots.map((slot) => <button type="button" onClick={() => chooseSlot(slot)} disabled={sending} key={`${slot.staffId}-${slot.startsAt}`}><strong>{slot.localTime}</strong><small>{slot.staffName}</small></button>)}</div>
+          <div className="guided-slot-grid">{slots.map((slot) => <button type="button" onClick={() => chooseSlot(slot)} disabled={sending} key={`${slot.staffId}-${slot.startsAt}`}><strong>{slot.localTime}–{slot.localEndTime || DateTime.fromISO(slot.endsAt).setZone(business.timezone).toFormat('HH:mm')}</strong><small>{slot.staffName}</small></button>)}</div>
         </div>}
 
         {step === 'details' && <form className="guided-details-form" onSubmit={reviewDetails}>

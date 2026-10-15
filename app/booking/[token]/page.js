@@ -65,7 +65,7 @@ export default function ManageBookingPage() {
         <h1>{appointment.service.name}</h1>
         <div className="manage-details">
           <div><small>{en ? 'Date' : 'Дата'}</small><strong>{starts.toFormat('cccc, d LLLL yyyy')}</strong></div>
-          <div><small>{en ? 'Time' : 'Час'}</small><strong>{starts.toFormat('HH:mm')}</strong></div>
+          <div><small>{en ? 'Time' : 'Час'}</small><strong>{starts.toFormat('HH:mm')}–{DateTime.fromISO(appointment.ends_at).setZone(appointment.business.timezone).toFormat('HH:mm')}</strong></div>
           <div><small>{en ? 'Specialist' : 'Специалист'}</small><strong>{appointment.staff.name}</strong></div>
           <div><small>{en ? 'Client' : 'Клиент'}</small><strong>{appointment.customer.name}</strong></div>
         </div>

@@ -13,8 +13,8 @@ const owners = []
 let config
 
 function passed(name) { checks.push(name); console.log(`PASS ${name}`) }
-async function json(path, { method = 'GET', body, token, raw, origin } = {}) {
-  const response = await fetch(base + path, { method, headers: { ...(body || raw ? { 'Content-Type': 'application/json' } : {}), ...(token ? { Authorization: `Bearer ${token}` } : {}), ...(origin ? { Origin: origin } : {}) }, body: raw ?? (body ? JSON.stringify(body) : undefined) })
+async function json(path, { method = 'GET', body, token, raw, origin, userAgent } = {}) {
+  const response = await fetch(base + path, { method, headers: { ...(body || raw ? { 'Content-Type': 'application/json' } : {}), ...(token ? { Authorization: `Bearer ${token}` } : {}), ...(origin ? { Origin: origin } : {}), ...(userAgent ? { 'User-Agent': userAgent } : {}) }, body: raw ?? (body ? JSON.stringify(body) : undefined) })
   const data = await response.json()
   return { status: response.status, data, headers: response.headers }
 }
@@ -133,13 +133,25 @@ try {
   await write(`time_off?id=eq.${off.id}`, a.owner, 'DELETE')
 
   const slot = availability.data.slots.find(item => item.staffId === a.staff[1].id)
-  const payload = { serviceId: a.service.id, staffId: slot.staffId, startsAt: slot.startsAt, customer: { name: 'QA GoRez pilot client', phone: '0000000002', email: '' }, intake: { vehicle: 'QA test vehicle' }, notes: 'QA test private appointment note', consent: true, locale: 'en' }
+  const payload = { serviceId: a.service.id, staffId: slot.staffId, startsAt: slot.startsAt, customer: { name: 'QA GoRez pilot client', phone: '0000000002', email: 'qa.booking@example.com' }, intake: { vehicle: 'QA test vehicle' }, notes: 'QA test private appointment note', consent: true, locale: 'en' }
   assert.equal((await json(`${publicPath}/bookings`, { method: 'POST', body: {} })).status, 422)
   assert.equal((await json(`${publicPath}/bookings`, { method: 'POST', raw: '{' })).status, 422)
   assert.equal((await json(`${publicPath}/bookings`, { method: 'POST', body: { ...payload, source: 'manual' } })).status, 401)
   assert.equal((await json(`${publicPath}/bookings`, { method: 'POST', body: { ...payload, source: 'manual' }, token: b.owner.token })).status, 403)
   assert.equal((await json(`${publicPath}/bookings`, { method: 'POST', body: { ...payload, intake: {} } })).status, 422)
   passed('server validation, industry requirements and manual-owner authorization')
+
+  for (const email of [undefined, '', '   ', 'not-an-email']) {
+    const invalidEmailPayload = { ...payload, customer: { ...payload.customer, email } }
+    // Separate this negative-test client from the positive-flow rate bucket;
+    // production rate limits remain unchanged (eight booking attempts here).
+    const userAgent = 'GoRez-contact-validation-QA'
+    assert.equal((await json(`${publicPath}/bookings`, { method: 'POST', userAgent, body: invalidEmailPayload })).status, 422)
+    assert.equal((await json(`${publicPath}/bookings`, { method: 'POST', userAgent, token: a.owner.token, body: { ...invalidEmailPayload, source: 'manual' } })).status, 422)
+    assert.equal((await json(`${publicPath}/chat`, { method: 'POST', userAgent, body: { ...invalidEmailPayload, action: 'book' } })).status, 422)
+  }
+  assert.deepEqual((await rest(`appointments?business_id=eq.${a.business.id}`, a.owner)).data, [])
+  passed('web, guided-chat and owner manual booking reject missing, blank and malformed email before creating appointments')
 
   const race = await Promise.all([json(`${publicPath}/bookings`, { method: 'POST', body: payload }), json(`${publicPath}/bookings`, { method: 'POST', body: payload })])
   assert.deepEqual(race.map(item => item.status).sort(), [201, 409])
@@ -182,7 +194,7 @@ try {
   passed('owner rescheduling and status reflected on client confirmation')
 
   const manualSlot = availableNow.find(item => item.staffId === a.staff[1].id && item.startsAt > slot.endsAt)
-  const manual = await json(`${publicPath}/bookings`, { method: 'POST', token: a.owner.token, body: { ...payload, startsAt: manualSlot.startsAt, staffId: manualSlot.staffId, customer: { name: 'QA manual client', phone: '0000000003' }, source: 'manual' } })
+  const manual = await json(`${publicPath}/bookings`, { method: 'POST', token: a.owner.token, body: { ...payload, startsAt: manualSlot.startsAt, staffId: manualSlot.staffId, customer: { name: 'QA manual client', phone: '0000000003', email: 'qa.manual@example.com' }, source: 'manual' } })
   assert.equal(manual.status, 201)
   passed('authenticated manual booking')
 
@@ -201,7 +213,7 @@ try {
   const chatSlots = await chat({ action: 'select_date', serviceId: a.service.id, staffId: a.staff[1].id, date })
   const chatSlot = chatSlots.slots.at(-1)
   await chat({ action: 'select_slot', serviceId: a.service.id, staffId: chatSlot.staffId, startsAt: chatSlot.startsAt })
-  const chatBooking = await chat({ action: 'book', ...payload, startsAt: chatSlot.startsAt, staffId: chatSlot.staffId, customer: { name: 'QA chat client', phone: '0000000004' } })
+  const chatBooking = await chat({ action: 'book', ...payload, startsAt: chatSlot.startsAt, staffId: chatSlot.staffId, customer: { name: 'QA chat client', phone: '0000000004', email: 'qa.chat@example.com' } })
   assert.ok(chatBooking.booking?.appointment?.id)
   const messages = (await rest(`messages?conversation_id=eq.${conversationId}`, a.owner)).data
   assert.equal(messages.length, 14)

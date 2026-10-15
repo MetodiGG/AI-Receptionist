@@ -7,6 +7,7 @@ import { consumeRateLimit } from '../../../../../lib/rate-limit'
 import { getSupabaseAdmin } from '../../../../../lib/supabase-admin'
 import { trackEvent } from '../../../../../lib/analytics'
 import { PRIVATE_RESPONSE_HEADERS } from '../../../../../lib/booking-safety.mjs'
+import { bookingCustomerSchema } from '../../../../../lib/booking-contact.mjs'
 
 const conversationField = { conversationId: z.string().uuid().optional() }
 const localeField = { locale: z.enum(['bg', 'en']).optional().default('bg') }
@@ -26,11 +27,7 @@ const chatRequestSchema = z.discriminatedUnion('action', [
     ...serviceField,
     staffId: z.string().uuid(),
     startsAt: z.string().datetime({ offset: true }),
-    customer: z.object({
-      name: z.string().trim().min(2).max(100),
-      phone: z.string().trim().min(6).max(32),
-      email: z.string().trim().email().max(180).optional().or(z.literal('')),
-    }),
+    customer: bookingCustomerSchema,
     notes: z.string().trim().max(600).optional().default(''),
     intake: z.record(z.string().max(40), z.string().max(300)).optional().default({}),
     consent: z.literal(true),

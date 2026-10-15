@@ -3,7 +3,8 @@ import { z } from 'zod'
 import { apiError, getSafeError } from '../../../../../lib/api-response'
 import { consumeRateLimit } from '../../../../../lib/rate-limit'
 import { getSupabaseAdmin } from '../../../../../lib/supabase-admin'
-import { sendCancellationNotification } from '../../../../../lib/notifications'
+import { processPendingNotifications } from '../../../../../lib/notifications'
+import { notificationAvailability } from '../../../../../lib/notification-copy.mjs'
 import { trackEvent } from '../../../../../lib/analytics'
 import { PRIVATE_RESPONSE_HEADERS } from '../../../../../lib/booking-safety.mjs'
 import { businessAddress } from '../../../../../lib/business-location.mjs'
@@ -14,11 +15,18 @@ async function getAppointment(token) {
   const supabase = getSupabaseAdmin()
   const { data, error } = await supabase
     .from('appointments')
-    .select('id,business_id,starts_at,ends_at,status,cancellation_token,notes,business:businesses(name,slug,phone,address,city_ekatte,city,neighborhood,timezone,cancellation_notice_hours),service:services(name,duration_min,price,currency),staff:staff(name),customer:customers(name,email,phone)')
+    .select('id,business_id,starts_at,ends_at,status,cancellation_token,notes,email_notifications_requested,email_reminders_requested,business:businesses(name,slug,phone,address,city_ekatte,city,neighborhood,timezone,cancellation_notice_hours,email_notifications_enabled),service:services(name,duration_min,price,currency),staff:staff(name),customer:customers(name,email,phone)')
     .eq('cancellation_token', tokenSchema.parse(token))
     .maybeSingle()
   if (error) throw error
-  if (data?.business) data.business.address = businessAddress(data.business)
+  if (data?.business) {
+    data.business.address = businessAddress(data.business)
+    const available = notificationAvailability(process.env, data.business)
+    data.business.notifications = { email: available.email && data.email_notifications_requested, reminders: available.reminders && data.email_reminders_requested }
+    delete data.business.email_notifications_enabled
+    delete data.email_notifications_requested
+    delete data.email_reminders_requested
+  }
   return data
 }
 
@@ -70,7 +78,7 @@ export async function POST(request, context) {
     if (!data) return apiError('Резервацията вече е променена. Обнови страницата.', 409, 'STATE_CHANGED')
 
     await Promise.allSettled([
-      sendCancellationNotification({ appointment }),
+      processPendingNotifications({ appointmentId: appointment.id, limit: 3 }),
       trackEvent({ businessId: appointment.business_id, eventType: 'booking_cancelled', source: 'customer-link' }),
     ])
 

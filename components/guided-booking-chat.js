@@ -7,6 +7,7 @@ import { formatBulgarianMonthShort, resolveVisibleBookingDays } from '../lib/boo
 import { BookingIntakeFields, BookingIntakeSummary } from './booking-intake-fields'
 import { validateBookingIntake } from '../lib/booking-intake.mjs'
 import { BookingConfirmationActions } from './booking-confirmation-actions'
+import { notificationNotice } from '../lib/notification-copy.mjs'
 import { localizedApiMessage } from '../lib/localized-api-message.mjs'
 
 const PAGE_SIZE = 14
@@ -245,7 +246,7 @@ export function GuidedBookingChat({ business, locale = 'bg', onShowBooking }) {
             <label><span>{en ? 'Note' : 'Бележка'}</span><input value={details.notes} onChange={(event) => setDetails({ ...details, notes: event.target.value })} placeholder={en ? 'Optional' : 'По желание'} maxLength={600} /></label>
           </div>
           <BookingIntakeFields industry={business.industry} locale={locale} value={intake} onChange={setIntake} />
-          <p className="booking-privacy">{en ? 'Confirmation is shown here. No email, SMS or Viber message will be sent.' : 'Потвърждението се показва тук. Не се изпращат имейл, SMS или Viber съобщения.'}</p>
+          <p className="booking-privacy">{notificationNotice(business.notifications, locale)}</p>
           <label className="booking-consent"><input required type="checkbox" checked={details.consent} onChange={(event) => setDetails({ ...details, consent: event.target.checked })} /><span>{en ? 'I accept the ' : 'Приемам '}<Link href={`/privacy?lang=${locale}`} target="_blank">{en ? 'privacy policy' : 'политиката за поверителност'}</Link>{en ? ' for this booking.' : ' за тази резервация.'}</span></label>
           <button className="booking-primary" type="submit">{en ? 'Continue to review' : 'Продължи към преглед'}</button>
         </form>}

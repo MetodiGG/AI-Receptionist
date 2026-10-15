@@ -137,6 +137,7 @@ export function BusinessSetup({ session, onComplete, locale, preview = false }) 
         default_duration_min: Number(business.default_duration_min),
         booking_slot_minutes: Number(business.booking_slot_minutes),
         languages: ['bg', 'en'],
+        notification_locale: locale,
       }).select().single()
       if (businessError) throw businessError
       createdBusinessId = createdBusiness.id

@@ -30,6 +30,7 @@ function SettingsContent({ business, refreshBusiness, locale }) {
     industry: business.industry || 'other', contact_email: business.contact_email || '', website_url: business.website_url || '',
     privacy_contact_email: business.privacy_contact_email || '', booking_terms: business.booking_terms || '',
     email_notifications_enabled: business.email_notifications_enabled ?? true,
+    notification_locale: business.notification_locale || locale,
     city_ekatte: business.city_ekatte || '', neighborhood: business.neighborhood || '',
     default_duration_min: business.default_duration_min ?? 45, booking_slot_minutes: business.booking_slot_minutes ?? 15,
   })
@@ -43,7 +44,20 @@ function SettingsContent({ business, refreshBusiness, locale }) {
   const [section, setSection] = useState('business')
   const [saving, setSaving] = useState(false)
   const [message, setMessage] = useState(null)
+  const [notificationStatus, setNotificationStatus] = useState(null)
   const bookingIntake = getBookingIntake(profile.industry, locale)
+
+  useEffect(() => {
+    const controller = new AbortController()
+    supabase.auth.getSession().then(async ({ data }) => {
+      if (!data.session) return
+      const response = await fetch(`/api/owner/notifications?business_id=${business.id}`, { headers: { Authorization: `Bearer ${data.session.access_token}` }, signal: controller.signal, cache: 'no-store' })
+      if (!response.ok) throw new Error('Unavailable')
+      const result = await response.json()
+      if (!controller.signal.aborted) setNotificationStatus(result.notifications)
+    }).catch(() => { if (!controller.signal.aborted) setNotificationStatus({ unavailable: true }) })
+    return () => controller.abort()
+  }, [business.id, business.email_notifications_enabled])
 
   const loadCollections = useCallback(async () => {
     const [servicesResult, staffResult, hoursResult, timeOffResult] = await Promise.all([
@@ -215,7 +229,9 @@ function SettingsContent({ business, refreshBusiness, locale }) {
             <label><span>{en ? 'Time zone' : 'Часова зона'}</span><select value={profile.timezone} onChange={(event) => setProfile({ ...profile, timezone: event.target.value })}><option value="Europe/Sofia">{en ? 'Sofia' : 'София'}</option><option value="Europe/Berlin">{en ? 'Berlin' : 'Берлин'}</option><option value="Europe/London">{en ? 'London' : 'Лондон'}</option></select></label>
             <label><span>{en ? 'Privacy contact' : 'Контакт за поверителност'}</span><input type="email" value={profile.privacy_contact_email} onChange={(event) => setProfile({ ...profile, privacy_contact_email: event.target.value })} placeholder="privacy@business.com" /></label>
             <label className="full"><span>{en ? 'Booking terms' : 'Условия за резервация'}</span><textarea value={profile.booking_terms} onChange={(event) => setProfile({ ...profile, booking_terms: event.target.value })} placeholder={en ? 'e.g. Appointments may be cancelled after a delay of more than 15 minutes.' : 'Напр. При закъснение над 15 минути часът може да бъде отменен.'} maxLength={2000} /></label>
-            <div className="guided-assistant-note full"><strong>{en ? 'Notifications are off for the pilot' : 'Известията са изключени за пилота'}</strong><p>{en ? 'No email, SMS or Viber messages are sent. Clients save their confirmation link and calendar file. Check the booking calendar regularly and contact clients directly when changing a booking.' : 'Не се изпращат имейл, SMS или Viber съобщения. Клиентите запазват линка за потвърждение и файла за календар. Проверявай редовно резервациите и се свързвай директно с клиента при промяна.'}</p></div>
+            <label className="full notification-preference"><span><input type="checkbox" checked={profile.email_notifications_enabled} onChange={(event) => setProfile({ ...profile, email_notifications_enabled: event.target.checked })} /> {en ? 'Email notifications for new bookings' : 'Имейл известия за нови резервации'}</span><small>{en ? 'Customers receive confirmations; the business contact email receives new-booking alerts. This preference works only when platform sending is enabled.' : 'Клиентите получават потвърждения; имейлът за контакт с бизнеса получава известия за нови часове. Настройката работи само при включено изпращане в платформата.'}</small></label>
+            <label><span>{en ? 'Business notification language' : 'Език на известията към бизнеса'}</span><select value={profile.notification_locale} onChange={(event) => setProfile({ ...profile, notification_locale: event.target.value })}><option value="bg">Български</option><option value="en">English</option></select><small>{en ? 'Customer emails use the language selected when booking.' : 'Имейлите към клиента използват избрания език при резервацията.'}</small></label>
+            <div className="guided-assistant-note full"><strong>{!notificationStatus ? (en ? 'Checking email availability…' : 'Проверяваме имейл известията…') : notificationStatus.unavailable ? (en ? 'Email status could not be checked' : 'Не успяхме да проверим имейл известията') : notificationStatus.email ? (en ? 'Booking emails are enabled' : 'Имейлите за резервации са включени') : (en ? 'Booking emails are not enabled' : 'Имейлите за резервации не са включени')}</strong><p>{notificationStatus?.email ? (en ? 'Confirmation, reschedule and cancellation messages are attempted automatically. Delivery can be delayed or fail; continue checking the calendar.' : 'Автоматично се прави опит за изпращане на потвърждения, премествания и откази. Доставката може да се забави или провали; проверявай и календара.') : (en ? 'Changing the preference above does not activate platform sending. Clients can save their private confirmation link and calendar file.' : 'Настройката по-горе не активира изпращането в платформата. Клиентите могат да запазят личния линк и файла за календар.')}</p><p>{notificationStatus?.reminders ? (en ? 'Reminders are scheduled around 24 hours before appointments booked more than 24 hours ahead.' : 'Напомняния се планират около 24 часа преди посещенията, резервирани повече от 24 часа предварително.') : (en ? 'Automatic reminders are not enabled.' : 'Автоматичните напомняния не са включени.')}{' '}{en ? 'No SMS or Viber messages are sent.' : 'Не се изпращат SMS или Viber съобщения.'}</p>{!profile.contact_email && <p>{en ? 'Enter a business contact email above to receive owner alerts.' : 'Въведи имейл за контакт с бизнеса по-горе, за да получаваш известия като собственик.'}</p>}</div>
           </div>
         </> : <>
           <div className="settings-panel-head"><h3>{en ? 'Online assistant' : 'Онлайн асистент'}</h3><p>{en ? 'Set the welcome message and rules clients can open in the conversation.' : 'Настрой приветствието и правилата, които клиентите могат да отварят в разговора.'}</p></div>

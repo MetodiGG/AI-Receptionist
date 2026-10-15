@@ -13,6 +13,7 @@ import { LanguageSwitch } from '../../../components/language-switch'
 import { usePublicLocale } from '../../../hooks/use-public-locale'
 import { collapseSlotsByLocalTime, formatBulgarianMonthShort, groupSlotsByPeriod, resolveVisibleBookingDays } from '../../../lib/booking-window.mjs'
 import { hasSupabaseConfig, supabase } from '../../../lib/supabase'
+import { notificationNotice } from '../../../lib/notification-copy.mjs'
 
 const BOOKING_COPY = {
   bg: { loading: 'Подготвяме свободните часове…', home: 'Начало', dashboard: 'Към таблото', logout: 'Изход', loggingOut: 'Излизане…', online: 'Онлайн', eyebrow: 'Онлайн записване · 24/7', hero: 'Запази време', heroEm: 'за себе си.', lead: 'Избери услугата и най-удобния свободен час. Без обаждане, без регистрация и без чакане за отговор.', book: 'Резервирай час', assistant: 'Онлайн асистент', proof: ['Избираш услуга', 'Виждаш свободните часове', 'Получаваш потвърждение'], reassurance: ['Без профил', 'Реална наличност', 'Сигурно управление'], terms: 'Условия за резервация', privacy: 'Поверителност', legalTerms: 'Условия', powered: 'Задвижвано от GoRez', secure: 'Защитена резервация', notOpen: 'Не успяхме да отворим страницата', retry: 'Опитай отново' },
@@ -230,7 +231,7 @@ function BookingPanel({ business, locale }) {
           <label className="full"><span>{en ? 'Note' : 'Бележка'}</span><textarea value={details.notes} onChange={(event) => setDetails({ ...details, notes: event.target.value })} placeholder={en ? 'Additional information (optional)' : 'Допълнителна информация (по желание)'} maxLength={600} /></label>
         </div>
         <BookingIntakeFields industry={business.industry} locale={locale} value={intake} onChange={setIntake} />
-        <p className="booking-privacy">{en ? 'Confirmation is shown on this page. No email, SMS or Viber message will be sent.' : 'Потвърждението се показва на тази страница. Не се изпращат имейл, SMS или Viber съобщения.'}</p>
+        <p className="booking-privacy">{notificationNotice(business.notifications, locale)}</p>
         <label className="booking-consent"><input required type="checkbox" checked={details.consent} onChange={(event) => setDetails({ ...details, consent: event.target.checked })} /><span>{en ? 'I agree that my data may be used for this booking and accept the ' : 'Съгласен/на съм данните ми да бъдат използвани за тази резервация и приемам '}<Link href={`/privacy?lang=${locale}`} target="_blank">{en ? 'privacy policy' : 'политиката за поверителност'}</Link>.</span></label>
         <div className="booking-summary"><span><small>{en ? 'Selected time' : 'Избран час'}</small><strong>{formatDate(date, business.timezone, locale)}, {slot.localTime}</strong><small>{service.name} · {slot.staffName}</small></span><b>{formatMoney(service.price, service.currency, locale)}</b></div>
         {error && <p className="booking-inline-error" role="alert">{error}</p>}

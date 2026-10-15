@@ -12,7 +12,6 @@ const NAV_ITEMS = [
   { icon: 'users', label: { bg: 'Клиенти', en: 'Clients' }, href: '/dashboard/customers' },
   { icon: 'chat', label: { bg: 'Асистент', en: 'Assistant' }, href: '/dashboard/assistant' },
   { icon: 'chart', label: { bg: 'Резултати', en: 'Results' }, href: '/dashboard/analytics' },
-  { icon: 'spark', label: { bg: 'Демо', en: 'Demo' }, href: '/dashboard/demo' },
   { icon: 'external', label: { bg: 'Споделяне', en: 'Share' }, href: '/dashboard/share' },
   { icon: 'settings', label: { bg: 'Настройки', en: 'Settings' }, href: '/dashboard/settings' },
 ]
@@ -46,7 +45,6 @@ export function DashboardShell({ email, title, businessSlug, children, onLogout,
           <h1>{title}</h1>
           <div className="topbar-actions">
             <LanguageSwitch locale={locale} onChange={onLocaleChange} compact />
-            <span className="status-chip"><span className="online-dot" /> {en ? 'System active' : 'Системата е активна'}</span>
             <button className="topbar-logout" type="button" onClick={onLogout} aria-label={en ? 'Sign out' : 'Изход'} title={en ? 'Sign out' : 'Изход'}><Icon name="logout" /></button>
           </div>
         </header>

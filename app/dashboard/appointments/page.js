@@ -1,6 +1,7 @@
 'use client'
 
 import { DateTime } from 'luxon'
+import Link from 'next/link'
 import { useCallback, useEffect, useState } from 'react'
 import { OwnerPage } from '../../../components/owner-page'
 import { BookingIntakeFields } from '../../../components/booking-intake-fields'
@@ -8,6 +9,7 @@ import { AppointmentCalendar } from '../../../components/appointment-calendar'
 import { supabase } from '../../../lib/supabase'
 import { bookingSlotKey } from '../../../lib/booking-safety.mjs'
 import { localizedApiMessage } from '../../../lib/localized-api-message.mjs'
+import { scheduleWriteError } from '../../../lib/business-schedule.mjs'
 
 function AppointmentsContent({ business, locale }) {
   const en = locale === 'en'
@@ -83,7 +85,7 @@ function AppointmentsContent({ business, locale }) {
     const changes = { status: nextStatus, updated_at: new Date().toISOString(), ...(nextStatus === 'cancelled' ? { cancelled_at: new Date().toISOString() } : {}) }
     const { data, error: updateError } = await supabase.from('appointments').update(changes).eq('id', id).eq('business_id', business.id).select('id').maybeSingle()
     setUpdatingId('')
-    if (updateError || !data) { setError(updateError?.code === '23P01' ? (en ? 'This time overlaps another booking.' : 'Този час се застъпва с друга резервация.') : updateError?.message || (en ? 'The booking was not updated. Refresh and try again.' : 'Резервацията не е обновена. Презареди и опитай отново.')); return }
+    if (updateError || !data) { setError(updateError?.code === '23P01' ? (en ? 'This time overlaps another booking.' : 'Този час се застъпва с друга резервация.') : updateError ? scheduleWriteError(updateError, locale) : (en ? 'The booking was not updated. Refresh and try again.' : 'Резервацията не е обновена. Презареди и опитай отново.')); return }
     setAppointments((current) => current.map((item) => item.id === id ? { ...item, ...changes } : item))
   }
 
@@ -116,7 +118,7 @@ function AppointmentsContent({ business, locale }) {
     setSaving(true); setError('')
     const { data, error: updateError } = await supabase.from('appointments').update({ staff_id: slot.staffId, starts_at: slot.startsAt, ends_at: slot.endsAt, updated_at: new Date().toISOString() }).eq('id', move.appointment.id).eq('business_id', business.id).in('status', ['booked', 'confirmed']).select('id').maybeSingle()
     setSaving(false)
-    if (updateError || !data) { setError(updateError?.code === '23P01' ? (en ? 'This time is no longer available.' : 'Този час вече е зает.') : updateError?.message || (en ? 'The booking changed. Refresh before trying again.' : 'Резервацията е променена. Обнови преди нов опит.')); return }
+    if (updateError || !data) { setError(updateError?.code === '23P01' ? (en ? 'This time is no longer available.' : 'Този час вече е зает.') : updateError ? scheduleWriteError(updateError, locale) : (en ? 'The booking changed. Refresh before trying again.' : 'Резервацията е променена. Обнови преди нов опит.')); return }
     setMove(null); setMoveSlots([]); await load()
   }
 
@@ -124,7 +126,7 @@ function AppointmentsContent({ business, locale }) {
     <main className="dashboard-content admin-page">
       <div className="admin-page-head">
         <div><p className="auth-kicker">{en ? 'Calendar' : 'Календар'}</p><h2>{en ? 'Bookings' : 'Резервации'}</h2><p>{en ? 'Manage upcoming and past appointments.' : 'Управлявай предстоящите и миналите посещения.'}</p></div>
-        <button className="primary-button" type="button" onClick={() => openManualBooking()}>+ {en ? 'New booking' : 'Нова резервация'}</button>
+        <div className="booking-owner-actions"><Link className="secondary-button" href="/dashboard/settings?section=timeoff">{en ? 'Block time / break' : 'Блокирай време / почивка'}</Link><button className="primary-button" type="button" onClick={() => openManualBooking()}>+ {en ? 'New booking' : 'Нова резервация'}</button></div>
       </div>
       {error && <p className="form-message" role="alert">{error}</p>}
       {status === 'loading' && <div className="admin-loading"><span className="button-spinner" /> {en ? 'Loading bookings...' : 'Зареждаме резервациите...'}</div>}
@@ -136,7 +138,7 @@ function AppointmentsContent({ business, locale }) {
             <label><span>{en ? 'Service' : 'Услуга'} *</span><select required value={manual.serviceId} onChange={(event) => setManual({ ...manual, serviceId: event.target.value, startsAt: '' })}><option value="">{en ? 'Choose' : 'Избери'}</option>{services.map((item) => <option value={item.id} key={item.id}>{item.name}</option>)}</select></label>
             <label><span>{en ? 'Specialist' : 'Специалист'}</span><select value={manual.staffId} onChange={(event) => setManual({ ...manual, staffId: event.target.value, startsAt: '' })}><option value="">{en ? 'No preference' : 'Без предпочитание'}</option>{staff.map((person) => <option value={person.id} key={person.id}>{person.name}</option>)}</select></label>
             <label><span>{en ? 'Date' : 'Дата'} *</span><input required type="date" min={DateTime.now().setZone(business.timezone).toISODate()} value={manual.date} onChange={(event) => setManual({ ...manual, date: event.target.value, startsAt: '' })} /></label>
-            <label><span>{en ? 'Available time' : 'Свободен час'} *</span><select required disabled={slotsLoading} value={manual.startsAt} onChange={(event) => setManual({ ...manual, startsAt: event.target.value })}><option value="">{slotsLoading ? (en ? 'Checking availability…' : 'Проверяваме часовете…') : manual.date ? (en ? 'Choose a time' : 'Избери час') : (en ? 'Choose a date first' : 'Първо избери дата')}</option>{slots.map((slot) => <option value={bookingSlotKey(slot)} key={bookingSlotKey(slot)}>{slot.localTime} · {slot.staffName}</option>)}</select></label>
+            <label><span>{en ? 'Available time' : 'Свободен час'} *</span><select required disabled={slotsLoading} value={manual.startsAt} onChange={(event) => setManual({ ...manual, startsAt: event.target.value })}><option value="">{slotsLoading ? (en ? 'Checking availability…' : 'Проверяваме часовете…') : manual.date ? (en ? 'Choose a time' : 'Избери час') : (en ? 'Choose a date first' : 'Първо избери дата')}</option>{slots.map((slot) => <option value={bookingSlotKey(slot)} key={bookingSlotKey(slot)}>{slot.localTime}–{slot.localEndTime} · {slot.staffName}</option>)}</select></label>
             <label><span>{en ? 'Name' : 'Име'} *</span><input required minLength={2} value={manual.name} onChange={(event) => setManual({ ...manual, name: event.target.value })} /></label>
             <label><span>{en ? 'Phone' : 'Телефон'} *</span><input required minLength={6} type="tel" value={manual.phone} onChange={(event) => setManual({ ...manual, phone: event.target.value })} /></label>
             <label className="full"><span>{en ? 'Email' : 'Имейл'}</span><input type="email" value={manual.email} onChange={(event) => setManual({ ...manual, email: event.target.value })} /></label>
@@ -153,7 +155,7 @@ function AppointmentsContent({ business, locale }) {
           <div className="settings-form-grid">
             <label><span>{en ? 'Specialist' : 'Специалист'}</span><select value={move.staffId} onChange={(event) => setMove({ ...move, staffId: event.target.value, startsAt: '' })}><option value="">{en ? 'No preference' : 'Без предпочитание'}</option>{staff.map((person) => <option value={person.id} key={person.id}>{person.name}</option>)}</select></label>
             <label><span>{en ? 'New date' : 'Нова дата'} *</span><input required type="date" min={DateTime.now().setZone(business.timezone).toISODate()} value={move.date} onChange={(event) => setMove({ ...move, date: event.target.value, startsAt: '' })} /></label>
-            <label className="full"><span>{en ? 'New available time' : 'Нов свободен час'} *</span><select required disabled={moveSlotsLoading} value={move.startsAt} onChange={(event) => setMove({ ...move, startsAt: event.target.value })}><option value="">{moveSlotsLoading ? (en ? 'Checking availability…' : 'Проверяваме часовете…') : move.date ? (en ? 'Choose a time' : 'Избери час') : (en ? 'Choose a date first' : 'Първо избери дата')}</option>{moveSlots.map((slot) => <option value={bookingSlotKey(slot)} key={bookingSlotKey(slot)}>{slot.localTime} · {slot.staffName}</option>)}</select></label>
+            <label className="full"><span>{en ? 'New available time' : 'Нов свободен час'} *</span><select required disabled={moveSlotsLoading} value={move.startsAt} onChange={(event) => setMove({ ...move, startsAt: event.target.value })}><option value="">{moveSlotsLoading ? (en ? 'Checking availability…' : 'Проверяваме часовете…') : move.date ? (en ? 'Choose a time' : 'Избери час') : (en ? 'Choose a date first' : 'Първо избери дата')}</option>{moveSlots.map((slot) => <option value={bookingSlotKey(slot)} key={bookingSlotKey(slot)}>{slot.localTime}–{slot.localEndTime} · {slot.staffName}</option>)}</select></label>
           </div>
           <p className="security-note">{en ? 'The calendar updates immediately. Contact the client to confirm the new time; no automatic notification is sent.' : 'Календарът се обновява веднага. Свържи се с клиента за новия час; автоматично известие не се изпраща.'}</p>
           {error && <p className="form-message" role="alert">{error}</p>}

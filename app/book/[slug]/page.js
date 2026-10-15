@@ -213,7 +213,7 @@ function BookingPanel({ business, locale }) {
               <div className="time-period-head"><h3>{period.label}</h3><span>{period.range}</span></div>
               <div className="slot-grid">{period.slots.map((item) => {
                 const selected = slot?.startsAt === item.startsAt && slot?.staffId === item.staffId
-                return <button type="button" aria-pressed={selected} className={selected ? 'selected' : ''} onClick={() => setSlot(item)} key={`${item.staffId}-${item.startsAt}`}><span className="slot-time"><strong>{item.localTime}</strong>{selected && <i aria-hidden="true">✓</i>}</span>{!staffId && <small>{item.staffName}</small>}</button>
+                return <button type="button" aria-pressed={selected} className={selected ? 'selected' : ''} onClick={() => setSlot(item)} key={`${item.staffId}-${item.startsAt}`}><span className="slot-time"><strong>{item.localTime}<span className="slot-end-time">–{item.localEndTime || DateTime.fromISO(item.endsAt).setZone(business.timezone).toFormat('HH:mm')}</span></strong>{selected && <i aria-hidden="true">✓</i>}</span>{!staffId && <small>{item.staffName}</small>}</button>
               })}</div>
             </section>)}</div>}
           </div>
@@ -291,7 +291,7 @@ export default function PublicBookingPage() {
       <header className="booking-topbar">
         <SparkLogo businessName={business.name} locale={locale} />
         <div className="booking-top-actions">
-          <div className="booking-contact">{business.phone && <a className="booking-phone" href={`tel:${business.phone}`}>{business.phone}</a>}<span className="booking-live"><i /> {copy.online}</span></div>
+          <div className="booking-contact">{business.phone && <a className="booking-phone" href={`tel:${business.phone}`}>{business.phone}</a>}</div>
           <LanguageSwitch locale={locale} onChange={setLocale} compact />
           {ownerSession ? <nav className="booking-owner-nav" aria-label={locale === 'bg' ? 'Навигация за собственик' : 'Owner navigation'}>
             <Link className="booking-dashboard-link" href="/dashboard"><span aria-hidden="true">←</span> {copy.dashboard}</Link>
@@ -300,11 +300,11 @@ export default function PublicBookingPage() {
         </div>
       </header>
       <section className="booking-hero">
-        <div className="booking-hero-copy"><p className="booking-eyebrow"><span /> {copy.eyebrow}</p><h1>{copy.hero}<br /><em>{copy.heroEm}</em></h1><p>{copy.lead}</p>{business.address && <span className="booking-address">⌖ {business.address}</span>}</div>
+        <div className="booking-hero-copy"><p className="booking-eyebrow">{copy.eyebrow}</p><h1>{copy.hero}<br /><em>{copy.heroEm}</em></h1><p>{copy.lead}</p>{business.address && <span className="booking-address">⌖ {business.address}</span>}</div>
         <div className="booking-hero-aside">
           <div className="booking-mode-switch" role="tablist" aria-label={locale === 'en' ? 'Booking method' : 'Начин за записване'}>
             <button role="tab" aria-selected={mode === 'booking'} aria-controls="booking-experience" className={mode === 'booking' ? 'active' : ''} onClick={() => setMode('booking')}>{copy.book}</button>
-            <button role="tab" aria-selected={mode === 'chat'} aria-controls="booking-experience" className={mode === 'chat' ? 'active' : ''} onClick={() => setMode('chat')}><span className="booking-online-dot" /> {copy.assistant}</button>
+            <button role="tab" aria-selected={mode === 'chat'} aria-controls="booking-experience" className={mode === 'chat' ? 'active' : ''} onClick={() => setMode('chat')}>{copy.assistant}</button>
           </div>
           <div className="booking-proof-list">{copy.proof.map((item, index) => <span key={item}><b>0{index + 1}</b> {item}</span>)}</div>
         </div>

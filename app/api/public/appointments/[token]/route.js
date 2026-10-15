@@ -6,6 +6,7 @@ import { getSupabaseAdmin } from '../../../../../lib/supabase-admin'
 import { sendCancellationNotification } from '../../../../../lib/notifications'
 import { trackEvent } from '../../../../../lib/analytics'
 import { PRIVATE_RESPONSE_HEADERS } from '../../../../../lib/booking-safety.mjs'
+import { businessAddress } from '../../../../../lib/business-location.mjs'
 
 const tokenSchema = z.string().uuid()
 
@@ -13,10 +14,11 @@ async function getAppointment(token) {
   const supabase = getSupabaseAdmin()
   const { data, error } = await supabase
     .from('appointments')
-    .select('id,business_id,starts_at,ends_at,status,cancellation_token,notes,business:businesses(name,slug,phone,address,timezone,cancellation_notice_hours),service:services(name,duration_min,price,currency),staff:staff(name),customer:customers(name,email,phone)')
+    .select('id,business_id,starts_at,ends_at,status,cancellation_token,notes,business:businesses(name,slug,phone,address,city_ekatte,city,neighborhood,timezone,cancellation_notice_hours),service:services(name,duration_min,price,currency),staff:staff(name),customer:customers(name,email,phone)')
     .eq('cancellation_token', tokenSchema.parse(token))
     .maybeSingle()
   if (error) throw error
+  if (data?.business) data.business.address = businessAddress(data.business)
   return data
 }
 

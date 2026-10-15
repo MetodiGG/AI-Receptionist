@@ -241,7 +241,7 @@ export function GuidedBookingChat({ business, locale = 'bg', onShowBooking }) {
           <div className="guided-form-grid">
             <label><span>{en ? 'Name *' : 'Име *'}</span><input required minLength={2} value={details.name} onChange={(event) => setDetails({ ...details, name: event.target.value })} placeholder={en ? 'Your name' : 'Твоето име'} /></label>
             <label><span>{en ? 'Phone *' : 'Телефон *'}</span><input required minLength={6} type="tel" value={details.phone} onChange={(event) => setDetails({ ...details, phone: event.target.value })} placeholder="+359 88 123 4567" /></label>
-            <label><span>{en ? 'Email' : 'Имейл'}</span><input type="email" value={details.email} onChange={(event) => setDetails({ ...details, email: event.target.value })} placeholder="name@example.com" /></label>
+            <label><span>{en ? 'Email *' : 'Имейл *'}</span><input required type="email" autoComplete="email" inputMode="email" maxLength={180} value={details.email} onChange={(event) => setDetails({ ...details, email: event.target.value })} placeholder="name@example.com" /></label>
             <label><span>{en ? 'Note' : 'Бележка'}</span><input value={details.notes} onChange={(event) => setDetails({ ...details, notes: event.target.value })} placeholder={en ? 'Optional' : 'По желание'} maxLength={600} /></label>
           </div>
           <BookingIntakeFields industry={business.industry} locale={locale} value={intake} onChange={setIntake} />
@@ -256,7 +256,7 @@ export function GuidedBookingChat({ business, locale = 'bg', onShowBooking }) {
             <span><small>{en ? 'Service' : 'Услуга'}</small><strong>{service?.name}</strong></span>
             <span><small>{en ? 'Date and time' : 'Дата и час'}</small><strong>{DateTime.fromISO(selection.slot.startsAt).setZone(business.timezone).setLocale(locale).toFormat('d LLLL, HH:mm')}</strong></span>
             <span><small>{en ? 'Specialist' : 'Специалист'}</small><strong>{selection.slot.staffName}</strong></span>
-            <span><small>{en ? 'Client' : 'Клиент'}</small><strong>{details.name}</strong><small>{details.phone}</small></span>
+            <span><small>{en ? 'Client' : 'Клиент'}</small><strong>{details.name}</strong><small>{details.phone}</small><small>{details.email}</small></span>
           </div>
           <BookingIntakeSummary industry={business.industry} locale={locale} value={intake} />
           <button className="booking-primary" type="button" onClick={confirmBooking} disabled={sending}>{sending ? (en ? 'Confirming…' : 'Потвърждаване...') : t.confirm}</button>

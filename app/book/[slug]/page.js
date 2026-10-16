@@ -82,6 +82,17 @@ function BookingPanel({ business, locale }) {
   const availableTimes = visibleSlots.length
 
   useEffect(() => {
+    if (!hasSupabaseConfig) return
+    let active = true
+    supabase.auth.getSession().then(({ data }) => {
+      if (!active || !data.session?.user.email_confirmed_at) return
+      const user = data.session.user
+      setDetails(current => ({ ...current, email: current.email || user.email || '', name: current.name || user.user_metadata?.full_name || '' }))
+    }).catch(() => {})
+    return () => { active = false }
+  }, [])
+
+  useEffect(() => {
     if (!serviceId || !date) { setSlots([]); setLoadingSlots(false); return }
     const controller = new AbortController()
     setSlots([])
@@ -254,6 +265,7 @@ export default function PublicBookingPage() {
   const [mode, setMode] = useState('booking')
   const [embedded, setEmbedded] = useState(false)
   const [ownerSession, setOwnerSession] = useState(null)
+  const [ownsBusiness, setOwnsBusiness] = useState(false)
   const [signingOut, setSigningOut] = useState(false)
 
   useEffect(() => {
@@ -263,6 +275,15 @@ export default function PublicBookingPage() {
     const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => { if (active) setOwnerSession(session) })
     return () => { active = false; listener.subscription.unsubscribe() }
   }, [])
+
+  useEffect(() => {
+    let active = true
+    setOwnsBusiness(false)
+    if (ownerSession) supabase.from('businesses').select('id').eq('owner_id', ownerSession.user.id).limit(1)
+      .then(({ data, error }) => { if (active && !error) setOwnsBusiness(Boolean(data?.length)) })
+      .catch(() => {})
+    return () => { active = false }
+  }, [ownerSession])
 
   useEffect(() => {
     setEmbedded(new URLSearchParams(window.location.search).get('embed') === '1')
@@ -294,7 +315,8 @@ export default function PublicBookingPage() {
         <div className="booking-top-actions">
           <div className="booking-contact">{business.phone && <a className="booking-phone" href={`tel:${business.phone}`}>{business.phone}</a>}</div>
           <LanguageSwitch locale={locale} onChange={setLocale} compact />
-          {ownerSession ? <nav className="booking-owner-nav" aria-label={locale === 'bg' ? 'Навигация за собственик' : 'Owner navigation'}>
+          <Link className="booking-home-link" href={`/account?lang=${locale}`}>{locale === 'en' ? 'My bookings' : 'Моите резервации'}</Link>
+          {ownerSession && ownsBusiness ? <nav className="booking-owner-nav" aria-label={locale === 'bg' ? 'Навигация за профила' : 'Account navigation'}>
             <Link className="booking-dashboard-link" href="/dashboard"><span aria-hidden="true">←</span> {copy.dashboard}</Link>
             <button type="button" className="booking-signout" onClick={logout} disabled={signingOut}>{signingOut ? copy.loggingOut : copy.logout}</button>
           </nav> : <Link className="booking-home-link" href={`/?lang=${locale}`}><span aria-hidden="true">←</span> {copy.home}</Link>}

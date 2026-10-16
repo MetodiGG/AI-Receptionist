@@ -122,7 +122,7 @@ export function PasswordRecovery({ mode = 'request', initializeRecovery = getPas
       </form>}
       {invalid && <Link className="primary-button recovery-action" href={`/forgot-password?lang=${locale}`}>{copy.resend}</Link>}
       {success && <Link className="primary-button recovery-action" href={`/?lang=${locale}#business`}>{copy.signIn}</Link>}
-      <div className="recovery-links"><Link href={`/?lang=${locale}#business`}>{copy.login}</Link><Link href={`/?lang=${locale}`}>{copy.home}</Link></div>
+      <div className="recovery-links"><Link href={`/account?lang=${locale}`}>{locale === 'en' ? 'Client sign-in' : 'Вход за клиенти'}</Link><Link href={`/?lang=${locale}#business`}>{locale === 'en' ? 'Business sign-in' : 'Вход за бизнес'}</Link><Link href={`/?lang=${locale}`}>{copy.home}</Link></div>
     </section>
   </main>
 }

@@ -11,18 +11,19 @@ import { HOME_COPY } from '../lib/home-copy'
 import { PASSWORD_RECOVERY_COPY } from '../lib/password-recovery-copy.mjs'
 import { filterDirectoryBusinesses, getIndustryLabel, INDUSTRY_KEYS, INDUSTRY_META } from '../lib/public-locale.mjs'
 import { hasSupabaseConfig, supabase } from '../lib/supabase'
+import { BookingStory } from '../components/booking-story'
 
 function Logo({ eager = false }) {
   return <BrandLogo className="marketing-logo" eager={eager} />
 }
 
-function BusinessDirectory({ locale, copy }) {
+function BusinessDirectory({ locale, copy, industry, setIndustry }) {
   const [businesses, setBusinesses] = useState([])
-  const [industry, setIndustry] = useState('all')
+  const [search, setSearch] = useState('')
   const [selectedSlug, setSelectedSlug] = useState('')
   const [status, setStatus] = useState('loading')
   const [error, setError] = useState('')
-  const filtered = useMemo(() => filterDirectoryBusinesses(businesses, industry), [businesses, industry])
+  const filtered = useMemo(() => filterDirectoryBusinesses(businesses, industry).filter(business => `${business.name} ${business.address || ''} ${business.city || ''}`.toLocaleLowerCase(locale).includes(search.trim().toLocaleLowerCase(locale))), [businesses, industry, search, locale])
   const selected = filtered.find((business) => business.slug === selectedSlug) || filtered[0]
 
   function loadBusinesses() {
@@ -45,10 +46,12 @@ function BusinessDirectory({ locale, copy }) {
     <div className="directory-heading"><p className="marketing-kicker dark"><span /> {copy.directoryKicker}</p><h2>{copy.directoryTitle}</h2><p>{copy.directoryLead}</p></div>
     <div className="directory-shell">
       <aside className="directory-filters">
+        <label htmlFor="business-search">{locale === 'en' ? 'Search by name or city' : 'Търси по име или град'}</label>
+        <input id="business-search" type="search" className="directory-search" value={search} onChange={event=>setSearch(event.target.value)} placeholder={locale === 'en' ? 'Business, city…' : 'Бизнес, град…'} />
         <label htmlFor="industry-filter">{copy.category}</label>
         <select id="industry-filter" value={industry} onChange={(event) => setIndustry(event.target.value)}>
-          <option value="all">🗂️ {copy.all}</option>
-          {INDUSTRY_KEYS.map((key) => <option value={key} key={key}>{INDUSTRY_META[key].symbol} {getIndustryLabel(key, locale)}</option>)}
+          <option value="all">{copy.all}</option>
+          {INDUSTRY_KEYS.map((key) => <option value={key} key={key}>{getIndustryLabel(key, locale)}</option>)}
         </select>
         <label htmlFor="business-filter">{copy.chooseBusiness}</label>
         <select id="business-filter" value={selected?.slug || ''} onChange={(event) => setSelectedSlug(event.target.value)} disabled={!filtered.length}>
@@ -72,16 +75,6 @@ function BusinessDirectory({ locale, copy }) {
   </section>
 }
 
-function HeroVisual({ locale }) {
-  const english = locale === 'en'
-  return <div className="platform-hero-visual" aria-hidden="true">
-    <div className="hero-service-card beauty"><span><Icon name="scissors" /></span><small>{getIndustryLabel('beauty', locale)}</small><strong>{english ? 'Haircut' : 'Подстригване'}</strong><i>10:30</i></div>
-    <div className="hero-service-card auto"><span><Icon name="wrench" /></span><small>{getIndustryLabel('auto', locale)}</small><strong>{english ? 'Diagnostics' : 'Диагностика'}</strong><i>14:00</i></div>
-    <div className="hero-service-card health"><span><Icon name="stethoscope" /></span><small>{getIndustryLabel('health', locale)}</small><strong>{english ? 'Consultation' : 'Консултация'}</strong><i>16:15</i></div>
-    <div className="hero-calendar-card"><small>{english ? 'AVAILABLE TIMES' : 'СВОБОДНИ ЧАСОВЕ'}</small><div><span>09:30</span><span>11:00</span><span>13:30</span></div><strong>✓ {english ? 'Confirmed' : 'Потвърдено'}</strong></div>
-  </div>
-}
-
 export default function Home() {
   const router = useRouter()
   const { locale, setLocale } = usePublicLocale()
@@ -92,6 +85,7 @@ export default function Home() {
   const [message, setMessage] = useState(null)
   const [loading, setLoading] = useState(false)
   const [accountDeleted, setAccountDeleted] = useState(false)
+  const [industry, setIndustry] = useState('all')
   const isLogin = mode === 'login'
 
   useEffect(() => { setAccountDeleted(new URLSearchParams(window.location.search).get('account') === 'deleted') }, [])
@@ -117,15 +111,15 @@ export default function Home() {
     {accountDeleted && <p className="account-deleted-notice" role="status">{locale === 'en' ? 'Your account has been deleted. You have been signed out.' : 'Акаунтът е изтрит. Излезе от профила си.'}</p>}
     <nav className="marketing-nav platform-nav" aria-label={locale === 'bg' ? 'Основна навигация' : 'Main navigation'}>
       <a href="#top" aria-label="GoRez"><Logo eager /></a>
-      <div className="marketing-nav-links"><a href="#clients">{copy.navClients}</a><a href="#how">{copy.how}</a><Link href={`/for-businesses?lang=${locale}`}>{copy.navBusiness}</Link></div>
-      <div className="platform-nav-actions"><LanguageSwitch locale={locale} onChange={setLocale} compact /><Link className="platform-nav-business-link" href={`/for-businesses?lang=${locale}`}>{locale === 'bg' ? 'Добави бизнес' : 'Add a business'}</Link><a className="marketing-nav-cta" href="#business">{copy.login} <Icon name="arrow" /></a></div>
+      <div className="marketing-nav-links"><a href="#clients">{copy.navClients}</a><a href="#how">{copy.how}</a><a href="#business">{copy.login}</a></div>
+      <div className="platform-nav-actions"><LanguageSwitch locale={locale} onChange={setLocale} compact /><Link className="nav-client-account" aria-label={locale === 'bg' ? 'Моят клиентски профил' : 'My client account'} href={`/account?lang=${locale}`}><Icon name="user"/><span>{locale === 'bg' ? 'Моят профил' : 'My account'}</span></Link><Link className="platform-nav-business-link" href={`/for-businesses?lang=${locale}`}><Icon name="plus"/>{locale === 'bg' ? 'Добави бизнес' : 'Add a business'}<Icon name="arrow"/></Link></div>
     </nav>
 
-    <section className="platform-hero" id="top"><div className="hero-orb orb-one" aria-hidden="true" /><div className="hero-orb orb-two" aria-hidden="true" /><div className="platform-hero-copy"><p className="marketing-kicker"><span /> {copy.eyebrow}</p><h1>{copy.titleA}<br /><em>{copy.titleB}</em><br />{copy.titleC}</h1><p>{copy.lead}</p><div className="marketing-hero-actions"><a className="marketing-primary-cta" href="#clients">{copy.find} <Icon name="arrow" /></a><Link className="marketing-secondary-cta" href={`/for-businesses?lang=${locale}`}>{copy.add}</Link></div><div className="marketing-trust-row">{copy.trust.map((item) => <span key={item}><Icon name="check" /> {item}</span>)}</div></div><HeroVisual locale={locale} /></section>
+    <section className="platform-hero" id="top"><div className="platform-hero-copy"><p className="marketing-kicker">{copy.eyebrow}</p><h1>{locale==='en'?'Your next':'Следващият'}<br/>{locale==='en'?'appointment.':'ти час.'}<br/><em>{locale==='en'?'One click away.':'На един клик.'}</em></h1><p>{locale==='en'?'For you. For your car. For everything on your calendar.':'За теб. За колата. За всичко в графика ти.'}</p><div className="marketing-hero-actions"><a className="marketing-primary-cta" href="#clients">{locale==='en'?'Find an appointment':'Намери час'} <Icon name="arrow" /></a><Link className="hero-account-link" href={`/account?lang=${locale}&mode=signup`}>{locale==='en'?'Create a client account':'Създай клиентски профил'}</Link></div><div className="marketing-trust-row">{[locale==='en'?'Book without an account':'Записване и без профил',locale==='en'?'Your history, in one place':'История на посещенията'].map(item=><span key={item}><Icon name="check" />{item}</span>)}</div></div><BookingStory locale={locale} onExplore={key=>{setIndustry(key);document.getElementById('clients')?.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}} /></section>
 
-    <BusinessDirectory locale={locale} copy={copy} />
+    <BusinessDirectory locale={locale} copy={copy} industry={industry} setIndustry={setIndustry} />
 
-    <section className="platform-process" id="how"><div className="directory-heading"><p className="marketing-kicker"><span /> {copy.processKicker}</p><h2>{copy.processTitle}</h2></div><div className="platform-steps">{copy.steps.map(([title, text], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{text}</p></article>)}</div></section>
+    <section className="home-client-profile"><div className="home-client-symbol"><Icon name="calendar"/></div><div><p className="marketing-kicker">{locale==='en'?'Made for your everyday':'За твоето ежедневие'}</p><h2>{locale==='en'?'Your visits. One account.':'Твоите посещения. Един профил.'}</h2><p>{locale==='en'?'Upcoming bookings, past visits and a quick way to book again.':'Предстоящи часове, минали посещения и бързо записване отново.'}</p></div><Link className="marketing-primary-cta" href={`/account?lang=${locale}&mode=signup`}>{locale==='en'?'My GoRez':'Моят GoRez'}<Icon name="arrow"/></Link></section>
 
     <section className="platform-business" id="business">
       <div className="platform-business-copy"><p className="marketing-kicker"><span /> {copy.ownerKicker}</p><h2>{copy.ownerTitle}</h2><p>{copy.ownerLead}</p><div className="platform-benefits">{copy.benefits.map((item) => <span key={item}><Icon name="check" /> {item}</span>)}</div></div>

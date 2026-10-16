@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { bookingCalendarFile } from '../lib/booking-confirmation.mjs'
 import { notificationNotice } from '../lib/notification-copy.mjs'
 
@@ -40,5 +41,6 @@ export function BookingConfirmationActions({ appointment, business, service, sta
     {message && <p className="confirmation-save-message" role="status">{message}</p>}
     {showLink && <label><span className="sr-only">{en ? 'Private booking link' : 'Личен линк за резервацията'}</span><input readOnly value={link} onFocus={(event) => event.target.select()} /></label>}
     <small>{en ? 'Keep the link private: anyone with it can manage this booking.' : 'Не споделяй личния линк: всеки с него може да управлява тази резервация.'}</small>
+    <Link className="confirmation-account-link" href={`/account?lang=${locale}`}>{en ? 'See all my bookings in my client account' : 'Виж всичките си резервации в клиентски профил'} →</Link>
   </div>
 }

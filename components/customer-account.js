@@ -8,7 +8,7 @@ import { Icon } from './icon'
 import { LanguageSwitch } from './language-switch'
 import { usePublicLocale } from '../hooks/use-public-locale'
 import { hasSupabaseConfig,supabase } from '../lib/supabase'
-import { customerAccountRedirect,customerSignupSchema } from '../lib/customer-account.mjs'
+import { customerAccountRedirect,customerSignupSchema,requestCustomerSignInLink } from '../lib/customer-account.mjs'
 import { bookingStatusLabel } from '../lib/booking-safety.mjs'
 import { formatBulgarianMonthShort } from '../lib/booking-window.mjs'
 
@@ -75,15 +75,15 @@ export function CustomerAccount({ preview = null }) {
       if(result.error)throw result.error
       update('password','');update('confirmation','')
       if(result.data.session)setSession(result.data.session)
-      else {setMessage(en?'Check your email and confirm your address. If you already have an account, sign in instead.':'Провери имейла си и потвърди адреса. Ако вече имаш профил, избери „Вход“.');setCooldown(60)}
+      else {setMessage(en?'Request accepted. New accounts need email confirmation. An already confirmed account does not receive a new signup email: choose Sign in or an email sign-in link.':'Заявката е приета. Нов профил се потвърждава по имейл. Вече потвърден профил не получава нов регистрационен имейл — избери „Вход“ с парола или имейл линк.');setCooldown(60)}
     } catch(problem) {
       setError(problem.status===429?(en?'Too many attempts. Try again in a few minutes.':'Твърде много опити. Опитай след няколко минути.'):(en?'Unable to sign in or register. Check your details and email confirmation.':'Неуспешен вход или регистрация. Провери данните и потвърждението на имейла.'))
     } finally {submitting.current=false;setBusy(false)}
   }
 
   async function resend() {
-    if(busy || cooldown || preview)return
-    setBusy(true);setError('')
+    if(submitting.current || busy || cooldown || preview)return
+    submitting.current=true;setBusy(true);setError('')
     try {
       const options={emailRedirectTo:customerAccountRedirect(window.location.origin,locale)}
       const {error:problem}=session
@@ -91,7 +91,18 @@ export function CustomerAccount({ preview = null }) {
         : await supabase.auth.resend({type:'signup',email:form.email.trim().toLowerCase(),options})
       if(problem)throw problem
       setMessage(en?'Confirmation requested. Check your inbox and Spam.':'Заявено е потвърждение. Провери пощата и „Спам“.');setCooldown(60)
-    }catch{setError(en?'Could not request confirmation. Please try later.':'Не успяхме да заявим потвърждение. Опитай по-късно.');setCooldown(60)}finally{setBusy(false)}
+    }catch{setError(en?'Could not request confirmation. Please try later.':'Не успяхме да заявим потвърждение. Опитай по-късно.');setCooldown(60)}finally{submitting.current=false;setBusy(false)}
+  }
+
+  async function emailSignIn() {
+    if(submitting.current || cooldown || preview)return
+    if(!hasSupabaseConfig){setError(en?'Sign-in is temporarily unavailable.':'Входът временно не е достъпен.');return}
+    submitting.current=true;setBusy(true);setError('');setMessage('')
+    const result=await requestCustomerSignInLink({auth:supabase.auth,email:form.email,origin:window.location.origin,locale})
+    if(result.error)setError(result.error==='VALIDATION_ERROR'?(en?'Enter a valid email address first.':'Първо въведи валиден имейл адрес.'):result.error==='RATE_LIMITED'?(en?'Too many attempts. Please try in a few minutes.':'Твърде много опити. Опитай след няколко минути.'):(en?'Unable to request a link. Please try later.':'Не успяхме да заявим линк. Опитай по-късно.'))
+    else setMessage(en?'If this email has an account, a secure sign-in link has been requested. Check your inbox and Spam. No new account is created by this action.':'Ако с този имейл има профил, е заявен сигурен линк за вход. Провери пощата и „Спам“. Тази опция не създава нов акаунт.')
+    if(result.error!=='VALIDATION_ERROR')setCooldown(60)
+    submitting.current=false;setBusy(false)
   }
 
   async function logout() {
@@ -111,8 +122,9 @@ export function CustomerAccount({ preview = null }) {
         <div className="field"><label htmlFor="client-password">{en?'Password':'Парола'}</label><input id="client-password" type="password" className="text-input" autoComplete={mode==='signup'?'new-password':'current-password'} required minLength={mode==='signup'?8:1} maxLength={128} value={form.password} onChange={e=>update('password',e.target.value)} /></div>
         {mode==='signup'?<><div className="field"><label htmlFor="client-confirm">{en?'Repeat password':'Повтори паролата'}</label><input id="client-confirm" type="password" className="text-input" autoComplete="new-password" required minLength={8} maxLength={128} value={form.confirmation} onChange={e=>update('confirmation',e.target.value)} /></div><label className="customer-consent"><input type="checkbox" required checked={form.consent} onChange={e=>update('consent',e.target.checked)} /><span>{en?'I accept the ':'Приемам '}<Link target="_blank" href={`/terms?lang=${locale}`}>{en?'terms':'условията'}</Link>{en?' and ':' и '}<Link target="_blank" href={`/privacy?lang=${locale}`}>{en?'privacy policy':'политиката за поверителност'}</Link>.</span></label></>:<Link className="auth-forgot" href={`/forgot-password?lang=${locale}`}>{en?'Forgot your password?':'Забравена парола?'}</Link>}
         {message&&<p className="form-message success" role="status">{message}</p>}{error&&<p className="form-message" role="alert">{error}</p>}<button type="submit" className="primary-button" disabled={busy}>{busy?(en?'Please wait…':'Момент…'):mode==='signup'?(en?'Create account':'Създай профил'):(en?'Sign in':'Вход')}<Icon name="arrow" /></button>
-        {message&&<button className="link-button" type="button" onClick={resend} disabled={busy||cooldown>0}>{cooldown?`${en?'Wait':'Изчакай'} ${cooldown}s`:(en?'Resend verification':'Изпрати потвърждение отново')}</button>}
-      </form><p className="customer-account-hint">{en?'Use the same email as your bookings. Confirming it unlocks your history.':'Използвай имейла от резервациите си. Потвърди го, за да видиш историята.'}</p><Link className="customer-owner-link" href={`/?lang=${locale}#business`}>{en?'Business owner? Business sign-in':'Имаш бизнес? Вход за бизнес'}</Link></section>
+        {mode==='login'&&<button className="secondary-button customer-email-signin" type="button" onClick={emailSignIn} disabled={busy||cooldown>0}><Icon name="mail"/>{cooldown?`${en?'Wait':'Изчакай'} ${cooldown}s`:(en?'Sign in with an email link':'Вход с имейл линк')}</button>}
+        {message&&mode==='signup'&&<><button className="link-button" type="button" onClick={resend} disabled={busy||cooldown>0}>{cooldown?`${en?'Wait':'Изчакай'} ${cooldown}s`:(en?'Resend verification':'Изпрати потвърждение отново')}</button><button className="link-button" type="button" onClick={()=>{setMode('login');setMessage('');setError('')}}>{en?'Already registered? Go to sign in':'Вече имаш профил? Към вход'}</button></>}
+      </form><p className="customer-account-hint">{en?'One account for clients and business owners. Already registered? Use the same sign-in, not a second registration. Use your booking email to find your visits.':'Един акаунт за клиенти и собственици. Вече си регистриран? Използвай същия вход, без повторна регистрация. Часовете се намират по имейла от резервацията.'}</p><Link className="customer-owner-link" href={`/?lang=${locale}#business`}>{en?'Business owner? Business sign-in':'Имаш бизнес? Вход за бизнес'}</Link></section>
     </section>:<section className="customer-dashboard">
       <header className="customer-dashboard-head"><div><p className="marketing-kicker">{en?'Your GoRez':'Твоят GoRez'}</p><h1>{en?'My bookings':'Моите резервации'}</h1><p>{session.user.email}</p></div><Link className="marketing-primary-cta" href={`/?lang=${locale}#clients`}><Icon name="plus" />{en?'Book a new visit':'Запази нов час'}</Link></header>
       <div className="customer-history-controls"><div className="customer-auth-tabs">{[['upcoming',en?'Upcoming':'Текущи'],['past',en?'History':'Минали']].map(([key,label])=><button type="button" key={key} aria-pressed={view===key} onClick={()=>{setView(key);setPage(0)}}>{label}</button>)}</div><button className="customer-signout" type="button" onClick={()=>setReload(v=>v+1)} disabled={history.status==='loading'}>{en?'Refresh':'Обнови'}</button></div>

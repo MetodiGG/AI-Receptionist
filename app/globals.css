@@ -5061,7 +5061,7 @@ a {
 .language-switch button span { font-size: 14px; }
 .language-switch.compact button { min-height: 30px; padding-inline: 8px; }
 
-.platform-home { background: #f7f8f2; }
+.platform-home { background: #f7f8f2; overflow: clip; }
 .platform-nav { grid-template-columns: auto 1fr auto; column-gap: 32px; }
 .platform-nav > a:first-child { text-decoration: none; }
 .platform-nav .marketing-logo { color: var(--ink); }
@@ -5604,6 +5604,7 @@ a {
 .customer-consent a { color:#173e2a; }
 .customer-account-hint { font-size:11px; line-height:1.7; color:#75816f; margin:24px 0 17px; }
 .customer-owner-link { color:#526647; font-size:12px; text-underline-offset:4px; }
+.customer-email-signin { width:100%; justify-content:center; margin-top:4px; }
 .customer-dashboard { max-width:1220px; margin:auto; padding:65px 30px 90px; }
 .customer-dashboard-head { display:flex; justify-content:space-between; align-items:center; gap:30px; margin-bottom:45px; }
 .customer-dashboard-head h1 { font-size:clamp(35px,5vw,58px); letter-spacing:-.055em; margin:12px 0; }

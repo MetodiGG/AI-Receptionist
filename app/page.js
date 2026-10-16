@@ -12,6 +12,7 @@ import { PASSWORD_RECOVERY_COPY } from '../lib/password-recovery-copy.mjs'
 import { filterDirectoryBusinesses, getIndustryLabel, INDUSTRY_KEYS, INDUSTRY_META } from '../lib/public-locale.mjs'
 import { hasSupabaseConfig, supabase } from '../lib/supabase'
 import { BookingStory } from '../components/booking-story'
+import { AdminAccessLink } from '../components/admin-access-link'
 
 function Logo({ eager = false }) {
   return <BrandLogo className="marketing-logo" eager={eager} />
@@ -103,7 +104,10 @@ export default function Home() {
     const result = isLogin ? await supabase.auth.signInWithPassword({ email: normalizedEmail, password }) : await supabase.auth.signUp({ email: normalizedEmail, password })
     setLoading(false)
     if (result.error) { setMessage({ type: 'error', text: result.error.message }); return }
-    if (result.data.session) { router.push(`/dashboard?lang=${locale}`); return }
+    if (result.data.session) {
+      const access=await fetch('/api/admin/access',{headers:{Authorization:`Bearer ${result.data.session.access_token}`},cache:'no-store'}).catch(()=>null)
+      router.push(access?.ok?`/admin?lang=${locale}`:`/dashboard?lang=${locale}`); return
+    }
     setMessage({ type: 'success', text: locale === 'bg' ? 'Профилът е създаден. Провери имейла си.' : 'Your profile is ready. Check your email to confirm it.' })
   }
 
@@ -112,7 +116,7 @@ export default function Home() {
     <nav className="marketing-nav platform-nav" aria-label={locale === 'bg' ? 'Основна навигация' : 'Main navigation'}>
       <a href="#top" aria-label="GoRez"><Logo eager /></a>
       <div className="marketing-nav-links"><a href="#clients">{copy.navClients}</a><a href="#how">{copy.how}</a><a href="#business">{copy.login}</a></div>
-      <div className="platform-nav-actions"><LanguageSwitch locale={locale} onChange={setLocale} compact /><Link className="nav-client-account" aria-label={locale === 'bg' ? 'Моят клиентски профил' : 'My client account'} href={`/account?lang=${locale}`}><Icon name="user"/><span>{locale === 'bg' ? 'Моят профил' : 'My account'}</span></Link><Link className="platform-nav-business-link" href={`/for-businesses?lang=${locale}`}><Icon name="plus"/>{locale === 'bg' ? 'Добави бизнес' : 'Add a business'}<Icon name="arrow"/></Link></div>
+      <div className="platform-nav-actions"><LanguageSwitch locale={locale} onChange={setLocale} compact /><AdminAccessLink locale={locale}/><Link className="nav-client-account" aria-label={locale === 'bg' ? 'Моят клиентски профил' : 'My client account'} href={`/account?lang=${locale}`}><Icon name="user"/><span>{locale === 'bg' ? 'Моят профил' : 'My account'}</span></Link><Link className="platform-nav-business-link" href={`/for-businesses?lang=${locale}`}><Icon name="plus"/>{locale === 'bg' ? 'Добави бизнес' : 'Add a business'}<Icon name="arrow"/></Link></div>
     </nav>
 
     <section className="platform-hero" id="top"><div className="platform-hero-copy"><p className="marketing-kicker">{copy.eyebrow}</p><h1>{locale==='en'?'Your next':'Следващият'}<br/>{locale==='en'?'appointment.':'ти час.'}<br/><em>{locale==='en'?'One click away.':'На един клик.'}</em></h1><p>{locale==='en'?'For you. For your car. For everything on your calendar.':'За теб. За колата. За всичко в графика ти.'}</p><div className="marketing-hero-actions"><a className="marketing-primary-cta" href="#clients">{locale==='en'?'Find an appointment':'Намери час'} <Icon name="arrow" /></a><Link className="hero-account-link" href={`/account?lang=${locale}&mode=signup`}>{locale==='en'?'Create a client account':'Създай клиентски профил'}</Link></div><div className="marketing-trust-row">{[locale==='en'?'Book without an account':'Записване и без профил',locale==='en'?'Your history, in one place':'История на посещенията'].map(item=><span key={item}><Icon name="check" />{item}</span>)}</div></div><BookingStory locale={locale} onExplore={key=>{setIndustry(key);document.getElementById('clients')?.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}} /></section>

@@ -133,7 +133,7 @@ export default function Dashboard() {
   if (status === 'loading' || !session) return <div className="loading-screen"><div className="loading-box"><span className="button-spinner" /><span>{en ? 'Preparing your dashboard...' : 'Подготвяме твоето табло...'}</span></div></div>
 
   return (
-    <DashboardShell email={session.user.email} title={data?.business?.name || (en ? 'Business setup' : 'Настройка на бизнеса')} businessSlug={data?.business?.slug} onLogout={logout} locale={locale} onLocaleChange={setLocale}>
+    <DashboardShell email={session.user.email} title={data?.business?.name || (en ? 'Business setup' : 'Настройка на бизнеса')} businessSlug={data?.business?.slug} platformStatus={data?.business?.platform_status} onLogout={logout} locale={locale} onLocaleChange={setLocale}>
       <main className="dashboard-content">
         <div className="page-intro">
           <div>

@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useEffect,useRef,useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { DateTime } from 'luxon'
 import { BrandLogo } from './brand-logo'
 import { Icon } from './icon'
@@ -11,6 +12,7 @@ import { hasSupabaseConfig,supabase } from '../lib/supabase'
 import { customerAccountRedirect,customerSignupSchema,requestCustomerSignInLink } from '../lib/customer-account.mjs'
 import { bookingStatusLabel } from '../lib/booking-safety.mjs'
 import { formatBulgarianMonthShort } from '../lib/booking-window.mjs'
+import { AdminAccessLink } from './admin-access-link'
 
 function CustomerBookingCard({ row,locale,view }) {
   const en=locale==='en'
@@ -24,6 +26,7 @@ function CustomerBookingCard({ row,locale,view }) {
 }
 
 export function CustomerAccount({ preview = null }) {
+  const router=useRouter()
   const { locale,setLocale }=usePublicLocale(), en=locale==='en'
   const [session,setSession]=useState(preview?.session || null), [checking,setChecking]=useState(!preview)
   const [mode,setMode]=useState('login'), [busy,setBusy]=useState(false), [message,setMessage]=useState(''), [error,setError]=useState(''), [cooldown,setCooldown]=useState(0)
@@ -32,6 +35,27 @@ export function CustomerAccount({ preview = null }) {
   const [history,setHistory]=useState({ status:'loading',bookings:[],hasMore:false })
   const submitting=useRef(false)
   const update=(key,value)=>setForm(current=>({...current,[key]:value}))
+
+  useEffect(()=>{
+    if(preview)return
+    // Only a fixed local destination; never redirect to an arbitrary next URL.
+    try{if(new URLSearchParams(window.location.search).get('next')==='admin')window.sessionStorage.setItem('gorez-return-to-admin','yes')}catch{}
+  },[preview])
+  useEffect(()=>{
+    if(preview||!session)return
+    let requested=false
+    try{requested=window.sessionStorage.getItem('gorez-return-to-admin')==='yes'}catch{}
+    if(!requested)return
+    const controller=new AbortController()
+    fetch('/api/admin/access',{headers:{Authorization:`Bearer ${session.access_token}`},cache:'no-store',signal:controller.signal})
+      .then(async response=>{
+        const body=await response.json()
+        if(controller.signal.aborted)return
+        if(response.ok&&body.admin===true){try{window.sessionStorage.removeItem('gorez-return-to-admin')}catch{};router.replace(`/admin?lang=${locale}`)}
+        else if(response.status===403){try{window.sessionStorage.removeItem('gorez-return-to-admin')}catch{};setError(en?'This account has no administrator access.':'Този профил няма администраторски достъп.')}
+      }).catch(()=>{})
+    return()=>controller.abort()
+  },[session,preview,locale,en,router])
 
   useEffect(()=>{
     if (preview) return
@@ -113,7 +137,7 @@ export function CustomerAccount({ preview = null }) {
   }
 
   return <main className="customer-page">
-    <nav className="customer-nav" aria-label={en?'Account navigation':'Навигация за профила'}><Link href={`/?lang=${locale}`} aria-label="GoRez"><BrandLogo className="marketing-logo" eager /></Link><div><Link href={`/?lang=${locale}#clients`}>{en?'Find an appointment':'Намери час'}</Link><LanguageSwitch locale={locale} onChange={setLocale} compact />{session && <button type="button" className="customer-signout" disabled={busy} onClick={logout}><Icon name="logout" />{en?'Sign out':'Изход'}</button>}</div></nav>
+    <nav className="customer-nav" aria-label={en?'Account navigation':'Навигация за профила'}><Link href={`/?lang=${locale}`} aria-label="GoRez"><BrandLogo className="marketing-logo" eager /></Link><div><Link href={`/?lang=${locale}#clients`}>{en?'Find an appointment':'Намери час'}</Link><AdminAccessLink locale={locale}/><LanguageSwitch locale={locale} onChange={setLocale} compact />{session && <button type="button" className="customer-signout" disabled={busy} onClick={logout}><Icon name="logout" />{en?'Sign out':'Изход'}</button>}</div></nav>
     {checking?<section className="customer-loading" role="status"><span className="button-spinner" />{en?'Loading your account…':'Зареждаме профила…'}</section>:!session?<section className="customer-access">
       <div className="customer-access-copy"><p className="marketing-kicker">{en?'Your GoRez':'Твоят GoRez'}</p><h1>{en?'Your time.':'Твоите часове.'}<br/><em>{en?'All in one place.':'На едно място.'}</em></h1><p>{en?'Upcoming visits and booking history, with one account.':'Предстоящи посещения и история с един профил.'}</p><div className="customer-access-feature"><Icon name="calendar" /><span>{en?'Keep track of every visit':'Следи всяко посещение'}</span></div><div className="customer-access-feature"><Icon name="check" /><span>{en?'Booking without an account is still available':'Можеш да резервираш и без профил'}</span></div></div>
       <section className="access-card customer-auth"><div className="customer-auth-tabs"><button type="button" aria-pressed={mode==='login'} onClick={()=>{setMode('login');setError('');setMessage('')}}>{en?'Sign in':'Вход'}</button><button type="button" aria-pressed={mode==='signup'} onClick={()=>{setMode('signup');setError('');setMessage('')}}>{en?'Register':'Регистрация'}</button></div><h2>{mode==='login'?(en?'Welcome back':'Добре дошъл отново'):(en?'Create your client account':'Създай клиентски профил')}</h2><form onSubmit={submit} className="auth-form">

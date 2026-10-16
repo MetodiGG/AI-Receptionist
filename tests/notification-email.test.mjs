@@ -96,9 +96,14 @@ test('worker freezes payload, uses provider idempotency and records acceptance o
 })
 
 test('worker skips stale snapshots and invalidated claims without sending', async () => {
-  for (const options of [{ current: { ...appointment, notification_revision: 9 } }, { prepare: false }, { validClaim: false }]) {
+  for (const options of [{ current: { ...appointment, notification_revision: 9 } }, { current: { ...appointment, business:{...appointment.business,platform_status:'archived'} } }, { prepare: false }, { validClaim: false }]) {
     const h = harness(options); await h.run(); assert.equal(h.sent.length, 0)
   }
+})
+
+test('platform suspension preserves emails for existing visits, while trash suppresses them',()=>{
+  assert.equal(notificationIsCurrent(row,{...appointment,business:{...appointment.business,platform_status:'suspended'}},now),true)
+  assert.equal(notificationIsCurrent(row,{...appointment,business:{...appointment.business,platform_status:'archived'}},now),false)
 })
 
 test('retry uses the identical persisted payload and stable provider key', async () => {

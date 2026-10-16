@@ -3,6 +3,7 @@ import { apiError, getSafeError } from '../../../../lib/api-response'
 import { PARTNER_STATUS_KEYS } from '../../../../lib/partner-leads.mjs'
 import { isPlatformAdmin, requireUser } from '../../../../lib/server-auth'
 import { getSupabaseAdmin } from '../../../../lib/supabase-admin'
+import { privateJson } from '../../../../lib/platform-admin.mjs'
 
 const updateSchema = z.object({
   id: z.string().uuid(),
@@ -25,7 +26,7 @@ export async function GET(request) {
       .order('created_at', { ascending: false })
       .limit(250)
     if (error) throw error
-    return Response.json({ leads: data || [] })
+    return privateJson({ leads: data || [] })
   } catch (error) {
     const safe = getSafeError(error)
     return apiError(safe.message, safe.status, safe.code)
@@ -34,6 +35,8 @@ export async function GET(request) {
 
 export async function PATCH(request) {
   try {
+    const origin=request.headers.get('origin')
+    if((origin&&origin!==new URL(request.url).origin)||request.headers.get('sec-fetch-site')==='cross-site')return apiError('Достъпът е отказан.',403,'FORBIDDEN')
     if (!await hasAdminAccess(request)) return apiError('Достъпът е отказан.', 403, 'FORBIDDEN')
     const input = updateSchema.parse(await request.json())
     const supabase = getSupabaseAdmin()
@@ -44,7 +47,7 @@ export async function PATCH(request) {
       .select('id,status,notes,updated_at')
       .single()
     if (error) throw error
-    return Response.json({ lead: data })
+    return privateJson({ lead: data })
   } catch (error) {
     const safe = getSafeError(error)
     return apiError(safe.message, safe.status, safe.code)

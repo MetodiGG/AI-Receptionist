@@ -7,6 +7,8 @@
 - Details show services, staff and exact customer/booking/upcoming counts; no customer CRM records are returned.
 - Publish, suspend, move to trash, restore and permanent deletion, with a reason and exact slug confirmation.
 - Ordinary application status `active` is displayed as **Completed lead**, not a claim of business publication. Applications still do not create accounts or profiles. Owners use the existing business setup flow.
+- Application cards show name, category, city, contact person, phone and email. Direct **Approve / Reject** buttons open an explicit confirmation. Approval uses the existing `onboarding` status (**Approved · setup needed**); rejection uses `declined`. No migration, new permissions, automatic account/profile creation, publication or email is introduced. Internal notes and advanced status editing are collapsed under Details. Decisions remain reversible there.
+- Applications are grouped as To review / Approved / Rejected / Completed; pending requests sort first. Saved statuses update only after the server acknowledges them. Status-only decisions preserve internal notes. Conditional `updated_at` updates reject stale tabs with `409 LEAD_CHANGED`, instead of overwriting a newer decision. Edits are kept as drafts until saved; direct decisions are disabled for unsaved drafts.
 - Administrator links are shown after a server-side role check on the home page, client account and owner navigation. No allowlist is bundled in browser JavaScript.
 - Guests on `/admin` see an explicit sign-in prompt, not a silent homepage redirect. The client account remembers only a fixed `admin` return intent, never an arbitrary return URL. Email links keep the existing exact allowlisted callback URLs; cross-device email-link users may use the visible Admin panel link after signing in.
 
@@ -27,6 +29,8 @@
 ## Verification and release
 
 Local verification on 2026-10-16: 130 passing tests, successful production build, production preview 404, guest access/detail/action APIs 401. BG/EN browser QA at 1280px, 375px and 320px; no horizontal overflow. Search, visibility filter, wrong-slug disabled confirmation, trash, restore-as-suspended, explicit guest sign-in path and upcoming-booking deletion block were checked. UI mutations used fictional preview data only; database mutation tests ran only in in-memory PGlite.
+
+Application decision follow-up: 137 passing tests and production build. Fictional local UI checks covered Approve confirmation, Reject confirmation, saved status/filter counts, note preservation after approval, unsaved draft protection, reopening a rejected application and empty filtered results. BG/EN at 1280px, 375px and 320px, including the expanded editor and confirmation, had no horizontal overflow. No production decision or test email was used.
 
 1. Run `node --test tests/*.test.mjs` and the production Next build.
 2. PGlite tests execute the actual migration/RPC in memory, without a production connection. Test roles, revision/slug mismatch, setup checks, booking guards, queue invalidation, restoration, upcoming-blocked deletion, tenant/Auth preservation and rollback on audit failure.

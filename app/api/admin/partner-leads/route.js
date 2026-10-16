@@ -1,15 +1,9 @@
-import { z } from 'zod'
 import { apiError, getSafeError } from '../../../../lib/api-response'
-import { PARTNER_STATUS_KEYS } from '../../../../lib/partner-leads.mjs'
 import { isPlatformAdmin, requireUser } from '../../../../lib/server-auth'
 import { getSupabaseAdmin } from '../../../../lib/supabase-admin'
 import { privateJson } from '../../../../lib/platform-admin.mjs'
-
-const updateSchema = z.object({
-  id: z.string().uuid(),
-  status: z.enum(PARTNER_STATUS_KEYS),
-  notes: z.string().trim().max(3000).optional().default(''),
-})
+import { consumeRateLimit } from '../../../../lib/rate-limit'
+import { createPartnerLeadUpdateHandler } from '../../../../lib/partner-lead-admin.mjs'
 
 async function hasAdminAccess(request) {
   const user = await requireUser(request)
@@ -33,23 +27,21 @@ export async function GET(request) {
   }
 }
 
-export async function PATCH(request) {
-  try {
-    const origin=request.headers.get('origin')
-    if((origin&&origin!==new URL(request.url).origin)||request.headers.get('sec-fetch-site')==='cross-site')return apiError('Достъпът е отказан.',403,'FORBIDDEN')
-    if (!await hasAdminAccess(request)) return apiError('Достъпът е отказан.', 403, 'FORBIDDEN')
-    const input = updateSchema.parse(await request.json())
-    const supabase = getSupabaseAdmin()
-    const { data, error } = await supabase
+export const PATCH = createPartnerLeadUpdateHandler({
+  authenticate: requireUser,
+  isAdmin: isPlatformAdmin,
+  allowAttempt: (request, id) => consumeRateLimit(request, { scope: `platform-leads:${id}`, limit: 30, windowSeconds: 900 }),
+  update: async input => {
+    const changes = { status: input.status, updated_at: new Date().toISOString() }
+    if (input.notes !== undefined) changes.notes = input.notes || null
+    const { data, error } = await getSupabaseAdmin()
       .from('partner_leads')
-      .update({ status: input.status, notes: input.notes || null, updated_at: new Date().toISOString() })
+      .update(changes)
       .eq('id', input.id)
+      .eq('updated_at', input.expectedUpdatedAt)
       .select('id,status,notes,updated_at')
-      .single()
+      .maybeSingle()
     if (error) throw error
-    return privateJson({ lead: data })
-  } catch (error) {
-    const safe = getSafeError(error)
-    return apiError(safe.message, safe.status, safe.code)
-  }
-}
+    return data
+  },
+})

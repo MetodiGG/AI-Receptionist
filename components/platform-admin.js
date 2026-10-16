@@ -7,18 +7,27 @@ import { Icon } from './icon'
 import { LanguageSwitch } from './language-switch'
 import { usePublicLocale } from '../hooks/use-public-locale'
 import { supabase,createReauthenticationClient } from '../lib/supabase'
-import { PARTNER_STATUS_KEYS,PARTNER_STATUS_LABELS } from '../lib/partner-leads.mjs'
+import { filterPartnerLeads,partnerReviewGroup } from '../lib/partner-leads.mjs'
+import { AdminApplicationCard,adminIndustryIcon } from './admin-application-card'
 import { getIndustryLabel } from '../lib/public-locale.mjs'
 import { businessState,filterAdminBusinesses } from '../lib/platform-business-view.mjs'
 
 const STATES={published:['Публикуван','Published'],unpublished:['Непубликуван','Unpublished'],suspended:['Спрян от админ','Suspended'],archived:['В кошчето','In trash']}
 const ACTIONS={publish:['Публикувай','Publish'],suspend:['Спри записванията','Suspend bookings'],archive:['Премести в кошчето','Move to trash'],restore:['Възстанови като спрян','Restore as suspended'],delete:['Изтрий окончателно','Delete permanently']}
+const LEAD_GROUPS={all:['Всички','All'],pending:['За преглед','To review'],approved:['Одобрени','Approved'],rejected:['Отказани','Rejected'],completed:['Приключени','Completed']}
+const NOTICES={
+  'lead-saved':['Заявката е запазена.','Application saved.'],
+  'lead-approved':['Заявката е одобрена за настройване. Публикуването на бизнеса е отделна стъпка.','Application approved for setup. Business publication is a separate step.'],
+  'lead-rejected':['Заявката е отказана. Можеш да промениш решението от „Детайли“.','Application rejected. You can change the decision in Details.'],
+  'business-saved':['Промяната е запазена.','Change saved.'],
+}
 const ERRORS={
   ADMIN_UNAVAILABLE:['Панелът временно не е достъпен. Опитай отново.','The panel is temporarily unavailable. Try again.'],
   UNAUTHORIZED:['Сесията е приключила. Влез отново.','Your session has ended. Sign in again.'],
   FORBIDDEN:['Този профил няма администраторски достъп.','This account does not have administrator access.'],
   BUSINESS_CHANGED:['Бизнесът е променен междувременно. Затвори прозореца и обнови.','This business has changed. Close this dialog and refresh.'],
   BUSINESS_NOT_FOUND:['Бизнесът вече не съществува. Обнови списъка.','This business no longer exists. Refresh the list.'],
+  LEAD_CHANGED:['Заявката е променена междувременно. Обнови списъка и провери статуса, преди да опиташ отново.','This application changed. Refresh and check its status before trying again.'],
   CONFIRMATION_MISMATCH:['Напиши точно адреса на избрания бизнес.','Type the exact business slug.'],
   SETUP_REQUIRED:['Първо са нужни активна услуга, служител и работно време. Собственикът ги настройва от бизнес таблото.','An active service, staff member and working hours are required. The owner sets them up in their business dashboard.'],
   RESTORE_FIRST:['Първо възстанови бизнеса от кошчето.','Restore the business from trash first.'],
@@ -74,7 +83,7 @@ export function PlatformAdmin({preview=null}) {
   const [overview,setOverview]=useState(preview?.overview||null),[leads,setLeads]=useState(preview?.leads||[]),[error,setError]=useState(''),[notice,setNotice]=useState(''),[loading,setLoading]=useState(false)
   const [tab,setTab]=useState('businesses'),[query,setQuery]=useState(''),[state,setState]=useState('all'),[leadFilter,setLeadFilter]=useState('all'),[saving,setSaving]=useState('')
   const [selected,setSelected]=useState(null),[detail,setDetail]=useState(null),[detailError,setDetailError]=useState(''),[action,setAction]=useState(''),[reason,setReason]=useState(''),[confirmation,setConfirmation]=useState(''),[ack,setAck]=useState(false),[password,setPassword]=useState(''),[busy,setBusy]=useState(false)
-  const sequence=useRef(0),detailSequence=useRef(0),mutating=useRef(false)
+  const sequence=useRef(0),detailSequence=useRef(0),mutating=useRef(false),leadMutating=useRef(false)
   useEffect(()=>{
     if(preview)return
     let active=true
@@ -98,7 +107,7 @@ export function PlatformAdmin({preview=null}) {
     return()=>{sequence.current++}
   },[session,load])
   const businesses=useMemo(()=>filterAdminBusinesses(overview?.businesses||[],query,state),[overview,query,state])
-  const visibleLeads=leads.filter(row=>leadFilter==='all'||row.status===leadFilter)
+  const visibleLeads=filterPartnerLeads(leads,leadFilter)
   const newLeads=leads.filter(row=>row.status==='new').length
   const fail=code=>text(ERRORS,code,en)
   function close(){if(busy)return;detailSequence.current++;setSelected(null);setDetail(null);setAction('');setDetailError('');setPassword('')}
@@ -138,27 +147,46 @@ export function PlatformAdmin({preview=null}) {
     }catch(problem){setPassword('');setDetailError(problem.code||'ADMIN_UNAVAILABLE')}
     finally{if(reauth)await reauth.auth.signOut({scope:'local'}).catch(()=>{});mutating.current=false;setBusy(false)}
   }
-  async function saveLead(row){
-    if(saving)return
+  async function saveLead(row,changes){
+    if(leadMutating.current||loading)return false
+    leadMutating.current=true
+    const version=sequence.current
     setSaving(row.id);setError('');setNotice('')
     try{
-      if(!preview)await adminRequest('/api/admin/partner-leads',{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:row.id,status:row.status,notes:row.notes||''})})
-      setNotice('lead-saved')
-    }catch(problem){setError(problem.code||'ADMIN_UNAVAILABLE')}finally{setSaving('')}
+      const result=preview?{lead:{...row,...changes,updated_at:new Date().toISOString()}}:await adminRequest('/api/admin/partner-leads',{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:row.id,expectedUpdatedAt:row.updated_at,...changes})})
+      if(version!==sequence.current)return false
+      setLeads(items=>items.map(item=>item.id===row.id?{...item,...result.lead}:item))
+      setNotice(changes.status===row.status?'lead-saved':changes.status==='onboarding'?'lead-approved':changes.status==='declined'?'lead-rejected':'lead-saved')
+      return true
+    }catch(problem){if(version===sequence.current)setError(problem.code||'ADMIN_UNAVAILABLE');return false}finally{leadMutating.current=false;setSaving('')}
   }
   async function logout(){if(preview)return;await supabase.auth.signOut({scope:'local'});setSession(null)}
   const b=detail?.business
   return <main className="platform-admin admin-console">
     {preview&&<p className="admin-preview-notice">{en?'Local preview · fictional data · no real changes or emails':'Локален преглед · измислени данни · без реални промени и имейли'}</p>}
-    <header className="admin-console-header"><div><Link className="admin-brand" href={`/?lang=${locale}`} aria-label="GoRez"><BrandLogo eager/></Link><p className="auth-kicker">{en?'Platform control':'Управление на платформата'}</p><h1>{en?'Admin panel':'Админ панел'}</h1>{session&&<p className="admin-identity">{session.user.email}</p>}</div><div className="admin-header-actions"><LanguageSwitch locale={locale} onChange={setLocale} compact/><Link className="secondary-button" href={`/?lang=${locale}`}><Icon name="house"/>{en?'Website':'Към сайта'}</Link>{session&&<button className="secondary-button" onClick={logout} type="button">{en?'Sign out':'Изход'}</button>}</div></header>
+    <header className="admin-console-header"><div className="admin-heading-identity"><Link className="admin-brand" href={`/?lang=${locale}`} aria-label="GoRez"><BrandLogo eager/></Link><div><h1>{en?'Admin panel':'Админ панел'}</h1>{session&&<p className="admin-identity">{session.user.email}</p>}</div></div><div className="admin-header-actions"><LanguageSwitch locale={locale} onChange={setLocale} compact/><Link className="secondary-button" href={`/?lang=${locale}`}><Icon name="house"/>{en?'Website':'Към сайта'}</Link>{session&&<button className="secondary-button" onClick={logout} type="button">{en?'Sign out':'Изход'}</button>}</div></header>
     {checking?<div className="admin-loading" role="status">{en?'Checking access…':'Проверка на достъпа…'}</div>:!session||error==='UNAUTHORIZED'?<section className="admin-access-state"><Icon name="user"/><h2>{en?'Administrator sign-in':'Вход за администратори'}</h2><p>{en?'Sign in with your administrator account. You will return here after sign-in.':'Влез с администраторския си профил. След вход ще се върнеш тук.'}</p><Link className="primary-button" href={`/account?lang=${locale}&next=admin`}>{en?'Sign in':'Влез в профила'}</Link></section>:error==='FORBIDDEN'?<section className="admin-access-state" role="alert"><h2>{en?'Administrator access required':'Нужен е администраторски достъп'}</h2><p>{fail(error)}</p><Link className="secondary-button" href={`/account?lang=${locale}`}>{en?'My account':'Моят профил'}</Link></section>:<>
       {error&&<p className="form-message" role="alert">{fail(error)} <button className="link-button" onClick={load} type="button">{en?'Retry':'Опитай отново'}</button></p>}
-      {notice&&<p className="form-message success" role="status">{notice==='lead-saved'?(en?'Lead saved. This does not publish a business.':'Заявката е запазена. Това не публикува бизнес.'):(en?'Change saved.':'Промяната е запазена.')}</p>}
+      {notice&&<p className="form-message success" role="status">{text(NOTICES,notice,en)}</p>}
       {loading&&!overview?<div className="admin-loading" role="status"><span className="button-spinner"/>{en?'Loading the platform…':'Зареждаме платформата…'}</div>:overview&&<>
         <div className="admin-console-kpis">{[[en?'Published businesses':'Публикувани бизнеси',overview.totals.active,'store'],[en?'New leads':'Нови заявки',newLeads,'users'],[en?'Bookings / 30 days':'Резервации / 30 дни',overview.totals.bookings30d,'calendar'],[en?'In trash':'В кошчето',overview.totals.archived||0,'trash']].map(([title,value,icon])=><article key={title}><Icon name={icon}/><small>{title}</small><strong>{value}</strong></article>)}</div>
-        <div className="admin-console-toolbar"><nav aria-label={en?'Admin sections':'Админ секции'}>{[['businesses',en?'Businesses':'Бизнеси'],['leads',en?'Applications':'Заявки'],['audit',en?'Activity log':'Журнал']].map(([key,value])=><button key={key} aria-pressed={tab===key} onClick={()=>setTab(key)} type="button">{value}{key==='leads'&&newLeads>0&&<span>{newLeads}</span>}</button>)}</nav><button className="secondary-button" type="button" disabled={loading} onClick={load}>{loading?(en?'Loading…':'Зареждане…'):(en?'Refresh':'Обнови')}</button></div>
-        {tab==='businesses'&&<section className="admin-console-section"><header><div><h2>{en?'All business profiles':'Всички бизнес профили'}</h2><p>{en?'Publication, suspension and deletion. Applications are managed separately.':'Публикуване, спиране и изтриване. Заявките се управляват отделно.'}</p></div><span>{businesses.length} {en?'results':'резултата'}</span></header><div className="admin-business-filters"><label>{en?'Search':'Търси'}<input type="search" value={query} onChange={e=>setQuery(e.target.value)} placeholder={en?'Name, city, email or slug':'Име, град, имейл или адрес'}/></label><label>{en?'Visibility':'Видимост'}<select value={state} onChange={e=>setState(e.target.value)}><option value="all">{en?'All, including trash':'Всички, включително кошчето'}</option>{Object.keys(STATES).map(key=><option key={key} value={key}>{text(STATES,key,en)}</option>)}</select></label></div><div className="admin-business-cards">{businesses.map(row=><article key={row.id} className="admin-business-card"><div className="admin-business-card-title"><span className="admin-store-icon"><Icon name="store"/></span><div><h3>{row.name}</h3><p>/{row.slug}</p></div><span className={`admin-state ${businessState(row)}`}>{text(STATES,businessState(row),en)}</span></div><p>{getIndustryLabel(row.industry,locale)}{row.city?` · ${row.city}`:''}</p><p className="admin-business-contact">{row.contact_email||(en?'No business contact email':'Без контактен имейл')}</p><div className="admin-business-metrics"><span><b>{row.bookings30d}</b> {en?'bookings / 30d':'резервации / 30д'}</span><span><b>{row.failedNotifications30d}</b> {en?'failed emails / 30d':'неуспешни имейли / 30д'}</span></div><div className="admin-card-actions"><button className="primary-button" type="button" onClick={()=>open(row)}><Icon name="settings"/>{en?'Manage':'Управлявай'}</button>{businessState(row)==='published'&&<Link className="secondary-button" href={`/book/${row.slug}?lang=${locale}`} target="_blank" rel="noreferrer"><Icon name="external"/>{en?'Public page':'Публична страница'}</Link>}</div></article>)}</div>{!businesses.length&&<div className="empty-state">{en?'No businesses match these filters.':'Няма бизнеси по тези филтри.'}</div>}</section>}
-        {tab==='leads'&&<section className="admin-console-section"><header><div><h2>{en?'Business applications':'Заявки от бизнеси'}</h2><p>{en?'A lead is not a published profile. The owner completes services, team and schedule in their dashboard.':'Заявката не е публичен профил. Собственикът настройва услуги, екип и график от своето бизнес табло.'}</p></div><label className="pipeline-filter">{en?'Status':'Статус'}<select value={leadFilter} onChange={e=>setLeadFilter(e.target.value)}><option value="all">{en?'All':'Всички'} ({leads.length})</option>{PARTNER_STATUS_KEYS.map(key=><option key={key} value={key}>{PARTNER_STATUS_LABELS[key][locale]}</option>)}</select></label></header><div className="partner-lead-list">{visibleLeads.map(row=><article className="partner-lead-card" key={row.id}><div className="partner-lead-main"><div><small>{PARTNER_STATUS_LABELS[row.status]?.[locale]}</small><h3>{row.business_name}</h3><p>{getIndustryLabel(row.category,locale)} · {row.city}</p></div><time>{stamp(row.created_at,locale)}</time></div><div className="partner-lead-contact"><span><b>{row.contact_name}</b><a href={`tel:${row.phone}`}>{row.phone}</a></span><span><a href={`mailto:${row.email}`}>{row.email}</a></span></div><div className="partner-lead-controls"><label><span>{en?'Application status':'Статус на заявката'}</span><select value={row.status} onChange={e=>setLeads(items=>items.map(item=>item.id===row.id?{...item,status:e.target.value}:item))}>{PARTNER_STATUS_KEYS.map(key=><option key={key} value={key}>{PARTNER_STATUS_LABELS[key][locale]}</option>)}</select></label><label className="notes"><span>{en?'Internal notes':'Вътрешни бележки'}</span><textarea value={row.notes||''} maxLength={3000} onChange={e=>setLeads(items=>items.map(item=>item.id===row.id?{...item,notes:e.target.value}:item))}/></label><button className="primary-button" disabled={Boolean(saving)} onClick={()=>saveLead(row)} type="button">{saving===row.id?(en?'Saving…':'Запазване…'):(en?'Save lead':'Запази заявката')}</button></div></article>)}</div>{!visibleLeads.length&&<p className="empty-state">{en?'No applications with this status.':'Няма заявки с този статус.'}</p>}</section>}
+        <div className="admin-console-toolbar"><nav aria-label={en?'Admin sections':'Админ секции'}>{[['businesses',en?'Businesses':'Бизнеси'],['leads',en?'Applications':'Заявки'],['audit',en?'Activity log':'Журнал']].map(([key,value])=><button key={key} aria-pressed={tab===key} onClick={()=>setTab(key)} type="button">{value}{key==='leads'&&newLeads>0&&<span>{newLeads}</span>}</button>)}</nav><button className="secondary-button" type="button" disabled={loading||Boolean(saving)} onClick={load}>{loading?(en?'Loading…':'Зареждане…'):(en?'Refresh':'Обнови')}</button></div>
+        {tab==='businesses'&&<section className="admin-console-section">
+          <header><div><h2>{en?'Business profiles':'Бизнес профили'}</h2><p>{en?'Visibility and management at a glance.':'Видимост и управление на едно място.'}</p></div><span>{businesses.length} {en?'results':'резултата'}</span></header>
+          <div className="admin-business-filters"><label>{en?'Search':'Търси'}<input type="search" value={query} onChange={e=>setQuery(e.target.value)} placeholder={en?'Name, city or email':'Име, град или имейл'}/></label><label>{en?'Visibility':'Видимост'}<select value={state} onChange={e=>setState(e.target.value)}><option value="all">{en?'All, including trash':'Всички, включително кошчето'}</option>{Object.keys(STATES).map(key=><option key={key} value={key}>{text(STATES,key,en)}</option>)}</select></label></div>
+          <div className="admin-business-cards">{businesses.map(row=><article key={row.id} className="admin-business-card">
+            <div className="admin-business-card-title"><span className="admin-store-icon"><Icon name={adminIndustryIcon(row.industry)}/></span><div><h3>{row.name}</h3><p>{getIndustryLabel(row.industry,locale)}{row.city?` · ${row.city}`:''}</p></div><span className={`admin-state ${businessState(row)}`}>{text(STATES,businessState(row),en)}</span></div>
+            {row.contact_email&&<a className="admin-business-contact" href={`mailto:${row.contact_email}`}><Icon name="mail"/>{row.contact_email}</a>}
+            <div className="admin-business-metrics"><span><Icon name="calendar"/><b>{row.bookings30d}</b> {en?'bookings / 30d':'резервации / 30д'}</span>{row.failedNotifications30d>0&&<span className="admin-email-warning"><b>{row.failedNotifications30d}</b> {en?'failed emails':'неуспешни имейли'}</span>}</div>
+            <div className="admin-card-actions"><button className="primary-button" type="button" onClick={()=>open(row)}><Icon name="settings"/>{en?'Manage':'Управлявай'}</button>{businessState(row)==='published'&&<Link className="secondary-button" href={`/book/${row.slug}?lang=${locale}`} target="_blank" rel="noreferrer"><Icon name="external"/>{en?'Public page':'Публична страница'}</Link>}</div>
+          </article>)}</div>{!businesses.length&&<div className="empty-state">{en?'No businesses match these filters.':'Няма бизнеси по тези филтри.'}</div>}
+        </section>}
+        {tab==='leads'&&<section className="admin-console-section">
+          <header><div><h2>{en?'Business applications':'Заявки от бизнеси'}</h2><p>{en?'Review → approve → business setup. Publication is separate.':'Преглед → одобрение → настройване. Публикуването е отделно.'}</p></div></header>
+          <div className="admin-lead-filters" role="group" aria-label={en?'Filter applications':'Филтрирай заявките'}>{Object.keys(LEAD_GROUPS).map(key=><button key={key} type="button" aria-pressed={leadFilter===key} onClick={()=>setLeadFilter(key)}>{text(LEAD_GROUPS,key,en)}<span>{key==='all'?leads.length:leads.filter(row=>partnerReviewGroup(row.status)===key).length}</span></button>)}</div>
+          <div className="partner-lead-list">{visibleLeads.map(row=><AdminApplicationCard key={row.id} row={row} locale={locale} saving={Boolean(saving)||loading} onSave={saveLead}/>)}</div>
+          {!visibleLeads.length&&<p className="empty-state">{en?'No applications in this group.':'Няма заявки в тази група.'}</p>}
+        </section>}
         {tab==='audit'&&<section className="admin-console-section"><header><div><h2>{en?'Administrator activity':'Администраторски действия'}</h2><p>{en?'Latest 100 business actions. The log remains after business deletion.':'Последните 100 действия по бизнеси. Журналът остава и след изтриване на бизнес.'}</p></div></header><div className="admin-audit-list">{(overview.audit||[]).map(row=><article key={row.id}><Icon name={row.action==='delete'||row.action==='archive'?'trash':'settings'}/><div><h3>{text(ACTIONS,row.action,en)} · {row.business_name}</h3><p>{row.reason}</p><small>/{row.business_slug} · {en?'Actor':'Администратор'}: {row.actor_id||'—'}</small></div><time>{stamp(row.created_at,locale)}</time></article>)}</div>{!overview.audit?.length&&<div className="empty-state">{en?'New actions will appear here.':'Новите действия ще се показват тук.'}</div>}</section>}
       </>}
     </>}

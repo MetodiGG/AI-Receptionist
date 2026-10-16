@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { OwnerPage } from '../../../components/owner-page'
 import { buildPublicBookingUrl, resolvePublicOrigin } from '../../../lib/public-url.mjs'
 
@@ -41,6 +42,8 @@ function ShareContent({ business, locale }) {
       if (error?.name !== 'AbortError') setMessage(en ? 'We could not open the share menu.' : 'Не успяхме да отворим менюто за споделяне.')
     }
   }
+
+  if (business.platform_status !== 'enabled' || !business.active) return <main className="dashboard-content admin-page share-page"><section className="settings-panel"><h2>{en ? 'Sharing opens after publication' : 'Споделянето започва след публикуване'}</h2><p>{business.platform_status === 'pending' ? (en ? 'Prepare your services, team and schedule. GoRez will review the profile before clients can book. Questions: info@gorez.co.' : 'Подготви услугите, екипа и графика. GoRez ще прегледа профила, преди клиентите да могат да записват часове. Въпроси: info@gorez.co.') : (en ? 'This profile is not currently public. The booking link and QR code should not be shared with clients.' : 'В момента този профил не е публичен. Линкът и QR кодът не трябва да се споделят с клиенти.')}</p><p><Link className="secondary-button" href={`/dashboard/settings?lang=${locale}`}>{en ? 'Business settings' : 'Настройки на бизнеса'}</Link></p></section></main>
 
   return (
     <main className="dashboard-content admin-page share-page">

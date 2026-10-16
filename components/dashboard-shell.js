@@ -37,7 +37,7 @@ export function DashboardShell({ email, title, businessSlug, platformStatus = 'e
           <AdminAccessLink locale={locale}/>
         </nav>
         <div className="sidebar-account">
-          {businessSlug && <Link className="public-page-link" href={`/book/${businessSlug}?lang=${locale}`} target="_blank"><Icon name="external" /><span>{en ? 'Public page' : 'Публична страница'}</span></Link>}
+          {businessSlug && platformStatus === 'enabled' && <Link className="public-page-link" href={`/book/${businessSlug}?lang=${locale}`} target="_blank"><Icon name="external" /><span>{en ? 'Public page' : 'Публична страница'}</span></Link>}
           <p className="account-email">{email}</p>
           <button className="logout-button" type="button" onClick={onLogout}><Icon name="logout" /><span>{en ? 'Sign out' : 'Изход'}</span></button>
         </div>
@@ -50,7 +50,7 @@ export function DashboardShell({ email, title, businessSlug, platformStatus = 'e
             <button className="topbar-logout" type="button" onClick={onLogout} aria-label={en ? 'Sign out' : 'Изход'} title={en ? 'Sign out' : 'Изход'}><Icon name="logout" /></button>
           </div>
         </header>
-        {platformStatus!=='enabled'&&<p className="owner-platform-notice" role="status">{platformStatus==='archived'?(en?'This business is in the platform trash. Its public page and new bookings are disabled. Contact GoRez support.':'Този бизнес е в кошчето на платформата. Публичната страница и новите резервации са спрени. Свържи се с GoRez.'):(en?'This business is suspended by a platform administrator. Existing visits remain; new bookings are disabled.':'Този бизнес е спрян от администратор на платформата. Съществуващите часове остават; нови резервации не се приемат.')}</p>}
+        {platformStatus!=='enabled'&&<p className="owner-platform-notice" role="status">{platformStatus==='pending'?(en?'Awaiting approval. Prepare your services, team and schedule in Settings. Public booking opens after GoRez reviews and publishes your profile. Questions: info@gorez.co.':'Чака одобрение. Подготви услугите, екипа и графика в Настройки. Публичното записване започва след преглед и публикуване от GoRez. Въпроси: info@gorez.co.') : platformStatus==='archived'?(en?'This business is in the platform trash. Its public page and new bookings are disabled. Contact GoRez support.':'Този бизнес е в кошчето на платформата. Публичната страница и новите резервации са спрени. Свържи се с GoRez.'):(en?'This business is suspended by a platform administrator. Existing visits remain; new bookings are disabled.':'Този бизнес е спрян от администратор на платформата. Съществуващите часове остават; нови резервации не се приемат.')}</p>}
         {children}
       </div>
     </div>

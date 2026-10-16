@@ -15,6 +15,7 @@ export async function GET(request) {
       .from('businesses')
       .select('id,name,slug,address,city_ekatte,city,neighborhood,phone,industry,theme_color,services(id,name,description,price,currency,duration_min,active,sort_order)')
       .eq('active', true)
+      .eq('platform_status', 'enabled')
       .order('name')
 
     if (error) throw error

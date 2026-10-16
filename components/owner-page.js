@@ -38,7 +38,7 @@ export function OwnerPage({ title, children }) {
   if (state.status === 'config') return <div className="config-warning"><h2>{en ? 'Supabase configuration is missing' : 'Липсва Supabase конфигурация'}</h2></div>
 
   return (
-    <DashboardShell email={state.session?.user.email} title={state.business?.name || (typeof title === 'string' ? title : title?.[locale])} businessSlug={state.business?.slug} onLogout={logout} locale={locale} onLocaleChange={setLocale}>
+    <DashboardShell email={state.session?.user.email} title={state.business?.name || (typeof title === 'string' ? title : title?.[locale])} businessSlug={state.business?.slug} platformStatus={state.business?.platform_status} onLogout={logout} locale={locale} onLocaleChange={setLocale}>
       {state.status === 'setup' && <main className="dashboard-content"><div className="empty-state"><h2>{en ? 'Complete the initial setup' : 'Завърши първоначалната настройка'}</h2><p>{en ? 'Add your business, services and working hours before using this section.' : 'Преди да използваш тази секция, добави бизнеса, услугите и работното време.'}</p><Link className="primary-button" href="/dashboard">{en ? 'Go to setup' : 'Към настройката'}</Link></div></main>}
       {state.status === 'error' && <main className="dashboard-content"><p className="form-message">{state.error}</p></main>}
       {state.status === 'ready' && children({ session: state.session, business: state.business, refreshBusiness: load, locale, setLocale })}

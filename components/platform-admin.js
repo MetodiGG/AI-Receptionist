@@ -1,0 +1,176 @@
+'use client'
+
+import Link from 'next/link'
+import { useCallback,useEffect,useId,useMemo,useRef,useState } from 'react'
+import { BrandLogo } from './brand-logo'
+import { Icon } from './icon'
+import { LanguageSwitch } from './language-switch'
+import { usePublicLocale } from '../hooks/use-public-locale'
+import { supabase,createReauthenticationClient } from '../lib/supabase'
+import { PARTNER_STATUS_KEYS,PARTNER_STATUS_LABELS } from '../lib/partner-leads.mjs'
+import { getIndustryLabel } from '../lib/public-locale.mjs'
+import { businessState,filterAdminBusinesses } from '../lib/platform-business-view.mjs'
+
+const STATES={published:['Публикуван','Published'],unpublished:['Непубликуван','Unpublished'],suspended:['Спрян от админ','Suspended'],archived:['В кошчето','In trash']}
+const ACTIONS={publish:['Публикувай','Publish'],suspend:['Спри записванията','Suspend bookings'],archive:['Премести в кошчето','Move to trash'],restore:['Възстанови като спрян','Restore as suspended'],delete:['Изтрий окончателно','Delete permanently']}
+const ERRORS={
+  ADMIN_UNAVAILABLE:['Панелът временно не е достъпен. Опитай отново.','The panel is temporarily unavailable. Try again.'],
+  UNAUTHORIZED:['Сесията е приключила. Влез отново.','Your session has ended. Sign in again.'],
+  FORBIDDEN:['Този профил няма администраторски достъп.','This account does not have administrator access.'],
+  BUSINESS_CHANGED:['Бизнесът е променен междувременно. Затвори прозореца и обнови.','This business has changed. Close this dialog and refresh.'],
+  BUSINESS_NOT_FOUND:['Бизнесът вече не съществува. Обнови списъка.','This business no longer exists. Refresh the list.'],
+  CONFIRMATION_MISMATCH:['Напиши точно адреса на избрания бизнес.','Type the exact business slug.'],
+  SETUP_REQUIRED:['Първо са нужни активна услуга, служител и работно време. Собственикът ги настройва от бизнес таблото.','An active service, staff member and working hours are required. The owner sets them up in their business dashboard.'],
+  RESTORE_FIRST:['Първо възстанови бизнеса от кошчето.','Restore the business from trash first.'],
+  ARCHIVE_FIRST:['Първо премести бизнеса в кошчето.','Move this business to trash first.'],
+  UPCOMING_BOOKINGS:['Има предстоящи резервации. Окончателното изтриване е блокирано; данните остават в кошчето.','There are upcoming bookings. Permanent deletion is blocked; data remains in trash.'],
+  REAUTH_REQUIRED:['За окончателно изтриване потвърди отново паролата си.','Confirm your password again for permanent deletion.'],
+  REAUTH_FAILED:['Паролата не е потвърдена. Нищо не е изтрито.','Password verification failed. Nothing was deleted.'],
+  MFA_REQUIRED:['Нужно е MFA удостоверяване. Използвай кошчето; не изключвай MFA за изтриване.','MFA verification is required. Use trash; do not disable MFA for deletion.'],
+  RATE_LIMITED:['Твърде много промени. Изчакай и опитай отново.','Too many changes. Wait and try again.'],
+  VALIDATION_ERROR:['Провери потвърждението и причината.','Check your confirmation and reason.'],
+}
+const EXPLANATIONS={
+  publish:['Публикува бизнеса и позволява нови резервации. Нужни са услуги, екип и работно време.','Publishes the business and enables bookings. Services, team and working hours are required.'],
+  suspend:['Спира новите резервации и скрива публичната страница. Съществуващите часове и техните известия остават непроменени.','Stops new bookings and hides the public page. Existing visits and their emails are unchanged.'],
+  archive:['Скрива бизнеса и спира новите резервации и чакащите имейли. Данните и записаните часове остават. Можеш да го възстановиш.','Hides the business and stops new bookings and pending emails. Data and existing visits remain. You can restore it.'],
+  restore:['Възстановява бизнеса като спрян. Публикувай отделно, когато е готов. Спрените имейли няма да се изпратят повторно.','Restores the business as suspended. Publish separately when ready. Stopped emails will not be replayed.'],
+  delete:['Необратимо изтрива този бизнес, услугите, екипа, клиентите, резервациите и разговорите му. Няма възстановяване от GoRez. Резервни копия може да се пазят според срока на доставчика.','Permanently deletes this business, its services, team, customers, bookings and conversations. No recovery in GoRez. Provider backups may retain data according to their retention policy.'],
+}
+const text=(map,key,en)=>(map[key]||map.ADMIN_UNAVAILABLE)?.[en?1:0]||key
+const stamp=(value,locale)=>new Intl.DateTimeFormat(locale==='en'?'en-GB':'bg-BG',{dateStyle:'medium',timeStyle:'short'}).format(new Date(value))
+
+async function adminRequest(path,options={}) {
+  const {data,error}=await supabase.auth.getSession()
+  if(error||!data.session)throw {code:'UNAUTHORIZED'}
+  const response=await fetch(path,{...options,cache:'no-store',headers:{Authorization:`Bearer ${data.session.access_token}`,...options.headers}})
+  const body=await response.json()
+  if(!response.ok)throw {code:body.error?.code||'ADMIN_UNAVAILABLE'}
+  return body
+}
+
+function Dialog({children,onClose,busy,title,id}) {
+  const ref=useRef(null)
+  useEffect(()=>{
+    const opener=document.activeElement,overflow=document.body.style.overflow
+    document.body.style.overflow='hidden';ref.current?.querySelector('h2')?.focus()
+    return()=>{document.body.style.overflow=overflow;opener?.focus()}
+  },[])
+  function keydown(event){
+    if(event.key==='Escape'&&!busy){event.preventDefault();onClose()}
+    if(event.key!=='Tab')return
+    const items=[...ref.current.querySelectorAll('button:not(:disabled),input:not(:disabled),textarea:not(:disabled),a[href],select:not(:disabled)')]
+    if(!items.length){event.preventDefault();return}
+    const first=items[0],last=items.at(-1)
+    if(event.shiftKey&&(document.activeElement===first||document.activeElement===ref.current.querySelector('h2'))){event.preventDefault();last.focus()}
+    else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus()}
+  }
+  return <div className="platform-dialog-backdrop" onKeyDown={keydown}><section className="platform-dialog" ref={ref} role="dialog" aria-modal="true" aria-labelledby={id} aria-busy={busy}><header><h2 id={id} tabIndex={-1}>{title}</h2><button className="secondary-button" onClick={onClose} disabled={busy} type="button" aria-label="Close / Затвори">×</button></header>{children}</section></div>
+}
+
+export function PlatformAdmin({preview=null}) {
+  const {locale,setLocale}=usePublicLocale(),en=locale==='en',titleId=useId()
+  const [session,setSession]=useState(preview?{user:{email:'admin@example.com'}}:null),[checking,setChecking]=useState(!preview)
+  const [overview,setOverview]=useState(preview?.overview||null),[leads,setLeads]=useState(preview?.leads||[]),[error,setError]=useState(''),[notice,setNotice]=useState(''),[loading,setLoading]=useState(false)
+  const [tab,setTab]=useState('businesses'),[query,setQuery]=useState(''),[state,setState]=useState('all'),[leadFilter,setLeadFilter]=useState('all'),[saving,setSaving]=useState('')
+  const [selected,setSelected]=useState(null),[detail,setDetail]=useState(null),[detailError,setDetailError]=useState(''),[action,setAction]=useState(''),[reason,setReason]=useState(''),[confirmation,setConfirmation]=useState(''),[ack,setAck]=useState(false),[password,setPassword]=useState(''),[busy,setBusy]=useState(false)
+  const sequence=useRef(0),detailSequence=useRef(0),mutating=useRef(false)
+  useEffect(()=>{
+    if(preview)return
+    let active=true
+    supabase.auth.getSession().then(({data})=>{if(active){setSession(data.session);setChecking(false)}}).catch(()=>{if(active)setChecking(false)})
+    const {data}=supabase.auth.onAuthStateChange((_event,next)=>{if(active){setSession(next);setChecking(false)}})
+    return()=>{active=false;data.subscription.unsubscribe()}
+  },[preview])
+  const load=useCallback(async()=>{
+    if(preview)return
+    const version=++sequence.current
+    setLoading(true);setError('')
+    try{
+      const [data,requests]=await Promise.all([adminRequest('/api/admin/overview'),adminRequest('/api/admin/partner-leads')])
+      if(version===sequence.current){setOverview(data);setLeads(requests.leads||[])}
+    }catch(problem){if(version===sequence.current){setError(problem.code||'ADMIN_UNAVAILABLE');setOverview(null);setLeads([]);setSelected(null);setDetail(null);setPassword('')}}
+    finally{if(version===sequence.current)setLoading(false)}
+  },[preview])
+  useEffect(()=>{
+    if(session)load()
+    else {sequence.current++;setOverview(null);setLeads([]);setSelected(null);setPassword('')}
+    return()=>{sequence.current++}
+  },[session,load])
+  const businesses=useMemo(()=>filterAdminBusinesses(overview?.businesses||[],query,state),[overview,query,state])
+  const visibleLeads=leads.filter(row=>leadFilter==='all'||row.status===leadFilter)
+  const newLeads=leads.filter(row=>row.status==='new').length
+  const fail=code=>text(ERRORS,code,en)
+  function close(){if(busy)return;detailSequence.current++;setSelected(null);setDetail(null);setAction('');setDetailError('');setPassword('')}
+  async function open(row){
+    const version=++detailSequence.current
+    setSelected(row);setDetail(null);setAction('');setDetailError('');setReason('');setConfirmation('');setAck(false);setPassword('')
+    try{const data=preview?{...preview.details[row.id],business:row}:await adminRequest(`/api/admin/businesses/${row.id}`);if(version===detailSequence.current)setDetail(data)}
+    catch(problem){if(version===detailSequence.current)setDetailError(problem.code||'ADMIN_UNAVAILABLE')}
+  }
+  function choose(value){setAction(value);setReason('');setConfirmation('');setAck(false);setPassword('');setDetailError('')}
+  async function perform(event){
+    event.preventDefault()
+    if(mutating.current||!detail||!action||confirmation!==detail.business.slug||!ack||reason.trim().length<3)return
+    if(action==='delete'&&(!password||detail.counts.upcoming>0))return
+    mutating.current=true;setBusy(true);setDetailError('')
+    let reauth
+    try{
+      const payload={action,revision:detail.business.platform_revision,confirmation,reason,acknowledged:ack}
+      if(preview){
+        const next=action==='archive'?'archived':action==='restore'||action==='suspend'?'suspended':'enabled'
+        setOverview(current=>{
+          const businesses=action==='delete'?current.businesses.filter(row=>row.id!==selected.id):current.businesses.map(row=>row.id===selected.id?{...row,platform_status:next,active:action==='publish'?true:row.active,platform_revision:row.platform_revision+1}:row)
+          return {...current,businesses,totals:{...current.totals,active:businesses.filter(row=>businessState(row)==='published').length,archived:businesses.filter(row=>businessState(row)==='archived').length}}
+        })
+      }else if(action==='delete'){
+        reauth=createReauthenticationClient()
+        const {data,error:problem}=await reauth.auth.signInWithPassword({email:session.user.email,password})
+        setPassword('')
+        if(problem||!data.session||data.user.id!==session.user.id)throw {code:'REAUTH_FAILED'}
+        const response=await fetch(`/api/admin/businesses/${selected.id}`,{method:'POST',cache:'no-store',headers:{'Content-Type':'application/json',Authorization:`Bearer ${data.session.access_token}`},body:JSON.stringify(payload)})
+        const body=await response.json()
+        if(!response.ok)throw {code:body.error?.code||'ADMIN_UNAVAILABLE'}
+        if(body.result?.deleted!==true||body.result.id!==selected.id)throw {code:'ADMIN_UNAVAILABLE'}
+      }else await adminRequest(`/api/admin/businesses/${selected.id}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+      setSelected(null);setDetail(null);setAction('');setPassword('');setNotice('business-saved')
+      if(!preview)await load()
+    }catch(problem){setPassword('');setDetailError(problem.code||'ADMIN_UNAVAILABLE')}
+    finally{if(reauth)await reauth.auth.signOut({scope:'local'}).catch(()=>{});mutating.current=false;setBusy(false)}
+  }
+  async function saveLead(row){
+    if(saving)return
+    setSaving(row.id);setError('');setNotice('')
+    try{
+      if(!preview)await adminRequest('/api/admin/partner-leads',{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:row.id,status:row.status,notes:row.notes||''})})
+      setNotice('lead-saved')
+    }catch(problem){setError(problem.code||'ADMIN_UNAVAILABLE')}finally{setSaving('')}
+  }
+  async function logout(){if(preview)return;await supabase.auth.signOut({scope:'local'});setSession(null)}
+  const b=detail?.business
+  return <main className="platform-admin admin-console">
+    {preview&&<p className="admin-preview-notice">{en?'Local preview · fictional data · no real changes or emails':'Локален преглед · измислени данни · без реални промени и имейли'}</p>}
+    <header className="admin-console-header"><div><Link className="admin-brand" href={`/?lang=${locale}`} aria-label="GoRez"><BrandLogo eager/></Link><p className="auth-kicker">{en?'Platform control':'Управление на платформата'}</p><h1>{en?'Admin panel':'Админ панел'}</h1>{session&&<p className="admin-identity">{session.user.email}</p>}</div><div className="admin-header-actions"><LanguageSwitch locale={locale} onChange={setLocale} compact/><Link className="secondary-button" href={`/?lang=${locale}`}><Icon name="house"/>{en?'Website':'Към сайта'}</Link>{session&&<button className="secondary-button" onClick={logout} type="button">{en?'Sign out':'Изход'}</button>}</div></header>
+    {checking?<div className="admin-loading" role="status">{en?'Checking access…':'Проверка на достъпа…'}</div>:!session||error==='UNAUTHORIZED'?<section className="admin-access-state"><Icon name="user"/><h2>{en?'Administrator sign-in':'Вход за администратори'}</h2><p>{en?'Sign in with your administrator account. You will return here after sign-in.':'Влез с администраторския си профил. След вход ще се върнеш тук.'}</p><Link className="primary-button" href={`/account?lang=${locale}&next=admin`}>{en?'Sign in':'Влез в профила'}</Link></section>:error==='FORBIDDEN'?<section className="admin-access-state" role="alert"><h2>{en?'Administrator access required':'Нужен е администраторски достъп'}</h2><p>{fail(error)}</p><Link className="secondary-button" href={`/account?lang=${locale}`}>{en?'My account':'Моят профил'}</Link></section>:<>
+      {error&&<p className="form-message" role="alert">{fail(error)} <button className="link-button" onClick={load} type="button">{en?'Retry':'Опитай отново'}</button></p>}
+      {notice&&<p className="form-message success" role="status">{notice==='lead-saved'?(en?'Lead saved. This does not publish a business.':'Заявката е запазена. Това не публикува бизнес.'):(en?'Change saved.':'Промяната е запазена.')}</p>}
+      {loading&&!overview?<div className="admin-loading" role="status"><span className="button-spinner"/>{en?'Loading the platform…':'Зареждаме платформата…'}</div>:overview&&<>
+        <div className="admin-console-kpis">{[[en?'Published businesses':'Публикувани бизнеси',overview.totals.active,'store'],[en?'New leads':'Нови заявки',newLeads,'users'],[en?'Bookings / 30 days':'Резервации / 30 дни',overview.totals.bookings30d,'calendar'],[en?'In trash':'В кошчето',overview.totals.archived||0,'trash']].map(([title,value,icon])=><article key={title}><Icon name={icon}/><small>{title}</small><strong>{value}</strong></article>)}</div>
+        <div className="admin-console-toolbar"><nav aria-label={en?'Admin sections':'Админ секции'}>{[['businesses',en?'Businesses':'Бизнеси'],['leads',en?'Applications':'Заявки'],['audit',en?'Activity log':'Журнал']].map(([key,value])=><button key={key} aria-pressed={tab===key} onClick={()=>setTab(key)} type="button">{value}{key==='leads'&&newLeads>0&&<span>{newLeads}</span>}</button>)}</nav><button className="secondary-button" type="button" disabled={loading} onClick={load}>{loading?(en?'Loading…':'Зареждане…'):(en?'Refresh':'Обнови')}</button></div>
+        {tab==='businesses'&&<section className="admin-console-section"><header><div><h2>{en?'All business profiles':'Всички бизнес профили'}</h2><p>{en?'Publication, suspension and deletion. Applications are managed separately.':'Публикуване, спиране и изтриване. Заявките се управляват отделно.'}</p></div><span>{businesses.length} {en?'results':'резултата'}</span></header><div className="admin-business-filters"><label>{en?'Search':'Търси'}<input type="search" value={query} onChange={e=>setQuery(e.target.value)} placeholder={en?'Name, city, email or slug':'Име, град, имейл или адрес'}/></label><label>{en?'Visibility':'Видимост'}<select value={state} onChange={e=>setState(e.target.value)}><option value="all">{en?'All, including trash':'Всички, включително кошчето'}</option>{Object.keys(STATES).map(key=><option key={key} value={key}>{text(STATES,key,en)}</option>)}</select></label></div><div className="admin-business-cards">{businesses.map(row=><article key={row.id} className="admin-business-card"><div className="admin-business-card-title"><span className="admin-store-icon"><Icon name="store"/></span><div><h3>{row.name}</h3><p>/{row.slug}</p></div><span className={`admin-state ${businessState(row)}`}>{text(STATES,businessState(row),en)}</span></div><p>{getIndustryLabel(row.industry,locale)}{row.city?` · ${row.city}`:''}</p><p className="admin-business-contact">{row.contact_email||(en?'No business contact email':'Без контактен имейл')}</p><div className="admin-business-metrics"><span><b>{row.bookings30d}</b> {en?'bookings / 30d':'резервации / 30д'}</span><span><b>{row.failedNotifications30d}</b> {en?'failed emails / 30d':'неуспешни имейли / 30д'}</span></div><div className="admin-card-actions"><button className="primary-button" type="button" onClick={()=>open(row)}><Icon name="settings"/>{en?'Manage':'Управлявай'}</button>{businessState(row)==='published'&&<Link className="secondary-button" href={`/book/${row.slug}?lang=${locale}`} target="_blank" rel="noreferrer"><Icon name="external"/>{en?'Public page':'Публична страница'}</Link>}</div></article>)}</div>{!businesses.length&&<div className="empty-state">{en?'No businesses match these filters.':'Няма бизнеси по тези филтри.'}</div>}</section>}
+        {tab==='leads'&&<section className="admin-console-section"><header><div><h2>{en?'Business applications':'Заявки от бизнеси'}</h2><p>{en?'A lead is not a published profile. The owner completes services, team and schedule in their dashboard.':'Заявката не е публичен профил. Собственикът настройва услуги, екип и график от своето бизнес табло.'}</p></div><label className="pipeline-filter">{en?'Status':'Статус'}<select value={leadFilter} onChange={e=>setLeadFilter(e.target.value)}><option value="all">{en?'All':'Всички'} ({leads.length})</option>{PARTNER_STATUS_KEYS.map(key=><option key={key} value={key}>{PARTNER_STATUS_LABELS[key][locale]}</option>)}</select></label></header><div className="partner-lead-list">{visibleLeads.map(row=><article className="partner-lead-card" key={row.id}><div className="partner-lead-main"><div><small>{PARTNER_STATUS_LABELS[row.status]?.[locale]}</small><h3>{row.business_name}</h3><p>{getIndustryLabel(row.category,locale)} · {row.city}</p></div><time>{stamp(row.created_at,locale)}</time></div><div className="partner-lead-contact"><span><b>{row.contact_name}</b><a href={`tel:${row.phone}`}>{row.phone}</a></span><span><a href={`mailto:${row.email}`}>{row.email}</a></span></div><div className="partner-lead-controls"><label><span>{en?'Application status':'Статус на заявката'}</span><select value={row.status} onChange={e=>setLeads(items=>items.map(item=>item.id===row.id?{...item,status:e.target.value}:item))}>{PARTNER_STATUS_KEYS.map(key=><option key={key} value={key}>{PARTNER_STATUS_LABELS[key][locale]}</option>)}</select></label><label className="notes"><span>{en?'Internal notes':'Вътрешни бележки'}</span><textarea value={row.notes||''} maxLength={3000} onChange={e=>setLeads(items=>items.map(item=>item.id===row.id?{...item,notes:e.target.value}:item))}/></label><button className="primary-button" disabled={Boolean(saving)} onClick={()=>saveLead(row)} type="button">{saving===row.id?(en?'Saving…':'Запазване…'):(en?'Save lead':'Запази заявката')}</button></div></article>)}</div>{!visibleLeads.length&&<p className="empty-state">{en?'No applications with this status.':'Няма заявки с този статус.'}</p>}</section>}
+        {tab==='audit'&&<section className="admin-console-section"><header><div><h2>{en?'Administrator activity':'Администраторски действия'}</h2><p>{en?'Latest 100 business actions. The log remains after business deletion.':'Последните 100 действия по бизнеси. Журналът остава и след изтриване на бизнес.'}</p></div></header><div className="admin-audit-list">{(overview.audit||[]).map(row=><article key={row.id}><Icon name={row.action==='delete'||row.action==='archive'?'trash':'settings'}/><div><h3>{text(ACTIONS,row.action,en)} · {row.business_name}</h3><p>{row.reason}</p><small>/{row.business_slug} · {en?'Actor':'Администратор'}: {row.actor_id||'—'}</small></div><time>{stamp(row.created_at,locale)}</time></article>)}</div>{!overview.audit?.length&&<div className="empty-state">{en?'New actions will appear here.':'Новите действия ще се показват тук.'}</div>}</section>}
+      </>}
+    </>}
+    {selected&&<Dialog id={titleId} title={selected.name} busy={busy} onClose={close}>
+      {detailError&&<p className="form-message" role="alert">{fail(detailError)}</p>}
+      {!detail&&!detailError&&<p role="status">{en?'Loading details…':'Зареждаме детайлите…'}</p>}
+      {detail&&<><div className="admin-dialog-business"><span className={`admin-state ${businessState(b)}`}>{text(STATES,businessState(b),en)}</span><p>/{b.slug} · {getIndustryLabel(b.industry,locale)}</p><p>{b.city||b.address||'—'} · {b.contact_email||'—'}</p></div><div className="admin-detail-counts">{[[en?'Bookings':'Резервации',detail.counts.bookings],[en?'Upcoming':'Предстоящи',detail.counts.upcoming],[en?'Customers':'Клиенти',detail.counts.customers]].map(([value,count])=><div key={value}><strong>{count}</strong><span>{value}</span></div>)}</div>
+        {!action?<><div className="admin-detail-resources"><div><h3>{en?'Services':'Услуги'}</h3>{detail.services.map(row=><p key={row.id}>{row.name} · {row.duration_min} {en?'min':'мин'} {!row.active&&`(${en?'inactive':'неактивна'})`}</p>)}{!detail.services.length&&<p>{en?'Not set up yet':'Още няма настроени услуги'}</p>}</div><div><h3>{en?'Team':'Екип'}</h3>{detail.staff.map(row=><p key={row.id}>{row.name} {!row.active&&`(${en?'inactive':'неактивен'})`}</p>)}{!detail.staff.length&&<p>{en?'Not set up yet':'Още няма екип'}</p>}</div></div><p className="admin-preserve-note">{en?'Only this business is affected. Its owner’s login and other businesses are not deleted.':'Засяга се само този бизнес. Акаунтът на собственика и други негови бизнеси не се изтриват.'}</p><div className="admin-operation-buttons">{(businessState(b)==='archived'?['restore','delete']:businessState(b)==='published'?['suspend','archive']:['publish','archive']).map(key=><button className={key==='delete'?'account-delete-button':'secondary-button'} key={key} type="button" onClick={()=>choose(key)}><Icon name={key==='delete'||key==='archive'?'trash':'settings'}/>{text(ACTIONS,key,en)}</button>)}</div></>:<form onSubmit={perform} className="admin-action-form"><h3>{text(ACTIONS,action,en)}</h3><p className={action==='delete'?'account-delete-warning':'admin-preserve-note'}>{text(EXPLANATIONS,action,en)}</p>
+          {action==='delete'&&detail.counts.upcoming>0&&<p className="form-message" role="alert">{fail('UPCOMING_BOOKINGS')}</p>}
+          <fieldset disabled={busy}><label>{en?'Reason for the activity log':'Причина за журнала'}<textarea required minLength={3} maxLength={500} value={reason} onChange={e=>setReason(e.target.value)}/></label><label>{en?'Type the business slug':'Напиши адреса на бизнеса'}: <strong>{b.slug}</strong><input required autoComplete="off" autoCapitalize="none" spellCheck={false} value={confirmation} onChange={e=>setConfirmation(e.target.value)}/></label>{action==='delete'&&<label>{en?'Your administrator password':'Твоята администраторска парола'}<input type="password" autoComplete="current-password" required value={password} onChange={e=>setPassword(e.target.value)}/><small>{en?'Verified directly with Supabase Auth; never saved in the application or activity log.':'Проверява се директно от Supabase Auth; не се записва в приложението или журнала.'}</small></label>}<label className="admin-action-ack"><input type="checkbox" required checked={ack} onChange={e=>setAck(e.target.checked)}/><span>{en?'I understand the consequences for this business and its existing bookings.':'Разбирам последствията за този бизнес и съществуващите му резервации.'}</span></label></fieldset><div className="admin-operation-buttons"><button type="button" className="secondary-button" disabled={busy} onClick={()=>choose('')}>{en?'Back':'Назад'}</button><button type="submit" className={action==='delete'?'account-delete-button':'primary-button'} disabled={busy||!ack||confirmation!==b.slug||reason.trim().length<3||(action==='delete'&&(!password||detail.counts.upcoming>0))}>{busy?(en?'Saving…':'Запазване…'):text(ACTIONS,action,en)}</button></div>
+        </form>}
+      </>}
+    </Dialog>}
+  </main>
+}

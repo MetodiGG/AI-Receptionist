@@ -5415,6 +5415,54 @@ a {
 @media(max-width:580px) { .admin-console .admin-console-header,.admin-console-section > header { flex-direction: column; align-items: stretch; } .admin-header-actions { justify-content: flex-start; } .admin-console-toolbar { align-items: stretch; flex-direction: column; } .admin-console-toolbar nav button { padding: 10px 12px; flex: 1; justify-content: center; font-size: 12px; } .admin-business-filters { grid-template-columns: 1fr; } .admin-console-kpis article { padding: 16px; } .admin-business-card { padding: 17px; } .admin-audit-list article { flex-wrap: wrap; } .admin-audit-list time { width: 100%; margin-left: 34px; } .admin-detail-resources { grid-template-columns: 1fr; } .admin-operation-buttons > button { flex: 1 1 170px; } .admin-business-card-title .admin-state { margin-left: 0; } .platform-dialog-backdrop { padding: 10px; } .platform-dialog { max-height: calc(100dvh - 20px); } .admin-console .pipeline-filter { flex-basis: auto; } .platform-nav-actions .admin-access-link { padding: 8px; } .customer-nav > div { flex-wrap: wrap; } }
 
 /* Founder partner pipeline */
+.admin-console .admin-heading-identity { display: flex; align-items: center; gap: 15px; min-width: 0; }
+.admin-console .admin-heading-identity .admin-brand { margin: 0; flex-shrink: 0; }
+.admin-console .admin-heading-identity h1 { margin: 0 0 5px; font-size: clamp(27px,3vw,36px); }
+.admin-console .admin-heading-identity .admin-identity { margin: 0; overflow-wrap: anywhere; }
+.admin-console .admin-console-header { margin-bottom: 24px; }
+.admin-console-kpis article { padding: 16px 20px; gap: 8px; }
+.admin-console-kpis strong { font-size: 30px; }
+.admin-business-card .admin-business-contact { display: flex; align-items: center; gap: 8px; width: fit-content; max-width: 100%; margin-top: 18px; color: #536650; font-size: 12px; overflow-wrap: anywhere; text-decoration: none; }
+.admin-business-contact svg { flex-shrink: 0; }
+.admin-business-metrics > span { display: inline-flex; align-items: center; gap: 6px; }
+.admin-business-metrics .admin-email-warning { color: #9b472e; }
+.admin-lead-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+.admin-lead-filters button { display: inline-flex; align-items: center; gap: 8px; min-height: 42px; padding: 9px 13px; border: 1px solid #dce4d8; border-radius: 11px; background: #fff; color: #596d57; font: inherit; font-size: 12px; cursor: pointer; }
+.admin-lead-filters button[aria-pressed="true"] { color: #fff; background: #173e2a; border-color: #173e2a; }
+.admin-lead-filters button span { display: inline-grid; place-items: center; min-width: 22px; min-height: 22px; padding: 1px 5px; border-radius: 6px; background: #eef3e8; color: #415b38; font-size: 11px; font-weight: 750; }
+.admin-lead-filters button[aria-pressed="true"] span { background: #335d3e; color: #e0f7c8; }
+.admin-application-card { min-width: 0; padding: 22px; border: 1px solid #dce4d8; border-radius: 17px; background: #fcfdfb; }
+.admin-application-heading { display: flex; align-items: center; gap: 13px; }
+.admin-application-heading > div { min-width: 0; }
+.admin-application-heading h3 { margin: 0 0 5px; font-size: 20px; letter-spacing: -.025em; overflow-wrap: anywhere; }
+.admin-application-heading p { margin: 0; color: #687565; font-size: 12px; line-height: 1.6; }
+.admin-application-heading .admin-state { flex-shrink: 0; margin-left: auto; max-width: 200px; }
+.admin-state.application-pending { background: #fff4d9; border-color: #eadbb3; color: #80621e; }
+.admin-state.application-approved { background: #e7f4db; border-color: #cbdcb8; color: #376327; }
+.admin-state.application-rejected { background: #f7e9e6; border-color: #e7cfc7; color: #8a493c; }
+.admin-application-contact { display: flex; flex-wrap: wrap; gap: 14px 25px; margin: 20px 0; color: #52674f; font-size: 12px; line-height: 1.6; }
+.admin-application-contact > * { display: flex; align-items: center; gap: 7px; min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
+.admin-application-contact > a { color: #315438; text-decoration: none; }
+.admin-application-contact > a:hover,.admin-business-contact:hover { text-decoration: underline; }
+.admin-application-contact svg { width: 16px; height: 16px; flex-shrink: 0; }
+.admin-application-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.admin-console .admin-reject-button { color: #933f33; border-color: #e3c9c2; background: #fff; }
+.admin-reject-button > span { font-size: 23px; line-height: 16px; }
+.admin-details-toggle { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 43px; margin-left: auto; padding: 10px; border: 0; border-radius: 8px; background: transparent; color: #52674f; font: inherit; font-size: 12px; font-weight: 700; cursor: pointer; }
+.admin-details-toggle > span { font-size: 20px; font-weight: 400; }
+.admin-application-actions button:disabled,.admin-lead-confirm button:disabled { opacity: .55; cursor: not-allowed; }
+.admin-lead-confirm { margin-top: 18px; padding: 18px; border: 1px solid #d1dfc7; border-radius: 12px; background: #f0f5eb; }
+.admin-lead-confirm strong { font-size: 14px; }
+.admin-lead-confirm p,.admin-application-hint { margin: 9px 0 15px; color: #5d7055; font-size: 12px; line-height: 1.7; }
+.admin-lead-confirm > div,.admin-lead-edit-actions { display: flex; gap: 9px; flex-wrap: wrap; }
+.admin-application-details { margin-top: 20px; padding-top: 20px; border-top: 1px solid #e1e8dc; }
+.admin-application-meta { display: flex; gap: 14px; justify-content: space-between; flex-wrap: wrap; margin-bottom: 18px; color: #6c7b65; font-size: 11px; line-height: 1.6; }
+.admin-application-meta a { display: inline-flex; align-items: center; gap: 6px; color: #315438; }
+.admin-application-details fieldset { min-width: 0; margin: 0; padding: 0; border: 0; }
+.admin-application-details .partner-lead-controls { grid-template-columns: minmax(160px,220px) minmax(0,1fr) auto; }
+.admin-application-details .partner-lead-controls label { min-width: 0; }
+@media(max-width:820px) { .admin-application-details .partner-lead-controls { grid-template-columns: 1fr; } }
+@media(max-width:580px) { .admin-application-card { padding: 17px; } .admin-application-heading { display: grid; grid-template-columns: 42px minmax(0,1fr); } .admin-application-heading .admin-state { grid-column: 1 / -1; margin-left: 0; justify-self: start; } .admin-application-contact { display: grid; gap: 12px; } .admin-application-actions > .primary-button,.admin-application-actions > .admin-reject-button { flex: 1; } .admin-application-actions .admin-details-toggle { flex: 1 0 100%; margin-left: 0; justify-content: space-between; border-top: 1px solid #e1e8dc; border-radius: 0; padding-bottom: 0; } .admin-lead-filters { gap: 6px; } .admin-lead-filters button { padding: 8px 10px; } }
 .partner-admin-page { background: #f3f6f0; }
 .partner-admin-page > header { align-items: flex-end; }
 .admin-brand { display: inline-flex; margin-bottom: 30px; }

@@ -9,5 +9,10 @@ export default function Preview(){
     {id:'00000000-0000-4000-8000-000000000003',name:'Archive Example',slug:'archive-example',industry:'fitness',city:'Варна',contact_email:null,active:true,platform_status:'archived',platform_revision:2,bookings30d:0,failedNotifications30d:0},
   ]
   const details=Object.fromEntries(businesses.map((b,index)=>[b.id,{business:b,counts:{customers:14,bookings:38,upcoming:index===0?3:0},services:[{id:'service',name:index===1?'Диагностика / Diagnostics':'Подстригване / Haircut',duration_min:60,active:true}],staff:[{id:'person',name:'Alex Example',active:true}]}]))
-  return <PlatformAdmin preview={{overview:{businesses,totals:{businesses:2,active:1,archived:1,bookings30d:40},audit:[]},leads:[{id:'lead',business_name:'New Business Example',contact_name:'Example Contact',phone:'0000000000',email:'lead@example.com',category:'auto',city:'София',status:'new',notes:'',created_at:'2026-10-16T12:00:00Z'}],details}}/>
+  const leads=[
+    {id:'lead-auto',business_name:'Central Auto Care',contact_name:'Alex Example',phone:'+359000000000',email:'garage@example.com',category:'auto',city:'София',status:'new',notes:'',website_url:'https://example.com'},
+    {id:'lead-beauty',business_name:'Belle Beauty Studio',contact_name:'Maria Example',phone:'+359000000001',email:'beauty@example.com',category:'beauty',city:'Пловдив',status:'new',notes:'Споделена заявка от собственика / Submitted by the owner'},
+    {id:'lead-approved',business_name:'Balance Studio',contact_name:'Sam Example',phone:'+359000000002',email:'fitness@example.com',category:'fitness',city:'Варна',status:'onboarding',notes:''},
+  ].map(row=>({...row,created_at:'2026-10-16T12:00:00Z',updated_at:'2026-10-16T12:00:00Z'}))
+  return <PlatformAdmin preview={{overview:{businesses,totals:{businesses:2,active:1,archived:1,bookings30d:40},audit:[]},leads,details}}/>
 }

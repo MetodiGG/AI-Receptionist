@@ -61,13 +61,13 @@ export function BusinessSetup({ session, onComplete, locale, preview = false }) 
     ['Add your services', 'Price and duration let us offer only suitable available times.'],
     ['Who will serve clients?', 'Add yourself and everyone clients can book with.'],
     ['When are you open?', 'Choose working days and recurring breaks, such as lunch from 12:00 to 13:00.'],
-    ['Everything looks good', 'Review your setup. Your new dashboard will be ready immediately after saving.'],
+    ['Everything looks good', 'Review your setup. Your dashboard opens after saving. Public booking starts only after GoRez reviews and publishes the profile.'],
   ] : [
     ['Нека опознаем бизнеса ти', 'Тази информация ще помогне на онлайн асистента да представя бизнеса ти правилно.'],
     ['Добави услугите си', 'Цената и продължителността са нужни, за да предлагаме само подходящи свободни часове.'],
     ['Кой ще приема клиенти?', 'Добави себе си и останалите хора, за които клиентите могат да резервират час.'],
     ['Кога работите?', 'Избери работни дни и повтарящи се почивки, например обяд от 12:00 до 13:00.'],
-    ['Всичко изглежда добре', 'Прегледай настройките. След запазване веднага ще видиш новото си табло.'],
+    ['Всичко изглежда добре', 'Прегледай настройките. След запазване ще видиш таблото. Публичното записване започва само след преглед и публикуване от GoRez.'],
   ]
 
   useEffect(() => {

@@ -12,7 +12,7 @@ import { AdminApplicationCard,adminIndustryIcon } from './admin-application-card
 import { getIndustryLabel } from '../lib/public-locale.mjs'
 import { businessState,filterAdminBusinesses } from '../lib/platform-business-view.mjs'
 
-const STATES={published:['Публикуван','Published'],unpublished:['Непубликуван','Unpublished'],suspended:['Спрян от админ','Suspended'],archived:['В кошчето','In trash']}
+const STATES={pending:['Чака одобрение','Awaiting approval'],published:['Публикуван','Published'],unpublished:['Непубликуван','Unpublished'],suspended:['Спрян от админ','Suspended'],archived:['В кошчето','In trash']}
 const ACTIONS={publish:['Публикувай','Publish'],suspend:['Спри записванията','Suspend bookings'],archive:['Премести в кошчето','Move to trash'],restore:['Възстанови като спрян','Restore as suspended'],delete:['Изтрий окончателно','Delete permanently']}
 const LEAD_GROUPS={all:['Всички','All'],pending:['За преглед','To review'],approved:['Одобрени','Approved'],rejected:['Отказани','Rejected'],completed:['Приключени','Completed']}
 const NOTICES={

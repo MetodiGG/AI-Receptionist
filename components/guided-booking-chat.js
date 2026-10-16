@@ -8,6 +8,7 @@ import { BookingIntakeFields, BookingIntakeSummary } from './booking-intake-fiel
 import { validateBookingIntake } from '../lib/booking-intake.mjs'
 import { BookingConfirmationActions } from './booking-confirmation-actions'
 import { notificationNotice } from '../lib/notification-copy.mjs'
+import { trackProductEvent } from '../lib/product-events-client'
 import { localizedApiMessage } from '../lib/localized-api-message.mjs'
 
 const PAGE_SIZE = 14
@@ -92,6 +93,7 @@ export function GuidedBookingChat({ business, locale = 'bg', onShowBooking }) {
   }
 
   async function startBooking() {
+    trackProductEvent('booking_started','book',locale)
     const result = await perform({ action: 'start_booking' }, en ? 'I would like to book an appointment.' : 'Искам да резервирам час.')
     if (result && business.services.length && business.staff.length) setStep('service')
   }
@@ -161,6 +163,7 @@ export function GuidedBookingChat({ business, locale = 'bg', onShowBooking }) {
       consent: details.consent,
     }, en ? 'I confirm the booking.' : 'Потвърждавам резервацията.')
     if (!result?.booking) return
+    trackProductEvent('booking_completed','book',locale)
     setConfirmation(result.booking)
     setStep('done')
   }

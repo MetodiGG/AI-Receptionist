@@ -23,6 +23,7 @@ function harness(options={}){
 test('public-facing business state distinguishes unpublished, platform suspension and trash',()=>{
   assert.equal(businessState({active:true,platform_status:'enabled'}),'published')
   assert.equal(businessState({active:false,platform_status:'enabled'}),'unpublished')
+  assert.equal(businessState({active:true,platform_status:'pending'}),'pending')
   assert.equal(businessState({active:true,platform_status:'suspended'}),'suspended')
   assert.equal(businessState({active:true,platform_status:'archived'}),'archived')
   const rows=[{name:'Salon',slug:'salon',city:'София',active:true,platform_status:'enabled'},{name:'Garage',slug:'garage',contact_email:'garage@example.com',active:true,platform_status:'archived'}]

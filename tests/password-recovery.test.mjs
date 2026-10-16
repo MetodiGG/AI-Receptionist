@@ -94,7 +94,7 @@ test('BG/EN contain the same text, including delivery and expired link guidance'
 test('recovery tokens stay in memory, main login ignores reset callbacks, login has a language-aware link', async () => {
   const recovery = await readFile(new URL('../lib/password-recovery-client.js', import.meta.url), 'utf8')
   const main = await readFile(new URL('../lib/supabase.js', import.meta.url), 'utf8')
-  const home = await readFile(new URL('../app/page.js', import.meta.url), 'utf8')
+  const home = await readFile(new URL('../components/business-login.js', import.meta.url), 'utf8')
   assert.match(recovery, /persistSession: false, autoRefreshToken: false, detectSessionInUrl: false/)
   assert.doesNotMatch(recovery, /localStorage|sessionStorage|console\./)
   assert.match(main, /url\.pathname !== '\/reset-password'/)

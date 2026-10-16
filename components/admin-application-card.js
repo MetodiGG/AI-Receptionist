@@ -26,11 +26,11 @@ export function AdminApplicationCard({ row, locale, saving, onSave }) {
   return <article className="admin-application-card" aria-labelledby={titleId} aria-busy={saving}>
     <div className="admin-application-heading">
       <span className="admin-store-icon"><Icon name={adminIndustryIcon(row.category)}/></span>
-      <div><h3 id={titleId}>{row.business_name}</h3><p>{getIndustryLabel(row.category, locale)} · {row.city}</p></div>
+      <div><h3 id={titleId}>{row.business_name}</h3><p>{getIndustryLabel(row.category, locale)}{row.city ? ` · ${row.city}` : ''}</p></div>
       <span className={`admin-state application-${partnerReviewGroup(row.status)}`}>{PARTNER_STATUS_LABELS[row.status]?.[locale]}</span>
     </div>
     <div className="admin-application-contact">
-      <span><Icon name="user"/>{row.contact_name}</span>
+      {row.contact_name && <span><Icon name="user"/>{row.contact_name}</span>}
       <a href={`tel:${row.phone}`}><Icon name="phone"/>{row.phone}</a>
       <a href={`mailto:${row.email}`}><Icon name="mail"/>{row.email}</a>
     </div>

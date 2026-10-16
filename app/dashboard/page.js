@@ -139,7 +139,7 @@ export default function Dashboard() {
           <div>
             <p className="auth-kicker">{status === 'ready' ? (en ? 'Your dashboard' : 'Твоето табло') : (en ? 'Initial setup' : 'Първоначална настройка')}</p>
             <h2>{status === 'ready' ? `${greeting}, ${data.business.name}` : (en ? 'Set up your GoRez booking page.' : 'Да настроим твоята GoRez страница.')}</h2>
-            <p>{status === 'ready' ? (en ? 'Here is what is happening in your business right now.' : 'Ето какво се случва в бизнеса ти в момента.') : (en ? 'It takes about 3 minutes. Then you can accept bookings without unnecessary back-and-forth.' : 'Ще ни отнеме около 3 минути. После ще можеш да приемаш резервации без излишна кореспонденция.')}</p>
+            <p>{status === 'ready' ? (en ? 'Here is what is happening in your business right now.' : 'Ето какво се случва в бизнеса ти в момента.') : (en ? 'Add your services, team and schedule. Public booking starts after GoRez reviews and publishes your profile.' : 'Добави услуги, екип и график. Публичното записване започва след преглед и публикуване на профила от GoRez.')}</p>
           </div>
         </div>
         {status === 'error' && <div className="form-message"><strong>{en ? 'We could not load the data.' : 'Не успяхме да заредим данните.'}</strong><br />{loadError}</div>}

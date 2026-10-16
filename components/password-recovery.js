@@ -121,8 +121,8 @@ export function PasswordRecovery({ mode = 'request', initializeRecovery = getPas
         <button className="primary-button" type="submit" disabled={status === 'saving'}>{status === 'saving' ? copy.saving : copy.save}</button>
       </form>}
       {invalid && <Link className="primary-button recovery-action" href={`/forgot-password?lang=${locale}`}>{copy.resend}</Link>}
-      {success && <Link className="primary-button recovery-action" href={`/?lang=${locale}#business`}>{copy.signIn}</Link>}
-      <div className="recovery-links"><Link href={`/account?lang=${locale}`}>{locale === 'en' ? 'Client sign-in' : 'Вход за клиенти'}</Link><Link href={`/?lang=${locale}#business`}>{locale === 'en' ? 'Business sign-in' : 'Вход за бизнес'}</Link><Link href={`/?lang=${locale}`}>{copy.home}</Link></div>
+      {success && <Link className="primary-button recovery-action" href={`/login?lang=${locale}`}>{copy.signIn}</Link>}
+      <div className="recovery-links"><Link href={`/account?lang=${locale}`}>{locale === 'en' ? 'Client sign-in' : 'Вход за клиенти'}</Link><Link href={`/login?lang=${locale}`}>{locale === 'en' ? 'Business sign-in' : 'Вход за бизнес'}</Link><Link href={`/?lang=${locale}`}>{copy.home}</Link></div>
     </section>
   </main>
 }

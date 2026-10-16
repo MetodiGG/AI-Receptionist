@@ -11,9 +11,9 @@ test('privacy and terms have complete English counterparts and honest pilot limi
     assert.match(LEGAL_COPY[type].en.note, /before.*(?:live pilot|live use)/)
   }
   assert.match(JSON.stringify(LEGAL_COPY.terms.en), /whether email notifications and reminders are enabled/)
-  assert.match(JSON.stringify(LEGAL_COPY.terms.en), /No SMS or Viber/)
+  assert.doesNotMatch(JSON.stringify(LEGAL_COPY.terms.en), /SMS|Viber/)
   assert.match(JSON.stringify(LEGAL_COPY.terms.bg), /дали имейл известията и напомнянията са включени/)
-  assert.match(JSON.stringify(LEGAL_COPY.terms.bg), /Не се изпращат SMS или Viber/)
+  assert.doesNotMatch(JSON.stringify(LEGAL_COPY.terms.bg), /SMS|Viber/)
 })
 
 test('embedded widget carries EN into the iframe, defaults its label and toggles accessibly', async () => {

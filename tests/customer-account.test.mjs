@@ -2,7 +2,7 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { PGlite } from '@electric-sql/pglite'
-import { createCustomerBookingsHandler,customerAccountRedirect,customerSignupSchema } from '../lib/customer-account.mjs'
+import { createCustomerBookingsHandler,customerAccountRedirect,customerSignupSchema,requestCustomerSignInLink } from '../lib/customer-account.mjs'
 import { ensureCustomerEmailProof,validatedTokenHasEmailProof } from '../lib/customer-email-proof.mjs'
 
 const identity={id:'10000000-0000-4000-8000-000000000001',email:'client@example.com',email_confirmed_at:'2026-10-16T10:00:00Z'}
@@ -39,6 +39,17 @@ test('client registration validates agreement, matching strong passwords and saf
   assert.equal(customerAccountRedirect('https://www.gorez.co','en'),'https://www.gorez.co/account?lang=en')
   assert.equal(customerAccountRedirect('http://127.0.0.1:3000','bg'),'http://127.0.0.1:3000/account?lang=bg')
   assert.throws(()=>customerAccountRedirect('http://evil.example','en'))
+})
+
+test('email sign-in never creates an account, validates email, hides absent accounts and preserves language',async()=>{
+  const calls=[],auth={signInWithOtp:async input=>{calls.push(input);return {error:null}}}
+  const input={auth,email:' CLIENT@EXAMPLE.COM ',origin:'https://www.gorez.co',locale:'en'}
+  assert.deepEqual(await requestCustomerSignInLink(input),{accepted:true})
+  assert.deepEqual(calls[0],{email:'client@example.com',options:{shouldCreateUser:false,emailRedirectTo:'https://www.gorez.co/account?lang=en'}})
+  assert.deepEqual(await requestCustomerSignInLink({...input,email:'invalid'}),{error:'VALIDATION_ERROR'});assert.equal(calls.length,1)
+  for(const code of ['user_not_found','signup_disabled','otp_disabled'])assert.deepEqual(await requestCustomerSignInLink({...input,auth:{signInWithOtp:async()=>({error:{code,status:422}})}}),{accepted:true})
+  assert.deepEqual(await requestCustomerSignInLink({...input,auth:{signInWithOtp:async()=>({error:{status:429}})}}),{error:'RATE_LIMITED'})
+  assert.deepEqual(await requestCustomerSignInLink({...input,auth:{signInWithOtp:async()=>({error:{status:500}})}}),{error:'UNAVAILABLE'})
 })
 
 test('actual PostgreSQL history is email-verified, tenant-safe, paginated and service-only',async()=>{

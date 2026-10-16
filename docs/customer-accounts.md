@@ -11,10 +11,11 @@
 
 ## Release verification
 
-- Automated suite: 113 passing tests, including the real PostgreSQL migration, identity isolation, pagination, private-field filtering and the legacy auto-confirmation safeguard. Production build passes.
+- Automated suite: 114 passing tests, including the real PostgreSQL migration, identity isolation, pagination, private-field filtering, sign-in-only email links and the legacy auto-confirmation safeguard. Production build passes.
 - Browser QA: BG/EN registration fields, required agreement, upcoming/history cards, private details and rebooking links, interactive category/date/time selection; no horizontal overflow at 320px and 375px. Desktop checked at 1280px. The history browser fixture never contacts Auth or sends mail.
 - Production setup: Confirm email enabled, both exact `/account?lang=bg|en` URLs added while retaining recovery URLs, additive migration applied. Read-only SQL verified RLS, denied anon/client table/RPC privileges, allowed server access, zero backfilled proofs and no history for an unproven identity. Example business email preference remains false.
 - A real registration + received email + mailbox-link return needs the account holder to enter their own password and open the received link. Do not claim that live roundtrip was tested with the fictional fixture. The first history access deliberately asks for a fresh secure email link, including for legacy accounts.
+- During the user's phone test, Auth logged `User repeated signup: request completed` (200), and Resend had no new send. Supabase deliberately returns a non-enumerating response for repeated signup of an already confirmed account. The account screen now explains shared client/owner identity, offers a login-only email link (`shouldCreateUser:false`), and avoids promising that an accepted registration request sent mail. No account was deleted, auto-confirmed or recreated to work around this.
 
 ## Image assets
 

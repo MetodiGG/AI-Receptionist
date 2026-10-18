@@ -1,29 +1,54 @@
 'use client'
 
-import Image from 'next/image'
-import { useEffect,useState } from 'react'
-import { DateTime } from 'luxon'
+import { useEffect, useId, useRef, useState } from 'react'
+import { BrandLogo } from './brand-logo'
 import { Icon } from './icon'
-import { formatBulgarianMonthShort } from '../lib/booking-window.mjs'
+import { bookingFilmDates, FILM_COPY, FILM_CYCLE_MS, FILM_PHASE_MS, FILM_PHASES } from '../lib/booking-film.mjs'
 
-const scenes=[
-  {key:'salon',industry:'beauty',icon:'spark',bg:'Салон за красота',en:'Beauty salon',service:{bg:'Подстригване и стайлинг',en:'Cut & styling'},duration:60},
-  {key:'barber',industry:'beauty',icon:'scissors',bg:'Барбършоп',en:'Barbershop',service:{bg:'Мъжко подстригване',en:'Barber haircut'},duration:45},
-  {key:'garage',industry:'auto',icon:'wrench',bg:'Автосервиз',en:'Auto workshop',service:{bg:'Диагностика',en:'Diagnostics'},duration:60},
-]
-export function BookingStory({ locale,onExplore }) {
-  const en=locale==='en', [scene,setScene]=useState(0), [day,setDay]=useState(0), [time,setTime]=useState('11:00'), [confirmed,setConfirmed]=useState(false), [dates,setDates]=useState([])
-  useEffect(()=>setDates(Array.from({length:3},(_,i)=>DateTime.now().setZone('Europe/Sofia').startOf('day').plus({days:i+1}))),[])
-  const selected=scenes[scene]
-  const change=(setter,value)=>{setter(value);setConfirmed(false)}
-  return <div className="booking-story" id="how">
-    <div className="story-scenes" aria-label={en?'Explore business types':'Разгледай типове бизнес'}>
-      {scenes.map((item,index)=><button className={`story-scene ${scene===index?'selected':''}`} type="button" key={item.key} aria-pressed={scene===index} onClick={()=>change(setScene,index)}><Image src={`/images/gorez-${item.key}.webp`} width={1200} height={800} sizes={index===scene?'(max-width: 820px) 62vw, 32vw':'(max-width: 820px) 18vw, 10vw'} loading={index===0?'eager':'lazy'} alt={en?`Smiling professional at work: ${item.en}`:`Усмихнат специалист работи в ${item.bg.toLowerCase()}`} /><span><Icon name={item.icon}/><b>{en?item.en:item.bg}</b></span></button>)}
+function FilmCursor({ className = '' }) {
+  return <span className={`film-cursor ${className}`}><span/><svg viewBox="0 0 28 32" fill="none"><path d="M4 2 25 18l-11 1-5 10L4 2Z" fill="#173e2a" stroke="white" strokeWidth="2.5" strokeLinejoin="round"/></svg></span>
+}
+
+// An illustrative, CSS-timed walkthrough. It never calls the booking API.
+// Preview controls are used only by the guarded /dev/booking-film fixture.
+export function BookingStory({ locale = 'bg', previewOffset = 0, previewPaused = false, previewReduced = false }) {
+  const copy = FILM_COPY[locale === 'en' ? 'en' : 'bg'], id = useId(), root = useRef(null)
+  const [dates, setDates] = useState([]), [paused, setPaused] = useState(false)
+  const [reduced, setReduced] = useState(false), [inView, setInView] = useState(true), [tabVisible, setTabVisible] = useState(true)
+
+  useEffect(() => {
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const syncMotion = () => setReduced(media.matches)
+    const syncPage = () => { setTabVisible(!document.hidden); if (!document.hidden) setDates(bookingFilmDates(locale)) }
+    syncMotion(); syncPage()
+    media.addEventListener('change', syncMotion)
+    document.addEventListener('visibilitychange', syncPage)
+    const observer = typeof IntersectionObserver === 'undefined' ? null : new IntersectionObserver(([entry]) => setInView(entry.isIntersecting && entry.intersectionRatio >= .1), { threshold: .1 })
+    if (root.current) observer?.observe(root.current)
+    return () => { media.removeEventListener('change', syncMotion); document.removeEventListener('visibilitychange', syncPage); observer?.disconnect() }
+  }, [locale])
+
+  const motionOff = reduced || previewReduced, selectedDate = dates[2]
+  const phase = (name, children) => <div key={name} className={`film-scene film-${name}`} data-phase={name} style={{ '--phase-offset': `${FILM_PHASES.indexOf(name) * FILM_PHASE_MS}ms` }}>{children}</div>
+  const heading = (number, title, description) => <div className="film-scene-heading"><span className="film-step-number">0{number}<i>/ 04</i></span><h3>{title}</h3><p>{description}</p></div>
+
+  return <figure ref={root} className="booking-story booking-film" id="how" lang={locale === 'en' ? 'en' : 'bg'} aria-labelledby={`${id}-title`} aria-describedby={`${id}-description`} data-paused={paused || previewPaused || !inView || !tabVisible} data-reduced={motionOff} style={{ '--film-cycle': `${FILM_CYCLE_MS}ms`, '--film-shift': `${-previewOffset}ms` }}>
+    <div className="film-heading"><div><span>{copy.subtitle}</span><h2 id={`${id}-title`}>{copy.title}</h2></div>
+      <button type="button" className="film-playback" disabled={motionOff} onClick={() => setPaused(value => !value)} aria-label={motionOff ? copy.reduced : paused ? copy.resumeLabel : copy.pauseLabel}>
+        <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">{paused ? <path d="m7 4 9 6-9 6V4Z" fill="currentColor"/> : <path d="M7 5v10M13 5v10" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>}</svg>
+        <span>{motionOff ? copy.reduced : paused ? copy.resume : copy.pause}</span>
+      </button>
     </div>
-    <div className="story-booking-card"><div className="story-card-head"><span className="story-step-icon"><Icon name={confirmed?'check':'calendar'}/></span><div><small>{en?'INTERACTIVE EXAMPLE':'ИНТЕРАКТИВЕН ПРИМЕР'}</small><strong>{selected.service[locale]}</strong></div><span>{selected.duration} {en?'min':'мин'}</span></div>
-      <div className="story-days" aria-label={en?'Example date':'Примерна дата'}>{dates.map((date,index)=><button type="button" key={date.toISODate()} aria-pressed={day===index} onClick={()=>change(setDay,index)}><span>{date.setLocale(locale).toFormat('ccc')}</span><strong>{date.day}</strong><small>{en?date.setLocale(locale).toFormat('LLL'):formatBulgarianMonthShort(date.month)}</small></button>)}</div>
-      <div className="story-times" aria-label={en?'Example time':'Примерен час'}>{['09:30','11:00','14:30'].map(item=><button type="button" key={item} aria-pressed={time===item} onClick={()=>change(setTime,item)}>{item}</button>)}</div>
-      {confirmed?<div className="story-confirmed" role="status"><Icon name="check"/><span>{en?'That is how easy it is.':'Ето колко е лесно.'}<small>{dates[day]?.setLocale(locale).toFormat('d LLLL')} · {time}</small></span><button type="button" onClick={()=>onExplore(selected.industry)}>{en?'Find a business':'Намери бизнес'}<Icon name="arrow"/></button></div>:<button type="button" className="story-confirm" onClick={()=>setConfirmed(true)}>{en?'Try booking':'Пробвай записването'}<Icon name="arrow"/></button>}
-    </div><p className="story-caption">{en?'Illustrative photos and times. Real availability is shown in each business profile.':'Илюстративни снимки и часове. Реалната наличност е в профила на бизнеса.'}</p>
-  </div>
+    <p className="sr-only" id={`${id}-description`}>{copy.description}</p>
+    <div className="film-visual" aria-hidden="true">
+      <div className="film-window-bar"><BrandLogo compact decorative/><span className="film-window-dots"><i/><i/><i/></span></div>
+      {phase('service', <>{heading(1, copy.service, copy.serviceNote)}<div className="film-services">{copy.services.map((name, index) => <div key={name} className={`film-service-row ${index === 0 ? 'film-chosen' : ''}`}><span className="film-service-icon"><Icon name={index === 2 ? 'user' : 'scissors'}/></span><div><strong>{name}</strong><small>{[45, 60, 30][index]} {copy.minutes}</small></div><span className="film-choice-check"><Icon name="check"/></span></div>)}</div><FilmCursor className="film-cursor-service"/></>)}
+      {phase('time', <>{heading(2, copy.time, copy.timeNote)}<div className="film-calendar-title"><Icon name="calendar"/><span>{selectedDate?.monthName || '—'}</span><span>{copy.date}</span></div><div className="film-date-strip">{Array.from({ length: 5 }, (_, index) => <div key={dates[index]?.key || index} className={index === 2 ? 'film-date-selected film-chosen' : ''}><small>{dates[index]?.weekday || '—'}</small><strong>{dates[index]?.day || '—'}</strong><span>{dates[index]?.month || '—'}</span></div>)}</div><div className="film-time-title"><Icon name="clock"/>{copy.hour}</div><div className="film-time-grid">{['09:00', '09:45', '10:30', '13:00', '13:45', '14:30'].map(time => <span key={time} className={time === '10:30' ? 'film-chosen' : ''}>{time}</span>)}</div><div className="film-selected-note"><Icon name="check"/>{selectedDate?.label || '—'} · 10:30 – 11:15</div><FilmCursor className="film-cursor-time"/></>)}
+      {phase('details', <>{heading(3, copy.details, copy.detailsNote)}<div className="film-contact-fields">{[[copy.name, copy.nameValue], [copy.phone, '+359 ••• ••• •••'], [copy.email, 'name@example.com']].map(([label, value], index) => <div className="film-field" key={label}><small>{label} *</small><div><span style={{ '--field-offset': `${index * 180}ms` }}>{value}</span><i/></div></div>)}</div><div className="film-privacy"><span><Icon name="check"/></span>{copy.privacy}</div><div className="film-confirm-button">{copy.confirm}<Icon name="arrow"/></div><FilmCursor className="film-cursor-details"/></>)}
+      {phase('confirmation', <><div className="film-success-mark"><Icon name="check"/><span/></div><div className="film-success-copy"><small>04 / 04</small><h3>{copy.done}</h3><p>{copy.booked}</p></div><div className="film-receipt"><span><Icon name="scissors"/>{copy.services[0]}<small>45 {copy.minutes}</small></span><div><span><Icon name="calendar"/>{selectedDate?.label || '—'}</span><strong>10:30 – 11:15</strong></div></div><p className="film-success-note">{copy.bookedNote}</p></>)}
+      {phase('slogan', <><p className="film-finale-kicker">{copy.finale}</p><h3>{copy.slogan.map((word, index) => <span key={word} style={{ '--word-offset': `${index * 140}ms` }}>{word}</span>)}</h3><div className="film-finale-signature"><span><Icon name="check"/></span><strong>GoRez</strong></div><p className="film-finale-note">{copy.endNote}</p></>)}
+      <div className="film-progress"><span/><i/><i/><i/><i/></div>
+    </div>
+    <figcaption>{copy.caption}</figcaption>
+  </figure>
 }

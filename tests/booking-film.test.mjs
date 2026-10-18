@@ -27,8 +27,7 @@ test('film copy is complete in BG and EN, including the requested final slogan',
   assert.doesNotMatch(JSON.stringify(FILM_COPY.en), /[А-Яа-я]/)
   for (const copy of Object.values(FILM_COPY)) {
     assert.equal(copy.services.length, 3)
-    assert.ok(copy.pauseLabel && copy.resumeLabel && copy.reduced)
-    assert.match(copy.caption, /не създава резервация|does not create a reservation/)
+    assert.match(copy.description, /не истинска резервация|not a real booking/)
   }
 })
 
@@ -52,14 +51,13 @@ test('homepage replaces AI photos and interactive fake bookings without changing
   const film = read('components/booking-story.js'), home = read('components/home-page.js')
   assert.doesNotMatch(film, /next\/image|gorez-salon|gorez-barber|gorez-garage|INTERACTIVE EXAMPLE|ИНТЕРАКТИВЕН ПРИМЕР|onExplore/)
   assert.doesNotMatch(film, /\bfetch\s*\(|supabase|trackProductEvent|createBooking|setConfirmed/)
-  assert.equal((film.match(/<button /g) || []).length, 1, 'only the real playback control is interactive')
-  assert.doesNotMatch(film, /<input|<form|<a\s/)
+  assert.doesNotMatch(film, /<button|<input|<form|<a\s|onClick|setPaused/)
   assert.match(home, /<BookingStory locale=\{locale\}\/>/)
   assert.match(home, /<BusinessDirectory locale=\{locale\} industry=\{industry\} setIndustry=\{setIndustry\}/)
   assert.match(home, /cta_find_appointment_click/)
 })
 
-test('motion has accessible pause, static description and reduced-motion fallback with cleanup', () => {
+test('autoplay keeps its static description, reduced-motion fallback and offscreen suspension with cleanup', () => {
   const film = read('components/booking-story.js'), css = read('app/globals.css')
   assert.match(film, /className="film-visual" aria-hidden="true"/)
   assert.match(film, /className="sr-only"/)
@@ -73,6 +71,19 @@ test('motion has accessible pause, static description and reduced-motion fallbac
   assert.match(css, /@media\(prefers-reduced-motion:reduce\)\s*\{\s*\.booking-film[\s\S]*?animation:none !important/)
   assert.match(css, /\.booking-film \.film-slogan,\.booking-film \.film-slogan h3 > span \{ opacity:1; transform:none; \}/)
   assert.match(css, /film-stage-motion var\(--film-cycle\)/)
+})
+
+test('embedded film has no player controls, progress strip or visible disclaimer in either language', () => {
+  const film = read('components/booking-story.js'), css = read('app/globals.css')
+  assert.doesNotMatch(film, /<figcaption|film-progress|film-playback|copy\.caption/)
+  assert.doesNotMatch(css, /\.film-playback|\.film-progress|@keyframes film-progress|\.booking-film figcaption/)
+  assert.match(css, /\.film-scene \{[^}]*inset:70px 0 0;/)
+  assert.match(css, /\.film-scene \{[^}]*inset:62px 0 0;/)
+  for (const copy of Object.values(FILM_COPY)) {
+    assert.equal(copy.caption, undefined)
+    assert.equal(copy.pause, undefined)
+    assert.equal(copy.resume, undefined)
+  }
 })
 
 test('frame-by-frame QA fixture is unavailable in production and not indexed', () => {

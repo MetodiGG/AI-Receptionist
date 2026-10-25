@@ -1,4 +1,4 @@
-import { BusinessLanding } from '../../components/business-landing'
+import { BusinessOnboarding } from '../../components/business-onboarding'
 import { pageMetadata } from '../../lib/seo.mjs'
 import { companyIdentity } from '../../lib/product-config.mjs'
 
@@ -7,5 +7,5 @@ export async function generateMetadata({ searchParams }) {
 }
 
 export default async function ForBusinessesPage({searchParams}) {
-  return <BusinessLanding initialLocale={(await searchParams)?.lang === 'en' ? 'en' : 'bg'} identity={companyIdentity(process.env)}/>
+  return <BusinessOnboarding initialLocale={(await searchParams)?.lang === 'en' ? 'en' : 'bg'} identity={companyIdentity(process.env)}/>
 }

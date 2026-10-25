@@ -2,6 +2,7 @@ import { requireUser,isPlatformAdmin } from '../../../../../lib/server-auth'
 import { getSupabaseAdmin } from '../../../../../lib/supabase-admin'
 import { consumeRateLimit } from '../../../../../lib/rate-limit'
 import { createAdminBusinessHandlers } from '../../../../../lib/platform-admin.mjs'
+import { activateApplicationOwner } from '../../../../../lib/business-application-review'
 
 const handlers=createAdminBusinessHandlers({
   authenticate:async request=>({user:await requireUser(request),token:(request.headers.get('authorization')||'').slice(7)}),
@@ -23,6 +24,7 @@ const handlers=createAdminBusinessHandlers({
     return {business:business.data,services:services.data,staff:staff.data,counts:{customers:customers.count,bookings:bookings.count,upcoming:upcoming.count}}
   },
   mutate:async ({id,actorId,action,revision,confirmation,reason})=>{
+    if(action==='publish')await activateApplicationOwner(getSupabaseAdmin(),id,{revision,confirmation})
     const {data,error}=await getSupabaseAdmin().rpc('platform_business_action',{p_business_id:id,p_actor_id:actorId,p_action:action,p_revision:revision,p_confirmation:confirmation,p_reason:reason})
     if(error)throw error
     return data

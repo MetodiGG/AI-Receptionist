@@ -1,6 +1,7 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import Link from 'next/link'
 import { supabase } from '../lib/supabase'
 import { Icon } from './icon'
 import { getIndustryServiceTemplate } from '../lib/industry-templates.mjs'
@@ -44,30 +45,34 @@ function slugify(value) {
   return value.toLowerCase().split('').map((char) => map[char] ?? char).join('').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 48)
 }
 
-export function BusinessSetup({ session, onComplete, locale, preview = false }) {
+export function BusinessSetup({ session, onComplete, locale, preview = false, application = false }) {
   const en = locale === 'en'
   const steps = STEPS[locale]
   const [step, setStep] = useState(0)
-  const [business, setBusiness] = useState({ name: '', slug: '', phone: '', contact_email: session.user.email || '', address: '', timezone: 'Europe/Sofia', industry: 'other', city_ekatte: '', neighborhood: '', default_duration_min: '45', booking_slot_minutes: '15' })
+  const [business, setBusiness] = useState({ name: '', slug: '', phone: '', contact_email: session?.user?.email || '', address: '', timezone: 'Europe/Sofia', industry: 'other', city_ekatte: '', neighborhood: '', default_duration_min: '45', booking_slot_minutes: '15' })
   const [services, setServices] = useState([{ name: '', price: '25', duration_min: '45' }])
   const [staff, setStaff] = useState([{ name: '' }])
   const [schedule, setSchedule] = useState(() => createInitialSchedule(locale))
   const [error, setError] = useState('')
   const [saving, setSaving] = useState(false)
   const [slugTouched, setSlugTouched] = useState(false)
+  const [accountEmail,setAccountEmail]=useState(session?.user?.email||''),[password,setPassword]=useState(''),[consent,setConsent]=useState(false),[company,setCompany]=useState('')
+  const lock=useRef(false)
+  useEffect(()=>{if(session?.user?.email){setAccountEmail(session.user.email);setBusiness(current=>({...current,contact_email:current.contact_email||session.user.email}))}},[session?.user?.email])
+  useEffect(()=>{if(!session)setAccountEmail(business.contact_email)},[business.contact_email,session])
 
   const stepContent = en ? [
-    ['Tell us about your business', 'This information helps the online assistant present your business correctly.'],
+    ['Your business', 'Add your contact details and location.'],
     ['Add your services', 'Price and duration let us offer only suitable available times.'],
     ['Who will serve clients?', 'Add yourself and everyone clients can book with.'],
     ['When are you open?', 'Choose working days and recurring breaks, such as lunch from 12:00 to 13:00.'],
-    ['Everything looks good', 'Review your setup. Your dashboard opens after saving. Public booking starts only after GoRez reviews and publishes the profile.'],
+    ['Review and send', application ? 'Send your complete profile for administrator approval. No email confirmation is required. Sign-in opens after approval.' : 'Your dashboard opens after saving. Public booking starts after GoRez approval.'],
   ] : [
-    ['Нека опознаем бизнеса ти', 'Тази информация ще помогне на онлайн асистента да представя бизнеса ти правилно.'],
+    ['Твоят бизнес', 'Добави контактите и местоположението си.'],
     ['Добави услугите си', 'Цената и продължителността са нужни, за да предлагаме само подходящи свободни часове.'],
     ['Кой ще приема клиенти?', 'Добави себе си и останалите хора, за които клиентите могат да резервират час.'],
     ['Кога работите?', 'Избери работни дни и повтарящи се почивки, например обяд от 12:00 до 13:00.'],
-    ['Всичко изглежда добре', 'Прегледай настройките. След запазване ще видиш таблото. Публичното записване започва само след преглед и публикуване от GoRez.'],
+    ['Преглед и изпращане', application ? 'Изпрати готовия профил за одобрение от администратор. Не е нужно потвърждение по имейл. Входът се отваря след одобрение.' : 'След запазване ще видиш таблото. Публичното записване започва след одобрение от GoRez.'],
   ]
 
   useEffect(() => {
@@ -93,9 +98,10 @@ export function BusinessSetup({ session, onComplete, locale, preview = false }) 
   }
 
   function validateCurrentStep(currentStep = step) {
-    if (currentStep === 0 && (!business.name.trim() || !business.slug.trim())) return en ? 'Enter a business name and page address.' : 'Въведи име на бизнеса и адрес за страницата.'
+    if (currentStep === 0 && (business.name.trim().length<2 || business.slug.trim().length<3)) return en ? 'Enter a business name and a page address of at least 3 characters.' : 'Въведи име на бизнеса и адрес на страницата с поне 3 знака.'
     if (currentStep === 0 && !findCity(business.city_ekatte)) return en ? 'Choose your business city from the list.' : 'Избери града на бизнеса от списъка.'
     if (currentStep === 0 && !validDuration(business.default_duration_min)) return en ? 'Choose a valid usual appointment duration.' : 'Избери валидна обичайна продължителност на часа.'
+    if(application&&currentStep===0&&(!/^[+()\d .-]{7,32}$/.test(business.phone)||!/^\S+@\S+\.\S+$/.test(business.contact_email)||business.address.trim().length<2))return en?'Add a valid phone, booking email and street address.':'Добави валиден телефон, имейл за резервации и адрес.'
     if (currentStep === 1 && (!services.length || services.some((service) => !service.name.trim() || service.price === '' || !Number.isFinite(Number(service.price)) || Number(service.price) < 0 || !validDuration(service.duration_min)))) return en ? 'Enter a valid name, price and duration (5–1440 minutes) for every service.' : 'Попълни правилно име, цена и продължителност (5–1440 минути) за всяка услуга.'
     if (currentStep === 2 && (!staff.length || staff.some((person) => !person.name.trim()))) return en ? 'Enter a name for every team member.' : 'Въведи име за всеки член на екипа.'
     if (currentStep === 3) {
@@ -115,15 +121,26 @@ export function BusinessSetup({ session, onComplete, locale, preview = false }) 
   }
 
   async function save() {
+    if(lock.current)return
     for (let index = 0; index < 4; index++) {
       const problem = validateCurrentStep(index)
       if (problem) { setError(problem); setStep(index); return }
     }
-    setError('')
+    if(application&&(!consent||!/^\S+@\S+\.\S+$/.test(accountEmail)||(!session&&password.length<10))){setError(en?'Enter a valid login email, a password of at least 10 characters and accept the terms.':'Въведи валиден имейл за вход, парола с поне 10 знака и приеми условията.');return}
+    setError('');lock.current=true
     setSaving(true)
     let createdBusinessId = null
     try {
       if (preview) { onComplete({ business, services, staff, schedule }); return }
+      if(application) {
+        const response=await fetch('/api/public/business-applications',{method:'POST',headers:{'Content-Type':'application/json',...(session?.access_token?{Authorization:`Bearer ${session.access_token}`}:{})},body:JSON.stringify({business,services,staff,schedule:schedule.map(({weekday,enabled,open,close,breakEnabled,breakStart,breakEnd})=>({weekday,enabled,open,close,breakEnabled,breakStart,breakEnd})),account:{email:accountEmail,password:session?'':password},consent,company,locale})})
+        if(!response.ok) {
+          const code=(await response.json().catch(()=>null))?.error?.code
+          const messages={SIGN_IN_REQUIRED:en?'Use a new email and a password of at least 10 characters, or sign in to your existing account first.':'Използвай нов имейл и парола с поне 10 знака, или първо влез в съществуващия си профил.',ADDRESS_IN_USE:en?'This page address is taken. Choose another in step 1.':'Този адрес на страницата е зает. Избери друг в стъпка 1.',RATE_LIMITED:en?'Too many attempts. Please try later.':'Твърде много опити. Опитай по-късно.',VALIDATION_ERROR:en?'Check the details in all five steps. Names must have at least 2 characters.':'Провери данните в петте стъпки. Имената трябва да са поне 2 знака.'}
+          setError(messages[code]||(en?'We could not accept the application. Try again later.':'Не успяхме да приемем заявката. Опитай отново по-късно.'));return
+        }
+        setPassword('');onComplete({pending:true});return
+      }
       const { data: createdBusiness, error: businessError } = await supabase.from('businesses').insert({
         owner_id: session.user.id,
         name: business.name.trim(),
@@ -170,7 +187,7 @@ export function BusinessSetup({ session, onComplete, locale, preview = false }) 
         ? (en ? 'This page address is already in use. Go back and choose another one.' : 'Този адрес вече се използва. Върни се назад и избери друг.')
         : `${en ? 'We could not save the setup' : 'Не успяхме да запазим настройките'}: ${saveError.message}`)
     } finally {
-      setSaving(false)
+      setSaving(false);lock.current=false
     }
   }
 
@@ -195,14 +212,14 @@ export function BusinessSetup({ session, onComplete, locale, preview = false }) 
           {step === 0 && (
             <div className="form-grid">
               <div className="field full"><label htmlFor="business-name">{en ? 'Business name' : 'Име на бизнеса'} *</label><input id="business-name" className="text-input" value={business.name} onChange={(event) => updateBusiness('name', event.target.value)} placeholder={en ? 'e.g. Studio Forma' : 'Напр. Studio Forma'} autoFocus /></div>
-              <div className="field"><label htmlFor="business-phone">{en ? 'Phone' : 'Телефон'}</label><input id="business-phone" className="text-input" value={business.phone} onChange={(event) => updateBusiness('phone', event.target.value)} placeholder="+359 88 123 4567" type="tel" /></div>
-              <div className="field"><label htmlFor="business-email">{en ? 'Booking email' : 'Имейл за резервации'}</label><input id="business-email" className="text-input" value={business.contact_email} onChange={(event) => updateBusiness('contact_email', event.target.value)} placeholder="office@business.com" type="email" /></div>
+              <div className="field"><label htmlFor="business-phone">{en ? 'Phone' : 'Телефон'}{application?' *':''}</label><input id="business-phone" className="text-input" value={business.phone} onChange={(event) => updateBusiness('phone', event.target.value)} placeholder="+359 88 123 4567" type="tel" /></div>
+              <div className="field"><label htmlFor="business-email">{en ? 'Booking email' : 'Имейл за резервации'}{application?' *':''}</label><input id="business-email" className="text-input" value={business.contact_email} onChange={(event) => updateBusiness('contact_email', event.target.value)} placeholder="office@business.com" type="email" /></div>
               <div className="field"><label htmlFor="business-industry">{en ? 'Business type' : 'Тип бизнес'}</label><select id="business-industry" className="select-input" value={business.industry} onChange={(event) => updateBusiness('industry', event.target.value)}><option value="beauty">{en ? 'Beauty & salons' : 'Красота и салони'}</option><option value="auto">{en ? 'Auto services & repair shops' : 'Авто услуги и сервизи'}</option><option value="fitness">{en ? 'Sport & fitness' : 'Спорт и фитнес'}</option><option value="education">{en ? 'Education' : 'Обучение'}</option><option value="consulting">{en ? 'Consulting' : 'Консултации'}</option><option value="home_services">{en ? 'Home services' : 'Услуги на адрес'}</option><option value="pets">{en ? 'Pet services' : 'Домашни любимци'}</option><option value="health">{en ? 'Health services' : 'Здравни услуги'}</option><option value="other">{en ? 'Other appointment business' : 'Друг бизнес с часове'}</option></select></div>
-              <div className="field"><label htmlFor="business-timezone">{en ? 'Time zone' : 'Часова зона'}</label><select id="business-timezone" className="select-input" value={business.timezone} onChange={(event) => updateBusiness('timezone', event.target.value)}><option value="Europe/Sofia">{en ? 'Sofia' : 'София'} (GMT+2/+3)</option><option value="Europe/London">{en ? 'London' : 'Лондон'}</option><option value="Europe/Berlin">{en ? 'Berlin' : 'Берлин'}</option></select></div>
+              {!application&&<div className="field"><label htmlFor="business-timezone">{en ? 'Time zone' : 'Часова зона'}</label><select id="business-timezone" className="select-input" value={business.timezone} onChange={(event) => updateBusiness('timezone', event.target.value)}><option value="Europe/Sofia">{en ? 'Sofia' : 'София'} (GMT+2/+3)</option><option value="Europe/London">{en ? 'London' : 'Лондон'}</option><option value="Europe/Berlin">{en ? 'Berlin' : 'Берлин'}</option></select></div>}
               <div className="field full"><BusinessLocationFields required cityCode={business.city_ekatte} neighborhood={business.neighborhood} onChange={(patch) => setBusiness((current) => ({ ...current, ...patch }))} locale={locale} /></div>
               <div className="field full duration-setup"><label htmlFor="usual-duration">{en ? 'How long does an appointment usually take?' : 'Колко дълго обикновено продължава един час?'} *</label><select id="usual-duration" className="select-input" value={business.default_duration_min} onChange={(event) => updateBusiness('default_duration_min', event.target.value)}>{DURATION_OPTIONS.map((minutes) => <option key={minutes} value={minutes}>{minutes} {en ? 'minutes' : 'минути'}</option>)}</select><p className="helper-text">{en ? 'Used as the starting duration for new services. Set the exact time for each service in the next step. A 45-minute service blocks the entire 45 minutes for that specialist.' : 'Начална продължителност за новите услуги. В следващата стъпка задай точното време за всяка услуга. Услуга от 45 минути блокира целите 45 минути за специалиста.'}</p></div>
-              <div className="field full"><label htmlFor="business-address">{en ? 'Address' : 'Адрес'}</label><input id="business-address" className="text-input" value={business.address} onChange={(event) => updateBusiness('address', event.target.value)} placeholder={en ? '12 Example Street, Sofia' : 'ул. Примерна 12, София'} /></div>
-              <div className="field full"><label htmlFor="business-slug">{en ? 'Public page address' : 'Адрес на публичната страница'} *</label><input id="business-slug" className="text-input" value={business.slug} onChange={(event) => { setSlugTouched(true); updateBusiness('slug', slugify(event.target.value)) }} placeholder="studio-forma" /><p className="helper-text">GoRez · /book/{business.slug || (en ? 'your-business' : 'твоят-бизнес')}</p></div>
+              <div className="field full"><label htmlFor="business-address">{en ? 'Address' : 'Адрес'}{application?' *':''}</label><input id="business-address" className="text-input" value={business.address} onChange={(event) => updateBusiness('address', event.target.value)} placeholder={en ? '12 Example Street, Sofia' : 'ул. Примерна 12, София'} /></div>
+              <details className="field full setup-address-options"><summary>{en?'Page address (optional)':'Адрес на страницата (по желание)'}</summary><div><label htmlFor="business-slug">{en ? 'Public page address' : 'Адрес на публичната страница'} *</label><input id="business-slug" className="text-input" value={business.slug} onChange={(event) => { setSlugTouched(true); updateBusiness('slug', slugify(event.target.value)) }} placeholder="studio-forma" /><p className="helper-text">GoRez · /book/{business.slug || (en ? 'your-business' : 'твоят-бизнес')}</p></div></details>
             </div>
           )}
 
@@ -215,7 +232,7 @@ export function BusinessSetup({ session, onComplete, locale, preview = false }) 
                   <div className="repeat-row" key={index}>
                     <div><label className="compact-label" htmlFor={`service-${index}`}>{en ? 'Service' : 'Услуга'}</label><input id={`service-${index}`} className="compact-input" value={service.name} onChange={(event) => updateList(setServices, index, 'name', event.target.value)} placeholder={en ? 'Haircut' : 'Подстригване'} autoFocus={index === 0} /></div>
                     <div><label className="compact-label" htmlFor={`price-${index}`}>{en ? 'Price' : 'Цена'} (€)</label><input id={`price-${index}`} className="compact-input" type="number" min="0" step="0.01" value={service.price} onChange={(event) => updateList(setServices, index, 'price', event.target.value)} /></div>
-                    <div><label className="compact-label" htmlFor={`duration-${index}`}>{en ? 'Duration (min)' : 'Продължителност (мин)'}</label><input id={`duration-${index}`} className="compact-input" type="number" min="5" max="1440" step="1" value={service.duration_min} onChange={(event) => updateList(setServices, index, 'duration_min', event.target.value)} /></div>
+                    <div><label className="compact-label" htmlFor={`duration-${index}`}>{en ? 'Duration (min)' : 'Продължителност (мин)'}</label><select id={`duration-${index}`} className="compact-input" value={service.duration_min} onChange={(event) => updateList(setServices,index,'duration_min',event.target.value)}>{[...new Set([...DURATION_OPTIONS,Number(service.duration_min)])].sort((a,b)=>a-b).map(minutes=><option key={minutes} value={minutes}>{minutes} {en?'min':'мин.'}</option>)}</select></div>
                     <button className="icon-button" type="button" aria-label={en ? 'Remove service' : 'Премахни услугата'} onClick={() => removeListRow(setServices, index)} disabled={services.length === 1}><Icon name="trash" /></button>
                   </div>
                 ))}
@@ -248,6 +265,7 @@ export function BusinessSetup({ session, onComplete, locale, preview = false }) 
               <div className="review-card"><span className="review-icon"><Icon name="briefcase" /></span><small>{en ? 'Services' : 'Услуги'}</small><strong>{services.length} {en ? (services.length === 1 ? 'service' : 'services') : (services.length === 1 ? 'услуга' : 'услуги')}</strong><p>{services.map((service) => `${service.name} · ${service.duration_min} ${en ? 'min' : 'мин.'}`).join(', ')}</p></div>
               <div className="review-card"><span className="review-icon"><Icon name="users" /></span><small>{en ? 'Team' : 'Екип'}</small><strong>{staff.length} {en ? (staff.length === 1 ? 'person' : 'people') : (staff.length === 1 ? 'човек' : 'души')}</strong><p>{staff.map((person) => person.name).join(', ')}</p></div>
               <div className="review-card full"><span className="review-icon"><Icon name="clock" /></span><small>{en ? 'Working hours' : 'Работно време'}</small><strong>{schedule.filter((day) => day.enabled).length} {en ? 'working days' : 'работни дни'}</strong><p>{schedule.filter((day) => day.enabled).map((day) => `${day.short} ${day.open}–${day.close}${day.breakEnabled ? ` (${en ? 'break' : 'почивка'} ${day.breakStart}–${day.breakEnd})` : ''}`).join(' · ')}</p></div>
+              {application&&<div className="onboarding-account"><label>{en?'Login email':'Имейл за вход'} *<input className="text-input" type="email" autoComplete="email" maxLength={180} value={accountEmail} disabled={Boolean(session)||saving} onChange={event=>setAccountEmail(event.target.value)}/></label>{!session&&<label>{en?'Password · at least 10 characters':'Парола · поне 10 знака'} *<input className="text-input" type="password" autoComplete="new-password" minLength={10} maxLength={128} value={password} onChange={event=>setPassword(event.target.value)}/></label>}<label className="onboarding-consent"><input type="checkbox" checked={consent} onChange={event=>setConsent(event.target.checked)}/><span>{en?'I accept the':'Приемам'} <Link href={`/terms?lang=${locale}`}>{en?'terms':'условията'}</Link> {en?'and have read the':'и съм прочел'} <Link href={`/privacy?lang=${locale}`}>{en?'privacy information':'информацията за поверителност'}</Link>.</span></label><div hidden aria-hidden="true"><input name="company" tabIndex={-1} autoComplete="off" value={company} onChange={event=>setCompany(event.target.value)}/></div><Link href={`/login?lang=${locale}`}>{en?'Already have an account? Sign in first.':'Имаш акаунт? Първо влез в него.'}</Link></div>}
             </div>
           )}
 
@@ -257,7 +275,7 @@ export function BusinessSetup({ session, onComplete, locale, preview = false }) 
           <button className="secondary-button" type="button" onClick={() => { setError(''); setStep((current) => Math.max(0, current - 1)) }} disabled={step === 0 || saving}><Icon name="back" /> {en ? 'Back' : 'Назад'}</button>
           {step < steps.length - 1
             ? <button className="primary-button" type="button" onClick={next}>{en ? 'Continue' : 'Продължи'} <Icon name="arrow" /></button>
-            : <button className="primary-button accent" type="button" onClick={save} disabled={saving}>{saving ? <span className="button-spinner" /> : <Icon name="check" />}{saving ? (en ? 'Saving...' : 'Запазване...') : (en ? 'Complete setup' : 'Завърши настройката')}</button>}
+            : <button className="primary-button accent" type="button" onClick={save} disabled={saving}>{saving ? <span className="button-spinner" /> : <Icon name="check" />}{saving ? (en ? 'Saving...' : 'Запазване...') : application ? (en?'Send for approval':'Изпрати за одобрение') : (en ? 'Complete setup' : 'Завърши настройката')}</button>}
         </footer>
       </section>
     </div>

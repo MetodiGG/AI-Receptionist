@@ -18,6 +18,7 @@ const LEAD_GROUPS={all:['Всички','All'],pending:['За преглед','To
 const NOTICES={
   'lead-saved':['Заявката е запазена.','Application saved.'],
   'lead-approved':['Заявката е одобрена за настройване. Публикуването на бизнеса е отделна стъпка.','Application approved for setup. Business publication is a separate step.'],
+  'application-published':['Бизнесът е одобрен и публикуван. Собственикът може да влезе.','Business approved and published. The owner can now sign in.'],
   'lead-rejected':['Заявката е отказана. Можеш да промениш решението от „Детайли“.','Application rejected. You can change the decision in Details.'],
   'business-saved':['Промяната е запазена.','Change saved.'],
 }
@@ -30,6 +31,7 @@ const ERRORS={
   LEAD_CHANGED:['Заявката е променена междувременно. Обнови списъка и провери статуса, преди да опиташ отново.','This application changed. Refresh and check its status before trying again.'],
   CONFIRMATION_MISMATCH:['Напиши точно адреса на избрания бизнес.','Type the exact business slug.'],
   SETUP_REQUIRED:['Първо са нужни активна услуга, служител и работно време. Собственикът ги настройва от бизнес таблото.','An active service, staff member and working hours are required. The owner sets them up in their business dashboard.'],
+  OWNER_ACTIVATION_REQUIRED:['Входът на собственика не може да бъде активиран. Провери заявката и имейла; бизнесът не е публикуван.','Owner sign-in could not be activated. Check the application and email; the business was not published.'],
   RESTORE_FIRST:['Първо възстанови бизнеса от кошчето.','Restore the business from trash first.'],
   ARCHIVE_FIRST:['Първо премести бизнеса в кошчето.','Move this business to trash first.'],
   UPCOMING_BOOKINGS:['Има предстоящи резервации. Окончателното изтриване е блокирано; данните остават в кошчето.','There are upcoming bookings. Permanent deletion is blocked; data remains in trash.'],
@@ -156,7 +158,8 @@ export function PlatformAdmin({preview=null}) {
       const result=preview?{lead:{...row,...changes,updated_at:new Date().toISOString()}}:await adminRequest('/api/admin/partner-leads',{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:row.id,expectedUpdatedAt:row.updated_at,...changes})})
       if(version!==sequence.current)return false
       setLeads(items=>items.map(item=>item.id===row.id?{...item,...result.lead}:item))
-      setNotice(changes.status===row.status?'lead-saved':changes.status==='onboarding'?'lead-approved':changes.status==='declined'?'lead-rejected':'lead-saved')
+      setNotice(row.business_id&&changes.status==='active'?'application-published':changes.status===row.status?'lead-saved':changes.status==='onboarding'?'lead-approved':changes.status==='declined'?'lead-rejected':'lead-saved')
+      if(row.business_id&&!preview)await load()
       return true
     }catch(problem){if(version===sequence.current)setError(problem.code||'ADMIN_UNAVAILABLE');return false}finally{leadMutating.current=false;setSaving('')}
   }
@@ -182,7 +185,7 @@ export function PlatformAdmin({preview=null}) {
           </article>)}</div>{!businesses.length&&<div className="empty-state">{en?'No businesses match these filters.':'Няма бизнеси по тези филтри.'}</div>}
         </section>}
         {tab==='leads'&&<section className="admin-console-section">
-          <header><div><h2>{en?'Business applications':'Заявки от бизнеси'}</h2><p>{en?'Review → approve → business setup. Publication is separate.':'Преглед → одобрение → настройване. Публикуването е отделно.'}</p></div></header>
+          <header><div><h2>{en?'Business applications':'Заявки от бизнеси'}</h2><p>{en?'Ready profiles publish after approval. Contact-only requests still need setup.':'Готовите профили се публикуват след одобрение. Старите кратки заявки изискват настройване.'}</p></div></header>
           <div className="admin-lead-filters" role="group" aria-label={en?'Filter applications':'Филтрирай заявките'}>{Object.keys(LEAD_GROUPS).map(key=><button key={key} type="button" aria-pressed={leadFilter===key} onClick={()=>setLeadFilter(key)}>{text(LEAD_GROUPS,key,en)}<span>{key==='all'?leads.length:leads.filter(row=>partnerReviewGroup(row.status)===key).length}</span></button>)}</div>
           <div className="partner-lead-list">{visibleLeads.map(row=><AdminApplicationCard key={row.id} row={row} locale={locale} saving={Boolean(saving)||loading} onSave={saveLead}/>)}</div>
           {!visibleLeads.length&&<p className="empty-state">{en?'No applications in this group.':'Няма заявки в тази група.'}</p>}

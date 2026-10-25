@@ -21,13 +21,13 @@ export function AdminApplicationCard({ row, locale, saving, onSave }) {
   const dirty = status !== row.status || notes !== (row.notes || '')
   const website = websiteLink(row.website_url)
   async function decide() {
-    if (await onSave(row, { status: PARTNER_DECISION_STATUS[decision] })) setDecision('')
+    if (await onSave(row, { status: row.business_id&&decision==='approve'?'active':PARTNER_DECISION_STATUS[decision] })) setDecision('')
   }
   return <article className="admin-application-card" aria-labelledby={titleId} aria-busy={saving}>
     <div className="admin-application-heading">
       <span className="admin-store-icon"><Icon name={adminIndustryIcon(row.category)}/></span>
       <div><h3 id={titleId}>{row.business_name}</h3><p>{getIndustryLabel(row.category, locale)}{row.city ? ` · ${row.city}` : ''}</p></div>
-      <span className={`admin-state application-${partnerReviewGroup(row.status)}`}>{PARTNER_STATUS_LABELS[row.status]?.[locale]}</span>
+      <span className={`admin-state application-${partnerReviewGroup(row.status)}`}>{row.business_id&&row.status==='active'?(en?'Approved · published':'Одобрена · публикувана'):PARTNER_STATUS_LABELS[row.status]?.[locale]}</span>
     </div>
     <div className="admin-application-contact">
       {row.contact_name && <span><Icon name="user"/>{row.contact_name}</span>}
@@ -41,14 +41,15 @@ export function AdminApplicationCard({ row, locale, saving, onSave }) {
     {dirty && <p className="admin-application-hint">{en ? 'Save or discard your edits before making a decision.' : 'Запази или отмени редакциите преди решение.'}</p>}
     {decision && <div className="admin-lead-confirm" id={decisionId} role="group" aria-label={en ? 'Confirm application decision' : 'Потвърди решение по заявката'}>
       <strong>{decision === 'approve' ? (en ? 'Approve this application?' : 'Одобряваш ли заявката?') : (en ? 'Reject this application?' : 'Отказваш ли заявката?')}</strong>
-      <p>{decision === 'approve' ? (en ? 'Moves it to setup. It does not create or publish a business, or send an email.' : 'Премества я за настройване. Не създава и не публикува бизнес, не изпраща имейл.') : (en ? 'Keeps the application as rejected. You can change it later in Details. No email is sent.' : 'Запазва заявката като отказана. Можеш да я промениш от „Детайли“. Не се изпраща имейл.')}</p>
+      <p>{decision === 'approve' ? row.business_id?(en?'Publishes the prepared business and unlocks owner sign-in. No verification email is sent.':'Публикува готовия бизнес и отключва входа на собственика. Не се изпраща имейл за потвърждение.'):(en ? 'Moves it to setup. It does not create or publish a business, or send an email.' : 'Премества я за настройване. Не създава и не публикува бизнес, не изпраща имейл.') : (en ? 'Keeps the application as rejected. You can change it later in Details. No email is sent.' : 'Запазва заявката като отказана. Можеш да я промениш от „Детайли“. Не се изпраща имейл.')}</p>
       <div><button className={decision === 'reject' ? 'secondary-button admin-reject-button' : 'primary-button'} disabled={saving} type="button" onClick={decide}>{saving ? (en ? 'Saving…' : 'Запазване…') : (en ? 'Confirm' : 'Потвърди')}</button><button className="secondary-button" disabled={saving} type="button" onClick={() => setDecision('')}>{en ? 'Cancel' : 'Отмени'}</button></div>
     </div>}
     {expanded && <div id={detailsId} className="admin-application-details">
+      {row.setup_summary&&<div className="review-grid"><div className="review-card full"><small>{en?'Address':'Адрес'}</small><strong>{[row.setup_summary.neighborhood,row.setup_summary.address].filter(Boolean).join(', ')}</strong></div><div className="review-card"><small>{en?'Services':'Услуги'}</small>{row.setup_summary.services?.map((service,index)=><p key={index}>{service.name} · {service.duration_min} {en?'min':'мин.'} · {service.price} €</p>)}</div><div className="review-card"><small>{en?'Team':'Екип'}</small>{row.setup_summary.staff?.map((person,index)=><p key={index}>{person.name}</p>)}</div><div className="review-card full"><small>{en?'Schedule':'График'}</small>{row.setup_summary.hours?.map(day=><p key={day.weekday}>{(en?['Mon','Tue','Wed','Thu','Fri','Sat','Sun']:['Пон','Вто','Сря','Чет','Пет','Съб','Нед'])[day.weekday-1]} · {day.open_time}–{day.close_time}{day.break_start?` · ${en?'break':'почивка'} ${day.break_start}–${day.break_end}`:''}</p>)}</div></div>}
       <div className="admin-application-meta"><span>{en ? 'Received' : 'Получена'} <time dateTime={row.created_at}>{new Intl.DateTimeFormat(en ? 'en-GB' : 'bg-BG', { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(row.created_at))}</time></span>{website && <a href={website} target="_blank" rel="noreferrer">{en ? 'Business website' : 'Сайт на бизнеса'} <Icon name="external"/></a>}</div>
       <form onSubmit={async event => { event.preventDefault(); await onSave(row, { status, notes }) }}>
         <fieldset disabled={saving} className="partner-lead-controls">
-          <label><span>{en ? 'Application status' : 'Статус на заявката'}</span><select value={status} onChange={event => { setStatus(event.target.value); setDecision('') }}>{PARTNER_STATUS_KEYS.map(key => <option value={key} key={key}>{PARTNER_STATUS_LABELS[key][locale]}</option>)}</select></label>
+          <label><span>{en ? 'Application status' : 'Статус на заявката'}</span><select value={status} onChange={event => { setStatus(event.target.value); setDecision('') }}>{(row.business_id?['new','active','declined']:PARTNER_STATUS_KEYS).map(key => <option value={key} key={key}>{row.business_id&&key==='active'?(en?'Approved · published':'Одобрена · публикувана'):PARTNER_STATUS_LABELS[key][locale]}</option>)}</select></label>
           <label className="notes"><span>{en ? 'Internal notes' : 'Вътрешни бележки'}</span><textarea value={notes} maxLength={3000} onChange={event => { setNotes(event.target.value); setDecision('') }}/></label>
           <div className="admin-lead-edit-actions"><button className="primary-button" disabled={!dirty} type="submit">{saving ? (en ? 'Saving…' : 'Запазване…') : (en ? 'Save' : 'Запази')}</button>{dirty && <button className="secondary-button" type="button" onClick={() => { setStatus(row.status); setNotes(row.notes || '') }}>{en ? 'Discard' : 'Отмени'}</button>}</div>
         </fieldset>

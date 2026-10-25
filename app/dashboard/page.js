@@ -143,7 +143,7 @@ export default function Dashboard() {
           </div>
         </div>
         {status === 'error' && <div className="form-message"><strong>{en ? 'We could not load the data.' : 'Не успяхме да заредим данните.'}</strong><br />{loadError}</div>}
-        {status === 'setup' && <BusinessSetup session={session} locale={locale} onComplete={(result) => { setData({ ...result, appointmentsCount: 0 }); setStatus('ready') }} />}
+        {status === 'setup' && <BusinessSetup application session={session} locale={locale} onComplete={() => loadBusiness(session)} />}
         {status === 'ready' && <ReadyDashboard data={data} locale={locale} />}
       </main>
     </DashboardShell>

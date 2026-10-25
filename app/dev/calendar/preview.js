@@ -18,7 +18,7 @@ function createSampleAppointments() {
     [1, 12, 0, 60, 0, 'Client E', 'Преглед / Inspection', 'booked', ''],
     [2, 15, 0, 45, 1, 'Client F', 'Диагностика / Diagnostics', 'cancelled', ''],
   ].map(([offset, hour, minute, duration, person, name, service, status, notes], index) => {
-    const starts = today.plus({ days: offset, hours: hour, minutes: minute })
+    const starts = today.plus({ days: offset }).set({hour,minute})
     return { id: `demo-${index}`, starts_at: starts.toUTC().toISO(), ends_at: starts.plus({ minutes: duration }).toUTC().toISO(), staff: staff[person], customer: { name }, service: { name: service }, status, notes }
   })
 }

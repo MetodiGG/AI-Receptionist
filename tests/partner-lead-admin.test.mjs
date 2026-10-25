@@ -94,11 +94,13 @@ test('rate limiting and failures never report a successful decision or expose in
   assert.deepEqual(await response.json(), { error: { code: 'ADMIN_UNAVAILABLE' } })
 })
 
-test('production adapter conditionally updates only the selected lead and never publishes or emails', async () => {
+test('legacy contact-only adapter keeps conditional status edits; ready applications use the separate review transaction', async () => {
   const route = await readFile(new URL('../app/api/admin/partner-leads/route.js', import.meta.url), 'utf8')
   assert.match(route, /\.eq\('id', input\.id\)/)
   assert.match(route, /\.eq\('updated_at', input\.expectedUpdatedAt\)/)
   assert.match(route, /if \(input\.notes !== undefined\)/)
+  assert.match(route, /reviewApplication\(input,actorId\)/)
+  assert.match(route, /if\(reviewed!==undefined\)return reviewed/)
   assert.doesNotMatch(route, /from\('businesses'\)|sendEmail|resend|auth\.admin|deleteUser|rpc\('platform_business_action'/)
   const ui = await readFile(new URL('../components/admin-application-card.js', import.meta.url), 'utf8')
   assert.match(ui, /saving \|\| dirty/)

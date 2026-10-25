@@ -53,7 +53,8 @@ test('homepage replaces AI photos and interactive fake bookings without changing
   assert.doesNotMatch(film, /\bfetch\s*\(|supabase|trackProductEvent|createBooking|setConfirmed/)
   assert.doesNotMatch(film, /<button|<input|<form|<a\s|onClick|setPaused/)
   assert.match(home, /<BookingStory locale=\{locale\}\/>/)
-  assert.match(home, /<BusinessDirectory locale=\{locale\} industry=\{industry\} setIndustry=\{setIndustry\}/)
+  assert.match(home, /<BusinessDirectory locale=\{locale\} data=\{directory\} filters=\{filters\}/)
+  assert.match(home, /<DirectoryFilters rows=/)
   assert.match(home, /cta_find_appointment_click/)
 })
 

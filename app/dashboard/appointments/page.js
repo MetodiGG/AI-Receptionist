@@ -1,6 +1,7 @@
 'use client'
 
 import { DateTime } from 'luxon'
+import { DateMenu } from '../../../components/date-menu'
 import Link from 'next/link'
 import { useCallback, useEffect, useState } from 'react'
 import { OwnerPage } from '../../../components/owner-page'
@@ -137,7 +138,7 @@ function AppointmentsContent({ business, locale }) {
           <div className="settings-form-grid">
             <label><span>{en ? 'Service' : 'Услуга'} *</span><select required value={manual.serviceId} onChange={(event) => setManual({ ...manual, serviceId: event.target.value, startsAt: '' })}><option value="">{en ? 'Choose' : 'Избери'}</option>{services.map((item) => <option value={item.id} key={item.id}>{item.name}</option>)}</select></label>
             <label><span>{en ? 'Specialist' : 'Специалист'}</span><select value={manual.staffId} onChange={(event) => setManual({ ...manual, staffId: event.target.value, startsAt: '' })}><option value="">{en ? 'No preference' : 'Без предпочитание'}</option>{staff.map((person) => <option value={person.id} key={person.id}>{person.name}</option>)}</select></label>
-            <label><span>{en ? 'Date' : 'Дата'} *</span><input required type="date" min={DateTime.now().setZone(business.timezone).toISODate()} value={manual.date} onChange={(event) => setManual({ ...manual, date: event.target.value, startsAt: '' })} /></label>
+            <div className="calendar-form-date"><span>{en ? 'Date' : 'Дата'} *</span><DateMenu locale={locale} timezone={business.timezone} minDate={DateTime.now().setZone(business.timezone).toISODate()} value={manual.date} onChange={date => setManual({ ...manual, date, startsAt: '' })}/></div>
             <label><span>{en ? 'Available time' : 'Свободен час'} *</span><select required disabled={slotsLoading} value={manual.startsAt} onChange={(event) => setManual({ ...manual, startsAt: event.target.value })}><option value="">{slotsLoading ? (en ? 'Checking availability…' : 'Проверяваме часовете…') : manual.date ? (en ? 'Choose a time' : 'Избери час') : (en ? 'Choose a date first' : 'Първо избери дата')}</option>{slots.map((slot) => <option value={bookingSlotKey(slot)} key={bookingSlotKey(slot)}>{slot.localTime}–{slot.localEndTime} · {slot.staffName}</option>)}</select></label>
             <label><span>{en ? 'Name' : 'Име'} *</span><input required minLength={2} value={manual.name} onChange={(event) => setManual({ ...manual, name: event.target.value })} /></label>
             <label><span>{en ? 'Phone' : 'Телефон'} *</span><input required minLength={6} type="tel" value={manual.phone} onChange={(event) => setManual({ ...manual, phone: event.target.value })} /></label>
@@ -154,7 +155,7 @@ function AppointmentsContent({ business, locale }) {
           <div className="settings-panel-head"><h3 id="move-title">{en ? 'Reschedule booking' : 'Премести резервацията'}</h3><p>{move.appointment.customer?.name} · {move.appointment.service?.name}</p></div>
           <div className="settings-form-grid">
             <label><span>{en ? 'Specialist' : 'Специалист'}</span><select value={move.staffId} onChange={(event) => setMove({ ...move, staffId: event.target.value, startsAt: '' })}><option value="">{en ? 'No preference' : 'Без предпочитание'}</option>{staff.map((person) => <option value={person.id} key={person.id}>{person.name}</option>)}</select></label>
-            <label><span>{en ? 'New date' : 'Нова дата'} *</span><input required type="date" min={DateTime.now().setZone(business.timezone).toISODate()} value={move.date} onChange={(event) => setMove({ ...move, date: event.target.value, startsAt: '' })} /></label>
+            <div className="calendar-form-date"><span>{en ? 'New date' : 'Нова дата'} *</span><DateMenu locale={locale} timezone={business.timezone} minDate={DateTime.now().setZone(business.timezone).toISODate()} value={move.date} onChange={date => setMove({ ...move, date, startsAt: '' })}/></div>
             <label className="full"><span>{en ? 'New available time' : 'Нов свободен час'} *</span><select required disabled={moveSlotsLoading} value={move.startsAt} onChange={(event) => setMove({ ...move, startsAt: event.target.value })}><option value="">{moveSlotsLoading ? (en ? 'Checking availability…' : 'Проверяваме часовете…') : move.date ? (en ? 'Choose a time' : 'Избери час') : (en ? 'Choose a date first' : 'Първо избери дата')}</option>{moveSlots.map((slot) => <option value={bookingSlotKey(slot)} key={bookingSlotKey(slot)}>{slot.localTime}–{slot.localEndTime} · {slot.staffName}</option>)}</select></label>
           </div>
           <p className="security-note">{en ? 'The calendar updates immediately. When booking emails are enabled, a change email is queued for bookings created with email notifications. Contact the client directly if delivery is not confirmed.' : 'Календарът се обновява веднага. При включени имейл известия се планира съобщение за резервациите, създадени с имейл известяване. Свържи се директно с клиента, ако доставката не е потвърдена.'}</p>

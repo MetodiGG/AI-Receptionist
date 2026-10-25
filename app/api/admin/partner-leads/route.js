@@ -4,6 +4,7 @@ import { getSupabaseAdmin } from '../../../../lib/supabase-admin'
 import { privateJson } from '../../../../lib/platform-admin.mjs'
 import { consumeRateLimit } from '../../../../lib/rate-limit'
 import { createPartnerLeadUpdateHandler } from '../../../../lib/partner-lead-admin.mjs'
+import { reviewApplication } from '../../../../lib/business-application-review'
 
 async function hasAdminAccess(request) {
   const user = await requireUser(request)
@@ -16,7 +17,7 @@ export async function GET(request) {
     const supabase = getSupabaseAdmin()
     const { data, error } = await supabase
       .from('partner_leads')
-      .select('id,business_name,contact_name,phone,email,category,city,website_url,status,notes,locale,created_at,updated_at')
+      .select('id,business_name,contact_name,phone,email,category,city,website_url,status,notes,locale,created_at,updated_at,business_id,setup_summary')
       .order('created_at', { ascending: false })
       .limit(250)
     if (error) throw error
@@ -31,7 +32,9 @@ export const PATCH = createPartnerLeadUpdateHandler({
   authenticate: requireUser,
   isAdmin: isPlatformAdmin,
   allowAttempt: (request, id) => consumeRateLimit(request, { scope: `platform-leads:${id}`, limit: 30, windowSeconds: 900 }),
-  update: async input => {
+  update: async (input,actorId) => {
+    const reviewed=await reviewApplication(input,actorId)
+    if(reviewed!==undefined)return reviewed
     const changes = { status: input.status, updated_at: new Date().toISOString() }
     if (input.notes !== undefined) changes.notes = input.notes || null
     const { data, error } = await getSupabaseAdmin()

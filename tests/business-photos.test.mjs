@@ -68,7 +68,7 @@ test('public profile and directory expose the same curated list without extra da
   assert.match(page, /<BusinessPhotoGallery photos=\{business\.photos\}/)
   assert.match(page, /hasPhotos \? business\.name/)
   assert.match(cards, /row\.photos\?\.length > 0/)
-  assert.match(cards, /Image src=\{row\.photos\[0\]\.src\}/)
+  assert.match(cards, /BusinessPhotoGallery photos=\{row\.photos\}.*variant="directory"/)
 })
 
 test('gallery keeps native dialog focus/escape, labelled touch and keyboard controls, and uncropped full-size images', async () => {
@@ -81,5 +81,9 @@ test('gallery keeps native dialog focus/escape, labelled touch and keyboard cont
   assert.match(source, /'Previous photo' : 'Предишна снимка'/)
   assert.match(source, /'Next photo' : 'Следваща снимка'/)
   assert.match(css, /\.business-photo-viewer img \{ object-fit: contain; \}/)
-  assert.doesNotMatch(source, /setInterval|autoPlay|fetch\(|<form/)
+  assert.match(source, /createPhotoAutoplay/)
+  assert.match(source, /!paused && !media\.matches && !document\.hidden/)
+  assert.match(source, /observer\?\.disconnect\(\)/)
+  assert.match(source, /media\.removeEventListener/)
+  assert.doesNotMatch(source, /text\(.*caption\)|fetch\(|<form/)
 })

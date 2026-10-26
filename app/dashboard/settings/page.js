@@ -9,6 +9,7 @@ import { getBookingIntake } from '../../../lib/booking-intake.mjs'
 import { BusinessLocationFields } from '../../../components/business-location-fields'
 import { WeeklyScheduleFields } from '../../../components/weekly-schedule-fields'
 import { AccountDeletionPanel } from '../../../components/account-deletion-panel'
+import { BusinessPublicProfileEditor } from '../../../components/business-public-profile-editor'
 import { businessLocationFields, findCity } from '../../../lib/business-location.mjs'
 import { DURATION_OPTIONS, validDuration, scheduleFromHours, scheduleProblem, scheduleRows, scheduleErrorText, scheduleWriteError } from '../../../lib/business-schedule.mjs'
 
@@ -118,7 +119,7 @@ function SettingsContent({ business, refreshBusiness, locale }) {
 
   async function saveService(service) {
     if (!service.name.trim() || !validDuration(service.duration_min) || service.price === '' || !Number.isFinite(Number(service.price)) || Number(service.price) < 0) { setMessage({ type: 'error', text: en ? 'Enter a service name, a non-negative price and a duration of 5–1440 minutes.' : 'Въведи име на услугата, неотрицателна цена и продължителност от 5 до 1440 минути.' }); return }
-    const { error } = await supabase.from('services').update({ name: service.name.trim(), description: service.description || null, price: Number(service.price), duration_min: Number(service.duration_min) }).eq('id', service.id).eq('business_id', business.id)
+    const { error } = await supabase.from('services').update({ name: service.name.trim(), description: service.description || null, category: service.category?.trim().slice(0, 80) || null, price: Number(service.price), duration_min: Number(service.duration_min) }).eq('id', service.id).eq('business_id', business.id)
     if (error) { setMessage({ type: 'error', text: error.message }); return }
     showSuccess(en ? 'Service saved.' : 'Услугата е запазена.')
   }
@@ -193,9 +194,17 @@ function SettingsContent({ business, refreshBusiness, locale }) {
       if (error) throw error
       return [table, data || []]
     })).catch((requestError) => { setMessage({ type: 'error', text: requestError.message }); return null })
+    if (!results) { setSaving(false); return }
+    let reviews
+    try {
+      const { data } = await supabase.auth.getSession()
+      if (!data.session) throw new Error('UNAUTHORIZED')
+      const response = await fetch(`/api/owner/public-profile?business_id=${business.id}`, { headers: { Authorization: `Bearer ${data.session.access_token}` }, cache: 'no-store' })
+      if (!response.ok) throw new Error('REVIEWS_UNAVAILABLE')
+      reviews = (await response.json()).reviews
+    } catch { setSaving(false); setMessage({ type: 'error', text: en ? 'Could not export review data. Please try again.' : 'Не успяхме да изтеглим данните за отзивите. Опитай отново.' }); return }
     setSaving(false)
-    if (!results) return
-    const payload = { exported_at: new Date().toISOString(), business, ...Object.fromEntries(results) }
+    const payload = { exported_at: new Date().toISOString(), business, ...Object.fromEntries(results), reviews }
     const url = URL.createObjectURL(new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' }))
     const link = document.createElement('a'); link.href = url; link.download = `${business.slug}-data-export.json`; link.click(); URL.revokeObjectURL(url)
     showSuccess(en ? 'Your data archive is ready.' : 'Архивът с данни е създаден.')
@@ -205,9 +214,10 @@ function SettingsContent({ business, refreshBusiness, locale }) {
     <main className="dashboard-content admin-page settings-page">
       <div className="admin-page-head"><div><p className="auth-kicker">{en ? 'Configuration' : 'Конфигурация'}</p><h2>{en ? 'Settings' : 'Настройки'}</h2><p>{en ? 'Changes appear immediately on the public page and in the online assistant.' : 'Промените се отразяват веднага в публичната страница и онлайн асистента.'}</p></div><Link className="secondary-button" href={`/book/${business.slug}?lang=${locale}`} target="_blank">{en ? 'Open public page' : 'Преглед на страницата'} ↗</Link></div>
       <div className="settings-tabs">
-        {[['business', en ? 'Business' : 'Бизнес'], ['services', en ? 'Services' : 'Услуги'], ['staff', en ? 'Team' : 'Екип'], ['hours', en ? 'Hours & breaks' : 'Работно време и почивки'], ['timeoff', en ? 'One-off closure' : 'Еднократно отсъствие'], ['assistant', en ? 'Assistant' : 'Асистент'], ['data', en ? 'Data' : 'Данни'], ['account', en ? 'Account' : 'Акаунт']].map(([value, label]) => <button type="button" className={section === value ? 'active' : ''} onClick={() => setSection(value)} key={value}>{label}</button>)}
+        {[['business', en ? 'Business' : 'Бизнес'], ['public', en ? 'Public page & reviews' : 'Публична страница и отзиви'], ['services', en ? 'Services' : 'Услуги'], ['staff', en ? 'Team' : 'Екип'], ['hours', en ? 'Hours & breaks' : 'Работно време и почивки'], ['timeoff', en ? 'One-off closure' : 'Еднократно отсъствие'], ['assistant', en ? 'Assistant' : 'Асистент'], ['data', en ? 'Data' : 'Данни'], ['account', en ? 'Account' : 'Акаунт']].map(([value, label]) => <button type="button" className={section === value ? 'active' : ''} onClick={() => setSection(value)} key={value}>{label}</button>)}
       </div>
       {message && <p className={`form-message ${message.type === 'success' ? 'success' : ''}`} role="alert">{message.text}</p>}
+      {section === 'public' && <BusinessPublicProfileEditor key={business.id} business={business} locale={locale} onSaved={refreshBusiness} />}
 
       {(section === 'business' || section === 'assistant') && <form className="settings-panel" onSubmit={saveProfile}>
         {section === 'business' ? <>
@@ -242,7 +252,19 @@ function SettingsContent({ business, refreshBusiness, locale }) {
         <div className="settings-actions"><button className="primary-button" type="submit" disabled={saving}>{saving ? (en ? 'Saving...' : 'Запазване...') : (en ? 'Save changes' : 'Запази промените')}</button></div>
       </form>}
 
-      {section === 'services' && <section className="settings-panel"><div className="settings-panel-head with-action"><div><h3>{en ? 'Services' : 'Услуги'}</h3><p>{en ? 'Set the real duration of every service, e.g. 45 or 60 minutes for a haircut. Changes apply to new bookings; existing bookings keep their agreed times.' : 'Задай реалното време за всяка услуга — например 45 или 60 минути за подстригване. Промяната важи за нови резервации, не променя вече запазените часове.'}</p></div><button className="primary-button" type="button" onClick={addService}>+ {en ? 'Add service' : 'Добави услуга'}</button></div><div className="editable-list">{services.map((service, index) => <article className="editable-card" key={service.id}><div className="settings-form-grid"><label><span>{en ? 'Name' : 'Име'}</span><input value={service.name} onChange={(event) => setServices((current) => current.map((item, i) => i === index ? { ...item, name: event.target.value } : item))} /></label><label><span>{en ? 'Price' : 'Цена'}</span><input type="number" min="0" step="0.01" value={service.price} onChange={(event) => setServices((current) => current.map((item, i) => i === index ? { ...item, price: event.target.value } : item))} /></label><label><span>{en ? 'Duration (minutes)' : 'Продължителност (минути)'}</span><input type="number" min="5" max="1440" step="1" value={service.duration_min} onChange={(event) => setServices((current) => current.map((item, i) => i === index ? { ...item, duration_min: event.target.value } : item))} /></label><label className="full"><span>{en ? 'Description' : 'Описание'}</span><input value={service.description || ''} onChange={(event) => setServices((current) => current.map((item, i) => i === index ? { ...item, description: event.target.value } : item))} /></label></div><div className="editable-actions"><button className="danger-link" type="button" onClick={() => archiveService(service.id)}>{en ? 'Archive' : 'Архивирай'}</button><button className="secondary-button" type="button" onClick={() => saveService(service)}>{en ? 'Save' : 'Запази'}</button></div></article>)}</div></section>}
+      {section === 'services' && <section className="settings-panel">
+        <div className="settings-panel-head with-action"><div><h3>{en ? 'Services' : 'Услуги'}</h3><p>{en ? 'Set the real duration of every service. Changes apply to new bookings; existing bookings keep their agreed times.' : 'Задай реалното време за всяка услуга. Промяната важи за нови резервации, не променя вече запазените часове.'}</p></div><button className="primary-button" type="button" onClick={addService}>+ {en ? 'Add service' : 'Добави услуга'}</button></div>
+        <div className="editable-list">{services.map((service, index) => {
+          const change = (key, value) => setServices(current => current.map((item, i) => i === index ? { ...item, [key]: value } : item))
+          return <article className="editable-card" key={service.id}><div className="settings-form-grid">
+            <label><span>{en ? 'Name' : 'Име'}</span><input value={service.name} onChange={event => change('name', event.target.value)} /></label>
+            <label><span>{en ? 'Category (optional)' : 'Категория (по желание)'}</span><input maxLength={80} list="service-categories" value={service.category || ''} onChange={event => change('category', event.target.value)} /></label>
+            <label><span>{en ? 'Price' : 'Цена'}</span><input type="number" min="0" step="0.01" value={service.price} onChange={event => change('price', event.target.value)} /></label>
+            <label><span>{en ? 'Duration (minutes)' : 'Продължителност (минути)'}</span><input type="number" min="5" max="1440" step="1" value={service.duration_min} onChange={event => change('duration_min', event.target.value)} /></label>
+            <label className="full"><span>{en ? 'Description' : 'Описание'}</span><input value={service.description || ''} onChange={event => change('description', event.target.value)} /></label>
+          </div><div className="editable-actions"><button className="danger-link" type="button" onClick={() => archiveService(service.id)}>{en ? 'Archive' : 'Архивирай'}</button><button className="secondary-button" type="button" onClick={() => saveService(service)}>{en ? 'Save' : 'Запази'}</button></div></article>
+        })}</div><datalist id="service-categories">{[...new Set(services.map(service => service.category?.trim()).filter(Boolean))].map(category => <option key={category} value={category} />)}</datalist>
+      </section>}
 
       {section === 'staff' && <section className="settings-panel"><div className="settings-panel-head with-action"><div><h3>{en ? 'Team' : 'Екип'}</h3><p>{en ? 'People clients can book with.' : 'Хората, при които клиентите могат да резервират.'}</p></div><button className="primary-button" type="button" onClick={addStaff}>+ {en ? 'Add person' : 'Добави човек'}</button></div><div className="editable-list">{staff.map((person, index) => <article className="editable-card" key={person.id}><div className="settings-form-grid"><label><span>{en ? 'Name' : 'Име'}</span><input value={person.name} onChange={(event) => setStaff((current) => current.map((item, i) => i === index ? { ...item, name: event.target.value } : item))} /></label><label><span>{en ? 'Phone' : 'Телефон'}</span><input value={person.phone || ''} onChange={(event) => setStaff((current) => current.map((item, i) => i === index ? { ...item, phone: event.target.value } : item))} /></label><label><span>{en ? 'Email' : 'Имейл'}</span><input type="email" value={person.email || ''} onChange={(event) => setStaff((current) => current.map((item, i) => i === index ? { ...item, email: event.target.value } : item))} /></label><label><span>{en ? 'Short bio' : 'Кратко описание'}</span><input value={person.bio || ''} onChange={(event) => setStaff((current) => current.map((item, i) => i === index ? { ...item, bio: event.target.value } : item))} /></label></div><div className="editable-actions"><button className="danger-link" type="button" onClick={() => archiveStaff(person.id)}>{en ? 'Archive' : 'Архивирай'}</button><button className="secondary-button" type="button" onClick={() => saveStaff(person)}>{en ? 'Save' : 'Запази'}</button></div></article>)}</div></section>}
 

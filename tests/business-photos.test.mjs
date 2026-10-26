@@ -64,9 +64,10 @@ test('only an intentional horizontal swipe changes photos, not a tap or a vertic
 test('public profile and directory expose the same curated list without extra database requests', async () => {
   const profile = await read('lib/public-booking.js'), directory = await read('app/api/public/businesses/route.js')
   for (const source of [profile, directory]) assert.match(source, /photos: getBusinessPhotos\(business\)/)
-  const page = await read('components/public-booking-page.js'), cards = await read('components/business-directory.js')
+  const page = await read('components/business-profile.js'), booking = await read('components/public-booking-page.js'), cards = await read('components/business-directory.js')
   assert.match(page, /<BusinessPhotoGallery photos=\{business\.photos\}/)
-  assert.match(page, /hasPhotos \? business\.name/)
+  assert.match(page, /<h1 id="business-profile-name">\{business\.name\}/)
+  assert.match(booking, /<BusinessProfileHeader business=\{business\}/)
   assert.match(cards, /row\.photos\?\.length > 0/)
   assert.match(cards, /BusinessPhotoGallery photos=\{row\.photos\}.*variant="directory"/)
 })

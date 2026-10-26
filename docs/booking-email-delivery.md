@@ -39,7 +39,13 @@ old pilot bookings. Never reuse the API key previously exposed in a screenshot.
   after six hours. A sent record means provider ACCEPTED, not inbox Delivered.
 - No raw provider response, contact data, API key or private link is logged.
   Outbox rows/payloads are private owner-readable data and included in existing
-  customer erasure and business-account deletion flows.
+  customer erasure and business-account deletion flows. Exception: review-request
+  rows are service-only even for the business owner, because their payload
+  contains a one-use client review credential. See `business-reviews.md`.
+
+- Completed-visit review invitations add one optional customer message per
+  completed booking. They share the provider quota with booking and Auth mail.
+  They use the same worker/scheduler, but only after the reviews migration.
 
 ## Production settings
 

@@ -1,7 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { flushSync } from 'react-dom'
 import { DateTime } from 'luxon'
 import { useParams, useRouter } from 'next/navigation'
 import { BrandLogo } from './brand-logo'
@@ -15,6 +16,7 @@ import { collapseSlotsByLocalTime, formatBulgarianMonthShort, groupSlotsByPeriod
 import { hasSupabaseConfig, supabase } from '../lib/supabase'
 import { notificationNotice } from '../lib/notification-copy.mjs'
 import { trackProductEvent } from '../lib/product-events-client'
+import { focusBookingDetails } from '../lib/booking-details-navigation.mjs'
 
 const BOOKING_COPY = {
   bg: { loading: 'Подготвяме свободните часове…', home: 'Начало', dashboard: 'Към таблото', logout: 'Изход', loggingOut: 'Излизане…', online: 'Онлайн', eyebrow: 'Онлайн записване · 24/7', hero: 'Запази време', heroEm: 'за себе си.', lead: 'Избери услугата и най-удобния свободен час. Без обаждане, без регистрация и без чакане за отговор.', book: 'Резервирай час', assistant: 'Онлайн асистент', proof: ['Избираш услуга', 'Виждаш свободните часове', 'Получаваш потвърждение'], reassurance: ['Без профил', 'Реална наличност', 'Сигурно управление'], terms: 'Условия за резервация', privacy: 'Поверителност', legalTerms: 'Условия', powered: 'Задвижвано от GoRez', secure: 'Защитена резервация', notOpen: 'Не успяхме да отворим страницата', retry: 'Опитай отново' },
@@ -65,6 +67,8 @@ function BookingPanel({ business, locale }) {
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState('')
   const [confirmation, setConfirmation] = useState(null)
+  const detailsHeadingRef = useRef(null)
+  const nameInputRef = useRef(null)
 
   const service = business.services.find((item) => item.id === serviceId)
   const availableStaff = useMemo(() => {
@@ -120,6 +124,13 @@ function BookingPanel({ business, locale }) {
     setStaffId('')
     setDate('')
     setSlot(null)
+  }
+
+  function chooseSlot(item) {
+    // Mount the conditional form before focusing, without delaying the user's
+    // tap into an effect/timer (which can suppress the keyboard on iOS).
+    flushSync(() => setSlot(item))
+    focusBookingDetails(detailsHeadingRef.current, nameInputRef.current, window.matchMedia?.('(prefers-reduced-motion: reduce)').matches)
   }
 
   async function submit(event) {
@@ -228,7 +239,7 @@ function BookingPanel({ business, locale }) {
               <div className="time-period-head"><h3>{period.label}</h3><span>{period.range}</span></div>
               <div className="slot-grid">{period.slots.map((item) => {
                 const selected = slot?.startsAt === item.startsAt && slot?.staffId === item.staffId
-                return <button type="button" aria-pressed={selected} className={selected ? 'selected' : ''} onClick={() => setSlot(item)} key={`${item.staffId}-${item.startsAt}`}><span className="slot-time"><strong>{item.localTime}<span className="slot-end-time">–{item.localEndTime || DateTime.fromISO(item.endsAt).setZone(business.timezone).toFormat('HH:mm')}</span></strong>{selected && <i aria-hidden="true">✓</i>}</span>{!staffId && <small>{item.staffName}</small>}</button>
+                return <button type="button" aria-pressed={selected} className={selected ? 'selected' : ''} onClick={() => chooseSlot(item)} key={`${item.staffId}-${item.startsAt}`}><span className="slot-time"><strong>{item.localTime}<span className="slot-end-time">–{item.localEndTime || DateTime.fromISO(item.endsAt).setZone(business.timezone).toFormat('HH:mm')}</span></strong>{selected && <i aria-hidden="true">✓</i>}</span>{!staffId && <small>{item.staffName}</small>}</button>
               })}</div>
             </section>)}</div>}
           </div>
@@ -237,9 +248,9 @@ function BookingPanel({ business, locale }) {
 
       {slot && <form className="booking-details" onSubmit={submit}>
         <div className="booking-divider" />
-        <div className="booking-section-head"><span>4</span><div><h2>{en ? 'Your details' : 'Твоите данни'}</h2><p>{en ? 'For confirmation and contact if anything changes.' : 'За потвърждение и връзка при промяна.'}</p></div></div>
+        <div className="booking-section-head booking-details-heading" ref={detailsHeadingRef}><span>4</span><div><h2>{en ? 'Your details' : 'Твоите данни'}</h2><p>{en ? 'For confirmation and contact if anything changes.' : 'За потвърждение и връзка при промяна.'}</p></div></div>
         <div className="booking-form-grid">
-          <label><span>{en ? 'Name *' : 'Име *'}</span><input required minLength={2} value={details.name} onChange={(event) => setDetails({ ...details, name: event.target.value })} placeholder={en ? 'Your name' : 'Твоето име'} /></label>
+          <label><span>{en ? 'Name *' : 'Име *'}</span><input ref={nameInputRef} required minLength={2} name="name" autoComplete="name" value={details.name} onChange={(event) => setDetails({ ...details, name: event.target.value })} placeholder={en ? 'Your name' : 'Твоето име'} /></label>
           <label><span>{en ? 'Phone *' : 'Телефон *'}</span><input required minLength={6} type="tel" value={details.phone} onChange={(event) => setDetails({ ...details, phone: event.target.value })} placeholder="+359 88 123 4567" /></label>
           <label className="full"><span>{en ? 'Email *' : 'Имейл *'}</span><input required type="email" autoComplete="email" inputMode="email" maxLength={180} value={details.email} onChange={(event) => setDetails({ ...details, email: event.target.value })} placeholder="name@example.com" /></label>
           <label className="full"><span>{en ? 'Note' : 'Бележка'}</span><textarea value={details.notes} onChange={(event) => setDetails({ ...details, notes: event.target.value })} placeholder={en ? 'Additional information (optional)' : 'Допълнителна информация (по желание)'} maxLength={600} /></label>

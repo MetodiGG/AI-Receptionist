@@ -3563,6 +3563,10 @@ a {
   margin-bottom: 20px;
 }
 
+.booking-details-heading {
+  scroll-margin-block-start: 24px;
+}
+
 .booking-section-head > span {
   display: grid;
   place-items: center;

@@ -17,7 +17,9 @@ import { hasSupabaseConfig, supabase } from '../lib/supabase'
 import { notificationNotice } from '../lib/notification-copy.mjs'
 import { trackProductEvent } from '../lib/product-events-client'
 import { focusBookingDetails } from '../lib/booking-details-navigation.mjs'
-import { BusinessPhotoGallery } from './business-photo-gallery'
+import { BusinessProfileHeader, BusinessProfileInformation } from './business-profile'
+import { BusinessReviews, useBusinessReviews } from './business-reviews'
+import { groupBusinessServices } from '../lib/business-profile.mjs'
 
 const BOOKING_COPY = {
   bg: { loading: 'Подготвяме свободните часове…', home: 'Начало', dashboard: 'Към таблото', logout: 'Изход', loggingOut: 'Излизане…', online: 'Онлайн', eyebrow: 'Онлайн записване · 24/7', hero: 'Запази време', heroEm: 'за себе си.', lead: 'Избери услугата и най-удобния свободен час. Без обаждане, без регистрация и без чакане за отговор.', book: 'Резервирай час', assistant: 'Онлайн асистент', proof: ['Избираш услуга', 'Виждаш свободните часове', 'Получаваш потвърждение'], reassurance: ['Без профил', 'Реална наличност', 'Сигурно управление'], terms: 'Условия за резервация', privacy: 'Поверителност', legalTerms: 'Условия', powered: 'Задвижвано от GoRez', secure: 'Защитена резервация', notOpen: 'Не успяхме да отворим страницата', retry: 'Опитай отново' },
@@ -191,14 +193,15 @@ function BookingPanel({ business, locale }) {
   return (
     <section className="booking-card">
       <div className="booking-section-head"><span>1</span><div><h2>{en ? 'Choose a service' : 'Избери услуга'}</h2><p>{en ? 'What would you like to book?' : 'Какво искаш да резервираш?'}</p></div></div>
-      <div className="service-grid">
-        {business.services.map((item) => (
-          <button type="button" className={`service-option ${serviceId === item.id ? 'selected' : ''}`} onClick={() => chooseService(item.id)} key={item.id}>
-            <span className="service-accent" style={{ background: item.color }} />
-            <span><strong>{item.name}</strong>{item.description && <small>{item.description}</small>}<small>{item.duration_min} {en ? 'min' : 'мин.'}</small></span>
-            <b>{formatMoney(item.price, item.currency, locale)}</b>
-          </button>
-        ))}
+      <div className="business-service-groups">
+        {groupBusinessServices(business.services, locale).map(group => <details className="business-service-group" key={group.name} open>
+          <summary><span>{group.name}</span><small>{group.services.length}</small></summary><div className="service-grid business-service-list">
+            {group.services.map(item => <div className="business-service-row" key={item.id}><button type="button" aria-pressed={serviceId === item.id} className={`service-option ${serviceId === item.id ? 'selected' : ''}`} onClick={() => chooseService(item.id)}>
+              <span className="service-accent" style={{ background: item.color }} /><span><strong>{item.name}</strong><small>{item.duration_min} {en ? 'min' : 'мин.'}</small></span>
+              <span className="business-service-price"><b>{formatMoney(item.price, item.currency, locale)}</b><small>{serviceId === item.id ? (en ? 'Selected ✓' : 'Избрано ✓') : (en ? 'Choose' : 'Избери')}</small></span>
+            </button>{item.description && <details className="business-service-description"><summary>{en ? 'Details' : 'Виж детайли'}</summary><p>{item.description}</p></details>}</div>)}
+          </div>
+        </details>)}
       </div>
 
       {serviceId && <>
@@ -269,20 +272,20 @@ function BookingPanel({ business, locale }) {
   )
 }
 
-export default function PublicBookingPage({ initialLocale = 'bg' }) {
-  const { slug } = useParams()
+export default function PublicBookingPage({ initialLocale = 'bg', previewBusiness = null, previewReviews = null }) {
+  const params = useParams(), slug = previewBusiness?.slug || params.slug
   const router = useRouter()
   const { locale, setLocale } = usePublicLocale(initialLocale)
   const copy = BOOKING_COPY[locale]
-  const [business, setBusiness] = useState(null)
-  const [status, setStatus] = useState('loading')
+  const [business, setBusiness] = useState(previewBusiness)
+  const [status, setStatus] = useState(previewBusiness ? 'ready' : 'loading')
   const [error, setError] = useState('')
   const [mode, setMode] = useState('booking')
   const [embedded, setEmbedded] = useState(false)
   const [ownerSession, setOwnerSession] = useState(null)
   const [ownsBusiness, setOwnsBusiness] = useState(false)
   const [signingOut, setSigningOut] = useState(false)
-  const hasPhotos = Boolean(business?.photos?.length)
+  const reviews = useBusinessReviews(slug, previewReviews)
 
   useEffect(() => {
     if (!hasSupabaseConfig) return
@@ -302,6 +305,7 @@ export default function PublicBookingPage({ initialLocale = 'bg' }) {
   }, [ownerSession])
 
   useEffect(() => {
+    if (previewBusiness) return
     setEmbedded(new URLSearchParams(window.location.search).get('embed') === '1')
     let active = true
     fetch(`/api/public/${slug}`)
@@ -312,7 +316,7 @@ export default function PublicBookingPage({ initialLocale = 'bg' }) {
       })
       .catch((requestError) => { if (active) { setError(requestError.message); setStatus('error') } })
     return () => { active = false }
-  }, [locale, slug])
+  }, [locale, slug, previewBusiness])
 
   async function logout() {
     setSigningOut(true)
@@ -338,20 +342,17 @@ export default function PublicBookingPage({ initialLocale = 'bg' }) {
           </nav> : <Link className="booking-home-link" href={`/?lang=${locale}`}><span aria-hidden="true">←</span> {copy.home}</Link>}
         </div>
       </header>
-      <section className={`booking-hero${hasPhotos ? ' booking-hero-with-photos' : ''}`}>
-        <div className="booking-hero-copy"><p className="booking-eyebrow">{copy.eyebrow}</p><h1>{hasPhotos ? business.name : <>{copy.hero}<br /><em>{copy.heroEm}</em></>}</h1><p>{hasPhotos ? (locale === 'en' ? 'Choose a service and a time that suits you.' : 'Избери услуга и удобен за теб час.') : copy.lead}</p>{business.address && <span className="booking-address">⌖ {business.address}</span>}</div>
-        <div className="booking-hero-aside">
-          {hasPhotos && <BusinessPhotoGallery photos={business.photos} businessName={business.name} locale={locale} key={business.id} />}
+      {previewBusiness && <p className="local-profile-qa-label">LOCAL QA · fictional profile and reviews · not a real business</p>}
+      {!embedded && <BusinessProfileHeader business={business} locale={locale} reviews={reviews} onBook={() => setMode('booking')} />}
+      <div className="business-booking-method">
           <div className="booking-mode-switch" role="tablist" aria-label={locale === 'en' ? 'Booking method' : 'Начин за записване'}>
             <button role="tab" aria-selected={mode === 'booking'} aria-controls="booking-experience" className={mode === 'booking' ? 'active' : ''} onClick={() => setMode('booking')}>{copy.book}</button>
             <button role="tab" aria-selected={mode === 'chat'} aria-controls="booking-experience" className={mode === 'chat' ? 'active' : ''} onClick={() => setMode('chat')}>{copy.assistant}</button>
           </div>
-          {!hasPhotos && <div className="booking-proof-list">{copy.proof.map((item, index) => <span key={item}><b>0{index + 1}</b> {item}</span>)}</div>}
-        </div>
-      </section>
-      <div className="booking-reassurance" aria-label={locale === 'bg' ? 'Предимства' : 'Benefits'}>{copy.reassurance.map((item) => <span key={item}>✓ {item}</span>)}</div>
+      </div>
       {business.booking_terms && <details className="booking-terms"><summary>{copy.terms}</summary><p>{business.booking_terms}</p></details>}
       <div className="booking-content" id="booking-experience"><div className="booking-experience-enter" key={`${mode}-${locale}`}>{mode === 'booking' ? <BookingPanel business={business} locale={locale} /> : <GuidedBookingChat business={business} locale={locale} onShowBooking={() => setMode('booking')} />}</div></div>
+      {!embedded && <div className="business-profile-bottom"><BusinessProfileInformation business={business} locale={locale} /><BusinessReviews reviews={reviews} locale={locale} /></div>}
       <footer className="booking-footer"><span>{copy.secure}</span><span><Link href={`/privacy?lang=${locale}`}>{copy.privacy}</Link> · <Link href={`/terms?lang=${locale}`}>{copy.legalTerms}</Link></span><span>{copy.powered}</span></footer>
     </main>
   )

@@ -17,6 +17,7 @@ import { hasSupabaseConfig, supabase } from '../lib/supabase'
 import { notificationNotice } from '../lib/notification-copy.mjs'
 import { trackProductEvent } from '../lib/product-events-client'
 import { focusBookingDetails } from '../lib/booking-details-navigation.mjs'
+import { BusinessPhotoGallery } from './business-photo-gallery'
 
 const BOOKING_COPY = {
   bg: { loading: 'Подготвяме свободните часове…', home: 'Начало', dashboard: 'Към таблото', logout: 'Изход', loggingOut: 'Излизане…', online: 'Онлайн', eyebrow: 'Онлайн записване · 24/7', hero: 'Запази време', heroEm: 'за себе си.', lead: 'Избери услугата и най-удобния свободен час. Без обаждане, без регистрация и без чакане за отговор.', book: 'Резервирай час', assistant: 'Онлайн асистент', proof: ['Избираш услуга', 'Виждаш свободните часове', 'Получаваш потвърждение'], reassurance: ['Без профил', 'Реална наличност', 'Сигурно управление'], terms: 'Условия за резервация', privacy: 'Поверителност', legalTerms: 'Условия', powered: 'Задвижвано от GoRez', secure: 'Защитена резервация', notOpen: 'Не успяхме да отворим страницата', retry: 'Опитай отново' },
@@ -281,6 +282,7 @@ export default function PublicBookingPage({ initialLocale = 'bg' }) {
   const [ownerSession, setOwnerSession] = useState(null)
   const [ownsBusiness, setOwnsBusiness] = useState(false)
   const [signingOut, setSigningOut] = useState(false)
+  const hasPhotos = Boolean(business?.photos?.length)
 
   useEffect(() => {
     if (!hasSupabaseConfig) return
@@ -336,14 +338,15 @@ export default function PublicBookingPage({ initialLocale = 'bg' }) {
           </nav> : <Link className="booking-home-link" href={`/?lang=${locale}`}><span aria-hidden="true">←</span> {copy.home}</Link>}
         </div>
       </header>
-      <section className="booking-hero">
-        <div className="booking-hero-copy"><p className="booking-eyebrow">{copy.eyebrow}</p><h1>{copy.hero}<br /><em>{copy.heroEm}</em></h1><p>{copy.lead}</p>{business.address && <span className="booking-address">⌖ {business.address}</span>}</div>
+      <section className={`booking-hero${hasPhotos ? ' booking-hero-with-photos' : ''}`}>
+        <div className="booking-hero-copy"><p className="booking-eyebrow">{copy.eyebrow}</p><h1>{hasPhotos ? business.name : <>{copy.hero}<br /><em>{copy.heroEm}</em></>}</h1><p>{hasPhotos ? (locale === 'en' ? 'Choose a service and a time that suits you.' : 'Избери услуга и удобен за теб час.') : copy.lead}</p>{business.address && <span className="booking-address">⌖ {business.address}</span>}</div>
         <div className="booking-hero-aside">
+          {hasPhotos && <BusinessPhotoGallery photos={business.photos} businessName={business.name} locale={locale} key={business.id} />}
           <div className="booking-mode-switch" role="tablist" aria-label={locale === 'en' ? 'Booking method' : 'Начин за записване'}>
             <button role="tab" aria-selected={mode === 'booking'} aria-controls="booking-experience" className={mode === 'booking' ? 'active' : ''} onClick={() => setMode('booking')}>{copy.book}</button>
             <button role="tab" aria-selected={mode === 'chat'} aria-controls="booking-experience" className={mode === 'chat' ? 'active' : ''} onClick={() => setMode('chat')}>{copy.assistant}</button>
           </div>
-          <div className="booking-proof-list">{copy.proof.map((item, index) => <span key={item}><b>0{index + 1}</b> {item}</span>)}</div>
+          {!hasPhotos && <div className="booking-proof-list">{copy.proof.map((item, index) => <span key={item}><b>0{index + 1}</b> {item}</span>)}</div>}
         </div>
       </section>
       <div className="booking-reassurance" aria-label={locale === 'bg' ? 'Предимства' : 'Benefits'}>{copy.reassurance.map((item) => <span key={item}>✓ {item}</span>)}</div>

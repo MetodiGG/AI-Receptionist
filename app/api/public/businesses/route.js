@@ -4,6 +4,7 @@ import { getSupabaseAdmin } from '../../../../lib/supabase-admin'
 import { resolvePublicIndustry } from '../../../../lib/public-locale.mjs'
 import { businessAddress } from '../../../../lib/business-location.mjs'
 import { createServerTiming } from '../../../../lib/server-timing.mjs'
+import { getBusinessPhotos } from '../../../../lib/business-photos.mjs'
 
 export async function GET(request) {
   const timing = createServerTiming()
@@ -31,6 +32,7 @@ export async function GET(request) {
       phone: business.phone,
       industry: resolvePublicIndustry(business),
       theme_color: business.theme_color,
+      photos: getBusinessPhotos(business),
       services: (business.services || [])
         .filter((service) => service.active)
         .sort((left, right) => (left.sort_order || 0) - (right.sort_order || 0) || left.name.localeCompare(right.name))

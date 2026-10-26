@@ -1,10 +1,10 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
 import { useState } from 'react'
 import { Icon } from './icon'
 import { DirectoryFilters } from './directory-filters'
+import { BusinessPhotoGallery } from './business-photo-gallery'
 import { useDirectory } from '../hooks/use-directory'
 import { getIndustryLabel, INDUSTRY_META } from '../lib/public-locale.mjs'
 import { EMPTY_DIRECTORY_FILTERS, filterDirectory } from '../lib/directory.mjs'
@@ -22,10 +22,7 @@ export function BusinessDirectory({ locale, preview = null, data = null, filters
     {status === 'loading' ? <div className="directory-skeleton" role="status" aria-label={en ? 'Loading businesses' : 'Зареждане на бизнесите'}><span className="sr-only">{en ? 'Loading businesses…' : 'Зареждане на бизнесите…'}</span>{[1,2].map(value => <div key={value} aria-hidden="true"><i/><i/><i/><b/></div>)}</div> : status === 'error' ? <div className="directory-empty" role="alert"><Icon name="store"/><h3>{en ? 'We could not load the businesses.' : 'Не успяхме да заредим бизнесите.'}</h3><p>{en ? 'Please try again. Direct business booking links still work.' : 'Опитай отново. Директните линкове за записване остават достъпни.'}</p><button className="secondary-button" type="button" onClick={resource.retry}>{en ? 'Try again' : 'Опитай отново'}</button></div> : !businesses.length ? <div className="directory-empty"><Icon name="store"/><h3>{en ? 'Our first businesses are on their way.' : 'Първите бизнеси идват скоро.'}</h3><p>{en ? 'Available businesses will appear here.' : 'Тук ще се появят наличните бизнеси.'}</p></div> : <>
       <p className="directory-result-count" role="status">{filtered.length} {en ? (filtered.length === 1 ? 'business' : 'businesses') : (filtered.length === 1 ? 'бизнес' : 'бизнеса')}</p>
       <div className="directory-results-grid">{filtered.map(row => <article className="directory-business-card" key={row.id}>
-        {row.photos?.length > 0 && <Link className="directory-business-cover" href={`/book/${row.slug}?lang=${locale}`} aria-label={`${row.name} — ${en ? 'View photos and book' : 'Разгледай и запази час'}`}>
-          <Image src={row.photos[0].src} alt={row.photos[0].alt[locale] || row.photos[0].alt.bg} fill sizes="(max-width: 760px) 100vw, 50vw" style={{ objectPosition: row.photos[0].position }} />
-          <span>{row.photos.length} {en ? 'photos' : 'снимки'}</span>
-        </Link>}
+        {row.photos?.length > 0 && <BusinessPhotoGallery photos={row.photos} businessName={row.name} locale={locale} variant="directory" />}
         <div className="directory-business-head"><span className="directory-business-icon"><Icon name={(INDUSTRY_META[row.industry] || INDUSTRY_META.other).icon}/></span><div><small>{getIndustryLabel(row.industry,locale)}</small><h3>{row.name}</h3>{row.address && <p>{row.address}</p>}</div></div>
         <div className="directory-services"><small>{en ? 'Services' : 'Услуги'}</small><div>{row.services.slice(0,4).map(service => <span key={service.id}><span>{service.name}<small>{service.duration_min} {en ? 'min' : 'мин'}</small></span>{service.price != null && <b>{new Intl.NumberFormat(en ? 'en-IE' : 'bg-BG',{style:'currency',currency:service.currency || 'EUR'}).format(service.price)}</b>}</span>)}</div></div>
         <Link className="directory-book-button" href={`/book/${row.slug}?lang=${locale}`} onClick={() => trackProductEvent('booking_started','book',locale)}>{en ? 'Book an appointment' : 'Запази час'}<Icon name="arrow"/></Link>

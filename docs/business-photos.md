@@ -3,7 +3,12 @@
 The first gallery uses the two real photos supplied for Vesi Studio (business ID
 `450c5c2f-db41-476b-a21e-98cf5ee29194`). The interior is the directory cover;
 the entrance is the second gallery image. Full-screen viewing preserves the
-entire image. Captions, alternative text and controls support BG and EN.
+entire image. The same carousel works in the directory, business profile and
+full-image dialog, with arrows, horizontal swipes and a five-second slideshow.
+There are no visible entrance/interior captions; descriptive alternative text
+and control labels support BG and EN. Manual navigation pauses rotation until
+the play button is pressed. Hidden/offscreen carousels and reduced-motion
+preferences do not autoplay; keyboard navigation, pause and Escape remain usable.
 
 Photos are currently added by the GoRez operator through a reviewed release,
 not by an unauthenticated upload form. No Storage bucket, database migration,

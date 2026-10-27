@@ -1,6 +1,6 @@
 # GoRez AI Search — implementation and activation guide
 
-Prepared **26 October 2026**, updated **27 October**, branch `codex/ai-business-search`. Application code remains local and undeployed; no live discovery token exchange/Places/model request, booking or migration has been performed. The owner previously completed billing/Maps API/browser-key setup. On 27 October the owner explicitly approved keyless Preview configuration: four identity APIs were enabled, an exact Preview-only WIF provider and service-account binding were created, and eighteen Preview-only Vercel configuration variables were saved with all feature/provider gates false. This control-plane setup was checked through the UI, not exercised by a real deployed function. See [the activation record](google-wif-vercel.md).
+Prepared **26 October 2026**, updated **27 October**, branch `codex/ai-business-search`. An isolated, authenticated **test Preview** is deployed with a separate Free Supabase staging project; the complete fifteen-migration schema is applied **only in staging**. BG/EN rules-based discovery and empty-staging behavior were checked live; no live discovery token exchange/Places/model request or booking has been performed. The owner completed the initial billing/Maps API/browser-key setup. An exact Preview-only WIF provider/binding and identity APIs are configured, but live Google authentication remains unverified. External providers stay **off**, with zero Preview Google/AI quotas. Production is unchanged. See [the detailed activation record](google-wif-vercel.md). The weekly-channel preparation below is local until separately deployed.
 
 ## Status and important EEA decision
 
@@ -16,7 +16,7 @@ The implemented EEA path is:
 
 Latitude/longitude and Place IDs are exceptions to the EEA content restrictions. UI Kit is excepted from the REST “permitted uses” and map restrictions. This is an engineering interpretation, **not a legal opinion**; review the applicable agreement before enabling. See [binding EEA service-specific terms §15–16](https://cloud.google.com/terms/maps-platform/eea/maps-service-terms), [EEA permitted uses](https://cloud.google.com/terms/maps-platform/eea-places-api-permitted-uses), and [EEA integration guide](https://developers.google.com/maps/comms/eea/places).
 
-The list uses `gmp-advanced-place-list`, currently documented on the **beta** Maps JS channel. Live rendering, account eligibility, event behavior and referrer restrictions remain unverified without approved credentials. Do not call this live production-ready until the activation checklist below passes. [Advanced Place List documentation](https://developers.google.com/maps/documentation/javascript/places-ui-kit/advanced-place-list).
+The list uses `gmp-advanced-place-list`. Google's **22 October 2026 / 3.66.11a release notes** announce GA for Advanced Place List on the **weekly** channel; the loader now requests `weekly` rather than beta. Some reference pages still mention beta, so the dated release record was checked explicitly. Live rendering, account eligibility, event behavior and referrer restrictions remain unverified without approved credentials. Do not call this live production-ready until the activation checklist below passes. [Release notes](https://developers.google.com/maps/documentation/javascript/releases), [Advanced Place List documentation](https://developers.google.com/maps/documentation/javascript/places-ui-kit/advanced-place-list).
 
 ## Repository audit / preserved architecture
 
@@ -49,7 +49,7 @@ External businesses cannot be booked in GoRez, have unknown appointment availabi
 
 - `POST /api/public/discovery`: same-origin public search, strict Zod schema, streaming 4 KB / 3-second body bound, existing distributed per-IP rate limit, no-store responses, safe error codes.
 - `PUT /api/admin/businesses/:id/discovery`: existing verified platform-admin auth required, rate-limited. `{ "placeId": "...", "identityChecked": true }` records a reviewed association; `placeId: null` removes it. It does **not** perform ownership verification. Only use after checking independent owner/address/website evidence. Ordinary business owners cannot claim arbitrary IDs. Unique Place IDs prevent cross-business takeover. There is not yet an admin UI for this maintenance endpoint.
-- New migration `20261026160000_discovery_budgets.sql` is **prepared, tested locally, NOT applied**. Private RLS tables: `discovery_usage_buckets`, `business_place_links`. Only service role can read/write them or call `claim_discovery_budget`.
+- New migration `20261026160000_discovery_budgets.sql` is tested and **applied only in the isolated staging project**, not Production. Private RLS tables: `discovery_usage_buckets`, `business_place_links`. Only service role can read/write them or call `claim_discovery_budget`.
 - Provider calls reserve count and conservative gross cost **before** fetching. Advisory transaction lock + row locks make daily/monthly increments atomic. Failed/time-out calls stay reserved. Counters fail closed on missing migration/DB errors, bad limits or exhaustion. No in-memory production fallback.
 - Budget periods are UTC day/month, not a simulation of Google's billing/free-cap calendar. Aggregate rows older than 90 days are removed on subsequent reservations. No customer identifier, prompt or provider content is stored in these counters.
 - Fetch endpoints/field masks/types/models are server-defined. Five-second provider deadline includes the streamed response body, response-size caps, no redirects, **no automatic retries**. All Google responses are transient; no server/CDN/PWA content cache, prefetch, import, photo/review copying or outbound business solicitation.
@@ -104,7 +104,7 @@ The fixed model/cost envelope must be reviewed before changing the model in code
 
 ## Google Cloud setup — owner actions / live verification pending
 
-1. Confirm the applicable Bulgarian/EEA agreement and UI Kit beta eligibility. Do not enable a copied custom REST catalogue for this use.
+1. Confirm the applicable Bulgarian/EEA agreement and UI Kit account eligibility. The current weekly channel includes the GA advanced components. Do not enable a copied custom REST catalogue for this use.
 2. Create a dedicated Cloud project and explicitly approve linking billing. Free usage still requires a billing-enabled project; it is not an unlimited/free-cost guarantee.
 3. Enable **Places API (New)** for IDs-only server search and **Maps JavaScript API / Places UI Kit** as directed by Google's current [setup guide](https://developers.google.com/maps/documentation/javascript/places-ui-kit/get-started). No legacy Places, geocoding, routes, messaging or paid maps are needed by this implementation.
 4. For the chosen **keyless Vercel WIF** path, keep the dedicated service account, its narrow project permission and the key-creation policy; configure the exact preview identity using [the WIF runbook](google-wif-vercel.md). No JSON key, static-IP add-on, unrestricted server key, user Google login or OAuth consent screen is required. The legacy API-key alternative needs stable outbound IP/API restrictions; ordinary serverless egress must not be guessed or replaced with browser referrer restrictions.
@@ -132,7 +132,7 @@ References: [Google service-account OAuth flow](https://developers.google.com/id
 
 ## Costs: actual implemented fields and conservative ceilings
 
-Prices checked 26 October 2026 from the [official global pricing table](https://developers.google.com/maps/billing-and-pricing/pricing). USD, account-wide free caps may be shared by other projects; currency conversion, account terms and other infrastructure costs are separate. Recheck before activation.
+Prices rechecked 27 October 2026 from the [official global pricing table](https://developers.google.com/maps/billing-and-pricing/pricing). USD, account-wide free caps may be shared by other projects; currency conversion, account terms and other infrastructure costs are separate. Recheck before activation.
 
 | Path / actual fields | Billed SKU | Published monthly free events | First paid tier / 1,000 |
 | --- | --- | --- | --- |
@@ -152,6 +152,22 @@ Optional model pricing: current fixed GPT-5.6 Luna is $0.20/M input and $1.20/M 
 
 These settings aim to keep **ordinary low-volume incremental usage well under approximately €30/month**, not guarantee a bill. Existing Supabase/Vercel/Resend subscriptions, taxes, currency conversion, retries outside this app and shared-account usage are not covered by that target.
 
+### Owner-approved bounded Google Preview test — not activated
+
+On 27 October the owner explicitly approved **up to five manually submitted city searches, at most five results each**, only on the authenticated feature-branch Preview. No geolocation, map, model, messaging or Production activation is included. At 15:44 Europe/Sofia the owner created the separate `GoRez Preview Discovery` browser key; its exact Preview-only website and two-API restrictions were independently read back in Cloud. It has not yet been copied into Vercel; no live discovery Google request has been made.
+
+1. Read back enabled APIs, current usage and available quota controls in Cloud project `project-59dcbfba-7808-4a88-99b`. Do not alter shared project quotas or the existing website key without separate authorization. Do not infer a usable daily cap from a QPM field.
+2. Prepare a new browser key named `GoRez Preview Discovery`, restricted to **Maps JavaScript API + Places UI Kit** and **only** the website referrer `https://ai-receptionist-git-codex-ai-business-search-ai-receptionist12.vercel.app/*`. No wildcard Vercel domain, localhost, Production origin, server REST API or broader permission. The owner must personally complete key creation; never send the value in chat, screenshots or files. Privately transfer that existing key only to `GOOGLE_MAPS_BROWSER_KEY` in Vercel **Preview → codex/ai-business-search**, not all Preview branches or Production.
+3. For that branch alone, proposed limits are `DISCOVERY_MAX_RESULTS=5`, `DISCOVERY_GOOGLE_DAILY_LIMIT=10`, `DISCOVERY_GOOGLE_MONTHLY_LIMIT=10` and `DISCOVERY_GOOGLE_MONTHLY_MICROUSD=1000000`. Enable the two UI Kit flags only after the credential/control checks. Leave full-content REST, Details, AI, mock and email flags false; AI count limits remain zero. The ten shared Google reservations normally allow five ID-search/list pairs; failures/empty results can consume reservations differently, so the operator must still count and stop after five submissions.
+4. Deploy only this Preview, verify authentication remains required and the staging URL is unchanged, then perform the bounded manual-city checks. Verify actual WIF auth, native attribution/open-map behavior, realistic external availability disclaimers, result limit and Google usage. Do not automatically retry a failed provider request or expand access to resolve it.
+5. After the test (including early failure), set both UI Kit flags false and Google count limits zero, redeploy Preview and verify no further widget grants. Previously issued browser keys cannot be revoked by application counters; hand key disablement/revocation back to the owner. Record the result before considering a separate ongoing-activation decision.
+
+The advanced list uses **Places UI Kit Pro**, not the cheaper basic **UI Kit Query** SKU. Five ordinary city ID-search/list requests would be approximately **US$0.025 before applicable free caps**, assuming one billed advanced-list event per submission. The approved conservative test estimate is **under US$1**, potentially US$0 with unused free caps; SDK fan-out, retries outside this application and abuse are not bounded by that estimate. Server reservations are not provider billing telemetry or an enforceable US$1 bill cap. [Advanced UI Kit SKU definition](https://developers.google.com/maps/billing-and-pricing/sku-details).
+
+Cloud alerts-only budgets do not stop spending. The newly documented spend-cap budgets currently list Gemini/Agent Platform and Cloud Run services, **not Maps/Places**; do not claim that enabling one protects this widget. No billing alert, spend-cap setting, key, provider quota or live integration has been changed by this preparation. [Alerts-only budgets](https://docs.cloud.google.com/billing/docs/how-to/budgets), [eligible spend-cap services](https://docs.cloud.google.com/billing/docs/how-to/budgets-spend-caps).
+
+Earlier read-only Cloud checks on 27 October confirmed the intended project, enabled Preview pool/provider, and the original browser key with HTTP-referrer/two-API restrictions; its value was not revealed. After owner creation of the separate test key, Cloud read-back confirmed **Maps JavaScript API + Places UI Kit**, Websites, and exactly the approved feature-branch Preview referrer. The API dashboard also showed Places API (New), Maps JavaScript API, Places UI Kit and the identity APIs enabled. The last-day traffic chart reported no data and request columns were dashes, not a verified zero-cost billing report. Quota read-back/key transfer/live testing remain pending because Safari changed active tabs/interrupted control. No Cloud mutation was performed by the agent. The weekly loader patch passed all 312 tests and `next build` locally, but has not been pushed/deployed.
+
 ## Testing locally / on Vercel
 
 Use the repository's Node runtime (Node >=20.9) and install the updated lockfile with `pnpm install --frozen-lockfile`. The repository has no separate lint/typecheck script; it is a JS app. `next build` runs its framework checks. The lockfile includes both official auth dependencies; no global Google Cloud CLI is needed for offline tests/builds. WIF owner setup and optional live development are covered separately in its runbook.
@@ -165,7 +181,7 @@ DISCOVERY_ENABLED=true DISCOVERY_DEV_MOCK=true npm run dev -- --hostname 127.0.0
 
 Open `http://127.0.0.1:3005/dev/discovery?lang=bg` (or `en`). Every fixture is labelled fictional and internal booking is disabled. The fixture uses synthetic provider responses, **not the real EEA UI Kit**. `/search` exercises the real endpoint; without a Supabase configuration it returns a safe unavailable state, not mock businesses. `/dev/discovery` and `/dev/discovery/search` are 404 in a production build even if someone sets the mock flag.
 
-For a real staging test, owner approval is required first. Use an isolated Supabase project, apply the prepared migration there, save separate preview keys and leave production flags false. Vercel Preview does not permit mock fixtures. Explicitly approve any preview deployment as well; this branch has not been pushed or deployed. Only enable approved provider flags in the intended environment, then check:
+The owner-approved isolated staging schema and branch-specific Preview credentials are now installed, and the branch is pushed/deployed for internal-only testing. Production flags remain unchanged. Vercel Preview does not permit mock fixtures. Live provider activation still needs the bounded test approval below; no prior Preview deployment approval authorizes paid provider calls. Only enable approved provider flags in the intended environment, then check:
 
 - Bulgarian/English interpretation, denied location fallback, neighbourhood and radius.
 - One/zero/several internal businesses and a genuinely empty category.
@@ -194,7 +210,9 @@ In the subsequent owner-approved setup turn, the Preview WIF provider, exact Wor
 
 Mobile (390 px) and desktop UI were checked in the local fictional fixture, including results, source filtering, auto-interpreted dates, unknown external availability and no horizontal overflow. A missing accessible label on the mobile icon-only submit button was found and fixed during QA.
 
-Not yet verified: paid/live Google or model calls, native UI Kit beta output/events, production/preview credentials and key restrictions, real DB migration on the shared project, real production discovery queries or bookings. No production approval has been given. Remaining limitations:
+Completed later on 27 October: **312 tests**, isolated staging schema/credentials, authenticated Ready Preview, live BG/EN rules/clarification/zero-result checks, and local fictional responsive checks at 320/390/1440 px. See the runbook for exact commits, project references and scope. The owner reported restoring Preview Branch Tracking after the browser-control interruption; that restoration is owner-reported, not independently read back.
+
+Not yet verified: paid/live Google or model calls, native UI Kit output/events, enforcement of the read-back staging browser-key restrictions by an actual request, live WIF exchange, or Production discovery/booking changes. The Production database migration and production rollout remain unapproved. Remaining limitations:
 
 - EEA results are a separate Google-rendered list, not arbitrary custom cards or a fully blended rank. No map is included initially; enabling one requires a separate compatible UI Kit/Google Maps design and cost review.
 - A public browser SDK cannot provide a cryptographically enforced app-level daily/monthly bill ceiling. Do not activate blindly on the strength of server limits.
@@ -216,4 +234,4 @@ New migration/tests/docs: `supabase/migrations/20261026160000_discovery_budgets.
 
 ## Required approval boundary
 
-Preview identity/control-plane setup was explicitly approved and completed on 27 October; this does not authorize further rollout. Before any live test: resolve the shared Production/Preview Supabase configuration, approve the migration in the chosen environment, restricted staging browser key/EEA abuse controls, optional model activation separately, and the intended deployment. **Do not apply migrations, make paid discovery/model calls, deploy Preview or publish Production merely because WIF trust is now configured.**
+Preview identity, isolated staging schema/credentials and the internal-only Preview deployment were explicitly approved and completed. The bounded five-search Google Preview test above is now approved, and the owner created its restricted browser key. Private transfer of that existing key to the exact branch-specific Preview environment, provider-control checks and live test remain pending; Google is still off. This does not authorize ongoing provider activation, model calls, additional migration, Production deployment or broader access. **Do not expand the test or publish Production merely because WIF trust and staging are configured.**

@@ -250,6 +250,7 @@ test('frontend submits explicitly, keeps browser coordinates out of storage and 
   assert.doesNotMatch(ui, /localStorage|sessionStorage|searchParams\.set|watchPosition|trackProductEvent/)
   assert.match(ui, /navigator.geolocation.getCurrentPosition/); assert.match(ui, /copy.locationDenied/)
   assert.match(widget, /gmp-advanced-place-list/); assert.match(widget, /gmp-place-attribution/); assert.match(widget, /open-map/)
+  assert.match(widget, /v: 'weekly'/); assert.doesNotMatch(widget, /v: '(?:alpha|beta)'/)
   assert.doesNotMatch(widget, /fetchFields|new .*\.Map|gmp-place-media|gmp-place-reviews|innerHTML|\.rating|\.displayName/)
   assert.match(await read('app/dev/discovery/page.js'), /\.devMock\) notFound/)
   assert.match(await read('app/dev/discovery/search/route.js'), /\.devMock\) return new Response\(null, \{ status: 404/)

@@ -13,7 +13,9 @@ function loadPlacesLibrary(key, locale) {
     const timeout = setTimeout(() => { delete window[callback]; reject(new Error('GOOGLE_TIMEOUT')) }, 8000)
     window[callback] = async () => { clearTimeout(timeout); delete window[callback]; try { resolve(await window.google.maps.importLibrary('places')) } catch { reject(new Error('GOOGLE_UNAVAILABLE')) } }
     const url = new URL('https://maps.googleapis.com/maps/api/js')
-    url.search = new URLSearchParams({ key, v: 'beta', libraries: 'places', language: locale, region: 'BG', loading: 'async', callback }).toString()
+    // Advanced Place List is GA on weekly since Maps JS 3.66.11a (2026-10-22).
+    // Loading is still gated by a separately approved provider grant.
+    url.search = new URLSearchParams({ key, v: 'weekly', libraries: 'places', language: locale, region: 'BG', loading: 'async', callback }).toString()
     script.src = url.href; script.async = true; script.referrerPolicy = 'strict-origin-when-cross-origin'
     script.onerror = () => { clearTimeout(timeout); delete window[callback]; reject(new Error('GOOGLE_UNAVAILABLE')) }
     document.head.append(script)

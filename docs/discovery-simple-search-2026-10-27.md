@@ -3,7 +3,7 @@
 ## Scope
 
 - Sofia is initially selected on the home and search pages. A known city explicitly typed in a query overrides this implicit default; a deliberate city selection remains authoritative. Multiple typed cities still require clarification.
-- The main controls are the query, city, Near me and three category shortcuts. Quarter, other categories and radius are in a closed More filters disclosure; radius appears only for nearby searches. Parser/ranking explanations are collapsed. No empty results panel is shown before the first search.
+- The main controls are the query, city, Near me and three category shortcuts. Quarter, other categories and nearby radius are in a closed More filters disclosure. Radius can be set to 1, 3, 5, 10 or 25 km before requesting location, and applies only to nearby searches. Parser/ranking explanations are collapsed. No empty results panel is shown before the first search.
 - Finder and result text is at least 16 px, with 44–52 px controls, keyboard focus outlines, and a narrow-screen layout. The home finder reuses its outer panel instead of nesting another padded panel.
 - Internal results reuse genuine operator-supplied photos matched by stable business ID. Businesses without supplied photos do not receive invented images.
 - External photos are rendered by `gmp-place-media` inside the existing attributed Advanced Place List. Google names, media URLs, photographs and author data are not copied into GoRez storage. Availability and GoRez booking remain unknown/unavailable for external listings.
@@ -27,6 +27,7 @@ The native list is still instantiated once per explicit eligible search, with no
 - 325 automated tests passed, including 12 finder regressions: Sofia and typed/manual city precedence, coordinate-only nearby requests, consent/timeout/denial/retry, genuine-photo tenant matching, exclusion of unknown-distance internal businesses, readable/collapsed controls and native Google media/attribution.
 - Production build passed. No separate lint/typecheck command is configured; the Next build's compiler/type step completed.
 - Local browser checks used the explicitly labelled development fixture, with Google, paid AI, email and real database access disabled. Confirmed default Sofia, typed Plovdiv, exact-time interpretation, closed secondary controls, and a 320 px home/search layout without horizontal overflow.
-- Real Production photo rendering and responsive checks must be recorded after deployment. A real successful browser-location check is not implied by synthetic unit tests.
+- Production deployment `2CeQhGab34dnRcS8Mb7EuCGkLUn9` / source `e3819cf` was Ready and assigned to `www.gorez.co`. A real city-less Bulgarian barber/date/time query selected Sofia and showed genuine Google photos, names, addresses, ratings and native attribution. The Production home finder was also checked at 320 px without overflow. A radius-preselection follow-up is verified below after its deployment.
+- The owner explicitly approved a one-off precise-location test with GoRez/Google Maps. The in-app browser timed out; Safari reported existing site permission denial. Neither supplied usable coordinates, so no successful real nearby result is claimed. Denied and timeout recovery remain functional; the owner must restore Safari's location permission to complete that device-specific test. No global device permission was changed.
 
 Existing booking, signup, email and subscription logic are unchanged. No real appointment or customer mutation is part of this UI verification.

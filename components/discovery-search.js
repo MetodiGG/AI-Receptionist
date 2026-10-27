@@ -101,7 +101,7 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
       <details className="discovery-filters"><summary>{copy.filters}</summary><div className="discovery-refine">
         <label><span>{copy.neighborhood}</span><select value={neighborhood} disabled={!selectedCity || loading || locating} onChange={event => { setCityCode(selectedCity); setCityWasChosen(true); setNeighborhood(event.target.value) }}><option value="">{copy.anyNeighborhood}</option>{neighborhoodChoices(selectedCity).map(name => <option key={name} value={name}>{name}</option>)}</select></label>
         <label>{en ? 'Category' : 'Категория'}<select value={category} disabled={loading || locating} onChange={event => setCategory(event.target.value)}><option value="">{en ? 'From my description' : 'От описанието'}</option>{DISCOVERY_CATEGORIES.map(item => <option key={item.id} value={item.id}>{item[locale]}</option>)}</select></label>
-        {coordinates && <label>{copy.radius}<select value={radiusKm} disabled={loading || locating} onChange={event => setRadius(Number(event.target.value))}>{[1, 3, 5, 10, 25].map(radius => <option key={radius} value={radius}>{radius} km</option>)}</select></label>}
+        <label>{copy.radius} · {copy.nearby}<select value={radiusKm} disabled={loading || locating} onChange={event => setRadius(Number(event.target.value))}>{[1, 3, 5, 10, 25].map(radius => <option key={radius} value={radius}>{radius} km</option>)}</select></label>
       </div><p className="discovery-help">{copy.privacy}</p></details>
       {(coordinates || locating) && <p className="discovery-help" role="status">{copy.locationInfo}</p>}
       {locationError && <p className="discovery-notice" role="status">{locationMessage}</p>}

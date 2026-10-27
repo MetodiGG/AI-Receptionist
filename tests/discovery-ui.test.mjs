@@ -48,6 +48,8 @@ test('Near me discards the default city and quarter and searches the consented r
   const provider = googleSearchRequest(intent)
   assert.equal(provider.method, 'nearby'); assert.equal(provider.body.locationRestriction.circle.radius, 5000)
   assert.deepEqual(provider.body.locationRestriction.circle.center, { latitude: origin.latitude, longitude: origin.longitude })
+  const oneKm = discoverySearchInput({ query: 'автомивка', radiusKm: 1, coordinates: origin })
+  assert.equal(googleSearchRequest(parseIntent(discoveryRequestSchema.parse(oneKm), now)).body.locationRestriction.circle.radius, 1000)
 })
 
 test('location access is one explicit bounded request with fresh consent, not a background watcher', async () => {
@@ -109,6 +111,8 @@ test('simple form hides secondary controls and diagnostics, keeps readable text 
   assert.match(ui, /<details className="discovery-filters"><summary>\{copy.filters\}/)
   assert.doesNotMatch(ui, /<details className="discovery-filters"[^>]*\bopen\b|discovery-eyebrow/)
   assert.match(ui, /execute\(payload\(\{ coordinates: position, neighborhood: '' \}\)\)/)
+  assert.match(ui, /<label>\{copy.radius\} · \{copy.nearby\}<select value=\{radiusKm\}/)
+  assert.match(ui, /\[1, 3, 5, 10, 25\]\.map\(radius/)
   assert.match(ui, /BusinessPhotoGallery photos=\{row.photos\}/)
   assert.match(ui, /<details className="discovery-ranking"><summary>\{copy.searchDetails\}/)
   assert.match(css, /\.client-finder \.discovery-compact \.discovery-form \{ padding: 0; border: 0;/)

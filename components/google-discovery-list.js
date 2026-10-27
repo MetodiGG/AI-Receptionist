@@ -27,6 +27,7 @@ export function GoogleDiscoveryList({ plan, locale }) {
   const host = useRef(null), [status, setStatus] = useState('loading'), copy = DISCOVERY_COPY[locale]
   useEffect(() => {
     let active = true, list
+    setStatus('loading')
     const timer = setTimeout(async () => {
       try {
         await loadPlacesLibrary(plan.browserKey, plan.locale)
@@ -34,6 +35,11 @@ export function GoogleDiscoveryList({ plan, locale }) {
         if (!active || !host.current) return
         list = document.createElement('gmp-advanced-place-list')
         const template = document.createElement('template'); template.setAttribute('slot', 'details-item')
+        // Photos stay in Google's attributed widget; no media URLs, bytes or
+        // author data are imported into our database or custom GoRez cards.
+        const media = document.createElement('gmp-place-media')
+        media.setAttribute('preferred-size', 'large'); media.setAttribute('lightbox-preferred', '')
+        template.content.append(media)
         for (const tag of ['gmp-place-name', 'gmp-place-address', 'gmp-place-rating']) template.content.append(document.createElement(tag))
         const link = document.createElement('gmp-place-link'); link.setAttribute('action', 'open-map'); link.setAttribute('target', '_blank'); link.textContent = copy.maps
         template.content.append(link)
@@ -42,7 +48,7 @@ export function GoogleDiscoveryList({ plan, locale }) {
         list.addEventListener('gmp-load', () => { if (active) setStatus('ready') })
         list.addEventListener('gmp-error', () => { if (active) setStatus('error') })
         // Only IDs cross this boundary. We never extract Google's names,
-        // addresses, ratings or reviews out of their attributed UI Kit.
+        // addresses, ratings, photos or reviews out of their attributed UI Kit.
         list.setAttribute('places', plan.placeIds.map(id => `places/${id}`).join(' '))
         host.current.replaceChildren(list)
       } catch { if (active) setStatus('error') }

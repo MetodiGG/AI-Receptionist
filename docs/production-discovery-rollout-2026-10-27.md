@@ -4,6 +4,71 @@ This record supersedes the earlier **unapproved Production** checkpoints in
 `ai-discovery.md` and `google-wif-vercel.md`. A prepared or saved setting is not
 proof that a public deployment is working.
 
+## Final activation — current state
+
+**Published and verified on `https://www.gorez.co`**, source
+`8337b8461281ec5dc8b320f5f7ef36440c809eaa` on `main`.
+
+- Initial internal-only Production deployment: `HXorFq7L3kWRicGK9YfqC7ysw3E1`,
+  `ai-receptionist-kyocd0snu-ai-receptionist12.vercel.app`, Ready.
+- Both Production UI Kit flags were subsequently changed to **true** and read
+  back. The explicitly selected Production/main redeploy is **Ready**:
+  `9mNUXz9pLXmrCScin4cxdHM1d9yU`,
+  `ai-receptionist-6v3my2qbk-ai-receptionist12.vercel.app`. Its assigned domain
+  `www.gorez.co`, environment and source were checked. Preview stays disabled.
+- Production was fast-forwarded from `6e474c538e1ca0c9af355eea2df76572d9f4bebc`
+  without rewriting history. This is the previous code baseline if rollback is
+  required; do not roll back to a build that accidentally restores provider
+  activation. Turn off the provider gates and rebuild for the normal kill switch.
+- Four explicit live city-only searches passed: BG barber/date/after-17:00,
+  BG barber at a real mobile viewport, EN car wash/date/after-17:00/30 EUR, and
+  homepage BG manicure → search page with one GoRez partner plus external places.
+  Native Google attribution, ratings and Maps actions were visually checked.
+  External price/schedule/preference compliance is explicitly unknown, not
+  inferred from the search filters. The EN native Maps action was also English.
+- Real native Google results were visually checked at **390×844** and **320×740**;
+  document width equalled viewport width. Temporary viewport overrides were
+  reset and extra test/admin tabs closed. No geolocation or map was requested.
+- A separate internal manicure/Sofia/tomorrow-after-17:00 request returned the
+  real published **ВЕСИ СТУДИО**, 60 minutes / 30,00 €, with current checked
+  17:00/17:15/17:30 starts. The actual booking page, service and tomorrow selector
+  showed matching available times. No customer information was entered and no
+  appointment, customer or public review was created. The obsolete
+  `mg-barbershop` slug returned not-found; the live public directory lists the
+  actual published `vesi-studio` partner.
+- Three fictional BG diagnostic messages were dispatched through the existing
+  Vault-authenticated path to the fixed sender mailbox only: confirmation,
+  reminder and review invitation. Exact HTTP request IDs **3471/3472/3473** each
+  returned **202 / accepted:true / no error**. The owner independently confirmed
+  receipt of all three at **info@gorez.co**. No secret value was written into SQL,
+  selected as output or copied to local files. These tests do not prove elapsed
+  24h reminder scheduling or a real completed-visit/review-token transaction.
+- The final read-only Production budget check showed **8 reservations** and
+  **20,004 microUSD (US$0.020004)** in each current UTC day/month bucket, matching
+  the four normal ID/list pairs. This confirms persistent application metering,
+  **not Google billing telemetry or a measured bill**. No free-cap balance or
+  exact SDK billable-event reconciliation is claimed.
+- Thirteen public smoke/security checks passed: home/search/directory/business
+  registration/login/account 200; both dev fixtures 404; private customer API and
+  admin mutation 401 without login; cross-site discovery 403; malformed same-site
+  discovery 422; unauthenticated mail diagnostic 401. These rejected requests did
+  not create a booking or send a message.
+- The real five-step business registration entry point is present; an empty
+  first step stays on step one with validation. No fresh Auth identity/password,
+  business application or owner-dashboard session was created for this rollout.
+- **313 automated tests pass**, production build passes. The two Vercel build
+  warnings repeat the pre-existing broad `engines.node >=20.9.0` warning; they
+  are not a failed build or discovery error. Node pinning was not changed here.
+
+The keyless Production happy path is now live, not just configured. Negative
+live WIF/referrer tests, geolocation/Nearby, provider failure-event simulation,
+full new-owner signup/approval, a new real booking submission and an actual
+one-use review submission remain outside this live verification. Their relevant
+offline/database tests are not presented as live tests. Paid model, SMS/other
+messaging, online card payments and automatic business ownership verification
+remain off/not implemented. Legal operator/template details still need the
+owner's review; this release is not a legal compliance certification.
+
 ## Owner approval and scope
 
 The owner explicitly approved the non-destructive discovery migration in the
@@ -63,7 +128,7 @@ no eligibility or continued-hosting guarantee is made.
 - Saved 26 Production-only Config entries: exact separate WIF identifiers,
   `DISCOVERY_ENABLED=true`, EEA, ten displayed results, six requests/minute/IP,
   200 Google reservations/day, 4,000/month and `10000000` microUSD/month.
-  **Both UI Kit flags remain false during preflight.** AI, REST, Details and mock
+  **Both UI Kit flags were false during this initial preflight.** AI, REST, Details and mock
   stay false; AI counters are zero. The form values and Production scope were
   checked before save; Vercel confirmed success. All 26 Config values were then
   individually revealed/read back under the Production filter and matched.
@@ -87,7 +152,7 @@ key in Cloud (this also affects any other use of that same key). Disabling the
 Production WIF provider/binding stops new server token exchange; existing tokens
 can survive until expiry. Do not widen or disable the Preview isolation.
 
-## Verification / not yet claimed
+## Earlier preflight checkpoint (superseded by final activation above)
 
 - Protected Preview actual viewport: 390×844 and 320×740, no horizontal overflow;
   Sofia → Mladost 1 selection/search returned honest zero internal results while

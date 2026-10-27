@@ -1,6 +1,6 @@
 # Google Places from Vercel without a service-account key
 
-Prepared 26 October, updated 27 October 2026. **Local implementation and owner-approved Preview control-plane setup completed. No real token exchange, Places/model request, deployment or migration performed.** Configured trust is not yet a verified live connection.
+Prepared 26 October, updated 27 October 2026. **Owner-approved isolated staging/Preview setup and a bounded live Google pilot are complete.** Two city-only searches displayed real attributed native Google results on the configured keyless path. Google was then disabled in a Ready Preview, both application count limits returned to zero, and the owner reported deleting the dedicated browser key. Paid model, geolocation/Nearby, Production rollout and live negative trust tests remain unverified/unapproved. The chronological setup records below include earlier checkpoints; see the final pilot section for the current state.
 
 ## Approved activation record — 27 October 2026
 
@@ -24,7 +24,7 @@ The owner supplied:
 
 The Cloud screenshot showed `gorez-discovery@project-59dcbfba-7808-4a88-99b.iam.gserviceaccount.com` with Service Usage Consumer. Read-only Cloud Settings verified project ID `project-59dcbfba-7808-4a88-99b`, project number **`931616633430`** and display name GoRez. Linked-account view confirmed “My Billing Account” is linked to this exact project. A display name such as “My First Project” or “GoRez” does not identify the billing/security boundary and need not be renamed.
 
-Still required: isolated staging configuration, an appropriately restricted staging browser key, separate deployment/live-test approval and actual runtime verification. IDs are not secrets; tokens, keys and JSON credentials must not be sent in chat.
+The isolated staging configuration, restricted pilot browser key and separately approved Preview live test are recorded below. Current provider activation is **off**, and the retired pilot key must not be reused. IDs are not secrets; tokens, keys and JSON credentials must not be sent in chat. Further ongoing use, a model or Production rollout needs separate authorization.
 
 Read-only Vercel Security checks on 27 October confirmed **Team issuer mode** is already selected, with issuer `https://oidc.vercel.com/ai-receptionist12` and audience `https://vercel.com/ai-receptionist12`. Build Logs and Source Protection and Git Fork Protection were enabled; nothing was toggled/saved. Google's WIF page showed its initial Get started flow, not a configured GoRez pool. No runtime token was copied or logged.
 
@@ -193,3 +193,19 @@ Because the owner was using Safari concurrently, independent responsive QA used 
 Scope remains test-only: no Production promotion/merge/settings or database change, no GoRez mail, live Places/AI call, seeded business, booking or Auth callback test. External providers and their application quotas stay off/zero. Initial free empty-staging testing therefore does not yet satisfy the original Google discovery acceptance criteria. Remaining work requires separately approved restricted browser-key/provider setup, live cost-limited Google verification, optional model verification and a later Production decision. Supabase Auth redirects remain pending if account/email flows are later included.
 
 Operational follow-up: restore the originally enabled **Preview Branch Tracking** after saving this record and verify the saved value. All feature-branch database overrides remain in place; do not describe other Preview branches as isolated.
+
+### Bounded live Google pilot and verified shutdown — 27 October
+
+This later checkpoint supersedes the earlier pending/no-live-call status. Preview Branch Tracking was independently verified **on**. The weekly-channel loader passed all **312 tests** and `next build`, and commit `ba3ce2b` was pushed only to the feature branch. Its first automatic Preview was Ready at `3Eb2Aw7QsM1PqTzB44KbZ64vqVrD`.
+
+The owner separately approved up to five manual city-only searches, five results each, no model/geolocation/map/email/Production. The owner created `GoRez Preview Discovery`, restricted to the exact feature-branch alias plus Maps JavaScript API / Places UI Kit. The existing key was privately copied only into a write-only `GOOGLE_MAPS_BROWSER_KEY` branch override; no server JSON key, new trust, cookie transfer, token file or broad IAM grant was introduced. The owner explicitly declined lowering the shared Google project quota; it was left unchanged.
+
+After the owner personally completed GitHub/Vercel sign-in and Vercel email step-up in the isolated in-app browser, Config read-back confirmed the staging URL `https://dbvsfxkmljrwjberwodb.supabase.co`, the correct branch app URL, five-result maximum, Google reservation counts 10/day and 10/month, US$1 reservation envelope, both UI Kit flags true, and AI/email/REST/Details/mock flags false. AI counters stayed zero. The selected **Preview** redeploy became Ready at `AQ1svKUN1wCkyF5RmDYSEhx8sBxH` (`ai-receptionist-3ojmt693n-ai-receptionist12.vercel.app`), source `ba3ce2b`.
+
+Two manual requests on the branch alias succeeded: a Bulgarian barber/Sofia/tomorrow-after-17:00 request, and an English car-wash/Sofia/30-EUR/tomorrow-after-17:00 request. Both correctly showed rules-based interpretation and **five native Google places despite zero GoRez businesses**, with attribution, ratings, visible Maps actions and unknown external prices/availability. No Google business-name/rating catalogue was stored. This validates the configured live happy path, **not** an independent STS/IAM audit or live wrong-claim/referrer-denial test. Actual Google billing telemetry was not independently reconciled; do not claim a measured zero bill.
+
+Both UI Kit flags were then saved/read back **false**, both Google count limits **0**, and the shutdown Preview redeploy was verified **Ready** at `46kTAMY5q4TDFjx42zyN2pvmDv8n` (`ai-receptionist-gc26hec7c-ai-receptionist12.vercel.app`). A third manual search after shutdown showed the explicit external-disabled message and **zero Google regions**. The previous live SDK tab was closed. Anonymous GET of the alias `/search` still returned **302 to `https://vercel.com/sso-api`**, with no bypass.
+
+The owner reported deleting **only** the dedicated test browser key. This was owner-reported, not independently read back in Cloud; provider revocation can take time. The retired write-only Vercel value must not be reused. Original website key, Google quotas, billing and Preview-only IAM trust were not changed by the agent. Production remained untouched. A 390 px viewport attempt still measured 1280 px, so real-widget mobile responsiveness is not claimed; the prior local fictional 320/390/1440 px checks remain separate evidence. See [the full pilot record and remaining limitations](ai-discovery.md).
+
+Current authorization is test-only and **off after the pilot**. Do not enable ongoing use, restore the retired browser key, widen Preview trust or roll out Production without a separate owner decision.

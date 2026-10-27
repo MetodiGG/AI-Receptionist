@@ -165,3 +165,24 @@ test('operator self-test needs scheduler authentication and cannot target arbitr
   const blocked = createEmailSelfTest({ env, allowAttempt: async () => false, fetcher: async () => { throw new Error('Should not send') } })
   assert.equal((await blocked(request({ kind: 'booking_reminder', locale: 'bg' }))).status, 429)
 })
+
+test('confirmation, reminder and review self-tests remain fictional, sender-only and cannot issue private action links', async () => {
+  const sent = []
+  const handler = createEmailSelfTest({ env, now: () => now, allowAttempt: async () => true,
+    fetcher: async (_url, options) => { sent.push(options); return Response.json({ id: 'offline-test-id' }) } })
+  for (const locale of ['bg', 'en']) for (const kind of ['booking_confirmation', 'booking_reminder', 'review_request']) {
+    const request = new Request('https://www.gorez.co/api/cron/notifications/test', { method: 'POST',
+      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${env.CRON_SECRET}` }, body: JSON.stringify({ kind, locale }) })
+    assert.equal((await handler(request)).status, 202)
+    const call = sent.at(-1), payload = JSON.parse(call.body)
+    assert.deepEqual(payload.to, ['info@gorez.co'])
+    assert.match(payload.subject, /^\[TEST\]/)
+    assert.doesNotMatch(payload.html, /\/review\/|\/booking\//)
+    assert.match(payload.text, new RegExp(`https://www.gorez.co/\\?lang=${locale}`))
+    assert.match(call.headers['Idempotency-Key'], new RegExp(`/${kind}/${locale}$`))
+    if (kind === 'review_request') {
+      assert.match(payload.subject, locale === 'en' ? /How was your visit/ : /Как мина посещението/)
+      assert.match(payload.text, locale === 'en' ? /13 October 2026/ : /13 октомври 2026/)
+    }
+  }
+})

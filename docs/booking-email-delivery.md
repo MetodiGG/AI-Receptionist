@@ -115,6 +115,10 @@ clearly labelled [TEST] data ONLY to the configured EMAIL_FROM mailbox. Limited
 to six attempts/day/IP by the existing database rate limiter, with stable daily
 provider idempotency keys; no real appointment/CRM row is created. Never call it
 without mailbox-owner approval. Provider acceptance is not inbox delivery proof.
+The same diagnostic accepts `booking_reminder` and `review_request` in BG/EN.
+Review fixtures use a fictional past visit and link only to the public homepage,
+never a working review or booking credential. They verify template delivery, not
+the completed-visit queue trigger, one-use review submission or 24h scheduling.
 
 Resend Free currently allows 3,000 messages/month and 100/day shared with Auth
 messages. Each booking can consume customer confirmation + owner alert + reminder;

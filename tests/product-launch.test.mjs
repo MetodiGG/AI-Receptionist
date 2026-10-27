@@ -10,11 +10,33 @@ import {createProductEventHandler,productEventSchema} from '../lib/product-event
 
 const lead={businessName:'Test Workshop',phone:'+359 888 123 456',email:'TEST@EXAMPLE.COM',category:'auto',locale:'bg',company:''}
 const request=(body=lead,headers={})=>new Request('https://www.gorez.co/api/public/partner-leads',{method:'POST',headers:{'content-type':'application/json',...headers},body:typeof body==='string'?body:JSON.stringify(body)})
-test('commercial terms have one approved numeric source and exact localized labels',()=>{
+test('existing internal price and trial retain their numeric source and localized labels',()=>{
   assert.equal(MONTHLY_PRICE_EUR,19.99);assert.equal(TRIAL_DAYS,30)
   assert.equal(PRICE_LABEL.bg,'19,99 €');assert.equal(PRICE_LABEL.en,'€19.99')
-  assert.equal(PRICING_COPY.bg.summary,'30 дни безплатно, после 19,99 € на месец. Без данни за плащане, без автоматично таксуване.')
-  assert.equal(PRICING_COPY.en.summary,'30 days free, then €19.99 per month. No payment details required. No automatic charges.')
+})
+test('public subscription copy omits the amount but keeps the trial, direct discussion and explicit paid consent in both languages',async()=>{
+  assert.equal(PRICING_COPY.bg.summary,'30 дни безплатно. Абонаментните условия уточняваме лично. Без данни за плащане и без автоматично таксуване.')
+  assert.equal(PRICING_COPY.en.summary,'30 days free. We discuss subscription terms with you directly. No payment details required. No automatic charges.')
+  assert.equal(PRICING_COPY.bg.trial,'30 дни безплатно');assert.equal(PRICING_COPY.en.trial,'30 days free')
+  assert.match(PRICING_COPY.bg.afterTrial,/Платено продължаване.*изрично съгласие.*без автоматично таксуване/)
+  assert.match(PRICING_COPY.en.afterTrial,/Paid continuation requires your explicit consent.*no automatic charges/)
+  assert.doesNotMatch(JSON.stringify(PRICING_COPY),/19[.,]99|€|free forever|безплатно завинаги/i)
+  for(const file of ['components/home-page.js','components/business-onboarding.js','components/business-landing.js','app/share-image/route.js']){
+    const source=await readFile(new URL(`../${file}`,import.meta.url),'utf8')
+    assert.match(source,/PRICING_COPY/);assert.doesNotMatch(source,/PRICE_LABEL|MONTHLY_PRICE_EUR|\.monthly\b|19[.,]99/)
+  }
+  const landing=await readFile(new URL('../components/business-landing.js',import.meta.url),'utf8')
+  assert.match(landing,/PRICING_COPY\[locale\]\.contact/)
+})
+test('public page, Open Graph and Twitter metadata never quote the subscription amount',()=>{
+  for(const locale of ['bg','en'])for(const path of ['/','/for-businesses']){
+    const metadata=pageMetadata(path,locale)
+    assert.doesNotMatch(JSON.stringify(metadata),/19[.,]99|€|free forever|безплатно завинаги/i)
+    if(path==='/for-businesses'){
+      assert.match(metadata.description,locale==='bg'?/условия уточняваме лично/:/subscription terms with you directly/)
+      assert.equal(metadata.openGraph.description,metadata.description);assert.equal(metadata.twitter.description,metadata.description)
+    }
+  }
 })
 test('unconfigured company identity and DPA never fabricate legal information',()=>{
   assert.deepEqual(companyIdentity({}),{company:null,dpaUrl:null})

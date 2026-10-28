@@ -47,16 +47,13 @@ test('film dates stay consecutive across the Bulgarian DST change', () => {
   assert.deepEqual(bookingFilmDates('bg', 'invalid'), [])
 })
 
-test('homepage keeps the film and real search controls without duplicating business results', () => {
+test('the retained film is isolated; the homepage now opens only AI Search', () => {
   const film = read('components/booking-story.js'), home = read('components/home-page.js')
   assert.doesNotMatch(film, /next\/image|gorez-salon|gorez-barber|gorez-garage|INTERACTIVE EXAMPLE|ИНТЕРАКТИВЕН ПРИМЕР|onExplore/)
   assert.doesNotMatch(film, /\bfetch\s*\(|supabase|trackProductEvent|createBooking|setConfirmed/)
   assert.doesNotMatch(film, /<button|<input|<form|<a\s|onClick|setPaused/)
-  assert.match(home, /<BookingStory locale=\{locale\}\/>/)
-  assert.doesNotMatch(home, /BusinessDirectory|Избери бизнес\. Запази час\./)
-  assert.match(home, /href=\{directorySearchHref\(filters, locale\)\}/)
-  assert.match(home, /<DirectoryFilters rows=/)
-  assert.match(home, /cta_find_appointment_click/)
+  assert.match(home, /<DiscoveryPage/)
+  assert.doesNotMatch(home, /BookingStory|DirectoryFilters|BusinessDirectory|Избери бизнес\. Запази час\./)
 })
 
 test('autoplay keeps its static description, reduced-motion fallback and offscreen suspension with cleanup', () => {

@@ -124,7 +124,6 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
         {!rows.length && !(result.external && source !== 'gorez') && <div className="discovery-start"><h3>{copy.empty}</h3><p>{copy.emptyHint}</p></div>}
         <details className="discovery-ranking"><summary>{copy.searchDetails}</summary><p>{copy.parsed} · {result.interpretation === 'model' ? copy.model : copy.rules}</p><p>{copy.rankingHint}</p>{result.external && <p>{en ? 'Google Maps places are displayed separately in their provider order, not re-ranked by GoRez.' : 'Местата от Google Maps се показват отделно, в реда на доставчика, без пренареждане от GoRez.'}</p>}</details>
       </>}
-      <Link className="discovery-catalog-link" href={`/businesses?lang=${locale}`}>{copy.catalog}<Icon name="arrow"/></Link>
     </div>}
   </section>
 }

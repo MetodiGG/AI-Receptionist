@@ -74,8 +74,6 @@
 .discovery-claim, .discovery-ranking, .discovery-hours { font-size: 16px; color: #63705f; margin-top: 18px; line-height: 1.6; }
 .discovery-claim summary, .discovery-ranking summary, .discovery-hours summary { cursor: pointer; padding: 6px 0; }
 .discovery-hours > div { display: flex; justify-content: space-between; gap: 10px; padding: 3px 0; }
-.discovery-catalog-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 30px; color: #173e2a; font-size: 16px; }
-.discovery-catalog-link svg { width: 18px; height: 18px; }
 .discovery-loading { padding: 25px 0; color: #536158; }
 .discovery-skeleton { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
 .discovery-skeleton i { height: 230px; border-radius: 24px; background: linear-gradient(100deg, #e8eee3, #f4f7f1, #e8eee3); background-size: 200%; animation: discovery-shimmer 1.5s linear infinite; }
@@ -92,7 +90,6 @@
 .discovery-compact .discovery-submit span { display: none; }
 .client-finder .discovery-compact { margin-top: 0; }
 .client-finder .discovery-compact .discovery-form { padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; }
-.discovery-home-link { display: block; margin: 12px 0; font-size: 16px; color: #647164; }
 @keyframes discovery-enter { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes discovery-shimmer { to { background-position: -200% 0; } }
 @media (max-width: 700px) {
@@ -122,9 +119,9 @@
 /* Simple finder: city + Near me first, secondary controls only on request. */
 .discovery-search { font-size: 16px; }
 .discovery-submit { font-size: 17px; min-height: 48px; }
-.discovery-city { position: relative; min-width: 0; }
-.discovery-city > svg { position: absolute; left: 14px; top: 16px; width: 20px; height: 20px; color: #173e2a; pointer-events: none; }
-.discovery-city select { min-height: 52px; padding-left: 43px; font-size: 17px; background: #f7f9f4; }
+.discovery-controls .discovery-city { min-width: 0; display: grid; grid-template-columns: 20px minmax(0, 1fr); align-items: center; gap: 10px; padding: 0 14px; min-height: 52px; border: 1px solid #d4dfd2; border-radius: 12px; background: #f7f9f4; }
+.discovery-city > svg { position: static; width: 20px; height: 20px; color: #173e2a; pointer-events: none; }
+.discovery-city select { min-height: 50px; padding: 0 25px 0 0; border: 0; font-size: 17px; background: transparent; }
 .discovery-location { min-height: 52px; font-size: 17px; gap: 8px; }
 .discovery-location svg { width: 20px; height: 20px; }
 .discovery-shortcuts button, .discovery-source-tabs button { min-height: 44px; }
@@ -155,15 +152,16 @@
 }
 .discovery-search :is(button,select,input,summary,a):focus-visible { outline: 3px solid #88ac62; outline-offset: 3px; }
 @media (max-width: 700px) {
-  .discovery-city select { padding-left: 35px; padding-right: 22px; font-size: 16px; }
-  .discovery-city > svg { left: 10px; width: 18px; }
+  .discovery-controls .discovery-city { grid-template-columns: 18px minmax(0, 1fr); gap: 8px; padding: 0 10px; }
+  .discovery-city select { padding-left: 0; padding-right: 22px; font-size: 16px; }
+  .discovery-city > svg { width: 18px; }
   .discovery-location { padding: 10px; font-size: 16px; }
   .discovery-card .directory-business-cover { height: 230px; margin: -22px -22px 20px; }
 }
 @media (max-width: 380px) {
   .discovery-controls { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .discovery-city > svg, .discovery-location > svg, .discovery-shortcuts svg { display: none; }
-  .discovery-city select { padding-left: 12px; }
+  .discovery-controls .discovery-city { grid-template-columns: minmax(0, 1fr); }
   .discovery-shortcuts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .discovery-shortcuts button { min-width: 0; padding: 10px 6px; }
 }

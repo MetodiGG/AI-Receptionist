@@ -60,10 +60,11 @@ test('directory dropdowns cascade across actual services, cities and neighbourho
   assert.deepEqual(changeDirectoryFilter(filters,'city','Пловдив'),{service:'haircut',city:'Пловдив',neighborhood:''})
   assert.equal(filterDirectory(rows,EMPTY_DIRECTORY_FILTERS).length,3);assert.deepEqual(directoryChoices([],EMPTY_DIRECTORY_FILTERS).cities,[])
 })
-test('one lower homepage business CTA, direct five-step wizard and mobile controls never use text search/date input',async()=>{
+test('AI-only home retains business access, the direct five-step wizard and existing calendar controls',async()=>{
   const read=path=>readFile(new URL(`../${path}`,import.meta.url),'utf8')
   const home=await read('components/home-page.js'),nav=await read('components/marketing-navigation.js'),filters=await read('components/directory-filters.js'),calendar=await read('components/appointment-calendar.js')
-  assert.equal((home.match(/Добави бизнеса си/g)||[]).length,1);assert.ok(home.indexOf('Добави бизнеса си')>home.indexOf('id="business-start"'))
+  assert.match(home,/<DiscoveryPage/);assert.doesNotMatch(home,/business-start|Добави бизнеса си/)
+  assert.match(nav,/href=\{`\/for-businesses\?lang=\$\{locale\}`\}/)
   assert.doesNotMatch(nav,/Добави бизнеса си/);assert.doesNotMatch(filters,/<input|<textarea/)
   assert.equal((filters.match(/<select/g)||[]).length,3);assert.match(calendar,/calendar-filter-menu/);assert.match(calendar,/calendar-mobile-agenda/);assert.doesNotMatch(calendar,/<input/)
   const route=await read('app/api/public/business-applications/route.js')

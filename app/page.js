@@ -5,7 +5,7 @@ import { discoveryConfig } from '../lib/discovery/config.mjs'
 
 export async function generateMetadata({ searchParams }) {
   const locale = (await searchParams)?.lang === 'en' ? 'en' : 'bg'
-  return pageMetadata('/', locale)
+  return pageMetadata('/', locale, { title: 'GoRez AI Search', description: locale === 'en' ? 'Describe the service and discover places to book.' : 'Опиши услугата и открий подходящо място за резервация.' })
 }
 
 export default async function Home({ searchParams }) {

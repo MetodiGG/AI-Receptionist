@@ -21,12 +21,14 @@ test('public subscription copy omits the amount but keeps the trial, direct disc
   assert.match(PRICING_COPY.bg.afterTrial,/Платено продължаване.*изрично съгласие.*без автоматично таксуване/)
   assert.match(PRICING_COPY.en.afterTrial,/Paid continuation requires your explicit consent.*no automatic charges/)
   assert.doesNotMatch(JSON.stringify(PRICING_COPY),/19[.,]99|€|free forever|безплатно завинаги/i)
-  for(const file of ['components/home-page.js','components/business-onboarding.js','components/business-landing.js','app/share-image/route.js']){
+  for(const file of ['components/business-onboarding.js','components/business-landing.js','app/share-image/route.js']){
     const source=await readFile(new URL(`../${file}`,import.meta.url),'utf8')
     assert.match(source,/PRICING_COPY/);assert.doesNotMatch(source,/PRICE_LABEL|MONTHLY_PRICE_EUR|\.monthly\b|19[.,]99/)
   }
   const landing=await readFile(new URL('../components/business-landing.js',import.meta.url),'utf8')
   assert.match(landing,/PRICING_COPY\[locale\]\.contact/)
+  const home=await readFile(new URL('../components/home-page.js',import.meta.url),'utf8')
+  assert.doesNotMatch(home,/PRICING_COPY|PRICE_LABEL|MONTHLY_PRICE_EUR|19[.,]99/)
 })
 test('public page, Open Graph and Twitter metadata never quote the subscription amount',()=>{
   for(const locale of ['bg','en'])for(const path of ['/','/for-businesses']){

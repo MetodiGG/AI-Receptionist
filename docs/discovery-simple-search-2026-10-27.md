@@ -37,4 +37,10 @@ The native list is still instantiated once per explicit eligible search, with no
 - Responsive checks covered 320 px home/search and 390 px search/result cards, without horizontal overflow. Finder text/control fonts were inspected at 16–17 px minimum; Google names use the supported 22 px title token.
 - The English page retained Sofia, the translated prompt and closed secondary filters. All 325 tests and the Production build passed again after the radius change.
 
+### Safari permission follow-up
+
+- The owner confirmed enabling Safari in macOS Location Services personally. On returning to the approved live Safari tab, the finder already showed Nearby selected and genuine native Google results with photographs, addresses and ratings. This verifies successful real location-based discovery after restoring OS access; no precise coordinates were read or copied into this report.
+- The permission prompt had already been handled before the agent resumed, so its appearance was not directly witnessed by the agent. No site permission reset was performed merely to reproduce it.
+- A fresh 1 km provider-result check is still pending; the 1 km rendered control and deterministic 1,000-metre provider request are separately verified above. Safari was being used in another tab, so the agent requested a brief owner handoff instead of interrupting unrelated activity. Subsequent Safari reads timed out twice, including a fresh app binding. No successful fresh 1 km result or newly witnessed permission prompt is claimed.
+
 Existing booking, signup, email and subscription logic are unchanged. No real appointment or customer mutation is part of this UI verification.

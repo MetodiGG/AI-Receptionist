@@ -11,3 +11,10 @@
 - Production build passed, including the compiler/type step. No separate lint command is configured.
 - Local browser QA at 320 px confirmed a 2 km selected value, no visible helper paragraphs and no horizontal overflow. Clicking the Bulgarian CTA opened the genuine existing five-step onboarding route; nothing was submitted. The English page retained 2 km and its English CTA/locale-aware destination. Local QA had Google, paid AI, email and real database access disabled.
 - Production observations are recorded after publishing. No real precise-location request is required to verify this display/default change.
+
+## Production postflight
+
+- Source `cfcd8cee6fde62a89a637aa8924ff872d3187917` reached Ready in Production deployment `AMCzCgZdcAkE2ECGVxdti14gMoPP` (`ai-receptionist-ris7liip0-ai-receptionist12.vercel.app`).
+- On the actual `www.gorez.co` home page at 390 px, opening More filters confirmed the initial 2 km value, zero visible helper paragraphs, the requested Bulgarian CTA and its existing onboarding URL, without horizontal overflow. Evidence: `/tmp/gorez-2km-business-cta-20261028.png`.
+- Clicking that live CTA opened `/for-businesses?lang=bg` with the existing five-step wizard. No fields or registration were submitted. Returning home retained 2 km; viewport was reset to the normal 1280 px and temporary QA tabs were closed.
+- No real browser location was requested, no Google/model test calls were made, and no billing/subscription configuration or data was changed during this postflight. The 2,000-metre request is covered by the deterministic automated provider tests.

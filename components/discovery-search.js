@@ -9,6 +9,7 @@ import { BULGARIAN_CITIES } from '../lib/business-location.mjs'
 import { DISCOVERY_CATEGORIES, categoryById } from '../lib/discovery/categories.mjs'
 import { neighborhoodChoices } from '../lib/discovery/intent.mjs'
 import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
+import { DEFAULT_DISCOVERY_RADIUS_KM, DISCOVERY_RADIUS_CHOICES } from '../lib/discovery/defaults.mjs'
 import { clearDiscoveryDraft, peekDiscoveryDraft, setDiscoveryDraft } from '../lib/discovery/draft.mjs'
 import { DEFAULT_DISCOVERY_CITY, discoveryCitySelection, discoverySearchInput, requestDiscoveryLocation } from '../lib/discovery/search-ui.mjs'
 import { BusinessPhotoGallery } from './business-photo-gallery'
@@ -25,7 +26,7 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
   const [query, setQuery] = useState(initialInput?.query || ''), [category, setCategory] = useState(initialInput?.category || '')
   const [cityCode, setCityCode] = useState(initialInput?.cityCode || DEFAULT_DISCOVERY_CITY), [neighborhood, setNeighborhood] = useState(initialInput?.neighborhood || '')
   const [cityWasChosen, setCityWasChosen] = useState(initial?.cityWasChosen || false)
-  const [radiusKm, setRadius] = useState(initialInput?.radiusKm || 5), [coordinates, setCoordinates] = useState(initialInput?.coordinates || null)
+  const [radiusKm, setRadius] = useState(initialInput?.radiusKm ?? DEFAULT_DISCOVERY_RADIUS_KM), [coordinates, setCoordinates] = useState(initialInput?.coordinates || null)
   const [locating, setLocating] = useState(false), [locationError, setLocationError] = useState(''), [loading, setLoading] = useState(false)
   const [result, setResult] = useState(null), [error, setError] = useState(''), [source, setSource] = useState('all'), [settledQuery, setSettledQuery] = useState(query)
   const controller = useRef(null), resultHeading = useRef(null), inFlight = useRef(false), locationInFlight = useRef(false), mounted = useRef(true)
@@ -95,18 +96,19 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
       <div className="discovery-query"><label className="sr-only" htmlFor={compact ? 'home-ai-query' : 'ai-query'}>{copy.title}</label><input id={compact ? 'home-ai-query' : 'ai-query'} value={query} maxLength={300} placeholder={copy.placeholder} autoComplete="off" enterKeyHint="search" disabled={loading || locating} onChange={event => setQuery(event.target.value)} required minLength={2}/><button className="discovery-submit" aria-label={loading ? copy.searching : copy.search} disabled={loading || locating || query.trim().length < 2} type="submit">{loading ? <span className="button-spinner"/> : <Icon name="arrow"/>}<span>{copy.search}</span></button></div>
       <div className="discovery-controls">
         <label className="discovery-city"><span className="sr-only">{copy.city}</span><Icon name="pin"/><select value={selectedCity} disabled={loading || locating} onChange={event => { setCityCode(event.target.value); setCityWasChosen(true); setNeighborhood(''); setCoordinates(null); setLocationError('') }}><option value="" disabled>{coordinates ? copy.locationSet : copy.anyCity}</option>{cities.map(city => <option key={city.code} value={city.code}>{en ? city.nameEn : city.name}{duplicateCityNames.has(city.name) ? ` · ${city.region}` : ''}</option>)}</select></label>
-        <button className={`discovery-location ${coordinates ? 'selected' : ''}`} type="button" disabled={loading || locating} onClick={locate} title={copy.locationInfo} aria-label={coordinates ? copy.clearLocation : copy.nearby}><Icon name="pin"/>{locating ? copy.locating : coordinates ? copy.locationSet : copy.nearby}</button>
+        <button className={`discovery-location ${coordinates ? 'selected' : ''}`} type="button" disabled={loading || locating} onClick={locate} title={copy.locationInfo} aria-describedby={compact ? 'home-location-info' : 'location-info'} aria-label={locating ? copy.locating : coordinates ? copy.clearLocation : copy.nearby}><Icon name="pin"/>{locating ? copy.locating : coordinates ? copy.locationSet : copy.nearby}</button>
       </div>
       <div className="discovery-shortcuts" aria-label={en ? 'Service shortcuts' : 'Категории услуги'}>{shortcuts.map(id => { const item = categoryById(id); return <button key={id} type="button" disabled={loading || locating} className={category === id ? 'selected' : ''} aria-pressed={category === id} onClick={() => { setCategory(category === id ? '' : id); if (!query.trim()) setQuery(item[locale]) }}><Icon name={item.icon}/>{item[locale]}</button> })}</div>
       <details className="discovery-filters"><summary>{copy.filters}</summary><div className="discovery-refine">
         <label><span>{copy.neighborhood}</span><select value={neighborhood} disabled={!selectedCity || loading || locating} onChange={event => { setCityCode(selectedCity); setCityWasChosen(true); setNeighborhood(event.target.value) }}><option value="">{copy.anyNeighborhood}</option>{neighborhoodChoices(selectedCity).map(name => <option key={name} value={name}>{name}</option>)}</select></label>
         <label>{en ? 'Category' : 'Категория'}<select value={category} disabled={loading || locating} onChange={event => setCategory(event.target.value)}><option value="">{en ? 'From my description' : 'От описанието'}</option>{DISCOVERY_CATEGORIES.map(item => <option key={item.id} value={item.id}>{item[locale]}</option>)}</select></label>
-        <label>{copy.radius} · {copy.nearby}<select value={radiusKm} disabled={loading || locating} onChange={event => setRadius(Number(event.target.value))}>{[1, 3, 5, 10, 25].map(radius => <option key={radius} value={radius}>{radius} km</option>)}</select></label>
-      </div><p className="discovery-help">{copy.privacy}</p></details>
-      {(coordinates || locating) && <p className="discovery-help" role="status">{copy.locationInfo}</p>}
+        <label>{copy.radius} · {copy.nearby}<select value={radiusKm} disabled={loading || locating} onChange={event => setRadius(Number(event.target.value))}>{DISCOVERY_RADIUS_CHOICES.map(radius => <option key={radius} value={radius}>{radius} km</option>)}</select></label>
+      </div></details>
+      <span className="sr-only" id={compact ? 'home-location-info' : 'location-info'}>{copy.locationInfo}</span>
       {locationError && <p className="discovery-notice" role="status">{locationMessage}</p>}
       <span className="sr-only" aria-live="polite">{settledQuery.length >= 2 && !loading ? (en ? 'Press Find to search.' : 'Натисни Намери за търсене.') : ''}</span>
     </form>
+    {!compact && <Link className="discovery-business-cta" href={`/for-businesses?lang=${locale}`}><span>{copy.registerBusiness}</span><Icon name="arrow"/></Link>}
     {!compact && (loading || result || error) && <div className="discovery-results" aria-busy={loading}>
       <h2 ref={resultHeading} tabIndex={-1} className="discovery-results-title">{copy.results}{result && !result.clarification && !result.external ? ` · ${result.results.length}` : ''}</h2>
       {loading && <div className="discovery-loading" role="status"><span className="button-spinner"/><p>{copy.searching}</p><div className="discovery-skeleton"><i/><i/></div></div>}

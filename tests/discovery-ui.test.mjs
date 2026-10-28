@@ -6,6 +6,8 @@ import { DEFAULT_DISCOVERY_CITY, discoveryCitySelection, discoverySearchInput, r
 import { discoveryRequestSchema, parseIntent } from '../lib/discovery/intent.mjs'
 import { googleSearchRequest } from '../lib/discovery/google-places.mjs'
 import { normalizeInternalBusinesses } from '../lib/discovery/internal-search.mjs'
+import { DEFAULT_DISCOVERY_RADIUS_KM, DISCOVERY_RADIUS_CHOICES } from '../lib/discovery/defaults.mjs'
+import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
 
 const now = DateTime.fromISO('2026-10-27T18:00:00Z')
 const origin = { latitude: 42.6977, longitude: 23.3219, consent: true } // Synthetic city-centre fixture, never a user's location.
@@ -42,11 +44,11 @@ test('Near me discards the default city and quarter and searches the consented r
   const request = discoverySearchInput({ query: 'автомивка', coordinates: origin, neighborhood: 'Младост 1' })
   assert.equal(request.cityCode, undefined); assert.equal(request.neighborhood, undefined)
   assert.deepEqual(request.coordinates, origin)
-  assert.equal(request.radiusKm, 5)
+  assert.equal(request.radiusKm, 2)
   const intent = parseIntent(discoveryRequestSchema.parse(request), now)
   assert.equal(intent.city, null); assert.equal(intent.clarification, null)
   const provider = googleSearchRequest(intent)
-  assert.equal(provider.method, 'nearby'); assert.equal(provider.body.locationRestriction.circle.radius, 5000)
+  assert.equal(provider.method, 'nearby'); assert.equal(provider.body.locationRestriction.circle.radius, 2000)
   assert.deepEqual(provider.body.locationRestriction.circle.center, { latitude: origin.latitude, longitude: origin.longitude })
   const oneKm = discoverySearchInput({ query: 'автомивка', radiusKm: 1, coordinates: origin })
   assert.equal(googleSearchRequest(parseIntent(discoveryRequestSchema.parse(oneKm), now)).body.locationRestriction.circle.radius, 1000)
@@ -112,12 +114,46 @@ test('simple form hides secondary controls and diagnostics, keeps readable text 
   assert.doesNotMatch(ui, /<details className="discovery-filters"[^>]*\bopen\b|discovery-eyebrow/)
   assert.match(ui, /execute\(payload\(\{ coordinates: position, neighborhood: '' \}\)\)/)
   assert.match(ui, /<label>\{copy.radius\} · \{copy.nearby\}<select value=\{radiusKm\}/)
-  assert.match(ui, /\[1, 3, 5, 10, 25\]\.map\(radius/)
+  assert.match(ui, /DISCOVERY_RADIUS_CHOICES\.map\(radius/)
   assert.match(ui, /BusinessPhotoGallery photos=\{row.photos\}/)
   assert.match(ui, /<details className="discovery-ranking"><summary>\{copy.searchDetails\}/)
   assert.match(css, /\.client-finder \.discovery-compact \.discovery-form \{ padding: 0; border: 0;/)
   for (const match of css.matchAll(/font-size:\s*(\d+)px/g)) assert.ok(Number(match[1]) >= 16, `small font: ${match[0]}`)
   for (const source of [ui, helper]) assert.doesNotMatch(source, /localStorage|sessionStorage|watchPosition|console\.|trackProductEvent/)
+})
+
+test('two kilometres is the shared form, request and server default; explicit radius choices remain intact', async () => {
+  assert.equal(DEFAULT_DISCOVERY_RADIUS_KM, 2)
+  assert.deepEqual(DISCOVERY_RADIUS_CHOICES, [1, 2, 3, 5, 10, 25])
+  assert.equal(discoverySearchInput({ query: 'маникюр' }).radiusKm, 2)
+  assert.equal(discoveryRequestSchema.parse({ query: 'маникюр София' }).radiusKm, 2)
+  const ui = await read('components/discovery-search.js')
+  assert.match(ui, /initialInput\?\.radiusKm \?\? DEFAULT_DISCOVERY_RADIUS_KM/)
+  for (const radiusKm of DISCOVERY_RADIUS_CHOICES) {
+    const intent = parseIntent(discoveryRequestSchema.parse(discoverySearchInput({ query: 'автомивка', coordinates: origin, radiusKm })), now)
+    assert.equal(googleSearchRequest(intent).body.locationRestriction.circle.radius, radiusKm * 1000)
+  }
+  for (const radiusKm of [0, 26, 1.5]) assert.equal(discoveryRequestSchema.safeParse({ query: 'маникюр София', radiusKm }).success, false)
+})
+
+test('radius helpers are not visible; location consent, error recovery and accessible privacy information stay available', async () => {
+  const ui = await read('components/discovery-search.js'), legal = await read('components/legal-page.js'), footer = await read('components/site-footer.js')
+  assert.doesNotMatch(ui, /className="discovery-help"|\{copy\.privacy\}/)
+  assert.match(ui, /<span className="sr-only" id=\{compact \? 'home-location-info' : 'location-info'\}>\{copy.locationInfo\}<\/span>/)
+  assert.match(ui, /aria-describedby=\{compact \? 'home-location-info' : 'location-info'\}/)
+  assert.match(ui, /locationError && <p className="discovery-notice" role="status">/)
+  assert.match(ui, /requestDiscoveryLocation\(navigator.geolocation/)
+  assert.match(footer, /\/privacy\?lang=/)
+  assert.match(legal, /Незадължителното местоположение от браузъра се иска само след твое действие/)
+})
+
+test('free business registration CTA follows the form and opens existing locale-aware onboarding without submitting an account', async () => {
+  const ui = await read('components/discovery-search.js'), route = await read('app/for-businesses/page.js')
+  assert.match(ui, /<\/form>\s*\{!compact && <Link className="discovery-business-cta" href=\{`\/for-businesses\?lang=\$\{locale\}`\}/)
+  assert.match(ui, /<span>\{copy.registerBusiness\}<\/span>/)
+  assert.equal(DISCOVERY_COPY.bg.registerBusiness, 'Регистрирай бизнеса си безплатно')
+  assert.equal(DISCOVERY_COPY.en.registerBusiness, 'Register your business for free')
+  assert.match(route, /<BusinessOnboarding/)
 })
 
 test('Google photos stay in the same native attributed list with supported typography, no extra Details/Photos calls', async () => {

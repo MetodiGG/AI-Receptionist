@@ -92,7 +92,7 @@ test('Text and Nearby use allowlisted endpoints, bounded result counts and Pro-o
   const text = googleSearchRequest(intent, config)
   assert.equal(text.method, 'text'); assert.equal(text.body.pageSize, 12); assert.doesNotMatch(text.body.textQuery, /17:00|утре/)
   const nearby = googleSearchRequest(parse({ query: 'барбершоп', coordinates: { latitude: 42.7, longitude: 23.3, consent: true } }), config)
-  assert.equal(nearby.method, 'nearby'); assert.equal(nearby.body.maxResultCount, 12); assert.equal(nearby.body.locationRestriction.circle.radius, 5000)
+  assert.equal(nearby.method, 'nearby'); assert.equal(nearby.body.maxResultCount, 12); assert.equal(nearby.body.locationRestriction.circle.radius, 2000)
   await searchGooglePlaces(intent, d)
   assert.equal(d.calls.fetch[0].init.headers['X-Goog-FieldMask'], GOOGLE_SEARCH_FIELDS)
   assert.doesNotMatch(GOOGLE_SEARCH_FIELDS, /rating|review|photo|website|phone|opening|\*/i)

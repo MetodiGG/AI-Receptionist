@@ -21,7 +21,10 @@
 .discovery-location svg { width: 18px; height: 18px; flex-shrink: 0; }
 .discovery-location.selected { background: #d8f5b5; }
 .discovery-refine { display: grid; grid-template-columns: 1fr 140px; gap: 14px; margin-top: 14px; }
-.discovery-help { color: #647164; font-size: 16px; line-height: 1.6; margin: 16px 0 0; }
+.discovery-business-cta { display: flex; align-items: center; justify-content: center; gap: 12px; min-height: 64px; margin-top: 24px; padding: 18px 22px; border: 1px solid #173e2a; border-radius: 20px; background: #173e2a; color: white; text-decoration: none; font-size: 18px; font-weight: 700; line-height: 1.4; }
+.discovery-business-cta span { flex: 1; min-width: 0; }
+.discovery-business-cta svg { width: 22px; height: 22px; flex-shrink: 0; }
+.discovery-business-cta:hover { background: #224c35; }
 .discovery-results { margin-top: 40px; }
 .discovery-results-title { font-size: 24px; letter-spacing: -.03em; }
 .discovery-start { text-align: center; padding: 42px 24px; color: #617063; border: 1px dashed #cfdacc; border-radius: 24px; }
@@ -96,6 +99,7 @@
   .discovery-search { width: calc(100% - 32px); margin-top: 30px; }
   .discovery-search > header :is(h1,h2) { font-size: 34px; }
   .discovery-form { padding: 16px; border-radius: 22px; }
+  .discovery-business-cta { padding: 16px; font-size: 17px; }
   .discovery-query input { font-size: 16px; padding: 12px 5px; }
   .discovery-submit { padding: 12px; min-width: 46px; }
   .discovery-submit span { display: none; }
@@ -132,7 +136,7 @@
 .discovery-refine label { min-width: 0; }
 .discovery-results-title { font-size: 28px; }
 .discovery-understood > div span { font-size: 16px; }
-.discovery-help, .discovery-understood p, .discovery-address, .discovery-availability-unknown { color: #526452; }
+.discovery-understood p, .discovery-address, .discovery-availability-unknown { color: #526452; }
 .discovery-card .directory-business-cover { height: 250px; margin: -26px -26px 22px; border-radius: 23px 23px 0 0; }
 .discovery-card .business-photo-counter, .discovery-card .business-photo-dialog footer { font-size: 16px; }
 .discovery-card h3 { line-height: 1.25; }

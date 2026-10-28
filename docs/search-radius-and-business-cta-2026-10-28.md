@@ -18,3 +18,10 @@
 - On the actual `www.gorez.co` home page at 390 px, opening More filters confirmed the initial 2 km value, zero visible helper paragraphs, the requested Bulgarian CTA and its existing onboarding URL, without horizontal overflow. Evidence: `/tmp/gorez-2km-business-cta-20261028.png`.
 - Clicking that live CTA opened `/for-businesses?lang=bg` with the existing five-step wizard. No fields or registration were submitted. Returning home retained 2 km; viewport was reset to the normal 1280 px and temporary QA tabs were closed.
 - No real browser location was requested, no Google/model test calls were made, and no billing/subscription configuration or data was changed during this postflight. The 2,000-metre request is covered by the deterministic automated provider tests.
+
+## Brighter centred CTA follow-up
+
+- The owner requested a more eye-catching, glowing, slightly larger and centred registration label. This CSS-only product change uses a bright lime gradient, dark-green 800-weight text, 22 px desktop / 20 px mobile sizing, and a soft three-second shadow pulse. Equal-width outer grid columns balance the arrow, keeping the label at the true centre of the button.
+- No flashing/opacity changes or layout movement are used. Reduced-motion preference disables the pulse while retaining the static highlight, and keyboard focus has a distinct dark outline. The text contrast against every gradient/hover background is tested at at least 7:1.
+- All 333 tests and the Production build passed. Local 320/390 px checks had no horizontal overflow; the label/button centre difference was 0 px at 320, 390 and 1280 px. The registration URL and all search/radius/consent behavior remain unchanged. No provider, location, account, billing or database request was needed for this styling check.
+- Production appearance is verified after release below.

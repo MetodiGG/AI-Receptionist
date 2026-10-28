@@ -156,6 +156,20 @@ test('free business registration CTA follows the form and opens existing locale-
   assert.match(route, /<BusinessOnboarding/)
 })
 
+test('registration CTA is larger, truly centred, high contrast and gently glowing with a reduced-motion fallback', async () => {
+  const css = await read('app/discovery.css')
+  assert.match(css, /\.discovery-business-cta \{[^}]*grid-template-columns: 24px minmax\(0, 1fr\) 24px/)
+  assert.match(css, /\.discovery-business-cta span \{[^}]*grid-column: 2;[^}]*text-align: center/)
+  assert.match(css, /\.discovery-business-cta svg \{ grid-column: 3;/)
+  assert.match(css, /font-size: 22px; font-weight: 800/)
+  assert.match(css, /\.discovery-business-cta \{ padding: 18px 16px; font-size: 20px;/)
+  assert.match(css, /animation: discovery-cta-glow 3s ease-in-out infinite/)
+  assert.match(css, /@media \(prefers-reduced-motion: reduce\) \{[^}]*\.discovery-business-cta \{ animation: none;/)
+  assert.match(css, /\.discovery-search \.discovery-business-cta:focus-visible \{ outline: 3px solid #173e2a;/)
+  const luminance = hex => hex.match(/\w{2}/g).map(part => parseInt(part, 16) / 255).map(value => value <= .04045 ? value / 12.92 : ((value + .055) / 1.055) ** 2.4).reduce((total, value, index) => total + value * [.2126, .7152, .0722][index], 0)
+  for (const background of ['b8f36b', 'd5ffa9', 'c9ff8e']) assert.ok((luminance(background) + .05) / (luminance('173e2a') + .05) >= 7)
+})
+
 test('Google photos stay in the same native attributed list with supported typography, no extra Details/Photos calls', async () => {
   const source = await read('components/google-discovery-list.js'), css = await read('app/discovery.css')
   assert.equal((source.match(/document.createElement\('gmp-advanced-place-list'\)/g) || []).length, 1)

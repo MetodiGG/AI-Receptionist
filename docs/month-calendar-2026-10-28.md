@@ -24,4 +24,8 @@
 
 ## Release
 
-Deployment identity and postflight are recorded after the main-branch Production deployment is Ready.
+- Source `1b05f694c3f59b0ceb1aa90b80070975b238cad5` published to main.
+- Vercel `9RLd1ZmydVMB5fRTJwyortNjQE4o`: Ready, Production, Current, www.gorez.co; immutable hostname `ai-receptionist-q87of9vm9-ai-receptionist12.vercel.app`.
+- Inspected a Vercel build warning about the existing `engines.node >=20.9.0` range. The calendar change does not modify package/runtime/deployment configuration.
+- Public post-deployment smoke: www.gorez.co renders the Bulgarian AI homepage. The authenticated month UI was exercised on the development-only fictional fixture, not on a real client's booking data.
+- Development server stopped. Vercel inspection tab closed. The unmarked local QA tab became a connection-refused page after the server stopped; browser URL policy prevented its manual cleanup, so it is left for normal end-of-turn temporary-tab cleanup. No security setting was changed. The working public homepage remains marked as the user-facing deliverable.

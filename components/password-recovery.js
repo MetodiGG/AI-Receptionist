@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 import { BrandLogo } from './brand-logo'
+import { HomeLink } from './home-link'
 import { LanguageSwitch } from './language-switch'
 import { usePublicLocale } from '../hooks/use-public-locale'
 import { PASSWORD_RECOVERY_COPY } from '../lib/password-recovery-copy.mjs'
@@ -99,9 +100,9 @@ export function PasswordRecovery({ mode = 'request', initializeRecovery = getPas
   const lead = success ? copy.successLead : invalid ? copy.invalidLead : reset ? copy.resetLead : copy.forgotLead
 
   return <main className="recovery-page">
-    <nav className="recovery-nav" aria-label={locale === 'en' ? 'Account navigation' : 'Навигация за профила'}>
+    <nav className="recovery-nav home-navigation-header" aria-label={locale === 'en' ? 'Account navigation' : 'Навигация за профила'}>
       <Link href={`/?lang=${locale}`} aria-label="GoRez"><BrandLogo compact eager /></Link>
-      <LanguageSwitch locale={locale} onChange={setLocale} compact />
+      <div className="home-header-actions"><LanguageSwitch locale={locale} onChange={setLocale} compact /></div><HomeLink locale={locale}/>
     </nav>
     <section className="access-card recovery-card" aria-labelledby="recovery-title">
       <p className="auth-kicker">{copy.portal}</p>

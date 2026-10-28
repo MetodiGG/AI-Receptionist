@@ -5,6 +5,7 @@ import { DateTime } from 'luxon'
 import { useParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { BrandLogo } from '../../../components/brand-logo'
+import { HomeLink } from '../../../components/home-link'
 import { Icon } from '../../../components/icon'
 import { LanguageSwitch } from '../../../components/language-switch'
 import { usePublicLocale } from '../../../hooks/use-public-locale'
@@ -50,8 +51,8 @@ export default function ManageBookingPage() {
     }
   }
 
-  if (status === 'loading') return <main className="booking-state-page"><span className="button-spinner" /><p>{en ? 'Loading booking...' : 'Зареждаме резервацията...'}</p></main>
-  if (status === 'error') return <main className="booking-state-page"><LanguageSwitch locale={locale} onChange={setLocale} compact /><span className="booking-logo-mark">!</span><h1>{en ? 'Booking not found' : 'Не открихме резервацията'}</h1><p>{error}</p></main>
+  if (status === 'loading') return <main className="booking-state-page"><div className="state-home-navigation"><HomeLink locale={locale}/></div><span className="button-spinner" /><p>{en ? 'Loading booking...' : 'Зареждаме резервацията...'}</p></main>
+  if (status === 'error') return <main className="booking-state-page"><div className="state-home-navigation"><HomeLink locale={locale}/></div><LanguageSwitch locale={locale} onChange={setLocale} compact /><span className="booking-logo-mark">!</span><h1>{en ? 'Booking not found' : 'Не открихме резервацията'}</h1><p>{error}</p></main>
 
   const starts = DateTime.fromISO(appointment.starts_at).setZone(appointment.business.timezone).setLocale(locale)
   const activeBooking = ['booked', 'confirmed'].includes(appointment.status)
@@ -60,7 +61,7 @@ export default function ManageBookingPage() {
   return (
     <main className="manage-booking-page">
       <section className="manage-booking-card">
-        <div className="manage-booking-head"><div className="booking-brand"><BrandLogo compact decorative eager /><span className="booking-business-name"><small>GoRez</small><strong>{appointment.business.name}</strong></span></div><LanguageSwitch locale={locale} onChange={setLocale} compact /></div>
+        <div className="manage-booking-head home-navigation-header"><div className="booking-brand"><BrandLogo compact decorative eager /><span className="booking-business-name"><small>GoRez</small><strong>{appointment.business.name}</strong></span></div><div className="home-header-actions"><LanguageSwitch locale={locale} onChange={setLocale} compact /></div><HomeLink locale={locale}/></div>
         <div className={`manage-status ${['cancelled', 'no_show'].includes(appointment.status) ? 'cancelled' : ''}`}><span>{['cancelled', 'no_show'].includes(appointment.status) ? '×' : '✓'}</span><div><small>{en ? 'Status' : 'Статус'}</small><strong>{bookingStatusLabel(appointment.status, locale)}</strong></div></div>
         <h1>{appointment.service.name}</h1>
         <div className="manage-details">

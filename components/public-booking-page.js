@@ -11,6 +11,7 @@ import { BookingIntakeFields, BookingIntakeSummary } from './booking-intake-fiel
 import { BookingConfirmationActions } from './booking-confirmation-actions'
 import { localizedApiMessage } from '../lib/localized-api-message.mjs'
 import { LanguageSwitch } from './language-switch'
+import { HomeLink } from './home-link'
 import { usePublicLocale } from '../hooks/use-public-locale'
 import { collapseSlotsByLocalTime, formatBulgarianMonthShort, groupSlotsByPeriod, resolveVisibleBookingDays } from '../lib/booking-window.mjs'
 import { hasSupabaseConfig, supabase } from '../lib/supabase'
@@ -53,8 +54,8 @@ function SparkLogo({ businessName, locale }) {
   )
 }
 
-function LoadingPage({ copy }) {
-  return <main className="booking-state-page"><span className="button-spinner" /><p>{copy.loading}</p></main>
+function LoadingPage({ copy, locale }) {
+  return <main className="booking-state-page"><div className="state-home-navigation"><HomeLink locale={locale}/></div><span className="button-spinner" /><p>{copy.loading}</p></main>
 }
 
 function BookingPanel({ business, locale }) {
@@ -324,8 +325,8 @@ export default function PublicBookingPage({ initialLocale = 'bg', previewBusines
     router.replace('/')
   }
 
-  if (status === 'loading') return <LoadingPage copy={copy} />
-  if (status === 'error') return <main className="booking-state-page"><span className="booking-logo-mark">!</span><h1>{copy.notOpen}</h1><p>{error}</p><button className="booking-primary booking-retry" type="button" onClick={() => window.location.reload()}>{copy.retry}</button></main>
+  if (status === 'loading') return <LoadingPage copy={copy} locale={locale} />
+  if (status === 'error') return <main className="booking-state-page"><div className="state-home-navigation"><HomeLink locale={locale}/></div><span className="booking-logo-mark">!</span><h1>{copy.notOpen}</h1><p>{error}</p><button className="booking-primary booking-retry" type="button" onClick={() => window.location.reload()}>{copy.retry}</button></main>
 
   return (
     <main className={`public-booking-page ${embedded ? 'embedded-booking' : ''}`} style={{ '--business-color': business.theme_color || '#173e2a' }}>
@@ -339,8 +340,9 @@ export default function PublicBookingPage({ initialLocale = 'bg', previewBusines
           {ownerSession && ownsBusiness ? <nav className="booking-owner-nav" aria-label={locale === 'bg' ? 'Навигация за профила' : 'Account navigation'}>
             <Link className="booking-dashboard-link" href={`/dashboard?lang=${locale}`}><span aria-hidden="true">←</span> {copy.dashboard}</Link>
             <button type="button" className="booking-signout" onClick={logout} disabled={signingOut}>{signingOut ? copy.loggingOut : copy.logout}</button>
-          </nav> : <Link className="booking-home-link" href={`/?lang=${locale}`}><span aria-hidden="true">←</span> {copy.home}</Link>}
+          </nav> : null}
         </div>
+        <HomeLink locale={locale}/>
       </header>
       {previewBusiness && <p className="local-profile-qa-label">LOCAL QA · fictional profile and reviews · not a real business</p>}
       {!embedded && <BusinessProfileHeader business={business} locale={locale} reviews={reviews} onBook={() => setMode('booking')} />}

@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { BrandLogo } from './brand-logo'
+import { HomeLink } from './home-link'
 import { Icon } from './icon'
 import { LanguageSwitch } from './language-switch'
 import { AdminAccessLink } from './admin-access-link'
@@ -48,6 +49,7 @@ export function DashboardShell({ email, title, businessSlug, platformStatus = 'e
           <div className="topbar-actions">
             <LanguageSwitch locale={locale} onChange={onLocaleChange} compact />
             <button className="topbar-logout" type="button" onClick={onLogout} aria-label={en ? 'Sign out' : 'Изход'} title={en ? 'Sign out' : 'Изход'}><Icon name="logout" /></button>
+            <HomeLink locale={locale}/>
           </div>
         </header>
         {platformStatus!=='enabled'&&<p className="owner-platform-notice" role="status">{platformStatus==='pending'?(en?'Awaiting approval. Prepare your services, team and schedule in Settings. Public booking opens after GoRez reviews and publishes your profile. Questions: info@gorez.co.':'Чака одобрение. Подготви услугите, екипа и графика в Настройки. Публичното записване започва след преглед и публикуване от GoRez. Въпроси: info@gorez.co.') : platformStatus==='archived'?(en?'This business is in the platform trash. Its public page and new bookings are disabled. Contact GoRez support.':'Този бизнес е в кошчето на платформата. Публичната страница и новите резервации са спрени. Свържи се с GoRez.'):(en?'This business is suspended by a platform administrator. Existing visits remain; new bookings are disabled.':'Този бизнес е спрян от администратор на платформата. Съществуващите часове остават; нови резервации не се приемат.')}</p>}

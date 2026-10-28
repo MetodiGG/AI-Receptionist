@@ -5,6 +5,7 @@ import { useCallback,useEffect,useId,useMemo,useRef,useState } from 'react'
 import { BrandLogo } from './brand-logo'
 import { Icon } from './icon'
 import { LanguageSwitch } from './language-switch'
+import { HomeLink } from './home-link'
 import { usePublicLocale } from '../hooks/use-public-locale'
 import { supabase,createReauthenticationClient } from '../lib/supabase'
 import { filterPartnerLeads,partnerReviewGroup } from '../lib/partner-leads.mjs'
@@ -167,7 +168,7 @@ export function PlatformAdmin({preview=null}) {
   const b=detail?.business
   return <main className="platform-admin admin-console">
     {preview&&<p className="admin-preview-notice">{en?'Local preview · fictional data · no real changes or emails':'Локален преглед · измислени данни · без реални промени и имейли'}</p>}
-    <header className="admin-console-header"><div className="admin-heading-identity"><Link className="admin-brand" href={`/?lang=${locale}`} aria-label="GoRez"><BrandLogo eager/></Link><div><h1>{en?'Admin panel':'Админ панел'}</h1>{session&&<p className="admin-identity">{session.user.email}</p>}</div></div><div className="admin-header-actions"><LanguageSwitch locale={locale} onChange={setLocale} compact/><Link className="secondary-button" href={`/?lang=${locale}`}><Icon name="house"/>{en?'Website':'Към сайта'}</Link>{session&&<button className="secondary-button" onClick={logout} type="button">{en?'Sign out':'Изход'}</button>}</div></header>
+    <header className="admin-console-header home-navigation-header"><div className="admin-heading-identity"><Link className="admin-brand" href={`/?lang=${locale}`} aria-label="GoRez"><BrandLogo eager/></Link><div><h1>{en?'Admin panel':'Админ панел'}</h1>{session&&<p className="admin-identity">{session.user.email}</p>}</div></div><div className="admin-header-actions home-header-actions"><LanguageSwitch locale={locale} onChange={setLocale} compact/>{session&&<button className="secondary-button" onClick={logout} type="button">{en?'Sign out':'Изход'}</button>}</div><HomeLink locale={locale}/></header>
     {checking?<div className="admin-loading" role="status">{en?'Checking access…':'Проверка на достъпа…'}</div>:!session||error==='UNAUTHORIZED'?<section className="admin-access-state"><Icon name="user"/><h2>{en?'Administrator sign-in':'Вход за администратори'}</h2><p>{en?'Sign in with your administrator account. You will return here after sign-in.':'Влез с администраторския си профил. След вход ще се върнеш тук.'}</p><Link className="primary-button" href={`/account?lang=${locale}&next=admin`}>{en?'Sign in':'Влез в профила'}</Link></section>:error==='FORBIDDEN'?<section className="admin-access-state" role="alert"><h2>{en?'Administrator access required':'Нужен е администраторски достъп'}</h2><p>{fail(error)}</p><Link className="secondary-button" href={`/account?lang=${locale}`}>{en?'My account':'Моят профил'}</Link></section>:<>
       {error&&<p className="form-message" role="alert">{fail(error)} <button className="link-button" onClick={load} type="button">{en?'Retry':'Опитай отново'}</button></p>}
       {notice&&<p className="form-message success" role="status">{text(NOTICES,notice,en)}</p>}

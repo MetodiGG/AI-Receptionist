@@ -1,6 +1,7 @@
 import './globals.css'
 import './business-profile.css'
 import './discovery.css'
+import './home-navigation.css'
 import { PwaRegister } from '../components/pwa-register'
 import { SITE_ORIGIN } from '../lib/seo.mjs'
 

@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { BrandLogo } from './brand-logo'
 import { LanguageSwitch } from './language-switch'
+import { HomeLink } from './home-link'
 import { usePublicLocale } from '../hooks/use-public-locale'
 import { supabase } from '../lib/supabase'
 import { ReviewStars } from './business-reviews'
@@ -55,7 +56,7 @@ export function ReviewAdmin({ preview = null }) {
     finally { savingRef.current = false; setSaving(false) }
   }
   const errorText = error === 'FORBIDDEN' ? (en ? 'Administrator access is required.' : 'Нужен е администраторски достъп.') : error === 'REVIEW_CHANGED' ? (en ? 'This review changed. Close the form and refresh before trying again.' : 'Отзивът е променен. Затвори формата и обнови, преди да опиташ отново.') : (en ? 'Could not load or save reviews. Please try again.' : 'Не успяхме да заредим или запазим отзивите. Опитай отново.')
-  return <main className="platform-admin admin-console review-admin"><header className="admin-console-header"><div className="admin-heading-identity"><Link href={`/?lang=${locale}`} className="admin-brand" aria-label="GoRez"><BrandLogo /></Link><h1>{en ? 'Review moderation' : 'Модериране на отзиви'}</h1></div><div className="admin-header-actions"><LanguageSwitch locale={locale} onChange={setLocale} compact /><Link className="secondary-button" href={`/admin?lang=${locale}`}>{en ? 'Admin panel' : 'Админ панел'}</Link></div></header>
+  return <main className="platform-admin admin-console review-admin"><header className="admin-console-header home-navigation-header"><div className="admin-heading-identity"><Link href={`/?lang=${locale}`} className="admin-brand" aria-label="GoRez"><BrandLogo /></Link><h1>{en ? 'Review moderation' : 'Модериране на отзиви'}</h1></div><div className="admin-header-actions home-header-actions"><LanguageSwitch locale={locale} onChange={setLocale} compact /><Link className="secondary-button" href={`/admin?lang=${locale}`}>{en ? 'Admin panel' : 'Админ панел'}</Link></div><HomeLink locale={locale}/></header>
     {preview && <p className="admin-preview-notice">LOCAL QA · fictional reviews · no real changes</p>}
     <section className="admin-console-section"><p className="business-section-note">{en ? 'Hide only spam, abusive content or exposed personal information. Unfavourable feedback alone is not a reason to hide a review. Original ratings and text cannot be edited. Each action requires a reason and is audited.' : 'Скривай само спам, обидно съдържание или публикувани лични данни. Ниската оценка сама по себе си не е основание. Оригиналните оценки и текстът не могат да се редактират. Всяко действие изисква причина и се записва в журнал.'}</p>
       {error === 'UNAUTHORIZED' ? <div className="admin-access-state"><h2>{en ? 'Administrator sign-in' : 'Вход за администратори'}</h2><Link className="primary-button" href={`/account?lang=${locale}&next=admin`}>{en ? 'Sign in' : 'Влез в профила'}</Link></div> : <>

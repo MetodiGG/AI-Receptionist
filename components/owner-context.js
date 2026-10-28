@@ -6,6 +6,7 @@ import { hasSupabaseConfig, supabase } from '../lib/supabase'
 import { createOwnerState } from '../lib/owner-state.mjs'
 import { usePublicLocale } from '../hooks/use-public-locale'
 import { DashboardShell } from './dashboard-shell'
+import { HomeLink } from './home-link'
 
 const OwnerContext = createContext(null)
 
@@ -42,8 +43,8 @@ export function OwnerProvider({ children }) {
     router.replace('/')
   }
 
-  if (state.status === 'config') return <div className="config-warning"><h2>{en ? 'Supabase configuration is missing' : 'Липсва Supabase конфигурация'}</h2></div>
-  if (state.status === 'loading') return <div className="loading-screen"><div className="loading-box" role="status"><span className="button-spinner" /><span>{en ? 'Loading...' : 'Зареждаме...'}</span></div></div>
+  if (state.status === 'config') return <div className="config-warning"><div className="state-home-navigation"><HomeLink locale={locale}/></div><h2>{en ? 'Supabase configuration is missing' : 'Липсва Supabase конфигурация'}</h2></div>
+  if (state.status === 'loading') return <div className="loading-screen"><div className="state-home-navigation"><HomeLink locale={locale}/></div><div className="loading-box" role="status"><span className="button-spinner" /><span>{en ? 'Loading...' : 'Зареждаме...'}</span></div></div>
 
   return <OwnerContext.Provider value={{ ...state, refreshBusiness: load, locale, setLocale }}>
     <DashboardShell email={state.session?.user.email} title={state.business?.name || (en ? 'Business setup' : 'Настройка на бизнеса')} businessSlug={state.business?.slug} platformStatus={state.business?.platform_status} onLogout={logout} locale={locale} onLocaleChange={setLocale}>

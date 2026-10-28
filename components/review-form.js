@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 import { BrandLogo } from './brand-logo'
+import { HomeLink } from './home-link'
 import { LanguageSwitch } from './language-switch'
 import { usePublicLocale } from '../hooks/use-public-locale'
 import { REVIEW_DIMENSIONS } from '../lib/reviews.mjs'
@@ -50,7 +51,7 @@ export function ReviewForm({ token, initialLocale = 'bg', previewVisit = null })
     finally { if (version === generation.current) setBusy(false) }
   }
   const done = status === 'saved' || visit?.submitted
-  return <main className="review-page"><header><Link href={`/?lang=${locale}`} aria-label="GoRez"><BrandLogo /></Link><LanguageSwitch locale={locale} onChange={setLocale} compact /></header><section className="review-form-card">
+  return <main className="review-page"><header className="home-navigation-header"><Link href={`/?lang=${locale}`} aria-label="GoRez"><BrandLogo /></Link><div className="home-header-actions"><LanguageSwitch locale={locale} onChange={setLocale} compact /></div><HomeLink locale={locale}/></header><section className="review-form-card">
     {previewVisit && <p className="auth-kicker">LOCAL QA · fictional visit · no email or database writes</p>}
     {status === 'loading' ? <p role="status">{en ? 'Opening your invitation…' : 'Отваряме поканата ти…'}</p>
       : ['unavailable', 'error'].includes(status) ? <><h1>{status === 'unavailable' ? (en ? 'This invitation is no longer available' : 'Тази покана вече не е достъпна') : (en ? 'Please try again later' : 'Моля, опитай отново по-късно')}</h1><p>{status === 'unavailable' ? (en ? 'The link may have expired or the visit may have changed. Each invitation is valid for 30 days.' : 'Линкът може да е изтекъл или посещението да е променено. Всяка покана е валидна 30 дни.') : (en ? 'Reviews are temporarily unavailable. Nothing has been submitted.' : 'Отзивите временно не са достъпни. Нищо не е изпратено.')}</p></>

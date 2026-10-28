@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { BrandLogo } from './brand-logo'
+import { HomeLink } from './home-link'
 import { LanguageSwitch } from './language-switch'
 import { Icon } from './icon'
 import { SiteFooter } from './site-footer'
@@ -41,7 +42,7 @@ export function BusinessLogin({ initialLocale = 'bg', identity = {} }) {
     finally{lock.current=false;setBusy(false)}
   }
   return <main className="launch-login-page">
-    <header><Link href={`/?lang=${locale}`} aria-label="GoRez"><BrandLogo compact decorative eager/></Link><LanguageSwitch locale={locale} onChange={setLocale} compact/></header>
+    <header className="home-navigation-header"><Link href={`/?lang=${locale}`} aria-label="GoRez"><BrandLogo compact decorative eager/></Link><div className="home-header-actions"><LanguageSwitch locale={locale} onChange={setLocale} compact/></div><HomeLink locale={locale}/></header>
     <section className="launch-login-layout"><div className="launch-login-intro"><p className="marketing-kicker">{en?'GoRez for business':'GoRez за бизнеса'}</p><h1>{en?'Your business.':'Твоят бизнес.'}<br/><em>{en?'Better organised.':'По-подреден.'}</em></h1><p>{en?'Bookings, clients and schedules in your own dashboard.':'Резервации, клиенти и график в собственото ти табло.'}</p><Link href={`/for-businesses?lang=${locale}`}>{en?'New business? Start here':'Нов бизнес? Започни тук'}<Icon name="arrow"/></Link></div>
       <div className="access-card launch-login-card"><h2>{en?'Business sign-in':'Вход за бизнес'}</h2>
       {session?<div className="launch-existing-session"><p>{en?'You are already signed in.':'Вече си влязъл в профила си.'}</p><button type="button" className="primary-button" disabled={busy} onClick={async()=>{setBusy(true);try{await goToDashboard(session)}finally{setBusy(false)}}}>{en?'Open dashboard':'Към таблото'}</button><button className="link-button" type="button" onClick={()=>supabase.auth.signOut({scope:'local'})}>{en?'Use another account':'Вход с друг акаунт'}</button></div>:<form className="auth-form" onSubmit={submit}><label>{en?'Email address':'Имейл адрес'}<input className="text-input" required type="email" autoComplete="email" maxLength={180} value={email} disabled={busy} onChange={event=>setEmail(event.target.value)}/></label><label>{en?'Password':'Парола'}<input className="text-input" required type="password" autoComplete="current-password" value={password} disabled={busy} onChange={event=>setPassword(event.target.value)}/></label><Link className="auth-forgot" href={`/forgot-password?lang=${locale}`}>{en?'Forgot password?':'Забравена парола?'}</Link>{error&&<p className="form-message" role="alert">{error}</p>}<button type="submit" className="primary-button" disabled={busy}>{busy?(en?'Please wait…':'Момент…'):(en?'Sign in':'Вход')}<Icon name="arrow"/></button></form>}

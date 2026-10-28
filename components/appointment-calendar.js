@@ -1,10 +1,10 @@
 'use client'
 
 import { DateTime } from 'luxon'
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useId, useMemo, useRef, useState } from 'react'
 import { Icon } from './icon'
 import { DateMenu } from './date-menu'
-import { APPOINTMENT_STATUS_LABELS, appointmentsForDay, filterCalendarAppointments, getAppointmentTiming, getCalendarDays, getTimelineBounds, layoutDayAppointments } from '../lib/owner-calendar.mjs'
+import { APPOINTMENT_STATUS_LABELS, appointmentsForDay, filterCalendarAppointments, getAppointmentTiming, getCalendarDays, getTimelineBounds, groupCalendarAppointments, layoutDayAppointments, shiftCalendarDate } from '../lib/owner-calendar.mjs'
 import { formatBulgarianMonthShort } from '../lib/booking-window.mjs'
 
 const HOUR_HEIGHT = 96
@@ -21,6 +21,7 @@ export function AppointmentCalendar({ appointments, staff, timezone = 'Europe/So
   const [scope, setScope] = useState('upcoming')
   const [selectedId, setSelectedId] = useState(null)
   const dialogRef = useRef(null)
+  const monthAgendaId = useId()
 
   const selected = appointments.find((item) => item.id === selectedId)
   const calendarStaff = useMemo(() => {
@@ -30,12 +31,14 @@ export function AppointmentCalendar({ appointments, staff, timezone = 'Europe/So
   }, [staff, appointments])
   const visibleStaff = staffId ? calendarStaff.filter((person) => person.id === staffId) : calendarStaff
   const days = getCalendarDays(date, view, timezone)
+  const selectedDate = DateTime.fromISO(date, { zone: timezone }).setLocale(locale)
   const filtered = filterCalendarAppointments(appointments, { staffId, status, query, scope: view === 'list' ? scope : 'all' })
-  const daysWithAppointments = days.map((day) => ({ day, appointments: appointmentsForDay(filtered, day, timezone) }))
-  const periodAppointments = view === 'list' ? filtered : [...new Map(daysWithAppointments.flatMap((item) => item.appointments).map((item) => [item.id, item])).values()]
+  const daysWithAppointments = view === 'month' ? groupCalendarAppointments(filtered, days) : days.map((day) => ({ day, appointments: appointmentsForDay(filtered, day, timezone) }))
+  const periodDays = view === 'month' ? daysWithAppointments.filter(({ day }) => day.hasSame(selectedDate, 'month')) : daysWithAppointments
+  const periodAppointments = view === 'list' ? filtered : [...new Map(periodDays.flatMap((item) => item.appointments).map((item) => [item.id, item])).values()]
+  const selectedMonthDay = daysWithAppointments.find(({ day }) => day.toISODate() === date)
   const activeCount = periodAppointments.filter((item) => ['booked', 'confirmed'].includes(item.status)).length
   const completedCount = periodAppointments.filter((item) => item.status === 'done').length
-  const selectedDate = DateTime.fromISO(date, { zone: timezone }).setLocale(locale)
   const bounds = getTimelineBounds(daysWithAppointments[0].appointments, date, timezone)
   const timelineHeight = (bounds.endHour - bounds.startHour) * HOUR_HEIGHT
   const today = DateTime.now().setZone(timezone).toISODate()
@@ -49,7 +52,7 @@ export function AppointmentCalendar({ appointments, staff, timezone = 'Europe/So
   }, [selected])
 
   function navigate(direction) {
-    setDate(selectedDate.plus({ days: direction * (view === 'week' ? 7 : 1) }).toISODate())
+    setDate(shiftCalendarDate(date, view, direction, timezone))
   }
 
   function openCreate(day = date, personId = staffId) {
@@ -72,7 +75,7 @@ export function AppointmentCalendar({ appointments, staff, timezone = 'Europe/So
 
   return <section className="owner-calendar" aria-label={en ? 'Booking calendar' : 'Календар с резервации'}>
     <div className="owner-calendar-toolbar">
-      <label className="calendar-view-menu"><span>{en ? 'View' : 'Изглед'}</span><select value={view} onChange={event=>setView(event.target.value)}>{[['day',en?'Day':'Ден'],['week',en?'Week':'Седмица'],['list',en?'List':'Списък']].map(([value,label])=><option value={value} key={value}>{label}</option>)}</select></label>
+      <label className="calendar-view-menu"><span>{en ? 'View' : 'Изглед'}</span><select value={view} onChange={event=>setView(event.target.value)}>{[['day',en?'Day':'Ден'],['week',en?'Week':'Седмица'],['month',en?'Month':'Месец'],['list',en?'List':'Списък']].map(([value,label])=><option value={value} key={value}>{label}</option>)}</select></label>
       <details className="calendar-filter-menu"><summary>{en ? 'Filters' : 'Филтри'}{activeFilters > 0 && <b>{activeFilters}</b>}<span aria-hidden="true">⌄</span></summary><div className="calendar-filter-panel">
         <div className="calendar-staff-filter"><label htmlFor="calendar-staff">{en ? 'Specialist' : 'Специалист'}</label><select id="calendar-staff" value={staffId} onChange={(event) => setStaffId(event.target.value)}><option value="">{en ? 'All specialists' : 'Всички специалисти'}</option>{calendarStaff.map((person) => <option value={person.id} key={person.id}>{person.name}</option>)}</select></div>
         <div className="calendar-status-filter"><label htmlFor="calendar-status">{en ? 'Status' : 'Статус'}</label><select id="calendar-status" value={status} onChange={(event) => setStatus(event.target.value)}><option value="active">{en ? 'Without cancelled' : 'Без отменените'}</option><option value="all">{en ? 'All statuses' : 'Всички статуси'}</option>{Object.entries(labels).map(([value, label]) => <option value={value} key={value}>{label}</option>)}</select></div>
@@ -82,7 +85,7 @@ export function AppointmentCalendar({ appointments, staff, timezone = 'Europe/So
       {onRefresh && <button className="calendar-refresh secondary-button" type="button" onClick={onRefresh} disabled={refreshing}>{refreshing ? (en ? 'Refreshing…' : 'Обновяване…') : (en ? 'Refresh' : 'Обнови')}</button>}
     </div>
     <div className="owner-calendar-period">
-      <div className="calendar-period-copy"><small>{view === 'day' ? (en ? 'Daily schedule' : 'Дневен график') : view === 'week' ? (en ? 'Weekly schedule' : 'Седмичен график') : (en ? 'Booking list' : 'Списък с резервации')}</small><h3>{view === 'week' ? `${days[0].day} ${shortMonth(days[0], locale)}${days[0].year !== days[6].year ? ` ${days[0].year}` : ''} – ${days[6].day} ${shortMonth(days[6], locale)} ${days[6].year}` : view === 'day' ? selectedDate.toFormat('cccc, d LLLL yyyy') : (en ? 'Your appointments' : 'Твоите посещения')}</h3><p>{en ? 'Times shown in' : 'Часовете са по'} {timezone}</p></div>
+      <div className="calendar-period-copy"><small>{view === 'day' ? (en ? 'Daily schedule' : 'Дневен график') : view === 'week' ? (en ? 'Weekly schedule' : 'Седмичен график') : view === 'month' ? (en ? 'Monthly schedule' : 'Месечен график') : (en ? 'Booking list' : 'Списък с резервации')}</small><h3>{view === 'week' ? `${days[0].day} ${shortMonth(days[0], locale)}${days[0].year !== days[6].year ? ` ${days[0].year}` : ''} – ${days[6].day} ${shortMonth(days[6], locale)} ${days[6].year}` : view === 'month' ? selectedDate.toFormat('LLLL yyyy') : view === 'day' ? selectedDate.toFormat('cccc, d LLLL yyyy') : (en ? 'Your appointments' : 'Твоите посещения')}</h3><p>{en ? 'Times shown in' : 'Часовете са по'} {timezone}</p></div>
       {view !== 'list' ? <div className="calendar-date-controls"><button type="button" className="calendar-arrow" aria-label={en ? 'Previous period' : 'Предишен период'} onClick={() => navigate(-1)}><Icon name="back" /></button><button type="button" className="calendar-today" onClick={() => setDate(today)}>{en ? 'Today' : 'Днес'}</button><DateMenu value={date} onChange={setDate} locale={locale} timezone={timezone}/><button type="button" className="calendar-arrow" aria-label={en ? 'Next period' : 'Следващ период'} onClick={() => navigate(1)}><Icon name="arrow" /></button></div> : <div className="calendar-list-scope" role="group" aria-label={en ? 'Booking period' : 'Период на резервациите'}>{[['upcoming', en ? 'Upcoming' : 'Предстоящи'], ['past', en ? 'Past' : 'Минали'], ['all', en ? 'All' : 'Всички']].map(([value, label]) => <button type="button" className={scope === value ? 'active' : ''} aria-pressed={scope === value} onClick={() => setScope(value)} key={value}>{label}</button>)}</div>}
     </div>
     <div className="calendar-overview"><span><b>{periodAppointments.length}</b>{en ? 'appointments' : 'посещения'}</span><span><i className="calendar-dot booked" /><b>{activeCount}</b>{en ? 'booked / confirmed' : 'записани / потвърдени'}</span><span><i className="calendar-dot done" /><b>{completedCount}</b>{en ? 'completed' : 'завършени'}</span></div>
@@ -107,6 +110,19 @@ export function AppointmentCalendar({ appointments, staff, timezone = 'Europe/So
       <div className="week-day-events">{items.length ? items.map((item) => eventButton(item, day)) : <p>{en ? 'No appointments' : 'Няма резервации'}</p>}</div>
       <button className="week-add-booking" type="button" onClick={() => openCreate(day.toISODate())}>+ {en ? 'Booking' : 'Резервация'}</button>
     </section>)}</div></div>}
+
+    {view === 'month' && <div className="owner-month-calendar">
+      <div className="owner-month-weekdays" aria-hidden="true">{days.slice(0, 7).map(day => <span key={day.weekday}>{(en ? ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] : ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Нд'])[day.weekday - 1]}</span>)}</div>
+      <div className="owner-month-grid" role="group" aria-label={`${en ? 'Appointments by day' : 'Резервации по дни'} · ${selectedDate.toFormat('LLLL yyyy')}`}>{daysWithAppointments.map(({ day, appointments: items }) => {
+        const iso = day.toISODate()
+        return <button type="button" key={iso} className={`owner-month-day${day.hasSame(selectedDate, 'month') ? '' : ' outside-month'}${iso === today ? ' is-today' : ''}`} aria-pressed={iso === date} aria-current={iso === today ? 'date' : undefined} aria-controls={monthAgendaId} aria-label={`${day.setLocale(locale).toFormat('cccc, d LLLL yyyy')}, ${items.length} ${en ? (items.length === 1 ? 'appointment' : 'appointments') : (items.length === 1 ? 'посещение' : 'посещения')}`} onClick={() => setDate(iso)}><span className="owner-month-date">{day.day}</span><span className={`owner-month-count${items.length ? ' has-bookings' : ''}`} aria-hidden="true">{items.length > 99 ? '99+' : items.length || '—'}</span></button>
+      })}</div>
+      <section className="owner-month-agenda" id={monthAgendaId} aria-labelledby={`${monthAgendaId}-title`}>
+        <header><h4 id={`${monthAgendaId}-title`}>{selectedDate.toFormat('cccc, d LLLL')}</h4><button className="secondary-button" type="button" onClick={() => setView('day')}>{en ? 'Open day' : 'Отвори ден'}<Icon name="arrow"/></button></header>
+        <div className="owner-month-events">{selectedMonthDay?.appointments.length ? selectedMonthDay.appointments.map(item => eventButton(item, selectedDate)) : <p className="owner-month-empty">{en ? 'No appointments for this day with the selected filters.' : 'Няма резервации за този ден по избраните филтри.'}</p>}</div>
+        {onCreateBooking && <button className="primary-button owner-month-add" type="button" onClick={() => openCreate()}><Icon name="plus"/>{en ? 'New booking for this day' : 'Нова резервация за деня'}</button>}
+      </section>
+    </div>}
 
     {view === 'list' && <div className="calendar-appointment-list">{filtered.length ? filtered.map((item) => {
       const starts = DateTime.fromISO(item.starts_at).setZone(timezone).setLocale(locale)

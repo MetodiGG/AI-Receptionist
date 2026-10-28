@@ -20,4 +20,11 @@
 
 ## Release
 
-Production verification is recorded after the deployment is Ready. Source is published using the existing main-branch deployment, without infrastructure changes.
+- Published source: `fa14a58c8d052bc167f10e1629871465e765db65` on main.
+- Vercel deployment `3TaDg3Q6wcCEu2eWrxy4MEhCjJfY`: Ready, Production, Current; custom domain www.gorez.co. Immutable hostname `ai-receptionist-mvenc4bu7-ai-receptionist12.vercel.app`.
+- Live mobile (390px): login Home appears at x250/y28 with 46px height and 16px text; page width and scroll width both 390px. Header elements do not overlap.
+- Live clicks verified: BG login → AI homepage; EN menu → business login → English AI homepage; published ВЕСИ СТУДИО profile → Bulgarian AI homepage. No booking submitted.
+- Live Home remains visible while the hamburger is open; clicking it on the homepage collapses the menu. Language switch also updates Home/Home's destination.
+- Proof: `/tmp/gorez-home-button-live-20261028.png` and `/tmp/gorez-home-button-menu-live-20261028.png` (ephemeral local screenshots; the login proof was embedded in the owner-facing update).
+- Development server stopped; temporary QA/deployment tabs closed and temporary viewport reset. The Bulgarian AI homepage is left as the user-facing browser deliverable.
+- No infrastructure, environment, Google/AI quotas, billing, migrations or real client data changed.

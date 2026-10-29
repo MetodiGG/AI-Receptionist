@@ -281,8 +281,10 @@ a.site-home-link:focus-visible { outline-color: #b94315; }
 .partners-page .directory-business-head small { color: #8b421c; font-size: 16px; letter-spacing: 0; text-transform: none; }
 .partners-page .directory-business-head p, .partners-page .directory-result-count, .partners-page .directory-services small,
 .partners-page .directory-services span small, .partners-page .directory-empty p { color: #606169; font-size: 16px; line-height: 1.6; }
-.partners-page .directory-services > div > span { background: #f8f5f1; }
-.partners-page .directory-services b { color: #4e4147; }
+.partners-page .directory-services span { font-size: 16px; }
+.partners-page .directory-services > div > span { align-items: flex-start; gap: 12px; background: #f8f5f1; }
+.partners-page .directory-services span > span { padding: 0; background: transparent; }
+.partners-page .directory-services b { color: #4e4147; font-size: 16px; white-space: nowrap; }
 .partners-page .directory-results-grid .directory-book-button { min-height: 54px; color: #382014; background: var(--solar-button); border: 1px solid #ffad73; border-radius: 13px; box-shadow: var(--solar-depth); font-size: 17px; }
 .partners-page .directory-empty { border-color: var(--line); background: #fffaf4; }
 .partners-page .directory-empty > svg { color: #9b3a17; }

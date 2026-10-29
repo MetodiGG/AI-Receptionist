@@ -64,3 +64,11 @@ test('partners reuses real public cards, images and booking links without search
   assert.match(api, /'Cache-Control': 'no-store'/)
   assert.match(api, /filter\(\(service\) => service\.active\)/)
 })
+
+test('partner service names, durations and prices do not inherit the old tiny directory typography', async () => {
+  const css = await read('app/solar.css')
+  assert.match(css, /\.partners-page \.directory-services span \{ font-size: 16px;/)
+  assert.match(css, /\.partners-page \.directory-services b \{[^}]*font-size: 16px;[^}]*white-space: nowrap/)
+  assert.match(css, /\.partners-page \.directory-services span > span \{ padding: 0; background: transparent;/)
+  assert.match(css, /\.partners-page \.directory-services span small,[^{]*\{[^}]*font-size: 16px;/)
+})

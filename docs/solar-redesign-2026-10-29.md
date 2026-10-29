@@ -39,7 +39,18 @@ The icon renderer accepts only 180px or 512px, reads only the bundled SVG and re
 
 ## Review and release boundary
 
-Owner approved publication of this complete local design on 29 October 2026, then requested the final kicker removal before publication. Existing requested homepage Home-button removal is included. Production verification will be recorded after deployment; this document alone is not evidence of a successful release.
+Owner approved publication of this complete local design on 29 October 2026, then requested the final kicker removal and a separate partners page before publication. Existing requested homepage Home-button removal is included.
+
+## Production release and postflight
+
+- Main source `317db2c6ab9fd2b7453a95f02354394cb237bbdd` deployed the complete redesign and partners page. Visual postflight found the legacy directory's 13px service/11px price styles; follow-up `0ccb3b3c691130137183ddf22c32fec2f93df5de` explicitly raises both to 16px and removes duplicated nested padding.
+- Final Vercel deployment `CyLhREV91NA5z83PDkTzWrbjaPhY`: Ready, Production, Current, assigned `www.gorez.co`; immutable hostname `ai-receptionist-hwqgpbcob-ai-receptionist12.vercel.app`. Confirmed main/source hash in Vercel, not merely a pushed commit.
+- Final regression run: 360 tests passed, zero failed. Initial full production build passed locally; both source releases built successfully on Vercel. No new dependencies, production settings, provider flags, quotas, keys, paid plans or migrations.
+- Live homepage shows the new mark/orange controls, approved description and four requested shortcuts, without the redundant kicker or Home button. The footer places GoRez партньори immediately after Условия, including visually on the next footer row at 1280px.
+- Live `/partners?lang=bg` loads three active/platform-enabled records: Test GoRez, Zen Barbershop and ВЕСИ СТУДИО. The test-named record is already published in the existing database; no heuristic name filtering or business-status mutation was performed. Vesi's supplied photos, published services/prices and all three booking links render. Google listings are not part of this page.
+- Verified BG↔EN headings, locale-preserving Home/booking links, no horizontal overflow at 390px/1280px, and computed 16px service/price text after the final release. Opened the real Vesi booking page and confirmed its profile/services, without choosing a slot, submitting a reservation or sending email.
+- No paid Google/AI search, geolocation request, customer-data write, live booking/status edit, private owner-calendar inspection or real notification test was made during this release.
+- Live proofs: `/tmp/gorez-solar-home-live-20261029.png`, `/tmp/gorez-solar-home-mobile-live-20261029.png`, `/tmp/gorez-partners-live-20261029.png` (local screenshot artifacts, not source assets).
 
 Clean local compiled preview: `http://127.0.0.1:3013/?lang=bg`. Google Places, UI Kit and paid AI are explicitly disabled for this local process; no search was submitted to this compiled preview. The development-only fixture server on 3012 was stopped after QA.
 

@@ -24,6 +24,7 @@ export function Icon({ name }) {
     scissors: <><circle cx="6" cy="7" r="3" /><circle cx="6" cy="17" r="3" /><path d="m8.7 8.4 12.1 6.8M8.7 15.6 20.8 8.8" /></>,
     wrench: <path d="M14.7 6.3a4 4 0 0 0-5-5L12 3.6 9.6 6 7.3 3.7a4 4 0 0 0 5 5L4 17a2.1 2.1 0 1 0 3 3l8.3-8.3a4 4 0 0 0 5-5L18 9l-2.4-2.4 2.3-2.3a4 4 0 0 0-3.2 2Z" />,
     dumbbell: <><path d="M6.5 6.5v11M17.5 6.5v11M3.5 9v6M20.5 9v6M6.5 12h11" /><path d="M2 10v4M22 10v4" /></>,
+    racket: <><ellipse cx="14" cy="9" rx="6" ry="8" transform="rotate(35 14 9)"/><path d="m10 15-7 7M5 18l2 2M11 4l8 10M9 8l8 6M10 12l9-6"/></>,
     graduation: <><path d="m2 9 10-5 10 5-10 5L2 9Z" /><path d="M6 11.2V16c3.4 2.5 8.6 2.5 12 0v-4.8M22 9v6" /></>,
     house: <><path d="m3 11 9-8 9 8" /><path d="M5 10v11h14V10M9 21v-7h6v7" /></>,
     paw: <><circle cx="7.5" cy="8" r="2" /><circle cx="16.5" cy="8" r="2" /><circle cx="5" cy="13" r="2" /><circle cx="19" cy="13" r="2" /><path d="M8.2 19.4c1.3 1.4 6.3 1.4 7.6 0 1.8-1.8-.3-6.4-3.8-6.4s-5.6 4.6-3.8 6.4Z" /></>,

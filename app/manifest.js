@@ -5,10 +5,10 @@ export default function manifest() {
     description: 'Резервации, клиенти и онлайн асистент в едно приложение.',
     start_url: '/dashboard',
     display: 'standalone',
-    background_color: '#f4f6f0',
-    theme_color: '#173e2a',
+    background_color: '#f6f5f2',
+    theme_color: '#202126',
     lang: 'bg',
-    icons: [{ src: '/icon.png', sizes: '512x512', type: 'image/png', purpose: 'any maskable' }],
+    icons: [{ src: '/brand-icon?size=512&v=3', sizes: '512x512', type: 'image/png', purpose: 'any maskable' }],
   }
 }
 

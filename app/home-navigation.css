@@ -1,4 +1,4 @@
-/* The same visible way back to AI Search in every site header. */
+/* A visible way back to AI Search on inner pages, not on the homepage itself. */
 a.site-home-link {
   display: inline-flex;
   align-items: center;
@@ -26,6 +26,7 @@ a.site-home-link:focus-visible { outline: 3px solid #173e2a; outline-offset: 4px
 .legal-page h1 { overflow-wrap: anywhere; }
 .booking-topbar > .booking-top-actions { margin-left: auto; margin-right: 14px; }
 .marketing-page .launch-navigation { grid-template-columns: auto 1fr auto auto; }
+.marketing-page .launch-navigation-home { grid-template-columns: auto 1fr auto; }
 .launch-navigation > .site-home-link { grid-column: 4; grid-row: 1; justify-self: end; }
 .state-home-navigation { position: fixed; top: 18px; right: 18px; z-index: 40; }
 
@@ -38,6 +39,11 @@ a.site-home-link:focus-visible { outline: 3px solid #173e2a; outline-offset: 4px
   .launch-navigation .launch-menu-toggle { grid-column: 3; grid-row: 2; justify-self: end; }
   .launch-navigation .admin-access-link { grid-column: 1 / -1; grid-row: 3; }
   .launch-navigation .launch-menu { grid-column: 1 / -1; grid-row: 4; }
+  .launch-navigation-home .launch-brand { grid-column: 1; grid-row: 1; }
+  .launch-navigation-home .language-switch { grid-column: 2; grid-row: 1; }
+  .launch-navigation-home .launch-menu-toggle { grid-column: 3; grid-row: 1; }
+  .launch-navigation-home .admin-access-link { grid-row: 2; }
+  .launch-navigation-home .launch-menu { grid-row: 3; }
   .home-navigation-header.home-navigation-header,
   .public-booking-page .booking-topbar {
     display: grid;
@@ -61,6 +67,14 @@ a.site-home-link:focus-visible { outline: 3px solid #173e2a; outline-offset: 4px
   .customer-nav > a.site-home-link { max-width: none; font-size: 16px; }
   .app-shell .topbar { flex-wrap: wrap; gap: 12px; }
   .app-shell .topbar-actions { flex-wrap: wrap; justify-content: flex-end; margin-left: auto; }
+}
+
+@media (max-width: 360px) {
+  .launch-navigation-home .launch-brand { grid-column: 1 / -1; }
+  .launch-navigation-home .language-switch { grid-column: 1 / 3; grid-row: 2; }
+  .launch-navigation-home .launch-menu-toggle { grid-row: 2; }
+  .launch-navigation-home .admin-access-link { grid-row: 3; }
+  .launch-navigation-home .launch-menu { grid-row: 4; }
 }
 
 /* Embedded booking intentionally delegates navigation to the host page. */

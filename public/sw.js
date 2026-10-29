@@ -1,5 +1,5 @@
-const CACHE = 'gorez-shell-v2'
-const ASSETS = ['/icon.png', '/gorez-logo.png', '/gorez-mark.png', '/manifest.webmanifest']
+const CACHE = 'gorez-shell-solar-v5'
+const ASSETS = ['/gorez-symbol.svg?v=3', '/brand-icon?size=512&v=3', '/manifest.webmanifest']
 
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(ASSETS)))

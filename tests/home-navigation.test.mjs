@@ -13,7 +13,7 @@ test('Home is a visible localized link to the fixed AI entry point, not history,
   assert.doesNotMatch(component, /onSubmit|signOut|history\.|router\.back|target=/)
 })
 
-test('all public flows and shared owner/admin shells include the same direct Home link', async () => {
+test('inner public flows and shared owner/admin shells include the same direct Home link', async () => {
   for (const path of [
     'components/marketing-navigation.js', 'components/business-login.js',
     'components/password-recovery.js', 'components/legal-page.js',
@@ -31,10 +31,17 @@ test('all public flows and shared owner/admin shells include the same direct Hom
   }
 })
 
-test('public Home remains outside the hamburger menu and booking owner-session condition', async () => {
+test('the homepage omits Home regardless of locale or menu state, while inner pages retain it outside the menu', async () => {
   const navigation = await read('components/marketing-navigation.js')
+  assert.match(navigation, /import \{ usePathname \} from 'next\/navigation'/)
+  assert.match(navigation, /const isHome = usePathname\(\) === '\/'/)
+  assert.match(navigation, /\{!isHome && <HomeLink locale=\{locale\} onClick=\{\(\) => setOpen\(false\)\}\/\>\}/)
+  assert.match(navigation, /isHome \? ' launch-navigation-home' : ''/)
   assert.ok(navigation.indexOf('<HomeLink') < navigation.indexOf('id="launch-menu"'))
-  assert.match(navigation, /<HomeLink locale=\{locale\} onClick=\{\(\) => setOpen\(false\)\}/)
+  assert.doesNotMatch(navigation, /window\.location|useSearchParams/)
+})
+
+test('booking Home remains outside the owner-session condition', async () => {
   const booking = await read('components/public-booking-page.js')
   assert.match(booking, /<\/nav> : null\}[\s\S]*?<\/div>\s*<HomeLink locale=\{locale\}\/>/)
   assert.match(booking, /function LoadingPage\(\{ copy, locale \}\)/)
@@ -49,6 +56,9 @@ test('responsive Home styling reserves its own top-right cell and retains embedd
   assert.match(css, /\.launch-navigation > \.site-home-link \{ grid-column: 3; grid-row: 1;/)
   assert.match(css, /\.launch-navigation \.launch-menu-toggle \{ grid-column: 3; grid-row: 2;/)
   assert.match(css, /\.launch-navigation \.launch-menu \{ grid-column: 1 \/ -1; grid-row: 4;/)
+  assert.match(css, /\.marketing-page \.launch-navigation-home \{ grid-template-columns: auto 1fr auto; \}/)
+  assert.match(css, /\.launch-navigation-home \.language-switch \{ grid-column: 2; grid-row: 1; \}/)
+  assert.match(css, /@media \(max-width: 360px\) \{\s*\.launch-navigation-home \.launch-brand \{ grid-column: 1 \/ -1; \}/)
   assert.match(css, /\.public-booking-page\.embedded-booking \.booking-topbar \{ display: none; \}/)
 })
 

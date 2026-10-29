@@ -5,6 +5,7 @@ import { resolvePublicIndustry } from '../../../../lib/public-locale.mjs'
 import { businessAddress } from '../../../../lib/business-location.mjs'
 import { createServerTiming } from '../../../../lib/server-timing.mjs'
 import { getBusinessPhotos } from '../../../../lib/business-photos.mjs'
+import { readDirectoryRows } from '../../../../lib/public-directory.mjs'
 
 export async function GET(request) {
   const timing = createServerTiming()
@@ -14,14 +15,7 @@ export async function GET(request) {
     }
 
     const supabase = getSupabaseAdmin()
-    const { data, error } = await timing.measure('directory', () => supabase
-      .from('businesses')
-      .select('id,name,slug,address,city_ekatte,city,neighborhood,phone,industry,theme_color,services(id,name,description,price,currency,duration_min,active,sort_order)')
-      .eq('active', true)
-      .eq('platform_status', 'enabled')
-      .order('name'))
-
-    if (error) throw error
+    const data = await timing.measure('directory', () => readDirectoryRows(supabase))
 
     const businesses = (data || []).map((business) => ({
       id: business.id,
@@ -39,7 +33,7 @@ export async function GET(request) {
         .map(({ active: _active, sort_order: _sortOrder, ...service }) => service),
     }))
 
-    return Response.json({ businesses }, { headers: timing.headers() })
+    return Response.json({ businesses }, { headers: { ...timing.headers(), 'Cache-Control': 'no-store' } })
   } catch (error) {
     const safe = getSafeError(error)
     return apiError(safe.message, safe.status, safe.code)

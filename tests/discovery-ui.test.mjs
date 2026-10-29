@@ -8,6 +8,9 @@ import { googleSearchRequest } from '../lib/discovery/google-places.mjs'
 import { normalizeInternalBusinesses } from '../lib/discovery/internal-search.mjs'
 import { DEFAULT_DISCOVERY_RADIUS_KM, DISCOVERY_RADIUS_CHOICES } from '../lib/discovery/defaults.mjs'
 import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
+import { categoryById } from '../lib/discovery/categories.mjs'
+import { getIndustryLabel } from '../lib/public-locale.mjs'
+import { matchingServices } from '../lib/discovery/internal-search.mjs'
 
 const now = DateTime.fromISO('2026-10-27T18:00:00Z')
 const origin = { latitude: 42.6977, longitude: 23.3219, consent: true } // Synthetic city-centre fixture, never a user's location.
@@ -109,7 +112,7 @@ test('discovery reuses genuine operator photos by stable business ID, never a na
 
 test('simple form hides secondary controls and diagnostics, keeps readable text and auto-searches only after explicit location success', async () => {
   const ui = await read('components/discovery-search.js'), css = await read('app/discovery.css'), helper = await read('lib/discovery/search-ui.mjs')
-  assert.match(ui, /const shortcuts = \['barber', 'nails', 'car_wash'\]/)
+  assert.match(ui, /const shortcuts = \['hair', 'nails', 'car_wash', 'fitness'\]/)
   assert.match(ui, /<details className="discovery-filters"><summary>\{copy.filters\}/)
   assert.doesNotMatch(ui, /<details className="discovery-filters"[^>]*\bopen\b|discovery-eyebrow/)
   assert.match(ui, /execute\(payload\(\{ coordinates: position, neighborhood: '' \}\)\)/)
@@ -120,6 +123,56 @@ test('simple form hides secondary controls and diagnostics, keeps readable text 
   assert.match(css, /\.client-finder \.discovery-compact \.discovery-form \{ padding: 0; border: 0;/)
   for (const match of css.matchAll(/font-size:\s*(\d+)px/g)) assert.ok(Number(match[1]) >= 16, `small font: ${match[0]}`)
   for (const source of [ui, helper]) assert.doesNotMatch(source, /localStorage|sessionStorage|watchPosition|console\.|trackProductEvent/)
+})
+
+test('the short manicure example extracts tomorrow after 13:00 and stays readable on the narrowest screens', async () => {
+  assert.equal(DISCOVERY_COPY.bg.placeholder, 'маникюр, утре след 13:00ч.')
+  assert.equal(DISCOVERY_COPY.en.placeholder, 'manicure, tomorrow after 1:00 pm')
+  for (const locale of ['bg', 'en']) {
+    const intent = parseIntent(discoveryRequestSchema.parse(discoverySearchInput({ query: DISCOVERY_COPY[locale].placeholder, locale })), now)
+    assert.equal(intent.category, 'nails')
+    assert.equal(intent.date, '2026-10-28')
+    assert.equal(intent.timeFrom, '13:00')
+    assert.equal(intent.cityCode, '68134')
+    assert.equal(intent.clarification, null)
+  }
+  const css = await read('app/solar.css')
+  assert.match(css, /@media \(max-width: 380px\) \{\s*\.discovery-query \{ display: grid; grid-template-columns: minmax\(0, 1fr\)/)
+  assert.match(css, /\.discovery-submit > span:last-child \{ display: inline; \}/)
+})
+
+test('four primary shortcuts offer hair, nails, car wash and Sports without exposing a Fitness option', async () => {
+  const ids = ['hair', 'nails', 'car_wash', 'fitness']
+  assert.equal(new Set(ids).size, 4)
+  assert.deepEqual(ids.map(id => categoryById(id).bg), ['Фризьор', 'Маникюр', 'Автомивка', 'Спорт'])
+  assert.equal(categoryById('fitness').en, 'Sports')
+  assert.equal(categoryById('fitness').icon, 'racket')
+  assert.equal(getIndustryLabel('fitness', 'bg'), 'Спорт')
+  assert.equal(getIndustryLabel('fitness', 'en'), 'Sports')
+  for (const file of ['components/business-setup.js', 'app/dashboard/settings/page.js']) {
+    assert.match(await read(file), /<option value="fitness">\{en \? 'Sports' : 'Спорт'\}/)
+  }
+})
+
+test('Sports recognises bookable activities without renaming stored identifiers or replacing a requested activity', () => {
+  const sport = categoryById('fitness')
+  assert.equal(sport.industry, 'fitness')
+  assert.deepEqual(sport.types, ['sports_coaching', 'sports_school', 'yoga_studio', 'tennis_court'])
+  for (const query of ['спорт', 'sports', 'personal trainer', 'йога', 'пилатес', 'тенис', 'dance', 'boxing', 'swimming']) {
+    const intent = parseIntent(discoveryRequestSchema.parse(discoverySearchInput({ query })), now)
+    assert.equal(intent.category, 'fitness', query)
+    assert.equal(intent.clarification, null, query)
+    const provider = googleSearchRequest(intent)
+    assert.equal(provider.method, 'text')
+    assert.doesNotMatch(JSON.stringify(provider.body), /gym|fitness_center/)
+    if (['спорт', 'sports'].includes(query)) assert.match(provider.body.textQuery, /^спортни занимания и тренировки, /)
+    if (query === 'тенис') assert.match(provider.body.textQuery, /^тенис, /)
+  }
+  const services = ['Йога', 'Пилатес', 'Тенис', 'Танци', 'Бокс', 'Плуване'].map((name, index) => ({ id: String(index), name, active: true, duration_min: 60 }))
+  for (const name of ['пилатес', 'тенис', 'танци', 'бокс', 'плуване']) {
+    const intent = parseIntent(discoveryRequestSchema.parse(discoverySearchInput({ query: name })), now)
+    assert.deepEqual(matchingServices({ name: 'QA Studio', services }, intent).map(service => service.name.toLowerCase()), [name])
+  }
 })
 
 test('two kilometres is the shared form, request and server default; explicit radius choices remain intact', async () => {
@@ -156,18 +209,18 @@ test('free business registration CTA follows the form and opens existing locale-
   assert.match(route, /<BusinessOnboarding/)
 })
 
-test('registration CTA is larger, truly centred, high contrast and gently glowing with a reduced-motion fallback', async () => {
-  const css = await read('app/discovery.css')
+test('registration CTA is larger, truly centred, high contrast and gently glowing in the current Solar theme', async () => {
+  const css = await read('app/discovery.css'), solar = await read('app/solar.css')
   assert.match(css, /\.discovery-business-cta \{[^}]*grid-template-columns: 24px minmax\(0, 1fr\) 24px/)
   assert.match(css, /\.discovery-business-cta span \{[^}]*grid-column: 2;[^}]*text-align: center/)
   assert.match(css, /\.discovery-business-cta svg \{ grid-column: 3;/)
   assert.match(css, /font-size: 22px; font-weight: 800/)
   assert.match(css, /\.discovery-business-cta \{ padding: 18px 16px; font-size: 20px;/)
-  assert.match(css, /animation: discovery-cta-glow 3s ease-in-out infinite/)
-  assert.match(css, /@media \(prefers-reduced-motion: reduce\) \{[^}]*\.discovery-business-cta \{ animation: none;/)
-  assert.match(css, /\.discovery-search \.discovery-business-cta:focus-visible \{ outline: 3px solid #173e2a;/)
+  assert.match(solar, /animation: solar-cta-glow 4s ease-in-out infinite/)
+  assert.match(solar, /@media \(prefers-reduced-motion: reduce\) \{[^}]*\.discovery-business-cta \{ animation: none;/)
+  assert.match(solar, /\.discovery-search \.discovery-business-cta:focus-visible \{ outline-color: #b94315;/)
   const luminance = hex => hex.match(/\w{2}/g).map(part => parseInt(part, 16) / 255).map(value => value <= .04045 ? value / 12.92 : ((value + .055) / 1.055) ** 2.4).reduce((total, value, index) => total + value * [.2126, .7152, .0722][index], 0)
-  for (const background of ['b8f36b', 'd5ffa9', 'c9ff8e']) assert.ok((luminance(background) + .05) / (luminance('173e2a') + .05) >= 7)
+  for (const background of ['242429', '353137', '463029']) assert.ok((luminance('fff7ef') + .05) / (luminance(background) + .05) >= 7)
 })
 
 test('Google photos stay in the same native attributed list with supported typography, no extra Details/Photos calls', async () => {

@@ -14,10 +14,11 @@ import { clearDiscoveryDraft, peekDiscoveryDraft, setDiscoveryDraft } from '../l
 import { DEFAULT_DISCOVERY_CITY, discoveryCitySelection, discoverySearchInput, requestDiscoveryLocation } from '../lib/discovery/search-ui.mjs'
 import { BusinessPhotoGallery } from './business-photo-gallery'
 import { GoogleDiscoveryList } from './google-discovery-list'
+import { DiscoveryRouteArt } from './discovery-route-art'
 
 const cities = [...BULGARIAN_CITIES].sort((a, b) => a.name.localeCompare(b.name, 'bg'))
 const duplicateCityNames = new Set(cities.filter((city, index) => cities.findIndex(other => other.name === city.name) !== index).map(city => city.name))
-const shortcuts = ['barber', 'nails', 'car_wash']
+const shortcuts = ['hair', 'nails', 'car_wash', 'fitness']
 export function DiscoverySearch({ locale = 'bg', compact = false, preview = false }) {
   const copy = DISCOVERY_COPY[locale], en = locale === 'en', router = useRouter()
   const Title = compact ? 'h2' : 'h1'
@@ -90,7 +91,10 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
   const status = result?.externalStatus
   const externalNotice = status === 'quota' ? copy.quota : status === 'unavailable' ? copy.unavailable : ['disabled', 'not_configured'].includes(status) ? copy.disabled : ''
   return <section className={`discovery-search ${compact ? 'discovery-compact' : ''}`} aria-labelledby={compact ? 'home-discovery-title' : 'discovery-title'}>
-    <header><Title id={compact ? 'home-discovery-title' : 'discovery-title'}>{copy.title}</Title></header>
+    <header className={compact ? '' : 'discovery-hero'}>
+      <div className="discovery-intro"><Title id={compact ? 'home-discovery-title' : 'discovery-title'}>{copy.title}</Title>{!compact && <p className="discovery-intro-hint">{copy.intro}</p>}</div>
+      {!compact && <DiscoveryRouteArt locale={locale}/>}
+    </header>
     {preview && <p className="discovery-notice discovery-test" role="note">{copy.mock}</p>}
     <form className="discovery-form" onSubmit={submit}>
       <div className="discovery-query"><label className="sr-only" htmlFor={compact ? 'home-ai-query' : 'ai-query'}>{copy.title}</label><input id={compact ? 'home-ai-query' : 'ai-query'} value={query} maxLength={300} placeholder={copy.placeholder} autoComplete="off" enterKeyHint="search" disabled={loading || locating} onChange={event => setQuery(event.target.value)} required minLength={2}/><button className="discovery-submit" aria-label={loading ? copy.searching : copy.search} disabled={loading || locating || query.trim().length < 2} type="submit">{loading ? <span className="button-spinner"/> : <Icon name="arrow"/>}<span>{copy.search}</span></button></div>

@@ -8,7 +8,8 @@
   const origin = source.origin
   const locale = script.dataset.lang === 'en' ? 'en' : 'bg'
   const label = script.dataset.label || (locale === 'en' ? 'Book now' : 'Запази час')
-  const color = script.dataset.color || '#173e2a'
+  const color = script.dataset.color || '#ff762f'
+  const textColor = script.dataset.color ? '#fff' : '#382014'
 
   const root = document.createElement('div')
   root.style.cssText = 'position:fixed;z-index:2147483000;right:20px;bottom:20px;font-family:Inter,system-ui,sans-serif'
@@ -16,7 +17,7 @@
   button.type = 'button'
   button.textContent = `✦ ${label}`
   button.setAttribute('aria-expanded', 'false')
-  button.style.cssText = `border:0;border-radius:999px;padding:15px 20px;background:${color};color:#fff;font:700 15px/1 system-ui;box-shadow:0 16px 50px rgba(0,0,0,.22);cursor:pointer`
+  button.style.cssText = `border:1px solid rgba(255,255,255,.3);border-radius:14px;padding:16px 22px;background:${color};color:${textColor};font:750 16px/1.2 system-ui;box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 4px 0 rgba(75,30,12,.35),0 12px 30px rgba(0,0,0,.18);cursor:pointer`
   const panel = document.createElement('div')
   panel.style.cssText = 'display:none;position:absolute;right:0;bottom:62px;width:min(440px,calc(100vw - 24px));height:min(720px,calc(100vh - 100px));background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.28);border:1px solid rgba(0,0,0,.1)'
   const frame = document.createElement('iframe')

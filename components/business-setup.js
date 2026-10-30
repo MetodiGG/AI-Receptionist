@@ -9,7 +9,8 @@ import { BusinessLocationFields } from './business-location-fields'
 import { WeeklyScheduleFields } from './weekly-schedule-fields'
 import { DurationInput } from './duration-input'
 import { PhotoPicker } from './photo-picker'
-import { MAX_APPLICATION_BYTES } from '../lib/business-media.mjs'
+import { APPLICATION_PHOTO_BUDGET, mediaErrorText } from '../lib/business-media.mjs'
+import { fitPhotoFilesToBudget } from '../lib/photo-selection'
 import { businessAddress, businessLocationFields, findCity } from '../lib/business-location.mjs'
 import { validDuration, scheduleProblem, scheduleRows, scheduleErrorText } from '../lib/business-schedule.mjs'
 
@@ -134,23 +135,24 @@ export function BusinessSetup({ session, onComplete, locale, preview = false, ap
       if (problem) { setError(problem); setStep(index); return }
     }
     if(application&&(!consent||!/^\S+@\S+\.\S+$/.test(accountEmail)||(!session&&password.length<10))){setError(en?'Enter a valid login email, a password of at least 10 characters and accept the terms.':'Въведи валиден имейл за вход, парола с поне 10 знака и приеми условията.');return}
-    const selectedPhotos=[...businessPhotos.map(file=>({key:'gallery',file})),...staff.filter(person=>person.photo).map(person=>({key:'staff',file:person.photo}))]
+    let selectedPhotos=[...businessPhotos.map((file,index)=>({key:`gallery_${index}`,file})),...staff.map((person,index)=>({key:`staff_${index}`,file:person.photo})).filter(row=>row.file)]
     if(selectedPhotos.length&&!photoConsent){setError(en?'Confirm you have permission to publish the photos.':'Потвърди, че имаш право да публикуваш снимките.');return}
-    if(selectedPhotos.reduce((sum,row)=>sum+row.file.size,0)>MAX_APPLICATION_BYTES-100000){setError(en?'The photos together are too large. Remove a few; you can add more after approval.':'Общият размер на снимките е твърде голям. Премахни няколко; можеш да добавиш още след одобрение.');return}
     setError('');lock.current=true
     setSaving(true)
     let createdBusinessId = null
     try {
+      const fitted=await fitPhotoFilesToBudget(selectedPhotos.map(row=>row.file),APPLICATION_PHOTO_BUDGET)
+      selectedPhotos=selectedPhotos.map((row,index)=>({...row,file:fitted[index]}))
       if (preview) { onComplete({ business, services, staff, schedule }); return }
       if(application) {
         const payload=JSON.stringify({business,services,staff:staff.map(({name})=>({name})),schedule:schedule.map(({weekday,enabled,open,close,breakEnabled,breakStart,breakEnd})=>({weekday,enabled,open,close,breakEnabled,breakStart,breakEnd})),account:{email:accountEmail,password:session?'':password},consent,company,locale})
         let body=payload
-        if(selectedPhotos.length){body=new FormData();body.append('payload',payload);body.append('photoConsent','true');businessPhotos.forEach((file,i)=>body.append(`gallery_${i}`,file));staff.forEach((person,i)=>{if(person.photo)body.append(`staff_${i}`,person.photo)})}
+        if(selectedPhotos.length){body=new FormData();body.append('payload',payload);body.append('photoConsent','true');selectedPhotos.forEach(row=>body.append(row.key,row.file))}
         const response=await fetch('/api/public/business-applications',{method:'POST',headers:{...(!selectedPhotos.length?{'Content-Type':'application/json'}:{}),...(session?.access_token?{Authorization:`Bearer ${session.access_token}`}:{})},body})
         if(!response.ok) {
           const code=(await response.json().catch(()=>null))?.error?.code
           const messages={SIGN_IN_REQUIRED:en?'Use a new email and a password of at least 10 characters, or sign in to your existing account first.':'Използвай нов имейл и парола с поне 10 знака, или първо влез в съществуващия си профил.',ADDRESS_IN_USE:en?'This page address is taken. Choose another in step 1.':'Този адрес на страницата е зает. Избери друг в стъпка 1.',RATE_LIMITED:en?'Too many attempts. Please try later.':'Твърде много опити. Опитай по-късно.',VALIDATION_ERROR:en?'Check the details in all five steps. Names must have at least 2 characters.':'Провери данните в петте стъпки. Имената трябва да са поне 2 знака.'}
-          setError(messages[code]||(en?'We could not accept the application. Try again later.':'Не успяхме да приемем заявката. Опитай отново по-късно.'));return
+          setError(messages[code]||(['INVALID_IMAGE','IMAGE_TOO_LARGE'].includes(code)?mediaErrorText(code,locale):(en?'We could not accept the application. Try again later.':'Не успяхме да приемем заявката. Опитай отново по-късно.')));return
         }
         const result=await response.json()
         setPassword('');onComplete({pending:true,photos:result.photos});return
@@ -201,6 +203,7 @@ export function BusinessSetup({ session, onComplete, locale, preview = false, ap
       }
       onComplete({ business: createdBusiness, services: createdServices, staff: createdStaff, schedule, photoWarning })
     } catch (saveError) {
+      if(['IMAGE_PROCESSING_FAILED','SOURCE_IMAGE_TOO_LARGE','INVALID_IMAGE','HEIC_UNSUPPORTED'].includes(saveError.message)){setError(mediaErrorText(saveError.message,locale));return}
       if (createdBusinessId) await supabase.from('businesses').delete().eq('id', createdBusinessId)
       const duplicateSlug = saveError.code === '23505'
       setError(duplicateSlug

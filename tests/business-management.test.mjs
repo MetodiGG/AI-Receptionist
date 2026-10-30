@@ -2,6 +2,7 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import sharp from 'sharp'
 import { readFile } from 'node:fs/promises'
+import { randomFillSync } from 'node:crypto'
 import { normalizeBusinessImage } from '../lib/image-normalization.mjs'
 import { businessContentSchema, parseContentUpdate, createContentHandler } from '../lib/business-content.mjs'
 import { createMediaHandlers, createMediaImageHandler, boundedBytes } from '../lib/media-handlers.mjs'
@@ -61,6 +62,14 @@ test('media routes isolate tenants, reject client privilege fields and require r
   assert.equal(ok.status,200);assert.equal(writes,1);assert.equal(normalizations,1)
   assert.equal((await createMediaHandlers(deps).PATCH(patch({revision:2,action:'hide',mediaId:mid,actorId:other}),bid)).status,422)
   assert.equal((await createMediaHandlers({...deps,allowAttempt:async()=>false}).GET(new Request(url),bid)).status,429)
+})
+test('detailed valid photos are resized to the private bucket limit instead of rejected after decoding',async()=>{
+  const pixels=randomFillSync(Buffer.alloc(1600*1600*3))
+  const input=await sharp(pixels,{raw:{width:1600,height:1600,channels:3}}).jpeg({quality:94}).toBuffer()
+  assert.ok(input.length<4*1024*1024)
+  const output=await normalizeBusinessImage(new File([input],'camera.jpg',{type:'image/jpeg'}))
+  assert.ok(output.bytes<=1024*1024);assert.ok(output.width<1600)
+  const meta=await sharp(output.data).metadata();assert.equal(meta.format,'webp');assert.equal(meta.exif,undefined)
 })
 test('upload body limit is enforced for streamed bodies without Content-Length',async()=>{
   const request=new Request(url,{method:'POST',body:new ReadableStream({start(c){c.enqueue(new Uint8Array(50));c.enqueue(new Uint8Array(51));c.close()}}),duplex:'half'})

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict'
 import { readdir } from 'node:fs/promises'
 import { PGlite } from '@electric-sql/pglite'
 import { btree_gist } from '@electric-sql/pglite/contrib/btree_gist'
-import { buildStagingBootstrap, STAGING_PROJECT_REF, STAGING_MIGRATIONS } from '../scripts/prepare-staging.mjs'
+import { buildStagingBootstrap, STAGING_PROJECT_REF, STAGING_MIGRATIONS, PENDING_STAGING_MIGRATIONS } from '../scripts/prepare-staging.mjs'
 
 let db, artifact
 const fixture = `create role anon; create role authenticated; create role service_role bypassrls;
@@ -26,7 +26,9 @@ test.after(async () => { await db?.close() })
 test('staging builder allows only the approved project and includes every reviewed migration in order', async () => {
   for (const ref of [undefined, '', 'ilpdtvbymxqgimrboyvh', 'otheremptyprojectabcd', "x';drop table t;--"]) await assert.rejects(buildStagingBootstrap(ref), /owner-approved/)
   const files = (await readdir(new URL('../supabase/migrations/', import.meta.url))).filter(name => /^\d{14}_.*\.sql$/.test(name)).sort()
-  assert.deepEqual([...STAGING_MIGRATIONS], files)
+  assert.deepEqual([...STAGING_MIGRATIONS, ...PENDING_STAGING_MIGRATIONS].sort(), files)
+  assert.ok(PENDING_STAGING_MIGRATIONS.every(name => !STAGING_MIGRATIONS.includes(name)))
+  assert.doesNotMatch(artifact.sql, /change_business_media|business_content_audit/)
   assert.equal(artifact.migrations.length, 15); assert.match(artifact.sha256, /^[a-f0-9]{64}$/)
   assert.doesNotMatch(artifact.sql, /cron\.schedule|net\.http|ilpdtvbymxqgimrboyvh|service_role_key|resend_api_key/i)
 })

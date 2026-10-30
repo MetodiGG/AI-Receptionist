@@ -10,6 +10,7 @@ import { BusinessLocationFields } from '../../../components/business-location-fi
 import { WeeklyScheduleFields } from '../../../components/weekly-schedule-fields'
 import { AccountDeletionPanel } from '../../../components/account-deletion-panel'
 import { BusinessPublicProfileEditor } from '../../../components/business-public-profile-editor'
+import { BusinessMediaEditor } from '../../../components/business-media-editor'
 import { businessLocationFields, findCity } from '../../../lib/business-location.mjs'
 import { DURATION_OPTIONS, validDuration, scheduleFromHours, scheduleProblem, scheduleRows, scheduleErrorText, scheduleWriteError } from '../../../lib/business-schedule.mjs'
 
@@ -195,16 +196,19 @@ function SettingsContent({ business, refreshBusiness, locale }) {
       return [table, data || []]
     })).catch((requestError) => { setMessage({ type: 'error', text: requestError.message }); return null })
     if (!results) { setSaving(false); return }
-    let reviews
+    let reviews,media
     try {
       const { data } = await supabase.auth.getSession()
       if (!data.session) throw new Error('UNAUTHORIZED')
       const response = await fetch(`/api/owner/public-profile?business_id=${business.id}`, { headers: { Authorization: `Bearer ${data.session.access_token}` }, cache: 'no-store' })
       if (!response.ok) throw new Error('REVIEWS_UNAVAILABLE')
       reviews = (await response.json()).reviews
-    } catch { setSaving(false); setMessage({ type: 'error', text: en ? 'Could not export review data. Please try again.' : 'Не успяхме да изтеглим данните за отзивите. Опитай отново.' }); return }
+      const photoResponse=await fetch(`/api/businesses/${business.id}/media`,{headers:{Authorization:`Bearer ${data.session.access_token}`},cache:'no-store'})
+      if(!photoResponse.ok)throw new Error('MEDIA_UNAVAILABLE')
+      media=(await photoResponse.json()).media
+    } catch { setSaving(false); setMessage({ type: 'error', text: en ? 'Could not export review or photo data. Please try again.' : 'Не успяхме да изтеглим данните за отзивите или снимките. Опитай отново.' }); return }
     setSaving(false)
-    const payload = { exported_at: new Date().toISOString(), business, ...Object.fromEntries(results), reviews }
+    const payload = { exported_at: new Date().toISOString(), business, ...Object.fromEntries(results), reviews,media }
     const url = URL.createObjectURL(new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' }))
     const link = document.createElement('a'); link.href = url; link.download = `${business.slug}-data-export.json`; link.click(); URL.revokeObjectURL(url)
     showSuccess(en ? 'Your data archive is ready.' : 'Архивът с данни е създаден.')
@@ -214,10 +218,11 @@ function SettingsContent({ business, refreshBusiness, locale }) {
     <main className="dashboard-content admin-page settings-page">
       <div className="admin-page-head"><div><p className="auth-kicker">{en ? 'Configuration' : 'Конфигурация'}</p><h2>{en ? 'Settings' : 'Настройки'}</h2><p>{en ? 'Changes appear immediately on the public page and in the online assistant.' : 'Промените се отразяват веднага в публичната страница и онлайн асистента.'}</p></div><Link className="secondary-button" href={`/book/${business.slug}?lang=${locale}`} target="_blank">{en ? 'Open public page' : 'Преглед на страницата'} ↗</Link></div>
       <div className="settings-tabs">
-        {[['business', en ? 'Business' : 'Бизнес'], ['public', en ? 'Public page & reviews' : 'Публична страница и отзиви'], ['services', en ? 'Services' : 'Услуги'], ['staff', en ? 'Team' : 'Екип'], ['hours', en ? 'Hours & breaks' : 'Работно време и почивки'], ['timeoff', en ? 'One-off closure' : 'Еднократно отсъствие'], ['assistant', en ? 'Assistant' : 'Асистент'], ['data', en ? 'Data' : 'Данни'], ['account', en ? 'Account' : 'Акаунт']].map(([value, label]) => <button type="button" className={section === value ? 'active' : ''} onClick={() => setSection(value)} key={value}>{label}</button>)}
+        {[['business', en ? 'Business' : 'Бизнес'], ['public', en ? 'Public page & reviews' : 'Публична страница и отзиви'], ['photos', en ? 'Photos' : 'Снимки'], ['services', en ? 'Services' : 'Услуги'], ['staff', en ? 'Team' : 'Екип'], ['hours', en ? 'Hours & breaks' : 'Работно време и почивки'], ['timeoff', en ? 'One-off closure' : 'Еднократно отсъствие'], ['assistant', en ? 'Assistant' : 'Асистент'], ['data', en ? 'Data' : 'Данни'], ['account', en ? 'Account' : 'Акаунт']].map(([value, label]) => <button type="button" className={section === value ? 'active' : ''} onClick={() => setSection(value)} key={value}>{label}</button>)}
       </div>
       {message && <p className={`form-message ${message.type === 'success' ? 'success' : ''}`} role="alert">{message.text}</p>}
       {section === 'public' && <BusinessPublicProfileEditor key={business.id} business={business} locale={locale} onSaved={refreshBusiness} />}
+      {section === 'photos' && <BusinessMediaEditor key={business.id} businessId={business.id} locale={locale} onSaved={refreshBusiness}/>}
 
       {(section === 'business' || section === 'assistant') && <form className="settings-panel" onSubmit={saveProfile}>
         {section === 'business' ? <>

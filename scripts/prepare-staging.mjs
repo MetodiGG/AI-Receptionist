@@ -7,6 +7,9 @@ import { pathToFileURL } from 'node:url'
 import { parseArgs } from 'node:util'
 
 export const STAGING_PROJECT_REF = 'dbvsfxkmljrwjberwodb'
+// Not part of the earlier staging approval. Review/test locally; obtain owner
+// approval before applying or adding this to the approved bootstrap artifact.
+export const PENDING_STAGING_MIGRATIONS = Object.freeze(['20261030100000_business_content_and_media.sql'])
 // Explicitly reviewed allowlist: a later migration requires a new review/test.
 export const STAGING_MIGRATIONS = Object.freeze([
   '20261013160000_initial_schema.sql',

@@ -10,12 +10,13 @@ and control labels support BG and EN. Manual navigation pauses rotation until
 the play button is pressed. Hidden/offscreen carousels and reduced-motion
 preferences do not autoplay; keyboard navigation, pause and Escape remain usable.
 
-Photos are currently added by the GoRez operator through a reviewed release,
-not by an unauthenticated upload form. No Storage bucket, database migration,
-new access permissions or paid service is required. This change does not add a
-self-service photo uploader to the business or admin settings.
+The original gallery above was supplied through reviewed source releases.
+The follow-up self-service implementation is documented in
+`business-management-2026-10-30.md`. It requires the additive media migration and
+a private Storage bucket before deployment. Until that approved activation,
+the live site retains its original curated-photo workflow.
 
-For each additional business:
+Legacy source-based photo maintenance (before self-service activation):
 
 1. Obtain photos the business has permission to publish and verify its stable ID.
 2. Auto-orient and resize to a maximum of 1200 pixels wide, export WebP at quality

@@ -4,6 +4,7 @@ import './discovery.css'
 import './home-navigation.css'
 import './owner-calendar-month.css'
 import './solar.css'
+import './business-management.css'
 import { PwaRegister } from '../components/pwa-register'
 import { SITE_ORIGIN } from '../lib/seo.mjs'
 

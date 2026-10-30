@@ -1,0 +1,34 @@
+.photo-picker { min-width: 0; padding: 16px; background: #fbf8f4; border: 1px dashed #d7bda9; border-radius: 16px; }
+.photo-picker .photo-picker-label { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; color: #713d22; font-size: 16px; font-weight: 750; }
+.photo-picker-label svg { width: 20px; height: 20px; }
+.photo-picker input[type=file] { display: block; width: 100%; min-width: 0; max-width: 100%; padding: 8px; font-size: 16px; }
+.photo-picker-list { display: grid; grid-template-columns: repeat(auto-fill,minmax(100px,1fr)); gap: 10px; margin: 14px 0 0; padding: 0; list-style: none; }
+.photo-picker-list li { position: relative; min-width: 0; }
+.photo-picker-list .photo-picker-preview { display: block; width: 100%; height: 110px; object-fit: cover; border-radius: 10px; }
+.photo-picker-list button { position: absolute; top: 4px; right: 4px; min-height: 40px; padding: 6px 12px; background: #fff; font-size: 22px; }
+.repeat-row.staff-row > .photo-picker { grid-column: 1 / -1; }
+.repeat-row.staff-row > .icon-button { grid-column: 2; grid-row: 1; }
+.business-team-photo { flex: 0 0 auto; width: 80px; height: 80px; object-fit: cover; border-radius: 22px; border: 1px solid #eadbce; }
+.booking-staff-photo { flex: 0 0 auto; width: 44px; height: 44px; object-fit: cover; border-radius: 14px; }
+.media-upload-controls,.content-fields { display: grid; gap: 18px; min-width: 0; margin: 0 0 22px; padding: 0; border: 0; }
+.media-upload-controls > label,.content-fields label { display: grid; gap: 8px; min-width: 0; color: #49434a; font-size: 16px; font-weight: 650; }
+.media-upload-controls input:not([type=checkbox]),.media-upload-controls select,.content-fields input:not([type=checkbox]),.content-fields textarea,.content-fields select { width: 100%; min-width: 0; min-height: 46px; padding: 11px 12px; color: #29292e; background: #fff; border: 1px solid #ddd5cd; border-radius: 11px; font: inherit; font-size: 16px; }
+.media-upload-controls label.booking-consent,.content-fields label.booking-consent { display: flex; align-items: flex-start; gap: 10px; }
+.media-editor-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(180px,1fr)); gap: 16px; }
+.media-editor-grid article { display: grid; gap: 12px; padding: 12px; border: 1px solid #e4d9ce; border-radius: 16px; overflow: hidden; }
+.media-editor-grid article.media-hidden { background: #f1eeeb; }
+.media-editor-grid img,.media-image-placeholder { display: block; width: 100%; height: 150px; object-fit: cover; border-radius: 10px; background: #ece5de; }
+.media-image-placeholder { display: grid; place-items: center; color: #6a5b4f; }
+.media-editor-grid article > div { display: flex; flex-wrap: wrap; gap: 8px; }
+.media-editor-grid .secondary-button { min-height: 44px; padding: 8px 12px; font-size: 15px; }
+.admin-business-editor { margin-top: 22px; }
+.admin-business-editor > .settings-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.admin-business-editor .settings-tabs button { min-height: 44px; padding: 9px 12px; border: 1px solid #dcd5ce; border-radius: 10px; color: #4e4742; background: #fff; font-size: 16px; font-weight: 700; }
+.admin-business-editor .settings-tabs button[aria-pressed=true] { color: #fff; background: #29292e; }
+.content-repeat-list { display: grid; gap: 18px; }
+.content-repeat-list article { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; padding: 18px; border: 1px solid #e3d9cf; border-radius: 16px; background: #fffdfa; }
+.content-repeat-list article > label:has(textarea) { grid-column: 1 / -1; }
+.content-edit-reason { margin-top: 18px; }
+.admin-business-editor .settings-panel { padding: 0; border: 0; box-shadow: none; }
+.admin-content-history { margin-top: 20px; padding: 14px; border: 1px solid #e3d9cf; border-radius: 12px; font-size: 16px; }
+@media(max-width:600px) { .content-repeat-list article { grid-template-columns: minmax(0,1fr); padding: 12px; } .admin-business-editor .settings-form-grid { grid-template-columns: minmax(0,1fr); } .media-editor-grid { grid-template-columns: minmax(0,1fr); } }

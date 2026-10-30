@@ -60,6 +60,11 @@ input, select, textarea { accent-color: #b94315; }
 .language-switch.language-switch-single.compact button { min-width: 58px; min-height: 44px; padding: 0 10px; gap: 6px; font-size: 14px; }
 .language-switch.language-switch-single button span,
 .language-switch.language-switch-single.compact button span { font-size: 16px; }
+:root .language-switch.language-switch-single { flex: 0 0 auto; padding: 2px; border-radius: 12px; }
+:root .language-switch.language-switch-single button,
+:root .language-switch.language-switch-single.compact button { min-width: 54px; min-height: 40px; padding: 0 8px; gap: 5px; font-size: 13px; border-radius: 9px; }
+:root .language-switch.language-switch-single button span,
+:root .language-switch.language-switch-single.compact button span { font-size: 15px; }
 .launch-menu-toggle, .nav-client-account { color: #373840; background: #fff; border-color: var(--line); border-radius: 12px; box-shadow: 0 3px 0 #e7e3de; }
 .marketing-page .launch-menu-toggle { display: inline-grid; place-items: center; flex-shrink: 0; }
 .marketing-page .launch-navigation .launch-menu { display: none; position: absolute; z-index: 30; top: calc(100% + 10px); right: 0; grid-column: auto; grid-row: auto; width: min(360px, calc(100vw - 28px)); margin: 0; padding: 14px; border: 1px solid var(--line); border-radius: 18px; background: #fffdf9; box-shadow: 0 16px 40px #29212a14; }
@@ -70,6 +75,8 @@ input, select, textarea { accent-color: #b94315; }
 a.site-home-link { color: #373840; border-color: var(--line); border-radius: 12px; background: #fff; box-shadow: 0 3px 0 #e7e3de; }
 a.site-home-link:hover { color: #8b3011; border-color: #edbca0; background: #fff8f2; }
 a.site-home-link:focus-visible { outline-color: #b94315; }
+:root a.site-home-link { min-height: 44px; padding: 8px 10px; gap: 5px; font-size: 14px; border-radius: 11px; }
+:root a.site-home-link svg { width: 17px; height: 17px; }
 
 /* Homepage: a focused search instrument and an illustrated booking journey. */
 .discovery-page { position: relative; isolation: isolate; background: radial-gradient(ellipse at 85% 22%, #ffe4cd66, transparent 42%), #f6f5f2; }
@@ -238,6 +245,12 @@ a.site-home-link:focus-visible { outline-color: #b94315; }
 .settings-tabs button.active, .customer-auth-tabs button[aria-pressed=true] { color: #7e3919; background: #ffecd9; border-color: #e2ad83; }
 .customer-nav { color: var(--ink); border-color: #e2d9cf; background: #fffdfa; }
 .customer-nav > div > a { color: #72525e; }
+.customer-auth .customer-owner-link { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-top: 26px; padding: 18px; color: #322c29; background: linear-gradient(125deg,#fff4e7,#ffe3ce); border: 1px solid #edc3a2; border-radius: 16px; box-shadow: 0 4px 0 #ead5c6; font-size: 16px; line-height: 1.4; text-decoration: none; }
+.customer-auth .customer-owner-link > span,.customer-auth .customer-owner-link strong { display: inline-flex; align-items: center; gap: 8px; }
+.customer-auth .customer-owner-link strong { color: #90360f; font-size: 17px; }
+.customer-auth .customer-owner-link svg { width: 20px; height: 20px; }
+.customer-auth .customer-owner-link:hover { border-color: #bd6b36; background: #ffe6d0; }
+.customer-auth .customer-owner-link:focus-visible { outline: 3px solid #b94315; outline-offset: 4px; }
 .guided-assistant-note { background: linear-gradient(135deg, #fff1df, #fff); border-color: #e5d9ca; }
 .owner-calendar-weekdays, .owner-month-weekdays { background: #f7f2ec; }
 .owner-month-weekdays > span, .owner-month-day { color: #4b4148; }

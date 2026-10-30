@@ -12,6 +12,8 @@ import { filterPartnerLeads,partnerReviewGroup } from '../lib/partner-leads.mjs'
 import { AdminApplicationCard,adminIndustryIcon } from './admin-application-card'
 import { getIndustryLabel } from '../lib/public-locale.mjs'
 import { businessState,filterAdminBusinesses } from '../lib/platform-business-view.mjs'
+import { AdminBusinessEditor } from './admin-business-editor'
+import { scheduleRows } from '../lib/business-schedule.mjs'
 
 const STATES={pending:['Чака одобрение','Awaiting approval'],published:['Публикуван','Published'],unpublished:['Непубликуван','Unpublished'],suspended:['Спрян от админ','Suspended'],archived:['В кошчето','In trash']}
 const ACTIONS={publish:['Публикувай','Publish'],suspend:['Спри записванията','Suspend bookings'],archive:['Премести в кошчето','Move to trash'],restore:['Възстанови като спрян','Restore as suspended'],delete:['Изтрий окончателно','Delete permanently']}
@@ -86,6 +88,7 @@ export function PlatformAdmin({preview=null}) {
   const [overview,setOverview]=useState(preview?.overview||null),[leads,setLeads]=useState(preview?.leads||[]),[error,setError]=useState(''),[notice,setNotice]=useState(''),[loading,setLoading]=useState(false)
   const [tab,setTab]=useState('businesses'),[query,setQuery]=useState(''),[state,setState]=useState('all'),[leadFilter,setLeadFilter]=useState('all'),[saving,setSaving]=useState('')
   const [selected,setSelected]=useState(null),[detail,setDetail]=useState(null),[detailError,setDetailError]=useState(''),[action,setAction]=useState(''),[reason,setReason]=useState(''),[confirmation,setConfirmation]=useState(''),[ack,setAck]=useState(false),[password,setPassword]=useState(''),[busy,setBusy]=useState(false)
+  const [editing,setEditing]=useState(''),[editorDirty,setEditorDirty]=useState(false)
   const sequence=useRef(0),detailSequence=useRef(0),mutating=useRef(false),leadMutating=useRef(false)
   useEffect(()=>{
     if(preview)return
@@ -113,14 +116,28 @@ export function PlatformAdmin({preview=null}) {
   const visibleLeads=filterPartnerLeads(leads,leadFilter)
   const newLeads=leads.filter(row=>row.status==='new').length
   const fail=code=>text(ERRORS,code,en)
-  function close(){if(busy)return;detailSequence.current++;setSelected(null);setDetail(null);setAction('');setDetailError('');setPassword('')}
+  function close(){if(busy)return;if(editorDirty&&!window.confirm(en?'Discard unsaved changes?':'Да се откажем ли от незапазените промени?'))return;detailSequence.current++;setSelected(null);setDetail(null);setAction('');setEditing('');setEditorDirty(false);setDetailError('');setPassword('')}
   async function open(row){
     const version=++detailSequence.current
     setSelected(row);setDetail(null);setAction('');setDetailError('');setReason('');setConfirmation('');setAck(false);setPassword('')
+    setEditing('');setEditorDirty(false)
     try{const data=preview?{...preview.details[row.id],business:row}:await adminRequest(`/api/admin/businesses/${row.id}`);if(version===detailSequence.current)setDetail(data)}
     catch(problem){if(version===detailSequence.current)setDetailError(problem.code||'ADMIN_UNAVAILABLE')}
   }
   function choose(value){setAction(value);setReason('');setConfirmation('');setAck(false);setPassword('');setDetailError('')}
+  async function contentSaved(input){
+    setEditorDirty(false)
+    if(preview){
+      const nextBusiness={...detail.business,...(input?.section==='business'?input.payload:{}),content_revision:(detail.business.content_revision||0)+1}
+      const result={...detail,business:nextBusiness,...(input?.section==='services'?{services:input.payload.map(row=>({...row,id:row.id||crypto.randomUUID()}))}:{}),...(input?.section==='staff'?{staff:input.payload.map(row=>({...row,id:row.id||crypto.randomUUID()}))}:{}),...(input?.section==='hours'?{hours:[...(detail.hours||[]).filter(row=>row.staff_id!==input.payload.staffId),...scheduleRows(input.payload.days).map(row=>({...row,staff_id:input.payload.staffId}))]}:{})}
+      setDetail(result);setSelected(row=>({...row,...nextBusiness}));setOverview(current=>({...current,businesses:current.businesses.map(row=>row.id===nextBusiness.id?{...row,...nextBusiness}:row)}));setNotice('business-saved');return
+    }
+    const current=detailSequence.current
+    const next=await adminRequest(`/api/admin/businesses/${selected.id}`)
+    if(current!==detailSequence.current)return
+    setDetail(next);setSelected(row=>({...row,...next.business}));setNotice('business-saved')
+    setOverview(value=>({...value,businesses:value.businesses.map(row=>row.id===next.business.id?{...row,...next.business}:row)}))
+  }
   async function perform(event){
     event.preventDefault()
     if(mutating.current||!detail||!action||confirmation!==detail.business.slug||!ack||reason.trim().length<3)return
@@ -198,7 +215,7 @@ export function PlatformAdmin({preview=null}) {
       {detailError&&<p className="form-message" role="alert">{fail(detailError)}</p>}
       {!detail&&!detailError&&<p role="status">{en?'Loading details…':'Зареждаме детайлите…'}</p>}
       {detail&&<><div className="admin-dialog-business"><span className={`admin-state ${businessState(b)}`}>{text(STATES,businessState(b),en)}</span><p>/{b.slug} · {getIndustryLabel(b.industry,locale)}</p><p>{b.city||b.address||'—'} · {b.contact_email||'—'}</p></div><div className="admin-detail-counts">{[[en?'Bookings':'Резервации',detail.counts.bookings],[en?'Upcoming':'Предстоящи',detail.counts.upcoming],[en?'Customers':'Клиенти',detail.counts.customers]].map(([value,count])=><div key={value}><strong>{count}</strong><span>{value}</span></div>)}</div>
-        {!action?<><div className="admin-detail-resources"><div><h3>{en?'Services':'Услуги'}</h3>{detail.services.map(row=><p key={row.id}>{row.name} · {row.duration_min} {en?'min':'мин'} {!row.active&&`(${en?'inactive':'неактивна'})`}</p>)}{!detail.services.length&&<p>{en?'Not set up yet':'Още няма настроени услуги'}</p>}</div><div><h3>{en?'Team':'Екип'}</h3>{detail.staff.map(row=><p key={row.id}>{row.name} {!row.active&&`(${en?'inactive':'неактивен'})`}</p>)}{!detail.staff.length&&<p>{en?'Not set up yet':'Още няма екип'}</p>}</div></div><p className="admin-preserve-note">{en?'Only this business is affected. Its owner’s login and other businesses are not deleted.':'Засяга се само този бизнес. Акаунтът на собственика и други негови бизнеси не се изтриват.'}</p><div className="admin-operation-buttons">{(businessState(b)==='archived'?['restore','delete']:businessState(b)==='published'?['suspend','archive']:['publish','archive']).map(key=><button className={key==='delete'?'account-delete-button':'secondary-button'} key={key} type="button" onClick={()=>choose(key)}><Icon name={key==='delete'||key==='archive'?'trash':'settings'}/>{text(ACTIONS,key,en)}</button>)}</div></>:<form onSubmit={perform} className="admin-action-form"><h3>{text(ACTIONS,action,en)}</h3><p className={action==='delete'?'account-delete-warning':'admin-preserve-note'}>{text(EXPLANATIONS,action,en)}</p>
+        {editing?<><button className="secondary-button" type="button" disabled={busy} onClick={()=>{if(!editorDirty||window.confirm(en?'Discard unsaved changes?':'Да се откажем ли от незапазените промени?')){setEditing('');setEditorDirty(false)}}}>{en?'Back to management':'Към управлението'}</button><AdminBusinessEditor key={`${b.id}:${b.content_revision}:${editing}`} detail={detail} locale={locale} send={adminRequest} onSaved={contentSaved} onBusy={setBusy} onDirty={setEditorDirty} section={editing} onSection={setEditing} preview={Boolean(preview)}/></>:!action?<><div className="admin-detail-resources"><div><h3>{en?'Services':'Услуги'}</h3>{detail.services.map(row=><p key={row.id}>{row.name} · {row.duration_min} {en?'min':'мин'} {!row.active&&`(${en?'inactive':'неактивна'})`}</p>)}{!detail.services.length&&<p>{en?'Not set up yet':'Още няма настроени услуги'}</p>}</div><div><h3>{en?'Team':'Екип'}</h3>{detail.staff.map(row=><p key={row.id}>{row.name} {!row.active&&`(${en?'inactive':'неактивен'})`}</p>)}{!detail.staff.length&&<p>{en?'Not set up yet':'Още няма екип'}</p>}</div></div><p className="admin-preserve-note">{en?'Only this business is affected. Its owner’s login and other businesses are not deleted.':'Засяга се само този бизнес. Акаунтът на собственика и други негови бизнеси не се изтриват.'}</p><div className="admin-operation-buttons">{businessState(b)!=='archived'&&<button className="primary-button" type="button" onClick={()=>setEditing('business')}><Icon name="settings"/>{en?'Edit details & photos':'Редактирай данни и снимки'}</button>}{(businessState(b)==='archived'?['restore','delete']:businessState(b)==='published'?['suspend','archive']:['publish','archive']).map(key=><button className={key==='delete'?'account-delete-button':'secondary-button'} key={key} type="button" onClick={()=>choose(key)}><Icon name={key==='delete'||key==='archive'?'trash':'settings'}/>{text(ACTIONS,key,en)}</button>)}</div></>:<form onSubmit={perform} className="admin-action-form"><h3>{text(ACTIONS,action,en)}</h3><p className={action==='delete'?'account-delete-warning':'admin-preserve-note'}>{text(EXPLANATIONS,action,en)}</p>
           {action==='delete'&&detail.counts.upcoming>0&&<p className="form-message" role="alert">{fail('UPCOMING_BOOKINGS')}</p>}
           <fieldset disabled={busy}><label>{en?'Reason for the activity log':'Причина за журнала'}<textarea required minLength={3} maxLength={500} value={reason} onChange={e=>setReason(e.target.value)}/></label><label>{en?'Type the business slug':'Напиши адреса на бизнеса'}: <strong>{b.slug}</strong><input required autoComplete="off" autoCapitalize="none" spellCheck={false} value={confirmation} onChange={e=>setConfirmation(e.target.value)}/></label>{action==='delete'&&<label>{en?'Your administrator password':'Твоята администраторска парола'}<input type="password" autoComplete="current-password" required value={password} onChange={e=>setPassword(e.target.value)}/><small>{en?'Verified directly with Supabase Auth; never saved in the application or activity log.':'Проверява се директно от Supabase Auth; не се записва в приложението или журнала.'}</small></label>}<label className="admin-action-ack"><input type="checkbox" required checked={ack} onChange={e=>setAck(e.target.checked)}/><span>{en?'I understand the consequences for this business and its existing bookings.':'Разбирам последствията за този бизнес и съществуващите му резервации.'}</span></label></fieldset><div className="admin-operation-buttons"><button type="button" className="secondary-button" disabled={busy} onClick={()=>choose('')}>{en?'Back':'Назад'}</button><button type="submit" className={action==='delete'?'account-delete-button':'primary-button'} disabled={busy||!ack||confirmation!==b.slug||reason.trim().length<3||(action==='delete'&&(!password||detail.counts.upcoming>0))}>{busy?(en?'Saving…':'Запазване…'):text(ACTIONS,action,en)}</button></div>
         </form>}

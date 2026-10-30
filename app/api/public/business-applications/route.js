@@ -3,8 +3,14 @@ import { getSupabaseAdmin } from '../../../../lib/supabase-admin'
 import { requireUser } from '../../../../lib/server-auth'
 import { consumeRateLimit } from '../../../../lib/rate-limit'
 import { after } from 'next/server'
+import { randomUUID } from 'node:crypto'
+import { readApplicationPhotos, prepareApplicationPhotos } from '../../../../lib/application-photos.mjs'
+import { normalizeBusinessImage } from '../../../../lib/image-normalization.mjs'
+import { checked, mediaAccess, uploadBusinessMedia } from '../../../../lib/business-media-server'
 
 export const POST=createBusinessApplicationHandler({
+  readSubmission:readApplicationPhotos,
+  prepareImages:(files,count)=>prepareApplicationPhotos(files,count,normalizeBusinessImage),
   allowAttempt:request=>consumeRateLimit(request,{scope:'business-application',limit:3,windowSeconds:3600,includeUserAgent:false}),
   authenticate:requireUser,
   reserved:email=>isReservedApplicationEmail(email,process.env.PLATFORM_ADMIN_EMAILS),
@@ -22,9 +28,26 @@ export const POST=createBusinessApplicationHandler({
     if(existing.data?.length)return
     const {error}=await db.auth.admin.deleteUser(id);if(error)throw error
   },
-  save:async ({ownerId,requiresActivation,record})=>{
-    const {error}=await getSupabaseAdmin().rpc('submit_business_application',{p_owner:ownerId,p_requires_activation:requiresActivation,p_application:record})
+  save:async ({ownerId,requiresActivation,record,images=[]})=>{
+    const db=getSupabaseAdmin()
+    const prepared={...record,staff:record.staff.map(person=>({...person,id:randomUUID()}))}
+    const {data:leadId,error}=await db.rpc('submit_business_application',{p_owner:ownerId,p_requires_activation:requiresActivation,p_application:prepared})
     if(error)throw error
+    // The application is already durable. An image/provider outage must not
+    // undo it or ask the user to resubmit a second business/account.
+    let photosSaved=0
+    try{
+      if(images.length){
+        const lead=checked(await db.from('partner_leads').select('business_id').eq('id',leadId).single())
+        for(const row of images){
+          const business=await mediaAccess(lead.business_id)
+          if(!business||business.owner_id!==ownerId)throw new Error('WRONG_BUSINESS')
+          await uploadBusinessMedia({businessId:business.id,actorId:ownerId,admin:false,revision:business.content_revision,staffId:row.staffIndex===null?null:prepared.staff[row.staffIndex].id,alt:'',image:row.image,mediaId:randomUUID(),application:true})
+          photosSaved++
+        }
+      }
+    }catch{ /* Return a truthful partial-photo status, never a duplicate signup. */ }
+    return {photosSaved}
   },
   notify:async record=>{
     after(async()=>{

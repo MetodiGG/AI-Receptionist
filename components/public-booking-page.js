@@ -19,6 +19,7 @@ import { notificationNotice } from '../lib/notification-copy.mjs'
 import { trackProductEvent } from '../lib/product-events-client'
 import { focusBookingDetails } from '../lib/booking-details-navigation.mjs'
 import { BusinessProfileHeader, BusinessProfileInformation } from './business-profile'
+import { getStaffPhoto } from '../lib/business-photos.mjs'
 import { BusinessReviews, useBusinessReviews } from './business-reviews'
 import { groupBusinessServices } from '../lib/business-profile.mjs'
 
@@ -210,7 +211,7 @@ function BookingPanel({ business, locale }) {
         <div className="booking-section-head"><span>2</span><div><h2>{en ? 'Choose a specialist' : 'Избери специалист'}</h2><p>{en ? 'Or let the system find the earliest option.' : 'Или остави системата да избере най-ранния час.'}</p></div></div>
         <div className="staff-options">
           <button type="button" className={!staffId ? 'selected' : ''} onClick={() => { setStaffId(''); setSlot(null) }}><i>✦</i><span><strong>{en ? 'No preference' : 'Без предпочитание'}</strong><small>{en ? 'Earliest available time' : 'Най-ранен свободен час'}</small></span></button>
-          {availableStaff.map((person) => <button type="button" className={staffId === person.id ? 'selected' : ''} onClick={() => { setStaffId(person.id); setSlot(null) }} key={person.id}><i>{person.name.slice(0, 1).toUpperCase()}</i><span><strong>{person.name}</strong><small>{person.bio || (en ? 'Specialist' : 'Специалист')}</small></span></button>)}
+          {availableStaff.map((person) => {const photo=getStaffPhoto(business,person.id);return <button type="button" className={staffId === person.id ? 'selected' : ''} onClick={() => { setStaffId(person.id); setSlot(null) }} key={person.id}>{photo?<img className="booking-staff-photo" src={photo.src} alt="" width="44" height="44" loading="lazy"/>:<i>{person.name.slice(0, 1).toUpperCase()}</i>}<span><strong>{person.name}</strong><small>{person.bio || (en ? 'Specialist' : 'Специалист')}</small></span></button>})}
         </div>
 
         <div className="booking-divider" />

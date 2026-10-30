@@ -8,6 +8,8 @@ import { getIndustryServiceTemplate } from '../lib/industry-templates.mjs'
 import { BusinessLocationFields } from './business-location-fields'
 import { WeeklyScheduleFields } from './weekly-schedule-fields'
 import { DurationInput } from './duration-input'
+import { PhotoPicker } from './photo-picker'
+import { MAX_APPLICATION_BYTES } from '../lib/business-media.mjs'
 import { businessAddress, businessLocationFields, findCity } from '../lib/business-location.mjs'
 import { validDuration, scheduleProblem, scheduleRows, scheduleErrorText } from '../lib/business-schedule.mjs'
 
@@ -47,6 +49,9 @@ function slugify(value) {
 }
 
 export function BusinessSetup({ session, onComplete, locale, preview = false, application = false }) {
+  const [businessPhotos,setBusinessPhotos]=useState([]),[photoConsent,setPhotoConsent]=useState(false)
+  const [photosProcessing,setPhotosProcessing]=useState(0)
+  const photoProcessing=active=>setPhotosProcessing(count=>Math.max(0,count+(active?1:-1)))
   const en = locale === 'en'
   const steps = STEPS[locale]
   const [step, setStep] = useState(0)
@@ -115,6 +120,7 @@ export function BusinessSetup({ session, onComplete, locale, preview = false, ap
   }
 
   function next() {
+    if(photosProcessing)return
     const validationError = validateCurrentStep()
     if (validationError) { setError(validationError); return }
     setError('')
@@ -122,25 +128,32 @@ export function BusinessSetup({ session, onComplete, locale, preview = false, ap
   }
 
   async function save() {
-    if(lock.current)return
+    if(lock.current||photosProcessing)return
     for (let index = 0; index < 4; index++) {
       const problem = validateCurrentStep(index)
       if (problem) { setError(problem); setStep(index); return }
     }
     if(application&&(!consent||!/^\S+@\S+\.\S+$/.test(accountEmail)||(!session&&password.length<10))){setError(en?'Enter a valid login email, a password of at least 10 characters and accept the terms.':'Въведи валиден имейл за вход, парола с поне 10 знака и приеми условията.');return}
+    const selectedPhotos=[...businessPhotos.map(file=>({key:'gallery',file})),...staff.filter(person=>person.photo).map(person=>({key:'staff',file:person.photo}))]
+    if(selectedPhotos.length&&!photoConsent){setError(en?'Confirm you have permission to publish the photos.':'Потвърди, че имаш право да публикуваш снимките.');return}
+    if(selectedPhotos.reduce((sum,row)=>sum+row.file.size,0)>MAX_APPLICATION_BYTES-100000){setError(en?'The photos together are too large. Remove a few; you can add more after approval.':'Общият размер на снимките е твърде голям. Премахни няколко; можеш да добавиш още след одобрение.');return}
     setError('');lock.current=true
     setSaving(true)
     let createdBusinessId = null
     try {
       if (preview) { onComplete({ business, services, staff, schedule }); return }
       if(application) {
-        const response=await fetch('/api/public/business-applications',{method:'POST',headers:{'Content-Type':'application/json',...(session?.access_token?{Authorization:`Bearer ${session.access_token}`}:{})},body:JSON.stringify({business,services,staff,schedule:schedule.map(({weekday,enabled,open,close,breakEnabled,breakStart,breakEnd})=>({weekday,enabled,open,close,breakEnabled,breakStart,breakEnd})),account:{email:accountEmail,password:session?'':password},consent,company,locale})})
+        const payload=JSON.stringify({business,services,staff:staff.map(({name})=>({name})),schedule:schedule.map(({weekday,enabled,open,close,breakEnabled,breakStart,breakEnd})=>({weekday,enabled,open,close,breakEnabled,breakStart,breakEnd})),account:{email:accountEmail,password:session?'':password},consent,company,locale})
+        let body=payload
+        if(selectedPhotos.length){body=new FormData();body.append('payload',payload);body.append('photoConsent','true');businessPhotos.forEach((file,i)=>body.append(`gallery_${i}`,file));staff.forEach((person,i)=>{if(person.photo)body.append(`staff_${i}`,person.photo)})}
+        const response=await fetch('/api/public/business-applications',{method:'POST',headers:{...(!selectedPhotos.length?{'Content-Type':'application/json'}:{}),...(session?.access_token?{Authorization:`Bearer ${session.access_token}`}:{})},body})
         if(!response.ok) {
           const code=(await response.json().catch(()=>null))?.error?.code
           const messages={SIGN_IN_REQUIRED:en?'Use a new email and a password of at least 10 characters, or sign in to your existing account first.':'Използвай нов имейл и парола с поне 10 знака, или първо влез в съществуващия си профил.',ADDRESS_IN_USE:en?'This page address is taken. Choose another in step 1.':'Този адрес на страницата е зает. Избери друг в стъпка 1.',RATE_LIMITED:en?'Too many attempts. Please try later.':'Твърде много опити. Опитай по-късно.',VALIDATION_ERROR:en?'Check the details in all five steps. Names must have at least 2 characters.':'Провери данните в петте стъпки. Имената трябва да са поне 2 знака.'}
           setError(messages[code]||(en?'We could not accept the application. Try again later.':'Не успяхме да приемем заявката. Опитай отново по-късно.'));return
         }
-        setPassword('');onComplete({pending:true});return
+        const result=await response.json()
+        setPassword('');onComplete({pending:true,photos:result.photos});return
       }
       const { data: createdBusiness, error: businessError } = await supabase.from('businesses').insert({
         owner_id: session.user.id,
@@ -169,7 +182,8 @@ export function BusinessSetup({ session, onComplete, locale, preview = false, ap
       }))).select()
       if (servicesError) throw servicesError
 
-      const { data: createdStaff, error: staffError } = await supabase.from('staff').insert(staff.map((person) => ({ business_id: createdBusinessId, name: person.name.trim() }))).select()
+      const staffToInsert=staff.map((person,index)=>({id:crypto.randomUUID(),business_id:createdBusinessId,name:person.name.trim(),sort_order:index}))
+      const { data: createdStaff, error: staffError } = await supabase.from('staff').insert(staffToInsert).select()
       if (staffError) throw staffError
 
       const hours = createdStaff.flatMap((person) => scheduleRows(schedule).map((day) => ({
@@ -180,7 +194,12 @@ export function BusinessSetup({ session, onComplete, locale, preview = false, ap
       const { error: hoursError } = await supabase.from('working_hours').insert(hours)
       if (hoursError) throw hoursError
 
-      onComplete({ business: createdBusiness, services: createdServices, staff: createdStaff, schedule })
+      let photoWarning=false
+      if(selectedPhotos.length){
+        const photos=[...businessPhotos.map(file=>({file,staffId:null})),...staff.map((person,index)=>({file:person.photo,staffId:staffToInsert[index].id})).filter(row=>row.file)]
+        try{for(const row of photos){const headers={Authorization:`Bearer ${session.access_token}`};const current=await fetch(`/api/businesses/${createdBusinessId}/media`,{headers,cache:'no-store'});if(!current.ok)throw new Error();const latest=await current.json();const body=new FormData();body.append('file',row.file);body.append('consent','true');body.append('revision',String(latest.business.content_revision));if(row.staffId)body.append('staffId',row.staffId);const response=await fetch(`/api/businesses/${createdBusinessId}/media`,{method:'POST',headers,body});if(!response.ok)throw new Error()}}catch{photoWarning=true}
+      }
+      onComplete({ business: createdBusiness, services: createdServices, staff: createdStaff, schedule, photoWarning })
     } catch (saveError) {
       if (createdBusinessId) await supabase.from('businesses').delete().eq('id', createdBusinessId)
       const duplicateSlug = saveError.code === '23505'
@@ -220,6 +239,7 @@ export function BusinessSetup({ session, onComplete, locale, preview = false, ap
               <div className="field full"><BusinessLocationFields required cityCode={business.city_ekatte} neighborhood={business.neighborhood} onChange={(patch) => setBusiness((current) => ({ ...current, ...patch }))} locale={locale} /></div>
               <div className="field full duration-setup"><label htmlFor="usual-duration">{en ? 'How long does an appointment usually take? (min)' : 'Колко дълго обикновено продължава един час? (мин)'} *</label><DurationInput id="usual-duration" className="text-input" value={business.default_duration_min} onChange={value => updateBusiness('default_duration_min', value)} locale={locale} required/><p className="helper-text">{en ? 'Enter the exact minutes. You can set a different duration for each service in the next step.' : 'Въведи точните минути. В следващата стъпка можеш да зададеш различна продължителност за всяка услуга.'}</p></div>
               <div className="field full"><label htmlFor="business-address">{en ? 'Address' : 'Адрес'}{application?' *':''}</label><input id="business-address" className="text-input" value={business.address} onChange={(event) => updateBusiness('address', event.target.value)} placeholder={en ? '12 Example Street, Sofia' : 'ул. Примерна 12, София'} /></div>
+              <div className="field full"><PhotoPicker files={businessPhotos} onChange={setBusinessPhotos} locale={locale} disabled={saving} onProcessing={photoProcessing} label={en?'Business photos (optional)':'Снимки на бизнеса (по желание)'}/></div>
               <details className="field full setup-address-options"><summary>{en?'Page address (optional)':'Адрес на страницата (по желание)'}</summary><div><label htmlFor="business-slug">{en ? 'Public page address' : 'Адрес на публичната страница'} *</label><input id="business-slug" className="text-input" value={business.slug} onChange={(event) => { setSlugTouched(true); updateBusiness('slug', slugify(event.target.value)) }} placeholder="studio-forma" /><p className="helper-text">GoRez · /book/{business.slug || (en ? 'your-business' : 'твоят-бизнес')}</p></div></details>
             </div>
           )}
@@ -248,11 +268,12 @@ export function BusinessSetup({ session, onComplete, locale, preview = false, ap
                 {staff.map((person, index) => (
                   <div className="repeat-row staff-row" key={index}>
                     <div><label className="compact-label" htmlFor={`staff-${index}`}>{en ? 'Name' : 'Име'}</label><input id={`staff-${index}`} className="compact-input" value={person.name} onChange={(event) => updateList(setStaff, index, 'name', event.target.value)} placeholder={index === 0 ? (en ? 'Your name' : 'Твоето име') : (en ? 'Team member name' : 'Име на служител')} autoFocus={index === 0} /></div>
-                    <button className="icon-button" type="button" aria-label={en ? 'Remove team member' : 'Премахни служителя'} onClick={() => removeListRow(setStaff, index)} disabled={staff.length === 1}><Icon name="trash" /></button>
+                    <PhotoPicker files={person.photo?[person.photo]:[]} onChange={files=>updateList(setStaff,index,'photo',files[0]||null)} single locale={locale} disabled={saving} onProcessing={photoProcessing} label={en?'Team photo (optional)':'Снимка на специалиста (по желание)'}/>
+                    <button className="icon-button" type="button" aria-label={en ? 'Remove team member' : 'Премахни служителя'} onClick={() => removeListRow(setStaff, index)} disabled={staff.length === 1||photosProcessing>0||saving}><Icon name="trash" /></button>
                   </div>
                 ))}
               </div>
-              <button className="add-row-button" type="button" onClick={() => setStaff((current) => [...current, { name: '' }])}><Icon name="plus" /> {en ? 'Add team member' : 'Добави човек'}</button>
+              <button className="add-row-button" type="button" disabled={saving||photosProcessing>0} onClick={() => setStaff((current) => [...current, { name: '' }])}><Icon name="plus" /> {en ? 'Add team member' : 'Добави човек'}</button>
             </div>
           )}
 
@@ -266,6 +287,7 @@ export function BusinessSetup({ session, onComplete, locale, preview = false, ap
               <div className="review-card"><span className="review-icon"><Icon name="briefcase" /></span><small>{en ? 'Services' : 'Услуги'}</small><strong>{services.length} {en ? (services.length === 1 ? 'service' : 'services') : (services.length === 1 ? 'услуга' : 'услуги')}</strong><p>{services.map((service) => `${service.name} · ${service.duration_min} ${en ? 'min' : 'мин.'}`).join(', ')}</p></div>
               <div className="review-card"><span className="review-icon"><Icon name="users" /></span><small>{en ? 'Team' : 'Екип'}</small><strong>{staff.length} {en ? (staff.length === 1 ? 'person' : 'people') : (staff.length === 1 ? 'човек' : 'души')}</strong><p>{staff.map((person) => person.name).join(', ')}</p></div>
               <div className="review-card full"><span className="review-icon"><Icon name="clock" /></span><small>{en ? 'Working hours' : 'Работно време'}</small><strong>{schedule.filter((day) => day.enabled).length} {en ? 'working days' : 'работни дни'}</strong><p>{schedule.filter((day) => day.enabled).map((day) => `${day.short} ${day.open}–${day.close}${day.breakEnabled ? ` (${en ? 'break' : 'почивка'} ${day.breakStart}–${day.breakEnd})` : ''}`).join(' · ')}</p></div>
+              {(businessPhotos.length>0||staff.some(person=>person.photo))&&<label className="onboarding-consent full"><input type="checkbox" checked={photoConsent} onChange={event=>setPhotoConsent(event.target.checked)}/><span>{en?'I have permission to publish these photos and the consent of the people shown.':'Имам право да публикувам снимките и съгласието на хората на тях.'}</span></label>}
               {application&&<div className="onboarding-account"><label>{en?'Login email':'Имейл за вход'} *<input className="text-input" type="email" autoComplete="email" maxLength={180} value={accountEmail} disabled={Boolean(session)||saving} onChange={event=>setAccountEmail(event.target.value)}/></label>{!session&&<label>{en?'Password · at least 10 characters':'Парола · поне 10 знака'} *<input className="text-input" type="password" autoComplete="new-password" minLength={10} maxLength={128} value={password} onChange={event=>setPassword(event.target.value)}/></label>}<label className="onboarding-consent"><input type="checkbox" checked={consent} onChange={event=>setConsent(event.target.checked)}/><span>{en?'I accept the':'Приемам'} <Link href={`/terms?lang=${locale}`}>{en?'terms':'условията'}</Link> {en?'and have read the':'и съм прочел'} <Link href={`/privacy?lang=${locale}`}>{en?'privacy information':'информацията за поверителност'}</Link>.</span></label><div hidden aria-hidden="true"><input name="company" tabIndex={-1} autoComplete="off" value={company} onChange={event=>setCompany(event.target.value)}/></div><Link href={`/login?lang=${locale}`}>{en?'Already have an account? Sign in first.':'Имаш акаунт? Първо влез в него.'}</Link></div>}
             </div>
           )}
@@ -273,10 +295,10 @@ export function BusinessSetup({ session, onComplete, locale, preview = false, ap
           {error && <p className="form-message" role="alert" style={{ marginTop: 20 }}>{error}</p>}
         </div>
         <footer className="wizard-actions">
-          <button className="secondary-button" type="button" onClick={() => { setError(''); setStep((current) => Math.max(0, current - 1)) }} disabled={step === 0 || saving}><Icon name="back" /> {en ? 'Back' : 'Назад'}</button>
+          <button className="secondary-button" type="button" onClick={() => { setError(''); setStep((current) => Math.max(0, current - 1)) }} disabled={step === 0 || saving || photosProcessing>0}><Icon name="back" /> {en ? 'Back' : 'Назад'}</button>
           {step < steps.length - 1
-            ? <button className="primary-button" type="button" onClick={next}>{en ? 'Continue' : 'Продължи'} <Icon name="arrow" /></button>
-            : <button className="primary-button accent" type="button" onClick={save} disabled={saving}>{saving ? <span className="button-spinner" /> : <Icon name="check" />}{saving ? (en ? 'Saving...' : 'Запазване...') : application ? (en?'Send for approval':'Изпрати за одобрение') : (en ? 'Complete setup' : 'Завърши настройката')}</button>}
+            ? <button className="primary-button" type="button" onClick={next} disabled={photosProcessing>0}>{en ? 'Continue' : 'Продължи'} <Icon name="arrow" /></button>
+            : <button className="primary-button accent" type="button" onClick={save} disabled={saving||photosProcessing>0}>{saving ? <span className="button-spinner" /> : <Icon name="check" />}{saving ? (en ? 'Saving...' : 'Запазване...') : application ? (en?'Send for approval':'Изпрати за одобрение') : (en ? 'Complete setup' : 'Завърши настройката')}</button>}
         </footer>
       </section>
     </div>

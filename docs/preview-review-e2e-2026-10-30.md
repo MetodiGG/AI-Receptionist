@@ -46,9 +46,39 @@ call. A `no-referrer` form POST can use an opaque origin. The test control now
 uses explicit CORS-mode fetch, retains no-referrer and clears the secret after
 submission; the server still rejects an opaque/null origin.
 
-The corrected operator invocation, Resend Delivered event, mailbox receipt,
-one-use form submission and final kill switch have not yet been verified at
-this checkpoint. No complete live E2E success is claimed.
-Disable the temporary test gate after verification, rebuild Preview,
-and retire the separate key with owner confirmation; old deployments retain
-their own environment snapshots. Do not touch the Production key.
+## Verified end-to-end result
+
+- Corrected Preview commit `637aba0` reached Ready. One operator invocation
+  returned `accepted: 1`, `failed: 0`, `skipped: 0`. No second send was attempted.
+- Resend showed **Delivered**, to `info@gorez.co`, for the single message
+  `Как мина посещението ти? · [TEST] GoRez Preview Review`.
+- The actual Titan mailbox contained that message and its **Остави оценка**
+  button. Its private one-use URL pointed to the approved Preview, not Production.
+  The token was not written to docs, local files or chat.
+- The actual link loaded the actual review form for the fictional staging visit.
+  Submitted `[TEST] QA`, rating 5 and an explicitly labelled technical-test
+  comment saying it is not feedback on a real business/service. This is only
+  staging, not a fabricated review of a real partner.
+- The page showed the saved/thank-you state. A full reload showed the already
+  recorded state with no form for a second submission.
+- Read-only staging verification returned exactly one queue row, one sent
+  provider-accepted review message, one saved review and `used_at IS NOT NULL`.
+- No real customer, real appointment, Production environment/key, paid plan or
+  Google quota was changed by this test. The existing Production release remains
+  unchanged. Controlled fixture timing does not prove a real one-hour wait or
+  the deployed Production scheduler.
+
+## Cleanup checkpoint
+
+`PREVIEW_REVIEW_TEST_ENABLED=false` was saved successfully for only the exact
+Preview branch. A fresh Preview deployment and 404 read-back are still pending.
+Retire the separate key with owner confirmation; old deployments retain their
+own environment snapshots. Do not touch the Production key.
+
+Local proof images (no private link token):
+
+- `/tmp/gorez-review-test-provider-accepted-20261030.png`
+- `/tmp/gorez-review-test-resend-delivered-20261030.png`
+- `/tmp/gorez-review-test-mailbox-received-20261030.png`
+- `/tmp/gorez-review-test-form-saved-20261030.png`
+- `/tmp/gorez-review-test-staging-counts-20261030.png`

@@ -9,7 +9,8 @@ import { HomeLink } from './home-link'
 import { usePublicLocale } from '../hooks/use-public-locale'
 import { supabase,createReauthenticationClient } from '../lib/supabase'
 import { filterPartnerLeads,partnerReviewGroup } from '../lib/partner-leads.mjs'
-import { AdminApplicationCard,adminIndustryIcon } from './admin-application-card'
+import { AdminApplicationCard } from './admin-application-card'
+import { BusinessCategoryIcon } from './business-category-icon'
 import { getIndustryLabel } from '../lib/public-locale.mjs'
 import { businessState,filterAdminBusinesses } from '../lib/platform-business-view.mjs'
 import { AdminBusinessEditor } from './admin-business-editor'
@@ -196,7 +197,7 @@ export function PlatformAdmin({preview=null}) {
           <header><div><h2>{en?'Business profiles':'Бизнес профили'}</h2><p>{en?'Visibility and management at a glance.':'Видимост и управление на едно място.'}</p></div><span>{businesses.length} {en?'results':'резултата'}</span></header>
           <div className="admin-business-filters"><label>{en?'Search':'Търси'}<input type="search" value={query} onChange={e=>setQuery(e.target.value)} placeholder={en?'Name, city or email':'Име, град или имейл'}/></label><label>{en?'Visibility':'Видимост'}<select value={state} onChange={e=>setState(e.target.value)}><option value="all">{en?'All, including trash':'Всички, включително кошчето'}</option>{Object.keys(STATES).map(key=><option key={key} value={key}>{text(STATES,key,en)}</option>)}</select></label></div>
           <div className="admin-business-cards">{businesses.map(row=><article key={row.id} className="admin-business-card">
-            <div className="admin-business-card-title"><span className="admin-store-icon"><Icon name={adminIndustryIcon(row.industry)}/></span><div><h3>{row.name}</h3><p>{getIndustryLabel(row.industry,locale)}{row.city?` · ${row.city}`:''}</p></div><span className={`admin-state ${businessState(row)}`}>{text(STATES,businessState(row),en)}</span></div>
+            <div className="admin-business-card-title"><span className="admin-store-icon"><BusinessCategoryIcon business={row} size={42}/></span><div><h3>{row.name}</h3><p>{getIndustryLabel(row.industry,locale)}{row.city?` · ${row.city}`:''}</p></div><span className={`admin-state ${businessState(row)}`}>{text(STATES,businessState(row),en)}</span></div>
             {row.contact_email&&<a className="admin-business-contact" href={`mailto:${row.contact_email}`}><Icon name="mail"/>{row.contact_email}</a>}
             <div className="admin-business-metrics"><span><Icon name="calendar"/><b>{row.bookings30d}</b> {en?'bookings / 30d':'резервации / 30д'}</span>{row.failedNotifications30d>0&&<span className="admin-email-warning"><b>{row.failedNotifications30d}</b> {en?'failed emails':'неуспешни имейли'}</span>}</div>
             <div className="admin-card-actions"><button className="primary-button" type="button" onClick={()=>open(row)}><Icon name="settings"/>{en?'Manage':'Управлявай'}</button>{businessState(row)==='published'&&<Link className="secondary-button" href={`/book/${row.slug}?lang=${locale}`} target="_blank" rel="noreferrer"><Icon name="external"/>{en?'Public page':'Публична страница'}</Link>}</div>

@@ -2,11 +2,9 @@
 
 import { useEffect, useId, useState } from 'react'
 import { Icon } from './icon'
+import { BusinessCategoryIcon } from './business-category-icon'
 import { PARTNER_STATUS_KEYS, PARTNER_STATUS_LABELS, PARTNER_DECISION_STATUS, partnerReviewGroup } from '../lib/partner-leads.mjs'
 import { getIndustryLabel } from '../lib/public-locale.mjs'
-
-const CATEGORY_ICONS = { beauty: 'scissors', auto: 'wrench', health: 'stethoscope', fitness: 'dumbbell', education: 'graduation', consulting: 'briefcase', home_services: 'house', pets: 'paw' }
-export const adminIndustryIcon = category => CATEGORY_ICONS[category] || 'store'
 
 function websiteLink(value) {
   try { const url = new URL(value); return ['https:', 'http:'].includes(url.protocol) ? url.href : null } catch { return null }
@@ -25,7 +23,7 @@ export function AdminApplicationCard({ row, locale, saving, onSave }) {
   }
   return <article className="admin-application-card" aria-labelledby={titleId} aria-busy={saving}>
     <div className="admin-application-heading">
-      <span className="admin-store-icon"><Icon name={adminIndustryIcon(row.category)}/></span>
+      <span className="admin-store-icon"><BusinessCategoryIcon business={{industry:row.category,name:row.business_name}} size={42}/></span>
       <div><h3 id={titleId}>{row.business_name}</h3><p>{getIndustryLabel(row.category, locale)}{row.city ? ` · ${row.city}` : ''}</p></div>
       <span className={`admin-state application-${partnerReviewGroup(row.status)}`}>{row.business_id&&row.status==='active'?(en?'Approved · published':'Одобрена · публикувана'):PARTNER_STATUS_LABELS[row.status]?.[locale]}</span>
     </div>

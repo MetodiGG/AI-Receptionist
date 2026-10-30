@@ -5,12 +5,13 @@ import { useState } from 'react'
 import { Icon } from './icon'
 import { DirectoryFilters } from './directory-filters'
 import { BusinessPhotoGallery } from './business-photo-gallery'
+import { BusinessCategoryIcon } from './business-category-icon'
 import { useDirectory } from '../hooks/use-directory'
-import { getIndustryLabel, INDUSTRY_META } from '../lib/public-locale.mjs'
+import { getIndustryLabel } from '../lib/public-locale.mjs'
 import { EMPTY_DIRECTORY_FILTERS, filterDirectory } from '../lib/directory.mjs'
 import { trackProductEvent } from '../lib/product-events-client'
 
-export function BusinessDirectory({ locale, preview = null, data = null, filters: externalFilters = null, onFiltersChange, showFilters = true, partners = false }) {
+export function BusinessDirectory({ locale, preview = null, data = null, filters: externalFilters = null, onFiltersChange, showFilters = true, partners = false, bookingDisabled = false }) {
   const en = locale === 'en', resource = useDirectory(preview,data)
   const { businesses = [], status } = resource
   const [localFilters,setLocalFilters] = useState(EMPTY_DIRECTORY_FILTERS)
@@ -23,9 +24,9 @@ export function BusinessDirectory({ locale, preview = null, data = null, filters
       <p className="directory-result-count" role="status">{filtered.length} {en ? (filtered.length === 1 ? 'business' : 'businesses') : (filtered.length === 1 ? 'бизнес' : 'бизнеса')}</p>
       <div className="directory-results-grid">{filtered.map(row => <article className="directory-business-card" key={row.id}>
         {row.photos?.length > 0 && <BusinessPhotoGallery photos={row.photos} businessName={row.name} locale={locale} variant="directory" />}
-        <div className="directory-business-head"><span className="directory-business-icon"><Icon name={(INDUSTRY_META[row.industry] || INDUSTRY_META.other).icon}/></span><div><small>{getIndustryLabel(row.industry,locale)}</small><h3>{row.name}</h3>{row.address && <p>{row.address}</p>}</div></div>
+        <div className="directory-business-head"><span className="directory-business-icon"><BusinessCategoryIcon business={row} size={72}/></span><div><small>{getIndustryLabel(row.industry,locale)}</small><h3>{row.name}</h3>{row.address && <p>{row.address}</p>}</div></div>
         <div className="directory-services"><small>{en ? 'Services' : 'Услуги'}</small><div>{row.services.slice(0,4).map(service => <span key={service.id}><span>{service.name}<small>{service.duration_min} {en ? 'min' : 'мин'}</small></span>{service.price != null && <b>{new Intl.NumberFormat(en ? 'en-IE' : 'bg-BG',{style:'currency',currency:service.currency || 'EUR'}).format(service.price)}</b>}</span>)}</div></div>
-        <Link className="directory-book-button" href={`/book/${row.slug}?lang=${locale}`} onClick={() => trackProductEvent('booking_started','book',locale)}>{en ? 'Book an appointment' : 'Запази час'}<Icon name="arrow"/></Link>
+        {bookingDisabled ? <span className="directory-book-button" aria-disabled="true">{en ? 'Design preview · booking disabled' : 'Дизайнерски преглед · без резервация'}</span> : <Link className="directory-book-button" href={`/book/${row.slug}?lang=${locale}`} onClick={() => trackProductEvent('booking_started','book',locale)}>{en ? 'Book an appointment' : 'Запази час'}<Icon name="arrow"/></Link>}
       </article>)}</div>
       {!filtered.length && <div className="directory-empty"><h3>{en ? 'No businesses match these choices yet.' : 'Все още няма бизнеси по тези критерии.'}</h3><button className="secondary-button" type="button" onClick={() => setFilters(EMPTY_DIRECTORY_FILTERS)}>{en ? 'Show all businesses' : 'Покажи всички бизнеси'}</button></div>}
     </>}

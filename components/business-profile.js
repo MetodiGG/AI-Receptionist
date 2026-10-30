@@ -7,6 +7,7 @@ import { ReviewSummary } from './business-reviews'
 import { businessDirectionsUrl, businessMapUrl, businessWeeklyHours, publicProfileDetails } from '../lib/business-profile.mjs'
 import { getIndustryLabel } from '../lib/public-locale.mjs'
 import { getStaffPhoto } from '../lib/business-photos.mjs'
+import { BusinessCategoryIcon } from './business-category-icon'
 
 export function BusinessProfileHeader({ business, locale, reviews, onBook }) {
   const en = locale === 'en', directions = businessDirectionsUrl(business)
@@ -19,7 +20,7 @@ export function BusinessProfileHeader({ business, locale, reviews, onBook }) {
     } catch { /* A cancelled share does not interrupt booking. */ }
   }
   return <section className="business-profile-hero" aria-labelledby="business-profile-name">
-    {business.photos?.length ? <BusinessPhotoGallery photos={business.photos} businessName={business.name} locale={locale} key={business.id} /> : <div className="business-profile-no-photo" aria-hidden="true"><Icon name="store" /></div>}
+    {business.photos?.length ? <BusinessPhotoGallery photos={business.photos} businessName={business.name} locale={locale} key={business.id} /> : <div className="business-profile-no-photo" aria-hidden="true"><BusinessCategoryIcon business={business} size={140}/></div>}
     <div className="business-profile-identity">
       <div><p className="booking-eyebrow">{getIndustryLabel(business.industry, locale)}</p><h1 id="business-profile-name">{business.name}</h1>
         {business.address && <p className="business-profile-address"><Icon name="pin" /><span>{business.address}</span></p>}

@@ -1,0 +1,30 @@
+/* Local, transparent category illustrations; functional navigation icons and
+   the GoRez logo retain their established vector rendering. */
+.business-category-art { display: inline-grid; place-items: center; flex: 0 0 auto; width: var(--business-art-size,64px); height: var(--business-art-size,64px); line-height: 0; }
+.business-category-art > img { display: block; width: 100%; height: 100%; max-width: none; object-fit: contain; filter: drop-shadow(0 3px 2px #40220c12); }
+.discovery-shortcuts button { gap: 10px; min-height: 64px; padding: 8px 16px 8px 10px; }
+.discovery-shortcuts button.selected { color: #713313; background: linear-gradient(#fff6e9,#ffe2ca); border-color: #e38e50; box-shadow: inset 0 1px 0 #fff, 0 3px 0 #d7b496; }
+.discovery-card-identity { display: grid; grid-template-columns: 64px minmax(0,1fr); align-items: center; gap: 14px; margin-bottom: 14px; }
+.discovery-card-identity .discovery-category { line-height: 1.4; }
+.discovery-card-identity h3 { margin-bottom: 0; }
+.directory-business-head .directory-business-icon { flex: 0 0 auto; width: 80px; height: 80px; padding: 3px; background: linear-gradient(145deg,#fffaf5,#f8eee4); border: 1px solid #eee0d2; border-radius: 22px; }
+.directory-business-head .directory-business-icon .business-category-art { width: 72px; height: 72px; }
+.business-profile-no-photo > .business-category-art { width: 140px; height: 140px; }
+.admin-store-icon { background: linear-gradient(145deg,#fffaf5,#f8eee4); }
+.admin-store-icon .business-category-art { width: 42px; height: 42px; }
+.category-art-preview { width: min(1120px,calc(100% - 32px)); margin: 32px auto 80px; }
+.category-art-preview > h1 { font-size: clamp(28px,4vw,44px); letter-spacing: -.035em; }
+.category-art-preview > p { font-size: 16px; line-height: 1.6; }
+.category-art-samples { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); gap: 16px; margin: 24px 0 48px; }
+.category-art-samples > div { display: grid; justify-items: center; gap: 8px; padding: 16px 8px; border: 1px solid #e4dcd3; border-radius: 18px; background: #fffdfa; font-size: 16px; text-align: center; }
+@media (max-width: 700px) {
+  .discovery-shortcuts { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
+  .discovery-shortcuts button { display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 0; min-height: 92px; padding: 10px 6px; gap: 5px; font-size: 16px; line-height: 1.3; text-align: center; }
+  .discovery-shortcuts .business-category-art { width: 44px; height: 44px; }
+  .discovery-card-identity { grid-template-columns: 60px minmax(0,1fr); gap: 12px; }
+  .discovery-card-identity .business-category-art { width: 60px; height: 60px; }
+  .directory-business-head { grid-template-columns: 76px minmax(0,1fr); }
+  .directory-business-head .directory-business-icon { width: 76px; height: 76px; border-radius: 20px; }
+  .directory-business-head .directory-business-icon .business-category-art { width: 68px; height: 68px; }
+  .category-art-samples { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}

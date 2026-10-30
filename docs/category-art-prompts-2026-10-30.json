@@ -1,0 +1,67 @@
+{
+  "generatedOn": "2026-10-30",
+  "mode": "Built-in image_gen; transparent_background=true; one distinct asset per call",
+  "sharedPrompt": "Use case: stylized-concept.\nAsset type: one premium small 3D category illustration for the GoRez booking website, not a website mockup.\nStyle: realistic high-end miniature product rendering, physically based materials, precise believable object shapes, refined soft studio lighting from upper left, gentle three-quarter orthographic view. Clear bold silhouette readable at 40px; subtle realistic texture, not flat line art, not a toy, not a generic emoji.\nPalette: natural silver/chrome and graphite materials with restrained warm orange #ff762f accents, ivory highlights. Fits a warm white, graphite and orange premium SaaS interface.\nComposition: square 1:1, one centered isolated icon composition occupying about 82% of the canvas, complete object with generous safe edge padding. No cropped parts.\nBackground: genuinely transparent alpha, only a tiny soft natural shadow immediately under the object. No colored rectangle, no floor, no pedestal, no circular badge, no checkerboard painted in.\nConstraints: no text, no numbers, no logos, no trademarks, no watermark, no people, no face, no sparkle glyphs, no decorative orb.",
+  "assets": [
+    {
+      "name": "hair",
+      "sourceFilename": "exec-6e831552-c9e6-4e73-9a79-ce5e5afab111.png",
+      "subject": "A beautiful pair of professional stainless-steel hairdressing scissors with polished blades and understated warm copper finger rings, crossed neatly with one refined dark graphite salon comb. Realistic proportions and clean negative space."
+    },
+    {
+      "name": "barber",
+      "sourceFilename": "exec-177a8bb8-0958-47db-b9d2-c2e4006bf7ea.png",
+      "subject": "A premium professional barber electric hair clipper, graphite body, brushed silver steel cutting teeth, restrained warm copper/orange switch, angled upright three-quarter view. One small refined barber comb behind it, simple clear silhouette. No words or brand."
+    },
+    {
+      "name": "nails",
+      "sourceFilename": "exec-d2267eea-cf3c-4052-9e45-57a536b68bba.png",
+      "subject": "One elegant transparent thick-glass nail polish bottle filled with rich warm coral-orange lacquer, graphite cap lifted slightly with the realistic brush visible beside the bottle, a tiny glossy lacquer bead. Clear manicure association, premium cosmetic product photography quality."
+    },
+    {
+      "name": "car",
+      "sourceFilename": "exec-632cd09b-3972-45a6-abc9-c0ed83c0d7dd.png",
+      "subject": "One beautifully realistic small modern graphite coupe, warm copper-orange detailing, gleaming clean paint and a few soft white washing-foam bubbles hugging one wheel. Compact balanced three-quarter front view, no roads or buildings, no license plate text."
+    },
+    {
+      "name": "sports",
+      "sourceFilename": "exec-c95069e4-733f-48db-9aae-b9e6211decf3.png",
+      "subject": "One premium realistic tennis racket with warm copper-orange frame, graphite grip, finely strung silver strings, together with one small natural yellow-green tennis ball at its lower edge. Elegant sports equipment, not a dumbbell or gym scene."
+    },
+    {
+      "name": "beauty",
+      "sourceFilename": "exec-034a7d02-81fe-466a-85c6-b6e29320614e.png",
+      "subject": "An elegant compact oval vanity hand mirror with a brushed copper-orange frame and ivory handle, together with one small sculptural smoked-glass skincare serum bottle. Refined beauty-salon equipment, realistic reflective glass with no reflected scene."
+    },
+    {
+      "name": "education",
+      "sourceFilename": "exec-047b4151-7def-4356-a0a7-fcf75ec1e3c6.png",
+      "subject": "One open high-quality ivory-paper book with a graphite cloth cover and warm orange page-edge accent, with one small graduation cap resting naturally on its corner. Realistic paper and fabric textures, no letters or writing."
+    },
+    {
+      "name": "consulting",
+      "sourceFilename": "exec-6c581aeb-11b2-4343-b3d0-641fedca0c56.png",
+      "subject": "One refined compact professional briefcase in premium graphite leather, fine realistic seams, brushed copper-orange clasps and handle fittings. Slight three-quarter view, recognisable clear silhouette, no paper labels or words."
+    },
+    {
+      "name": "home",
+      "sourceFilename": "exec-af83aa98-6720-44e0-a2a4-a319272ec4cc.png",
+      "subject": "One beautiful small architectural model of a modern ivory house, graphite windows and warm copper-orange pitched roof, with a single compact brushed-steel maintenance wrench beside it. No garden, roads or scene; only the isolated home-services composition."
+    },
+    {
+      "name": "pets",
+      "sourceFilename": "exec-affef22b-e2b8-4362-96f4-6e2cb79737c2.png",
+      "subject": "One realistic soft caramel-furred canine paw with natural dark paw pads facing slightly forward, together with one small professional silver pet-grooming comb. Gentle premium pet-care symbol, no face, no eyes, no whole animal, no cartoon paw-print glyph."
+    },
+    {
+      "name": "health",
+      "sourceFilename": "exec-bc94d44b-ba65-4876-bef3-5609e8e8bbb2.png",
+      "subject": "One premium professional medical stethoscope in soft graphite tubing with polished stainless-steel ear tubes and a warm copper-orange chest-piece accent. Naturally arranged in a simple clear recognisable open loop, real rubber and steel materials, no cross symbol or text."
+    },
+    {
+      "name": "appointments",
+      "sourceFilename": "exec-47e8ea60-5f15-4ca2-8a76-411d5c998374.png",
+      "subject": "One premium small physical desktop appointment calendar with thick ivory pages, brushed-metal twin spiral binding and warm copper-orange back cover. A clean embossed grid of blank date squares and one simple forest-green check on a single square. No words, letters or numbers."
+    }
+  ]
+}

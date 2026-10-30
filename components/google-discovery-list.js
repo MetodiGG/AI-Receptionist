@@ -19,11 +19,11 @@ function loadPlacesLibrary(key, locale) {
     script.src = url.href; script.async = true; script.referrerPolicy = 'strict-origin-when-cross-origin'
     script.onerror = () => { clearTimeout(timeout); delete window[callback]; reject(new Error('GOOGLE_UNAVAILABLE')) }
     document.head.append(script)
-  })
+  }).catch(error => { libraryPromise = null; throw error })
   return libraryPromise
 }
 
-export function GoogleDiscoveryList({ plan, locale }) {
+export function GoogleDiscoveryList({ plan, locale, onRetry }) {
   const host = useRef(null), [status, setStatus] = useState('loading'), copy = DISCOVERY_COPY[locale]
   useEffect(() => {
     let active = true, list
@@ -59,7 +59,7 @@ export function GoogleDiscoveryList({ plan, locale }) {
   return <section className="discovery-google-kit" aria-label="Google Maps">
     <header><h3>{copy.google}</h3><p>{copy.externalHint}</p></header>
     {status === 'loading' && <p role="status">{copy.searching}</p>}
-    {status === 'error' && <p className="discovery-notice" role="status">{copy.unavailable}</p>}
+    {status === 'error' && <div className="discovery-notice" role="status"><p>{copy.unavailable}</p>{onRetry && <button type="button" className="secondary-button" onClick={onRetry}>{locale === 'en' ? 'Try search again' : 'Опитай търсенето отново'}</button>}</div>}
     <div ref={host}/>
     <details className="discovery-claim"><summary>{copy.claim}</summary><p>{copy.claimHint}</p><Link href={`/for-businesses?lang=${locale}`}>{locale === 'en' ? 'Start application' : 'Към регистрацията'}</Link></details>
   </section>

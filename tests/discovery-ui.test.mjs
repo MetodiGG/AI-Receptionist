@@ -2,7 +2,7 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { DateTime } from 'luxon'
-import { DEFAULT_DISCOVERY_CITY, discoveryCitySelection, discoverySearchInput, requestDiscoveryLocation } from '../lib/discovery/search-ui.mjs'
+import { DEFAULT_DISCOVERY_CITY, DISCOVERY_SHORTCUTS, discoveryCategorySelection, discoveryCitySelection, discoverySearchInput, requestDiscoveryLocation } from '../lib/discovery/search-ui.mjs'
 import { discoveryRequestSchema, parseIntent } from '../lib/discovery/intent.mjs'
 import { googleSearchRequest } from '../lib/discovery/google-places.mjs'
 import { normalizeInternalBusinesses } from '../lib/discovery/internal-search.mjs'
@@ -112,7 +112,7 @@ test('discovery reuses genuine operator photos by stable business ID, never a na
 
 test('simple form hides secondary controls and diagnostics, keeps readable text and auto-searches only after explicit location success', async () => {
   const ui = await read('components/discovery-search.js'), css = await read('app/discovery.css'), helper = await read('lib/discovery/search-ui.mjs')
-  assert.match(ui, /const shortcuts = \['hair', 'nails', 'car_wash', 'fitness'\]/)
+  assert.match(ui, /DISCOVERY_SHORTCUTS\.map\(id/)
   assert.match(ui, /<details className="discovery-filters"><summary>\{copy.filters\}/)
   assert.doesNotMatch(ui, /<details className="discovery-filters"[^>]*\bopen\b|discovery-eyebrow/)
   assert.match(ui, /execute\(payload\(\{ coordinates: position, neighborhood: '' \}\)\)/)
@@ -141,10 +141,10 @@ test('the short manicure example extracts tomorrow after 13:00 and stays readabl
   assert.match(css, /\.discovery-submit > span:last-child \{ display: inline; \}/)
 })
 
-test('four primary shortcuts offer hair, nails, car wash and Sports without exposing a Fitness option', async () => {
-  const ids = ['hair', 'nails', 'car_wash', 'fitness']
-  assert.equal(new Set(ids).size, 4)
-  assert.deepEqual(ids.map(id => categoryById(id).bg), ['Фризьор', 'Маникюр', 'Автомивка', 'Спорт'])
+test('five primary shortcuts include a distinct Auto repair without exposing a Fitness option', async () => {
+  const ids = DISCOVERY_SHORTCUTS
+  assert.equal(new Set(ids).size, 5)
+  assert.deepEqual(ids.map(id => categoryById(id).bg), ['Фризьор', 'Маникюр', 'Автомивка', 'Спорт', 'Автосервиз'])
   assert.equal(categoryById('fitness').en, 'Sports')
   assert.equal(categoryById('fitness').icon, 'racket')
   assert.equal(getIndustryLabel('fitness', 'bg'), 'Спорт')
@@ -152,6 +152,24 @@ test('four primary shortcuts offer hair, nails, car wash and Sports without expo
   for (const file of ['components/business-setup.js', 'app/dashboard/settings/page.js']) {
     assert.match(await read(file), /<option value="fitness">\{en \? 'Sports' : 'Спорт'\}/)
   }
+})
+
+test('both category controls fill the search in BG/EN, including switching a non-empty query', async () => {
+  for (const locale of ['bg', 'en']) for (const category of ['auto_repair', 'car_wash', 'hair', 'nails', 'fitness']) {
+    for (const previous of ['', 'Маникюр', 'car wash']) {
+      const selected = discoveryCategorySelection(previous, category, locale)
+      assert.deepEqual(selected, { category, query: categoryById(category)[locale] })
+      const intent = parseIntent(discoveryRequestSchema.parse(discoverySearchInput({ ...selected, locale })), now)
+      assert.equal(intent.category, category); assert.equal(intent.clarification, null)
+    }
+  }
+  assert.deepEqual(discoveryCategorySelection('смяна на масло', ''), { category: '', query: 'смяна на масло' })
+  for (const invalid of ['__proto__', 'constructor', 'unknown']) assert.equal(discoveryCategorySelection('existing', invalid).query, 'existing')
+  const ui = await read('components/discovery-search.js')
+  assert.match(ui, /onClick=\{\(\) => chooseCategory\(id\)\}/)
+  assert.match(ui, /onChange=\{event => chooseCategory\(event.target.value\)\}/)
+  const handler = ui.slice(ui.indexOf('function chooseCategory('), ui.indexOf('function execute('))
+  assert.doesNotMatch(handler, /fetch\(|execute\(|search\(|locate\(/)
 })
 
 test('Sports recognises bookable activities without renaming stored identifiers or replacing a requested activity', () => {

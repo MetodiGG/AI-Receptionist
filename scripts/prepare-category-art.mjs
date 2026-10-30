@@ -8,7 +8,7 @@ import sharp from 'sharp'
 
 const inputRoot = process.argv[2]
 if (!inputRoot) throw new Error('Pass the directory containing the original built-in generated PNGs.')
-const manifest = JSON.parse(await readFile(new URL('../docs/category-art-prompts-2026-10-30.json', import.meta.url), 'utf8'))
+const manifest = JSON.parse(await readFile(process.argv[3] ? resolve(process.argv[3]) : new URL('../docs/category-art-prompts-2026-10-30.json', import.meta.url), 'utf8'))
 const destination = fileURLToPath(new URL('../public/category-art/', import.meta.url))
 await mkdir(destination, { recursive: true })
 for (const asset of manifest.assets) {

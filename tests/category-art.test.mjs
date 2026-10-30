@@ -13,6 +13,10 @@ test('every supported category and industry resolves to versioned local artwork,
   for(const value of [undefined,null,'__proto__','constructor','https://example.com/evil.png','../../private'])assert.equal(categoryArtSource(value),'/category-art/appointments-v1.webp')
   assert.notEqual(categoryArtSource('barber'),categoryArtSource('hair'))
   assert.notEqual(categoryArtSource('nails'),categoryArtSource('beauty'))
+  assert.notEqual(categoryArtSource('car_wash'),categoryArtSource('auto_repair'))
+  assert.notEqual(categoryArtSource('auto_repair'),categoryArtSource('detailing'))
+  assert.equal(categoryArtSource('car_wash'),'/category-art/carwash-v1.webp')
+  assert.equal(categoryArtSource('auto_repair'),'/category-art/repair-v1.webp')
 })
 test('Zen uses a barber clipper; manicure businesses use nail art without changing stored business facts',()=>{
   const zen={id:'public-name-reference-only',name:'Zen Barbershop',industry:'beauty',services:[]},before=JSON.stringify(zen)
@@ -23,7 +27,7 @@ test('Zen uses a barber clipper; manicure businesses use nail art without changi
   assert.equal(businessArtCategory({industry:'beauty',name:'Studio',services:[{name:'Маникюр',active:false}]}),'beauty')
   assert.equal(businessArtCategory({industry:'auto',name:'Barber Motors',services:[]}),'auto_repair')
 })
-test('all 24 optimized illustrations retain genuine transparency, correct dimensions and stripped metadata within a small asset budget',async()=>{
+test('all optimized illustrations retain genuine transparency, correct dimensions and stripped metadata within a small asset budget',async()=>{
   let total=0
   for(const name of CATEGORY_ART_ASSETS)for(const [suffix,size]of[['-sm',128],['',256]]){
     const path=new URL(`../public/category-art/${name}${suffix}-v1.webp`,import.meta.url),bytes=await readFile(path),metadata=await sharp(bytes).metadata(),statistics=await sharp(bytes).stats()
@@ -31,15 +35,15 @@ test('all 24 optimized illustrations retain genuine transparency, correct dimens
     assert.equal(metadata.exif,undefined);assert.equal(metadata.xmp,undefined);assert.equal(statistics.channels.at(-1).min,0);assert.equal(statistics.channels.at(-1).max,255)
     assert.ok((await stat(path)).size<35000);total+=bytes.length
   }
-  assert.ok(total<350000)
+  assert.ok(total<420000)
 })
-test('the four home icons are served as small responsive decorative images without changing readable category labels',async()=>{
+test('the five home icons are served as small responsive decorative images without changing readable category labels',async()=>{
   let small=0,large=0
-  for(const category of ['hair','nails','car_wash','fitness'])for(const [isSmall,key]of[[true,'small'],[false,'large']]){
+  for(const category of ['hair','nails','car_wash','fitness','auto_repair'])for(const [isSmall,key]of[[true,'small'],[false,'large']]){
     const bytes=(await stat(new URL(`../public${categoryArtSource(category,isSmall)}`,import.meta.url))).size
     if(key==='small')small+=bytes;else large+=bytes
   }
-  assert.ok(small<30000);assert.ok(large<85000)
+  assert.ok(small<50000);assert.ok(large<125000)
   const component=await read('components/business-category-icon.js'),ui=await read('components/discovery-search.js')
   assert.match(component,/aria-hidden="true"/);assert.match(component,/alt=""/);assert.match(component,/srcSet=/);assert.match(component,/decoding="async"/)
   assert.match(ui,/<BusinessCategoryIcon category=\{id\} size=\{44\} eager\/>\{item\[locale\]\}/)

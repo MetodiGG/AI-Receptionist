@@ -1,0 +1,19 @@
+{
+  "generatedOn": "2026-10-30",
+  "mode": "Built-in image_gen; transparent_background=true; two separate assets; no API key or Canva integration",
+  "referenceImage": "public/category-art/car-v1.webp",
+  "assets": [
+    {
+      "name": "carwash",
+      "projectFiles": ["public/category-art/carwash-sm-v1.webp", "public/category-art/carwash-v1.webp"],
+      "sourceFilename": "exec-e4457051-b947-4f1d-b483-49b4d4990a34.png",
+      "prompt": "Use case: precise-object-edit. Asset type: premium realistic 3D category illustration for a small Bulgarian booking-site button. Image 1 is the existing graphite/orange car illustration, both edit target and style reference. Keep the recognizable graphite grey car with warm orange details, three-quarter view, polished realistic material and clean readable silhouette. Make it unmistakeably a CAR WASH: add a clearly visible orange and graphite pressure-washer gun / lance ABOVE the roof, aimed down at the car with a short visible fan spray of pale blue water and a little white foam. No hand, person, lettering, logo, border, environment or badge. Entire subject in frame with generous safe margin, large objects readable at 44px. Genuinely transparent background, retain transparency."
+    },
+    {
+      "name": "repair",
+      "projectFiles": ["public/category-art/repair-sm-v1.webp", "public/category-art/repair-v1.webp"],
+      "sourceFilename": "exec-7cfb5021-a7f5-4447-9936-55c2cf0b5395.png",
+      "prompt": "Use case: stylized-concept. Asset type: premium realistic 3D category illustration for a small booking-site button, consistent with Image 1 used only as a MATERIAL AND LIGHTING STYLE REFERENCE. Create a DISTINCT AUTO REPAIR icon, NOT another car: a single large machined silver open-ended mechanic wrench crossed diagonally with an orange-and-graphite handled socket ratchet, a small steel gear behind their intersection. Polished metal with realistic bevels, warm orange accents, clean premium product-render look and strong simple silhouette readable at 44px. Central square composition, all tools fully in frame, generous safe margin. No car, people, hand, lettering, logo, border, badge or environment. Genuinely transparent background."
+    }
+  ]
+}

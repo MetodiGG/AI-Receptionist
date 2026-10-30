@@ -1,6 +1,8 @@
 # Search Engine 2.0 — implementation and evidence, 30 October 2026
 
-Status: **local implementation, not deployed**. The full requested audit is
+This is the **pre-release evaluation snapshot**. Owner subsequently approved
+deployment; see [Production release record](search-v2-production-release-2026-10-30.md).
+The full requested audit is
 **not complete**: live provider relevance and independent candidate judgments
 remain blocked/pending. No claim that 172 full scenarios passed. No new
 credentials, subscriptions, migrations, Google quotas, emails or reservations.

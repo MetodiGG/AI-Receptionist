@@ -44,6 +44,13 @@ test('operator requires exact origin, bounded strict form and independent test s
     const h=harness();assert.equal((await h.handler(h.request(override))).status,status);assert.equal(h.sent.length,0);assert.equal(h.inspections(),0)
   }
   const short=harness({env:{PREVIEW_REVIEW_TEST_SECRET:'short'}});assert.equal((await short.handler(short.request())).status,401)
+  const opaque=harness();assert.equal((await opaque.handler(opaque.request({headers:{origin:'null','sec-fetch-site':'same-origin'}}))).status,403)
+})
+test('operator UI preserves strict Origin checks with explicit CORS-mode fetch and clears its secret',async()=>{
+  const source=await readFile(new URL('../components/preview-review-mail-control.js',import.meta.url),'utf8')
+  assert.match(source,/mode: 'cors'/);assert.match(source,/referrerPolicy: 'no-referrer'/)
+  assert.match(source,/type="password"/);assert.match(source,/setSecret\(''\)/)
+  assert.doesNotMatch(source,/process\.env|localStorage|sessionStorage/)
 })
 test('missing sender and exhausted test request quota cannot send',async()=>{
   for(const [options,status] of [[{env:{RESEND_API_KEY:''}},503],[{allowed:false},429]]){const h=harness(options);assert.equal((await h.handler(h.request())).status,status);assert.equal(h.sent.length,0)}

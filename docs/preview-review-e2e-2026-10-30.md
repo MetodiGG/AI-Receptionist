@@ -32,16 +32,23 @@ No Production key, paid plan or existing real visit may be changed.
   business, staff, service, hours, client and visit are explicitly fictional.
   A real new completion transition creates the one invitation/outbox entry.
   Time is a controlled past fixture, not proof of a real one-hour elapsed wait.
-- 419 automated tests passed and optimized build/TypeScript passed before cloud
-  deployment. Nine new tests cover environment/auth/CSRF/recipient boundaries,
+- 420 automated tests passed and optimized build/TypeScript passed before the
+  corrected Preview deployment. Ten new tests cover environment/auth/CSRF/recipient boundaries,
   repeated calls, provider failure and actual SQL execution on the full original
   PostgreSQL schema, including refusal to seed populated databases or rerun.
 
-## Remaining verification at preparation checkpoint
+## Live staging checkpoint
 
-Staging seed, matching Preview deployment, actual operator invocation, Resend
-Delivered event, mailbox receipt, one-use form submission and final kill switch
-have not yet been verified at this checkpoint. No complete live E2E success is
-claimed. Disable the temporary test gate after verification, rebuild Preview,
+The isolated staging seed completed: one completed fictional visit, one pending
+review message and one unused invitation. The first operator HTML-form POST
+was rejected by the strict origin check before any queue inspection or provider
+call. A `no-referrer` form POST can use an opaque origin. The test control now
+uses explicit CORS-mode fetch, retains no-referrer and clears the secret after
+submission; the server still rejects an opaque/null origin.
+
+The corrected operator invocation, Resend Delivered event, mailbox receipt,
+one-use form submission and final kill switch have not yet been verified at
+this checkpoint. No complete live E2E success is claimed.
+Disable the temporary test gate after verification, rebuild Preview,
 and retire the separate key with owner confirmation; old deployments retain
 their own environment snapshots. Do not touch the Production key.

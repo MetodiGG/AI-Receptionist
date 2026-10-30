@@ -53,7 +53,7 @@ test('partners reuses real public cards, images and booking links without search
   assert.match(page, /await searchParams/)
   assert.match(page, /pageMetadata\('\/partners'/)
   assert.match(ui, /<MarketingNavigation locale=\{locale\} setLocale=\{setLocale\}/)
-  assert.match(ui, /<BusinessDirectory locale=\{locale\} partners showFilters=\{false\}/)
+  assert.match(ui, /<BusinessDirectory locale=\{locale\} partners showFilters=\{false\} categoryBrowsing partnerCategory=\{selectedCategory\}/)
   assert.match(ui, /usePublicLocale\(initialLocale, true\)/)
   assert.doesNotMatch(ui, /initialFilters|preview|mock|google|DiscoverySearch|supabase-admin/)
   assert.match(cards, /'GoRez partners' : 'GoRez партньори'/)

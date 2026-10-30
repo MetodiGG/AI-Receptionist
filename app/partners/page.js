@@ -1,6 +1,7 @@
 import { PartnersPage } from '../../components/partners-page'
 import { pageMetadata } from '../../lib/seo.mjs'
 import { companyIdentity } from '../../lib/product-config.mjs'
+import { partnerCategorySelection } from '../../lib/partner-categories.mjs'
 
 export async function generateMetadata({ searchParams }) {
   const locale = (await searchParams)?.lang === 'en' ? 'en' : 'bg'
@@ -11,5 +12,6 @@ export async function generateMetadata({ searchParams }) {
 }
 
 export default async function Partners({ searchParams }) {
-  return <PartnersPage initialLocale={(await searchParams)?.lang === 'en' ? 'en' : 'bg'} identity={companyIdentity(process.env)}/>
+  const params = await searchParams
+  return <PartnersPage initialLocale={params?.lang === 'en' ? 'en' : 'bg'} selectedCategory={partnerCategorySelection(params?.category)} identity={companyIdentity(process.env)}/>
 }

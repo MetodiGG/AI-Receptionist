@@ -71,9 +71,19 @@ submission; the server still rejects an opaque/null origin.
 ## Cleanup checkpoint
 
 `PREVIEW_REVIEW_TEST_ENABLED=false` was saved successfully for only the exact
-Preview branch. A fresh Preview deployment and 404 read-back are still pending.
-Retire the separate key with owner confirmation; old deployments retain their
-own environment snapshots. Do not touch the Production key.
+Preview branch. Commit `e808c8f` reached Ready with that setting. The alias's
+operator page was then verified to return its **404 / This page could not be
+found** screen. Existing global Preview mail/reminder flags remain off.
+
+After explicit action-time owner confirmation, the separate **GoRez Preview
+Review Test** key was permanently deleted. Resend's fresh keys list showed only
+the pre-existing **GoRez password recovery** key, with its original ID unchanged.
+This retires the test credential even in old deployments' retained snapshots;
+the gate alone was not treated as credential revocation. The independent
+operator secret and private one-use URL were cleared from the UI session's
+working memory. No Production redeployment was performed for this test-only
+change. The harmless already-used, explicitly fictional staging record is
+retained as test evidence; no real partner received a fabricated review.
 
 Local proof images (no private link token):
 
@@ -82,3 +92,5 @@ Local proof images (no private link token):
 - `/tmp/gorez-review-test-mailbox-received-20261030.png`
 - `/tmp/gorez-review-test-form-saved-20261030.png`
 - `/tmp/gorez-review-test-staging-counts-20261030.png`
+- `/tmp/gorez-review-test-operator-disabled-20261030.png`
+- `/tmp/gorez-review-test-key-retired-20261030.png`

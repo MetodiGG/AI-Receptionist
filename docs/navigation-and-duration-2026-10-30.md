@@ -24,6 +24,12 @@ No database migration, real customer/business mutation, booking, email, provider
 
 Local proof: `/tmp/gorez-sofia-fixed-20261030.png`. This is local UI evidence, not proof of deployment.
 
-## Release
+## Production release and postflight
 
-Pending normal source publication and verification of the assigned production deployment. Production environment variables remain unchanged.
+- Source `e9dd36dc38e72ed5ed998f220ff901f72f6e5525` pushed normally to main and the existing feature branch. Vercel deployment `GsbmmS4nrhaoRUjMUPM3HNwX5RLS` is Ready, Production, assigned `www.gorez.co`, with that exact main/source commit. Immutable hostname: `ai-receptionist-3xje9ct14-ai-receptionist12.vercel.app`.
+- Live homepage confirms the single language button, hidden header account icon, client login in the menu/footer, and whole-city focus outline. BG→EN→BG updates the live heading and URL.
+- Live business onboarding accepts editable 10 and 17 minute values and no longer renders the city source helper. No form submitted.
+- Live `/account?lang=bg` shows existing login and Registration options, including the guest-booking message. No credentials entered or account created.
+- Live partner page still lists only Zen Barbershop and ВЕСИ СТУДИО (2). The owner's earlier suspension of Test GoRez remains intact; no partner status changed in this release.
+- Production environment variables, database, provider flags, quotas, credentials and billing remain unchanged. No real search, precise location, customer message, booking or signup was submitted.
+- Live proof: `/tmp/gorez-sofia-fixed-live-20261030.png`.

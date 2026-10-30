@@ -56,9 +56,28 @@ Local logs: `/tmp/gorez-photo-upload-tests-20261030.log`,
 
 ## Release
 
-Owner explicitly approved publication after verification. Preview/Production
-deployment verification is pending at this checkpoint. The previous review-mail
-test harness/credentials are not part of this Production patch.
+Owner explicitly approved publication after verification.
+
+- Protected existing Preview branch received patch `7e6526c`; cloud build Ready.
+  Its actual business-application picker prepared all four synthetic originals.
+- Production received only patch `6e53b6a` from the existing main base `ac5bf32`,
+  via non-forced fast-forward. The separate review-mail test harness/credentials
+  are not included in this Production patch.
+- Deployment **7Hziqx4VhbhxQKBc2jAkexqwBUg7**, Ready / Production / Current,
+  assigned **www.gorez.co** and
+  `ai-receptionist-2t5ptofob-ai-receptionist12.vercel.app`; cloud build 32s.
+- The live business-application page prepared all four original files and showed
+  **4 снимки са готови за качване**. All four thumbnail images loaded with expected
+  dimensions, including correct orientation of the 48 MP input.
+- Production development-only QA page and POST endpoint returned 404. Guest media
+  management API returned 401. No application was submitted, new account created,
+  real business changed, or test photo saved in a real gallery. Authenticated
+  persistence to a real business remains deliberately untested in this release.
+- The synthetic files were selected only for browser validation, not submitted;
+  the temporary live form is cleared/closed after the proof screenshot.
+
+Live proof: `/tmp/gorez-photo-upload-live-four-ready-20261030.png`.
+Deployment proof: `/tmp/gorez-photo-upload-production-ready-20261030.png`.
 
 ## Technical references
 

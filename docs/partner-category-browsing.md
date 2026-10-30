@@ -26,3 +26,13 @@ Newly published partners appear in the matching category on the next directory r
 - No real reservation, business record, email or paid search was created during these tests.
 
 Local fixture startup: `DISCOVERY_DEV_MOCK=true node node_modules/next/dist/bin/next dev --port 3033`, then open `/dev/partner-categories?lang=bg`. Normal `/partners` uses the real public directory, never fixture data.
+
+## Approved production rollout — 2026-10-30
+
+- Owner approved publishing after checks. Normal fast-forward push of `467f9c07bc1363ad8f2b70662efe97d012721b5d` to `main`; no force push.
+- Vercel deployment `BUWYCy1AVbpcKTx83RCiWUySnJkS`: Ready, Latest, Production, Current; build 28 seconds. Assigned to `www.gorez.co` and `ai-receptionist-pgssyp69u-ai-receptionist12.vercel.app`.
+- Live overview: beauty two partners, automotive one. Clicking beauty displays only Zen Barbershop and ВЕСИ СТУДИО; automotive displays only autocomplexrs ltd. Existing `/book/<slug>?lang=<locale>` links preserved. Explicit all-partners view displays three cards.
+- Live language change preserves the selected category; verified English and Bulgarian URLs, not just translated client text.
+- Mobile 390px: document width equals viewport, both category illustrations loaded. Proof: `/tmp/gorez-partner-categories-live-mobile-20261030.png`.
+- HTTP checks: BG partners, EN automotive category, customer account and business login return 200; guarded QA route returns 404.
+- No Google/AI searches, reservations, email sends, migrations, environment-variable changes, paid services or quota changes performed during rollout.

@@ -69,13 +69,5 @@ a.site-home-link:focus-visible { outline: 3px solid #173e2a; outline-offset: 4px
   .app-shell .topbar-actions { flex-wrap: wrap; justify-content: flex-end; margin-left: auto; }
 }
 
-@media (max-width: 360px) {
-  .launch-navigation-home .launch-brand { grid-column: 1 / -1; }
-  .launch-navigation-home .language-switch { grid-column: 1 / 3; grid-row: 2; }
-  .launch-navigation-home .launch-menu-toggle { grid-row: 2; }
-  .launch-navigation-home .admin-access-link { grid-row: 3; }
-  .launch-navigation-home .launch-menu { grid-row: 4; }
-}
-
 /* Embedded booking intentionally delegates navigation to the host page. */
 .public-booking-page.embedded-booking .booking-topbar { display: none; }

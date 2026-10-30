@@ -58,7 +58,7 @@ test('responsive Home styling reserves its own top-right cell and retains embedd
   assert.match(css, /\.launch-navigation \.launch-menu \{ grid-column: 1 \/ -1; grid-row: 4;/)
   assert.match(css, /\.marketing-page \.launch-navigation-home \{ grid-template-columns: auto 1fr auto; \}/)
   assert.match(css, /\.launch-navigation-home \.language-switch \{ grid-column: 2; grid-row: 1; \}/)
-  assert.match(css, /@media \(max-width: 360px\) \{\s*\.launch-navigation-home \.launch-brand \{ grid-column: 1 \/ -1; \}/)
+  assert.doesNotMatch(css, /@media \(max-width: 360px\)/)
   assert.match(css, /\.public-booking-page\.embedded-booking \.booking-topbar \{ display: none; \}/)
 })
 

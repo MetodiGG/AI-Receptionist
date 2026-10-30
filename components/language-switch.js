@@ -1,10 +1,10 @@
 'use client'
 
 export function LanguageSwitch({ locale, onChange, compact = false }) {
+  const en = locale === 'en'
   return (
-    <div className={`language-switch ${compact ? 'compact' : ''}`} role="group" aria-label={locale === 'bg' ? 'Избор на език' : 'Choose language'}>
-      <button type="button" className={locale === 'bg' ? 'active' : ''} aria-pressed={locale === 'bg'} onClick={() => onChange('bg')}><span aria-hidden="true">🇧🇬</span> BG</button>
-      <button type="button" className={locale === 'en' ? 'active' : ''} aria-pressed={locale === 'en'} onClick={() => onChange('en')}><span aria-hidden="true">🇬🇧</span> EN</button>
+    <div className={`language-switch language-switch-single ${compact ? 'compact' : ''}`} role="group" aria-label={en ? 'Choose language' : 'Избор на език'}>
+      <button type="button" className="active" aria-label={en ? 'Switch language to Bulgarian' : 'Смени езика на английски'} title={en ? 'Switch to Bulgarian' : 'Смени на английски'} onClick={() => onChange(en ? 'bg' : 'en')}><span aria-hidden="true">{en ? '🇬🇧' : '🇧🇬'}</span>{en ? 'EN' : 'BG'}</button>
     </div>
   )
 }

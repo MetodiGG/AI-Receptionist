@@ -248,7 +248,7 @@ test('frontend submits explicitly, keeps browser coordinates out of storage and 
   const ui = await read('components/discovery-search.js'), widget = await read('components/google-discovery-list.js')
   assert.match(ui, /onSubmit=\{submit\}/); assert.match(ui, /aria-label=\{loading \? copy.searching : copy.search\}/)
   assert.doesNotMatch(ui, /localStorage|sessionStorage|searchParams\.set|watchPosition|trackProductEvent/)
-  assert.match(ui, /requestDiscoveryLocation\(navigator.geolocation/); assert.match(ui, /copy.locationDenied/)
+  assert.match(ui, /locationProvider = requestDiscoveryLocation/); assert.match(ui, /locationProvider\(navigator.geolocation/); assert.match(ui, /copy.locationDenied/)
   assert.match(widget, /gmp-advanced-place-list/); assert.match(widget, /gmp-place-attribution/); assert.match(widget, /open-map/)
   assert.match(widget, /v: 'weekly'/); assert.doesNotMatch(widget, /v: '(?:alpha|beta)'/)
   assert.match(widget, /document.createElement\('gmp-place-media'\)/)

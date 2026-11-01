@@ -142,10 +142,39 @@ a.site-home-link:focus-visible { outline-color: #b94315; }
 .discovery-result-group-heading h3 { margin: 0; color: #24262a; font-size: 24px; line-height: 1.3; letter-spacing: -.03em; }
 .discovery-partner-results .discovery-result-group-heading h3 { color: #176137; }
 .discovery-result-group-heading > span { display: grid; place-items: center; min-width: 32px; min-height: 32px; padding: 3px 8px; color: #17582f; background: #e9f4ea; border: 1px solid #bedcc5; border-radius: 10px; font-size: 16px; font-weight: 750; }
-.discovery-card.discovery-partner { border-color: #e8ae83; border-top: 4px solid #238c50; box-shadow: 0 5px 0 #f1decd, 0 16px 32px #a4541710; }
-.discovery-source.discovery-partner-badge { display: inline-flex; flex-wrap: nowrap; gap: 8px; max-width: 100%; padding: 8px 12px 8px 8px; color: #17582f; background: linear-gradient(115deg,#fff3e5,#fffaf4); border: 1px solid #efc59f; border-radius: 13px; font-size: 17px; font-weight: 800; line-height: 1.3; }
+.discovery-card.discovery-partner { border-color: #dfd8cd; border-top: 2px solid #368759; box-shadow: 0 3px 0 #ece5dc; }
+.discovery-source.discovery-partner-badge { display: inline-flex; flex-wrap: nowrap; gap: 6px; max-width: 100%; padding: 4px 8px 4px 4px; color: #17582f; background: #fff9f1; border: 1px solid #eadaca; border-radius: 9px; font-size: 16px; font-weight: 700; line-height: 1.3; }
 .discovery-partner-badge img { width: 32px; height: 32px; flex: 0 0 auto; object-fit: contain; }
 .discovery-partner-badge > span { min-width: 0; overflow-wrap: anywhere; }
+.discovery-partner-compact-grid { gap: 14px; }
+.discovery-card.discovery-partner-compact { padding: 18px; border-radius: 18px; }
+.discovery-partner-compact .discovery-card-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.discovery-partner-compact .discovery-partner-badge img { width: 24px; height: 24px; }
+.discovery-partner-distance { color: #625b56; font-size: 16px; font-weight: 650; white-space: nowrap; }
+.discovery-partner-compact .discovery-card-identity { align-items: center; gap: 12px; margin-bottom: 14px; }
+.discovery-partner-compact .discovery-card-identity h3 { margin: 0; font-size: 21px; line-height: 1.3; }
+.discovery-partner-compact .discovery-card-identity p { margin: 5px 0 0; color: #6a6264; font-size: 16px; line-height: 1.45; }
+.discovery-partner-thumb { width: 60px; height: 60px; object-fit: cover; border-radius: 12px; flex-shrink: 0; }
+.discovery-partner-book { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 44px; padding-top: 12px; border-top: 1px solid #eee7dd; color: #87401e; font-size: 16px; font-weight: 700; text-decoration: none; }
+.discovery-partner-book svg { width: 20px; height: 20px; }
+.discovery-nearby-more { margin-top: 40px; padding-top: 24px; border-top: 1px solid #ded5ca; }
+.discovery-nearby-more > header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+.discovery-nearby-more > header h3 { margin: 0; font-size: 23px; }
+.discovery-nearby-more > header span { color: #6c6266; font-size: 16px; }
+.discovery-partner-entry { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; margin-top: 24px; }
+.discovery-partner-entry > a:first-child { display: flex; align-items: center; gap: 12px; padding: 18px 20px; border: 1px solid #e2d8cb; border-radius: 18px; color: #302c2e; background: #fffcf7; box-shadow: 0 3px 0 #e9e1d8; text-decoration: none; }
+.discovery-partner-entry > a:first-child > span { display: grid; gap: 5px; }
+.discovery-partner-entry strong { font-size: 20px; }
+.discovery-partner-entry > a:first-child > span > span { color: #716365; font-size: 16px; }
+.discovery-partner-entry > a:first-child > img { flex: 0 0 36px; object-fit: contain; }
+.discovery-partner-entry > a:first-child > svg { width: 22px; height: 22px; margin-left: auto; flex: 0 0 22px; color: #ae4d20; }
+.discovery-search .discovery-partner-entry .discovery-business-cta { margin: 0; font-size: 20px; }
+.discovery-controls .discovery-location { white-space: nowrap; }
+@media (max-width: 760px) {
+  .discovery-partner-entry { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .discovery-partner-compact-grid { grid-template-columns: minmax(0, 1fr); }
+  .discovery-card.discovery-partner-compact { padding: 16px; }
+}
 .discovery-services strong { color: #37333a; }
 .discovery-services > div { border-color: #eee9e3; }
 .discovery-services small { color: #6b656e; }

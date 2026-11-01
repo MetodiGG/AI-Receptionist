@@ -8,7 +8,7 @@ test('home mounts the full AI finder without a second directory request or compa
   const home = await read('components/home-page.js'), page = await read('components/discovery-page.js')
   assert.match(home, /<DiscoveryPage/)
   assert.doesNotMatch(home, /useDirectory|DirectoryFilters|BusinessDirectory|BookingStory|compact|\/businesses/)
-  assert.match(page, /<DiscoverySearch locale=\{locale\} preview=\{preview\}\/>/)
+  assert.match(page, /<DiscoverySearch locale=\{locale\} preview=\{preview\} locationProvider=\{locationProvider\}\/>/)
   assert.match(page, /enabled \? <DiscoverySearch/)
   assert.match(page, /Търсенето временно не е достъпно/)
   assert.match(home, /accountDeleted=\{accountDeleted\}/)

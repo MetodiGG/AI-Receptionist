@@ -55,7 +55,7 @@ test('eligible partners always precede a higher-scoring external business, inclu
   const result = rankDiscoveryResults(rows, [external({ coordinates: atKm(0) })], intent)
   assert.equal(result[0].source, 'gorez'); assert.equal(result[1].source, 'google')
   assert.ok(result[1].ranking.score > result[0].ranking.score, 'partner tier must not depend on an inflated score')
-  assert.equal(result[0].ranking.group, 'partner'); assert.equal(RANKING_VERSION, 'eligible-partners-first-v2')
+  assert.equal(result[0].ranking.group, 'partner'); assert.equal(RANKING_VERSION, 'local-partners-distance-v3')
   assert.deepEqual(rankDiscoveryResults(rows, [external({ coordinates: atKm(0) })], intent, { maxResults: 1 }).map(row => row.source), ['gorez'])
 })
 
@@ -115,8 +115,8 @@ test('partner heading and logo-coloured badges precede both external layouts wit
   assert.ok(ui.indexOf('className="discovery-external-results"') < ui.indexOf('<GoogleDiscoveryList plan='))
   assert.match(ui, /internal \? <span className="discovery-source discovery-partner-badge"/)
   assert.match(ui, /<img src="\/gorez-symbol\.svg\?v=3" alt="" aria-hidden="true"/)
-  assert.match(css, /\.discovery-card\.discovery-partner[^}]*border-top: 4px solid #238c50/)
-  assert.match(css, /\.discovery-source\.discovery-partner-badge[^}]*font-size: 17px/)
+  assert.match(css, /\.discovery-card\.discovery-partner[^}]*border-top: 2px solid #368759/)
+  assert.match(css, /\.discovery-source\.discovery-partner-badge[^}]*font-size: 16px/)
   for (const locale of ['bg', 'en']) {
     assert.ok(DISCOVERY_COPY[locale].partnerResults.includes('GoRez'))
     assert.doesNotMatch(DISCOVERY_COPY[locale].rankingHint, /small convenience bonus|малък бонус|No paid ranking|Без платено подреждане/)

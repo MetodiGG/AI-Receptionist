@@ -116,7 +116,7 @@ test('simple form hides secondary controls and diagnostics, keeps readable text 
   assert.match(ui, /<details className="discovery-filters"><summary>\{copy.filters\}/)
   assert.doesNotMatch(ui, /<details className="discovery-filters"[^>]*\bopen\b|discovery-eyebrow/)
   assert.match(ui, /execute\(payload\(\{ coordinates: position, neighborhood: '' \}\)\)/)
-  assert.match(ui, /<label>\{copy.radius\} · \{copy.nearby\}<select value=\{radiusKm\}/)
+  assert.match(ui, /<label>\{copy.radius\}<select value=\{radiusKm\}/)
   assert.match(ui, /DISCOVERY_RADIUS_CHOICES\.map\(radius/)
   assert.match(ui, /BusinessPhotoGallery photos=\{row.photos\}/)
   assert.match(ui, /<details className="discovery-ranking"><summary>\{copy.searchDetails\}/)
@@ -169,7 +169,8 @@ test('both category controls fill the search in BG/EN, including switching a non
   assert.match(ui, /onClick=\{\(\) => chooseCategory\(id\)\}/)
   assert.match(ui, /onChange=\{event => chooseCategory\(event.target.value\)\}/)
   const handler = ui.slice(ui.indexOf('function chooseCategory('), ui.indexOf('function execute('))
-  assert.doesNotMatch(handler, /fetch\(|execute\(|search\(|locate\(/)
+  assert.doesNotMatch(handler, /fetch\(|search\(|locate\(/)
+  assert.match(handler, /if \(coordinates && selected.category\) execute\(payload\(selected\)\)/)
 })
 
 test('Sports recognises bookable activities without renaming stored identifiers or replacing a requested activity', () => {
@@ -213,14 +214,16 @@ test('radius helpers are not visible; location consent, error recovery and acces
   assert.match(ui, /<span className="sr-only" id=\{compact \? 'home-location-info' : 'location-info'\}>\{copy.locationInfo\}<\/span>/)
   assert.match(ui, /aria-describedby=\{compact \? 'home-location-info' : 'location-info'\}/)
   assert.match(ui, /locationError && <p className="discovery-notice" role="status">/)
-  assert.match(ui, /requestDiscoveryLocation\(navigator.geolocation/)
+  assert.match(ui, /locationProvider = requestDiscoveryLocation/)
+  assert.match(ui, /locationProvider\(navigator.geolocation/)
   assert.match(footer, /\/privacy\?lang=/)
   assert.match(legal, /Незадължителното местоположение от браузъра се иска само след твое действие/)
 })
 
 test('free business registration CTA follows the form and opens existing locale-aware onboarding without submitting an account', async () => {
   const ui = await read('components/discovery-search.js'), route = await read('app/for-businesses/page.js')
-  assert.match(ui, /<\/form>\s*\{!compact && <Link className="discovery-business-cta" href=\{`\/for-businesses\?lang=\$\{locale\}`\}/)
+  assert.match(ui, /<\/form>\s*\{!compact && <div className="discovery-partner-entry">/)
+  assert.match(ui, /<Link className="discovery-business-cta" href=\{`\/for-businesses\?lang=\$\{locale\}`\}/)
   assert.match(ui, /<span>\{copy.registerBusiness\}<\/span>/)
   assert.equal(DISCOVERY_COPY.bg.registerBusiness, 'Регистрирай бизнеса си безплатно')
   assert.equal(DISCOVERY_COPY.en.registerBusiness, 'Register your business for free')

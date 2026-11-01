@@ -38,3 +38,12 @@ Official references checked during implementation:
 - Local proof: `/tmp/gorez-nearby-expanded-local-20261102.png` and `/tmp/gorez-nearby-mobile-local-20261102.png` (fictional fixtures, not real provider results).
 
 Publication was approved after checks, without a paid test. Production verification is recorded separately after deployment.
+
+## Production verification
+
+- Normal fast-forward push of `959fe89` to `main`; Vercel deployment `FEStaHo1BjHJ4br2fmq85eWytyPR` is Ready / Latest / Production / Current, 29-second build, assigned to `www.gorez.co` (`ai-receptionist-r32899tqk-ai-receptionist12.vercel.app`). No environment changes or additional paid services.
+- Live homepage: one location button, Sofia default, radius select `2`; visible partner entry navigates to the working categorized partner directory. BG/EN each expose exactly one location action. At 390px, document width is 390px with no overflow.
+- Home, English search, partners, customer account and business login HTTP 200; both guarded development routes HTTP 404.
+- One deliberately invalid-date API smoke request with synthetic coordinates returned HTTP 200, date clarification, `externalStatus: not_requested`, zero results, `rankingVersion: local-partners-distance-v3`. This path exits before any Google/AI request or availability lookup; it confirms deployed backend compatibility, **not** real nearby provider quality.
+- No actual geolocation, Google/AI query, reservation or email was performed during live verification. Real GPS and native provider rendering after consent remain untested by explicit owner choice.
+- Live proof: `/tmp/gorez-unified-nearby-live-entry-20261102.png`.

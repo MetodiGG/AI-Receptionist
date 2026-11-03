@@ -8,6 +8,7 @@ import './business-management.css'
 import './category-art.css'
 import { PwaRegister } from '../components/pwa-register'
 import { SITE_ORIGIN } from '../lib/seo.mjs'
+import { Analytics } from '@vercel/analytics/next'
 
 export const metadata = {
   metadataBase: new URL(SITE_ORIGIN),
@@ -31,7 +32,7 @@ export const viewport = { themeColor: '#f6f5f2' }
 export default function RootLayout({ children }) {
   return (
     <html lang="bg" data-scroll-behavior="smooth">
-      <body><PwaRegister />{children}</body>
+      <body><PwaRegister />{children}<Analytics /></body>
     </html>
   )
 }

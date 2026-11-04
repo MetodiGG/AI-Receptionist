@@ -1,0 +1,11 @@
+{
+  "date": "2026-11-05",
+  "mode": "Owner-provided artwork, replacing the discarded generated reception and question-mark options.",
+  "source": "BECF761C-5CAF-4865-95F6-C7A7D56354BD/1-Photo-1.jpg",
+  "outputs": [
+    "public/category-photos/other-v4.webp",
+    "public/category-photos/other-2x-v4.webp"
+  ],
+  "processing": "Mechanical square thumbnail resize and WebP compression only. No redraw, recolour, background removal or retouching.",
+  "usage": "Generic Other services category art only, not a real business photo."
+}

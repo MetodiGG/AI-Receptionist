@@ -31,7 +31,8 @@ test('partners are all published active GoRez businesses, including beyond the d
     assert.equal(call.table, 'businesses')
     assert.deepEqual(call.filters, [['active', true], ['platform_status', 'enabled']])
     assert.deepEqual(call.orders, ['name', 'id'])
-    assert.doesNotMatch(call.fields, /\*|owner_id|contact_email|public_profile|token|bot_instructions|customers|appointments/)
+    assert.match(call.fields, /latitude:public_profile->latitude,longitude:public_profile->longitude/)
+    assert.doesNotMatch(call.fields.replace('latitude:public_profile->latitude,longitude:public_profile->longitude,', ''), /\*|owner_id|contact_email|public_profile|token|bot_instructions|customers|appointments/)
   }
 })
 

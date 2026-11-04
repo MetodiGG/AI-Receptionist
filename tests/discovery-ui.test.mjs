@@ -125,11 +125,12 @@ test('simple form hides secondary controls and diagnostics, keeps readable text 
   for (const source of [ui, helper]) assert.doesNotMatch(source, /localStorage|sessionStorage|watchPosition|console\.|trackProductEvent/)
 })
 
-test('the short manicure example extracts tomorrow after 13:00 and stays readable on the narrowest screens', async () => {
-  assert.equal(DISCOVERY_COPY.bg.placeholder, 'маникюр, утре след 13:00ч.')
-  assert.equal(DISCOVERY_COPY.en.placeholder, 'manicure, tomorrow after 1:00 pm')
+test('the placeholder is short while natural-language manicure/date/time examples still parse', async () => {
+  assert.equal(DISCOVERY_COPY.bg.placeholder, 'Пиши тук…')
+  assert.equal(DISCOVERY_COPY.en.placeholder, 'Type here…')
+  const examples = { bg: 'маникюр, утре след 13:00ч.', en: 'manicure, tomorrow after 1:00 pm' }
   for (const locale of ['bg', 'en']) {
-    const intent = parseIntent(discoveryRequestSchema.parse(discoverySearchInput({ query: DISCOVERY_COPY[locale].placeholder, locale })), now)
+    const intent = parseIntent(discoveryRequestSchema.parse(discoverySearchInput({ query: examples[locale], locale })), now)
     assert.equal(intent.category, 'nails')
     assert.equal(intent.date, '2026-10-28')
     assert.equal(intent.timeFrom, '13:00')
@@ -170,7 +171,7 @@ test('both category controls fill the search in BG/EN, including switching a non
   assert.match(ui, /onChange=\{event => chooseCategory\(event.target.value\)\}/)
   const handler = ui.slice(ui.indexOf('function chooseCategory('), ui.indexOf('function execute('))
   assert.doesNotMatch(handler, /fetch\(|search\(|locate\(/)
-  assert.match(handler, /if \(coordinates && selected.category\) execute\(payload\(selected\)\)/)
+  assert.match(handler, /if \(\(home \|\| coordinates\) && selected.category\) execute\(payload\(selected\)\)/)
 })
 
 test('Sports recognises bookable activities without renaming stored identifiers or replacing a requested activity', () => {
@@ -220,9 +221,10 @@ test('radius helpers are not visible; location consent, error recovery and acces
   assert.match(legal, /Незадължителното местоположение от браузъра се иска само след твое действие/)
 })
 
-test('free business registration CTA follows the form and opens existing locale-aware onboarding without submitting an account', async () => {
+test('legacy results keep their registration CTA while the compact homepage moves onboarding to the bottom', async () => {
   const ui = await read('components/discovery-search.js'), route = await read('app/for-businesses/page.js')
-  assert.match(ui, /<\/form>\s*\{!compact && <div className="discovery-partner-entry">/)
+  assert.match(ui, /\{!home && !compact && <div className="discovery-partner-entry">/)
+  assert.match(ui, /\{home && <DiscoveryHomeBottom locale=\{locale\}\/>\}/)
   assert.match(ui, /<Link className="discovery-business-cta" href=\{`\/for-businesses\?lang=\$\{locale\}`\}/)
   assert.match(ui, /<span>\{copy.registerBusiness\}<\/span>/)
   assert.equal(DISCOVERY_COPY.bg.registerBusiness, 'Регистрирай бизнеса си безплатно')

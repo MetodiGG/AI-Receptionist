@@ -65,10 +65,11 @@ test('business city fields no longer show the tiny source explanation but retain
   assert.match(fields, /onChange\(\{ city_ekatte: value, neighborhood: '' \}\)/)
 })
 
-test('one language button displays the current locale and switches through the existing localized callback', async () => {
+test('one flags-only language button keeps the localized accessible label and existing locale callback', async () => {
   const ui = await read('components/language-switch.js')
   assert.equal((ui.match(/<button\b/g) || []).length, 1)
-  assert.match(ui, /\{en \? 'EN' : 'BG'\}/)
+  assert.match(ui, /<CountryFlag locale=\{locale\}/)
+  assert.doesNotMatch(ui, /\{en \? 'EN' : 'BG'\}|🇬🇧|🇧🇬/)
   assert.match(ui, /onChange\(en \? 'bg' : 'en'\)/)
   assert.match(ui, /'Switch language to Bulgarian' : 'Смени езика на английски'/)
   assert.doesNotMatch(ui, /router\.|location\.|fetch\(|localStorage|aria-pressed/)
@@ -78,7 +79,7 @@ test('client sign-in is reachable in the footer and collapsed menu, never as a c
   const nav = await read('components/marketing-navigation.js'), footer = await read('components/site-footer.js')
   for (const source of [nav, footer]) {
     assert.match(source, /href=\{`\/account\?lang=\$\{locale\}`\}/)
-    assert.match(source, /'Client login' : 'Вход за клиенти'/)
+    assert.match(source, /'Client (?:login|account)' : 'Вход за клиенти'/)
   }
   assert.doesNotMatch(nav, /nav-client-account|<Icon name="user"/)
   assert.match(nav, /id="launch-menu" hidden=\{!open\}/)

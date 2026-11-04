@@ -13,5 +13,5 @@ export function HomePage({ initialLocale = 'bg', identity = {}, preview = null, 
     if (url.hash === '#business') router.replace(`/login${url.search || `?lang=${initialLocale}`}`)
     if (['#clients', '#find-appointment', '#how'].includes(url.hash)) router.replace(`/?lang=${initialLocale}#ai-query`)
   }, [router, initialLocale])
-  return <DiscoveryPage initialLocale={initialLocale} identity={identity} preview={Boolean(preview)} enabled={discoveryEnabled} accountDeleted={accountDeleted}/>
+  return <DiscoveryPage initialLocale={initialLocale} identity={identity} preview={Boolean(preview)} enabled={discoveryEnabled} accountDeleted={accountDeleted} home directoryData={preview?.directory}/>
 }

@@ -3,12 +3,17 @@ import assert from 'node:assert/strict'
 import {readFile} from 'node:fs/promises'
 import {businessApplicationSchema,applicationRecord,createBusinessApplicationHandler,platformAdminIdentity} from '../lib/business-application.mjs'
 import {changeDirectoryFilter,directoryChoices,filterDirectory,EMPTY_DIRECTORY_FILTERS} from '../lib/directory.mjs'
+import {readApplicationPhotos} from '../lib/application-photos.mjs'
 
 export const application={business:{name:'Local Test Salon',slug:'local-test-salon',phone:'+359888123456',contact_email:'bookings@example.com',address:'Test Street 1',timezone:'Europe/Sofia',industry:'beauty',city_ekatte:'68134',neighborhood:'Център',default_duration_min:'45',booking_slot_minutes:'15'},services:[{name:'Haircut',price:'25',duration_min:'45'}],staff:[{name:'Test Person'}],schedule:Array.from({length:7},(_,i)=>({weekday:i+1,enabled:i<5,open:'09:00',close:'18:00',breakEnabled:true,breakStart:'12:00',breakEnd:'13:00'})),account:{email:'owner@example.com',password:'Local-test-only-strong'},locale:'bg',consent:true,company:''}
-const request=(body=application,headers={})=>new Request('https://gorez.example/api/public/business-applications',{method:'POST',headers:{'content-type':'application/json',...headers},body:typeof body==='string'?body:JSON.stringify(body)})
+const request=(body=application,headers={})=>{
+  if(typeof body==='string'||headers['content-length'])return new Request('https://gorez.example/api/public/business-applications',{method:'POST',headers:{'content-type':'application/json',...headers},body:typeof body==='string'?body:JSON.stringify(body)})
+  const form=new FormData();form.append('payload',JSON.stringify(body));form.append('photoConsent','true');form.append('gallery_0',new File(['offline-normalizer-fixture'],'photo.png',{type:'image/png'}))
+  return new Request('https://gorez.example/api/public/business-applications',{method:'POST',headers,body:form})
+}
 function harness(options={}) {
   const calls={created:[],deleted:[],saved:[],notified:[]}
-  const handler=createBusinessApplicationHandler({allowAttempt:async()=>options.allowed!==false,authenticate:async()=>options.user||null,reserved:email=>email==='admin@example.com',createAccount:async account=>{calls.created.push(account);return options.duplicate?null:{id:'new-auth-id'}},deleteAccount:async id=>calls.deleted.push(id),save:async input=>{calls.saved.push(input);if(options.failure)throw Object.assign(Error('private internals'),{code:options.failure})},notify:async input=>{calls.notified.push(input);if(options.notificationFailure)throw Error('offline')}})
+  const handler=createBusinessApplicationHandler({readSubmission:readApplicationPhotos,prepareImages:async files=>files.map(row=>({staffIndex:row.staffIndex,image:{width:1,height:1,data:new Uint8Array([1])}})),allowAttempt:async()=>options.allowed!==false,authenticate:async()=>options.user||null,reserved:email=>email==='admin@example.com',createAccount:async account=>{calls.created.push(account);return options.duplicate?null:{id:'new-auth-id'}},deleteAccount:async id=>calls.deleted.push(id),save:async input=>{calls.saved.push(input);if(options.failure)throw Object.assign(Error('private internals'),{code:options.failure});return {photosSaved:input.images.length}},notify:async input=>{calls.notified.push(input);if(options.notificationFailure)throw Error('offline')}})
   return {handler,calls}
 }
 test('complete setup validates server-side, including real location, full duration and lunch break',()=>{
@@ -19,7 +24,7 @@ test('complete setup validates server-side, including real location, full durati
 })
 test('public setup creates an unconfirmed identity and private application, never a confirmation email or password record',async()=>{
   const h=harness({notificationFailure:true}),response=await h.handler(request())
-  assert.equal(response.status,201);assert.deepEqual(await response.json(),{ok:true,pending:true})
+  assert.equal(response.status,201);assert.deepEqual(await response.json(),{ok:true,pending:true,photos:{requested:1,saved:1}})
   assert.match(response.headers.get('cache-control'),/no-store/)
   assert.equal(h.calls.saved[0].ownerId,'new-auth-id');assert.equal(h.calls.saved[0].requiresActivation,true)
   assert.doesNotMatch(JSON.stringify(h.calls.saved),/password|Local-test-only/);assert.deepEqual(h.calls.deleted,[])

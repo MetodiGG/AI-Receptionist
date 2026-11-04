@@ -5,7 +5,7 @@ import { resolvePublicIndustry } from '../../../../lib/public-locale.mjs'
 import { businessAddress } from '../../../../lib/business-location.mjs'
 import { createServerTiming } from '../../../../lib/server-timing.mjs'
 import { getBusinessPhotos } from '../../../../lib/business-photos.mjs'
-import { readDirectoryRows } from '../../../../lib/public-directory.mjs'
+import { readDirectoryRows, directoryCoordinates } from '../../../../lib/public-directory.mjs'
 
 export async function GET(request) {
   const timing = createServerTiming()
@@ -24,6 +24,7 @@ export async function GET(request) {
       booking_mode:business.booking_mode||'gorez',
       address: businessAddress(business),
       city_ekatte: business.city_ekatte, city: business.city, neighborhood: business.neighborhood,
+      coordinates: directoryCoordinates(business),
       phone: business.phone,
       industry: resolvePublicIndustry(business),
       theme_color: business.theme_color,

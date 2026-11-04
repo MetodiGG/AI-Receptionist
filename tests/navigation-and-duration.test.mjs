@@ -31,7 +31,10 @@ test('onboarding has editable integer minutes for both the default and each serv
   assert.match(setup, /<DurationInput id="usual-duration"[^>]*value=\{business\.default_duration_min\}/)
   assert.match(setup, /<DurationInput id=\{`duration-\$\{index\}`\}[^>]*value=\{service\.duration_min\}/)
   assert.match(setup, /service\.name\.trim\(\) \? service : \{ \.\.\.service, duration_min: value \}/)
-  assert.match(setup, /duration_min: business\.default_duration_min/)
+  // Internal mode retains the selected exact minutes; external mode must not
+  // invent a duration or price for an unconfigured service.
+  assert.match(setup, /duration_min: external\?'':business\.default_duration_min/)
+  assert.match(setup, /price: external\?'':'25'/)
 })
 
 test('server signup validation preserves ten and seventeen minutes exactly and rejects invalid durations', () => {

@@ -10,7 +10,7 @@ const handlers=createAdminBusinessHandlers({
   allowAttempt:(request,id)=>consumeRateLimit(request,{scope:`platform-business:${id}`,limit:20,windowSeconds:900}),
   read:async id=>{
     const db=getSupabaseAdmin()
-    const business=await db.from('businesses').select('id,name,slug,active,platform_status,platform_revision,content_revision,city,city_ekatte,neighborhood,address,industry,contact_email,phone,created_at,timezone,website_url,privacy_contact_email,booking_terms,default_duration_min,booking_slot_minutes,booking_window_days,minimum_notice_minutes,cancellation_notice_hours,email_notifications_enabled,notification_locale,review_requests_enabled,public_profile,welcome_message,bot_instructions,media_gallery_managed').eq('id',id).maybeSingle()
+    const business=await db.from('businesses').select('id,name,slug,booking_mode,external_booking_url,external_booking_consent_at,opening_hours,active,platform_status,platform_revision,content_revision,city,city_ekatte,neighborhood,address,industry,contact_email,phone,created_at,timezone,website_url,privacy_contact_email,booking_terms,default_duration_min,booking_slot_minutes,booking_window_days,minimum_notice_minutes,cancellation_notice_hours,email_notifications_enabled,notification_locale,review_requests_enabled,public_profile,welcome_message,bot_instructions,media_gallery_managed').eq('id',id).maybeSingle()
     if(business.error)throw business.error
     if(!business.data)return null
     const [services,staff,customers,bookings,upcoming,hours,contentAudit]=await Promise.all([

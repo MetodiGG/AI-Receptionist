@@ -12,6 +12,7 @@ import { SiteFooter } from './site-footer'
 import { PRICING_COPY } from '../lib/product-config.mjs'
 import { leadSubmissionSchema } from '../lib/partner-submission.mjs'
 import { trackProductEvent } from '../lib/product-events-client'
+import { BUSINESS_FAQ } from '../lib/faq.mjs'
 
 const COPY = {
   bg: {
@@ -149,7 +150,7 @@ export function BusinessLanding({ initialLocale='bg',identity={},preview=null })
         <label className="partner-honeypot" aria-hidden="true"><span>Company</span><input name="company" tabIndex={-1} autoComplete="off" value={form.company} onChange={event=>update('company',event.target.value)}/></label>
       </div>{message&&<p className="form-message" role="alert">{message}</p>}<button className="primary-button partner-submit" type="submit">{status==='submitting'?copy.submitting:copy.submit}<Icon name="arrow"/></button></fieldset><p className="partner-privacy"><Link href={`/privacy?lang=${locale}`}>{copy.privacyLink}</Link> · <Link href={`/terms?lang=${locale}`}>{copy.terms}</Link></p></form>}</div>
     </section>
-    <section className="business-faq-section" id="faq"><div className="directory-heading"><h2>{copy.faqTitle}</h2></div><div className="business-faq-list">{copy.faq.map(([question,answer],index)=><details key={question} open={index===0}><summary>{question}<span>+</span></summary><p>{answer}</p></details>)}</div></section>
+    <section className="business-faq-section" id="faq"><div className="directory-heading"><h2>{copy.faqTitle}</h2></div><div className="business-faq-list">{BUSINESS_FAQ.filter(row=>['apply','website-needed','existing-calendar','opening-hours','business-emails','trial','after-trial','stop-business'].includes(row.id)).map((row,index)=><details key={row.id} open={index===0}><summary>{row[locale].question}<span>+</span></summary><p>{row[locale].answer}</p></details>)}</div><Link className="secondary-button" href={`/faq?lang=${locale}`}>{en?'All questions & answers':'Всички въпроси и отговори'} →</Link></section>
     <SiteFooter locale={locale} identity={identity}/>
   </main>
 }

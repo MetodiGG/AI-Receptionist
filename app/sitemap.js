@@ -2,7 +2,7 @@ import { getSupabaseAdmin } from '../lib/supabase-admin'
 import { localizedUrl, languageAlternates } from '../lib/seo.mjs'
 export const dynamic='force-dynamic'
 export default async function sitemap() {
-  const paths=['/','/for-businesses','/privacy','/terms','/partners']
+  const paths=['/','/for-businesses','/privacy','/terms','/partners','/faq']
   const db=getSupabaseAdmin()
   for(let offset=0;;offset+=500){
     const {data,error}=await db.from('businesses').select('slug').eq('active',true).eq('platform_status','enabled').order('slug').range(offset,offset+499)

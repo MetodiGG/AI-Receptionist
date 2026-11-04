@@ -15,6 +15,8 @@ import { getIndustryLabel } from '../lib/public-locale.mjs'
 import { businessState,filterAdminBusinesses } from '../lib/platform-business-view.mjs'
 import { AdminBusinessEditor } from './admin-business-editor'
 import { scheduleRows } from '../lib/business-schedule.mjs'
+import { AdminExternalBookingLinks } from './admin-external-booking-links'
+import { AdminReferralAnalytics } from './admin-referral-analytics'
 
 const STATES={pending:['Чака одобрение','Awaiting approval'],published:['Публикуван','Published'],unpublished:['Непубликуван','Unpublished'],suspended:['Спрян от админ','Suspended'],archived:['В кошчето','In trash']}
 const ACTIONS={publish:['Публикувай','Publish'],suspend:['Спри записванията','Suspend bookings'],archive:['Премести в кошчето','Move to trash'],restore:['Възстанови като спрян','Restore as suspended'],delete:['Изтрий окончателно','Delete permanently']}
@@ -34,7 +36,7 @@ const ERRORS={
   BUSINESS_NOT_FOUND:['Бизнесът вече не съществува. Обнови списъка.','This business no longer exists. Refresh the list.'],
   LEAD_CHANGED:['Заявката е променена междувременно. Обнови списъка и провери статуса, преди да опиташ отново.','This application changed. Refresh and check its status before trying again.'],
   CONFIRMATION_MISMATCH:['Напиши точно адреса на избрания бизнес.','Type the exact business slug.'],
-  SETUP_REQUIRED:['Първо са нужни активна услуга, служител и работно време. Собственикът ги настройва от бизнес таблото.','An active service, staff member and working hours are required. The owner sets them up in their business dashboard.'],
+  SETUP_REQUIRED:['Провери активните услуги и настройките на режима: GoRez календар изисква екип и график; външният режим — потвърден линк, разрешение и публично работно време.','Check active services and booking-mode setup: GoRez calendar needs staff and schedules; external mode needs an approved destination, permission and public opening hours.'],
   OWNER_ACTIVATION_REQUIRED:['Входът на собственика не може да бъде активиран. Провери заявката и имейла; бизнесът не е публикуван.','Owner sign-in could not be activated. Check the application and email; the business was not published.'],
   RESTORE_FIRST:['Първо възстанови бизнеса от кошчето.','Restore the business from trash first.'],
   ARCHIVE_FIRST:['Първо премести бизнеса в кошчето.','Move this business to trash first.'],
@@ -46,7 +48,7 @@ const ERRORS={
   VALIDATION_ERROR:['Провери потвърждението и причината.','Check your confirmation and reason.'],
 }
 const EXPLANATIONS={
-  publish:['Публикува бизнеса и позволява нови резервации. Нужни са услуги, екип и работно време.','Publishes the business and enables bookings. Services, team and working hours are required.'],
+  publish:['Публикува профила с избрания начин на резервации. Проверява услугите и готовността за съответния режим.','Publishes the profile with its chosen booking method. Checks services and readiness for that mode.'],
   suspend:['Спира новите резервации и скрива публичната страница. Съществуващите часове и техните известия остават непроменени.','Stops new bookings and hides the public page. Existing visits and their emails are unchanged.'],
   archive:['Скрива бизнеса и спира новите резервации и чакащите имейли. Данните и записаните часове остават. Можеш да го възстановиш.','Hides the business and stops new bookings and pending emails. Data and existing visits remain. You can restore it.'],
   restore:['Възстановява бизнеса като спрян. Публикувай отделно, когато е готов. Спрените имейли няма да се изпратят повторно.','Restores the business as suspended. Publish separately when ready. Stopped emails will not be replayed.'],
@@ -90,6 +92,7 @@ export function PlatformAdmin({preview=null}) {
   const [tab,setTab]=useState('businesses'),[query,setQuery]=useState(''),[state,setState]=useState('all'),[leadFilter,setLeadFilter]=useState('all'),[saving,setSaving]=useState('')
   const [selected,setSelected]=useState(null),[detail,setDetail]=useState(null),[detailError,setDetailError]=useState(''),[action,setAction]=useState(''),[reason,setReason]=useState(''),[confirmation,setConfirmation]=useState(''),[ack,setAck]=useState(false),[password,setPassword]=useState(''),[busy,setBusy]=useState(false)
   const [editing,setEditing]=useState(''),[editorDirty,setEditorDirty]=useState(false)
+  const [linkDirty,setLinkDirty]=useState(false)
   const sequence=useRef(0),detailSequence=useRef(0),mutating=useRef(false),leadMutating=useRef(false)
   useEffect(()=>{
     if(preview)return
@@ -192,7 +195,9 @@ export function PlatformAdmin({preview=null}) {
       {notice&&<p className="form-message success" role="status">{text(NOTICES,notice,en)}</p>}
       {loading&&!overview?<div className="admin-loading" role="status"><span className="button-spinner"/>{en?'Loading the platform…':'Зареждаме платформата…'}</div>:overview&&<>
         <div className="admin-console-kpis">{[[en?'Published businesses':'Публикувани бизнеси',overview.totals.active,'store'],[en?'New leads':'Нови заявки',newLeads,'users'],[en?'Bookings / 30 days':'Резервации / 30 дни',overview.totals.bookings30d,'calendar'],[en?'In trash':'В кошчето',overview.totals.archived||0,'trash']].map(([title,value,icon])=><article key={title}><Icon name={icon}/><small>{title}</small><strong>{value}</strong></article>)}</div>
-        <div className="admin-console-toolbar"><nav aria-label={en?'Admin sections':'Админ секции'}>{[['businesses',en?'Businesses':'Бизнеси'],['leads',en?'Applications':'Заявки'],['audit',en?'Activity log':'Журнал']].map(([key,value])=><button key={key} aria-pressed={tab===key} onClick={()=>setTab(key)} type="button">{value}{key==='leads'&&newLeads>0&&<span>{newLeads}</span>}</button>)}<Link className="admin-review-link" href={`/admin/reviews?lang=${locale}`}>{en?'Reviews':'Отзиви'}</Link></nav><button className="secondary-button" type="button" disabled={loading||Boolean(saving)} onClick={load}>{loading?(en?'Loading…':'Зареждане…'):(en?'Refresh':'Обнови')}</button></div>
+        <div className="admin-console-toolbar"><nav aria-label={en?'Admin sections':'Админ секции'}>{[['businesses',en?'Businesses':'Бизнеси'],['leads',en?'Applications':'Заявки'],['audit',en?'Activity log':'Журнал'],['external-links',en?'Booking links':'Линкове за резервации'],['statistics',en?'Statistics':'Статистика']].map(([key,value])=><button key={key} aria-pressed={tab===key} onClick={()=>{if(tab!=='external-links'||!linkDirty||window.confirm(en?'Discard the unsaved booking-link draft?':'Да отхвърлим ли незапазения линк за резервации?'))setTab(key)}} type="button">{value}{key==='leads'&&newLeads>0&&<span>{newLeads}</span>}</button>)}<Link className="admin-review-link" href={`/admin/reviews?lang=${locale}`}>{en?'Reviews':'Отзиви'}</Link></nav><button className="secondary-button" type="button" disabled={loading||Boolean(saving)} onClick={load}>{loading?(en?'Loading…':'Зареждане…'):(en?'Refresh':'Обнови')}</button></div>
+        {tab==='statistics'&&<AdminReferralAnalytics send={adminRequest} locale={locale} preview={Boolean(preview)}/>}
+        {tab==='external-links'&&<AdminExternalBookingLinks onDirty={setLinkDirty} send={adminRequest} locale={locale} preview={Boolean(preview)}/>}
         {tab==='businesses'&&<section className="admin-console-section">
           <header><div><h2>{en?'Business profiles':'Бизнес профили'}</h2><p>{en?'Visibility and management at a glance.':'Видимост и управление на едно място.'}</p></div><span>{businesses.length} {en?'results':'резултата'}</span></header>
           <div className="admin-business-filters"><label>{en?'Search':'Търси'}<input type="search" value={query} onChange={e=>setQuery(e.target.value)} placeholder={en?'Name, city or email':'Име, град или имейл'}/></label><label>{en?'Visibility':'Видимост'}<select value={state} onChange={e=>setState(e.target.value)}><option value="all">{en?'All, including trash':'Всички, включително кошчето'}</option>{Object.keys(STATES).map(key=><option key={key} value={key}>{text(STATES,key,en)}</option>)}</select></label></div>

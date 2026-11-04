@@ -22,6 +22,9 @@ import { BusinessProfileHeader, BusinessProfileInformation } from './business-pr
 import { getStaffPhoto } from '../lib/business-photos.mjs'
 import { BusinessReviews, useBusinessReviews } from './business-reviews'
 import { groupBusinessServices } from '../lib/business-profile.mjs'
+import { isExternalBooking,servicePriceLabel } from '../lib/booking-mode.mjs'
+import { OutboundBookingButton } from './outbound-booking-button'
+import { ProfileViewTracker } from './profile-view-tracker'
 
 const BOOKING_COPY = {
   bg: { loading: 'Подготвяме свободните часове…', home: 'Начало', dashboard: 'Към таблото', logout: 'Изход', loggingOut: 'Излизане…', online: 'Онлайн', eyebrow: 'Онлайн записване · 24/7', hero: 'Запази време', heroEm: 'за себе си.', lead: 'Избери услугата и най-удобния свободен час. Без обаждане, без регистрация и без чакане за отговор.', book: 'Резервирай час', assistant: 'Онлайн асистент', proof: ['Избираш услуга', 'Виждаш свободните часове', 'Получаваш потвърждение'], reassurance: ['Без профил', 'Реална наличност', 'Сигурно управление'], terms: 'Условия за резервация', privacy: 'Поверителност', legalTerms: 'Условия', powered: 'Задвижвано от GoRez', secure: 'Защитена резервация', notOpen: 'Не успяхме да отворим страницата', retry: 'Опитай отново' },
@@ -57,6 +60,11 @@ function SparkLogo({ businessName, locale }) {
 
 function LoadingPage({ copy, locale }) {
   return <main className="booking-state-page"><div className="state-home-navigation"><HomeLink locale={locale}/></div><span className="button-spinner" /><p>{copy.loading}</p></main>
+}
+
+function ExternalBookingPanel({business,locale,preview=false}) {
+ const en=locale==='en'
+ return <section className="external-booking-panel settings-panel" aria-labelledby="external-booking-title"><h2 id="external-booking-title">{en?'Book on the business’s website':'Запази час в сайта на бизнеса'}</h2><p>{en?'Your booking will be completed on the business’s website.':'Резервацията ще бъде извършена в системата на бизнеса.'}</p><p>{en?'Check available times on the business’s website. GoRez does not know or synchronize those appointments.':'Провери свободните часове в сайта на бизнеса. GoRez не знае и не синхронизира тези резервации.'}</p><div className="external-service-list">{groupBusinessServices(business.services,locale).map(group=><section key={group.name}><h3>{group.name}</h3>{group.services.map(s=><article key={s.id}><strong>{s.name}</strong><span>{servicePriceLabel(s.price,s.currency,locale)}{s.duration_min!=null?` · ${s.duration_min} ${en?'min':'мин'}`:''}</span>{s.description&&<p>{s.description}</p>}</article>)}</section>)}</div><OutboundBookingButton business={business} locale={locale} disabled={preview}/></section>
 }
 
 function BookingPanel({ business, locale }) {
@@ -331,6 +339,7 @@ export default function PublicBookingPage({ initialLocale = 'bg', previewBusines
 
   return (
     <main className={`public-booking-page ${embedded ? 'embedded-booking' : ''}`} style={{ '--business-color': business.theme_color || '#173e2a' }}>
+      <ProfileViewTracker slug={business.slug} disabled={Boolean(previewBusiness)}/>
       <div className="booking-ambient" aria-hidden="true"><i /><i /><i /></div>
       <header className="booking-topbar">
         <SparkLogo businessName={business.name} locale={locale} />
@@ -346,15 +355,15 @@ export default function PublicBookingPage({ initialLocale = 'bg', previewBusines
         <HomeLink locale={locale}/>
       </header>
       {previewBusiness && <p className="local-profile-qa-label">LOCAL QA · fictional profile and reviews · not a real business</p>}
-      {!embedded && <BusinessProfileHeader business={business} locale={locale} reviews={reviews} onBook={() => setMode('booking')} />}
-      <div className="business-booking-method">
+      {!embedded && <BusinessProfileHeader business={business} locale={locale} reviews={reviews} onBook={() => setMode('booking')} preview={Boolean(previewBusiness)}/>}
+      {!isExternalBooking(business)&&<div className="business-booking-method">
           <div className="booking-mode-switch" role="tablist" aria-label={locale === 'en' ? 'Booking method' : 'Начин за записване'}>
             <button role="tab" aria-selected={mode === 'booking'} aria-controls="booking-experience" className={mode === 'booking' ? 'active' : ''} onClick={() => setMode('booking')}>{copy.book}</button>
             <button role="tab" aria-selected={mode === 'chat'} aria-controls="booking-experience" className={mode === 'chat' ? 'active' : ''} onClick={() => setMode('chat')}>{copy.assistant}</button>
           </div>
-      </div>
+      </div>}
       {business.booking_terms && <details className="booking-terms"><summary>{copy.terms}</summary><p>{business.booking_terms}</p></details>}
-      <div className="booking-content" id="booking-experience"><div className="booking-experience-enter" key={`${mode}-${locale}`}>{mode === 'booking' ? <BookingPanel business={business} locale={locale} /> : <GuidedBookingChat business={business} locale={locale} onShowBooking={() => setMode('booking')} />}</div></div>
+      <div className="booking-content" id="booking-experience"><div className="booking-experience-enter" key={`${mode}-${locale}`}>{isExternalBooking(business)?<ExternalBookingPanel business={business} locale={locale} preview={Boolean(previewBusiness)}/>:mode === 'booking' ? <BookingPanel business={business} locale={locale} /> : <GuidedBookingChat business={business} locale={locale} onShowBooking={() => setMode('booking')} />}</div></div>
       {!embedded && <div className="business-profile-bottom"><BusinessProfileInformation business={business} locale={locale} /><BusinessReviews reviews={reviews} locale={locale} /></div>}
       <footer className="booking-footer"><span>{copy.secure}</span><span><Link href={`/privacy?lang=${locale}`}>{copy.privacy}</Link> · <Link href={`/terms?lang=${locale}`}>{copy.legalTerms}</Link></span><span>{copy.powered}</span></footer>
     </main>

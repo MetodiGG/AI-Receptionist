@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
+import { selectedDiscoveryPlaceId } from '../lib/discovery/place-selection.mjs'
+import { ExternalPlaceBooking } from './external-place-booking'
 
 let libraryPromise
 function loadPlacesLibrary(key, locale) {
@@ -25,15 +27,19 @@ function loadPlacesLibrary(key, locale) {
 
 export function GoogleDiscoveryList({ plan, locale, onRetry }) {
   const host = useRef(null), [status, setStatus] = useState('loading'), copy = DISCOVERY_COPY[locale]
+  const [selected,setSelected]=useState(null)
   useEffect(() => {
     let active = true, list
     setStatus('loading')
+    setSelected(null)
     const timer = setTimeout(async () => {
       try {
         await loadPlacesLibrary(plan.browserKey, plan.locale)
         await customElements.whenDefined('gmp-advanced-place-list')
         if (!active || !host.current) return
         list = document.createElement('gmp-advanced-place-list')
+        list.setAttribute('selectable','')
+        list.addEventListener('gmp-select',event=>{const id=selectedDiscoveryPlaceId(event,plan.placeIds);if(active&&id)setSelected(id)})
         const template = document.createElement('template'); template.setAttribute('slot', 'details-item')
         // Photos stay in Google's attributed widget; no media URLs, bytes or
         // author data are imported into our database or custom GoRez cards.
@@ -43,6 +49,7 @@ export function GoogleDiscoveryList({ plan, locale, onRetry }) {
         for (const tag of ['gmp-place-name', 'gmp-place-address', 'gmp-place-rating']) template.content.append(document.createElement(tag))
         const link = document.createElement('gmp-place-link'); link.setAttribute('action', 'open-map'); link.setAttribute('target', '_blank'); link.textContent = copy.maps
         template.content.append(link)
+        const website=document.createElement('gmp-place-link');website.setAttribute('action','open-website');website.setAttribute('slot','action-corner');website.setAttribute('target','_blank');website.textContent=locale==='en'?'Visit website':'Посети сайта';template.content.append(website)
         const attribution = document.createElement('gmp-place-attribution'); attribution.setAttribute('light-scheme-color', 'black')
         list.append(template, attribution)
         list.addEventListener('gmp-load', () => { if (active) setStatus('ready') })
@@ -61,6 +68,8 @@ export function GoogleDiscoveryList({ plan, locale, onRetry }) {
     {status === 'loading' && <p role="status">{copy.searching}</p>}
     {status === 'error' && <div className="discovery-notice" role="status"><p>{copy.unavailable}</p>{onRetry && <button type="button" className="secondary-button" onClick={onRetry}>{locale === 'en' ? 'Try search again' : 'Опитай търсенето отново'}</button>}</div>}
     <div ref={host}/>
+    <p>{locale==='en'?'Tap an available photo to open Google’s photo viewer. Select a business card to check for an approved booking link.':'Натисни налична снимка за преглед през Google. Избери карта на бизнес, за да провериш за потвърден линк за резервации.'}</p>
+    {selected&&<ExternalPlaceBooking key={selected} placeId={selected} locale={locale}/>}
     <details className="discovery-claim"><summary>{copy.claim}</summary><p>{copy.claimHint}</p><Link href={`/for-businesses?lang=${locale}`}>{locale === 'en' ? 'Start application' : 'Към регистрацията'}</Link></details>
   </section>
 }

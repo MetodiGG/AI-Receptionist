@@ -47,7 +47,7 @@ export function OwnerProvider({ children }) {
   if (state.status === 'loading') return <div className="loading-screen"><div className="state-home-navigation"><HomeLink locale={locale}/></div><div className="loading-box" role="status"><span className="button-spinner" /><span>{en ? 'Loading...' : 'Зареждаме...'}</span></div></div>
 
   return <OwnerContext.Provider value={{ ...state, refreshBusiness: load, locale, setLocale }}>
-    <DashboardShell email={state.session?.user.email} title={state.business?.name || (en ? 'Business setup' : 'Настройка на бизнеса')} businessSlug={state.business?.slug} platformStatus={state.business?.platform_status} onLogout={logout} locale={locale} onLocaleChange={setLocale}>
+    <DashboardShell email={state.session?.user.email} title={state.business?.name || (en ? 'Business setup' : 'Настройка на бизнеса')} businessSlug={state.business?.slug} platformStatus={state.business?.platform_status} bookingMode={state.business?.booking_mode} onLogout={logout} locale={locale} onLocaleChange={setLocale}>
       {state.status === 'error' ? <main className="dashboard-content"><p className="form-message" role="alert">{state.error}</p><button className="secondary-button" type="button" onClick={load}>{en ? 'Try again' : 'Опитай отново'}</button></main> : children}
     </DashboardShell>
   </OwnerContext.Provider>

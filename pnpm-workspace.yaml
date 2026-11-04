@@ -1,0 +1,4 @@
+# Root package only. Security patch for the transitive Vercel CLI config parser.
+# The application already uses this fixed Zod version directly.
+overrides:
+  '@vercel/cli-config>zod': '4.6.6'

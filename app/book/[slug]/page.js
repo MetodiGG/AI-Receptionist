@@ -7,7 +7,8 @@ export async function generateMetadata({params,searchParams}) {
   try {
     const business=await readSeoBusiness(slug)
     if(!business||query?.embed==='1')return {title:'GoRez',robots:{index:false,follow:false}}
-    return pageMetadata(`/book/${slug}`,locale,{title:`${business.name} — ${locale==='en'?'book online':'запази час онлайн'} · GoRez`,description:locale==='en'?`Services and available appointments at ${business.name}. Book online with GoRez.`:`Услуги и свободни часове в ${business.name}. Запази час онлайн с GoRez.`})
+    const external=business.booking_mode==='external'
+    return pageMetadata(`/book/${slug}`,locale,{title:`${business.name} — ${locale==='en'?'book online':'запази час онлайн'} · GoRez`,description:external?(locale==='en'?`Explore ${business.name} on GoRez. Check appointments and complete booking on the business’s website.`:`Разгледай ${business.name} в GoRez. Провери часовете и завърши резервацията в сайта на бизнеса.`):(locale==='en'?`Services and available appointments at ${business.name}. Book online with GoRez.`:`Услуги и свободни часове в ${business.name}. Запази час онлайн с GoRez.`)})
   } catch {return {title:'GoRez',robots:{index:false,follow:false}}}
 }
 export default async function Booking({params,searchParams}) {

@@ -73,8 +73,9 @@ function AppointmentsContent({ business, locale }) {
     const controller = new AbortController()
     setMoveSlots([]); setMoveSlotsLoading(true)
     const query = new URLSearchParams({ service_id: move.appointment.service.id, date: move.date })
+    query.set('business_id',business.id);query.set('appointment_id',move.appointment.id)
     if (move.staffId) query.set('staff_id', move.staffId)
-    fetch(`/api/public/${business.slug}/availability?${query}`, { signal: controller.signal }).then((response) => response.json().then((body) => ({ response, body }))).then(({ response, body }) => {
+    supabase.auth.getSession().then(({data})=>{if(!data.session)throw new Error(en?'Please sign in again.':'Влез отново.');return fetch(`/api/owner/appointment-availability?${query}`,{headers:{Authorization:`Bearer ${data.session.access_token}`},signal:controller.signal})}).then((response) => response.json().then((body) => ({ response, body }))).then(({ response, body }) => {
       if (!response.ok) throw new Error(body.error?.message || (en ? 'We could not check availability.' : 'Неуспешна проверка на часовете.'))
       if (!controller.signal.aborted) setMoveSlots(body.slots || [])
     }).catch((requestError) => { if (!controller.signal.aborted) setError(requestError.message) }).finally(() => { if (!controller.signal.aborted) setMoveSlotsLoading(false) })
@@ -91,6 +92,7 @@ function AppointmentsContent({ business, locale }) {
   }
 
   function openManualBooking({ date = '', staffId = '' } = {}) {
+    if(business.booking_mode==='external'){setError(en?'New appointments are handled by your external system. Existing GoRez visits remain below.':'Новите резервации се управляват от външната ти система. Съществуващите GoRez посещения остават отдолу.');return}
     setManual((current) => ({ ...current, date, staffId, startsAt: '' }))
     setManualOpen(true)
   }
@@ -127,7 +129,7 @@ function AppointmentsContent({ business, locale }) {
     <main className="dashboard-content admin-page">
       <div className="admin-page-head">
         <div><p className="auth-kicker">{en ? 'Calendar' : 'Календар'}</p><h2>{en ? 'Bookings' : 'Резервации'}</h2><p>{en ? 'Manage upcoming and past appointments.' : 'Управлявай предстоящите и миналите посещения.'}</p></div>
-        <div className="booking-owner-actions"><Link className="secondary-button" href="/dashboard/settings?section=timeoff">{en ? 'Block time / break' : 'Блокирай време / почивка'}</Link><button className="primary-button" type="button" onClick={() => openManualBooking()}>+ {en ? 'New booking' : 'Нова резервация'}</button></div>
+        <div className="booking-owner-actions"><Link className="secondary-button" href="/dashboard/settings?section=timeoff">{en ? 'Block time / break' : 'Блокирай време / почивка'}</Link><button className="primary-button" type="button" disabled={business.booking_mode==='external'} onClick={() => openManualBooking()}>+ {en ? 'New booking' : 'Нова резервация'}</button></div>
       </div>
       {error && <p className="form-message" role="alert">{error}</p>}
       {status === 'loading' && <div className="admin-loading"><span className="button-spinner" /> {en ? 'Loading bookings...' : 'Зареждаме резервациите...'}</div>}

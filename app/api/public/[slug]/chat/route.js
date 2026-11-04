@@ -8,6 +8,7 @@ import { getSupabaseAdmin } from '../../../../../lib/supabase-admin'
 import { trackEvent } from '../../../../../lib/analytics'
 import { PRIVATE_RESPONSE_HEADERS } from '../../../../../lib/booking-safety.mjs'
 import { bookingCustomerSchema } from '../../../../../lib/booking-contact.mjs'
+import { assertInternalBooking } from '../../../../../lib/booking-mode.mjs'
 
 const conversationField = { conversationId: z.string().uuid().optional() }
 const localeField = { locale: z.enum(['bg', 'en']).optional().default('bg') }
@@ -131,6 +132,7 @@ export async function POST(request, context) {
 
     const business = await getPublicBusiness(slug)
     if (!business) return apiError('Този бизнес не е открит.', 404, 'NOT_FOUND')
+    assertInternalBooking(business)
 
     const input = chatRequestSchema.parse(await request.json())
     const conversation = await ensureConversation(business.id, input.conversationId)

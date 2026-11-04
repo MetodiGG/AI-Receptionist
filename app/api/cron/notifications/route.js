@@ -6,11 +6,12 @@ import { cleanupBusinessMedia } from '../../../../lib/media-cleanup.mjs'
 export const maxDuration = 30
 
 export const GET = createNotificationCron({ env: process.env, process: async () => {
-  const [notifications,media] = await Promise.all([
+  const [notifications,media,referrals] = await Promise.all([
     processPendingNotifications(),
     cleanupBusinessMedia(getSupabaseAdmin()).catch(()=>({unavailable:true})),
+    getSupabaseAdmin().rpc('prune_booking_referrals').then(result=>result.error?{unavailable:true}:{ok:true}).catch(()=>({unavailable:true})),
   ])
-  return { ...notifications, media }
+  return { ...notifications, media,referrals }
 } })
 export const POST = GET
 

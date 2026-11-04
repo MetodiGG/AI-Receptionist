@@ -114,7 +114,8 @@ test('partner heading and logo-coloured badges precede both external layouts wit
   assert.ok(ui.indexOf('className="discovery-partner-results"') < ui.indexOf('className="discovery-external-results"'))
   assert.ok(ui.indexOf('className="discovery-external-results"') < ui.indexOf('<GoogleDiscoveryList plan='))
   assert.match(ui, /internal \? <span className="discovery-source discovery-partner-badge"/)
-  assert.match(ui, /<img src="\/gorez-symbol\.svg\?v=3" alt="" aria-hidden="true"/)
+  assert.match(ui, /<BrandMark size=\{24\}/)
+  assert.match(ui, /<BrandMark size=\{32\}/)
   assert.match(css, /\.discovery-card\.discovery-partner[^}]*border-top: 2px solid #368759/)
   assert.match(css, /\.discovery-source\.discovery-partner-badge[^}]*font-size: 16px/)
   for (const locale of ['bg', 'en']) {

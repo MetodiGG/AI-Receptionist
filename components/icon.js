@@ -1,5 +1,11 @@
 export function Icon({ name }) {
   const paths = {
+    search: <><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></>,
+    sliders: <><path d="M3 7h8M15 7h6M3 17h3M10 17h11"/><circle cx="13" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></>,
+    map: <><path d="M3 6.5 8.5 3v14.5L3 21V6.5Z" fill="currentColor" stroke="none" opacity=".78"/><path d="m10.5 3 5 3.5V21l-5-3.5V3Z" fill="currentColor" stroke="none"/><path d="m17.5 6.5 4-2.5v14.5l-4 2.5V6.5Z" fill="currentColor" stroke="none" opacity=".68"/></>,
+    close: <path d="m6 6 12 12M18 6 6 18"/>,
+    menu: <><g fill="#b87743" opacity=".3" stroke="none"><rect x="3" y="5" width="18" height="3.5" rx="1.75"/><rect x="3" y="11.5" width="18" height="3.5" rx="1.75"/><rect x="3" y="18" width="18" height="3.5" rx="1.75"/></g><g fill="#edaa70" stroke="#b96e38" strokeWidth=".7"><rect x="3" y="3.5" width="18" height="3.5" rx="1.75"/><rect x="3" y="10" width="18" height="3.5" rx="1.75"/><rect x="3" y="16.5" width="18" height="3.5" rx="1.75"/></g><path d="M5 4.3h14M5 10.8h14M5 17.3h14" stroke="#ffe0bd" strokeWidth=".6"/></>,
+    chevronDown: <path d="m7 10 5 5 5-5"/>,
     spark: <><path d="m12 3-1.4 4.1a5 5 0 0 1-3.1 3.1L3.4 12l4.1 1.4a5 5 0 0 1 3.1 3.1L12 20.6l1.4-4.1a5 5 0 0 1 3.1-3.1l4.1-1.4-4.1-1.8a5 5 0 0 1-3.1-3.1L12 3Z" /></>,
     grid: <><rect x="3" y="3" width="7" height="7" rx="2" /><rect x="14" y="3" width="7" height="7" rx="2" /><rect x="3" y="14" width="7" height="7" rx="2" /><rect x="14" y="14" width="7" height="7" rx="2" /></>,
     calendar: <><rect x="3" y="5" width="18" height="16" rx="3" /><path d="M16 3v4M8 3v4M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01" /></>,

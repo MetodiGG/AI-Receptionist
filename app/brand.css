@@ -1,0 +1,6 @@
+/* The owner-provided PNG has a transparent background. Preserve that alpha,
+   the complete G and green check; never crop or apply a colour filter. */
+.gorez-brand-mark { display:block; flex-shrink:0; width:var(--brand-mark-size,44px); height:var(--brand-mark-size,44px); max-width:none; object-fit:contain; object-position:center; border-radius:18%; }
+.home-business-partner .gorez-brand-mark { width:20px; height:20px; }
+.gorez-lockup .gorez-wordmark { font-family:"Trebuchet MS","Avenir Next",ui-sans-serif,system-ui,sans-serif; font-style:italic; font-weight:600; letter-spacing:-.07em; color:#332923; padding-right:4px; overflow:visible; }
+.gorez-wordmark .gorez-wordmark-accent { color:#d55e22; font-weight:900; }

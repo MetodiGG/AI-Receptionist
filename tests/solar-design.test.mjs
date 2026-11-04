@@ -2,29 +2,34 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
+import sharp from 'sharp'
+import { BRAND_MARK_SRC, BRAND_MARK_PNG, BRAND_VERSION } from '../lib/brand-assets.mjs'
 
 const read = file => readFile(new URL(`../${file}`, import.meta.url), 'utf8')
 const luminance = hex => hex.match(/\w{2}/g).map(part => parseInt(part, 16) / 255).map(value => value <= .04045 ? value / 12.92 : ((value + .055) / 1.055) ** 2.4).reduce((sum, value, index) => sum + value * [.2126, .7152, .0722][index], 0)
 const contrast = (a, b) => (Math.max(luminance(a), luminance(b)) + .05) / (Math.min(luminance(a), luminance(b)) + .05)
 
-test('all BrandLogo variants use the complete square vector, not the cropped legacy PNG', async () => {
-  const logo = await read('components/brand-logo.js'), symbol = await read('public/gorez-symbol.svg')
-  assert.match(logo, /src="\/gorez-symbol\.svg\?v=3" width=\{72\} height=\{72\}/)
+test('all BrandLogo variants use the complete owner-provided artwork, not the cropped legacy mark', async () => {
+  const logo = await read('components/brand-logo.js')
+  assert.match(logo, /<BrandMark eager=\{eager\}/)
+  assert.match(logo, /src=\{BRAND_MARK_SRC\} srcSet=\{BRAND_MARK_SRC_SET\}/)
+  assert.equal(BRAND_MARK_SRC, '/brand/gorez-mark-v4.webp')
   assert.doesNotMatch(logo, /gorez-mark\.png|gorez-logo\.png|clipPath/)
   assert.match(logo, /!decorative && <span className="sr-only">GoRez/)
-  assert.match(symbol, /viewBox="0 0 72 72"/)
-  assert.doesNotMatch(symbol, /<script|<image|<foreignObject|href=|clipPath|<filter/)
   const css = await read('app/solar.css')
   assert.match(css, /\.gorez-lockup \.gorez-mark-image \{[^}]*height: 44px;[^}]*object-fit: contain/)
 })
 
-test('the logo check is visibly green rather than near-black, with a light separation stroke for both white and graphite surfaces', async () => {
-  const symbol = await read('public/gorez-symbol.svg')
-  const paths = [...symbol.matchAll(/<path d="m30 34 9 9 23-23"[^>]+/g)].map(match => match[0])
-  assert.equal(paths.length, 2)
-  assert.match(paths[0], /stroke="#FFF8EF" stroke-width="10"/)
-  assert.match(paths[1], /stroke="#238C50" stroke-width="7"/)
-  for (const background of ['fff8ef', 'f6f5f2', '202126']) assert.ok(contrast('238c50', background) >= 3)
+test('the current owner logo retains a visibly green check, orange G and transparent surrounding pixels', async () => {
+  const { data } = await sharp(new URL(`../public${BRAND_MARK_PNG}`, import.meta.url).pathname).ensureAlpha().raw().toBuffer({ resolveWithObject: true })
+  let green = 0, orange = 0, transparent = 0
+  for (let i = 0; i < data.length; i += 4) {
+    const [r, g, b, a] = data.subarray(i, i + 4)
+    if (a === 0) transparent++
+    if (a > 240 && g > 80 && g > r * 1.2 && g > b * 1.2) green++
+    if (a > 240 && r > 120 && r > g * 1.1 && g > b * 1.2) orange++
+  }
+  assert.ok(green > 400); assert.ok(orange > 1000); assert.ok(transparent > 20000)
 })
 
 test('the Solar layer loads last and provides accessible orange actions, graphite navigation and distinct factual status colours', async () => {
@@ -42,7 +47,7 @@ test('the Solar layer loads last and provides accessible orange actions, graphit
 
 test('the service/place/visit illustration replaces the orb without inventing business data or cluttering mobile search', async () => {
   const ui = await read('components/discovery-search.js'), css = await read('app/solar.css'), art = await read('components/discovery-route-art.js')
-  assert.match(ui, /!compact && <DiscoveryRouteArt locale=\{locale\}/)
+  assert.match(ui, /!compact && !home && <DiscoveryRouteArt locale=\{locale\}/)
   assert.match(art, /className="discovery-route-art" aria-hidden="true"/)
   for (const label of ["'A service' : 'Услуга'", "'A place' : 'Място'", "'Your next visit' : 'Твоят час'"]) assert.ok(art.includes(label))
   assert.doesNotMatch(art, /<button|<a\b|fetch\(|\d\d:\d\d|rating|available|confirmed/)
@@ -63,14 +68,16 @@ test('the search introduction explains natural-language discovery in Bulgarian a
 
 test('browser/PWA/social assets use the same complete mark and the service worker retires the old cache', async () => {
   const layout = await read('app/layout.js'), manifest = await read('app/manifest.js'), worker = await read('public/sw.js')
-  assert.match(layout, /icon: '\/gorez-symbol.svg\?v=3', apple: '\/brand-icon\?size=180&v=3'/)
-  assert.match(manifest, /src: '\/brand-icon\?size=512&v=3'/)
-  assert.match(worker, /gorez-shell-solar-v5/)
-  assert.match(worker, /gorez-symbol.svg\?v=3/)
-  assert.match(worker, /brand-icon\?size=512&v=3/)
+  assert.match(layout, /icon: BRAND_MARK_PNG, apple: '\/brand-icon\?size=180&v=4'/)
+  assert.match(manifest, /src: '\/brand-icon\?size=512&v=4'/)
+  assert.match(worker, /gorez-shell-solar-v6/)
+  assert.ok(worker.includes(BRAND_MARK_SRC)); assert.equal(BRAND_VERSION, 4)
+  assert.match(worker, /brand-icon\?size=512&v=4/)
+  assert.match(worker, /key.startsWith\('gorez-'\) && key !== CACHE/)
   for (const file of ['app/share-image/route.js', 'app/brand-icon/route.js']) {
     const source = await read(file)
-    assert.match(source, /gorez-symbol.svg/)
+    assert.ok(source.includes(BRAND_MARK_PNG.slice(1)))
+    assert.match(source, /data:image\/png;base64/)
     assert.doesNotMatch(source, /gorez-mark\.png|gorez-logo\.png|fetch\(/)
   }
 })

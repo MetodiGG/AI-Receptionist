@@ -1,0 +1,93 @@
+{
+  "date": "2026-11-04",
+  "mode": "Owner-supplied images for all fourteen categories. On 2026-11-05 the owner supplied a distinct orange cat/detective picture for Other services, replacing both the repeated Consulting image and generated alternatives.",
+  "usage": "Generic category thumbnails only, never claimed to be photographs of listed businesses. Owner-provided images are not regenerated; mechanical centre crop, metadata stripping and WebP resizing only. Public-use rights for attachments are not independently established; the owner is responsible for permission before publication.",
+  "assets": [
+    {
+      "id": "barber",
+      "source": "D914A4EC-9A84-4943-A760-068512CDA293/1-Photo-1.jpg",
+      "file": "public/category-photos/barber-v2.webp",
+      "retinaFile": "public/category-photos/barber-2x-v2.webp"
+    },
+    {
+      "id": "hair",
+      "source": "D914A4EC-9A84-4943-A760-068512CDA293/2-Photo-2.jpg",
+      "file": "public/category-photos/hair-v2.webp",
+      "retinaFile": "public/category-photos/hair-2x-v2.webp"
+    },
+    {
+      "id": "nails",
+      "source": "D914A4EC-9A84-4943-A760-068512CDA293/3-Photo-3.jpg",
+      "file": "public/category-photos/nails-v2.webp",
+      "retinaFile": "public/category-photos/nails-2x-v2.webp"
+    },
+    {
+      "id": "beauty",
+      "source": "D914A4EC-9A84-4943-A760-068512CDA293/4-Photo-4.jpg",
+      "file": "public/category-photos/beauty-v2.webp",
+      "retinaFile": "public/category-photos/beauty-2x-v2.webp"
+    },
+    {
+      "id": "car_wash",
+      "source": "D914A4EC-9A84-4943-A760-068512CDA293/5-Photo-5.jpg",
+      "file": "public/category-photos/car_wash-v2.webp",
+      "retinaFile": "public/category-photos/car_wash-2x-v2.webp"
+    },
+    {
+      "id": "auto_repair",
+      "source": "D914A4EC-9A84-4943-A760-068512CDA293/6-Photo-6.jpg",
+      "file": "public/category-photos/auto_repair-v2.webp",
+      "retinaFile": "public/category-photos/auto_repair-2x-v2.webp"
+    },
+    {
+      "id": "detailing",
+      "source": "D914A4EC-9A84-4943-A760-068512CDA293/7-Photo-7.jpg",
+      "file": "public/category-photos/detailing-v2.webp",
+      "retinaFile": "public/category-photos/detailing-2x-v2.webp"
+    },
+    {
+      "id": "fitness",
+      "source": "D914A4EC-9A84-4943-A760-068512CDA293/8-Photo-8.jpg",
+      "file": "public/category-photos/fitness-v2.webp",
+      "retinaFile": "public/category-photos/fitness-2x-v2.webp"
+    },
+    {
+      "id": "education",
+      "source": "D914A4EC-9A84-4943-A760-068512CDA293/9-Photo-9.jpg",
+      "file": "public/category-photos/education-v2.webp",
+      "retinaFile": "public/category-photos/education-2x-v2.webp"
+    },
+    {
+      "id": "pets",
+      "source": "D914A4EC-9A84-4943-A760-068512CDA293/10-Photo-10.jpg",
+      "file": "public/category-photos/pets-v2.webp",
+      "retinaFile": "public/category-photos/pets-2x-v2.webp"
+    },
+    {
+      "id": "home_services",
+      "source": "B155FE42-F514-478B-B522-304A41594CED/1-Photo-1.jpg",
+      "file": "public/category-photos/home_services-v2.webp",
+      "retinaFile": "public/category-photos/home_services-2x-v2.webp"
+    },
+    {
+      "id": "consulting",
+      "source": "B155FE42-F514-478B-B522-304A41594CED/2-Photo-2.jpg",
+      "file": "public/category-photos/consulting-v2.webp",
+      "retinaFile": "public/category-photos/consulting-2x-v2.webp"
+    },
+    {
+      "id": "health",
+      "source": "B155FE42-F514-478B-B522-304A41594CED/3-Photo-3.jpg",
+      "file": "public/category-photos/health-v2.webp",
+      "retinaFile": "public/category-photos/health-2x-v2.webp"
+    },
+    {
+      "id": "other",
+      "source": "BECF761C-5CAF-4865-95F6-C7A7D56354BD/1-Photo-1.jpg",
+      "version": 4,
+      "file": "public/category-photos/other-v4.webp",
+      "retinaFile": "public/category-photos/other-2x-v4.webp",
+      "note": "Exact owner-supplied orange cat/detective picture. No generation or retouching. Replaces the earlier question-mark option."
+    }
+  ]
+}

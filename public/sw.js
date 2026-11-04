@@ -1,5 +1,5 @@
-const CACHE = 'gorez-shell-solar-v5'
-const ASSETS = ['/gorez-symbol.svg?v=3', '/brand-icon?size=512&v=3', '/manifest.webmanifest']
+const CACHE = 'gorez-shell-solar-v6'
+const ASSETS = ['/brand/gorez-mark-v4.webp', '/brand/gorez-mark-96-v4.webp', '/brand/gorez-mark-v4.png', '/brand-icon?size=512&v=4', '/manifest.webmanifest']
 
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(ASSETS)))
@@ -7,7 +7,7 @@ self.addEventListener('install', (event) => {
 })
 
 self.addEventListener('activate', (event) => {
-  event.waitUntil(caches.keys().then((keys) => Promise.all(keys.filter((key) => key !== CACHE).map((key) => caches.delete(key)))))
+  event.waitUntil(caches.keys().then((keys) => Promise.all(keys.filter((key) => key.startsWith('gorez-') && key !== CACHE).map((key) => caches.delete(key)))))
   self.clients.claim()
 })
 

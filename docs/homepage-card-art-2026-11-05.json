@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-05",
+  "mode": "Decorative 3D product illustrations generated with the built-in image_gen tool; never presented as business or category photos.",
+  "optimization": "Whole-image responsive resize to 240/480 px WebP; transparent alpha retained; no runtime or paid image-optimizer requests.",
+  "assets": [
+    {
+      "id": "partners",
+      "source": "exec-bef5e587-dd9c-4ec0-b6ce-36de0df164ba.png",
+      "outputs": [
+        "public/home-art/partners-3d-v2.webp",
+        "public/home-art/partners-3d-2x-v2.webp"
+      ],
+      "prompt": "Use case: stylized-concept. Asset type: small decorative 3D visual for the GoRez Partners card on a premium orange/ivory booking website. Primary request: two hands shaking in a friendly business handshake, replacing chain links. Subject: one anatomically plausible handshake with exactly two natural human hands, warm neutral skin tones, one understated soft-orange tailored sleeve cuff and one ivory shirt cuff. Style: refined photorealistic 3D render with soft matte materials, gentle rounded forms and believable hand anatomy, polished and professional, not a flat emoji or cartoon sticker. Composition: centered complete handshake, slightly three-quarter perspective, unmistakable silhouette at 40–52 pixels; both wrist ends neatly finished by their cuffs, all essential hand shapes visible with comfortable empty margin. Lighting: large soft studio light, subtle realistic shadow, no hard metallic glare. Palette: warm neutral skin, restrained orange #ff762f and ivory. Background: genuinely transparent alpha, no rectangle or visible backdrop. Text: none. Avoid: chain links, logos, badges, extra hands, extra fingers, broken anatomy, jewelry, exaggerated muscular detail, glossy plastic, text, watermark, unrelated objects.",
+      "aspectRatio": 2
+    },
+    {
+      "id": "business",
+      "source": "exec-36f52c96-fca6-4d4c-b7e8-7cee705c02ff.png",
+      "outputs": [
+        "public/home-art/business-3d-v1.webp",
+        "public/home-art/business-3d-2x-v1.webp"
+      ],
+      "prompt": "Use case: stylized-concept. Asset type: compact 3D illustration for the For Business navigation card in the same GoRez orange/ivory booking website. Primary request: a beautiful realistic business-management tool, not a storefront emoji. Subject: a premium open miniature laptop with a warm copper-orange anodized aluminum shell, graphite keyboard, and an ivory glass screen showing only a simple orange appointment-calendar grid with a few blank blocks, no readable text. Style: photorealistic 3D product photography, authentic metallic materials, precise hinges, subtle bevels, sophisticated SaaS product art. Composition: one centered object, 3/4 view, square frame, complete silhouette filling about 76 percent, recognizable at 72–100 pixels. Lighting: warm soft studio key light, crisp readable edges, small natural contact shadow matching a premium amber-glass partnership icon. Palette: orange #ff762f, champagne highlights, ivory, graphite. Background: genuinely transparent alpha. Text: none. Avoid: words, numbers, logos, text, emoji, cartoon toy, extra props, scene, floor plane or white rectangular background."
+    }
+  ]
+}

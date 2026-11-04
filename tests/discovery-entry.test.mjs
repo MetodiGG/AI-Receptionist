@@ -4,11 +4,11 @@ import { readFile } from 'node:fs/promises'
 
 const read = path => readFile(new URL(`../${path}`, import.meta.url), 'utf8')
 
-test('home mounts the full AI finder without a second directory request or compact navigation step', async () => {
+test('home mounts the full existing AI finder and its shared browsing variant, never a retired catalogue page', async () => {
   const home = await read('components/home-page.js'), page = await read('components/discovery-page.js')
   assert.match(home, /<DiscoveryPage/)
   assert.doesNotMatch(home, /useDirectory|DirectoryFilters|BusinessDirectory|BookingStory|compact|\/businesses/)
-  assert.match(page, /<DiscoverySearch locale=\{locale\} preview=\{preview\} locationProvider=\{locationProvider\}\/>/)
+  assert.match(page, /<DiscoverySearch locale=\{locale\} preview=\{preview\} locationProvider=\{locationProvider\} home=\{home\} directoryData=\{directoryData\}\/>/)
   assert.match(page, /enabled \? <DiscoverySearch/)
   assert.match(page, /Търсенето временно не е достъпно/)
   assert.match(home, /accountDeleted=\{accountDeleted\}/)
@@ -21,7 +21,7 @@ test('public navigation, account actions and error states cannot restore the ret
     assert.doesNotMatch(source, /\/businesses\?lang=|copy\.catalog|Или избери от каталога/, path)
   }
   const nav = await read('components/marketing-navigation.js')
-  assert.match(nav, /\{business && <Link href="#how">/)
+  assert.doesNotMatch(nav, /\{business && <Link href="#how">/)
   assert.match(nav, /href=\{`\/for-businesses\?lang=/)
   assert.match(nav, /href=\{`\/login\?lang=/)
   assert.match(nav, /href=\{`\/account\?lang=/)

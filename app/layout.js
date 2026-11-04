@@ -8,6 +8,7 @@ import './business-management.css'
 import './category-art.css'
 import './dashboard-responsive.css'
 import { PwaRegister } from '../components/pwa-register'
+import { PublicWebAnalytics } from '../components/web-analytics'
 import { SITE_ORIGIN } from '../lib/seo.mjs'
 
 export const metadata = {
@@ -32,7 +33,7 @@ export const viewport = { themeColor: '#f6f5f2' }
 export default function RootLayout({ children }) {
   return (
     <html lang="bg" data-scroll-behavior="smooth">
-      <body><PwaRegister />{children}</body>
+      <body><PwaRegister />{children}<PublicWebAnalytics enabled={process.env.VERCEL_ENV === 'production'} /></body>
     </html>
   )
 }

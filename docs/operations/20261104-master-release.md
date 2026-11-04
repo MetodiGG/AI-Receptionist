@@ -2,7 +2,7 @@
 
 ## Authority and scope
 
-The owner explicitly requested publication, then confirmed **all three named Production migrations and publication**. No new paid services, Google/AI usage tests, real reservations, business opt-ins, subscriptions or credential changes were authorized. Vercel's separately generated Web Analytics branches were inspected read-only; adding their collection script remains a separate owner decision.
+The owner explicitly requested publication, then confirmed **all three named Production migrations and publication**. The owner separately approved the free Vercel visit counter and publication. No new paid services, Google/AI usage tests, real reservations, business opt-ins, subscriptions or credential changes were authorized. Vercel's separately generated Web Analytics branches were inspected read-only, not blindly merged; this branch adds the pinned SDK with a tested privacy filter instead.
 
 ## Database — completed
 
@@ -24,6 +24,8 @@ Applied `20261104170000`, `20261104171000`, `20261104172000` together using `202
 Code verification / GitHub and production deployment status will be recorded here after the final build and deployment checks. Database readiness alone is not evidence of a deployed application.
 
 ## Operational follow-up
+
+The Vercel counter loads only on allowlisted public Production routes on the GoRez domains, removes every query parameter, suppresses fragment/credential/private-token URLs and custom events, and respects DNT/GPC. Potentially personal referrers suppress collection; the global strict-origin referrer policy also protects same-origin collection requests. Preview/local and initial private routes do not load the SDK. Visitors/page views are viewed in Vercel → ai-receptionist → Analytics; `/admin` → Statistics contains separate first-party usage counts and a link there. Collection is not historical and is subject to blockers/provider limits. No Pro/Plus or paid Custom Events were enabled. See the official [Hobby limits](https://vercel.com/docs/analytics/limits-and-pricing) (50,000 monthly events shared across the team, collection paused rather than billed beyond the free allocation).
 
 Use a genuine approved owner account to opt into external mode; consent and direct booking-flow verification are still required. Non-partner booking links remain drafts until a verified platform admin personally reviews and approves them. The new anonymous measurements start from the application release, not historical site-visitor estimates. External clicks never establish completed bookings or sales.
 

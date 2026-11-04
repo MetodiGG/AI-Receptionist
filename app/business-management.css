@@ -32,3 +32,12 @@
 .admin-business-editor .settings-panel { padding: 0; border: 0; box-shadow: none; }
 .admin-content-history { margin-top: 20px; padding: 14px; border: 1px solid #e3d9cf; border-radius: 12px; font-size: 16px; }
 @media(max-width:600px) { .content-repeat-list article { grid-template-columns: minmax(0,1fr); padding: 12px; } .admin-business-editor .settings-form-grid { grid-template-columns: minmax(0,1fr); } .media-editor-grid { grid-template-columns: minmax(0,1fr); } }
+.business-coordinate-fields { padding: 18px; border: 1px solid #e2d8cb; border-radius: 16px; background: #fffcf7; }
+.business-coordinate-fields h4 { margin: 0 0 12px; font-size: 19px; }
+.business-coordinate-fields p { font-size: 16px; line-height: 1.5; }
+.business-coordinate-missing { padding: 12px; color: #80421f; background: #fff0dc; border-radius: 10px; }
+.business-coordinate-ready { color: #22613a; }
+.business-coordinate-paste { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 12px; margin: 18px 0; }
+.business-coordinate-values { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.business-coordinate-fields label { display: grid; min-width: 0; gap: 8px; font-size: 16px; }
+@media (max-width: 600px) { .business-coordinate-paste, .business-coordinate-values { grid-template-columns: minmax(0, 1fr); } }

@@ -10,6 +10,7 @@ import { BusinessLocationFields } from './business-location-fields'
 import { DurationInput } from './duration-input'
 import { WeeklyScheduleFields } from './weekly-schedule-fields'
 import { BusinessMediaEditor } from './business-media-editor'
+import { BusinessCoordinatesFields } from './business-coordinates-fields'
 
 const week = locale => (locale === 'en' ? ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'] : ['Понеделник','Вторник','Сряда','Четвъртък','Петък','Събота','Неделя']).map((label, i) => [i + 1, label])
 export function editorBusinessDraft(b) {
@@ -70,7 +71,7 @@ export function AdminBusinessEditor({ detail, locale, send, onSaved, onBusy, onD
           {['bg','en'].map(lang => <label className="full" key={lang}>{en ? 'About' : 'За бизнеса'} · {lang.toUpperCase()}<textarea rows={4} maxLength={2000} value={business.public_profile.description[lang]} onChange={e => profile('description', { ...business.public_profile.description, [lang]: e.target.value })}/></label>)}
           <label className="full">{en ? 'Brands, separated by commas' : 'Марки, разделени със запетая'}<input value={brandsText} onChange={e => {setBrandsText(e.target.value);profile('brands', e.target.value.split(',').map(v => v.trim()).filter(Boolean))}}/></label>
           <div className="full public-profile-payments">{[['cash', en ? 'Cash' : 'В брой'],['card', en ? 'Card' : 'С карта'],['bank', en ? 'Bank transfer' : 'Банков превод']].map(([key,label]) => <label key={key}><input type="checkbox" checked={business.public_profile.payments.includes(key)} onChange={e => profile('payments', e.target.checked ? [...business.public_profile.payments,key] : business.public_profile.payments.filter(v => v !== key))}/>{label}</label>)}</div>
-          {['latitude','longitude'].map(key => <Field key={key} label={key === 'latitude' ? (en ? 'Latitude' : 'Географска ширина') : (en ? 'Longitude' : 'Географска дължина')} type="number" step="any" value={business.public_profile[key]} onChange={value => profile(key, value === '' ? null : Number(value))}/>)}
+          <BusinessCoordinatesFields latitude={business.public_profile.latitude} longitude={business.public_profile.longitude} locale={locale} onChange={point => update('public_profile', { ...business.public_profile, latitude: point.latitude === '' || point.latitude == null ? null : Number(point.latitude), longitude: point.longitude === '' || point.longitude == null ? null : Number(point.longitude) })}/>
           <Field label={en ? 'Privacy contact email' : 'Имейл за поверителност'} type="email" value={business.privacy_contact_email} onChange={value => update('privacy_contact_email', value)}/>
           <label>{en ? 'Email language' : 'Език на имейлите'}<select value={business.notification_locale} onChange={e => update('notification_locale', e.target.value)}><option value="bg">BG</option><option value="en">EN</option></select></label>
           {['booking_terms','welcome_message','bot_instructions'].map((key, i) => <label className="full" key={key}>{(en ? ['Booking terms','Welcome message','Assistant instructions'] : ['Условия за резервации','Приветствие','Инструкции за асистента'])[i]}<textarea rows={3} maxLength={i === 0 ? 5000 : i === 1 ? 2000 : 8000} value={business[key]} onChange={e => update(key, e.target.value)}/></label>)}

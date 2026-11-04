@@ -155,9 +155,12 @@ a.site-home-link:focus-visible { outline-color: #b94315; }
 .discovery-partner-compact .discovery-card-identity h3 { margin: 0; font-size: 21px; line-height: 1.3; }
 .discovery-partner-compact .discovery-card-identity p { margin: 5px 0 0; color: #6a6264; font-size: 16px; line-height: 1.45; }
 .discovery-partner-thumb { width: 60px; height: 60px; object-fit: cover; border-radius: 12px; flex-shrink: 0; }
+.discovery-partner-matched-services { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 14px; }
+.discovery-partner-matched-services > span { padding: 7px 10px; border-radius: 9px; color: #564b43; background: #faf2e8; font-size: 16px; line-height: 1.4; }
 .discovery-partner-book { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 44px; padding-top: 12px; border-top: 1px solid #eee7dd; color: #87401e; font-size: 16px; font-weight: 700; text-decoration: none; }
 .discovery-partner-book svg { width: 20px; height: 20px; }
 .discovery-nearby-more { margin-top: 40px; padding-top: 24px; border-top: 1px solid #ded5ca; }
+.discovery-results-title { scroll-margin-block-start: 24px; }
 .discovery-nearby-more > header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
 .discovery-nearby-more > header h3 { margin: 0; font-size: 23px; }
 .discovery-nearby-more > header span { color: #6c6266; font-size: 16px; }

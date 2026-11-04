@@ -17,6 +17,7 @@ import { GoogleDiscoveryList } from './google-discovery-list'
 import { DiscoveryRouteArt } from './discovery-route-art'
 import { BusinessCategoryIcon } from './business-category-icon'
 import { DiscoveryNearbyMore } from './discovery-nearby-more'
+import { focusDiscoveryResults } from '../lib/discovery/results-navigation.mjs'
 
 const cities = [...BULGARIAN_CITIES].sort((a, b) => a.name.localeCompare(b.name, 'bg'))
 const duplicateCityNames = new Set(cities.filter((city, index) => cities.findIndex(other => other.name === city.name) !== index).map(city => city.name))
@@ -34,6 +35,13 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
   const controller = useRef(null), resultHeading = useRef(null), inFlight = useRef(false), locationInFlight = useRef(false), mounted = useRef(true)
   useEffect(() => { const timer = setTimeout(() => setSettledQuery(query), 350); return () => clearTimeout(timer) }, [query])
   useEffect(() => { mounted.current = true; return () => { mounted.current = false; controller.current?.abort() } }, [])
+  useEffect(() => {
+    if (compact || loading || (!result && !error)) return
+    // After React commits the response: move to results/clarification/error,
+    // not the loading shell. Typing and source filters never retrigger this.
+    const frame = requestAnimationFrame(() => focusDiscoveryResults(resultHeading.current, window.matchMedia?.('(prefers-reduced-motion: reduce)').matches))
+    return () => cancelAnimationFrame(frame)
+  }, [result, error, loading, compact])
   useEffect(() => {
     if (!initial || compact) return
     // Deferring one tick avoids a billable duplicate in React Strict Mode.
@@ -63,7 +71,7 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
       const data = await response.json()
       if (!response.ok) throw new Error(data.error?.code || 'SEARCH_UNAVAILABLE')
       if (!Array.isArray(data.results) || typeof data.externalStatus !== 'string') throw new Error('SEARCH_UNAVAILABLE')
-      if (mounted.current && !abort.signal.aborted) { setResult(data); requestAnimationFrame(() => resultHeading.current?.focus({ preventScroll: true })) }
+      if (mounted.current && !abort.signal.aborted) setResult(data)
     } catch (failure) { if (mounted.current) setError(failure.message === 'RATE_LIMITED' ? 'RATE_LIMITED' : failure.message === 'VALIDATION_ERROR' ? 'VALIDATION_ERROR' : 'SEARCH_UNAVAILABLE') }
     finally { clearTimeout(timer); inFlight.current = false; if (mounted.current) setLoading(false) }
   }
@@ -156,6 +164,7 @@ export function DiscoveryCard({ row, locale, preview = false, compact = false })
   if (internal && compact) return <article className="discovery-card discovery-partner discovery-partner-compact">
     <div className="discovery-card-top"><span className="discovery-source discovery-partner-badge"><img src="/gorez-symbol.svg?v=3" alt="" aria-hidden="true" width="24" height="24"/><span>{copy.partner}</span></span>{Number.isFinite(row.distanceKm) && <span className="discovery-partner-distance">{row.distanceKm} km</span>}</div>
     <div className="discovery-card-identity">{row.photos?.[0] ? <img className="discovery-partner-thumb" src={row.photos[0].src} width="60" height="60" alt=""/> : <BusinessCategoryIcon category={row.category} size={52}/>}<div><h3>{row.name}</h3><p>{row.address}</p></div></div>
+    <div className="discovery-partner-matched-services" aria-label={en ? 'Matching services' : 'Подходящи услуги'}>{row.services.slice(0, 3).map(service => <span key={service.id}>{service.name}</span>)}</div>
     {preview ? <span className="discovery-partner-book" aria-disabled="true">{en ? 'Test result · booking disabled' : 'Тестов резултат · без резервация'}</span> : <Link className="discovery-partner-book" href={href}>{copy.book}<Icon name="arrow"/></Link>}
   </article>
   return <article className={`discovery-card ${internal ? 'discovery-partner' : 'discovery-external'}`}>

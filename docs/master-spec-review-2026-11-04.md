@@ -4,6 +4,8 @@ Review branch: `codex/master-booking-dashboard`, based on default-branch commit 
 
 The implementation was initially prepared without production actions. **The owner subsequently explicitly approved the three Production migrations and publication on 2026-11-04.** See the release record in `operations/20261104-master-release.md` for actual applied/deployed status. The original working directories and their unrelated changes were preserved; implementation is in a separate Git worktree. No new paid services or Google/AI tests were approved or enabled.
 
+**Released:** [PR #28](https://github.com/MetodiGG/AI-Receptionist/pull/28), application revision `4736f4a`, successful Production deployment and live HTTP/mobile/Safari smoke checks. The separately approved Vercel Hobby counter received the first QA page views; details, screenshots and honest remaining cloud/provider checks are in the operation record.
+
 ## Implemented
 
 - Owner dashboard: phone-first labeled Home / Bookings / Results / More navigation, accessible native More dialog, publication/mode summary, safe-area spacing measured from the actual navigation height, compact settings section selector, readable controls, section save actions, draft warnings and guarded destructive actions. Desktop destinations remain available.

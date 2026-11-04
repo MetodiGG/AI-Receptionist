@@ -11,6 +11,8 @@ import { WeeklyScheduleFields } from '../../../components/weekly-schedule-fields
 import { AccountDeletionPanel } from '../../../components/account-deletion-panel'
 import { BusinessPublicProfileEditor } from '../../../components/business-public-profile-editor'
 import { BusinessMediaEditor } from '../../../components/business-media-editor'
+import { useUnsavedChanges } from '../../../hooks/use-unsaved-changes'
+import { BusinessBookingSettings } from '../../../components/business-booking-settings'
 import { businessLocationFields, findCity } from '../../../lib/business-location.mjs'
 import { DURATION_OPTIONS, validDuration, scheduleFromHours, scheduleProblem, scheduleRows, scheduleErrorText, scheduleWriteError } from '../../../lib/business-schedule.mjs'
 
@@ -23,7 +25,7 @@ function defaultSchedule(locale) {
   return WEEK[locale].map(([weekday, label]) => ({ weekday, label, enabled: weekday <= 5, open: '09:00', close: '18:00' }))
 }
 
-function SettingsContent({ business, refreshBusiness, locale }) {
+export function SettingsContent({ business, refreshBusiness, locale, preview = false, previewCollections = {} }) {
   const en = locale === 'en'
   const [profile, setProfile] = useState({
     name: business.name || '', phone: business.phone || '', address: business.address || '', timezone: business.timezone || 'Europe/Sofia',
@@ -36,20 +38,32 @@ function SettingsContent({ business, refreshBusiness, locale }) {
     city_ekatte: business.city_ekatte || '', neighborhood: business.neighborhood || '',
     default_duration_min: business.default_duration_min ?? 45, booking_slot_minutes: business.booking_slot_minutes ?? 15,
   })
-  const [services, setServices] = useState([])
-  const [staff, setStaff] = useState([])
-  const [hours, setHours] = useState([])
+  const [services, setServices] = useState(preview ? previewCollections.services || [] : [])
+  const [staff, setStaff] = useState(preview ? previewCollections.staff || [] : [])
+  const [hours, setHours] = useState(preview ? previewCollections.hours || [] : [])
   const [timeOff, setTimeOff] = useState([])
   const [newTimeOff, setNewTimeOff] = useState({ staff_id: '', starts_at: '', ends_at: '', reason: '' })
-  const [selectedStaff, setSelectedStaff] = useState('')
+  const [selectedStaff, setSelectedStaff] = useState(preview ? previewCollections.staff?.[0]?.id || '' : '')
   const [schedule, setSchedule] = useState(() => defaultSchedule(locale))
   const [section, setSection] = useState('business')
   const [saving, setSaving] = useState(false)
   const [message, setMessage] = useState(null)
   const [notificationStatus, setNotificationStatus] = useState(null)
+  const [dirtySections,setDirtySections] = useState({})
+  useUnsavedChanges(Object.values(dirtySections).some(Boolean),locale)
+  const sections=[['business',en?'Business information':'Данни за бизнеса'],['public',en?'Public profile & reviews':'Публична страница и отзиви'],['photos',en?'Photos':'Снимки'],['services',en?'Services':'Услуги'],['staff',en?'Team':'Екип'],['booking',en?'Booking method':'Начин на резервация'],['hours',en?'Opening hours & schedule':'Работно време и график'],['timeoff',en?'Time off':'Отсъствия'],['assistant',en?'Assistant':'Асистент'],['data',en?'Data':'Данни'],['account',en?'Account':'Акаунт']]
+  function changeSection(next) {
+    if(saving)return
+    if(['public','photos','booking'].includes(section)&&dirtySections[section]) {
+      if(!window.confirm(en?'Leave this editor? Unsaved edits in it will be lost.':'Да напуснеш ли редактора? Незапазените промени в него ще се загубят.'))return
+      setDirtySections(current=>({...current,[section]:false}))
+    }
+    setSection(next);setMessage(null)
+  }
   const bookingIntake = getBookingIntake(profile.industry, locale)
 
   useEffect(() => {
+    if (preview) return
     const controller = new AbortController()
     supabase.auth.getSession().then(async ({ data }) => {
       if (!data.session) return
@@ -62,6 +76,7 @@ function SettingsContent({ business, refreshBusiness, locale }) {
   }, [business.id, business.email_notifications_enabled])
 
   const loadCollections = useCallback(async () => {
+    if (preview) return
     const [servicesResult, staffResult, hoursResult, timeOffResult] = await Promise.all([
       supabase.from('services').select('*').eq('business_id', business.id).eq('active', true).order('sort_order').order('name'),
       supabase.from('staff').select('*').eq('business_id', business.id).eq('active', true).order('sort_order').order('name'),
@@ -78,19 +93,22 @@ function SettingsContent({ business, refreshBusiness, locale }) {
   }, [business.id])
 
   useEffect(() => { loadCollections() }, [loadCollections])
-  useEffect(() => { if (new URLSearchParams(window.location.search).get('section') === 'timeoff') setSection('timeoff') }, [])
+  useEffect(() => { const requested=new URLSearchParams(window.location.search).get('section'); if (['timeoff','account','booking'].includes(requested)) setSection(requested) }, [])
   useEffect(() => {
     if (!selectedStaff) return
     setSchedule(scheduleFromHours(WEEK[locale], hours, selectedStaff))
-  }, [hours, locale, selectedStaff])
+  }, [hours, selectedStaff])
+  useEffect(()=>{setSchedule(current=>current.map(day=>({...day,label:WEEK[locale].find(row=>row[0]===day.weekday)?.[1]})))},[locale])
 
   function showSuccess(text) {
+    setDirtySections(current=>({...current,[section]:false}))
     setMessage({ type: 'success', text })
     window.setTimeout(() => setMessage(null), 3500)
   }
 
   async function saveProfile(event) {
     event.preventDefault()
+    if(saving||preview)return
     if (section === 'business' && !findCity(profile.city_ekatte)) { setMessage({ type: 'error', text: en ? 'Choose your city from the list.' : 'Избери своя град от списъка.' }); return }
     if (!validDuration(profile.default_duration_min)) { setMessage({ type: 'error', text: en ? 'Enter a valid usual duration.' : 'Въведи валидна обичайна продължителност.' }); return }
     setSaving(true); setMessage(null)
@@ -113,37 +131,47 @@ function SettingsContent({ business, refreshBusiness, locale }) {
   }
 
   async function addService() {
-    const { data, error } = await supabase.from('services').insert({ business_id: business.id, name: en ? 'New service' : 'Нова услуга', price: 0, currency: 'EUR', duration_min: business.default_duration_min ?? 45, sort_order: services.length }).select().single()
+    if(saving||preview)return
+    const external=business.booking_mode==='external'
+    const { data, error } = await supabase.from('services').insert({ business_id: business.id, name: en ? 'New service' : 'Нова услуга', price: external?null:0, currency: 'EUR', duration_min: external?null:business.default_duration_min ?? 45, sort_order: services.length }).select().single()
     if (error) { setMessage({ type: 'error', text: error.message }); return }
     setServices((current) => [...current, data])
   }
 
   async function saveService(service) {
-    if (!service.name.trim() || !validDuration(service.duration_min) || service.price === '' || !Number.isFinite(Number(service.price)) || Number(service.price) < 0) { setMessage({ type: 'error', text: en ? 'Enter a service name, a non-negative price and a duration of 5–1440 minutes.' : 'Въведи име на услугата, неотрицателна цена и продължителност от 5 до 1440 минути.' }); return }
-    const { error } = await supabase.from('services').update({ name: service.name.trim(), description: service.description || null, category: service.category?.trim().slice(0, 80) || null, price: Number(service.price), duration_min: Number(service.duration_min) }).eq('id', service.id).eq('business_id', business.id)
+    if(saving||preview)return
+    const external=business.booking_mode==='external',unknown=v=>v===''||v==null
+    if (!service.name.trim() || (!(external&&unknown(service.duration_min))&&!validDuration(service.duration_min)) || (!(external&&unknown(service.price))&&(unknown(service.price)||!Number.isFinite(Number(service.price))||Number(service.price)<0))) { setMessage({ type: 'error', text: en ? 'Enter a service name, a non-negative price and a duration of 5–1440 minutes. External mode permits unknown values.' : 'Въведи име, неотрицателна цена и продължителност от 5 до 1440 минути. Външният режим допуска неизвестни стойности.' }); return }
+    setSaving(true)
+    const { error } = await supabase.from('services').update({ name: service.name.trim(), description: service.description || null, category: service.category?.trim().slice(0, 80) || null, price: unknown(service.price)?null:Number(service.price), duration_min: unknown(service.duration_min)?null:Number(service.duration_min) }).eq('id', service.id).eq('business_id', business.id)
+    setSaving(false)
     if (error) { setMessage({ type: 'error', text: error.message }); return }
     showSuccess(en ? 'Service saved.' : 'Услугата е запазена.')
   }
 
   async function archiveService(id) {
+    if(saving||preview||!window.confirm(en?'Archive this service? Existing appointments will remain.':'Да архивирам ли услугата? Съществуващите резервации остават.'))return
     const { error } = await supabase.from('services').update({ active: false }).eq('id', id).eq('business_id', business.id)
     if (error) { setMessage({ type: 'error', text: error.message }); return }
     setServices((current) => current.filter((item) => item.id !== id))
   }
 
   async function addStaff() {
+    if(saving||preview)return
     const { data, error } = await supabase.from('staff').insert({ business_id: business.id, name: en ? 'New specialist' : 'Нов специалист', sort_order: staff.length }).select().single()
     if (error) { setMessage({ type: 'error', text: error.message }); return }
     setStaff((current) => [...current, data]); setSelectedStaff(data.id)
   }
 
   async function saveStaff(person) {
+    if(saving||preview)return
     const { error } = await supabase.from('staff').update({ name: person.name.trim(), email: person.email || null, phone: person.phone || null, bio: person.bio || null }).eq('id', person.id).eq('business_id', business.id)
     if (error) { setMessage({ type: 'error', text: error.message }); return }
     showSuccess(en ? 'Team member saved.' : 'Специалистът е запазен.')
   }
 
   async function archiveStaff(id) {
+    if(saving||preview||!window.confirm(en?'Archive this specialist? Existing appointments will remain.':'Да архивирам ли специалиста? Съществуващите резервации остават.'))return
     const { error } = await supabase.from('staff').update({ active: false }).eq('id', id).eq('business_id', business.id)
     if (error) { setMessage({ type: 'error', text: error.message }); return }
     const next = staff.filter((item) => item.id !== id)
@@ -151,6 +179,7 @@ function SettingsContent({ business, refreshBusiness, locale }) {
   }
 
   async function saveSchedule() {
+    if(saving||preview)return
     if (!selectedStaff) return
     const problem = scheduleProblem(schedule)
     if (problem) { setMessage({ type: 'error', text: scheduleErrorText(problem, locale) }); return }
@@ -168,7 +197,7 @@ function SettingsContent({ business, refreshBusiness, locale }) {
 
   async function addTimeOff(event) {
     event.preventDefault()
-    if (saving) return
+    if (saving||preview) return
     const startsAt = DateTime.fromISO(newTimeOff.starts_at, { zone: business.timezone }).toUTC()
     const endsAt = DateTime.fromISO(newTimeOff.ends_at, { zone: business.timezone }).toUTC()
     if (!startsAt.isValid || !endsAt.isValid || endsAt <= startsAt) { setMessage({ type: 'error', text: en ? 'Choose a valid start and end time.' : 'Избери валиден начален и краен момент.' }); return }
@@ -182,12 +211,14 @@ function SettingsContent({ business, refreshBusiness, locale }) {
   }
 
   async function removeTimeOff(id) {
+    if(saving||preview||!window.confirm(en?'Remove this blocked period? These times may become available again.':'Да премахна ли блокирания период? Часовете може да станат достъпни отново.'))return
     const { error } = await supabase.from('time_off').delete().eq('id', id).eq('business_id', business.id)
     if (error) { setMessage({ type: 'error', text: error.message }); return }
     setTimeOff((current) => current.filter((item) => item.id !== id))
   }
 
   async function exportBusinessData() {
+    if(saving||preview)return
     setSaving(true); setMessage(null)
     const tables = ['services', 'staff', 'staff_services', 'working_hours', 'time_off', 'customers', 'appointments', 'conversations', 'messages', 'analytics_events', 'notification_outbox']
     const results = await Promise.all(tables.map(async (table) => {
@@ -215,16 +246,22 @@ function SettingsContent({ business, refreshBusiness, locale }) {
   }
 
   return (
-    <main className="dashboard-content admin-page settings-page">
+    <main className="dashboard-content admin-page settings-page" onChangeCapture={event=>{if(!event.target.closest('.settings-section-selector'))setDirtySections(current=>({...current,[section]:true}))}}>
       <div className="admin-page-head"><div><p className="auth-kicker">{en ? 'Configuration' : 'Конфигурация'}</p><h2>{en ? 'Settings' : 'Настройки'}</h2><p>{en ? 'Changes appear immediately on the public page and in the online assistant.' : 'Промените се отразяват веднага в публичната страница и онлайн асистента.'}</p></div><Link className="secondary-button" href={`/book/${business.slug}?lang=${locale}`} target="_blank">{en ? 'Open public page' : 'Преглед на страницата'} ↗</Link></div>
-      <div className="settings-tabs">
-        {[['business', en ? 'Business' : 'Бизнес'], ['public', en ? 'Public page & reviews' : 'Публична страница и отзиви'], ['photos', en ? 'Photos' : 'Снимки'], ['services', en ? 'Services' : 'Услуги'], ['staff', en ? 'Team' : 'Екип'], ['hours', en ? 'Hours & breaks' : 'Работно време и почивки'], ['timeoff', en ? 'One-off closure' : 'Еднократно отсъствие'], ['assistant', en ? 'Assistant' : 'Асистент'], ['data', en ? 'Data' : 'Данни'], ['account', en ? 'Account' : 'Акаунт']].map(([value, label]) => <button type="button" className={section === value ? 'active' : ''} onClick={() => setSection(value)} key={value}>{label}</button>)}
+      <div className="settings-section-selector"><label>{en?'Settings section':'Раздел с настройки'}<select value={section} onChange={event=>changeSection(event.target.value)} disabled={saving}>{sections.map(([value,label])=><option key={value} value={value}>{label}{dirtySections[value]?' •':''}</option>)}</select></label></div>
+      <div className="settings-tabs" aria-label={en?'Settings sections':'Раздели с настройки'}>
+        {sections.map(([value,label]) => <button type="button" disabled={saving} aria-pressed={section===value} className={section===value?'active':''} onClick={()=>changeSection(value)} key={value}>{label}{dirtySections[value]?' •':''}</button>)}
       </div>
+      {dirtySections[section]&&<p className="settings-unsaved" role="status">{en?'Unsaved changes in this section':'Има незапазени промени в този раздел'}</p>}
+      {['business','public','booking','assistant'].includes(section)&&<button type="submit" form="owner-settings-form" className="primary-button settings-quick-save" disabled={saving}>{saving?(en?'Saving…':'Запазване…'):(en?'Save changes':'Запази промените')}</button>}
+      {section==='hours'&&<button type="button" className="primary-button settings-quick-save" disabled={saving} onClick={saveSchedule}>{en?'Save hours and breaks':'Запази графика и почивките'}</button>}
       {message && <p className={`form-message ${message.type === 'success' ? 'success' : ''}`} role="alert">{message.text}</p>}
-      {section === 'public' && <BusinessPublicProfileEditor key={business.id} business={business} locale={locale} onSaved={refreshBusiness} />}
-      {section === 'photos' && <BusinessMediaEditor key={business.id} businessId={business.id} locale={locale} onSaved={refreshBusiness}/>}
+      {section==='booking'&&<BusinessBookingSettings formId="owner-settings-form" onBusy={setSaving} business={business} locale={locale} onDirty={value=>setDirtySections(current=>current.booking===value?current:{...current,booking:value})} onSaved={()=>{setDirtySections(current=>({...current,booking:false}));refreshBusiness()}} preview={preview}/>}
+      {business.booking_mode==='external'&&['hours','timeoff','assistant'].includes(section)&&<p className="settings-unsaved" role="note">{en?'External booking is active. The retained GoRez schedule below does not control your external calendar. To prepare a future return, you can edit it without accepting new GoRez bookings.':'Външните резервации са включени. Запазеният GoRez график отдолу не управлява външния календар. Можеш да го подготвиш за бъдещо връщане, без да приемаш нови GoRez резервации.'}</p>}
+      {section === 'public' && <BusinessPublicProfileEditor formId="owner-settings-form" onBusy={setSaving} key={business.id} business={business} locale={locale} preview={preview} onSaved={()=>{setDirtySections(current=>({...current,public:false}));refreshBusiness()}} />}
+      {section === 'photos' && <BusinessMediaEditor onBusy={setSaving} key={business.id} businessId={business.id} locale={locale} preview={preview?{business,staff,media:[]}:null} onSaved={()=>{setDirtySections(current=>({...current,photos:false}));refreshBusiness()}}/>}
 
-      {(section === 'business' || section === 'assistant') && <form className="settings-panel" onSubmit={saveProfile}>
+      {(section === 'business' || section === 'assistant') && <form id="owner-settings-form" className="settings-panel" onSubmit={saveProfile}>
         {section === 'business' ? <>
           <div className="settings-panel-head"><h3>{en ? 'Business profile' : 'Бизнес профил'}</h3><p>{en ? 'Main information and online booking rules.' : 'Основна информация и правила за онлайн записване.'}</p></div>
           <div className="settings-form-grid">
@@ -236,11 +273,14 @@ function SettingsContent({ business, refreshBusiness, locale }) {
             <label className="full"><span>{en ? 'Address' : 'Адрес'}</span><input value={profile.address} onChange={(event) => setProfile({ ...profile, address: event.target.value })} /></label>
             {bookingIntake.fields.length > 0 && <div className="settings-intake-preview full"><strong>{en ? 'Client booking questions' : 'Въпроси при резервация'}</strong><p>{en ? 'Saving this business type adds these questions to your booking form and assistant. Answers appear in each appointment.' : 'След запазване на типа бизнес тези въпроси се показват във формата и асистента. Отговорите се виждат при съответната резервация.'}</p><ul>{bookingIntake.fields.map((field) => <li key={field.key}>{field.label}{field.required ? ' *' : ''}</li>)}</ul><small>{en ? '* Required for booking' : '* Задължително за резервация'}</small></div>}
             <label className="full"><span>{en ? 'Website' : 'Уебсайт'}</span><input type="url" value={profile.website_url} onChange={(event) => setProfile({ ...profile, website_url: event.target.value })} placeholder="https://business.com" /></label>
+            <button type="button" className="secondary-button full" onClick={()=>changeSection('booking')}>{en?'I already use my own booking calendar':'Вече използвам собствен календар за резервации'} →</button>
+{business.booking_mode!=='external'&&<>
             <label><span>{en ? 'Booking window (days)' : 'Резервации до (дни)'}</span><input type="number" min="1" max="365" value={profile.booking_window_days} onChange={(event) => setProfile({ ...profile, booking_window_days: event.target.value })} /></label>
             <label><span>{en ? 'Usual duration for new services (min)' : 'Обичайна продължителност за нови услуги (мин)'}</span><input type="number" required min="5" max="1440" step="1" list="duration-suggestions" value={profile.default_duration_min} onChange={(event) => setProfile({ ...profile, default_duration_min: event.target.value })} /><datalist id="duration-suggestions">{DURATION_OPTIONS.map((duration) => <option key={duration} value={duration} />)}</datalist><small>{en ? 'A starting value only. Existing services keep their individual durations.' : 'Само начална стойност. Съществуващите услуги запазват своите отделни продължителности.'}</small></label>
             <label><span>{en ? 'Offer start times every (min)' : 'Предлагай начални часове през (мин)'}</span><select value={profile.booking_slot_minutes} onChange={(event) => setProfile({ ...profile, booking_slot_minutes: event.target.value })}>{[5, 10, 15, 20, 30, 45, 60, 90, 120].map((minutes) => <option value={minutes} key={minutes}>{minutes}</option>)}</select><small>{en ? 'Not the service duration. A 45-minute service blocks all 45 minutes even when start options are 15 minutes apart.' : 'Не е продължителност на услугата. Услуга от 45 минути блокира целите 45 минути, дори началните опции да са през 15 минути.'}</small></label>
             <label><span>{en ? 'Minimum notice (minutes)' : 'Минимално предизвестие (минути)'}</span><input type="number" min="0" max="10080" value={profile.minimum_notice_minutes} onChange={(event) => setProfile({ ...profile, minimum_notice_minutes: event.target.value })} /></label>
             <label><span>{en ? 'Cancellation notice (hours)' : 'Отказ до (часове)'}</span><input type="number" min="0" max="720" value={profile.cancellation_notice_hours} onChange={(event) => setProfile({ ...profile, cancellation_notice_hours: event.target.value })} /></label>
+</>}
             <label><span>{en ? 'Time zone' : 'Часова зона'}</span><select value={profile.timezone} onChange={(event) => setProfile({ ...profile, timezone: event.target.value })}><option value="Europe/Sofia">{en ? 'Sofia' : 'София'}</option><option value="Europe/Berlin">{en ? 'Berlin' : 'Берлин'}</option><option value="Europe/London">{en ? 'London' : 'Лондон'}</option></select></label>
             <label><span>{en ? 'Privacy contact' : 'Контакт за поверителност'}</span><input type="email" value={profile.privacy_contact_email} onChange={(event) => setProfile({ ...profile, privacy_contact_email: event.target.value })} placeholder="privacy@business.com" /></label>
             <label className="full"><span>{en ? 'Booking terms' : 'Условия за резервация'}</span><textarea value={profile.booking_terms} onChange={(event) => setProfile({ ...profile, booking_terms: event.target.value })} placeholder={en ? 'e.g. Appointments may be cancelled after a delay of more than 15 minutes.' : 'Напр. При закъснение над 15 минути часът може да бъде отменен.'} maxLength={2000} /></label>
@@ -250,8 +290,8 @@ function SettingsContent({ business, refreshBusiness, locale }) {
           </div>
         </> : <>
           <div className="settings-panel-head"><h3>{en ? 'Online assistant' : 'Онлайн асистент'}</h3><p>{en ? 'Set the welcome message and rules clients can open in the conversation.' : 'Настрой приветствието и правилата, които клиентите могат да отварят в разговора.'}</p></div>
-          <label className="settings-field"><span>{en ? 'Welcome message' : 'Приветствие'}</span><textarea value={profile.welcome_message} onChange={(event) => setProfile({ ...profile, welcome_message: event.target.value })} placeholder={en ? `Hello! I am ${business.name}'s online assistant.` : `Здравей! Аз съм онлайн асистентът на ${business.name}.`} maxLength={500} /></label>
-          <label className="settings-field"><span>{en ? 'Additional rules' : 'Допълнителни правила'}</span><textarea value={profile.bot_instructions} onChange={(event) => setProfile({ ...profile, bot_instructions: event.target.value })} placeholder={en ? 'e.g. Please call ahead if you are more than 15 minutes late...' : 'Напр. При закъснение над 15 минути се обади предварително...'} maxLength={3000} /></label>
+          <label className="settings-field"><span>{en ? 'Welcome message' : 'Приветствие'}</span><textarea disabled={business.booking_mode==='external'} value={profile.welcome_message} onChange={(event) => setProfile({ ...profile, welcome_message: event.target.value })} placeholder={en ? `Hello! I am ${business.name}'s online assistant.` : `Здравей! Аз съм онлайн асистентът на ${business.name}.`} maxLength={500} /></label>
+          <label className="settings-field"><span>{en ? 'Additional rules' : 'Допълнителни правила'}</span><textarea disabled={business.booking_mode==='external'} value={profile.bot_instructions} onChange={(event) => setProfile({ ...profile, bot_instructions: event.target.value })} placeholder={en ? 'e.g. Please call ahead if you are more than 15 minutes late...' : 'Напр. При закъснение над 15 минути се обади предварително...'} maxLength={3000} /></label>
           <div className="guided-assistant-note"><strong>{en ? 'Free guided assistant' : 'Безплатен guided асистент'}</strong><p>{en ? 'Answers use only published services, prices, schedules and rules. No paid AI API is used and there is no per-message cost.' : 'Отговорите се създават само от публикуваните услуги, цени, графици и правила. Не се използва платен AI API и няма цена на съобщение.'}</p></div>
         </>}
         <div className="settings-actions"><button className="primary-button" type="submit" disabled={saving}>{saving ? (en ? 'Saving...' : 'Запазване...') : (en ? 'Save changes' : 'Запази промените')}</button></div>
@@ -264,8 +304,8 @@ function SettingsContent({ business, refreshBusiness, locale }) {
           return <article className="editable-card" key={service.id}><div className="settings-form-grid">
             <label><span>{en ? 'Name' : 'Име'}</span><input value={service.name} onChange={event => change('name', event.target.value)} /></label>
             <label><span>{en ? 'Category (optional)' : 'Категория (по желание)'}</span><input maxLength={80} list="service-categories" value={service.category || ''} onChange={event => change('category', event.target.value)} /></label>
-            <label><span>{en ? 'Price' : 'Цена'}</span><input type="number" min="0" step="0.01" value={service.price} onChange={event => change('price', event.target.value)} /></label>
-            <label><span>{en ? 'Duration (minutes)' : 'Продължителност (минути)'}</span><input type="number" min="5" max="1440" step="1" value={service.duration_min} onChange={event => change('duration_min', event.target.value)} /></label>
+            <label><span>{en ? 'Price' : 'Цена'}</span><input type="number" min="0" step="0.01" value={service.price??''} onChange={event => change('price', event.target.value)} /></label>
+            <label><span>{en ? 'Duration (minutes)' : 'Продължителност (минути)'}</span><input type="number" min="5" max="1440" step="1" value={service.duration_min??''} onChange={event => change('duration_min', event.target.value)} /></label>
             <label className="full"><span>{en ? 'Description' : 'Описание'}</span><input value={service.description || ''} onChange={event => change('description', event.target.value)} /></label>
           </div><div className="editable-actions"><button className="danger-link" type="button" onClick={() => archiveService(service.id)}>{en ? 'Archive' : 'Архивирай'}</button><button className="secondary-button" type="button" onClick={() => saveService(service)}>{en ? 'Save' : 'Запази'}</button></div></article>
         })}</div><datalist id="service-categories">{[...new Set(services.map(service => service.category?.trim()).filter(Boolean))].map(category => <option key={category} value={category} />)}</datalist>

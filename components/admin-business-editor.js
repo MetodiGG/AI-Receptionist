@@ -11,6 +11,7 @@ import { DurationInput } from './duration-input'
 import { WeeklyScheduleFields } from './weekly-schedule-fields'
 import { BusinessMediaEditor } from './business-media-editor'
 import { BusinessCoordinatesFields } from './business-coordinates-fields'
+import { BusinessBookingSettings } from './business-booking-settings'
 
 const week = locale => (locale === 'en' ? ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'] : ['Понеделник','Вторник','Сряда','Четвъртък','Петък','Събота','Неделя']).map((label, i) => [i + 1, label])
 export function editorBusinessDraft(b) {
@@ -51,9 +52,9 @@ export function AdminBusinessEditor({ detail, locale, send, onSaved, onBusy, onD
       setError(labels[problem.code] || (en ? 'Could not save. Refresh and try again; existing bookings have not been changed.' : 'Не успяхме да запазим. Обнови и опитай отново; съществуващите резервации не са променени.'))
     } finally { setBusy(false); onBusy(false) }
   }
-  const tabs = [['business', en ? 'Details' : 'Данни'], ['public', en ? 'Public profile' : 'Публичен профил'], ['services', en ? 'Services' : 'Услуги'], ['staff', en ? 'Team' : 'Екип'], ['hours', en ? 'Hours' : 'График'], ['photos', en ? 'Photos' : 'Снимки']]
+  const tabs = [['business', en ? 'Details' : 'Данни'], ['public', en ? 'Public profile' : 'Публичен профил'], ['services', en ? 'Services' : 'Услуги'], ['staff', en ? 'Team' : 'Екип'], ['booking',en?'Booking method':'Начин на резервация'],['hours', en ? 'Hours' : 'График'], ['photos', en ? 'Photos' : 'Снимки']]
   return <div className="admin-business-editor"><nav className="settings-tabs" aria-label={en ? 'Edit business sections' : 'Редактиране на бизнес'}>{tabs.map(([key, label]) => <button type="button" disabled={busy} aria-pressed={section === key} key={key} onClick={() => choose(key)}>{label}</button>)}</nav>
-    {section === 'photos' ? <BusinessMediaEditor businessId={b.id} locale={locale} onBusy={onBusy} onSaved={() => onSaved(null)} preview={preview ? { business: b, staff: detail.staff, media: [] } : null}/> : <form onSubmit={submit}>
+    {section==='booking'?<BusinessBookingSettings business={b} locale={locale} admin send={send} onDirty={value=>{setDirty(value);onDirty(value)}} onBusy={value=>{setBusy(value);onBusy(value)}} onSaved={()=>{setDirty(false);onDirty(false);onSaved(null)}} preview={preview}/>:section === 'photos' ? <BusinessMediaEditor businessId={b.id} locale={locale} onBusy={onBusy} onSaved={() => onSaved(null)} preview={preview ? { business: b, staff: detail.staff, media: [] } : null}/> : <form onSubmit={submit}>
       <fieldset disabled={busy} className="content-fields">
         {section === 'business' && <div className="settings-form-grid">
           <Field label={en ? 'Business name' : 'Име на бизнеса'} required maxLength={120} value={business.name} onChange={value => update('name', value)}/>
@@ -81,10 +82,10 @@ export function AdminBusinessEditor({ detail, locale, send, onSaved, onBusy, onD
           <Field label={en ? 'Service name' : 'Услуга'} required value={service.name} onChange={v => row(setServices,index,'name',v)}/>
           <label>{en ? 'Description' : 'Описание'}<textarea maxLength={2000} value={service.description} onChange={e => row(setServices,index,'description',e.target.value)}/></label>
           <Field label={en ? 'Category' : 'Категория'} maxLength={80} value={service.category} onChange={v => row(setServices,index,'category',v)}/>
-          <Field label={`${en ? 'Price' : 'Цена'} (${detail.services.find(row=>row.id===service.id)?.currency||'EUR'})`} required type="number" min="0" step="0.01" value={service.price} onChange={v => row(setServices,index,'price',v)}/>
-          <label>{en ? 'Minutes' : 'Минути'}<DurationInput value={service.duration_min} onChange={v => row(setServices,index,'duration_min',v)} locale={locale} required/></label>
+          <Field label={`${en ? 'Price' : 'Цена'} (${detail.services.find(row=>row.id===service.id)?.currency||'EUR'})`} required={b.booking_mode!=='external'} type="number" min="0" step="0.01" value={service.price} onChange={v => row(setServices,index,'price',v)}/>
+          <label>{en ? 'Minutes' : 'Минути'}<DurationInput value={service.duration_min??''} onChange={v => row(setServices,index,'duration_min',v)} locale={locale} required={b.booking_mode!=='external'}/></label>
           <label className="booking-consent"><input type="checkbox" checked={service.active} onChange={e => row(setServices,index,'active',e.target.checked)}/>{en ? 'Active service' : 'Активна услуга'}</label>
-        </article>)}<button type="button" className="secondary-button" onClick={() => change(() => setServices(current => [...current,{name:'',description:'',category:'',price:0,duration_min:business.default_duration_min,active:true,sort_order:current.length}]))}>{en ? '+ Add service' : '+ Добави услуга'}</button></div>}
+        </article>)}<button type="button" className="secondary-button" onClick={() => change(() => setServices(current => [...current,{name:'',description:'',category:'',price:b.booking_mode==='external'?null:0,duration_min:b.booking_mode==='external'?null:business.default_duration_min,active:true,sort_order:current.length}]))}>{en ? '+ Add service' : '+ Добави услуга'}</button></div>}
         {section === 'staff' && <div className="content-repeat-list">{staff.map((person,index) => <article key={person.id || `new-${index}`}>
           <Field label={en ? 'Team member' : 'Специалист'} required value={person.name} onChange={v => row(setStaff,index,'name',v)}/>
           <Field label={en ? 'Email' : 'Имейл'} type="email" value={person.email} onChange={v => row(setStaff,index,'email',v)}/><Field label={en ? 'Phone' : 'Телефон'} value={person.phone} onChange={v => row(setStaff,index,'phone',v)}/>

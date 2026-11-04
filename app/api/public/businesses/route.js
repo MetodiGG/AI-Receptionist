@@ -21,6 +21,7 @@ export async function GET(request) {
       id: business.id,
       name: business.name,
       slug: business.slug,
+      booking_mode:business.booking_mode||'gorez',
       address: businessAddress(business),
       city_ekatte: business.city_ekatte, city: business.city, neighborhood: business.neighborhood,
       phone: business.phone,

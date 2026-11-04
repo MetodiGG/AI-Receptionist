@@ -8,13 +8,14 @@ import { businessAddress } from '../../lib/business-location.mjs'
 import { BusinessSetup } from '../../components/business-setup'
 
 function formatPrice(value, locale) {
+  if(value==null)return locale==='en'?'Ask the business':'Уточнява се'
   return new Intl.NumberFormat(locale === 'en' ? 'en-GB' : 'bg-BG', { style: 'currency', currency: 'EUR' }).format(Number(value || 0))
 }
 
 function ReadyDashboard({ business, data, locale }) {
   const en = locale === 'en'
   const { services, staff, hours, appointmentsCount } = data
-  const openDays = new Set(hours.map(row => row.weekday)).size
+  const openDays = business.booking_mode==='external'?(business.opening_hours||[]).filter(d=>d.periods?.length).length:new Set(hours.map(row => row.weekday)).size
   const stats = [
     ['calendar', en ? 'Bookings' : 'Резервации', appointmentsCount],
     ['briefcase', en ? 'Active services' : 'Активни услуги', services.length],
@@ -28,7 +29,7 @@ function ReadyDashboard({ business, data, locale }) {
     <div className="dashboard-grid">
       <section className="content-card">
         <div className="card-head"><h3>{en ? 'Your services' : 'Твоите услуги'}</h3></div>
-        {services.length ? <div className="service-list">{services.map(service => <div className="service-item" key={service.id}><span className="service-avatar">{service.name.slice(0, 1).toUpperCase()}</span><div><p className="service-name">{service.name}</p><p className="service-meta">{service.duration_min} {en ? 'minutes' : 'минути'}</p></div><span className="service-price">{formatPrice(service.price, locale)}</span></div>)}</div> : <div className="empty-state">{en ? 'No services have been added yet.' : 'Все още няма добавени услуги.'}</div>}
+        {services.length ? <div className="service-list">{services.map(service => <div className="service-item" key={service.id}><span className="service-avatar">{service.name.slice(0, 1).toUpperCase()}</span><div><p className="service-name">{service.name}</p>{service.duration_min!=null&&<p className="service-meta">{service.duration_min} {en ? 'minutes' : 'минути'}</p>}</div><span className="service-price">{formatPrice(service.price, locale)}</span></div>)}</div> : <div className="empty-state">{en ? 'No services have been added yet.' : 'Все още няма добавени услуги.'}</div>}
       </section>
       <section className="content-card">
         <div className="card-head"><h3>{en ? 'Business profile' : 'Бизнес профил'}</h3></div>

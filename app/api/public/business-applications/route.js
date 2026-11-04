@@ -7,6 +7,7 @@ import { randomUUID } from 'node:crypto'
 import { readApplicationPhotos, prepareApplicationPhotos } from '../../../../lib/application-photos.mjs'
 import { normalizeBusinessImage } from '../../../../lib/image-normalization.mjs'
 import { checked, mediaAccess, uploadBusinessMedia } from '../../../../lib/business-media-server'
+import { verifyBookingDestination } from '../../../../lib/booking-destination-server'
 
 export const POST=createBusinessApplicationHandler({
   readSubmission:readApplicationPhotos,
@@ -29,6 +30,7 @@ export const POST=createBusinessApplicationHandler({
     const {error}=await db.auth.admin.deleteUser(id);if(error)throw error
   },
   save:async ({ownerId,requiresActivation,record,images=[]})=>{
+    if(record.business.booking_mode==='external')await verifyBookingDestination(record.business.external_booking_url)
     const db=getSupabaseAdmin()
     const prepared={...record,staff:record.staff.map(person=>({...person,id:randomUUID()}))}
     const {data:leadId,error}=await db.rpc('submit_business_application',{p_owner:ownerId,p_requires_activation:requiresActivation,p_application:prepared})

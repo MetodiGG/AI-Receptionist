@@ -15,5 +15,6 @@ export default function Preview(){
     {id:'lead-beauty',business_name:'Belle Beauty Studio',contact_name:'Maria Example',phone:'+359000000001',email:'beauty@example.com',category:'beauty',city:'Пловдив',status:'new',notes:'Споделена заявка от собственика / Submitted by the owner'},
     {id:'lead-approved',business_name:'Balance Studio',contact_name:'Sam Example',phone:'+359000000002',email:'fitness@example.com',category:'fitness',city:'Варна',status:'onboarding',notes:''},
   ].map(row=>({...row,created_at:'2026-10-16T12:00:00Z',updated_at:'2026-10-16T12:00:00Z'}))
-  return <PlatformAdmin preview={{overview:{businesses,totals:{businesses:2,active:1,archived:1,bookings30d:40},audit:[]},leads,details}}/>
+  const externalLinks={links:[{id:'70000000-0000-4000-8000-000000000001',place_id:'ChIJ_LOCAL_PREVIEW_EXAMPLE',label:'Example External Studio · само локален тест',booking_url:'https://example.com/appointments',official_url:'https://example.com/contact',evidence:'Измислен пример само за локална проверка на интерфейса, без реален бизнес.',verification_status:'draft',revision:0,last_checked_at:null,verified_by:null}],reports:[],clicks:{}}
+  return <PlatformAdmin preview={{overview:{businesses,totals:{businesses:2,active:1,archived:1,bookings30d:40},audit:[]},leads,details,externalLinks}}/>
 }

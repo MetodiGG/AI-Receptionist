@@ -28,6 +28,7 @@
 .settings-quick-save { margin-bottom:20px; }
 .admin-console :is(.admin-business-card,.admin-detail-header,.admin-content-history,.admin-detail-resources,.content-repeat-list article) { overflow-wrap:anywhere; min-width:0; }
 .admin-console :is(button,input,select) { min-height:44px; }
+.admin-console :is(button,.primary-button,.secondary-button,.admin-review-link) { font-size:16px; line-height:1.4; }
 .admin-console :is(label,.admin-state,.admin-business-card p) { font-size:16px; }
 .admin-console .admin-detail-counts { grid-template-columns:repeat(3,minmax(0,1fr)); }
 .admin-console .admin-detail-counts > div { min-width:0; overflow-wrap:anywhere; }
@@ -53,6 +54,24 @@
 .external-place-selection :is(h4,h5) { font-size:21px; margin:12px 0; }
 .external-place-selection textarea,.external-links-admin :is(input,textarea) { min-width:0; width:100%; min-height:48px; padding:12px; font:inherit; }
 .external-links-admin { overflow-wrap:anywhere; }
+.admin-console-toolbar { min-width:0; flex-wrap:wrap; }
+.admin-console-toolbar .admin-section-tabs { min-width:0; flex-wrap:wrap; }
+.admin-console-toolbar .admin-section-tabs button { flex:none; font-size:16px; white-space:normal; line-height:1.4; }
+.admin-section-selector { display:none; min-width:0; }
+.external-links-admin > header { gap:20px; }
+.external-links-admin > header > div { min-width:0; }
+.external-links-admin > header h2 { font-size:clamp(25px,3vw,32px); }
+.admin-console .external-links-admin p { font-size:17px; line-height:1.6; }
+.external-partner-route { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; padding:16px; border:1px solid #e4d9cf; border-radius:14px; background:#fff9f2; }
+.external-partner-route p { flex:1 1 250px; margin:0; }
+.external-links-help { margin:18px 0; }
+.external-links-admin :is(.external-links-help,.external-link-record-details) > summary { min-height:44px; align-content:center; font-size:17px; line-height:1.5; font-weight:700; cursor:pointer; }
+.external-composer-heading,.external-link-card-heading { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
+.external-composer-heading h3 { margin:0; font-size:23px; }
+.external-link-composer fieldset { margin-top:20px; }
+.external-link-search { display:grid; gap:10px; font-weight:700; margin:24px 0; }
+.external-link-search input { border:1px solid #ddd4c9; border-radius:12px; background:#fff; }
+.external-links-empty { padding:20px; border:1px dashed #dfd3c8; border-radius:14px; }
 .discovery-google-kit gmp-advanced-place-list { font-size:17px; --gmp-mat-font-body-small:16px; --gmp-mat-font-label-large:16px; }
 .faq-content { width:min(100% - 32px,1000px); margin:44px auto 80px; }
 .faq-content h1 { font-size:clamp(32px,6vw,60px); line-height:1.1; overflow-wrap:anywhere; }
@@ -93,7 +112,16 @@
   .settings-panel-head.with-action,.editable-actions,.data-export-box { flex-wrap:wrap; gap:12px; }
   .settings-quick-save { width:100%; }
   .settings-actions > button { width:100%; }
-  .admin-console-toolbar nav { flex-wrap:wrap; }
+  .admin-console .admin-console-toolbar { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:end; gap:12px; }
+  .admin-console .admin-console-toolbar .admin-section-tabs { display:none; }
+  .admin-section-selector { display:grid; gap:8px; }
+  .admin-section-selector label { font-weight:700; }
+  .admin-section-selector select { width:100%; min-width:0; min-height:48px; padding:10px 34px 10px 12px; border:1px solid #ddd4c9; border-radius:12px; background:#fff; font:inherit; font-size:16px; }
+  .admin-console .admin-refresh-button { min-height:48px; padding:10px 12px; font-size:16px; }
+  .external-partner-route { align-items:stretch; }
+  .external-partner-route > button { width:100%; }
+  .external-links-admin > header > button { width:100%; }
+  .external-composer-heading { align-items:flex-start; }
   .admin-console .admin-detail-resources { grid-template-columns:minmax(0,1fr); }
   .admin-console .admin-detail-counts { grid-template-columns:repeat(2,minmax(0,1fr)); }
   .admin-business-editor > .settings-tabs { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); width:100%; }

@@ -20,6 +20,7 @@ const account = {
   token_uri: 'https://oauth2.googleapis.com/token', universe_domain: 'googleapis.com',
 }
 const config = discoveryConfig({
+  DISCOVERY_PROVIDER_MODE: 'google',
   DISCOVERY_ENABLED: 'true', GOOGLE_PLACES_AUTH_MODE: 'oauth', GOOGLE_PLACES_PROJECT_ID: project,
   GOOGLE_PLACES_SERVICE_ACCOUNT_JSON: JSON.stringify(account),
   GOOGLE_PLACES_UI_KIT_ENABLED: 'true', GOOGLE_PLACES_UI_KIT_APPROVED: 'true',

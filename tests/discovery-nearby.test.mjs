@@ -20,7 +20,7 @@ const parse = input => ({ ...parseIntent(input, now, { v2: true }), searchV2: tr
 const read = path => readFile(new URL(`../${path}`, import.meta.url), 'utf8')
 function dependencies(patch = {}) {
   const calls = { fetch: [], budget: [] }
-  const config = { ...discoveryConfig({ DISCOVERY_ENABLED: 'true' }), searchV2Enabled: true, uiKitEnabled: true, browserKey: 'test-only-browser', googleKey: 'test-only-server' }
+  const config = { ...discoveryConfig({ DISCOVERY_PROVIDER_MODE: 'google', DISCOVERY_ENABLED: 'true' }), searchV2Enabled: true, uiKitEnabled: true, browserKey: 'test-only-browser', googleKey: 'test-only-server' }
   return { now, config, calls, readInternal: async intent => fictionalDiscoveryBusinesses(intent), readLinks: async () => [],
     claimBudget: async (...args) => { calls.budget.push(args); return true },
     fetcher: async (url, init) => { calls.fetch.push({ url, init }); return Response.json(fictionalGoogleResponse(JSON.parse(init.body))) },
@@ -122,7 +122,8 @@ test('one rail retains widget plans and has no source toggles that could cause r
   const source = await read('components/discovery-home-browse.js'), search = await read('components/discovery-search.js')
   assert.match(source, /google\(result\?\.external, 'near-google'\)/)
   assert.match(source, /google\(result\?\.furtherExternal, 'far-google'\)/)
-  assert.match(source, /expanded &&/)
+  assert.match(source, /showFurther &&/)
+  assert.match(source, /const showFurther = catalogueMode \|\| expanded/)
   assert.doesNotMatch(search, /setSource|discovery-source-tabs/)
   assert.match(await read('components/google-discovery-list.js'), /\}, \[plan, rail, nearby\]\)/)
 })

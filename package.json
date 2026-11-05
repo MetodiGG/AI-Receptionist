@@ -10,7 +10,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "node --test tests/*.test.mjs"
+    "test": "node --test tests/*.test.mjs",
+    "catalogue:check": "node scripts/check-sofia-catalogue.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "2.117.3",

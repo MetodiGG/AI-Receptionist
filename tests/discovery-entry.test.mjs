@@ -8,7 +8,7 @@ test('home mounts the full existing AI finder and its shared browsing variant, n
   const home = await read('components/home-page.js'), page = await read('components/discovery-page.js')
   assert.match(home, /<DiscoveryPage/)
   assert.doesNotMatch(home, /useDirectory|DirectoryFilters|BusinessDirectory|BookingStory|compact|\/businesses/)
-  assert.match(page, /<DiscoverySearch locale=\{locale\} preview=\{preview\} locationProvider=\{locationProvider\} home=\{home\} directoryData=\{directoryData\}\/>/)
+  assert.match(page, /<DiscoverySearch locale=\{locale\} preview=\{preview\} cataloguePreview=\{cataloguePreview\} locationProvider=\{locationProvider\} home=\{home\} directoryData=\{directoryData\}\/>/)
   assert.match(page, /enabled \? <DiscoverySearch/)
   assert.match(page, /Търсенето временно не е достъпно/)
   assert.match(home, /accountDeleted=\{accountDeleted\}/)

@@ -14,33 +14,41 @@ import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
 import { discoveryDistanceOrigin } from '../lib/discovery/distance-origin.mjs'
 const GoogleBusinessCard = dynamic(() => import('./google-business-card').then(module => module.GoogleBusinessCard))
 
-export function DiscoveryHomeBusinesses({ locale, filters, preview = false, data, result, loading = false, error = '', onRetry, headingRef }) {
+export function DiscoveryHomeBusinesses({ locale, filters, preview = false, data, result, resultKey, loading = false, error = '', onRetry, headingRef, onLoadMore, loadingMore = false, moreError = '' }) {
   const copy = HOME_DISCOVERY_COPY[locale], messages = DISCOVERY_COPY[locale], en = locale === 'en'
   const directory = useDirectory(preview ? data || { businesses: [], status: 'ready' } : null)
   const [expanded, setExpanded] = useState(false)
-  useEffect(() => setExpanded(false), [result])
-  const rows = result ? orderedRailRows(result.results) : homeBusinesses(directory.businesses || [], filters).map(row => ({ ...row, source: 'gorez' }))
+  useEffect(() => setExpanded(false), [resultKey ?? result?.checkedAt])
+  const catalogueMode = ['catalogue', 'sofia_only'].includes(result?.externalStatus)
+  const rows = result ? orderedRailRows(result.results, { preserveOrder: catalogueMode }) : homeBusinesses(directory.businesses || [], filters).map(row => ({ ...row, source: 'gorez' }))
   const nearby = Boolean(result?.intent?.coordinates || (!result && filters.coordinates?.consent))
   const distanceOrigin = discoveryDistanceOrigin({ coordinates: filters.coordinates, cityCode: result?.intent?.cityCode || filters.cityCode })
   const nearRows = rows.filter(row => row.proximityBand !== 'further'), farRows = rows.filter(row => row.proximityBand === 'further')
-  const hasMore = Boolean(farRows.length || result?.furtherExternal)
+  const showFurther = catalogueMode || expanded || (!nearRows.length && !result?.external)
+  const hiddenFurther = Boolean(farRows.length || result?.furtherExternal) && !showFurther
+  const nextPage = result?.cataloguePage?.nextOffset != null && Boolean(onLoadMore)
+  const hasMore = hiddenFurther || nextPage
+  function advanceBusinesses() { if (hiddenFurther) setExpanded(true); else if (nextPage && !loadingMore && !moreError) onLoadMore() }
   const busy = loading || (!result && !error && directory.status === 'loading')
   const notice = error ? error === 'RATE_LIMITED' ? messages.rate : messages.error : !result && directory.status === 'error' ? copy.unavailable : ''
   const card = row => <li key={`${row.source}:${row.id}`}><DiscoveryBusinessCard row={row} locale={locale} preview={preview} nearby={nearby} distanceOrigin={distanceOrigin}/></li>
   const google = (plan, key) => plan?.mode === 'ui_kit_cards' ? plan.cards.map(item => <li key={`${key}:${item.placeId}`}><GoogleBusinessCard card={item} locale={locale} providerLocale={plan.locale} nearby={nearby} distanceOrigin={distanceOrigin}/></li>) : plan && <li key={key} className="home-google-chunk"><GoogleDiscoveryList plan={plan} locale={locale} rail nearby={nearby} onRetry={onRetry}/></li>
   const rail = !busy && !result?.clarification && <>
     {nearRows.map(card)}{google(result?.external, 'near-google')}
-    {hasMore && !expanded && <li className="home-more-item"><button type="button" className="home-more-businesses" onClick={() => setExpanded(true)}>{en ? 'More businesses' : 'Още бизнеси'}<Icon name="arrow"/></button></li>}
-    {expanded && <>{farRows.map(card)}{google(result?.furtherExternal, 'far-google')}</>}
+    {showFurther && <>{farRows.map(card)}{google(result?.furtherExternal, 'far-google')}</>}
+    {loadingMore && <li className="home-rail-loading" role="status"><span className="button-spinner"/><span>{en ? 'Loading businesses…' : 'Зареждаме бизнеси…'}</span></li>}
   </>
-  const empty = !busy && !notice && !result?.clarification && !nearRows.length && !result?.external && !hasMore
-  return <DiscoveryHomeRail title={copy.explore} locale={locale} kind="businesses" headingRef={headingRef} busy={busy} onNearEnd={hasMore && !expanded ? () => setExpanded(true) : undefined} action={<Link href={`/partners?lang=${locale}`} prefetch={false}>{copy.all}<Icon name="arrow"/></Link>} message={<>
+  const empty = !busy && !notice && !result?.clarification && !rows.length && !result?.external && !result?.furtherExternal && !nextPage
+  return <DiscoveryHomeRail title={copy.explore} locale={locale} kind="businesses" uniformCards={!result?.external && !result?.furtherExternal} headingRef={headingRef} busy={busy} resetKey={resultKey ?? result?.checkedAt} onNearEnd={hasMore && !loadingMore && !moreError ? advanceBusinesses : undefined} action={catalogueMode ? null : <Link href={`/partners?lang=${locale}`} prefetch={false}>{copy.all}<Icon name="arrow"/></Link>} message={<>
     {busy && <div className="home-browse-skeleton" role="status"><span className="sr-only">{messages.searching}</span><i/><i/><i/></div>}
     {notice && <div className="home-browse-empty" role="alert"><p>{notice}</p><button className="secondary-button" type="button" onClick={error ? onRetry : directory.retry}>{copy.retry}</button></div>}
+    {moreError && <div className="discovery-notice" role="status"><p>{moreError === 'RATE_LIMITED' ? messages.rate : messages.error}</p><button type="button" className="secondary-button" onClick={onLoadMore}>{copy.retry}</button></div>}
     {result?.clarification && <p className="discovery-clarification" role="status">{result.clarification.message}</p>}
     {result?.appointmentClarification && <p className="discovery-clarification" role="status">{result.appointmentClarification.message}</p>}
     {result?.externalStatus === 'quota' && <p className="discovery-notice" role="status">{messages.quota}</p>}
     {result?.externalStatus === 'unavailable' && <p className="discovery-notice" role="status">{messages.unavailable}</p>}
+    {result?.warnings?.includes('catalogue_sofia_only') && <p className="discovery-notice" role="status">{en ? 'The reviewed catalogue currently covers Sofia. GoRez partners in other cities are still searchable.' : 'Провереният каталог засега е за София. Партньорите на GoRez в други градове остават достъпни.'}</p>}
+    {result?.warnings?.includes('catalogue_unavailable') && <p className="discovery-notice" role="status">{en ? 'The catalogue is temporarily unavailable. GoRez bookings remain available.' : 'Каталогът временно не е достъпен. Резервациите в GoRez продължават да работят.'}</p>}
     {result?.warnings?.includes('internal_unavailable') && <p className="discovery-notice" role="status">{messages.internalUnavailable}</p>}
     {empty && <p className="home-browse-empty" role="status">{en ? 'No matching businesses here yet. Try another service or area.' : 'Още няма подходящи бизнеси тук. Опитай друга услуга или район.'}</p>}
   </>}>{rail}</DiscoveryHomeRail>

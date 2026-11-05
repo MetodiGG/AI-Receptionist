@@ -17,7 +17,7 @@ import { providerJson, readBoundedJson, sameSiteRequest } from '../lib/discovery
 const now = DateTime.fromISO('2026-10-26T12:00:00Z')
 const input = patch => discoveryRequestSchema.parse({ query: 'маникюр в София', ...patch })
 const parse = patch => parseIntent(input(patch), now)
-const config = discoveryConfig({ DISCOVERY_ENABLED: 'true', GOOGLE_PLACES_ENABLED: 'true', GOOGLE_PLACES_REST_USE_APPROVED: 'true', GOOGLE_PLACES_BILLING_REGION: 'NON_EEA', GOOGLE_PLACES_API_KEY: 'fake-server-key' })
+const config = discoveryConfig({ DISCOVERY_PROVIDER_MODE: 'google', DISCOVERY_ENABLED: 'true', GOOGLE_PLACES_ENABLED: 'true', GOOGLE_PLACES_REST_USE_APPROVED: 'true', GOOGLE_PLACES_BILLING_REGION: 'NON_EEA', GOOGLE_PLACES_API_KEY: 'fake-server-key' })
 const business = patch => ({ id: '10000000-0000-4000-8000-000000000001', slug: 'test-studio', name: 'Test Studio', industry: 'beauty', active: true, platform_status: 'enabled', city_ekatte: '68134', city: 'София', neighborhood: 'Младост 1', address: 'Test address', services: [{ id: 's1', name: 'Маникюр', price: 30, currency: 'EUR', duration_min: 60, active: true }], staff: [], workingHours: [], ...patch })
 const rawPlace = patch => ({ id: 'TEST_PLACE_1', displayName: { text: 'External Studio' }, formattedAddress: 'Sofia, Bulgaria', googleMapsUri: 'https://www.google.com/maps/place/test', primaryType: 'nail_salon', businessStatus: 'OPERATIONAL', ...patch })
 const request = (body = input(), headers = {}) => new Request('https://www.gorez.co/api/public/discovery', { method: 'POST', headers: { 'Content-Type': 'application/json', ...headers }, body: typeof body === 'string' ? body : JSON.stringify(body) })

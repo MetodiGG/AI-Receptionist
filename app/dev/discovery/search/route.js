@@ -5,7 +5,7 @@ import { fictionalDiscoveryBusinesses, fictionalGoogleResponse } from '../../../
 export async function POST(request) {
   if (!discoveryConfig(process.env).devMock) return new Response(null, { status: 404 })
   return createDiscoveryHandler({
-    config: { ...discoveryConfig({}), enabled: true, searchV2Enabled: discoveryConfig(process.env).searchV2Enabled, googleEnabled: true, googleKey: 'test-only-not-a-key' },
+    config: { ...discoveryConfig({ DISCOVERY_PROVIDER_MODE: 'google' }), enabled: true, searchV2Enabled: discoveryConfig(process.env).searchV2Enabled, googleEnabled: true, googleKey: 'test-only-not-a-key' },
     allowAttempt: async () => true, claimBudget: async () => true,
     fetcher: async (_url, init) => Response.json(fictionalGoogleResponse(JSON.parse(init.body))),
     readInternal: async intent => fictionalDiscoveryBusinesses(intent), readLinks: async () => [],

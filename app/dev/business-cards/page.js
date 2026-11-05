@@ -15,7 +15,7 @@ export default async function BusinessCardPreview({ searchParams }) {
   const external = { source: 'google', id: 'local-external', placeId: 'fixture_place_not_real', name: 'ДЕМО · непартньор, не е Google резултат', category: 'hair', primaryType: 'barber_shop', distanceKm: 1.1, rating: 4.6, reviewCount: 14, website: 'https://example.com/', phone: '+359000000000' }
   return <main className="marketing-page customer-home"><section className="discovery-home home-discovery-section home-businesses">
     <h1>{locale === 'en' ? 'Local card review' : 'Локален преглед на картите'}</h1>
-    <p role="note">ДЕМО · измислени бизнеси, отзиви и разстояния · без Google/AI заявки и без резервации. Външната демо карта не имитира истинския Google widget.</p>
+    <p role="note">ДЕМО · измислени бизнеси, отзиви и разстояния · резервациите са изключени. Външната демо карта не имитира истинския Google widget.</p>
     <ul className="home-discovery-rail" aria-label="Локални тестови карти">{[partner, nails, consultant, external].map(row => <li key={row.id}><DiscoveryBusinessCard row={row} locale={locale} nearby preview/></li>)}
       <li aria-label="Умишлено висок тестов блок" style={{ height: 850, padding: 20, border: '1px dashed #ab7851' }}>850 px тестов блок — не трябва да разтяга останалите карти.</li>
     </ul>

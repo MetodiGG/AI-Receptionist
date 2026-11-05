@@ -14,7 +14,7 @@ import { createBudgetGuard } from '../lib/discovery/budget.mjs'
 
 const read = name => readFile(new URL(`../${name}`, import.meta.url), 'utf8')
 const now = Date.parse('2026-11-05T12:00:00Z'), placeId = 'QA_FICTIONAL_GOOGLE_PLACE'
-const config = { ...discoveryConfig({}), enabled: true, uiKitEnabled: true, googleCardsEnabled: true, googleCardSecret: 'local-only-fake-signing-value-32-characters', browserKey: 'fake-restricted-browser-key', googleKey: 'fake-server-key', searchV2Enabled: true }
+const config = { ...discoveryConfig({ DISCOVERY_PROVIDER_MODE: 'google' }), enabled: true, uiKitEnabled: true, googleCardsEnabled: true, googleCardSecret: 'local-only-fake-signing-value-32-characters', browserKey: 'fake-restricted-browser-key', googleKey: 'fake-server-key', searchV2Enabled: true }
 const ticket = () => signGoogleCardTicket(placeId, 'bg', config, now)
 const request = (body = { ticket: ticket(), purpose: 'card' }, headers = {}) => new Request('https://www.gorez.co/api/public/discovery/google-card', { method: 'POST', headers: { 'Content-Type': 'application/json', Origin: 'https://www.gorez.co', ...headers }, body: typeof body === 'string' ? body : JSON.stringify(body) })
 function harness(patch = {}) {

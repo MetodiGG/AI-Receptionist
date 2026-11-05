@@ -21,14 +21,14 @@ test('external exclusions require exact admin-reviewed IDs and public active bus
   for (const row of [link({ verified_by: null }), link({ verified_at: '2030-01-01' }), link({ business: { id, active: false, platform_status: 'enabled' } }), link({ business: { id, active: true, platform_status: 'suspended' } }), link({ business: { id: admin, active: true, platform_status: 'enabled' } }), link({ place_id: 'A_DIFFERENT_BRANCH' })]) assert.equal(publicPartnerPlaceExclusions([row], [placeId]).size, 0)
 })
 test('a public partner outside the selected category/page is still excluded from the Google list by exact ID', async () => {
-  const d = { config: { ...discoveryConfig({}), enabled: true, uiKitEnabled: true, googleKey: 'fake-key', browserKey: 'fake-restricted-key', searchV2Enabled: true }, claimBudget: async () => true, readInternal: async () => [], readLinks: async () => [], readPartnerPlaces: async ids => { assert.deepEqual(ids, [placeId, 'QA_UNLINKED_PLACE']); return [link()] }, fetcher: async () => Response.json({ places: [{ id: placeId }, { id: 'QA_UNLINKED_PLACE' }] }) }
+  const d = { config: { ...discoveryConfig({ DISCOVERY_PROVIDER_MODE: 'google' }), enabled: true, uiKitEnabled: true, googleKey: 'fake-key', browserKey: 'fake-restricted-key', searchV2Enabled: true }, claimBudget: async () => true, readInternal: async () => [], readLinks: async () => [], readPartnerPlaces: async ids => { assert.deepEqual(ids, [placeId, 'QA_UNLINKED_PLACE']); return [link()] }, fetcher: async () => Response.json({ places: [{ id: placeId }, { id: 'QA_UNLINKED_PLACE' }] }) }
   const result = await discoverBusinesses({ query: '', browse: true, cityCode: '68134' }, d)
   assert.equal(result.results.length, 0)
   assert.deepEqual(result.external.placeIds, ['QA_UNLINKED_PLACE'])
   assert.doesNotMatch(JSON.stringify(result), /QA_LINKED_PARTNER_PLACE/)
 })
 test('all-linked Google results leave no empty widget reservation or duplicate entry', async () => {
-  const calls = [], result = await discoverBusinesses({ query: '', browse: true, cityCode: '68134' }, { config: { ...discoveryConfig({}), enabled: true, uiKitEnabled: true, googleKey: 'fake-key', browserKey: 'fake-restricted-key' }, claimBudget: async (...args) => { calls.push(args); return true }, readInternal: async () => [], readPartnerPlaces: async () => [link()], fetcher: async () => Response.json({ places: [{ id: placeId }] }) })
+  const calls = [], result = await discoverBusinesses({ query: '', browse: true, cityCode: '68134' }, { config: { ...discoveryConfig({ DISCOVERY_PROVIDER_MODE: 'google' }), enabled: true, uiKitEnabled: true, googleKey: 'fake-key', browserKey: 'fake-restricted-key' }, claimBudget: async (...args) => { calls.push(args); return true }, readInternal: async () => [], readPartnerPlaces: async () => [link()], fetcher: async () => Response.json({ places: [{ id: placeId }] }) })
   assert.deepEqual(calls, [['google', 'ids']]); assert.equal(result.external, null)
 })
 test('clamped native carousel controls cannot target blank space past the last card, including Safari elastic offsets', () => {

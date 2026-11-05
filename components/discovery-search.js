@@ -19,6 +19,7 @@ import { DiscoveryHomeRail } from './discovery-home-rail'
 import { DiscoveryHomeBusinesses, DiscoveryHomeBottom } from './discovery-home-browse'
 import { DiscoveryFilterSheet } from './discovery-filter-sheet'
 import { applyHomeFilters, homeCategories, homeFilterCount, HOME_DISCOVERY_COPY } from '../lib/discovery/home.mjs'
+import { laboratoryShortcuts } from '../lib/discovery/laboratories.mjs'
 
 const cities = [...BULGARIAN_CITIES].sort((a, b) => a.name.localeCompare(b.name, 'bg'))
 const duplicateCityNames = new Set(cities.filter((city, index) => cities.findIndex(other => other.name === city.name) !== index).map(city => city.name))
@@ -76,7 +77,11 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
   function chooseCategory(id) {
     const selected = discoveryCategorySelection(query, id, locale)
     setCategory(selected.category); setQuery(selected.query); setResult(null); setError('')
-    if ((home || coordinates) && selected.category) execute(payload(selected))
+    if ((home || coordinates) && selected.category && !(home && selected.category === 'other')) execute(payload(selected))
+  }
+  function chooseLaboratory(item) {
+    setCategory('other'); setQuery(item.query); setResult(null); setError('')
+    execute(payload({ category: 'other', query: item.query }))
   }
   function execute(input) {
     if (compact) { setDiscoveryDraft({ request: input, cityWasChosen }); router.push(`/search?lang=${locale}`) }
@@ -172,6 +177,7 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
     </SearchPanel>
     {home && filtersOpen && <DiscoveryFilterSheet id={filterId} initialValues={homeFilters} locale={locale} onApply={applyFilters} onClose={() => setFiltersOpen(false)} triggerRef={filterTrigger}/>}
     {home && <><DiscoveryHomeRail title={homeCopy.categories} locale={locale} kind="categories">{homeCategories(locale).map((item, index) => <li key={item.id}><button type="button" disabled={loading || locating} className={category === item.id ? 'selected' : ''} aria-pressed={category === item.id} onClick={() => chooseCategory(item.id)}><img src={item.photo} srcSet={`${item.photo} 160w, ${item.photo2x} 240w`} sizes="80px" width="160" height="160" alt="" loading={index < 4 ? 'eager' : 'lazy'} decoding="async"/><span>{item.label}</span></button></li>)}</DiscoveryHomeRail></>}
+    {home && category === 'other' && <div className="laboratory-shortcuts" role="group" aria-label={en ? 'Other appointment services' : 'Други услуги с часове'}>{laboratoryShortcuts(locale).map(item => <button key={item.id} type="button" className="secondary-button" disabled={loading || locating} onClick={() => chooseLaboratory(item)}>{item.label}</button>)}</div>}
     {!home && !compact && <div className="discovery-partner-entry"><Link href={`/partners?lang=${locale}`} prefetch={false}><BrandMark size={36}/><span><strong>{copy.partners}</strong><span>{en ? 'Browse businesses by category' : 'Разгледай бизнесите по категории'}</span></span><Icon name="arrow"/></Link><Link className="discovery-business-cta" href={`/for-businesses?lang=${locale}`}><span>{copy.registerBusiness}</span><Icon name="arrow"/></Link></div>}
     {!compact && <DiscoveryHomeBusinesses locale={locale} filters={{ ...homeFilters, coordinates }} preview={preview} data={directoryData} result={result} loading={loading || locating} error={error} onRetry={() => execute(payload())} headingRef={resultHeading}/>}
     {home && <DiscoveryHomeBottom locale={locale}/>}

@@ -10,6 +10,7 @@ import { OutboundBookingButton } from './outbound-booking-button'
 import { isExternalBooking } from '../lib/booking-mode.mjs'
 import { homeBusinessPhoto } from '../lib/discovery/home.mjs'
 import { railCategory, railBusinessCategory, railServiceDescription, railDirections, railExternalAction } from '../lib/discovery/rail.mjs'
+import { DiscoveryDistanceBadge } from './discovery-distance-badge'
 
 const emptyReviews = { summary: { count: 0 }, items: [] }
 function PartnerRailReviews({ row, locale, preview }) {
@@ -17,7 +18,7 @@ function PartnerRailReviews({ row, locale, preview }) {
   return <div className="home-business-reviews"><PartnerReviewSummary slug={row.slug} reviews={reviews} locale={locale} preview={preview} compact/></div>
 }
 
-export function DiscoveryBusinessCard({ row, locale = 'bg', nearby = false, preview = false }) {
+export function DiscoveryBusinessCard({ row, locale = 'bg', nearby = false, preview = false, distanceOrigin = null }) {
   const en = locale === 'en', internal = row.source === 'gorez', [failed, setFailed] = useState(false)
   const photo = internal ? homeBusinessPhoto(row) : null
   const profile = internal ? `/book/${row.slug}?lang=${locale}` : null
@@ -26,7 +27,7 @@ export function DiscoveryBusinessCard({ row, locale = 'bg', nearby = false, prev
   const description = railServiceDescription(row, locale)
   const visual = <div className="home-business-photo">
     {photo && !failed ? <img src={photo.src} width={400} height={300} alt={photo.alt?.[locale] || row.name} loading="lazy" decoding="async" style={{ objectPosition: photo.position || 'center' }} onError={() => setFailed(true)}/> : <div className="home-business-illustration"><BusinessCategoryIcon category={railBusinessCategory(row)} business={row} size={112}/></div>}
-    {nearby && Number.isFinite(row.distanceKm) && row.distanceKm >= 0 && <span className="home-distance-badge"><Icon name="pin"/>{new Intl.NumberFormat(en ? 'en-GB' : 'bg-BG', { maximumFractionDigits: 1 }).format(row.distanceKm)} km</span>}
+    <DiscoveryDistanceBadge origin={distanceOrigin} destination={row.coordinates} locale={locale} fallbackKm={nearby ? row.distanceKm : null}/>
   </div>
   return <article className="home-business-card" data-source={row.source}>
     {profile && !preview ? <Link href={profile} prefetch={false} aria-label={`${en ? 'View profile' : 'Виж профила'} · ${row.name}`}>{visual}</Link> : visual}

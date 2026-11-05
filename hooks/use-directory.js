@@ -20,7 +20,9 @@ export function useDirectory(preview = null, external = null) {
       }).catch(() => { if (active) setStatus('error') })
     }
     load(version > 0)
-    const refreshVisible = () => { if (document.visibilityState === 'visible') load(true) }
+    // Focus/route changes respect the existing short public-metadata TTL.
+    // Explicit Retry still forces a refresh. Slots/auth are never cached here.
+    const refreshVisible = () => { if (document.visibilityState === 'visible') load() }
     window.addEventListener('focus', refreshVisible)
     return () => { active = false; window.removeEventListener('focus', refreshVisible) }
   }, [version, suppliedData])

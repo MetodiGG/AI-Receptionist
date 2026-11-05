@@ -55,7 +55,7 @@ test('eligible partners always precede a higher-scoring external business, inclu
   const result = rankDiscoveryResults(rows, [external({ coordinates: atKm(0) })], intent)
   assert.equal(result[0].source, 'gorez'); assert.equal(result[1].source, 'google')
   assert.ok(result[1].ranking.score > result[0].ranking.score, 'partner tier must not depend on an inflated score')
-  assert.equal(result[0].ranking.group, 'partner'); assert.equal(RANKING_VERSION, 'local-partners-distance-v3')
+  assert.equal(result[0].ranking.group, 'partner'); assert.equal(RANKING_VERSION, 'local-partners-reputation-v4')
   assert.deepEqual(rankDiscoveryResults(rows, [external({ coordinates: atKm(0) })], intent, { maxResults: 1 }).map(row => row.source), ['gorez'])
 })
 

@@ -209,7 +209,7 @@ test('dialog Tab cycling covers forward/backward boundaries, hidden fields and W
 })
 test('native carousels expose real scroll controls and keep all photographic choices reachable without autoplay', async () => {
   const rail = await read('components/discovery-home-rail.js'), css = await read('app/discovery-home.css'), search = await read('components/discovery-search.js')
-  assert.match(rail, /node\.scrollBy/); assert.match(rail, /aria-controls=\{id\}/); assert.match(rail, /tabIndex=\{0\}/)
+  assert.match(rail, /node\.scrollTo\(\{ left: railScrollTarget\(node, direction\)/); assert.match(rail, /aria-controls=\{id\}/); assert.match(rail, /tabIndex=\{0\}/)
   assert.match(rail, /prefers-reduced-motion/); assert.doesNotMatch(rail, /setInterval|fetch\(|cloneNode/)
   assert.match(css, /overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-inline: contain/)
   assert.match(css, /\.home-discovery-rail > li \{[^}]*scroll-snap-align: start/)
@@ -218,7 +218,8 @@ test('native carousels expose real scroll controls and keep all photographic cho
 test('the single browse rail uses actual photos/reviews and only server-budgeted Google plans', async () => {
   const browse = await read('components/discovery-home-browse.js'), card = await read('components/discovery-business-card.js')
   assert.match(browse, /useDirectory/); assert.match(card, /homeBusinessPhoto\(row\)/)
-  assert.match(card, /loading="lazy"/); assert.match(card, /Number.isFinite\(row.distanceKm\)/)
+  assert.match(card, /loading="lazy"/)
+  assert.match(card, /<DiscoveryDistanceBadge origin=\{distanceOrigin\} destination=\{row.coordinates\}/)
   assert.match(card, /useBusinessReviews\(row.slug/)
   assert.match(card, /OutboundBookingButton business=\{row\}/)
   assert.match(browse, /google\(result\?\.external, 'near-google'\)/)

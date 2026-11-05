@@ -1,0 +1,1735 @@
+[
+  {
+    "id": "sofia-podstrizhime-grooming",
+    "name": "Подстрижи ме!",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Шар планина 75",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "pets",
+    "website": "https://podstrizhime.bg/",
+    "phone": "+359878688480",
+    "services": [
+      {
+        "name": "Груминг на кучета и котки",
+        "category": "pets",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359878688480"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://podstrizhime.bg/",
+        "excerpt": "Запази час"
+      },
+      "contact": "https://podstrizhime.bg/"
+    }
+  },
+  {
+    "id": "sofia-sofia-vet-grooming",
+    "name": "Ветеринарна клиника София · груминг",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Христо Ковачев 38",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "pets",
+    "website": "https://sofiavetclinic.bg/",
+    "phone": "+359888438001",
+    "services": [
+      {
+        "name": "Подстригване и къпане на кучета и котки",
+        "category": "pets",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359888438001"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://sofiavetclinic.bg/uslugi/gruuming/",
+        "excerpt": "само след предварително записан час."
+      },
+      "contact": "https://sofiavetclinic.bg/vrazka-s-nas/"
+    }
+  },
+  {
+    "id": "sofia-ramona-grooming",
+    "name": "Ramona Natural Pet Market & Grooming",
+    "cityCode": "68134",
+    "neighborhood": "Младост 1",
+    "address": "София, ж.к. Младост 1, бл. 143",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "pets",
+    "website": "https://www.ramonapet.com/",
+    "phone": "+359878880672",
+    "services": [
+      {
+        "name": "Груминг и подстригване на кучета",
+        "category": "pets",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359878880672"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://www.ramonapet.com/gruming/",
+        "excerpt": "Адрес и записване на час"
+      },
+      "contact": "https://www.ramonapet.com/gruming/"
+    }
+  },
+  {
+    "id": "sofia-paw-paw-mobile",
+    "name": "Paw-Paw · мобилен груминг",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": null,
+    "locationKind": "service_area",
+    "coordinates": null,
+    "category": "pets",
+    "website": "https://paw-paw.bg/",
+    "phone": "+359895954064",
+    "services": [
+      {
+        "name": "Груминг на кучета и котки на адрес в София",
+        "category": "pets",
+        "appointmentModel": "home_visit"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359895954064"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://paw-paw.bg/",
+        "excerpt": "ЗАПАЗИ ЧАС СЕГА"
+      },
+      "contact": "https://paw-paw.bg/"
+    }
+  },
+  {
+    "id": "sofia-felix-dogs-lyulin",
+    "name": "Felix Dogs · Люлин",
+    "cityCode": "68134",
+    "neighborhood": "Люлин 10",
+    "address": "София, ж.к. Люлин 10, бл. 122, партер",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "pets",
+    "website": "https://www.felixdogs.com/",
+    "phone": "+359888259572",
+    "services": [
+      {
+        "name": "Груминг и поддръжка на кучешка козина",
+        "category": "pets",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359888259572"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://www.felixdogs.com/gruming-lyulin/",
+        "excerpt": "Запази час"
+      },
+      "contact": "https://www.felixdogs.com/gruming-lyulin/"
+    }
+  },
+  {
+    "id": "sofia-felix-dogs-lagera",
+    "name": "Felix Dogs · Лагера",
+    "cityCode": "68134",
+    "neighborhood": "Лагера",
+    "address": "София, кв. Лагера, ул. Балканджи Йово 24",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "pets",
+    "website": "https://www.felixdogs.com/",
+    "phone": "+359884502619",
+    "services": [
+      {
+        "name": "Подстригване и къпане на кучета",
+        "category": "pets",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359884502619"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://www.felixdogs.com/gruming-lagera/",
+        "excerpt": "Запази час"
+      },
+      "contact": "https://www.felixdogs.com/gruming-lagera/"
+    }
+  },
+  {
+    "id": "sofia-new-vita-grooming",
+    "name": "New Vita · груминг салон",
+    "cityCode": "68134",
+    "neighborhood": "Обеля",
+    "address": "София, ж.к. Обеля, ул. Кривините 6",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "pets",
+    "website": "https://www.newvita.bg/",
+    "phone": "+359899525355",
+    "services": [
+      {
+        "name": "Груминг и грижа за козината на кучета и котки",
+        "category": "pets",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://www.newvita.bg/kontakti"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://www.newvita.bg/uslugi/gruming-salon",
+        "excerpt": "Изисква се предварително записване на час."
+      },
+      "contact": "https://www.newvita.bg/kontakti"
+    }
+  },
+  {
+    "id": "sofia-yorki-sofia",
+    "name": "Груминг салон Йорки · София",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, бул. Иван Гешев, Арт-хотел Симона",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "pets",
+    "website": "https://www.svetlanadimova.bg/",
+    "phone": "+359896812240",
+    "services": [
+      {
+        "name": "Груминг за кучета до 4 кг и до 12-годишна възраст",
+        "category": "pets",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://svetlanadimova.nnflooring.com/"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://www.svetlanadimova.bg/",
+        "excerpt": "Запази час за салон София"
+      },
+      "contact": "https://www.svetlanadimova.bg/"
+    }
+  },
+  {
+    "id": "sofia-physio-point",
+    "name": "Physio Point",
+    "cityCode": "68134",
+    "neighborhood": "Лозенец",
+    "address": "София, ул. Цветна градина 19, партер",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "health",
+    "website": "https://www.physiopoint-bg.com/",
+    "phone": "+359888393967",
+    "services": [
+      {
+        "name": "Кинезитерапевтична сесия",
+        "category": "health",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Апаратна физиотерапия",
+        "category": "health",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359888393967"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://www.physiopoint-bg.com/",
+        "excerpt": "Запази час"
+      },
+      "contact": "https://www.physiopoint-bg.com/"
+    }
+  },
+  {
+    "id": "sofia-omni-iztok",
+    "name": "OMNI Physio Clinic · Изток",
+    "cityCode": "68134",
+    "neighborhood": "Изток",
+    "address": "София, кв. Изток, ул. Академик Методи Попов 24А",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "health",
+    "website": "https://www.omnibodyclinic.com/",
+    "phone": "+359897890080",
+    "services": [
+      {
+        "name": "Физиотерапия и кинезитерапия",
+        "category": "health",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://app.acuityscheduling.com/schedule/47f44108/?calendarIds=8605907"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://www.omnibodyclinic.com/",
+        "excerpt": "Запази час"
+      },
+      "contact": "https://www.omnibodyclinic.com/"
+    }
+  },
+  {
+    "id": "sofia-omni-druzhba",
+    "name": "OMNI Physio Clinic · Дружба 2",
+    "cityCode": "68134",
+    "neighborhood": "Дружба 2",
+    "address": "София, бул. Професор Цветан Лазаров 113",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "health",
+    "website": "https://www.omnibodyclinic.com/",
+    "phone": "+359897890080",
+    "services": [
+      {
+        "name": "Кинезитерапия и рехабилитация",
+        "category": "health",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359897890080"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://www.omnibodyclinic.com/",
+        "excerpt": "Запази час"
+      },
+      "contact": "https://www.omnibodyclinic.com/"
+    }
+  },
+  {
+    "id": "sofia-omni-amaya-massage",
+    "name": "OMNI Physio · масажна терапия Амая",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Борис Руменов 5А, Fitness Flais Amaya",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "other",
+    "website": "https://www.omnibodyclinic.com/",
+    "phone": "+359897890080",
+    "services": [
+      {
+        "name": "Индивидуална масажна сесия",
+        "category": "other",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://omnibodyhealthcare.as.me/amaya-massage-therapy"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://www.omnibodyclinic.com/",
+        "excerpt": "Запази час"
+      },
+      "contact": "https://www.omnibodyclinic.com/"
+    }
+  },
+  {
+    "id": "sofia-topal-center",
+    "name": "TOPAL Center",
+    "cityCode": "68134",
+    "neighborhood": "Манастирски ливади",
+    "address": "София, кв. Манастирски ливади, ул. Синанишко езеро 11, бл. 10, ет. 1",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "health",
+    "website": "https://topalcenter.com/",
+    "phone": "+359899530539",
+    "services": [
+      {
+        "name": "Физиотерапевтична и мануална терапия",
+        "category": "health",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359899530539"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://topalcenter.com/kontakti/",
+        "excerpt": "Запишете час"
+      },
+      "contact": "https://topalcenter.com/kontakti/"
+    }
+  },
+  {
+    "id": "sofia-arthromedica",
+    "name": "Медицински център Артромедика",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Пчела 15",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "health",
+    "website": "https://arthromedica.bg/",
+    "phone": "+359893010668",
+    "services": [
+      {
+        "name": "Физиотерапия и рехабилитация",
+        "category": "health",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Кинезитерапевтична процедура",
+        "category": "health",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359893010668"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://arthromedica.bg/",
+        "excerpt": "Запази час онлайн"
+      },
+      "contact": "https://arthromedica.bg/"
+    }
+  },
+  {
+    "id": "sofia-office-therapy",
+    "name": "Office Therapy",
+    "cityCode": "68134",
+    "neighborhood": "Лозенец",
+    "address": "София, Лозенец, ул. Цветна градина 77–79",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "health",
+    "website": "https://officetherapy.bg/",
+    "phone": "+359898636762",
+    "services": [
+      {
+        "name": "Консултация и кинезитерапия",
+        "category": "health",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://book.officetherapy.bg/direct-appointment/"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://officetherapy.bg/",
+        "excerpt": "Запиши час онлайн"
+      },
+      "contact": "https://officetherapy.bg/"
+    }
+  },
+  {
+    "id": "sofia-physio-be-active",
+    "name": "Physio Be Active",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Феликс Каниц 20",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "health",
+    "website": "https://physiobeactive.bg/",
+    "phone": "+359894380271",
+    "services": [
+      {
+        "name": "Индивидуална кинезитерапия",
+        "category": "health",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Постурален анализ",
+        "category": "health",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359894380271"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://physiobeactive.bg/",
+        "excerpt": "Необходимо е предварително записване на индивидуален час."
+      },
+      "contact": "https://physiobeactive.bg/"
+    }
+  },
+  {
+    "id": "sofia-sportmed",
+    "name": "Медицински център СпортМед",
+    "cityCode": "68134",
+    "neighborhood": "Хиподрума",
+    "address": "София, кв. Хиподрума, ул. Лерин 3",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "health",
+    "website": "https://www.sportmed.bg/",
+    "phone": "+359895796454",
+    "services": [
+      {
+        "name": "Физиотерапия и рехабилитация",
+        "category": "health",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359895796454"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://www.sportmed.bg/",
+        "excerpt": "Запази час"
+      },
+      "contact": "https://www.sportmed.bg/"
+    }
+  },
+  {
+    "id": "sofia-dara-physiotherapy",
+    "name": "Dara Physiotherapy",
+    "cityCode": "68134",
+    "neighborhood": "Витоша",
+    "address": "София, кв. Витоша, ул. А. Разцветников 1А",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "health",
+    "website": "https://daraphysiotherapy.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Индивидуална рехабилитация",
+        "category": "health",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Физиотерапевтична процедура",
+        "category": "health",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://reservation.studio/en/location/dara-physiotherapy"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://daraphysiotherapy.bg/rehabilitacia/",
+        "excerpt": "Запази час"
+      },
+      "contact": "https://daraphysiotherapy.bg/"
+    }
+  },
+  {
+    "id": "sofia-vibomi",
+    "name": "ViBoMi Therapy Center",
+    "cityCode": "68134",
+    "neighborhood": "Илинден",
+    "address": "София, ж.к. Илинден, ул. Зографски манастир 15, вх. А",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "health",
+    "website": "https://vibomi.bg/",
+    "phone": "+359897921254",
+    "services": [
+      {
+        "name": "Кинезитерапевтична сесия",
+        "category": "health",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://vibomi.bg/zapazi-chas"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://vibomi.bg/",
+        "excerpt": "Запази Час"
+      },
+      "contact": "https://vibomi.bg/"
+    }
+  },
+  {
+    "id": "sofia-mm-therapy",
+    "name": "MM Therapy",
+    "cityCode": "68134",
+    "neighborhood": "Света Троица",
+    "address": "София, ж.к. Света Троица, ул. Зайчар 104",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "health",
+    "website": "https://mmtherapy.bg/",
+    "phone": "+359876677226",
+    "services": [
+      {
+        "name": "Мануална терапия",
+        "category": "health",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Рехабилитационна сесия",
+        "category": "health",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359876677226"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://mmtherapy.bg/contact",
+        "excerpt": "Запазете час онлайн"
+      },
+      "contact": "https://mmtherapy.bg/contact"
+    }
+  },
+  {
+    "id": "sofia-drum-action",
+    "name": "Drum Action · Никола Чомпалов",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, бул. Княз Александър Дондуков 17, Band House",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "education",
+    "website": "https://drumaction.com/",
+    "phone": "+359882515260",
+    "services": [
+      {
+        "name": "Индивидуален урок по барабани",
+        "category": "education",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359882515260"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://drumaction.com/bg/pricing",
+        "excerpt": "Запиши пробен урок"
+      },
+      "contact": "https://drumaction.com/bg/contact"
+    }
+  },
+  {
+    "id": "sofia-po-noti",
+    "name": "Музикална школа По ноти",
+    "cityCode": "68134",
+    "neighborhood": "Изток",
+    "address": "София, кв. Изток, ул. Николай Островски 5",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "education",
+    "website": "https://po-noti.com/",
+    "phone": "+359896975516",
+    "services": [
+      {
+        "name": "Индивидуален урок по пиано",
+        "category": "education",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Урок по китара или барабани",
+        "category": "education",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://booking.po-noti.com/register"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://po-noti.com/",
+        "excerpt": "Запази Урок"
+      },
+      "contact": "https://po-noti.com/"
+    }
+  },
+  {
+    "id": "sofia-rhythm-academy",
+    "name": "Rhythm-Academy",
+    "cityCode": "68134",
+    "neighborhood": "Драгалевци",
+    "address": "София, кв. Драгалевци, ул. Цветарска 12",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "education",
+    "website": "https://rhythm-academy.com/",
+    "phone": "+359894361787",
+    "services": [
+      {
+        "name": "Пробен урок по музикален инструмент или пеене",
+        "category": "education",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://rhythm-academy.com/online-booking/"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://rhythm-academy.com/online-booking/",
+        "excerpt": "Запишете пробен урок"
+      },
+      "contact": "https://rhythm-academy.com/online-booking/"
+    }
+  },
+  {
+    "id": "sofia-keramika-zari",
+    "name": "Керамика Зари",
+    "cityCode": "68134",
+    "neighborhood": "Люлин 10",
+    "address": "София, ж.к. Люлин 10, бл. 141, до пощата",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "education",
+    "website": "https://keramika-zari.com/",
+    "phone": "+359899851195",
+    "services": [
+      {
+        "name": "Индивидуален урок по грънчарство",
+        "category": "education",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359899851195"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://keramika-zari.com/",
+        "excerpt": "Запази час"
+      },
+      "contact": "https://keramika-zari.com/"
+    }
+  },
+  {
+    "id": "sofia-vocal-vision-house",
+    "name": "Vocal Vision House",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Екзарх Йосиф 21, ет. 1",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "education",
+    "website": "https://vocalvisionhouse.com/",
+    "phone": "+359887889895",
+    "services": [
+      {
+        "name": "Индивидуален урок по пеене",
+        "category": "education",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359887889895"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://vocalvisionhouse.com/tseni/",
+        "excerpt": "Запази час"
+      },
+      "contact": "https://vocalvisionhouse.com/kontakti/"
+    }
+  },
+  {
+    "id": "sofia-aristea-buzludzha",
+    "name": "АРИСТЕА 1",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Бузлуджа 6, ет. 1",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "education",
+    "website": "https://www.aristeabg.com/",
+    "phone": "+359885270984",
+    "services": [
+      {
+        "name": "Индивидуален урок по гръцки език",
+        "category": "education",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://docs.google.com/forms/d/e/1FAIpQLScauc__Ec41CeDg6nItKzYaHj72UV2CjcYqAWAs4C5wdgf7gg/viewform"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://www.aristeabg.com/уроци/индивидуално-обучение",
+        "excerpt": "ЗАПИСВАНЕТО става с попълване"
+      },
+      "contact": "https://www.aristeabg.com/контакти"
+    }
+  },
+  {
+    "id": "sofia-aristea-hristo-botev",
+    "name": "АРИСТЕА 2",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, бул. Христо Ботев 20, ет. 2",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "education",
+    "website": "https://www.aristeabg.com/",
+    "phone": "+359885270984",
+    "services": [
+      {
+        "name": "Индивидуален урок по гръцки език",
+        "category": "education",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://docs.google.com/forms/d/e/1FAIpQLScauc__Ec41CeDg6nItKzYaHj72UV2CjcYqAWAs4C5wdgf7gg/viewform"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://www.aristeabg.com/уроци/индивидуално-обучение",
+        "excerpt": "ЗАПИСВАНЕТО става с попълване"
+      },
+      "contact": "https://www.aristeabg.com/контакти"
+    }
+  },
+  {
+    "id": "sofia-edno-school",
+    "name": "Училище Едно",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Отец Паисий 44, ет. 1",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "education",
+    "website": "https://ednoschool.com/",
+    "phone": "+359886921535",
+    "services": [
+      {
+        "name": "Индивидуален урок по български език",
+        "category": "education",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359886921535"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://ednoschool.com/bg/kursove-po-balgarski-ezik/individualni-uroczi-po-balgarski-ezik/",
+        "excerpt": "дните и часовете за заниманията;"
+      },
+      "contact": "https://ednoschool.com/bg/kontakti-2/"
+    }
+  },
+  {
+    "id": "sofia-nota-music-room",
+    "name": "Музикална стая НОТА",
+    "cityCode": "68134",
+    "neighborhood": "Гоце Делчев",
+    "address": "София, кв. Гоце Делчев, ул. Деян Белишки 46",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "education",
+    "website": "https://www.notabg.com/",
+    "phone": "+359888879475",
+    "services": [
+      {
+        "name": "Пробен урок по пиано или флейта",
+        "category": "education",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359888879475"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://www.notabg.com/",
+        "excerpt": "Запиши час"
+      },
+      "contact": "https://www.notabg.com/"
+    }
+  },
+  {
+    "id": "sofia-mymusic-center",
+    "name": "MyMusic Center",
+    "cityCode": "68134",
+    "neighborhood": "Студентски град",
+    "address": "София, Студентски град, ул. Академик Стефан Младенов 76",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "education",
+    "website": "https://mymusic.center/",
+    "phone": "+359883470577",
+    "services": [
+      {
+        "name": "Индивидуален урок по пиано или китара",
+        "category": "education",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359883470577"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://mymusic.center/",
+        "excerpt": "Запиши се"
+      },
+      "contact": "https://mymusic.center/"
+    }
+  },
+  {
+    "id": "sofia-sokol-nedkov",
+    "name": "Адвокат Сокол Недков",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, бул. Ген. Тотлебен 4, ет. 1, к. 3",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "consulting",
+    "website": "https://www.sokolnedkov.bg/",
+    "phone": "+359899123458",
+    "services": [
+      {
+        "name": "Правна консултация в кантора",
+        "category": "consulting",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://www.sokolnedkov.bg/appointment/"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://www.sokolnedkov.bg/appointment/",
+        "excerpt": "Запази час за консултация"
+      },
+      "contact": "https://www.sokolnedkov.bg/appointment/"
+    }
+  },
+  {
+    "id": "sofia-law-bba",
+    "name": "Адвокатско дружество Бонински, Бонинска и Апостолов",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Дамян Груев 12, ет. 2",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "consulting",
+    "website": "https://www.law-bba.com/",
+    "phone": "+359888950381",
+    "services": [
+      {
+        "name": "Правна консултация в кантора",
+        "category": "consulting",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://www.law-bba.com/online-zapitvane"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://www.law-bba.com/online-zapitvane",
+        "excerpt": "Запази час сега"
+      },
+      "contact": "https://www.law-bba.com/online-zapitvane"
+    }
+  },
+  {
+    "id": "sofia-finansial-consultation",
+    "name": "Счетоводна кантора Финансиал",
+    "cityCode": "68134",
+    "neighborhood": "Кръстова вада",
+    "address": "София, кв. Кръстова вада, ул. Нелсън Мандела 13А, бл. 1",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "consulting",
+    "website": "https://www.finansialbg.com/",
+    "phone": "+359886543551",
+    "services": [
+      {
+        "name": "Консултация по ДДС и счетоводни въпроси",
+        "category": "consulting",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359886543551"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://www.finansialbg.com/contact",
+        "excerpt": "запазете час за професионална консултация"
+      },
+      "contact": "https://www.finansialbg.com/contact"
+    }
+  },
+  {
+    "id": "sofia-spravo-consultation",
+    "name": "С Право",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Бисер 2",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "consulting",
+    "website": "https://spravo.eu/",
+    "phone": "+359884500996",
+    "services": [
+      {
+        "name": "Правна консултация по конкретен казус",
+        "category": "consulting",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359884500996"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://spravo.eu/contacts/",
+        "excerpt": "онлайн или на живо."
+      },
+      "contact": "https://spravo.eu/contacts/"
+    }
+  },
+  {
+    "id": "sofia-nikolay-nikolaev-law",
+    "name": "Адвокат Николай Николаев",
+    "cityCode": "68134",
+    "neighborhood": "Изгрев",
+    "address": "София, ж.к. Изгрев, ул. Фредерик Жолио-Кюри 20",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "consulting",
+    "website": "https://nikolaevlaw.com/",
+    "phone": "+359893440797",
+    "services": [
+      {
+        "name": "Правна консултация в адвокатска кантора",
+        "category": "consulting",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://nikolaevlaw.com/"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://nikolaevlaw.com/",
+        "excerpt": "Запази час за консултация"
+      },
+      "contact": "https://nikolaevlaw.com/"
+    }
+  },
+  {
+    "id": "sofia-irina-konstantinova",
+    "name": "Адвокатска кантора Константинова",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Петър Парчевич 14, партер",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "consulting",
+    "website": "https://irinakonstantinova.com/",
+    "phone": "+359895938509",
+    "services": [
+      {
+        "name": "Правна консултация с адвокат",
+        "category": "consulting",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359895938509"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://irinakonstantinova.com/kantora-kontakti-advokat-konstantinov/",
+        "excerpt": "Моля, записвайте предварително час за консултация"
+      },
+      "contact": "https://irinakonstantinova.com/kantora-kontakti-advokat-konstantinov/"
+    }
+  },
+  {
+    "id": "sofia-asotopbrain-consultation",
+    "name": "ASOTOPBRAIN",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Шандор Петьофи 37, ет. 2",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "consulting",
+    "website": "https://www.asotopbrain.com/",
+    "phone": "+35929854080",
+    "services": [
+      {
+        "name": "Счетоводна и данъчна консултация",
+        "category": "consulting",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+35929854080"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://www.asotopbrain.com/bg/",
+        "excerpt": "Запазете час за консултация."
+      },
+      "contact": "https://www.asotopbrain.com/bg/contact/"
+    }
+  },
+  {
+    "id": "sofia-somenso-career",
+    "name": "Somenso · кариерно консултиране",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, бул. Александър Стамболийски 32",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "consulting",
+    "website": "https://www.somenso.com/",
+    "phone": "+359896704665",
+    "services": [
+      {
+        "name": "Присъствена кариерна консултация",
+        "category": "consulting",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359896704665"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://www.somenso.com/appointment/",
+        "excerpt": "Ние работим след предварително уговорен час"
+      },
+      "contact": "https://www.somenso.com/appointment/"
+    }
+  },
+  {
+    "id": "sofia-np-dental-clinic",
+    "name": "NP Dental Clinic",
+    "cityCode": "68134",
+    "neighborhood": "Студентски град",
+    "address": "София, ж.к. Студентски град, ул. Академик Йордан Трифонов 6А, вх. Б, партер",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.65753868818015,
+      "longitude": 23.344221793518834,
+      "source": "https://npdentalclinic.com/",
+      "method": "first_party_coordinates"
+    },
+    "category": "other",
+    "website": "https://npdentalclinic.com/",
+    "phone": "+359878106603",
+    "services": [
+      {
+        "name": "Профилактичен стоматологичен преглед",
+        "category": "other",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://npdentalclinic.com/"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://npdentalclinic.com/",
+        "excerpt": "Запази час"
+      },
+      "contact": "https://npdentalclinic.com/"
+    }
+  },
+  {
+    "id": "sofia-kambov-dental-clinic",
+    "name": "Дентална клиника Камбов",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Св. Георги Софийски 10",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "other",
+    "website": "https://dentalclinic.bg/",
+    "phone": "+359893388222",
+    "services": [
+      {
+        "name": "Преглед за установяване на орален статус",
+        "category": "other",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359893388222"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://dentalclinic.bg/контакти.html",
+        "excerpt": "Запази час"
+      },
+      "contact": "https://dentalclinic.bg/контакти.html"
+    }
+  },
+  {
+    "id": "sofia-pangeva-dental",
+    "name": "Дентално студио Д-р Пангева",
+    "cityCode": "68134",
+    "neighborhood": "Лозенец",
+    "address": "София, ж.к. Лозенец, ул. Капитан Андреев 25",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "other",
+    "website": "https://pangevadental.com/",
+    "phone": "+359882727690",
+    "services": [
+      {
+        "name": "Лечение на кариес",
+        "category": "other",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Почистване на зъбен камък",
+        "category": "other",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://pangevadental.com/"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://pangevadental.com/",
+        "excerpt": "Запазете час"
+      },
+      "contact": "https://pangevadental.com/"
+    }
+  },
+  {
+    "id": "sofia-veadent-gurko",
+    "name": "Веадент · Гурко",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Ген. Йосиф В. Гурко 52",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "other",
+    "website": "https://veadent.bg/",
+    "phone": "+359896031619",
+    "services": [
+      {
+        "name": "Лечение на кариес и стоматологична профилактика",
+        "category": "other",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://superdoc.bg/klinika/mdts-2000"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://veadent.bg/",
+        "excerpt": "Запази час"
+      },
+      "contact": "https://veadent.bg/"
+    }
+  },
+  {
+    "id": "sofia-veadent-skobelev",
+    "name": "Веадент · Скобелев",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, бул. Ген. Михаил Д. Скобелев 24",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "other",
+    "website": "https://veadent.bg/",
+    "phone": "+359894617722",
+    "services": [
+      {
+        "name": "Лечение на кариес и стоматологична профилактика",
+        "category": "other",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://superdoc.bg/klinika/dentalna-klinika-veadent-skobelev"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://veadent.bg/",
+        "excerpt": "Запази час"
+      },
+      "contact": "https://veadent.bg/"
+    }
+  },
+  {
+    "id": "sofia-belladente",
+    "name": "BellaDente",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Георги Бенковски 42",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "other",
+    "website": "https://belladente.bg/",
+    "phone": "+359877225555",
+    "services": [
+      {
+        "name": "Дентална консултация",
+        "category": "other",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359877225555"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://belladente.bg/",
+        "excerpt": "Запази час"
+      },
+      "contact": "https://belladente.bg/"
+    }
+  },
+  {
+    "id": "sofia-sf-dent",
+    "name": "SF Dent · д-р Санди Фесток",
+    "cityCode": "68134",
+    "neighborhood": "Изгрев",
+    "address": "София, ж.к. Изгрев, ул. Елемаг 22",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "other",
+    "website": "https://sfdent.eu/",
+    "phone": "+359876662785",
+    "services": [
+      {
+        "name": "Стоматологичен преглед",
+        "category": "other",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Детски стоматологичен преглед",
+        "category": "other",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://superdoc.bg/lekar/sandi-festok"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://sfdent.eu/",
+        "excerpt": "Запази час"
+      },
+      "contact": "https://sfdent.eu/"
+    }
+  },
+  {
+    "id": "sofia-e-dental-clinic",
+    "name": "E Dental Clinic",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Тодор Йончев 15",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "other",
+    "website": "https://e-dentalclinic.com/",
+    "phone": "+359885431153",
+    "services": [
+      {
+        "name": "Стоматологичен преглед",
+        "category": "other",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://superdoc.bg/klinika/e-dental-clinik"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://e-dentalclinic.com/",
+        "excerpt": "Запишете своя час"
+      },
+      "contact": "https://e-dentalclinic.com/kontakti/"
+    }
+  },
+  {
+    "id": "sofia-impression-dent",
+    "name": "Impression Dent",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Хенрик Ибсен 13",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "other",
+    "website": "https://impressiondent.com/",
+    "phone": "+359886117887",
+    "services": [
+      {
+        "name": "Дентален преглед и консултация",
+        "category": "other",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://impressiondent.com/contacts/"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://impressiondent.com/contacts/",
+        "excerpt": "Запази час за преглед"
+      },
+      "contact": "https://impressiondent.com/contacts/"
+    }
+  },
+  {
+    "id": "sofia-snap-dental-care",
+    "name": "SNAP Dental Care · д-р Сашка Хаджиева",
+    "cityCode": "68134",
+    "neighborhood": "Манастирски ливади",
+    "address": "София, ж.к. Манастирски ливади, ул. Лъвски рид 8, бл. 3",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "other",
+    "website": "https://snapdental.eu/",
+    "phone": "+359897588488",
+    "services": [
+      {
+        "name": "Дентален преглед и план за лечение",
+        "category": "other",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://superdoc.bg/lekar/sashka-hadzhieva"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://snapdental.eu/",
+        "excerpt": "Запазете вашия час днес."
+      },
+      "contact": "https://snapdental.eu/"
+    }
+  },
+  {
+    "id": "sofia-margarita-dimitrova-psychologist",
+    "name": "Маргарита Димитрова · психолог",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Леонардо Да Винчи 2, Къща по пътя към себе си",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "other",
+    "website": "https://margysgestaltspace.eu/",
+    "phone": "+359887883336",
+    "services": [
+      {
+        "name": "Индивидуална психологическа консултация",
+        "category": "other",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359887883336"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://margysgestaltspace.eu/",
+        "excerpt": "Запази час при психолог в София."
+      },
+      "contact": "https://margysgestaltspace.eu/"
+    }
+  },
+  {
+    "id": "sofia-kristina-sungarska",
+    "name": "Кристина Сунгарска · психолог",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Ангиста 6",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "other",
+    "website": "https://kristinasungarska.bg/",
+    "phone": "+359882021440",
+    "services": [
+      {
+        "name": "Индивидуална психологическа консултация",
+        "category": "other",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://kristinasungarska.bg/kontakt"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://kristinasungarska.bg/kontakt",
+        "excerpt": "Запази час за консултация"
+      },
+      "contact": "https://kristinasungarska.bg/kontakt"
+    }
+  },
+  {
+    "id": "sofia-body-and-soul-massage",
+    "name": "Body & Soul Massage Studio",
+    "cityCode": "68134",
+    "neighborhood": "Яворов",
+    "address": "София, ж.к. Яворов, ул. Огоста 5",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "other",
+    "website": "https://www.bodyandsoul.bg/",
+    "phone": "+359877193067",
+    "services": [
+      {
+        "name": "Класически масаж",
+        "category": "other",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Индивидуална терапевтична масажна сесия",
+        "category": "other",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://www.fresha.com/bg/book-now/masazhno-studio-body-soul-t5hxi92k/all-offer?pId=468128"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://www.bodyandsoul.bg/",
+        "excerpt": "Само с предварително записване."
+      },
+      "contact": "https://www.bodyandsoul.bg/"
+    }
+  }
+]

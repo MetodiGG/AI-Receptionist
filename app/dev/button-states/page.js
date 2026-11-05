@@ -10,7 +10,7 @@ export default function ButtonStatePreview() {
   return <main className="marketing-page customer-home">
     <section className="discovery-home">
       <h1>Локална проверка на бутоните</h1>
-      <p>Само дизайн — без резервации, регистрация или Google заявки.</p>
+      <p>Само дизайн — резервациите и регистрацията са изключени.</p>
       <article className="home-business-card" data-source="gorez" style={{ maxWidth: 280 }}>
         <div className="home-business-actions">
           <button type="button" className="home-directions"><Icon name="map"/><span className="home-maps-label" translate="no">Google Maps</span></button>

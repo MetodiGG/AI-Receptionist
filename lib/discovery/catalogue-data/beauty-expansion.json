@@ -1,0 +1,2682 @@
+[
+  {
+    "id": "sofia-gpoint-five-corners",
+    "name": "G Point · 5-те Кьошета",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. св. Иван Рилски 4",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.690895968876255,
+      "longitude": 23.313997145835735,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-borovo",
+    "name": "G Point · Борово",
+    "cityCode": "68134",
+    "neighborhood": "Борово",
+    "address": "София, ул. Пирински проход 45 Б",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.672175760389685,
+      "longitude": 23.289421489742722,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-studentski-zimen-dvorets",
+    "name": "G Point · Студентски град - Зимен дворец",
+    "cityCode": "68134",
+    "neighborhood": "Студентски град",
+    "address": "София, ул. Петър Увалиев 1",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.6451102898194,
+      "longitude": 23.34262158859573,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-ovcha-kupel-nbu",
+    "name": "G Point · Овча Купел - НБУ",
+    "cityCode": "68134",
+    "neighborhood": "Овча купел",
+    "address": "София, ул. Народно Хоро 81",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.676551,
+      "longitude": 23.2540419,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-geo-milev",
+    "name": "G Point · Гео Милев",
+    "cityCode": "68134",
+    "neighborhood": "Гео Милев",
+    "address": "София, ул. Галилео Галилей 20",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.67857529320303,
+      "longitude": 23.359911823957486,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-lyulin-10",
+    "name": "G Point · Люлин 10",
+    "cityCode": "68134",
+    "neighborhood": "Люлин 10",
+    "address": "София, жк. Люлин 10, бл. 153 А",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.7133211,
+      "longitude": 23.2690456,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-mladost-1",
+    "name": "G Point · Младост 1",
+    "cityCode": "68134",
+    "neighborhood": "Младост 1",
+    "address": "София, ж.к. Младост 1, бл. 148",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.656376263495446,
+      "longitude": 23.373750556779942,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-dondukov",
+    "name": "G Point · Дондуков",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Панайот Волов 9",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.69935434005354,
+      "longitude": 23.336114742283964,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-lozenets",
+    "name": "G Point · Лозенец",
+    "cityCode": "68134",
+    "neighborhood": "Лозенец",
+    "address": "София, ул. Богатица 3-5",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.674205768578425,
+      "longitude": 23.3127889314221,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-hladilnika",
+    "name": "G Point · Хладилника",
+    "cityCode": "68134",
+    "neighborhood": "Хладилника",
+    "address": "София, ул. Козяк 43",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.65942939947322,
+      "longitude": 23.313766010056494,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-suhata-reka",
+    "name": "G Point · Сухата река",
+    "cityCode": "68134",
+    "neighborhood": "Сухата река",
+    "address": "София, ж.к. Сухата река, бл. 225 вх. Г",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.70120277825981,
+      "longitude": 23.35954573509769,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-nadezhda-5",
+    "name": "G Point · Надежда 5",
+    "cityCode": "68134",
+    "neighborhood": "Връбница 1",
+    "address": "София, ж.к. Връбница 1, бл. 542",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.73772434397961,
+      "longitude": 23.28968168651646,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-zona-b19",
+    "name": "G Point · Зона Б19",
+    "cityCode": "68134",
+    "neighborhood": "Зона Б19",
+    "address": "София, ул. Царибродска 116",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.701233106370765,
+      "longitude": 23.299420778887132,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-mladost-4",
+    "name": "G Point · Младост 4",
+    "cityCode": "68134",
+    "neighborhood": "Младост 4",
+    "address": "София, ж.к Младост 4, бл. 458, маг 6",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.63581253262804,
+      "longitude": 23.37412787340004,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-lyulin-7",
+    "name": "G Point · Люлин 7",
+    "cityCode": "68134",
+    "neighborhood": "Люлин 7",
+    "address": "София, ж.к. Люлин 7, бл. 785, вх. Б",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.715474730926154,
+      "longitude": 23.254764151263316,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-dianabad",
+    "name": "G Point · Дианабад",
+    "cityCode": "68134",
+    "neighborhood": "Дианабад",
+    "address": "София, ул. Проф. Христо Вакарелски 3",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.65712017500009,
+      "longitude": 23.343316339645444,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-stadion-vasil-levski",
+    "name": "G Point · Стадион Васил Левски",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Юрий Венелин 36",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.688330895922064,
+      "longitude": 23.331974653415628,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-manastirski-iztok",
+    "name": "G Point · Манастирски ливади - Изток",
+    "cityCode": "68134",
+    "neighborhood": "Манастирски ливади – изток",
+    "address": "София, ул. Боян Петров 110, бл.20 Б",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.66166539148804,
+      "longitude": 23.294368128553035,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-reduta",
+    "name": "G Point · Редута",
+    "cityCode": "68134",
+    "neighborhood": "Редута",
+    "address": "София, ул. Георги Минчев 40",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.68894189726819,
+      "longitude": 23.36281880597529,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-nadezhda-2",
+    "name": "G Point · Надежда 2",
+    "cityCode": "68134",
+    "neighborhood": "Надежда 2",
+    "address": "София, ул. Митрополит Авксентий Велешки 49, вх.В",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.72936794476803,
+      "longitude": 23.302164961798987,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-sadebna-palata",
+    "name": "G Point · Съдебна палата",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Княз Борис I 108, магазин 8",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.69524034328197,
+      "longitude": 23.31845865961949,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-druzhba-2",
+    "name": "G Point · Дружба 2",
+    "cityCode": "68134",
+    "neighborhood": "Дружба 2",
+    "address": "София, ж.к. Дружба 2, бул. Копенхаген 38",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.65060825945682,
+      "longitude": 23.405737590335757,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-manastirski-zapad",
+    "name": "G Point · Манастирски ливади - Запад",
+    "cityCode": "68134",
+    "neighborhood": "Манастирски ливади – запад",
+    "address": "София, ул. Синанишко езеро 7, бл. 11",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.66518098837738,
+      "longitude": 23.283990872846054,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-dragalevtsi",
+    "name": "G Point · Драгалевци",
+    "cityCode": "68134",
+    "neighborhood": "Драгалевци",
+    "address": "София, ул. Лагадина 5",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.63122805324813,
+      "longitude": 23.314363793256238,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-iztok",
+    "name": "G Point · Изток",
+    "cityCode": "68134",
+    "neighborhood": "Изток",
+    "address": "София, ул. Майор Юрий Гагарин 20",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.674646671994594,
+      "longitude": 23.35786817979794,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-vma",
+    "name": "G Point · Военномедицинска Академия",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Феликс Каниц 1",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.68650560207653,
+      "longitude": 23.302753371707023,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-ovcha-kupel-2",
+    "name": "G Point · Овча Купел 2",
+    "cityCode": "68134",
+    "neighborhood": "Овча Купел 2",
+    "address": "София, ул. Промишлена 33",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.68880901380685,
+      "longitude": 23.249251500000895,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-hadzhi-dimitar",
+    "name": "G Point · Хаджи Димитър",
+    "cityCode": "68134",
+    "neighborhood": "Хаджи Димитър",
+    "address": "София, ул. Васил Кънчев 26А",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.70995231572804,
+      "longitude": 23.35560846774642,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-mladost-2",
+    "name": "G Point · Младост 2",
+    "cityCode": "68134",
+    "neighborhood": "Младост 2",
+    "address": "София, ул. Св. Киприян 44, бл. 290",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.64367194376915,
+      "longitude": 23.36655074444575,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-sveta-troitsa",
+    "name": "G Point · Света Троица",
+    "cityCode": "68134",
+    "neighborhood": "Света Троица",
+    "address": "София, Света Троица, пл. Преображение",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.708380133910055,
+      "longitude": 23.287887162050907,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-darvenitsa",
+    "name": "G Point · Дървеница",
+    "cityCode": "68134",
+    "neighborhood": "Дървеница",
+    "address": "София, ул. Проф. Георги Брадистилов 6",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.657106675626096,
+      "longitude": 23.358048296990855,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-banishora",
+    "name": "G Point · Банишора",
+    "cityCode": "68134",
+    "neighborhood": "Банишора",
+    "address": "София, бул. Генерал Николай Г. Столетов 84",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.710716402348794,
+      "longitude": 23.310096960894995,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-ovcha-kupel-lyublyana",
+    "name": "G Point · Овча Купел - Любляна",
+    "cityCode": "68134",
+    "neighborhood": "Овча купел",
+    "address": "София, ул. Витошка Поляна 3",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.669943470427924,
+      "longitude": 23.257477846028966,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-lyulin-8",
+    "name": "G Point · Люлин 8",
+    "cityCode": "68134",
+    "neighborhood": "Люлин 8",
+    "address": "София, ул. Ген. Казимир Ернрот 52",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.71916120702422,
+      "longitude": 23.258036901253647,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-studentski-nikola-gabrovski",
+    "name": "G Point · Студентски град - Никола Габровски",
+    "cityCode": "68134",
+    "neighborhood": "Студентски град",
+    "address": "София, ул. Никола Габровски 102А",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.657775839263365,
+      "longitude": 23.348724227126297,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-vitosha",
+    "name": "G Point · Витоша",
+    "cityCode": "68134",
+    "neighborhood": "Витоша",
+    "address": "София, бул. Симеоновско шосе 102А",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.64339326362923,
+      "longitude": 23.333641372869117,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-druzhba-1",
+    "name": "G Point · Дружба 1",
+    "cityCode": "68134",
+    "neighborhood": "Дружба 1",
+    "address": "София, Дружба 1, бл. 186",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.66427740776993,
+      "longitude": 23.39527492190729,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-mladost-3",
+    "name": "G Point · Младост 3",
+    "cityCode": "68134",
+    "neighborhood": "Младост 3",
+    "address": "София, Младост 3, бл. 304, маг. 8",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.64546416015776,
+      "longitude": 23.38032190639398,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-belite-brezi",
+    "name": "G Point · Белите брези",
+    "cityCode": "68134",
+    "neighborhood": "Белите брези",
+    "address": "София, ул. Лерин 14",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.67880743725493,
+      "longitude": 23.28854541766558,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-krasna-polyana",
+    "name": "G Point · Красна поляна",
+    "cityCode": "68134",
+    "neighborhood": "Красна поляна",
+    "address": "София, бул. Вардар 26",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.69625386226184,
+      "longitude": 23.287790152128714,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-levski-g",
+    "name": "G Point · Левски Г",
+    "cityCode": "68134",
+    "neighborhood": "Левски Г",
+    "address": "София, ул. Могилите 2, маг. 59",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.71075879548037,
+      "longitude": 23.377356016074838,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-ovcha-kupel-mizia",
+    "name": "G Point · Овча Купел 1 - Мизия",
+    "cityCode": "68134",
+    "neighborhood": "Овча купел 1",
+    "address": "София, Овча купел 1, ул. 761-ва, срещу паркинга на метростанция Мизия",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.68381548917033,
+      "longitude": 23.25806219961852,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-gpoint-nadezhda-1",
+    "name": "G Point · Надежда 1",
+    "cityCode": "68134",
+    "neighborhood": "Надежда 1",
+    "address": "София, ж.к. Надежда 1, ул. Възрожденска 24",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.725495765413385,
+      "longitude": 23.299457877258444,
+      "source": "https://cms.gpoint.bg/api/public/entities?meta.href=%2Fsystem%2Flocations&limit=1&expand=%24",
+      "method": "first_party_coordinates"
+    },
+    "category": "beauty",
+    "website": "https://gpoint.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване за жени",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Лазерно обезкосмяване за мъже",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://gpoint.bg/запазване-час"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://gpoint.bg/запазване-час",
+        "excerpt": "Запазване на час"
+      },
+      "contact": "https://gpoint.bg/запазване-час"
+    }
+  },
+  {
+    "id": "sofia-ts-beauty-levski",
+    "name": "TS Beauty Center · Левски",
+    "cityCode": "68134",
+    "neighborhood": "Левски",
+    "address": "София, ул. Проф. Беньо Цонев 8",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "beauty",
+    "website": "https://www.tsbeauty.bg/",
+    "phone": "+359877133196",
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359877133196"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://www.tsbeauty.bg/",
+        "excerpt": "Запази час"
+      },
+      "contact": "https://www.tsbeauty.bg/"
+    }
+  },
+  {
+    "id": "sofia-ts-laser-reduta",
+    "name": "TS Laser Center · Редута",
+    "cityCode": "68134",
+    "neighborhood": "Редута",
+    "address": "София, ул. Каймакчалан 85",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "beauty",
+    "website": "https://www.tsbeauty.bg/",
+    "phone": "+359877133196",
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Ендосфера за тяло",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359877133196"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://www.tsbeauty.bg/",
+        "excerpt": "Запази час"
+      },
+      "contact": "https://www.tsbeauty.bg/"
+    }
+  },
+  {
+    "id": "sofia-ts-nail-reduta",
+    "name": "TS Nail Art · Редута",
+    "cityCode": "68134",
+    "neighborhood": "Редута",
+    "address": "София, ул. Стоил Войвода 15",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "nails",
+    "website": "https://www.tsbeauty.bg/",
+    "phone": "+359899133199",
+    "services": [
+      {
+        "name": "Оформяне на маникюр",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Грижа и оформяне на педикюр",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359899133199"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://www.tsbeauty.bg/",
+        "excerpt": "Запази час"
+      },
+      "contact": "https://www.tsbeauty.bg/"
+    }
+  },
+  {
+    "id": "sofia-abi-beauty-serdika",
+    "name": "Abi Beauty · Сердика",
+    "cityCode": "68134",
+    "neighborhood": "Център",
+    "address": "София, бул. Александър Стамболийски 27А",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "beauty",
+    "website": "https://abibeauty.bg/",
+    "phone": "+359890200100",
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Маникюр",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://reservation.abibeauty.bg/appointment"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://abibeauty.bg/kontakti/",
+        "excerpt": "Запази час онлайн"
+      },
+      "contact": "https://abibeauty.bg/kontakti/"
+    }
+  },
+  {
+    "id": "sofia-abi-beauty-lozenets",
+    "name": "Abi Beauty · Лозенец",
+    "cityCode": "68134",
+    "neighborhood": "Лозенец",
+    "address": "София, ул. Златовръх 5",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "beauty",
+    "website": "https://abibeauty.bg/",
+    "phone": "+359890200100",
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Маникюр",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Дамско подстригване",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://reservation.abibeauty.bg/appointment"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://abibeauty.bg/kontakti/",
+        "excerpt": "Запази час онлайн"
+      },
+      "contact": "https://abibeauty.bg/kontakti/"
+    }
+  },
+  {
+    "id": "sofia-abi-beauty-druzhba-1",
+    "name": "Abi Beauty · Дружба 1",
+    "cityCode": "68134",
+    "neighborhood": "Дружба 1",
+    "address": "София, ул. Тирана 187, бл. 187",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "beauty",
+    "website": "https://abibeauty.bg/",
+    "phone": "+359890200100",
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Маникюр",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Дамско подстригване",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://reservation.abibeauty.bg/appointment"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://abibeauty.bg/kontakti/",
+        "excerpt": "Запази час онлайн"
+      },
+      "contact": "https://abibeauty.bg/kontakti/"
+    }
+  },
+  {
+    "id": "sofia-abi-beauty-druzhba-2",
+    "name": "Abi Beauty · Дружба 2",
+    "cityCode": "68134",
+    "neighborhood": "Дружба 2",
+    "address": "София, бул. Проф. Цветан Лазаров 602Б, сграда Авигея",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "beauty",
+    "website": "https://abibeauty.bg/",
+    "phone": "+359890200100",
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Маникюр",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://reservation.abibeauty.bg/appointment"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://abibeauty.bg/kontakti/",
+        "excerpt": "Запази час онлайн"
+      },
+      "contact": "https://abibeauty.bg/kontakti/"
+    }
+  },
+  {
+    "id": "sofia-abi-beauty-nadezhda",
+    "name": "Abi Beauty · Надежда",
+    "cityCode": "68134",
+    "neighborhood": "Надежда 1",
+    "address": "София, бул. Ломско шосе 65",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "beauty",
+    "website": "https://abibeauty.bg/",
+    "phone": "+359890200100",
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://reservation.abibeauty.bg/appointment"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://abibeauty.bg/kontakti/",
+        "excerpt": "Запази час онлайн"
+      },
+      "contact": "https://abibeauty.bg/kontakti/"
+    }
+  },
+  {
+    "id": "sofia-abi-beauty-bul-bulgaria",
+    "name": "Abi Beauty · бул. България",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, бул. Гоце Делчев 98, БЦ Азимут",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "beauty",
+    "website": "https://abibeauty.bg/",
+    "phone": "+359890200100",
+    "services": [
+      {
+        "name": "Лазерно обезкосмяване",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://reservation.abibeauty.bg/appointment"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://abibeauty.bg/kontakti/",
+        "excerpt": "Запази час онлайн"
+      },
+      "contact": "https://abibeauty.bg/kontakti/"
+    }
+  },
+  {
+    "id": "sofia-head-hunters-alabin",
+    "name": "Head Hunters · Алабин",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Алабин 8",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "barber",
+    "website": "https://head-hunters.net/",
+    "phone": "+359876064545",
+    "services": [
+      {
+        "name": "Подстригване за мъже",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Подравняване и оформяне на брада",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://head-hunters.net/rezervatsia"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://head-hunters.net/rezervatsia",
+        "excerpt": "Онлайн запис на час"
+      },
+      "contact": "https://head-hunters.net/kontakti"
+    }
+  },
+  {
+    "id": "sofia-head-hunters-lozenets",
+    "name": "Head Hunters · Лозенец",
+    "cityCode": "68134",
+    "neighborhood": "Лозенец",
+    "address": "София, бул. Джеймс Баучер 77",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "barber",
+    "website": "https://head-hunters.net/",
+    "phone": "+359879908980",
+    "services": [
+      {
+        "name": "Подстригване за мъже",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Подравняване и оформяне на брада",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://head-hunters.net/rezervatsia"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://head-hunters.net/rezervatsia",
+        "excerpt": "Онлайн запис на час"
+      },
+      "contact": "https://head-hunters.net/kontakti"
+    }
+  },
+  {
+    "id": "sofia-head-hunters-mladost",
+    "name": "Head Hunters · Младост",
+    "cityCode": "68134",
+    "neighborhood": "Младост",
+    "address": "София, бул. Александър Малинов 51, Metro City Business Center",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "barber",
+    "website": "https://head-hunters.net/",
+    "phone": "+359884541600",
+    "services": [
+      {
+        "name": "Подстригване за мъже",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Подравняване и оформяне на брада",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://head-hunters.net/rezervatsia"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://head-hunters.net/rezervatsia",
+        "excerpt": "Онлайн запис на час"
+      },
+      "contact": "https://head-hunters.net/kontakti"
+    }
+  },
+  {
+    "id": "sofia-head-hunters-levski",
+    "name": "Head Hunters · бул. Левски",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, бул. Васил Левски 93А",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "barber",
+    "website": "https://head-hunters.net/",
+    "phone": "+359876442304",
+    "services": [
+      {
+        "name": "Подстригване за мъже",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Подравняване и оформяне на брада",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://head-hunters.net/rezervatsia"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://head-hunters.net/rezervatsia",
+        "excerpt": "Онлайн запис на час"
+      },
+      "contact": "https://head-hunters.net/kontakti"
+    }
+  },
+  {
+    "id": "sofia-head-hunters-ruski-pametnik",
+    "name": "Head Hunters · Руски паметник",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, бул. Македония 33",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "barber",
+    "website": "https://head-hunters.net/",
+    "phone": "+359877700705",
+    "services": [
+      {
+        "name": "Подстригване за мъже",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Подравняване и оформяне на брада",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://head-hunters.net/rezervatsia"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://head-hunters.net/rezervatsia",
+        "excerpt": "Онлайн запис на час"
+      },
+      "contact": "https://head-hunters.net/kontakti"
+    }
+  },
+  {
+    "id": "sofia-head-hunters-academy",
+    "name": "Head Hunters · Академия",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, бул. Тодор Александров 137",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "barber",
+    "website": "https://head-hunters.net/",
+    "phone": "+359878815596",
+    "services": [
+      {
+        "name": "Подстригване за мъже",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Подравняване и оформяне на брада",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://head-hunters.net/rezervatsia"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://head-hunters.net/rezervatsia",
+        "excerpt": "Онлайн запис на час"
+      },
+      "contact": "https://head-hunters.net/kontakti"
+    }
+  },
+  {
+    "id": "sofia-head-hunters-dondukov",
+    "name": "Head Hunters · Дондуков",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, бул. Александър Дондуков 88",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "barber",
+    "website": "https://head-hunters.net/",
+    "phone": "+359876533007",
+    "services": [
+      {
+        "name": "Подстригване за мъже",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Подравняване и оформяне на брада",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://head-hunters.net/rezervatsia"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://head-hunters.net/rezervatsia",
+        "excerpt": "Онлайн запис на час"
+      },
+      "contact": "https://head-hunters.net/kontakti"
+    }
+  },
+  {
+    "id": "sofia-the-one-studio",
+    "name": "Studio The One",
+    "cityCode": "68134",
+    "neighborhood": "Студентски град",
+    "address": "София, ул. Висарион Белински 2Б",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "barber",
+    "website": "https://www.wearetheone.bg/",
+    "phone": "+359889070769",
+    "services": [
+      {
+        "name": "Подстригване за мъже",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Подравняване и оформяне на брада",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359889070769"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://www.wearetheone.bg/studio.php?id=8",
+        "excerpt": "Book an appointment"
+      },
+      "contact": "https://www.wearetheone.bg/studio.php?id=8"
+    }
+  },
+  {
+    "id": "sofia-the-one-deluxe",
+    "name": "The One Deluxe",
+    "cityCode": "68134",
+    "neighborhood": "Студентски град",
+    "address": "София, ул. Акад. Борис Стефанов 1",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "barber",
+    "website": "https://www.wearetheone.bg/",
+    "phone": "+359888970769",
+    "services": [
+      {
+        "name": "Подстригване за мъже",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Подравняване и оформяне на брада",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359888970769"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://www.wearetheone.bg/studio.php?id=13",
+        "excerpt": "Book an appointment"
+      },
+      "contact": "https://www.wearetheone.bg/studio.php?id=13"
+    }
+  },
+  {
+    "id": "sofia-the-one-barbershop",
+    "name": "The One Barbershop",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, бул. Витоша 114",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "barber",
+    "website": "https://www.wearetheone.bg/",
+    "phone": "+359888070669",
+    "services": [
+      {
+        "name": "Подстригване за мъже",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Подравняване и оформяне на брада",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359888070669"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://www.wearetheone.bg/studio.php?id=9",
+        "excerpt": "Book an appointment"
+      },
+      "contact": "https://www.wearetheone.bg/studio.php?id=9"
+    }
+  },
+  {
+    "id": "sofia-the-one-premium",
+    "name": "The One Premium",
+    "cityCode": "68134",
+    "neighborhood": "Хладилника",
+    "address": "София, ул. Борис Руменов 5А",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "barber",
+    "website": "https://www.wearetheone.bg/",
+    "phone": "+359889707769",
+    "services": [
+      {
+        "name": "Подстригване за мъже",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Подравняване и оформяне на брада",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359889707769"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://www.wearetheone.bg/studio.php?id=11",
+        "excerpt": "Book an appointment"
+      },
+      "contact": "https://www.wearetheone.bg/studio.php?id=11"
+    }
+  },
+  {
+    "id": "sofia-the-one-private",
+    "name": "The One Private",
+    "cityCode": "68134",
+    "neighborhood": "Драгалевци",
+    "address": "София, бул. Черни връх 226",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "barber",
+    "website": "https://www.wearetheone.bg/",
+    "phone": "+359888070665",
+    "services": [
+      {
+        "name": "Подстригване за мъже",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Подравняване и оформяне на брада",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359888070665"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://www.wearetheone.bg/studio.php?id=12",
+        "excerpt": "Book an appointment"
+      },
+      "contact": "https://www.wearetheone.bg/studio.php?id=12"
+    }
+  },
+  {
+    "id": "sofia-the-one-famous",
+    "name": "The One Famous",
+    "cityCode": "68134",
+    "neighborhood": "Център",
+    "address": "София, ул. Цар Калоян 6",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "barber",
+    "website": "https://www.wearetheone.bg/",
+    "phone": "+359883442333",
+    "services": [
+      {
+        "name": "Подстригване за мъже",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Подравняване и оформяне на брада",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359883442333"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-05",
+      "validUntil": "2027-02-03",
+      "booking": {
+        "url": "https://www.wearetheone.bg/studio.php?id=10",
+        "excerpt": "Book an appointment"
+      },
+      "contact": "https://www.wearetheone.bg/studio.php?id=10"
+    }
+  }
+]

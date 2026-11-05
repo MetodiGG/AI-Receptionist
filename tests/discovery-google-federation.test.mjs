@@ -15,6 +15,7 @@ import { createDiscoveryHandler } from '../lib/discovery/handler.mjs'
 const time = Date.parse('2026-10-26T12:00:00Z'), seconds = time / 1000
 const project = 'gorez-test-project', teamId = 'team_SYNTHETIC1234', projectId = 'prj_SYNTHETIC1234'
 const config = discoveryConfig({
+  DISCOVERY_PROVIDER_MODE: 'google',
   DISCOVERY_ENABLED: 'true', VERCEL_ENV: 'preview', GOOGLE_PLACES_AUTH_MODE: 'vercel-oidc',
   GOOGLE_PLACES_PROJECT_ID: project, GOOGLE_WIF_PROJECT_NUMBER: '123456789012',
   GOOGLE_WIF_POOL_ID: 'gorez-preview', GOOGLE_WIF_PROVIDER_ID: 'vercel-preview',

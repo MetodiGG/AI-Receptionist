@@ -20,10 +20,11 @@ import { DiscoveryHomeBusinesses, DiscoveryHomeBottom } from './discovery-home-b
 import { DiscoveryFilterSheet } from './discovery-filter-sheet'
 import { applyHomeFilters, homeCategories, homeFilterCount, HOME_DISCOVERY_COPY } from '../lib/discovery/home.mjs'
 import { laboratoryShortcuts } from '../lib/discovery/laboratories.mjs'
+import { mergeCataloguePage } from '../lib/discovery/catalogue-pagination.mjs'
 
 const cities = [...BULGARIAN_CITIES].sort((a, b) => a.name.localeCompare(b.name, 'bg'))
 const duplicateCityNames = new Set(cities.filter((city, index) => cities.findIndex(other => other.name === city.name) !== index).map(city => city.name))
-export function DiscoverySearch({ locale = 'bg', compact = false, preview = false, locationProvider = requestDiscoveryLocation, home = false, directoryData }) {
+export function DiscoverySearch({ locale = 'bg', compact = false, preview = false, cataloguePreview = false, locationProvider = requestDiscoveryLocation, home = false, directoryData }) {
   const copy = DISCOVERY_COPY[locale], en = locale === 'en', router = useRouter()
   const homeCopy = HOME_DISCOVERY_COPY[locale], filterId = useId(), filterTrigger = useRef(null)
   const [filtersOpen, setFiltersOpen] = useState(false)
@@ -38,9 +39,11 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
   const [locationEnabled, setLocationEnabled] = useState(home || Boolean(initialInput?.coordinates))
   const [locating, setLocating] = useState(false), [locationError, setLocationError] = useState(''), [loading, setLoading] = useState(false)
   const [result, setResult] = useState(null), [error, setError] = useState(''), [settledQuery, setSettledQuery] = useState(query)
+  const [loadingMore, setLoadingMore] = useState(false), [moreError, setMoreError] = useState(''), [resultKey, setResultKey] = useState(0)
+  const pageController = useRef(null), pageInFlight = useRef(false), searchVersion = useRef(0), lastInput = useRef(null)
   const controller = useRef(null), resultHeading = useRef(null), inFlight = useRef(false), locationInFlight = useRef(false), locationVersion = useRef(0), mounted = useRef(true), scrollAfterSearch = useRef(false)
   useEffect(() => { const timer = setTimeout(() => setSettledQuery(query), 350); return () => clearTimeout(timer) }, [query])
-  useEffect(() => { mounted.current = true; return () => { mounted.current = false; controller.current?.abort() } }, [])
+  useEffect(() => { mounted.current = true; return () => { mounted.current = false; controller.current?.abort(); pageController.current?.abort() } }, [])
   useEffect(() => {
     if (compact || loading || !scrollAfterSearch.current || (!result && !error)) return
     // After React commits the response: move to results/clarification/error,
@@ -89,18 +92,41 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
   }
   async function search(input = payload(), { navigate = true } = {}) {
     if (inFlight.current) return
+    const version = ++searchVersion.current
+    setResultKey(version); lastInput.current = input
+    pageController.current?.abort(); pageInFlight.current = false; setLoadingMore(false); setMoreError('')
     scrollAfterSearch.current = navigate
     inFlight.current = true; setLoading(true); setError(''); setResult(null)
     const abort = new AbortController(); controller.current?.abort(); controller.current = abort
     const timer = setTimeout(() => abort.abort(), 20000)
     try {
-      const response = await fetch(preview ? '/dev/discovery/search' : '/api/public/discovery', { method: 'POST', headers: { 'Content-Type': 'application/json' }, cache: 'no-store', signal: abort.signal, body: JSON.stringify(input) })
+      const response = await fetch(preview ? cataloguePreview ? '/dev/sofia-catalogue/search' : '/dev/discovery/search' : '/api/public/discovery', { method: 'POST', headers: { 'Content-Type': 'application/json' }, cache: 'no-store', signal: abort.signal, body: JSON.stringify(input) })
       const data = await response.json()
       if (!response.ok) throw new Error(data.error?.code || 'SEARCH_UNAVAILABLE')
       if (!Array.isArray(data.results) || typeof data.externalStatus !== 'string') throw new Error('SEARCH_UNAVAILABLE')
-      if (mounted.current && !abort.signal.aborted) setResult(data)
+      if (mounted.current && !abort.signal.aborted && version === searchVersion.current) setResult(data)
     } catch (failure) { if (mounted.current) setError(failure.message === 'RATE_LIMITED' ? 'RATE_LIMITED' : failure.message === 'VALIDATION_ERROR' ? 'VALIDATION_ERROR' : 'SEARCH_UNAVAILABLE') }
     finally { clearTimeout(timer); inFlight.current = false; if (mounted.current) setLoading(false) }
+  }
+  async function loadMore() {
+    const offset = result?.cataloguePage?.nextOffset
+    if (loading || pageInFlight.current || offset == null || !lastInput.current) return
+    const version = searchVersion.current, abort = new AbortController()
+    pageController.current = abort; pageInFlight.current = true
+    scrollAfterSearch.current = false; setLoadingMore(true); setMoreError('')
+    const timer = setTimeout(() => abort.abort(), 20000)
+    try {
+      const response = await fetch(preview ? cataloguePreview ? '/dev/sofia-catalogue/search' : '/dev/discovery/search' : '/api/public/discovery', { method: 'POST', headers: { 'Content-Type': 'application/json' }, cache: 'no-store', signal: abort.signal, body: JSON.stringify({ ...lastInput.current, catalogueOffset: offset }) })
+      const data = await response.json()
+      if (!response.ok) throw new Error(data.error?.code || 'SEARCH_UNAVAILABLE')
+      const merged = mergeCataloguePage(result, data)
+      if (mounted.current && !abort.signal.aborted && version === searchVersion.current) setResult(merged)
+    } catch (failure) {
+      if (mounted.current && version === searchVersion.current) setMoreError(failure.message === 'RATE_LIMITED' ? 'RATE_LIMITED' : 'SEARCH_UNAVAILABLE')
+    } finally {
+      clearTimeout(timer)
+      if (version === searchVersion.current) { pageInFlight.current = false; if (mounted.current) setLoadingMore(false) }
+    }
   }
   function submit(event) {
     event.preventDefault()
@@ -179,7 +205,7 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
     {home && <><DiscoveryHomeRail title={homeCopy.categories} locale={locale} kind="categories">{homeCategories(locale).map((item, index) => <li key={item.id}><button type="button" disabled={loading || locating} className={category === item.id ? 'selected' : ''} aria-pressed={category === item.id} onClick={() => chooseCategory(item.id)}><img src={item.photo} srcSet={`${item.photo} 160w, ${item.photo2x} 240w`} sizes="80px" width="160" height="160" alt="" loading={index < 4 ? 'eager' : 'lazy'} decoding="async"/><span>{item.label}</span></button></li>)}</DiscoveryHomeRail></>}
     {home && category === 'other' && <div className="laboratory-shortcuts" role="group" aria-label={en ? 'Other appointment services' : 'Други услуги с часове'}>{laboratoryShortcuts(locale).map(item => <button key={item.id} type="button" className="secondary-button" disabled={loading || locating} onClick={() => chooseLaboratory(item)}>{item.label}</button>)}</div>}
     {!home && !compact && <div className="discovery-partner-entry"><Link href={`/partners?lang=${locale}`} prefetch={false}><BrandMark size={36}/><span><strong>{copy.partners}</strong><span>{en ? 'Browse businesses by category' : 'Разгледай бизнесите по категории'}</span></span><Icon name="arrow"/></Link><Link className="discovery-business-cta" href={`/for-businesses?lang=${locale}`}><span>{copy.registerBusiness}</span><Icon name="arrow"/></Link></div>}
-    {!compact && <DiscoveryHomeBusinesses locale={locale} filters={{ ...homeFilters, coordinates }} preview={preview} data={directoryData} result={result} loading={loading || locating} error={error} onRetry={() => execute(payload())} headingRef={resultHeading}/>}
+    {!compact && <DiscoveryHomeBusinesses locale={locale} filters={{ ...homeFilters, coordinates }} preview={preview} data={directoryData} result={result} resultKey={resultKey} loading={loading || locating} error={error} onRetry={() => execute(payload())} headingRef={resultHeading} onLoadMore={loadMore} loadingMore={loadingMore} moreError={moreError}/>}
     {home && <DiscoveryHomeBottom locale={locale}/>}
   </section>
 }

@@ -91,7 +91,7 @@ test('an excluded partner does not suppress a Google result through a verified P
 })
 
 test('EEA UI Kit keeps provider order and restores linked IDs when a partner is excluded after availability checking', async () => {
-  const config = discoveryConfig({ DISCOVERY_ENABLED: 'true', GOOGLE_PLACES_UI_KIT_ENABLED: 'true', GOOGLE_PLACES_UI_KIT_APPROVED: 'true', GOOGLE_MAPS_BROWSER_KEY: 'fake-browser-test-only', GOOGLE_PLACES_API_KEY: 'fake-server-test-only' })
+  const config = discoveryConfig({ DISCOVERY_PROVIDER_MODE: 'google', DISCOVERY_ENABLED: 'true', GOOGLE_PLACES_UI_KIT_ENABLED: 'true', GOOGLE_PLACES_UI_KIT_APPROVED: 'true', GOOGLE_MAPS_BROWSER_KEY: 'fake-browser-test-only', GOOGLE_PLACES_API_KEY: 'fake-server-test-only' })
   const result = await discoverBusinesses(discoveryRequestSchema.parse(discoverySearchInput({ query: 'барбершоп във Връбница утре след 17:00' })), {
     now, config, claimBudget: async () => true, readInternal: async () => [business()],
     fetcher: async () => Response.json({ places: [{ id: 'EXTERNAL_FIRST' }, { id: 'EXTERNAL_TEST' }, { id: 'EXTERNAL_LAST' }] }),

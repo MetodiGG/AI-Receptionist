@@ -8,7 +8,7 @@ import { createBudgetGuard } from '../lib/discovery/budget.mjs'
 
 const businessId = '10000000-0000-4000-8000-000000000001', actor = '20000000-0000-4000-8000-000000000001'
 const link = { business_id: businessId, place_id: 'OFFLINE_VERIFIED_PLACE', verified_by: actor, verified_at: '2026-11-05T10:00:00Z' }
-const config = { ...discoveryConfig({}), enabled: true, uiKitEnabled: true, partnerRatingsEnabled: true, browserKey: 'fake-restricted-browser-key' }
+const config = { ...discoveryConfig({ DISCOVERY_PROVIDER_MODE: 'google' }), enabled: true, uiKitEnabled: true, partnerRatingsEnabled: true, browserKey: 'fake-restricted-browser-key' }
 const request = (body = { locale: 'bg' }, headers = {}) => new Request('https://www.gorez.co/api/public/test-business/google-rating', { method: 'POST', headers: { 'Content-Type': 'application/json', Origin: 'https://www.gorez.co', ...headers }, body: typeof body === 'string' ? body : JSON.stringify(body) })
 const read = file => readFile(new URL(`../${file}`, import.meta.url), 'utf8')
 function harness(overrides = {}) {
@@ -19,7 +19,8 @@ function harness(overrides = {}) {
 
 test('partner Google ratings are a separate disabled-by-default opt-in, not an implicit part of discovery enablement', async () => {
   assert.equal(discoveryConfig({ DISCOVERY_ENABLED: 'true', GOOGLE_PLACES_UI_KIT_ENABLED: 'true', GOOGLE_PLACES_UI_KIT_APPROVED: 'true' }).partnerRatingsEnabled, false)
-  assert.equal(discoveryConfig({ GOOGLE_PARTNER_RATINGS_ENABLED: 'true' }).partnerRatingsEnabled, true)
+  assert.equal(discoveryConfig({ GOOGLE_PARTNER_RATINGS_ENABLED: 'true' }).partnerRatingsEnabled, false)
+  assert.equal(discoveryConfig({ DISCOVERY_PROVIDER_MODE: 'google', GOOGLE_PARTNER_RATINGS_ENABLED: 'true' }).partnerRatingsEnabled, true)
   for (const patch of [{ enabled: false }, { uiKitEnabled: false }, { partnerRatingsEnabled: false }, { browserKey: '' }, { devMock: true }]) {
     const h = harness({ config: { ...config, ...patch } })
     assert.deepEqual(await (await h.run()).json(), { plan: null }); assert.equal(h.calls.length, 0)

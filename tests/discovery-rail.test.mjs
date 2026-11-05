@@ -81,7 +81,7 @@ test('one Explore Businesses rail replaces the previous browse-plus-results layo
   const source = await read('components/discovery-search.js')
   assert.equal((source.match(/<DiscoveryHomeBusinesses /g) || []).length, 1)
   assert.doesNotMatch(source, /className="discovery-results"|className="discovery-understood"|className="discovery-source-tabs"|copy.results|DiscoveryCard/)
-  assert.match(source, /result=\{result\} loading=\{loading \|\| locating\}/)
+  assert.match(source, /result=\{result\} resultKey=\{resultKey\} loading=\{loading \|\| locating\}/)
   assert.match(source, /headingRef=\{resultHeading\}/)
 })
 test('only partners get a membership badge, reviews follow the category, and origin-aware distance stays separate from consent-based addresses', async () => {
@@ -103,11 +103,14 @@ test('Google stays in its attributed horizontal UI Kit with native contact actio
   assert.match(source, /setAttribute\('action', 'call'\)/)
   assert.doesNotMatch(source, /\.shadowRoot|fetchFields|innerHTML|textContent\s*=|copy.externalHint/)
 })
-test('farther places append to the same horizontal rail only after deliberate horizontal scroll or the More button', async () => {
+test('subsequent pages use the same rail after a user advance, never an observer loop or More button', async () => {
   const rail = await read('components/discovery-home-rail.js'), browse = await read('components/discovery-home-browse.js')
-  assert.match(rail, /node.scrollLeft > 4 && node.scrollLeft \+ node.clientWidth >= node.scrollWidth - 80/)
-  assert.match(browse, /onNearEnd=\{hasMore && !expanded \? \(\) => setExpanded\(true\)/)
-  assert.match(browse, /onClick=\{\(\) => setExpanded\(true\)\}/)
+  assert.match(rail, /movingRight && onNearEnd && advance.current.consume/)
+  assert.match(rail, /onWheel=/)
+  assert.match(rail, /onPointerDown=/)
+  assert.match(browse, /onNearEnd=\{hasMore && !loadingMore && !moreError \? advanceBusinesses/)
+  assert.match(browse, /if \(hiddenFurther\) setExpanded\(true\)/)
+  assert.doesNotMatch(browse, /home-more-businesses|Още бизнеси|More businesses/)
   assert.doesNotMatch(rail + browse, /fetch\(|IntersectionObserver|window.scrollY|readBookablePlaces/)
 })
 test('category labels never wrap, split letters, or rely on fixed two-line clipping', async () => {

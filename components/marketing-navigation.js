@@ -22,8 +22,7 @@ export function MarketingNavigation({ locale, setLocale, business = false, homeD
   }, [open])
   return <nav ref={navigation} className={`marketing-nav launch-navigation${isHome ? ' launch-navigation-home' : ''}`} aria-label={en ? 'Main navigation' : 'Основна навигация'} onKeyDown={event => { if (event.key === 'Escape' && open) { setOpen(false); menuButton.current?.focus() } }} onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) setOpen(false) }}>
     <Link className="launch-brand" href={`/?lang=${locale}`} aria-label="GoRez"><BrandLogo compact decorative eager/></Link>
-    <div className="launch-nav-actions"><LanguageSwitch locale={locale} onChange={setLocale} compact/><button ref={menuButton} type="button" className="launch-menu-toggle" aria-expanded={open} aria-controls="launch-menu" aria-label={en ? 'Menu' : 'Меню'} onClick={() => setOpen(!open)}><Icon name={open ? 'close' : 'menu'}/></button></div>
-    {!homeDiscovery && <>{!isHome && <HomeLink locale={locale} onClick={() => setOpen(false)}/>}</>}
+    <div className="launch-nav-actions">{!homeDiscovery && !isHome && <HomeLink locale={locale} onClick={() => setOpen(false)}/>}<LanguageSwitch locale={locale} onChange={setLocale} compact/><button ref={menuButton} type="button" className="launch-menu-toggle" aria-expanded={open} aria-controls="launch-menu" aria-label={en ? 'Menu' : 'Меню'} onClick={() => setOpen(!open)}><Icon name={open ? 'close' : 'menu'}/></button></div>
     <div id="launch-menu" hidden={!open} className={`launch-menu ${open ? 'is-open' : ''}`} onClick={() => setOpen(false)}>
       <Link href={`/?lang=${locale}`}>{en ? 'Home' : 'Начало'}</Link>
       <Link href={`/?lang=${locale}#ai-query`} onClick={() => trackProductEvent('cta_find_appointment_click', business ? 'for-businesses' : 'home', locale)}>{en ? 'Find a service' : 'Намери услуга'}</Link>

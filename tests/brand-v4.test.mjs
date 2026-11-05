@@ -36,7 +36,7 @@ test('the lossless PNG is an exact whole-image resize, not a redraw, crop, recol
   assert.doesNotMatch(component, /next\/image|clipPath|filter:/)
 })
 test('all active header/footer/partner marks share the current artwork; retired SVG references are not rendered', async () => {
-  const search = await read('components/discovery-search.js'), browse = await read('components/discovery-home-browse.js')
+  const search = await read('components/discovery-search.js'), browse = await read('components/discovery-business-card.js')
   for (const source of [search, browse]) {
     assert.match(source, /import \{ BrandMark \} from '\.\/brand-logo'/)
     assert.match(source, /<BrandMark size=/)

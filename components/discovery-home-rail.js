@@ -6,7 +6,7 @@ import { HOME_DISCOVERY_COPY } from '../lib/discovery/home.mjs'
 
 // A native scroll region: no autoplay, cloned items, provider requests or
 // carousel dependency. Every card stays reachable by swipe, Tab and arrows.
-export function DiscoveryHomeRail({ title, locale, kind, action, children }) {
+export function DiscoveryHomeRail({ title, locale, kind, action, children, headingRef, busy = false, message, onNearEnd }) {
   const id = useId(), rail = useRef(null), copy = HOME_DISCOVERY_COPY[locale]
   const [ends, setEnds] = useState({ start: true, end: true })
   const measure = () => { const node = rail.current; if (node) setEnds({ start: node.scrollLeft <= 2, end: node.scrollLeft + node.clientWidth >= node.scrollWidth - 2 }) }
@@ -22,8 +22,14 @@ export function DiscoveryHomeRail({ title, locale, kind, action, children }) {
     if (!node) return
     node.scrollBy({ left: direction * node.clientWidth * .8, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' })
   }
-  return <section className={`home-discovery-section home-${kind}`} aria-labelledby={`${id}-title`}>
-    <header className="home-section-heading"><h2 id={`${id}-title`}>{title}</h2><div className="home-section-actions">{action}<div className="home-rail-arrows"><button type="button" onClick={() => scroll(-1)} disabled={ends.start} aria-label={`${copy.previous} · ${title}`} aria-controls={id}><Icon name="back"/></button><button type="button" onClick={() => scroll(1)} disabled={ends.end} aria-label={`${copy.next} · ${title}`} aria-controls={id}><Icon name="arrow"/></button></div></div></header>
-    <ul className="home-discovery-rail" id={id} ref={rail} onScroll={measure} tabIndex={0} aria-label={title}>{children}</ul>
+  function onScroll() {
+    measure()
+    const node = rail.current
+    if (node && node.scrollLeft > 4 && node.scrollLeft + node.clientWidth >= node.scrollWidth - 80) onNearEnd?.()
+  }
+  return <section className={`home-discovery-section home-${kind}`} aria-labelledby={`${id}-title`} aria-busy={busy}>
+    <header className="home-section-heading"><h2 id={`${id}-title`} ref={headingRef} tabIndex={headingRef ? -1 : undefined}>{title}</h2><div className="home-section-actions">{action}<div className="home-rail-arrows"><button type="button" onClick={() => scroll(-1)} disabled={ends.start} aria-label={`${copy.previous} · ${title}`} aria-controls={id}><Icon name="back"/></button><button type="button" onClick={() => scroll(1)} disabled={ends.end} aria-label={`${copy.next} · ${title}`} aria-controls={id}><Icon name="arrow"/></button></div></div></header>
+    {message}
+    <ul className="home-discovery-rail" id={id} ref={rail} onScroll={onScroll} tabIndex={0} aria-label={title}>{children}</ul>
   </section>
 }

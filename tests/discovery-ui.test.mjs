@@ -118,8 +118,9 @@ test('simple form hides secondary controls and diagnostics, keeps readable text 
   assert.match(ui, /execute\(payload\(\{ coordinates: position, neighborhood: '' \}\)\)/)
   assert.match(ui, /<label>\{copy.radius\}<select value=\{radiusKm\}/)
   assert.match(ui, /DISCOVERY_RADIUS_CHOICES\.map\(radius/)
-  assert.match(ui, /BusinessPhotoGallery photos=\{row.photos\}/)
-  assert.match(ui, /<details className="discovery-ranking"><summary>\{copy.searchDetails\}/)
+  const card = await read('components/discovery-business-card.js')
+  assert.match(card, /homeBusinessPhoto\(row\)/)
+  assert.doesNotMatch(ui, /className="discovery-ranking"|className="discovery-understood"|className="discovery-results"/)
   assert.match(css, /\.client-finder \.discovery-compact \.discovery-form \{ padding: 0; border: 0;/)
   for (const match of css.matchAll(/font-size:\s*(\d+)px/g)) assert.ok(Number(match[1]) >= 16, `small font: ${match[0]}`)
   for (const source of [ui, helper]) assert.doesNotMatch(source, /localStorage|sessionStorage|watchPosition|console\.|trackProductEvent/)
@@ -218,7 +219,10 @@ test('radius helpers are not visible; location consent, error recovery and acces
   assert.match(ui, /locationProvider = requestDiscoveryLocation/)
   assert.match(ui, /locationProvider\(navigator.geolocation/)
   assert.match(footer, /\/privacy\?lang=/)
-  assert.match(legal, /Незадължителното местоположение от браузъра се иска само след твое действие/)
+  assert.match(legal, /Началната страница иска от браузъра разрешение за местоположение при отваряне/)
+  assert.match(legal, /Координатите се използват само след разрешение/)
+  assert.match(legal, /началната страница автоматично зарежда ограничен подбор от бизнеси/)
+  assert.match(legal, /без да изпраща точни координати за него/)
 })
 
 test('legacy results keep their registration CTA while the compact homepage moves onboarding to the bottom', async () => {

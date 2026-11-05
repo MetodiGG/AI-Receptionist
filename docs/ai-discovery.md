@@ -88,6 +88,7 @@ All defaults and comments are in `.env.example`. No secrets are committed.
 | `GOOGLE_PLACES_API_KEY` | Legacy server-only, IP/API-restricted Places key for explicitly selected `api-key` mode. Ignored in both OAuth modes |
 | `GOOGLE_MAPS_BROWSER_KEY` | Separate referrer/API-restricted UI Kit key; intentionally public when a widget grant is issued |
 | `GOOGLE_PLACES_UI_KIT_ENABLED` | `false`; EEA ID search + native attributed widget |
+| `GOOGLE_PARTNER_RATINGS_ENABLED` | `false`; separate opt-in for verified partner Google ratings, lazy native widgets, sharing the existing Google request/cost buckets; see `partner-google-ratings-2026-11-05.md` |
 | `GOOGLE_PLACES_UI_KIT_APPROVED` | `false`; owner/configuration approval gate, not a substitute for contractual review |
 | `GOOGLE_PLACES_BILLING_REGION` | `EEA` for GoRez; full-content REST remains blocked |
 | `DISCOVERY_GOOGLE_DAILY_LIMIT` | `40` provider reservations across all methods |

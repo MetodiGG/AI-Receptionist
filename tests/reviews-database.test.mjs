@@ -88,6 +88,14 @@ test('review submission is single-use, consent-based and cannot overwrite a prio
   assert.equal(review.rating,4);assert.equal(review.quality,5);assert.equal(review.service_rating,4)
   assert.ok((await invitation()).used_at)
 })
+test('a verified GoRez rating without a comment increases its own count and average, without importing Google ratings',async()=>{
+  await reset();await complete();const invite=await invitation()
+  await submit(invite.token,{...body,rating:3,comment:''})
+  const result=(await rows('select public_business_reviews($1) result',[b]))[0].result
+  assert.equal(result.summary.count,1);assert.equal(Number(result.summary.average),3)
+  assert.equal(result.items[0].comment,'');assert.equal(result.items[0].rating,3)
+  assert.deepEqual(Object.keys(result.summary).sort(),['atmosphere','average','cleanliness','count','quality','service'])
+})
 test('cancelled, changed, expired, anonymized and cross-tenant invitations cannot create public reviews',async()=>{
   for(const mode of ['cancelled','changed','expired','anonymized','tenant']){
     await reset();await complete();const invite=await invitation()

@@ -14,13 +14,14 @@ test('existing internal price and trial retain their numeric source and localize
   assert.equal(MONTHLY_PRICE_EUR,19.99);assert.equal(TRIAL_DAYS,30)
   assert.equal(PRICE_LABEL.bg,'19,99 €');assert.equal(PRICE_LABEL.en,'€19.99')
 })
-test('public subscription copy omits the amount but keeps the trial, direct discussion and explicit paid consent in both languages',async()=>{
-  assert.equal(PRICING_COPY.bg.summary,'30 дни безплатно. Абонаментните условия уточняваме лично. Без данни за плащане и без автоматично таксуване.')
-  assert.equal(PRICING_COPY.en.summary,'30 days free. We discuss subscription terms with you directly. No payment details required. No automatic charges.')
-  assert.equal(PRICING_COPY.bg.trial,'30 дни безплатно');assert.equal(PRICING_COPY.en.trial,'30 days free')
-  assert.match(PRICING_COPY.bg.afterTrial,/Платено продължаване.*изрично съгласие.*без автоматично таксуване/)
-  assert.match(PRICING_COPY.en.afterTrial,/Paid continuation requires your explicit consent.*no automatic charges/)
-  assert.doesNotMatch(JSON.stringify(PRICING_COPY),/19[.,]99|€|free forever|безплатно завинаги/i)
+test('public offer is free to use with no trial deadline, subscription discussion or future billing promise',async()=>{
+  assert.equal(PRICING_COPY.bg.summary,'Регистрацията и използването на GoRez са безплатни. Не се изискват данни за плащане.')
+  assert.equal(PRICING_COPY.en.summary,'Registration and use of GoRez are free. No payment details are required.')
+  assert.equal(PRICING_COPY.bg.headline,'Безплатно за твоя бизнес');assert.equal(PRICING_COPY.en.headline,'Free for your business')
+  assert.match(PRICING_COPY.bg.assurance,/Без абонаментни такси и без автоматично таксуване/)
+  assert.match(PRICING_COPY.en.assurance,/No subscription fees and no automatic charges/)
+  assert.equal(PRICING_COPY.bg.trial,undefined);assert.equal(PRICING_COPY.en.afterTrial,undefined)
+  assert.doesNotMatch(JSON.stringify(PRICING_COPY),/19[.,]99|€|30|free forever|безплатно завинаги|trial|след безплатния|free period|уточняваме|discuss|continuation/i)
   for(const file of ['components/business-onboarding.js','components/business-landing.js','app/share-image/route.js']){
     const source=await readFile(new URL(`../${file}`,import.meta.url),'utf8')
     assert.match(source,/PRICING_COPY/);assert.doesNotMatch(source,/PRICE_LABEL|MONTHLY_PRICE_EUR|\.monthly\b|19[.,]99/)
@@ -35,7 +36,8 @@ test('public page, Open Graph and Twitter metadata never quote the subscription 
     const metadata=pageMetadata(path,locale)
     assert.doesNotMatch(JSON.stringify(metadata),/19[.,]99|€|free forever|безплатно завинаги/i)
     if(path==='/for-businesses'){
-      assert.match(metadata.description,locale==='bg'?/условия уточняваме лично/:/subscription terms with you directly/)
+      assert.match(metadata.description,locale==='bg'?/използването на GoRez са безплатни/:/use of GoRez are free/)
+      assert.doesNotMatch(JSON.stringify(metadata),/\b30\b|trial|безплатния период|free period|уточняваме|discuss/i)
       assert.equal(metadata.openGraph.description,metadata.description);assert.equal(metadata.twitter.description,metadata.description)
     }
   }

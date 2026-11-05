@@ -146,7 +146,7 @@ test('deduplication uses verified IDs only, never a matching business name; Goog
   assert.equal(rankDiscoveryResults(internal, external, intent).length, 2)
   assert.equal(rankDiscoveryResults(internal, external, intent, { links: [{ business_id: internal[0].id, place_id: external[0].placeId }] }).length, 1)
   assert.equal(rankDiscoveryResults(internal, [...external, ...external], intent).length, 2)
-  assert.equal(external[0].rating, undefined)
+  assert.equal(external[0].rating, 5)
 })
 test('UI Kit IDs are deduplicated before rendering and total external plus internal results are capped', async () => {
   const d = deps({ config: { ...config, uiKitEnabled: true, browserKey: 'restricted' }, readInternal: async () => Array.from({ length: 8 }, (_, index) => business({ id: `b${index}` })),
@@ -250,7 +250,9 @@ test('frontend submits explicitly, keeps browser coordinates out of storage and 
   assert.doesNotMatch(ui, /localStorage|sessionStorage|searchParams\.set|watchPosition|trackProductEvent/)
   assert.match(ui, /locationProvider = requestDiscoveryLocation/); assert.match(ui, /locationProvider\(navigator.geolocation/); assert.match(ui, /copy.locationDenied/)
   assert.match(widget, /gmp-advanced-place-list/); assert.match(widget, /gmp-place-attribution/); assert.match(widget, /open-map/)
-  assert.match(widget, /v: 'weekly'/); assert.doesNotMatch(widget, /v: '(?:alpha|beta)'/)
+  const loader = await read('lib/discovery/google-ui-loader.mjs')
+  assert.match(widget, /import \{ loadPlacesLibrary \} from/)
+  assert.match(loader, /v: 'weekly'/); assert.doesNotMatch(loader, /v: '(?:alpha|beta)'/)
   assert.match(widget, /document.createElement\('gmp-place-media'\)/)
   assert.doesNotMatch(widget, /fetchFields|new .*\.Map|gmp-place-reviews|innerHTML|\.rating|\.displayName|fetch\(|getURI|photoUri/)
   assert.match(await read('app/dev/discovery/page.js'), /\.devMock\) notFound/)

@@ -107,3 +107,13 @@
   .review-admin-card { padding:19px; }.review-admin-card header { flex-wrap:wrap; }.review-moderation-form > div { flex-wrap:wrap; }
 }
 @media(prefers-reduced-motion:reduce) { .business-profile-hero *,.review-page * { scroll-behavior:auto; } }
+.partner-review-summary { display: grid; gap: 10px; min-width: 0; max-width: 100%; }
+.business-profile-reputation { max-width: 360px; margin-top: 16px; }
+.business-profile-reputation .business-profile-rating-link { margin-top: 8px; font-size: 16px; text-decoration: underline; text-underline-offset: 3px; }
+.partner-gorez-rating { display: grid; gap: 3px; min-width: 0; }
+.partner-review-summary .review-summary-muted { font-size: 16px; }
+.reputation-source { color: #65574c; font-size: 16px; font-weight: 600; line-height: 1.4; }
+.partner-google-rating { min-width: 0; max-width: 100%; }
+.partner-google-rating-host { min-height: 1px; min-width: 0; max-width: 100%; }
+.partner-google-rating[data-status="unavailable"] { display: none; }
+.partner-google-rating gmp-advanced-place-details { display: block; width: 100%; max-width: 100%; border: 0; color-scheme: light; background-color: transparent; --gmp-mat-color-surface: #fffaf5; --gmp-mat-color-primary: #a84b1e; --gmp-mat-font-body-small: 400 16px/1.45 "Avenir Next", "Segoe UI", sans-serif; }

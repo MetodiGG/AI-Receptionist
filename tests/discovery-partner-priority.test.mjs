@@ -109,15 +109,13 @@ test('city-only searches do not fabricate a nearby distance and do not request l
   assert.equal(result[0].source, 'gorez'); assert.equal(result[0].distanceKm, null); assert.equal(intent.coordinates, null)
 })
 
-test('partner heading and logo-coloured badges precede both external layouts without relabelling Google listings', async () => {
-  const ui = await read('components/discovery-search.js'), css = await read('app/solar.css')
-  assert.ok(ui.indexOf('className="discovery-partner-results"') < ui.indexOf('className="discovery-external-results"'))
-  assert.ok(ui.indexOf('className="discovery-external-results"') < ui.indexOf('<GoogleDiscoveryList plan='))
-  assert.match(ui, /internal \? <span className="discovery-source discovery-partner-badge"/)
-  assert.match(ui, /<BrandMark size=\{24\}/)
-  assert.match(ui, /<BrandMark size=\{32\}/)
-  assert.match(css, /\.discovery-card\.discovery-partner[^}]*border-top: 2px solid #368759/)
-  assert.match(css, /\.discovery-source\.discovery-partner-badge[^}]*font-size: 16px/)
+test('eligible partners lead the unified rail and only genuine partners carry the logo badge', async () => {
+  const ui = await read('components/discovery-business-card.js'), rail = await read('components/discovery-home-browse.js'), css = await read('app/discovery-home.css')
+  assert.ok(rail.indexOf('{nearRows.map(card)}') < rail.indexOf("google(result?.external, 'near-google')"))
+  assert.match(ui, /internal && <span className="home-business-partner"/)
+  assert.match(ui, /<BrandMark size=\{20\}/)
+  assert.match(css, /\.home-business-partner[^}]*color: #8b421c/)
+  assert.match(css, /\.home-business-partner[^}]*font-size: 16px/)
   for (const locale of ['bg', 'en']) {
     assert.ok(DISCOVERY_COPY[locale].partnerResults.includes('GoRez'))
     assert.doesNotMatch(DISCOVERY_COPY[locale].rankingHint, /small convenience bonus|малък бонус|No paid ranking|Без платено подреждане/)

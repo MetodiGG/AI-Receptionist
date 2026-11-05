@@ -4,45 +4,41 @@ a.site-home-link {
   align-items: center;
   justify-content: center;
   flex: 0 0 auto;
-  gap: 8px;
-  min-height: 46px;
-  padding: 10px 15px;
-  color: #173e2a;
-  background: #fff;
-  border: 1px solid #cbd8ca;
-  border-radius: 14px;
+  width: 44px;
+  min-width: 44px;
+  height: 44px;
+  min-height: 44px;
+  padding: 5px;
+  color: #fff;
+  background: transparent;
+  border: 0;
+  border-radius: 10px;
   font-size: 16px;
   line-height: 1.25;
   font-weight: 750;
   text-decoration: none;
   white-space: nowrap;
 }
-a.site-home-link svg { width: 20px; height: 20px; flex: 0 0 auto; }
-a.site-home-link:hover { background: #eaf3e6; border-color: #173e2a; }
+a.site-home-link svg { width: 30px; height: 30px; flex: 0 0 auto; filter: drop-shadow(0 1px 0 #c6bbae); }
+a.site-home-link:hover svg { transform: translateY(-1px); }
 a.site-home-link:focus-visible { outline: 3px solid #173e2a; outline-offset: 4px; }
-.home-header-actions { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 12px; margin-left: auto; }
-.home-navigation-header { gap: 16px; }
+.home-header-actions { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 8px; margin-left: auto; }
+.home-navigation-header { gap: 8px; }
 .legal-page > .legal-header { max-width: 800px; margin: 0 auto 24px; }
 .legal-page h1 { overflow-wrap: anywhere; }
-.booking-topbar > .booking-top-actions { margin-left: auto; margin-right: 14px; }
-.marketing-page .launch-navigation { grid-template-columns: auto 1fr auto auto; }
-.marketing-page .launch-navigation-home { grid-template-columns: auto 1fr auto; }
-.launch-navigation > .site-home-link { grid-column: 4; grid-row: 1; justify-self: end; }
+.booking-topbar > .booking-top-actions { margin-left: auto; margin-right: 0; }
+.marketing-page .launch-navigation { grid-template-columns: minmax(0, 1fr) auto; }
+.launch-navigation .launch-nav-actions { grid-column: 2; grid-row: 1; display: flex; align-items: center; justify-content: flex-end; flex-wrap: nowrap; gap: 8px; }
 .state-home-navigation { position: fixed; top: 18px; right: 18px; z-index: 40; }
 
 @media (max-width: 760px) {
   /* Home and language stay beside each other, never on separate rows. */
-  .marketing-page .launch-navigation { grid-template-columns: minmax(0, 1fr) auto auto auto; gap: 8px; }
-  .marketing-page .launch-navigation-home { grid-template-columns: minmax(0, 1fr) auto auto; }
+  .marketing-page .launch-navigation { grid-template-columns: minmax(0, 1fr) auto; gap: 8px; }
+  .launch-navigation .launch-nav-actions { grid-column: 2; grid-row: 1; display: flex; gap: 8px; }
   .launch-navigation .launch-brand { grid-column: 1; grid-row: 1; min-width: 0; }
-  .launch-navigation > .site-home-link { grid-column: 3; grid-row: 1; }
-  .launch-navigation .language-switch { grid-column: 2; grid-row: 1; justify-self: end; }
-  .launch-navigation .launch-menu-toggle { grid-column: 4; grid-row: 1; justify-self: end; }
   .launch-navigation .admin-access-link { grid-column: 1 / -1; grid-row: 3; }
   .launch-navigation .launch-menu { grid-column: 1 / -1; grid-row: 4; }
   .launch-navigation-home .launch-brand { grid-column: 1; grid-row: 1; }
-  .launch-navigation-home .language-switch { grid-column: 2; grid-row: 1; }
-  .launch-navigation-home .launch-menu-toggle { grid-column: 3; grid-row: 1; }
   .launch-navigation-home .admin-access-link { grid-row: 2; }
   .launch-navigation-home .launch-menu { grid-row: 3; }
   .home-navigation-header.home-navigation-header,
@@ -81,14 +77,6 @@ a.site-home-link:focus-visible { outline: 3px solid #173e2a; outline-offset: 4px
   .public-booking-page .booking-topbar > .booking-brand { grid-column: 1 / -1; grid-row: 1; }
   .public-booking-page .booking-topbar > .booking-top-actions { grid-column: 2; grid-row: 2; }
   .public-booking-page .booking-topbar > .site-home-link { grid-column: 3; grid-row: 2; }
-}
-
-@media (max-width: 360px) {
-  .marketing-page .launch-navigation:not(.launch-navigation-home) { grid-template-columns: minmax(0,1fr) auto auto; }
-  .launch-navigation:not(.launch-navigation-home) .launch-brand { grid-column: 1 / -1; grid-row: 1; }
-  .launch-navigation:not(.launch-navigation-home) .language-switch { grid-column: 1; grid-row: 2; }
-  .launch-navigation:not(.launch-navigation-home) > .site-home-link { grid-column: 2; grid-row: 2; }
-  .launch-navigation:not(.launch-navigation-home) .launch-menu-toggle { grid-column: 3; grid-row: 2; }
 }
 
 /* Embedded booking intentionally delegates navigation to the host page. */

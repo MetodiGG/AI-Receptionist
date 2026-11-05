@@ -1,10 +1,13 @@
 {
   "date": "2026-11-05",
-  "mode": "Decorative 3D product illustrations generated with the built-in image_gen tool; never presented as business or category photos.",
-  "optimization": "Whole-image responsive resize to 240/480 px WebP; transparent alpha retained; no runtime or paid image-optimizer requests.",
+  "mode": "The partner card retains the existing small transparent 3D handshake. The business registration card is text-only, following the owner's final request. Not business listing photos or a revenue promise.",
+  "optimization": "Existing responsive WebP handshake copies retain real alpha. No business image is rendered or requested. No runtime or paid image-optimizer requests.",
   "assets": [
     {
       "id": "partners",
+      "sourceType": "generated-illustration",
+      "widths": [240, 480],
+      "hasAlpha": true,
       "source": "exec-bef5e587-dd9c-4ec0-b6ce-36de0df164ba.png",
       "outputs": [
         "public/home-art/partners-3d-v2.webp",
@@ -12,15 +15,25 @@
       ],
       "prompt": "Use case: stylized-concept. Asset type: small decorative 3D visual for the GoRez Partners card on a premium orange/ivory booking website. Primary request: two hands shaking in a friendly business handshake, replacing chain links. Subject: one anatomically plausible handshake with exactly two natural human hands, warm neutral skin tones, one understated soft-orange tailored sleeve cuff and one ivory shirt cuff. Style: refined photorealistic 3D render with soft matte materials, gentle rounded forms and believable hand anatomy, polished and professional, not a flat emoji or cartoon sticker. Composition: centered complete handshake, slightly three-quarter perspective, unmistakable silhouette at 40–52 pixels; both wrist ends neatly finished by their cuffs, all essential hand shapes visible with comfortable empty margin. Lighting: large soft studio light, subtle realistic shadow, no hard metallic glare. Palette: warm neutral skin, restrained orange #ff762f and ivory. Background: genuinely transparent alpha, no rectangle or visible backdrop. Text: none. Avoid: chain links, logos, badges, extra hands, extra fingers, broken anatomy, jewelry, exaggerated muscular detail, glossy plastic, text, watermark, unrelated objects.",
       "aspectRatio": 2
-    },
-    {
-      "id": "business",
-      "source": "exec-36f52c96-fca6-4d4c-b7e8-7cee705c02ff.png",
-      "outputs": [
-        "public/home-art/business-3d-v1.webp",
-        "public/home-art/business-3d-2x-v1.webp"
-      ],
-      "prompt": "Use case: stylized-concept. Asset type: compact 3D illustration for the For Business navigation card in the same GoRez orange/ivory booking website. Primary request: a beautiful realistic business-management tool, not a storefront emoji. Subject: a premium open miniature laptop with a warm copper-orange anodized aluminum shell, graphite keyboard, and an ivory glass screen showing only a simple orange appointment-calendar grid with a few blank blocks, no readable text. Style: photorealistic 3D product photography, authentic metallic materials, precise hinges, subtle bevels, sophisticated SaaS product art. Composition: one centered object, 3/4 view, square frame, complete silhouette filling about 76 percent, recognizable at 72–100 pixels. Lighting: warm soft studio key light, crisp readable edges, small natural contact shadow matching a premium amber-glass partnership icon. Palette: orange #ff762f, champagne highlights, ivory, graphite. Background: genuinely transparent alpha. Text: none. Avoid: words, numbers, logos, text, emoji, cartoon toy, extra props, scene, floor plane or white rectangular background."
     }
-  ]
+  ],
+  "discardedBusinessDraft": {
+      "id": "business",
+      "used": false,
+      "reason": "Owner subsequently requested removing the business illustration entirely and retaining only the larger accented registration text. The generated draft is not shipped in public assets.",
+      "sourceType": "imagegen-edit",
+      "source": "exec-1abc02d1-cd84-4b48-acf5-7be8dfedaf71.png",
+      "sourceSha256": "83ce2be418582d046cf2cce0b73bcf1eda4317d6043d36faf39d4d20b015a4ac",
+      "ownerReference": "D5DFF1A9-5260-40A7-A18C-0F2EC7DACEED/1-Photo-1.jpg",
+      "ownerReferenceSha256": "2d884ed58672737babbf6b419f87d60c667485fe8544a8759884b592caad78b3",
+      "styleReference": "public/home-art/partners-3d-v2.webp",
+      "widths": [240, 480],
+      "hasAlpha": true,
+      "aspectRatio": 1,
+      "prompt": "Use case: background-extraction. Asset type: small decorative 3D icon for the For Businesses card of the GoRez website. Image 1 is the edit target and exact subject reference. Image 2 is a supporting style reference ONLY: the existing softly rendered 3D handshake; do not add any hands. Primary request: turn the growth subject of Image 1 into a clean compact isolated 3D icon, retaining the orange rising columns and slender orange growth line, the green upward-sweeping curved arrow, and the two bundles of banknotes. Remove the entire dark navy/black backdrop, all grid lines, faint background arrows, bokeh, floor/reflections and surrounding scenery. Background must be genuinely transparent alpha, including all open spaces between columns, arrow and banknotes. No dark rectangle, no white rectangle, no checkerboard pattern. Style: realistic premium miniature 3D product render matching the handshake's soft studio lighting, gentle materials, rounded bevels and restrained highlights, not a flat emoji or 2D chart. Preserve the recognizable orange/green colors and monetary subject from the original. Composition: complete compact centered growth-chart group on a square canvas, fill about 85% with balanced transparent safety margins, fully visible arrow tip and cash, strong readable silhouette at 64-80 pixels. No new props, no laptops, no hands, no text or captions, no badges, no extra scenery, no watermark. Only the orange growth columns/line, green curved arrow and money should remain.",
+      "archivedDrafts": [
+        "business-growth-v3.webp",
+        "business-growth-2x-v3.webp"
+      ]
+  }
 }

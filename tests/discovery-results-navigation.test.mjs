@@ -14,9 +14,10 @@ test('reduced motion jumps directly, and an unmounted result is ignored', () => 
   assert.equal(focusDiscoveryResults({ focus() {}, scrollIntoView(value) { behavior = value.behavior } }, true), true)
   assert.equal(behavior, 'instant'); assert.equal(focusDiscoveryResults(null), false)
 })
-test('results navigation waits for the committed response, never loading or category/source toggles', async () => {
+test('results navigation waits for a committed user search and never jumps on initial automatic browsing', async () => {
   const source = await read('components/discovery-search.js')
-  assert.match(source, /if \(compact \|\| loading \|\| \(!result && !error\)\) return/)
+  assert.match(source, /if \(compact \|\| loading \|\| !scrollAfterSearch.current \|\| \(!result && !error\)\) return/)
+  assert.match(source, /search\(input, \{ navigate: Boolean\(initial\) \}\)/)
   assert.match(source, /focusDiscoveryResults\(resultHeading.current, window.matchMedia/)
   assert.match(source, /\}, \[result, error, loading, compact\]\)/)
   assert.match(source, /cancelAnimationFrame\(frame\)/)

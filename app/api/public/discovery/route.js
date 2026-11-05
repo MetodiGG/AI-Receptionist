@@ -21,6 +21,13 @@ export async function POST(request) {
       if (error) throw error
       return data || []
     },
+    readBookablePlaces: async ids => {
+      const { data, error } = await getSupabaseAdmin().from('external_booking_links')
+        .select('place_id,booking_url,verification_status,verified_by,verified_at,last_checked_at,disabled_at')
+        .in('place_id', ids).eq('verification_status', 'approved').limit(20)
+      if (error) throw error
+      return data || []
+    },
     getBusiness: getPublicBusiness, getSlots: getAvailableSlots,
   })
   return handler(request)

@@ -12,6 +12,7 @@ import { WeeklyScheduleFields } from './weekly-schedule-fields'
 import { BusinessMediaEditor } from './business-media-editor'
 import { BusinessCoordinatesFields } from './business-coordinates-fields'
 import { BusinessBookingSettings } from './business-booking-settings'
+import { AdminGooglePlaceLink } from './admin-google-place-link'
 
 const week = locale => (locale === 'en' ? ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'] : ['Понеделник','Вторник','Сряда','Четвъртък','Петък','Събота','Неделя']).map((label, i) => [i + 1, label])
 export function editorBusinessDraft(b) {
@@ -52,9 +53,9 @@ export function AdminBusinessEditor({ detail, locale, send, onSaved, onBusy, onD
       setError(labels[problem.code] || (en ? 'Could not save. Refresh and try again; existing bookings have not been changed.' : 'Не успяхме да запазим. Обнови и опитай отново; съществуващите резервации не са променени.'))
     } finally { setBusy(false); onBusy(false) }
   }
-  const tabs = [['business', en ? 'Details' : 'Данни'], ['public', en ? 'Public profile' : 'Публичен профил'], ['services', en ? 'Services' : 'Услуги'], ['staff', en ? 'Team' : 'Екип'], ['booking',en?'Booking method':'Начин на резервация'],['hours', en ? 'Hours' : 'График'], ['photos', en ? 'Photos' : 'Снимки']]
+  const tabs = [['business', en ? 'Details' : 'Данни'], ['public', en ? 'Public profile' : 'Публичен профил'], ['services', en ? 'Services' : 'Услуги'], ['staff', en ? 'Team' : 'Екип'], ['booking',en?'Booking method':'Начин на резервация'],['hours', en ? 'Hours' : 'График'], ['photos', en ? 'Photos' : 'Снимки'], ['google', 'Google Maps']]
   return <div className="admin-business-editor"><nav className="settings-tabs" aria-label={en ? 'Edit business sections' : 'Редактиране на бизнес'}>{tabs.map(([key, label]) => <button type="button" disabled={busy} aria-pressed={section === key} key={key} onClick={() => choose(key)}>{label}</button>)}</nav>
-    {section==='booking'?<BusinessBookingSettings business={b} locale={locale} admin send={send} onDirty={value=>{setDirty(value);onDirty(value)}} onBusy={value=>{setBusy(value);onBusy(value)}} onSaved={()=>{setDirty(false);onDirty(false);onSaved(null)}} preview={preview}/>:section === 'photos' ? <BusinessMediaEditor businessId={b.id} locale={locale} onBusy={onBusy} onSaved={() => onSaved(null)} preview={preview ? { business: b, staff: detail.staff, media: [] } : null}/> : <form onSubmit={submit}>
+    {section === 'google' ? <AdminGooglePlaceLink businessId={b.id} locale={locale} send={send} onDirty={value=>{setDirty(value);onDirty(value)}} onBusy={value=>{setBusy(value);onBusy(value)}} preview={preview}/> : section==='booking'?<BusinessBookingSettings business={b} locale={locale} admin send={send} onDirty={value=>{setDirty(value);onDirty(value)}} onBusy={value=>{setBusy(value);onBusy(value)}} onSaved={()=>{setDirty(false);onDirty(false);onSaved(null)}} preview={preview}/>:section === 'photos' ? <BusinessMediaEditor businessId={b.id} locale={locale} onBusy={onBusy} onSaved={() => onSaved(null)} preview={preview ? { business: b, staff: detail.staff, media: [] } : null}/> : <form onSubmit={submit}>
       <fieldset disabled={busy} className="content-fields">
         {section === 'business' && <div className="settings-form-grid">
           <Field label={en ? 'Business name' : 'Име на бизнеса'} required maxLength={120} value={business.name} onChange={value => update('name', value)}/>

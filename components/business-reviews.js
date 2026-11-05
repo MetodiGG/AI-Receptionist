@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useId, useRef, useState } from 'react'
 import { REVIEW_DIMENSIONS } from '../lib/reviews.mjs'
+import { PartnerGoogleRating } from './partner-google-rating'
 
 export function ReviewStars({ value, label }) {
   const id = useId().replace(/[^a-zA-Z0-9_-]/g, '')
@@ -54,10 +55,20 @@ export function ReviewSummary({ summary, status, locale = 'bg', compact = false 
   </div>
 }
 
+// These are separate, attributed sources, not a blended average/count. A GoRez
+// rating without a comment still counts in the existing GoRez SQL aggregate.
+export function PartnerReviewSummary({ slug, reviews, locale = 'bg', compact = false, preview = false }) {
+  const { data, status } = reviews
+  return <div className={`partner-review-summary${compact ? ' compact' : ''}`}>
+    <PartnerGoogleRating slug={slug} locale={locale} preview={preview}/>
+    {!(status === 'ready' && !data?.summary?.count && compact) && <div className="partner-gorez-rating"><span className="reputation-source" translate="no">GoRez</span><ReviewSummary summary={data?.summary} status={status} locale={locale} compact={compact}/></div>}
+  </div>
+}
+
 export function BusinessReviews({ reviews, locale = 'bg' }) {
   const en = locale === 'en', { data, status, loadMore, loadingMore, pageError } = reviews
   return <section className="business-profile-section business-reviews-section" id="business-reviews" aria-labelledby="business-reviews-heading">
-    <header className="business-section-heading"><div><p className="booking-eyebrow">{en ? 'From real visits' : 'От реални посещения'}</p><h2 id="business-reviews-heading">{en ? 'Reviews & ratings' : 'Отзиви и оценки'}</h2></div><ReviewSummary summary={data?.summary} status={status} locale={locale} /></header>
+    <header className="business-section-heading"><div><p className="booking-eyebrow">{en ? 'From real visits' : 'От реални посещения'}</p><h2 id="business-reviews-heading">{en ? 'Reviews & ratings' : 'Отзиви и оценки'}</h2></div><div><span className="reputation-source" translate="no">GoRez</span><ReviewSummary summary={data?.summary} status={status} locale={locale}/></div></header>
     <p className="business-section-note">{en ? 'Only clients with a completed GoRez booking can leave a review, using a private email invitation.' : 'Мнение оставят само клиенти с приключена резервация в GoRez, чрез лична покана по имейл.'}</p>
     {Boolean(data?.summary?.count) && <div className="review-dimensions">{Object.entries(REVIEW_DIMENSIONS).map(([key, labels]) => data.summary[key] != null && <div key={key}><span>{labels[locale]}</span><strong>{Number(data.summary[key]).toFixed(1)} <span aria-hidden="true">/ 5</span></strong></div>)}</div>}
     <div className="business-review-list">{data?.items?.map(item => <article key={item.id} className="business-review">

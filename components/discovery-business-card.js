@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { Icon } from './icon'
 import { BrandMark } from './brand-logo'
 import { BusinessCategoryIcon } from './business-category-icon'
-import { useBusinessReviews, ReviewSummary } from './business-reviews'
+import { useBusinessReviews, ReviewSummary, PartnerReviewSummary } from './business-reviews'
 import { OutboundBookingButton } from './outbound-booking-button'
 import { isExternalBooking } from '../lib/booking-mode.mjs'
 import { homeBusinessPhoto } from '../lib/discovery/home.mjs'
@@ -14,7 +14,7 @@ import { railCategory, railDirections, railExternalAction } from '../lib/discove
 const emptyReviews = { summary: { count: 0 }, items: [] }
 function PartnerRailReviews({ row, locale, preview }) {
   const reviews = useBusinessReviews(row.slug, preview ? row.reviews || emptyReviews : null)
-  return <div className="home-business-reviews"><ReviewSummary summary={reviews.data?.summary} status={reviews.status} locale={locale} compact/></div>
+  return <div className="home-business-reviews"><PartnerReviewSummary slug={row.slug} reviews={reviews} locale={locale} preview={preview} compact/></div>
 }
 
 export function DiscoveryBusinessCard({ row, locale = 'bg', nearby = false, preview = false }) {

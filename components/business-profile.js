@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { BusinessPhotoGallery } from './business-photo-gallery'
 import { Icon } from './icon'
-import { ReviewSummary } from './business-reviews'
+import { PartnerReviewSummary } from './business-reviews'
 import { businessDirectionsUrl, businessMapUrl, businessWeeklyHours, publicProfileDetails } from '../lib/business-profile.mjs'
 import { getIndustryLabel } from '../lib/public-locale.mjs'
 import { getStaffPhoto } from '../lib/business-photos.mjs'
@@ -26,7 +26,7 @@ export function BusinessProfileHeader({ business, locale, reviews, onBook,previe
     <div className="business-profile-identity">
       <div><p className="booking-eyebrow">{getIndustryLabel(business.industry, locale)}</p><h1 id="business-profile-name">{business.name}</h1>
         {business.address && <p className="business-profile-address"><Icon name="pin" /><span>{business.address}</span></p>}
-        <a className="business-profile-rating-link" href="#business-reviews"><ReviewSummary summary={reviews.data?.summary} status={reviews.status} locale={locale} compact /></a>
+        <div className="business-profile-reputation"><PartnerReviewSummary slug={business.slug} reviews={reviews} locale={locale} preview={preview} compact/><a className="business-profile-rating-link" href="#business-reviews">{en ? 'GoRez reviews' : 'GoRez отзиви'}</a></div>
       </div>
       <div className="business-profile-actions">{isExternalBooking(business)?<OutboundBookingButton business={business} locale={locale} disabled={preview}/>:<a className="primary-button" href="#booking-experience" onClick={onBook}><Icon name="calendar" />{en ? 'Book an appointment' : 'Запази час'}</a>}
         <div>{directions && <a className="secondary-button" href={directions} target="_blank" rel="noopener noreferrer"><Icon name="pin" />{en ? 'Directions' : 'Как да стигна'}</a>}

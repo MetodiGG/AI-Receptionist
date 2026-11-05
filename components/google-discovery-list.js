@@ -7,25 +7,7 @@ import { selectedDiscoveryPlaceId } from '../lib/discovery/place-selection.mjs'
 import { ExternalPlaceBooking } from './external-place-booking'
 import { googleRailWidth } from '../lib/discovery/rail.mjs'
 import { containDialogTab } from '../lib/dialog-focus.mjs'
-
-let libraryPromise
-function loadPlacesLibrary(key, locale) {
-  if (libraryPromise) return libraryPromise
-  libraryPromise = new Promise((resolve, reject) => {
-    if (window.google?.maps?.importLibrary) { window.google.maps.importLibrary('places').then(resolve, reject); return }
-    const script = document.createElement('script'), callback = '__gorezPlacesReady'
-    const timeout = setTimeout(() => { delete window[callback]; reject(new Error('GOOGLE_TIMEOUT')) }, 8000)
-    window[callback] = async () => { clearTimeout(timeout); delete window[callback]; try { resolve(await window.google.maps.importLibrary('places')) } catch { reject(new Error('GOOGLE_UNAVAILABLE')) } }
-    const url = new URL('https://maps.googleapis.com/maps/api/js')
-    // Advanced Place List is GA on weekly since Maps JS 3.66.11a (2026-10-22).
-    // Loading is still gated by a separately approved provider grant.
-    url.search = new URLSearchParams({ key, v: 'weekly', libraries: 'places', language: locale, region: 'BG', loading: 'async', callback }).toString()
-    script.src = url.href; script.async = true; script.referrerPolicy = 'strict-origin-when-cross-origin'
-    script.onerror = () => { clearTimeout(timeout); delete window[callback]; reject(new Error('GOOGLE_UNAVAILABLE')) }
-    document.head.append(script)
-  }).catch(error => { libraryPromise = null; throw error })
-  return libraryPromise
-}
+import { loadPlacesLibrary } from '../lib/discovery/google-ui-loader.mjs'
 
 export function GoogleDiscoveryList({ plan, locale, onRetry, rail = false, nearby = false }) {
   const host = useRef(null), [status, setStatus] = useState('loading'), copy = DISCOVERY_COPY[locale]

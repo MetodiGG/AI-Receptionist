@@ -6,6 +6,21 @@ import { placeIdSchema } from '../../../../../../lib/discovery/google-places.mjs
 import { discoveryHeaders, readBoundedJson, sameSiteRequest } from '../../../../../../lib/discovery/http.mjs'
 
 const linkSchema = z.object({ placeId: placeIdSchema.nullable(), identityChecked: z.literal(true) }).strict()
+export async function GET(request, context) {
+  const reply = (body, status = 200) => Response.json(body, { status, headers: discoveryHeaders })
+  if (!sameSiteRequest(request)) return reply({ error: { code: 'FORBIDDEN' } }, 403)
+  try {
+    const user = await requireUser(request)
+    if (!user) return reply({ error: { code: 'UNAUTHORIZED' } }, 401)
+    if (!isPlatformAdmin(user)) return reply({ error: { code: 'FORBIDDEN' } }, 403)
+    if (!await consumeRateLimit(request, { scope: 'discovery-link-read', limit: 30, windowSeconds: 60, includeUserAgent: false })) return reply({ error: { code: 'RATE_LIMITED' } }, 429)
+    const id = z.string().uuid().parse((await context.params).id), db = getSupabaseAdmin()
+    const { data, error } = await db.from('business_place_links').select('place_id,verified_at,verified_by').eq('business_id', id).maybeSingle()
+    if (error) throw error
+    return reply({ link: data ? { placeId: data.place_id, verifiedAt: data.verified_at, verified: Boolean(data.verified_by) } : null })
+  } catch (error) { return reply({ error: { code: error?.name === 'ZodError' ? 'VALIDATION_ERROR' : 'SERVICE_UNAVAILABLE' } }, error?.name === 'ZodError' ? 422 : 503) }
+}
+
 export async function PUT(request, context) {
   const reply = (body, status) => Response.json(body, { status, headers: discoveryHeaders })
   if (!sameSiteRequest(request)) return reply({ error: { code: 'FORBIDDEN' } }, 403)

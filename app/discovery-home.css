@@ -97,10 +97,10 @@
 .home-business-actions { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 8px; margin-top: 0; padding-top: 8px; }
 .home-business-actions .outbound-booking-form { display: flex; margin: 0; min-width: 0; }
 .home-business-card .home-reserve, .home-business-actions .home-directions { display: flex; align-items: center; justify-content: center; gap: 5px; width: 100%; min-width: 0; min-height: 46px; margin: 0; padding: 9px 7px; border: 1px solid #e4c3a6; border-radius: 12px; color: #6e2f11; background: #fff0df; text-decoration: none; font-size: 16px; font-weight: 700; line-height: 1.3; cursor: pointer; text-align: center; overflow-wrap: normal; word-break: normal; }
-.home-business-card .home-reserve { background: linear-gradient(150deg,#ffbc75,#ff974b); border-color: #eea05e; color: #542909; box-shadow: inset 0 1px 0 #ffe0b9,0 2px 0 #db8544; }
+.home-business-card .home-reserve { background: linear-gradient(135deg,#ffe5c5,#ffc58d); border-color: #eaa66e; color: #602b11; box-shadow: inset 0 1px 0 #fff4e6,0 2px 0 #e8b28666; }
 .home-business-card .home-reserve:not(:disabled):not([aria-disabled="true"]) { transition: transform .12s ease,box-shadow .12s ease,border-color .12s ease,color .12s ease; }
 .home-business-actions .home-directions > svg { width: 21px; height: 21px; flex: 0 0 21px; color: #c65a20; }
-.home-business-card .home-reserve:hover, .home-business-actions .home-directions:hover { filter: brightness(.97); }
+.home-business-actions .home-directions:hover { filter: brightness(.97); }
 .home-maps-label, .home-google-attribution { color: #1f1f1f; font-family: "Roboto", "Avenir Next", "Segoe UI", sans-serif; font-size: 16px; font-weight: 400; font-style: normal; letter-spacing: normal; white-space: nowrap; }
 .home-business-actions .home-directions { gap: 4px; padding-inline: 6px; }
 .home-business-actions .home-directions > svg { width: 19px; height: 19px; flex-basis: 19px; }
@@ -109,7 +109,7 @@
    native UI Kit attribution retain their required, unmodified typography. */
 .home-business-card[data-source="gorez"] .home-maps-label { font-weight: 700; }
 .google-business-card .home-maps-label { font-weight: 700; }
-.home-business-card .home-reserve:not(:disabled):not([aria-disabled="true"]):is(:hover,:focus-visible) { color: #3c1b0c; background: linear-gradient(135deg,#ff9546,#ff7725); border-color: #be551b; box-shadow: inset 0 1px 0 #ffd2a5,0 3px 0 #cf7030; filter: none; }
+.home-business-card .home-reserve:not(:disabled):not([aria-disabled="true"]):is(:hover,:focus-visible) { color: #3c1b0c; background: linear-gradient(135deg,#ffac62,#ff8d3f); border-color: #d9712a; box-shadow: inset 0 1px 0 #ffd8ad,0 3px 0 #cf703066; filter: none; }
 .home-business-card .home-reserve:focus-visible { outline: 3px solid #9c4318; outline-offset: 3px; }
 .home-business-card .home-reserve:not(:disabled):not([aria-disabled="true"]):active { transform: translateY(2px); color: #3c1b0c; background: linear-gradient(135deg,#ff9546,#ff7725); border-color: #be551b; box-shadow: inset 0 2px 3px #8a3c1726,0 1px 0 #be551b; filter: none; }
 .home-google-attribution { margin-top: 8px; }

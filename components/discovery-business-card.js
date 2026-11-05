@@ -27,7 +27,7 @@ export function DiscoveryBusinessCard({ row, locale = 'bg', nearby = false, prev
     {photo && !failed ? <img src={photo.src} width={400} height={300} alt={photo.alt?.[locale] || row.name} loading="lazy" decoding="async" style={{ objectPosition: photo.position || 'center' }} onError={() => setFailed(true)}/> : <div className="home-business-illustration"><BusinessCategoryIcon category={row.category} business={row} size={112}/></div>}
     {nearby && Number.isFinite(row.distanceKm) && row.distanceKm >= 0 && <span className="home-distance-badge"><Icon name="pin"/>{new Intl.NumberFormat(en ? 'en-GB' : 'bg-BG', { maximumFractionDigits: 1 }).format(row.distanceKm)} km</span>}
   </div>
-  return <article className="home-business-card">
+  return <article className="home-business-card" data-source={row.source}>
     {profile && !preview ? <Link href={profile} prefetch={false} aria-label={`${en ? 'View profile' : 'Виж профила'} · ${row.name}`}>{visual}</Link> : visual}
     {internal && <span className="home-business-partner"><BrandMark size={20}/>{en ? 'GoRez partner' : 'GoRez партньор'}</span>}
     <h3>{profile && !preview ? <Link href={profile} prefetch={false}>{row.name}</Link> : row.name}</h3>

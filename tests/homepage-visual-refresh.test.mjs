@@ -106,6 +106,46 @@ test('registration text uses the exact GoRez Partners headline color without cha
   for (const background of ['fffaf5', 'fff2e5']) assert.ok(contrast(registrationColor, background) >= 4.5)
   assert.match(css, /\.home-bottom-business \.home-free-label \{[^}]*color: #602b11;[^}]*linear-gradient\(135deg,#ffe5c5,#ffc58d\)/)
 })
+test('Maps navigation is bold only for GoRez-owned cards, leaving Google provider attribution unchanged', async () => {
+  const card = await read('components/discovery-business-card.js'), css = await read('app/discovery-home.css'), kit = await read('components/google-discovery-list.js')
+  assert.match(card, /<article className="home-business-card" data-source=\{row.source\}>/)
+  assert.match(css, /\.home-business-card\[data-source="gorez"\] \.home-maps-label \{ font-weight: 700; \}/)
+  assert.match(css, /\.home-maps-label, \.home-google-attribution \{[^}]*font-weight: 400;[^}]*white-space: nowrap;/)
+  assert.match(css, /\.home-business-actions \.home-maps-label \{ font-size: 14px; \}/)
+  assert.match(card, /className="home-maps-label" translate="no">Google Maps/)
+  assert.match(kit, /document.createElement\('gmp-place-attribution'\)/)
+  assert.doesNotMatch(css, /\[data-source="google"\][^{]*\{[^}]*font-weight: 700|gmp-place-attribution[^}]*font-weight/)
+})
+test('only enabled reserve controls receive orange hover, keyboard focus and pressed feedback', async () => {
+  const css = await read('app/discovery-home.css')
+  assert.match(css, /\.home-business-card \.home-reserve:not\(:disabled\):not\(\[aria-disabled="true"\]\):is\(:hover,:focus-visible\) \{[^}]*linear-gradient\(150deg,#ffac62,#ff8d3f\)/)
+  assert.match(css, /\.home-business-card \.home-reserve:focus-visible \{ outline: 3px solid #9c4318; outline-offset: 3px; \}/)
+  assert.match(css, /\.home-business-card \.home-reserve:not\(:disabled\):not\(\[aria-disabled="true"\]\):active \{[^}]*transform: translateY\(2px\);[^}]*linear-gradient\(150deg,#ff9546,#ff7725\)/)
+  const outbound = await read('components/outbound-booking-button.js')
+  assert.match(outbound, /disabled=\{busy\s*\|\|\s*disabled\}/)
+})
+test('the Free accent becomes stronger orange on signup hover, keyboard focus and press without changing layout', async () => {
+  const css = await read('app/discovery-home.css')
+  assert.match(css, /\.home-bottom-business:is\(:hover,:focus-visible\) \.home-free-label \{[^}]*color: #3c1b0c;[^}]*linear-gradient\(135deg,#ffac62,#ff8d3f\)/)
+  assert.match(css, /\.home-bottom-business:active \.home-free-label \{[^}]*color: #3c1b0c;[^}]*linear-gradient\(135deg,#ff9546,#ff7725\)/)
+  assert.match(css, /\.home-discovery-bottom > \.home-bottom-business:focus-visible \{ outline: 3px solid #9c4318; outline-offset: 4px; \}/)
+  for (const selector of ['.home-bottom-business:is(:hover,:focus-visible) .home-free-label', '.home-bottom-business:active .home-free-label']) {
+    const rule = css.slice(css.indexOf(`${selector} {`)).split('}')[0]
+    assert.doesNotMatch(rule, /font-size:|padding:|min-height:|width:/)
+  }
+  for (const background of ['ffac62','ff8d3f','ff9546','ff7725']) assert.ok(contrast('3c1b0c', background) >= 4.5)
+})
+test('reduced motion disables the new transitions and pressed movement while retaining color feedback', async () => {
+  const css = await read('app/discovery-home.css'), reduced = css.slice(css.lastIndexOf('@media (prefers-reduced-motion: reduce)'))
+  assert.match(reduced, /\.home-bottom-business \.home-free-label,[\s\S]*\.home-business-card \.home-reserve:not\(:disabled\):not\(\[aria-disabled="true"\]\) \{ transition: none; \}/)
+  assert.match(reduced, /\.home-business-card \.home-reserve:not\(:disabled\):not\(\[aria-disabled="true"\]\):active \{ transform: none; \}/)
+})
+test('button-state visual fixture is development-only and cannot reserve, register or call providers', async () => {
+  const page = await read('app/dev/button-states/page.js')
+  assert.match(page, /if \(process.env.NODE_ENV !== 'development'\) notFound\(\)/)
+  assert.equal((page.match(/<button type="button"/g) || []).length, 3)
+  assert.doesNotMatch(page, /fetch\(|<form|<a\b|<Link|href=|onClick=|<script|GoogleDiscoveryList|OutboundBookingButton/)
+})
 test('the public header has only the shared wordmark, flags and orange dimensional menu control', async () => {
   const nav = await read('components/marketing-navigation.js'), flags = await read('components/country-flag.js'), language = await read('components/language-switch.js'), controls = await read('app/header-controls.css')
   assert.doesNotMatch(nav, /home-desktop-navigation|AdminAccessLink|My appointments|Моите часове/)

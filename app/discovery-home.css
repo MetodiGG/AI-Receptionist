@@ -92,12 +92,19 @@
 .home-business-actions .outbound-booking-form { display: flex; margin: 0; min-width: 0; }
 .home-business-card .home-reserve, .home-business-actions .home-directions { display: flex; align-items: center; justify-content: center; gap: 5px; width: 100%; min-width: 0; min-height: 46px; margin: 0; padding: 9px 7px; border: 1px solid #e4c3a6; border-radius: 12px; color: #6e2f11; background: #fff0df; text-decoration: none; font-size: 16px; font-weight: 700; line-height: 1.3; cursor: pointer; text-align: center; overflow-wrap: normal; word-break: normal; }
 .home-business-card .home-reserve { background: linear-gradient(150deg,#ffbc75,#ff974b); border-color: #eea05e; color: #542909; box-shadow: inset 0 1px 0 #ffe0b9,0 2px 0 #db8544; }
+.home-business-card .home-reserve:not(:disabled):not([aria-disabled="true"]) { transition: transform .12s ease,box-shadow .12s ease,border-color .12s ease,color .12s ease; }
 .home-business-actions .home-directions > svg { width: 21px; height: 21px; flex: 0 0 21px; color: #c65a20; }
 .home-business-card .home-reserve:hover, .home-business-actions .home-directions:hover { filter: brightness(.97); }
 .home-maps-label, .home-google-attribution { color: #1f1f1f; font-family: "Roboto", "Avenir Next", "Segoe UI", sans-serif; font-size: 16px; font-weight: 400; font-style: normal; letter-spacing: normal; white-space: nowrap; }
 .home-business-actions .home-directions { gap: 4px; padding-inline: 6px; }
 .home-business-actions .home-directions > svg { width: 19px; height: 19px; flex-basis: 19px; }
 .home-business-actions .home-maps-label { font-size: 14px; }
+/* Only the GoRez-owned navigation label is bold. Google's provider credit and
+   native UI Kit attribution retain their required, unmodified typography. */
+.home-business-card[data-source="gorez"] .home-maps-label { font-weight: 700; }
+.home-business-card .home-reserve:not(:disabled):not([aria-disabled="true"]):is(:hover,:focus-visible) { color: #3c1b0c; background: linear-gradient(150deg,#ffac62,#ff8d3f); border-color: #d9712a; box-shadow: inset 0 1px 0 #ffd2a5,0 3px 0 #cf7030; filter: none; }
+.home-business-card .home-reserve:focus-visible { outline: 3px solid #9c4318; outline-offset: 3px; }
+.home-business-card .home-reserve:not(:disabled):not([aria-disabled="true"]):active { transform: translateY(2px); color: #3c1b0c; background: linear-gradient(150deg,#ff9546,#ff7725); border-color: #be551b; box-shadow: inset 0 2px 3px #8a3c1726,0 1px 0 #be551b; filter: none; }
 .home-google-attribution { margin-top: 8px; }
 .home-provider-attributions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; font-size: 16px; }
 .home-more-businesses { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; width: 100%; min-height: 230px; padding: 24px; border: 1px solid #edccb0; border-radius: 18px; color: #713618; background: #fff2e4; font-size: 18px; font-weight: 700; cursor: pointer; }
@@ -124,7 +131,10 @@
 .home-free-label { display: inline-block; margin-top: 3px; padding: 1px 6px; border: 1px solid #ebbd96; border-radius: 7px; color: #9c3e16; background: #ffe4c9; box-shadow: inset 0 1px 0 #fff6ea; font-size: 16px; font-weight: 800; line-height: 1.4; letter-spacing: .025em; text-transform: uppercase; }
 .home-business-signup { display: grid; grid-template-columns: minmax(0,1fr); justify-items: center; gap: 10px; min-width: 0; max-width: 100%; text-align: center; }
 .home-business-signup > strong { color: #452719; font-size: 24px; font-weight: 750; line-height: 1.25; letter-spacing: -.025em; text-wrap: balance; overflow-wrap: normal; word-break: normal; }
-.home-bottom-business .home-free-label { margin: 0; padding: 4px 12px; border-color: #eaa66e; border-radius: 10px; color: #602b11; background: linear-gradient(135deg,#ffe5c5,#ffc58d); box-shadow: inset 0 1px 0 #fff4e6,0 2px 0 #e8b28666; font-size: 20px; font-weight: 800; line-height: 1.3; }
+.home-bottom-business .home-free-label { margin: 0; padding: 4px 12px; border-color: #eaa66e; border-radius: 10px; color: #602b11; background: linear-gradient(135deg,#ffe5c5,#ffc58d); box-shadow: inset 0 1px 0 #fff4e6,0 2px 0 #e8b28666; font-size: 20px; font-weight: 800; line-height: 1.3; transition: color .12s ease,border-color .12s ease,box-shadow .12s ease; }
+.home-bottom-business:is(:hover,:focus-visible) .home-free-label { color: #3c1b0c; border-color: #d9712a; background: linear-gradient(135deg,#ffac62,#ff8d3f); box-shadow: inset 0 1px 0 #ffd8ad,0 3px 0 #cf703066; }
+.home-bottom-business:active .home-free-label { color: #3c1b0c; border-color: #be551b; background: linear-gradient(135deg,#ff9546,#ff7725); box-shadow: inset 0 2px 3px #8a3c1726,0 1px 0 #be551b; }
+.home-discovery-bottom > .home-bottom-business:focus-visible { outline: 3px solid #9c4318; outline-offset: 4px; }
 .home-discovery-bottom > .home-bottom-card:hover { transform: translateY(-1px); border-color: #e9c29f; box-shadow: inset 0 1px 0 #fff,0 8px 22px #ad5f2c12; }
 .home-discovery-bottom > .home-bottom-card:active { transform: none; box-shadow: inset 0 1px 3px #ad5f2c0a; }
 .customer-home .site-footer-compact { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 22px; padding: 28px max(24px, calc((100% - 1180px) / 2)); background: #f0e7dc; }
@@ -205,4 +215,7 @@
 @media (prefers-reduced-motion: reduce) {
   .home-discovery-rail { scroll-behavior: auto; }
   .home-search-trigger { transition: none; }
+  .home-bottom-business .home-free-label,
+  .home-business-card .home-reserve:not(:disabled):not([aria-disabled="true"]) { transition: none; }
+  .home-business-card .home-reserve:not(:disabled):not([aria-disabled="true"]):active { transform: none; }
 }

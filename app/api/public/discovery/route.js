@@ -21,9 +21,16 @@ export async function POST(request) {
       if (error) throw error
       return data || []
     },
+    readPartnerPlaces: async ids => {
+      const { data, error } = await getSupabaseAdmin().from('business_place_links')
+        .select('business_id,place_id,verified_by,verified_at,business:businesses!inner(id,active,platform_status)')
+        .in('place_id', ids).limit(20)
+      if (error) throw error
+      return data || []
+    },
     readBookablePlaces: async ids => {
       const { data, error } = await getSupabaseAdmin().from('external_booking_links')
-        .select('place_id,booking_url,verification_status,verified_by,verified_at,last_checked_at,disabled_at')
+        .select('id,place_id,booking_url,verification_status,verified_by,verified_at,last_checked_at,disabled_at')
         .in('place_id', ids).eq('verification_status', 'approved').limit(20)
       if (error) throw error
       return data || []

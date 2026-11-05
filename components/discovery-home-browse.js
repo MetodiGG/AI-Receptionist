@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import dynamic from 'next/dynamic'
 import { Icon } from './icon'
 import { DiscoveryHomeRail } from './discovery-home-rail'
 import { useDirectory } from '../hooks/use-directory'
@@ -10,6 +11,8 @@ import { orderedRailRows } from '../lib/discovery/rail.mjs'
 import { DiscoveryBusinessCard } from './discovery-business-card'
 import { GoogleDiscoveryList } from './google-discovery-list'
 import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
+import { discoveryDistanceOrigin } from '../lib/discovery/distance-origin.mjs'
+const GoogleBusinessCard = dynamic(() => import('./google-business-card').then(module => module.GoogleBusinessCard))
 
 export function DiscoveryHomeBusinesses({ locale, filters, preview = false, data, result, loading = false, error = '', onRetry, headingRef }) {
   const copy = HOME_DISCOVERY_COPY[locale], messages = DISCOVERY_COPY[locale], en = locale === 'en'
@@ -18,12 +21,13 @@ export function DiscoveryHomeBusinesses({ locale, filters, preview = false, data
   useEffect(() => setExpanded(false), [result])
   const rows = result ? orderedRailRows(result.results) : homeBusinesses(directory.businesses || [], filters).map(row => ({ ...row, source: 'gorez' }))
   const nearby = Boolean(result?.intent?.coordinates || (!result && filters.coordinates?.consent))
+  const distanceOrigin = discoveryDistanceOrigin({ coordinates: filters.coordinates, cityCode: result?.intent?.cityCode || filters.cityCode })
   const nearRows = rows.filter(row => row.proximityBand !== 'further'), farRows = rows.filter(row => row.proximityBand === 'further')
   const hasMore = Boolean(farRows.length || result?.furtherExternal)
   const busy = loading || (!result && !error && directory.status === 'loading')
   const notice = error ? error === 'RATE_LIMITED' ? messages.rate : messages.error : !result && directory.status === 'error' ? copy.unavailable : ''
-  const card = row => <li key={`${row.source}:${row.id}`}><DiscoveryBusinessCard row={row} locale={locale} preview={preview} nearby={nearby}/></li>
-  const google = (plan, key) => plan && <li key={key} className="home-google-chunk"><GoogleDiscoveryList plan={plan} locale={locale} rail nearby={nearby} onRetry={onRetry}/></li>
+  const card = row => <li key={`${row.source}:${row.id}`}><DiscoveryBusinessCard row={row} locale={locale} preview={preview} nearby={nearby} distanceOrigin={distanceOrigin}/></li>
+  const google = (plan, key) => plan?.mode === 'ui_kit_cards' ? plan.cards.map(item => <li key={`${key}:${item.placeId}`}><GoogleBusinessCard card={item} locale={locale} providerLocale={plan.locale} nearby={nearby} distanceOrigin={distanceOrigin}/></li>) : plan && <li key={key} className="home-google-chunk"><GoogleDiscoveryList plan={plan} locale={locale} rail nearby={nearby} onRetry={onRetry}/></li>
   const rail = !busy && !result?.clarification && <>
     {nearRows.map(card)}{google(result?.external, 'near-google')}
     {hasMore && !expanded && <li className="home-more-item"><button type="button" className="home-more-businesses" onClick={() => setExpanded(true)}>{en ? 'More businesses' : 'Още бизнеси'}<Icon name="arrow"/></button></li>}

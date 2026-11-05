@@ -84,11 +84,12 @@ test('one Explore Businesses rail replaces the previous browse-plus-results layo
   assert.match(source, /result=\{result\} loading=\{loading \|\| locating\}/)
   assert.match(source, /headingRef=\{resultHeading\}/)
 })
-test('only partners get a badge, reviews follow the category, and address/known-distance display follows actual consent', async () => {
+test('only partners get a membership badge, reviews follow the category, and origin-aware distance stays separate from consent-based addresses', async () => {
   const card = await read('components/discovery-business-card.js')
   assert.match(card, /internal && <span className="home-business-partner"/)
   assert.ok(card.indexOf('home-business-category') < card.indexOf('<PartnerRailReviews'))
-  assert.match(card, /nearby && Number.isFinite\(row.distanceKm\)/)
+  assert.match(card, /DiscoveryDistanceBadge origin=\{distanceOrigin\} destination=\{row.coordinates\}/)
+  assert.match(card, /fallbackKm=\{nearby \? row.distanceKm : null\}/)
   assert.match(card, /!nearby && row.address &&/)
   assert.match(card, /className="home-directions"/)
   assert.doesNotMatch(card, /copy.external|externalHint|външни места|outside business|Няма снимка/)

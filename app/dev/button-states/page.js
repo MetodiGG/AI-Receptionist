@@ -14,7 +14,7 @@ export default function ButtonStatePreview() {
       <article className="home-business-card" data-source="gorez" style={{ maxWidth: 280 }}>
         <div className="home-business-actions">
           <button type="button" className="home-directions"><Icon name="map"/><span className="home-maps-label" translate="no">Google Maps</span></button>
-          <button type="button" className="home-reserve">Резервирай</button>
+          <button type="button" className="home-reserve">Резервирай час</button>
         </div>
       </article>
       <nav className="home-discovery-bottom" aria-label="Проверка на регистрационния бутон">

@@ -52,7 +52,7 @@ test('the five home icons are served as small responsive decorative images witho
 test('directory, search and no-photo profile use the shared art, never pass generated icons as a business photo',async()=>{
   const directory=await read('components/business-directory.js'),search=await read('components/discovery-business-card.js'),profile=await read('components/business-profile.js'),css=await read('app/category-art.css')
   assert.match(directory,/<BusinessCategoryIcon business=\{row\} size=\{72\}/)
-  assert.match(search,/<BusinessCategoryIcon category=\{row.category\} business=\{row\} size=\{112\}/)
+  assert.match(search,/<BusinessCategoryIcon category=\{railBusinessCategory\(row\)\} business=\{row\} size=\{112\}/)
   assert.match(profile,/business.photos\?\.length \? <BusinessPhotoGallery/)
   assert.match(profile,/<BusinessCategoryIcon business=\{business\} size=\{140\}/)
   assert.match(css,/object-fit: contain/)

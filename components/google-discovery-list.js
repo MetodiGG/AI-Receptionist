@@ -8,21 +8,24 @@ import { ExternalPlaceBooking } from './external-place-booking'
 import { googleRailWidth } from '../lib/discovery/rail.mjs'
 import { containDialogTab } from '../lib/dialog-focus.mjs'
 import { loadPlacesLibrary } from '../lib/discovery/google-ui-loader.mjs'
+import { renderedGooglePlaceIds } from '../lib/discovery/rail-scroll.mjs'
 
 export function GoogleDiscoveryList({ plan, locale, onRetry, rail = false, nearby = false }) {
   const host = useRef(null), [status, setStatus] = useState('loading'), copy = DISCOVERY_COPY[locale]
   const [selected,setSelected]=useState(null)
+  const [renderedCount, setRenderedCount] = useState(null)
   useEffect(() => {
     let active = true, list
     setStatus('loading')
     setSelected(null)
+    setRenderedCount(null)
     const timer = setTimeout(async () => {
       try {
         await loadPlacesLibrary(plan.browserKey, plan.locale)
         await customElements.whenDefined('gmp-advanced-place-list')
         if (!active || !host.current) return
         list = document.createElement('gmp-advanced-place-list')
-        if (rail) { list.setAttribute('orientation', 'horizontal'); list.setAttribute('attribution-position', 'bottom') }
+        if (rail) { list.setAttribute('orientation', 'horizontal'); list.setAttribute('attribution-position', 'bottom'); list.setAttribute('truncation-preferred', '') }
         list.setAttribute('selectable','')
         list.addEventListener('gmp-select',event=>{const id=selectedDiscoveryPlaceId(event,plan.placeIds);if(active&&id)setSelected(id)})
         const template = document.createElement('template'); template.setAttribute('slot', 'details-item')
@@ -41,7 +44,7 @@ export function GoogleDiscoveryList({ plan, locale, onRetry, rail = false, nearb
         if (rail) { const phone = document.createElement('gmp-place-link'); phone.setAttribute('action', 'call'); template.content.append(phone) }
         const attribution = document.createElement('gmp-place-attribution'); attribution.setAttribute('light-scheme-color', 'black')
         list.append(template, attribution)
-        list.addEventListener('gmp-load', () => { if (active) setStatus('ready') })
+        list.addEventListener('gmp-load', event => { if (active && event.target === list) { const ids = renderedGooglePlaceIds(list, plan.placeIds); setRenderedCount(ids?.length ?? null); setStatus(ids?.length === 0 ? 'empty' : 'ready') } })
         list.addEventListener('gmp-error', () => { if (active) setStatus('error') })
         // Only IDs cross this boundary. We never extract Google's names,
         // addresses, ratings, photos or reviews out of their attributed UI Kit.
@@ -52,7 +55,8 @@ export function GoogleDiscoveryList({ plan, locale, onRetry, rail = false, nearb
     const deadline = setTimeout(() => { if (active) setStatus(current => current === 'loading' ? 'error' : current) }, 15000)
     return () => { active = false; clearTimeout(timer); clearTimeout(deadline); list?.remove() }
   }, [plan, rail, nearby])
-  return <section className={`discovery-google-kit${rail ? ' home-google-kit' : ''}`} aria-label="Google Maps" style={rail ? { '--google-rail-count': googleRailWidth(plan.placeIds.length) } : undefined}>
+  if (status === 'empty') return null
+  return <section className={`discovery-google-kit${rail ? ' home-google-kit' : ''}`} aria-label="Google Maps" style={rail ? { '--google-rail-count': googleRailWidth(renderedCount ?? plan.placeIds.length) } : undefined}>
     {!rail && <header><h3>{copy.google}</h3></header>}
     {status === 'loading' && <p role="status">{copy.searching}</p>}
     {status === 'error' && <div className="discovery-notice" role="status"><p>{copy.unavailable}</p>{onRetry && <button type="button" className="secondary-button" onClick={onRetry}>{locale === 'en' ? 'Try search again' : 'Опитай търсенето отново'}</button>}</div>}

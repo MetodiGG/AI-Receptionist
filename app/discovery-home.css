@@ -64,11 +64,14 @@
 .home-categories button.selected img { outline: 3px solid var(--solar); outline-offset: 3px; }
 .home-categories button.selected > span { color: var(--solar-ink); }
 .home-categories button:disabled { opacity: .6; cursor: default; }
-.home-businesses .home-discovery-rail { gap: 18px; }
+.laboratory-shortcuts { display: flex; gap: 10px; max-width: 100%; margin: -2px 0 24px; padding: 4px 2px 8px; overflow-x: auto; overscroll-behavior-x: none; }
+.laboratory-shortcuts button { flex: 0 0 auto; margin: 0; font-size: 16px; white-space: nowrap; }
+.home-businesses .home-discovery-rail { align-items: flex-start; gap: 18px; }
+.home-businesses .home-discovery-rail { overscroll-behavior-x: none; scroll-behavior: auto; }
 .home-businesses .home-discovery-rail > li { width: 280px; }
 .home-businesses .home-section-heading h2 { scroll-margin-block-start: 24px; }
 .home-businesses .home-discovery-rail > li.home-google-chunk { width: auto; max-width: none; }
-.home-business-card { display: flex; flex-direction: column; height: 100%; min-width: 0; }
+.home-business-card { display: flex; flex-direction: column; height: auto; min-width: 0; }
 .home-business-card > a:first-child { display: block; border-radius: 16px; color: inherit; text-decoration: none; }
 .home-business-photo { position: relative; width: 100%; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 16px; background: #eae5de; }
 .home-business-photo > img { display: block; width: 100%; height: 100%; object-fit: cover; }
@@ -78,23 +81,26 @@
 .home-business-illustration .business-category-art { flex: none; padding: 0; background: transparent; box-shadow: none; }
 .home-distance-badge { position: absolute; top: 8px; left: 8px; display: inline-flex; align-items: center; gap: 3px; max-width: calc(100% - 16px); padding: 5px 8px; border-radius: 9px; background: #fffffff2; color: #34343a; box-shadow: 0 2px 8px #2021260e; font-size: 16px; line-height: 1.25; font-weight: 650; }
 .home-distance-badge svg { width: 15px; height: 15px; flex: 0 0 auto; }
+.home-distance-reference { font-size: 14px; font-weight: 550; white-space: nowrap; }
 .home-business-partner { display: inline-flex; align-items: center; gap: 4px; margin-top: 10px; color: #8b421c; font-size: 16px; line-height: 1.3; font-weight: 650; }
 .home-business-partner img { width: 18px; height: 18px; object-fit: contain; }
 .home-business-card h3 { margin: 6px 0 3px; color: var(--ink); font-size: 17px; line-height: 1.3; letter-spacing: -.02em; font-weight: 700; overflow-wrap: anywhere; }
 .home-business-card h3 a { color: inherit; text-decoration: none; }
 .home-business-card h3 a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .home-business-category { margin: 0 0 7px; color: #66656c; font-size: 16px; line-height: 1.4; }
-.home-business-reviews { min-height: 25px; margin-bottom: 8px; color: #6b625b; font-size: 16px; line-height: 1.5; }
+.home-business-reviews { margin: 0 0 6px; color: #6b625b; font-size: 16px; line-height: 1.5; }
+.home-business-reviews:has(> .partner-review-summary:empty) { display: none; }
+.home-business-services { margin: 0 0 8px; color: #64594f; font-size: 16px; line-height: 1.45; overflow-wrap: break-word; }
 .home-business-reviews .review-summary { display: flex; flex-wrap: wrap; gap: 6px; font-size: 16px; }
 .home-business-reviews .review-stars svg { width: 16px; height: 16px; }
 .home-business-address { margin: 0 0 14px; color: #6b625b; font-size: 16px; line-height: 1.45; overflow-wrap: break-word; }
-.home-business-actions { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 8px; margin-top: auto; padding-top: 10px; }
+.home-business-actions { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 8px; margin-top: 0; padding-top: 8px; }
 .home-business-actions .outbound-booking-form { display: flex; margin: 0; min-width: 0; }
 .home-business-card .home-reserve, .home-business-actions .home-directions { display: flex; align-items: center; justify-content: center; gap: 5px; width: 100%; min-width: 0; min-height: 46px; margin: 0; padding: 9px 7px; border: 1px solid #e4c3a6; border-radius: 12px; color: #6e2f11; background: #fff0df; text-decoration: none; font-size: 16px; font-weight: 700; line-height: 1.3; cursor: pointer; text-align: center; overflow-wrap: normal; word-break: normal; }
-.home-business-card .home-reserve { background: linear-gradient(150deg,#ffbc75,#ff974b); border-color: #eea05e; color: #542909; box-shadow: inset 0 1px 0 #ffe0b9,0 2px 0 #db8544; }
+.home-business-card .home-reserve { background: linear-gradient(135deg,#ffe5c5,#ffc58d); border-color: #eaa66e; color: #602b11; box-shadow: inset 0 1px 0 #fff4e6,0 2px 0 #e8b28666; }
 .home-business-card .home-reserve:not(:disabled):not([aria-disabled="true"]) { transition: transform .12s ease,box-shadow .12s ease,border-color .12s ease,color .12s ease; }
 .home-business-actions .home-directions > svg { width: 21px; height: 21px; flex: 0 0 21px; color: #c65a20; }
-.home-business-card .home-reserve:hover, .home-business-actions .home-directions:hover { filter: brightness(.97); }
+.home-business-actions .home-directions:hover { filter: brightness(.97); }
 .home-maps-label, .home-google-attribution { color: #1f1f1f; font-family: "Roboto", "Avenir Next", "Segoe UI", sans-serif; font-size: 16px; font-weight: 400; font-style: normal; letter-spacing: normal; white-space: nowrap; }
 .home-business-actions .home-directions { gap: 4px; padding-inline: 6px; }
 .home-business-actions .home-directions > svg { width: 19px; height: 19px; flex-basis: 19px; }
@@ -102,7 +108,8 @@
 /* Only the GoRez-owned navigation label is bold. Google's provider credit and
    native UI Kit attribution retain their required, unmodified typography. */
 .home-business-card[data-source="gorez"] .home-maps-label { font-weight: 700; }
-.home-business-card .home-reserve:not(:disabled):not([aria-disabled="true"]):is(:hover,:focus-visible) { color: #3c1b0c; background: linear-gradient(135deg,#ff9546,#ff7725); border-color: #be551b; box-shadow: inset 0 1px 0 #ffd2a5,0 3px 0 #cf7030; filter: none; }
+.google-business-card .home-maps-label { font-weight: 700; }
+.home-business-card .home-reserve:not(:disabled):not([aria-disabled="true"]):is(:hover,:focus-visible) { color: #3c1b0c; background: linear-gradient(135deg,#ffac62,#ff8d3f); border-color: #d9712a; box-shadow: inset 0 1px 0 #ffd8ad,0 3px 0 #cf703066; filter: none; }
 .home-business-card .home-reserve:focus-visible { outline: 3px solid #9c4318; outline-offset: 3px; }
 .home-business-card .home-reserve:not(:disabled):not([aria-disabled="true"]):active { transform: translateY(2px); color: #3c1b0c; background: linear-gradient(135deg,#ff9546,#ff7725); border-color: #be551b; box-shadow: inset 0 2px 3px #8a3c1726,0 1px 0 #be551b; filter: none; }
 .home-google-attribution { margin-top: 8px; }
@@ -111,10 +118,46 @@
 .home-more-businesses svg { width: 26px; height: 26px; }
 .home-google-kit.discovery-google-kit { width: calc(var(--google-rail-count) * 320px); max-width: none; margin: 0; padding: 0; border: 0; background: transparent; }
 .home-google-kit gmp-advanced-place-list { display: block; width: 100%; max-width: none; color-scheme: light; --gmp-mat-color-surface: #fffaf5; --gmp-mat-color-primary: #a84b1e; --gmp-mat-color-secondary-container: #ffead5; --gmp-mat-color-on-secondary-container: #713011; --gmp-mat-color-on-surface: #352b25; --gmp-mat-color-on-surface-variant: #62564c; --gmp-mat-font-family: "Avenir Next", "Segoe UI", sans-serif; --gmp-mat-font-body-small: 400 16px/1.45 "Avenir Next", "Segoe UI", sans-serif; --gmp-mat-font-title-medium: 700 18px/1.3 "Avenir Next", "Segoe UI", sans-serif; --gmp-card-border-radius: 18px; --gmp-button-border-radius: 12px; --gmp-star-rating-color: #bd651d; }
+/* Documented provider theme only: no shadow-DOM rewriting or fake labels. */
+.home-google-kit gmp-advanced-place-list { --gmp-mat-color-secondary-container: #ffb067; --gmp-mat-color-on-secondary-container: #3c1b0c; --gmp-mat-font-label-large: 700 14px/1.3 "Avenir Next", "Segoe UI", sans-serif; --gmp-mat-spacing-extra-small: 4px; --gmp-mat-spacing-small: 8px; --gmp-mat-spacing-medium: 10px; --gmp-mat-spacing-large: 12px; }
 .home-booking-dialog { width: min(520px,calc(100% - 28px)); max-height: 85svh; margin: auto; padding: 22px; overflow-y: auto; border: 1px solid #edccb0; border-radius: 24px; color: #352b25; background: #fffaf5; }
 .home-booking-dialog::backdrop { background: #2b211d70; }
 .home-booking-dialog > button { float: right; min-height: 44px; }
 .home-booking-dialog .external-place-selection { clear: both; border: 0; padding: 14px 0 0; }
+/* Optional single-place variant. Native Google content/credits have their own
+   space; never reach into or clip a provider shadow tree. */
+.google-business-card { padding: 0 0 4px; border: 1px solid #e6ddd4; border-radius: 18px; background: #fffdf9; }
+.google-card-distance-band { position: relative; min-height: 43px; }
+.google-card-distance-band .home-distance-badge { top: 7px; left: 8px; }
+.google-distance-unavailable { display: block; padding: 10px 12px; color: #69615c; font-size: 14px; line-height: 1.5; }
+.google-business-card .home-business-actions { padding: 10px 10px 8px; }
+.google-business-card .home-business-actions:has(> :only-child) { grid-template-columns: 1fr; }
+.google-card-native { min-width: 0; width: 100%; }
+.google-card-native:empty { min-height: 170px; }
+.google-card-native gmp-advanced-place-details-compact, .google-card-native gmp-advanced-place-details { display: block; width: 100%; max-width: 100%; border: none; background: transparent; color-scheme: light; --gmp-mat-color-surface: #fffdf9; --gmp-mat-color-primary: #a84b1e; --gmp-mat-color-secondary-container: #ffb067; --gmp-mat-color-on-secondary-container: #3c1b0c; --gmp-mat-color-on-surface: #352b25; --gmp-mat-color-on-surface-variant: #62564c; --gmp-mat-font-family: "Avenir Next", "Segoe UI", sans-serif; --gmp-mat-font-body-small: 400 16px/1.45 "Avenir Next", "Segoe UI", sans-serif; --gmp-mat-font-title-medium: 700 18px/1.3 "Avenir Next", "Segoe UI", sans-serif; --gmp-mat-font-label-large: 700 16px/1.3 "Avenir Next", "Segoe UI", sans-serif; --gmp-card-border-radius: 16px; --gmp-button-border-radius: 12px; --gmp-star-rating-color: #bd651d; --gmp-mat-spacing-extra-small: 4px; --gmp-mat-spacing-small: 8px; --gmp-mat-spacing-medium: 10px; --gmp-mat-spacing-large: 12px; }
+.google-card-notice { padding: 12px; color: #64594f; font-size: 16px; line-height: 1.5; }
+.google-card-notice p { margin: 0 0 8px; }
+.google-contact-dialog { padding: 18px; }
+.google-contact-dialog > header { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.google-contact-dialog h3 { margin: 0; font-size: 21px; line-height: 1.3; }
+.google-contact-dialog header button { flex: 0 0 44px; padding: 8px; }
+.google-contact-dialog header svg { width: 20px; height: 20px; }
+.google-contact-note { margin: 14px 0; font-size: 16px; line-height: 1.5; color: #62564c; }
+.google-contact-dialog .google-card-native:empty { min-height: 0; }
+.google-dialog-maps { display: inline-flex; padding: 10px 14px; border: 1px solid #e4c3a6; border-radius: 12px; background: #fff0df; color: #713011; font-size: 16px; font-weight: 700; text-decoration: none; }
+/* Explicitly fictional local QA only; no imitation provider attribution. */
+.google-preview-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 20px 0; }
+.google-preview-controls p { flex: 1 1 240px; margin: 0; font-size: 16px; line-height: 1.5; }
+.google-preview-native { padding: 0 12px 10px; }
+.google-preview-art { display: grid; place-items: center; width: 100%; aspect-ratio: 4 / 3; padding: 18px; border-radius: 14px; background: linear-gradient(140deg,#ffdec1,#fff4e6); color: #7b421e; text-align: center; font-size: 16px; }
+.google-preview-label { font-size: 14px; color: #73675e; line-height: 1.5; margin: 8px 0 0; }
+.route-loading-shell { width: min(1080px,calc(100% - 36px)); min-height: 70svh; margin: 24px auto; }
+.route-loading-brand { padding: 16px 0 38px; color: #ad4b1b; font-size: 24px; font-weight: 750; }
+.route-loading-heading, .route-loading-field, .route-loading-cards i { display: block; border-radius: 18px; background: linear-gradient(120deg,#f1e8df,#fbf4ed); }
+.route-loading-heading { width: min(440px,85%); height: 40px; margin: 24px 0; }
+.route-loading-field { height: 68px; width: 100%; margin-bottom: 32px; }
+.route-loading-cards { display: flex; gap: 18px; width: 100%; overflow: hidden; }
+.route-loading-cards i { flex: 0 0 260px; height: 300px; }
 .home-reserve svg { width: 17px; height: 17px; flex-shrink: 0; }
 .home-reserve[aria-disabled] { opacity: .7; cursor: default; }
 .home-browse-empty { margin: 16px 0 0; padding: 18px; border: 1px solid var(--line); border-radius: 16px; background: #ffffff80; color: var(--ink-soft); font-size: 16px; line-height: 1.6; }

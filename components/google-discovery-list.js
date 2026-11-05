@@ -50,7 +50,7 @@ export function GoogleDiscoveryList({ plan, locale, onRetry, rail = false, nearb
         media.setAttribute('preferred-size', 'large'); media.setAttribute('lightbox-preferred', '')
         template.content.append(media)
         for (const tag of ['gmp-place-name', 'gmp-place-type', 'gmp-place-rating', ...(!nearby ? ['gmp-place-address'] : [])]) template.content.append(document.createElement(tag))
-        const link = document.createElement('gmp-place-link'); link.setAttribute('action', rail ? 'open-directions' : 'open-map'); link.setAttribute('target', '_blank'); link.setAttribute('action-aria-label', locale === 'en' ? 'Take me there' : 'Заведи ме')
+        const link = document.createElement('gmp-place-link'); link.setAttribute('action', rail ? 'open-directions' : 'open-map'); link.setAttribute('target', '_blank'); link.setAttribute('action-aria-label', locale === 'en' ? 'Google Maps directions' : 'Упътване в Google Maps')
         template.content.append(link)
         // Predefined actions let Google show real website/phone availability.
         // Their visible labels and destinations are provider-owned. Never

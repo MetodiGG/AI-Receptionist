@@ -4,12 +4,14 @@ import { readFile } from 'node:fs/promises'
 
 const read = path => readFile(new URL(`../${path}`, import.meta.url), 'utf8')
 
-test('Home is a visible localized link to the fixed AI entry point, not history, logout or a form action', async () => {
+test('Home is an icon-only localized link to the fixed AI entry point, not history, logout or a form action', async () => {
   const component = await read('components/home-link.js')
   assert.match(component, /locale === 'en' \? 'en' : 'bg'/)
   assert.match(component, /<Link className="site-home-link" href=\{`\/\?lang=\$\{language\}`\}/)
-  assert.match(component, /<span>\{language === 'en' \? 'Home' : 'Начало'\}<\/span>/)
-  assert.match(component, /<Icon name="house"/)
+  assert.match(component, /const label = language === 'en' \? 'Home' : 'Начало'/)
+  assert.match(component, /aria-label=\{label\} title=\{label\}/)
+  assert.match(component, /<Icon name="house3d"/)
+  assert.doesNotMatch(component, /<span|<p|<strong/)
   assert.doesNotMatch(component, /onSubmit|signOut|history\.|router\.back|target=/)
 })
 
@@ -51,7 +53,7 @@ test('booking Home remains outside the owner-session condition', async () => {
 test('responsive Home styling reserves its own top-right cell and retains embedded booking behavior', async () => {
   const css = await read('app/home-navigation.css')
   assert.match(await read('app/layout.js'), /import '\.\/home-navigation\.css'/)
-  assert.match(css, /a\.site-home-link \{[^}]*min-height: 46px;[^}]*font-size: 16px;/)
+  assert.match(css, /a\.site-home-link \{[^}]*width: 44px;[^}]*min-height: 44px;[^}]*background: transparent;[^}]*font-size: 16px;/)
   assert.match(css, /a\.site-home-link:focus-visible \{ outline: 3px/)
   assert.match(css, /\.launch-navigation > \.site-home-link \{ grid-column: 3; grid-row: 1;/)
   assert.match(css, /\.launch-navigation \.launch-menu-toggle \{ grid-column: 4; grid-row: 1;/)

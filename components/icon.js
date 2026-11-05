@@ -33,6 +33,7 @@ export function Icon({ name }) {
     racket: <><ellipse cx="14" cy="9" rx="6" ry="8" transform="rotate(35 14 9)"/><path d="m10 15-7 7M5 18l2 2M11 4l8 10M9 8l8 6M10 12l9-6"/></>,
     graduation: <><path d="m2 9 10-5 10 5-10 5L2 9Z" /><path d="M6 11.2V16c3.4 2.5 8.6 2.5 12 0v-4.8M22 9v6" /></>,
     house: <><path d="m3 11 9-8 9 8" /><path d="M5 10v11h14V10M9 21v-7h6v7" /></>,
+    house3d: <g strokeWidth=".8" stroke="#9a8d7f"><path d="m12 3 9 7.5v1.4L12 4.5 3 11.9v-1.4L12 3Z" fill="#e0d8ce"/><path d="m5 10 7-5.7 7 5.7v10H5V10Z" fill="#fff"/><path d="m19 10 2 1.6v8L19 20V10Z" fill="#e6dfd6"/><path d="m2.5 10.7 9.5-8 9.5 8-1.6 1.4L12 5.6l-7.9 6.5-1.6-1.4Z" fill="#fff"/><path d="M10 20v-6h4v6" fill="#ddd4c8"/><path d="M5.7 12.2v7.1h3M8 10l4-3.2" stroke="#fff" strokeWidth=".65"/></g>,
     paw: <><circle cx="7.5" cy="8" r="2" /><circle cx="16.5" cy="8" r="2" /><circle cx="5" cy="13" r="2" /><circle cx="19" cy="13" r="2" /><path d="M8.2 19.4c1.3 1.4 6.3 1.4 7.6 0 1.8-1.8-.3-6.4-3.8-6.4s-5.6 4.6-3.8 6.4Z" /></>,
     stethoscope: <><path d="M6 3v6a4 4 0 0 0 8 0V3M4 3h4M12 3h4" /><path d="M10 15v1a5 5 0 0 0 10 0v-2" /><circle cx="20" cy="11" r="2" /></>,
     calendarSearch: <><rect x="3" y="5" width="18" height="16" rx="3" /><path d="M16 3v4M8 3v4M3 10h18" /><circle cx="11" cy="15" r="2.5" /><path d="m13 17 2 2" /></>,

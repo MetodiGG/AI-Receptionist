@@ -16,6 +16,7 @@ import { validDuration, scheduleProblem, scheduleRows, scheduleErrorText } from 
 import { BookingModeFields } from './booking-mode-fields'
 import { OpeningHoursEditor } from './opening-hours-editor'
 import { safeBookingUrl, emptyOpeningHours, openingHoursSchema } from '../lib/booking-mode.mjs'
+import { businessPageSlug } from '../lib/business-slug.mjs'
 
 const WEEK = {
   bg: [
@@ -47,11 +48,6 @@ const STEPS = {
   en: [['Business', 'Basic details'], ['Services', 'What you offer'], ['Team', 'Who works here'], ['Schedule', 'Working hours'], ['Review', 'Confirmation']],
 }
 
-function slugify(value) {
-  const map = { а: 'a', б: 'b', в: 'v', г: 'g', д: 'd', е: 'e', ж: 'zh', з: 'z', и: 'i', й: 'y', к: 'k', л: 'l', м: 'm', н: 'n', о: 'o', п: 'p', р: 'r', с: 's', т: 't', у: 'u', ф: 'f', х: 'h', ц: 'ts', ч: 'ch', ш: 'sh', щ: 'sht', ъ: 'a', ь: '', ю: 'yu', я: 'ya' }
-  return value.toLowerCase().split('').map((char) => map[char] ?? char).join('').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 48)
-}
-
 export function BusinessSetup({ session, onComplete, locale, preview = false, application = false }) {
   const [businessPhotos,setBusinessPhotos]=useState([]),[photoConsent,setPhotoConsent]=useState(false)
   const [photosProcessing,setPhotosProcessing]=useState(0)
@@ -67,7 +63,7 @@ export function BusinessSetup({ session, onComplete, locale, preview = false, ap
   const [schedule, setSchedule] = useState(() => createInitialSchedule(locale))
   const [error, setError] = useState('')
   const [saving, setSaving] = useState(false)
-  const [slugTouched, setSlugTouched] = useState(false)
+  const pageNonce = useRef(null)
   const [accountEmail,setAccountEmail]=useState(session?.user?.email||''),[password,setPassword]=useState(''),[consent,setConsent]=useState(false),[company,setCompany]=useState('')
   const lock=useRef(false)
   useEffect(()=>{if(session?.user?.email){setAccountEmail(session.user.email);setBusiness(current=>({...current,contact_email:current.contact_email||session.user.email}))}},[session?.user?.email])
@@ -93,16 +89,23 @@ export function BusinessSetup({ session, onComplete, locale, preview = false, ap
   }, [locale])
 
   function updateBusiness(field, value) {
+    if (field === 'name' && !pageNonce.current) pageNonce.current = crypto.randomUUID().replace(/-/g, '').slice(0,12)
     if (field === 'default_duration_min') setServices((current) => current.map((service) => service.name.trim() ? service : { ...service, duration_min: value }))
     setBusiness((current) => ({
       ...current,
       [field]: value,
-      ...(field === 'name' && !slugTouched ? { slug: slugify(value) } : {}),
+      ...(field === 'name' ? { slug: businessPageSlug(value, pageNonce.current) } : {}),
     }))
   }
 
   function updateList(setter, index, field, value) {
     setter((current) => current.map((row, rowIndex) => rowIndex === index ? { ...row, [field]: value } : row))
+  }
+
+  function renewPageAddress() {
+    const nonce = crypto.randomUUID().replace(/-/g, '').slice(0,12)
+    pageNonce.current = nonce
+    setBusiness(current => ({ ...current, slug: businessPageSlug(current.name, nonce) }))
   }
 
   function removeListRow(setter, index) {
@@ -115,7 +118,7 @@ export function BusinessSetup({ session, onComplete, locale, preview = false, ap
     if(currentStep===1&&external)return !services.length||services.some(s=>!s.name.trim()||(s.price!==''&&(!Number.isFinite(Number(s.price))||Number(s.price)<0))||(s.duration_min!==''&&!validDuration(s.duration_min)))?(en?'Check service names and any known prices or durations.':'Провери имената и въведените цени или продължителност.') : ''
     if(currentStep===2&&external)return staff.some(p=>!p.name.trim())?(en?'Enter team names or remove optional empty rows.':'Въведи имената или премахни празните редове за екип.') : ''
     if(currentStep===3&&external)return openingHoursSchema.safeParse(business.opening_hours).success?'':(en?'Check all seven days and non-overlapping opening periods.':'Провери седемте дни и неприпокриващите се периоди.')
-    if (currentStep === 0 && (business.name.trim().length<2 || business.slug.trim().length<3)) return en ? 'Enter a business name and a page address of at least 3 characters.' : 'Въведи име на бизнеса и адрес на страницата с поне 3 знака.'
+    if (currentStep === 0 && business.name.trim().length<2) return en ? 'Enter a business name of at least 2 characters.' : 'Въведи име на бизнеса с поне 2 знака.'
     if (currentStep === 0 && !findCity(business.city_ekatte)) return en ? 'Choose your business city from the list.' : 'Избери града на бизнеса от списъка.'
     if (currentStep === 0 && !validDuration(business.default_duration_min)) return en ? 'Enter a whole number of minutes from 5 to 1440.' : 'Въведи цял брой минути от 5 до 1440.'
     if((application||external)&&currentStep===0&&(!/^[+()\d .-]{7,32}$/.test(business.phone)||!/^\S+@\S+\.\S+$/.test(business.contact_email)||business.address.trim().length<2))return en?'Add a valid phone, booking email and street address.':'Добави валиден телефон, имейл за резервации и адрес.'
@@ -163,7 +166,8 @@ export function BusinessSetup({ session, onComplete, locale, preview = false, ap
         if(!response.ok) {
           const code=(await response.json().catch(()=>null))?.error?.code
           if(code==='BUSINESS_PHOTO_REQUIRED'){setError(en?'Add at least one photo of your business.':'Добави поне една снимка на бизнеса.');setStep(0);return}
-          const messages={SIGN_IN_REQUIRED:en?'Use a new email and a password of at least 10 characters, or sign in to your existing account first.':'Използвай нов имейл и парола с поне 10 знака, или първо влез в съществуващия си профил.',ADDRESS_IN_USE:en?'This page address is taken. Choose another in step 1.':'Този адрес на страницата е зает. Избери друг в стъпка 1.',RATE_LIMITED:en?'Too many attempts. Please try later.':'Твърде много опити. Опитай по-късно.',VALIDATION_ERROR:en?'Check the details in all five steps. Names must have at least 2 characters.':'Провери данните в петте стъпки. Имената трябва да са поне 2 знака.'}
+          if(code==='ADDRESS_IN_USE'){renewPageAddress();setError(en?'We refreshed your page link. Press Send for approval again.':'Обновихме линка на страницата ти. Натисни отново „Изпрати за одобрение“.');return}
+          const messages={SIGN_IN_REQUIRED:en?'Use a new email and a password of at least 10 characters, or sign in to your existing account first.':'Използвай нов имейл и парола с поне 10 знака, или първо влез в съществуващия си профил.',RATE_LIMITED:en?'Too many attempts. Please try later.':'Твърде много опити. Опитай по-късно.',VALIDATION_ERROR:en?'Check the details in all five steps. Names must have at least 2 characters.':'Провери данните в петте стъпки. Имената трябва да са поне 2 знака.'}
           setError(messages[code]||(['INVALID_IMAGE','IMAGE_TOO_LARGE'].includes(code)?mediaErrorText(code,locale):(en?'We could not accept the application. Try again later.':'Не успяхме да приемем заявката. Опитай отново по-късно.')));return
         }
         const result=await response.json()
@@ -219,8 +223,9 @@ export function BusinessSetup({ session, onComplete, locale, preview = false, ap
       if(['IMAGE_PROCESSING_FAILED','SOURCE_IMAGE_TOO_LARGE','INVALID_IMAGE','HEIC_UNSUPPORTED'].includes(saveError.message)){setError(mediaErrorText(saveError.message,locale));return}
       if (createdBusinessId) await supabase.from('businesses').delete().eq('id', createdBusinessId)
       const duplicateSlug = saveError.code === '23505'
+      if (duplicateSlug) renewPageAddress()
       setError(duplicateSlug
-        ? (en ? 'This page address is already in use. Go back and choose another one.' : 'Този адрес вече се използва. Върни се назад и избери друг.')
+        ? (en ? 'We refreshed your page link. Press Complete setup again.' : 'Обновихме линка на страницата ти. Натисни отново „Завърши настройката“.')
         : `${en ? 'We could not save the setup' : 'Не успяхме да запазим настройките'}: ${saveError.message}`)
     } finally {
       setSaving(false);lock.current=false
@@ -258,11 +263,8 @@ export function BusinessSetup({ session, onComplete, locale, preview = false, ap
               <div className="field full"><PhotoPicker files={businessPhotos} onChange={setBusinessPhotos} locale={locale} disabled={saving} onProcessing={photoProcessing} required label={en?'Business photos *':'Снимки на бизнеса *'}/></div>
               <label className="field full">{en?'Business website (optional)':'Уебсайт на бизнеса (по желание)'}<input type="url" className="text-input" value={business.website_url} onChange={e=>updateBusiness('website_url',e.target.value)}/></label>
               <BookingModeFields mode={business.booking_mode} url={business.external_booking_url} consent={business.external_booking_consent} locale={locale} onChange={patch=>{applyBooking(patch);if(patch.mode==='external'){if(staff.length===1&&!staff[0].name.trim())setStaff([]);setServices(current=>current.map(service=>service.name.trim()?service:{...service,price:'',duration_min:''}))}}}/>
-              {['bg','en'].map(lang=><label className="field full" key={lang}>{en?'About your business (optional)':'За бизнеса (по желание)'} · {lang.toUpperCase()}<textarea maxLength={2000} rows={3} value={business.public_profile.description[lang]} onChange={e=>updateBusiness('public_profile',{...business.public_profile,description:{...business.public_profile.description,[lang]:e.target.value}})}/></label>)}
               <fieldset className="field full"><legend>{en?'Payment methods (optional)':'Начини на плащане (по желание)'}</legend>{[['cash',en?'Cash':'В брой'],['card',en?'Card':'Карта'],['bank',en?'Bank transfer':'Банков превод']].map(([key,label])=><label key={key}><input type="checkbox" checked={business.public_profile.payments.includes(key)} onChange={e=>updateBusiness('public_profile',{...business.public_profile,payments:e.target.checked?[...business.public_profile.payments,key]:business.public_profile.payments.filter(p=>p!==key)})}/>{label}</label>)}</fieldset>
-              <label className="field full">{en?'Brands (comma-separated, optional)':'Марки (със запетая, по желание)'}<input value={business.public_profile.brands.join(', ')} onChange={e=>updateBusiness('public_profile',{...business.public_profile,brands:e.target.value.split(',').map(s=>s.trim()).filter(Boolean)})}/></label>
               <label className="field full">{en?'Booking policies (optional)':'Условия за резервации (по желание)'}<textarea maxLength={5000} value={business.booking_terms} onChange={e=>updateBusiness('booking_terms',e.target.value)}/></label>
-              <details className="field full setup-address-options"><summary>{en?'Page address (optional)':'Адрес на страницата (по желание)'}</summary><div><label htmlFor="business-slug">{en ? 'Public page address' : 'Адрес на публичната страница'} *</label><input id="business-slug" className="text-input" value={business.slug} onChange={(event) => { setSlugTouched(true); updateBusiness('slug', slugify(event.target.value)) }} placeholder="studio-forma" /><p className="helper-text">GoRez · /book/{business.slug || (en ? 'your-business' : 'твоят-бизнес')}</p></div></details>
             </div>
           )}
 

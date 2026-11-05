@@ -18,8 +18,8 @@ const origin = { latitude: 42.6627, longitude: 23.2849, consent: true }
 const business = (patch = {}) => ({ id: 'public-fixture', slug: 'public-fixture', name: 'Local Fixture', city_ekatte: '68134', neighborhood: 'Манастирски ливади', industry: 'beauty', booking_mode: 'gorez', services: [{ id: 's', name: 'Маникюр', active: true, price: 25, duration_min: 45 }], coordinates: { ...origin }, photos: [], ...patch })
 
 test('homepage uses the exact bilingual heading and truthful browsing title', () => {
-  assert.equal(HOME_DISCOVERY_COPY.bg.title, 'Каква услуга искаш да резервираш днес?')
-  assert.equal(HOME_DISCOVERY_COPY.en.title, 'What service are you looking to book today?')
+  assert.equal(HOME_DISCOVERY_COPY.bg.title, 'Намери услуга. Запази час.')
+  assert.equal(HOME_DISCOVERY_COPY.en.title, 'Find a service. Book a time.')
   assert.equal(HOME_DISCOVERY_COPY.bg.explore, 'Разгледай бизнеси')
   assert.equal(HOME_DISCOVERY_COPY.en.explore, 'Explore Businesses')
   for (const key of Object.keys(HOME_DISCOVERY_COPY.bg)) assert.ok(HOME_DISCOVERY_COPY.en[key], key)

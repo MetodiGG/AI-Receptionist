@@ -72,11 +72,10 @@ input, select, textarea { accent-color: #b94315; }
 .marketing-page .launch-navigation .launch-menu[hidden] { display: none; }
 .marketing-page .launch-navigation .launch-menu a { display: block; padding: 13px 12px; border-radius: 10px; font-size: 16px; }
 .marketing-page .launch-navigation .launch-menu a:hover { background: #fff0e4; }
-a.site-home-link { color: #373840; border-color: var(--line); border-radius: 12px; background: #fff; box-shadow: 0 3px 0 #e7e3de; }
-a.site-home-link:hover { color: #8b3011; border-color: #edbca0; background: #fff8f2; }
+a.site-home-link, a.site-home-link:hover { color: #fff; border: 0; background: transparent; box-shadow: none; }
 a.site-home-link:focus-visible { outline-color: #b94315; }
-:root a.site-home-link { min-height: 44px; padding: 8px 10px; gap: 5px; font-size: 14px; border-radius: 11px; }
-:root a.site-home-link svg { width: 17px; height: 17px; }
+:root a.site-home-link { width: 44px; min-width: 44px; height: 44px; min-height: 44px; padding: 5px; border-radius: 10px; }
+:root a.site-home-link svg { width: 30px; height: 30px; }
 
 /* Homepage: a focused search instrument and an illustrated booking journey. */
 .discovery-page { position: relative; isolation: isolate; background: radial-gradient(ellipse at 85% 22%, #ffe4cd66, transparent 42%), #f6f5f2; }

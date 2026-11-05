@@ -7,3 +7,5 @@
 .marketing-page .launch-menu-toggle { padding:10px; border-color:#e9c7a7; background:linear-gradient(150deg,#fffaf4,#ffead5); color:#b76a35; box-shadow:inset 0 1px 0 #fff,0 3px 0 #e8c6a8; }
 .marketing-page .launch-menu-toggle > svg { width:23px; height:23px; }
 .marketing-page .launch-menu-toggle:hover { background:#ffe4c9; }
+.business-onboarding .onboarding-help { display:inline-flex; align-items:center; gap:8px; font-size:16px; font-weight:650; text-underline-offset:4px; }
+.business-onboarding .onboarding-help svg { width:19px; height:19px; }

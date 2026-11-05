@@ -4,21 +4,23 @@ a.site-home-link {
   align-items: center;
   justify-content: center;
   flex: 0 0 auto;
-  gap: 8px;
-  min-height: 46px;
-  padding: 10px 15px;
-  color: #173e2a;
-  background: #fff;
-  border: 1px solid #cbd8ca;
-  border-radius: 14px;
+  width: 44px;
+  min-width: 44px;
+  height: 44px;
+  min-height: 44px;
+  padding: 5px;
+  color: #fff;
+  background: transparent;
+  border: 0;
+  border-radius: 10px;
   font-size: 16px;
   line-height: 1.25;
   font-weight: 750;
   text-decoration: none;
   white-space: nowrap;
 }
-a.site-home-link svg { width: 20px; height: 20px; flex: 0 0 auto; }
-a.site-home-link:hover { background: #eaf3e6; border-color: #173e2a; }
+a.site-home-link svg { width: 30px; height: 30px; flex: 0 0 auto; filter: drop-shadow(0 2px 0 #c6bbae) drop-shadow(0 3px 3px #80695024); }
+a.site-home-link:hover svg { transform: translateY(-1px); }
 a.site-home-link:focus-visible { outline: 3px solid #173e2a; outline-offset: 4px; }
 .home-header-actions { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 12px; margin-left: auto; }
 .home-navigation-header { gap: 16px; }

@@ -95,6 +95,9 @@
 .home-business-actions .home-directions > svg { width: 21px; height: 21px; flex: 0 0 21px; color: #c65a20; }
 .home-business-card .home-reserve:hover, .home-business-actions .home-directions:hover { filter: brightness(.97); }
 .home-maps-label, .home-google-attribution { color: #1f1f1f; font-family: "Roboto", "Avenir Next", "Segoe UI", sans-serif; font-size: 16px; font-weight: 400; font-style: normal; letter-spacing: normal; white-space: nowrap; }
+.home-business-actions .home-directions { gap: 4px; padding-inline: 6px; }
+.home-business-actions .home-directions > svg { width: 19px; height: 19px; flex-basis: 19px; }
+.home-business-actions .home-maps-label { font-size: 14px; }
 .home-google-attribution { margin-top: 8px; }
 .home-provider-attributions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; font-size: 16px; }
 .home-more-businesses { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; width: 100%; min-height: 230px; padding: 24px; border: 1px solid #edccb0; border-radius: 18px; color: #713618; background: #fff2e4; font-size: 18px; font-weight: 700; cursor: pointer; }
@@ -113,13 +116,15 @@
 .home-discovery-bottom { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); width: 100%; max-width: 760px; gap: 16px; margin: 34px auto 0; padding-top: 10px; }
 .home-discovery-bottom > .home-bottom-card { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; min-width: 0; min-height: 136px; padding: 16px; border: 1px solid #f0d9c2; border-radius: 23px; color: #452719; background: linear-gradient(145deg,#fffaf3,#fff0df); box-shadow: inset 0 1px 0 #fff,0 6px 18px #ad5f2c0a; text-align: center; text-decoration: none; transition: transform .18s ease,box-shadow .18s ease,border-color .18s ease; }
 .home-discovery-bottom > .home-bottom-business { background: linear-gradient(145deg,#fffaf5,#fff2e5); }
-.home-bottom-art { display: block; width: 44px; height: 44px; }
-.home-bottom-art-partners { width: 64px; }
+.home-bottom-art { display: flex; align-items: center; justify-content: center; width: 88px; max-width: 100%; height: 48px; flex: 0 0 auto; }
 .home-bottom-art img { display: block; width: 100%; height: 100%; object-fit: contain; }
 .home-bottom-copy { display: grid; justify-items: center; gap: 5px; min-width: 0; text-align: center; }
 .home-bottom-copy strong { color: #452719; font-size: 20px; font-weight: 700; line-height: 1.3; letter-spacing: -.02em; }
 .home-bottom-copy > span { color: #65422d; font-size: 16px; line-height: 1.4; }
 .home-free-label { display: inline-block; margin-top: 3px; padding: 1px 6px; border: 1px solid #ebbd96; border-radius: 7px; color: #9c3e16; background: #ffe4c9; box-shadow: inset 0 1px 0 #fff6ea; font-size: 16px; font-weight: 800; line-height: 1.4; letter-spacing: .025em; text-transform: uppercase; }
+.home-business-signup { display: grid; grid-template-columns: minmax(0,1fr); justify-items: center; gap: 10px; min-width: 0; max-width: 100%; text-align: center; }
+.home-business-signup > strong { color: #562d1a; font-size: 24px; font-weight: 750; line-height: 1.25; letter-spacing: -.025em; text-wrap: balance; overflow-wrap: normal; word-break: normal; }
+.home-bottom-business .home-free-label { margin: 0; padding: 4px 12px; border-color: #eaa66e; border-radius: 10px; color: #602b11; background: linear-gradient(135deg,#ffe5c5,#ffc58d); box-shadow: inset 0 1px 0 #fff4e6,0 2px 0 #e8b28666; font-size: 20px; font-weight: 800; line-height: 1.3; }
 .home-discovery-bottom > .home-bottom-card:hover { transform: translateY(-1px); border-color: #e9c29f; box-shadow: inset 0 1px 0 #fff,0 8px 22px #ad5f2c12; }
 .home-discovery-bottom > .home-bottom-card:active { transform: none; box-shadow: inset 0 1px 3px #ad5f2c0a; }
 .customer-home .site-footer-compact { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 22px; padding: 28px max(24px, calc((100% - 1180px) / 2)); background: #f0e7dc; }
@@ -177,14 +182,18 @@
   .home-business-card h3 { font-size: 18px; }
   .home-discovery-bottom { max-width: none; gap: 12px; margin-top: 28px; padding-top: 10px; }
   .home-discovery-bottom > .home-bottom-card { min-height: 160px; padding: 16px 10px; gap: 8px; border-radius: 19px; }
-  .home-bottom-art { width: 40px; height: 40px; }
-  .home-bottom-art-partners { width: 64px; }
+  .home-bottom-art { width: 72px; height: 40px; }
+  .home-business-signup > strong { font-size: 22px; }
+  .home-bottom-business .home-free-label { font-size: 18px; }
   .home-bottom-copy strong { font-size: 19px; }
   .customer-home .site-footer-compact { padding: 24px 18px calc(24px + env(safe-area-inset-bottom)); gap: 14px; }
   .customer-home .site-footer-compact > nav { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); width: 100%; gap: 0 16px; }
   .discovery-filter-sheet { width: 100%; max-width: none; max-height: 88svh; margin: auto 0 0; padding: 20px 20px calc(20px + env(safe-area-inset-bottom)); border-bottom: 0; border-radius: 24px 24px 0 0; }
 }
+
 @media (max-width: 360px) {
+  .home-business-signup > strong { font-size: clamp(17px,5.3vw,18px); }
+  .home-bottom-business .home-free-label { padding-inline: 5px; font-size: 16px; }
   .customer-home .home-search-panel .home-discovery-heading h1 { font-size: 23px; }
   .customer-home .launch-navigation .gorez-wordmark { font-size: 23px; }
   .customer-home .launch-navigation .gorez-mark-image { width: 31px; height: 31px; }

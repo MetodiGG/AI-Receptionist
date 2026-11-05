@@ -48,28 +48,47 @@ test('homepage submission is the leading search icon or Enter, with no extra arr
   assert.match(css, /\.home-search-trigger \{[^}]*width: 44px; height: 44px; min-height: 44px/)
   assert.match(search, /home-inline-location[^\n]*aria-pressed=\{locationEnabled\}/)
 })
-test('two soft orange centered cards use small bounded transparent 3D art, not a storefront emoji', async () => {
+test('two compact centered cards retain the handshake and a text-only registration action', async () => {
   const browse = await read('components/discovery-home-browse.js'), css = await read('app/discovery-home.css')
-  assert.match(browse, /home-bottom-partners[^\n]*<HomeCardArt name="partners"/)
-  assert.match(browse, /home-bottom-business[^\n]*<HomeCardArt name="business"/)
+  assert.match(browse, /home-bottom-partners[^\n]*<PartnerCardArt/)
+  assert.match(browse, /home-bottom-business[^\n]*home-business-signup/)
   const bottom = browse.slice(browse.indexOf('export function DiscoveryHomeBottom'))
   assert.doesNotMatch(bottom, /Icon name="store"|home-bottom-symbol|<BrandMark/)
   assert.match(bottom, /loading="lazy" decoding="async"/)
   assert.match(css, /\.home-bottom-card \{[^}]*box-shadow: inset/)
   assert.match(css, /\.home-bottom-card \{[^}]*flex-direction: column;[^}]*text-align: center/)
-  assert.match(css, /\.home-bottom-art \{[^}]*width: 40px; height: 40px/)
+  assert.match(css, /\.home-bottom-art \{[^}]*width: 88px;[^}]*height: 48px/)
+  assert.match(css, /\.home-bottom-art \{ width: 72px; height: 40px/)
+  assert.match(css, /\.home-bottom-card \{[^}]*min-height: 136px; padding: 16px;/)
+  assert.match(css, /\.home-bottom-card \{ min-height: 160px; padding: 16px 10px;/)
   assert.match(css, /prefers-reduced-motion: reduce/)
   const manifest = JSON.parse(await read('docs/homepage-card-art-2026-11-05.json'))
-  assert.deepEqual(manifest.assets.map(row => row.id), ['partners', 'business'])
+  assert.deepEqual(manifest.assets.map(row => row.id), ['partners'])
   let total = 0
   for (const asset of manifest.assets) for (const [i, output] of asset.outputs.entries()) {
-    assert.match(asset.prompt, /3D/)
+    assert.ok(['generated-illustration', 'imagegen-edit'].includes(asset.sourceType))
     const bytes = await readFile(new URL(`../${output}`, import.meta.url)); total += bytes.length
     const meta = await sharp(bytes).metadata()
-    assert.equal(meta.width, i === 0 ? 240 : 480); assert.equal(meta.height, asset.aspectRatio === 2 ? meta.width / 2 : meta.width); assert.equal(meta.hasAlpha, true)
+    assert.equal(meta.width, asset.widths[i]); assert.equal(meta.height, Math.round(meta.width / asset.aspectRatio)); assert.equal(meta.hasAlpha, asset.hasAlpha)
     assert.equal(meta.exif, undefined); assert.equal(meta.xmp, undefined)
   }
   assert.ok(total < 130000)
+})
+test('the final registration card has only the complete larger registration phrase and orange Free accent, with no image or extra heading', async () => {
+  const component = await read('components/discovery-home-browse.js'), card = component.split('<Link className="home-bottom-card home-bottom-business"')[1].split('</Link>')[0]
+  assert.match(card, /href=\{`\/for-businesses\?lang=\$\{locale\}`\}/)
+  assert.match(card, /aria-label=\{copy.register\}/)
+  assert.match(card, /<strong>\{copy.registerAction\}<\/strong><span className="home-free-label">\{copy.free\}<\/span>/)
+  assert.doesNotMatch(card, /<img|<svg|CardArt|Icon|copy.business/)
+  assert.doesNotMatch(component, /business-growth|business-3d/)
+  const css = await read('app/discovery-home.css')
+  assert.match(css, /\.home-business-signup \{[^}]*justify-items: center;[^}]*text-align: center/)
+  assert.match(css, /\.home-business-signup > strong \{[^}]*font-size: 24px; font-weight: 750/)
+  assert.match(css, /\.home-business-signup > strong \{ font-size: 22px/)
+  assert.match(css, /\.home-bottom-business \.home-free-label \{[^}]*linear-gradient\(135deg,#ffe5c5,#ffc58d\)[^}]*font-size: 20px; font-weight: 800/)
+  for (const color of ['ffe5c5','ffc58d']) assert.ok(contrast('602b11', color) >= 4.5)
+  const manifest = JSON.parse(await read('docs/homepage-card-art-2026-11-05.json'))
+  assert.equal(manifest.discardedBusinessDraft.used, false)
 })
 test('orange card and panel text retains at least normal-text contrast on the gradient endpoints', () => {
   for (const background of ['fffaf3', 'fff0df', 'fffaf5', 'fff2e5']) {
@@ -117,7 +136,7 @@ test('larger centered card titles and the static orange Free label retain their 
   assert.match(css, /\.home-bottom-copy strong \{[^}]*font-size: 20px; font-weight: 700/)
   assert.match(css, /\.home-bottom-copy strong \{ font-size: 19px/)
   assert.match(browse, /className="home-free-label">\{copy.free\}/)
-  assert.match(browse, /aria-label=\{`\$\{copy.business\} · \$\{copy.register\}`\}/)
+  assert.match(browse, /aria-label=\{copy.register\}/)
   assert.match(css, /\.home-free-label \{[^}]*font-weight: 800/)
   assert.ok(contrast('9c3e16', 'ffe4c9') >= 4.5)
 })

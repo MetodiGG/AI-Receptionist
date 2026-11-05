@@ -45,12 +45,11 @@ export function DiscoveryHomeBusinesses({ locale, filters, preview = false, data
 export function DiscoveryHomeBottom({ locale }) {
   const copy = HOME_DISCOVERY_COPY[locale]
   return <nav className="home-discovery-bottom" aria-label={locale === 'en' ? 'Discover more with GoRez' : 'Още от GoRez'}>
-    <Link className="home-bottom-card home-bottom-partners" href={`/partners?lang=${locale}`} prefetch={false}><HomeCardArt name="partners"/><span className="home-bottom-copy"><strong>{copy.partners}</strong><span>{copy.partnersHint}</span></span></Link>
-    <Link className="home-bottom-card home-bottom-business" href={`/for-businesses?lang=${locale}`} prefetch={false} aria-label={`${copy.business} · ${copy.register}`}><HomeCardArt name="business"/><span className="home-bottom-copy"><strong>{copy.business}</strong><span>{copy.registerAction} <span className="home-free-label">{copy.free}</span></span></span></Link>
+    <Link className="home-bottom-card home-bottom-partners" href={`/partners?lang=${locale}`} prefetch={false}><PartnerCardArt/><span className="home-bottom-copy"><strong>{copy.partners}</strong><span>{copy.partnersHint}</span></span></Link>
+    <Link className="home-bottom-card home-bottom-business" href={`/for-businesses?lang=${locale}`} prefetch={false} aria-label={copy.register}><span className="home-business-signup"><strong>{copy.registerAction}</strong><span className="home-free-label">{copy.free}</span></span></Link>
   </nav>
 }
 
-function HomeCardArt({ name }) {
-  const version = name === 'partners' ? 2 : 1
-  return <span className={`home-bottom-art home-bottom-art-${name}`} aria-hidden="true"><img src={`/home-art/${name}-3d-v${version}.webp`} srcSet={`/home-art/${name}-3d-v${version}.webp 240w, /home-art/${name}-3d-2x-v${version}.webp 480w`} sizes={name === 'partners' ? '64px' : '40px'} width={240} height={name === 'partners' ? 120 : 240} alt="" loading="lazy" decoding="async"/></span>
+function PartnerCardArt() {
+  return <span className="home-bottom-art home-bottom-art-partners" aria-hidden="true"><img src="/home-art/partners-3d-v2.webp" srcSet="/home-art/partners-3d-v2.webp 240w, /home-art/partners-3d-2x-v2.webp 480w" sizes="(max-width: 640px) 72px, 88px" width={240} height={120} alt="" loading="lazy" decoding="async"/></span>
 }

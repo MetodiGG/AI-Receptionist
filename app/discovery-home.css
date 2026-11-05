@@ -64,11 +64,11 @@
 .home-categories button.selected img { outline: 3px solid var(--solar); outline-offset: 3px; }
 .home-categories button.selected > span { color: var(--solar-ink); }
 .home-categories button:disabled { opacity: .6; cursor: default; }
-.home-businesses .home-discovery-rail { gap: 18px; }
+.home-businesses .home-discovery-rail { align-items: flex-start; gap: 18px; }
 .home-businesses .home-discovery-rail > li { width: 280px; }
 .home-businesses .home-section-heading h2 { scroll-margin-block-start: 24px; }
 .home-businesses .home-discovery-rail > li.home-google-chunk { width: auto; max-width: none; }
-.home-business-card { display: flex; flex-direction: column; height: 100%; min-width: 0; }
+.home-business-card { display: flex; flex-direction: column; height: auto; min-width: 0; }
 .home-business-card > a:first-child { display: block; border-radius: 16px; color: inherit; text-decoration: none; }
 .home-business-photo { position: relative; width: 100%; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 16px; background: #eae5de; }
 .home-business-photo > img { display: block; width: 100%; height: 100%; object-fit: cover; }
@@ -84,11 +84,13 @@
 .home-business-card h3 a { color: inherit; text-decoration: none; }
 .home-business-card h3 a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .home-business-category { margin: 0 0 7px; color: #66656c; font-size: 16px; line-height: 1.4; }
-.home-business-reviews { min-height: 25px; margin-bottom: 8px; color: #6b625b; font-size: 16px; line-height: 1.5; }
+.home-business-reviews { margin: 0 0 6px; color: #6b625b; font-size: 16px; line-height: 1.5; }
+.home-business-reviews:has(> .partner-review-summary:empty) { display: none; }
+.home-business-services { margin: 0 0 8px; color: #64594f; font-size: 16px; line-height: 1.45; overflow-wrap: break-word; }
 .home-business-reviews .review-summary { display: flex; flex-wrap: wrap; gap: 6px; font-size: 16px; }
 .home-business-reviews .review-stars svg { width: 16px; height: 16px; }
 .home-business-address { margin: 0 0 14px; color: #6b625b; font-size: 16px; line-height: 1.45; overflow-wrap: break-word; }
-.home-business-actions { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 8px; margin-top: auto; padding-top: 10px; }
+.home-business-actions { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 8px; margin-top: 0; padding-top: 8px; }
 .home-business-actions .outbound-booking-form { display: flex; margin: 0; min-width: 0; }
 .home-business-card .home-reserve, .home-business-actions .home-directions { display: flex; align-items: center; justify-content: center; gap: 5px; width: 100%; min-width: 0; min-height: 46px; margin: 0; padding: 9px 7px; border: 1px solid #e4c3a6; border-radius: 12px; color: #6e2f11; background: #fff0df; text-decoration: none; font-size: 16px; font-weight: 700; line-height: 1.3; cursor: pointer; text-align: center; overflow-wrap: normal; word-break: normal; }
 .home-business-card .home-reserve { background: linear-gradient(150deg,#ffbc75,#ff974b); border-color: #eea05e; color: #542909; box-shadow: inset 0 1px 0 #ffe0b9,0 2px 0 #db8544; }
@@ -111,6 +113,8 @@
 .home-more-businesses svg { width: 26px; height: 26px; }
 .home-google-kit.discovery-google-kit { width: calc(var(--google-rail-count) * 320px); max-width: none; margin: 0; padding: 0; border: 0; background: transparent; }
 .home-google-kit gmp-advanced-place-list { display: block; width: 100%; max-width: none; color-scheme: light; --gmp-mat-color-surface: #fffaf5; --gmp-mat-color-primary: #a84b1e; --gmp-mat-color-secondary-container: #ffead5; --gmp-mat-color-on-secondary-container: #713011; --gmp-mat-color-on-surface: #352b25; --gmp-mat-color-on-surface-variant: #62564c; --gmp-mat-font-family: "Avenir Next", "Segoe UI", sans-serif; --gmp-mat-font-body-small: 400 16px/1.45 "Avenir Next", "Segoe UI", sans-serif; --gmp-mat-font-title-medium: 700 18px/1.3 "Avenir Next", "Segoe UI", sans-serif; --gmp-card-border-radius: 18px; --gmp-button-border-radius: 12px; --gmp-star-rating-color: #bd651d; }
+/* Documented provider theme only: no shadow-DOM rewriting or fake labels. */
+.home-google-kit gmp-advanced-place-list { --gmp-mat-color-secondary-container: #ffb067; --gmp-mat-color-on-secondary-container: #3c1b0c; --gmp-mat-font-label-large: 700 14px/1.3 "Avenir Next", "Segoe UI", sans-serif; --gmp-mat-spacing-extra-small: 4px; --gmp-mat-spacing-small: 8px; --gmp-mat-spacing-medium: 10px; --gmp-mat-spacing-large: 12px; }
 .home-booking-dialog { width: min(520px,calc(100% - 28px)); max-height: 85svh; margin: auto; padding: 22px; overflow-y: auto; border: 1px solid #edccb0; border-radius: 24px; color: #352b25; background: #fffaf5; }
 .home-booking-dialog::backdrop { background: #2b211d70; }
 .home-booking-dialog > button { float: right; min-height: 44px; }

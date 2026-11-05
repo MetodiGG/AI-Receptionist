@@ -22,7 +22,7 @@ export function GoogleDiscoveryList({ plan, locale, onRetry, rail = false, nearb
         await customElements.whenDefined('gmp-advanced-place-list')
         if (!active || !host.current) return
         list = document.createElement('gmp-advanced-place-list')
-        if (rail) { list.setAttribute('orientation', 'horizontal'); list.setAttribute('attribution-position', 'bottom') }
+        if (rail) { list.setAttribute('orientation', 'horizontal'); list.setAttribute('attribution-position', 'bottom'); list.setAttribute('truncation-preferred', '') }
         list.setAttribute('selectable','')
         list.addEventListener('gmp-select',event=>{const id=selectedDiscoveryPlaceId(event,plan.placeIds);if(active&&id)setSelected(id)})
         const template = document.createElement('template'); template.setAttribute('slot', 'details-item')

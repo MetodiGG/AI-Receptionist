@@ -46,7 +46,7 @@ test('homepage submission is the leading search icon or Enter, with no extra arr
   assert.match(search, /onSubmit=\{submit\}/)
   assert.doesNotMatch(search, /home-query-symbol/)
   assert.match(css, /\.home-search-trigger \{[^}]*width: 44px; height: 44px; min-height: 44px/)
-  assert.match(search, /home-inline-location[^\n]*aria-pressed=\{Boolean\(coordinates\)\}/)
+  assert.match(search, /home-inline-location[^\n]*aria-pressed=\{locationEnabled\}/)
 })
 test('two soft orange centered cards use small bounded transparent 3D art, not a storefront emoji', async () => {
   const browse = await read('components/discovery-home-browse.js'), css = await read('app/discovery-home.css')

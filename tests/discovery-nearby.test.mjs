@@ -40,6 +40,26 @@ test('single nearby UI mode retains a 2 km primary radius and bounds its additio
   assert.equal(discoveryRequestSchema.safeParse({ query: 'маникюр', expandNearby: true }).success, false)
 })
 
+test('independently verified booking links prioritize only their own radius band without extra Google requests', async () => {
+  const deps = dependencies({ readBookablePlaces: async ids => {
+    assert.ok(ids.includes('QA_FICTIONAL_PLACE_1'))
+    return [{ place_id: 'QA_FICTIONAL_PLACE_1', booking_url: 'https://example.com/book', verification_status: 'approved', verified_by: 'admin', verified_at: new Date().toISOString(), last_checked_at: new Date().toISOString() }]
+  } })
+  const result = await discoverBusinesses(request(), deps)
+  assert.deepEqual(result.external.placeIds, ['QA_FICTIONAL_PLACE_1', 'QA_FICTIONAL_PLACE_0'])
+  assert.deepEqual(result.furtherExternal.placeIds, ['QA_FICTIONAL_PLACE_2'])
+  assert.equal(deps.calls.fetch.length, 1)
+  assert.equal(deps.calls.budget.filter(call => call[1] === 'ui_list').length, 2)
+})
+
+test('an unavailable booking register retains provider order and never fabricates bookability', async () => {
+  const deps = dependencies({ readBookablePlaces: async () => { throw new Error('unavailable') } })
+  const result = await discoverBusinesses(request(), deps)
+  assert.deepEqual(result.external.placeIds, ['QA_FICTIONAL_PLACE_0', 'QA_FICTIONAL_PLACE_1'])
+  assert.equal(deps.calls.fetch.length, 1)
+  assert.equal(result.external.booking, undefined)
+})
+
 test('both Nearby and free-text location searches request distance order without increasing fields', () => {
   for (const query of ['маникюр', 'педикюр', 'тенис']) {
     const input = request({ query }), scope = nearbySearchScope(input, parse(input)), search = googleSearchRequest(scope.searchIntent)
@@ -98,10 +118,13 @@ test('an inconsistent farther partner link never suppresses a more convenient Go
   assert.equal(result.results.some(row => row.distanceKm === 4.2), false)
 })
 
-test('both native widgets stay mounted when toggling sources, avoiding repeated unbudgeted instantiations', async () => {
-  const source = await read('components/discovery-search.js')
-  assert.match(source, /result\.furtherExternal && <div hidden=\{source === 'gorez'\}><GoogleDiscoveryList plan=\{result.furtherExternal\}/)
-  assert.doesNotMatch(source, /result\.furtherExternal && source !== 'gorez' && <GoogleDiscoveryList/)
+test('one rail retains widget plans and has no source toggles that could cause re-instantiation', async () => {
+  const source = await read('components/discovery-home-browse.js'), search = await read('components/discovery-search.js')
+  assert.match(source, /google\(result\?\.external, 'near-google'\)/)
+  assert.match(source, /google\(result\?\.furtherExternal, 'far-google'\)/)
+  assert.match(source, /expanded &&/)
+  assert.doesNotMatch(search, /setSource|discovery-source-tabs/)
+  assert.match(await read('components/google-discovery-list.js'), /\}, \[plan, rail, nearby\]\)/)
 })
 
 test('unknown distances and full-precision boundary violations never leak into the 2 km band', () => {
@@ -113,9 +136,9 @@ test('unknown distances and full-precision boundary violations never leak into t
 test('one location label, explicit on/off consent and visible partner entry are retained', async () => {
   const ui = await read('components/discovery-search.js')
   assert.equal(DISCOVERY_COPY.bg.nearby, 'Около мен'); assert.doesNotMatch(DISCOVERY_COPY.bg.changeCity, /наблизо|около мен/iu)
-  assert.match(ui, /if \(coordinates\) \{[\s\S]*?setCoordinates\(null\)/)
-  assert.ok(ui.indexOf('if (coordinates) {') < ui.indexOf('await locationProvider('))
-  assert.match(ui, /aria-pressed=\{Boolean\(coordinates\)\}/)
+  assert.match(ui, /if \(!automatic && locationEnabled\) \{[\s\S]*?setCoordinates\(null\)/)
+  assert.ok(ui.indexOf('if (!automatic && locationEnabled) {') < ui.indexOf('await locationProvider('))
+  assert.match(ui, /aria-pressed=\{locationEnabled\}/)
   assert.doesNotMatch(ui, /copy\.locationSet|copy\.clearLocation/)
   assert.match(ui, /className="discovery-partner-entry"><Link href=\{`\/partners\?lang=/)
   const more = await read('components/discovery-nearby-more.js')

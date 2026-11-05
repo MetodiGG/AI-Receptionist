@@ -6,5 +6,5 @@ export const metadata = { title: 'GoRez · local homepage design review', robots
 export default async function HomepageFixture({ searchParams }) {
   if (process.env.NODE_ENV !== 'development' || !discoveryConfig(process.env).devMock) notFound()
   const params = await searchParams
-  return <HomepageDesignFixture locale={params?.lang === 'en' ? 'en' : 'bg'} scenario={['empty', 'error', 'denied', 'loading'].includes(params?.case) ? params.case : 'ready'}/>
+  return <HomepageDesignFixture locale={params?.lang === 'en' ? 'en' : 'bg'} scenario={['empty', 'error', 'denied', 'loading', 'pending'].includes(params?.case) ? params.case : 'ready'}/>
 }

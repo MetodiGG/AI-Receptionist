@@ -97,6 +97,15 @@ test('orange card and panel text retains at least normal-text contrast on the gr
   }
   for (const background of ['fff3e5', 'ffe5cb', 'fff0df']) assert.ok(contrast('352b25', background) >= 4.5)
 })
+test('registration text uses the exact GoRez Partners headline color without changing the Free accent', async () => {
+  const css = await read('app/discovery-home.css')
+  const partnerColor = css.match(/\.home-bottom-copy strong \{[^}]*color: #([a-f\d]{6});/i)?.[1]
+  const registrationColor = css.match(/\.home-business-signup > strong \{[^}]*color: #([a-f\d]{6});/i)?.[1]
+  assert.equal(partnerColor, '452719')
+  assert.equal(registrationColor, partnerColor)
+  for (const background of ['fffaf5', 'fff2e5']) assert.ok(contrast(registrationColor, background) >= 4.5)
+  assert.match(css, /\.home-bottom-business \.home-free-label \{[^}]*color: #602b11;[^}]*linear-gradient\(135deg,#ffe5c5,#ffc58d\)/)
+})
 test('the public header has only the shared wordmark, flags and orange dimensional menu control', async () => {
   const nav = await read('components/marketing-navigation.js'), flags = await read('components/country-flag.js'), language = await read('components/language-switch.js'), controls = await read('app/header-controls.css')
   assert.doesNotMatch(nav, /home-desktop-navigation|AdminAccessLink|My appointments|Моите часове/)

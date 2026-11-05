@@ -35,3 +35,7 @@ Local browser checks confirmed:
 - `git diff --check`: passed.
 
 The full suite caught the intentional FAQ count increase from 28 to 29; the regression expectation now also checks the new bilingual source-separation answer. Final rerun passed. Actual native Google rendering, real partner score accuracy and production activation remain unverified pending owner approval and a bounded live check; this document does not claim otherwise. The final visual test additionally enforces a text-only registration action, complete accessible label and high-contrast Free accent, preventing the discarded illustration from returning.
+
+## Follow-up: registration headline color
+
+At the owner's request, “Регистрирай бизнеса си” now uses the exact partner-card headline color `#452719`. The Free accent, card sizes, wording and links are unchanged. Browser checks at 390px and 1440px confirmed both headings compute to `rgb(69, 39, 25)` and no document overflow. Proof: `signup-color-match-mobile-bg.jpg`. The added regression test verifies matching colors and contrast. Final follow-up checks: **782 tests passed**, build passed, diff check passed. Local only; no deployment or provider requests.

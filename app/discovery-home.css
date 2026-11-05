@@ -123,7 +123,7 @@
 .home-bottom-copy > span { color: #65422d; font-size: 16px; line-height: 1.4; }
 .home-free-label { display: inline-block; margin-top: 3px; padding: 1px 6px; border: 1px solid #ebbd96; border-radius: 7px; color: #9c3e16; background: #ffe4c9; box-shadow: inset 0 1px 0 #fff6ea; font-size: 16px; font-weight: 800; line-height: 1.4; letter-spacing: .025em; text-transform: uppercase; }
 .home-business-signup { display: grid; grid-template-columns: minmax(0,1fr); justify-items: center; gap: 10px; min-width: 0; max-width: 100%; text-align: center; }
-.home-business-signup > strong { color: #562d1a; font-size: 24px; font-weight: 750; line-height: 1.25; letter-spacing: -.025em; text-wrap: balance; overflow-wrap: normal; word-break: normal; }
+.home-business-signup > strong { color: #452719; font-size: 24px; font-weight: 750; line-height: 1.25; letter-spacing: -.025em; text-wrap: balance; overflow-wrap: normal; word-break: normal; }
 .home-bottom-business .home-free-label { margin: 0; padding: 4px 12px; border-color: #eaa66e; border-radius: 10px; color: #602b11; background: linear-gradient(135deg,#ffe5c5,#ffc58d); box-shadow: inset 0 1px 0 #fff4e6,0 2px 0 #e8b28666; font-size: 20px; font-weight: 800; line-height: 1.3; }
 .home-discovery-bottom > .home-bottom-card:hover { transform: translateY(-1px); border-color: #e9c29f; box-shadow: inset 0 1px 0 #fff,0 8px 22px #ad5f2c12; }
 .home-discovery-bottom > .home-bottom-card:active { transform: none; box-shadow: inset 0 1px 3px #ad5f2c0a; }

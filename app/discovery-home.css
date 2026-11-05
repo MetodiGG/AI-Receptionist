@@ -102,9 +102,9 @@
 /* Only the GoRez-owned navigation label is bold. Google's provider credit and
    native UI Kit attribution retain their required, unmodified typography. */
 .home-business-card[data-source="gorez"] .home-maps-label { font-weight: 700; }
-.home-business-card .home-reserve:not(:disabled):not([aria-disabled="true"]):is(:hover,:focus-visible) { color: #3c1b0c; background: linear-gradient(150deg,#ffac62,#ff8d3f); border-color: #d9712a; box-shadow: inset 0 1px 0 #ffd2a5,0 3px 0 #cf7030; filter: none; }
+.home-business-card .home-reserve:not(:disabled):not([aria-disabled="true"]):is(:hover,:focus-visible) { color: #3c1b0c; background: linear-gradient(135deg,#ff9546,#ff7725); border-color: #be551b; box-shadow: inset 0 1px 0 #ffd2a5,0 3px 0 #cf7030; filter: none; }
 .home-business-card .home-reserve:focus-visible { outline: 3px solid #9c4318; outline-offset: 3px; }
-.home-business-card .home-reserve:not(:disabled):not([aria-disabled="true"]):active { transform: translateY(2px); color: #3c1b0c; background: linear-gradient(150deg,#ff9546,#ff7725); border-color: #be551b; box-shadow: inset 0 2px 3px #8a3c1726,0 1px 0 #be551b; filter: none; }
+.home-business-card .home-reserve:not(:disabled):not([aria-disabled="true"]):active { transform: translateY(2px); color: #3c1b0c; background: linear-gradient(135deg,#ff9546,#ff7725); border-color: #be551b; box-shadow: inset 0 2px 3px #8a3c1726,0 1px 0 #be551b; filter: none; }
 .home-google-attribution { margin-top: 8px; }
 .home-provider-attributions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; font-size: 16px; }
 .home-more-businesses { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; width: 100%; min-height: 230px; padding: 24px; border: 1px solid #edccb0; border-radius: 18px; color: #713618; background: #fff2e4; font-size: 18px; font-weight: 700; cursor: pointer; }

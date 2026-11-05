@@ -118,11 +118,24 @@ test('Maps navigation is bold only for GoRez-owned cards, leaving Google provide
 })
 test('only enabled reserve controls receive orange hover, keyboard focus and pressed feedback', async () => {
   const css = await read('app/discovery-home.css')
-  assert.match(css, /\.home-business-card \.home-reserve:not\(:disabled\):not\(\[aria-disabled="true"\]\):is\(:hover,:focus-visible\) \{[^}]*linear-gradient\(150deg,#ffac62,#ff8d3f\)/)
+  assert.match(css, /\.home-business-card \.home-reserve:not\(:disabled\):not\(\[aria-disabled="true"\]\):is\(:hover,:focus-visible\) \{[^}]*linear-gradient\(135deg,#ff9546,#ff7725\)/)
   assert.match(css, /\.home-business-card \.home-reserve:focus-visible \{ outline: 3px solid #9c4318; outline-offset: 3px; \}/)
-  assert.match(css, /\.home-business-card \.home-reserve:not\(:disabled\):not\(\[aria-disabled="true"\]\):active \{[^}]*transform: translateY\(2px\);[^}]*linear-gradient\(150deg,#ff9546,#ff7725\)/)
+  assert.match(css, /\.home-business-card \.home-reserve:not\(:disabled\):not\(\[aria-disabled="true"\]\):active \{[^}]*transform: translateY\(2px\);[^}]*linear-gradient\(135deg,#ff9546,#ff7725\)/)
   const outbound = await read('components/outbound-booking-button.js')
   assert.match(outbound, /disabled=\{busy\s*\|\|\s*disabled\}/)
+})
+test('Reserve uses the exact darker pressed-Free orange on hover, keyboard focus and press', async () => {
+  const css = await read('app/discovery-home.css')
+  const background = selector => {
+    const rule = css.split(`${selector} {`)[1]?.split('}')[0]
+    assert.ok(rule, selector)
+    return rule.match(/background: ([^;]+);/)?.[1]
+  }
+  const free = background('.home-bottom-business:active .home-free-label')
+  assert.equal(free, 'linear-gradient(135deg,#ff9546,#ff7725)')
+  for (const state of [':is(:hover,:focus-visible)', ':active']) {
+    assert.equal(background(`.home-business-card .home-reserve:not(:disabled):not([aria-disabled="true"])${state}`), free)
+  }
 })
 test('the Free accent becomes stronger orange on signup hover, keyboard focus and press without changing layout', async () => {
   const css = await read('app/discovery-home.css')

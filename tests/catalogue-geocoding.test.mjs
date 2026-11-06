@@ -48,7 +48,7 @@ test('address changes, missing attribution and a forged provider URL invalidate 
   assert.equal(firstParty[0].coordinateAttribution,undefined)
 })
 
-test('all committed geocodes can be reproduced offline from the one-time cache; first-party points stay separate', async () => {
+test('the automatic address batch can be reproduced offline from its one-time cache; first-party points stay separate', async () => {
   const cache=JSON.parse(await readFile(new URL('../docs/catalogue-geocoding/nominatim-address-cache-20261106.json',import.meta.url),'utf8'))
   const updates=JSON.parse(await readFile(new URL('../lib/discovery/catalogue-data/geocodes-v2.json',import.meta.url),'utf8'))
   assert.equal(Object.keys(cache).length,225)
@@ -61,6 +61,21 @@ test('all committed geocodes can be reproduced offline from the one-time cache; 
     assert.deepEqual(record.coordinates,update.coordinates)
   }
   assert.ok(SOFIA_CATALOGUE.filter(item=>item.coordinates?.method==='first_party_coordinates').length>=79)
+})
+
+test('the manually reviewed LUX point uses the exact-address hospital building from the existing cache, not the ATM', async () => {
+  const cache = JSON.parse(await readFile(new URL('../docs/catalogue-geocoding/nominatim-address-cache-20261106.json',import.meta.url),'utf8'))
+  const updates = JSON.parse(await readFile(new URL('../lib/discovery/catalogue-data/geocodes-v3.json',import.meta.url),'utf8'))
+  const record = SOFIA_CATALOGUE.find(row => row.id === 'sofia-lux-mbal-sveta-sofia-carwash')
+  const original = { ...record, coordinates: null }, request = catalogueStreetAddress(original)
+  const candidates = cache[request.query]
+  assert.equal(updates.length, 1)
+  assert.ok(candidates.some(row => row.type === 'atm'))
+  const hospital = candidates.filter(row => row.osm_type === 'way' && row.osm_id === 1551254006 && row.category === 'building' && row.type === 'hospital')
+  assert.equal(hospital.length, 1)
+  assert.deepEqual(matchCatalogueGeocode(original, hospital, checkedOn), updates[0])
+  assert.deepEqual(record.coordinates, updates[0].coordinates)
+  assert.match(record.address, /България 104, Корпус 2/)
 })
 
 test('geocoding remains offline, owner-approved, rate-limited and cached; attribution is visible without extra requests', async () => {
@@ -76,9 +91,9 @@ test('geocoding remains offline, owner-approved, rate-limited and cached; attrib
 
 test('the attributed OSM layer is offered as machine-readable ODbL data, separate from business menus and partner records', async () => {
   const data = JSON.parse(await readFile(new URL('../public/catalogue-location-data-20261106.json',import.meta.url),'utf8'))
-  const updates = JSON.parse(await readFile(new URL('../lib/discovery/catalogue-data/geocodes-v2.json',import.meta.url),'utf8'))
+  const updates = [...JSON.parse(await readFile(new URL('../lib/discovery/catalogue-data/geocodes-v2.json',import.meta.url),'utf8')), ...JSON.parse(await readFile(new URL('../lib/discovery/catalogue-data/geocodes-v3.json',import.meta.url),'utf8'))]
   assert.equal(data.licence,'ODbL-1.0'); assert.equal(data.licenceUrl,'https://opendatacommons.org/licenses/odbl/1-0/')
-  assert.equal(data.attribution,OSM_ATTRIBUTION); assert.deepEqual(data.points,updates)
+  assert.equal(data.attribution,OSM_ATTRIBUTION); assert.deepEqual([...data.points].sort((a,b)=>a.id.localeCompare(b.id)),updates.sort((a,b)=>a.id.localeCompare(b.id)))
   assert.ok(data.points.every(row=>row.coordinates.method==='verified_address_geocode'))
   assert.doesNotMatch(JSON.stringify(data),/"phone"|"booking"|"services"|"email"|"price"/)
   const ui=await readFile(new URL('../components/discovery-home-browse.js',import.meta.url),'utf8')

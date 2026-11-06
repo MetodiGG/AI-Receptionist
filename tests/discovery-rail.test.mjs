@@ -84,10 +84,11 @@ test('one Explore Businesses rail replaces the previous browse-plus-results layo
   assert.match(source, /result=\{result\} resultKey=\{resultKey\} loading=\{loading \|\| locating\}/)
   assert.match(source, /headingRef=\{resultHeading\}/)
 })
-test('only partners get a membership badge, reviews follow the category, and exact addresses stay in business details', async () => {
+test('only partners get a membership badge, ratings follow services, and exact addresses stay in business details', async () => {
   const card = await read('components/discovery-business-card.js')
   assert.match(card, /internal && <span className="home-business-partner"/)
   assert.ok(card.indexOf('home-business-category') < card.indexOf('<PartnerRailReviews'))
+  assert.ok(card.indexOf('className="home-business-services"') < card.indexOf('<PartnerRailReviews'))
   assert.match(card, /DiscoveryDistanceBadge origin=\{distanceOrigin\} destination=\{row.coordinates\}/)
   assert.match(card, /fallbackKm=\{nearby \? row.distanceKm : null\}/)
   assert.doesNotMatch(card, /home-business-address/)

@@ -1,0 +1,15 @@
+[
+  {
+    "id": "sofia-lux-mbal-sveta-sofia-carwash",
+    "coordinates": {
+      "latitude": 42.6595902,
+      "longitude": 23.2843285,
+      "source": "https://www.openstreetmap.org/way/1551254006",
+      "method": "verified_address_geocode",
+      "sourceAddress": "София, бул. България 104, Корпус 2, ниво -1",
+      "checkedOn": "2026-11-06",
+      "licence": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  }
+]

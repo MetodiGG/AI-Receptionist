@@ -132,11 +132,16 @@
 .home-business-reviews .review-stars svg { width: 16px; height: 16px; }
 .home-business-address { margin: 0 0 14px; color: #6b625b; font-size: 16px; line-height: 1.45; overflow-wrap: break-word; }
 .home-business-actions { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 8px; margin-top: 0; padding-top: 8px; }
+.home-business-footer { padding-top: 8px; }
+.home-business-details-link { display: block; width: 100%; min-height: 44px; padding: 9px 12px; border: 1px solid #e8d1bc; border-radius: 12px; color: #8b3d15; background: #fff8ef; font: inherit; font-size: 16px; font-weight: 700; line-height: 1.35; text-align: center; cursor: pointer; }
+.home-business-details-link:hover { background: #ffead4; border-color: #dcaf86; }
+.home-business-details-link:focus-visible { outline: 3px solid #9c4318; outline-offset: 3px; }
 /* Uniform local cards share one footer baseline; never stretch a partner to
    the height of a legacy third-party widget containing many stacked cards. */
 .home-businesses[data-uniform-cards="true"] .home-discovery-rail { align-items: stretch; }
 .home-businesses[data-uniform-cards="true"] .home-business-card { height: 100%; }
 .home-businesses[data-uniform-cards="true"] .home-business-actions { margin-top: auto; }
+.home-businesses[data-uniform-cards="true"] .home-business-footer { margin-top: auto; }
 .home-business-actions > .home-reserve:only-child { grid-column: 2; }
 .home-business-actions .outbound-booking-form { display: flex; margin: 0; min-width: 0; }
 .home-business-card .home-reserve, .home-business-actions .home-directions { display: flex; align-items: center; justify-content: center; gap: 5px; width: 100%; min-width: 0; min-height: 46px; margin: 0; padding: 9px 7px; border: 1px solid #e4c3a6; border-radius: 12px; color: #6e2f11; background: #fff0df; text-decoration: none; font-size: 16px; font-weight: 700; line-height: 1.3; cursor: pointer; text-align: center; overflow-wrap: normal; word-break: normal; }

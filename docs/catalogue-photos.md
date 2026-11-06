@@ -1,5 +1,10 @@
 # Catalogue cover photos
 
+Published on [www.gorez.co](https://www.gorez.co/admin?lang=bg) after owner
+approval and 879 passing tests. The live admin list and fresh photo form were
+verified without uploading an unauthorised business image. See the
+[release verification](./operations/20261106-catalogue-photos-release.md).
+
 ## Administrator workflow
 
 Open the GoRez admin panel, select **Каталог**, then search by name, neighbourhood

@@ -24,8 +24,33 @@ The SQL Editor returned `catalogue_photo_migration=applied`, `rls_tables=3`,
 1 appointment. Public/customer table and RPC denial checks passed inside the
 same transaction. No real catalogue photo was uploaded for release QA.
 
-Application publication is verified separately after the release merge. The
-additive private tables can safely remain if an application rollback is needed.
+## Verified publication
+
+[PR #33](https://github.com/MetodiGG/AI-Receptionist/pull/33) passed its two GitHub
+checks and was merged. Production commit
+`bcc7da9d5b4c9b15d9f3ab9a3b1bf95af4259ddc` has exactly the tested application
+tree from release branch commit `7c322c20a26329d9eba6b9ae1b102858901f5c6a`.
+
+Vercel deployment
+[2YZ7d5m6aVJB3iZPtKhgor8eoV5r](https://vercel.com/ai-receptionist12/ai-receptionist/2YZ7d5m6aVJB3iZPtKhgor8eoV5r)
+was Ready / Latest / Production / Current for `www.gorez.co` and the expected
+`main` commit. The owner personally signed in to the GoRez admin account; the
+live **Каталог** section loaded **202 non-partner catalogue listings**, 40 on
+the first admin page, and the fresh per-listing photo form opened successfully.
+No real photo was uploaded and no permission receipt was fabricated. A first
+live upload still requires a photograph the owner is authorised to publish.
+
+Unauthenticated management access returned 401 with `private, no-store`; a
+malformed image ID and the local-only development fixture both returned 404.
+One read-only live manicure search returned HTTP 200, `externalStatus: catalogue`,
+10 cards out of 16 eligible results and no Google plan. No provider call, actual
+booking or test email was made. The existing production page size remains 10.
+
+The additive private tables can safely remain if an application rollback is
+needed. Local QA servers were stopped and temporary viewport overrides reset.
+
+![Production catalogue admin](../review/2026-11-06/gorez-catalogue-photos-live-admin.png)
+![Vercel production verification](../review/2026-11-06/gorez-catalogue-photos-vercel-ready.png)
 
 ## Tests and UI
 

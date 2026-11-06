@@ -58,7 +58,7 @@ test('GoRez cards do not stretch to a tall provider chunk or push actions to its
   assert.doesNotMatch(css, /\.home-business-reviews \{[^}]*min-height:/)
   const card = await read('components/discovery-business-card.js')
   assert.ok(card.indexOf('className="home-business-category"') < card.indexOf('<PartnerRailReviews'))
-  assert.ok(card.indexOf('<PartnerRailReviews') < card.indexOf('className="home-business-services"'))
+  assert.ok(card.indexOf('className="home-business-services"') < card.indexOf('<PartnerRailReviews'))
   assert.match(card, /en \? 'Book a time' : 'Резервирай час'/)
   assert.doesNotMatch(card, /Visit website|Виж сайта/)
   assert.match(card, /онлайн резервацията не е потвърдена/)

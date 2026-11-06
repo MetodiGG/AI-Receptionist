@@ -46,12 +46,15 @@ export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, 
     {internal && <span className="home-business-partner"><BrandMark size={20}/>{en ? 'GoRez partner' : 'GoRez партньор'}</span>}
     <h3>{hasDetails ? <button type="button" onClick={openDetails} aria-haspopup="dialog">{row.name}</button> : row.name}</h3>
     <p className="home-business-category">{railCategory(row, locale)}</p>
-    {internal ? <PartnerRailReviews row={row} locale={locale} preview={preview}/> : Number.isFinite(row.rating) && row.rating > 0 ? <div className="home-business-reviews">{row.reviewCount > 0 ? <ReviewSummary summary={{ average: row.rating, count: row.reviewCount }} status="ready" locale={locale} compact/> : <span>★ {row.rating} / 5</span>}</div> : null}
     {services.length > 0 && <ul className="home-business-services" aria-label={en ? 'Services & prices' : 'Услуги и цени'}>{services.map(service => {
       const price = detailPriceLabel(service, locale)
       return <li key={service.name}><span className="home-service-name">{service.name}</span>{price && <strong className="home-service-price">{price}</strong>}</li>
     })}</ul>}
-    {actions}
+    {internal ? <PartnerRailReviews row={row} locale={locale} preview={preview}/> : Number.isFinite(row.rating) && row.rating > 0 ? <div className="home-business-reviews">{row.reviewCount > 0 ? <ReviewSummary summary={{ average: row.rating, count: row.reviewCount }} status="ready" locale={locale} compact/> : <span>★ {row.rating} / 5</span>}</div> : null}
+    <div className="home-business-footer">
+      {hasDetails && <button type="button" className="home-business-details-link" onClick={openDetails} aria-haspopup="dialog" aria-label={`${en ? 'View details' : 'Виж детайли'} · ${row.name}`}>{en ? 'View details' : 'Виж детайли'}</button>}
+      {actions}
+    </div>
     {detailsOpen && <DiscoveryBusinessDetails row={row} locale={locale} onClose={() => setDetailsOpen(false)} triggerRef={detailsTrigger} actions={actions}/>}
     {row.source === 'google' && <span className="home-google-attribution" translate="no">Google Maps</span>}
     {row.source === 'google' && row.attributions?.length > 0 && <div className="home-provider-attributions">{row.attributions.map((item,index) => item.url ? <a key={index} href={item.url} target="_blank" rel="noopener noreferrer">{item.name}</a> : <span key={index}>{item.name}</span>)}</div>}

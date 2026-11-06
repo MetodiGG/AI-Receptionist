@@ -17,18 +17,19 @@ test('every approved Sofia listing has an honest location label without runtime 
     const badge = businessLocationBadge(row)
     assert.ok(badge?.value, row.name)
     assert.ok(badge?.title, row.name)
-    assert.ok(['address', 'area', 'unknown'].includes(badge.kind))
-    assert.doesNotMatch(badge.value, /\bkm\b|\bкм\b/)
+    assert.equal(badge.kind, 'unknown')
+    assert.equal(badge.value, '— km')
+    assert.doesNotMatch(badge.value, /\d|ул\.|бул\.|София/)
     if (!row.coordinates) assert.equal(distanceBadge(discoveryDistanceOrigin({ cityCode: '68134' }), row.coordinates), null)
   }
 })
 
-test('the reported address-only examples show a pin label instead of disappearing or fabricated km', () => {
+test('address-only examples never substitute a street or quarter for verified kilometres', () => {
   for (const pattern of [/Beauty Studio Marry.*Куклата/iu, /Abi Beauty.*Лозенец/iu]) {
     const row = rows.find(row => pattern.test(row.name))
     assert.ok(row, pattern.source)
-    assert.equal(row.coordinates, null)
-    assert.equal(businessLocationBadge(row).kind, 'address')
+    if (row.coordinates) assert.match(distanceBadge(discoveryDistanceOrigin({ cityCode: '68134' }), row.coordinates).value, /\d.+km/)
+    else assert.equal(businessLocationBadge(row).value, '— km')
     assert.match(railDirections(row), /^https:\/\/www.google.com\/maps\/dir\//)
   }
 })
@@ -43,13 +44,12 @@ test('exact distances still distinguish device location from the selected city c
 })
 
 test('location fallbacks do not invent a fixed address for a service-area business', () => {
-  assert.equal(businessLocationBadge({ locationKind: 'service_area', city: 'София' }).value, 'На твой адрес')
-  assert.equal(businessLocationBadge({ locationKind: 'service_area', city: 'София' }, 'en').value, 'At your address')
-  assert.equal(businessLocationBadge({ neighborhood: 'Лозенец', address: 'София, ул. Примерна 8', city: 'София' }).value, 'Лозенец')
-  assert.equal(businessLocationBadge({ neighborhood: 'Неуточнен', address: 'София, ул. Примерна 8', city: 'София' }).value, 'ул. Примерна 8')
-  assert.equal(businessLocationBadge({ address: 'Неуточнен', city: 'София' }).value, 'София')
-  assert.equal(businessLocationBadge({}).value, 'Уточни адреса')
-  assert.equal(businessLocationBadge({}, 'en').value, 'Confirm address')
+  for (const business of [{ locationKind: 'service_area', city: 'София' }, { neighborhood: 'Лозенец', address: 'София, ул. Примерна 8', city: 'София' }, { address: 'Неуточнен', city: 'София' }, {}]) {
+    assert.equal(businessLocationBadge(business).value, '— km')
+    assert.equal(businessLocationBadge(business, 'en').value, '— km')
+  }
+  assert.match(businessLocationBadge({ locationKind: 'service_area' }).title, /няма разстояние/)
+  assert.match(businessLocationBadge({ locationKind: 'service_area' }, 'en').title, /no fixed premises/)
   assert.equal(businessLocationBadge(null), null)
 })
 

@@ -14,7 +14,7 @@ import { distanceBadge, discoveryDistanceOrigin } from '../lib/discovery/distanc
 import { createPartnerRatingHandler } from '../lib/discovery/partner-ratings.mjs'
 import { createGoogleCardGrantHandler } from '../lib/discovery/google-card-grant.mjs'
 
-const now = DateTime.fromISO('2026-11-05T12:00:00Z'), clock = now.toMillis()
+const now = DateTime.fromISO('2026-11-06T12:00:00Z'), clock = now.toMillis()
 const noProvider = () => assert.fail('Free catalogue must never call Google, AI, auth or a paid budget')
 const deps = patch => ({ config: discoveryConfig({ DISCOVERY_ENABLED: 'true' }), now, allowAttempt: async () => true,
   readInternal: async () => [], readCatalogue: async () => SOFIA_CATALOGUE,
@@ -51,7 +51,8 @@ test('the expanded individually sourced catalogue is committed; records are not 
   for (const row of SOFIA_CATALOGUE) {
     assert.ok(approvedCatalogueRecord(row, clock), row.id)
     assert.match(row.verification.booking.url, /^https:\/\//)
-    assert.equal(new URL(row.verification.booking.url).hostname.replace(/^www\./, ''), new URL(row.website).hostname.replace(/^www\./, ''))
+    const evidenceHost=new URL(row.verification.booking.url).hostname.replace(/^www\./, ''), ownerHost=new URL(row.website).hostname.replace(/^www\./, '')
+    assert.ok(evidenceHost===ownerHost || evidenceHost.endsWith(`.${ownerHost}`),row.id)
     assert.doesNotMatch(JSON.stringify(row), /rating|reviewCount|placeId|maps\.google|googleusercontent|gstatic|demo|fixture/i)
   }
 })
@@ -71,7 +72,7 @@ test('bad destinations, fake eligibility, arbitrary fields and unlicensed photos
   }
 })
 test('draft, rejected, future and expired records cannot appear and never auto-renew', () => {
-  for (const patch of [{ status: 'draft' }, { status: 'rejected' }, { checkedOn: '2026-11-06', validUntil: '2027-02-03' }, { checkedOn: '2026-08-01', validUntil: '2026-10-01' }]) assert.equal(approvedCatalogueRecord(record({ verification: { ...record().verification, ...patch } }), clock), null)
+  for (const patch of [{ status: 'draft' }, { status: 'rejected' }, { checkedOn: '2026-11-07', validUntil: '2027-02-03' }, { checkedOn: '2026-08-01', validUntil: '2026-10-01' }]) assert.equal(approvedCatalogueRecord(record({ verification: { ...record().verification, ...patch } }), clock), null)
   assert.equal(approvedCatalogueRecord(record(), Date.parse('2027-02-04')), null)
   assert.throws(() => validateCatalogue([record(), record()]), /Duplicate catalogue/)
 })
@@ -85,10 +86,21 @@ test('BG and EN natural language find only actual appointment services with one 
 })
 test('no slots, budgets or prices are invented for external appointments, including a date/time search', async () => {
   const result = await discoverBusinesses(input({ query: 'маникюр утре след 13:00' }), deps())
-  assert.equal(result.intent.date, '2026-11-06'); assert.equal(result.intent.timeFrom, '13:00')
+  assert.equal(result.intent.date, '2026-11-07'); assert.equal(result.intent.timeFrom, '13:00')
   assert.ok(result.results.length)
-  for (const row of result.results) { assert.equal(row.availability.status, 'external'); assert.deepEqual(row.availability.slots, []); assert.ok(row.services.every(service => service.price === null)) }
-  assert.equal((await discoverBusinesses(input({ query: 'маникюр до 20 евро' }), deps())).results.length, 0)
+  for (const row of result.results) {
+    assert.equal(row.availability.status, 'external'); assert.deepEqual(row.availability.slots, [])
+    const record = SOFIA_CATALOGUE.find(source => source.id === row.id)
+    for (const service of row.services) {
+      const published = record.services.find(source => source.name === service.name)?.price
+      assert.equal(service.price, published?.kind === 'fixed' ? published.amount : null, 'a price must come from this actual published service')
+    }
+  }
+  const priced = await discoverBusinesses(input({ query: 'маникюр до 20 евро' }), deps())
+  assert.ok(priced.results.some(row => row.id === 'sofia-narra-beauty'))
+  assert.ok(priced.results.every(row => row.services.every(service => service.price !== null && service.price <= 20)))
+  const noPrices = SOFIA_CATALOGUE.filter(row => row.services.every(service => !service.price))
+  assert.equal((await discoverBusinesses(input({ query: 'маникюр до 20 евро' }), deps({ readCatalogue: async () => noPrices }))).results.length, 0, 'unknown prices never qualify for a budget')
 })
 test('sports vocabulary covers martial arts and does not substitute a different sport or an ordinary gym', async () => {
   for (const query of ['бокс', 'кикбокс', 'карате', 'кунг фу', 'мма', 'таекуондо', 'джудо', 'борба', 'айкидо', 'муай тай']) {
@@ -107,7 +119,7 @@ test('sports vocabulary covers martial arts and does not substitute a different 
 test('nearby filters are strict, unknown coordinates do not become zero km; city fallback says from centre', async () => {
   const coordinates = { latitude: 42.67, longitude: 23.29, consent: true }
   const near = await discoverBusinesses(input({ query: 'груминг', cityCode: undefined, coordinates }), deps())
-  assert.deepEqual(new Set(near.results.map(row => row.name)), new Set(['Мокро Носле', 'Kaya Grooming']))
+  for (const name of ['Мокро Носле', 'Kaya Grooming']) assert.ok(near.results.some(row => row.name === name), name)
   assert.ok(near.results.every(row => row.distanceKm <= 2 && row.coordinates))
   const city = await discoverBusinesses(input({ query: 'маникюр' }), deps())
   const origin = discoveryDistanceOrigin({ cityCode: city.intent.cityCode })

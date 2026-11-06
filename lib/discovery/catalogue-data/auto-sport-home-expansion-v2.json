@@ -1,0 +1,927 @@
+[
+  {
+    "id": "sofia-motorista-carwash",
+    "name": "Автокомплекс Моториста · автомивка",
+    "cityCode": "68134",
+    "neighborhood": "Младост 4",
+    "address": "София, Младост 4, ул. Доктор Атанас Москов 7",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "car_wash",
+    "website": "https://www.motorista.bg/",
+    "phone": "+359895822018",
+    "services": [
+      {
+        "name": "Комплексно измиване и почистване на автомобил",
+        "category": "car_wash",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://www.motorista.bg/avtomivka"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://www.motorista.bg/avtomivka",
+        "excerpt": "запазването на час за автомивка става само през он-лайн платформата."
+      },
+      "contact": "https://www.motorista.bg/avtomivka"
+    }
+  },
+  {
+    "id": "sofia-lux-mbal-sveta-sofia-carwash",
+    "name": "Автомивка LUX · МБАЛ Света София",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, бул. България 104, Корпус 2, ниво -1",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "car_wash",
+    "website": "https://www.mbal-sofia.com/",
+    "phone": "+359894405887",
+    "services": [
+      {
+        "name": "Почистване на автомобил с предварителен час",
+        "category": "car_wash",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359894405887"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://www.mbal-sofia.com/services/",
+        "excerpt": "За запазване на час: 0894 405 887"
+      },
+      "contact": "https://www.mbal-sofia.com/contacts/"
+    }
+  },
+  {
+    "id": "sofia-superior-pickup-carwash",
+    "name": "Superior Detailing · вземане и връщане",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": null,
+    "locationKind": "service_area",
+    "coordinates": null,
+    "category": "car_wash",
+    "website": "https://detailingsuperior.online/",
+    "phone": "+359887855400",
+    "services": [
+      {
+        "name": "Поддържащо безопасно измиване с вземане на автомобила",
+        "category": "car_wash",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Детайлно почистване на автомобил",
+        "category": "detailing",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://detailingsuperior.online/"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://detailingsuperior.online/",
+        "excerpt": "Изберете удобна дата и час, попълнете данните и ще се свържем с Вас"
+      },
+      "contact": "https://detailingsuperior.online/"
+    }
+  },
+  {
+    "id": "sofia-wash-go-detailing",
+    "name": "Wash & Go Detailing",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Уошбърн 15",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "car_wash",
+    "website": "https://washandgodetail.com/",
+    "phone": "+359898546644",
+    "services": [
+      {
+        "name": "Стандартно екстериорно измиване и подсушаване",
+        "category": "car_wash",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Полиране и керамично покритие",
+        "category": "detailing",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359898546644"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://washandgodetail.com/contact",
+        "excerpt": "Готови сме да отговорим на всички ваши въпроси и да заявите час за детайлинг услуга"
+      },
+      "contact": "https://washandgodetail.com/contact"
+    }
+  },
+  {
+    "id": "sofia-topchiev-detailed",
+    "name": "Topchiev Detailed",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": null,
+    "locationKind": "service_area",
+    "coordinates": null,
+    "category": "detailing",
+    "website": "https://topchievdetailed.com/",
+    "phone": "+359898895833",
+    "services": [
+      {
+        "name": "Мобилен интериорен автодетайлинг",
+        "category": "detailing",
+        "appointmentModel": "home_visit"
+      },
+      {
+        "name": "Мобилно почистване на екстериор",
+        "category": "car_wash",
+        "appointmentModel": "home_visit"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359898895833"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://topchievdetailed.com/",
+        "excerpt": "Свържете се с нас и запазете час за почистване на вашия автомобил на адрес в София."
+      },
+      "contact": "https://topchievdetailed.com/"
+    }
+  },
+  {
+    "id": "sofia-carkings",
+    "name": "CarKings",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": null,
+    "locationKind": "service_area",
+    "coordinates": null,
+    "category": "detailing",
+    "website": "https://carkings.bg/",
+    "phone": "+359899170185",
+    "services": [
+      {
+        "name": "Мобилно комплексно почистване и детайлинг",
+        "category": "detailing",
+        "appointmentModel": "home_visit"
+      },
+      {
+        "name": "Мобилно стандартно почистване на автомобил",
+        "category": "car_wash",
+        "appointmentModel": "home_visit"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359899170185"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://carkings.bg/b2c/services/full-detailing",
+        "excerpt": "Обаждате ни се и запазвате дата и час"
+      },
+      "contact": "https://carkings.bg/b2c/services/full-detailing"
+    }
+  },
+  {
+    "id": "sofia-signature-detailing",
+    "name": "Signature Detailing",
+    "cityCode": "68134",
+    "neighborhood": "Манастирски ливади",
+    "address": "София, Манастирски ливади, Околовръстен път 15",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "detailing",
+    "website": "https://signaturedetailing.bg/",
+    "phone": "+359899930262",
+    "services": [
+      {
+        "name": "Интериорен детайлинг",
+        "category": "detailing",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Полиране и пастиране",
+        "category": "detailing",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359899930262"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://signaturedetailing.bg/",
+        "excerpt": "Детайлинг на интериор · Запази час!"
+      },
+      "contact": "https://signaturedetailing.bg/"
+    }
+  },
+  {
+    "id": "sofia-carbox-studio",
+    "name": "Carbox Studio & Detailing Center",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, бул. Симеоновско шосе 104",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "detailing",
+    "website": "https://carboxbg.com/",
+    "phone": "+359876355955",
+    "services": [
+      {
+        "name": "Интериорен и екстериорен детайлинг",
+        "category": "detailing",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Полиране на фарове",
+        "category": "detailing",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359876355955"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://carboxbg.com/",
+        "excerpt": "Преобразете автомобила си · Запази час"
+      },
+      "contact": "https://carboxbg.com/zapishi-chas/"
+    }
+  },
+  {
+    "id": "sofia-speed-garage-sofia",
+    "name": "SPEED Garage Sofia",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, бул. Цар Борис III 266",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "auto_repair",
+    "website": "https://www.speedgarages.com/",
+    "phone": "+359876080701",
+    "services": [
+      {
+        "name": "Автомобилна диагностика и ремонт",
+        "category": "auto_repair",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Полиране и керамично покритие",
+        "category": "detailing",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359876080701"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://www.speedgarages.com/",
+        "excerpt": "Искате да запазите час или имате въпроси? Ние сме тук да помогнем."
+      },
+      "contact": "https://www.speedgarages.com/"
+    }
+  },
+  {
+    "id": "sofia-factor-detailing",
+    "name": "Factor Detailing",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, бул. Искърско шосе 7, сграда 15",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "detailing",
+    "website": "https://factordetailing.com/",
+    "phone": "+359894732276",
+    "services": [
+      {
+        "name": "Възстановяване на лаково покритие",
+        "category": "detailing",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Цялостно пране на автомобилен интериор",
+        "category": "detailing",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359894732276"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://factordetailing.com/tseni/",
+        "excerpt": "Цялостно пране на интериора · Запази час"
+      },
+      "contact": "https://factordetailing.com/nashite-obekti/"
+    }
+  },
+  {
+    "id": "sofia-nhs-detailing",
+    "name": "NHS Detailing Sofia",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, НПЗ Искър, ул. Поручик Неделчо Бончев 10",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.6732801,
+      "longitude": 23.4057875,
+      "source": "https://www.nhsdetailingsofia.com/",
+      "method": "first_party_coordinates"
+    },
+    "category": "detailing",
+    "website": "https://www.nhsdetailingsofia.com/",
+    "phone": "+359877100196",
+    "services": [
+      {
+        "name": "Интериорен детайлинг",
+        "category": "detailing",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Корекция на лак и защитни покрития",
+        "category": "detailing",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359877100196"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://www.nhsdetailingsofia.com/",
+        "excerpt": "Можете да запишете час, като ни се обадите"
+      },
+      "contact": "https://www.nhsdetailingsofia.com/"
+    }
+  },
+  {
+    "id": "sofia-cosmos-detailing",
+    "name": "Cosmos Detailing Studio",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Амстердам 4",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.65687212429759,
+      "longitude": 23.40509461569967,
+      "source": "https://cosmosgarage.bg/",
+      "method": "first_party_coordinates"
+    },
+    "category": "detailing",
+    "website": "https://cosmosgarage.bg/",
+    "phone": "+359876185216",
+    "services": [
+      {
+        "name": "Интериорен и екстериорен детайлинг",
+        "category": "detailing",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Полиране и керамично покритие",
+        "category": "detailing",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359876185216"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://cosmosgarage.bg/",
+        "excerpt": "Работим с предварително запазен час за максимално удобство на клиента."
+      },
+      "contact": "https://cosmosgarage.bg/"
+    }
+  },
+  {
+    "id": "sofia-virage-details",
+    "name": "Virage Details",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Околовръстен път 15",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "detailing",
+    "website": "https://viragedetails.com/",
+    "phone": "+359876100999",
+    "services": [
+      {
+        "name": "Корекция на лак чрез пастиране и полиране",
+        "category": "detailing",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Керамично защитно покритие",
+        "category": "detailing",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359876100999"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://viragedetails.com/",
+        "excerpt": "Работим само с предварително записан час."
+      },
+      "contact": "https://viragedetails.com/"
+    }
+  },
+  {
+    "id": "sofia-sarafovi-auto",
+    "name": "Автоцентър Сарафови",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, бул. Никола Петков 73",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "auto_repair",
+    "website": "https://sarafoviauto.bg/",
+    "phone": "+359879097070",
+    "services": [
+      {
+        "name": "Сервизно обслужване на автомобил",
+        "category": "auto_repair",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://sarafoviauto.bg/bg/book"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://sarafoviauto.bg/bg/book",
+        "excerpt": "Това е форма за заявка на час."
+      },
+      "contact": "https://sarafoviauto.bg/bg/book"
+    }
+  },
+  {
+    "id": "sofia-gumi-slick-krasna-polyana",
+    "name": "Гуми Слик · Вианор Красна поляна",
+    "cityCode": "68134",
+    "neighborhood": "Красна поляна 2",
+    "address": "София, Красна поляна 2, бул. Никола Мушанов 114, вход на OMV",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "auto_repair",
+    "website": "https://gumi-slick.eu/",
+    "phone": "+359896605796",
+    "services": [
+      {
+        "name": "Монтаж и смяна на гуми",
+        "category": "auto_repair",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://myve.bg/vianor-krasna-polyana-obekt14370.html?tab=schedule-tyrechange"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://gumi-slick.eu/",
+        "excerpt": "Сервиз - Вианор, Красна поляна · Запази час"
+      },
+      "contact": "https://gumi-slick.eu/"
+    }
+  },
+  {
+    "id": "sofia-gumi-slick-simeonovsko",
+    "name": "Гуми Слик · Радиал Симеоновско шосе",
+    "cityCode": "68134",
+    "neighborhood": "Малинова долина",
+    "address": "София, Малинова долина, бул. Симеоновско шосе 89",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "auto_repair",
+    "website": "https://gumi-slick.eu/",
+    "phone": "+359895072424",
+    "services": [
+      {
+        "name": "Монтаж и смяна на гуми",
+        "category": "auto_repair",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://myve.bg/radial-simeonovko-shose-obekt9101.html?tab=schedule-tyrechange"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://gumi-slick.eu/",
+        "excerpt": "Сервиз - Радиал, Симеоновско шосе · Запази час"
+      },
+      "contact": "https://gumi-slick.eu/"
+    }
+  },
+  {
+    "id": "sofia-sandi-auto",
+    "name": "Санди Ауто",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, Околовръстен път 23, вход откъм ул. Спас Соколов",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "auto_repair",
+    "website": "https://sandiautoshop.bg/",
+    "phone": "+359883707046",
+    "services": [
+      {
+        "name": "Смяна на масло и филтри",
+        "category": "auto_repair",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Диагностика и ремонт на турбокомпресор",
+        "category": "auto_repair",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://sandiautoshop.bg/zapazi-chas/"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://sandiautoshop.bg/zapazi-chas/",
+        "excerpt": "Запази час за сервиз · Изпрати удобен ден и информация за ремонта."
+      },
+      "contact": "https://sandiautoshop.bg/zapazi-chas/"
+    }
+  },
+  {
+    "id": "sofia-clean-ride-autoservice",
+    "name": "Clean Ride · автосервиз",
+    "cityCode": "68134",
+    "neighborhood": "Левски В",
+    "address": "София, Левски В, ул. Селимица 23",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "auto_repair",
+    "website": "https://carsrepair.bg/",
+    "phone": "+359888844037",
+    "services": [
+      {
+        "name": "Компютърна диагностика на автомобил",
+        "category": "auto_repair",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Ремонт на ходова част",
+        "category": "auto_repair",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359888844037"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://carsrepair.bg/contact/",
+        "excerpt": "За записване на час или консултация можете да се свържете с нас на посоените телефони"
+      },
+      "contact": "https://carsrepair.bg/contact/"
+    }
+  },
+  {
+    "id": "sofia-drivealot",
+    "name": "DRIVEALOT · Драйвалот",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Лавандула и ул. Жак Дюкло 55 (ул. Чепинско шосе)",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "auto_repair",
+    "website": "https://drivealot.bg/",
+    "phone": "+359882399529",
+    "services": [
+      {
+        "name": "Диагностика и ремонт на ходова част",
+        "category": "auto_repair",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Смяна на двигателно масло",
+        "category": "auto_repair",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://drivealot.bg/appointment/"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://drivealot.bg/appointment/",
+        "excerpt": "Лесно и бързо с точен час за прием"
+      },
+      "contact": "https://drivealot.bg/appointment/"
+    }
+  },
+  {
+    "id": "sofia-auto-park-solutions",
+    "name": "Auto Park Solutions",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, бул. Инж. Иван Иванов 60",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "auto_repair",
+    "website": "https://autoparksolutions.bg/",
+    "phone": "+359896936718",
+    "services": [
+      {
+        "name": "Сервиз и диагностика на Land Rover и Jaguar",
+        "category": "auto_repair",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Смяна на масло и филтри",
+        "category": "auto_repair",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359896936718"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://autoparksolutions.bg/",
+        "excerpt": "Резервираш онлайн или по телефона. Избираш ден и услуга, потвърждаваме до един час."
+      },
+      "contact": "https://autoparksolutions.bg/"
+    }
+  },
+  {
+    "id": "sofia-cherven-bryag-boxing-sofia",
+    "name": "Боксов клуб Червен бряг · София",
+    "cityCode": "68134",
+    "neighborhood": "Обеля 2",
+    "address": "София, Обеля 2, бул. Ломско шосе 207, спортен център Кристал",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "fitness",
+    "website": "https://club.boxingnasri.bg/",
+    "phone": "+359878222974",
+    "services": [
+      {
+        "name": "Първа тренировка по бокс за начинаещи",
+        "category": "fitness",
+        "appointmentModel": "group_reservation"
+      },
+      {
+        "name": "Детска тренировка по бокс",
+        "category": "fitness",
+        "appointmentModel": "group_reservation"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359878222974"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://club.boxingnasri.bg/",
+        "excerpt": "Обади се на Мохамед Насри за групите и записването."
+      },
+      "contact": "https://club.boxingnasri.bg/"
+    }
+  },
+  {
+    "id": "sofia-steel-style-boxing",
+    "name": "Steel Style Boxing Gym",
+    "cityCode": "68134",
+    "neighborhood": "Студентски град",
+    "address": "София, Студентски град, ул. Проф. Христо Вакарелски 1А",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.65788888888889,
+      "longitude": 23.34338888888889,
+      "source": "https://boksovatazala.com/",
+      "method": "first_party_coordinates"
+    },
+    "category": "fitness",
+    "website": "https://boksovatazala.com/",
+    "phone": "+359888997760",
+    "services": [
+      {
+        "name": "Групова тренировка по бокс с предварителна резервация",
+        "category": "fitness",
+        "appointmentModel": "group_reservation"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359888997760"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://boksovatazala.com/",
+        "excerpt": "Нужно предварително запазване на място за групова тренировка"
+      },
+      "contact": "https://boksovatazala.com/"
+    }
+  },
+  {
+    "id": "sofia-sila-karate-children",
+    "name": "Спортен клуб СИЛА · детско карате",
+    "cityCode": "68134",
+    "neighborhood": "Студентски град",
+    "address": "София, Студентски град, ул. Атанас Иширков 7",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "fitness",
+    "website": "https://sportclubsila.com/",
+    "phone": "+359878155355",
+    "services": [
+      {
+        "name": "Карате за деца с предварително записване",
+        "category": "fitness",
+        "appointmentModel": "group_reservation"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359878155355"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://sportclubsila.com/карате-за-деца/",
+        "excerpt": "телефон за информация и записване: 0878155355"
+      },
+      "contact": "https://sportclubsila.com/kontakti/"
+    }
+  },
+  {
+    "id": "sofia-heal-fit-gymnastics",
+    "name": "Heal Fit Gymnastics",
+    "cityCode": "68134",
+    "neighborhood": "Манастирски ливади",
+    "address": "София, Манастирски ливади, ул. Казбек 30",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "fitness",
+    "website": "https://healfit.bg/",
+    "phone": "+359898711123",
+    "services": [
+      {
+        "name": "Резервирана групова гимнастика",
+        "category": "fitness",
+        "appointmentModel": "group_reservation"
+      },
+      {
+        "name": "Индивидуална тренировка",
+        "category": "fitness",
+        "appointmentModel": "individual_training"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359898711123"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://healfit.bg/kontakti?paket=individualna-trenirovka",
+        "excerpt": "Работим с предварително записване. Обадете ни се или оставете съобщение и ще ви потърсим."
+      },
+      "contact": "https://healfit.bg/kontakti?paket=individualna-trenirovka"
+    }
+  },
+  {
+    "id": "sofia-xzona-sport",
+    "name": "Xzona Sport",
+    "cityCode": "68134",
+    "neighborhood": "Овча купел",
+    "address": "София, Овча купел, бул. Никола Петков 52, Trade House West, ет. 1",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "fitness",
+    "website": "https://xzonasport.com/",
+    "phone": "+359890550055",
+    "services": [
+      {
+        "name": "Индивидуална XBody тренировка",
+        "category": "fitness",
+        "appointmentModel": "individual_training"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://xzonasport.com/za-trenirovkata/"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://xzonasport.com/za-trenirovkata/",
+        "excerpt": "Запазване на час за XBody тренировка"
+      },
+      "contact": "https://xzonasport.com/za-trenirovkata/"
+    }
+  }
+]

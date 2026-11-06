@@ -87,6 +87,37 @@
 .home-business-card h3 { margin: 6px 0 3px; color: var(--ink); font-size: 17px; line-height: 1.3; letter-spacing: -.02em; font-weight: 700; overflow-wrap: anywhere; }
 .home-business-card h3 a { color: inherit; text-decoration: none; }
 .home-business-card h3 a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.home-business-open-photo { display: block; width: 100%; padding: 0; border: 0; border-radius: 16px; background: transparent; color: inherit; cursor: pointer; text-align: left; }
+.home-business-card h3 > button { padding: 0; border: 0; background: transparent; color: inherit; font: inherit; text-align: left; cursor: pointer; overflow-wrap: anywhere; }
+.home-business-card h3 > button:hover { text-decoration: underline; text-underline-offset: 4px; }
+.home-business-open-photo:focus-visible, .home-business-card h3 > button:focus-visible { outline: 3px solid #b14c17; outline-offset: 4px; }
+.discovery-business-details { width: min(640px,calc(100% - 24px)); max-height: 88svh; margin: auto; padding: 24px; overflow-y: auto; overscroll-behavior: contain; border: 1px solid #ead4c0; border-radius: 24px; color: #352b25; background: #fffaf5; box-shadow: 0 20px 80px #2e1f1540; font-size: 16px; line-height: 1.5; }
+.discovery-business-details::backdrop { background: #2b211d80; }
+.discovery-business-details > header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.discovery-business-details header p { margin: 0 0 4px; color: #914219; font-weight: 700; }
+.discovery-business-details h2 { margin: 0; font-size: 25px; line-height: 1.25; overflow-wrap: anywhere; }
+.discovery-business-details header button { display: grid; place-items: center; flex: 0 0 44px; width: 44px; height: 44px; padding: 10px; border: 1px solid #e5cab2; border-radius: 14px; background: #ffead5; color: #6e2f11; cursor: pointer; }
+.discovery-business-details header button svg { width: 22px; height: 22px; }
+.discovery-business-details h3 { margin: 0 0 12px; font-size: 19px; }
+.discovery-business-details section { margin-top: 24px; }
+.discovery-business-details section > p { margin: 0; }
+.business-details-description { white-space: pre-line; }
+.business-details-services { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.business-details-services li { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 14px; border: 1px solid #eddfd2; border-radius: 16px; background: white; }
+.business-details-services li > div { min-width: 0; overflow-wrap: anywhere; }
+.business-details-services p { margin: 5px 0 0; color: #6b625b; }
+.business-details-services span { display: block; color: #6b625b; }
+.business-details-price { flex-shrink: 0; color: #914219; font-weight: 700; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.business-details-hours { margin: 0; }
+.business-details-hours > div { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px 16px; padding-block: 7px; border-bottom: 1px solid #eddfd2; }
+.business-details-hours dd { margin: 0; font-weight: 600; }
+.business-details-note { margin: 12px 0 0; color: #6b625b; }
+.discovery-business-details a { color: #914219; }
+.business-details-source { margin: 24px 0 0; }
+.business-details-source a { display: inline-flex; gap: 8px; align-items: center; font-weight: 600; }
+.business-details-source svg { width: 18px; height: 18px; }
+.discovery-business-details > footer { position: sticky; bottom: -24px; margin-top: 20px; padding: 12px 0; background: #fffaf5; }
+.discovery-business-details :is(button,a):focus-visible { outline: 3px solid #b14c17; outline-offset: 3px; }
 .home-business-category { margin: 0 0 7px; color: #66656c; font-size: 16px; line-height: 1.4; }
 .home-business-reviews { margin: 0 0 6px; color: #6b625b; font-size: 16px; line-height: 1.5; }
 .home-business-reviews:has(> .partner-review-summary:empty) { display: none; }
@@ -111,6 +142,7 @@
 .home-business-actions .home-directions { gap: 4px; padding-inline: 6px; }
 .home-business-actions .home-directions > svg { width: 19px; height: 19px; flex-basis: 19px; }
 .home-business-actions .home-maps-label { font-size: 14px; }
+.discovery-business-details .home-maps-label { min-width: 0; white-space: normal; }
 /* Only the GoRez-owned navigation label is bold. Google's provider credit and
    native UI Kit attribution retain their required, unmodified typography. */
 .home-business-card[data-source="gorez"] .home-maps-label { font-weight: 700; }
@@ -122,6 +154,8 @@
 .home-google-attribution { margin-top: 8px; }
 .home-provider-attributions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; font-size: 16px; }
 .home-businesses .home-discovery-rail > li.home-rail-loading { display: flex; align-items: center; justify-content: center; gap: 12px; width: 160px; padding: 24px 8px; color: var(--muted); font-size: 16px; }
+.catalogue-location-credit { margin: 16px 0 0; color: var(--muted); font-size: 16px; line-height: 1.5; }
+.catalogue-location-credit a { color: inherit; text-underline-offset: 3px; }
 .home-google-kit.discovery-google-kit { width: calc(var(--google-rail-count) * 320px); max-width: none; margin: 0; padding: 0; border: 0; background: transparent; }
 .home-google-kit gmp-advanced-place-list { display: block; width: 100%; max-width: none; color-scheme: light; --gmp-mat-color-surface: #fffaf5; --gmp-mat-color-primary: #a84b1e; --gmp-mat-color-secondary-container: #ffead5; --gmp-mat-color-on-secondary-container: #713011; --gmp-mat-color-on-surface: #352b25; --gmp-mat-color-on-surface-variant: #62564c; --gmp-mat-font-family: "Avenir Next", "Segoe UI", sans-serif; --gmp-mat-font-body-small: 400 16px/1.45 "Avenir Next", "Segoe UI", sans-serif; --gmp-mat-font-title-medium: 700 18px/1.3 "Avenir Next", "Segoe UI", sans-serif; --gmp-card-border-radius: 18px; --gmp-button-border-radius: 12px; --gmp-star-rating-color: #bd651d; }
 /* Documented provider theme only: no shadow-DOM rewriting or fake labels. */

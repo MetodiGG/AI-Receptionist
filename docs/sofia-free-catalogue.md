@@ -1,5 +1,7 @@
 # Sofia appointment catalogue — local review, 6 November 2026
 
+> Historical 203-record baseline report. Current expansion, business-detail coverage, geographic limitations and the still-unmet 1,500–2,000-record target are tracked in [catalogue-expansion-v2.md](./catalogue-expansion-v2.md) and `pnpm catalogue:audit`.
+
 Status: **implemented locally on `codex/sofia-free-catalogue`; not deployed**. No live migrations, business/contact changes, emails, bookings, Google API requests or paid AI calls were made. Existing live deployments have not been changed or switched off.
 
 ## Actual coverage

@@ -10,19 +10,25 @@ import { createDiscoveryHandler } from '../lib/discovery/handler.mjs'
 import { mergeCataloguePage } from '../lib/discovery/catalogue-pagination.mjs'
 import { orderedRailRows, railExternalAction } from '../lib/discovery/rail.mjs'
 
-const now = DateTime.fromISO('2026-11-05T12:00:00Z')
+const now = DateTime.fromISO('2026-11-06T12:00:00Z')
 const forbidden = () => assert.fail('No provider, database mutation, paid AI or booking request is allowed')
 const deps = patch => ({ config: discoveryConfig({ DISCOVERY_ENABLED: 'true' }), now,
   readInternal: async () => [], readCatalogue: async () => SOFIA_CATALOGUE, allowAttempt: async () => true,
   fetcher: forbidden, authorizeGoogle: forbidden, claimBudget: forbidden, getBusiness: forbidden, getSlots: forbidden, ...patch })
 const browse = { query: '', browse: true, cityCode: '68134' }
 
-test('expansion is genuinely broad: over 200 distinct records, all existing categories, many independent sources', () => {
-  assert.ok(SOFIA_CATALOGUE.length >= 200)
-  assert.ok(new Set(SOFIA_CATALOGUE.map(row => new URL(row.website).hostname.replace(/^www\./, ''))).size >= 90)
+test('expansion has at least 520 distinct records, all existing categories and 380 independent sources', () => {
+  assert.ok(SOFIA_CATALOGUE.length >= 520)
+  assert.ok(new Set(SOFIA_CATALOGUE.map(row => new URL(row.website).hostname.replace(/^www\./, ''))).size >= 380)
   assert.equal(new Set(SOFIA_CATALOGUE.map(row => row.category)).size, 14)
-  assert.ok(SOFIA_CATALOGUE.filter(row => row.coordinates).length >= 50)
+  assert.ok(SOFIA_CATALOGUE.filter(row => row.coordinates).length >= 100)
   assert.ok(SOFIA_CATALOGUE.every(row => row.locationKind !== 'service_area' || row.coordinates === null))
+  const identities = new Set()
+  for (const row of SOFIA_CATALOGUE) {
+    const address = (row.address || 'service_area').toLocaleLowerCase('bg').replace(/[^\p{L}\p{N}]/gu, '')
+    const key = `${row.phone || new URL(row.website).hostname}:${address}`
+    assert.ok(!identities.has(key), `duplicate public contact and premises: ${row.id}`); identities.add(key)
+  }
   const chain = SOFIA_CATALOGUE.filter(row => row.id.startsWith('sofia-gpoint-'))
   assert.equal(chain.length, 43)
   assert.equal(new Set(chain.map(row => row.address)).size, chain.length)
@@ -37,7 +43,7 @@ test('every eligible city listing can be reached, 15 at a time, without duplicat
     const page = await discoverBusinesses({ ...browse, catalogueOffset: result.cataloguePage.nextOffset }, deps())
     assert.ok(page.results.length > 0 && page.results.length <= 15)
     result = mergeCataloguePage(result, page)
-    assert.ok(++requests <= 20, 'pagination must terminate')
+    assert.ok(++requests <= Math.ceil(SOFIA_CATALOGUE.length / 15), 'pagination must terminate at the actual catalogue size')
   }
   assert.equal(result.results.length, SOFIA_CATALOGUE.length)
   assert.equal(new Set(result.results.map(row => row.id)).size, SOFIA_CATALOGUE.length)
@@ -79,7 +85,7 @@ test('new searches recognise published dental, accounting, lessons and reserved 
   const home = await discoverBusinesses({ query: 'за дома', cityCode: '68134' }, deps())
   assert.ok(home.results.length > 0)
   assert.ok(home.results.every(row => row.category === 'home_services' && row.locationKind === 'service_area'))
-  assert.equal(home.cataloguePage.total, 21)
+  assert.equal(home.cataloguePage.total, SOFIA_CATALOGUE.filter(row => row.services.some(service => service.category === 'home_services')).length)
   for (const query of ['лазерна епилация', 'laser hair removal']) {
     const laser = await discoverBusinesses({ query, cityCode: '68134' }, deps())
     assert.ok(laser.cataloguePage.total >= 50, query)

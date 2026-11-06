@@ -172,7 +172,8 @@ test('both category controls fill the search in BG/EN, including switching a non
   assert.match(ui, /onChange=\{event => chooseCategory\(event.target.value\)\}/)
   const handler = ui.slice(ui.indexOf('function chooseCategory('), ui.indexOf('function execute('))
   assert.doesNotMatch(handler, /fetch\(|search\(|locate\(/)
-  assert.match(handler, /if \(\(home \|\| coordinates\) && selected.category && !\(home && selected.category === 'other'\)\) execute\(payload\(selected\)\)/)
+  assert.match(handler, /if \(\(home \|\| coordinates\) && selected.category\) execute\(payload\(selected\)\)/)
+  assert.match(ui, /categoryBrowse: home/)
 })
 
 test('Sports recognises bookable activities without renaming stored identifiers or replacing a requested activity', () => {

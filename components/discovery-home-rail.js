@@ -9,7 +9,7 @@ import { observeRailLayout } from '../lib/discovery/rail-layout.mjs'
 
 // A native scroll region: no autoplay, cloned items, provider requests or
 // carousel dependency. Every card stays reachable by swipe, Tab and arrows.
-export function DiscoveryHomeRail({ title, locale, kind, action, children, headingRef, busy = false, message, onNearEnd, uniformCards = false, resetKey }) {
+export function DiscoveryHomeRail({ title, locale, kind, action, children, headingRef, busy = false, message, footer, onNearEnd, uniformCards = false, resetKey }) {
   const id = useId(), rail = useRef(null), frame = useRef(null), copy = HOME_DISCOVERY_COPY[locale]
   const advance = useRef(null), lastLeft = useRef(0)
   if (!advance.current) advance.current = createRailAdvanceGate()
@@ -58,5 +58,6 @@ export function DiscoveryHomeRail({ title, locale, kind, action, children, headi
     <header className="home-section-heading"><h2 id={`${id}-title`} ref={headingRef} tabIndex={headingRef ? -1 : undefined}>{title}</h2><div className="home-section-actions">{action}<div className="home-rail-arrows"><button type="button" onClick={() => scroll(-1)} disabled={ends.start} aria-label={`${copy.previous} · ${title}`} aria-controls={id}><Icon name="back"/></button><button type="button" onClick={() => scroll(1)} disabled={ends.end && !onNearEnd} aria-label={`${copy.next} · ${title}`} aria-controls={id}><Icon name="arrow"/></button></div></div></header>
     {message}
     <ul className="home-discovery-rail" id={id} ref={rail} onScroll={onScroll} onWheel={event => { if (event.deltaX > 0 || (event.shiftKey && event.deltaY > 0)) advance.current.arm() }} onPointerDown={event => { if (event.button === 0) advance.current.arm() }} onKeyDown={onKeyDown} tabIndex={0} aria-label={title}>{children}</ul>
+    {footer}
   </section>
 }

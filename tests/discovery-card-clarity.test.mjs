@@ -29,7 +29,7 @@ test('nail services appear as Manicure, pedicure only when the public services a
   assert.equal(railCategory(row, 'en'), 'Manicure, pedicure')
   assert.equal(railCategory({ ...row, services: [{ name: 'Педикюр' }] }), 'Педикюр')
   assert.equal(railCategory({ ...row, services: [{ name: 'Маникюр' }, { name: 'Педикюр', active: false }] }), 'Маникюр')
-  assert.equal(railServiceDescription(row), '')
+  assert.equal(railServiceDescription(row), 'Педикюр')
 })
 test('consulting specialty and concise details use first-party service evidence, not guesses from a name', () => {
   const row = partner({ category: 'consulting', industry: 'consulting', services: [{ name: 'Счетоводна консултация за фирми' }, { name: '  Годишен отчет  ' }, { name: 'Годишен отчет' }, { name: 'Скрита услуга', active: false }] })

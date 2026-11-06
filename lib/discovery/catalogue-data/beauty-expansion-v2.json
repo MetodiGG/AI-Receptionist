@@ -1,0 +1,2564 @@
+[
+  {
+    "id": "sofia-gloss-nails",
+    "name": "GLOSS! Nails Sofia",
+    "cityCode": "68134",
+    "neighborhood": "Стрелбище",
+    "address": "София, бул. България 11",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.6783258,
+      "longitude": 23.299543,
+      "source": "https://gloss.bg/",
+      "method": "first_party_coordinates"
+    },
+    "category": "nails",
+    "website": "https://gloss.bg/",
+    "phone": "+359889423501",
+    "services": [
+      {
+        "name": "Маникюр с гел лак",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Педикюр",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Изграждане и укрепване",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359889423501"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://gloss.bg/",
+        "excerpt": "Маникюр с гел лак · Запази час"
+      },
+      "contact": "https://gloss.bg/"
+    }
+  },
+  {
+    "id": "sofia-marty-academy-dospevski",
+    "name": "Barber Shop Marty & Academy",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Станислав Доспевски 101",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "barber",
+    "website": "https://barbershopmarty.com/",
+    "phone": "+359879162962",
+    "services": [
+      {
+        "name": "Мъжко подстригване",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Оформяне на брада",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://barbershopmarty.com/zapazi-chas"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://barbershopmarty.com/",
+        "excerpt": "Резервирайте онлайн за минута — избирате услуга, барбер и удобен час."
+      },
+      "contact": "https://barbershopmarty.com/"
+    }
+  },
+  {
+    "id": "sofia-marty-gerena-veleka",
+    "name": "Barbershop Marty · Герена",
+    "cityCode": "68134",
+    "neighborhood": "Подуяне",
+    "address": "София, кв. Подуяне, ул. Река Велека 18",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "barber",
+    "website": "https://barbershopmarty.com/",
+    "phone": "+359879162922",
+    "services": [
+      {
+        "name": "Мъжко подстригване",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Оформяне на брада",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://barbershopmarty.com/zapazi-chas"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://barbershopmarty.com/",
+        "excerpt": "Два салона в София. Изберете най-удобния за вас. · Запази час"
+      },
+      "contact": "https://barbershopmarty.com/"
+    }
+  },
+  {
+    "id": "sofia-bull-barber-shop",
+    "name": "Bull Barber Shop",
+    "cityCode": "68134",
+    "neighborhood": "Лозенец",
+    "address": "София, ул. Голо Бърдо 20",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "barber",
+    "website": "https://www.thebullbarbershop.com/",
+    "phone": "+359899247555",
+    "services": [
+      {
+        "name": "Мъжко подстригване",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Оформяне на брада",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://www.thebullbarbershop.com/"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://www.thebullbarbershop.com/",
+        "excerpt": "Подстригване · Оформяне на брада · Резервирай час"
+      },
+      "contact": "https://www.thebullbarbershop.com/"
+    }
+  },
+  {
+    "id": "sofia-jezuscutz-studio",
+    "name": "JezusCutz Studio",
+    "cityCode": "68134",
+    "neighborhood": "Яворов",
+    "address": "София, ул. Мизия 2",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "barber",
+    "website": "https://jezuscutz.com/",
+    "phone": "+359885347222",
+    "services": [
+      {
+        "name": "Мъжко подстригване",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://jezuscutz.com/"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://jezuscutz.com/",
+        "excerpt": "ЗАПАЗИ ЧАС · Фризьор · Дата · Услуга · Час"
+      },
+      "contact": "https://jezuscutz.com/"
+    }
+  },
+  {
+    "id": "sofia-luxury-nails-cherkovna",
+    "name": "Luxury Nails / Academy & Salon",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Черковна 54",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "nails",
+    "website": "https://luxurynails.bg/",
+    "phone": "+359898761300",
+    "services": [
+      {
+        "name": "Маникюр",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Педикюр",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://luxurynails.bg/запази-час/"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://luxurynails.bg/запази-час/",
+        "excerpt": "Запази своя час в Luxury Nails / Academy & Salon"
+      },
+      "contact": "https://luxurynails.bg/запази-час/"
+    }
+  },
+  {
+    "id": "sofia-queen-beauty-room",
+    "name": "Queen Beauty Room",
+    "cityCode": "68134",
+    "neighborhood": "Драгалевци",
+    "address": "София, ул. Нарцис 6",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "nails",
+    "website": "https://qbrnails.eu/",
+    "phone": "+359877706053",
+    "services": [
+      {
+        "name": "Маникюр",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Педикюр",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://book.qbrnails.eu/reservations/start?site=1"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://qbrnails.eu/",
+        "excerpt": "Маникюр · Queen Beauty Room · Запази час онлайн"
+      },
+      "contact": "https://qbrnails.eu/"
+    }
+  },
+  {
+    "id": "sofia-salon-bard",
+    "name": "Салон за красота Б.А.Р.Д.",
+    "cityCode": "68134",
+    "neighborhood": "Надежда 2",
+    "address": "София, ж.к. Надежда 2, бл. 230А",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "nails",
+    "website": "https://salonbard.com/",
+    "phone": "+359882052154",
+    "services": [
+      {
+        "name": "Маникюр",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Ноктопластика",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://salonbard.com/rezervatsiya"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://salonbard.com/",
+        "excerpt": "Запази час онлайн · Изберете услуга, дата и час - ще Ви очакваме."
+      },
+      "contact": "https://salonbard.com/"
+    }
+  },
+  {
+    "id": "sofia-san-krasi-barber",
+    "name": "San Krasi Barbershop",
+    "cityCode": "68134",
+    "neighborhood": "Люлин 4",
+    "address": "София, бул. Панчо Владигеров 28",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "barber",
+    "website": "https://sankrasi.bg/",
+    "phone": "+359877663662",
+    "services": [
+      {
+        "name": "Мъжко подстригване",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Детско подстригване",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359877663662"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://sankrasi.bg/",
+        "excerpt": "За записване на час при Краси се обадете на +359 877 663 662"
+      },
+      "contact": "https://sankrasi.bg/"
+    }
+  },
+  {
+    "id": "sofia-classy-barbershop",
+    "name": "Classy Barbershop & Academy Salon",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Тинтява 84",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.6673803,
+      "longitude": 23.3493594,
+      "source": "https://www.classy-barbershop.com/",
+      "method": "first_party_coordinates"
+    },
+    "category": "barber",
+    "website": "https://www.classy-barbershop.com/",
+    "phone": "+359888688667",
+    "services": [
+      {
+        "name": "Класическо подстригване",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Оформяне на брада",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://www.classy-barbershop.com/"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://www.classy-barbershop.com/",
+        "excerpt": "Запазете своя час · Изберете своя майстор, услугата и удобен за вас час."
+      },
+      "contact": "https://www.classy-barbershop.com/"
+    }
+  },
+  {
+    "id": "sofia-neda-art-nails",
+    "name": "Neda Art Nails",
+    "cityCode": "68134",
+    "neighborhood": "Надежда 2",
+    "address": "София, ул. Йосиф Хербст 2",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.7323634,
+      "longitude": 23.2979074,
+      "source": "https://nedaartnails.wixsite.com/studio",
+      "method": "first_party_coordinates"
+    },
+    "category": "nails",
+    "website": "https://nedaartnails.wixsite.com/studio",
+    "phone": "+359883533337",
+    "services": [
+      {
+        "name": "Маникюр с гел лак и укрепване на къси нокти",
+        "description": "Продължителност: 90 минути.",
+        "price": { "amount": 37, "currency": "EUR", "kind": "fixed", "sourceUrl": "https://neda-art-nails.setmore.com/", "checkedOn": "2026-11-06" },
+        "category": "nails",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Педикюр с гел лак",
+        "description": "Продължителност: 90 минути.",
+        "price": { "amount": 37, "currency": "EUR", "kind": "fixed", "sourceUrl": "https://neda-art-nails.setmore.com/", "checkedOn": "2026-11-06" },
+        "category": "nails",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Ноктопластика",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://neda-art-nails.setmore.com/"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://nedaartnails.wixsite.com/studio",
+        "excerpt": "Маникюр Педикюр · ЗАПАЗЕТЕ ЧАС"
+      },
+      "contact": "https://nedaartnails.wixsite.com/studio"
+    }
+  },
+  {
+    "id": "sofia-yd-beauty-brand",
+    "name": "Y.D Beauty Brand",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Ловен парк 1, до вх. А, офис 5",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "nails",
+    "website": "https://ydbeautybrand.com/",
+    "phone": "+359876777298",
+    "services": [
+      {
+        "name": "Маникюр",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Педикюр",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://ydbeautybrand.com/Booking"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://ydbeautybrand.com/Booking",
+        "excerpt": "Изберете услугата, която желаете, и запазете час с нашите професионалисти"
+      },
+      "contact": "https://ydbeautybrand.com/Booking"
+    }
+  },
+  {
+    "id": "sofia-coco-dry-bar-nail-house",
+    "name": "COCO Dry Bar & Nail House",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Николай Хайтов 2",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.6708981,
+      "longitude": 23.3520064,
+      "source": "https://www.cocodrybar.bg/contacts",
+      "method": "first_party_coordinates"
+    },
+    "category": "hair",
+    "website": "https://www.cocodrybar.bg/",
+    "phone": "+359884195881",
+    "services": [
+      {
+        "name": "Фризьорски услуги",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Стайлинг и терапии за коса",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Маникюр и педикюр",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://book.cocodrybar.bg/"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://www.cocodrybar.bg/contacts",
+        "excerpt": "Можете да запишете час от линка в сайта, по телефон или чрез социалните ни мрежи"
+      },
+      "contact": "https://www.cocodrybar.bg/contacts"
+    }
+  },
+  {
+    "id": "sofia-noxic-beauty",
+    "name": "Noxic Beauty",
+    "cityCode": "68134",
+    "neighborhood": "Дружба 2",
+    "address": "София, бул. Копенхаген 278",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "nails",
+    "website": "https://noxicbeauty.com/",
+    "phone": "+359877757858",
+    "services": [
+      {
+        "name": "Маникюр с гел лак",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Класически маникюр",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359877757858"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://noxicbeauty.com/services/manicure/",
+        "excerpt": "СВЪРЖЕТЕ СЕ С НАС И ЗАПАЗЕТЕ ЧАС СЕГА"
+      },
+      "contact": "https://noxicbeauty.com/services/manicure/"
+    }
+  },
+  {
+    "id": "sofia-salon-elegant-iztok",
+    "name": "Салон Елегант",
+    "cityCode": "68134",
+    "neighborhood": "Изток",
+    "address": "София, ул. Майор Юрий Гагарин 22А",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "hair",
+    "website": "https://www.salonelegant.bg/",
+    "phone": "+359884376695",
+    "services": [
+      {
+        "name": "Фризьорски услуги",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359884376695"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://www.salonelegant.bg/uslugi/",
+        "excerpt": "Фризьорски услуги · Запишете час"
+      },
+      "contact": "https://www.salonelegant.bg/uslugi/"
+    }
+  },
+  {
+    "id": "sofia-ts-studio-blagorodna",
+    "name": "TS Studio",
+    "cityCode": "68134",
+    "neighborhood": "Гео Милев",
+    "address": "София, ул. Благородна 7",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "hair",
+    "website": "https://tsstudio.bg/",
+    "phone": "+359876633599",
+    "services": [
+      {
+        "name": "Фризьорство",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Маникюр и педикюр",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359876633599"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://tsstudio.bg/",
+        "excerpt": "Нуждаете се от промяна? · Запиши своя час"
+      },
+      "contact": "https://tsstudio.bg/"
+    }
+  },
+  {
+    "id": "sofia-md-hairclub",
+    "name": "MD Hairclub by Milen Draganov",
+    "cityCode": "68134",
+    "neighborhood": "Лозенец",
+    "address": "София, ул. Бреза 6",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.6763725,
+      "longitude": 23.320218,
+      "source": "https://mdhairclub.com/",
+      "method": "first_party_coordinates"
+    },
+    "category": "hair",
+    "website": "https://mdhairclub.com/",
+    "phone": "+359884461213",
+    "services": [
+      {
+        "name": "Фризьорски услуги",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://www.planfy.com/booking-widget/md-hair-club?color=%23C1A163&locale=bg&widgetId=2"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://mdhairclub.com/",
+        "excerpt": "Мастър Фризьор · Запази час"
+      },
+      "contact": "https://mdhairclub.com/"
+    }
+  },
+  {
+    "id": "sofia-anna-nailz-art",
+    "name": "Anna Nailz Art",
+    "cityCode": "68134",
+    "neighborhood": "Овча купел",
+    "address": "София, ул. Зелена ливада 7",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "nails",
+    "website": "https://annanailzart.com/",
+    "phone": "+359877188750",
+    "services": [
+      {
+        "name": "Маникюр",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Педикюр",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Ноктопластика",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359877188750"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://annanailzart.com/",
+        "excerpt": "Предлагаме маникюр, педикюр и ноктопластика · ЗАПАЗЕТЕ ЧАС"
+      },
+      "contact": "https://annanailzart.com/contact/"
+    }
+  },
+  {
+    "id": "sofia-beauty-betyna-yovcheva",
+    "name": "Beauty by Betyna Yovcheva",
+    "cityCode": "68134",
+    "neighborhood": "Овча купел",
+    "address": "София, ул. Коломан 1, Фитнес Славия Спортес",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.67408,
+      "longitude": 23.27062,
+      "source": "https://beauty-nails-by-betyna-yovcheva.com/",
+      "method": "first_party_coordinates"
+    },
+    "category": "nails",
+    "website": "https://beauty-nails-by-betyna-yovcheva.com/",
+    "phone": "+359895207370",
+    "services": [
+      {
+        "name": "Маникюр с гел лак",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Педикюр",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Ноктопластика",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359895207370"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://beauty-nails-by-betyna-yovcheva.com/",
+        "excerpt": "Може да запазите час онлайн чрез Studio24, по телефона или във Viber"
+      },
+      "contact": "https://beauty-nails-by-betyna-yovcheva.com/"
+    }
+  },
+  {
+    "id": "sofia-dorado-beauty-wellness",
+    "name": "DORADO Beauty & Wellness",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Калиманци 19",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "nails",
+    "website": "https://www.dorado.bg/",
+    "phone": "+359885892000",
+    "services": [
+      {
+        "name": "Маникюр с гел лак",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Педикюр",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359885892000"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://www.dorado.bg/manicure-and-pedicure",
+        "excerpt": "Маникюр и педикюр · Запази си час"
+      },
+      "contact": "https://www.dorado.bg/manicure-and-pedicure"
+    }
+  },
+  {
+    "id": "sofia-viktoria-beauty-lyulin",
+    "name": "Viktoria Beauty",
+    "cityCode": "68134",
+    "neighborhood": "Люлин 3",
+    "address": "София, ул. Георги Дражев 6, бл. 385",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "hair",
+    "website": "https://viktoria.beauty/",
+    "phone": "+359887929012",
+    "services": [
+      {
+        "name": "Дамско подстригване",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Боядисване на коса",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359887929012"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://viktoria.beauty/",
+        "excerpt": "За да запазите своя час, можете да се свържете директно със съответния специалист"
+      },
+      "contact": "https://viktoria.beauty/"
+    }
+  },
+  {
+    "id": "sofia-beauty-studio-99",
+    "name": "Beauty Studio 99",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Княз Борис I 99",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "nails",
+    "website": "https://beautystudio99.com/",
+    "phone": "+359878334148",
+    "services": [
+      {
+        "name": "Маникюр",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Педикюр",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359878334148"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://beautystudio99.com/",
+        "excerpt": "Маникюр • Коса • Козметика · Запази час"
+      },
+      "contact": "https://beautystudio99.com/"
+    }
+  },
+  {
+    "id": "sofia-the-one-nails-hair",
+    "name": "The One Nails and Hair",
+    "cityCode": "68134",
+    "neighborhood": "Студентски град",
+    "address": "София, ул. Проф. д-р Иван Странски 1",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "nails",
+    "website": "https://www.wearetheone.bg/",
+    "phone": "+359888670769",
+    "services": [
+      {
+        "name": "Маникюр",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Педикюр",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359888670769"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://www.wearetheone.bg/studio.php?id=14",
+        "excerpt": "Book an appointment · Quick and easy booking via our reservation system."
+      },
+      "contact": "https://www.wearetheone.bg/studio.php?id=14"
+    }
+  },
+  {
+    "id": "sofia-artemida-paradise",
+    "name": "Artemida Nail · Paradise",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Рилски езера 26",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "nails",
+    "website": "https://artemidanail.com/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Маникюр",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://book.artemidanail.com/reservations/start?site=2"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://artemidanail.com/saloni/",
+        "excerpt": "ТВОЕТО МЯСТО ЗА КРАСИВ МАНИКЮР · Запиши час"
+      },
+      "contact": "https://artemidanail.com/saloni/"
+    }
+  },
+  {
+    "id": "sofia-artemida-studentski",
+    "name": "Artemida Nail · Студентски град",
+    "cityCode": "68134",
+    "neighborhood": "Студентски град",
+    "address": "София, ул. Атанас Иширков 3",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "nails",
+    "website": "https://artemidanail.com/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Маникюр",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://book.artemidanail.com/reservations/start?site=1"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://artemidanail.com/saloni/",
+        "excerpt": "ARTEMIDA СТУДЕНТСКИ ГРАД · Запиши час"
+      },
+      "contact": "https://artemidanail.com/saloni/"
+    }
+  },
+  {
+    "id": "sofia-murphy-graf-ignatiev",
+    "name": "MurphyStyle · Граф Игнатиев",
+    "cityCode": "68134",
+    "neighborhood": "Център",
+    "address": "София, ул. Граф Игнатиев 3, ет. 1",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "hair",
+    "website": "https://murphystyle.com/",
+    "phone": "+359887427192",
+    "services": [
+      {
+        "name": "Фризьорски услуги",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://reservation.murphystyle.com/reservations/create"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://murphystyle.com/en/saloni/",
+        "excerpt": "Your time is precious. · Make an appointment"
+      },
+      "contact": "https://murphystyle.com/en/saloni/"
+    }
+  },
+  {
+    "id": "sofia-murphy-patriarh-evtimii",
+    "name": "MurphyStyle · Патриарх Евтимий",
+    "cityCode": "68134",
+    "neighborhood": "Център",
+    "address": "София, бул. Патриарх Евтимий 57",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "hair",
+    "website": "https://murphystyle.com/",
+    "phone": "+359887428326",
+    "services": [
+      {
+        "name": "Фризьорски услуги",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://reservation.murphystyle.com/reservations/create"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://murphystyle.com/en/saloni/",
+        "excerpt": "Make an appointment"
+      },
+      "contact": "https://murphystyle.com/en/saloni/"
+    }
+  },
+  {
+    "id": "sofia-snb-salon-dunav",
+    "name": "SNB салон София",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Дунав 38",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "nails",
+    "website": "https://starnails.bg/",
+    "phone": "+359887255997",
+    "services": [
+      {
+        "name": "Маникюр",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Педикюр",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359887255997"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://starnails.bg/snb-salons/",
+        "excerpt": "За салона ни в София: позвънете или посетете офиса за запазване на час."
+      },
+      "contact": "https://starnails.bg/snb-salons/"
+    }
+  },
+  {
+    "id": "sofia-stephan-mladost",
+    "name": "Stephan · Младост",
+    "cityCode": "68134",
+    "neighborhood": "Младост 3",
+    "address": "София, ж.к. Младост 3, бл. 324А, вх. 3",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "hair",
+    "website": "https://www.stephan.bg/",
+    "phone": "+359889100501",
+    "services": [
+      {
+        "name": "Дамско подстригване",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Мъжко подстригване",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Боядисване на коса",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Маникюр и педикюр",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359889100501"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://www.stephan.bg/",
+        "excerpt": "Запази своя час"
+      },
+      "contact": "https://www.stephan.bg/saloni/mladost"
+    }
+  },
+  {
+    "id": "sofia-stephan-lagera",
+    "name": "Stephan · Лагера",
+    "cityCode": "68134",
+    "neighborhood": "Лагера",
+    "address": "София, бул. Цар Борис III 22",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "hair",
+    "website": "https://www.stephan.bg/",
+    "phone": "+359878600076",
+    "services": [
+      {
+        "name": "Дамско подстригване",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Мъжко подстригване",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Боядисване на коса",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Маникюр и педикюр",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359878600076"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://www.stephan.bg/",
+        "excerpt": "Запази своя час"
+      },
+      "contact": "https://www.stephan.bg/saloni/lagera"
+    }
+  },
+  {
+    "id": "sofia-stephan-oborishte",
+    "name": "Stephan · Оборище",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Оборище 48",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "hair",
+    "website": "https://www.stephan.bg/",
+    "phone": "+359882550330",
+    "services": [
+      {
+        "name": "Дамско подстригване",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Мъжко подстригване",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Боядисване на коса",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Маникюр и педикюр",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359882550330"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://www.stephan.bg/",
+        "excerpt": "Запази своя час"
+      },
+      "contact": "https://www.stephan.bg/saloni/oborishte"
+    }
+  },
+  {
+    "id": "sofia-stephan-iztok",
+    "name": "Stephan · Изток",
+    "cityCode": "68134",
+    "neighborhood": "Изток",
+    "address": "София, ул. Антон Чехов 69",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "hair",
+    "website": "https://www.stephan.bg/",
+    "phone": "+359888456047",
+    "services": [
+      {
+        "name": "Дамско подстригване",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Мъжко подстригване",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Боядисване на коса",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Маникюр и педикюр",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359888456047"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://www.stephan.bg/",
+        "excerpt": "Запази своя час"
+      },
+      "contact": "https://www.stephan.bg/saloni/iztok"
+    }
+  },
+  {
+    "id": "sofia-stephan-borovo",
+    "name": "Stephan · Борово",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Пирин 22",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "hair",
+    "website": "https://www.stephan.bg/",
+    "phone": "+359888164144",
+    "services": [
+      {
+        "name": "Дамско подстригване",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Мъжко подстригване",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Боядисване на коса",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Маникюр и педикюр",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359888164144"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://www.stephan.bg/",
+        "excerpt": "Запази своя час"
+      },
+      "contact": "https://www.stephan.bg/saloni/borovo"
+    }
+  },
+  {
+    "id": "sofia-stephan-academy-stephan",
+    "name": "Stephan · Академия",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Димитър Хаджикоцев 35",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "hair",
+    "website": "https://www.stephan.bg/",
+    "phone": "+359884192581",
+    "services": [
+      {
+        "name": "Дамско подстригване",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Мъжко подстригване",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Боядисване на коса",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359884192581"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://www.stephan.bg/",
+        "excerpt": "Запази своя час"
+      },
+      "contact": "https://www.stephan.bg/saloni/academy-stephan"
+    }
+  },
+  {
+    "id": "sofia-inspire-business-park",
+    "name": "Inspire · Бизнес парк",
+    "cityCode": "68134",
+    "neighborhood": "Младост 4",
+    "address": "София, Бизнес парк София, сграда 3",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "hair",
+    "website": "https://www.inspirebg.com/",
+    "phone": "+359888889746",
+    "services": [
+      {
+        "name": "Подстригване и стайлинг",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Боядисване на коса",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359888889746"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://booking.inspirebg.com/inspire/bg/booking/221",
+        "excerpt": "Заявете час Онлайн · Изберете услуга, специалист и удобен ден и час."
+      },
+      "contact": "https://booking.inspirebg.com/inspire/bg/booking/221"
+    }
+  },
+  {
+    "id": "sofia-inspire-mladost-1",
+    "name": "Inspire · Младост 1",
+    "cityCode": "68134",
+    "neighborhood": "Младост 1",
+    "address": "София, бул. Цариградско шосе 54Б, сграда Grafix",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "hair",
+    "website": "https://www.inspirebg.com/",
+    "phone": "+359879192021",
+    "services": [
+      {
+        "name": "Подстригване и стайлинг",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Боядисване на коса",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359879192021"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://booking.inspirebg.com/inspire/bg/booking/222",
+        "excerpt": "Заявете час Онлайн · Изберете услуга, специалист и удобен ден и час."
+      },
+      "contact": "https://booking.inspirebg.com/inspire/bg/booking/222"
+    }
+  },
+  {
+    "id": "sofia-inspire-iztok",
+    "name": "Inspire · Изток",
+    "cityCode": "68134",
+    "neighborhood": "Изток",
+    "address": "София, ул. Николай Хайтов 2",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "hair",
+    "website": "https://www.inspirebg.com/",
+    "phone": "+359888817961",
+    "services": [
+      {
+        "name": "Подстригване и стайлинг",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Боядисване на коса",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359888817961"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://booking.inspirebg.com/inspire/bg/booking/223",
+        "excerpt": "Заявете час Онлайн · Изберете услуга, специалист и удобен ден и час."
+      },
+      "contact": "https://booking.inspirebg.com/inspire/bg/booking/223"
+    }
+  },
+  {
+    "id": "sofia-inspire-paradise",
+    "name": "Inspire · Парадайз мол",
+    "cityCode": "68134",
+    "neighborhood": "Хладилника",
+    "address": "София, ул. Сребърна 2А, сграда Моби Арт",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "hair",
+    "website": "https://www.inspirebg.com/",
+    "phone": "+359888887252",
+    "services": [
+      {
+        "name": "Подстригване и стайлинг",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Боядисване на коса",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359888887252"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://booking.inspirebg.com/inspire/bg/booking/224",
+        "excerpt": "Заявете час Онлайн · Изберете услуга, специалист и удобен ден и час."
+      },
+      "contact": "https://booking.inspirebg.com/inspire/bg/booking/224"
+    }
+  },
+  {
+    "id": "sofia-inspire-krastova-vada",
+    "name": "Inspire · Кръстова вада",
+    "cityCode": "68134",
+    "neighborhood": "Кръстова вада",
+    "address": "София, ул. Ген. Иван Колев 12",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "hair",
+    "website": "https://www.inspirebg.com/",
+    "phone": "+359888220830",
+    "services": [
+      {
+        "name": "Подстригване и стайлинг",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Боядисване на коса",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359888220830"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://booking.inspirebg.com/inspire/bg/booking/225",
+        "excerpt": "Заявете час Онлайн · Изберете услуга, специалист и удобен ден и час."
+      },
+      "contact": "https://booking.inspirebg.com/inspire/bg/booking/225"
+    }
+  },
+  {
+    "id": "sofia-inspire-manastirski-livadi",
+    "name": "Inspire · Манастирски ливади",
+    "cityCode": "68134",
+    "neighborhood": "Манастирски ливади",
+    "address": "София, ул. Пирин 91",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "hair",
+    "website": "https://www.inspirebg.com/",
+    "phone": "+359888855705",
+    "services": [
+      {
+        "name": "Подстригване и стайлинг",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Боядисване на коса",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359888855705"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://booking.inspirebg.com/inspire/bg/booking/226",
+        "excerpt": "Заявете час Онлайн · Изберете услуга, специалист и удобен ден и час."
+      },
+      "contact": "https://booking.inspirebg.com/inspire/bg/booking/226"
+    }
+  },
+  {
+    "id": "sofia-inspire-studentski-grad",
+    "name": "Inspire · Студентски град",
+    "cityCode": "68134",
+    "neighborhood": "Студентски град",
+    "address": "София, ул. Проф. Атанас Иширков 13",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "hair",
+    "website": "https://www.inspirebg.com/",
+    "phone": "+359882108748",
+    "services": [
+      {
+        "name": "Подстригване и стайлинг",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Боядисване на коса",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359882108748"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://booking.inspirebg.com/inspire/bg/booking/227",
+        "excerpt": "Заявете час Онлайн · Изберете услуга, специалист и удобен ден и час."
+      },
+      "contact": "https://booking.inspirebg.com/inspire/bg/booking/227"
+    }
+  },
+  {
+    "id": "sofia-els-makeup",
+    "name": "EL’s Makeup",
+    "cityCode": "68134",
+    "neighborhood": "Овча купел",
+    "address": "София, ул. Монтевидео 85, Търговски център Овча Купел, ет. 2, №54",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "beauty",
+    "website": "https://www.elsmakeup.bg/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Професионален грим",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Ламиниране на вежди и мигли",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://www.notino.bg/saloni/els-makeup/"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://www.elsmakeup.bg/ceni",
+        "excerpt": "Всеки час се запазва през Notino."
+      },
+      "contact": "https://www.elsmakeup.bg/"
+    }
+  },
+  {
+    "id": "sofia-classaqueen",
+    "name": "ClassaQueen",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Каймакчалан 9",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "beauty",
+    "website": "https://classaqueen.com/",
+    "phone": "+359898468088",
+    "services": [
+      {
+        "name": "Козметични терапии за лице",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359898468088"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://classaqueen.com/kozmetichni-protseduri-2/",
+        "excerpt": "КОЗМЕТИЧНИ ПРОЦЕДУРИ CLASSAQUEEN · ЗАПИШИ ЧАС"
+      },
+      "contact": "https://classaqueen.com/"
+    }
+  },
+  {
+    "id": "sofia-skinni-aesthetic",
+    "name": "Skinni Aesthetic",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, бул. Владимир Вазов 92",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "beauty",
+    "website": "https://skinni.bg/",
+    "phone": "+359882733312",
+    "services": [
+      {
+        "name": "Ламиниране на мигли",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Ламиниране на вежди",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359882733312"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://skinni.bg/home/",
+        "excerpt": "Ламиниране · Мигли и Вежди · ЗАПАЗИ ЧАС"
+      },
+      "contact": "https://skinni.bg/home/"
+    }
+  },
+  {
+    "id": "sofia-magama-damyan-gruev",
+    "name": "Салон Магама",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Дамян Груев 46",
+    "locationKind": "premises",
+    "coordinates": {
+      "latitude": 42.692979433637,
+      "longitude": 23.307194709778,
+      "source": "https://magama-shop.com/contacts",
+      "method": "first_party_coordinates"
+    },
+    "category": "hair",
+    "website": "https://magama-shop.com/",
+    "phone": "+359898599325",
+    "services": [
+      {
+        "name": "Фризьорство",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Удължаване на коса",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://booking.sf.magama.org/bg/location/s-n-magama"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://magama-shop.com/category/uslugi-i-rezervacii",
+        "excerpt": "Направи резервация и запази час в МАГАМА"
+      },
+      "contact": "https://magama-shop.com/contacts"
+    }
+  },
+  {
+    "id": "sofia-terra-adora-spa-beauty",
+    "name": "Terra Adora Spa & Beauty",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Пирински проход 27–29, партер",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "hair",
+    "website": "https://www.terraadora.com/",
+    "phone": "+359882066101",
+    "services": [
+      {
+        "name": "Фризьорски услуги",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Маникюр и педикюр",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://www.fresha.com/bg/a/terra-adora-spaandbeauty-is-the-new-name-of-splendid-spaandbeauty-sofiya-ulica-pirinski-prohod-27-29-la97lui8/booking?menu=true"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://www.terraadora.com/",
+        "excerpt": "Направи резервация в нашата онлайн платформа или по телефона."
+      },
+      "contact": "https://www.terraadora.com/"
+    }
+  },
+  {
+    "id": "sofia-kikimora-beauty-studio",
+    "name": "Kikimora Beauty Studio",
+    "cityCode": "68134",
+    "neighborhood": "Манастирски ливади",
+    "address": "София, ул. Майор Павел Павлов, бл. 120",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "hair",
+    "website": "https://kikimorabeauty.com/",
+    "phone": "+359897222503",
+    "services": [
+      {
+        "name": "Фризьорство",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://easybook.bg/kikimora-beauty-studio-sofiya-manastirski-livadi?t=services"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://kikimorabeauty.com/",
+        "excerpt": "Запазете час през Easybook."
+      },
+      "contact": "https://easybook.bg/kikimora-beauty-studio-sofiya-manastirski-livadi?t=services"
+    }
+  },
+  {
+    "id": "sofia-arlet-stars",
+    "name": "Arlet Stars",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, бул. Арсеналски 5, ет. 3",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "hair",
+    "website": "https://arletstars.com/",
+    "phone": "+359879886260",
+    "services": [
+      {
+        "name": "Фризьорски услуги",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359879886260"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://arletstars.com/contact",
+        "excerpt": "Запишете вашия час · Свържете се с нас по телефон."
+      },
+      "contact": "https://arletstars.com/contact"
+    }
+  },
+  {
+    "id": "sofia-pellucci-lozenets",
+    "name": "Pellucci · София Лозенец",
+    "cityCode": "68134",
+    "neighborhood": "Лозенец",
+    "address": "София, ул. Якубица 25Б",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "hair",
+    "website": "https://pellucci.bg/",
+    "phone": "+359887778344",
+    "services": [
+      {
+        "name": "Дамско подстригване",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Боядисване на коса",
+        "category": "hair",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359887778344"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://pellucci.bg/uslugi/",
+        "excerpt": "Изберете услуга и запазете час онлайн"
+      },
+      "contact": "https://pellucci.bg/kontakti/"
+    }
+  },
+  {
+    "id": "sofia-lotos-pirin",
+    "name": "Студио Лотос · маникюр и педикюр",
+    "cityCode": "68134",
+    "neighborhood": "Манастирски ливади",
+    "address": "София, ул. Пирин 44",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "nails",
+    "website": "https://studio-lotos.com/",
+    "phone": "+359888340943",
+    "services": [
+      {
+        "name": "Маникюр",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Педикюр",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359888340943"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://studio-lotos.com/",
+        "excerpt": "Маникюр педикюр · Запиши час"
+      },
+      "contact": "https://studio-lotos.com/"
+    }
+  },
+  {
+    "id": "sofia-stephan-nails-academy",
+    "name": "Stephan Nails Academy",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, бул. Витоша 93",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "nails",
+    "website": "https://www.stephan.bg/",
+    "phone": "+359885207020",
+    "services": [
+      {
+        "name": "Маникюр",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Педикюр",
+        "category": "nails",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359885207020"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://www.stephan.bg/",
+        "excerpt": "Запази своя час"
+      },
+      "contact": "https://www.stephan.bg/saloni/stephan-nails-academy-salon"
+    }
+  },
+  {
+    "id": "sofia-mg-art-beauty",
+    "name": "MG The Art of Beauty",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, бул. Патриарх Евтимий 45",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "beauty",
+    "website": "https://www.mgtheartofbeauty.com/",
+    "phone": "+359879166750",
+    "services": [
+      {
+        "name": "Козметични терапии за лице",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Професионален грим",
+        "category": "beauty",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359879166750"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://www.mgtheartofbeauty.com/",
+        "excerpt": "Резервирайте си час: 0879166750 или 029516073"
+      },
+      "contact": "https://www.mgtheartofbeauty.com/"
+    }
+  },
+  {
+    "id": "sofia-rock-n-roll-barbershop",
+    "name": "Rock’n’Roll Barbershop",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Георги С. Раковски 168",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "barber",
+    "website": "https://www.rockandrollbarbershop.com/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Мъжко подстригване",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Оформяне на брада",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Класическо бръснене",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://rockandrollbarbershop.setmore.com/"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://www.rockandrollbarbershop.com/",
+        "excerpt": "BOOK NOW"
+      },
+      "contact": "https://rockandrollbarbershop.setmore.com/"
+    }
+  },
+  {
+    "id": "sofia-texture-barbershop",
+    "name": "Texture Barbershop",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Георги С. Раковски 145В",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "barber",
+    "website": "https://www.texture-barber.shop/",
+    "phone": "+359878255220",
+    "services": [
+      {
+        "name": "Мъжко подстригване",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://www.texture-barber.shop/reservation"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://www.texture-barber.shop/",
+        "excerpt": "Запазете онлайн или се обадете на +359878255220"
+      },
+      "contact": "https://www.texture-barber.shop/"
+    }
+  },
+  {
+    "id": "sofia-king-barber-ovcha-kupel",
+    "name": "King Barber Sofia",
+    "cityCode": "68134",
+    "neighborhood": "Овча купел 1",
+    "address": "София, Овча купел 1, ул. Промишлена, бл. 429",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "barber",
+    "website": "https://kingbarbersofia.com/",
+    "phone": "+359896494196",
+    "services": [
+      {
+        "name": "Мъжко подстригване",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Оформяне на брада",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://www.fresha.com/a/king-barber-sofia-ulitsa-promishlena-429-hmjx7f8p/all-offer?menu=true&share=true&pId=484216"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://kingbarbersofia.com/",
+        "excerpt": "Мъжко подстригване, fade, брада · Запази час онлайн."
+      },
+      "contact": "https://kingbarbersofia.com/"
+    }
+  },
+  {
+    "id": "sofia-barberians",
+    "name": "Barberians",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Рикардо Ваккарини 1",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "barber",
+    "website": "https://barberians.bg/",
+    "phone": "+359885349398",
+    "services": [
+      {
+        "name": "Мъжко подстригване",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Оформяне на брада",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359885349398"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://barberians.bg/contacts/",
+        "excerpt": "Искаш да резервираш час? · За твоето следващо подстригване или оформяне на брада."
+      },
+      "contact": "https://barberians.bg/contacts/"
+    }
+  },
+  {
+    "id": "sofia-barber-shop-kano",
+    "name": "Barber Shop Kano",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Петър Парчевич 30",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "barber",
+    "website": "https://barbershopkano.com/",
+    "phone": null,
+    "services": [
+      {
+        "name": "Скин фейд подстригване",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Подстригване и брада",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://barbershopkano.com/book.php?service_id=4"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://barbershopkano.com/",
+        "excerpt": "Избери услуга и запази час за нея бързо и лесно"
+      },
+      "contact": "https://barbershopkano.com/"
+    }
+  },
+  {
+    "id": "sofia-cutters-barber-club",
+    "name": "Cutters Barber Club",
+    "cityCode": "68134",
+    "neighborhood": "Студентски град",
+    "address": "София, ул. Академик Стефан Младенов 56",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "barber",
+    "website": "https://cutters.bg/",
+    "phone": "+359879339495",
+    "services": [
+      {
+        "name": "Мъжко подстригване",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Оформяне на брада",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://cutters.bg/"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://cutters.bg/",
+        "excerpt": "Подстригване · Запази час"
+      },
+      "contact": "https://cutters.bg/"
+    }
+  },
+  {
+    "id": "sofia-barrnat-style",
+    "name": "Barrnat Style",
+    "cityCode": "68134",
+    "neighborhood": "Студентски град",
+    "address": "София, ул. Акад. Н. Стоянов 8",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "barber",
+    "website": "https://barrnatstyle.com/",
+    "phone": "+359888736880",
+    "services": [
+      {
+        "name": "Мъжко подстригване",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Оформяне на брада",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Кралско бръснене",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359888736880"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://barrnatstyle.com/elementor-1051/",
+        "excerpt": "Подстригване · ЗАПАЗИ ЧАС"
+      },
+      "contact": "https://barrnatstyle.com/"
+    }
+  },
+  {
+    "id": "sofia-alexiev-slatina",
+    "name": "Alexiev’s Barbershop · Слатина",
+    "cityCode": "68134",
+    "neighborhood": "Слатина",
+    "address": "София, ул. Слатинска, бл. 44А",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "barber",
+    "website": "https://www.alexievsbarbershop.com/",
+    "phone": "+359884227335",
+    "services": [
+      {
+        "name": "Мъжко подстригване",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Оформяне на брада",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://www.alexievsbarbershop.com/"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://www.alexievsbarbershop.com/",
+        "excerpt": "Подстрижка · Брада · РЕЗЕРВИРАЙ СЕГА"
+      },
+      "contact": "https://www.alexievsbarbershop.com/"
+    }
+  },
+  {
+    "id": "sofia-alexiev-la-barberia",
+    "name": "Alexiev’s Barbershop · La Barberia",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, бул. Черни връх 74, вх. А",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "barber",
+    "website": "https://www.alexievsbarbershop.com/",
+    "phone": "+359887048641",
+    "services": [
+      {
+        "name": "Мъжко подстригване",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Оформяне на брада",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://www.alexievsbarbershop.com/"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://www.alexievsbarbershop.com/",
+        "excerpt": "La Barberia · Подстрижка · Брада · РЕЗЕРВИРАЙ СЕГА"
+      },
+      "contact": "https://www.alexievsbarbershop.com/"
+    }
+  },
+  {
+    "id": "sofia-superbarber-vitosha",
+    "name": "SuperBarber Vitosha",
+    "cityCode": "68134",
+    "neighborhood": null,
+    "address": "София, ул. Проф. д-р Иван Странски 20",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "barber",
+    "website": "https://superbarber.bg/",
+    "phone": "+359877999525",
+    "services": [
+      {
+        "name": "Класическо подстригване",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      },
+      {
+        "name": "Оформяне на брада и мустаци",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359877999525"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://superbarber.bg/",
+        "excerpt": "ЗАПАЗИ ЧАС ПО ТЕЛЕФОНА"
+      },
+      "contact": "https://superbarber.bg/"
+    }
+  },
+  {
+    "id": "sofia-nv-barbers-studentski-grad",
+    "name": "NV Barbers · Студентски град",
+    "cityCode": "68134",
+    "neighborhood": "Студентски град",
+    "address": "София, ул. Професор Кирил Попов 62",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "barber",
+    "website": "https://nvbarbers.eu/bg",
+    "phone": "+359876876359",
+    "services": [
+      {
+        "name": "Фейд подстригване",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://nvbarbers.eu/bg/locations/studentski-grad"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://nvbarbers.eu/bg/locations/studentski-grad",
+        "excerpt": "Букни тук · Свободни часове днес"
+      },
+      "contact": "https://nvbarbers.eu/bg/locations/studentski-grad"
+    }
+  },
+  {
+    "id": "sofia-nv-barbers-malinova-dolina",
+    "name": "NV Barbers · Малинова долина",
+    "cityCode": "68134",
+    "neighborhood": "Малинова долина",
+    "address": "София, ул. Професор д-р Боян Боянов 12",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "barber",
+    "website": "https://nvbarbers.eu/bg",
+    "phone": "+359876422402",
+    "services": [
+      {
+        "name": "Фейд подстригване",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://nvbarbers.eu/bg/locations/malinova-dolina"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://nvbarbers.eu/bg/locations/malinova-dolina",
+        "excerpt": "Букни тук · Свободни часове днес"
+      },
+      "contact": "https://nvbarbers.eu/bg/locations/malinova-dolina"
+    }
+  },
+  {
+    "id": "sofia-nv-barbers-manastirski-livadi",
+    "name": "NV Barbers · Манастирски ливади",
+    "cityCode": "68134",
+    "neighborhood": "Манастирски ливади",
+    "address": "София, ул. Казбек 57Б",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "barber",
+    "website": "https://nvbarbers.eu/bg",
+    "phone": "+359879858555",
+    "services": [
+      {
+        "name": "Фейд подстригване",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://nvbarbers.eu/bg/locations/manastirski-livadi"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://nvbarbers.eu/bg/locations/manastirski-livadi",
+        "excerpt": "Букни тук · Свободни часове днес"
+      },
+      "contact": "https://nvbarbers.eu/bg/locations/manastirski-livadi"
+    }
+  },
+  {
+    "id": "sofia-nv-barbers-dianabad",
+    "name": "NV Barbers · Дианабад",
+    "cityCode": "68134",
+    "neighborhood": "Дианабад",
+    "address": "София, ул. Никола Габровски 51",
+    "locationKind": "premises",
+    "coordinates": null,
+    "category": "barber",
+    "website": "https://nvbarbers.eu/bg",
+    "phone": "+359876114119",
+    "services": [
+      {
+        "name": "Фейд подстригване",
+        "category": "barber",
+        "appointmentModel": "appointment"
+      }
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://nvbarbers.eu/bg/locations/dianabad"
+    },
+    "verification": {
+      "status": "approved",
+      "checkedOn": "2026-11-06",
+      "validUntil": "2027-02-04",
+      "booking": {
+        "url": "https://nvbarbers.eu/bg/locations/dianabad",
+        "excerpt": "Букни тук · Свободни часове днес"
+      },
+      "contact": "https://nvbarbers.eu/bg/locations/dianabad"
+    }
+  }
+]

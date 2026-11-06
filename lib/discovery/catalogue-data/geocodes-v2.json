@@ -1,0 +1,496 @@
+[
+  {
+    "id": "sofia-nail-cocktail-boutique",
+    "coordinates": {
+      "latitude": 42.6629092,
+      "longitude": 23.2872082,
+      "source": "https://www.openstreetmap.org/way/174749212",
+      "method": "verified_address_geocode",
+      "sourceAddress": "София, бул. България 73, вход от ул. Св. Иван Кирков",
+      "checkedOn": "2026-11-06",
+      "licence": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  },
+  {
+    "id": "sofia-persia-beauty",
+    "coordinates": {
+      "latitude": 42.7085872,
+      "longitude": 23.322074,
+      "source": "https://www.openstreetmap.org/way/485839155",
+      "method": "verified_address_geocode",
+      "sourceAddress": "София, бул. Княгиня Мария Луиза 131, Ramada Sofia City Center",
+      "checkedOn": "2026-11-06",
+      "licence": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  },
+  {
+    "id": "sofia-bloom-beauty-evelyn",
+    "coordinates": {
+      "latitude": 42.6451267,
+      "longitude": 23.3926297,
+      "source": "https://www.openstreetmap.org/way/219672725",
+      "method": "verified_address_geocode",
+      "sourceAddress": "София, бул. Цариградско шосе 92А, Sofia Outlet Center, ет. 1",
+      "checkedOn": "2026-11-06",
+      "licence": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  },
+  {
+    "id": "sofia-abi-beauty-serdika",
+    "coordinates": {
+      "latitude": 42.697,
+      "longitude": 23.3184647,
+      "source": "https://www.openstreetmap.org/way/298307611",
+      "method": "verified_address_geocode",
+      "sourceAddress": "София, бул. Александър Стамболийски 27А",
+      "checkedOn": "2026-11-06",
+      "licence": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  },
+  {
+    "id": "sofia-abi-beauty-bul-bulgaria",
+    "coordinates": {
+      "latitude": 42.6714249,
+      "longitude": 23.2948679,
+      "source": "https://www.openstreetmap.org/node/4988883987",
+      "method": "verified_address_geocode",
+      "sourceAddress": "София, бул. Гоце Делчев 98, БЦ Азимут",
+      "checkedOn": "2026-11-06",
+      "licence": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  },
+  {
+    "id": "sofia-head-hunters-lozenets",
+    "coordinates": {
+      "latitude": 42.6710153,
+      "longitude": 23.317165,
+      "source": "https://www.openstreetmap.org/node/6134942954",
+      "method": "verified_address_geocode",
+      "sourceAddress": "София, бул. Джеймс Баучер 77",
+      "checkedOn": "2026-11-06",
+      "licence": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  },
+  {
+    "id": "sofia-head-hunters-mladost",
+    "coordinates": {
+      "latitude": 42.6458737,
+      "longitude": 23.3764025,
+      "source": "https://www.openstreetmap.org/way/217922374",
+      "method": "verified_address_geocode",
+      "sourceAddress": "София, бул. Александър Малинов 51, Metro City Business Center",
+      "checkedOn": "2026-11-06",
+      "licence": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  },
+  {
+    "id": "sofia-head-hunters-ruski-pametnik",
+    "coordinates": {
+      "latitude": 42.6922702,
+      "longitude": 23.3113427,
+      "source": "https://www.openstreetmap.org/way/266315316",
+      "method": "verified_address_geocode",
+      "sourceAddress": "София, бул. Македония 33",
+      "checkedOn": "2026-11-06",
+      "licence": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  },
+  {
+    "id": "sofia-head-hunters-academy",
+    "coordinates": {
+      "latitude": 42.7010233,
+      "longitude": 23.3019804,
+      "source": "https://www.openstreetmap.org/way/477575686",
+      "method": "verified_address_geocode",
+      "sourceAddress": "София, бул. Тодор Александров 137",
+      "checkedOn": "2026-11-06",
+      "licence": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  },
+  {
+    "id": "sofia-the-one-barbershop",
+    "coordinates": {
+      "latitude": 42.6853455,
+      "longitude": 23.3164486,
+      "source": "https://www.openstreetmap.org/way/505922384",
+      "method": "verified_address_geocode",
+      "sourceAddress": "София, бул. Витоша 114",
+      "checkedOn": "2026-11-06",
+      "licence": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  },
+  {
+    "id": "sofia-vladi-service",
+    "coordinates": {
+      "latitude": 42.6739457,
+      "longitude": 23.3865361,
+      "source": "https://www.openstreetmap.org/way/166203637",
+      "method": "verified_address_geocode",
+      "sourceAddress": "София, Дружба, бул. Асен Йорданов 9, складова база Нолина, сграда 7",
+      "checkedOn": "2026-11-06",
+      "licence": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  },
+  {
+    "id": "sofia-impact-boxing",
+    "coordinates": {
+      "latitude": 42.6694812,
+      "longitude": 23.2699325,
+      "source": "https://www.openstreetmap.org/way/1263866319",
+      "method": "verified_address_geocode",
+      "sourceAddress": "София, Павлово, бул. Цар Борис III 201А",
+      "checkedOn": "2026-11-06",
+      "licence": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  },
+  {
+    "id": "sofia-phoenix-taekwondo-druzhba",
+    "coordinates": {
+      "latitude": 42.6513193,
+      "longitude": 23.4044765,
+      "source": "https://www.openstreetmap.org/node/9957365170",
+      "method": "verified_address_geocode",
+      "sourceAddress": "София, Дружба 2, бул. Копенхаген 23б",
+      "checkedOn": "2026-11-06",
+      "licence": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  },
+  {
+    "id": "sofia-drum-action",
+    "coordinates": {
+      "latitude": 42.6982469,
+      "longitude": 23.3284148,
+      "source": "https://www.openstreetmap.org/way/303864748",
+      "method": "verified_address_geocode",
+      "sourceAddress": "София, бул. Княз Александър Дондуков 17, Band House",
+      "checkedOn": "2026-11-06",
+      "licence": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  },
+  {
+    "id": "sofia-aristea-hristo-botev",
+    "coordinates": {
+      "latitude": 42.6919024,
+      "longitude": 23.314895,
+      "source": "https://www.openstreetmap.org/way/287410189",
+      "method": "verified_address_geocode",
+      "sourceAddress": "София, бул. Христо Ботев 20, ет. 2",
+      "checkedOn": "2026-11-06",
+      "licence": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  },
+  {
+    "id": "sofia-sokol-nedkov",
+    "coordinates": {
+      "latitude": 42.6925074,
+      "longitude": 23.3096088,
+      "source": "https://www.openstreetmap.org/way/685511427",
+      "method": "verified_address_geocode",
+      "sourceAddress": "София, бул. Ген. Тотлебен 4, ет. 1, к. 3",
+      "checkedOn": "2026-11-06",
+      "licence": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  },
+  {
+    "id": "sofia-somenso-career",
+    "coordinates": {
+      "latitude": 42.6976853,
+      "longitude": 23.3175284,
+      "source": "https://www.openstreetmap.org/way/305184136",
+      "method": "verified_address_geocode",
+      "sourceAddress": "София, бул. Александър Стамболийски 32",
+      "checkedOn": "2026-11-06",
+      "licence": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  },
+  {
+    "id": "sofia-san-krasi-barber",
+    "coordinates": {
+      "latitude": 42.7131329,
+      "longitude": 23.2480611,
+      "source": "https://www.openstreetmap.org/node/9552185683",
+      "method": "verified_address_geocode",
+      "sourceAddress": "София, бул. Панчо Владигеров 28",
+      "checkedOn": "2026-11-06",
+      "licence": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  },
+  {
+    "id": "sofia-murphy-graf-ignatiev",
+    "coordinates": {
+      "latitude": 42.6941346,
+      "longitude": 23.3227457,
+      "source": "https://www.openstreetmap.org/way/297432677",
+      "method": "verified_address_geocode",
+      "sourceAddress": "София, ул. Граф Игнатиев 3, ет. 1",
+      "checkedOn": "2026-11-06",
+      "licence": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  },
+  {
+    "id": "sofia-murphy-patriarh-evtimii",
+    "coordinates": {
+      "latitude": 42.6889826,
+      "longitude": 23.3170261,
+      "source": "https://www.openstreetmap.org/way/297374711",
+      "method": "verified_address_geocode",
+      "sourceAddress": "София, бул. Патриарх Евтимий 57",
+      "checkedOn": "2026-11-06",
+      "licence": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  },
+  {
+    "id": "sofia-skinni-aesthetic",
+    "coordinates": {
+      "latitude": 42.709677,
+      "longitude": 23.3885028,
+      "source": "https://www.openstreetmap.org/way/1240548045",
+      "method": "verified_address_geocode",
+      "sourceAddress": "София, бул. Владимир Вазов 92",
+      "checkedOn": "2026-11-06",
+      "licence": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  },
+  {
+    "id": "sofia-arlet-stars",
+    "coordinates": {
+      "latitude": 42.6780838,
+      "longitude": 23.3210482,
+      "source": "https://www.openstreetmap.org/way/166217548",
+      "method": "verified_address_geocode",
+      "sourceAddress": "София, бул. Арсеналски 5, ет. 3",
+      "checkedOn": "2026-11-06",
+      "licence": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  },
+  {
+    "id": "sofia-stephan-nails-academy",
+    "coordinates": {
+      "latitude": 42.6802014,
+      "longitude": 23.3124438,
+      "source": "https://www.openstreetmap.org/node/11552572983",
+      "method": "verified_address_geocode",
+      "sourceAddress": "София, бул. Витоша 93",
+      "checkedOn": "2026-11-06",
+      "licence": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  },
+  {
+    "id": "sofia-mg-art-beauty",
+    "coordinates": {
+      "latitude": 42.6888477,
+      "longitude": 23.3183632,
+      "source": "https://www.openstreetmap.org/way/297374131",
+      "method": "verified_address_geocode",
+      "sourceAddress": "София, бул. Патриарх Евтимий 45",
+      "checkedOn": "2026-11-06",
+      "licence": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  },
+  {
+    "id": "sofia-alexiev-la-barberia",
+    "coordinates": {
+      "latitude": 42.6615321,
+      "longitude": 23.316606,
+      "source": "https://www.openstreetmap.org/way/427684082",
+      "method": "verified_address_geocode",
+      "sourceAddress": "София, бул. Черни връх 74, вх. А",
+      "checkedOn": "2026-11-06",
+      "licence": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  },
+  {
+    "id": "sofia-carbox-studio",
+    "coordinates": {
+      "latitude": 42.6272014,
+      "longitude": 23.3310508,
+      "source": "https://www.openstreetmap.org/way/172804668",
+      "method": "verified_address_geocode",
+      "sourceAddress": "София, бул. Симеоновско шосе 104",
+      "checkedOn": "2026-11-06",
+      "licence": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  },
+  {
+    "id": "sofia-speed-garage-sofia",
+    "coordinates": {
+      "latitude": 42.6612028,
+      "longitude": 23.2473238,
+      "source": "https://www.openstreetmap.org/way/364580989",
+      "method": "verified_address_geocode",
+      "sourceAddress": "София, бул. Цар Борис III 266",
+      "checkedOn": "2026-11-06",
+      "licence": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  },
+  {
+    "id": "sofia-xzona-sport",
+    "coordinates": {
+      "latitude": 42.6691113,
+      "longitude": 23.2545085,
+      "source": "https://www.openstreetmap.org/way/301894763",
+      "method": "verified_address_geocode",
+      "sourceAddress": "София, Овча купел, бул. Никола Петков 52, Trade House West, ет. 1",
+      "checkedOn": "2026-11-06",
+      "licence": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  },
+  {
+    "id": "sofia-radoslav-valev-law",
+    "coordinates": {
+      "latitude": 42.6885722,
+      "longitude": 23.3253091,
+      "source": "https://www.openstreetmap.org/way/65164425",
+      "method": "verified_address_geocode",
+      "sourceAddress": "София, бул. Патриарх Евтимий 24, ет. 2, ап. 6",
+      "checkedOn": "2026-11-06",
+      "licence": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  },
+  {
+    "id": "sofia-avarton-music-academy",
+    "coordinates": {
+      "latitude": 42.6520467,
+      "longitude": 23.3803081,
+      "source": "https://www.openstreetmap.org/way/223534654",
+      "method": "verified_address_geocode",
+      "sourceAddress": "София, ж.к. Младост 1А, бул. Александър Малинов 23, ТК Сити Пойнт, ет. 1",
+      "checkedOn": "2026-11-06",
+      "licence": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  },
+  {
+    "id": "sofia-edelweiss-accounting",
+    "coordinates": {
+      "latitude": 42.6942361,
+      "longitude": 23.3310309,
+      "source": "https://www.openstreetmap.org/way/1457152043",
+      "method": "verified_address_geocode",
+      "sourceAddress": "София, бул. Цар Освободител 14, Landmark Building",
+      "checkedOn": "2026-11-06",
+      "licence": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  },
+  {
+    "id": "sofia-face-id-dental",
+    "coordinates": {
+      "latitude": 42.6464112,
+      "longitude": 23.3355801,
+      "source": "https://www.openstreetmap.org/way/220302982",
+      "method": "verified_address_geocode",
+      "sourceAddress": "София, бул. Симеоновско шосе 85",
+      "checkedOn": "2026-11-06",
+      "licence": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  },
+  {
+    "id": "sofia-q-life-kinezitherapy",
+    "coordinates": {
+      "latitude": 42.6788033,
+      "longitude": 23.3101978,
+      "source": "https://www.openstreetmap.org/way/303553449",
+      "method": "verified_address_geocode",
+      "sourceAddress": "София, бул. Витоша 164",
+      "checkedOn": "2026-11-06",
+      "licence": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  },
+  {
+    "id": "sofia-sofia-physio-center",
+    "coordinates": {
+      "latitude": 42.6602872,
+      "longitude": 23.2733274,
+      "source": "https://www.openstreetmap.org/way/313431952",
+      "method": "verified_address_geocode",
+      "sourceAddress": "София, кв. Манастирски ливади, бул. Братя Бъкстон 71",
+      "checkedOn": "2026-11-06",
+      "licence": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  },
+  {
+    "id": "sofia-nikolay-chudotvorets-rehab",
+    "coordinates": {
+      "latitude": 42.6601436,
+      "longitude": 23.2472956,
+      "source": "https://www.openstreetmap.org/way/1541041158",
+      "method": "verified_address_geocode",
+      "sourceAddress": "София, кв. Княжево, бул. Цар Борис III 313",
+      "checkedOn": "2026-11-06",
+      "licence": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  },
+  {
+    "id": "sofia-kavazova-tax-law",
+    "coordinates": {
+      "latitude": 42.7026934,
+      "longitude": 23.3235411,
+      "source": "https://www.openstreetmap.org/way/305182784",
+      "method": "verified_address_geocode",
+      "sourceAddress": "София, бул. Княгиня Мария Луиза 40, ет. 5, ап. 18",
+      "checkedOn": "2026-11-06",
+      "licence": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  },
+  {
+    "id": "sofia-haelan-bulgaria-rehab",
+    "coordinates": {
+      "latitude": 42.6664248,
+      "longitude": 23.2896233,
+      "source": "https://www.openstreetmap.org/node/3130710429",
+      "method": "verified_address_geocode",
+      "sourceAddress": "София, бул. България 51, ет. 3, Поликлиника България",
+      "checkedOn": "2026-11-06",
+      "licence": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  },
+  {
+    "id": "sofia-doctor-dent",
+    "coordinates": {
+      "latitude": 42.66156,
+      "longitude": 23.2739786,
+      "source": "https://www.openstreetmap.org/way/226679751",
+      "method": "verified_address_geocode",
+      "sourceAddress": "София, кв. Манастирски ливади-Запад, бул. Братя Бъкстон 65, партер",
+      "checkedOn": "2026-11-06",
+      "licence": "ODbL-1.0",
+      "attribution": "© OpenStreetMap contributors"
+    }
+  }
+]

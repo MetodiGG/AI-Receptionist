@@ -36,7 +36,7 @@ test('an explicit Next/End action works even if the first page fits without over
   assert.equal(gate.consume(metrics, { explicit: true }), false)
 })
 
-test('distance beats membership, with a partner advantage only on a real distance tie', () => {
+test('outside one kilometre, distance beats membership; actual ties still favour booking convenience', () => {
   const coordinates = { latitude: 42.67, longitude: 23.29 }
   const intent = { coordinates, radiusKm: 5, primaryRadiusKm: 2 }
   const rows = rankCatalogueBusinesses([row('farther-partner', 'gorez', 42.68, 23.29)], [row('closest', 'catalogue', 42.6701, 23.29)], intent)

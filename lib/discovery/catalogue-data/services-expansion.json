@@ -511,7 +511,12 @@
     "neighborhood": null,
     "address": "София, ул. Феликс Каниц 20",
     "locationKind": "premises",
-    "coordinates": null,
+    "coordinates": {
+      "latitude": 42.68699,
+      "longitude": 23.302904,
+      "source": "https://physiobeactive.bg/",
+      "method": "first_party_coordinates"
+    },
     "category": "health",
     "website": "https://physiobeactive.bg/",
     "phone": "+359894380271",
@@ -762,7 +767,12 @@
     "neighborhood": "Драгалевци",
     "address": "София, кв. Драгалевци, ул. Цветарска 12",
     "locationKind": "premises",
-    "coordinates": null,
+    "coordinates": {
+      "latitude": 42.6351614,
+      "longitude": 23.3065149,
+      "source": "https://rhythm-academy.com/",
+      "method": "first_party_coordinates"
+    },
     "category": "education",
     "website": "https://rhythm-academy.com/",
     "phone": "+359894361787",

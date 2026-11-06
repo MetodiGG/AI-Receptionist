@@ -74,13 +74,13 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
 
   function payload(patch = {}) {
     const next = { query, locale, cityCode, cityWasChosen, neighborhood, category, coordinates, radiusKm, expandNearby: true, ...patch }
-    return discoverySearchInput({ ...next, browse: home && !next.query.trim() })
+    return discoverySearchInput({ ...next, categoryBrowse: home, browse: home && !next.query.trim() })
   }
   function canDiscover(text = query) { return text.trim().length >= 2 || (home && !text.trim()) }
   function chooseCategory(id) {
     const selected = discoveryCategorySelection(query, id, locale)
     setCategory(selected.category); setQuery(selected.query); setResult(null); setError('')
-    if ((home || coordinates) && selected.category && !(home && selected.category === 'other')) execute(payload(selected))
+    if ((home || coordinates) && selected.category) execute(payload(selected))
   }
   function chooseLaboratory(item) {
     setCategory('other'); setQuery(item.query); setResult(null); setError('')

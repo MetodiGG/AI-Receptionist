@@ -6,16 +6,17 @@ import { externalLinkDraftSchema } from '../lib/external-booking-links.mjs'
 
 const read = file => readFileSync(new URL(`../${file}`, import.meta.url), 'utf8')
 
-test('compact admin sections retain all six destinations and real bilingual labels', () => {
-  const keys = ['businesses', 'leads', 'statistics', 'external-links', 'audit', 'reviews']
+test('compact admin sections retain all destinations and add the separate catalogue', () => {
+  const keys = ['businesses', 'catalogue', 'leads', 'statistics', 'external-links', 'audit', 'reviews']
   for (const locale of ['bg', 'en']) {
     const sections = adminSections(locale)
     assert.deepEqual(sections.map(section => section.id), keys)
-    assert.equal(new Set(sections.map(section => section.label)).size, 6)
+    assert.equal(new Set(sections.map(section => section.label)).size, 7)
     assert.ok(sections.every(section => section.label.length > 3))
   }
-  assert.equal(adminSections()[3].label, 'Външни линкове')
-  assert.equal(adminSections('en')[3].label, 'External links')
+  assert.equal(adminSections()[4].label, 'Външни линкове')
+  assert.equal(adminSections('en')[4].label, 'External links')
+  assert.equal(adminSections()[1].label, 'Каталог')
   assert.deepEqual(adminSections('unexpected'), adminSections('bg'))
 })
 
@@ -40,8 +41,8 @@ test('external link editor is opt-in and edits prefill the saved row instead of 
 
 test('compact navigation shares destinations, guards dirty drafts and cannot switch while saving', () => {
   const source = read('components/platform-admin.js'), css = read('app/dashboard-responsive.css')
-  assert.match(source, /<select id=\{sectionId\} value=\{tab\} disabled=\{linkBusy\}/)
-  assert.match(source, /if\(linkBusy\|\|!sections\.some/)
+  assert.match(source, /<select id=\{sectionId\} value=\{tab\} disabled=\{linkBusy\|\|catalogueBusy\}/)
+  assert.match(source, /if\(linkBusy\|\|catalogueBusy\|\|!sections\.some/)
   assert.match(source, /tab==='external-links'&&linkDirty&&!window\.confirm/)
   assert.match(source, /onManagePartners=\{\(\)=>chooseSection\('businesses'\)\}/)
   assert.match(source, /refreshKey=\{linkRefreshKey\}/)

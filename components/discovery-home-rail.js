@@ -5,6 +5,7 @@ import { Icon } from './icon'
 import { HOME_DISCOVERY_COPY } from '../lib/discovery/home.mjs'
 import { railScrollState, railScrollTarget } from '../lib/discovery/rail-scroll.mjs'
 import { createRailAdvanceGate } from '../lib/discovery/rail-advance.mjs'
+import { observeRailLayout } from '../lib/discovery/rail-layout.mjs'
 
 // A native scroll region: no autoplay, cloned items, provider requests or
 // carousel dependency. Every card stays reachable by swipe, Tab and arrows.
@@ -19,12 +20,10 @@ export function DiscoveryHomeRail({ title, locale, kind, action, children, headi
     rail.current?.scrollTo({ left: 0, behavior: 'instant' }); measure()
   }, [resetKey])
   useEffect(() => {
-    measure()
-    const observer = typeof ResizeObserver === 'function' ? new ResizeObserver(measure) : null
-    if (rail.current) { observer?.observe(rail.current); for (const child of rail.current.children) observer?.observe(child) }
-    window.addEventListener('resize', measure)
-    return () => { observer?.disconnect(); window.removeEventListener('resize', measure); cancelAnimationFrame(frame.current); frame.current = null }
-  }, [children])
+    if (!rail.current) return
+    const stop = observeRailLayout(rail.current, measure, window)
+    return () => { stop(); cancelAnimationFrame(frame.current); frame.current = null }
+  }, [])
   function scroll(direction) {
     const node = rail.current
     if (!node) return

@@ -18,6 +18,7 @@ import { AdminBusinessEditor } from './admin-business-editor'
 import { scheduleRows } from '../lib/business-schedule.mjs'
 import { AdminExternalBookingLinks } from './admin-external-booking-links'
 import { AdminReferralAnalytics } from './admin-referral-analytics'
+import { AdminCatalogue } from './admin-catalogue'
 import { adminSections, adminSectionDestination } from '../lib/admin-navigation.mjs'
 
 const STATES={pending:['Чака одобрение','Awaiting approval'],published:['Публикуван','Published'],unpublished:['Непубликуван','Unpublished'],suspended:['Спрян от админ','Suspended'],archived:['В кошчето','In trash']}
@@ -97,6 +98,7 @@ export function PlatformAdmin({preview=null}) {
   const [linkDirty,setLinkDirty]=useState(false)
   const [linkBusy,setLinkBusy]=useState(false)
   const [linkRefreshKey,setLinkRefreshKey]=useState(0)
+  const [catalogueDirty,setCatalogueDirty]=useState(false),[catalogueBusy,setCatalogueBusy]=useState(false)
   const sequence=useRef(0),detailSequence=useRef(0),mutating=useRef(false),leadMutating=useRef(false)
   useEffect(()=>{
     if(preview)return
@@ -125,8 +127,9 @@ export function PlatformAdmin({preview=null}) {
   const newLeads=leads.filter(row=>row.status==='new').length
   const sections=adminSections(locale)
   function chooseSection(value){
-    if(linkBusy||!sections.some(section=>section.id===value))return
+    if(linkBusy||catalogueBusy||!sections.some(section=>section.id===value))return
     if(tab==='external-links'&&linkDirty&&!window.confirm(en?'Discard the unsaved booking-link draft?':'Да отхвърлим ли незапазения линк за резервации?'))return
+    if(tab==='catalogue'&&catalogueDirty&&!window.confirm(en?'Discard the unsaved photo changes?':'Да отхвърлим ли незапазените промени по снимката?'))return
     const destination=adminSectionDestination(value,locale)
     if(destination)router.push(destination)
     else setTab(value)
@@ -208,11 +211,12 @@ export function PlatformAdmin({preview=null}) {
       {loading&&!overview?<div className="admin-loading" role="status"><span className="button-spinner"/>{en?'Loading the platform…':'Зареждаме платформата…'}</div>:overview&&<>
         <div className="admin-console-kpis">{[[en?'Published businesses':'Публикувани бизнеси',overview.totals.active,'store'],[en?'New leads':'Нови заявки',newLeads,'users'],[en?'Bookings / 30 days':'Резервации / 30 дни',overview.totals.bookings30d,'calendar'],[en?'In trash':'В кошчето',overview.totals.archived||0,'trash']].map(([title,value,icon])=><article key={title}><Icon name={icon}/><small>{title}</small><strong>{value}</strong></article>)}</div>
         <div className="admin-console-toolbar">
-          <div className="admin-section-selector"><label htmlFor={sectionId}>{en?'Section':'Раздел'}</label><select id={sectionId} value={tab} disabled={linkBusy} onChange={event=>chooseSection(event.target.value)}>{sections.map(section=><option key={section.id} value={section.id}>{section.label}{section.id==='leads'&&newLeads>0?` (${newLeads})`:''}</option>)}</select></div>
-          <nav className="admin-section-tabs" aria-label={en?'Admin sections':'Админ секции'}>{sections.filter(section=>section.id!=='reviews').map(section=><button key={section.id} aria-pressed={tab===section.id} disabled={linkBusy} onClick={()=>chooseSection(section.id)} type="button">{section.label}{section.id==='leads'&&newLeads>0&&<span>{newLeads}</span>}</button>)}<Link className="admin-review-link" href={adminSectionDestination('reviews',locale)}>{en?'Reviews':'Отзиви'}</Link></nav>
-          <button className="secondary-button admin-refresh-button" type="button" disabled={loading||Boolean(saving)||linkBusy} onClick={()=>{load();setLinkRefreshKey(value=>value+1)}}>{loading?(en?'Loading…':'Зареждане…'):(en?'Refresh':'Обнови')}</button>
+          <div className="admin-section-selector"><label htmlFor={sectionId}>{en?'Section':'Раздел'}</label><select id={sectionId} value={tab} disabled={linkBusy||catalogueBusy} onChange={event=>chooseSection(event.target.value)}>{sections.map(section=><option key={section.id} value={section.id}>{section.label}{section.id==='leads'&&newLeads>0?` (${newLeads})`:''}</option>)}</select></div>
+          <nav className="admin-section-tabs" aria-label={en?'Admin sections':'Админ секции'}>{sections.filter(section=>section.id!=='reviews').map(section=><button key={section.id} aria-pressed={tab===section.id} disabled={linkBusy||catalogueBusy} onClick={()=>chooseSection(section.id)} type="button">{section.label}{section.id==='leads'&&newLeads>0&&<span>{newLeads}</span>}</button>)}<Link className="admin-review-link" href={adminSectionDestination('reviews',locale)}>{en?'Reviews':'Отзиви'}</Link></nav>
+          <button className="secondary-button admin-refresh-button" type="button" disabled={loading||Boolean(saving)||linkBusy||catalogueBusy} onClick={()=>{load();setLinkRefreshKey(value=>value+1)}}>{loading?(en?'Loading…':'Зареждане…'):(en?'Refresh':'Обнови')}</button>
         </div>
         {tab==='statistics'&&<AdminReferralAnalytics send={adminRequest} locale={locale} preview={Boolean(preview)}/>}
+        {tab==='catalogue'&&<AdminCatalogue send={adminRequest} locale={locale} onDirty={setCatalogueDirty} onBusy={setCatalogueBusy} refreshKey={linkRefreshKey}/>}
         {tab==='external-links'&&<AdminExternalBookingLinks onDirty={setLinkDirty} onBusy={setLinkBusy} refreshKey={linkRefreshKey} onManagePartners={()=>chooseSection('businesses')} send={adminRequest} locale={locale} preview={Boolean(preview)} previewData={preview?.externalLinks}/>}
         {tab==='businesses'&&<section className="admin-console-section">
           <header><div><h2>{en?'Business profiles':'Бизнес профили'}</h2><p>{en?'Visibility and management at a glance.':'Видимост и управление на едно място.'}</p></div><span>{businesses.length} {en?'results':'резултата'}</span></header>

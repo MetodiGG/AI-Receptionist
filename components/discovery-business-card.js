@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { memo, useState } from 'react'
 import { Icon } from './icon'
 import { BrandMark } from './brand-logo'
 import { BusinessCategoryIcon } from './business-category-icon'
@@ -11,6 +11,7 @@ import { isExternalBooking } from '../lib/booking-mode.mjs'
 import { homeBusinessPhoto } from '../lib/discovery/home.mjs'
 import { railCategory, railBusinessCategory, railServiceDescription, railDirections, railExternalAction } from '../lib/discovery/rail.mjs'
 import { DiscoveryDistanceBadge } from './discovery-distance-badge'
+import { isCataloguePhotoSource } from '../lib/catalogue-photo-view.mjs'
 
 const emptyReviews = { summary: { count: 0 }, items: [] }
 function PartnerRailReviews({ row, locale, preview }) {
@@ -18,9 +19,9 @@ function PartnerRailReviews({ row, locale, preview }) {
   return <div className="home-business-reviews"><PartnerReviewSummary slug={row.slug} reviews={reviews} locale={locale} preview={preview} compact/></div>
 }
 
-export function DiscoveryBusinessCard({ row, locale = 'bg', nearby = false, preview = false, distanceOrigin = null }) {
+export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, locale = 'bg', nearby = false, preview = false, distanceOrigin = null }) {
   const en = locale === 'en', internal = row.source === 'gorez', [failed, setFailed] = useState(false)
-  const photo = internal ? homeBusinessPhoto(row) : row.source === 'catalogue' && /^\/catalogue-media\/[a-z0-9-]+\.webp$/.test(row.photo?.src || '') ? { src: row.photo.src, alt: { [locale]: row.photo.alt || row.name } } : null
+  const photo = internal ? homeBusinessPhoto(row) : row.source === 'catalogue' && isCataloguePhotoSource(row.photo?.src) ? { src: row.photo.src, alt: { [locale]: row.photo.alt || row.name } } : null
   const profile = internal ? `/book/${row.slug}?lang=${locale}` : null
   const directions = railDirections(row), action = railExternalAction(row)
   const reserve = en ? 'Book a time' : 'Резервирай час'
@@ -44,4 +45,4 @@ export function DiscoveryBusinessCard({ row, locale = 'bg', nearby = false, prev
     {row.source === 'google' && !directions && <span className="home-google-attribution" translate="no">Google Maps</span>}
     {row.source === 'google' && row.attributions?.length > 0 && <div className="home-provider-attributions">{row.attributions.map((item,index) => item.url ? <a key={index} href={item.url} target="_blank" rel="noopener noreferrer">{item.name}</a> : <span key={index}>{item.name}</span>)}</div>}
   </article>
-}
+})

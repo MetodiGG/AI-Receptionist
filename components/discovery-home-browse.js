@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import dynamic from 'next/dynamic'
 import { Icon } from './icon'
 import { DiscoveryHomeRail } from './discovery-home-rail'
@@ -9,10 +9,10 @@ import { useDirectory } from '../hooks/use-directory'
 import { homeBusinesses, HOME_DISCOVERY_COPY } from '../lib/discovery/home.mjs'
 import { orderedRailRows } from '../lib/discovery/rail.mjs'
 import { DiscoveryBusinessCard } from './discovery-business-card'
-import { GoogleDiscoveryList } from './google-discovery-list'
 import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
 import { discoveryDistanceOrigin } from '../lib/discovery/distance-origin.mjs'
 const GoogleBusinessCard = dynamic(() => import('./google-business-card').then(module => module.GoogleBusinessCard))
+const GoogleDiscoveryList = dynamic(() => import('./google-discovery-list').then(module => module.GoogleDiscoveryList))
 
 export function DiscoveryHomeBusinesses({ locale, filters, preview = false, data, result, resultKey, loading = false, error = '', onRetry, headingRef, onLoadMore, loadingMore = false, moreError = '' }) {
   const copy = HOME_DISCOVERY_COPY[locale], messages = DISCOVERY_COPY[locale], en = locale === 'en'
@@ -20,10 +20,11 @@ export function DiscoveryHomeBusinesses({ locale, filters, preview = false, data
   const [expanded, setExpanded] = useState(false)
   useEffect(() => setExpanded(false), [resultKey ?? result?.checkedAt])
   const catalogueMode = ['catalogue', 'sofia_only'].includes(result?.externalStatus)
-  const rows = result ? orderedRailRows(result.results, { preserveOrder: catalogueMode }) : homeBusinesses(directory.businesses || [], filters).map(row => ({ ...row, source: 'gorez' }))
+  const rows = useMemo(() => result ? orderedRailRows(result.results, { preserveOrder: catalogueMode }) : homeBusinesses(directory.businesses || [], filters).map(row => ({ ...row, source: 'gorez' })),
+    [result, catalogueMode, directory.businesses, filters.cityCode, filters.neighborhood, filters.category, filters.radiusKm, filters.nearby, filters.coordinates])
   const nearby = Boolean(result?.intent?.coordinates || (!result && filters.coordinates?.consent))
-  const distanceOrigin = discoveryDistanceOrigin({ coordinates: filters.coordinates, cityCode: result?.intent?.cityCode || filters.cityCode })
-  const nearRows = rows.filter(row => row.proximityBand !== 'further'), farRows = rows.filter(row => row.proximityBand === 'further')
+  const distanceOrigin = useMemo(() => discoveryDistanceOrigin({ coordinates: filters.coordinates, cityCode: result?.intent?.cityCode || filters.cityCode }), [filters.coordinates, result?.intent?.cityCode, filters.cityCode])
+  const [nearRows, farRows] = useMemo(() => [rows.filter(row => row.proximityBand !== 'further'), rows.filter(row => row.proximityBand === 'further')], [rows])
   const showFurther = catalogueMode || expanded || (!nearRows.length && !result?.external)
   const hiddenFurther = Boolean(farRows.length || result?.furtherExternal) && !showFurther
   const nextPage = result?.cataloguePage?.nextOffset != null && Boolean(onLoadMore)

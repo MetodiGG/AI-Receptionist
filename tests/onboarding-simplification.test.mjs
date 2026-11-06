@@ -71,10 +71,11 @@ test('the chosen shorter heading is present in both languages', () => {
   assert.equal(HOME_DISCOVERY_COPY.bg.title, 'Намери услуга. Запази час.')
   assert.equal(HOME_DISCOVERY_COPY.en.title, 'Find a service. Book a time.')
 })
-test('Maps is labelled once inside the navigation button, retaining provider attributions and native Google attribution', async () => {
+test('directions use customer-friendly copy while Google provider credits remain separate and unchanged', async () => {
   const card = await read('components/discovery-business-card.js'), kit = await read('components/google-discovery-list.js'), css = await read('app/discovery-home.css')
-  assert.match(card, /className="home-maps-label" translate="no">Google Maps/)
-  assert.match(card, /row.source === 'google' && !directions && <span className="home-google-attribution"/)
+  assert.match(card, /en \? 'Directions' : 'Как да стигна'/)
+  assert.match(card, /className="home-maps-label">\{directionsLabel\}/)
+  assert.match(card, /row.source === 'google' && <span className="home-google-attribution" translate="no">Google Maps/)
   assert.match(card, /row.attributions.map/)
   assert.match(kit, /document.createElement\('gmp-place-attribution'\)/)
   assert.doesNotMatch(card + kit, /Заведи ме|Take me there/)

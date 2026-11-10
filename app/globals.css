@@ -6028,6 +6028,8 @@ html:has(.business-photo-dialog[open]) { overflow: hidden; }
 .site-footer-main { display: grid; justify-items: start; gap: 12px; }
 .site-footer-main > a:first-child { color: #173e2a; text-decoration: none; }
 .site-footer p { color: #61705c; font-size: 12px; line-height: 1.7; margin: 0; }
+.site-footer .site-location-credit { grid-column: 1 / -1; flex-basis: 100%; margin-top: 0; color: #6b625b; font-size: 13px; line-height: 1.5; }
+.site-location-credit a { color: inherit; text-underline-offset: 3px; }
 .site-footer .site-contact { color: #173e2a; font-size: 14px; font-weight: 700; }
 .site-footer nav { display: flex; align-items: flex-start; align-content: start; justify-content: flex-end; flex-wrap: wrap; gap: 18px; }
 .site-footer nav a { color: #425d39; font-size: 12px; line-height: 1.6; }

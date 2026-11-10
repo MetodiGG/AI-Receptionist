@@ -7,7 +7,7 @@ import { normalizeCatalogueBusinesses } from '../lib/discovery/catalogue-search.
 import { normalizeInternalBusinesses } from '../lib/discovery/internal-search.mjs'
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 
-const now = Date.parse('2026-11-06T12:00:00Z')
+const now = Date.parse('2026-11-10T12:00:00Z')
 const original = () => structuredClone(SOFIA_CATALOGUE.find(row => row.id === 'sofia-underground-barbershop'))
 const intent = { browse: true, category: 'barber', requirements: [], searchV2: true }
 const read = path => readFile(new URL(`../${path}`, import.meta.url), 'utf8')
@@ -15,7 +15,7 @@ const read = path => readFile(new URL(`../${path}`, import.meta.url), 'utf8')
 test('published price/hour facts require a safe source and a current independent review', () => {
   const fact = { sourceUrl: 'https://undergroundbarber.shop/', checkedOn: '2026-11-06' }
   assert.equal(currentPublishedFact(fact, now), true)
-  for (const patch of [{ checkedOn: '2026-11-07' }, { checkedOn: '2026-05-01' }, { checkedOn: '' }, { sourceUrl: 'javascript:alert(1)' }, { sourceUrl: 'https://127.0.0.1/' }]) assert.equal(currentPublishedFact({ ...fact, ...patch }, now), false)
+  for (const patch of [{ checkedOn: '2026-11-11' }, { checkedOn: '2026-05-01' }, { checkedOn: '' }, { sourceUrl: 'javascript:alert(1)' }, { sourceUrl: 'https://127.0.0.1/' }]) assert.equal(currentPublishedFact({ ...fact, ...patch }, now), false)
 })
 
 test('catalogue schema rejects invented or malformed prices and hours instead of passing arbitrary payloads', () => {
@@ -34,7 +34,8 @@ test('catalogue schema rejects invented or malformed prices and hours instead of
 test('catalogue business details retain all published services, real prices and independently sourced hours', () => {
   const row = original(), details = catalogueBusinessDetails(row, now)
   assert.equal(details.services[0].price, 15)
-  assert.equal(details.services[2].price, null, 'an unpriced service is never free')
+  row.services.push({ name: 'Услуга без публикувана цена', category: 'barber', appointmentModel: 'appointment' })
+  assert.equal(catalogueBusinessDetails(row, now).services.at(-1).price, null, 'an unpriced service is never free')
   assert.equal(details.services[0].priceSourceUrl, row.website)
   assert.equal(details.hours.length, 7)
   assert.deepEqual(details.hours.find(day => day.weekday === 1).periods, [])
@@ -48,6 +49,8 @@ test('catalogue business details retain all published services, real prices and 
 
 test('a reviewed fixed price can filter a budget but a from-price or stale price cannot promise a maximum', () => {
   const row = original(), search = { ...intent, budget: { max: 16, currency: 'EUR' } }
+  // Isolate the budget assertion from subsequent genuine menu enrichment.
+  for (const service of row.services.slice(1)) delete service.price
   const result = normalizeCatalogueBusinesses([row], search, { now })
   assert.equal(result.length, 1); assert.equal(result[0].services.length, 1)
   assert.equal(result[0].details.services.length, row.services.length, 'the details are not narrowed to matching budget services')
@@ -91,8 +94,9 @@ test('details are lazy-loaded, keyboard-accessible and local; exact address move
   assert.match(card, /dynamic\(\(\) => import\('\.\/discovery-business-details'\)/)
   assert.match(card, /detailsOpen && <DiscoveryBusinessDetails/)
   assert.match(card, /aria-haspopup="dialog"/); assert.doesNotMatch(card, /home-business-address/)
-  for (const required of ['showModal()', 'containDialogTab', 'aria-labelledby', 'onCancel=', 'trigger?.focus()', 'document.body.style.overflow = overflow', 'row.address && <section', 'services.map', 'hours.map']) assert.ok(dialog.includes(required), required)
-  assert.doesNotMatch(dialog, /fetch\(|dangerouslySetInnerHTML|innerHTML|GoogleDiscoveryList/)
+  for (const required of ['showModal()', 'containDialogTab', 'aria-labelledby', 'onCancel=', 'trigger?.focus()', 'document.body.style.overflow = overflow', 'business.address && <section', 'services.map', 'hours.map']) assert.ok(dialog.includes(required), required)
+  assert.match(dialog, /\/api\/public\/discovery\/business\//)
+  assert.doesNotMatch(dialog, /dangerouslySetInnerHTML|innerHTML|GoogleDiscoveryList/)
   const css = await read('app/discovery-home.css')
   assert.match(css, /\.discovery-business-details \{[^}]*max-height: 88svh;[^}]*overflow-y: auto/)
   assert.match(css, /\.business-details-services li \{[^}]*gap: 16px/)

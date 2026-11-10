@@ -7,6 +7,97 @@
   "scope": "Reviewed OSM-derived public address points only; independent GoRez business, service and booking data are not included.",
   "points": [
     {
+      "id": "sofia-abi-beauty-lozenets",
+      "coordinates": {
+        "latitude": 42.6740164,
+        "longitude": 23.3340596,
+        "source": "https://www.openstreetmap.org/way/489805870",
+        "method": "verified_address_geocode",
+        "sourceAddress": "София, ул. Златовръх 5",
+        "checkedOn": "2026-11-06",
+        "licence": "ODbL-1.0",
+        "attribution": "© OpenStreetMap contributors"
+      }
+    },
+    {
+      "id": "sofia-bastet-kickboxing",
+      "coordinates": {
+        "latitude": 42.7009933,
+        "longitude": 23.310169,
+        "source": "https://www.openstreetmap.org/way/311202065",
+        "method": "verified_address_geocode",
+        "sourceAddress": "София, ул. Опълченска 21",
+        "checkedOn": "2026-11-06",
+        "licence": "ODbL-1.0",
+        "attribution": "© OpenStreetMap contributors"
+      }
+    },
+    {
+      "id": "sofia-tsanev-manastirski",
+      "coordinates": {
+        "latitude": 42.6666335,
+        "longitude": 23.2802725,
+        "source": "https://www.openstreetmap.org/way/1351320075",
+        "method": "verified_address_geocode",
+        "sourceAddress": "София, Манастирски ливади, ул. Казбек 51",
+        "checkedOn": "2026-11-06",
+        "licence": "ODbL-1.0",
+        "attribution": "© OpenStreetMap contributors"
+      }
+    },
+    {
+      "id": "sofia-tsanev-zaharna-fabrika",
+      "coordinates": {
+        "latitude": 42.7145546,
+        "longitude": 23.2897035,
+        "source": "https://www.openstreetmap.org/way/109214412",
+        "method": "verified_address_geocode",
+        "sourceAddress": "София, Захарна фабрика, ул. Билянини извори 4, Ливанско училище",
+        "checkedOn": "2026-11-06",
+        "licence": "ODbL-1.0",
+        "attribution": "© OpenStreetMap contributors"
+      }
+    },
+    {
+      "id": "sofia-motorista-carwash",
+      "coordinates": {
+        "latitude": 42.633707,
+        "longitude": 23.3754383,
+        "source": "https://www.openstreetmap.org/node/254476862",
+        "method": "verified_address_geocode",
+        "sourceAddress": "София, Младост 4, ул. Доктор Атанас Москов 7",
+        "checkedOn": "2026-11-06",
+        "licence": "ODbL-1.0",
+        "attribution": "© OpenStreetMap contributors"
+      }
+    },
+    {
+      "id": "sofia-one-space",
+      "coordinates": {
+        "latitude": 42.672833,
+        "longitude": 23.3612962,
+        "source": "https://www.openstreetmap.org/way/503838851",
+        "method": "verified_address_geocode",
+        "sourceAddress": "София, ж.к. Изток, бул. Цариградско шосе 20",
+        "checkedOn": "2026-11-06",
+        "licence": "ODbL-1.0",
+        "attribution": "© OpenStreetMap contributors"
+      }
+    },
+    {
+      "id": "sofia-bruno-bastos-bjj",
+      "coordinates": {
+        "latitude": 42.6658358,
+        "longitude": 23.319557,
+        "source": "https://www.openstreetmap.org/way/166213044",
+        "method": "verified_address_geocode",
+        "sourceAddress": "София, бул. Никола Й. Вапцаров 6, зад Mr. Pizza",
+        "checkedOn": "2026-11-06",
+        "licence": "ODbL-1.0",
+        "attribution": "© OpenStreetMap contributors"
+      }
+    },
+    {
       "id": "sofia-lux-mbal-sveta-sofia-carwash",
       "coordinates": {
         "latitude": 42.6595902,

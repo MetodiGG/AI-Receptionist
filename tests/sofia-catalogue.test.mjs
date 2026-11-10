@@ -14,7 +14,7 @@ import { distanceBadge, discoveryDistanceOrigin } from '../lib/discovery/distanc
 import { createPartnerRatingHandler } from '../lib/discovery/partner-ratings.mjs'
 import { createGoogleCardGrantHandler } from '../lib/discovery/google-card-grant.mjs'
 
-const now = DateTime.fromISO('2026-11-06T12:00:00Z'), clock = now.toMillis()
+const now = DateTime.fromISO('2026-11-10T12:00:00Z'), clock = now.toMillis()
 const noProvider = () => assert.fail('Free catalogue must never call Google, AI, auth or a paid budget')
 const deps = patch => ({ config: discoveryConfig({ DISCOVERY_ENABLED: 'true' }), now, allowAttempt: async () => true,
   readInternal: async () => [], readCatalogue: async () => SOFIA_CATALOGUE,
@@ -72,7 +72,7 @@ test('bad destinations, fake eligibility, arbitrary fields and unlicensed photos
   }
 })
 test('draft, rejected, future and expired records cannot appear and never auto-renew', () => {
-  for (const patch of [{ status: 'draft' }, { status: 'rejected' }, { checkedOn: '2026-11-07', validUntil: '2027-02-03' }, { checkedOn: '2026-08-01', validUntil: '2026-10-01' }]) assert.equal(approvedCatalogueRecord(record({ verification: { ...record().verification, ...patch } }), clock), null)
+  for (const patch of [{ status: 'draft' }, { status: 'rejected' }, { checkedOn: '2026-11-11', validUntil: '2027-02-03' }, { checkedOn: '2026-08-01', validUntil: '2026-10-01' }]) assert.equal(approvedCatalogueRecord(record({ verification: { ...record().verification, ...patch } }), clock), null)
   assert.equal(approvedCatalogueRecord(record(), Date.parse('2027-02-04')), null)
   assert.throws(() => validateCatalogue([record(), record()]), /Duplicate catalogue/)
 })
@@ -86,7 +86,7 @@ test('BG and EN natural language find only actual appointment services with one 
 })
 test('no slots, budgets or prices are invented for external appointments, including a date/time search', async () => {
   const result = await discoverBusinesses(input({ query: 'маникюр утре след 13:00' }), deps())
-  assert.equal(result.intent.date, '2026-11-07'); assert.equal(result.intent.timeFrom, '13:00')
+  assert.equal(result.intent.date, '2026-11-11'); assert.equal(result.intent.timeFrom, '13:00')
   assert.ok(result.results.length)
   for (const row of result.results) {
     assert.equal(row.availability.status, 'external'); assert.deepEqual(row.availability.slots, [])

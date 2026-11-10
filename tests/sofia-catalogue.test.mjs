@@ -13,6 +13,7 @@ import { railDirections, railExternalAction, orderedRailRows } from '../lib/disc
 import { distanceBadge, discoveryDistanceOrigin } from '../lib/discovery/distance-origin.mjs'
 import { createPartnerRatingHandler } from '../lib/discovery/partner-ratings.mjs'
 import { createGoogleCardGrantHandler } from '../lib/discovery/google-card-grant.mjs'
+import { currentPublishedFact } from '../lib/discovery/business-details.mjs'
 
 const now = DateTime.fromISO('2026-11-10T12:00:00Z'), clock = now.toMillis()
 const noProvider = () => assert.fail('Free catalogue must never call Google, AI, auth or a paid budget')
@@ -93,11 +94,13 @@ test('no slots, budgets or prices are invented for external appointments, includ
     const record = SOFIA_CATALOGUE.find(source => source.id === row.id)
     for (const service of row.services) {
       const published = record.services.find(source => source.name === service.name)?.price
-      assert.equal(service.price, published?.kind === 'fixed' ? published.amount : null, 'a price must come from this actual published service')
+      assert.equal(service.price, published?.kind === 'fixed' && !published.unit && currentPublishedFact(published, clock) ? published.amount : null, 'a budget price must come from this actual current service, not a per-nail/per-unit tariff')
     }
   }
   const priced = await discoverBusinesses(input({ query: 'маникюр до 20 евро' }), deps())
-  assert.ok(priced.results.some(row => row.id === 'sofia-narra-beauty'))
+  assert.ok(priced.results.length)
+  const narra=await discoverBusinesses(input({query:'маникюр до 20 евро'}),deps({readCatalogue:async()=>SOFIA_CATALOGUE.filter(row=>row.id==='sofia-narra-beauty')}))
+  assert.ok(narra.results.some(row=>row.id==='sofia-narra-beauty'),'a previously priced record remains budget-eligible even when newer closer listings fill page one')
   assert.ok(priced.results.every(row => row.services.every(service => service.price !== null && service.price <= 20)))
   const noPrices = SOFIA_CATALOGUE.filter(row => row.services.every(service => !service.price))
   assert.equal((await discoverBusinesses(input({ query: 'маникюр до 20 евро' }), deps({ readCatalogue: async () => noPrices }))).results.length, 0, 'unknown prices never qualify for a budget')

@@ -13,7 +13,7 @@ from pathlib import Path
 from lxml import html
 
 AMOUNT = r'(?:\d{1,3}(?:[ \u00a0\u202f]\d{3})+|\d+)(?:[.,]\d{1,2})?'
-MONEY = re.compile(rf'(?<![\w.,])(?P<low>{AMOUNT})(?:\s*[–—-]\s*(?P<high>{AMOUNT}))?\s*(?P<currency>€|EUR\b|лв\.?|BGN\b)', re.I)
+MONEY = re.compile(rf'(?<![\w.,])(?P<low>{AMOUNT})(?:\s*(?:[–—-]|до\b|to\b)\s*(?P<high>{AMOUNT}))?\s*(?P<currency>€|EUR\b|евро\b|лв\.?|BGN\b)', re.I)
 EXCLUDE = re.compile(r'депозит|капаро|deposit|отстъп|промо|discount|намален|купон|coupon|ваучер|voucher|подаръч|gift|доставка|shipping', re.I)
 
 
@@ -26,18 +26,37 @@ def text(node):
 
 
 def literal_price(value):
+    # Normalize notation only, never currency/amount: "€80" is "80 €".
+    prefix = re.compile(rf'(€|\bEUR\b)\s*({AMOUNT}(?:\s*(?:[–—-]|до\b|to\b)\s*{AMOUNT})?)(?![\w.,])', re.I)
+    suffixes = list(MONEY.finditer(value))
+    # "grade 1 €55" and flattened "36€2 hours" have two numbers touching
+    # the same currency symbol. Do not guess which one is the tariff. Table
+    # extraction below isolates the actual price cells before parsing them.
+    if any(suffix.start('currency') == match.start(1) for match in prefix.finditer(value) for suffix in suffixes):
+        return None
+    value = prefix.sub(lambda match: f'{match[2]} {match[1]}', value)
     matches = list(MONEY.finditer(value))
     if not matches or EXCLUDE.search(value):
         return None
-    euros = [m for m in matches if m['currency'].upper() in ('€', 'EUR')]
+    euros = [m for m in matches if m['currency'].upper() in ('€', 'EUR', 'ЕВРО')]
     selected = euros or matches
+    # Wix often renders the same amount twice ("20 евро 20 €"). This is
+    # one literal price only when the repetitions touch with whitespace and
+    # have exactly the same amount/range; never merge labelled alternatives.
+    if len(selected) > 1 and all((m['low'], m['high']) == (selected[0]['low'], selected[0]['high']) for m in selected) and all(not value[a.end():b.start()].strip() for a, b in zip(selected, selected[1:])):
+        selected = selected[:1]
     if len(selected) != 1:
         return None
     match = selected[0]
     amount = float(re.sub(r'\s', '', match['low']).replace(',', '.'))
     if not 0 < amount <= 1_000_000:
         return None
-    before = value[max(0, match.start() - 8):match.start()]
+    # A literal dual-currency pair may share one starting-price qualifier.
+    # Do not turn "от 20 лв / 10 евро" into a fixed EUR price or convert it.
+    basis = match
+    if len(matches) == 2 and len(euros) == 1 and matches[0] != match and re.fullmatch(r'\s*[/|()]\s*', value[matches[0].end():match.start()]):
+        basis = matches[0]
+    before = value[max(0, basis.start() - 8):basis.start()]
     price = {'amount': amount, 'currency': 'EUR' if euros else 'BGN', 'kind': 'from' if re.search(r'(?:от|from)\s*$', before, re.I) else 'fixed'}
     if match['high']:
         maximum = float(re.sub(r'\s', '', match['high']).replace(',', '.'))
@@ -45,7 +64,7 @@ def literal_price(value):
             return None
         price.update(kind='range', maximum=maximum)
     after = value[match.end():]
-    unit = re.match(r'\s*/\s*(м²|м2|кв\.?\s*м\.?|час|часа|посещение|бр\.?|седалка|m²|m2|hour|visit)\b', after, re.I)
+    unit = re.match(r'\s*/\s*(м²|м2|кв\.?\s*м\.?|час|часа|посещение|бр\.?|нокът|седалка|m²|m2|hour|visit)\b', after, re.I)
     if unit:
         price['unit'] = unit[1]
     return price
@@ -92,10 +111,13 @@ def extract(body, url):
         value = text(row)
         if not 5 < len(value) < 800 or row.xpath('.//del|.//s'):
             continue
-        price = literal_price(value)
+        cells = row.xpath('./td|./th')
+        # Service names can contain numbers (grade 1, 3–4, size 10 kg).
+        # They are not part of the tariff and must not bind to a leading €.
+        price_text = ' '.join(text(cell) for cell in cells[1:]) if len(cells) >= 2 else value
+        price = literal_price(price_text)
         if not price:
             continue
-        cells = row.xpath('./td|./th')
         names = cells[:1] if len(cells) >= 2 else row.xpath('.//*[contains(@class,"name") or contains(@class,"title") or self::h3 or self::h4]')
         name = text(names[0]) if names else ''
         if not 3 <= len(name) <= 200 or MONEY.search(name) or EXCLUDE.search(name):
@@ -154,6 +176,7 @@ def extract(body, url):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--audit', required=True)
+    parser.add_argument('--cache', help='Optional shared HTTP cache used by the booking-flow audit')
     args = parser.parse_args()
     root = Path(args.audit)
     reports = []
@@ -161,20 +184,23 @@ def main():
         if path.name in ('report.json', 'price-candidates.json'):
             continue
         report = json.loads(path.read_text())
-        if 'host' not in report:
+        host = report.get('host') or report.get('owner')
+        if not host:
             continue
         candidates = []
         for page in report.get('pages', []):
             if page.get('status') != 200 or page.get('reviewRequired') or not (page.get('priceRows') or page.get('structuredOffers')):
                 continue
-            cache = root / 'http-cache' / (hashlib.sha256(page['url'].encode()).hexdigest() + '.json')
+            cache = (Path(args.cache) if args.cache else root / 'http-cache') / (hashlib.sha256(page['url'].encode()).hexdigest() + '.json')
+            if not cache.exists():
+                continue
             result = json.loads(cache.read_text())
             if result.get('contentType') not in ('text/html', 'application/xhtml+xml'):
                 continue
             for candidate in extract(result['body'], page['url']):
                 candidates.append(candidate)
         unique = {json.dumps([norm(c['name']), c['price'], c['sourceUrl']], sort_keys=True): c for c in candidates}
-        reports.append({'host': report['host'], 'businessIds': report['records'], 'candidates': list(unique.values())})
+        reports.append({'host': host, 'businessIds': report.get('records', report.get('businessIds', [])), 'candidates': list(unique.values())})
     output = {'notice': 'OFFLINE CANDIDATES ONLY. No business or price is automatically imported. Source/branch/appointment scope and conflicting prices require review.', 'hosts': reports}
     (root / 'price-candidates.json').write_text(json.dumps(output, ensure_ascii=False, indent=2) + '\n')
     print(json.dumps({'hosts': len(reports), 'candidateHosts': sum(bool(row['candidates']) for row in reports), 'candidates': sum(len(row['candidates']) for row in reports)}))

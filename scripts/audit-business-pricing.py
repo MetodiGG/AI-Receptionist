@@ -21,8 +21,10 @@ from pathlib import Path
 from lxml import html
 
 AGENT = 'GoRezPricingAudit/1.0 (+https://www.gorez.co; info@gorez.co)'
-MONEY = re.compile(r'(?:\d[\d\s.,–-]{0,25}\s*(?:€|EUR\b|лв\.?|BGN\b)|(?:€|EUR)\s*\d)', re.I)
-RELEVANT = re.compile(r'цен|услуг|ценоразпис|резерв|запази|запиш|price|pricing|tariff|service|book|appointment|reservation|menu|меню|kontakt|contact', re.I)
+MONEY = re.compile(r'(?:\d[\d\s.,–-]{0,25}\s*(?:€|EUR\b|евро\b|лв\.?|BGN\b)|(?:€|EUR)\s*\d)', re.I)
+BOOKING = re.compile(r'резерв|запаз|запиш|записв|часове|book|appointment|reservation|rezerv|zapaz|zapis', re.I)
+PRICING = re.compile(r'цен|ценоразпис|price|pricing|tariff|tsen|ceni|cenorazpis', re.I)
+RELEVANT = re.compile(r'цен|услуг|ценоразпис|резерв|запаз|запиш|записв|price|pricing|tariff|service|book|appointment|reservation|rezerv|zapaz|zapis|tsen|ceni|uslug|menu|меню|kontakt|contact', re.I)
 EXCLUDED = re.compile(r'facebook\.com|instagram\.com|google\.|googleapis\.|gstatic\.|googletagmanager\.|youtube\.com|youtu\.be|tiktok\.com|linkedin\.com|twitter\.com|x\.com', re.I)
 SKIP_PATH = re.compile(r'login|log-in|sign-in|checkout|cart|wp-admin|wp-json|account|privacy|terms|cookie|политик|условия|galer|gallery|blog|novini|новин', re.I)
 MAX_BYTES = 2_000_000
@@ -60,19 +62,25 @@ class NoRedirect(urllib.request.HTTPRedirectHandler):
 
 
 class Fetcher:
-    def __init__(self, cache_dir):
+    def __init__(self, cache_dir, cache_max_age=86400):
         self.cache_dir = cache_dir
+        self.cache_max_age = cache_max_age
         self.last_start = 0
         self.network_requests = 0
         self.opener = urllib.request.build_opener(NoRedirect())
 
-    def fetch(self, value, redirect_hosts=None):
+    def fetch(self, value, redirect_hosts=None, can_fetch=None):
         url = safe_url(value)
         if not url:
             return {'url': value, 'status': 'unsafe_or_excluded_url'}
         cache = self.cache_dir / (hashlib.sha256(url.encode()).hexdigest() + '.json')
-        if cache.exists():
-            return json.loads(cache.read_text())
+        if cache.exists() and time.time() - cache.stat().st_mtime <= self.cache_max_age:
+            cached = json.loads(cache.read_text())
+            destination = cached.get('finalUrl', url)
+            # A cached redirect is subject to the current path policy too.
+            if can_fetch and (not can_fetch(url) or not can_fetch(destination)):
+                return {'url': url, 'status': 'robots_disallowed'}
+            return cached
         current, visited = url, set()
         for _ in range(5):
             if current in visited:
@@ -83,6 +91,8 @@ class Fetcher:
                 public_dns(host)
                 if redirect_hosts and host.removeprefix('www.') not in redirect_hosts:
                     return {'url': url, 'status': 'external_redirect_review', 'destination': current}
+                if can_fetch and not can_fetch(current):
+                    return {'url': url, 'status': 'robots_disallowed'}
                 time.sleep(max(0, 1.2 - (time.monotonic() - self.last_start)))
                 self.last_start = time.monotonic()
                 self.network_requests += 1
@@ -134,6 +144,21 @@ def read_page(result):
             if url and RELEVANT.search(urllib.parse.unquote(url) + ' ' + text) and not SKIP_PATH.search(urllib.parse.urlsplit(url).path):
                 page['links'].append({'url': url, 'text': text})
         page['links'] = list({item['url']: item for item in page['links']}.values())[:100]
+        page['embeddedMenus'] = []
+        # Public booking widgets can be on an owner subdomain rather than an
+        # anchor. Record only read-only frame URLs; never submit any form.
+        for frame in tree.xpath('//iframe[@src]'):
+            url = safe_url(urllib.parse.urljoin(result.get('finalUrl', result['url']), frame.get('src')))
+            label = clean(frame.get('title', ''))[:180]
+            if re.search(r'table|цени|price|menu', label, re.I):
+                # Embed URLs may carry signed viewer/session parameters.
+                # Keep just the provider and label for a rendered review.
+                page['embeddedMenus'].append({'provider': urllib.parse.urlsplit(frame.get('src', '')).hostname, 'title': label})
+            if url and BOOKING.search(urllib.parse.unquote(url) + ' ' + label):
+                page['links'].append({'url': url, 'text': label or 'Public booking frame', 'kind': 'iframe'})
+        page['links'] = list({item['url']: item for item in page['links']}.values())[:100]
+        page['bookingLinks'] = [item for item in page['links'] if BOOKING.search(urllib.parse.unquote(item['url']) + ' ' + item['text'])]
+        page['hasPublicForm'] = bool(tree.xpath('//form'))
         page['structuredOffers'] = []
         for script in tree.xpath('//script[@type="application/ld+json"]'):
             try:
@@ -171,6 +196,8 @@ def read_page(result):
         page['textLength'] = len(text)
         if len(text) < 120 and not page['priceRows']:
             page['reviewRequired'] = 'javascript_or_empty_page'
+        if page['embeddedMenus'] and not page['priceRows']:
+            page['reviewRequired'] = 'embedded_price_menu'
         return page
     except (ValueError, TypeError) as exc:
         return {**page, 'reviewRequired': 'parse_error', 'reason': type(exc).__name__}

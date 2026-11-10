@@ -2,15 +2,19 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import updates from '../lib/discovery/catalogue-data/pricing-20261110.json' with { type: 'json' }
 import report from '../docs/catalogue-pricing/audit-20261110.json' with { type: 'json' }
+import originalInventory from '../lib/discovery/catalogue-data/pricing-review-baseline-20261110.json' with { type: 'json' }
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 import { enrichCataloguePricing } from '../lib/discovery/catalogue-pricing-enrichment.mjs'
 import { catalogueBusinessDetails, detailPriceLabel } from '../lib/discovery/business-details.mjs'
 import { normalizeSearchText } from '../lib/discovery/categories.mjs'
+import { BOOKING_REVIEWED_PRICING } from '../lib/discovery/catalogue-data/pricing-booking-review-v1.mjs'
 
-test('pricing audit evaluates every catalogue record and every registered profile', () => {
+test('the historical pricing audit covers its original inventory and registered profiles', () => {
   assert.equal(report.businesses.length, 599)
   assert.equal(new Set(report.businesses.map(row => row.id)).size, 599)
-  for (const row of SOFIA_CATALOGUE) assert.ok(report.businesses.some(item => item.id === row.id))
+  // New additions belong in the full booking-flow queue, not retroactively in
+  // a historical crawl which never visited them.
+  for (const row of originalInventory) assert.ok(report.businesses.some(item => item.id === row.id))
   assert.equal(report.businesses.filter(row => row.ownerManaged).length, 4)
   assert.ok(report.businesses.every(row => Array.isArray(row.issues) && Array.isArray(row.checkedUrls)))
   assert.equal(report.summary.liveDatabaseWrites, 0)
@@ -23,7 +27,8 @@ test('reviewed pricing merges into the same IDs without duplicate named services
     assert.equal(new Set(row.services.map(service => normalizeSearchText(service.name))).size, row.services.length, row.id)
     for (const service of update.services) {
       const stored = row.services.find(item => normalizeSearchText(item.name) === normalizeSearchText(service.name))
-      assert.deepEqual(stored.price, service.price)
+      const newer=BOOKING_REVIEWED_PRICING.find(item=>item.id===update.id)?.services.find(item=>normalizeSearchText(item.name)===normalizeSearchText(service.name))
+      assert.deepEqual(stored.price, newer?.price || service.price, 'a later actual booking review supersedes the initial static-page tariff')
       assert.equal(service.price.checkedOn, '2026-11-10')
       assert.equal(new URL(service.price.sourceUrl).hostname.replace(/^www\./u, ''), new URL(row.website).hostname.replace(/^www\./u, ''))
     }
@@ -39,6 +44,18 @@ test('the importer cannot touch owner-managed records, unknown IDs or duplicate 
   const enriched = enrichCataloguePricing([row], [{ id: row.id, services: [service] }])[0]
   for (const key of ['address', 'category', 'coordinates', 'booking', 'verification', 'website', 'name']) assert.deepEqual(enriched[key], row[key])
   assert.equal(enriched.services[0].name, row.services[0].name)
+})
+
+test('a newly reviewed price keeps exclusions without losing existing appointment evidence', () => {
+  const row = structuredClone(SOFIA_CATALOGUE[0])
+  row.services[0].description = 'Първоначално описание на услугата.'
+  const service = { ...row.services[0], category: 'other', description: 'Декорациите се заплащат отделно.', price: updates[0].services[0].price }
+  const merged = enrichCataloguePricing([row], [{ id: row.id, services: [service] }], { includeReviewedDescriptions: true })[0]
+  assert.equal(merged.services[0].description, `${row.services[0].description} ${service.description}`)
+  assert.equal(merged.services[0].category, row.services[0].category)
+  assert.equal(merged.services[0].appointmentModel, row.services[0].appointmentModel)
+  assert.throws(() => enrichCataloguePricing([row], [{ id: row.id, services: [{ ...service, description: 'x'.repeat(300) }] }], { includeReviewedDescriptions: true }), /Invalid reviewed menu/)
+  assert.equal(row.services[0].description, 'Първоначално описание на услугата.')
 })
 
 test('ranges, starting prices, units and long menus survive through public details', () => {

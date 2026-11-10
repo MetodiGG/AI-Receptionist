@@ -1,0 +1,2382 @@
+[
+  {
+    "id": "sofia-mokro-nosle",
+    "identity": "39c0ce54c2eaa45dd052c20da7a7159b6806771ad378bb1a8664fbb3f9e44325"
+  },
+  {
+    "id": "sofia-kaya-grooming",
+    "identity": "134e2016c765c485d9b0853b2474ccb61ea5b679d3b0addff6942f70c779a571"
+  },
+  {
+    "id": "sofia-tobbys-grooming",
+    "identity": "3ac5f5be154a3313fdc45226ba722e51d3b1f28ae9a8566f05f356a6702c1fc1"
+  },
+  {
+    "id": "sofia-pet-stop-place",
+    "identity": "4fae10ffd4a48ed6ba49ebab7e8a206a6a45679d68b22b4c946575523a58c824"
+  },
+  {
+    "id": "sofia-iq-detailing",
+    "identity": "e9db9f1e6e51df2e20012178d6f4e79809b4ff28c850d388cc4001d2f1b81a20"
+  },
+  {
+    "id": "sofia-nebula-detailing",
+    "identity": "72119e5f1041ea94160f367c9b75f354585f165702aa5516ae3b7f42ab3ffdb4"
+  },
+  {
+    "id": "sofia-autosteamclean-mobile",
+    "identity": "f1c01461048691f33e55653c4b676195fe004f8ddb1a7dc596b84507e58f7c18"
+  },
+  {
+    "id": "sofia-cut-n-chill",
+    "identity": "838c010bb89dea081c936991e6d078e5a7bb67c597d68348978a1995846bc55e"
+  },
+  {
+    "id": "sofia-bobi-yarchev",
+    "identity": "014c472b8ccff3ff1601e93a3b3ae9730af7e2d8a671c45da057310c3592a757"
+  },
+  {
+    "id": "sofia-el-gato",
+    "identity": "203c40d9e3e67a14a1e7c896cede8f4db9be9289bb395485a2d5ee3b37cb5a4f"
+  },
+  {
+    "id": "sofia-nail-cocktail-boutique",
+    "identity": "3c531e4d07e0d81991bd9d3914cf0f45a195b4b2157909349e0ae68628797d46"
+  },
+  {
+    "id": "sofia-elmida-beauty",
+    "identity": "202e010f5cae420c5e7f50af120e526eb34fc5bbd5f5153d74c3cbbedb62c07d"
+  },
+  {
+    "id": "sofia-twisted-hladilnika",
+    "identity": "c66a911985d83536257cd09c45ee1e8e1dfbda749710098bfbdc4d732d756845"
+  },
+  {
+    "id": "sofia-twisted-slatina",
+    "identity": "14d32702fccb413e31567823fe67d10303337c85ce3b2984737d909451ebc226"
+  },
+  {
+    "id": "sofia-sofiyski-remonti",
+    "identity": "f218c37484b729d15e53793552ae7a73d002c52fc18e6448b9bb794e8b7c9637"
+  },
+  {
+    "id": "sofia-danyelle-hair-beauty",
+    "identity": "ac511e78f69263955cac9686a28422a89dc42eb0732c20c2299e9262a4dbf629"
+  },
+  {
+    "id": "sofia-belami-westmall",
+    "identity": "c72f0fa79fb8bafdd3fc29b940eb72cd5cf43e9c6b84ee1cf5cdb1af992136be"
+  },
+  {
+    "id": "sofia-belami-park-center",
+    "identity": "4cdabdf833ea9edc2e7d7902b8c4adb00f7a2d221ae839141d19b14142e742db"
+  },
+  {
+    "id": "sofia-salon-fiore",
+    "identity": "0b9e199b8b9492cdd332252e7e57a20b0a53013d34c2cfa2ceb1322d5be87034"
+  },
+  {
+    "id": "sofia-nn-hair-design",
+    "identity": "2a85aac7e7335c4bbc8713c99f826d515bdde0dbd5337574c8af0a31837a2a11"
+  },
+  {
+    "id": "sofia-uli-nails",
+    "identity": "d036d364aaa4cbb39354b94988539a727b7018f050b6f234b86f21600b6e5cf4"
+  },
+  {
+    "id": "sofia-lumiere-beauty-club",
+    "identity": "be77a9d70b547d055a4cf4cacb12b1dfe35b4f725524d79d311f939a35f92f61"
+  },
+  {
+    "id": "sofia-alvien-nails",
+    "identity": "b8ea7d5f0d3187ce136a2bcc6f37195f4cd454f8a71a73ab897437d694fef359"
+  },
+  {
+    "id": "sofia-persia-beauty",
+    "identity": "5d5fb194d5f226d74e51f6cb098d0ab746e23d66a0a3a930beb576f4358938fc"
+  },
+  {
+    "id": "sofia-bloom-beauty-evelyn",
+    "identity": "1d10beb34e31f6fb867059d38acd37641a424989dfbecc62399c5ecbf4845463"
+  },
+  {
+    "id": "sofia-gpoint-five-corners",
+    "identity": "bdb791029ea565b42733d499c669520816d480239740f8db7505fa6c13313e8f"
+  },
+  {
+    "id": "sofia-gpoint-borovo",
+    "identity": "3ba0c47308a4e1ef14250d3bf1f55b8468ed4112c7750c23f1523b5f0b928e4e"
+  },
+  {
+    "id": "sofia-gpoint-studentski-zimen-dvorets",
+    "identity": "b6963e245edf68f7e500d89e0d8ce82342cd69ef4167e080b34c1b54a003eb8f"
+  },
+  {
+    "id": "sofia-gpoint-ovcha-kupel-nbu",
+    "identity": "fd8e020315b617a09ff9e9de5338c6bb3f9dcdc882dc64bd240a6e915cb031c1"
+  },
+  {
+    "id": "sofia-gpoint-geo-milev",
+    "identity": "38606f19d07e52b2bc9a26f2a8bbe1b6407ce632ebb51caf5e2244ff42a2cd83"
+  },
+  {
+    "id": "sofia-gpoint-lyulin-10",
+    "identity": "4c3ed2d85e7061e509d45e5a9da065108fa70c07aeae69be778dc79249b9d99f"
+  },
+  {
+    "id": "sofia-gpoint-mladost-1",
+    "identity": "6ad332e0e5ecef0568c1a2cc2d86cbf1e7ffca6ad8ce399897967444ffb81638"
+  },
+  {
+    "id": "sofia-gpoint-dondukov",
+    "identity": "e80fff54b6937a85b0be57e1dd424d72f1e054133f796354fb4fe47e3558d84f"
+  },
+  {
+    "id": "sofia-gpoint-lozenets",
+    "identity": "5da63c125718df7f1a96d2d2c7e10c2d834c4b4f1b1e09096491586fe20177c2"
+  },
+  {
+    "id": "sofia-gpoint-hladilnika",
+    "identity": "891c28c379af639430749361502272aaa95ab2202bfdaac05a16d082a4dc2f24"
+  },
+  {
+    "id": "sofia-gpoint-suhata-reka",
+    "identity": "b52b39beb5e80d7ad7c5509be97283888bd8caab40056f9d2804cc6ab79f623d"
+  },
+  {
+    "id": "sofia-gpoint-nadezhda-5",
+    "identity": "d086dad11211bffcf2c058a2bfd8a5895801a0cc210b5d892bd5892740973898"
+  },
+  {
+    "id": "sofia-gpoint-zona-b19",
+    "identity": "36ca3dd3d45ba45085a573e207c92abb256e94c235ffb3785179f241ef66fae7"
+  },
+  {
+    "id": "sofia-gpoint-mladost-4",
+    "identity": "8737d985e8cc46aa0bd2914e239ae13a946ab13e854e0ba4cb3724c9a95fb37e"
+  },
+  {
+    "id": "sofia-gpoint-lyulin-7",
+    "identity": "81816c5cad5bb74ac6a0742ff705d02479ebd2bce54410806d5b1c5ccf390043"
+  },
+  {
+    "id": "sofia-gpoint-dianabad",
+    "identity": "18dfe7d82d82a59b108877f7d99d91f9129792c8bbf14fcab689f0694a75111f"
+  },
+  {
+    "id": "sofia-gpoint-stadion-vasil-levski",
+    "identity": "b72014743324ec9baf74de5fd453e6dea5f78f88a54d97858c8cff66508cd625"
+  },
+  {
+    "id": "sofia-gpoint-manastirski-iztok",
+    "identity": "e6e816df83f8b2287f7b56889974ed28659c9ba584d3d64f24938f2593cdafae"
+  },
+  {
+    "id": "sofia-gpoint-reduta",
+    "identity": "7838cf2182dcc0db3cd6b6204d47a66ed2dbd70099bff9a7e3b48db8f25f41c8"
+  },
+  {
+    "id": "sofia-gpoint-nadezhda-2",
+    "identity": "7f9802fd06da9460763fa93310ac6c4caac00f07c06d4efd8a05161106fb1a52"
+  },
+  {
+    "id": "sofia-gpoint-sadebna-palata",
+    "identity": "4ec3fc9576b8d7e5e717701c256ae2c3da02c059580389678032681ac7ebbbaf"
+  },
+  {
+    "id": "sofia-gpoint-druzhba-2",
+    "identity": "fc8eb7eb051efd1777ef0616af29f4bc51a43f1539c5f99bb7c5e508fede7648"
+  },
+  {
+    "id": "sofia-gpoint-manastirski-zapad",
+    "identity": "353e60ef334efa61f1ed3ef8af63a50a3efbea3cab77fdde1ff764c5cd7a30e9"
+  },
+  {
+    "id": "sofia-gpoint-dragalevtsi",
+    "identity": "1657eb54680ac0a79a6e9657733916919342df9f023641faadc154eee82b12ad"
+  },
+  {
+    "id": "sofia-gpoint-iztok",
+    "identity": "94e8ef8c2e4217224e035e957dd0060c91a34a7da08ee19926890c6fa8af2163"
+  },
+  {
+    "id": "sofia-gpoint-vma",
+    "identity": "91a84bc1c54a1709eae67dfc69e940bcebbaa8f565dfa67f92a7dfa5d6ab99bf"
+  },
+  {
+    "id": "sofia-gpoint-ovcha-kupel-2",
+    "identity": "6de5187c15bae4da72b3144e55c694ed4bac28808a6cba1299f987acca333ff4"
+  },
+  {
+    "id": "sofia-gpoint-hadzhi-dimitar",
+    "identity": "7103e45ea22826ce616934986cadaaec4d07301a2f9c134dc8c14942ad363e83"
+  },
+  {
+    "id": "sofia-gpoint-mladost-2",
+    "identity": "fd67e8002ae4934dd6ca43e402773fedf3a96c3fd8d70693963a2675dd7b4e33"
+  },
+  {
+    "id": "sofia-gpoint-sveta-troitsa",
+    "identity": "da4fdec29a2a8e0e5628bff6058a279e12906e9eefa9b6b4b86cc3bdddaef1f3"
+  },
+  {
+    "id": "sofia-gpoint-darvenitsa",
+    "identity": "da3168bee5498b2416bffee52fb1f552e2f4ea414bc9ff7d63d80437b6e1783f"
+  },
+  {
+    "id": "sofia-gpoint-banishora",
+    "identity": "8e276e968f906b389098753f6806c7e72f03f149c123eaa4e7b3a1e2452cf1b3"
+  },
+  {
+    "id": "sofia-gpoint-ovcha-kupel-lyublyana",
+    "identity": "f2119a321c7ac0a0e1f8bf04f4dec362af9080304e95711df2daca8471228019"
+  },
+  {
+    "id": "sofia-gpoint-lyulin-8",
+    "identity": "730496f9f8196b912f742f40738e6888e244b194f353dfa1011cb61d355d8659"
+  },
+  {
+    "id": "sofia-gpoint-studentski-nikola-gabrovski",
+    "identity": "e65991e937f26b569040cad4062354ba5c6bcea1ae8c236b791bd029240bc240"
+  },
+  {
+    "id": "sofia-gpoint-vitosha",
+    "identity": "83ccac894199afe3daff4fe9e06b048e0f99faf26f9eade828eb87ca73dac640"
+  },
+  {
+    "id": "sofia-gpoint-druzhba-1",
+    "identity": "af618b87be19726d341b03937dc0e13831d9fab141e42d64d2022fd11e185469"
+  },
+  {
+    "id": "sofia-gpoint-mladost-3",
+    "identity": "c9a274168d51781133f4500cdc6571b2c6be011ae3846fe04c9ecf3deb2ff27a"
+  },
+  {
+    "id": "sofia-gpoint-belite-brezi",
+    "identity": "808be2df4e85784575bc1c45acc2955efd12c6d5476f776cefaab81b2c8c2711"
+  },
+  {
+    "id": "sofia-gpoint-krasna-polyana",
+    "identity": "122f88e63104599e3c27c804e4b9129e762cf37253807a6967059bc506185599"
+  },
+  {
+    "id": "sofia-gpoint-levski-g",
+    "identity": "f1803e9304043fa63d6d4b9dfaa8f354335d108e57a09780c56e3073ee1a061f"
+  },
+  {
+    "id": "sofia-gpoint-ovcha-kupel-mizia",
+    "identity": "1b86db400cf4b019a362a8d5369f12590e8daaa4325b7898412378ae29946978"
+  },
+  {
+    "id": "sofia-gpoint-nadezhda-1",
+    "identity": "1229b029b26e281e170e775000b4dd7653a19d549292a7b3bb96b26e222d296c"
+  },
+  {
+    "id": "sofia-ts-beauty-levski",
+    "identity": "a2271b1a1f78a314c5d3abf49f3f68bf0a3368761ec0dfca79f675185eb5d02f"
+  },
+  {
+    "id": "sofia-ts-laser-reduta",
+    "identity": "24e72be8080516f9f7563364c92bfb9be044521c2dd8eba77e2ab51bed2845c8"
+  },
+  {
+    "id": "sofia-ts-nail-reduta",
+    "identity": "9690ec30a11fd3c3a025fc11270129ee06aabd8f255c2f1b52b400c91890cba3"
+  },
+  {
+    "id": "sofia-abi-beauty-serdika",
+    "identity": "85c32c077d80d5070356ad4c82cca15492ec7c0e331eb033c7f88aafcd8b441f"
+  },
+  {
+    "id": "sofia-abi-beauty-lozenets",
+    "identity": "474fbe818293ba3fa4beb346c0ed33922b16b716c5fe5a736b75635516a181a8"
+  },
+  {
+    "id": "sofia-abi-beauty-druzhba-1",
+    "identity": "2913e74d2a00d3cc1d21223a186b53365ef0ea95f39372f93c59d4351bee3968"
+  },
+  {
+    "id": "sofia-abi-beauty-druzhba-2",
+    "identity": "d604af71be4c2b33dc682b6d81788feeccb68c5ebbf86439f2d8e6a6a0cf228d"
+  },
+  {
+    "id": "sofia-abi-beauty-nadezhda",
+    "identity": "a039ab652a011c145e91e6f93895ef73067b0e8d02d5315e3abd895eb3ba749b"
+  },
+  {
+    "id": "sofia-abi-beauty-bul-bulgaria",
+    "identity": "243799a3f8c739fcc110cb12e370e9f1bc806e13934bdbc956ef0bf1d5dc3f53"
+  },
+  {
+    "id": "sofia-head-hunters-alabin",
+    "identity": "2cde3003df6837aaf470b81353d8a88914153e0a8e7fede48b522f973db2ef3e"
+  },
+  {
+    "id": "sofia-head-hunters-lozenets",
+    "identity": "fd2576f49c94ee530a896d848cff2fe8ece7efa3253198c378dc4e39d32bc73e"
+  },
+  {
+    "id": "sofia-head-hunters-mladost",
+    "identity": "2b90946166d3968100645fe26821329c757b18f1189b0488181e987661d96ac9"
+  },
+  {
+    "id": "sofia-head-hunters-levski",
+    "identity": "fd0341c432954ed04c289486292f62be551508db5ef22c583fff81fbd3167912"
+  },
+  {
+    "id": "sofia-head-hunters-ruski-pametnik",
+    "identity": "a2fe540bc90ca59866b789d05d467839a49bafc2df45a71cc50a43ce565e7303"
+  },
+  {
+    "id": "sofia-head-hunters-academy",
+    "identity": "c6b3d5334e3d77e92e153c7b470a2f2d7043e89937ae8247c790b58d42328a76"
+  },
+  {
+    "id": "sofia-head-hunters-dondukov",
+    "identity": "2888253a7ade4aa06034cc83d5c2143d938f09c5628102f01ce4838a852c2ade"
+  },
+  {
+    "id": "sofia-the-one-studio",
+    "identity": "48ff6c54e4ad8de718e31ebf3314a1c5478a9efbd9d34731480f9f311e95daf4"
+  },
+  {
+    "id": "sofia-the-one-deluxe",
+    "identity": "7aa2b90b4afda94b1eae0384498d232cd7f060303ba46bb2290e738120a42936"
+  },
+  {
+    "id": "sofia-the-one-barbershop",
+    "identity": "77ff0a3eda20349bc3c35d0a94e3dce362139d4ec4520709adda998bf5d700c9"
+  },
+  {
+    "id": "sofia-the-one-premium",
+    "identity": "427deae1b12482a05fad91ca0c4403d396605de314c1c64f3e29b9d1b29ce732"
+  },
+  {
+    "id": "sofia-the-one-private",
+    "identity": "8cdf247a9e6368b7e1ede2ff500b4e4ff9613b188140ba53e291139a51803814"
+  },
+  {
+    "id": "sofia-the-one-famous",
+    "identity": "93c68bc9848bea8663bece0806960af4f97bb26b528c6dd6245a5ee77a3b27e1"
+  },
+  {
+    "id": "sofia-jonita-auto",
+    "identity": "2e50e661b548cd5e552b4aae135c42027b8f125473634c30fddc8acf98ce51ec"
+  },
+  {
+    "id": "sofia-vladi-service",
+    "identity": "e818c880b8b2f002843a3cd8e33ab6f0393d0d95775b7140f4c222519308a627"
+  },
+  {
+    "id": "sofia-autoxpert",
+    "identity": "0233332fb270d91938f69012f51b373466f73e1fc45f4237ea1209437f565f90"
+  },
+  {
+    "id": "sofia-autovilla",
+    "identity": "65aa46be2f7f19ce9205851cfc68789147a68986225fe6647e46b2c84f7506dc"
+  },
+  {
+    "id": "sofia-autocomplex-rs",
+    "identity": "aeb888aeca13c016580d4c16ef7a4a7cf77b1a945b370f4ebadb8def102be964"
+  },
+  {
+    "id": "sofia-tl-autoservice",
+    "identity": "532c3237b16cfa79527c25fadc06a37abd32f7294d225177483054fb71a0a371"
+  },
+  {
+    "id": "sofia-lucky-garage",
+    "identity": "edabe8eae87d601627fb8a32f516b3c4185b008fce8c47a12062b7724205af27"
+  },
+  {
+    "id": "sofia-autoclinic-bg",
+    "identity": "f10e40821b220c21c0df7b50886fa1b6109dbad98a5a598eb990b2fc4a1a6810"
+  },
+  {
+    "id": "sofia-diana-tsarigradsko",
+    "identity": "5a6f45ef32cd86cfb51eec0220b9abf6f3275395086db253ea000374d13a6079"
+  },
+  {
+    "id": "sofia-diana-botevgradsko",
+    "identity": "ff57e769e4fae40dd4ca2e922661e906714080731e97c10e9335c9ba20e85efd"
+  },
+  {
+    "id": "sofia-diana-dragalevtsi",
+    "identity": "5b2d1070ed2a7b2bca482681db2df6894d70e086cdc06d58201a2431dc4bc7f2"
+  },
+  {
+    "id": "sofia-diana-lyulin",
+    "identity": "e67035238b5efd997822e5a9489d951b22e2c0c94161ff4635c03a55ac8c5285"
+  },
+  {
+    "id": "sofia-primex-botevgradsko",
+    "identity": "e4b4f046bf7c6b4f5b5b22b2dd5fcdf694956e15c11689faf39d8e202eb43ee7"
+  },
+  {
+    "id": "sofia-primex-okolovrasten",
+    "identity": "f086e2e9b0356768abca389e5af0713c4920e2b40645812c46e476603a3640e6"
+  },
+  {
+    "id": "sofia-impact-boxing",
+    "identity": "6b4dabe77f325f7e68ef165e0ddfeb2f791fcd9a8496e1f0f650214af2f11e82"
+  },
+  {
+    "id": "sofia-bastet-kickboxing",
+    "identity": "69b627723f3ed5beffa8d8dfdad600adcfc42af62ecdec4fcb8a0450609c815b"
+  },
+  {
+    "id": "sofia-lazarov-athletics",
+    "identity": "69d79413d172aaa2ac1bd7b8f31f56f47af8766f9f00a3b6b3cf743ba27ec63b"
+  },
+  {
+    "id": "sofia-bruno-bastos-bjj",
+    "identity": "e20ddb3c0189128fbe6e5c9d5873f6e38c62daaa3fea9ffd3212a5980b754137"
+  },
+  {
+    "id": "sofia-wmaa-mladost",
+    "identity": "b9ed98d371fa582076534083a6f9978b9db33e4036078aecbf9fde9f3b9968fb"
+  },
+  {
+    "id": "sofia-tsanev-manastirski",
+    "identity": "eca1fd374476aa2dff6bd0ff3d049f919a56d5eb108d7a93de443e18f64ca393"
+  },
+  {
+    "id": "sofia-tsanev-hipodruma",
+    "identity": "2c1de6792ad2f5880fc4bf825828c5656040aa3b89843883fca1d0068ec2a31c"
+  },
+  {
+    "id": "sofia-tsanev-gotse-delchev",
+    "identity": "819ea4004b8339264c093381075612ef561938d385fb31d3185cdade3d90c707"
+  },
+  {
+    "id": "sofia-tsanev-sveta-troitsa",
+    "identity": "1eb5c3bce0c931f0518408d629a3fb690d11ec6c69240e3ca6462d10767af928"
+  },
+  {
+    "id": "sofia-tsanev-zaharna-fabrika",
+    "identity": "8e2b8d4e6a044be5ac382b635d95a9469d7b0117d104c01bdb60a642f33cf3d2"
+  },
+  {
+    "id": "sofia-phoenix-taekwondo-druzhba",
+    "identity": "c9cfda661c3b50e40ce31bd2e07624d89148c834a97bdbd159e9aac56ba07864"
+  },
+  {
+    "id": "sofia-ewto-lozenets",
+    "identity": "1ef3ca8daeb767858ea36e092c58d9574da3bd4ca976f5d284c2d8a91d0076b5"
+  },
+  {
+    "id": "sofia-ewto-stadium",
+    "identity": "c58d16b8f5871dd3510397207a9d43113485c42498359f95a69a298f9528f30f"
+  },
+  {
+    "id": "sofia-pilates-maria-reduta",
+    "identity": "0222c59741db858a99eaa0ca7a7226ddcffc9ae891c278c5b9ac96d693bfca3c"
+  },
+  {
+    "id": "sofia-angels-pilates",
+    "identity": "4cedff255696ba502325e8aefdcfae05028f034e30f211369104ca71f7dba9ed"
+  },
+  {
+    "id": "sofia-new-way-group-training",
+    "identity": "73b5e6d4c0c23410cc0f7fc1f11c1d68bccbf9cc570616a67296bee85b6b6900"
+  },
+  {
+    "id": "sofia-jp-studio-reformer",
+    "identity": "7e5ca795f20e7c4291b371b8ae0ecf0b41e43751a9ceb3dcc2cea3e6a94c4d50"
+  },
+  {
+    "id": "sofia-reformer-vibe",
+    "identity": "9dd455c23dc6fd75fed10ac11ec1d7d879281a2e247e64c4868a7e83058591e9"
+  },
+  {
+    "id": "sofia-kometa-autocenter",
+    "identity": "17053bf7dedc33256aedfc30f67a2ea0b549f398c5a2b70f475f8a9a14284ce2"
+  },
+  {
+    "id": "sofia-omniris-pdr",
+    "identity": "38abd391cdbf098feb1b56772c9976cd424d63e240c75289120ca631f883e634"
+  },
+  {
+    "id": "sofia-klimacicite-mobile",
+    "identity": "0c80d2a581922edab0d236ee46e84ab6b87748633fd240694ba1ec1b45efe499"
+  },
+  {
+    "id": "sofia-po-manyashkiya-detailing",
+    "identity": "96a8fbfe64d29426131ec4aa03a52696def80ee5ce169c3e5e67d635add5cce0"
+  },
+  {
+    "id": "sofia-georgis-garage-sofia",
+    "identity": "4715b882e3a66c33b12bec41ab9afdd92d8c182a10aa27f72ee081da0801efa7"
+  },
+  {
+    "id": "sofia-luxspa-mobile-detailing",
+    "identity": "7159694f30bd20f466e373140213867730531e7c0baf2eb68e0066318ea41616"
+  },
+  {
+    "id": "sofia-pulsar-mobile-detailing",
+    "identity": "c1dcae7ac2f819309ea012e909227b0bf4cb3bbef8b6aa5a8f6b52482b576b71"
+  },
+  {
+    "id": "sofia-sofia-detailing-studio",
+    "identity": "6899d85266656bbb310ef48ce191884278363b5f6bedda50449c933137964373"
+  },
+  {
+    "id": "sofia-zona-wash",
+    "identity": "6e4616fa09561ce6f66dce6687eb4e9c13a4883144cc1826079f8120e556f408"
+  },
+  {
+    "id": "sofia-auto-manager-carwash",
+    "identity": "1bdbceff5b789b29dcd40265a662abbf1a5d4033811e3a97e140bdad67d0e08b"
+  },
+  {
+    "id": "sofia-fantastic-plumbing",
+    "identity": "8c10cc5d4539aae5d42280a8ebccdd7755637416d7a0b190b0193f323a468849"
+  },
+  {
+    "id": "sofia-cleanrs",
+    "identity": "67a2869fa85f2137a131898e82644b98d3128dbd9d52825c8925358dd0e18798"
+  },
+  {
+    "id": "sofia-chistnik",
+    "identity": "9211d393af8a7b69d68a79689a8d2dec1674dd4bdf1ab9da71f7c2edf0845cf3"
+  },
+  {
+    "id": "sofia-antilopa-cleaning",
+    "identity": "25be54d86b3bcd3947e572cffe570833301ac4eae60b4c85442f326fb6f87972"
+  },
+  {
+    "id": "sofia-marani-cleaning",
+    "identity": "d84ff32821ee02af3aef982761f3dfee2d55ced7118f2eacaa2fe1f46ba033c0"
+  },
+  {
+    "id": "sofia-borisov-clean",
+    "identity": "3fd6523d6b305dd275432de62b9cab85a0a5f722d004e01c92fe16427d54f551"
+  },
+  {
+    "id": "sofia-si-cleaning",
+    "identity": "fd5dc5c30cf05388630e65f7e9f632c090e76af302e03e5b435d9061aef19851"
+  },
+  {
+    "id": "sofia-remonti-metodiev-cleaning",
+    "identity": "a2eb1c66e107a565cd593f068a31216901247d76e9afea7835b60bdb9bfe8421"
+  },
+  {
+    "id": "sofia-elpro",
+    "identity": "51901b54ba2469bd723b954e076b50cd0de4774481af879600466b8c51afabd6"
+  },
+  {
+    "id": "sofia-uslugi-vik",
+    "identity": "60990174e6f7971c2afc6fde35d7bc13a4952443ec575ee9d2ab118468258c4a"
+  },
+  {
+    "id": "sofia-rotorem-home-repair",
+    "identity": "808af1f7ebdf69fb6a15627573110e6a9a81236b5c99438b4386b25eef27b713"
+  },
+  {
+    "id": "sofia-petar-georgiev-appliance",
+    "identity": "9f04de0bb5407ca176405327e0d269de35c3d4f61a2d191d62352f615061bd46"
+  },
+  {
+    "id": "sofia-bravo-boiler-installation",
+    "identity": "884782ff1b8386a7c5ed4ed82968a788ff5ee11d79da298fccb13796626b7653"
+  },
+  {
+    "id": "sofia-ac-clean-proclima",
+    "identity": "d54bd492f071037ba165fba29682f333fc392291e88a1a34b934c7b4aee1b4b7"
+  },
+  {
+    "id": "sofia-clean2win",
+    "identity": "15c788f592264aee5d90c994f0354ab8378eca7e2ccb86e9ebdfdf83e42b4228"
+  },
+  {
+    "id": "sofia-cleandirect",
+    "identity": "217e650781de663e8d9d151c7dab9938b5589358f95de1e6a2ca7ba70bfacbeb"
+  },
+  {
+    "id": "sofia-topcleaner",
+    "identity": "0e4590f35eba276b4cf92629f8ed6f1f4ee924f83c990427f4ed523da4333aa6"
+  },
+  {
+    "id": "sofia-freshclean",
+    "identity": "e95e77a764b586c00aa5a4e1d997033d110edc7a20d87a25f987326cc6a0f5b7"
+  },
+  {
+    "id": "sofia-monster-cleaning",
+    "identity": "51125238fb25f84d307aaef5fe3524cb22fd4e22886c3eb4a36cde3013a7df9a"
+  },
+  {
+    "id": "sofia-pochisteno",
+    "identity": "affe50804551c1238fc3280e8a241a748db4b19ce963dd5f7fa988f76cb5c112"
+  },
+  {
+    "id": "sofia-podstrizhime-grooming",
+    "identity": "4b5a1fc46922683e7a3f01286f236c26765abb97923f5c4a8b535053273d9cdd"
+  },
+  {
+    "id": "sofia-sofia-vet-grooming",
+    "identity": "4f27c9165d9c904f05977a8f51d88df120fc238ed6f17bee3162c83f61340a66"
+  },
+  {
+    "id": "sofia-ramona-grooming",
+    "identity": "733c018a0d37c35e54ef83cbd62aeea1a00db8da39825baea0bb2e4be8b38f80"
+  },
+  {
+    "id": "sofia-paw-paw-mobile",
+    "identity": "af69ad0177357e4b97404265f326da6a50e8b8a5fa6e20d768d56084cdce24f7"
+  },
+  {
+    "id": "sofia-felix-dogs-lyulin",
+    "identity": "072bba030e1e5c1983965931e5d8666f6d4b0f60015808eb70ac7fdb591f60f6"
+  },
+  {
+    "id": "sofia-felix-dogs-lagera",
+    "identity": "17c7e7b8c019d0eed3820aa4827118f3ebd594210db4d21d460902481fc2bc48"
+  },
+  {
+    "id": "sofia-new-vita-grooming",
+    "identity": "98017d22065e60e162888ea37f5cc0eb9e9c82af3948d3ab8bf176c8f8b04b39"
+  },
+  {
+    "id": "sofia-yorki-sofia",
+    "identity": "fc5d722d6ea37a4e6799983a72d554583b92f1a3d97a535db55b1d325a24e410"
+  },
+  {
+    "id": "sofia-physio-point",
+    "identity": "83262efa34028834f2a80eaed44ad35c97cc8e465ce8bd40eccfab55f3f7248d"
+  },
+  {
+    "id": "sofia-omni-iztok",
+    "identity": "d08aebaf04b2587c793e306d68278aae16f282bf060da28901c364e7d3ec261f"
+  },
+  {
+    "id": "sofia-omni-druzhba",
+    "identity": "2df7eb7f5695394e19a9b9a32d0eb4a6409477514289f4410e772ca2fa33ea58"
+  },
+  {
+    "id": "sofia-omni-amaya-massage",
+    "identity": "4229f84f6b8452965e8c58c1cd64cf3cc98c5f5d16ea0001cae2df0a7120eecf"
+  },
+  {
+    "id": "sofia-topal-center",
+    "identity": "ea69876b8b53bf68b9f9692022c67d5bb0765a9189d490e4b2511d5937be4da0"
+  },
+  {
+    "id": "sofia-arthromedica",
+    "identity": "1569db2ff96dafd9fc3fe6ff2ebee6b0ed94df11dc28f41f9459ebd0c3afe902"
+  },
+  {
+    "id": "sofia-office-therapy",
+    "identity": "a8af1d4279a871b0ca8f37f8738f3b8cda04be1554f8be8d908f00f7477a620e"
+  },
+  {
+    "id": "sofia-physio-be-active",
+    "identity": "0ff0ea8c0fe7cab5692d9599565d68454546b3d8dd6e4c776ea9599624b4a66f"
+  },
+  {
+    "id": "sofia-sportmed",
+    "identity": "34e567e62b4ab4df3d84988367e0830a01fa2da4cbdc7203f89cad8fbef3f4b1"
+  },
+  {
+    "id": "sofia-dara-physiotherapy",
+    "identity": "c89aea78c89ea6463549414187f0af0ad7723bf3fa90ef5d660bb7006e9f4442"
+  },
+  {
+    "id": "sofia-vibomi",
+    "identity": "a3951034d9460f4232fc10098514ae965aecec20d5c67f76b124a9a116996317"
+  },
+  {
+    "id": "sofia-mm-therapy",
+    "identity": "16a8f216a94c99533b26349c023b95e0cd7658999d9a080f1ec86ab9516360ac"
+  },
+  {
+    "id": "sofia-drum-action",
+    "identity": "3be7fad2c1cd60810b79ffcda2f6882824d045f7fd56d1352e74958c97d541ff"
+  },
+  {
+    "id": "sofia-po-noti",
+    "identity": "df7f59dfca3b031022d8c67b4e08371668afc73cad621151319eedcfce7760d5"
+  },
+  {
+    "id": "sofia-rhythm-academy",
+    "identity": "bdbaf3e32ebc9b360ab2f049e87d2cd1a0dc9004072b58a0230c86f9443b0500"
+  },
+  {
+    "id": "sofia-keramika-zari",
+    "identity": "37a1f76a2c38e8e0393d86fb7226e0ece4ba20369b5b6f32e44ec54d3a3f9e36"
+  },
+  {
+    "id": "sofia-vocal-vision-house",
+    "identity": "754e5bb426cd39ce1846c91429de83973e5475541a3a43c80acdbd980380ac51"
+  },
+  {
+    "id": "sofia-aristea-buzludzha",
+    "identity": "8474323e7c4135ee7f2b4dd623fc718763ba52e9d1c8039aeeb8e91edacbe91a"
+  },
+  {
+    "id": "sofia-aristea-hristo-botev",
+    "identity": "d099b6e39e74c07f9e94177b4b7532e0ae3a50a3d7e025b301c9a47ab83c6040"
+  },
+  {
+    "id": "sofia-edno-school",
+    "identity": "5d1314cad9b1f86e11a53238d286590cc8cd6527ed46b4d2d5e27a045a5c602f"
+  },
+  {
+    "id": "sofia-nota-music-room",
+    "identity": "710e3a5a564b8bd6c7c25c02aa3c4dc4448ed0215cd3e66ae17e42d216ad6941"
+  },
+  {
+    "id": "sofia-mymusic-center",
+    "identity": "590f7fbbd43f91f6073ed1fdb86f22a7d389b6c88aac92f71edbae1481d817b5"
+  },
+  {
+    "id": "sofia-sokol-nedkov",
+    "identity": "021aea194c4382feda6616010784a141c5f33e28c314cd3d6240a29b8c3483c2"
+  },
+  {
+    "id": "sofia-law-bba",
+    "identity": "2ff951cb802d46d440c80f47e8b70f16011799b68b4300d282a8a002e6a2af83"
+  },
+  {
+    "id": "sofia-finansial-consultation",
+    "identity": "9034e3f27d4539fa7790715379876d9f0deef1cfe45e3d8e358a1262c5fac06c"
+  },
+  {
+    "id": "sofia-spravo-consultation",
+    "identity": "0eeada28a17e782b90b9d66e953229fbb03808330e70f09924b1374945a09a1a"
+  },
+  {
+    "id": "sofia-nikolay-nikolaev-law",
+    "identity": "f1efc89db4b93cf3eabaef5a806315c7430de5ad63388bf5893a8a241a3f7cf1"
+  },
+  {
+    "id": "sofia-irina-konstantinova",
+    "identity": "de1df2214f14e4f0c3153d320c52ac8cbca03785569e055bd254ace9a5e410b0"
+  },
+  {
+    "id": "sofia-asotopbrain-consultation",
+    "identity": "1492437f1b56f7297defb6d747ecaa43f1b3999749c438f0288c9235f47c1346"
+  },
+  {
+    "id": "sofia-somenso-career",
+    "identity": "2314aaa001f62bd59c63da8f9a5181b706ead60809d91c0cca13b7c56c92a099"
+  },
+  {
+    "id": "sofia-np-dental-clinic",
+    "identity": "d156ddc20588f7903b60601f8deeb09b8842ea448d43b6e9670a8160c3ea2040"
+  },
+  {
+    "id": "sofia-kambov-dental-clinic",
+    "identity": "d4606a120362f7c03cfad6057f80eb0bc234ed63ad20b8e5982576b6f0a98bbe"
+  },
+  {
+    "id": "sofia-pangeva-dental",
+    "identity": "56afd8ea8b9433e3d3ea450450511801b69fc88846b16b9da143864c9df6f98e"
+  },
+  {
+    "id": "sofia-veadent-gurko",
+    "identity": "0f1175e9a708f02da7ded89c7de9099763b849b8b81020918900b1fe008ef79b"
+  },
+  {
+    "id": "sofia-veadent-skobelev",
+    "identity": "e34fa93724cecc507c56d89850c3a5b50f33f94f3801cac1df6d323298e3e4a1"
+  },
+  {
+    "id": "sofia-belladente",
+    "identity": "64fb4c61d347c0a578684d3dd9cdec476556696f931ea73695ae2747c8fa004c"
+  },
+  {
+    "id": "sofia-sf-dent",
+    "identity": "60741ecd4f953e991117afb3ac2b54a41b08022aa01b01f12d6dbb10dcc29b67"
+  },
+  {
+    "id": "sofia-e-dental-clinic",
+    "identity": "151b810fa77eec1ce6d9431c58fe0086118ec54e41881ea765430dd242d964d4"
+  },
+  {
+    "id": "sofia-impression-dent",
+    "identity": "92d602f31c37bb54c01cf4ce383bb50e905e43527870961be0cc81478227a7b4"
+  },
+  {
+    "id": "sofia-snap-dental-care",
+    "identity": "2e38de22d23ae6ea2cdf61424bf4e8cb60ea7c560e003d29d88735795ab842b6"
+  },
+  {
+    "id": "sofia-margarita-dimitrova-psychologist",
+    "identity": "8d310728e0fe4c824b62fdbaae63f9bac586571edac251d4cb3555b0aec9082a"
+  },
+  {
+    "id": "sofia-kristina-sungarska",
+    "identity": "1c68855472f86626082f1e676edf7b1f26c713a902c0409fc1b1fe8a4ac658f8"
+  },
+  {
+    "id": "sofia-body-and-soul-massage",
+    "identity": "d12b5a6c8e5058279e4062dfab71a5ba6b70cfd3dd818b657967d12f46d80b8a"
+  },
+  {
+    "id": "sofia-gloss-nails",
+    "identity": "fbbc108d2510504375763eeb4f1084f64777aba90b347d381520ebef10781101"
+  },
+  {
+    "id": "sofia-marty-academy-dospevski",
+    "identity": "012efc946d1a5731cfcb748780ed40343cd9d2e69c44953dbe44c55ba1e08926"
+  },
+  {
+    "id": "sofia-marty-gerena-veleka",
+    "identity": "2edf1ede68a737a8e5ebb31cfc06acbcf7c5a28c1ca3aba32d49b9950a905a2f"
+  },
+  {
+    "id": "sofia-bull-barber-shop",
+    "identity": "82230cffcd4530a5446fb02949739452a7c2aedf7fb0d3f4864a7bdc2e55caa3"
+  },
+  {
+    "id": "sofia-jezuscutz-studio",
+    "identity": "1f6dfb46986b056d9fb4e7c9fed0aa4451342b6209fd7c2a6425f6b28df84c59"
+  },
+  {
+    "id": "sofia-luxury-nails-cherkovna",
+    "identity": "dbad8523258dd678c34dcac13e35568e230817666d952004914da3a16ed453d7"
+  },
+  {
+    "id": "sofia-queen-beauty-room",
+    "identity": "a17d59097a614d98f21bc4325324450fb881ea7e11e98f270ed0e63fb5a37f86"
+  },
+  {
+    "id": "sofia-salon-bard",
+    "identity": "9508b8ac67c9247bf7b5c97679c5ddd92fa0c38f556d752c9522f62b1d4512f5"
+  },
+  {
+    "id": "sofia-san-krasi-barber",
+    "identity": "6ef36e5b18b17d19b3f310b41aafb6a5215621161e24abc86aaa38f4f6357ffd"
+  },
+  {
+    "id": "sofia-classy-barbershop",
+    "identity": "676147da25286d4c26e677faa220d7b82ae168ee8406566776c0d51dd8406862"
+  },
+  {
+    "id": "sofia-neda-art-nails",
+    "identity": "4aaa6b09980c88720cabfda3ad2b61361c7bbbe970ca457a3af3706f4cc83a83"
+  },
+  {
+    "id": "sofia-yd-beauty-brand",
+    "identity": "e854a121f3904725798377bc84a07c8c9010879bea12db5125c1cf1eb2a363ea"
+  },
+  {
+    "id": "sofia-coco-dry-bar-nail-house",
+    "identity": "3aced5c16aeb66d87945f7f0d67a1f824d2b68a155b9c0572ccf9529235f55bf"
+  },
+  {
+    "id": "sofia-noxic-beauty",
+    "identity": "200e201c8b49a6bb60914d19014af7fd7816618fd62ba4e4b52e7e533fe29c2b"
+  },
+  {
+    "id": "sofia-salon-elegant-iztok",
+    "identity": "1e2c8504694df252295b08fe0cbfa992af365aab2f13cfba44067bdede0533fa"
+  },
+  {
+    "id": "sofia-ts-studio-blagorodna",
+    "identity": "75ad8ab7666f4dd31f4c0e32c9b5555ff8ca398e703ccacd5e1384cec78fa21b"
+  },
+  {
+    "id": "sofia-md-hairclub",
+    "identity": "27e52450ce053e20ce1ec6e08d369e59de464f5b2f10e442339a1320e17ee78d"
+  },
+  {
+    "id": "sofia-anna-nailz-art",
+    "identity": "b03a91b9917cb9582eb226dd2b5827d9dff35d952a3d1afc238d153594cc9ba3"
+  },
+  {
+    "id": "sofia-beauty-betyna-yovcheva",
+    "identity": "5f6a856f3dc5406bd7eb6d365307765a7486310f2c86f89fd0e03b6accf5025e"
+  },
+  {
+    "id": "sofia-dorado-beauty-wellness",
+    "identity": "08596ebf75a17b21a9d51eaa95c46482f53ab2d13e50223926e2fd86b77d5ba1"
+  },
+  {
+    "id": "sofia-viktoria-beauty-lyulin",
+    "identity": "f1dfaec4def7b019e6a032fe1af51171a3f6f0feda429014ea055a6f5a235b94"
+  },
+  {
+    "id": "sofia-beauty-studio-99",
+    "identity": "af83eeccb575c9db682ba49e19f06a66aea7fa4861f1339c0cedabcd01dadbc3"
+  },
+  {
+    "id": "sofia-the-one-nails-hair",
+    "identity": "cecab6097fcd3bf5174578e4d514468dacd61b7ff4837aae97349448b60a971f"
+  },
+  {
+    "id": "sofia-artemida-paradise",
+    "identity": "1f79ead78679900da7b8210d229bf6994edca3c495ef931900b0daa1d30c39ba"
+  },
+  {
+    "id": "sofia-artemida-studentski",
+    "identity": "0ba636cfb18487405efe3ef1bc05671609b5da2b9f899d1c11de266e8899af1a"
+  },
+  {
+    "id": "sofia-murphy-graf-ignatiev",
+    "identity": "3a0da4b901507e351f7a7d3313350a862fecb750798d435419eaf775417da72f"
+  },
+  {
+    "id": "sofia-murphy-patriarh-evtimii",
+    "identity": "40ed0610bbe229baf8c5f78386a4df43e127fd33d828c6261f81b9600aaaa341"
+  },
+  {
+    "id": "sofia-snb-salon-dunav",
+    "identity": "653feaefa59147194196b9d7242fe11d2379d3d2f3f425b450fc15275ae574e2"
+  },
+  {
+    "id": "sofia-stephan-mladost",
+    "identity": "5c62bea36266bb465bca2cd0cdad32c4e12c932cdcdb51e9771ec0d80d4fbcaa"
+  },
+  {
+    "id": "sofia-stephan-lagera",
+    "identity": "e067b9698abeb9db7fe7b49ff7129495ef2475d12520bf66ed76da10dd8b38a7"
+  },
+  {
+    "id": "sofia-stephan-oborishte",
+    "identity": "f6df51ea642fd67cbdbb37c537709acd4d5791637d659e0efc793b27791f1962"
+  },
+  {
+    "id": "sofia-stephan-iztok",
+    "identity": "cb8abbb0b16fa08e7dec4df50d37d1663dfcc3a252e95073e69432cb9734d219"
+  },
+  {
+    "id": "sofia-stephan-borovo",
+    "identity": "e3f9e84108ded31fd0a29ec1570f4a22de81c00cd7d0646c736069c798efcc00"
+  },
+  {
+    "id": "sofia-stephan-academy-stephan",
+    "identity": "21cabcb04a0c6d0f6a8670230e1bbe649a618e68b2a375e25ffe4e854140cd09"
+  },
+  {
+    "id": "sofia-inspire-business-park",
+    "identity": "2c4a40d61dd22495d09f4c2ed8ed36e607eba5f6f8e429b65673b70d1c0ca86c"
+  },
+  {
+    "id": "sofia-inspire-mladost-1",
+    "identity": "52e8296020e1575f8f7adf980c133344b1673fb516814af83c2cd670179a9128"
+  },
+  {
+    "id": "sofia-inspire-iztok",
+    "identity": "09c6f74d1cadf1c602b0adee285ed752fbb42c08d1ed7f7210fb76953356320d"
+  },
+  {
+    "id": "sofia-inspire-paradise",
+    "identity": "8b25b6024dc0e47b58109ba420bdc3e1aad9d3e0e8901729a15c3505ced661dc"
+  },
+  {
+    "id": "sofia-inspire-krastova-vada",
+    "identity": "850cae40d7209cd56baed5fec96dca3c309cd01cbf683d2cc5fb35a59cf13ebc"
+  },
+  {
+    "id": "sofia-inspire-manastirski-livadi",
+    "identity": "0ad7af76d68a8cfce700d48af0e74e3bc778a28e25c717aace147b4fc8a0f34b"
+  },
+  {
+    "id": "sofia-inspire-studentski-grad",
+    "identity": "9e1cb57913f542daeac0098d74ed86d78238e8578431133355c0d192c78a16d2"
+  },
+  {
+    "id": "sofia-els-makeup",
+    "identity": "d997f836fc3b0d5ac362d0eb43c909d2f4d659b34c7a471759450e385f3737d1"
+  },
+  {
+    "id": "sofia-classaqueen",
+    "identity": "5b719a0d1e118f80f8e4e78a8051c90c2e96587211d3a4795c66945177a237c2"
+  },
+  {
+    "id": "sofia-skinni-aesthetic",
+    "identity": "841eb4160662ab8ed1886c14b1599d2b76aeab9a64828a580737a99be37b2bec"
+  },
+  {
+    "id": "sofia-magama-damyan-gruev",
+    "identity": "3b65e7352857d871aee49793356126d062b6bce8426b1d58f9142716138aa6ab"
+  },
+  {
+    "id": "sofia-terra-adora-spa-beauty",
+    "identity": "624643ae847fda62c28d0c2235b5d34f39c7d5159515fbd2751539e4d2d7b471"
+  },
+  {
+    "id": "sofia-kikimora-beauty-studio",
+    "identity": "676bd7d2d097200d1e27108d349facae5e0c31cbe89698f55a25dc982e021e2c"
+  },
+  {
+    "id": "sofia-arlet-stars",
+    "identity": "7f75d7d7f120cb31561b98d111df8abec467ea165760792b3b504ebcfbcf3b5b"
+  },
+  {
+    "id": "sofia-pellucci-lozenets",
+    "identity": "03af08ca6a48874b099a9bcf8d39baf7e9bb49fdbe88d0e55e037180a35234b1"
+  },
+  {
+    "id": "sofia-lotos-pirin",
+    "identity": "166742b58d9ef05e5b6c5ef5e81482fa3916823874e9de26ce582f2350fe480e"
+  },
+  {
+    "id": "sofia-stephan-nails-academy",
+    "identity": "3245346153e7d62ffecf7c7041d01ec6f60919ae27138ec866340661dd4a7de0"
+  },
+  {
+    "id": "sofia-mg-art-beauty",
+    "identity": "44cd820145e2844e392b0587bc9f4121164a3bddb25afb7219dc7708449749ea"
+  },
+  {
+    "id": "sofia-rock-n-roll-barbershop",
+    "identity": "afa7fd86a0270aa001d9014a716e544c30738807f35a09760e0a2e2aea19da98"
+  },
+  {
+    "id": "sofia-texture-barbershop",
+    "identity": "dc907bbc6d34ff0b99037d7b35354eac096ab04b98a1dda3605f596533d6b378"
+  },
+  {
+    "id": "sofia-king-barber-ovcha-kupel",
+    "identity": "2f9c5ba2109665560400e0c472e25ee8ba65e9cec08c1da03ec237a15154ce0a"
+  },
+  {
+    "id": "sofia-barberians",
+    "identity": "432fd51f4eae7e7b5e4d38bce9dc1750fe02285c4e2a6df655c49419a896cb70"
+  },
+  {
+    "id": "sofia-barber-shop-kano",
+    "identity": "5e439af6a633ce6654d25e8c7f6e4dae1601819239743b7b94f3f75a1addbdb0"
+  },
+  {
+    "id": "sofia-cutters-barber-club",
+    "identity": "7c582c4cd33514184261ca27e6b11c2f134da1ce17c730b44967d0afa90519e0"
+  },
+  {
+    "id": "sofia-barrnat-style",
+    "identity": "b7f653ca3788a92ed14518fdd91f31437b38459aebb23af370826ef3744ba603"
+  },
+  {
+    "id": "sofia-alexiev-slatina",
+    "identity": "2b969ab4a4346f0f12a22c5f21b472024d1b7426e47fc4e87a1905184117c21e"
+  },
+  {
+    "id": "sofia-alexiev-la-barberia",
+    "identity": "b8f0eea8fe70bbffb35ccb3df7e2e12efcbdd902413351e19ec27aa5ba56e6dc"
+  },
+  {
+    "id": "sofia-superbarber-vitosha",
+    "identity": "070f723701fcf2963ece033f87eb898c79b99e857ee1782aebaf6a2f1b3b83c0"
+  },
+  {
+    "id": "sofia-nv-barbers-studentski-grad",
+    "identity": "ddf56d02faf4b3e41e943df2fe0c31d0ca0326c407fcb3b328108d29bcc03580"
+  },
+  {
+    "id": "sofia-nv-barbers-malinova-dolina",
+    "identity": "e86eaa945f13e2a35ae888d94bdba2d3b1b4154962563e89a8a865c380c862ec"
+  },
+  {
+    "id": "sofia-nv-barbers-manastirski-livadi",
+    "identity": "06df559230e4de9950e76c158b59779a1004fd397623a00337f4b79385873ef8"
+  },
+  {
+    "id": "sofia-nv-barbers-dianabad",
+    "identity": "8d29e9bb5dd2c67989cd47b26fa4e9e72dfc14d1bc57a5591d5c1caf9b6cdfb7"
+  },
+  {
+    "id": "sofia-motorista-carwash",
+    "identity": "8ffecfdcaff8e23b5be4736336ebf553ea0485e438d344438c83093d84360aa5"
+  },
+  {
+    "id": "sofia-lux-mbal-sveta-sofia-carwash",
+    "identity": "dd3cafe56730bb91d4316853b385aaf8a160ff3277ff87d60a976eb87a6b9e90"
+  },
+  {
+    "id": "sofia-superior-pickup-carwash",
+    "identity": "e169d189eeebdd599cc9965d31369f034fe0df058474f60531e317622ac3a663"
+  },
+  {
+    "id": "sofia-wash-go-detailing",
+    "identity": "4f7d3fd811e69b2fe86b9ad2781862f6fe4dcb5344bab4f139e89238ae5a14b7"
+  },
+  {
+    "id": "sofia-topchiev-detailed",
+    "identity": "17efb10cc29d94a5bd4bd0eae4001c189b794a0b2a61506621a5af827cabdd34"
+  },
+  {
+    "id": "sofia-carkings",
+    "identity": "a3e31e03ed40d5ee0c6823c36e0b332f6debd81539e99a33e85e4d8c9c878453"
+  },
+  {
+    "id": "sofia-signature-detailing",
+    "identity": "1f2ea7df3459ef683d7b163392d0cb9bcf53d9e862903024a6b526ee0bd369e9"
+  },
+  {
+    "id": "sofia-carbox-studio",
+    "identity": "0ddf271cf9cca0b9012666152efa91f25f2a8d62001888cc31c2dfbe39c85cab"
+  },
+  {
+    "id": "sofia-speed-garage-sofia",
+    "identity": "d8b2effd2bed42ebc6ea7e23419edb3afeea2760b634a74e8e6ff7c6ee45c8bf"
+  },
+  {
+    "id": "sofia-factor-detailing",
+    "identity": "b7c869abe5015785ca6e0f08a9b648e1105985c7c1e3ddb6aacbddf76c77a703"
+  },
+  {
+    "id": "sofia-nhs-detailing",
+    "identity": "8cf7654ba46b5fa4f2ade61fbd280d1b1d0d809462b012f4bd8452d8e54d1d67"
+  },
+  {
+    "id": "sofia-cosmos-detailing",
+    "identity": "90e9ee9b0eb129d957c5a019692e4626ea04fc3a9322787e7ba97592da54a8a6"
+  },
+  {
+    "id": "sofia-virage-details",
+    "identity": "6daae6c6314e0ace66302e9023abe5b036f2be3958f2a8e2573c59f893e6247e"
+  },
+  {
+    "id": "sofia-sarafovi-auto",
+    "identity": "b0cda2e240ce682593627f0a112765c7949b7595a320025bde06c1261fa93467"
+  },
+  {
+    "id": "sofia-gumi-slick-krasna-polyana",
+    "identity": "12a15db50417841cb509de3d00c885d46260b361a12cde6c559abd105c8ed035"
+  },
+  {
+    "id": "sofia-gumi-slick-simeonovsko",
+    "identity": "d5d43b0dd7c6ab4cf11ea7eb86ace78e7e021853e8cfac1954221d8b4f5b3f71"
+  },
+  {
+    "id": "sofia-sandi-auto",
+    "identity": "cb48fa4095ec07b74e673b255646dec6d0d611ff5f2bc6a10b277a14f354ab87"
+  },
+  {
+    "id": "sofia-clean-ride-autoservice",
+    "identity": "38b65cb876e08afd0fc5d017c8a52480bbfd3b774dfaf76bd7472f0178d5523d"
+  },
+  {
+    "id": "sofia-drivealot",
+    "identity": "e212a0721a54b1c883a90a3df5dc4019d65db745d226f4e221188fcf1e734f4b"
+  },
+  {
+    "id": "sofia-auto-park-solutions",
+    "identity": "0c791939ebbc5cf56763529964516d32ce1308eddf65cb51adf156bffb3e6260"
+  },
+  {
+    "id": "sofia-cherven-bryag-boxing-sofia",
+    "identity": "883593f482118d846982fb376d92c23f767dec08587c0ea33cd8793c23c88fc2"
+  },
+  {
+    "id": "sofia-steel-style-boxing",
+    "identity": "dcfb614e9dd41701db8c613f752449f3b8abcd8fb8911bdfcad7b8f1107987a7"
+  },
+  {
+    "id": "sofia-sila-karate-children",
+    "identity": "3daa79c1ed0f82570e50ea6470d88d103572df30f2b57ed6c05862c59c5388cd"
+  },
+  {
+    "id": "sofia-heal-fit-gymnastics",
+    "identity": "d76b95d6827d7435321d039acb63fd5f174c4b735bfc7b39982051047474b71a"
+  },
+  {
+    "id": "sofia-xzona-sport",
+    "identity": "2b45358ac86108420a10e5bc190ff03c51fcf8553afaca497532085bb510d6e3"
+  },
+  {
+    "id": "sofia-zdravi-lapi-grooming",
+    "identity": "2de5096bfb04ee249ce65aa4b405372491b65a99cec15df1c9249d2dff42c6a7"
+  },
+  {
+    "id": "sofia-bumbachka-grooming",
+    "identity": "816bdd2b8f940e9d54dee7d141e7f51a9c68f98ffe4dba14cd6a33d274892aca"
+  },
+  {
+    "id": "sofia-serkan-uzun-lyulin",
+    "identity": "ec912613814fa9affa37c2e65f13cc250a0e8c133858c94228412f1bee2d9b15"
+  },
+  {
+    "id": "sofia-serkan-uzun-ortopedia",
+    "identity": "29eab99cb4459c0084e94cabfc74010d0d0aa8a3fb5167ef8bc191cea4e21323"
+  },
+  {
+    "id": "sofia-avitsena-rehabilitation",
+    "identity": "b8f353f2ce5fa45d3723f8556f8387a52acbdf7ca7026feb2d2e3570f51006d6"
+  },
+  {
+    "id": "sofia-radoslav-valev-law",
+    "identity": "7ccc0ee10269ba11408b077158bed57ad33fc6d1f8b43fff44f923ae0800f2b9"
+  },
+  {
+    "id": "sofia-dm-physio-studentski",
+    "identity": "408f2c465be681567bd19fcc2ca3d2770e4595da2bb7848179465caa62ada2de"
+  },
+  {
+    "id": "sofia-dm-physio-mladost",
+    "identity": "b24d74d1d0eefb75751ef6e29b70bb308fb0a47e6f4a20a99d00dd28ca80c25a"
+  },
+  {
+    "id": "sofia-aura-massage",
+    "identity": "e516506c7e9b504ce6ca8e3aba1cf502a315e8b0d4e9616765ea760501706fb9"
+  },
+  {
+    "id": "sofia-mieli-massage",
+    "identity": "924a45840fa8732e0823dfeb3af8dc8a140e556b08758277d6b1ff3f75e1eb7d"
+  },
+  {
+    "id": "sofia-svetoslav-grigorov-law",
+    "identity": "8b826c11abaef27ea0dac0065abd54b2543550c210024cf9e4035a91bf35f2dc"
+  },
+  {
+    "id": "sofia-linnea-language-school",
+    "identity": "f30a0768b6d49e23aa1dbd98f615b1fc431d5f04eecefc740313d668efa7bbf3"
+  },
+  {
+    "id": "sofia-etud-drawing-lessons",
+    "identity": "61dd6088f602ca63236eec7c3086d6c9632cc190c2cbbb1b2527122ed0e6f90c"
+  },
+  {
+    "id": "sofia-avarton-music-academy",
+    "identity": "28aeea062035b953cb15982544320902b01c2355f8fbe0a5fed38e7bce32776f"
+  },
+  {
+    "id": "sofia-daga-vocal-studio",
+    "identity": "0931723933a2506c06351b4bdea4e7cfd0565cda278f2286cbae3f9b346c3229"
+  },
+  {
+    "id": "sofia-legalmasters-consultation",
+    "identity": "4dacab9c9e4ced047976135f359e740881b06c1b0068db615e4f70545cb9389c"
+  },
+  {
+    "id": "sofia-edelweiss-accounting",
+    "identity": "0a87c8d37c31119d5e6fd6480fc88293f3787fc9535b7a0ff048520d99ebec9b"
+  },
+  {
+    "id": "sofia-happy-kids-dental",
+    "identity": "d273c56ec33927164cd24dffc12163f7411f315d16fb4445fd0f278da4b2c139"
+  },
+  {
+    "id": "sofia-face-id-dental",
+    "identity": "d88d0c3fd72103b2420447efd1e04fd40f2386070ea7945712c6720d5f6a09c9"
+  },
+  {
+    "id": "sofia-vesi-todorova-psychologist",
+    "identity": "5f786dbfb29648826974190bd7f0cd1a523bc49a56ef8ca45450e38d00d148c3"
+  },
+  {
+    "id": "sofia-desislava-kolchevska",
+    "identity": "af0f74c1585e18dd8ab3cc3f9088a221acd29a424dfc267feaab3bec23522d69"
+  },
+  {
+    "id": "sofia-dental-place",
+    "identity": "6a90a89776dd5ff70512d84c1fc3a400a11f3f0876cfd960182f5f242930dc05"
+  },
+  {
+    "id": "sofia-hrisiyana-varbanska",
+    "identity": "0390b64f3c67b7f11b28c3b4b89c1adce44f972296579286af2b5b94e8bb383c"
+  },
+  {
+    "id": "sofia-denta-plus",
+    "identity": "aeea46a6e8e37dde8b3cc4877b7768e02b6b7817cb17ad24a1be90bd6de4f905"
+  },
+  {
+    "id": "sofia-daniela-baldzhieva",
+    "identity": "b6d1ac4817c2d4178bfe296e5b994b4c19fa62d4da27b0ec9f085d7b1adbf0d8"
+  },
+  {
+    "id": "sofia-q-life-kinezitherapy",
+    "identity": "ca7ec0a1adb331eb50b5969dda931af395fe4cf3b2786d267fc3d9aff066e5c2"
+  },
+  {
+    "id": "sofia-bo-bella-grooming",
+    "identity": "416cd1d9295e510795c6e3ed6e05edf5ae78cc36a0ddef88752aafa4ee38ead1"
+  },
+  {
+    "id": "sofia-love-your-pets-grooming",
+    "identity": "4e3dc7bc3851f2476637d8c34dcc05826d5dd310686de7b94e770ed1a56c5ad0"
+  },
+  {
+    "id": "sofia-sofia-physio-center",
+    "identity": "23b8d01f546042374ac5e9e8234554daf521b8aafe9a33f5b9dad7b8a30433c7"
+  },
+  {
+    "id": "sofia-okto-oborishte",
+    "identity": "07f800b72eda384786be967e91dd912fd3a5b213bfa05bf93084c99d003dc10e"
+  },
+  {
+    "id": "sofia-okto-lozenets",
+    "identity": "75c666d0792627d44f4ee5f60d43e768db12d9a871371b407f6c1f5e49e61b84"
+  },
+  {
+    "id": "sofia-kainezi-therapy",
+    "identity": "2bc514830e3ce20c9415a4ad5c9c4c0620b71b978c8a25a05394108fd3d8042d"
+  },
+  {
+    "id": "sofia-nikolay-chudotvorets-rehab",
+    "identity": "6d2253a214a1a781cbb5916bb08fe3382a13e45174f998b8ea986e6e06b6d932"
+  },
+  {
+    "id": "sofia-lilia-stefanova",
+    "identity": "244ddebd1d66cf266f4ea45a8e568b4c45d700d722792d7c2e8dd32c567b5bf6"
+  },
+  {
+    "id": "sofia-vasilena-hristova",
+    "identity": "501576be24a26795491ea491f645add65d6a8e49bdb9076a4ddd76b509bee5c4"
+  },
+  {
+    "id": "sofia-art-uroci-zhanet-zhecheva",
+    "identity": "ba57aac1b6a11e13463d456cb0028e6ac0401431e32dec3931b524a49fb1dfad"
+  },
+  {
+    "id": "sofia-innovation-private-lessons",
+    "identity": "c8fb3183d82fd2ece628a40154664bc6187f08ef5661ef2b46bf77d34490e9bb"
+  },
+  {
+    "id": "sofia-silvia-petkova-law",
+    "identity": "5db9688af8c53c2d0903b9db92b2d6f6da34b2d12e59a2a68bf6205c8d6ae6b3"
+  },
+  {
+    "id": "sofia-simeonov-law-sofia",
+    "identity": "fe77138fa857f07974b1c3f791e05c54a7e4d4934e7df502fb07b923ea8ff72a"
+  },
+  {
+    "id": "sofia-georgi-malchev-law",
+    "identity": "c9b42db3980735f9893f63ffa2ff7a2e670271600cf0c54a1aae69f4c8b1ddc4"
+  },
+  {
+    "id": "sofia-rastashki-law",
+    "identity": "176e7f5c509e52930692bbbac1263d1136a96a3b2a0701a9d63b55d7d29c9c25"
+  },
+  {
+    "id": "sofia-nikolay-dimitrov-insurance-law",
+    "identity": "d026f1a924f9e65c6127dcbde5ef72e2962916e01d5f83c38a5abbcf92c82d11"
+  },
+  {
+    "id": "sofia-kavazova-tax-law",
+    "identity": "46b4c66aefeadca372390970739edefbd973447796787e5df7d852fd663c00ed"
+  },
+  {
+    "id": "sofia-haelan-bulgaria-rehab",
+    "identity": "1e18ddcc15ff27fe09ce674721ea978e40f765066230fd6742b856454f42e97f"
+  },
+  {
+    "id": "sofia-haelan-mladost-rehab",
+    "identity": "edea77bd815fcea2a768fe49006a25dbcfe5fc81941ef65089dcc01cd6a4a43a"
+  },
+  {
+    "id": "sofia-sofia-dental-ivan-asen",
+    "identity": "7562d8f6c6bafd3793bfe74cd29a34696f1560eeb96486c766b9008598b2748b"
+  },
+  {
+    "id": "sofia-denta-pro",
+    "identity": "d52df4029c27f508f12ba18f5c3117c665c2503a1c78144089d40fc59eca0c54"
+  },
+  {
+    "id": "sofia-uzunov-dental",
+    "identity": "6ae4efbe797c491bdec0a6b818c14a14a21bdb91f36a7be88943fca2629f02a7"
+  },
+  {
+    "id": "sofia-doctor-dent",
+    "identity": "874ed0869a622b7b3ca72dbbaa4fa8635964263407d88c2e0e28941343bdd399"
+  },
+  {
+    "id": "sofia-ismile-lozenets",
+    "identity": "f60a1cc39b7ffb0660098f4c6f5a9fe861fe0846decc89419e4049a33393406a"
+  },
+  {
+    "id": "sofia-ismile-lyulin",
+    "identity": "11394990699393bc1d489905f537eb08e1da3813d6d44c8a5bbc72fee8c373ab"
+  },
+  {
+    "id": "sofia-diana-radeva-logoped",
+    "identity": "cd245ab7fe220a71dd5574a1611df4b9a30c2f1b2a15a581593b6ce5857d56f0"
+  },
+  {
+    "id": "sofia-osoba-kinezitherapy",
+    "identity": "b28ec040ee5713b2d92ab9663ba8dfa4a862c7fb23aa2725ad007e22f77617e3"
+  },
+  {
+    "id": "sofia-physiohome-home-rehab",
+    "identity": "45c9fa3a007ce0c1e2c5c64495eacae64cc8eb0f543622cdd4faaa4c68c915d4"
+  },
+  {
+    "id": "sofia-soul-ceramics",
+    "identity": "fe7220ffe92823fc8b4c82516a41fc5b66694ddeb6626502ae646b76338616aa"
+  },
+  {
+    "id": "sofia-pink-cormorant",
+    "identity": "d171c0c950577f2904bbca50cb137690ebeea15c8de97700eb191f989815d11d"
+  },
+  {
+    "id": "sofia-ucheben-svyat-ivan-vazov",
+    "identity": "4c6f7c63a2fab10deb6ef0412d98a302ed597a68034310dacddf82f2d5fd1eaf"
+  },
+  {
+    "id": "sofia-ucheben-svyat-mladost",
+    "identity": "6fbbfef4966bc143bba00b296cf858a4ea1f2e01cabcdf0f3c0114bcfa92c052"
+  },
+  {
+    "id": "sofia-zvuk-po-zvuk-pozitano",
+    "identity": "ec7d73529c0947f8a063f7382747b287f5961405457fac8672b90b2157182760"
+  },
+  {
+    "id": "sofia-zvuk-po-zvuk-velcho-atanasov",
+    "identity": "8c4370ddd4e4c824e8df3ec2798dc17409cf1df0dfe90e7b32f6f2ba91eba29c"
+  },
+  {
+    "id": "sofia-yoga-vibe-san-stefano",
+    "identity": "5fb726dc5ff5290d1465b4c658448bc82d688e5d24a16118ce7f8a35d7cb1e1a"
+  },
+  {
+    "id": "sofia-yoga-vibe-bulgaria",
+    "identity": "80897c1463df82e4d0c5acc6bcdd7d646021c2f1e53c612faa02ec2a976e4ad7"
+  },
+  {
+    "id": "sofia-yoga-vibe-garitage",
+    "identity": "f1d05a6042adbe2964fb1a9912a038110b26a8291e314f013c1ee4d5a57be025"
+  },
+  {
+    "id": "sofia-yoga-vibe-mladost",
+    "identity": "1903ec4c52ee4f6273516b48dd20ec515cc9c58741ac32c1ce233f91e82a42ef"
+  },
+  {
+    "id": "sofia-moto-pfohe-jaguar-land-rover",
+    "identity": "4c5f88894ec250f975c4dd05ecf1f5314e561ba4481d8ed987bc060531c44fa3"
+  },
+  {
+    "id": "sofia-moto-pfohe-lyulin",
+    "identity": "0bc766ff2a6ce163d7994fec01799dd92a3f80d35606d5e2b068abdd63e24581"
+  },
+  {
+    "id": "sofia-moto-pfohe-mladost",
+    "identity": "fdc699432d2b4ef684f1ab1296c5b4aae55aba4744306515b525fcb37bf454f3"
+  },
+  {
+    "id": "sofia-satori-ivan-vazov",
+    "identity": "38943a23fa0e25c7490a6e2242ee606db6f88d82086c8820378a9585dd107c87"
+  },
+  {
+    "id": "sofia-satori-manastirski-livadi",
+    "identity": "3f9868a054d1934c2e66b064ad6dc3c7e00b74363f0cf5b881e6207d7df8ce4d"
+  },
+  {
+    "id": "sofia-resoul-studio",
+    "identity": "cf4c599e84af9cc40e8267c3043516f81dcabd9f9d42af0562b378055b6a168f"
+  },
+  {
+    "id": "sofia-shun-dojo-nsa",
+    "identity": "01a81ea01755e429a81a16cfc050e611b46fb630fd709b41ebbc696aee29e38d"
+  },
+  {
+    "id": "sofia-avtogumi-mladost",
+    "identity": "cb30be27e38ef074bdf0df0776e89d2c6a476cb8ae849e91151ad15db0dd2db3"
+  },
+  {
+    "id": "sofia-eo-dent-arsenalski",
+    "identity": "a030669cdb087d2a074460599221f08dcfcff096c83d0f6cd597deb2e14130e8"
+  },
+  {
+    "id": "sofia-eo-dent-implantology",
+    "identity": "194b20f763bf8052a1390bc3092e1b8853648c9bfc86852c9c0868440de26f4a"
+  },
+  {
+    "id": "sofia-eo-dent-dianabad",
+    "identity": "c6094f8859d6c21b73551e060d7b013c1040c547499f9509328382dbcaa4dc1a"
+  },
+  {
+    "id": "sofia-eo-dent-lyulin",
+    "identity": "08ef3502e0d67d50fafc5cffae26fb10ade5d5264cdeef9c2fcedb5ed4220c3a"
+  },
+  {
+    "id": "sofia-denny-divine-sveti-naum",
+    "identity": "25a693cfd57385524952e8b82eefa7e63504915523d73117b29ca2dde54197d7"
+  },
+  {
+    "id": "sofia-denny-divine-strelbishte",
+    "identity": "eeda775006bc717e406330895eeaf23f657a4812b2dee1ed50077d4951e603da"
+  },
+  {
+    "id": "sofia-duda-druzhba",
+    "identity": "af0e0033a38960fb5d5ef5e89c9bd095add7751ea98cbafc6627e5281b1c5027"
+  },
+  {
+    "id": "sofia-duda-hadzhi-dimitar",
+    "identity": "9b18d3e10a04eec45b0fa7a95b4cfd53088c0db711553110c359b405f99a5811"
+  },
+  {
+    "id": "sofia-gigi-pilates-boyana",
+    "identity": "ed7592a301a85534f44e87a0ad7f43d52091fb32ad3594f6be68c51b681b6bb6"
+  },
+  {
+    "id": "sofia-reform-pilates-tanya-koleva",
+    "identity": "cac9ff3da3a100dbb9cd7e93db2befc1a347b3cb6ff69199ae42e49b58f5d69c"
+  },
+  {
+    "id": "sofia-vayasport",
+    "identity": "f4063cc29c906bc43f2a13579d72fabd03c64ff4f4feb45ac79b4fc56a37ffc4"
+  },
+  {
+    "id": "sofia-bono-grooming",
+    "identity": "ecc536cd31addcffe4a4ed1b7f0f82b7af77f68bfec4fefe8075b70948fdf521"
+  },
+  {
+    "id": "sofia-baron-grooming",
+    "identity": "d40b1b9976f5526bfaf99f45bbd8df8a9ffca90cf150f90dfe35a56753deef23"
+  },
+  {
+    "id": "sofia-zoofamilia-iztok",
+    "identity": "b81f773d633054d9c7edd2d8ecfeb80997582fce73db6cf11cbe83b9970e0aa2"
+  },
+  {
+    "id": "sofia-underground-barbershop",
+    "identity": "3dc359bbb28cafa292d7e747f1a5e700b2528b37d20e419d31d054123f88a088"
+  },
+  {
+    "id": "sofia-nalby-vip",
+    "identity": "ff3eab5c8b4eacaec6aaa0e5292e753d8c34d1389647dc96fb049cbe2694a802"
+  },
+  {
+    "id": "sofia-vesimed",
+    "identity": "c9b89aa6e81105bd93a3c5b0f4da06387d078e4c707af1e9cf98dac620ede91b"
+  },
+  {
+    "id": "sofia-md-beauty-empire",
+    "identity": "c1fd54c267165258f0380fb4d6e16a71fd2fbbac8292248ca477b4be1f1a7ce2"
+  },
+  {
+    "id": "sofia-cheveux-sofia",
+    "identity": "60d3af66fcc60951914efe126c833a3114b2006f84d8cb17f0fafe803886a143"
+  },
+  {
+    "id": "sofia-vyara-dragneva",
+    "identity": "d5b11fcde27b74b05fd3d11380fbb234b7eb532ca67ce87b9118a3538f5ed802"
+  },
+  {
+    "id": "sofia-georgi-gochev-law",
+    "identity": "663375311975dfb40aef69ee23098ccf3dc77eed298b8a32fcac74bc4f0dde0e"
+  },
+  {
+    "id": "sofia-elka-ilieva",
+    "identity": "4e5b16b8afd217241996e2c17ec572a1691c5f04bda61eae24e44a1140d7c82f"
+  },
+  {
+    "id": "sofia-clean-labs",
+    "identity": "968874cd0caf2f55fc00f293702f1e4c34b7916f135922976951eba2b0dd03b0"
+  },
+  {
+    "id": "sofia-gtp-prezident-lincoln",
+    "identity": "20f4a1f6b795d25f11c2f4ec2481951c360dc4c3fcf53a729f1e17fe9461f549"
+  },
+  {
+    "id": "sofia-serviz-petkov",
+    "identity": "51daec8610e51a425c762620b340e5c15ac4f6b492659544227b9c404c410a39"
+  },
+  {
+    "id": "sofia-salon-de-beaute",
+    "identity": "04d8cadfe9aa894c82a0c0e8348c674ff3a622419489a499b5963a541d3c8e1e"
+  },
+  {
+    "id": "sofia-amik-sport",
+    "identity": "a32d2c4b6863e9ce4a32cb748064bce43b47517cb96ecada3f534eef2b78a615"
+  },
+  {
+    "id": "sofia-sinxron-studios",
+    "identity": "3a2e5303f944a8e6c41d964486b98a902d2cf95c9d9cff4e0615acae4de96c6b"
+  },
+  {
+    "id": "sofia-gumerov-studio",
+    "identity": "f6c84713d4f75b083b658f035dd1b864d76fa798cf2d0ae9c1f88b7c20802b83"
+  },
+  {
+    "id": "sofia-dreamink-tattoo",
+    "identity": "d0f9322fe19443f1626e0f269235e2c733f87240e596914fbee43e0216d10b01"
+  },
+  {
+    "id": "sofia-dan-k-style",
+    "identity": "b6e5a499ecb3dc1e9b0b3bd04f285377c15e4bc8ed41c8287610c43b55d13e44"
+  },
+  {
+    "id": "sofia-derma-expert-yakubitsa",
+    "identity": "43054c997ddedca467a6ad4180bc1351870a349f64615045c524eaa020fb20be"
+  },
+  {
+    "id": "sofia-espace-auto-nissan",
+    "identity": "954c7d336560a30b5720b4caf613541caf2b5e9963ee6807130a82fa4d51fe3d"
+  },
+  {
+    "id": "sofia-lazercentar-levski",
+    "identity": "fa0751229fc1e18f525029a1874564c44080794d6439636c6e711f4a393e15d9"
+  },
+  {
+    "id": "sofia-lazercentar-stamboliyski",
+    "identity": "ce9eb8910d924814c18071b1cd7b7b9169d3fea306fbafea9b51360b6e66ed7d"
+  },
+  {
+    "id": "sofia-lazercentar-patriarh",
+    "identity": "ae7b923bfde8d023a6593226b05bf165d5133a4ce210ae7c241a5f6ec16e19ca"
+  },
+  {
+    "id": "sofia-lazercentar-studentski",
+    "identity": "b78ddd9478abb0a9e679de298c1cb4faaddef5cab2c74b80ac1b77828cb08ab6"
+  },
+  {
+    "id": "sofia-laser-expert",
+    "identity": "a7da5a648853f63190d86d2a5d88777ebe2bae14820973381cf035833914f27c"
+  },
+  {
+    "id": "sofia-ss-deluxe-signature-beauty",
+    "identity": "d2c24f6db0eacbe63be57b38529d43e700e6eab5fd912f4eabe34d45b40b5b23"
+  },
+  {
+    "id": "sofia-nasi-style",
+    "identity": "81143dad1b83ac118003a45fad74fb86c0eb7ccbc1ca79c14d4da47a2b0a6c78"
+  },
+  {
+    "id": "sofia-my-pilates-reformer",
+    "identity": "a7c705f2c92c78648a8e46ace0f9289cda3d54536a292e697f441e15bc3b39bb"
+  },
+  {
+    "id": "sofia-the-hall-mladost",
+    "identity": "e71ff90826e5642077febff1ddd8dc5f854e1e3e77a13b30d90dd30ebbc95d12"
+  },
+  {
+    "id": "sofia-sama-pilates",
+    "identity": "5d5fe5a8147c485d1dda582c5c652b58afcc8b8822b5c2e85c3e881b771322ee"
+  },
+  {
+    "id": "sofia-kavident",
+    "identity": "2a44c390a0cc881abc89fd642b28709d9cce1e1ffec91b5232374627ca0ed17a"
+  },
+  {
+    "id": "sofia-vd-dent",
+    "identity": "3dd140cf62c6d77fc2f2bb2e0ba3c3baaba9340418954960b1aefebf7e3014f7"
+  },
+  {
+    "id": "sofia-dara-dent",
+    "identity": "ec8f8216b49ae31a07961b6f901f85c05602cdbd89c3d780f258a6b312955e20"
+  },
+  {
+    "id": "sofia-sofia-dental-studio",
+    "identity": "99dbbc68b086ed730ad3a91ea325b171d0c468c362933c6c79b2bac1e0203272"
+  },
+  {
+    "id": "sofia-msmile",
+    "identity": "4b0744fb28e431452051199d2f8c7ca3d0b3142b0c1cadf68bd6a6e38b7224a5"
+  },
+  {
+    "id": "sofia-medica-62",
+    "identity": "ac7115bc526bc5b5a42e919aa7fc6bade3570366cf30a3ef4b8b5fb28c3b586d"
+  },
+  {
+    "id": "sofia-svedent",
+    "identity": "eccf857aab58927fc9d5c3369a24e34a811053c3ec13bbf35c9dc23d0805c845"
+  },
+  {
+    "id": "sofia-splendent",
+    "identity": "6b5bbe65cd2af08dc19b88a935fa98926e6127b5db4a21ac958469a2cd6be03c"
+  },
+  {
+    "id": "sofia-id-dental",
+    "identity": "0849b6e08125d74cb4e3700a80b5b21916ec3be6f59173057597ff89e46c8266"
+  },
+  {
+    "id": "sofia-stoma-dent-smirnenski",
+    "identity": "b2789c1dfe1b5346b89c8008719fd03dd4eac8a812e3967d0103c5793336dd66"
+  },
+  {
+    "id": "sofia-stoma-dent-chataldzha",
+    "identity": "8fbf9f204d8a7dcc71b81ef59d775505119f4f81b410a7e8e9d694afae359320"
+  },
+  {
+    "id": "sofia-space-for-sharing",
+    "identity": "afcc5fd8aba632e32fcabac4e1b4e0b826e0af8dfcd5650a5d4410b19a283130"
+  },
+  {
+    "id": "sofia-mint-clinic",
+    "identity": "035ae97645980d33df3ad204bc54ff7bab3ea62e284a1fca6d44a14eb671e393"
+  },
+  {
+    "id": "sofia-dentel-centre",
+    "identity": "c95f86a5339209330c61aa76378620b051caa23725d15a5b1737adcd8f152008"
+  },
+  {
+    "id": "sofia-dentel-lyulin",
+    "identity": "7645a41b3a0ceb323de67a705a3404f75c5b3fcf63a2378cf848b9aa1505be90"
+  },
+  {
+    "id": "sofia-kirilova-dent",
+    "identity": "17825cc07775eb5ca041e3929847d4320b35f73a96ed16b34df03fb89374043a"
+  },
+  {
+    "id": "sofia-denta-house",
+    "identity": "a07ad857f7cc2510d534dcb39267efc10d1b907d8eb99b32e411c73ff3864172"
+  },
+  {
+    "id": "sofia-davident",
+    "identity": "1656b4fd4523b4f84010a3e9f94ef4c5e11aa8795a91d216def23881eac10a39"
+  },
+  {
+    "id": "sofia-spadent",
+    "identity": "9ba81b90d4f63bad699f0de0725f42fb808ce9d74c15e9aef03f671cd1e137cf"
+  },
+  {
+    "id": "sofia-vdent-sofia",
+    "identity": "c71cb3fcead7968d18b2e7794330c7bd7dff3733ea3ba775cfb98600cc7b89d2"
+  },
+  {
+    "id": "sofia-medpedicure-albena-zhivankina",
+    "identity": "9161f04d19667dd57e55f0a926cfa07f32411d9533882cc638b051d5b9f22bf1"
+  },
+  {
+    "id": "sofia-viks-beauty-studio",
+    "identity": "e5553cf9aaf41a2897ae1f77975fba02c25c54bd2a951f5035f641aba86cca11"
+  },
+  {
+    "id": "sofia-shavi-krasno-selo",
+    "identity": "a397f0f4544b59774160aa6a96b1ecdce9ef06ee1893bb8ace714ba1219d3a80"
+  },
+  {
+    "id": "sofia-shavi-beli-brezi",
+    "identity": "ac0c5f5598144347c96e6b2507061c14ccb62f445569d28bed073466aa511e34"
+  },
+  {
+    "id": "sofia-shavi-lozenets",
+    "identity": "5494c67d4a25ed70051f2340377534d95312be36111dfc54528d065ae8c6f4ac"
+  },
+  {
+    "id": "sofia-tt777-trans-titan",
+    "identity": "06f3565ca6fa996c681c0a030d727249bb03ce7c9ba97cc6e2f316d698111fa5"
+  },
+  {
+    "id": "sofia-drumnik",
+    "identity": "1daff4cfd899c5316bcfcfe067ea4347a55f8a9b1a1184ad5b84aa0e0e21db09"
+  },
+  {
+    "id": "sofia-body-atelier",
+    "identity": "ffe176171136eee262f69fbb3c64052eafe0ce2c319870e8c05b0f7dde15d6df"
+  },
+  {
+    "id": "sofia-dupissima-strelbishte",
+    "identity": "a717468d16ea39ada48f0efd8ebf47b9c40ed7c3f2bc4ff1cfa1d18657db12f9"
+  },
+  {
+    "id": "sofia-dupissima-ring-mall",
+    "identity": "4901728108d313341cc613908766d84f2cb03a377135123f78a7674b04176852"
+  },
+  {
+    "id": "sofia-dupissima-gotse-delchev",
+    "identity": "c48a4525a20afa84998641ee37f8c784050a51469c298a0e5ce9f94b18f757c5"
+  },
+  {
+    "id": "sofia-fetish-hair-atelier",
+    "identity": "d8c590e196097d07d0b9cd380427c57247dc85ea3a1499434b2917d07ca75edc"
+  },
+  {
+    "id": "sofia-esthemed-aesthetic",
+    "identity": "2817a282c791a1a658e3af7895bc9e7ab334e5ca811c8a437285292ab42f97ed"
+  },
+  {
+    "id": "sofia-beauty-studio-marry-moskovska",
+    "identity": "2cf72afa90c8cf52dde07f00cb6b238412821f2a1a7ccf047e704c4c7a6b0d24"
+  },
+  {
+    "id": "sofia-beauty-studio-marry-kuklata",
+    "identity": "34d0eddb29b4a77e5600ec55197deaeb2031ea9cecd7c3bf5fd66fa03b656388"
+  },
+  {
+    "id": "sofia-beauty-studio-51",
+    "identity": "704d826dd027cf4f2555a610e29c8e2b6386a30d4bcefb28adf28b5d5901979c"
+  },
+  {
+    "id": "sofia-beauty-center-karima",
+    "identity": "53823e6cfa7a6fca6748ca2aa7f6bdb8e51b98d297951196409c4bbf242cf1c7"
+  },
+  {
+    "id": "sofia-goldy-grooming",
+    "identity": "a60e0d53f419f2b3649cc4c5d67a5916fd43b7bbd91dbd2ea3b59a90b350e02a"
+  },
+  {
+    "id": "sofia-porsche-sofia-iztok-service",
+    "identity": "6cc90bdffb7f281a8c1325653c4b406575b95cc363beed85fda691bab4c95879"
+  },
+  {
+    "id": "sofia-porsche-sofia-jug-service",
+    "identity": "a79a08e1121ef64ef4d334d74d37141ad368ab67a006b2d85dc2e9bbb641aaac"
+  },
+  {
+    "id": "sofia-porsche-sofia-zapad-service",
+    "identity": "5e80466e86c963d3f010cc42c663cc63d06b3aca7c45708c960c2ff9cfddd2c5"
+  },
+  {
+    "id": "sofia-porsche-center-sofia",
+    "identity": "85d806ef3c0ecba3cf62d12bf6143bb27974f5b815999349eb8e4ea262877058"
+  },
+  {
+    "id": "sofia-bmw-m-car-sofia",
+    "identity": "88382f096cc3e5550d698ff4113f6b0a35e29e9fee43f14ba99f4c31acab62f8"
+  },
+  {
+    "id": "sofia-bmw-m-car-west",
+    "identity": "25229ce3af5efc6e316bb630842afbe4f0a9e41fc2a87226e7ad4517cb73c192"
+  },
+  {
+    "id": "sofia-toyota-tm-auto-west",
+    "identity": "3247882a19a7ed029bbddaf7898f90d7ebfeebfe7eea6b51a389cb16a4b5bc30"
+  },
+  {
+    "id": "sofia-toyota-tm-auto-east",
+    "identity": "81f9928cf1fc1d1ac2d36070379ef61b89b5db4211a76af4567f9ac69d641268"
+  },
+  {
+    "id": "sofia-silver-star-chelopechko",
+    "identity": "a451f60f982e7866e7db3ef38e2a89d67f91ebd2774a65f2ff8d81b6a271bd8e"
+  },
+  {
+    "id": "sofia-niko-09",
+    "identity": "5ddc22d681b84f4bddc1b389d5a8efabaa6692bcabac8a7059cb527312bb65e4"
+  },
+  {
+    "id": "sofia-del-service",
+    "identity": "d055862bf6c3494e8d5c85088aa28da3a1539633a351f1efff8e8411f4fc5ead"
+  },
+  {
+    "id": "sofia-mobilna-diagnostika",
+    "identity": "a0cd9ab5f14a292625096bf5d0d8e881ee7306a5b7772ebba520d4c3cb20bf52"
+  },
+  {
+    "id": "sofia-tennis-lyulin-6",
+    "identity": "6d9ce85df4c77ae3ca305ee8efe9606a11cf764ef7f00eb5fa74596c8e2543aa"
+  },
+  {
+    "id": "sofia-squash-club-bulgaria",
+    "identity": "d019bd2cf216e67c21845fc3d7c26297ee887bde1164b4b716a433cafe0a7605"
+  },
+  {
+    "id": "sofia-medical-arts",
+    "identity": "1272c9eed7ecd40decc058ca1ce8c5275840e0c7766f2dd3044086a9633c6451"
+  },
+  {
+    "id": "sofia-bonident",
+    "identity": "b14f6c7e0271560ca04c79bc15b6ed4985805210a5f6070a93a17ea4ae897580"
+  },
+  {
+    "id": "sofia-ig-dental",
+    "identity": "089e47a6f559d79f8ddba4c234088464d25f392544ae14c0c61c76a1c986ad67"
+  },
+  {
+    "id": "sofia-yoursmile",
+    "identity": "322f2be270f12f39355f819724fa60e49b070c9459db0f1cfd0ff49a78c9fd0f"
+  },
+  {
+    "id": "sofia-dentaglo",
+    "identity": "c7bfae5a59fb15ac033ee95af4e0a2e2eade9e441ee6b501fb48cfaa4b52d6e2"
+  },
+  {
+    "id": "sofia-lk-dent",
+    "identity": "6ca21b91ef4b2e11b64f4d8e4c348ebfada48b6327590a340916275a0cac27da"
+  },
+  {
+    "id": "sofia-smile-factory-pavlovich",
+    "identity": "fee2308d8e14e74242d4aa22ef39bbb342ac5dae101e4ab216cc44397f11a858"
+  },
+  {
+    "id": "sofia-kantora-zhelyazkov",
+    "identity": "9546d47526af4a7e54a95ab408b72b35a152da9daca3726f54c9175ffb4865de"
+  },
+  {
+    "id": "sofia-trifonov-sofia",
+    "identity": "9f739b2535f9e123ba4da22bf30fdb8df8f58df278a322d9dab7a19b89c7ddab"
+  },
+  {
+    "id": "sofia-domashen-maistor-vasil",
+    "identity": "f4908a3f194997f300555538d2faa2d502b42a37ab7f96a9d4693a77fa5af338"
+  },
+  {
+    "id": "sofia-latin-force-centre",
+    "identity": "3074e2594f10c3794f3631d419da8634f0949306dd5c2e07a492fba0a8571d64"
+  },
+  {
+    "id": "sofia-latin-force-pliska",
+    "identity": "0ec99b476ba5c0ed34fd616e967c53fa1703dc78156d2f5616fe938c8cd05251"
+  },
+  {
+    "id": "sofia-latin-force-mall-sofia",
+    "identity": "5d2e4539c806a4489630c055f2634fa9fb28bf60ac07b8308220a2f58a3f6401"
+  },
+  {
+    "id": "sofia-studio-elita",
+    "identity": "daabeeb81b176ab86edb14eb626c6c5717a4f025e9bc953f1610fae0fbb01186"
+  },
+  {
+    "id": "sofia-thai-spa-sopharma",
+    "identity": "0797465fad26a4b3fa4b2e42f8701988d0a0caa760496b5d6a29ccc5a83819c9"
+  },
+  {
+    "id": "sofia-thai-spa-bulgaria-mall",
+    "identity": "d4bc02a7558c4afb06b65a96054d326a4b7bd9c73ef2f0f50258688834168c60"
+  },
+  {
+    "id": "sofia-thai-spa-the-mall",
+    "identity": "7e1233de2b204f913ec854c0889567f0a9ef3940c98ef6557a4860d6a0c890b8"
+  },
+  {
+    "id": "sofia-balance-clinic",
+    "identity": "9999a3d3a9506a359537c39a81f16112d9d5805998f7bd7786eccdda6685b481"
+  },
+  {
+    "id": "sofia-kipra-beauty",
+    "identity": "85da354115c32572e6ae9a6dafb611e30b9ad1809d6f0fad9e5c7890d1941cf2"
+  },
+  {
+    "id": "sofia-vp-beauty-studio",
+    "identity": "9eb2bb279a24911f1ccf46aee992890a615e239adbb90e9c9875305326ece761"
+  },
+  {
+    "id": "sofia-venis-belleza",
+    "identity": "7ec62478a4e4f29fbef40f11a7bd3c2fa6440eaaec2c28b153da475a265196c5"
+  },
+  {
+    "id": "sofia-salt-art-iztok",
+    "identity": "ba9c24a1291b7604046715681eeb35df50365490d9ae8e47d89474ab6c8abb53"
+  },
+  {
+    "id": "sofia-salt-art-druzhba",
+    "identity": "c1386951eecc9419c7e2cbf6a9eba6aefc5859377c881c3d3e8b35e059f8b76e"
+  },
+  {
+    "id": "sofia-salt-art-centre",
+    "identity": "6272c4fdceaa5d22901546b74a57f14336d756620e1709a208ceaebe30c02ca9"
+  },
+  {
+    "id": "sofia-nie-kuchetata-grooming",
+    "identity": "b45fbf738c9c6d7a7f071664053bd579db11c4a3f3b1bd327fa50b9e831b9b70"
+  },
+  {
+    "id": "sofia-puppy-bubbles",
+    "identity": "f2ea4a4aa84a53ea6c9badc59ff7c552af1a0fad4519653f8d697b08b5de3bca"
+  },
+  {
+    "id": "sofia-autoassist",
+    "identity": "94aafd247c87a4ff16af75150c2d3b407f38035b535e8cb062bb59d8c1e30440"
+  },
+  {
+    "id": "sofia-vita-base-two",
+    "identity": "a1eeae7bdf5f1fc32fa17697b91942288ca3a432b21bdd3743ee4ff2869605ba"
+  },
+  {
+    "id": "sofia-vita-base-one",
+    "identity": "b27912ac97fe78f5bd768118a0c66badd67d247b47cda85f2834ef7253b3bcd5"
+  },
+  {
+    "id": "sofia-homelab-renovations",
+    "identity": "7defe9673f72a038cc38d3f5d548e0f8ec86adf1b40eedbfc57eac9a80cd4cee"
+  },
+  {
+    "id": "sofia-homefixer",
+    "identity": "f8e943e91b757234b81586c7406427436cfd26d39242d70efc366c7a683f540b"
+  },
+  {
+    "id": "sofia-one-space",
+    "identity": "43135bfb501f4279bce44930057ff6635d3a7cbcb5bd525102348e761e2e6775"
+  },
+  {
+    "id": "sofia-domashen-maistor-com",
+    "identity": "8f7b670372a05feb225c76d0094df23ec8315553194c612402eb8e10ba400e08"
+  },
+  {
+    "id": "sofia-art-and-shock",
+    "identity": "139cd8f5582af319f6573dd605c94cb57bfdba4b6cf4068cdfde9a643f0d6503"
+  },
+  {
+    "id": "sofia-malki-muzikalni-uroci",
+    "identity": "bf5d3911e371ce8ae2729d3800a3d3f648cd55cd3b2b1a677d435bb4a660092c"
+  },
+  {
+    "id": "sofia-city-music-school",
+    "identity": "32d3c3ad2125abee049aecfbcdbcdeb63c2bec19509afb571de8f605a23f9897"
+  },
+  {
+    "id": "sofia-rayna-vasileva",
+    "identity": "d5075c6c990c1081f329612638c9e88564509f65af263eb6b7acae66fbf361f3"
+  },
+  {
+    "id": "sofia-rockschool-sofia",
+    "identity": "2a568ce245cded6f509f54c096daa7eee5238f6c83c91d018b8409c4baa905fb"
+  },
+  {
+    "id": "sofia-music-box-sinanishko",
+    "identity": "29ff0133b5c30e2215b6165536625a0fdc698ea74cd99ef15d8a407bfc0ddd8d"
+  },
+  {
+    "id": "sofia-music-box-mladost",
+    "identity": "eda7657cb90a948125e8002bc851935a06990d9502806e772cfb75026f6a4240"
+  },
+  {
+    "id": "sofia-duo-black-white-oborishte",
+    "identity": "39ee7c54d75a3580b6d17f702ca21c93d35086cc9b884f8ed01ed75cfc219ffe"
+  },
+  {
+    "id": "sofia-duo-black-white-dianabad",
+    "identity": "ed3acb3bf45c92f101edfddf7e4bcee3417843945eb980dc1b79b83d82d2b8f4"
+  },
+  {
+    "id": "sofia-s-gumi-mobile",
+    "identity": "353eefb6ec2169881f3f315606ac0a35f5b166aa37bb55d82b4782a3eafa549b"
+  },
+  {
+    "id": "sofia-tirepoint-mobile",
+    "identity": "666b0bb2b8378eb9cb8f6c88efdc6e3dc75448d35715d98f678fa0da3cedff67"
+  },
+  {
+    "id": "sofia-avtofar-lyulin-service",
+    "identity": "9a68f5a0bb6c52444e60672399c2ec8d6aba4750c04b1cacdb55b4bfab3dd1c4"
+  },
+  {
+    "id": "sofia-autobic-asen-yordanov-6b",
+    "identity": "63b7021f4dae5f25a0788e24695986025f0e3bbeb4475f66a1832ce975cc780c"
+  },
+  {
+    "id": "sofia-vitae-therapy",
+    "identity": "fdb87fdfeb27064dd17bdb134e45341d28bd26c23911c8a6f8008b21bd49f967"
+  },
+  {
+    "id": "sofia-brasnarnicata-mladost",
+    "identity": "551ab16a94e2d7c5298912e31a5102024f00f1b17131f2765db38641502705d3"
+  },
+  {
+    "id": "sofia-areab19",
+    "identity": "323e727ca8d5cd1d47cfeca4721f70ce04f5ab7ac5df78434a5afb5d8bbae051"
+  },
+  {
+    "id": "sofia-art-club-diplomat",
+    "identity": "06e0a16acafad01413c402f63ffddf5c1c679f260dd30784916fb24373dfd8b2"
+  },
+  {
+    "id": "sofia-fotosmagoria",
+    "identity": "006e4857b8de89c38750eba06abb38d4262089cf752479087c0dbe7811a3538c"
+  },
+  {
+    "id": "sofia-6trak-studio",
+    "identity": "2b7f41fc1e637a1bd3b8a06bc78ba07a79a18dced88a454ef033186a4f422aba"
+  },
+  {
+    "id": "sofia-elena-gyoshkova-logoped",
+    "identity": "45ea4331a1b7c5f75c1c61c366606b2ca35a99fde284d41733344725fc50905d"
+  },
+  {
+    "id": "sofia-petya-zhelezova-logoped",
+    "identity": "771f426f0e6dbe37f00b52988679f4a962b2816b29013e0306a49f81a383f6e4"
+  },
+  {
+    "id": "sofia-maria-petricheva-centre",
+    "identity": "9e71dc7d5e4a5b2e57921ca38183633a2c43053d9d06c2ba53eacffb4a4fa53b"
+  },
+  {
+    "id": "sofia-maria-petricheva-lyulin",
+    "identity": "20e6f87f2ebd33984038a063edf1035a906a055541b31f2b81ef90bf849a41bc"
+  },
+  {
+    "id": "sofia-account-em",
+    "identity": "615b9f188843df854e6d7bee5b5030e097b24634a8f62291246809944f847241"
+  },
+  {
+    "id": "sofia-arnica-accounting",
+    "identity": "d65ff3e895839c1d79103f4354a0281412fc5989e6a2d1f80907b49ba0476f5a"
+  },
+  {
+    "id": "sofia-diamond-beauty-care",
+    "identity": "e6c7c05c29434e6e10aa3a5da311714499ab4e2b1f8e03b89ed476ab6a72b185"
+  },
+  {
+    "id": "sofia-ivon-reduta-one",
+    "identity": "2655c37307cffd01b8db471a5dd2fd7b2f5e12fd3c6f890a266e183e6e19f892"
+  },
+  {
+    "id": "sofia-ivon-reduta-two",
+    "identity": "da1592a350f7cd55492fbd479456bc58646ffa0c477fff6ef85e89f0842d7863"
+  },
+  {
+    "id": "sofia-nokutche-sofia",
+    "identity": "2ee8a0248d182d3d507f3aca9c8d1f801e9a30089329fdd5bc89a59fcbdf9682"
+  },
+  {
+    "id": "sofia-studio-vnd",
+    "identity": "ff7cbee691ecdf3b20ca946ae2b87e4b55c89da4946094188b6b353ffb4b331c"
+  },
+  {
+    "id": "sofia-blades-studio",
+    "identity": "dd257ec55adb708bea5de2b26df4dfb92380f6ee7f27c0dc7f8a830a3c7f634e"
+  },
+  {
+    "id": "sofia-narra-beauty",
+    "identity": "ce2bc0f6765e84ab8f02ea95ddecd8093280128098a7de0e53e820eb0e4149e9"
+  },
+  {
+    "id": "sofia-studio-sunday",
+    "identity": "0f68f7fde179b6304c929b006eb5b1eb55d1147c489363de9e1bacf8f5784eb9"
+  },
+  {
+    "id": "sofia-skin-design",
+    "identity": "749a6a5eff6581b33ade22d25f4150bd11e124f7fe08e2ec8944af3963e30aef"
+  },
+  {
+    "id": "sofia-gr-pilates",
+    "identity": "385c42c085ffb821d17e217e598a1feb430e8110e78ffd929d1cc94797e623ab"
+  },
+  {
+    "id": "sofia-instyle-seven",
+    "identity": "9ce11d5ec38e17785a4e9e13eb092af8a93cb919b1121a88d9274eb59648dd09"
+  },
+  {
+    "id": "sofia-lidia-manova",
+    "identity": "bc527f70119662d5732e84a850772ab72b64f2c38f6e2dafba45087b84b4298d"
+  },
+  {
+    "id": "sofia-arena-isaev-gtp",
+    "identity": "c6ecebdf4885f070f0c90a8f3d0d00751108eaa499f5787579fb8ee806801c32"
+  },
+  {
+    "id": "sofia-genica-ami-bue",
+    "identity": "71620da2b8d9dfbac44dad0e650067d7a60b8dc3beb2b72a7bfaa0647c080922"
+  },
+  {
+    "id": "sofia-ramus-home-visits",
+    "identity": "57b08adef470db34870481f5680752864c29f05acc7700ecc2075057d40df975"
+  },
+  {
+    "id": "sofia-synevo-home-visits",
+    "identity": "ab08d6d31c7fe6e554890ba8f98707531554a7935364229622220536f85015a1"
+  },
+  {
+    "id": "sofia-cibalab-home-visits",
+    "identity": "c4291ec0eeec5619e5efe14180a8ba2fd056aaa3a2254bd3bb0a4ce0790712df"
+  },
+  {
+    "id": "sofia-physiolab",
+    "identity": "d6f5eb4d0b046c5dbe050625d84768e104b3d92c7835756f7a6095fb4b0dbd09"
+  },
+  {
+    "id": "sofia-bodyflow",
+    "identity": "a025edbba0cc86a4759d2936d8027a4f537b558f3a1f2fdd19918f083ae0d4f7"
+  },
+  {
+    "id": "sofia-physio-health-sofia",
+    "identity": "6dd36a4ffe59fe4c812f84b5d1be6e40ad95be2c52a135f1fcd4d2c2eb5257b1"
+  },
+  {
+    "id": "sofia-yan-physio-borovo",
+    "identity": "5d981ec1ff8c8fa94b90989a3577e4bdb90d3b65a96ec7612f2cf5688b940b48"
+  },
+  {
+    "id": "sofia-yan-physio-stranski",
+    "identity": "77c0290d3f101b8b3f27735e5d5dfcd747a73ad792ca5da2cb57d2b7378cde92"
+  },
+  {
+    "id": "sofia-escapeway-crystal-skull",
+    "identity": "dd80bb3ef0b75c8550cc79126f6764fbb65ba4455ee8ea77a8f91133aab156f2"
+  },
+  {
+    "id": "sofia-escapeway-black-pearl",
+    "identity": "c86061484c744002d8000d35eab0bd5f7bd4ad97684fd8397edcb15f7e3cdb52"
+  },
+  {
+    "id": "sofia-horror-house",
+    "identity": "0331c19325823fee0b81fcd076a394539502e949444af88d772133aea71a85bc"
+  },
+  {
+    "id": "sofia-game-castle-simeonovo",
+    "identity": "44ea0998bfbb2f06b938eca142cffdf08814a12915f903f6b37c5f0fbd0276ff"
+  },
+  {
+    "id": "sofia-game-castle-centre",
+    "identity": "0d9923e0f68b02759948f49009e22c8242c15cf076f0a059aa3b27e7a9e9f5ba"
+  },
+  {
+    "id": "sofia-onspot",
+    "identity": "3458b4aab1c41d05ec1ec5c3c47b095757f6df603c7250fbde4b7430eb763468"
+  },
+  {
+    "id": "sofia-nasko-car",
+    "identity": "4ede5a1dec888222da9a321901a65ee9987bf25c1ebba9aaa0da30900e494d37"
+  },
+  {
+    "id": "sofia-body-lab-pilates",
+    "identity": "cdded0586e821b77fffc1998c595e8a6e82c99ff86ae49a49565afce6c6cf158"
+  },
+  {
+    "id": "sofia-flowhaven-pilates",
+    "identity": "27d96bca0aa435e45942fc52ed25196d9d0ad0cf5788d322b1a3e39df0f64ac2"
+  },
+  {
+    "id": "sofia-tonic-pilates",
+    "identity": "0ca6252d0e7677658b10595c83aa4fbc80720cb0465a61494121cbfff5ba947c"
+  },
+  {
+    "id": "sofia-pilates-club-boyana",
+    "identity": "502763084f0d80ebfd80f9bab0ebd6c31f4cc095bb624b7e8c00668d8f36a61c"
+  },
+  {
+    "id": "sofia-sofia-pilates-studio",
+    "identity": "303ee243043c08580299b8e0d88ad7786694ded840dd8de1bb2b8f2a25d63a77"
+  },
+  {
+    "id": "sofia-dance-station-ndk",
+    "identity": "a2308bb9ff44d5fccfb2cb5d9fc1bdab3ee4fd1c497b258e23308f0e1fc9269f"
+  },
+  {
+    "id": "sofia-mk-barber-studio",
+    "identity": "30a40d2f2cc3f57a3ce12acec5f298dd1a7364da3d420578c2cb79c766235b05"
+  },
+  {
+    "id": "sofia-magic-studio-nails",
+    "identity": "18f6dfdd0d3c7f5bcca8d988e6cf2aebe63b365523c1b4afa6b23be1d4c16fa4"
+  },
+  {
+    "id": "sofia-lora-pozitano",
+    "identity": "81b8f9ede6fd346f1d0f4832a94aa8188044b1497f3c6a0e53667c3ffb232fcf"
+  },
+  {
+    "id": "sofia-lora-za-zhenata",
+    "identity": "b230162f960076a076293ce5aaf709991fab2c61876dcf0bfa42c3c208be3da4"
+  },
+  {
+    "id": "sofia-lora-krasno-selo",
+    "identity": "eb2ad74afcefb3e19eb217cd79aa0bf12d66905c806d2f6679f43933c9b086f1"
+  },
+  {
+    "id": "sofia-detsko-psihichno-zdrave-hipodruma",
+    "identity": "aef6083f6856c197946369301948c01b2cb60073f339a69191536adde3c08d30"
+  },
+  {
+    "id": "sofia-detsko-psihichno-zdrave-evlogi-georgievi",
+    "identity": "f9b54103981cf8f2c35fe1870612302b8916ca828fd8f4d5e0201f8f727a7498"
+  },
+  {
+    "id": "sofia-detsko-psihichno-zdrave-strelbishte",
+    "identity": "2eb2a331db7851aa234590dc97dc6ac565b3e8d6d3344ba8a21ee529d92f7e9a"
+  },
+  {
+    "id": "sofia-park-clinic",
+    "identity": "e33c8e73b6772ad4ee1964d7adf027e2b2b17bfe3a8f9b4afd75367ac803bf34"
+  },
+  {
+    "id": "sofia-dentix-zahari-simov",
+    "identity": "051008d422cd3a4298df86422d75eea97edf516f9214fffc04a22683861f7c10"
+  },
+  {
+    "id": "sofia-osem-dental-benkovski",
+    "identity": "332bdb5c5c6f0158ba42121ae5802161bb15a546c1a969087ccecc76cf4a698b"
+  },
+  {
+    "id": "sofia-osem-dental-vitosha",
+    "identity": "b1eeba64a6f77c636da6dd3115728ef6efd43669573dbb4f08e3aa12dc20aa82"
+  },
+  {
+    "id": "sofia-osem-dental-yug",
+    "identity": "7b273e0dcf91c86264d0595b61b38942eadf51c962731de1f665169724e74553"
+  },
+  {
+    "id": "sofia-dr-stetson-dental",
+    "identity": "35fdf73f7add4e13b22e0eb6c092e5535f785e425b1a395f75bc4d861cc232bc"
+  },
+  {
+    "id": "sofia-vet-patrol",
+    "identity": "0f152f78c2957c06bba23beab672228f68a6b4b6116dff395c254e08c182d0f0"
+  },
+  {
+    "id": "sofia-vet-city-nishava",
+    "identity": "2ed38166c7306fead8bc1118437b9ec7baa7a1b3253448b6f1272c78a2400710"
+  },
+  {
+    "id": "sofia-vet-vyara-nadezhda-lyubov",
+    "identity": "2d6ed8546a4d3cf3318cb454a3c74a1d49b7e3cee2a633f8c1b4b3ffbd021ef8"
+  },
+  {
+    "id": "sofia-mvc-bulgaria",
+    "identity": "186cb84cac51f5e6b00773ab646dec7888121fdc9d905bba2c3f3610b30ba563"
+  },
+  {
+    "id": "sofia-yoyo-vet",
+    "identity": "01bd70266ef7b9f604040b44b97381996423a315d7d56d5e9fc5cf6f144bd5e0"
+  },
+  {
+    "id": "sofia-vet-mei",
+    "identity": "3e5124ee1c92ecc7737d08aa5b046e30ed53349685d971739f09b7156c7f60f7"
+  },
+  {
+    "id": "sofia-amakids-geo-milev",
+    "identity": "39b2914bd3304ea573fb59b39ffca5ff9dc3628aff9de5fca59a166fda6ab7d7"
+  },
+  {
+    "id": "sofia-amakids-darvenitsa",
+    "identity": "08ef09a2b53edc2d3a7195694f1536220f796f51df3a7d24281219d05c3718d1"
+  },
+  {
+    "id": "sofia-amakids-lyulin",
+    "identity": "9f9d4ca6d30f4d8770dbe606dbcf26e02d6a758f0e5d2fe78e425a9a89d288e2"
+  },
+  {
+    "id": "sofia-amakids-manastirski-livadi",
+    "identity": "35b2ee90a85d98b77ee51ccb6f1adf49660f2806b5650b7e998c97701ad1c271"
+  },
+  {
+    "id": "sofia-amakids-nadezhda",
+    "identity": "50d4101e131a3a36d362402253043754ed6cece83893a8a55666895aa628b84f"
+  },
+  {
+    "id": "sofia-algorithmics-pitagor",
+    "identity": "62f594e01a86e219889088bf27922a4fd48d03def87179d78495b07114e9cf47"
+  },
+  {
+    "id": "sofia-algorithmics-mladost",
+    "identity": "daa4bfe4df68430230c49d91a6e0b02adab8b442e43c81cf21bf188f6b9bc6e7"
+  },
+  {
+    "id": "sofia-the-barber-shop-iztok",
+    "identity": "de8c6486a842bfb853d41f2062ef0536fdfd91b8cd66213ebc8c85b2f84d74d7"
+  },
+  {
+    "id": "sofia-auto-kotevi",
+    "identity": "8298ea71a84508afb9a42e1b813dce472129017f72c6c4e3ef1df0d96ab89a59"
+  },
+  {
+    "id": "sofia-thinkinkneedle",
+    "identity": "3bf5ade5d64d704404653235cd6a41d47c63d8d8deae669d0e3f87d31d89dc7e"
+  },
+  {
+    "id": "sofia-centerside-tattoo",
+    "identity": "5dae9f82ef80c58c02110a928d1af03132eaac948236d56c1e75c8aed0894989"
+  },
+  {
+    "id": "sofia-photofactory",
+    "identity": "5b9c5ac674182256d4c496d17a642e0595ff023e49639b5e5562c2fa902dfde9"
+  },
+  {
+    "id": "sofia-renita-kostadinova-photography",
+    "identity": "56bf0b4f62b89ee8707822f40bc17e4bb71a14a728404ec194b90527146e7806"
+  },
+  {
+    "id": "sofia-dr-smily",
+    "identity": "d2ac189ce5315d9c86480ba473375655a8124a7e466e4e2876af67277bf4d6f4"
+  },
+  {
+    "id": "sofia-elirka-dent",
+    "identity": "5e68f742725beef9885a7d343a834ed85714416ffe2ed430486b95d9c3f76cd2"
+  },
+  {
+    "id": "sofia-poliklinikata-lyulin",
+    "identity": "270366078eb34a075284fc8aed0b59c77bcaa1379a24a981d93b41687ae02309"
+  },
+  {
+    "id": "sofia-deckoff-dental",
+    "identity": "33056ffe24c87fa1fa34e4849ddf1033aad23c0acbd73100df03dfc1d47bced7"
+  },
+  {
+    "id": "sofia-ds-dent-orlov-most",
+    "identity": "09db6b7a1060bda43d4edbf55217607cad5b1bbb94d1a11f1181a3fb06592805"
+  },
+  {
+    "id": "sofia-new-dental-solutions",
+    "identity": "01a9a78cbe222b7537b8e66dc16e93ce7ce566f5bbe73735d857ef0a13562894"
+  },
+  {
+    "id": "sofia-all-dental-lagera",
+    "identity": "4a6d0cae0438444b62df9c1a7315bd65f9993f73f8f354c66c1cfc6e81308446"
+  },
+  {
+    "id": "sofia-smile-care",
+    "identity": "016fcc2a509f6cae8ab7fb5262210824247d6241280f0e91612fdd3851117613"
+  }
+]

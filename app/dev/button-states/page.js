@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 import { Icon } from '../../../components/icon'
 import { HOME_DISCOVERY_COPY } from '../../../lib/discovery/home.mjs'
+import { DISCOVERY_COPY } from '../../../lib/discovery/copy.mjs'
 
 // Safe, local-only native controls for hover/focus/press checks. No links,
 // handlers, booking forms, provider scripts, account data or network actions.
@@ -13,7 +14,7 @@ export default function ButtonStatePreview() {
       <p>Само дизайн — резервациите и регистрацията са изключени.</p>
       <article className="home-business-card" data-source="gorez" style={{ maxWidth: 280 }}>
         <div className="home-business-actions">
-          <button type="button" className="home-directions"><Icon name="map"/><span className="home-maps-label" translate="no">Google Maps</span></button>
+          <button type="button" className="home-directions"><Icon name="map"/><span className="home-maps-label">{DISCOVERY_COPY.bg.directions}</span></button>
           <button type="button" className="home-reserve">Резервирай час</button>
         </div>
       </article>

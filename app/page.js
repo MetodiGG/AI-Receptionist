@@ -2,10 +2,11 @@ import { HomePage } from '../components/home-page'
 import { companyIdentity } from '../lib/product-config.mjs'
 import { pageMetadata, websiteStructuredData } from '../lib/seo.mjs'
 import { discoveryConfig } from '../lib/discovery/config.mjs'
+import { SOCIAL_PREVIEW_TITLE } from '../lib/social-preview.mjs'
 
 export async function generateMetadata({ searchParams }) {
   const locale = (await searchParams)?.lang === 'en' ? 'en' : 'bg'
-  return pageMetadata('/', locale, { title: 'GoRez AI Search', description: locale === 'en' ? 'Describe the service and discover places to book.' : 'Опиши услугата и открий подходящо място за резервация.' })
+  return pageMetadata('/', locale, { title: SOCIAL_PREVIEW_TITLE, description: locale === 'en' ? 'Describe the service and discover places to book.' : 'Опиши услугата и открий подходящо място за резервация.' })
 }
 
 export default async function Home({ searchParams }) {

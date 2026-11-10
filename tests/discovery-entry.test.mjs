@@ -34,7 +34,7 @@ test('legacy catalogue route only redirects to a fixed local locale-aware AI ent
   assert.match(route, /redirect\(`\/\?lang=\$\{query\?\.lang === 'en' \? 'en' : 'bg'\}`\)/)
   assert.doesNotMatch(route, /query\?\.(redirect|next|url)|BusinessSearchPage|fetch\(|supabase/i)
   assert.doesNotMatch(await read('app/sitemap.js'), /'\/businesses'/)
-  assert.match(await read('app/page.js'), /title: 'GoRez AI Search'/)
+  assert.match(await read('app/page.js'), /title: SOCIAL_PREVIEW_TITLE/)
 })
 
 test('the location icon has its own grid column instead of overlaying the native Safari select', async () => {

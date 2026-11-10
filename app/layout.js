@@ -19,6 +19,7 @@ import { SOCIAL_PREVIEW_TITLE, socialPreviewImage } from '../lib/social-preview.
 
 export const metadata = {
   metadataBase: new URL(SITE_ORIGIN),
+  applicationName: 'GoRez',
   title: { default: SOCIAL_PREVIEW_TITLE, template: '%s · GoRez' },
   description: 'Открий бизнес, виж реално свободните часове и резервирай онлайн с GoRez.',
   manifest: '/manifest.webmanifest',

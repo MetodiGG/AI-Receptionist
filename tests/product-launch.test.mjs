@@ -22,7 +22,7 @@ test('public offer is free to use with no trial deadline, subscription discussio
   assert.match(PRICING_COPY.en.assurance,/No subscription fees and no automatic charges/)
   assert.equal(PRICING_COPY.bg.trial,undefined);assert.equal(PRICING_COPY.en.afterTrial,undefined)
   assert.doesNotMatch(JSON.stringify(PRICING_COPY),/19[.,]99|€|30|free forever|безплатно завинаги|trial|след безплатния|free period|уточняваме|discuss|continuation/i)
-  for(const file of ['components/business-onboarding.js','components/business-landing.js','app/share-image/route.js']){
+  for(const file of ['components/business-onboarding.js','components/business-landing.js']){
     const source=await readFile(new URL(`../${file}`,import.meta.url),'utf8')
     assert.match(source,/PRICING_COPY/);assert.doesNotMatch(source,/PRICE_LABEL|MONTHLY_PRICE_EUR|\.monthly\b|19[.,]99/)
   }
@@ -75,7 +75,8 @@ test('application API persists only valid leads, deduplicates and never falsely 
 })
 test('SEO has localized canonicals/hreflang and never invents profile ratings, contacts or hours',()=>{
   const en=pageMetadata('/for-businesses','en');assert.match(en.alternates.canonical,/lang=en$/);assert.match(en.alternates.languages['bg-BG'],/lang=bg$/);assert.ok(en.alternates.languages['x-default'])
-  assert.notEqual(pageMetadata('/','bg').title.absolute,en.title.absolute)
+  assert.equal(pageMetadata('/','bg').title.absolute,'GoRez — Online Booking Made Easy')
+  assert.equal(en.title.absolute,'GoRez — Online Booking Made Easy')
   assert.equal(en.openGraph.images[0].width,1200);assert.equal(en.openGraph.images[0].height,630)
   for(const patch of [{active:false,platform_status:'enabled'},{active:true,platform_status:'pending'},{active:true,platform_status:'archived'},{active:true,platform_status:'suspended'}])assert.equal(businessStructuredData({...patch,name:'Private'}),null)
   const data=businessStructuredData({active:true,platform_status:'enabled',name:'Real Profile',slug:'real-profile',industry:'auto'})

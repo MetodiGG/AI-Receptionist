@@ -74,12 +74,16 @@ test('browser/PWA/social assets use the same complete mark and the service worke
   assert.ok(worker.includes(BRAND_MARK_SRC)); assert.equal(BRAND_VERSION, 4)
   assert.match(worker, /brand-icon\?size=512&v=4/)
   assert.match(worker, /key.startsWith\('gorez-'\) && key !== CACHE/)
-  for (const file of ['app/share-image/route.js', 'app/brand-icon/route.js']) {
+  for (const file of ['app/brand-icon/route.js']) {
     const source = await read(file)
     assert.ok(source.includes(BRAND_MARK_PNG.slice(1)))
     assert.match(source, /data:image\/png;base64/)
     assert.doesNotMatch(source, /gorez-mark\.png|gorez-logo\.png|fetch\(/)
   }
+  const share = await read('app/share-image/route.js')
+  assert.match(share, /SOCIAL_PREVIEW_ARTWORK/)
+  assert.match(share, /socialPreviewSvg/)
+  assert.doesNotMatch(share, /fetch\(|gorez-mark\.png|gorez-logo\.png/)
 })
 
 test('the embed keeps its original booking flow while adopting the shared orange default', async () => {

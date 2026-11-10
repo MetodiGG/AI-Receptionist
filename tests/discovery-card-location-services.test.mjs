@@ -56,7 +56,7 @@ test('location fallbacks do not invent a fixed address for a service-area busine
 test('matching services lead the vertical menu and prices are joined by service name, never array position', () => {
   const row = { source: 'catalogue', services: [{ name: 'Оформяне на вежди' }], publicServiceNames: ['Маникюр', 'Педикюр', 'Оформяне на вежди'],
     details: { services: [{ name: 'Педикюр', price: 30, currency: 'EUR' }, { name: 'Оформяне на вежди', price: 9.71, currency: 'EUR' }, { name: 'Маникюр', price: null }] } }
-  assert.deepEqual(railServiceItems(row).map(row => [row.name, row.price]), [['Оформяне на вежди', 9.71], ['Маникюр', null], ['Педикюр', 30]])
+  assert.deepEqual(railServiceItems(row).map(row => [row.name, row.price]), [['Оформяне на вежди', 9.71], ['Педикюр', 30]])
   assert.match(detailPriceLabel(railServiceItems(row)[0]), /9,71/)
   assert.match(detailPriceLabel(railServiceItems(row)[0], 'en'), /€9\.71/)
 })
@@ -64,10 +64,10 @@ test('matching services lead the vertical menu and prices are joined by service 
 test('menus are bounded, deduplicated, first-party only and retain legitimate zero/from prices', () => {
   const row = { source: 'gorez', services: [{ name: 'First', price: 0 }, { name: ' first ', price: 0 }, { name: 'Second', price: 20, priceKind: 'from' }, { name: 'Hidden', price: 10, active: false }, { name: 'Third' }, { name: 'Fourth' }] }
   const services = railServiceItems(row)
-  assert.deepEqual(services.map(row => row.name), ['First', 'Second', 'Third'])
+  assert.deepEqual(services.map(row => row.name), ['First', 'Second'])
   assert.equal(services[0].price, 0)
   assert.match(detailPriceLabel(services[1]), /^от 20,00/)
-  assert.equal(services[2].price, null)
+  assert.equal(services.length, 2)
   assert.deepEqual(railServiceItems({ ...row, source: 'google' }), [])
   assert.deepEqual(railServiceItems({ source: 'catalogue' }), [])
   const ambiguous = railServiceItems({ source: 'gorez', services: [{ name: 'Cut', price: 20 }, { name: 'Cut', price: 35 }] })
@@ -89,12 +89,12 @@ test('card markup provides one location badge, vertical service/price pairs and 
   assert.match(badge, /<Icon name="pin"\//)
   assert.match(card, /<ul className="home-business-services"/)
   assert.match(card, /services.map\(service =>/)
-  assert.match(card, /detailPriceLabel\(service, locale\)/)
+  assert.match(card, /detailPriceLabel\(service, locale, \{ compact: true \}\)/)
   assert.match(card, /className="home-service-price"/)
   assert.doesNotMatch(card, /railServiceDescription|<p className="home-business-services"/)
-  assert.match(card, /en \? 'Directions' : 'Как да стигна'/)
-  assert.match(css, /\.home-business-services > li \{[^}]*grid-template-columns: minmax\(0,1fr\) auto/)
-  assert.match(css, /\.home-service-name \{ min-width: 0; overflow-wrap: anywhere/)
-  assert.match(css, /\.home-service-price \{[^}]*white-space: nowrap/)
+  assert.match(card, /const directionsLabel = copy.directions/)
+  assert.match(css, /\.home-business-services > li \{[^}]*grid-template-columns: minmax\(0,1fr\) fit-content\(44%\)/)
+  assert.match(css, /\.home-service-name \{[^}]*min-width: 0;[^}]*overflow-wrap: anywhere/)
+  assert.match(css, /\.home-service-price \{[^}]*white-space: normal/)
   assert.match(css, /\[data-uniform-cards="true"\] \.home-business-actions \{ margin-top: auto/)
 })

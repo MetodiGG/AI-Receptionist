@@ -5,7 +5,9 @@ import { useEffect, useId, useRef, useState } from 'react'
 import { nextPhotoIndex, photoSwipeDirection } from '../lib/business-photos.mjs'
 import { createPhotoAutoplay } from '../lib/photo-autoplay.mjs'
 
-export function BusinessPhotoGallery({ photos = [], businessName, locale = 'bg', variant = 'profile' }) {
+export function BusinessPhotoGallery({ photos: suppliedPhotos = [], businessName, locale = 'bg', variant = 'profile', autoplay = true, fallback = null }) {
+  const [failedSources, setFailedSources] = useState([])
+  const photos = variant === 'details' ? suppliedPhotos.filter(photo => !failedSources.includes(photo.src)) : suppliedPhotos
   const en = locale === 'en', count = photos.length
   const [index, setIndex] = useState(0), [isOpen, setIsOpen] = useState(false)
   const [paused, setPaused] = useState(false), [hovered, setHovered] = useState(false)
@@ -14,7 +16,7 @@ export function BusinessPhotoGallery({ photos = [], businessName, locale = 'bg',
   const titleId = useId()
 
   useEffect(() => {
-    if (count < 2) return
+    if (count < 2 || !autoplay) return
     const rotation = createPhotoAutoplay(() => setIndex(current => nextPhotoIndex(current, 1, count)))
     const media = window.matchMedia('(prefers-reduced-motion: reduce)')
     let inView = typeof IntersectionObserver === 'undefined'
@@ -28,12 +30,13 @@ export function BusinessPhotoGallery({ photos = [], businessName, locale = 'bg',
     if (root.current) observer?.observe(root.current)
     media.addEventListener('change', sync); document.addEventListener('visibilitychange', sync); sync()
     return () => { rotation.dispose(); observer?.disconnect(); media.removeEventListener('change', sync); document.removeEventListener('visibilitychange', sync) }
-  }, [count, paused, hovered, isOpen])
+  }, [count, paused, hovered, isOpen, autoplay])
 
-  if (!count) return null
+  if (!count) return fallback
   const photo = photos[index] || photos[0]
   const text = value => value?.[locale] || value?.bg || businessName
   const move = direction => { setPaused(true); setIndex(current => nextPhotoIndex(current, direction, count)) }
+  const rejectPhoto = () => { setFailedSources(current => [...current, photo.src]); setIndex(0) }
 
   function keydown(event) {
     if (event.key === 'Tab') setPaused(true)
@@ -60,14 +63,14 @@ export function BusinessPhotoGallery({ photos = [], businessName, locale = 'bg',
   return <>
     <div ref={root} className={`business-photo-gallery${variant === 'directory' ? ' directory-business-cover' : ''}`} role="region" aria-roledescription={en ? 'carousel' : 'галерия'} aria-label={en ? `Photos of ${businessName}` : `Снимки на ${businessName}`} data-photo-index={index} data-autoplay={playing} onKeyDown={keydown} onPointerEnter={event => { if (event.pointerType === 'mouse') setHovered(true) }} onPointerLeave={() => setHovered(false)} onFocusCapture={event => { if (event.target.matches(':focus-visible')) setPaused(true) }}>
       <button className="business-photo-open" type="button" onTouchStart={swipeStart} onTouchEnd={swipeEnd} onTouchCancel={() => { touchStart.current = null }} onClick={() => { if (dragged.current) { dragged.current = false; return }; setIsOpen(true); dialogRef.current?.showModal() }} aria-label={en ? `Open photos of ${businessName}` : `Отвори снимките на ${businessName}`}>
-        {photos.map((item, itemIndex) => <Image src={item.src} alt={itemIndex === index ? text(item.alt) : ''} aria-hidden={itemIndex !== index} className={itemIndex === index ? 'is-active' : ''} fill key={item.src} preload={variant === 'profile' && itemIndex === 0} sizes={variant === 'directory' ? '(max-width: 760px) 100vw, 50vw' : '(max-width: 1200px) 100vw, 1160px'} style={{ objectPosition: item.position }} />)}
+        {variant === 'details' ? <Image src={photo.src} alt={text(photo.alt)} className="is-active" fill sizes="(max-width: 680px) 100vw, 640px" style={{ objectPosition: photo.position }} onError={rejectPhoto}/> : photos.map((item, itemIndex) => <Image src={item.src} alt={itemIndex === index ? text(item.alt) : ''} aria-hidden={itemIndex !== index} className={itemIndex === index ? 'is-active' : ''} fill key={item.src} preload={variant === 'profile' && itemIndex === 0} sizes={variant === 'directory' ? '(max-width: 760px) 100vw, 50vw' : '(max-width: 1200px) 100vw, 1160px'} style={{ objectPosition: item.position }} />)}
       </button>
       {arrows}{playback}{counter}
     </div>
     <dialog ref={dialogRef} className="business-photo-dialog" aria-labelledby={titleId} onClose={() => setIsOpen(false)} onKeyDown={keydown} onClick={event => { if (event.target === event.currentTarget) dialogRef.current?.close() }}>
       <header><h2 id={titleId}>{businessName}</h2><button className="business-photo-close" type="button" onClick={() => dialogRef.current?.close()} aria-label={en ? 'Close photos' : 'Затвори снимките'}>×</button></header>
       <div className="business-photo-viewer" onTouchStart={swipeStart} onTouchEnd={swipeEnd} onTouchCancel={() => { touchStart.current = null }}>
-        <Image src={photo.src} alt={text(photo.alt)} fill sizes="(max-width: 700px) 100vw, 1100px" />{arrows}
+        {(variant !== 'details' || isOpen) && <Image src={photo.src} alt={text(photo.alt)} fill sizes="(max-width: 700px) 100vw, 1100px" onError={variant === 'details' ? rejectPhoto : undefined}/>}{arrows}
       </div>
       <footer>{playback}{counter}</footer>
     </dialog>

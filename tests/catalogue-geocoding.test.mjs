@@ -17,6 +17,7 @@ test('one-time geocoding requires an actual street and house number, never a dis
     {locationKind:'service_area'},{coordinates:{latitude:42.67,longitude:23.29}},
     {address:null},{address:'София, Манастирски ливади'},{address:'София, ж.к. Младост 3, бл. 20'},
     {address:'София, ул. Примерна 12–14'},{address:'София, ул. Примерна 12-14'},
+    {address:'София, ул. Иван Димитров — Куклата, бл. 51'},
   ]) assert.equal(catalogueStreetAddress(row(patch)),null,JSON.stringify(patch))
 })
 
@@ -85,17 +86,17 @@ test('geocoding remains offline, owner-approved, rate-limited and cached; attrib
   assert.match(script,/stopped without retries/);assert.doesNotMatch(script,/Promise\.all|setInterval|maps\.googleapis/)
   const runtime=await readFile(new URL('../lib/discovery/catalogue-search.mjs',import.meta.url),'utf8')
   assert.doesNotMatch(runtime,/catalogue-geocoding|nominatim/)
-  const ui=await readFile(new URL('../components/discovery-home-browse.js',import.meta.url),'utf8')
-  assert.match(ui,/footer=\{osmLocations &&/); assert.match(ui,/© OpenStreetMap contributors/)
+  const ui=await readFile(new URL('../components/site-footer.js',import.meta.url),'utf8')
+  assert.match(ui,/site-location-credit/); assert.match(ui,/© OpenStreetMap contributors/)
 })
 
 test('the attributed OSM layer is offered as machine-readable ODbL data, separate from business menus and partner records', async () => {
   const data = JSON.parse(await readFile(new URL('../public/catalogue-location-data-20261106.json',import.meta.url),'utf8'))
-  const updates = [...JSON.parse(await readFile(new URL('../lib/discovery/catalogue-data/geocodes-v2.json',import.meta.url),'utf8')), ...JSON.parse(await readFile(new URL('../lib/discovery/catalogue-data/geocodes-v3.json',import.meta.url),'utf8'))]
+  const updates = [...JSON.parse(await readFile(new URL('../lib/discovery/catalogue-data/geocodes-v2.json',import.meta.url),'utf8')), ...JSON.parse(await readFile(new URL('../lib/discovery/catalogue-data/geocodes-v3.json',import.meta.url),'utf8')), ...JSON.parse(await readFile(new URL('../lib/discovery/catalogue-data/geocodes-v4.json',import.meta.url),'utf8'))]
   assert.equal(data.licence,'ODbL-1.0'); assert.equal(data.licenceUrl,'https://opendatacommons.org/licenses/odbl/1-0/')
   assert.equal(data.attribution,OSM_ATTRIBUTION); assert.deepEqual([...data.points].sort((a,b)=>a.id.localeCompare(b.id)),updates.sort((a,b)=>a.id.localeCompare(b.id)))
   assert.ok(data.points.every(row=>row.coordinates.method==='verified_address_geocode'))
   assert.doesNotMatch(JSON.stringify(data),/"phone"|"booking"|"services"|"email"|"price"/)
-  const ui=await readFile(new URL('../components/discovery-home-browse.js',import.meta.url),'utf8')
+  const ui=await readFile(new URL('../components/site-footer.js',import.meta.url),'utf8')
   assert.match(ui,/catalogue-location-data-20261106\.json/)
 })

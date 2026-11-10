@@ -73,7 +73,7 @@ test('the chosen shorter heading is present in both languages', () => {
 })
 test('directions use customer-friendly copy while Google provider credits remain separate and unchanged', async () => {
   const card = await read('components/discovery-business-card.js'), kit = await read('components/google-discovery-list.js'), css = await read('app/discovery-home.css')
-  assert.match(card, /en \? 'Directions' : 'Как да стигна'/)
+  assert.match(card, /const directionsLabel = copy.directions/)
   assert.match(card, /className="home-maps-label">\{directionsLabel\}/)
   assert.match(card, /row.source === 'google' && <span className="home-google-attribution" translate="no">Google Maps/)
   assert.match(card, /row.attributions.map/)

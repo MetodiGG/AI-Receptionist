@@ -57,10 +57,10 @@ export function ReviewSummary({ summary, status, locale = 'bg', compact = false 
 
 // These are separate, attributed sources, not a blended average/count. A GoRez
 // rating without a comment still counts in the existing GoRez SQL aggregate.
-export function PartnerReviewSummary({ slug, reviews, locale = 'bg', compact = false, preview = false }) {
+export function PartnerReviewSummary({ slug, reviews, locale = 'bg', compact = false, preview = false, includeGoogle = true }) {
   const { data, status } = reviews
   return <div className={`partner-review-summary${compact ? ' compact' : ''}`}>
-    <PartnerGoogleRating slug={slug} locale={locale} preview={preview}/>
+    {includeGoogle && <PartnerGoogleRating slug={slug} locale={locale} preview={preview}/>}
     {!(status === 'ready' && !data?.summary?.count && compact) && <div className="partner-gorez-rating"><span className="reputation-source" translate="no">GoRez</span><ReviewSummary summary={data?.summary} status={status} locale={locale} compact={compact}/></div>}
   </div>
 }

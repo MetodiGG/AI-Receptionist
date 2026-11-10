@@ -145,6 +145,17 @@
 .profile-redesign .profile-mode-controls button[aria-pressed="true"] { color:#81421c; background:#ffe6c8; border-color:#dba66f; box-shadow:inset 0 1px #fff8ee; }
 .profile-redesign .profile-mode-controls button:hover { background:#fff0de; border-color:#c4844d; }
 .profile-redesign .profile-mode-controls svg { width:21px; height:21px; flex-shrink:0; }
+.profile-redesign .profile-mode-art { display:block; flex:0 0 30px; width:30px; height:30px; object-fit:contain; }
+.profile-redesign #profile-native-panel > .booking-card { max-width:574px; margin-inline:auto; }
+.profile-redesign .profile-staff-choice { display:grid; gap:8px; max-width:360px; margin:20px 0 12px; color:#70503a; font-size:15px; font-weight:650; }
+.profile-redesign .profile-staff-choice select { min-height:44px; max-width:100%; padding:10px 12px; border:1px solid #dbcab6; border-radius:10px; color:#5c4533; background:#fffaf2; font:inherit; }
+.profile-redesign .profile-time-slots { display:grid; grid-template-columns:repeat(auto-fill,minmax(115px,1fr)); gap:8px; max-width:520px; margin-top:14px; }
+.profile-redesign .profile-time-slots button { display:grid; place-content:center; gap:3px; min-width:0; min-height:46px; padding:8px 6px; border:1px solid #dcd5c7; border-radius:10px; color:#5a4938; background:#fffaf2; font:inherit; cursor:pointer; }
+.profile-redesign .profile-time-slots strong { font-size:16px; font-weight:750; white-space:nowrap; }
+.profile-redesign .profile-time-slots strong > span { font-size:13px; font-weight:450; color:#796c5d; }
+.profile-redesign .profile-time-slots small { font-size:13px; overflow-wrap:anywhere; }
+.profile-redesign .profile-time-slots button[aria-pressed="true"] { color:#8b471c; background:#ffe5c4; border:2px solid #c68245; padding:7px 5px; }
+.profile-redesign .profile-time-slots button:hover:not(:disabled) { background:#fff0db; border-color:#bd8854; }
 .profile-redesign .business-profile-section { padding:24px; margin-bottom:18px; border:1px solid #e8ded2; border-radius:18px; box-shadow:none; background:#fffdf9; }
 .profile-redesign .business-profile-section h2 { color:#68412a; font-size:23px; line-height:1.25; margin:0 0 18px; }
 .profile-redesign .profile-services { margin-inline:auto; }

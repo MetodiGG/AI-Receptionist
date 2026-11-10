@@ -65,7 +65,7 @@ test('mode state is not keyed by language/mode; in-flight submissions and previe
   assert.match(booking, /onBusyChange=\{setBusy\}/)
   assert.match(booking, /onShowBooking=\{\(\) => \{ if \(!busy\) setMode\('booking'\) \}\}/)
   assert.match(chat, /className="booking-text-button" disabled=\{sending\} onClick=\{onShowBooking\}/)
-  assert.match(booking, /if \(preview\) \{ setError\(/)
+  assert.match(booking, /if \(preview\) \{[\s\S]*?Local preview: no booking or notification is sent\./)
   assert.match(chat, /if \(preview\) \{ setError\(/)
   for (const source of [booking, chat]) assert.match(source, /if \(!preview\) trackProductEvent\('booking_started'/)
   assert.match(chat, /profileServicePrice\(item, locale\)/)

@@ -1,5 +1,6 @@
 import './globals.css'
 import './business-profile.css'
+import './monthly-booking-calendar.css'
 import './discovery.css'
 import './home-navigation.css'
 import './owner-calendar-month.css'

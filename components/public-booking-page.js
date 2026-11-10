@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react'
 import { flushSync } from 'react-dom'
 import { DateTime } from 'luxon'
 import { useParams, useRouter } from 'next/navigation'
@@ -13,14 +13,14 @@ import { localizedApiMessage } from '../lib/localized-api-message.mjs'
 import { LanguageSwitch } from './language-switch'
 import { HomeLink } from './home-link'
 import { usePublicLocale } from '../hooks/use-public-locale'
-import { collapseSlotsByLocalTime, formatBulgarianMonthShort, groupSlotsByPeriod, resolveVisibleBookingDays } from '../lib/booking-window.mjs'
+import { collapseSlotsByLocalTime, formatBulgarianMonthShort } from '../lib/booking-window.mjs'
+import { MonthlyBookingCalendar } from './monthly-booking-calendar'
 import { hasSupabaseConfig, supabase } from '../lib/supabase'
 import { notificationNotice } from '../lib/notification-copy.mjs'
 import { trackProductEvent } from '../lib/product-events-client'
 import { focusBookingDetails } from '../lib/booking-details-navigation.mjs'
 import { BusinessProfileHeader, BusinessProfileInformation, BusinessServiceList } from './business-profile'
 import { Icon } from './icon'
-import { getStaffPhoto } from '../lib/business-photos.mjs'
 import { BusinessReviews, useBusinessReviews } from './business-reviews'
 import { isExternalBooking } from '../lib/booking-mode.mjs'
 import { eligibleProfileStaff, profileBookingContextKey, profileServicePrice, scrollToProfileBooking } from '../lib/business-profile-ui.mjs'
@@ -35,15 +35,6 @@ const BOOKING_COPY = {
 function formatDate(date, zone, locale = 'bg') {
   const parsed = DateTime.fromISO(date, { zone }).setLocale(locale)
   return locale === 'bg' ? `${parsed.toFormat('ccc')}, ${parsed.day} ${formatBulgarianMonthShort(parsed.month)}` : parsed.toFormat('ccc, d LLL')
-}
-
-function formatDateRange(dates, zone, locale = 'bg') {
-  if (!dates.length) return ''
-  const first = DateTime.fromISO(dates[0], { zone }).setLocale(locale)
-  const last = DateTime.fromISO(dates[dates.length - 1], { zone }).setLocale(locale)
-  if (first.hasSame(last, 'month')) return `${first.toFormat('d')} – ${last.toFormat('d LLLL yyyy')}`
-  if (first.hasSame(last, 'year')) return `${first.toFormat('d LLLL')} – ${last.toFormat('d LLLL yyyy')}`
-  return `${first.toFormat('d LLLL yyyy')} – ${last.toFormat('d LLLL yyyy')}`
 }
 
 function SparkLogo({ businessName, locale }) {
@@ -66,14 +57,15 @@ function ExternalBookingPanel({business,locale,preview=false,serviceId='',assist
  return <section className="external-booking-panel booking-card" aria-labelledby={headingId}><h2 id={headingId}>{assistant?(en?'Online assistant':'Онлайн асистент'):(en?'Book on the business’s website':'Запази час в сайта на бизнеса')}</h2>{service&&<p className="profile-selected-service"><strong>{service.name}</strong><span>{profileServicePrice(service,locale)}</span></p>}<p>{en?'Check available times and complete your booking on the business’s website. GoRez does not synchronize that calendar.':'Провери свободните часове и завърши резервацията в сайта на бизнеса. GoRez не синхронизира този календар.'}</p>{assistant&&<><p>{en?'For this business, the assistant can direct you to its booking system or contact information.':'За този бизнес асистентът може да те насочи към системата му за резервации или контактите.'}</p>{business.phone&&<a className="profile-assistant-contact" href={`tel:${business.phone}`}><Icon name="phone"/>{business.phone}</a>}</>}<OutboundBookingButton business={business} locale={locale} className="profile-external-reserve" disabled={preview}><Icon name="calendar"/>{en?'Continue to booking':'Продължи към резервацията'}</OutboundBookingButton></section>
 }
 
-function BookingPanel({ business, locale, ref, onServiceChange, onBusyChange, active = true, preview = false }) {
+function BookingPanel({ business, locale, ref, onServiceChange, onBusyChange, active = true, preview = false, previewCalendarScenario = 'normal' }) {
   const en = locale === 'en'
   const [serviceId, setServiceId] = useState('')
   const [staffId, setStaffId] = useState('')
   const [date, setDate] = useState('')
   const [slot, setSlot] = useState(null)
   const [slots, setSlots] = useState([])
-  const [loadingSlots, setLoadingSlots] = useState(false)
+  const [monthLoading, setMonthLoading] = useState(false)
+  const [availabilityRevision, setAvailabilityRevision] = useState(0)
   const [details, setDetails] = useState({ name: '', phone: '', email: '', notes: '', consent: false })
   const [intake, setIntake] = useState({})
   const [submitting, setSubmitting] = useState(false)
@@ -81,18 +73,35 @@ function BookingPanel({ business, locale, ref, onServiceChange, onBusyChange, ac
   const [confirmation, setConfirmation] = useState(null)
   const detailsHeadingRef = useRef(null)
   const nameInputRef = useRef(null)
+  const submitLock = useRef(false), selectedDateRef = useRef(''), previewAttempts = useRef(0)
 
   const service = business.services.find((item) => item.id === serviceId)
   const availableStaff = useMemo(() => eligibleProfileStaff(business, serviceId), [business, serviceId])
-  const dates = useMemo(() => {
-    const start = DateTime.now().setZone(business.timezone).startOf('day')
-    const days = resolveVisibleBookingDays(business.booking_window_days)
-    return Array.from({ length: days }, (_, index) => start.plus({ days: index }).toISODate())
-  }, [business.booking_window_days, business.timezone])
-  const chosenDate = date ? DateTime.fromISO(date, { zone: business.timezone }).setLocale(locale) : null
+  selectedDateRef.current = date
   const visibleSlots = useMemo(() => staffId ? slots : collapseSlotsByLocalTime(slots), [slots, staffId])
-  const slotPeriods = useMemo(() => groupSlotsByPeriod(visibleSlots, locale), [visibleSlots, locale])
-  const availableTimes = visibleSlots.length
+
+  const invalidateSelection = useCallback(() => { setDate(''); setSlot(null); setSlots([]) }, [])
+  const monthLoadingChanged = useCallback(loading => {
+    setMonthLoading(loading)
+    if (loading) { setSlot(null); setSlots([]) }
+  }, [])
+  const monthDataChanged = useCallback(payload => {
+    const day = payload.days.find(day => day.date === selectedDateRef.current)
+    const nextSlots = day?.slots || []
+    setSlots(nextSlots)
+    setSlot(current => current && nextSlots.some(item => item.startsAt === current.startsAt && item.staffId === current.staffId) ? current : null)
+  }, [])
+  const chooseDate = useCallback((value, nextSlots) => {
+    setDate(value); setSlots(nextSlots); setSlot(null); setError('')
+  }, [])
+  const loadPreviewMonth = useCallback(async ({ month, serviceId: selectedService, staffId: selectedStaff, signal }) => {
+    // This development-only fixture invokes the real engine with fictional
+    // schedules on a production-gated local route, never production records.
+    const response = await fetch('/api/dev/business-profile/month', { method: 'POST', signal, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ business, month, serviceId: selectedService, staffId: selectedStaff || undefined, scenario: previewCalendarScenario, attempt: ++previewAttempts.current }) })
+    const result = await response.json()
+    if (!response.ok) throw new Error('Local calendar preview unavailable')
+    return result
+  }, [business, previewCalendarScenario])
 
   useEffect(() => {
     if (preview || !hasSupabaseConfig) return
@@ -105,40 +114,8 @@ function BookingPanel({ business, locale, ref, onServiceChange, onBusyChange, ac
     return () => { active = false }
   }, [preview])
 
-  useEffect(() => {
-    if (!active || !serviceId || !date) { setSlots([]); setLoadingSlots(false); return }
-    const controller = new AbortController()
-    setSlots([])
-    setLoadingSlots(true)
-    setSlot(null)
-    setError('')
-    // Development fixtures never query live availability or send notifications.
-    if (preview) {
-      const person = availableStaff.find(item => item.id === staffId) || availableStaff[0]
-      setSlots(person ? ['10:00', '14:30'].map(time => {
-        const start = DateTime.fromISO(`${date}T${time}`, { zone: business.timezone })
-        const end = start.plus({ minutes: service.duration_min })
-        return { startsAt: start.toUTC().toISO(), endsAt: end.toUTC().toISO(), localTime: time, localEndTime: end.toFormat('HH:mm'), staffId: person.id, staffName: person.name }
-      }) : [])
-      setLoadingSlots(false)
-      return () => controller.abort()
-    }
-    const query = new URLSearchParams({ service_id: serviceId, date })
-    if (staffId) query.set('staff_id', staffId)
-
-    fetch(`/api/public/${business.slug}/availability?${query}`, { signal: controller.signal, cache: 'no-store' })
-      .then(async (response) => {
-        const result = await response.json()
-        if (!response.ok) throw new Error(localizedApiMessage(result.error, locale))
-        if (!controller.signal.aborted) setSlots(result.slots)
-      })
-      .catch((requestError) => { if (!controller.signal.aborted) setError(requestError.message) })
-      .finally(() => { if (!controller.signal.aborted) setLoadingSlots(false) })
-    return () => { controller.abort() }
-  }, [active, business.slug, date, en, serviceId, staffId, preview])
-
   function chooseService(id) {
-    if (submitting) return false
+    if (submitting || submitLock.current) return false
     if (!business.services.some(item => item.id === id)) return false
     if (id === serviceId && !confirmation) return true
     if (!preview) trackProductEvent('booking_started','book',locale)
@@ -157,6 +134,8 @@ function BookingPanel({ business, locale, ref, onServiceChange, onBusyChange, ac
   useImperativeHandle(ref, () => ({ chooseService }))
 
   function chooseSlot(item) {
+    if (submitting || monthLoading || !slots.some(current => current.staffId === item.staffId && current.startsAt === item.startsAt) || DateTime.fromISO(item.startsAt).toMillis() < Date.now() + (business.minimum_notice_minutes || 0) * 60000) return
+    setError('')
     // Mount the conditional form before focusing, without delaying the user's
     // tap into an effect/timer (which can suppress the keyboard on iOS).
     flushSync(() => setSlot(item))
@@ -165,8 +144,13 @@ function BookingPanel({ business, locale, ref, onServiceChange, onBusyChange, ac
 
   async function submit(event) {
     event.preventDefault()
-    if (preview) { setError(en ? 'Local preview: no booking or notification is sent.' : 'Локален преглед: не се изпраща резервация или известие.'); return }
-    if (!service || !slot || submitting) return
+    if (preview) {
+      if (previewCalendarScenario === 'conflict') { setError(en ? 'That time was just booked. Please choose another time.' : 'Този час току-що беше резервиран. Избери друг час.'); setSlot(null); setSlots([]); setAvailabilityRevision(value => value + 1) }
+      else setError(en ? 'Local preview: no booking or notification is sent.' : 'Локален преглед: не се изпраща резервация или известие.')
+      return
+    }
+    if (!service || !slot || submitting || submitLock.current || monthLoading) return
+    submitLock.current = true
     setSubmitting(true)
     onBusyChange(true)
     setError('')
@@ -188,12 +172,16 @@ function BookingPanel({ business, locale, ref, onServiceChange, onBusyChange, ac
         }),
       })
       const result = await response.json()
-      if (!response.ok) throw new Error(localizedApiMessage(result.error, locale))
-      setConfirmation({ ...result.booking, service, slot })
+      if (!response.ok) { const failure = new Error(localizedApiMessage(result.error, locale)); failure.code = result.error?.code; throw failure }
+      if (!result.booking?.appointment?.id || !result.booking?.appointment?.cancellation_token) throw new Error(en ? 'Booking confirmation could not be verified. Contact the business before trying again.' : 'Потвърждението не можа да бъде проверено. Свържи се с бизнеса, преди да опиташ отново.')
+      setAvailabilityRevision(value => value + 1)
+      setConfirmation({ ...result.booking, service: result.booking.service || service, slot })
       trackProductEvent('booking_completed','book',locale)
     } catch (requestError) {
       setError(requestError.message)
+      if (requestError.code === 'SLOT_UNAVAILABLE') { setSlot(null); setSlots([]); setAvailabilityRevision(value => value + 1) }
     } finally {
+      submitLock.current = false
       setSubmitting(false)
       onBusyChange(false)
     }
@@ -207,7 +195,7 @@ function BookingPanel({ business, locale, ref, onServiceChange, onBusyChange, ac
         <h2>{en ? 'See you soon!' : 'Очакваме те!'}</h2>
         <div className="confirmation-details">
           <strong>{confirmation.service.name}</strong>
-          <span>{formatDate(date, business.timezone, locale)} {en ? 'at' : 'в'} {confirmation.slot.localTime}</span>
+          <span>{formatDate(DateTime.fromISO(confirmation.slot.startsAt).setZone(business.timezone).toISODate(), business.timezone, locale)} {en ? 'at' : 'в'} {confirmation.slot.localTime}</span>
           <span>{en ? 'with' : 'при'} {confirmation.slot.staffName}</span>
           {business.address && <span>{business.address}</span>}
         </div>
@@ -215,7 +203,7 @@ function BookingPanel({ business, locale, ref, onServiceChange, onBusyChange, ac
         <p>{en ? 'Keep these details. If needed, contact' : 'Запази тези детайли. При нужда се свържи с'} {business.name}{business.phone ? ` ${en ? 'at' : 'на'} ${business.phone}` : ''}.</p>
         <Link className="manage-booking-link" href={`/booking/${confirmation.appointment.cancellation_token}?lang=${locale}`}>{en ? 'View and manage booking' : 'Преглед и управление на резервацията'}</Link>
         <BookingConfirmationActions appointment={confirmation.appointment} business={business} service={confirmation.service} staff={confirmation.staff} locale={locale} />
-        <button className="booking-primary" type="button" onClick={() => { setConfirmation(null); setSlot(null); setDate(''); setIntake({}); setDetails({ name: '', phone: '', email: '', notes: '', consent: false }) }}>{en ? 'Book another appointment' : 'Запази още един час'}</button>
+        <button className="booking-primary" type="button" onClick={() => { setConfirmation(null); setSlot(null); setDate(''); setSlots([]); setAvailabilityRevision(value => value + 1); setIntake({}); setDetails({ name: '', phone: '', email: '', notes: '', consent: false }) }}>{en ? 'Book another appointment' : 'Запази още един час'}</button>
       </section>
     )
   }
@@ -226,50 +214,13 @@ function BookingPanel({ business, locale, ref, onServiceChange, onBusyChange, ac
 
       {serviceId && <>
         {availableStaff.length > 1 && <>
-        <div className="booking-divider" />
-        <div className="booking-section-head"><span>2</span><div><h2>{en ? 'Choose a specialist' : 'Избери специалист'}</h2><p>{en ? 'Or let the system find the earliest option.' : 'Или остави системата да избере най-ранния час.'}</p></div></div>
-        <div className="staff-options">
-          <button type="button" disabled={submitting} className={!staffId ? 'selected' : ''} onClick={() => { setStaffId(''); setSlot(null) }}><i>✦</i><span><strong>{en ? 'No preference' : 'Без предпочитание'}</strong><small>{en ? 'Earliest available time' : 'Най-ранен свободен час'}</small></span></button>
-          {availableStaff.map((person) => {const photo=getStaffPhoto(business,person.id);return <button type="button" disabled={submitting} className={staffId === person.id ? 'selected' : ''} onClick={() => { setStaffId(person.id); setSlot(null) }} key={person.id}>{photo?<img className="booking-staff-photo" src={photo.src} alt="" width="44" height="44" loading="lazy"/>:<i>{person.name.slice(0, 1).toUpperCase()}</i>}<span><strong>{person.name}</strong><small>{person.bio || (en ? 'Specialist' : 'Специалист')}</small></span></button>})}
-        </div>
+        <label className="profile-staff-choice"><span>{en ? 'Specialist' : 'Специалист'}</span><select value={staffId} disabled={submitting} onChange={event => { setStaffId(event.target.value); invalidateSelection(); setError('') }}><option value="">{en ? 'Any available specialist' : 'Без предпочитание'}</option>{availableStaff.map(person => <option key={person.id} value={person.id}>{person.name}</option>)}</select></label>
         </>}
-
-        <div className="booking-divider" />
-        <div className="booking-section-head"><span>3</span><div><h2>{en ? 'Choose a date and time' : 'Избери дата и час'}</h2><p>{en ? 'Only genuinely available times are shown.' : 'Показваме само реално свободните часове.'}</p></div></div>
-        <div className="booking-calendar-shell">
-          <div className="booking-calendar-head">
-            <div><span>{en ? `Next ${dates.length} days` : `Следващите ${dates.length} дни`}</span><strong>{formatDateRange(dates, business.timezone, locale)}</strong></div>
-            <small>{en ? 'Choose a convenient day' : 'Избери удобен ден'}</small>
-          </div>
-          <div className="date-strip" role="group" aria-label={en ? 'Booking dates' : 'Дати за резервация'}>
-            {dates.map((item, index) => {
-              const itemDate = DateTime.fromISO(item, { zone: business.timezone }).setLocale(locale)
-              return <button type="button" disabled={submitting} aria-label={itemDate.toFormat('cccc, d LLLL yyyy')} aria-pressed={date === item} className={date === item ? 'selected' : ''} onClick={() => { setDate(item); setSlot(null) }} key={item}>
-                <span className="date-weekday">{index === 0 ? (en ? 'Today' : 'Днес') : itemDate.toFormat('ccc')}</span>
-                <strong>{itemDate.toFormat('d')}</strong>
-                <span className="date-month">{en ? itemDate.toFormat('LLL') : formatBulgarianMonthShort(itemDate.month)}</span>
-              </button>
-            })}
-          </div>
-        </div>
-        {date && <div className="selected-date-panel">
-          <div className="selected-date-summary">
-            <span className="selected-date-icon" aria-hidden="true">▦</span>
-            <div><small>{en ? 'Selected date' : 'Избрана дата'}</small><strong>{chosenDate.toFormat('cccc, d LLLL yyyy')}</strong></div>
-            <span className="available-times-label">{loadingSlots ? (en ? 'Checking…' : 'Проверяваме...') : availableTimes ? (en ? `${availableTimes} times available` : `${availableTimes} часа за избор`) : (en ? 'No available times' : 'Няма свободни часове')}</span>
-          </div>
-          <div className="slot-area">
-            {loadingSlots && <p className="slot-status"><span className="button-spinner" /> {en ? 'Checking the calendar…' : 'Проверяваме календара...'}</p>}
-            {!loadingSlots && slots.length === 0 && <p className="empty-slots">{en ? 'No available times for this date. Choose another day.' : 'Няма свободни часове за тази дата. Избери следващ ден.'}</p>}
-            {!loadingSlots && slots.length > 0 && <div className="time-periods">{slotPeriods.map((period) => <section className="time-period" key={period.key}>
-              <div className="time-period-head"><h3>{period.label}</h3><span>{period.range}</span></div>
-              <div className="slot-grid">{period.slots.map((item) => {
-                const selected = slot?.startsAt === item.startsAt && slot?.staffId === item.staffId
-                return <button type="button" disabled={submitting} aria-pressed={selected} className={selected ? 'selected' : ''} onClick={() => chooseSlot(item)} key={`${item.staffId}-${item.startsAt}`}><span className="slot-time"><strong>{item.localTime}<span className="slot-end-time">–{item.localEndTime || DateTime.fromISO(item.endsAt).setZone(business.timezone).toFormat('HH:mm')}</span></strong>{selected && <i aria-hidden="true">✓</i>}</span>{!staffId && <small>{item.staffName}</small>}</button>
-              })}</div>
-            </section>)}</div>}
-          </div>
-        </div>}
+        <MonthlyBookingCalendar business={business} serviceId={serviceId} staffId={staffId} locale={locale} selectedDate={date} onSelectDate={chooseDate} onInvalidateSelection={invalidateSelection} onData={monthDataChanged} onLoadingChange={monthLoadingChanged} refreshKey={availabilityRevision} disabled={submitting} active={active} previewMonthLoader={preview ? loadPreviewMonth : undefined}/>
+        {date && !monthLoading && visibleSlots.length > 0 && <div className="profile-time-slots" role="group" aria-label={en ? 'Available times' : 'Свободни часове'}>{visibleSlots.map(item => {
+          const selected = slot?.startsAt === item.startsAt && slot?.staffId === item.staffId
+          return <button type="button" disabled={submitting} aria-pressed={selected} className={selected ? 'selected' : ''} onClick={() => chooseSlot(item)} key={`${item.staffId}-${item.startsAt}`} aria-label={`${formatDate(date, business.timezone, locale)}, ${item.localTime}–${item.localEndTime}, ${item.staffName}`}><strong>{item.localTime}<span>–{item.localEndTime}</span></strong>{!staffId && <small>{item.staffName}</small>}</button>
+        })}</div>}
       </>}
 
       {slot && <form className="booking-details" onSubmit={submit}>
@@ -294,7 +245,7 @@ function BookingPanel({ business, locale, ref, onServiceChange, onBusyChange, ac
   )
 }
 
-function BusinessBookingExperience({ business, locale, preview = false }) {
+function BusinessBookingExperience({ business, locale, preview = false, previewCalendarScenario = 'normal' }) {
   const en = locale === 'en', external = isExternalBooking(business)
   const [mode, setMode] = useState('booking'), [assistantOpened, setAssistantOpened] = useState(false)
   const [busy, setBusy] = useState(false)
@@ -314,19 +265,19 @@ function BusinessBookingExperience({ business, locale, preview = false }) {
 
   return <div className="profile-booking-flow">
     <div className="business-booking-method"><div className="profile-mode-controls" role="group" aria-label={en ? 'Booking method' : 'Начин за записване'}>
-      <button type="button" disabled={busy} aria-pressed={mode === 'booking'} aria-controls="profile-native-panel" onClick={() => setMode('booking')}><Icon name="calendar"/><span>{en ? 'Book an appointment' : 'Резервирай час'}</span></button>
-      <button type="button" disabled={busy} aria-pressed={mode === 'chat'} aria-controls="profile-assistant-panel" onClick={() => { setAssistantOpened(true); setMode('chat') }}><Icon name="robot"/><span>{en ? 'Online assistant' : 'Онлайн асистент'}</span></button>
+      <button type="button" disabled={busy} aria-pressed={mode === 'booking'} aria-controls="profile-native-panel" onClick={() => setMode('booking')}><img className="profile-mode-art" src="/booking-art/calendar-3d-v1.webp" alt="" aria-hidden="true" width="30" height="30"/><span>{en ? 'Book an appointment' : 'Резервирай час'}</span></button>
+      <button type="button" disabled={busy} aria-pressed={mode === 'chat'} aria-controls="profile-assistant-panel" onClick={() => { setAssistantOpened(true); setMode('chat') }}><img className="profile-mode-art" src="/booking-art/assistant-3d-v1.webp" alt="" aria-hidden="true" width="30" height="30"/><span>{en ? 'Online assistant' : 'Онлайн асистент'}</span></button>
     </div></div>
     <BusinessServiceList business={business} locale={locale} selectedServiceId={selectedServiceId} onChoose={chooseService} disabled={busy}/>
     <div className="booking-content profile-shared-booking" id="booking-experience" ref={section} tabIndex={-1} role="region" aria-label={en ? 'Booking' : 'Резервация'}>
-      <div id="profile-native-panel" hidden={mode !== 'booking'}>{external ? <ExternalBookingPanel business={business} locale={locale} preview={preview} serviceId={selectedServiceId}/> : <BookingPanel ref={panel} business={business} locale={locale} onServiceChange={setSelectedServiceId} onBusyChange={setBusy} active={mode === 'booking'} preview={preview}/>}</div>
+      <div id="profile-native-panel" hidden={mode !== 'booking'}>{external ? <ExternalBookingPanel business={business} locale={locale} preview={preview} serviceId={selectedServiceId}/> : <BookingPanel ref={panel} business={business} locale={locale} onServiceChange={setSelectedServiceId} onBusyChange={setBusy} active={mode === 'booking'} preview={preview} previewCalendarScenario={previewCalendarScenario}/>}</div>
       <div id="profile-assistant-panel" hidden={mode !== 'chat'}>{assistantOpened && (external ? <ExternalBookingPanel business={business} locale={locale} preview={preview} serviceId={selectedServiceId} assistant/> : <GuidedBookingChat business={business} locale={locale} active={mode === 'chat'} preview={preview} onBusyChange={setBusy} onShowBooking={() => { if (!busy) setMode('booking') }}/>)}</div>
       {business.booking_terms && <details className="booking-terms"><summary>{en ? 'Booking terms' : 'Условия за резервация'}</summary><p>{business.booking_terms}</p></details>}
     </div>
   </div>
 }
 
-export default function PublicBookingPage({ initialLocale = 'bg', previewBusiness = null, previewReviews = null }) {
+export default function PublicBookingPage({ initialLocale = 'bg', previewBusiness = null, previewReviews = null, previewCalendarScenario = 'normal' }) {
   const params = useParams(), slug = previewBusiness?.slug || params.slug
   const router = useRouter()
   const { locale, setLocale } = usePublicLocale(initialLocale)
@@ -399,7 +350,7 @@ export default function PublicBookingPage({ initialLocale = 'bg', previewBusines
       </header>
       {previewBusiness && <p className="local-profile-qa-label">LOCAL QA · fictional profile and reviews · not a real business</p>}
       {!embedded && <BusinessProfileHeader business={business} locale={locale}/>}
-      <BusinessBookingExperience business={business} locale={locale} preview={Boolean(previewBusiness)} key={profileBookingContextKey(business)}/>
+      <BusinessBookingExperience business={business} locale={locale} preview={Boolean(previewBusiness)} previewCalendarScenario={previewCalendarScenario} key={profileBookingContextKey(business)}/>
       {!embedded && <div className="business-profile-bottom"><BusinessProfileInformation business={business} locale={locale} /><BusinessReviews reviews={reviews} locale={locale} /></div>}
       <footer className="booking-footer"><span>{copy.secure}</span><span><Link href={`/privacy?lang=${locale}`}>{copy.privacy}</Link> · <Link href={`/terms?lang=${locale}`}>{copy.legalTerms}</Link></span><span>{copy.powered}</span></footer>
     </main>

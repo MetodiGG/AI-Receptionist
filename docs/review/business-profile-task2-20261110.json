@@ -1,0 +1,114 @@
+{
+  "reviewed_at": "2026-11-10",
+  "branch": "codex/public-business-month-calendar",
+  "task1_base_commit": "d528a34",
+  "scope": "Shared monthly booking calendar and small transparent 3D mode-control illustrations. Task 1 gallery, service presentation, contacts, reviews, navigation and external redirect safeguards are retained.",
+  "deployment": {
+    "production_deployed": false,
+    "remote_branch_pushed": false,
+    "database_migrations_required": false,
+    "production_data_modified": false,
+    "real_bookings_created": false,
+    "production_notifications_sent": false,
+    "new_dependencies_or_paid_services": false
+  },
+  "implementation": {
+    "calendar": "One selected-service calendar with localized month/year, Monday-first seven-column grid, bounded navigation, green available dates, orange selected date, gray diagonal-struck disabled dates and neutral unknown dates.",
+    "sequence": "Service -> staff if more than one eligible person -> available date -> actual time -> guest customer details and compact summary -> existing booking POST confirmation.",
+    "availability": "Monthly wrapper reuses buildAvailableSlots without changing its algorithm. One public-business read and two business/staff/status/date-scoped busy queries cover a month. A frozen server clock, Europe/Sofia local-day boundaries and UTC storage preserve notice/horizon/DST rules.",
+    "database_safety": "Exact busy-row counts must be safe integers equal to returned row counts. Missing, truncated or inconsistent results fail as technical errors rather than creating false availability.",
+    "state_safety": "Selection resets on service/staff/month changes. Per-instance four-entry 15-second cache shares identical requests and aborts stale subscriptions. Generation keys reject older responses. Clock updates remove expired server-provided slots only. In-flight booking selections stay immutable until submission unlocks.",
+    "submission": "Original payload, guest behavior, consent, notifications and authoritative slot revalidation remain. A synchronous ref lock prevents duplicate POSTs; success requires backend appointment ID/token. SLOT_UNAVAILABLE refreshes availability and clears the time while retaining customer details. Existing PostgreSQL atomic conflict protection is unchanged.",
+    "external_mode": "No native calendar is mounted for external-booking businesses. Existing validated/approved outbound URL handling remains; no synthetic dates or additional parameters are introduced.",
+    "artwork": "Two locally served lossless WebP illustrations generated with the built-in image tool from the supplied style reference; genuine transparency verified. Each displays at 30 CSS pixels. Full prompts, provenance and hashes are recorded in profile-control-art-20261110.json. No service photos have been invented."
+  },
+  "api": {
+    "method": "GET",
+    "path": "/api/public/[slug]/availability/month",
+    "query": "service_id=UUID&month=YYYY-MM[&staff_id=UUID]",
+    "response": "month, timezone, today, firstBookableDate, lastBookableDate, generatedAt, days[{date,slots[{startsAt,endsAt,localTime,localEndTime,staffId,staffName}]}]",
+    "security": "Strict slug/month/UUID/service/staff validation, external-mode guard, existing public-business eligibility, rate limit 60 requests per minute per existing limiter key, private no-store responses, safe errors and Server-Timing.",
+    "existing_apis_unchanged": [
+      "GET /api/public/[slug]/availability",
+      "POST /api/public/[slug]/bookings"
+    ],
+    "test_endpoint": "POST /api/dev/business-profile/month uses only validated fictional fixture schedules and the real availability engine. Returns 404 before reading input in production. No provider/database dependencies."
+  },
+  "files": {
+    "modified": [
+      "app/business-profile.css",
+      "app/dev/business-profile/page.js",
+      "app/layout.js",
+      "components/public-booking-page.js",
+      "lib/public-booking.js",
+      "tests/business-profile-ui.test.mjs"
+    ],
+    "created": [
+      "app/api/dev/business-profile/month/route.js",
+      "app/api/public/[slug]/availability/month/route.js",
+      "app/monthly-booking-calendar.css",
+      "components/monthly-booking-calendar.js",
+      "lib/monthly-availability.mjs",
+      "lib/monthly-booking-calendar.mjs",
+      "public/booking-art/assistant-3d-v1.webp",
+      "public/booking-art/calendar-3d-v1.webp",
+      "tests/booking-month-integration.test.mjs",
+      "tests/monthly-availability.test.mjs",
+      "tests/monthly-booking-calendar.test.mjs",
+      "tests/public-native-month-booking.test.mjs",
+      "docs/review/profile-control-art-20261110.json",
+      "docs/review/business-profile-task2-20261110.json"
+    ]
+  },
+  "automated_checks": [
+    { "command": "pnpm test", "result": "1074 passed, 0 failed, 0 skipped; exit 0" },
+    { "command": "pnpm build", "result": "Passed Next.js 16.4.1 production compilation, type validation and static generation; exit 0" },
+    { "command": "pnpm catalogue:check", "result": "Passed; existing 654-entry catalogue and pricing-review gate unchanged; exit 0" },
+    { "command": "python3 tests/pricing-extraction_test.py", "result": "8 passed; exit 0" },
+    { "command": "python3 tests/booking-pricing-flow_test.py", "result": "4 passed; exit 0" },
+    { "command": "git diff --check", "result": "Passed" },
+    { "command": "Local next start on port 3048, POST /api/dev/business-profile/month with {}", "result": "404 with private no-store and noindex headers. Temporary production-mode server stopped after check. No production endpoint or data accessed." }
+  ],
+  "new_test_coverage": [
+    "Month lengths, leap-year February, Monday alignment, month/year transitions and booking-horizon bounds.",
+    "Europe/Sofia DST transitions, same-day expiry and lead-time handling, exact service-duration gaps, breaks, blocked periods, staff eligibility and cross-midnight conflicts.",
+    "Closed/empty months, incomplete/malformed payloads, scoped range queries, external mode, invalid requests, rate limiting and technical failures.",
+    "Cache TTL/LRU, duplicate request sharing, aborts, stale responses, context changes, retry, reactivation and in-flight expiry race.",
+    "Actual SWC-compiled booking component/effects and actual booking implementation with injected fake database/auth/rate/notifier boundaries: valid guest POST, no account required, invalid consent/details, duplicate submission, conflict refresh and 23P01 race mapping. No notification or network provider invoked."
+  ],
+  "browser_checks": {
+    "environment": "Local development fixture in Codex in-app browser; fictional business/customer data only. Not a native Safari or live-production test.",
+    "verified": [
+      "Page starts at scrollY=0, gallery remains first, no calendar before service selection, two 30px 3D control assets load.",
+      "Service button opens/focuses shared monthly calendar; available date reveals actual fixture-engine slots; time reveals customer form and focuses name.",
+      "Month change clears date/time/details panel; staff change clears stale selection; BG/EN month/weekday/status text works.",
+      "Injected network failure shows neutral dates and concise Retry; retry restores availability. Empty month has 30 disabled dates, no redundant empty panel, and next-month navigation.",
+      "Injected local conflict removes occupied 09:00/09:30 slots and preserves customer-entered values for another slot. No actual booking POST is made by fixture.",
+      "External mode contains outbound panel, no native calendar.",
+      "No captured browser console errors. A pre-existing gallery LCP loading advisory is not a calendar failure."
+    ],
+    "viewports": [
+      { "width": 360, "page_width": 360, "calendar_width": 294, "weekday_columns": 7, "day_height": 44, "overflow_or_clipped_checked_controls": false },
+      { "width": 390, "page_width": 390, "calendar_width": 324, "weekday_columns": 7, "day_height": 44, "overflow_or_clipped_checked_controls": false },
+      { "width": 430, "page_width": 430, "calendar_width": 364, "weekday_columns": 7, "day_height": 44, "overflow_or_clipped_checked_controls": false },
+      { "width": 768, "page_width": 768, "calendar_width": 520, "weekday_columns": 7, "day_height": 44, "overflow_or_clipped_checked_controls": false },
+      { "width": 1280, "page_width": 1280, "calendar_width": 520, "weekday_columns": 7, "day_height": 44, "overflow_or_clipped_checked_controls": false }
+    ],
+    "screenshots": [
+      ".audit-work/profile-task2/profile-controls-390.jpg",
+      ".audit-work/profile-task2/calendar-360.jpg",
+      ".audit-work/profile-task2/calendar-390.jpg",
+      ".audit-work/profile-task2/calendar-430.jpg",
+      ".audit-work/profile-task2/calendar-768.jpg",
+      ".audit-work/profile-task2/calendar-1280.jpg"
+    ],
+    "preview_url": "http://127.0.0.1:3042/dev/business-profile?lang=bg&reviews=empty"
+  },
+  "limitations": [
+    "Live guest submission and notification delivery were deliberately not tested. Actual native POST success/conflict behavior is covered offline with injected boundaries. Fake-store race tests cover application error mapping, not proof of PostgreSQL exclusion constraints; existing database tests are part of the full suite.",
+    "No buffer field exists in the current schema, so this feature does not introduce a new buffer rule. Existing authoritative engine behavior is preserved.",
+    "Availability remains advisory until the existing server submission and atomic conflict guard accept the reservation. Busy data exceeding the database response cap yields a retryable technical error, never invented free dates.",
+    "No real service-specific business photos were supplied for this task. Existing rights-cleared illustrations/neutral fallbacks remain until the user supplies photos.",
+    "No separate lint script exists in package.json. Production compilation/type validation and the full test suite ran; no unexecuted lint claim is made."
+  ]
+}

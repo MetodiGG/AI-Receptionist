@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-11-10",
+  "purpose": "Replace business-profile booking-mode flat icons with small modern 3D illustration assets.",
+  "generation": {
+    "mode": "built-in image_gen",
+    "tool": "image_gen.imagegen",
+    "transparent_background": true,
+    "paid_external_api_used": false,
+    "cli_fallback_used": false,
+    "reference": {
+      "role": "Style and subject reference only; neither asset is a screenshot crop.",
+      "original_attachment": "/tmp/codex-remote-attachments/01a13548-f728-7172-a396-a52db0f30e43/688BDB14-34B3-45B6-AC91-9E0BD84913C4/1-Photo-1.jpg",
+      "sha256": "c0031dad59a91b103afcad412e4fe6460bba112b08860af749ecf2e2341febb0",
+      "description": "User-provided GoRez marketing screenshot featuring a white/orange assistant robot and an orange folded desk calendar."
+    }
+  },
+  "optimization": {
+    "library": "sharp 0.35.5",
+    "source_dimensions": {
+      "width": 1254,
+      "height": 1254
+    },
+    "output_dimensions": {
+      "width": 256,
+      "height": 256
+    },
+    "fit": "contain",
+    "background": "transparent",
+    "codec": "WebP",
+    "lossless": true,
+    "effort": 6,
+    "processing": "Resize only; preserve generated alpha. No background removal, image redrawing, or third-party hotlinks."
+  },
+  "assets": [
+    {
+      "name": "assistant",
+      "path": "public/booking-art/assistant-3d-v1.webp",
+      "public_url": "/booking-art/assistant-3d-v1.webp",
+      "generated_source": "/Users/metodig/.codex/generated_images/01a1c75e-b64a-7351-b11e-935d1841f274/exec-eaceffa6-e5a0-450e-8d9d-70089cf8da9c.png",
+      "bytes": 41880,
+      "sha256": "93f3eabbfb9fd4c473c856b6a1f044b946072fb767b70cc9b8fe80b103fc55db",
+      "alpha": {
+        "present": true,
+        "minimum": 0,
+        "maximum": 255
+      },
+      "prompt": "Use case: stylized-concept\nAsset type: premium 3D illustration asset for a small business-booking UI mode switch.\nInput images: Image 1 is a style and subject reference only: the small white-and-orange robot beside \"AI търсене\" in the supplied GoRez marketing screenshot. Recreate this kind of robot as a new clean isolated object, not a crop of the screenshot.\nPrimary request: one adorable compact modern 3D assistant robot, large rounded white helmet head, glossy deep-black face visor, two simple glowing warm-orange curved eyes, small white body with orange accents, short friendly arms and feet, a small orange ear-cap on each side. A welcoming pose with one hand raised slightly. No logo on chest.\nStyle/medium: polished realistic 3D product render with softly rounded toy-like ceramic/plastic forms and gentle studio highlights, not flat vector or emoji.\nComposition/framing: square canvas, full robot visible in a very slight three-quarter view facing toward the viewer, centered with 12% transparent margin on all sides. Broad clear silhouette and minimal detail that remains recognizable when used at 24 to 30 CSS pixels.\nLighting/mood: warm soft studio light, subtle object self-shadows for dimension.\nColor palette: warm white body, vivid orange accents close to #f57823, black face.\nScene/backdrop: genuinely transparent background and clean alpha edges; no background plane or floor.\nConstraints: only this one robot, all parts comfortably inside frame, no words or letters, no logos, no watermark, no border, no surrounding badge, no sparkle, no separate props, no screenshot UI."
+    },
+    {
+      "name": "calendar",
+      "path": "public/booking-art/calendar-3d-v1.webp",
+      "public_url": "/booking-art/calendar-3d-v1.webp",
+      "generated_source": "/Users/metodig/.codex/generated_images/01a1c75e-b64a-7351-b11e-935d1841f274/exec-3e81a2a8-cd52-49f7-9fc3-2520d8d66373.png",
+      "bytes": 39640,
+      "sha256": "e5cffd9b5ea9170d2adfe7830079f99e0db094798475bd622f16eb911aed8a9e",
+      "alpha": {
+        "present": true,
+        "minimum": 0,
+        "maximum": 255
+      },
+      "prompt": "Use case: stylized-concept\nAsset type: premium 3D illustration asset for a small business-booking UI mode switch, paired with a friendly white-and-orange 3D robot.\nInput images: Image 1 is a style and subject reference only: the small orange folded desk calendar beside \"Онлайн резервации\" in the supplied GoRez marketing screenshot. Recreate this kind of calendar as a new clean isolated object, not a crop of the screenshot.\nPrimary request: one modern orange standing folded desk calendar, A-frame triangular orange stand, a warm-white front page, two thick rounded silver-white binding rings at the top, and a single large raised orange square containing a white check mark centered prominently on the page. The check must be bold and readable at tiny size.\nStyle/medium: polished realistic 3D product render with softly rounded edges, tactile smooth paper and plastic, gentle studio highlights, not a flat vector or emoji.\nComposition/framing: square canvas, whole calendar visible, centered, subtle three-quarter view that shows the orange triangular folded stand and the white front page, 12% transparent margin on all sides. Broad uncluttered silhouette recognizable at 24 to 30 CSS pixels.\nLighting/mood: warm soft studio light, gentle object self-shadows for dimensional depth.\nColor palette: vivid warm orange close to #f57823, warm-white front page, muted silver-white rings.\nScene/backdrop: genuinely transparent background and clean alpha edges; no background plane or floor.\nConstraints: exactly one calendar object, no date numbers, no words or letters, no fine calendar grid, no logos, no watermark, no border, no surrounding badge, no sparkle, no extra props, no screenshot UI. All parts comfortably inside frame."
+    }
+  ],
+  "verification": {
+    "generated_source_visual_inspection": "Passed: matching white/orange 3D style, complete subject silhouettes, no text/logos/watermarks.",
+    "optimized_visual_inspection": "Passed: inspected both saved 256px assets on light warm-white and dark neutral backgrounds.",
+    "transparent_alpha_check": "Passed: source and final output have real RGBA alpha, with transparent background pixels at 0 and foreground reaching 255.",
+    "integration_status": "Asset-only handoff; consuming component/layout changes are owned by parent agent."
+  }
+}

@@ -58,7 +58,7 @@ export function DiscoveryHomeBusinesses({ locale, filters, preview = false, data
 export function DiscoveryHomeBottom({ locale }) {
   const copy = HOME_DISCOVERY_COPY[locale]
   return <nav className="home-discovery-bottom" aria-label={locale === 'en' ? 'Discover more with GoRez' : 'Още от GoRez'}>
-    <Link className="home-bottom-card home-bottom-partners" href={`/partners?lang=${locale}`} prefetch={false}><PartnerCardArt/><span className="home-bottom-copy"><strong>{copy.partners}</strong><span>{copy.partnersHint}</span></span></Link>
+    <Link className="home-bottom-card home-bottom-partners" href={`/partners?lang=${locale}`} prefetch={false}><PartnerCardArt/><span className="home-bottom-copy"><strong>{copy.partners}</strong></span></Link>
     <Link className="home-bottom-card home-bottom-business" href={`/for-businesses?lang=${locale}`} prefetch={false} aria-label={copy.register}><span className="home-business-signup"><strong>{copy.registerAction}</strong><span className="home-free-label">{copy.free}</span></span></Link>
   </nav>
 }

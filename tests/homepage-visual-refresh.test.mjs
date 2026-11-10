@@ -54,13 +54,15 @@ test('two compact centered cards retain the handshake and a text-only registrati
   assert.match(browse, /home-bottom-business[^\n]*home-business-signup/)
   const bottom = browse.slice(browse.indexOf('export function DiscoveryHomeBottom'))
   assert.doesNotMatch(bottom, /Icon name="store"|home-bottom-symbol|<BrandMark/)
+  assert.doesNotMatch(bottom, /partnersHint|Разгледай бизнесите в GoRez|Explore businesses on GoRez/)
   assert.match(bottom, /loading="lazy" decoding="async"/)
   assert.match(css, /\.home-bottom-card \{[^}]*box-shadow: inset/)
   assert.match(css, /\.home-bottom-card \{[^}]*flex-direction: column;[^}]*text-align: center/)
   assert.match(css, /\.home-bottom-art \{[^}]*width: 88px;[^}]*height: 48px/)
   assert.match(css, /\.home-bottom-art \{ width: 72px; height: 40px/)
-  assert.match(css, /\.home-bottom-card \{[^}]*min-height: 136px; padding: 16px;/)
-  assert.match(css, /\.home-bottom-card \{ min-height: 160px; padding: 16px 10px;/)
+  assert.match(css, /\.home-discovery-bottom \{[^}]*grid-template-columns: repeat\(2,minmax\(0,1fr\)\);[^}]*max-width: 680px/)
+  assert.match(css, /\.home-bottom-card \{[^}]*min-height: 112px; padding: 12px;/)
+  assert.match(css, /\.home-bottom-card \{ min-height: 116px; padding: 10px;/)
   assert.match(css, /prefers-reduced-motion: reduce/)
   const manifest = JSON.parse(await read('docs/homepage-card-art-2026-11-05.json'))
   assert.deepEqual(manifest.assets.map(row => row.id), ['partners'])
@@ -74,7 +76,7 @@ test('two compact centered cards retain the handshake and a text-only registrati
   }
   assert.ok(total < 130000)
 })
-test('the final registration card has only the complete larger registration phrase and orange Free accent, with no image or extra heading', async () => {
+test('the compact registration card retains the complete registration phrase and readable Free accent, with no image or extra heading', async () => {
   const component = await read('components/discovery-home-browse.js'), card = component.split('<Link className="home-bottom-card home-bottom-business"')[1].split('</Link>')[0]
   assert.match(card, /href=\{`\/for-businesses\?lang=\$\{locale\}`\}/)
   assert.match(card, /aria-label=\{copy.register\}/)
@@ -83,9 +85,9 @@ test('the final registration card has only the complete larger registration phra
   assert.doesNotMatch(component, /business-growth|business-3d/)
   const css = await read('app/discovery-home.css')
   assert.match(css, /\.home-business-signup \{[^}]*justify-items: center;[^}]*text-align: center/)
-  assert.match(css, /\.home-business-signup > strong \{[^}]*font-size: 24px; font-weight: 750/)
-  assert.match(css, /\.home-business-signup > strong \{ font-size: 22px/)
-  assert.match(css, /\.home-bottom-business \.home-free-label \{[^}]*linear-gradient\(135deg,#ffe5c5,#ffc58d\)[^}]*font-size: 20px; font-weight: 800/)
+  assert.match(css, /\.home-business-signup > strong \{[^}]*font-size: 21px; font-weight: 750/)
+  assert.match(css, /\.home-business-signup > strong \{ font-size: 20px/)
+  assert.match(css, /\.home-bottom-business \.home-free-label \{[^}]*linear-gradient\(135deg,#ffe5c5,#ffc58d\)[^}]*font-size: 18px; font-weight: 800/)
   for (const color of ['ffe5c5','ffc58d']) assert.ok(contrast('602b11', color) >= 4.5)
   const manifest = JSON.parse(await read('docs/homepage-card-art-2026-11-05.json'))
   assert.equal(manifest.discardedBusinessDraft.used, false)
@@ -111,10 +113,17 @@ test('Maps navigation is bold only for GoRez-owned cards, leaving Google provide
   assert.match(card, /<article className="home-business-card" data-source=\{row.source\}>/)
   assert.match(css, /\.home-business-card\[data-source="gorez"\] \.home-maps-label \{ font-weight: 700; \}/)
   assert.match(css, /\.home-maps-label, \.home-google-attribution \{[^}]*font-weight: 400;[^}]*white-space: nowrap;/)
-  assert.match(css, /\.home-business-actions \.home-maps-label \{ font-size: 15px; white-space: normal; \}/)
+  assert.match(css, /\.home-business-actions \.home-maps-label \{ width: 100%; font-size: 15px; line-height: 1\.2; text-align: center; white-space: normal; \}/)
   assert.match(card, /className="home-maps-label">\{directionsLabel\}/)
   assert.match(kit, /document.createElement\('gmp-place-attribution'\)/)
   assert.doesNotMatch(css, /\[data-source="google"\][^{]*\{[^}]*font-weight: 700|gmp-place-attribution[^}]*font-weight/)
+})
+test('directions use one larger map icon above a centered label, keeping the shared action grid', async () => {
+  const css = await read('app/discovery-home.css')
+  assert.match(css, /\.home-business-actions \.home-directions \{ flex-direction: column; gap: 2px; min-height: 60px; padding: 6px; \}/)
+  assert.match(css, /\.home-business-actions \.home-directions > svg \{ width: 24px; height: 24px; flex: 0 0 24px;/)
+  assert.equal((css.match(/\.home-business-actions \.home-directions > svg \{/g) || []).length, 1, 'no later rule silently shrinks the map again')
+  assert.match(css, /\.home-business-actions \{ display: grid; grid-template-columns: minmax\(0,1fr\) minmax\(0,1fr\)/)
 })
 test('only enabled reserve controls receive orange hover, keyboard focus and pressed feedback', async () => {
   const css = await read('app/discovery-home.css')
@@ -124,7 +133,7 @@ test('only enabled reserve controls receive orange hover, keyboard focus and pre
   const outbound = await read('components/outbound-booking-button.js')
   assert.match(outbound, /disabled=\{busy\s*\|\|\s*disabled\}/)
 })
-test('Reserve and Free have identical resting, hover/focus and pressed colors', async () => {
+test('Reserve is subtly darker orange at rest, with the same stronger hover/focus and pressed feedback as Free', async () => {
   const css = await read('app/discovery-home.css')
   const palette = selector => {
     const rule = css.split(`${selector} {`)[1]?.split('}')[0]
@@ -132,8 +141,14 @@ test('Reserve and Free have identical resting, hover/focus and pressed colors', 
     return Object.fromEntries(['color', 'background', 'border-color', 'box-shadow'].map(property => [property, rule.match(new RegExp(`(?:^|;)\\s*${property}: ([^;]+);`))?.[1]]))
   }
   const resting = palette('.home-business-card .home-reserve')
-  assert.deepEqual(resting, palette('.home-bottom-business .home-free-label'))
-  assert.equal(resting.background, 'linear-gradient(135deg,#ffe5c5,#ffc58d)')
+  const free = palette('.home-bottom-business .home-free-label')
+  assert.equal(resting.background, 'linear-gradient(135deg,#ffd6b0,#ffb875)')
+  assert.equal(free.background, 'linear-gradient(135deg,#ffe5c5,#ffc58d)')
+  for (const property of ['color', 'border-color', 'box-shadow']) assert.equal(resting[property], free[property])
+  for (const [deeper, previous] of [['ffd6b0', 'ffe5c5'], ['ffb875', 'ffc58d']]) {
+    assert.ok(luminance(deeper) < luminance(previous))
+    assert.ok(contrast('602b11', deeper) >= 4.5)
+  }
   for (const state of [':is(:hover,:focus-visible)', ':active']) {
     assert.deepEqual(palette(`.home-business-card .home-reserve:not(:disabled):not([aria-disabled="true"])${state}`), palette(`.home-bottom-business${state} .home-free-label`))
   }

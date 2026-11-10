@@ -15,22 +15,23 @@ import { PwaRegister } from '../components/pwa-register'
 import { PublicWebAnalytics } from '../components/web-analytics'
 import { SITE_ORIGIN } from '../lib/seo.mjs'
 import { BRAND_MARK_PNG } from '../lib/brand-assets.mjs'
+import { SOCIAL_PREVIEW_TITLE, socialPreviewImage } from '../lib/social-preview.mjs'
 
 export const metadata = {
   metadataBase: new URL(SITE_ORIGIN),
-  title: { default: 'GoRez', template: '%s · GoRez' },
+  title: { default: SOCIAL_PREVIEW_TITLE, template: '%s · GoRez' },
   description: 'Открий бизнес, виж реално свободните часове и резервирай онлайн с GoRez.',
   manifest: '/manifest.webmanifest',
   icons: { icon: BRAND_MARK_PNG, apple: '/brand-icon?size=180&v=4' },
   openGraph: {
-    title: 'GoRez — Намери. Резервирай. Готово.',
+    title: SOCIAL_PREVIEW_TITLE,
     description: 'Открий подходящия бизнес, виж свободните часове и резервирай онлайн.',
     type: 'website',
     locale: 'bg_BG',
     siteName: 'GoRez',
-    images: [{ url: '/share-image?lang=bg&v=4', width:1200,height:630,alt: 'GoRez' }],
+    images: [socialPreviewImage('bg')],
   },
-  twitter: { card: 'summary_large_image', title: 'GoRez', description: 'Онлайн резервации без излишни обаждания.', images: ['/share-image?lang=bg&v=4'] },
+  twitter: { card: 'summary_large_image', title: SOCIAL_PREVIEW_TITLE, description: 'Онлайн резервации без излишни обаждания.', images: [socialPreviewImage('bg').url] },
 }
 
 export const viewport = { themeColor: '#f6f5f2' }

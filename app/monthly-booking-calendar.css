@@ -18,9 +18,9 @@
 .monthly-calendar-table { width: 100%; table-layout: fixed; border-collapse: separate; border-spacing: 3px; }
 .monthly-calendar-table th { height: 28px; padding: 0; color: #7d8178; font-size: 13px; font-weight: 650; text-align: center; text-transform: capitalize; }
 .monthly-calendar-table td { height: 44px; padding: 0; text-align: center; }
-.monthly-calendar-day { position: relative; display: grid; place-items: center; width: 100%; min-width: 0; height: 44px; padding: 0; color: #28543a; background: #eaf2e4; border: 1px solid #d5e2cb; border-radius: 10px; font: inherit; font-size: 16px; font-weight: 700; cursor: pointer; transition: background 120ms ease, border-color 120ms ease, box-shadow 120ms ease; }
+.monthly-calendar-day { position: relative; display: grid; place-items: center; width: 100%; min-width: 0; height: 44px; padding: 0; color: #28543a; background: #dcebd3; border: 1px solid #a8c49b; border-radius: 10px; font: inherit; font-size: 16px; font-weight: 700; cursor: pointer; transition: background 120ms ease, border-color 120ms ease, box-shadow 120ms ease; }
 .monthly-calendar-day span { position: relative; z-index: 1; }
-.monthly-calendar-day.is-available:not(:disabled):hover { background: #dbeacb; border-color: #afc598; }
+.monthly-calendar-day.is-available:not(:disabled):hover { background: #cee2c2; border-color: #8fb17f; }
 .monthly-calendar-day.is-selected { color: #22412c; background: #f7d9ba; border-color: #b38a61; box-shadow: inset 0 0 0 1px #b38a61; }
 .monthly-calendar-day.is-selected:not(:disabled):hover { background: #f1cda7; border-color: #b38a61; }
 .monthly-calendar-day.is-today i { position: absolute; bottom: 5px; left: calc(50% - 1.5px); width: 3px; height: 3px; background: currentColor; border-radius: 50%; }
@@ -31,7 +31,7 @@
 .monthly-calendar-footer { min-height: 30px; margin-top: 8px; }
 .monthly-calendar-legend { display: flex; justify-content: center; flex-wrap: wrap; gap: 16px; margin: 0; color: #7a8173; font-size: 13px; line-height: 30px; }
 .monthly-calendar-legend > span { display: inline-flex; align-items: center; gap: 6px; }
-.monthly-calendar-legend i { width: 10px; height: 10px; background: #eaf2e4; border: 1px solid #c9dbbb; border-radius: 3px; }
+.monthly-calendar-legend i { width: 10px; height: 10px; background: #dcebd3; border: 1px solid #a8c49b; border-radius: 3px; }
 .monthly-calendar-legend .is-unavailable { background: linear-gradient(135deg, transparent 44%, #b9bdb1 50%, transparent 56%), #f0f0eb; border-color: #dedfd6; }
 .monthly-calendar-loading { margin: 0; color: #7c8375; font-size: 13px; line-height: 30px; text-align: center; }
 .monthly-calendar-error { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 4px 10px; margin: 0; color: #78664f; font-size: 13px; }

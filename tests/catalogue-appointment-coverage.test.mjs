@@ -27,18 +27,29 @@ test('the latest 41 actual premises have source links without duplicate staff, c
   }
 })
 
-test('veterinary queries find actual appointment clinics in Other, not human dentists or grooming', async () => {
+test('veterinary queries stay veterinary; a sourced grooming menu is separate from a human dentist', async () => {
   const rows = SOFIA_CATALOGUE.filter(row => batch8.some(item => item.id === row.id))
   for (const query of ['ветеринар', 'ветеринарен преглед', 'vet clinic', 'veterinary clinic']) {
     const result = await discoverBusinesses({ query, cityCode: '68134' }, dependencies(rows))
     assert.equal(result.intent.category, 'other')
     assert.equal(result.results.length, 6, query)
-    assert.ok(result.results.every(row => row.services.every(service => /ветеринар/iu.test(service.name))), query)
+    // A reviewed veterinary menu also has contextual labels such as EKG,
+    // named-practitioner consultations and imaging, not the word veterinary
+    // repeated in every title. Keep only services from these vetted clinics
+    // and never leak their separately filed grooming into a veterinary query.
+    assert.ok(result.results.every(row => row.services.every(service =>
+      rows.find(source => source.id === row.id)?.services.some(source =>
+        source.name === service.name && source.category === 'other'))), query)
   }
   const vets = rows.filter(row => row.services.some(service => /ветеринар/iu.test(service.name)))
-  for (const [category, service] of [['pets', 'груминг'], ['other', 'зъболекар']]) {
-    assert.deepEqual(normalizeCatalogueBusinesses(vets, { category, service, searchV2: true, cityCode: '68134', requirements: [] }, { now: now.toMillis() }), [])
-  }
+  // City now has an individually reviewed owner grooming tariff. That is
+  // real service evidence, not a reason to widen every veterinary listing.
+  const groomingIntent = { category: 'pets', service: 'груминг', searchV2: true, cityCode: '68134', requirements: [] }
+  const grooming = normalizeCatalogueBusinesses(vets, groomingIntent, { now: now.toMillis() })
+  assert.deepEqual(grooming.map(row => row.id), ['sofia-vet-city-nishava'])
+  assert.ok(grooming.every(row => row.services.every(service => vets.find(source => source.id === row.id).services.find(source => source.name === service.name)?.category === 'pets')))
+  assert.deepEqual(normalizeCatalogueBusinesses(vets.filter(row => !row.services.some(service => service.category === 'pets')), groomingIntent, { now: now.toMillis() }), [])
+  assert.deepEqual(normalizeCatalogueBusinesses(vets, { category: 'other', service: 'зъболекар', searchV2: true, cityCode: '68134', requirements: [] }, { now: now.toMillis() }), [])
 })
 
 test('psychiatry vocabulary finds three actual offices, not a record per staff member', async () => {

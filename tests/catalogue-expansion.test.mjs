@@ -10,7 +10,7 @@ import { createDiscoveryHandler } from '../lib/discovery/handler.mjs'
 import { mergeCataloguePage } from '../lib/discovery/catalogue-pagination.mjs'
 import { orderedRailRows, railExternalAction } from '../lib/discovery/rail.mjs'
 
-const now = DateTime.fromISO('2026-11-06T12:00:00Z')
+const now = DateTime.fromISO('2026-11-10T12:00:00Z')
 const forbidden = () => assert.fail('No provider, database mutation, paid AI or booking request is allowed')
 const deps = patch => ({ config: discoveryConfig({ DISCOVERY_ENABLED: 'true' }), now,
   readInternal: async () => [], readCatalogue: async () => SOFIA_CATALOGUE, allowAttempt: async () => true,
@@ -90,7 +90,7 @@ test('new searches recognise published dental, accounting, lessons and reserved 
     const laser = await discoverBusinesses({ query, cityCode: '68134' }, deps())
     assert.ok(laser.cataloguePage.total >= 50, query)
   }
-  const budget = await discoverBusinesses({ query: 'за дома до 30 евро', cityCode: '68134' }, deps())
+  const budget = await discoverBusinesses({ query: 'за дома до 30 евро', cityCode: '68134' }, deps({ readCatalogue:async()=>SOFIA_CATALOGUE.filter(row=>row.services.every(service=>!service.price)) }))
   assert.equal(budget.results.length, 0, 'reviewed category evidence must never invent unknown prices')
 })
 

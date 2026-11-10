@@ -8,10 +8,11 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node scripts/check-catalogue-pricing.mjs && next build",
     "start": "next start",
     "test": "node --test tests/*.test.mjs",
-    "catalogue:check": "node scripts/check-sofia-catalogue.mjs",
+    "catalogue:check": "node scripts/check-sofia-catalogue.mjs && node scripts/check-catalogue-pricing.mjs",
+    "catalogue:pricing-review": "node scripts/check-catalogue-pricing.mjs",
     "catalogue:audit": "node scripts/audit-catalogue-batch.mjs"
   },
   "dependencies": {

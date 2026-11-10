@@ -3,7 +3,7 @@ import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 import { CATALOGUE_TARGET, catalogueCoverage, auditCatalogueBatch } from '../lib/discovery/catalogue-audit.mjs'
-const now = Date.parse('2026-11-06T12:00:00Z')
+const now = Date.parse('2026-11-10T12:00:00Z')
 const candidate = patch => ({ ...structuredClone(SOFIA_CATALOGUE.find(row => row.id === 'sofia-underground-barbershop')), id: 'sofia-qa-intake-fixture', address: 'София, ул. Примерна 999', ...patch })
 
 test('coverage reports actual distinct approved inventory and an explicitly unmet 1500–2000 goal', () => {

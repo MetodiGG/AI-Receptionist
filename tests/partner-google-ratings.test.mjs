@@ -101,7 +101,10 @@ test('rating components lazy-load one authorized widget, retain native attributi
   assert.match(summary, /ReviewSummary summary=\{data\?\.summary\}/)
   assert.match(summary, /item.comment && <p>\{item.comment\}/)
   assert.match(await read('components/discovery-business-card.js'), /PartnerReviewSummary slug=\{row.slug\}/)
-  assert.match(await read('components/business-profile.js'), /PartnerReviewSummary slug=\{business.slug\} reviews=\{reviews\} locale=\{locale\} preview=\{preview\} compact/)
+  // Task 1 removes the duplicate hero reputation block. Actual GoRez reviews
+  // remain in the dedicated section; homepage attribution stays unchanged.
+  assert.doesNotMatch(await read('components/business-profile.js'), /PartnerReviewSummary|PartnerGoogleRating/)
+  assert.match(await read('components/public-booking-page.js'), /<BusinessReviews reviews=\{reviews\} locale=\{locale\}/)
   assert.equal((summary.slice(summary.indexOf('export function BusinessReviews')).match(/PartnerGoogleRating|PartnerReviewSummary/g) || []).length, 0, 'The review list must not create a second metered widget for the same profile')
 })
 

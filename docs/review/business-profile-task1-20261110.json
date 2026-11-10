@@ -1,0 +1,59 @@
+{
+  "task": "Public business profile redesign — Task 1",
+  "branch": "codex/public-business-profile-task1",
+  "deployed": false,
+  "databaseMigrations": [],
+  "scope": ["Public gallery, identity/share/address", "Compact mode controls and service rows", "Shared existing booking form integration", "Team, contacts, collapsed hours and opt-in map", "Actual reviews and honest empty state"],
+  "changedFiles": [
+    "components/business-profile.js",
+    "components/public-booking-page.js",
+    "components/business-reviews.js",
+    "components/guided-booking-chat.js",
+    "components/icon.js",
+    "components/service-thumbnail.js",
+    "lib/business-profile-ui.mjs",
+    "lib/service-thumbnail.mjs",
+    "app/business-profile.css",
+    "app/dev/business-profile/page.js",
+    "tests/business-profile-ui.test.mjs",
+    "tests/business-profile-reviews.test.mjs",
+    "tests/service-thumbnail.test.mjs",
+    "tests/category-art.test.mjs",
+    "tests/partner-google-ratings.test.mjs"
+  ],
+  "validation": {
+    "nodeTests": { "passed": 1026, "failed": 0, "skipped": 0, "newTests": 28 },
+    "pythonPricingExtraction": { "passed": 8 },
+    "pythonBookingPriceFlow": { "passed": 4 },
+    "catalogueCheck": "passed — no catalogue data changed",
+    "productionBuild": "passed",
+    "diffCheck": "passed",
+    "dedicatedLintOrTypecheckCommand": "not configured; Next build compilation/type validation executed",
+    "browser": "Chromium-based Codex in-app browser, local development fixture",
+    "widthsPx": [360, 390, 430, 768, 1280],
+    "layoutChecks": ["BG basic and EN long-name/range-price layouts do not overflow horizontally", "Service action targets remain at least 44 px wide", "Long names do not overlap Share", "Gallery stays above name; initial scroll is zero", "Working hours begin collapsed; map iframe is absent initially"],
+    "interactionChecks": ["Pedicure action selects pedicure identifier and 36 EUR test price", "One eligible staff skips specialist step", "Shared booking section receives focus and scroll", "Test date/slot reveal contact form and synchronously focus name", "Mode switch preserves service/date/contact values and revalidates old time", "Changing service clears previous date/time/form selection", "Working hours expand and collapse with actual lunch periods", "Share copies canonical www.gorez.co profile URL without unrelated parameters", "Gallery opens and closes its full-image dialog", "External mode keeps first-party POST destination, does not render internal calendar, and omits empty team", "External assistant uses informational referral, not simulated availability"],
+    "notExecuted": ["Real customer booking submission", "Production notification delivery", "Live external booking completion", "Safari/device-specific UI validation", "Map-provider request after explicit map reveal"]
+  },
+  "images": {
+    "newThirdPartyImages": [],
+    "illustrationProvenance": ["docs/category-art-prompts-2026-10-30.json", "docs/automotive-category-art-prompts-2026-10-30.json"],
+    "limitations": ["Current public service model has no service-photo association", "Existing generated service-specific art is labelled as illustration, never business work", "Pedicure and other unmatched services use a distinct neutral fallback rather than an incorrect manicure/category photograph", "The optional trustedServiceImage hook requires explicit matching business/service identifiers and rights clearance; no DB association or upload UI was added"],
+    "localScreenshots": [".audit-work/profile-task1/mobile-390.jpg", ".audit-work/profile-task1/desktop-1280.jpg"]
+  },
+  "task2Handoff": {
+    "file": "components/public-booking-page.js",
+    "shellComponent": "BusinessBookingExperience",
+    "nativeBookingComponent": "BookingPanel",
+    "nativeState": ["serviceId", "staffId", "date", "slot", "slots", "details", "intake", "confirmation"],
+    "selectionBridge": "BusinessServiceList calls chooseService(id), via BookingPanel ref. Context key invalidates removed/changed service, staff, booking mode or availability configuration; changing mode or language does not unmount valid state.",
+    "soleStaff": "eligibleProfileStaff uses existing staffServices rules; a single eligible staff identifier is selected without a separate step",
+    "availabilityEndpoint": "GET /api/public/[slug]/availability?service_id=UUID&date=YYYY-MM-DD[&staff_id=UUID]",
+    "slotShape": ["startsAt", "endsAt", "localTime", "localEndTime", "staffId", "staffName"],
+    "bookingEndpoint": "POST /api/public/[slug]/bookings",
+    "bookingPayload": ["serviceId", "staffId", "startsAt", "customer:{name,phone,email}", "notes", "intake", "locale", "consent:true", "source:web"],
+    "assistant": "components/guided-booking-chat.js; POST /api/public/[slug]/chat; separate selection state, no implicit cross-context slot transfer",
+    "external": "OutboundBookingButton posts /out/business/[slug]?lang=bg|en. Availability and final confirmation remain on the business booking site; selected GoRez service is not assumed to be preselected on the external site.",
+    "preserve": ["Existing server eligibility/availability checks and double-booking protections", "Guest booking/contact/consent validation and notifications", "flushSync(setSlot) plus focusBookingDetails for mobile keyboard focus", "Submission busy lock across service/mode controls", "Reduced-motion scrolling and sticky-header offset", "Production-gated fixtures; preview transport cannot send bookings/chat/analytics"]
+  }
+}

@@ -67,9 +67,13 @@ export function PartnerReviewSummary({ slug, reviews, locale = 'bg', compact = f
 
 export function BusinessReviews({ reviews, locale = 'bg' }) {
   const en = locale === 'en', { data, status, loadMore, loadingMore, pageError } = reviews
+  const empty = status === 'ready' && !data?.summary?.count
   return <section className="business-profile-section business-reviews-section" id="business-reviews" aria-labelledby="business-reviews-heading">
-    <header className="business-section-heading"><div><p className="booking-eyebrow">{en ? 'From real visits' : 'От реални посещения'}</p><h2 id="business-reviews-heading">{en ? 'Reviews & ratings' : 'Отзиви и оценки'}</h2></div><div><span className="reputation-source" translate="no">GoRez</span><ReviewSummary summary={data?.summary} status={status} locale={locale}/></div></header>
-    <p className="business-section-note">{en ? 'Only clients with a completed GoRez booking can leave a review, using a private email invitation.' : 'Мнение оставят само клиенти с приключена резервация в GoRez, чрез лична покана по имейл.'}</p>
+    <header className="business-section-heading"><h2 id="business-reviews-heading">{en ? 'Reviews & ratings' : 'Отзиви и оценки'}</h2>{!empty && <ReviewSummary summary={data?.summary} status={status} locale={locale}/>}</header>
+    {empty ? <div className="business-reviews-empty">
+      <span className="business-reviews-empty-stars" aria-hidden="true">{[1, 2, 3, 4, 5].map(number => <svg key={number} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="m12 3 2.8 5.7 6.3.9-4.6 4.4 1.1 6.3-5.6-3-5.6 3 1.1-6.3L2.9 9.6l6.3-.9L12 3Z" /></svg>)}</span>
+      <p>{en ? 'There are no reviews or ratings for this business yet.' : 'Все още няма отзиви и оценки за този бизнес.'}</p>
+    </div> : <>
     {Boolean(data?.summary?.count) && <div className="review-dimensions">{Object.entries(REVIEW_DIMENSIONS).map(([key, labels]) => data.summary[key] != null && <div key={key}><span>{labels[locale]}</span><strong>{Number(data.summary[key]).toFixed(1)} <span aria-hidden="true">/ 5</span></strong></div>)}</div>}
     <div className="business-review-list">{data?.items?.map(item => <article key={item.id} className="business-review">
       <div className="business-review-heading"><div><strong>{item.display_name}</strong><span className="verified-visit">{en ? 'Verified visit' : 'Потвърдено посещение'}</span></div><ReviewStars value={item.rating} /></div>
@@ -78,5 +82,6 @@ export function BusinessReviews({ reviews, locale = 'bg' }) {
     </article>)}</div>
     {pageError && <p role="alert" className="booking-inline-error">{en ? 'Could not load more reviews. Try again.' : 'Останалите отзиви не се заредиха. Опитай отново.'}</p>}
     {data?.next && <button type="button" className="secondary-button" onClick={loadMore} disabled={loadingMore}>{loadingMore ? (en ? 'Loading…' : 'Зареждане…') : (en ? 'More reviews' : 'Още отзиви')}</button>}
+    </>}
   </section>
 }

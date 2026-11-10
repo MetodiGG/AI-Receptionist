@@ -54,7 +54,7 @@ test('directory, search and no-photo profile use the shared art, never pass gene
   assert.match(directory,/<BusinessCategoryIcon business=\{row\} size=\{72\}/)
   assert.match(search,/<BusinessCategoryIcon category=\{railBusinessCategory\(row\)\} business=\{row\} size=\{112\}/)
   assert.match(profile,/business.photos\?\.length \? <BusinessPhotoGallery/)
-  assert.match(profile,/<BusinessCategoryIcon business=\{business\} size=\{140\}/)
+  assert.match(profile,/<BusinessCategoryIcon business=\{business\} size=\{100\}/)
   assert.match(css,/object-fit: contain/)
   assert.doesNotMatch(search,/photos:.*categoryArtSource/)
   for(const file of ['components/platform-admin.js','components/admin-application-card.js'])assert.match(await read(file),/<BusinessCategoryIcon business=/)

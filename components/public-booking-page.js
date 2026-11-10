@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react'
 import { flushSync } from 'react-dom'
 import { DateTime } from 'luxon'
 import { useParams, useRouter } from 'next/navigation'
@@ -18,21 +18,18 @@ import { hasSupabaseConfig, supabase } from '../lib/supabase'
 import { notificationNotice } from '../lib/notification-copy.mjs'
 import { trackProductEvent } from '../lib/product-events-client'
 import { focusBookingDetails } from '../lib/booking-details-navigation.mjs'
-import { BusinessProfileHeader, BusinessProfileInformation } from './business-profile'
+import { BusinessProfileHeader, BusinessProfileInformation, BusinessServiceList } from './business-profile'
+import { Icon } from './icon'
 import { getStaffPhoto } from '../lib/business-photos.mjs'
 import { BusinessReviews, useBusinessReviews } from './business-reviews'
-import { groupBusinessServices } from '../lib/business-profile.mjs'
-import { isExternalBooking,servicePriceLabel } from '../lib/booking-mode.mjs'
+import { isExternalBooking } from '../lib/booking-mode.mjs'
+import { eligibleProfileStaff, profileBookingContextKey, profileServicePrice, scrollToProfileBooking } from '../lib/business-profile-ui.mjs'
 import { OutboundBookingButton } from './outbound-booking-button'
 import { ProfileViewTracker } from './profile-view-tracker'
 
 const BOOKING_COPY = {
   bg: { loading: 'Подготвяме свободните часове…', home: 'Начало', dashboard: 'Към таблото', logout: 'Изход', loggingOut: 'Излизане…', online: 'Онлайн', eyebrow: 'Онлайн записване · 24/7', hero: 'Запази време', heroEm: 'за себе си.', lead: 'Избери услугата и най-удобния свободен час. Без обаждане, без регистрация и без чакане за отговор.', book: 'Резервирай час', assistant: 'Онлайн асистент', proof: ['Избираш услуга', 'Виждаш свободните часове', 'Получаваш потвърждение'], reassurance: ['Без профил', 'Реална наличност', 'Сигурно управление'], terms: 'Условия за резервация', privacy: 'Поверителност', legalTerms: 'Условия', powered: 'Задвижвано от GoRez', secure: 'Защитена резервация', notOpen: 'Не успяхме да отворим страницата', retry: 'Опитай отново' },
   en: { loading: 'Preparing available times…', home: 'Home', dashboard: 'Dashboard', logout: 'Sign out', loggingOut: 'Signing out…', online: 'Online', eyebrow: 'Online booking · 24/7', hero: 'Book time', heroEm: 'for yourself.', lead: 'Choose a service and the most convenient available time. No calls, no registration and no waiting for a reply.', book: 'Book an appointment', assistant: 'Online assistant', proof: ['Choose a service', 'See available times', 'Get confirmation'], reassurance: ['No account needed', 'Live availability', 'Secure management'], terms: 'Booking terms', privacy: 'Privacy', legalTerms: 'Terms', powered: 'Powered by GoRez', secure: 'Secure booking', notOpen: 'We could not open this page', retry: 'Try again' },
-}
-
-function formatMoney(value, currency = 'EUR', locale = 'bg') {
-  return new Intl.NumberFormat(locale === 'bg' ? 'bg-BG' : 'en-GB', { style: 'currency', currency }).format(Number(value || 0))
 }
 
 function formatDate(date, zone, locale = 'bg') {
@@ -53,7 +50,7 @@ function SparkLogo({ businessName, locale }) {
   return (
     <Link className="booking-brand booking-brand-link" href={`/?lang=${locale}`} aria-label={locale === 'bg' ? 'Към началната страница' : 'Go to homepage'}>
       <BrandLogo compact decorative eager />
-      <span className="booking-business-name"><small>GoRez</small><strong>{businessName || 'Онлайн резервации'}</strong></span>
+      <span className="booking-business-name"><strong>GoRez</strong></span>
     </Link>
   )
 }
@@ -62,12 +59,14 @@ function LoadingPage({ copy, locale }) {
   return <main className="booking-state-page"><div className="state-home-navigation"><HomeLink locale={locale}/></div><span className="button-spinner" /><p>{copy.loading}</p></main>
 }
 
-function ExternalBookingPanel({business,locale,preview=false}) {
+function ExternalBookingPanel({business,locale,preview=false,serviceId='',assistant=false}) {
  const en=locale==='en'
- return <section className="external-booking-panel settings-panel" aria-labelledby="external-booking-title"><h2 id="external-booking-title">{en?'Book on the business’s website':'Запази час в сайта на бизнеса'}</h2><p>{en?'Your booking will be completed on the business’s website.':'Резервацията ще бъде извършена в системата на бизнеса.'}</p><p>{en?'Check available times on the business’s website. GoRez does not know or synchronize those appointments.':'Провери свободните часове в сайта на бизнеса. GoRez не знае и не синхронизира тези резервации.'}</p><div className="external-service-list">{groupBusinessServices(business.services,locale).map(group=><section key={group.name}><h3>{group.name}</h3>{group.services.map(s=><article key={s.id}><strong>{s.name}</strong><span>{servicePriceLabel(s.price,s.currency,locale)}{s.duration_min!=null?` · ${s.duration_min} ${en?'min':'мин'}`:''}</span>{s.description&&<p>{s.description}</p>}</article>)}</section>)}</div><OutboundBookingButton business={business} locale={locale} disabled={preview}/></section>
+ const service=business.services.find(item=>item.id===serviceId)
+ const headingId=assistant?'external-assistant-title':'external-booking-title'
+ return <section className="external-booking-panel booking-card" aria-labelledby={headingId}><h2 id={headingId}>{assistant?(en?'Online assistant':'Онлайн асистент'):(en?'Book on the business’s website':'Запази час в сайта на бизнеса')}</h2>{service&&<p className="profile-selected-service"><strong>{service.name}</strong><span>{profileServicePrice(service,locale)}</span></p>}<p>{en?'Check available times and complete your booking on the business’s website. GoRez does not synchronize that calendar.':'Провери свободните часове и завърши резервацията в сайта на бизнеса. GoRez не синхронизира този календар.'}</p>{assistant&&<><p>{en?'For this business, the assistant can direct you to its booking system or contact information.':'За този бизнес асистентът може да те насочи към системата му за резервации или контактите.'}</p>{business.phone&&<a className="profile-assistant-contact" href={`tel:${business.phone}`}><Icon name="phone"/>{business.phone}</a>}</>}<OutboundBookingButton business={business} locale={locale} className="profile-external-reserve" disabled={preview}><Icon name="calendar"/>{en?'Continue to booking':'Продължи към резервацията'}</OutboundBookingButton></section>
 }
 
-function BookingPanel({ business, locale }) {
+function BookingPanel({ business, locale, ref, onServiceChange, onBusyChange, active = true, preview = false }) {
   const en = locale === 'en'
   const [serviceId, setServiceId] = useState('')
   const [staffId, setStaffId] = useState('')
@@ -84,11 +83,7 @@ function BookingPanel({ business, locale }) {
   const nameInputRef = useRef(null)
 
   const service = business.services.find((item) => item.id === serviceId)
-  const availableStaff = useMemo(() => {
-    if (!serviceId) return business.staff
-    const mapped = business.staffServices.filter((item) => item.service_id === serviceId).map((item) => item.staff_id)
-    return mapped.length ? business.staff.filter((person) => mapped.includes(person.id)) : business.staff
-  }, [business, serviceId])
+  const availableStaff = useMemo(() => eligibleProfileStaff(business, serviceId), [business, serviceId])
   const dates = useMemo(() => {
     const start = DateTime.now().setZone(business.timezone).startOf('day')
     const days = resolveVisibleBookingDays(business.booking_window_days)
@@ -100,7 +95,7 @@ function BookingPanel({ business, locale }) {
   const availableTimes = visibleSlots.length
 
   useEffect(() => {
-    if (!hasSupabaseConfig) return
+    if (preview || !hasSupabaseConfig) return
     let active = true
     supabase.auth.getSession().then(({ data }) => {
       if (!active || !data.session?.user.email_confirmed_at) return
@@ -108,15 +103,26 @@ function BookingPanel({ business, locale }) {
       setDetails(current => ({ ...current, email: current.email || user.email || '', name: current.name || user.user_metadata?.full_name || '' }))
     }).catch(() => {})
     return () => { active = false }
-  }, [])
+  }, [preview])
 
   useEffect(() => {
-    if (!serviceId || !date) { setSlots([]); setLoadingSlots(false); return }
+    if (!active || !serviceId || !date) { setSlots([]); setLoadingSlots(false); return }
     const controller = new AbortController()
     setSlots([])
     setLoadingSlots(true)
     setSlot(null)
     setError('')
+    // Development fixtures never query live availability or send notifications.
+    if (preview) {
+      const person = availableStaff.find(item => item.id === staffId) || availableStaff[0]
+      setSlots(person ? ['10:00', '14:30'].map(time => {
+        const start = DateTime.fromISO(`${date}T${time}`, { zone: business.timezone })
+        const end = start.plus({ minutes: service.duration_min })
+        return { startsAt: start.toUTC().toISO(), endsAt: end.toUTC().toISO(), localTime: time, localEndTime: end.toFormat('HH:mm'), staffId: person.id, staffName: person.name }
+      }) : [])
+      setLoadingSlots(false)
+      return () => controller.abort()
+    }
     const query = new URLSearchParams({ service_id: serviceId, date })
     if (staffId) query.set('staff_id', staffId)
 
@@ -129,15 +135,26 @@ function BookingPanel({ business, locale }) {
       .catch((requestError) => { if (!controller.signal.aborted) setError(requestError.message) })
       .finally(() => { if (!controller.signal.aborted) setLoadingSlots(false) })
     return () => { controller.abort() }
-  }, [business.slug, date, en, serviceId, staffId])
+  }, [active, business.slug, date, en, serviceId, staffId, preview])
 
   function chooseService(id) {
-    trackProductEvent('booking_started','book',locale)
+    if (submitting) return false
+    if (!business.services.some(item => item.id === id)) return false
+    if (id === serviceId && !confirmation) return true
+    if (!preview) trackProductEvent('booking_started','book',locale)
     setServiceId(id)
-    setStaffId('')
+    const eligible = eligibleProfileStaff(business, id)
+    setStaffId(eligible.length === 1 ? eligible[0].id : '')
     setDate('')
     setSlot(null)
+    setSlots([])
+    setError('')
+    setConfirmation(null)
+    onServiceChange(id)
+    return true
   }
+
+  useImperativeHandle(ref, () => ({ chooseService }))
 
   function chooseSlot(item) {
     // Mount the conditional form before focusing, without delaying the user's
@@ -148,8 +165,10 @@ function BookingPanel({ business, locale }) {
 
   async function submit(event) {
     event.preventDefault()
+    if (preview) { setError(en ? 'Local preview: no booking or notification is sent.' : 'Локален преглед: не се изпраща резервация или известие.'); return }
     if (!service || !slot || submitting) return
     setSubmitting(true)
+    onBusyChange(true)
     setError('')
 
     try {
@@ -176,6 +195,7 @@ function BookingPanel({ business, locale }) {
       setError(requestError.message)
     } finally {
       setSubmitting(false)
+      onBusyChange(false)
     }
   }
 
@@ -202,25 +222,17 @@ function BookingPanel({ business, locale }) {
 
   return (
     <section className="booking-card">
-      <div className="booking-section-head"><span>1</span><div><h2>{en ? 'Choose a service' : 'Избери услуга'}</h2><p>{en ? 'What would you like to book?' : 'Какво искаш да резервираш?'}</p></div></div>
-      <div className="business-service-groups">
-        {groupBusinessServices(business.services, locale).map(group => <details className="business-service-group" key={group.name} open>
-          <summary><span>{group.name}</span><small>{group.services.length}</small></summary><div className="service-grid business-service-list">
-            {group.services.map(item => <div className="business-service-row" key={item.id}><button type="button" aria-pressed={serviceId === item.id} className={`service-option ${serviceId === item.id ? 'selected' : ''}`} onClick={() => chooseService(item.id)}>
-              <span className="service-accent" style={{ background: item.color }} /><span><strong>{item.name}</strong><small>{item.duration_min} {en ? 'min' : 'мин.'}</small></span>
-              <span className="business-service-price"><b>{formatMoney(item.price, item.currency, locale)}</b><small>{serviceId === item.id ? (en ? 'Selected ✓' : 'Избрано ✓') : (en ? 'Choose' : 'Избери')}</small></span>
-            </button>{item.description && <details className="business-service-description"><summary>{en ? 'Details' : 'Виж детайли'}</summary><p>{item.description}</p></details>}</div>)}
-          </div>
-        </details>)}
-      </div>
+      <div className="profile-booking-heading"><Icon name="calendar"/><div><h2>{en ? 'Book an appointment' : 'Резервирай час'}</h2>{service ? <p><strong>{service.name}</strong><span> · {profileServicePrice(service, locale)}</span></p> : <p>{en ? 'Choose a service above to see available times.' : 'Избери услуга от списъка, за да видиш свободните часове.'}</p>}</div></div>
 
       {serviceId && <>
+        {availableStaff.length > 1 && <>
         <div className="booking-divider" />
         <div className="booking-section-head"><span>2</span><div><h2>{en ? 'Choose a specialist' : 'Избери специалист'}</h2><p>{en ? 'Or let the system find the earliest option.' : 'Или остави системата да избере най-ранния час.'}</p></div></div>
         <div className="staff-options">
-          <button type="button" className={!staffId ? 'selected' : ''} onClick={() => { setStaffId(''); setSlot(null) }}><i>✦</i><span><strong>{en ? 'No preference' : 'Без предпочитание'}</strong><small>{en ? 'Earliest available time' : 'Най-ранен свободен час'}</small></span></button>
-          {availableStaff.map((person) => {const photo=getStaffPhoto(business,person.id);return <button type="button" className={staffId === person.id ? 'selected' : ''} onClick={() => { setStaffId(person.id); setSlot(null) }} key={person.id}>{photo?<img className="booking-staff-photo" src={photo.src} alt="" width="44" height="44" loading="lazy"/>:<i>{person.name.slice(0, 1).toUpperCase()}</i>}<span><strong>{person.name}</strong><small>{person.bio || (en ? 'Specialist' : 'Специалист')}</small></span></button>})}
+          <button type="button" disabled={submitting} className={!staffId ? 'selected' : ''} onClick={() => { setStaffId(''); setSlot(null) }}><i>✦</i><span><strong>{en ? 'No preference' : 'Без предпочитание'}</strong><small>{en ? 'Earliest available time' : 'Най-ранен свободен час'}</small></span></button>
+          {availableStaff.map((person) => {const photo=getStaffPhoto(business,person.id);return <button type="button" disabled={submitting} className={staffId === person.id ? 'selected' : ''} onClick={() => { setStaffId(person.id); setSlot(null) }} key={person.id}>{photo?<img className="booking-staff-photo" src={photo.src} alt="" width="44" height="44" loading="lazy"/>:<i>{person.name.slice(0, 1).toUpperCase()}</i>}<span><strong>{person.name}</strong><small>{person.bio || (en ? 'Specialist' : 'Специалист')}</small></span></button>})}
         </div>
+        </>}
 
         <div className="booking-divider" />
         <div className="booking-section-head"><span>3</span><div><h2>{en ? 'Choose a date and time' : 'Избери дата и час'}</h2><p>{en ? 'Only genuinely available times are shown.' : 'Показваме само реално свободните часове.'}</p></div></div>
@@ -232,7 +244,7 @@ function BookingPanel({ business, locale }) {
           <div className="date-strip" role="group" aria-label={en ? 'Booking dates' : 'Дати за резервация'}>
             {dates.map((item, index) => {
               const itemDate = DateTime.fromISO(item, { zone: business.timezone }).setLocale(locale)
-              return <button type="button" aria-label={itemDate.toFormat('cccc, d LLLL yyyy')} aria-pressed={date === item} className={date === item ? 'selected' : ''} onClick={() => { setDate(item); setSlot(null) }} key={item}>
+              return <button type="button" disabled={submitting} aria-label={itemDate.toFormat('cccc, d LLLL yyyy')} aria-pressed={date === item} className={date === item ? 'selected' : ''} onClick={() => { setDate(item); setSlot(null) }} key={item}>
                 <span className="date-weekday">{index === 0 ? (en ? 'Today' : 'Днес') : itemDate.toFormat('ccc')}</span>
                 <strong>{itemDate.toFormat('d')}</strong>
                 <span className="date-month">{en ? itemDate.toFormat('LLL') : formatBulgarianMonthShort(itemDate.month)}</span>
@@ -253,7 +265,7 @@ function BookingPanel({ business, locale }) {
               <div className="time-period-head"><h3>{period.label}</h3><span>{period.range}</span></div>
               <div className="slot-grid">{period.slots.map((item) => {
                 const selected = slot?.startsAt === item.startsAt && slot?.staffId === item.staffId
-                return <button type="button" aria-pressed={selected} className={selected ? 'selected' : ''} onClick={() => chooseSlot(item)} key={`${item.staffId}-${item.startsAt}`}><span className="slot-time"><strong>{item.localTime}<span className="slot-end-time">–{item.localEndTime || DateTime.fromISO(item.endsAt).setZone(business.timezone).toFormat('HH:mm')}</span></strong>{selected && <i aria-hidden="true">✓</i>}</span>{!staffId && <small>{item.staffName}</small>}</button>
+                return <button type="button" disabled={submitting} aria-pressed={selected} className={selected ? 'selected' : ''} onClick={() => chooseSlot(item)} key={`${item.staffId}-${item.startsAt}`}><span className="slot-time"><strong>{item.localTime}<span className="slot-end-time">–{item.localEndTime || DateTime.fromISO(item.endsAt).setZone(business.timezone).toFormat('HH:mm')}</span></strong>{selected && <i aria-hidden="true">✓</i>}</span>{!staffId && <small>{item.staffName}</small>}</button>
               })}</div>
             </section>)}</div>}
           </div>
@@ -272,7 +284,7 @@ function BookingPanel({ business, locale }) {
         <BookingIntakeFields industry={business.industry} locale={locale} value={intake} onChange={setIntake} />
         <p className="booking-privacy">{notificationNotice(business.notifications, locale)}</p>
         <label className="booking-consent"><input required type="checkbox" checked={details.consent} onChange={(event) => setDetails({ ...details, consent: event.target.checked })} /><span>{en ? 'I agree that my data may be used for this booking and accept the ' : 'Съгласен/на съм данните ми да бъдат използвани за тази резервация и приемам '}<Link href={`/privacy?lang=${locale}`} target="_blank">{en ? 'privacy policy' : 'политиката за поверителност'}</Link>.</span></label>
-        <div className="booking-summary"><span><small>{en ? 'Selected time' : 'Избран час'}</small><strong>{formatDate(date, business.timezone, locale)}, {slot.localTime}</strong><small>{service.name} · {slot.staffName}</small></span><b>{formatMoney(service.price, service.currency, locale)}</b></div>
+        <div className="booking-summary"><span><small>{en ? 'Selected time' : 'Избран час'}</small><strong>{formatDate(date, business.timezone, locale)}, {slot.localTime}</strong><small>{service.name} · {slot.staffName}</small></span><b>{profileServicePrice(service, locale)}</b></div>
         {error && <p className="booking-inline-error" role="alert">{error}</p>}
         <button className="booking-primary" type="submit" disabled={submitting}>{submitting ? <><span className="button-spinner" /> {en ? 'Booking…' : 'Запазване...'}</> : (en ? 'Confirm booking' : 'Потвърди резервацията')}</button>
         <p className="booking-privacy">{en ? 'Your details are used only to provide and manage this booking.' : 'Данните се използват единствено за обслужване и управление на резервацията.'}</p>
@@ -280,6 +292,38 @@ function BookingPanel({ business, locale }) {
       {!slot && error && <p className="booking-inline-error" role="alert">{error}</p>}
     </section>
   )
+}
+
+function BusinessBookingExperience({ business, locale, preview = false }) {
+  const en = locale === 'en', external = isExternalBooking(business)
+  const [mode, setMode] = useState('booking'), [assistantOpened, setAssistantOpened] = useState(false)
+  const [busy, setBusy] = useState(false)
+  const [selectedServiceId, setSelectedServiceId] = useState('')
+  const panel = useRef(null), section = useRef(null)
+
+  function chooseService(id) {
+    if (busy) return
+    if (!business.services.some(service => service.id === id)) return
+    flushSync(() => {
+      setMode('booking')
+      if (external) setSelectedServiceId(id)
+      else panel.current?.chooseService(id)
+    })
+    scrollToProfileBooking(section.current, window.matchMedia?.('(prefers-reduced-motion: reduce)').matches)
+  }
+
+  return <div className="profile-booking-flow">
+    <div className="business-booking-method"><div className="profile-mode-controls" role="group" aria-label={en ? 'Booking method' : 'Начин за записване'}>
+      <button type="button" disabled={busy} aria-pressed={mode === 'booking'} aria-controls="profile-native-panel" onClick={() => setMode('booking')}><Icon name="calendar"/><span>{en ? 'Book an appointment' : 'Резервирай час'}</span></button>
+      <button type="button" disabled={busy} aria-pressed={mode === 'chat'} aria-controls="profile-assistant-panel" onClick={() => { setAssistantOpened(true); setMode('chat') }}><Icon name="robot"/><span>{en ? 'Online assistant' : 'Онлайн асистент'}</span></button>
+    </div></div>
+    <BusinessServiceList business={business} locale={locale} selectedServiceId={selectedServiceId} onChoose={chooseService} disabled={busy}/>
+    <div className="booking-content profile-shared-booking" id="booking-experience" ref={section} tabIndex={-1} role="region" aria-label={en ? 'Booking' : 'Резервация'}>
+      <div id="profile-native-panel" hidden={mode !== 'booking'}>{external ? <ExternalBookingPanel business={business} locale={locale} preview={preview} serviceId={selectedServiceId}/> : <BookingPanel ref={panel} business={business} locale={locale} onServiceChange={setSelectedServiceId} onBusyChange={setBusy} active={mode === 'booking'} preview={preview}/>}</div>
+      <div id="profile-assistant-panel" hidden={mode !== 'chat'}>{assistantOpened && (external ? <ExternalBookingPanel business={business} locale={locale} preview={preview} serviceId={selectedServiceId} assistant/> : <GuidedBookingChat business={business} locale={locale} active={mode === 'chat'} preview={preview} onBusyChange={setBusy} onShowBooking={() => { if (!busy) setMode('booking') }}/>)}</div>
+      {business.booking_terms && <details className="booking-terms"><summary>{en ? 'Booking terms' : 'Условия за резервация'}</summary><p>{business.booking_terms}</p></details>}
+    </div>
+  </div>
 }
 
 export default function PublicBookingPage({ initialLocale = 'bg', previewBusiness = null, previewReviews = null }) {
@@ -290,7 +334,6 @@ export default function PublicBookingPage({ initialLocale = 'bg', previewBusines
   const [business, setBusiness] = useState(previewBusiness)
   const [status, setStatus] = useState(previewBusiness ? 'ready' : 'loading')
   const [error, setError] = useState('')
-  const [mode, setMode] = useState('booking')
   const [embedded, setEmbedded] = useState(false)
   const [ownerSession, setOwnerSession] = useState(null)
   const [ownsBusiness, setOwnsBusiness] = useState(false)
@@ -298,12 +341,12 @@ export default function PublicBookingPage({ initialLocale = 'bg', previewBusines
   const reviews = useBusinessReviews(slug, previewReviews)
 
   useEffect(() => {
-    if (!hasSupabaseConfig) return
+    if (previewBusiness || !hasSupabaseConfig) return
     let active = true
     supabase.auth.getSession().then(({ data }) => { if (active) setOwnerSession(data.session) })
     const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => { if (active) setOwnerSession(session) })
     return () => { active = false; listener.subscription.unsubscribe() }
-  }, [])
+  }, [previewBusiness])
 
   useEffect(() => {
     let active = true
@@ -338,7 +381,7 @@ export default function PublicBookingPage({ initialLocale = 'bg', previewBusines
   if (status === 'error') return <main className="booking-state-page"><div className="state-home-navigation"><HomeLink locale={locale}/></div><span className="booking-logo-mark">!</span><h1>{copy.notOpen}</h1><p>{error}</p><button className="booking-primary booking-retry" type="button" onClick={() => window.location.reload()}>{copy.retry}</button></main>
 
   return (
-    <main className={`public-booking-page ${embedded ? 'embedded-booking' : ''}`} style={{ '--business-color': business.theme_color || '#173e2a' }}>
+    <main className={`public-booking-page profile-redesign ${embedded ? 'embedded-booking' : ''}`} style={{ '--business-color': business.theme_color || '#173e2a' }}>
       <ProfileViewTracker slug={business.slug} disabled={Boolean(previewBusiness)}/>
       <div className="booking-ambient" aria-hidden="true"><i /><i /><i /></div>
       <header className="booking-topbar">
@@ -355,15 +398,8 @@ export default function PublicBookingPage({ initialLocale = 'bg', previewBusines
         <HomeLink locale={locale}/>
       </header>
       {previewBusiness && <p className="local-profile-qa-label">LOCAL QA · fictional profile and reviews · not a real business</p>}
-      {!embedded && <BusinessProfileHeader business={business} locale={locale} reviews={reviews} onBook={() => setMode('booking')} preview={Boolean(previewBusiness)}/>}
-      {!isExternalBooking(business)&&<div className="business-booking-method">
-          <div className="booking-mode-switch" role="tablist" aria-label={locale === 'en' ? 'Booking method' : 'Начин за записване'}>
-            <button role="tab" aria-selected={mode === 'booking'} aria-controls="booking-experience" className={mode === 'booking' ? 'active' : ''} onClick={() => setMode('booking')}>{copy.book}</button>
-            <button role="tab" aria-selected={mode === 'chat'} aria-controls="booking-experience" className={mode === 'chat' ? 'active' : ''} onClick={() => setMode('chat')}>{copy.assistant}</button>
-          </div>
-      </div>}
-      {business.booking_terms && <details className="booking-terms"><summary>{copy.terms}</summary><p>{business.booking_terms}</p></details>}
-      <div className="booking-content" id="booking-experience"><div className="booking-experience-enter" key={`${mode}-${locale}`}>{isExternalBooking(business)?<ExternalBookingPanel business={business} locale={locale} preview={Boolean(previewBusiness)}/>:mode === 'booking' ? <BookingPanel business={business} locale={locale} /> : <GuidedBookingChat business={business} locale={locale} onShowBooking={() => setMode('booking')} />}</div></div>
+      {!embedded && <BusinessProfileHeader business={business} locale={locale}/>}
+      <BusinessBookingExperience business={business} locale={locale} preview={Boolean(previewBusiness)} key={profileBookingContextKey(business)}/>
       {!embedded && <div className="business-profile-bottom"><BusinessProfileInformation business={business} locale={locale} /><BusinessReviews reviews={reviews} locale={locale} /></div>}
       <footer className="booking-footer"><span>{copy.secure}</span><span><Link href={`/privacy?lang=${locale}`}>{copy.privacy}</Link> · <Link href={`/terms?lang=${locale}`}>{copy.legalTerms}</Link></span><span>{copy.powered}</span></footer>
     </main>

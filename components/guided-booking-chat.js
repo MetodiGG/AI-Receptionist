@@ -10,16 +10,13 @@ import { BookingConfirmationActions } from './booking-confirmation-actions'
 import { notificationNotice } from '../lib/notification-copy.mjs'
 import { trackProductEvent } from '../lib/product-events-client'
 import { localizedApiMessage } from '../lib/localized-api-message.mjs'
+import { profileServicePrice } from '../lib/business-profile-ui.mjs'
 
 const PAGE_SIZE = 14
 
 const TEXT = {
   bg: { topics: [['services', 'Услуги и цени'], ['hours', 'Работно време'], ['contact', 'Адрес и контакт'], ['cancellation', 'Отказване на час']], title: 'Онлайн асистент', subtitle: 'Безплатен · проверява календара в реално време', form: 'Отвори стандартната форма', book: 'Запази час', back: 'Назад', chooseService: 'Избери услуга', chooseStaff: 'Избери специалист', chooseDate: 'Избери дата', chooseTime: 'Избери свободен час', noPreference: 'Без предпочитание', earliest: 'Най-ранният свободен час', previous: 'Предишни', next: 'Следващи', otherDate: 'Друга дата', details: 'Данни за потвърждение', review: 'Прегледай резервацията', confirm: 'Потвърди резервацията', confirmed: 'Резервацията е потвърдена', manage: 'Преглед и управление', newChat: 'Нов разговор', placeholder: 'Или напиши въпрос с твои думи…', note: 'Асистентът използва само публикуваните услуги, графици и свободни часове.' },
   en: { topics: [['services', 'Services & prices'], ['hours', 'Business hours'], ['contact', 'Address & contact'], ['cancellation', 'Cancel a booking']], title: 'Online assistant', subtitle: 'Free · checks live availability', form: 'Open standard form', book: 'Book an appointment', back: 'Back', chooseService: 'Choose a service', chooseStaff: 'Choose a specialist', chooseDate: 'Choose a date', chooseTime: 'Choose an available time', noPreference: 'No preference', earliest: 'Earliest available time', previous: 'Previous', next: 'Next', otherDate: 'Another date', details: 'Contact details', review: 'Review your booking', confirm: 'Confirm booking', confirmed: 'Your booking is confirmed', manage: 'View and manage', newChat: 'New conversation', placeholder: 'Or ask a question in your own words…', note: 'The assistant only uses published services, schedules and available times.' },
-}
-
-function formatMoney(value, currency = 'EUR', locale = 'bg') {
-  return new Intl.NumberFormat(locale === 'en' ? 'en-GB' : 'bg-BG', { style: 'currency', currency }).format(Number(value || 0))
 }
 
 function createMessage(role, content) {
@@ -31,7 +28,7 @@ function defaultWelcome(business, locale) {
   return locale === 'en' ? `Hello! I am ${business.name}'s online assistant. I can help you book an appointment or find important information.` : `Здравей! Аз съм онлайн асистентът на ${business.name}. Мога да ти помогна да запазиш час или да намериш важна информация.`
 }
 
-export function GuidedBookingChat({ business, locale = 'bg', onShowBooking }) {
+export function GuidedBookingChat({ business, locale = 'bg', onShowBooking, onBusyChange, active = true, preview = false }) {
   const t = TEXT[locale]
   const en = locale === 'en'
   const [messages, setMessages] = useState([createMessage('assistant', defaultWelcome(business, locale))])
@@ -61,16 +58,20 @@ export function GuidedBookingChat({ business, locale = 'bg', onShowBooking }) {
   }, [business.booking_window_days, business.timezone])
   const visibleDates = allDates.slice(dateOffset, dateOffset + PAGE_SIZE)
 
-  useEffect(() => { endRef.current?.scrollIntoView({ behavior: 'smooth' }) }, [messages, sending, step])
+  useEffect(() => {
+    if (active) endRef.current?.scrollIntoView({ behavior: window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'nearest' })
+  }, [active, messages, sending, step])
 
   function addMessage(role, content) {
     setMessages((current) => [...current, createMessage(role, content)])
   }
 
   async function perform(payload, displayUser) {
+    if (preview) { setError(en ? 'Local preview: no message or booking is sent.' : 'Локален преглед: не се изпраща съобщение или резервация.'); return null }
     if (sending) return null
     if (displayUser) addMessage('user', displayUser)
     setSending(true)
+    onBusyChange?.(true)
     setError('')
 
     try {
@@ -89,11 +90,12 @@ export function GuidedBookingChat({ business, locale = 'bg', onShowBooking }) {
       return null
     } finally {
       setSending(false)
+      onBusyChange?.(false)
     }
   }
 
   async function startBooking() {
-    trackProductEvent('booking_started','book',locale)
+    if (!preview) trackProductEvent('booking_started','book',locale)
     const result = await perform({ action: 'start_booking' }, en ? 'I would like to book an appointment.' : 'Искам да резервирам час.')
     if (result && business.services.length && business.staff.length) setStep('service')
   }
@@ -194,7 +196,7 @@ export function GuidedBookingChat({ business, locale = 'bg', onShowBooking }) {
     <section className="booking-card chat-card guided-chat-card" aria-label={t.title}>
       <div className="chat-head">
         <div><strong>{t.title}</strong><small>{t.subtitle}</small></div>
-        <button type="button" className="booking-text-button" onClick={onShowBooking}>{t.form}</button>
+        <button type="button" className="booking-text-button" disabled={sending} onClick={onShowBooking}>{t.form}</button>
       </div>
 
       <div className="chat-messages" aria-live="polite">
@@ -212,7 +214,7 @@ export function GuidedBookingChat({ business, locale = 'bg', onShowBooking }) {
 
         {step === 'service' && <div className="guided-step">
           <div className="guided-step-head"><div><small>{en ? 'Step 1 of 5' : 'Стъпка 1 от 5'}</small><strong>{t.chooseService}</strong></div><button type="button" onClick={() => setStep('menu')}>{t.back}</button></div>
-          <div className="guided-option-list">{business.services.map((item) => <button type="button" onClick={() => chooseService(item)} disabled={sending} key={item.id}><span><strong>{item.name}</strong><small>{item.duration_min} {en ? 'minutes' : 'минути'}</small></span><b>{formatMoney(item.price, item.currency, locale)}</b></button>)}</div>
+          <div className="guided-option-list">{business.services.map((item) => <button type="button" onClick={() => chooseService(item)} disabled={sending} key={item.id}><span><strong>{item.name}</strong>{Number(item.duration_min) > 0 && <small>{item.duration_min} {en ? 'minutes' : 'минути'}</small>}</span><b>{profileServicePrice(item, locale)}</b></button>)}</div>
         </div>}
 
         {step === 'staff' && <div className="guided-step">

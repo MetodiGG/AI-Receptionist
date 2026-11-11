@@ -1,3 +1,5 @@
+import { BRAND_PWA_ICON } from '../lib/brand-assets.mjs'
+
 export default function manifest() {
   return {
     name: 'GoRez',
@@ -8,7 +10,7 @@ export default function manifest() {
     background_color: '#f6f5f2',
     theme_color: '#202126',
     lang: 'bg',
-    icons: [{ src: '/brand-icon?size=512&v=4', sizes: '512x512', type: 'image/png', purpose: 'any maskable' }],
+    icons: [{ src: BRAND_PWA_ICON, sizes: '512x512', type: 'image/png', purpose: 'any maskable' }],
   }
 }
 

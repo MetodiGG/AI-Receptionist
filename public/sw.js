@@ -1,5 +1,6 @@
-const CACHE = 'gorez-shell-solar-v6'
-const ASSETS = ['/brand/gorez-mark-v4.webp', '/brand/gorez-mark-96-v4.webp', '/brand/gorez-mark-v4.png', '/brand-icon?size=512&v=4', '/manifest.webmanifest']
+const CACHE = 'gorez-shell-solar-v7'
+const ASSETS = ['/brand/gorez-mark-v4.webp', '/brand/gorez-mark-96-v4.webp', '/brand/gorez-mark-v4.png',
+  '/favicon.ico', '/brand/gorez-favicon.png', '/apple-touch-icon.png', '/brand/gorez-app-icon.png', '/manifest.webmanifest']
 
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(ASSETS)))

@@ -29,6 +29,11 @@ Legacy source-based photo maintenance (before self-service activation):
    gallery, full-size images, arrows/swipe/Escape and keyboard focus restoration.
 
 Both public APIs attach the same curated photos without another database query.
-Businesses without supplied photos retain the existing icon-based layout. There
-are no generated pictures, remote-image permissions or cross-business fallbacks.
-The original uploaded JPEGs and their metadata are not included in the release.
+When an actual photo is missing or cannot load, the public directory, discovery
+card, details and booking profile show a labelled illustrative category cover.
+These are local derivatives of the approved generated service photos (see
+`business-cover-photo-sources.json`); they are not business media and never
+enter the gallery, upload workflow, or structured data. Adding a real photo
+automatically replaces the illustrative cover. No new provider calls or
+database writes are involved. The original uploaded JPEGs and their metadata
+are not included in the release.

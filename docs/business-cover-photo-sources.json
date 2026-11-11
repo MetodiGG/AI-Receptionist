@@ -1,0 +1,101 @@
+{
+  "purpose": "Category cover variants of approved generated photos; never photos of the actual business.",
+  "covers": [
+    {
+      "category": "barber",
+      "file": "public/business-cover-photos/barber-v1.webp",
+      "servicePhoto": "public/service-photos/mens-haircut-v1.webp",
+      "bytes": 42918
+    },
+    {
+      "category": "hair",
+      "file": "public/business-cover-photos/hair-v1.webp",
+      "servicePhoto": "public/service-photos/hair-blowdry-v1.webp",
+      "bytes": 47124
+    },
+    {
+      "category": "nails",
+      "file": "public/business-cover-photos/nails-v1.webp",
+      "servicePhoto": "public/service-photos/classic-manicure-v1.webp",
+      "bytes": 41358
+    },
+    {
+      "category": "beauty",
+      "file": "public/business-cover-photos/beauty-v1.webp",
+      "servicePhoto": "public/service-photos/makeup-v1.webp",
+      "bytes": 40736
+    },
+    {
+      "category": "auto_repair",
+      "file": "public/business-cover-photos/auto_repair-v1.webp",
+      "servicePhoto": "public/service-photos/auto-diagnostics-v1.webp",
+      "bytes": 54638
+    },
+    {
+      "category": "car_wash",
+      "file": "public/business-cover-photos/car_wash-v1.webp",
+      "servicePhoto": "public/service-photos/car-exterior-hand-wash-v1.webp",
+      "bytes": 82374
+    },
+    {
+      "category": "detailing",
+      "file": "public/business-cover-photos/detailing-v1.webp",
+      "servicePhoto": "public/service-photos/ceramic-car-coating-v1.webp",
+      "bytes": 52914
+    },
+    {
+      "category": "fitness",
+      "file": "public/business-cover-photos/fitness-v1.webp",
+      "servicePhoto": "public/service-photos/kickboxing-training-v1.webp",
+      "bytes": 40422
+    },
+    {
+      "category": "education",
+      "file": "public/business-cover-photos/education-v1.webp",
+      "servicePhoto": "public/service-photos/math-lesson-v1.webp",
+      "bytes": 55398
+    },
+    {
+      "category": "pets",
+      "file": "public/business-cover-photos/pets-v1.webp",
+      "servicePhoto": "public/service-photos/dog-full-grooming-v1.webp",
+      "bytes": 51270
+    },
+    {
+      "category": "home_services",
+      "file": "public/business-cover-photos/home_services-v1.webp",
+      "servicePhoto": "public/service-photos/plumbing-v1.webp",
+      "bytes": 35866
+    },
+    {
+      "category": "health",
+      "file": "public/business-cover-photos/health-v1.webp",
+      "servicePhoto": "public/service-photos/therapeutic-massage-v1.webp",
+      "bytes": 38976
+    },
+    {
+      "category": "consulting",
+      "file": "public/business-cover-photos/consulting-v1.webp",
+      "servicePhoto": "public/service-photos/psychology-consultation-v1.webp",
+      "bytes": 51352
+    },
+    {
+      "category": "other",
+      "file": "public/business-cover-photos/other-v1.webp",
+      "servicePhoto": "public/service-photos/legal-consultation-v1.webp",
+      "bytes": 37204
+    },
+    {
+      "category": "dental",
+      "file": "public/business-cover-photos/dental-v1.webp",
+      "servicePhoto": "public/service-photos/dental-exam-v1.webp",
+      "bytes": 37996
+    },
+    {
+      "category": "veterinary",
+      "file": "public/business-cover-photos/veterinary-v1.webp",
+      "servicePhoto": "public/service-photos/veterinary-exam-v1.webp",
+      "bytes": 58860
+    }
+  ]
+}

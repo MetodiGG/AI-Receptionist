@@ -34,8 +34,8 @@ const profileCode = await compileComponent('../components/business-profile.js')
 const stubs = {
   './icon': { Icon },
   './business-photo-gallery': { BusinessPhotoGallery: ({ businessName }) => React.createElement('div', { 'data-photo-gallery': businessName }) },
-  './business-category-icon': { BusinessCategoryIcon: () => React.createElement('svg', { 'data-category-art': true, 'aria-hidden': true }) },
-  './service-thumbnail': { ServiceThumbnail: ({ service }) => React.createElement('span', { 'data-service-thumbnail': service.id, 'aria-hidden': true }) },
+  './business-cover-photo': { BusinessCoverPhoto: () => React.createElement('div', { 'data-category-cover': 'beauty' }) },
+  './service-thumbnail': { ServiceThumbnail: ({ service }) => React.createElement('span', { 'data-service-thumbnail': service.id, 'aria-hidden': true }), IllustrativeServicePhotoNote: () => null },
   '../lib/business-profile.mjs': profileData,
   '../lib/business-profile-ui.mjs': profileUi,
   '../lib/business-photos.mjs': { getStaffPhoto: () => null },

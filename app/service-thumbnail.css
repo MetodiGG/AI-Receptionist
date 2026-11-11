@@ -1,0 +1,18 @@
+.service-thumbnail { display:grid; place-items:center; width:var(--service-thumbnail-size); height:var(--service-thumbnail-size); flex:none; overflow:hidden; border-radius:min(13px, calc(var(--service-thumbnail-size) / 5)); color:#a1673b; background:#f7ede0; }
+.service-thumbnail-image { display:block; width:100%; height:100%; object-fit:contain; }
+.service-thumbnail--photo .service-thumbnail-image { object-fit:cover; }
+.service-thumbnail-icon { display:grid; place-items:center; width:100%; height:100%; }
+.service-thumbnail-icon svg { width:min(28px, 55%); height:min(28px, 55%); }
+.service-photo-name { display:flex; align-items:center; gap:8px; min-width:0; overflow-wrap:anywhere; }
+.service-photo-name > :not(.service-thumbnail) { min-width:0; }
+.service-photo-name > span:not(.service-thumbnail) > small { display:block; }
+.service-photo-note { margin:10px 0 0; color:#695747; font-size:13px; line-height:1.5; }
+.profile-redesign .profile-selected-service { align-items:center; }
+.profile-redesign .booking-summary > .service-photo-name { display:flex; }
+.profile-redesign .booking-summary .service-photo-name > span:not(.service-thumbnail) { display:grid; gap:3px; }
+.profile-redesign .booking-summary > b { text-align:right; overflow-wrap:anywhere; }
+.guided-option-list button > .service-photo-name { display:flex; gap:8px; }
+.guided-option-list button > .service-photo-name + b { white-space:normal; flex:none; max-width:42%; overflow-wrap:anywhere; text-align:right; }
+.guided-service-menu { list-style:none; display:grid; gap:10px; margin:8px 0 0; padding:0; }
+.guided-service-menu > li { display:grid; grid-template-columns:minmax(0, 1fr) auto; align-items:center; gap:8px; }
+.guided-service-menu > li > b { max-width:6.5rem; text-align:right; overflow-wrap:anywhere; }

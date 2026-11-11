@@ -3,11 +3,12 @@
 import { useEffect, useId, useRef, useState } from 'react'
 import { Icon } from './icon'
 import { BusinessPhotoGallery } from './business-photo-gallery'
-import { BusinessCategoryIcon } from './business-category-icon'
+import { BusinessCoverPhoto } from './business-cover-photo'
+import { IllustrativeServicePhotoNote, ServiceThumbnail } from './service-thumbnail'
 import { containDialogTab } from '../lib/dialog-focus.mjs'
 import { businessDetailHours, businessDetailServices, detailPriceLabel, groupDetailServices } from '../lib/discovery/business-details.mjs'
 import { safeBookingUrl } from '../lib/booking-mode.mjs'
-import { railCategory, railBusinessCategory, railPhone } from '../lib/discovery/rail.mjs'
+import { railCategory, railPhone } from '../lib/discovery/rail.mjs'
 import { isCataloguePhotoSource } from '../lib/catalogue-photo-view.mjs'
 import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
 
@@ -49,7 +50,7 @@ export function DiscoveryBusinessDetails({ row, locale = 'bg', preview = false, 
     return () => { node.close(); document.body.style.overflow = overflow; trigger?.focus() }
   }, [triggerRef])
 
-  const photoFallback = <div className="business-details-photo-fallback" role="img" aria-label={copy.photoUnavailable}><BusinessCategoryIcon category={railBusinessCategory(business)} business={business} size={120}/></div>
+  const photoFallback = <BusinessCoverPhoto business={business} locale={locale} className="business-details-photo-fallback" eager/>
 
   return <dialog ref={dialog} className="discovery-business-details" aria-labelledby={`${id}-title`} aria-busy={status === 'loading'} onCancel={event => {
     if (event.target !== event.currentTarget) return
@@ -73,7 +74,8 @@ export function DiscoveryBusinessDetails({ row, locale = 'bg', preview = false, 
     {status === 'ready' && <>
       {description && <p className="business-details-description">{description}</p>}
       <section aria-labelledby={`${id}-services`}><h3 id={`${id}-services`}>{copy.servicesPrices}</h3>
-        {services.length ? groups.map(group => <div className="business-details-service-group" key={group.key}>{groups.length > 1 && group.title && <h4>{group.title[locale]}</h4>}<ServiceMenu services={group.services} locale={locale} copy={copy}/></div>) : <p>{copy.noServices}</p>}
+        {services.length ? groups.map(group => <div className="business-details-service-group" key={group.key}>{groups.length > 1 && group.title && <h4>{group.title[locale]}</h4>}<ServiceMenu services={group.services} business={business} locale={locale} copy={copy}/></div>) : <p>{copy.noServices}</p>}
+        <IllustrativeServicePhotoNote services={services} business={business} locale={locale}/>
         {services.some(service => service.price != null) && row.source === 'catalogue' && <p className="business-details-note">{copy.pricesNote}</p>}
       </section>
       <section aria-labelledby={`${id}-hours`}><h3 id={`${id}-hours`}>{copy.openingHours}</h3>
@@ -90,9 +92,9 @@ export function DiscoveryBusinessDetails({ row, locale = 'bg', preview = false, 
   </dialog>
 }
 
-function ServiceMenu({ services, locale, copy }) {
+function ServiceMenu({ services, business, locale, copy }) {
   return <ul className="business-details-services">{services.map((service, index) => {
     const price = detailPriceLabel(service, locale)
-    return <li key={index}><div><strong>{service.name}</strong>{service.description && <p>{service.description}</p>}{service.durationMin > 0 && <span>{service.durationMin} {copy.minutes}</span>}</div>{price && (service.priceSourceUrl ? <a className="business-details-price" href={service.priceSourceUrl} target="_blank" rel="noopener noreferrer" aria-label={`${price} · ${copy.publishedPriceSource}`}>{price}</a> : <strong className="business-details-price">{price}</strong>)}</li>
+    return <li key={index}><div className="service-photo-name"><ServiceThumbnail service={service} business={business} locale={locale} size={44}/><div className="business-details-service-copy"><strong>{service.name}</strong>{service.description && <p>{service.description}</p>}{service.durationMin > 0 && <span>{service.durationMin} {copy.minutes}</span>}</div></div>{price && (service.priceSourceUrl ? <a className="business-details-price" href={service.priceSourceUrl} target="_blank" rel="noopener noreferrer" aria-label={`${price} · ${copy.publishedPriceSource}`}>{price}</a> : <strong className="business-details-price">{price}</strong>)}</li>
   })}</ul>
 }

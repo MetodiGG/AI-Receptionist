@@ -68,7 +68,7 @@ test('public profile and directory expose the same curated list without extra da
   assert.match(page, /<BusinessPhotoGallery photos=\{business\.photos\}/)
   assert.match(page, /<h1 id="business-profile-name">\{business\.name\}/)
   assert.match(booking, /<BusinessProfileHeader business=\{business\}/)
-  assert.match(cards, /row\.photos\?\.length > 0/)
+  assert.match(cards, /fallback=\{<BusinessCoverPhoto business=\{row\}/)
   assert.match(cards, /BusinessPhotoGallery photos=\{row\.photos\}.*variant="directory"/)
 })
 

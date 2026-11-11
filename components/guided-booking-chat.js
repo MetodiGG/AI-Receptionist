@@ -11,6 +11,7 @@ import { notificationNotice } from '../lib/notification-copy.mjs'
 import { trackProductEvent } from '../lib/product-events-client'
 import { localizedApiMessage } from '../lib/localized-api-message.mjs'
 import { profileServicePrice } from '../lib/business-profile-ui.mjs'
+import { ServiceThumbnail } from './service-thumbnail'
 
 const PAGE_SIZE = 14
 
@@ -19,8 +20,8 @@ const TEXT = {
   en: { topics: [['services', 'Services & prices'], ['hours', 'Business hours'], ['contact', 'Address & contact'], ['cancellation', 'Cancel a booking']], title: 'Online assistant', subtitle: 'Free · checks live availability', form: 'Open standard form', book: 'Book an appointment', back: 'Back', chooseService: 'Choose a service', chooseStaff: 'Choose a specialist', chooseDate: 'Choose a date', chooseTime: 'Choose an available time', noPreference: 'No preference', earliest: 'Earliest available time', previous: 'Previous', next: 'Next', otherDate: 'Another date', details: 'Contact details', review: 'Review your booking', confirm: 'Confirm booking', confirmed: 'Your booking is confirmed', manage: 'View and manage', newChat: 'New conversation', placeholder: 'Or ask a question in your own words…', note: 'The assistant only uses published services, schedules and available times.' },
 }
 
-function createMessage(role, content) {
-  return { id: `${Date.now()}-${Math.random()}`, role, content }
+function createMessage(role, content, services) {
+  return { id: `${Date.now()}-${Math.random()}`, role, content, services }
 }
 
 function defaultWelcome(business, locale) {
@@ -62,8 +63,8 @@ export function GuidedBookingChat({ business, locale = 'bg', onShowBooking, onBu
     if (active) endRef.current?.scrollIntoView({ behavior: window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'nearest' })
   }, [active, messages, sending, step])
 
-  function addMessage(role, content) {
-    setMessages((current) => [...current, createMessage(role, content)])
+  function addMessage(role, content, services) {
+    setMessages((current) => [...current, createMessage(role, content, services)])
   }
 
   async function perform(payload, displayUser) {
@@ -83,7 +84,7 @@ export function GuidedBookingChat({ business, locale = 'bg', onShowBooking, onBu
       const result = await response.json()
       if (!response.ok) throw new Error(localizedApiMessage(result.error, locale))
       setConversationId(result.conversationId)
-      addMessage('assistant', result.message)
+      addMessage('assistant', result.message, result.services)
       return result
     } catch (requestError) {
       setError(requestError.message)
@@ -200,7 +201,10 @@ export function GuidedBookingChat({ business, locale = 'bg', onShowBooking, onBu
       </div>
 
       <div className="chat-messages" aria-live="polite">
-        {messages.map((message) => <div className={`chat-message ${message.role}`} key={message.id}>{message.content}</div>)}
+        {messages.map((message) => <div className={`chat-message ${message.role}`} key={message.id}>{message.services?.length ? <>
+          <strong>{en ? 'Services and prices' : 'Услуги и цени'}</strong>
+          <ul className="guided-service-menu">{message.services.map(item => <li key={item.id}><span className="service-photo-name"><ServiceThumbnail service={item} business={business} locale={locale} size={36}/><span>{item.name}{Number(item.duration_min) > 0 && <small>{item.duration_min} {en ? 'min' : 'мин.'}</small>}</span></span><b>{item.priceLabel}</b></li>)}</ul>
+        </> : message.content}</div>)}
         {sending && <div className="chat-message assistant typing"><i /><i /><i /></div>}
         <div ref={endRef} />
       </div>
@@ -214,7 +218,7 @@ export function GuidedBookingChat({ business, locale = 'bg', onShowBooking, onBu
 
         {step === 'service' && <div className="guided-step">
           <div className="guided-step-head"><div><small>{en ? 'Step 1 of 5' : 'Стъпка 1 от 5'}</small><strong>{t.chooseService}</strong></div><button type="button" onClick={() => setStep('menu')}>{t.back}</button></div>
-          <div className="guided-option-list">{business.services.map((item) => <button type="button" onClick={() => chooseService(item)} disabled={sending} key={item.id}><span><strong>{item.name}</strong>{Number(item.duration_min) > 0 && <small>{item.duration_min} {en ? 'minutes' : 'минути'}</small>}</span><b>{profileServicePrice(item, locale)}</b></button>)}</div>
+          <div className="guided-option-list">{business.services.map((item) => <button type="button" onClick={() => chooseService(item)} disabled={sending} key={item.id}><span className="service-photo-name"><ServiceThumbnail service={item} business={business} locale={locale} size={36}/><span><strong>{item.name}</strong>{Number(item.duration_min) > 0 && <small>{item.duration_min} {en ? 'minutes' : 'минути'}</small>}</span></span><b>{profileServicePrice(item, locale)}</b></button>)}</div>
         </div>}
 
         {step === 'staff' && <div className="guided-step">

@@ -1,0 +1,251 @@
+{
+  "generator": "OpenAI ImageGen built-in",
+  "purpose": "Owner-approved illustrative photos; not actual business work.",
+  "assets": [
+    {
+      "file": "public/service-photos/full-hair-color-v1.webp",
+      "label": "46 · Боядисване на цялата коса",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, real skin and surface texture, anatomically believable hands, warm neutral natural light. No watermarks, logos, lettering, borders, or collage.\nPrimary request: A stylist paints deep chestnut color from roots along the full lengths of several separated strands of medium-length adult hair, which lie flat on a coloring board, recognizable as complete single-tone coloring, not only roots and not balayage."
+    },
+    {
+      "file": "public/service-photos/formal-updo-v1.webp",
+      "label": "47 · Официална прибрана прическа",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, real skin and surface texture, anatomically believable hands, warm neutral natural light. No watermarks, logos, lettering, borders, or collage.\nPrimary request: A stylist places the final hairpin into a textured low formal updo on an adult client, shown from behind and side; an intricate elegant bun is the focus, no flowers, everyday salon light."
+    },
+    {
+      "file": "public/service-photos/hair-curling-v1.webp",
+      "label": "48 · Къдрене и оформяне с маша",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, real skin and surface texture, anatomically believable hands, warm neutral natural light. No watermarks, logos, lettering, borders, or collage.\nPrimary request: A stylist uses a recognizable curling iron to shape a long strand into soft waves, with already styled loose curls visible, clean salon and appropriate heat-tool handling."
+    },
+    {
+      "file": "public/service-photos/hair-washing-v1.webp",
+      "label": "49 · Измиване на коса",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, real skin and surface texture, anatomically believable hands, warm neutral natural light. No watermarks, logos, lettering, borders, or collage.\nPrimary request: A stylist gently rinses the dark hair of a reclining adult customer in a real salon shampoo basin, showing the hair, water and sprayer clearly, no hair dye."
+    },
+    {
+      "file": "public/service-photos/hair-highlights-v1.webp",
+      "label": "50 · Кичури с фолио",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, real skin and surface texture, anatomically believable hands, warm neutral natural light. No watermarks, logos, lettering, borders, or collage.\nPrimary request: Stylist sectioning blonde highlights using several folded silver foil strips visibly attached to hair, one section being painted over foil, clear distinction from freehand balayage and root-only color."
+    },
+    {
+      "file": "public/service-photos/male-manicure-v1.webp",
+      "label": "51 · Мъжки маникюр",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, real skin and surface texture, anatomically believable hands, warm neutral natural light. No watermarks, logos, lettering, borders, or collage.\nPrimary request: Close-up of a nail technician gently filing the short natural unpolished nails of an adult man's hand over a cream towel, neat manicure desk, no gel lamp, no polish, natural masculine hand and realistic proportions."
+    },
+    {
+      "file": "public/service-photos/medical-pedicure-v1.webp",
+      "label": "52 · Медицински педикюр",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, real skin and surface texture, anatomically believable hands, warm neutral natural light. No watermarks, logos, lettering, borders, or collage.\nPrimary request: In a clean podiatry room, a podology professional in blue medical gloves uses a compact professional podiatry handpiece to gently file a healthy-looking adult toenail. Only foot and gloved hands in close crop, no polish, blood, lesion, wounds or medical claims."
+    },
+    {
+      "file": "public/service-photos/nail-art-v1.webp",
+      "label": "53 · Декорация на нокти",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, real skin and surface texture, anatomically believable hands, warm neutral natural light. No watermarks, logos, lettering, borders, or collage.\nPrimary request: Close-up of a manicurist placing one fine painted flower on one already finished pale pink fingernail with a thin detail brush; tasteful small-scale nail art, not an extension or a gel removal."
+    },
+    {
+      "file": "public/service-photos/nail-refill-v1.webp",
+      "label": "54 · Поддръжка на ноктопластика",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, real skin and surface texture, anatomically believable hands, warm neutral natural light. No watermarks, logos, lettering, borders, or collage.\nPrimary request: A technician applies a small bead of clear builder gel just above the cuticle to fill the grown-out base of an already sculpted long nail. Macro salon closeup; established extension stays in place; no sculpting paper form, no extensions being attached, no foil wraps."
+    },
+    {
+      "file": "public/service-photos/lash-lift-v1.webp",
+      "label": "55 · Ламиниране на мигли",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, real skin and surface texture, anatomically believable hands, warm neutral natural light. No watermarks, logos, lettering, borders, or collage.\nPrimary request: Esthetician with a clean disposable microbrush carefully aligns one client's natural eyelashes on a small visible beige silicone lift pad on the closed eyelid, credible professional setting, no tweezers for extension and no contact with the eye."
+    },
+    {
+      "file": "public/service-photos/brow-lamination-v1.webp",
+      "label": "56 · Ламиниране на вежди",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, real skin and surface texture, anatomically believable hands, warm neutral natural light. No watermarks, logos, lettering, borders, or collage.\nPrimary request: A brow specialist brushes up the brow hairs of an adult client with a spoolie, close view of one natural eyebrow and a closed eye, no tweezers, no tint brush, no eyelash tools."
+    },
+    {
+      "file": "public/service-photos/brow-tint-v1.webp",
+      "label": "57 · Боядисване на вежди",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, real skin and surface texture, anatomically believable hands, warm neutral natural light. No watermarks, logos, lettering, borders, or collage.\nPrimary request: Professional beautician applying a brown brow tint to an adult client's eyebrow using a small flat angled brush with a small dish visible, the client's eye shut, no tweezers or eyelash tools, natural brow texture."
+    },
+    {
+      "file": "public/service-photos/microblading-v1.webp",
+      "label": "58 · Микроблейдинг на вежди",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, real skin and surface texture, anatomically believable hands, warm neutral natural light. No watermarks, logos, lettering, borders, or collage.\nPrimary request: Professional permanent-makeup artist in gloves marking and outlining the shape of an adult client's eyebrows with a slim brow-mapping pencil before a microblading session, medium-close clean studio photograph, no needle penetration, no blood, no legible markings or writing."
+    },
+    {
+      "file": "public/service-photos/hydrafacial-v1.webp",
+      "label": "59 · Хидратиращо водно почистване на лице",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, real skin and surface texture, anatomically believable hands, warm neutral natural light. No watermarks, logos, lettering, borders, or collage.\nPrimary request: Beautician in clean gloves holds a recognizable transparent aqua-peel suction tip gently against the cheek of an adult client in a clean cosmetic studio, no injection, no laser, neutral aesthetic."
+    },
+    {
+      "file": "public/service-photos/chemical-peel-v1.webp",
+      "label": "60 · Химичен пилинг на лице",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, real skin and surface texture, anatomically believable hands, warm neutral natural light. No watermarks, logos, lettering, borders, or collage.\nPrimary request: An esthetician brushes a thin clear cosmetic peel onto the cheek of an adult client with a flat fan brush, wearing gloves, professional clinic with towel headband, no peeling skin, no reddening, no laser, non-instructional."
+    },
+    {
+      "file": "public/service-photos/home-deep-clean-v1.webp",
+      "label": "61 · Основно почистване на дом",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, real skin and surface texture, anatomically believable hands, warm neutral natural light. No watermarks, logos, lettering, borders, or collage.\nPrimary request: Adult professional cleaner in work shirt carefully wipes a kitchen countertop with a microfiber cloth while working in a modern apartment. Spray bottle and clean cabinet surfaces visible. No sofa, machinery, branding or posed gesture."
+    },
+    {
+      "file": "public/service-photos/mattress-cleaning-v1.webp",
+      "label": "62 · Пране на матрак",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, real skin and surface texture, anatomically believable hands, warm neutral natural light. No watermarks, logos, lettering, borders, or collage.\nPrimary request: Professional cleaner holding a transparent upholstery extractor nozzle against the stitched top of a white bare mattress at the edge of a tidy bedroom, showing the difference from car-seat or sofa cleaning."
+    },
+    {
+      "file": "public/service-photos/window-cleaning-v1.webp",
+      "label": "63 · Миене на прозорци",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, real skin and surface texture, anatomically believable hands, warm neutral natural light. No watermarks, logos, lettering, borders, or collage.\nPrimary request: Professional cleaner wipes a tall apartment window with a single hand squeegee, side view with a clear trace in the wet glass; indoors on solid floor, no ladder or outdoor height work."
+    },
+    {
+      "file": "public/service-photos/headlight-restoration-v1.webp",
+      "label": "64 · Полиране на фарове",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, real skin and surface texture, anatomically believable hands, warm neutral natural light. No watermarks, logos, lettering, borders, or collage.\nPrimary request: Close view of a detailer using a compact polishing pad on the cloudy plastic lens of one modern vehicle headlight, neighboring paint masked with narrow painter's tape, visible lens rather than whole-body polishing."
+    },
+    {
+      "file": "public/service-photos/ceramic-car-coating-v1.webp",
+      "label": "65 · Керамично покритие за автомобил",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, real skin and surface texture, anatomically believable hands, warm neutral natural light. No watermarks, logos, lettering, borders, or collage.\nPrimary request: Detailer in black gloves hand-applying a clear coating to an unbranded car hood using a rectangular suede-wrapped applicator block and a small neutral unlabeled bottle nearby, no machine polisher or sponge wash."
+    },
+    {
+      "file": "public/service-photos/cat-grooming-v1.webp",
+      "label": "66 · Груминг на котка",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, real skin and surface texture, anatomically believable hands, warm neutral natural light. No watermarks, logos, lettering, borders, or collage.\nPrimary request: Groomer gently brushes an adult long-haired cat's coat on a professional grooming table; calm animal, recognizable slicker brush and composed pose, no clippers or bathing."
+    },
+    {
+      "file": "public/service-photos/pet-claw-trim-v1.webp",
+      "label": "67 · Рязане на нокти на куче",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, real skin and surface texture, anatomically believable hands, warm neutral natural light. No watermarks, logos, lettering, borders, or collage.\nPrimary request: Close view of a groomer's hands holding a relaxed small dog's front paw while using a recognizable pet nail trimmer. Focus on paw and trimmer, no blood, no extreme close-up, clean grooming studio."
+    },
+    {
+      "file": "public/service-photos/sports-massage-v1.webp",
+      "label": "68 · Спортен масаж",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, real skin and surface texture, anatomically believable hands, warm neutral natural light. No watermarks, logos, lettering, borders, or collage.\nPrimary request: Sports therapist works on an adult athlete's calf muscle at a physio clinic, athlete in sports shorts with a towel, muscular leg and therapist hand placement clearly visible, no needles, no exercise equipment blocking frame."
+    },
+    {
+      "file": "public/service-photos/speech-therapy-v1.webp",
+      "label": "69 · Логопедична терапия",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, real skin and surface texture, anatomically believable hands, warm neutral natural light. No watermarks, logos, lettering, borders, or collage.\nPrimary request: Speech therapist and a school-age child practice saying a sound together at a tidy clinic table. Therapist models lip movement with a small hand mirror, both calm, natural light, no readable letters."
+    },
+    {
+      "file": "public/service-photos/psychology-consultation-v1.webp",
+      "label": "70 · Психологическа консултация",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, real skin and surface texture, anatomically believable hands, warm neutral natural light. No watermarks, logos, lettering, borders, or collage.\nPrimary request: An adult therapist listening attentively to an adult client in an ordinary private consultation room with comfortable chairs, one unobtrusive notebook, natural neutral expressions, candid respectful distance, not a portrayal of any named person."
+    },
+    {
+      "file": "public/service-photos/teeth-whitening-v1.webp",
+      "label": "71 · Избелване на зъби",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, real skin and surface texture, anatomically believable hands, warm neutral natural light. No watermarks, logos, lettering, borders, or collage.\nPrimary request: Adult dental patient reclines in a clean clinic chair beside a recognizable non-invasive blue-light teeth-whitening lamp set near the mouth, attending dental professional present with gloves and protective eyewear, no drilling, no invasive closeup."
+    },
+    {
+      "file": "public/service-photos/guitar-lesson-v1.webp",
+      "label": "72 · Урок по китара",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, real skin and surface texture, anatomically believable hands, warm neutral natural light. No watermarks, logos, lettering, borders, or collage.\nPrimary request: An adult guitar teacher guides a young adult learner's finger placement on a natural acoustic guitar in a local music studio, guitar and fretting hand clear, candid window light."
+    },
+    {
+      "file": "public/service-photos/vocal-lesson-v1.webp",
+      "label": "73 · Урок по пеене",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, real skin and surface texture, anatomically believable hands, warm neutral natural light. No watermarks, logos, lettering, borders, or collage.\nPrimary request: Adult vocal coach with an adult pupil practicing a vocal exercise in a cozy music studio, learner in profile near a simple microphone, coach standing alongside, no stage concert."
+    },
+    {
+      "file": "public/service-photos/ceramics-class-v1.webp",
+      "label": "74 · Урок по грънчарство",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, real skin and surface texture, anatomically believable hands, warm neutral natural light. No watermarks, logos, lettering, borders, or collage.\nPrimary request: Teacher guides an adult learner's hands on a real pottery wheel shaping a small wet clay bowl, earthy textures and authentic studio, avoid extra fingers, readable centered action."
+    },
+    {
+      "file": "public/service-photos/car-aircon-service-v1.webp",
+      "label": "75 · Сервиз и зареждане на автоклиматик",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, real skin and surface texture, anatomically believable hands, warm neutral natural light. No watermarks, logos, lettering, borders, or collage.\nPrimary request: Automotive technician at an air-conditioning service station with neatly routed red and blue manifold hoses visibly connected to a parked car under an open hood, generic realistic tools without legible labels, no oil jug or electrical diagnostics."
+    },
+    {
+      "file": "public/service-photos/laser-face-v1.webp",
+      "label": "76 · Лазерна епилация на лице",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, natural light, realistic equipment and anatomically believable hands. No watermarks, logos, lettering, borders, or collage.\nPrimary request: Adult patient wearing fully opaque protective laser goggles, a gloved cosmetic technician positions a small professional hair-removal laser handpiece on the lower jawline, equipment and protective eyewear clearly visible in clean clinic, no emitted beam, no eye contact, no redness."
+    },
+    {
+      "file": "public/service-photos/laser-arms-v1.webp",
+      "label": "77 · Лазерна епилация на ръце",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, natural light, realistic equipment and anatomically believable hands. No watermarks, logos, lettering, borders, or collage.\nPrimary request: Close view of a gloved cosmetic specialist using a professional laser hair-removal handpiece on the forearm of an adult patient, handpiece flat on arm, patient wearing opaque protective eyewear if face is visible, no beam, no laser text, no logo."
+    },
+    {
+      "file": "public/service-photos/laser-underarms-v1.webp",
+      "label": "78 · Лазерна епилация на мишници",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, natural light, realistic equipment and anatomically believable hands. No watermarks, logos, lettering, borders, or collage.\nPrimary request: A modestly dressed adult patient in a high-neck sleeveless sports top with opaque laser safety goggles raises one arm as a gloved esthetician positions a hair-removal laser handpiece at the visible underarm. Crop to head and shoulder only, clean professional clinic, clinical nonsexual composition, no beam or redness."
+    },
+    {
+      "file": "public/service-photos/laser-torso-v1.webp",
+      "label": "79 · Лазерна епилация на корем",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, natural light, realistic equipment and anatomically believable hands. No watermarks, logos, lettering, borders, or collage.\nPrimary request: Tightly framed professional skin-clinic scene: an adult client on a clean table with a folded white modesty towel and a small exposed area at the side of the abdomen; a gloved technician holds a white cosmetic hair-removal laser handpiece to skin. Neutral clinical styling, no chest or below waist visible, no glow or text."
+    },
+    {
+      "file": "public/service-photos/laser-back-v1.webp",
+      "label": "80 · Лазерна епилация на гръб",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, natural light, realistic equipment and anatomically believable hands. No watermarks, logos, lettering, borders, or collage.\nPrimary request: A clinic technician in gloves positions a professional laser hair-removal handpiece on the upper back of an adult patient lying face down under a white drape. Only shoulder blade area exposed, medical wellness context, no face required, no beam, no text."
+    },
+    {
+      "file": "public/service-photos/laser-equipment-v1.webp",
+      "label": "81 · Лазерна епилация · апаратура",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, natural light, realistic equipment and anatomically believable hands. No watermarks, logos, lettering, borders, or collage.\nPrimary request: Service still life in a contemporary cosmetic clinic showing one clearly recognizable cosmetic hair-removal laser handpiece resting safely in its holder on a compact cream laser console, along with a pair of opaque laser-safety goggles on an adjacent trolley; no patient, no visible identifying brand or readable display. Give the equipment a recognizable but clean center composition, no neon."
+    },
+    {
+      "file": "public/service-photos/laser-neck-v1.webp",
+      "label": "82 · Лазерна епилация на шия и врат",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, natural light, realistic equipment and anatomically believable hands. No watermarks, logos, lettering, borders, or collage.\nPrimary request: At a professional laser skin clinic an adult client with hair clipped up and wearing opaque protective glasses, seen from the side, while a technician positions a professional small laser hair removal handpiece on the side of the neck below the ear. Shoulder and jawline frame the action, no beam, no text."
+    },
+    {
+      "file": "public/service-photos/laser-thighs-v1.webp",
+      "label": "83 · Лазерна епилация на бедра",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, natural light, realistic equipment and anatomically believable hands. No watermarks, logos, lettering, borders, or collage.\nPrimary request: Professional cosmetic technician wearing gloves and laser goggles, with a handpiece applied to the front outer thigh just above the knee of an adult client in knee-length cycling shorts on a clinic chair. Crop includes only knee and clothing hem, no private areas and no beam, neutral clinical pose."
+    },
+    {
+      "file": "public/service-photos/haircut-beard-combo-v1.webp",
+      "label": "84 · Подстригване и оформяне на брада",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, natural light, realistic equipment and anatomically believable hands. No watermarks, logos, lettering, borders, or collage.\nPrimary request: A barber at a neighborhood salon is doing the finishing beard line on a fully clothed adult client who has a clearly fresh, crisp fade haircut; the head is fully visible, cape and hair clipper on the counter signal that the haircut is part of the same appointment. Warm authentic barbershop, no blood."
+    },
+    {
+      "file": "public/service-photos/head-shave-v1.webp",
+      "label": "85 · Бръснене на глава",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, natural light, realistic equipment and anatomically believable hands. No watermarks, logos, lettering, borders, or collage.\nPrimary request: A barber gently uses a foil shaver on an adult client's fully shaved scalp, shot from side and rear; head and handpiece are centered, close cut stubble visible and no beard trimming, hygienic barbershop setting."
+    },
+    {
+      "file": "public/service-photos/regular-nail-polish-v1.webp",
+      "label": "86 · Маникюр с обикновен лак",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, natural light, realistic equipment and anatomically believable hands. No watermarks, logos, lettering, borders, or collage.\nPrimary request: A technician paints a thin coat of traditional rose nail polish from an open round polish bottle onto short natural nails, client hand resting naturally on towel, bottle and brush clearly visible, air drying implied, no UV lamp or extension."
+    },
+    {
+      "file": "public/service-photos/regular-toenail-polish-v1.webp",
+      "label": "87 · Педикюр с обикновен лак",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, natural light, realistic equipment and anatomically believable hands. No watermarks, logos, lettering, borders, or collage.\nPrimary request: Professional salon close-up of a pedicurist brushing a coat of conventional dusty pink polish onto an adult big toenail. Plain round open nail polish bottle, tidy towels, no ultraviolet curing lamp, no extension, no irrelevant decoration."
+    },
+    {
+      "file": "public/service-photos/microneedling-v1.webp",
+      "label": "88 · Микронидлинг на лице",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, natural light, realistic equipment and anatomically believable hands. No watermarks, logos, lettering, borders, or collage.\nPrimary request: A qualified skincare practitioner wearing gloves with a recognizable microneedling pen held just above an adult client's cheek before treatment, professional clean clinic, no puncture, no blood or reddening, no visible brand."
+    },
+    {
+      "file": "public/service-photos/therapeutic-massage-v1.webp",
+      "label": "89 · Лечебен масаж",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, natural light, realistic equipment and anatomically believable hands. No watermarks, logos, lettering, borders, or collage.\nPrimary request: Physical therapist uses gentle manual pressure on the upper shoulder of a fully clothed adult client resting side-on in a plain physiotherapy room, patient and therapist relaxed, professional context, no needles and no stretch exercise equipment."
+    },
+    {
+      "file": "public/service-photos/car-interior-vacuum-v1.webp",
+      "label": "90 · Вътрешно почистване на автомобил",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, natural light, realistic equipment and anatomically believable hands. No watermarks, logos, lettering, borders, or collage.\nPrimary request: Close view through open car door of a detailer with a slim black dry-vacuum crevice attachment cleaning a car's floor mat and edges near the console, no wet extractor, no soap, believable natural garage."
+    },
+    {
+      "file": "public/service-photos/vehicle-window-tint-v1.webp",
+      "label": "91 · Затъмняване на автомобилни стъкла",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, natural light, realistic equipment and anatomically believable hands. No watermarks, logos, lettering, borders, or collage.\nPrimary request: Professional installer holds a dark transparent automotive tint film and smooths it on a car side window with a small flat squeegee, clear silhouette of wet film edge and the car frame, tidy studio."
+    },
+    {
+      "file": "public/service-photos/legal-consultation-v1.webp",
+      "label": "92 · Правна консултация",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, natural light, realistic equipment and anatomically believable hands. No watermarks, logos, lettering, borders, or collage.\nPrimary request: A legal professional and adult client discuss a document across a simple office table, lawyer indicating a paragraph in an intentionally unreadable document, candid professional meeting, no staged gavel, no flags or diplomas."
+    },
+    {
+      "file": "public/service-photos/shockwave-therapy-v1.webp",
+      "label": "93 · Ударно-вълнова терапия",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, natural light, realistic equipment and anatomically believable hands. No watermarks, logos, lettering, borders, or collage.\nPrimary request: At a physiotherapy clinic a therapist applies a broad professional shockwave therapy handpiece to the shoulder of a seated adult client, sleeve rolled modestly, modern connected physical-therapy console visible, no needles, no treatment instructions, no labels."
+    },
+    {
+      "file": "public/service-photos/vehicle-dpf-clean-v1.webp",
+      "label": "94 · Почистване на DPF филтър",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 GoRez service photograph for approval, illustrative only, not a photograph of any particular business. Authentic candid editorial photography, central instantly recognizable action suitable for thumbnail, natural light, realistic equipment and anatomically believable hands. No watermarks, logos, lettering, borders, or collage.\nPrimary request: Professional auto technician inspects a removed automotive diesel particulate filter on an industrial filter-cleaning workstation; stainless canister with visibly sooty ceramic honeycomb end, no wires or computer, authentic garage, no procedural details."
+    }
+  ]
+}

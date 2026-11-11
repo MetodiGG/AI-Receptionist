@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
-import { buildGuidedReply, detectGuidedTopic, getEligibleStaff } from '../lib/guided-assistant.mjs'
+import { buildGuidedReply, detectGuidedTopic, getEligibleStaff, guidedServiceMenu } from '../lib/guided-assistant.mjs'
 
 const business = {
   name: 'Тестово студио',
@@ -61,4 +61,17 @@ test('builds English guided answers from the same verified business data', () =>
   assert.match(answer, /Services:/)
   assert.match(answer, /Подстригване/)
   assert.match(buildGuidedReply(business, 'booking', 'en'), /First choose/i)
+})
+
+test('the visual service menu exposes only public fields and never turns missing prices into free services', () => {
+  const fixture = { services: [
+    { id: 'gel', name: 'Педикюр с гел лак', category: 'nails', duration_min: 45, price: 36, currency: 'EUR', privateNotes: 'not public' },
+    { id: 'unknown', name: 'Консултация', duration_min: null, price: null, currency: 'EUR' },
+  ] }
+  const [gel, unknown] = guidedServiceMenu(fixture, 'bg')
+  assert.deepEqual(Object.keys(gel), ['id', 'name', 'category', 'duration_min', 'priceLabel'])
+  assert.equal(gel.category, 'nails')
+  assert.match(gel.priceLabel, /36,00/)
+  assert.equal(unknown.priceLabel, 'Уточни с бизнеса')
+  assert.match(buildGuidedReply(fixture, 'services', 'en'), /Консултация — Ask the business/)
 })

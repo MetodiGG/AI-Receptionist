@@ -49,12 +49,9 @@ test('the five home icons are served as small responsive decorative images witho
   assert.match(ui,/<BusinessCategoryIcon category=\{id\} size=\{44\} eager\/>\{item\[locale\]\}/)
   assert.match(ui,/<Icon name="pin"/);assert.match(ui,/<Icon name="arrow"/)
 })
-test('directory, search and no-photo profile use the shared art, never pass generated icons as a business photo',async()=>{
+test('the illustrative icon system remains for navigation and admin, not as a business cover',async()=>{
   const directory=await read('components/business-directory.js'),search=await read('components/discovery-business-card.js'),profile=await read('components/business-profile.js'),css=await read('app/category-art.css')
-  assert.match(directory,/<BusinessCategoryIcon business=\{row\} size=\{72\}/)
-  assert.match(search,/<BusinessCategoryIcon category=\{railBusinessCategory\(row\)\} business=\{row\} size=\{112\}/)
-  assert.match(profile,/business.photos\?\.length \? <BusinessPhotoGallery/)
-  assert.match(profile,/<BusinessCategoryIcon business=\{business\} size=\{100\}/)
+  for (const surface of [directory, search, profile]) assert.doesNotMatch(surface, /<BusinessCategoryIcon/)
   assert.match(css,/object-fit: contain/)
   assert.doesNotMatch(search,/photos:.*categoryArtSource/)
   for(const file of ['components/platform-admin.js','components/admin-application-card.js'])assert.match(await read(file),/<BusinessCategoryIcon business=/)

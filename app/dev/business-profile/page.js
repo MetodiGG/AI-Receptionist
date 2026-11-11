@@ -23,6 +23,8 @@ export default async function BusinessProfileFixture({ searchParams }) {
     business.staff = business.staff.map(person => ({ ...person, name: 'QA Specialist', bio: 'Fictional team member' }))
   }
   if (query?.reviews === 'empty') { reviews.summary = { count: 0 }; reviews.items = [] }
+  if (query?.cover === 'none') business.photos = []
+  if (query?.photos === '1') business.services = business.services.map((service, index) => ({ ...service, name: locale === 'en' ? (index ? 'QA Gel pedicure' : 'QA Gel manicure') : (index ? 'QA Педикюр с гел лак' : 'QA Маникюр с гел лак') }))
   if (query?.stress === '1') {
     business.name = locale === 'en' ? 'QA Studio with a deliberately long name for responsive layout verification' : 'QA Студио с дълго име за проверка на мобилното оформление'
     business.services.push({ id: '00000000-0000-4000-8000-000000000004', name: locale === 'en' ? 'A very long service name with detailed specialist care and consultation' : 'Услуга с много дълго наименование и допълнителна консултация', price: 1000, priceKind: 'range', priceMaximum: 1500, currency: 'EUR', duration_min: 90 }, { id: '00000000-0000-4000-8000-000000000005', name: locale === 'en' ? 'Consultation' : 'Консултация', price: null, currency: 'EUR', duration_min: 30 })

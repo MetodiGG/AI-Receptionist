@@ -184,7 +184,7 @@ const panelStubs = {
   '../lib/booking-window.mjs': bookingWindow, './monthly-booking-calendar': { MonthlyBookingCalendar: MonthStub }, '../lib/supabase': { hasSupabaseConfig: false },
   '../lib/notification-copy.mjs': { notificationNotice: () => '' }, '../lib/product-events-client': { trackProductEvent: () => {} }, '../lib/booking-details-navigation.mjs': { focusBookingDetails: () => {} },
   './business-profile': { BusinessProfileHeader: Empty, BusinessProfileInformation: Empty, BusinessServiceList: Empty }, './icon': { Icon: Empty }, './business-reviews': { BusinessReviews: Empty, useBusinessReviews: () => ({}) },
-  '../lib/booking-mode.mjs': { isExternalBooking: item => item.booking_mode === 'external' }, '../lib/business-profile-ui.mjs': profileUi, './outbound-booking-button': { OutboundBookingButton: Empty }, './profile-view-tracker': { ProfileViewTracker: Empty },
+  '../lib/booking-mode.mjs': { isExternalBooking: item => item.booking_mode === 'external' }, '../lib/business-profile-ui.mjs': profileUi, './outbound-booking-button': { OutboundBookingButton: Empty }, './profile-view-tracker': { ProfileViewTracker: Empty }, './service-thumbnail': { ServiceThumbnail: Empty },
 }
 function mountChosenPanel(fetch) {
   const ref = { current: null }, busy = []

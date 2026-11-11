@@ -1,0 +1,27 @@
+/* Keep the thumbnail and its text in the existing name column. The price
+   remains a separate cell, including when it links to the published source. */
+.home-business-services > li { align-items: center; }
+.home-business-services .service-photo-name { gap: 7px; }
+.home-business-services .home-service-price { min-width: 0; overflow-wrap: anywhere; }
+
+.business-details-services > li { align-items: flex-start; }
+.business-details-services .service-photo-name { align-items: flex-start; }
+.business-details-service-copy { min-width: 0; }
+.business-details-services :is(.service-thumbnail, .service-thumbnail-icon) { display: grid; }
+
+.directory-services .directory-service-row { display: grid; grid-template-columns: minmax(0,1fr) fit-content(44%); align-items: center; gap: 8px 12px; padding: 10px 12px; background: #f8f5f1; border-radius: 12px; font-size: 16px; font-weight: 750; }
+.directory-services .directory-service-copy { display: grid; gap: 2px; min-width: 0; overflow-wrap: anywhere; }
+.directory-services .directory-service-copy small { color: #606169; font-weight: 400; }
+.directory-services .directory-service-row b { min-width: 0; text-align: end; white-space: normal; overflow-wrap: anywhere; }
+/* The older directory stylesheet pads all spans, including the shared art. */
+.directory-services .directory-service-row :is(.service-thumbnail, .service-thumbnail-icon) { display: grid; padding: 0; gap: 0; place-items: center; justify-content: center; }
+.directory-services .directory-service-row .service-thumbnail-icon { background: transparent; }
+
+/* Illustrative category covers occupy the existing photo slot; no carousel
+   controls or gallery metadata are shown for an image that isn't the venue. */
+.business-category-cover { position: relative; display: block; overflow: hidden; background: #f7ebdd; }
+.business-category-cover > img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 47%; }
+.business-category-cover-label { position: absolute; inset: auto auto 8px 8px; z-index: 1; width: max-content; max-width: calc(100% - 16px); padding: 3px 8px; border-radius: 7px; background: #fff8ef; color: #512b19; font-size: 12px; font-weight: 650; line-height: 1.35; }
+.home-business-photo > .business-category-cover { position: absolute; inset: 0; }
+.business-details-photo-fallback.business-category-cover { height: clamp(170px,48vw,280px); }
+.business-profile-hero > .business-profile-no-photo.business-category-cover { height: clamp(190px,31vw,360px); }

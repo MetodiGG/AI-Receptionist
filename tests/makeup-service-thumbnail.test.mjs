@@ -14,6 +14,13 @@ const otherCatalogueActivities = new Set([
   'Арт грим · детайлен', 'Арт грим · editorial / high fashion', 'Арт грим със специални ефекти',
   'Добавяне на мигли към грим', 'Премахване на стар перманентен грим и татуировки',
   'Грим и почистване на вежди', 'Арт грим', 'Грим и прическа с маша',
+  // Newly reviewed permanent techniques are not ordinary makeup application.
+  // Never attach the conventional brush/application photo just to pass coverage.
+  'Перманентен грим на очи · Инфралаш',
+  'Перманентен грим на очи · класическа очна линия',
+  'Перманентен грим на устни · контур с преливане',
+  'Перманентен грим на устни · техника 3D',
+  'Перманентен грим на устни · техника Микс',
 ])
 
 test('ordinary makeup keeps the existing approved photo with occasion and delivery-location qualifiers', () => {

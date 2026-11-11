@@ -6,7 +6,7 @@ import { Icon } from './icon'
 import { businessDirectionsUrl, businessMapUrl, businessWeeklyHours, groupBusinessServices, publicProfileDetails } from '../lib/business-profile.mjs'
 import { getStaffPhoto } from '../lib/business-photos.mjs'
 import { BusinessCoverPhoto } from './business-cover-photo'
-import { IllustrativeServicePhotoNote, ServiceThumbnail } from './service-thumbnail'
+import { ServiceThumbnail } from './service-thumbnail'
 import { profileServicePrice, profileShareUrl, shareProfileLink } from '../lib/business-profile-ui.mjs'
 
 // The same folded map and action class used by the homepage business cards.
@@ -52,7 +52,6 @@ export function BusinessServiceList({ business, locale = 'bg', selectedServiceId
         <div className="profile-service-actions"><strong className="profile-service-price">{profileServicePrice(service, locale)}</strong><button className="profile-service-book" type="button" disabled={disabled} onClick={() => onChoose(service.id)} aria-label={`${en ? 'Book' : 'Резервирай'} · ${service.name}`} aria-pressed={selectedServiceId === service.id} aria-controls="booking-experience"><Icon name="calendar"/></button></div>
       </li>)}</ul>
     </div>)}</div>
-    <IllustrativeServicePhotoNote services={business.services} business={business} locale={locale}/>
     {!business.services?.length && <p className="profile-empty-services">{en ? 'Contact the business for its services.' : 'Свържи се с бизнеса за предлаганите услуги.'}</p>}
   </section>
 }

@@ -4,11 +4,10 @@ import { useEffect, useId, useRef, useState } from 'react'
 import { Icon } from './icon'
 import { BusinessPhotoGallery } from './business-photo-gallery'
 import { BusinessCoverPhoto } from './business-cover-photo'
-import { IllustrativeServicePhotoNote, ServiceThumbnail } from './service-thumbnail'
+import { ServiceThumbnail } from './service-thumbnail'
 import { containDialogTab } from '../lib/dialog-focus.mjs'
 import { businessDetailHours, businessDetailServices, detailPriceLabel, groupDetailServices } from '../lib/discovery/business-details.mjs'
-import { safeBookingUrl } from '../lib/booking-mode.mjs'
-import { railCategory, railPhone } from '../lib/discovery/rail.mjs'
+import { railCategory } from '../lib/discovery/rail.mjs'
 import { isCataloguePhotoSource } from '../lib/catalogue-photo-view.mjs'
 import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
 import { servicePresentation } from '../lib/discovery/service-presentation.mjs'
@@ -21,9 +20,6 @@ export function DiscoveryBusinessDetails({ row, locale = 'bg', preview = false, 
   const services = businessDetailServices(business), hours = businessDetailHours(business)
   const groups = groupDetailServices(services)
   const description = business.details?.description?.[locale] || business.details?.description?.bg || ''
-  const website = safeBookingUrl(business.details?.sourceUrl || business.website)
-  const phone = railPhone(business.details?.phone || business.phone)
-  const hoursSource = safeBookingUrl(business.details?.hoursSourceUrl)
   const photos = business.source === 'gorez' ? business.photos || [] : isCataloguePhotoSource(business.photo?.src) ? [{ ...business.photo, alt: { [locale]: business.photo.alt || business.name } }] : []
 
   useEffect(() => {
@@ -76,20 +72,17 @@ export function DiscoveryBusinessDetails({ row, locale = 'bg', preview = false, 
       {description && <p className="business-details-description">{description}</p>}
       <section aria-labelledby={`${id}-services`}><h3 id={`${id}-services`}>{copy.servicesPrices}</h3>
         {services.length ? groups.map(group => <div className="business-details-service-group" key={group.key}>{groups.length > 1 && group.title && <h4>{group.title[locale]}</h4>}<ServiceMenu services={group.services} business={business} locale={locale} copy={copy}/></div>) : <p>{copy.noServices}</p>}
-        <IllustrativeServicePhotoNote services={services} business={business} locale={locale}/>
         {services.some(service => service.price != null) && row.source === 'catalogue' && <p className="business-details-note">{copy.pricesNote}</p>}
       </section>
-      <section aria-labelledby={`${id}-hours`}><h3 id={`${id}-hours`}>{copy.openingHours}</h3>
-        {hours.length ? <dl className="business-details-hours">{hours.map(day => <div key={day.weekday}><dt>{copy.weekdays[day.weekday - 1]}</dt><dd>{day.byAppointment ? copy.byAppointment : day.periods.join(' / ') || copy.closedDay}</dd></div>)}</dl> : <p>{copy.unpublishedHours}</p>}
-        {hoursSource && <a href={hoursSource} target="_blank" rel="noopener noreferrer">{copy.hoursSource}</a>}
+      <section className="business-details-hours-section" aria-labelledby={`${id}-hours`}>
+        <details className="business-details-hours-toggle">
+          <summary id={`${id}-hours`}><span>{copy.openingHours}</span><Icon name="chevronDown"/></summary>
+          <div className="business-details-hours-body">{hours.length ? <dl className="business-details-hours">{hours.map(day => <div key={day.weekday}><dt>{copy.weekdays[day.weekday - 1]}</dt><dd>{day.byAppointment ? copy.byAppointment : day.periods.join(' / ') || copy.closedDay}</dd></div>)}</dl> : <p>{copy.unpublishedHours}</p>}</div>
+        </details>
       </section>
-      {business.address && <section aria-labelledby={`${id}-address`}><h3 id={`${id}-address`}>{copy.addressLabel}</h3><p>{business.address}</p></section>}
-      {(phone || website) && <section className="business-details-contact" aria-labelledby={`${id}-contact`}><h3 id={`${id}-contact`}>{copy.contactLabel}</h3>
-        {phone && <a href={phone} aria-label={copy.phoneLabel}>{business.details?.phone || business.phone}</a>}
-        {website && <a href={website} target="_blank" rel="noopener noreferrer">{copy.websiteLabel}<Icon name="arrow"/></a>}
-      </section>}
+      {business.address && <section className="business-details-address" aria-labelledby={`${id}-address`}><h3 id={`${id}-address`}>{copy.addressLabel}</h3><p>{business.address}</p></section>}
     </>}
-    {status !== 'missing' && <footer>{actions}</footer>}
+    {status === 'ready' && <footer>{typeof actions === 'function' ? actions(business) : actions}</footer>}
   </dialog>
 }
 

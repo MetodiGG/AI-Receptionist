@@ -45,9 +45,11 @@ test('internal normalization preserves the actual business category and full pub
   assert.equal(rows[0].businessCategory, 'barber')
   assert.deepEqual(rows[0].publicServiceNames, ['Мъжко подстригване', 'Оформяне на брада'])
 })
-test('reserve actions retain validated website-first/phone-fallback behavior and never invent contacts', () => {
-  assert.equal(railExternalAction({ source: 'google', website: 'https://example.com/', phone: '+359000000000' }).kind, 'website')
+test('reserve actions prefer reviewed booking links then real phone, never treating a generic website as a verified form', () => {
+  assert.equal(railExternalAction({ source: 'google', booking: { id: '11111111-1111-4111-8111-111111111111' }, website: 'https://example.com/', phone: '+359000000000' }).kind, 'verified')
+  assert.equal(railExternalAction({ source: 'google', website: 'https://example.com/', phone: '+359000000000' }).kind, 'phone')
   assert.equal(railExternalAction({ source: 'google', phone: '+359000000000' }).kind, 'phone')
+  assert.equal(railExternalAction({ source: 'google', website: 'https://example.com/' }), null)
   assert.equal(railExternalAction({ source: 'google' }), null)
 })
 test('GoRez cards do not stretch to a tall provider chunk or push actions to its far bottom', async () => {
@@ -61,7 +63,8 @@ test('GoRez cards do not stretch to a tall provider chunk or push actions to its
   assert.ok(card.indexOf('className="home-business-services"') < card.indexOf('<PartnerRailReviews'))
   assert.match(card, /const reserve = copy.reserveAppointment/)
   assert.doesNotMatch(card, /Visit website|Виж сайта/)
-  assert.match(card, /онлайн резервацията не е потвърдена/)
+  assert.match(card, /const action = railExternalAction\(business\)/)
+  assert.doesNotMatch(card, /action\.kind === ['"]website['"]|онлайн резервацията не е потвърдена/)
 })
 test('native Google compact styling uses documented controls, without rewriting fixed labels or scraping content', async () => {
   const kit = await read('components/google-discovery-list.js'), css = await read('app/discovery-home.css')

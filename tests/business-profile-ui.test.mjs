@@ -223,13 +223,13 @@ test('profile header renders only real identity and direct actions, without cate
   assert.doesNotMatch(html, /<iframe|<script/)
 })
 
-test('directions retain exact published coordinates and use the actual homepage folded-map Icon', () => {
+test('directions match the displayed postal address and use the actual homepage folded-map Icon', () => {
   const node = BusinessDirectionsLink({ business, locale: 'en' })
   const href = new URL(node.props.href)
   assert.equal(href.origin, 'https://www.google.com')
   assert.equal(href.pathname, '/maps/dir/')
   assert.equal(href.searchParams.get('api'), '1')
-  assert.equal(href.searchParams.get('destination'), '42.712345,23.334567')
+  assert.equal(href.searchParams.get('destination'), business.address + ', България')
   assert.equal(node.props.target, '_blank')
   assert.equal(node.props.rel, 'noopener noreferrer')
   assert.equal(elements(node, item => item.type === Icon && item.props.name === 'map').length, 1)
@@ -237,7 +237,7 @@ test('directions retain exact published coordinates and use the actual homepage 
   assert.ok(html.includes(render(Icon, { name: 'map' })))
   assert.doesNotMatch(html, /<circle|Icon name="pin"/)
   const addressOnly = BusinessDirectionsLink({ business: { ...business, public_profile: {} }, locale: 'bg', address: true })
-  assert.equal(new URL(addressOnly.props.href).searchParams.get('destination'), business.address)
+  assert.equal(new URL(addressOnly.props.href).searchParams.get('destination'), business.address + ', България')
   assert.equal(BusinessDirectionsLink({ business: { ...business, address: '' } }), null)
 })
 

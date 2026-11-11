@@ -77,10 +77,10 @@ test('published working hours include real lunch breaks, omit inactive staff and
 })
 test('directions encode an address safely and maps require owner-supplied coordinates, never guessed business positions', () => {
   const address = 'София, ул. Синанишко езеро 13 & 15'
-  assert.equal(new URL(businessDirectionsUrl({ address })).searchParams.get('destination'), address)
+  assert.equal(new URL(businessDirectionsUrl({ address })).searchParams.get('destination'), address + ', България')
   assert.equal(businessMapUrl({ address }), null); assert.equal(businessDirectionsUrl({}), null)
   const business = { address, public_profile: { latitude: 42.7, longitude: 23.32 } }
-  assert.equal(new URL(businessDirectionsUrl(business)).searchParams.get('destination'), '42.7,23.32')
+  assert.equal(new URL(businessDirectionsUrl(business)).searchParams.get('destination'), address + ', България')
   const map = new URL(businessMapUrl(business)); assert.equal(map.hostname, 'www.openstreetmap.org'); assert.equal(map.searchParams.get('marker'), '42.7,23.32')
 })
 function profileHarness(overrides = {}) {

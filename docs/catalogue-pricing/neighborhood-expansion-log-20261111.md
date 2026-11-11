@@ -524,6 +524,46 @@ DobrevDental/Бъкстон, Бизи/Надежда6, Интелия/Младо
 точнотоbranch-service binding; не са две копия на общ formoption.
 Целта10000 остава активна и непостигната.
 
+### Публикуван checkpoint 284 — 11 ноември, 11:35 Europe/Sofia
+
+По изричното искане на собственика е публикуван провереният commit
+`e31cfae398930c92e47569784e5a06a99ffdad7b` върху текущия main, без force push.
+Vercel main deployment `27P8DPuuqcBSZzn3aJW67GvZNRKH` е успешен.
+Чистото release копие: 1265/1265 Node теста, Python 8+4, catalogue gates,
+81-page production build и whitespace check — всички успешни.
+На www.gorez.co са потвърдени новият бизнес Вили Дошева с реалните цени,
+404 за изключения Medconvex, актуалните стилове за G Point, логото и title.
+Няма нов интерактивен browser visual pass; HTTP/CSS проверката не е такъв.
+Подробен локален receipt: `.audit-work/catalogue-expansion-20261111/publication284-20261111.json`.
+Следващите source-only кандидати още не са в тази публикация. Продължаваме
+по квартали и категории; 10 000 проверени нови бизнеса все още не са достигнати.
+
+### След публикацията — checkpoint 301 (+17 бизнеса, +49 цени)
+
+Локално са добавени 17 независимо проверени оператора: Studio617, Royal,
+Джотекс, SOSuslugite, ДомСервиз, SassyFaces, LStyle, Naura, GRIMIOR,
+Osanna, Kristor, MassageCorner, Jenshen, Yoni, FloatZone, TopDiagnostika
+и AutoKings. Това са 12 реални обекта и 5 мобилни услуги, не staff clones.
+Root прочете конкретните собствени fee/Book източници и датираните receipts;
+Osanna и FloatZone са сверени и с допълнителен live GET. Допълнителният
+GET на Kristor е с connection failure — НЕ е успешна повторна проверка.
+Използвани са датираните original-owner HTML fee и booking receipts,
+не противоречивите cached стойности от преди 11 месеца.
+
+Запазени са from/range, капаро и приспадане, части отделно, +20 EUR посещение,
+реалната разлика между заявка и потвърден час, регистрация при Kristor,
+threading в бръснарницата и mobile срещу реален обект. Коригирано е Sassy
+условието за транспорт извън София, без да се пренася върху далечни квартали.
+MTs Милена остава hold за medical scope. Ограничени/противоречиви източници
+не се заобикалят. Pending wellnessv8/v9 и beautyv7 не са в тази партида.
+
+Проверки: catalogue/pricing gates PASS; 7 фокусирани; пълен 1272/1272;
+81-page build PASS. Общо 955 source / 932 eligible / 23 excluded;
+спрямо operational baseline 654: 301 нови, 246 premises +55 mobile,
+1814 услуги /1810 текущи ценови факта. Summary301 и snapshot301 пазят
+отделен отчет по квартал и вид. Тази следваща партида НЕ е публикувана;
+на домейна остава провереният checkpoint284, както е поискано преди продължаването.
+
 ## Checkpoint 253 — Редута, Бъкстон, Надежда6 и източни учебни бази
 
 Нетно253 нови каталожни бизнеса/обекта спрямо operational654baseline:

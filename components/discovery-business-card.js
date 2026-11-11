@@ -33,8 +33,6 @@ export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, 
   const hasDetails = internal || row.source === 'catalogue'
   const openDetails = event => { detailsTrigger.current = event.currentTarget; setDetailsOpen(true) }
   const photo = internal ? homeBusinessPhoto(row) : row.source === 'catalogue' && isCataloguePhotoSource(row.photo?.src) ? { ...row.photo, alt: { [locale]: row.photo.alt || row.name } } : null
-  const profile = internal ? `/book/${row.slug}?lang=${locale}` : null
-  const directions = railDirections(row), action = railExternalAction(row)
   const reserve = copy.reserveAppointment
   const directionsLabel = copy.directions
   const services = railServiceItems(row)
@@ -43,10 +41,16 @@ export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, 
     <DiscoveryDistanceBadge origin={distanceOrigin} destination={row.coordinates} locale={locale} fallbackKm={nearby ? row.distanceKm : null} business={row}/>
     {hasDetails && <span className="home-business-details-label">{copy.viewDetailsLower}</span>}
   </div>
-  const actions = <div className="home-business-actions">
-      {directions && (preview ? <span className="home-directions" aria-disabled="true"><Icon name="map"/><span className="home-maps-label">{directionsLabel}</span></span> : <a className="home-directions" href={directions} target="_blank" rel="noopener noreferrer" aria-label={`${directionsLabel} · ${row.name}`} title={en ? 'Opens Google Maps directions' : 'Отваря упътвания в Google Maps'}><Icon name="map"/><span className="home-maps-label">{directionsLabel}</span></a>)}
-      {preview ? (internal || action) && <span className="home-reserve" aria-disabled="true">{reserve}</span> : internal ? isExternalBooking(row) ? <OutboundBookingButton business={row} locale={locale} className="home-reserve">{reserve}</OutboundBookingButton> : <Link className="home-reserve" href={profile} prefetch={false}>{reserve}</Link> : action?.kind === 'verified' ? <OutboundBookingButton linkId={action.id} locale={locale} className="home-reserve">{reserve}</OutboundBookingButton> : action && <a className="home-reserve" href={action.href} target={['website', 'form'].includes(action.kind) ? '_blank' : undefined} rel="noopener noreferrer" aria-label={`${action.kind === 'phone' ? (en ? 'Call to book a time' : 'Резервирай час по телефона') : action.kind === 'form' ? (en ? 'Book on the business website' : 'Резервирай час в сайта на бизнеса') : (en ? 'Ask about booking on the business website' : 'Запитване за час в сайта на бизнеса')} · ${row.name}`} title={action.kind === 'website' ? (en ? 'Opens the business website; online booking is not verified' : 'Отваря сайта на бизнеса; онлайн резервацията не е потвърдена') : undefined}>{reserve}</a>}
+  const actions = (business = row) => {
+    const directions = railDirections(business)
+    const internalBooking = business.source === 'gorez'
+    const profile = internalBooking && business.slug ? `/book/${encodeURIComponent(business.slug)}?lang=${locale}` : null
+    const action = railExternalAction(business)
+    return <div className="home-business-actions">
+      {directions && (preview ? <span className="home-directions" aria-disabled="true"><Icon name="map"/><span className="home-maps-label">{directionsLabel}</span></span> : <a className="home-directions" href={directions} target="_blank" rel="noopener noreferrer" aria-label={`${directionsLabel} · ${business.name}`} title={en ? 'Opens Google Maps directions' : 'Отваря упътвания в Google Maps'}><Icon name="map"/><span className="home-maps-label">{directionsLabel}</span></a>)}
+      {preview ? (internalBooking || action) && <span className="home-reserve" aria-disabled="true">{reserve}</span> : internalBooking ? profile && (isExternalBooking(business) ? <OutboundBookingButton business={business} locale={locale} className="home-reserve">{reserve}</OutboundBookingButton> : <Link className="home-reserve" href={profile} prefetch={false}>{reserve}</Link>) : action?.kind === 'verified' ? <OutboundBookingButton linkId={action.id} locale={locale} className="home-reserve">{reserve}</OutboundBookingButton> : action && <a className="home-reserve" href={action.href} target={action.kind === 'form' ? '_blank' : undefined} rel="noopener noreferrer" aria-label={`${action.kind === 'phone' ? (en ? 'Call to book a time' : 'Резервирай час по телефона') : (en ? 'Book on the business website' : 'Резервирай час в сайта на бизнеса')} · ${business.name}`}>{reserve}</a>}
     </div>
+  }
   return <article className="home-business-card" data-source={row.source}>
     {hasDetails && <button type="button" className="home-business-open" onClick={openDetails} aria-haspopup="dialog" aria-label={`${copy.detailsLabel} · ${row.name}`}/>}
     {visual}
@@ -60,7 +64,7 @@ export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, 
     })}</ul>}
     {internal ? <PartnerRailReviews row={row} locale={locale} preview={preview}/> : Number.isFinite(row.rating) && row.rating > 0 ? <div className="home-business-reviews">{row.reviewCount > 0 ? <ReviewSummary summary={{ average: row.rating, count: row.reviewCount }} status="ready" locale={locale} compact/> : <span>★ {row.rating} / 5</span>}</div> : null}
     <div className="home-business-footer">
-      {actions}
+      {actions()}
     </div>
     {detailsOpen && <DiscoveryBusinessDetails row={row} locale={locale} preview={preview} onClose={() => setDetailsOpen(false)} triggerRef={detailsTrigger} actions={actions}/>}
     {row.source === 'google' && <span className="home-google-attribution" translate="no">Google Maps</span>}

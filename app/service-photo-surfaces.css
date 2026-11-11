@@ -21,7 +21,7 @@
    controls or gallery metadata are shown for an image that isn't the venue. */
 .business-category-cover { position: relative; display: block; overflow: hidden; background: #f7ebdd; }
 .business-category-cover > img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 47%; }
-.business-category-cover-label { position: absolute; inset: auto auto 7px 7px; z-index: 1; width: max-content; max-width: calc(100% - 14px); padding: 1px 5px; border-radius: 4px; background: #fff8ef; color: #512b19; font-size: .6875rem; font-weight: 550; line-height: 1.4; }
+.business-category-cover-label { position: absolute; inset: auto auto 5px 5px; z-index: 1; width: max-content; max-width: calc(100% - 10px); padding: 1px 4px; border-radius: 3px; background: #fff8efe8; color: #512b19; font-size: .5625rem; font-weight: 500; line-height: 1.25; }
 .home-business-photo > .business-category-cover { position: absolute; inset: 0; }
 .business-details-photo-fallback.business-category-cover { height: clamp(170px,48vw,280px); }
 .business-profile-hero > .business-profile-no-photo.business-category-cover { height: clamp(190px,31vw,360px); }
@@ -44,3 +44,17 @@
 .business-details-service-copy > strong { display: block; font-size: 16px; line-height: 1.4; }
 .business-details-service-condition { display: block; margin-top: 5px; color: #6b625b; font-size: 13px; line-height: 1.4; font-weight: 500; }
 .business-details-services .business-details-service-description { grid-column: 1 / -1; margin: 0; font-size: 14px; line-height: 1.55; overflow-wrap: break-word; }
+
+/* Keep optional hours behind one native, keyboard-operable disclosure. */
+.discovery-business-details .business-details-hours-section { margin-top: 14px; }
+.business-details-hours-toggle > summary { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 44px; padding: 7px 0; list-style: none; color: #65432d; font-weight: 700; cursor: pointer; }
+.business-details-hours-toggle > summary::-webkit-details-marker { display: none; }
+.business-details-hours-toggle > summary svg { width: 18px; height: 18px; flex: 0 0 auto; }
+.business-details-hours-toggle[open] > summary svg { transform: rotate(180deg); }
+.business-details-hours-toggle > summary:focus-visible { outline: 3px solid #b14c17; outline-offset: 3px; border-radius: 4px; }
+.business-details-hours-body { padding-block: 3px 5px; }
+.business-details-hours-body > p { margin: 0; color: #6b625b; }
+.discovery-business-details .business-details-address { margin-top: 12px; }
+.discovery-business-details .business-details-address h3 { margin-bottom: 4px; font-size: 17px; }
+.discovery-business-details .business-details-address > p { margin: 0; line-height: 1.45; }
+.discovery-business-details > footer { margin-top: 14px; padding-block: 10px; }

@@ -51,5 +51,6 @@ test('unified partner cards retain their factual service category and the existi
   const ui = await readFile(new URL('../components/discovery-business-card.js', import.meta.url), 'utf8')
   assert.match(ui, /className="home-business-category">\{railCategory\(row, locale\)\}/)
   assert.match(ui, /href=\{profile\} prefetch=\{false\}/)
-  assert.match(ui, /OutboundBookingButton business=\{row\}/)
+  assert.match(ui, /const actions = \(business = row\) =>/)
+  assert.match(ui, /OutboundBookingButton business=\{business\}/)
 })

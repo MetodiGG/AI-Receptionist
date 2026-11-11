@@ -22,10 +22,11 @@ test('phone fallback accepts only a bounded real telephone value, not links, ext
   assert.equal(railPhone('02 123 4567'), 'tel:021234567')
   for (const value of ['', null, '+359abc', '+359;phone-context=evil', 'javascript:alert(1)', 'tel:+359123456', '+3591234?x=1', '123+456', '1'.repeat(50)]) assert.equal(railPhone(value), null)
 })
-test('verified booking wins, otherwise website wins over phone, and an unreachable business gets no reservation action', () => {
+test('verified booking wins, otherwise real phone wins without promoting a generic website to a booking form', () => {
   const id = '11111111-1111-4111-8111-111111111111'
   assert.deepEqual(railExternalAction(place({ booking: { id }, website: 'https://example.com/', phone: '+359000000000' })), { kind: 'verified', id })
-  assert.deepEqual(railExternalAction(place({ website: 'https://example.com/', phone: '+359000000000' })), { kind: 'website', href: 'https://example.com/' })
+  assert.deepEqual(railExternalAction(place({ website: 'https://example.com/', phone: '+359000000000' })), { kind: 'phone', href: 'tel:+359000000000' })
+  assert.equal(railExternalAction(place({ website: 'https://example.com/' })), null)
   assert.deepEqual(railExternalAction(place({ phone: '+359000000000' })), { kind: 'phone', href: 'tel:+359000000000' })
   assert.equal(railExternalAction(place()), null)
   assert.equal(railExternalAction(partner()), null)
@@ -34,11 +35,11 @@ test('verified booking wins, otherwise website wins over phone, and an unreachab
 test('website actions reject insecure, credential-bearing, private, token-bearing and open-redirect destinations', () => {
   for (const website of ['javascript:alert(1)', 'data:text/html,x', 'http://example.com', 'https://a:b@example.com/', 'https://127.0.0.1/', 'https://metadata.google.internal/', 'https://example.com/?next=https://evil.com', 'https://example.com/#private', 'https://example.com/?token=private']) assert.equal(railExternalAction(place({ website })), null, website)
 })
-test('directions use a real business point or public address without transmitting the visitor origin', () => {
+test('directions use the displayed public address before a potentially stale point without transmitting visitor origin', () => {
   const url = new URL(railDirections(partner({ coordinates: { latitude: 42.66, longitude: 23.28 }, address: 'public address' })))
-  assert.equal(url.origin, 'https://www.google.com'); assert.equal(url.searchParams.get('destination'), '42.66,23.28')
+  assert.equal(url.origin, 'https://www.google.com'); assert.equal(url.searchParams.get('destination'), 'public address, България')
   assert.equal(url.searchParams.has('origin'), false)
-  assert.equal(new URL(railDirections(partner({ address: 'София, ул. Примерна' }))).searchParams.get('destination'), 'Fixture, София, ул. Примерна')
+  assert.equal(new URL(railDirections(partner({ address: 'София, ул. Примерна' }))).searchParams.get('destination'), 'София, ул. Примерна, България')
   assert.equal(railDirections(partner()), null)
   assert.equal(railDirections(partner({ coordinates: { latitude: null, longitude: null } })), null)
 })
@@ -52,9 +53,9 @@ test('eligible nearby partners precede contacts, while farther partners can neve
   const rows = [partner({ id: 'far', proximityBand: 'further', distanceKm: 4 }), place({ id: 'near', distanceKm: .1 }), partner({ id: 'local', distanceKm: 1.8 })]
   assert.deepEqual(orderedRailRows(rows).map(x => x.id), ['local', 'near', 'far'])
 })
-test('known verified booking, website, phone and no-contact places have deterministic priority inside the same radius band', () => {
+test('known verified booking and real phone precede generic websites without changing distance order for other places', () => {
   const variants = [place({ id: 'none', placeId: 'none', distanceKm: .1 }), place({ id: 'phone', placeId: 'phone', phone: '+359000000000', distanceKm: .2 }), place({ id: 'web', placeId: 'web', website: 'https://example.com/', distanceKm: 1 }), place({ id: 'verified', placeId: 'verified', booking: { id: '11111111-1111-4111-8111-111111111111' }, distanceKm: 1.2 })]
-  assert.deepEqual(orderedRailRows(variants).map(x => x.id), ['verified', 'web', 'phone', 'none'])
+  assert.deepEqual(orderedRailRows(variants).map(x => x.id), ['verified', 'phone', 'none', 'web'])
 })
 test('row deduplication never merges two sources by business name and bounds the displayed batch', () => {
   assert.equal(orderedRailRows([place(), place(), partner()]).length, 2)

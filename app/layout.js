@@ -17,7 +17,7 @@ import './catalogue-admin.css'
 import { PwaRegister } from '../components/pwa-register'
 import { PublicWebAnalytics } from '../components/web-analytics'
 import { SITE_ORIGIN } from '../lib/seo.mjs'
-import { BRAND_MARK_PNG } from '../lib/brand-assets.mjs'
+import { BRAND_APPLE_ICON, BRAND_FAVICON_PNG } from '../lib/brand-assets.mjs'
 import { SOCIAL_PREVIEW_TITLE, socialPreviewImage } from '../lib/social-preview.mjs'
 
 export const metadata = {
@@ -26,7 +26,10 @@ export const metadata = {
   title: { default: SOCIAL_PREVIEW_TITLE, template: '%s · GoRez' },
   description: 'Открий бизнес, виж реално свободните часове и резервирай онлайн с GoRez.',
   manifest: '/manifest.webmanifest',
-  icons: { icon: BRAND_MARK_PNG, apple: '/brand-icon?size=180&v=4' },
+  icons: {
+    icon: { url: BRAND_FAVICON_PNG, type: 'image/png', sizes: '96x96' },
+    apple: { url: BRAND_APPLE_ICON, type: 'image/png', sizes: '180x180' },
+  },
   openGraph: {
     title: SOCIAL_PREVIEW_TITLE,
     description: 'Открий подходящия бизнес, виж свободните часове и резервирай онлайн.',

@@ -66,8 +66,8 @@ test('public cards and details use the labelled category cover only until a real
   const catalogue = { ...business, source: 'catalogue', category: 'nails', services }
   const card = props => render(DiscoveryBusinessCard, { row: props, locale: 'en', preview: true })
   const details = props => render(DiscoveryBusinessDetails, { row: props, locale: 'bg', preview: true })
-  assert.match(card(catalogue), /data-category-cover="nails".*Illustrative photo/)
-  assert.match(details(catalogue), /data-category-cover="nails".*Примерна снимка/)
+  assert.match(card(catalogue), /data-category-cover="nails".*AI illustration/)
+  assert.match(details(catalogue), /data-category-cover="nails".*AI илюстрация/)
   const partner = { ...catalogue, source: 'gorez', category: 'beauty', businessCategory: 'barber' }
   assert.match(card(partner), /data-category-cover="barber"/)
   const real = { ...partner, photos: [{ src: '/businesses/fixture-studio/interior.webp' }] }

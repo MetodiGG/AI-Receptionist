@@ -3,7 +3,7 @@ import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
 import sharp from 'sharp'
-import { BRAND_MARK_SRC, BRAND_MARK_PNG, BRAND_VERSION } from '../lib/brand-assets.mjs'
+import { BRAND_MARK_SRC, BRAND_MARK_PNG, BRAND_VERSION, BRAND_FAVICON_PNG, BRAND_FAVICON_ICO, BRAND_APPLE_ICON, BRAND_PWA_ICON } from '../lib/brand-assets.mjs'
 
 const read = file => readFile(new URL(`../${file}`, import.meta.url), 'utf8')
 const luminance = hex => hex.match(/\w{2}/g).map(part => parseInt(part, 16) / 255).map(value => value <= .04045 ? value / 12.92 : ((value + .055) / 1.055) ** 2.4).reduce((sum, value, index) => sum + value * [.2126, .7152, .0722][index], 0)
@@ -68,11 +68,12 @@ test('the search introduction explains natural-language discovery in Bulgarian a
 
 test('browser/PWA/social assets use the same complete mark and the service worker retires the old cache', async () => {
   const layout = await read('app/layout.js'), manifest = await read('app/manifest.js'), worker = await read('public/sw.js')
-  assert.match(layout, /icon: BRAND_MARK_PNG, apple: '\/brand-icon\?size=180&v=4'/)
-  assert.match(manifest, /src: '\/brand-icon\?size=512&v=4'/)
-  assert.match(worker, /gorez-shell-solar-v6/)
+  assert.match(layout, /icon: \{ url: BRAND_FAVICON_PNG, type: 'image\/png', sizes: '96x96' \}/)
+  assert.match(layout, /apple: \{ url: BRAND_APPLE_ICON, type: 'image\/png', sizes: '180x180' \}/)
+  assert.match(manifest, /src: BRAND_PWA_ICON/)
+  assert.match(worker, /gorez-shell-solar-v7/)
   assert.ok(worker.includes(BRAND_MARK_SRC)); assert.equal(BRAND_VERSION, 4)
-  assert.match(worker, /brand-icon\?size=512&v=4/)
+  for (const file of [BRAND_FAVICON_PNG, BRAND_FAVICON_ICO, BRAND_APPLE_ICON, BRAND_PWA_ICON]) assert.ok(worker.includes(file))
   assert.match(worker, /key.startsWith\('gorez-'\) && key !== CACHE/)
   for (const file of ['app/brand-icon/route.js']) {
     const source = await read(file)

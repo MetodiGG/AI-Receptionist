@@ -5,6 +5,6 @@ export function BusinessCoverPhoto({ business, locale = 'bg', className = '', ea
   const { category, src, size } = businessCoverPhoto(business)
   return <div className={`business-category-cover ${className}`.trim()} data-category-cover={category}>
     <img src={src} width={size} height={size} alt="" loading={eager ? 'eager' : 'lazy'} decoding="async"/>
-    <span className="business-category-cover-label">{locale === 'en' ? 'Illustrative photo' : 'Примерна снимка'}</span>
+    <span className="business-category-cover-label">{locale === 'en' ? 'AI illustration' : 'AI илюстрация'}</span>
   </div>
 }

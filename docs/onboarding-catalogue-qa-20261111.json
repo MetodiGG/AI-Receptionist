@@ -1,0 +1,111 @@
+{
+  "task": "Partner registration catalogue autofill and compact onboarding",
+  "date": "2026-11-11",
+  "status": "implemented and tested locally; not deployed",
+  "changes": [
+    "Explicit searchable public catalogue selection copies editable services, safe fixed EUR prices and current evidenced durations.",
+    "Public business fields fill blanks; atomic import provenance refreshes untouched prior imported fields without overwriting manual changes.",
+    "Existing service edits require confirmation; catalogues exceeding 40 services offer explicit selection without silent truncation.",
+    "City combobox ranks exact city names first, resets scroll, supports keyboard/IME and retains early hydration input.",
+    "Compact five-step form, concise BG/EN copy, collapsed optional settings, responsive service fields and localized photo chooser."
+  ],
+  "affectedFiles": [
+    "app/layout.js",
+    "app/onboarding.css",
+    "app/api/public/catalogue-onboarding/route.js",
+    "components/business-setup.js",
+    "components/business-onboarding.js",
+    "components/business-location-fields.js",
+    "components/catalogue-business-lookup.js",
+    "components/catalogue-import-review.js",
+    "lib/business-location.mjs",
+    "lib/catalogue-onboarding.mjs",
+    "lib/onboarding-catalogue-draft.mjs",
+    "tests/navigation-and-duration.test.mjs",
+    "tests/business-city-picker.test.mjs",
+    "tests/catalogue-onboarding.test.mjs",
+    "tests/onboarding-catalogue-draft.test.mjs",
+    "tests/catalogue-business-lookup.test.mjs",
+    "tests/business-setup-catalogue.test.mjs"
+  ],
+  "api": {
+    "method": "GET",
+    "path": "/api/public/catalogue-onboarding",
+    "search": "q (2–120 characters), optional EKATTE city, lang=bg|en; max 8 matches",
+    "detail": "id, optional EKATTE city, lang=bg|en; full menu for explicit selection",
+    "backend": "Static local catalogue only; no database writes or external providers",
+    "abuseGuard": "Best-effort process-local 60 requests/minute per hashed IP; no paid quota",
+    "schemaChanges": false
+  },
+  "verification": {
+    "node": {
+      "command": "node --test tests/*.test.mjs",
+      "tests": 1429,
+      "pass": 1429,
+      "fail": 0,
+      "skip": 0
+    },
+    "python": [
+      {
+        "command": "python3 tests/pricing-extraction_test.py",
+        "pass": 8
+      },
+      {
+        "command": "python3 tests/booking-pricing-flow_test.py",
+        "pass": 4
+      }
+    ],
+    "catalogueCheck": {
+      "command": "pnpm catalogue:check",
+      "exit": 0
+    },
+    "productionBuild": {
+      "command": "pnpm build",
+      "exit": 0,
+      "staticPages": 82
+    },
+    "browser": {
+      "environment": "Local /dev/business-setup (fake QA session and preview-only submission) and local /for-businesses (no submission)",
+      "widths": [
+        360,
+        390,
+        430,
+        768,
+        1280
+      ],
+      "checked": [
+        "Sofia first, visible, zero dropdown scroll; keyboard Enter selects actual EKATTE 68134",
+        "BG/EN labels and Sofia/Sofiya transliteration",
+        "Cut N’Chill catalogue service names, fixed prices and evidenced durations populate actual service fields",
+        "Native flow advances through services, staff, schedule and review without submission",
+        "Required real gallery image still prevents proceeding while absent",
+        "48-service El Gato menu opens selection dialog at 360px with zero preselection, no overflow",
+        "Price/duration inputs stay within viewport at all five widths",
+        "Photo label opens native chooser, client processing succeeds, hidden native control remains keyboard-focusable with visible label focus"
+      ],
+      "notExecuted": [
+        "No production registration or owner updates",
+        "No production booking or notification",
+        "No deployment",
+        "No live external-calendar submission"
+      ],
+      "console": "One development-only Fast Refresh dependency-array warning appeared while editing; no new warning after fresh page navigation."
+    }
+  },
+  "limitations": [
+    "Missing or stale prices and durations remain blank rather than invented.",
+    "From/range/unit/BGN/package/conditional prices require the owner to confirm a final native EUR price; the published value and conditions remain accessible for review.",
+    "Native application model retains its 40-service and 120-character service-name limits.",
+    "Catalogue selection is not ownership verification; approval, photo rights, account and terms checks remain required."
+  ],
+  "safety": {
+    "productionAccountsModified": false,
+    "productionBusinessProfilesModified": false,
+    "realBookingsCreated": false,
+    "productionNotificationsSent": false,
+    "databaseMigration": false,
+    "newPaidService": false,
+    "deployment": false,
+    "catalogueExpansion": "paused by user; no acquisition resumed"
+  }
+}

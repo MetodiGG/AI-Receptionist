@@ -4,6 +4,7 @@ import { readFile } from 'node:fs/promises'
 import { DURATION_OPTIONS, validDuration } from '../lib/business-schedule.mjs'
 import { businessApplicationSchema, applicationRecord } from '../lib/business-application.mjs'
 import { buildAvailableSlots } from '../lib/availability.mjs'
+import { emptyOnboardingService } from '../lib/onboarding-catalogue-draft.mjs'
 
 const read = file => readFile(new URL(`../${file}`, import.meta.url), 'utf8')
 const signup = minutes => ({
@@ -31,10 +32,11 @@ test('onboarding has editable integer minutes for both the default and each serv
   assert.match(setup, /<DurationInput id="usual-duration"[^>]*value=\{business\.default_duration_min\}/)
   assert.match(setup, /<DurationInput id=\{`duration-\$\{index\}`\}[^>]*value=\{service\.duration_min\}/)
   assert.match(setup, /service\.name\.trim\(\) \? service : \{ \.\.\.service, duration_min: value \}/)
-  // Internal mode retains the selected exact minutes; external mode must not
-  // invent a duration or price for an unconfigured service.
-  assert.match(setup, /duration_min: external\?'':business\.default_duration_min/)
-  assert.match(setup, /price: external\?'':'25'/)
+  // Both booking modes start without invented prices or durations. The owner
+  // can choose exact minutes, or import an evidenced catalogue value.
+  assert.match(setup, /useState\(\(\)=>\[emptyOnboardingService\(\)\]\)/)
+  assert.match(setup, /setServices\(\(current\) => current\.length>=40\?current:\[\.\.\.current,emptyOnboardingService\(\)\]\)/)
+  assert.deepEqual(emptyOnboardingService(), { name: '', price: '', duration_min: '' })
 })
 
 test('server signup validation preserves ten and seventeen minutes exactly and rejects invalid durations', () => {

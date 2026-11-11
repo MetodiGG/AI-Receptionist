@@ -17,6 +17,9 @@ import { BookingModeFields } from './booking-mode-fields'
 import { OpeningHoursEditor } from './opening-hours-editor'
 import { safeBookingUrl, emptyOpeningHours, openingHoursSchema } from '../lib/booking-mode.mjs'
 import { businessPageSlug } from '../lib/business-slug.mjs'
+import { CatalogueBusinessLookup } from './catalogue-business-lookup'
+import { CatalogueImportReview } from './catalogue-import-review'
+import { emptyOnboardingService, hasServiceDraftEdits, selectCatalogueBusinessDraft, editOnboardingBusinessDraft, normalizeImportedServices, servicesForApplication } from '../lib/onboarding-catalogue-draft.mjs'
 
 const WEEK = {
   bg: [
@@ -55,10 +58,13 @@ export function BusinessSetup({ session, onComplete, locale, preview = false, ap
   const en = locale === 'en'
   const steps = STEPS[locale]
   const [step, setStep] = useState(0)
-  const [business, setBusiness] = useState({ name: '', slug: '', phone: '', contact_email: session?.user?.email || '', address: '', timezone: 'Europe/Sofia', industry: 'other', city_ekatte: '', neighborhood: '', default_duration_min: '45', booking_slot_minutes: '15',website_url:'',booking_mode:'gorez',external_booking_url:'',external_booking_consent:false,opening_hours:emptyOpeningHours(),public_profile:{description:{bg:'',en:''},payments:[],brands:[],latitude:null,longitude:null},booking_terms:'' })
+  const [businessDraft, setBusinessDraft] = useState({business:{ name: '', slug: '', phone: '', contact_email: session?.user?.email || '', address: '', timezone: 'Europe/Sofia', industry: 'other', city_ekatte: '', neighborhood: '', default_duration_min: '45', booking_slot_minutes: '15',website_url:'',booking_mode:'gorez',external_booking_url:'',external_booking_consent:false,opening_hours:emptyOpeningHours(),public_profile:{description:{bg:'',en:''},payments:[],brands:[],latitude:null,longitude:null},booking_terms:'' },importedFields:{}})
+  const business=businessDraft.business
+  const setBusiness=update=>setBusinessDraft(current=>({...current,business:typeof update==='function'?update(current.business):update}))
   const external=business.booking_mode==='external'
   const applyBooking=patch=>setBusiness(current=>({...current,...('mode'in patch?{booking_mode:patch.mode}:{}),...('url'in patch?{external_booking_url:patch.url}:{}),...('consent'in patch?{external_booking_consent:patch.consent}:{})}))
-  const [services, setServices] = useState([{ name: '', price: '25', duration_min: '45' }])
+  const [services, setServices] = useState(()=>[emptyOnboardingService()])
+  const [catalogueImport,setCatalogueImport]=useState(null),[catalogueLoaded,setCatalogueLoaded]=useState(null)
   const [staff, setStaff] = useState([{ name: '' }])
   const [schedule, setSchedule] = useState(() => createInitialSchedule(locale))
   const [error, setError] = useState('')
@@ -70,17 +76,17 @@ export function BusinessSetup({ session, onComplete, locale, preview = false, ap
   useEffect(()=>{if(!session)setAccountEmail(business.contact_email)},[business.contact_email,session])
 
   const stepContent = en ? [
-    ['Your business', 'Add your contact details and location.'],
-    ['Add your services', 'Price and duration let us offer only suitable available times.'],
-    ['Who will serve clients?', 'Add yourself and everyone clients can book with.'],
-    ['When are you open?', 'Choose working days and recurring breaks, such as lunch from 12:00 to 13:00.'],
-    ['Review and send', application ? 'Send your complete profile for administrator approval. No email confirmation is required. Sign-in opens after approval.' : 'Your dashboard opens after saving. Public booking starts after GoRez approval.'],
+    ['Your business', ''],
+    ['Services and prices', ''],
+    ['Your team', ''],
+    ['Working hours', ''],
+    ['Review and send', application ? 'Your profile goes to GoRez for approval.' : 'Public booking starts after GoRez approval.'],
   ] : [
-    ['Твоят бизнес', 'Добави контактите и местоположението си.'],
-    ['Добави услугите си', 'Цената и продължителността са нужни, за да предлагаме само подходящи свободни часове.'],
-    ['Кой ще приема клиенти?', 'Добави себе си и останалите хора, за които клиентите могат да резервират час.'],
-    ['Кога работите?', 'Избери работни дни и повтарящи се почивки, например обяд от 12:00 до 13:00.'],
-    ['Преглед и изпращане', application ? 'Изпрати готовия профил за одобрение от администратор. Не е нужно потвърждение по имейл. Входът се отваря след одобрение.' : 'След запазване ще видиш таблото. Публичното записване започва след одобрение от GoRez.'],
+    ['Твоят бизнес', ''],
+    ['Услуги и цени', ''],
+    ['Твоят екип', ''],
+    ['Работно време', ''],
+    ['Преглед и изпращане', application ? 'Профилът се изпраща за одобрение от GoRez.' : 'Публичното записване започва след одобрение от GoRez.'],
   ]
 
   useEffect(() => {
@@ -91,15 +97,27 @@ export function BusinessSetup({ session, onComplete, locale, preview = false, ap
   function updateBusiness(field, value) {
     if (field === 'name' && !pageNonce.current) pageNonce.current = crypto.randomUUID().replace(/-/g, '').slice(0,12)
     if (field === 'default_duration_min') setServices((current) => current.map((service) => service.name.trim() ? service : { ...service, duration_min: value }))
-    setBusiness((current) => ({
-      ...current,
-      [field]: value,
-      ...(field === 'name' ? { slug: businessPageSlug(value, pageNonce.current) } : {}),
-    }))
+    setBusinessDraft(current=>editOnboardingBusinessDraft(current,{[field]:value,...(field==='name'?{slug:businessPageSlug(value, pageNonce.current)}:{})}))
   }
 
   function updateList(setter, index, field, value) {
     setter((current) => current.map((row, rowIndex) => rowIndex === index ? { ...row, [field]: value } : row))
+  }
+
+  function applyCatalogueDraft(draft,indexes) {
+    const imported=normalizeImportedServices(draft.services,indexes)
+    if(!imported.length||imported.length>40){setError(en?'Choose from 1 to 40 services.':'Избери между 1 и 40 услуги.');return}
+    if(!pageNonce.current)pageNonce.current=crypto.randomUUID().replace(/-/g,'').slice(0,12)
+    const nonce=pageNonce.current
+    setBusinessDraft(current=>{
+      const next=selectCatalogueBusinessDraft(current,draft.business)
+      return {...next,business:{...next.business,slug:businessPageSlug(next.business.name,nonce)}}
+    })
+    setServices(imported);setCatalogueLoaded({name:draft.business.name,count:imported.length});setCatalogueImport(null);setError('')
+  }
+  function loadCatalogueDraft(draft) {
+    if(hasServiceDraftEdits(services)||draft.services.length>40)setCatalogueImport(draft)
+    else applyCatalogueDraft(draft)
   }
 
   function renewPageAddress() {
@@ -115,15 +133,17 @@ export function BusinessSetup({ session, onComplete, locale, preview = false, ap
   function validateCurrentStep(currentStep = step) {
     if(currentStep===0&&external&&(!safeBookingUrl(business.external_booking_url)||!business.external_booking_consent))return en?'Enter a secure direct booking URL and give permission to redirect clients.':'Въведи сигурен директен линк за резервации и разреши пренасочването.'
     if(currentStep===0&&business.website_url&&!safeBookingUrl(business.website_url))return en?'Enter a valid HTTPS website.':'Въведи валиден HTTPS сайт.'
-    if(currentStep===1&&external)return !services.length||services.some(s=>!s.name.trim()||(s.price!==''&&(!Number.isFinite(Number(s.price))||Number(s.price)<0))||(s.duration_min!==''&&!validDuration(s.duration_min)))?(en?'Check service names and any known prices or durations.':'Провери имената и въведените цени или продължителност.') : ''
+    if(currentStep===1&&(!services.length||services.length>40||services.some(s=>s.name.trim().length<2||s.name.trim().length>120)))return en?'Use 1–40 services with names of 2–120 characters.':'Добави от 1 до 40 услуги с имена между 2 и 120 знака.'
+    if(currentStep===1&&external)return services.some(s=>(s.price!==''&&(!Number.isFinite(Number(s.price))||Number(s.price)<0||Number(s.price)>999999.99||!/^\d+(?:\.\d{1,2})?$/.test(String(s.price))))||(s.duration_min!==''&&!validDuration(s.duration_min)))?(en?'Check the prices and durations you entered.':'Провери въведените цени и продължителности.') : ''
     if(currentStep===2&&external)return staff.some(p=>!p.name.trim())?(en?'Enter team names or remove optional empty rows.':'Въведи имената или премахни празните редове за екип.') : ''
     if(currentStep===3&&external)return openingHoursSchema.safeParse(business.opening_hours).success?'':(en?'Check all seven days and non-overlapping opening periods.':'Провери седемте дни и неприпокриващите се периоди.')
-    if (currentStep === 0 && business.name.trim().length<2) return en ? 'Enter a business name of at least 2 characters.' : 'Въведи име на бизнеса с поне 2 знака.'
+    if (currentStep === 0 && (business.name.trim().length<2||business.name.trim().length>120)) return en ? 'Use a business name of 2–120 characters.' : 'Името на бизнеса трябва да е между 2 и 120 знака.'
     if (currentStep === 0 && !findCity(business.city_ekatte)) return en ? 'Choose your business city from the list.' : 'Избери града на бизнеса от списъка.'
     if (currentStep === 0 && !validDuration(business.default_duration_min)) return en ? 'Enter a whole number of minutes from 5 to 1440.' : 'Въведи цял брой минути от 5 до 1440.'
     if((application||external)&&currentStep===0&&(!/^[+()\d .-]{7,32}$/.test(business.phone)||!/^\S+@\S+\.\S+$/.test(business.contact_email)||business.address.trim().length<2))return en?'Add a valid phone, booking email and street address.':'Добави валиден телефон, имейл за резервации и адрес.'
     if(currentStep===0&&!businessPhotos.length)return en?'Add at least one photo of your business to continue.':'Добави поне една снимка на бизнеса, за да продължиш.'
-    if (currentStep === 1 && (!services.length || services.some((service) => !service.name.trim() || service.price === '' || !Number.isFinite(Number(service.price)) || Number(service.price) < 0 || !validDuration(service.duration_min)))) return en ? 'Enter a valid name, price and duration (5–1440 minutes) for every service.' : 'Попълни правилно име, цена и продължителност (5–1440 минути) за всяка услуга.'
+    if (currentStep === 1 && services.length>40) return en ? 'Keep up to 40 services in this application.' : 'Остави до 40 услуги в заявката.'
+    if (currentStep === 1 && services.some((service) => service.price === '' || !Number.isFinite(Number(service.price)) || Number(service.price)<0||Number(service.price)>999999.99||!/^\d+(?:\.\d{1,2})?$/.test(String(service.price)) || !validDuration(service.duration_min))) return en ? 'Check each service: price and duration (5–1440 minutes).' : 'Провери цената и продължителността (5–1440 минути) на всяка услуга.'
     if (currentStep === 2 && (!staff.length || staff.some((person) => !person.name.trim()))) return en ? 'Enter a name for every team member.' : 'Въведи име за всеки член на екипа.'
     if (currentStep === 3) {
       const enabled = schedule.filter((day) => day.enabled)
@@ -157,9 +177,9 @@ export function BusinessSetup({ session, onComplete, locale, preview = false, ap
     try {
       const fitted=await fitPhotoFilesToBudget(selectedPhotos.map(row=>row.file),APPLICATION_PHOTO_BUDGET)
       selectedPhotos=selectedPhotos.map((row,index)=>({...row,file:fitted[index]}))
-      if (preview) { onComplete({ business, services, staff, schedule }); return }
+      if (preview) { onComplete({ business, services:servicesForApplication(services), staff, schedule }); return }
       if(application||external) {
-        const payload=JSON.stringify({business,services:services.map(s=>({...s,price:s.price===''?null:s.price,duration_min:s.duration_min===''?null:s.duration_min})),staff:staff.map(({name,bio})=>({name,...(bio?{bio}:{})})),schedule:schedule.map(({weekday,enabled,open,close,breakEnabled,breakStart,breakEnd})=>({weekday,enabled,open,close,breakEnabled,breakStart,breakEnd})),account:{email:accountEmail,password:session?'':password},consent:application?consent:true,company,locale})
+        const payload=JSON.stringify({business,services:servicesForApplication(services),staff:staff.map(({name,bio})=>({name,...(bio?{bio}:{})})),schedule:schedule.map(({weekday,enabled,open,close,breakEnabled,breakStart,breakEnd})=>({weekday,enabled,open,close,breakEnabled,breakStart,breakEnd})),account:{email:accountEmail,password:session?'':password},consent:application?consent:true,company,locale})
         let body=payload
         if(selectedPhotos.length){body=new FormData();body.append('payload',payload);body.append('photoConsent','true');selectedPhotos.forEach(row=>body.append(row.key,row.file))}
         const response=await fetch('/api/public/business-applications',{method:'POST',headers:{...(!selectedPhotos.length?{'Content-Type':'application/json'}:{}),...(session?.access_token?{Authorization:`Bearer ${session.access_token}`}:{})},body})
@@ -233,13 +253,13 @@ export function BusinessSetup({ session, onComplete, locale, preview = false, ap
   }
 
   return (
-    <div className="setup-layout">
+    <div className="setup-layout compact-business-setup">
       <aside className="steps-card" aria-label={en ? 'Setup steps' : 'Стъпки за настройка'}>
         {steps.map(([label, help], index) => (
-          <div className={`step-item ${index === step ? 'active' : ''} ${index < step ? 'done' : ''}`} key={label}>
+          <button type="button" disabled={index>step||saving||photosProcessing>0} aria-current={index===step?'step':undefined} onClick={()=>{setError('');setStep(index)}} className={`step-item ${index === step ? 'active' : ''} ${index < step ? 'done' : ''}`} key={label}>
             <span className="step-number">{index < step ? <Icon name="check" /> : index + 1}</span>
-            <span className="step-label">{label}<span className="step-help">{help}</span></span>
-          </div>
+            <span className="step-label">{label}</span>
+          </button>
         ))}
       </aside>
 
@@ -247,42 +267,47 @@ export function BusinessSetup({ session, onComplete, locale, preview = false, ap
         <header className="wizard-head">
           <small>{en ? 'Step' : 'Стъпка'} {step + 1} {en ? 'of' : 'от'} {steps.length}</small>
           <h3>{external&&step===3?(en?'Opening hours for customers':'Работно време за клиентите'):stepContent[step][0]}</h3>
-          <p>{external&&[1,2,3].includes(step)?(en?'Keep your full public profile. Services remain searchable; your own website manages appointment availability. Staff are optional.':'Запази пълен публичен профил. Услугите остават откриваеми; твоята система управлява свободните часове. Екипът е по желание.'):stepContent[step][1]}</p>
+          {stepContent[step][1]&&<p>{stepContent[step][1]}</p>}
         </header>
         <div className="wizard-body">
           {step === 0 && (
             <div className="form-grid">
-              <div className="field full"><label htmlFor="business-name">{en ? 'Business name' : 'Име на бизнеса'} *</label><input id="business-name" className="text-input" value={business.name} onChange={(event) => updateBusiness('name', event.target.value)} placeholder={en ? 'e.g. Studio Forma' : 'Напр. Studio Forma'} autoFocus /></div>
+              <CatalogueBusinessLookup value={business.name} onChange={value=>updateBusiness('name',value)} cityCode={business.city_ekatte} locale={locale} onSelect={loadCatalogueDraft} loadedName={catalogueLoaded?.name} disabled={saving}/>
+              {catalogueLoaded&&<p className="catalogue-loaded full" role="status"><Icon name="check"/>{en?`${catalogueLoaded.count} services loaded. Review them in the next step.`:`Заредени ${catalogueLoaded.count} услуги. Провери ги в следващата стъпка.`}</p>}
               <div className="field"><label htmlFor="business-phone">{en ? 'Phone' : 'Телефон'}{application?' *':''}</label><input id="business-phone" className="text-input" value={business.phone} onChange={(event) => updateBusiness('phone', event.target.value)} placeholder="+359 88 123 4567" type="tel" /></div>
               <div className="field"><label htmlFor="business-email">{en ? 'Booking email' : 'Имейл за резервации'}{application?' *':''}</label><input id="business-email" className="text-input" value={business.contact_email} onChange={(event) => updateBusiness('contact_email', event.target.value)} placeholder="office@business.com" type="email" /></div>
               <div className="field"><label htmlFor="business-industry">{en ? 'Business type' : 'Тип бизнес'}</label><select id="business-industry" className="select-input" value={business.industry} onChange={(event) => updateBusiness('industry', event.target.value)}><option value="beauty">{en ? 'Beauty & salons' : 'Красота и салони'}</option><option value="auto">{en ? 'Auto services & repair shops' : 'Авто услуги и сервизи'}</option><option value="fitness">{en ? 'Sports' : 'Спорт'}</option><option value="education">{en ? 'Education' : 'Обучение'}</option><option value="consulting">{en ? 'Consulting' : 'Консултации'}</option><option value="home_services">{en ? 'Home services' : 'Услуги на адрес'}</option><option value="pets">{en ? 'Pet services' : 'Домашни любимци'}</option><option value="health">{en ? 'Health services' : 'Здравни услуги'}</option><option value="other">{en ? 'Other appointment business' : 'Друг бизнес с часове'}</option></select></div>
               {!application&&<div className="field"><label htmlFor="business-timezone">{en ? 'Time zone' : 'Часова зона'}</label><select id="business-timezone" className="select-input" value={business.timezone} onChange={(event) => updateBusiness('timezone', event.target.value)}><option value="Europe/Sofia">{en ? 'Sofia' : 'София'} (GMT+2/+3)</option><option value="Europe/London">{en ? 'London' : 'Лондон'}</option><option value="Europe/Berlin">{en ? 'Berlin' : 'Берлин'}</option></select></div>}
-              <div className="field full"><BusinessLocationFields required cityCode={business.city_ekatte} neighborhood={business.neighborhood} onChange={(patch) => setBusiness((current) => ({ ...current, ...patch }))} locale={locale} /></div>
-              {!external&&<div className="field full duration-setup"><label htmlFor="usual-duration">{en ? 'How long does an appointment usually take? (min)' : 'Колко дълго обикновено продължава един час? (мин)'} *</label><DurationInput id="usual-duration" className="text-input" value={business.default_duration_min} onChange={value => updateBusiness('default_duration_min', value)} locale={locale} required/><p className="helper-text">{en ? 'Enter the exact minutes. You can set a different duration for each service in the next step.' : 'Въведи точните минути. В следващата стъпка можеш да зададеш различна продължителност за всяка услуга.'}</p></div>}
+              <div className="field full"><BusinessLocationFields required cityCode={business.city_ekatte} neighborhood={business.neighborhood} onChange={patch=>setBusinessDraft(current=>editOnboardingBusinessDraft(current,patch))} locale={locale} /></div>
               <div className="field full"><label htmlFor="business-address">{en ? 'Address' : 'Адрес'}{application?' *':''}</label><input id="business-address" className="text-input" value={business.address} onChange={(event) => updateBusiness('address', event.target.value)} placeholder={en ? '12 Example Street, Sofia' : 'ул. Примерна 12, София'} /></div>
               <div className="field full"><PhotoPicker files={businessPhotos} onChange={setBusinessPhotos} locale={locale} disabled={saving} onProcessing={photoProcessing} required label={en?'Business photos *':'Снимки на бизнеса *'}/></div>
-              <label className="field full">{en?'Business website (optional)':'Уебсайт на бизнеса (по желание)'}<input type="url" className="text-input" value={business.website_url} onChange={e=>updateBusiness('website_url',e.target.value)}/></label>
               <BookingModeFields mode={business.booking_mode} url={business.external_booking_url} consent={business.external_booking_consent} locale={locale} onChange={patch=>{applyBooking(patch);if(patch.mode==='external'){if(staff.length===1&&!staff[0].name.trim())setStaff([]);setServices(current=>current.map(service=>service.name.trim()?service:{...service,price:'',duration_min:''}))}}}/>
+              <details className="onboarding-extra full"><summary>{en?'Additional settings':'Допълнителни настройки'}<Icon name="chevronDown"/></summary><div className="onboarding-extra-fields">
+              <label className="field full">{en?'Business website (optional)':'Уебсайт (по желание)'}<input type="url" className="text-input" value={business.website_url} onChange={e=>updateBusiness('website_url',e.target.value)}/></label>
+              {!external&&<div className="field full duration-setup"><label htmlFor="usual-duration">{en?'Default duration (min)':'Продължителност по подразбиране (мин)'}</label><DurationInput id="usual-duration" className="text-input" value={business.default_duration_min} onChange={value=>updateBusiness('default_duration_min',value)} locale={locale} required/></div>}
               <fieldset className="field full"><legend>{en?'Payment methods (optional)':'Начини на плащане (по желание)'}</legend>{[['cash',en?'Cash':'В брой'],['card',en?'Card':'Карта'],['bank',en?'Bank transfer':'Банков превод']].map(([key,label])=><label key={key}><input type="checkbox" checked={business.public_profile.payments.includes(key)} onChange={e=>updateBusiness('public_profile',{...business.public_profile,payments:e.target.checked?[...business.public_profile.payments,key]:business.public_profile.payments.filter(p=>p!==key)})}/>{label}</label>)}</fieldset>
               <label className="field full">{en?'Booking policies (optional)':'Условия за резервации (по желание)'}<textarea maxLength={5000} value={business.booking_terms} onChange={e=>updateBusiness('booking_terms',e.target.value)}/></label>
+              </div></details>
             </div>
           )}
 
           {step === 1 && (
             <div>
-              <p className="duration-explainer">{external?(en?'Services remain searchable. Leave price or duration empty if unknown; actual appointments are handled by your own system.':'Услугите остават откриваеми. Остави цената или продължителността празна, ако не е известна; резервациите са в твоята система.'):(en?'Duration reserves the entire service time for the specialist.':'Продължителността запазва цялото време за услугата при специалиста.')}</p>
-              <div className="service-template-callout"><div><strong>{en ? 'Ready-made suggestions for your business type' : 'Готови предложения за твоя тип бизнес'}</strong><span>{en ? 'Load sample services and adjust their prices and duration.' : 'Зареди примерни услуги и ги промени според цените и времената си.'}</span></div><button type="button" onClick={() => setServices(getIndustryServiceTemplate(business.industry, locale))}>{en ? 'Load suggestions' : 'Зареди предложения'}</button></div>
+              {catalogueLoaded?<p className="catalogue-loaded" role="status"><Icon name="check"/>{en?`From ${catalogueLoaded.name}. Check the prices and add any missing durations.`:`От ${catalogueLoaded.name}. Провери цените и добави липсващите времена.`}</p>:<details className="onboarding-extra onboarding-templates"><summary>{en?'Use a service template':'Използвай примерни услуги'}<Icon name="chevronDown"/></summary><button type="button" className="secondary-button" onClick={()=>{if(hasServiceDraftEdits(services))return;setServices(getIndustryServiceTemplate(business.industry,locale).map(service=>({...service,price:'',duration_min:''})))}} disabled={hasServiceDraftEdits(services)}>{en?'Load names only':'Зареди само имената'}</button></details>}
+              {external&&<p className="onboarding-short-help">{en?'Unknown price or duration? Leave it blank.':'Неизвестна цена или време? Остави празно.'}</p>}
               <div className="repeat-list">
                 {services.map((service, index) => (
-                  <div className="repeat-row" key={index}>
-                    <div><label className="compact-label" htmlFor={`service-${index}`}>{en ? 'Service' : 'Услуга'}</label><input id={`service-${index}`} className="compact-input" value={service.name} onChange={(event) => updateList(setServices, index, 'name', event.target.value)} placeholder={en ? 'Haircut' : 'Подстригване'} autoFocus={index === 0} /></div>
-                    <div><label className="compact-label" htmlFor={`price-${index}`}>{en ? 'Price' : 'Цена'} (€)</label><input id={`price-${index}`} className="compact-input" type="number" min="0" step="0.01" value={service.price} onChange={(event) => updateList(setServices, index, 'price', event.target.value)} /></div>
-                    <div><label className="compact-label" htmlFor={`duration-${index}`}>{en ? 'Duration (min)' : 'Продължителност (мин)'}</label><DurationInput id={`duration-${index}`} className="compact-input" value={service.duration_min} onChange={value => updateList(setServices,index,'duration_min',value)} locale={locale} required={!external}/></div>
+                  <div className="repeat-row onboarding-service-row" key={index}>
+                    <div className="onboarding-service-name"><label className="compact-label" htmlFor={`service-${index}`}>{en ? 'Service' : 'Услуга'}</label><input id={`service-${index}`} className="compact-input" value={service.name} maxLength={120} onChange={(event) => updateList(setServices, index, 'name', event.target.value)} placeholder={en ? 'Haircut' : 'Подстригване'} autoFocus={index === 0} /></div>
+                    <div><label className="compact-label" htmlFor={`price-${index}`}>{en ? 'Price' : 'Цена'} (€)</label><input id={`price-${index}`} className="compact-input" type="number" min="0" max="999999.99" step="0.01" value={service.price} required={!external} onChange={(event) => updateList(setServices, index, 'price', event.target.value)} placeholder={en?'Price':'Цена'}/></div>
+                    <div><label className="compact-label" htmlFor={`duration-${index}`}>{en ? 'Minutes' : 'Минути'}</label><DurationInput id={`duration-${index}`} className="compact-input" value={service.duration_min} onChange={value => updateList(setServices,index,'duration_min',value)} locale={locale} required={!external}/></div>
                     <button className="icon-button" type="button" aria-label={en ? 'Remove service' : 'Премахни услугата'} onClick={() => removeListRow(setServices, index)} disabled={services.length === 1}><Icon name="trash" /></button>
+                    {service.catalogueHint?.requiresPriceConfirmation&&<div className="catalogue-service-hint">{service.catalogueHint.priceLabel&&<strong>{en?'Published: ':'Публикувано: '}{service.catalogueHint.priceLabel}. </strong>}{!service.price&&(en?'Confirm your final price.':'Уточни точната си цена.')}{service.catalogueHint.description&&<details><summary>{en?'Published conditions':'Публикувани условия'}</summary><p>{service.catalogueHint.description}</p></details>}</div>}
+                    {service.name.length>120&&<small className="catalogue-service-hint" role="alert">{en?'Shorten the name to 120 characters.':'Съкрати името до 120 знака.'}</small>}
                   </div>
                 ))}
               </div>
-              <button className="add-row-button" type="button" onClick={() => setServices((current) => [...current, { name: '', price: external?'':'25', duration_min: external?'':business.default_duration_min }])}><Icon name="plus" /> {en ? 'Add another service' : 'Добави още услуга'}</button>
+              <button className="add-row-button" type="button" disabled={services.length>=40} onClick={() => setServices((current) => current.length>=40?current:[...current,emptyOnboardingService()])}><Icon name="plus" /> {en ? 'Add service' : 'Добави услуга'} · {services.length}/40</button>
             </div>
           )}
 
@@ -326,6 +351,7 @@ export function BusinessSetup({ session, onComplete, locale, preview = false, ap
             : <button className="primary-button accent" type="button" onClick={save} disabled={saving||photosProcessing>0}>{saving ? <span className="button-spinner" /> : <Icon name="check" />}{saving ? (en ? 'Saving...' : 'Запазване...') : application ? (en?'Send for approval':'Изпрати за одобрение') : (en ? 'Complete setup' : 'Завърши настройката')}</button>}
         </footer>
       </section>
+      {catalogueImport&&<CatalogueImportReview key={catalogueImport.business.id} draft={catalogueImport} locale={locale} replace={hasServiceDraftEdits(services)} onCancel={()=>setCatalogueImport(null)} onConfirm={indexes=>applyCatalogueDraft(catalogueImport,indexes)}/>}
     </div>
   )
 }

@@ -1,0 +1,156 @@
+{
+  "generator": "OpenAI ImageGen built-in",
+  "purpose": "Owner-approved illustrative photos; not actual business work.",
+  "assets": [
+    {
+      "file": "public/service-photos/mens-haircut-v1.webp",
+      "label": "16 · Мъжко подстригване / фейд",
+      "prompt": "Use case: photorealistic-natural. Asset type: an individual square 1:1 GoRez service thumbnail for customer approval, not a photograph of a specific business. Natural candid editorial photography, real-looking people with realistic anatomy, real materials and tools, neutral warm palette, softly diffused authentic light. Center the unmistakable service action, fill the square, legible at 56 pixels. One photograph, no collage, no illustration or render, no overlay, no readable text, no logos, no watermark.\nPrimary request and scene: At a real barber shop an adult barber uses cordless clippers on the temple of an adult man with a short tapered fade, side view, both clippers and precise transition clearly visible. No beard work, cape on customer."
+    },
+    {
+      "file": "public/service-photos/hair-balayage-v1.webp",
+      "label": "17 · Балеаж",
+      "prompt": "Use case: photorealistic-natural. Asset type: an individual square 1:1 GoRez service thumbnail for customer approval, not a photograph of a specific business. Natural candid editorial photography, real-looking people with realistic anatomy, real materials and tools, neutral warm palette, softly diffused authentic light. Center the unmistakable service action, fill the square, legible at 56 pixels. One photograph, no collage, no illustration or render, no overlay, no readable text, no logos, no watermark.\nPrimary request and scene: Close-up of a stylist using a tint brush to hand-paint a separated dark-blonde hair section on a balayage board, subtle existing caramel highlights, clear brush action. Back of customer's head, professional salon."
+    },
+    {
+      "file": "public/service-photos/hair-blowdry-v1.webp",
+      "label": "18 · Сешоар / оформяне с четка",
+      "prompt": "Use case: photorealistic-natural. Asset type: an individual square 1:1 GoRez service thumbnail for customer approval, not a photograph of a specific business. Natural candid editorial photography, real-looking people with realistic anatomy, real materials and tools, neutral warm palette, softly diffused authentic light. Center the unmistakable service action, fill the square, legible at 56 pixels. One photograph, no collage, no illustration or render, no overlay, no readable text, no logos, no watermark.\nPrimary request and scene: Side back view of an adult hairdresser blow-drying a section of long chestnut hair with a round brush; both classic blow dryer and brush legible, airy studio salon."
+    },
+    {
+      "file": "public/service-photos/nail-extension-v1.webp",
+      "label": "19 · Ноктопластика",
+      "prompt": "Use case: photorealistic-natural. Asset type: an individual square 1:1 GoRez service thumbnail for customer approval, not a photograph of a specific business. Natural candid editorial photography, real-looking people with realistic anatomy, real materials and tools, neutral warm palette, softly diffused authentic light. Center the unmistakable service action, fill the square, legible at 56 pixels. One photograph, no collage, no illustration or render, no overlay, no readable text, no logos, no watermark.\nPrimary request and scene: Nail technician sculpting one new almond gel extension over a single visible temporary paper form; other fingers relaxed and human anatomy accurate. One small gel brush, close-up on well-lit cream manicure table."
+    },
+    {
+      "file": "public/service-photos/nail-gel-removal-v1.webp",
+      "label": "20 · Сваляне на гел лак",
+      "prompt": "Use case: photorealistic-natural. Asset type: an individual square 1:1 GoRez service thumbnail for customer approval, not a photograph of a specific business. Natural candid editorial photography, real-looking people with realistic anatomy, real materials and tools, neutral warm palette, softly diffused authentic light. Center the unmistakable service action, fill the square, legible at 56 pixels. One photograph, no collage, no illustration or render, no overlay, no readable text, no logos, no watermark.\nPrimary request and scene: Nail professional removing gel polish by unwrapping a foil soak-off wrap from one fingertip; two other foil wraps visible on resting fingers of one client hand. Clean manicure workbench, no bleeding."
+    },
+    {
+      "file": "public/service-photos/brow-shaping-v1.webp",
+      "label": "21 · Оформяне на вежди",
+      "prompt": "Use case: photorealistic-natural. Asset type: an individual square 1:1 GoRez service thumbnail for customer approval, not a photograph of a specific business. Natural candid editorial photography, real-looking people with realistic anatomy, real materials and tools, neutral warm palette, softly diffused authentic light. Center the unmistakable service action, fill the square, legible at 56 pixels. One photograph, no collage, no illustration or render, no overlay, no readable text, no logos, no watermark.\nPrimary request and scene: Tight three-quarter crop of an adult client's forehead, eyebrow and closed eye, a technician's one hand gently using slanted brow tweezers to shape the underside of the eyebrow, clean professional beauty setting. Tweezer and brow distinct, no eyelash work."
+    },
+    {
+      "file": "public/service-photos/lash-extensions-v1.webp",
+      "label": "22 · Поставяне на мигли",
+      "prompt": "Use case: photorealistic-natural. Asset type: an individual square 1:1 GoRez service thumbnail for customer approval, not a photograph of a specific business. Natural candid editorial photography, real-looking people with realistic anatomy, real materials and tools, neutral warm palette, softly diffused authentic light. Center the unmistakable service action, fill the square, legible at 56 pixels. One photograph, no collage, no illustration or render, no overlay, no readable text, no logos, no watermark.\nPrimary request and scene: Beauty technician uses delicate lash tweezers to apply one lash extension along the adult client's upper lash line, closed eye, clean light under-eye pad. Focus on natural-looking lashes, no skin puncture, no eyebrow shaping."
+    },
+    {
+      "file": "public/service-photos/laser-hair-removal-v1.webp",
+      "label": "23 · Лазерна епилация",
+      "prompt": "Use case: photorealistic-natural. Asset type: an individual square 1:1 GoRez service thumbnail for customer approval, not a photograph of a specific business. Natural candid editorial photography, real-looking people with realistic anatomy, real materials and tools, neutral warm palette, softly diffused authentic light. Center the unmistakable service action, fill the square, legible at 56 pixels. One photograph, no collage, no illustration or render, no overlay, no readable text, no logos, no watermark.\nPrimary request and scene: Gloved technician holding a modern cosmetic laser hair-removal handpiece flush against an adult client's lower leg in a real clinic, professional positioning, clothed client aside from lower leg, machine softly blurred, no beams or glowing skin."
+    },
+    {
+      "file": "public/service-photos/massage-v1.webp",
+      "label": "24 · Класически масаж",
+      "prompt": "Use case: photorealistic-natural. Asset type: an individual square 1:1 GoRez service thumbnail for customer approval, not a photograph of a specific business. Natural candid editorial photography, real-looking people with realistic anatomy, real materials and tools, neutral warm palette, softly diffused authentic light. Center the unmistakable service action, fill the square, legible at 56 pixels. One photograph, no collage, no illustration or render, no overlay, no readable text, no logos, no watermark.\nPrimary request and scene: Close candid shot of a trained therapist using both hands for a classic shoulder and upper-back massage, adult client face down with modest professional towel draping, warm treatment room, no hot stones or equipment."
+    },
+    {
+      "file": "public/service-photos/auto-diagnostics-v1.webp",
+      "label": "25 · Компютърна диагностика на автомобил",
+      "prompt": "Use case: photorealistic-natural. Asset type: an individual square 1:1 GoRez service thumbnail for customer approval, not a photograph of a specific business. Natural candid editorial photography, real-looking people with realistic anatomy, real materials and tools, neutral warm palette, softly diffused authentic light. Center the unmistakable service action, fill the square, legible at 56 pixels. One photograph, no collage, no illustration or render, no overlay, no readable text, no logos, no watermark.\nPrimary request and scene: At a professional garage a mechanic holding a rugged vehicle diagnostic tablet by the open driver's door, its OBD cable visibly connected below the dashboard. The authentic tool and connection in sharp focus, no legible screen text."
+    },
+    {
+      "file": "public/service-photos/oil-change-v1.webp",
+      "label": "26 · Смяна на двигателно масло",
+      "prompt": "Use case: photorealistic-natural. Asset type: an individual square 1:1 GoRez service thumbnail for customer approval, not a photograph of a specific business. Natural candid editorial photography, real-looking people with realistic anatomy, real materials and tools, neutral warm palette, softly diffused authentic light. Center the unmistakable service action, fill the square, legible at 56 pixels. One photograph, no collage, no illustration or render, no overlay, no readable text, no logos, no watermark.\nPrimary request and scene: Auto technician with dark workshop gloves pours clean amber engine oil from an unbranded jug into a funnel seated in the oil-filler opening of a parked car's engine bay. Center stream, funnel and surrounding engine in sharp focus."
+    },
+    {
+      "file": "public/service-photos/interior-car-clean-v1.webp",
+      "label": "27 · Пране на автомобилни седалки",
+      "prompt": "Use case: photorealistic-natural. Asset type: an individual square 1:1 GoRez service thumbnail for customer approval, not a photograph of a specific business. Natural candid editorial photography, real-looking people with realistic anatomy, real materials and tools, neutral warm palette, softly diffused authentic light. Center the unmistakable service action, fill the square, legible at 56 pixels. One photograph, no collage, no illustration or render, no overlay, no readable text, no logos, no watermark.\nPrimary request and scene: Auto detailer using a transparent upholstery extraction nozzle against a gray cloth car seat, nozzle and stitching clear, seen from open door, natural garage light; no exterior paint or pressure washer."
+    },
+    {
+      "file": "public/service-photos/math-lesson-v1.webp",
+      "label": "28 · Урок по математика",
+      "prompt": "Use case: photorealistic-natural. Asset type: an individual square 1:1 GoRez service thumbnail for customer approval, not a photograph of a specific business. Natural candid editorial photography, real-looking people with realistic anatomy, real materials and tools, neutral warm palette, softly diffused authentic light. Center the unmistakable service action, fill the square, legible at 56 pixels. One photograph, no collage, no illustration or render, no overlay, no readable text, no logos, no watermark.\nPrimary request and scene: An adult math tutor guiding a teenager through a simple geometry exercise in a notebook with a ruler and pencil, two people seated at a home study table, square crop focused on their hands and geometric triangles, natural window light."
+    },
+    {
+      "file": "public/service-photos/pet-bath-v1.webp",
+      "label": "29 · Къпане на куче",
+      "prompt": "Use case: photorealistic-natural. Asset type: an individual square 1:1 GoRez service thumbnail for customer approval, not a photograph of a specific business. Natural candid editorial photography, real-looking people with realistic anatomy, real materials and tools, neutral warm palette, softly diffused authentic light. Center the unmistakable service action, fill the square, legible at 56 pixels. One photograph, no collage, no illustration or render, no overlay, no readable text, no logos, no watermark.\nPrimary request and scene: A groomer gently rinsing a calm small brown dog in a real grooming tub using a handheld sprayer; dog and gentle water flow are clearly visible, no clippers or brush, candid and natural."
+    },
+    {
+      "file": "public/service-photos/plumbing-v1.webp",
+      "label": "30 · ВиК ремонт",
+      "prompt": "Use case: photorealistic-natural. Asset type: an individual square 1:1 GoRez service thumbnail for customer approval, not a photograph of a specific business. Natural candid editorial photography, real-looking people with realistic anatomy, real materials and tools, neutral warm palette, softly diffused authentic light. Center the unmistakable service action, fill the square, legible at 56 pixels. One photograph, no collage, no illustration or render, no overlay, no readable text, no logos, no watermark.\nPrimary request and scene: A plumber under a domestic kitchen sink adjusting the metal P-trap fitting with a pipe wrench; part of their face and hands visible, clean but authentic home cabinetry. Clear wrench and curved drain pipe."
+    },
+    {
+      "file": "public/service-photos/dental-cleaning-v1.webp",
+      "label": "31 · Почистване на зъбен камък",
+      "prompt": "Use case: photorealistic-natural. Asset type: an individual square 1:1 GoRez service thumbnail for customer approval, not a photograph of a specific business. Natural candid editorial photography, real-looking people with realistic anatomy, real materials and tools, neutral warm palette, softly diffused authentic light. Center the unmistakable service action, fill the square, legible at 56 pixels. One photograph, no collage, no illustration or render, no overlay, no readable text, no logos, no watermark.\nPrimary request and scene: A hygienist with mask and gloves carries out a routine non-invasive professional teeth cleaning in a bright dental practice, side view; ultrasonic scaler and dental mirror recognizable, no blood, no extreme inside-mouth closeup."
+    },
+    {
+      "file": "public/service-photos/boxing-v1.webp",
+      "label": "32 · Тренировка по бокс",
+      "prompt": "Use case: photorealistic-natural. Asset type: an individual square 1:1 GoRez service thumbnail for customer approval, not a photograph of a specific business. Natural candid editorial photography, real-looking people with realistic anatomy, real materials and tools, neutral warm palette, softly diffused authentic light. Center the unmistakable service action, fill the square, legible at 56 pixels. One photograph, no collage, no illustration or render, no overlay, no readable text, no logos, no watermark.\nPrimary request and scene: Two adults in a real boxing gym, one adult in boxing gloves throwing a controlled straight punch into a coach's focus mitts, action mid-drill, clear gloves and pads, safe and focused training without contact to bodies."
+    },
+    {
+      "file": "public/service-photos/tennis-v1.webp",
+      "label": "33 · Урок по тенис",
+      "prompt": "Use case: photorealistic-natural. Asset type: an individual square 1:1 GoRez service thumbnail for customer approval, not a photograph of a specific business. Natural candid editorial photography, real-looking people with realistic anatomy, real materials and tools, neutral warm palette, softly diffused authentic light. Center the unmistakable service action, fill the square, legible at 56 pixels. One photograph, no collage, no illustration or render, no overlay, no readable text, no logos, no watermark.\nPrimary request and scene: A tennis coach watches an adult learner practice a forehand, authentic red clay court, crisp racket and ball, centered square action, natural daylight, no logos."
+    },
+    {
+      "file": "public/service-photos/classic-manicure-v1.webp",
+      "label": "34 · Класически маникюр без гел",
+      "prompt": "Use case: photorealistic-natural. Asset type: an individual square 1:1 GoRez service photo thumbnail for review, not imagery of any actual listed business. Realistic candid editorial photography, true-to-life people, believable anatomy and equipment, soft authentic warm light, clear central action legible at 56 pixels. No collage, no overlay, no logos, text or watermark.\nPrimary request and scene: Tight close-up at a clean manicure studio: technician gently filing the natural, short unpainted nails of one adult client hand, visible natural nail texture and small emery board; no polish or lamp."
+    },
+    {
+      "file": "public/service-photos/classic-pedicure-v1.webp",
+      "label": "35 · Класически педикюр без гел",
+      "prompt": "Use case: photorealistic-natural. Asset type: an individual square 1:1 GoRez service photo thumbnail for review, not imagery of any actual listed business. Realistic candid editorial photography, true-to-life people, believable anatomy and equipment, soft authentic warm light, clear central action legible at 56 pixels. No collage, no overlay, no logos, text or watermark.\nPrimary request and scene: An adult pedicurist in nitrile gloves gently files an adult client's short natural toenails with a small emery board, feet resting on a clean cream towel in a salon chair. Only the needed foot and hands in frame, no polish, no sensitive or suggestive styling."
+    },
+    {
+      "file": "public/service-photos/classic-shave-v1.webp",
+      "label": "36 · Класическо бръснене",
+      "prompt": "Use case: photorealistic-natural. Asset type: an individual square 1:1 GoRez service photo thumbnail for review, not imagery of any actual listed business. Realistic candid editorial photography, true-to-life people, believable anatomy and equipment, soft authentic warm light, clear central action legible at 56 pixels. No collage, no overlay, no logos, text or watermark.\nPrimary request and scene: Close-up side angle of a barber shaving an adult client's jaw with a classic single straight razor, shaving lather visible on cheek and neck; towel-draped customer, clean vintage-modern barbershop, no blood, no clippers."
+    },
+    {
+      "file": "public/service-photos/kids-haircut-v1.webp",
+      "label": "37 · Детско подстригване",
+      "prompt": "Use case: photorealistic-natural. Asset type: an individual square 1:1 GoRez service photo thumbnail for review, not imagery of any actual listed business. Realistic candid editorial photography, true-to-life people, believable anatomy and equipment, soft authentic warm light, clear central action legible at 56 pixels. No collage, no overlay, no logos, text or watermark.\nPrimary request and scene: An adult hairdresser carefully trims the ends of a cheerful eight-year-old child's short brown hair with scissors and comb in an authentic salon. The young customer is wearing a practical haircut cape, seated calmly. Natural interaction and realistic hands."
+    },
+    {
+      "file": "public/service-photos/hair-color-v1.webp",
+      "label": "38 · Боядисване на корени",
+      "prompt": "Use case: photorealistic-natural. Asset type: an individual square 1:1 GoRez service photo thumbnail for review, not imagery of any actual listed business. Realistic candid editorial photography, true-to-life people, believable anatomy and equipment, soft authentic warm light, clear central action legible at 56 pixels. No collage, no overlay, no logos, text or watermark.\nPrimary request and scene: Salon hair colorist in gloves applying brunette dye with a flat tint brush along one clean scalp parting at the roots, close crop adult client from back, focused on root application; no balayage board or highlights."
+    },
+    {
+      "file": "public/service-photos/waxing-v1.webp",
+      "label": "39 · Кола маска",
+      "prompt": "Use case: photorealistic-natural. Asset type: an individual square 1:1 GoRez service photo thumbnail for review, not imagery of any actual listed business. Realistic candid editorial photography, true-to-life people, believable anatomy and equipment, soft authentic warm light, clear central action legible at 56 pixels. No collage, no overlay, no logos, text or watermark.\nPrimary request and scene: Adult esthetician pressing a clean pale waxing strip on an adult client's lower calf, close view of hands and lower leg in a bright treatment room, one jar and spatula out of focus. No laser or nudity."
+    },
+    {
+      "file": "public/service-photos/makeup-v1.webp",
+      "label": "40 · Професионален грим",
+      "prompt": "Use case: photorealistic-natural. Asset type: an individual square 1:1 GoRez service photo thumbnail for review, not imagery of any actual listed business. Realistic candid editorial photography, true-to-life people, believable anatomy and equipment, soft authentic warm light, clear central action legible at 56 pixels. No collage, no overlay, no logos, text or watermark.\nPrimary request and scene: Professional makeup artist applying powder with a soft brush to an adult client's cheekbone, seated face with naturally closed eyes at a salon mirror, realistic complexion, no prominent accessories or branding."
+    },
+    {
+      "file": "public/service-photos/brake-service-v1.webp",
+      "label": "41 · Смяна на накладки",
+      "prompt": "Use case: photorealistic-natural. Asset type: an individual square 1:1 GoRez service photo thumbnail for review, not imagery of any actual listed business. Realistic candid editorial photography, true-to-life people, believable anatomy and equipment, soft authentic warm light, clear central action legible at 56 pixels. No collage, no overlay, no logos, text or watermark.\nPrimary request and scene: Automotive mechanic holding one new brake pad next to the exposed brake caliper and disc of a raised parked car with the wheel removed; mechanic in gloves and a gray shirt, clear part geometries, practical garage lighting, no instructions."
+    },
+    {
+      "file": "public/service-photos/veterinary-exam-v1.webp",
+      "label": "42 · Ветеринарен преглед",
+      "prompt": "Use case: photorealistic-natural. Asset type: an individual square 1:1 GoRez service photo thumbnail for review, not imagery of any actual listed business. Realistic candid editorial photography, true-to-life people, believable anatomy and equipment, soft authentic warm light, clear central action legible at 56 pixels. No collage, no overlay, no logos, text or watermark.\nPrimary request and scene: A veterinarian in teal scrubs examines a calm small dog with a stethoscope resting correctly on its chest, gentle handler hand steadying the dog on a clean vet exam table. Warm professional practice, no injections."
+    },
+    {
+      "file": "public/service-photos/yoga-class-v1.webp",
+      "label": "43 · Йога",
+      "prompt": "Use case: photorealistic-natural. Asset type: an individual square 1:1 GoRez service photo thumbnail for review, not imagery of any actual listed business. Realistic candid editorial photography, true-to-life people, believable anatomy and equipment, soft authentic warm light, clear central action legible at 56 pixels. No collage, no overlay, no logos, text or watermark.\nPrimary request and scene: Small authentic yoga studio in soft morning light, adult instructor and two adult participants practicing a balanced Warrior II pose on mats, centered clear body positions, realistic form, casual muted clothes, no machines."
+    },
+    {
+      "file": "public/service-photos/electrical-repair-v1.webp",
+      "label": "44 · Електроуслуги за дома",
+      "prompt": "Use case: photorealistic-natural. Asset: standalone square GoRez service review photograph, editorial realism. In a contemporary apartment in Sofia, Bulgaria, an adult electrician wearing a navy work shirt kneels next to a single EUROPEAN Type F Schuko outlet. This is a ROUND recessed European socket with exactly TWO round holes and metal ground clips in a square white faceplate, no vertical slots, no North American receptacles. The electrician is inspecting the outlet and holding a small electrical tester just beside it, no visible instructional procedure or sparks. Place the outlet and tester together close to the center of the square, with the electrician and realistic gloves visible. Warm but neutral authentic light, believable anatomy and tools. No logos, text, watermark, or collage."
+    },
+    {
+      "file": "public/service-photos/dental-exam-v1.webp",
+      "label": "45 · Дентален преглед",
+      "prompt": "Use case: photorealistic-natural. Asset type: an individual square 1:1 GoRez service photo thumbnail for review, not imagery of any actual listed business. Realistic candid editorial photography, true-to-life people, believable anatomy and equipment, soft authentic warm light, clear central action legible at 56 pixels. No collage, no overlay, no logos, text or watermark.\nPrimary request and scene: A masked dentist holds a small dental mirror to examine an adult client in a clean dental chair, assistant light softly blurred, side angle with recognizable mirror and glove, no drilling, blood or close interior of mouth."
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "generator": "OpenAI ImageGen built-in",
+  "purpose": "Separately requested illustrative threading photo; not actual business work.",
+  "assets": [
+    {
+      "file": "public/service-photos/brow-threading-v1.webp",
+      "label": "101 · Оформяне на вежди с конец",
+      "prompt": "Create exactly one square 1:1 photorealistic editorial service photograph for a Bulgarian service-booking directory. Subject/action: Close-up of a fully clothed adult reclining in a clean beauty chair with eyes closed while an esthetician holds taut thin white cotton thread in a visible triangle between her fingertips, one strand just grazing the outer eyebrow. No wax or tweezers. Frame the defining action and tool centrally so it reads clearly as a 56-pixel square thumbnail; simple authentic neutral interior or location, daylight or natural service lighting, real skin and material texture, anatomically plausible, quiet cream/warm-neutral palette when natural. No lettering, logos, numbers, watermark, borders, collage, graphic overlay, artificial bokeh shapes, or manufactured product-ad posing. This is an illustrative service photo, not a specific provider or public figure."
+    }
+  ]
+}

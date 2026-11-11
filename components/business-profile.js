@@ -5,8 +5,8 @@ import { BusinessPhotoGallery } from './business-photo-gallery'
 import { Icon } from './icon'
 import { businessDirectionsUrl, businessMapUrl, businessWeeklyHours, groupBusinessServices, publicProfileDetails } from '../lib/business-profile.mjs'
 import { getStaffPhoto } from '../lib/business-photos.mjs'
-import { BusinessCategoryIcon } from './business-category-icon'
-import { ServiceThumbnail } from './service-thumbnail'
+import { BusinessCoverPhoto } from './business-cover-photo'
+import { IllustrativeServicePhotoNote, ServiceThumbnail } from './service-thumbnail'
 import { profileServicePrice, profileShareUrl, shareProfileLink } from '../lib/business-profile-ui.mjs'
 
 // The same folded map and action class used by the homepage business cards.
@@ -30,7 +30,8 @@ export function BusinessProfileHeader({ business, locale }) {
     else if (result === 'manual') setManualShare(url)
   }
   return <section className="business-profile-hero" aria-labelledby="business-profile-name">
-    {business.photos?.length ? <BusinessPhotoGallery photos={business.photos} businessName={business.name} locale={locale} key={business.id} /> : <div className="business-profile-no-photo" aria-hidden="true"><BusinessCategoryIcon business={business} size={100}/></div>}
+    <BusinessPhotoGallery photos={business.photos} businessName={business.name} locale={locale} key={business.id}
+      fallback={<BusinessCoverPhoto business={business} locale={locale} className="business-profile-no-photo" eager/>}/>
     <div className="business-profile-identity">
       <div className="business-profile-name-row"><h1 id="business-profile-name">{business.name}</h1><button type="button" className="profile-share-button" aria-label={shared ? (en ? 'Link copied' : 'Линкът е копиран') : (en ? 'Share' : 'Сподели')} onClick={share}><Icon name="external" /><span role="status">{shared ? (en ? 'Copied' : 'Копирано') : (en ? 'Share' : 'Сподели')}</span></button></div>
       {business.address && <BusinessDirectionsLink business={business} locale={locale} address/>}
@@ -51,6 +52,7 @@ export function BusinessServiceList({ business, locale = 'bg', selectedServiceId
         <div className="profile-service-actions"><strong className="profile-service-price">{profileServicePrice(service, locale)}</strong><button className="profile-service-book" type="button" disabled={disabled} onClick={() => onChoose(service.id)} aria-label={`${en ? 'Book' : 'Резервирай'} · ${service.name}`} aria-pressed={selectedServiceId === service.id} aria-controls="booking-experience"><Icon name="calendar"/></button></div>
       </li>)}</ul>
     </div>)}</div>
+    <IllustrativeServicePhotoNote services={business.services} business={business} locale={locale}/>
     {!business.services?.length && <p className="profile-empty-services">{en ? 'Contact the business for its services.' : 'Свържи се с бизнеса за предлаганите услуги.'}</p>}
   </section>
 }

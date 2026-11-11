@@ -1,7 +1,7 @@
 import { DateTime } from 'luxon'
 import { z } from 'zod'
 import { apiError, getSafeError } from '../../../../../lib/api-response'
-import { buildGuidedReply, describeDate, detectGuidedTopic, getEligibleStaff } from '../../../../../lib/guided-assistant.mjs'
+import { buildGuidedReply, describeDate, detectGuidedTopic, getEligibleStaff, guidedServiceMenu } from '../../../../../lib/guided-assistant.mjs'
 import { createPublicBooking, getAvailableSlots, getPublicBusiness } from '../../../../../lib/public-booking'
 import { consumeRateLimit } from '../../../../../lib/rate-limit'
 import { getSupabaseAdmin } from '../../../../../lib/supabase-admin'
@@ -153,12 +153,13 @@ export async function POST(request, context) {
       const topic = detectGuidedTopic(input.message)
       userText = input.message
       reply = buildGuidedReply(business, topic, input.locale)
-      responseData = { topic }
+      responseData = topic === 'services' ? { topic, services: guidedServiceMenu(business, input.locale) } : { topic }
     }
 
     if (input.action === 'faq') {
       userText = input.locale === 'en' ? `Question: ${input.topic}` : FAQ_LABELS[input.topic]
       reply = buildGuidedReply(business, input.topic, input.locale)
+      if (input.topic === 'services') responseData = { services: guidedServiceMenu(business, input.locale) }
     }
 
     if (input.action === 'start_booking') {

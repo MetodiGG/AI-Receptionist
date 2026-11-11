@@ -5,7 +5,8 @@ import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 import { BOOKING_PRICE_REVIEWS } from '../lib/discovery/catalogue-data/pricing-booking-review-v1.mjs'
 import { pricingIdentity, assessPricingReview, auditCataloguePricing } from '../lib/discovery/catalogue-pricing-review.mjs'
 import report from '../docs/catalogue-pricing/booking-flow-audit-20261110.json' with { type: 'json' }
-const now = Date.parse('2026-11-10T12:00:00Z')
+import { NEIGHBORHOOD_20261111_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-expansion-20261111.mjs'
+const now = Date.parse('2026-11-11T12:00:00Z')
 const record = () => structuredClone(SOFIA_CATALOGUE.find(row => row.id === 'sofia-cut-n-chill'))
 const review = () => structuredClone(BOOKING_PRICE_REVIEWS.find(row => row.id === 'sofia-cut-n-chill'))
 
@@ -61,10 +62,18 @@ test('the existing catalogue stays available and unresolved records remain expli
   assert.throws(() => auditCataloguePricing(SOFIA_CATALOGUE, baseline, [review(), review()], now), /duplicate/)
 })
 
-test('the public audit queue covers each existing ID and never calls automated attempts completed source reviews', () => {
-  assert.equal(report.businesses.length, SOFIA_CATALOGUE.length)
-  assert.equal(new Set(report.businesses.map(row => row.id)).size, SOFIA_CATALOGUE.length)
-  assert.ok(SOFIA_CATALOGUE.every(row => report.businesses.some(item => item.id === row.id)))
+test('dated audit receipts cover every current ID without rewriting the historical source queue', () => {
+  const historicalIds = new Set(report.businesses.map(row => row.id))
+  assert.equal(historicalIds.size, report.businesses.length)
+  const newIds = new Set(NEIGHBORHOOD_20261111_REVIEWS.map(row => row.id))
+  assert.ok([...newIds].every(id => !historicalIds.has(id)))
+  const auditedIds = new Set([...historicalIds, ...newIds])
+  assert.equal(auditedIds.size, SOFIA_CATALOGUE.length)
+  assert.ok(SOFIA_CATALOGUE.every(row => auditedIds.has(row.id)))
+  for (const review of NEIGHBORHOOD_20261111_REVIEWS) {
+    const record = SOFIA_CATALOGUE.find(row => row.id === review.id)
+    assert.equal(assessPricingReview(record, review, now).state, 'reviewed', review.id)
+  }
   assert.equal(report.summary.reservationsSubmitted, 0)
   assert.equal(report.summary.publicDiscovery.paidRequests, 0)
   assert.equal(report.summary.liveDatabaseWrites, 0)

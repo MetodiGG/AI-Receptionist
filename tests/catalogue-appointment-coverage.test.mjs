@@ -9,6 +9,7 @@ import { auditCatalogueBatch } from '../lib/discovery/catalogue-audit.mjs'
 import { normalizeCatalogueBusinesses } from '../lib/discovery/catalogue-search.mjs'
 import { discoverBusinesses } from '../lib/discovery/search.mjs'
 import { discoveryConfig } from '../lib/discovery/config.mjs'
+import { approvedCatalogueRecord, EXCLUDED_GENERAL_CLINIC_IDS } from '../lib/discovery/catalogue-policy.mjs'
 const now = DateTime.fromISO('2026-11-06T12:00:00Z')
 const forbidden = () => assert.fail('Catalogue appointment coverage must not call a provider or create an appointment')
 const dependencies = rows => ({ now, config: discoveryConfig({ DISCOVERY_ENABLED: 'true' }), readInternal: async () => [], readCatalogue: async () => rows,
@@ -17,8 +18,9 @@ const dependencies = rows => ({ now, config: discoveryConfig({ DISCOVERY_ENABLED
 test('the latest 41 actual premises have source links without duplicate staff, cities or departments', () => {
   const rows = [...batch8, ...batch9, ...batch10], report = auditCatalogueBatch([], rows, now.toMillis())
   assert.equal(rows.length, 41)
-  assert.equal(report.readyForReview.length, rows.length)
-  assert.deepEqual(report.rejected, []); assert.deepEqual(report.pending, [])
+  assert.equal(report.readyForReview.length, rows.filter(row => approvedCatalogueRecord(row, now.toMillis())).length)
+  assert.deepEqual(report.rejected, [])
+  assert.deepEqual(report.pending.map(row => row.id).sort(), rows.filter(row => EXCLUDED_GENERAL_CLINIC_IDS.includes(row.id)).map(row => row.id).sort())
   for (const row of rows) {
     assert.equal(row.cityCode, '68134')
     assert.equal(row.coordinates, null, 'an owner street address is not automatically a precise point')

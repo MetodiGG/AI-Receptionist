@@ -1,0 +1,20 @@
+{
+  "checkedOn": "2026-11-11",
+  "environment": "isolated local SSR fixture with current project CSS; no production bookings or notifications",
+  "widths": [360, 390, 430, 768, 1280],
+  "checksExecutedInBrowser": {
+    "wholeDocumentFitsViewport": true,
+    "businessDetailsDialogFitsViewport": true,
+    "serviceNamesNotClamped": true,
+    "longPriceUnitsWrapWithoutOverflow": true,
+    "gpointLogoUsesContain": true,
+    "longAuditParagraphsRemoved": true,
+    "materialOnlineDiscountConditionRetained": true
+  },
+  "fixtureNotes": "An intentionally long education price unit was injected only into a cloned local test object, never G Point production data. Fixture uses actual homepage-style parent padding; a missing parent padding initially exposed the section decorative pseudo-element, not content overflow. Final five-width checks all passed. Earlier ordinary-unit G Point screenshots are retained in the visualizations folder.",
+  "limitations": [
+    "This is a layout check, not a live booking or production browser-cache test.",
+    "The temporary rendered fixture does not hydrate the full Next.js application.",
+    "No assertion about every future price string or every external website is implied."
+  ]
+}

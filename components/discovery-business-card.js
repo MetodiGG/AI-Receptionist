@@ -13,6 +13,8 @@ import { isExternalBooking } from '../lib/booking-mode.mjs'
 import { homeBusinessPhoto } from '../lib/discovery/home.mjs'
 import { railCategory, railServiceItems, railDirections, railExternalAction } from '../lib/discovery/rail.mjs'
 import { detailPriceLabel } from '../lib/discovery/business-details.mjs'
+import { servicePresentation } from '../lib/discovery/service-presentation.mjs'
+import { businessPhotoStyle } from '../lib/business-photo-layout.mjs'
 import { DiscoveryDistanceBadge } from './discovery-distance-badge'
 import { isCataloguePhotoSource } from '../lib/catalogue-photo-view.mjs'
 import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
@@ -30,14 +32,14 @@ export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, 
   const [detailsOpen, setDetailsOpen] = useState(false), detailsTrigger = useRef(null)
   const hasDetails = internal || row.source === 'catalogue'
   const openDetails = event => { detailsTrigger.current = event.currentTarget; setDetailsOpen(true) }
-  const photo = internal ? homeBusinessPhoto(row) : row.source === 'catalogue' && isCataloguePhotoSource(row.photo?.src) ? { src: row.photo.src, alt: { [locale]: row.photo.alt || row.name } } : null
+  const photo = internal ? homeBusinessPhoto(row) : row.source === 'catalogue' && isCataloguePhotoSource(row.photo?.src) ? { ...row.photo, alt: { [locale]: row.photo.alt || row.name } } : null
   const profile = internal ? `/book/${row.slug}?lang=${locale}` : null
   const directions = railDirections(row), action = railExternalAction(row)
   const reserve = copy.reserveAppointment
   const directionsLabel = copy.directions
   const services = railServiceItems(row)
   const visual = <div className="home-business-photo">
-    {photo && photo.src !== failedPhoto ? <img src={photo.src} width={400} height={300} alt={photo.alt?.[locale] || row.name} loading="lazy" decoding="async" style={{ objectPosition: photo.position || 'center' }} onError={() => setFailedPhoto(photo.src)}/> : <BusinessCoverPhoto business={row} locale={locale}/>}
+    {photo && photo.src !== failedPhoto ? <img src={photo.src} width={400} height={300} alt={photo.alt?.[locale] || row.name} loading="lazy" decoding="async" style={businessPhotoStyle(photo)} onError={() => setFailedPhoto(photo.src)}/> : <BusinessCoverPhoto business={row} locale={locale}/>}
     <DiscoveryDistanceBadge origin={distanceOrigin} destination={row.coordinates} locale={locale} fallbackKm={nearby ? row.distanceKm : null} business={row}/>
     {hasDetails && <span className="home-business-details-label">{copy.viewDetailsLower}</span>}
   </div>
@@ -52,8 +54,9 @@ export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, 
     <h3 title={row.name}>{row.name}</h3>
     <p className="home-business-category">{railCategory(row, locale)}</p>
     {services.length > 0 && <ul className="home-business-services" aria-label={copy.servicesPrices}>{services.map(service => {
-      const price = detailPriceLabel(service, locale, { compact: true })
-      return <li key={service.name}><div className="service-photo-name"><ServiceThumbnail service={service} business={row} locale={locale} size={32}/><span className="home-service-name" title={service.name}>{service.name}</span></div>{price && <strong className="home-service-price">{price}</strong>}</li>
+      const price = detailPriceLabel({ ...service, priceUnit: '' }, locale, { compact: true })
+      const { conditions } = servicePresentation(service, locale)
+      return <li key={service.name}><div className="service-photo-name"><ServiceThumbnail service={service} business={row} locale={locale} size={32}/><div className="home-service-copy"><span className="home-service-name" title={service.name}>{service.name}</span>{conditions.map(condition => <small className="home-service-condition" key={condition}>{condition}</small>)}</div></div>{price && <strong className="home-service-price">{price}{service.priceUnit && <small className="service-price-unit">{service.priceUnit}</small>}</strong>}</li>
     })}</ul>}
     {internal ? <PartnerRailReviews row={row} locale={locale} preview={preview}/> : Number.isFinite(row.rating) && row.rating > 0 ? <div className="home-business-reviews">{row.reviewCount > 0 ? <ReviewSummary summary={{ average: row.rating, count: row.reviewCount }} status="ready" locale={locale} compact/> : <span>★ {row.rating} / 5</span>}</div> : null}
     <div className="home-business-footer">

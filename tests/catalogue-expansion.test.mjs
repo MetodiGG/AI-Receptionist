@@ -9,8 +9,10 @@ import { discoveryConfig } from '../lib/discovery/config.mjs'
 import { createDiscoveryHandler } from '../lib/discovery/handler.mjs'
 import { mergeCataloguePage } from '../lib/discovery/catalogue-pagination.mjs'
 import { orderedRailRows, railExternalAction } from '../lib/discovery/rail.mjs'
+import { approvedCatalogueRecord } from '../lib/discovery/catalogue-policy.mjs'
+import { CATALOGUE_MAX_SEARCH_ROWS } from '../lib/discovery/catalogue-limits.mjs'
 
-const now = DateTime.fromISO('2026-11-10T12:00:00Z')
+const now = DateTime.fromISO('2026-11-11T12:00:00Z')
 const forbidden = () => assert.fail('No provider, database mutation, paid AI or booking request is allowed')
 const deps = patch => ({ config: discoveryConfig({ DISCOVERY_ENABLED: 'true' }), now,
   readInternal: async () => [], readCatalogue: async () => SOFIA_CATALOGUE, allowAttempt: async () => true,
@@ -36,18 +38,19 @@ test('expansion has at least 520 distinct records, all existing categories and 3
 })
 
 test('every eligible city listing can be reached, 15 at a time, without duplicate cards or provider calls', async () => {
+  const eligibleCount = SOFIA_CATALOGUE.filter(row => approvedCatalogueRecord(row, now.toMillis())).length
   let result = await discoverBusinesses(browse, deps()), requests = 1
   assert.equal(result.results.length, 15)
-  assert.equal(result.cataloguePage.total, SOFIA_CATALOGUE.length)
+  assert.equal(result.cataloguePage.total, eligibleCount)
   while (result.cataloguePage.nextOffset !== null) {
     const page = await discoverBusinesses({ ...browse, catalogueOffset: result.cataloguePage.nextOffset }, deps())
     assert.ok(page.results.length > 0 && page.results.length <= 15)
     result = mergeCataloguePage(result, page)
-    assert.ok(++requests <= Math.ceil(SOFIA_CATALOGUE.length / 15), 'pagination must terminate at the actual catalogue size')
+    assert.ok(++requests <= Math.ceil(eligibleCount / 15), 'pagination must terminate at the actual publicly eligible catalogue size')
   }
-  assert.equal(result.results.length, SOFIA_CATALOGUE.length)
-  assert.equal(new Set(result.results.map(row => row.id)).size, SOFIA_CATALOGUE.length)
-  assert.equal(orderedRailRows(result.results).length, SOFIA_CATALOGUE.length)
+  assert.equal(result.results.length, eligibleCount)
+  assert.equal(new Set(result.results.map(row => row.id)).size, eligibleCount)
+  assert.equal(orderedRailRows(result.results).length, eligibleCount)
   let previous = -Infinity
   for (const row of result.results) {
     const distance = row.distanceKm ?? Infinity
@@ -57,7 +60,7 @@ test('every eligible city listing can be reached, 15 at a time, without duplicat
   const partnerOnlyPage = result.results.slice(0, 30).map(row => ({ ...row, source: 'gorez' }))
   assert.equal(orderedRailRows(partnerOnlyPage, { preserveOrder: true }).length, 30, 'catalogue mode must also preserve partner-only pages')
   assert.ok(result.results.every(row => railExternalAction(row, now.toMillis())))
-  assert.equal((await discoverBusinesses({ ...browse, catalogueOffset: 5000 }, deps())).results.length, 0)
+  assert.equal((await discoverBusinesses({ ...browse, catalogueOffset: CATALOGUE_MAX_SEARCH_ROWS }, deps())).results.length, 0)
 })
 
 test('paging preserves strict services, explicit quarters, actual radii and near-before-far order', async () => {
@@ -95,7 +98,7 @@ test('new searches recognise published dental, accounting, lessons and reserved 
 })
 
 test('bad page offsets fail validation, pages use the same anti-abuse gate, and Google mode cannot page', async () => {
-  for (const offset of [-1, 0.5, 5001, '15', null]) assert.equal(discoveryRequestSchema.safeParse({ ...browse, catalogueOffset: offset }).success, false)
+  for (const offset of [-1, 0.5, CATALOGUE_MAX_SEARCH_ROWS + 1, '15', null]) assert.equal(discoveryRequestSchema.safeParse({ ...browse, catalogueOffset: offset }).success, false)
   const request = () => new Request('https://www.gorez.co/api/public/discovery', { method: 'POST', headers: { Origin: 'https://www.gorez.co', 'Content-Type': 'application/json' }, body: JSON.stringify({ ...browse, catalogueOffset: 15 }) })
   assert.equal((await createDiscoveryHandler(deps({ allowAttempt: async () => false }))(request())).status, 429)
   const google = deps({ config: discoveryConfig({ DISCOVERY_ENABLED: 'true', DISCOVERY_PROVIDER_MODE: 'google' }) })

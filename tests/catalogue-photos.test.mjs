@@ -9,6 +9,7 @@ import { normalizeBusinessImage } from '../lib/image-normalization.mjs'
 import { discoverBusinesses } from '../lib/discovery/search.mjs'
 import { discoveryConfig } from '../lib/discovery/config.mjs'
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { CATALOGUE_MAX_RECORDS } from '../lib/discovery/catalogue-limits.mjs'
 
 const id = 'sofia-mokro-nosle', photo = '10000000-0000-4000-8000-000000000001', actor = '20000000-0000-4000-8000-000000000001'
 const user = { id: actor, email_confirmed_at: '2026-11-06', email: 'admin@example.test' }
@@ -77,6 +78,16 @@ test('catalogue listing validates query pagination and reports missing migration
   for(const suffix of ['?q='+('x'.repeat(101)),'?offset=-1','?q=a&q=b','?unknown=x']) assert.equal((await h.handlers.LIST(new Request('https://gorez.test/api/admin/catalogue'+suffix))).status,422)
   const failed=harness({list:async()=>{throw {code:'42P01',message:'secret database details'}}})
   const response=await failed.handlers.LIST(request());assert.equal(response.status,503);assert.deepEqual(await response.json(),{error:{code:'CATALOGUE_MEDIA_NOT_READY'}})
+})
+test('catalogue photo admin can page beyond 5000 without accepting unbounded offsets',async()=>{
+  const h=harness()
+  for(const offset of [5001,10000,CATALOGUE_MAX_RECORDS]) {
+    assert.equal((await h.handlers.LIST(new Request(`https://gorez.test/api/admin/catalogue?offset=${offset}`))).status,200)
+    assert.equal(h.calls.at(-1)[1].offset,offset)
+  }
+  const count=h.calls.length
+  for(const offset of [-1,0.5,CATALOGUE_MAX_RECORDS+1,'Infinity']) assert.equal((await h.handlers.LIST(new Request(`https://gorez.test/api/admin/catalogue?offset=${offset}`))).status,422)
+  assert.equal(h.calls.length,count,'rejected offsets never reach the catalogue read')
 })
 test('catalogue photos cannot inject URLs or rights notes into public results or partner images',()=>{
   for(const src of ['javascript:alert(1)','https://outside.test/p.webp','/api/business-media/'+photo,'/catalogue-media/../photo.webp'])assert.equal(isCataloguePhotoSource(src),false)

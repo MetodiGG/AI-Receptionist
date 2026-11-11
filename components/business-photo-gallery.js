@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { useEffect, useId, useRef, useState } from 'react'
 import { nextPhotoIndex, photoSwipeDirection } from '../lib/business-photos.mjs'
 import { createPhotoAutoplay } from '../lib/photo-autoplay.mjs'
+import { businessPhotoStyle } from '../lib/business-photo-layout.mjs'
 
 export function BusinessPhotoGallery({ photos: suppliedPhotos = [], businessName, locale = 'bg', variant = 'profile', autoplay = true, fallback = null }) {
   const [failedSources, setFailedSources] = useState([])
@@ -68,7 +69,7 @@ export function BusinessPhotoGallery({ photos: suppliedPhotos = [], businessName
   return <>
     <div ref={root} className={`business-photo-gallery${variant === 'directory' ? ' directory-business-cover' : ''}`} role="region" aria-roledescription={en ? 'carousel' : 'галерия'} aria-label={en ? `Photos of ${businessName}` : `Снимки на ${businessName}`} data-photo-index={index} data-autoplay={playing} onKeyDown={keydown} onPointerEnter={event => { if (event.pointerType === 'mouse') setHovered(true) }} onPointerLeave={() => setHovered(false)} onFocusCapture={event => { if (event.target.matches(':focus-visible')) setPaused(true) }}>
       <button className="business-photo-open" type="button" onTouchStart={swipeStart} onTouchEnd={swipeEnd} onTouchCancel={() => { touchStart.current = null }} onClick={() => { if (dragged.current) { dragged.current = false; return }; setIsOpen(true); dialogRef.current?.showModal() }} aria-label={en ? `Open photos of ${businessName}` : `Отвори снимките на ${businessName}`}>
-        {variant === 'details' ? <Image src={photo.src} alt={text(photo.alt)} className="is-active" fill sizes="(max-width: 680px) 100vw, 640px" style={{ objectPosition: photo.position }} onError={() => rejectPhoto(photo.src)}/> : photos.map((item, itemIndex) => <Image src={item.src} alt={itemIndex === activeIndex ? text(item.alt) : ''} aria-hidden={itemIndex !== activeIndex} className={itemIndex === activeIndex ? 'is-active' : ''} fill key={item.src} preload={variant === 'profile' && itemIndex === 0} sizes={variant === 'directory' ? '(max-width: 760px) 100vw, 50vw' : '(max-width: 1200px) 100vw, 1160px'} style={{ objectPosition: item.position }} onError={() => rejectPhoto(item.src)}/>)}
+        {variant === 'details' ? <Image src={photo.src} alt={text(photo.alt)} className="is-active" fill sizes="(max-width: 680px) 100vw, 640px" style={businessPhotoStyle(photo)} onError={() => rejectPhoto(photo.src)}/> : photos.map((item, itemIndex) => <Image src={item.src} alt={itemIndex === activeIndex ? text(item.alt) : ''} aria-hidden={itemIndex !== activeIndex} className={itemIndex === activeIndex ? 'is-active' : ''} fill key={item.src} preload={variant === 'profile' && itemIndex === 0} sizes={variant === 'directory' ? '(max-width: 760px) 100vw, 50vw' : '(max-width: 1200px) 100vw, 1160px'} style={businessPhotoStyle(item)} onError={() => rejectPhoto(item.src)}/>)}
       </button>
       {arrows}{playback}{counter}
     </div>

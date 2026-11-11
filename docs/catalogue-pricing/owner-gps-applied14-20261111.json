@@ -1,0 +1,331 @@
+{
+  "checkedOn": "2026-11-11",
+  "sourceReview": "Exact address-bound business GeoCoordinates or explicit named place destinations on the owner's own website; no viewport/city-centre guesses.",
+  "noExternalGeocoding": true,
+  "version": 1,
+  "snapshotNewRecords": 155,
+  "scope": "First 14 individually root-reviewed first-party points applied to existing records; not new businesses. Service inventory, pricing fingerprints and prior history remain unchanged.",
+  "applied": true,
+  "rules": [
+    "No Google/API/OSM/geocoder requests. No provider page extraction.",
+    "Only own explicit address-paired GeoCoordinates or owner-published exact place!3d!4d destination. Never @viewport/!2d!3d/city center.",
+    "Service-area providers get no registered-office coordinates. Unmatched or stale address remains unknown."
+  ],
+  "summary": {
+    "newPointProposals": 14,
+    "existingPoints": 11
+  },
+  "proposals": [
+    {
+      "id": "sofia-akademia-elit-lyulin7-lessons",
+      "name": "Академия ЕЛИТ · частни уроци, Люлин 7",
+      "existingCoordinates": null,
+      "coordinates": {
+        "latitude": 42.7138874,
+        "longitude": 23.2646364,
+        "source": "https://akademiaelit.bg/",
+        "method": "first_party_coordinates"
+      },
+      "sourceUrl": "https://akademiaelit.bg/",
+      "receipt": ".audit-work/catalogue-expansion-20261111/elit-owner-home.html",
+      "evidenceType": "owner_jsonld_geo",
+      "sourceAddress": "ул. Джавахарлал Неру 6, кв. Люлин 7",
+      "catalogueAddress": "София, кв. Люлин 7, ул. Джавахарлал Неру 6, сградата на SPORT DEPOT",
+      "addressMatch": true,
+      "evidence": "Owner EducationalOrganization JSON-LD explicitly pairs named AcademyELIT with Nehru6 and GeoCoordinates. Not Google viewport or inferred postal-code center.",
+      "checkedOn": "2026-11-11"
+    },
+    {
+      "id": "sofia-inergy-borovo-reserved-kickboxing",
+      "name": "Inergy · кикбокс с предварително записване",
+      "existingCoordinates": null,
+      "coordinates": {
+        "latitude": 42.668698,
+        "longitude": 23.285587,
+        "source": "https://inergyfitness.com/zanimaniya/kickbox/",
+        "method": "first_party_coordinates"
+      },
+      "sourceUrl": "https://inergyfitness.com/zanimaniya/kickbox/",
+      "receipt": ".audit-work/catalogue-expansion-20261111/gps-inergy-owner.html",
+      "evidenceType": "owner_jsonld_geo",
+      "sourceAddress": "кв. Борово, ул. Солун 59б, 1680 София",
+      "catalogueAddress": "София, Борово, ул. Солун 59б",
+      "addressMatch": true,
+      "evidence": "Owner SportsActivityLocation/fitness JSON-LD and own directions destination agree on same exact Solun59b venue; repeated nodes identical.",
+      "checkedOn": "2026-11-11"
+    },
+    {
+      "id": "sofia-eleazar-oborishte",
+      "name": "Елеазар · Оборище",
+      "existingCoordinates": null,
+      "coordinates": {
+        "latitude": 42.6936638,
+        "longitude": 23.3512665,
+        "source": "https://eleazar.co.uk/kontakti/",
+        "method": "first_party_coordinates"
+      },
+      "sourceUrl": "https://eleazar.co.uk/kontakti/",
+      "receipt": ".audit-work/catalogue-expansion-20261111/gps-eleazar-owner.html",
+      "evidenceType": "owner_jsonld_geo",
+      "sourceAddress": "ул. Оборище 103, вх. Б",
+      "catalogueAddress": "София, ул. Оборище 103, вх. Б",
+      "addressMatch": true,
+      "evidence": "Distinct owner EducationalOrganization branch node explicitly names this exact street/block and point; not main-site default copied to every branch.",
+      "checkedOn": "2026-11-11"
+    },
+    {
+      "id": "sofia-eleazar-teatralna",
+      "name": "Елеазар · Театрална",
+      "existingCoordinates": null,
+      "coordinates": {
+        "latitude": 42.6986342,
+        "longitude": 23.3469963,
+        "source": "https://eleazar.co.uk/kontakti/",
+        "method": "first_party_coordinates"
+      },
+      "sourceUrl": "https://eleazar.co.uk/kontakti/",
+      "receipt": ".audit-work/catalogue-expansion-20261111/gps-eleazar-owner.html",
+      "evidenceType": "owner_jsonld_geo",
+      "sourceAddress": "ул. „Проф. Милко Бичев\" 9, ет. 1",
+      "catalogueAddress": "София, ул. Проф. Милко Бичев 9, ет. 1",
+      "addressMatch": true,
+      "evidence": "Distinct owner EducationalOrganization branch node explicitly names this exact street/block and point; not main-site default copied to every branch.",
+      "checkedOn": "2026-11-11"
+    },
+    {
+      "id": "sofia-eleazar-mladost4",
+      "name": "Елеазар · Младост 4",
+      "existingCoordinates": null,
+      "coordinates": {
+        "latitude": 42.6295894,
+        "longitude": 23.381961,
+        "source": "https://eleazar.co.uk/kontakti/",
+        "method": "first_party_coordinates"
+      },
+      "sourceUrl": "https://eleazar.co.uk/kontakti/",
+      "receipt": ".audit-work/catalogue-expansion-20261111/gps-eleazar-owner.html",
+      "evidenceType": "owner_jsonld_geo",
+      "sourceAddress": "ж.к. Младост 4, бл. 464, ет. 1",
+      "catalogueAddress": "София, ж.к. Младост 4, бл. 464, ет. 1",
+      "addressMatch": true,
+      "evidence": "Distinct owner EducationalOrganization branch node explicitly names this exact street/block and point; not main-site default copied to every branch.",
+      "checkedOn": "2026-11-11"
+    },
+    {
+      "id": "sofia-eleazar-ovcha-kupel-narodno-horo",
+      "name": "Елеазар · Овча купел, Народно хоро",
+      "existingCoordinates": null,
+      "coordinates": {
+        "latitude": 42.6778501,
+        "longitude": 23.2588989,
+        "source": "https://eleazar.co.uk/kontakti/",
+        "method": "first_party_coordinates"
+      },
+      "sourceUrl": "https://eleazar.co.uk/kontakti/",
+      "receipt": ".audit-work/catalogue-expansion-20261111/gps-eleazar-owner.html",
+      "evidenceType": "owner_jsonld_geo",
+      "sourceAddress": "ул. „Народно хоро\" 50, офис 7",
+      "catalogueAddress": "София, ж.к. Овча купел, ул. Народно хоро 50, офис 7",
+      "addressMatch": true,
+      "evidence": "Distinct owner EducationalOrganization branch node explicitly names this exact street/block and point; not main-site default copied to every branch.",
+      "checkedOn": "2026-11-11"
+    },
+    {
+      "id": "sofia-eleazar-ovcha-kupel-metro",
+      "name": "Елеазар · Овча купел, до метростанцията",
+      "existingCoordinates": null,
+      "coordinates": {
+        "latitude": 42.6827835,
+        "longitude": 23.2719485,
+        "source": "https://eleazar.co.uk/kontakti/",
+        "method": "first_party_coordinates"
+      },
+      "sourceUrl": "https://eleazar.co.uk/kontakti/",
+      "receipt": ".audit-work/catalogue-expansion-20261111/gps-eleazar-owner.html",
+      "evidenceType": "owner_jsonld_geo",
+      "sourceAddress": "бул. „Овча купел\" 42",
+      "catalogueAddress": "София, ж.к. Овча купел, бул. Овча купел 42",
+      "addressMatch": true,
+      "evidence": "Distinct owner EducationalOrganization branch node explicitly names this exact street/block and point; not main-site default copied to every branch.",
+      "checkedOn": "2026-11-11"
+    },
+    {
+      "id": "sofia-eleazar-lozenets",
+      "name": "Елеазар · Лозенец",
+      "existingCoordinates": null,
+      "coordinates": {
+        "latitude": 42.6616627,
+        "longitude": 23.317787,
+        "source": "https://eleazar.co.uk/kontakti/",
+        "method": "first_party_coordinates"
+      },
+      "sourceUrl": "https://eleazar.co.uk/kontakti/",
+      "receipt": ".audit-work/catalogue-expansion-20261111/gps-eleazar-owner.html",
+      "evidenceType": "owner_jsonld_geo",
+      "sourceAddress": "бул. „Черни връх\" 47, БЦ „Витоша\", ет. 4",
+      "catalogueAddress": "София, бул. Черни връх 47, БЦ Витоша, ет. 4",
+      "addressMatch": true,
+      "evidence": "Distinct owner EducationalOrganization branch node explicitly names this exact street/block and point; not main-site default copied to every branch.",
+      "checkedOn": "2026-11-11"
+    },
+    {
+      "id": "sofia-prestige-manastirski",
+      "name": "Езикова школа ПРЕСТИЖ · Манастирски ливади",
+      "existingCoordinates": null,
+      "coordinates": {
+        "latitude": 42.6646895,
+        "longitude": 23.2823631,
+        "source": "https://www.prestige.bg/contacts?tab=manastirski",
+        "method": "first_party_coordinates"
+      },
+      "sourceUrl": "https://www.prestige.bg/contacts?tab=manastirski",
+      "receipt": ".audit-work/catalogue-expansion-20261111/gps-prestige-owner.html",
+      "evidenceType": "owner_exact_place_link",
+      "sourceAddress": "ул. Пирин 73, партер",
+      "catalogueAddress": "София, Манастирски ливади, ул. Пирин 73, партер",
+      "addressMatch": true,
+      "evidence": "Own contact branch heading/address immediately precedes its exact place link; read !8m2!3dLAT!4dLON only. @viewport longitude differs and was explicitly rejected. No Google URL fetched.",
+      "checkedOn": "2026-11-11",
+      "ownerPublishedHref": "https://www.google.com/maps/place/%D0%BA%D0%B2.+%D0%9C%D0%B0%D0%BD%D0%B0%D1%81%D1%82%D0%B8%D1%80%D1%81%D0%BA%D0%B8+%D0%BB%D0%B8%D0%B2%D0%B0%D0%B4%D0%B8,+%D1%83%D0%BB.+%E2%80%9E%D0%9F%D0%B8%D1%80%D0%B8%D0%BD%E2%80%9C+73,+1680+%D0%A1%D0%BE%D1%84%D0%B8%D1%8F/@42.6646895,23.2797882,935m/data=!3m2!1e3!4b1!4m6!3m5!1s0x40aa84c053db4f51:0x6332e8f01c2db56!8m2!3d42.6646895!4d23.2823631!16s%2Fg%2F11q2n89fcj?entry=ttu&g_ep=EgoyMDI2MDkwMS4wIKXMDSoASAFQAw%3D%3D"
+    },
+    {
+      "id": "sofia-prestige-borovo",
+      "name": "Езикова школа ПРЕСТИЖ · Борово",
+      "existingCoordinates": null,
+      "coordinates": {
+        "latitude": 42.6708182,
+        "longitude": 23.2876046,
+        "source": "https://www.prestige.bg/contacts?tab=manastirski",
+        "method": "first_party_coordinates"
+      },
+      "sourceUrl": "https://www.prestige.bg/contacts?tab=manastirski",
+      "receipt": ".audit-work/catalogue-expansion-20261111/gps-prestige-owner.html",
+      "evidenceType": "owner_exact_place_link",
+      "sourceAddress": "ул. Родопски извор 38, партер",
+      "catalogueAddress": "София, Борово, ул. Родопски извор 38, партер",
+      "addressMatch": true,
+      "evidence": "Own contact branch heading/address immediately precedes its exact place link; read !8m2!3dLAT!4dLON only. @viewport longitude differs and was explicitly rejected. No Google URL fetched.",
+      "checkedOn": "2026-11-11",
+      "ownerPublishedHref": "https://www.google.com/maps/place/%D0%95%D0%B7%D0%B8%D0%BA%D0%BE%D0%B2%D0%B0+%D1%88%D0%BA%D0%BE%D0%BB%D0%B0+%D0%9F%D0%A0%D0%95%D0%A1%D0%A2%D0%98%D0%96/@42.6708221,23.2850297,17z/data=!3m1!4b1!4m6!3m5!1s0x40aa85458ab350b9:0x2604ad5dabe8cd77!8m2!3d42.6708182!4d23.2876046!16s%2Fg%2F11l1g87c5v?entry=ttu&g_ep=EgoyMDI1MDgwNi4wIKXMDSoASAFQAw%3D%3D"
+    },
+    {
+      "id": "sofia-prestige-buxton",
+      "name": "Езикова школа ПРЕСТИЖ · Бъкстон",
+      "existingCoordinates": null,
+      "coordinates": {
+        "latitude": 42.6692635,
+        "longitude": 23.2747077,
+        "source": "https://www.prestige.bg/contacts?tab=manastirski",
+        "method": "first_party_coordinates"
+      },
+      "sourceUrl": "https://www.prestige.bg/contacts?tab=manastirski",
+      "receipt": ".audit-work/catalogue-expansion-20261111/gps-prestige-owner.html",
+      "evidenceType": "owner_exact_place_link",
+      "sourceAddress": "ул. Генерал Суворов 30, вх. 1",
+      "catalogueAddress": "София, Бъкстон, ул. Генерал Суворов 30, вх. 1",
+      "addressMatch": true,
+      "evidence": "Own contact branch heading/address immediately precedes its exact place link; read !8m2!3dLAT!4dLON only. @viewport longitude differs and was explicitly rejected. No Google URL fetched.",
+      "checkedOn": "2026-11-11",
+      "ownerPublishedHref": "https://www.google.com/maps/place/%D0%91%D1%8A%D0%BA%D1%81%D1%82%D0%BE%D0%BD,+%D1%83%D0%BB.+%E2%80%9E%D0%93%D0%B5%D0%BD.+%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B0%D0%BD%D0%B4%D1%8A%D1%80+%D0%92.+%D0%A1%D1%83%D0%B2%D0%BE%D1%80%D0%BE%D0%B2%E2%80%9C+30,+1618+%D0%A1%D0%BE%D1%84%D0%B8%D1%8F/@42.6692674,23.2721328,17z/data=!3m1!4b1!4m6!3m5!1s0x40aa84cf56b1070d:0x316ca28931d59ec1!8m2!3d42.6692635!4d23.2747077!16s%2Fg%2F11rp44r4n3?entry=ttu&g_ep=EgoyMDI1MDgwNi4wIKXMDSoASAFQAw%3D%3D"
+    },
+    {
+      "id": "sofia-gergana-dimova-pazel-strelbishte",
+      "name": "Гергана Димова · Студио за психотерапия Пъзел",
+      "existingCoordinates": null,
+      "coordinates": {
+        "latitude": 42.671021,
+        "longitude": 23.294564,
+        "source": "https://gerganadimova.com/",
+        "method": "first_party_coordinates"
+      },
+      "sourceUrl": "https://gerganadimova.com/",
+      "receipt": ".audit-work/catalogue-expansion-20261111/gps-gergana-dimova-owner.html",
+      "evidenceType": "owner_jsonld_geo",
+      "sourceAddress": "ул. „Червена роза“ 38–40",
+      "catalogueAddress": "София, ж.к. Стрелбище, ул. Червена роза 38–40",
+      "addressMatch": true,
+      "evidence": "Own named business JSON-LD explicitly pairs this exact street/number with GeoCoordinates. No map viewport inferred or provider endpoint queried.",
+      "checkedOn": "2026-11-11"
+    },
+    {
+      "id": "sofia-dental-house-zdravka-asenova",
+      "name": "Dental House · д-р Здравка Асенова",
+      "existingCoordinates": null,
+      "coordinates": {
+        "latitude": 42.6797073,
+        "longitude": 23.2685388,
+        "source": "https://drzdravkaasenova.com/contact",
+        "method": "first_party_coordinates"
+      },
+      "sourceUrl": "https://drzdravkaasenova.com/contact",
+      "receipt": ".audit-work/catalogue-expansion-20261111/gps-dental-house-owner.html",
+      "evidenceType": "owner_jsonld_geo",
+      "sourceAddress": "бул. Овча Купел 37",
+      "catalogueAddress": "София, бул. Овча Купел 37",
+      "addressMatch": true,
+      "evidence": "Own named business JSON-LD explicitly pairs this exact street/number with GeoCoordinates. No map viewport inferred or provider endpoint queried.",
+      "checkedOn": "2026-11-11"
+    },
+    {
+      "id": "sofia-mira-blagoeva-hipodruma",
+      "name": "Д-р Мира Благоева · дентална практика",
+      "existingCoordinates": null,
+      "coordinates": {
+        "latitude": 42.6807628,
+        "longitude": 23.2896179,
+        "source": "https://mirablagoeva.bg/kontakti/",
+        "method": "first_party_coordinates"
+      },
+      "sourceUrl": "https://mirablagoeva.bg/kontakti/",
+      "receipt": ".audit-work/catalogue-expansion-20261111/gps-mira-blagoeva-owner.html",
+      "evidenceType": "owner_jsonld_geo",
+      "sourceAddress": "ул. Нишава №1",
+      "catalogueAddress": "София, ул. Нишава 1",
+      "addressMatch": true,
+      "evidence": "Own named business JSON-LD explicitly pairs this exact street/number with GeoCoordinates. No map viewport inferred or provider endpoint queried.",
+      "checkedOn": "2026-11-11"
+    }
+  ],
+  "pendingManualReview": [
+    {
+      "id": "sofia-via-dental-strelbishte",
+      "latitude": 42.677054,
+      "longitude": 23.300481,
+      "sourceUrl": "https://viadentalstudio.com/kontakti/",
+      "receipt": ".audit-work/catalogue-expansion-20261111/gps-via-dental-owner.html",
+      "reason": "Owner geo.position/ICBM exact point explicitly labelled main Strelbishte clinic in own head; visible branch is YordanYovkov18–20. However no individual branch GeoCoordinates node in raw response; root decide whether declaredGeo meta suffices. NEVER apply this default main-clinic point to KrasnoSelo/Obelya."
+    },
+    {
+      "id": "sofia-fx-studio-ovcha-kupel",
+      "latitude": 42.6779,
+      "longitude": 23.2674,
+      "sourceUrl": "https://fxstudio.bg/kontakti",
+      "receipt": ".audit-work/catalogue-expansion-20261111/gps-fx-studio-owner.html",
+      "reason": "Own JSON-LD address pairs ProfMihayloParashchuk11 with point, but same page has obvious placeholder Maps link(...), 0x0placeID and mismatched embedcenter. Held for source-integrity confirmation, not automatically approved."
+    }
+  ],
+  "rejectedEvidence": [
+    {
+      "id": "sofia-savelia-pilates-lagera",
+      "receipt": ".audit-work/catalogue-expansion-20261111/savelia-pilates-tariff-source.html",
+      "reason": "JSON-LD is TsarBorisIII73, while current booked studio is HaidushkaPolyana57. Old point not applied."
+    },
+    {
+      "id": "sofia-besnite-cleaners",
+      "receipt": ".audit-work/catalogue-expansion-20261111/besnite-owner-source.html",
+      "reason": "Sofiawide home operator; office Geo plus generic Sofia-center node are not bookable client venue."
+    },
+    {
+      "id": "sofia-muscle-damage-gym-studio",
+      "reason": "Owner contact GET403 during GPS pass; stopped, no retry/bypass; coordinates remain unknown."
+    },
+    {
+      "source": "ashley-booking-source.html",
+      "reason": "Provider reservation.studio receipt, not first-party GPS scope; no new extraction or coordinate proposal."
+    },
+    {
+      "source": "nastarta-live-booking.html",
+      "reason": "Not imported net-new venue, unresolved actual wash location. Sopot33 marker not assigned to wash without exact address verification."
+    }
+  ]
+}

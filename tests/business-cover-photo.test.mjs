@@ -40,6 +40,11 @@ test('new and existing businesses use the actual category, not the current searc
 test('known specialties in Other services use recognizable covers; unknown types remain generic', () => {
   for (const [business, file] of [
     [{ category: 'other', name: 'Дентална клиника' }, '/business-cover-photos/dental-v1.webp'],
+    [{ category: 'other', name: 'Д-р Ванина Атанасова · ортодонт' }, '/business-cover-photos/dental-v1.webp'],
+    [{ category: 'other', name: 'Мария · психолог' }, '/business-cover-photos/consulting-v1.webp'],
+    [{ category: 'other', name: 'Private psychiatrist' }, '/business-cover-photos/consulting-v1.webp'],
+    [{ category: 'other', primaryType: 'psychologist', name: 'Private practice' }, '/business-cover-photos/consulting-v1.webp'],
+    [{ category: 'other', name: 'Студио Надежда', services: [{ name: 'Психотерапевтична сесия' }] }, '/business-cover-photos/consulting-v1.webp'],
     [{ category: 'other', name: 'Ветеринарен кабинет' }, '/business-cover-photos/veterinary-v1.webp'],
     [{ category: 'other', name: 'Лаборатория' }, '/service-photos/lab-tests-v1.webp'],
     [{ category: 'other', name: 'Ново студио' }, '/business-cover-photos/other-v1.webp'],

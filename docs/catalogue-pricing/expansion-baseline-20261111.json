@@ -1,0 +1,3278 @@
+{
+  "version": 1,
+  "capturedOn": "2026-11-11",
+  "sourceCount": 654,
+  "note": "Operational inventory baseline only; not the immutable pricing-review baseline. Captured before new overnight additions.",
+  "records": [
+    {
+      "id": "sofia-mokro-nosle",
+      "category": "pets",
+      "neighborhood": "Манастирски ливади"
+    },
+    {
+      "id": "sofia-kaya-grooming",
+      "category": "pets",
+      "neighborhood": "Борово"
+    },
+    {
+      "id": "sofia-tobbys-grooming",
+      "category": "pets",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-pet-stop-place",
+      "category": "pets",
+      "neighborhood": "Надежда 4"
+    },
+    {
+      "id": "sofia-iq-detailing",
+      "category": "detailing",
+      "neighborhood": "Павлово"
+    },
+    {
+      "id": "sofia-nebula-detailing",
+      "category": "detailing",
+      "neighborhood": "Младост 3"
+    },
+    {
+      "id": "sofia-autosteamclean-mobile",
+      "category": "car_wash",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-cut-n-chill",
+      "category": "barber",
+      "neighborhood": "Разсадника"
+    },
+    {
+      "id": "sofia-bobi-yarchev",
+      "category": "hair",
+      "neighborhood": "Борово"
+    },
+    {
+      "id": "sofia-el-gato",
+      "category": "nails",
+      "neighborhood": "Илинден"
+    },
+    {
+      "id": "sofia-nail-cocktail-boutique",
+      "category": "nails",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-elmida-beauty",
+      "category": "beauty",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-twisted-hladilnika",
+      "category": "fitness",
+      "neighborhood": "Хладилника"
+    },
+    {
+      "id": "sofia-twisted-slatina",
+      "category": "fitness",
+      "neighborhood": "Слатина"
+    },
+    {
+      "id": "sofia-sofiyski-remonti",
+      "category": "home_services",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-danyelle-hair-beauty",
+      "category": "hair",
+      "neighborhood": "Манастирски ливади"
+    },
+    {
+      "id": "sofia-belami-westmall",
+      "category": "nails",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-belami-park-center",
+      "category": "nails",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-salon-fiore",
+      "category": "nails",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-nn-hair-design",
+      "category": "hair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-uli-nails",
+      "category": "nails",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-lumiere-beauty-club",
+      "category": "nails",
+      "neighborhood": "Надежда 2"
+    },
+    {
+      "id": "sofia-alvien-nails",
+      "category": "nails",
+      "neighborhood": "Васил Левски"
+    },
+    {
+      "id": "sofia-persia-beauty",
+      "category": "hair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-bloom-beauty-evelyn",
+      "category": "nails",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-gpoint-five-corners",
+      "category": "beauty",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-gpoint-borovo",
+      "category": "beauty",
+      "neighborhood": "Борово"
+    },
+    {
+      "id": "sofia-gpoint-studentski-zimen-dvorets",
+      "category": "beauty",
+      "neighborhood": "Студентски град"
+    },
+    {
+      "id": "sofia-gpoint-ovcha-kupel-nbu",
+      "category": "beauty",
+      "neighborhood": "Овча купел"
+    },
+    {
+      "id": "sofia-gpoint-geo-milev",
+      "category": "beauty",
+      "neighborhood": "Гео Милев"
+    },
+    {
+      "id": "sofia-gpoint-lyulin-10",
+      "category": "beauty",
+      "neighborhood": "Люлин 10"
+    },
+    {
+      "id": "sofia-gpoint-mladost-1",
+      "category": "beauty",
+      "neighborhood": "Младост 1"
+    },
+    {
+      "id": "sofia-gpoint-dondukov",
+      "category": "beauty",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-gpoint-lozenets",
+      "category": "beauty",
+      "neighborhood": "Лозенец"
+    },
+    {
+      "id": "sofia-gpoint-hladilnika",
+      "category": "beauty",
+      "neighborhood": "Хладилника"
+    },
+    {
+      "id": "sofia-gpoint-suhata-reka",
+      "category": "beauty",
+      "neighborhood": "Сухата река"
+    },
+    {
+      "id": "sofia-gpoint-nadezhda-5",
+      "category": "beauty",
+      "neighborhood": "Връбница 1"
+    },
+    {
+      "id": "sofia-gpoint-zona-b19",
+      "category": "beauty",
+      "neighborhood": "Зона Б19"
+    },
+    {
+      "id": "sofia-gpoint-mladost-4",
+      "category": "beauty",
+      "neighborhood": "Младост 4"
+    },
+    {
+      "id": "sofia-gpoint-lyulin-7",
+      "category": "beauty",
+      "neighborhood": "Люлин 7"
+    },
+    {
+      "id": "sofia-gpoint-dianabad",
+      "category": "beauty",
+      "neighborhood": "Дианабад"
+    },
+    {
+      "id": "sofia-gpoint-stadion-vasil-levski",
+      "category": "beauty",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-gpoint-manastirski-iztok",
+      "category": "beauty",
+      "neighborhood": "Манастирски ливади – изток"
+    },
+    {
+      "id": "sofia-gpoint-reduta",
+      "category": "beauty",
+      "neighborhood": "Редута"
+    },
+    {
+      "id": "sofia-gpoint-nadezhda-2",
+      "category": "beauty",
+      "neighborhood": "Надежда 2"
+    },
+    {
+      "id": "sofia-gpoint-sadebna-palata",
+      "category": "beauty",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-gpoint-druzhba-2",
+      "category": "beauty",
+      "neighborhood": "Дружба 2"
+    },
+    {
+      "id": "sofia-gpoint-manastirski-zapad",
+      "category": "beauty",
+      "neighborhood": "Манастирски ливади – запад"
+    },
+    {
+      "id": "sofia-gpoint-dragalevtsi",
+      "category": "beauty",
+      "neighborhood": "Драгалевци"
+    },
+    {
+      "id": "sofia-gpoint-iztok",
+      "category": "beauty",
+      "neighborhood": "Изток"
+    },
+    {
+      "id": "sofia-gpoint-vma",
+      "category": "beauty",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-gpoint-ovcha-kupel-2",
+      "category": "beauty",
+      "neighborhood": "Овча Купел 2"
+    },
+    {
+      "id": "sofia-gpoint-hadzhi-dimitar",
+      "category": "beauty",
+      "neighborhood": "Хаджи Димитър"
+    },
+    {
+      "id": "sofia-gpoint-mladost-2",
+      "category": "beauty",
+      "neighborhood": "Младост 2"
+    },
+    {
+      "id": "sofia-gpoint-sveta-troitsa",
+      "category": "beauty",
+      "neighborhood": "Света Троица"
+    },
+    {
+      "id": "sofia-gpoint-darvenitsa",
+      "category": "beauty",
+      "neighborhood": "Дървеница"
+    },
+    {
+      "id": "sofia-gpoint-banishora",
+      "category": "beauty",
+      "neighborhood": "Банишора"
+    },
+    {
+      "id": "sofia-gpoint-ovcha-kupel-lyublyana",
+      "category": "beauty",
+      "neighborhood": "Овча купел"
+    },
+    {
+      "id": "sofia-gpoint-lyulin-8",
+      "category": "beauty",
+      "neighborhood": "Люлин 8"
+    },
+    {
+      "id": "sofia-gpoint-studentski-nikola-gabrovski",
+      "category": "beauty",
+      "neighborhood": "Студентски град"
+    },
+    {
+      "id": "sofia-gpoint-vitosha",
+      "category": "beauty",
+      "neighborhood": "Витоша"
+    },
+    {
+      "id": "sofia-gpoint-druzhba-1",
+      "category": "beauty",
+      "neighborhood": "Дружба 1"
+    },
+    {
+      "id": "sofia-gpoint-mladost-3",
+      "category": "beauty",
+      "neighborhood": "Младост 3"
+    },
+    {
+      "id": "sofia-gpoint-belite-brezi",
+      "category": "beauty",
+      "neighborhood": "Белите брези"
+    },
+    {
+      "id": "sofia-gpoint-krasna-polyana",
+      "category": "beauty",
+      "neighborhood": "Красна поляна"
+    },
+    {
+      "id": "sofia-gpoint-levski-g",
+      "category": "beauty",
+      "neighborhood": "Левски Г"
+    },
+    {
+      "id": "sofia-gpoint-ovcha-kupel-mizia",
+      "category": "beauty",
+      "neighborhood": "Овча купел 1"
+    },
+    {
+      "id": "sofia-gpoint-nadezhda-1",
+      "category": "beauty",
+      "neighborhood": "Надежда 1"
+    },
+    {
+      "id": "sofia-ts-beauty-levski",
+      "category": "beauty",
+      "neighborhood": "Левски"
+    },
+    {
+      "id": "sofia-ts-laser-reduta",
+      "category": "beauty",
+      "neighborhood": "Редута"
+    },
+    {
+      "id": "sofia-ts-nail-reduta",
+      "category": "nails",
+      "neighborhood": "Редута"
+    },
+    {
+      "id": "sofia-abi-beauty-serdika",
+      "category": "beauty",
+      "neighborhood": "Център"
+    },
+    {
+      "id": "sofia-abi-beauty-lozenets",
+      "category": "beauty",
+      "neighborhood": "Лозенец"
+    },
+    {
+      "id": "sofia-abi-beauty-druzhba-1",
+      "category": "beauty",
+      "neighborhood": "Дружба 1"
+    },
+    {
+      "id": "sofia-abi-beauty-druzhba-2",
+      "category": "beauty",
+      "neighborhood": "Дружба 2"
+    },
+    {
+      "id": "sofia-abi-beauty-nadezhda",
+      "category": "beauty",
+      "neighborhood": "Надежда 1"
+    },
+    {
+      "id": "sofia-abi-beauty-bul-bulgaria",
+      "category": "beauty",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-head-hunters-alabin",
+      "category": "barber",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-head-hunters-lozenets",
+      "category": "barber",
+      "neighborhood": "Лозенец"
+    },
+    {
+      "id": "sofia-head-hunters-mladost",
+      "category": "barber",
+      "neighborhood": "Младост"
+    },
+    {
+      "id": "sofia-head-hunters-levski",
+      "category": "barber",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-head-hunters-ruski-pametnik",
+      "category": "barber",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-head-hunters-academy",
+      "category": "barber",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-head-hunters-dondukov",
+      "category": "barber",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-the-one-studio",
+      "category": "barber",
+      "neighborhood": "Студентски град"
+    },
+    {
+      "id": "sofia-the-one-deluxe",
+      "category": "barber",
+      "neighborhood": "Студентски град"
+    },
+    {
+      "id": "sofia-the-one-barbershop",
+      "category": "barber",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-the-one-premium",
+      "category": "barber",
+      "neighborhood": "Хладилника"
+    },
+    {
+      "id": "sofia-the-one-private",
+      "category": "barber",
+      "neighborhood": "Драгалевци"
+    },
+    {
+      "id": "sofia-the-one-famous",
+      "category": "barber",
+      "neighborhood": "Център"
+    },
+    {
+      "id": "sofia-jonita-auto",
+      "category": "auto_repair",
+      "neighborhood": "Горубляне"
+    },
+    {
+      "id": "sofia-vladi-service",
+      "category": "auto_repair",
+      "neighborhood": "Дружба"
+    },
+    {
+      "id": "sofia-autoxpert",
+      "category": "auto_repair",
+      "neighborhood": "Витоша"
+    },
+    {
+      "id": "sofia-autovilla",
+      "category": "auto_repair",
+      "neighborhood": "Красна поляна"
+    },
+    {
+      "id": "sofia-autocomplex-rs",
+      "category": "auto_repair",
+      "neighborhood": "Модерно предградие"
+    },
+    {
+      "id": "sofia-tl-autoservice",
+      "category": "auto_repair",
+      "neighborhood": "Васил Левски"
+    },
+    {
+      "id": "sofia-lucky-garage",
+      "category": "auto_repair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-autoclinic-bg",
+      "category": "auto_repair",
+      "neighborhood": "Дружба 1"
+    },
+    {
+      "id": "sofia-diana-tsarigradsko",
+      "category": "auto_repair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-diana-botevgradsko",
+      "category": "auto_repair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-diana-dragalevtsi",
+      "category": "auto_repair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-diana-lyulin",
+      "category": "auto_repair",
+      "neighborhood": "Люлин"
+    },
+    {
+      "id": "sofia-primex-botevgradsko",
+      "category": "auto_repair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-primex-okolovrasten",
+      "category": "auto_repair",
+      "neighborhood": "Манастирски ливади"
+    },
+    {
+      "id": "sofia-impact-boxing",
+      "category": "fitness",
+      "neighborhood": "Павлово"
+    },
+    {
+      "id": "sofia-bastet-kickboxing",
+      "category": "fitness",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-lazarov-athletics",
+      "category": "fitness",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-bruno-bastos-bjj",
+      "category": "fitness",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-wmaa-mladost",
+      "category": "fitness",
+      "neighborhood": "Младост 4"
+    },
+    {
+      "id": "sofia-tsanev-manastirski",
+      "category": "fitness",
+      "neighborhood": "Манастирски ливади"
+    },
+    {
+      "id": "sofia-tsanev-hipodruma",
+      "category": "fitness",
+      "neighborhood": "Хиподрума"
+    },
+    {
+      "id": "sofia-tsanev-gotse-delchev",
+      "category": "fitness",
+      "neighborhood": "Гоце Делчев"
+    },
+    {
+      "id": "sofia-tsanev-sveta-troitsa",
+      "category": "fitness",
+      "neighborhood": "Св. Троица"
+    },
+    {
+      "id": "sofia-tsanev-zaharna-fabrika",
+      "category": "fitness",
+      "neighborhood": "Захарна фабрика"
+    },
+    {
+      "id": "sofia-phoenix-taekwondo-druzhba",
+      "category": "fitness",
+      "neighborhood": "Дружба 2"
+    },
+    {
+      "id": "sofia-ewto-lozenets",
+      "category": "fitness",
+      "neighborhood": "Лозенец"
+    },
+    {
+      "id": "sofia-ewto-stadium",
+      "category": "fitness",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-pilates-maria-reduta",
+      "category": "fitness",
+      "neighborhood": "Редута"
+    },
+    {
+      "id": "sofia-angels-pilates",
+      "category": "fitness",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-new-way-group-training",
+      "category": "fitness",
+      "neighborhood": "Западен парк"
+    },
+    {
+      "id": "sofia-jp-studio-reformer",
+      "category": "fitness",
+      "neighborhood": "Студентски град"
+    },
+    {
+      "id": "sofia-reformer-vibe",
+      "category": "fitness",
+      "neighborhood": "Красно село"
+    },
+    {
+      "id": "sofia-kometa-autocenter",
+      "category": "auto_repair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-omniris-pdr",
+      "category": "auto_repair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-klimacicite-mobile",
+      "category": "auto_repair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-po-manyashkiya-detailing",
+      "category": "detailing",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-georgis-garage-sofia",
+      "category": "detailing",
+      "neighborhood": "Студентски град"
+    },
+    {
+      "id": "sofia-luxspa-mobile-detailing",
+      "category": "detailing",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-pulsar-mobile-detailing",
+      "category": "detailing",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-sofia-detailing-studio",
+      "category": "detailing",
+      "neighborhood": "Младост 3"
+    },
+    {
+      "id": "sofia-zona-wash",
+      "category": "car_wash",
+      "neighborhood": "Младост 3"
+    },
+    {
+      "id": "sofia-auto-manager-carwash",
+      "category": "car_wash",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-fantastic-plumbing",
+      "category": "home_services",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-cleanrs",
+      "category": "home_services",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-chistnik",
+      "category": "home_services",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-antilopa-cleaning",
+      "category": "home_services",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-marani-cleaning",
+      "category": "home_services",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-borisov-clean",
+      "category": "home_services",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-si-cleaning",
+      "category": "home_services",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-remonti-metodiev-cleaning",
+      "category": "home_services",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-elpro",
+      "category": "home_services",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-uslugi-vik",
+      "category": "home_services",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-rotorem-home-repair",
+      "category": "home_services",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-petar-georgiev-appliance",
+      "category": "home_services",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-bravo-boiler-installation",
+      "category": "home_services",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-ac-clean-proclima",
+      "category": "home_services",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-clean2win",
+      "category": "home_services",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-cleandirect",
+      "category": "home_services",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-topcleaner",
+      "category": "home_services",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-freshclean",
+      "category": "home_services",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-monster-cleaning",
+      "category": "home_services",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-pochisteno",
+      "category": "home_services",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-podstrizhime-grooming",
+      "category": "pets",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-sofia-vet-grooming",
+      "category": "pets",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-ramona-grooming",
+      "category": "pets",
+      "neighborhood": "Младост 1"
+    },
+    {
+      "id": "sofia-paw-paw-mobile",
+      "category": "pets",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-felix-dogs-lyulin",
+      "category": "pets",
+      "neighborhood": "Люлин 10"
+    },
+    {
+      "id": "sofia-felix-dogs-lagera",
+      "category": "pets",
+      "neighborhood": "Лагера"
+    },
+    {
+      "id": "sofia-new-vita-grooming",
+      "category": "pets",
+      "neighborhood": "Обеля"
+    },
+    {
+      "id": "sofia-yorki-sofia",
+      "category": "pets",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-physio-point",
+      "category": "health",
+      "neighborhood": "Лозенец"
+    },
+    {
+      "id": "sofia-omni-iztok",
+      "category": "health",
+      "neighborhood": "Изток"
+    },
+    {
+      "id": "sofia-omni-druzhba",
+      "category": "health",
+      "neighborhood": "Дружба 2"
+    },
+    {
+      "id": "sofia-omni-amaya-massage",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-topal-center",
+      "category": "health",
+      "neighborhood": "Манастирски ливади"
+    },
+    {
+      "id": "sofia-arthromedica",
+      "category": "health",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-office-therapy",
+      "category": "health",
+      "neighborhood": "Лозенец"
+    },
+    {
+      "id": "sofia-physio-be-active",
+      "category": "health",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-sportmed",
+      "category": "health",
+      "neighborhood": "Хиподрума"
+    },
+    {
+      "id": "sofia-dara-physiotherapy",
+      "category": "health",
+      "neighborhood": "Витоша"
+    },
+    {
+      "id": "sofia-vibomi",
+      "category": "health",
+      "neighborhood": "Илинден"
+    },
+    {
+      "id": "sofia-mm-therapy",
+      "category": "health",
+      "neighborhood": "Света Троица"
+    },
+    {
+      "id": "sofia-drum-action",
+      "category": "education",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-po-noti",
+      "category": "education",
+      "neighborhood": "Изток"
+    },
+    {
+      "id": "sofia-rhythm-academy",
+      "category": "education",
+      "neighborhood": "Драгалевци"
+    },
+    {
+      "id": "sofia-keramika-zari",
+      "category": "education",
+      "neighborhood": "Люлин 10"
+    },
+    {
+      "id": "sofia-vocal-vision-house",
+      "category": "education",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-aristea-buzludzha",
+      "category": "education",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-aristea-hristo-botev",
+      "category": "education",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-edno-school",
+      "category": "education",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-nota-music-room",
+      "category": "education",
+      "neighborhood": "Гоце Делчев"
+    },
+    {
+      "id": "sofia-mymusic-center",
+      "category": "education",
+      "neighborhood": "Студентски град"
+    },
+    {
+      "id": "sofia-sokol-nedkov",
+      "category": "consulting",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-law-bba",
+      "category": "consulting",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-finansial-consultation",
+      "category": "consulting",
+      "neighborhood": "Кръстова вада"
+    },
+    {
+      "id": "sofia-spravo-consultation",
+      "category": "consulting",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-nikolay-nikolaev-law",
+      "category": "consulting",
+      "neighborhood": "Изгрев"
+    },
+    {
+      "id": "sofia-irina-konstantinova",
+      "category": "consulting",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-asotopbrain-consultation",
+      "category": "consulting",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-somenso-career",
+      "category": "consulting",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-np-dental-clinic",
+      "category": "other",
+      "neighborhood": "Студентски град"
+    },
+    {
+      "id": "sofia-kambov-dental-clinic",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-pangeva-dental",
+      "category": "other",
+      "neighborhood": "Лозенец"
+    },
+    {
+      "id": "sofia-veadent-gurko",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-veadent-skobelev",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-belladente",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-sf-dent",
+      "category": "other",
+      "neighborhood": "Изгрев"
+    },
+    {
+      "id": "sofia-e-dental-clinic",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-impression-dent",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-snap-dental-care",
+      "category": "other",
+      "neighborhood": "Манастирски ливади"
+    },
+    {
+      "id": "sofia-margarita-dimitrova-psychologist",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-kristina-sungarska",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-body-and-soul-massage",
+      "category": "other",
+      "neighborhood": "Яворов"
+    },
+    {
+      "id": "sofia-gloss-nails",
+      "category": "nails",
+      "neighborhood": "Стрелбище"
+    },
+    {
+      "id": "sofia-marty-academy-dospevski",
+      "category": "barber",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-marty-gerena-veleka",
+      "category": "barber",
+      "neighborhood": "Подуяне"
+    },
+    {
+      "id": "sofia-bull-barber-shop",
+      "category": "barber",
+      "neighborhood": "Лозенец"
+    },
+    {
+      "id": "sofia-jezuscutz-studio",
+      "category": "barber",
+      "neighborhood": "Яворов"
+    },
+    {
+      "id": "sofia-luxury-nails-cherkovna",
+      "category": "nails",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-queen-beauty-room",
+      "category": "nails",
+      "neighborhood": "Драгалевци"
+    },
+    {
+      "id": "sofia-salon-bard",
+      "category": "nails",
+      "neighborhood": "Надежда 2"
+    },
+    {
+      "id": "sofia-san-krasi-barber",
+      "category": "barber",
+      "neighborhood": "Люлин 4"
+    },
+    {
+      "id": "sofia-classy-barbershop",
+      "category": "barber",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-neda-art-nails",
+      "category": "nails",
+      "neighborhood": "Надежда 2"
+    },
+    {
+      "id": "sofia-yd-beauty-brand",
+      "category": "nails",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-coco-dry-bar-nail-house",
+      "category": "hair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-noxic-beauty",
+      "category": "nails",
+      "neighborhood": "Дружба 2"
+    },
+    {
+      "id": "sofia-salon-elegant-iztok",
+      "category": "hair",
+      "neighborhood": "Изток"
+    },
+    {
+      "id": "sofia-ts-studio-blagorodna",
+      "category": "hair",
+      "neighborhood": "Гео Милев"
+    },
+    {
+      "id": "sofia-md-hairclub",
+      "category": "hair",
+      "neighborhood": "Лозенец"
+    },
+    {
+      "id": "sofia-anna-nailz-art",
+      "category": "nails",
+      "neighborhood": "Овча купел"
+    },
+    {
+      "id": "sofia-beauty-betyna-yovcheva",
+      "category": "nails",
+      "neighborhood": "Овча купел"
+    },
+    {
+      "id": "sofia-dorado-beauty-wellness",
+      "category": "nails",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-viktoria-beauty-lyulin",
+      "category": "hair",
+      "neighborhood": "Люлин 3"
+    },
+    {
+      "id": "sofia-beauty-studio-99",
+      "category": "nails",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-the-one-nails-hair",
+      "category": "nails",
+      "neighborhood": "Студентски град"
+    },
+    {
+      "id": "sofia-artemida-paradise",
+      "category": "nails",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-artemida-studentski",
+      "category": "nails",
+      "neighborhood": "Студентски град"
+    },
+    {
+      "id": "sofia-murphy-graf-ignatiev",
+      "category": "hair",
+      "neighborhood": "Център"
+    },
+    {
+      "id": "sofia-murphy-patriarh-evtimii",
+      "category": "hair",
+      "neighborhood": "Център"
+    },
+    {
+      "id": "sofia-snb-salon-dunav",
+      "category": "nails",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-stephan-mladost",
+      "category": "hair",
+      "neighborhood": "Младост 3"
+    },
+    {
+      "id": "sofia-stephan-lagera",
+      "category": "hair",
+      "neighborhood": "Лагера"
+    },
+    {
+      "id": "sofia-stephan-oborishte",
+      "category": "hair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-stephan-iztok",
+      "category": "hair",
+      "neighborhood": "Изток"
+    },
+    {
+      "id": "sofia-stephan-borovo",
+      "category": "hair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-stephan-academy-stephan",
+      "category": "hair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-inspire-business-park",
+      "category": "hair",
+      "neighborhood": "Младост 4"
+    },
+    {
+      "id": "sofia-inspire-mladost-1",
+      "category": "hair",
+      "neighborhood": "Младост 1"
+    },
+    {
+      "id": "sofia-inspire-iztok",
+      "category": "hair",
+      "neighborhood": "Изток"
+    },
+    {
+      "id": "sofia-inspire-paradise",
+      "category": "hair",
+      "neighborhood": "Хладилника"
+    },
+    {
+      "id": "sofia-inspire-krastova-vada",
+      "category": "hair",
+      "neighborhood": "Кръстова вада"
+    },
+    {
+      "id": "sofia-inspire-manastirski-livadi",
+      "category": "hair",
+      "neighborhood": "Манастирски ливади"
+    },
+    {
+      "id": "sofia-inspire-studentski-grad",
+      "category": "hair",
+      "neighborhood": "Студентски град"
+    },
+    {
+      "id": "sofia-els-makeup",
+      "category": "beauty",
+      "neighborhood": "Овча купел"
+    },
+    {
+      "id": "sofia-classaqueen",
+      "category": "beauty",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-skinni-aesthetic",
+      "category": "beauty",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-magama-damyan-gruev",
+      "category": "hair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-terra-adora-spa-beauty",
+      "category": "hair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-kikimora-beauty-studio",
+      "category": "hair",
+      "neighborhood": "Манастирски ливади"
+    },
+    {
+      "id": "sofia-arlet-stars",
+      "category": "hair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-pellucci-lozenets",
+      "category": "hair",
+      "neighborhood": "Лозенец"
+    },
+    {
+      "id": "sofia-lotos-pirin",
+      "category": "nails",
+      "neighborhood": "Манастирски ливади"
+    },
+    {
+      "id": "sofia-stephan-nails-academy",
+      "category": "nails",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-mg-art-beauty",
+      "category": "beauty",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-rock-n-roll-barbershop",
+      "category": "barber",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-texture-barbershop",
+      "category": "barber",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-king-barber-ovcha-kupel",
+      "category": "barber",
+      "neighborhood": "Овча купел 1"
+    },
+    {
+      "id": "sofia-barberians",
+      "category": "barber",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-barber-shop-kano",
+      "category": "barber",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-cutters-barber-club",
+      "category": "barber",
+      "neighborhood": "Студентски град"
+    },
+    {
+      "id": "sofia-barrnat-style",
+      "category": "barber",
+      "neighborhood": "Студентски град"
+    },
+    {
+      "id": "sofia-alexiev-slatina",
+      "category": "barber",
+      "neighborhood": "Слатина"
+    },
+    {
+      "id": "sofia-alexiev-la-barberia",
+      "category": "barber",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-superbarber-vitosha",
+      "category": "barber",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-nv-barbers-studentski-grad",
+      "category": "barber",
+      "neighborhood": "Студентски град"
+    },
+    {
+      "id": "sofia-nv-barbers-malinova-dolina",
+      "category": "barber",
+      "neighborhood": "Малинова долина"
+    },
+    {
+      "id": "sofia-nv-barbers-manastirski-livadi",
+      "category": "barber",
+      "neighborhood": "Манастирски ливади"
+    },
+    {
+      "id": "sofia-nv-barbers-dianabad",
+      "category": "barber",
+      "neighborhood": "Дианабад"
+    },
+    {
+      "id": "sofia-motorista-carwash",
+      "category": "car_wash",
+      "neighborhood": "Младост 4"
+    },
+    {
+      "id": "sofia-lux-mbal-sveta-sofia-carwash",
+      "category": "car_wash",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-superior-pickup-carwash",
+      "category": "car_wash",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-wash-go-detailing",
+      "category": "car_wash",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-topchiev-detailed",
+      "category": "detailing",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-carkings",
+      "category": "detailing",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-signature-detailing",
+      "category": "detailing",
+      "neighborhood": "Манастирски ливади"
+    },
+    {
+      "id": "sofia-carbox-studio",
+      "category": "detailing",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-speed-garage-sofia",
+      "category": "auto_repair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-factor-detailing",
+      "category": "detailing",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-nhs-detailing",
+      "category": "detailing",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-cosmos-detailing",
+      "category": "detailing",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-virage-details",
+      "category": "detailing",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-sarafovi-auto",
+      "category": "auto_repair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-gumi-slick-krasna-polyana",
+      "category": "auto_repair",
+      "neighborhood": "Красна поляна 2"
+    },
+    {
+      "id": "sofia-gumi-slick-simeonovsko",
+      "category": "auto_repair",
+      "neighborhood": "Малинова долина"
+    },
+    {
+      "id": "sofia-sandi-auto",
+      "category": "auto_repair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-clean-ride-autoservice",
+      "category": "auto_repair",
+      "neighborhood": "Левски В"
+    },
+    {
+      "id": "sofia-drivealot",
+      "category": "auto_repair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-auto-park-solutions",
+      "category": "auto_repair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-cherven-bryag-boxing-sofia",
+      "category": "fitness",
+      "neighborhood": "Обеля 2"
+    },
+    {
+      "id": "sofia-steel-style-boxing",
+      "category": "fitness",
+      "neighborhood": "Студентски град"
+    },
+    {
+      "id": "sofia-sila-karate-children",
+      "category": "fitness",
+      "neighborhood": "Студентски град"
+    },
+    {
+      "id": "sofia-heal-fit-gymnastics",
+      "category": "fitness",
+      "neighborhood": "Манастирски ливади"
+    },
+    {
+      "id": "sofia-xzona-sport",
+      "category": "fitness",
+      "neighborhood": "Овча купел"
+    },
+    {
+      "id": "sofia-zdravi-lapi-grooming",
+      "category": "pets",
+      "neighborhood": "Кръстова вада"
+    },
+    {
+      "id": "sofia-bumbachka-grooming",
+      "category": "pets",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-serkan-uzun-lyulin",
+      "category": "health",
+      "neighborhood": "Люлин 1"
+    },
+    {
+      "id": "sofia-serkan-uzun-ortopedia",
+      "category": "health",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-avitsena-rehabilitation",
+      "category": "health",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-radoslav-valev-law",
+      "category": "consulting",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-dm-physio-studentski",
+      "category": "health",
+      "neighborhood": "Студентски град"
+    },
+    {
+      "id": "sofia-dm-physio-mladost",
+      "category": "health",
+      "neighborhood": "Младост 1А"
+    },
+    {
+      "id": "sofia-aura-massage",
+      "category": "health",
+      "neighborhood": "Стрелбище"
+    },
+    {
+      "id": "sofia-mieli-massage",
+      "category": "health",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-svetoslav-grigorov-law",
+      "category": "consulting",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-linnea-language-school",
+      "category": "education",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-etud-drawing-lessons",
+      "category": "education",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-avarton-music-academy",
+      "category": "education",
+      "neighborhood": "Младост 1А"
+    },
+    {
+      "id": "sofia-daga-vocal-studio",
+      "category": "education",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-legalmasters-consultation",
+      "category": "consulting",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-edelweiss-accounting",
+      "category": "consulting",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-happy-kids-dental",
+      "category": "other",
+      "neighborhood": "Иван Вазов"
+    },
+    {
+      "id": "sofia-face-id-dental",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-vesi-todorova-psychologist",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-desislava-kolchevska",
+      "category": "other",
+      "neighborhood": "Лозенец"
+    },
+    {
+      "id": "sofia-dental-place",
+      "category": "other",
+      "neighborhood": "Манастирски ливади"
+    },
+    {
+      "id": "sofia-hrisiyana-varbanska",
+      "category": "other",
+      "neighborhood": "Суха река"
+    },
+    {
+      "id": "sofia-denta-plus",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-daniela-baldzhieva",
+      "category": "other",
+      "neighborhood": "Бъкстон"
+    },
+    {
+      "id": "sofia-q-life-kinezitherapy",
+      "category": "health",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-bo-bella-grooming",
+      "category": "pets",
+      "neighborhood": "Бояна"
+    },
+    {
+      "id": "sofia-love-your-pets-grooming",
+      "category": "pets",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-sofia-physio-center",
+      "category": "health",
+      "neighborhood": "Манастирски ливади"
+    },
+    {
+      "id": "sofia-okto-oborishte",
+      "category": "health",
+      "neighborhood": "Оборище"
+    },
+    {
+      "id": "sofia-okto-lozenets",
+      "category": "health",
+      "neighborhood": "Лозенец"
+    },
+    {
+      "id": "sofia-kainezi-therapy",
+      "category": "health",
+      "neighborhood": "Лозенец"
+    },
+    {
+      "id": "sofia-nikolay-chudotvorets-rehab",
+      "category": "health",
+      "neighborhood": "Княжево"
+    },
+    {
+      "id": "sofia-lilia-stefanova",
+      "category": "other",
+      "neighborhood": "Стрелбище"
+    },
+    {
+      "id": "sofia-vasilena-hristova",
+      "category": "other",
+      "neighborhood": "Лозенец"
+    },
+    {
+      "id": "sofia-art-uroci-zhanet-zhecheva",
+      "category": "education",
+      "neighborhood": "Дружба 2"
+    },
+    {
+      "id": "sofia-innovation-private-lessons",
+      "category": "education",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-silvia-petkova-law",
+      "category": "consulting",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-simeonov-law-sofia",
+      "category": "consulting",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-georgi-malchev-law",
+      "category": "consulting",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-rastashki-law",
+      "category": "consulting",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-nikolay-dimitrov-insurance-law",
+      "category": "consulting",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-kavazova-tax-law",
+      "category": "consulting",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-haelan-bulgaria-rehab",
+      "category": "health",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-haelan-mladost-rehab",
+      "category": "health",
+      "neighborhood": "Младост 4"
+    },
+    {
+      "id": "sofia-sofia-dental-ivan-asen",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-denta-pro",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-uzunov-dental",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-doctor-dent",
+      "category": "other",
+      "neighborhood": "Манастирски ливади-Запад"
+    },
+    {
+      "id": "sofia-ismile-lozenets",
+      "category": "other",
+      "neighborhood": "Лозенец"
+    },
+    {
+      "id": "sofia-ismile-lyulin",
+      "category": "other",
+      "neighborhood": "Люлин"
+    },
+    {
+      "id": "sofia-diana-radeva-logoped",
+      "category": "other",
+      "neighborhood": "Бели брези"
+    },
+    {
+      "id": "sofia-osoba-kinezitherapy",
+      "category": "health",
+      "neighborhood": "Мотописта"
+    },
+    {
+      "id": "sofia-physiohome-home-rehab",
+      "category": "health",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-soul-ceramics",
+      "category": "education",
+      "neighborhood": "Изток"
+    },
+    {
+      "id": "sofia-pink-cormorant",
+      "category": "education",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-ucheben-svyat-ivan-vazov",
+      "category": "education",
+      "neighborhood": "Иван Вазов"
+    },
+    {
+      "id": "sofia-ucheben-svyat-mladost",
+      "category": "education",
+      "neighborhood": "Младост 3"
+    },
+    {
+      "id": "sofia-zvuk-po-zvuk-pozitano",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-zvuk-po-zvuk-velcho-atanasov",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-yoga-vibe-san-stefano",
+      "category": "fitness",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-yoga-vibe-bulgaria",
+      "category": "fitness",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-yoga-vibe-garitage",
+      "category": "fitness",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-yoga-vibe-mladost",
+      "category": "fitness",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-moto-pfohe-jaguar-land-rover",
+      "category": "auto_repair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-moto-pfohe-lyulin",
+      "category": "auto_repair",
+      "neighborhood": "Люлин"
+    },
+    {
+      "id": "sofia-moto-pfohe-mladost",
+      "category": "auto_repair",
+      "neighborhood": "Младост"
+    },
+    {
+      "id": "sofia-satori-ivan-vazov",
+      "category": "beauty",
+      "neighborhood": "Иван Вазов"
+    },
+    {
+      "id": "sofia-satori-manastirski-livadi",
+      "category": "beauty",
+      "neighborhood": "Манастирски ливади"
+    },
+    {
+      "id": "sofia-resoul-studio",
+      "category": "fitness",
+      "neighborhood": "Кръстова вада"
+    },
+    {
+      "id": "sofia-shun-dojo-nsa",
+      "category": "fitness",
+      "neighborhood": "Студентски град"
+    },
+    {
+      "id": "sofia-avtogumi-mladost",
+      "category": "auto_repair",
+      "neighborhood": "Младост"
+    },
+    {
+      "id": "sofia-eo-dent-arsenalski",
+      "category": "other",
+      "neighborhood": "Лозенец"
+    },
+    {
+      "id": "sofia-eo-dent-implantology",
+      "category": "other",
+      "neighborhood": "Лозенец"
+    },
+    {
+      "id": "sofia-eo-dent-dianabad",
+      "category": "other",
+      "neighborhood": "Дианабад"
+    },
+    {
+      "id": "sofia-eo-dent-lyulin",
+      "category": "other",
+      "neighborhood": "Люлин 4"
+    },
+    {
+      "id": "sofia-denny-divine-sveti-naum",
+      "category": "beauty",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-denny-divine-strelbishte",
+      "category": "beauty",
+      "neighborhood": "Стрелбище"
+    },
+    {
+      "id": "sofia-duda-druzhba",
+      "category": "nails",
+      "neighborhood": "Дружба 1"
+    },
+    {
+      "id": "sofia-duda-hadzhi-dimitar",
+      "category": "nails",
+      "neighborhood": "Хаджи Димитър"
+    },
+    {
+      "id": "sofia-gigi-pilates-boyana",
+      "category": "fitness",
+      "neighborhood": "Бояна"
+    },
+    {
+      "id": "sofia-reform-pilates-tanya-koleva",
+      "category": "fitness",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-vayasport",
+      "category": "fitness",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-bono-grooming",
+      "category": "pets",
+      "neighborhood": "Бъкстон"
+    },
+    {
+      "id": "sofia-baron-grooming",
+      "category": "pets",
+      "neighborhood": "Лозенец"
+    },
+    {
+      "id": "sofia-zoofamilia-iztok",
+      "category": "pets",
+      "neighborhood": "Изток"
+    },
+    {
+      "id": "sofia-underground-barbershop",
+      "category": "barber",
+      "neighborhood": "Люлин 4"
+    },
+    {
+      "id": "sofia-nalby-vip",
+      "category": "barber",
+      "neighborhood": "Славия"
+    },
+    {
+      "id": "sofia-vesimed",
+      "category": "nails",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-md-beauty-empire",
+      "category": "nails",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-cheveux-sofia",
+      "category": "hair",
+      "neighborhood": "Младост 1А"
+    },
+    {
+      "id": "sofia-vyara-dragneva",
+      "category": "consulting",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-georgi-gochev-law",
+      "category": "consulting",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-elka-ilieva",
+      "category": "other",
+      "neighborhood": "Дървеница"
+    },
+    {
+      "id": "sofia-clean-labs",
+      "category": "home_services",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-gtp-prezident-lincoln",
+      "category": "auto_repair",
+      "neighborhood": "Овча купел"
+    },
+    {
+      "id": "sofia-serviz-petkov",
+      "category": "auto_repair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-salon-de-beaute",
+      "category": "beauty",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-amik-sport",
+      "category": "fitness",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-sinxron-studios",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-gumerov-studio",
+      "category": "other",
+      "neighborhood": "Манастирски ливади"
+    },
+    {
+      "id": "sofia-dreamink-tattoo",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-dan-k-style",
+      "category": "hair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-derma-expert-yakubitsa",
+      "category": "beauty",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-espace-auto-nissan",
+      "category": "auto_repair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-lazercentar-levski",
+      "category": "beauty",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-lazercentar-stamboliyski",
+      "category": "beauty",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-lazercentar-patriarh",
+      "category": "beauty",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-lazercentar-studentski",
+      "category": "beauty",
+      "neighborhood": "Студентски град"
+    },
+    {
+      "id": "sofia-laser-expert",
+      "category": "beauty",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-ss-deluxe-signature-beauty",
+      "category": "beauty",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-nasi-style",
+      "category": "hair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-my-pilates-reformer",
+      "category": "fitness",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-the-hall-mladost",
+      "category": "fitness",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-sama-pilates",
+      "category": "fitness",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-kavident",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-vd-dent",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-dara-dent",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-sofia-dental-studio",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-msmile",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-medica-62",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-svedent",
+      "category": "other",
+      "neighborhood": "Лозенец"
+    },
+    {
+      "id": "sofia-splendent",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-id-dental",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-stoma-dent-smirnenski",
+      "category": "other",
+      "neighborhood": "Христо Смирненски"
+    },
+    {
+      "id": "sofia-stoma-dent-chataldzha",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-space-for-sharing",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-mint-clinic",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-dentel-centre",
+      "category": "other",
+      "neighborhood": "Център"
+    },
+    {
+      "id": "sofia-dentel-lyulin",
+      "category": "other",
+      "neighborhood": "Люлин 10"
+    },
+    {
+      "id": "sofia-kirilova-dent",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-denta-house",
+      "category": "other",
+      "neighborhood": "Стрелбище"
+    },
+    {
+      "id": "sofia-davident",
+      "category": "other",
+      "neighborhood": "Дианабад"
+    },
+    {
+      "id": "sofia-spadent",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-vdent-sofia",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-medpedicure-albena-zhivankina",
+      "category": "nails",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-viks-beauty-studio",
+      "category": "beauty",
+      "neighborhood": "Люлин 8"
+    },
+    {
+      "id": "sofia-shavi-krasno-selo",
+      "category": "barber",
+      "neighborhood": "Красно село"
+    },
+    {
+      "id": "sofia-shavi-beli-brezi",
+      "category": "barber",
+      "neighborhood": "Бели брези"
+    },
+    {
+      "id": "sofia-shavi-lozenets",
+      "category": "barber",
+      "neighborhood": "Лозенец"
+    },
+    {
+      "id": "sofia-tt777-trans-titan",
+      "category": "auto_repair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-drumnik",
+      "category": "auto_repair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-body-atelier",
+      "category": "health",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-dupissima-strelbishte",
+      "category": "beauty",
+      "neighborhood": "Стрелбище"
+    },
+    {
+      "id": "sofia-dupissima-ring-mall",
+      "category": "beauty",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-dupissima-gotse-delchev",
+      "category": "beauty",
+      "neighborhood": "Гоце Делчев"
+    },
+    {
+      "id": "sofia-fetish-hair-atelier",
+      "category": "hair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-esthemed-aesthetic",
+      "category": "beauty",
+      "neighborhood": "Иван Вазов"
+    },
+    {
+      "id": "sofia-beauty-studio-marry-moskovska",
+      "category": "hair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-beauty-studio-marry-kuklata",
+      "category": "hair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-beauty-studio-51",
+      "category": "nails",
+      "neighborhood": "Младост 1"
+    },
+    {
+      "id": "sofia-beauty-center-karima",
+      "category": "beauty",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-goldy-grooming",
+      "category": "pets",
+      "neighborhood": "Лозенец"
+    },
+    {
+      "id": "sofia-porsche-sofia-iztok-service",
+      "category": "auto_repair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-porsche-sofia-jug-service",
+      "category": "auto_repair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-porsche-sofia-zapad-service",
+      "category": "auto_repair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-porsche-center-sofia",
+      "category": "auto_repair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-bmw-m-car-sofia",
+      "category": "auto_repair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-bmw-m-car-west",
+      "category": "auto_repair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-toyota-tm-auto-west",
+      "category": "auto_repair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-toyota-tm-auto-east",
+      "category": "auto_repair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-silver-star-chelopechko",
+      "category": "auto_repair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-niko-09",
+      "category": "auto_repair",
+      "neighborhood": "Дружба"
+    },
+    {
+      "id": "sofia-del-service",
+      "category": "auto_repair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-mobilna-diagnostika",
+      "category": "auto_repair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-tennis-lyulin-6",
+      "category": "fitness",
+      "neighborhood": "Люлин"
+    },
+    {
+      "id": "sofia-squash-club-bulgaria",
+      "category": "fitness",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-medical-arts",
+      "category": "other",
+      "neighborhood": "Овча купел"
+    },
+    {
+      "id": "sofia-bonident",
+      "category": "other",
+      "neighborhood": "Младост 1"
+    },
+    {
+      "id": "sofia-ig-dental",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-yoursmile",
+      "category": "other",
+      "neighborhood": "Стефан Караджа"
+    },
+    {
+      "id": "sofia-dentaglo",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-lk-dent",
+      "category": "other",
+      "neighborhood": "Карпузица"
+    },
+    {
+      "id": "sofia-smile-factory-pavlovich",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-kantora-zhelyazkov",
+      "category": "consulting",
+      "neighborhood": "Център"
+    },
+    {
+      "id": "sofia-trifonov-sofia",
+      "category": "consulting",
+      "neighborhood": "Център"
+    },
+    {
+      "id": "sofia-domashen-maistor-vasil",
+      "category": "home_services",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-latin-force-centre",
+      "category": "fitness",
+      "neighborhood": "Център"
+    },
+    {
+      "id": "sofia-latin-force-pliska",
+      "category": "fitness",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-latin-force-mall-sofia",
+      "category": "fitness",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-studio-elita",
+      "category": "beauty",
+      "neighborhood": "Студентски град"
+    },
+    {
+      "id": "sofia-thai-spa-sopharma",
+      "category": "health",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-thai-spa-bulgaria-mall",
+      "category": "health",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-thai-spa-the-mall",
+      "category": "health",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-balance-clinic",
+      "category": "health",
+      "neighborhood": "Манастирски ливади"
+    },
+    {
+      "id": "sofia-kipra-beauty",
+      "category": "nails",
+      "neighborhood": "Овча купел 1"
+    },
+    {
+      "id": "sofia-vp-beauty-studio",
+      "category": "hair",
+      "neighborhood": "Овча купел"
+    },
+    {
+      "id": "sofia-venis-belleza",
+      "category": "beauty",
+      "neighborhood": "Овча купел"
+    },
+    {
+      "id": "sofia-salt-art-iztok",
+      "category": "fitness",
+      "neighborhood": "Изток"
+    },
+    {
+      "id": "sofia-salt-art-druzhba",
+      "category": "fitness",
+      "neighborhood": "Дружба 2"
+    },
+    {
+      "id": "sofia-salt-art-centre",
+      "category": "fitness",
+      "neighborhood": "Иван Вазов"
+    },
+    {
+      "id": "sofia-nie-kuchetata-grooming",
+      "category": "pets",
+      "neighborhood": "Витоша"
+    },
+    {
+      "id": "sofia-puppy-bubbles",
+      "category": "pets",
+      "neighborhood": "Обеля"
+    },
+    {
+      "id": "sofia-autoassist",
+      "category": "car_wash",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-vita-base-two",
+      "category": "health",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-vita-base-one",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-homelab-renovations",
+      "category": "home_services",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-homefixer",
+      "category": "home_services",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-one-space",
+      "category": "fitness",
+      "neighborhood": "Изток"
+    },
+    {
+      "id": "sofia-domashen-maistor-com",
+      "category": "home_services",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-art-and-shock",
+      "category": "education",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-malki-muzikalni-uroci",
+      "category": "education",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-city-music-school",
+      "category": "education",
+      "neighborhood": "Център"
+    },
+    {
+      "id": "sofia-rayna-vasileva",
+      "category": "education",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-rockschool-sofia",
+      "category": "education",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-music-box-sinanishko",
+      "category": "education",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-music-box-mladost",
+      "category": "education",
+      "neighborhood": "Младост"
+    },
+    {
+      "id": "sofia-duo-black-white-oborishte",
+      "category": "education",
+      "neighborhood": "Оборище"
+    },
+    {
+      "id": "sofia-duo-black-white-dianabad",
+      "category": "education",
+      "neighborhood": "Дианабад"
+    },
+    {
+      "id": "sofia-s-gumi-mobile",
+      "category": "auto_repair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-tirepoint-mobile",
+      "category": "auto_repair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-avtofar-lyulin-service",
+      "category": "auto_repair",
+      "neighborhood": "Люлин 2"
+    },
+    {
+      "id": "sofia-autobic-asen-yordanov-6b",
+      "category": "auto_repair",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-vitae-therapy",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-brasnarnicata-mladost",
+      "category": "barber",
+      "neighborhood": "Младост 4"
+    },
+    {
+      "id": "sofia-areab19",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-art-club-diplomat",
+      "category": "other",
+      "neighborhood": "Център"
+    },
+    {
+      "id": "sofia-fotosmagoria",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-6trak-studio",
+      "category": "other",
+      "neighborhood": "Ботунец"
+    },
+    {
+      "id": "sofia-elena-gyoshkova-logoped",
+      "category": "other",
+      "neighborhood": "Младост 1"
+    },
+    {
+      "id": "sofia-petya-zhelezova-logoped",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-maria-petricheva-centre",
+      "category": "other",
+      "neighborhood": "Център"
+    },
+    {
+      "id": "sofia-maria-petricheva-lyulin",
+      "category": "other",
+      "neighborhood": "Люлин 9"
+    },
+    {
+      "id": "sofia-account-em",
+      "category": "consulting",
+      "neighborhood": "Симеоново"
+    },
+    {
+      "id": "sofia-arnica-accounting",
+      "category": "consulting",
+      "neighborhood": "Дружба 2"
+    },
+    {
+      "id": "sofia-diamond-beauty-care",
+      "category": "nails",
+      "neighborhood": "Младост 1"
+    },
+    {
+      "id": "sofia-ivon-reduta-one",
+      "category": "beauty",
+      "neighborhood": "Редута"
+    },
+    {
+      "id": "sofia-ivon-reduta-two",
+      "category": "beauty",
+      "neighborhood": "Редута"
+    },
+    {
+      "id": "sofia-nokutche-sofia",
+      "category": "nails",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-studio-vnd",
+      "category": "barber",
+      "neighborhood": "Манастирски ливади"
+    },
+    {
+      "id": "sofia-blades-studio",
+      "category": "barber",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-narra-beauty",
+      "category": "nails",
+      "neighborhood": "Лозенец"
+    },
+    {
+      "id": "sofia-studio-sunday",
+      "category": "nails",
+      "neighborhood": "Младост 1А"
+    },
+    {
+      "id": "sofia-skin-design",
+      "category": "beauty",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-gr-pilates",
+      "category": "fitness",
+      "neighborhood": "Люлин 9"
+    },
+    {
+      "id": "sofia-instyle-seven",
+      "category": "fitness",
+      "neighborhood": "Витоша"
+    },
+    {
+      "id": "sofia-lidia-manova",
+      "category": "consulting",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-arena-isaev-gtp",
+      "category": "auto_repair",
+      "neighborhood": "Младост 3"
+    },
+    {
+      "id": "sofia-genica-ami-bue",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-ramus-home-visits",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-synevo-home-visits",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-cibalab-home-visits",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-physiolab",
+      "category": "health",
+      "neighborhood": "Младост 1"
+    },
+    {
+      "id": "sofia-bodyflow",
+      "category": "health",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-physio-health-sofia",
+      "category": "health",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-yan-physio-borovo",
+      "category": "health",
+      "neighborhood": "Борово"
+    },
+    {
+      "id": "sofia-yan-physio-stranski",
+      "category": "health",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-escapeway-crystal-skull",
+      "category": "other",
+      "neighborhood": "Център"
+    },
+    {
+      "id": "sofia-escapeway-black-pearl",
+      "category": "other",
+      "neighborhood": "Център"
+    },
+    {
+      "id": "sofia-horror-house",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-game-castle-simeonovo",
+      "category": "other",
+      "neighborhood": "Симеоново"
+    },
+    {
+      "id": "sofia-game-castle-centre",
+      "category": "other",
+      "neighborhood": "Център"
+    },
+    {
+      "id": "sofia-onspot",
+      "category": "home_services",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-nasko-car",
+      "category": "auto_repair",
+      "neighborhood": "Красна поляна 3"
+    },
+    {
+      "id": "sofia-body-lab-pilates",
+      "category": "fitness",
+      "neighborhood": "Манастирски ливади"
+    },
+    {
+      "id": "sofia-flowhaven-pilates",
+      "category": "fitness",
+      "neighborhood": "Овча купел 2"
+    },
+    {
+      "id": "sofia-tonic-pilates",
+      "category": "fitness",
+      "neighborhood": "Манастирски ливади"
+    },
+    {
+      "id": "sofia-pilates-club-boyana",
+      "category": "fitness",
+      "neighborhood": "Бояна"
+    },
+    {
+      "id": "sofia-sofia-pilates-studio",
+      "category": "fitness",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-dance-station-ndk",
+      "category": "fitness",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-mk-barber-studio",
+      "category": "barber",
+      "neighborhood": "Сердика"
+    },
+    {
+      "id": "sofia-magic-studio-nails",
+      "category": "nails",
+      "neighborhood": "Студентски град"
+    },
+    {
+      "id": "sofia-lora-pozitano",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-lora-za-zhenata",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-lora-krasno-selo",
+      "category": "other",
+      "neighborhood": "Красно село"
+    },
+    {
+      "id": "sofia-detsko-psihichno-zdrave-hipodruma",
+      "category": "other",
+      "neighborhood": "Хиподрума"
+    },
+    {
+      "id": "sofia-detsko-psihichno-zdrave-evlogi-georgievi",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-detsko-psihichno-zdrave-strelbishte",
+      "category": "other",
+      "neighborhood": "Стрелбище"
+    },
+    {
+      "id": "sofia-park-clinic",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-dentix-zahari-simov",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-osem-dental-benkovski",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-osem-dental-vitosha",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-osem-dental-yug",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-dr-stetson-dental",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-vet-patrol",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-vet-city-nishava",
+      "category": "other",
+      "neighborhood": "Бели брези"
+    },
+    {
+      "id": "sofia-vet-vyara-nadezhda-lyubov",
+      "category": "other",
+      "neighborhood": "Люлин 5"
+    },
+    {
+      "id": "sofia-mvc-bulgaria",
+      "category": "other",
+      "neighborhood": "Горна баня"
+    },
+    {
+      "id": "sofia-yoyo-vet",
+      "category": "other",
+      "neighborhood": "Люлин 4"
+    },
+    {
+      "id": "sofia-vet-mei",
+      "category": "other",
+      "neighborhood": "Хиподрума"
+    },
+    {
+      "id": "sofia-amakids-geo-milev",
+      "category": "education",
+      "neighborhood": "Гео Милев"
+    },
+    {
+      "id": "sofia-amakids-darvenitsa",
+      "category": "education",
+      "neighborhood": "Дървеница"
+    },
+    {
+      "id": "sofia-amakids-lyulin",
+      "category": "education",
+      "neighborhood": "Люлин 8"
+    },
+    {
+      "id": "sofia-amakids-manastirski-livadi",
+      "category": "education",
+      "neighborhood": "Манастирски ливади"
+    },
+    {
+      "id": "sofia-amakids-nadezhda",
+      "category": "education",
+      "neighborhood": "Надежда 2"
+    },
+    {
+      "id": "sofia-algorithmics-pitagor",
+      "category": "education",
+      "neighborhood": "Красна поляна 3"
+    },
+    {
+      "id": "sofia-algorithmics-mladost",
+      "category": "education",
+      "neighborhood": "Младост 2"
+    },
+    {
+      "id": "sofia-the-barber-shop-iztok",
+      "category": "barber",
+      "neighborhood": "Изток"
+    },
+    {
+      "id": "sofia-auto-kotevi",
+      "category": "detailing",
+      "neighborhood": "Овча купел 1"
+    },
+    {
+      "id": "sofia-thinkinkneedle",
+      "category": "other",
+      "neighborhood": "Надежда 1"
+    },
+    {
+      "id": "sofia-centerside-tattoo",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-photofactory",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-renita-kostadinova-photography",
+      "category": "other",
+      "neighborhood": "Дружба 1"
+    },
+    {
+      "id": "sofia-dr-smily",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-elirka-dent",
+      "category": "other",
+      "neighborhood": "Люлин 8"
+    },
+    {
+      "id": "sofia-poliklinikata-lyulin",
+      "category": "other",
+      "neighborhood": "Люлин 10"
+    },
+    {
+      "id": "sofia-deckoff-dental",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-ds-dent-orlov-most",
+      "category": "other",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-new-dental-solutions",
+      "category": "other",
+      "neighborhood": "Надежда 3"
+    },
+    {
+      "id": "sofia-all-dental-lagera",
+      "category": "other",
+      "neighborhood": "Лагера"
+    },
+    {
+      "id": "sofia-smile-care",
+      "category": "other",
+      "neighborhood": "Стрелбище"
+    },
+    {
+      "id": "sofia-des-georgieva-makeup",
+      "category": "beauty",
+      "neighborhood": "Люлин 2"
+    },
+    {
+      "id": "sofia-posh-beauty-poduyane",
+      "category": "beauty",
+      "neighborhood": "Подуяне"
+    },
+    {
+      "id": "sofia-in-beauty",
+      "category": "beauty",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-s-line-wellness-beauty",
+      "category": "beauty",
+      "neighborhood": "Манастирски ливади"
+    },
+    {
+      "id": "sofia-millennium-beauty-salon",
+      "category": "beauty",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-hairstyle-bedroom-beauty",
+      "category": "hair",
+      "neighborhood": "Кръстова вада"
+    },
+    {
+      "id": "sofia-sugarnails-ovcha-kupel",
+      "category": "nails",
+      "neighborhood": "Овча купел"
+    },
+    {
+      "id": "sofia-kerimov-derma-aesthetic-sofia",
+      "category": "beauty",
+      "neighborhood": "Манастирски ливади"
+    },
+    {
+      "id": "sofia-beautify-cosmetic-studio",
+      "category": "beauty",
+      "neighborhood": "Кръстова вада"
+    },
+    {
+      "id": "sofia-maison-lumiere",
+      "category": "beauty",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-beautyq-pirin",
+      "category": "beauty",
+      "neighborhood": "Манастирски ливади"
+    },
+    {
+      "id": "sofia-kerelski-manastirski-livadi",
+      "category": "barber",
+      "neighborhood": "Манастирски ливади"
+    },
+    {
+      "id": "sofia-skin-aesthetic-kotlarov",
+      "category": "beauty",
+      "neighborhood": "Манастирски ливади"
+    },
+    {
+      "id": "sofia-adlen-aesthetic",
+      "category": "beauty",
+      "neighborhood": "Витоша"
+    },
+    {
+      "id": "sofia-kk-aesthetic-center",
+      "category": "beauty",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-emaly-beauty-studio",
+      "category": "beauty",
+      "neighborhood": "Манастирски ливади"
+    },
+    {
+      "id": "sofia-mila-savage-beauty-sofia",
+      "category": "beauty",
+      "neighborhood": "Манастирски ливади"
+    },
+    {
+      "id": "sofia-eden-reformer-pilates",
+      "category": "fitness",
+      "neighborhood": "Манастирски ливади"
+    },
+    {
+      "id": "sofia-shining-polishing-auto",
+      "category": "detailing",
+      "neighborhood": "НПЗ Искър"
+    },
+    {
+      "id": "sofia-prane-na-matraci",
+      "category": "home_services",
+      "neighborhood": "Неуточнен"
+    },
+    {
+      "id": "sofia-top-class-mobile-detailing",
+      "category": "detailing",
+      "neighborhood": "Неуточнен"
+    },
+    {
+      "id": "sofia-rozetka-electrical",
+      "category": "home_services",
+      "neighborhood": "Неуточнен"
+    },
+    {
+      "id": "sofia-electrouslugi-home-visits",
+      "category": "home_services",
+      "neighborhood": "Неуточнен"
+    },
+    {
+      "id": "sofia-obekt-pro-electrical",
+      "category": "home_services",
+      "neighborhood": "Неуточнен"
+    },
+    {
+      "id": "sofia-remontfix-home-renovation",
+      "category": "home_services",
+      "neighborhood": "Неуточнен"
+    },
+    {
+      "id": "sofia-elscape-electrical",
+      "category": "home_services",
+      "neighborhood": "Неуточнен"
+    },
+    {
+      "id": "sofia-slavia-sportes-private-boxing",
+      "category": "fitness",
+      "neighborhood": "Овча купел"
+    },
+    {
+      "id": "sofia-aleksov-auto-trebich",
+      "category": "auto_repair",
+      "neighborhood": "Требич"
+    },
+    {
+      "id": "sofia-gas-comers-rezbarska",
+      "category": "auto_repair",
+      "neighborhood": "Неуточнен"
+    },
+    {
+      "id": "sofia-lion-services-avtoserviz",
+      "category": "auto_repair",
+      "neighborhood": "Христо Ботев"
+    },
+    {
+      "id": "sofia-dojoto-manastirski-livadi",
+      "category": "fitness",
+      "neighborhood": "Манастирски ливади"
+    },
+    {
+      "id": "sofia-dojoto-geo-milev",
+      "category": "fitness",
+      "neighborhood": "Гео Милев"
+    },
+    {
+      "id": "sofia-katerene-europe-private",
+      "category": "fitness",
+      "neighborhood": "Дружба 1"
+    },
+    {
+      "id": "sofia-anton-kolev-pirin",
+      "category": "other",
+      "neighborhood": "Манастирски ливади"
+    },
+    {
+      "id": "sofia-anton-kolev-calma",
+      "category": "other",
+      "neighborhood": "Студентски град"
+    },
+    {
+      "id": "sofia-ketty-vandova-boyana",
+      "category": "other",
+      "neighborhood": "Бояна"
+    },
+    {
+      "id": "sofia-mandala-ivan-susanin",
+      "category": "health",
+      "neighborhood": "Манастирски ливади"
+    },
+    {
+      "id": "sofia-kantora-petrova-damyan-gruev",
+      "category": "consulting",
+      "neighborhood": null
+    },
+    {
+      "id": "sofia-zvezdichki-boyanski-vodopad",
+      "category": "other",
+      "neighborhood": "Манастирски ливади"
+    },
+    {
+      "id": "sofia-new-belief-markovska",
+      "category": "other",
+      "neighborhood": "Манастирски ливади"
+    },
+    {
+      "id": "sofia-inacademy-home-lessons",
+      "category": "education",
+      "neighborhood": "Манастирски ливади"
+    },
+    {
+      "id": "sofia-health-master-clinic-ralevitsa",
+      "category": "other",
+      "neighborhood": "Манастирски ливади"
+    },
+    {
+      "id": "sofia-denta-consult-kazbek",
+      "category": "other",
+      "neighborhood": "Манастирски ливади"
+    },
+    {
+      "id": "sofia-sofia-nikolova-logoped",
+      "category": "other",
+      "neighborhood": "Лозенец"
+    },
+    {
+      "id": "sofia-veselina-ilkova-home-logoped",
+      "category": "other",
+      "neighborhood": "Надежда"
+    },
+    {
+      "id": "sofia-vesta-help-mladost",
+      "category": "other",
+      "neighborhood": "Младост 4"
+    },
+    {
+      "id": "sofia-logoped-mecho-puh-kableshkov",
+      "category": "other",
+      "neighborhood": "Гоце Делчев"
+    },
+    {
+      "id": "sofia-merida-logoped-iztok",
+      "category": "other",
+      "neighborhood": "Изток"
+    },
+    {
+      "id": "sofia-academy-emotional-intelligence-vitosha",
+      "category": "other",
+      "neighborhood": "Център"
+    },
+    {
+      "id": "sofia-studio-faria-ilinden",
+      "category": "other",
+      "neighborhood": "Илинден"
+    },
+    {
+      "id": "sofia-empathy-diana-dimitrova",
+      "category": "other",
+      "neighborhood": "Център"
+    },
+    {
+      "id": "sofia-specialized-psychology-graf-ignatiev",
+      "category": "other",
+      "neighborhood": "Център"
+    },
+    {
+      "id": "sofia-promyana-sixth-september",
+      "category": "other",
+      "neighborhood": "Център"
+    },
+    {
+      "id": "sofia-yoga-vibe-fit-lozenets",
+      "category": "fitness",
+      "neighborhood": "Лозенец"
+    },
+    {
+      "id": "sofia-yoga-aradhana",
+      "category": "fitness",
+      "neighborhood": "Борово"
+    },
+    {
+      "id": "sofia-cut-barber-manastirski-livadi",
+      "category": "barber",
+      "neighborhood": "Манастирски ливади"
+    },
+    {
+      "id": "sofia-cut-barber-yuzhen-park",
+      "category": "barber",
+      "neighborhood": "Стрелбище"
+    },
+    {
+      "id": "sofia-lyves-clinic-flora",
+      "category": "health",
+      "neighborhood": "Манастирски ливади"
+    },
+    {
+      "id": "sofia-medconvex-lavski-rid",
+      "category": "health",
+      "neighborhood": "Манастирски ливади"
+    }
+  ]
+}

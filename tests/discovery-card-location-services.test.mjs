@@ -6,13 +6,14 @@ import { railServiceItems, railDirections } from '../lib/discovery/rail.mjs'
 import { businessDetailServices, detailPriceLabel } from '../lib/discovery/business-details.mjs'
 import { normalizeCatalogueBusinesses } from '../lib/discovery/catalogue-search.mjs'
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { approvedCatalogueRecord } from '../lib/discovery/catalogue-policy.mjs'
 
 const read = path => readFile(new URL(`../${path}`, import.meta.url), 'utf8')
 const now = Date.parse('2026-11-06T12:00:00Z')
 const rows = normalizeCatalogueBusinesses(SOFIA_CATALOGUE, { browse: true, category: null, requirements: [], searchV2: true }, { now })
 
 test('every approved Sofia listing has an honest location label without runtime geocoding', () => {
-  assert.equal(rows.length, 595)
+  assert.equal(rows.length, SOFIA_CATALOGUE.filter(row => approvedCatalogueRecord(row, now)).length)
   for (const row of rows) {
     const badge = businessLocationBadge(row)
     assert.ok(badge?.value, row.name)
@@ -89,7 +90,8 @@ test('card markup provides one location badge, vertical service/price pairs and 
   assert.match(badge, /<Icon name="pin"\//)
   assert.match(card, /<ul className="home-business-services"/)
   assert.match(card, /services.map\(service =>/)
-  assert.match(card, /detailPriceLabel\(service, locale, \{ compact: true \}\)/)
+  assert.match(card, /detailPriceLabel\(\{ \.\.\.service, priceUnit: '' \}, locale, \{ compact: true \}\)/)
+  assert.match(card, /className="service-price-unit">\{service\.priceUnit\}/)
   assert.match(card, /className="home-service-price"/)
   assert.doesNotMatch(card, /railServiceDescription|<p className="home-business-services"/)
   assert.match(card, /const directionsLabel = copy.directions/)

@@ -11,6 +11,7 @@ import { safeBookingUrl } from '../lib/booking-mode.mjs'
 import { railCategory, railPhone } from '../lib/discovery/rail.mjs'
 import { isCataloguePhotoSource } from '../lib/catalogue-photo-view.mjs'
 import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
+import { servicePresentation } from '../lib/discovery/service-presentation.mjs'
 
 export function DiscoveryBusinessDetails({ row, locale = 'bg', preview = false, onClose, triggerRef, actions }) {
   const copy = DISCOVERY_COPY[locale] || DISCOVERY_COPY.bg, dialog = useRef(null), id = useId()
@@ -63,7 +64,7 @@ export function DiscoveryBusinessDetails({ row, locale = 'bg', preview = false, 
     const bounds = event.currentTarget.getBoundingClientRect()
     if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) onClose()
   }}>
-    <button type="button" className="business-details-close" onClick={onClose} aria-label={copy.closeDetails}><Icon name="close"/></button>
+    <div className="business-details-toolbar"><button type="button" className="business-details-close" onClick={onClose} aria-label={copy.closeDetails}><Icon name="close"/></button></div>
     {status !== 'missing' && <div className="business-details-gallery">
       {photos.length ? <BusinessPhotoGallery key={`${row.id}-${photos[0].src}`} photos={photos} businessName={row.name} locale={locale} variant="details" autoplay={false} fallback={photoFallback}/> : photoFallback}
     </div>}
@@ -94,7 +95,9 @@ export function DiscoveryBusinessDetails({ row, locale = 'bg', preview = false, 
 
 function ServiceMenu({ services, business, locale, copy }) {
   return <ul className="business-details-services">{services.map((service, index) => {
-    const price = detailPriceLabel(service, locale)
-    return <li key={index}><div className="service-photo-name"><ServiceThumbnail service={service} business={business} locale={locale} size={44}/><div className="business-details-service-copy"><strong>{service.name}</strong>{service.description && <p>{service.description}</p>}{service.durationMin > 0 && <span>{service.durationMin} {copy.minutes}</span>}</div></div>{price && (service.priceSourceUrl ? <a className="business-details-price" href={service.priceSourceUrl} target="_blank" rel="noopener noreferrer" aria-label={`${price} · ${copy.publishedPriceSource}`}>{price}</a> : <strong className="business-details-price">{price}</strong>)}</li>
+    const price = detailPriceLabel({ ...service, priceUnit: '' }, locale)
+    const { description, conditions } = servicePresentation(service, locale)
+    const priceContent = <>{price}{service.priceUnit && <small className="service-price-unit">{service.priceUnit}</small>}</>
+    return <li key={index}><div className="service-photo-name"><ServiceThumbnail service={service} business={business} locale={locale} size={44}/><div className="business-details-service-copy"><strong>{service.name}</strong>{service.durationMin > 0 && <span>{service.durationMin} {copy.minutes}</span>}{conditions.map(condition => <small className="business-details-service-condition" key={condition}>{condition}</small>)}</div></div>{price && (service.priceSourceUrl ? <a className="business-details-price" href={service.priceSourceUrl} target="_blank" rel="noopener noreferrer" aria-label={`${detailPriceLabel(service, locale)} · ${copy.publishedPriceSource}`}>{priceContent}</a> : <strong className="business-details-price">{priceContent}</strong>)}{description && <p className="business-details-service-description">{description}</p>}</li>
   })}</ul>
 }

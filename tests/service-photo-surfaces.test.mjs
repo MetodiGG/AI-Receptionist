@@ -16,6 +16,8 @@ import * as publicLocale from '../lib/public-locale.mjs'
 import * as directory from '../lib/directory.mjs'
 import * as partnerCategories from '../lib/partner-categories.mjs'
 import * as businessCover from '../lib/business-cover-photo.mjs'
+import * as servicePresentation from '../lib/discovery/service-presentation.mjs'
+import * as photoLayout from '../lib/business-photo-layout.mjs'
 
 const require = createRequire(import.meta.url)
 const { loadBindings, transform } = require('next/dist/build/swc')
@@ -41,6 +43,8 @@ const shared = {
   '../lib/booking-mode.mjs': bookingMode, '../lib/discovery/business-details.mjs': businessDetails,
   '../lib/discovery/rail.mjs': discoveryRail, '../lib/discovery/copy.mjs': discoveryCopy,
   '../lib/catalogue-photo-view.mjs': cataloguePhotos,
+  '../lib/discovery/service-presentation.mjs': servicePresentation,
+  '../lib/business-photo-layout.mjs': photoLayout,
 }
 const { DiscoveryBusinessCard } = await load('discovery-business-card', {
   ...shared, 'next/link': ({ children, href }) => createElement('a', { href }, children), 'next/dynamic': () => noop,
@@ -93,10 +97,35 @@ test('the full catalogue menu retains the service description, duration, and pub
   const [first, ...others] = services
   const row = { ...business, source: 'catalogue', details: { services: [{ ...first, priceKind: 'from', description: 'Published service terms', priceSourceUrl: 'https://example.com/prices' }, ...others] } }
   const [manicure, pedicure] = serviceRows(render(DiscoveryBusinessDetails, { row, locale: 'en', preview: true }))
-  assert.match(manicure, /data-service-kind="manicure".*<strong>Manicure<\/strong><p>Published service terms<\/p><span>35 min<\/span>/)
+  assert.match(manicure, /data-service-kind="manicure".*<strong>Manicure<\/strong><span>35 min<\/span>/)
+  assert.match(manicure, /<p class="business-details-service-description">Published service terms<\/p>/)
   assert.match(manicure, /<a class="business-details-price" href="https:\/\/example\.com\/prices"[^>]*>from €25\.00<\/a>/)
   assert.match(pedicure, /data-service-kind="pedicure".*<strong>Pedicure<\/strong>/)
   assert.doesNotMatch(pedicure, /business-details-price/)
+})
+
+test('G Point logo remains whole and service prices retain compact online-only conditions without audit prose', async () => {
+  const name = 'Лазерна епилация · Цяло лице · жени'
+  const service = { name, category: 'beauty', price: 30, currency: 'EUR', priceUnit: 'процедура',
+    description: 'Текуща цена с отстъпка, валидна САМО при онлайн записване, проверена на 10.11.2026. Условията се потвърждават при записване; не е зачеркнатата стара цена.',
+    priceSourceUrl: 'https://gpoint.bg/запазване-час' }
+  const row = { id: 'sofia-gpoint-manastirski-zapad', source: 'catalogue', name: 'G Point · Манастирски ливади – Запад', category: 'beauty',
+    services: [service], photo: { src: '/api/catalogue-media/eebc21d3-2f13-42cd-9f81-877eb6bc5736', alt: 'G Point' } }
+  const card = render(DiscoveryBusinessCard, { row, locale: 'bg', preview: true })
+  const details = render(DiscoveryBusinessDetails, { row, locale: 'bg', preview: true })
+  assert.match(card, /object-fit:contain;object-position:center;background-color:#fff/)
+  assert.ok(card.includes(name))
+  for (const html of [card, details]) {
+    assert.match(html, /Отстъпка само онлайн/)
+    assert.doesNotMatch(html, /проверена на|зачеркнатата|Условията се потвърждават/)
+    assert.match(html, /class="service-price-unit">процедура<\/small>/)
+  }
+  assert.match(details, /<div class="business-details-toolbar"><button[^>]+class="business-details-close"/)
+  assert.match(details, /https:\/\/gpoint.bg\//)
+  const css = await readFile(new URL('../app/service-photo-surfaces.css', import.meta.url), 'utf8')
+  assert.match(css, /\.home-business-card h3, \.home-business-services \.home-service-name \{[^}]*-webkit-line-clamp: unset/)
+  assert.match(css, /\.service-price-unit \{[^}]*white-space: normal/)
+  assert.match(css, /\.business-details-toolbar \.business-details-close \{ position: static; float: none; margin: 0;/)
 })
 
 test('partner cards preserve the service cap, names, durations, and published prices', () => {

@@ -1,0 +1,1457 @@
+{
+  "checkedAt": "2026-11-11T00:00:00.000Z",
+  "sourceRecords": 711,
+  "currentlyEligible": 698,
+  "withCurrentPublishedPrices": 355,
+  "excludedGeneralClinics": [
+    {
+      "id": "sofia-arthromedica",
+      "name": "Медицински център Артромедика"
+    },
+    {
+      "id": "sofia-sportmed",
+      "name": "Медицински център СпортМед"
+    },
+    {
+      "id": "sofia-serkan-uzun-ortopedia",
+      "name": "Серкан Узун · УМБАЛ Ортопедия"
+    },
+    {
+      "id": "sofia-avitsena-rehabilitation",
+      "name": "МЦ Авицена · рехабилитация"
+    },
+    {
+      "id": "sofia-balance-clinic",
+      "name": "Баланс Клиник"
+    },
+    {
+      "id": "sofia-lora-pozitano",
+      "name": "МЦ ЛОРА · Позитано"
+    },
+    {
+      "id": "sofia-lora-za-zhenata",
+      "name": "МЦ ЛОРА · За жената"
+    },
+    {
+      "id": "sofia-lora-krasno-selo",
+      "name": "МЦ ЛОРА · Красно село"
+    },
+    {
+      "id": "sofia-park-clinic",
+      "name": "PARK CLINIC"
+    },
+    {
+      "id": "sofia-poliklinikata-lyulin",
+      "name": "МЦ Поликлиниката"
+    },
+    {
+      "id": "sofia-health-master-clinic-ralevitsa",
+      "name": "Health Master Clinic · Ралевица"
+    },
+    {
+      "id": "sofia-lyves-clinic-flora",
+      "name": "ЛайВс Клиник"
+    },
+    {
+      "id": "sofia-medconvex-lavski-rid",
+      "name": "ДКЦ Конвекс"
+    }
+  ],
+  "missingNeighborhood": 295,
+  "categories": {
+    "auto_repair": 55,
+    "barber": 47,
+    "beauty": 99,
+    "car_wash": 8,
+    "consulting": 26,
+    "detailing": 18,
+    "education": 48,
+    "fitness": 66,
+    "hair": 40,
+    "health": 35,
+    "home_services": 33,
+    "nails": 41,
+    "other": 160,
+    "pets": 22
+  },
+  "neighborhoods": [
+    {
+      "neighborhood": "Банишора",
+      "businesses": 1,
+      "categories": {
+        "beauty": 1
+      }
+    },
+    {
+      "neighborhood": "Бели брези",
+      "businesses": 5,
+      "categories": {
+        "barber": 1,
+        "beauty": 2,
+        "other": 2
+      }
+    },
+    {
+      "neighborhood": "Борово",
+      "businesses": 14,
+      "categories": {
+        "beauty": 1,
+        "education": 3,
+        "fitness": 2,
+        "hair": 1,
+        "health": 1,
+        "other": 5,
+        "pets": 1
+      }
+    },
+    {
+      "neighborhood": "Ботунец",
+      "businesses": 1,
+      "categories": {
+        "other": 1
+      }
+    },
+    {
+      "neighborhood": "Бояна",
+      "businesses": 4,
+      "categories": {
+        "fitness": 2,
+        "other": 1,
+        "pets": 1
+      }
+    },
+    {
+      "neighborhood": "Бъкстон",
+      "businesses": 8,
+      "categories": {
+        "beauty": 1,
+        "education": 2,
+        "hair": 1,
+        "other": 3,
+        "pets": 1
+      }
+    },
+    {
+      "neighborhood": "Васил Левски",
+      "businesses": 2,
+      "categories": {
+        "auto_repair": 1,
+        "nails": 1
+      }
+    },
+    {
+      "neighborhood": "Витоша",
+      "businesses": 6,
+      "categories": {
+        "auto_repair": 1,
+        "beauty": 2,
+        "fitness": 1,
+        "health": 1,
+        "pets": 1
+      }
+    },
+    {
+      "neighborhood": "Връбница 1",
+      "businesses": 1,
+      "categories": {
+        "beauty": 1
+      }
+    },
+    {
+      "neighborhood": "Гео Милев",
+      "businesses": 4,
+      "categories": {
+        "beauty": 1,
+        "education": 1,
+        "fitness": 1,
+        "hair": 1
+      }
+    },
+    {
+      "neighborhood": "Горна баня",
+      "businesses": 2,
+      "categories": {
+        "education": 1,
+        "other": 1
+      }
+    },
+    {
+      "neighborhood": "Горубляне",
+      "businesses": 1,
+      "categories": {
+        "auto_repair": 1
+      }
+    },
+    {
+      "neighborhood": "Гоце Делчев",
+      "businesses": 4,
+      "categories": {
+        "beauty": 1,
+        "education": 1,
+        "fitness": 1,
+        "other": 1
+      }
+    },
+    {
+      "neighborhood": "Дианабад",
+      "businesses": 5,
+      "categories": {
+        "barber": 1,
+        "beauty": 1,
+        "education": 1,
+        "other": 2
+      }
+    },
+    {
+      "neighborhood": "Драгалевци",
+      "businesses": 4,
+      "categories": {
+        "barber": 1,
+        "beauty": 1,
+        "education": 1,
+        "nails": 1
+      }
+    },
+    {
+      "neighborhood": "Дружба",
+      "businesses": 2,
+      "categories": {
+        "auto_repair": 2
+      }
+    },
+    {
+      "neighborhood": "Дружба 1",
+      "businesses": 6,
+      "categories": {
+        "auto_repair": 1,
+        "beauty": 2,
+        "fitness": 1,
+        "nails": 1,
+        "other": 1
+      }
+    },
+    {
+      "neighborhood": "Дружба 2",
+      "businesses": 8,
+      "categories": {
+        "beauty": 2,
+        "consulting": 1,
+        "education": 1,
+        "fitness": 2,
+        "health": 1,
+        "nails": 1
+      }
+    },
+    {
+      "neighborhood": "Дървеница",
+      "businesses": 3,
+      "categories": {
+        "beauty": 1,
+        "education": 1,
+        "other": 1
+      }
+    },
+    {
+      "neighborhood": "Западен парк",
+      "businesses": 1,
+      "categories": {
+        "fitness": 1
+      }
+    },
+    {
+      "neighborhood": "Захарна фабрика",
+      "businesses": 1,
+      "categories": {
+        "fitness": 1
+      }
+    },
+    {
+      "neighborhood": "Зона Б19",
+      "businesses": 1,
+      "categories": {
+        "beauty": 1
+      }
+    },
+    {
+      "neighborhood": "Иван Вазов",
+      "businesses": 6,
+      "categories": {
+        "beauty": 2,
+        "education": 1,
+        "fitness": 1,
+        "other": 2
+      }
+    },
+    {
+      "neighborhood": "Изгрев",
+      "businesses": 2,
+      "categories": {
+        "consulting": 1,
+        "other": 1
+      }
+    },
+    {
+      "neighborhood": "Изток",
+      "businesses": 12,
+      "categories": {
+        "barber": 1,
+        "beauty": 1,
+        "education": 2,
+        "fitness": 2,
+        "hair": 3,
+        "health": 1,
+        "other": 1,
+        "pets": 1
+      }
+    },
+    {
+      "neighborhood": "Илинден",
+      "businesses": 3,
+      "categories": {
+        "health": 1,
+        "nails": 1,
+        "other": 1
+      }
+    },
+    {
+      "neighborhood": "Карпузица",
+      "businesses": 1,
+      "categories": {
+        "other": 1
+      }
+    },
+    {
+      "neighborhood": "Княжево",
+      "businesses": 1,
+      "categories": {
+        "health": 1
+      }
+    },
+    {
+      "neighborhood": "Красна поляна",
+      "businesses": 2,
+      "categories": {
+        "auto_repair": 1,
+        "beauty": 1
+      }
+    },
+    {
+      "neighborhood": "Красна поляна 2",
+      "businesses": 1,
+      "categories": {
+        "auto_repair": 1
+      }
+    },
+    {
+      "neighborhood": "Красна поляна 3",
+      "businesses": 2,
+      "categories": {
+        "auto_repair": 1,
+        "education": 1
+      }
+    },
+    {
+      "neighborhood": "Красно село",
+      "businesses": 7,
+      "categories": {
+        "barber": 1,
+        "fitness": 2,
+        "other": 4
+      }
+    },
+    {
+      "neighborhood": "Кръстова вада",
+      "businesses": 6,
+      "categories": {
+        "beauty": 1,
+        "consulting": 1,
+        "fitness": 1,
+        "hair": 2,
+        "pets": 1
+      }
+    },
+    {
+      "neighborhood": "Лагера",
+      "businesses": 5,
+      "categories": {
+        "education": 1,
+        "hair": 1,
+        "other": 2,
+        "pets": 1
+      }
+    },
+    {
+      "neighborhood": "Левски",
+      "businesses": 1,
+      "categories": {
+        "beauty": 1
+      }
+    },
+    {
+      "neighborhood": "Левски В",
+      "businesses": 1,
+      "categories": {
+        "auto_repair": 1
+      }
+    },
+    {
+      "neighborhood": "Левски Г",
+      "businesses": 1,
+      "categories": {
+        "beauty": 1
+      }
+    },
+    {
+      "neighborhood": "Лозенец",
+      "businesses": 24,
+      "categories": {
+        "barber": 3,
+        "beauty": 2,
+        "fitness": 2,
+        "hair": 2,
+        "health": 4,
+        "nails": 1,
+        "other": 8,
+        "pets": 2
+      }
+    },
+    {
+      "neighborhood": "Люлин",
+      "businesses": 4,
+      "categories": {
+        "auto_repair": 2,
+        "fitness": 1,
+        "other": 1
+      }
+    },
+    {
+      "neighborhood": "Люлин 1",
+      "businesses": 1,
+      "categories": {
+        "health": 1
+      }
+    },
+    {
+      "neighborhood": "Люлин 10",
+      "businesses": 4,
+      "categories": {
+        "beauty": 1,
+        "education": 1,
+        "other": 1,
+        "pets": 1
+      }
+    },
+    {
+      "neighborhood": "Люлин 2",
+      "businesses": 2,
+      "categories": {
+        "auto_repair": 1,
+        "beauty": 1
+      }
+    },
+    {
+      "neighborhood": "Люлин 3",
+      "businesses": 1,
+      "categories": {
+        "hair": 1
+      }
+    },
+    {
+      "neighborhood": "Люлин 4",
+      "businesses": 4,
+      "categories": {
+        "barber": 2,
+        "other": 2
+      }
+    },
+    {
+      "neighborhood": "Люлин 5",
+      "businesses": 1,
+      "categories": {
+        "other": 1
+      }
+    },
+    {
+      "neighborhood": "Люлин 7",
+      "businesses": 1,
+      "categories": {
+        "beauty": 1
+      }
+    },
+    {
+      "neighborhood": "Люлин 8",
+      "businesses": 4,
+      "categories": {
+        "beauty": 2,
+        "education": 1,
+        "other": 1
+      }
+    },
+    {
+      "neighborhood": "Люлин 9",
+      "businesses": 2,
+      "categories": {
+        "fitness": 1,
+        "other": 1
+      }
+    },
+    {
+      "neighborhood": "Малинова долина",
+      "businesses": 2,
+      "categories": {
+        "auto_repair": 1,
+        "barber": 1
+      }
+    },
+    {
+      "neighborhood": "Манастирски ливади",
+      "businesses": 47,
+      "categories": {
+        "auto_repair": 1,
+        "barber": 4,
+        "beauty": 11,
+        "detailing": 1,
+        "education": 3,
+        "fitness": 8,
+        "hair": 4,
+        "health": 3,
+        "nails": 2,
+        "other": 9,
+        "pets": 1
+      }
+    },
+    {
+      "neighborhood": "Младост",
+      "businesses": 4,
+      "categories": {
+        "auto_repair": 2,
+        "barber": 1,
+        "education": 1
+      }
+    },
+    {
+      "neighborhood": "Младост 1",
+      "businesses": 8,
+      "categories": {
+        "beauty": 1,
+        "hair": 1,
+        "health": 1,
+        "nails": 2,
+        "other": 2,
+        "pets": 1
+      }
+    },
+    {
+      "neighborhood": "Младост 1А",
+      "businesses": 4,
+      "categories": {
+        "education": 1,
+        "hair": 1,
+        "health": 1,
+        "nails": 1
+      }
+    },
+    {
+      "neighborhood": "Младост 2",
+      "businesses": 2,
+      "categories": {
+        "beauty": 1,
+        "education": 1
+      }
+    },
+    {
+      "neighborhood": "Младост 3",
+      "businesses": 7,
+      "categories": {
+        "auto_repair": 1,
+        "beauty": 1,
+        "car_wash": 1,
+        "detailing": 2,
+        "education": 1,
+        "hair": 1
+      }
+    },
+    {
+      "neighborhood": "Младост 4",
+      "businesses": 7,
+      "categories": {
+        "barber": 1,
+        "beauty": 1,
+        "car_wash": 1,
+        "fitness": 1,
+        "hair": 1,
+        "health": 1,
+        "other": 1
+      }
+    },
+    {
+      "neighborhood": "Модерно предградие",
+      "businesses": 1,
+      "categories": {
+        "auto_repair": 1
+      }
+    },
+    {
+      "neighborhood": "Мотописта",
+      "businesses": 1,
+      "categories": {
+        "health": 1
+      }
+    },
+    {
+      "neighborhood": "Надежда",
+      "businesses": 1,
+      "categories": {
+        "other": 1
+      }
+    },
+    {
+      "neighborhood": "Надежда 1",
+      "businesses": 3,
+      "categories": {
+        "beauty": 2,
+        "other": 1
+      }
+    },
+    {
+      "neighborhood": "Надежда 2",
+      "businesses": 5,
+      "categories": {
+        "beauty": 1,
+        "education": 1,
+        "nails": 3
+      }
+    },
+    {
+      "neighborhood": "Надежда 3",
+      "businesses": 1,
+      "categories": {
+        "other": 1
+      }
+    },
+    {
+      "neighborhood": "Надежда 4",
+      "businesses": 1,
+      "categories": {
+        "pets": 1
+      }
+    },
+    {
+      "neighborhood": "Неуточнен квартал",
+      "businesses": 295,
+      "categories": {
+        "auto_repair": 33,
+        "barber": 15,
+        "beauty": 25,
+        "car_wash": 6,
+        "consulting": 20,
+        "detailing": 11,
+        "education": 15,
+        "fitness": 20,
+        "hair": 14,
+        "health": 13,
+        "home_services": 33,
+        "nails": 17,
+        "other": 66,
+        "pets": 7
+      }
+    },
+    {
+      "neighborhood": "НПЗ Искър",
+      "businesses": 1,
+      "categories": {
+        "detailing": 1
+      }
+    },
+    {
+      "neighborhood": "Обеля",
+      "businesses": 2,
+      "categories": {
+        "pets": 2
+      }
+    },
+    {
+      "neighborhood": "Обеля 2",
+      "businesses": 2,
+      "categories": {
+        "fitness": 1,
+        "other": 1
+      }
+    },
+    {
+      "neighborhood": "Оборище",
+      "businesses": 2,
+      "categories": {
+        "education": 1,
+        "health": 1
+      }
+    },
+    {
+      "neighborhood": "Овча купел",
+      "businesses": 13,
+      "categories": {
+        "auto_repair": 1,
+        "beauty": 5,
+        "fitness": 2,
+        "hair": 1,
+        "nails": 3,
+        "other": 1
+      }
+    },
+    {
+      "neighborhood": "Овча купел 1",
+      "businesses": 4,
+      "categories": {
+        "barber": 1,
+        "beauty": 1,
+        "detailing": 1,
+        "nails": 1
+      }
+    },
+    {
+      "neighborhood": "Овча купел 2",
+      "businesses": 1,
+      "categories": {
+        "fitness": 1
+      }
+    },
+    {
+      "neighborhood": "Овча Купел 2",
+      "businesses": 1,
+      "categories": {
+        "beauty": 1
+      }
+    },
+    {
+      "neighborhood": "Павлово",
+      "businesses": 2,
+      "categories": {
+        "detailing": 1,
+        "fitness": 1
+      }
+    },
+    {
+      "neighborhood": "Подуяне",
+      "businesses": 2,
+      "categories": {
+        "barber": 1,
+        "beauty": 1
+      }
+    },
+    {
+      "neighborhood": "Разсадника",
+      "businesses": 1,
+      "categories": {
+        "barber": 1
+      }
+    },
+    {
+      "neighborhood": "Редута",
+      "businesses": 7,
+      "categories": {
+        "beauty": 4,
+        "fitness": 1,
+        "nails": 1,
+        "other": 1
+      }
+    },
+    {
+      "neighborhood": "Света Троица",
+      "businesses": 3,
+      "categories": {
+        "beauty": 1,
+        "fitness": 1,
+        "health": 1
+      }
+    },
+    {
+      "neighborhood": "Сердика",
+      "businesses": 1,
+      "categories": {
+        "barber": 1
+      }
+    },
+    {
+      "neighborhood": "Симеоново",
+      "businesses": 2,
+      "categories": {
+        "consulting": 1,
+        "other": 1
+      }
+    },
+    {
+      "neighborhood": "Славия",
+      "businesses": 1,
+      "categories": {
+        "barber": 1
+      }
+    },
+    {
+      "neighborhood": "Слатина",
+      "businesses": 2,
+      "categories": {
+        "barber": 1,
+        "fitness": 1
+      }
+    },
+    {
+      "neighborhood": "Стефан Караджа",
+      "businesses": 1,
+      "categories": {
+        "other": 1
+      }
+    },
+    {
+      "neighborhood": "Стрелбище",
+      "businesses": 19,
+      "categories": {
+        "barber": 1,
+        "beauty": 3,
+        "education": 3,
+        "hair": 1,
+        "health": 1,
+        "nails": 1,
+        "other": 9
+      }
+    },
+    {
+      "neighborhood": "Студентски град",
+      "businesses": 22,
+      "categories": {
+        "barber": 5,
+        "beauty": 4,
+        "detailing": 1,
+        "education": 1,
+        "fitness": 4,
+        "hair": 1,
+        "health": 1,
+        "nails": 3,
+        "other": 2
+      }
+    },
+    {
+      "neighborhood": "Суха река",
+      "businesses": 2,
+      "categories": {
+        "beauty": 1,
+        "other": 1
+      }
+    },
+    {
+      "neighborhood": "Требич",
+      "businesses": 1,
+      "categories": {
+        "auto_repair": 1
+      }
+    },
+    {
+      "neighborhood": "Хаджи Димитър",
+      "businesses": 2,
+      "categories": {
+        "beauty": 1,
+        "nails": 1
+      }
+    },
+    {
+      "neighborhood": "Хиподрума",
+      "businesses": 4,
+      "categories": {
+        "fitness": 1,
+        "other": 3
+      }
+    },
+    {
+      "neighborhood": "Хладилника",
+      "businesses": 4,
+      "categories": {
+        "barber": 1,
+        "beauty": 1,
+        "fitness": 1,
+        "hair": 1
+      }
+    },
+    {
+      "neighborhood": "Христо Ботев",
+      "businesses": 1,
+      "categories": {
+        "auto_repair": 1
+      }
+    },
+    {
+      "neighborhood": "Христо Смирненски",
+      "businesses": 1,
+      "categories": {
+        "other": 1
+      }
+    },
+    {
+      "neighborhood": "Център",
+      "businesses": 19,
+      "categories": {
+        "barber": 1,
+        "beauty": 1,
+        "consulting": 2,
+        "education": 1,
+        "fitness": 1,
+        "hair": 2,
+        "other": 11
+      }
+    },
+    {
+      "neighborhood": "Южен парк",
+      "businesses": 1,
+      "categories": {
+        "other": 1
+      }
+    },
+    {
+      "neighborhood": "Яворов",
+      "businesses": 2,
+      "categories": {
+        "barber": 1,
+        "other": 1
+      }
+    }
+  ],
+  "comparison": {
+    "capturedOn": "2026-11-11",
+    "baselineSourceRecords": 654,
+    "addedBusinesses": 57,
+    "addedByCategory": {
+      "beauty": 6,
+      "education": 11,
+      "fitness": 4,
+      "hair": 3,
+      "nails": 1,
+      "other": 32
+    },
+    "addedByNeighborhood": [
+      {
+        "neighborhood": "Бели брези",
+        "businesses": 1,
+        "categories": {
+          "beauty": 1
+        }
+      },
+      {
+        "neighborhood": "Борово",
+        "businesses": 9,
+        "categories": {
+          "education": 3,
+          "fitness": 1,
+          "other": 5
+        }
+      },
+      {
+        "neighborhood": "Бъкстон",
+        "businesses": 6,
+        "categories": {
+          "beauty": 1,
+          "education": 2,
+          "hair": 1,
+          "other": 2
+        }
+      },
+      {
+        "neighborhood": "Горна баня",
+        "businesses": 1,
+        "categories": {
+          "education": 1
+        }
+      },
+      {
+        "neighborhood": "Иван Вазов",
+        "businesses": 1,
+        "categories": {
+          "other": 1
+        }
+      },
+      {
+        "neighborhood": "Красно село",
+        "businesses": 5,
+        "categories": {
+          "fitness": 1,
+          "other": 4
+        }
+      },
+      {
+        "neighborhood": "Лагера",
+        "businesses": 2,
+        "categories": {
+          "education": 1,
+          "other": 1
+        }
+      },
+      {
+        "neighborhood": "Манастирски ливади",
+        "businesses": 8,
+        "categories": {
+          "beauty": 2,
+          "education": 1,
+          "fitness": 2,
+          "hair": 1,
+          "nails": 1,
+          "other": 1
+        }
+      },
+      {
+        "neighborhood": "Неуточнен квартал",
+        "businesses": 8,
+        "categories": {
+          "other": 8
+        }
+      },
+      {
+        "neighborhood": "Обеля 2",
+        "businesses": 1,
+        "categories": {
+          "other": 1
+        }
+      },
+      {
+        "neighborhood": "Овча купел",
+        "businesses": 1,
+        "categories": {
+          "beauty": 1
+        }
+      },
+      {
+        "neighborhood": "Редута",
+        "businesses": 1,
+        "categories": {
+          "other": 1
+        }
+      },
+      {
+        "neighborhood": "Стрелбище",
+        "businesses": 10,
+        "categories": {
+          "beauty": 1,
+          "education": 3,
+          "hair": 1,
+          "other": 5
+        }
+      },
+      {
+        "neighborhood": "Хиподрума",
+        "businesses": 1,
+        "categories": {
+          "other": 1
+        }
+      },
+      {
+        "neighborhood": "Център",
+        "businesses": 1,
+        "categories": {
+          "other": 1
+        }
+      },
+      {
+        "neighborhood": "Южен парк",
+        "businesses": 1,
+        "categories": {
+          "other": 1
+        }
+      }
+    ],
+    "additions": [
+      {
+        "id": "sofia-smile-spot-borovo",
+        "name": "Smile Spot · Борово",
+        "category": "other",
+        "neighborhood": "Борово"
+      },
+      {
+        "id": "sofia-ortodont-vanina-atanasova",
+        "name": "Д-р Ванина Атанасова · ортодонт",
+        "category": "other",
+        "neighborhood": "Стрелбище"
+      },
+      {
+        "id": "sofia-via-dental-strelbishte",
+        "name": "VIA Dental Studio · Стрелбище",
+        "category": "other",
+        "neighborhood": "Стрелбище"
+      },
+      {
+        "id": "sofia-via-dental-krasno-selo",
+        "name": "VIA Dental Studio · Красно село",
+        "category": "other",
+        "neighborhood": "Красно село"
+      },
+      {
+        "id": "sofia-via-dental-obelya",
+        "name": "VIA Dental Studio · Обеля 2",
+        "category": "other",
+        "neighborhood": "Обеля 2"
+      },
+      {
+        "id": "sofia-gradent-borovo",
+        "name": "GRADENT · д-р Александър Грънчаров",
+        "category": "other",
+        "neighborhood": "Борово"
+      },
+      {
+        "id": "sofia-studio-r-academy-manastirski",
+        "name": "Studio R by Rumyana Strahilova / Studio R Academy",
+        "category": "nails",
+        "neighborhood": "Манастирски ливади"
+      },
+      {
+        "id": "sofia-vessy-mineva-manastirski",
+        "name": "Vessy Mineva Make up Artist",
+        "category": "beauty",
+        "neighborhood": "Манастирски ливади"
+      },
+      {
+        "id": "sofia-mv-salon-og-manastirski",
+        "name": "MV Salon · OG Edition",
+        "category": "hair",
+        "neighborhood": "Манастирски ливади — Запад"
+      },
+      {
+        "id": "sofia-angelic-glow-manastirski",
+        "name": "Angelic Glow",
+        "category": "beauty",
+        "neighborhood": "Манастирски ливади"
+      },
+      {
+        "id": "sofia-maria-marinova-borovo",
+        "name": "Мария Маринова · психолог и психотерапевт",
+        "category": "other",
+        "neighborhood": "Борово"
+      },
+      {
+        "id": "sofia-nikoleta-stoyanova-borovo",
+        "name": "Николета Стоянова · психолог и психотерапевт под супервизия",
+        "category": "other",
+        "neighborhood": "Борово"
+      },
+      {
+        "id": "sofia-evelina-despova-strelbishte",
+        "name": "Евелина Деспова · психолог и психотерапевт",
+        "category": "other",
+        "neighborhood": "Стрелбище"
+      },
+      {
+        "id": "sofia-gergana-dimova-pazel-strelbishte",
+        "name": "Гергана Димова · Студио за психотерапия Пъзел",
+        "category": "other",
+        "neighborhood": "Стрелбище"
+      },
+      {
+        "id": "sofia-yana-dimitrova-detail-strelbishte",
+        "name": "Яна Димитрова · Detail Psychology",
+        "category": "other",
+        "neighborhood": "Стрелбище"
+      },
+      {
+        "id": "sofia-asya-petrova-asaznanie-nishava",
+        "name": "Ася Петрова · Кабинет АсъЗнание",
+        "category": "other",
+        "neighborhood": null
+      },
+      {
+        "id": "sofia-elena-mecheva-mytalkspace-kosher",
+        "name": "Елена Мечева · MyTalkSpace",
+        "category": "other",
+        "neighborhood": "Манастирски ливади"
+      },
+      {
+        "id": "sofia-mladen-penchev-private-goce-delchev",
+        "name": "Д-р Младен Пенчев · частен психиатричен кабинет",
+        "category": "other",
+        "neighborhood": null
+      },
+      {
+        "id": "sofia-trinergy-manastirski",
+        "name": "TRINERGY",
+        "category": "fitness",
+        "neighborhood": "Манастирски ливади"
+      },
+      {
+        "id": "sofia-muscle-damage-gym-studio",
+        "name": "Muscle Damage GYM STUDIO",
+        "category": "fitness",
+        "neighborhood": "Манастирски ливади"
+      },
+      {
+        "id": "sofia-inergy-borovo-reserved-kickboxing",
+        "name": "Inergy · кикбокс с предварително записване",
+        "category": "fitness",
+        "neighborhood": "Борово"
+      },
+      {
+        "id": "sofia-chinkov-strelbishte",
+        "name": "Chinkov Hair Studio",
+        "category": "hair",
+        "neighborhood": "Стрелбище"
+      },
+      {
+        "id": "sofia-angel-skinlab-strelbishte",
+        "name": "Angel Skinlab",
+        "category": "beauty",
+        "neighborhood": "Стрелбище"
+      },
+      {
+        "id": "sofia-desislava-hristova-prosper-borovo",
+        "name": "Десислава Христова · психолог Prosper",
+        "category": "other",
+        "neighborhood": "Борово"
+      },
+      {
+        "id": "sofia-georgi-baldzhiev-buxton",
+        "name": "Георги Балджиев · психолог и психотерапевт",
+        "category": "other",
+        "neighborhood": "Бъкстон"
+      },
+      {
+        "id": "sofia-stela-doncheva-krasno-selo",
+        "name": "Стела Дончева · психолог",
+        "category": "other",
+        "neighborhood": "Красно село"
+      },
+      {
+        "id": "sofia-vanya-yordanova-ivan-vazov",
+        "name": "Д-р Ваня Йорданова · психолог и психотерапевт",
+        "category": "other",
+        "neighborhood": "Иван Вазов"
+      },
+      {
+        "id": "sofia-petya-krasteva-buxton",
+        "name": "Петя Кръстева · психолог",
+        "category": "other",
+        "neighborhood": "Бъкстон"
+      },
+      {
+        "id": "sofia-kamelia-todorova-za-men-krasno-selo",
+        "name": "Камелия Тодорова · психолог За мен",
+        "category": "other",
+        "neighborhood": "Красно село"
+      },
+      {
+        "id": "sofia-iskra-dukova-lagera",
+        "name": "Искра Дукова · психолог и психотерапевт",
+        "category": "other",
+        "neighborhood": "Лагера"
+      },
+      {
+        "id": "sofia-lena-lalcheva-hipodruma",
+        "name": "Лена Лалчева · психологично консултиране и терапия",
+        "category": "other",
+        "neighborhood": "Хиподрума"
+      },
+      {
+        "id": "sofia-x-academy-borovo",
+        "name": "X-Academy · Борово",
+        "category": "education",
+        "neighborhood": "Борово"
+      },
+      {
+        "id": "sofia-studio-s-strelbishte",
+        "name": "Студио S · Стрелбище",
+        "category": "education",
+        "neighborhood": "Стрелбище"
+      },
+      {
+        "id": "sofia-prestige-manastirski",
+        "name": "Езикова школа ПРЕСТИЖ · Манастирски ливади",
+        "category": "education",
+        "neighborhood": "Манастирски ливади"
+      },
+      {
+        "id": "sofia-prestige-borovo",
+        "name": "Езикова школа ПРЕСТИЖ · Борово",
+        "category": "education",
+        "neighborhood": "Борово"
+      },
+      {
+        "id": "sofia-prestige-buxton",
+        "name": "Езикова школа ПРЕСТИЖ · Бъкстон",
+        "category": "education",
+        "neighborhood": "Бъкстон"
+      },
+      {
+        "id": "sofia-koalakids-strelbishte",
+        "name": "KoalaKids Academy · Стрелбище",
+        "category": "education",
+        "neighborhood": "Стрелбище"
+      },
+      {
+        "id": "sofia-shkola-dekart-strelbishte",
+        "name": "Школа Декарт · Стрелбище",
+        "category": "education",
+        "neighborhood": "Стрелбище"
+      },
+      {
+        "id": "sofia-shkola-dekart-buxton",
+        "name": "Школа Декарт · Бъкстон",
+        "category": "education",
+        "neighborhood": "Бъкстон"
+      },
+      {
+        "id": "sofia-aratlitsi-krasno-selo",
+        "name": "Аратлици · Красно село",
+        "category": "fitness",
+        "neighborhood": "Красно село"
+      },
+      {
+        "id": "sofia-the-kod-buxton",
+        "name": "The KoD · Бъкстон",
+        "category": "beauty",
+        "neighborhood": "Бъкстон"
+      },
+      {
+        "id": "sofia-dilyana-todorova-krasno-selo",
+        "name": "Диляна Тодорова · детски психолог",
+        "category": "other",
+        "neighborhood": "Красно село"
+      },
+      {
+        "id": "sofia-krasimir-zhivkov-az-moga-reduta",
+        "name": "Красимир Живков · Аз мога",
+        "category": "other",
+        "neighborhood": "Редута"
+      },
+      {
+        "id": "sofia-georgi-radev-stamboliyski",
+        "name": "Георги Радев · психолог и психотерапевт",
+        "category": "other",
+        "neighborhood": null
+      },
+      {
+        "id": "sofia-marieta-baycheva-webpsycare-nansen",
+        "name": "Мариета Байчева · психотерапевт",
+        "category": "other",
+        "neighborhood": null
+      },
+      {
+        "id": "sofia-angel-nakov-petyofi",
+        "name": "Ангел Наков · психолог и психотерапевт",
+        "category": "other",
+        "neighborhood": null
+      },
+      {
+        "id": "sofia-anna-kabakova-tri-ushi",
+        "name": "Анна Кабакова · студио Надежда",
+        "category": "other",
+        "neighborhood": null
+      },
+      {
+        "id": "sofia-anima-tsar-asen",
+        "name": "Анима · център за психология и психотерапия",
+        "category": "other",
+        "neighborhood": null
+      },
+      {
+        "id": "sofia-orlin-baev-estestvena-akademia",
+        "name": "Естествена Академия · Орлин Баев",
+        "category": "other",
+        "neighborhood": "Център"
+      },
+      {
+        "id": "sofia-ivan-simeonov-yuzhen-park",
+        "name": "Иван Симеонов · SimeonovPSY",
+        "category": "other",
+        "neighborhood": "Южен парк"
+      },
+      {
+        "id": "sofia-svetla-bankova-rodopski-izvor",
+        "name": "Светла Банкова · психотерапевт",
+        "category": "other",
+        "neighborhood": null
+      },
+      {
+        "id": "sofia-harrity-tsar-boris-142",
+        "name": "Harrity Aesthetic Center",
+        "category": "beauty",
+        "neighborhood": "Овча купел"
+      },
+      {
+        "id": "sofia-concept-kazbek-35a",
+        "name": "CONCEPT Space for Beauty and Creativity",
+        "category": "hair",
+        "neighborhood": "Бъкстон"
+      },
+      {
+        "id": "sofia-kokoro-lagera",
+        "name": "Японски културен център KOKORO",
+        "category": "education",
+        "neighborhood": "Лагера"
+      },
+      {
+        "id": "sofia-alina-borovo",
+        "name": "Езиков център Алина · Борово",
+        "category": "education",
+        "neighborhood": "Борово"
+      },
+      {
+        "id": "sofia-risuvam-gorna-banya",
+        "name": "Risuvam.bg · уроци по рисуване",
+        "category": "education",
+        "neighborhood": "Горна баня"
+      },
+      {
+        "id": "sofia-merilin-beli-brezi",
+        "name": "Салон за красота Мерилин",
+        "category": "beauty",
+        "neighborhood": "Бели брези"
+      }
+    ],
+    "removedOrNowIneligible": [
+      {
+        "id": "sofia-arthromedica",
+        "reason": "owner_excluded_general_human_clinic"
+      },
+      {
+        "id": "sofia-sportmed",
+        "reason": "owner_excluded_general_human_clinic"
+      },
+      {
+        "id": "sofia-serkan-uzun-ortopedia",
+        "reason": "owner_excluded_general_human_clinic"
+      },
+      {
+        "id": "sofia-avitsena-rehabilitation",
+        "reason": "owner_excluded_general_human_clinic"
+      },
+      {
+        "id": "sofia-balance-clinic",
+        "reason": "owner_excluded_general_human_clinic"
+      },
+      {
+        "id": "sofia-lora-pozitano",
+        "reason": "owner_excluded_general_human_clinic"
+      },
+      {
+        "id": "sofia-lora-za-zhenata",
+        "reason": "owner_excluded_general_human_clinic"
+      },
+      {
+        "id": "sofia-lora-krasno-selo",
+        "reason": "owner_excluded_general_human_clinic"
+      },
+      {
+        "id": "sofia-park-clinic",
+        "reason": "owner_excluded_general_human_clinic"
+      },
+      {
+        "id": "sofia-poliklinikata-lyulin",
+        "reason": "owner_excluded_general_human_clinic"
+      },
+      {
+        "id": "sofia-health-master-clinic-ralevitsa",
+        "reason": "owner_excluded_general_human_clinic"
+      },
+      {
+        "id": "sofia-lyves-clinic-flora",
+        "reason": "owner_excluded_general_human_clinic"
+      },
+      {
+        "id": "sofia-medconvex-lavski-rid",
+        "reason": "owner_excluded_general_human_clinic"
+      }
+    ]
+  },
+  "notice": "Counts are unique catalogue businesses, not services or specialists. A missing neighborhood is not guessed. Additions compare against a separate operational baseline, never the historical pricing-review baseline."
+}

@@ -1,0 +1,18 @@
+{
+  "checkedOn": "2026-11-11",
+  "state": "pending_user_scope_clarification",
+  "reason": "The latest owner instruction excludes all other doctors. Whether this includes veterinary centres is being clarified; no new veterinary records are imported meanwhile.",
+  "notIncludedInOfficialCatalogueAdditions": [
+    { "id": "sofia-vethouse-ovcha-kupel", "researchFile": "research-pets-south-ready-v2.json" },
+    { "id": "sofia-sveti-antim-veterinary", "researchFile": "research-pets-south-ready-v2.json" },
+    { "id": "sofia-homeovet-ilinden", "researchFile": "research-pets-south-ready-v5.json" },
+    { "id": "sofia-megavet-mladost-2", "researchFile": "research-pets-ready-v6.json" }
+  ],
+  "notes": [
+    "Ready research is not publication approval and is not counted as an addition.",
+    "Genuine grooming remains eligible and does not imply medical services.",
+    "If veterinary care is authorized later, routine veterinary services belong under the existing Other category rather than misleading Grooming category.",
+    "No existing partner, customer record or reservation was changed.",
+    "The existing catalogue's veterinary rows are not silently deleted while the scope is ambiguous."
+  ]
+}

@@ -1,0 +1,208 @@
+{
+  "checkedOn": "2026-11-11",
+  "sourceInventorySnapshot": {
+    "catalogueRecords": 794,
+    "serviceNamesScanned": 8089,
+    "allNamesServicesIdentity": "ef035cc3dfd19184b568de6f8f0901a6ca65d5775498c4337389d34e02762377",
+    "method": "Offline full inventory names, websites and all service names/descriptions scanned across every category. Individually reviewed candidate inventories, then own homepage, about, team and contact sources. All 42 health-category records classified, including the already-excluded subset. Dental/psychology/psychiatry, ordinary salons and non-physician rehabilitation are not excluded by title/clinic word alone.",
+    "limitations": "Not every catalogue website was reopened. Clearly dental/psychological/nonmedical records outside these candidate groups were assessed from current inventory and existing source history. New primary checks focus the named medical/aesthetic/rehabilitation candidates; no credential-registry/legal validation performed."
+  },
+  "additionalPublicationExclusions": [
+    {
+      "id": "sofia-vita-base-one",
+      "name": "ВИТА · База 1",
+      "website": "https://vita.bg/",
+      "reviewedPrimaryUrls": [
+        "https://vita.bg/"
+      ],
+      "reason": "Own site is a general MBAL/DKC hospital, with the exact Dragovitsa 9 and Filip Kutev 10 branches. Existing catalogue services are mammography and hospital physiotherapy, not the permitted dentistry or psychology exception."
+    },
+    {
+      "id": "sofia-vita-base-two",
+      "name": "ВИТА · База 2",
+      "website": "https://vita.bg/",
+      "reviewedPrimaryUrls": [
+        "https://vita.bg/"
+      ],
+      "reason": "Own site is a general MBAL/DKC hospital, with the exact Dragovitsa 9 and Filip Kutev 10 branches. Existing catalogue services are mammography and hospital physiotherapy, not the permitted dentistry or psychology exception."
+    },
+    {
+      "id": "sofia-q-life-kinezitherapy",
+      "name": "МЦ Качествен Живот · кинезитерапия",
+      "website": "https://www.qlife.bg/",
+      "reviewedPrimaryUrls": [
+        "https://www.qlife.bg/",
+        "https://www.qlife.bg/specialisti/"
+      ],
+      "reason": "Own Medical Centre Quality Life offers pediatrician, child cardiologist and sports-medicine examinations with a medical-doctor team. Existing kinezitherapy consultation is inside this general medical centre."
+    },
+    {
+      "id": "sofia-nikolay-chudotvorets-rehab",
+      "name": "МЦ Николай Чудотворец · рехабилитация",
+      "website": "https://nikolaychudotvorets.bg/",
+      "reviewedPrimaryUrls": [
+        "https://nikolaychudotvorets.bg/",
+        "https://nikolaychudotvorets.bg/contacts/"
+      ],
+      "reason": "Own plastic-surgery clinic of Dr Nikolay Georgiev matches Tsar Boris III 313 and the catalogue phone. Existing postoperative rehabilitation is a surgical-clinic service, not an independent massage studio. Unrelated casino footer links were not followed."
+    },
+    {
+      "id": "sofia-haelan-bulgaria-rehab",
+      "name": "Хейлан Кеър · бул. България",
+      "website": "https://haelan.bg/",
+      "reviewedPrimaryUrls": [
+        "https://haelan.bg/",
+        "https://haelan.bg/healthcare-in-medical-centres"
+      ],
+      "reason": "Own general medical-centres page matches Bulgaria 51 floor 3 and Mladost 4 Business Park building 2 floor 1. The existing services are clinical rehabilitation, not dentistry-only services."
+    },
+    {
+      "id": "sofia-haelan-mladost-rehab",
+      "name": "Хейлан Кеър 2 · Младост",
+      "website": "https://haelan.bg/",
+      "reviewedPrimaryUrls": [
+        "https://haelan.bg/",
+        "https://haelan.bg/healthcare-in-medical-centres"
+      ],
+      "reason": "Own general medical-centres page matches Bulgaria 51 floor 3 and Mladost 4 Business Park building 2 floor 1. The existing services are clinical rehabilitation, not dentistry-only services."
+    },
+    {
+      "id": "sofia-serkan-uzun-lyulin",
+      "name": "Серкан Узун · МЦ Ориндж",
+      "website": "https://fizioterapiya.bg/",
+      "reviewedPrimaryUrls": [
+        "https://fizioterapiya.bg/"
+      ],
+      "reason": "Own site identifies cabinets inside Acibadem City Clinic Orthopaedics and Medical Centre Orange Lyulin. The Orthopaedics branch is already excluded; Lyulin is also clinic-based rehabilitation. Serkan himself is a physiotherapist, NOT asserted to be an MD."
+    },
+    {
+      "id": "sofia-kerimov-derma-aesthetic-sofia",
+      "name": "Керимов Дерма Естетик · София",
+      "website": "https://kerimov.bg/",
+      "reviewedPrimaryUrls": [
+        "https://kerimov.bg/"
+      ],
+      "reason": "Own aesthetic-medical clinic lists dermatology/venereology and plastic/reconstructive-surgery doctors. Sofia Mur 15 matches the exact venue. Existing examinations, Potenza and Plasma Pen are services of this medical-aesthetic clinic."
+    },
+    {
+      "id": "sofia-omni-iztok",
+      "name": "OMNI Physio Clinic · Изток",
+      "website": "https://www.omnibodyclinic.com/",
+      "reviewedPrimaryUrls": [
+        "https://www.omnibodyclinic.com/"
+      ],
+      "reason": "Own actual medical team includes orthopaedist Dr Velislav Peshev and sports physician Dr Mitko Georgiev alongside kinezitherapists. Iztok Metodi Popov 24A and Druzhba Tsvetan Lazarov 113 are diagnosis/rehabilitation locations. Do not extend this brand exclusion to massage-only Amaya."
+    },
+    {
+      "id": "sofia-omni-druzhba",
+      "name": "OMNI Physio Clinic · Дружба 2",
+      "website": "https://www.omnibodyclinic.com/",
+      "reviewedPrimaryUrls": [
+        "https://www.omnibodyclinic.com/"
+      ],
+      "reason": "Own actual medical team includes orthopaedist Dr Velislav Peshev and sports physician Dr Mitko Georgiev alongside kinezitherapists. Iztok Metodi Popov 24A and Druzhba Tsvetan Lazarov 113 are diagnosis/rehabilitation locations. Do not extend this brand exclusion to massage-only Amaya."
+    }
+  ],
+  "deferredServiceOrNonphysicianScope": [
+    {
+      "id": "sofia-omni-amaya-massage",
+      "action": "keep_massage_with_service_scope_review",
+      "reason": "Same owner explicitly distinguishes Amaya at Fitness Flais, Boris Rumenov 5A, as MASSAGE ONLY, with massage therapist Ivan Ivanov. Keep that venue distinct; three existing priced names also mention acupuncture, which requires an exact service-scope check.",
+      "reviewedPrimaryUrls": [
+        "https://www.omnibodyclinic.com/"
+      ]
+    },
+    {
+      "id": "sofia-topal-center",
+      "action": "ambiguous_nonphysician_rehab",
+      "reason": "Actual ordinary public HTTP source after reader timeout shows an independent manual-therapy/physio/massage centre, with no identified MD. Acupuncture/hijama and treatment claims require scope clarification rather than brand-based exclusion.",
+      "reviewedPrimaryUrls": [
+        "https://topalcenter.com/"
+      ]
+    },
+    {
+      "id": "sofia-office-therapy",
+      "action": "ambiguous_nonphysician_rehab",
+      "reason": "Own private kinezitherapy/massage/rehabilitation centre also offers Pilates and sports conditioning. No MD identified in the inspected homepage; postoperative rehabilitation is not merely a relaxation massage.",
+      "reviewedPrimaryUrls": [
+        "https://officetherapy.bg/"
+      ]
+    },
+    {
+      "id": "sofia-vibomi",
+      "action": "ambiguous_nonphysician_rehab",
+      "reason": "Own source separates non-invasive Yumeiho/kinezitherapy from invasive acupuncture. Therapist certificates are not MD credentials. Existing acupuncture and combined-treatment variants need owner-scope clarification.",
+      "reviewedPrimaryUrls": [
+        "https://vibomi.bg/"
+      ]
+    },
+    {
+      "id": "sofia-sofia-physio-center",
+      "action": "ambiguous_nonphysician_rehab",
+      "reason": "Own expert-examination/medical-care claims are present, but the about page does not identify doctor qualifications or a medical team. Clarify independent non-physician rehabilitation versus a registered medical clinic; do not infer an MD from wording alone.",
+      "reviewedPrimaryUrls": [
+        "https://sofiaphysiocenter.com/",
+        "https://sofiaphysiocenter.com/za-nas"
+      ]
+    },
+    {
+      "id": "sofia-okto-oborishte",
+      "action": "ambiguous_specialized_rehab_clinic",
+      "reason": "Own site calls both venues specialized physiotherapy CLINICS. Team member Panos Tsimplis is a doctor in KINEZITHERAPY (PhD), NOT established here as a medical physician; others are kinezitherapy graduates. Owner decision needed on this specialized-rehabilitation-clinic scope.",
+      "reviewedPrimaryUrls": [
+        "https://okto.bg/",
+        "https://okto.bg/ekip/"
+      ]
+    },
+    {
+      "id": "sofia-okto-lozenets",
+      "action": "ambiguous_specialized_rehab_clinic",
+      "reason": "Own site calls both venues specialized physiotherapy CLINICS. Team member Panos Tsimplis is a doctor in KINEZITHERAPY (PhD), NOT established here as a medical physician; others are kinezitherapy graduates. Owner decision needed on this specialized-rehabilitation-clinic scope.",
+      "reviewedPrimaryUrls": [
+        "https://okto.bg/",
+        "https://okto.bg/ekip/"
+      ]
+    },
+    {
+      "id": "sofia-osoba-kinezitherapy",
+      "action": "ambiguous_spa_rehab",
+      "reason": "Own SPA/massage/sauna/beauty venue also advertises rehabilitation, acupuncture and fillers. Existing inventory is individual kinezitherapy, with no named MD identified. Do not delete the whole SPA because of one procedure word.",
+      "reviewedPrimaryUrls": [
+        "https://osoba.bg/"
+      ]
+    },
+    {
+      "id": "sofia-physiohome-home-rehab",
+      "action": "ambiguous_home_health_rehab",
+      "reason": "Own licensed physiotherapists/masseurs provide home rehabilitation; the site also offers nurse visits and ambulance transport. Current inventory is rehabilitation only; no physician consultation identified. Clarify whether all home-health services should be outside scope.",
+      "reviewedPrimaryUrls": [
+        "https://physiohome.bg/"
+      ]
+    },
+    {
+      "id": "sofia-adlen-aesthetic",
+      "action": "ambiguous_invasive_beauty_service",
+      "reason": "Existing needle mesotherapy and skin-diagnosis variants sit alongside ordinary nails/skincare. No MD identified on the inspected primary homepage. Confirm the practitioner and exact procedure scope; do NOT delete the whole business.",
+      "reviewedPrimaryUrls": [
+        "https://adlenaesthetic.bg/"
+      ]
+    },
+    {
+      "id": "sofia-medical-arts",
+      "action": "keep_dental_only_mixed_centre",
+      "reason": "Own mixed medico-dental centre also has neurology, cardiology, orthopaedics and surgery, BUT current catalogue inventory is ONLY a dental examination, an allowed exception. Do not expand to other doctors; generic brand/booking may need explicit dental context.",
+      "reviewedPrimaryUrls": [
+        "https://www.medical-arts.bg/"
+      ]
+    },
+    {
+      "id": "sofia-sf-dent",
+      "action": "keep_dental_with_service_scope_review",
+      "reason": "Own Dr Sandi Festok dental clinic remains permitted. Owner explains Botox for bruxism, but generic existing Botox-1-zone is not explicitly bruxism-only. Review that variant separately, without deleting dental inventory.",
+      "reviewedPrimaryUrls": [
+        "https://sfdent.eu/"
+      ]
+    }
+  ],
+  "notice": "Publication eligibility only. Existing source records, reviews and pricing fingerprints remain unchanged. No credentials, patient records, bookings or production settings modified."
+}

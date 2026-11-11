@@ -1,0 +1,15 @@
+{
+  "checkedOn": "2026-11-11",
+  "applied": true,
+  "noExternalGeocoding": true,
+  "id": "sofia-gtpower-hadzhi-dimitar",
+  "catalogueAddress": "София, кв. Хаджи Димитър, ул. Резбарска 17",
+  "coordinates": {
+    "latitude": 42.7117076,
+    "longitude": 23.3555531,
+    "source": "https://gtpower-bg.com/",
+    "method": "first_party_coordinates"
+  },
+  "evidence": "Owned AutoRepair JSON-LD has this exact address and geo. Named public map embed in the same owner HTML corroborates destination, not just a viewport. No Google URL fetched, no client coordinates, no geocoder. Source review 2026-11-11T04:59:42.653Z; whole-HTML SHA256 7cff965ff94c34520df238346c5fa2b3c1ba4942bfea08756e5798ac0ab87482.",
+  "pricingIdentityUnchanged": true
+}

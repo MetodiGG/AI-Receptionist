@@ -25,3 +25,22 @@
 .home-business-photo > .business-category-cover { position: absolute; inset: 0; }
 .business-details-photo-fallback.business-category-cover { height: clamp(170px,48vw,280px); }
 .business-profile-hero > .business-profile-no-photo.business-category-cover { height: clamp(190px,31vw,360px); }
+
+/* Do not truncate the business or service before the customer opens details. */
+.home-business-card h3, .home-business-services .home-service-name { display: block; -webkit-line-clamp: unset; -webkit-box-orient: initial; overflow: visible; text-overflow: clip; white-space: normal; overflow-wrap: break-word; }
+.home-business-services > li { grid-template-columns: minmax(0,1fr) fit-content(34%); align-items: start; }
+.home-business-services .service-photo-name { align-items: flex-start; }
+.home-service-copy { min-width: 0; flex: 1; }
+.home-service-condition { display: block; margin-top: 4px; color: #6b625b; font-size: 12px; line-height: 1.4; font-weight: 500; }
+.service-price-unit { display: block; font-size: 12px; line-height: 1.35; font-weight: 550; white-space: normal; overflow-wrap: normal; }
+.home-business-services .home-service-price { white-space: nowrap; }
+
+/* A full-width toolbar reserves room for Close instead of floating over prices. */
+.business-details-toolbar { position: sticky; top: -24px; z-index: 5; display: flex; justify-content: flex-end; margin: -24px -24px 12px; padding: 8px 12px; background: #fffaf5; border-bottom: 1px solid #eddfd2; }
+.business-details-toolbar .business-details-close { position: static; float: none; margin: 0; }
+.business-details-services > li { display: grid; grid-template-columns: minmax(0,1fr) fit-content(34%); gap: 7px 12px; }
+.business-details-services .business-details-price { max-width: none; min-width: 0; white-space: nowrap; align-self: start; }
+.business-details-service-copy { flex: 1; overflow-wrap: break-word; }
+.business-details-service-copy > strong { display: block; font-size: 16px; line-height: 1.4; }
+.business-details-service-condition { display: block; margin-top: 5px; color: #6b625b; font-size: 13px; line-height: 1.4; font-weight: 500; }
+.business-details-services .business-details-service-description { grid-column: 1 / -1; margin: 0; font-size: 14px; line-height: 1.55; overflow-wrap: break-word; }

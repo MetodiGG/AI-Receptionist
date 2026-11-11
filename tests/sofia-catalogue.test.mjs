@@ -3,7 +3,7 @@ import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { DateTime } from 'luxon'
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
-import { catalogueRecordSchema, approvedCatalogueRecord, validateCatalogue } from '../lib/discovery/catalogue-policy.mjs'
+import { catalogueRecordSchema, approvedCatalogueRecord, validateCatalogue, EXCLUDED_GENERAL_CLINIC_IDS } from '../lib/discovery/catalogue-policy.mjs'
 import { discoveryConfig } from '../lib/discovery/config.mjs'
 import { discoverBusinesses } from '../lib/discovery/search.mjs'
 import { createDiscoveryHandler } from '../lib/discovery/handler.mjs'
@@ -14,8 +14,9 @@ import { distanceBadge, discoveryDistanceOrigin } from '../lib/discovery/distanc
 import { createPartnerRatingHandler } from '../lib/discovery/partner-ratings.mjs'
 import { createGoogleCardGrantHandler } from '../lib/discovery/google-card-grant.mjs'
 import { currentPublishedFact } from '../lib/discovery/business-details.mjs'
+import { NEIGHBORHOOD_20261111_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-expansion-20261111.mjs'
 
-const now = DateTime.fromISO('2026-11-10T12:00:00Z'), clock = now.toMillis()
+const now = DateTime.fromISO('2026-11-11T12:00:00Z'), clock = now.toMillis()
 const noProvider = () => assert.fail('Free catalogue must never call Google, AI, auth or a paid budget')
 const deps = patch => ({ config: discoveryConfig({ DISCOVERY_ENABLED: 'true' }), now, allowAttempt: async () => true,
   readInternal: async () => [], readCatalogue: async () => SOFIA_CATALOGUE,
@@ -50,10 +51,14 @@ test('100 concurrent local searches consume no Google/model grants or provider r
 test('the expanded individually sourced catalogue is committed; records are not synthetic ratings or partner accounts', () => {
   assert.ok(validateCatalogue(SOFIA_CATALOGUE).length >= 200)
   for (const row of SOFIA_CATALOGUE) {
-    assert.ok(approvedCatalogueRecord(row, clock), row.id)
+    if (EXCLUDED_GENERAL_CLINIC_IDS.includes(row.id)) assert.equal(approvedCatalogueRecord(row, clock), null, row.id)
+    else assert.ok(approvedCatalogueRecord(row, clock), row.id)
     assert.match(row.verification.booking.url, /^https:\/\//)
     const evidenceHost=new URL(row.verification.booking.url).hostname.replace(/^www\./, ''), ownerHost=new URL(row.website).hostname.replace(/^www\./, '')
-    assert.ok(evidenceHost===ownerHost || evidenceHost.endsWith(`.${ownerHost}`),row.id)
+    const explicitProviderReview = NEIGHBORHOOD_20261111_REVIEWS.find(review => review.id === row.id &&
+      review.bookingReview === 'provider_booking_reviewed' && review.bookingEntry === row.verification.booking.url &&
+      review.reviewedUrls.includes(row.website) && review.reviewedUrls.includes(row.verification.booking.url))
+    assert.ok(evidenceHost===ownerHost || evidenceHost.endsWith(`.${ownerHost}`) || explicitProviderReview,row.id)
     assert.doesNotMatch(JSON.stringify(row), /rating|reviewCount|placeId|maps\.google|googleusercontent|gstatic|demo|fixture/i)
   }
 })
@@ -73,7 +78,7 @@ test('bad destinations, fake eligibility, arbitrary fields and unlicensed photos
   }
 })
 test('draft, rejected, future and expired records cannot appear and never auto-renew', () => {
-  for (const patch of [{ status: 'draft' }, { status: 'rejected' }, { checkedOn: '2026-11-11', validUntil: '2027-02-03' }, { checkedOn: '2026-08-01', validUntil: '2026-10-01' }]) assert.equal(approvedCatalogueRecord(record({ verification: { ...record().verification, ...patch } }), clock), null)
+  for (const patch of [{ status: 'draft' }, { status: 'rejected' }, { checkedOn: '2026-11-12', validUntil: '2027-02-03' }, { checkedOn: '2026-08-01', validUntil: '2026-10-01' }]) assert.equal(approvedCatalogueRecord(record({ verification: { ...record().verification, ...patch } }), clock), null)
   assert.equal(approvedCatalogueRecord(record(), Date.parse('2027-02-04')), null)
   assert.throws(() => validateCatalogue([record(), record()]), /Duplicate catalogue/)
 })
@@ -87,7 +92,7 @@ test('BG and EN natural language find only actual appointment services with one 
 })
 test('no slots, budgets or prices are invented for external appointments, including a date/time search', async () => {
   const result = await discoverBusinesses(input({ query: 'маникюр утре след 13:00' }), deps())
-  assert.equal(result.intent.date, '2026-11-11'); assert.equal(result.intent.timeFrom, '13:00')
+  assert.equal(result.intent.date, '2026-11-12'); assert.equal(result.intent.timeFrom, '13:00')
   assert.ok(result.results.length)
   for (const row of result.results) {
     assert.equal(row.availability.status, 'external'); assert.deepEqual(row.availability.slots, [])

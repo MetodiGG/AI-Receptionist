@@ -56,12 +56,10 @@ test('new sport locations keep total packages and do not copy group yoga into a 
  assert.equal(menu('sofia-salt-art-centre','Индивидуална йога · двама').price.unit,'двама')
 })
 
-test('new ML clinic markers permit nearby discovery without inferred availability or shifted specialty fees',()=>{
+test('excluded general clinics retain sourced markers and fees without appearing in nearby discovery',()=>{
  const row=record('sofia-medconvex-lavski-rid')
  const results=normalizeCatalogueBusinesses([row],{cityCode:'68134',category:'health',browse:true,searchV2:true,coordinates:row.coordinates,radiusKm:2},{now})
- assert.equal(results.length,1)
- assert.equal(results[0].availability.status,'external')
- assert.deepEqual(results[0].availability.slots,[])
+ assert.deepEqual(results,[])
  assert.equal(menu(row.id,'Кардиолог · първичен преглед').price.amount,40)
  assert.equal(menu(row.id,'Кардиолог доцент · първичен преглед').price.amount,70)
  assert.equal(menu('sofia-lyves-clinic-flora','Специализиран лимфологичен преглед · без боди-анализ').price.amount,95)

@@ -62,7 +62,7 @@
 .compact-business-setup .photo-picker-label { justify-content:center; min-height:44px; padding:12px; margin-bottom:0; font-size:13px; border-radius:11px; cursor:pointer; }
 .compact-business-setup .photo-picker input[type=file] { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; border:0; }
 .compact-business-setup .photo-picker:focus-within .photo-picker-label { outline:3px solid #b96d35; outline-offset:3px; }
-.compact-business-setup .photo-picker-requirement { margin:5px 0 0; font-size:12px; }
+.compact-business-setup .photo-picker-requirement { margin:5px 0 0; padding:0 12px 10px; font-size:12px; text-align:center; }
 .compact-business-setup .photo-picker-list { margin:10px 0 0; }
 .compact-business-setup .photo-picker-preview { max-height:90px; object-fit:cover; }
 .onboarding-extra { min-width:0; padding:0; border:0; }
@@ -86,6 +86,14 @@
 .onboarding-service-row>.icon-button { align-self:center; width:36px; min-width:36px; height:40px; margin-top:20px; border:0; background:#fff6eb; color:#9b6d4b; }
 .catalogue-service-hint { grid-column:1/-1; color:#895729; font-size:12px; line-height:1.5; overflow-wrap:anywhere; }
 .catalogue-service-hint strong { font-weight:650; }
+.onboarding-price-label { display:block; margin-top:4px; color:#895729; font-size:12px; line-height:1.4; overflow-wrap:anywhere; }
+.onboarding-service-price-options { grid-column:1/-1; min-width:0; }
+.onboarding-service-price-options .service-pricing-options { margin:0; }
+.onboarding-service-price-options .settings-form-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.onboarding-service-price-options :is(input,select,textarea) { width:100%; min-width:0; max-width:100%; padding:9px; border:1px solid #e0d4c6; border-radius:9px; background:#fff; color:#352c25; font:inherit; font-size:16px; }
+.onboarding-service-price-options label { display:grid; gap:5px; font-size:13px; }
+.onboarding-service-conditions > summary { display:flex; align-items:center; min-height:36px; color:#80502c; font-size:13px; cursor:pointer; }
+.onboarding-service-conditions textarea { min-height:80px; line-height:1.5; resize:vertical; }
 .catalogue-service-hint details,.catalogue-import-conditions { margin-top:5px; font-size:12px; line-height:1.5; overflow-wrap:anywhere; }
 .catalogue-service-hint summary,.catalogue-import-conditions summary { cursor:pointer; color:#80502c; }
 .catalogue-service-hint details p,.catalogue-import-conditions p { margin:5px 0 0; }
@@ -121,6 +129,12 @@
 .catalogue-replace-note { margin:0 20px 12px; color:#885124; font-size:13px; }
 .catalogue-import-selection { display:flex; justify-content:space-between; gap:12px; padding:8px 20px; font-size:13px; }
 .catalogue-import-selection>span { color:#9a673a; }
+.catalogue-import-select-all { display:flex; align-items:center; gap:9px; min-width:0; min-height:44px; cursor:pointer; }
+.catalogue-import-select-all > input { flex:0 0 20px; width:20px; height:20px; margin:0; accent-color:#b9682b; }
+.catalogue-import-select-all > strong { min-width:0; font-size:13px; line-height:1.4; font-weight:650; overflow-wrap:break-word; }
+.catalogue-import-select-all > input:focus-visible { outline:3px solid #b96d35; outline-offset:3px; }
+.catalogue-import-selection { align-items:center; }
+.catalogue-import-selection > span { flex-shrink:0; white-space:nowrap; }
 .catalogue-import-dialog>ul { list-style:none; margin:0; padding:0 20px; max-height:45dvh; overflow-y:auto; overscroll-behavior:contain; }
 .catalogue-import-dialog li { padding:9px 0; border-top:1px solid #efe4d6; }
 .catalogue-import-dialog li>label { display:flex; align-items:flex-start; gap:10px; cursor:pointer; }

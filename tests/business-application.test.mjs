@@ -38,7 +38,7 @@ test('verified signed-in owners can submit without another password; caller emai
   }
 })
 test('cross-site, malformed, oversized, weak, spam, reserved-address and rate-limited attempts cannot create accounts',async()=>{
-  for(const [body,headers,options,status] of [['{',{}, {},422],[{...application,company:'spam'},{},{},422],[application,{origin:'https://evil.example'},{},403],[application,{'content-length':'70000'},{},422],[{...application,account:{email:'admin@example.com',password:'long-password'}},{},{},409],[{...application,account:{email:'owner@example.com',password:'short'}},{},{},409],[application,{authorization:'Bearer expired'},{},409],[application,{},{allowed:false},429]]){
+  for(const [body,headers,options,status] of [['{',{}, {},422],[{...application,company:'spam'},{},{},422],[application,{origin:'https://evil.example'},{},403],[application,{'content-length':'800001'},{},422],[{...application,account:{email:'admin@example.com',password:'long-password'}},{},{},409],[{...application,account:{email:'owner@example.com',password:'short'}},{},{},409],[application,{authorization:'Bearer expired'},{},409],[application,{},{allowed:false},429]]){
     const h=harness(options);assert.equal((await h.handler(request(body,headers))).status,status);assert.equal(h.calls.created.length,0);assert.equal(h.calls.saved.length,0)
   }
 })

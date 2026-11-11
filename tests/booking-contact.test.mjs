@@ -26,9 +26,11 @@ test('web/manual and chat server validation share the same required contact sche
 })
 
 test('all three booking interfaces mark the email field required in BG and EN', async () => {
-  for (const path of ['../components/public-booking-page.js', '../components/guided-booking-chat.js', '../app/dashboard/appointments/page.js']) {
+  for (const path of ['../components/public-booking-page.js', '../components/guided-booking-chat.js', '../components/owner-manual-booking-dialog.js']) {
     const source = await readFile(new URL(path, import.meta.url), 'utf8')
-    assert.match(source, /'Email \*' : 'Имейл \*'/)
-    assert.match(source, /<input required type="email" autoComplete="email" inputMode="email" maxLength=\{180\}/)
+    assert.match(source, /(?:'Email \*' : 'Имейл \*'|'Email' : 'Имейл'\} \*)/)
+    assert.match(source, /<input\b[^>]*\brequired type="email" autoComplete="email" inputMode="email" maxLength=\{180\}/)
   }
+  const owner = await readFile(new URL('../app/dashboard/appointments/page.js', import.meta.url), 'utf8')
+  assert.match(owner, /<OwnerManualBookingDialog\b/)
 })

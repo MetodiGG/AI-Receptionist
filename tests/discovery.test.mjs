@@ -53,7 +53,8 @@ test('budget is not a time or decimal date; unknown prices are not called afford
   }
   const intent = parse({ query: 'маникюр в София до 30 евро' })
   assert.equal(matchingServices(business(), intent).length, 1)
-  for (const patch of [{ price: 31 }, { price: null }, { price: 20, currency: 'BGN' }]) assert.equal(matchingServices(business({ services: [{ ...business().services[0], ...patch }] }), intent).length, 0)
+  for (const patch of [{ price: 31 }, { price: null }, { price: 20, currency: 'USD' }]) assert.equal(matchingServices(business({ services: [{ ...business().services[0], ...patch }] }), intent).length, 0)
+  assert.equal(matchingServices(business({ services: [{ ...business().services[0], price: 20, currency: 'BGN' }] }), intent).length, 1, 'BGN is compared using its derived EUR display amount')
 })
 test('Saturday, after-work assumption and manual location work; missing/ambiguous/invalid requests ask one question', () => {
   const intent = parse({ query: 'Искам да запиша кучето си на груминг в събота.', cityCode: '68134' })

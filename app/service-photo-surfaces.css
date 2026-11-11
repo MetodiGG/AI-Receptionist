@@ -1,5 +1,6 @@
 /* Keep the thumbnail and its text in the existing name column. The price
    remains a separate cell, including when it links to the published source. */
+.home-business-services, .business-details-services, .directory-services > div { min-width: 0; grid-template-columns: minmax(0,1fr); }
 .home-business-services > li { align-items: center; }
 .home-business-services .service-photo-name { gap: 7px; }
 .home-business-services .home-service-price { min-width: 0; overflow-wrap: anywhere; }
@@ -9,10 +10,11 @@
 .business-details-service-copy { min-width: 0; }
 .business-details-services :is(.service-thumbnail, .service-thumbnail-icon) { display: grid; }
 
-.directory-services .directory-service-row { display: grid; grid-template-columns: minmax(0,1fr) fit-content(44%); align-items: center; gap: 8px 12px; padding: 10px 12px; background: #f8f5f1; border-radius: 12px; font-size: 16px; font-weight: 750; }
-.directory-services .directory-service-copy { display: grid; gap: 2px; min-width: 0; overflow-wrap: anywhere; }
+.directory-services .directory-service-row { display: flex; flex-wrap: wrap; min-width: 0; align-items: flex-start; gap: 6px 12px; padding: 10px 12px; background: #f8f5f1; border-radius: 12px; font-size: 16px; font-weight: 750; }
+.directory-services .directory-service-row > .service-photo-name { display: flex; flex: 1 0 min-content; max-width: 100%; }
+.directory-services .directory-service-copy { display: grid; grid-template-columns: minmax(0,1fr); gap: 2px; min-width: 0; overflow-wrap: break-word; word-break: normal; hyphens: manual; }
 .directory-services .directory-service-copy small { color: #606169; font-weight: 400; }
-.directory-services .directory-service-row b { min-width: 0; text-align: end; white-space: normal; overflow-wrap: anywhere; }
+.directory-services .directory-service-row b { flex: 0 1 auto; min-width: 0; max-width: 100%; margin-inline-start: auto; text-align: end; white-space: normal; overflow-wrap: anywhere; }
 /* The older directory stylesheet pads all spans, including the shared art. */
 .directory-services .directory-service-row :is(.service-thumbnail, .service-thumbnail-icon) { display: grid; padding: 0; gap: 0; place-items: center; justify-content: center; }
 .directory-services .directory-service-row .service-thumbnail-icon { background: transparent; }
@@ -28,25 +30,29 @@
 
 /* Do not truncate the business or service before the customer opens details. */
 .home-business-card h3, .home-business-services .home-service-name { display: block; -webkit-line-clamp: unset; -webkit-box-orient: initial; overflow: visible; text-overflow: clip; white-space: normal; overflow-wrap: break-word; }
-.home-business-services > li { grid-template-columns: minmax(0,1fr) minmax(0,42%); align-items: start; }
-.home-business-services .service-photo-name { align-items: flex-start; }
+.home-business-services > li { display: flex; flex-wrap: wrap; min-width: 0; align-items: flex-start; gap: 5px 8px; }
+/* Intrinsic word width decides when the price moves down. break-word keeps
+   ordinary words whole for this calculation; only oversized tokens need an
+   emergency break after the name already has the full row to itself. */
+.home-business-services .service-photo-name { flex: 1 0 min-content; max-width: 100%; align-items: flex-start; }
 .home-service-copy { min-width: 0; flex: 1; }
 .home-service-condition { display: block; margin-top: 4px; color: #6b625b; font-size: 12px; line-height: 1.4; font-weight: 500; }
 .service-price-unit { display: block; font-size: 12px; line-height: 1.35; font-weight: 550; white-space: normal; overflow-wrap: anywhere; }
-/* Both columns must be allowed to shrink. A nowrap price can exceed a
-   fit-content limit, painting its range/currency over the next business.
-   Wrap real values instead of clipping either end or hiding the currency. */
-.home-business-services .home-service-price { max-width: 100%; white-space: normal; overflow-wrap: anywhere; word-break: normal; }
+/* Prices can move to their own line and shrink within the row. A nowrap
+   range/currency must never paint over the next business; wrap the complete
+   value instead of clipping either end or hiding the currency. */
+.home-business-services .home-service-price { flex: 0 1 auto; max-width: 100%; margin-inline-start: auto; white-space: normal; overflow-wrap: anywhere; word-break: normal; }
 
 /* A full-width toolbar reserves room for Close instead of floating over prices. */
 .business-details-toolbar { position: sticky; top: -24px; z-index: 5; display: flex; justify-content: flex-end; margin: -24px -24px 12px; padding: 8px 12px; background: #fffaf5; border-bottom: 1px solid #eddfd2; }
 .business-details-toolbar .business-details-close { position: static; float: none; margin: 0; }
-.business-details-services > li { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,42%); gap: 7px 12px; }
-.business-details-services .business-details-price { max-width: 100%; min-width: 0; white-space: normal; overflow-wrap: anywhere; word-break: normal; align-self: start; }
+.business-details-services > li { display: flex; flex-wrap: wrap; min-width: 0; align-items: flex-start; gap: 7px 12px; }
+.business-details-services .service-photo-name { flex: 1 0 min-content; max-width: 100%; overflow-wrap: break-word; }
+.business-details-services .business-details-price { flex: 0 1 auto; max-width: 100%; min-width: 0; margin-inline-start: auto; white-space: normal; overflow-wrap: anywhere; word-break: normal; align-self: flex-start; }
 .business-details-service-copy { flex: 1; overflow-wrap: break-word; }
 .business-details-service-copy > strong { display: block; font-size: 16px; line-height: 1.4; }
 .business-details-service-condition { display: block; margin-top: 5px; color: #6b625b; font-size: 13px; line-height: 1.4; font-weight: 500; }
-.business-details-services .business-details-service-description { grid-column: 1 / -1; margin: 0; font-size: 14px; line-height: 1.55; overflow-wrap: break-word; }
+.business-details-services .business-details-service-description { flex-basis: 100%; min-width: 0; margin: 0; font-size: 14px; line-height: 1.55; overflow-wrap: break-word; }
 
 /* Keep optional hours behind one native, keyboard-operable disclosure. */
 .discovery-business-details .business-details-hours-section { margin-top: 14px; }

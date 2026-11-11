@@ -131,3 +131,42 @@
   .booking-mode-fields,.opening-hours-editor { padding:14px; }
   .external-booking-panel,.external-place-selection { padding:18px; }
 }
+
+/* Keep owner forms independent of the legacy `.admin-modal > div` flex rule. */
+.admin-modal > .settings-form-grid { display:grid; }
+.admin-modal > .settings-panel-head { display:block; }
+.owner-appointment-dialog { width:min(640px,calc(100% - 24px)); max-width:calc(100% - 24px); max-height:calc(100dvh - 24px); padding:0; overflow:auto; overscroll-behavior:contain; border:1px solid #e0cbb5; border-radius:18px; background:#fffdf9; color:#463326; box-shadow:0 12px 34px #39231624; }
+.owner-appointment-dialog::backdrop { background:#2f211a65; }
+.owner-appointment-dialog > form { min-width:0; padding:18px; }
+.owner-appointment-dialog .owner-appointment-dialog-head { display:flex; align-items:flex-start; gap:12px; margin:0 0 16px; }
+.owner-appointment-dialog-head > div { flex:1; min-width:0; }
+.owner-appointment-dialog-head h3 { margin:0 0 5px; font-size:22px; line-height:1.25; }
+.owner-appointment-dialog-head p { margin:0; color:#7b6655; font-size:14px; line-height:1.45; }
+.owner-appointment-dialog-close { display:grid; place-items:center; flex:0 0 44px; width:44px; min-height:44px; padding:0; border:1px solid #e2ceba; border-radius:12px; color:#8a512d; background:#fff7ee; cursor:pointer; }
+.owner-appointment-dialog-close svg { width:20px; height:20px; }
+.owner-appointment-dialog .owner-manual-fields { min-width:0; margin:0; padding:0; border:0; }
+.owner-appointment-dialog .settings-form-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin:0; }
+.owner-appointment-dialog .settings-form-grid > * { min-width:0; max-width:100%; }
+.owner-appointment-dialog .settings-form-grid :is(input,select,textarea) { width:100%; min-width:0; max-width:100%; font:inherit; font-size:16px; color:#49372b; background:#fff; border:1px solid #ddd0c1; border-radius:10px; }
+.owner-appointment-dialog .settings-form-grid :is(input,select) { min-height:44px; padding:10px; }
+.owner-appointment-dialog .settings-form-grid textarea { min-height:66px; padding:10px; resize:vertical; }
+.owner-appointment-dialog .date-menu > summary { font-size:16px; font-weight:650; color:#49372b; border-color:#ddd0c1; }
+.owner-appointment-dialog .date-menu-panel { grid-template-columns:minmax(48px,.65fr) minmax(0,1.2fr) minmax(68px,.85fr); gap:6px; padding-top:8px; }
+.owner-appointment-dialog .date-menu-panel button { background:#995226; }
+.owner-appointment-dialog .booking-intake { margin:14px 0 0; padding:12px; }
+.owner-manual-availability-feedback { min-width:0; margin-top:10px; font-size:14px; line-height:1.45; color:#795b42; overflow-wrap:break-word; }
+.owner-manual-availability-feedback:empty { display:none; }
+.owner-manual-availability-feedback p { margin:0; }
+.owner-manual-availability-feedback button { margin-top:6px; min-height:44px; }
+.owner-appointment-dialog .settings-actions { position:sticky; bottom:0; z-index:2; display:flex; justify-content:flex-end; gap:10px; margin:16px -18px -18px; padding:12px 18px; border:0; border-top:1px solid #eadfD2; border-radius:0 0 18px 18px; background:#fffaf3; }
+.owner-appointment-dialog .settings-actions > button { width:auto; max-width:100%; min-height:44px; padding:10px 14px; font-size:15px; }
+.owner-appointment-dialog .settings-actions .primary-button { color:#60361b; background:#f6bf80; border-color:#dfa361; }
+.owner-appointment-dialog .settings-actions .primary-button:hover:not(:disabled) { background:#eea65d; }
+.owner-appointment-dialog :is(button,input,select,textarea,summary):focus-visible { outline:3px solid #b96d35; outline-offset:2px; }
+.owner-appointment-dialog :disabled { cursor:not-allowed; }
+@media(max-width:600px) {
+  .owner-appointment-dialog > form { padding:16px; }
+  .owner-appointment-dialog .settings-form-grid { grid-template-columns:minmax(0,1fr); }
+  .owner-appointment-dialog .settings-actions { margin:16px -16px -16px; padding:12px 16px; }
+  .owner-appointment-dialog .settings-actions > button { flex:1; min-width:0; }
+}

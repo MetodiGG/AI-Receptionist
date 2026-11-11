@@ -13,6 +13,8 @@ import { BusinessPublicProfileEditor } from '../../../components/business-public
 import { BusinessMediaEditor } from '../../../components/business-media-editor'
 import { useUnsavedChanges } from '../../../hooks/use-unsaved-changes'
 import { BusinessBookingSettings } from '../../../components/business-booking-settings'
+import { ServicePricingFields } from '../../../components/service-pricing-fields'
+import { editableServiceSchema } from '../../../lib/service-pricing.mjs'
 import { businessLocationFields, findCity } from '../../../lib/business-location.mjs'
 import { DURATION_OPTIONS, validDuration, scheduleFromHours, scheduleProblem, scheduleRows, scheduleErrorText, scheduleWriteError } from '../../../lib/business-schedule.mjs'
 
@@ -142,8 +144,10 @@ export function SettingsContent({ business, refreshBusiness, locale, preview = f
     if(saving||preview)return
     const external=business.booking_mode==='external',unknown=v=>v===''||v==null
     if (!service.name.trim() || (!(external&&unknown(service.duration_min))&&!validDuration(service.duration_min)) || (!(external&&unknown(service.price))&&(unknown(service.price)||!Number.isFinite(Number(service.price))||Number(service.price)<0))) { setMessage({ type: 'error', text: en ? 'Enter a service name, a non-negative price and a duration of 5–1440 minutes. External mode permits unknown values.' : 'Въведи име, неотрицателна цена и продължителност от 5 до 1440 минути. Външният режим допуска неизвестни стойности.' }); return }
+    const parsed=editableServiceSchema.safeParse({name:service.name,price:service.price,currency:service.currency||'EUR',description:service.description||'',price_details:service.price_details||{},duration_min:service.duration_min})
+    if(!parsed.success){setMessage({type:'error',text:en?'Check the price type, currency, maximum and units. A range needs a maximum at least equal to the starting price.':'Провери вида цена, валутата, максимума и единицата. Максималната цена в диапазона трябва да е поне колкото началната.'});return}
     setSaving(true)
-    const { error } = await supabase.from('services').update({ name: service.name.trim(), description: service.description || null, category: service.category?.trim().slice(0, 80) || null, price: unknown(service.price)?null:Number(service.price), duration_min: unknown(service.duration_min)?null:Number(service.duration_min) }).eq('id', service.id).eq('business_id', business.id)
+    const { error } = await supabase.from('services').update({ ...parsed.data, description:parsed.data.description||null,category:service.category?.trim().slice(0,80)||null }).eq('id', service.id).eq('business_id', business.id)
     setSaving(false)
     if (error) { setMessage({ type: 'error', text: error.message }); return }
     showSuccess(en ? 'Service saved.' : 'Услугата е запазена.')
@@ -307,7 +311,7 @@ export function SettingsContent({ business, refreshBusiness, locale, preview = f
             <label><span>{en ? 'Price' : 'Цена'}</span><input type="number" min="0" step="0.01" value={service.price??''} onChange={event => change('price', event.target.value)} /></label>
             <label><span>{en ? 'Duration (minutes)' : 'Продължителност (минути)'}</span><input type="number" min="5" max="1440" step="1" value={service.duration_min??''} onChange={event => change('duration_min', event.target.value)} /></label>
             <label className="full"><span>{en ? 'Description' : 'Описание'}</span><input value={service.description || ''} onChange={event => change('description', event.target.value)} /></label>
-          </div><div className="editable-actions"><button className="danger-link" type="button" onClick={() => archiveService(service.id)}>{en ? 'Archive' : 'Архивирай'}</button><button className="secondary-button" type="button" onClick={() => saveService(service)}>{en ? 'Save' : 'Запази'}</button></div></article>
+          </div><ServicePricingFields value={service} locale={locale} disabled={saving} onChange={patch=>setServices(current=>current.map((item,i)=>i===index?{...item,...patch}:item))}/><div className="editable-actions"><button className="danger-link" type="button" onClick={() => archiveService(service.id)}>{en ? 'Archive' : 'Архивирай'}</button><button className="secondary-button" type="button" onClick={() => saveService(service)}>{en ? 'Save' : 'Запази'}</button></div></article>
         })}</div><datalist id="service-categories">{[...new Set(services.map(service => service.category?.trim()).filter(Boolean))].map(category => <option key={category} value={category} />)}</datalist>
       </section>}
 

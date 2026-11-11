@@ -5,11 +5,10 @@ import { DateMenu } from '../../../components/date-menu'
 import Link from 'next/link'
 import { useCallback, useEffect, useState } from 'react'
 import { OwnerPage } from '../../../components/owner-page'
-import { BookingIntakeFields } from '../../../components/booking-intake-fields'
 import { AppointmentCalendar } from '../../../components/appointment-calendar'
+import { OwnerManualBookingDialog } from '../../../components/owner-manual-booking-dialog'
 import { supabase } from '../../../lib/supabase'
 import { bookingSlotKey } from '../../../lib/booking-safety.mjs'
-import { localizedApiMessage } from '../../../lib/localized-api-message.mjs'
 import { scheduleWriteError } from '../../../lib/business-schedule.mjs'
 
 function AppointmentsContent({ business, locale }) {
@@ -21,11 +20,7 @@ function AppointmentsContent({ business, locale }) {
   const [error, setError] = useState('')
   const [services, setServices] = useState([])
   const [staff, setStaff] = useState([])
-  const [manualOpen, setManualOpen] = useState(false)
-  const [manual, setManual] = useState({ serviceId: '', staffId: '', date: '', startsAt: '', name: '', phone: '', email: '', notes: '' })
-  const [manualIntake, setManualIntake] = useState({})
-  const [slots, setSlots] = useState([])
-  const [slotsLoading, setSlotsLoading] = useState(false)
+  const [manualContext, setManualContext] = useState(null)
   const [saving, setSaving] = useState(false)
   const [move, setMove] = useState(null)
   const [moveSlots, setMoveSlots] = useState([])
@@ -57,18 +52,6 @@ function AppointmentsContent({ business, locale }) {
     return () => { window.removeEventListener('focus', refreshVisible); window.clearInterval(timer) }
   }, [load])
   useEffect(() => {
-    if (!manualOpen || !manual.serviceId || !manual.date) { setSlots([]); setSlotsLoading(false); return }
-    const controller = new AbortController()
-    setSlots([]); setSlotsLoading(true)
-    const query = new URLSearchParams({ service_id: manual.serviceId, date: manual.date })
-    if (manual.staffId) query.set('staff_id', manual.staffId)
-    fetch(`/api/public/${business.slug}/availability?${query}`, { signal: controller.signal }).then((response) => response.json().then((body) => ({ response, body }))).then(({ response, body }) => {
-      if (!response.ok) throw new Error(body.error?.message || (en ? 'We could not check availability.' : 'Неуспешна проверка на часовете.'))
-      if (!controller.signal.aborted) setSlots(body.slots || [])
-    }).catch((requestError) => { if (!controller.signal.aborted) setError(requestError.message) }).finally(() => { if (!controller.signal.aborted) setSlotsLoading(false) })
-    return () => controller.abort()
-  }, [business.slug, en, manual.date, manual.serviceId, manual.staffId, manualOpen])
-  useEffect(() => {
     if (!move?.date || !move.appointment?.service?.id) { setMoveSlots([]); setMoveSlotsLoading(false); return }
     const controller = new AbortController()
     setMoveSlots([]); setMoveSlotsLoading(true)
@@ -93,25 +76,9 @@ function AppointmentsContent({ business, locale }) {
 
   function openManualBooking({ date = '', staffId = '' } = {}) {
     if(business.booking_mode==='external'){setError(en?'New appointments are handled by your external system. Existing GoRez visits remain below.':'Новите резервации се управляват от външната ти система. Съществуващите GoRez посещения остават отдолу.');return}
-    setManual((current) => ({ ...current, date, staffId, startsAt: '' }))
-    setManualOpen(true)
-  }
-
-  async function createManualAppointment(event) {
-    event.preventDefault()
-    const slot = slots.find((item) => bookingSlotKey(item) === manual.startsAt)
-    if (!slot) { setError(en ? 'Choose an available time.' : 'Избери свободен час.'); return }
-    setSaving(true); setError('')
-    try {
-      const { data } = await supabase.auth.getSession()
-      if (!data.session) throw new Error(en ? 'Please sign in again.' : 'Влез отново в профила си.')
-      const response = await fetch(`/api/public/${business.slug}/bookings`, { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${data.session.access_token}` }, body: JSON.stringify({ serviceId: manual.serviceId, staffId: slot.staffId, startsAt: slot.startsAt, customer: { name: manual.name, phone: manual.phone, email: manual.email }, notes: manual.notes, intake: manualIntake, locale, consent: true, source: 'manual' }) })
-      const body = await response.json()
-      if (!response.ok) throw new Error(localizedApiMessage(body.error, locale))
-      setManualOpen(false); setManual({ serviceId: '', staffId: '', date: '', startsAt: '', name: '', phone: '', email: '', notes: '' }); setSlots([])
-      setManualIntake({})
-      await load()
-    } catch (requestError) { setError(requestError.message) } finally { setSaving(false) }
+    if(status !== 'ready' || !services.length){setError(en?'Add an active service before creating a booking.':'Добави активна услуга, преди да създадеш резервация.');return}
+    setError('')
+    setManualContext({ date, staffId })
   }
 
   async function moveAppointment(event) {
@@ -129,29 +96,12 @@ function AppointmentsContent({ business, locale }) {
     <main className="dashboard-content admin-page">
       <div className="admin-page-head">
         <div><p className="auth-kicker">{en ? 'Calendar' : 'Календар'}</p><h2>{en ? 'Bookings' : 'Резервации'}</h2><p>{en ? 'Manage upcoming and past appointments.' : 'Управлявай предстоящите и миналите посещения.'}</p></div>
-        <div className="booking-owner-actions"><Link className="secondary-button" href="/dashboard/settings?section=timeoff">{en ? 'Block time / break' : 'Блокирай време / почивка'}</Link><button className="primary-button" type="button" disabled={business.booking_mode==='external'} onClick={() => openManualBooking()}>+ {en ? 'New booking' : 'Нова резервация'}</button></div>
+        <div className="booking-owner-actions"><Link className="secondary-button" href="/dashboard/settings?section=timeoff">{en ? 'Block time / break' : 'Блокирай време / почивка'}</Link><button className="primary-button" type="button" disabled={business.booking_mode==='external' || status !== 'ready'} onClick={() => openManualBooking()}>+ {en ? 'New booking' : 'Нова резервация'}</button></div>
       </div>
       {error && <p className="form-message" role="alert">{error}</p>}
       {status === 'loading' && <div className="admin-loading"><span className="button-spinner" /> {en ? 'Loading bookings...' : 'Зареждаме резервациите...'}</div>}
       {status === 'ready' && <AppointmentCalendar appointments={appointments} staff={staff} timezone={business.timezone} locale={locale} updatingId={updatingId} actionError={error} refreshing={refreshing} onStatusChange={updateStatus} onReschedule={(item) => setMove({ appointment: item, date: '', staffId: item.staff?.id || '', startsAt: '' })} onCreateBooking={openManualBooking} onRefresh={load} />}
-      {manualOpen && <div className="modal-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) setManualOpen(false) }}>
-        <form className="admin-modal manual-booking-modal" role="dialog" aria-modal="true" aria-labelledby="manual-title" onSubmit={createManualAppointment}>
-          <div className="settings-panel-head"><h3 id="manual-title">{en ? 'New booking' : 'Нова резервация'}</h3><p>{en ? 'Add a phone or walk-in booking to the same calendar.' : 'Добави телефонна или присъствена резервация в същия календар.'}</p></div>
-          <div className="settings-form-grid">
-            <label><span>{en ? 'Service' : 'Услуга'} *</span><select required value={manual.serviceId} onChange={(event) => setManual({ ...manual, serviceId: event.target.value, startsAt: '' })}><option value="">{en ? 'Choose' : 'Избери'}</option>{services.map((item) => <option value={item.id} key={item.id}>{item.name}</option>)}</select></label>
-            <label><span>{en ? 'Specialist' : 'Специалист'}</span><select value={manual.staffId} onChange={(event) => setManual({ ...manual, staffId: event.target.value, startsAt: '' })}><option value="">{en ? 'No preference' : 'Без предпочитание'}</option>{staff.map((person) => <option value={person.id} key={person.id}>{person.name}</option>)}</select></label>
-            <div className="calendar-form-date"><span>{en ? 'Date' : 'Дата'} *</span><DateMenu locale={locale} timezone={business.timezone} minDate={DateTime.now().setZone(business.timezone).toISODate()} value={manual.date} onChange={date => setManual({ ...manual, date, startsAt: '' })}/></div>
-            <label><span>{en ? 'Available time' : 'Свободен час'} *</span><select required disabled={slotsLoading} value={manual.startsAt} onChange={(event) => setManual({ ...manual, startsAt: event.target.value })}><option value="">{slotsLoading ? (en ? 'Checking availability…' : 'Проверяваме часовете…') : manual.date ? (en ? 'Choose a time' : 'Избери час') : (en ? 'Choose a date first' : 'Първо избери дата')}</option>{slots.map((slot) => <option value={bookingSlotKey(slot)} key={bookingSlotKey(slot)}>{slot.localTime}–{slot.localEndTime} · {slot.staffName}</option>)}</select></label>
-            <label><span>{en ? 'Name' : 'Име'} *</span><input required minLength={2} value={manual.name} onChange={(event) => setManual({ ...manual, name: event.target.value })} /></label>
-            <label><span>{en ? 'Phone' : 'Телефон'} *</span><input required minLength={6} type="tel" value={manual.phone} onChange={(event) => setManual({ ...manual, phone: event.target.value })} /></label>
-            <label className="full"><span>{en ? 'Email *' : 'Имейл *'}</span><input required type="email" autoComplete="email" inputMode="email" maxLength={180} value={manual.email} onChange={(event) => setManual({ ...manual, email: event.target.value })} /></label>
-            <label className="full"><span>{en ? 'Note' : 'Бележка'}</span><textarea value={manual.notes} onChange={(event) => setManual({ ...manual, notes: event.target.value })} maxLength={600} /></label>
-          </div>
-          <BookingIntakeFields industry={business.industry} locale={locale} value={manualIntake} onChange={setManualIntake} />
-          {error && <p className="form-message" role="alert">{error}</p>}
-          <div className="settings-actions"><button className="secondary-button" type="button" onClick={() => setManualOpen(false)}>{en ? 'Cancel' : 'Отказ'}</button><button className="primary-button" type="submit" disabled={saving || slotsLoading || !manual.startsAt}>{saving ? (en ? 'Saving...' : 'Запазване...') : (en ? 'Create booking' : 'Създай резервация')}</button></div>
-        </form>
-      </div>}
+      {manualContext && <OwnerManualBookingDialog key={business.id} business={business} locale={locale} services={services} staff={staff} initialDate={manualContext.date} initialStaffId={manualContext.staffId} onClose={() => setManualContext(null)} onCreated={async () => { setManualContext(null); await load() }}/>}
       {move && <div className="modal-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) setMove(null) }}>
         <form className="admin-modal" role="dialog" aria-modal="true" aria-labelledby="move-title" onSubmit={moveAppointment}>
           <div className="settings-panel-head"><h3 id="move-title">{en ? 'Reschedule booking' : 'Премести резервацията'}</h3><p>{move.appointment.customer?.name} · {move.appointment.service?.name}</p></div>

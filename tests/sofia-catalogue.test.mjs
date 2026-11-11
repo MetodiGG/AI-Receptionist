@@ -14,6 +14,7 @@ import { distanceBadge, discoveryDistanceOrigin } from '../lib/discovery/distanc
 import { createPartnerRatingHandler } from '../lib/discovery/partner-ratings.mjs'
 import { createGoogleCardGrantHandler } from '../lib/discovery/google-card-grant.mjs'
 import { currentPublishedFact } from '../lib/discovery/business-details.mjs'
+import { serviceFitsBudget } from '../lib/discovery/internal-search.mjs'
 import { NEIGHBORHOOD_20261111_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-expansion-20261111.mjs'
 
 const now = DateTime.fromISO('2026-11-11T12:00:00Z'), clock = now.toMillis()
@@ -99,14 +100,19 @@ test('no slots, budgets or prices are invented for external appointments, includ
     const record = SOFIA_CATALOGUE.find(source => source.id === row.id)
     for (const service of row.services) {
       const published = record.services.find(source => source.name === service.name)?.price
-      assert.equal(service.price, published?.kind === 'fixed' && !published.unit && currentPublishedFact(published, clock) ? published.amount : null, 'a budget price must come from this actual current service, not a per-nail/per-unit tariff')
+      const current = currentPublishedFact(published, clock)
+      assert.equal(service.price, current ? published.amount : null, 'retain only this actual current service’s literal source amount')
+      assert.equal(service.currency, published?.currency || 'EUR')
+      assert.equal(service.priceKind, published?.kind || 'fixed', 'a from/range rate must not become a guaranteed fixed total')
+      assert.equal(service.priceMaximum ?? null, current ? published.maximum ?? null : null)
+      assert.equal(service.priceUnit || '', current ? published.unit || '' : '', 'per-unit qualifiers must survive for conservative budget filtering')
     }
   }
   const priced = await discoverBusinesses(input({ query: 'маникюр до 20 евро' }), deps())
   assert.ok(priced.results.length)
   const narra=await discoverBusinesses(input({query:'маникюр до 20 евро'}),deps({readCatalogue:async()=>SOFIA_CATALOGUE.filter(row=>row.id==='sofia-narra-beauty')}))
   assert.ok(narra.results.some(row=>row.id==='sofia-narra-beauty'),'a previously priced record remains budget-eligible even when newer closer listings fill page one')
-  assert.ok(priced.results.every(row => row.services.every(service => service.price !== null && service.price <= 20)))
+  assert.ok(priced.results.every(row => row.services.every(service => serviceFitsBudget(service, { currency: 'EUR', max: 20 }))))
   const noPrices = SOFIA_CATALOGUE.filter(row => row.services.every(service => !service.price))
   assert.equal((await discoverBusinesses(input({ query: 'маникюр до 20 евро' }), deps({ readCatalogue: async () => noPrices }))).results.length, 0, 'unknown prices never qualify for a budget')
 })

@@ -85,7 +85,21 @@ test('only actual fixed scalar EUR can autofill; zero remains a real price', () 
   assert.match(draft.services[0].catalogueHint.priceLabel, /0/)
 })
 
-test('from, range, BGN, hourly/package/unit and conditional fees stay context, never fabricated fixed EUR visits', () => {
+test('all real BeautyQ prices including per-procedure tariffs prefill without manual price review; unknown durations stay unknown', () => {
+  const row=SOFIA_CATALOGUE.find(record=>record.id==='sofia-beautyq-pirin')
+  const draft=catalogueOnboardingDetail(SOFIA_CATALOGUE,row.id,{now})
+  assert.equal(draft.services.length,42)
+  assert.equal(draft.services.filter(service=>service.price!=='').length,42)
+  for(const [index,service] of draft.services.entries()) {
+    assert.equal(service.price,String(row.services[index].price.amount))
+    assert.equal(service.currency,row.services[index].price.currency)
+    assert.equal(service.price_details.unit,row.services[index].price.unit)
+    assert.equal(service.catalogueHint.requiresPriceConfirmation,undefined)
+  }
+  assert.equal(draft.services.filter(service=>service.duration_min==='').length,9)
+})
+
+test('known from, range, BGN, per-unit and conditional fees autofill with their complete original meaning', () => {
   const variants = [
     service({ price: price({ kind: 'from' }) }), service({ price: price({ kind: 'range', maximum: 40 }) }),
     service({ price: price({ currency: 'BGN', amount: 50 }) }), service({ price: price({ unit: 'час' }) }),
@@ -96,11 +110,16 @@ test('from, range, BGN, hourly/package/unit and conditional fees stay context, n
     service({ description: 'Цената не включва ДДС.' }), service({ description: 'Ориентировъчна цена след оглед.' }),
   ]
   const row = record({ services: variants }), draft = catalogueOnboardingDetail([row], row.id, { now })
-  for (const item of draft.services) {
-    assert.equal(item.price, '')
-    assert.equal(item.catalogueHint.requiresPriceConfirmation, true)
+  for (const [index, item] of draft.services.entries()) {
+    assert.equal(item.price, [9,10,11].includes(index) ? '' : String(variants[index].price.amount))
+    assert.equal(item.catalogueHint.requiresPriceConfirmation, undefined)
     assert.ok(item.catalogueHint.priceLabel)
   }
+  assert.equal(draft.services[0].price_details.kind, 'from')
+  assert.deepEqual(draft.services[1].price_details, { kind:'range', maximum:40 })
+  assert.equal(draft.services[2].currency, 'BGN', 'a literal BGN amount is not converted or labelled EUR')
+  assert.equal(draft.services[3].price_details.unit, 'час')
+  assert.equal(draft.services[7].description, variants[7].description)
   assert.match(draft.services[0].catalogueHint.priceLabel, /^от /)
   assert.match(catalogueOnboardingDetail([row], row.id, { now, locale: 'en' }).services[0].catalogueHint.priceLabel, /^from /)
   assert.match(draft.services[1].catalogueHint.priceLabel, /25.*–.*40/)
@@ -123,7 +142,7 @@ test('current price counts are independent of convertible prices and expired pri
   for (const item of draft.services.slice(3)) {
     assert.equal(item.price, '')
     assert.equal(item.catalogueHint.priceLabel, undefined)
-    assert.equal(item.catalogueHint.requiresPriceConfirmation, true)
+    assert.equal(item.catalogueHint.requiresPriceConfirmation, undefined)
   }
 })
 
@@ -147,7 +166,7 @@ test('full public inventory is retained with explicit submission limits, not sil
   assert.equal(draft.serviceLimit, 40)
   assert.equal(draft.serviceNameLimit, 120)
   assert.equal(draft.services[0].name, row.services[0].name)
-  assert.deepEqual(Object.keys(draft.services[0]).sort(), ['name', 'price', 'duration_min', 'catalogueHint'].sort())
+  assert.deepEqual(Object.keys(draft.services[0]).sort(), ['name', 'price', 'duration_min', 'currency', 'description', 'price_details', 'catalogueHint'].sort())
   assert.equal(catalogueOnboardingDetail([row], row.id, { now, cityCode: '56784' }), null)
 })
 

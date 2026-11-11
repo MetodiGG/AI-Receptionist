@@ -82,12 +82,18 @@ function assertNotClipped(rule, label) {
   assert.ok(!rule['clip-path'], label)
 }
 
-test('home and detail price columns have hard shrinkable bounds and wrap instead of masking the complete price', () => {
+test('home and detail rows reflow full names and bounded prices instead of masking the complete price', () => {
   for (const selector of ['.home-business-services > li', '.business-details-services > li']) {
     const row = declarations(css, selector)
-    assert.match(row['grid-template-columns'], /^minmax\(0,\s*1fr\)\s+minmax\(0,\s*42%\)$/)
-    assert.doesNotMatch(row['grid-template-columns'], /fit-content/)
+    assert.equal(row.display, 'flex')
+    assert.equal(row['flex-wrap'], 'wrap')
     assertNotClipped(row, selector)
+  }
+  for (const selector of ['.home-business-services .service-photo-name', '.business-details-services .service-photo-name']) {
+    const name = declarations(css, selector)
+    assert.equal(name.flex, '1 0 min-content', 'ordinary word width moves a price down before splitting the name')
+    assert.equal(name['max-width'], '100%')
+    assertNotClipped(name, selector)
   }
   for (const selector of ['.home-business-services .home-service-price', '.business-details-services .business-details-price']) {
     const rule = declarations(css, selector)
@@ -96,6 +102,8 @@ test('home and detail price columns have hard shrinkable bounds and wrap instead
     assert.equal(rule['white-space'], 'normal')
     assert.equal(rule['overflow-wrap'], 'anywhere')
     assert.equal(rule['word-break'], 'normal', 'do not chop every numeric character as the default')
+    assert.equal(rule.flex, '0 1 auto')
+    assert.equal(rule['margin-inline-start'], 'auto')
     assertNotClipped(rule, selector)
     assert.doesNotMatch(rulesFor(css, selector).join(' '), /white-space\s*:\s*nowrap/)
   }

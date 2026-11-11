@@ -10,6 +10,8 @@ import * as bookingMode from '../lib/booking-mode.mjs'
 import * as slugs from '../lib/business-slug.mjs'
 import * as templates from '../lib/industry-templates.mjs'
 import * as media from '../lib/business-media.mjs'
+import * as servicePricing from '../lib/service-pricing.mjs'
+import * as profileUi from '../lib/business-profile-ui.mjs'
 import { businessApplicationSchema } from '../lib/business-application.mjs'
 
 const require = createRequire(import.meta.url)
@@ -37,7 +39,7 @@ const hooks = {
 const controls = Object.fromEntries([
   'Icon', 'BusinessLocationFields', 'WeeklyScheduleFields', 'DurationInput',
   'PhotoPicker', 'BookingModeFields', 'OpeningHoursEditor',
-  'CatalogueBusinessLookup', 'CatalogueImportReview',
+  'CatalogueBusinessLookup', 'CatalogueImportReview', 'ServicePricingFields',
 ].map(name => [name, Object.defineProperty(() => null, 'name', { value: name })]))
 const stubs = {
   react: hooks,
@@ -52,6 +54,9 @@ const stubs = {
   './opening-hours-editor': controls,
   './catalogue-business-lookup': controls,
   './catalogue-import-review': controls,
+  './service-pricing-fields': controls,
+  '../lib/service-pricing.mjs': servicePricing,
+  '../lib/business-profile-ui.mjs': profileUi,
   '../lib/onboarding-catalogue-draft.mjs': draftHelpers,
   '../lib/business-location.mjs': locations,
   '../lib/business-schedule.mjs': schedules,
@@ -264,9 +269,30 @@ test('more than forty services require a selection; parent rejects oversize conf
   assert.equal(h.field('price-0').props.value, '0', 'real zero price is not replaced with a sample value')
 })
 
+for(const locale of ['bg','en'])test(`${locale}: known native prices move straight through the services step without retyping or confirmation`,()=>{
+  const h=harness({locale})
+  accept(h,candidate('Autofill studio',{},[
+    {name:'Procedure',price:'25',duration_min:'30',currency:'EUR',price_details:{kind:'fixed',unit:'процедура'}},
+    {name:'Range',price:'35',duration_min:'45',currency:'EUR',price_details:{kind:'range',maximum:50}},
+    {name:'Starting price',price:'20',duration_min:'30',currency:'BGN',price_details:{kind:'from'},description:'Публикувани условия.'},
+  ]))
+  addRequiredBusinessFields(h);h.next()
+  assert.deepEqual([0,1,2].map(index=>h.field(`price-${index}`).props.value),['25','35','20'])
+  assert.equal(h.find(node=>node.props.role==='alert').length,0)
+  h.next()
+  assert.ok(h.field('staff-0'),'valid imported prices do not force an extra review step')
+})
+
+test('registration removes per-price confirmation instructions and keeps imported fields editable',()=>{
+  assert.doesNotMatch(source,/Check the prices|Провери цените|Confirm your final price|Уточни точната си цена|requiresPriceConfirmation/)
+  const h=harness();accept(h,candidate());addRequiredBusinessFields(h);h.next()
+  h.edit('price-0','27.50')
+  assert.equal(h.field('price-0').props.value,'27.50')
+})
+
 function qualifiedExternalDraft() {
   return candidate('Public catalogue name', { owner_id: 'not-the-owner', contact_email: 'catalogue@example.com', slug: 'existing-partner', booking_mode: 'gorez', external_booking_consent: true, latitude: 42.7, photos: ['https://untrusted.example.com/photo.jpg'] }, [
-    { id: 'source-service', name: 'Qualified service', price: '99', duration_min: '', catalogueHint: { priceLabel: 'от 99 EUR / посещение', description: 'Само при посочените условия.', requiresPriceConfirmation: true, owner_id: 'not-the-owner' } },
+    { id: 'source-service', name: 'Qualified service', price: '99', currency:'EUR', price_details:{kind:'from',unit:'посещение'}, duration_min: '', catalogueHint: { priceLabel: 'от 99 EUR / посещение', description: 'Само при посочените условия.', requiresPriceConfirmation: true, owner_id: 'not-the-owner' } },
     { id: 'source-free', name: 'Zero-priced service', price: '0.00', duration_min: '30', catalogueHint: { priceLabel: '0 EUR', description: 'Published service context.', requiresPriceConfirmation: false } },
   ])
 }
@@ -274,7 +300,7 @@ function readyExternal(h) {
   external(h); accept(h, qualifiedExternalDraft()); addRequiredBusinessFields(h); advanceToReview(h)
 }
 
-test('actual preview save strips source/UI service metadata, retains unknown nulls and exact zero, and never copies source identity or consents', async () => {
+test('actual preview save preserves qualified prices without re-entry while stripping source identity and retaining required consents', async () => {
   const h = harness(); readyExternal(h)
   await save(h)
   assert.equal(h.completed.length, 0, 'terms are not auto-accepted from a public record')
@@ -284,8 +310,8 @@ test('actual preview save strips source/UI service metadata, retains unknown nul
   assert.equal(h.completed.length, 1)
   const result = h.completed[0]
   assert.deepEqual(result.services, [
-    { name: 'Qualified service', price: null, duration_min: null },
-    { name: 'Zero-priced service', price: '0.00', duration_min: '30' },
+    { name: 'Qualified service', price: '99', duration_min: null, currency:'EUR',description:'Само при посочените условия.',price_details:{kind:'from',unit:'посещение'} },
+    { name: 'Zero-priced service', price: '0.00', duration_min: '30',currency:'EUR',description:'Published service context.',price_details:{} },
   ])
   assert.equal(result.business.contact_email, 'owner@example.com')
   assert.equal(result.business.booking_mode, 'external')
@@ -313,8 +339,8 @@ test('actual application POST sends only schema-valid service fields and real ph
     assert.equal(init.body.get('gallery_0').name, 'owner-photo.png')
     const payload = JSON.parse(init.body.get('payload'))
     assert.deepEqual(payload.services, [
-      { name: 'Qualified service', price: null, duration_min: null },
-      { name: 'Zero-priced service', price: '0.00', duration_min: '30' },
+      { name: 'Qualified service', price: '99', duration_min: null,currency:'EUR',description:'Само при посочените условия.',price_details:{kind:'from',unit:'посещение'} },
+      { name: 'Zero-priced service', price: '0.00', duration_min: '30',currency:'EUR',description:'Published service context.',price_details:{} },
     ])
     assert.equal(businessApplicationSchema.safeParse(payload).success, true, 'actual projected payload passes the strict authoritative schema')
     assert.equal(payload.account.email, 'owner@example.com')

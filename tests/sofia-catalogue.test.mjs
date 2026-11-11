@@ -199,11 +199,12 @@ test('paid widget endpoints stay closed in catalogue mode before any provider bu
   const ratingRequest = new Request('https://www.gorez.co/api/public/some-business/google-rating', { method: 'POST', headers: { Origin: 'https://www.gorez.co', 'Content-Type': 'application/json' }, body: '{"locale":"bg"}' })
   assert.deepEqual(await (await createPartnerRatingHandler({ config, allowAttempt: async () => true, readBusiness: noProvider, readLink: noProvider, claimBudget: noProvider })(ratingRequest, 'some-business')).json(), { plan: null })
 })
-test('UI keeps real catalogue cards in the existing rail with illustrative covers, a common reserve label and aligned buttons', async () => {
+test('UI keeps real catalogue cards with illustrative covers, one reserve label and compact alignment for ordinary cards', async () => {
   const card = await readFile(new URL('../components/discovery-business-card.js', import.meta.url), 'utf8')
   const css = await readFile(new URL('../app/discovery-home.css', import.meta.url), 'utf8')
   assert.match(card, /BusinessCoverPhoto/); assert.match(card, /internal && <span className="home-business-partner"/)
-  assert.match(card, /Резервирай час/); assert.match(css, /\[data-uniform-cards="true"\] \.home-business-card \{ height: 100%/)
+  assert.match(card, /Резервирай час/); assert.match(css, /\[data-uniform-cards="true"\] \.home-business-card \{ min-height: \d+(?:\.\d+)?rem/)
+  assert.doesNotMatch(css, /\[data-uniform-cards="true"\] \.home-business-card \{[^}]*height: 100%/)
   assert.match(css, /\[data-uniform-cards="true"\] \.home-business-actions \{ margin-top: auto/)
   assert.match(css, /\.home-business-actions > \.home-reserve:only-child \{ grid-column: 2/)
   const browse = await readFile(new URL('../components/discovery-home-browse.js', import.meta.url), 'utf8')

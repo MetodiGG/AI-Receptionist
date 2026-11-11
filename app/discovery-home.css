@@ -151,10 +151,9 @@
 .home-business-address { margin: 0 0 14px; color: #6b625b; font-size: 16px; line-height: 1.45; overflow-wrap: break-word; }
 .home-business-actions { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 8px; margin-top: 0; padding-top: 8px; }
 .home-business-footer { padding-top: 2px; }
-/* Uniform local cards share one footer baseline; never stretch a partner to
-   the height of a legacy third-party widget containing many stacked cards. */
-.home-businesses[data-uniform-cards="true"] .home-discovery-rail { align-items: stretch; }
-.home-businesses[data-uniform-cards="true"] .home-business-card { height: 100%; }
+/* A compact floor aligns ordinary local cards without borrowing the height of
+   a long, possibly off-screen card. Longer names and tariffs grow naturally. */
+.home-businesses[data-uniform-cards="true"] .home-business-card { min-height: 28rem; }
 .home-businesses[data-uniform-cards="true"] .home-business-actions { margin-top: auto; }
 .home-businesses[data-uniform-cards="true"] .home-business-footer { margin-top: auto; }
 .home-business-actions > .home-reserve:only-child { grid-column: 2; }

@@ -84,7 +84,7 @@ test('permission denial uses the requested BG/EN city-centre fallback message, n
     assert.notEqual(DISCOVERY_COPY[locale].locationDenied,DISCOVERY_COPY[locale].locationUnavailable)
   }
   const ui=await read('components/discovery-search.js')
-  assert.match(ui,/locationError === 'LOCATION_DENIED' \? copy.locationDenied : locationError === 'LOCATION_TIMEOUT' \? copy.locationTimeout/)
+  assert.match(ui,/discoveryLocationMessage\(locationError, \{ disabled: home && !locationEnabled && !locating \}, locale\)/)
   assert.match(ui,/setCoordinates\(null\); setLocationError\(failure.message\)/)
   const fallback=discoverySearchInput({query:'Маникюр',cityCode:'56784',cityWasChosen:true,coordinates:null})
   assert.equal(fallback.cityCode,'56784')
@@ -232,7 +232,7 @@ test('radius helpers are not visible; location consent, error recovery and acces
   assert.doesNotMatch(ui, /className="discovery-help"|\{copy\.privacy\}/)
   assert.match(ui, /<span className="sr-only" id=\{compact \? 'home-location-info' : 'location-info'\}>\{copy.locationInfo\}<\/span>/)
   assert.match(ui, /aria-describedby=\{compact \? 'home-location-info' : 'location-info'\}/)
-  assert.match(ui, /locationError && <p className="discovery-notice" role="status">/)
+  assert.match(ui, /locationMessage && <p className="discovery-notice" role="status">/)
   assert.match(ui, /locationProvider = requestDiscoveryLocation/)
   assert.match(ui, /locationProvider\(navigator.geolocation/)
   assert.match(footer, /\/privacy\?lang=/)

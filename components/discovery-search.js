@@ -8,7 +8,7 @@ import { BrandMark } from './brand-logo'
 import { BULGARIAN_CITIES } from '../lib/business-location.mjs'
 import { DISCOVERY_CATEGORIES, categoryById } from '../lib/discovery/categories.mjs'
 import { neighborhoodChoices } from '../lib/discovery/intent.mjs'
-import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
+import { DISCOVERY_COPY, discoveryLocationMessage } from '../lib/discovery/copy.mjs'
 import { DEFAULT_DISCOVERY_RADIUS_KM, DISCOVERY_RADIUS_CHOICES } from '../lib/discovery/defaults.mjs'
 import { clearDiscoveryDraft, peekDiscoveryDraft, setDiscoveryDraft } from '../lib/discovery/draft.mjs'
 import { DEFAULT_DISCOVERY_CITY, DISCOVERY_SHORTCUTS, discoveryCategorySelection, discoveryCitySelection, discoverySearchInput, requestDiscoveryLocation } from '../lib/discovery/search-ui.mjs'
@@ -170,7 +170,7 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
     locationVersion.current++; setLocationEnabled(Boolean(next.coordinates))
     if (canDiscover(next.query)) execute(payload(next))
   }
-  const locationMessage = locationError === 'LOCATION_DENIED' ? copy.locationDenied : locationError === 'LOCATION_TIMEOUT' ? copy.locationTimeout : locationError === 'LOCATION_OUTSIDE' ? copy.locationOutside : copy.locationUnavailable
+  const locationMessage = discoveryLocationMessage(locationError, { disabled: home && !locationEnabled && !locating }, locale)
   return <section className={`discovery-search ${compact ? 'discovery-compact' : ''}${home ? ' discovery-home' : ''}`} aria-labelledby={compact ? 'home-discovery-title' : 'discovery-title'}>
     <SearchPanel {...(home ? { className: 'home-search-panel' } : {})}>
     <header className={home ? 'home-discovery-heading' : compact ? '' : 'discovery-hero'}>
@@ -196,8 +196,8 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
         <label>{copy.radius}<select value={radiusKm} disabled={loading || locating} onChange={event => { setRadius(Number(event.target.value)); setResult(null) }}>{DISCOVERY_RADIUS_CHOICES.map(radius => <option key={radius} value={radius}>{radius} km</option>)}</select></label>
       </div></details></>}
       <span className="sr-only" id={compact ? 'home-location-info' : 'location-info'}>{copy.locationInfo}</span>
-      {locationError && <p className="discovery-notice" role="status">{locationMessage}</p>}
-      {home && <span className="sr-only" role="status">{coordinates ? homeCopy.locationEnabled : homeCopy.locationDisabled}</span>}
+      {locationMessage && <p className="discovery-notice" role="status">{locationMessage}</p>}
+      {home && coordinates && <span className="sr-only" role="status">{homeCopy.locationEnabled}</span>}
       <span className="sr-only" aria-live="polite">{settledQuery.length >= 2 && !loading ? (en ? 'Press Find to search.' : 'Натисни Намери за търсене.') : ''}</span>
     </form>
     </SearchPanel>

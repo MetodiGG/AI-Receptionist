@@ -17,6 +17,7 @@ import * as copy from '../lib/discovery/copy.mjs'
 import * as cataloguePhotos from '../lib/catalogue-photo-view.mjs'
 import * as presentation from '../lib/discovery/service-presentation.mjs'
 import * as photoLayout from '../lib/business-photo-layout.mjs'
+import * as bookingButtonContent from './helpers/booking-button-content.mjs'
 
 // Real components/helpers compiled by the existing SWC/SSR convention. Only
 // visual/network integrations are inert; SSR never runs effects or bookings.
@@ -27,6 +28,7 @@ const Empty = () => null
 const thumbnail = ({ service, size }) => React.createElement('span', { className: 'service-thumbnail', 'data-service-id': service.id, 'data-size': size, 'aria-hidden': true })
 const link = { __esModule: true, default: ({ children, href }) => React.createElement('a', { href }, children) }
 const shared = {
+  './booking-button-content': bookingButtonContent,
   './icon': { Icon: ({ name }) => React.createElement('svg', { 'aria-hidden': true, 'data-icon': name }) },
   './business-photo-gallery': { BusinessPhotoGallery: Empty },
   './business-cover-photo': { BusinessCoverPhoto: Empty },
@@ -135,7 +137,7 @@ for (const locale of ['bg', 'en']) {
       const price = detailData.detailPriceLabel({ ...service, priceUnit: '' }, locale, { compact: true })
       assert.ok(text(html).includes(price))
       assert.ok(text(html).includes(service.priceUnit))
-      assert.doesNotMatch(html, /href=/, 'preview actions are not links')
+      assert.doesNotMatch(html, /<a\b|<form\b/, 'preview actions are not links; decorative image preload hints are allowed')
     }
     const profile = render(BusinessServiceList, { business, locale, onChoose: () => {}, selectedServiceId: business.services[1].id })
     const details = render(DiscoveryBusinessDetails, { row: business, locale, preview: true, triggerRef: { current: null }, onClose: () => {}, actions: React.createElement('span', null, 'QA') })
@@ -146,7 +148,7 @@ for (const locale of ['bg', 'en']) {
       assert.ok(text(details).includes(detailData.detailPriceLabel({ ...service, priceUnit: '' }, locale)))
     }
     assert.match(profile, /aria-pressed="true"/)
-    assert.doesNotMatch(directory, /href=/, 'disabled directory cannot book or navigate')
+    assert.doesNotMatch(directory, /<a\b|<form\b/, 'disabled directory cannot book or navigate; decorative image preload hints are allowed')
   })
 
   test(`${locale}: complete preview exposes six labelled surfaces and static guided markup without a live booking form`, () => {
@@ -159,7 +161,7 @@ for (const locale of ['bg', 'en']) {
     assert.match(html, /class="booking-summary"/)
     assert.match(html, /class="profile-selected-service"/)
     assert.match(html, /class="guided-booking-summary"/)
-    assert.doesNotMatch(html, /<form|href=|type="submit"/)
+    assert.doesNotMatch(html, /<form\b|<a\b|type="submit"/)
     assert.ok(text(html).includes(locale === 'en' ? 'static layout only' : 'само статично оформление'))
   })
 }

@@ -9,6 +9,7 @@ import { BusinessCoverPhoto } from './business-cover-photo'
 import { ServiceThumbnail } from './service-thumbnail'
 import { useBusinessReviews, ReviewSummary, PartnerReviewSummary } from './business-reviews'
 import { OutboundBookingButton } from './outbound-booking-button'
+import { BookingButtonContent } from './booking-button-content'
 import { isOffsiteBooking } from '../lib/booking-mode.mjs'
 import { homeBusinessPhoto } from '../lib/discovery/home.mjs'
 import { railCategory, railServiceItems, railDirections, railExternalAction } from '../lib/discovery/rail.mjs'
@@ -33,7 +34,7 @@ export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, 
   const hasDetails = internal || row.source === 'catalogue'
   const openDetails = event => { detailsTrigger.current = event.currentTarget; setDetailsOpen(true) }
   const photo = internal ? homeBusinessPhoto(row) : row.source === 'catalogue' && isCataloguePhotoSource(row.photo?.src) ? { ...row.photo, alt: { [locale]: row.photo.alt || row.name } } : null
-  const reserve = copy.reserveAppointment
+  const reserve = <BookingButtonContent>{copy.reserveAppointment}</BookingButtonContent>
   const directionsLabel = copy.directions
   const services = railServiceItems(row)
   const visual = <div className="home-business-photo">

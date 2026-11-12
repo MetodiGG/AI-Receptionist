@@ -7,6 +7,7 @@ import { DateTime } from 'luxon'
 import * as monthHelpers from '../lib/monthly-booking-calendar.mjs'
 import * as bookingWindow from '../lib/booking-window.mjs'
 import * as profileUi from '../lib/business-profile-ui.mjs'
+import * as bookingButtonContent from './helpers/booking-button-content.mjs'
 
 const require = createRequire(import.meta.url)
 const { loadBindings, transform } = require('next/dist/build/swc')
@@ -177,6 +178,7 @@ const Empty = () => null
 const MonthStub = () => null
 const business = { id: 'actual-business', slug: 'actual-studio', timezone: 'Europe/Sofia', services: [{ id: 'actual-service', name: 'Actual Service', duration_min: 30, price: 20, currency: 'EUR' }], staff: [{ id: 'actual-staff', name: 'Actual Specialist' }], staffServices: [] }
 const panelStubs = {
+  './booking-button-content': bookingButtonContent,
   'next/link': Empty, 'next/navigation': { useParams: () => ({}), useRouter: () => ({}) }, 'react-dom': { flushSync: callback => callback() },
   './brand-logo': { BrandLogo: Empty }, './guided-booking-chat': { GuidedBookingChat: Empty }, './booking-intake-fields': { BookingIntakeFields: Empty, BookingIntakeSummary: Empty },
   './booking-confirmation-actions': { BookingConfirmationActions: Empty }, '../lib/localized-api-message.mjs': { localizedApiMessage: error => error?.message || 'Booking failed' },
@@ -270,8 +272,11 @@ test('fictional calendar previews are production-gated, never use production pro
 })
 
 test('mode artwork resolves to the intended local assets and the calendar stylesheet is loaded globally', async () => {
+  const sharedContentSource = await readFile(new URL('../components/booking-button-content.js', import.meta.url), 'utf8')
+  assert.match(bookingSource, /import \{ BookingCalendarIcon, BookingButtonContent \} from '\.\/booking-button-content'/)
+  assert.match(bookingSource, /<BookingButtonContent/)
   for (const filename of ['calendar-3d-v1.webp', 'assistant-3d-v1.webp']) {
-    assert.ok(bookingSource.includes(`/booking-art/${filename}`))
+    assert.ok((filename.startsWith('calendar') ? sharedContentSource : bookingSource).includes(`/booking-art/${filename}`))
     assert.ok((await stat(new URL(`../public/booking-art/${filename}`, import.meta.url))).size > 0)
   }
   const layout = await readFile(new URL('../app/layout.js', import.meta.url), 'utf8')

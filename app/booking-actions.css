@@ -1,0 +1,89 @@
+/* Flyer-inspired customer actions. These rules change presentation only;
+   provider-owned widgets, map art and owner/dashboard controls are untouched. */
+.booking-button-content { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-width: 0; max-width: 100%; vertical-align: middle; }
+.booking-button-label { min-width: 0; white-space: normal; overflow-wrap: normal; word-break: normal; hyphens: manual; text-align: center; }
+.booking-calendar-icon { display: block; flex: 0 0 auto; width: 30px; height: 30px; object-fit: contain; filter: drop-shadow(0 1px 1px #8d471a22); }
+
+.home-business-actions .home-reserve,
+.home-business-actions .home-directions,
+.profile-redesign .profile-external-reserve,
+.business-directory .directory-book-button,
+.partners-page .business-directory .directory-book-button,
+.profile-redesign .profile-directions,
+.profile-redesign .profile-service-book,
+.profile-redesign .profile-mode-controls button[aria-controls="profile-native-panel"] {
+  --action-top: #fffaf3; --action-bottom: #ffead4; --action-border: #eac8a9; --action-edge: #dfb48f; --action-ink: #713619;
+  display: inline-flex; flex-direction: row; align-items: center; justify-content: center; gap: 7px;
+  min-width: 0; min-height: 52px; margin-block: 0; padding: 9px 12px;
+  border: 1px solid var(--action-border); border-radius: 16px;
+  color: var(--action-ink); background: linear-gradient(175deg,var(--action-top),var(--action-bottom));
+  box-shadow: inset 0 2px 0 #ffffffd9,inset 0 -1px 0 #ffffff38,0 3px 0 var(--action-edge),0 6px 12px #99592e12;
+  font-family: inherit; font-size: 15px; font-weight: 750; line-height: 1.25;
+  text-align: center; text-decoration: none; white-space: normal; overflow-wrap: normal; word-break: normal;
+  transform: none; filter: none; transition: background .16s ease,border-color .16s ease,box-shadow .16s ease,transform .16s ease;
+}
+
+.home-business-actions .home-reserve,
+.profile-redesign .profile-external-reserve,
+.business-directory .directory-book-button,
+.partners-page .business-directory .directory-book-button,
+.profile-redesign .profile-service-book,
+.profile-redesign .profile-mode-controls button[aria-controls="profile-native-panel"] {
+  --action-top: #ffe8d1; --action-bottom: #ffc58c; --action-border: #e7aa76; --action-edge: #dba06d; --action-ink: #602b11;
+  color: var(--action-ink);
+}
+.home-business-actions .home-maps-label { width: auto; min-width: 0; max-width: 100%; color: inherit; font-family: inherit; font-size: inherit; font-weight: inherit; line-height: inherit; white-space: normal; text-align: center; }
+.home-business-actions .home-directions > svg { flex: 0 0 24px; }
+
+.home-business-actions .home-reserve:not(:disabled):not([aria-disabled="true"]):is(:hover,:focus-visible),
+.profile-redesign .profile-external-reserve:not(:disabled):not([aria-disabled="true"]):is(:hover,:focus-visible),
+.business-directory .directory-book-button:not(:disabled):not([aria-disabled="true"]):is(:hover,:focus-visible),
+.profile-redesign .profile-service-book:not(:disabled):not([aria-disabled="true"]):is(:hover,:focus-visible),
+.profile-redesign .profile-mode-controls button[aria-controls="profile-native-panel"]:not(:disabled):is(:hover,:focus-visible) {
+  color: #3c1b0c; background: linear-gradient(175deg,#ffbd82,#ff944b); border-color: #d9803c;
+  box-shadow: inset 0 2px 0 #ffe7cc,0 4px 0 #ce8c57,0 7px 14px #99522320; transform: translateY(-1px); filter: none;
+}
+.home-business-actions .home-directions:not(:disabled):not([aria-disabled="true"]):is(:hover,:focus-visible),
+.profile-redesign .profile-directions:is(:hover,:focus-visible) {
+  color: #653016; background: linear-gradient(175deg,#fff4e6,#ffdcba); border-color: #dba571;
+  box-shadow: inset 0 2px 0 #fffdf8,0 4px 0 #d5a57b,0 7px 14px #99522316; transform: translateY(-1px); filter: none;
+}
+.home-business-actions :is(.home-directions,.home-reserve):focus-visible,
+.profile-redesign :is(.profile-directions,.profile-external-reserve,.profile-service-book):focus-visible,
+.business-directory .directory-book-button:focus-visible,
+.profile-redesign .profile-mode-controls button[aria-controls="profile-native-panel"]:focus-visible { outline: 3px solid #984419; outline-offset: 4px; }
+
+.home-business-actions .home-reserve:not(:disabled):not([aria-disabled="true"]):active,
+.home-business-actions .home-directions:not(:disabled):not([aria-disabled="true"]):active,
+.profile-redesign :is(.profile-directions,.profile-external-reserve,.profile-service-book):not(:disabled):not([aria-disabled="true"]):active,
+.business-directory .directory-book-button:not(:disabled):not([aria-disabled="true"]):active,
+.profile-redesign .profile-mode-controls button[aria-controls="profile-native-panel"]:not(:disabled):active {
+  transform: translateY(2px); box-shadow: inset 0 1px 2px #9b502a15,0 1px 0 var(--action-edge); filter: none;
+}
+.profile-redesign .profile-service-book { flex: 0 0 46px; width: 46px; min-height: 46px; padding: 6px; border-radius: 13px; }
+.profile-redesign .profile-service-book .booking-calendar-icon { width: 28px; height: 28px; }
+.profile-redesign .profile-service-book[aria-pressed="true"],
+.profile-redesign .profile-mode-controls button[aria-controls="profile-native-panel"][aria-pressed="true"] { color: #602b11; background: linear-gradient(175deg,#ffe8d1,#ffc58c); border-color: #bd713d; box-shadow: inset 0 2px 0 #fff4e6,0 3px 0 #ce8c57,0 0 0 2px #b669351a; }
+.home-business-actions :is(.home-directions,.home-reserve):is(:disabled,[aria-disabled="true"]),
+.profile-redesign :is(.profile-external-reserve,.profile-service-book):is(:disabled,[aria-disabled="true"]),
+.business-directory .directory-book-button:is(:disabled,[aria-disabled="true"]),
+.profile-redesign .profile-mode-controls button[aria-controls="profile-native-panel"]:disabled { cursor: default; opacity: .72; color: var(--action-ink); background: linear-gradient(175deg,var(--action-top),var(--action-bottom)); border-color: var(--action-border); transform: none; filter: none; box-shadow: inset 0 1px 0 #ffffff99,0 2px 0 var(--action-edge); }
+
+@media (max-width: 699px) {
+  .home-business-actions :is(.home-directions,.home-reserve) { padding-inline: 8px; font-size: 14px; gap: 5px; }
+  .home-business-actions .booking-button-content { gap: 5px; }
+  .home-business-actions .booking-calendar-icon { width: 27px; height: 27px; }
+}
+@media (max-width: 389px) {
+  .profile-redesign .profile-mode-controls button[aria-controls="profile-native-panel"] { padding-inline: 8px; font-size: 14px; gap: 5px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-business-actions :is(.home-directions,.home-reserve),
+  .profile-redesign :is(.profile-directions,.profile-external-reserve,.profile-service-book),
+  .business-directory .directory-book-button,
+  .profile-redesign .profile-mode-controls button[aria-controls="profile-native-panel"] { transition: none; }
+  .home-business-actions :is(.home-directions,.home-reserve):not(:disabled):not([aria-disabled="true"]):is(:hover,:focus-visible,:active),
+  .profile-redesign :is(.profile-directions,.profile-external-reserve,.profile-service-book):not(:disabled):not([aria-disabled="true"]):is(:hover,:focus-visible,:active),
+  .business-directory .directory-book-button:not(:disabled):not([aria-disabled="true"]):is(:hover,:focus-visible,:active),
+  .profile-redesign .profile-mode-controls button[aria-controls="profile-native-panel"]:not(:disabled):is(:hover,:focus-visible,:active) { transform: none; }
+}

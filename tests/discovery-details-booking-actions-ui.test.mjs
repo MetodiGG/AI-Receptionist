@@ -6,6 +6,8 @@ import * as React from 'react'
 import * as rail from '../lib/discovery/rail.mjs'
 import * as bookingMode from '../lib/booking-mode.mjs'
 import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
+import { renderToStaticMarkup } from 'react-dom/server'
+import * as bookingButtonContent from './helpers/booking-button-content.mjs'
 
 const require = createRequire(import.meta.url)
 const { loadBindings, transform } = require('next/dist/build/swc')
@@ -36,6 +38,7 @@ function detailsActions(row, locale) {
   let stateIndex = 0
   const states = [null, true]
   const stubs = {
+    './booking-button-content': bookingButtonContent,
     react: { ...React, memo: component => component, useRef: value => ({ current: value }), useState: () => {
       assert.ok(stateIndex < states.length, 'unexpected state; update the explicit card harness')
       return [states[stateIndex++], () => assert.fail('render must not update state')]
@@ -84,7 +87,7 @@ test('actual details action callback uses the refreshed catalogue form/phone/cle
     assert.equal(reserves[0].type, 'a')
     assert.equal(reserves[0].props.href, fresh.booking.url)
     assert.equal(reserves[0].props.target, '_blank')
-    assert.equal(reserves[0].props.children, DISCOVERY_COPY[locale].reserveAppointment)
+    assert.equal(renderToStaticMarkup(reserves[0]).replace(/<[^>]*>/g, ''), DISCOVERY_COPY[locale].reserveAppointment)
     assert.ok(reserves[0].props['aria-label'].includes(fresh.name))
     assert.ok(!reserves[0].props['aria-label'].includes(row.name))
 

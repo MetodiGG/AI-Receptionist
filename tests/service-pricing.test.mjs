@@ -88,7 +88,7 @@ test('compact editor pricing controls preserve actual currency, expose the upper
 test('forty complete Cyrillic conditions and twenty team biographies fit the bounded application reader without truncation', async () => {
   const description = 'Условия за услугата. '.repeat(100).slice(0,2000)
   const value = {
-    business:{name:'Offline pricing QA',slug:'offline-pricing-qa',phone:'+359888123456',contact_email:'owner@example.com',address:'Local 1',timezone:'Europe/Sofia',industry:'beauty',city_ekatte:'68134',neighborhood:'',location_confirmed:true,public_profile:{latitude:42.665,longitude:23.286}},
+    business:{name:'Offline pricing QA',slug:'offline-pricing-qa',phone:'+359888123456',contact_email:'owner@example.com',address:'Local 1',timezone:'Europe/Sofia',industry:'beauty',city_ekatte:'68134',neighborhood:'Център',location_confirmed:true,public_profile:{latitude:42.665,longitude:23.286}},
     services:Array.from({length:40},(_,index)=>({name:`Измислена услуга ${index}`,price:25,duration_min:30,currency:'BGN',description,price_details:{kind:'fixed',unit:'процедура'}})),
     staff:Array.from({length:20},(_,index)=>({name:`Измислен специалист ${index}`,bio:description})),
     schedule:Array.from({length:7},(_,index)=>({weekday:index+1,enabled:index<5,open:'09:00',close:'18:00',breakEnabled:false,breakStart:'12:00',breakEnd:'13:00'})),

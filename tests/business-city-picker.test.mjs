@@ -70,9 +70,9 @@ function harness(render, props) {
   api.render()
   return api
 }
-function picker({ cityCode = '', neighborhood = '', locale = 'bg', required = false } = {}) {
+function picker({ cityCode = '', neighborhood = '', locale = 'bg', required = false, neighborhoodRequired = false } = {}) {
   const changes = [], Component = component(fakeReact)
-  const parent = harness(Component, { cityCode, neighborhood, locale, required, onChange: patch => changes.push(patch) })
+  const parent = harness(Component, { cityCode, neighborhood, locale, required, neighborhoodRequired, onChange: patch => changes.push(patch) })
   const children = elements(parent.tree, node => typeof node.type === 'function')
   const city = children[0]
   const selected = harness(city.type, city.props)
@@ -305,4 +305,23 @@ test('neighbourhoods search by BG or transliteration and custom text is preserve
   children[0].props.onChange('10135')
   assert.deepEqual(changes.shift(), { city_ekatte: '10135', neighborhood: '' })
   assert.deepEqual(locations.businessLocationFields('68134', ' Нов собствен квартал '), { city_ekatte: '68134', city: 'София', neighborhood: 'Нов собствен квартал' })
+})
+
+for (const locale of ['bg', 'en']) test(`${locale}: mandatory quarter is labelled, has no empty choice and still allows a missing custom quarter`, () => {
+  const { parent, children } = picker({ cityCode: '68134', locale, required: true, neighborhoodRequired: true })
+  const quarter = children[1]
+  assert.equal(quarter.props.required, true)
+  assert.doesNotMatch(quarter.props.label, /optional|незадължително/)
+  assert.equal(quarter.props.options.some(option => option.value === ''), false)
+  assert.ok(quarter.props.options.some(option => option.value === '__custom__'))
+  const area = harness(quarter.type, quarter.props)
+  assert.equal(input(area).props['aria-required'], true)
+  quarter.props.onChange('__custom__'); parent.render()
+  const customInput = elements(parent.tree, node => node.type === 'input')[0]
+  assert.equal(customInput.props.required, true)
+  assert.equal(customInput.props['aria-required'], true)
+  const optional = picker({ cityCode: '68134', locale }).children[1]
+  assert.ok(optional.props.options.some(option => option.value === ''), 'existing admin/location editors remain backward compatible')
+  const noCity = picker({ locale, neighborhoodRequired: true })
+  assert.equal(noCity.children.length, 1, 'choose the city before its quarters')
 })

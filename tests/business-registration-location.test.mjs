@@ -1,10 +1,7 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
-import { createRequire } from 'node:module'
-import * as React from 'react'
 import { catalogueRegistrationPoint, registrationLocationConfirmed, registrationLocationFingerprint, registrationMapPreview, validRegistrationPoint } from '../lib/business-registration-location.mjs'
-import { hasBusinessCoordinates, parseBusinessCoordinates } from '../lib/business-coordinates.mjs'
 import { businessApplicationSchema, applicationRecord, createBusinessApplicationHandler } from '../lib/business-application.mjs'
 import { mergeCatalogueBusiness, selectCatalogueBusinessDraft, editOnboardingBusinessDraft } from '../lib/onboarding-catalogue-draft.mjs'
 import { catalogueOnboardingDetail } from '../lib/catalogue-onboarding.mjs'
@@ -13,7 +10,7 @@ const point = { latitude: 42.665, longitude: 23.286 }
 const sourcedPoint = { ...point, source: 'https://studio.example.com/contacts', method: 'first_party_coordinates' }
 const business = patch => ({ name: 'Offline studio', address: 'Test street 1', city_ekatte: '68134', neighborhood: 'Борово', public_profile: { description: { bg: '', en: '' }, payments: [], brands: [], ...point }, ...patch })
 const application = mode => ({
-  business: { ...business(), slug: 'offline-location-studio', phone: '+359888123456', contact_email: 'owner@example.com', timezone: 'Europe/Sofia', industry: 'beauty', booking_mode: mode, location_confirmed: true,
+  business: { ...business({public_profile:{description:{bg:'Offline description',en:''}}}), slug: 'offline-location-studio', phone: '+359888123456', contact_email: 'owner@example.com', timezone: 'Europe/Sofia', industry: 'beauty', booking_mode: mode,
     ...(mode === 'external' ? { external_booking_url: 'https://booking.example.com/appointments', external_booking_consent: true, opening_hours: Array.from({ length: 7 }, (_, i) => ({ weekday: i + 1, periods: [] })) } : {}) },
   services: [{ name: 'Offline service', price: 25, currency: 'EUR', duration_min: 45 }], staff: mode === 'gorez' ? [{ name: 'Offline person' }] : [],
   schedule: mode === 'gorez' ? Array.from({ length: 7 }, (_, i) => ({ weekday: i + 1, enabled: i < 5, open: '09:00', close: '18:00', breakEnabled: false, breakStart: '12:00', breakEnd: '13:00' })) : [],
@@ -41,29 +38,81 @@ test('confirmation is bound to the actual point and selected address; unrelated 
   assert.equal(registrationLocationFingerprint(business({ address: '' })), '')
 })
 
-test('all public booking modes require an explicit pin and applicant attestation before creating any account', async () => {
-  for (const mode of ['gorez', 'external', 'phone']) {
-    const input = application(mode), parsed = businessApplicationSchema.safeParse(input)
-    assert.equal(parsed.success, true, mode)
-    const saved = applicationRecord(parsed.data)
-    assert.equal(saved.business.public_profile.latitude, point.latitude)
-    assert.equal(saved.business.public_profile.longitude, point.longitude)
-    assert.equal('location_confirmed' in saved.business, false, 'create-only checkbox is not business profile data')
-    assert.doesNotMatch(JSON.stringify(saved), /password|offline-test-only-value/)
-    const bad = [
-      { ...input.business, location_confirmed: undefined }, { ...input.business, location_confirmed: false }, { ...input.business, location_confirmed: 'true' },
-      { ...input.business, public_profile: undefined }, { ...input.business, public_profile: { latitude: null, longitude: null } },
-      { ...input.business, public_profile: { ...point, latitude: '42.665' } }, { ...input.business, public_profile: { latitude: 0, longitude: 0 } },
-      { ...input.business, public_profile: { ...point, longitude: 30 } },
-    ]
-    for (const item of bad) {
-      assert.equal(businessApplicationSchema.safeParse({ ...input, business: item }).success, false, `${mode}: ${JSON.stringify(item.public_profile)}`)
-      let sideEffects = 0
-      const forbidden = () => { sideEffects++; throw Error('location rejection must precede side effects') }
-      const handler = createBusinessApplicationHandler({ allowAttempt: forbidden, authenticate: forbidden, reserved: forbidden, createAccount: forbidden, deleteAccount: forbidden, save: forbidden, notify: forbidden, prepareImages: forbidden })
-      const response = await handler(new Request('https://gorez.example/api/public/business-applications', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ ...input, business: item }) }))
-      assert.equal(response.status, 422); assert.equal(sideEffects, 0)
-    }
+function handlerFixture(value, overrides = {}) {
+  const calls={accounts:0,saves:[],notifications:0,deleted:0}
+  const deps={
+    readSubmission:async()=>({value,files:[{staffIndex:null}]}),
+    prepareImages:async()=>[{staffIndex:null,image:{data:Buffer.from('offline image'),width:1,height:1,bytes:13}}],
+    allowAttempt:async()=>true,authenticate:async()=>null,reserved:()=>false,
+    createAccount:async()=>{calls.accounts++;return{id:'10000000-0000-4000-8000-000000000001'}},
+    deleteAccount:async()=>{calls.deleted++},save:async input=>{calls.saves.push(input);return{photosSaved:1}},notify:async()=>{calls.notifications++},
+    ...overrides,
+  }
+  return {calls,submit:()=>createBusinessApplicationHandler(deps)(new Request('https://gorez.example/api/public/business-applications',{method:'POST',headers:{'content-type':'multipart/form-data; boundary=offline-qa',origin:'https://gorez.example'},body:'offline-qa'}))}
+}
+
+for (const mode of ['gorez','external','phone']) test(`${mode}: real application handler accepts city/quarter/street without map point or confirmation`, async () => {
+  for(const profile of [undefined,{}, {latitude:null,longitude:null},{description:{bg:'Offline description',en:''}}]) {
+    const input=application(mode);input.business.public_profile=profile
+    const parsed=businessApplicationSchema.safeParse(input)
+    assert.equal(parsed.success,true,JSON.stringify(parsed.error))
+    const f=handlerFixture(input),response=await f.submit()
+    assert.equal(response.status,201)
+    assert.equal(f.calls.accounts,1);assert.equal(f.calls.saves.length,1);assert.equal(f.calls.notifications,1);assert.equal(f.calls.deleted,0)
+    const {record}=f.calls.saves[0]
+    assert.equal(record.business.city,'София');assert.equal(record.business.neighborhood,'Борово');assert.equal(record.business.address,'Test street 1')
+    assert.equal(record.business.public_profile?.latitude??null,null);assert.equal(record.business.public_profile?.longitude??null,null)
+    assert.equal('location_confirmed' in record.business,false)
+    assert.doesNotMatch(JSON.stringify(record),/password|offline-test-only-value/)
+  }
+})
+
+test('legacy optional boolean confirmation is ignored, not a claim of verified position', () => {
+  for(const location_confirmed of [undefined,false,true]) {
+    const input=application('phone');input.business.location_confirmed=location_confirmed
+    const parsed=businessApplicationSchema.parse(input),record=applicationRecord(parsed)
+    assert.equal('location_confirmed' in record.business,false)
+    assert.equal(record.business.public_profile.latitude,null)
+    assert.equal(record.business.public_profile.longitude,null)
+  }
+  assert.equal(businessApplicationSchema.safeParse({...application('phone'),business:{...application('phone').business,location_confirmed:'true'}}).success,false)
+})
+
+test('optional coordinates retain existing strict profile validation before any side effects', async () => {
+  for(const mode of ['gorez','external','phone']) for(const public_profile of [
+    {latitude:point.latitude},{longitude:point.longitude},{latitude:'42.665',longitude:point.longitude},
+    {latitude:91,longitude:point.longitude},{latitude:point.latitude,longitude:181},
+    {...point,verified:true},{...point,owner_id:'injected'},
+  ]) {
+    const input=application(mode);input.business.public_profile=public_profile
+    assert.equal(businessApplicationSchema.safeParse(input).success,false)
+    let effects=0;const forbidden=()=>{effects++;throw Error('validation must precede side effects')}
+    const f=handlerFixture(input,{allowAttempt:forbidden,authenticate:forbidden,createAccount:forbidden,save:forbidden,notify:forbidden,prepareImages:forbidden})
+    assert.equal((await f.submit()).status,422);assert.equal(effects,0)
+  }
+  const input=application('phone');input.business.public_profile={...point,description:{bg:'Preserved',en:''}}
+  const f=handlerFixture(input);assert.equal((await f.submit()).status,201)
+  assert.deepEqual(f.calls.saves[0].record.business.public_profile,{...point,description:{bg:'Preserved',en:''},payments:[],brands:[]})
+})
+
+test('simplified registration still enforces city, street, native service setup, authentication, photo and quota checks', async () => {
+  const cases=[
+    {patch:input=>{input.business.address=''},status:422},
+    {patch:input=>{input.business.city_ekatte='00000'},status:422},
+    {patch:input=>{input.business.owner_id='injected'},status:422},
+    {patch:input=>{input.schedule=[]},status:422},
+    {patch:input=>{input.services[0].price=null},status:422},
+    {overrides:{allowAttempt:async()=>false},status:429},
+    {overrides:{readSubmission:async()=>({value:application('gorez'),files:[]})},status:422},
+    {overrides:{prepareImages:async()=>[]},status:422},
+    {overrides:{authenticate:async()=>({id:'unverified',email:'owner@example.com',email_confirmed_at:null})},status:409},
+    {overrides:{reserved:()=>true},status:409},
+  ]
+  for(const item of cases) {
+    const input=application('gorez');item.patch?.(input)
+    const f=handlerFixture(input,item.overrides),response=await f.submit()
+    assert.equal(response.status,item.status)
+    assert.equal(f.calls.accounts,0);assert.equal(f.calls.saves.length,0);assert.equal(f.calls.notifications,0)
   }
 })
 
@@ -96,55 +145,10 @@ test('catalogue points never overwrite a manual point or attach to a retained di
   assert.equal(editOnboardingBusinessDraft(imported, { phone: '+359889999999' }).business.public_profile.latitude, point.latitude)
 })
 
-const require = createRequire(import.meta.url), { loadBindings, transform } = require('next/dist/build/swc')
-await loadBindings()
-let active
-const hooks = { ...React, useState: initial => active.state(initial) }
-const source = await readFile(new URL('../components/business-coordinates-fields.js', import.meta.url), 'utf8')
-const { code } = await transform(source, { filename: 'business-coordinates-fields.js', jsc: { parser: { syntax: 'ecmascript', jsx: true }, transform: { react: { runtime: 'automatic' } } }, module: { type: 'commonjs' } })
-const compiled = { exports: {} }
-new Function('require', 'module', 'exports', code)(name => name === 'react' ? hooks : name === '../lib/business-coordinates.mjs' ? { hasBusinessCoordinates, parseBusinessCoordinates } : name === '../lib/business-registration-location.mjs' ? { registrationMapPreview } : require(name), compiled, compiled.exports)
-const { BusinessCoordinatesFields } = compiled.exports
-function all(node, predicate, found = []) {
-  if (Array.isArray(node)) node.forEach(child => all(child, predicate, found))
-  else if (React.isValidElement(node)) { if (predicate(node)) found.push(node); all(node.props.children, predicate, found) }
-  return found
-}
-function coordinateHarness(locale, required = true) {
-  const slots = []; let index = 0
-  const api = { props: { latitude: null, longitude: null, required, confirmed: false, locale, address: 'Offline test address', onChange: point => Object.assign(api.props, point), onConfirm: value => { api.props.confirmed = value } },
-    state(initial) { const at = index++; if (!(at in slots)) slots[at] = initial; return [slots[at], value => { slots[at] = typeof value === 'function' ? value(slots[at]) : value }] },
-    render() { index = 0; active = api; try { api.tree = BusinessCoordinatesFields(api.props) } finally { active = null }; return api.tree },
-    find(predicate) { return all(api.tree, predicate) },
-    pin() { return api.find(node => node.type === 'input' && node.props.maxLength === 3000)[0] },
-    checkbox() { return api.find(node => node.type === 'input' && node.props.type === 'checkbox')[0] },
-    editPin(value) { api.pin().props.onChange({ target: { value } }); api.render() },
-  }; api.render(); return api
-}
-for (const locale of ['bg', 'en']) test(`${locale}: actual pin control requires applying a real pin before confirmation, with no geolocation or requests`, () => {
-  const h = coordinateHarness(locale)
-  assert.equal(h.checkbox().props.disabled, true); assert.equal(h.checkbox().props.required, true)
-  h.editPin('https://www.google.com/maps/place/Offline/@42.7,23.3,15z/data=!3d42.665!4d23.286')
-  h.find(node => node.type === 'button')[0].props.onClick(); h.render()
-  assert.equal(h.props.latitude, point.latitude); assert.equal(h.props.longitude, point.longitude)
-  assert.equal(h.checkbox().props.disabled, false)
-  h.checkbox().props.onChange({ target: { checked: true } }); h.render(); assert.equal(h.checkbox().props.checked, true)
-  assert.ok(h.find(node => node.type === 'a').some(node => node.props.href === registrationMapPreview(point)))
-  h.editPin('https://maps.app.goo.gl/short-link')
-  assert.equal(h.checkbox().props.checked, false); assert.equal(h.checkbox().props.disabled, true)
-  h.find(node => node.type === 'button')[0].props.onClick(); h.render()
-  assert.equal(h.props.latitude, point.latitude, 'invalid input never changes the saved point')
-  assert.ok(h.find(node => node.props.role === 'alert').length)
-  const optional = coordinateHarness(locale, false)
-  assert.equal(optional.checkbox(), undefined, 'existing owner editors do not gain a new hard gate')
-  assert.doesNotMatch(source, /fetch\(|getCurrentPosition|watchPosition|localStorage|api[_-]?key/i)
-})
-
 test('local location preview is unavailable in Production and contains no submission or notification path', async () => {
   const page=await readFile(new URL('../app/dev/registration-location/page.js',import.meta.url),'utf8')
   const fixture=await readFile(new URL('../app/dev/registration-location/preview.js',import.meta.url),'utf8')
   assert.match(page,/process.env.NODE_ENV !== 'development'\) notFound\(\)/)
-  assert.match(fixture,/<BusinessCoordinatesFields required/)
-  assert.match(fixture,/disabled=\{!confirmed\}/)
+  assert.doesNotMatch(fixture,/BusinessCoordinatesFields|locationConfirmed|location_confirmed|onConfirm|registration-coordinate-confirm/)
   assert.doesNotMatch(fixture,/fetch\(|supabase|onSubmit|type="submit"|action=/)
 })

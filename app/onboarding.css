@@ -176,19 +176,3 @@
 @media(prefers-reduced-motion:reduce) {
   .compact-business-setup *, .checked-select * { scroll-behavior:auto; transition:none; }
 }
-.compact-business-setup .registration-coordinate-fields { min-width: 0; padding: 14px; background: #fffaf2; border: 1px solid #e4ccb5; border-radius: 14px; }
-.compact-business-setup .registration-coordinate-fields h4 { margin: 0 0 6px; font-size: 17px; line-height: 1.3; }
-.compact-business-setup .registration-coordinate-fields p { margin: 0; padding: 0; background: none; font-size: 14px; line-height: 1.45; }
-.compact-business-setup .registration-coordinate-links { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 8px; }
-.compact-business-setup .registration-coordinate-links a { color: #83431f; font-size: 14px; text-underline-offset: 3px; }
-.compact-business-setup .registration-coordinate-fields .business-coordinate-paste { grid-template-columns: minmax(0,1fr) auto; gap: 8px; margin: 10px 0; }
-.compact-business-setup .registration-coordinate-fields label { min-width: 0; gap: 5px; font-size: 14px; }
-.compact-business-setup .registration-coordinate-fields input:not([type="checkbox"]) { width: 100%; min-width: 0; min-height: 42px; padding: 8px 10px; border: 1px solid #d8cbbf; border-radius: 10px; background: #fffefd; font: inherit; }
-.compact-business-setup .registration-coordinate-fields .business-coordinate-paste button { min-height: 42px; padding: 8px 10px; font-size: 14px; line-height: 1.3; }
-.compact-business-setup .registration-coordinate-manual { font-size: 14px; }
-.compact-business-setup .registration-coordinate-manual summary { padding-block: 7px; color: #794321; cursor: pointer; }
-.compact-business-setup .registration-coordinate-manual p { margin: 0 0 10px; }
-.compact-business-setup .registration-coordinate-fields .business-coordinate-values { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
-.compact-business-setup .registration-coordinate-fields label.registration-coordinate-confirm { display: grid; grid-template-columns: 20px minmax(0,1fr); align-items: start; gap: 9px; min-height: 44px; margin-top: 8px; padding-block: 6px; line-height: 1.45; cursor: pointer; }
-.compact-business-setup .registration-coordinate-confirm input { width: 18px; height: 18px; margin: 2px 0 0; padding: 0; accent-color: #a95123; }
-.compact-business-setup .registration-coordinate-fields :is(a,button,input,summary):focus-visible { outline: 3px solid #984419; outline-offset: 3px; }

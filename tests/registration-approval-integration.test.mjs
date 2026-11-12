@@ -3,10 +3,11 @@ import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { PGlite } from '@electric-sql/pglite'
 
-// Execute the release's two real migrations together. Everything is in-memory;
+// Execute the real approval migration with nullable registration locations.
+// The unshipped mandatory-pin migration was removed before deployment.
+// Everything is in-memory;
 // there is no Supabase connection, registration, provider or notification call.
 const migrations = await Promise.all([
-  '20261112143000_registration_location.sql',
   '20261112144000_business_approval_email.sql',
 ].map(name => readFile(new URL(`../supabase/migrations/${name}`, import.meta.url), 'utf8')))
 const owner = '10000000-0000-4000-8000-000000000001'
@@ -14,7 +15,6 @@ const other = '10000000-0000-4000-8000-000000000002'
 const legacy = '20000000-0000-4000-8000-000000000001'
 const future = '20000000-0000-4000-8000-000000000002'
 const direct = '20000000-0000-4000-8000-000000000003'
-const invalid = '20000000-0000-4000-8000-000000000004'
 const point = { latitude: 42.6650291, longitude: 23.2825296 }
 let db, before
 const rows = async (sql, args = []) => (await db.query(sql, args)).rows
@@ -68,11 +68,12 @@ test.before(async () => {
 })
 test.after(async () => { await db?.close() })
 
-test('both migrations preserve existing business/Auth data, owner RLS and visit notifications', async () => {
+test('approval migration preserves existing business/Auth data, nullable locations, owner RLS and visit notifications', async () => {
   assert.deepEqual(await rows('select * from businesses order by id'), before.businesses)
   assert.deepEqual(await rows('select * from auth.users order by id'), before.auth)
   assert.deepEqual(await businessSecurity(), before.security)
   assert.deepEqual(await rows('select * from notification_outbox'), [{ id: 1, status: 'pending' }])
+  assert.deepEqual(await rows("select tgname from pg_trigger where tgname='require_new_business_location' and not tgisinternal"), [])
   const [ledger] = await queue(legacy)
   assert.equal(ledger.status, 'skipped'); assert.equal(ledger.last_error, 'PREEXISTING_BUSINESS')
   assert.equal(ledger.recipient, null); assert.equal(ledger.payload, null)
@@ -83,9 +84,9 @@ test('both migrations preserve existing business/Auth data, owner RLS and visit 
   })
 })
 
-test('a valid future pending registration and its first publication produce exactly one actual owner notice', async () => {
-  const result = await asRole('authenticated', () => insert(future, point))
-  assert.deepEqual(result.rows[0].public_profile, point)
+test('a future pending registration without coordinates and its first publication produce exactly one actual owner notice', async () => {
+  const result = await asRole('authenticated', () => insert(future, {description:{bg:'Street address only',en:''}}))
+  assert.deepEqual(result.rows[0].public_profile, {description:{bg:'Street address only',en:''}})
   assert.deepEqual(await queue(future), [])
   await asRole('service_role', () => db.query("update businesses set active=true,platform_status='enabled' where id=$1", [future]))
   const [notice] = await queue(future)
@@ -96,18 +97,20 @@ test('a valid future pending registration and its first publication produce exac
   assert.equal((await queue(future)).length, 1); assert.equal((await queue(future))[0].id, notice.id)
 })
 
-test('the INSERT pin guard rejects pending and published missing-pin businesses atomically before any approval queue', async () => {
-  const businessesBefore = await rows('select * from businesses order by id')
-  const queueBefore = await rows('select * from business_approval_email_outbox order by business_id')
+test('pending and initially published address-only registrations work for both existing owner and server creation paths', async () => {
+  let suffix=4
   for (const role of ['authenticated', 'service_role']) for (const published of [false, true]) {
-    for (const profile of [{}, null, { latitude: point.latitude }, { latitude: String(point.latitude), longitude: point.longitude }]) {
-      await assert.rejects(asRole(role, () => insert(invalid, profile, published)), /BUSINESS_LOCATION_REQUIRED/)
-      assert.deepEqual(await rows('select * from businesses order by id'), businessesBefore)
-      assert.deepEqual(await rows('select * from business_approval_email_outbox order by business_id'), queueBefore)
-    }
+    const id=`20000000-0000-4000-8000-${String(suffix++).padStart(12,'0')}`
+    const profile=published?null:{}
+    const result=await asRole(role,()=>insert(id,profile,published))
+    assert.deepEqual(result.rows[0].public_profile,profile,'no point or city-centre fallback is invented')
+    const notices=await queue(id)
+    assert.equal(notices.length,published?1:0)
+    if(published){assert.equal(notices[0].recipient,'owner@example.com');assert.equal(notices[0].status,'pending')}
   }
-  assert.equal((await rows('select id from businesses where id=$1', [invalid])).length, 0)
-  assert.deepEqual(await queue(invalid), [])
+  await asRole('authenticated',async()=>{
+    await assert.rejects(db.query("insert into businesses(id,owner_id,name,slug) values(gen_random_uuid(),$1,'Different owner','different-owner')",[other]),/row-level security/)
+  })
 })
 
 test('correcting a legacy location and no-op publication never change its terminal skipped ledger', async () => {
@@ -122,8 +125,8 @@ test('correcting a legacy location and no-op publication never change its termin
   assert.deepEqual(await queue(legacy), [ledger], 'even a later true transition respects the no-backfill ledger')
 })
 
-test('a future legacy-direct initially published insert needs a valid point and queues its first publication once', async () => {
-  await asRole('authenticated', () => insert(direct, point, true))
+test('a future legacy-direct initially published address-only insert queues its first publication once', async () => {
+  await asRole('authenticated', () => insert(direct, {}, true))
   const [notice] = await queue(direct)
   assert.equal(notice.status, 'pending'); assert.equal(notice.recipient, 'owner@example.com')
   assert.equal(notice.business_id, direct); assert.equal(notice.owner_id, owner)

@@ -29,6 +29,7 @@ export function MarketingNavigation({ locale, setLocale, business = false, homeD
       <Link className="launch-menu-account" href={`/account?lang=${locale}`}>{en ? 'Client account' : 'Вход за клиенти'}</Link>
       <Link href={`/login?lang=${locale}`}>{en ? 'Business Account' : 'Вход за бизнес'}</Link>
       <Link href={`/for-businesses?lang=${locale}`}>{en ? 'Become GoRez Partner' : 'Стани GoRez партньор'}</Link>
+      <Link href={`/partners?lang=${locale}`}>{en ? 'Active GoRez partners' : 'Активни GoRez партньори'}</Link>
       <Link href={`/faq?lang=${locale}`}>{en ? 'FAQ' : 'ЧЗВ'}</Link>
       <a href={`mailto:${SUPPORT_EMAIL}`}>{en ? 'Contact us' : 'Свържи се с нас'}</a>
     </div>

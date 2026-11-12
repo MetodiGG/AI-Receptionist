@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { BusinessPhotoGallery } from './business-photo-gallery'
 import { Icon } from './icon'
-import { businessDirectionsUrl, businessMapUrl, businessWeeklyHours, groupBusinessServices, publicProfileDetails } from '../lib/business-profile.mjs'
+import { businessDirectionsUrl, businessMapUrl, businessWeeklyHours, groupBusinessServices, publicProfileDetails, businessLocationAttribution } from '../lib/business-profile.mjs'
 import { getStaffPhoto } from '../lib/business-photos.mjs'
 import { BusinessCoverPhoto } from './business-cover-photo'
 import { ServiceThumbnail } from './service-thumbnail'
@@ -62,7 +62,7 @@ export function BusinessProfileInformation({ business, locale }) {
   const en = locale === 'en', profile = publicProfileDetails(business), hours = businessWeeklyHours(business)
   const description = profile.description[locale] || profile.description[en ? 'bg' : 'en']
   const [mapLoaded, setMapLoaded] = useState(false)
-  const map = businessMapUrl(business)
+  const map = businessMapUrl(business), locationCredit = businessLocationAttribution(business)
   const weekdays = en ? ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] : ['Понеделник', 'Вторник', 'Сряда', 'Четвъртък', 'Петък', 'Събота', 'Неделя']
   const paymentNames = { cash: en ? 'Cash' : 'В брой', card: en ? 'Card' : 'С карта', bank: en ? 'Bank transfer' : 'Банков превод' }
   return <div className="business-profile-information">
@@ -76,6 +76,7 @@ export function BusinessProfileInformation({ business, locale }) {
       {profile.payments.length > 0 && <div className="business-payment-methods"><h3>{en ? 'Payment methods' : 'Начини на плащане'}</h3><div>{[...new Set(profile.payments)].map(method => <span key={method}>{paymentNames[method]}</span>)}</div></div>}
       {profile.brands.length > 0 && <div className="profile-contact-brands"><h3>{en ? 'Brands' : 'Марки'}</h3><p>{[...new Set(profile.brands)].join(' · ')}</p></div>}
       <div className="business-location-actions"><BusinessDirectionsLink business={business} locale={locale}/>{map && !mapLoaded && <button type="button" className="profile-map-toggle" onClick={() => setMapLoaded(true)}><Icon name="map"/>{en ? 'Show map' : 'Покажи карта'}</button>}</div>
+      {locationCredit && <p className="site-location-credit"><a href={locationCredit.licenceUrl} target="_blank" rel="noopener noreferrer">{locationCredit.label} · ODbL</a><span aria-hidden="true"> · </span><a href={locationCredit.sourceUrl} target="_blank" rel="noopener noreferrer">{en ? 'Location source' : 'Източник на локацията'}</a></p>}
       {mapLoaded ? <iframe className="profile-map-frame" title={en ? `Map: ${business.name}` : `Карта: ${business.name}`} src={map} loading="lazy" referrerPolicy="strict-origin-when-cross-origin" /> : null}
     </section>
   </div>

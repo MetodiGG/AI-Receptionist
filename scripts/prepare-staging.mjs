@@ -17,8 +17,8 @@ export const PENDING_STAGING_MIGRATIONS = Object.freeze([
   '20261106100000_catalogue_photos.sql',
   '20261111190000_service_price_details.sql',
   '20261112100000_phone_booking_mode.sql',
-  '20261112143000_registration_location.sql',
   '20261112144000_business_approval_email.sql',
+  '20261112153000_registration_address_lookup.sql',
 ])
 // Explicitly reviewed allowlist: a later migration requires a new review/test.
 export const STAGING_MIGRATIONS = Object.freeze([

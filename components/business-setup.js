@@ -6,7 +6,6 @@ import { supabase } from '../lib/supabase'
 import { Icon } from './icon'
 import { getIndustryServiceTemplate } from '../lib/industry-templates.mjs'
 import { BusinessLocationFields } from './business-location-fields'
-import { BusinessCoordinatesFields } from './business-coordinates-fields'
 import { WeeklyScheduleFields } from './weekly-schedule-fields'
 import { DurationInput } from './duration-input'
 import { PhotoPicker } from './photo-picker'
@@ -24,7 +23,6 @@ import { ServicePricingFields } from './service-pricing-fields'
 import { applicationServiceSchema } from '../lib/service-pricing.mjs'
 import { profileServicePrice } from '../lib/business-profile-ui.mjs'
 import { emptyOnboardingService, hasServiceDraftEdits, selectCatalogueBusinessDraft, editOnboardingBusinessDraft, normalizeImportedServices, servicesForApplication } from '../lib/onboarding-catalogue-draft.mjs'
-import { registrationLocationFingerprint, registrationLocationConfirmed } from '../lib/business-registration-location.mjs'
 
 const WEEK = {
   bg: [
@@ -65,9 +63,6 @@ export function BusinessSetup({ session, onComplete, locale, preview = false, ap
   const [step, setStep] = useState(0)
   const [businessDraft, setBusinessDraft] = useState({business:{ name: '', slug: '', phone: '', contact_email: session?.user?.email || '', address: '', timezone: 'Europe/Sofia', industry: 'other', city_ekatte: '', neighborhood: '', default_duration_min: '45', booking_slot_minutes: '15',website_url:'',booking_mode:'gorez',external_booking_url:'',external_booking_consent:false,opening_hours:emptyOpeningHours(),public_profile:{description:{bg:'',en:''},payments:[],brands:[],latitude:null,longitude:null},booking_terms:'' },importedFields:{}})
   const business=businessDraft.business
-  const [locationConfirmation,setLocationConfirmation]=useState('')
-  const locationFingerprint=registrationLocationFingerprint(business)
-  const locationConfirmed=registrationLocationConfirmed(business,locationConfirmation)
   const setBusiness=update=>setBusinessDraft(current=>({...current,business:typeof update==='function'?update(current.business):update}))
   const external=business.booking_mode==='external',phoneOnly=business.booking_mode==='phone',offsite=external||phoneOnly
   const applyBooking=patch=>setBusiness(current=>({...current,...('mode'in patch?{booking_mode:patch.mode}:{}),...('url'in patch?{external_booking_url:patch.url}:{}),...('consent'in patch?{external_booking_consent:patch.consent}:{})}))
@@ -80,9 +75,6 @@ export function BusinessSetup({ session, onComplete, locale, preview = false, ap
   const pageNonce = useRef(null)
   const [accountEmail,setAccountEmail]=useState(session?.user?.email||''),[password,setPassword]=useState(''),[consent,setConsent]=useState(false),[company,setCompany]=useState('')
   const lock=useRef(false)
-  // The equality check blocks stale confirmation immediately; clearing it also
-  // prevents an old acknowledgement reviving after changing a point and back.
-  useEffect(()=>{setLocationConfirmation('')},[locationFingerprint])
   useEffect(()=>{if(session?.user?.email){setAccountEmail(session.user.email);setBusiness(current=>({...current,contact_email:current.contact_email||session.user.email}))}},[session?.user?.email])
   useEffect(()=>{if(!session)setAccountEmail(business.contact_email)},[business.contact_email,session])
 
@@ -155,8 +147,7 @@ export function BusinessSetup({ session, onComplete, locale, preview = false, ap
     if (currentStep === 0 && !findCity(business.city_ekatte)) return en ? 'Choose your business city from the list.' : 'Избери града на бизнеса от списъка.'
     if (currentStep === 0 && !offsite && !validDuration(business.default_duration_min)) return en ? 'Enter a whole number of minutes from 5 to 1440.' : 'Въведи цял брой минути от 5 до 1440.'
     if((application||offsite)&&currentStep===0&&(!/^[+()\d .-]{7,32}$/.test(business.phone)||!/^\S+@\S+\.\S+$/.test(business.contact_email)||business.address.trim().length<2))return en?'Add a valid phone, booking email and street address.':'Добави валиден телефон, имейл за резервации и адрес.'
-    if(currentStep===0&&!locationFingerprint)return en?'Add the exact business pin on the map.':'Посочи точната локация на бизнеса на картата.'
-    if(currentStep===0&&!locationConfirmed)return en?'Check the selected pin against the address and confirm it.':'Провери избраната точка спрямо адреса и я потвърди.'
+    if(currentStep===0&&business.address.trim().length<2)return en?'Enter the street and number of your business.':'Въведи улицата и номера на бизнеса.'
     if(currentStep===0&&!businessPhotos.length)return en?'Add at least one photo of your business to continue.':'Добави поне една снимка на бизнеса, за да продължиш.'
     if (currentStep === 1 && services.length>40) return en ? 'Keep up to 40 services in this application.' : 'Остави до 40 услуги в заявката.'
     if (currentStep === 1 && services.some((service) => service.price === '' || service.price == null || !validDuration(service.duration_min))) return en ? 'Add the missing amounts or durations (5–1440 minutes).' : 'Попълни липсващите суми или продължителности (5–1440 минути).'
@@ -195,7 +186,7 @@ export function BusinessSetup({ session, onComplete, locale, preview = false, ap
       selectedPhotos=selectedPhotos.map((row,index)=>({...row,file:fitted[index]}))
       if (preview) { onComplete({ business, services:servicesForApplication(services), staff, schedule }); return }
       if(application||offsite) {
-        const payload=JSON.stringify({business:{...(offsite?Object.fromEntries(Object.entries(business).filter(([key])=>!['default_duration_min','booking_slot_minutes'].includes(key))):business),location_confirmed:locationConfirmed},services:servicesForApplication(services),staff:staff.map(({name,bio})=>({name,...(bio?{bio}:{})})),schedule:offsite?[]:schedule.map(({weekday,enabled,open,close,breakEnabled,breakStart,breakEnd})=>({weekday,enabled,open,close,breakEnabled,breakStart,breakEnd})),account:{email:accountEmail,password:session?'':password},consent:application?consent:true,company,locale})
+        const payload=JSON.stringify({business:offsite?Object.fromEntries(Object.entries(business).filter(([key])=>!['default_duration_min','booking_slot_minutes'].includes(key))):business,services:servicesForApplication(services),staff:staff.map(({name,bio})=>({name,...(bio?{bio}:{})})),schedule:offsite?[]:schedule.map(({weekday,enabled,open,close,breakEnabled,breakStart,breakEnd})=>({weekday,enabled,open,close,breakEnabled,breakStart,breakEnd})),account:{email:accountEmail,password:session?'':password},consent:application?consent:true,company,locale})
         let body=payload
         if(selectedPhotos.length){body=new FormData();body.append('payload',payload);body.append('photoConsent','true');selectedPhotos.forEach(row=>body.append(row.key,row.file))}
         const response=await fetch('/api/public/business-applications',{method:'POST',headers:{...(!selectedPhotos.length?{'Content-Type':'application/json'}:{}),...(session?.access_token?{Authorization:`Bearer ${session.access_token}`}:{})},body})
@@ -255,6 +246,9 @@ export function BusinessSetup({ session, onComplete, locale, preview = false, ap
         const photos=[...businessPhotos.map(file=>({file,staffId:null})),...staff.map((person,index)=>({file:person.photo,staffId:staffToInsert[index].id})).filter(row=>row.file)]
         try{for(const row of photos){const headers={Authorization:`Bearer ${session.access_token}`};const current=await fetch(`/api/businesses/${createdBusinessId}/media`,{headers,cache:'no-store'});if(!current.ok)throw new Error();const latest=await current.json();const body=new FormData();body.append('file',row.file);body.append('consent','true');body.append('revision',String(latest.business.content_revision));if(row.staffId)body.append('staffId',row.staffId);const response=await fetch(`/api/businesses/${createdBusinessId}/media`,{method:'POST',headers,body});if(!response.ok)throw new Error()}}catch{photoWarning=true}
       }
+      // Only the stored business ID is sent. The server resolves its address
+      // after responding; a provider outage cannot undo the completed setup.
+      try{void fetch(`/api/businesses/${createdBusinessId}/location`,{method:'POST',headers:{Authorization:`Bearer ${session.access_token}`,'Content-Type':'application/json'},body:'{}',keepalive:true}).catch(()=>{})}catch{ /* A failed dispatch never rolls back a completed setup. */ }
       onComplete({ business: createdBusiness, services: createdServices, staff: createdStaff, schedule, photoWarning })
     } catch (saveError) {
       if(['IMAGE_PROCESSING_FAILED','SOURCE_IMAGE_TOO_LARGE','INVALID_IMAGE','HEIC_UNSUPPORTED'].includes(saveError.message)){setError(mediaErrorText(saveError.message,locale));return}
@@ -296,8 +290,7 @@ export function BusinessSetup({ session, onComplete, locale, preview = false, ap
               <div className="field"><label htmlFor="business-industry">{en ? 'Business type' : 'Тип бизнес'}</label><select id="business-industry" className="select-input" value={business.industry} onChange={(event) => updateBusiness('industry', event.target.value)}><option value="beauty">{en ? 'Beauty & salons' : 'Красота и салони'}</option><option value="auto">{en ? 'Auto services & repair shops' : 'Авто услуги и сервизи'}</option><option value="fitness">{en ? 'Sports' : 'Спорт'}</option><option value="education">{en ? 'Education' : 'Обучение'}</option><option value="consulting">{en ? 'Consulting' : 'Консултации'}</option><option value="home_services">{en ? 'Home services' : 'Услуги на адрес'}</option><option value="pets">{en ? 'Pet services' : 'Домашни любимци'}</option><option value="health">{en ? 'Health services' : 'Здравни услуги'}</option><option value="other">{en ? 'Other appointment business' : 'Друг бизнес с часове'}</option></select></div>
               {!application&&<div className="field"><label htmlFor="business-timezone">{en ? 'Time zone' : 'Часова зона'}</label><select id="business-timezone" className="select-input" value={business.timezone} onChange={(event) => updateBusiness('timezone', event.target.value)}><option value="Europe/Sofia">{en ? 'Sofia' : 'София'} (GMT+2/+3)</option><option value="Europe/London">{en ? 'London' : 'Лондон'}</option><option value="Europe/Berlin">{en ? 'Berlin' : 'Берлин'}</option></select></div>}
               <div className="field full"><BusinessLocationFields required cityCode={business.city_ekatte} neighborhood={business.neighborhood} onChange={patch=>setBusinessDraft(current=>editOnboardingBusinessDraft(current,patch))} locale={locale} /></div>
-              <div className="field full"><label htmlFor="business-address">{en ? 'Address' : 'Адрес'}{application?' *':''}</label><input id="business-address" className="text-input" value={business.address} onChange={(event) => updateBusiness('address', event.target.value)} placeholder={en ? '12 Example Street, Sofia' : 'ул. Примерна 12, София'} /></div>
-              <BusinessCoordinatesFields latitude={business.public_profile.latitude} longitude={business.public_profile.longitude} required confirmed={locationConfirmed} disabled={saving} address={findCity(business.city_ekatte) ? businessAddress({...business,...businessLocationFields(business.city_ekatte,business.neighborhood)},locale) : ''} locale={locale} onConfirm={checked=>setLocationConfirmation(checked?locationFingerprint:'')} onChange={point=>updateBusiness('public_profile',{...business.public_profile,latitude:point.latitude===''||point.latitude==null?null:Number(point.latitude),longitude:point.longitude===''||point.longitude==null?null:Number(point.longitude)})}/>
+              <div className="field full"><label htmlFor="business-address">{en ? 'Street and number' : 'Улица и номер'} *</label><input id="business-address" className="text-input" required minLength={2} maxLength={250} autoComplete="street-address" value={business.address} onChange={(event) => updateBusiness('address', event.target.value)} placeholder={en ? 'e.g. Pirin 42' : 'напр. Пирин 42'} /></div>
               <div className="field full"><PhotoPicker files={businessPhotos} onChange={setBusinessPhotos} locale={locale} disabled={saving} onProcessing={photoProcessing} required label={en?'Business photos *':'Снимки на бизнеса *'}/></div>
               <BookingModeFields mode={business.booking_mode} url={business.external_booking_url} consent={business.external_booking_consent} locale={locale} onChange={patch=>{applyBooking(patch);if(['external','phone'].includes(patch.mode)){if(staff.length===1&&!staff[0].name.trim())setStaff([]);setServices(current=>current.map(service=>service.name.trim()?service:{...service,price:'',duration_min:''}))}}}/>
               <details className="onboarding-extra full"><summary>{en?'Additional settings':'Допълнителни настройки'}<Icon name="chevronDown"/></summary><div className="onboarding-extra-fields">

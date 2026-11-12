@@ -12,7 +12,6 @@ import * as templates from '../lib/industry-templates.mjs'
 import * as media from '../lib/business-media.mjs'
 import * as servicePricing from '../lib/service-pricing.mjs'
 import * as profileUi from '../lib/business-profile-ui.mjs'
-import * as registrationLocation from '../lib/business-registration-location.mjs'
 import { businessApplicationSchema } from '../lib/business-application.mjs'
 
 const require = createRequire(import.meta.url)
@@ -38,7 +37,7 @@ const hooks = {
   useEffect: (effect, dependencies) => activeHarness.effect(effect, dependencies),
 }
 const controls = Object.fromEntries([
-  'Icon', 'BusinessLocationFields', 'BusinessCoordinatesFields', 'WeeklyScheduleFields', 'DurationInput',
+  'Icon', 'BusinessLocationFields', 'WeeklyScheduleFields', 'DurationInput',
   'PhotoPicker', 'BookingModeFields', 'OpeningHoursEditor',
   'CatalogueBusinessLookup', 'CatalogueImportReview', 'ServicePricingFields',
 ].map(name => [name, Object.defineProperty(() => null, 'name', { value: name })]))
@@ -48,7 +47,6 @@ const stubs = {
   '../lib/supabase': { supabase: { from() { throw Error('A local UI test must not access a database') } } },
   './icon': controls,
   './business-location-fields': controls,
-  './business-coordinates-fields': controls,
   './weekly-schedule-fields': controls,
   './duration-input': controls,
   './photo-picker': controls,
@@ -61,7 +59,6 @@ const stubs = {
   '../lib/business-profile-ui.mjs': profileUi,
   '../lib/onboarding-catalogue-draft.mjs': draftHelpers,
   '../lib/business-location.mjs': locations,
-  '../lib/business-registration-location.mjs': registrationLocation,
   '../lib/business-schedule.mjs': schedules,
   '../lib/booking-mode.mjs': bookingMode,
   '../lib/business-slug.mjs': slugs,
@@ -130,14 +127,12 @@ function accept(h, draft) {
   h.choose(draft)
   if (h.control('CatalogueImportReview')) h.confirm(draft.services.map((_, index) => index))
 }
-function addRequiredBusinessFields(h, { point = true, confirmLocation = true } = {}) {
+function addRequiredBusinessFields(h) {
   const lookup = h.control('CatalogueBusinessLookup')
   if (!lookup.props.value) { lookup.props.onChange('Owner studio'); h.render() }
   h.edit('business-phone', '+359881111111')
   h.edit('business-address', 'Owner street 8')
   h.control('BusinessLocationFields').props.onChange({ city_ekatte: '68134', neighborhood: 'Борово' }); h.render()
-  if (point) { h.control('BusinessCoordinatesFields').props.onChange({ latitude: 42.665, longitude: 23.286 }); h.render() }
-  if (point && confirmLocation) { h.control('BusinessCoordinatesFields').props.onConfirm(true); h.render() }
   h.control('PhotoPicker').props.onChange([new File(['local-ui-fixture'], 'owner-photo.png', { type: 'image/png' })]); h.render()
 }
 function external(h) {
@@ -163,63 +158,29 @@ async function save(h) {
 }
 
 for (const application of [true, false]) for (const mode of ['gorez', 'external', 'phone']) {
-  test(`${application ? 'public application' : 'legacy authenticated registration'} ${mode}: an exact pin and explicit address confirmation gate Continue`, () => {
+  test(`${application ? 'public application' : 'legacy authenticated registration'} ${mode}: city, quarter and street continue without a map pin or confirmation step`, () => {
     const h = harness({ application })
-    addRequiredBusinessFields(h, { point: false })
+    addRequiredBusinessFields(h)
     if (mode === 'external') external(h)
     else if (mode === 'phone') { h.control('BookingModeFields').props.onChange({ mode: 'phone', consent: false }); h.render() }
-    assert.equal(h.control('BusinessCoordinatesFields').props.required, true)
+    assert.equal(h.control('BusinessCoordinatesFields'), undefined)
+    assert.doesNotMatch(source,/location_confirmed|locationConfirmation|registrationLocationConfirmed/,'no extra address confirmation flag or state')
+    assert.equal(h.field('business-address').props.required, true)
     h.next()
-    assert.equal(h.field('service-0'), undefined, 'no services/account step is reached with a missing pin')
-    assert.match(h.find(node => node.props.role === 'alert')[0].props.children, /exact business pin/)
-    assert.equal(h.completed.length, 0)
-    h.control('BusinessCoordinatesFields').props.onChange({ latitude: 42.665, longitude: 23.286 }); h.render()
-    h.next()
-    assert.equal(h.field('service-0'), undefined, 'a numerical point alone is not an address check')
-    assert.match(h.find(node => node.props.role === 'alert')[0].props.children, /confirm it/)
-    h.control('BusinessCoordinatesFields').props.onConfirm(true); h.render()
-    assert.equal(h.control('BusinessCoordinatesFields').props.confirmed, true)
-    h.next()
-    assert.ok(h.field('service-0'), 'all booking modes proceed after a real point is explicitly checked')
-    assert.equal(h.completed.length, 0, 'local gate test does not submit or create an account')
+    assert.ok(h.field('service-0'), 'all booking modes proceed with ordinary address fields')
+    assert.equal(h.completed.length, 0, 'local flow test does not submit or create an account')
     h.dispose()
   })
 }
 
-for (const [label, change, restore] of [
-  ['address', h => h.edit('business-address', 'Different street 9'), h => h.edit('business-address', 'Owner street 8')],
-  ['city', h => { h.control('BusinessLocationFields').props.onChange({ city_ekatte: '10135' }); h.render() }, h => { h.control('BusinessLocationFields').props.onChange({ city_ekatte: '68134' }); h.render() }],
-  ['quarter', h => { h.control('BusinessLocationFields').props.onChange({ neighborhood: 'Лагера' }); h.render() }, h => { h.control('BusinessLocationFields').props.onChange({ neighborhood: 'Борово' }); h.render() }],
-  ['pin', h => { h.control('BusinessCoordinatesFields').props.onChange({ latitude: 42.666, longitude: 23.287 }); h.render() }, h => { h.control('BusinessCoordinatesFields').props.onChange({ latitude: 42.665, longitude: 23.286 }); h.render() }],
-]) {
-  test(`going back and changing ${label} invalidates the actual pin confirmation, including after restoring an old value`, () => {
-    const h = harness(); addRequiredBusinessFields(h); h.next(); h.backToBusiness()
-    assert.equal(h.control('BusinessCoordinatesFields').props.confirmed, true)
-    change(h)
-    assert.equal(h.control('BusinessCoordinatesFields').props.confirmed, false)
-    h.next()
-    assert.equal(h.field('service-0'), undefined)
-    assert.match(h.find(node => node.props.role === 'alert')[0].props.children, /exact business pin|confirm it/)
-    restore(h)
-    assert.equal(h.control('BusinessCoordinatesFields').props.confirmed, false, 'restoring old text/coordinates cannot silently re-check consent')
-    h.control('BusinessCoordinatesFields').props.onChange({ latitude: 42.665, longitude: 23.286 }); h.render()
-    assert.equal(h.control('BusinessCoordinatesFields').props.confirmed, false, 're-entered coordinates still need an explicit address check')
-    h.control('BusinessCoordinatesFields').props.onConfirm(true); h.render(); h.next()
-    assert.ok(h.field('service-0'), 'an explicit new confirmation releases the gate')
-    h.dispose()
-  })
-}
-
-test('unrelated business edits preserve the applicant-selected manual point and its address confirmation', () => {
-  const h = harness(); addRequiredBusinessFields(h); h.next(); h.backToBusiness()
-  h.edit('business-phone', '+359883333333')
-  h.edit('business-industry', 'consulting')
-  h.control('CatalogueBusinessLookup').props.onChange('Renamed owner business'); h.render()
-  const pin = h.control('BusinessCoordinatesFields').props
-  assert.equal(pin.latitude, 42.665)
-  assert.equal(pin.longitude, 23.286)
-  assert.equal(pin.confirmed, true)
-  h.next(); assert.ok(h.field('service-0'))
+for (const locale of ['bg','en']) test(`${locale}: street label is concise and ordinary required address validation still applies`, () => {
+  const h = harness({locale,application:false}); addRequiredBusinessFields(h)
+  const label = h.find(node=>node.type==='label'&&node.props.htmlFor==='business-address')[0]
+  assert.match(label.props.children.join(''),locale==='bg'?/Улица и номер/:/Street and number/)
+  h.edit('business-address',' ');h.next()
+  assert.equal(h.field('service-0'),undefined)
+  assert.match(h.find(node=>node.props.role==='alert')[0].props.children,locale==='bg'?/улицата и номера/:/street and number/)
+  h.edit('business-address','Пирин 42');h.next();assert.ok(h.field('service-0'))
   h.dispose()
 })
 
@@ -384,8 +345,8 @@ test('actual preview save preserves qualified prices without re-entry while stri
   assert.equal(result.business.external_booking_url, 'https://owner.example.com/book')
   assert.notEqual(result.business.slug, 'existing-partner')
   for (const key of ['id', 'owner_id', 'gorezBusinessId', 'photos', 'latitude']) assert.equal(Object.hasOwn(result.business, key), false, key)
-  assert.equal(result.business.public_profile.latitude, 42.665, 'the actual applicant-selected pin, not the untrusted source latitude, is retained')
-  assert.equal(result.business.public_profile.longitude, 23.286)
+  assert.equal(result.business.public_profile.latitude, null, 'untrusted source latitude is not accepted as a venue point')
+  assert.equal(result.business.public_profile.longitude, null)
 })
 
 test('actual application POST sends only schema-valid service fields and real photo/rights consent through a local fetch stub', async () => {
@@ -405,6 +366,7 @@ test('actual application POST sends only schema-valid service fields and real ph
     assert.equal(init.body.get('photoConsent'), 'true')
     assert.equal(init.body.get('gallery_0').name, 'owner-photo.png')
     const payload = JSON.parse(init.body.get('payload'))
+    assert.equal(Object.hasOwn(payload.business,'location_confirmed'),false,'registration sends no redundant point-confirmation flag')
     assert.deepEqual(payload.services, [
       { name: 'Qualified service', price: '99', duration_min: null,currency:'EUR',description:'Само при посочените условия.',price_details:{kind:'from',unit:'посещение'} },
       { name: 'Zero-priced service', price: '0.00', duration_min: '30',currency:'EUR',description:'Published service context.',price_details:{} },

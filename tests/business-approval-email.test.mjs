@@ -147,7 +147,7 @@ test('actual approval adapter schedules only after committed active decisions, n
   const scheduled = [], lead = { business_id: row.business_id, updated_at: 'expected', requires_owner_activation: false }
   let rpcError = null
   const db = { from: table => { assert.equal(table, 'partner_leads'); return { select: () => ({ eq: () => ({ maybeSingle: async () => ({ data: lead }) }) }) } }, rpc: async () => ({ data: { id: 'lead-id', status: 'active' }, error: rpcError }) }
-  const actual = await loadServerModule('lib/business-application-review.js', { 'server-only': {}, './supabase-admin': { getSupabaseAdmin: () => db }, './business-approval-emails': { scheduleBusinessApprovalEmail: id => scheduled.push(id) } })
+  const actual = await loadServerModule('lib/business-application-review.js', { 'server-only': {}, './supabase-admin': { getSupabaseAdmin: () => db }, './business-approval-emails': { scheduleBusinessApprovalEmail: id => scheduled.push(id) }, './registration-address-server': { scheduleRegistrationAddressLookup() {} } })
   assert.deepEqual(await actual.reviewApplication({ id: 'lead-id', status: 'active', expectedUpdatedAt: 'expected' }, 'actor'), { id: 'lead-id', status: 'active' })
   assert.deepEqual(scheduled, [row.business_id]); scheduled.length = 0
   assert.equal(await actual.reviewApplication({ id: 'lead-id', status: 'active', expectedUpdatedAt: 'stale' }, 'actor'), null)
@@ -167,6 +167,7 @@ test('actual publish route and after wrapper cannot let email scheduling/deliver
     '../../../../../lib/platform-admin.mjs': { createAdminBusinessHandlers: deps => { captured = deps; return {} } },
     '../../../../../lib/business-application-review': { activateApplicationOwner: async () => {} },
     '../../../../../lib/business-approval-emails': { scheduleBusinessApprovalEmail: id => scheduled.push(id) },
+    '../../../../../lib/registration-address-server': { scheduleRegistrationAddressLookup() {} },
   })
   assert.deepEqual(await captured.mutate({ id: row.business_id, action: 'publish' }), { ok: true }); assert.deepEqual(scheduled, [row.business_id]); scheduled.length = 0
   await captured.mutate({ id: row.business_id, action: 'suspend' }); assert.equal(scheduled.length, 0)

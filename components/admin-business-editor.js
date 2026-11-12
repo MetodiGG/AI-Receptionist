@@ -14,6 +14,7 @@ import { BusinessCoordinatesFields } from './business-coordinates-fields'
 import { BusinessBookingSettings } from './business-booking-settings'
 import { AdminGooglePlaceLink } from './admin-google-place-link'
 import { ServicePricingFields } from './service-pricing-fields'
+import { ServiceNameInput } from './service-name-input'
 
 const week = locale => (locale === 'en' ? ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'] : ['Понеделник','Вторник','Сряда','Четвъртък','Петък','Събота','Неделя']).map((label, i) => [i + 1, label])
 export function editorBusinessDraft(b) {
@@ -84,7 +85,7 @@ export function AdminBusinessEditor({ detail, locale, send, onSaved, onBusy, onD
           {[['email_notifications_enabled',en ? 'Booking emails enabled' : 'Имейли за резервации'],['review_requests_enabled',en ? 'Review invitations enabled' : 'Покани за отзив']].map(([key,label]) => <label className="booking-consent" key={key}><input type="checkbox" checked={business[key]} onChange={e => update(key, e.target.checked)}/>{label}</label>)}
         </div>}
         {section === 'services' && <div className="content-repeat-list">{services.map((service,index) => <article key={service.id || `new-${index}`}>
-          <Field label={en ? 'Service name' : 'Услуга'} required value={service.name} onChange={v => row(setServices,index,'name',v)}/>
+          <div className="service-name-field"><label htmlFor={`admin-service-${service.id || `new-${index}`}`}>{en ? 'Service name' : 'Услуга'}</label><ServiceNameInput id={`admin-service-${service.id || `new-${index}`}`} className="" required value={service.name} industry={business.industry} locale={locale} disabled={busy} onChange={name => row(setServices,index,'name',name)}/></div>
           <label>{en ? 'Description' : 'Описание'}<textarea maxLength={2000} value={service.description} onChange={e => row(setServices,index,'description',e.target.value)}/></label>
           <Field label={en ? 'Category' : 'Категория'} maxLength={80} value={service.category} onChange={v => row(setServices,index,'category',v)}/>
           <Field label={`${en ? 'Price' : 'Цена'} (${service.currency||'EUR'})`} required={!['external','phone'].includes(b.booking_mode)} type="number" min="0" step="0.01" value={service.price} onChange={v => row(setServices,index,'price',v)}/>

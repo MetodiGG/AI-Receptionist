@@ -20,6 +20,7 @@ import { businessPageSlug } from '../lib/business-slug.mjs'
 import { CatalogueBusinessLookup } from './catalogue-business-lookup'
 import { CatalogueImportReview } from './catalogue-import-review'
 import { ServicePricingFields } from './service-pricing-fields'
+import { ServiceNameInput } from './service-name-input'
 import { applicationServiceSchema } from '../lib/service-pricing.mjs'
 import { profileServicePrice } from '../lib/business-profile-ui.mjs'
 import { emptyOnboardingService, hasServiceDraftEdits, selectCatalogueBusinessDraft, editOnboardingBusinessDraft, normalizeImportedServices, servicesForApplication } from '../lib/onboarding-catalogue-draft.mjs'
@@ -319,7 +320,7 @@ export function BusinessSetup({ session, onComplete, locale, preview = false, ap
               <div className="repeat-list">
                 {services.map((service, index) => (
                   <div className="repeat-row onboarding-service-row" key={index}>
-                    <div className="onboarding-service-name"><label className="compact-label" htmlFor={`service-${index}`}>{en ? 'Service' : 'Услуга'}</label><input id={`service-${index}`} className="compact-input" value={service.name} maxLength={120} onChange={(event) => updateList(setServices, index, 'name', event.target.value)} placeholder={en ? 'Haircut' : 'Подстригване'} autoFocus={index === 0} /></div>
+                    <div className="onboarding-service-name"><label className="compact-label" htmlFor={`service-${index}`}>{en ? 'Service' : 'Услуга'}</label><ServiceNameInput id={`service-${index}`} className="compact-input" value={service.name} industry={business.industry} locale={locale} disabled={saving} maxLength={120} onChange={name => updateList(setServices, index, 'name', name)} placeholder={en ? 'Haircut' : 'Подстригване'} autoFocus={index === 0} /></div>
                     <div><label className="compact-label" htmlFor={`price-${index}`}>{service.price_details?.kind==='from'?(en?'From':'От'):service.price_details?.kind==='range'?(en?'Minimum price':'Минимална цена'):(en?'Price':'Цена')} ({service.currency==='BGN'?'лв.':'€'})</label><input id={`price-${index}`} className="compact-input" type="number" min="0" max="999999.99" step="0.01" value={service.price} required={!offsite} onChange={(event) => updateList(setServices, index, 'price', event.target.value)} placeholder={en?'Price':'Цена'}/>{service.price!==''&&<small className="onboarding-price-label">{profileServicePrice(service,locale)}</small>}</div>
                     <div><label className="compact-label" htmlFor={`duration-${index}`}>{en ? 'Minutes' : 'Минути'}</label><DurationInput id={`duration-${index}`} className="compact-input" value={service.duration_min} onChange={value => updateList(setServices,index,'duration_min',value)} locale={locale} required={!offsite}/></div>
                     <button className="icon-button" type="button" aria-label={en ? 'Remove service' : 'Премахни услугата'} onClick={() => removeListRow(setServices, index)} disabled={services.length === 1}><Icon name="trash" /></button>

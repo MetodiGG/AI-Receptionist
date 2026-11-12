@@ -4,6 +4,7 @@ import { stat } from 'node:fs/promises'
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 import { APPROVED_SERVICE_PHOTO_IDS } from '../lib/service-photos.mjs'
 import { serviceThumbnail } from '../lib/service-thumbnail.mjs'
+import { NEUTRAL_SERVICE_PHOTO_SRC } from '../lib/service-photo-fallback.mjs'
 
 const MAKEUP_SRC = '/service-photos/makeup-v1.webp'
 const business = { id: 'makeup-business', name: 'Makeup Artist', industry: 'beauty' }
@@ -88,10 +89,11 @@ test('exact rights-cleared business photos retain priority and failures fall thr
   const illustrative = serviceThumbnail(service, { business, trustedServiceImage: supplied, unavailableSources: [supplied.src] })
   assert.equal(illustrative.src, MAKEUP_SRC)
   const failed = serviceThumbnail(service, { business, trustedServiceImage: supplied, unavailableSources: [supplied.src, MAKEUP_SRC] })
-  assert.equal(failed.type, 'icon')
-  assert.equal(failed.src, null)
+  assert.equal(failed.type, 'photo')
+  assert.equal(failed.src, NEUTRAL_SERVICE_PHOTO_SRC)
+  assert.equal(failed.photoMatch, 'neutral')
   assert.equal(failed.icon, 'spark')
-  assert.match(failed.alt, /Символ.*не е снимка/u)
+  assert.match(failed.alt, /Неутрална.*не изобразява услугата/u)
   for (const changed of [{ serviceId: 'other' }, { businessId: 'other' }, { rightsCleared: false }, { businessProvided: false }]) {
     assert.equal(serviceThumbnail(service, { business, trustedServiceImage: { ...supplied, ...changed } }).src, MAKEUP_SRC)
   }
@@ -104,6 +106,6 @@ test('the reused local approved asset remains lightweight and honestly described
   assert.match(resolve(service.name).alt, /Примерна снимка.*не показва работа на бизнеса/u)
   assert.match(resolve(service.name, { locale: 'en' }).alt, /Illustrative photo.*not the business's own work/u)
   const unavailable = resolve(service.name, { locale: 'en', unavailableSources: [MAKEUP_SRC] })
-  assert.equal(unavailable.type, 'icon')
-  assert.match(unavailable.alt, /Service symbol.*not a photo/u)
+  assert.equal(unavailable.type, 'photo'); assert.equal(unavailable.photoMatch, 'neutral')
+  assert.match(unavailable.alt, /Neutral.*not a depiction/u)
 })

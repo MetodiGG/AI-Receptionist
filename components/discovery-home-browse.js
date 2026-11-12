@@ -13,10 +13,14 @@ import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
 import { discoveryDistanceOrigin } from '../lib/discovery/distance-origin.mjs'
 const GoogleBusinessCard = dynamic(() => import('./google-business-card').then(module => module.GoogleBusinessCard))
 const GoogleDiscoveryList = dynamic(() => import('./google-discovery-list').then(module => module.GoogleDiscoveryList))
+const noDirectory = Object.freeze({ businesses: [], status: 'ready' })
 
-export function DiscoveryHomeBusinesses({ locale, filters, preview = false, data, result, resultKey, loading = false, error = '', onRetry, headingRef, onLoadMore, loadingMore = false, moreError = '' }) {
+export function DiscoveryHomeBusinesses({ locale, filters, preview = false, data, result, resultKey, loading = false, error = '', onRetry, headingRef, onLoadMore, loadingMore = false, moreError = '', directoryEnabled = true }) {
   const copy = HOME_DISCOVERY_COPY[locale], messages = DISCOVERY_COPY[locale], en = locale === 'en'
-  const directory = useDirectory(preview ? data || { businesses: [], status: 'ready' } : null)
+  // The homepage starts the authoritative, paged catalogue browse immediately;
+  // a parallel partner-only directory request is redundant there. The legacy
+  // non-home fallback and explicitly supplied local fixtures remain unchanged.
+  const directory = useDirectory(preview ? data || noDirectory : directoryEnabled ? null : noDirectory)
   const [expanded, setExpanded] = useState(false)
   useEffect(() => setExpanded(false), [resultKey ?? result?.checkedAt])
   const catalogueMode = ['catalogue', 'sofia_only'].includes(result?.externalStatus)

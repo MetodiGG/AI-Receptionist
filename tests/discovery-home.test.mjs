@@ -151,14 +151,14 @@ test('compact homepage composes existing search with native rails and no hero re
   assert.doesNotMatch(search, /className="discovery-results"|className="discovery-understood"|className="discovery-source-tabs"/)
   assert.ok(search.indexOf('<DiscoveryHomeBusinesses') < search.indexOf('<DiscoveryHomeBottom'))
 })
-test('folded-map toggle requests permission on entry, exposes actual on/off state and ignores stale grants', async () => {
+test('folded-map toggle requests permission only explicitly, exposes actual on/off state and ignores stale grants', async () => {
   const search = await read('components/discovery-search.js')
   assert.match(search, /aria-haspopup="dialog" aria-expanded=\{filtersOpen\}/)
   assert.match(search, /aria-label=\{locating \? copy.locating : homeCopy.location\}/)
   assert.match(search, /home-inline-location[^\n]*aria-pressed=\{locationEnabled\}[^\n]*<Icon name="map"/)
   assert.match(search, /if \(!automatic && locationEnabled\) \{[\s\S]*?locationVersion.current\+\+[\s\S]*?setCoordinates\(null\)[\s\S]*?return null/)
-  assert.match(search, /useState\(home \|\| Boolean\(initialInput\?\.coordinates\)\)/)
-  assert.match(search, /locate\(\{ automatic: true, searchAfter: false \}\)/)
+  assert.match(search, /useState\(Boolean\(initialCoordinates\)\)/)
+  assert.doesNotMatch(search, /locate\(\{ automatic: true, searchAfter: false \}\)/)
   assert.match(search, /onSubmit=\{submit\}/); assert.match(search, /type="submit"/)
   assert.match(search, /if \(searchAfter && canDiscover\(\)\) execute/)
   assert.match(search, /350/); assert.match(search, /controller\.current\?\.abort\(\)/)

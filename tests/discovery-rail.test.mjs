@@ -82,7 +82,7 @@ test('one Explore Businesses rail replaces the previous browse-plus-results layo
   const source = await read('components/discovery-search.js')
   assert.equal((source.match(/<DiscoveryHomeBusinesses /g) || []).length, 1)
   assert.doesNotMatch(source, /className="discovery-results"|className="discovery-understood"|className="discovery-source-tabs"|copy.results|DiscoveryCard/)
-  assert.match(source, /result=\{result\} resultKey=\{resultKey\} loading=\{loading \|\| locating\}/)
+  assert.match(source, /result=\{result\} resultKey=\{resultKey\} loading=\{loading\}/)
   assert.match(source, /headingRef=\{resultHeading\}/)
 })
 test('only partners get a membership badge, ratings follow services, and exact addresses stay in business details', async () => {
@@ -123,12 +123,12 @@ test('category labels never wrap, split letters, or rely on fixed two-line clipp
   assert.match(css, /\.home-categories button > span \{[^}]*white-space: nowrap; overflow-wrap: normal; word-break: normal/)
   assert.match(css, /\.home-categories \.home-discovery-rail > li \{ width: max-content;/)
 })
-test('entry permission request is deferred once, off cancels pending callbacks, and browsing waits for the location decision', async () => {
+test('city browsing never waits for permission; explicit nearby requests remain cancellable', async () => {
   const source = await read('components/discovery-search.js')
-  assert.match(source, /useState\(home \|\| Boolean\(initialInput\?\.coordinates\)\)/)
-  assert.match(source, /locate\(\{ automatic: true, searchAfter: false \}\)/)
-  assert.match(source, /if \(!mounted.current \|\| locationVersion.current !== entryVersion \+ Number\(automatic\)\) return/)
-  assert.match(source, /if \(entryVersion !== locationVersion.current\) return/)
+  assert.match(source, /useState\(Boolean\(initialCoordinates\)\)/)
+  assert.doesNotMatch(source, /locate\(\{ automatic: true, searchAfter: false \}\)/)
+  assert.match(source, /if \(!mounted.current \|\| entryVersion !== searchVersion.current\) return/)
+  assert.match(source, /function cancelPendingLocation/)
   assert.match(source, /version !== locationVersion.current/)
   assert.match(source, /setLocationEnabled\(false\); setLocating\(false\); setCoordinates\(null\)/)
   assert.match(source, /if \(searchAfter && canDiscover\(\)\)/)

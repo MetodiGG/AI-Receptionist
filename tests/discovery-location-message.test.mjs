@@ -6,7 +6,7 @@ import * as React from 'react'
 import { DISCOVERY_COPY, discoveryLocationMessage } from '../lib/discovery/copy.mjs'
 import * as locations from '../lib/business-location.mjs'
 import * as categories from '../lib/discovery/categories.mjs'
-import * as intent from '../lib/discovery/intent.mjs'
+import * as locationQuery from '../lib/discovery/location-query.mjs'
 import * as defaults from '../lib/discovery/defaults.mjs'
 import * as searchUi from '../lib/discovery/search-ui.mjs'
 import * as home from '../lib/discovery/home.mjs'
@@ -38,7 +38,7 @@ function fixture(locale){
  const states=[],refs=[],drafts=[],navigations=[]
  let stateIndex=0,refIndex=0,failure='LOCATION_DENIED',providerCalls=0
  const react={...React,useState(initial){const at=stateIndex++;if(!(at in states))states[at]=typeof initial==='function'?initial():initial;return[states[at],value=>{states[at]=typeof value==='function'?value(states[at]):value}]},useRef(initial){const at=refIndex++;return refs[at]??(refs[at]={current:initial})},useMemo:fn=>fn(),useEffect(){},useId:()=> 'offline-location-test'}
- const imports={react,'next/link':()=>null,'next/navigation':{useRouter:()=>({push:url=>navigations.push(url)})},'../lib/business-location.mjs':locations,'../lib/discovery/categories.mjs':categories,'../lib/discovery/intent.mjs':intent,'../lib/discovery/copy.mjs':{DISCOVERY_COPY,discoveryLocationMessage},'../lib/discovery/defaults.mjs':defaults,'../lib/discovery/draft.mjs':{peekDiscoveryDraft:()=>null,clearDiscoveryDraft(){},setDiscoveryDraft:value=>drafts.push(value)},'../lib/discovery/search-ui.mjs':searchUi,'../lib/discovery/results-navigation.mjs':{focusDiscoveryResults(){}},'../lib/discovery/home.mjs':home,'../lib/discovery/laboratories.mjs':labs,'../lib/discovery/catalogue-pagination.mjs':pagination}
+ const imports={react,'next/link':()=>null,'next/navigation':{useRouter:()=>({push:url=>navigations.push(url)})},'../lib/business-location.mjs':locations,'../lib/discovery/categories.mjs':categories,'../lib/discovery/location-query.mjs':locationQuery,'../lib/discovery/copy.mjs':{DISCOVERY_COPY,discoveryLocationMessage},'../lib/discovery/defaults.mjs':defaults,'../lib/discovery/draft.mjs':{peekDiscoveryDraft:()=>null,clearDiscoveryDraft(){},setDiscoveryDraft:value=>drafts.push(value)},'../lib/discovery/search-ui.mjs':searchUi,'../lib/discovery/results-navigation.mjs':{focusDiscoveryResults(){}},'../lib/discovery/home.mjs':home,'../lib/discovery/laboratories.mjs':labs,'../lib/discovery/catalogue-pagination.mjs':pagination}
  const mod={exports:{}}
  new Function('require','module','exports','window','navigator',code)(name=>{
   if(name in imports)return imports[name]
@@ -57,16 +57,17 @@ function fixture(locale){
 // Actual SWC-compiled component handlers, not a duplicate rendering algorithm.
 // Hooks and child boundaries are local; compact navigation is captured so no
 // location prompt, browser coordinates, HTTP request or search is performed.
-for(const locale of ['bg','en'])test(`${locale}: actual OFF and DENIED UI contain only the requested paragraph, not a second hidden OFF/city summary`,async()=>{
+for(const locale of ['bg','en'])test(`${locale}: initial OFF and explicit DENIED UI contain only the requested paragraph, not a second hidden OFF/city summary`,async()=>{
  const f=fixture(locale),copy=DISCOVERY_COPY[locale]
- assert.deepEqual(f.statuses(),[])
- await f.toggle() // Deliberately turn the initially enabled control OFF.
- assert.equal(f.providerCalls(),0)
+ assert.deepEqual(f.statuses(),[copy.locationDenied])
+ assert.equal(f.providerCalls(),0,'entry never requests location permission')
+ await f.toggle() // The user explicitly asks for nearby search.
+ assert.equal(f.providerCalls(),1)
  assert.deepEqual(f.statuses(),[copy.locationDenied])
  assert.equal(f.drafts.at(-1).request.coordinates,undefined,'manual OFF clears coordinates and keeps city-based search')
  assert.equal(f.drafts.at(-1).request.cityCode,'68134')
  await f.toggle() // Retry permission; the controlled provider denies it.
- assert.equal(f.providerCalls(),1)
+ assert.equal(f.providerCalls(),2)
  assert.deepEqual(f.statuses(),[copy.locationDenied])
  assert.equal(f.drafts.at(-1).request.coordinates,undefined,'denied permission cannot leak a previous point')
  assert.equal(f.drafts.at(-1).request.cityCode,'68134')

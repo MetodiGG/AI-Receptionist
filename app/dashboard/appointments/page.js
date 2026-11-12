@@ -75,7 +75,7 @@ function AppointmentsContent({ business, locale }) {
   }
 
   function openManualBooking({ date = '', staffId = '' } = {}) {
-    if(business.booking_mode==='external'){setError(en?'New appointments are handled by your external system. Existing GoRez visits remain below.':'Новите резервации се управляват от външната ти система. Съществуващите GoRez посещения остават отдолу.');return}
+    if(['external','phone'].includes(business.booking_mode)){setError(en?'New appointments are arranged outside the GoRez calendar. Existing GoRez visits remain below.':'Новите резервации се уговарят извън календара на GoRez. Съществуващите GoRez посещения остават отдолу.');return}
     if(status !== 'ready' || !services.length){setError(en?'Add an active service before creating a booking.':'Добави активна услуга, преди да създадеш резервация.');return}
     setError('')
     setManualContext({ date, staffId })
@@ -96,7 +96,7 @@ function AppointmentsContent({ business, locale }) {
     <main className="dashboard-content admin-page">
       <div className="admin-page-head">
         <div><p className="auth-kicker">{en ? 'Calendar' : 'Календар'}</p><h2>{en ? 'Bookings' : 'Резервации'}</h2><p>{en ? 'Manage upcoming and past appointments.' : 'Управлявай предстоящите и миналите посещения.'}</p></div>
-        <div className="booking-owner-actions"><Link className="secondary-button" href="/dashboard/settings?section=timeoff">{en ? 'Block time / break' : 'Блокирай време / почивка'}</Link><button className="primary-button" type="button" disabled={business.booking_mode==='external' || status !== 'ready'} onClick={() => openManualBooking()}>+ {en ? 'New booking' : 'Нова резервация'}</button></div>
+        <div className="booking-owner-actions"><Link className="secondary-button" href="/dashboard/settings?section=timeoff">{en ? 'Block time / break' : 'Блокирай време / почивка'}</Link><button className="primary-button" type="button" disabled={['external','phone'].includes(business.booking_mode) || status !== 'ready'} onClick={() => openManualBooking()}>+ {en ? 'New booking' : 'Нова резервация'}</button></div>
       </div>
       {error && <p className="form-message" role="alert">{error}</p>}
       {status === 'loading' && <div className="admin-loading"><span className="button-spinner" /> {en ? 'Loading bookings...' : 'Зареждаме резервациите...'}</div>}

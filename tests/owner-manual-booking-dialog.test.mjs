@@ -268,3 +268,8 @@ test('unmount aborts availability and late response cannot update a closed dialo
     assert.equal(f.dialogState.open, false)
   } finally { f.close() }
 })
+
+test('phone-only business never loads native times, authenticates or submits a manual booking', async () => {
+ const f=fixture({business:{...business,booking_mode:'phone'}})
+ try{f.edit('serviceId','service-1');f.chooseDate('2028-02-02');await f.submit();await f.settle();assert.deepEqual(f.requests,[]);assert.deepEqual(f.sessions,[]);assert.deepEqual(f.created,[]);assert.match(html(f),/Свържи се с бизнеса по телефон/)}finally{f.close()}
+})

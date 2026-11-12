@@ -10,7 +10,7 @@ import { containDialogTab } from '../lib/dialog-focus.mjs'
 import { loadPlacesLibrary } from '../lib/discovery/google-ui-loader.mjs'
 import { renderedGooglePlaceIds } from '../lib/discovery/rail-scroll.mjs'
 
-export function GoogleDiscoveryList({ plan, locale, onRetry, rail = false, nearby = false }) {
+export function GoogleDiscoveryList({ plan, locale, onRetry, rail = false, vertical = false, nearby = false }) {
   const host = useRef(null), [status, setStatus] = useState('loading'), copy = DISCOVERY_COPY[locale]
   const [selected,setSelected]=useState(null)
   const [renderedCount, setRenderedCount] = useState(null)
@@ -25,7 +25,8 @@ export function GoogleDiscoveryList({ plan, locale, onRetry, rail = false, nearb
         await customElements.whenDefined('gmp-advanced-place-list')
         if (!active || !host.current) return
         list = document.createElement('gmp-advanced-place-list')
-        if (rail) { list.setAttribute('orientation', 'horizontal'); list.setAttribute('attribution-position', 'bottom'); list.setAttribute('truncation-preferred', '') }
+        if (rail && !vertical) list.setAttribute('orientation', 'horizontal')
+        if (rail) { list.setAttribute('attribution-position', 'bottom'); list.setAttribute('truncation-preferred', '') }
         list.setAttribute('selectable','')
         list.addEventListener('gmp-select',event=>{const id=selectedDiscoveryPlaceId(event,plan.placeIds);if(active&&id)setSelected(id)})
         const template = document.createElement('template'); template.setAttribute('slot', 'details-item')
@@ -54,7 +55,7 @@ export function GoogleDiscoveryList({ plan, locale, onRetry, rail = false, nearb
     }, 0)
     const deadline = setTimeout(() => { if (active) setStatus(current => current === 'loading' ? 'error' : current) }, 15000)
     return () => { active = false; clearTimeout(timer); clearTimeout(deadline); list?.remove() }
-  }, [plan, rail, nearby])
+  }, [plan, rail, vertical, nearby])
   if (status === 'empty') return null
   return <section className={`discovery-google-kit${rail ? ' home-google-kit' : ''}`} aria-label="Google Maps" style={rail ? { '--google-rail-count': googleRailWidth(renderedCount ?? plan.placeIds.length) } : undefined}>
     {!rail && <header><h3>{copy.google}</h3></header>}

@@ -125,7 +125,12 @@ test('one rail retains widget plans and has no source toggles that could cause r
   assert.match(source, /showFurther &&/)
   assert.match(source, /const showFurther = catalogueMode \|\| expanded/)
   assert.doesNotMatch(search, /setSource|discovery-source-tabs/)
-  assert.match(await read('components/google-discovery-list.js'), /\}, \[plan, rail, nearby\]\)/)
+  const widget = await read('components/google-discovery-list.js')
+  assert.match(widget, /\}, \[plan, rail, vertical, nearby\]\)/)
+  assert.match(source, /<GoogleDiscoveryList plan=\{plan\} locale=\{locale\} rail vertical/)
+  assert.match(widget, /if \(rail && !vertical\) list.setAttribute\('orientation', 'horizontal'\)/)
+  assert.match(widget, /rail \? 'open-directions' : 'open-map'/)
+  assert.match(widget, /rail \? <GoogleBookingSelection/)
 })
 
 test('unknown distances and full-precision boundary violations never leak into the 2 km band', () => {

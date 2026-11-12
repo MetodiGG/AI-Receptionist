@@ -112,7 +112,7 @@ test('public images deliver only the current approved photo and never serve hidd
 test('real image normalization rejects spoofed formats and strips embedded metadata',async()=>{
   const buffer=await sharp({create:{width:2400,height:1800,channels:3,background:'#ff9146'}}).jpeg().toBuffer()
   const image=await normalizeBusinessImage(new File([buffer],'camera.jpg',{type:'image/jpeg'})), meta=await sharp(image.data).metadata()
-  assert.equal(meta.format,'webp');assert.ok(image.width<=1600&&image.height<=1600);assert.ok(image.bytes<=1048576);assert.equal(meta.exif,undefined)
+  assert.equal(meta.format,'webp');assert.ok(image.width<=1200&&image.height<=1200);assert.ok(image.bytes<=1048576);assert.equal(meta.exif,undefined)
   await assert.rejects(normalizeBusinessImage(new File(['<svg/>'],'forged.jpg',{type:'image/jpeg'})),/INVALID_IMAGE/)
 })
 test('ambiguous upload commits are preserved, and no failure removes a possibly committed object',async()=>{

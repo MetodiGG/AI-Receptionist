@@ -11,7 +11,7 @@ import { profileServicePrice } from '../../lib/business-profile-ui.mjs'
 function ReadyDashboard({ business, data, locale }) {
   const en = locale === 'en'
   const { services, staff, hours, appointmentsCount } = data
-  const openDays = business.booking_mode==='external'?(business.opening_hours||[]).filter(d=>d.periods?.length).length:new Set(hours.map(row => row.weekday)).size
+  const openDays = ['external','phone'].includes(business.booking_mode)?(business.opening_hours||[]).filter(d=>d.periods?.length).length:new Set(hours.map(row => row.weekday)).size
   const stats = [
     ['calendar', en ? 'Bookings' : 'Резервации', appointmentsCount],
     ['briefcase', en ? 'Active services' : 'Активни услуги', services.length],

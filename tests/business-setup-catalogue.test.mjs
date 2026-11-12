@@ -348,3 +348,14 @@ test('actual application POST sends only schema-valid service fields and real ph
     assert.deepEqual(h.completed, [{ pending: true, photos: { requested: 1, saved: 1 } }])
   } finally { globalThis.fetch = previousFetch }
 })
+
+test('phone registration skips staff/calendar setup and posts actual imported prices without inventing duration or availability',async()=>{
+ const previousFetch=globalThis.fetch,calls=[]
+ globalThis.fetch=async(url,init)=>{assert.equal(url,'/api/public/business-applications');calls.push(init);return{ok:true,json:async()=>({photos:{requested:1,saved:1}})}}
+ try{
+  const h=harness({preview:false});accept(h,candidate('Phone catalogue fixture',{},[{name:'Known price service',price:'25.00',duration_min:'',currency:'EUR',price_details:{kind:'from'},description:'Actual price conditions.'}]));addRequiredBusinessFields(h)
+  h.control('BookingModeFields').props.onChange({mode:'phone',consent:false});h.render();h.next();assert.ok(h.field('service-0'));assert.equal(h.field('price-0').props.value,'25.00')
+  assert.equal(h.control('DurationInput').props.required,false);h.next();assert.ok(h.find(node=>node.props.className==='review-grid').length,'go directly from services to review');assert.equal(h.control('WeeklyScheduleFields'),undefined);assert.equal(h.control('OpeningHoursEditor'),undefined)
+  checkConsents(h);await save(h);assert.equal(calls.length,1);const payload=JSON.parse(calls[0].body.get('payload'));assert.equal(payload.business.booking_mode,'phone');assert.deepEqual(payload.staff,[]);assert.deepEqual(payload.schedule,[]);assert.equal(payload.services[0].price,'25.00');assert.equal(payload.services[0].duration_min,null);assert.deepEqual(payload.services[0].price_details,{kind:'from'});assert.equal(businessApplicationSchema.safeParse(payload).success,true)
+ }finally{globalThis.fetch=previousFetch}
+})

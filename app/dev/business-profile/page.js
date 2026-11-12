@@ -31,6 +31,7 @@ export default async function BusinessProfileFixture({ searchParams }) {
     business.staff.push({ id: '00000000-0000-4000-8000-000000000006', name: locale === 'en' ? 'QA Specialist Two' : 'QA Специалист две' })
   }
   if(query?.mode==='external'){business.booking_mode='external';business.staff=[];business.workingHours=[];business.services=business.services.map(s=>({...s,price:null,duration_min:null}));business.opening_hours=Array.from({length:7},(_,i)=>({weekday:i+1,periods:i<5?[{open:'09:00',close:'18:00'}]:[]}))}
+  if(query?.mode==='phone'){business.booking_mode='phone';business.staff=[];business.workingHours=[];business.opening_hours=[]}
   if (query?.view === 'review') return <ReviewForm token={token} initialLocale={locale} previewVisit={{ business: { name: business.name, slug: business.slug }, service: 'QA Маникюр', endsAt: '2026-10-25T12:00:00Z', submitted: false }} />
   if (query?.view === 'admin') return <ReviewAdmin preview={{ items: reviews.items.map(item => ({ ...item, business: { name: business.name, slug: business.slug }, status: 'published', revision: 0 })), next: null }} />
   const scenario = ['empty','error','slow','conflict'].includes(query?.calendar) ? query.calendar : 'normal'

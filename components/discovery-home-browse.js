@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useEffect, useMemo, useState } from 'react'
 import dynamic from 'next/dynamic'
 import { Icon } from './icon'
-import { DiscoveryHomeRail } from './discovery-home-rail'
+import { DiscoveryBusinessList } from './discovery-business-list'
 import { useDirectory } from '../hooks/use-directory'
 import { homeBusinesses, HOME_DISCOVERY_COPY } from '../lib/discovery/home.mjs'
 import { orderedRailRows } from '../lib/discovery/rail.mjs'
@@ -33,17 +33,16 @@ export function DiscoveryHomeBusinesses({ locale, filters, preview = false, data
   const busy = loading || (!result && !error && directory.status === 'loading')
   const notice = error ? error === 'RATE_LIMITED' ? messages.rate : messages.error : !result && directory.status === 'error' ? copy.unavailable : ''
   const card = row => <li key={`${row.source}:${row.id}`}><DiscoveryBusinessCard row={row} locale={locale} preview={preview} nearby={nearby} distanceOrigin={distanceOrigin}/></li>
-  const google = (plan, key) => plan?.mode === 'ui_kit_cards' ? plan.cards.map(item => <li key={`${key}:${item.placeId}`}><GoogleBusinessCard card={item} locale={locale} providerLocale={plan.locale} nearby={nearby} distanceOrigin={distanceOrigin}/></li>) : plan && <li key={key} className="home-google-chunk"><GoogleDiscoveryList plan={plan} locale={locale} rail nearby={nearby} onRetry={onRetry}/></li>
+  const google = (plan, key) => plan?.mode === 'ui_kit_cards' ? plan.cards.map(item => <li key={`${key}:${item.placeId}`}><GoogleBusinessCard card={item} locale={locale} providerLocale={plan.locale} nearby={nearby} distanceOrigin={distanceOrigin}/></li>) : plan && <li key={key} className="home-google-chunk"><GoogleDiscoveryList plan={plan} locale={locale} rail vertical nearby={nearby} onRetry={onRetry}/></li>
   const rail = !busy && !result?.clarification && <>
     {nearRows.map(card)}{google(result?.external, 'near-google')}
     {showFurther && <>{farRows.map(card)}{google(result?.furtherExternal, 'far-google')}</>}
     {loadingMore && <li className="home-rail-loading" role="status"><span className="button-spinner"/><span>{en ? 'Loading businesses…' : 'Зареждаме бизнеси…'}</span></li>}
   </>
   const empty = !busy && !notice && !result?.clarification && !rows.length && !result?.external && !result?.furtherExternal && !nextPage
-  return <DiscoveryHomeRail title={copy.explore} locale={locale} kind="businesses" uniformCards={!result?.external && !result?.furtherExternal} headingRef={headingRef} busy={busy} resetKey={resultKey ?? result?.checkedAt} onNearEnd={hasMore && !loadingMore && !moreError ? advanceBusinesses : undefined} action={catalogueMode ? null : <Link href={`/partners?lang=${locale}`} prefetch={false}>{copy.all}<Icon name="arrow"/></Link>} message={<>
+  return <DiscoveryBusinessList title={copy.explore} locale={locale} headingRef={headingRef} busy={busy} hasMore={hasMore} pending={loadingMore} requireScrollIntent={Boolean(hiddenFurther && result?.furtherExternal)} resetKey={resultKey ?? result?.checkedAt} pageKey={`${hiddenFurther ? 'further' : 'page'}:${result?.cataloguePage?.nextOffset ?? 'end'}:${rows.length}`} onNearEnd={hasMore && !loadingMore && !moreError ? advanceBusinesses : undefined} action={catalogueMode ? null : <Link href={`/partners?lang=${locale}`} prefetch={false}>{copy.all}<Icon name="arrow"/></Link>} message={<>
     {busy && <div className="home-browse-skeleton" role="status"><span className="sr-only">{messages.searching}</span><i/><i/><i/></div>}
     {notice && <div className="home-browse-empty" role="alert"><p>{notice}</p><button className="secondary-button" type="button" onClick={error ? onRetry : directory.retry}>{copy.retry}</button></div>}
-    {moreError && <div className="discovery-notice" role="status"><p>{moreError === 'RATE_LIMITED' ? messages.rate : messages.error}</p><button type="button" className="secondary-button" onClick={onLoadMore}>{copy.retry}</button></div>}
     {result?.clarification && <p className="discovery-clarification" role="status">{result.clarification.message}</p>}
     {result?.appointmentClarification && <p className="discovery-clarification" role="status">{result.appointmentClarification.message}</p>}
     {result?.externalStatus === 'quota' && <p className="discovery-notice" role="status">{messages.quota}</p>}
@@ -52,7 +51,7 @@ export function DiscoveryHomeBusinesses({ locale, filters, preview = false, data
     {result?.warnings?.includes('catalogue_unavailable') && <p className="discovery-notice" role="status">{en ? 'The catalogue is temporarily unavailable. GoRez bookings remain available.' : 'Каталогът временно не е достъпен. Резервациите в GoRez продължават да работят.'}</p>}
     {result?.warnings?.includes('internal_unavailable') && <p className="discovery-notice" role="status">{messages.internalUnavailable}</p>}
     {empty && <p className="home-browse-empty" role="status">{en ? 'No matching businesses here yet. Try another service or area.' : 'Още няма подходящи бизнеси тук. Опитай друга услуга или район.'}</p>}
-  </>}>{rail}</DiscoveryHomeRail>
+  </>} footer={moreError && <div className="discovery-notice" role="status"><p>{moreError === 'RATE_LIMITED' ? messages.rate : messages.error}</p><button type="button" className="secondary-button" onClick={onLoadMore}>{copy.retry}</button></div>}>{rail}</DiscoveryBusinessList>
 }
 
 export function DiscoveryHomeBottom({ locale }) {

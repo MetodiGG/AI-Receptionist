@@ -61,7 +61,7 @@ test('GoRez cards do not stretch to a tall provider chunk or push actions to its
   const card = await read('components/discovery-business-card.js')
   assert.ok(card.indexOf('className="home-business-category"') < card.indexOf('<PartnerRailReviews'))
   assert.ok(card.indexOf('className="home-business-services"') < card.indexOf('<PartnerRailReviews'))
-  assert.match(card, /const reserve = copy.reserveAppointment/)
+  assert.match(card, /const reserve = <BookingButtonContent>\{copy\.reserveAppointment\}<\/BookingButtonContent>/)
   assert.doesNotMatch(card, /Visit website|Виж сайта/)
   assert.match(card, /const action = railExternalAction\(business\)/)
   assert.doesNotMatch(card, /action\.kind === ['"]website['"]|онлайн резервацията не е потвърдена/)

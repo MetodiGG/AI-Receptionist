@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Icon } from './icon'
 import { DiscoveryDistanceBadge } from './discovery-distance-badge'
 import { OutboundBookingButton } from './outbound-booking-button'
+import { BookingButtonContent } from './booking-button-content'
 import { loadPlacesLibrary } from '../lib/discovery/google-ui-loader.mjs'
 import { createGoogleCardWidget } from '../lib/discovery/google-card-widget.mjs'
 import { widgetBusinessPoint } from '../lib/discovery/distance-origin.mjs'
@@ -75,7 +76,7 @@ export function GoogleBusinessCardFrame({ locale, origin, point, children, maps,
 export function GoogleBusinessCard({ card, locale = 'bg', providerLocale = locale, nearby = false, distanceOrigin = null }) {
   const host = useRef(null), [attempt, setAttempt] = useState(0), [contacts, setContacts] = useState(false)
   const { status, point } = useAuthorizedGoogleWidget({ card, locale: providerLocale, nearby, host, attempt })
-  const en = locale === 'en', reserve = en ? 'Book a time' : 'Резервирай час'
+  const en = locale === 'en', reserve = <BookingButtonContent>{en ? 'Book a time' : 'Резервирай час'}</BookingButtonContent>
   const directions = railDirections({ source: 'google', placeId: card.placeId })
   const knownBooking = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(card.bookingLinkId || '')
   return <>
@@ -108,6 +109,6 @@ function GoogleBusinessContactDialog({ card, locale, providerLocale, onClose }) 
     <WidgetNotice status={status} locale={locale} onRetry={() => setAttempt(value => value + 1)}/>
     <div ref={host} className="google-card-native" aria-label={en ? 'Contact details from Google Maps' : 'Контакти от Google Maps'}/>
     {status === 'ready' && <p className="google-contact-note">{en ? 'If no contact is listed, use Google Maps. Opening a website or calling does not confirm an appointment.' : 'Ако не е посочен контакт, използвай Google Maps. Отварянето на сайт или обаждането не потвърждават резервация.'}</p>}
-    <a className="home-directions google-dialog-maps" href={railDirections({ source: 'google', placeId: card.placeId })} target="_blank" rel="noopener noreferrer" translate="no">Google Maps</a>
+    <a className="home-directions google-dialog-maps" href={railDirections({ source: 'google', placeId: card.placeId })} target="_blank" rel="noopener noreferrer" translate="no"><Icon name="map"/><span className="home-maps-label">Google Maps</span></a>
   </GoogleContactDialogFrame>
 }

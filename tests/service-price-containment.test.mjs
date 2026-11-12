@@ -13,6 +13,7 @@ import * as copy from '../lib/discovery/copy.mjs'
 import * as presentation from '../lib/discovery/service-presentation.mjs'
 import * as photoLayout from '../lib/business-photo-layout.mjs'
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import * as bookingButtonContent from './helpers/booking-button-content.mjs'
 
 // Existing SWC/SSR convention: actual client components and price/data helpers,
 // inert visual/third-party stubs, no browser, fetch, booking or effect execution.
@@ -22,6 +23,7 @@ await loadBindings()
 const Empty = () => null
 const thumbnail = ({ size }) => React.createElement('span', { 'data-service-thumbnail-size': size })
 const shared = {
+  './booking-button-content': bookingButtonContent,
   './icon': { Icon: ({ name }) => React.createElement('svg', { 'aria-hidden': true, 'data-icon': name }) },
   './service-thumbnail': { ServiceThumbnail: thumbnail },
   './business-cover-photo': { BusinessCoverPhoto: Empty },

@@ -174,7 +174,11 @@ test('reduced motion disables the new transitions and pressed movement while ret
 test('button-state visual fixture is development-only and cannot reserve, register or call providers', async () => {
   const page = await read('app/dev/button-states/page.js')
   assert.match(page, /if \(process.env.NODE_ENV !== 'development'\) notFound\(\)/)
-  assert.equal((page.match(/<button type="button"/g) || []).length, 3)
+  const buttons = [...page.matchAll(/<button\b([^>]+)>/g)].map(match => match[1])
+  assert.equal(buttons.length, 6, 'directions/reserve, service action, disabled directions/reserve and signup preview')
+  for (const attributes of buttons) assert.match(attributes, /\btype="button"/)
+  assert.equal(buttons.filter(attributes => /\bdisabled\b/.test(attributes)).length, 2)
+  assert.match(page, /BookingButtonContent, BookingCalendarIcon/)
   assert.doesNotMatch(page, /fetch\(|<form|<a\b|<Link|href=|onClick=|<script|GoogleDiscoveryList|OutboundBookingButton/)
 })
 test('the public header has only the shared wordmark, flags and orange dimensional menu control', async () => {

@@ -18,6 +18,7 @@ import * as partnerCategories from '../lib/partner-categories.mjs'
 import * as businessCover from '../lib/business-cover-photo.mjs'
 import * as servicePresentation from '../lib/discovery/service-presentation.mjs'
 import * as photoLayout from '../lib/business-photo-layout.mjs'
+import * as bookingButtonContent from './helpers/booking-button-content.mjs'
 
 const require = createRequire(import.meta.url)
 const { loadBindings, transform } = require('next/dist/build/swc')
@@ -37,6 +38,7 @@ const icon = { Icon: () => createElement('svg', { 'aria-hidden': true }) }
 const thumbnail = await load('service-thumbnail', { './icon': icon, '../lib/service-thumbnail.mjs': serviceArt })
 const cover = await load('business-cover-photo', { '../lib/business-cover-photo.mjs': businessCover })
 const shared = {
+  './booking-button-content': bookingButtonContent,
   './icon': icon, './service-thumbnail': { ...thumbnail, IllustrativeServicePhotoNote: noop }, './business-cover-photo': cover,
   './business-photo-gallery': { BusinessPhotoGallery: ({ photos, fallback }) => photos?.length ? createElement('div', { 'data-real-cover': photos[0].src }) : fallback },
   './outbound-booking-button': { OutboundBookingButton: noop },

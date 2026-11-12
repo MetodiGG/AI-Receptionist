@@ -14,6 +14,7 @@ import * as publicLocale from '../lib/public-locale.mjs'
 import * as partnerCategories from '../lib/partner-categories.mjs'
 import * as bookingMode from '../lib/booking-mode.mjs'
 import { guidedServiceMenu } from '../lib/guided-assistant.mjs'
+import * as bookingButtonContent from './helpers/booking-button-content.mjs'
 
 const fee = (patch = {}) => ({ id: 'public-service-id', name: 'Подстригване', description: 'Реална публикувана услуга.', price: 20, currency: 'EUR', duration_min: 30, active: true, ...patch })
 const business = services => ({ id: '10000000-0000-4000-8000-000000000001', name: 'QA public studio', slug: 'qa-public-studio', active: true, platform_status: 'enabled', industry: 'beauty', services, staff: [], workingHours: [], staffServices: [] })
@@ -123,6 +124,7 @@ const { code } = await transform(source, { filename: 'components/business-direct
 const Empty = () => null, module = { exports: {} }
 new Function('require', 'module', 'exports', code)(name => {
   const imports = {
+    './booking-button-content': bookingButtonContent,
     react: React, 'next/link': { __esModule: true, default: ({ children }) => React.createElement('span', null, children) },
     './icon': { Icon: Empty }, './directory-filters': { DirectoryFilters: Empty }, './business-photo-gallery': { BusinessPhotoGallery: Empty },
     './business-cover-photo': { BusinessCoverPhoto: Empty }, './service-thumbnail': { ServiceThumbnail: Empty }, './partner-categories': { PartnerCategories: Empty },
@@ -139,5 +141,5 @@ for (const locale of ['bg', 'en']) test(`${locale}: actual directory component u
   const html = renderToStaticMarkup(React.createElement(module.exports.BusinessDirectory, { locale, data: { status: 'ready', businesses: [business(services)] }, showFilters: false, bookingDisabled: true }))
   const text = html.replace(/<[^>]*>/g, '').replace(/&amp;/g, '&')
   for (const service of services) assert.ok(text.includes(profileUi.profileServicePrice(service, locale)), service.name)
-  assert.doesNotMatch(html, /href=|type="submit"/)
+  assert.doesNotMatch(html, /<a\b|<form\b|type="submit"/)
 })

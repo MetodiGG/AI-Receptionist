@@ -22,7 +22,7 @@ import { focusBookingDetails } from '../lib/booking-details-navigation.mjs'
 import { BusinessProfileHeader, BusinessProfileInformation, BusinessServiceList } from './business-profile'
 import { Icon } from './icon'
 import { BusinessReviews, useBusinessReviews } from './business-reviews'
-import { isExternalBooking } from '../lib/booking-mode.mjs'
+import { isExternalBooking, isPhoneBooking, safeBookingPhone } from '../lib/booking-mode.mjs'
 import { eligibleProfileStaff, profileBookingContextKey, profileServicePrice, scrollToProfileBooking } from '../lib/business-profile-ui.mjs'
 import { OutboundBookingButton } from './outbound-booking-button'
 import { ProfileViewTracker } from './profile-view-tracker'
@@ -55,7 +55,12 @@ function ExternalBookingPanel({business,locale,preview=false,serviceId='',assist
  const en=locale==='en'
  const service=business.services.find(item=>item.id===serviceId)
  const headingId=assistant?'external-assistant-title':'external-booking-title'
- return <section className="external-booking-panel booking-card" aria-labelledby={headingId}><h2 id={headingId}>{assistant?(en?'Online assistant':'Онлайн асистент'):(en?'Book on the business’s website':'Запази час в сайта на бизнеса')}</h2>{service&&<p className="profile-selected-service"><span className="service-photo-name"><ServiceThumbnail service={service} business={business} locale={locale} size={40}/><strong>{service.name}</strong></span><span>{profileServicePrice(service,locale)}</span></p>}<p>{en?'Check available times and complete your booking on the business’s website. GoRez does not synchronize that calendar.':'Провери свободните часове и завърши резервацията в сайта на бизнеса. GoRez не синхронизира този календар.'}</p>{assistant&&<><p>{en?'For this business, the assistant can direct you to its booking system or contact information.':'За този бизнес асистентът може да те насочи към системата му за резервации или контактите.'}</p>{business.phone&&<a className="profile-assistant-contact" href={`tel:${business.phone}`}><Icon name="phone"/>{business.phone}</a>}</>}<OutboundBookingButton business={business} locale={locale} className="profile-external-reserve" disabled={preview}><Icon name="calendar"/>{en?'Continue to booking':'Продължи към резервацията'}</OutboundBookingButton></section>
+ return <section className="external-booking-panel booking-card" aria-labelledby={headingId}><h2 id={headingId}>{assistant?(en?'Online assistant':'Онлайн асистент'):(en?'Book on the business’s website':'Запази час в сайта на бизнеса')}</h2>{service&&<p className="profile-selected-service"><span className="service-photo-name"><ServiceThumbnail service={service} business={business} locale={locale} size={40}/><strong>{service.name}</strong></span><span>{profileServicePrice(service,locale)}</span></p>}<p>{en?'Check available times and complete your booking on the business’s website. GoRez does not synchronize that calendar.':'Провери свободните часове и завърши резервацията в сайта на бизнеса. GoRez не синхронизира този календар.'}</p>{assistant&&<><p>{en?'For this business, the assistant can direct you to its booking system or contact information.':'За този бизнес асистентът може да те насочи към системата му за резервации или контактите.'}</p>{safeBookingPhone(business.phone)&&<a className="profile-assistant-contact" href={safeBookingPhone(business.phone)}><Icon name="phone"/>{business.phone}</a>}</>}<OutboundBookingButton business={business} locale={locale} className="profile-external-reserve" disabled={preview}><Icon name="calendar"/>{en?'Continue to booking':'Продължи към резервацията'}</OutboundBookingButton></section>
+}
+
+function PhoneBookingPanel({business,locale,preview=false,serviceId=''}) {
+ const en=locale==='en',service=business.services.find(item=>item.id===serviceId)
+ return <section className="external-booking-panel booking-card" aria-labelledby="phone-booking-title"><h2 id="phone-booking-title">{en?'Arrange an appointment by phone':'Уговори час по телефон'}</h2>{service&&<p className="profile-selected-service"><strong>{service.name}</strong><span>{profileServicePrice(service,locale)}</span></p>}<p>{en?'Call the business to agree on a suitable time. GoRez does not confirm phone appointments.':'Обади се на бизнеса, за да уговориш удобен час. GoRez не потвърждава телефонни резервации.'}</p><OutboundBookingButton business={business} locale={locale} className="profile-external-reserve" disabled={preview}>{en?'Book an appointment':'Резервирай час'}</OutboundBookingButton></section>
 }
 
 function BookingPanel({ business, locale, ref, onServiceChange, onBusyChange, active = true, preview = false, previewCalendarScenario = 'normal' }) {
@@ -246,8 +251,8 @@ function BookingPanel({ business, locale, ref, onServiceChange, onBusyChange, ac
   )
 }
 
-function BusinessBookingExperience({ business, locale, preview = false, previewCalendarScenario = 'normal' }) {
-  const en = locale === 'en', external = isExternalBooking(business)
+export function BusinessBookingExperience({ business, locale, preview = false, previewCalendarScenario = 'normal' }) {
+  const en = locale === 'en', external = isExternalBooking(business), phoneOnly = isPhoneBooking(business)
   const [mode, setMode] = useState('booking'), [assistantOpened, setAssistantOpened] = useState(false)
   const [busy, setBusy] = useState(false)
   const [selectedServiceId, setSelectedServiceId] = useState('')
@@ -258,12 +263,13 @@ function BusinessBookingExperience({ business, locale, preview = false, previewC
     if (!business.services.some(service => service.id === id)) return
     flushSync(() => {
       setMode('booking')
-      if (external) setSelectedServiceId(id)
+      if (external || phoneOnly) setSelectedServiceId(id)
       else panel.current?.chooseService(id)
     })
     scrollToProfileBooking(section.current, window.matchMedia?.('(prefers-reduced-motion: reduce)').matches)
   }
 
+  if(phoneOnly)return <div className="profile-booking-flow"><BusinessServiceList business={business} locale={locale} selectedServiceId={selectedServiceId} onChoose={chooseService}/><div className="booking-content profile-shared-booking" id="booking-experience" ref={section} tabIndex={-1}><PhoneBookingPanel business={business} locale={locale} preview={preview} serviceId={selectedServiceId}/>{business.booking_terms&&<details className="booking-terms"><summary>{en?'Booking terms':'Условия за резервация'}</summary><p>{business.booking_terms}</p></details>}</div></div>
   return <div className="profile-booking-flow">
     <div className="business-booking-method"><div className="profile-mode-controls" role="group" aria-label={en ? 'Booking method' : 'Начин за записване'}>
       <button type="button" disabled={busy} aria-pressed={mode === 'booking'} aria-controls="profile-native-panel" onClick={() => setMode('booking')}><img className="profile-mode-art" src="/booking-art/calendar-3d-v1.webp" alt="" aria-hidden="true" width="30" height="30"/><span>{en ? 'Book an appointment' : 'Резервирай час'}</span></button>
@@ -339,7 +345,7 @@ export default function PublicBookingPage({ initialLocale = 'bg', previewBusines
       <header className="booking-topbar">
         <SparkLogo businessName={business.name} locale={locale} />
         <div className="booking-top-actions">
-          <div className="booking-contact">{business.phone && <a className="booking-phone" href={`tel:${business.phone}`}>{business.phone}</a>}</div>
+          <div className="booking-contact">{safeBookingPhone(business.phone) && <a className="booking-phone" href={safeBookingPhone(business.phone)}>{business.phone}</a>}</div>
           <LanguageSwitch locale={locale} onChange={setLocale} compact />
           <Link className="booking-home-link" href={`/account?lang=${locale}`}>{locale === 'en' ? 'My bookings' : 'Моите резервации'}</Link>
           {ownerSession && ownsBusiness ? <nav className="booking-owner-nav" aria-label={locale === 'bg' ? 'Навигация за профила' : 'Account navigation'}>

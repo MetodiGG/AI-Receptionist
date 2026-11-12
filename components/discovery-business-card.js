@@ -9,7 +9,7 @@ import { BusinessCoverPhoto } from './business-cover-photo'
 import { ServiceThumbnail } from './service-thumbnail'
 import { useBusinessReviews, ReviewSummary, PartnerReviewSummary } from './business-reviews'
 import { OutboundBookingButton } from './outbound-booking-button'
-import { isExternalBooking } from '../lib/booking-mode.mjs'
+import { isOffsiteBooking } from '../lib/booking-mode.mjs'
 import { homeBusinessPhoto } from '../lib/discovery/home.mjs'
 import { railCategory, railServiceItems, railDirections, railExternalAction } from '../lib/discovery/rail.mjs'
 import { detailPriceLabel } from '../lib/discovery/business-details.mjs'
@@ -48,7 +48,7 @@ export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, 
     const action = railExternalAction(business)
     return <div className="home-business-actions">
       {directions && (preview ? <span className="home-directions" aria-disabled="true"><Icon name="map"/><span className="home-maps-label">{directionsLabel}</span></span> : <a className="home-directions" href={directions} target="_blank" rel="noopener noreferrer" aria-label={`${directionsLabel} · ${business.name}`} title={en ? 'Opens Google Maps directions' : 'Отваря упътвания в Google Maps'}><Icon name="map"/><span className="home-maps-label">{directionsLabel}</span></a>)}
-      {preview ? (internalBooking || action) && <span className="home-reserve" aria-disabled="true">{reserve}</span> : internalBooking ? profile && (isExternalBooking(business) ? <OutboundBookingButton business={business} locale={locale} className="home-reserve">{reserve}</OutboundBookingButton> : <Link className="home-reserve" href={profile} prefetch={false}>{reserve}</Link>) : action?.kind === 'verified' ? <OutboundBookingButton linkId={action.id} locale={locale} className="home-reserve">{reserve}</OutboundBookingButton> : action && <a className="home-reserve" href={action.href} target={action.kind === 'form' ? '_blank' : undefined} rel="noopener noreferrer" aria-label={`${action.kind === 'phone' ? (en ? 'Call to book a time' : 'Резервирай час по телефона') : (en ? 'Book on the business website' : 'Резервирай час в сайта на бизнеса')} · ${business.name}`}>{reserve}</a>}
+      {preview ? (internalBooking || action) && <span className="home-reserve" aria-disabled="true">{reserve}</span> : internalBooking ? profile && (isOffsiteBooking(business) ? <OutboundBookingButton business={business} locale={locale} className="home-reserve">{reserve}</OutboundBookingButton> : <Link className="home-reserve" href={profile} prefetch={false}>{reserve}</Link>) : action?.kind === 'verified' ? <OutboundBookingButton linkId={action.id} locale={locale} className="home-reserve">{reserve}</OutboundBookingButton> : action && <a className="home-reserve" href={action.href} target={action.kind === 'form' ? '_blank' : undefined} rel="noopener noreferrer" aria-label={`${action.kind === 'phone' ? (en ? 'Call to book a time' : 'Резервирай час по телефона') : (en ? 'Book on the business website' : 'Резервирай час в сайта на бизнеса')} · ${business.name}`}>{reserve}</a>}
     </div>
   }
   return <article className="home-business-card" data-source={row.source}>

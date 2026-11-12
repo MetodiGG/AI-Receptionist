@@ -61,7 +61,7 @@ test('the dashboard delegates manual input state to an isolated component while 
   assert.match(owner, /initialDate=\{manualContext\.date\} initialStaffId=\{manualContext\.staffId\}/)
   assert.match(owner, /onCreated=\{async \(\) => \{ setManualContext\(null\); await load\(\) \}\}/)
   assert.match(owner, /status !== 'ready'/)
-  assert.match(owner, /business\.booking_mode==='external'/)
+  assert.match(owner, /\['external','phone'\]\.includes\(business\.booking_mode\)/)
   assert.match(owner, /onCreateBooking=\{openManualBooking\}/)
   assert.doesNotMatch(owner, /manual\.(?:serviceId|name|phone|email)|setManualIntake|createManualAppointment|manual-booking-modal/)
   assert.match(owner, /appointment-availability/, 'rescheduling keeps its existing authoritative endpoint')

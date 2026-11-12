@@ -4,6 +4,7 @@ import { readFile } from 'node:fs/promises'
 import { preparePhotoFile, fitPhotoFilesToBudget, PREPARED_PHOTO_BYTES, MAX_SOURCE_PHOTO_BYTES } from '../lib/photo-selection.js'
 import { APPLICATION_PHOTO_BUDGET } from '../lib/business-media.mjs'
 import { readApplicationPhotos } from '../lib/application-photos.mjs'
+import { MAX_PHOTO_EDGE } from '../lib/photo-policy.mjs'
 
 function browser(t, { width = 4032, height = 3024, encode = () => new Blob([new Uint8Array(150000)], { type: 'image/webp' }), decodeError = false } = {}) {
   const calls = [], revoked = [], image = { naturalWidth: width, naturalHeight: height, src: '', async decode() { if (decodeError) throw new Error('decode') } }
@@ -23,8 +24,14 @@ const file = (type = 'image/jpeg', name = 'private-original.jpg', bytes = 1000) 
 test('browser preparation resizes a phone photo, emits small correctly typed bytes and releases memory/URLs', async t => {
   const b = browser(t), output = await preparePhotoFile(file())
   assert.equal(output.type, 'image/webp'); assert.equal(output.name, 'photo.webp'); assert.ok(output.size <= PREPARED_PHOTO_BYTES)
-  assert.equal(b.calls[0].width, 1600); assert.equal(b.calls[0].height, 1200)
+  assert.equal(b.calls[0].width, MAX_PHOTO_EDGE); assert.equal(b.calls[0].height, 900)
   assert.deepEqual(b.revoked, ['blob:local-only']); assert.equal(b.canvas.width, 1); assert.equal(b.image.src, '')
+})
+for (const [width, height, expectedWidth, expectedHeight] of [[3000, 4000, 900, 1200], [4000, 3000, 1200, 900], [320, 480, 320, 480]]) test(`browser preparation preserves ${width}x${height} proportions without enlargement or cropping`, async t => {
+  const b = browser(t, { width, height })
+  await preparePhotoFile(file())
+  assert.equal(b.calls[0].width, expectedWidth); assert.equal(b.calls[0].height, expectedHeight)
+  assert.ok(b.calls.filter(call => call.width).every(call => Math.max(call.width, call.height) <= MAX_PHOTO_EDGE))
 })
 test('Safari-style PNG fallback for WebP uses a real JPEG encoder, not a false too-large error or a mislabeled file', async t => {
   const b = browser(t, { encode: type => new Blob([new Uint8Array(type === 'image/jpeg' ? 160000 : 900000)], { type: type === 'image/webp' ? 'image/png' : type }) })

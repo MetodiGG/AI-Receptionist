@@ -28,6 +28,16 @@ Legacy source-based photo maintenance (before self-service activation):
 4. Run the photo tests, full suite and build. Check the directory, mobile booking
    gallery, full-size images, arrows/swipe/Escape and keyboard focus restoration.
 
+Current new-upload normalization uses a **1200 px maximum longest edge** in
+both browser preparation and the authoritative server processor. It preserves
+aspect ratio, applies EXIF orientation, never enlarges or crops, strips embedded
+metadata and stores only re-encoded WebP at most 1 MiB. Browser-prepared images
+retain the existing stricter 200,000-byte bound. This is shared by new partner
+gallery, staff-portrait, application and catalogue-photo uploads. Service images
+currently use reviewed project assets/verified image references, not a separate
+upload endpoint. Existing stored/curated photos, including the legacy
+1200×1600 Vesi photos above, are unchanged; this is not a bulk storage rewrite.
+
 Both public APIs attach the same curated photos without another database query.
 When an actual photo is missing or cannot load, the public directory, discovery
 card, details and booking profile show a labelled illustrative category cover.

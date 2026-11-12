@@ -42,7 +42,7 @@ export function OwnerManualBookingDialog({ business, locale = 'bg', services, st
   }, [])
 
   useEffect(() => {
-    if (!validContext || business.booking_mode === 'external') {
+    if (!validContext || ['external','phone'].includes(business.booking_mode)) {
       setAvailability({ key, status: 'idle', slots: [], error: '' })
       return
     }
@@ -97,7 +97,7 @@ export function OwnerManualBookingDialog({ business, locale = 'bg', services, st
     event.preventDefault()
     // A ref closes the gap before React commits the disabled button state.
     if (savingRef.current || preview) return
-    if (business.booking_mode === 'external') { setError(localizedApiMessage({ code: 'EXTERNAL_BOOKING', message: 'Резервациите се управляват от външната система на бизнеса.' }, locale)); return }
+    if (['external','phone'].includes(business.booking_mode)) { setError(localizedApiMessage({ code: business.booking_mode==='phone'?'PHONE_BOOKING':'EXTERNAL_BOOKING', message: business.booking_mode==='phone'?'Свържи се с бизнеса по телефон, за да уговориш час.':'Резервациите се управляват от външната система на бизнеса.' }, locale)); return }
     if (!validContext || !selectedSlot) { setError(en ? 'Choose an available time.' : 'Избери свободен час.'); return }
     if (event.currentTarget?.checkValidity && !event.currentTarget.checkValidity()) { event.currentTarget.reportValidity?.(); return }
     savingRef.current = true; setSaving(true); setError('')

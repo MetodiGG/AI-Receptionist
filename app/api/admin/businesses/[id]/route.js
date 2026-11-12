@@ -14,7 +14,7 @@ const handlers=createAdminBusinessHandlers({
     if(business.error)throw business.error
     if(!business.data)return null
     const [services,staff,customers,bookings,upcoming,hours,contentAudit]=await Promise.all([
-      db.from('services').select('id,name,description,category,duration_min,price,currency,active,sort_order').eq('business_id',id).order('sort_order').order('name'),
+      db.from('services').select('id,name,description,category,duration_min,price,currency,price_details,active,sort_order').eq('business_id',id).order('sort_order').order('name'),
       db.from('staff').select('id,name,email,phone,bio,active,sort_order').eq('business_id',id).order('sort_order').order('name'),
       db.from('customers').select('id',{count:'exact',head:true}).eq('business_id',id),
       db.from('appointments').select('id',{count:'exact',head:true}).eq('business_id',id),

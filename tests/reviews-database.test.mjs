@@ -88,6 +88,21 @@ test('review submission is single-use, consent-based and cannot overwrite a prio
   assert.equal(review.rating,4);assert.equal(review.quality,5);assert.equal(review.service_rating,4)
   assert.ok((await invitation()).used_at)
 })
+test('real review RPC SQL keeps apostrophes, Bulgarian and hostile-looking comments/reasons as literal text',async()=>{
+  for(const text of ["Салон O'Connor — отлично", "'); DROP TABLE businesses; --", 'x,or(business_id.not.is.null)', '100%_точно \\ "цена"\nнов ред']){
+    await reset();await complete()
+    const id=await submit((await invitation()).token,{...body,displayName:"Ива O'Connor",comment:text})
+    let review=(await rows('select * from booking_reviews where id=$1',[id]))[0]
+    assert.equal(review.display_name,"Ива O'Connor");assert.equal(review.comment,text);assert.equal(review.business_id,b)
+    await db.query('select moderate_booking_review($1,$2,$3,$4,$5)',[id,admin,'hidden',0,text])
+    review=(await rows('select * from booking_reviews where id=$1',[id]))[0]
+    assert.equal(review.moderation_reason,text);assert.equal(review.status,'hidden');assert.equal(review.revision,1)
+    assert.equal((await rows('select reason from review_moderation_audit where review_id=$1',[id]))[0].reason,text)
+    assert.equal((await rows('select count(*) count from businesses'))[0].count,1)
+    await assert.rejects(db.query('select moderate_booking_review($1,$2,$3,$4,$5)',[id,admin,"published'); DROP TABLE businesses; --",1,'Rejected status']),/INVALID_REVIEW_ACTION/)
+    assert.equal((await rows('select status from booking_reviews where id=$1',[id]))[0].status,'hidden')
+  }
+})
 test('a verified GoRez rating without a comment increases its own count and average, without importing Google ratings',async()=>{
   await reset();await complete();const invite=await invitation()
   await submit(invite.token,{...body,rating:3,comment:''})

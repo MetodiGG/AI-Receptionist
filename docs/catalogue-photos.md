@@ -29,7 +29,8 @@ public visibility on Google is not a photo licence.
 - The existing browser photo processor accepts ordinary large phone photos
   (up to its existing 50 MB original-file limit), resizes before transmission,
   and reports unsupported formats. The server decodes the actual image, strips
-  embedded metadata, and produces WebP up to 2000 px and 1 MB. Originals are not
+  embedded metadata, and produces WebP with a maximum 1200 px longest edge
+  (no cropping or enlargement) and 1 MiB. Originals are not
   uploaded or retained.
 - There is one cover photo per listing, not a gallery. A shared 128 MB catalogue
   cap includes active photos and private objects awaiting cleanup. It does not

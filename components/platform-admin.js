@@ -18,6 +18,7 @@ import { AdminBusinessEditor } from './admin-business-editor'
 import { scheduleRows } from '../lib/business-schedule.mjs'
 import { AdminExternalBookingLinks } from './admin-external-booking-links'
 import { AdminReferralAnalytics } from './admin-referral-analytics'
+import { AdminBusinessReport } from './admin-business-report'
 import { AdminCatalogue } from './admin-catalogue'
 import { adminSections, adminSectionDestination } from '../lib/admin-navigation.mjs'
 
@@ -69,7 +70,7 @@ async function adminRequest(path,options={}) {
   return body
 }
 
-function Dialog({children,onClose,busy,title,id}) {
+function Dialog({children,onClose,busy,title,id,className=''}) {
   const ref=useRef(null)
   useEffect(()=>{
     const opener=document.activeElement,overflow=document.body.style.overflow
@@ -85,7 +86,7 @@ function Dialog({children,onClose,busy,title,id}) {
     if(event.shiftKey&&(document.activeElement===first||document.activeElement===ref.current.querySelector('h2'))){event.preventDefault();last.focus()}
     else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus()}
   }
-  return <div className="platform-dialog-backdrop" onKeyDown={keydown}><section className="platform-dialog" ref={ref} role="dialog" aria-modal="true" aria-labelledby={id} aria-busy={busy}><header><h2 id={id} tabIndex={-1}>{title}</h2><button className="secondary-button" onClick={onClose} disabled={busy} type="button" aria-label="Close / Затвори">×</button></header>{children}</section></div>
+  return <div className="platform-dialog-backdrop" onKeyDown={keydown}><section className={`platform-dialog ${className}`.trim()} ref={ref} role="dialog" aria-modal="true" aria-labelledby={id} aria-busy={busy}><header><h2 id={id} tabIndex={-1}>{title}</h2><button className="secondary-button" onClick={onClose} disabled={busy} type="button" aria-label="Close / Затвори">×</button></header>{children}</section></div>
 }
 
 export function PlatformAdmin({preview=null}) {
@@ -95,6 +96,7 @@ export function PlatformAdmin({preview=null}) {
   const [tab,setTab]=useState('businesses'),[query,setQuery]=useState(''),[state,setState]=useState('all'),[leadFilter,setLeadFilter]=useState('all'),[saving,setSaving]=useState('')
   const [selected,setSelected]=useState(null),[detail,setDetail]=useState(null),[detailError,setDetailError]=useState(''),[action,setAction]=useState(''),[reason,setReason]=useState(''),[confirmation,setConfirmation]=useState(''),[ack,setAck]=useState(false),[password,setPassword]=useState(''),[busy,setBusy]=useState(false)
   const [editing,setEditing]=useState(''),[editorDirty,setEditorDirty]=useState(false)
+  const [reportBusiness,setReportBusiness]=useState(null)
   const [linkDirty,setLinkDirty]=useState(false)
   const [linkBusy,setLinkBusy]=useState(false)
   const [linkRefreshKey,setLinkRefreshKey]=useState(0)
@@ -114,12 +116,12 @@ export function PlatformAdmin({preview=null}) {
     try{
       const [data,requests]=await Promise.all([adminRequest('/api/admin/overview'),adminRequest('/api/admin/partner-leads')])
       if(version===sequence.current){setOverview(data);setLeads(requests.leads||[])}
-    }catch(problem){if(version===sequence.current){setError(problem.code||'ADMIN_UNAVAILABLE');setOverview(null);setLeads([]);setSelected(null);setDetail(null);setPassword('')}}
+    }catch(problem){if(version===sequence.current){setError(problem.code||'ADMIN_UNAVAILABLE');setOverview(null);setLeads([]);setSelected(null);setDetail(null);setReportBusiness(null);setPassword('')}}
     finally{if(version===sequence.current)setLoading(false)}
   },[preview])
   useEffect(()=>{
     if(session)load()
-    else {sequence.current++;setOverview(null);setLeads([]);setSelected(null);setPassword('')}
+    else {sequence.current++;setOverview(null);setLeads([]);setSelected(null);setReportBusiness(null);setPassword('')}
     return()=>{sequence.current++}
   },[session,load])
   const businesses=useMemo(()=>filterAdminBusinesses(overview?.businesses||[],query,state),[overview,query,state])
@@ -136,6 +138,13 @@ export function PlatformAdmin({preview=null}) {
   }
   const fail=code=>text(ERRORS,code,en)
   function close(){if(busy)return;if(editorDirty&&!window.confirm(en?'Discard unsaved changes?':'Да се откажем ли от незапазените промени?'))return;detailSequence.current++;setSelected(null);setDetail(null);setAction('');setEditing('');setEditorDirty(false);setDetailError('');setPassword('')}
+  function openReport(row){
+    if(busy)return
+    if(editorDirty&&!window.confirm(en?'Discard unsaved changes?':'Да се откажем ли от незапазените промени?'))return
+    const actorId=preview?'local-preview':session?.user?.id
+    if(!actorId)return
+    detailSequence.current++;setSelected(null);setDetail(null);setAction('');setEditing('');setEditorDirty(false);setDetailError('');setPassword('');setReportBusiness({...row,reportActorId:actorId})
+  }
   async function open(row){
     const version=++detailSequence.current
     setSelected(row);setDetail(null);setAction('');setDetailError('');setReason('');setConfirmation('');setAck(false);setPassword('')
@@ -215,7 +224,7 @@ export function PlatformAdmin({preview=null}) {
           <nav className="admin-section-tabs" aria-label={en?'Admin sections':'Админ секции'}>{sections.filter(section=>section.id!=='reviews').map(section=><button key={section.id} aria-pressed={tab===section.id} disabled={linkBusy||catalogueBusy} onClick={()=>chooseSection(section.id)} type="button">{section.label}{section.id==='leads'&&newLeads>0&&<span>{newLeads}</span>}</button>)}<Link className="admin-review-link" href={adminSectionDestination('reviews',locale)}>{en?'Reviews':'Отзиви'}</Link></nav>
           <button className="secondary-button admin-refresh-button" type="button" disabled={loading||Boolean(saving)||linkBusy||catalogueBusy} onClick={()=>{load();setLinkRefreshKey(value=>value+1)}}>{loading?(en?'Loading…':'Зареждане…'):(en?'Refresh':'Обнови')}</button>
         </div>
-        {tab==='statistics'&&<AdminReferralAnalytics send={adminRequest} locale={locale} preview={Boolean(preview)}/>}
+        {tab==='statistics'&&<AdminReferralAnalytics send={adminRequest} locale={locale} preview={Boolean(preview)} businesses={overview.businesses} onReport={openReport}/>}
         {tab==='catalogue'&&<AdminCatalogue send={adminRequest} locale={locale} onDirty={setCatalogueDirty} onBusy={setCatalogueBusy} refreshKey={linkRefreshKey}/>}
         {tab==='external-links'&&<AdminExternalBookingLinks onDirty={setLinkDirty} onBusy={setLinkBusy} refreshKey={linkRefreshKey} onManagePartners={()=>chooseSection('businesses')} send={adminRequest} locale={locale} preview={Boolean(preview)} previewData={preview?.externalLinks}/>}
         {tab==='businesses'&&<section className="admin-console-section">
@@ -225,7 +234,7 @@ export function PlatformAdmin({preview=null}) {
             <div className="admin-business-card-title"><span className="admin-store-icon"><BusinessCategoryIcon business={row} size={42}/></span><div><h3>{row.name}</h3><p>{getIndustryLabel(row.industry,locale)}{row.city?` · ${row.city}`:''}</p></div><span className={`admin-state ${businessState(row)}`}>{text(STATES,businessState(row),en)}</span></div>
             {row.contact_email&&<a className="admin-business-contact" href={`mailto:${row.contact_email}`}><Icon name="mail"/>{row.contact_email}</a>}
             <div className="admin-business-metrics"><span><Icon name="calendar"/><b>{row.bookings30d}</b> {en?'bookings / 30d':'резервации / 30д'}</span>{row.failedNotifications30d>0&&<span className="admin-email-warning"><b>{row.failedNotifications30d}</b> {en?'failed emails':'неуспешни имейли'}</span>}</div>
-            <div className="admin-card-actions"><button className="primary-button" type="button" onClick={()=>open(row)}><Icon name="settings"/>{en?'Manage':'Управлявай'}</button>{businessState(row)==='published'&&<Link className="secondary-button" href={`/book/${row.slug}?lang=${locale}`} target="_blank" rel="noreferrer"><Icon name="external"/>{en?'Public page':'Публична страница'}</Link>}</div>
+            <div className="admin-card-actions"><button className="primary-button" type="button" onClick={()=>open(row)}><Icon name="settings"/>{en?'Manage':'Управлявай'}</button><button className="secondary-button" type="button" onClick={()=>openReport(row)}><Icon name="chart"/>{en?'Report':'Справка'}</button>{businessState(row)==='published'&&<Link className="secondary-button" href={`/book/${row.slug}?lang=${locale}`} target="_blank" rel="noreferrer"><Icon name="external"/>{en?'Public page':'Публична страница'}</Link>}</div>
           </article>)}</div>{!businesses.length&&<div className="empty-state">{en?'No businesses match these filters.':'Няма бизнеси по тези филтри.'}</div>}
         </section>}
         {tab==='leads'&&<section className="admin-console-section">
@@ -240,12 +249,13 @@ export function PlatformAdmin({preview=null}) {
     {selected&&<Dialog id={titleId} title={selected.name} busy={busy} onClose={close}>
       {detailError&&<p className="form-message" role="alert">{fail(detailError)}</p>}
       {!detail&&!detailError&&<p role="status">{en?'Loading details…':'Зареждаме детайлите…'}</p>}
-      {detail&&<><div className="admin-dialog-business"><span className={`admin-state ${businessState(b)}`}>{text(STATES,businessState(b),en)}</span><p>/{b.slug} · {getIndustryLabel(b.industry,locale)}</p><p>{b.city||b.address||'—'} · {b.contact_email||'—'}</p></div><div className="admin-detail-counts">{[[en?'Bookings':'Резервации',detail.counts.bookings],[en?'Upcoming':'Предстоящи',detail.counts.upcoming],[en?'Customers':'Клиенти',detail.counts.customers]].map(([value,count])=><div key={value}><strong>{count}</strong><span>{value}</span></div>)}</div>
+      {detail&&<><div className="admin-dialog-business"><span className={`admin-state ${businessState(b)}`}>{text(STATES,businessState(b),en)}</span><p>/{b.slug} · {getIndustryLabel(b.industry,locale)}</p><p>{b.city||b.address||'—'} · {b.contact_email||'—'}</p></div><div className="admin-detail-counts">{[[en?'Bookings':'Резервации',detail.counts.bookings],[en?'Upcoming':'Предстоящи',detail.counts.upcoming],[en?'Customers':'Клиенти',detail.counts.customers]].map(([value,count])=><div key={value}><strong>{count}</strong><span>{value}</span></div>)}</div>{!editing&&!action&&<button type="button" className="secondary-button" onClick={()=>openReport(b)}><Icon name="chart"/>{en?'Reservations & customers report':'Справка за резервации и клиенти'}</button>}
         {editing?<><button className="secondary-button" type="button" disabled={busy} onClick={()=>{if(!editorDirty||window.confirm(en?'Discard unsaved changes?':'Да се откажем ли от незапазените промени?')){setEditing('');setEditorDirty(false)}}}>{en?'Back to management':'Към управлението'}</button><AdminBusinessEditor key={`${b.id}:${b.content_revision}:${editing}`} detail={detail} locale={locale} send={adminRequest} onSaved={contentSaved} onBusy={setBusy} onDirty={setEditorDirty} section={editing} onSection={setEditing} preview={Boolean(preview)}/></>:!action?<><div className="admin-detail-resources"><div><h3>{en?'Services':'Услуги'}</h3>{detail.services.map(row=><p key={row.id}>{row.name} · {row.duration_min} {en?'min':'мин'} {!row.active&&`(${en?'inactive':'неактивна'})`}</p>)}{!detail.services.length&&<p>{en?'Not set up yet':'Още няма настроени услуги'}</p>}</div><div><h3>{en?'Team':'Екип'}</h3>{detail.staff.map(row=><p key={row.id}>{row.name} {!row.active&&`(${en?'inactive':'неактивен'})`}</p>)}{!detail.staff.length&&<p>{en?'Not set up yet':'Още няма екип'}</p>}</div></div><p className="admin-preserve-note">{en?'Only this business is affected. Its owner’s login and other businesses are not deleted.':'Засяга се само този бизнес. Акаунтът на собственика и други негови бизнеси не се изтриват.'}</p><div className="admin-operation-buttons">{businessState(b)!=='archived'&&<button className="primary-button" type="button" onClick={()=>setEditing('business')}><Icon name="settings"/>{en?'Edit details & photos':'Редактирай данни и снимки'}</button>}{(businessState(b)==='archived'?['restore','delete']:businessState(b)==='published'?['suspend','archive']:['publish','archive']).map(key=><button className={key==='delete'?'account-delete-button':'secondary-button'} key={key} type="button" onClick={()=>choose(key)}><Icon name={key==='delete'||key==='archive'?'trash':'settings'}/>{text(ACTIONS,key,en)}</button>)}</div></>:<form onSubmit={perform} className="admin-action-form"><h3>{text(ACTIONS,action,en)}</h3><p className={action==='delete'?'account-delete-warning':'admin-preserve-note'}>{text(EXPLANATIONS,action,en)}</p>
           {action==='delete'&&detail.counts.upcoming>0&&<p className="form-message" role="alert">{fail('UPCOMING_BOOKINGS')}</p>}
           <fieldset disabled={busy}><label>{en?'Reason for the activity log':'Причина за журнала'}<textarea required minLength={3} maxLength={500} value={reason} onChange={e=>setReason(e.target.value)}/></label><label>{en?'Type the business slug':'Напиши адреса на бизнеса'}: <strong>{b.slug}</strong><input required autoComplete="off" autoCapitalize="none" spellCheck={false} value={confirmation} onChange={e=>setConfirmation(e.target.value)}/></label>{action==='delete'&&<label>{en?'Your administrator password':'Твоята администраторска парола'}<input type="password" autoComplete="current-password" required value={password} onChange={e=>setPassword(e.target.value)}/><small>{en?'Verified directly with Supabase Auth; never saved in the application or activity log.':'Проверява се директно от Supabase Auth; не се записва в приложението или журнала.'}</small></label>}<label className="admin-action-ack"><input type="checkbox" required checked={ack} onChange={e=>setAck(e.target.checked)}/><span>{en?'I understand the consequences for this business and its existing bookings.':'Разбирам последствията за този бизнес и съществуващите му резервации.'}</span></label></fieldset><div className="admin-operation-buttons"><button type="button" className="secondary-button" disabled={busy} onClick={()=>choose('')}>{en?'Back':'Назад'}</button><button type="submit" className={action==='delete'?'account-delete-button':'primary-button'} disabled={busy||!ack||confirmation!==b.slug||reason.trim().length<3||(action==='delete'&&(!password||detail.counts.upcoming>0))}>{busy?(en?'Saving…':'Запазване…'):text(ACTIONS,action,en)}</button></div>
         </form>}
       </>}
     </Dialog>}
+    {session&&error!=='FORBIDDEN'&&error!=='UNAUTHORIZED'&&reportBusiness&&reportBusiness.reportActorId===(preview?'local-preview':session.user?.id)&&<Dialog id={titleId} title={`${en?'Report':'Справка'} · ${reportBusiness.name}`} busy={false} onClose={()=>setReportBusiness(null)} className="admin-report-dialog"><AdminBusinessReport key={`${reportBusiness.reportActorId}:${reportBusiness.id}`} business={reportBusiness} send={adminRequest} locale={locale} preview={preview?(preview.report||true):null}/></Dialog>}
   </main>
 }

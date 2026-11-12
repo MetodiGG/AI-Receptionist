@@ -156,6 +156,11 @@ async function save(h) {
   assert.ok(button, 'approval/save control is visible')
   await button.props.onClick(); h.render()
 }
+function chooseAccount(h, mode) {
+  const button = h.field(`setup-account-${mode}`)
+  assert.ok(button, `explicit ${mode} account choice is available`)
+  button.props.onClick(); h.render()
+}
 
 for (const application of [true, false]) for (const mode of ['gorez', 'external', 'phone']) {
   test(`${application ? 'public application' : 'legacy authenticated registration'} ${mode}: city, quarter and street continue without a map pin or confirmation step`, () => {
@@ -183,6 +188,25 @@ for (const locale of ['bg','en']) test(`${locale}: street label is concise and o
   h.edit('business-address','Пирин 42');h.next();assert.ok(h.field('service-0'))
   h.dispose()
 })
+
+for (const application of [true, false]) for (const mode of ['gorez', 'external', 'phone']) for (const locale of ['bg', 'en']) {
+  test(`${locale}/${application ? 'public' : 'authenticated'}/${mode}: quarter is mandatory and changing city cannot retain an old quarter`, () => {
+    const h = harness({ application, locale }); addRequiredBusinessFields(h)
+    if (mode === 'external') external(h)
+    else if (mode === 'phone') { h.control('BookingModeFields').props.onChange({ mode: 'phone' }); h.render() }
+    assert.equal(h.control('BusinessLocationFields').props.neighborhoodRequired, true)
+    const street = h.field('business-address').props.value
+    for (const quarter of ['', '  \t ']) {
+      h.control('BusinessLocationFields').props.onChange({ city_ekatte: '10135', neighborhood: quarter }); h.render(); h.next()
+      assert.equal(h.field('service-0'), undefined)
+      assert.match(h.find(node => node.props.role === 'alert')[0].props.children, locale === 'bg' ? /квартала/ : /neighbourhood/)
+      assert.equal(h.field('business-address').props.value, street, 'street and number stay unchanged')
+    }
+    h.control('BusinessLocationFields').props.onChange({ neighborhood: 'Моят липсващ квартал' }); h.render(); h.next()
+    assert.ok(h.field('service-0'), 'a real custom quarter is allowed without an extra step or map pin')
+    assert.equal(h.completed.length, 0); h.dispose()
+  })
+}
 
 test('three explicit imports never overwrite manually entered phone/address/website/type, even when source values coincide', () => {
   const h = harness()
@@ -326,6 +350,114 @@ function qualifiedExternalDraft() {
 function readyExternal(h) {
   external(h); accept(h, qualifiedExternalDraft()); addRequiredBusinessFields(h); advanceToReview(h)
 }
+
+for (const locale of ['bg', 'en']) test(`${locale}: signed-in owners have an explicit current or separate account choice without changing their identity`, () => {
+  const session = { user: { id: 'existing-admin', email: 'admin@example.com', email_confirmed_at: '2026-11-01' }, access_token: 'local-admin-token' }
+  const original = structuredClone(session), h = harness({ locale, session }); readyExternal(h)
+  assert.equal(h.field('setup-account-email').props.value, session.user.email)
+  assert.equal(h.field('setup-account-email').props.readOnly, true)
+  assert.equal(h.field('setup-account-password'), undefined)
+  assert.equal(h.field('setup-account-current').props['aria-pressed'], true)
+  assert.match(h.field('setup-account-new').props.children, locale === 'bg' ? /Регистрирай с друг имейл/ : /Register with another email/)
+  chooseAccount(h, 'new')
+  assert.equal(h.field('setup-account-email').props.readOnly, false)
+  assert.equal(h.field('setup-account-email').props.value, '', 'do not prefill the admin identity as the new owner')
+  assert.equal(h.field('setup-account-password').props.minLength, 10)
+  h.edit('setup-account-email', 'new-owner@example.com'); h.edit('setup-account-password', 'local-owner-password')
+  chooseAccount(h, 'current')
+  assert.equal(h.field('setup-account-email').props.value, session.user.email)
+  assert.equal(h.field('setup-account-password'), undefined)
+  chooseAccount(h, 'new')
+  assert.equal(h.field('setup-account-email').props.value, 'new-owner@example.com')
+  assert.equal(h.field('setup-account-password').props.value, 'local-owner-password', 'explicit mode changes retain the unsent draft')
+  assert.deepEqual(session, original)
+  assert.doesNotMatch(source, /signOut\(|updateUser\(|setSession\(/, 'choosing an owner never mutates the existing Auth identity')
+  h.dispose()
+})
+
+test('separate owner credentials survive session refresh, contact edits and all wizard data remains intact', () => {
+  const h = harness(); readyExternal(h); checkConsents(h); chooseAccount(h, 'new')
+  h.edit('setup-account-email', 'typed-owner@example.com'); h.edit('setup-account-password', 'typed-password-only')
+  h.props.session = { ...h.props.session, access_token: 'refreshed-local-token' }; h.render()
+  assert.equal(h.field('setup-account-email').props.value, 'typed-owner@example.com')
+  assert.equal(h.field('setup-account-password').props.value, 'typed-password-only')
+  h.backToBusiness(); h.edit('business-email', 'booking-contact@example.com')
+  assert.equal(h.control('CatalogueBusinessLookup').props.value, 'Public catalogue name')
+  assert.equal(h.control('BusinessLocationFields').props.neighborhood, 'Борово')
+  assert.equal(h.control('PhotoPicker').props.files[0].name, 'owner-photo.png')
+  assert.equal(h.control('BookingModeFields').props.url, 'https://owner.example.com/book')
+  advanceToReview(h)
+  assert.equal(h.field('setup-account-email').props.value, 'typed-owner@example.com', 'contact changes cannot replace typed credentials')
+  assert.equal(h.field('setup-account-password').props.value, 'typed-password-only')
+  assert.equal(h.find(node => node.type === 'input' && node.props.type === 'checkbox').every(node => node.props.checked), true, 'both consents survive account and step changes')
+  assert.equal(h.completed.length, 0)
+  h.dispose()
+})
+
+test('new owner mode sends typed credentials without the current bearer, preserves retry data, and clears the password only on success', async () => {
+  const previousFetch = globalThis.fetch, calls = []
+  globalThis.fetch = async (url, init) => {
+    assert.equal(url, '/api/public/business-applications')
+    calls.push(init)
+    return calls.length === 1 ? { ok: false, json: async () => ({ error: { code: 'SIGN_IN_REQUIRED' } }) } : { ok: true, json: async () => ({ photos: { requested: 1, saved: 1 } }) }
+  }
+  try {
+    const h = harness({ preview: false }); readyExternal(h); checkConsents(h); chooseAccount(h, 'new')
+    h.edit('setup-account-email', 'new-owner@example.com'); h.edit('setup-account-password', 'ninechars')
+    await save(h); assert.equal(calls.length, 0, 'short passwords are rejected before any request')
+    h.edit('setup-account-password', 'local-new-owner-password'); await save(h)
+    assert.equal(calls.length, 1); assert.equal(h.completed.length, 0)
+    assert.equal(h.field('setup-account-password').props.value, 'local-new-owner-password', 'a safe failed request preserves the draft')
+    assert.equal(h.field('setup-account-email').props.value, 'new-owner@example.com')
+    await save(h); assert.equal(calls.length, 2)
+    for (const init of calls) {
+      assert.equal(Object.hasOwn(init.headers, 'Authorization'), false, 'a signed-in admin token must never assign the new business to the admin')
+      const payload = JSON.parse(init.body.get('payload'))
+      assert.deepEqual(payload.account, { email: 'new-owner@example.com', password: 'local-new-owner-password' })
+      assert.equal(businessApplicationSchema.safeParse(payload).success, true)
+      assert.equal(Object.hasOwn(payload.business, 'owner_id'), false)
+      assert.equal(payload.services.length, 2); assert.equal(payload.business.neighborhood, 'Борово')
+      assert.equal(payload.consent, true); assert.equal(init.body.get('photoConsent'), 'true')
+    }
+    assert.equal(h.field('setup-account-password').props.value, '')
+    assert.equal(h.field('setup-account-email').props.value, 'new-owner@example.com')
+    assert.equal(h.props.session.access_token, 'test-only-token')
+    assert.deepEqual(h.completed, [{ pending: true, photos: { requested: 1, saved: 1 } }])
+  } finally { globalThis.fetch = previousFetch }
+})
+
+test('returning to current owner mode submits the actual refreshed identity and bearer without the separate draft password', async () => {
+  const previousFetch = globalThis.fetch, calls = []
+  globalThis.fetch = async (url, init) => { assert.equal(url, '/api/public/business-applications'); calls.push(init); return { ok: true, json: async () => ({}) } }
+  try {
+    const h = harness({ preview: false }); readyExternal(h); checkConsents(h); chooseAccount(h, 'new')
+    h.edit('setup-account-email', 'unsent-owner@example.com'); h.edit('setup-account-password', 'unsent-password')
+    chooseAccount(h, 'current'); h.props.session = { ...h.props.session, access_token: 'refreshed-token' }; h.render(); await save(h)
+    assert.equal(calls.length, 1)
+    assert.equal(calls[0].headers.Authorization, 'Bearer refreshed-token')
+    assert.deepEqual(JSON.parse(calls[0].body.get('payload')).account, { email: 'owner@example.com', password: '' })
+    chooseAccount(h, 'new'); assert.equal(h.field('setup-account-password').props.value, '', 'successful submission clears even an inactive password draft')
+  } finally { globalThis.fetch = previousFetch }
+})
+
+test('anonymous account email remains editable, contact-prefills only until edited, and preview never creates an account or leaks credentials', async () => {
+  const previousFetch = globalThis.fetch
+  globalThis.fetch = () => assert.fail('preview must never send an account request')
+  try {
+    const h = harness({ session: null }); h.edit('business-email', 'booking@example.com'); readyExternal(h)
+    assert.equal(h.field('setup-account-current'), undefined)
+    assert.equal(h.field('setup-account-email').props.value, 'booking@example.com')
+    assert.equal(h.field('setup-account-email').props.readOnly, false)
+    h.edit('setup-account-email', 'owner@example.com'); h.edit('setup-account-password', 'preview-password')
+    h.backToBusiness(); h.edit('business-email', 'updated-contact@example.com'); advanceToReview(h)
+    assert.equal(h.field('setup-account-email').props.value, 'owner@example.com')
+    checkConsents(h); await save(h)
+    assert.equal(h.completed.length, 1); assert.equal(h.field('setup-account-password').props.value, '')
+    assert.equal(Object.hasOwn(h.completed[0], 'account'), false)
+    assert.doesNotMatch(JSON.stringify(h.completed[0]), /preview-password/)
+    assert.equal(h.completed[0].business.contact_email, 'updated-contact@example.com')
+  } finally { globalThis.fetch = previousFetch }
+})
 
 test('actual preview save preserves qualified prices without re-entry while stripping source identity and retaining required consents', async () => {
   const h = harness(); readyExternal(h)

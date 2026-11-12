@@ -31,6 +31,19 @@ test('public setup creates an unconfirmed identity and private application, neve
   assert.equal(h.calls.saved[0].ownerId,'new-auth-id');assert.equal(h.calls.saved[0].requiresActivation,true)
   assert.doesNotMatch(JSON.stringify(h.calls.saved),/password|Local-test-only/);assert.deepEqual(h.calls.deleted,[])
 })
+
+test('a missing or whitespace-only quarter is rejected server-side before account creation or saving',async()=>{
+  for(const neighborhood of ['', '  \t ', undefined]) {
+    const input={...application,business:{...application.business,neighborhood}}
+    assert.equal(businessApplicationSchema.safeParse(input).success,false)
+    const h=harness(),response=await h.handler(request(input))
+    assert.equal(response.status,422);assert.deepEqual(await response.json(),{error:{code:'VALIDATION_ERROR'}})
+    assert.equal(h.calls.created.length,0);assert.equal(h.calls.saved.length,0);assert.equal(h.calls.notified.length,0)
+  }
+  const parsed=businessApplicationSchema.parse({...application,business:{...application.business,neighborhood:'  Моят квартал  '}})
+  assert.equal(parsed.business.neighborhood,'Моят квартал','custom quarters need not belong to a finite suggestion list')
+  assert.equal(parsed.business.address,application.business.address,'street and number are not changed')
+})
 test('verified signed-in owners can submit without another password; caller email cannot take over another account',async()=>{
   const user={id:'existing-owner',email:'owner@example.com',email_confirmed_at:'2026-10-25'}
   const h=harness({user}),response=await h.handler(request({...application,account:{email:user.email,password:''}}))

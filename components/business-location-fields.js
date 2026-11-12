@@ -117,7 +117,7 @@ function CheckedSelect({ label, value, options, onChange, placeholder, searchLab
   </div>
 }
 
-export function BusinessLocationFields({ cityCode = '', neighborhood = '', onChange, locale = 'bg', required = false }) {
+export function BusinessLocationFields({ cityCode = '', neighborhood = '', onChange, locale = 'bg', required = false, neighborhoodRequired = false }) {
   const en = locale === 'en'
   const [custom, setCustom] = useState(false)
   const city = findCity(cityCode)
@@ -126,10 +126,10 @@ export function BusinessLocationFields({ cityCode = '', neighborhood = '', onCha
   const customArea = custom || Boolean(neighborhood && !known)
   const cityOptions = useMemo(() => searchCities('', locale).map((item) => ({ value: item.code, label: cityLabel(item, locale) })), [locale])
   const searchCityOptions = useCallback((query) => searchCities(query, locale).map((item) => ({ value: item.code, label: cityLabel(item, locale) })), [locale])
-  const areaOptions = [{ value: '', label: en ? 'No neighbourhood specified' : 'Без избран квартал' }, ...areas.map((area) => ({ value: area, label: en ? transliterate(area) : area, search: area })), { value: '__custom__', label: en ? 'Other — enter a neighbourhood' : 'Друг — въведи квартал' }]
+  const areaOptions = [...(neighborhoodRequired ? [] : [{ value: '', label: en ? 'No neighbourhood specified' : 'Без избран квартал' }]), ...areas.map((area) => ({ value: area, label: en ? transliterate(area) : area, search: area })), { value: '__custom__', label: en ? 'Other — enter a neighbourhood' : 'Друг — въведи квартал' }]
   return <div className="business-location-fields">
     <CheckedSelect label={en ? 'City in Bulgaria' : 'Град в България'} value={cityCode} options={cityOptions} searchOptions={searchCityOptions} required={required} placeholder={en ? 'Choose a city' : 'Избери град'} searchLabel={en ? 'Search all 257 cities…' : 'Търси сред всички 257 града…'} empty={en ? 'No matching city.' : 'Няма намерен град.'} onChange={(value) => { if (!findCity(value)) return; setCustom(false); onChange({ city_ekatte: value, neighborhood: '' }) }} />
-    {city && <CheckedSelect label={en ? 'Neighbourhood / area (optional)' : 'Квартал / район (незадължително)'} value={customArea ? '__custom__' : neighborhood} options={areaOptions} placeholder={en ? 'Choose a neighbourhood' : 'Избери квартал'} searchLabel={en ? 'Search neighbourhoods…' : 'Търси квартал…'} empty={en ? 'Choose Other to enter a missing neighbourhood.' : 'Избери „Друг“, за да въведеш липсващ квартал.'} onChange={(value) => { setCustom(value === '__custom__'); onChange({ neighborhood: value === '__custom__' ? '' : value }) }} />}
-    {city && customArea && <label className="location-field"><span>{en ? 'Neighbourhood name' : 'Име на квартала'}</span><input value={neighborhood} maxLength={120} onChange={(event) => onChange({ neighborhood: event.target.value })} placeholder={en ? 'Enter your neighbourhood' : 'Въведи своя квартал'} /></label>}
+    {city && <CheckedSelect required={neighborhoodRequired} label={neighborhoodRequired ? (en ? 'Neighbourhood / area' : 'Квартал / район') : (en ? 'Neighbourhood / area (optional)' : 'Квартал / район (незадължително)')} value={customArea ? '__custom__' : neighborhood} options={areaOptions} placeholder={en ? 'Choose a neighbourhood' : 'Избери квартал'} searchLabel={en ? 'Search neighbourhoods…' : 'Търси квартал…'} empty={en ? 'Choose Other to enter a missing neighbourhood.' : 'Избери „Друг“, за да въведеш липсващ квартал.'} onChange={(value) => { setCustom(value === '__custom__'); onChange({ neighborhood: value === '__custom__' ? '' : value }) }} />}
+    {city && customArea && <label className="location-field"><span>{en ? 'Neighbourhood name' : 'Име на квартала'}{neighborhoodRequired ? ' *' : ''}</span><input required={neighborhoodRequired} aria-required={neighborhoodRequired || undefined} value={neighborhood} maxLength={120} onChange={(event) => onChange({ neighborhood: event.target.value })} placeholder={en ? 'Enter your neighbourhood' : 'Въведи своя квартал'} /></label>}
   </div>
 }

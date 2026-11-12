@@ -8,15 +8,15 @@ const read = file => readFile(new URL(`../${file}`, import.meta.url), 'utf8')
 const luminance = hex => hex.match(/\w{2}/g).map(part => parseInt(part, 16) / 255).map(value => value <= .04045 ? value / 12.92 : ((value + .055) / 1.055) ** 2.4).reduce((sum, value, i) => sum + value * [.2126, .7152, .0722][i], 0)
 const contrast = (a, b) => (Math.max(luminance(a), luminance(b)) + .05) / (Math.min(luminance(a), luminance(b)) + .05)
 
-test('the hamburger has exactly the requested seven destinations and BG/EN labels in order', async () => {
+test('the hamburger includes active public partners directly after partner registration, with all eight BG/EN destinations in order', async () => {
   const nav = await read('components/marketing-navigation.js'), menu = nav.slice(nav.indexOf('<div id="launch-menu"'))
   const routes = [...menu.matchAll(/href=\{`([^`]+)`\}/g)].map(match => match[1])
-  assert.deepEqual(routes, ['/?lang=${locale}', '/?lang=${locale}#ai-query', '/account?lang=${locale}', '/login?lang=${locale}', '/for-businesses?lang=${locale}', '/faq?lang=${locale}', 'mailto:${SUPPORT_EMAIL}'])
-  const labels = ["'Home' : 'Начало'", "'Find a service' : 'Намери услуга'", "'Client account' : 'Вход за клиенти'", "'Business Account' : 'Вход за бизнес'", "'Become GoRez Partner' : 'Стани GoRez партньор'", "'FAQ' : 'ЧЗВ'", "'Contact us' : 'Свържи се с нас'"]
+  assert.deepEqual(routes, ['/?lang=${locale}', '/?lang=${locale}#ai-query', '/account?lang=${locale}', '/login?lang=${locale}', '/for-businesses?lang=${locale}', '/partners?lang=${locale}', '/faq?lang=${locale}', 'mailto:${SUPPORT_EMAIL}'])
+  const labels = ["'Home' : 'Начало'", "'Find a service' : 'Намери услуга'", "'Client account' : 'Вход за клиенти'", "'Business Account' : 'Вход за бизнес'", "'Become GoRez Partner' : 'Стани GoRez партньор'", "'Active GoRez partners' : 'Активни GoRez партньори'", "'FAQ' : 'ЧЗВ'", "'Contact us' : 'Свържи се с нас'"]
   let previous = -1
   for (const label of labels) { const at = menu.indexOf(label); assert.ok(at > previous, label); previous = at }
-  assert.equal((menu.match(/<Link\b/g) || []).length, 6); assert.equal((menu.match(/<a\b/g) || []).length, 1)
-  assert.doesNotMatch(menu, /How it works|GoRez Partners|\/partners|business &&/)
+  assert.equal((menu.match(/<Link\b/g) || []).length, 7); assert.equal((menu.match(/<a\b/g) || []).length, 1)
+  assert.doesNotMatch(menu, /How it works|GoRez Partners|business &&|\/admin/)
   assert.match(nav, /event.key === 'Escape'/); assert.match(nav, /hidden=\{!open\}/)
 })
 test('FAQ is consistently named ЧЗВ in Bulgarian navigation without rewriting actual answers', async () => {

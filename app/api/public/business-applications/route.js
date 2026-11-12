@@ -8,6 +8,7 @@ import { readApplicationPhotos, prepareApplicationPhotos } from '../../../../lib
 import { normalizeBusinessImage } from '../../../../lib/image-normalization.mjs'
 import { checked, mediaAccess, uploadBusinessMedia } from '../../../../lib/business-media-server'
 import { verifyBookingDestination } from '../../../../lib/booking-destination-server'
+import { scheduleRegistrationAddressLookup } from '../../../../lib/registration-address-server'
 
 export const POST=createBusinessApplicationHandler({
   readSubmission:readApplicationPhotos,
@@ -37,10 +38,11 @@ export const POST=createBusinessApplicationHandler({
     if(error)throw error
     // The application is already durable. An image/provider outage must not
     // undo it or ask the user to resubmit a second business/account.
-    let photosSaved=0
+    let photosSaved=0,businessId=null
     try{
       if(images.length){
         const lead=checked(await db.from('partner_leads').select('business_id').eq('id',leadId).single())
+        businessId=lead.business_id
         for(const row of images){
           const business=await mediaAccess(lead.business_id)
           if(!business||business.owner_id!==ownerId)throw new Error('WRONG_BUSINESS')
@@ -49,6 +51,7 @@ export const POST=createBusinessApplicationHandler({
         }
       }
     }catch{ /* Return a truthful partial-photo status, never a duplicate signup. */ }
+    if(businessId)scheduleRegistrationAddressLookup(businessId)
     return {photosSaved}
   },
   notify:async record=>{

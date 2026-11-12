@@ -8,7 +8,7 @@ import { emptyOpeningHours } from '../lib/booking-mode.mjs'
 
 const url = 'https://gorez.test/api/public/business-applications'
 const value = mode => ({
-  business: { name: 'Offline Photo Example', slug: 'offline-photo-example', phone: '+359888123456', contact_email: 'owner@example.com', address: 'Local test 1', timezone: 'Europe/Sofia', industry: 'beauty', city_ekatte: '68134', neighborhood: '', booking_mode: mode, ...(mode === 'external' ? { external_booking_url: 'https://example.com/appointments', external_booking_consent: true, opening_hours: emptyOpeningHours() } : {}) },
+  business: { name: 'Offline Photo Example', slug: 'offline-photo-example', phone: '+359888123456', contact_email: 'owner@example.com', address: 'Local test 1', timezone: 'Europe/Sofia', industry: 'beauty', city_ekatte: '68134', neighborhood: '', location_confirmed: true, public_profile: { latitude: 42.665, longitude: 23.286 }, booking_mode: mode, ...(mode === 'external' ? { external_booking_url: 'https://example.com/appointments', external_booking_consent: true, opening_hours: emptyOpeningHours() } : {}) },
   services: [{ name: 'Local service', price: mode === 'external' ? null : 25, duration_min: mode === 'external' ? null : 45 }],
   staff: mode === 'external' ? [] : [{ name: 'Local person' }],
   schedule: mode === 'external' ? [] : Array.from({ length: 7 }, (_, i) => ({ weekday: i + 1, enabled: i < 5, open: '09:00', close: '18:00', breakEnabled: false, breakStart: '12:00', breakEnd: '13:00' })),

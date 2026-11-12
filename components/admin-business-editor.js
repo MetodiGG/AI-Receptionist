@@ -41,12 +41,15 @@ export function AdminBusinessEditor({ detail, locale, send, onSaved, onBusy, onD
     event.preventDefault()
     if (busy) return
     setError('')
+    const envelope = { revision: b.content_revision || 0, section: section === 'public' ? 'business' : section, payload: section === 'business' || section === 'public' ? business : section === 'services' ? services : section === 'staff' ? staff : { staffId: personId, days: days.map(({ weekday, enabled, open, close, breakEnabled, breakStart, breakEnd }) => ({ weekday, enabled, open, close, breakEnabled, breakStart, breakEnd })) }, reason }
     let input
-    try { input = parseContentUpdate({ revision: b.content_revision || 0, section: section === 'public' ? 'business' : section, payload: section === 'business' || section === 'public' ? business : section === 'services' ? services : section === 'staff' ? staff : { staffId: personId, days: days.map(({ weekday, enabled, open, close, breakEnabled, breakStart, breakEnd }) => ({ weekday, enabled, open, close, breakEnabled, breakStart, breakEnd })) }, reason }) }
+    try { input = parseContentUpdate(envelope) }
     catch { setError(en ? 'Check required fields, exact minutes, prices and the reason.' : 'Провери задължителните полета, минутите, цените и причината.'); return }
     setBusy(true); onBusy(true)
     try {
-      if (!preview) await send(`/api/admin/businesses/${b.id}/content`, { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(input) })
+      // Validation derives server-owned fields (such as city). Send the original
+      // strict-schema input, not that transformed output, for one server parse.
+      if (!preview) await send(`/api/admin/businesses/${b.id}/content`, { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(envelope) })
       onDirty(false); setDirty(false)
       await onSaved(preview ? input : null)
     } catch (problem) {

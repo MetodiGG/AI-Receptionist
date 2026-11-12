@@ -75,6 +75,22 @@ test('denied, unavailable and timed-out locations are distinct and never return 
   }
 })
 
+test('permission denial uses the requested BG/EN city-centre fallback message, not technical error instructions', async () => {
+  assert.equal(DISCOVERY_COPY.bg.locationDenied, 'Разрешете достъп до Вашата локация за намирането на бизнеси близо до Вас. Ако не е разрешена, ще Ви се показват резултати от центъра на съответния град.')
+  assert.equal(DISCOVERY_COPY.en.locationDenied, 'Allow access to your location to find businesses near you. If location access is not allowed, results will be shown from the centre of the selected city.')
+  await assert.rejects(requestDiscoveryLocation({getCurrentPosition(success,fail){fail({code:1})}}), /LOCATION_DENIED/)
+  for(const locale of ['bg','en']){
+    assert.notEqual(DISCOVERY_COPY[locale].locationDenied,DISCOVERY_COPY[locale].locationTimeout)
+    assert.notEqual(DISCOVERY_COPY[locale].locationDenied,DISCOVERY_COPY[locale].locationUnavailable)
+  }
+  const ui=await read('components/discovery-search.js')
+  assert.match(ui,/locationError === 'LOCATION_DENIED' \? copy.locationDenied : locationError === 'LOCATION_TIMEOUT' \? copy.locationTimeout/)
+  assert.match(ui,/setCoordinates\(null\); setLocationError\(failure.message\)/)
+  const fallback=discoverySearchInput({query:'Маникюр',cityCode:'56784',cityWasChosen:true,coordinates:null})
+  assert.equal(fallback.cityCode,'56784')
+  assert.equal(Object.hasOwn(fallback,'coordinates'),false,'no denied user location is guessed or submitted')
+})
+
 test('missing/insecure API does not request permission; a stalled callback has a bounded deadline', async () => {
   await assert.rejects(requestDiscoveryLocation(undefined), /LOCATION_UNSUPPORTED/)
   let calls = 0

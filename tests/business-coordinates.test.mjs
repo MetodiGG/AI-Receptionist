@@ -22,6 +22,6 @@ test('both existing authenticated editors explain nearby eligibility and use a n
   for (const file of ['components/admin-business-editor.js','components/business-public-profile-editor.js']) assert.match(await read(file), /<BusinessCoordinatesFields/)
   const editor = await read('components/business-coordinates-fields.js')
   assert.match(editor, /Липсва точка на картата/)
-  assert.match(editor, /type="button" disabled=\{!pin.trim\(\)\} onClick=\{applyPin\}/)
+  assert.match(editor, /type="button" disabled=\{!pin.trim\(\)\s*\|\|\s*disabled\} onClick=\{applyPin\}/)
   assert.doesNotMatch(editor, /fetch\(|getCurrentPosition|watchPosition|localStorage/)
 })

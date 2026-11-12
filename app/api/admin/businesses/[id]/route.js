@@ -3,6 +3,8 @@ import { getSupabaseAdmin } from '../../../../../lib/supabase-admin'
 import { consumeRateLimit } from '../../../../../lib/rate-limit'
 import { createAdminBusinessHandlers } from '../../../../../lib/platform-admin.mjs'
 import { activateApplicationOwner } from '../../../../../lib/business-application-review'
+import { scheduleBusinessApprovalEmail } from '../../../../../lib/business-approval-emails'
+import { scheduleRegistrationAddressLookup } from '../../../../../lib/registration-address-server'
 
 const handlers=createAdminBusinessHandlers({
   authenticate:async request=>({user:await requireUser(request),token:(request.headers.get('authorization')||'').slice(7)}),
@@ -29,6 +31,7 @@ const handlers=createAdminBusinessHandlers({
     if(action==='publish')await activateApplicationOwner(getSupabaseAdmin(),id,{revision,confirmation})
     const {data,error}=await getSupabaseAdmin().rpc('platform_business_action',{p_business_id:id,p_actor_id:actorId,p_action:action,p_revision:revision,p_confirmation:confirmation,p_reason:reason})
     if(error)throw error
+    if(action==='publish'){scheduleBusinessApprovalEmail(id);scheduleRegistrationAddressLookup(id)}
     return data
   },
 })

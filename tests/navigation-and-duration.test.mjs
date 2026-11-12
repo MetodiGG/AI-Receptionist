@@ -8,7 +8,7 @@ import { emptyOnboardingService } from '../lib/onboarding-catalogue-draft.mjs'
 
 const read = file => readFile(new URL(`../${file}`, import.meta.url), 'utf8')
 const signup = minutes => ({
-  business: { name: 'Offline QA', slug: 'offline-qa', phone: '+359888123456', contact_email: 'qa@example.com', address: 'Test Street 1', timezone: 'Europe/Sofia', industry: 'other', city_ekatte: '68134', neighborhood: '', default_duration_min: minutes, booking_slot_minutes: 15 },
+  business: { name: 'Offline QA', slug: 'offline-qa', phone: '+359888123456', contact_email: 'qa@example.com', address: 'Test Street 1', timezone: 'Europe/Sofia', industry: 'other', city_ekatte: '68134', neighborhood: '', location_confirmed: true, public_profile: { latitude: 42.665, longitude: 23.286 }, default_duration_min: minutes, booking_slot_minutes: 15 },
   services: [{ name: 'Local service', price: '10', duration_min: minutes }], staff: [{ name: 'QA Person' }],
   schedule: Array.from({ length: 7 }, (_, index) => ({ weekday: index + 1, enabled: index < 5, open: '09:00', close: '18:00', breakEnabled: false, breakStart: '12:00', breakEnd: '13:00' })),
   account: { email: 'qa@example.com', password: 'Offline-test-only-password' }, locale: 'bg', consent: true, company: '',

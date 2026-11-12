@@ -5,7 +5,7 @@ import {businessApplicationSchema,applicationRecord,createBusinessApplicationHan
 import {changeDirectoryFilter,directoryChoices,filterDirectory,EMPTY_DIRECTORY_FILTERS} from '../lib/directory.mjs'
 import {readApplicationPhotos} from '../lib/application-photos.mjs'
 
-export const application={business:{name:'Local Test Salon',slug:'local-test-salon',phone:'+359888123456',contact_email:'bookings@example.com',address:'Test Street 1',timezone:'Europe/Sofia',industry:'beauty',city_ekatte:'68134',neighborhood:'Център',default_duration_min:'45',booking_slot_minutes:'15'},services:[{name:'Haircut',price:'25',duration_min:'45'}],staff:[{name:'Test Person'}],schedule:Array.from({length:7},(_,i)=>({weekday:i+1,enabled:i<5,open:'09:00',close:'18:00',breakEnabled:true,breakStart:'12:00',breakEnd:'13:00'})),account:{email:'owner@example.com',password:'Local-test-only-strong'},locale:'bg',consent:true,company:''}
+export const application={business:{name:'Local Test Salon',slug:'local-test-salon',phone:'+359888123456',contact_email:'bookings@example.com',address:'Test Street 1',timezone:'Europe/Sofia',industry:'beauty',city_ekatte:'68134',neighborhood:'Център',location_confirmed:true,public_profile:{latitude:42.665,longitude:23.286},default_duration_min:'45',booking_slot_minutes:'15'},services:[{name:'Haircut',price:'25',duration_min:'45'}],staff:[{name:'Test Person'}],schedule:Array.from({length:7},(_,i)=>({weekday:i+1,enabled:i<5,open:'09:00',close:'18:00',breakEnabled:true,breakStart:'12:00',breakEnd:'13:00'})),account:{email:'owner@example.com',password:'Local-test-only-strong'},locale:'bg',consent:true,company:''}
 const request=(body=application,headers={})=>{
   if(typeof body==='string'||headers['content-length'])return new Request('https://gorez.example/api/public/business-applications',{method:'POST',headers:{'content-type':'application/json',...headers},body:typeof body==='string'?body:JSON.stringify(body)})
   const form=new FormData();form.append('payload',JSON.stringify(body));form.append('photoConsent','true');form.append('gallery_0',new File(['offline-normalizer-fixture'],'photo.png',{type:'image/png'}))
@@ -19,6 +19,8 @@ function harness(options={}) {
 test('complete setup validates server-side, including real location, full duration and lunch break',()=>{
   const record=applicationRecord(businessApplicationSchema.parse(application))
   assert.equal(record.business.city,'София');assert.equal(record.services[0].duration_min,45);assert.equal(record.hours[0].break_start,'12:00')
+  assert.equal(Object.hasOwn(record.business,'location_confirmed'),false,'registration confirmation is create-only, not an unknown business column')
+  assert.equal(record.business.public_profile.latitude,42.665);assert.equal(record.business.public_profile.longitude,23.286)
   assert.doesNotMatch(JSON.stringify(record),/password|Local-test-only/)
   for(const patch of [{business:{...application.business,owner_id:'forged'}},{business:{...application.business,city_ekatte:'00000'}},{services:[{...application.services[0],duration_min:0}]},{staff:[]},{consent:false},{company:'bot'},{schedule:application.schedule.map(day=>({...day,weekday:1}))},{schedule:application.schedule.map(day=>({...day,breakEnd:'19:00'}))}])assert.equal(businessApplicationSchema.safeParse({...application,...patch}).success,false)
 })

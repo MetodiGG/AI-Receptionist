@@ -157,6 +157,33 @@ async function save(h) {
   await button.props.onClick(); h.render()
 }
 
+for (const application of [true, false]) for (const mode of ['gorez', 'external', 'phone']) {
+  test(`${application ? 'public application' : 'legacy authenticated registration'} ${mode}: city, quarter and street continue without a map pin or confirmation step`, () => {
+    const h = harness({ application })
+    addRequiredBusinessFields(h)
+    if (mode === 'external') external(h)
+    else if (mode === 'phone') { h.control('BookingModeFields').props.onChange({ mode: 'phone', consent: false }); h.render() }
+    assert.equal(h.control('BusinessCoordinatesFields'), undefined)
+    assert.doesNotMatch(source,/location_confirmed|locationConfirmation|registrationLocationConfirmed/,'no extra address confirmation flag or state')
+    assert.equal(h.field('business-address').props.required, true)
+    h.next()
+    assert.ok(h.field('service-0'), 'all booking modes proceed with ordinary address fields')
+    assert.equal(h.completed.length, 0, 'local flow test does not submit or create an account')
+    h.dispose()
+  })
+}
+
+for (const locale of ['bg','en']) test(`${locale}: street label is concise and ordinary required address validation still applies`, () => {
+  const h = harness({locale,application:false}); addRequiredBusinessFields(h)
+  const label = h.find(node=>node.type==='label'&&node.props.htmlFor==='business-address')[0]
+  assert.match(label.props.children.join(''),locale==='bg'?/Улица и номер/:/Street and number/)
+  h.edit('business-address',' ');h.next()
+  assert.equal(h.field('service-0'),undefined)
+  assert.match(h.find(node=>node.props.role==='alert')[0].props.children,locale==='bg'?/улицата и номера/:/street and number/)
+  h.edit('business-address','Пирин 42');h.next();assert.ok(h.field('service-0'))
+  h.dispose()
+})
+
 test('three explicit imports never overwrite manually entered phone/address/website/type, even when source values coincide', () => {
   const h = harness()
   h.edit('business-phone', '+359881111111')
@@ -318,7 +345,8 @@ test('actual preview save preserves qualified prices without re-entry while stri
   assert.equal(result.business.external_booking_url, 'https://owner.example.com/book')
   assert.notEqual(result.business.slug, 'existing-partner')
   for (const key of ['id', 'owner_id', 'gorezBusinessId', 'photos', 'latitude']) assert.equal(Object.hasOwn(result.business, key), false, key)
-  assert.equal(result.business.public_profile.latitude, null)
+  assert.equal(result.business.public_profile.latitude, null, 'untrusted source latitude is not accepted as a venue point')
+  assert.equal(result.business.public_profile.longitude, null)
 })
 
 test('actual application POST sends only schema-valid service fields and real photo/rights consent through a local fetch stub', async () => {
@@ -338,6 +366,7 @@ test('actual application POST sends only schema-valid service fields and real ph
     assert.equal(init.body.get('photoConsent'), 'true')
     assert.equal(init.body.get('gallery_0').name, 'owner-photo.png')
     const payload = JSON.parse(init.body.get('payload'))
+    assert.equal(Object.hasOwn(payload.business,'location_confirmed'),false,'registration sends no redundant point-confirmation flag')
     assert.deepEqual(payload.services, [
       { name: 'Qualified service', price: '99', duration_min: null,currency:'EUR',description:'Само при посочените условия.',price_details:{kind:'from',unit:'посещение'} },
       { name: 'Zero-priced service', price: '0.00', duration_min: '30',currency:'EUR',description:'Published service context.',price_details:{} },

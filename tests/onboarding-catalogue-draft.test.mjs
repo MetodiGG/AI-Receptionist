@@ -23,7 +23,7 @@ test('business merge changes the selected name but fills only blank public field
   assert.equal(current.name, 'Typed')
 })
 
-test('business merge never copies identity, auth, photos, hours, booking consent or coordinates', () => {
+test('business merge never copies identity, auth, photos, hours, booking consent or unverified coordinates', () => {
   const current = { name: '', owner_id: 'own', slug: 'own-slug', account: { email: 'mine' }, public_profile: { latitude: null, longitude: null }, booking_mode: 'gorez', external_booking_consent: false, photoConsent: false, default_duration_min: '45', industry: 'auto' }
   const source = { name: 'Chosen', owner_id: 'attacker', id: 'old-id', gorezBusinessId: 'partner', slug: 'old-slug', account: { email: 'other' }, photos: ['foreign.jpg'], staff: [{ id: 'old-staff' }], hours: ['old'], schedule: ['old'], booking_mode: 'external', external_booking_consent: true, photoConsent: true, public_profile: { latitude: 42, longitude: 23 }, latitude: 42, longitude: 23, industry: 'beauty' }
   const result = mergeCatalogueBusiness(current, source)

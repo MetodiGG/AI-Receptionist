@@ -6,7 +6,7 @@ import { DISCOVERY_CATEGORIES } from '../lib/discovery/categories.mjs'
 import { DISCOVERY_RADIUS_CHOICES } from '../lib/discovery/defaults.mjs'
 import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
 import { defaultHomeFilters, HOME_DISCOVERY_COPY } from '../lib/discovery/home.mjs'
-import { neighborhoodChoices } from '../lib/discovery/intent.mjs'
+import { neighborhoodChoices } from '../lib/discovery/location-query.mjs'
 import { BULGARIAN_CITIES } from '../lib/business-location.mjs'
 import { containDialogTab } from '../lib/dialog-focus.mjs'
 

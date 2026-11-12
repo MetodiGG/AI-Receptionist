@@ -106,9 +106,10 @@ test('automatic browse uses the same same-site and rate-limit checks as manual s
   assert.equal((await createDiscoveryHandler(d)(request({ Origin: 'https://attacker.example' }))).status, 403)
   assert.equal((await createDiscoveryHandler(d)(request({ Origin: 'https://www.gorez.co' }))).status, 429)
 })
-test('frontend defers a single initial browse until location resolves and does not auto-scroll away from the homepage', async () => {
+test('frontend starts a single city browse without waiting for permission and does not auto-scroll away from the homepage', async () => {
   const source = await readFile(new URL('../components/discovery-search.js', import.meta.url), 'utf8')
-  assert.match(source, /await locate\(\{ automatic: true, searchAfter: false \}\)/)
+  assert.doesNotMatch(source, /await locate\(\{ automatic: true|locate\(\{ automatic: true, searchAfter: false \}\)/)
+  assert.match(source, /entryVersion !== searchVersion.current/)
   assert.match(source, /search\(input, \{ navigate: Boolean\(initial\) \}\)/)
   assert.match(source, /browse: home && !next.query.trim\(\)/)
   assert.match(source, /!scrollAfterSearch.current/)

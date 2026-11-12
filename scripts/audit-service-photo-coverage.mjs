@@ -7,6 +7,9 @@ import { approvedCatalogueRecord } from '../lib/discovery/catalogue-policy.mjs'
 import { categoryById } from '../lib/discovery/categories.mjs'
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 import { serviceThumbnail } from '../lib/service-thumbnail.mjs'
+import { catalogueServicePhotoFields } from '../lib/catalogue-service-photo-keys.mjs'
+
+const catalogueThumbnail = (service, options) => serviceThumbnail({ ...service, ...catalogueServicePhotoFields(service, options?.business) }, options)
 
 const counters = () => ({ total: 0, photo: 0, missing: 0 })
 const counts = () => ({ services: counters(), priceBearing: counters(), paid: counters() })
@@ -21,7 +24,7 @@ const bgOrder = (a, b) => a.localeCompare(b, 'bg') || (a < b ? -1 : a > b ? 1 : 
 
 // Local report only. It measures what the shared thumbnail resolver will show,
 // never the presence of a business gallery, an object illustration or an icon.
-export function auditServicePhotoCoverage(records = SOFIA_CATALOGUE, { now = Date.now(), resolveThumbnail = serviceThumbnail } = {}) {
+export function auditServicePhotoCoverage(records = SOFIA_CATALOGUE, { now = Date.now(), resolveThumbnail = catalogueThumbnail } = {}) {
   const totals = counts(), photoMatches = matchCounts(), categories = new Map()
   let approvedBusinesses = 0
   for (const record of records) {
@@ -58,6 +61,7 @@ export function auditServicePhotoCoverage(records = SOFIA_CATALOGUE, { now = Dat
     checkedAt: new Date(now).toISOString(), approvedBusinesses, totals, photoMatches,
     complete: totals.services.total > 0 && totals.services.missing === 0,
     exactComplete: totals.services.total > 0 && photoMatches.exact === totals.services.total,
+    specificComplete: totals.services.total > 0 && photoMatches.neutral === 0 && photoMatches.missing === 0,
     categories: [...categories.values()].sort((a, b) => priority(a, b) || bgOrder(a.category, b.category)).map(group => ({
       ...group, missing: [...group.missing.values()].sort((a, b) => priority(a, b) || bgOrder(a.name, b.name)).map(item => ({
         ...item, listings: item.listings.sort((a, b) => Number(b.paid) - Number(a.paid) || Number(b.priceBearing) - Number(a.priceBearing) || bgOrder(a.businessId, b.businessId)),
@@ -134,7 +138,7 @@ export function createLocalServicePhotoVerifier({ publicDirectory = DEFAULT_PUBL
 // backwards compatible. Totals here count usable, fully verified photos. A
 // broken primary asset prevents `complete`, even if a valid fallback exists.
 export async function auditServicePhotoAssets(records = SOFIA_CATALOGUE, {
-  now = Date.now(), resolveThumbnail = serviceThumbnail,
+  now = Date.now(), resolveThumbnail = catalogueThumbnail,
   verifyAsset = createLocalServicePhotoVerifier(),
 } = {}) {
   const resolutions = [], assets = new Map(), fallbacks = new Map()
@@ -180,7 +184,7 @@ export async function auditServicePhotoAssets(records = SOFIA_CATALOGUE, {
   const physical = auditServicePhotoCoverage(records, { now, resolveThumbnail: () => resolutions[position++].selected })
   const items = [...assets.values()].sort((a, b) => bgOrder(a.src, b.src))
   const invalid = items.filter(item => !item.valid).length
-  return { ...physical, complete: physical.complete && invalid === 0, exactComplete: physical.exactComplete && invalid === 0,
+  return { ...physical, complete: physical.complete && invalid === 0, exactComplete: physical.exactComplete && invalid === 0, specificComplete: physical.specificComplete && invalid === 0,
     logicalTotals: logical.totals,
     assets: { verified: true, scope: 'approved-local-catalogue-services-only', policy: verifyAsset.policy || null,
       uniqueUsed: items.length, valid: items.length - invalid, invalid,
@@ -190,7 +194,7 @@ export async function auditServicePhotoAssets(records = SOFIA_CATALOGUE, {
 }
 
 if (process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url) {
-  const { values } = parseArgs({ options: { 'as-of': { type: 'string' }, 'require-complete': { type: 'boolean' },
+  const { values } = parseArgs({ options: { 'as-of': { type: 'string' }, 'require-complete': { type: 'boolean' }, 'require-specific': { type: 'boolean' },
     'verify-assets': { type: 'boolean' }, 'public-dir': { type: 'string' }, 'max-asset-bytes': { type: 'string' }, report: { type: 'string' } } })
   const day = values['as-of']
   const now = day === undefined ? Date.now() : Date.parse(`${day}T00:00:00Z`)
@@ -206,4 +210,5 @@ if (process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url) 
   if (values.report) await writeFile(values.report, `${output}\n`, { encoding: 'utf8', flag: 'wx', mode: 0o600 })
   console.log(output)
   if (values['require-complete'] && !report.complete) process.exitCode = 1
+  if (values['require-specific'] && !report.specificComplete) process.exitCode = 1
 }

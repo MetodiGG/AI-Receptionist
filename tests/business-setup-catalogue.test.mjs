@@ -39,7 +39,7 @@ const hooks = {
 const controls = Object.fromEntries([
   'Icon', 'BusinessLocationFields', 'WeeklyScheduleFields', 'DurationInput',
   'PhotoPicker', 'BookingModeFields', 'OpeningHoursEditor',
-  'CatalogueBusinessLookup', 'CatalogueImportReview', 'ServicePricingFields',
+  'CatalogueBusinessLookup', 'CatalogueImportReview', 'ServicePricingFields', 'ServiceNameInput',
 ].map(name => [name, Object.defineProperty(() => null, 'name', { value: name })]))
 const stubs = {
   react: hooks,
@@ -55,6 +55,7 @@ const stubs = {
   './catalogue-business-lookup': controls,
   './catalogue-import-review': controls,
   './service-pricing-fields': controls,
+  './service-name-input': controls,
   '../lib/service-pricing.mjs': servicePricing,
   '../lib/business-profile-ui.mjs': profileUi,
   '../lib/onboarding-catalogue-draft.mjs': draftHelpers,
@@ -110,7 +111,7 @@ function harness(props = {}) {
     find(predicate) { return elements(api.tree, predicate) },
     control(name) { return api.find(node => node.type === controls[name])[0] },
     field(id) { return api.find(node => node.props.id === id)[0] },
-    edit(id, value) { const field = api.field(id); assert.ok(field, `field ${id} is rendered`); field.props.onChange({ target: { value } }); api.render() },
+    edit(id, value) { const field = api.field(id); assert.ok(field, `field ${id} is rendered`); field.props.onChange(field.type === controls.ServiceNameInput || field.type === controls.DurationInput ? value : { target: { value } }); api.render() },
     choose(draft) { api.control('CatalogueBusinessLookup').props.onSelect(draft); api.render() },
     confirm(indexes) { const review = api.control('CatalogueImportReview'); assert.ok(review, 'explicit review is shown'); review.props.onConfirm(indexes); api.render() },
     backToBusiness() { const step = api.find(node => node.props.className?.startsWith('step-item'))[0]; step.props.onClick(); api.render() },
@@ -156,6 +157,21 @@ async function save(h) {
   assert.ok(button, 'approval/save control is visible')
   await button.props.onClick(); h.render()
 }
+
+for (const locale of ['bg', 'en']) test(`${locale}: choosing a suggested service name preserves the entire imported pricing/duration draft`, () => {
+  const h = harness({ locale })
+  accept(h, candidate('QA name suggestion studio', {}, [{ name: 'Existing service', price: '25.00', currency: 'EUR', duration_min: '45', description: 'Actual owner conditions', price_details: { kind: 'from', unit: 'visit' } }]))
+  addRequiredBusinessFields(h); external(h); h.next()
+  const field = h.field('service-0'), before = h.control('ServicePricingFields').props.value
+  assert.equal(field.type, controls.ServiceNameInput)
+  assert.equal(field.props.industry, 'beauty'); assert.equal(field.props.locale, locale)
+  assert.equal(field.props.maxLength, 120)
+  field.props.onChange(locale === 'bg' ? 'Боядисване на коса' : 'Hair colouring'); h.render()
+  const after = h.control('ServicePricingFields').props.value
+  assert.deepEqual({ ...after, name: before.name }, before, 'only the name changes; imported fields and real amounts are not reset')
+  assert.equal(h.field('price-0').props.value, '25.00'); assert.equal(h.field('duration-0').props.value, '45')
+  h.dispose()
+})
 function chooseAccount(h, mode) {
   const button = h.field(`setup-account-${mode}`)
   assert.ok(button, `explicit ${mode} account choice is available`)
@@ -291,7 +307,7 @@ test('atomic provenance records only fields actually supplied, replays purely an
 test('dirty service names, zero prices and duration-only edits require explicit confirmation; cancel preserves the actual draft', () => {
   for (const [field, value] of [['service-0', 'My service'], ['price-0', '0'], ['duration-0', '30']]) {
     const h = harness(); addRequiredBusinessFields(h); h.next()
-    if (field === 'duration-0') h.field(field).props.onChange(value)
+    if (field === 'duration-0' || field === 'service-0') h.field(field).props.onChange(value)
     else h.field(field).props.onChange({ target: { value } })
     h.render(); h.backToBusiness(); h.choose(candidate('Different studio'))
     assert.equal(h.control('CatalogueImportReview').props.replace, true, field)

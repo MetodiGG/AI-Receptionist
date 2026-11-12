@@ -1,0 +1,15 @@
+/* Scoped enhancement of the existing searchable picker, no global input changes. */
+.service-name-input { position: relative; width: 100%; min-width: 0; }
+.service-name-field { display: grid; gap: 8px; min-width: 0; }
+.service-name-field > label { font-weight: 650; }
+.service-name-input[data-open="true"] { z-index: 35; }
+.service-name-input > input { display: block; width: 100%; min-width: 0; max-width: 100%; }
+.service-name-input .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); clip-path: inset(50%); white-space: nowrap; border: 0; }
+.service-name-input .service-name-suggestions { z-index: 35; padding: 5px; border-color: #e1d0bf; border-radius: 12px; background: #fffefa; box-shadow: 0 8px 24px #56371c18; }
+.service-name-input .checked-select-options { max-height: min(270px, 45dvh); }
+.service-name-input .checked-option { min-height: 44px; padding: 9px 10px; }
+.service-name-input .checked-option > span { min-width: 0; white-space: normal; overflow-wrap: break-word; word-break: normal; font-size: 14px; line-height: 1.4; }
+.service-name-input .checked-option:is(:hover,.active) { background: #fff0dd; color: #874216; }
+.service-name-input .checked-option:focus-visible { outline: 2px solid #ad5b2c; outline-offset: -2px; }
+.service-name-input > input:focus-visible { outline: 3px solid #b96d35; outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { .service-name-input * { scroll-behavior: auto; } }

@@ -14,6 +14,7 @@ import { BusinessMediaEditor } from '../../../components/business-media-editor'
 import { useUnsavedChanges } from '../../../hooks/use-unsaved-changes'
 import { BusinessBookingSettings } from '../../../components/business-booking-settings'
 import { ServicePricingFields } from '../../../components/service-pricing-fields'
+import { ServiceNameInput } from '../../../components/service-name-input'
 import { editableServiceSchema } from '../../../lib/service-pricing.mjs'
 import { businessLocationFields, findCity } from '../../../lib/business-location.mjs'
 import { DURATION_OPTIONS, validDuration, scheduleFromHours, scheduleProblem, scheduleRows, scheduleErrorText, scheduleWriteError } from '../../../lib/business-schedule.mjs'
@@ -306,7 +307,7 @@ export function SettingsContent({ business, refreshBusiness, locale, preview = f
         <div className="editable-list">{services.map((service, index) => {
           const change = (key, value) => setServices(current => current.map((item, i) => i === index ? { ...item, [key]: value } : item))
           return <article className="editable-card" key={service.id}><div className="settings-form-grid">
-            <label><span>{en ? 'Name' : 'Име'}</span><input value={service.name} onChange={event => change('name', event.target.value)} /></label>
+            <div className="service-name-field"><label htmlFor={`owner-service-${service.id}`}>{en ? 'Name' : 'Име'}</label><ServiceNameInput id={`owner-service-${service.id}`} className="" value={service.name} industry={business.industry} locale={locale} disabled={saving} onChange={name => change('name', name)} /></div>
             <label><span>{en ? 'Category (optional)' : 'Категория (по желание)'}</span><input maxLength={80} list="service-categories" value={service.category || ''} onChange={event => change('category', event.target.value)} /></label>
             <label><span>{en ? 'Price' : 'Цена'}</span><input type="number" min="0" step="0.01" value={service.price??''} onChange={event => change('price', event.target.value)} /></label>
             <label><span>{en ? 'Duration (minutes)' : 'Продължителност (минути)'}</span><input type="number" min="5" max="1440" step="1" value={service.duration_min??''} onChange={event => change('duration_min', event.target.value)} /></label>

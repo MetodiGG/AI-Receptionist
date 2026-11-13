@@ -8,10 +8,10 @@
   "sourceDataDate": null,
   "sourceDataDateNote": "The supplied CSV has no embedded as-of date; do not infer the original GeoJSON snapshot date.",
   "sourceFeatureCount": 125245,
-  "scope": "Combined previously reviewed501 full-precision GeoJSON-derived bindings and93 new CSV-derived bindings, without overwriting or changing a previous point.",
+  "scope": "Combined previously reviewed501 full-precision GeoJSON-derived bindings and110 new CSV-derived bindings, without overwriting or changing a previous point.",
   "modifications": "Selected source records and bound to reviewed business address identities; coordinate values unchanged.",
   "semantics": "official_postal_address_points_not_verified_entrances",
-  "pointCount": 594,
+  "pointCount": 611,
   "points": [
     {
       "id": "sofia-abi-beauty-nadezhda",
@@ -22248,6 +22248,652 @@
         ]
       },
       "previousCoordinates": null
+    },
+    {
+      "id": "sofia-moliks-tsvetna-gradina72",
+      "name": "Образователен център Моликс",
+      "coordinates": {
+        "latitude": 42.671771,
+        "longitude": 23.313,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, кв. Лозенец, ул. Цветна градина 72",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Лозенец",
+        "sourceWebsite": "https://moliks.com/",
+        "addressId": "91440",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "91440",
+        "region": "Лозенец",
+        "settlement": "гр. София",
+        "street": "ул. Цветна градина",
+        "house": "72",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
+        "sourceUrls": [
+          "https://moliks.com/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-bigben-aksakov28",
+      "name": "Езиково училище Big Ben · Аксаков",
+      "coordinates": {
+        "latitude": 42.69324,
+        "longitude": 23.331203,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. Аксаков 28, ап.1",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Център",
+        "sourceWebsite": "https://bigben.bg/",
+        "addressId": "41991",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "41991",
+        "region": "Средец",
+        "settlement": "гр. София",
+        "street": "ул. Аксаков",
+        "house": "28",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
+        "sourceUrls": [
+          "https://bigben.bg/биг-бен-клон-централен-офис/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-ibl-knyazhevo-tsar-boris262",
+      "name": "IBL English Academy · Княжево",
+      "coordinates": {
+        "latitude": 42.661003,
+        "longitude": 23.248097,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, кв. Княжево, бул. Цар Борис III 262",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Княжево",
+        "sourceWebsite": "https://ibl.bg/",
+        "addressId": "9883",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "9883",
+        "region": "Витоша",
+        "settlement": "гр. София",
+        "street": "бул. Цар Борис III",
+        "house": "262",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
+        "sourceUrls": [
+          "https://ibl.bg/contact-us/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-maximum-solunska8",
+      "name": "Езикова школа Максимум София",
+      "coordinates": {
+        "latitude": 42.692668,
+        "longitude": 23.322667,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. Солунска 8",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Център",
+        "sourceWebsite": "https://maximumsofia.com/",
+        "addressId": "41689",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "41689",
+        "region": "Средец",
+        "settlement": "гр. София",
+        "street": "ул. Солунска",
+        "house": "8",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
+        "sourceUrls": [
+          "https://maximumsofia.com/контакт/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-nikolay-vivianov-vasilev-lavele16",
+      "name": "Адвокат Николай Вивианов Василев · София",
+      "coordinates": {
+        "latitude": 42.697456,
+        "longitude": 23.319515,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. Лавеле 16, ет.2, офис 201",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Център",
+        "sourceWebsite": "https://vasilevlawyers.com/",
+        "addressId": "45018",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "45018",
+        "region": "Възраждане",
+        "settlement": "гр. София",
+        "street": "ул. Лавеле",
+        "house": "16",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
+        "sourceUrls": [
+          "https://vasilevlawyers.com/contacts/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-centre-education-career-miladinovi41",
+      "name": "Център за образование, кариера и развитие",
+      "coordinates": {
+        "latitude": 42.701462,
+        "longitude": 23.317873,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. Братя Миладинови 41",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Център",
+        "sourceWebsite": "https://centarzaobrazovanie.com/",
+        "addressId": "47865",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "47865",
+        "region": "Възраждане",
+        "settlement": "гр. София",
+        "street": "ул. Братя Миладинови",
+        "house": "41",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
+        "sourceUrls": [
+          "https://centarzaobrazovanie.com/contact/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-venislava-tsankova-makedonia1",
+      "name": "Адвокатска кантора Венислава Цанкова",
+      "coordinates": {
+        "latitude": 42.695574,
+        "longitude": 23.316241,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, пл. Македония 1, ет.13",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Център",
+        "sourceWebsite": "https://venislavatsankova.com/",
+        "addressId": "93968",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "93968",
+        "region": "Триадица",
+        "settlement": "гр. София",
+        "street": "пл. Македония",
+        "house": "1",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
+        "sourceUrls": [
+          "https://venislavatsankova.com/kontakti/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-emil-pilev-lavele19",
+      "name": "Адвокатска кантора Емил Пилев",
+      "coordinates": {
+        "latitude": 42.69469,
+        "longitude": 23.319009,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. Лавеле 19, ет.5",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Център",
+        "sourceWebsite": "https://advokatpilev.com/",
+        "addressId": "2851",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "2851",
+        "region": "Триадица",
+        "settlement": "гр. София",
+        "street": "ул. Лавеле",
+        "house": "19",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
+        "sourceUrls": [
+          "https://advokatpilev.com/contacts/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-artizba-cherni-vrah33e",
+      "name": "ART Izba · София",
+      "coordinates": {
+        "latitude": 42.673915,
+        "longitude": 23.322297,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, бул. Черни връх 33Е",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Лозенец",
+        "sourceWebsite": "https://artizba.bg/",
+        "addressId": "100003",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "100003",
+        "region": "Лозенец",
+        "settlement": "гр. София",
+        "street": "бул. Черни връх",
+        "house": "33Е",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
+        "sourceUrls": [
+          "https://artizba.bg/za-nas/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-lawyer-mediate-gicheva-tundzha25",
+      "name": "Lawyer Mediate · адвокат Стефания Гичева",
+      "coordinates": {
+        "latitude": 42.687319,
+        "longitude": 23.311829,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. Тунджа 25",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://www.lawyer-mediate.com/",
+        "addressId": "3631",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "3631",
+        "region": "Триадица",
+        "settlement": "гр. София",
+        "street": "ул. Тунджа",
+        "house": "25",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
+        "sourceUrls": [
+          "https://www.lawyer-mediate.com/контакти/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-avtostakla-global-royak41",
+      "name": "Автостъкла Global · София",
+      "coordinates": {
+        "latitude": 42.714722,
+        "longitude": 23.347282,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. Рояк 41",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://avtostaklaglobal.bg/",
+        "addressId": "52966",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "52966",
+        "region": "Сердика",
+        "settlement": "гр. София",
+        "street": "ул. Рояк",
+        "house": "41",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
+        "sourceUrls": [
+          "https://avtostaklaglobal.bg/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-crystal-palace-wellness-shipka14",
+      "name": "Crystal Palace · Wellness Club",
+      "coordinates": {
+        "latitude": 42.693762,
+        "longitude": 23.33736,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. Шипка 14, Crystal Palace Boutique Hotel",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://www.crystalpalace-sofia.com/fitness-services/crystal-palace-wellness-club-sofia",
+        "addressId": "42343",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "42343",
+        "region": "Средец",
+        "settlement": "гр. София",
+        "street": "ул. Шипка",
+        "house": "14",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
+        "sourceUrls": [
+          "https://www.crystalpalace-sofia.com/contacts",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-padmalaya-sedmochislenitsi9",
+      "name": "Padmalaya · център за масаж",
+      "coordinates": {
+        "latitude": 42.673827,
+        "longitude": 23.322652,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. Свети Седмочисленици 9, на гърба на първия блок, втората врата",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Лозенец",
+        "sourceWebsite": "https://www.padmalaya.bg/",
+        "addressId": "98850",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "98850",
+        "region": "Лозенец",
+        "settlement": "гр. София",
+        "street": "ул. Свети Седмочисленици",
+        "house": "9",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
+        "sourceUrls": [
+          "https://www.padmalaya.bg/masajno-studio-sofia/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-o2-therapy-krichim65",
+      "name": "O2 THERAPY · София",
+      "coordinates": {
+        "latitude": 42.670212,
+        "longitude": 23.330974,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. Кричим 65",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://o2therapy.bg/",
+        "addressId": "91681",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "91681",
+        "region": "Лозенец",
+        "settlement": "гр. София",
+        "street": "ул. Кричим",
+        "house": "65",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
+        "sourceUrls": [
+          "https://o2therapy.bg/masazh-sofia.html",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-human-body-masters-klementina36",
+      "name": "Human Body Masters",
+      "coordinates": {
+        "latitude": 42.673207,
+        "longitude": 23.2814,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. Княгиня Клементина 36",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://www.hbm.bg/",
+        "addressId": "102139",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "102139",
+        "region": "Красно село",
+        "settlement": "гр. София",
+        "street": "ул. Княгиня Клементина",
+        "house": "36",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
+        "sourceUrls": [
+          "https://www.hbm.bg/контакти/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-sense-wellness-tsar-osvoboditel16",
+      "name": "Sense Wellness Sofia",
+      "coordinates": {
+        "latitude": 42.694204,
+        "longitude": 23.331327,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, бул. Цар Освободител 16, Sense Hotel Sofia",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://sensewellnesssofia.freshasite.com/",
+        "addressId": "42648",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "42648",
+        "region": "Средец",
+        "settlement": "гр. София",
+        "street": "бул. Цар Освободител",
+        "house": "16",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
+        "sourceUrls": [
+          "https://sensewellnesssofia.freshasite.com/contact",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-ortus-wellness-hyatt",
+      "name": "Ortus Wellness · Hyatt Regency Sofia",
+      "coordinates": {
+        "latitude": 42.696409,
+        "longitude": 23.335689,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, пл. Васил Левски 1, Hyatt Regency Sofia",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://www.hyatt.com/en-US/spas/Ortus-Wellness/home",
+        "addressId": "115208",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "115208",
+        "region": "Оборище",
+        "settlement": "гр. София",
+        "street": "пл. Васил Левски",
+        "house": "1",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
+        "sourceUrls": [
+          "https://www.hyatt.com/en-US/spas/Ortus-Wellness/contact",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
     }
   ],
   "sourceSnapshots": [
@@ -22262,7 +22908,7 @@
       "format": "CSV",
       "sha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
       "sourceFeatureCount": 125245,
-      "pointCount": 93,
+      "pointCount": 110,
       "coordinatePrecisionDecimalPlaces": 6
     }
   ]

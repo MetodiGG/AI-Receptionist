@@ -1,0 +1,979 @@
+{
+  "batch": "home-education-2000-006-20261113",
+  "checkedOn": "2026-11-13",
+  "status": "frozen_source_complete",
+  "sourceModule": "lib/discovery/catalogue-data/neighborhood-home-education-2000-006-20261113.mjs",
+  "summary": {
+    "includedBusinesses": 15,
+    "includedServices": 16,
+    "literalPriceFacts": 6,
+    "pricedBusinesses": 5,
+    "serviceReviewedWithoutPublicPrices": 10,
+    "businessesWithPublishedHours": 5,
+    "coordinates": 0,
+    "pendingCases": 19,
+    "rejectedCases": 2
+  },
+  "evidencePolicy": {
+    "actualBookingFirst": true,
+    "manualPublicReadOnly": true,
+    "noCustomerDataOrFormsSubmitted": true,
+    "noMapsGeocodingPaidApi": true,
+    "noSharedFilesOrIdentitiesEdited": true,
+    "noActionUrlRequests": false,
+    "noPurchaseOrBookingSubmitted": true,
+    "accidentalActionRequest": "One reader Book click requestedPaintMe/cart/?add-to-cart=18970, rewritten to/cart/ with emptycart. Could attempt anonymouscart mutation; no purchase/booking/customerinput, no reset/unrequestedwrite. Explicitly recorded in source receipt; all subsequent source hrefs inspected before opening.",
+    "sourceRestrictionsStop": true,
+    "noLicenceOrLegalPermissionClaim": true
+  },
+  "ledger": [
+    {
+      "order": 1,
+      "status": "included",
+      "id": "sofia-moliks-tsvetna-gradina72",
+      "name": "Образователен център Моликс",
+      "address": "София, кв. Лозенец, ул. Цветна градина 72",
+      "primaryEvidence": [
+        "https://moliks.com/",
+        "https://moliks.com/courses/abacus_mental_math_brainobrain/",
+        "https://moliks.com/privacy-policy/",
+        "https://moliks.com/courses/workshops/"
+      ],
+      "bookingEvidence": {
+        "url": "https://moliks.com/privacy-policy/",
+        "excerpt": "Подаването на заявка се извършва в писмен вид по e-mail, по телефон, чрез формата за подаване на заявка"
+      },
+      "verificationValidUntil": "2027-02-11",
+      "services": [
+        {
+          "name": "BRAINOBRAIN ментална аритметика · месец с 4 урока",
+          "appointmentModel": "group_reservation",
+          "literalPrice": {
+            "amount": 160,
+            "currency": "BGN",
+            "kind": "fixed",
+            "unit": "месец · 4 урока по 120 минути",
+            "sourceUrl": "https://moliks.com/courses/abacus_mental_math_brainobrain/",
+            "checkedOn": "2026-11-13"
+          }
+        }
+      ],
+      "notes": "Actual open-lesson/enrollment entry first, then selected paid course and complete own terms: requests for offered services accepted by phone/email, centre responds within2workingdays and confirms payment separately. Fresh primaryHTML verifies160BGN/month for4onsite120minute lessons, not lifetime-access template metadata, single lesson or free demo. Course-specific6–12years retained rather than broad4–14centre label. Terms concern teaching materials, not an explicit database/extraction ban; no curriculum, source prose/media or development/outcome claims reused. Course-payment100/50percent/byagreement is not imported as a deposit service. No general hours guessed from Thursday/Saturday demo windows. No calls, course/cart/form/consent/payment submission or admin/map paths."
+    },
+    {
+      "order": 2,
+      "status": "included",
+      "id": "sofia-bigben-mladost-yerusalim3",
+      "name": "Езиково училище Big Ben · Младост",
+      "address": "София, ж.к. Младост 1, бул. Йерусалим 3",
+      "primaryEvidence": [
+        "https://bigben.bg/",
+        "https://bigben.bg/за-възрастни/",
+        "https://bigben.bg/биг-бен-клон-младост/",
+        "https://bigben.bg/отстъпки/",
+        "https://bigben.bg/за-деца/",
+        "https://bigben.bg/wp-content/uploads/2020/08/A1_angl_28_09-300x225.jpg",
+        "https://bigben.bg/wp-content/uploads/2020/08/A1_nemski-300x196.jpg"
+      ],
+      "bookingEvidence": {
+        "url": "https://bigben.bg/за-възрастни/",
+        "excerpt": "Тел. за записване: 0888562593"
+      },
+      "verificationValidUntil": "2027-02-11",
+      "services": [
+        {
+          "name": "Интензивен групов курс по английски за възрастни",
+          "appointmentModel": "group_reservation"
+        }
+      ],
+      "notes": "Actual adult-course enrollment entry reviewed before course and branch details. The adult page has an explicit separate phone-enrollment subsection for Младост; the own branch page establishes a real teaching venue, not only an administrative or registered office. Standing intensive3month groups run throughout the year; no old September poster is presented as a current2026 start, guaranteed vacancy or live calendar. Public course posters visually inspected for fees; they show course/level/start only. Discounts page requires registration/payment and says materials are separate; no discounted fee or free voucher imported. No lesson duration or lesson hours inferred from office/contact content. Own footer has no surfaced separate terms link; no general licence claim. No phone call, form, payment, map or customer action.",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://bigben.bg/за-възрастни/",
+        "serviceUrls": [
+          "https://bigben.bg/за-възрастни/",
+          "https://bigben.bg/биг-бен-клон-младост/"
+        ],
+        "notes": "Reviewed actual branch-specific adult phone-enrollment page, adult/child services, own venue and discounts/payment conditions, including visible A1 English/German course posters. No numeric base tariff for the selected paid intensive English course was published on these reviewed pages. Percentage discounts and separate materials are not a fee. Old poster starts are not current availability; school must confirm the group and fee."
+      }
+    },
+    {
+      "order": 3,
+      "status": "included",
+      "id": "sofia-bigben-aksakov28",
+      "name": "Езиково училище Big Ben · Аксаков",
+      "address": "София, ул. Аксаков 28, ап.1",
+      "primaryEvidence": [
+        "https://bigben.bg/",
+        "https://bigben.bg/за-възрастни/",
+        "https://bigben.bg/биг-бен-клон-централен-офис/",
+        "https://bigben.bg/отстъпки/",
+        "https://bigben.bg/за-деца/",
+        "https://bigben.bg/wp-content/uploads/2020/08/A1_angl_28_09-300x225.jpg",
+        "https://bigben.bg/wp-content/uploads/2020/08/A1_nemski-300x196.jpg"
+      ],
+      "bookingEvidence": {
+        "url": "https://bigben.bg/за-възрастни/",
+        "excerpt": "Тел. за записване: 0878 40 30 86"
+      },
+      "verificationValidUntil": "2027-02-11",
+      "services": [
+        {
+          "name": "Интензивен групов курс по английски за възрастни",
+          "appointmentModel": "group_reservation"
+        }
+      ],
+      "notes": "Actual adult-course enrollment entry reviewed before course and branch details. The adult page has an explicit separate phone-enrollment subsection for Аксаков; the own branch page establishes a real teaching venue, not only an administrative or registered office. Standing intensive3month groups run throughout the year; no old September poster is presented as a current2026 start, guaranteed vacancy or live calendar. Public course posters visually inspected for fees; they show course/level/start only. Discounts page requires registration/payment and says materials are separate; no discounted fee or free voucher imported. No lesson duration or lesson hours inferred from office/contact content. Own footer has no surfaced separate terms link; no general licence claim. No phone call, form, payment, map or customer action.",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://bigben.bg/за-възрастни/",
+        "serviceUrls": [
+          "https://bigben.bg/за-възрастни/",
+          "https://bigben.bg/биг-бен-клон-централен-офис/"
+        ],
+        "notes": "Reviewed actual branch-specific adult phone-enrollment page, adult/child services, own venue and discounts/payment conditions, including visible A1 English/German course posters. No numeric base tariff for the selected paid intensive English course was published on these reviewed pages. Percentage discounts and separate materials are not a fee. Old poster starts are not current availability; school must confirm the group and fee."
+      }
+    },
+    {
+      "order": 4,
+      "status": "included",
+      "id": "sofia-svetlinki-sheynovo13a",
+      "name": "Учебен център Светлинки",
+      "address": "София, ул. Шейново 13А",
+      "primaryEvidence": [
+        "https://svetlinki.com/",
+        "https://svetlinki.com/kontakti",
+        "https://svetlinki.com/art-rabotilnitsi",
+        "https://svetlinki.com/tseni",
+        "https://svetlinki.com/obshti-usloviya"
+      ],
+      "bookingEvidence": {
+        "url": "https://svetlinki.com/kontakti",
+        "excerpt": "Ако датите не се заредят, обадете се и веднага Ви записваме: +359 885 808 190"
+      },
+      "verificationValidUntil": "2026-11-21",
+      "services": [
+        {
+          "name": "Кратка арт работилница за деца",
+          "appointmentModel": "group_reservation",
+          "literalPrice": {
+            "amount": 15,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "посещение · 90 минути · материали включени",
+            "sourceUrl": "https://svetlinki.com/tseni",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2026-11-21"
+          },
+          "durationMin": 90
+        },
+        {
+          "name": "Дълга арт работилница за деца",
+          "appointmentModel": "group_reservation",
+          "literalPrice": {
+            "amount": 25,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "посещение · 150 минути · материали включени",
+            "sourceUrl": "https://svetlinki.com/tseni",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2026-11-21"
+          },
+          "durationMin": 150
+        }
+      ],
+      "notes": "Actual Book entry leads to owned contact/date page, with explicit voice-phone scheduling for paid art workshops as well as free trial lessons. Selected only the two paid standalone workshop types; did not misbind the free trial to a paid arithmetic/reading programme. Current booking page publishesNov14/21 paid dates; service page describes recurring Saturday workshops but receipt/fees conservatively expireNov21 rather than imply90days of available dates.90/150minute15/25EUR fees include all materials; not conditional fifth-free promotion, monthly package or ordinary cash payment (full terms explicitly bank transfer/QR on site, no cash). Terms read fully through normal publicHTTPS after reader cache miss: booking is a request pending vacancy confirmation, cancellation until date without fee, no online payment. Pleven registered address and former Oborishte1A photo caption are not Sofia teaching branches. Ordinary text/photo/material copyright only; no source prose/media/curriculum republished. No form, date, questionnaire, consent, payment, link cancellation, child/customer data or map action."
+    },
+    {
+      "order": 5,
+      "status": "included",
+      "id": "sofia-ibl-knyazhevo-tsar-boris262",
+      "name": "IBL English Academy · Княжево",
+      "address": "София, кв. Княжево, бул. Цар Борис III 262",
+      "primaryEvidence": [
+        "https://ibl.bg/",
+        "https://ibl.bg/individual-english/",
+        "https://ibl.bg/contact-us/",
+        "https://ibl.bg/about/facilities/",
+        "https://ibl.bg/общи-условия/",
+        "https://ibl.bg/offers/"
+      ],
+      "bookingEvidence": {
+        "url": "https://ibl.bg/individual-english/",
+        "excerpt": "Ще се свържем с вас, за да уточним часовете и нивото. Формата се зарежда… или се обадете на 0893 82 10 16."
+      },
+      "verificationValidUntil": "2027-02-11",
+      "services": [
+        {
+          "name": "Индивидуален урок по английски",
+          "appointmentModel": "individual_training"
+        }
+      ],
+      "notes": "Actual homepage consultation/Book entry followed first, then separate ordinary paid individual-lesson page. That selected page explicitly offers KnyazhevoTsarBorisIII262 as a real selectable onsite lesson location, requests a plan and offers voice-phone scheduling to agree actual teacher hours. This is not a clone of an administrative office or a claim that a free consultation calendar buys a paid course. Own facilities/contact corroborate both teaching venues. Full own terms read; individual cancellations at least2hours before, otherwise charge retained. Childhood annual course950EUR/from and promotional instalments do not establish an individual fee; old terms5instalments/newoffers8not exported. Example80minute visit and preference windows9–21 are not a fixed duration or opening hours. No Classes account/provider/private dashboard, forms, selectors, fields, phone call, consent or payment action.",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://ibl.bg/individual-english/",
+        "serviceUrls": [
+          "https://ibl.bg/individual-english/",
+          "https://ibl.bg/about/facilities/"
+        ],
+        "notes": "Reviewed actual selected individual lesson request/phone booking page, own two venue/contact pages, full course terms and current Offers/Prices page. The published from950EUR annual children-group tariff is a different service; no numeric individual English lesson fee is stated on these reviewed pages. Price and agreed lesson length must be confirmed with the centre. No blocked individual menu was treated as unpublished."
+      }
+    },
+    {
+      "order": 6,
+      "status": "included",
+      "id": "sofia-ibl-vazrazhdane-sofroniy1",
+      "name": "IBL English Academy · Възраждане",
+      "address": "София, пл. Възраждане, ул. Софроний Врачански 1, ет.2",
+      "primaryEvidence": [
+        "https://ibl.bg/",
+        "https://ibl.bg/individual-english/",
+        "https://ibl.bg/contact-us/",
+        "https://ibl.bg/about/facilities/",
+        "https://ibl.bg/общи-условия/",
+        "https://ibl.bg/offers/"
+      ],
+      "bookingEvidence": {
+        "url": "https://ibl.bg/individual-english/",
+        "excerpt": "Ще се свържем с вас, за да уточним часовете и нивото. Формата се зарежда… или се обадете на 0893 82 10 16."
+      },
+      "verificationValidUntil": "2027-02-11",
+      "services": [
+        {
+          "name": "Индивидуален урок по английски",
+          "appointmentModel": "individual_training"
+        }
+      ],
+      "notes": "Actual homepage consultation/Book entry followed first, then separate ordinary paid individual-lesson page. That selected page explicitly offers SofroniyVrachanski1floor2 as a real selectable onsite lesson location, requests a plan and offers voice-phone scheduling to agree actual teacher hours. This is not a clone of an administrative office or a claim that a free consultation calendar buys a paid course. Own facilities/contact corroborate both teaching venues. Full own terms read; individual cancellations at least2hours before, otherwise charge retained. Childhood annual course950EUR/from and promotional instalments do not establish an individual fee; old terms5instalments/newoffers8not exported. Example80minute visit and preference windows9–21 are not a fixed duration or opening hours. No Classes account/provider/private dashboard, forms, selectors, fields, phone call, consent or payment action.",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://ibl.bg/individual-english/",
+        "serviceUrls": [
+          "https://ibl.bg/individual-english/",
+          "https://ibl.bg/about/facilities/"
+        ],
+        "notes": "Reviewed actual selected individual lesson request/phone booking page, own two venue/contact pages, full course terms and current Offers/Prices page. The published from950EUR annual children-group tariff is a different service; no numeric individual English lesson fee is stated on these reviewed pages. Price and agreed lesson length must be confirmed with the centre. No blocked individual menu was treated as unpublished."
+      }
+    },
+    {
+      "order": 7,
+      "status": "included",
+      "id": "sofia-lingo-centre-ivan-ivanov90-92",
+      "name": "Езиков център Линго",
+      "address": "София, бул. Инж. Иван Иванов 90–92",
+      "primaryEvidence": [
+        "https://www.lingocentre.eu/",
+        "https://www.lingocentre.eu/pages/individualno-obuchenie",
+        "https://www.lingocentre.eu/contacts"
+      ],
+      "bookingEvidence": {
+        "url": "https://www.lingocentre.eu/pages/individualno-obuchenie",
+        "excerpt": "За повече информация или записване: Телефон: +359 887709959"
+      },
+      "verificationValidUntil": "2027-02-11",
+      "services": [
+        {
+          "name": "Индивидуален урок по английски",
+          "appointmentModel": "individual_training"
+        }
+      ],
+      "notes": "Actual homepage enrollment phone entry followed by selected individual English page and own deep contacts. Explicit phone enrollment repeated on selected service page, with individually agreed timetable; not merely generic contact. Exact90–92street number range retained rather than choosing an invented house number or location. No public lesson hours or duration stated. Main/menu/footer inspected: no surfaced separate price or terms page; no blanket licence claim. No call, contact/CAPTCHA/search field, form, map, account or submission action.",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://www.lingocentre.eu/pages/individualno-obuchenie",
+        "serviceUrls": [
+          "https://www.lingocentre.eu/pages/individualno-obuchenie"
+        ],
+        "notes": "Reviewed actual individual English lesson page and its explicit phone enrollment instruction, full main course navigation/footer and owned contacts. No numeric individual lesson tariff is published on these reviewed pages and no separately linked price menu was surfaced. No blocked menu was classified as unpublished; teacher availability, fee and lesson length require confirmation."
+      }
+    },
+    {
+      "order": 8,
+      "status": "included",
+      "id": "sofia-maximum-solunska8",
+      "name": "Езикова школа Максимум София",
+      "address": "София, ул. Солунска 8",
+      "primaryEvidence": [
+        "https://maximumsofia.com/",
+        "https://maximumsofia.com/контакт/",
+        "https://maximumsofia.com/курсове-за-възрастни/",
+        "https://maximumsofia.com/възрастни/"
+      ],
+      "bookingEvidence": {
+        "url": "https://maximumsofia.com/курсове-за-възрастни/",
+        "excerpt": "За записване свържете се с нас."
+      },
+      "verificationValidUntil": "2026-11-25",
+      "services": [
+        {
+          "name": "Групов курс по английски C1 · начало 25.11.2026",
+          "appointmentModel": "group_reservation",
+          "literalPrice": {
+            "amount": 535,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "цял курс C1 · 100 учебни часа · начало 25.11.2026",
+            "sourceUrl": "https://maximumsofia.com/възрастни/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2026-11-25"
+          }
+        }
+      ],
+      "notes": "Actual owned contact request form inspected first, then selected adult paid course page explicitly links that form for enrollment. Full actual timetable has one future C1start25Nov2026 at535EUR/100academicunits, not oldSeptember/October rows, conditional free voucher,285EURfirst instalment or a price per visit. Distinct school/teaching addressSolunska8; no staff or franchise-domain clone. Enrollment receipt and price expireNov25 conservatively; no open-end/90day future vacancy claim. Contact office hours9–18 conflict with evening lessons18–21, so no openingHours inferred. No separate terms link surfaced in reviewed navigation/footer; no licence assertion. No form values, customer data, date, consent, call, payment, social or map action."
+    },
+    {
+      "order": 9,
+      "status": "included",
+      "id": "sofia-nikolay-vivianov-vasilev-lavele16",
+      "name": "Адвокат Николай Вивианов Василев · София",
+      "address": "София, ул. Лавеле 16, ет.2, офис 201",
+      "primaryEvidence": [
+        "https://vasilevlawyers.com/",
+        "https://vasilevlawyers.com/contacts/",
+        "https://vasilevlawyers.com/consultation/",
+        "https://vasilevlawyers.com/semeino-pravo/"
+      ],
+      "bookingEvidence": {
+        "url": "https://vasilevlawyers.com/",
+        "excerpt": "Запазете час за консултация 0898 588 776"
+      },
+      "verificationValidUntil": "2027-02-11",
+      "services": [
+        {
+          "name": "Правна консултация по семейно право",
+          "appointmentModel": "appointment"
+        }
+      ],
+      "notes": "Actual homepage Book entry explicitly gives voice-phone appointments; followed consultation request page, selected family-law services and own exact Sofia contact/hours. Other officesPlovdiv/Burgas not imported or represented as Sofia. Ordinary consultancy is not free: separate form limits free assistance to statutory eligibility; homepage wording about no additional phone charges is not a zero service fee. All reviewed menu/footer links expose legal areas, not a fee schedule or separate terms page; no general licence claim. MonFri9–19 ordinary published hours, weekend custody exceptions not imported as24/7availability. No call, legal/customer documents, consultation form, search field, message, review, map or submission.",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://vasilevlawyers.com/",
+        "serviceUrls": [
+          "https://vasilevlawyers.com/semeino-pravo/",
+          "https://vasilevlawyers.com/consultation/"
+        ],
+        "notes": "Reviewed actual phone appointment entry, consultation-request and statutory-free-assistance conditions, exact contact/footer and selected family-law service page. No numeric ordinary family-law consultation tariff is published on these reviewed pages; no separate price menu is surfaced in the full reviewed navigation. Eligibility-based free aid and no-extra-phone-charge text are not an ordinary fee. Confirm quotation and appointment with the attorney."
+      }
+    },
+    {
+      "order": 10,
+      "status": "included",
+      "id": "sofia-centre-education-career-miladinovi41",
+      "name": "Център за образование, кариера и развитие",
+      "address": "София, ул. Братя Миладинови 41",
+      "primaryEvidence": [
+        "https://centarzaobrazovanie.com/",
+        "https://centarzaobrazovanie.com/contact/",
+        "https://centarzaobrazovanie.com/courses/",
+        "https://centarzaobrazovanie.com/about/"
+      ],
+      "bookingEvidence": {
+        "url": "https://centarzaobrazovanie.com/contact/",
+        "excerpt": "Можете да се запишете чрез нашата контактна форма, по телефон или лично в центъра. Ще се свържем с вас за потвърждение."
+      },
+      "verificationValidUntil": "2027-02-11",
+      "services": [
+        {
+          "name": "Индивидуален урок за кандидатстване в НГДЕК",
+          "appointmentModel": "individual_training"
+        }
+      ],
+      "notes": "Actual contact/Book instruction explicitly allows voice-phone enrollment and callback confirmation; FAQ expressly accepts individual students throughout the year, not merely a full/expired autumn group. Actual Courses page identifies individualNGDEKpreparation for4th/7thgrade; one realBratyaMiladinovi41teaching address and two staff contacts, not two businesses. Monthly180–320BGNrange on general course FAQ is not assigned to individual lessons; no undisclosed guarantee, success score or stock/customer image reused. About/course/contact/header/footer checked for service, tariff and hours; no separate terms or price page surfaced, no general licence claim. No hours/duration inferred from the141/144hour annual group programme. Publicrobots allows ordinary pages and excludesadmin/api/private; none accessed. No phone call, callback request, form, consent, customer/child data or map action.",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://centarzaobrazovanie.com/contact/",
+        "serviceUrls": [
+          "https://centarzaobrazovanie.com/courses/"
+        ],
+        "notes": "Reviewed actual owned phone-enrollment/contact FAQ, full current2026/27Courses page, About and home navigation/footer. The site publishes a general180–320BGN/month range for course packages but does not specify any fee or package unit for the selected individualNGDEKlesson. Do not present that group-package range or free initial needs consultation as this paid service fee. No blocked tariff was treated as unpublished; confirm exact lesson quotation/length."
+      }
+    },
+    {
+      "order": 11,
+      "status": "included",
+      "id": "sofia-venislava-tsankova-makedonia1",
+      "name": "Адвокатска кантора Венислава Цанкова",
+      "address": "София, пл. Македония 1, ет.13",
+      "primaryEvidence": [
+        "https://venislavatsankova.com/",
+        "https://venislavatsankova.com/kontakti/",
+        "https://venislavatsankova.com/sferi-na-dejnost/semejno-pravo/",
+        "https://venislavatsankova.com/obshti-usloviya/"
+      ],
+      "bookingEvidence": {
+        "url": "https://venislavatsankova.com/kontakti/",
+        "excerpt": "При посещение на място е препоръчително предварително да уговорите час."
+      },
+      "verificationValidUntil": "2027-02-11",
+      "services": [
+        {
+          "name": "Правна консултация по семейно право",
+          "appointmentModel": "appointment"
+        }
+      ],
+      "notes": "Actual own contact/appointment page reviewed before selected family-law service with consultation CTA. Own terms identify activity officeMakedoniya1floor13, not registered residentialSlatinaaddress. No hours inferred from seven-day emergency assistance. Full current terms read through ordinary publicHTTPS after reader cache miss; narrow independently phrased minimal practice/service/contact facts only. IP clause addresses texts, images, structure, design, trade signs and other protected elements with express legal exceptions, not an explicit database/extraction ban. This is not permission, a general licence or legal guarantee: no article prose, graphics, testimonials, client cases, design or qualifications copied. No map destination, calls, messages, form fields, consent, customer/legal data or submission.",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://venislavatsankova.com/kontakti/",
+        "serviceUrls": [
+          "https://venislavatsankova.com/sferi-na-dejnost/semejno-pravo/"
+        ],
+        "notes": "Reviewed actual own appointment/contact instructions, family-law consultation service, home navigation/footer and complete current terms. No numeric ordinary family-law consultation fee is published on these reviewed pages; no separate public fee menu is surfaced. Emergency availability is not an ordinary weekly schedule. No blocked tariff is treated as unpublished; confirm fee and appointment directly."
+      }
+    },
+    {
+      "order": 12,
+      "status": "included",
+      "id": "sofia-emil-pilev-lavele19",
+      "name": "Адвокатска кантора Емил Пилев",
+      "address": "София, ул. Лавеле 19, ет.5",
+      "primaryEvidence": [
+        "https://advokatpilev.com/",
+        "https://advokatpilev.com/contacts/",
+        "https://advokatpilev.com/pricing/",
+        "https://advokatpilev.com/terms/"
+      ],
+      "bookingEvidence": {
+        "url": "https://advokatpilev.com/contacts/",
+        "excerpt": "Свържете се с нас за организиране на платена консултация на 0896 868 352"
+      },
+      "verificationValidUntil": "2027-02-11",
+      "services": [
+        {
+          "name": "Платена правна консултация с преглед на документи",
+          "appointmentModel": "appointment"
+        }
+      ],
+      "notes": "Actual consultation entry/pricing form inspected first, then own contact page explicitly distinguishes paid document-review consultation scheduled by voice phone from the free no-document form. Selected only the ordinary paid appointment and exactSofiaLavele19floor5venue. Pricing page says quotation follows case review; own FAQ expressly has no predetermined fixed fee. No fake0fee, unlimited-minute scalar, success guarantee, review or source prose/media reused. Own contacts publishMonFri9–18; weekend closed not required as extra open interval. Linked/terms path actually contains the full privacy policy, read through normal publicHTTPS after reader cache miss; no separate extraction/database/noncommercial restriction surfaced. No protected plugin/admin route, map, phone call, legal/customer document, form, consent or submission.",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://advokatpilev.com/contacts/",
+        "serviceUrls": [
+          "https://advokatpilev.com/contacts/",
+          "https://advokatpilev.com/pricing/"
+        ],
+        "notes": "Reviewed actual consultation/pricing request page, selected paid document-review appointment instruction, home FAQ, full contacts/footer and linked privacy/terms page. Own FAQ explicitly says there is no predetermined fixed price; quotation depends on the case. No numeric ordinary document-review consultation fee is published on these reviewed pages. Free initial contact excludes document review and is not this selected service. No blocked price menu was treated as unpublished."
+      }
+    },
+    {
+      "order": 13,
+      "status": "included",
+      "id": "sofia-artizba-cherni-vrah33e",
+      "name": "ART Izba · София",
+      "address": "София, бул. Черни връх 33Е",
+      "primaryEvidence": [
+        "https://artizba.bg/",
+        "https://artizba.bg/kalendar",
+        "https://artizba.bg/produkt/planinska-krasota/",
+        "https://artizba.bg/za-nas/",
+        "https://artizba.bg/faq",
+        "https://artizba.bg/obshti-usloviya"
+      ],
+      "bookingEvidence": {
+        "url": "https://artizba.bg/produkt/planinska-krasota/",
+        "excerpt": "Есенна кошница 18.11.2026 г. – 18:45 ч. Налични 50"
+      },
+      "verificationValidUntil": "2026-11-18",
+      "services": [
+        {
+          "name": "Рисуване и вино „Есенна кошница“ · 18.11.2026",
+          "appointmentModel": "group_reservation",
+          "literalPrice": {
+            "amount": 30,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "участник · събитие на 18.11.2026 от 18:45",
+            "sourceUrl": "https://artizba.bg/produkt/planinska-krasota/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2026-11-18"
+          }
+        }
+      ],
+      "notes": "Actual own Sofia calendar followed to the literal safe product-description href, not its add-to-cart action. Selected future18Nov2026offering has an actual publicPOSTquantity/reservation form and50listed places at30EUR/person; not sold-out14Nov,2for1, voucher,20EURiris gift or an inferred15percent online discounted price. Form POST action, FAQ and complete own service terms describe later participant/payment/order steps; none performed and no account created. Current dated product tariff is retained only for that specific event, not old generalFAQ48BGN fee or a chain-wide standing tariff.2–3hour range versus narrative three hours is not a fixed duration scalar. Activity addressCherniVrah33E, not registeredDobrila10, historicVitosha192 orBlagoevgrad. All terms reviewed in chunks via normalHTTPS after reader cache misses: cancellation more than48hours allows refund or voucher; minimum6specific event retained. No photos, artwork, reviews or promotional prose copied. Robots disallows action-querycart routes; none requested for this source. No form/quantity/button/date/consent/payment/map action."
+    },
+    {
+      "order": 14,
+      "status": "included",
+      "id": "sofia-paintme-bulgaria-mall69",
+      "name": "Paint Me · Bulgaria Mall",
+      "address": "София, бул. България 69, Bulgaria Mall, ниво +1, над главния вход",
+      "primaryEvidence": [
+        "https://paintmesofia.com/",
+        "https://paintmesofia.com/sabitiya/risuvane-i-vino-zamraznalata-gora/",
+        "https://paintmesofia.com/sabitiya/risuvane-i-vino-chasha-rozi/",
+        "https://paintmesofia.com/pravila-i-usloviya/"
+      ],
+      "bookingEvidence": {
+        "url": "https://paintmesofia.com/pravila-i-usloviya/",
+        "excerpt": "Телефон и Viber: 0895 647 300. При телефонно договаряне потребителят се обвързва след подписване на предложението или изпращане на писмено съгласие."
+      },
+      "verificationValidUntil": "2026-12-29",
+      "services": [
+        {
+          "name": "Рисуване и вино „Замръзналата гора“ · 29.12.2026",
+          "appointmentModel": "group_reservation",
+          "literalPrice": {
+            "amount": 29,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "участник · събитие на 29.12.2026 от 18:45",
+            "sourceUrl": "https://paintmesofia.com/sabitiya/risuvane-i-vino-zamraznalata-gora/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2026-12-29"
+          }
+        }
+      ],
+      "notes": "Actual homepage Book entry first, then owned future selected event menu and complete current service terms. Important accidental request: reader click on homepageBook link requestedhttps://paintmesofia.com/cart/?add-to-cart=18970; tool rewrote to/cart/ and displayed empty cart. That GET could have attempted anonymous cart mutation; no claim that no action link was opened. No purchase, booking/customer fields, selection, consent, payment or subsequent cart/reset operation occurred. Investigation then used only safe description and terms URLs, and genuine own phone-contracting alternative§2.10; voicephone path requires written acceptance and payment confirmation, not direct live availability. Event lists35places,29EURand2.5–3hour range; no fixed duration or open hours inferred, no guarantee any slot stays available. Selected only dated29Dec offer; not50EURtwo-personHalloween, promotional code, voucher, video course orVarna/franchise clone. ExactBulgariaMall+1activity location, not registeredVelizarVelkov19orEcontreturn office.48hour rescheduling conditions and minimum10publicparticipants preserved; no customer reviews, artwork/media, claims or recipe prose copied. No Google/map or restricted provider requests."
+    },
+    {
+      "order": 15,
+      "status": "included",
+      "id": "sofia-lawyer-mediate-gicheva-tundzha25",
+      "name": "Lawyer Mediate · адвокат Стефания Гичева",
+      "address": "София, ул. Тунджа 25",
+      "primaryEvidence": [
+        "https://www.lawyer-mediate.com/",
+        "https://www.lawyer-mediate.com/контакти/",
+        "https://www.lawyer-mediate.com/сфери-дейност/",
+        "https://www.lawyer-mediate.com/service/семейно-наследствено-право/",
+        "https://www.lawyer-mediate.com/политика-бисквитки/"
+      ],
+      "bookingEvidence": {
+        "url": "https://www.lawyer-mediate.com/контакти/",
+        "excerpt": "Консултациите са само с предварително уговорен час."
+      },
+      "verificationValidUntil": "2027-02-11",
+      "services": [
+        {
+          "name": "Правна консултация по семейно и наследствено право",
+          "appointmentModel": "appointment"
+        }
+      ],
+      "notes": "Actual Consultation CTA leads to the owned contact form. Public actual form has name/email/message and service-type selector explicitly including family/inheritance law; no selection or values entered. Selected a real ordinary onsite consultation, not walk-in legal information or free emergency contact. Current home/contact identifyStefaniyaGicheva; stale reader titleNiyaGicheva is not imported as a second person/business. ExactTundzha25venue andMonFri9:30–17publishedhours retained, no map point inferred. Own services, detailed selected service and full cookie policy inspected by normal publicHTTPS after reader cache misses; navigation/footer exposes no separate price or general terms page. No copied article prose, qualifications, photographs, artwork, ratings or client cases. No search, phone call, form, message, cookies/consent or map actions.",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://www.lawyer-mediate.com/контакти/",
+        "serviceUrls": [
+          "https://www.lawyer-mediate.com/сфери-дейност/",
+          "https://www.lawyer-mediate.com/service/семейно-наследствено-право/"
+        ],
+        "notes": "Reviewed actual owned appointment form with selected service option, full practice home/contact/footer, services overview and detailed family/inheritance page. No numeric ordinary consultation fee or separate public fee schedule is published on these reviewed pages; references to package servicing do not state this service price. No blocked tariff was treated as unpublished. Fee, documents and appointment time require confirmation by the practice."
+      }
+    },
+    {
+      "order": 7,
+      "status": "pending_booking_menu",
+      "name": "MindHub · five named Sofia teaching venues",
+      "primaryEvidence": [
+        "https://mindhub.bg/contact-us/Sofia",
+        "https://mindhub.bg/terms-and-conditions",
+        "https://mindhub.bg/groups/moite-prvi-stpki-vv-vizualnoto-programirane/hall/mindhub-sofiya-borovo"
+      ],
+      "notes": "Actual course-menu reader carries stale October cards/90EUR modules; freshHTML JS loading differs. Authorized Safari read-only slot attempted: inventory succeeded, getApp hung225s then root interrupted to enforce user deadline. No page/navigation/customer fields/account/consent/submission. No rendered paid menu obtained; still held, not treated as unpublished. Known own five named premises/course links remain005ledger."
+    },
+    {
+      "order": 8,
+      "status": "pending_source_unverified",
+      "name": "Brainobrain Bulgaria / UCMAS proposed domain leads",
+      "primaryEvidence": [
+        "https://www.brainobrain.bg/",
+        "https://ucmas.bg/"
+      ],
+      "notes": "Official Moliks links Brainobrain but normalHTTPS could not resolve its host. UCMAS domain has not been authenticated as actual Sofia operator. No invented venue or business, no count from brand/domain alone."
+    },
+    {
+      "order": 9,
+      "status": "pending_fee_unit_and_venue_binding",
+      "name": "Mental Arithmetic Europe · Sofia Iztok course/franchisee venues",
+      "primaryEvidence": [
+        "https://maeurope.eu/",
+        "https://maeurope.eu/register/",
+        "https://maeurope.eu/contacts/",
+        "https://maeurope.eu/courses/mae-sofia-iztok/"
+      ],
+      "notes": "Actual owned registration and selected course request forms have name/email/phone/course/level/type; no fields entered. Course literal100BGN perperson lacks unambiguous visit/month/package unit and mixes60/90minute ages and group/individual types. Page onlySofiaIztok; teacher contact insteadGeoMilev/Slatina, no exact own venue binding. Franchised contact list alone does not justify multiple branches. Footer TermsConditions href# placeholder, not reviewed real terms. Held, never not_publicly_listed."
+    },
+    {
+      "order": 10,
+      "status": "pending_source_terms",
+      "name": "Училища Европа · Sofia",
+      "primaryEvidence": [
+        "https://europeschools.net/",
+        "https://europeschools.net/contacts/",
+        "https://europeschools.net/terms/",
+        "https://europeschools.net/branches"
+      ],
+      "notes": "Actual enrollment contact reviewed then own terms. SectionsI–II explicitly restrict site services and access to informational resources/data to personal/noncommercial use. Stopped after reading restriction; twoSofia branches not imported, no alternative endpoint/provider or geographic clone. Search-only old2024/25/2025/26 group offers not claimed current paid availability."
+    },
+    {
+      "order": 20,
+      "status": "pending_source_terms",
+      "name": "SmartyKids · proposed sixteen Sofia venues",
+      "primaryEvidence": [
+        "https://smarty-kids.bg/",
+        "https://smarty-kids.bg/sofia-center-map/",
+        "https://smarty-kids.bg/smk-gdpr/"
+      ],
+      "notes": "Actual home Book offers free demo, not paid-course enrollment proof. Full own published policy article8 specifically includes databases and forbids publication/distribution of informational resources absent agreement. Stopped source requests after reading this clause; no alternate endpoint/domain/provider/UI and no sixteen territorial/franchise clones. Map listing was search-only, not branch/service verification."
+    },
+    {
+      "order": 21,
+      "status": "pending_access_and_source_terms",
+      "name": "Арати · Oborishte121",
+      "primaryEvidence": [
+        "https://arati-school.com/",
+        "https://arati-school.com/цени-2026-2027/",
+        "https://arati-school.com/индивидуално/",
+        "https://arati-school.com/общи-условия/"
+      ],
+      "notes": "Actual selected individual-service page returned verification challenge. A previously planned public terms request in the same research call returned broad reuse and scraping/database restrictions. No retry or bypass after observed challenge/terms ban. Literal2026/27individual35EUR60min/45EUR80min and0877480609lead facts remain held, not an unpublished tariff."
+    },
+    {
+      "order": 22,
+      "status": "pending_access_challenge",
+      "name": "Адвокат Славчева",
+      "primaryEvidence": [
+        "https://lawslavcheva.com/",
+        "https://lawslavcheva.com/advokat-sofia"
+      ],
+      "notes": "Actual owned Sofia Book/contact entry returned request-verification challenge. Stopped; did not substitute search result snippets or other endpoint for actual booking review. No row or receipt."
+    },
+    {
+      "order": 23,
+      "status": "pending_booking_path",
+      "name": "New Leader · Dondukov25",
+      "primaryEvidence": [
+        "https://newleader.bg/",
+        "https://newleader.bg/записване/",
+        "https://newleader.bg/контакти/",
+        "https://newleader.bg/курсове-по-английски-от-декември/"
+      ],
+      "notes": "Actual paid registration instruction accepts in-person cash or email/bank transfer, not verified voice-phone appointment or a selected paid-service form. Generic contact form is not enrollment. Published individual30EUR/40min(day)/35EUR(evening/weekend) not imported; adultgroup homepagefrom290EUR versus current deep320/400/480EUR offers not collapsed. Read core registration terms but not all481lines of privacy remainder. Held for genuine qualifying booking path; no unpublished-price receipt."
+    },
+    {
+      "order": 24,
+      "status": "pending_booking_path",
+      "name": "Lingo Zone · LouisAyer2",
+      "primaryEvidence": [
+        "https://lingozonebg.com/",
+        "https://lingozonebg.com/Contact",
+        "https://lingozonebg.com/individualno_obuchenie",
+        "https://lingozonebg.com/Course?filter=individualeducation"
+      ],
+      "notes": "Actual contact form generic inquiry and selected individual page invites needs discussion, but no sufficiently explicit paid voice-phone appointment path or specific enrollment form verified. No privateAPI or form interaction. Held, not counted or described as not_publicly_listed."
+    },
+    {
+      "order": 25,
+      "status": "pending_booking_scope_and_fee_unit",
+      "name": "GFI Academy · GM.Dimitrov38",
+      "primaryEvidence": [
+        "https://gfi-academy.com/",
+        "https://gfi-academy.com/zapishi-se-sega/",
+        "https://gfi-academy.com/individualna-forma-na-obuchenie/",
+        "https://gfi-academy.com/angliiski-ezik-za-uchenici/"
+      ],
+      "notes": "Dedicated actual enrollment form covers school grades1–12, whereas selected ordinary individual-language A1offer is not directly bound to that form. Other home form has adult age, level and language but no individual type. Selected package text766EUR/50academic45minute units not imported; animated counter values and expired15percent promotion not used. Reader robots fetch error was checked with normal publicrobots200/emptyDisallow before ordinary HTML; no actual access denial bypassed. Summer and old October rows do not prove current paid place. Held."
+    },
+    {
+      "order": 26,
+      "status": "pending_exact_venue_and_rendered_calendar",
+      "name": "Адвокат Николов",
+      "primaryEvidence": [
+        "https://www.advokatnikolov.bg/",
+        "https://www.advokatnikolov.bg/book-online",
+        "https://www.advokatnikolov.bg/booking-calendar/устна-консултация",
+        "https://www.advokatnikolov.bg/contact"
+      ],
+      "notes": "Actual oral-consultation service card60EUR/1hour leads to owned calendar; owned consultation-request form visible. No date selected, customer inputs or submission. Own current exact Sofia street address/phone not found in reviewed home/contact/about; no location fabricated from lawyer-register identity or online-only service_area workaround. Calendar actual slot state not rendered/reviewed. Held, not unpublished."
+    },
+    {
+      "order": 27,
+      "status": "pending_price_conflicts",
+      "name": "Kanava Art Studio · LyubenKaravelov14",
+      "primaryEvidence": [
+        "https://kanava.bg/",
+        "https://kanava.bg/mominsko-parti/",
+        "https://kanava.bg/obshti-usloviya/"
+      ],
+      "notes": "Actual date-inquiry CTA anchor and owned private-painting-party page reviewed. Fresh same page has overlapping Mini301.64EUR/590BGN versus297EUR/580BGN, Plus455.05versus440EUR, Signature659.48versus849EUR blocks. Deposit200BGN labeled100EUR on service versus102.26EUR in full own terms. No reconciliation guessed, no deposits as services, no unpriced workaround for conflicted public fees. No action-cart URL, tally field or form submitted."
+    },
+    {
+      "order": 28,
+      "status": "pending_source_terms",
+      "name": "Amuse Bouche · CherniVrah47",
+      "primaryEvidence": [
+        "https://amusebouche-bg.com/bg",
+        "https://www.amusebouche-bg.com/bg/courses/dekoratsiya-s-maslen-krem-3015",
+        "https://amusebouche-bg.com/bg/faq",
+        "https://amusebouche-bg.com/bg/terms-and-conditions"
+      ],
+      "notes": "Actual Book selected course has future25Nov2026/120EUR/4places, but own terms§9.2 limit informational resources to personal use and explicitly include databases. Large current terms page retrieved by normalHTTPS after reader cache miss; only relevant portions read before restriction detected, no claim complete terms clearance. Stopped after clause; no alternate test/webmail/otherdomain/API. Course18:30–21versusabout3.5hour narrative also not collapsed into a scalar. No fields/place/guest/login/consent submitted; not imported."
+    },
+    {
+      "order": 29,
+      "status": "pending_branch_service_binding",
+      "name": "Многознайко · Mladost2 and OvchaKupel2 proposed additional venues",
+      "primaryEvidence": [
+        "https://mnogoznayko.bg/za-nas/mladost-2/",
+        "https://mnogoznayko.bg/za-nas/ovcha-kupel-2/",
+        "https://mnogoznayko.bg/kontakt/",
+        "https://mnogoznayko.bg/urotsi/ezitsi/angliiski-ezik/",
+        "https://mnogoznayko.bg/urotsi/individualni-urotsi/individualni-urotsi/",
+        "https://mnogoznayko.bg/tseni/",
+        "https://mnogoznayko.bg/obshti-usloviya/"
+      ],
+      "notes": "Runtime already hasDimitarPetkov72Gvenue. Own Mladost2 named real branch atPerlite261B/0878763453 offers group/individual subjects; OvchaKupel2PierreDeRonsard12page says opens7Oct2026 (already past), but reviewed selected paid English/individual pages bind onlyCentre address/phone and common inquiry forms. No branch-specific selected paid enrollment bound for extra two, so held rather than franchise/address multiplication or automatic shared tariff propagation. Course annual totals/instalments and individual academic/astronomical packages remain unimported. Full terms ordinary texts/images/designIP clause only; no general licence assertion."
+    },
+    {
+      "order": 30,
+      "status": "pending_duplicate_operator_alias",
+      "name": "Mercury School / Venera Music · MetroCityMalinov51",
+      "primaryEvidence": [
+        "https://mercury.school/",
+        "https://mercury.school/individualni-uroci/",
+        "https://mercury.school/цени/",
+        "https://mercury.school/contacts-2/"
+      ],
+      "notes": "Actual form offers individual/groupSofiaonsite and own current prices30EUR60min/40EUR90min, exactMetroCityfloor-1. Runtime VeneraMusic existingsofia-venera-music-mladost3has identical venue and second shared phone0883385080; Mercury home explicitly links own VeneraMusic school. Distinct domain/subjects do not prove separate merchant business; held division/alias, no new count. VelikoTarnovo art fees not Sofia."
+    },
+    {
+      "order": 31,
+      "status": "pending_access_denied",
+      "name": "Адвокат Ивелина Миланова",
+      "primaryEvidence": [
+        "https://www.milanova-law-office.eu/",
+        "https://www.milanova-law-office.eu/robots.txt"
+      ],
+      "notes": "Public reader returned own complete singlepage Book/services/prices/contact facts with explicit voice-phone appointments andToshev25floor2apt7. Subsequent ordinaryrobots request returned403; a homepage GET already planned in the same research tool call also403. Stopped after observed responses; no alternate endpoints/domain/useragent/proxy. Not imported despite cached readable source; no unpublished-price receipt claimed."
+    },
+    {
+      "order": 32,
+      "status": "pending_address_conflict_and_booking_menu",
+      "name": "Aneta Hristova",
+      "primaryEvidence": [
+        "https://anetahristova.com/contacts/"
+      ],
+      "notes": "Own actual contact voice-phone appointment instruction/body/footer giveShipka42floor1; same own page also embeds a map anchor labeledLavele16floor6. MainBook goes to externalSuperdocnot reviewed in this pass. Exact current activity venue/menu unresolved; no map followed, no geocode, no alias or row."
+    },
+    {
+      "order": 33,
+      "status": "pending_access_challenge",
+      "name": "Адвокат Стефка Атанасова",
+      "primaryEvidence": [
+        "https://advokatatanasova.com/устни-консултации/"
+      ],
+      "notes": "Actual selected oral-consultation page returned request-being-verified challenge. Search-only80BGNminimum/bookingphoneTsarAsen2facts not used for a record. Stopped; no further endpoint or ordinaryHTTPretry."
+    },
+    {
+      "order": 34,
+      "status": "pending_access_rate_limit",
+      "name": "Адвокат Венелин Йорданов",
+      "primaryEvidence": [
+        "https://www.nakazatelenadvokat.bg/"
+      ],
+      "notes": "Own homepage request returned429TooManyRequests. Stopped immediately; no curl, www/nonwww workaround, retries, otherpage or candidate import."
+    },
+    {
+      "order": 35,
+      "status": "rejected_duplicate",
+      "name": "Лазар Белев / SBKLaw",
+      "primaryEvidence": [
+        "https://sbklaw.bg/contact/"
+      ],
+      "notes": "Actual primary contact explicitly identifiesLazarBelevandTundzha3floor1. Runtime existingsofia-lazar-belev-tundzha3usesadvokatbg.net/otherphonebut same named practice/venue. Different branding/domain/phone not a new merchant; rejected alias, not imported."
+    },
+    {
+      "order": 36,
+      "status": "rejected_duplicates",
+      "name": "Other researched art/legal candidates",
+      "primaryEvidence": [
+        "https://fakiry.com/",
+        "https://www.royana-bg.com/",
+        "https://advokat-kantora.com/",
+        "https://advmalchev.com/",
+        "https://trifonov.info/"
+      ],
+      "notes": "Runtime/all2000intake compare foundFakiryArtDzhunglaShipchenski63, RoyanaTsarSamuil22, YanaBogdanovaVashington13, GeorgiMalchevOsogovo30andTrifonovTsarAsen1already existing. No new rows from alternative domains or staff aliases."
+    }
+  ],
+  "accessChecks": [
+    {
+      "url": "https://moliks.com/robots.txt",
+      "result": "200 public paths allowed; WordPress admin excluded; no admin visited."
+    },
+    {
+      "url": "https://bigben.bg/robots.txt",
+      "result": "200 public paths allowed; WordPress admin excluded; no admin visited."
+    },
+    {
+      "url": "https://ibl.bg/robots.txt",
+      "result": "200 public paths allowed; WordPress admin excluded; no admin visited."
+    },
+    {
+      "url": "https://svetlinki.com/robots.txt",
+      "result": "200 explicit search/ai-input allow for public site; not interpreted as general asset reuse license."
+    },
+    {
+      "source": "ArtIzba",
+      "url": "https://artizba.bg/robots.txt",
+      "result": "200; WPadmin/privatewoocommerce logs/actionaddtocart disallowed, no forbiddenroute requested; safeowncalendar/product/FAQ/terms used."
+    },
+    {
+      "source": "PaintMe",
+      "url": "https://paintmesofia.com/robots.txt",
+      "result": "200; WPadmin/privateimportexportdisallowed; no plugin/adminroutes. Accidental addtocart reader request explicitly disclosed separately."
+    },
+    {
+      "source": "Tsankova",
+      "url": "https://venislavatsankova.com/robots.txt",
+      "result": "200; publicpages+AIsearchallow, thankyouexcludednotaccessed; does not grantrepublicationlicence."
+    },
+    {
+      "source": "Pilev",
+      "url": "https://advokatpilev.com/robots.txt",
+      "result": "200; plugin/adminexcludednotaccessed, publicpage/termsordinaryGET."
+    },
+    {
+      "source": "LawyerMediate",
+      "url": "https://www.lawyer-mediate.com/robots.txt",
+      "result": "200; YoastemptyDisallow, onlypublicownpages used."
+    },
+    {
+      "source": "Milanova",
+      "url": "https://www.milanova-law-office.eu/robots.txt",
+      "result": "403 + previouslyplannedownhomepage403; held, no furtherrequests."
+    }
+  ],
+  "dedupe": {
+    "scope": "Actual runtimeSOFIA_CATALOGUE plus every2000 intake module, canonical host, normalizedpublicphone, exactaddress and namedoperatorreview",
+    "runtimeUnionLastChecked": 1489,
+    "unexpectedHostPhoneAddressDuplicates": 0,
+    "expectedSharedChainSignals": [
+      "BigBenMladostYerusalim3/Aksakov28: samehost, distinct own phone-enrollment subsections and realbranch teaching venues.",
+      "IBLKnyazhevoTsarBoris262/SofroniyVrachanski1: samehost+mainphone, two explicit selected onsite individual lesson venues."
+    ]
+  },
+  "photoReview": {
+    "checkedOn": "2026-11-13",
+    "method": "serviceThumbnail with catalogueServicePhotoFields on all16raw services; visual read-only view_image checks on existing child/adult art, adultlanguage, childmath, literatureindividual, schoolindividual and legalconsult assets. No sharedmap/ID/manifest/asset edits.",
+    "existingSuggestions": [
+      [
+        "sofia-bigben-mladost-yerusalim3",
+        "education",
+        "Интензивен групов курс по английски за възрастни",
+        "sx-adult-language-group"
+      ],
+      [
+        "sofia-bigben-aksakov28",
+        "education",
+        "Интензивен групов курс по английски за възрастни",
+        "sx-adult-language-group"
+      ],
+      [
+        "sofia-svetlinki-sheynovo13a",
+        "education",
+        "Кратка арт работилница за деца",
+        "sx-child-art-group"
+      ],
+      [
+        "sofia-svetlinki-sheynovo13a",
+        "education",
+        "Дълга арт работилница за деца",
+        "sx-child-art-group"
+      ],
+      [
+        "sofia-ibl-knyazhevo-tsar-boris262",
+        "education",
+        "Индивидуален урок по английски",
+        "language-lesson"
+      ],
+      [
+        "sofia-ibl-vazrazhdane-sofroniy1",
+        "education",
+        "Индивидуален урок по английски",
+        "language-lesson"
+      ],
+      [
+        "sofia-lingo-centre-ivan-ivanov90-92",
+        "education",
+        "Индивидуален урок по английски",
+        "language-lesson"
+      ],
+      [
+        "sofia-maximum-solunska8",
+        "education",
+        "Групов курс по английски C1 · начало 25.11.2026",
+        "sx-adult-language-group"
+      ],
+      [
+        "sofia-nikolay-vivianov-vasilev-lavele16",
+        "consulting",
+        "Правна консултация по семейно право",
+        "legal-consultation"
+      ],
+      [
+        "sofia-centre-education-career-miladinovi41",
+        "education",
+        "Индивидуален урок за кандидатстване в НГДЕК",
+        "sx-school-literature-individual"
+      ],
+      [
+        "sofia-venislava-tsankova-makedonia1",
+        "consulting",
+        "Правна консултация по семейно право",
+        "legal-consultation"
+      ],
+      [
+        "sofia-emil-pilev-lavele19",
+        "consulting",
+        "Платена правна консултация с преглед на документи",
+        "legal-consultation"
+      ],
+      [
+        "sofia-lawyer-mediate-gicheva-tundzha25",
+        "consulting",
+        "Правна консултация по семейно и наследствено право",
+        "legal-consultation"
+      ]
+    ],
+    "newImageGaps": [
+      {
+        "id": "sofia-moliks-tsvetna-gradina72",
+        "serviceName": "BRAINOBRAIN ментална аритметика · месец с 4 урока",
+        "need": "Confirmed abacus mental arithmetic, children6–12. Existing sx-child-math-group foreground is counting blocks/number tiles with abacus only atside; not reviewed as exact Brainobrainmethod. Prefer generic guided abacus arithmetic crop without copied curriculum/logo/results."
+      },
+      {
+        "ids": [
+          "sofia-artizba-cherni-vrah33e",
+          "sofia-paintme-bulgaria-mall69"
+        ],
+        "need": "Two actual painting-and-wine group offers. Existing sx-adult-art-group and sx-art-individual visibly charcoal still-life drawing, not acrylic painting named by PaintMe. Prefer shared generic adult guided acrylic painting session, canvas/brushes and optional wine glass, no event painting copy, identifiablebusinesspremises, logos or methodpromise. No wine for child workshops."
+      }
+    ],
+    "neutralCountBeforeExactMapping": 10,
+    "note": "Three individual language services and three family-law consultation services already have nonneutral activity/exact fallback. Ten remain neutral before root exact associations. Existing reviewed suggestions cover13of16services; newasset needs3services across2concepts."
+  },
+  "validation": {
+    "schemaAndApproval": "15/15 pass",
+    "reviewReceiptGates": "15/15 pass using ephemeral inventory identities only; no root shared fingerprint written",
+    "pricingStates": {
+      "reviewed": 5,
+      "service_reviewed": 10
+    },
+    "dedupe": "Only two expected realchain sharedhost groups; operator aliases held/rejected. Full finalgate root-owned.",
+    "focusedTests": "Node --test tests/catalogue-pricing-review.test.mjs tests/catalogue-onboarding.test.mjs: 25/25 pass on2026-11-13; no full build or deploy run by this research agent.",
+    "scope": "Education/consulting only, no doctors/generalclinics/staffclones/Google/geocoding/customerdata.",
+    "dateLimits": {
+      "sofia-svetlinki-sheynovo13a": "2026-11-21",
+      "sofia-maximum-solunska8": "2026-11-25",
+      "sofia-artizba-cherni-vrah33e": "2026-11-18",
+      "sofia-paintme-bulgaria-mall69": "2026-12-29"
+    },
+    "pendingRootReview": [
+      "ArtIzba generic oldFAQ48BGN not applied to current exactdated30EURoffer; standardfee only,no computed15percentdiscount.",
+      "PaintMe realownphonecontractpath requireswrittenacceptance/payment; accidentalreaderactionrequesthonestlyrecorded.",
+      "Tsankova narrowfactualreference afterfulltermsreading; notIPlicenceorlegalguarantee."
+    ]
+  }
+}

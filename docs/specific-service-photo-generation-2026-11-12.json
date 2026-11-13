@@ -4,6 +4,174 @@
   "scope": "Illustrative service-specific photos for approved Sofia catalogue entries; not actual business premises, staff, work or results.",
   "assets": [
     {
+      "id": "sx-mat-pilates-individual",
+      "sourceFile": "exec-a1e2d908-5154-4699-bc35-5d6f05080d98.png",
+      "sourceSha256": "16ef654ebf9bd1ed21a158f88773f8c10445b00b88fc03b10c89340931dbe2ee",
+      "file": "public/service-photos/sx-mat-pilates-individual-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 7524,
+      "sha256": "9111b33d351f5c464d70b6dd1b318153dcf09cd8085841b8e2ee1bcfb20d0a0b",
+      "label": "Индивидуален пилатес на постелка",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: square GoRez specific-service thumbnail, readable at64px.\nStyle: realistic candid photograph, fictional adults with authentic skin and fabric textures, soft daylight, ordinary warm neutral environment.\nConstraints: one square1:1 photograph. No text, brand, watermark, logo, notebook, emoji, CGI or actual business/work claim. Only generic illustrative service. Correct anatomy and practical safe technique. Primary request: ONE adult student receiving a ONE-TO-ONE PILATES lesson from ONE adult instructor on a simple exercise MAT. Student in modest fitted sportswear lying on back performing a controlled bent-knee tabletop leg movement, instructor kneeling beside and verbally guiding with natural hand gesture, no forced stretching. Full ordinary mat clearly visible, neutral studio floor, exactly one student and one teacher. No other participants, reformer, springs, equipment, yoga meditation or gym weights.",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "16ef654ebf9bd1ed21a158f88773f8c10445b00b88fc03b10c89340931dbe2ee",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and optimized256pxWebP. One student/one instructor and actual exercise mat; portable table in a home with palm massage; professional calf massage with rest covered (illustrates leg part only, no claim to depict gluteal treatment); practitioner preparing actual warmed dark basalt stones (not a claimed treatment result). No source-business staff, premises, verified work, notebooks, logos or watermark."
+      }
+    },
+    {
+      "id": "sx-home-classical-massage",
+      "sourceFile": "exec-bf890707-3154-4717-b6e2-0f966ed7685a.png",
+      "sourceSha256": "b34395548cb0fbcbfc232fbd946717d269f3abf1d1a19e5c1232b3c890fc0c49",
+      "file": "public/service-photos/sx-home-classical-massage-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 12866,
+      "sha256": "e06479511f26e2e4fc049a3fff76999d84f8cf82d46dfd61052232a645bcf407",
+      "label": "Масаж при домашно посещение",
+      "prompt": "Use case: photorealistic-natural. Asset type: square GoRez service thumbnail. A professional massage practitioner uses broad palm strokes on an adult client's upper shoulders during an ordinary home-visit massage. Client lies prone on a portable folding massage table; completely covered in opaque cream towels from shoulders down to feet. The professional's hands work along the shoulders at the towel edge. Ordinary living room with sofa and plant, portable table legs visible, warm window daylight, realistic fictional adults, correct anatomy. No text, logos, watermarks, medical tools, stones, cups or deep elbow pressure. Generic illustrative professional activity, not actual business work. One square1:1 photograph readable at64px.",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "b34395548cb0fbcbfc232fbd946717d269f3abf1d1a19e5c1232b3c890fc0c49",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and optimized256pxWebP. One student/one instructor and actual exercise mat; portable table in a home with palm massage; professional calf massage with rest covered (illustrates leg part only, no claim to depict gluteal treatment); practitioner preparing actual warmed dark basalt stones (not a claimed treatment result). No source-business staff, premises, verified work, notebooks, logos or watermark."
+      }
+    },
+    {
+      "id": "sx-legs-gluteal-massage",
+      "sourceFile": "exec-f93a2554-2ee6-481c-b1ea-bfd3a51234b4.png",
+      "sourceSha256": "38c9ee119a86772cd7b3a09f228ae246a2380366575bb7eae4f5198d7b2e9cad",
+      "file": "public/service-photos/sx-legs-gluteal-massage-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 11554,
+      "sha256": "830098dd5d7958d8b4c6510ba5f86f49252e7e763bfb8e82fb5879ec412ab218",
+      "label": "Масаж на крака · илюстрация на работата по прасеца",
+      "prompt": "Use case: photorealistic-natural. Asset type: square GoRez specific-service thumbnail. Professional leg massage at a wellness studio, an adult practitioner uses both palms along one adult client's lower calf. Client lies prone on a stable massage table, opaque thick cream towels completely cover the body above the knees. Clear focus on hands and lower leg, practical professional technique, natural realistic skin/towel textures and daylight, no medical tools. One square1:1 photo legible at64px. No text, watermark, logos, CGI, prices, notebook or actual business/work claim.",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "38c9ee119a86772cd7b3a09f228ae246a2380366575bb7eae4f5198d7b2e9cad",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and optimized256pxWebP. One student/one instructor and actual exercise mat; portable table in a home with palm massage; professional calf massage with rest covered (illustrates leg part only, no claim to depict gluteal treatment); practitioner preparing actual warmed dark basalt stones (not a claimed treatment result). No source-business staff, premises, verified work, notebooks, logos or watermark."
+      }
+    },
+    {
+      "id": "sx-hot-stone-back-massage",
+      "sourceFile": "exec-edaeeee0-2059-47d9-bb15-44b8bb0d23ba.png",
+      "sourceSha256": "561d7a72ff96de15a6169b7088798585e9a5802ace0d21d7b0c76562135434ea",
+      "file": "public/service-photos/sx-hot-stone-back-massage-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 10078,
+      "sha256": "832853ac419ecacb44c90b86e648fbc47138c0ab84f62b6389f2bb9afb73f1e2",
+      "label": "Подготовка за масаж с топли камъни",
+      "prompt": "Use case: photorealistic-natural. Asset type: square GoRez service thumbnail. A wellness practitioner prepares a HOT STONE MASSAGE: wearing ordinary professional tunic, holds one smooth black basalt massage stone in each hand above a small warming bowl of dark stones beside a neatly towel-covered massage table. Medium close view showing practitioner face, hands, smooth dark stones and practical spa setup. No white cold stones, cups, needles, medical claims or flames. Natural realistic fictional adult, real stone and cotton textures, soft daylight. One square1:1 photograph, no text, watermark, logos, prices or actual business/work claim.",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "561d7a72ff96de15a6169b7088798585e9a5802ace0d21d7b0c76562135434ea",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and optimized256pxWebP. One student/one instructor and actual exercise mat; portable table in a home with palm massage; professional calf massage with rest covered (illustrates leg part only, no claim to depict gluteal treatment); practitioner preparing actual warmed dark basalt stones (not a claimed treatment result). No source-business staff, premises, verified work, notebooks, logos or watermark."
+      }
+    },
+    {
+      "id": "sx-child-abacus-group",
+      "sourceFile": "exec-ac4951ab-8451-4cdf-98cf-bb8a30b4b9d0.png",
+      "sourceSha256": "af7f83a3a40fd7573ea704e753a9d5de06e58108fd0226d010634ee8441674a9",
+      "file": "public/service-photos/sx-child-abacus-group-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 14578,
+      "sha256": "2d7a7892112d461b0a83e9c31e11fadf055ff254d24a8f0027e6b4e7d2579e1c",
+      "label": "Групово обучение по ментална аритметика с абакус",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: square GoRez specific service thumbnail, subject readable at64px.\nStyle: natural realistic photographic scene, authentic fictional people/skin/material textures, soft ordinary daylight, no advertising over-retouching.\nConstraints: one square1:1 canvas. No text, prices, watermark, logos, CGI, emoji, borders, notebook-only workspace or recognizable real people/business. This is generic illustrative activity, not actual staff/customer/work or verified results.\nPrimary request: An adult teacher guiding a small group of three fictional children aged6–12 using physical SOROBAN ABACUSES at a classroom table. Clearly visible rectangular abacus frames with many vertical rods, one upper bead and four lower beads per rod separated by a horizontal beam. One child in foreground actively moves beads while teacher points and demonstrates on another abacus; two other children practice. The abacus and teaching interaction are the main focus, not a calculator, laptop, workbook, generic writing or toy. Age-appropriate ordinary classroom clothes, safe supportive lesson, no branded curriculum or promised developmental results.",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "af7f83a3a40fd7573ea704e753a9d5de06e58108fd0226d010634ee8441674a9",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and optimized256pxWebP. Correct small-group abacus teaching, adults-only acrylic painting with wine, one child/one instructor shallow-pool lesson with cap/goggles, and handheld TPMS programmer beside tyre valve verified respectively. No notebook-only scene, actual business/staff/work claim, copied artwork, watermark or misleading apparatus."
+      }
+    },
+    {
+      "id": "sx-adult-acrylic-painting-wine",
+      "sourceFile": "exec-f23ba5b4-17d9-4444-bfc6-1b2e6c58b96d.png",
+      "sourceSha256": "676abe738d140cca433185964a373c22a42ca51f9dafe5f6e6dd28497fb7d334",
+      "file": "public/service-photos/sx-adult-acrylic-painting-wine-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 17918,
+      "sha256": "f3ee11badd7300b0010f3efb65766e8e4c44f7e05486804c0b84bc7e12bee080",
+      "label": "Рисуване с акрилни бои и чаша вино за възрастни",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: square GoRez specific service thumbnail, subject readable at64px.\nStyle: natural realistic photographic scene, authentic fictional people/skin/material textures, soft ordinary daylight, no advertising over-retouching.\nConstraints: one square1:1 canvas. No text, prices, watermark, logos, CGI, emoji, borders, notebook-only workspace or recognizable real people/business. This is generic illustrative activity, not actual staff/customer/work or verified results.\nPrimary request: A fictional adult artist leading a small group of clearly ADULT participants aged30–55 painting on upright canvases in a cozy studio. Acrylic paints, flat palettes and brushes clearly visible; instructor demonstrates brush technique and participants paint simple ORIGINAL generic colorful landscapes, not copied artwork or a named class painting. Two modest glasses of red wine on the side of the table establish painting-and-wine activity without promoting excess; water also available. All people clearly adults, no children. Painting lesson is foreground, wine secondary. Medium framing shows artist, participant hands, acrylic palettes and canvases.",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "676abe738d140cca433185964a373c22a42ca51f9dafe5f6e6dd28497fb7d334",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and optimized256pxWebP. Correct small-group abacus teaching, adults-only acrylic painting with wine, one child/one instructor shallow-pool lesson with cap/goggles, and handheld TPMS programmer beside tyre valve verified respectively. No notebook-only scene, actual business/staff/work claim, copied artwork, watermark or misleading apparatus."
+      }
+    },
+    {
+      "id": "sx-child-swimming-individual",
+      "sourceFile": "exec-70fbb22f-525b-420e-8c58-63bc25df1c61.png",
+      "sourceSha256": "7095edce534e5c68af55f5ad8688eea93befba68a09045c76f8a738de39539ac",
+      "file": "public/service-photos/sx-child-swimming-individual-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 12136,
+      "sha256": "7ec305941d4655dbeb1c02c9a223c777263ff591212f3d9d3eaa468bdf6241ea",
+      "label": "Индивидуален урок по плуване за дете",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: square GoRez specific service thumbnail, subject readable at64px.\nStyle: natural realistic photographic scene, authentic fictional people/skin/material textures, soft ordinary daylight, no advertising over-retouching.\nConstraints: one square1:1 canvas. No text, prices, watermark, logos, CGI, emoji, borders, notebook-only workspace or recognizable real people/business. This is generic illustrative activity, not actual staff/customer/work or verified results.\nPrimary request: Exactly ONE fictional child aged7 with one adult swimming instructor in a supervised indoor swimming pool. Child wears an ordinary age-appropriate swimsuit, swim cap and goggles, practicing a supported kick with both hands on a small blue kickboard. Instructor in swimwear stands securely beside child in shallow water, close enough to support the board and demonstrate. Child's face/mouth clearly above water, calm safe lesson, water around chest level. No parent, other student, baby, rescue, distress or therapy scenario. Focus on one-to-one SWIMMING INSTRUCTION, not recreational splash or an adult lesson. Natural water reflections and believable anatomy.",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "7095edce534e5c68af55f5ad8688eea93befba68a09045c76f8a738de39539ac",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and optimized256pxWebP. Correct small-group abacus teaching, adults-only acrylic painting with wine, one child/one instructor shallow-pool lesson with cap/goggles, and handheld TPMS programmer beside tyre valve verified respectively. No notebook-only scene, actual business/staff/work claim, copied artwork, watermark or misleading apparatus."
+      }
+    },
+    {
+      "id": "sx-auto-tpms-programming",
+      "sourceFile": "exec-df292af9-af95-4c21-9b70-49383e503bb5.png",
+      "sourceSha256": "bb867b8ab8b8dc0b4297e4aaebaaf4d7473d00eb183d480ac70cd40c5eb46819",
+      "file": "public/service-photos/sx-auto-tpms-programming-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 11674,
+      "sha256": "b991242ae0b98c2abd556cd6a1d85dbbbb1f8000512abf02289fa5caf2f1b8e2",
+      "label": "Програмиране на TPMS датчици за гуми",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: square GoRez specific service thumbnail, subject readable at64px.\nStyle: natural realistic photographic scene, authentic fictional people/skin/material textures, soft ordinary daylight, no advertising over-retouching.\nConstraints: one square1:1 canvas. No text, prices, watermark, logos, CGI, emoji, borders, notebook-only workspace or recognizable real people/business. This is generic illustrative activity, not actual staff/customer/work or verified results.\nPrimary request: A fictional automotive technician programs/learns a car tyre-pressure monitoring sensor using a proper HANDHELD TPMS scan/programming device beside a stationary car wheel. Close medium frame: gloved technician holds the small rugged device next to the visible tyre valve while another hand operates its buttons; a small unbranded replacement TPMS valve sensor is visible on a nearby service tray for context but is NOT being installed. Device screen has non-legible generic icons, no readable codes or brand. Clear focus on electronic sensor programming/learning, not wheel balancing, fitting/replacing a valve, inflating tyres or selling a scanner. Real workshop, safe parked car, authentic tyre/tool textures.",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "bb867b8ab8b8dc0b4297e4aaebaaf4d7473d00eb183d480ac70cd40c5eb46819",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and optimized256pxWebP. Correct small-group abacus teaching, adults-only acrylic painting with wine, one child/one instructor shallow-pool lesson with cap/goggles, and handheld TPMS programmer beside tyre valve verified respectively. No notebook-only scene, actual business/staff/work claim, copied artwork, watermark or misleading apparatus."
+      }
+    },
+    {
       "id": "sx-auto-ac-electronic-diagnostics",
       "sourceFile": "exec-fc6c36ee-7415-4f84-9595-5ee71abd030f.png",
       "sourceSha256": "bf985b73ad9e9184aa6270bb62383f6ea43a403350f66732804f4104049c5174",

@@ -66,6 +66,28 @@ free hosting. Production application should precede the matching application
 release. Rolling the application back leaves these additive, private tables
 intact; do not drop them or delete media as part of a routine rollback.
 
+## Approved shared G Point logo
+
+On 13 November 2026 the owner requested the already uploaded G Point logo from
+`sofia-gpoint-manastirski-zapad` on all 43 reviewed `gpoint.bg` catalogue branches.
+`catalogue-shared-covers.mjs` contains their exact IDs, not a name substring rule;
+the unrelated Notino listing `sofia-g-point-lashes-ovcha-kupel` is excluded.
+The common cover is only the reviewed current media revision
+`eebc21d3-2f13-42cd-9f81-877eb6bc5736`. It uses the original live media URL and
+the existing uncropped, contained-logo presentation. It is a chain logo, not a
+claim that other branches have the Manastirski Livadi premises.
+
+Public search and details add at most one source ID to their existing batched
+metadata read. A branch's own valid photo takes priority. No storage object,
+permission reference, catalogue-photo row, audit event or revision is copied.
+Admin list/detail/upload/remove still manage the genuine own record only;
+removing a branch's own cover reveals the shared logo rather than removing
+another branch's image. Removing the source photo, revoking its rights, or
+unpublishing the source listing removes inheritance. A new source media UUID
+does not spread automatically: a replacement must be reviewed and explicitly
+selected. Source/read outages retain the ordinary catalogue fallback and never
+disable search or booking. No schema, prices, services or destinations change.
+
 ## Verification
 
 ```sh

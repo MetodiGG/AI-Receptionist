@@ -5,6 +5,14 @@ import { approvedCatalogueRecord, validateCatalogue, EXCLUDED_GENERAL_CLINIC_IDS
 import { categoryById } from '../lib/discovery/categories.mjs'
 import { auditCatalogueBatch } from '../lib/discovery/catalogue-audit.mjs'
 
+export function cataloguePointCounts(records) {
+  return {
+    firstParty: records.filter(row => row.coordinates?.method === 'first_party_coordinates').length,
+    reviewedOsm: records.filter(row => row.coordinates?.method === 'verified_address_geocode').length,
+    officialSofia: records.filter(row => row.coordinates?.method === 'verified_official_address').length,
+  }
+}
+
 // Offline only: no Google, crawling, source uploads, personal contacts or DB.
 export function cataloguePublicationState(records, now = Date.now()) {
   // Intentionally excluded records still pass the complete source schema.
@@ -30,7 +38,8 @@ if (process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url) 
   for (const row of rows) if (row.photo) {
     await access(fileURLToPath(new URL(`../public${row.photo.src}`, import.meta.url)))
   }
-  console.log(`Sofia catalogue: ${rows.length} records; ${current.length} currently approved; ${excluded.length} intentionally excluded by owner scope; ${current.filter(row => row.coordinates?.method === 'first_party_coordinates').length} first-party points; ${current.filter(row => row.coordinates?.method === 'verified_address_geocode').length} reviewed OSM address points.`)
+  const points = cataloguePointCounts(current)
+  console.log(`Sofia catalogue: ${rows.length} records; ${current.length} currently approved; ${excluded.length} intentionally excluded by owner scope; ${points.firstParty} first-party points; ${points.reviewedOsm} reviewed OSM address points; ${points.officialSofia} reviewed official Sofia address points (CC BY 4.0).`)
   console.log(`${new Set(current.map(row => new URL(row.website).hostname.replace(/^www\./, ''))).size} official website domains; ${current.filter(row => row.booking.kind === 'form').length} booking flows; ${current.filter(row => row.booking.kind === 'phone').length} appointment phone actions; ${current.filter(row => row.locationKind === 'service_area').length} service-area providers.`)
   console.log('Service coverage (a multi-service business can appear in more than one category):')
   const byCategory = new Map()

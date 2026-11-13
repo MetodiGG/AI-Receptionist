@@ -16,16 +16,19 @@ import { DateTime } from 'luxon'
 const clock = Date.parse('2026-11-13T10:00:00Z')
 const intent = { cityCode: '68134', browse: true, requirements: [] }
 
-test('IN Beauty cannot keep the incorrect central-Sofia owner JSON-LD pin or import it into a partner registration', () => {
+test('IN Beauty uses the manually resolved northern official address, never its old JSON-LD pin or an unattributed partner import', () => {
   const row = SOFIA_CATALOGUE.find(row => row.id === 'sofia-in-beauty')
   assert.equal(row.address, 'София, ул. Генерал Иван Колев 2')
   assert.equal(row.neighborhood, 'Кръстова вада')
-  assert.equal(row.coordinates, null, 'await an independently checked exact-address point, never guess')
+  assert.equal(row.coordinates.method, 'verified_official_address')
+  assert.equal(row.coordinates.addressId, '113534')
+  assert.equal(row.coordinates.latitude, 42.65564914279809)
+  assert.equal(row.coordinates.longitude, 23.31449726584672)
   const normalized = normalizeCatalogueBusinesses([row], intent, { now: clock })[0]
-  assert.equal(normalized.coordinates, null)
-  assert.equal(distanceBadge(discoveryDistanceOrigin({ cityCode: '68134' }), normalized.coordinates), null)
+  assert.deepEqual(normalized.coordinates, { latitude: 42.65564914279809, longitude: 23.31449726584672 })
+  assert.ok(distanceBadge(discoveryDistanceOrigin({ cityCode: '68134' }), normalized.coordinates))
   assert.equal(catalogueOnboardingDetail([row], row.id, { now: clock }).business.coordinates, undefined)
-  assert.match(new URL(businessMapsDirectionsUrl(normalized)).searchParams.get('destination'), /Генерал Иван Колев 2/)
+  assert.equal(new URL(businessMapsDirectionsUrl(normalized)).searchParams.get('destination'), '42.65564914279809,23.31449726584672', 'directions must use the reviewed northern point, never the old JSON-LD pair')
   assert.deepEqual(normalizeCatalogueBusinesses([row], { ...intent, coordinates: { latitude: 42.70, longitude: 23.33, consent: true }, radiusKm: 1 }, { now: clock }), [])
   assert.equal(catalogueBoundCoordinates({ ...row, coordinates: {
     latitude: 42.6852, longitude: 23.3245, method: 'first_party_coordinates', source: 'https://inbeauty.bg/kontakti', sourceAddress: row.address,
@@ -91,7 +94,7 @@ test('the exact short brand IN Beauty remains searchable when its incorrect poin
   })
   assert.equal(result.results.length, 1)
   assert.equal(result.results[0].id, 'sofia-in-beauty')
-  assert.equal(result.results[0].coordinates, null)
+  assert.deepEqual(result.results[0].coordinates, { latitude: 42.65564914279809, longitude: 23.31449726584672 })
   assert.equal(businessNameMatches('IN Beauty', 'IN'), false)
   assert.equal(businessNameMatches('IN Beauty', 'Beauty'), false)
   assert.equal(businessNameMatches('Different Beauty', 'IN Beauty'), false)

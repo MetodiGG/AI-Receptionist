@@ -19,6 +19,7 @@ export async function GET(request) {
 
     const businesses = (data || []).map((business) => ({
       id: business.id,
+      source: 'gorez',
       name: business.name,
       slug: business.slug,
       booking_mode:business.booking_mode||'gorez',

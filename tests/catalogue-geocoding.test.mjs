@@ -1,6 +1,7 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
+import { createHash } from 'node:crypto'
 import { catalogueStreetAddress, matchCatalogueGeocode, OSM_ATTRIBUTION } from '../lib/discovery/catalogue-geocoding.mjs'
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 import { catalogueRecordSchema } from '../lib/discovery/catalogue-policy.mjs'
@@ -10,6 +11,11 @@ const row = patch => ({ ...structuredClone(SOFIA_CATALOGUE[0]), coordinates:null
 const candidate = patch => ({ osm_type:'way',osm_id:123,lat:'42.67',lon:'23.29',addresstype:'building',
   boundingbox:['42.6699','42.6701','23.2899','23.2901'],address:{city:'София',country_code:'bg',road:'улица Примерна',house_number:'12A'},...patch })
 const checkedOn = '2026-11-06'
+const retiredOsmPoints = Object.freeze({
+  'sofia-san-krasi-barber': { latitude: 42.7131329, longitude: 23.2480611, method: 'verified_address_geocode', source: 'https://www.openstreetmap.org/node/9552185683', addressId: '104973' },
+  'sofia-carbox-studio': { latitude: 42.6272014, longitude: 23.3310508, method: 'verified_address_geocode', source: 'https://www.openstreetmap.org/way/172804668', addressId: '116434' },
+  'sofia-xzona-sport': { latitude: 42.6691113, longitude: 23.2545085, method: 'verified_address_geocode', source: 'https://www.openstreetmap.org/way/301894763', addressId: '34754' },
+})
 
 test('one-time geocoding requires an actual street and house number, never a district or office invention', () => {
   assert.deepEqual(catalogueStreetAddress(row()), {road:'Примерна',house:'12А',query:'ул. Примерна 12А, София, България',sourceAddress:row().address})
@@ -54,14 +60,54 @@ test('the automatic address batch can be reproduced offline from its one-time ca
   const updates=JSON.parse(await readFile(new URL('../lib/discovery/catalogue-data/geocodes-v2.json',import.meta.url),'utf8'))
   assert.equal(Object.keys(cache).length,225)
   assert.equal(updates.length,38)
+  const official = JSON.parse(await readFile(new URL('../public/catalogue-official-address-points-20261113.json', import.meta.url), 'utf8'))
   for(const update of updates) {
     const record=SOFIA_CATALOGUE.find(item=>item.id===update.id)
     const original={...record,coordinates:null},requested=catalogueStreetAddress(original)
     assert.ok(requested,update.id)
     assert.deepEqual(matchCatalogueGeocode(original,cache[requested.query],checkedOn),update,update.id)
-    assert.deepEqual(record.coordinates,update.coordinates)
+    const retired = retiredOsmPoints[update.id]
+    if (!retired) assert.deepEqual(record.coordinates,update.coordinates)
+    else {
+      const replacement = official.points.find(row => row.id === update.id)
+      const { addressId, ...previous } = retired
+      assert.deepEqual(replacement.previousCoordinates, previous, update.id)
+      assert.deepEqual(Object.fromEntries(Object.keys(previous).map(key => [key, update.coordinates[key]])), previous, update.id)
+      assert.equal(replacement.coordinates.addressId, addressId)
+      assert.equal(replacement.coordinates.method, 'verified_official_address')
+      assert.equal(replacement.coordinates.sourceAddress, record.address)
+      assert.equal(replacement.review.decision, 'manually_confirmed_wrong_previous_point')
+      assert.deepEqual(record.coordinates, replacement.coordinates)
+    }
   }
   assert.ok(SOFIA_CATALOGUE.filter(item=>item.coordinates?.method==='first_party_coordinates').length>=79)
+})
+
+test('historical OSM receipts remain byte-identical to the published baseline despite exactly reviewed canonical retirements', async () => {
+  const hashes = {
+    '../lib/discovery/catalogue-data/geocodes-v2.json': 'b7355229844909b39c4d29fc2647381df7a253e0c2dd60d329abf5432c15da8d',
+    '../lib/discovery/catalogue-data/geocodes-v3.json': 'b57eff6ce85167fddc32d0f6246bcbd203b037792982ff40b383d6cd00689d5e',
+    '../lib/discovery/catalogue-data/geocodes-v4.json': 'e622c4e60f6814a71589e74dc9bbb6990664f59fc0f168b86e26a30156258b11',
+    '../public/catalogue-location-data-20261106.json': 'd1be9552f2f1ad76e88097796d88043108beb40a3cbf596a65fb4d653c38103c',
+  }
+  for (const [path, hash] of Object.entries(hashes)) assert.equal(createHash('sha256').update(await readFile(new URL(path, import.meta.url))).digest('hex'), hash, path)
+  const official = JSON.parse(await readFile(new URL('../public/catalogue-official-address-points-20261113.json', import.meta.url), 'utf8'))
+  const corrections = {
+    'sofia-in-beauty': { addressId: '113534', previous: null },
+    'sofia-san-krasi-barber': { addressId: '104973', previous: { latitude: 42.7131329, longitude: 23.2480611, method: 'verified_address_geocode', source: 'https://www.openstreetmap.org/node/9552185683' } },
+    'sofia-carbox-studio': { addressId: '116434', previous: { latitude: 42.6272014, longitude: 23.3310508, method: 'verified_address_geocode', source: 'https://www.openstreetmap.org/way/172804668' } },
+    'sofia-xzona-sport': { addressId: '34754', previous: { latitude: 42.6691113, longitude: 23.2545085, method: 'verified_address_geocode', source: 'https://www.openstreetmap.org/way/301894763' } },
+    'sofia-rhythm-academy': { addressId: '8313', previous: { latitude: 42.6351614, longitude: 23.3065149, method: 'first_party_coordinates', source: 'https://rhythm-academy.com/' } },
+    'sofia-classy-barbershop': { addressId: '34863', previous: { latitude: 42.6673803, longitude: 23.3493594, method: 'first_party_coordinates', source: 'https://www.classy-barbershop.com/' } },
+    'sofia-inergy-borovo-reserved-kickboxing': { addressId: '94336', previous: { latitude: 42.668698, longitude: 23.285587, method: 'first_party_coordinates', source: 'https://inergyfitness.com/zanimaniya/kickbox/' } },
+  }
+  const manual = official.points.filter(row => /^(?:manual_duplicate_disambiguation|manually_confirmed_wrong_previous_point)$/.test(row.review.decision))
+  assert.deepEqual(manual.map(row => row.id).sort(), Object.keys(corrections).sort())
+  for (const replacement of manual) {
+    assert.equal(replacement.coordinates.addressId, corrections[replacement.id].addressId)
+    assert.deepEqual(replacement.previousCoordinates, corrections[replacement.id].previous)
+    assert.deepEqual(SOFIA_CATALOGUE.find(row => row.id === replacement.id).coordinates, replacement.coordinates)
+  }
 })
 
 test('the manually reviewed LUX point uses the exact-address hospital building from the existing cache, not the ATM', async () => {

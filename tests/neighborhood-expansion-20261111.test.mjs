@@ -5,7 +5,17 @@ import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 import { validateCatalogue, approvedCatalogueRecord } from '../lib/discovery/catalogue-policy.mjs'
 import { assessPricingReview, pricingIdentity } from '../lib/discovery/catalogue-pricing-review.mjs'
 import { NEIGHBORHOOD_20261111_RECORDS as records, NEIGHBORHOOD_20261111_REVIEWS as reviews } from '../lib/discovery/catalogue-data/neighborhood-expansion-20261111.mjs'
+import approvedOfficialLocations from '../public/catalogue-official-address-points-20261113.json' with { type: 'json' }
 const now = Date.parse('2026-11-11T12:00:00Z')
+const officialById = new Map(approvedOfficialLocations.points.map(row => [row.id, row]))
+function assertReviewedCoordinates(row, originalCoordinates) {
+  const original = records.find(record => record.id === row.id), approved = officialById.get(row.id)
+  assert.ok(original, row.id)
+  assert.deepEqual(original.coordinates, originalCoordinates, 'the historical owner-source point remains unchanged')
+  if (approved) assert.deepEqual(approved.previousCoordinates, originalCoordinates, 'an official correction must bind the exact previous source point')
+  assert.deepEqual(row.coordinates, approved ? approved.coordinates : originalCoordinates, row.id)
+  assert.equal(pricingIdentity(original), pricingIdentity(row), 'coordinate review must not change service or price identity')
+}
 
 test('PhotoBuket retains literal published EUR76 and distinct studio/outdoor packages', () => {
   const row = SOFIA_CATALOGUE.find(item => item.id === 'sofia-photo-buket-mladost-1')
@@ -359,7 +369,10 @@ test('two Lyulin dental practices keep exact owner-only prices and correct exter
   assert.ok(maya.services.every(service => service.price.sourceUrl === 'https://drmaya.bg/'))
   assert.equal(maya.services.at(-1).price.maximum, 70)
   assert.equal(maya.services[0].price.amount, 20)
-  assert.ok([kis, maya].every(row => row.coordinates === null && row.services.every(service => !service.durationMin)))
+  for (const row of [kis, maya]) {
+    assertReviewedCoordinates(row, null)
+    assert.ok(row.services.every(service => !service.durationMin))
+  }
 })
 
 test('refresher driving fees retain two teaching-hour visit and package totals without stale durations', () => {
@@ -622,7 +635,7 @@ test('automotive reservations and mobile AC fees preserve class, scope and actua
   assert.match(climavik.services[2].description, /първите 100 г.*12/)
 })
 
-test('owner-published points stay bound to the reviewed exact premises and never replace fee identities', () => {
+test('historical owner points and separately approved official corrections stay bound to exact premises without changing fee identities', () => {
   const receipts = ['owner-gps-applied14-20261111.json', 'owner-gps-applied8-20261111.json']
     .map(file => JSON.parse(readFileSync(new URL(`../docs/catalogue-pricing/${file}`, import.meta.url))))
   const proposals = receipts.flatMap(receipt => receipt.proposals)
@@ -633,10 +646,15 @@ test('owner-published points stay bound to the reviewed exact premises and never
     const row = SOFIA_CATALOGUE.find(record => record.id === proposal.id)
     assert.equal(row.locationKind, 'premises', proposal.id)
     assert.equal(row.address, proposal.catalogueAddress, proposal.id)
-    assert.deepEqual(row.coordinates, proposal.coordinates, proposal.id)
-    assert.equal(row.coordinates.method, 'first_party_coordinates')
+    assertReviewedCoordinates(row, proposal.coordinates)
+    assert.equal(row.coordinates.method, officialById.has(row.id) ? 'verified_official_address' : 'first_party_coordinates')
     assert.equal(assessPricingReview(row, reviews.find(review => review.id === row.id), now).state, 'reviewed')
   }
+  const inergy = SOFIA_CATALOGUE.find(row => row.id === 'sofia-inergy-borovo-reserved-kickboxing')
+  assert.equal(inergy.coordinates.method, 'verified_official_address')
+  assert.equal(inergy.coordinates.addressId, '94336')
+  assert.deepEqual([inergy.coordinates.latitude, inergy.coordinates.longitude], [42.66867582328267, 23.288161657625782])
+  assert.notDeepEqual([inergy.coordinates.latitude, inergy.coordinates.longitude], [42.668698, 23.285587], 'the retired owner pair must not be restored')
   for (const row of records.filter(record => record.locationKind === 'service_area')) assert.equal(row.coordinates, null)
 })
 
@@ -689,7 +707,10 @@ test('current source snapshots and massage-only booking do not import obsolete f
   assert.equal(arena.openingHours, undefined, 'general gym hours are not specialist schedules')
   const wai = SOFIA_CATALOGUE.find(row => row.id === 'sofia-wai-thai-manastirski')
   assert.deepEqual(wai.services.map(service => service.price.amount), [100, 135, 180])
-  assert.equal(wai.coordinates, null, 'an embedded viewport is not the business destination')
+  assertReviewedCoordinates(wai, null)
+  assert.equal(wai.coordinates.method, 'verified_official_address', 'an official address review, not the historical embedded viewport, supplies the current point')
+  assert.equal(wai.coordinates.addressId, '108448')
+  assert.deepEqual([wai.coordinates.latitude, wai.coordinates.longitude], [42.66479127840401, 23.28596151789669])
 })
 
 test('music lessons and home helper fees preserve actual package validity and supplied equipment', () => {

@@ -1,7 +1,7 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { businessDirectionsAddress, businessMapsDirectionsUrl } from '../lib/business-directions.mjs'
-import { REVIEWED_BUSINESS_DESTINATIONS } from '../lib/business-directions-reviewed.mjs'
+import { REVIEWED_BUSINESS_DESTINATIONS, REVIEWED_NATIVE_BUSINESS_DESTINATIONS, reviewedBusinessDestination } from '../lib/business-directions-reviewed.mjs'
 import { businessDirectionsUrl, businessMapUrl } from '../lib/business-profile.mjs'
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 import { approvedCatalogueRecord } from '../lib/discovery/catalogue-policy.mjs'
@@ -36,6 +36,71 @@ test('the two owner-reported regressions use their exact distinct displayed prem
     assert.notEqual(destination(row), `${row.coordinates.latitude},${row.coordinates.longitude}`)
     assert.equal(businessDirectionsUrl(row), railDirections(row))
   }
+})
+
+test('reviewed native directions use confirmed business pins without rewriting addresses or distance coordinates', () => {
+  assert.equal(REVIEWED_NATIVE_BUSINESS_DESTINATIONS.length, 3)
+  assert.equal(new Set(REVIEWED_NATIVE_BUSINESS_DESTINATIONS.map(row => row.id)).size, 3)
+  for (const reviewed of REVIEWED_NATIVE_BUSINESS_DESTINATIONS) {
+    assert.ok(Object.isFrozen(reviewed))
+    assert.ok(Object.isFrozen(reviewed.addresses))
+    assert.equal(new URL(reviewed.sourceUrl).protocol, 'https:')
+    for (const address of reviewed.addresses) {
+      const row = {
+        id: reviewed.id, source: 'gorez', city: 'София', cityCode: '68134', address,
+        coordinates: { latitude: 42.61, longitude: 23.11 },
+        public_profile: { latitude: 42.62, longitude: 23.12 },
+      }
+      const before = JSON.stringify(row)
+      const point = `${reviewed.latitude},${reviewed.longitude}`
+      if (reviewed.mapsUrl) assert.equal(businessMapsDirectionsUrl(row), reviewed.mapsUrl)
+      else assert.equal(destination(row), point)
+      assert.equal(businessDirectionsAddress(row), address + ', България')
+      assert.equal(businessDirectionsUrl(row), railDirections(row))
+      assert.equal(JSON.stringify(row), before, 'directions must not correct a public DTO or stored distance pin')
+    }
+  }
+  const kerelski = REVIEWED_NATIVE_BUSINESS_DESTINATIONS.find(row => row.id === 'f309d060-d96d-4237-8fa6-00db10b7ac3d')
+  assert.deepEqual(kerelski.addresses, [
+    'София, ж.к Манастирски ливади, ул. Пирин 81',
+    'София, ж.к Манастирски ливади, ул. Пирин 83',
+    'София, Манастирски ливади, ул. Пирин 83',
+  ])
+  assert.deepEqual([kerelski.latitude, kerelski.longitude], [42.66385031216646, 23.284281405717884])
+  const aim = REVIEWED_NATIVE_BUSINESS_DESTINATIONS.find(row => row.id === '2ddceca9-1716-4ba2-bf63-2beaf0857afb')
+  assert.deepEqual(aim.addresses, ['София, Дианабад, Ул.Русаля'])
+  assert.deepEqual([aim.latitude, aim.longitude], [42.665669, 23.347636])
+  const autocomplex = REVIEWED_NATIVE_BUSINESS_DESTINATIONS.find(row => row.id === '6b57b901-acd8-494b-a992-2cec551b4b00')
+  assert.equal(autocomplex.mapsUrl, 'https://maps.app.goo.gl/uB57z7Nd9Nr5xTmw7')
+  assert.equal(autocomplex.latitude, undefined, 'no provider point copied from the owner-selected map link')
+})
+
+test('native reviewed pins require exact source, business ID and address and cannot be supplied by callers', () => {
+  for (const reviewed of REVIEWED_NATIVE_BUSINESS_DESTINATIONS) {
+    const row = { id: reviewed.id, source: 'gorez', city: 'София', address: reviewed.addresses[0] }
+    const point = `${reviewed.latitude},${reviewed.longitude}`
+    for (const changed of [
+      { ...row, id: '00000000-0000-4000-8000-000000000000' },
+      { ...row, source: 'catalogue' },
+      { ...row, source: undefined },
+      { ...row, source: 'unknown' },
+      { ...row, address: row.address + 'А' },
+      { ...row, address: 'София, ул. Нов адрес 19' },
+    ]) {
+      assert.equal(reviewedBusinessDestination(changed), null)
+      assert.notEqual(destination(changed), point)
+      assert.equal(destination(changed), businessDirectionsAddress(changed))
+    }
+    const injected = {
+      ...row, mapsUrl: 'https://evil.example', destination: 'Caller override',
+      directionsUrl: 'https://evil.example', reviewedDestination: { latitude: 42.7, longitude: 23.3 },
+      latitude: 42.7, longitude: 23.3, coordinates: { latitude: 42.7, longitude: 23.3 },
+    }
+    if (reviewed.mapsUrl) assert.equal(businessMapsDirectionsUrl(injected), reviewed.mapsUrl)
+    else assert.equal(destination(injected), point)
+    assert.equal(businessMapsDirectionsUrl({ ...row, locationKind: 'service_area' }), null)
+  }
+  assert.equal(Object.isFrozen(REVIEWED_NATIVE_BUSINESS_DESTINATIONS), true)
 })
 
 test('city and country are explicit, deduplicated, and never confused with boulevard Bulgaria', () => {
@@ -94,8 +159,8 @@ test('every catalogue record routes to its postal address, exact reviewed owner 
 })
 
 test('reviewed landmark destinations are branch/address-bound and cannot override moved venues or partner profiles', () => {
-  assert.equal(REVIEWED_BUSINESS_DESTINATIONS.length, 9)
-  assert.equal(new Set(REVIEWED_BUSINESS_DESTINATIONS.map(row => row.id)).size, 9)
+  assert.equal(REVIEWED_BUSINESS_DESTINATIONS.length, 19)
+  assert.equal(new Set(REVIEWED_BUSINESS_DESTINATIONS.map(row => row.id)).size, 19)
   for (const reviewed of REVIEWED_BUSINESS_DESTINATIONS) {
     const raw = SOFIA_CATALOGUE.find(row => row.id === reviewed.id)
     assert.equal(raw.address, reviewed.address, reviewed.id)
@@ -109,6 +174,7 @@ test('reviewed landmark destinations are branch/address-bound and cannot overrid
     ['sofia-niko-09',42.6611919,23.390778],
     ['sofia-tennis-lyulin-6',42.707625017444485,23.256896419547754],
     ['sofia-autotest-gtp-4-kilometar',42.668101430658695,23.36885723387535],
+    ['sofia-katerene-europe-private',42.6716059,23.3958986],
   ]) {
     const row = SOFIA_CATALOGUE.find(row => row.id === id)
     assert.deepEqual([row.coordinates.latitude,row.coordinates.longitude],[latitude,longitude])

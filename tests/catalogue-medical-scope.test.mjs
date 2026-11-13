@@ -60,7 +60,9 @@ test('the total inventory has a bounded capacity above the target without relaxi
 test('operational reporting distinguishes added businesses from removed publication eligibility', () => {
   const fixture = find('sofia-medica-62'), clinic = find('sofia-park-clinic')
   const baseline = { version: 1, capturedOn: '2026-11-11', sourceCount: 2, records: [fixture, clinic].map(({ id, category, neighborhood }) => ({ id, category, neighborhood })) }
-  const newlyReviewed = { ...fixture, id: 'sofia-test-new-dental', name: 'Test new dental', neighborhood: 'Борово' }
+  // A fictional new address/quarter cannot inherit another venue's municipal
+  // point binding merely because the rest of this test fixture is cloned.
+  const newlyReviewed = { ...fixture, id: 'sofia-test-new-dental', name: 'Test new dental', coordinates: null, neighborhood: 'Борово' }
   const report = catalogueExpansionReport([fixture, clinic, newlyReviewed], { now, baseline })
   assert.equal(report.sourceRecords, 3)
   assert.equal(report.currentlyEligible, 2)

@@ -1,9 +1,11 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
+import approvedLocations from '../public/catalogue-official-address-points-20261113.json' with { type: 'json' }
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
-import { NEIGHBORHOOD_20261111_REVIEWS as reviews } from '../lib/discovery/catalogue-data/neighborhood-expansion-20261111.mjs'
+import { NEIGHBORHOOD_20261111_RECORDS as sourceRecords, NEIGHBORHOOD_20261111_REVIEWS as reviews } from '../lib/discovery/catalogue-data/neighborhood-expansion-20261111.mjs'
 import { approvedCatalogueRecord } from '../lib/discovery/catalogue-policy.mjs'
 import { assessPricingReview } from '../lib/discovery/catalogue-pricing-review.mjs'
+import { OFFICIAL_SOFIA_SOURCE_URL, OFFICIAL_SOFIA_ATTRIBUTION } from '../lib/discovery/official-sofia-address-source.mjs'
 
 const now = Date.parse('2026-11-11T12:00:00Z')
 const get = id => {
@@ -12,6 +14,33 @@ const get = id => {
   return row
 }
 const amounts = row => row.services.map(service => service.price?.amount)
+const sources = new Map(sourceRecords.map(row => [row.id, row]))
+const approvedPoints = new Map(approvedLocations.points.map(row => [row.id, row]))
+const officialRns = Object.freeze({
+  'sofia-royalbarbershop-nikolayhaytov18': '118166',
+  'sofia-sassy-faces-siyana-bigla64': '96806',
+  'sofia-lstyle-beauty-belitebrezi43': '19263',
+  'sofia-osanna-relax-sheynovo': '41457',
+  'sofia-float-zone-doyran': '20915',
+  'sofia-autokings-ekaterina-nencheva': '114931',
+})
+const assertReviewedCoordinates = row => {
+  const original = sources.get(row.id), expected = approvedPoints.get(row.id), rn = officialRns[row.id]
+  assert.ok(original, row.id)
+  assert.equal(original.coordinates, null, 'raw owner records must not acquire inferred points')
+  assert.equal(Boolean(expected), rn !== undefined, 'only the explicitly reviewed batch subset may become located')
+  if (rn === undefined) assert.equal(row.coordinates, null, row.id)
+  else {
+    assert.deepEqual(row.coordinates, expected.coordinates, row.id)
+    assert.equal(expected.officialAddress.rn, rn, row.id)
+    assert.deepEqual(row.coordinates, { ...expected.coordinates, method: 'verified_official_address', source: OFFICIAL_SOFIA_SOURCE_URL,
+      sourceAddress: row.address, sourceCityCode: row.cityCode, sourceNeighborhood: row.neighborhood, sourceWebsite: row.website,
+      addressId: rn, checkedOn: '2026-11-13', licence: 'CC-BY-4.0', attribution: OFFICIAL_SOFIA_ATTRIBUTION }, row.id)
+    assert.equal(expected.previousCoordinates, null, row.id)
+  }
+  assert.deepEqual(row.services, original.services, 'location review must not change literal service or price facts')
+  assert.deepEqual(row.booking, original.booking, 'location review must not change booking destinations')
+}
 const cohort = [
   'sofia-studio617-vrabnitsa-zlatenklas27', 'sofia-royalbarbershop-nikolayhaytov18',
   'sofia-djotex-home-appliance-service', 'sofia-sosuslugite-home-appliance-diagnostic',
@@ -29,10 +58,11 @@ test('batch301 adds17 unique independently reviewed operators and49 literal fee 
   assert.equal(new Set(rows.map(row => row.id)).size, 17)
   assert.equal(new Set(rows.map(row => new URL(row.website).hostname.replace(/^www\./, ''))).size, 17)
   assert.equal(rows.reduce((n, row) => n + row.services.length, 0), 49)
+  assert.deepEqual(cohort.filter(id => approvedPoints.has(id)).sort(), Object.keys(officialRns).sort())
   for (const row of rows) {
     assert.ok(approvedCatalogueRecord(row, now), row.id)
     assert.equal(assessPricingReview(row, reviews.find(review => review.id === row.id), now).state, 'reviewed', row.id)
-    assert.equal(row.coordinates, null, 'a known street is not a fabricated precise point')
+    assertReviewedCoordinates(row)
     assert.ok(row.services.every(service => service.price?.currency === 'EUR'))
     assert.equal(SOFIA_CATALOGUE.filter(item => item.id === row.id).length, 1)
   }

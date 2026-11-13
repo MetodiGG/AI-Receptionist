@@ -3,6 +3,61 @@
 Prepared independently from the unpublished catalogue expansion, from published
 commit `1ab07e29ec9bc053e53a661b592fedf5c28cf2a4`.
 
+## Completed address review follow-up
+
+All **981 existing catalogue records and six public active partners** were
+included in the local metadata/address comparison. This is not a claim that
+every entrance was independently visited or verified.
+
+- The approved one-time Nominatim cohort is complete: 165 targets, 156 fresh
+  requests, nine cached/duplicate savings, one process at 2.1-second intervals.
+  It supplied too few exact house-number matches to resolve the full inventory.
+  The approval is now **network-closed**, including its unused request allowance.
+  Frozen identities and cache-ledger tests prevent a future inventory from
+  silently spending it again. No client coordinates, contacts or booking data
+  were sent. Reclassification and subsequent matching were fully offline.
+- Downloaded the official **GIS Sofia / Sofia Municipality** address register
+  once. Its CC BY 4.0 snapshot of 2026-08-28 contains 125,245 points, 83,189 in
+  Sofia. SHA-256: `b3173733d4356d34eef9549dee8cff14cf3ed17184e7724081120ca504b8208a`.
+  No business addresses were transmitted to the municipality. The 40 MB source
+  remains outside the repository and customer/runtime bundles.
+- Added **359 previously missing exact postal-address points** and replaced
+  **seven confirmed bad pairs**: IN Beauty, San Krasi, Carbox, Xzona, Rhythm
+  Academy, Classy and Inergy Borovo. Coordinates come unchanged from the
+  municipal register, not from Google. Each has its original address row/RN,
+  dataset source, licence, review date and exact address/city/quarter/website
+  binding. New owner pins cannot be overwritten by an older frozen match.
+- The register contains duplicate address metadata, sometimes kilometres apart.
+  No nearest/first/centroid rule resolves duplicates. IN Beauty was manually
+  disambiguated to northern RN **113534**, using the owner's address and visual
+  named-business corroboration. Southern RN3883 was not selected automatically.
+- Manually inspected all eight existing-point discrepancies above 75 m.
+  Five were corrected (Carbox, Xzona, Rhythm, Classy and Inergy); AutoXpert,
+  Shining and the Europe sports hall retain their more specific venue points.
+  A campus postal-number point is not necessarily the actual building entrance.
+- Corrected directions are exact-business/address-bound. AIM uses the user's
+  confirmed public business pin; Autocomplexrs uses its owner's published named
+  venue map, without copying a provider coordinate. Kerelski's current/pending
+  №81/№83 variants direct to the user-confirmed №83 owner marker. Its production
+  address/quarter/pin correction was separately approved and applied through the
+  existing admin editor with audit reasons. Public page and directory readback
+  confirm **София, Манастирски ливади, ул. Пирин 83**, stored quarter and owner
+  point `42.66385031216646,23.284281405717884`. Services, prices and reservations
+  were not edited; the street field contains only `ул. Пирин 83`, not a duplicate
+  quarter. The temporary legacy address variants remain strictly ID-bound.
+- Existing OSM receipts and their public ODbL export remain byte-identical. The
+  new CC BY subset and compact source/licence credit are separate. Retired
+  wrong points cannot be revived by changing their source or adding metadata.
+
+Source: https://urbandata.sofia.bg/dataset/address_sofia-zip
+Licence: https://creativecommons.org/licenses/by/4.0/
+
+Frozen derived subset: `public/catalogue-official-address-points-20261113.json`.
+Per-record report: `all-locations-audit-20261113.json`.
+Offline replay: `node scripts/verify-official-sofia-address-subset.mjs --dataset /absolute/path/address_sofia.geojson`.
+Executed replay: **366/366 points reproduced unchanged**; 365 unique matches and
+one explicitly approved duplicate disambiguation.
+
 ## Confirmed findings
 
 - IN Beauty's live owner contact page, `https://inbeauty.bg/kontakti`, names
@@ -66,12 +121,13 @@ commit `1ab07e29ec9bc053e53a661b592fedf5c28cf2a4`.
 ## Audit coverage and limits
 
 `node scripts/audit-catalogue-locations.mjs` reads all 981 current raw catalogue
-records: 873 premises and 108 service-area providers; 207 remaining points,
-161 owner-published and 46 previously address-geocoded; 774 records without a
-point. No invalid numeric points, out-of-Sofia bounds, service-area pins or
-OSM source-address mismatches were found. Among currently eligible records,
-159 owner points and 43 OSM points are published. The 23 owner-excluded medical
-listings remain excluded. No default city-centre points were assigned.
+records: 873 premises and 108 service-area providers; **567 usable points**,
+158 owner-published, 43 historical OSM and 366 official postal points; 414 rows
+without a point. Among the **958 currently eligible listings**, 562 have points,
+288 physical premises remain unlocated, and 108 service-area providers correctly
+have no fixed point. No invalid types/bounds, source-address binding mismatches,
+service-area pins or unknown methods were found. The 23 owner-excluded medical
+listings remain excluded. No city-centre point is assigned to a business.
 
 The source checks also covered the staged expansion locally, but none of its
 221 unpublished additions are included in this isolated hotfix. Two additional
@@ -82,22 +138,23 @@ The six public active partner records were read without authentication: four
 have numeric pins and two are currently unlocated. Bounds/type checks do not
 prove the four actual venues geographically correct.
 
-**Not completed:** independent address-to-point verification of every owner
-point. A separate, bounded one-time Nominatim permission request (up to 165
-public business addresses, cached, one process, at most 1 request/second) is
-pending. No new geocoding batch has run. Existing cache entries were inspected,
-not misrepresented as new verification. User/device GPS and the user's private
-current-location destination were not saved in the repository or sent to a
-geocoder. No production business/profile/booking writes or notifications.
+**Remaining limitation:** 288 eligible physical premises still lack an
+unambiguous exact point. Existing owner/OSM points are distinguished from the
+new official subset; metadata validity and approximate corroboration do not
+certify an entrance. Ambiguous, numberless and unresolved addresses are not
+assigned guessed distances. User/device GPS and the user's private current
+location were not saved in the repository or sent to a geocoder. No production
+bookings or notifications were created. The one separately approved Kerelski
+profile correction and deployment are tracked independently below.
 
 Policy for the proposed one-time check:
 https://operations.osmfoundation.org/policies/nominatim/
 
 ## Validation
 
-Final integrated results:
+Final integrated results after the municipal review:
 
-- `pnpm test`: **1,980 / 1,980 passed**, final run 50.7 seconds.
+- `pnpm test`: **2,042 / 2,042 passed**, final run 45.8 seconds.
 - `pnpm catalogue:check`: passed; 8,924 / 8,924 eligible catalogue service
   rows have specific photos, zero neutral/missing/invalid images; 1,104 reviewed
   generated photos have complete provenance. The updated six-partner fixture
@@ -123,4 +180,5 @@ Mobile/desktop screenshot proof is saved in the thread's visualization folder,
 `location-photo-hotfix-20261113`. The real thumbnail rendered at 56–60 px, with
 no horizontal document overflow at 360, 390, 430, 768 and 1280 px.
 
-No deployment has been performed.
+Deployment is approved by the user, but must be confirmed from the actual
+release and public response before being reported as complete.

@@ -1,10 +1,12 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
+import approvedLocations from '../public/catalogue-official-address-points-20261113.json' with { type: 'json' }
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
-import { NEIGHBORHOOD_20261111_REVIEWS as reviews } from '../lib/discovery/catalogue-data/neighborhood-expansion-20261111.mjs'
+import { NEIGHBORHOOD_20261111_RECORDS as sourceRecords, NEIGHBORHOOD_20261111_REVIEWS as reviews } from '../lib/discovery/catalogue-data/neighborhood-expansion-20261111.mjs'
 import { approvedCatalogueRecord } from '../lib/discovery/catalogue-policy.mjs'
 import { assessPricingReview } from '../lib/discovery/catalogue-pricing-review.mjs'
 import { businessMapsDirectionsUrl } from '../lib/business-directions.mjs'
+import { OFFICIAL_SOFIA_SOURCE_URL, OFFICIAL_SOFIA_ATTRIBUTION } from '../lib/discovery/official-sofia-address-source.mjs'
 
 const now=Date.parse('2026-11-11T12:00:00Z')
 const ids=[
@@ -15,6 +17,33 @@ const ids=[
 ]
 const get=id=>{const row=SOFIA_CATALOGUE.find(row=>row.id===id);assert.ok(row,id);return row}
 const amounts=row=>row.services.map(service=>service.price.amount)
+const sources=new Map(sourceRecords.map(row=>[row.id,row]))
+const approvedPoints=new Map(approvedLocations.points.map(row=>[row.id,row]))
+const officialRns=Object.freeze({
+  'sofia-musicroom-hristo-botev129':'50038',
+  'sofia-dreamers-balgarska-morava94a':'108403',
+  'sofia-lingua-lux-pirotska20':'46889',
+  'sofia-educenter-marin-drinov1':'43795',
+  'sofia-be-alarm-systems-ovcha-kupel':'38926',
+  'sofia-lash-vegas-bulgaria53':'97874',
+})
+const assertReviewedCoordinates=row=>{
+  const original=sources.get(row.id),expected=approvedPoints.get(row.id),rn=officialRns[row.id]
+  assert.ok(original,row.id)
+  assert.equal(original.coordinates,null,'raw owner records must not acquire inferred points')
+  assert.equal(Boolean(expected),rn!==undefined,'only the explicitly reviewed batch subset may become located')
+  if(rn===undefined)assert.equal(row.coordinates,null,row.id)
+  else{
+    assert.deepEqual(row.coordinates,expected.coordinates,row.id)
+    assert.equal(expected.officialAddress.rn,rn,row.id)
+    assert.deepEqual(row.coordinates,{...expected.coordinates,method:'verified_official_address',source:OFFICIAL_SOFIA_SOURCE_URL,
+      sourceAddress:row.address,sourceCityCode:row.cityCode,sourceNeighborhood:row.neighborhood,sourceWebsite:row.website,
+      addressId:rn,checkedOn:'2026-11-13',licence:'CC-BY-4.0',attribution:OFFICIAL_SOFIA_ATTRIBUTION},row.id)
+    assert.equal(expected.previousCoordinates,null,row.id)
+  }
+  assert.deepEqual(row.services,original.services,'location review must not change literal service or price facts')
+  assert.deepEqual(row.booking,original.booking,'location review must not change booking destinations')
+}
 
 test('batch322 adds seven independently reviewed actual premises of seven operators and63 literal fees',()=>{
   const rows=ids.map(get)
@@ -31,9 +60,10 @@ test('batch322 adds seven independently reviewed actual premises of seven operat
   }
 })
 
-test('unknown points stay null; directions retain each actual postal address, not a city or map viewport',()=>{
+test('only exact approved municipal points replace raw unknowns; directions retain each actual postal address',()=>{
+  assert.deepEqual(ids.filter(id=>approvedPoints.has(id)).sort(),Object.keys(officialRns).sort())
   for(const row of ids.map(get)){
-    assert.equal(row.coordinates,null)
+    assertReviewedCoordinates(row)
     const url=new URL(businessMapsDirectionsUrl(row))
     assert.ok(url.searchParams.get('destination').startsWith(row.address))
     assert.equal(url.searchParams.has('origin'),false)

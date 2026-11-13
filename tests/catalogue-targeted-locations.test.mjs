@@ -6,6 +6,7 @@ import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 import { catalogueStreetAddress, matchCatalogueGeocode } from '../lib/discovery/catalogue-geocoding.mjs'
 import { normalizeCatalogueBusinesses, rankCatalogueBusinesses } from '../lib/discovery/catalogue-search.mjs'
 import { discoveryDistanceOrigin, distanceBadge } from '../lib/discovery/distance-origin.mjs'
+import { reviewCatalogueLocation } from '../lib/discovery/catalogue-location-review.mjs'
 
 const json = async path => JSON.parse(await readFile(new URL(path, import.meta.url), 'utf8'))
 const clock = Date.parse('2026-11-10T10:00:00Z')
@@ -33,9 +34,21 @@ test('six accepted points reproduce from exact structured addresses; a supermark
     assert.deepEqual(matchCatalogueGeocode(row, cache[key], '2026-11-06'), update)
   }
   assert.equal(updates.length, 7)
-  assert.equal(SOFIA_CATALOGUE.find(row => row.id === 'sofia-zona-wash').coordinates, null)
+  const zona = SOFIA_CATALOGUE.find(row => row.id === 'sofia-zona-wash')
+  assert.equal(zona.coordinates.method, 'verified_official_address')
+  assert.equal(zona.coordinates.addressId, '94909')
+  assert.equal(zona.coordinates.sourceAddress, zona.address)
   assert.ok(!updates.some(row => row.id === 'sofia-zona-wash'))
-  assert.ok(cache[JSON.stringify({ street: '3 Филип Аврамов', city: 'София', country: 'България' })].some(row => row.type === 'supermarket'))
+  const zonaCandidates = cache[JSON.stringify({ street: '3 Филип Аврамов', city: 'София', country: 'България' })]
+  assert.ok(zonaCandidates.some(row => row.type === 'supermarket'))
+  // Historical address-only parsing could produce this shop's postal point;
+  // it was manually omitted from the accepted batch, never a venue pin.
+  const supermarket = zonaCandidates.find(row => row.type === 'supermarket')
+  const conservative = reviewCatalogueLocation(zona, [supermarket], '2026-11-13')
+  assert.equal(conservative.status, 'unresolved')
+  assert.equal(conservative.matched, null)
+  assert.ok(conservative.rejectedCandidates.some(row => row.reason === 'unrelated_or_unnamed_poi_at_same_address'))
+  assert.ok(Math.abs(zona.coordinates.latitude - Number(supermarket.lat)) > .000001 || Math.abs(zona.coordinates.longitude - Number(supermarket.lon)) > .000001)
   for (const id of ['sofia-shun-dojo-nsa', 'sofia-beauty-studio-marry-kuklata', 'sofia-beauty-studio-marry-moskovska']) {
     assert.equal(SOFIA_CATALOGUE.find(row => row.id === id).coordinates, null, id)
   }

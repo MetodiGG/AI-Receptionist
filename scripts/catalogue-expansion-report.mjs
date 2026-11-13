@@ -5,6 +5,7 @@ import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 import { approvedCatalogueRecord, EXCLUDED_GENERAL_CLINIC_IDS } from '../lib/discovery/catalogue-policy.mjs'
 import { currentPublishedFact } from '../lib/discovery/business-details.mjs'
 import { categoryById } from '../lib/discovery/categories.mjs'
+import { catalogueBoundCoordinates } from '../lib/discovery/catalogue-coordinate-binding.mjs'
 
 const bgOrder = (a, b) => a.localeCompare(b, 'bg')
 const counts = rows => {
@@ -71,6 +72,19 @@ function baselineRows(baseline) {
   return baseline.records
 }
 
+export function reportLocationCoverage(rows) {
+  const located = rows.filter(row => catalogueBoundCoordinates(row))
+  return {
+    located: located.length,
+    unlocatedPremises: rows.filter(row => row.locationKind === 'premises' && !catalogueBoundCoordinates(row)).length,
+    serviceAreaProviders: rows.filter(row => row.locationKind === 'service_area').length,
+    heldCoordinates: rows.filter(row => row.coordinates && !catalogueBoundCoordinates(row)).length,
+    firstPartyPoints: located.filter(row => row.coordinates.method === 'first_party_coordinates').length,
+    reviewedOsmAddressPoints: located.filter(row => row.coordinates.method === 'verified_address_geocode').length,
+    officialSofiaAddressPoints: located.filter(row => row.coordinates.method === 'verified_official_address').length,
+  }
+}
+
 export function catalogueExpansionReport(records = SOFIA_CATALOGUE, { now = Date.now(), baseline = null } = {}) {
   const oldRows = baselineRows(baseline), oldIds = new Set(oldRows.map(row => row.id))
   const published = records.map(row => approvedCatalogueRecord(row, now)).filter(Boolean)
@@ -87,6 +101,7 @@ export function catalogueExpansionReport(records = SOFIA_CATALOGUE, { now = Date
     categories: counts(published),
     businessTypes: businessTypes(published),
     neighborhoods: areas(published),
+    locations: reportLocationCoverage(published),
     comparison: baseline ? {
       capturedOn: baseline.capturedOn, baselineSourceRecords: oldRows.length,
       addedBusinesses: added.length,
@@ -96,6 +111,7 @@ export function catalogueExpansionReport(records = SOFIA_CATALOGUE, { now = Date
       addedCurrentPriceFacts: added.reduce((sum, row) => sum + row.services.filter(service => currentPublishedFact(service.price, now)).length, 0),
       addedPremises: added.filter(row => row.locationKind === 'premises').length,
       addedMobileProviders: added.filter(row => row.locationKind === 'service_area').length,
+      addedLocations: reportLocationCoverage(added),
       addedByNeighborhood: areas(added),
       // Keep the original all-record grouping for previous consumers, but
       // never report one mobile operator as a venue in every served quarter.
@@ -111,7 +127,7 @@ export function catalogueExpansionReport(records = SOFIA_CATALOGUE, { now = Date
         id: row.id, reason: excludedIds.has(row.id) ? 'owner_excluded_general_human_clinic' : 'absent_or_no_longer_publicly_eligible',
       })),
     } : null,
-    notice: 'Counts are unique catalogue businesses, not services or specialists. A missing neighborhood is not guessed. Additions compare against a separate operational baseline, never the historical pricing-review baseline.',
+    notice: 'Counts are unique catalogue businesses, not services or specialists. A missing neighborhood is not guessed. Located means an address-bound source point, not a verified business entrance. Additions compare against a separate operational baseline, never the historical pricing-review baseline.',
   }
 }
 

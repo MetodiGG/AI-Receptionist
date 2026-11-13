@@ -134,6 +134,7 @@ test('native profile DTO filters only presentation; raw getPublicBusiness and ex
   const toPublicBusiness = new Function('visiblePublicServices', 'publicProfileDetails', 'getBusinessPhotos', 'notificationAvailability', 'process', `return (${fn.replace(/^export /, '')})`)(visiblePublicServices, () => ({}), row => row.photos || [], () => ({}), { env: {} })
   const raw = business(undefined, { contact_email: 'private@example.invalid', privacy_contact_email: 'privacy@example.invalid', email_notifications_enabled: true }), before = JSON.stringify(raw)
   const dto = toPublicBusiness(raw)
+  assert.equal(dto.source, 'gorez', 'native profile directions receive an explicit server-derived source')
   assert.deepEqual(dto.services.map(row => row.id), real.map(row => row.id))
   assert.equal(dto.staffServices, raw.staffServices)
   assert.ok(!('contact_email' in dto) && !('privacy_contact_email' in dto))

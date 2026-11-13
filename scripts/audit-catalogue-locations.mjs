@@ -1,6 +1,7 @@
 import { parseArgs } from 'node:util'
 import { resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { OFFICIAL_SOFIA_SOURCE_URL, OFFICIAL_SOFIA_ATTRIBUTION } from '../lib/discovery/official-sofia-address-source.mjs'
 
 // Read-only, local source-metadata audit. No geocoding, provider calls,
 // visitor/device locations, production reads, source changes or file writes.
@@ -10,7 +11,8 @@ const finitePoint = point => point && Number.isFinite(point.latitude) && Number.
 const inBounds = point => Boolean(finitePoint(point) && point.latitude >= SOFIA_BOUNDS.south && point.latitude <= SOFIA_BOUNDS.north && point.longitude >= SOFIA_BOUNDS.west && point.longitude <= SOFIA_BOUNDS.east)
 const text = value => typeof value === 'string' ? value : null
 const osmSource = value => /^https:\/\/www\.openstreetmap\.org\/(?:node|way|relation)\/[1-9]\d*$/.test(value || '')
-const sameSourcePoint = (a, b) => a && b && a.latitude === b.latitude && a.longitude === b.longitude && a.method === b.method && a.source === b.source
+const validDay = value => typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value) && Number.isFinite(Date.parse(value)) && new Date(value).toISOString().slice(0, 10) === value
+const sameSourcePoint = (a, b) => a && b && ['latitude', 'longitude', 'method', 'source', 'sourceAddress', 'checkedOn', 'licence', 'attribution', 'addressId', 'sourceCityCode', 'sourceNeighborhood', 'sourceWebsite'].every(field => a[field] === b[field])
 
 // Without the production binding resolver, only explicit exact-address
 // metadata is assessable. A missing legacy snapshot never becomes approval.
@@ -27,9 +29,11 @@ export function auditCatalogueLocations(rows, { boundCoordinates = explicitlyBou
     finiteNumericPoints: 0, invalidNumericPoints: 0, inSofiaBounds: 0, outsideSofiaBounds: 0,
     serviceAreasWithCoordinates: 0, firstPartyPublished: 0, firstPartyExplicitAddressBound: 0,
     firstPartyLegacySnapshotBound: 0, firstPartyUnbound: 0,
-    osmAddressCheckedMetadata: 0, osmAddressBindingMismatches: 0, unknownCoordinateMethod: 0,
+    osmAddressCheckedMetadata: 0, osmAddressBindingMismatches: 0,
+    officialAddressPoints: 0, officialAddressCheckedMetadata: 0, officialAddressBindingMismatches: 0,
+    officialContextBindingMismatches: 0, officialSourceMetadataIncomplete: 0, unknownCoordinateMethod: 0,
   }
-  const methods = {}, sources = new Map(), issues = [], records = []
+  const methods = {}, sources = new Map(), categories = new Map(), evidenceClasses = new Map(), issues = [], records = []
   for (const row of rows) {
     if (!row || typeof row !== 'object') throw new TypeError('Expected public catalogue source objects')
     const point = row.coordinates, hasPoint = point !== null && point !== undefined
@@ -73,16 +77,29 @@ export function auditCatalogueLocations(rows, { boundCoordinates = explicitlyBou
       } else if (point.method === 'verified_address_geocode') {
         const addressBound = Boolean(text(row.address) && point.sourceAddress === row.address)
         if (!addressBound) { counts.osmAddressBindingMismatches++; add('osm_source_address_mismatch') }
-        const provenance = osmSource(source) && point.licence === 'ODbL-1.0' && point.attribution === '© OpenStreetMap contributors' && /^\d{4}-\d{2}-\d{2}$/.test(point.checkedOn || '')
+        const provenance = osmSource(source) && point.licence === 'ODbL-1.0' && point.attribution === '© OpenStreetMap contributors' && validDay(point.checkedOn)
         if (!provenance) add('osm_source_metadata_incomplete')
         binding = addressBound && provenance && resolvedMatches ? 'osm_exact_address_metadata' : 'unbound'
         if (binding === 'osm_exact_address_metadata') counts.osmAddressCheckedMetadata++
+      } else if (point.method === 'verified_official_address') {
+        counts.officialAddressPoints++
+        const addressBound = Boolean(text(row.address)?.trim() && point.sourceAddress === row.address)
+        if (!addressBound) { counts.officialAddressBindingMismatches++; add('official_source_address_mismatch') }
+        const quarterValid = point.sourceNeighborhood === null || typeof point.sourceNeighborhood === 'string' && point.sourceNeighborhood.trim().length >= 2 && point.sourceNeighborhood.length <= 120
+        const contextBound = point.sourceCityCode === '68134' && point.sourceCityCode === row.cityCode && quarterValid && point.sourceNeighborhood === row.neighborhood &&
+          Boolean(text(point.sourceWebsite)?.trim()) && point.sourceWebsite === row.website
+        if (!contextBound) { counts.officialContextBindingMismatches++; add('official_source_context_mismatch') }
+        const provenance = source === OFFICIAL_SOFIA_SOURCE_URL && point.licence === 'CC-BY-4.0' && point.attribution === OFFICIAL_SOFIA_ATTRIBUTION &&
+          typeof point.addressId === 'string' && /^[1-9]\d*$/.test(point.addressId) && validDay(point.checkedOn)
+        if (!provenance) { counts.officialSourceMetadataIncomplete++; add('official_source_metadata_incomplete') }
+        binding = addressBound && contextBound && provenance && resolvedMatches ? 'official_exact_address_metadata' : 'unbound'
+        if (binding === 'official_exact_address_metadata') counts.officialAddressCheckedMetadata++
       } else {
         counts.unknownCoordinateMethod++; binding = 'unknown_method'; add('unknown_coordinate_method')
       }
       if (resolved && !sameSourcePoint(point, resolved)) add('binding_resolver_changed_source_point')
       usable = row.locationKind === 'premises' && Boolean(text(row.address)?.trim()) && inBounds(point) && inBounds(resolved) && sameSourcePoint(point, resolved) &&
-        ['explicit_address', 'legacy_snapshot', 'osm_exact_address_metadata'].includes(binding)
+        ['explicit_address', 'legacy_snapshot', 'osm_exact_address_metadata', 'official_exact_address_metadata'].includes(binding)
       if (usable) counts.usableLocated++
       else { counts.heldCoordinates++; if (!codes.length) add('coordinate_not_usable') }
     } else {
@@ -91,28 +108,44 @@ export function auditCatalogueLocations(rows, { boundCoordinates = explicitlyBou
     }
     const record = {
       id: text(row.id), name: text(row.name), cityCode: text(row.cityCode), neighborhood: text(row.neighborhood),
-      address: text(row.address), locationKind: text(row.locationKind),
+      address: text(row.address), locationKind: text(row.locationKind), category: text(row.category),
       coordinates: hasPoint ? {
         latitude: Number.isFinite(point.latitude) ? point.latitude : null,
         longitude: Number.isFinite(point.longitude) ? point.longitude : null,
         method: text(point.method), source: text(point.source), sourceAddress: text(point.sourceAddress), checkedOn: text(point.checkedOn),
+        ...(point.method === 'verified_official_address' ? { addressId: text(point.addressId), sourceCityCode: text(point.sourceCityCode),
+          sourceNeighborhood: text(point.sourceNeighborhood), sourceWebsite: text(point.sourceWebsite), licence: text(point.licence), attribution: text(point.attribution) } : {}),
       } : null,
       coordinateBinding: binding, usableForDistance: usable,
       evidenceClass: point?.method === 'first_party_coordinates' ? 'owner_published_not_independently_address_checked'
-        : binding === 'osm_exact_address_metadata' ? 'independently_address_checked_source_metadata' : 'unknown',
+        : binding === 'osm_exact_address_metadata' ? 'independently_address_checked_source_metadata'
+          : binding === 'official_exact_address_metadata' ? 'official_municipal_address_checked_source_metadata' : 'unknown',
       spatialAccuracyVerifiedByThisAudit: false,
       issues: codes,
     }
     records.push(record)
+    evidenceClasses.set(record.evidenceClass, (evidenceClasses.get(record.evidenceClass) || 0) + 1)
+    const category = record.category || 'unknown'
+    if (!categories.has(category)) categories.set(category, { total: 0, rawLocated: 0, rawUnlocated: 0, usableLocated: 0, heldCoordinates: 0, firstPartyPublished: 0, osmAddressCheckedMetadata: 0, officialAddressCheckedMetadata: 0 })
+    const categoryCounts = categories.get(category)
+    categoryCounts.total++
+    categoryCounts[hasPoint ? 'rawLocated' : 'rawUnlocated']++
+    if (usable) categoryCounts.usableLocated++
+    else if (hasPoint) categoryCounts.heldCoordinates++
+    if (point?.method === 'first_party_coordinates') categoryCounts.firstPartyPublished++
+    if (binding === 'osm_exact_address_metadata') categoryCounts.osmAddressCheckedMetadata++
+    if (binding === 'official_exact_address_metadata') categoryCounts.officialAddressCheckedMetadata++
     if (codes.length) issues.push({ id: record.id, codes })
   }
   return {
     schemaVersion: 1, scope: 'all local catalogue source rows, before coordinate binding; no publication/date filtering',
     bounds: SOFIA_BOUNDS, counts, coordinateMethods: methods, coordinateSourceCount: sources.size,
+    coordinateEvidenceClasses: Object.fromEntries(evidenceClasses), byBusinessCategory: Object.fromEntries(categories),
     coordinateSources: [...sources].map(([source, count]) => ({ source, count })).sort((a, b) => a.source.localeCompare(b.source)),
     limitations: [
       'Owner-published coordinates and exact address/snapshot binding do not establish geographic accuracy.',
       'OSM address-checked counts describe existing source metadata, not a new independent location verification.',
+      'Official municipal address points are exact bound postal-address metadata, not verified business entrances or a new spatial survey.',
       'This audit performs no network, map, geocoding or visitor-location lookup and never creates or corrects a point.',
     ],
     spatialAccuracyVerifiedByThisAudit: false, issues, records,

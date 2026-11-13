@@ -91,7 +91,7 @@ test('only partners get a membership badge, ratings follow services, and exact a
   assert.ok(card.indexOf('home-business-category') < card.indexOf('<PartnerRailReviews'))
   assert.ok(card.indexOf('className="home-business-services"') < card.indexOf('<PartnerRailReviews'))
   assert.match(card, /DiscoveryDistanceBadge origin=\{distanceOrigin\} destination=\{row.coordinates\}/)
-  assert.match(card, /fallbackKm=\{nearby \? row.distanceKm : null\}/)
+  assert.doesNotMatch(card, /fallbackKm=/, 'a cached numeric distance cannot replace its actual origin')
   assert.doesNotMatch(card, /home-business-address/)
   assert.match(card, /DiscoveryBusinessDetails/)
   const details = await read('components/discovery-business-details.js')

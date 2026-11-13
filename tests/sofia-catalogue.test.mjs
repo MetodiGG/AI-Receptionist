@@ -84,9 +84,22 @@ test('draft, rejected, future and expired records cannot appear and never auto-r
   assert.throws(() => validateCatalogue([record(), record()]), /Duplicate catalogue/)
 })
 test('BG and EN natural language find only actual appointment services with one booking action', async () => {
-  for (const [query, expected] of [['маникюр', 'El Gato'], ['manicure', 'El Gato'], ['бръснарница', 'Cut N’Chill by R. Yankoff'], ['детайлинг', 'Nebula Detailing Studio'], ['автомивка', 'AUTOSTEAMCLEAN · мобилна автомивка'], ['bjj', 'Twisted Jiu Jitsu · Хладилника'], ['груминг', 'Мокро Носле'], ['ремонт на апартамент', 'Софийски Ремонти']]) {
+  for (const [query, expected, category] of [['маникюр', 'El Gato', 'nails'], ['manicure', 'El Gato', 'nails'], ['бръснарница', 'Cut N’Chill by R. Yankoff', 'barber'], ['детайлинг', 'Nebula Detailing Studio', 'detailing'], ['автомивка', 'AUTOSTEAMCLEAN · мобилна автомивка', 'car_wash'], ['bjj', 'Twisted Jiu Jitsu · Хладилника', 'fitness'], ['груминг', 'Мокро Носле', 'pets'], ['ремонт на апартамент', 'Софийски Ремонти', 'home_services']]) {
     const result = await discoverBusinesses(input({ query }), deps())
-    assert.ok(result.results.some(row => row.name === expected), query)
+    assert.ok(result.results.length, query)
+    assert.equal(result.intent.category, category, query)
+    for (const row of result.results) {
+      const published = SOFIA_CATALOGUE.find(record => record.id === row.id)
+      assert.ok(row.services.length && row.services.every(service => service.category === category && published.services.some(source => source.name === service.name && source.category === service.category)), query)
+    }
+    const distances = result.results.map(row => row.distanceKm ?? Infinity)
+    assert.ok(distances.every((distance, index) => index === 0 || distance >= distances[index - 1]), 'newly located eligible venues remain ordered by actual centre distance')
+    // A historical example remains service-eligible, but cannot reserve a
+    // first-page position ahead of newer, independently located nearer venues.
+    const example = SOFIA_CATALOGUE.find(row => row.name === expected)
+    assert.ok(example, expected)
+    const isolated = await discoverBusinesses(input({ query }), deps({ readCatalogue: async () => [example] }))
+    assert.ok(isolated.results.some(row => row.id === example.id), query)
     assert.ok(result.results.every(row => row.source === 'catalogue' && row.availability.status === 'external' && !row.availability.slots.length))
     assert.ok(result.results.every(row => railExternalAction(row, clock)), query)
   }

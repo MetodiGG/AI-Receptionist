@@ -7,6 +7,12 @@ import { scheduleRows } from '../../../../../../lib/business-schedule.mjs'
 const handler = createContentHandler({
   authenticate: requireUser, isAdmin: isPlatformAdmin,
   allowAttempt: (request, id) => consumeRateLimit(request, { scope: `business-content:${id}`, limit: 60, windowSeconds: 3600, includeUserAgent: false }),
+  readBusiness: async businessId => {
+    const { data, error } = await getSupabaseAdmin().from('businesses')
+      .select('city_ekatte,neighborhood,address,public_profile,content_revision').eq('id', businessId).maybeSingle()
+    if (error) throw error
+    return data
+  },
   save: async ({ businessId, actorId, revision, section, payload, reason }) => {
     const { error } = await getSupabaseAdmin().rpc('edit_business_content', { p_business: businessId, p_actor: actorId, p_revision: revision, p_section: section, p_payload: section === 'hours' ? { staffId: payload.staffId, hours: scheduleRows(payload.days) } : payload, p_reason: reason })
     if (error) throw error

@@ -2734,6 +2734,29 @@
       }
     },
     {
+      "id": "sx-auto-panel-spray-paint",
+      "label": "Боядисване на автомобилен детайл",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square service thumbnail for a vehicle repair booking website.\nPrimary request: a realistic documentary photograph clearly depicting professional spray painting of one car body panel, for the service Bulgarian 'Боядисване на детайл' (painting one vehicle panel).\nScene/backdrop: clean professional automotive spray booth, bright diffuse booth lights, muted workshop background.\nSubject: an adult professional auto painter wearing proper hooded protective coveralls, nitrile gloves and appropriate full respirator, carefully spraying a silver-grey car door exterior panel mounted securely upright on a painting stand. The painter holds an HVLP paint spray gun with a small top paint cup, nozzle aimed perpendicular to the panel at plausible working distance; a small realistic fan of paint mist travels toward the panel. Show door outline and spray gun clearly together.\nComposition/framing: square medium-close three-quarter documentary photograph, central door panel and spray gun occupy most of the frame so the specific task stays clear at 64px; painter visible partially at side, no focus on face. Natural believable human anatomy and equipment.\nConstraints: show actual panel painting in progress, not body dent repair, hair coloring, a notebook, car polishing, wheel painting, wall painting or a person checking a clipboard. No visible car manufacturer badge, text, business logo, watermarks, collage, borders or overlay. This is a generic AI illustration, not verified work by the business.",
+      "sourceFile": "exec-891465f5-3836-4722-9e0a-2eb73186aa39.png",
+      "sourceSha256": "e704507917069334b9f82d415417dffac5a7657b910adc51ee5639244466e6c7",
+      "file": "public/service-photos/sx-auto-panel-spray-paint-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 8774,
+      "sha256": "827417658111f065842acffba00759796072fe3024a4a688929816cfa54aa38e",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "e704507917069334b9f82d415417dffac5a7657b910adc51ee5639244466e6c7",
+        "reviewers": [
+          "/root",
+          "/root/catalogue_home_education_nov13"
+        ],
+        "method": "Individual source-resolution and optimized-thumbnail visual review; generic panel spray painting, not actual business work"
+      }
+    },
+    {
       "id": "sx-auto-parking-cable",
       "label": "Смяна на жило на ръчна спирачка",
       "prompt": "Use case: photorealistic-natural. Asset type: an individual square service photograph for a GoRez service thumbnail. Show the named activity clearly and realistically, with lifelike fictional people where appropriate, credible real tools/materials, natural hands and professional safe technique. Generic illustrative photograph, NOT actual business premises, staff, verified work or a claim of outcomes. Natural warm-neutral daylight, authentic skin/material texture, restrained editing, close or medium framing legible at64–88px. Square1:1, clear central subject. No typography, labels, prices, logos, watermarks, borders, emoji, CGI or3D render. For a true multi-step combination ONLY, a coherent2–3panel photographic sequence of the SAME fictional client/subject may depict its actual named steps, not unrelated collage.\nService: Смяна на жило на ръчна спирачка\nScene: Mechanic installs a new mechanical parking-brake cable under a raised car, cable guides and rear brake connection visible.",
@@ -23289,9 +23312,9 @@
     }
   ],
   "report": {
-    "required": 1103,
-    "prepared": 1103,
-    "accepted": 1103,
+    "required": 1104,
+    "prepared": 1104,
+    "accepted": 1104,
     "pendingGeneration": [],
     "missingAsset": [],
     "unreviewed": [],

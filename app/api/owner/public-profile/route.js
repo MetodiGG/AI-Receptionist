@@ -9,7 +9,11 @@ const checked = result => { if (result.error) throw result.error; return result.
 export const PATCH = createProfileUpdateHandler({
   authenticate: requireUser,
   ownsBusiness: async (id, owner) => Boolean(checked(await getSupabaseAdmin().from('businesses').select('id').eq('id', id).eq('owner_id', owner).maybeSingle())),
-  update: async (id, owner, patch) => { if (!checked(await getSupabaseAdmin().from('businesses').update(patch).eq('id', id).eq('owner_id', owner).select('id').maybeSingle())) throw new Error('PROFILE_CHANGED') },
+  update: async (id, owner, patch, revision) => {
+    const saved = checked(await getSupabaseAdmin().from('businesses').update(patch).eq('id', id).eq('owner_id', owner).eq('content_revision', revision).select('id,content_revision').maybeSingle())
+    if (!saved) throw new Error('CONTENT_CHANGED')
+    return saved
+  },
   allowAttempt: (request, id) => consumeRateLimit(request, { scope: `profile-update:${id}`, limit: 20, windowSeconds: 60 }),
 })
 

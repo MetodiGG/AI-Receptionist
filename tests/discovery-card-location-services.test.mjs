@@ -85,7 +85,8 @@ test('unknown/malformed prices are never displayed as a free service', () => {
 
 test('card markup provides one location badge, vertical service/price pairs and customer-friendly navigation', async () => {
   const card = await read('components/discovery-business-card.js'), badge = await read('components/discovery-distance-badge.js'), css = await read('app/discovery-home.css')
-  assert.match(card, /fallbackKm=\{nearby \? row.distanceKm : null\} business=\{row\}/)
+  assert.match(card, /locale=\{locale\} business=\{row\}/)
+  assert.doesNotMatch(card, /fallbackKm=/)
   assert.match(badge, /businessLocationBadge\(business, locale\)/)
   assert.match(badge, /<Icon name="pin"\//)
   assert.match(card, /<ul className="home-business-services"/)

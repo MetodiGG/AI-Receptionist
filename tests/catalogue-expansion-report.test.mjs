@@ -1,6 +1,6 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { catalogueExpansionReport, reportBusinessType } from '../scripts/catalogue-expansion-report.mjs'
+import { catalogueExpansionReport, reportBusinessType, reportLocationCoverage } from '../scripts/catalogue-expansion-report.mjs'
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 import { NEIGHBORHOOD_20261111_RECORDS } from '../lib/discovery/catalogue-data/neighborhood-expansion-20261111.mjs'
 import { readFile } from 'node:fs/promises'
@@ -40,12 +40,30 @@ test('expansion report counts unique new businesses separately from services, pr
 test('reporting groups explicit Manastirski east/west wording without changing sourced neighborhoods', () => {
   const seed = SOFIA_CATALOGUE.find(row => row.id === 'sofia-ginka-georgieva-healing-words')
   const rows = [
-    { ...seed, id: 'sofia-report-east', neighborhood: 'Манастирски ливади Изток' },
-    { ...seed, id: 'sofia-report-west', neighborhood: 'Манастирски ливади – Запад' },
+    { ...seed, id: 'sofia-report-east', coordinates: null, neighborhood: 'Манастирски ливади Изток' },
+    { ...seed, id: 'sofia-report-west', coordinates: null, neighborhood: 'Манастирски ливади – Запад' },
   ]
   const report = catalogueExpansionReport(rows, { now: Date.parse('2026-11-11T12:00:00Z') })
   assert.equal(report.neighborhoods.length, 1)
   assert.equal(report.neighborhoods[0].neighborhood, 'Манастирски ливади')
   assert.equal(report.neighborhoods[0].businesses, 2)
   assert.equal(rows[0].neighborhood, 'Манастирски ливади Изток')
+})
+
+test('official points count as located separately from owner and OSM metadata, without adding businesses or weakening source binding', () => {
+  const find = method => SOFIA_CATALOGUE.find(row => row.coordinates?.method === method && row.id !== 'sofia-in-beauty')
+  const official = find('verified_official_address'), owner = find('first_party_coordinates'), osm = find('verified_address_geocode')
+  const mobile = SOFIA_CATALOGUE.find(row => row.locationKind === 'service_area')
+  const unknown = { ...official, id: 'sofia-report-unlocated', coordinates: null }
+  const moved = { ...official, id: 'sofia-report-stale-point', neighborhood: official.neighborhood === 'Борово' ? 'Изгрев' : 'Борово' }
+  const before = JSON.stringify([official, owner, osm, mobile, unknown, moved])
+  assert.deepEqual(reportLocationCoverage([official, owner, osm, mobile, unknown, moved]), {
+    located: 3, unlocatedPremises: 2, serviceAreaProviders: 1, heldCoordinates: 1,
+    firstPartyPoints: 1, reviewedOsmAddressPoints: 1, officialSofiaAddressPoints: 1,
+  })
+  assert.equal(JSON.stringify([official, owner, osm, mobile, unknown, moved]), before)
+  const current = catalogueExpansionReport(SOFIA_CATALOGUE, { now: Date.parse('2026-11-13T12:00:00Z') })
+  assert.equal(current.locations.officialSofiaAddressPoints, 366)
+  assert.equal(current.locations.firstPartyPoints + current.locations.reviewedOsmAddressPoints + current.locations.officialSofiaAddressPoints, current.locations.located)
+  assert.equal(current.locations.located + current.locations.unlocatedPremises + current.locations.serviceAreaProviders, current.currentlyEligible)
 })

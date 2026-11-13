@@ -20,6 +20,6 @@ const examples = [
 export function HomepageDesignFixture({ locale, scenario }) {
   const { locale: activeLocale } = usePublicLocale(locale)
   const [locationCalls, setLocationCalls] = useState(0)
-  const provider = (unused, options) => { setLocationCalls(value => value + 1); return requestDiscoveryLocation({ getCurrentPosition(success, fail) { if (scenario === 'denied') fail({ code: 1 }); else if (scenario === 'pending') setTimeout(() => success({ coords: origin }), 2500); else success({ coords: origin }) } }, options) }
+  const provider = (unused, options) => { setLocationCalls(value => value + 1); return requestDiscoveryLocation({ getCurrentPosition(success, fail) { const grant = () => success({ coords: { ...origin, accuracy: 10 }, timestamp: Date.now() }); if (scenario === 'denied') fail({ code: 1 }); else if (scenario === 'pending') setTimeout(grant, 2500); else grant() } }, options) }
   return <><DiscoveryPage initialLocale={locale} home preview directoryData={{ businesses: scenario === 'empty' ? [] : examples, status: scenario === 'error' ? 'error' : scenario === 'loading' ? 'loading' : 'ready', retry: () => {} }} locationProvider={provider}/><p className="home-fixture-notice" role="note" data-location-requests={locationCalls}>{activeLocale === 'en' ? 'LOCAL PREVIEW · fictional businesses / location · booking disabled' : 'ЛОКАЛЕН ПРЕГЛЕД · примерни бизнеси и локация · резервациите са изключени'}</p></>
 }

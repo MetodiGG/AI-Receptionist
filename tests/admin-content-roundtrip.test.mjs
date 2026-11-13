@@ -35,7 +35,7 @@ function fixture(section = 'public', preview = false) {
     if (name.startsWith('./')) return new Proxy({}, { get: (_, key) => function Stub() { return React.createElement('span', { 'data-stub': key }) } })
     return require(name)
   }, mod, mod.exports)
-  const handler = createContentHandler({ authenticate: async () => ({ id, email_confirmed_at: '2026-01-01' }), isAdmin: () => true, allowAttempt: async () => true, save: async input => persisted.push(input) })
+  const handler = createContentHandler({ authenticate: async () => ({ id, email_confirmed_at: '2026-01-01' }), isAdmin: () => true, allowAttempt: async () => true, readBusiness: async () => business, save: async input => persisted.push(input) })
   const props = { detail: { business, services: [], staff: [], hours: [] }, section, locale: 'bg', preview, onBusy() {}, onDirty() {}, onSection() {}, onSaved: async input => saved.push(input), send: async (url, init) => { requests.push({ url, init }); const response = await handler(new Request(`https://local.example${url}`, { ...init, headers: { ...init.headers, origin: 'https://local.example' } }), id); assert.equal(response.status, 200, await response.text()) } }
   const render = () => { cursor = 0; return mod.exports.AdminBusinessEditor(props) }
   return { render, slots, saved, requests, persisted }

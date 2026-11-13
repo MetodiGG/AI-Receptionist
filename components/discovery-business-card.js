@@ -39,7 +39,7 @@ export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, 
   const services = railServiceItems(row)
   const visual = <div className="home-business-photo">
     {photo && photo.src !== failedPhoto ? <img src={photo.src} width={400} height={300} alt={photo.alt?.[locale] || row.name} loading="lazy" decoding="async" style={businessPhotoStyle(photo)} onError={() => setFailedPhoto(photo.src)}/> : <BusinessCoverPhoto business={row} locale={locale}/>}
-    <DiscoveryDistanceBadge origin={distanceOrigin} destination={row.coordinates} locale={locale} fallbackKm={nearby ? row.distanceKm : null} business={row}/>
+    <DiscoveryDistanceBadge origin={distanceOrigin} destination={row.coordinates} locale={locale} business={row}/>
     {hasDetails && <span className="home-business-details-label">{copy.viewDetailsLower}</span>}
   </div>
   const actions = (business = row) => {

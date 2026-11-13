@@ -36,10 +36,10 @@ const nativeRows = () => businesses.map(business => ({ ...business, active: true
 const intent = { browse: true, searchV2: true, requirements: [] }
 const photoPath = photoId => '/service-photos/' + photoId + '-v1.webp'
 
-test('the native photo fixture retains 24 public service facts and no customer or contact data', () => {
-  assert.equal(businesses.length, 5)
-  assert.equal(businesses.reduce((sum, business) => sum + business.services.length, 0), 24)
-  assert.equal(businesses.flatMap(namedServices).length, 21)
+test('the native photo fixture retains 25 public service facts and no customer or contact data', () => {
+  assert.equal(businesses.length, 6)
+  assert.equal(businesses.reduce((sum, business) => sum + business.services.length, 0), 25)
+  assert.equal(businesses.flatMap(namedServices).length, 22)
   for (const business of businesses) {
     assert.deepEqual(Object.keys(business).sort(), ['id', 'name', 'industry', 'businessCategory', 'services'].sort())
     assert.match(business.id, uuid)
@@ -146,7 +146,7 @@ test('failed reviewed photos use the safe existing fallback chain without retryi
   assert.match(terminal.alt, /Neutral.*not a depiction/)
 })
 
-test('all 21 named partner services resolve to photos while original unspecified rows do not invent a procedure', () => {
+test('all 22 named partner services resolve to photos while original unspecified rows do not invent a procedure', () => {
   const before = JSON.stringify(fixture)
   let named = 0, unspecified = 0, reviewed = 0
   for (const business of businesses) for (const service of business.services) {
@@ -162,7 +162,7 @@ test('all 21 named partner services resolve to photos while original unspecified
       if (expectedPhotos.has(service.id)) { reviewed++; assert.equal(image.src, photoPath(expectedPhotos.get(service.id))) }
     }
   }
-  assert.equal(named, 21); assert.equal(unspecified, 3); assert.equal(reviewed, 9)
+  assert.equal(named, 22); assert.equal(unspecified, 3); assert.equal(reviewed, 9)
   assert.equal(JSON.stringify(fixture), before, 'photo resolution never changes IDs, prices, durations or historical placeholders')
 })
 
@@ -185,10 +185,10 @@ test('the detail projection retains valid native service UUIDs and prices but ne
   assert.equal(JSON.stringify(fixture), before)
 })
 
-test('native homepage normalization and detail adapters publish 21 named services without changing price or selection IDs', () => {
+test('native homepage normalization and detail adapters publish 22 named services without changing price or selection IDs', () => {
   const before = JSON.stringify(fixture)
   const rows = normalizeInternalBusinesses(nativeRows(), intent, { detailLimit: 500 })
-  assert.equal(rows.length, 5); assert.equal(rows.reduce((sum, row) => sum + row.services.length, 0), 21)
+  assert.equal(rows.length, 6); assert.equal(rows.reduce((sum, row) => sum + row.services.length, 0), 22)
   for (const row of rows) {
     const original = businesses.find(business => business.id === row.id), expected = namedServices(original)
     assert.deepEqual(row.services.map(service => service.id).sort(), expected.map(service => service.id).sort())
@@ -229,6 +229,6 @@ test('the actual native public-details handler delivers photo-capable IDs with n
     }
     visible += services.length
   }
-  assert.equal(reads.length, 5); assert.equal(visible, 21)
+  assert.equal(reads.length, 6); assert.equal(visible, 22)
   assert.equal(JSON.stringify(fixture), before)
 })

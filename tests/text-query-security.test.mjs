@@ -129,13 +129,13 @@ test('ordinary profile text stays in a JSON update payload, with server-derived 
   const handler = createProfileUpdateHandler({
     authenticate: async () => user, allowAttempt: async () => true,
     ownsBusiness: async (...values) => { ownership.push(values); return true },
-    update: async (id, owner, patch) => {
-      const result = await db.client.from('businesses').update(patch).eq('id', id).eq('owner_id', owner).select('id').maybeSingle()
+    update: async (id, owner, patch, revision) => {
+      const result = await db.client.from('businesses').update(patch).eq('id', id).eq('owner_id', owner).eq('content_revision', revision).select('id').maybeSingle()
       if (result.error) throw result.error
     },
   })
   for (const text of hostileText) {
-    const response = await handler(jsonRequest({ businessId: BUSINESS, profile: { description: { bg: text, en: text } }, reviewRequestsEnabled: true }))
+    const response = await handler(jsonRequest({ businessId: BUSINESS, revision: 0, profile: { description: { bg: text, en: text } }, reviewRequestsEnabled: true }))
     assert.equal(response.status, 200)
     const { url, method, body } = db.calls.at(-1)
     assert.equal(method, 'PATCH')
@@ -143,11 +143,12 @@ test('ordinary profile text stays in a JSON update payload, with server-derived 
     assert.equal(body.public_profile.description.en, text)
     assert.equal(url.searchParams.get('id'), `eq.${BUSINESS}`)
     assert.equal(url.searchParams.get('owner_id'), `eq.${OWNER}`)
+    assert.equal(url.searchParams.get('content_revision'), 'eq.0')
     assert.equal(url.searchParams.has('or'), false)
     assert.deepEqual(ownership.at(-1), [BUSINESS, OWNER])
   }
   const denied = createProfileUpdateHandler({ authenticate: async () => user, allowAttempt: async () => true, ownsBusiness: async () => false, update: async () => assert.fail('must not write') })
-  assert.equal((await denied(jsonRequest({ businessId: BUSINESS, profile: {}, reviewRequestsEnabled: true }))).status, 403)
+  assert.equal((await denied(jsonRequest({ businessId: BUSINESS, revision: 0, profile: {}, reviewRequestsEnabled: true }))).status, 403)
 })
 
 test('RPC text stays in JSON named arguments, not in endpoint names or PostgREST logic', async () => {

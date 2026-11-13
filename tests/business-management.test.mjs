@@ -27,7 +27,7 @@ test('admin content schema validates exact minutes and canonical cities, rejecti
 })
 test('content mutations require verified admin, same origin, valid revision/body and quota before saving',async()=>{
   let saved=0
-  const deps={authenticate:async()=>user,isAdmin:()=>true,allowAttempt:async()=>true,save:async input=>{saved++;assert.equal(input.actorId,user.id);assert.equal(input.payload.city,'София')}}
+  const deps={authenticate:async()=>user,isAdmin:()=>true,allowAttempt:async()=>true,readBusiness:async()=>({...business,content_revision:1}),save:async input=>{saved++;assert.equal(input.actorId,user.id);assert.equal(input.payload.city,'София')}}
   const input={revision:1,section:'business',payload:business,reason:'Owner requested correction'}
   for(const override of [{authenticate:async()=>null},{authenticate:async()=>({...user,is_anonymous:true})},{authenticate:async()=>({...user,email_confirmed_at:null})},{isAdmin:()=>false},{allowAttempt:async()=>false}])assert.ok((await createContentHandler({...deps,...override})(patch(input),bid)).status>=400)
   assert.equal(saved,0)

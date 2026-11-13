@@ -58,12 +58,12 @@ test('Near me discards the default city and quarter and searches the consented r
 })
 
 test('location access is one explicit bounded request with fresh consent, not a background watcher', async () => {
-  const calls = []
+  const calls = [], timestamp = Date.now()
   const result = await requestDiscoveryLocation({ getCurrentPosition(success, failure, options) {
-    calls.push(options); success({ coords: { ...origin, accuracy: 500 } })
+    calls.push(options); success({ coords: { ...origin, accuracy: 25 }, timestamp })
   } })
-  assert.deepEqual(result, origin); assert.equal(calls.length, 1)
-  assert.deepEqual(calls[0], { enableHighAccuracy: false, timeout: 10000, maximumAge: 60000 })
+  assert.deepEqual(result, { ...origin, accuracyMeters: 25, observedAt: timestamp }); assert.equal(calls.length, 1)
+  assert.deepEqual(calls[0], { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 })
 })
 
 test('denied, unavailable and timed-out locations are distinct and never return guessed coordinates', async () => {
@@ -102,9 +102,10 @@ test('missing/insecure API does not request permission; a stalled callback has a
 
 test('a later explicit retry can succeed after denial, without retaining a location between requests', async () => {
   let attempt = 0
-  const geo = { getCurrentPosition(success, fail) { if (++attempt === 1) fail({ code: 1 }); else success({ coords: origin }) } }
+  const timestamp = Date.now()
+  const geo = { getCurrentPosition(success, fail) { if (++attempt === 1) fail({ code: 1 }); else success({ coords: { ...origin, accuracy: 25 }, timestamp }) } }
   await assert.rejects(requestDiscoveryLocation(geo), /LOCATION_DENIED/)
-  assert.deepEqual(await requestDiscoveryLocation(geo), origin)
+  assert.deepEqual(await requestDiscoveryLocation(geo), { ...origin, accuracyMeters: 25, observedAt: timestamp })
   assert.equal(attempt, 2)
 })
 

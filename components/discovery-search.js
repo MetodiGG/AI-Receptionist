@@ -21,10 +21,10 @@ import { DiscoveryFilterSheet } from './discovery-filter-sheet'
 import { applyHomeFilters, homeCategories, homeFilterCount, HOME_DISCOVERY_COPY } from '../lib/discovery/home.mjs'
 import { laboratoryShortcuts } from '../lib/discovery/laboratories.mjs'
 import { mergeCataloguePage } from '../lib/discovery/catalogue-pagination.mjs'
+import { DISCOVERY_LOCATION_MAX_AGE_MS, discoveryLocationError, discoveryLocationRetryMessage, freshDiscoveryLocation, sameDiscoveryOrigin } from '../lib/discovery/geolocation.mjs'
 
 const cities = [...BULGARIAN_CITIES].sort((a, b) => a.name.localeCompare(b.name, 'bg'))
 const duplicateCityNames = new Set(cities.filter((city, index) => cities.findIndex(other => other.name === city.name) !== index).map(city => city.name))
-const consentedPoint = point => point?.consent === true && Number.isFinite(point.latitude) && point.latitude >= 41 && point.latitude <= 44.5 && Number.isFinite(point.longitude) && point.longitude >= 22 && point.longitude <= 29
 export function DiscoverySearch({ locale = 'bg', compact = false, preview = false, cataloguePreview = false, locationProvider = requestDiscoveryLocation, home = false, directoryData }) {
   const copy = DISCOVERY_COPY[locale], en = locale === 'en', router = useRouter()
   const homeCopy = HOME_DISCOVERY_COPY[locale], filterId = useId(), filterTrigger = useRef(null)
@@ -33,14 +33,15 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
   const SearchPanel = home ? 'div' : Fragment
   const [initial] = useState(() => compact ? null : peekDiscoveryDraft())
   const initialInput = initial?.request || initial
-  const initialCoordinates = consentedPoint(initialInput?.coordinates) ? initialInput.coordinates : null
+  const initialCoordinates = freshDiscoveryLocation(initialInput?.coordinates)
   const [query, setQuery] = useState(initialInput?.query || ''), [category, setCategory] = useState(initialInput?.category || '')
   const [cityCode, setCityCode] = useState(initialInput?.cityCode || DEFAULT_DISCOVERY_CITY), [neighborhood, setNeighborhood] = useState(initialInput?.neighborhood || '')
   const [cityWasChosen, setCityWasChosen] = useState(initial?.cityWasChosen || false)
   const [radiusKm, setRadius] = useState(initialInput?.radiusKm ?? DEFAULT_DISCOVERY_RADIUS_KM), [coordinates, setCoordinates] = useState(initialCoordinates)
   const [locationEnabled, setLocationEnabled] = useState(Boolean(initialCoordinates))
-  const [locating, setLocating] = useState(false), [locationError, setLocationError] = useState(''), [loading, setLoading] = useState(!compact && (home || Boolean(initial)))
+  const [locating, setLocating] = useState(false), [locationError, setLocationError] = useState(initial?.locationExpired || (initialInput?.coordinates && !initialCoordinates) ? 'LOCATION_STALE' : ''), [loading, setLoading] = useState(!compact && (home || Boolean(initial)))
   const [result, setResult] = useState(null), [error, setError] = useState(''), [settledQuery, setSettledQuery] = useState(query)
+  const [resultOrigin, setResultOrigin] = useState(null), [resultCity, setResultCity] = useState(''), coordinatesRef = useRef(initialCoordinates)
   const [loadingMore, setLoadingMore] = useState(false), [moreError, setMoreError] = useState(''), [resultKey, setResultKey] = useState(0)
   const pageController = useRef(null), pageInFlight = useRef(false), searchVersion = useRef(0), lastInput = useRef(null)
   const controller = useRef(null), resultHeading = useRef(null), inFlight = useRef(false), locationInFlight = useRef(false), locationVersion = useRef(0), mounted = useRef(true), scrollAfterSearch = useRef(false)
@@ -70,12 +71,39 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
     // Initial navigation is consumed once, not every locale/filter change.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initial, compact])
+  useEffect(() => {
+    if (!coordinates) return
+    const expire = () => {
+      if (coordinatesRef.current === coordinates && !freshDiscoveryLocation(coordinates)) expireLocation()
+    }
+    const timer = setTimeout(expire, Math.max(0, coordinates.observedAt + DISCOVERY_LOCATION_MAX_AGE_MS - Date.now()))
+    // Suspended mobile tabs may delay timers. Recheck on return, never request
+    // another position or permission in the background.
+    window.addEventListener?.('focus', expire)
+    if (typeof document !== 'undefined') document.addEventListener?.('visibilitychange', expire)
+    return () => {
+      clearTimeout(timer); window.removeEventListener?.('focus', expire)
+      if (typeof document !== 'undefined') document.removeEventListener?.('visibilitychange', expire)
+    }
+    // Reschedule from the original observedAt, not from a later filter edit.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [coordinates, query, category, cityCode, cityWasChosen, neighborhood, radiusKm, home, compact, locale])
 
   function payload(patch = {}) {
     const next = { query, locale, cityCode, cityWasChosen, neighborhood, category, coordinates, radiusKm, expandNearby: true, ...patch }
     return discoverySearchInput({ ...next, categoryBrowse: home, browse: home && !next.query.trim() })
   }
   function canDiscover(text = query) { return text.trim().length >= 2 || (home && !text.trim()) }
+  function expireLocation() {
+    locationVersion.current++; locationInFlight.current = false; coordinatesRef.current = null
+    searchVersion.current++; controller.current?.abort(); pageController.current?.abort()
+    inFlight.current = false; pageInFlight.current = false
+    setCoordinates(null); setLocationEnabled(false); setLocating(false); setNeighborhood(''); setLocationError('LOCATION_STALE')
+    setResult(null); setResultOrigin(null); setError(''); setLoading(false); setLoadingMore(false); setMoreError('')
+    // Expiry is not a new user navigation/scroll action. A compact control
+    // only clears its point; the full page may refresh its city browse quietly.
+    if (canDiscover() && !compact) void search(payload({ coordinates: null, neighborhood: '' }), { navigate: false })
+  }
   function cancelPendingLocation() {
     if (!locationInFlight.current) return
     locationVersion.current++; locationInFlight.current = false
@@ -94,38 +122,54 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
     execute(payload({ category: 'other', query: item.query }))
   }
   function execute(input) {
-    if (compact) { setDiscoveryDraft({ request: input, cityWasChosen }); router.push(`/search?lang=${locale}`) }
+    if (compact) {
+      const point = freshDiscoveryLocation(coordinatesRef.current)
+      setDiscoveryDraft({ request: input, cityWasChosen, ...(input.coordinates && point ? { locationMetadata: { accuracyMeters: point.accuracyMeters, observedAt: point.observedAt } } : {}) })
+      router.push(`/search?lang=${locale}`)
+    }
     else void search(input)
   }
   async function search(input = payload(), { navigate = true } = {}) {
-    if (inFlight.current) return
+    if (input.coordinates && (!freshDiscoveryLocation(coordinatesRef.current) || !sameDiscoveryOrigin(input, { coordinates: coordinatesRef.current }))) { expireLocation(); return }
+    if (inFlight.current && JSON.stringify(input) === JSON.stringify(lastInput.current)) return
+    // Each accepted response is tied to the actual submitted origin. A newer
+    // search supersedes every success/error/finally path of its predecessor.
     const version = ++searchVersion.current
     setResultKey(version); lastInput.current = input
     pageController.current?.abort(); pageInFlight.current = false; setLoadingMore(false); setMoreError('')
     scrollAfterSearch.current = navigate
-    inFlight.current = true; setLoading(true); setError(''); setResult(null)
+    inFlight.current = true; setLoading(true); setError(''); setResult(null); setResultOrigin(null)
     const abort = new AbortController(); controller.current?.abort(); controller.current = abort
-    const timer = setTimeout(() => abort.abort(), 20000)
+    let timedOut = false
+    const timer = setTimeout(() => { timedOut = true; abort.abort() }, 20000)
     try {
       const response = await fetch(preview ? cataloguePreview ? '/dev/sofia-catalogue/search' : '/dev/discovery/search' : '/api/public/discovery', { method: 'POST', headers: { 'Content-Type': 'application/json' }, cache: 'no-store', signal: abort.signal, body: JSON.stringify(input) })
       const data = await response.json()
       if (!response.ok) throw new Error(data.error?.code || 'SEARCH_UNAVAILABLE')
       if (!Array.isArray(data.results) || typeof data.externalStatus !== 'string') throw new Error('SEARCH_UNAVAILABLE')
-      if (mounted.current && !abort.signal.aborted && version === searchVersion.current) setResult(data)
-    } catch (failure) { if (mounted.current) setError(failure.message === 'RATE_LIMITED' ? 'RATE_LIMITED' : failure.message === 'VALIDATION_ERROR' ? 'VALIDATION_ERROR' : 'SEARCH_UNAVAILABLE') }
-    finally { clearTimeout(timer); inFlight.current = false; if (mounted.current) setLoading(false) }
+      if (!sameDiscoveryOrigin(input, data.intent)) throw new Error('SEARCH_UNAVAILABLE')
+      if (mounted.current && !abort.signal.aborted && version === searchVersion.current) {
+        if (input.coordinates && !freshDiscoveryLocation(coordinatesRef.current)) { expireLocation(); return }
+        setResultOrigin(input.coordinates || null); setResultCity(data.intent?.cityCode || input.cityCode || ''); setResult(data)
+      }
+    } catch (failure) { if (mounted.current && version === searchVersion.current && (!abort.signal.aborted || timedOut)) setError(failure.message === 'RATE_LIMITED' ? 'RATE_LIMITED' : failure.message === 'VALIDATION_ERROR' ? 'VALIDATION_ERROR' : 'SEARCH_UNAVAILABLE') }
+    finally { clearTimeout(timer); if (version === searchVersion.current) { inFlight.current = false; if (mounted.current) setLoading(false) } }
   }
   async function loadMore() {
     const offset = result?.cataloguePage?.nextOffset
     if (loading || pageInFlight.current || offset == null || !lastInput.current) return
+    const input = lastInput.current
+    if (input.coordinates && (!freshDiscoveryLocation(coordinatesRef.current) || !sameDiscoveryOrigin(input, { coordinates: coordinatesRef.current }))) { expireLocation(); return }
     const version = searchVersion.current, abort = new AbortController()
     pageController.current = abort; pageInFlight.current = true
     scrollAfterSearch.current = false; setLoadingMore(true); setMoreError('')
     const timer = setTimeout(() => abort.abort(), 20000)
     try {
-      const response = await fetch(preview ? cataloguePreview ? '/dev/sofia-catalogue/search' : '/dev/discovery/search' : '/api/public/discovery', { method: 'POST', headers: { 'Content-Type': 'application/json' }, cache: 'no-store', signal: abort.signal, body: JSON.stringify({ ...lastInput.current, catalogueOffset: offset }) })
+      const response = await fetch(preview ? cataloguePreview ? '/dev/sofia-catalogue/search' : '/dev/discovery/search' : '/api/public/discovery', { method: 'POST', headers: { 'Content-Type': 'application/json' }, cache: 'no-store', signal: abort.signal, body: JSON.stringify({ ...input, catalogueOffset: offset }) })
       const data = await response.json()
       if (!response.ok) throw new Error(data.error?.code || 'SEARCH_UNAVAILABLE')
+      if (!sameDiscoveryOrigin(input, data.intent)) throw new Error('SEARCH_UNAVAILABLE')
+      if (mounted.current && !abort.signal.aborted && version === searchVersion.current && input.coordinates && !freshDiscoveryLocation(coordinatesRef.current)) { expireLocation(); return }
       const merged = mergeCataloguePage(result, data)
       if (mounted.current && !abort.signal.aborted && version === searchVersion.current) setResult(merged)
     } catch (failure) {
@@ -147,7 +191,8 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
       // Turning the control off drops the in-memory point and unmounts the
       // old nearby results. The next request must not contain coordinates.
       locationVersion.current++; locationInFlight.current = false
-      setLocationEnabled(false); setLocating(false); setCoordinates(null); setNeighborhood(''); setLocationError(''); setResult(null); setError('')
+      coordinatesRef.current = null
+      setLocationEnabled(false); setLocating(false); setCoordinates(null); setNeighborhood(''); setLocationError(''); setResult(null); setResultOrigin(null); setError('')
       if (canDiscover()) execute(payload({ coordinates: null, neighborhood: '' }))
       return null
     }
@@ -158,13 +203,15 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
     try {
       const position = await locationProvider(navigator.geolocation, { secure: window.isSecureContext })
       if (!mounted.current || version !== locationVersion.current) return null
-      if (!consentedPoint(position)) throw Error('LOCATION_UNAVAILABLE')
+      const positionError = discoveryLocationError(position)
+      if (positionError) throw Error(positionError)
+      coordinatesRef.current = position
       setCoordinates(position); setNeighborhood('')
       // The browser has granted access. Use its actual point, never a guessed
       // city origin. Empty home searches use the bounded deterministic browse.
       if (searchAfter && canDiscover()) execute(payload({ coordinates: position, neighborhood: '' }))
       return position
-    } catch (failure) { if (mounted.current && version === locationVersion.current) { setLocationEnabled(false); setCoordinates(null); setLocationError(failure.message); if (searchAfter && canDiscover() && !result) execute(payload({ coordinates: null })) } return null }
+    } catch (failure) { if (mounted.current && version === locationVersion.current) { coordinatesRef.current = null; setLocationEnabled(false); setCoordinates(null); setLocationError(failure.message); if (searchAfter && canDiscover() && !result) execute(payload({ coordinates: null })) } return null }
     finally { if (version === locationVersion.current) { locationInFlight.current = false; if (mounted.current) setLocating(false) } }
   }
   const selectedCity = useMemo(() => coordinates ? '' : discoveryCitySelection(settledQuery, cityCode, cityWasChosen), [coordinates, settledQuery, cityCode, cityWasChosen])
@@ -176,11 +223,12 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
     cancelPendingLocation()
     const next = applyHomeFilters({ query, category, cityCode, cityWasChosen, coordinates, neighborhood, radiusKm }, draft, locale)
     setQuery(next.query); setCategory(next.category); setCityCode(next.cityCode); setCityWasChosen(next.cityWasChosen)
-    setCoordinates(next.coordinates); setNeighborhood(next.neighborhood); setRadius(next.radiusKm); setLocationError(''); setFiltersOpen(false); setResult(null); setError('')
+    coordinatesRef.current = next.coordinates
+    setCoordinates(next.coordinates); setNeighborhood(next.neighborhood); setRadius(next.radiusKm); setLocationError(''); setFiltersOpen(false); setResult(null); setResultOrigin(null); setError('')
     locationVersion.current++; setLocationEnabled(Boolean(next.coordinates))
     if (canDiscover(next.query)) execute(payload(next))
   }
-  const locationMessage = discoveryLocationMessage(locationError, { disabled: home && !locationEnabled && !locating }, locale)
+  const locationMessage = discoveryLocationRetryMessage(locationError, locale) || discoveryLocationMessage(locationError, { disabled: home && !locationEnabled && !locating }, locale)
   return <section className={`discovery-search ${compact ? 'discovery-compact' : ''}${home ? ' discovery-home' : ''}`} aria-labelledby={compact ? 'home-discovery-title' : 'discovery-title'}>
     <SearchPanel {...(home ? { className: 'home-search-panel' } : {})}>
     <header className={home ? 'home-discovery-heading' : compact ? '' : 'discovery-hero'}>
@@ -196,7 +244,7 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
         {!home && <button className="discovery-submit" aria-label={loading ? copy.searching : copy.search} disabled={loading || query.trim().length < 2} type="submit">{loading ? <span className="button-spinner"/> : <Icon name="arrow"/>}<span>{copy.search}</span></button>}
       </div>
       {!home && <><div className="discovery-controls">
-        <label className="discovery-city"><span className="sr-only">{copy.city}</span><Icon name="pin"/><select value={selectedCity} disabled={loading} onChange={event => { cancelPendingLocation(); locationVersion.current++; setLocationEnabled(false); setCityCode(event.target.value); setCityWasChosen(true); setNeighborhood(''); setCoordinates(null); setLocationError(''); setResult(null) }}><option value="" disabled>{coordinates ? copy.changeCity : copy.anyCity}</option>{cities.map(city => <option key={city.code} value={city.code}>{en ? city.nameEn : city.name}{duplicateCityNames.has(city.name) ? ` · ${city.region}` : ''}</option>)}</select></label>
+        <label className="discovery-city"><span className="sr-only">{copy.city}</span><Icon name="pin"/><select value={selectedCity} disabled={loading} onChange={event => { cancelPendingLocation(); locationVersion.current++; coordinatesRef.current = null; setLocationEnabled(false); setCityCode(event.target.value); setCityWasChosen(true); setNeighborhood(''); setCoordinates(null); setLocationError(''); setResult(null); setResultOrigin(null) }}><option value="" disabled>{coordinates ? copy.changeCity : copy.anyCity}</option>{cities.map(city => <option key={city.code} value={city.code}>{en ? city.nameEn : city.name}{duplicateCityNames.has(city.name) ? ` · ${city.region}` : ''}</option>)}</select></label>
         <button className={`discovery-location ${coordinates ? 'selected' : ''}`} type="button" disabled={loading} onClick={locate} title={locating ? copy.locating : locationAction} aria-describedby={compact ? 'home-location-info' : 'location-info'} aria-label={locating ? copy.locating : copy.nearby} aria-pressed={Boolean(coordinates)}><Icon name="map"/>{locating ? copy.locating : copy.nearby}</button>
       </div>
       <div className="discovery-shortcuts" aria-label={en ? 'Service shortcuts' : 'Категории услуги'}>{DISCOVERY_SHORTCUTS.map(id => { const item = categoryById(id); return <button key={id} type="button" disabled={loading} className={category === id ? 'selected' : ''} aria-pressed={category === id} onClick={() => chooseCategory(id)}><BusinessCategoryIcon category={id} size={44} eager/>{item[locale]}</button> })}</div>
@@ -215,7 +263,7 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
     {home && <><DiscoveryHomeRail title={homeCopy.categories} locale={locale} kind="categories">{homeCategories(locale).map((item, index) => <li key={item.id}><button type="button" disabled={loading} className={category === item.id ? 'selected' : ''} aria-pressed={category === item.id} onClick={() => chooseCategory(item.id)}><img src={item.photo} srcSet={`${item.photo} 160w, ${item.photo2x} 240w`} sizes="80px" width="160" height="160" alt="" loading={index < 4 ? 'eager' : 'lazy'} decoding="async"/><span>{item.label}</span></button></li>)}</DiscoveryHomeRail></>}
     {home && category === 'other' && <div className="laboratory-shortcuts" role="group" aria-label={en ? 'Other appointment services' : 'Други услуги с часове'}>{laboratoryShortcuts(locale).map(item => <button key={item.id} type="button" className="secondary-button" disabled={loading} onClick={() => chooseLaboratory(item)}>{item.label}</button>)}</div>}
     {!home && !compact && <div className="discovery-partner-entry"><Link href={`/partners?lang=${locale}`} prefetch={false}><BrandMark size={36}/><span><strong>{copy.partners}</strong><span>{en ? 'Browse businesses by category' : 'Разгледай бизнесите по категории'}</span></span><Icon name="arrow"/></Link><Link className="discovery-business-cta" href={`/for-businesses?lang=${locale}`}><span>{copy.registerBusiness}</span><Icon name="arrow"/></Link></div>}
-    {!compact && <DiscoveryHomeBusinesses locale={locale} filters={{ ...homeFilters, coordinates }} preview={preview} data={directoryData} result={result} resultKey={resultKey} loading={loading} error={error} onRetry={() => execute(payload())} headingRef={resultHeading} onLoadMore={loadMore} loadingMore={loadingMore} moreError={moreError} directoryEnabled={!home}/>}
+    {!compact && <DiscoveryHomeBusinesses locale={locale} filters={{ ...homeFilters, cityCode: result ? resultCity : homeFilters.cityCode, coordinates: result ? resultOrigin : coordinates }} preview={preview} data={directoryData} result={result} resultKey={resultKey} loading={loading} error={error} onRetry={() => execute(payload())} headingRef={resultHeading} onLoadMore={loadMore} loadingMore={loadingMore} moreError={moreError} directoryEnabled={!home}/>}
     {home && <DiscoveryHomeBottom locale={locale}/>}
   </section>
 }

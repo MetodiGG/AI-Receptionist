@@ -1,10 +1,12 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
+import approvedLocations from '../public/catalogue-official-address-points-20261113.json' with { type: 'json' }
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
-import { NEIGHBORHOOD_20261111_REVIEWS as reviews } from '../lib/discovery/catalogue-data/neighborhood-expansion-20261111.mjs'
+import { NEIGHBORHOOD_20261111_RECORDS as sourceRecords, NEIGHBORHOOD_20261111_REVIEWS as reviews } from '../lib/discovery/catalogue-data/neighborhood-expansion-20261111.mjs'
 import { approvedCatalogueRecord } from '../lib/discovery/catalogue-policy.mjs'
 import { assessPricingReview } from '../lib/discovery/catalogue-pricing-review.mjs'
 import { businessMapsDirectionsUrl } from '../lib/business-directions.mjs'
+import { OFFICIAL_SOFIA_SOURCE_URL, OFFICIAL_SOFIA_ATTRIBUTION } from '../lib/discovery/official-sofia-address-source.mjs'
 
 const now=Date.parse('2026-11-11T12:00:00Z')
 const ids=[
@@ -18,6 +20,35 @@ const ids=[
 ]
 const get=id=>{const row=SOFIA_CATALOGUE.find(row=>row.id===id);assert.ok(row,id);return row}
 const amounts=row=>row.services.map(service=>service.price.amount)
+const sources=new Map(sourceRecords.map(row=>[row.id,row]))
+const approvedPoints=new Map(approvedLocations.points.map(row=>[row.id,row]))
+const officialRns=Object.freeze({
+  'sofia-tsvety-bita-stamboliyski84':'104636',
+  'sofia-esprit-wellbeing-aleksandar-malinov':'93988',
+  'sofia-spa-maat-kostenski-vodopad':'4101',
+  'sofia-forum-language-pliska':'89734',
+  'sofia-espace-druzhba2':'101761',
+  'sofia-lili-muzic-sharl-shampo1':'4027',
+  'sofia-poliglot-stefan-karadzha7':'41572',
+  'sofia-eid-service-iliantsi94':'95179',
+})
+const assertReviewedCoordinates=row=>{
+  const original=sources.get(row.id),expected=approvedPoints.get(row.id),rn=officialRns[row.id]
+  assert.ok(original,row.id)
+  if(row.id!=='sofia-sofia-auto-gas-star-lozenski35')assert.equal(original.coordinates,null,'raw owner records must not acquire inferred points')
+  assert.equal(Boolean(expected),rn!==undefined,'only the explicitly reviewed batch subset may become located')
+  if(rn===undefined)assert.deepEqual(row.coordinates,original.coordinates,row.id)
+  else{
+    assert.deepEqual(row.coordinates,expected.coordinates,row.id)
+    assert.equal(expected.officialAddress.rn,rn,row.id)
+    assert.deepEqual(row.coordinates,{...expected.coordinates,method:'verified_official_address',source:OFFICIAL_SOFIA_SOURCE_URL,
+      sourceAddress:row.address,sourceCityCode:row.cityCode,sourceNeighborhood:row.neighborhood,sourceWebsite:row.website,
+      addressId:rn,checkedOn:'2026-11-13',licence:'CC-BY-4.0',attribution:OFFICIAL_SOFIA_ATTRIBUTION},row.id)
+    assert.equal(expected.previousCoordinates,null,row.id)
+  }
+  assert.deepEqual(row.services,original.services,'location review must not change literal service or price facts')
+  assert.deepEqual(row.booking,original.booking,'location review must not change booking destinations')
+}
 
 test('batch315 contains14 real premises of13 owner hosts with90 dated literal price facts',()=>{
   const rows=ids.map(get)
@@ -35,12 +66,13 @@ test('batch315 contains14 real premises of13 owner hosts with90 dated literal pr
   }
 })
 
-test('all14 directions use the exact actual postal address; only labelled owner GPS is retained',()=>{
+test('all14 directions retain the actual postal address; only exact approved municipal points or labelled owner GPS are retained',()=>{
+  assert.deepEqual(ids.filter(id=>approvedPoints.has(id)).sort(),Object.keys(officialRns).sort())
   for(const row of ids.map(get)){
     const url=new URL(businessMapsDirectionsUrl(row))
     assert.ok(url.searchParams.get('destination').startsWith(row.address),row.id)
     assert.equal(url.searchParams.has('origin'),false)
-    if(row.id!=='sofia-sofia-auto-gas-star-lozenski35')assert.equal(row.coordinates,null)
+    assertReviewedCoordinates(row)
   }
   const point=get(ids[13]).coordinates
   assert.deepEqual([point.latitude,point.longitude,point.method],[42.632047,23.439613,'first_party_coordinates'])

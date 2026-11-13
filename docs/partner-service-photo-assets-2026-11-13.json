@@ -1,0 +1,226 @@
+{
+  "reviewedOn": "2026-11-13",
+  "scope": "Exact current public native partner services; source photos are illustrative or user-supplied, never proof of business work.",
+  "assets": [
+    {
+      "id": "partner-megan-supplied",
+      "file": "public/service-photos/partner-megan-supplied-v1.webp",
+      "width": 512,
+      "height": 432,
+      "bytes": 11910,
+      "sha256": "64fe79fb314903ff61908765f2a952b3a5fbc71f3488997b5f33694e5084873d",
+      "provenance": {
+        "kind": "user_supplied",
+        "sourceFile": "1-Photo-1.jpg",
+        "sourceSha256": "a6ecb031ea6de1fbfd538e66f2b1a9e9747c722d1d4f7a2968eef5ba1f748f81",
+        "originalWidth": 1170,
+        "originalHeight": 987,
+        "transformation": "Full-frame proportional resize and WebP encoding only; no AI editing or claim of actual business work."
+      },
+      "review": {
+        "status": "accepted",
+        "finalDerivativeApproved": true,
+        "sourceSha256": "a6ecb031ea6de1fbfd538e66f2b1a9e9747c722d1d4f7a2968eef5ba1f748f81",
+        "reviewers": [
+          "/root",
+          "/root/partner_photo_safety_review"
+        ],
+        "method": "Direct original and optimized image inspection; source identity and proportional full-frame derivative verified. No actual-business work or image-rights certification is implied."
+      }
+    },
+    {
+      "id": "partner-car-lift-inspection",
+      "file": "public/service-photos/partner-car-lift-inspection-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 15366,
+      "sha256": "4c9f59e23919b218ad74940445e0bad8d3ad345a31b2cd5c15589db7b4308319",
+      "provenance": {
+        "kind": "generated",
+        "tool": "built-in image_gen",
+        "sourceFile": "exec-dc66e91c-4eb9-4094-8076-964afc0445b8.png",
+        "sourceSha256": "8f15942e90ec0413e88b7a1d72493d9be6e71a5e31eeae06f2626cdfa60e37df",
+        "label": "Преглед и оценка за ремонт — автомобил на подемник",
+        "prompt": "Use case: photorealistic-natural. Asset type: ONE square1:1service photograph for a64px GoRez thumbnail. Primary request: a realistic adult professional mechanic inspecting the undercarriage of a passenger car raised on a correctly supported two-post workshop lift. Show the actual inspection, not paperwork: mechanic standing beside/beneath the elevated car shines a small inspection lamp at suspension/underbody while looking carefully upward. Both lift uprights and correctly positioned support arms are visible enough to make safe support unmistakable, wheels hanging free; car stable, workshop bay orderly. Medium-wide three-quarter viewpoint, mechanic and raised car central and readable at small size. Natural working clothes, lifelike hands and engineering, warm neutral workshop daylight, photographic textures. No notebook, clipboard, pen, text, logos, watermark, CGI or invented repair result. Fictional illustrative scene, not actual Autocomplexrs premises or staff.",
+        "originalWidth": 1254,
+        "originalHeight": 1254
+      },
+      "review": {
+        "status": "accepted",
+        "finalDerivativeApproved": true,
+        "sourceSha256": "8f15942e90ec0413e88b7a1d72493d9be6e71a5e31eeae06f2626cdfa60e37df",
+        "reviewers": [
+          "/root",
+          "/root/partner_photo_safety_review"
+        ],
+        "method": "Direct original and optimized image inspection; source identity and proportional full-frame derivative verified. No actual-business work or image-rights certification is implied."
+      }
+    },
+    {
+      "id": "sx-auto-engine-repair",
+      "file": "public/service-photos/sx-auto-engine-repair-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 16182,
+      "sha256": "15a4476c7fcc63180059a865d853f179b01835b455a51c40d17e5dc304f620ee",
+      "provenance": {
+        "kind": "existing_project",
+        "note": "Reused unchanged approved project photo after direct visual inspection for this exact service."
+      },
+      "review": {
+        "status": "accepted",
+        "finalDerivativeApproved": true,
+        "sourceSha256": "15a4476c7fcc63180059a865d853f179b01835b455a51c40d17e5dc304f620ee",
+        "reviewers": [
+          "/root",
+          "/root/partner_asset_reuse_audit"
+        ],
+        "method": "Direct original and optimized image inspection; source identity and proportional full-frame derivative verified. No actual-business work or image-rights certification is implied."
+      }
+    },
+    {
+      "id": "car-aircon-service",
+      "file": "public/service-photos/car-aircon-service-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 15704,
+      "sha256": "01098b2752621e2e7e84e6a702da52a9ba2c87da54020dc740038818d06f0e09",
+      "provenance": {
+        "kind": "existing_project",
+        "note": "Reused unchanged approved project photo after direct visual inspection for this exact service."
+      },
+      "review": {
+        "status": "accepted",
+        "finalDerivativeApproved": true,
+        "sourceSha256": "01098b2752621e2e7e84e6a702da52a9ba2c87da54020dc740038818d06f0e09",
+        "reviewers": [
+          "/root",
+          "/root/partner_asset_reuse_audit"
+        ],
+        "method": "Direct original and optimized image inspection; source identity and proportional full-frame derivative verified. No actual-business work or image-rights certification is implied."
+      }
+    },
+    {
+      "id": "sx-hair-male-colour",
+      "file": "public/service-photos/sx-hair-male-colour-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 11786,
+      "sha256": "69605bf2e5e0172533ff9f28ca587b73905e5f86403f247f64e3c4c90735f059",
+      "provenance": {
+        "kind": "existing_project",
+        "note": "Reused unchanged approved project photo after direct visual inspection for this exact service."
+      },
+      "review": {
+        "status": "accepted",
+        "finalDerivativeApproved": true,
+        "sourceSha256": "69605bf2e5e0172533ff9f28ca587b73905e5f86403f247f64e3c4c90735f059",
+        "reviewers": [
+          "/root",
+          "/root/partner_asset_reuse_audit"
+        ],
+        "method": "Direct original and optimized image inspection; source identity and proportional full-frame derivative verified. No actual-business work or image-rights certification is implied."
+      }
+    },
+    {
+      "id": "haircut-beard-combo",
+      "file": "public/service-photos/haircut-beard-combo-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 12756,
+      "sha256": "fc3f95e32cb7de40e90ee9eb038a07741bae2ef1025c83849327fb59fe9aa149",
+      "provenance": {
+        "kind": "existing_project",
+        "note": "Reused unchanged approved project photo after direct visual inspection for this exact service."
+      },
+      "review": {
+        "status": "accepted",
+        "finalDerivativeApproved": true,
+        "sourceSha256": "fc3f95e32cb7de40e90ee9eb038a07741bae2ef1025c83849327fb59fe9aa149",
+        "reviewers": [
+          "/root",
+          "/root/partner_asset_reuse_audit"
+        ],
+        "method": "Direct original and optimized image inspection; source identity and proportional full-frame derivative verified. No actual-business work or image-rights certification is implied."
+      }
+    },
+    {
+      "id": "partner-hair-beard-brows-finish",
+      "file": "public/service-photos/partner-hair-beard-brows-finish-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 7944,
+      "sha256": "5a20c4e8c9253fc3bf65c2b4c62ea07b19e85df62c73b3ebdb511dfb11588afb",
+      "provenance": {
+        "kind": "generated",
+        "tool": "built-in image_gen",
+        "sourceFile": "exec-3f94e0ca-732f-412f-95e4-0175cc1c7d39.png",
+        "sourceSha256": "a6d2e6c3ffa52751add6b84fd191d0e1512cbeb994607e838d9ee53d637316b8",
+        "label": "Подстригване на коса и брада и оформяне на вежди — завършен вид",
+        "prompt": "Use case: photorealistic-natural. Asset type: ONE square1:1service thumbnail photograph. Primary request: a lifelike fictional adult man after a professional haircut, beard trim and eyebrow grooming. Close head-and-shoulders portrait, slight three-quarter turn while both eyebrows remain clearly visible: tidy short modern haircut with a clean gradual fade, neatly shaped short beard with natural precise cheek/neck contours, naturally masculine eyebrows groomed symmetrically with stray hairs removed, NOT overly thin or painted eyebrows. Forehead and hairline fully visible, natural skin pores and individual beard hairs, calm relaxed expression. Warm ordinary barbershop background softly out of focus, fully clothed in plain dark top or barber cape. Single photo, not collage or before-after. No tools covering the face, notebook, text, logos, watermark, plastic skin, CGI or celebrity likeness. Illustrative finished look, not verified work of Zen Barbershop.",
+        "originalWidth": 1254,
+        "originalHeight": 1254
+      },
+      "review": {
+        "status": "accepted",
+        "finalDerivativeApproved": true,
+        "sourceSha256": "a6d2e6c3ffa52751add6b84fd191d0e1512cbeb994607e838d9ee53d637316b8",
+        "reviewers": [
+          "/root",
+          "/root/partner_photo_safety_review"
+        ],
+        "method": "Direct original and optimized image inspection; source identity and proportional full-frame derivative verified. No actual-business work or image-rights certification is implied."
+      }
+    },
+    {
+      "id": "mens-haircut",
+      "file": "public/service-photos/mens-haircut-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 10546,
+      "sha256": "47c7c326b1ec33c108c103ac632d5ffebe85c86678fed85fc2d87880c01932ef",
+      "provenance": {
+        "kind": "existing_project",
+        "note": "Reused unchanged approved project photo after direct visual inspection for this exact service."
+      },
+      "review": {
+        "status": "accepted",
+        "finalDerivativeApproved": true,
+        "sourceSha256": "47c7c326b1ec33c108c103ac632d5ffebe85c86678fed85fc2d87880c01932ef",
+        "reviewers": [
+          "/root",
+          "/root/partner_asset_reuse_audit"
+        ],
+        "method": "Direct original and optimized image inspection; source identity and proportional full-frame derivative verified. No actual-business work or image-rights certification is implied."
+      }
+    },
+    {
+      "id": "partner-nose-wax",
+      "file": "public/service-photos/partner-nose-wax-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 8668,
+      "sha256": "77b6a178687f2e4ede9d08719a8d774f88e63ce481f999dc3d28e79bec64fd8f",
+      "provenance": {
+        "kind": "generated",
+        "tool": "built-in image_gen",
+        "sourceFile": "exec-770350fc-2a8c-4e3b-845a-c107727d6f63.png",
+        "sourceSha256": "e71c0e0251259e80f0afd047c5761c3214b7bd2562befba11ae5fbc52ba4a292",
+        "label": "Кола маска за уши и нос — два апликатора с восък",
+        "prompt": "Use case: photorealistic-natural. Asset type: ONE square1:1service photograph for a GoRez thumbnail. Primary request: a realistic fictional adult man seated calmly in a barber chair wearing a clean barber cape, with exactly TWO SHORT cotton-bud-style cosmetic wax applicator stems visible outward from the entrances of his nostrils. Each visible inner tip has a small rounded opaque off-white cosmetic wax cap around it, resting ONLY at the shallow hair-bearing nostril entrance. No deep insertion: short outward stems, wax visibly at the rim, no instrument pushed toward the nasal bridge. Medium close-up of the whole face and nose so the two wax-tipped applicators are immediately recognizable, natural expression, realistic anatomy and skin, softly lit ordinary professional barbershop. A gloved barber hand may steady the chin gently but is not yanking the stems. Non-graphic routine cosmetic waxing illustration only. No blood, distress, burns, drips inside the nose, wax inside ear canals, medical treatment claims, notebook, text, logos, watermark, CGI or brand. Not a demonstration guide or verified actual business work.",
+        "originalWidth": 1254,
+        "originalHeight": 1254
+      },
+      "review": {
+        "status": "accepted",
+        "finalDerivativeApproved": true,
+        "sourceSha256": "e71c0e0251259e80f0afd047c5761c3214b7bd2562befba11ae5fbc52ba4a292",
+        "reviewers": [
+          "/root",
+          "/root/partner_photo_safety_review"
+        ],
+        "method": "Direct original and optimized image inspection; source identity and proportional full-frame derivative verified. No actual-business work or image-rights certification is implied."
+      }
+    }
+  ]
+}

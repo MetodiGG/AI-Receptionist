@@ -53,16 +53,42 @@
   "next14HomeEducationBusinesses": { "newExactPostalBindings": 7, "ambiguousHeld": 1, "unresolvedIncludingMobileProviders": 6, "review": "Full owner-sourced street/house/suffix manually compared. Exact BachoKiro5 entranceБ and StudentCity block55 entranceГ preserved; no guessed block/street-number conversion. Mur72 has two rows and remains held. SofiaMath source details remain held for lack of a currently confirmed paid intake, not counted or source-bound to a public record." },
   "next19AutoBeautyBusinesses": { "newExactPostalBindings": 3, "ambiguousHeld": 5, "unresolvedHeld": 10, "uniquePostalButVenueHeld": 1, "review": "Bogdan15,OsogovskiProhod1,SvSvKirilIMetodiy90 manually compared to the sole exact row. Banat17 removed with provider-tariff-dependent business held after source access terms review. ProSport NSA KlimentOhridski22 matches rn21797 postal address, but large campus does not identify the actual tennis court. Own contacts publishes only an embed viewport and name, not a literal destination marker; no viewport or postal-campus point accepted as a precise venue pin." },
   "next37HomeAutoWellnessBusinesses": { "newExactPostalBindings": 17, "ambiguousHeld": 4, "unresolvedIncludingMobileProviders": 15, "uniquePostalSupersededByOwnerLiteralPoint": 1, "review": "Manually compared ten education/art/legal and seven other unique full street-house-suffix matches with the sole municipal row. DirtyGarage, child-swimming complex, BalanSense entrances and duplicate OtetsPaisiy3 remain unlocated. MalinovaSport sole postal rn99802 is not used: own current homepage explicitly publishes GPS42.630767,23.360355 beside its actual complex address; this literal owner point is separately bound to that address, not inferred from viewport or nearby postal coordinates. No claim to a particular court or parking entrance." },
-  "totalNewCsvBindings": 110,
-  "combinedReviewedOfficialPoints": 611,
+  "totalNewCsvBindings": 138,
+  "combinedReviewedOfficialPoints": 639,
   "wholeEligibleInventoryAfterBindings": {
-    "eligibleBusinesses": 1471,
-    "withSourceBoundCoordinates": 810,
-    "withoutSourceBoundCoordinates": 661,
-    "unresolvedIncludingMobileProviders": 515,
-    "ambiguousExactPostalRowsHeld": 143,
-    "remainingUniquePostalRowsHeldForPhysicalSiteConfirmation": ["sofia-shining-polishing-auto", "sofia-katerene-europe-private", "sofia-pro-sport-nsa-kliment22"],
-    "review": "Offline matcher replayed over every currently eligible unlocated business, not just the new intake. No additional sole exact postal match remains unreviewed. The held postal rows are the two physical-site discrepancies below and the separately reviewed large NSA campus tennis venue. Excluded general clinics are not restored or counted as businesses by matching an address."
+    "eligibleBusinesses": 1523,
+    "withSourceBoundCoordinates": 839,
+    "withoutSourceBoundCoordinates": 684,
+    "unresolvedIncludingMobileProviders": 533,
+    "ambiguousExactPostalRowsHeld": 146,
+    "remainingUniquePostalRowsHeldForPhysicalSiteConfirmation": [
+      "sofia-shining-polishing-auto",
+      "sofia-katerene-europe-private",
+      "sofia-pro-sport-nsa-kliment22",
+      "sofia-ot-izvora-voenna-han-omurtag42",
+      "sofia-arnaudov-uzunova-tsar-boris19"
+    ],
+    "review": "Whole eligible inventory replayed offline against owner-supplied CSV. No additional sole exact postal row is unreviewed. Five unique rows remain deliberately held for actual physical-site clarification. Missing/ambiguous points remain null; no invented distances."
+  },
+  "rootCheckpoint1523Amendment": {
+    "checkedAtUtc": "2026-11-13T23:27:11.154Z",
+    "newExactPostalBindingsSince1471": 30,
+    "unpublishedBindingsRemovedForSourceTerms": 2,
+    "currentNewCsvBindings": 138,
+    "combinedPrevious501AndCsv138": 639,
+    "notes": "Five home007/dental002, three auto005, seven beauty006/dental003 and fifteen auto006/home008 exact postal bindings individually compared. HairGarden and Sense unpublished source-dependent records and points removed after source-terms review. Earlier receipt sections retain historical checkpoint counts. Owner literal ClassicM GPS stored separately. No external geocoding or customer location sent.",
+    "newUniqueSiteHolds": [
+      {
+        "id": "sofia-ot-izvora-voenna-han-omurtag42",
+        "address": "София, ул. Хан Омуртаг 42, Winbet Sport & Event Centre, в двора на Военна академия",
+        "rn": "25167"
+      },
+      {
+        "id": "sofia-arnaudov-uzunova-tsar-boris19",
+        "address": "София, бул. Цар Борис III 19, до вх. А, партер",
+        "rn": "20180"
+      }
+    ]
   },
   "spatialDiscrepancies": [
     {

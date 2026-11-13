@@ -4,6 +4,346 @@
   "scope": "Illustrative service-specific photos for approved Sofia catalogue entries; not actual business premises, staff, work or results.",
   "assets": [
     {
+      "id": "sx-brow-tint-only",
+      "label": "Боядисване на вежди",
+      "sourceFile": "exec-b3b1874b-8880-4156-9036-21c4bf57469c.png",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez specific-service thumbnail readable at64px. Close realistic photograph of a professional beauty practitioner using a small flat tint brush to apply brown eyebrow dye precisely to ONE natural eyebrow of a fictional adult woman reclining with eyes closed. A small unbranded bowl of brown eyebrow tint visible near practitioner's gloved hand. Correct brow shape, ordinary skin and hair textures, subtle brown dye at actual brow, not painted entire face. No transparent brow-lamination solution, spoolie combing, tweezers, threading, wax, needles, microblading, tattooing, permanent makeup or eyelash treatment. Soft salon daylight. No text, logos, watermark, prices, CGI, emoji, notebook or actual named-business/result claim.",
+      "sourceSha256": "37e5ce8602415b9615b58f935374f3e44703f2e33ba5eda6815f34a90b8fc8a5",
+      "file": "public/service-photos/sx-brow-tint-only-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 7676,
+      "sha256": "b9dd9bf129c5d39ecc7078e1fa109f3381c076105305c272109e4ca72969e738",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "37e5ce8602415b9615b58f935374f3e44703f2e33ba5eda6815f34a90b8fc8a5",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and final256pxWebP. Brown eyebrow dye with tint brush, paired group salsa/bachata diptych, independent solo-jazz learners, and grounded group boogie-woogie remain distinct. Illustrative activity, not actual business work, people or premises; no notebook-only substitutes."
+      }
+    },
+    {
+      "id": "sx-group-salsa-bachata-combined",
+      "label": "Групови уроци по салса L.A. и бачата",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square service thumbnail for an appointment catalogue, illustrative rather than actual provider work.\nPrimary request: a clear two-panel photographic diptych, top half an ordinary adult beginner GROUP salsa L.A. class with several male-female pairs taking an open-hand salsa step, bottom half an ordinary adult beginner GROUP bachata class with several pairs in a comfortable upright side-to-side partner step. A teacher visible demonstrating in each panel. Both are normal modern dance studios, everyday modest casual clothing, realistic human anatomy and skin, soft natural light. Full bodies and dance shoes clearly visible, no acrobatics. Use a thin clean neutral separator, no text. Compose two equally strong horizontal scenes, readable at64px square.\nConstraints: this single service offers both styles; depict both group formats, not a private couple lesson, not ballroom competition or wedding, no sexualized pose, no logos, no watermark, no notebook, no written labels.",
+      "sourceFile": "exec-3b11b213-00ea-4740-bb14-073459127a18.png",
+      "sourceSha256": "d065f19a2893662aee5a8ea44f6f70ad995353ac2b320fc3feaec6b58ec9b047",
+      "file": "public/service-photos/sx-group-salsa-bachata-combined-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 19244,
+      "sha256": "151f306027e7da5d81c837fce52d015dbfbbc7639619934ee8e61f701b103a69",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "d065f19a2893662aee5a8ea44f6f70ad995353ac2b320fc3feaec6b58ec9b047",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and final256pxWebP. Brown eyebrow dye with tint brush, paired group salsa/bachata diptych, independent solo-jazz learners, and grounded group boogie-woogie remain distinct. Illustrative activity, not actual business work, people or premises; no notebook-only substitutes."
+      }
+    },
+    {
+      "id": "sx-group-solo-jazz",
+      "label": "Групов соло джаз",
+      "prompt": "Use case: photorealistic-natural\nAsset type: individual square service thumbnail for a booking catalogue.\nPrimary request: a realistic adult SOLO JAZZ group dance class, one instructor foreground and four adult learners spaced behind, each dancing independently with no hand-holding or partner contact. Clearly show classic playful vintage solo jazz footwork, relaxed bent knees and swinging arm rhythm in a natural beginner practice moment, full bodies with shoes visible. Ordinary bright dance studio, comfortable modest casual clothing, realistic hands, skin and fabric texture, candid editorial photograph. Clear central instructor silhouette readable at64px.\nConstraints: illustrative service, not actual business employees/premises. No partner dancing, no ballet barre, no tap shoes or stage costume, no acrobatics, no notebook, no text, no logos, no watermark.",
+      "sourceFile": "exec-792fa8d6-67b9-46ab-9a5f-88b9664178e6.png",
+      "sourceSha256": "ec0d9fe852e818cd9a7560710e3eca73c61c6e3ddf19e2245cac04a0e907750b",
+      "file": "public/service-photos/sx-group-solo-jazz-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 13572,
+      "sha256": "e8e709d48c45a5c9c058f50fd9d9107aedd3d124d8fd5dcfd1a3fc14bfad2109",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "ec0d9fe852e818cd9a7560710e3eca73c61c6e3ddf19e2245cac04a0e907750b",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and final256pxWebP. Brown eyebrow dye with tint brush, paired group salsa/bachata diptych, independent solo-jazz learners, and grounded group boogie-woogie remain distinct. Illustrative activity, not actual business work, people or premises; no notebook-only substitutes."
+      }
+    },
+    {
+      "id": "sx-group-boogie-woogie",
+      "label": "Групови уроци по буги-вуги",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square specific service photo for a booking catalogue.\nPrimary request: a realistic adult GROUP BOOGIE-WOOGIE partner dance class in a normal dance studio. Three ordinary adult male-female pairs practising a lively grounded rock-and-roll swing triple-step with open one-hand connection, springy bent knees and clear footwork, a teacher demonstrating with a partner foreground and learners behind. Full bodies and shoes visible, modest casual clothes, natural skin/fabric textures, credible hands and anatomy, soft daylight, candid editorial photo. Readable thumbnail composition.\nConstraints: illustrative service only, not actual business work or people. Feet stay on floor, no lifts or acrobatics, no ballroom gowns, no tango embrace or sensual bachata dip, no stage show, no notebook, no text, logos or watermark.",
+      "sourceFile": "exec-52985743-3cba-41d1-8f98-9b9840a2ba59.png",
+      "sourceSha256": "94b6c427f836e430abcb3a171ecee64256bd18aac4ea77585d496d7bf300a6da",
+      "file": "public/service-photos/sx-group-boogie-woogie-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 15274,
+      "sha256": "88e11751783e423921c8d5788073872bafe8fc0eb4227391ff9a487f4bb76533",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "94b6c427f836e430abcb3a171ecee64256bd18aac4ea77585d496d7bf300a6da",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and final256pxWebP. Brown eyebrow dye with tint brush, paired group salsa/bachata diptych, independent solo-jazz learners, and grounded group boogie-woogie remain distinct. Illustrative activity, not actual business work, people or premises; no notebook-only substitutes."
+      }
+    },
+    {
+      "id": "sx-groom-small-shortcoat",
+      "sourceFile": "exec-15761d46-b261-4d62-bf4f-3126d06cfc50.png",
+      "sourceSha256": "b3cd9dde52b081296ca9262b33795f96c1b18fd1856cd23a864ebb88550ce577",
+      "file": "public/service-photos/sx-groom-small-shortcoat-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 13138,
+      "sha256": "dcf086b4e42fa107a0d0885b861206b314f14faddf7904cbd182bf2f2e83be38",
+      "label": "Груминг на малко късокосместо куче",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: square GoRez service thumbnail, readable at64px.\nStyle: realistic professional pet-grooming photo, fictional adult groomer and healthy calm SMALL pet dog, authentic fur/skin/material textures, ordinary daylight in a clean grooming salon. One square1:1 canvas. Correct dog anatomy, gentle safe handling, secure non-slip grooming table. No text, logo, watermark, prices, CGI, emoji, notebook, actual named-business/pet/work or promised result claim.\nPrimary request: STANDARD GROOMING for a very SMALL SHORT-COATED DOG (a calm short-haired Chihuahua, visibly about2–3kg). Adult professional groomer gently uses a soft rubber grooming mitt along the dog's short sleek coat while a soft towel and dog-safe shampoo are nearby. Entire tiny dog and adult hands visible, unmistakably short coat, not a longhaired or curly dog, no shaving or sharp tool near face. Ordinary realistic grooming activity, not veterinary treatment.",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "b3cd9dde52b081296ca9262b33795f96c1b18fd1856cd23a864ebb88550ce577",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and final256pxWebP. Tiny shortcoat Chihuahua, flowing straight-coat Maltese and fluffy double-coat Pomeranian grooming examples stay distinct; gentle supported brushing/combing, not veterinary work or shaving. Clear brow-lamination/spoolie without tint; same female short-bob wash/cut/blow sequence; rose oil/rose petals preparation without lavender substitution. Illustrative activities, not verified business work, actual staff or guaranteed results. No logos, text, watermark or notebook-only workspace."
+      }
+    },
+    {
+      "id": "sx-groom-small-flowing-coat",
+      "sourceFile": "exec-1087e375-b214-4603-bc96-9bd42c6bcf85.png",
+      "sourceSha256": "1eedbb9df15944635840a77f69932caebf280bb5c89482974da2d556955b8af5",
+      "file": "public/service-photos/sx-groom-small-flowing-coat-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 11266,
+      "sha256": "d6974985b147dcb6d3bf5fdf9ac9c2beb3cd04b7f77388f5ac431f80300aab20",
+      "label": "Груминг на малко куче със свободнопадаща козина",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: square GoRez service thumbnail, readable at64px.\nStyle: realistic professional pet-grooming photo, fictional adult groomer and healthy calm SMALL pet dog, authentic fur/skin/material textures, ordinary daylight in a clean grooming salon. One square1:1 canvas. Correct dog anatomy, gentle safe handling, secure non-slip grooming table. No text, logo, watermark, prices, CGI, emoji, notebook, actual named-business/pet/work or promised result claim.\nPrimary request: STANDARD GROOMING for a very SMALL DOG with LONG FREE-FALLING STRAIGHT SILKY COAT (a calm Maltese, visibly about3kg). Adult professional groomer gently combs the dog's long straight white hair with a proper comb during a grooming session; small grooming dryer stand visible in background. Tiny dog and groomer's hands main focus, long flowing straight coat clear, not tightly curly poodle coat, short coat, giant dog or shaved skin. No medical treatment.",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "1eedbb9df15944635840a77f69932caebf280bb5c89482974da2d556955b8af5",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and final256pxWebP. Tiny shortcoat Chihuahua, flowing straight-coat Maltese and fluffy double-coat Pomeranian grooming examples stay distinct; gentle supported brushing/combing, not veterinary work or shaving. Clear brow-lamination/spoolie without tint; same female short-bob wash/cut/blow sequence; rose oil/rose petals preparation without lavender substitution. Illustrative activities, not verified business work, actual staff or guaranteed results. No logos, text, watermark or notebook-only workspace."
+      }
+    },
+    {
+      "id": "sx-groom-small-double-coat",
+      "sourceFile": "exec-192ae091-7730-42b7-bfa5-3379819e772d.png",
+      "sourceSha256": "0f5e03d636cacffe62aa25b426bda035824405c5c52a14d0d2db82784a059cf8",
+      "file": "public/service-photos/sx-groom-small-double-coat-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 12060,
+      "sha256": "49f3dc7b2d8eb3158005abff208ceb2724a9990b4d17b49620e90fbc99f3e62a",
+      "label": "Груминг на малко куче с двойна обемна козина",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: square GoRez service thumbnail, readable at64px.\nStyle: realistic professional pet-grooming photo, fictional adult groomer and healthy calm SMALL pet dog, authentic fur/skin/material textures, ordinary daylight in a clean grooming salon. One square1:1 canvas. Correct dog anatomy, gentle safe handling, secure non-slip grooming table. No text, logo, watermark, prices, CGI, emoji, notebook, actual named-business/pet/work or promised result claim.\nPrimary request: STANDARD GROOMING for a very SMALL DOUBLE-COATED FLUFFY DOG (a calm tiny Pomeranian, visibly about2–3kg). Adult professional groomer gently brushes the dense orange undercoat with a proper slicker brush while supporting dog safely. Entire tiny fluffy dog and adult hands visible, full fluffy double coat retained, not shaved or clipped short, no blade near eyes. Normal gentle brushing/deshedding and shape care, not veterinary treatment.",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "0f5e03d636cacffe62aa25b426bda035824405c5c52a14d0d2db82784a059cf8",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and final256pxWebP. Tiny shortcoat Chihuahua, flowing straight-coat Maltese and fluffy double-coat Pomeranian grooming examples stay distinct; gentle supported brushing/combing, not veterinary work or shaving. Clear brow-lamination/spoolie without tint; same female short-bob wash/cut/blow sequence; rose oil/rose petals preparation without lavender substitution. Illustrative activities, not verified business work, actual staff or guaranteed results. No logos, text, watermark or notebook-only workspace."
+      }
+    },
+    {
+      "id": "sx-brow-lamination-only",
+      "sourceFile": "exec-229efd60-0775-449b-acf9-e79d60e69cfa.png",
+      "sourceSha256": "59c3a397c246e2d84cda0c0ac5b5ab6ceb12000ef88e9837765c2938ccafc375",
+      "file": "public/service-photos/sx-brow-lamination-only-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 8428,
+      "sha256": "6a1e3dfa9c741f2de31048a8ae2ac417969f624c0a96f92aa9ae017b7b202619",
+      "label": "Ламиниране на вежди без добавено боядисване",
+      "prompt": "Use case: photorealistic-natural. Asset type: square GoRez specific-service thumbnail legible at64px. Close realistic photograph of a professional beauty practitioner applying clear brow-lamination solution and gently combing one fictional adult woman's natural EYEBROW hairs upward with a small spoolie. The client reclines in a salon chair, eyes calmly closed, eyebrow and spoolie in sharp focus. Natural brow color retained, no tint/dye brush, tweezers, threading, wax, needles, tattoos, microblading, lash extensions or eyelashes treatment. Ordinary realistic skin/hair/glove texture, soft daylight. One square1:1 image, no text, logo, watermark, CGI, emoji, prices or actual business/work claim.",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "59c3a397c246e2d84cda0c0ac5b5ab6ceb12000ef88e9837765c2938ccafc375",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and final256pxWebP. Tiny shortcoat Chihuahua, flowing straight-coat Maltese and fluffy double-coat Pomeranian grooming examples stay distinct; gentle supported brushing/combing, not veterinary work or shaving. Clear brow-lamination/spoolie without tint; same female short-bob wash/cut/blow sequence; rose oil/rose petals preparation without lavender substitution. Illustrative activities, not verified business work, actual staff or guaranteed results. No logos, text, watermark or notebook-only workspace."
+      }
+    },
+    {
+      "id": "sx-womens-short-wash-cut-blowdry",
+      "sourceFile": "exec-f8cb011c-1d5e-402e-b169-a73bfd7848c4.png",
+      "sourceSha256": "e7ca12316e0973996c7b43e89483e3251fe0a6e6bc405348996f0ae7bd71eded",
+      "file": "public/service-photos/sx-womens-short-wash-cut-blowdry-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 13398,
+      "sha256": "dfe8f27900152e350b77d5d95c472797a981b43b375fb75fb1a0a77355435e58",
+      "label": "Измиване, дамско подстригване и сешоар на къса коса",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez thumbnail showing a REALISTIC WOMEN'S SHORT HAIR WASH + HAIRCUT + BLOW-DRY combined service. Exactly three horizontal photo rows stacked inside ONE overall square1:1 canvas, same fictional adult female client with short bob-length hair and same professional hairdresser throughout. TOP washing hair at salon basin, MIDDLE trimming short bob hair with scissors and comb, BOTTOM gently blow-drying the same short haircut with hair dryer and round brush. Client in ordinary salon cape, authentic skin/hair and plausible hands/tools, natural studio daylight. No color application, bleach, long hair, men's haircut, extensions, text, logos, watermark, CGI, emoji, borders, prices or actual named-business/result claim.",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "e7ca12316e0973996c7b43e89483e3251fe0a6e6bc405348996f0ae7bd71eded",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and final256pxWebP. Tiny shortcoat Chihuahua, flowing straight-coat Maltese and fluffy double-coat Pomeranian grooming examples stay distinct; gentle supported brushing/combing, not veterinary work or shaving. Clear brow-lamination/spoolie without tint; same female short-bob wash/cut/blow sequence; rose oil/rose petals preparation without lavender substitution. Illustrative activities, not verified business work, actual staff or guaranteed results. No logos, text, watermark or notebook-only workspace."
+      }
+    },
+    {
+      "id": "sx-rose-oil-massage-preparation",
+      "sourceFile": "exec-131f91a5-454e-49eb-9c73-2fafd45d6ccb.png",
+      "sourceSha256": "c4a005d4989efefe22789e5bd07acd62d3c9bef7d6ffe306d3aa9dfff87343b1",
+      "file": "public/service-photos/sx-rose-oil-massage-preparation-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 11414,
+      "sha256": "bd4097f7ef0610e6d63693d46e5a984dc2c1474a1da0bd0c7f46090b4d50078c",
+      "label": "Подготовка за ароматерапевтичен масаж с розово масло",
+      "prompt": "Use case: photorealistic-natural. Asset type: square GoRez service thumbnail for ROSE OIL AROMATHERAPY MASSAGE. A fictional adult professional wellness practitioner wearing an ordinary tunic prepares rose massage oil in a small clear mixing bowl, letting a few drops fall from a small unbranded brown glass bottle into a carrier oil while standing beside a neatly towel-covered massage table. A few fresh pink rose petals and one pink rose on a nearby tray clearly identify the rose-oil context, NO lavender or other flowers. Practitioner face, hands, rose, bottle and bowl visible in clear medium close frame. Natural realistic skin/cotton/glass textures, soft daylight. Generic illustrative preparation for a massage, not actual business work or clinical results. One square1:1 image, no text, logos, watermark, prices, CGI, emoji, notebook or medical devices.",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "c4a005d4989efefe22789e5bd07acd62d3c9bef7d6ffe306d3aa9dfff87343b1",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and final256pxWebP. Tiny shortcoat Chihuahua, flowing straight-coat Maltese and fluffy double-coat Pomeranian grooming examples stay distinct; gentle supported brushing/combing, not veterinary work or shaving. Clear brow-lamination/spoolie without tint; same female short-bob wash/cut/blow sequence; rose oil/rose petals preparation without lavender substitution. Illustrative activities, not verified business work, actual staff or guaranteed results. No logos, text, watermark or notebook-only workspace."
+      }
+    },
+    {
+      "id": "sx-adult-ballroom-group",
+      "sourceFile": "exec-5b670ea3-8bfd-41d2-8a0c-ee83949e06f7.png",
+      "sourceSha256": "584f60cb778ceb7b1cc5a49599b08c036a048be684f9ec27846b353266c06998",
+      "file": "public/service-photos/sx-adult-ballroom-group-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 13800,
+      "sha256": "dc1bf77df6df337980fd2c0ed9032ef50dd4e9a3d5e7f26cebc72582d5940100",
+      "label": "Групов урок по спортни танци за възрастни",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: one square GoRez service thumbnail, readable at64px.\nStyle: realistic documentary dance-class photo in ordinary bright studio, fictional adult students and adult instructors, casual modest dance-practice clothes, authentic skin/fabric textures, correct connected hands and plausible steps. No text, prices, watermark, logo, notebook, emoji, CGI, stage/audience, recognisable real people or actual business/work claim.\nPrimary request: GROUP lesson in adult ballroom/sports dancing. An instructor demonstrates a simple upright partner dance frame beside THREE adult student couples practicing in pairs in a roomy studio. Foreground one man and one woman hold a conventional ballroom practice frame, comfortable separation, relaxed knee bend, natural believable arms. Other adult pairs and teacher visible behind. General ballroom class, not a wedding, specific named waltz or competitive performance, not Salsa/Bachata fitness without partners.",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "584f60cb778ceb7b1cc5a49599b08c036a048be684f9ec27846b353266c06998",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and optimized256pxWebP. Realistic fictional adult lesson contexts: group ballroom with teacher and pairs; open-hold beginner Bachata group; exactly one Salsa instructor and one student couple; guided Argentine Tango group embrace; exactly one instructor and one student couple in generic chosen-style private lesson. Group/private format and styles kept separate. No named-business people/premises, source media, stage/wedding claim, text or watermark."
+      }
+    },
+    {
+      "id": "sx-adult-bachata-group",
+      "sourceFile": "exec-226570ae-c8ba-4f2a-baf6-019177338f44.png",
+      "sourceSha256": "a7e8aedf3de6bcf8327db4ae01a370ba9ce31552bdb8f501cb2e8ee962625e92",
+      "file": "public/service-photos/sx-adult-bachata-group-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 13340,
+      "sha256": "77516c342c05e3b68eace3228a3e92d32b9c7170a7e6d1bdfaa7c46f748e0257",
+      "label": "Групова бачата за начинаещи",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: one square GoRez service thumbnail, readable at64px.\nStyle: realistic documentary dance-class photo in ordinary bright studio, fictional adult students and adult instructors, casual modest dance-practice clothes, authentic skin/fabric textures, correct connected hands and plausible steps. No text, prices, watermark, logo, notebook, emoji, CGI, stage/audience, recognisable real people or actual business/work claim.\nPrimary request: BEGINNER GROUP BACHATA dance class for adults. One adult teacher leads three mixed adult pairs practicing a simple side-to-side Bachata basic step and gentle hip-weight transfer, facing partner with comfortable open connected hand hold. Foreground one pair clearly taking small lateral steps, several other pairs and instructor in background. Natural casual shirts/trousers/dance shoes, approachable practical lesson, not ballroom closed frame, Tango embrace, solo aerobics or stage show.",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "a7e8aedf3de6bcf8327db4ae01a370ba9ce31552bdb8f501cb2e8ee962625e92",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and optimized256pxWebP. Realistic fictional adult lesson contexts: group ballroom with teacher and pairs; open-hold beginner Bachata group; exactly one Salsa instructor and one student couple; guided Argentine Tango group embrace; exactly one instructor and one student couple in generic chosen-style private lesson. Group/private format and styles kept separate. No named-business people/premises, source media, stage/wedding claim, text or watermark."
+      }
+    },
+    {
+      "id": "sx-salsa-private-couple",
+      "sourceFile": "exec-abd5e555-0cb5-48a4-9ca2-83374b059678.png",
+      "sourceSha256": "8f1cc4cf36da895cf181416f3650dbaa066f57234d09fc7cd4b3329b383b0c30",
+      "file": "public/service-photos/sx-salsa-private-couple-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 12708,
+      "sha256": "2c3931e95449ab28dfcf73c5cf3284f4cf41423f299965e579b31ec8516e7d02",
+      "label": "Индивидуална салса с инструктор за двойка",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: one square GoRez service thumbnail, readable at64px.\nStyle: realistic documentary dance-class photo in ordinary bright studio, fictional adult students and adult instructors, casual modest dance-practice clothes, authentic skin/fabric textures, correct connected hands and plausible steps. No text, prices, watermark, logo, notebook, emoji, CGI, stage/audience, recognisable real people or actual business/work claim.\nPrimary request: PRIVATE SALSA lesson: exactly ONE adult salsa instructor guiding exactly ONE adult student COUPLE, three people total. Man and woman students facing each other with open one-hand connection practice a simple Salsa forward/back basic step; adult instructor stands alongside at safe distance, demonstrates the step and points at foot placement. Whole bodies and dance shoes visible, casual studio clothing. One instructor and one pair, not a group, wedding dance, two instructors, ballroom closed hold or Tango.",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "8f1cc4cf36da895cf181416f3650dbaa066f57234d09fc7cd4b3329b383b0c30",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and optimized256pxWebP. Realistic fictional adult lesson contexts: group ballroom with teacher and pairs; open-hold beginner Bachata group; exactly one Salsa instructor and one student couple; guided Argentine Tango group embrace; exactly one instructor and one student couple in generic chosen-style private lesson. Group/private format and styles kept separate. No named-business people/premises, source media, stage/wedding claim, text or watermark."
+      }
+    },
+    {
+      "id": "sx-adult-argentine-tango-group",
+      "sourceFile": "exec-c4bda733-f9bb-433c-b846-de0627137278.png",
+      "sourceSha256": "24a344f5e46ab8c6ae40807c75b49ad2ee16d143a7012883780284ff41556bbd",
+      "file": "public/service-photos/sx-adult-argentine-tango-group-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 13386,
+      "sha256": "3c2cb1a9fc34051afd4dd0d8032b2e4402b3d17345b5760bb2888515069533e6",
+      "label": "Групово аржентинско танго за начинаещи",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: one square GoRez specific-service thumbnail, readable at64px.\nPrimary request: A BEGINNER GROUP ARGENTINE TANGO lesson for adults in an ordinary bright dance studio. Foreground a fictional adult man and woman practicing a simple walking Tango step in a comfortable traditional Tango embrace, one joined hand pair held to the side and other arms around partner upper back, modest relaxed practice posture. Two more adult pairs and one adult instructor behind, instructor demonstrates small grounded walking steps. Casual modest shirts/trousers/practice shoes, natural anatomy and hand connections, clear whole-body view with feet. Approachable guided group class, not a wedding, cabaret, exaggerated leg kicks, competition, ballroom line, Salsa or Bachata class.\nStyle: realistic documentary photo with authentic skin/fabric textures and soft daylight. No text, brand, logo, watermark, prices, notebook, emoji, CGI, performance audience or actual business/staff/work claim.",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "24a344f5e46ab8c6ae40807c75b49ad2ee16d143a7012883780284ff41556bbd",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and optimized256pxWebP. Realistic fictional adult lesson contexts: group ballroom with teacher and pairs; open-hold beginner Bachata group; exactly one Salsa instructor and one student couple; guided Argentine Tango group embrace; exactly one instructor and one student couple in generic chosen-style private lesson. Group/private format and styles kept separate. No named-business people/premises, source media, stage/wedding claim, text or watermark."
+      }
+    },
+    {
+      "id": "sx-private-partner-dance-lesson",
+      "sourceFile": "exec-26cc306d-19f0-4370-b014-ec854f30d3ec.png",
+      "sourceSha256": "b9a50e18db16c96d81d8df2e4b90e99ae44bb09da30c5ab9d7fa52d8cce2aaaa",
+      "file": "public/service-photos/sx-private-partner-dance-lesson-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 11072,
+      "sha256": "ab6b487c29e33c6d1043b4e0ceda3fb6393c9e1700850f92c3c34ac4593c6950",
+      "label": "Частен танцов урок за възрастен или двойка",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: one square GoRez service thumbnail, subject readable at64px.\nPrimary request: PRIVATE adult partner DANCE LESSON, exactly three fictional adults: ONE instructor guiding ONE adult student couple. Ordinary bright dance studio, casual modest practice clothes and realistic dance shoes. Couple learns a simple upright partner frame, teacher standing beside them demonstrating arm position and counting a basic step with a natural hand gesture. Medium-wide whole-body view, practical teaching interaction, not a performance. Keep style generic because the student chooses the dance style; do not visually promise a wedding routine, Tango embrace, Salsa spin or named competitive discipline. No other students or instructors.\nStyle: realistic candid photograph, believable anatomy and hand connections, natural skin/fabric textures and window daylight. No text, prices, brand, logo, watermark, notebook, emoji, CGI, bride/groom attire, audience or actual business/work claim.",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "b9a50e18db16c96d81d8df2e4b90e99ae44bb09da30c5ab9d7fa52d8cce2aaaa",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and optimized256pxWebP. Realistic fictional adult lesson contexts: group ballroom with teacher and pairs; open-hold beginner Bachata group; exactly one Salsa instructor and one student couple; guided Argentine Tango group embrace; exactly one instructor and one student couple in generic chosen-style private lesson. Group/private format and styles kept separate. No named-business people/premises, source media, stage/wedding claim, text or watermark."
+      }
+    },
+    {
+      "id": "sx-adult-ceramic-painting",
+      "sourceFile": "exec-88bb54a8-85d7-4f1c-94a9-ca9052384649.png",
+      "sourceSha256": "ba4d045674c5d64f3f91414666103b9ad6d09182251d62ad1145647f81c1e325",
+      "file": "public/service-photos/sx-adult-ceramic-painting-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 19408,
+      "sha256": "646a2ca26c4b2e20b2db458047248f38a723b9a8600e0c1f30cf31c874aa0972",
+      "label": "Рисуване върху готови керамични съдове за възрастни",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: square GoRez specific-service thumbnail, readable at64px.\nPrimary request: A friendly adult art instructor guiding TWO adult participants in a pottery-painting workshop. Foreground close-medium view of adult hands using a thin paintbrush to paint a simple original blue-green leaf decoration onto an already-made plain white CERAMIC MUG at a table. Second participant painting an already-made shallow ceramic bowl beside it, instructor watching and pointing helpfully. Small ceramic-color paint pots, palette and rinsing-water jar visible. The ceramic vessels are dry finished forms, NOT wet clay. Warm ordinary studio daylight, realistic fictional adults, natural hands and ceramic glaze/brush textures. Entire image one square1:1.\nConstraints: no pottery wheel, clay shaping, wine, children, copyrighted design, logos, watermark, text, prices, notebook, emoji, CGI or actual business/staff/work claim. Generic illustrative adult ceramic PAINTING session.",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "ba4d045674c5d64f3f91414666103b9ad6d09182251d62ad1145647f81c1e325",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full source and final256pxWebP. Adult instructor and two adult participants paint original leaf patterns on already-made ceramic mug/bowl using ceramic colors. Not wet clay, wheel throwing, retail-only purchase, branded/copyrighted artwork or actual business premises/work. Hands, brush, mug and activity remain readable at thumbnail size; no text or watermark."
+      }
+    },
+    {
       "id": "sx-mat-pilates-individual",
       "sourceFile": "exec-a1e2d908-5154-4699-bc35-5d6f05080d98.png",
       "sourceSha256": "16ef654ebf9bd1ed21a158f88773f8c10445b00b88fc03b10c89340931dbe2ee",

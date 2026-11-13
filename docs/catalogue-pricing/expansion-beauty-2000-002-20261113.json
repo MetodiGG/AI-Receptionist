@@ -1,4 +1,5 @@
 {
+  "rootSourceTermsHold": {"checkedAtUtc":"2026-11-13T23:14:52.714Z","decision":"hold_source_terms_before_publication","id":"sofia-hair-garden-sladura7","reason":"Fresha Terms updated2026-08-12 prohibit automated/systematic extraction. STOP further access, no endpoint/UI bypass. Remove unpublished record/review/identity/point.","termsUrl":"https://terms.fresha.com/terms-use","legacyFreezeAudit":"Previous freeze hashes/counts describe historical intake, not current approval. Old catalogue-2000-recovery branch must not be merged."},
   "checkedOn": "2026-11-13",
   "validUntil": "2027-02-11",
   "scope": "Ongoing manually reviewed unique Sofia beauty intake batch002. No shared imports, identities, photos, geocoding, private GPS, booking submissions or production changes.",
@@ -68,110 +69,6 @@
         }
       ],
       "reviewNotes": "Actual named merchant nail and menhair categories explicitly phone-only appointment booking; then full relevant menus/About/contact/footer reviewed. Gelmanicure20.45EUR75min,pedicuregel25.56EUR75min,men haircut+wash12.78EUR45min only. Women hairlength ranges and variable durations not flattened. Exact Tsarigradsko91/block113/entranceA and0878141459 confirmed by merchant contact, not Maps. No independent own domain found. No full weeklyhours rendered; transient opening status and provider retail-support09-17 are not salon hours. PDF control exposes no URL, no claim of complete PDF review or unpublished tariff. Opened source cached two months, within90day review window, no live slot promise. Exact merchantpath/phone/premises checked against1238base+all available2000intakes/nativepublicphones; no duplicate. No expressive prose, reviews, ratings, photos, coordinates, calls or booking."
-    },
-    {
-      "id": "sofia-hair-garden-sladura7",
-      "reviewedUrls": [
-        "https://www.fresha.com/a/hair-garden-sofia-ulitsa-sasho-nikolov-sladura-7-yk2d697q",
-        "https://www.fresha.com/a/hair-garden-sofia-ulitsa-sasho-nikolov-sladura-7-yk2d697q/booking?entryPoint=book_now_link"
-      ],
-      "bookingUrl": "https://www.fresha.com/a/hair-garden-sofia-ulitsa-sasho-nikolov-sladura-7-yk2d697q/booking?entryPoint=book_now_link",
-      "bookingKind": "form",
-      "bookingExcerpt": "Book now · HairGarden, Сашо Николов-Сладура7, Кръстова вада, София; собствено меню Select services.",
-      "address": "София, кв. Кръстова вада, ул. Сашо Николов-Сладура 7",
-      "addressSource": "https://www.fresha.com/a/hair-garden-sofia-ulitsa-sasho-nikolov-sladura-7-yk2d697q",
-      "phone": null,
-      "hoursSource": "https://www.fresha.com/a/hair-garden-sofia-ulitsa-sasho-nikolov-sladura-7-yk2d697q",
-      "hours": [
-        {
-          "weekday": 1,
-          "periods": []
-        },
-        {
-          "weekday": 2,
-          "periods": [
-            {
-              "open": "10:00",
-              "close": "19:40"
-            }
-          ]
-        },
-        {
-          "weekday": 3,
-          "periods": [
-            {
-              "open": "09:00",
-              "close": "18:00"
-            }
-          ]
-        },
-        {
-          "weekday": 4,
-          "periods": [
-            {
-              "open": "10:00",
-              "close": "19:40"
-            }
-          ]
-        },
-        {
-          "weekday": 5,
-          "periods": [
-            {
-              "open": "09:00",
-              "close": "18:00"
-            }
-          ]
-        },
-        {
-          "weekday": 6,
-          "periods": [
-            {
-              "open": "09:00",
-              "close": "17:00"
-            }
-          ]
-        },
-        {
-          "weekday": 7,
-          "periods": []
-        }
-      ],
-      "services": [
-        {
-          "name": "Дамско подстригване със сешоар",
-          "category": "hair",
-          "appointmentModel": "appointment",
-          "price": {
-            "amount": 70,
-            "currency": "EUR",
-            "kind": "fixed",
-            "sourceUrl": "https://www.fresha.com/a/hair-garden-sofia-ulitsa-sasho-nikolov-sladura-7-yk2d697q/booking?entryPoint=book_now_link",
-            "checkedOn": "2026-11-13",
-            "validUntil": "2027-02-11"
-          },
-          "durationMin": 60,
-          "durationSourceUrl": "https://www.fresha.com/a/hair-garden-sofia-ulitsa-sasho-nikolov-sladura-7-yk2d697q/booking?entryPoint=book_now_link",
-          "durationCheckedOn": "2026-11-13"
-        },
-        {
-          "name": "Боядисване на корени със сешоар",
-          "category": "hair",
-          "appointmentModel": "appointment",
-          "price": {
-            "amount": 120,
-            "currency": "EUR",
-            "kind": "fixed",
-            "sourceUrl": "https://www.fresha.com/a/hair-garden-sofia-ulitsa-sasho-nikolov-sladura-7-yk2d697q/booking?entryPoint=book_now_link",
-            "checkedOn": "2026-11-13",
-            "validUntil": "2027-02-11"
-          },
-          "durationMin": 90,
-          "durationSourceUrl": "https://www.fresha.com/a/hair-garden-sofia-ulitsa-sasho-nikolov-sladura-7-yk2d697q/booking?entryPoint=book_now_link",
-          "durationCheckedOn": "2026-11-13"
-        }
-      ],
-      "reviewNotes": "Own named merchant Fresha public page reviewed for exact branch, menu/contact/About and full weeklyhours. Actual BookNow followed first; webreader cachemiss, root independently opened fresh merchant UI then actual /booking service-selection menu after necessarycookies only, confirmed70EUR60min haircut+blow and120EUR90min roots+blow. No service/date/person chosen. Balayage requires prior free consultation and is not imported. No readable own telephone, left null rather than borrowing directoryphone. Exact Sladura7/KrastovaVada/Sofia, TueThu10-19:40/WedFri09-18/Sat09-17/MonSunclosed literal. No independent domain found, merchant identifies salon and real booking. Dedupe1238+all available2000intakes/native public contacts. Minimal factual labels only; no copied reviews, ratings, photos, marketing prose, Maps, coordinates or reservation."
     },
     {
       "id": "sofia-monali-narodno-horo62",

@@ -1,0 +1,76 @@
+{
+  "checkedOn": "2026-11-13",
+  "checkedAtUtc": "2026-11-13T22:32:12Z",
+  "status": "frozen_source_reviewed_awaiting_integration",
+  "scope": "Two independent dental practices, not staff or directory clones. Optional prices from native owner tariffs; no general human clinics.",
+  "included": [
+    {
+      "id": "sofia-violina-damyanova-ovcha-kupel418",
+      "sourceUrls": [
+        "https://viodent.wixsite.com/viodent",
+        "https://viodent.wixsite.com/viodent/contact",
+        "https://viodent.wixsite.com/viodent/services",
+        "https://viodent.wixsite.com/viodent/about"
+      ],
+      "decision": "include_priced",
+      "evidence": "Actual owner Book entry first opens own contact page; explicit phone reservation instruction and exact OvchaKupel1/block418/entranceИ/floor1 confirmed with same mobile in all pages. Entire native Services tariff read, including after20/off-day coefficient1.5 and technician/material inclusions. Only plain examination10BGN and standalone AirFlow60BGN selected; no anesthesia/addon/material fee or combined tartar-cleaning total invented. Currency is literal published BGN, not a claimed current EUR tariff; existing UI converts presentation. Source has no embedded tariff effective date; checkedOn records observation only, not owner confirmation. Copyright2013 is not treated as a new update date. Working hours conflict between contact body and repeated footer, so omitted. No other price/booking navigation or external engine on fully read home/service/contact pages. Current public HTTPS200 Services tariff and About subsequently read after cache miss and repairing the local text parser; exact named private dental practice confirmed. No qualifications imported. Public Wix robots allows these pages; no terms/fee licence asserted. No source photos, ratings, qualifications, reviews, coordinates, customer data or form submission imported."
+    },
+    {
+      "id": "sofia-emdent-sarafov6",
+      "sourceUrls": [
+        "https://speshen-zabolekar.com/",
+        "https://speshen-zabolekar.com/make-appointment/",
+        "https://speshen-zabolekar.com/cenorazpis/",
+        "https://speshen-zabolekar.com/contacts/",
+        "https://speshen-zabolekar.com/uslugi/parodontologiq/",
+        "https://speshen-zabolekar.com/obshti-usloviq-za-izpolzvane/"
+      ],
+      "decision": "include_priced",
+      "evidence": "Actual owner Book linked HTTP path followed normally to HTTPS appointment page; it offers explicit telephone reservations, not a rendered live calendar. Same actual phone882306084/address repeated on selected booking, dedicated contact, tariff and footer. Entire native fee menu read before selecting only examination20EUR and tartar-cleaning60EUR, not separate AirFlow30, child35cleaning/polish, insured copayments, materials or complex procedural totals. All amounts includeVAT and FAQ qualifies as indicative; public descriptions preserve both, no fabricated lower-bound/from or duration. Current contact hoursMonSat08–20/Sun10–18 conflict with repeated footerMonFri and generic booking24/7, therefore omitted pending clarification. One service-page CTA has obvious placeholder888123456; NOT used in listing or booking, primary dedicated contacts are consistent. Full public terms read: general IP/within-law conditions, not an automation access or database-extraction ban; only minimal independently phrased factual reference, no prose/media/table reproduction or licence claim. About timeout not completed, not claimed. General emergency marketing does not turn a dental centre into another excluded doctor clinic; selected dental services only. No map links, Google/Nominatim, customer data, forms, account, calls, notifications or production writes."
+    }
+  ],
+  "held": [
+    {
+      "website": "https://okdent.bg/",
+      "decision": "hold_access_challenge",
+      "notes": "Public robots allows site, homepage/contact reservation invitation read, but actual linked terms returned Please wait while request verified. Stopped domain, no alternate request/UI/bypass; full services and tariff review not completed, not reclassified unpublished."
+    },
+    {
+      "website": "https://naturalsmile.bg/",
+      "decision": "reject_outside_sofia",
+      "notes": "Actual owner contact is Varna/Madara17B; no Sofia branch inferred from search result or old PDF."
+    }
+  ],
+  "preflight": "Fresh current SOFIA_CATALOGUE plus every2000intake compared by domain, selected mobile and exact address: no overlaps for both included businesses.",
+  "photoReview": {
+    "suggestions": [
+      [
+        "sofia-violina-damyanova-ovcha-kupel418",
+        "other",
+        "Стоматологичен преглед · редовно работно време",
+        "dental-exam"
+      ],
+      [
+        "sofia-violina-damyanova-ovcha-kupel418",
+        "other",
+        "Полиране на зъбите с AirFlow · редовно работно време",
+        "sx-dental-airflow"
+      ],
+      [
+        "sofia-emdent-sarafov6",
+        "other",
+        "Обстоен стоматологичен преглед",
+        "dental-exam"
+      ],
+      [
+        "sofia-emdent-sarafov6",
+        "other",
+        "Почистване на зъбен камък",
+        "dental-cleaning"
+      ]
+    ],
+    "status": "root_visually_checked_existing_assets"
+  },
+  "note": "No identity or coordinate assigned before integration. checkedOn uses actual UTC day; local Sofia date is2026-11-14. checkedAtUtc must be set to actual freeze time before frozen handoff.",
+  "frozenAtUtc": "2026-11-13T22:36:57.551Z"
+}

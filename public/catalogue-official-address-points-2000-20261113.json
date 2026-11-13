@@ -8,10 +8,10 @@
   "sourceDataDate": null,
   "sourceDataDateNote": "The supplied CSV has no embedded as-of date; do not infer the original GeoJSON snapshot date.",
   "sourceFeatureCount": 125245,
-  "scope": "Combined previously reviewed501 full-precision GeoJSON-derived bindings and110 new CSV-derived bindings, without overwriting or changing a previous point.",
+  "scope": "Combined previously reviewed501 full-precision GeoJSON-derived bindings and138 new CSV-derived bindings, without overwriting or changing a previous point.",
   "modifications": "Selected source records and bound to reviewed business address identities; coordinate values unchanged.",
   "semantics": "official_postal_address_points_not_verified_entrances",
-  "pointCount": 611,
+  "pointCount": 639,
   "points": [
     {
       "id": "sofia-abi-beauty-nadezhda",
@@ -20008,44 +20008,6 @@
       "previousCoordinates": null
     },
     {
-      "id": "sofia-hair-garden-sladura7",
-      "name": "HairGarden",
-      "coordinates": {
-        "latitude": 42.653782,
-        "longitude": 23.319496,
-        "method": "verified_official_address",
-        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
-        "sourceAddress": "София, кв. Кръстова вада, ул. Сашо Николов-Сладура 7",
-        "sourceCityCode": "68134",
-        "sourceNeighborhood": "Кръстова вада",
-        "sourceWebsite": "https://www.fresha.com/a/hair-garden-sofia-ulitsa-sasho-nikolov-sladura-7-yk2d697q",
-        "addressId": "111654",
-        "checkedOn": "2026-11-13",
-        "licence": "CC-BY-4.0",
-        "attribution": "ГИС София / Столична община"
-      },
-      "officialAddress": {
-        "rn": "111654",
-        "region": "Лозенец",
-        "settlement": "гр. София",
-        "street": "ул. Сашо Николов-Сладура",
-        "house": "7",
-        "block": "",
-        "quarter": "",
-        "entrance": ""
-      },
-      "review": {
-        "decision": "unique_exact_postal_address",
-        "reviewer": "/root",
-        "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
-        "sourceUrls": [
-          "https://www.fresha.com/a/hair-garden-sofia-ulitsa-sasho-nikolov-sladura-7-yk2d697q",
-          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
-        ]
-      },
-      "previousCoordinates": null
-    },
-    {
       "id": "sofia-hairport-ishirkov9",
       "name": "Hairport Beauty Studio",
       "coordinates": {
@@ -22820,44 +22782,6 @@
       "previousCoordinates": null
     },
     {
-      "id": "sofia-sense-wellness-tsar-osvoboditel16",
-      "name": "Sense Wellness Sofia",
-      "coordinates": {
-        "latitude": 42.694204,
-        "longitude": 23.331327,
-        "method": "verified_official_address",
-        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
-        "sourceAddress": "София, бул. Цар Освободител 16, Sense Hotel Sofia",
-        "sourceCityCode": "68134",
-        "sourceNeighborhood": null,
-        "sourceWebsite": "https://sensewellnesssofia.freshasite.com/",
-        "addressId": "42648",
-        "checkedOn": "2026-11-13",
-        "licence": "CC-BY-4.0",
-        "attribution": "ГИС София / Столична община"
-      },
-      "officialAddress": {
-        "rn": "42648",
-        "region": "Средец",
-        "settlement": "гр. София",
-        "street": "бул. Цар Освободител",
-        "house": "16",
-        "block": "",
-        "quarter": "",
-        "entrance": ""
-      },
-      "review": {
-        "decision": "unique_exact_postal_address",
-        "reviewer": "/root",
-        "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
-        "sourceUrls": [
-          "https://sensewellnesssofia.freshasite.com/contact",
-          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
-        ]
-      },
-      "previousCoordinates": null
-    },
-    {
       "id": "sofia-ortus-wellness-hyatt",
       "name": "Ortus Wellness · Hyatt Regency Sofia",
       "coordinates": {
@@ -22894,6 +22818,1153 @@
         ]
       },
       "previousCoordinates": null
+    },
+    {
+      "id": "sofia-nestor-notov-neru28",
+      "name": "Д-р Нестор Нотов · дентална практика",
+      "coordinates": {
+        "latitude": 42.714811,
+        "longitude": 23.254114,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ж.к. Люлин, бул. Джавахарлал Неру 28, Силвър център",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Люлин",
+        "sourceWebsite": "https://notov.dentist/",
+        "addressId": "94685",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "94685",
+        "region": "Люлин",
+        "settlement": "гр. София",
+        "street": "бул. Джавахарлал Неру",
+        "house": "28",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
+        "sourceUrls": [
+          "https://notov.dentist/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-folklorika-slatina-geo-milev136",
+      "name": "Фолклорика · Слатина",
+      "coordinates": {
+        "latitude": 42.680096,
+        "longitude": 23.374059,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ж.к. Слатина, ул. Гео Милев 136, НЧ Светлина-1921",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Слатина",
+        "sourceWebsite": "https://www.folklorika.com/",
+        "addressId": "37402",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "37402",
+        "region": "Слатина",
+        "settlement": "гр. София",
+        "street": "ул. Гео Милев",
+        "house": "136",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
+        "sourceUrls": [
+          "https://www.folklorika.com/contacts.html",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-orbis-evlogi-georgievi68",
+      "name": "Учебен център ОРБИС",
+      "coordinates": {
+        "latitude": 42.69144,
+        "longitude": 23.342083,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, бул. Евлоги и Христо Георгиеви 68",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Център",
+        "sourceWebsite": "https://orbis-school.com/",
+        "addressId": "103350",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "103350",
+        "region": "Средец",
+        "settlement": "гр. София",
+        "street": "бул. Евлоги и Христо Георгиеви",
+        "house": "68",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
+        "sourceUrls": [
+          "https://orbis-school.com/Kontakti.c131",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-max-international-terter10",
+      "name": "Max International · Светослав Тертер",
+      "coordinates": {
+        "latitude": 42.68808,
+        "longitude": 23.34329,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. Светослав Тертер 10",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://maxinternational.bg/",
+        "addressId": "39604",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "39604",
+        "region": "Средец",
+        "settlement": "гр. София",
+        "street": "ул. Светослав Тертер",
+        "house": "10",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
+        "sourceUrls": [
+          "https://maxinternational.bg/kontakti/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-emdent-sarafov6",
+      "name": "Емдент · стоматологичен център",
+      "coordinates": {
+        "latitude": 42.702872,
+        "longitude": 23.35493,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ж.к. Сухата река, ул. Михаил Сарафов 6",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Сухата река",
+        "sourceWebsite": "https://speshen-zabolekar.com/",
+        "addressId": "27418",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "27418",
+        "region": "Подуяне",
+        "settlement": "гр. София",
+        "street": "ул. Михаил Сарафов",
+        "house": "6",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
+        "sourceUrls": [
+          "https://speshen-zabolekar.com/contacts/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-divadance-budapest88",
+      "name": "Клуб по спортни танци DivaDance",
+      "coordinates": {
+        "latitude": 42.707032,
+        "longitude": 23.326698,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. Будапеща 88",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://divadance-bg.com/",
+        "addressId": "28563",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "28563",
+        "region": "Сердика",
+        "settlement": "гр. София",
+        "street": "ул. Будапеща",
+        "house": "88",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
+        "sourceUrls": [
+          "https://divadance-bg.com/zapisvane",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-veronique-dance-20ti-april13",
+      "name": "Школа по танци VeroniQue · София",
+      "coordinates": {
+        "latitude": 42.692735,
+        "longitude": 23.312721,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. 20-ти април 13, ет. 2, в безистена",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://veronique-bg.com/",
+        "addressId": "18316",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "18316",
+        "region": "Красно село",
+        "settlement": "гр. София",
+        "street": "ул. 20-ти април",
+        "house": "13",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
+        "sourceUrls": [
+          "https://veronique-bg.com/contacts",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-ot-izvora-buxton-vihren10",
+      "name": "От Извора · Бъкстон–Павлово",
+      "coordinates": {
+        "latitude": 42.667375,
+        "longitude": 23.267354,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, Бъкстон, ул. Вихрен 10, сграда Риск Инженеринг",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Бъкстон",
+        "sourceWebsite": "https://www.bghora.com/bg",
+        "addressId": "11573",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "11573",
+        "region": "Витоша",
+        "settlement": "гр. София",
+        "street": "ул. Вихрен",
+        "house": "10",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
+        "sourceUrls": [
+          "https://www.bghora.com/bg/novi-grupi/71/bghora-nova-grupa-za-balgarski",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-frizior-bogdanovets8",
+      "name": "Frizior.bg · салон за коса",
+      "coordinates": {
+        "latitude": 42.686814,
+        "longitude": 23.302622,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. Богдановец 8",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://www.frizior.bg/",
+        "addressId": "19609",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "19609",
+        "region": "Красно село",
+        "settlement": "гр. София",
+        "street": "ул. Богдановец",
+        "house": "8",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
+        "sourceUrls": [
+          "https://www.frizior.bg/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-old-school-barbershop-vitosha116",
+      "name": "Old School Barber Shop · Витоша 116",
+      "coordinates": {
+        "latitude": 42.685258,
+        "longitude": 23.316366,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, бул. Витоша 116",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Център",
+        "sourceWebsite": "https://old-school-barbershop.com/",
+        "addressId": "3183",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "3183",
+        "region": "Триадица",
+        "settlement": "гр. София",
+        "street": "бул. Витоша",
+        "house": "116",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
+        "sourceUrls": [
+          "https://old-school-barbershop.com/contact.php",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-new-vision-sveta-troitsa367a",
+      "name": "New Vision Aesthetic",
+      "coordinates": {
+        "latitude": 42.713173,
+        "longitude": 23.29847,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ж.к. Света Троица, бл. 367А",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Света Троица",
+        "sourceWebsite": "https://newvisionstudio.bg/",
+        "addressId": "29513",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "29513",
+        "region": "Илинден",
+        "settlement": "гр. София",
+        "street": "",
+        "house": "",
+        "block": "367А",
+        "quarter": "ж.к. Света Троица",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
+        "sourceUrls": [
+          "https://newvisionstudio.bg/kontakti/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-hexaya-intercontinental",
+      "name": "Hexaya Health & Wellness · InterContinental Sofia",
+      "coordinates": {
+        "latitude": 42.693203,
+        "longitude": 23.332461,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, пл. Народно събрание 4, InterContinental Sofia",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://sofia.intercontinental.com/en/spa",
+        "addressId": "41951",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "41951",
+        "region": "Средец",
+        "settlement": "гр. София",
+        "street": "пл. Народно събрание",
+        "house": "4",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
+        "sourceUrls": [
+          "https://sofia.intercontinental.com/en/spa",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-studio-pompon-nartsis3",
+      "name": "Груминг студио Помпон",
+      "coordinates": {
+        "latitude": 42.629545,
+        "longitude": 23.307539,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, кв. Драгалевци, ул. Нарцис 3",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Драгалевци",
+        "sourceWebsite": "https://www.studio-pompon.com/",
+        "addressId": "92498",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "92498",
+        "region": "Витоша",
+        "settlement": "гр. София",
+        "street": "ул. Нарцис",
+        "house": "3",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
+        "sourceUrls": [
+          "https://www.studio-pompon.com/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-beauty-cultura-trakia17",
+      "name": "Beauty Cultura",
+      "coordinates": {
+        "latitude": 42.699012,
+        "longitude": 23.342345,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. Тракия 17",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://beautycultura.bg/",
+        "addressId": "46268",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "46268",
+        "region": "Оборище",
+        "settlement": "гр. София",
+        "street": "ул. Тракия",
+        "house": "17",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
+        "sourceUrls": [
+          "https://beautycultura.bg/контакти/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-yovadent-shumen5",
+      "name": "ЙоваДент · детска дентална клиника",
+      "coordinates": {
+        "latitude": 42.707593,
+        "longitude": 23.3061,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, кв. Банишора, ул. Шумен 5, партер",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Банишора",
+        "sourceWebsite": "https://orthosmile4kids.bg/",
+        "addressId": "105536",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "105536",
+        "region": "Сердика",
+        "settlement": "гр. София",
+        "street": "ул. Шумен",
+        "house": "5",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
+        "sourceUrls": [
+          "https://orthosmile4kids.bg/contacts",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-ot-izvora-lyulin-dobri-nemirov5",
+      "name": "От Извора · Люлин",
+      "coordinates": {
+        "latitude": 42.716377,
+        "longitude": 23.259091,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, Люлин, ул. Добри Немиров 5, комплекс Люлин Плаза, зала 3",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Люлин",
+        "sourceWebsite": "https://www.bghora.com/bg",
+        "addressId": "98386",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "98386",
+        "region": "Люлин",
+        "settlement": "гр. София",
+        "street": "ул. Добри Немиров",
+        "house": "5",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared actual owner-sourced street/full house number and named building with the sole exact municipal CSV row. Shared address may host independent operators; these are postal address points, not verified floor/room/entrance or court pins. HanOmurtag42 large courtyard and TsarBorisIII19 near-entrance wording remain held, not silently substituted.",
+        "sourceUrls": [
+          "https://www.bghora.com/bg/novi-grupi/11/bghora-grupa-za-narodni-tantsi",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-ot-izvora-ruski-20ti-april13",
+      "name": "От Извора · Руски паметник",
+      "coordinates": {
+        "latitude": 42.692735,
+        "longitude": 23.312721,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. 20-ти април 13, след безистена наляво, ет. 1",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://www.bghora.com/bg",
+        "addressId": "18316",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "18316",
+        "region": "Красно село",
+        "settlement": "гр. София",
+        "street": "ул. 20-ти април",
+        "house": "13",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared actual owner-sourced street/full house number and named building with the sole exact municipal CSV row. Shared address may host independent operators; these are postal address points, not verified floor/room/entrance or court pins. HanOmurtag42 large courtyard and TsarBorisIII19 near-entrance wording remain held, not silently substituted.",
+        "sourceUrls": [
+          "https://www.bghora.com/bg/novi-grupi/31/bghora-grupa-za-narodni-tantsi",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-salsa-diva-bulgaria43",
+      "name": "Salsa Diva · бул. България",
+      "coordinates": {
+        "latitude": 42.673677,
+        "longitude": 23.296217,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, Гоце Делчев, бул. България 43, 126 ОУ Петко Ю. Тодоров, малък физкултурен салон",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Гоце Делчев",
+        "sourceWebsite": "https://www.salsadiva.info/",
+        "addressId": "4111",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "4111",
+        "region": "Триадица",
+        "settlement": "гр. София",
+        "street": "бул. България",
+        "house": "43",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared actual owner-sourced street/full house number and named building with the sole exact municipal CSV row. Shared address may host independent operators; these are postal address points, not verified floor/room/entrance or court pins. HanOmurtag42 large courtyard and TsarBorisIII19 near-entrance wording remain held, not silently substituted.",
+        "sourceUrls": [
+          "https://www.salsadiva.info/contacts.php",
+          "https://www.salsadiva.info/SALSA_BACHATA_bul_BULGARIA_43_n485",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-salsa-diva-europa-liditse1",
+      "name": "Salsa Diva · хотел Европа",
+      "coordinates": {
+        "latitude": 42.676592,
+        "longitude": 23.360588,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, Гео Милев, ул. Лидице 1, хотел Европа, ет. −2, зала Salsa Diva",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Гео Милев",
+        "sourceWebsite": "https://www.salsadiva.info/",
+        "addressId": "36564",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "36564",
+        "region": "Слатина",
+        "settlement": "гр. София",
+        "street": "ул. Лидице",
+        "house": "1",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared actual owner-sourced street/full house number and named building with the sole exact municipal CSV row. Shared address may host independent operators; these are postal address points, not verified floor/room/entrance or court pins. HanOmurtag42 large courtyard and TsarBorisIII19 near-entrance wording remain held, not silently substituted.",
+        "sourceUrls": [
+          "https://www.salsadiva.info/contacts.php",
+          "https://www.salsadiva.info/%D1%81%D0%B0%D0%BB%D1%81%D0%B0-L.A.-style-%D0%B1%D0%B0%D1%87%D0%B0%D1%82%D0%B0-%D1%81%D0%BE%D1%84%D0%B8%D1%8F-%D0%BD%D0%BE%D0%B2%D0%B0-%D0%B3%D1%80%D1%83%D0%BF%D0%B0_n486",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-zhivo-chudo-buxton40",
+      "name": "Живо Чудо · Бъкстон",
+      "coordinates": {
+        "latitude": 42.665703,
+        "longitude": 23.274936,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, Бъкстон, бул. Братя Бъкстон 40",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Бъкстон",
+        "sourceWebsite": "https://zhivochudo.com/",
+        "addressId": "102907",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "102907",
+        "region": "Витоша",
+        "settlement": "гр. София",
+        "street": "бул. Братя Бъкстон",
+        "house": "40",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared actual owner-sourced street/full house number and named building with the sole exact municipal CSV row. Shared address may host independent operators; these are postal address points, not verified floor/room/entrance or court pins. HanOmurtag42 large courtyard and TsarBorisIII19 near-entrance wording remain held, not silently substituted.",
+        "sourceUrls": [
+          "https://zhivochudo.com/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-ot-izvora-armenski-todor-aleksandrov31",
+      "name": "От Извора · Арменски дом",
+      "coordinates": {
+        "latitude": 42.698544,
+        "longitude": 23.316208,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, бул. Тодор Александров 31, Арменски дом",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://www.bghora.com/bg",
+        "addressId": "45976",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "45976",
+        "region": "Възраждане",
+        "settlement": "гр. София",
+        "street": "бул. Тодор Александров",
+        "house": "31",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared actual owner-sourced street/full house number and named building with the sole exact municipal CSV row. Shared address may host independent operators; these are postal address points, not verified floor/room/entrance or court pins. HanOmurtag42 large courtyard and TsarBorisIII19 near-entrance wording remain held, not silently substituted.",
+        "sourceUrls": [
+          "https://www.bghora.com/bg/grafik",
+          "https://www.bghora.com/bg/grupi/23/sredno-kam-naprednalo-nivo-grupa-za-narodni-tantsi",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-vitosha-auto-tsarigradsko166",
+      "name": "Витоша Ауто · сервиз",
+      "coordinates": {
+        "latitude": 42.636157,
+        "longitude": 23.420377,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, бул. Цариградско шосе 166",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://vauto.bg/",
+        "addressId": "98086",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "98086",
+        "region": "Панчарево",
+        "settlement": "гр. София",
+        "street": "бул. Цариградско шосе",
+        "house": "166",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared actual owner-sourced street/full house number and named building with the sole exact municipal CSV row. Shared address may host independent operators; these are postal address points, not verified floor/room/entrance or court pins. HanOmurtag42 large courtyard and TsarBorisIII19 near-entrance wording remain held, not silently substituted.",
+        "sourceUrls": [
+          "https://vauto.bg/contacts/",
+          "https://vauto.bg/services/serviz/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-swingin-monkeys-20ti-april13",
+      "name": "Swingin Monkeys · Руски паметник",
+      "coordinates": {
+        "latitude": 42.692735,
+        "longitude": 23.312721,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. 20-ти април 13, зала VeroniQue",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://swinginmonkeys.com/",
+        "addressId": "18316",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "18316",
+        "region": "Красно село",
+        "settlement": "гр. София",
+        "street": "ул. 20-ти април",
+        "house": "13",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared actual owner-sourced street/full house number and named building with the sole exact municipal CSV row. Shared address may host independent operators; these are postal address points, not verified floor/room/entrance or court pins. HanOmurtag42 large courtyard and TsarBorisIII19 near-entrance wording remain held, not silently substituted.",
+        "sourceUrls": [
+          "https://swinginmonkeys.com/swing-dancing-locations/",
+          "https://swinginmonkeys.com/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-swingin-monkeys-osogovo2",
+      "name": "Swingin Monkeys · Мол София",
+      "coordinates": {
+        "latitude": 42.696745,
+        "longitude": 23.307454,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. Осогово 2, зала Latin Force",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://swinginmonkeys.com/",
+        "addressId": "95051",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "95051",
+        "region": "Възраждане",
+        "settlement": "гр. София",
+        "street": "ул. Осогово",
+        "house": "2",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared actual owner-sourced street/full house number and named building with the sole exact municipal CSV row. Shared address may host independent operators; these are postal address points, not verified floor/room/entrance or court pins. HanOmurtag42 large courtyard and TsarBorisIII19 near-entrance wording remain held, not silently substituted.",
+        "sourceUrls": [
+          "https://swinginmonkeys.com/swing-dancing-locations/",
+          "https://swinginmonkeys.com/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-zdravkov-legal-pozitano3",
+      "name": "Адвокатска кантора Здравков",
+      "coordinates": {
+        "latitude": 42.69589,
+        "longitude": 23.317922,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, пл. Позитано 3",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Център",
+        "sourceWebsite": "https://zdravkov-legal.com/",
+        "addressId": "3791",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "3791",
+        "region": "Триадица",
+        "settlement": "гр. София",
+        "street": "пл. Позитано",
+        "house": "3",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared actual owner-sourced street/full house number and named building with the sole exact municipal CSV row. Shared address may host independent operators; these are postal address points, not verified floor/room/entrance or court pins. HanOmurtag42 large courtyard and TsarBorisIII19 near-entrance wording remain held, not silently substituted.",
+        "sourceUrls": [
+          "https://zdravkov-legal.com/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-marina-paneva-banat3",
+      "name": "Марина Панева · психолог",
+      "coordinates": {
+        "latitude": 42.664163,
+        "longitude": 23.315767,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. Банат 3, партер",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Лозенец",
+        "sourceWebsite": "https://paneva.eu/",
+        "addressId": "2424",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "2424",
+        "region": "Лозенец",
+        "settlement": "гр. София",
+        "street": "ул. Банат",
+        "house": "3",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared actual owner-sourced street/full house number and named building with the sole exact municipal CSV row. Shared address may host independent operators; these are postal address points, not verified floor/room/entrance or court pins. HanOmurtag42 large courtyard and TsarBorisIII19 near-entrance wording remain held, not silently substituted.",
+        "sourceUrls": [
+          "https://paneva.eu/konsultacii/individualni-psihologicheski-konsultacii",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-stela-gidikova-ivan-vazov38",
+      "name": "Стела Гидикова · психолог и психотерапевт",
+      "coordinates": {
+        "latitude": 42.691202,
+        "longitude": 23.33053,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. Иван Вазов 38",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Център",
+        "sourceWebsite": "https://stelagidikova.com/",
+        "addressId": "25706",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "25706",
+        "region": "Средец",
+        "settlement": "гр. София",
+        "street": "ул. Иван Вазов",
+        "house": "38",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared actual owner-sourced street/full house number and named building with the sole exact municipal CSV row. Shared address may host independent operators; these are postal address points, not verified floor/room/entrance or court pins. HanOmurtag42 large courtyard and TsarBorisIII19 near-entrance wording remain held, not silently substituted.",
+        "sourceUrls": [
+          "https://stelagidikova.com/kontakti/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-adelina-filipova-knyaz-boris108",
+      "name": "Аделина Филипова · психолог и психотерапевт",
+      "coordinates": {
+        "latitude": 42.695222,
+        "longitude": 23.318509,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. Княз Борис I 108, ет. 3, офис 5",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Център",
+        "sourceWebsite": "https://filipova.bg/",
+        "addressId": "119777",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "119777",
+        "region": "Триадица",
+        "settlement": "гр. София",
+        "street": "ул. Княз Борис I",
+        "house": "108",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared actual owner-sourced street/full house number and named building with the sole exact municipal CSV row. Shared address may host independent operators; these are postal address points, not verified floor/room/entrance or court pins. HanOmurtag42 large courtyard and TsarBorisIII19 near-entrance wording remain held, not silently substituted.",
+        "sourceUrls": [
+          "https://filipova.bg/contacts/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-galina-chankova-tri-ushi1",
+      "name": "Адвокат Галина Чанкова",
+      "coordinates": {
+        "latitude": 42.695387,
+        "longitude": 23.318122,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. Три Уши 1, етаж 3, офис 1",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Център",
+        "sourceWebsite": "https://cantorachankova.com/",
+        "addressId": "3794",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "3794",
+        "region": "Триадица",
+        "settlement": "гр. София",
+        "street": "ул. Три уши",
+        "house": "1",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared actual owner-sourced street/full house number and named building with the sole exact municipal CSV row. Shared address may host independent operators; these are postal address points, not verified floor/room/entrance or court pins. HanOmurtag42 large courtyard and TsarBorisIII19 near-entrance wording remain held, not silently substituted.",
+        "sourceUrls": [
+          "https://cantorachankova.com/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82/",
+          "https://cantorachankova.com/%D0%B0%D0%B4%D0%B2-%D0%B3%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0-%D1%87%D0%B0%D0%BD%D0%BA%D0%BE%D0%B2%D0%B0/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-ies-pozitano3-office10",
+      "name": "Правна кантора IES · София",
+      "coordinates": {
+        "latitude": 42.69589,
+        "longitude": 23.317922,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, площад Позитано 3, етаж 2, офис 10",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Център",
+        "sourceWebsite": "https://ies.bg/",
+        "addressId": "3791",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "3791",
+        "region": "Триадица",
+        "settlement": "гр. София",
+        "street": "пл. Позитано",
+        "house": "3",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared actual owner-sourced street/full house number and named building with the sole exact municipal CSV row. Shared address may host independent operators; these are postal address points, not verified floor/room/entrance or court pins. HanOmurtag42 large courtyard and TsarBorisIII19 near-entrance wording remain held, not silently substituted.",
+        "sourceUrls": [
+          "https://ies.bg/kontakti/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
     }
   ],
   "sourceSnapshots": [
@@ -22908,7 +23979,7 @@
       "format": "CSV",
       "sha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
       "sourceFeatureCount": 125245,
-      "pointCount": 110,
+      "pointCount": 138,
       "coordinatePrecisionDecimalPlaces": 6
     }
   ]

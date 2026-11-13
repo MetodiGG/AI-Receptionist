@@ -17,10 +17,10 @@ const sources = [...home.records, ...auto.records, ...beauty.records]
 const row = id => SOFIA_CATALOGUE.find(item => item.id === id)
 const photo = (business, index = 0) => serviceThumbnail({ ...business.services[index], ...catalogueServicePhotoFields(business.services[index], business) }, { business })
 
-test('three frozen intakes add thirty-seven real businesses with fifty-six inventory-bound service photos', () => {
-  assert.deepEqual([home.records.length, auto.records.length, beauty.records.length], [15, 12, 10])
-  assert.equal(new Set(sources.map(item => item.id)).size, 37)
-  assert.equal(sources.flatMap(item => item.services).length, 56)
+test('three intakes retain thirty-six businesses and fifty-three services after the unpublished Sense source hold', () => {
+  assert.deepEqual([home.records.length, auto.records.length, beauty.records.length], [15, 12, 9])
+  assert.equal(new Set(sources.map(item => item.id)).size, 36)
+  assert.equal(sources.flatMap(item => item.services).length, 53)
   for (const source of sources) {
     const current = row(source.id)
     assert.ok(approvedCatalogueRecord(current, now), source.id)

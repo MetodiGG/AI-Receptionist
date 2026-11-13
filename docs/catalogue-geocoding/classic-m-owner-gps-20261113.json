@@ -1,0 +1,11 @@
+{
+  "checkedOn": "2026-11-13",
+  "status": "reviewed_local_not_published",
+  "businessId": "sofia-balet-classic-m-dimitar-dobrev8a",
+  "address": "София, Студентски град, ул. Проф. д-р Димитър Добрев 8, вх. А, ет. 2",
+  "sourceUrl": "https://balet.classicm-bg.com/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/",
+  "point": { "latitude": 42.649434, "longitude": 23.347886 },
+  "sourceEvidence": "Root personally read the actual owner contact page: complete Dimitar Dobrev8 entranceA floor2 address, public0885070787 and literal GPS42.649434,23.347886. No map/iframe destination or viewport was requested or inferred. Agent's later message-only DobriTerpeshev typo was explicitly rejected; it was not in the source module.",
+  "scope": "One actual ballet teaching venue, not room, instructor or timetable clones. No claim this point identifies a particular entrance, floor or studio room. Existing address-first directions behavior remains unchanged.",
+  "integrity": "first_party_coordinates bound to exact sourceAddress and source URL; changed address fails closed. No external geocoding, customer coordinates, reservation, call, notification or production write."
+}

@@ -24,6 +24,7 @@ const realDependencies = Object.fromEntries(await Promise.all([
   'availability', 'notification-copy', 'booking-intake', 'booking-safety',
   'business-location', 'booking-contact', 'public-business-query',
   'business-photos', 'business-profile', 'booking-mode', 'monthly-availability',
+  'public-service-eligibility',
 ].map(async name => [`./${name}.mjs`, await import(`../lib/${name}.mjs`)])))
 const [bookingCode, apiResponseCode, routeCode] = await Promise.all([
   compile('../lib/public-booking.js'),

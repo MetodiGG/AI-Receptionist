@@ -1,0 +1,262 @@
+{
+  "observedOn": "2026-11-13",
+  "scope": "Sanitized public active-partner service snapshot; public service facts only, no contact, staff, customer or booking data.",
+  "businesses": [
+    {
+      "id": "6b57b901-acd8-494b-a992-2cec551b4b00",
+      "name": "autocomplexrs ltd",
+      "industry": "auto",
+      "businessCategory": "auto_repair",
+      "services": [
+        {
+          "id": "a8bfd4a9-1249-4a72-a1d3-5b78edfe2dd5",
+          "name": "Нова услуга",
+          "category": null,
+          "description": null,
+          "price": 0,
+          "currency": "EUR",
+          "duration_min": 60
+        },
+        {
+          "id": "146da856-04ad-40d2-8095-cdf34dc65bc6",
+          "name": "Нова услуга",
+          "category": null,
+          "description": null,
+          "price": 0,
+          "currency": "EUR",
+          "duration_min": 60
+        },
+        {
+          "id": "76f91048-afae-47ba-8d8b-003a99efe2c7",
+          "name": "Нова услуга",
+          "category": null,
+          "description": null,
+          "price": 0,
+          "currency": "EUR",
+          "duration_min": 60
+        },
+        {
+          "id": "46ff9c8d-2eba-4f07-a71c-714c01b55d59",
+          "name": "Компютърна диагностика",
+          "category": null,
+          "description": null,
+          "price": 50,
+          "currency": "EUR",
+          "duration_min": 45
+        },
+        {
+          "id": "65f0c253-172b-4f56-b89c-0a9bfbcdd620",
+          "name": "Смяна на масло и филтри",
+          "category": null,
+          "description": null,
+          "price": 50,
+          "currency": "EUR",
+          "duration_min": 90
+        },
+        {
+          "id": "191082c0-a7f0-4f69-88e8-149ed69eac2c",
+          "name": "Преглед и оценка за ремонт",
+          "category": null,
+          "description": null,
+          "price": 50,
+          "currency": "EUR",
+          "duration_min": 30
+        },
+        {
+          "id": "9b74aa5f-2735-4d41-8c8b-fae2422c8a6f",
+          "name": "Ремонт двигатели",
+          "category": null,
+          "description": null,
+          "price": 1200,
+          "currency": "EUR",
+          "duration_min": 60
+        },
+        {
+          "id": "69f2e80d-6631-4fd4-8210-622272d68fcb",
+          "name": "Зареждане и ремонт климатик",
+          "category": null,
+          "description": null,
+          "price": 20,
+          "currency": "EUR",
+          "duration_min": 60
+        }
+      ]
+    },
+    {
+      "id": "f309d060-d96d-4237-8fa6-00db10b7ac3d",
+      "name": "Kerelski Barber & Beauty",
+      "industry": "beauty",
+      "businessCategory": "barber",
+      "services": [
+        {
+          "id": "45c81056-2276-4c2f-8884-81cf7fa9d711",
+          "name": "Мъжко подстригване",
+          "category": null,
+          "description": null,
+          "price": 18,
+          "currency": "EUR",
+          "duration_min": 45
+        },
+        {
+          "id": "5b66bee1-6034-4f22-b1dd-85616533544f",
+          "name": "Оформяне на брада",
+          "category": null,
+          "description": null,
+          "price": 15,
+          "currency": "EUR",
+          "duration_min": 25
+        },
+        {
+          "id": "7804d6cb-d914-4c2e-8b56-1683c443c89f",
+          "name": "Кралско бръснене",
+          "category": null,
+          "description": null,
+          "price": 35,
+          "currency": "EUR",
+          "duration_min": 60
+        },
+        {
+          "id": "cbcb6597-0b5e-44d3-9adc-e0fdf6ca8838",
+          "name": "Боя",
+          "category": null,
+          "description": null,
+          "price": 10,
+          "currency": "EUR",
+          "duration_min": 60
+        },
+        {
+          "id": "4b9e9d79-f390-4de2-8da8-f04ab74206a6",
+          "name": "Детско подстригване",
+          "category": null,
+          "description": null,
+          "price": 15,
+          "currency": "EUR",
+          "duration_min": 60
+        },
+        {
+          "id": "6fab1326-f6fc-4ca2-ab5d-f098fadd3117",
+          "name": "Брада + коса",
+          "category": null,
+          "description": null,
+          "price": 25,
+          "currency": "EUR",
+          "duration_min": 60
+        }
+      ]
+    },
+    {
+      "id": "e5b029ba-3586-485b-ac19-978a8386922d",
+      "name": "Touch and care center",
+      "industry": "beauty",
+      "businessCategory": "beauty",
+      "services": [
+        {
+          "id": "ddb089f1-4fb3-422f-8fae-5b1689c1a0da",
+          "name": "Апарат за лице “Меган”",
+          "category": null,
+          "description": null,
+          "price": 120,
+          "currency": "EUR",
+          "duration_min": 60
+        }
+      ]
+    },
+    {
+      "id": "09f6d770-cdd5-40d2-8e82-d7e2cc9e263a",
+      "name": "Zen Barbershop",
+      "industry": "beauty",
+      "businessCategory": "barber",
+      "services": [
+        {
+          "id": "5d6acf61-79a2-4e9e-8682-8c3248863806",
+          "name": "Детско подстригване за момчета",
+          "category": null,
+          "description": null,
+          "price": 12,
+          "currency": "EUR",
+          "duration_min": 15
+        },
+        {
+          "id": "ddd44c38-1dea-433a-af51-4d812eaee013",
+          "name": "Кола маска за уши и нос",
+          "category": null,
+          "description": null,
+          "price": 5,
+          "currency": "EUR",
+          "duration_min": 10
+        },
+        {
+          "id": "ef28ff51-cf90-49dc-9e1d-674713f604a2",
+          "name": "Подстригване на коса и брада и оформяне на вежди",
+          "category": null,
+          "description": null,
+          "price": 35,
+          "currency": "EUR",
+          "duration_min": 35
+        },
+        {
+          "id": "a8c0d8e1-3e86-4d07-ab5f-71439b79f8dd",
+          "name": "Подстригване на коса и брада",
+          "category": null,
+          "description": null,
+          "price": 30,
+          "currency": "EUR",
+          "duration_min": 30
+        },
+        {
+          "id": "5916e4b4-a1d3-4fe0-8b08-d489b140ee93",
+          "name": "Подстригване на коса",
+          "category": null,
+          "description": null,
+          "price": 18,
+          "currency": "EUR",
+          "duration_min": 25
+        },
+        {
+          "id": "1e61199f-4ad5-4874-a6d2-aab90ad19cc4",
+          "name": "Оформяне на вежди с конец",
+          "category": null,
+          "description": null,
+          "price": 5,
+          "currency": "EUR",
+          "duration_min": 10
+        },
+        {
+          "id": "86a88b43-fa2f-4d34-b109-4a8b730f52cb",
+          "name": "Оформяне на брада",
+          "category": null,
+          "description": null,
+          "price": 15,
+          "currency": "EUR",
+          "duration_min": 15
+        }
+      ]
+    },
+    {
+      "id": "450c5c2f-db41-476b-a21e-98cf5ee29194",
+      "name": "ВЕСИ СТУДИО",
+      "industry": "beauty",
+      "businessCategory": "nails",
+      "services": [
+        {
+          "id": "a41aaf3d-99b6-4f6f-b80a-d1863c672f1d",
+          "name": "Педикюр",
+          "category": null,
+          "description": null,
+          "price": 36,
+          "currency": "EUR",
+          "duration_min": 60
+        },
+        {
+          "id": "4622e6d9-af83-4e97-9b34-031c8c9355bf",
+          "name": "Маникюр",
+          "category": null,
+          "description": null,
+          "price": 30,
+          "currency": "EUR",
+          "duration_min": 60
+        }
+      ]
+    }
+  ]
+}

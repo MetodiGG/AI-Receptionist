@@ -88,7 +88,7 @@ test('new searches recognise published dental, accounting, lessons and reserved 
   const home = await discoverBusinesses({ query: 'за дома', cityCode: '68134' }, deps())
   assert.ok(home.results.length > 0)
   assert.ok(home.results.every(row => row.category === 'home_services' && row.locationKind === 'service_area'))
-  assert.equal(home.cataloguePage.total, SOFIA_CATALOGUE.filter(row => row.services.some(service => service.category === 'home_services')).length)
+  assert.equal(home.cataloguePage.total, SOFIA_CATALOGUE.filter(row => approvedCatalogueRecord(row, now.toMillis()) && row.services.some(service => service.category === 'home_services')).length)
   for (const query of ['лазерна епилация', 'laser hair removal']) {
     const laser = await discoverBusinesses({ query, cityCode: '68134' }, deps())
     assert.ok(laser.cataloguePage.total >= 50, query)

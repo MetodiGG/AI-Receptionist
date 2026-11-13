@@ -1,0 +1,4600 @@
+{
+  "checkedAt": "2026-11-13T00:00:00.000Z",
+  "sourceRecords": 1081,
+  "currentlyEligible": 1058,
+  "withCurrentPublishedPrices": 687,
+  "excludedGeneralClinics": [
+    {
+      "id": "sofia-omni-iztok",
+      "name": "OMNI Physio Clinic · Изток"
+    },
+    {
+      "id": "sofia-omni-druzhba",
+      "name": "OMNI Physio Clinic · Дружба 2"
+    },
+    {
+      "id": "sofia-arthromedica",
+      "name": "Медицински център Артромедика"
+    },
+    {
+      "id": "sofia-sportmed",
+      "name": "Медицински център СпортМед"
+    },
+    {
+      "id": "sofia-serkan-uzun-lyulin",
+      "name": "Серкан Узун · МЦ Ориндж"
+    },
+    {
+      "id": "sofia-serkan-uzun-ortopedia",
+      "name": "Серкан Узун · УМБАЛ Ортопедия"
+    },
+    {
+      "id": "sofia-avitsena-rehabilitation",
+      "name": "МЦ Авицена · рехабилитация"
+    },
+    {
+      "id": "sofia-q-life-kinezitherapy",
+      "name": "МЦ Качествен Живот · кинезитерапия"
+    },
+    {
+      "id": "sofia-nikolay-chudotvorets-rehab",
+      "name": "МЦ Николай Чудотворец · рехабилитация"
+    },
+    {
+      "id": "sofia-haelan-bulgaria-rehab",
+      "name": "Хейлан Кеър · бул. България"
+    },
+    {
+      "id": "sofia-haelan-mladost-rehab",
+      "name": "Хейлан Кеър 2 · Младост"
+    },
+    {
+      "id": "sofia-balance-clinic",
+      "name": "Баланс Клиник"
+    },
+    {
+      "id": "sofia-vita-base-two",
+      "name": "ВИТА · База 2"
+    },
+    {
+      "id": "sofia-vita-base-one",
+      "name": "ВИТА · База 1"
+    },
+    {
+      "id": "sofia-lora-pozitano",
+      "name": "МЦ ЛОРА · Позитано"
+    },
+    {
+      "id": "sofia-lora-za-zhenata",
+      "name": "МЦ ЛОРА · За жената"
+    },
+    {
+      "id": "sofia-lora-krasno-selo",
+      "name": "МЦ ЛОРА · Красно село"
+    },
+    {
+      "id": "sofia-park-clinic",
+      "name": "PARK CLINIC"
+    },
+    {
+      "id": "sofia-poliklinikata-lyulin",
+      "name": "МЦ Поликлиниката"
+    },
+    {
+      "id": "sofia-kerimov-derma-aesthetic-sofia",
+      "name": "Керимов Дерма Естетик · София"
+    },
+    {
+      "id": "sofia-health-master-clinic-ralevitsa",
+      "name": "Health Master Clinic · Ралевица"
+    },
+    {
+      "id": "sofia-lyves-clinic-flora",
+      "name": "ЛайВс Клиник"
+    },
+    {
+      "id": "sofia-medconvex-lavski-rid",
+      "name": "ДКЦ Конвекс"
+    }
+  ],
+  "missingNeighborhood": 462,
+  "categories": {
+    "auto_repair": 86,
+    "barber": 57,
+    "beauty": 129,
+    "car_wash": 9,
+    "consulting": 37,
+    "detailing": 22,
+    "education": 125,
+    "fitness": 83,
+    "hair": 57,
+    "health": 42,
+    "home_services": 92,
+    "nails": 46,
+    "other": 235,
+    "pets": 38
+  },
+  "businessTypes": {
+    "Автомивка": 9,
+    "Автосервиз": 86,
+    "Бръснарница": 57,
+    "Ветеринарни услуги": 6,
+    "Груминг": 38,
+    "Детайлинг": 22,
+    "Друга услуга": 19,
+    "За дома": 92,
+    "Консултации": 37,
+    "Красота": 129,
+    "Лаборатории за изследвания": 4,
+    "Маникюр": 46,
+    "Обучение на кучета": 1,
+    "Психиатрия": 4,
+    "Психология и психотерапия": 79,
+    "Спорт": 83,
+    "Стоматология": 91,
+    "Татуировки и пиърсинг": 4,
+    "Терапии": 42,
+    "Уроци": 125,
+    "Фотография": 27,
+    "Фризьор": 57
+  },
+  "neighborhoods": [
+    {
+      "neighborhood": "7-ми и 11-ти километър",
+      "businesses": 1,
+      "categories": {
+        "other": 1
+      },
+      "businessTypes": {
+        "Друга услуга": 1
+      }
+    },
+    {
+      "neighborhood": "7-ми–11-ти километър",
+      "businesses": 1,
+      "categories": {
+        "other": 1
+      },
+      "businessTypes": {
+        "Фотография": 1
+      }
+    },
+    {
+      "neighborhood": "Банишора",
+      "businesses": 2,
+      "categories": {
+        "beauty": 1,
+        "other": 1
+      },
+      "businessTypes": {
+        "Красота": 1,
+        "Стоматология": 1
+      }
+    },
+    {
+      "neighborhood": "Бели брези",
+      "businesses": 7,
+      "categories": {
+        "barber": 1,
+        "beauty": 3,
+        "other": 3
+      },
+      "businessTypes": {
+        "Бръснарница": 1,
+        "Ветеринарни услуги": 1,
+        "Друга услуга": 1,
+        "Красота": 3,
+        "Стоматология": 1
+      }
+    },
+    {
+      "neighborhood": "Бенковски",
+      "businesses": 1,
+      "categories": {
+        "auto_repair": 1
+      },
+      "businessTypes": {
+        "Автосервиз": 1
+      }
+    },
+    {
+      "neighborhood": "Борово",
+      "businesses": 21,
+      "categories": {
+        "barber": 1,
+        "beauty": 2,
+        "education": 3,
+        "fitness": 5,
+        "hair": 2,
+        "health": 2,
+        "other": 5,
+        "pets": 1
+      },
+      "businessTypes": {
+        "Бръснарница": 1,
+        "Груминг": 1,
+        "Красота": 2,
+        "Психология и психотерапия": 3,
+        "Спорт": 5,
+        "Стоматология": 2,
+        "Терапии": 2,
+        "Уроци": 3,
+        "Фризьор": 2
+      }
+    },
+    {
+      "neighborhood": "Ботунец",
+      "businesses": 1,
+      "categories": {
+        "other": 1
+      },
+      "businessTypes": {
+        "Фотография": 1
+      }
+    },
+    {
+      "neighborhood": "Бояна",
+      "businesses": 5,
+      "categories": {
+        "auto_repair": 1,
+        "fitness": 2,
+        "other": 1,
+        "pets": 1
+      },
+      "businessTypes": {
+        "Автосервиз": 1,
+        "Груминг": 1,
+        "Психология и психотерапия": 1,
+        "Спорт": 2
+      }
+    },
+    {
+      "neighborhood": "Бъкстон",
+      "businesses": 9,
+      "categories": {
+        "beauty": 1,
+        "education": 2,
+        "hair": 1,
+        "other": 4,
+        "pets": 1
+      },
+      "businessTypes": {
+        "Груминг": 1,
+        "Красота": 1,
+        "Психология и психотерапия": 3,
+        "Стоматология": 1,
+        "Уроци": 2,
+        "Фризьор": 1
+      }
+    },
+    {
+      "neighborhood": "Васил Левски",
+      "businesses": 2,
+      "categories": {
+        "auto_repair": 1,
+        "nails": 1
+      },
+      "businessTypes": {
+        "Автосервиз": 1,
+        "Маникюр": 1
+      }
+    },
+    {
+      "neighborhood": "Витоша",
+      "businesses": 9,
+      "categories": {
+        "auto_repair": 1,
+        "barber": 1,
+        "beauty": 2,
+        "education": 1,
+        "fitness": 1,
+        "hair": 1,
+        "health": 1,
+        "pets": 1
+      },
+      "businessTypes": {
+        "Автосервиз": 1,
+        "Бръснарница": 1,
+        "Груминг": 1,
+        "Красота": 2,
+        "Спорт": 1,
+        "Терапии": 1,
+        "Уроци": 1,
+        "Фризьор": 1
+      }
+    },
+    {
+      "neighborhood": "Военна рампа",
+      "businesses": 1,
+      "categories": {
+        "auto_repair": 1
+      },
+      "businessTypes": {
+        "Автосервиз": 1
+      }
+    },
+    {
+      "neighborhood": "Връбница 1",
+      "businesses": 1,
+      "categories": {
+        "beauty": 1
+      },
+      "businessTypes": {
+        "Красота": 1
+      }
+    },
+    {
+      "neighborhood": "Връбница 2",
+      "businesses": 1,
+      "categories": {
+        "hair": 1
+      },
+      "businessTypes": {
+        "Фризьор": 1
+      }
+    },
+    {
+      "neighborhood": "Гара Искър",
+      "businesses": 1,
+      "categories": {
+        "auto_repair": 1
+      },
+      "businessTypes": {
+        "Автосервиз": 1
+      }
+    },
+    {
+      "neighborhood": "Гео Милев",
+      "businesses": 10,
+      "categories": {
+        "beauty": 2,
+        "education": 3,
+        "fitness": 1,
+        "hair": 2,
+        "other": 2
+      },
+      "businessTypes": {
+        "Красота": 2,
+        "Спорт": 1,
+        "Стоматология": 2,
+        "Уроци": 3,
+        "Фризьор": 2
+      }
+    },
+    {
+      "neighborhood": "Горна баня",
+      "businesses": 2,
+      "categories": {
+        "education": 1,
+        "other": 1
+      },
+      "businessTypes": {
+        "Ветеринарни услуги": 1,
+        "Уроци": 1
+      }
+    },
+    {
+      "neighborhood": "Горубляне",
+      "businesses": 2,
+      "categories": {
+        "auto_repair": 2
+      },
+      "businessTypes": {
+        "Автосервиз": 2
+      }
+    },
+    {
+      "neighborhood": "Гоце Делчев",
+      "businesses": 10,
+      "categories": {
+        "barber": 1,
+        "beauty": 3,
+        "consulting": 1,
+        "education": 3,
+        "fitness": 1,
+        "other": 1
+      },
+      "businessTypes": {
+        "Бръснарница": 1,
+        "Консултации": 1,
+        "Красота": 3,
+        "Психология и психотерапия": 1,
+        "Спорт": 1,
+        "Уроци": 3
+      }
+    },
+    {
+      "neighborhood": "Дианабад",
+      "businesses": 6,
+      "categories": {
+        "barber": 1,
+        "beauty": 1,
+        "education": 1,
+        "nails": 1,
+        "other": 2
+      },
+      "businessTypes": {
+        "Бръснарница": 1,
+        "Красота": 1,
+        "Маникюр": 1,
+        "Стоматология": 2,
+        "Уроци": 1
+      }
+    },
+    {
+      "neighborhood": "Драгалевци",
+      "businesses": 7,
+      "categories": {
+        "barber": 2,
+        "beauty": 2,
+        "education": 2,
+        "nails": 1
+      },
+      "businessTypes": {
+        "Бръснарница": 2,
+        "Красота": 2,
+        "Маникюр": 1,
+        "Уроци": 2
+      }
+    },
+    {
+      "neighborhood": "Дружба",
+      "businesses": 3,
+      "categories": {
+        "auto_repair": 2,
+        "nails": 1
+      },
+      "businessTypes": {
+        "Автосервиз": 2,
+        "Маникюр": 1
+      }
+    },
+    {
+      "neighborhood": "Дружба 1",
+      "businesses": 9,
+      "categories": {
+        "auto_repair": 2,
+        "beauty": 2,
+        "education": 1,
+        "fitness": 1,
+        "hair": 1,
+        "nails": 1,
+        "other": 1
+      },
+      "businessTypes": {
+        "Автосервиз": 2,
+        "Красота": 2,
+        "Маникюр": 1,
+        "Спорт": 1,
+        "Уроци": 1,
+        "Фотография": 1,
+        "Фризьор": 1
+      }
+    },
+    {
+      "neighborhood": "Дружба 2",
+      "businesses": 10,
+      "categories": {
+        "beauty": 2,
+        "consulting": 1,
+        "education": 3,
+        "fitness": 2,
+        "hair": 1,
+        "nails": 1
+      },
+      "businessTypes": {
+        "Консултации": 1,
+        "Красота": 2,
+        "Маникюр": 1,
+        "Спорт": 2,
+        "Уроци": 3,
+        "Фризьор": 1
+      }
+    },
+    {
+      "neighborhood": "Дървеница",
+      "businesses": 6,
+      "categories": {
+        "beauty": 2,
+        "education": 1,
+        "fitness": 1,
+        "other": 2
+      },
+      "businessTypes": {
+        "Красота": 2,
+        "Психология и психотерапия": 1,
+        "Спорт": 1,
+        "Уроци": 1,
+        "Фотография": 1
+      }
+    },
+    {
+      "neighborhood": "Западен парк",
+      "businesses": 1,
+      "categories": {
+        "fitness": 1
+      },
+      "businessTypes": {
+        "Спорт": 1
+      }
+    },
+    {
+      "neighborhood": "Захарна фабрика",
+      "businesses": 1,
+      "categories": {
+        "fitness": 1
+      },
+      "businessTypes": {
+        "Спорт": 1
+      }
+    },
+    {
+      "neighborhood": "Зона Б-18",
+      "businesses": 1,
+      "categories": {
+        "education": 1
+      },
+      "businessTypes": {
+        "Уроци": 1
+      }
+    },
+    {
+      "neighborhood": "Зона Б-5",
+      "businesses": 1,
+      "categories": {
+        "other": 1
+      },
+      "businessTypes": {
+        "Фотография": 1
+      }
+    },
+    {
+      "neighborhood": "Зона Б19",
+      "businesses": 2,
+      "categories": {
+        "beauty": 1,
+        "other": 1
+      },
+      "businessTypes": {
+        "Красота": 1,
+        "Стоматология": 1
+      }
+    },
+    {
+      "neighborhood": "Иван Вазов",
+      "businesses": 9,
+      "categories": {
+        "beauty": 2,
+        "education": 3,
+        "fitness": 1,
+        "other": 3
+      },
+      "businessTypes": {
+        "Красота": 2,
+        "Психология и психотерапия": 1,
+        "Спорт": 1,
+        "Стоматология": 1,
+        "Уроци": 3,
+        "Фотография": 1
+      }
+    },
+    {
+      "neighborhood": "Изгрев",
+      "businesses": 3,
+      "categories": {
+        "consulting": 1,
+        "other": 2
+      },
+      "businessTypes": {
+        "Консултации": 1,
+        "Психология и психотерапия": 1,
+        "Стоматология": 1
+      }
+    },
+    {
+      "neighborhood": "Изток",
+      "businesses": 16,
+      "categories": {
+        "barber": 2,
+        "beauty": 1,
+        "education": 2,
+        "fitness": 2,
+        "hair": 4,
+        "health": 1,
+        "other": 3,
+        "pets": 1
+      },
+      "businessTypes": {
+        "Бръснарница": 2,
+        "Груминг": 1,
+        "Друга услуга": 1,
+        "Красота": 1,
+        "Психология и психотерапия": 1,
+        "Спорт": 2,
+        "Терапии": 1,
+        "Уроци": 2,
+        "Фотография": 1,
+        "Фризьор": 4
+      }
+    },
+    {
+      "neighborhood": "Илинден",
+      "businesses": 5,
+      "categories": {
+        "education": 1,
+        "health": 1,
+        "nails": 1,
+        "other": 2
+      },
+      "businessTypes": {
+        "Маникюр": 1,
+        "Психология и психотерапия": 1,
+        "Стоматология": 1,
+        "Терапии": 1,
+        "Уроци": 1
+      }
+    },
+    {
+      "neighborhood": "Карпузица",
+      "businesses": 2,
+      "categories": {
+        "education": 1,
+        "other": 1
+      },
+      "businessTypes": {
+        "Стоматология": 1,
+        "Уроци": 1
+      }
+    },
+    {
+      "neighborhood": "Княжево",
+      "businesses": 1,
+      "categories": {
+        "pets": 1
+      },
+      "businessTypes": {
+        "Груминг": 1
+      }
+    },
+    {
+      "neighborhood": "Красна поляна",
+      "businesses": 3,
+      "categories": {
+        "auto_repair": 2,
+        "beauty": 1
+      },
+      "businessTypes": {
+        "Автосервиз": 2,
+        "Красота": 1
+      }
+    },
+    {
+      "neighborhood": "Красна поляна 1",
+      "businesses": 1,
+      "categories": {
+        "beauty": 1
+      },
+      "businessTypes": {
+        "Красота": 1
+      }
+    },
+    {
+      "neighborhood": "Красна поляна 2",
+      "businesses": 2,
+      "categories": {
+        "auto_repair": 1,
+        "pets": 1
+      },
+      "businessTypes": {
+        "Автосервиз": 1,
+        "Груминг": 1
+      }
+    },
+    {
+      "neighborhood": "Красна поляна 3",
+      "businesses": 2,
+      "categories": {
+        "auto_repair": 1,
+        "education": 1
+      },
+      "businessTypes": {
+        "Автосервиз": 1,
+        "Уроци": 1
+      }
+    },
+    {
+      "neighborhood": "Красно село",
+      "businesses": 7,
+      "categories": {
+        "barber": 1,
+        "fitness": 2,
+        "other": 4
+      },
+      "businessTypes": {
+        "Бръснарница": 1,
+        "Психология и психотерапия": 3,
+        "Спорт": 2,
+        "Стоматология": 1
+      }
+    },
+    {
+      "neighborhood": "Крива река",
+      "businesses": 1,
+      "categories": {
+        "consulting": 1
+      },
+      "businessTypes": {
+        "Консултации": 1
+      }
+    },
+    {
+      "neighborhood": "Кръстова вада",
+      "businesses": 7,
+      "categories": {
+        "beauty": 1,
+        "consulting": 1,
+        "fitness": 1,
+        "hair": 2,
+        "other": 1,
+        "pets": 1
+      },
+      "businessTypes": {
+        "Груминг": 1,
+        "Консултации": 1,
+        "Красота": 1,
+        "Спорт": 1,
+        "Стоматология": 1,
+        "Фризьор": 2
+      }
+    },
+    {
+      "neighborhood": "Лагера",
+      "businesses": 7,
+      "categories": {
+        "education": 1,
+        "fitness": 1,
+        "hair": 1,
+        "other": 3,
+        "pets": 1
+      },
+      "businessTypes": {
+        "Груминг": 1,
+        "Психология и психотерапия": 1,
+        "Спорт": 1,
+        "Стоматология": 1,
+        "Уроци": 1,
+        "Фотография": 1,
+        "Фризьор": 1
+      }
+    },
+    {
+      "neighborhood": "Левски",
+      "businesses": 1,
+      "categories": {
+        "beauty": 1
+      },
+      "businessTypes": {
+        "Красота": 1
+      }
+    },
+    {
+      "neighborhood": "Левски В",
+      "businesses": 2,
+      "categories": {
+        "auto_repair": 1,
+        "other": 1
+      },
+      "businessTypes": {
+        "Автосервиз": 1,
+        "Стоматология": 1
+      }
+    },
+    {
+      "neighborhood": "Левски Г",
+      "businesses": 3,
+      "categories": {
+        "beauty": 1,
+        "education": 2
+      },
+      "businessTypes": {
+        "Красота": 1,
+        "Уроци": 2
+      }
+    },
+    {
+      "neighborhood": "Лозенец",
+      "businesses": 32,
+      "categories": {
+        "barber": 3,
+        "beauty": 3,
+        "education": 2,
+        "fitness": 2,
+        "hair": 3,
+        "health": 5,
+        "nails": 1,
+        "other": 11,
+        "pets": 2
+      },
+      "businessTypes": {
+        "Бръснарница": 3,
+        "Груминг": 2,
+        "Красота": 3,
+        "Маникюр": 1,
+        "Психология и психотерапия": 5,
+        "Спорт": 2,
+        "Стоматология": 6,
+        "Терапии": 5,
+        "Уроци": 2,
+        "Фризьор": 3
+      }
+    },
+    {
+      "neighborhood": "Люлин",
+      "businesses": 8,
+      "categories": {
+        "auto_repair": 2,
+        "education": 2,
+        "fitness": 2,
+        "hair": 1,
+        "other": 1
+      },
+      "businessTypes": {
+        "Автосервиз": 2,
+        "Спорт": 2,
+        "Стоматология": 1,
+        "Уроци": 2,
+        "Фризьор": 1
+      }
+    },
+    {
+      "neighborhood": "Люлин - център",
+      "businesses": 1,
+      "categories": {
+        "education": 1
+      },
+      "businessTypes": {
+        "Уроци": 1
+      }
+    },
+    {
+      "neighborhood": "Люлин 1",
+      "businesses": 1,
+      "categories": {
+        "auto_repair": 1
+      },
+      "businessTypes": {
+        "Автосервиз": 1
+      }
+    },
+    {
+      "neighborhood": "Люлин 10",
+      "businesses": 6,
+      "categories": {
+        "beauty": 1,
+        "education": 1,
+        "fitness": 1,
+        "other": 2,
+        "pets": 1
+      },
+      "businessTypes": {
+        "Груминг": 1,
+        "Красота": 1,
+        "Спорт": 1,
+        "Стоматология": 2,
+        "Уроци": 1
+      }
+    },
+    {
+      "neighborhood": "Люлин 2",
+      "businesses": 4,
+      "categories": {
+        "auto_repair": 1,
+        "beauty": 1,
+        "education": 1,
+        "fitness": 1
+      },
+      "businessTypes": {
+        "Автосервиз": 1,
+        "Красота": 1,
+        "Спорт": 1,
+        "Уроци": 1
+      }
+    },
+    {
+      "neighborhood": "Люлин 3",
+      "businesses": 3,
+      "categories": {
+        "barber": 1,
+        "education": 1,
+        "hair": 1
+      },
+      "businessTypes": {
+        "Бръснарница": 1,
+        "Уроци": 1,
+        "Фризьор": 1
+      }
+    },
+    {
+      "neighborhood": "Люлин 4",
+      "businesses": 6,
+      "categories": {
+        "barber": 2,
+        "beauty": 1,
+        "health": 1,
+        "other": 2
+      },
+      "businessTypes": {
+        "Бръснарница": 2,
+        "Ветеринарни услуги": 1,
+        "Красота": 1,
+        "Стоматология": 1,
+        "Терапии": 1
+      }
+    },
+    {
+      "neighborhood": "Люлин 5",
+      "businesses": 1,
+      "categories": {
+        "other": 1
+      },
+      "businessTypes": {
+        "Ветеринарни услуги": 1
+      }
+    },
+    {
+      "neighborhood": "Люлин 6",
+      "businesses": 2,
+      "categories": {
+        "auto_repair": 1,
+        "education": 1
+      },
+      "businessTypes": {
+        "Автосервиз": 1,
+        "Уроци": 1
+      }
+    },
+    {
+      "neighborhood": "Люлин 7",
+      "businesses": 5,
+      "categories": {
+        "beauty": 1,
+        "education": 1,
+        "nails": 1,
+        "other": 2
+      },
+      "businessTypes": {
+        "Красота": 1,
+        "Маникюр": 1,
+        "Психология и психотерапия": 1,
+        "Стоматология": 1,
+        "Уроци": 1
+      }
+    },
+    {
+      "neighborhood": "Люлин 8",
+      "businesses": 4,
+      "categories": {
+        "beauty": 2,
+        "education": 1,
+        "other": 1
+      },
+      "businessTypes": {
+        "Красота": 2,
+        "Стоматология": 1,
+        "Уроци": 1
+      }
+    },
+    {
+      "neighborhood": "Люлин 9",
+      "businesses": 3,
+      "categories": {
+        "fitness": 1,
+        "other": 2
+      },
+      "businessTypes": {
+        "Психология и психотерапия": 1,
+        "Спорт": 1,
+        "Стоматология": 1
+      }
+    },
+    {
+      "neighborhood": "Малинова долина",
+      "businesses": 5,
+      "categories": {
+        "auto_repair": 2,
+        "barber": 1,
+        "beauty": 1,
+        "detailing": 1
+      },
+      "businessTypes": {
+        "Автосервиз": 2,
+        "Бръснарница": 1,
+        "Детайлинг": 1,
+        "Красота": 1
+      }
+    },
+    {
+      "neighborhood": "Манастирски ливади",
+      "businesses": 57,
+      "categories": {
+        "auto_repair": 2,
+        "barber": 4,
+        "beauty": 11,
+        "detailing": 1,
+        "education": 6,
+        "fitness": 9,
+        "hair": 5,
+        "health": 4,
+        "nails": 2,
+        "other": 11,
+        "pets": 2
+      },
+      "businessTypes": {
+        "Автосервиз": 2,
+        "Бръснарница": 4,
+        "Груминг": 2,
+        "Детайлинг": 1,
+        "Друга услуга": 1,
+        "Красота": 11,
+        "Маникюр": 2,
+        "Психология и психотерапия": 5,
+        "Спорт": 9,
+        "Стоматология": 4,
+        "Терапии": 4,
+        "Уроци": 6,
+        "Фотография": 1,
+        "Фризьор": 5
+      }
+    },
+    {
+      "neighborhood": "Младост",
+      "businesses": 6,
+      "categories": {
+        "auto_repair": 2,
+        "barber": 1,
+        "education": 3
+      },
+      "businessTypes": {
+        "Автосервиз": 2,
+        "Бръснарница": 1,
+        "Уроци": 3
+      }
+    },
+    {
+      "neighborhood": "Младост 1",
+      "businesses": 12,
+      "categories": {
+        "beauty": 1,
+        "education": 2,
+        "hair": 1,
+        "health": 1,
+        "nails": 2,
+        "other": 4,
+        "pets": 1
+      },
+      "businessTypes": {
+        "Груминг": 1,
+        "Друга услуга": 1,
+        "Красота": 1,
+        "Маникюр": 2,
+        "Стоматология": 2,
+        "Терапии": 1,
+        "Уроци": 2,
+        "Фотография": 1,
+        "Фризьор": 1
+      }
+    },
+    {
+      "neighborhood": "Младост 1А",
+      "businesses": 5,
+      "categories": {
+        "auto_repair": 1,
+        "education": 1,
+        "hair": 1,
+        "health": 1,
+        "nails": 1
+      },
+      "businessTypes": {
+        "Автосервиз": 1,
+        "Маникюр": 1,
+        "Терапии": 1,
+        "Уроци": 1,
+        "Фризьор": 1
+      }
+    },
+    {
+      "neighborhood": "Младост 2",
+      "businesses": 6,
+      "categories": {
+        "beauty": 1,
+        "education": 3,
+        "fitness": 1,
+        "other": 1
+      },
+      "businessTypes": {
+        "Красота": 1,
+        "Психология и психотерапия": 1,
+        "Спорт": 1,
+        "Уроци": 3
+      }
+    },
+    {
+      "neighborhood": "Младост 3",
+      "businesses": 11,
+      "categories": {
+        "auto_repair": 1,
+        "beauty": 2,
+        "car_wash": 1,
+        "detailing": 2,
+        "education": 2,
+        "hair": 1,
+        "health": 1,
+        "other": 1
+      },
+      "businessTypes": {
+        "Автомивка": 1,
+        "Автосервиз": 1,
+        "Детайлинг": 2,
+        "Красота": 2,
+        "Психология и психотерапия": 1,
+        "Терапии": 1,
+        "Уроци": 2,
+        "Фризьор": 1
+      }
+    },
+    {
+      "neighborhood": "Младост 4",
+      "businesses": 8,
+      "categories": {
+        "barber": 1,
+        "beauty": 1,
+        "car_wash": 1,
+        "education": 1,
+        "fitness": 1,
+        "hair": 2,
+        "other": 1
+      },
+      "businessTypes": {
+        "Автомивка": 1,
+        "Бръснарница": 1,
+        "Красота": 1,
+        "Психология и психотерапия": 1,
+        "Спорт": 1,
+        "Уроци": 1,
+        "Фризьор": 2
+      }
+    },
+    {
+      "neighborhood": "Модерно предградие",
+      "businesses": 2,
+      "categories": {
+        "auto_repair": 2
+      },
+      "businessTypes": {
+        "Автосервиз": 2
+      }
+    },
+    {
+      "neighborhood": "Мотописта",
+      "businesses": 1,
+      "categories": {
+        "health": 1
+      },
+      "businessTypes": {
+        "Терапии": 1
+      }
+    },
+    {
+      "neighborhood": "Надежда",
+      "businesses": 2,
+      "categories": {
+        "hair": 1,
+        "other": 1
+      },
+      "businessTypes": {
+        "Друга услуга": 1,
+        "Фризьор": 1
+      }
+    },
+    {
+      "neighborhood": "Надежда 1",
+      "businesses": 3,
+      "categories": {
+        "beauty": 2,
+        "other": 1
+      },
+      "businessTypes": {
+        "Красота": 2,
+        "Татуировки и пиърсинг": 1
+      }
+    },
+    {
+      "neighborhood": "Надежда 2",
+      "businesses": 7,
+      "categories": {
+        "beauty": 1,
+        "education": 3,
+        "nails": 3
+      },
+      "businessTypes": {
+        "Красота": 1,
+        "Маникюр": 3,
+        "Уроци": 3
+      }
+    },
+    {
+      "neighborhood": "Надежда 3",
+      "businesses": 2,
+      "categories": {
+        "education": 1,
+        "other": 1
+      },
+      "businessTypes": {
+        "Стоматология": 1,
+        "Уроци": 1
+      }
+    },
+    {
+      "neighborhood": "Надежда 4",
+      "businesses": 1,
+      "categories": {
+        "pets": 1
+      },
+      "businessTypes": {
+        "Груминг": 1
+      }
+    },
+    {
+      "neighborhood": "Надежда 6",
+      "businesses": 1,
+      "categories": {
+        "education": 1
+      },
+      "businessTypes": {
+        "Уроци": 1
+      }
+    },
+    {
+      "neighborhood": "Неуточнен квартал",
+      "businesses": 462,
+      "categories": {
+        "auto_repair": 46,
+        "barber": 16,
+        "beauty": 32,
+        "car_wash": 7,
+        "consulting": 26,
+        "detailing": 14,
+        "education": 45,
+        "fitness": 24,
+        "hair": 14,
+        "health": 16,
+        "home_services": 92,
+        "nails": 17,
+        "other": 98,
+        "pets": 15
+      },
+      "businessTypes": {
+        "Автомивка": 7,
+        "Автосервиз": 46,
+        "Бръснарница": 16,
+        "Ветеринарни услуги": 1,
+        "Груминг": 15,
+        "Детайлинг": 14,
+        "Друга услуга": 7,
+        "За дома": 92,
+        "Консултации": 26,
+        "Красота": 32,
+        "Лаборатории за изследвания": 4,
+        "Маникюр": 17,
+        "Обучение на кучета": 1,
+        "Психиатрия": 2,
+        "Психология и психотерапия": 30,
+        "Спорт": 24,
+        "Стоматология": 37,
+        "Татуировки и пиърсинг": 3,
+        "Терапии": 16,
+        "Уроци": 45,
+        "Фотография": 13,
+        "Фризьор": 14
+      }
+    },
+    {
+      "neighborhood": "НПЗ Искър",
+      "businesses": 1,
+      "categories": {
+        "detailing": 1
+      },
+      "businessTypes": {
+        "Детайлинг": 1
+      }
+    },
+    {
+      "neighborhood": "Обеля",
+      "businesses": 2,
+      "categories": {
+        "pets": 2
+      },
+      "businessTypes": {
+        "Груминг": 2
+      }
+    },
+    {
+      "neighborhood": "Обеля 2",
+      "businesses": 2,
+      "categories": {
+        "fitness": 1,
+        "other": 1
+      },
+      "businessTypes": {
+        "Спорт": 1,
+        "Стоматология": 1
+      }
+    },
+    {
+      "neighborhood": "Оборище",
+      "businesses": 6,
+      "categories": {
+        "beauty": 1,
+        "education": 2,
+        "health": 1,
+        "other": 1,
+        "pets": 1
+      },
+      "businessTypes": {
+        "Груминг": 1,
+        "Красота": 1,
+        "Стоматология": 1,
+        "Терапии": 1,
+        "Уроци": 2
+      }
+    },
+    {
+      "neighborhood": "Овча купел",
+      "businesses": 24,
+      "categories": {
+        "auto_repair": 2,
+        "beauty": 10,
+        "consulting": 1,
+        "education": 2,
+        "fitness": 3,
+        "hair": 2,
+        "nails": 3,
+        "other": 1
+      },
+      "businessTypes": {
+        "Автосервиз": 2,
+        "Консултации": 1,
+        "Красота": 10,
+        "Маникюр": 3,
+        "Спорт": 3,
+        "Стоматология": 1,
+        "Уроци": 2,
+        "Фризьор": 2
+      }
+    },
+    {
+      "neighborhood": "Овча купел 1",
+      "businesses": 6,
+      "categories": {
+        "barber": 1,
+        "beauty": 1,
+        "detailing": 1,
+        "nails": 2,
+        "pets": 1
+      },
+      "businessTypes": {
+        "Бръснарница": 1,
+        "Груминг": 1,
+        "Детайлинг": 1,
+        "Красота": 1,
+        "Маникюр": 2
+      }
+    },
+    {
+      "neighborhood": "Овча купел 2",
+      "businesses": 4,
+      "categories": {
+        "auto_repair": 1,
+        "barber": 1,
+        "fitness": 1,
+        "other": 1
+      },
+      "businessTypes": {
+        "Автосервиз": 1,
+        "Бръснарница": 1,
+        "Психология и психотерапия": 1,
+        "Спорт": 1
+      }
+    },
+    {
+      "neighborhood": "Овча Купел 2",
+      "businesses": 1,
+      "categories": {
+        "beauty": 1
+      },
+      "businessTypes": {
+        "Красота": 1
+      }
+    },
+    {
+      "neighborhood": "Павлово",
+      "businesses": 4,
+      "categories": {
+        "beauty": 1,
+        "detailing": 1,
+        "fitness": 2
+      },
+      "businessTypes": {
+        "Детайлинг": 1,
+        "Красота": 1,
+        "Спорт": 2
+      }
+    },
+    {
+      "neighborhood": "Панчарево",
+      "businesses": 1,
+      "categories": {
+        "pets": 1
+      },
+      "businessTypes": {
+        "Груминг": 1
+      }
+    },
+    {
+      "neighborhood": "Подуяне",
+      "businesses": 2,
+      "categories": {
+        "barber": 1,
+        "beauty": 1
+      },
+      "businessTypes": {
+        "Бръснарница": 1,
+        "Красота": 1
+      }
+    },
+    {
+      "neighborhood": "Промишлена зона Илиянци",
+      "businesses": 1,
+      "categories": {
+        "auto_repair": 1
+      },
+      "businessTypes": {
+        "Автосервиз": 1
+      }
+    },
+    {
+      "neighborhood": "Разсадника",
+      "businesses": 2,
+      "categories": {
+        "barber": 1,
+        "hair": 1
+      },
+      "businessTypes": {
+        "Бръснарница": 1,
+        "Фризьор": 1
+      }
+    },
+    {
+      "neighborhood": "Редута",
+      "businesses": 9,
+      "categories": {
+        "beauty": 4,
+        "fitness": 1,
+        "hair": 1,
+        "nails": 1,
+        "other": 2
+      },
+      "businessTypes": {
+        "Красота": 4,
+        "Маникюр": 1,
+        "Психология и психотерапия": 1,
+        "Спорт": 1,
+        "Стоматология": 1,
+        "Фризьор": 1
+      }
+    },
+    {
+      "neighborhood": "Света Троица",
+      "businesses": 3,
+      "categories": {
+        "beauty": 1,
+        "fitness": 1,
+        "health": 1
+      },
+      "businessTypes": {
+        "Красота": 1,
+        "Спорт": 1,
+        "Терапии": 1
+      }
+    },
+    {
+      "neighborhood": "Сердика",
+      "businesses": 1,
+      "categories": {
+        "barber": 1
+      },
+      "businessTypes": {
+        "Бръснарница": 1
+      }
+    },
+    {
+      "neighborhood": "Симеоново",
+      "businesses": 3,
+      "categories": {
+        "consulting": 1,
+        "education": 1,
+        "other": 1
+      },
+      "businessTypes": {
+        "Друга услуга": 1,
+        "Консултации": 1,
+        "Уроци": 1
+      }
+    },
+    {
+      "neighborhood": "Славия",
+      "businesses": 1,
+      "categories": {
+        "barber": 1
+      },
+      "businessTypes": {
+        "Бръснарница": 1
+      }
+    },
+    {
+      "neighborhood": "Слатина",
+      "businesses": 2,
+      "categories": {
+        "barber": 1,
+        "fitness": 1
+      },
+      "businessTypes": {
+        "Бръснарница": 1,
+        "Спорт": 1
+      }
+    },
+    {
+      "neighborhood": "Стефан Караджа",
+      "businesses": 1,
+      "categories": {
+        "other": 1
+      },
+      "businessTypes": {
+        "Стоматология": 1
+      }
+    },
+    {
+      "neighborhood": "Стрелбище",
+      "businesses": 22,
+      "categories": {
+        "barber": 1,
+        "beauty": 4,
+        "education": 3,
+        "hair": 2,
+        "health": 1,
+        "nails": 1,
+        "other": 10
+      },
+      "businessTypes": {
+        "Бръснарница": 1,
+        "Красота": 4,
+        "Маникюр": 1,
+        "Психология и психотерапия": 5,
+        "Стоматология": 4,
+        "Терапии": 1,
+        "Уроци": 3,
+        "Фотография": 1,
+        "Фризьор": 2
+      }
+    },
+    {
+      "neighborhood": "Студентски град",
+      "businesses": 26,
+      "categories": {
+        "auto_repair": 1,
+        "barber": 5,
+        "beauty": 6,
+        "detailing": 1,
+        "education": 1,
+        "fitness": 4,
+        "hair": 1,
+        "health": 1,
+        "nails": 3,
+        "other": 3
+      },
+      "businessTypes": {
+        "Автосервиз": 1,
+        "Бръснарница": 5,
+        "Детайлинг": 1,
+        "Красота": 6,
+        "Маникюр": 3,
+        "Психология и психотерапия": 1,
+        "Спорт": 4,
+        "Стоматология": 2,
+        "Терапии": 1,
+        "Уроци": 1,
+        "Фризьор": 1
+      }
+    },
+    {
+      "neighborhood": "Суха река",
+      "businesses": 6,
+      "categories": {
+        "beauty": 1,
+        "education": 2,
+        "nails": 1,
+        "other": 2
+      },
+      "businessTypes": {
+        "Красота": 1,
+        "Маникюр": 1,
+        "Психология и психотерапия": 1,
+        "Стоматология": 1,
+        "Уроци": 2
+      }
+    },
+    {
+      "neighborhood": "Требич",
+      "businesses": 1,
+      "categories": {
+        "auto_repair": 1
+      },
+      "businessTypes": {
+        "Автосервиз": 1
+      }
+    },
+    {
+      "neighborhood": "Хаджи Димитър",
+      "businesses": 5,
+      "categories": {
+        "auto_repair": 1,
+        "beauty": 1,
+        "hair": 1,
+        "nails": 1,
+        "other": 1
+      },
+      "businessTypes": {
+        "Автосервиз": 1,
+        "Красота": 1,
+        "Маникюр": 1,
+        "Стоматология": 1,
+        "Фризьор": 1
+      }
+    },
+    {
+      "neighborhood": "Хиподрума",
+      "businesses": 5,
+      "categories": {
+        "fitness": 1,
+        "other": 4
+      },
+      "businessTypes": {
+        "Ветеринарни услуги": 1,
+        "Психология и психотерапия": 2,
+        "Спорт": 1,
+        "Стоматология": 1
+      }
+    },
+    {
+      "neighborhood": "Хладилника",
+      "businesses": 6,
+      "categories": {
+        "barber": 2,
+        "beauty": 1,
+        "fitness": 1,
+        "hair": 1,
+        "pets": 1
+      },
+      "businessTypes": {
+        "Бръснарница": 2,
+        "Груминг": 1,
+        "Красота": 1,
+        "Спорт": 1,
+        "Фризьор": 1
+      }
+    },
+    {
+      "neighborhood": "Христо Ботев",
+      "businesses": 1,
+      "categories": {
+        "auto_repair": 1
+      },
+      "businessTypes": {
+        "Автосервиз": 1
+      }
+    },
+    {
+      "neighborhood": "Христо Смирненски",
+      "businesses": 3,
+      "categories": {
+        "education": 1,
+        "fitness": 1,
+        "other": 1
+      },
+      "businessTypes": {
+        "Спорт": 1,
+        "Стоматология": 1,
+        "Уроци": 1
+      }
+    },
+    {
+      "neighborhood": "Център",
+      "businesses": 30,
+      "categories": {
+        "barber": 2,
+        "beauty": 2,
+        "consulting": 4,
+        "education": 1,
+        "fitness": 1,
+        "hair": 2,
+        "health": 3,
+        "other": 14,
+        "pets": 1
+      },
+      "businessTypes": {
+        "Бръснарница": 2,
+        "Груминг": 1,
+        "Друга услуга": 4,
+        "Консултации": 4,
+        "Красота": 2,
+        "Психиатрия": 2,
+        "Психология и психотерапия": 4,
+        "Спорт": 1,
+        "Стоматология": 1,
+        "Терапии": 3,
+        "Уроци": 1,
+        "Фотография": 3,
+        "Фризьор": 2
+      }
+    },
+    {
+      "neighborhood": "Южен парк",
+      "businesses": 1,
+      "categories": {
+        "other": 1
+      },
+      "businessTypes": {
+        "Психология и психотерапия": 1
+      }
+    },
+    {
+      "neighborhood": "Яворов",
+      "businesses": 3,
+      "categories": {
+        "barber": 1,
+        "other": 2
+      },
+      "businessTypes": {
+        "Бръснарница": 1,
+        "Друга услуга": 1,
+        "Психология и психотерапия": 1
+      }
+    }
+  ],
+  "comparison": {
+    "capturedOn": "2026-11-13",
+    "baselineSourceRecords": 981,
+    "addedBusinesses": 100,
+    "addedByCategory": {
+      "auto_repair": 16,
+      "beauty": 6,
+      "consulting": 1,
+      "detailing": 3,
+      "education": 14,
+      "fitness": 8,
+      "hair": 12,
+      "home_services": 19,
+      "nails": 1,
+      "other": 10,
+      "pets": 10
+    },
+    "addedByBusinessType": {
+      "Автосервиз": 16,
+      "Груминг": 10,
+      "Детайлинг": 3,
+      "За дома": 19,
+      "Консултации": 1,
+      "Красота": 6,
+      "Маникюр": 1,
+      "Психология и психотерапия": 7,
+      "Спорт": 8,
+      "Стоматология": 3,
+      "Уроци": 14,
+      "Фризьор": 12
+    },
+    "addedServiceFacts": 187,
+    "addedCurrentPriceFacts": 145,
+    "addedPremises": 79,
+    "addedMobileProviders": 21,
+    "addedByNeighborhood": [
+      {
+        "neighborhood": "Бели брези",
+        "businesses": 1,
+        "categories": {
+          "other": 1
+        },
+        "businessTypes": {
+          "Стоматология": 1
+        }
+      },
+      {
+        "neighborhood": "Бенковски",
+        "businesses": 1,
+        "categories": {
+          "auto_repair": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1
+        }
+      },
+      {
+        "neighborhood": "Борово",
+        "businesses": 3,
+        "categories": {
+          "beauty": 1,
+          "fitness": 1,
+          "hair": 1
+        },
+        "businessTypes": {
+          "Красота": 1,
+          "Спорт": 1,
+          "Фризьор": 1
+        }
+      },
+      {
+        "neighborhood": "Бояна",
+        "businesses": 1,
+        "categories": {
+          "auto_repair": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1
+        }
+      },
+      {
+        "neighborhood": "Гара Искър",
+        "businesses": 1,
+        "categories": {
+          "auto_repair": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1
+        }
+      },
+      {
+        "neighborhood": "Гео Милев",
+        "businesses": 1,
+        "categories": {
+          "hair": 1
+        },
+        "businessTypes": {
+          "Фризьор": 1
+        }
+      },
+      {
+        "neighborhood": "Горубляне",
+        "businesses": 1,
+        "categories": {
+          "auto_repair": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1
+        }
+      },
+      {
+        "neighborhood": "Гоце Делчев",
+        "businesses": 2,
+        "categories": {
+          "education": 2
+        },
+        "businessTypes": {
+          "Уроци": 2
+        }
+      },
+      {
+        "neighborhood": "Дианабад",
+        "businesses": 1,
+        "categories": {
+          "nails": 1
+        },
+        "businessTypes": {
+          "Маникюр": 1
+        }
+      },
+      {
+        "neighborhood": "Драгалевци",
+        "businesses": 1,
+        "categories": {
+          "education": 1
+        },
+        "businessTypes": {
+          "Уроци": 1
+        }
+      },
+      {
+        "neighborhood": "Дружба 2",
+        "businesses": 1,
+        "categories": {
+          "hair": 1
+        },
+        "businessTypes": {
+          "Фризьор": 1
+        }
+      },
+      {
+        "neighborhood": "Дървеница",
+        "businesses": 1,
+        "categories": {
+          "fitness": 1
+        },
+        "businessTypes": {
+          "Спорт": 1
+        }
+      },
+      {
+        "neighborhood": "Изгрев",
+        "businesses": 1,
+        "categories": {
+          "other": 1
+        },
+        "businessTypes": {
+          "Психология и психотерапия": 1
+        }
+      },
+      {
+        "neighborhood": "Изток",
+        "businesses": 1,
+        "categories": {
+          "hair": 1
+        },
+        "businessTypes": {
+          "Фризьор": 1
+        }
+      },
+      {
+        "neighborhood": "Карпузица",
+        "businesses": 1,
+        "categories": {
+          "education": 1
+        },
+        "businessTypes": {
+          "Уроци": 1
+        }
+      },
+      {
+        "neighborhood": "Красна поляна",
+        "businesses": 1,
+        "categories": {
+          "auto_repair": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1
+        }
+      },
+      {
+        "neighborhood": "Лозенец",
+        "businesses": 3,
+        "categories": {
+          "education": 1,
+          "hair": 1,
+          "other": 1
+        },
+        "businessTypes": {
+          "Психология и психотерапия": 1,
+          "Уроци": 1,
+          "Фризьор": 1
+        }
+      },
+      {
+        "neighborhood": "Люлин",
+        "businesses": 1,
+        "categories": {
+          "hair": 1
+        },
+        "businessTypes": {
+          "Фризьор": 1
+        }
+      },
+      {
+        "neighborhood": "Люлин 1",
+        "businesses": 1,
+        "categories": {
+          "auto_repair": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1
+        }
+      },
+      {
+        "neighborhood": "Малинова долина",
+        "businesses": 3,
+        "categories": {
+          "auto_repair": 1,
+          "beauty": 1,
+          "detailing": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1,
+          "Детайлинг": 1,
+          "Красота": 1
+        }
+      },
+      {
+        "neighborhood": "Манастирски ливади",
+        "businesses": 2,
+        "categories": {
+          "auto_repair": 1,
+          "hair": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1,
+          "Фризьор": 1
+        }
+      },
+      {
+        "neighborhood": "Младост 1",
+        "businesses": 1,
+        "categories": {
+          "education": 1
+        },
+        "businessTypes": {
+          "Уроци": 1
+        }
+      },
+      {
+        "neighborhood": "Младост 2",
+        "businesses": 1,
+        "categories": {
+          "fitness": 1
+        },
+        "businessTypes": {
+          "Спорт": 1
+        }
+      },
+      {
+        "neighborhood": "Младост 4",
+        "businesses": 1,
+        "categories": {
+          "hair": 1
+        },
+        "businessTypes": {
+          "Фризьор": 1
+        }
+      },
+      {
+        "neighborhood": "Надежда",
+        "businesses": 1,
+        "categories": {
+          "hair": 1
+        },
+        "businessTypes": {
+          "Фризьор": 1
+        }
+      },
+      {
+        "neighborhood": "Неуточнен квартал",
+        "businesses": 51,
+        "categories": {
+          "auto_repair": 5,
+          "beauty": 2,
+          "consulting": 1,
+          "detailing": 2,
+          "education": 8,
+          "fitness": 3,
+          "home_services": 19,
+          "other": 4,
+          "pets": 7
+        },
+        "businessTypes": {
+          "Автосервиз": 5,
+          "Груминг": 7,
+          "Детайлинг": 2,
+          "За дома": 19,
+          "Консултации": 1,
+          "Красота": 2,
+          "Психология и психотерапия": 4,
+          "Спорт": 3,
+          "Уроци": 8
+        }
+      },
+      {
+        "neighborhood": "Оборище",
+        "businesses": 3,
+        "categories": {
+          "beauty": 1,
+          "other": 1,
+          "pets": 1
+        },
+        "businessTypes": {
+          "Груминг": 1,
+          "Красота": 1,
+          "Стоматология": 1
+        }
+      },
+      {
+        "neighborhood": "Овча купел",
+        "businesses": 1,
+        "categories": {
+          "hair": 1
+        },
+        "businessTypes": {
+          "Фризьор": 1
+        }
+      },
+      {
+        "neighborhood": "Овча купел 2",
+        "businesses": 1,
+        "categories": {
+          "auto_repair": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1
+        }
+      },
+      {
+        "neighborhood": "Павлово",
+        "businesses": 1,
+        "categories": {
+          "fitness": 1
+        },
+        "businessTypes": {
+          "Спорт": 1
+        }
+      },
+      {
+        "neighborhood": "Панчарево",
+        "businesses": 1,
+        "categories": {
+          "pets": 1
+        },
+        "businessTypes": {
+          "Груминг": 1
+        }
+      },
+      {
+        "neighborhood": "Промишлена зона Илиянци",
+        "businesses": 1,
+        "categories": {
+          "auto_repair": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1
+        }
+      },
+      {
+        "neighborhood": "Разсадника",
+        "businesses": 1,
+        "categories": {
+          "hair": 1
+        },
+        "businessTypes": {
+          "Фризьор": 1
+        }
+      },
+      {
+        "neighborhood": "Стрелбище",
+        "businesses": 1,
+        "categories": {
+          "beauty": 1
+        },
+        "businessTypes": {
+          "Красота": 1
+        }
+      },
+      {
+        "neighborhood": "Студентски град",
+        "businesses": 1,
+        "categories": {
+          "auto_repair": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1
+        }
+      },
+      {
+        "neighborhood": "Хаджи Димитър",
+        "businesses": 2,
+        "categories": {
+          "hair": 1,
+          "other": 1
+        },
+        "businessTypes": {
+          "Стоматология": 1,
+          "Фризьор": 1
+        }
+      },
+      {
+        "neighborhood": "Христо Смирненски",
+        "businesses": 1,
+        "categories": {
+          "fitness": 1
+        },
+        "businessTypes": {
+          "Спорт": 1
+        }
+      },
+      {
+        "neighborhood": "Център",
+        "businesses": 1,
+        "categories": {
+          "pets": 1
+        },
+        "businessTypes": {
+          "Груминг": 1
+        }
+      },
+      {
+        "neighborhood": "Яворов",
+        "businesses": 1,
+        "categories": {
+          "other": 1
+        },
+        "businessTypes": {
+          "Психология и психотерапия": 1
+        }
+      }
+    ],
+    "addedPremisesByNeighborhood": [
+      {
+        "neighborhood": "Бели брези",
+        "businesses": 1,
+        "categories": {
+          "other": 1
+        },
+        "businessTypes": {
+          "Стоматология": 1
+        }
+      },
+      {
+        "neighborhood": "Бенковски",
+        "businesses": 1,
+        "categories": {
+          "auto_repair": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1
+        }
+      },
+      {
+        "neighborhood": "Борово",
+        "businesses": 3,
+        "categories": {
+          "beauty": 1,
+          "fitness": 1,
+          "hair": 1
+        },
+        "businessTypes": {
+          "Красота": 1,
+          "Спорт": 1,
+          "Фризьор": 1
+        }
+      },
+      {
+        "neighborhood": "Бояна",
+        "businesses": 1,
+        "categories": {
+          "auto_repair": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1
+        }
+      },
+      {
+        "neighborhood": "Гара Искър",
+        "businesses": 1,
+        "categories": {
+          "auto_repair": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1
+        }
+      },
+      {
+        "neighborhood": "Гео Милев",
+        "businesses": 1,
+        "categories": {
+          "hair": 1
+        },
+        "businessTypes": {
+          "Фризьор": 1
+        }
+      },
+      {
+        "neighborhood": "Горубляне",
+        "businesses": 1,
+        "categories": {
+          "auto_repair": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1
+        }
+      },
+      {
+        "neighborhood": "Гоце Делчев",
+        "businesses": 2,
+        "categories": {
+          "education": 2
+        },
+        "businessTypes": {
+          "Уроци": 2
+        }
+      },
+      {
+        "neighborhood": "Дианабад",
+        "businesses": 1,
+        "categories": {
+          "nails": 1
+        },
+        "businessTypes": {
+          "Маникюр": 1
+        }
+      },
+      {
+        "neighborhood": "Драгалевци",
+        "businesses": 1,
+        "categories": {
+          "education": 1
+        },
+        "businessTypes": {
+          "Уроци": 1
+        }
+      },
+      {
+        "neighborhood": "Дружба 2",
+        "businesses": 1,
+        "categories": {
+          "hair": 1
+        },
+        "businessTypes": {
+          "Фризьор": 1
+        }
+      },
+      {
+        "neighborhood": "Дървеница",
+        "businesses": 1,
+        "categories": {
+          "fitness": 1
+        },
+        "businessTypes": {
+          "Спорт": 1
+        }
+      },
+      {
+        "neighborhood": "Изгрев",
+        "businesses": 1,
+        "categories": {
+          "other": 1
+        },
+        "businessTypes": {
+          "Психология и психотерапия": 1
+        }
+      },
+      {
+        "neighborhood": "Изток",
+        "businesses": 1,
+        "categories": {
+          "hair": 1
+        },
+        "businessTypes": {
+          "Фризьор": 1
+        }
+      },
+      {
+        "neighborhood": "Карпузица",
+        "businesses": 1,
+        "categories": {
+          "education": 1
+        },
+        "businessTypes": {
+          "Уроци": 1
+        }
+      },
+      {
+        "neighborhood": "Красна поляна",
+        "businesses": 1,
+        "categories": {
+          "auto_repair": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1
+        }
+      },
+      {
+        "neighborhood": "Лозенец",
+        "businesses": 3,
+        "categories": {
+          "education": 1,
+          "hair": 1,
+          "other": 1
+        },
+        "businessTypes": {
+          "Психология и психотерапия": 1,
+          "Уроци": 1,
+          "Фризьор": 1
+        }
+      },
+      {
+        "neighborhood": "Люлин",
+        "businesses": 1,
+        "categories": {
+          "hair": 1
+        },
+        "businessTypes": {
+          "Фризьор": 1
+        }
+      },
+      {
+        "neighborhood": "Люлин 1",
+        "businesses": 1,
+        "categories": {
+          "auto_repair": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1
+        }
+      },
+      {
+        "neighborhood": "Малинова долина",
+        "businesses": 3,
+        "categories": {
+          "auto_repair": 1,
+          "beauty": 1,
+          "detailing": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1,
+          "Детайлинг": 1,
+          "Красота": 1
+        }
+      },
+      {
+        "neighborhood": "Манастирски ливади",
+        "businesses": 2,
+        "categories": {
+          "auto_repair": 1,
+          "hair": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1,
+          "Фризьор": 1
+        }
+      },
+      {
+        "neighborhood": "Младост 1",
+        "businesses": 1,
+        "categories": {
+          "education": 1
+        },
+        "businessTypes": {
+          "Уроци": 1
+        }
+      },
+      {
+        "neighborhood": "Младост 2",
+        "businesses": 1,
+        "categories": {
+          "fitness": 1
+        },
+        "businessTypes": {
+          "Спорт": 1
+        }
+      },
+      {
+        "neighborhood": "Младост 4",
+        "businesses": 1,
+        "categories": {
+          "hair": 1
+        },
+        "businessTypes": {
+          "Фризьор": 1
+        }
+      },
+      {
+        "neighborhood": "Надежда",
+        "businesses": 1,
+        "categories": {
+          "hair": 1
+        },
+        "businessTypes": {
+          "Фризьор": 1
+        }
+      },
+      {
+        "neighborhood": "Неуточнен квартал",
+        "businesses": 30,
+        "categories": {
+          "auto_repair": 4,
+          "beauty": 2,
+          "consulting": 1,
+          "detailing": 2,
+          "education": 7,
+          "fitness": 3,
+          "other": 4,
+          "pets": 7
+        },
+        "businessTypes": {
+          "Автосервиз": 4,
+          "Груминг": 7,
+          "Детайлинг": 2,
+          "Консултации": 1,
+          "Красота": 2,
+          "Психология и психотерапия": 4,
+          "Спорт": 3,
+          "Уроци": 7
+        }
+      },
+      {
+        "neighborhood": "Оборище",
+        "businesses": 3,
+        "categories": {
+          "beauty": 1,
+          "other": 1,
+          "pets": 1
+        },
+        "businessTypes": {
+          "Груминг": 1,
+          "Красота": 1,
+          "Стоматология": 1
+        }
+      },
+      {
+        "neighborhood": "Овча купел",
+        "businesses": 1,
+        "categories": {
+          "hair": 1
+        },
+        "businessTypes": {
+          "Фризьор": 1
+        }
+      },
+      {
+        "neighborhood": "Овча купел 2",
+        "businesses": 1,
+        "categories": {
+          "auto_repair": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1
+        }
+      },
+      {
+        "neighborhood": "Павлово",
+        "businesses": 1,
+        "categories": {
+          "fitness": 1
+        },
+        "businessTypes": {
+          "Спорт": 1
+        }
+      },
+      {
+        "neighborhood": "Панчарево",
+        "businesses": 1,
+        "categories": {
+          "pets": 1
+        },
+        "businessTypes": {
+          "Груминг": 1
+        }
+      },
+      {
+        "neighborhood": "Промишлена зона Илиянци",
+        "businesses": 1,
+        "categories": {
+          "auto_repair": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1
+        }
+      },
+      {
+        "neighborhood": "Разсадника",
+        "businesses": 1,
+        "categories": {
+          "hair": 1
+        },
+        "businessTypes": {
+          "Фризьор": 1
+        }
+      },
+      {
+        "neighborhood": "Стрелбище",
+        "businesses": 1,
+        "categories": {
+          "beauty": 1
+        },
+        "businessTypes": {
+          "Красота": 1
+        }
+      },
+      {
+        "neighborhood": "Студентски град",
+        "businesses": 1,
+        "categories": {
+          "auto_repair": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1
+        }
+      },
+      {
+        "neighborhood": "Хаджи Димитър",
+        "businesses": 2,
+        "categories": {
+          "hair": 1,
+          "other": 1
+        },
+        "businessTypes": {
+          "Стоматология": 1,
+          "Фризьор": 1
+        }
+      },
+      {
+        "neighborhood": "Христо Смирненски",
+        "businesses": 1,
+        "categories": {
+          "fitness": 1
+        },
+        "businessTypes": {
+          "Спорт": 1
+        }
+      },
+      {
+        "neighborhood": "Център",
+        "businesses": 1,
+        "categories": {
+          "pets": 1
+        },
+        "businessTypes": {
+          "Груминг": 1
+        }
+      },
+      {
+        "neighborhood": "Яворов",
+        "businesses": 1,
+        "categories": {
+          "other": 1
+        },
+        "businessTypes": {
+          "Психология и психотерапия": 1
+        }
+      }
+    ],
+    "addedCitywideMobileProviders": [
+      {
+        "id": "sofia-chisto-home-visits",
+        "name": "Чисто · домашно почистване в София",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-feite-home-cleaning",
+        "name": "Феите · домашно почистване",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-cleaningcompany-home-visits",
+        "name": "CleaningCompany.BG · почистване на дома",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-handyservices-home-visits",
+        "name": "Handy Services · домашно почистване",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-eco-clean-home-visits",
+        "name": "Еко Хоум Клийнинг · посещения в София",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-hometech-home-visits",
+        "name": "Хоум Тех Сервиз · ремонт на перални на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-panservice-home-appliance-visits",
+        "name": "Pan Service · ремонт на перални на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-elektrotehnik-info-home-visits",
+        "name": "Elektrotehnik.info · електроуслуги в София",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-eltablo-er-stroy-home-visits",
+        "name": "Ер Строй Ремонти · електроуслуги на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-rodgers-design-home-assembly",
+        "name": "Rodgers Design · монтаж на мебели и санитария",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-rainfreshclean-home-visits",
+        "name": "RainFreshClean · почистване на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-radulov-cleaning-home-visits",
+        "name": "Radulov Cleaning · почистване след ремонт",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-art-center-home-drawing",
+        "name": "Art Center · уроци по рисуване на адрес",
+        "businessType": "Уроци"
+      },
+      {
+        "id": "sofia-freshhomebg-home-visits",
+        "name": "FreshHomeBG · пране на дивани",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-raya-cleaning-home-visits",
+        "name": "Raya Cleaning · почистване на дома",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-quickclean-home-visits",
+        "name": "QuickClean · домашно почистване",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-bran-insect-home-visits",
+        "name": "Бран Инсект · домашни обработки",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-garant-pest-home-visits",
+        "name": "Гарант Пест Контрол · домашни посещения",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-preventa-home-visits",
+        "name": "Превента · домашни обработки",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-desinsect-home-visits",
+        "name": "Дезинсект · домашни обработки в София",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-motorlab-mobile",
+        "name": "MOTORLAB · мобилна автодиагностика",
+        "businessType": "Автосервиз"
+      }
+    ],
+    "additions": [
+      {
+        "id": "sofia-briliant-dent-lerin",
+        "name": "Брилянт Дент · Лерин",
+        "category": "other",
+        "businessType": "Стоматология",
+        "neighborhood": "Бели брези",
+        "locationKind": "premises",
+        "website": "https://www.dentalbg.com/",
+        "booking": {
+          "kind": "phone",
+          "phone": "+359878585661"
+        },
+        "serviceFacts": 8,
+        "currentPriceFacts": 8,
+        "priceSources": [
+          "https://www.dentalbg.com/98zlz-2025-10.pdf"
+        ]
+      },
+      {
+        "id": "sofia-dentalno-studio-nikolaev",
+        "name": "Дентално студио д-р Николаев",
+        "category": "other",
+        "businessType": "Стоматология",
+        "neighborhood": "Хаджи Димитър",
+        "locationKind": "premises",
+        "website": "https://www.dentalnostudio.com/",
+        "booking": {
+          "kind": "form",
+          "url": "https://www.dentalnostudio.com/bg/make_appointment"
+        },
+        "serviceFacts": 5,
+        "currentPriceFacts": 0,
+        "priceSources": []
+      },
+      {
+        "id": "sofia-dr-parusheva-oborishte",
+        "name": "Дентална клиника д-р Парушева",
+        "category": "other",
+        "businessType": "Стоматология",
+        "neighborhood": "Оборище",
+        "locationKind": "premises",
+        "website": "https://dr-parusheva.com/",
+        "booking": {
+          "kind": "form",
+          "url": "https://dr-parusheva.com/booking/"
+        },
+        "serviceFacts": 5,
+        "currentPriceFacts": 5,
+        "priceSources": [
+          "https://dr-parusheva.com/pricelist/"
+        ]
+      },
+      {
+        "id": "sofia-chisto-home-visits",
+        "name": "Чисто · домашно почистване в София",
+        "category": "home_services",
+        "businessType": "За дома",
+        "neighborhood": null,
+        "locationKind": "service_area",
+        "website": "https://chisto.bg/",
+        "booking": {
+          "kind": "phone",
+          "phone": "+359887036642"
+        },
+        "serviceFacts": 2,
+        "currentPriceFacts": 2,
+        "priceSources": [
+          "https://chisto.bg/prices/"
+        ]
+      },
+      {
+        "id": "sofia-feite-home-cleaning",
+        "name": "Феите · домашно почистване",
+        "category": "home_services",
+        "businessType": "За дома",
+        "neighborhood": null,
+        "locationKind": "service_area",
+        "website": "https://feite.bg/",
+        "booking": {
+          "kind": "form",
+          "url": "https://feite.bg/"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 0,
+        "priceSources": []
+      },
+      {
+        "id": "sofia-cleaningcompany-home-visits",
+        "name": "CleaningCompany.BG · почистване на дома",
+        "category": "home_services",
+        "businessType": "За дома",
+        "neighborhood": null,
+        "locationKind": "service_area",
+        "website": "https://cleaningcompany.bg/",
+        "booking": {
+          "kind": "form",
+          "url": "https://cleaningcompany.bg/contacts/"
+        },
+        "serviceFacts": 2,
+        "currentPriceFacts": 2,
+        "priceSources": [
+          "https://cleaningcompany.bg/pochistvane-na-domove-apartamenti-sofia-ceni/"
+        ]
+      },
+      {
+        "id": "sofia-handyservices-home-visits",
+        "name": "Handy Services · домашно почистване",
+        "category": "home_services",
+        "businessType": "За дома",
+        "neighborhood": null,
+        "locationKind": "service_area",
+        "website": "https://handyservices.bg/",
+        "booking": {
+          "kind": "form",
+          "url": "https://handyservices.bg/"
+        },
+        "serviceFacts": 2,
+        "currentPriceFacts": 2,
+        "priceSources": [
+          "https://handyservices.bg/ceni/"
+        ]
+      },
+      {
+        "id": "sofia-eco-clean-home-visits",
+        "name": "Еко Хоум Клийнинг · посещения в София",
+        "category": "home_services",
+        "businessType": "За дома",
+        "neighborhood": null,
+        "locationKind": "service_area",
+        "website": "https://eco-clean-home.com/contact-us/",
+        "booking": {
+          "kind": "phone",
+          "phone": "+359888515129"
+        },
+        "serviceFacts": 2,
+        "currentPriceFacts": 2,
+        "priceSources": [
+          "https://eco-clean-home.com/цени/"
+        ]
+      },
+      {
+        "id": "sofia-hometech-home-visits",
+        "name": "Хоум Тех Сервиз · ремонт на перални на адрес",
+        "category": "home_services",
+        "businessType": "За дома",
+        "neighborhood": null,
+        "locationKind": "service_area",
+        "website": "https://hometechbg.com/",
+        "booking": {
+          "kind": "phone",
+          "phone": "+359899920385"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 0,
+        "priceSources": []
+      },
+      {
+        "id": "sofia-panservice-home-appliance-visits",
+        "name": "Pan Service · ремонт на перални на адрес",
+        "category": "home_services",
+        "businessType": "За дома",
+        "neighborhood": null,
+        "locationKind": "service_area",
+        "website": "https://panservice-bg.com/",
+        "booking": {
+          "kind": "phone",
+          "phone": "+359897996155"
+        },
+        "serviceFacts": 2,
+        "currentPriceFacts": 2,
+        "priceSources": [
+          "https://panservice-bg.com/перални/"
+        ]
+      },
+      {
+        "id": "sofia-elektrotehnik-info-home-visits",
+        "name": "Elektrotehnik.info · електроуслуги в София",
+        "category": "home_services",
+        "businessType": "За дома",
+        "neighborhood": null,
+        "locationKind": "service_area",
+        "website": "https://elektrotehnik.info/",
+        "booking": {
+          "kind": "phone",
+          "phone": "+359875357121"
+        },
+        "serviceFacts": 2,
+        "currentPriceFacts": 2,
+        "priceSources": [
+          "https://elektrotehnik.info/цени/"
+        ]
+      },
+      {
+        "id": "sofia-eltablo-er-stroy-home-visits",
+        "name": "Ер Строй Ремонти · електроуслуги на адрес",
+        "category": "home_services",
+        "businessType": "За дома",
+        "neighborhood": null,
+        "locationKind": "service_area",
+        "website": "https://eltablo.bg/",
+        "booking": {
+          "kind": "form",
+          "url": "https://eltablo.bg/vrazka-s-firma-er-stroy-remonti-eood"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 1,
+        "priceSources": [
+          "https://eltablo.bg/el-uslugi-tseni"
+        ]
+      },
+      {
+        "id": "sofia-rodgers-design-home-assembly",
+        "name": "Rodgers Design · монтаж на мебели и санитария",
+        "category": "home_services",
+        "businessType": "За дома",
+        "neighborhood": null,
+        "locationKind": "service_area",
+        "website": "https://rodgers-design.com/",
+        "booking": {
+          "kind": "form",
+          "url": "https://www.rodgers-design.com/contact.html"
+        },
+        "serviceFacts": 2,
+        "currentPriceFacts": 2,
+        "priceSources": [
+          "https://rodgers-design.com/montazh-mebeli-sanitaria-sofia.html"
+        ]
+      },
+      {
+        "id": "sofia-rainfreshclean-home-visits",
+        "name": "RainFreshClean · почистване на адрес",
+        "category": "home_services",
+        "businessType": "За дома",
+        "neighborhood": null,
+        "locationKind": "service_area",
+        "website": "https://rainfreshclean.eu/",
+        "booking": {
+          "kind": "form",
+          "url": "https://rainfreshclean.eu/"
+        },
+        "serviceFacts": 2,
+        "currentPriceFacts": 2,
+        "priceSources": [
+          "https://rainfreshclean.eu/"
+        ]
+      },
+      {
+        "id": "sofia-radulov-cleaning-home-visits",
+        "name": "Radulov Cleaning · почистване след ремонт",
+        "category": "home_services",
+        "businessType": "За дома",
+        "neighborhood": null,
+        "locationKind": "service_area",
+        "website": "https://www.radulovcleaning.bg/contacti/",
+        "booking": {
+          "kind": "phone",
+          "phone": "+359887490169"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 0,
+        "priceSources": []
+      },
+      {
+        "id": "sofia-voice-lab-karpuzitsa",
+        "name": "Voice Lab · Преслава Мръвкова",
+        "category": "education",
+        "businessType": "Уроци",
+        "neighborhood": "Карпузица",
+        "locationKind": "premises",
+        "website": "https://www.voicelab.bg/",
+        "booking": {
+          "kind": "form",
+          "url": "https://www.voicelab.bg/"
+        },
+        "serviceFacts": 2,
+        "currentPriceFacts": 2,
+        "priceSources": [
+          "https://www.voicelab.bg/"
+        ]
+      },
+      {
+        "id": "sofia-little-big-talents-otets-paisiy",
+        "name": "Малките Големи Таланти · музикален център",
+        "category": "education",
+        "businessType": "Уроци",
+        "neighborhood": null,
+        "locationKind": "premises",
+        "website": "https://www.thelittlebigtalents.bg/",
+        "booking": {
+          "kind": "phone",
+          "phone": "+359876191718"
+        },
+        "serviceFacts": 2,
+        "currentPriceFacts": 2,
+        "priceSources": [
+          "https://www.thelittlebigtalents.bg/pricing"
+        ]
+      },
+      {
+        "id": "sofia-bravo-center-gotse-delchev",
+        "name": "BRAVO Center · Гоце Делчев",
+        "category": "education",
+        "businessType": "Уроци",
+        "neighborhood": "Гоце Делчев",
+        "locationKind": "premises",
+        "website": "https://bravocenter.bg/",
+        "booking": {
+          "kind": "form",
+          "url": "https://bravocenter.bg/kontakt/"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 0,
+        "priceSources": []
+      },
+      {
+        "id": "sofia-elina-lyuben-karavelov",
+        "name": "Учебен център Елина · Любен Каравелов",
+        "category": "education",
+        "businessType": "Уроци",
+        "neighborhood": null,
+        "locationKind": "premises",
+        "website": "https://www.elina-av.com/lang_courses.html",
+        "booking": {
+          "kind": "phone",
+          "phone": "+359888616911"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 0,
+        "priceSources": []
+      },
+      {
+        "id": "sofia-art-center-home-drawing",
+        "name": "Art Center · уроци по рисуване на адрес",
+        "category": "education",
+        "businessType": "Уроци",
+        "neighborhood": null,
+        "locationKind": "service_area",
+        "website": "https://alo372.wixsite.com/1234",
+        "booking": {
+          "kind": "phone",
+          "phone": "+359877889898"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 1,
+        "priceSources": [
+          "https://alo372.wixsite.com/1234"
+        ]
+      },
+      {
+        "id": "sofia-arliz-orfey",
+        "name": "Езикова школа Арлиз · Лозенец",
+        "category": "education",
+        "businessType": "Уроци",
+        "neighborhood": "Лозенец",
+        "locationKind": "premises",
+        "website": "https://arliz.bg/",
+        "booking": {
+          "kind": "phone",
+          "phone": "+359896832564"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 0,
+        "priceSources": []
+      },
+      {
+        "id": "sofia-accent-benkovski",
+        "name": "АКЦЕНТ · Георги Бенковски",
+        "category": "education",
+        "businessType": "Уроци",
+        "neighborhood": null,
+        "locationKind": "premises",
+        "website": "https://www.accentschool.net/",
+        "booking": {
+          "kind": "phone",
+          "phone": "+359888591605"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 1,
+        "priceSources": [
+          "https://www.accentschool.net/uslugi/individualno-obuchenie"
+        ]
+      },
+      {
+        "id": "sofia-accent-vitosha",
+        "name": "АКЦЕНТ · Витоша",
+        "category": "education",
+        "businessType": "Уроци",
+        "neighborhood": null,
+        "locationKind": "premises",
+        "website": "https://www.accentschool.net/",
+        "booking": {
+          "kind": "phone",
+          "phone": "+359888591605"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 1,
+        "priceSources": [
+          "https://www.accentschool.net/uslugi/individualno-obuchenie"
+        ]
+      },
+      {
+        "id": "sofia-avo-dondukov",
+        "name": "АВО · Паметник Левски",
+        "category": "education",
+        "businessType": "Уроци",
+        "neighborhood": null,
+        "locationKind": "premises",
+        "website": "https://avo.bg/",
+        "booking": {
+          "kind": "form",
+          "url": "https://avo.bg/apply_individual?package=mini"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 0,
+        "priceSources": []
+      },
+      {
+        "id": "sofia-avo-graf-ignatiev",
+        "name": "АВО · Граф Игнатиев",
+        "category": "education",
+        "businessType": "Уроци",
+        "neighborhood": null,
+        "locationKind": "premises",
+        "website": "https://avo.bg/",
+        "booking": {
+          "kind": "form",
+          "url": "https://avo.bg/apply_individual?package=mini"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 0,
+        "priceSources": []
+      },
+      {
+        "id": "sofia-avo-mladost",
+        "name": "АВО · Младост",
+        "category": "education",
+        "businessType": "Уроци",
+        "neighborhood": "Младост 1",
+        "locationKind": "premises",
+        "website": "https://avo.bg/",
+        "booking": {
+          "kind": "form",
+          "url": "https://avo.bg/apply_individual?package=mini"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 0,
+        "priceSources": []
+      },
+      {
+        "id": "sofia-avo-opalchenska",
+        "name": "АВО · учебна база Опълченска",
+        "category": "education",
+        "businessType": "Уроци",
+        "neighborhood": null,
+        "locationKind": "premises",
+        "website": "https://avo.bg/",
+        "booking": {
+          "kind": "form",
+          "url": "https://avo.bg/apply_individual?package=mini"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 0,
+        "priceSources": []
+      },
+      {
+        "id": "sofia-booktree-dragalevtsi",
+        "name": "Езикова школа БУК · Драгалевци",
+        "category": "education",
+        "businessType": "Уроци",
+        "neighborhood": "Драгалевци",
+        "locationKind": "premises",
+        "website": "https://www.booktree.bg/",
+        "booking": {
+          "kind": "form",
+          "url": "https://www.booktree.bg/contacts/"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 1,
+        "priceSources": [
+          "https://www.booktree.bg/tseni/"
+        ]
+      },
+      {
+        "id": "sofia-booktree-gotse-delchev",
+        "name": "Езикова школа БУК · Гоце Делчев",
+        "category": "education",
+        "businessType": "Уроци",
+        "neighborhood": "Гоце Делчев",
+        "locationKind": "premises",
+        "website": "https://www.booktree.bg/",
+        "booking": {
+          "kind": "form",
+          "url": "https://www.booktree.bg/contacts/"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 1,
+        "priceSources": [
+          "https://www.booktree.bg/tseni/"
+        ]
+      },
+      {
+        "id": "sofia-freshhomebg-home-visits",
+        "name": "FreshHomeBG · пране на дивани",
+        "category": "home_services",
+        "businessType": "За дома",
+        "neighborhood": null,
+        "locationKind": "service_area",
+        "website": "https://www.freshhomebg.com/",
+        "booking": {
+          "kind": "phone",
+          "phone": "+359886603887"
+        },
+        "serviceFacts": 2,
+        "currentPriceFacts": 2,
+        "priceSources": [
+          "https://www.freshhomebg.com/pages/ceni"
+        ]
+      },
+      {
+        "id": "sofia-raya-cleaning-home-visits",
+        "name": "Raya Cleaning · почистване на дома",
+        "category": "home_services",
+        "businessType": "За дома",
+        "neighborhood": null,
+        "locationKind": "service_area",
+        "website": "https://www.rayacleaning.com/",
+        "booking": {
+          "kind": "phone",
+          "phone": "+359892320848"
+        },
+        "serviceFacts": 2,
+        "currentPriceFacts": 2,
+        "priceSources": [
+          "https://www.rayacleaning.com/услуги/osnovno-pochistvane",
+          "https://www.rayacleaning.com/услуги/pochistvane-sled-remont"
+        ]
+      },
+      {
+        "id": "sofia-quickclean-home-visits",
+        "name": "QuickClean · домашно почистване",
+        "category": "home_services",
+        "businessType": "За дома",
+        "neighborhood": null,
+        "locationKind": "service_area",
+        "website": "https://quickclean.bg/",
+        "booking": {
+          "kind": "form",
+          "url": "https://quickclean.bg/"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 0,
+        "priceSources": []
+      },
+      {
+        "id": "sofia-bran-insect-home-visits",
+        "name": "Бран Инсект · домашни обработки",
+        "category": "home_services",
+        "businessType": "За дома",
+        "neighborhood": null,
+        "locationKind": "service_area",
+        "website": "https://vrediteli.bg/uslugi",
+        "booking": {
+          "kind": "form",
+          "url": "https://vrediteli.bg/darvenici"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 1,
+        "priceSources": [
+          "https://vrediteli.bg/darvenici"
+        ]
+      },
+      {
+        "id": "sofia-garant-pest-home-visits",
+        "name": "Гарант Пест Контрол · домашни посещения",
+        "category": "home_services",
+        "businessType": "За дома",
+        "neighborhood": null,
+        "locationKind": "service_area",
+        "website": "https://garantpest.com/",
+        "booking": {
+          "kind": "form",
+          "url": "https://garantpest.com/contacts/"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 0,
+        "priceSources": []
+      },
+      {
+        "id": "sofia-preventa-home-visits",
+        "name": "Превента · домашни обработки",
+        "category": "home_services",
+        "businessType": "За дома",
+        "neighborhood": null,
+        "locationKind": "service_area",
+        "website": "https://www.preventa.bg/",
+        "booking": {
+          "kind": "form",
+          "url": "https://www.preventa.bg/kontakti/"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 1,
+        "priceSources": [
+          "https://preventa.bg/borba-s-hlebarki/"
+        ]
+      },
+      {
+        "id": "sofia-desinsect-home-visits",
+        "name": "Дезинсект · домашни обработки в София",
+        "category": "home_services",
+        "businessType": "За дома",
+        "neighborhood": null,
+        "locationKind": "service_area",
+        "website": "https://desinsect.bg/",
+        "booking": {
+          "kind": "form",
+          "url": "https://desinsect.bg/contact/"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 1,
+        "priceSources": [
+          "https://desinsect.bg/prices/"
+        ]
+      },
+      {
+        "id": "sofia-bachevski-garage-louis-ayer",
+        "name": "Bachevski Garage",
+        "category": "auto_repair",
+        "businessType": "Автосервиз",
+        "neighborhood": "Манастирски ливади",
+        "locationKind": "premises",
+        "website": "https://easybook.bg/avtoserviz-bachevski-garage-sofiya-manastirski-livadi",
+        "booking": {
+          "kind": "form",
+          "url": "https://easybook.bg/avtoserviz-bachevski-garage-sofiya-manastirski-livadi/mnogokomponentna-tehnicheska-proverka"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 1,
+        "priceSources": [
+          "https://easybook.bg/avtoserviz-bachevski-garage-sofiya-manastirski-livadi/mnogokomponentna-tehnicheska-proverka"
+        ]
+      },
+      {
+        "id": "sofia-alkom-todor-kableshkov",
+        "name": "Автосервиз АЛКОМ",
+        "category": "auto_repair",
+        "businessType": "Автосервиз",
+        "neighborhood": null,
+        "locationKind": "premises",
+        "website": "https://alkomess.com/",
+        "booking": {
+          "kind": "form",
+          "url": "https://alkomess.com/контакти"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 0,
+        "priceSources": []
+      },
+      {
+        "id": "sofia-tander-automotive-boyana",
+        "name": "Tander Automotive · сервиз София",
+        "category": "auto_repair",
+        "businessType": "Автосервиз",
+        "neighborhood": "Бояна",
+        "locationKind": "premises",
+        "website": "https://automotive.tanderbg.com/",
+        "booking": {
+          "kind": "phone",
+          "phone": "+359886455955"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 0,
+        "priceSources": []
+      },
+      {
+        "id": "sofia-radial2000-ovcha-kupel-2",
+        "name": "Радиал 2000 · Овча купел 2",
+        "category": "auto_repair",
+        "businessType": "Автосервиз",
+        "neighborhood": "Овча купел 2",
+        "locationKind": "premises",
+        "website": "https://radial2000.com/",
+        "booking": {
+          "kind": "form",
+          "url": "https://radial2000.com/запази-си-час/"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 0,
+        "priceSources": []
+      },
+      {
+        "id": "sofia-radial2000-studentski-grad",
+        "name": "Радиал 2000 · Студентски град",
+        "category": "auto_repair",
+        "businessType": "Автосервиз",
+        "neighborhood": "Студентски град",
+        "locationKind": "premises",
+        "website": "https://radial2000.com/",
+        "booking": {
+          "kind": "form",
+          "url": "https://radial2000.com/запази-си-час/"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 0,
+        "priceSources": []
+      },
+      {
+        "id": "sofia-radial2000-benkovski",
+        "name": "Радиал 2000 · Бенковски",
+        "category": "auto_repair",
+        "businessType": "Автосервиз",
+        "neighborhood": "Бенковски",
+        "locationKind": "premises",
+        "website": "https://radial2000.com/",
+        "booking": {
+          "kind": "form",
+          "url": "https://radial2000.com/запази-си-час/"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 0,
+        "priceSources": []
+      },
+      {
+        "id": "sofia-aray-detailing-magnaurska",
+        "name": "ARAY Detailing",
+        "category": "detailing",
+        "businessType": "Детайлинг",
+        "neighborhood": null,
+        "locationKind": "premises",
+        "website": "https://www.aray-detailing.com/",
+        "booking": {
+          "kind": "form",
+          "url": "https://rezervirai.aray-detailing.com/book/"
+        },
+        "serviceFacts": 3,
+        "currentPriceFacts": 3,
+        "priceSources": [
+          "https://rezervirai.aray-detailing.com/book/",
+          "https://www.aray-detailing.com/uslugi/"
+        ]
+      },
+      {
+        "id": "sofia-ashli-rishki-prohod",
+        "name": "Автосервиз Ашли",
+        "category": "auto_repair",
+        "businessType": "Автосервиз",
+        "neighborhood": "Красна поляна",
+        "locationKind": "premises",
+        "website": "https://ashlibg.com/",
+        "booking": {
+          "kind": "form",
+          "url": "https://ashlibg.com/contact/"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 0,
+        "priceSources": []
+      },
+      {
+        "id": "sofia-dar-auto-service-europa",
+        "name": "DAR Auto Service",
+        "category": "auto_repair",
+        "businessType": "Автосервиз",
+        "neighborhood": "Люлин 1",
+        "locationKind": "premises",
+        "website": "https://dar.autos/",
+        "booking": {
+          "kind": "form",
+          "url": "https://dar.autos/avtoservice"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 0,
+        "priceSources": []
+      },
+      {
+        "id": "sofia-zar-auto-kliment-ohridski",
+        "name": "ZAR AUTO",
+        "category": "auto_repair",
+        "businessType": "Автосервиз",
+        "neighborhood": "Малинова долина",
+        "locationKind": "premises",
+        "website": "https://zarauto.bg/",
+        "booking": {
+          "kind": "form",
+          "url": "https://zarauto.bg/contact-us/"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 0,
+        "priceSources": []
+      },
+      {
+        "id": "sofia-silverlines-gorublyane",
+        "name": "Silverlines",
+        "category": "auto_repair",
+        "businessType": "Автосервиз",
+        "neighborhood": "Горубляне",
+        "locationKind": "premises",
+        "website": "https://silverlines.bg/",
+        "booking": {
+          "kind": "form",
+          "url": "https://carapp.bg/book-service/3079"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 0,
+        "priceSources": []
+      },
+      {
+        "id": "sofia-autotechnica-iskarsko-shose",
+        "name": "Autotechnica · автосервиз",
+        "category": "auto_repair",
+        "businessType": "Автосервиз",
+        "neighborhood": "Гара Искър",
+        "locationKind": "premises",
+        "website": "https://autotechnica.bg/",
+        "booking": {
+          "kind": "form",
+          "url": "https://autotechnica.bg/service-appointment/"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 0,
+        "priceSources": []
+      },
+      {
+        "id": "sofia-3d-autoservice-lazar-plachkov",
+        "name": "3D Автосервиз",
+        "category": "auto_repair",
+        "businessType": "Автосервиз",
+        "neighborhood": null,
+        "locationKind": "premises",
+        "website": "https://www.3d-autoservice.com/",
+        "booking": {
+          "kind": "phone",
+          "phone": "+359889504110"
+        },
+        "serviceFacts": 2,
+        "currentPriceFacts": 2,
+        "priceSources": [
+          "https://www.3d-autoservice.com/"
+        ]
+      },
+      {
+        "id": "sofia-hexwrap-enyo-valchev",
+        "name": "HexWrap · керамично покритие",
+        "category": "detailing",
+        "businessType": "Детайлинг",
+        "neighborhood": null,
+        "locationKind": "premises",
+        "website": "https://hexwrap.eu/",
+        "booking": {
+          "kind": "form",
+          "url": "https://hexwrap.eu/contact?service=ceramic-coating-detailing"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 0,
+        "priceSources": []
+      },
+      {
+        "id": "sofia-motorlab-mobile",
+        "name": "MOTORLAB · мобилна автодиагностика",
+        "category": "auto_repair",
+        "businessType": "Автосервиз",
+        "neighborhood": null,
+        "locationKind": "service_area",
+        "website": "https://motorlab.bg/",
+        "booking": {
+          "kind": "phone",
+          "phone": "+359878699737"
+        },
+        "serviceFacts": 2,
+        "currentPriceFacts": 2,
+        "priceSources": [
+          "https://motorlab.bg/"
+        ]
+      },
+      {
+        "id": "sofia-judo-topalov-spartak",
+        "name": "Джудо клуб Топалов · Спартак",
+        "category": "fitness",
+        "businessType": "Спорт",
+        "neighborhood": null,
+        "locationKind": "premises",
+        "website": "https://judo-topalov.com/",
+        "booking": {
+          "kind": "form",
+          "url": "https://judo-topalov.com/join?venue=1"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 0,
+        "priceSources": []
+      },
+      {
+        "id": "sofia-judo-topalov-mladost-2",
+        "name": "Джудо клуб Топалов · Младост 2",
+        "category": "fitness",
+        "businessType": "Спорт",
+        "neighborhood": "Младост 2",
+        "locationKind": "premises",
+        "website": "https://judo-topalov.com/",
+        "booking": {
+          "kind": "form",
+          "url": "https://judo-topalov.com/join?venue=2"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 0,
+        "priceSources": []
+      },
+      {
+        "id": "sofia-judo-topalov-slatina",
+        "name": "Джудо клуб Топалов · Слатина",
+        "category": "fitness",
+        "businessType": "Спорт",
+        "neighborhood": "Христо Смирненски",
+        "locationKind": "premises",
+        "website": "https://judo-topalov.com/",
+        "booking": {
+          "kind": "form",
+          "url": "https://judo-topalov.com/join?venue=3"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 0,
+        "priceSources": []
+      },
+      {
+        "id": "sofia-judo-topalov-ndc",
+        "name": "Джудо клуб Топалов · Национален дворец на децата",
+        "category": "fitness",
+        "businessType": "Спорт",
+        "neighborhood": null,
+        "locationKind": "premises",
+        "website": "https://judo-topalov.com/",
+        "booking": {
+          "kind": "form",
+          "url": "https://judo-topalov.com/join?venue=4"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 0,
+        "priceSources": []
+      },
+      {
+        "id": "sofia-gfteam-evlogi-georgievi",
+        "name": "GFTeam Bulgaria",
+        "category": "fitness",
+        "businessType": "Спорт",
+        "neighborhood": null,
+        "locationKind": "premises",
+        "website": "https://gfteambulgaria.com/en",
+        "booking": {
+          "kind": "form",
+          "url": "https://gfteambulgaria.com/en/classes"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 0,
+        "priceSources": []
+      },
+      {
+        "id": "sofia-top-drive-tsarigradsko220",
+        "name": "Топ Драйв",
+        "category": "auto_repair",
+        "businessType": "Автосервиз",
+        "neighborhood": null,
+        "locationKind": "premises",
+        "website": "https://www.topdrive.bg/",
+        "booking": {
+          "kind": "phone",
+          "phone": "+359888328210"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 0,
+        "priceSources": []
+      },
+      {
+        "id": "sofia-audi-world-chepinsko55",
+        "name": "Audi World",
+        "category": "auto_repair",
+        "businessType": "Автосервиз",
+        "neighborhood": null,
+        "locationKind": "premises",
+        "website": "https://audiworld.eu/",
+        "booking": {
+          "kind": "form",
+          "url": "https://audiworld.eu/контакти-автосервиз/"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 0,
+        "priceSources": []
+      },
+      {
+        "id": "sofia-katerini-lomsko252",
+        "name": "Катерини · автосервиз",
+        "category": "auto_repair",
+        "businessType": "Автосервиз",
+        "neighborhood": "Промишлена зона Илиянци",
+        "locationKind": "premises",
+        "website": "https://katerini.bg/",
+        "booking": {
+          "kind": "form",
+          "url": "https://katerini.bg/contact/"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 0,
+        "priceSources": []
+      },
+      {
+        "id": "sofia-maxima-karate-borovo",
+        "name": "Спортен клуб Максима · Борово",
+        "category": "fitness",
+        "businessType": "Спорт",
+        "neighborhood": "Борово",
+        "locationKind": "premises",
+        "website": "https://maximasport.com/",
+        "booking": {
+          "kind": "phone",
+          "phone": "+359887562437"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 1,
+        "priceSources": [
+          "https://online.maximakarate.com/funnel/membership/membership-registration-2/"
+        ]
+      },
+      {
+        "id": "sofia-maxima-karate-pavlovo",
+        "name": "Спортен клуб Максима · Павлово",
+        "category": "fitness",
+        "businessType": "Спорт",
+        "neighborhood": "Павлово",
+        "locationKind": "premises",
+        "website": "https://maximasport.com/",
+        "booking": {
+          "kind": "phone",
+          "phone": "+359887562437"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 1,
+        "priceSources": [
+          "https://online.maximakarate.com/funnel/membership/membership-registration-2/"
+        ]
+      },
+      {
+        "id": "sofia-prostranstvoto-gladiator-taekwondo",
+        "name": "Пространството · таекуондо със СК Гладиатор",
+        "category": "fitness",
+        "businessType": "Спорт",
+        "neighborhood": "Дървеница",
+        "locationKind": "premises",
+        "website": "https://prostranstvoto.bg/",
+        "booking": {
+          "kind": "phone",
+          "phone": "+359899200796"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 0,
+        "priceSources": []
+      },
+      {
+        "id": "sofia-dark-vision-tint-enyo-valchev1",
+        "name": "Dark Vision Tint",
+        "category": "detailing",
+        "businessType": "Детайлинг",
+        "neighborhood": "Малинова долина",
+        "locationKind": "premises",
+        "website": "https://darkvisiontint.com/",
+        "booking": {
+          "kind": "phone",
+          "phone": "+359887694448"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 0,
+        "priceSources": []
+      },
+      {
+        "id": "sofia-gioia-borovo",
+        "name": "Козметично студио Gioia",
+        "category": "beauty",
+        "businessType": "Красота",
+        "neighborhood": "Борово",
+        "locationKind": "premises",
+        "website": "https://gioia-bg.com/",
+        "booking": {
+          "kind": "phone",
+          "phone": "+359887072583"
+        },
+        "serviceFacts": 3,
+        "currentPriceFacts": 3,
+        "priceSources": [
+          "https://gioia-bg.com/ceni-kozmetika/"
+        ]
+      },
+      {
+        "id": "sofia-angelic-beauty-malinova-dolina",
+        "name": "Angelic Beauty",
+        "category": "beauty",
+        "businessType": "Красота",
+        "neighborhood": "Малинова долина",
+        "locationKind": "premises",
+        "website": "https://angelicbeauty.bg/",
+        "booking": {
+          "kind": "form",
+          "url": "https://book.angelicbeauty.bg/reservations/start?site=1"
+        },
+        "serviceFacts": 11,
+        "currentPriceFacts": 11,
+        "priceSources": [
+          "https://angelicbeauty.bg/tseni/",
+          "https://book.angelicbeauty.bg/reservations/start?site=1"
+        ]
+      },
+      {
+        "id": "sofia-highlights-iztok",
+        "name": "HighLights",
+        "category": "hair",
+        "businessType": "Фризьор",
+        "neighborhood": "Изток",
+        "locationKind": "premises",
+        "website": "https://highlights.bg/",
+        "booking": {
+          "kind": "form",
+          "url": "https://highlights.bg/bg/location/highlights"
+        },
+        "serviceFacts": 3,
+        "currentPriceFacts": 3,
+        "priceSources": [
+          "https://highlights.bg/bg/location/highlights"
+        ]
+      },
+      {
+        "id": "sofia-art-makeup-boutique-strelbishte",
+        "name": "Art & Makeup Boutique",
+        "category": "beauty",
+        "businessType": "Красота",
+        "neighborhood": "Стрелбище",
+        "locationKind": "premises",
+        "website": "https://artmakeupboutique.com/",
+        "booking": {
+          "kind": "phone",
+          "phone": "+359892489290"
+        },
+        "serviceFacts": 2,
+        "currentPriceFacts": 2,
+        "priceSources": [
+          "https://artmakeupboutique.com/profeisonalen-grim/"
+        ]
+      },
+      {
+        "id": "sofia-arte-beauty-bar-dianabad",
+        "name": "Arte Beauty Bar",
+        "category": "nails",
+        "businessType": "Маникюр",
+        "neighborhood": "Дианабад",
+        "locationKind": "premises",
+        "website": "https://artebeautybar.com/",
+        "booking": {
+          "kind": "phone",
+          "phone": "+359879262613"
+        },
+        "serviceFacts": 3,
+        "currentPriceFacts": 0,
+        "priceSources": []
+      },
+      {
+        "id": "sofia-alice-beauty-buntovnik",
+        "name": "Alice Beauty Aesthetics",
+        "category": "beauty",
+        "businessType": "Красота",
+        "neighborhood": null,
+        "locationKind": "premises",
+        "website": "https://alicebeauty.bg/",
+        "booking": {
+          "kind": "phone",
+          "phone": "+359888744333"
+        },
+        "serviceFacts": 2,
+        "currentPriceFacts": 2,
+        "priceSources": [
+          "https://alicebeauty.bg/%D1%86%D0%B5%D0%BD%D0%BE%D1%80%D0%B0%D0%B7%D0%BF%D0%B8%D1%81/"
+        ]
+      },
+      {
+        "id": "sofia-veronique-oborishte",
+        "name": "Veronique Aesthetic Practice",
+        "category": "beauty",
+        "businessType": "Красота",
+        "neighborhood": "Оборище",
+        "locationKind": "premises",
+        "website": "https://veronique.bg/",
+        "booking": {
+          "kind": "form",
+          "url": "https://book.veronique.bg/bg/location/veronique-aesthetic-practice"
+        },
+        "serviceFacts": 2,
+        "currentPriceFacts": 2,
+        "priceSources": [
+          "https://book.veronique.bg/bg/location/veronique-aesthetic-practice"
+        ]
+      },
+      {
+        "id": "sofia-skano-skin-suvorov",
+        "name": "Skano Skin Studio",
+        "category": "beauty",
+        "businessType": "Красота",
+        "neighborhood": null,
+        "locationKind": "premises",
+        "website": "https://skanoskin.com/",
+        "booking": {
+          "kind": "form",
+          "url": "https://skanoskin.com/"
+        },
+        "serviceFacts": 3,
+        "currentPriceFacts": 3,
+        "priceSources": [
+          "https://skanoskin.com/assets/prices.06.10.pdf"
+        ]
+      },
+      {
+        "id": "sofia-puzzle-kids-manastirski-livadi",
+        "name": "ПЪЗЕЛ · Манастирски ливади",
+        "category": "hair",
+        "businessType": "Фризьор",
+        "neighborhood": "Манастирски ливади",
+        "locationKind": "premises",
+        "website": "https://puzzlekids.biz/manastirski/",
+        "booking": {
+          "kind": "form",
+          "url": "https://bg.fresha.com/book-now/puzzle-children-s-hair-care-studio-gmlukots/all-offer?id=527987&pId=115852"
+        },
+        "serviceFacts": 3,
+        "currentPriceFacts": 3,
+        "priceSources": [
+          "https://bg.fresha.com/book-now/puzzle-children-s-hair-care-studio-gmlukots/all-offer?id=527987&pId=115852"
+        ]
+      },
+      {
+        "id": "sofia-puzzle-kids-borovo",
+        "name": "ПЪЗЕЛ · Борово",
+        "category": "hair",
+        "businessType": "Фризьор",
+        "neighborhood": "Борово",
+        "locationKind": "premises",
+        "website": "https://puzzlekids.biz/borovo/",
+        "booking": {
+          "kind": "form",
+          "url": "https://bg.fresha.com/book-now/puzzle-children-s-hair-care-studio-gmlukots/all-offer?id=124541&pId=115852"
+        },
+        "serviceFacts": 3,
+        "currentPriceFacts": 3,
+        "priceSources": [
+          "https://bg.fresha.com/book-now/puzzle-children-s-hair-care-studio-gmlukots/all-offer?id=124541&pId=115852"
+        ]
+      },
+      {
+        "id": "sofia-puzzle-kids-lozenets",
+        "name": "ПЪЗЕЛ · Лозенец",
+        "category": "hair",
+        "businessType": "Фризьор",
+        "neighborhood": "Лозенец",
+        "locationKind": "premises",
+        "website": "https://puzzlekids.biz/lozenetz/",
+        "booking": {
+          "kind": "form",
+          "url": "https://bg.fresha.com/book-now/puzzle-children-s-hair-care-studio-gmlukots/all-offer?id=124535&pId=115852"
+        },
+        "serviceFacts": 3,
+        "currentPriceFacts": 3,
+        "priceSources": [
+          "https://bg.fresha.com/book-now/puzzle-children-s-hair-care-studio-gmlukots/all-offer?id=124535&pId=115852"
+        ]
+      },
+      {
+        "id": "sofia-puzzle-kids-mladost4",
+        "name": "ПЪЗЕЛ · Младост 4",
+        "category": "hair",
+        "businessType": "Фризьор",
+        "neighborhood": "Младост 4",
+        "locationKind": "premises",
+        "website": "https://puzzlekids.biz/mladost4/",
+        "booking": {
+          "kind": "form",
+          "url": "https://bg.fresha.com/book-now/puzzle-children-s-hair-care-studio-gmlukots/all-offer?id=770991&pId=115852"
+        },
+        "serviceFacts": 3,
+        "currentPriceFacts": 3,
+        "priceSources": [
+          "https://bg.fresha.com/book-now/puzzle-children-s-hair-care-studio-gmlukots/all-offer?id=770991&pId=115852"
+        ]
+      },
+      {
+        "id": "sofia-puzzle-kids-geo-milev",
+        "name": "ПЪЗЕЛ · Гео Милев",
+        "category": "hair",
+        "businessType": "Фризьор",
+        "neighborhood": "Гео Милев",
+        "locationKind": "premises",
+        "website": "https://puzzlekids.biz/geomilev/",
+        "booking": {
+          "kind": "form",
+          "url": "https://bg.fresha.com/book-now/puzzle-children-s-hair-care-studio-gmlukots/all-offer?id=128947&pId=115852"
+        },
+        "serviceFacts": 3,
+        "currentPriceFacts": 3,
+        "priceSources": [
+          "https://bg.fresha.com/book-now/puzzle-children-s-hair-care-studio-gmlukots/all-offer?id=128947&pId=115852"
+        ]
+      },
+      {
+        "id": "sofia-puzzle-kids-lyulin",
+        "name": "ПЪЗЕЛ · Люлин",
+        "category": "hair",
+        "businessType": "Фризьор",
+        "neighborhood": "Люлин",
+        "locationKind": "premises",
+        "website": "https://puzzlekids.biz/lulin/",
+        "booking": {
+          "kind": "form",
+          "url": "https://bg.fresha.com/book-now/puzzle-children-s-hair-care-studio-gmlukots/all-offer?id=128950&pId=115852"
+        },
+        "serviceFacts": 3,
+        "currentPriceFacts": 3,
+        "priceSources": [
+          "https://bg.fresha.com/book-now/puzzle-children-s-hair-care-studio-gmlukots/all-offer?id=128950&pId=115852"
+        ]
+      },
+      {
+        "id": "sofia-puzzle-kids-nadezhda",
+        "name": "ПЪЗЕЛ · Надежда",
+        "category": "hair",
+        "businessType": "Фризьор",
+        "neighborhood": "Надежда",
+        "locationKind": "premises",
+        "website": "https://puzzlekids.biz/blagoevgrad/",
+        "booking": {
+          "kind": "form",
+          "url": "https://bg.fresha.com/book-now/puzzle-children-s-hair-care-studio-gmlukots/all-offer?id=334610&pId=115852"
+        },
+        "serviceFacts": 3,
+        "currentPriceFacts": 3,
+        "priceSources": [
+          "https://bg.fresha.com/book-now/puzzle-children-s-hair-care-studio-gmlukots/all-offer?id=334610&pId=115852"
+        ]
+      },
+      {
+        "id": "sofia-puzzle-kids-ovcha-kupel",
+        "name": "ПЪЗЕЛ · Овча купел",
+        "category": "hair",
+        "businessType": "Фризьор",
+        "neighborhood": "Овча купел",
+        "locationKind": "premises",
+        "website": "https://puzzlekids.biz/ovchakupel/",
+        "booking": {
+          "kind": "form",
+          "url": "https://bg.fresha.com/book-now/puzzle-children-s-hair-care-studio-gmlukots/all-offer?id=527986&pId=115852"
+        },
+        "serviceFacts": 3,
+        "currentPriceFacts": 3,
+        "priceSources": [
+          "https://bg.fresha.com/book-now/puzzle-children-s-hair-care-studio-gmlukots/all-offer?id=527986&pId=115852"
+        ]
+      },
+      {
+        "id": "sofia-puzzle-kids-hadzhi-dimitar",
+        "name": "ПЪЗЕЛ · Хаджи Димитър",
+        "category": "hair",
+        "businessType": "Фризьор",
+        "neighborhood": "Хаджи Димитър",
+        "locationKind": "premises",
+        "website": "https://puzzlekids.biz/hadjidimitar/",
+        "booking": {
+          "kind": "form",
+          "url": "https://bg.fresha.com/book-now/puzzle-children-s-hair-care-studio-gmlukots/all-offer?id=732779&pId=115852"
+        },
+        "serviceFacts": 3,
+        "currentPriceFacts": 3,
+        "priceSources": [
+          "https://bg.fresha.com/book-now/puzzle-children-s-hair-care-studio-gmlukots/all-offer?id=732779&pId=115852"
+        ]
+      },
+      {
+        "id": "sofia-puzzle-kids-razsadnika",
+        "name": "ПЪЗЕЛ · Разсадника",
+        "category": "hair",
+        "businessType": "Фризьор",
+        "neighborhood": "Разсадника",
+        "locationKind": "premises",
+        "website": "https://puzzlekids.biz/razsadnika/",
+        "booking": {
+          "kind": "form",
+          "url": "https://www.fresha.com/bg/book-now/puzzle-children-s-hair-care-studio-gmlukots/all-offer?id=2739607&pId=115852&share=true"
+        },
+        "serviceFacts": 3,
+        "currentPriceFacts": 3,
+        "priceSources": [
+          "https://www.fresha.com/bg/book-now/puzzle-children-s-hair-care-studio-gmlukots/all-offer?id=2739607&pId=115852&share=true"
+        ]
+      },
+      {
+        "id": "sofia-puzzle-kids-druzhba2",
+        "name": "ПЪЗЕЛ · Дружба 2",
+        "category": "hair",
+        "businessType": "Фризьор",
+        "neighborhood": "Дружба 2",
+        "locationKind": "premises",
+        "website": "https://puzzlekids.biz/drujba/",
+        "booking": {
+          "kind": "form",
+          "url": "https://www.fresha.com/bg/book-now/puzzle-children-s-hair-care-studio-gmlukots/all-offer?id=2739612&pId=115852&share=true"
+        },
+        "serviceFacts": 3,
+        "currentPriceFacts": 3,
+        "priceSources": [
+          "https://www.fresha.com/bg/book-now/puzzle-children-s-hair-care-studio-gmlukots/all-offer?id=2739612&pId=115852&share=true"
+        ]
+      },
+      {
+        "id": "sofia-blue-cross-pancharevo-grooming",
+        "name": "Син Кръст · груминг София",
+        "category": "pets",
+        "businessType": "Груминг",
+        "neighborhood": "Панчарево",
+        "locationKind": "premises",
+        "website": "https://bluecrossbg.com/bg/grooming/",
+        "booking": {
+          "kind": "phone",
+          "phone": "+359898361903"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 0,
+        "priceSources": []
+      },
+      {
+        "id": "sofia-pet-grooming-studio-55-koshut",
+        "name": "Pet Grooming Studio 55",
+        "category": "pets",
+        "businessType": "Груминг",
+        "neighborhood": null,
+        "locationKind": "premises",
+        "website": "https://www.notino.bg/saloni/dog-grooming-spa-salon/",
+        "booking": {
+          "kind": "form",
+          "url": "https://www.notino.bg/saloni/dog-grooming-spa-salon/"
+        },
+        "serviceFacts": 2,
+        "currentPriceFacts": 2,
+        "priceSources": [
+          "https://www.notino.bg/saloni/dog-grooming-spa-salon/"
+        ]
+      },
+      {
+        "id": "sofia-koche-grooming-tsanov",
+        "name": "Koche Grooming",
+        "category": "pets",
+        "businessType": "Груминг",
+        "neighborhood": null,
+        "locationKind": "premises",
+        "website": "https://www.notino.bg/saloni/koche-grooming_1/?fe_selectedIndustryID=00000000-0000-0000-0000-000000000009",
+        "booking": {
+          "kind": "form",
+          "url": "https://www.notino.bg/saloni/koche-grooming_1/?fe_selectedIndustryID=00000000-0000-0000-0000-000000000009"
+        },
+        "serviceFacts": 2,
+        "currentPriceFacts": 2,
+        "priceSources": [
+          "https://www.notino.bg/saloni/koche-grooming_1/?fe_selectedIndustryID=00000000-0000-0000-0000-000000000009"
+        ]
+      },
+      {
+        "id": "sofia-barf-revolution-pchela-grooming",
+        "name": "Dog Grooming by Barf Revolution",
+        "category": "pets",
+        "businessType": "Груминг",
+        "neighborhood": null,
+        "locationKind": "premises",
+        "website": "https://www.notino.bg/saloni/dog-grooming-by-barf-revolution_1/?fe_selectedIndustryID=00000000-0000-0000-0000-000000000009",
+        "booking": {
+          "kind": "form",
+          "url": "https://www.notino.bg/saloni/dog-grooming-by-barf-revolution_1/?fe_selectedIndustryID=00000000-0000-0000-0000-000000000009"
+        },
+        "serviceFacts": 2,
+        "currentPriceFacts": 2,
+        "priceSources": [
+          "https://www.notino.bg/saloni/dog-grooming-by-barf-revolution_1/?fe_selectedIndustryID=00000000-0000-0000-0000-000000000009"
+        ]
+      },
+      {
+        "id": "sofia-crazy-dog-mom-belinov",
+        "name": "Crazy Dog Mom Grooming Salon",
+        "category": "pets",
+        "businessType": "Груминг",
+        "neighborhood": null,
+        "locationKind": "premises",
+        "website": "https://www.notino.bg/saloni/crazy-dog-mom-grooming-salon/",
+        "booking": {
+          "kind": "form",
+          "url": "https://www.notino.bg/saloni/crazy-dog-mom-grooming-salon/"
+        },
+        "serviceFacts": 2,
+        "currentPriceFacts": 2,
+        "priceSources": [
+          "https://www.notino.bg/saloni/crazy-dog-mom-grooming-salon/"
+        ]
+      },
+      {
+        "id": "sofia-risi-grooming-rayko-aleksiev",
+        "name": "Risi Grooming",
+        "category": "pets",
+        "businessType": "Груминг",
+        "neighborhood": null,
+        "locationKind": "premises",
+        "website": "https://www.notino.bg/saloni/risi-grooming_1/",
+        "booking": {
+          "kind": "form",
+          "url": "https://www.notino.bg/saloni/risi-grooming_1/"
+        },
+        "serviceFacts": 2,
+        "currentPriceFacts": 2,
+        "priceSources": [
+          "https://www.notino.bg/saloni/risi-grooming_1/"
+        ]
+      },
+      {
+        "id": "sofia-animals-grooming-emiliyan-stanev",
+        "name": "AniMals Grooming Studio",
+        "category": "pets",
+        "businessType": "Груминг",
+        "neighborhood": null,
+        "locationKind": "premises",
+        "website": "https://www.notino.bg/saloni/animals-grooming-studio_1/",
+        "booking": {
+          "kind": "form",
+          "url": "https://www.notino.bg/saloni/animals-grooming-studio_1/"
+        },
+        "serviceFacts": 2,
+        "currentPriceFacts": 2,
+        "priceSources": [
+          "https://www.notino.bg/saloni/animals-grooming-studio_1/"
+        ]
+      },
+      {
+        "id": "sofia-my-beauty-dog-stoyanov",
+        "name": "My Beauty Dog",
+        "category": "pets",
+        "businessType": "Груминг",
+        "neighborhood": null,
+        "locationKind": "premises",
+        "website": "https://www.notino.bg/saloni/my-beauty-dog/",
+        "booking": {
+          "kind": "form",
+          "url": "https://www.notino.bg/saloni/my-beauty-dog/"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 1,
+        "priceSources": [
+          "https://www.notino.bg/saloni/my-beauty-dog/"
+        ]
+      },
+      {
+        "id": "sofia-pet-it-makedoniya-grooming",
+        "name": "PET IT shop&grooming · груминг",
+        "category": "pets",
+        "businessType": "Груминг",
+        "neighborhood": "Център",
+        "locationKind": "premises",
+        "website": "https://easybook.bg/pet-it-shopandgrooming-sofiya-centur",
+        "booking": {
+          "kind": "form",
+          "url": "https://easybook.bg/pet-it-shopandgrooming-sofiya-centur/cyalosten-gruming-huski-968"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 1,
+        "priceSources": [
+          "https://easybook.bg/pet-it-shopandgrooming-sofiya-centur/cyalosten-gruming-huski-968"
+        ]
+      },
+      {
+        "id": "sofia-puh-i-lapichka-bunaya",
+        "name": "Пух и Лапичка · груминг салон",
+        "category": "pets",
+        "businessType": "Груминг",
+        "neighborhood": "Оборище",
+        "locationKind": "premises",
+        "website": "https://easybook.bg/puh-i-lapichka-gruming-salon-sofiya-oborishte",
+        "booking": {
+          "kind": "form",
+          "url": "https://easybook.bg/puh-i-lapichka-gruming-salon-sofiya-oborishte/mini-vizita-na-kuche"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 1,
+        "priceSources": [
+          "https://easybook.bg/puh-i-lapichka-gruming-salon-sofiya-oborishte/mini-vizita-na-kuche"
+        ]
+      },
+      {
+        "id": "sofia-zhenya-spasova-kableshkov",
+        "name": "Женя Спасова · индивидуални консултации",
+        "category": "other",
+        "businessType": "Психология и психотерапия",
+        "neighborhood": null,
+        "locationKind": "premises",
+        "website": "https://regresiatherapy.com/",
+        "booking": {
+          "kind": "form",
+          "url": "https://regresiatherapy.com/contacts/"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 1,
+        "priceSources": [
+          "https://regresiatherapy.com/ceni/"
+        ]
+      },
+      {
+        "id": "sofia-desislava-markovska-yavorov",
+        "name": "Десислава Марковска · Диря",
+        "category": "other",
+        "businessType": "Психология и психотерапия",
+        "neighborhood": "Яворов",
+        "locationKind": "premises",
+        "website": "https://desislavamarkovska.com/",
+        "booking": {
+          "kind": "form",
+          "url": "https://superdoc.bg/lekar/desislava-markovska"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 1,
+        "priceSources": [
+          "https://superdoc.bg/lekar/desislava-markovska"
+        ]
+      },
+      {
+        "id": "sofia-azon-lozenets",
+        "name": "АзОн · психологическо консултиране и психотерапия",
+        "category": "other",
+        "businessType": "Психология и психотерапия",
+        "neighborhood": "Лозенец",
+        "locationKind": "premises",
+        "website": "https://azon.bg/",
+        "booking": {
+          "kind": "phone",
+          "phone": "+359888356035"
+        },
+        "serviceFacts": 3,
+        "currentPriceFacts": 3,
+        "priceSources": [
+          "https://azon.bg/%D1%86%D0%B5%D0%BD%D0%B8-%D0%BD%D0%B0-%D1%86%D0%B5%D0%BD%D1%82%D1%8A%D1%80-%D0%B0%D0%B7%D0%BE%D0%BD/"
+        ]
+      },
+      {
+        "id": "sofia-maria-genova-pirin",
+        "name": "Мария Генова · психотерапевтичен кабинет",
+        "category": "other",
+        "businessType": "Психология и психотерапия",
+        "neighborhood": null,
+        "locationKind": "premises",
+        "website": "https://mariaguenova.com/",
+        "booking": {
+          "kind": "form",
+          "url": "https://superdoc.bg/lekar/maria-genova"
+        },
+        "serviceFacts": 1,
+        "currentPriceFacts": 1,
+        "priceSources": [
+          "https://superdoc.bg/lekar/maria-genova"
+        ]
+      },
+      {
+        "id": "sofia-petar-kralev-gurko",
+        "name": "Петър Кралев · психотерапевтично студио",
+        "category": "other",
+        "businessType": "Психология и психотерапия",
+        "neighborhood": null,
+        "locationKind": "premises",
+        "website": "https://psihoterapevt-kralev.com/",
+        "booking": {
+          "kind": "form",
+          "url": "https://superdoc.bg/lekar/petar-kralev"
+        },
+        "serviceFacts": 2,
+        "currentPriceFacts": 2,
+        "priceSources": [
+          "https://superdoc.bg/lekar/petar-kralev"
+        ]
+      },
+      {
+        "id": "sofia-room-with-heart-izgrev",
+        "name": "Стая със сърце · консултативен кабинет",
+        "category": "other",
+        "businessType": "Психология и психотерапия",
+        "neighborhood": "Изгрев",
+        "locationKind": "premises",
+        "website": "https://roomwithheart.com/",
+        "booking": {
+          "kind": "form",
+          "url": "https://roomwithheart.com/zapishi-chas/"
+        },
+        "serviceFacts": 2,
+        "currentPriceFacts": 2,
+        "priceSources": [
+          "https://roomwithheart.com/uslugi-i-ceni/"
+        ]
+      },
+      {
+        "id": "sofia-bilyana-koteva-sveta-nedelya",
+        "name": "Биляна Котева · психолог и психотерапевт",
+        "category": "other",
+        "businessType": "Психология и психотерапия",
+        "neighborhood": null,
+        "locationKind": "premises",
+        "website": "https://bkoteva.com/",
+        "booking": {
+          "kind": "phone",
+          "phone": "+359888904030"
+        },
+        "serviceFacts": 3,
+        "currentPriceFacts": 3,
+        "priceSources": [
+          "https://bkoteva.com/",
+          "https://bkoteva.com/uslugi/semejna-terapiya-za-dvojki/"
+        ]
+      },
+      {
+        "id": "sofia-valentina-kamenarska-tsar-boris",
+        "name": "Адвокатска кантора Валентина Каменарска",
+        "category": "consulting",
+        "businessType": "Консултации",
+        "neighborhood": null,
+        "locationKind": "premises",
+        "website": "https://vkamenarska.com/",
+        "booking": {
+          "kind": "phone",
+          "phone": "+359888889004"
+        },
+        "serviceFacts": 2,
+        "currentPriceFacts": 2,
+        "priceSources": [
+          "https://vkamenarska.com/ceni/"
+        ]
+      }
+    ],
+    "removedOrNowIneligible": [
+      {
+        "id": "sofia-omni-iztok",
+        "reason": "owner_excluded_general_human_clinic"
+      },
+      {
+        "id": "sofia-omni-druzhba",
+        "reason": "owner_excluded_general_human_clinic"
+      },
+      {
+        "id": "sofia-arthromedica",
+        "reason": "owner_excluded_general_human_clinic"
+      },
+      {
+        "id": "sofia-sportmed",
+        "reason": "owner_excluded_general_human_clinic"
+      },
+      {
+        "id": "sofia-serkan-uzun-lyulin",
+        "reason": "owner_excluded_general_human_clinic"
+      },
+      {
+        "id": "sofia-serkan-uzun-ortopedia",
+        "reason": "owner_excluded_general_human_clinic"
+      },
+      {
+        "id": "sofia-avitsena-rehabilitation",
+        "reason": "owner_excluded_general_human_clinic"
+      },
+      {
+        "id": "sofia-q-life-kinezitherapy",
+        "reason": "owner_excluded_general_human_clinic"
+      },
+      {
+        "id": "sofia-nikolay-chudotvorets-rehab",
+        "reason": "owner_excluded_general_human_clinic"
+      },
+      {
+        "id": "sofia-haelan-bulgaria-rehab",
+        "reason": "owner_excluded_general_human_clinic"
+      },
+      {
+        "id": "sofia-haelan-mladost-rehab",
+        "reason": "owner_excluded_general_human_clinic"
+      },
+      {
+        "id": "sofia-balance-clinic",
+        "reason": "owner_excluded_general_human_clinic"
+      },
+      {
+        "id": "sofia-vita-base-two",
+        "reason": "owner_excluded_general_human_clinic"
+      },
+      {
+        "id": "sofia-vita-base-one",
+        "reason": "owner_excluded_general_human_clinic"
+      },
+      {
+        "id": "sofia-lora-pozitano",
+        "reason": "owner_excluded_general_human_clinic"
+      },
+      {
+        "id": "sofia-lora-za-zhenata",
+        "reason": "owner_excluded_general_human_clinic"
+      },
+      {
+        "id": "sofia-lora-krasno-selo",
+        "reason": "owner_excluded_general_human_clinic"
+      },
+      {
+        "id": "sofia-park-clinic",
+        "reason": "owner_excluded_general_human_clinic"
+      },
+      {
+        "id": "sofia-poliklinikata-lyulin",
+        "reason": "owner_excluded_general_human_clinic"
+      },
+      {
+        "id": "sofia-kerimov-derma-aesthetic-sofia",
+        "reason": "owner_excluded_general_human_clinic"
+      },
+      {
+        "id": "sofia-health-master-clinic-ralevitsa",
+        "reason": "owner_excluded_general_human_clinic"
+      },
+      {
+        "id": "sofia-lyves-clinic-flora",
+        "reason": "owner_excluded_general_human_clinic"
+      },
+      {
+        "id": "sofia-medconvex-lavski-rid",
+        "reason": "owner_excluded_general_human_clinic"
+      }
+    ]
+  },
+  "notice": "Counts are unique catalogue businesses, not services or specialists. A missing neighborhood is not guessed. Additions compare against a separate operational baseline, never the historical pricing-review baseline."
+}

@@ -1,0 +1,166 @@
+{
+  "checkedOn": "2026-11-13",
+  "validUntil": "2027-02-11",
+  "scope": "Extra isolated Sofia scheduled home visits; owner sources only. No appointments submitted, third-party map extraction, geocoding, ratings, owner photos or production writes.",
+  "summary": {
+    "records": 7,
+    "homeServices": 7,
+    "services": 9,
+    "priceRows": 7,
+    "priceReviewed": 5,
+    "unpricedServiceReviewed": 2,
+    "pending": 2,
+    "rejected": 0
+  },
+  "evidencePolicy": "Actual booking or inspection-request entry followed before service/tariff/contact review. Quote-only receipts are limited to exact included services, not complete company-wide tariff coverage. Numeric zero placeholders and retail DIY products are not service prices. Current live exact tariffs prevail over stale search snippets. Call-centre hours are not visiting schedules; conflicting or absent service hours remain absent. Each mobile provider has one Sofia service-area record with null address/coordinates.",
+  "ledger": [
+    {
+      "order": 1,
+      "id": "sofia-freshhomebg-home-visits",
+      "name": "FreshHomeBG · пране на дивани",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.freshhomebg.com/",
+        "https://www.freshhomebg.com/pages/kontakti",
+        "https://www.freshhomebg.com/pages/prane-na-divani-sofia",
+        "https://www.freshhomebg.com/pages/ceni"
+      ],
+      "bookingEvidenceUrl": "https://www.freshhomebg.com/pages/kontakti",
+      "priceCount": 2,
+      "locationDecision": "service_area",
+      "notes": "Owner Request cleaning entry followed to contact/order-by-phone page, then exact sofa service and full tariff. Live service and tariff agree on current 29/39 EUR starting prices; older search snippets were not used. Phone availability 07:00–21:00 is not represented as visit hours. One Sofia mobile record."
+    },
+    {
+      "order": 2,
+      "id": "sofia-raya-cleaning-home-visits",
+      "name": "Raya Cleaning · почистване на дома",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.rayacleaning.com/",
+        "https://www.rayacleaning.com/услуги/osnovno-pochistvane",
+        "https://www.rayacleaning.com/услуги/pochistvane-sled-remont"
+      ],
+      "bookingEvidenceUrl": "https://www.rayacleaning.com/услуги/osnovno-pochistvane",
+      "priceCount": 2,
+      "locationDecision": "service_area",
+      "notes": "Actual Request cleaning links lead to inaccessible contact page; own service pages explicitly describe agreeing a day/time and publish the real phone, so phone fallback reviewed. Both substantive services contain their own base rates and exclusions. Illustrative apartment totals not copied as fixed final quotes. Sofia service area confirmed; no weekly visit hours found."
+    },
+    {
+      "order": 3,
+      "id": "sofia-quickclean-home-visits",
+      "name": "QuickClean · домашно почистване",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://quickclean.bg/",
+        "https://quickclean.bg/terms-and-conditions/"
+      ],
+      "bookingEvidenceUrl": "https://quickclean.bg/",
+      "priceCount": 0,
+      "locationDecision": "service_area",
+      "notes": "Actual in-page request form inspected with name, phone, address and service fields, followed by standard-service scope and full terms. Inspection is required before price/date/time confirmation; inquiry is not a confirmed booking. No numeric fee claimed and no service hours inferred from response-time language. Single Sofia mobile provider."
+    },
+    {
+      "order": 4,
+      "id": "sofia-bran-insect-home-visits",
+      "name": "Бран Инсект · домашни обработки",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://vrediteli.bg/uslugi",
+        "https://vrediteli.bg/darvenici"
+      ],
+      "bookingEvidenceUrl": "https://vrediteli.bg/darvenici",
+      "priceCount": 1,
+      "locationDecision": "service_area",
+      "notes": "Actual service-page request form inspected before the full updated 26 October 2026 residential tariff, workflow and footer phone. Amount is one spraying visit, not the multi-visit course; VIP/express surcharges retained. Older indexed tariff not used. Call-centre order hours are not visit opening hours. One Sofia mobile record; no safety or outcome guarantee imported."
+    },
+    {
+      "order": 5,
+      "id": "sofia-garant-pest-home-visits",
+      "name": "Гарант Пест Контрол · домашни посещения",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://garantpest.com/",
+        "https://garantpest.com/contacts/",
+        "https://garantpest.com/kontrol-na-hlebarki/",
+        "https://garantpest.com/ddd-uslugi/"
+      ],
+      "bookingEvidenceUrl": "https://garantpest.com/contacts/",
+      "priceCount": 0,
+      "locationDecision": "service_area",
+      "notes": "Owner inspection entry followed to actual form requesting phone and site address. Full cockroach and DDD pages confirm home service and agreed time. Numeric zero is a catalogue placeholder, not a tariff or free visit. No blocked price menu was encountered. Office address is not the home-visit destination; no weekly hours found."
+    },
+    {
+      "order": 6,
+      "id": "sofia-preventa-home-visits",
+      "name": "Превента · домашни обработки",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.preventa.bg/",
+        "https://www.preventa.bg/kontakti/",
+        "https://preventa.bg/ceni-ddd-uslugi/",
+        "https://preventa.bg/borba-s-hlebarki/",
+        "https://www.preventa.bg/borba-s-hlebarki/"
+      ],
+      "bookingEvidenceUrl": "https://www.preventa.bg/kontakti/",
+      "priceCount": 1,
+      "locationDecision": "service_area",
+      "notes": "Actual Request treatment entry followed to owner form, then nominal prices index and deep cockroach service tariff on both canonical variants. Professional visit is 59 EUR up to 150 m², not 32 EUR retail DIY kit or conditional 35 EUR entrance-linked offer. Contact and service-page weekly hours differ, so none asserted. One Sofia service area."
+    },
+    {
+      "order": 7,
+      "id": "sofia-desinsect-home-visits",
+      "name": "Дезинсект · домашни обработки в София",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://desinsect.bg/",
+        "https://desinsect.bg/contact/",
+        "https://desinsect.bg/borba-s-vrediteli-sofia/",
+        "https://desinsect.bg/borba-darvenici/",
+        "https://desinsect.bg/prices/"
+      ],
+      "bookingEvidenceUrl": "https://desinsect.bg/contact/",
+      "priceCount": 1,
+      "locationDecision": "service_area",
+      "notes": "Actual offer entry followed to owner contact form with city/service fields. Sofia coverage, exact bedbug service and complete corresponding tariff with surcharges reviewed. Amount is one spraying treatment, not thermal treatment or a complete repeated course. No availability guarantee, unsafe pesticide claim or office destination imported; no weekly visit hours found."
+    },
+    {
+      "order": 8,
+      "checkedOn": "2026-11-13",
+      "name": "СТОП вредители / Мони-93",
+      "website": "https://stopvrediteli.com/",
+      "status": "pending",
+      "primaryEvidence": [
+        "https://stopvrediteli.com/",
+        "https://stopvrediteli.com/ceni-tseni/za-jilishte-dom",
+        "https://stopvrediteli.com/zashto-nas"
+      ],
+      "unavailableUrls": [
+        "https://stopvrediteli.com/kontakt-s-nas",
+        "https://stopvrediteli.com/chesto-zadavani-vuprosi-faq",
+        "https://stopvrediteli.com/borba-s-hlebarki-blattodea"
+      ],
+      "notes": "Residential single-application tariff and Sofia home coverage are clear, but actual contact/FAQ/service entry pages are inaccessible and reviewed material does not establish appointment reservation instructions firmly enough. Kept pending rather than approving from a phone and tariff alone."
+    },
+    {
+      "order": 9,
+      "checkedOn": "2026-11-13",
+      "name": "DDD Guard",
+      "website": "https://ddd-guard.bg/",
+      "status": "pending",
+      "primaryEvidence": [],
+      "unavailableUrls": [
+        "https://ddd-guard.bg/",
+        "https://ddd-guard.bg/kontakti/",
+        "https://ddd-guard.bg/ceni/"
+      ],
+      "notes": "Owner pages could not be substantively inspected. Search snippets alone are not booking/service/tariff review evidence; no approved record or unpublished-price receipt created."
+    }
+  ]
+}

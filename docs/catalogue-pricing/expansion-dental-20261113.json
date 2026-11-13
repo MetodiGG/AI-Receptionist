@@ -1,0 +1,63 @@
+{
+  "checkedOn": "2026-11-13",
+  "scope": "Sofia dentistry only; no other human medical specialties, no website redesign or live writes",
+  "orderedActions": [
+    "Compare owner domains, phone and premises against the 981-record pre-task inventory",
+    "Inspect actual owner appointment entry, then service/tariff and contact/hour routes",
+    "Verify Sofia rather than accepting search-engine location keywords",
+    "Preserve literal fees and conditions; hold conflicting, incomplete or inaccessible tariffs",
+    "Import three independently sourced premises; keep exact reviewed fingerprints separate from the historical baseline"
+  ],
+  "businesses": [
+    {
+      "id": "sofia-briliant-dent-lerin",
+      "neighborhood": "Бели брези",
+      "category": "other",
+      "businessType": "Стоматология",
+      "bookingEvidence": "Owner contact page explicitly requires an appointment on +359878585661, not the general enquiry form.",
+      "reviewedUrls": ["https://www.dentalbg.com/", "https://www.dentalbg.com/KONTAKT.html", "https://www.dentalbg.com/CENI.html", "https://www.dentalbg.com/98zlz-2025-10.pdf", "https://www.dentalbg.com/KARIES.html", "https://www.dentalbg.com/ENDODONTIA.html"],
+      "pricing": "Eight literal EUR amounts from currently owner-linked statutory PDF. Rendered entire page and verified rightmost EUR column; historical filename is not a claimed issue date.",
+      "hours": "Owner contact page: weekdays 09:00–19:00; Saturday by appointment without a fixed time; Sunday closed.",
+      "location": "Actual owner contact page publishes both address and decimal GPS pair 42.676917,23.291083. No external geocoding."
+    },
+    {
+      "id": "sofia-dentalno-studio-nikolaev",
+      "neighborhood": "Хаджи Димитър",
+      "category": "other",
+      "businessType": "Стоматология",
+      "reviewedUrls": ["https://www.dentalnostudio.com/", "https://www.dentalnostudio.com/bg/make_appointment", "https://www.dentalnostudio.com/bg/page/obshta-stomatologiya/zaben-kamak"],
+      "bookingEvidence": "Owner explicitly offers phone or its appointment form with dentist/date/customer fields. No form sent.",
+      "pricing": "No numeric prices in inspected booking/service routes; no Prices navigation entry. service_reviewed only, not price-reviewed; all five prices and durations absent.",
+      "hours": "Homepage actual contact section: weekdays 09:00–19:00; Saturday and Sunday 09:00–17:00.",
+      "location": "Homepage contact section explicitly names Hadzhi Dimitar and Klisura20, 23DKC first floor room100. Coordinates unknown."
+    },
+    {
+      "id": "sofia-dr-parusheva-oborishte",
+      "neighborhood": "Оборище",
+      "category": "other",
+      "businessType": "Стоматология",
+      "reviewedUrls": ["https://dr-parusheva.com/", "https://dr-parusheva.com/booking/", "https://dr-parusheva.com/contacts/", "https://dr-parusheva.com/pricelist/"],
+      "bookingEvidence": "Actual browser-rendered Bookly service and doctor selectors inspected. Only first examination selected for reading, no date/customer/submission. Clinic confirms the request separately.",
+      "pricing": "Five literal EUR fees from public tariff. New patients must have a separately charged first examination, retained beside treatment fees; no assumed duration.",
+      "hours": "No weekly schedule encountered on homepage, booking page or contact page; not invented.",
+      "location": "Owner explicitly states Oborishte and Vasil Drumev4; no guessed coordinates."
+    }
+  ],
+  "pendingOrRejected": [
+    { "website": "https://angeldents.com/", "reason": "Own root confirms Byala, not Sofia; exclude despite Sofia search results." },
+    { "website": "https://naturalsmile.bg/", "reason": "Own contact section confirms Varna, not Sofia." },
+    { "website": "https://dentviewbg.com/", "reason": "Own contact section confirms Varna, not Sofia." },
+    { "website": "https://krastev.clinic/", "reason": "Own contact page confirms Varna, not Sofia." },
+    { "website": "https://nikolayfrantsov.bg/", "reason": "Hold: first exam differs between owner homepage 25.57EUR, price page25.27EUR and actual Superdoc25EUR; calculus owner66.47–81.81EUR vs provider75EUR. Provider restricts booking to exam/calculus only. Do not assert a unified tariff or route other procedures there." },
+    { "website": "https://www.globaldentalclinic.bg/", "reason": "Hold: discovered public booking service retains placeholder description and generic Sofia contact. Do not import its 150EUR template fee as verified." },
+    { "website": "https://denta-smile.info/", "reason": "Pending: real address and alternate-even/odd-date schedule found, but explicit appointment evidence not yet verified. A contact alone does not qualify; parity hours must not be flattened to weekdays." },
+    { "website": "https://nikadent.eu/", "reason": "Pending: owner source inaccessible through reader; not substituted with directory prices/hours." },
+    { "website": "https://drparushev.com/", "reason": "Pending: own page is JS-only in available reader/HTML; exact owner premises and complete booking menu not verified." },
+    { "website": "https://www.elitedentalsolutions.bg/bg", "reason": "Pending: reader exposes no content; no guessed services or fees imported." },
+    { "website": "https://drdimcheva.com/", "reason": "Pending: reader exposes no content; not marked as unpublished tariff." },
+    { "website": "https://osemdental.com/", "reason": "Duplicate: all three real Sofia branches already exist; no extra count for services or specialists." }
+  ],
+  "productionDatabaseWrites": 0,
+  "reservationsSubmitted": 0,
+  "paidProviderRequests": 0
+}

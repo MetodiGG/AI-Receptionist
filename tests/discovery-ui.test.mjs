@@ -28,7 +28,7 @@ test('Sofia is selected initially and a service/time-only request works without 
 test('a city explicitly typed in BG/EN wins over the implicit Sofia default, not a deliberate manual selection', () => {
   for (const query of ['Маникюр в Пловдив', 'A car wash in Plovdiv']) {
     const request = discoverySearchInput({ query })
-    assert.equal(request.cityCode, '56784')
+    assert.equal(request.cityCode, undefined, 'query-inferred city must not be mislabeled as a manual choice')
     assert.equal(discoveryCitySelection(query), '56784')
     assert.equal(parseIntent(discoveryRequestSchema.parse(request), now).city, 'Пловдив')
     assert.equal(discoverySearchInput({ query, cityWasChosen: true }).cityCode, '68134')
@@ -41,6 +41,9 @@ test('a city explicitly typed in BG/EN wins over the implicit Sofia default, not
 test('neighbourhood selection cannot leak from the default city into an explicitly typed different city', () => {
   assert.equal(discoverySearchInput({ query: 'Маникюр в Пловдив', neighborhood: 'Младост 1' }).neighborhood, undefined)
   assert.equal(discoverySearchInput({ query: 'Маникюр', neighborhood: 'Младост 1' }).neighborhood, 'Младост 1')
+  const sameCity = discoverySearchInput({ query: 'Маникюр в София', neighborhood: 'Младост 1' })
+  assert.equal(sameCity.cityCode, '68134', 'an explicit quarter still needs its city at the request validation boundary')
+  assert.equal(sameCity.neighborhood, 'Младост 1')
 })
 
 test('Near me discards the default city and quarter and searches the consented radius, not Sofia', () => {

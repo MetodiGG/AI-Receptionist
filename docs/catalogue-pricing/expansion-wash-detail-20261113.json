@@ -1,0 +1,245 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-13",
+  "validUntil": "2027-02-11",
+  "batchFile": "lib/discovery/catalogue-data/neighborhood-wash-detail-20261113.mjs",
+  "scope": "Wash-first continuation requested after26 verified auto/sport venues; one further detailer qualifies, zero additional wash businesses approved.",
+  "summary": {
+    "records": 1,
+    "services": 1,
+    "newCarWashBusinessesApproved": 0,
+    "newDetailingBusinessesApproved": 1,
+    "withoutPublicPrices": 1,
+    "coordinatesAdded": 0
+  },
+  "method": "Targeted search from ManastirskiLivadi and nearby southern/western quarters to other Sofia areas and mobile providers. Actual booking instruction/form read before service/pricing where reachable. One bounded public-HTML curl read of WashDepot succeeded after reader timeout; its account-required app menu remains unreviewed. No installed app, account creation, API/private-bundle/hidden-menu lookup, production write, paid provider, booking, Google-data/ratings/photos extraction or geocoding. No candidate promoted solely from a phone, timetable or third-party review. No claim neighborhoods are exhausted.",
+  "dedupe": {
+    "index": "/private/tmp/gorez-catalogue-expansion-20261113-VBYQa3/dedupe-index.json",
+    "status": "DarkVision own domain/phone/address absent from supplied index and prior26. Existing wash/detailing/home-cleaning operators not cloned.",
+    "sameOperatorExamples": [
+      "Belisia and OnSpot already exist as home_services identities.",
+      "TuningWorld explicitly identifies its detailers as Cosmos, already in index.",
+      "ARAY already in first20; maintenance-cleaning category suggestion sent to root without editing its imported inventory."
+    ]
+  },
+  "orderedLedger": [
+    {
+      "order": 1,
+      "area": "Манастирски ливади; Бояна; nearby southern quarters",
+      "status": "no_new_wash_approved",
+      "outcome": "Known Signature and other supplied-index operators skipped. Directory-only local washes not upgraded without own evidence; NASTARTA venue/contact ambiguity and MADCHICKEN missing appointment language held."
+    },
+    {
+      "order": 2,
+      "area": "Овча купел; Люлин; northern/eastern quarters",
+      "status": "reviewed_sources",
+      "outcome": "No ordinary walk-in/self-service wash imported. CarClinic and NVS own service/contact pages did not explicitly invite appointment booking for wash; NVS also has old/new address ambiguity."
+    },
+    {
+      "order": 3,
+      "area": "WashDepot actual four Sofia branches",
+      "status": "pending_account_gated_booking_menu",
+      "outcome": "Own homepage's visible public HTML confirms real staffed centers and service names. Actual Book entry is mobile-app registration; its service-price profile cannot be reviewed without an account. Not called an unpublished tariff, and no phone-booking option invented."
+    },
+    {
+      "order": 4,
+      "area": "Mobile wash/detailing providers",
+      "status": "held_or_duplicate",
+      "outcome": "ShineCraft public mini-site has valid service/price text but no explicit appointment wording; Belisia and OnSpot already exist. Concierge/parking/rental wash add-ons not padded as independent wash businesses."
+    },
+    {
+      "order": 5,
+      "area": "Малинова долина",
+      "status": "ready_for_root_review",
+      "outcome": "DarkVision own explicit phone appointment and exact venue verified. Imported only sourced detailing bundle, not falsely classified as a wash."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "sofia-dark-vision-tint-enyo-valchev1",
+      "website": "https://darkvisiontint.com/",
+      "contactSource": "https://darkvisiontint.com/",
+      "bookingEvidence": {
+        "url": "https://darkvisiontint.com/",
+        "excerpt": "Секцията „Запази час“ изрично предлага телефонна уговорка за автомобила, избраната услуга и удобен час."
+      },
+      "serviceSource": "https://darkvisiontint.com/",
+      "reviewReceipt": "The accompanying batch contains the exact dated phone-booking and explicit unpublished-tariff receipt; root inventory identity binding remains required.",
+      "retainedQualifications": "Lamp polishing with subsequent PPF; scope and quote confirmed before work. No hour/minute conversion or price invented."
+    }
+  ],
+  "pending": [
+    {
+      "candidate": "WashDepot",
+      "urls": [
+        "https://washdepot.bg/",
+        "https://washdepot.bg/общи-условия/"
+      ],
+      "reason": "Own terms2a require app download and mobile-number account. Sections32–33 describe service-price profile and reservation profile. This actual booking tariff is unreviewed, not unpublished; no app installed/account created.",
+      "branches": [
+        {
+          "name": "GaritagePark",
+          "address": "София, ул. Донка Ушлинова 2",
+          "phone": "+359892469999"
+        },
+        {
+          "name": "MallofSofia",
+          "address": "София, бул. Александър Стамболийски 101, ниво -3",
+          "phone": "+359892459999"
+        },
+        {
+          "name": "BusinessParkSofia",
+          "address": "София, Младост 4, Бизнес Парк София, сграда Р1, ниво -1",
+          "phone": "+359893655455"
+        },
+        {
+          "name": "MegaMall",
+          "address": "София, Люлин 7, бул. Царица Йоанна 15, ниво -2",
+          "phone": "+359899994649"
+        }
+      ],
+      "next": "Owner permission/confirmation or permitted public booking-menu review, not hidden APIs."
+    },
+    {
+      "candidate": "NASTARTA CarWash",
+      "urls": [
+        "https://nastarta-shop.com/avtomivka/",
+        "https://nastarta-shop.com/zapazvane-na-chas/",
+        "https://nastarta-shop.com/kontakti/",
+        "https://nastarta-shop.com/obsthi-usloviya/"
+      ],
+      "reason": "Explicit appointment form and BGN wash tariff are public, but no unambiguous first-party street for wash versus stores: BuenosAires4/Diанabad footer vs Sopot33/HadzhiDimitar contact, both shop labels. Form reader also prints generic missing-contact-form error. No guessed branch or fee conversion."
+    },
+    {
+      "candidate": "NVS carwash",
+      "urls": [
+        "https://nvs.bg/",
+        "https://nvs.bg/carwash/"
+      ],
+      "reason": "Real staffed wash and fee table, but explicit root appointment CTA refers to auto repair, not wash. Wash page says Obikolna4 while current header has Tsarigradsko391; no separate venue inferred."
+    },
+    {
+      "candidate": "CarClinic",
+      "urls": [
+        "https://carclinicbg.com/",
+        "https://carclinicbg.com/avtomivka/",
+        "https://carclinicbg.com/kontakti/"
+      ],
+      "reason": "Own exact venue and wash/pickup services confirmed, but generic enquiries/pickup offer is not an explicit invitation to reserve a wash session."
+    },
+    {
+      "candidate": "ShineCraft Detailing",
+      "urls": [
+        "https://businessaccountbg.com/shine-craft-detailing/index.html",
+        "https://businessaccountbg.com/shine-craft-detailing/contact",
+        "https://businessaccountbg.com/shine-craft-detailing/uslugi.html",
+        "https://businessaccountbg.com/shine-craft-detailing/ceni.html"
+      ],
+      "reason": "Hosted operator mini-site has mobile Sofia service and literal fees, but only generic Call/contact wording found, not appointment evidence; no tariff or operator-host inference used to bypass gate."
+    },
+    {
+      "candidate": "MADCHICKEN",
+      "urls": [
+        "https://madchickendetailing.com/"
+      ],
+      "reason": "Own wash/detailing services and Sofia/Mur35A contact readable; CallNow alone does not prove a booked session."
+    },
+    {
+      "candidate": "БлясъкЪт",
+      "urls": [
+        "https://cardetailingsofia.com/"
+      ],
+      "reason": "Reader502 and public curlTLS failure; source/service/booking review incomplete. No insecure TLS bypass."
+    },
+    {
+      "candidate": "Steamera",
+      "urls": [
+        "https://steamera.bg/",
+        "https://sac.bg/obshtnost/"
+      ],
+      "reason": "Own site inaccessible; available facility page does not establish current explicit reservation. Third-party directory/review not used as appointment proof."
+    },
+    {
+      "candidate": "Alekzander",
+      "urls": [
+        "https://scheduler.alekzander.vip/?lang=bg"
+      ],
+      "reason": "Search had historical scheduler text, but actual current page is CloudflareRegistrar without readable booking menu. Parked/deactivated state needs re-verification."
+    }
+  ],
+  "rejected": [
+    {
+      "candidate": "DetailingStudio310",
+      "urls": [
+        "https://detailingstudio310.com/",
+        "https://detailingstudio310.com/специални-оферти/",
+        "https://detailingstudio310.com/terms-and-conditions/"
+      ],
+      "reason": "Own terms7.3–7.7 restrict reuse to personal/noncommercial purposes unless written consent. Stop extraction; no service/price import."
+    },
+    {
+      "candidate": "Puppi",
+      "urls": [
+        "https://puppidetailing.com/"
+      ],
+      "reason": "Own physical venue is Voluyak/Свобода27, not Sofia city68134. Do not misclassify village as city quarter."
+    },
+    {
+      "candidate": "DriveCleanBG",
+      "urls": [
+        "https://drivecleanbg.com/",
+        "https://drivecleanbg.com/complex-detailing/"
+      ],
+      "reason": "Own physical venue is Mramor/ВасилЛевски57, outside Sofia city68134 despite Sofia marketing. No village record added."
+    },
+    {
+      "candidate": "AutoSpaBG",
+      "urls": [
+        "https://autospa-bg.com/"
+      ],
+      "reason": "Actual operator is Plovdiv, not Sofia city."
+    },
+    {
+      "candidate": "EliteDetailing",
+      "urls": [
+        "https://elitedetailing.bg/detailing/sofia/"
+      ],
+      "reason": "Own page explicitly says all services performed in Kazanlak, despite Sofia marketing."
+    },
+    {
+      "candidate": "Concierge/parking/rental add-ons",
+      "urls": [
+        "https://avtoikonom.bg/service/",
+        "https://sofiaparking.com/reservation",
+        "https://parkingletishte.bg/reservation",
+        "https://x-auto.bg/"
+      ],
+      "reason": "Transport/parking/rental-style workflow is not imported as an independently verified staffed wash business solely to reach target."
+    },
+    {
+      "candidate": "Existing operators",
+      "urls": [
+        "https://belisia-bg.com/car-detailing",
+        "https://onspot.bg/",
+        "https://tuning-world.bg/uslugi/detajling-uslugi/"
+      ],
+      "reason": "Same existing identities/service partners, not new independent branches."
+    }
+  ],
+  "photoRecommendations": [
+    {
+      "id": "sofia-dark-vision-tint-enyo-valchev1",
+      "family": "sx-detail-lights-polish-protect",
+      "status": "visually_reviewed",
+      "notes": "Existing neutral image shows headlamp and taillamp polishing and headlamp protection application; no business-source photos copied. Root map edit only."
+    }
+  ],
+  "outcome": "The requested3–5 additional booked wash businesses could not be verified under the existing source/booking gates in this pass. Do not lower the gate or claim wash expansion complete. One genuine additional own-site detailing record is supplied separately.",
+  "safeguards": {
+    "noCoordinates": true,
+    "noBookingSubmitted": true,
+    "noProductionWrites": true,
+    "noUnpublishedClaimForAppTariffs": true,
+    "noStaticFingerprintWritten": true
+  }
+}

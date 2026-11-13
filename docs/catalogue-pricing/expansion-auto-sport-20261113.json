@@ -1,0 +1,1020 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-13",
+  "validUntil": "2027-02-11",
+  "batchFile": "lib/discovery/catalogue-data/neighborhood-auto-sport-20261113.mjs",
+  "scope": "Sofia appointment auto repair, car cleaning/detailing and trainer-led martial-arts reservations; own websites preferred.",
+  "summary": {
+    "records": 20,
+    "services": 24,
+    "publishedPriceFacts": 8,
+    "withoutPublicPrices": 16,
+    "manastirskiLivadiExplicitRecords": 1,
+    "coordinatesAdded": 0
+  },
+  "method": "Manastirski Livadi searched first, followed nearby southern/western quarters, then city branches/east/north and mobile services; no assertion any quarter is exhausted. Actual booking entry followed before service/price menu. Low-volume public web pages and visible raw HTML fallback for timeouts; no private API, bundle, account, payment or real reservation. No Google reviews/ratings/photos/map scraping, provider export, geocoder, production write or deploy. IAB browser unavailable; dynamic-only menus held, not labeled unpublished. Source receipts are service-reviewed, not price-reviewed when no numeric amount exists; root must review and bind exact static inventory identities.",
+  "dedupe": {
+    "index": "/private/tmp/gorez-catalogue-expansion-20261113-VBYQa3/dedupe-index.json",
+    "status": "Manual hostname/phone/address comparison before authoring; root intake recheck required.",
+    "branchRationale": "Radial three own-listed repair locations have distinct contacts/addresses. Topalov four exact Sofia halls have separate venue-specific join links and local group inventory. No chain fee/hours projected; no citywide mobile clones.",
+    "sameOperatorExcluded": [
+      "Eurorepar OGI I SIE/Stadion1/1A not imported separately from Silverlines."
+    ]
+  },
+  "orderedLedger": [
+    {
+      "order": 1,
+      "area": "Манастирски ливади",
+      "status": "searched_first",
+      "outcome": "Bachevski Garage newly verified; known Sand i/Drumnik/Tsanev/Dojoto and other supplied-index operators not duplicated. Alkom nearby sourced address retained with unknown quarter, not guessed ML."
+    },
+    {
+      "order": 2,
+      "area": "Бояна; Овча купел; Красна поляна; Люлин",
+      "status": "reviewed_sources",
+      "outcome": "Tander, Radial OvchaKupel, Ashli and DAR; no claim complete neighborhood coverage."
+    },
+    {
+      "order": 3,
+      "area": "Студентски град; Малинова долина; Горубляне; Гара Искър",
+      "status": "reviewed_sources",
+      "outcome": "Radial Student, Zar, Silverlines, Autotechnica; landmark Radial address retained without invented street."
+    },
+    {
+      "order": 4,
+      "area": "Други квартали, точен квартал неизвестен; Бенковски; мобилни услуги",
+      "status": "reviewed_sources",
+      "outcome": "ARAY,3D AutoService,HexWrap,Radial Benkovski,MOTORLAB; unknown quarters/GPS remain null."
+    },
+    {
+      "order": 5,
+      "area": "Спорт: Младост 2; Христо Смирненски; централни зали",
+      "status": "reviewed_sources",
+      "outcome": "Four Topalov halls plus GFTeam; individual/session/group reservation only, no ordinary admission."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "sofia-bachevski-garage-louis-ayer",
+      "website": "https://easybook.bg/avtoserviz-bachevski-garage-sofiya-manastirski-livadi",
+      "booking": {
+        "kind": "form",
+        "url": "https://easybook.bg/avtoserviz-bachevski-garage-sofiya-manastirski-livadi/mnogokomponentna-tehnicheska-proverka"
+      },
+      "bookingEvidence": {
+        "url": "https://easybook.bg/avtoserviz-bachevski-garage-sofiya-manastirski-livadi/mnogokomponentna-tehnicheska-proverka",
+        "excerpt": "Профилът и страницата на конкретната проверка предлагат избор на дата и час за обекта на Луи Айер 151."
+      },
+      "contactSource": "https://easybook.bg/avtoserviz-bachevski-garage-sofiya-manastirski-livadi",
+      "address": "София, Манастирски ливади, ул. Луи Айер 151",
+      "phone": null,
+      "reviewedUrls": [
+        "https://easybook.bg/avtoserviz-bachevski-garage-sofiya-manastirski-livadi",
+        "https://easybook.bg/avtoserviz-bachevski-garage-sofiya-manastirski-livadi/mnogokomponentna-tehnicheska-proverka"
+      ],
+      "services": [
+        {
+          "name": "Многокомпонентна проверка на автомобил преди покупка",
+          "publishedPrice": {
+            "amount": 130,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "една многокомпонентна проверка",
+            "sourceUrl": "https://easybook.bg/avtoserviz-bachevski-garage-sofiya-manastirski-livadi/mnogokomponentna-tehnicheska-proverka",
+            "checkedOn": "2026-11-13"
+          }
+        }
+      ],
+      "reviewNotes": "Exact merchant profile followed by actual service booking page, not category search tariff.130EUR (also254.26BGN),60min explicit, no promotion/deposit imported. Phone disclosed only after reservation therefore null. Reader date chooser cachedAugust; no current slot/availability asserted. Exact ML street. No reviews/photos/maps imported, no login, data, consent, payment or booking submitted."
+    },
+    {
+      "id": "sofia-alkom-todor-kableshkov",
+      "website": "https://alkomess.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://alkomess.com/контакти"
+      },
+      "bookingEvidence": {
+        "url": "https://alkomess.com/контакти",
+        "excerpt": "Собствените контакти изрично предлагат телефонно и онлайн запазване на час с данни за автомобила и проблема."
+      },
+      "contactSource": "https://alkomess.com/контакти",
+      "address": "София, бул. Тодор Каблешков 63",
+      "phone": "+359888502730",
+      "reviewedUrls": [
+        "https://alkomess.com/",
+        "https://alkomess.com/контакти",
+        "https://alkomess.com/услуги/диагностика-ремонт-двигатели",
+        "https://alkomess.com/услуги/смяна-масла-филтри"
+      ],
+      "services": [
+        {
+          "name": "Компютърна диагностика на двигател",
+          "pricingDecision": "not_publicly_listed"
+        }
+      ],
+      "reviewNotes": "Actual root booking/contact section read before detailed engine diagnostics. Exact street and0888502730 published beside booking form. Engine scanner/live-data service verified. No numeric diagnostic price on form/service and no Prices menu found; oil stub not used. Aliases not extra branches; quarter/GPS/duration/hours not inferred. No booking submitted.",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://alkomess.com/контакти",
+        "serviceUrls": [
+          "https://alkomess.com/услуги/диагностика-ремонт-двигатели"
+        ],
+        "notes": "Actual appointment form and detailed engine diagnostics page inspected; neither publishes a diagnostic amount. Oil page is a coming-soon stub, not a fee list."
+      }
+    },
+    {
+      "id": "sofia-tander-automotive-boyana",
+      "website": "https://automotive.tanderbg.com/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359886455955"
+      },
+      "bookingEvidence": {
+        "url": "https://automotive.tanderbg.com/сервизи/",
+        "excerpt": "Секцията Сервиз София посочва телефони и отделен интервал 14:00–17:00 за записване на час и информация за автомобила."
+      },
+      "contactSource": "https://automotive.tanderbg.com/сервизи/",
+      "address": "София, Бояна, ул. Лунна папрат 3",
+      "phone": "+359886455955",
+      "reviewedUrls": [
+        "https://automotive.tanderbg.com/",
+        "https://automotive.tanderbg.com/сервизи/"
+      ],
+      "services": [
+        {
+          "name": "Компютърна диагностика на автомобил",
+          "pricingDecision": "not_publicly_listed"
+        }
+      ],
+      "reviewNotes": "Own booking-contact window read first; raw visible HTML after reader timeout. Diagnostics explicitly offered and bound to Boyana LunnaPaprat3/886455955.14–17 is enquiry window, not opening hours. Other operators and Burgas not cloned. No numeric diagnostic fee on reviewed page. No GPS/duration, equipment claims or booking.",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://automotive.tanderbg.com/сервизи/",
+        "serviceUrls": [
+          "https://automotive.tanderbg.com/сервизи/"
+        ],
+        "notes": "Sofia booking instructions and full service page describe diagnostics without an amount; native links offer services and parts, not a public diagnostic tariff."
+      }
+    },
+    {
+      "id": "sofia-radial2000-ovcha-kupel-2",
+      "website": "https://radial2000.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://radial2000.com/запази-си-час/"
+      },
+      "bookingEvidence": {
+        "url": "https://radial2000.com/запази-си-час/",
+        "excerpt": "Формата е за предварително заявяване на автомобилен ремонт и изрично не важи за смяна на гуми; изброени са трите конкретни обекта."
+      },
+      "contactSource": "https://radial2000.com/contact-us/",
+      "address": "София, Овча купел 2, ул. Обиколна, до Ситиком",
+      "phone": "+359888598899",
+      "reviewedUrls": [
+        "https://radial2000.com/",
+        "https://radial2000.com/запази-си-час/",
+        "https://radial2000.com/contact-us/"
+      ],
+      "services": [
+        {
+          "name": "Сервизен ремонт на автомобил",
+          "pricingDecision": "not_publicly_listed"
+        }
+      ],
+      "reviewNotes": "Actual BOOK form read first then exact branch contact/services. Form explicitly excludes tyre changes, so no tyres, wash, storage, retail or free-oil promotion imported. This distinct branch and its phone are listed with vehicle repair. Shared hours not projected as branch-specific. No numeric repair fee on booking/contact/root; looping service deep link not relied upon. No guessed street number, GPS/duration, slots or booking.",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://radial2000.com/запази-си-час/",
+        "serviceUrls": [
+          "https://radial2000.com/запази-си-час/",
+          "https://radial2000.com/contact-us/"
+        ],
+        "notes": "Actual public repair appointment form and branch service/contact inventory reviewed; no repair amount. Vehicle/scope requires quote; tyre and promotional oil amounts are different services."
+      }
+    },
+    {
+      "id": "sofia-radial2000-studentski-grad",
+      "website": "https://radial2000.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://radial2000.com/запази-си-час/"
+      },
+      "bookingEvidence": {
+        "url": "https://radial2000.com/запази-си-час/",
+        "excerpt": "Формата е за предварително заявяване на автомобилен ремонт и изрично не важи за смяна на гуми; изброени са трите конкретни обекта."
+      },
+      "contactSource": "https://radial2000.com/contact-us/",
+      "address": "София, Студентски град, срещу блок 8 на Техническия университет",
+      "phone": "+359876094081",
+      "reviewedUrls": [
+        "https://radial2000.com/",
+        "https://radial2000.com/запази-си-час/",
+        "https://radial2000.com/contact-us/"
+      ],
+      "services": [
+        {
+          "name": "Сервизен ремонт на автомобил",
+          "pricingDecision": "not_publicly_listed"
+        }
+      ],
+      "reviewNotes": "Actual BOOK form read first then exact branch contact/services. Form explicitly excludes tyre changes, so no tyres, wash, storage, retail or free-oil promotion imported. This distinct branch and its phone are listed with vehicle repair. Shared hours not projected as branch-specific. No numeric repair fee on booking/contact/root; looping service deep link not relied upon. No guessed street number, GPS/duration, slots or booking.",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://radial2000.com/запази-си-час/",
+        "serviceUrls": [
+          "https://radial2000.com/запази-си-час/",
+          "https://radial2000.com/contact-us/"
+        ],
+        "notes": "Actual public repair appointment form and branch service/contact inventory reviewed; no repair amount. Vehicle/scope requires quote; tyre and promotional oil amounts are different services."
+      }
+    },
+    {
+      "id": "sofia-radial2000-benkovski",
+      "website": "https://radial2000.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://radial2000.com/запази-си-час/"
+      },
+      "bookingEvidence": {
+        "url": "https://radial2000.com/запази-си-час/",
+        "excerpt": "Формата е за предварително заявяване на автомобилен ремонт и изрично не важи за смяна на гуми; изброени са трите конкретни обекта."
+      },
+      "contactSource": "https://radial2000.com/contact-us/",
+      "address": "София, Бенковски, ул. Лазар Михайлов 29",
+      "phone": "+359887424034",
+      "reviewedUrls": [
+        "https://radial2000.com/",
+        "https://radial2000.com/запази-си-час/",
+        "https://radial2000.com/contact-us/"
+      ],
+      "services": [
+        {
+          "name": "Сервизен ремонт на автомобил",
+          "pricingDecision": "not_publicly_listed"
+        }
+      ],
+      "reviewNotes": "Actual BOOK form read first then exact branch contact/services. Form explicitly excludes tyre changes, so no tyres, wash, storage, retail or free-oil promotion imported. This distinct branch and its phone are listed with vehicle repair. Shared hours not projected as branch-specific. No numeric repair fee on booking/contact/root; looping service deep link not relied upon. No guessed street number, GPS/duration, slots or booking.",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://radial2000.com/запази-си-час/",
+        "serviceUrls": [
+          "https://radial2000.com/запази-си-час/",
+          "https://radial2000.com/contact-us/"
+        ],
+        "notes": "Actual public repair appointment form and branch service/contact inventory reviewed; no repair amount. Vehicle/scope requires quote; tyre and promotional oil amounts are different services."
+      }
+    },
+    {
+      "id": "sofia-aray-detailing-magnaurska",
+      "website": "https://www.aray-detailing.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://rezervirai.aray-detailing.com/book/"
+      },
+      "bookingEvidence": {
+        "url": "https://rezervirai.aray-detailing.com/book/",
+        "excerpt": "Собственият бутон отваря форма за услуги, автомобил и желани дата/час; заявката става резервация след потвърждение от ARAY."
+      },
+      "contactSource": "https://www.aray-detailing.com/",
+      "address": "София, ул. Магнаурска школа 13",
+      "phone": null,
+      "reviewedUrls": [
+        "https://www.aray-detailing.com/",
+        "https://rezervirai.aray-detailing.com/book/",
+        "https://www.aray-detailing.com/uslugi/"
+      ],
+      "services": [
+        {
+          "name": "Поддържащо почистване — малък автомобил, седан или комби",
+          "publishedPrice": {
+            "amount": 25,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "малък автомобил/седан/комби; доплащания при замърсяване",
+            "sourceUrl": "https://rezervirai.aray-detailing.com/book/",
+            "checkedOn": "2026-11-13"
+          }
+        },
+        {
+          "name": "Поддържащо почистване — SUV или 7 места",
+          "publishedPrice": {
+            "amount": 35,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "SUV/7 места; доплащания при замърсяване",
+            "sourceUrl": "https://rezervirai.aray-detailing.com/book/",
+            "checkedOn": "2026-11-13"
+          }
+        },
+        {
+          "name": "Интериорен детайлинг с пране",
+          "publishedPrice": {
+            "amount": 120,
+            "currency": "EUR",
+            "kind": "from",
+            "unit": "според размер, материали и състояние",
+            "sourceUrl": "https://www.aray-detailing.com/uslugi/",
+            "checkedOn": "2026-11-13"
+          }
+        }
+      ],
+      "reviewNotes": "Owned booking subdomain followed first; explicit public conditional fees then Services.25EUR small/sedan/estate,35EUR SUV/7 seats,from120EUR detailed/interior. Surcharges, transport distinction and final confirmation preserved. Root exact MagnaurskaShkola13. No public phone so null. Dynamic service list not exported; directly visible fee text sufficient. No hidden API/bundle, request submission, inferred quarter/GPS/hours or copied photos/reviews."
+    },
+    {
+      "id": "sofia-ashli-rishki-prohod",
+      "website": "https://ashlibg.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://ashlibg.com/contact/"
+      },
+      "bookingEvidence": {
+        "url": "https://ashlibg.com/contact/",
+        "excerpt": "Бутонът за час води към собствени контакти и онлайн запитване за желаната услуга; началната страница предлага резервиране на среща."
+      },
+      "contactSource": "https://ashlibg.com/contact/",
+      "address": "София, Красна поляна, ул. Ришки проход 4",
+      "phone": "+359888750712",
+      "reviewedUrls": [
+        "https://ashlibg.com/",
+        "https://ashlibg.com/contact/",
+        "https://ashlibg.com/service/diagnostika-i-izchistvane-na-greshki/"
+      ],
+      "services": [
+        {
+          "name": "Компютърна диагностика на автомобил",
+          "pricingDecision": "not_publicly_listed"
+        }
+      ],
+      "reviewNotes": "Actual BOOK/contact form read before detailed scanner/live-data service. Contact matches RishkiProhod4/0888750712. No diagnostic amount on form/root/service. Old2019 oil article not projected. Current contact weekday9–18/Sat9–17 used; service template Sunday10–14 conflicts, Sunday omitted pending confirmation. No guarantee/certification/insurance/review/photo claims copied. No booking.",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://ashlibg.com/contact/",
+        "serviceUrls": [
+          "https://ashlibg.com/service/diagnostika-i-izchistvane-na-greshki/"
+        ],
+        "notes": "Booking form, root service inventory and detailed diagnostic page inspected. No numeric diagnostic amount; old oil article is another service."
+      }
+    },
+    {
+      "id": "sofia-dar-auto-service-europa",
+      "website": "https://dar.autos/",
+      "booking": {
+        "kind": "form",
+        "url": "https://dar.autos/avtoservice"
+      },
+      "bookingEvidence": {
+        "url": "https://dar.autos/avtoservice",
+        "excerpt": "Собственият вход за час води към заявка с автомобил и удобно време; часът се потвърждава, а цената за боядисване се дава след оглед."
+      },
+      "contactSource": "https://dar.autos/avtoservice",
+      "address": "София, Люлин 1, бул. Европа 138",
+      "phone": "+359887515513",
+      "reviewedUrls": [
+        "https://dar.autos/",
+        "https://dar.autos/avtoservice"
+      ],
+      "services": [
+        {
+          "name": "Каросериен ремонт и боядисване на автомобил",
+          "pricingDecision": "not_publicly_listed"
+        }
+      ],
+      "reviewNotes": "Actual booking request section read before bodywork menu. Owner explicitly declines paint quote by phone; after-inspection quote/final approval before repair. Exact Europa138/Lyulin1; distinct company/phone from inactive old NovaKars provider at same broad address. Retail cars/import/insurance tasks not imported. Own terms link cache-miss held, not asserted reviewed. No GPS/duration or booking.",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://dar.autos/avtoservice",
+        "serviceUrls": [
+          "https://dar.autos/avtoservice"
+        ],
+        "notes": "Actual appointment section and bodywork page explicitly require vehicle inspection for the quote. No numeric body-repair/paint tariff appears on reviewed sections."
+      }
+    },
+    {
+      "id": "sofia-zar-auto-kliment-ohridski",
+      "website": "https://zarauto.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://zarauto.bg/contact-us/"
+      },
+      "bookingEvidence": {
+        "url": "https://zarauto.bg/contact-us/",
+        "excerpt": "Собственият вход за запазване на час отвежда към контакти и форма; услугите предлагат предварително записване за сервизно обслужване."
+      },
+      "contactSource": "https://zarauto.bg/contact-us/",
+      "address": "София, Малинова долина, бул. Св. Климент Охридски 65",
+      "phone": "+359888445751",
+      "reviewedUrls": [
+        "https://zarauto.bg/",
+        "https://zarauto.bg/contact-us/",
+        "https://zarauto.bg/services/",
+        "https://zarauto.bg/?page_id=31"
+      ],
+      "services": [
+        {
+          "name": "Реглаж на преден и заден мост",
+          "pricingDecision": "not_publicly_listed"
+        }
+      ],
+      "reviewNotes": "Actual BOOK ?page_id31 redirects owned contact-us form; canonical selected. Services detail front/rear geometry; matching street/phone and weekday hours. No numeric alignment fee in root/form/services or Prices link. Alternate phones aliases, not extra operators. No retail/mileage/software claims, inferred duration/GPS or booking.",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://zarauto.bg/contact-us/",
+        "serviceUrls": [
+          "https://zarauto.bg/services/"
+        ],
+        "notes": "Actual booking destination and complete alignment description reviewed. No numeric alignment rate or separate Prices menu published; amount must be requested."
+      }
+    },
+    {
+      "id": "sofia-silverlines-gorublyane",
+      "website": "https://silverlines.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://carapp.bg/book-service/3079"
+      },
+      "bookingEvidence": {
+        "url": "https://silverlines.bg/kontakti/",
+        "excerpt": "Собственият сайт свързва точно Silverlines с CarApp; менюто предлага диагностика и избор на дата/час за сервиза в Горубляне."
+      },
+      "contactSource": "https://silverlines.bg/kontakti/",
+      "address": "София, Горубляне, ул. Стадион 1А",
+      "phone": "+359889737479",
+      "reviewedUrls": [
+        "https://silverlines.bg/",
+        "https://carapp.bg/book-service/3079",
+        "https://silverlines.bg/kontakti/",
+        "https://silverlines.bg/uslugi/elektronika/"
+      ],
+      "services": [
+        {
+          "name": "Компютърна диагностика и автоелектроника",
+          "pricingDecision": "not_publicly_listed"
+        }
+      ],
+      "reviewNotes": "Actual root BOOK to CarApp3079 before Services. Public ten-category menu includes diagnostics plus date/time/vehicle fields; no numeric rate. Owner explicitly quote after inspection/diagnostics and approval. Contact mobile0889737479 primary;024231100 alias. Eurorepar OGI I SIE Stadion1/1A likely same operator, no additional row. No Google ratings/photos/maps, date selection, private API, GPS or booking.",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://carapp.bg/book-service/3079",
+        "serviceUrls": [
+          "https://silverlines.bg/uslugi/elektronika/"
+        ],
+        "notes": "Actual CarApp service menu and owned diagnostics page inspected. No numeric diagnostic fee; owner explicitly requires post-inspection quote before work."
+      }
+    },
+    {
+      "id": "sofia-autotechnica-iskarsko-shose",
+      "website": "https://autotechnica.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://autotechnica.bg/service-appointment/"
+      },
+      "bookingEvidence": {
+        "url": "https://autotechnica.bg/service-appointment/",
+        "excerpt": "Официалната сервизна форма предлага Диагностика, данни за автомобила и преминаване към графика; посочен е отделен сервизен адрес."
+      },
+      "contactSource": "https://autotechnica.bg/service-appointment/",
+      "address": "София, Гара Искър, ул. Искърско шосе 13, на гърба на сервиз Дружба",
+      "phone": "+359899855040",
+      "reviewedUrls": [
+        "https://autotechnica.bg/",
+        "https://autotechnica.bg/service-appointment/"
+      ],
+      "services": [
+        {
+          "name": "Сервизна диагностика на автомобил",
+          "pricingDecision": "not_publicly_listed"
+        }
+      ],
+      "reviewNotes": "Root actual service form followed first. Public menu Diagnostic/Inspection/Chassis/Brakes; VIN/owner data required before calendar, no data entered. Public pre-data selection and own service inventory show no numeric diagnostic fee or Prices link; downstream quote uninspected. Workshop IskarskoShose13 not central officeTsarigradsko115L/showroomVaptsarov53. Rental/sales/retail excluded. GPS/hours/duration unknown, no booking.",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://autotechnica.bg/service-appointment/",
+        "serviceUrls": [
+          "https://autotechnica.bg/service-appointment/",
+          "https://autotechnica.bg/"
+        ],
+        "notes": "Public diagnostic selection and owned service explanation reviewed. No numeric tariff before required vehicle/owner-data gate; no data supplied or downstream quote claimed reviewed."
+      }
+    },
+    {
+      "id": "sofia-3d-autoservice-lazar-plachkov",
+      "website": "https://www.3d-autoservice.com/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359889504110"
+      },
+      "bookingEvidence": {
+        "url": "https://www.3d-autoservice.com/",
+        "excerpt": "Собствената контактна секция изрично указва запазване на час чрез публикуваните телефони за реглаж."
+      },
+      "contactSource": "https://www.3d-autoservice.com/",
+      "address": "София, ул. Лазар Плачков 10",
+      "phone": "+359889504110",
+      "reviewedUrls": [
+        "https://www.3d-autoservice.com/"
+      ],
+      "services": [
+        {
+          "name": "Реглаж на един мост — лек автомобил",
+          "publishedPrice": {
+            "amount": 30,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "един мост; втори мост +15 €",
+            "sourceUrl": "https://www.3d-autoservice.com/",
+            "checkedOn": "2026-11-13"
+          }
+        },
+        {
+          "name": "Реглаж на един мост — джип или бус",
+          "publishedPrice": {
+            "amount": 36,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "един мост; втори мост +18 €",
+            "sourceUrl": "https://www.3d-autoservice.com/",
+            "checkedOn": "2026-11-13"
+          }
+        }
+      ],
+      "reviewNotes": "Contact/booking section read first, then single-page service and literal rates30EUR car axle plus15second;36EUR SUV/van axle plus18second. Rear-adjustability condition retained, not full-car30/36. Phone0889504110 primary/0882000736 alias. No exact quarter/hours/GPS/duration, equipment accuracy/safety/guarantee claims or images imported. No booking."
+    },
+    {
+      "id": "sofia-hexwrap-enyo-valchev",
+      "website": "https://hexwrap.eu/",
+      "booking": {
+        "kind": "form",
+        "url": "https://hexwrap.eu/contact?service=ceramic-coating-detailing"
+      },
+      "bookingEvidence": {
+        "url": "https://hexwrap.eu/contact?service=ceramic-coating-detailing",
+        "excerpt": "Страницата за керамика предлага заявка за конкретната услуга; контактите посочват предварителна уговорка за посещения през уикенда."
+      },
+      "contactSource": "https://hexwrap.eu/contact",
+      "address": "София, ул. Еньо Вълчев 5",
+      "phone": "+359885622056",
+      "reviewedUrls": [
+        "https://hexwrap.eu/",
+        "https://hexwrap.eu/contact?service=ceramic-coating-detailing",
+        "https://hexwrap.eu/contact",
+        "https://hexwrap.eu/services/ceramic-coating-detailing",
+        "https://hexwrap.eu/pricing"
+      ],
+      "services": [
+        {
+          "name": "Поставяне на керамично покритие на автомобил",
+          "pricingDecision": "not_publicly_listed"
+        }
+      ],
+      "reviewNotes": "Actual ceramic booking href with service parameter read first then service/pricing. Ceramic explicitly OTHER SERVICES individual quote, outside calculator; no calculated PPF/vinyl/tint services imported. Exact EnyoValchev5/885622056. Weekdays10–19/weekends appointment only. No protection/lifetime/safety guarantees, reviews/photos/Google payload, hidden API/bundle, guessed GPS/duration or booking.",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://hexwrap.eu/contact?service=ceramic-coating-detailing",
+        "serviceUrls": [
+          "https://hexwrap.eu/services/ceramic-coating-detailing",
+          "https://hexwrap.eu/pricing"
+        ],
+        "notes": "Ceramic inquiry form, service and Prices reviewed. Ceramic is explicitly in the individual-quote section, outside the PPF/vinyl/tint calculator; no numeric ceramic tariff listed."
+      }
+    },
+    {
+      "id": "sofia-motorlab-mobile",
+      "website": "https://motorlab.bg/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359878699737"
+      },
+      "bookingEvidence": {
+        "url": "https://motorlab.bg/",
+        "excerpt": "Собствената секция за уговорка посочва телефона; услугата, крайната цена и удобният час се уточняват преди посещение на адрес в София."
+      },
+      "contactSource": "https://motorlab.bg/",
+      "address": null,
+      "phone": "+359878699737",
+      "reviewedUrls": [
+        "https://motorlab.bg/"
+      ],
+      "services": [
+        {
+          "name": "Компютърна диагностика на адрес",
+          "publishedPrice": {
+            "amount": 50,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "описан диагностичен обхват; допълнителни разходи по уговорка",
+            "sourceUrl": "https://motorlab.bg/",
+            "checkedOn": "2026-11-13"
+          }
+        },
+        {
+          "name": "Електронна диагностика преди покупка на автомобил",
+          "publishedPrice": {
+            "amount": 90,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "електронна проверка; допълнителни разходи по уговорка",
+            "sourceUrl": "https://motorlab.bg/",
+            "checkedOn": "2026-11-13"
+          }
+        }
+      ],
+      "reviewNotes": "Actual appointment/contact instructions first then service fees, live visible HTML reconciles older snippet. Literal50EUR diagnostic/90EUR pre-purchase electronic check; final scope/visit/travel/tests agreed, no automatic repair/parts/coding/regeneration, VAT notcharged. Qualifications retained publicly, not invented all-in visit fee. One mobile operator, no premises/quarter/coords or neighborhood clones. Free AI chat not booked service or activated. No private API/photos/reviews/geocode/booking."
+    },
+    {
+      "id": "sofia-judo-topalov-spartak",
+      "website": "https://judo-topalov.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://judo-topalov.com/join?venue=1"
+      },
+      "bookingEvidence": {
+        "url": "https://judo-topalov.com/join?venue=1",
+        "excerpt": "Собственият график има отделен вход за записване към тази зала; формата предвижда обратен разговор за уговаряне на първа тренировка."
+      },
+      "contactSource": "https://judo-topalov.com/contacts/",
+      "address": "София, бул. Арсеналски 4, плувен комплекс Спартак",
+      "phone": "+359895700522",
+      "reviewedUrls": [
+        "https://judo-topalov.com/",
+        "https://judo-topalov.com/join?venue=1",
+        "https://judo-topalov.com/contacts/",
+        "https://judo-topalov.com/grafic/"
+      ],
+      "services": [
+        {
+          "name": "Групова тренировка по джудо за любители",
+          "pricingDecision": "not_publicly_listed"
+        }
+      ],
+      "reviewNotes": "Live root BOOK then venue-specific join form first; visible rawHTML supersedes stale old WordPress reader. Form explicitly agrees first training by callback with hall selector; current schedule links exact join?venue=1. Real hall with local group/address, not citywide duplicate. Group lesson only, not ordinary gym pass or blanket individual availability. No numeric tariff or Prices menu in root/join/schedule/contact. Four full-address Sofia halls; Simeonovo missing street and Buta outsidecity held. Class timetable not opening hours. No parent declaration/data/login/payment/booking submitted; no GPS/duration/qualification/safety/review claims.",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://judo-topalov.com/join?venue=1",
+        "serviceUrls": [
+          "https://judo-topalov.com/grafic/",
+          "https://judo-topalov.com/join?venue=1"
+        ],
+        "notes": "Actual venue-specific first-training form, local timetable and owned root/contact menus inspected. No numeric lesson fee or Prices page listed; fee needs club confirmation."
+      }
+    },
+    {
+      "id": "sofia-judo-topalov-mladost-2",
+      "website": "https://judo-topalov.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://judo-topalov.com/join?venue=2"
+      },
+      "bookingEvidence": {
+        "url": "https://judo-topalov.com/join?venue=2",
+        "excerpt": "Собственият график има отделен вход за записване към тази зала; формата предвижда обратен разговор за уговаряне на първа тренировка."
+      },
+      "contactSource": "https://judo-topalov.com/contacts/",
+      "address": "София, Младост 2, ул. Проф. д-р Васил Златарски 16, 128 СУ Алберт Айнщайн",
+      "phone": "+359895700522",
+      "reviewedUrls": [
+        "https://judo-topalov.com/",
+        "https://judo-topalov.com/join?venue=2",
+        "https://judo-topalov.com/contacts/",
+        "https://judo-topalov.com/grafic/"
+      ],
+      "services": [
+        {
+          "name": "Групова тренировка по джудо за деца",
+          "pricingDecision": "not_publicly_listed"
+        }
+      ],
+      "reviewNotes": "Live root BOOK then venue-specific join form first; visible rawHTML supersedes stale old WordPress reader. Form explicitly agrees first training by callback with hall selector; current schedule links exact join?venue=2. Real hall with local group/address, not citywide duplicate. Group lesson only, not ordinary gym pass or blanket individual availability. No numeric tariff or Prices menu in root/join/schedule/contact. Four full-address Sofia halls; Simeonovo missing street and Buta outsidecity held. Class timetable not opening hours. No parent declaration/data/login/payment/booking submitted; no GPS/duration/qualification/safety/review claims.",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://judo-topalov.com/join?venue=2",
+        "serviceUrls": [
+          "https://judo-topalov.com/grafic/",
+          "https://judo-topalov.com/join?venue=2"
+        ],
+        "notes": "Actual venue-specific first-training form, local timetable and owned root/contact menus inspected. No numeric lesson fee or Prices page listed; fee needs club confirmation."
+      }
+    },
+    {
+      "id": "sofia-judo-topalov-slatina",
+      "website": "https://judo-topalov.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://judo-topalov.com/join?venue=3"
+      },
+      "bookingEvidence": {
+        "url": "https://judo-topalov.com/join?venue=3",
+        "excerpt": "Собственият график има отделен вход за записване към тази зала; формата предвижда обратен разговор за уговаряне на първа тренировка."
+      },
+      "contactSource": "https://judo-topalov.com/contacts/",
+      "address": "София, Христо Смирненски, ул. Слатинска 35, 148 ОУ Проф. д-р Любомир Милетич",
+      "phone": "+359895700522",
+      "reviewedUrls": [
+        "https://judo-topalov.com/",
+        "https://judo-topalov.com/join?venue=3",
+        "https://judo-topalov.com/contacts/",
+        "https://judo-topalov.com/grafic/"
+      ],
+      "services": [
+        {
+          "name": "Групова тренировка по джудо за деца",
+          "pricingDecision": "not_publicly_listed"
+        }
+      ],
+      "reviewNotes": "Live root BOOK then venue-specific join form first; visible rawHTML supersedes stale old WordPress reader. Form explicitly agrees first training by callback with hall selector; current schedule links exact join?venue=3. Real hall with local group/address, not citywide duplicate. Group lesson only, not ordinary gym pass or blanket individual availability. No numeric tariff or Prices menu in root/join/schedule/contact. Four full-address Sofia halls; Simeonovo missing street and Buta outsidecity held. Class timetable not opening hours. No parent declaration/data/login/payment/booking submitted; no GPS/duration/qualification/safety/review claims.",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://judo-topalov.com/join?venue=3",
+        "serviceUrls": [
+          "https://judo-topalov.com/grafic/",
+          "https://judo-topalov.com/join?venue=3"
+        ],
+        "notes": "Actual venue-specific first-training form, local timetable and owned root/contact menus inspected. No numeric lesson fee or Prices page listed; fee needs club confirmation."
+      }
+    },
+    {
+      "id": "sofia-judo-topalov-ndc",
+      "website": "https://judo-topalov.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://judo-topalov.com/join?venue=4"
+      },
+      "bookingEvidence": {
+        "url": "https://judo-topalov.com/join?venue=4",
+        "excerpt": "Собственият график има отделен вход за записване към тази зала; формата предвижда обратен разговор за уговаряне на първа тренировка."
+      },
+      "contactSource": "https://judo-topalov.com/contacts/",
+      "address": "София, бул. Александър Стамболийски 191, Национален дворец на децата",
+      "phone": "+359895700522",
+      "reviewedUrls": [
+        "https://judo-topalov.com/",
+        "https://judo-topalov.com/join?venue=4",
+        "https://judo-topalov.com/contacts/",
+        "https://judo-topalov.com/grafic/"
+      ],
+      "services": [
+        {
+          "name": "Групова тренировка по джудо",
+          "pricingDecision": "not_publicly_listed"
+        }
+      ],
+      "reviewNotes": "Live root BOOK then venue-specific join form first; visible rawHTML supersedes stale old WordPress reader. Form explicitly agrees first training by callback with hall selector; current schedule links exact join?venue=4. Real hall with local group/address, not citywide duplicate. Group lesson only, not ordinary gym pass or blanket individual availability. No numeric tariff or Prices menu in root/join/schedule/contact. Four full-address Sofia halls; Simeonovo missing street and Buta outsidecity held. Class timetable not opening hours. No parent declaration/data/login/payment/booking submitted; no GPS/duration/qualification/safety/review claims.",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://judo-topalov.com/join?venue=4",
+        "serviceUrls": [
+          "https://judo-topalov.com/grafic/",
+          "https://judo-topalov.com/join?venue=4"
+        ],
+        "notes": "Actual venue-specific first-training form, local timetable and owned root/contact menus inspected. No numeric lesson fee or Prices page listed; fee needs club confirmation."
+      }
+    },
+    {
+      "id": "sofia-gfteam-evlogi-georgievi",
+      "website": "https://gfteambulgaria.com/en",
+      "booking": {
+        "kind": "form",
+        "url": "https://gfteambulgaria.com/en/classes"
+      },
+      "bookingEvidence": {
+        "url": "https://gfteambulgaria.com/en/classes",
+        "excerpt": "Собственият вход Book a class отваря график; конкретната група Gi Beginners има Book Now за треньорско занимание."
+      },
+      "contactSource": "https://gfteambulgaria.com/en/clubs/gfteam",
+      "address": "София, бул. Евлоги и Христо Георгиеви 38",
+      "phone": "+359890455557",
+      "reviewedUrls": [
+        "https://gfteambulgaria.com/en",
+        "https://gfteambulgaria.com/en/classes",
+        "https://gfteambulgaria.com/en/clubs/gfteam",
+        "https://gfteambulgaria.com/en/classes/brazilian-jiu-jitsu-gi-beginners-2026-11-13-1600",
+        "https://gfteambulgaria.com/en/contact",
+        "https://gfteambulgaria.com/en/documents/общи-условия"
+      ],
+      "services": [
+        {
+          "name": "Групова тренировка по бразилско джу джицу — Gi начинаещи",
+          "pricingDecision": "not_publicly_listed"
+        }
+      ],
+      "reviewNotes": "Actual BOOK -> schedule -> Gi Beginners detail first, then venue/contact/terms. Live rawHTML has13Nov and recurring sessions unlike cachedOct3; no availability promised. Trainer-led lesson/BookNow, not OpenMat or gym pass. Public pre-login details show no numeric tariff or Price menu; account checkout not claimed reviewed. Primary venue890455557; header29300702 alias. Exactstreet. Own Terms is membership/GDPR declaration read, never accepted. No credentials/safety/ratings/photos, hidden API/bundle, form/login/payment/booking or geocoder.",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://gfteambulgaria.com/en/classes",
+        "serviceUrls": [
+          "https://gfteambulgaria.com/en/classes/brazilian-jiu-jitsu-gi-beginners-2026-11-13-1600",
+          "https://gfteambulgaria.com/en/classes"
+        ],
+        "notes": "Actual public schedule and concrete beginner Gi Book Now details inspected before venue/contact. No numeric lesson rate or Prices menu there; member-only checkout/fees uninspected."
+      }
+    }
+  ],
+  "pending": [
+    {
+      "name": "Sider Auto",
+      "website": "https://siderauto.com/",
+      "reviewedUrls": [
+        "https://siderauto.com/",
+        "https://siderauto.com/appointment"
+      ],
+      "reason": "Booking page exposes Angular service/price placeholders and requires rendered menu/login for further review. Do not label its tariff unpublished; hold for public rendered menu or owner confirmation."
+    },
+    {
+      "name": "NACEA Service",
+      "website": "https://service.naceaenginestore.com/",
+      "reviewedUrls": [
+        "https://service.naceaenginestore.com/",
+        "https://service.naceaenginestore.com/booking"
+      ],
+      "reason": "Public booking endpoint returns navigation/footer without usable booking/service menu. Appointment intent/address found, but actual flow/fees remain unverified."
+    },
+    {
+      "name": "Mobil Cars Service",
+      "website": "https://www.mobilbg.eu/",
+      "reviewedUrls": [
+        "https://www.mobilbg.eu/",
+        "https://www.mobilbg.eu/online-zapazvane-na-chas/",
+        "https://calendly.com/mobilcars-auto/30min"
+      ],
+      "reason": "Root actual booking target is Calendly; only a bare page title was readable. Do not substitute phone fallback to claim a completed booking-price review."
+    },
+    {
+      "name": "Samokishev Auto",
+      "website": "https://samokishevauto.bg/",
+      "reviewedUrls": [
+        "https://samokishevauto.bg/",
+        "https://samokishevauto.bg/appointment.html",
+        "https://samokishevauto.bg/prices.html"
+      ],
+      "reason": "Actual appointment and from-price tariff readable, but first-party text supplies only Malinova Dolina and Google map, no street/customer-premises address. Need owner address confirmation; no Google extraction."
+    },
+    {
+      "name": "D-Bros Automotive",
+      "website": "https://www.d-bros-automotive.eu/",
+      "reviewedUrls": [
+        "https://www.d-bros-automotive.eu/",
+        "https://dbros-garage.com/pricelist"
+      ],
+      "reason": "Owned booking invitation/address/phone verified; published tariff discovered on alternate owned site but exact price document returned500. Not 'not_publicly_listed'; reconcile prices and aliases before adding."
+    },
+    {
+      "name": "Auto Atelier",
+      "website": "https://auto-atelier.bg/",
+      "reviewedUrls": [
+        "https://auto-atelier.bg/",
+        "https://auto-atelier.bg/contact/",
+        "https://auto-atelier.bg/service/spirachna-sistema/"
+      ],
+      "reason": "Own booking/contact valid but detailed service page returns challenge. Pricing review incomplete; do not treat the blocked page as absent prices."
+    },
+    {
+      "name": "Eurorepar Em Komplekt",
+      "website": "https://www.eurorepar.bg/",
+      "reviewedUrls": [
+        "https://www.eurorepar.bg/servizni-centrove.html"
+      ],
+      "reason": "Branch public page at Preki Pat51 and contact found, but actual appointment portal timeout. Other own operator sources mention Preki Pat66; verify precise branch and completed booking/fee flow."
+    },
+    {
+      "name": "Eurorepar Carholic",
+      "website": "https://www.eurorepar.bg/",
+      "reviewedUrls": [
+        "https://www.eurorepar.bg/servizni-centrove.html"
+      ],
+      "reason": "Actual appointment portal timeout. Source address combines PanchoVladigerov with1387 postal code; do not invent1387 as a building number. Need precise address/booking menu."
+    },
+    {
+      "name": "Kazam Auto",
+      "website": "https://kazamauto.com/",
+      "reviewedUrls": [
+        "https://kazamauto.com/"
+      ],
+      "reason": "403 access restriction; stopped, not claimed tariff absent."
+    },
+    {
+      "name": "Amarant Sofia",
+      "website": "https://amarantservice.bg/avtoservizi-v-sofia/",
+      "reviewedUrls": [
+        "https://amarantservice.bg/avtoservizi-v-sofia/"
+      ],
+      "reason": "403 access restriction; stopped."
+    },
+    {
+      "name": "Wash Depot",
+      "website": "https://washdepot.bg/",
+      "reviewedUrls": [
+        "https://washdepot.bg/"
+      ],
+      "reason": "Website timeout. Directory/app anecdotes not first-party booking evidence."
+    },
+    {
+      "name": "Shu Ha Ri",
+      "website": "https://shuhari-bg.com/",
+      "reviewedUrls": [
+        "https://shuhari-bg.com/",
+        "https://easybook.bg/shotokan-karate-shu-ha-ri-zala-pgtki"
+      ],
+      "reason": "Own site502; merchant page skeleton, actual fee menu not completed. Category snippets are not sufficient."
+    },
+    {
+      "name": "Assei Dojo",
+      "website": "https://easybook.bg/assei-dojo-sofiya-ilinden",
+      "reviewedUrls": [
+        "https://easybook.bg/assei-dojo-sofiya-ilinden"
+      ],
+      "reason": "Merchant booking/service skeleton only; actual fee menu not reviewed."
+    },
+    {
+      "name": "Fitness23UP",
+      "website": "https://easybook.bg/fitness-23-up-sofiya-studentski-grad",
+      "reviewedUrls": [
+        "https://easybook.bg/fitness-23-up-sofiya-studentski-grad"
+      ],
+      "reason": "BJJ service existence/address found, but current menu not rendered in public reader. Monthly cards/purchase snippets not converted to session fees."
+    },
+    {
+      "name": "Letostruy / Tornado C7 / Geo Milev / HelpTyres / Naydenov",
+      "website": "https://easybook.bg/",
+      "reviewedUrls": [
+        "https://easybook.bg/kompleks-letostruy-sofiya-levski-v",
+        "https://easybook.bg/centur-za-gumi-i-avtoklimatici-tornado-s7-sofiya-centur",
+        "https://easybook.bg/serviz-za-gumi-geo-milev-sofiya-geo-milev",
+        "https://easybook.bg/serviz-za-gumi-help-tyres-ltd-sofiya-mladost-4"
+      ],
+      "reason": "Merchant provider candidates; actual service menu not completed. Deposits, storage and category snippets not substituted for a booked repair/tyre-change fee."
+    }
+  ],
+  "rejected": [
+    {
+      "name": "MD Exotic",
+      "website": "https://mdexotic.com/",
+      "reason": "Template contact block has empty phone/email/address. Published rates alone cannot establish a real bookable Sofia business."
+    },
+    {
+      "name": "AvtoservizSofia generic owner",
+      "website": "https://avtoservizsofia.com/",
+      "reason": "Booking/amounts present but no identifiable operator phone or actual premises address; neighborhood SEO pages not separate branches."
+    },
+    {
+      "name": "Street Detailing",
+      "website": "https://streetdetailingbg.com/",
+      "reason": "Root current title identifies Plovdiv and no readable Sofia contact/venue. Sofia mention in older snippet not sufficient."
+    },
+    {
+      "name": "Smartass Sofia",
+      "website": "https://smartass.club/en/sofia",
+      "source": "https://smartass.club/en/page/rules",
+      "reason": "Terms restrict use to personal/noncommercial and prohibit transferring information (§2/§14.2). Hold out of import pending permission; no record/price imported."
+    },
+    {
+      "name": "ABC Fight Club",
+      "website": "https://www.abcfight.com/",
+      "source": "https://www.abcfight.com/terms",
+      "reason": "Terms restrict copying/publication and automated access without written permission. Despite booking portal found, no import; require owner permission."
+    },
+    {
+      "name": "Hyundai",
+      "website": "https://hyundai.bg/",
+      "source": "https://hyundai.bg/politikata-za-web-stranicata-ni/",
+      "reason": "Own source policy explicitly restricts reproduction/distribution without permission. No branch import."
+    },
+    {
+      "name": "Judo Topalov Simeonovo",
+      "website": "https://judo-topalov.com/grafic/",
+      "reason": "Real hall identified but only64OU/Simeonovo, no first-party street in reviewed text; no guessed address."
+    },
+    {
+      "name": "Judo Topalov Buta",
+      "website": "https://judo-topalov.com/grafic/",
+      "reason": "Outside Sofia city scope; not cityCode68134."
+    },
+    {
+      "name": "Milanoff Motors Lozen / Service Reto Voynegovtsi",
+      "website": "https://www.milanoffmotors.bg/",
+      "reason": "Village premises outside Sofia city68134; marketing Sofia not a city-code match."
+    },
+    {
+      "name": "Self-service washes and ordinary gym/Open Mat access",
+      "reason": "Not booked appointment services; excluded throughout."
+    }
+  ],
+  "knownDuplicatesSkipped": [
+    "iq-detailing.com",
+    "nebuladetailing.bg",
+    "autosteamclean.com",
+    "serviz-petkov.com",
+    "autoxpert.bg",
+    "autoclinic-bg.net",
+    "autocenter-sofia.bg",
+    "aleksovauto.bg",
+    "transtitan777bg.com",
+    "topclass-cars.com",
+    "luxspadetailing.com",
+    "bastetkickboxing.com",
+    "inergyfitness.com",
+    "twistedjiujitsu.com",
+    "tsanev.bg",
+    "dojoto.org",
+    "shundojo.com"
+  ]
+}

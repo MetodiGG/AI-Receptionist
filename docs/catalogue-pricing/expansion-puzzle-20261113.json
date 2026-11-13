@@ -1,0 +1,26 @@
+{
+  "checkedOn": "2026-11-13",
+  "scope": "11 real owner-listed Sofia hair-salon premises, independently read branch booking menus. Existing category/booking interface unchanged.",
+  "sourceModule": "lib/discovery/catalogue-data/neighborhood-puzzle-20261113.mjs",
+  "businesses": 11,
+  "services": 33,
+  "pricedServices": 33,
+  "weeklySchedules": 11,
+  "owner": "https://puzzlekids.biz/",
+  "review": "Read all12 own-listed Sofia branch destinations and each actual Fresha menu in the browser, without selecting services, proceeding to a reservation or entering customer data. Imported11; one address conflict held. Original owner-linked booking URLs retained, no ephemeral cart identifiers. Standard child starting fees are before temporary online discount. Adult gender, fixed/from kind and literal30-minute durations are menu-specific, never chain-wide inference. Shared gallery contained multiple undated price sheets; live venue menus took precedence. No source photos/reviews copied.",
+  "feesEUR": [
+    { "branch": "Манастирски ливади", "boyFrom": 11, "girlFrom": 11, "adult": "Мъжко подстригване", "adultFrom": 11 },
+    { "branch": "Борово", "boyFrom": 12, "girlFrom": 11, "adult": "Дамско подстригване", "adultFrom": 11 },
+    { "branch": "Лозенец", "boyFrom": 11, "girlFrom": 11, "adult": "Мъжко подстригване", "adultFrom": 11 },
+    { "branch": "Младост 4", "boyFrom": 11, "girlFrom": 11, "adult": "Мъжко подстригване", "adultFrom": 11 },
+    { "branch": "Гео Милев", "boyFrom": 11, "girlFrom": 10, "adult": "Дамско подстригване", "adultFrom": 10 },
+    { "branch": "Люлин", "boyFrom": 10, "girlFrom": 12, "adult": "Дамско подстригване", "adultFixed": 16 },
+    { "branch": "Надежда", "boyFrom": 10, "girlFrom": 10, "adult": "Дамско подстригване", "adultFrom": 11 },
+    { "branch": "Овча купел", "boyFrom": 11, "girlFrom": 11, "adult": "Мъжко подстригване", "adultFrom": 11 },
+    { "branch": "Хаджи Димитър", "boyFrom": 11, "girlFrom": 11, "adult": "Дамско подстригване", "adultFrom": 11 },
+    { "branch": "Разсадника", "boyFrom": 11, "girlFrom": 11, "adult": "Дамско подстригване", "adultFrom": 12 },
+    { "branch": "Дружба 2", "boyFrom": 11, "girlFrom": 11, "adult": "Дамско подстригване", "adultFrom": 11 }
+  ],
+  "hours": "Daily10–20 on the actual owner branch pages; no slots or coordinates inferred. Independent second reviewer confirmed ten accessible owner branch pages; Hadzhi page timeout did not count as a second read.",
+  "pending": [{ "branch": "Младост 3", "reason": "Owner lists RadkoDimitrievblock388; its linked merchant menu gives street200. Not assumed equivalent. Excluded until exact venue confirmed." }]
+}

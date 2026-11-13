@@ -6,6 +6,7 @@ import { BOOKING_PRICE_REVIEWS } from '../lib/discovery/catalogue-data/pricing-b
 import { pricingIdentity, assessPricingReview, auditCataloguePricing } from '../lib/discovery/catalogue-pricing-review.mjs'
 import report from '../docs/catalogue-pricing/booking-flow-audit-20261110.json' with { type: 'json' }
 import { NEIGHBORHOOD_20261111_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-expansion-20261111.mjs'
+import { NEIGHBORHOOD_20261113_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-expansion-20261113.mjs'
 const now = Date.parse('2026-11-11T12:00:00Z')
 const record = () => structuredClone(SOFIA_CATALOGUE.find(row => row.id === 'sofia-cut-n-chill'))
 const review = () => structuredClone(BOOKING_PRICE_REVIEWS.find(row => row.id === 'sofia-cut-n-chill'))
@@ -54,8 +55,12 @@ test('expiry, future/invalid dates and missing source prices cannot pass the int
 
 test('the existing catalogue stays available and unresolved records remain explicitly pending', async () => {
   const baseline = JSON.parse(await readFile(new URL('../lib/discovery/catalogue-data/pricing-review-baseline-20261110.json', import.meta.url)))
-  const result = auditCataloguePricing(SOFIA_CATALOGUE, baseline, BOOKING_PRICE_REVIEWS, now)
-  assert.equal(result.summary.total, SOFIA_CATALOGUE.length)
+  // This historical fixture is explicitly as of November 11. Later dated
+  // additions are exercised against their own current source receipts.
+  const historical = SOFIA_CATALOGUE.filter(row => row.verification.checkedOn <= '2026-11-11')
+  const ids = new Set(historical.map(row => row.id))
+  const result = auditCataloguePricing(historical, baseline, BOOKING_PRICE_REVIEWS.filter(row => ids.has(row.id)), now)
+  assert.equal(result.summary.total, historical.length)
   assert.equal(result.blocking.length, 0)
   assert.ok(result.summary.pending > 0)
   assert.ok(result.records.some(row => row.hasPrices && row.state === 'pending'))
@@ -67,7 +72,9 @@ test('dated audit receipts cover every current ID without rewriting the historic
   assert.equal(historicalIds.size, report.businesses.length)
   const newIds = new Set(NEIGHBORHOOD_20261111_REVIEWS.map(row => row.id))
   assert.ok([...newIds].every(id => !historicalIds.has(id)))
-  const auditedIds = new Set([...historicalIds, ...newIds])
+  const latestIds = NEIGHBORHOOD_20261113_REVIEWS.map(row => row.id)
+  assert.ok(latestIds.every(id => !historicalIds.has(id) && !newIds.has(id)))
+  const auditedIds = new Set([...historicalIds, ...newIds, ...latestIds])
   assert.equal(auditedIds.size, SOFIA_CATALOGUE.length)
   assert.ok(SOFIA_CATALOGUE.every(row => auditedIds.has(row.id)))
   for (const review of NEIGHBORHOOD_20261111_REVIEWS) {

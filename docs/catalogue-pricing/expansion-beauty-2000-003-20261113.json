@@ -2,7 +2,7 @@
   "checkedOn": "2026-11-13",
   "validUntil": "2027-02-11",
   "scope": "Continuous manually reviewed independent Sofia beauty/grooming premises intake. No shared imports, identities, photos, network geocoding or booking writes.",
-  "status": "in_progress",
+  "status": "frozen_ready_for_root_review",
   "approved": [
     {
       "id": "sofia-shtastlivi-lapi-druzhba108",
@@ -874,6 +874,501 @@
         }
       ],
       "reviewNotes": "Actual merchant cosmetic phone-only subsection followed before reviewing its selected tariff; abdomenwax10EUR10min literal withCallbutton. Active online hair/nails/otherwax menus not marked reviewed or imported. Unpriced phonebrow/wax options not claimed unpublished or substituted for actualonline menu. Exact Iskar47/Sofia and0878881078 corroborated fullAbout/contact/footer; About ordinarysalon, no medicaloperator evidence. Current four-week primary source rechecked after recovery; no independent ownerdomain found. No completeweeklyhours, transient20:00/providerretail09-17 not schedule. Current catalogue/all2000intake ID/domain/fullmerchantpath/phone/venue dedupe no match; known publicnativecontacts differ. Partial one-service inventory deliberate. No reviews/ratings/photos/prose/Maps/coordinates/call/customerinput/reservation."
+    },
+    {
+      "id": "sofia-niki-style-pchinya343",
+      "reviewedUrls": [
+        "https://www.notino.bg/saloni/niki-style/"
+      ],
+      "bookingUrl": "https://www.notino.bg/saloni/niki-style/",
+      "bookingKind": "phone",
+      "bookingExcerpt": "Дамско и мъжко фризьорство — резервация по телефон; обадете се на салона, за да запазите час. +359894633849.",
+      "address": "София, Пчиня, бл. 343",
+      "addressSource": "https://www.notino.bg/saloni/niki-style/",
+      "phone": "+359894633849",
+      "hoursSource": null,
+      "hours": null,
+      "services": [
+        {
+          "name": "Дамско подстригване",
+          "category": "hair",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 8,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/niki-style/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 60,
+          "durationSourceUrl": "https://www.notino.bg/saloni/niki-style/",
+          "durationCheckedOn": "2026-11-13"
+        },
+        {
+          "name": "Мъжко подстригване",
+          "category": "barber",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 5,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/niki-style/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 20,
+          "durationSourceUrl": "https://www.notino.bg/saloni/niki-style/",
+          "durationCheckedOn": "2026-11-13"
+        },
+        {
+          "name": "Сешоар",
+          "category": "hair",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 15,
+            "maximum": 25,
+            "currency": "EUR",
+            "kind": "range",
+            "sourceUrl": "https://www.notino.bg/saloni/niki-style/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "description": "Публикувана продължителност 30–60 минути; точният вариант се уточнява при записване."
+        }
+      ],
+      "reviewNotes": "Actual named merchant women/menhair phone-only booking sections read first, full selected hairmenu then About/contact/footer. Womenhaircut8EUR60min,men5EUR20min,blow15-25EUR30-60min literal; blowduration remains range in publicdescription, no scalarflattening. Colorbundles not imported. Activeonline nails not imported or claimed reviewed. Primary contact exact Pchinya block343/Sofia and0894633849, not bareblock343; quarter/streettype not guessed. About ordinary hair/nails studio withNiki/Bozhidara, onevenue notemployeeclones. Independent ownsite/phone search found no independentdomain. Current four-week source. No fullweeklyhours; transient19:00/providerretail09-17 not schedule. Current allcatalogue/all2000intake ID/merchantpath/phone/venue check no match. No ratings/reviews/photos/marketingprose/Maps/coordinates/call/booking."
+    },
+    {
+      "id": "sofia-fashion-life-exarh225",
+      "reviewedUrls": [
+        "https://www.notino.bg/saloni/fashion-life/"
+      ],
+      "bookingUrl": "https://www.notino.bg/saloni/fashion-life/",
+      "bookingKind": "phone",
+      "bookingExcerpt": "Дамско фризьорство — резервация по телефон; обадете се на салона, за да запазите час. +359877177270.",
+      "address": "София, ул. Александър Екзарх, бл. 225",
+      "addressSource": "https://www.notino.bg/saloni/fashion-life/",
+      "phone": "+359877177270",
+      "hoursSource": null,
+      "hours": null,
+      "services": [
+        {
+          "name": "Дамско подстригване",
+          "category": "hair",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 7.67,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/fashion-life/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 30,
+          "durationSourceUrl": "https://www.notino.bg/saloni/fashion-life/",
+          "durationCheckedOn": "2026-11-13"
+        },
+        {
+          "name": "Дамско подстригване с измиване",
+          "category": "hair",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 10.23,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/fashion-life/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 45,
+          "durationSourceUrl": "https://www.notino.bg/saloni/fashion-life/",
+          "durationCheckedOn": "2026-11-13"
+        },
+        {
+          "name": "Подстригване на бретон",
+          "category": "hair",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 5.11,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/fashion-life/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 15,
+          "durationSourceUrl": "https://www.notino.bg/saloni/fashion-life/",
+          "durationCheckedOn": "2026-11-13"
+        }
+      ],
+      "reviewNotes": "Actual named merchant womenhair explicit phone-only booking followed first; full relevant tariff/About/contact/footer manually read. Womenhaircut7.67EUR30min,wash+cut10.23EUR45min,fringe5.11EUR15min literal, no conversion. Other laser/aesthetic categories not imported. Exact AlexandarExarh block225/Sofia, primary0877177270 and secondary0876244429; one salon nottwo staffphones. Quarter and room6 from discovery not imported without ownconfirmation. About ordinary multi-staffbeautysalon, no independent ownsite found after brand/address search. PricePDFcontrol exposes no readableURL, no completedPDF/unpublishedclaim. No fullweeklyhours; transient08:00/providerretail09-17 not schedule. Current two-month source within90days. Current catalogue/all2000intake ID/URL/phone/venue dedupe no match. No reviews/ratings/photos/marketingprose/Maps/coordinates/calls/bookings."
+    },
+    {
+      "id": "sofia-nails-club-mladost1-51",
+      "reviewedUrls": [
+        "https://nailsclub.bg/",
+        "https://book.nailsclub.bg/reservations/create",
+        "https://book.nailsclub.bg/reservations/start?site=1",
+        "https://nailsclub.bg/manicure/",
+        "https://nailsclub.bg/pedicure/",
+        "https://nailsclub.bg/about-us/"
+      ],
+      "bookingUrl": "https://book.nailsclub.bg/reservations/start?site=1",
+      "bookingKind": "form",
+      "bookingExcerpt": "ЗАПАЗИ ЧАС — Nails Club · Младост 1. София, ж.к. Младост 1, бл. 51. +359897054414. Изберете услуга, стъпка 1 от 4.",
+      "address": "София, ж.к. Младост 1, бл. 51",
+      "addressSource": "https://book.nailsclub.bg/reservations/create",
+      "phone": "+359897054414",
+      "hoursSource": null,
+      "hours": null,
+      "services": [
+        {
+          "name": "Класически маникюр без лак",
+          "category": "nails",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 20,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://book.nailsclub.bg/reservations/start?site=1",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 30,
+          "durationSourceUrl": "https://book.nailsclub.bg/reservations/start?site=1",
+          "durationCheckedOn": "2026-11-13",
+          "description": "Редовна услуга, не промоционален, моделен или стажантски вариант."
+        },
+        {
+          "name": "Маникюр с гел лак без старо покритие",
+          "category": "nails",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 25,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://book.nailsclub.bg/reservations/start?site=1",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 60,
+          "durationSourceUrl": "https://book.nailsclub.bg/reservations/start?site=1",
+          "durationCheckedOn": "2026-11-13",
+          "description": "Без старо покритие за обработка. Редовна услуга, не промоционален, моделен или стажантски вариант."
+        },
+        {
+          "name": "Педикюр с гел лак",
+          "category": "nails",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 35,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://book.nailsclub.bg/reservations/start?site=1",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 90,
+          "durationSourceUrl": "https://book.nailsclub.bg/reservations/start?site=1",
+          "durationCheckedOn": "2026-11-13",
+          "description": "Козметичен педикюр, не терапевтичният вариант. Редовна услуга, не промоционален, моделен или стажантски вариант."
+        }
+      ],
+      "reviewNotes": "Owner actual Book followed to custom book.nailsclub.bg/reservations/create; native Safari full live named five-branch selector read. Exact branch Nails Club · Младост 1, София, ж.к. Младост 1, бл. 51, +359897054414 bound to observed UI destination https://book.nailsclub.bg/reservations/start?site=1, not guessed query parameters. Entered this branch, selected only Manicure/Pedicure categories, read both complete service lists separately. Three regular single-visit literal EUR rows verified for this exact branch: classicuncoated20EUR30min,gelWITHOUToldcoating25EUR60min,gelpedicure35EUR90min. Original service qualifiers public; promotional combos, model1EUR,intern15EUR,therapeuticfoot/needles and Master tiers not imported. Mladost3 Master26/32/45EUR are distinct, not mixed; Druzhba0EUR Master placeholders excluded. Then own full manicure/pedicure/About/root/footer reviewed. Own root confirms three older branches; actual owner-operated booking confirms all five, same brand and linked ownerroot. Header10-20 conflicts actual selector08-21 allweek, ALL hours omitted. ML1/ML3 contact endpoints challenge encountered and stopped, not retried or claimed reviewed; three exact contacts independently on root and all five on actualBook. Current allcatalogue/all2000intake ID/fullmerchantURL/phone/venue dedupe: no sameoperator match; other independent businesses in large sharedbuildings not cloned as this salon. No service/date/time/staff/customer selected, login, call or reservation; no providerreviews/photos/prose/Maps/coordinates copied."
+    },
+    {
+      "id": "sofia-nails-club-mladost4-488",
+      "reviewedUrls": [
+        "https://nailsclub.bg/",
+        "https://book.nailsclub.bg/reservations/create",
+        "https://book.nailsclub.bg/reservations/start?site=2",
+        "https://nailsclub.bg/manicure/",
+        "https://nailsclub.bg/pedicure/",
+        "https://nailsclub.bg/about-us/",
+        "https://nailsclub.bg/salon-mladost4/"
+      ],
+      "bookingUrl": "https://book.nailsclub.bg/reservations/start?site=2",
+      "bookingKind": "form",
+      "bookingExcerpt": "ЗАПАЗИ ЧАС — Nails Club · Младост 4. София, ж.к. Младост 4, бл. 488. +359885892252. Изберете услуга, стъпка 1 от 4.",
+      "address": "София, ж.к. Младост 4, бл. 488",
+      "addressSource": "https://book.nailsclub.bg/reservations/create",
+      "phone": "+359885892252",
+      "hoursSource": null,
+      "hours": null,
+      "services": [
+        {
+          "name": "Класически маникюр без лак",
+          "category": "nails",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 20,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://book.nailsclub.bg/reservations/start?site=2",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 30,
+          "durationSourceUrl": "https://book.nailsclub.bg/reservations/start?site=2",
+          "durationCheckedOn": "2026-11-13",
+          "description": "Редовна услуга, не промоционален, моделен или стажантски вариант."
+        },
+        {
+          "name": "Маникюр с гел лак без старо покритие",
+          "category": "nails",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 25,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://book.nailsclub.bg/reservations/start?site=2",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 60,
+          "durationSourceUrl": "https://book.nailsclub.bg/reservations/start?site=2",
+          "durationCheckedOn": "2026-11-13",
+          "description": "Без старо покритие за обработка. Редовна услуга, не промоционален, моделен или стажантски вариант."
+        },
+        {
+          "name": "Педикюр с гел лак",
+          "category": "nails",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 35,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://book.nailsclub.bg/reservations/start?site=2",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 90,
+          "durationSourceUrl": "https://book.nailsclub.bg/reservations/start?site=2",
+          "durationCheckedOn": "2026-11-13",
+          "description": "Козметичен педикюр, не терапевтичният вариант. Редовна услуга, не промоционален, моделен или стажантски вариант."
+        }
+      ],
+      "reviewNotes": "Owner actual Book followed to custom book.nailsclub.bg/reservations/create; native Safari full live named five-branch selector read. Exact branch Nails Club · Младост 4, София, ж.к. Младост 4, бл. 488, +359885892252 bound to observed UI destination https://book.nailsclub.bg/reservations/start?site=2, not guessed query parameters. Entered this branch, selected only Manicure/Pedicure categories, read both complete service lists separately. Three regular single-visit literal EUR rows verified for this exact branch: classicuncoated20EUR30min,gelWITHOUToldcoating25EUR60min,gelpedicure35EUR90min. Original service qualifiers public; promotional combos, model1EUR,intern15EUR,therapeuticfoot/needles and Master tiers not imported. Mladost3 Master26/32/45EUR are distinct, not mixed; Druzhba0EUR Master placeholders excluded. Then own full manicure/pedicure/About/root/footer reviewed. Own root confirms three older branches; actual owner-operated booking confirms all five, same brand and linked ownerroot. Header10-20 conflicts actual selector08-21 allweek, ALL hours omitted. ML1/ML3 contact endpoints challenge encountered and stopped, not retried or claimed reviewed; three exact contacts independently on root and all five on actualBook. Current allcatalogue/all2000intake ID/fullmerchantURL/phone/venue dedupe: no sameoperator match; other independent businesses in large sharedbuildings not cloned as this salon. No service/date/time/staff/customer selected, login, call or reservation; no providerreviews/photos/prose/Maps/coordinates copied."
+    },
+    {
+      "id": "sofia-nails-club-mladost3-belov26",
+      "reviewedUrls": [
+        "https://nailsclub.bg/",
+        "https://book.nailsclub.bg/reservations/create",
+        "https://book.nailsclub.bg/reservations/start?site=3",
+        "https://nailsclub.bg/manicure/",
+        "https://nailsclub.bg/pedicure/",
+        "https://nailsclub.bg/about-us/"
+      ],
+      "bookingUrl": "https://book.nailsclub.bg/reservations/start?site=3",
+      "bookingKind": "form",
+      "bookingExcerpt": "ЗАПАЗИ ЧАС — Nails Club · Младост 3. София, ул. Инж. Георги Белов 26. +359899222968. Изберете услуга, стъпка 1 от 4.",
+      "address": "София, ул. Инж. Георги Белов 26",
+      "addressSource": "https://book.nailsclub.bg/reservations/create",
+      "phone": "+359899222968",
+      "hoursSource": null,
+      "hours": null,
+      "services": [
+        {
+          "name": "Класически маникюр без лак",
+          "category": "nails",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 20,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://book.nailsclub.bg/reservations/start?site=3",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 30,
+          "durationSourceUrl": "https://book.nailsclub.bg/reservations/start?site=3",
+          "durationCheckedOn": "2026-11-13",
+          "description": "Стандартна тарифа, не вариантът „при Майстор“."
+        },
+        {
+          "name": "Маникюр с гел лак без старо покритие",
+          "category": "nails",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 25,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://book.nailsclub.bg/reservations/start?site=3",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 60,
+          "durationSourceUrl": "https://book.nailsclub.bg/reservations/start?site=3",
+          "durationCheckedOn": "2026-11-13",
+          "description": "Без старо покритие за обработка. Стандартна тарифа, не вариантът „при Майстор“."
+        },
+        {
+          "name": "Педикюр с гел лак",
+          "category": "nails",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 35,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://book.nailsclub.bg/reservations/start?site=3",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 90,
+          "durationSourceUrl": "https://book.nailsclub.bg/reservations/start?site=3",
+          "durationCheckedOn": "2026-11-13",
+          "description": "Козметичен педикюр, не терапевтичният вариант. Стандартна тарифа, не вариантът „при Майстор“."
+        }
+      ],
+      "reviewNotes": "Owner actual Book followed to custom book.nailsclub.bg/reservations/create; native Safari full live named five-branch selector read. Exact branch Nails Club · Младост 3, София, ул. Инж. Георги Белов 26, +359899222968 bound to observed UI destination https://book.nailsclub.bg/reservations/start?site=3, not guessed query parameters. Entered this branch, selected only Manicure/Pedicure categories, read both complete service lists separately. Three regular single-visit literal EUR rows verified for this exact branch: classicuncoated20EUR30min,gelWITHOUToldcoating25EUR60min,gelpedicure35EUR90min. Original service qualifiers public; promotional combos, model1EUR,intern15EUR,therapeuticfoot/needles and Master tiers not imported. Mladost3 Master26/32/45EUR are distinct, not mixed; Druzhba0EUR Master placeholders excluded. Then own full manicure/pedicure/About/root/footer reviewed. Own root confirms three older branches; actual owner-operated booking confirms all five, same brand and linked ownerroot. Header10-20 conflicts actual selector08-21 allweek, ALL hours omitted. ML1/ML3 contact endpoints challenge encountered and stopped, not retried or claimed reviewed; three exact contacts independently on root and all five on actualBook. Current allcatalogue/all2000intake ID/fullmerchantURL/phone/venue dedupe: no sameoperator match; other independent businesses in large sharedbuildings not cloned as this salon. No service/date/time/staff/customer selected, login, call or reservation; no providerreviews/photos/prose/Maps/coordinates copied."
+    },
+    {
+      "id": "sofia-nails-club-gm-dimitrov30",
+      "reviewedUrls": [
+        "https://nailsclub.bg/",
+        "https://book.nailsclub.bg/reservations/create",
+        "https://book.nailsclub.bg/reservations/start?site=4",
+        "https://nailsclub.bg/manicure/",
+        "https://nailsclub.bg/pedicure/",
+        "https://nailsclub.bg/about-us/"
+      ],
+      "bookingUrl": "https://book.nailsclub.bg/reservations/start?site=4",
+      "bookingKind": "form",
+      "bookingExcerpt": "ЗАПАЗИ ЧАС — Nails Club · Г. М. Димитров. София, бул. Д-р Г. М. Димитров 30. +359896153183. Изберете услуга, стъпка 1 от 4.",
+      "address": "София, бул. Д-р Г. М. Димитров 30",
+      "addressSource": "https://book.nailsclub.bg/reservations/create",
+      "phone": "+359896153183",
+      "hoursSource": null,
+      "hours": null,
+      "services": [
+        {
+          "name": "Класически маникюр без лак",
+          "category": "nails",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 20,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://book.nailsclub.bg/reservations/start?site=4",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 30,
+          "durationSourceUrl": "https://book.nailsclub.bg/reservations/start?site=4",
+          "durationCheckedOn": "2026-11-13",
+          "description": "Редовна услуга, не промоционален, моделен или стажантски вариант."
+        },
+        {
+          "name": "Маникюр с гел лак без старо покритие",
+          "category": "nails",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 25,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://book.nailsclub.bg/reservations/start?site=4",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 60,
+          "durationSourceUrl": "https://book.nailsclub.bg/reservations/start?site=4",
+          "durationCheckedOn": "2026-11-13",
+          "description": "Без старо покритие за обработка. Редовна услуга, не промоционален, моделен или стажантски вариант."
+        },
+        {
+          "name": "Педикюр с гел лак",
+          "category": "nails",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 35,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://book.nailsclub.bg/reservations/start?site=4",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 90,
+          "durationSourceUrl": "https://book.nailsclub.bg/reservations/start?site=4",
+          "durationCheckedOn": "2026-11-13",
+          "description": "Козметичен педикюр, не терапевтичният вариант. Редовна услуга, не промоционален, моделен или стажантски вариант."
+        }
+      ],
+      "reviewNotes": "Owner actual Book followed to custom book.nailsclub.bg/reservations/create; native Safari full live named five-branch selector read. Exact branch Nails Club · Г. М. Димитров, София, бул. Д-р Г. М. Димитров 30, +359896153183 bound to observed UI destination https://book.nailsclub.bg/reservations/start?site=4, not guessed query parameters. Entered this branch, selected only Manicure/Pedicure categories, read both complete service lists separately. Three regular single-visit literal EUR rows verified for this exact branch: classicuncoated20EUR30min,gelWITHOUToldcoating25EUR60min,gelpedicure35EUR90min. Original service qualifiers public; promotional combos, model1EUR,intern15EUR,therapeuticfoot/needles and Master tiers not imported. Mladost3 Master26/32/45EUR are distinct, not mixed; Druzhba0EUR Master placeholders excluded. Then own full manicure/pedicure/About/root/footer reviewed. Own root confirms three older branches; actual owner-operated booking confirms all five, same brand and linked ownerroot. Header10-20 conflicts actual selector08-21 allweek, ALL hours omitted. ML1/ML3 contact endpoints challenge encountered and stopped, not retried or claimed reviewed; three exact contacts independently on root and all five on actualBook. Current allcatalogue/all2000intake ID/fullmerchantURL/phone/venue dedupe: no sameoperator match; other independent businesses in large sharedbuildings not cloned as this salon. No service/date/time/staff/customer selected, login, call or reservation; no providerreviews/photos/prose/Maps/coordinates copied."
+    },
+    {
+      "id": "sofia-nails-club-druzhba2-602",
+      "reviewedUrls": [
+        "https://nailsclub.bg/",
+        "https://book.nailsclub.bg/reservations/create",
+        "https://book.nailsclub.bg/reservations/start?site=5",
+        "https://nailsclub.bg/manicure/",
+        "https://nailsclub.bg/pedicure/",
+        "https://nailsclub.bg/about-us/"
+      ],
+      "bookingUrl": "https://book.nailsclub.bg/reservations/start?site=5",
+      "bookingKind": "form",
+      "bookingExcerpt": "ЗАПАЗИ ЧАС — Nails Club · Дружба 2. София, ж.к. Дружба 2, бл. 602. +359884828252. Изберете услуга, стъпка 1 от 4.",
+      "address": "София, ж.к. Дружба 2, бл. 602",
+      "addressSource": "https://book.nailsclub.bg/reservations/create",
+      "phone": "+359884828252",
+      "hoursSource": null,
+      "hours": null,
+      "services": [
+        {
+          "name": "Класически маникюр без лак",
+          "category": "nails",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 20,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://book.nailsclub.bg/reservations/start?site=5",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 30,
+          "durationSourceUrl": "https://book.nailsclub.bg/reservations/start?site=5",
+          "durationCheckedOn": "2026-11-13",
+          "description": "Стандартна тарифа, не вариантът „при Майстор“."
+        },
+        {
+          "name": "Маникюр с гел лак без старо покритие",
+          "category": "nails",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 25,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://book.nailsclub.bg/reservations/start?site=5",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 60,
+          "durationSourceUrl": "https://book.nailsclub.bg/reservations/start?site=5",
+          "durationCheckedOn": "2026-11-13",
+          "description": "Без старо покритие за обработка. Стандартна тарифа, не вариантът „при Майстор“."
+        },
+        {
+          "name": "Педикюр с гел лак",
+          "category": "nails",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 35,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://book.nailsclub.bg/reservations/start?site=5",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 90,
+          "durationSourceUrl": "https://book.nailsclub.bg/reservations/start?site=5",
+          "durationCheckedOn": "2026-11-13",
+          "description": "Козметичен педикюр, не терапевтичният вариант. Стандартна тарифа, не вариантът „при Майстор“."
+        }
+      ],
+      "reviewNotes": "Owner actual Book followed to custom book.nailsclub.bg/reservations/create; native Safari full live named five-branch selector read. Exact branch Nails Club · Дружба 2, София, ж.к. Дружба 2, бл. 602, +359884828252 bound to observed UI destination https://book.nailsclub.bg/reservations/start?site=5, not guessed query parameters. Entered this branch, selected only Manicure/Pedicure categories, read both complete service lists separately. Three regular single-visit literal EUR rows verified for this exact branch: classicuncoated20EUR30min,gelWITHOUToldcoating25EUR60min,gelpedicure35EUR90min. Original service qualifiers public; promotional combos, model1EUR,intern15EUR,therapeuticfoot/needles and Master tiers not imported. Mladost3 Master26/32/45EUR are distinct, not mixed; Druzhba0EUR Master placeholders excluded. Then own full manicure/pedicure/About/root/footer reviewed. Own root confirms three older branches; actual owner-operated booking confirms all five, same brand and linked ownerroot. Header10-20 conflicts actual selector08-21 allweek, ALL hours omitted. ML1/ML3 contact endpoints challenge encountered and stopped, not retried or claimed reviewed; three exact contacts independently on root and all five on actualBook. Current allcatalogue/all2000intake ID/fullmerchantURL/phone/venue dedupe: no sameoperator match; other independent businesses in large sharedbuildings not cloned as this salon. No service/date/time/staff/customer selected, login, call or reservation; no providerreviews/photos/prose/Maps/coordinates copied."
     }
   ],
   "pending": [
@@ -1009,6 +1504,89 @@
         "https://www.reina.bg/"
       ],
       "reason": "Valentino weeklyallclosed/no phone andactualBookunreviewed;REINA lacks exactaddress/menu/staff andownsite inaccessible. Hold, not unpublished."
+    },
+    {
+      "business": "Nails Club working hours",
+      "reviewedUrls": [
+        "https://nailsclub.bg/",
+        "https://book.nailsclub.bg/reservations/create"
+      ],
+      "reason": "Five exact branch menus independently read in nativeSafari. Three regularordinaryrows each approved; ALL hours held: ownerrootMonSun10-20 vsactualownerBookMonSun08-21. ML1/ML3 contactchallenges not retried. Model/promo/intern/Master/0placeholders andtherapeuticfoot excluded."
+    },
+    {
+      "business": "Verona-nails / Ralica Beauty / Studio Conte / BeautyBar NK",
+      "reviewedUrls": [
+        "https://www.mylink.bg/verona-nails",
+        "https://www.mylink.bg/ralica-beauty",
+        "https://www.mylink.bg/studio-conte",
+        "https://www.mylink.bg/beauty-bar-nk"
+      ],
+      "reason": "New named merchant primaryservice/contact pages found; exactReserveJS interactions and independentownsite/operator checks still pending. VeronaPopovaShapka70/0889881255,classical15EUR30min;RalicaRakovski145A/0878983846,gelstrength35EUR90min. Not yetapproved; root releaseNailsClubCUAphase then Mylinkqueue next."
+    },
+    {
+      "business": "Pomodoro Nails",
+      "reviewedUrls": [
+        "https://www.fresha.com/en-GB/a/pomodoro-nails-sofia-ulitsa-smarch-10-i9el6nnw",
+        "https://www.fresha.com/en-GB/a/pomodoro-nails-sofia-ulitsa-smarch-10-i9el6nnw/booking?entryPoint=venue_see_all_services"
+      ],
+      "reason": "Full namedmerchant menu/About/Smarch10BeliBrezi/hours read, actualBook followed cachemiss. No visibleprimaryphone. Pending actualJSbooking, not unpublished; no gallery/reviews/photos imported."
+    },
+    {
+      "business": "GOGOV Premium",
+      "reviewedUrls": [
+        "https://gogovbarberclub.com/",
+        "https://gogovbarberclub.com/premium/"
+      ],
+      "reason": "OwnPanchoVladigerov44 coincidesexistingPavelRusev. BarberPashata maysamePavel; separatephone/operator/actualbranchbooking unreviewed. No co-located staffbusiness clone."
+    },
+    {
+      "business": "Fleur Style / Studio VICTORIA / Nails and Beauty Studio #",
+      "reviewedUrls": [
+        "https://www.notino.bg/saloni/fleur-style/",
+        "https://www.notino.bg/saloni/studio-victoria/",
+        "https://www.notino.bg/saloni/nails-and-beauty-studio---manikyur/"
+      ],
+      "reason": "Fleurreader1.1years stale/rangeaddress BachoKiro26-30;Victoria4monthreader stale needsfresh;#Kazbek41B activeonline nailbooking unreviewed, no substitute unpricedaddons."
+    },
+    {
+      "business": "ND Beauty / ND Beauty Salon / THE SALON / Kristi",
+      "reviewedUrls": [
+        "https://www.notino.bg/saloni/nd-beauty/",
+        "https://www.notino.bg/saloni/nd-beauty-salon/",
+        "https://www.notino.bg/saloni/nails-kitchen-ioanna/",
+        "https://www.notino.bg/saloni/salon-kristi/"
+      ],
+      "reason": "Activeordinaryonline booking not reviewed. NDBeautySalon explicitly needling/microinvasive scope, heldoperator clarification even phonegel17.90EUR60min; do not copyclinicaldepartment. Kristionlyphoneunpriceddecorativemenu notsubstitute foronlineordinarynails/hair. THE SALON & NailKitchen onevenue nottwo."
+    },
+    {
+      "business": "Fezaqoi / BeautyNails Sofia (zezelea)",
+      "reviewedUrls": [
+        "https://www.fezaqoi.com/",
+        "https://www.zezelea.com/"
+      ],
+      "reason": "Generictemplate/mobileclaims onunrelated randomdomains; no independentlyverifiedactualoperator orrealpremises/currenttariff. Fezaqoi reader5monthold. Holdidentity/currentness, no fictionalquota additions."
+    },
+    {
+      "business": "Relaxora",
+      "reviewedUrls": [
+        "https://relaxora.eu/"
+      ],
+      "reason": "NewownBorovo234A/0886574666,form/feesvisible but medicalanalysis/rehabilitation positioning needs nonmedicaloperatorscope confirmation. No purelyrelaxingdepartmentclone or promotional/packagefee imported."
+    },
+    {
+      "business": "Sisters of Dogs / BeLight / VIP Grooming",
+      "reviewedUrls": [
+        "https://sistersofdogs.com/",
+        "https://sistersofdogs.com/kontakti",
+        "https://sistersofdogs.com/uslugi-i-ceni",
+        "https://sistersofdogs.com/za-nas",
+        "https://belightgrooming.com/",
+        "https://belightgrooming.com/contact/",
+        "https://belightgrooming.com/services/",
+        "https://belightgrooming.com/about/",
+        "https://www.vipgrooming.bg/"
+      ],
+      "reason": "Three newownsourcegrooming candidates for004continuation. Sistersfulltariff/contact/hours but contactgenericcallratherthanexplicitappointment phrase stillneedsprimaryappointmentproof. BeLight actualBookcontactform notrendered, genericphonepath notyetverified; EURbreedfees but mattedcoat15EURvs15BGN conflictheld. VIP ownreader timeouts, no bypass or unpublishedclaim."
     }
   ],
   "duplicatesPreserved": [
@@ -1023,8 +1601,8 @@
     }
   ],
   "sourceCoverage": {
-    "records": 13,
-    "services": 37,
+    "records": 20,
+    "services": 58,
     "coordinatesImported": 0,
     "inventoryIdentitiesAssigned": 0,
     "completeWeeklySchedules": 1

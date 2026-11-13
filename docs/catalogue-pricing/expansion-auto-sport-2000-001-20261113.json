@@ -9,10 +9,10 @@
     "pricePolicy": "Literal sourced fees with subtype, unit, conditions and dates. Missing fees absent; unpublished receipts require full actual booking/services review. Inaccessible actual price menus, source restrictions and unresolved venue identities remain held."
   },
   "counts": {
-    "records": 20,
-    "services": 23,
-    "pricedServices": 17,
-    "pending": 23,
+    "records": 19,
+    "services": 22,
+    "pricedServices": 16,
+    "pending": 24,
     "rejected": 6
   },
   "orderedLedger": [
@@ -20,7 +20,7 @@
       "order": 1,
       "id": "sofia-abc-fight-club-vasil-levski",
       "name": "ABC Fight Club · Национален стадион Васил Левски",
-      "status": "verified",
+      "status": "held_source_terms",
       "website": "https://www.abcfight.com/",
       "bookingUrl": "https://abc-fight-club.portal.1club.ai/classes",
       "serviceUrls": [
@@ -29,7 +29,9 @@
         "https://abc-fight-club.portal.1club.ai/classes"
       ],
       "contactUrl": "https://www.abcfight.com/trenirovki/kikboks/zali-kikboks/kikboks-na-stadion-vasil-levski/grupa-po-kikboks-za-deca-s-kalin-mirchev",
-      "findings": "Followed owner's actual Book CTA into its branded1club portal. Rechecked generic public Classes list by ordinary owner-linked HTTP on13Nov: current13–20Nov list includes future16/18/20Nov KalinM kickboxing. Opened actual16Nov class, not merely elapsed13Nov: explicit child ages10–16, beginners/advanced,15EUR,10:00–11:00, exact stadium sectorG/entrance26/hall6G and Reserve action; future18Nov–2Dec repetitions also visible. No event/Reserve clicked and no slot/customer entry or booking. Owner's separate regular programme independently identifies KalinMirchev kickboxing and same venue; this is selected explicit group discipline, replacing generic50EUR private training rather than inferring private discipline from coach affiliation. Generic current Classes URL is the booking destination, dated class is fee/duration evidence only. Mandatory protective equipment retained; retail equipment, other coaches/packages, Google data and bank-account details excluded. No general opening hours or coordinates inferred."
+      "findings": "Current full own terms explicitly prohibit robots/spiders/scrapers or other automated access for any purpose without written permission (Access section), restrict deep links and links from pages not owned by the linking party, and limit content use to personal purposes. This is not merely a standard image/design copyright notice. Stop source requests; no permission inferred and no record imported.",
+      "sourceTermsUrl": "https://www.abcfight.com/terms",
+      "checkedOn": "2026-11-13"
     },
     {
       "order": 2,
@@ -522,6 +524,16 @@
         "https://cdn.uab.org/files/terms/general_terms.pdf"
       ],
       "notes": "Shared owner-linked Setmore catalogue labels actual inspection services free whereas owner branch tariff is paid. Payment-on-site rule5.3 does not independently prove this label is only a booking fee. No zero import or fabricated resolution. Mladost is separately admitted only by its explicit owner phone path and independently live-checked complete branch tariff; other venues remain held."
+    },
+    {
+      "id": "sofia-abc-fight-club-vasil-levski",
+      "name": "ABC Fight Club · Национален стадион Васил Левски",
+      "website": "https://www.abcfight.com/",
+      "status": "held_source_terms",
+      "reason": "Current full own terms explicitly prohibit robots/spiders/scrapers or other automated access for any purpose without written permission (Access section), restrict deep links and links from pages not owned by the linking party, and limit content use to personal purposes. This is not merely a standard image/design copyright notice. Stop source requests; no permission inferred and no record imported.",
+      "sources": [
+        "https://www.abcfight.com/terms"
+      ]
     }
   ],
   "rejected": [
@@ -580,20 +592,20 @@
   "frozenOn": "2026-11-13",
   "validation": {
     "recordSchema": {
-      "passed": 20,
+      "passed": 19,
       "rejected": 0
     },
     "sourceIntake": {
-      "ready": 20,
+      "ready": 19,
       "pending": 0,
       "rejected": 0
     },
     "pricingReceipts": {
-      "priceReviewedBusinesses": 14,
+      "priceReviewedBusinesses": 13,
       "serviceReviewedWithoutPublicPrices": 6,
       "pending": 0,
-      "pricedServiceRows": 17,
-      "serviceRows": 23
+      "pricedServiceRows": 16,
+      "serviceRows": 22
     },
     "dedupe": {
       "liveRawCatalogueRows": 1290,
@@ -606,12 +618,19 @@
         "Studio7 Dobroudja1 is explicitly a separate group-only premise from existing6Septemvri14 andDobroudja9; not a trainer alias."
       ]
     },
-    "coordinates": "All20 new records retain coordinates:null; no new geocoding, provider map facts or user GPS.",
+    "coordinates": "All19 retained new records keep coordinates:null; no new geocoding, provider map facts or user GPS.",
     "commands": [
       "Temporary in-memory pricingIdentity only for assessPricingReview; no inventoryIdentity persisted.",
-      "validateCatalogue20; auditCatalogueBatch against refreshed combined sources20ready/0pending/0rejected.",
-      "git diff --check -- owned module and ledger: clean."
+      "git diff --check -- owned module and ledger: clean.",
+      "2026-11-13 source-terms recheck removed ABC from records/reviews; remaining19 are the unchanged previously validated subset."
     ],
     "remainingRootWork": "Manual source approval, static inventory identities, shared imports/photos and full integration suite/build remain root-owned; nothing published by this intake."
+  },
+  "sourceTermsRecheck": {
+    "checkedOn": "2026-11-13",
+    "removedId": "sofia-abc-fight-club-vasil-levski",
+    "sourceUrl": "https://www.abcfight.com/terms",
+    "result": "held_source_terms",
+    "reason": "Current full own terms explicitly prohibit robots/spiders/scrapers or other automated access for any purpose without written permission (Access section), restrict deep links and links from pages not owned by the linking party, and limit content use to personal purposes. This is not merely a standard image/design copyright notice. Stop source requests; no permission inferred and no record imported."
   }
 }

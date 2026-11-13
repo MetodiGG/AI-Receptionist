@@ -23980,6 +23980,50 @@
         ],
         "method": "individual generated source and 256px optimized thumbnail visual inspection; specific child activity rather than adult substitute; illustrative, not actual provider staff or premises"
       }
+    },
+    {
+      "id": "sx-home-window-hardware-adjust",
+      "label": "Регулиране на прозорец",
+      "prompt": "Use case: photorealistic-natural\nAsset type: individual square service thumbnail for a booking catalogue.\nPrimary request: a realistic home window-repair technician adjusting the metal hinge hardware of an open white PVC casement window using a small hex Allen key. Tight close-up of two natural adult hands, the tool clearly seated in the hinge adjustment screw, and the recognizable open window sash, white PVC frame and rubber gasket. Ordinary apartment daylight, no extreme height or leaning outside. Real metal and plastic surfaces, credible safe small-tool work. The hinge adjustment, not cleaning or glass replacement, must be the clear subject, recognizable at 64px square.\nConstraints: generic illustrative service photo, not actual business work, employee or premises. No broken glass, no powered tool, no electrical wiring, no notebook or clipboard, no logos, no text, no watermark, no collage.",
+      "sourceFile": "exec-36de129c-1598-4ad3-a043-8a59c23329df.png",
+      "sourceSha256": "b9fb8d228d869b20aed6683aec93637647175986a83acc2061daabf00fcd73a7",
+      "file": "public/service-photos/sx-home-window-hardware-adjust-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 8412,
+      "sha256": "cdf6257606655eda627f630deca3cc409ec4722047fbc20a2669f539df6d4f49",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "b9fb8d228d869b20aed6683aec93637647175986a83acc2061daabf00fcd73a7",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual source and actual256px WebP visual review; hands and Allen key adjust hinge hardware, not glass replacement or window cleaning; generic illustrative activity"
+      }
+    },
+    {
+      "id": "sx-pet-dog-coat-brushing",
+      "label": "Разресване на куче",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square booking catalogue service photo.\nPrimary request: an adult professional groomer gently brushing an ordinary calm small fluffy dog with a real slicker brush on a clean grooming table. Close enough that the brush touching the dog's normal dry coat and one natural hand supporting the fur are obvious; include the dog's comfortable expressive face. Everyday cream-coloured moderately fluffy healthy coat, not visibly matted. Bright ordinary grooming salon, believable skin, fur and metal/plastic brush textures, natural lighting and no heavy retouching. Composition legible as a64px square thumbnail.\nConstraints: generic illustrative service, not actual business staff, pet or work. Show brushing only: no bath or shower, no shampoo, no haircut or clippers, no painful pulling, no restraints, no extreme knots or skin injury, no notebook, no text, no logo, no watermark, no collage.",
+      "sourceFile": "exec-9816d8f0-d2a3-4f77-a20e-17125aa92be8.png",
+      "sourceSha256": "c9ec7750b811144e3fb85d3b7df86bbea2f30f8d2498974cb914b66b9c917415",
+      "bytes": 13114,
+      "sha256": "b023155530755118abda9fc3139a309c89c63c9e21f13483e1f0ffc54e038fef",
+      "file": "public/service-photos/sx-pet-dog-coat-brushing-v1.webp",
+      "width": 256,
+      "height": 256,
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "c9ec7750b811144e3fb85d3b7df86bbea2f30f8d2498974cb914b66b9c917415",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual full source and final256px WebP visual review; ordinary dry coat brushing with slicker brush, not bathing, cutting or severe dematting; illustrative not actual provider work"
+      }
     }
   ],
   "rejectedSources": [
@@ -24109,9 +24153,9 @@
     }
   ],
   "report": {
-    "required": 1140,
-    "prepared": 1140,
-    "accepted": 1140,
+    "required": 1142,
+    "prepared": 1142,
+    "accepted": 1142,
     "pendingGeneration": [],
     "missingAsset": [],
     "unreviewed": [],

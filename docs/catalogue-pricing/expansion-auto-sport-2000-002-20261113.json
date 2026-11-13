@@ -1,7 +1,7 @@
 {
   "checkedOn": "2026-11-13",
   "validUntil": "2027-02-11",
-  "status": "research_in_progress",
+  "status": "frozen_ready_for_root_review",
   "scope": "Sofia owner-source auto repair, staffed appointment wash/detailing and reserved sports; no retail-only or open-gym entry.",
   "method": {
     "sourcePriority": "Actual public owner Book entry first, then selected services/tariffs/full contacts; no booking submissions or private interfaces.",
@@ -9,11 +9,11 @@
     "pricing": "Literal owner fees only. Full booking/service review plus explicit quotation language for genuine unpublished fees; inaccessible known menus remain held."
   },
   "counts": {
-    "records": 12,
-    "services": 12,
-    "pricedServices": 4,
-    "pending": 7,
-    "rejected": 7
+    "records": 17,
+    "services": 17,
+    "pricedServices": 7,
+    "pending": 19,
+    "rejected": 8
   },
   "orderedLedger": [
     {
@@ -181,6 +181,73 @@
       ],
       "contactUrl": "https://bodyartkally.com/bg/kontakti/",
       "findings": "Actual owner booking instruction reviewed first on home and full tariff: all Pilates studio classes require prior reservation and direct telephone is given. Actual current studio programme and selected Gravity Pilates page read by ordinary public GET after reader timeouts; full contact confirms sectorA/entrance1/hall2, not another stadium business. Complete Prices page distinguishes ordinary hall EUR8 admission from selected group Gravity EUR26 single; only reserved Gravity retained, no generic gym entry, private discipline or machine type inferred. Own 24h cancellation/no-show full-fee rule and MultiSport exclusion preserved. Programme interval not treated as guaranteed appointment duration, hours omitted. Contact enquiry form contains unresolved recaptcha, so explicit phone path selected without contact or booking. Footer/navigation show no separate terms link; no unshown terms claimed reviewed. No cookie acceptance, external social video, map, photos or coordinates."
+    },
+    {
+      "order": 13,
+      "id": "sofia-racket-speed-akademik-school",
+      "name": "БК Ракет Спийд · Академик",
+      "status": "verified",
+      "website": "https://racketspeedbg.com/",
+      "bookingUrl": "https://racketspeedbg.com/za-zapisvane/",
+      "serviceUrls": [
+        "https://racketspeedbg.com/detska-shkola/"
+      ],
+      "contactUrl": "https://racketspeedbg.com/kontakti/",
+      "findings": "Followed actual owner enrollment link first: full visible request form has child/adult interest, base choice, enrollment date and message; no field chosen, consent accepted or submission. Read complete owner child-school/tariff page, adult-services page, contacts, home and full linked privacy policy including initially truncated middle. Owner explicitly identifies separate real training bases, not coaches as businesses; only Sofia sites retained, RavnoPole/ElinPelin excluded. Selected fees are literal and venue-specific; first free trial excluded and monthly membership never divided into a visit fee. Training timetable is not general opening hours or guaranteed capacity. Registered office in privacy policy not substituted for sport premises; no personal staff contacts, Maps data, coordinates, photos or medical promises imported. Akademik monthly80EUR is separate from93SU50EUR/month or10EUR/single and Chelopechene40EUR/month. Actual named complex/oppositeFestivalna is exact published premise; no unsourced street/house number added."
+    },
+    {
+      "order": 14,
+      "id": "sofia-racket-speed-93su-geo-milev32",
+      "name": "БК Ракет Спийд · 93 СУ",
+      "status": "verified",
+      "website": "https://racketspeedbg.com/",
+      "bookingUrl": "https://racketspeedbg.com/za-zapisvane/",
+      "serviceUrls": [
+        "https://racketspeedbg.com/detska-shkola/"
+      ],
+      "contactUrl": "https://racketspeedbg.com/kontakti/",
+      "findings": "Followed actual owner enrollment link first: full visible request form has child/adult interest, base choice, enrollment date and message; no field chosen, consent accepted or submission. Read complete owner child-school/tariff page, adult-services page, contacts, home and full linked privacy policy including initially truncated middle. Owner explicitly identifies separate real training bases, not coaches as businesses; only Sofia sites retained, RavnoPole/ElinPelin excluded. Selected fees are literal and venue-specific; first free trial excluded and monthly membership never divided into a visit fee. Training timetable is not general opening hours or guaranteed capacity. Registered office in privacy policy not substituted for sport premises; no personal staff contacts, Maps data, coordinates, photos or medical promises imported. Own page explicitly calls93SU second Slatina training base at GeoMilev32 and publishes10EUR single besides50EUR/month. No individual/adapted-session fee inferred from that group-school price; enrollment request Sofia base plus message allows venue clarification, not an instant confirmed slot."
+    },
+    {
+      "order": 15,
+      "id": "sofia-racket-speed-chelopechene58",
+      "name": "БК Ракет Спийд · Челопечене",
+      "status": "verified",
+      "website": "https://racketspeedbg.com/",
+      "bookingUrl": "https://racketspeedbg.com/za-zapisvane/",
+      "serviceUrls": [
+        "https://racketspeedbg.com/detska-shkola/"
+      ],
+      "contactUrl": "https://racketspeedbg.com/kontakti/",
+      "findings": "Followed actual owner enrollment link first: full visible request form has child/adult interest, base choice, enrollment date and message; no field chosen, consent accepted or submission. Read complete owner child-school/tariff page, adult-services page, contacts, home and full linked privacy policy including initially truncated middle. Owner explicitly identifies separate real training bases, not coaches as businesses; only Sofia sites retained, RavnoPole/ElinPelin excluded. Selected fees are literal and venue-specific; first free trial excluded and monthly membership never divided into a visit fee. Training timetable is not general opening hours or guaranteed capacity. Registered office in privacy policy not substituted for sport premises; no personal staff contacts, Maps data, coordinates, photos or medical promises imported. Owner explicitly labels Sofia quarterChelopechene and exact AngelMadzharov58, not RavnoPole/ElinPelin. Literal40EUR/month visibly separated from the other base tariffs and exact Chelopechene choice exists in enrollment form."
+    },
+    {
+      "order": 16,
+      "id": "sofia-skoda-nadezhda-han-kubrat27",
+      "name": "Škoda Център · Надежда",
+      "status": "verified",
+      "website": "https://service.skoda-auto.bg/",
+      "bookingUrl": "https://service.skoda-auto.bg/sign-up-for-service",
+      "serviceUrls": [
+        "https://service.skoda-auto.bg/k-shkoda-tsentar-gr-sofiya",
+        "https://service.skoda-auto.bg/service-centers"
+      ],
+      "contactUrl": "https://service.skoda-auto.bg/k-shkoda-tsentar-gr-sofiya",
+      "findings": "Actual owner Book entry followed first, complete public service-visit request form read by ordinary GET after reader timeouts: vehicle/model/VIN, desired service description, desired day/month/year/time and service-centre field. Owner explicitly says centre list opens after required customer/car information; no data entered, selector choices/slots not falsely claimed inspected or confirmed. Full separate service-centre list binds exact Sofia street; this complete branch contact page independently lists actual GTP department and dedicated service-booking staff phone. Selected GTP numeric tariff not published on actual form, complete department/contact menu or linked service-centre pages; no linked GTP price menu found. This is selected-service-only unpublished receipt, not a claim all Skoda fees absent: maintenance programmes and tyre-storage tariffs exist; unrelated storage PDF returned502 and not used or relabelled unpublished. No model-specific promotion, retail part, tyre-hotel additional-only fee or staff alias imported. GTP department9–18weekdays schedule retained, not general-repair/body-shop hours. Footer contains only copyright/privacy link, no separate service-site terms link or acceptance claimed; no customer data, Maps, account or booking."
+    },
+    {
+      "order": 17,
+      "id": "sofia-skoda-druzhba-tsvetan-lazarov93",
+      "name": "Škoda Център · Дружба",
+      "status": "verified",
+      "website": "https://service.skoda-auto.bg/",
+      "bookingUrl": "https://service.skoda-auto.bg/sign-up-for-service",
+      "serviceUrls": [
+        "https://service.skoda-auto.bg/k-shkoda-tsentar-gr-sofiya2",
+        "https://service.skoda-auto.bg/service-centers"
+      ],
+      "contactUrl": "https://service.skoda-auto.bg/k-shkoda-tsentar-gr-sofiya2",
+      "findings": "Actual owner Book entry followed first, complete public service-visit request form read by ordinary GET after reader timeouts: vehicle/model/VIN, desired service description, desired day/month/year/time and service-centre field. Owner explicitly says centre list opens after required customer/car information; no data entered, selector choices/slots not falsely claimed inspected or confirmed. Full separate service-centre list binds exact Sofia street; this complete branch contact page independently lists actual GTP department and dedicated service-booking staff phone. Selected GTP numeric tariff not published on actual form, complete department/contact menu or linked service-centre pages; no linked GTP price menu found. This is selected-service-only unpublished receipt, not a claim all Skoda fees absent: maintenance programmes and tyre-storage tariffs exist; unrelated storage PDF returned502 and not used or relabelled unpublished. No model-specific promotion, retail part, tyre-hotel additional-only fee or staff alias imported. GTP department9–18weekdays schedule retained, not general-repair/body-shop hours. Footer contains only copyright/privacy link, no separate service-site terms link or acceptance claimed; no customer data, Maps, account or booking."
     }
   ],
   "pending": [
@@ -225,6 +292,125 @@
       "url": "https://athletic.bg/klubove/slivnica/",
       "status": "held_access_429",
       "reason": "Owner page returns429TooManyRequests; stopped, no retry or inferred individual fee. Generic gym admission not selected."
+    },
+    {
+      "name": "Next Level Sofia training branches",
+      "website": "https://www.nextlevelclub.bg/",
+      "status": "held_source_terms_review",
+      "reason": "Actual named BulgariaMall public calendar/read branch programme and contacts, FAQpriorbooking, city tariffs reviewed. Reformer20/30EUR explicitly marked Soon: not active import. OnlinePolicyPDF last page says no copy/store/distribute/third-party/commercial use of any site content without written consent; held for root policy adjudication, no branch imported.",
+      "sources": [
+        "https://www.nextlevelclub.bg/wp-content/uploads/2025/02/BG-Online-Platform-Policy.pdf",
+        "https://www.nextlevelclub.bg/reformer-pilates/",
+        "https://bulgariamall.nextlevelclub.bg/calendar"
+      ]
+    },
+    {
+      "name": "224 Reformer Pilates",
+      "website": "https://224reformerpilates.bg/",
+      "status": "held_actual_booking_js",
+      "reason": "Full owner tariff15EUR group/25EUR individual, Slatinska101Аfloor2 and+359988736464 read before reset. Actual owner-linked calendar unread JS; no independently recovered explicit phone-book instruction. Not an unpublished price case.",
+      "sources": [
+        "https://book.224reformerpilates.bg/calendar/public"
+      ]
+    },
+    {
+      "name": "CarbonCore",
+      "website": "https://www.carboncorestudio.com/",
+      "status": "held_owner_link_js",
+      "reason": "Owner body is JS shell. Named public merchant menu Essential15EUR50min/Mladost4block613/+359885944442 read, but actual owner-to-book link/body and exact hybrid-machine activity need rendered review. No standard Reformer/equipment or expiredNov7event fee inferred.",
+      "sources": [
+        "https://carboncorestudio.setmore.com/"
+      ]
+    },
+    {
+      "name": "AutoExpress 2",
+      "website": "https://autoexpress-2.com/",
+      "status": "held_actual_booking_and_premise",
+      "reason": "Actual observed Book link /rezervacia/ unread JS calendar. Full /czeni/ tariff and /obshti-usloviq/ read; company addressAmsterdam8 not independently corroborated as physical workshop. No tariff classified unpublished.",
+      "sources": [
+        "https://autoexpress-2.com/rezervacia/",
+        "https://autoexpress-2.com/czeni/",
+        "https://autoexpress-2.com/kontakt/",
+        "https://autoexpress-2.com/obshti-usloviq/"
+      ]
+    },
+    {
+      "name": "Тенис клуб Малееви",
+      "website": "https://maleeva.com/",
+      "status": "held_source_terms",
+      "reason": "Actual adult enrollment form/current02Nov20EUR55min and Vaptsarov57 independently read, but full owner terms§43 expressly includes databases and§45 prohibits publication/distribution of information resources absent express agreement. Scope text references academy domain while served on maleeva.com; mismatch not treated as permission. No record or fee imported.",
+      "sources": [
+        "https://maleeva.com/%D0%BE%D0%B1%D1%89%D0%B8-%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8F/"
+      ]
+    },
+    {
+      "name": "DEKRA Аутомотив · София",
+      "website": "https://dekra-automotive.bg/",
+      "status": "held_actual_booking_access",
+      "reason": "Actual Book /?c=reservation returned verification challenge; stopped, not bypassed. Home has public three-stage request fragment with unselected0 placeholder, not free service. Separate complete current01Oct tariff50EUR M1/+5EUR LPG and exactSuhodolska102 read, but no independently explicit phone-book instruction recovered. No admission or zero/slot-duration inference.",
+      "sources": [
+        "https://dekra-automotive.bg/?c=reservation",
+        "https://dekra-automotive.bg/%D0%B3%D0%BE%D0%B4%D0%B8%D1%88%D0%BD%D0%B8-%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8-%D0%BF%D1%80%D0%B5%D0%B3%D0%BB%D0%B5%D0%B4%D0%B8",
+        "https://dekra-automotive.bg/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8"
+      ]
+    },
+    {
+      "name": "MobileTIRES",
+      "website": "https://mobiletires.bg/",
+      "status": "held_known_price_menu_access",
+      "reason": "Actual home appointment form and explicit independent phone booking, full About/Contact and service area read. Actual owner Prices link /index.php/pricing/ returned verification challenge; stopped, no alternate path, no unpublished-price assertion.",
+      "sources": [
+        "https://mobiletires.bg/index.php/pricing/",
+        "https://mobiletires.bg/contact/",
+        "https://mobiletires.bg/za-nas/"
+      ]
+    },
+    {
+      "name": "Гуми до адрес",
+      "website": "https://gumidoadres.bg/",
+      "status": "held_access_dns",
+      "reason": "Reader home/tariff502; ordinary public owner GET cannot resolve domain. No bypass, speculative numeric rates, location clones or admission.",
+      "sources": [
+        "https://gumidoadres.bg/tsenorazpis/"
+      ]
+    },
+    {
+      "name": "FinishLine",
+      "website": "https://www.finishline.bg/",
+      "status": "held_access_dns",
+      "reason": "Reader502 and ordinary public owner GET cannot resolve domain; independent primary service/contact/booking review incomplete. No provider directory facts imported.",
+      "sources": [
+        "https://www.finishline.bg/"
+      ]
+    },
+    {
+      "name": "Bulfolio",
+      "website": "https://www.bulfolio.com/",
+      "status": "held_actual_booking_and_page_fallback",
+      "reason": "Owner home includes actualLesnikovaGora73/+359876568867 but only general enquiry, not explicit appointment instruction. Observed Contact/selectedDetailing/Terms links all return identical homepage shell; not falsely treated as full service/terms pages. Repeated290BGN tint-calculator fragments appear generic and are not imported. Needs actual rendered booking/service/menu review.",
+      "sources": [
+        "https://www.bulfolio.com/contacts",
+        "https://www.bulfolio.com/services/single/detailing",
+        "https://www.bulfolio.com/system-page/obshhi-usloviia"
+      ]
+    },
+    {
+      "name": "Таекуондо клуб Нерон",
+      "website": "https://tkdneron.com/",
+      "status": "held_incomplete_owner_source",
+      "reason": "Current own page is ComingSoon with phone only; complete current primary venue/service/enrollment tariff not recovered. Federation/third-party addresses alone not imported as two new branches.",
+      "sources": [
+        "https://tkdneron.com/"
+      ]
+    },
+    {
+      "name": "QBI Group",
+      "website": "https://www.qbigroup.com/",
+      "status": "held_sofia_venue_not_verified",
+      "reason": "Owner homepage says two GTP points but inspected page does not establish an actual Sofia service venue; Varna appears for separate parts operation. No Sofia address inferred and no whole operator declared outside solely from parts-business context.",
+      "sources": [
+        "https://www.qbigroup.com/"
+      ]
     }
   ],
   "rejected": [
@@ -263,6 +449,39 @@
       "url": "https://21-pilates.com/tseni-i-abonamenti/",
       "status": "rejected_outside_sofia",
       "reason": "Owner contact binds actual studio to Plovdiv, Ilarion Makariopolski25; EUR30 individual/explicit telephone instruction not imported as Sofia."
+    },
+    {
+      "name": "AIT Techcontrol",
+      "website": "https://ait-techcontrol.com/",
+      "status": "rejected_outside_sofia_city",
+      "reason": "Primary owner published location is DolniBogrov1855, Sofia region, not Sofia city68134. No city-quarter clone."
     }
-  ]
+  ],
+  "frozenOn": "2026-11-13",
+  "validation": {
+    "recordSchema": {
+      "passed": 17,
+      "rejected": 0
+    },
+    "pricingReceipts": {
+      "priceReviewedBusinesses": 7,
+      "serviceReviewedWithoutPublicPrices": 10,
+      "pending": 0
+    },
+    "sourceIntake": {
+      "ready": 17,
+      "pending": 0,
+      "rejected": 0
+    },
+    "dedupe": {
+      "liveRawCatalogueRows": 1363,
+      "otherNumberedIntakeFiles": 10,
+      "uniqueExistingRowsAudited": 1399,
+      "collisions": 0,
+      "nativeBusinessesNameAddressChecked": 6,
+      "nativeKnownPhonesChecked": 5
+    },
+    "coordinates": "All17 intake points remain null. No new geocoding, Maps data, private GPS or owner viewport coordinates used.",
+    "notes": "19 verified001 plus17 verified002 form36 retained unique businesses after explicitABCsource-terms hold. Original001/002 old-path patches mechanically restored from own authorized journal; current additions documented separately. No shared imports/identities/photos, production data, accounts, calls or bookings changed. Root final integration and assets remain pending."
+  }
 }

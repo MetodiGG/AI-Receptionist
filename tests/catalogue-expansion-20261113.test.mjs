@@ -175,7 +175,7 @@ test('neighborhood/category report counts businesses separately from services an
   assert.equal(report.comparison.addedServiceFacts, additions.reduce((count, row) => count + row.services.length, 0))
   assert.equal(report.comparison.addedByNeighborhood.reduce((count, row) => count + row.businesses, 0), additions.length)
   assert.equal(report.comparison.addedMobileProviders, additions.filter(row => row.locationKind === 'service_area').length)
-  assert.equal(report.comparison.addedByBusinessType['Психология и психотерапия'], 24)
+  assert.equal(report.comparison.addedByBusinessType['Психология и психотерапия'], 29)
   assert.equal(report.comparison.addedByBusinessType['Психиатрия'], 1)
   assert.equal(report.sourceRecords, baseline.sourceCount + additions.length)
   assert.equal(report.excludedGeneralClinics.length, 23)

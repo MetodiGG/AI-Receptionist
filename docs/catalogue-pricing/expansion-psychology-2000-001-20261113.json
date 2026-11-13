@@ -1,0 +1,18 @@
+{
+  "checkedOn": "2026-11-13",
+  "status": "frozen_imported_local_not_published",
+  "sourceModule": "lib/discovery/catalogue-data/neighborhood-psychology-2000-001-20261113.mjs",
+  "newBusinesses": 2,
+  "services": 3,
+  "publishedPrices": 0,
+  "reviewPolicy": "Actual own phone appointment invitation first, selected service pages, full contact and deeper fee/menu review next. Private psychological/psychiatric practices only; no general human clinics or staff clones. Minimal factual metadata, no source portraits, reviews, articles, health details or medical promises copied. No calls, forms, bookings, payments or notifications.",
+  "reviewed": [
+    { "id": "sofia-simeonova-psychotherapy-nansen29", "decision": "service_reviewed_not_price_reviewed", "sources": ["https://simeonova.info/", "https://simeonova.info/contacts/", "https://simeonova.info/answers-3/"], "serviceSource": "https://simeonova.info/%D0%B8%D0%BD%D0%B4%D0%B8%D0%B2%D0%B8%D0%B4%D1%83%D0%B0%D0%BB%D0%BD%D0%BE-%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%82%D0%B8%D1%80%D0%B0%D0%BD%D0%B5-%D0%B8-%D0%BF%D1%81%D0%B8%D1%85%D0%BE%D1%82%D0%B5/", "notes": "One shared psychological practice, not two businesses for two practitioners. Explicit advance booking to owner phone0877110741 at FridtjofNansen29. No numeric fee or fixed duration in full inspected own contact, service, home and FAQ. No visitor comment information retained." },
+    { "id": "sofia-valya-georgieva-kavarna8", "decision": "service_reviewed_not_price_reviewed", "sources": ["https://dr-georgieva.eu/", "https://dr-georgieva.eu/%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8", "https://dr-georgieva.eu/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8", "https://dr-georgieva.eu/%D0%BF%D0%BE%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%B0-%D0%B7%D0%B0-%D0%BF%D0%BE%D0%B2%D0%B5%D1%80%D0%B8%D1%82%D0%B5%D0%BB%D0%BD%D0%BE%D1%81%D1%82"], "notes": "Selected primary and follow-up consultations explicitly booked on owner phone0888673843. Owner consistently says Kavarna8, not third-party9. Current ordinary publicHTTPS200 contact and privacy read only after reader timeout/cache miss, no access restriction bypass. Full actual service/contact/home menu has no fee, calendar, fixed session length or weekly timetable. Only independently phrased consultation facts retained." }
+  ],
+  "held": [
+    { "website": "https://psihoterapia.org/", "name": "Център Промяна", "status": "held_selected_service_booking_invitation", "sources": ["https://psihoterapia.org/", "https://psihoterapia.org/%D1%86%D0%B5%D0%BD%D0%B8/", "https://psihoterapia.org/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/", "https://psihoterapia.org/%D0%BF%D1%81%D0%B8%D1%85%D0%B8%D0%B0%D1%82%D1%80%D0%B8%D1%87%D0%BD%D0%B8-%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%82%D0%B0%D1%86%D0%B8%D0%B8-%D0%B8-%D1%82%D0%B5%D1%80%D0%B0%D0%BF%D0%B8%D1%8F/"], "reason": "Own prices and exact6tiSeptemvri45floor1 contact read, but generic contact phone/form alone is not recorded as a proven explicit selected-service booking path. Psychiatry duration conflicts45min service vs general60min tariff: neither chosen. No record or invented duration imported." }
+  ],
+  "duplicateDomainsNotAdded": ["petyakrasteva.com", "angelnakov.com", "webpsycare.com", "vegabg.com", "adaptacia.info"],
+  "deduplication": "Compared actual runtime SOFIA_CATALOGUE domain, phone and premises plus all2000 intake modules before import; not file-only search."
+}

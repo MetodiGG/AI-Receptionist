@@ -49,8 +49,19 @@
     "unresolvedIncludingMobileProviders": 13,
     "review": "Each selected source street/house/suffix/entrance independently compared with its sole exact municipal row. Ordinary branch numbering and residential block numbering kept distinct."
   },
-  "totalNewCsvBindings": 81,
-  "combinedReviewedOfficialPoints": 582,
+  "next3RootBusinesses": { "newExactPostalBindings": 2, "unresolvedHeld": 1, "review": "Manually compared Tsaribrodska85 and ProfessorFridtjofNansen29 with the sole exact municipal row. Kavarna8 has no exact row; no substitute from third-party Kavarna9 accepted." },
+  "next14HomeEducationBusinesses": { "newExactPostalBindings": 7, "ambiguousHeld": 1, "unresolvedIncludingMobileProviders": 6, "review": "Full owner-sourced street/house/suffix manually compared. Exact BachoKiro5 entranceБ and StudentCity block55 entranceГ preserved; no guessed block/street-number conversion. Mur72 has two rows and remains held. SofiaMath source details remain held for lack of a currently confirmed paid intake, not counted or source-bound to a public record." },
+  "totalNewCsvBindings": 90,
+  "combinedReviewedOfficialPoints": 591,
+  "wholeEligibleInventoryAfterBindings": {
+    "eligibleBusinesses": 1415,
+    "withSourceBoundCoordinates": 789,
+    "withoutSourceBoundCoordinates": 626,
+    "unresolvedIncludingMobileProviders": 490,
+    "ambiguousExactPostalRowsHeld": 134,
+    "remainingUniquePostalRowsHeldForPhysicalSiteConfirmation": ["sofia-shining-polishing-auto", "sofia-katerene-europe-private"],
+    "review": "Offline matcher replayed over every currently eligible unlocated business, not just the new intake. No additional sole exact postal match remains unreviewed. The two unique held postal rows are the documented physical-site discrepancies below. Excluded general clinics are not restored or counted as businesses by matching an address."
+  },
   "spatialDiscrepancies": [
     {
       "id": "sofia-autoxpert",

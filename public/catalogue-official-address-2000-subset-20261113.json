@@ -11,10 +11,10 @@
   "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
   "sourceFeatureCount": 125245,
   "coordinatePrecisionDecimalPlaces": 6,
-  "scope": "81 manually reviewed unique exact postal matches for the first183 new businesses toward the2000-business milestone. Existing501 full-precision points unchanged. No external geocoding requests.",
+  "scope": "90 manually reviewed unique exact postal matches for the first200 new businesses toward the2000-business milestone. Existing501 full-precision points unchanged. No external geocoding requests.",
   "modifications": "Selected source records and bound to reviewed business address identities; coordinate values unchanged.",
   "semantics": "official_postal_address_points_not_verified_entrances",
-  "pointCount": 81,
+  "pointCount": 90,
   "points": [
     {
       "id": "sofia-910-nails-barber-vihren45a",
@@ -3051,6 +3051,348 @@
         "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
         "sourceUrls": [
           "https://thecorereformer.com/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-vladimir-kadankov-tsaribrodska85",
+      "name": "Владимир Кадънков · фотограф",
+      "coordinates": {
+        "latitude": 42.70202,
+        "longitude": 23.299999,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. Царибродска 85",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://kadankov.com/kadankov/",
+        "addressId": "48257",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "48257",
+        "region": "Възраждане",
+        "settlement": "гр. София",
+        "street": "ул. Царибродска",
+        "house": "85",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared the owner-published full street and house number with the sole exact municipal CSV row: Tsaribrodska85 and ProfessorFridtjofNansen29. No nearest/first/centroid or guessed entrance. Six-decimal source values unchanged; postal point, not verified business entrance.",
+        "sourceUrls": [
+          "https://kadankov.com/kadankov/portfolio/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-simeonova-psychotherapy-nansen29",
+      "name": "Емилия и Надя Симеонови · психологичен кабинет",
+      "coordinates": {
+        "latitude": 42.685477,
+        "longitude": 23.321379,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. Професор Фритьоф Нансен 29",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://simeonova.info/",
+        "addressId": "38730",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "38730",
+        "region": "Средец",
+        "settlement": "гр. София",
+        "street": "ул. Проф. Фритьоф Нансен",
+        "house": "29",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared the owner-published full street and house number with the sole exact municipal CSV row: Tsaribrodska85 and ProfessorFridtjofNansen29. No nearest/first/centroid or guessed entrance. Six-decimal source values unchanged; postal point, not verified business entrance.",
+        "sourceUrls": [
+          "https://simeonova.info/contacts/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-boeva-boeva-yanko-sofiyski11",
+      "name": "Адвокатска кантора Боева & Боева · Лозенец",
+      "coordinates": {
+        "latitude": 42.680936,
+        "longitude": 23.330005,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, кв. Лозенец, ул. Янко Софийски войвода 11",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Лозенец",
+        "sourceWebsite": "https://boevilaw.eu/",
+        "addressId": "1209",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "1209",
+        "region": "Лозенец",
+        "settlement": "гр. София",
+        "street": "ул. Янко Софийски войвода",
+        "house": "11",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared the owner-sourced full street/house suffix or explicit StudentCity block55 entranceГ with the sole exact municipal CSV row. EntranceБ for BachoKiro5 retained. No nearest/first/centroid or invented street number; six-decimal postal point, not verified business entrance.",
+        "sourceUrls": [
+          "https://boevilaw.eu/contact/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-boudinoff-boudinoff-baucher87",
+      "name": "Адвокатско дружество Будинов и Будинов",
+      "coordinates": {
+        "latitude": 42.670691,
+        "longitude": 23.316111,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, кв. Лозенец, бул. Джеймс Баучер 87",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Лозенец",
+        "sourceWebsite": "https://bb-lawoffice.com/",
+        "addressId": "2347",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "2347",
+        "region": "Лозенец",
+        "settlement": "гр. София",
+        "street": "бул. Джеймс Баучер",
+        "house": "87",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared the owner-sourced full street/house suffix or explicit StudentCity block55 entranceГ with the sole exact municipal CSV row. EntranceБ for BachoKiro5 retained. No nearest/first/centroid or invented street number; six-decimal postal point, not verified business entrance.",
+        "sourceUrls": [
+          "https://bb-lawoffice.com/thefirm/contact/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-soflaw-dotova-bozhinova-bacho-kiro5",
+      "name": "Адвокатска кантора Дотова & Божинова · SofLaw",
+      "coordinates": {
+        "latitude": 42.698416,
+        "longitude": 23.326583,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. Бачо Киро 5, вх.Б, ет.3, ап.13",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://soflaw.bg/",
+        "addressId": "45818",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "45818",
+        "region": "Оборище",
+        "settlement": "гр. София",
+        "street": "ул. Бачо Киро",
+        "house": "5",
+        "block": "",
+        "quarter": "",
+        "entrance": "Б"
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared the owner-sourced full street/house suffix or explicit StudentCity block55 entranceГ with the sole exact municipal CSV row. EntranceБ for BachoKiro5 retained. No nearest/first/centroid or invented street number; six-decimal postal point, not verified business entrance.",
+        "sourceUrls": [
+          "https://soflaw.bg/contact/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-gaidarova-orthodontics-toshev64b",
+      "name": "Ортодонтска клиника Гайдарова",
+      "coordinates": {
+        "latitude": 42.666958,
+        "longitude": 23.278337,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, Манастирски ливади – Запад, ул. Генерал Стефан Тошев 64Б",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Манастирски ливади",
+        "sourceWebsite": "https://breketi-sofia.com/",
+        "addressId": "96571",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "96571",
+        "region": "Витоша",
+        "settlement": "гр. София",
+        "street": "ул. Генерал Стефан Тошев",
+        "house": "64Б",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared the owner-sourced full street/house suffix or explicit StudentCity block55 entranceГ with the sole exact municipal CSV row. EntranceБ for BachoKiro5 retained. No nearest/first/centroid or invented street number; six-decimal postal point, not verified business entrance.",
+        "sourceUrls": [
+          "https://breketi-sofia.com/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-rodina-klokotnitsa29",
+      "name": "Родина · индивидуални уроци по математика",
+      "coordinates": {
+        "latitude": 42.707893,
+        "longitude": 23.318474,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. Клокотница 29",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://www.kursovete-bg.com/",
+        "addressId": "51656",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "51656",
+        "region": "Сердика",
+        "settlement": "гр. София",
+        "street": "ул. Клокотница",
+        "house": "29",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared the owner-sourced full street/house suffix or explicit StudentCity block55 entranceГ with the sole exact municipal CSV row. EntranceБ for BachoKiro5 retained. No nearest/first/centroid or invented street number; six-decimal postal point, not verified business entrance.",
+        "sourceUrls": [
+          "https://www.kursovete-bg.com/contact.html",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-iota-studentski-bl55",
+      "name": "Образователен център Йота",
+      "coordinates": {
+        "latitude": 42.644431,
+        "longitude": 23.339042,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, Студентски град, бл.55, вх.Г, откъм градинката",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Студентски град",
+        "sourceWebsite": "https://iotacentre.bg/",
+        "addressId": "32967",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "32967",
+        "region": "Студентски",
+        "settlement": "гр. София",
+        "street": "",
+        "house": "",
+        "block": "55",
+        "quarter": "ж.к. Студентски град",
+        "entrance": "Г"
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared the owner-sourced full street/house suffix or explicit StudentCity block55 entranceГ with the sole exact municipal CSV row. EntranceБ for BachoKiro5 retained. No nearest/first/centroid or invented street number; six-decimal postal point, not verified business entrance.",
+        "sourceUrls": [
+          "https://iotacentre.bg/contact-us/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-lozenetz-dental-bigla50",
+      "name": "Lozenetz Dental Clinic",
+      "coordinates": {
+        "latitude": 42.670785,
+        "longitude": 23.329016,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ж.к. Лозенец, ул. Бигла 50",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Лозенец",
+        "sourceWebsite": "https://lozenetzdentalclinic.com/",
+        "addressId": "1058",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "1058",
+        "region": "Лозенец",
+        "settlement": "гр. София",
+        "street": "ул. Бигла",
+        "house": "50",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared the owner-sourced full street/house suffix or explicit StudentCity block55 entranceГ with the sole exact municipal CSV row. EntranceБ for BachoKiro5 retained. No nearest/first/centroid or invented street number; six-decimal postal point, not verified business entrance.",
+        "sourceUrls": [
+          "https://lozenetzdentalclinic.com/kontakti/",
           "https://urbandata.sofia.bg/dataset/address_sofia-zip"
         ]
       },

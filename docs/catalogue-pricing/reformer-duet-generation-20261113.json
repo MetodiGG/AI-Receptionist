@@ -1,0 +1,9 @@
+{
+  "id": "sx-reformer-duet-session",
+  "label": "Дуетна тренировка на Reformer — двама трениращи и инструктор",
+  "tool": "built-in image_gen",
+  "sourceFile": "exec-ea953bac-e7ee-4419-a452-9bd70d30e05a.png",
+  "generatedOn": "2026-11-13",
+  "prompt": "Use case: photorealistic-natural. Asset type: square service thumbnail for a Bulgarian online-booking catalogue. Primary request: clearly show a DUET Pilates Reformer training session: exactly TWO adult women clients, each lying safely on her own separate real Pilates Reformer machine, plus ONE adult female instructor standing beside them supervising. No other clients or machines. Both clients doing a simple beginner footwork exercise, heads on headrests, knees comfortably bent, feet placed on the footbars; credible spring carriage, rails and straps, natural anatomy and hands. Instructor looks at their positioning with a calm attentive posture; no impossible contact or contorted movement. Scene: bright modest contemporary Pilates studio with soft daylight, wooden flooring and uncluttered pale neutral walls. Style: realistic candid editorial photograph with natural skin and fabric texture, not glamorous advertising. Composition: square 1:1, medium-wide eye-level three-quarter angle; exactly the two reformers and all three people clearly distinguishable and readable when downscaled to a small 60px thumbnail, main actions in central safe area. Constraints: no text, letters, brands, logos, watermark, notebook, clipboard, medical equipment or before-after claims. This is an illustrative example of the actual activity, not a specific business's premises or staff.",
+  "review": "Root visually inspected both the generated source and optimized 256px thumbnail: exactly two clients on two separate reformers and one supervising instructor, appropriate beginner footwork, no lettering or notebook. Accepted as an illustrative duet Reformer activity photograph."
+}

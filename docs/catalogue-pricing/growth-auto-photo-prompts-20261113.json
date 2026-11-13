@@ -1,0 +1,17 @@
+{
+  "tool": "built-in image_gen",
+  "generatedOn": "2026-11-13",
+  "scope": "Illustrative actual activities only, not particular equipment models or verified business work.",
+  "assets": [
+    {
+      "id": "sx-auto-filter-machine-cleaning",
+      "label": "Машинно почистване на свален DPF филтър или катализатор",
+      "prompt": "Use case: photorealistic-natural. Asset type: square 1:1 60px service thumbnail. Primary request: a realistic workshop process of machine-cleaning a removed automotive exhaust particulate-filter or catalyst housing. A fictional adult mechanic wearing protective work gloves and clear safety glasses checks a compact enclosed aqueous flow-cleaning machine. Main central subject is a credible generic metal cylindrical exhaust-filter housing clamped safely inside the machine's open service enclosure, inlet/outlet hoses securely connected; machine is idle for inspection, no spray toward the person. No brushing the outside as substitute, no reinstalling a filter, no on-car software regeneration or emissions removal. Close three-quarter crop of technician's gloved hands, metal housing and machine connections, legible in a tiny thumbnail. Natural warm-neutral workshop light and honest used-metal texture, editorial photorealism, no brand/model/text/logo/watermark/clipboard/notebook or outcome claims. Illustrative activity, not particular business equipment."
+    },
+    {
+      "id": "sx-auto-audio-navigation-module-repair",
+      "label": "Ремонт на автомобилен аудио или навигационен модул",
+      "prompt": "Use case: photorealistic-natural. Asset type: square 1:1 service thumbnail for 60px display. Primary request: realistic automotive electronics bench repair of a removed car audio/navigation head unit. A fictional adult technician's natural gloved hands using multimeter probes to test a component on the opened circuit board of a generic dashboard head unit on an antistatic mat. The detached unbranded head unit has a small dark screen and ordinary radio control knobs clearly visible beside its open electronic casing; no wire cutting or anti-theft bypass. Safe idle electronic testing, tidy small tools in soft background, macro three-quarter view, central head unit and hands legible at thumbnail scale. Photorealistic real materials, neutral warm workshop light. No vehicle engine bay, notebook, clipboard, labels, readable text, logos, watermarks, medical equipment or claims. Illustrative activity only, not specific brand, premises or verified work."
+    }
+  ]
+}

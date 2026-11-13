@@ -1,0 +1,703 @@
+{
+  "checkedOn": "2026-11-13",
+  "validUntil": "2027-02-11",
+  "scope": "Isolated new Sofia home-visit, education and booked nonmedical photo/creative appointments. No medical clinics, geocoding, Google/provider bulk data, photos, ratings, bookings, customer submissions or production writes.",
+  "summary": {
+    "records": 22,
+    "services": 27,
+    "priceRows": 24,
+    "priceReviewed": 20,
+    "unpricedServiceReviewed": 2,
+    "categories": {
+      "other": 4,
+      "education": 15,
+      "home_services": 3
+    },
+    "existingUnionRecords": 1203,
+    "pending": 12,
+    "rejected": 10
+  },
+  "dedupe": {
+    "basis": "Current SOFIA_CATALOGUE plus every staged neighborhood-*-20261113 module, excluding this new-next batch.",
+    "phoneMatches": "Only the five additional genuine Prestige teaching premises share an existing central phone; their addresses are distinct and explicitly offered in the own enrolment-base selector.",
+    "nativeCheck": "No native partner names among these candidates. Exact public phone/name/address checks are required again by integration; no private native data or user GPS was read."
+  },
+  "evidencePolicy": "Actual Book/enrolment entry first, then named services/prices/contact/footer. Missing fees qualify only with exact honest not_publicly_listed booking-and-services receipts. Blocked dynamic forms,403s,missing menus and price/validity conflicts stay pending. Declared office/reception/shop hours are not teaching hours. No automatic inventoryIdentity assigned; root owns shared integration/photos/static identity review.",
+  "accessReview": {
+    "mode": "Manual, bounded, public merchant page review through web reader and selected public HTTP GETs when the reader returned cache miss/timeout. No automated crawl, third-party submission, map fetch, customer action or geocoding.",
+    "robots": {
+      "attempted": [
+        "https://ima-koi.bg/robots.txt",
+        "https://remontnamebeli.com/robots.txt",
+        "https://vik-maistor.bg/robots.txt",
+        "https://www.caviar-couture.com/robots.txt"
+      ],
+      "result": "Web reader could not access these robots resources. Other robots files were not separately fetched. This is not a claim that crawling or reuse is authorized; no crawler was run."
+    },
+    "terms": "Read actual merchant booking restrictions when exposed (Caviar request-only confirmation, photo package conditions, Mnogoznayko general terms). Svetove course Conditions link is accessible coming-soon text. French contract/general conditions inaccessible and its conflicting package validity held. Setmore policy link returned same menu; no unseen cancellation rule claimed. No creative prose, photographs, customer reviews or ratings reused; public factual fields paraphrased. No blocked page was bypassed."
+  },
+  "ledger": [
+    {
+      "order": 1,
+      "id": "sofia-caviar-couture-sinanishko7",
+      "name": "Caviar Couture · индивидуални проби и модна консултация",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.caviar-couture.com/",
+        "https://caviarhautecouture.setmore.com/"
+      ],
+      "bookingEvidenceUrl": "https://www.caviar-couture.com/",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "coordinatesDecision": "null — no explicit owner marker established for this exact address",
+      "hoursDecision": "Not imported; no unambiguous weekly schedule for these services established.",
+      "notes": "Followed actual owner-linked Setmore booking entry and its named free one-hour fitting menu, then owner FAQ with explicit telephone reservations, free fittings and exact showroom street. Request calendar explicitly does not represent real availability. Deep slot URL returned cache miss, so record uses the separately explicit phone booking route. Owner showroom ends 19:00 but provider hours end 18:00; conflicting hours omitted. Retail garment prices are excluded."
+    },
+    {
+      "order": 2,
+      "id": "sofia-one-bulgarian-rose-parchevich39",
+      "name": "One Bulgarian Rose · дегустация и представяне",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://onebulgarianrose.com/",
+        "https://onebulgarianrose.com/rose-products-testing/",
+        "https://onebulgarianrose.setmore.com/"
+      ],
+      "bookingEvidenceUrl": "https://onebulgarianrose.com/rose-products-testing/",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "coordinatesDecision": "null — no explicit owner marker established for this exact address",
+      "hoursDecision": "Not imported; no unambiguous weekly schedule for these services established.",
+      "notes": "Actual Book Now leads to named merchant Setmore class menu with matching 40 minutes and EUR16, phone and exact shop address. Deep class slot URL was unavailable to the web reader; a separate owner instruction explicitly invites contact to book a testing, so telephone route is recorded, not an unreviewed availability promise. Own service page specifies English, up to twelve participants, arrival payment and allergy restriction. Summer-only start time and generic shop opening hours are not imported as year-round class hours. No reviews or photos copied."
+    },
+    {
+      "order": 3,
+      "id": "sofia-izgrev-lessons-buxton40",
+      "name": "Център Изгрев · индивидуални уроци",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://izgrev.netlify.app/"
+      ],
+      "bookingEvidenceUrl": "https://izgrev.netlify.app/",
+      "priceCount": 0,
+      "locationDecision": "premises",
+      "coordinatesDecision": "null — no explicit owner marker established for this exact address",
+      "hoursDecision": "Not imported; no unambiguous weekly schedule for these services established.",
+      "notes": "Owner one-page site contains explicit telephone enrolment, individual English and mathematics lessons up to grade12 and exact Buxton street. This row is only booked teaching, not summer childcare admission. Mon–Fri08:00–18:30 describes the childcare centre and is not claimed as the private lesson schedule. No additional price or booking page is linked for these lessons."
+    },
+    {
+      "order": 4,
+      "id": "sofia-ima-koi-furniture-home-visits",
+      "name": "Има Кой! · сглобяване на мебели",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://ima-koi.bg/"
+      ],
+      "bookingEvidenceUrl": "https://ima-koi.bg/",
+      "priceCount": 2,
+      "locationDecision": "service_area",
+      "coordinatesDecision": "null — no explicit owner marker established for this exact address",
+      "hoursDecision": "Only source-explicit hours applicable to imported services are included.",
+      "notes": "Reviewed actual on-page quote request first: furniture link/photo followed by callback and agreed visit. Explicit telephone booking and home-visit day/time steps are present. Public HTTP owner HTML was read because web extraction failed; current live range55–65 and45–65 overrides older indexed snippets, not a guessed conversion. FAQ explicitly says work daily09–21. Only one Sofia service-area row; no office/centroid invented and no sample project times imported as durations."
+    },
+    {
+      "order": 5,
+      "id": "sofia-refurnish-furniture-home-visits",
+      "name": "Re-furnish · монтаж и ремонт на мебели",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://remontnamebeli.com/montaj_na_mebeli.html"
+      ],
+      "bookingEvidenceUrl": "https://remontnamebeli.com/montaj_na_mebeli.html",
+      "priceCount": 2,
+      "locationDecision": "service_area",
+      "coordinatesDecision": "null — no explicit owner marker established for this exact address",
+      "hoursDecision": "Not imported; no unambiguous weekly schedule for these services established.",
+      "notes": "Named owner furniture-assembly service includes explicit Viber/telephone appointment instructions, exact ordinary fees and separate transport/labour/VAT exclusions. Imported two internally consistent dual-currency rows only. Upper kitchen-cabinet row has inconsistent BGN/EUR and is held out, not converted. Partial street without house number is not a public premises address: one Sofia home-visit record. Fragmented Mon/Fri footer labels do not establish a reliable service-week schedule; hours omitted."
+    },
+    {
+      "order": 6,
+      "id": "sofia-vik-maistor-bg-home-visits",
+      "name": "ВиК Майстор БГ · посещения на адрес",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://vik-maistor.bg/",
+        "https://vik-maistor.bg/kontakti/",
+        "https://vik-maistor.bg/ceni/"
+      ],
+      "bookingEvidenceUrl": "https://vik-maistor.bg/",
+      "priceCount": 2,
+      "locationDecision": "service_area",
+      "coordinatesDecision": "null — no explicit owner marker established for this exact address",
+      "hoursDecision": "Not imported; no unambiguous weekly schedule for these services established.",
+      "notes": "Followed owner quote/contact entry and read actual phone workflow, service menu and price conditions. Homepage explicitly distinguishes scheduled weekday planned repairs from24/7 emergencies. One provider across all Sofia; generic Krasna Polyana footer is not imported as a premises. Emergency24/7 cannot be encoded as ordinary appointment hours without conflating the two. Two literal from prices only; no diagnosis/arrival duration guessed."
+    },
+    {
+      "order": 7,
+      "id": "sofia-shkola-bel-tri-ushi1",
+      "name": "Школа БЕЛ · индивидуална подготовка",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://shkolabel.org/",
+        "https://shkolabel.org/контакти/",
+        "https://shkolabel.org/individual7kl/",
+        "https://shkolabel.org/individual12/"
+      ],
+      "bookingEvidenceUrl": "https://shkolabel.org/individual12/",
+      "priceCount": 2,
+      "locationDecision": "premises",
+      "coordinatesDecision": "null — no explicit owner marker established for this exact address",
+      "hoursDecision": "Not imported; no unambiguous weekly schedule for these services established.",
+      "notes": "Actual homepage enrol entry opens contact form with individual-preparation option; both grade-specific service/fee pages explicitly permit phone enrolment. Contact page publishes TriUshi1, not an inferred map coordinate. Each page separately states27EUR per40-minute academic hour, ten-hour advance package/agreed alternative, and mutually agreed visit length. Recommended80minutes is NOT fixed duration. No weekly teaching schedule published."
+    },
+    {
+      "order": 8,
+      "id": "sofia-atelie33a-james-bourchier33a",
+      "name": "Ателие 33А · рисуване за възрастни",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://atelie33.wordpress.com/"
+      ],
+      "bookingEvidenceUrl": "https://atelie33.wordpress.com/",
+      "priceCount": 0,
+      "locationDecision": "premises",
+      "coordinatesDecision": "null — no explicit owner marker established for this exact address",
+      "hoursDecision": "Only source-explicit hours applicable to imported services are included.",
+      "notes": "Owner WordPress page is both actual telephone enrolment and service description. Imported only explicitly prebooked adult course; published Tuesday–Thursday and earlier Saturday school periods are not mixed into this one-service schedule. Variable two-or-three-hour general visits do not establish a universal fixed lesson duration; duration field absent. Numeric prices genuinely not listed on the reviewed public page."
+    },
+    {
+      "order": 9,
+      "id": "sofia-yana-kazakova-trepetlika12",
+      "name": "Рисувай с Яна · Мечталище",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://urociporisuvane.eu/",
+        "https://urociporisuvane.eu/групи/",
+        "https://urociporisuvane.eu/цени/",
+        "https://urociporisuvane.eu/контакт/"
+      ],
+      "bookingEvidenceUrl": "https://urociporisuvane.eu/групи/",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "coordinatesDecision": "null — no explicit owner marker established for this exact address",
+      "hoursDecision": "Only source-explicit hours applicable to imported services are included.",
+      "notes": "Owner groups page separately identifies this actual teaching venue (София, ул. Трепетлика 12, читалище Мечталище), grade range, maximum group size and advance enrolment. Own website footer publishes booking phone and advance-registration requirement. Public HTTP was used after reader cache misses for groups/prices/contact; full pages were accessible. Ordinary25EUR two-hour single visit imported, not voucher,15EUR trial or85EUR attendance-bound package. Private home lesson venue and address are not published or inferred. No customer form submitted."
+    },
+    {
+      "order": 10,
+      "id": "sofia-yana-kazakova-soho-iskar4",
+      "name": "Рисувай с Яна · SOHO",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://urociporisuvane.eu/",
+        "https://urociporisuvane.eu/групи/",
+        "https://urociporisuvane.eu/цени/",
+        "https://urociporisuvane.eu/контакт/"
+      ],
+      "bookingEvidenceUrl": "https://urociporisuvane.eu/групи/",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "coordinatesDecision": "null — no explicit owner marker established for this exact address",
+      "hoursDecision": "Only source-explicit hours applicable to imported services are included.",
+      "notes": "Owner groups page separately identifies this actual teaching venue (София, ул. Искър 4, SOHO), grade range, maximum group size and advance enrolment. Own website footer publishes booking phone and advance-registration requirement. Public HTTP was used after reader cache misses for groups/prices/contact; full pages were accessible. Ordinary25EUR two-hour single visit imported, not voucher,15EUR trial or85EUR attendance-bound package. Private home lesson venue and address are not published or inferred. No customer form submitted."
+    },
+    {
+      "order": 11,
+      "id": "sofia-royana-art-tsar-samuil22",
+      "name": "Арт клуб Рояна",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.royana-bg.com/",
+        "https://www.royana-bg.com/рисуване-за-деца/",
+        "https://www.royana-bg.com/контакти/",
+        "https://www.royana-bg.com/рисуване-за-възрастни/"
+      ],
+      "bookingEvidenceUrl": "https://www.royana-bg.com/рисуване-за-деца/",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "coordinatesDecision": "null — no explicit owner marker established for this exact address",
+      "hoursDecision": "Only source-explicit hours applicable to imported services are included.",
+      "notes": "Read real telephone enrolment within specific children service page before the dedicated contact and ordinary single-visit tariff. Selected only explicit Saturday6–8year group11–12:30, not every child/adult opening hour.15EUR ordinary single visit differs from25EUR Sunday oils,55EUR four-lesson card and seasonal workshop/deposit; those are not substituted. Conflicting adult/teen Sunday durations do not affect imported Saturday group. No images, ratings or map points copied."
+    },
+    {
+      "order": 12,
+      "id": "sofia-prestige-motopista-vaccarini7a",
+      "name": "Езикова школа ПРЕСТИЖ · Мотописта",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.prestige.bg/",
+        "https://www.prestige.bg/zapisvane-deca-angliiski",
+        "https://www.prestige.bg/angliiski-1-3-klas",
+        "https://www.prestige.bg/contacts",
+        "https://www.prestige.bg/za-shkolata?tab=mprestige"
+      ],
+      "bookingEvidenceUrl": "https://www.prestige.bg/zapisvane-deca-angliiski",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "coordinatesDecision": "null — no explicit owner marker established for this exact address",
+      "hoursDecision": "Not imported; no unambiguous weekly schedule for these services established.",
+      "notes": "Actual enrolment form explicitly offers Мотописта as teaching-base selection; contact page separately confirms actual classes and this precise venue. Same named1–3grade programme page presents its2026/27 tuition range780–890EUR and explicitly lists these teaching bases; no unrelated branch or staff tariff inferred.55EUR book set separate. Price is whole annual programme, not per meeting. Source has inconsistent generic60/80-minute prose, so duration omitted. Administrative/test hours not teaching hours; weekly availability not invented. Existing Manastirski/Borovo/Buxton records excluded."
+    },
+    {
+      "order": 13,
+      "id": "sofia-prestige-dondukov57g",
+      "name": "Езикова школа ПРЕСТИЖ · Паметник Левски",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.prestige.bg/",
+        "https://www.prestige.bg/zapisvane-deca-angliiski",
+        "https://www.prestige.bg/angliiski-1-3-klas",
+        "https://www.prestige.bg/contacts",
+        "https://www.prestige.bg/za-shkolata?tab=mprestige"
+      ],
+      "bookingEvidenceUrl": "https://www.prestige.bg/zapisvane-deca-angliiski",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "coordinatesDecision": "null — no explicit owner marker established for this exact address",
+      "hoursDecision": "Not imported; no unambiguous weekly schedule for these services established.",
+      "notes": "Actual enrolment form explicitly offers Паметник Левски as teaching-base selection; contact page separately confirms actual classes and this precise venue. Same named1–3grade programme page presents its2026/27 tuition range780–890EUR and explicitly lists these teaching bases; no unrelated branch or staff tariff inferred.55EUR book set separate. Price is whole annual programme, not per meeting. Source has inconsistent generic60/80-minute prose, so duration omitted. Administrative/test hours not teaching hours; weekly availability not invented. Existing Manastirski/Borovo/Buxton records excluded."
+    },
+    {
+      "order": 14,
+      "id": "sofia-prestige-mladost-malinov51",
+      "name": "Езикова школа ПРЕСТИЖ · Младост",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.prestige.bg/",
+        "https://www.prestige.bg/zapisvane-deca-angliiski",
+        "https://www.prestige.bg/angliiski-1-3-klas",
+        "https://www.prestige.bg/contacts",
+        "https://www.prestige.bg/za-shkolata?tab=mprestige"
+      ],
+      "bookingEvidenceUrl": "https://www.prestige.bg/zapisvane-deca-angliiski",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "coordinatesDecision": "null — no explicit owner marker established for this exact address",
+      "hoursDecision": "Not imported; no unambiguous weekly schedule for these services established.",
+      "notes": "Actual enrolment form explicitly offers Младост as teaching-base selection; contact page separately confirms actual classes and this precise venue. Same named1–3grade programme page presents its2026/27 tuition range780–890EUR and explicitly lists these teaching bases; no unrelated branch or staff tariff inferred.55EUR book set separate. Price is whole annual programme, not per meeting. Source has inconsistent generic60/80-minute prose, so duration omitted. Administrative/test hours not teaching hours; weekly availability not invented. Existing Manastirski/Borovo/Buxton records excluded."
+    },
+    {
+      "order": 15,
+      "id": "sofia-prestige-lyulin160",
+      "name": "Езикова школа ПРЕСТИЖ · Люлин 10",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.prestige.bg/",
+        "https://www.prestige.bg/zapisvane-deca-angliiski",
+        "https://www.prestige.bg/angliiski-1-3-klas",
+        "https://www.prestige.bg/contacts",
+        "https://www.prestige.bg/za-shkolata?tab=mprestige"
+      ],
+      "bookingEvidenceUrl": "https://www.prestige.bg/zapisvane-deca-angliiski",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "coordinatesDecision": "null — no explicit owner marker established for this exact address",
+      "hoursDecision": "Not imported; no unambiguous weekly schedule for these services established.",
+      "notes": "Actual enrolment form explicitly offers Люлин 10 as teaching-base selection; contact page separately confirms actual classes and this precise venue. Same named1–3grade programme page presents its2026/27 tuition range780–890EUR and explicitly lists these teaching bases; no unrelated branch or staff tariff inferred.55EUR book set separate. Price is whole annual programme, not per meeting. Source has inconsistent generic60/80-minute prose, so duration omitted. Administrative/test hours not teaching hours; weekly availability not invented. Existing Manastirski/Borovo/Buxton records excluded."
+    },
+    {
+      "order": 16,
+      "id": "sofia-prestige-vazrazhdane-bl2",
+      "name": "Езикова школа ПРЕСТИЖ · Зона Б-5",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.prestige.bg/",
+        "https://www.prestige.bg/zapisvane-deca-angliiski",
+        "https://www.prestige.bg/angliiski-1-3-klas",
+        "https://www.prestige.bg/contacts",
+        "https://www.prestige.bg/za-shkolata?tab=mprestige"
+      ],
+      "bookingEvidenceUrl": "https://www.prestige.bg/zapisvane-deca-angliiski",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "coordinatesDecision": "null — no explicit owner marker established for this exact address",
+      "hoursDecision": "Not imported; no unambiguous weekly schedule for these services established.",
+      "notes": "Actual enrolment form explicitly offers Зона Б-5 as teaching-base selection; contact page separately confirms actual classes and this precise venue. Same named1–3grade programme page presents its2026/27 tuition range780–890EUR and explicitly lists these teaching bases; no unrelated branch or staff tariff inferred.55EUR book set separate. Price is whole annual programme, not per meeting. Source has inconsistent generic60/80-minute prose, so duration omitted. Administrative/test hours not teaching hours; weekly availability not invented. Existing Manastirski/Borovo/Buxton records excluded."
+    },
+    {
+      "order": 17,
+      "id": "sofia-english-world-tsar-shishman43",
+      "name": "English World Academy · Цар Шишман",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://englishworldacademy.com/",
+        "https://englishworldacademy.com/записване/",
+        "https://englishworldacademy.com/индивидуално-обучение/",
+        "https://englishworldacademy.com/контакти/"
+      ],
+      "bookingEvidenceUrl": "https://englishworldacademy.com/записване/",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "coordinatesDecision": "null — no explicit owner marker established for this exact address",
+      "hoursDecision": "Not imported; no unambiguous weekly schedule for these services established.",
+      "notes": "Read actual free interview appointment form with preferred consultation time, then individual tuition tariff and contact/footer. The individual service explicitly permits choosing between BOTH teaching offices (София, ул. Цар Шишман 43); separate contact confirms both addresses and centralizes interview/enrolment at TsarShishman43. Ordinary20.45EUR per academic hour with ten-hour course minimum retained; not the price of an entire course. Academic-hour minutes and weekly teaching hours are not specified, so none inferred. No submission, calendar availability or third office claimed."
+    },
+    {
+      "order": 18,
+      "id": "sofia-english-world-slavyanska9",
+      "name": "English World Academy · Славянска",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://englishworldacademy.com/",
+        "https://englishworldacademy.com/записване/",
+        "https://englishworldacademy.com/индивидуално-обучение/",
+        "https://englishworldacademy.com/контакти/"
+      ],
+      "bookingEvidenceUrl": "https://englishworldacademy.com/записване/",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "coordinatesDecision": "null — no explicit owner marker established for this exact address",
+      "hoursDecision": "Not imported; no unambiguous weekly schedule for these services established.",
+      "notes": "Read actual free interview appointment form with preferred consultation time, then individual tuition tariff and contact/footer. The individual service explicitly permits choosing between BOTH teaching offices (София, ул. Славянска 9); separate contact confirms both addresses and centralizes interview/enrolment at TsarShishman43. Ordinary20.45EUR per academic hour with ten-hour course minimum retained; not the price of an entire course. Academic-hour minutes and weekly teaching hours are not specified, so none inferred. No submission, calendar availability or third office claimed."
+    },
+    {
+      "order": 19,
+      "id": "sofia-fotovideo-elite-dimitar-tsolov9",
+      "name": "Студио Фото Видео Елит · София",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://fotovideoelite.com/foto-studio-sofia/",
+        "https://fotovideoelite.com/detski-i-semeini-fotosesii/",
+        "https://fotovideoelite.com/kontakti/",
+        "https://fotovideoelite.com/koledni-fotosesii-sofia-2026/"
+      ],
+      "bookingEvidenceUrl": "https://fotovideoelite.com/detski-i-semeini-fotosesii/",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "coordinatesDecision": "null — no explicit owner marker established for this exact address",
+      "hoursDecision": "Not imported; no unambiguous weekly schedule for these services established.",
+      "notes": "Followed actual service enquiry/booking contact and read the named Sofia-studio programme, dedicated family/child package menu and contact. This exact menu independently repeats the Sofia booking phone, so no Plovdiv branch tariff inferred.39EUR is whole five-image/print package, not individual print or shop admission. Maximum one hour is not fixed duration. Christmas menu reviewed but no seasonal offer imported. Contact has no weekly studio/appointment schedule; no hours guessed and no maps opened."
+    },
+    {
+      "order": 20,
+      "id": "sofia-photobox-sevdalina-georgi-yolov15",
+      "name": "PhotoBox by Sevdalina · София",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.photobox.bg/",
+        "https://www.photobox.bg/kontakti",
+        "https://www.photobox.bg/fotograf-novorodeni-sofia"
+      ],
+      "bookingEvidenceUrl": "https://www.photobox.bg/kontakti",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "coordinatesDecision": "null — no explicit owner marker established for this exact address",
+      "hoursDecision": "Not imported; no unambiguous weekly schedule for these services established.",
+      "notes": "Actual Save Photoshoot entry opens owner enquiry form with city, service and birth-term inputs. Separate Sofia newborn service page confirms350EUR SmallMoments, ninety minutes, ten images/prints and scheduling around birth; not the Ruse price guessed from a chain-wide page. Contact explicitly lists a separate Sofia studio atGeorgiYolov15; only that actual venue imported. Generic weekday09–16 follows both city blocks and cannot safely be assigned to Sofia visits, so omitted. No guide-download newsletter signup submitted; Instagram embeds/photos ignored."
+    },
+    {
+      "order": 21,
+      "id": "sofia-svetove-tsar-boris287",
+      "name": "Учебен център Светове · пиано за деца",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://svetove.bg/",
+        "https://svetove.bg/pages-8-ceni",
+        "https://svetove.bg/pages-3-piano",
+        "https://svetove.bg/pages-4-usloviia",
+        "https://svetove.bg/contacts"
+      ],
+      "bookingEvidenceUrl": "https://svetove.bg/pages-8-ceni",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "coordinatesDecision": "null — no explicit owner marker established for this exact address",
+      "hoursDecision": "Not imported; no unambiguous weekly schedule for these services established.",
+      "notes": "Owner piano-price section itself is the year-round telephone enrolment entry and gives18EUR/30minutes; owner contact separately confirmsTsarBorisIII287. Ordinary rate imported, not conditional16EUR sibling/combined rate. Discovery merchant profile elsewhere carried an older15.34EUR figure; only current own-site tariff is used, no third-party fee copied. Own Conditions link is an accessible coming-soon placeholder, not hidden pricing. No lesson-week hours published on price/service/contact/footer. Piano age range4.5–7 is explicit owner header, not inferred from general language-course ages."
+    },
+    {
+      "order": 22,
+      "id": "sofia-mnogoznayko-dimitar-petkov72g",
+      "name": "Учебен център Многознайко · Димитър Петков",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://mnogoznayko.bg/",
+        "https://mnogoznayko.bg/urotsi/proben-urok/",
+        "https://mnogoznayko.bg/urotsi/individualni-urotsi/individualni-urotsi/",
+        "https://mnogoznayko.bg/tseni/",
+        "https://mnogoznayko.bg/za-nas/tsentar/",
+        "https://mnogoznayko.bg/kontakt/",
+        "https://mnogoznayko.bg/obshti-usloviya"
+      ],
+      "bookingEvidenceUrl": "https://mnogoznayko.bg/urotsi/individualni-urotsi/individualni-urotsi/",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "coordinatesDecision": "null — no explicit owner marker established for this exact address",
+      "hoursDecision": "Not imported; no unambiguous weekly schedule for these services established.",
+      "notes": "Actual enrolment form and explicit phone booking reviewed before individual-lesson inventory and dedicated tariff. Imported only central teaching venue independently confirmed by location/contact and exact service footer; Mladost/OvchaKupel are not cloned.139.27EUR is the whole4-astronomical-hour subscription valid up to30days, not per visit; the page explicitly permits multiple subjects/two siblings. Different academic-hour packs and generic trial-page single rates are not equated. Terms require team callback confirmation and protect confirmed fees; no copied media/creative text or customer submission. No weekly lesson hours published."
+    },
+    {
+      "order": 23,
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "name": "Академия Роботика · София (4 teaching locations)",
+      "primaryEvidence": [
+        "https://robotika.bg/kursove?dir=dev",
+        "https://robotika.bg/robotika-5-6",
+        "https://robotika.bg/register-course?group=02pgrlb99",
+        "https://robotika.bg/kontakti"
+      ],
+      "notes": "Named own course shows location-specific November2026 groups and public package fees including ManastirskiFlora1A. Actual registration deep link returned reader cache miss; a direct public HTTP read returned only the generic course chooser, not selected-group form fields. IAB browser was unavailable. Phone contact is generic course assistance, not independently established reservation instruction. Hold booking-flow completion, NOT not_publicly_listed. DevAcademy redirects to Robotika and Smetalo is a linked direction, not additional citywide clones."
+    },
+    {
+      "order": 24,
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "name": "АБВ Академия · Sofia teaching branches",
+      "primaryEvidence": [
+        "https://abvacademy.com/",
+        "https://abvacademy.com/robotika_deca/",
+        "https://abvacademy.com/robo-schedule-borovo/"
+      ],
+      "notes": "Own service offers pre-registration and sixty-minute LEGO4–6year lessons. Schedule link was followed first but accessible page extraction exposes headings, not actual registration/fees. Course and homepage disagree on Strelishte venue (YordanYovkov13 versus Tulcha20) and present different Reduta/GeoMilev bases. Generic phone alone not imported. No inference of a common tariff or hours; no unavailable tariff called unpublished."
+    },
+    {
+      "order": 25,
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "name": "Tutti Frutti Creative Studio",
+      "primaryEvidence": [
+        "https://tuttifrutticreative.com/"
+      ],
+      "notes": "Own site publishes GeorgiMinchev40–42 and detailed photo tariffs/deposit/portfolio terms. Contact iframe resolves to an own email-form component but complete appointment path was not reviewed; phone is generic contact, so no finished record. No images/reviews copied. Need appointment-path verification and exact ordinary service qualifications before inclusion."
+    },
+    {
+      "order": 26,
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "name": "Френски институт · индивидуални курсове",
+      "primaryEvidence": [
+        "https://institutfrancais.bg/foire-aux-questions/",
+        "https://institutfrancais.bg/zapisvane/",
+        "https://institutfrancais.bg/kursove-za-vazrastni/",
+        "https://institutfrancais.bg/individualni-kursove/",
+        "https://institutfrancais.bg/kursove-ceni/"
+      ],
+      "notes": "Explicit individual-course telephone scheduling and Slaveykov3 premises confirmed. Current individual package table says first package used within3months, next within6months; Important section instead says10-hour package valid1year. Contract PDF and general conditions reader returned cache misses. Hold conflicting package-validity terms; do not replace a published tariff with an unpublished receipt. Information-office hours are not teaching hours."
+    },
+    {
+      "order": 27,
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "name": "SkyClean",
+      "primaryEvidence": [
+        "https://skycleanbg.com/",
+        "https://skycleanbg.com/bg/contacts/",
+        "https://skycleanbg.com/bg/uslugi/prane-na-mebeli/",
+        "https://skycleanbg.com/bg/uslugi/pochistvane-sled-remont/"
+      ],
+      "notes": "Accessible owner upholstery page has literalBGN fees and machine-extraction method. Cleaning-after-renovation page returned403; stopped that path. ReserveNow refers to a promo marked valid throughMay; generic quote/contact does not yet establish a current scheduled furniture-cleaning request. Contact shows08–18 without weekdays. Hold, not not_publicly_listed; office address would not be turned into home-service premises."
+    },
+    {
+      "order": 28,
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "name": "HandymanSofia",
+      "primaryEvidence": [
+        "https://handymansofia.com/"
+      ],
+      "notes": "Search index described appointed visits and detailed fixed prices, but current public body exposes only a brief services list and phone. No actual Book entry or named-service booking instructions/price table established from accessible page. Hold, not unpublished."
+    },
+    {
+      "order": 29,
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "name": "ФотоМясто · ирисова фотография",
+      "primaryEvidence": [
+        "https://fotomiasto.com/",
+        "https://fotomiasto.com/services/ирисова-фотография/"
+      ],
+      "notes": "Own public HTTP service page confirms HristoSmirnenski16, literal photography-plus-print packages and actual reservation anchor. Reservation section is an empty WSForm canvas without visible booking fields in available reader; no browser renderer was available. No request to its submission endpoint, maps or image reuse. Need rendered flow/contact/hours review; no price absence claim."
+    },
+    {
+      "order": 30,
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "name": "West Studio · supersnimki.com",
+      "primaryEvidence": [
+        "https://www.supersnimki.com/",
+        "https://www.supersnimki.com/services",
+        "https://www.supersnimki.com/booking"
+      ],
+      "notes": "Owner service menu has160EUR outdoor portrait package and mobile Sofia activity, but actual Book page public HTTP only contains contact invitation without form fields or telephone. Website reader deep booking URL returned cache miss. Hold real appointment path, do not import generic contact-only listing."
+    },
+    {
+      "order": 31,
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "name": "Got Your English?",
+      "primaryEvidence": [
+        "https://gotyourenglish.com/",
+        "https://gotyourenglish.com/contact/"
+      ],
+      "notes": "Own site confirms KlimеntDenchev11 and English lessons in Sofia, but actual contact entry is labelled ContactFormDemo and generic goal discussion. Named course menus/fees/current reserved lesson flow not completed. No third-party opening hours or ratings used."
+    },
+    {
+      "order": 32,
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "name": "Sofia Clean Agency",
+      "primaryEvidence": [
+        "https://sofiaclean.bg/"
+      ],
+      "notes": "Search index suggests advance cleaning requests but own homepage read timed out. Actual booking/services/fees/contact not completed; no not_publicly_listed receipt."
+    },
+    {
+      "order": 33,
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "name": "Учебен център Казбек",
+      "primaryEvidence": [
+        "https://uchcentarkazbek.com/"
+      ],
+      "notes": "Own-domain attempt was inaccessible; no primary booking/services/address review completed. Third-party teacher-directory fee/address snippets were discovery leads only, not imported."
+    },
+    {
+      "order": 34,
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "name": "Многознайко · Младост/Овча купел",
+      "primaryEvidence": [
+        "https://mnogoznayko.bg/kontakt/",
+        "https://mnogoznayko.bg/za-nas/tsentar/",
+        "https://mnogoznayko.bg/urotsi/individualni-urotsi/individualni-urotsi/"
+      ],
+      "notes": "Central venue only included. Contact lists Mladost2Perlite261B separately, but its branch-specific service/enrolment/fee applicability was not completed; OvchaKupel street not established. No automatic branch cloning."
+    },
+    {
+      "order": 35,
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "name": "Music Box · old Wix site",
+      "primaryEvidence": [
+        "https://musicboxbg.wixsite.com/musicbox",
+        "https://www.music-box.bg/"
+      ],
+      "notes": "Old Wix contact/service pages returned cache misses; matching owner email and current own site establish same MusicBox business already included atSinanishkoEzero9A andMladost. OldLavskiRid12 address is not a new provider or new currently verified branch."
+    },
+    {
+      "order": 36,
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "name": "Bella’s Photography / GO CLEAN / Бесните Чистачи",
+      "primaryEvidence": [
+        "https://bellas.bg/",
+        "https://gocleanbg.com/",
+        "https://besnitechistachi.bg/ogled"
+      ],
+      "notes": "Exact own websites/phones already in the1203-record union. No duplicate records. Their indexed prices/hours/media are not reused for this batch."
+    },
+    {
+      "order": 37,
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "name": "Арт Студио Калина · .com alias",
+      "primaryEvidence": [
+        "https://artstudiokalina.com/"
+      ],
+      "notes": "Exact same published phone0894240622 and ChavdarMutafov22 as existingartstudiokalina.eu record. Domain alias is not another business."
+    },
+    {
+      "order": 38,
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "name": "ПРЕСТИЖ · Манастирски ливади / Борово / Бъкстон",
+      "primaryEvidence": [
+        "https://www.prestige.bg/contacts",
+        "https://www.prestige.bg/angliiski-1-3-klas"
+      ],
+      "notes": "The three existing southern teaching branches are excluded. Only five other real teaching premises separately confirmed in contact and enrolment selector are new."
+    },
+    {
+      "order": 39,
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "name": "Biser Stroy Group",
+      "primaryEvidence": [
+        "https://www.biser-stroy.com/",
+        "https://www.biser-stroy.com/pages/kurti-chisti-izvozva-sofiq/ceni"
+      ],
+      "notes": "Owner explicitly labels itself part ofBGKanaliGroup, already in catalogue. Distinct independent provider identity not established; no second citywide clone for another marketed service domain."
+    },
+    {
+      "order": 40,
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "name": "Vironelis / МебелСервиз БГ",
+      "primaryEvidence": [
+        "https://www.vironelis.com/"
+      ],
+      "notes": "Discovery only: indexed service template contains suspicious geographic telephone formatting and uncorroborated identity. No complete primary-source booking/business verification; not included."
+    },
+    {
+      "order": 41,
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "name": "MVP Studio / Fantasia · Казичене",
+      "primaryEvidence": [
+        "https://www.mvpstudioo.com/koledni-fotosesii/",
+        "https://fantasiaphotography.mypixieset.com/koledni_fotosesii_2026/"
+      ],
+      "notes": "Discovery only: source identifies studios in Kazichene, a separate settlement rather than an established68134 Sofia premises. Not assigned Sofia cityCode or invented citywide duplicate. Seasonal price/discount facts not imported."
+    },
+    {
+      "order": 42,
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "name": "6trak / PhotoStudioNana / DianaStrumin",
+      "primaryEvidence": [
+        "https://6trak.bg/",
+        "https://photostudionana.com/",
+        "https://dianastrumin.com/"
+      ],
+      "notes": "Existing exact businesses in union:6trakStudio,PhotoStudioNanaCentre,DianaStruminStrelbishte. No repeated premises/phone."
+    },
+    {
+      "order": 43,
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "name": "Other indexed already-covered home/education leads",
+      "primaryEvidence": [
+        "https://www.cleaningsofia.com/prices",
+        "https://sofia.vasilevi-clean.com/",
+        "https://aledorabg.com/",
+        "https://booking.bgprane.com/",
+        "https://citymusic-school.com/уроци/",
+        "https://www.music-box.bg/"
+      ],
+      "notes": "Discovery dedupe matched existing CleaningSofia,VasileviClean,ALEDORA,BgPrane,CityMusicSchool and currentMusicBox. Indexed refreshed tariffs are outside this new-listing scope and not silently patched into prior records."
+    },
+    {
+      "order": 44,
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "name": "Provider marketplaces / ordinary admission",
+      "primaryEvidence": [
+        "https://dosadno.bg/uslugi/assembly/sofia",
+        "https://www.kabinata.bg/ceni/"
+      ],
+      "notes": "Discovery only. Dosadno says it is still recruiting assemblers for this category and has no actual average job fees; not a verified named appointment provider. Kabinata subscription access alone not a distinct Sofia premises/private appointment business. No bulk provider copying."
+    }
+  ]
+}

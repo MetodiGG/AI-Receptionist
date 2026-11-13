@@ -1,0 +1,651 @@
+{
+  "checkedOn": "2026-11-13",
+  "reviewer": "/root",
+  "scope": "49 previously unbound NEW intake records only. Existing identities and historical baseline unchanged. Manually compared literal service inventories, fee qualifiers, booking targets and dated source-research receipts; public unpriced services require explicit inspected-booking/service evidence, never blocked-menu inference.",
+  "records": [
+    {
+      "id": "sofia-iveta-rangelova-sveta-nedelya16",
+      "inventoryIdentity": "d8cdc07cb88f5d07ef9f614c76029a6ed3709642457c01a01586f7d18c68c5fa",
+      "services": 2,
+      "priceRows": 2,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://www.iveta.bg/",
+        "https://www.iveta.bg/contact/",
+        "https://www.iveta.bg/nachin-na-rabota-iveta-rangelova-psiholog/ceni-terapiq/"
+      ],
+      "sourceReceiptNotes": "Reviewed actual booking/contact form and ordinary therapy tariffs. Individual appointment is 50 EUR/50 minutes, couples 60 EUR/60 minutes; missed appointment without 24-hour notice is payable. The stated weekdays 09–18 are telephone availability/callback instructions, not a confirmed therapy schedule, so no openingHours imported."
+    },
+    {
+      "id": "sofia-tsveta-topuzlieva-gladston32",
+      "inventoryIdentity": "38c714598dfa1d63c1026a90d79b79e54fdf353cadb6544e40d46db3b43c74af",
+      "services": 1,
+      "priceRows": 1,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://ttherapy.bg/",
+        "https://ttherapy.bg/contact/",
+        "https://ttherapy.bg/kakvo-da-ochakvate/",
+        "https://ttherapy.bg/kognitivno-povedencheska-terapia/"
+      ],
+      "sourceReceiptNotes": "Reviewed actual phone-booking instructions, initial-consultation process and ordinary 60 EUR/60-minute and 85 EUR/90-minute options. Imported only the 60-minute session. Telephone answering window 09–10 weekdays is explicitly not therapy opening hours; no weekly consultation schedule guessed."
+    },
+    {
+      "id": "sofia-metamorfozia-elena-nikolova-pop-bogomil49",
+      "inventoryIdentity": "268931cd71327b6f9f7d880aa9a2de4247f7d2344d63607a125f805ecbd5e6dc",
+      "services": 1,
+      "priceRows": 0,
+      "state": "service_reviewed",
+      "reviewedUrls": [
+        "https://www.metamorfozia.com/",
+        "https://www.metamorfozia.com/kontakti",
+        "https://www.metamorfozia.com/individualna-psihoterapia",
+        "https://www.metamorfozia.com/kontakt/"
+      ],
+      "sourceReceiptNotes": "Reviewed current booking inquiry form and individual-psychotherapy page, not only homepage. Current service/booking pages give 45-minute sessions with adults and no public numeric consultation fee. Legacy contact URL publishes hours, while current contact page does not; left weekly schedule absent instead of assuming legacy hours remain current."
+    },
+    {
+      "id": "sofia-adaptacia-tsar-simeon13",
+      "inventoryIdentity": "88dfbcb165ffcae4444747ee266b9d9f37e0be50ad8006ca7ec7f7dbb00285c4",
+      "services": 1,
+      "priceRows": 1,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://www.adaptacia.info/",
+        "https://www.adaptacia.info/ceni/",
+        "https://www.adaptacia.info/kontakti/"
+      ],
+      "sourceReceiptNotes": "Reviewed own booking/contact instructions and complete tariff; only psychology/psychotherapy imported, not general human medical specialties. 50 EUR standard psychological session is up to 50 minutes, so not encoded as exact duration. Cancellation is payable unless notice at least one day ahead. Actual practice hours 09–19 weekdays confirmed on contact page."
+    },
+    {
+      "id": "sofia-orpheus-psychotherapy-shipchenski52",
+      "inventoryIdentity": "dcff57d54507b0ec58b0d1bd69abc3b00e128512d2d9636c296bed73a22ceca9",
+      "services": 1,
+      "priceRows": 0,
+      "state": "service_reviewed",
+      "reviewedUrls": [
+        "https://tarashoeva.com/",
+        "https://tarashoeva.com/kontakti",
+        "https://tarashoeva.com/terapevtichni-sesii"
+      ],
+      "sourceReceiptNotes": "Reviewed actual therapeutic-sessions page and phone appointment instructions with own street address. Individual psychotherapy is a real appointment service, 50 minutes. Contact and service pages disclose no numeric ordinary session fee and no weekly opening hours, only by prior appointment. Practice does not work with NHIF; no general medical specialties included."
+    },
+    {
+      "id": "sofia-iva-slavkova-tsar-petar9",
+      "inventoryIdentity": "1f30b7e44c84dc9a0bbf4ffbe3d68daf75f8952fac072ff3bc8e3e04dd48582a",
+      "services": 1,
+      "priceRows": 1,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://ivaslavkova.com/",
+        "https://ivaslavkova.com/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/",
+        "https://ivaslavkova.com/%D0%B8%D0%BD%D0%B4%D0%B8%D0%B2%D0%B8%D0%B4%D1%83%D0%B0%D0%BB%D0%BD%D0%B0-%D1%81%D0%B5%D1%81%D0%B8%D1%8F/"
+      ],
+      "sourceReceiptNotes": "Reviewed own appointment invitation and actual individual-session tariff, then owner contact page street. 90 BGN for 50 minutes. Cancellation later than 48 hours incurs a fee, amount not stated. Owner service page gives 13–20 without weekdays; no guessed seven-day schedule. Other provider address references are not copied."
+    },
+    {
+      "id": "sofia-slav-slavov-dyakon-ignatiy19",
+      "inventoryIdentity": "36b591f8829b560e76707361f5e8b419aa181a12e01918442cb451a422ed9e23",
+      "services": 1,
+      "priceRows": 1,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://gloriouswinner.com/",
+        "https://gloriouswinner.com/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/",
+        "https://lekarionline.com/doctors/slav-slavov"
+      ],
+      "sourceReceiptNotes": "Followed owner actual booking CTA into rendered Lekarionline Sofia cabinet profile/calendar without selecting a slot. Own current tariff distinguishes first appointment 80 EUR vs subsequent 70 EUR, up to 60 minutes; no exact duration or weekly hours inferred from three dated provider-calendar columns. Only ordinary consultation included, no Reiki or legal documents."
+    },
+    {
+      "id": "sofia-kabinet-six-stefan-stambolov57",
+      "inventoryIdentity": "0a17a6ffa3ef04e74ba8b73d84c620868f8af569e0fbb504049878a2920535da",
+      "services": 1,
+      "priceRows": 0,
+      "state": "service_reviewed",
+      "reviewedUrls": [
+        "https://kabinet6.com/",
+        "https://kabinet6.com/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/",
+        "https://kabinet6.com/%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8/"
+      ],
+      "sourceReceiptNotes": "Reviewed own appointment/contact page and actual services page. Psychology phone belongs to Dorota Parvulova, separately from psychiatrist's number. Published inventory has psychological consultation and therapy but no numeric fee or fixed duration. Specialists work individual weekly schedules; no common opening hours invented."
+    },
+    {
+      "id": "sofia-dinamika-murphy22",
+      "inventoryIdentity": "91313ca43d576504625c1f0a68e86d9e48fc6c7c3765aeeb46ed0248b061d32c",
+      "services": 2,
+      "priceRows": 2,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://dinamikasofia.com/",
+        "https://dinamikasofia.com/bg/%D0%A2%D0%B5%D1%80%D0%B0%D0%BF%D0%B8%D1%8F.html",
+        "https://dinamikasofia.com/bg/%D0%9A%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8.html"
+      ],
+      "sourceReceiptNotes": "Reviewed actual first-appointment phone process and therapy tariff. First individual assessment is 45–65 EUR/50 min; first family assessment 60–75 EUR/75 min. Later consultations are a separate lower 30–50 EUR band, not imported. Phone-answering weekdays09–12+14–17 are explicitly contact hours, not therapy hours."
+    },
+    {
+      "id": "sofia-stimul-psychiatry-pimen-zografski38",
+      "inventoryIdentity": "430e31236960b1929881a58fbb0b1d36fc5a7089e1b02fd00cfd3d0ccfdf50a1",
+      "services": 1,
+      "priceRows": 1,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://www.stimul.bg/",
+        "https://www.stimul.bg/taksi",
+        "https://calendar.stimul.bg/",
+        "https://calendar.stimul.bg/Patient/calendar?doctor=2"
+      ],
+      "sourceReceiptNotes": "Followed own online-booking entry to practice/doctor chooser; individual calendar timed out, so public phone appointment route is used. Own complete fees page explicitly publishes standard Bulgarian psychiatric examination 50 EUR/30min and telephone booking. No English/Russian tariff imported due different bilingual amounts; no neuromodulation, tests or general-doctor services. No complete weekly hours guessed."
+    },
+    {
+      "id": "sofia-nadezhda-muzdrakova-joliot-curie20",
+      "inventoryIdentity": "b173ab86ad16229dedcf526ed54ee86d5d5bf7379b5d56b73b6263d9f35005fe",
+      "services": 1,
+      "priceRows": 0,
+      "state": "service_reviewed",
+      "reviewedUrls": [
+        "https://www.muzdrakova.com/"
+      ],
+      "sourceReceiptNotes": "Single-page owner site: reviewed actual appointment invitation/contact form plus Services and Sessions sections, including lower page lines233–306; not just introductory homepage copy. Real office and individual consultations confirmed. No numeric consultation tariff, fixed duration or weekly schedule published; no therapy or diagnosis claims invented."
+    },
+    {
+      "id": "sofia-petya-dimova-hadzhi-dimitar19",
+      "inventoryIdentity": "90d629df78b06fffab91fd653ee63acbdb78d0b24434755d463755acb6d24d19",
+      "services": 1,
+      "priceRows": 0,
+      "state": "service_reviewed",
+      "reviewedUrls": [
+        "https://petya-dimova.com/"
+      ],
+      "sourceReceiptNotes": "Owner single-page site reviewed fully: actual phone appointment instruction, office section, resume and family/individual service scope. Qualified family psychologist and family counselor, not a general human physician. No numeric appointment tariff or duration/weekly hours appears in these sections; no blocked separate price page substituted."
+    },
+    {
+      "id": "sofia-zdravko-asparuhov-bogdan21",
+      "inventoryIdentity": "d920f7447c22686e17f4dc1d42f1495a1c39333a1f4f926e94244cc5bc54a6f1",
+      "services": 1,
+      "priceRows": 0,
+      "state": "service_reviewed",
+      "reviewedUrls": [
+        "https://www.zapsychotherapy.com/"
+      ],
+      "sourceReceiptNotes": "Reviewed actual contact/appointment instructions and service scope on full single-page owner site. Provider prefers Viber, also responds to telephone inquiries; requests type of therapy, preferred time and email before proposing an appointment, later confirmed by email. No numerical tariff, duration or weekly hours published; no availability implied."
+    },
+    {
+      "id": "sofia-teodora-marinova-pchela199",
+      "inventoryIdentity": "44644008e791c15da477076c5f0a4751fbf6e3e48ab260a9cceb973e7799bf11",
+      "services": 1,
+      "priceRows": 1,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://tm-psychology.com/",
+        "https://superdoc.bg/lekar/teodora-marinova"
+      ],
+      "sourceReceiptNotes": "Followed actual owner Superdoc booking link and reviewed Sofia independent-practice branch, address, cancellation conditions and rendered merchant tariff. Bulgarian individual psychological consultation40 EUR/50min; English50 EUR and family75min60EUR are separate and omitted. Free cancellation until24h, later fee payable. Practitioner explicitly works under supervision. No weekly hours inferred from next available slot."
+    },
+    {
+      "id": "sofia-tsvetelina-shopnikolova-james-bourchier76",
+      "inventoryIdentity": "f95c03c34f5f6e890989178ac9b44de5e1d52ecb51f6823dc38ce4745836a153",
+      "services": 1,
+      "priceRows": 1,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://drshopnikolova.com/",
+        "https://superdoc.bg/lekar/tsvetelina-shopnikolova"
+      ],
+      "sourceReceiptNotes": "Followed owner actual Book CTA to rendered merchant booking profile and exact DKC CherniVrah Sofia branch with published phone, street and service menu. Only independent named clinical psychologist appointment imported, not general DKC specialties. Individual psychological consultation50 EUR/50min is explicit; family60min65EUR not conflated. Owner shell text still loading, therefore source service/address/price facts are merchant booking profile, not guessed."
+    },
+    {
+      "id": "sofia-stoyan-kuzmanov-slavyanska22",
+      "inventoryIdentity": "897b088c30446f06dbf07ad5c412ed955884aa7262b66575ef856f2882f2e178",
+      "services": 1,
+      "priceRows": 1,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://www.stoyankuzmanov.com/",
+        "https://www.stoyankuzmanov.com/about",
+        "https://www.stoyankuzmanov.com/uslugi",
+        "https://www.stoyankuzmanov.com/service-page/%D1%82%D0%B5%D1%80%D0%B0%D0%BF%D0%B5%D0%B2%D1%82%D0%B8%D1%87%D0%BD%D0%B8-%D1%81%D0%B5%D1%81%D0%B8%D0%B8",
+        "https://superdoc.bg/doctor/dashboard"
+      ],
+      "sourceReceiptNotes": "Reviewed actual owner phone booking instructions and individual therapy service detail with 70 EUR/60min, for clients over14, ordinary long-term sessions. Broken Superdoc CTA points to doctor dashboard, so use explicit published phone route, not a provider form. Bank transfer is due2days before meeting; cancellation under24h payable; out-of-hours+50%. Recommended10–12session process is not priced as one package. Own weekdays09–20/weekends individual plan confirmed."
+    },
+    {
+      "id": "sofia-kiril-grozdanov-triaditsa5b",
+      "inventoryIdentity": "da9f3d5ae20ed82ef50b21ac8fe07e001cdd53bbcf53aaecb820e0a3a569c5c0",
+      "services": 1,
+      "priceRows": 1,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://psygrozdanov.com/",
+        "https://psygrozdanov.com/%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8/",
+        "https://psygrozdanov.com/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/"
+      ],
+      "sourceReceiptNotes": "Reviewed actual owner telephone appointment FAQ, services tariff and contact page identifying separate Sofia cabinet (not Dupnitsa). Ordinary consultation50 EUR/60min is published. Contact form needs JS, so phone route chosen. Same-day cancellation leaves full amount payable; no weekly office schedule published. No second-city clone or online-only location inferred."
+    },
+    {
+      "id": "sofia-yancho-yanchev-galichitsa37",
+      "inventoryIdentity": "c32f03911510f65d6ba583b2dfa812cf224e29345215c11b1c9b0f280ac3ea51",
+      "services": 1,
+      "priceRows": 0,
+      "state": "service_reviewed",
+      "reviewedUrls": [
+        "https://psychotherapy-sofia.com/method/",
+        "https://psychotherapy-sofia.com/book-appointment/"
+      ],
+      "sourceReceiptNotes": "Reviewed actual phone-booking page and detailed individual psychotherapy/method page. No own numeric session fee published; the30–100BGN passage describes the general Bulgarian market, not this practitioner's tariff, and was not imported. Phone answering10–19 daily differs from explicit office hours09:30–18:30 weekdays; only office block used. Less-than24h cancellation payable. Official owner method URL is used because domain landing page timed out."
+    },
+    {
+      "id": "sofia-local-pilates-lerin41",
+      "inventoryIdentity": "00baf29eff185bb63fc1f57b58a4c2fb9287abda022c9c3e0e5484520bc94984",
+      "services": 2,
+      "priceRows": 2,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://www.localpilatesstudio.com/",
+        "https://calendar.app.google/wKi64iwKZYzVD8jj9",
+        "https://calendar.google.com/calendar/appointments/schedules/AcZssZ3_hEjoSrPgbODpn7NStK0Vxyg99KCRYom2LerNYsJ0by19vLJByswbQpsbZdf6N-MSNN6exla0"
+      ],
+      "sourceReceiptNotes": "Followed the owner's actual Book lesson short link first. Root independently rendered its direct resolved public Google appointment schedule on the review date: Local Pilates Studio/Pilates Sofia, exact Lerin41/Beli Brezi and Sofia timezone, with Reformer/Tower/Classical Mat descriptions and a general60-minute appointment label. No account, customer data, date/time or reservation action chosen. Full own service tariff separately publishes single individual30EUR and duet50EUR total for two, not per person or derived five-visit card amounts. Kept selected Reformer formats only; generic calendar appointment length not assigned as a fixed duration to both selected formats. Complete own contact confirms phone and exact venue; no weeklyhours or coordinates inferred. Google Calendar is the owner-linked booking provider, not a Maps/review data source."
+    },
+    {
+      "id": "sofia-mdmotion-okolovrasten81",
+      "inventoryIdentity": "ec0c7420fdf6ce86bb76b3ec213618d38dce085f2a844d2658d351e849e4f9ad",
+      "services": 1,
+      "priceRows": 0,
+      "state": "service_reviewed",
+      "reviewedUrls": [
+        "https://md-motion.com/"
+      ],
+      "sourceReceiptNotes": "Read the complete own one-page website and followed its actual Book entry to the on-page appointment form. Public fields include preferred date/time, service and car details; no form submitted. Exact own Sofia address and phone present. Selected only diagnostic work, not emissions disabling or tuning promises. No numerical diagnostic fee or separate service-price link found in the public booking, services and footer sections. No opening hours, duration or coordinates inferred."
+    },
+    {
+      "id": "sofia-yaki-vrabnitsa1",
+      "inventoryIdentity": "41b168a8eae8589f8e5cde63bee5e474ca6d3fbc96ac6eef283814ad04b468fa",
+      "services": 1,
+      "priceRows": 0,
+      "state": "service_reviewed",
+      "reviewedUrls": [
+        "https://avtoservizyaki.wordpress.com/"
+      ],
+      "sourceReceiptNotes": "Read the complete owner-operated WordPress page, full repair list, own contact/address block and explicit appointment invitation. Primary phone 0876 66 42 72; alternate 0877 66 41 69 is the same venue, not a second business. Despite a page-title Prices label, no numeric diagnostic tariff appears in the actual public content and no dedicated price menu is linked. Did not use third-party directory amounts, reviews, photos or map data. Hours and duration remain unknown."
+    },
+    {
+      "id": "sofia-autoclimamaster-lyulin2",
+      "inventoryIdentity": "2b3fd2c4254ffa8ae8a60434cf9f721dea3e7b0dd08fe177c9d19cdcdab15ef2",
+      "services": 1,
+      "priceRows": 1,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://autoclimamaster.com/",
+        "https://autoclimamaster.com/contacts/",
+        "https://autoclimamaster.com/prices/",
+        "https://autoclimamaster.com/remont-na-avtoklimatici/"
+      ],
+      "sourceReceiptNotes": "Followed the owner's Book/contact entry first: real name/email/phone/message appointment enquiry form and phone booking FAQ, not a submitted booking. Read full own service page and current dedicated tariff, selecting only the standalone €36 diagnostic item. Old homepage promotional package differs from current tariff and is not imported. Omit hours because own service footer says weekday close20:00 but current contacts/price footer19:00. Typical around30-minute FAQ is not a fixed booked duration. No map or review data copied."
+    },
+    {
+      "id": "sofia-s-tires-druzhba1",
+      "inventoryIdentity": "ab9077d2b9ffcf7c2c6c9e15ff8116146fe7f6378ea14d9ced8e7113d259c5ef",
+      "services": 1,
+      "priceRows": 1,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://www.s-tires.com/",
+        "https://www.s-tires.com/services/buycar/",
+        "https://www.s-tires.com/contacts/"
+      ],
+      "sourceReceiptNotes": "Read the selected service's actual phone-reservation instructions and complete own tariff, then full contacts/footer; root retrieved with bounded public curl after normal timeout. Own venue Asen Yordanov17 and stationary service phone confirmed. Literal €30 (also60BGN) is the diagnostics line only; €25 chassis and €15 geometry are separately priced, not bundled. No generic contact form substituted for the explicit phone appointment path. No fixed duration or coordinates inferred."
+    },
+    {
+      "id": "sofia-asd-autoservice-lihachov33",
+      "inventoryIdentity": "69d0bce0874dd284f02b018322602eea47a9f15dc98feadc9bfe377d1ea8984c",
+      "services": 1,
+      "priceRows": 0,
+      "state": "service_reviewed",
+      "reviewedUrls": [
+        "https://asd-autoservice.com/",
+        "https://asd-autoservice.com/contacts/",
+        "https://asd-autoservice.com/uslugi/",
+        "https://asd-autoservice.com/promocii/",
+        "https://asd-autoservice.com/politika-za-poveritelnost/"
+      ],
+      "sourceReceiptNotes": "Followed the own Book entry and read its complete public vehicle/date/time/service form, then Bulgarian services, promotions, contacts and linked privacy. Selected Bulgarian computer-diagnostic service is real; no numeric diagnostic amount appears in booking/services. Promotions include expired October2026 vouchers and unrelated English-dollar template repair examples, none projected as local fees or durations. No standalone Prices navigation found. Privacy identifies ASD2002 EOOD; no additional Terms link or source-use prohibition encountered, not a licence claim. No submission."
+    },
+    {
+      "id": "sofia-ansiko-ovcha-kupel",
+      "inventoryIdentity": "9987b9c02baf9eda919eaa31c96d2f2059c7c9cc15da9e434d01f6a5c687f5ec",
+      "services": 1,
+      "priceRows": 0,
+      "state": "service_reviewed",
+      "reviewedUrls": [
+        "https://bggas.com/",
+        "https://bggas.com/kontakti/",
+        "https://bggas.com/avtoservizni-uslugi-v-sofia/"
+      ],
+      "sourceReceiptNotes": "Read live public owner root, complete services and contacts with bounded curl after normal fetch timeouts. Root explicitly instructs phone booking for diagnostics. Exact published venue is Kostur street opposite Ovcha Kupel bus station, without a street number; retained that landmark and did not invent a number. Both owner phones describe the same workshop. No amount or linked price page for the selected diagnostic service in these reviewed sections. No coords/duration or map facts used."
+    },
+    {
+      "id": "sofia-mygarage-lyulin7",
+      "inventoryIdentity": "9204cda86015a4ef4016ab4eb8d2ec985dc9fbbe3b08315481e37408f9610a4f",
+      "services": 1,
+      "priceRows": 1,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://mygarage.services/",
+        "https://mygarage.services/pricing-coupons/",
+        "https://mygarage.services/contacts/"
+      ],
+      "sourceReceiptNotes": "Followed root Book to the actual own Services/Prices page with complete public appointment form; fields request vehicle, date and time and warn that requested times may be unavailable. Full diagnostic row has separate car and van fees: selected literal15.34–30.68EUR car labour range only. All prices are explicitly indicative/labour-only and final quote depends on vehicle/parts. Own full contacts confirm Lyulin7 Dertliev46. Omit hours because root/header says Saturday09:00 but detailed contacts/footer10:00. No tyre service imported because owner describes tyre assistance through partners; no booking submitted."
+    },
+    {
+      "id": "sofia-body-reformer-strelbishte",
+      "inventoryIdentity": "84d54fe8f15e3e68de447a55d91c9c73505822ac878f664006d10c257c5497ae",
+      "services": 1,
+      "priceRows": 1,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://body-reformer.com/",
+        "https://body-reformer.com/contact/",
+        "https://body-reformer.com/services/"
+      ],
+      "sourceReceiptNotes": "Actual Book Now links to own contact appointment-request form with name/email/phone; not a generic gym admission or submitted reservation. Full services/prices explicitly states exclusively individual Reformer and single50-minute session31EUR; no package total divided into a visit and no rehabilitation promise copied. Address/phone confirmed in own contacts and footer. Hours omitted because root/contacts open09:00 but price page08:00. No linked separate Terms menu or factual source-use ban encountered; not a licence claim."
+    },
+    {
+      "id": "sofia-orionauto-tsarigradsko391",
+      "inventoryIdentity": "3a7a355bbc66d53a29875e7d0305e66058f991aaabc9a411947a437d0cd5b769",
+      "services": 1,
+      "priceRows": 0,
+      "state": "service_reviewed",
+      "reviewedUrls": [
+        "https://orionauto.eu/",
+        "https://orionauto.eu/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8"
+      ],
+      "sourceReceiptNotes": "Reviewed complete owner root services and actual contact appointment instructions in Bulgarian/English. Real named operator OrionAuto has its own phone and explicitly shares NVS building at Tsarigradsko391; not a new NVS wash clone or invented branch. Selected oil/filter work exists on root. Weekend attendance specifically requires prior arrangement; no generic weekday walk-in claim made. Root Terms/Privacy footer link currently returns root rather than a separate policy. Training-course150EUR and tool-cooperative50EUR refundable deposit are unrelated and excluded. No numeric oil-service charge, hours/duration/coords inferred."
+    },
+    {
+      "id": "sofia-mapo-botevgradsko397a",
+      "inventoryIdentity": "102b467dd84b4ad7320aefe2067bb882b5bbde35f373c390e02da47fc501fdb3",
+      "services": 1,
+      "priceRows": 0,
+      "state": "service_reviewed",
+      "reviewedUrls": [
+        "https://service4x4.org/index.php",
+        "https://service4x4.org/contacts.php",
+        "https://service4x4.org/diagnostic.php",
+        "https://service4x4.org/promo.php"
+      ],
+      "sourceReceiptNotes": "Read actual own admission/appointment instructions on service home, then complete diagnostic menu, contacts/footer and linked Promotions. Real Sofia workshop and phone confirmed; public contact form is a general question form, so explicit prior-arrangement phone path retained. Selected diagnostic service has no numerical fee. Promotion gives a percentage and historic antifreeze-product amounts, not a current diagnostic tariff. Full root explains individual quote and approval before extra work. No weekend hours invented from appointment-only statement; no map/photo/review facts copied."
+    },
+    {
+      "id": "sofia-amaron-boxing-mladost3",
+      "inventoryIdentity": "2d88eb92fed382c9bcb3edd3c907ed63940b5541e1ebe86bcb1952c034972aa8",
+      "services": 1,
+      "priceRows": 0,
+      "state": "service_reviewed",
+      "reviewedUrls": [
+        "https://www.amaronboxing.com/"
+      ],
+      "sourceReceiptNotes": "Read complete owner one-page site, actual phone appointment instructions, private lesson offering, schedule, FAQ and contacts. Exact named venue is a hall in81SU ViktorHugo Mladost3; did not invent a street address. Coordinates are explicitly printed by owner in Contacts, not geocoded or scraped from a map. Private training price is individually agreed; regular group5BGN and regular-class60min do not establish a private-lesson fee/duration. No health/calorie/therapeutic claims imported; no opening hours inferred from timetable."
+    },
+    {
+      "id": "sofia-6plus-lyulin",
+      "inventoryIdentity": "7df6dd94e36fc027624417df01e95bdc657cc2eea502de57f38b776d495f9bcc",
+      "services": 1,
+      "priceRows": 1,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://6plus.bg/",
+        "https://reservation.6plus.bg/",
+        "https://6plus.bg/page/contacts",
+        "https://6plus.bg/page/tseni",
+        "https://6plus.bg/page/reglazh",
+        "https://6plus.bg/page/terms-policy",
+        "https://6plus.bg/page/terms-policy-services"
+      ],
+      "sourceReceiptNotes": "Owner Book first followed to actual own-subdomain app. Root independently rendered actual public IAB flow on2026-11-13: onlyGTP/Alignment/Tyres are online, and Alignment specifically offers Lyulin parking HIT+Praktiker. No slot chosen, customer data entered or booking submitted; no availability claim. Read full own alignment service, literal33EUR front-axle passenger-car row, qualifying baseline/indicative/VAT footnotes and exact own branch contacts/hours. General/store and service terms inspected, no source-use ban encountered in reviewed clauses; not a licence claim. Not diagnostics and not cloned conflicting AndreyLyapchev72/74 branch."
+    },
+    {
+      "id": "sofia-6plus-europe",
+      "inventoryIdentity": "86a84986ca4281993dc76d091150072232836ffff2256ed7a69aa7b6d37a7077",
+      "services": 1,
+      "priceRows": 1,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://6plus.bg/",
+        "https://reservation.6plus.bg/",
+        "https://6plus.bg/page/contacts",
+        "https://6plus.bg/page/tseni",
+        "https://6plus.bg/page/reglazh",
+        "https://6plus.bg/page/terms-policy",
+        "https://6plus.bg/page/terms-policy-services"
+      ],
+      "sourceReceiptNotes": "Owner Book first followed to actual own-subdomain app. Root independently rendered actual public IAB flow on2026-11-13: onlyGTP/Alignment/Tyres are online, and Alignment specifically offers Europe144В opposite Bricolage. No slot chosen, customer data entered or booking submitted; no availability claim. Read full own alignment service, literal33EUR front-axle passenger-car row, qualifying baseline/indicative/VAT footnotes and exact own branch contacts/hours. General/store and service terms inspected, no source-use ban encountered in reviewed clauses; not a licence claim. Not diagnostics and not cloned conflicting AndreyLyapchev72/74 branch."
+    },
+    {
+      "id": "sofia-6plus-hit-mladost",
+      "inventoryIdentity": "a5cd742b310a5c22999f201bbb9445955a0d2398f265a6e809d085351b78c27b",
+      "services": 1,
+      "priceRows": 1,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://6plus.bg/",
+        "https://reservation.6plus.bg/",
+        "https://6plus.bg/page/contacts",
+        "https://6plus.bg/page/tseni",
+        "https://6plus.bg/page/reglazh",
+        "https://6plus.bg/page/terms-policy",
+        "https://6plus.bg/page/terms-policy-services"
+      ],
+      "sourceReceiptNotes": "Owner Book first followed to actual own-subdomain app. Root independently rendered actual public IAB flow on2026-11-13: onlyGTP/Alignment/Tyres are online, and Alignment specifically offers Mladost3 parking HITMax. No slot chosen, customer data entered or booking submitted; no availability claim. Read full own alignment service, literal33EUR front-axle passenger-car row, qualifying baseline/indicative/VAT footnotes and exact own branch contacts/hours. General/store and service terms inspected, no source-use ban encountered in reviewed clauses; not a licence claim. Not diagnostics and not cloned conflicting AndreyLyapchev72/74 branch."
+    },
+    {
+      "id": "sofia-auto-oil-sveta-troitsa",
+      "inventoryIdentity": "b540a336dc8dcbcac6ebc6f064119cd82f49af1cb5192556a288c8152894bdb4",
+      "services": 1,
+      "priceRows": 1,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://shop.auto-oil.net/bg/avtoserviz.html",
+        "https://shop.auto-oil.net/bg/zapisvane_na_chas.html",
+        "https://shop.auto-oil.net/bg/contacts.html",
+        "https://shop.auto-oil.net/bg/terms-of-withdrawal-and-return.html"
+      ],
+      "sourceReceiptNotes": "Followed the actual own Book page before the complete workshop tariff and contact pages. Root independently rendered its embedded SuperSaaS АУТООЙЛМАСЛА calendar in the in-app browser on the review date; no slot clicked, personal data entered or booking submitted. Kept the owner's stable booking page, not an ephemeral widget ID. Exact own Sveta Troitsa address, phone and weekly hours agree. Diagnostic fee is the literal 20 EUR row with the labour/consumables-from-workshop and complexity qualifications retained publicly. Inspected the linked payment/delivery terms; no source-use restriction encountered. No availability claim or unsourced duration/coordinates."
+    },
+    {
+      "id": "sofia-sculpture-pimen-zografski17",
+      "inventoryIdentity": "cb12067b2aaed18c0ab7dd05c785d720937ebafc0a6234100a7522f39e62db7a",
+      "services": 2,
+      "priceRows": 2,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://sculpturepilates.bg/",
+        "https://book.sculpturepilates.bg/calendar/public",
+        "https://sculpturepilates.bg/privacy-policy/"
+      ],
+      "sourceReceiptNotes": "Followed the owner's actual Reserve entry first. Root independently rendered the public calendar on the review date and read real current-week group and personal Pilates entries, both 50 minutes, with Book-seat/closed actions; no reservation action clicked. Calendar did not show fees, so retained separate own-site single group 20 EUR and single individual 33 EUR, not card totals or inferred per-session prices. Full own one-page contact and class/price sections confirm exact venue and current phone. Read the complete linked rules and conditions, including advance booking and four-hour cancellation, with no source-use restriction encountered. Sculpture is a distinct owner/venue from Sculpt. Teacher timetable is not general opening hours; none invented."
+    },
+    {
+      "id": "sofia-radka-mad-ovcha-kupel",
+      "inventoryIdentity": "2229969db9d11e97934353a0884c18c59f034b23f39244259ea35508b60e466c",
+      "services": 3,
+      "priceRows": 3,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://nailsartbyradkamad.setmore.com/",
+        "https://nailsartbyradkamad.setmore.com/book"
+      ],
+      "sourceReceiptNotes": "Primary owner-operated unique Setmore merchant website read through its fully indexed first-party text: actual named Book menu, exact premises inside Janin salon, own telephone/email and all seven weekday hours. Direct root fetch timed out; /book extension JS-only; neither is described as a completed later scheduling flow or unavailable tariff. Three ordinary cosmetic nail fees20/30/35EUR with45/90/60min retained literally. Clinical nail correction, ingrown-nail, therapeutic/medical services, outcome claims, ratings, reviews and photographs excluded. No name/domain/phone/address match in latest catalogue1153 or5native partners. No form input or reservation."
+    },
+    {
+      "id": "sofia-barbie-dreams-cherni-vrah",
+      "inventoryIdentity": "6deb407d6600f971c802904403768618f89c23db6133846f0b242b169d64ad71",
+      "services": 3,
+      "priceRows": 3,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://barbiedreamss.setmore.com/"
+      ],
+      "sourceReceiptNotes": "Read fully indexed actual owner-operated merchant website with exact Sofia premises, phone, complete daily07-22 hours and named Reserve service rows. Direct root fetch timed out; indexed primary menu supplies all imported facts, not a directory. Three ordinary nail services imported with literal40/20/60BGN fees and60/40/60min, no self-calculated EUR conversions. Strengthening rows contain conflicting size variants and were excluded; clinical/needling/laser/body procedures and free consultations excluded from this bounded nail inventory. No reviews, ratings, photographs, outcome claims or availability assertions imported. No booking made."
+    },
+    {
+      "id": "sofia-noa-beauty-dragan-tsankov",
+      "inventoryIdentity": "0c8b804e0f35c3e224f483e035022b6f95d6bfb1700c6d59cfaa4e8250551e82",
+      "services": 3,
+      "priceRows": 3,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://noabeautylounge.com/",
+        "https://noabeautylounge.com/manicure/",
+        "https://noabeautylounge.com/ceni/",
+        "https://noabeautylounge.com/salon/",
+        "https://book.noabeautylounge.com/reservations/create"
+      ],
+      "sourceReceiptNotes": "Own full tariff FAQ explicitly permits phone appointments by service and publishes dedicated nail telephone; exact venue from own root. Nail detail explicitly labels Natalia/Elena tier27/30/40EUR for withoutpolish/polish/shortgel+gelpolish, independently confirmed in current general tariff. Different unnamed tier30/32/42 was not substituted. Old bottom pedicure/add-on tariff conflicts with current rows, excluded. Root independently read real browser booking notice: online reservations temporarily suspended; call or write for appointments. Phone route retained, not a form claim, and actual published own fees are not called unpublished. Salon subpage timed out; no weekly hours published in other reviewed pages, omitted. No durations or neighborhood guessed; no medical/outcome claims or Google review/photo content copied."
+    },
+    {
+      "id": "sofia-neglige-saharov",
+      "inventoryIdentity": "caea8b62a21e3a807d0ea2a0c6510006a64daac88f95595ba7c84232ae122a51",
+      "services": 3,
+      "priceRows": 3,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://negligemladost.setmore.com/",
+        "https://negligemladost.setmore.com/book"
+      ],
+      "sourceReceiptNotes": "Read fully indexed primary owner-operated Setmore merchant page with exact AndreySaharovblock245entrance2groundfloor, own shared phone/email, complete daily10-20 hours and named Reserve service menu. Three exact ordinary nail EUR fees22/20/28 with55/45/90min retained; /book indexed menu independently confirms fees. Direct root timed out and direct /bookcachemiss, limitations explicit, no claim to later flow or slot availability. Iztok separate merchant account lacks firstparty address, held rather than cloning a second premises from directories or shared phone. Clinical/therapeutic nails and outcome claims excluded, no reviews/photos copied."
+    },
+    {
+      "id": "sofia-elida-han-asparuh",
+      "inventoryIdentity": "41d8e061c9c5bddcdaa02ac9e1f98488276157c0f1a19b5ea8823c0764253c9a",
+      "services": 3,
+      "priceRows": 3,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://elidawellnessbeautycentres.setmore.com/",
+        "https://elidawellnessbeautycentres.setmore.com/book"
+      ],
+      "sourceReceiptNotes": "Primary owner-operated unique Setmore merchant page fully read: exact SofiaHanAsparuh54, contact phone, complete weekdays09-19:30Saturday09:30-18:30Sundayclosed and actual Reserve menu. Three ordinary nail services16/26/34EUR40/75/80min retained literally. Facial/clinical/body service claims and prepaid packages excluded. Separate /book extension has no readable text; actual primary merchant named bookable service rows read, no availability or completed scheduling step assertion. No reviews, ratings, images or Google map/geocoding facts imported. No form data or reservations entered."
+    },
+    {
+      "id": "sofia-mimis-world-chehov",
+      "inventoryIdentity": "0085a42096525d92d7a7bcc069f7f04bad095f6b3132d8718537b37aa24be863",
+      "services": 3,
+      "priceRows": 3,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://mimisworld.setmore.com/",
+        "https://mimisworld.setmore.com/book"
+      ],
+      "sourceReceiptNotes": "Primary owner-operated unique Setmore merchant website fully read including exact SofiaAntonChehov37, own phone, full unusual weekly hours and explicit booking policy requiring message confirmation. Three actual fixed-fee service rows: cornrowswithout60EUR60min; crochet100EUR90min; cornrowswithextensions120EUR125min. Published extension/product exclusion preserved, not a full all-materials quote. Box/knotless prices expressly vary and Boho duration conflicts; those services excluded. Separate /bookcachemiss, no later-step/availability claims. No marketing, nationality/credential assumptions, reviews or photos imported; no message/form submitted."
+    },
+    {
+      "id": "sofia-skalp-emiliyan-stanev",
+      "inventoryIdentity": "bde65f7e18a6442c5d3c38b6aefe7452ecc84ff6f7f70025ca9eb371de556b4b",
+      "services": 3,
+      "priceRows": 3,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://studioskalp.setmore.com/",
+        "https://studioskalp.setmore.com/book"
+      ],
+      "sourceReceiptNotes": "Primary unique owner-operated Setmore merchant website fully read: exact KrastovaVadaEmiliyanStanev9, own phone/email, actual named Book service rows and unusual closed Monday/Thursday weekly schedule. Three ordinary hair fees40/40/25EUR30/30/30min retained, short-blowdry condition explicit. Other chemical/colour services not imported. Cancellation/refund policy read, no prepayment or slot selected. Separate /book extension has one unreadable line; no later flow completion/availability asserted. No Google reviews, ratings, photos, outcome claims or inferred coordinates imported."
+    },
+    {
+      "id": "sofia-evgenia-angelova-kozloduy",
+      "inventoryIdentity": "4b4c2dbac609e8a178c439b65277bd2d4e4e440a6abbf38999dfb5bb3941e760",
+      "services": 3,
+      "priceRows": 3,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://evgeniaangelova1.setmore.com/",
+        "https://evgeniaangelova1.setmore.com/book"
+      ],
+      "sourceReceiptNotes": "Primary owner-operated unique Setmore merchant site fully read. Exact Kozloduy156, phone, full weekday schedule, named Book rows and manual-confirmation booking policy verified. Three ordinary cosmetic fees25/50/30EUR retained; no durations visible, none invented. Request is confirmed only after SMS/call, condition preserved in service descriptions; no automatic confirmation promise. Free first consultation is recommended not imported as standard procedure, promotional gifted peel, clinical/weight-loss/body outcome claims and packages excluded. Separate /bookcachemiss, no later scheduling step asserted. No submitted customer data, contacts or reservations."
+    },
+    {
+      "id": "sofia-irini-stratiev",
+      "inventoryIdentity": "2634b805a64ff507ec4ea73b8babc636854231394beb8a13694500f42a94d88a",
+      "services": 3,
+      "priceRows": 3,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://iriniholisticbeautylounge.setmore.com/",
+        "https://irinidream.taplink.ws/"
+      ],
+      "sourceReceiptNotes": "Read complete indexed primary unique owner-operated Setmore merchant menu, own exact MalinovaDolinaStratiev1G, phone/email, complete MonSat09:30-19:30Sunday11-17 hours and48h change policy. Three named ordinary single-visit services55EUR60mincleaning,45EUR60minguasha,8EUR15minbrow retained. Expired2025free-test promotion, six-session packages, installment amounts, needling/osteopathic/energy/medical-result claims excluded. Ownlinked Taplink has no readable lines; direct merchantroottimeout documented, all imported facts from fully indexed owner merchant page. No availability, completed reservation or copied review/photo claims. Nearby ArunaYoga has different business, phone and1Aaddress, not a duplicate1Gpremise."
+    },
+    {
+      "id": "sofia-lau-spa-karnigradska",
+      "inventoryIdentity": "5893e0640e2f6b1f0fc4e9a98fc854c3ed7c28af812fd0c2be4df0f5df5e60e5",
+      "services": 3,
+      "priceRows": 3,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://lauspa.setmore.com/",
+        "https://lauspa.setmore.com/book",
+        "https://www.lauspa.bg/"
+      ],
+      "sourceReceiptNotes": "Primary owner-operated unique Setmore merchant website and actual /book menu fully read, including exact Karnigradska4, phone/email, all seven10-20:30 days and named Book rows. Three ordinary single-session50/55/35EUR60/60/30min dry/aroma/face massages retained literally, not a calculation from BGN text in service titles. Clinical office-syndrome/health/energy claims, packages and payment actions excluded. Linked customwebsitecachemiss; primary merchant is independently complete. No date/time/customer/service selection, reservations, reviews, ratings or photographs imported."
+    },
+    {
+      "id": "sofia-a3-skobelev",
+      "inventoryIdentity": "1007be3a32e1e777d57e3e6b02999fd3453d514ea65ada6764d559681397a8f3",
+      "services": 2,
+      "priceRows": 2,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://barbershop-a3.bg/",
+        "https://barbershop-a3.bg/booking/",
+        "https://barbershop-a3.bg/services-x/",
+        "https://barbershop-a3.bg/saloni-barbershop-sofia-center/"
+      ],
+      "sourceReceiptNotes": "Own booking page fully read with actual step1of6 named service menu and separate exact venue/appointment phone for София, бул. Ген. Михаил Д. Скобелев 9. Retained existing explicit phone path, not a completed branch-selection flow. Only two invariant fees across both own tariff groups imported: male30BGN45min, child20BGN15min; literal BGN retained, not a calculated EUR conversion. Beard15versus20BGN conflicts across own groups, excluded. Saturday10-14 mainbody conflicts with10-19 branchfooter, so all hours omitted; no coordinates guessed. Separate salons page challenge noted, but exact address/phone published independently on root and actual booking page. No service/date/customer selected, reservation made, reviews/ratings/photos copied."
+    },
+    {
+      "id": "sofia-a3-maria-luiza",
+      "inventoryIdentity": "adece94ecd2ee0ff76b03434f4f8c030fb00e14c0051132b8f4d783e28dce54c",
+      "services": 2,
+      "priceRows": 2,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://barbershop-a3.bg/",
+        "https://barbershop-a3.bg/booking/",
+        "https://barbershop-a3.bg/services-x/",
+        "https://barbershop-a3.bg/saloni-barbershop-sofia-center/"
+      ],
+      "sourceReceiptNotes": "Own booking page fully read with actual step1of6 named service menu and separate exact venue/appointment phone for София, бул. Княгиня Мария Луиза 28. Retained existing explicit phone path, not a completed branch-selection flow. Only two invariant fees across both own tariff groups imported: male30BGN45min, child20BGN15min; literal BGN retained, not a calculated EUR conversion. Beard15versus20BGN conflicts across own groups, excluded. Saturday10-14 mainbody conflicts with10-19 branchfooter, so all hours omitted; no coordinates guessed. Separate salons page challenge noted, but exact address/phone published independently on root and actual booking page. No service/date/customer selected, reservation made, reviews/ratings/photos copied."
+    },
+    {
+      "id": "sofia-leonessa-despot-slav",
+      "inventoryIdentity": "d2e625519ac39a10ac6ef4e6adf6f8a6472dbf45557ded344b53b4cb7683bd23",
+      "services": 3,
+      "priceRows": 3,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://leonessa.bg/",
+        "https://leonessa.bg/contacts/",
+        "https://leonessa.bg/uslugi/lice/",
+        "https://leonessa.bg/privacy-policy/",
+        "https://fashionpoint.bg/bg/embed-clinic-calendar/75",
+        "https://fashionpoint.bg/leonessa-aesthetics/bg/booking/75",
+        "https://fashionpoint.bg/bg/embed-clinic-calendar/75?service_id=5834",
+        "https://fashionpoint.bg/bg/embed-clinic-calendar/75?service_id=4857"
+      ],
+      "sourceReceiptNotes": "Own root identifies an ordinary cosmetic/beauty studio, not a human medical centre; no named doctor or separate team/about page exposed in reviewed primary navigation. Generic Guinot text saying the brand trains cosmeticians and doctors is not a staff credential, and provider embed-clinic path is not medical-scope evidence. Root independently followed real Book redirect to current FashionPoint merchant and selected FACE category: exact brow11EUR25min, face massage+nourish40EUR40min, Rejuvi hydration51EUR60min agree own separate tariff. Only these three ordinary cosmetic services retained; needle/medical protocols, free consultations and clinical outcome claims excluded. Online registration requirement preserved; no login/service/date/customer chosen or reservation submitted. Static provider text contains an unavailable-account template, but actual browser service menu rendered; no slot/current availability assertion. Exact own DespotSlav23Bukston/phone and daily09-19 contacts verified. Privacy URL cachemiss, no terms/licence claim. No reviews/photos/coordinates imported."
+    },
+    {
+      "id": "sofia-iberis-yordan-trifonov",
+      "inventoryIdentity": "85be1107b856d74669e39e2a0c865b148510b51da33de5b630cfd52e6d9a20e5",
+      "services": 2,
+      "priceRows": 2,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://www.iberisbeauty.com/",
+        "https://www.iberisbeauty.com/services/",
+        "https://studio24.bg/9844?m=",
+        "https://studio24.bg/m/iberis-beauty-center-s9844?m%3Fm&m"
+      ],
+      "sourceReceiptNotes": "Own full primary root/services pages identify an ordinary cosmetic studio and publish exact AkademikYordanTrifonov4StudentskiKompleks/0889429818 plus explicit own Studio24 Book invitation and phone booking fallback. Root independently read actual owner-linked Studio24 merchant after redirect, selected facial cleaning group with seven rows: only nonpromotional combined ultrasound cleaning40EUR100min and waterdermabrasion+mask25EUR50min retained. Actual provider address agrees own exact premise. The mask variant is not relabelled as the different owner LED combination. Diamondfrom23EUR50-90min options and all promotion/package/clinical/needle/laser/body claims excluded, no flattened duration or calculated fee. Full merchant MonSat10-19Sundayclosed schedule read; no conflicting owner hours published. Direct web provider fetch inaccessible, real browser menu read independently by root, not an unpublished tariff claim. No FDA/safety/results assertions, credentials, reviews/photos/coordinates, service/date/customer selection, login or reservation imported."
+    }
+  ]
+}

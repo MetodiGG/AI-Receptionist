@@ -23694,6 +23694,138 @@
         ],
         "method": "individual source and optimized thumbnail visual review"
       }
+    },
+    {
+      "id": "sx-reformer-duet-session",
+      "label": "Дуетна тренировка на Reformer — двама трениращи и инструктор",
+      "prompt": "Use case: photorealistic-natural. Asset type: square service thumbnail for a Bulgarian online-booking catalogue. Primary request: clearly show a DUET Pilates Reformer training session: exactly TWO adult women clients, each lying safely on her own separate real Pilates Reformer machine, plus ONE adult female instructor standing beside them supervising. No other clients or machines. Both clients doing a simple beginner footwork exercise, heads on headrests, knees comfortably bent, feet placed on the footbars; credible spring carriage, rails and straps, natural anatomy and hands. Instructor looks at their positioning with a calm attentive posture; no impossible contact or contorted movement. Scene: bright modest contemporary Pilates studio with soft daylight, wooden flooring and uncluttered pale neutral walls. Style: realistic candid editorial photograph with natural skin and fabric texture, not glamorous advertising. Composition: square 1:1, medium-wide eye-level three-quarter angle; exactly the two reformers and all three people clearly distinguishable and readable when downscaled to a small 60px thumbnail, main actions in central safe area. Constraints: no text, letters, brands, logos, watermark, notebook, clipboard, medical equipment or before-after claims. This is an illustrative example of the actual activity, not a specific business's premises or staff.",
+      "sourceFile": "exec-ea953bac-e7ee-4419-a452-9bd70d30e05a.png",
+      "sourceSha256": "705ca9e5ab235a3e4248fbe845e92983a8efa976714b9c2281729e2f79539bc6",
+      "file": "public/service-photos/sx-reformer-duet-session-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 10822,
+      "sha256": "9176dadcc94075b9f49e53f23aa8a847a4338cf92c131dcb7c9fb6f2e25871a4",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "705ca9e5ab235a3e4248fbe845e92983a8efa976714b9c2281729e2f79539bc6",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual source and optimized thumbnail visual review"
+      }
+    },
+    {
+      "id": "sx-dress-fitting-consultation",
+      "label": "Лична проба на рокля с моден консултант",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 small service thumbnail for a Bulgarian appointment catalogue. Primary request: a realistic private dress-fitting consultation in a modest elegant showroom: one fictional adult woman wearing a simple long cream evening dress, standing naturally in front of a mirror while one adult female fashion consultant checks the fit at the waist with fingertips. A few dresses on a rack in soft background, discreet full-length mirror. Clearly a fitting appointment, not a wedding ceremony, not a tailor sewing and not a retail product still life. Natural skin and hands, respectful fully clothed adults, warm soft daylight, cream-neutral restrained palette, candid editorial photograph, central medium composition easily legible at 60px. No typography, logo, watermark, price label, notebook, clipboard, distorted anatomy or text. Illustration of the activity only, not any particular business's premises, staff or work.",
+      "sourceFile": "exec-81427f6a-a1e1-4368-85cb-4e57a111f6cb.png",
+      "sourceSha256": "502b0ff1309c9abd9ac1fa4024c19e4bde2ba28c7e93bca21ecea55f471cc74f",
+      "file": "public/service-photos/sx-dress-fitting-consultation-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 11174,
+      "sha256": "4ed65fb06922cc3ac3cebe4fbe6d8e2250ae533675e983160f9f28671a76f6c1",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "502b0ff1309c9abd9ac1fa4024c19e4bde2ba28c7e93bca21ecea55f471cc74f",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual source and optimized 256px thumbnail inspection; correct named activity, no branding or notebook"
+      }
+    },
+    {
+      "id": "sx-rose-experience-degustation",
+      "label": "Представяне и дегустация с розов чай",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 small service thumbnail for an online appointment catalogue. Primary request: realistic small guided Bulgarian rose tasting experience: one fictional adult female host presenting a small clear cup of pale rose tea to two fictional adult visitors seated at a small light wooden tasting table. On the table clearly visible pink rose blossoms, a glass teapot with rose tea and a few small unbranded clear aroma bottles with no labels. Visitors listening and smelling a rose blossom, host calmly demonstrating. Contemporary modest boutique tasting room, no invented historic venue, no branded interiors. Close medium three-quarter view with central tea, rose flowers and human interaction readable at 60px; natural skin and hands, soft daylight, warm cream-neutral colors, candid editorial photography. No writing, logos, labels, watermark, notebook, clipboard, collage, beauty treatment, drinking alcohol, medical or therapeutic claims. Illustrative activity only, not actual business premises/staff/products.",
+      "sourceFile": "exec-eef81ee0-b45c-4f8f-a551-20062cd0b8ac.png",
+      "sourceSha256": "1d1e285adf06fbe74000f96b9c4b442df3778e29d7a9ac474c688f8a816e811c",
+      "file": "public/service-photos/sx-rose-experience-degustation-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 20734,
+      "sha256": "7585eb2180b706f5b8dce83418c13beb2dba5def1c81d8b81a8add43915dd762",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "1d1e285adf06fbe74000f96b9c4b442df3778e29d7a9ac474c688f8a816e811c",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual source and optimized 256px thumbnail inspection; correct named activity, no branding or notebook"
+      }
+    },
+    {
+      "id": "sx-fullbody-ems-duo-training",
+      "label": "ЕМС тренировка за двама с инструктор",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 small service thumbnail for a Bulgarian fitness booking catalogue. Primary request: a realistic DUO full-body EMS fitness training session: exactly two fictional adult clients, one woman and one man, both standing on the gym floor doing gentle balanced shallow squats side by side, supervised by one adult female fitness trainer. Both clients wear credible close-fitting black EMS training vests and thigh/upper-arm electrode bands over ordinary modest black sports base layers; discreet tidy leads to a compact training control console positioned to the side, no exaggerated technology. Trainer stands between and slightly behind coaching safe posture, ordinary fitness not a medical procedure. Minimal bright cream-neutral gym, rubber floor, natural daylight, realistic fabric and skin, natural hands and anatomy. Clear medium-wide central three-quarter composition with both clients and trainer readable at 60px. No typography, labels, logos, watermarks, notebook, clipboard, lightning/glow effects, before-after claims, rehab or medical setting. Illustrative activity only, not a particular business's staff, equipment model or premises.",
+      "sourceFile": "exec-800c53fa-4000-4561-8ff4-2cefc80ee3a1.png",
+      "sourceSha256": "51649592ff757ec76e9c78c79fd6e889a4e55d55320d6d7fb7e1f83b15af26e9",
+      "file": "public/service-photos/sx-fullbody-ems-duo-training-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 14926,
+      "sha256": "344b535fbfebb6d50c9dbbccc7e026756cbf3f03d7766f7756f3621967aae6f3",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "51649592ff757ec76e9c78c79fd6e889a4e55d55320d6d7fb7e1f83b15af26e9",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual source and optimized 256px thumbnail inspection; correct named activity, no branding or notebook"
+      }
+    },
+    {
+      "id": "sx-auto-filter-machine-cleaning",
+      "label": "Машинно почистване на свален DPF филтър или катализатор",
+      "prompt": "Use case: photorealistic-natural. Asset type: square 1:1 60px service thumbnail. Primary request: a realistic workshop process of machine-cleaning a removed automotive exhaust particulate-filter or catalyst housing. A fictional adult mechanic wearing protective work gloves and clear safety glasses checks a compact enclosed aqueous flow-cleaning machine. Main central subject is a credible generic metal cylindrical exhaust-filter housing clamped safely inside the machine's open service enclosure, inlet/outlet hoses securely connected; machine is idle for inspection, no spray toward the person. No brushing the outside as substitute, no reinstalling a filter, no on-car software regeneration or emissions removal. Close three-quarter crop of technician's gloved hands, metal housing and machine connections, legible in a tiny thumbnail. Natural warm-neutral workshop light and honest used-metal texture, editorial photorealism, no brand/model/text/logo/watermark/clipboard/notebook or outcome claims. Illustrative activity, not particular business equipment.",
+      "sourceFile": "exec-c1e64991-4ddb-4cf7-8ee2-2db86bfc34b1.png",
+      "sourceSha256": "7747fa3668404941cbab5d5d44580748b0438d34c4758e45f3d85917204a78ba",
+      "file": "public/service-photos/sx-auto-filter-machine-cleaning-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 17704,
+      "sha256": "feab828598c92b8c7181d01f340fde51df11c6dc0836e4a0059d6bb529f4fda9",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "7747fa3668404941cbab5d5d44580748b0438d34c4758e45f3d85917204a78ba",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual source and optimized 256px thumbnail inspection; machine housing/hoses or opened audio head unit correctly distinguish activity; no notebook"
+      }
+    },
+    {
+      "id": "sx-auto-audio-navigation-module-repair",
+      "label": "Ремонт на автомобилен аудио или навигационен модул",
+      "prompt": "Use case: photorealistic-natural. Asset type: square 1:1 service thumbnail for 60px display. Primary request: realistic automotive electronics bench repair of a removed car audio/navigation head unit. A fictional adult technician's natural gloved hands using multimeter probes to test a component on the opened circuit board of a generic dashboard head unit on an antistatic mat. The detached unbranded head unit has a small dark screen and ordinary radio control knobs clearly visible beside its open electronic casing; no wire cutting or anti-theft bypass. Safe idle electronic testing, tidy small tools in soft background, macro three-quarter view, central head unit and hands legible at thumbnail scale. Photorealistic real materials, neutral warm workshop light. No vehicle engine bay, notebook, clipboard, labels, readable text, logos, watermarks, medical equipment or claims. Illustrative activity only, not specific brand, premises or verified work.",
+      "sourceFile": "exec-30c381e6-d442-484e-a51e-c65ca99ec345.png",
+      "sourceSha256": "511e8281a50dc7ee170c5f196c2a1467fd17444faf54f26f3d421f5c4910953b",
+      "file": "public/service-photos/sx-auto-audio-navigation-module-repair-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 18680,
+      "sha256": "187ed764855f81541554715df2e378c5c962fde73abebcdad2a180e396a70f77",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "511e8281a50dc7ee170c5f196c2a1467fd17444faf54f26f3d421f5c4910953b",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual source and optimized 256px thumbnail inspection; machine housing/hoses or opened audio head unit correctly distinguish activity; no notebook"
+      }
     }
   ],
   "rejectedSources": [
@@ -23823,9 +23955,9 @@
     }
   ],
   "report": {
-    "required": 1127,
-    "prepared": 1127,
-    "accepted": 1127,
+    "required": 1133,
+    "prepared": 1133,
+    "accepted": 1133,
     "pendingGeneration": [],
     "missingAsset": [],
     "unreviewed": [],

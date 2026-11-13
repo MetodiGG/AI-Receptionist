@@ -30,6 +30,9 @@ export function reportBusinessType(row) {
   // Its short service name "Прием" alone does not express the specialty.
   if (row.id === 'sofia-orlin-baev-estestvena-akademia' && row.website === 'https://orlinbaev.com/') return 'Психология и психотерапия'
   if (reviewedPsychologySources.has(row.id) && reviewedPsychologySources.get(row.id) === row.website) return 'Психология и психотерапия'
+  // Psychological preparation offered by a named dental practice is still
+  // dentistry, not a separate psychologist business.
+  if (/стоматол|дентал|дент |дент$|dental|dent\b|ортодонт/iu.test(row.name)) return 'Стоматология'
   // Classify the selected appointment, not another specialty mentioned in a
   // mixed practice's name. No other doctors are imported with these visits.
   const serviceText = row.services.map(service => service.name).join(' ')

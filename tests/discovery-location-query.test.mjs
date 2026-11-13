@@ -80,7 +80,8 @@ async function graph(entry) {
 test('the lightweight helper and initial home graph no longer import the server intent parser/schema', async () => {
   const helper = await graph('../lib/discovery/location-query.mjs')
   assert.deepEqual(helper.packages, [])
-  assert.ok(helper.files.every(file => !/intent\.mjs|internal-search|service-lexicon|catalogue|supabase|booking/.test(file)))
+  const root = fileURLToPath(new URL('../', import.meta.url))
+  assert.ok(helper.files.every(file => !/intent\.mjs|internal-search|service-lexicon|catalogue|supabase|booking/.test(path.relative(root, file))))
   const home = await graph('../components/home-page.js')
   assert.ok(home.files.some(file => file.endsWith('/location-query.mjs')))
   assert.equal(home.files.some(file => file.endsWith('/intent.mjs')), false)

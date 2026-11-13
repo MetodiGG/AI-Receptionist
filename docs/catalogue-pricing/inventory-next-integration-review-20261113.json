@@ -1,0 +1,490 @@
+{
+  "checkedOn": "2026-11-13",
+  "reviewer": "/root",
+  "scope": "36 NEW primary-source intake records only; existing fingerprints untouched. Manually reviewed services, literal fees and qualifiers, booking targets, source receipts and dedupe. PS Tuning ordinary100EUR DPF narrowed to exclude AdBlue130EUR subtype after independent second review.",
+  "records": [
+    {
+      "id": "sofia-desistyle-lyublyana",
+      "inventoryIdentity": "6c47bb096c5ab6475ad396db7b8242ddffb004b36767ab8c28918e2ba11e5bcc",
+      "services": 3,
+      "priceRows": 3,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://desistyle.univer.se/"
+      ],
+      "sourceReceiptNotes": "Actual owner Book CTA inspected in the public HTML: direct tel:+359876110782, no separate calendar/menu destination. Full one-page tariff/services/address read after that entry. Three literal BGN haircut variants and exact45/30/40-minute durations retained, not converted to EUR. Variable colour/length ranges and unclear product/currency lines excluded. No hours published in inspected page; none invented. Own map link not opened and no viewport coordinate imported. Domain, phone and exact street checked against1202 existing/staged catalogue IDs; no match. No form input, call or reservation."
+    },
+    {
+      "id": "sofia-mabelle-feniks",
+      "inventoryIdentity": "6c9c65a72e7b553449af4906773bf8a83fb1e270717854d16b199fa9232b2da4",
+      "services": 3,
+      "priceRows": 0,
+      "state": "service_reviewed",
+      "reviewedUrls": [
+        "https://mabellesalon.wixsite.com/website",
+        "https://mabellesalon.wixsite.com/website/blog"
+      ],
+      "sourceReceiptNotes": "Actual published phone-booking invitation and full inline services/contact/hours read on the owner website. Two ordinary nail services plus explicitly named women haircut, without guessed fees/durations. Tuesday-Saturday10-19 and Sunday11-19 are literal; Monday is not specified and is omitted, not inferred closed. Exact Sofia Feniks block34 premises/own phone confirmed. No medical, efficacy, review or image content copied. No domain/phone/address duplicate found in1202 existing/staged catalogue IDs. No contact form submitted or call made."
+    },
+    {
+      "id": "sofia-celine-hair-club",
+      "inventoryIdentity": "9ec8da52496af5c1200f7014f6d553597aca45aeb8892066da0edd30ed83b171",
+      "services": 3,
+      "priceRows": 3,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://celinehairclub.com/",
+        "https://celinehairclub.com/ceni/",
+        "https://celinehairclub.com/kontakti/"
+      ],
+      "sourceReceiptNotes": "Actual owner Book CTAs inspected first in public HTML: direct tel:+359882471564, not a separate calendar or unread JS menu. Then full owner price table and contact/footer read successfully via ordinary public HTTP; web-reader cache miss is not represented as an unpublished tariff. Three exact ordinary hair/nail variants retained, with explicit top-hairdresser tier on both haircut rows; art-director tiers, retail, zero-price therapy and inconsistent dual-currency nail rows excluded. Exact40/60-minute haircut durations are literal; no manicure duration guessed. Contact form date/time fields observed without input or submission. No public weekly hours found on those pages; omitted. Owner publishes exact Sofia street/house; quarter and coordinates left null. Canonical domain, own phone and exact premises checked against1202 existing/staged catalogue IDs; no match. No call, booking, photo/review copying or provider/map request."
+    },
+    {
+      "id": "sofia-aadhira-maria-luiza",
+      "inventoryIdentity": "9869e2db1326ff54dffe7bcebbf5f8267fe1ad9e83001b174189b650b0f73db3",
+      "services": 3,
+      "priceRows": 3,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://aadhira.bg/",
+        "https://book.aadhira.bg/",
+        "https://book.aadhira.bg/reservations/create",
+        "https://aadhira.bg/tseni/",
+        "https://aadhira.bg/kontakti/"
+      ],
+      "sourceReceiptNotes": "Actual owner Book entry followed first; root independently read its rendered public create page after login landing: online reservations temporarily suspended, explicitly phone/write fallback. Phone route retained, not a working-form claim. Full owner price list, ordinary hair services and contact/footer read after booking; three literal35/18/23EUR variants only, with haircut shape and short/medium length scopes preserved. No duration stated for these rows; none guessed. Very-long blowdry and several colour rows have conflicting dual-currency figures and are excluded, not called unpublished. Hair-loss diagnosis, medical-looking claims, laser/clinical procedures, new-customer offers, packages, retail and courses excluded. Exact MariaLuiza94 and own daily08-20 contact hours verified. No catalogue/staged domain/phone/address duplicate found. Quarter/coordinates not inferred; no forms or calls."
+    },
+    {
+      "id": "sofia-krasi-art-tsar-boris",
+      "inventoryIdentity": "d0324a592961e49d138d8671246bc42a692f698e14a0f49e23e3e66c0fe2ba3f",
+      "services": 3,
+      "priceRows": 3,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://krasiart.eu/",
+        "https://studio24.bg/m/krasi-art-beauty-and-spa-s13760?m%3Fm&m",
+        "https://krasiart.eu/%D1%86%D0%B5%D0%BD%D0%BE%D0%B2%D0%B0-%D0%BB%D0%B8%D1%81%D1%82%D0%B0/",
+        "https://krasiart.eu/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82/",
+        "https://krasiart.eu/%D0%B7%D0%B0-%D0%BD%D0%B0%D1%81/"
+      ],
+      "sourceReceiptNotes": "Actual owner-linked Studio24 merchant13760 independently rendered/read by root after ordinary reader cache miss; exact TsarBorisIII199 corroborates owner contact. Current actual menu shows gelmanicure40EUR90min, gelpedicure at Moni/Viki50EUR150min and plain facialcleaning50EUR60min. Own full tariff corroborates40/50/50EUR; staff Krasi pedicure60EUR105min is a distinct excluded tier, not mixed. Classic manicure is from25EUR60-90min in actual menu, so not imported as fixed25/one duration. About/team describes beauty/relax studio and cosmetic professionals; no doctor credentials inferred. Needling, therapeutic nail/foot disorders, clinical claims, packages and promotions excluded. Weekly owner Tue-Sun10-19/Monclosed conflicts with provider Mon12-19/TueFri08:30-20/SatSun10-19; all hours omitted pending owner confirmation. No review/photo copying, service/date/customer entry, call or reservation. Domain/phone/exact premises checked against1202 existing/staged catalogue IDs; no match. No coordinate or neighborhood guessed."
+    },
+    {
+      "id": "sofia-lux-tint-shine-lavski-rid7",
+      "inventoryIdentity": "569ae97b5afa9da1f7173d0df09962a610a98c42dc3217a06dcf20df5336b584",
+      "services": 2,
+      "priceRows": 2,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://luxtintshine.setmore.com/"
+      ],
+      "sourceReceiptNotes": "Read the merchant-owned public Setmore booking menu, exact service names, literal BGN amounts and durations, full venue address/contact and seven-day opening schedule. Selected staffed exterior/interior cleaning only, not self-service washing, promotions or retail. Service Book links were followed but the web reader returned cache-miss for the deeper staff/date chooser; the public priced service menu itself was readable and no availability, slot or successful booking is claimed. Booking-policy link returned this same public page. No photos, reviews, coordinates, account data or reservation actions used."
+    },
+    {
+      "id": "sofia-revzone-farmapark21",
+      "inventoryIdentity": "7da74ef1ca7b7338e3a5956219fc90dcaef6007f7bc50bce825027e3778bf2ad",
+      "services": 1,
+      "priceRows": 1,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://www.revzonebg.com/",
+        "https://www.revzonebg.com/contact",
+        "https://www.revzonebg.com/services"
+      ],
+      "sourceReceiptNotes": "Followed the owner's actual book-appointment link from the services page to Contact, then reviewed the complete service/tariff and contact pages. Initial air-conditioning-system diagnosis is explicitly 35 EUR; refrigerant quantities, vehicle rental and retail were not imported. Owner contact supplies Farmapark21, phone, weekday hours, Saturday only by arrangement and Sunday closed. No geographic quarter or coordinate was inferred."
+    },
+    {
+      "id": "sofia-ps-tuning-ovcha-kupel42",
+      "inventoryIdentity": "389658728819bd5f9102fb5a878680fb8891e372c4b562cc325b652c3f7db39d",
+      "services": 1,
+      "priceRows": 1,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://www.pstuning.net/",
+        "https://www.pstuning.net/kontakti",
+        "https://www.pstuning.net/dpf-cleaning.html"
+      ],
+      "sourceReceiptNotes": "Read the actual owner booking instruction in Contacts, followed Services to the separate machine-cleaning page and inspected its complete tariff by vehicle/type. Selected legal physical DPF/FAP/catalyst cleaning for one passenger-car component at100EUR; dismantling, fitting and software settings are separately assessed by complexity and stated publicly in the description. Excluded emission-system removal, defeat services, tuning and national mobile-station cloning. Owner publishes exact OvchaKupel42 venue, phone and weekday hours."
+    },
+    {
+      "id": "sofia-cars-done-gorublyane-vitosha54",
+      "inventoryIdentity": "e8b2504de6aa141996e369bd2c5b9927bdb82d4d98a482dd46fd52db6b9d7b00",
+      "services": 1,
+      "priceRows": 0,
+      "state": "service_reviewed",
+      "reviewedUrls": [
+        "https://cars-done.com/",
+        "https://cars-done.com/contacts/",
+        "https://cars-done.com/%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8/",
+        "https://cars-done.com/%D1%80%D0%B5%D0%BC%D0%BE%D0%BD%D1%82-%D0%BD%D0%B0-%D0%BC%D0%BE%D0%B4%D1%83%D0%BB%D0%B8/"
+      ],
+      "sourceReceiptNotes": "Followed the module-repair page's actual Reserve-appointment entry to the owner Contact page, also read the complete Services and module list. The selected audio/navigation-module repair has no numeric service tariff in those reviewed booking/service pages; the separate shop contains retail products, not a repair-visit tariff. Exact present GorublyaneVitosha54 address and Ivo's contact phone were read in Contacts, with working hours. Generic retail terms also list an older registered address, not imported as a branch. Excluded anti-theft bypass, emissions defeat and unrelated software services."
+    },
+    {
+      "id": "sofia-bultraco-honda-iztok326",
+      "inventoryIdentity": "702873fd51c680244ce2d237a4f6139a7a474490339fe7392cea031220416957",
+      "services": 1,
+      "priceRows": 0,
+      "state": "service_reviewed",
+      "reviewedUrls": [
+        "https://www.bultraco-sofia.bg/",
+        "https://www.bultraco-sofia.bg/serviz",
+        "https://www.bultraco-sofia.bg/kontakti"
+      ],
+      "sourceReceiptNotes": "Followed and read the owner's actual Reserve-service-appointment form (name, phone, email, Honda model and vehicle details), then the full service-programme and exact branch Contacts sections. This is a request for an arranged workshop visit, not a confirmed slot; branch and scope must be agreed with the dealer. No numeric maintenance-visit tariff is published in those inspected booking/services/contact pages. The numeric extended-warranty table is a different product and was not copied as a workshop fee. This exact branch is explicitly identified as a car service, not only a showroom. Service hours are Mon–Fri08:30–17:30; showroom Saturday hours were excluded. Only short service dial codes were published, so no fabricated international phone is supplied."
+    },
+    {
+      "id": "sofia-bultraco-honda-astreco40",
+      "inventoryIdentity": "8d71321a4b7cea1efd17a986b95dffa8b503bbc8d13d8b1f95cad585d751d2ad",
+      "services": 1,
+      "priceRows": 0,
+      "state": "service_reviewed",
+      "reviewedUrls": [
+        "https://www.bultraco-sofia.bg/",
+        "https://www.bultraco-sofia.bg/serviz",
+        "https://www.bultraco-sofia.bg/kontakti"
+      ],
+      "sourceReceiptNotes": "Followed and read the owner's actual Reserve-service-appointment form (name, phone, email, Honda model and vehicle details), then the full service-programme and exact branch Contacts sections. This is a request for an arranged workshop visit, not a confirmed slot; branch and scope must be agreed with the dealer. No numeric maintenance-visit tariff is published in those inspected booking/services/contact pages. The numeric extended-warranty table is a different product and was not copied as a workshop fee. This exact branch is explicitly identified as a car service, not only a showroom. Service hours are Mon–Fri08:30–17:30; showroom Saturday hours were excluded. Only short service dial codes were published, so no fabricated international phone is supplied."
+    },
+    {
+      "id": "sofia-vip-service-mladost1-malinov36",
+      "inventoryIdentity": "30cf7544182b33958f7c64f2d5e83896a26d314160edffccc6fe2f65eb51da77",
+      "services": 1,
+      "priceRows": 0,
+      "state": "service_reviewed",
+      "reviewedUrls": [
+        "https://vipservice-bg.com/",
+        "https://vipservice-bg.com/%d0%b7%d0%b0-%d0%ba%d0%be%d0%bd%d1%82%d0%b0%d0%ba%d1%82%d0%b8/",
+        "https://vipservice-bg.com/%d1%83%d1%81%d0%bb%d1%83%d0%b3%d0%b8/"
+      ],
+      "sourceReceiptNotes": "Read the homepage's explicit advance-appointment FAQ, followed the actual Request-an-offer/contact form and inspected its service selection, vehicle fields and GTP desired date/time fields; read the complete Services and Contacts pages by ordinary public GET after the web reader timed out. Selected GTP only. No numeric GTP fee was published in those reviewed pages, and no separate Prices menu was offered. This is a staffed real Mladost1 workshop and GTP venue with published phones/address, not a self-service wash. Opening hours are omitted because general contact hours and the FAQ's last bookable GTP times are different concepts. No request, personal data or reservation was submitted."
+    },
+    {
+      "id": "sofia-golden-fitbody-ar-studio",
+      "inventoryIdentity": "d259e2a9fbd27beb7122ccfac13fe2ad444bf22a81809b00cec12aa81e13e594",
+      "services": 1,
+      "priceRows": 1,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://goldenfitbody.bg/ar-studio",
+        "https://goldenfitbody.bg/locations",
+        "https://goldenfitbody.bg/promo",
+        "https://goldenfitbody.bg/4",
+        "https://goldenfitbody.bg/pricing"
+      ],
+      "sourceReceiptNotes": "Owner public JavaScript pages were independently rendered by root's browser reviewer: exact AR Studio venue and phone, EMS service and FAQ requiring advance booking were read. Actual Book CTA led through /promo to /4 public checkout; it explicitly says the trainer calls to arrange the chosen studio, day and time, and no submission was made. The pricing page explicitly selects Sofia city, not one branch, and the displayed DUO single EMS visit is29.10EUR per person for two clients. SOLO control did not change the displayed DUO tariff, so no SOLO fee is claimed. Package and promotional totals were excluded. Public pricing FAQ adds10percent where PRO suit applies, stated in public description. Hours omitted because branch detail and generic locations hours conflict. No coordinate, Google content, availability or booking action used. Regular single-visit DUO has no independently configured direct online form: the reviewed /promo→/4 path sells packages, so the listing honestly uses AR Studio's published contact phone to arrange advance-booked training instead of misdirecting a single-visit customer to a package purchase. Appointment requirement and contact are a contextual summary, not a verbatim telephone CTA."
+    },
+    {
+      "id": "sofia-dobsikauto-aleksandar-ekzarh11",
+      "inventoryIdentity": "d9381cf43aee9060d8b9522a2e0bff5009ed686c96f7b47467b6e299d2aad017",
+      "services": 1,
+      "priceRows": 0,
+      "state": "service_reviewed",
+      "reviewedUrls": [
+        "https://dobsikauto.bg/",
+        "https://dobsikauto.bg/?page_id=4562"
+      ],
+      "sourceReceiptNotes": "Followed the owner's actual Book-entry to the on-page appointment enquiry form with customer, vehicle, preferred date and time fields; it states the workshop will call to confirm. Read full home/contact/footer and selected engine-computer-diagnosis page by ordinary public GET after a web-reader timeout. No numeric diagnostic tariff is published on those accessible public booking and service pages, and the navigation has no separate service-price page; retail tyre/oil products were not treated as repair fees. Selected only fault diagnosis/live-data inspection, excluding the page's unrelated safety-system deactivation offers. Exact AleksandarEkzarh11 address, phone and weekday/Saturday hours read; quarter left null because owner alternates Slatina/SuhataReka. No coordinates, fixed duration or slot inferred."
+    },
+    {
+      "id": "sofia-caviar-couture-sinanishko7",
+      "inventoryIdentity": "2ffd656403036fd3360e1fa210040004619fc6b92cf640407ff905c30df522e1",
+      "services": 1,
+      "priceRows": 1,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://www.caviar-couture.com/",
+        "https://caviarhautecouture.setmore.com/"
+      ],
+      "sourceReceiptNotes": "Followed actual owner-linked Setmore booking entry and its named free one-hour fitting menu, then owner FAQ with explicit telephone reservations, free fittings and exact showroom street. Request calendar explicitly does not represent real availability. Deep slot URL returned cache miss, so record uses the separately explicit phone booking route. Owner showroom ends 19:00 but provider hours end 18:00; conflicting hours omitted. Retail garment prices are excluded."
+    },
+    {
+      "id": "sofia-one-bulgarian-rose-parchevich39",
+      "inventoryIdentity": "f92203426a31c0dafea176db6b240ed506d54e478ad39805981de2f8eb368ec6",
+      "services": 1,
+      "priceRows": 1,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://onebulgarianrose.com/",
+        "https://onebulgarianrose.com/rose-products-testing/",
+        "https://onebulgarianrose.setmore.com/"
+      ],
+      "sourceReceiptNotes": "Actual Book Now leads to named merchant Setmore class menu with matching 40 minutes and EUR16, phone and exact shop address. Deep class slot URL was unavailable to the web reader; a separate owner instruction explicitly invites contact to book a testing, so telephone route is recorded, not an unreviewed availability promise. Own service page specifies English, up to twelve participants, arrival payment and allergy restriction. Summer-only start time and generic shop opening hours are not imported as year-round class hours. No reviews or photos copied."
+    },
+    {
+      "id": "sofia-izgrev-lessons-buxton40",
+      "inventoryIdentity": "1ac959b32518fa4f18a3d87842d1478a6180f6c420464408e6a7828ff0fc0aee",
+      "services": 2,
+      "priceRows": 0,
+      "state": "service_reviewed",
+      "reviewedUrls": [
+        "https://izgrev.netlify.app/"
+      ],
+      "sourceReceiptNotes": "Owner one-page site contains explicit telephone enrolment, individual English and mathematics lessons up to grade12 and exact Buxton street. This row is only booked teaching, not summer childcare admission. Mon–Fri08:00–18:30 describes the childcare centre and is not claimed as the private lesson schedule. No additional price or booking page is linked for these lessons."
+    },
+    {
+      "id": "sofia-ima-koi-furniture-home-visits",
+      "inventoryIdentity": "79d3e18b2a135408d53112af80aec4fb8ef2bd975ebf9ffa27e196d980496d8d",
+      "services": 2,
+      "priceRows": 2,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://ima-koi.bg/"
+      ],
+      "sourceReceiptNotes": "Reviewed actual on-page quote request first: furniture link/photo followed by callback and agreed visit. Explicit telephone booking and home-visit day/time steps are present. Public HTTP owner HTML was read because web extraction failed; current live range55–65 and45–65 overrides older indexed snippets, not a guessed conversion. FAQ explicitly says work daily09–21. Only one Sofia service-area row; no office/centroid invented and no sample project times imported as durations."
+    },
+    {
+      "id": "sofia-refurnish-furniture-home-visits",
+      "inventoryIdentity": "d7074298b717cd7dc7c1b7b012353332cf35a3d7154b945c7de673b9a7c2ab1b",
+      "services": 2,
+      "priceRows": 2,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://remontnamebeli.com/montaj_na_mebeli.html"
+      ],
+      "sourceReceiptNotes": "Named owner furniture-assembly service includes explicit Viber/telephone appointment instructions, exact ordinary fees and separate transport/labour/VAT exclusions. Imported two internally consistent dual-currency rows only. Upper kitchen-cabinet row has inconsistent BGN/EUR and is held out, not converted. Partial street without house number is not a public premises address: one Sofia home-visit record. Fragmented Mon/Fri footer labels do not establish a reliable service-week schedule; hours omitted."
+    },
+    {
+      "id": "sofia-vik-maistor-bg-home-visits",
+      "inventoryIdentity": "28a48b71428ced735879d43305cee5bbedc608c61e210d7f458c291d53679c44",
+      "services": 2,
+      "priceRows": 2,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://vik-maistor.bg/",
+        "https://vik-maistor.bg/kontakti/",
+        "https://vik-maistor.bg/ceni/"
+      ],
+      "sourceReceiptNotes": "Followed owner quote/contact entry and read actual phone workflow, service menu and price conditions. Homepage explicitly distinguishes scheduled weekday planned repairs from24/7 emergencies. One provider across all Sofia; generic Krasna Polyana footer is not imported as a premises. Emergency24/7 cannot be encoded as ordinary appointment hours without conflating the two. Two literal from prices only; no diagnosis/arrival duration guessed."
+    },
+    {
+      "id": "sofia-shkola-bel-tri-ushi1",
+      "inventoryIdentity": "3b84a19faf12b91d7110afe80c59f5d68ba0a10511648681d30bdee2163f12ab",
+      "services": 2,
+      "priceRows": 2,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://shkolabel.org/",
+        "https://shkolabel.org/контакти/",
+        "https://shkolabel.org/individual7kl/",
+        "https://shkolabel.org/individual12/"
+      ],
+      "sourceReceiptNotes": "Actual homepage enrol entry opens contact form with individual-preparation option; both grade-specific service/fee pages explicitly permit phone enrolment. Contact page publishes TriUshi1, not an inferred map coordinate. Each page separately states27EUR per40-minute academic hour, ten-hour advance package/agreed alternative, and mutually agreed visit length. Recommended80minutes is NOT fixed duration. No weekly teaching schedule published."
+    },
+    {
+      "id": "sofia-atelie33a-james-bourchier33a",
+      "inventoryIdentity": "9619830dd02cecf8664de7e02ce849ca8eafbc578f869e83681a71e3045395cd",
+      "services": 1,
+      "priceRows": 0,
+      "state": "service_reviewed",
+      "reviewedUrls": [
+        "https://atelie33.wordpress.com/"
+      ],
+      "sourceReceiptNotes": "Owner WordPress page is both actual telephone enrolment and service description. Imported only explicitly prebooked adult course; published Tuesday–Thursday and earlier Saturday school periods are not mixed into this one-service schedule. Variable two-or-three-hour general visits do not establish a universal fixed lesson duration; duration field absent. Numeric prices genuinely not listed on the reviewed public page."
+    },
+    {
+      "id": "sofia-yana-kazakova-trepetlika12",
+      "inventoryIdentity": "7fc2081b50664ed84e35ec5bffecb53ad8e654286afcc122218789a73e3595da",
+      "services": 1,
+      "priceRows": 1,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://urociporisuvane.eu/",
+        "https://urociporisuvane.eu/групи/",
+        "https://urociporisuvane.eu/цени/",
+        "https://urociporisuvane.eu/контакт/"
+      ],
+      "sourceReceiptNotes": "Owner groups page separately identifies this actual teaching venue (София, ул. Трепетлика 12, читалище Мечталище), grade range, maximum group size and advance enrolment. Own website footer publishes booking phone and advance-registration requirement. Public HTTP was used after reader cache misses for groups/prices/contact; full pages were accessible. Ordinary25EUR two-hour single visit imported, not voucher,15EUR trial or85EUR attendance-bound package. Private home lesson venue and address are not published or inferred. No customer form submitted."
+    },
+    {
+      "id": "sofia-yana-kazakova-soho-iskar4",
+      "inventoryIdentity": "5f8b8b18071b0d270f6eb0c5910a260cc8ef25235a471a6fb9ec213ca9b82fb7",
+      "services": 1,
+      "priceRows": 1,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://urociporisuvane.eu/",
+        "https://urociporisuvane.eu/групи/",
+        "https://urociporisuvane.eu/цени/",
+        "https://urociporisuvane.eu/контакт/"
+      ],
+      "sourceReceiptNotes": "Owner groups page separately identifies this actual teaching venue (София, ул. Искър 4, SOHO), grade range, maximum group size and advance enrolment. Own website footer publishes booking phone and advance-registration requirement. Public HTTP was used after reader cache misses for groups/prices/contact; full pages were accessible. Ordinary25EUR two-hour single visit imported, not voucher,15EUR trial or85EUR attendance-bound package. Private home lesson venue and address are not published or inferred. No customer form submitted."
+    },
+    {
+      "id": "sofia-royana-art-tsar-samuil22",
+      "inventoryIdentity": "84d3d717fc38835d123c249841efc432e59f0938a3289880112607f828abe5b4",
+      "services": 1,
+      "priceRows": 1,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://www.royana-bg.com/",
+        "https://www.royana-bg.com/рисуване-за-деца/",
+        "https://www.royana-bg.com/контакти/",
+        "https://www.royana-bg.com/рисуване-за-възрастни/"
+      ],
+      "sourceReceiptNotes": "Read real telephone enrolment within specific children service page before the dedicated contact and ordinary single-visit tariff. Selected only explicit Saturday6–8year group11–12:30, not every child/adult opening hour.15EUR ordinary single visit differs from25EUR Sunday oils,55EUR four-lesson card and seasonal workshop/deposit; those are not substituted. Conflicting adult/teen Sunday durations do not affect imported Saturday group. No images, ratings or map points copied."
+    },
+    {
+      "id": "sofia-prestige-motopista-vaccarini7a",
+      "inventoryIdentity": "e91d6fd6f843df2c39d611dbacfd10a32f9d253896db6a72aecaca0519c2d1c8",
+      "services": 1,
+      "priceRows": 1,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://www.prestige.bg/",
+        "https://www.prestige.bg/zapisvane-deca-angliiski",
+        "https://www.prestige.bg/angliiski-1-3-klas",
+        "https://www.prestige.bg/contacts",
+        "https://www.prestige.bg/za-shkolata?tab=mprestige"
+      ],
+      "sourceReceiptNotes": "Actual enrolment form explicitly offers Мотописта as teaching-base selection; contact page separately confirms actual classes and this precise venue. Same named1–3grade programme page presents its2026/27 tuition range780–890EUR and explicitly lists these teaching bases; no unrelated branch or staff tariff inferred.55EUR book set separate. Price is whole annual programme, not per meeting. Source has inconsistent generic60/80-minute prose, so duration omitted. Administrative/test hours not teaching hours; weekly availability not invented. Existing Manastirski/Borovo/Buxton records excluded."
+    },
+    {
+      "id": "sofia-prestige-dondukov57g",
+      "inventoryIdentity": "8638c3bdfc6270bf99acbea408924904a88f7335dd87cfd44efc7e426fd5f843",
+      "services": 1,
+      "priceRows": 1,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://www.prestige.bg/",
+        "https://www.prestige.bg/zapisvane-deca-angliiski",
+        "https://www.prestige.bg/angliiski-1-3-klas",
+        "https://www.prestige.bg/contacts",
+        "https://www.prestige.bg/za-shkolata?tab=mprestige"
+      ],
+      "sourceReceiptNotes": "Actual enrolment form explicitly offers Паметник Левски as teaching-base selection; contact page separately confirms actual classes and this precise venue. Same named1–3grade programme page presents its2026/27 tuition range780–890EUR and explicitly lists these teaching bases; no unrelated branch or staff tariff inferred.55EUR book set separate. Price is whole annual programme, not per meeting. Source has inconsistent generic60/80-minute prose, so duration omitted. Administrative/test hours not teaching hours; weekly availability not invented. Existing Manastirski/Borovo/Buxton records excluded."
+    },
+    {
+      "id": "sofia-prestige-mladost-malinov51",
+      "inventoryIdentity": "f91efd797363b00393e6038effe4d748f83da1aa825cc75904b7e11c80ab8ea6",
+      "services": 1,
+      "priceRows": 1,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://www.prestige.bg/",
+        "https://www.prestige.bg/zapisvane-deca-angliiski",
+        "https://www.prestige.bg/angliiski-1-3-klas",
+        "https://www.prestige.bg/contacts",
+        "https://www.prestige.bg/za-shkolata?tab=mprestige"
+      ],
+      "sourceReceiptNotes": "Actual enrolment form explicitly offers Младост as teaching-base selection; contact page separately confirms actual classes and this precise venue. Same named1–3grade programme page presents its2026/27 tuition range780–890EUR and explicitly lists these teaching bases; no unrelated branch or staff tariff inferred.55EUR book set separate. Price is whole annual programme, not per meeting. Source has inconsistent generic60/80-minute prose, so duration omitted. Administrative/test hours not teaching hours; weekly availability not invented. Existing Manastirski/Borovo/Buxton records excluded."
+    },
+    {
+      "id": "sofia-prestige-lyulin160",
+      "inventoryIdentity": "0159be0e4f8db09fac0a884b9a33e0c7b8453c5fe4a75b8fc79b1baef7760493",
+      "services": 1,
+      "priceRows": 1,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://www.prestige.bg/",
+        "https://www.prestige.bg/zapisvane-deca-angliiski",
+        "https://www.prestige.bg/angliiski-1-3-klas",
+        "https://www.prestige.bg/contacts",
+        "https://www.prestige.bg/za-shkolata?tab=mprestige"
+      ],
+      "sourceReceiptNotes": "Actual enrolment form explicitly offers Люлин 10 as teaching-base selection; contact page separately confirms actual classes and this precise venue. Same named1–3grade programme page presents its2026/27 tuition range780–890EUR and explicitly lists these teaching bases; no unrelated branch or staff tariff inferred.55EUR book set separate. Price is whole annual programme, not per meeting. Source has inconsistent generic60/80-minute prose, so duration omitted. Administrative/test hours not teaching hours; weekly availability not invented. Existing Manastirski/Borovo/Buxton records excluded."
+    },
+    {
+      "id": "sofia-prestige-vazrazhdane-bl2",
+      "inventoryIdentity": "5c30b1ff3488d1afbf98e09f9263c11bed721a5614d4d72e3d3a707758ae7e6c",
+      "services": 1,
+      "priceRows": 1,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://www.prestige.bg/",
+        "https://www.prestige.bg/zapisvane-deca-angliiski",
+        "https://www.prestige.bg/angliiski-1-3-klas",
+        "https://www.prestige.bg/contacts",
+        "https://www.prestige.bg/za-shkolata?tab=mprestige"
+      ],
+      "sourceReceiptNotes": "Actual enrolment form explicitly offers Зона Б-5 as teaching-base selection; contact page separately confirms actual classes and this precise venue. Same named1–3grade programme page presents its2026/27 tuition range780–890EUR and explicitly lists these teaching bases; no unrelated branch or staff tariff inferred.55EUR book set separate. Price is whole annual programme, not per meeting. Source has inconsistent generic60/80-minute prose, so duration omitted. Administrative/test hours not teaching hours; weekly availability not invented. Existing Manastirski/Borovo/Buxton records excluded."
+    },
+    {
+      "id": "sofia-english-world-tsar-shishman43",
+      "inventoryIdentity": "acd8c4552f0447dd42e0057b2ef34db226e2a6cd8575dcaad8e9d449c9c7905f",
+      "services": 1,
+      "priceRows": 1,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://englishworldacademy.com/",
+        "https://englishworldacademy.com/записване/",
+        "https://englishworldacademy.com/индивидуално-обучение/",
+        "https://englishworldacademy.com/контакти/"
+      ],
+      "sourceReceiptNotes": "Read actual free interview appointment form with preferred consultation time, then individual tuition tariff and contact/footer. The individual service explicitly permits choosing between BOTH teaching offices (София, ул. Цар Шишман 43); separate contact confirms both addresses and centralizes interview/enrolment at TsarShishman43. Ordinary20.45EUR per academic hour with ten-hour course minimum retained; not the price of an entire course. Academic-hour minutes and weekly teaching hours are not specified, so none inferred. No submission, calendar availability or third office claimed."
+    },
+    {
+      "id": "sofia-english-world-slavyanska9",
+      "inventoryIdentity": "eaa2f7910973c8bbf55e7d3ed9254413c548b267b5db5b9b830fe737a776ff23",
+      "services": 1,
+      "priceRows": 1,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://englishworldacademy.com/",
+        "https://englishworldacademy.com/записване/",
+        "https://englishworldacademy.com/индивидуално-обучение/",
+        "https://englishworldacademy.com/контакти/"
+      ],
+      "sourceReceiptNotes": "Read actual free interview appointment form with preferred consultation time, then individual tuition tariff and contact/footer. The individual service explicitly permits choosing between BOTH teaching offices (София, ул. Славянска 9); separate contact confirms both addresses and centralizes interview/enrolment at TsarShishman43. Ordinary20.45EUR per academic hour with ten-hour course minimum retained; not the price of an entire course. Academic-hour minutes and weekly teaching hours are not specified, so none inferred. No submission, calendar availability or third office claimed."
+    },
+    {
+      "id": "sofia-fotovideo-elite-dimitar-tsolov9",
+      "inventoryIdentity": "5f881b9ff2bf62e83db00f8b34a39558343a9099e02a586c3fe988db7bbd1f2d",
+      "services": 1,
+      "priceRows": 1,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://fotovideoelite.com/foto-studio-sofia/",
+        "https://fotovideoelite.com/detski-i-semeini-fotosesii/",
+        "https://fotovideoelite.com/kontakti/",
+        "https://fotovideoelite.com/koledni-fotosesii-sofia-2026/"
+      ],
+      "sourceReceiptNotes": "Followed actual service enquiry/booking contact and read the named Sofia-studio programme, dedicated family/child package menu and contact. This exact menu independently repeats the Sofia booking phone, so no Plovdiv branch tariff inferred.39EUR is whole five-image/print package, not individual print or shop admission. Maximum one hour is not fixed duration. Christmas menu reviewed but no seasonal offer imported. Contact has no weekly studio/appointment schedule; no hours guessed and no maps opened."
+    },
+    {
+      "id": "sofia-photobox-sevdalina-georgi-yolov15",
+      "inventoryIdentity": "29d7bf34dc373e3b219ed8bca477eaaf73efe73af1b064829244c3d16b38b068",
+      "services": 1,
+      "priceRows": 1,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://www.photobox.bg/",
+        "https://www.photobox.bg/kontakti",
+        "https://www.photobox.bg/fotograf-novorodeni-sofia"
+      ],
+      "sourceReceiptNotes": "Actual Save Photoshoot entry opens owner enquiry form with city, service and birth-term inputs. Separate Sofia newborn service page confirms350EUR SmallMoments, ninety minutes, ten images/prints and scheduling around birth; not the Ruse price guessed from a chain-wide page. Contact explicitly lists a separate Sofia studio atGeorgiYolov15; only that actual venue imported. Generic weekday09–16 follows both city blocks and cannot safely be assigned to Sofia visits, so omitted. No guide-download newsletter signup submitted; Instagram embeds/photos ignored."
+    },
+    {
+      "id": "sofia-svetove-tsar-boris287",
+      "inventoryIdentity": "c280bef41ef30305de88692559303e1e8c0c9a314a426b6fc4625ae4abedc1c6",
+      "services": 1,
+      "priceRows": 1,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://svetove.bg/",
+        "https://svetove.bg/pages-8-ceni",
+        "https://svetove.bg/pages-3-piano",
+        "https://svetove.bg/pages-4-usloviia",
+        "https://svetove.bg/contacts"
+      ],
+      "sourceReceiptNotes": "Owner piano-price section itself is the year-round telephone enrolment entry and gives18EUR/30minutes; owner contact separately confirmsTsarBorisIII287. Ordinary rate imported, not conditional16EUR sibling/combined rate. Discovery merchant profile elsewhere carried an older15.34EUR figure; only current own-site tariff is used, no third-party fee copied. Own Conditions link is an accessible coming-soon placeholder, not hidden pricing. No lesson-week hours published on price/service/contact/footer. Piano age range4.5–7 is explicit owner header, not inferred from general language-course ages."
+    },
+    {
+      "id": "sofia-mnogoznayko-dimitar-petkov72g",
+      "inventoryIdentity": "376af5e56913db1865cd430370dfc34c365920d94a37f4d012daa40c4ffc622a",
+      "services": 1,
+      "priceRows": 1,
+      "state": "reviewed",
+      "reviewedUrls": [
+        "https://mnogoznayko.bg/",
+        "https://mnogoznayko.bg/urotsi/proben-urok/",
+        "https://mnogoznayko.bg/urotsi/individualni-urotsi/individualni-urotsi/",
+        "https://mnogoznayko.bg/tseni/",
+        "https://mnogoznayko.bg/za-nas/tsentar/",
+        "https://mnogoznayko.bg/kontakt/",
+        "https://mnogoznayko.bg/obshti-usloviya"
+      ],
+      "sourceReceiptNotes": "Actual enrolment form and explicit phone booking reviewed before individual-lesson inventory and dedicated tariff. Imported only central teaching venue independently confirmed by location/contact and exact service footer; Mladost/OvchaKupel are not cloned.139.27EUR is the whole4-astronomical-hour subscription valid up to30days, not per visit; the page explicitly permits multiple subjects/two siblings. Different academic-hour packs and generic trial-page single rates are not equated. Terms require team callback confirmation and protect confirmed fees; no copied media/creative text or customer submission. No weekly lesson hours published."
+    }
+  ]
+}

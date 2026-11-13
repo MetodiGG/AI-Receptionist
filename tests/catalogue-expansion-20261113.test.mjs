@@ -15,6 +15,7 @@ import { DateTime } from 'luxon'
 import { discoverBusinesses } from '../lib/discovery/search.mjs'
 import { discoveryConfig } from '../lib/discovery/config.mjs'
 import { discoverySearchInput } from '../lib/discovery/search-ui.mjs'
+import approvedGrowthLocations from '../public/catalogue-official-address-growth-subset-20261113.json' with { type: 'json' }
 
 const now = Date.parse('2026-11-13T12:00:00Z')
 const ids = new Set(additions.map(row => row.id))
@@ -34,7 +35,8 @@ test('new unique, source-reviewed Sofia businesses are imported without mutating
   assert.ok(additions.every(row => !oldIds.has(row.id)))
   assert.ok(baseline.records.every(row => SOFIA_CATALOGUE.some(item => item.id === row.id)))
   for (const row of additions) {
-    assert.deepEqual(SOFIA_CATALOGUE.find(item => item.id === row.id), row)
+    const location = approvedGrowthLocations.points.find(item => item.id === row.id)
+    assert.deepEqual(SOFIA_CATALOGUE.find(item => item.id === row.id), location ? { ...row, coordinates: location.coordinates } : row)
     assert.ok(approvedCatalogueRecord(row, now), row.id)
     const review = reviews.find(item => item.id === row.id)
     // Identities bind the schema-normalized public inventory, as the release
@@ -132,8 +134,10 @@ test('every complete new business name is publicly searchable, without interpret
     assert.equal((await discoverBusinesses({ query: school.name, cityCode: '68134', category: 'pets' }, mixed)).results.length, 0)
     assert.ok((await discoverBusinesses({ query: school.name, cityCode: '68134', category: 'education' }, mixed)).results.some(row => row.id === partner.id))
   }
-  const invalidCategory = { ...partner, services: partner.services.map(service => ({ ...service, category: 'unrecognised' })) }
-  assert.ok(!(await discoverBusinesses({ query: school.name, cityCode: '68134', category: 'education' }, { ...deps, readInternal: async () => [invalidCategory] })).results.some(row => row.id === partner.id))
+  const freeCategory = { ...partner, services: partner.services.map(service => ({ ...service, category: 'unrecognised' })) }
+  assert.ok((await discoverBusinesses({ query: school.name, cityCode: '68134', category: 'education' }, { ...deps, readInternal: async () => [freeCategory] })).results.some(row => row.id === partner.id), 'legacy free categories retain actual mathematics service evidence')
+  const noEvidence = { ...freeCategory, services: freeCategory.services.map(service => ({ ...service, name: 'Обща услуга' })) }
+  assert.ok(!(await discoverBusinesses({ query: school.name, cityCode: '68134', category: 'education' }, { ...deps, readInternal: async () => [noEvidence] })).results.some(row => row.id === partner.id))
   const borovo = additions.find(row => row.id === 'sofia-puzzle-kids-borovo')
   assert.equal((await discoverBusinesses(discoverySearchInput({ query: borovo.name, cityCode: '56784', cityWasChosen: true }), deps)).results.length, 0)
   let partnerReads = 0

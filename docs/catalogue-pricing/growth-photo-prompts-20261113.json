@@ -1,0 +1,22 @@
+{
+  "tool": "built-in image_gen",
+  "generatedOn": "2026-11-13",
+  "scope": "Illustrative activities only, never actual premises, staff, products or verified work.",
+  "assets": [
+    {
+      "id": "sx-dress-fitting-consultation",
+      "label": "Лична проба на рокля с моден консултант",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 small service thumbnail for a Bulgarian appointment catalogue. Primary request: a realistic private dress-fitting consultation in a modest elegant showroom: one fictional adult woman wearing a simple long cream evening dress, standing naturally in front of a mirror while one adult female fashion consultant checks the fit at the waist with fingertips. A few dresses on a rack in soft background, discreet full-length mirror. Clearly a fitting appointment, not a wedding ceremony, not a tailor sewing and not a retail product still life. Natural skin and hands, respectful fully clothed adults, warm soft daylight, cream-neutral restrained palette, candid editorial photograph, central medium composition easily legible at 60px. No typography, logo, watermark, price label, notebook, clipboard, distorted anatomy or text. Illustration of the activity only, not any particular business's premises, staff or work."
+    },
+    {
+      "id": "sx-rose-experience-degustation",
+      "label": "Представяне и дегустация с розов чай",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 small service thumbnail for an online appointment catalogue. Primary request: realistic small guided Bulgarian rose tasting experience: one fictional adult female host presenting a small clear cup of pale rose tea to two fictional adult visitors seated at a small light wooden tasting table. On the table clearly visible pink rose blossoms, a glass teapot with rose tea and a few small unbranded clear aroma bottles with no labels. Visitors listening and smelling a rose blossom, host calmly demonstrating. Contemporary modest boutique tasting room, no invented historic venue, no branded interiors. Close medium three-quarter view with central tea, rose flowers and human interaction readable at 60px; natural skin and hands, soft daylight, warm cream-neutral colors, candid editorial photography. No writing, logos, labels, watermark, notebook, clipboard, collage, beauty treatment, drinking alcohol, medical or therapeutic claims. Illustrative activity only, not actual business premises/staff/products."
+    },
+    {
+      "id": "sx-fullbody-ems-duo-training",
+      "label": "ЕМС тренировка за двама с инструктор",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 small service thumbnail for a Bulgarian fitness booking catalogue. Primary request: a realistic DUO full-body EMS fitness training session: exactly two fictional adult clients, one woman and one man, both standing on the gym floor doing gentle balanced shallow squats side by side, supervised by one adult female fitness trainer. Both clients wear credible close-fitting black EMS training vests and thigh/upper-arm electrode bands over ordinary modest black sports base layers; discreet tidy leads to a compact training control console positioned to the side, no exaggerated technology. Trainer stands between and slightly behind coaching safe posture, ordinary fitness not a medical procedure. Minimal bright cream-neutral gym, rubber floor, natural daylight, realistic fabric and skin, natural hands and anatomy. Clear medium-wide central three-quarter composition with both clients and trainer readable at 60px. No typography, labels, logos, watermarks, notebook, clipboard, lightning/glow effects, before-after claims, rehab or medical setting. Illustrative activity only, not a particular business's staff, equipment model or premises."
+    }
+  ]
+}

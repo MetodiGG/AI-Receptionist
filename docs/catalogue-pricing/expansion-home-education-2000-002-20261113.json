@@ -1,0 +1,1696 @@
+{
+  "checkedOn": "2026-11-13",
+  "validUntil": "2027-02-11",
+  "scope": "Numbered2000 intake002: Sofia home visits, private psychological/dental exceptions, tattoo and booked education; no general medical clinics/doctors. Isolated evidence-only intake, no shared inventory identities/photos/imports, no production/booking writes.",
+  "summary": {
+    "records": 19,
+    "services": 22,
+    "priceRows": 14,
+    "priceReviewed": 11,
+    "unpricedServiceReviewed": 8,
+    "coordinates": 0,
+    "weeklyHours": 9,
+    "pending": 23,
+    "rejected": 13,
+    "existingUnionRecords": 1319
+  },
+  "dedupe": {
+    "basis": "SOFIA_CATALOGUE plus ALL sibling2000 intake modules; final1319-row union before this batch. Exact ID/phone and normalized hostname comparisons returned no cross-union matches after removing existingSvetove.",
+    "mobile": "Every mobile business represented once across Sofia; hyphenatedvik-sofia.eu and viksofia.eu have distinct owned public phones/services, no duplicated quarter records. KanalMaistor/VikPomosht/otpushvam share exactphones and are one row.",
+    "native": "Root retains final current six-native-partner public phone/identity cross-check; no customer/private data accessed."
+  },
+  "evidencePolicy": "Actual own Book entry first, then selected service/ordinary tariffs/contacts/footer. Strict genuinely-unpublished service receipts are separate from price_reviewed; blocked/conflicting actual menus and uncertain premises remain held. Literal EUR/BGN amounts with labour/minimum/package/deposit/cancellation qualifications; no conversion or fictional duration/coordinates.",
+  "accessReview": {
+    "mode": "Manual bounded public web reader plus ordinary public HTTPSGET after cache misses. No crawl or bulk provider import, authentication, consent/checkbox/date selection/customer data or form submission.",
+    "robots": "No crawler run; robots not separately fetched for these manual reads. No claim of blanket scraping/reuse permission.",
+    "terms": "Read current TattooBoutique privacy/use, NovaInsight terms/FAQ, ExpresPartners terms and HamaliSofia terms plus available own service conditions. Source creative prose/photos/ratings/reviews not copied; exact factual tariff labels and short appointment excerpts only. Source protections/verification challenge respected.",
+    "browserEvidence": "Root read-only actual rendered NovaInsight Calendly and ElectroGroupJS own service/BookContact. No customer fields or submission. Muse/OKtherapy holds are not counted."
+  },
+  "ledger": [
+    {
+      "order": 1,
+      "id": "sofia-toto-clean-home-visits",
+      "name": "Тото Клийн · посещения на адрес",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.totoclean.bg/",
+        "https://www.totoclean.bg/services/prane-na-matraci-sofia"
+      ],
+      "bookingEvidenceUrl": "https://www.totoclean.bg/services/prane-na-matraci-sofia",
+      "actualBooking": {
+        "kind": "form",
+        "url": "https://www.totoclean.bg/services/prane-na-matraci-sofia"
+      },
+      "services": [
+        {
+          "name": "Екстракционно пране на матрак на адрес",
+          "description": "Пране на матрак след предварителна заявка и потвърждение. Цената зависи от размера, една или две страни, замърсяването и достъпа; дезинфекция и UV обработка се уточняват отделно. Няма гаранция за премахване на всички стари петна."
+        }
+      ],
+      "locationDecision": "service_area",
+      "address": null,
+      "coordinatesDecision": "null; no owner marker imported, no geocoding/map requests or spatial-accuracy claim",
+      "hoursDecision": {
+        "sourceUrl": "https://www.totoclean.bg/",
+        "checkedOn": "2026-11-13",
+        "days": [
+          {
+            "weekday": 1,
+            "periods": [
+              {
+                "open": "08:00",
+                "close": "18:00"
+              }
+            ]
+          },
+          {
+            "weekday": 2,
+            "periods": [
+              {
+                "open": "08:00",
+                "close": "18:00"
+              }
+            ]
+          },
+          {
+            "weekday": 3,
+            "periods": [
+              {
+                "open": "08:00",
+                "close": "18:00"
+              }
+            ]
+          },
+          {
+            "weekday": 4,
+            "periods": [
+              {
+                "open": "08:00",
+                "close": "18:00"
+              }
+            ]
+          },
+          {
+            "weekday": 5,
+            "periods": [
+              {
+                "open": "08:00",
+                "close": "18:00"
+              }
+            ]
+          },
+          {
+            "weekday": 6,
+            "periods": [],
+            "byAppointment": true
+          },
+          {
+            "weekday": 7,
+            "periods": [],
+            "byAppointment": true
+          }
+        ]
+      },
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://www.totoclean.bg/services/prane-na-matraci-sofia",
+        "serviceUrls": [
+          "https://www.totoclean.bg/services/prane-na-matraci-sofia"
+        ],
+        "notes": "Actual service-specific appointment request form includes service, area, preferred time, contact and notes; inspected before full mattress service/pricing factors and footer. No numeric mattress tariff is published; owner explicitly provides individual quote after size/sides/stains/access questions. No unavailable price menu is treated as absent."
+      },
+      "notes": "Real own named home service and form reviewed, including explicit extraction process and optional UV, not falsely mandatory disinfection. Mon–Fri08–18/weekend by agreement stated by owner; no duration inferred from drying time4–8hours. One Sofia service-area row; Simeonovo office/complex is not a home-visit premises or quarter clone. No source photos/reviews copied."
+    },
+    {
+      "order": 2,
+      "id": "sofia-chistobg-net-home-visits",
+      "name": "ChistoBG · почистване на адрес",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.chistobg.net/",
+        "https://www.chistobg.net/почистване-на-дивани",
+        "https://www.chistobg.net/заявка"
+      ],
+      "bookingEvidenceUrl": "https://www.chistobg.net/почистване-на-дивани",
+      "actualBooking": {
+        "kind": "phone",
+        "phone": "+359879019553"
+      },
+      "services": [
+        {
+          "name": "Екстракционно почистване на диван",
+          "description": "Почистване на диван на адрес в София, след предварително уговорен час. Транспортът в града е включен. Таксата зависи от конкретната мебел; старите петна може да останат частично видими. Сушенето е отделно от времето за работа."
+        }
+      ],
+      "locationDecision": "service_area",
+      "address": null,
+      "coordinatesDecision": "null; no owner marker imported, no geocoding/map requests or spatial-accuracy claim",
+      "hoursDecision": "No unambiguous applicable recurring weekly service hours imported.",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://www.chistobg.net/почистване-на-дивани",
+        "serviceUrls": [
+          "https://www.chistobg.net/почистване-на-дивани"
+        ],
+        "notes": "Read actual request entry first; its public canvas has service choices but no tariff. Separate own sofa page explicitly offers telephone booking, describes extraction and no transport fee in Sofia, and has no numeric sofa price. No numeric price/menu link is published in own navigation. Missing fee stays absent."
+      },
+      "notes": "Normal public HTTPS used after reader cache misses. Explicit Book or call invitation on named sofa service establishes phone appointment independently of the unrendered request canvas. Exact extraction method is stated, not inferred from an image. No fixed duration from30–90minute range and no weekly hours stated, so neither invented. One mobile Sofia row; different phone/domain from existing Chisto cleaning providers, pending final union phone recheck."
+    },
+    {
+      "order": 3,
+      "id": "sofia-sofia-clean-agency-home-visits",
+      "name": "Sofia Clean Agency · почистване на адрес",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://sofiaclean.bg/",
+        "https://sofiaclean.bg/quote/",
+        "https://sofiaclean.bg/еднократно-почистване-дома-офиса/",
+        "https://sofiaclean.bg/пране-килими-мека-мебел/",
+        "https://sofiaclean.bg/абонаментното-почистване/",
+        "https://sofiaclean.bg/faqs/"
+      ],
+      "bookingEvidenceUrl": "https://sofiaclean.bg/quote/",
+      "actualBooking": {
+        "kind": "form",
+        "url": "https://sofiaclean.bg/quote/"
+      },
+      "services": [
+        {
+          "name": "Еднократно поддържащо почистване на жилище до 60 м²",
+          "description": "Цена за едно почистване по предварителна заявка, до 3 часа, за жилище до 60 м². Не е месечен абонамент. Конкретният час и обхват се потвърждават с агенцията.",
+          "price": {
+            "amount": 50,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "едно почистване · до 60 м² · до 3 часа",
+            "sourceUrl": "https://sofiaclean.bg/еднократно-почистване-дома-офиса/",
+            "checkedOn": "2026-11-13"
+          }
+        },
+        {
+          "name": "Екстракционно пране на двуместен диван",
+          "description": "Пране на място с екстракторна техника, след предварителна заявка и потвърждение на удобен час. Цена за двуместен диван; продължителност не е публикувана.",
+          "price": {
+            "amount": 40,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "двуместен диван",
+            "sourceUrl": "https://sofiaclean.bg/пране-килими-мека-мебел/",
+            "checkedOn": "2026-11-13"
+          }
+        }
+      ],
+      "locationDecision": "service_area",
+      "address": null,
+      "coordinatesDecision": "null; no owner marker imported, no geocoding/map requests or spatial-accuracy claim",
+      "hoursDecision": {
+        "sourceUrl": "https://sofiaclean.bg/еднократно-почистване-дома-офиса/",
+        "checkedOn": "2026-11-13",
+        "days": [
+          {
+            "weekday": 1,
+            "periods": [
+              {
+                "open": "07:00",
+                "close": "20:00"
+              }
+            ]
+          },
+          {
+            "weekday": 2,
+            "periods": [
+              {
+                "open": "07:00",
+                "close": "20:00"
+              }
+            ]
+          },
+          {
+            "weekday": 3,
+            "periods": [
+              {
+                "open": "07:00",
+                "close": "20:00"
+              }
+            ]
+          },
+          {
+            "weekday": 4,
+            "periods": [
+              {
+                "open": "07:00",
+                "close": "20:00"
+              }
+            ]
+          },
+          {
+            "weekday": 5,
+            "periods": [
+              {
+                "open": "07:00",
+                "close": "20:00"
+              }
+            ]
+          },
+          {
+            "weekday": 6,
+            "periods": [
+              {
+                "open": "07:00",
+                "close": "20:00"
+              }
+            ]
+          },
+          {
+            "weekday": 7,
+            "periods": [
+              {
+                "open": "07:00",
+                "close": "20:00"
+              }
+            ]
+          }
+        ]
+      },
+      "notes": "Actual Reserve buttons lead to own quotation request with service/property/date/time fields and later confirmation. One-off50EUR up-to60m²/up-to3hours is not subscription45EUR or full monthly charge; durationMin omitted because up to is not fixed. Separate40EUR two-seat sofa/extraction page read. Explicit cleaning hours daily07–20 used, not officeMon–Fri09–18. One Sofia service-area row, no YuzhenPark office pin."
+    },
+    {
+      "order": 4,
+      "id": "sofia-albel-ognyan-tsonev-home-repair",
+      "name": "Александър Бел · сервиз АлБел",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://serviz-albel.com/",
+        "https://serviz-albel.com/ремонт-на-перални-витоша/",
+        "https://serviz-albel.com/ремонт-на-перални/",
+        "https://serviz-albel.com/контакт-с-нас/"
+      ],
+      "bookingEvidenceUrl": "https://serviz-albel.com/ремонт-на-перални-витоша/",
+      "actualBooking": {
+        "kind": "phone",
+        "phone": "+359887994366"
+      },
+      "services": [
+        {
+          "name": "Отпушване на водна помпа на пералня",
+          "description": "Публикувана цена за труд с посещение при извършен ремонт на място; резервните части, ако са необходими, се доплащат след съгласуване. Посещението и конкретният час се уговарят предварително по телефона.",
+          "price": {
+            "amount": 45,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "пералня · отпушване на водна помпа · труд",
+            "sourceUrl": "https://serviz-albel.com/ремонт-на-перални/",
+            "checkedOn": "2026-11-13"
+          }
+        }
+      ],
+      "locationDecision": "service_area",
+      "address": null,
+      "coordinatesDecision": "null; no owner marker imported, no geocoding/map requests or spatial-accuracy claim",
+      "hoursDecision": {
+        "sourceUrl": "https://serviz-albel.com/ремонт-на-перални/",
+        "checkedOn": "2026-11-13",
+        "days": [
+          {
+            "weekday": 1,
+            "periods": [
+              {
+                "open": "09:00",
+                "close": "19:00"
+              }
+            ]
+          },
+          {
+            "weekday": 2,
+            "periods": [
+              {
+                "open": "09:00",
+                "close": "19:00"
+              }
+            ]
+          },
+          {
+            "weekday": 3,
+            "periods": [
+              {
+                "open": "09:00",
+                "close": "19:00"
+              }
+            ]
+          },
+          {
+            "weekday": 4,
+            "periods": [
+              {
+                "open": "09:00",
+                "close": "19:00"
+              }
+            ]
+          },
+          {
+            "weekday": 5,
+            "periods": [
+              {
+                "open": "09:00",
+                "close": "19:00"
+              }
+            ]
+          },
+          {
+            "weekday": 6,
+            "periods": [
+              {
+                "open": "09:00",
+                "close": "19:00"
+              }
+            ]
+          }
+        ]
+      },
+      "notes": "Owner Vitosha service page explicitly invites telephone agreed time; reviewed main citywide washing-machine tariff and contacts afterward.45EUR water-pump unclogging labour agrees on both pages; parts separate and visit included when repair performed. Standalone diagnosis fee16EUR vs blanket free-visit wording is not imported as a separate fee. One provider across Sofia, not one per quarter; PanayotVolov6 contact is not mapped as home service. Main service footer statesMon–Sat09–19. No source reviews/photos used."
+    },
+    {
+      "order": 5,
+      "id": "sofia-kominochistachsofia-home-visits",
+      "name": "Коминочистач София · посещения на адрес",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://kominochistachsofia.com/",
+        "https://kominochistachsofia.com/kontakti",
+        "https://kominochistachsofia.com/tseni",
+        "https://kominochistachsofia.com/za-nas"
+      ],
+      "bookingEvidenceUrl": "https://kominochistachsofia.com/kontakti",
+      "actualBooking": {
+        "kind": "phone",
+        "phone": "+359988898969"
+      },
+      "services": [
+        {
+          "name": "Почистване на комин",
+          "description": "Начална ориентировъчна цена. След оглед се определят точната работа и крайната сума преди започване. Денят и часът се уговарят предварително; плащане в брой след приключване, с фактура.",
+          "price": {
+            "amount": 60,
+            "currency": "EUR",
+            "kind": "from",
+            "unit": "комин",
+            "sourceUrl": "https://kominochistachsofia.com/tseni",
+            "checkedOn": "2026-11-13"
+          }
+        },
+        {
+          "name": "Отпушване на комин",
+          "description": "Начална ориентировъчна цена; конкретният блокаж, достъпът и крайният обхват се уточняват след оглед. Предварително уговорен ден и час, без обещана незабавна наличност.",
+          "price": {
+            "amount": 60,
+            "currency": "EUR",
+            "kind": "from",
+            "unit": "комин",
+            "sourceUrl": "https://kominochistachsofia.com/tseni",
+            "checkedOn": "2026-11-13"
+          }
+        }
+      ],
+      "locationDecision": "service_area",
+      "address": null,
+      "coordinatesDecision": "null; no owner marker imported, no geocoding/map requests or spatial-accuracy claim",
+      "hoursDecision": {
+        "sourceUrl": "https://kominochistachsofia.com/kontakti",
+        "checkedOn": "2026-11-13",
+        "days": [
+          {
+            "weekday": 1,
+            "periods": [
+              {
+                "open": "08:00",
+                "close": "19:00"
+              }
+            ]
+          },
+          {
+            "weekday": 2,
+            "periods": [
+              {
+                "open": "08:00",
+                "close": "19:00"
+              }
+            ]
+          },
+          {
+            "weekday": 3,
+            "periods": [
+              {
+                "open": "08:00",
+                "close": "19:00"
+              }
+            ]
+          },
+          {
+            "weekday": 4,
+            "periods": [
+              {
+                "open": "08:00",
+                "close": "19:00"
+              }
+            ]
+          },
+          {
+            "weekday": 5,
+            "periods": [
+              {
+                "open": "08:00",
+                "close": "19:00"
+              }
+            ]
+          },
+          {
+            "weekday": 6,
+            "periods": [
+              {
+                "open": "08:30",
+                "close": "19:00"
+              }
+            ]
+          },
+          {
+            "weekday": 7,
+            "periods": [
+              {
+                "open": "08:30",
+                "close": "19:00"
+              }
+            ]
+          }
+        ]
+      },
+      "notes": "Actual owner contact workflow explicitly agrees day/time; then ordinary price and about/service facts reviewed. Both60EUR amounts are from prices, final quote after site inspection. Mon–Fri08–19 and Sat/Sun08:30–19 are own stated service hours. Phone0988898969 normalized without invented digits. One Sofia service-area business, no fictional address/pin or universal one-to-two-hour duration. Safety/outcome guarantees not repeated."
+    },
+    {
+      "order": 6,
+      "id": "sofia-expres-partners-upholstery-home-visits",
+      "name": "Експрес Партнерс · пране на мека мебел",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.exprespartners.com/prane-na-divani/sofia.html",
+        "https://www.exprespartners.com/pocistvasti_uslugi_ceni.html",
+        "https://www.exprespartners.com/obshi-usloviq.html"
+      ],
+      "bookingEvidenceUrl": "https://www.exprespartners.com/prane-na-divani/sofia.html",
+      "actualBooking": {
+        "kind": "phone",
+        "phone": "+359885382527"
+      },
+      "services": [
+        {
+          "name": "Екстракционно пране на фотьойл или кресло",
+          "description": "15 € за брой; минимална поръчка за посещение в София 25 €. Силно замърсяване: +50%; синя/зелена зона отделно. Уведомете за липса на асансьор: не обслужват от 3-ти етаж нагоре без такъв. Точната цена се потвърждава преди работа.",
+          "price": {
+            "amount": 15,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "фотьойл/кресло · минимум 25 € за посещение",
+            "sourceUrl": "https://www.exprespartners.com/pocistvasti_uslugi_ceni.html",
+            "checkedOn": "2026-11-13"
+          }
+        }
+      ],
+      "locationDecision": "service_area",
+      "address": null,
+      "coordinatesDecision": "null; no owner marker imported, no geocoding/map requests or spatial-accuracy claim",
+      "hoursDecision": "No unambiguous applicable recurring weekly service hours imported.",
+      "notes": "Dedicated own Sofia service explicitly books by0885382527 and offers extraction on address. Only15EUR armchair/chair fee included: same exact fee on city service and full ordinary tariff, minimum25EUR, heavy soil+50%, paid parking and no-elevator access restrictions retained. Sofa-seat7EUR vs8EUR terms conflict held out, not repaired or claimed fully resolved. Different source weekly starts09vs09:30 andSaturday conflict; hours omitted. Other-city transport rules not applied to Sofia. One mobile provider, no city-quarter clone."
+    },
+    {
+      "order": 7,
+      "id": "sofia-ivan-kalev-preslavska-planina2",
+      "name": "Иван Калев · Разговор с приятел",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://talkpartner.bg/",
+        "https://talkpartner.bg/psiholog-sofia-ceni/"
+      ],
+      "bookingEvidenceUrl": "https://talkpartner.bg/psiholog-sofia-ceni/",
+      "actualBooking": {
+        "kind": "form",
+        "url": "https://talkpartner.bg/psiholog-sofia-ceni/"
+      },
+      "services": [
+        {
+          "name": "Индивидуална психологическа сесия",
+          "description": "Присъствена среща в София след заявка и лично потвърждение. Плаща се на място след сесията; отмяна или пренасрочване поне 24 часа предварително. Няма задължително предплащане на пакет.",
+          "price": {
+            "amount": 55,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "индивидуална сесия · 60 минути",
+            "sourceUrl": "https://talkpartner.bg/psiholog-sofia-ceni/",
+            "checkedOn": "2026-11-13"
+          },
+          "durationMin": 60,
+          "durationSourceUrl": "https://talkpartner.bg/psiholog-sofia-ceni/"
+        },
+        {
+          "name": "Психологическа терапия за двойки",
+          "description": "Присъствена среща след потвърждение на предпочитан час. Плащане след срещата; предупредете за отмяна или промяна поне 24 часа предварително. Не е пакет от посещения.",
+          "price": {
+            "amount": 80,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "сесия за двойка · 90 минути",
+            "sourceUrl": "https://talkpartner.bg/psiholog-sofia-ceni/",
+            "checkedOn": "2026-11-13"
+          },
+          "durationMin": 90,
+          "durationSourceUrl": "https://talkpartner.bg/psiholog-sofia-ceni/"
+        }
+      ],
+      "locationDecision": "premises",
+      "address": "София, ул. Преславска планина 2",
+      "coordinatesDecision": "null; no owner marker imported, no geocoding/map requests or spatial-accuracy claim",
+      "hoursDecision": {
+        "sourceUrl": "https://talkpartner.bg/",
+        "checkedOn": "2026-11-13",
+        "days": [
+          {
+            "weekday": 1,
+            "periods": [
+              {
+                "open": "09:00",
+                "close": "22:00"
+              }
+            ]
+          },
+          {
+            "weekday": 2,
+            "periods": [
+              {
+                "open": "09:00",
+                "close": "22:00"
+              }
+            ]
+          },
+          {
+            "weekday": 3,
+            "periods": [
+              {
+                "open": "09:00",
+                "close": "22:00"
+              }
+            ]
+          },
+          {
+            "weekday": 4,
+            "periods": [
+              {
+                "open": "09:00",
+                "close": "22:00"
+              }
+            ]
+          },
+          {
+            "weekday": 5,
+            "periods": [
+              {
+                "open": "09:00",
+                "close": "22:00"
+              }
+            ]
+          },
+          {
+            "weekday": 6,
+            "periods": [
+              {
+                "open": "09:00",
+                "close": "22:00"
+              }
+            ]
+          },
+          {
+            "weekday": 7,
+            "periods": [
+              {
+                "open": "09:00",
+                "close": "22:00"
+              }
+            ]
+          }
+        ]
+      },
+      "notes": "Actual own Book meeting entry leads to named-service date/time/in-person-online selectors and callback-confirmation form. Normal HTTPS read after reader502 confirms55EUR60min individual and80EUR90min couples, cash/on-site after in-person session and24hour notice. Explicit PreslavskaPlanina2 address and daily09–22 owner hours. Form offers a late couple slot ending22:30 despite22closing; no late-slot availability promised. Professional accreditation/clinical outcome claims not imported; only source-literal psychological service facts."
+    },
+    {
+      "order": 8,
+      "id": "sofia-julieta-angelova-pierce-omahony7",
+      "name": "Жулиета Ангелова · Към себе си",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://julietaangelova.com/",
+        "https://julietaangelova.com/booking-calendar/",
+        "https://julietaangelova.com/метод-на-работа/",
+        "https://julietaangelova.com/контакти/"
+      ],
+      "bookingEvidenceUrl": "https://julietaangelova.com/",
+      "actualBooking": {
+        "kind": "phone",
+        "phone": "+359895155143"
+      },
+      "services": [
+        {
+          "name": "Терапевтично психологическо консултиране в кабинет",
+          "description": "Предварително уговорена среща по метода на позитивната психотерапия. Публикувана цена в лева, за консултация в кабинета; онлайн вариантът е отделен.",
+          "price": {
+            "amount": 60,
+            "currency": "BGN",
+            "kind": "fixed",
+            "unit": "консултация в кабинет · 50 минути",
+            "sourceUrl": "https://julietaangelova.com/метод-на-работа/",
+            "checkedOn": "2026-11-13"
+          },
+          "durationMin": 50,
+          "durationSourceUrl": "https://julietaangelova.com/метод-на-работа/"
+        }
+      ],
+      "locationDecision": "premises",
+      "address": "София, ж.к. Лагера, ул. Пиърс О’Махони 7, партер",
+      "coordinatesDecision": "null; no owner marker imported, no geocoding/map requests or spatial-accuracy claim",
+      "hoursDecision": "No unambiguous applicable recurring weekly service hours imported.",
+      "notes": "Actual Book calendar inspected first through public HTTPS: currentNovember calendar but no specific slots selected. Separate explicit owner phone appointment sentence on homepage supports phone route without claiming unrendered calendar completion. Full service page states60BGN50min in-cabinet consultation; retained literal currency. Contact confirms precise PierceOMahony7 ground floor and only by prior appointment, no weekdays/hours invented. One private practice not staff clone."
+    },
+    {
+      "order": 9,
+      "id": "sofia-novainsight-ivan-penchev-kableshkov53",
+      "name": "NovaInsight · Иван Пенчев",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://novainsight.bg/",
+        "https://novainsight.bg/uslugi/",
+        "https://novainsight.bg/zapishi-chas/",
+        "https://calendly.com/ivan-penchev-novainsight/meet-with-me",
+        "https://novainsight.bg/faq/",
+        "https://novainsight.bg/contact/",
+        "https://novainsight.bg/terms/"
+      ],
+      "bookingEvidenceUrl": "https://novainsight.bg/uslugi/",
+      "actualBooking": {
+        "kind": "form",
+        "url": "https://calendly.com/ivan-penchev-novainsight/meet-with-me"
+      },
+      "services": [
+        {
+          "name": "Психологическа консултация в кабинет",
+          "description": "Присъствена психологическа консултация след предварително записване. Таксата се уточнява индивидуално с кабинета. Промяна или отмяна поне 24 часа предварително; при неспазена уговорка се дължи таксата за сесията.",
+          "durationMin": 60,
+          "durationSourceUrl": "https://novainsight.bg/faq/"
+        }
+      ],
+      "locationDecision": "premises",
+      "address": "София, кв. Манастирски ливади, ул. Тодор Каблешков 53",
+      "coordinatesDecision": "null; no owner marker imported, no geocoding/map requests or spatial-accuracy claim",
+      "hoursDecision": "No unambiguous applicable recurring weekly service hours imported.",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://calendly.com/ivan-penchev-novainsight/meet-with-me",
+        "serviceUrls": [
+          "https://novainsight.bg/uslugi/",
+          "https://novainsight.bg/faq/"
+        ],
+        "notes": "Actual own Book redirects to IvanPenchev Calendly event: root rendered live service/location/date grid and60minute event without selecting or submitting anything. Full own services, FAQ, contact and terms inspected afterward. No numeric ordinary consultation fee is published; FAQ expressly directs enquiries for fees/packages. No inaccessible tariff is labeled unpublished."
+      },
+      "notes": "Root verified actual named60minute appointment calendar at exact TodorKableshkov53 and service variants; no contact fields/consent/date selection or submission. Own psychological consultation service and FAQ corroborate60minutes and prior appointment plus24hour notice/cancellation fee. Current homepage/services Wed–Sat12–20 conflicts older contact/FAQ Mon–Fri10–18: all weekly hours omitted. No professional accreditation or treatment outcome guarantees copied. One practice, not individual staff clones."
+    },
+    {
+      "order": 10,
+      "id": "sofia-yonidi-solun31",
+      "name": "Образователен център Йониди",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.yonidicenter.bg/",
+        "https://www.yonidicenter.bg/дейности",
+        "https://www.yonidicenter.bg/за-нас"
+      ],
+      "bookingEvidenceUrl": "https://www.yonidicenter.bg/дейности",
+      "actualBooking": {
+        "kind": "phone",
+        "phone": "+359894574647"
+      },
+      "services": [
+        {
+          "name": "Уроци по руски език за деца",
+          "description": "Индивидуални или групови уроци след предварително записване. Възрастта, конкретният формат, таксата и денят и часът се уточняват с образователния център. Не е дневна грижа или свободно посещение."
+        }
+      ],
+      "locationDecision": "premises",
+      "address": "София, кв. Борово, ул. Солун 31, ет.1",
+      "coordinatesDecision": "null; no owner marker imported, no geocoding/map requests or spatial-accuracy claim",
+      "hoursDecision": "No unambiguous applicable recurring weekly service hours imported.",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://www.yonidicenter.bg/дейности",
+        "serviceUrls": [
+          "https://www.yonidicenter.bg/дейности"
+        ],
+        "notes": "Actual selected lesson page explicitly requires advance enrollment and publishes own direct phone/email. Full activities and about/contact/footer sections reviewed: no numeric Russian lesson fee or public tariff menu, owner explicitly invites enquiries for prices. Preschool/daycare rates are not substituted, no inaccessible price menu discovered."
+      },
+      "notes": "Only explicitly advance-booked individual/group Russian lessons imported, not generic daycare or tuition membership. Exact BorovoSolun31floor1 own contact; parent can arrange directly by phone. Other English/art class weekly times are not Russian lesson hours, so no openingHours copied. No duration/age cutoff inferred from wider3–10 centre description. Source photos and outcome claims excluded."
+    },
+    {
+      "order": 11,
+      "id": "sofia-tattoo-boutique-maria-luiza76",
+      "name": "Tattoo Boutique Sofia · Георги Петров",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.tattooboutique.bg/",
+        "https://www.tattooboutique.bg/contact",
+        "https://www.tattooboutique.bg/faqs",
+        "https://www.tattooboutique.bg/za-nas",
+        "https://www.tattooboutique.bg/gdpr"
+      ],
+      "bookingEvidenceUrl": "https://www.tattooboutique.bg/contact",
+      "actualBooking": {
+        "kind": "form",
+        "url": "https://www.tattooboutique.bg/contact"
+      },
+      "services": [
+        {
+          "name": "Татуировка по индивидуален дизайн",
+          "description": "Изработка след предварителна консултация и уговорен час. Размерът, мястото, дизайнът, общата цена и продължителността се обсъждат индивидуално. След консултацията за запазване на сесия се изисква депозит; той не е пълна цена на татуировката."
+        }
+      ],
+      "locationDecision": "premises",
+      "address": "София, бул. Княгиня Мария Луиза 76",
+      "coordinatesDecision": "null; no owner marker imported, no geocoding/map requests or spatial-accuracy claim",
+      "hoursDecision": "No unambiguous applicable recurring weekly service hours imported.",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://www.tattooboutique.bg/contact",
+        "serviceUrls": [
+          "https://www.tattooboutique.bg/faqs",
+          "https://www.tattooboutique.bg/za-nas"
+        ],
+        "notes": "Actual current contact form read through ordinary public HTTPS: required name/phone/email, style/body position/size/preferred period/idea with later appointment confirmation. Current own FAQ, artist/services, contacts and usage/privacy read; no numeric ordinary tattoo tariff or price menu published. Deposit exists but amount not stated and never treated as whole tattoo fee."
+      },
+      "notes": "Search reader cached older layout; current normalHTTPS contact/FAQ/privacy corroborate same artist/phone/MariaLuiza76, actual owned consultation request and prior-booked studio. No booking/customer fields/consent submitted or map loaded. No hours invented, no tattoo method duration guessed. Adult illustrative service only; source minor/aftercare/medication statements not copied as medical advice."
+    },
+    {
+      "order": 12,
+      "id": "sofia-iliyan-ivanov-eltehnik-home-visits",
+      "name": "Ел техник · Илиян Иванов",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://eltehnik.bg/",
+        "https://eltehnik.bg/remont-i-izgrazhdane-na-el-instalacii/",
+        "https://eltehnik.bg/contacts/",
+        "https://eltehnik.bg/svyrzvane-na-kontakti/",
+        "https://eltehnik.bg/about/"
+      ],
+      "bookingEvidenceUrl": "https://eltehnik.bg/remont-i-izgrazhdane-na-el-instalacii/",
+      "actualBooking": {
+        "kind": "phone",
+        "phone": "+359879174467"
+      },
+      "services": [
+        {
+          "name": "Монтаж и свързване на електрически контакти",
+          "description": "Услуга на адрес в София след уговорка. Конкретната работа, подходящият час и ценовата оферта се уточняват с електротехника; при нужда се прави предварителен оглед. Няма публикувана фиксирана цена или продължителност."
+        }
+      ],
+      "locationDecision": "service_area",
+      "address": null,
+      "coordinatesDecision": "null; no owner marker imported, no geocoding/map requests or spatial-accuracy claim",
+      "hoursDecision": "No unambiguous applicable recurring weekly service hours imported.",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://eltehnik.bg/remont-i-izgrazhdane-na-el-instalacii/",
+        "serviceUrls": [
+          "https://eltehnik.bg/svyrzvane-na-kontakti/",
+          "https://eltehnik.bg/about/"
+        ],
+        "notes": "Followed actual Zayavi electrician contact route first and explicit phone day/time appointment instructions. Full selected socket installation service, contacts/navigation and owner about read; owner states individual price quote only after questions/site review. No numeric socket tariff or unavailable price menu; fee remains absent."
+      },
+      "notes": "OrdinaryHTTPS about read after reader cachemiss confirms IliyanIvanov, exact public phone and Sofia service area, not a new city-quarter copy. Socket installation is real named service; inspection phone workflow establishes advance visit. No source hours stated in contact/about/service footer, no office or24h schedule invented. Homepage reader500 is documented but actual relevant service/contact/about all accessible; no blocked tariff page bypassed. No electrical DIY instructions or marketing qualification claims copied."
+    },
+    {
+      "order": 13,
+      "id": "sofia-renovalume-home-visits",
+      "name": "Renovalume · почистване на адрес",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://renovalume.bg/"
+      ],
+      "bookingEvidenceUrl": "https://renovalume.bg/",
+      "actualBooking": {
+        "kind": "phone",
+        "phone": "+359879194215"
+      },
+      "services": [
+        {
+          "name": "Пране на фотьойл на адрес",
+          "description": "Почистване на фотьойл в София след предварително изпратена снимка, индивидуална писмена цена и уговорен ден. При записване се изисква капаро 40%, остатъкът е след работа. Това не е промоционален пакет за диван и матраци."
+        }
+      ],
+      "locationDecision": "service_area",
+      "address": null,
+      "coordinatesDecision": "null; no owner marker imported, no geocoding/map requests or spatial-accuracy claim",
+      "hoursDecision": {
+        "sourceUrl": "https://renovalume.bg/",
+        "checkedOn": "2026-11-13",
+        "days": [
+          {
+            "weekday": 1,
+            "periods": [
+              {
+                "open": "08:00",
+                "close": "21:00"
+              }
+            ]
+          },
+          {
+            "weekday": 2,
+            "periods": [
+              {
+                "open": "08:00",
+                "close": "21:00"
+              }
+            ]
+          },
+          {
+            "weekday": 3,
+            "periods": [
+              {
+                "open": "08:00",
+                "close": "21:00"
+              }
+            ]
+          },
+          {
+            "weekday": 4,
+            "periods": [
+              {
+                "open": "08:00",
+                "close": "21:00"
+              }
+            ]
+          },
+          {
+            "weekday": 5,
+            "periods": [
+              {
+                "open": "08:00",
+                "close": "21:00"
+              }
+            ]
+          },
+          {
+            "weekday": 6,
+            "periods": [
+              {
+                "open": "08:00",
+                "close": "21:00"
+              }
+            ]
+          },
+          {
+            "weekday": 7,
+            "periods": [
+              {
+                "open": "08:00",
+                "close": "21:00"
+              }
+            ]
+          }
+        ]
+      },
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://renovalume.bg/",
+        "serviceUrls": [
+          "https://renovalume.bg/"
+        ],
+        "notes": "Actual own appointment FAQ and Book contact section inspected first, full service/package/ordinary separate-furniture FAQ afterward. Selected armchair service explicitly has separate individually quoted price after photo, no numeric armchair tariff. Public180/290/490EUR bundles and Nov30 limited bonuses are available but are not ordinary armchair fees; no blocked menu. Missing selected-service fee remains absent."
+      },
+      "notes": "One public Sofia home-visit operator with explicit phone agreed-day/written-price workflow and named armchair service. Full own page specifies daily08–21,40percent deposit with remainder after completion, Sofia quarters including ML/KV but no quarter clones or premises. Promotional bundle components/bonus values not repurposed as standalone prices. No unverified total duration, outcome/health guarantees or source photos copied."
+    },
+    {
+      "order": 14,
+      "id": "sofia-viksofia-eu-home-visits",
+      "name": "VikSofia.eu · водопроводчик на адрес",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://viksofia.eu/",
+        "https://viksofia.eu/водопроводчик-софия",
+        "https://viksofia.eu/контакти-водопроводчик",
+        "https://viksofia.eu/вик-услуги-цени"
+      ],
+      "bookingEvidenceUrl": "https://viksofia.eu/водопроводчик-софия",
+      "actualBooking": {
+        "kind": "phone",
+        "phone": "+359879408905"
+      },
+      "services": [
+        {
+          "name": "Монтаж на пералня при съществуващи изводи",
+          "description": "Труд за монтаж на пералня към готови изводи. Материалите и демонтажът на стар уред не са включени; демонтажът се договаря отделно. Минимум за монтажно-ремонтни дейности 20 €. Посещението е след предварително уговорен ден и час.",
+          "price": {
+            "amount": 40,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "монтаж на пералня · готови изводи · труд",
+            "sourceUrl": "https://viksofia.eu/вик-услуги-цени",
+            "checkedOn": "2026-11-13"
+          }
+        }
+      ],
+      "locationDecision": "service_area",
+      "address": null,
+      "coordinatesDecision": "null; no owner marker imported, no geocoding/map requests or spatial-accuracy claim",
+      "hoursDecision": "No unambiguous applicable recurring weekly service hours imported.",
+      "notes": "Explicit owner phone day/time prior home-visit workflow inspected before full actual tariff current09Nov2026.40EUR ordinary washing-machine hookup with existing outlets, labour only, materials/dismantling separate;20EUR minimum preserved.24h emergency phone response is not imported as planned installation openingHours. One Sofia service-area provider with exact0879408905, distinct from hyphenatedvik-sofia.eu0888232899. No address, coordinates, guaranteed arrival or fixed duration invented."
+    },
+    {
+      "order": 15,
+      "id": "sofia-vik-sofia-eu-home-visits",
+      "name": "Vik-Sofia.eu · водопроводни услуги на адрес",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://vik-sofia.eu/",
+        "https://vik-sofia.eu/contact/",
+        "https://vik-sofia.eu/montaj-peralnya-cena/",
+        "https://vik-sofia.eu/about/",
+        "https://vik-sofia.eu/montaj-mivka-cena/"
+      ],
+      "bookingEvidenceUrl": "https://vik-sofia.eu/",
+      "actualBooking": {
+        "kind": "phone",
+        "phone": "+359888232899"
+      },
+      "services": [
+        {
+          "name": "Монтаж на пералня на адрес",
+          "description": "Начална цена, зависеща от свободностоящ или вграден уред, състоянието на изводите, допълнителните материали и достъпа. Точната оферта и часът се уговарят предварително; не е обещана фиксирана цена за всеки модел.",
+          "price": {
+            "amount": 25.56,
+            "currency": "EUR",
+            "kind": "from",
+            "unit": "монтаж на пералня",
+            "sourceUrl": "https://vik-sofia.eu/montaj-peralnya-cena/",
+            "checkedOn": "2026-11-13"
+          }
+        }
+      ],
+      "locationDecision": "service_area",
+      "address": null,
+      "coordinatesDecision": "null; no owner marker imported, no geocoding/map requests or spatial-accuracy claim",
+      "hoursDecision": "No unambiguous applicable recurring weekly service hours imported.",
+      "notes": "Own homepage explicitly agrees inspection hour; actual service Book leads to contact phone/form. Dedicated full washer installation page repeats from25.56EUR and model/outlet/material/access factors, no artificial unit conversion. Owner officeYuriVenelin5 is not the service premises or map pin. Footer09–18 has no weekdays and may be office hours, so omitted. Hyphenated domain/phone distinct from viksofia.eu. Sink approximate40–50BGN wording not selected; no source review/photos/guarantees copied."
+    },
+    {
+      "order": 16,
+      "id": "sofia-integral17-home-visits",
+      "name": "Интеграл 17 · ВиК услуги на адрес",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://integral17.com/",
+        "https://integral17.com/kontakti",
+        "https://integral17.com/uslugi/"
+      ],
+      "bookingEvidenceUrl": "https://integral17.com/kontakti",
+      "actualBooking": {
+        "kind": "phone",
+        "phone": "+359887721267"
+      },
+      "services": [
+        {
+          "name": "Монтаж на кухненски или банен смесител",
+          "description": "Монтаж на смесител на адрес след уточнен обхват, модел и предварително уговорено посещение. Цената се съобщава преди работа и се започва само след съгласие; необходимите връзки и материали се уточняват индивидуално."
+        }
+      ],
+      "locationDecision": "service_area",
+      "address": null,
+      "coordinatesDecision": "null; no owner marker imported, no geocoding/map requests or spatial-accuracy claim",
+      "hoursDecision": {
+        "sourceUrl": "https://integral17.com/kontakti",
+        "checkedOn": "2026-11-13",
+        "days": [
+          {
+            "weekday": 1,
+            "periods": [
+              {
+                "open": "08:00",
+                "close": "20:00"
+              }
+            ]
+          },
+          {
+            "weekday": 2,
+            "periods": [
+              {
+                "open": "08:00",
+                "close": "20:00"
+              }
+            ]
+          },
+          {
+            "weekday": 3,
+            "periods": [
+              {
+                "open": "08:00",
+                "close": "20:00"
+              }
+            ]
+          },
+          {
+            "weekday": 4,
+            "periods": [
+              {
+                "open": "08:00",
+                "close": "20:00"
+              }
+            ]
+          },
+          {
+            "weekday": 5,
+            "periods": [
+              {
+                "open": "08:00",
+                "close": "20:00"
+              }
+            ]
+          },
+          {
+            "weekday": 6,
+            "periods": [
+              {
+                "open": "09:00",
+                "close": "18:00"
+              }
+            ]
+          },
+          {
+            "weekday": 7,
+            "periods": [
+              {
+                "open": "09:00",
+                "close": "18:00"
+              }
+            ]
+          }
+        ]
+      },
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://integral17.com/kontakti",
+        "serviceUrls": [
+          "https://integral17.com/uslugi/"
+        ],
+        "notes": "Actual contact entry is schedule/availability or quotation by phone and own request form. Read complete selected installation/service page through ordinaryHTTPS: kitchen/bath mixer installations offered, final price before work and individual scope. No numeric mixer tariff/public prices menu; broad first-client discount is not an ordinary rate. No blocked tariff classified unpublished."
+      },
+      "notes": "Current full service text schedules final planned work and requests appliance/model before visit; no instant availability claimed. Contacts explicitly publishMon–Fri08–20,weekends09–18 for normal business, separate from24h emergency phone. SvetaTroitsaVarna contact base without house number is NOT premises/pin. One Sofia service-area company; root final identity review required. No regulatory/DIY instructions, photos or guarantees copied."
+    },
+    {
+      "order": 17,
+      "id": "sofia-kanal-maistor-vik-pomosht-home-visits",
+      "name": "Канал Майстор · ВиК Помощ",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.kanalmaistor.com/",
+        "https://www.kanalmaistor.com/отпушване-на-канали-софия-цени/",
+        "https://www.vikpomosht.com/",
+        "https://www.vikpomosht.com/?page=1011",
+        "https://www.vikpomosht.com/?page=1"
+      ],
+      "bookingEvidenceUrl": "https://www.kanalmaistor.com/",
+      "actualBooking": {
+        "kind": "phone",
+        "phone": "+359888362959"
+      },
+      "services": [
+        {
+          "name": "Машинно отпушване на тоалетна",
+          "description": "Публикувана тарифа за 2026 г. След телефонно уточняване на случая се уговаря час. При по-голяма сложност или дължина може да се добавят 10–20 €. Конкретният обхват и цена се потвърждават предварително.",
+          "price": {
+            "amount": 65,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "отпушване на тоалетна",
+            "sourceUrl": "https://www.kanalmaistor.com/отпушване-на-канали-софия-цени/",
+            "checkedOn": "2026-11-13"
+          }
+        }
+      ],
+      "locationDecision": "service_area",
+      "address": null,
+      "coordinatesDecision": "null; no owner marker imported, no geocoding/map requests or spatial-accuracy claim",
+      "hoursDecision": "No unambiguous applicable recurring weekly service hours imported.",
+      "notes": "Canonical own KanalMaistor explicitly agrees case/fee then books home visit, and owner-linked full2026 tariff65EUR toilet with10–20EUR possible complexity surcharge. Same0888362959/0876240927 and crosslinks prove VikPomosht/otpushvam related brand, so ONE operator only, not second record/domain/quarter. Homepage own schedule says whole day weekdays/Sunday and Saturday until12, lacking opening clock; no fabricated00–24 hours. No client addresses, Q&A, review/photos or five-to-forty-minute range imported."
+    },
+    {
+      "order": 18,
+      "id": "sofia-electro-group-service-home-visits",
+      "name": "Електро Груп Сервиз · посещения на адрес",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://electrogroupservice.com/",
+        "https://electrogroupservice.com/Contact",
+        "https://electrogroupservice.com/ServicePeralni"
+      ],
+      "bookingEvidenceUrl": "https://electrogroupservice.com/Contact",
+      "actualBooking": {
+        "kind": "phone",
+        "phone": "+359876971265"
+      },
+      "services": [
+        {
+          "name": "Смяна на водна помпа на пералня",
+          "description": "47 € за труд; частта и посещението 10 € са отделно. Диагностика 20 € се приспада при извършен ремонт; при отказ или невъзможност за ремонт се дължат посещение и диагностика. Денят и часът се уговарят със сервиза.",
+          "price": {
+            "amount": 47,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "пералня · смяна на водна помпа · само труд",
+            "sourceUrl": "https://electrogroupservice.com/ServicePeralni",
+            "checkedOn": "2026-11-13"
+          }
+        }
+      ],
+      "locationDecision": "service_area",
+      "address": null,
+      "coordinatesDecision": "null; no owner marker imported, no geocoding/map requests or spatial-accuracy claim",
+      "hoursDecision": {
+        "sourceUrl": "https://electrogroupservice.com/Contact",
+        "checkedOn": "2026-11-13",
+        "days": [
+          {
+            "weekday": 1,
+            "periods": [
+              {
+                "open": "09:00",
+                "close": "17:30"
+              }
+            ]
+          },
+          {
+            "weekday": 2,
+            "periods": [
+              {
+                "open": "09:00",
+                "close": "17:30"
+              }
+            ]
+          },
+          {
+            "weekday": 3,
+            "periods": [
+              {
+                "open": "09:00",
+                "close": "17:30"
+              }
+            ]
+          },
+          {
+            "weekday": 4,
+            "periods": [
+              {
+                "open": "09:00",
+                "close": "17:30"
+              }
+            ]
+          },
+          {
+            "weekday": 5,
+            "periods": [
+              {
+                "open": "09:00",
+                "close": "16:30"
+              }
+            ]
+          }
+        ]
+      },
+      "notes": "Root separately rendered current own actual Book→Contact and full washer labour tariff after text-reader/ordinaryHTTP fallback could not expose JS service details. Explicit phone0876971265, Sofia large-appliance home visits, Mon–Thu09–17:30/Fri09–16:30 confirmed. Kazbek1shop8Buxton is small-appliance base, not mobile premises/pin.47EUR pump labour separate from10visit/parts,20diagnosis deduction/decline terms retained; no10EUR visit sold as full repair. No weekend closure assertion. Base44 alias same operator not cloned."
+    },
+    {
+      "order": 19,
+      "id": "sofia-dental-comfort-elin-vrah2",
+      "name": "Dental Comfort",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://dentalcomfort.bg/",
+        "https://dentalcomfort.bg/контакти/",
+        "https://dentalcomfort.bg/услуги/"
+      ],
+      "bookingEvidenceUrl": "https://dentalcomfort.bg/контакти/",
+      "actualBooking": {
+        "kind": "phone",
+        "phone": "+359877698269"
+      },
+      "services": [
+        {
+          "name": "Първоначален стоматологичен преглед и консултация",
+          "description": "Първи преглед след предварително записване по телефона или заявка и потвърждение от клиниката. Публикувана цена в лева, независимо от конкретния стоматологичен проблем; не включва последващо лечение.",
+          "price": {
+            "amount": 50,
+            "currency": "BGN",
+            "kind": "fixed",
+            "unit": "първоначален преглед и консултация",
+            "sourceUrl": "https://dentalcomfort.bg/контакти/",
+            "checkedOn": "2026-11-13"
+          }
+        }
+      ],
+      "locationDecision": "premises",
+      "address": "София, кв. Лозенец, ул. Елин връх 2",
+      "coordinatesDecision": "null; no owner marker imported, no geocoding/map requests or spatial-accuracy claim",
+      "hoursDecision": {
+        "sourceUrl": "https://dentalcomfort.bg/контакти/",
+        "checkedOn": "2026-11-13",
+        "days": [
+          {
+            "weekday": 1,
+            "periods": [
+              {
+                "open": "08:00",
+                "close": "20:00"
+              }
+            ]
+          },
+          {
+            "weekday": 2,
+            "periods": [
+              {
+                "open": "08:00",
+                "close": "20:00"
+              }
+            ]
+          },
+          {
+            "weekday": 3,
+            "periods": [
+              {
+                "open": "08:00",
+                "close": "20:00"
+              }
+            ]
+          },
+          {
+            "weekday": 4,
+            "periods": [
+              {
+                "open": "08:00",
+                "close": "20:00"
+              }
+            ]
+          },
+          {
+            "weekday": 5,
+            "periods": [
+              {
+                "open": "08:00",
+                "close": "20:00"
+              }
+            ]
+          }
+        ]
+      },
+      "notes": "Actual contact/Book entry read before full services and homepage; normal currentHTTPS corroborates literal50BGN first examination, exact ElinVrah2 and current primary contact0877698269. Older translation header shows alternate0988757107 but no second branch inferred. Weekdays08–20 explicit; Saturday prose says open while timetable says weekend closed, so weekend facts omitted, not silently resolved. No duration guessed, no unrelated treatment fee or clinical outcome guarantee copied."
+    },
+    {
+      "order": 20,
+      "id": "ok-therapy",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.ok-therapy.com/contacts/"
+      ],
+      "reason": "Actual root-rendered Cal.com45minute free introduction conflicts owner older15minute text. Own paid couples page90EUR120min verified but CTA only free video introduction; own ordinary individual page asks write/Viber/WhatsApp0887624763 to agree first meeting, not explicit voice-phone booking. Do not present free intro calendar as direct paid couple appointment. Hold for exact actual paid booking channel/owner clarification."
+    },
+    {
+      "order": 21,
+      "id": "muse-creative",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://musecreative.bg/fotostudio/"
+      ],
+      "reason": "Own actual Book links muse-creative-studio.easyweek.io, public service canvas empty. Existing owner photo fees250BGN weekday before18/280late-weekend and10framefamily160/190 read; Christmas2024 clearly excluded. Current booking-menu/fee/date flow root browser queue pending, not unpublished. ChervenaStena12 and own phone0887311138 identified."
+    },
+    {
+      "order": 22,
+      "id": "profi-chist-unidentified-operator",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://profesionalnopochistvane.com/zayavka/"
+      ],
+      "reason": "Actual own callback quote/datewindow form and full own services/ceni/kontakti reviewed; real named general cleaning Sofia offer110–195EUR two-room60–75m2, minimum45, final after inspection. However public operator identity only generic ProfiChist/email, no named proprietor/legal identity/public phone found. Hold stronger distinct-real-operator evidence before publishing, not filler."
+    },
+    {
+      "order": 23,
+      "id": "hamali-sofiq",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://hamali-sofiq.com/хамалски-услуги-цени/"
+      ],
+      "reason": "Actual phone agreed-day/hour apartment cleaning reviewed, legal ownerEmilSlavchevGroup in terms. Full furniture waste range30.68–61.36EUR/m3 conflicts broad tariff may reach380EUR/m3 and20percent conditional new-client promotion; basement/attic fees also disagree. Hold ambiguous ordinary scoped rate, not unpublished. Generic contact addresses Gurko37/KnyazBoris117 differ; mobile record would not use either premises."
+    },
+    {
+      "order": 24,
+      "id": "sofia-service",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://sofiaservice.com/ремонт-на-бяла-техника/"
+      ],
+      "reason": "Request verification/access challenge; stopped, no bypass. Actual menu not reviewed, not unpublished."
+    },
+    {
+      "order": 25,
+      "id": "cleanhouse",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://cleanhouse.bg/"
+      ],
+      "reason": "Reader502 and ordinaryHTTPS DNS failure; no completed booking/service review, not unpublished."
+    },
+    {
+      "order": 26,
+      "id": "kove",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.kove.bg/services/pochistvane-na-partseli"
+      ],
+      "reason": "Named yard-clearing service path redirects own current crane/platform rental homepage. Actual named service/appointment not established; no service invented from search lead."
+    },
+    {
+      "order": 27,
+      "id": "hamali-site",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://hamali.site/pochistvane-i-izvozvane-v-sofiya"
+      ],
+      "reason": "Search lead only; reader cachemiss, actual owned Book/menu not yet reviewed. Do not import or count."
+    },
+    {
+      "order": 28,
+      "id": "fekalka",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://fekalka.com/"
+      ],
+      "reason": "Search lead only, actual planned appointment/service fees not yet reviewed; emergency dispatch not assumed appointment."
+    },
+    {
+      "order": 29,
+      "id": "todor-shopov",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://todorshopov.com/services/"
+      ],
+      "reason": "Actual Book calendar public, but selected services page ordinaryHTTPS PHP fatal error; blocked actual fees are not unpublished."
+    },
+    {
+      "order": 30,
+      "id": "elka-bozhkova",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://bozhkova.info/kontakti.html"
+      ],
+      "reason": "Own explicit prior phone appointment, prices and hours read, but source address only nearMacedoniaSquare without actual street/house. No Google/map fetch or guessed geocode. Hold exact premises."
+    },
+    {
+      "order": 31,
+      "id": "nina-dicheva",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.ninadicheva.com/контакти"
+      ],
+      "reason": "Own advance appointment phone and ordinary45EUR60min individual/60couples fees read,24h cancellation fullfee. Address only ViskyarPlanina street without house. Hold exact premises, not online service-area substitute."
+    },
+    {
+      "order": 32,
+      "id": "anna-mikhailova",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://psymikhailova.com/book"
+      ],
+      "reason": "Actual own named service/date/time/contact form reviewed; exact venue not established, contacts cachemiss and no street/house/phone found. Hold premises."
+    },
+    {
+      "order": 33,
+      "id": "albena-venkova",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://psihologsofia.bg/"
+      ],
+      "reason": "Own current service/form60EUR50min but address placeholder convenient location, no actual venue established. Do not geocode/invent."
+    },
+    {
+      "order": 34,
+      "id": "maria-vaptsarova",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://vaptsarova.bg/"
+      ],
+      "reason": "Own current notice not accepting clients/maternity leave. Old provider link redirects generic category; historical fees do not override closure. Hold current acceptance/book."
+    },
+    {
+      "order": 35,
+      "id": "plamen-dimitrov",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://pld-bg.eu/"
+      ],
+      "reason": "Reader502; older own WordPress2020 fee/search lead not substituted for current accessible primary service/book/address."
+    },
+    {
+      "order": 36,
+      "id": "methab-psychotherapy",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://methab.bg/uslugi/psihoterapia/"
+      ],
+      "reason": "Search lead only; actual private psychological exception/provider independence/appointment not reviewed, no general medical clinic import."
+    },
+    {
+      "order": 37,
+      "id": "spectra-consult",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.spectracenter.com/"
+      ],
+      "reason": "Search/PDF lead only; actual owned Book/service/address not reviewed."
+    },
+    {
+      "order": 38,
+      "id": "margarita-dent",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://zabolekarsofia.com/"
+      ],
+      "reason": "Own real dentistry and exact GoceDelchevblock235venue/phones reviewed, but no explicit appointment instruction found on inspected homepage; numeric fee and actual Book page not reviewed. Generic contact alone not enough."
+    },
+    {
+      "order": 39,
+      "id": "techove",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://techove.net/vodoprovodchik/"
+      ],
+      "reason": "Search lead says agree visit but actual reader fetching failed; public own service/menu still incomplete. Not unpublished."
+    },
+    {
+      "order": 40,
+      "id": "elvidom",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.elvidom.bg/услуги-вик"
+      ],
+      "reason": "Search lead only; actual Book/service review pending."
+    },
+    {
+      "order": 41,
+      "id": "es-bulgaria",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://esbulgaria.com/"
+      ],
+      "reason": "Search lead only, actual branch enrollment/private lesson evidence not reviewed."
+    },
+    {
+      "order": 42,
+      "id": "intenziv",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.intenziv.com/faq/"
+      ],
+      "reason": "Search lead only; Sofia actual venue/course booking not established."
+    },
+    {
+      "order": 43,
+      "id": "svetove-duplicate",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://svetove.bg/"
+      ],
+      "reason": "Final union caught exact existing sofia-svetove-tsar-boris287. Removed tentative002 duplicate. Current own18EUR30min beats older BusinessAccount15.34EUR but no existing record edited."
+    },
+    {
+      "order": 44,
+      "id": "vinis-technic-wrong-city",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://vinistechnic.bg/service"
+      ],
+      "reason": "Own actual service phone/visit but current public base PazardzhikTsarOsvoboditel13, no explicit Sofia delivery scope established."
+    },
+    {
+      "order": 45,
+      "id": "olga-kryazhevskih-online-only",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.olgapsychotherapy.com/"
+      ],
+      "reason": "Own current banner accepts online only due full schedule. Older SofiaOpalchenska38 footer cannot qualify current physical Sofia appointment."
+    },
+    {
+      "order": 46,
+      "id": "fantasia-outside-sofia-city",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://fantasiaphotography.mypixieset.com/contact/"
+      ],
+      "reason": "Actual Book/contact/price read but own studio is KazichaneTsarBorisIII20, not Sofia city; not forced cityCode68134."
+    },
+    {
+      "order": 47,
+      "id": "sident-varna",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://sidentbg.com/"
+      ],
+      "reason": "Own actual source explicitly Varna team/premises; not Sofia."
+    },
+    {
+      "order": 48,
+      "id": "dentview-varna",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://dentviewbg.com/"
+      ],
+      "reason": "Own source explicitly Varna, no Sofia branch established."
+    },
+    {
+      "order": 49,
+      "id": "dental-club-varna",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://dental-club.bg/chesti-vaprosi/"
+      ],
+      "reason": "Own exact booked clinic is VarnaBrizDrLyubenPopov28; Sofia search result misleading for scope. No import."
+    },
+    {
+      "order": 50,
+      "id": "dimi-tattoo-suspended",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://dimi-tattoo.com/"
+      ],
+      "reason": "Own current page begins temporarily suspended and two venue addresses; do not count availability/identity from unconfirmed template."
+    },
+    {
+      "order": 51,
+      "id": "existing-home-operators",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://elpro.bg/"
+      ],
+      "reason": "Existing union: Elpro,CleaningSofia,Rotorem,UslugiteEnzi,SOSuslugite,FantasticServices,HomeTech,CleanRS,FreshClean,TopCleaner,Clean2Win,Instabroz,PetarGeorgiev home appliance service. No domain/quarter/provider clones added."
+    },
+    {
+      "order": 52,
+      "id": "existing-dentists",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://dobrevdental.bg/"
+      ],
+      "reason": "Existing union: Dobrev,SFDent,BrilliantDent,SnapDental,DentalPlace,DentaPro,ZdravkaAsenova,Kiskimov,SmileCare,BranimiraSerbezova and O.SEM branches. Not new."
+    },
+    {
+      "order": 53,
+      "id": "existing-education-photo-tattoo",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://artkutia.com/piano/"
+      ],
+      "reason": "Existing union: ArtKutia,Kass,MusicBoxboth,CityMusic,6trak,ThinkINKNeedle,BeezTattoo,XAcademybranches,Ability,Elina,Linguaclass,UchebenSvyat. Root owns Britanica/Intelekt/Logiscool/Smarty/InternationalHouse series; no overlap."
+    },
+    {
+      "order": 54,
+      "id": "existing-private-psychologists",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://psy-nikolova.com/"
+      ],
+      "reason": "Existing union: NikoletaNikolova,EmpathyDianaDimitrova,EleonoraGacheva,IvanSimeonov,ProstoFocus,Stimul,KristinaMeramjieva,Vitae,MariaGenova and prior exact Nov13 practices. Not staff clones."
+    },
+    {
+      "order": 55,
+      "id": "sk-studio-handed-to-sport-owner",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://skstudio.bg/kontakt/"
+      ],
+      "reason": "Strong actual prior appointment/RhythmicGymnastics IvanTurgenev6 lead passed to sport agent. We do not import or count as duplicate parallel work. No rehabilitation/clinical service added."
+    }
+  ]
+}

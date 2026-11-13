@@ -1,0 +1,19 @@
+{
+  "checkedOn": "2026-11-13",
+  "scope": "Unpublished continuation toward 2000 unique eligible Sofia businesses; checkpoint, not a production release approval.",
+  "production": { "eligibleCatalogueBusinesses": 1215, "logoOnlyRelease": "1d4a5037cbdfc0e89fceb67532621af12fb05bc8", "pullRequest": 58 },
+  "integratedLocally": { "eligibleBusinesses": 1267, "newBusinessesAfterPublishedCatalogue": 52, "excludedByOwnerMedicalScope": 23 },
+  "recovery": "Temporary working folders became unavailable after an execution-host interruption. Exact scoped FileChange journal additions and unified diffs were mechanically replayed into this persistent workspace. Historical commands were not evaluated. The three research workers separately recovered their own intake and ledger files. Newly generated source PNGs survived outside the temporary folders; optimized assets were reconstructed and checked against their recorded hashes.",
+  "checksActuallyRunAfterRecovery": {
+    "catalogueSchemaAndEligibility": "passed",
+    "changedInventoryPricingReview": "passed; no blocked new or changed public listings",
+    "integratedServicePhotos": { "services": 9455, "specific": 9455, "neutral": 0, "missing": 0 },
+    "generatedPhotoProvenance": { "checked": 1140, "issues": 0 },
+    "diffCheck": "passed"
+  },
+  "limitations": [
+    "Numbered intake files not imported by the expansion aggregator remain unpublished research, not public catalogue counts.",
+    "The next intake batches still require final primary-source, duplicate, service-photo and location review before release.",
+    "This checkpoint does not satisfy the 2000-business milestone."
+  ]
+}

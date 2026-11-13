@@ -23826,6 +23826,160 @@
         ],
         "method": "individual source and optimized 256px thumbnail inspection; machine housing/hoses or opened audio head unit correctly distinguish activity; no notebook"
       }
+    },
+    {
+      "id": "sx-iris-photography-session",
+      "label": "Ирисова фотография — заснемане на око с макрообектив",
+      "sourceFile": "exec-8082d86c-ab8b-4c1a-a9ce-b42d77f2cc70.png",
+      "sourceSha256": "a0181b367505ada0332e81d8c1019f22b817acafa27346f358dbc8cc12a7b7ab",
+      "file": "public/service-photos/sx-iris-photography-session-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 8722,
+      "sha256": "be0cb9fe8e926dca297bac76badd6e3962fecebe0d6b070b1d43507101c1d321",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square service thumbnail for a booking catalogue.\nPrimary request: a clearly understandable professional iris photography session, not an eye examination. In a clean warm photo studio an adult woman sits calmly in profile while a photographer uses a professional camera with macro lens on a tripod to photograph the colourful iris of her open eye. Ordinary soft controlled studio lighting, the macro camera in front of the eye without touching it; camera lens, photographer's hand and eye clearly visible in the central composition. Natural human skin and realistic camera materials. Crop for a small square thumbnail, medium close-up, clean unobstructed action.\nConstraints: a generic illustrative service scene, not a claimed actual business or its work. No medical instruments, no retinal scanner, no lasers or beam into eye, no needle, no notebook, no text, no logo, no watermark, no collage. Photorealistic real people and objects.",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "a0181b367505ada0332e81d8c1019f22b817acafa27346f358dbc8cc12a7b7ab",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual generated source and 256px optimized thumbnail visual inspection; specific activity, illustrative not verified provider work"
+      }
+    },
+    {
+      "id": "sx-preschool-puzzle-robotics",
+      "label": "Въвеждаща роботика за деца с пъзелни команди",
+      "sourceFile": "exec-54addcee-e4f3-4b6c-95c5-4fe2f3f40d17.png",
+      "sourceSha256": "38cc779fca6a10a22c6f1832cfbeaf70ea3217db5ea65cd5124e3c9bdf25e013",
+      "file": "public/service-photos/sx-preschool-puzzle-robotics-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 14626,
+      "sha256": "c34c949ad2839fab7f4c0e52b052a91c42ae3a1bb8ec9d5dd33cc1c053587c86",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square booking service thumbnail.\nPrimary request: a realistic preschool beginner robotics lesson using a small white rounded educational floor robot programmed with physical interlocking puzzle command tiles on a tabletop map, appropriate to a Kubo-style introductory course for five-year-old children. A friendly adult teacher guides two children in arranging large colourful direction-command tiles; children look at the robot and tile path. The small rounded two-wheel white robot, big easy-to-handle puzzle tiles, children's hands and attentive teacher are clearly visible. Natural sunny classroom, real fabric and skin textures. Tight uncluttered square framing suitable for a 64px thumbnail.\nConstraints: illustrative activity, not a real school, actual pupils, verified provider equipment or business result. No Lego construction car, no soldering, no screen coding interface, no exposed electronic tools, no large humanoid robot. No brand name, no text, no logos, no watermark, no collage.",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "38cc779fca6a10a22c6f1832cfbeaf70ea3217db5ea65cd5124e3c9bdf25e013",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual generated source and 256px optimized thumbnail visual inspection; specific activity, illustrative not verified provider work"
+      }
+    },
+    {
+      "id": "sx-home-chimney-sweep",
+      "sourceFile": "exec-c2da69e2-a34c-4032-86be-3e61d2f8cf0a.png",
+      "sourceSha256": "8fa7d176b295b87cb53cd419613436f3ad11a53b082822e75acb43ede6ebea55",
+      "bytes": 14964,
+      "sha256": "3e49cced6a0e18bf5b72b66eab63c041d77780274ad3ecf5148d9aacb6ccda18",
+      "label": "Почистване и отпушване на комин",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square service thumbnail for a booking catalogue.\nPrimary request: a professional chimney sweep cleaning a domestic masonry fireplace flue from a safe indoor ground-level access opening. A real adult technician in work clothes, gloves, protective goggles and dust mask handles interlocking flexible chimney-sweeping rods with a circular stiff chimney brush visibly entering the fireplace flue. Soot vacuum hose and protective floor sheet, no active fire. Ordinary warm interior, realistic brick, steel, brush fibres, fabric and hands. Tight clear composition showing the specific maintenance activity and tool, recognizable in a 64px square thumbnail.\nConstraints: generic illustrative service, not a verified business, actual employee or actual result. No rooftop balancing, no flames, no gas installation, no notebook, no clipboard, no text, no logos, no watermarks, no collage.",
+      "file": "public/service-photos/sx-home-chimney-sweep-v1.webp",
+      "width": 256,
+      "height": 256,
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "8fa7d176b295b87cb53cd419613436f3ad11a53b082822e75acb43ede6ebea55",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual generated source and 256px optimized thumbnail visual inspection; specific activity, illustrative not verified provider work"
+      }
+    },
+    {
+      "id": "sx-indoor-ski-private",
+      "sourceFile": "exec-12743f94-a322-4e5f-b137-dfa0e4cdab4c.png",
+      "sourceSha256": "e3c7ab43933b112c3f5d36c545867792c353a919128b2bef4eea86ec629f115b",
+      "bytes": 15314,
+      "sha256": "bf7892149d5680a14f68d9ed43d9296a08283da4263eaebe700bd4072cb97bc0",
+      "label": "Индивидуална ски тренировка на закрито",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square activity-specific booking service thumbnail.\nPrimary request: an adult beginner taking a one-to-one indoor skiing lesson on a wide continuous artificial ski carpet treadmill in an indoor ski training studio. One adult learner wearing properly fitted ski boots clipped into two parallel skis, knees softly bent, skiing on the clearly visible broad inclined synthetic revolving carpet. One adult instructor stands safely beside the machine providing close coaching, an emergency-stop control and front support rail visible. A large wall mirror and studio interior subtly establish indoor training, not a mountain. Natural real people, plausible anatomy, realistic ski and textured carpet materials. Composition includes learner's full body, both skis and recognizable inclined ski treadmill, legible as a small square thumbnail.\nConstraints: illustrative generic activity, not actual provider equipment or work. No snow, no mountain, no outdoor slope, no snowboard, no notebook, no logo, no text, no watermark, no collage.",
+      "file": "public/service-photos/sx-indoor-ski-private-v1.webp",
+      "width": 256,
+      "height": 256,
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "e3c7ab43933b112c3f5d36c545867792c353a919128b2bef4eea86ec629f115b",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual generated source and 256px optimized thumbnail visual inspection; specific activity, illustrative not verified provider work"
+      }
+    },
+    {
+      "id": "sx-indoor-ski-small-group",
+      "sourceFile": "exec-da79d457-06f2-4cd0-8891-a6c60144b237.png",
+      "sourceSha256": "4f738e6aaea7377c39db833b18761afb796c891bb696b6997f6dc33a91cc9e9b",
+      "bytes": 14660,
+      "sha256": "bedbd5cd4567988e0179df68ecd04716bd76d1cac1613efc69637e384551165c",
+      "label": "Групова ски тренировка на закрито",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square activity-specific booking thumbnail.\nPrimary request: a small adult group in an indoor ski training studio: two adult learners in ski boots on two pairs of skis practice side by side on a broad inclined moving synthetic ski carpet treadmill, guided by one adult instructor standing safely beside the machine. Keep both learners' full bodies and ski tips visible with realistic spacing, soft knees and controlled beginner posture. Clearly recognizable wide artificial carpet with front support rail and indoor mirror, no snow. Bright natural studio light, realistic fabric, ski bindings, hands and carpet texture. Uncluttered framing recognizable at 64px.\nConstraints: generic illustrative group lesson, not actual business premises, staff or verified equipment. No mountains, no outdoor slope, no snowboard, no impossible overlapping skis, no notebook, no logo, no text, no watermark, no collage.",
+      "file": "public/service-photos/sx-indoor-ski-small-group-v1.webp",
+      "width": 256,
+      "height": 256,
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "4f738e6aaea7377c39db833b18761afb796c891bb696b6997f6dc33a91cc9e9b",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual generated source and 256px optimized thumbnail visual inspection; specific activity, illustrative not verified provider work"
+      }
+    },
+    {
+      "id": "sx-child-kickboxing-group",
+      "label": "Групов кикбокс за деца",
+      "sourceFile": "exec-6ccacbe7-09d5-4c03-bcad-6105a8dc9f2d.png",
+      "sourceSha256": "faeecd622e6c35ca06a21bc2645cad0df4ca973c973968e15020976ed1279589",
+      "bytes": 13546,
+      "sha256": "8a8f9a1c84ed21edc9ffe7453d73f1fd54b5d6b43a2a2f06485fda36852fab05",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square service photograph for a booking catalogue thumbnail.\nPrimary request: a beginner children's kickboxing group lesson with two fictional children around 12–14 years old and an adult coach in a bright ordinary martial arts gym. The nearest child wears boxing gloves and practices a controlled roundhouse kick into a large kick shield held securely by the coach; another child in gloves watches from a safe distance. No child-versus-child sparring. Show clear full-body controlled sport posture, protective shin pads, padded gym floor and appropriate sportswear. Realistic faces, hands, fabric and equipment. A clean simple composition recognizable at 64px square.\nConstraints: generic illustrative activity, not actual provider pupils, coach or premises. No injury, no violence beyond controlled pad training, no adult-only class, no weights or yoga poses, no text, no logos, no watermark, no collage.",
+      "file": "public/service-photos/sx-child-kickboxing-group-v1.webp",
+      "width": 256,
+      "height": 256,
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "faeecd622e6c35ca06a21bc2645cad0df4ca973c973968e15020976ed1279589",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual generated source and 256px optimized thumbnail visual inspection; specific child activity rather than adult substitute; illustrative, not actual provider staff or premises"
+      }
+    },
+    {
+      "id": "sx-child-rhythmic-gymnastics-group",
+      "label": "Художествена гимнастика за деца",
+      "sourceFile": "exec-a833b5b4-bf6b-49fb-9727-39da32374e55.png",
+      "sourceSha256": "3087a5f5a4de0a626d00087202900c58a3c76b07997f64c40ecb87cc9fa2fbc2",
+      "bytes": 9758,
+      "sha256": "5d28553ff9b9b9dfcbb78162cee6ee85fc400069994c6e4f6326819b23644512",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square service photo for a booking catalogue thumbnail.\nPrimary request: a real-looking beginner children's rhythmic gymnastics group lesson. Two fictional girls aged around 8–10 wearing ordinary modest short-sleeve gymnastics practice tops and leggings practice with a rhythmic gymnastics hoop and ribbon, guided by an adult female instructor on a clean gymnastics carpet in an indoor sports hall. One child holds a hoop in a simple upright balanced pose, another makes a soft ribbon spiral with plenty of clear spacing. Coach demonstrates hand position; no extreme stretching, aerial flips or dangerous contortions. Realistic anatomy, real fabric and ribbon material. Full children visible with apparatus prominent and clear, natural daylight, friendly sports lesson, recognizable at a 64px square size.\nConstraints: illustrative activity, not actual business staff, pupils or premises. No adult Pilates class, no ball workout, no circus act, no competition costume, no text, no logos, no watermark, no collage.",
+      "file": "public/service-photos/sx-child-rhythmic-gymnastics-group-v1.webp",
+      "width": 256,
+      "height": 256,
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "3087a5f5a4de0a626d00087202900c58a3c76b07997f64c40ecb87cc9fa2fbc2",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual generated source and 256px optimized thumbnail visual inspection; specific child activity rather than adult substitute; illustrative, not actual provider staff or premises"
+      }
     }
   ],
   "rejectedSources": [
@@ -23955,9 +24109,9 @@
     }
   ],
   "report": {
-    "required": 1133,
-    "prepared": 1133,
-    "accepted": 1133,
+    "required": 1140,
+    "prepared": 1140,
+    "accepted": 1140,
     "pendingGeneration": [],
     "missingAsset": [],
     "unreviewed": [],

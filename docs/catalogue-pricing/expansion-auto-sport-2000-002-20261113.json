@@ -1,0 +1,268 @@
+{
+  "checkedOn": "2026-11-13",
+  "validUntil": "2027-02-11",
+  "status": "research_in_progress",
+  "scope": "Sofia owner-source auto repair, staffed appointment wash/detailing and reserved sports; no retail-only or open-gym entry.",
+  "method": {
+    "sourcePriority": "Actual public owner Book entry first, then selected services/tariffs/full contacts; no booking submissions or private interfaces.",
+    "coordinates": "All intake points null. No Maps, Nominatim, Google content or inferred coordinates.",
+    "pricing": "Literal owner fees only. Full booking/service review plus explicit quotation language for genuine unpublished fees; inaccessible known menus remain held."
+  },
+  "counts": {
+    "records": 12,
+    "services": 12,
+    "pricedServices": 4,
+    "pending": 7,
+    "rejected": 7
+  },
+  "orderedLedger": [
+    {
+      "order": 1,
+      "id": "sofia-folio2u-adam-mitskevich8",
+      "name": "Folio2U",
+      "status": "verified",
+      "website": "https://folio2u.bg/",
+      "bookingUrl": "https://folio2u.bg/kontakti/",
+      "serviceUrls": [
+        "https://folio2u.bg/uslugi/folio-za-farove/",
+        "https://folio2u.bg/ceni/"
+      ],
+      "contactUrl": "https://folio2u.bg/kontakti/",
+      "findings": "Actual owner Book entry is telephone: home, selected headlight service and full contact page explicitly invite appointment calls. Owner privacy page confirms informational site has no order/registration form, so no online calendar invented. Complete selected-service menu and full tariff read: EUR102.26 polishing plus film for two headlights; FAQ calls this a starting price, so retained from-kind, included professional installation and exact two-headlight scope. Exact workshop street, phone and weekday/Saturday/Sunday hours confirmed; registered-office address in privacy page not substituted. No Google reviews/images copied, no map visited or coordinates inferred. Privacy text fully read; no acceptance or contact performed."
+    },
+    {
+      "order": 2,
+      "id": "sofia-autoglass-fox-gatyo-shishkov2",
+      "name": "Автостъкла Фокс · Кръстова вада",
+      "status": "verified",
+      "website": "https://www.autoglassfox.com/",
+      "bookingUrl": "https://www.autoglassfox.com/contact.html",
+      "serviceUrls": [
+        "https://www.autoglassfox.com/service.html"
+      ],
+      "contactUrl": "https://www.autoglassfox.com/contact.html",
+      "findings": "Followed actual owner's call/Viber booking instruction on home and full contact page first, then read complete selected service page and home footer. Service's explicit Price section says fee varies by vehicle model and sensors/cameras and directs to consultation; no numeric replacement amount or separate public price menu appears on reviewed booking/service pages. No zero price invented. Exact KrastovaVada GatyoShishkov2, phone and full weekday/weekend hours confirmed. A second Nadezhda workshop is mentioned only by landmark without exact street, so it is not cloned. No map iframe/Google content fetched, no customer document sent and no booking performed."
+    },
+    {
+      "order": 3,
+      "id": "sofia-autoglass-kobra-voenna-rampa",
+      "name": "Автостъкла Кобра · Военна рампа",
+      "status": "verified",
+      "website": "https://autoglasskobra.bg/",
+      "bookingUrl": "https://autoglasskobra.bg/zapazi-chas/",
+      "serviceUrls": [
+        "https://autoglasskobra.bg/uslugi/montazh-i-demontazh-v-serviz/"
+      ],
+      "contactUrl": "https://autoglasskobra.bg/czentrove/",
+      "findings": "Actual owner Book link followed first to full public appointment request: customer/car/glass-type and installation-place fields; inspected literal HTML service selector containing this exact Sofia branch without selecting it or submitting. Owner Centres page independently confirms this branch's exact address and distinct direct telephone, not two retail-only shops. Complete selected workshop-installation service page and full request form have no numeric labour/install tariff and no separate service Prices menu; shop basket0.00 and retail glass/consumable offers are not service fees. Full owner terms read, including previously truncated purchase-process middle; ordinary IP/content protections, no claim of licence and no expressive text/photos/logo copied. Only minimal factual branch/contact/service inventory and fresh label retained. Central footer weekday hours used only for VoennaRampa at the same footer address; Mladost hours omitted. No maps, account, form input, availability or booking action."
+    },
+    {
+      "order": 4,
+      "id": "sofia-autoglass-kobra-mladost",
+      "name": "Автостъкла Кобра · Младост",
+      "status": "verified",
+      "website": "https://autoglasskobra.bg/",
+      "bookingUrl": "https://autoglasskobra.bg/zapazi-chas/",
+      "serviceUrls": [
+        "https://autoglasskobra.bg/uslugi/montazh-i-demontazh-v-serviz/"
+      ],
+      "contactUrl": "https://autoglasskobra.bg/czentrove/",
+      "findings": "Actual owner Book link followed first to full public appointment request: customer/car/glass-type and installation-place fields; inspected literal HTML service selector containing this exact Sofia branch without selecting it or submitting. Owner Centres page independently confirms this branch's exact address and distinct direct telephone, not two retail-only shops. Complete selected workshop-installation service page and full request form have no numeric labour/install tariff and no separate service Prices menu; shop basket0.00 and retail glass/consumable offers are not service fees. Full owner terms read, including previously truncated purchase-process middle; ordinary IP/content protections, no claim of licence and no expressive text/photos/logo copied. Only minimal factual branch/contact/service inventory and fresh label retained. Central footer weekday hours used only for VoennaRampa at the same footer address; Mladost hours omitted. No maps, account, form input, availability or booking action."
+    },
+    {
+      "order": 5,
+      "id": "sofia-glassmagics-mobile",
+      "name": "GlassMagics · мобилен ремонт на автостъкла",
+      "status": "verified",
+      "website": "https://glassmagics.com/",
+      "bookingUrl": "https://glassmagics.com/contact/",
+      "serviceUrls": [
+        "https://glassmagics.com/",
+        "https://glassmagics.com/faq/"
+      ],
+      "contactUrl": "https://glassmagics.com/contact/",
+      "findings": "Selected one explicitly mobile Sofia business rather than cloning its five listed contact addresses into five branches. Actual owner contact and FAQ explicitly arrange advance-time home/address visits, owner phone confirmed; general enquiry form inspected but no independently rendered appointment scheduler, so phone is honest route. Full public home service description and complete FAQ/contact read: selected crack-repair prices depend on damage size and are obtained by phone/form, no numeric repair tariff displayed or separate price menu linked. About detail page returns403 and was not bypassed; selected repair is independently fully described on accessible home and FAQ, not a claim that blocked detail was reviewed. Free arrival within Sofia is not a zero repair price; average20min is not a fixed booked duration. Weekday mobile after10 versus general9–17 and exceptional weekend visits not flattened into fixed availability. No location input, map, call, customer details or booking."
+    },
+    {
+      "order": 6,
+      "id": "sofia-milkris-autoglass-mobile",
+      "name": "МилКрис Сервиз · автостъкла на адрес",
+      "status": "verified",
+      "website": "https://milkrisautoglass.com/",
+      "bookingUrl": "https://milkrisautoglass.com/kontakti/",
+      "serviceUrls": [
+        "https://milkrisautoglass.com/uslugi/"
+      ],
+      "contactUrl": "https://milkrisautoglass.com/kontakti/",
+      "findings": "Followed owner's service FAQ actual booking instructions to Contact first: public enquiry form fields visible in ordinary owner HTML, but JS enhancement not rendered, so used explicit independent telephone path rather than claiming tested online scheduler. Owner home, complete service page, contact page and full terms read by ordinary GET after web-reader timeouts. Terms§2 binds services to Sofia; selected re-bonding is explicitly address-only, so one real mobile service-area business with null premises, not fabricated street. Terms§3 says staff confirms date/time after car details, §6 states all fees agreed beforehand by model/service; complete selected booking/services/terms show no numeric price or linked tariff, not a blocked price menu. Free consultation and variable elapsed/cure-time ranges not used as repair fee/duration. Safe dry work area and 24h change notice retained in evidence; no unproven hours, images, maps, customer entry or booking."
+    },
+    {
+      "order": 7,
+      "id": "sofia-pulse-car-wash-bulgaria",
+      "name": "Pulse Car Wash · Bulgaria",
+      "status": "verified",
+      "website": "https://pulsefit.bg/klubove/pulse-bulgaria-manastirski-livadi/",
+      "bookingUrl": "https://pulsefit.bg/pulse-car-wash/",
+      "serviceUrls": [
+        "https://pulsefit.bg/pulse-car-wash/",
+        "https://pulsefit.bg/ekstri-v-pulse/avtomivka/"
+      ],
+      "contactUrl": "https://pulsefit.bg/klubove/pulse-bulgaria-manastirski-livadi/",
+      "findings": "Actual owner staffed-wash booking article explicitly invites advance telephone appointments and gives this branch-specific wash phone. Owner's current dedicated wash service page independently repeats the same venue/phone, distinguishes staff-operated washing, and the separately inspected branch contact block supplies its exact physical address and on-site wash amenity. Full selected wash booking/service pages contain descriptions but no numeric washing tariff or public wash-price link; generic membership offers, cards, gym prices and corporate price-analysis documents are not a car-wash tariff. Full owner terms read end-to-end in bounded chunks; they concern gym memberships, not invented wash fees, and no consent was accepted. Only this actual wash department is admitted, not generic gym access or its staff as businesses; gym opening hours and generic reception phone are not projected onto wash. No maps, images, reviews, forms, purchases or booking actions."
+    },
+    {
+      "order": 8,
+      "id": "sofia-pulse-car-wash-mladost",
+      "name": "Pulse Car Wash · Mladost",
+      "status": "verified",
+      "website": "https://pulsefit.bg/klubove/pulse-mladost/",
+      "bookingUrl": "https://pulsefit.bg/pulse-car-wash/",
+      "serviceUrls": [
+        "https://pulsefit.bg/pulse-car-wash/",
+        "https://pulsefit.bg/ekstri-v-pulse/avtomivka/"
+      ],
+      "contactUrl": "https://pulsefit.bg/klubove/pulse-mladost/",
+      "findings": "Actual owner staffed-wash booking article explicitly invites advance telephone appointments and gives this branch-specific wash phone. Owner's current dedicated wash service page independently repeats the same venue/phone, distinguishes staff-operated washing, and the separately inspected branch contact block supplies its exact physical address and on-site wash amenity. Full selected wash booking/service pages contain descriptions but no numeric washing tariff or public wash-price link; generic membership offers, cards, gym prices and corporate price-analysis documents are not a car-wash tariff. Full owner terms read end-to-end in bounded chunks; they concern gym memberships, not invented wash fees, and no consent was accepted. Only this actual wash department is admitted, not generic gym access or its staff as businesses; gym opening hours and generic reception phone are not projected onto wash. No maps, images, reviews, forms, purchases or booking actions."
+    },
+    {
+      "order": 9,
+      "id": "sofia-pulse-car-wash-west-park",
+      "name": "Pulse Car Wash · West Park",
+      "status": "verified",
+      "website": "https://pulsefit.bg/klubove/pulse-west-park/",
+      "bookingUrl": "https://pulsefit.bg/pulse-car-wash/",
+      "serviceUrls": [
+        "https://pulsefit.bg/pulse-car-wash/",
+        "https://pulsefit.bg/ekstri-v-pulse/avtomivka/"
+      ],
+      "contactUrl": "https://pulsefit.bg/klubove/pulse-west-park/",
+      "findings": "Actual owner staffed-wash booking article explicitly invites advance telephone appointments and gives this branch-specific wash phone. Owner's current dedicated wash service page independently repeats the same venue/phone, distinguishes staff-operated washing, and the separately inspected branch contact block supplies its exact physical address and on-site wash amenity. Full selected wash booking/service pages contain descriptions but no numeric washing tariff or public wash-price link; generic membership offers, cards, gym prices and corporate price-analysis documents are not a car-wash tariff. Full owner terms read end-to-end in bounded chunks; they concern gym memberships, not invented wash fees, and no consent was accepted. Only this actual wash department is admitted, not generic gym access or its staff as businesses; gym opening hours and generic reception phone are not projected onto wash. No maps, images, reviews, forms, purchases or booking actions."
+    },
+    {
+      "order": 10,
+      "id": "sofia-yoga-sihia-nadezhda2",
+      "name": "Йога студио Сихиа · пилатес реформър",
+      "status": "verified",
+      "website": "https://yogasihir.com/",
+      "bookingUrl": "https://reservation.studio/bg/location/ioga-studio-sixia",
+      "serviceUrls": [
+        "https://yogasihir.com/schedule-reformer/",
+        "https://yogasihir.com/",
+        "https://yogasihir.com/prices/"
+      ],
+      "contactUrl": "https://yogasihir.com/contacts/",
+      "findings": "Actual owner Reserve link followed to this one named public merchant menu, not a platform search/export. Full provider selected service explicitly shows nonMultiSport groupReformer21EUR/50min and Reserve buttons; own full tariff/home independently21EUR and exact contact/branch. Entire owner reformer/schedule/contact and rules read. Current owner says one studio/two practice types at MitropolitAvksentiyVeleshki49entranceG; old third-party Bolyarska22 claim is NOT cloned or used. MultiSport zero labels are conditional benefits, not general fees, and no therapy/medical services selected. Owner old Rules says6EUR no-show while current merchant rules says21EUR Reformer; public description defers to declared applicable fee rather than inventing a consistent numeric penalty. Adult minimum16 and four-hour cancellation retained. Weekly hours omitted from own record because only provider lists them; no maps/reviews/photos, account, customer inputs or reservation actions."
+    },
+    {
+      "order": 11,
+      "id": "sofia-gayatri-yoga-kopernik21",
+      "name": "Гаятри Йога Студио · Гео Милев",
+      "status": "verified",
+      "website": "https://gayatriyogastudio.net/",
+      "bookingUrl": "https://gayatriyogastudio.net/%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D0%BA/",
+      "serviceUrls": [
+        "https://gayatriyogastudio.net/events/%d1%81%d1%82%d1%80%d0%b5%d1%87%d0%b8%d0%bd%d0%b3-%d0%b9%d0%be%d0%b3%d0%b0-2-2-2-2-2-2-3-2-2-2-2-2-3/?occurrence=2026-11-16",
+        "https://gayatriyogastudio.net/%D1%86%D0%B5%D0%BD%D0%B8/"
+      ],
+      "contactUrl": "https://gayatriyogastudio.net/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/",
+      "findings": "Followed actual owner home Reserve-place entry, read its linked regular class page and generic programme before full tariff/contact. Ordinary live HTTP on13Nov shows future16Nov stretching-yoga class and repeated weekly classes throughDecember, not only stale October cached events. Actual class exposes ticket/reserve interface and pay-on-site/MultiSport qualification; generic programme retained as ongoing booking entry rather than a soon-stale dated destination. Current live owner tariff is10.20EUR adult single visit, NOT web reader's old9.18EUR figure. No conversion, package-derived per-visit rate, Himalayan-special-course fee or child's rate imported. ExactGeоMilevKopernik21entranceBfloor1 and mainstudio phone confirmed; no second same-nameSimeonovsko studio inferred. Privacy link reader failed its robots check; not bypassed or declared reviewed, no separate reuse permission claimed. No medical claims, general hours, coordinates, availability, card payment, ticket selection or reservation submission."
+    },
+    {
+      "order": 12,
+      "id": "sofia-body-art-kally-stadium",
+      "name": "Body Art Kally · Пилатес студио",
+      "status": "verified",
+      "website": "https://bodyartkally.com/bg/",
+      "bookingUrl": "https://bodyartkally.com/bg/ceni/",
+      "serviceUrls": [
+        "https://bodyartkally.com/bg/%D0%BF%D0%B8%D0%BB%D0%B0%D1%82%D0%B5%D1%81-%D1%81%D1%82%D1%83%D0%B4%D0%B8%D0%BE/",
+        "https://bodyartkally.com/bg/timetable/event/gravity-pilates/",
+        "https://bodyartkally.com/bg/ceni/"
+      ],
+      "contactUrl": "https://bodyartkally.com/bg/kontakti/",
+      "findings": "Actual owner booking instruction reviewed first on home and full tariff: all Pilates studio classes require prior reservation and direct telephone is given. Actual current studio programme and selected Gravity Pilates page read by ordinary public GET after reader timeouts; full contact confirms sectorA/entrance1/hall2, not another stadium business. Complete Prices page distinguishes ordinary hall EUR8 admission from selected group Gravity EUR26 single; only reserved Gravity retained, no generic gym entry, private discipline or machine type inferred. Own 24h cancellation/no-show full-fee rule and MultiSport exclusion preserved. Programme interval not treated as guaranteed appointment duration, hours omitted. Contact enquiry form contains unresolved recaptcha, so explicit phone path selected without contact or booking. Footer/navigation show no separate terms link; no unshown terms claimed reviewed. No cookie acceptance, external social video, map, photos or coordinates."
+    }
+  ],
+  "pending": [
+    {
+      "name": "Автостъкла Global · София",
+      "url": "https://avtostaklaglobal.bg/",
+      "status": "held_identity_address_conflict",
+      "reason": "Owner Global claims Sofia Royak41/+359879424205; independently discovered owner avtostaklagrup.com also claims same Royak41 with different brand and +359877642523. Shared actual premise/takeover/alias not resolved; do not count as two businesses or select an operator blindly."
+    },
+    {
+      "name": "AutoFriend",
+      "url": "https://autofriend.bg/uslugi/avtomivka/",
+      "status": "held_scope_intermediary",
+      "reason": "Owner offers pickup/return and appointment arranging at unnamed partner wash centers, not an independently identified staffed own wash. Do not invent a wash premise or duplicate partner."
+    },
+    {
+      "name": "NACEA SERVICE",
+      "url": "https://service.naceaenginestore.com/",
+      "status": "held_demo_and_scope_review",
+      "reason": "Own public site explicitly labels projects/reviews DEMO and says map is not configured. Booking path not reviewed yet; exact Vrana-Lozen triangle/Viso60/1151 Sofia scope and independent operating service premise not safely established. No catalogue copy of demonstration claims."
+    },
+    {
+      "name": "Pulse Car Wash · Arena",
+      "url": "https://pulsefit.bg/ekstri-v-pulse/avtomivka/",
+      "status": "held_explicit_appointment_evidence",
+      "reason": "Current owner wash page includes Arena/+359878530506 but merely contact instruction; older explicit appointment article lists only Bulgaria/WestPark/Mladost. Do not clone the three-branch appointment promise onto fourthArena without explicit own reservation evidence."
+    },
+    {
+      "name": "NOW YOGA",
+      "url": "https://nowyoga.bg/",
+      "status": "held_service_to_venue_binding",
+      "reason": "Full owner actual form and literalYogaBasics12EUR50min/YogaBJJ8EUR30min read, plus own privacy identifiesMofiStudio. Two premisesLidice1HotelEurope andShipchenskiProhod63TWJJ shown but public form/week list has no exact service-to-venue binding. No clone ontoTwisted host and no arbitrary fee assignment; no map consulted."
+    },
+    {
+      "name": "Йога и приятели",
+      "url": "https://www.yogaipriateli.com/",
+      "status": "held_js_menu",
+      "reason": "Current own home and actualterms.php both render onlyLoading in reader and ordinaryHTTP; knownbook/services/menu not reviewed yet, no missing-fee claim."
+    },
+    {
+      "name": "Athletic Slivnitsa personal training",
+      "url": "https://athletic.bg/klubove/slivnica/",
+      "status": "held_access_429",
+      "reason": "Owner page returns429TooManyRequests; stopped, no retry or inferred individual fee. Generic gym admission not selected."
+    }
+  ],
+  "rejected": [
+    {
+      "name": "Автосервиз Димов",
+      "url": "https://avtoservizdimov.com/?page_id=217",
+      "reason": "Full owner contact footer proves Plovdiv/DimitarStambolov10, not Sofia. Search leakage; do not import."
+    },
+    {
+      "name": "AutoPro Sofia retail branches",
+      "url": "https://autopro.bg/zapazi-chas-serviz",
+      "reason": "Full actual service booking/tariff explicitly names PlovdivOgnevo7. SofiaSarantsi3/TodorKableshkov22 are retail store footer addresses, not this garage; do not create two fake Sofia workshop branches."
+    },
+    {
+      "name": "Карате клуб Канку-Кай",
+      "url": "https://www.kankukai.org/",
+      "reason": "Owner explicitly says no need to reserve a place and anyone may attend a free trial. Regular timetable is not an appointment/reserved-class path."
+    },
+    {
+      "name": "Баобаб / Ян Тай Чи",
+      "url": "https://baobab-bg.com/prices",
+      "reason": "Own complete tariff/contact proves PlovdivLevTolstoy2, not Sofia; no city leakage admitted."
+    },
+    {
+      "name": "D.A.Y.A Studio",
+      "url": "https://daya.bg/contact/",
+      "reason": "Full owner contact and tariff explicitly locate studio atPernikKrakra70. Sofia references are regulator legal addresses, not studio."
+    },
+    {
+      "name": "Учебен център Тера",
+      "url": "https://www.centre-terra.com/",
+      "reason": "Owner main describes centralPlovdiv and exactRodopi65, not Sofia. No import."
+    },
+    {
+      "name": "21 Pilates",
+      "url": "https://21-pilates.com/tseni-i-abonamenti/",
+      "status": "rejected_outside_sofia",
+      "reason": "Owner contact binds actual studio to Plovdiv, Ilarion Makariopolski25; EUR30 individual/explicit telephone instruction not imported as Sofia."
+    }
+  ]
+}

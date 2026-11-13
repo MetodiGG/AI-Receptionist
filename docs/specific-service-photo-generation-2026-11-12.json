@@ -4,6 +4,132 @@
   "scope": "Illustrative service-specific photos for approved Sofia catalogue entries; not actual business premises, staff, work or results.",
   "assets": [
     {
+      "id": "sx-auto-headlight-polish-ppf",
+      "label": "Полиране на фар и поставяне на защитно фолио",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square service thumbnail\nPrimary request: show the actual combined car service 'headlight polishing and protective clear PPF film installation'. A coherent two-panel photographic sequence of the SAME fictional technician and the same plain dark car headlight. Upper panel: technician safely polishing the cloudy headlight with a compact polishing machine. Lower panel: the restored headlight receiving transparent PPF film, worker's gloved hands carefully smoothing the clearly visible transparent film with a small squeegee. Real workshop, plausible headlight shape, natural materials and hands.\nStyle: natural photorealistic service photography, warmly neutral workshop lighting, close framed subject readable at64px. Exactly two photographic panels, no extra props or decorative collage.\nConstraints: no logos, text, watermarks, prices, notebook, emoji; generic illustrative scene, not claimed real business work. No applied coating bottle substituted for transparent film, no window glass instead of headlight.",
+      "sourceFile": "exec-bae2c9de-07f3-4be5-b1ca-b5fc6b558643.png",
+      "sourceSha256": "e13526e69a8d7d6cd239b161c989465ece839f00cc088a8589a5d63217a37149",
+      "file": "public/service-photos/sx-auto-headlight-polish-ppf-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 13494,
+      "sha256": "b70cba0d4e48d75432b70416533914479bf913b7a4d79ebe5986400d14c68585",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "e13526e69a8d7d6cd239b161c989465ece839f00cc088a8589a5d63217a37149",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected generated source and optimized 256px WebP; service-specific tools/activity and age/context checked; no source-business photos or verified-work claims."
+      }
+    },
+    {
+      "id": "sx-auto-windscreen-bonding",
+      "label": "Лепене и монтаж на автомобилно челно стъкло",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square car-service thumbnail\nPrimary request: realistic automobile windscreen bonding and fitting at a safe dry automotive workshop. One technician in workwear and protective gloves applies a neat black polyurethane adhesive bead with a proper manual caulking gun to the exposed windscreen frame while a second technician supports a clean curved windshield using two professional suction-cup handles, ready for careful reseating. Car is stationary. Focus on the glass bonding/fitting interaction rather than a generic engine repair. Plausible windshield curvature, tools, hands and car proportions.\nStyle: natural photorealistic service photography, bright neutral indoor lighting, tightly composed square scene legible at64px.\nConstraints: unbranded fictional technicians and car, not actual business/customer work; no text, watermarks, logos, notebook, emojis, broken sharp glass, or unsafe work. Do not imply a specific vehicle brand or windshield sensor configuration.",
+      "sourceFile": "exec-43bec3e5-0aa2-4392-96fe-fa90d40b8ca9.png",
+      "sourceSha256": "73d7d87b956b66ba73039297d4aa1a09a795250476864318b4473ed5f03ac52a",
+      "file": "public/service-photos/sx-auto-windscreen-bonding-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 14522,
+      "sha256": "ddbc99569903edae9afa9d7a54a7bab81595ece41ab51fa4a19c0235d1ab923e",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "73d7d87b956b66ba73039297d4aa1a09a795250476864318b4473ed5f03ac52a",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected generated source and optimized 256px WebP; service-specific tools/activity and age/context checked; no source-business photos or verified-work claims."
+      }
+    },
+    {
+      "id": "sx-auto-windscreen-crack-repair",
+      "label": "Ремонт на пукнатина в автомобилно челно стъкло",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square service thumbnail\nPrimary request: a professional technician repairing a small localized chip and short crack in an automotive windshield using a compact bridge-style resin injector mounted with suction cups directly on the intact glass. Show the injector centered on a small star-shaped chip, worker's gloved hand adjusting the injector, a plausible stationary car and windshield edge visible to make the service unmistakable. This is a repair, not glass replacement or polishing.\nStyle: natural photorealistic close-up, real glass reflections, credible compact tool scale, soft neutral workshop daylight, composition legible at64px.\nConstraints: fictional illustrative scene, no real business or customer claim; no logos, text, watermarks, notebook, emojis, large shattered windshield or unsafe sharp glass.",
+      "sourceFile": "exec-127e3a00-2218-4b32-aa21-ee1a45d2d32a.png",
+      "sourceSha256": "7ac40e01a3a1b35af05ef8a6d5031d8a23d71931a0e9a0230798214e8f7d84cf",
+      "file": "public/service-photos/sx-auto-windscreen-crack-repair-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 11414,
+      "sha256": "995ff25a0dbebf283488cfe17188d90c42aca9e5f4dcf7e571b866f981f0bcb4",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "7ac40e01a3a1b35af05ef8a6d5031d8a23d71931a0e9a0230798214e8f7d84cf",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected generated source and optimized 256px WebP; service-specific tools/activity and age/context checked; no source-business photos or verified-work claims."
+      }
+    },
+    {
+      "id": "sx-child-language-individual",
+      "label": "Индивидуален езиков урок за дете",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square service thumbnail\nPrimary request: an individual English-language tutoring lesson for one fictional school-age child around10 and one adult teacher at a quiet classroom desk. Teacher holds a small picture vocabulary card showing an apple and they practice speaking while the child listens and answers. An open simple illustrated language workbook is on the desk. One-to-one interaction clearly visible, NOT a group lesson, NOT mathematics. English words if any only indistinct non-legible background detail.\nStyle: natural photorealistic educational-service photo, real skin and fabric textures, soft daylight, friendly ordinary learning atmosphere, framing readable at64px.\nConstraints: no recognizable real person or business, no claim these are actual students; no logos, typography, watermarks, prices, emoji, collage, busy generic workspace or notebook-only still life.",
+      "sourceFile": "exec-b3c9daa7-f0ce-43d8-8c6b-18f7b6ebbfa9.png",
+      "sourceSha256": "3b55a184c93f470b7fa09bb195ffad333c78c50328d028f9ff27185a5a6f753d",
+      "file": "public/service-photos/sx-child-language-individual-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 11788,
+      "sha256": "5423ee68bd078d408211def3b4b31226a9078d3f88e8f44e709ba9646b29cfdb",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "3b55a184c93f470b7fa09bb195ffad333c78c50328d028f9ff27185a5a6f753d",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected generated source and optimized 256px WebP; service-specific tools/activity and age/context checked; no source-business photos or verified-work claims."
+      }
+    },
+    {
+      "id": "sx-architecture-onsite-consultation",
+      "label": "Архитектурна консултация на обект",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square architecture service thumbnail\nPrimary request: a fictional professional architect consulting one adult property owner on site inside an unfinished residential interior. They stand together next to an unfinished wall and a window opening, discussing an unfolded architectural floor plan held between them; the architect points from the plan toward an actual wall and window, making the onsite building consultation clear. Both wear appropriate protective hard hats, long trousers and practical shoes, safe clean floor, realistic unfinished brick/plaster and concrete, no dangerous construction activity.\nStyle: natural photorealistic professional-service photography, daylight from the window, real materials, credible proportions, medium square framing with both people and relevant building context legible at64px.\nConstraints: generic illustrative scene, no business or verified staff/work claim; no text, logos, watermark, prices, notebook-only desk, emoji, CGI or medical content.",
+      "sourceFile": "exec-966d1952-336d-4435-8088-b74285eae6d9.png",
+      "sourceSha256": "63a12cacdfe49fa2728f7b6519f298d70119e4107c6f1eb501bf575a09b733f9",
+      "file": "public/service-photos/sx-architecture-onsite-consultation-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 9732,
+      "sha256": "6767d63c1571f30c94d49d27e7d3412f90621c02609dec242b455351be4f0a16",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "63a12cacdfe49fa2728f7b6519f298d70119e4107c6f1eb501bf575a09b733f9",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected generated source and optimized 256px WebP; service-specific tools/activity and age/context checked; no source-business photos or verified-work claims."
+      }
+    },
+    {
+      "id": "sx-child-badminton-coaching",
+      "label": "Групова тренировка по бадминтон за деца",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square service thumbnail for a local business catalogue\nPrimary request: a clearly recognizable children's group badminton coaching lesson, with a real adult instructor and two children around 10–12 years old in ordinary modest sportswear, on an indoor badminton court. The instructor demonstrates a short badminton racket grip while one child gently practices hitting a feather shuttlecock and the second waits safely nearby. Show badminton-specific lightweight oval rackets with thin shafts, a visible white shuttlecock, and a badminton net and narrow court markings; not tennis equipment.\nStyle/medium: natural photorealistic sports-session photography, believable anatomy, realistic fabric and skin texture, bright even indoor sports-hall lighting.\nComposition/framing: tightly framed square group scene with the coaching interaction and badminton equipment readable at 64px, natural proportions, no unsafe racket swings close to another person.\nConstraints: illustrative generic people and unbranded neutral hall, no recognizable real business, no claims that these are actual customers. No text, logos, watermarks, notebook, calendar, tennis ball, football, or unrelated props.",
+      "sourceFile": "exec-dfcd61b7-34c2-461b-b4f6-ec645a1f086a.png",
+      "sourceSha256": "81b4f197d1bc631a0ee7fcd2c33330b47826b2d5897c707c07eba5abe6a63fff",
+      "file": "public/service-photos/sx-child-badminton-coaching-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 11066,
+      "sha256": "477d9d26846a07003e60bb5ffb17595f79487b35345cec60630743eef986cd43",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "81b4f197d1bc631a0ee7fcd2c33330b47826b2d5897c707c07eba5abe6a63fff",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individual source and final 256px WebP visual inspection; child badminton coaching, correct rackets/shuttlecock, not tennis or adult coaching."
+      }
+    },
+    {
       "id": "sx-acting-adult",
       "label": "Актьорско майсторство за възрастни",
       "prompt": "Use case: photorealistic-natural. Asset type: an individual square service photograph for a GoRez service thumbnail. Show the named activity clearly and realistically, with lifelike fictional people where appropriate, credible real tools/materials, natural hands and professional safe technique. Generic illustrative photograph, NOT actual business premises, staff, verified work or a claim of outcomes. Natural warm-neutral daylight, authentic skin/material texture, restrained editing, close or medium framing legible at64–88px. Square1:1, clear central subject. No typography, labels, prices, logos, watermarks, borders, emoji, CGI or3D render. For a true multi-step combination ONLY, a coherent2–3panel photographic sequence of the SAME fictional client/subject may depict its actual named steps, not unrelated collage.\nService: Актьорско майсторство за възрастни\nScene: Photorealistic adult drama lesson with coach and two adult learners rehearsing expressive dialogue on simple theatre rehearsal stage; scripts non-legible.",
@@ -24153,9 +24279,9 @@
     }
   ],
   "report": {
-    "required": 1142,
-    "prepared": 1142,
-    "accepted": 1142,
+    "required": 1148,
+    "prepared": 1148,
+    "accepted": 1148,
     "pendingGeneration": [],
     "missingAsset": [],
     "unreviewed": [],

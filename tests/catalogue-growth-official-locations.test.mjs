@@ -16,7 +16,7 @@ test('growth postal matches are disjoint, attributed and linked without modifyin
   assert.deepEqual(combined.points, [...original.points, ...growth.points])
   assert.equal(combined.pointCount, combined.points.length)
   assert.equal(new Set(combined.points.map(row => row.id)).size, combined.pointCount)
-  assert.equal(OFFICIAL_SOFIA_PROCESSED_DATA_URL, '/catalogue-official-address-points-growth-20261113.json')
+  assert.equal(OFFICIAL_SOFIA_PROCESSED_DATA_URL, '/catalogue-official-address-points-2000-20261113.json')
   assert.equal(growth.sourceSha256, original.sourceSha256)
   for (const point of growth.points) {
     const intake = additions.find(row => row.id === point.id)

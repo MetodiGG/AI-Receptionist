@@ -9,10 +9,10 @@
     "pricing": "Literal owner fees only. Full booking/service review plus explicit quotation language for genuine unpublished fees; inaccessible known menus remain held."
   },
   "counts": {
-    "records": 17,
-    "services": 17,
-    "pricedServices": 7,
-    "pending": 19,
+    "records": 15,
+    "services": 15,
+    "pricedServices": 5,
+    "pending": 21,
     "rejected": 8
   },
   "orderedLedger": [
@@ -142,7 +142,7 @@
       "order": 10,
       "id": "sofia-yoga-sihia-nadezhda2",
       "name": "Йога студио Сихиа · пилатес реформър",
-      "status": "verified",
+      "status": "held_source_terms_no_owned_phone_fallback",
       "website": "https://yogasihir.com/",
       "bookingUrl": "https://reservation.studio/bg/location/ioga-studio-sixia",
       "serviceUrls": [
@@ -151,7 +151,8 @@
         "https://yogasihir.com/prices/"
       ],
       "contactUrl": "https://yogasihir.com/contacts/",
-      "findings": "Actual owner Reserve link followed to this one named public merchant menu, not a platform search/export. Full provider selected service explicitly shows nonMultiSport groupReformer21EUR/50min and Reserve buttons; own full tariff/home independently21EUR and exact contact/branch. Entire owner reformer/schedule/contact and rules read. Current owner says one studio/two practice types at MitropolitAvksentiyVeleshki49entranceG; old third-party Bolyarska22 claim is NOT cloned or used. MultiSport zero labels are conditional benefits, not general fees, and no therapy/medical services selected. Owner old Rules says6EUR no-show while current merchant rules says21EUR Reformer; public description defers to declared applicable fee rather than inventing a consistent numeric penalty. Adult minimum16 and four-hour cancellation retained. Weekly hours omitted from own record because only provider lists them; no maps/reviews/photos, account, customer inputs or reservation actions."
+      "findings": "Actual owner Reserve link followed to this one named public merchant menu, not a platform search/export. Full provider selected service explicitly shows nonMultiSport groupReformer21EUR/50min and Reserve buttons; own full tariff/home independently21EUR and exact contact/branch. Entire owner reformer/schedule/contact and rules read. Current owner says one studio/two practice types at MitropolitAvksentiyVeleshki49entranceG; old third-party Bolyarska22 claim is NOT cloned or used. MultiSport zero labels are conditional benefits, not general fees, and no therapy/medical services selected. Owner old Rules says6EUR no-show while current merchant rules says21EUR Reformer; public description defers to declared applicable fee rather than inventing a consistent numeric penalty. Adult minimum16 and four-hour cancellation retained. Weekly hours omitted from own record because only provider lists them; no maps/reviews/photos, account, customer inputs or reservation actions.",
+      "holdReason": "New full Reservation.Studio terms https://reservation.studio/bg/pages/terms (13.07.2026), section8, expressly forbids automated bots/scrapers access or data extraction without written consent. Stopped further provider access. Root authorized own-only phone reassessment: full https://yogasihir.com/, /prices/, /contacts/ and /rules/ reviewed2026-11-13. Own21EUR singleReformer/16+rule valid; current regular practices reserve ONLINE only. Phone reservation on homepage applies specifically to soundmeditation event, NOT regular Reformer. No explicit independent phone appointment instruction for selected Reformer found; no phone fallback fabricated. Hold whole row, do not classify known tariff unpublished."
     },
     {
       "order": 11,
@@ -171,7 +172,7 @@
       "order": 12,
       "id": "sofia-body-art-kally-stadium",
       "name": "Body Art Kally · Пилатес студио",
-      "status": "verified",
+      "status": "pending_photo_apparatus_verification",
       "website": "https://bodyartkally.com/bg/",
       "bookingUrl": "https://bodyartkally.com/bg/ceni/",
       "serviceUrls": [
@@ -180,7 +181,8 @@
         "https://bodyartkally.com/bg/ceni/"
       ],
       "contactUrl": "https://bodyartkally.com/bg/kontakti/",
-      "findings": "Actual owner booking instruction reviewed first on home and full tariff: all Pilates studio classes require prior reservation and direct telephone is given. Actual current studio programme and selected Gravity Pilates page read by ordinary public GET after reader timeouts; full contact confirms sectorA/entrance1/hall2, not another stadium business. Complete Prices page distinguishes ordinary hall EUR8 admission from selected group Gravity EUR26 single; only reserved Gravity retained, no generic gym entry, private discipline or machine type inferred. Own 24h cancellation/no-show full-fee rule and MultiSport exclusion preserved. Programme interval not treated as guaranteed appointment duration, hours omitted. Contact enquiry form contains unresolved recaptcha, so explicit phone path selected without contact or booking. Footer/navigation show no separate terms link; no unshown terms claimed reviewed. No cookie acceptance, external social video, map, photos or coordinates."
+      "findings": "Actual owner booking instruction reviewed first on home and full tariff: all Pilates studio classes require prior reservation and direct telephone is given. Actual current studio programme and selected Gravity Pilates page read by ordinary public GET after reader timeouts; full contact confirms sectorA/entrance1/hall2, not another stadium business. Complete Prices page distinguishes ordinary hall EUR8 admission from selected group Gravity EUR26 single; only reserved Gravity retained, no generic gym entry, private discipline or machine type inferred. Own 24h cancellation/no-show full-fee rule and MultiSport exclusion preserved. Programme interval not treated as guaranteed appointment duration, hours omitted. Contact enquiry form contains unresolved recaptcha, so explicit phone path selected without contact or booking. Footer/navigation show no separate terms link; no unshown terms claimed reviewed. No cookie acceptance, external social video, map, photos or coordinates.",
+      "holdReason": "Root requested hold: exact own Gravity Pilates26EUR group service and appointment/contact facts remain verified, but owner event page only names Gravity and links Facebook demonstration; no apparatus description read. Correct service-specific photo cannot be generic mat or guessed Reformer. No social page or photo copied; hold pending apparatus proof."
     },
     {
       "order": 13,
@@ -411,6 +413,159 @@
       "sources": [
         "https://www.qbigroup.com/"
       ]
+    },
+    {
+      "id": "sofia-body-art-kally-stadium",
+      "name": "Body Art Kally · Пилатес студио",
+      "status": "pending_photo_apparatus_verification",
+      "website": "https://bodyartkally.com/bg/",
+      "reviewedUrls": [
+        "https://bodyartkally.com/bg/",
+        "https://bodyartkally.com/bg/ceni/",
+        "https://bodyartkally.com/bg/kontakti/",
+        "https://bodyartkally.com/bg/%D0%BF%D0%B8%D0%BB%D0%B0%D1%82%D0%B5%D1%81-%D1%81%D1%82%D1%83%D0%B4%D0%B8%D0%BE/",
+        "https://bodyartkally.com/bg/timetable/event/gravity-pilates/"
+      ],
+      "reason": "Root requested hold: exact own Gravity Pilates26EUR group service and appointment/contact facts remain verified, but owner event page only names Gravity and links Facebook demonstration; no apparatus description read. Correct service-specific photo cannot be generic mat or guessed Reformer. No social page or photo copied; hold pending apparatus proof.",
+      "retainedSourceFacts": {
+        "record": {
+          "id": "sofia-body-art-kally-stadium",
+          "name": "Body Art Kally · Пилатес студио",
+          "cityCode": "68134",
+          "neighborhood": null,
+          "address": "София, Национален стадион Васил Левски, сектор А, вход 1, зала 2",
+          "locationKind": "premises",
+          "coordinates": null,
+          "category": "fitness",
+          "website": "https://bodyartkally.com/bg/",
+          "phone": "+359886612186",
+          "services": [
+            {
+              "name": "Групова тренировка Gravity Pilates",
+              "category": "fitness",
+              "appointmentModel": "group_reservation",
+              "description": "Групова тренировка в пилатес студиото с предварително записване. Единичен билет; MultiSport не важи. Отмяна поне 24 часа предварително, иначе се начислява пълната такса.",
+              "price": {
+                "amount": 26,
+                "currency": "EUR",
+                "kind": "fixed",
+                "unit": "единична групова тренировка",
+                "sourceUrl": "https://bodyartkally.com/bg/ceni/",
+                "checkedOn": "2026-11-13",
+                "validUntil": "2027-02-11"
+              }
+            }
+          ],
+          "booking": {
+            "kind": "phone",
+            "phone": "+359886612186"
+          },
+          "verification": {
+            "status": "approved",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11",
+            "booking": {
+              "url": "https://bodyartkally.com/bg/",
+              "excerpt": "Всички тренировки в пилатес студиото се провеждат само с предварително записване. Справки и записвания: +359886612186."
+            },
+            "contact": "https://bodyartkally.com/bg/kontakti/"
+          }
+        },
+        "review": {
+          "id": "sofia-body-art-kally-stadium",
+          "checkedOn": "2026-11-13",
+          "website": "https://bodyartkally.com/bg/",
+          "bookingEntry": "phone",
+          "bookingReview": "phone_booking_reviewed",
+          "reviewedUrls": [
+            "https://bodyartkally.com/bg/",
+            "https://bodyartkally.com/bg/ceni/",
+            "https://bodyartkally.com/bg/kontakti/",
+            "https://bodyartkally.com/bg/%D0%BF%D0%B8%D0%BB%D0%B0%D1%82%D0%B5%D1%81-%D1%81%D1%82%D1%83%D0%B4%D0%B8%D0%BE/",
+            "https://bodyartkally.com/bg/timetable/event/gravity-pilates/"
+          ],
+          "notes": "Actual owner booking instruction reviewed first on home and full tariff: all Pilates studio classes require prior reservation and direct telephone is given. Actual current studio programme and selected Gravity Pilates page read by ordinary public GET after reader timeouts; full contact confirms sectorA/entrance1/hall2, not another stadium business. Complete Prices page distinguishes ordinary hall EUR8 admission from selected group Gravity EUR26 single; only reserved Gravity retained, no generic gym entry, private discipline or machine type inferred. Own 24h cancellation/no-show full-fee rule and MultiSport exclusion preserved. Programme interval not treated as guaranteed appointment duration, hours omitted. Contact enquiry form contains unresolved recaptcha, so explicit phone path selected without contact or booking. Footer/navigation show no separate terms link; no unshown terms claimed reviewed. No cookie acceptance, external social video, map, photos or coordinates."
+        }
+      }
+    },
+    {
+      "id": "sofia-yoga-sihia-nadezhda2",
+      "name": "Йога студио Сихиа · пилатес реформър",
+      "status": "held_source_terms_no_owned_phone_fallback",
+      "website": "https://yogasihir.com/",
+      "reviewedUrls": [
+        "https://yogasihir.com/",
+        "https://reservation.studio/bg/location/ioga-studio-sixia",
+        "https://yogasihir.com/contacts/",
+        "https://yogasihir.com/schedule-reformer/",
+        "https://yogasihir.com/rules/",
+        "https://yogasihir.com/prices/"
+      ],
+      "reason": "New full Reservation.Studio terms https://reservation.studio/bg/pages/terms (13.07.2026), section8, expressly forbids automated bots/scrapers access or data extraction without written consent. Stopped further provider access. Root authorized own-only phone reassessment: full https://yogasihir.com/, /prices/, /contacts/ and /rules/ reviewed2026-11-13. Own21EUR singleReformer/16+rule valid; current regular practices reserve ONLINE only. Phone reservation on homepage applies specifically to soundmeditation event, NOT regular Reformer. No explicit independent phone appointment instruction for selected Reformer found; no phone fallback fabricated. Hold whole row, do not classify known tariff unpublished.",
+      "retainedSourceFacts": {
+        "record": {
+          "id": "sofia-yoga-sihia-nadezhda2",
+          "name": "Йога студио Сихиа · пилатес реформър",
+          "cityCode": "68134",
+          "neighborhood": "Надежда 2",
+          "address": "София, Надежда 2, ул. Митрополит Авксентий Велешки 49, вход Г",
+          "locationKind": "premises",
+          "coordinates": null,
+          "category": "fitness",
+          "website": "https://yogasihir.com/",
+          "phone": "+359897467119",
+          "services": [
+            {
+              "name": "Групова тренировка по пилатес реформър — без MultiSport",
+              "category": "fitness",
+              "appointmentModel": "group_reservation",
+              "description": "Единично платено посещение без карта MultiSport. Практиките за възрастни са за лица от 16 г. Отказът е до 4 часа предварително; при неявяване се дължи обявената такса.",
+              "price": {
+                "amount": 21,
+                "currency": "EUR",
+                "kind": "fixed",
+                "unit": "едно групово посещение без MultiSport",
+                "sourceUrl": "https://yogasihir.com/prices/",
+                "checkedOn": "2026-11-13",
+                "validUntil": "2027-02-11"
+              },
+              "durationMin": 50,
+              "durationSourceUrl": "https://reservation.studio/bg/location/ioga-studio-sixia",
+              "durationCheckedOn": "2026-11-13"
+            }
+          ],
+          "booking": {
+            "kind": "form",
+            "url": "https://reservation.studio/bg/location/ioga-studio-sixia"
+          },
+          "verification": {
+            "status": "approved",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11",
+            "booking": {
+              "url": "https://yogasihir.com/schedule-reformer/",
+              "excerpt": "Групови и индивидуални часове по Пилатес Реформър. За преглед на графика и резервация на място използвайте платформата за регистрация."
+            },
+            "contact": "https://yogasihir.com/contacts/"
+          }
+        },
+        "review": {
+          "id": "sofia-yoga-sihia-nadezhda2",
+          "checkedOn": "2026-11-13",
+          "website": "https://yogasihir.com/",
+          "bookingEntry": "https://reservation.studio/bg/location/ioga-studio-sixia",
+          "bookingReview": "provider_booking_reviewed",
+          "reviewedUrls": [
+            "https://yogasihir.com/",
+            "https://reservation.studio/bg/location/ioga-studio-sixia",
+            "https://yogasihir.com/contacts/",
+            "https://yogasihir.com/schedule-reformer/",
+            "https://yogasihir.com/rules/",
+            "https://yogasihir.com/prices/"
+          ],
+          "notes": "Actual owner Reserve link followed to this one named public merchant menu, not a platform search/export. Full provider selected service explicitly shows nonMultiSport groupReformer21EUR/50min and Reserve buttons; own full tariff/home independently21EUR and exact contact/branch. Entire owner reformer/schedule/contact and rules read. Current owner says one studio/two practice types at MitropolitAvksentiyVeleshki49entranceG; old third-party Bolyarska22 claim is NOT cloned or used. MultiSport zero labels are conditional benefits, not general fees, and no therapy/medical services selected. Owner old Rules says6EUR no-show while current merchant rules says21EUR Reformer; public description defers to declared applicable fee rather than inventing a consistent numeric penalty. Adult minimum16 and four-hour cancellation retained. Weekly hours omitted from own record because only provider lists them; no maps/reviews/photos, account, customer inputs or reservation actions."
+        }
+      }
     }
   ],
   "rejected": [
@@ -482,6 +637,16 @@
       "nativeKnownPhonesChecked": 5
     },
     "coordinates": "All17 intake points remain null. No new geocoding, Maps data, private GPS or owner viewport coordinates used.",
-    "notes": "19 verified001 plus17 verified002 form36 retained unique businesses after explicitABCsource-terms hold. Original001/002 old-path patches mechanically restored from own authorized journal; current additions documented separately. No shared imports/identities/photos, production data, accounts, calls or bookings changed. Root final integration and assets remain pending."
+    "notes": "19 verified001 plus17 verified002 form36 retained unique businesses after explicitABCsource-terms hold. Original001/002 old-path patches mechanically restored from own authorized journal; current additions documented separately. No shared imports/identities/photos, production data, accounts, calls or bookings changed. Root final integration and assets remain pending.",
+    "status": "pending_revalidation_after_two_holds",
+    "note": "Previous17-row results do not describe this final15-row approved subset; rerun current gate."
+  },
+  "finalRootCorrections": {
+    "checkedOn": "2026-11-13",
+    "reason": "Explicit root delegation: hold Kally until apparatus-specific photo evidence; hold Sihia because new provider access prohibition and no independent own phone reservation for selected regular Reformer. Other fifteen records unmodified.",
+    "remainingRecords": 15,
+    "remainingReviews": 15,
+    "sourceTermsUrl": "https://reservation.studio/bg/pages/terms",
+    "sourceTermsAccessStopped": true
   }
 }

@@ -5,6 +5,7 @@ import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 import { NEIGHBORHOOD_20261111_RECORDS } from '../lib/discovery/catalogue-data/neighborhood-expansion-20261111.mjs'
 import { readFile } from 'node:fs/promises'
 import approvedGrowthLocations from '../public/catalogue-official-address-growth-subset-20261113.json' with { type: 'json' }
+import approved2000Locations from '../public/catalogue-official-address-2000-subset-20261113.json' with { type: 'json' }
 
 test('report distinguishes real specialties without mutating underlying categories or inventing qualifications', () => {
   assert.equal(reportBusinessType({ name: 'Частна практика', category: 'other', services: [{ name: 'Психологична консултация' }] }), 'Психология и психотерапия')
@@ -64,7 +65,7 @@ test('official points count as located separately from owner and OSM metadata, w
   })
   assert.equal(JSON.stringify([official, owner, osm, mobile, unknown, moved]), before)
   const current = catalogueExpansionReport(SOFIA_CATALOGUE, { now: Date.parse('2026-11-13T12:00:00Z') })
-  assert.equal(current.locations.officialSofiaAddressPoints, 366 + approvedGrowthLocations.pointCount)
+  assert.equal(current.locations.officialSofiaAddressPoints, 366 + approvedGrowthLocations.pointCount + approved2000Locations.pointCount)
   assert.equal(current.locations.firstPartyPoints + current.locations.reviewedOsmAddressPoints + current.locations.officialSofiaAddressPoints, current.locations.located)
   assert.equal(current.locations.located + current.locations.unlocatedPremises + current.locations.serviceAreaProviders, current.currentlyEligible)
 })

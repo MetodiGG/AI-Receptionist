@@ -4,8 +4,10 @@ import { parseArgs } from 'node:util'
 import { resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import approved from '../public/catalogue-official-address-points-growth-20261113.json' with { type: 'json' }
+import csvApproved from '../public/catalogue-official-address-2000-subset-20261113.json' with { type: 'json' }
 import { indexOfficialSofiaAddresses, matchOfficialSofiaAddress } from '../lib/discovery/official-sofia-address.mjs'
-import { OFFICIAL_SOFIA_DATA_SHA256 } from '../lib/discovery/official-sofia-address-source.mjs'
+import { OFFICIAL_SOFIA_DATA_SHA256, OFFICIAL_SOFIA_CSV_SHA256 } from '../lib/discovery/official-sofia-address-source.mjs'
+import { readOfficialSofiaCsv } from './read-official-sofia-csv.mjs'
 
 // Read-only, offline replay against the exact public municipal snapshot. No
 // download, production adapter, arbitrary output file, or automatic publishing.
@@ -31,9 +33,43 @@ export function verifyOfficialSubset(bytes) {
   return { checked: approved.points.length, unique, manuallyDisambiguated, sourceFeatures: index.counts.total, sourceSha256: OFFICIAL_SOFIA_DATA_SHA256 }
 }
 
+export function verifyOfficialCsvSubset(bytes) {
+  if (createHash('sha256').update(bytes).digest('hex') !== OFFICIAL_SOFIA_CSV_SHA256) throw Error('Official CSV source snapshot hash mismatch')
+  const index = indexOfficialSofiaAddresses(readOfficialSofiaCsv(bytes.toString('utf8')))
+  let unique = 0, manuallyDisambiguated = 0
+  for (const row of approved.points) {
+    const p = row.coordinates
+    const result = matchOfficialSofiaAddress(index, { id: row.id, address: p.sourceAddress, cityCode: p.sourceCityCode,
+      neighborhood: p.sourceNeighborhood, website: p.sourceWebsite, locationKind: 'premises' })
+    const candidate = result.candidates.find(value => value.rn === p.addressId)
+    if (!candidate || candidate.coordinates.latitude !== Number(p.latitude.toFixed(6)) || candidate.coordinates.longitude !== Number(p.longitude.toFixed(6)) ||
+      Object.entries(row.officialAddress).some(([key, value]) => candidate[key] !== value)) throw Error(`Changed municipal CSV source point: ${row.id}`)
+    if (row.review.decision === 'manual_duplicate_disambiguation') {
+      if (row.id !== 'sofia-in-beauty' || p.addressId !== '113534' || result.status !== 'ambiguous' || result.candidates.length !== 2) throw Error('Unexpected CSV manual duplicate approval')
+      manuallyDisambiguated++
+    } else {
+      if (result.status !== 'unique' || result.unique.rn !== p.addressId) throw Error(`CSV address no longer uniquely matches: ${row.id}`)
+      unique++
+    }
+  }
+  for (const row of csvApproved.points) {
+    const p = row.coordinates
+    const result = matchOfficialSofiaAddress(index, { id: row.id, address: p.sourceAddress, cityCode: p.sourceCityCode,
+      neighborhood: p.sourceNeighborhood, website: p.sourceWebsite, locationKind: 'premises' })
+    if (result.status !== 'unique' || result.unique.rn !== p.addressId || result.unique.coordinates.latitude !== p.latitude || result.unique.coordinates.longitude !== p.longitude ||
+      Object.entries(row.officialAddress).some(([key, value]) => result.unique[key] !== value)) throw Error(`Changed newly reviewed municipal CSV point: ${row.id}`)
+    unique++
+  }
+  return { checked: approved.points.length + csvApproved.points.length, previouslyPublished: approved.points.length, newlyReviewed: csvApproved.points.length, unique, manuallyDisambiguated, sourceFeatures: index.counts.total,
+    sofiaFeatures: index.counts.sofia, sourceSha256: OFFICIAL_SOFIA_CSV_SHA256,
+    comparison: 'exact rn and address fields; published full-precision coordinates rounded to the CSV source precision only for comparison; no point modified' }
+}
+
 export async function main(args = process.argv.slice(2)) {
-  const { values } = parseArgs({ args, options: { dataset: { type: 'string' } } })
-  if (!values.dataset || !values.dataset.startsWith('/')) throw Error('Use --dataset with an absolute path to the already downloaded public GeoJSON snapshot')
-  process.stdout.write(JSON.stringify(verifyOfficialSubset(await readFile(values.dataset)), null, 2) + '\n')
+  const { values } = parseArgs({ args, options: { dataset: { type: 'string' }, format: { type: 'string', default: 'geojson' } } })
+  if (!values.dataset || !values.dataset.startsWith('/')) throw Error('Use --dataset with an absolute path to the already downloaded public source snapshot')
+  if (!['geojson', 'csv'].includes(values.format)) throw Error('Expected --format geojson or csv')
+  const verify = values.format === 'csv' ? verifyOfficialCsvSubset : verifyOfficialSubset
+  process.stdout.write(JSON.stringify(verify(await readFile(values.dataset)), null, 2) + '\n')
 }
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) await main()

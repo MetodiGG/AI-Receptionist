@@ -12,6 +12,8 @@ const expected = [
   ['sofia-rhythm-academy', 42.6351614, 23.3065149],
   ['sofia-classy-barbershop', 42.6673803, 23.3493594],
   ['sofia-inergy-borovo-reserved-kickboxing', 42.668698, 23.285587],
+  ['sofia-shining-polishing-auto', 42.6591861, 23.4141981],
+  ['sofia-katerene-europe-private', 42.6716059, 23.3958986],
 ]
 const fixture = (id, point, method, address = 'София, ул. Тестова 2') => {
   const row = { id, address, cityCode: '68134', neighborhood: 'Тестов квартал', website: 'https://example.com/', locationKind: 'premises' }
@@ -22,7 +24,7 @@ const fixture = (id, point, method, address = 'София, ул. Тестова 
   return { ...row, coordinates: { latitude: point.latitude, longitude: point.longitude, method, sourceAddress: address, ...provenance } }
 }
 
-test('the dated retired manifest pins the seven original wrong pairs and is deeply frozen', () => {
+test('the dated manifest preserves the seven original wrong pairs and two suspended uncorroborated pairs', () => {
   assert.deepEqual(RETIRED_CATALOGUE_POINTS_20261113.map(point => [point.id, point.latitude, point.longitude]), expected)
   assert.ok(Object.isFrozen(RETIRED_CATALOGUE_POINTS_20261113))
   assert.ok(RETIRED_CATALOGUE_POINTS_20261113.every(Object.isFrozen))

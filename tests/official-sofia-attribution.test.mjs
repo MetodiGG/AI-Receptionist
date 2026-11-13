@@ -34,7 +34,7 @@ test('public official notices reuse the source constants, while OSM remains a se
   assert.equal(notices.OFFICIAL_SOFIA_SOURCE_URL, official.OFFICIAL_SOFIA_SOURCE_URL)
   assert.equal(notices.OFFICIAL_SOFIA_LICENSE_URL, official.OFFICIAL_SOFIA_LICENSE_URL)
   assert.equal(notices.OFFICIAL_SOFIA_ATTRIBUTION, official.OFFICIAL_SOFIA_ATTRIBUTION)
-  assert.equal(notices.OFFICIAL_SOFIA_PROCESSED_DATA_URL, '/catalogue-official-address-points-growth-20261113.json')
+  assert.equal(notices.OFFICIAL_SOFIA_PROCESSED_DATA_URL, '/catalogue-official-address-points-2000-20261113.json')
   assert.equal(notices.OSM_ATTRIBUTION, '© OpenStreetMap contributors')
   assert.equal(notices.OSM_COPYRIGHT_URL, 'https://www.openstreetmap.org/copyright')
   assert.notEqual(notices.OFFICIAL_SOFIA_LICENSE_URL, notices.OSM_COPYRIGHT_URL)

@@ -159,8 +159,8 @@ test('every catalogue record routes to its postal address, exact reviewed owner 
 })
 
 test('reviewed landmark destinations are branch/address-bound and cannot override moved venues or partner profiles', () => {
-  assert.equal(REVIEWED_BUSINESS_DESTINATIONS.length, 19)
-  assert.equal(new Set(REVIEWED_BUSINESS_DESTINATIONS.map(row => row.id)).size, 19)
+  assert.equal(REVIEWED_BUSINESS_DESTINATIONS.length, 17)
+  assert.equal(new Set(REVIEWED_BUSINESS_DESTINATIONS.map(row => row.id)).size, 17)
   for (const reviewed of REVIEWED_BUSINESS_DESTINATIONS) {
     const raw = SOFIA_CATALOGUE.find(row => row.id === reviewed.id)
     assert.equal(raw.address, reviewed.address, reviewed.id)
@@ -174,13 +174,21 @@ test('reviewed landmark destinations are branch/address-bound and cannot overrid
     ['sofia-niko-09',42.6611919,23.390778],
     ['sofia-tennis-lyulin-6',42.707625017444485,23.256896419547754],
     ['sofia-autotest-gtp-4-kilometar',42.668101430658695,23.36885723387535],
-    ['sofia-katerene-europe-private',42.6716059,23.3958986],
   ]) {
     const row = SOFIA_CATALOGUE.find(row => row.id === id)
     assert.deepEqual([row.coordinates.latitude,row.coordinates.longitude],[latitude,longitude])
     assert.equal(row.coordinates.method,'first_party_coordinates')
   }
   assert.equal(SOFIA_CATALOGUE.find(row=>row.id==='sofia-yorki-sofia').address,'София, бул. Инж. Иван Иванов 10, Арт-хотел Симона')
+})
+
+test('uncorroborated old Shining and Europe pins cannot override the verified full postal address', () => {
+  for (const id of ['sofia-shining-polishing-auto', 'sofia-katerene-europe-private']) {
+    const row = SOFIA_CATALOGUE.find(row => row.id === id)
+    assert.equal(row.coordinates, null, id)
+    assert.equal(destination({ ...row, source: 'catalogue' }), row.address + ', България', id)
+    assert.ok(!REVIEWED_BUSINESS_DESTINATIONS.some(value => value.id === id))
+  }
 })
 
 test('all published preview and fetched detail routes share the exact same current postal destination', async () => {

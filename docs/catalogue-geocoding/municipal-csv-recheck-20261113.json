@@ -1,0 +1,87 @@
+{
+  "checkedOn": "2026-11-13",
+  "status": "local_review_not_published",
+  "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+  "sourceInput": "Owner-supplied address_sofia.csv; original left unchanged; recoverable local source copy kept outside the repository and frontend bundles.",
+  "sourceBytes": 12601716,
+  "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+  "licence": "CC-BY-4.0",
+  "attribution": "ГИС София / Столична община",
+  "sourceAsOfDate": null,
+  "sourcePrecision": "Six decimal places; n is latitude and e is longitude. No invented extra precision.",
+  "sourceChecks": {
+    "rows": 125245,
+    "uniqueRn": 125245,
+    "sofiaRows": 83189,
+    "otherOrMissingSettlement": 42056,
+    "missingSettlement": 3,
+    "missingSettlementRn": ["88572", "88573", "88571"],
+    "invalidCoordinates": 0,
+    "independentReviewer": "/root/catalogue_home_education_nov13"
+  },
+  "published501Recheck": {
+    "exactRnMatches": 501,
+    "exactAddressFieldMatches": 501,
+    "coordinatePairsEqualAfterRound6": 501,
+    "nonRoundingDifferences": 0,
+    "uniquePostalMatches": 500,
+    "existingManualDisambiguations": 1,
+    "existingManualDisambiguationId": "sofia-in-beauty",
+    "oldFullPrecisionPointsRewritten": 0
+  },
+  "first148NewBusinesses": {
+    "uniqueMatches": 63,
+    "alreadyOwnerLocatedAndCorroborated": 2,
+    "newApprovedPostalBindings": 61,
+    "ambiguousHeld": 20,
+    "unresolvedIncludingMobileProviders": 65,
+    "ownerPointComparisonsMeters": {
+      "sofia-ih-sofia-sitnyakovo39a": 9.433354,
+      "sofia-ih-sofia-parensov39": 3.630703
+    },
+    "newSubset": "public/catalogue-official-address-2000-subset-20261113.json",
+    "combinedProcessedData": "public/catalogue-official-address-points-2000-20261113.json"
+  },
+  "landmarkGuard": "A relative landmark such as 'срещу блок 353' is not a venue postal address and is now explicitly rejected by the offline matcher. No nearest, first, averaged or centroid result is accepted.",
+  "next35NewBusinesses": {
+    "uniqueNewPostalBindings": 20,
+    "ambiguousHeld": 2,
+    "unresolvedIncludingMobileProviders": 13,
+    "review": "Each selected source street/house/suffix/entrance independently compared with its sole exact municipal row. Ordinary branch numbering and residential block numbering kept distinct."
+  },
+  "totalNewCsvBindings": 81,
+  "combinedReviewedOfficialPoints": 582,
+  "spatialDiscrepancies": [
+    {
+      "id": "sofia-autoxpert",
+      "address": "София, Витоша, ул. Могилата 2",
+      "oldPoint": { "latitude": 42.656535, "longitude": 23.327307 },
+      "municipalRn": "100611",
+      "differenceMetersRounded": 121,
+      "decision": "retain_owner_literal_destination_pending_physical_address_corroboration",
+      "sources": ["https://autoxpert.bg/kontakti/"],
+      "evidence": "Actual current owner address hyperlink publishes this exact literal destination. A second owner marker is about17m away. The121m difference from the postal point is not proof that either represents the physical entrance. No parcel-size assumption and no map viewport used. Existing owner-intended destination retained, not replaced with a postal centre."
+    },
+    {
+      "id": "sofia-shining-polishing-auto",
+      "address": "София, НПЗ Искър, ул. Мюнхен 14",
+      "oldPoint": { "latitude": 42.6591861, "longitude": 23.4141981 },
+      "municipalRn": "96395",
+      "differenceMetersRounded": 150,
+      "decision": "suspend_unconfirmed_old_point_and_numeric_directions_override",
+      "sources": ["https://polishingauto.bg/kontakti/", "https://shiningpolishing.pro/"],
+      "evidence": "Current owner source confirms the exact street and service phone, but only a short map link and a name-only iframe query; no literal old destination or entrance. No map request made. Precise distance disabled; directions use the complete actual postal address. Do not substitute the municipal point without physical-site confirmation."
+    },
+    {
+      "id": "sofia-katerene-europe-private",
+      "address": "София, Дружба 1, бул. Искърско шосе 7, Търговски център Европа, сграда 1",
+      "oldPoint": { "latitude": 42.6716059, "longitude": 23.3958986 },
+      "municipalRn": "117374",
+      "differenceMetersRounded": 920,
+      "decision": "suspend_unconfirmed_old_point_and_numeric_directions_override",
+      "sources": ["https://www.katerene.bg/courses/private/individualni-zanimaniia-po-katerene-v-zala", "https://europe.sportcentereurope.bg/контакти/", "https://tce.bg/bg/parking"],
+      "evidence": "Current course and venue contact sources confirm the named complex/building but not an entrance coordinate. The complex has multiple buildings; a map viewport is not a destination and was not used. Neither the old pin nor the municipal postal point safely identifies building1. Exact postal address remains; no invented precise distance."
+    }
+  ],
+  "limits": "Postal-address evidence is not proof of business operation or an exact entrance. Existing factual owner-source business reviews remain required. No calls, customer coordinates, external geocoding, real bookings, notifications or production data writes."
+}

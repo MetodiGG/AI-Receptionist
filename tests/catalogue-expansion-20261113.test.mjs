@@ -16,6 +16,7 @@ import { discoverBusinesses } from '../lib/discovery/search.mjs'
 import { discoveryConfig } from '../lib/discovery/config.mjs'
 import { discoverySearchInput } from '../lib/discovery/search-ui.mjs'
 import approvedGrowthLocations from '../public/catalogue-official-address-growth-subset-20261113.json' with { type: 'json' }
+import approved2000Locations from '../public/catalogue-official-address-2000-subset-20261113.json' with { type: 'json' }
 
 const now = Date.parse('2026-11-13T12:00:00Z')
 const ids = new Set(additions.map(row => row.id))
@@ -35,7 +36,7 @@ test('new unique, source-reviewed Sofia businesses are imported without mutating
   assert.ok(additions.every(row => !oldIds.has(row.id)))
   assert.ok(baseline.records.every(row => SOFIA_CATALOGUE.some(item => item.id === row.id)))
   for (const row of additions) {
-    const location = approvedGrowthLocations.points.find(item => item.id === row.id)
+    const location = [...approvedGrowthLocations.points, ...approved2000Locations.points].find(item => item.id === row.id)
     assert.deepEqual(SOFIA_CATALOGUE.find(item => item.id === row.id), location ? { ...row, coordinates: location.coordinates } : row)
     assert.ok(approvedCatalogueRecord(row, now), row.id)
     const review = reviews.find(item => item.id === row.id)

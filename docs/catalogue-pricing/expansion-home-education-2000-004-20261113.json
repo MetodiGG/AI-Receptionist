@@ -1,0 +1,994 @@
+{
+  "batch": "home-education-2000-004-20261113",
+  "checkedOn": "2026-11-13",
+  "status": "frozen_for_root_manual_integration",
+  "sourceModule": "lib/discovery/catalogue-data/neighborhood-home-education-2000-004-20261113.mjs",
+  "summary": {
+    "includedBusinesses": 20,
+    "includedServices": 22,
+    "literalPriceFacts": 5,
+    "priceReviewedBusinesses": 4,
+    "serviceReviewedWithoutPublicPrice": 16,
+    "withWeeklyHours": 6,
+    "withCoordinates": 0,
+    "pendingCases": 19,
+    "rejectedCases": 5,
+    "reconciliationCases": 1
+  },
+  "dedupe": {
+    "checkedAgainst": "Current SOFIA_CATALOGUE plus every *2000*.mjs intake, including unimported modules. Last union1423IDs including this20.",
+    "knownSharedPhoneReview": "DauchimSimeonovo shares operator phone with existingAMAKidsDarvenitsa but has independent named actual venue; no Darvenitsa alias added. Two Pharos branches share one schoolproject telephone but exact distinct named booking choices and physical teaching addresses. Root final native6public partner cross-check still required before integration.",
+    "noSharedFilesEdited": true
+  },
+  "evidencePolicy": {
+    "actualBookingFirst": true,
+    "manualPublicReadOnly": true,
+    "noCustomerDataOrFormsSubmitted": true,
+    "pricesOptionalOnlyWhenGenuinelyUnpublished": true,
+    "blockedOrConflictingMenusHeld": true,
+    "noGoogleMapsOrGeocodingOrPaidApi": true,
+    "noCoordinatesInferred": true,
+    "noInventoryIdentitiesAssigned": true,
+    "copyright": "Only minimal independently phrased factual business/service data. No articles, source photos, logos, reviews, ratings or artwork copied. Any explicit data/non-commercial commercial-reuse restriction remains held. No blanket permission/license or training use claimed."
+  },
+  "accessReview": {
+    "method": "Public primary-source web reader first, ordinary HTTPS GET only for cache misses/timeouts (not for verification challenges or refusals). No browser JS/private state, API reverse engineering, appointment date choices, consent or submission. PDF terms were read as text; screenshots unavailable and not claimed rendered.",
+    "robots": [
+      {
+        "url": "https://pharos.bg/robots.txt",
+        "result": "# START YOAST BLOCK\n# ---------------------------\nUser-agent: *\nDisallow:\n\nSitemap: https://pharos.bg/sitemap_index.xml\n# ---------------------------\n# END YOAST BLOCK\nHTTP_STATUS=200\n"
+      },
+      {
+        "url": "https://dauchim.com/robots.txt",
+        "result": "User-agent: *\nDisallow: /wp-admin/\nAllow: /wp-admin/admin-ajax.php\nDisallow: /wp-content/uploads/dauchim/audit/\n\nSitemap: https://dauchim.com/wp-sitemap.xml\n\nHTTP_STATUS=200\n"
+      },
+      {
+        "url": "https://www.english-nextdoor.com/robots.txt",
+        "result": "User-agent: *\nAllow: /\nDisallow: *?lightbox=\n\n# Optimization for Google Ads Bot\nUser-agent: AdsBot-Google-Mobile\nUser-agent: AdsBot-Google\nDisallow: /_partials*\nDisallow: /pro-gallery-webapp/v1/galleries/*\n\n# Block PetalBot\nUser-agent: PetalBot\nDisallow: /\n\n# Crawl delay for overly enthusiastic bots\nUser-agent: dotbot\nCrawl-delay: 10\nUser-agent: AhrefsBot\nCrawl-delay: 10\n\nSitemap: https://www.english-nextdoor.com/sitemap.xml\n\n# Auto generated, go to SEO Tools > Robots.txt Editor to change this\nHTTP_STATUS=200\n"
+      },
+      {
+        "url": "https://jey.bg/robots.txt",
+        "result": "# START YOAST BLOCK\n# ---------------------------\nUser-agent: *\nDisallow:\n\nSitemap: https://jey.bg/sitemap_index.xml\n# ---------------------------\n# END YOAST BLOCK\nHTTP_STATUS=200\n"
+      },
+      {
+        "url": "https://ezik.eu/robots.txt",
+        "result": "# START YOAST BLOCK\n# ---------------------------\nUser-agent: *\nDisallow:\n\nSitemap: https://ezik.eu/sitemap_index.xml\n# ---------------------------\n# END YOAST BLOCK\nHTTP_STATUS=200\n"
+      },
+      {
+        "url": "https://excelsiorclinic.com/robots.txt",
+        "result": "User-agent: *\nDisallow: /admin/\nDisallow: /data/\nDisallow: /lib/\nDisallow: /cancel.php\nDisallow: /api.php\nDisallow: /calendar.php\nDisallow: /reminders.php\n\nSitemap: https://excelsiorclinic.com/sitemap.xml\n\nHTTP_STATUS=200\n"
+      },
+      {
+        "url": "https://www.saghirdent.com/robots.txt",
+        "result": "User-agent: *\r\nDisallow: /wp-admin/\r\nDisallow: */feed/\r\nDisallow: */comments/feed/\r\nAllow: /wp-admin/admin-ajax.php\r\n\r\nSitemap: https://www.saghirdent.com/sitemap_index.xml\nHTTP_STATUS=200\n"
+      },
+      {
+        "url": "https://irisception.com/robots.txt",
+        "result": "User-agent: *\nDisallow: /wp-content/uploads/wc-logs/\nDisallow: /wp-content/uploads/woocommerce_transient_files/\nDisallow: /wp-content/uploads/woocommerce_uploads/\nDisallow: /*?add-to-cart=\nDisallow: /*?*add-to-cart=\nDisallow: /wp-admin/\nAllow: /wp-admin/admin-ajax.php\n\nDisallow: /wp-content/plugins/bulgarisation-for-woocommerce/\nDisallow: /wp-content/uploads/woo-bg/\n\n# START YOAST BLOCK\n# ---------------------------\nUser-agent: *\nDisallow:\n\nSitemap: https://irisception.com/sitemap_index.xml\n# ---------------------------\n# END YOAST BLOCK\nHTTP_STATUS=200\n"
+      },
+      {
+        "url": "https://lawyer-georgiveselinov.com/robots.txt",
+        "result": "User-agent: *\nDisallow: /wp-content/uploads/wc-logs/\nDisallow: /wp-content/uploads/woocommerce_transient_files/\nDisallow: /wp-content/uploads/woocommerce_uploads/\nDisallow: /*?add-to-cart=\nDisallow: /*?*add-to-cart=\nDisallow: /wp-admin/\nAllow: /wp-admin/admin-ajax.php\n\nSitemap: https://lawyer-georgiveselinov.com/wp-sitemap.xml\n\nHTTP_STATUS=200\n"
+      },
+      {
+        "url": "https://advokatfilipova.eu/robots.txt",
+        "result": "# As a condition of accessing this website, you agree to abide by the following\n# content signals:\n\n# (a)  If a Content-Signal = yes, you may collect content for the corresponding\n#      use.\n# (b)  If a Content-Signal = no, you may not collect content for the\n#      corresponding use.\n# (c)  If the website operator does not include a Content-Signal for a\n#      corresponding use, the website operator neither grants nor restricts\n#      permission via Content-Signal with respect to the corresponding use.\n\n# The content signals and their meanings are:\n\n# search:   building a search index and providing search results (e.g., returning\n#           hyperlinks and short excerpts from your website's contents). Search does not\n#           include providing AI-generated search summaries.\n# ai-input: inputting content into one or more AI models (e.g., retrieval\n#           augmented generation, grounding, or other real-time taking of content for\n#           generative AI search answers).\n# ai-train: training or fine-tuning AI models.\n# use:      how AI systems may consume the content (immediate, reference, or full).\n\n# ANY RESTRICTIONS EXPRESSED VIA CONTENT SIGNALS ARE EXPRESS RESERVATIONS OF\n# RIGHTS UNDER ARTICLE 4 OF THE EUROPEAN UNION DIRECTIVE 2019/790 ON COPYRIGHT\n# AND RELATED RIGHTS IN THE DIGITAL SINGLE MARKET.\n\n# BEGIN Cloudflare Managed content\n\n\nUser-agent: *\nContent-Signal: search=yes,ai-train=no,use=reference\nAllow: /\n\n# Training crawlers\nUser-agent: Amazonbot\nDisallow: /\n\nUser-agent: Applebot-Extended\nDisallow: /\n\nUser-agent: Bytespider\nDisallow: /\n\nUser-agent: CCBot\nDisallow: /\n\nUser-agent: ClaudeBot\nDisallow: /\n\nUser-agent: Diffbot\nDisallow: /\n\nUser-agent: Google-Extended\nDisallow: /\n\nUser-agent: GPTBot\nDisallow: /\n\nUser-agent: omgili\nDisallow: /\n\nUser-agent: anthropic-ai\nDisallow: /\n\nUser-agent: Claude-Web\nDisallow: /\n\nUser-agent: cohere-ai\nDisallow: /\n\nUser-agent: MistralAI-Training\nDisallow: /\n\nUser-agent: meta-externalagent\nDisallow: /\n\nUser-agent: GoogleOther\nDisallow: /\n\nUser-agent: Baiduspider\nDisallow: /\n\nUser-agent: PetalBot\nDisallow: /\n\nUser-agent: AwarioSmartBot\nUser-agent: AwarioRssBot\nDisallow: /\n\nUser-agent: Google-CloudVertexBot\nDisallow: /\n\nUser-agent: QualifiedBot\nDisallow: /\n\nUser-agent: Cotoyogi\nDisallow: /\n\nUser-agent: ICC-Crawler\nDisallow: /\n\nUser-agent: atlassian-bot\nDisallow: /\n\nUser-agent: FishBot\nDisallow: /\n\nUser-agent: BorderxBot\nDisallow: /\n\nUser-agent: NavuBot\nDisallow: /\n\nUser-agent: SemrushBot-SWA\nDisallow: /\n\nUser-agent: WARDBot\nDisallow: /\n\nUser-agent: magpie-crawler\nDisallow: /\n\nUser-agent: KimiBot\nDisallow: /\n\nUser-agent: CitibotSiteCrawler\nDisallow: /\n\n# END Cloudflare Managed Content\n\nUser-agent: *\r\nDisallow: /wp-admin/\r\nAllow: /wp-admin/admin-ajax.php\n\nHTTP_STATUS=200\n"
+      },
+      {
+        "url": "https://edelvaische.com/robots.txt",
+        "result": "User-agent: *\nAllow: /\nDisallow: /css/\nDisallow: /js/\nDisallow: /fonts/\n\nSitemap: https://edelvais.bg/sitemap.xml\n\nHTTP_STATUS=200\n"
+      },
+      {
+        "url": "https://architectureconsulting.eu/robots.txt",
+        "result": "User-agent: *\nDisallow: /wp-content/uploads/wpo/wpo-plugins-tables-list.json\n\n# START YOAST BLOCK\n# ---------------------------\nUser-agent: *\nDisallow:\n\nSitemap: https://architectureconsulting.eu/sitemap_index.xml\n# ---------------------------\n# END YOAST BLOCK\nHTTP_STATUS=200\n"
+      }
+    ],
+    "afterChallenge": "LazarBelev unselected family-law detail challenge encountered after relevant general consultation source had been accessible; stopped that path and made no additional host requests/robots fetch. Arati/Slavcheva/Dimitrov blocked actual service or tariff paths held. No blocked menus described as unpublished.",
+    "filipova": "Normal primary-source service reader timeout resolved by ordinary publicHTTPS200, not denial/CAPTCHA/bypass. General robots search/reference permitted and training crawlers disallowed; task uses minimal factual reference only and performs no training. Parent explicitly accepted this scoped treatment on13November2026.",
+    "excelsior": "Root explicitly cleared copyright-assets-only clause for independently phrased facts, not source text/photos/logo/design. Robots API/calendar/admin paths were never accessed."
+  },
+  "ledger": [
+    {
+      "order": 1,
+      "status": "included",
+      "id": "sofia-pharos-bulgaria60v",
+      "name": "Училища Фарос · бул. България",
+      "category": "education",
+      "address": "София, бул. България 60В, ет.3",
+      "locationKind": "premises",
+      "primaryEvidence": {
+        "booking": "https://pharos.bg/kontakti-pharos/",
+        "contact": "https://pharos.bg/kontakti-pharos/",
+        "reviewedUrls": [
+          "https://pharos.bg/",
+          "https://pharos.bg/kontakti-pharos/",
+          "https://pharos.bg/angliyski-ezik-v-sofiya/",
+          "https://pharos.bg/kyrsove/",
+          "https://pharos.bg/kursove-po-anglijski-ezik-za-malki-uchenitsi/",
+          "https://pharos.bg/faq/",
+          "https://pharos.bg/wp-content/uploads/2025/05/%D0%9E%D0%91%D0%A9%D0%98-%D0%A3%D0%A1%D0%9B%D0%9E%D0%92%D0%98%D0%AF-%D0%9D%D0%90-%D0%A3%D0%A7%D0%98%D0%9B%D0%98%D0%A9%D0%90-%D0%A4%D0%90%D0%A0%D0%9E%D0%A1_29.08.2025.pdf"
+        ]
+      },
+      "services": [
+        {
+          "name": "Групов курс по английски език за ученици"
+        }
+      ],
+      "receiptKind": "service_reviewed",
+      "notes": "Real distinct teaching venue бул. България, not a quarter landing page or administrative HQ, corroborated by own Sofia service-location roster and current branch contact. Actual request form has named preferred-branch option and own phone enrollment invitation; no selection, fields, consent, test or submission. Two branches share a school-projects telephone but have separate named premises and booking choices. No price or duration invented; timetable depends on group/term, not office hours. Full official terms text read: registration plus first payment, textbooks/external exams extra and absence/withdrawal rules; PDF screenshot cache misses are not claimed visual inspection. No pupil photos, source prose or map points reused."
+    },
+    {
+      "order": 2,
+      "status": "included",
+      "id": "sofia-pharos-dianabad-pimen59",
+      "name": "Училища Фарос · Дианабад",
+      "category": "education",
+      "address": "София, ж.к. Дианабад, ул. Свети Пимен Зографски, бл.59, вх.4, ет.1, ап.29",
+      "locationKind": "premises",
+      "primaryEvidence": {
+        "booking": "https://pharos.bg/kontakti-pharos/",
+        "contact": "https://pharos.bg/kontakti-pharos/",
+        "reviewedUrls": [
+          "https://pharos.bg/",
+          "https://pharos.bg/kontakti-pharos/",
+          "https://pharos.bg/angliyski-ezik-v-sofiya/",
+          "https://pharos.bg/kyrsove/",
+          "https://pharos.bg/kursove-po-anglijski-ezik-za-malki-uchenitsi/",
+          "https://pharos.bg/faq/",
+          "https://pharos.bg/wp-content/uploads/2025/05/%D0%9E%D0%91%D0%A9%D0%98-%D0%A3%D0%A1%D0%9B%D0%9E%D0%92%D0%98%D0%AF-%D0%9D%D0%90-%D0%A3%D0%A7%D0%98%D0%9B%D0%98%D0%A9%D0%90-%D0%A4%D0%90%D0%A0%D0%9E%D0%A1_29.08.2025.pdf"
+        ]
+      },
+      "services": [
+        {
+          "name": "Групов курс по английски език за ученици"
+        }
+      ],
+      "receiptKind": "service_reviewed",
+      "notes": "Real distinct teaching venue Дианабад, not a quarter landing page or administrative HQ, corroborated by own Sofia service-location roster and current branch contact. Actual request form has named preferred-branch option and own phone enrollment invitation; no selection, fields, consent, test or submission. Two branches share a school-projects telephone but have separate named premises and booking choices. No price or duration invented; timetable depends on group/term, not office hours. Full official terms text read: registration plus first payment, textbooks/external exams extra and absence/withdrawal rules; PDF screenshot cache misses are not claimed visual inspection. No pupil photos, source prose or map points reused."
+    },
+    {
+      "order": 3,
+      "status": "included",
+      "id": "sofia-pharos-lozenets-dobri-voynikov33",
+      "name": "Училища Фарос · Лозенец",
+      "category": "education",
+      "address": "София, ул. Добри Войников 33",
+      "locationKind": "premises",
+      "primaryEvidence": {
+        "booking": "https://pharos.bg/kontakti-pharos/",
+        "contact": "https://pharos.bg/kontakti-pharos/",
+        "reviewedUrls": [
+          "https://pharos.bg/",
+          "https://pharos.bg/kontakti-pharos/",
+          "https://pharos.bg/angliyski-ezik-v-sofiya/",
+          "https://pharos.bg/kyrsove/",
+          "https://pharos.bg/kursove-po-anglijski-ezik-za-malki-uchenitsi/",
+          "https://pharos.bg/faq/",
+          "https://pharos.bg/wp-content/uploads/2025/05/%D0%9E%D0%91%D0%A9%D0%98-%D0%A3%D0%A1%D0%9B%D0%9E%D0%92%D0%98%D0%AF-%D0%9D%D0%90-%D0%A3%D0%A7%D0%98%D0%9B%D0%98%D0%A9%D0%90-%D0%A4%D0%90%D0%A0%D0%9E%D0%A1_29.08.2025.pdf"
+        ]
+      },
+      "services": [
+        {
+          "name": "Групов курс по английски език за ученици"
+        }
+      ],
+      "receiptKind": "service_reviewed",
+      "notes": "Real distinct teaching venue Лозенец, not a quarter landing page or administrative HQ, corroborated by own Sofia service-location roster and current branch contact. Actual request form has named preferred-branch option and own phone enrollment invitation; no selection, fields, consent, test or submission. Two branches share a school-projects telephone but have separate named premises and booking choices. No price or duration invented; timetable depends on group/term, not office hours. Full official terms text read: registration plus first payment, textbooks/external exams extra and absence/withdrawal rules; PDF screenshot cache misses are not claimed visual inspection. No pupil photos, source prose or map points reused."
+    },
+    {
+      "order": 4,
+      "status": "included",
+      "id": "sofia-pharos-lyulin4-block446",
+      "name": "Училища Фарос · Люлин",
+      "category": "education",
+      "address": "София, ж.к. Люлин 4, бл.446, вх.Б",
+      "locationKind": "premises",
+      "primaryEvidence": {
+        "booking": "https://pharos.bg/kontakti-pharos/",
+        "contact": "https://pharos.bg/kontakti-pharos/",
+        "reviewedUrls": [
+          "https://pharos.bg/",
+          "https://pharos.bg/kontakti-pharos/",
+          "https://pharos.bg/angliyski-ezik-v-sofiya/",
+          "https://pharos.bg/kyrsove/",
+          "https://pharos.bg/kursove-po-anglijski-ezik-za-malki-uchenitsi/",
+          "https://pharos.bg/faq/",
+          "https://pharos.bg/wp-content/uploads/2025/05/%D0%9E%D0%91%D0%A9%D0%98-%D0%A3%D0%A1%D0%9B%D0%9E%D0%92%D0%98%D0%AF-%D0%9D%D0%90-%D0%A3%D0%A7%D0%98%D0%9B%D0%98%D0%A9%D0%90-%D0%A4%D0%90%D0%A0%D0%9E%D0%A1_29.08.2025.pdf"
+        ]
+      },
+      "services": [
+        {
+          "name": "Групов курс по английски език за ученици"
+        }
+      ],
+      "receiptKind": "service_reviewed",
+      "notes": "Real distinct teaching venue Люлин, not a quarter landing page or administrative HQ, corroborated by own Sofia service-location roster and current branch contact. Actual request form has named preferred-branch option and own phone enrollment invitation; no selection, fields, consent, test or submission. Two branches share a school-projects telephone but have separate named premises and booking choices. No price or duration invented; timetable depends on group/term, not office hours. Full official terms text read: registration plus first payment, textbooks/external exams extra and absence/withdrawal rules; PDF screenshot cache misses are not claimed visual inspection. No pupil photos, source prose or map points reused."
+    },
+    {
+      "order": 5,
+      "status": "included",
+      "id": "sofia-pharos-nadezhda2-dravski-boy14",
+      "name": "Училища Фарос · Надежда",
+      "category": "education",
+      "address": "София, ж.к. Надежда 2, ул. Дравски бой 14",
+      "locationKind": "premises",
+      "primaryEvidence": {
+        "booking": "https://pharos.bg/kontakti-pharos/",
+        "contact": "https://pharos.bg/kontakti-pharos/",
+        "reviewedUrls": [
+          "https://pharos.bg/",
+          "https://pharos.bg/kontakti-pharos/",
+          "https://pharos.bg/angliyski-ezik-v-sofiya/",
+          "https://pharos.bg/kyrsove/",
+          "https://pharos.bg/kursove-po-anglijski-ezik-za-malki-uchenitsi/",
+          "https://pharos.bg/faq/",
+          "https://pharos.bg/wp-content/uploads/2025/05/%D0%9E%D0%91%D0%A9%D0%98-%D0%A3%D0%A1%D0%9B%D0%9E%D0%92%D0%98%D0%AF-%D0%9D%D0%90-%D0%A3%D0%A7%D0%98%D0%9B%D0%98%D0%A9%D0%90-%D0%A4%D0%90%D0%A0%D0%9E%D0%A1_29.08.2025.pdf"
+        ]
+      },
+      "services": [
+        {
+          "name": "Групов курс по английски език за ученици"
+        }
+      ],
+      "receiptKind": "service_reviewed",
+      "notes": "Real distinct teaching venue Надежда, not a quarter landing page or administrative HQ, corroborated by own Sofia service-location roster and current branch contact. Actual request form has named preferred-branch option and own phone enrollment invitation; no selection, fields, consent, test or submission. Two branches share a school-projects telephone but have separate named premises and booking choices. No price or duration invented; timetable depends on group/term, not office hours. Full official terms text read: registration plus first payment, textbooks/external exams extra and absence/withdrawal rules; PDF screenshot cache misses are not claimed visual inspection. No pupil photos, source prose or map points reused."
+    },
+    {
+      "order": 6,
+      "status": "included",
+      "id": "sofia-pharos-razsadnika-hashove21a",
+      "name": "Училища Фарос · Стамболийски",
+      "category": "education",
+      "address": "София, ж.к. Разсадника, ул. Хъшове, бл.21А",
+      "locationKind": "premises",
+      "primaryEvidence": {
+        "booking": "https://pharos.bg/kontakti-pharos/",
+        "contact": "https://pharos.bg/kontakti-pharos/",
+        "reviewedUrls": [
+          "https://pharos.bg/",
+          "https://pharos.bg/kontakti-pharos/",
+          "https://pharos.bg/angliyski-ezik-v-sofiya/",
+          "https://pharos.bg/kyrsove/",
+          "https://pharos.bg/kursove-po-anglijski-ezik-za-malki-uchenitsi/",
+          "https://pharos.bg/faq/",
+          "https://pharos.bg/wp-content/uploads/2025/05/%D0%9E%D0%91%D0%A9%D0%98-%D0%A3%D0%A1%D0%9B%D0%9E%D0%92%D0%98%D0%AF-%D0%9D%D0%90-%D0%A3%D0%A7%D0%98%D0%9B%D0%98%D0%A9%D0%90-%D0%A4%D0%90%D0%A0%D0%9E%D0%A1_29.08.2025.pdf"
+        ]
+      },
+      "services": [
+        {
+          "name": "Групов курс по английски език за ученици"
+        }
+      ],
+      "receiptKind": "service_reviewed",
+      "notes": "Real distinct teaching venue Стамболийски, not a quarter landing page or administrative HQ, corroborated by own Sofia service-location roster and current branch contact. Actual request form has named preferred-branch option and own phone enrollment invitation; no selection, fields, consent, test or submission. Two branches share a school-projects telephone but have separate named premises and booking choices. No price or duration invented; timetable depends on group/term, not office hours. Full official terms text read: registration plus first payment, textbooks/external exams extra and absence/withdrawal rules; PDF screenshot cache misses are not claimed visual inspection. No pupil photos, source prose or map points reused."
+    },
+    {
+      "order": 7,
+      "status": "included",
+      "id": "sofia-pharos-spartak-hadzhikotsev51",
+      "name": "Училища Фарос · Спартак – Лозенец",
+      "category": "education",
+      "address": "София, ул. Димитър Хаджикоцев 51",
+      "locationKind": "premises",
+      "primaryEvidence": {
+        "booking": "https://pharos.bg/kontakti-pharos/",
+        "contact": "https://pharos.bg/kontakti-pharos/",
+        "reviewedUrls": [
+          "https://pharos.bg/",
+          "https://pharos.bg/kontakti-pharos/",
+          "https://pharos.bg/angliyski-ezik-v-sofiya/",
+          "https://pharos.bg/kyrsove/",
+          "https://pharos.bg/kursove-po-anglijski-ezik-za-malki-uchenitsi/",
+          "https://pharos.bg/faq/",
+          "https://pharos.bg/wp-content/uploads/2025/05/%D0%9E%D0%91%D0%A9%D0%98-%D0%A3%D0%A1%D0%9B%D0%9E%D0%92%D0%98%D0%AF-%D0%9D%D0%90-%D0%A3%D0%A7%D0%98%D0%9B%D0%98%D0%A9%D0%90-%D0%A4%D0%90%D0%A0%D0%9E%D0%A1_29.08.2025.pdf"
+        ]
+      },
+      "services": [
+        {
+          "name": "Групов курс по английски език за ученици"
+        }
+      ],
+      "receiptKind": "service_reviewed",
+      "notes": "Real distinct teaching venue Спартак – Лозенец, not a quarter landing page or administrative HQ, corroborated by own Sofia service-location roster and current branch contact. Actual request form has named preferred-branch option and own phone enrollment invitation; no selection, fields, consent, test or submission. Two branches share a school-projects telephone but have separate named premises and booking choices. No price or duration invented; timetable depends on group/term, not office hours. Full official terms text read: registration plus first payment, textbooks/external exams extra and absence/withdrawal rules; PDF screenshot cache misses are not claimed visual inspection. No pupil photos, source prose or map points reused."
+    },
+    {
+      "order": 8,
+      "status": "included",
+      "id": "sofia-pharos-darvenitsa-ignatov7",
+      "name": "Училища Фарос · Мусагеница",
+      "category": "education",
+      "address": "София, ж.к. Дървеница, ул. Константин Игнатов 7",
+      "locationKind": "premises",
+      "primaryEvidence": {
+        "booking": "https://pharos.bg/kontakti-pharos/",
+        "contact": "https://pharos.bg/kontakti-pharos/",
+        "reviewedUrls": [
+          "https://pharos.bg/",
+          "https://pharos.bg/kontakti-pharos/",
+          "https://pharos.bg/angliyski-ezik-v-sofiya/",
+          "https://pharos.bg/kyrsove/",
+          "https://pharos.bg/kursove-po-anglijski-ezik-za-malki-uchenitsi/",
+          "https://pharos.bg/faq/",
+          "https://pharos.bg/wp-content/uploads/2025/05/%D0%9E%D0%91%D0%A9%D0%98-%D0%A3%D0%A1%D0%9B%D0%9E%D0%92%D0%98%D0%AF-%D0%9D%D0%90-%D0%A3%D0%A7%D0%98%D0%9B%D0%98%D0%A9%D0%90-%D0%A4%D0%90%D0%A0%D0%9E%D0%A1_29.08.2025.pdf"
+        ]
+      },
+      "services": [
+        {
+          "name": "Групов курс по английски език за ученици"
+        }
+      ],
+      "receiptKind": "service_reviewed",
+      "notes": "Real distinct teaching venue Мусагеница, not a quarter landing page or administrative HQ, corroborated by own Sofia service-location roster and current branch contact. Actual request form has named preferred-branch option and own phone enrollment invitation; no selection, fields, consent, test or submission. Two branches share a school-projects telephone but have separate named premises and booking choices. No price or duration invented; timetable depends on group/term, not office hours. Full official terms text read: registration plus first payment, textbooks/external exams extra and absence/withdrawal rules; PDF screenshot cache misses are not claimed visual inspection. No pupil photos, source prose or map points reused."
+    },
+    {
+      "order": 9,
+      "status": "included",
+      "id": "sofia-dauchim-simeonovo-vitoshki-ezera8",
+      "name": "Dauchim · Симеоново",
+      "category": "education",
+      "address": "София, кв. Симеоново, ул. Витошки езера 8",
+      "locationKind": "premises",
+      "primaryEvidence": {
+        "booking": "https://dauchim.com/kontakti/",
+        "contact": "https://dauchim.com/kontakti/",
+        "reviewedUrls": [
+          "https://dauchim.com/",
+          "https://dauchim.com/kontakti/",
+          "https://dauchim.com/individualni-uroci/",
+          "https://dauchim.com/lokacii/simeonovo/",
+          "https://dauchim.com/lokacii/darvenitsa/",
+          "https://dauchim.com/obshti-usloviya/"
+        ]
+      },
+      "services": [
+        {
+          "name": "Индивидуален урок по математика за ученици"
+        }
+      ],
+      "receiptKind": "service_reviewed",
+      "notes": "Own current venue page expressly says all programs run at both actual premises and schedule is agreed on enrollment. Simeonovo is a new physical branch; Darvenitsa shares exact phone and address with existing sofia-amakids-darvenitsa and is intentionally NOT duplicated. Contact FAQ explicitly permits phone enrollment; form requests preferred location and class. No fields, dates or consent entered. Public terms contain some administrative placeholders; no contract details invented. Service length is a choice of 60/90, not a fixed duration; no weekly lesson hours published."
+    },
+    {
+      "order": 10,
+      "status": "included",
+      "id": "sofia-english-next-door-mladost3-block301",
+      "name": "English Next Door",
+      "category": "education",
+      "address": "София, ж.к. Младост 3, бл.301, вх. офиси, офис 10",
+      "locationKind": "premises",
+      "primaryEvidence": {
+        "booking": "https://www.english-nextdoor.com/kursove-i-ceni",
+        "contact": "https://www.english-nextdoor.com/kursove-i-ceni",
+        "reviewedUrls": [
+          "https://www.english-nextdoor.com/",
+          "https://www.english-nextdoor.com/book-online",
+          "https://www.english-nextdoor.com/kursove-i-ceni",
+          "https://www.english-nextdoor.com/za-nas",
+          "https://www.english-nextdoor.com/politika-za-poveritelnost"
+        ]
+      },
+      "services": [
+        {
+          "name": "Индивидуален урок по английски за деца и ученици",
+          "price": {
+            "amount": 14,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "учебен час от 40 минути",
+            "sourceUrl": "https://www.english-nextdoor.com/kursove-i-ceni",
+            "checkedOn": "2026-11-13"
+          },
+          "durationMin": 40,
+          "durationSourceUrl": "https://www.english-nextdoor.com/kursove-i-ceni"
+        },
+        {
+          "name": "Индивидуален урок по английски за възрастни",
+          "price": {
+            "amount": 16,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "учебен час от 40 минути",
+            "sourceUrl": "https://www.english-nextdoor.com/kursove-i-ceni",
+            "checkedOn": "2026-11-13"
+          },
+          "durationMin": 40,
+          "durationSourceUrl": "https://www.english-nextdoor.com/kursove-i-ceni"
+        }
+      ],
+      "receiptKind": "reviewed",
+      "notes": "Followed actual Book Online first: current ordinary HTTPS GET says nothing is available to reserve, not a blocked fee menu. Independent selected course-page reserve-place CTAs link to tel:+359884618190; current homepage invites enrollment by the same number. Actual tariffs read fresh over HTTPS are 14 EUR child/student and 16 EUR adult per 40-minute academic unit; no certificate or online-only French/German fee imported, and no older search snapshot substituted. Shared form untouched. Public address is exact office entrance in block301. No weekly teaching hours: event/open-day and group timetables are not general opening hours. Privacy text review was partial, not represented as full terms clearance; independently phrased factual facts only."
+    },
+    {
+      "order": 11,
+      "status": "included",
+      "id": "sofia-jey-ovcha-kupel1-promishlena430",
+      "name": "Учебен център JEY",
+      "category": "education",
+      "address": "София, ж.к. Овча купел 1, ул. Промишлена, бл.430, партер",
+      "locationKind": "premises",
+      "primaryEvidence": {
+        "booking": "https://jey.bg/english/",
+        "contact": "https://jey.bg/english/",
+        "reviewedUrls": [
+          "https://jey.bg/",
+          "https://jey.bg/english/",
+          "https://jey.bg/%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D0%B0-%D0%BD%D0%B0-%D1%83%D1%87%D0%B5%D0%B1%D0%B5%D0%BD-%D1%86%D0%B5%D0%BD%D1%82%D1%8A%D1%80-jey/",
+          "https://jey.bg/wp-content/uploads/2025/10/%D0%9E%D0%B1%D1%89%D0%B8-%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8F.pdf"
+        ]
+      },
+      "services": [
+        {
+          "name": "Индивидуални уроци по английски за деца"
+        }
+      ],
+      "receiptKind": "service_reviewed",
+      "notes": "Current public English form is a real pre-enrollment request, not an invented generic appointment. Own PDF confirms courses and individual lessons occur at Promishlena block430 ground floor. Did not fill or submit. Rules require monthly payment1–10, late surcharge5%, missed/late-cancelled individual lesson paid in full and withdrawal penalty50% remaining monthly charges; description preserves cancellation constraints without inventing a fee. Homepage08:30–17:30 conflicts with evening English groups, so omitted rather than calling office/daycare hours lesson hours. No unrequested logoped or medical services imported; PDF text read, not claimed visually inspected."
+    },
+    {
+      "order": 12,
+      "status": "included",
+      "id": "sofia-cultural-language-centre-kiril-botev3a",
+      "name": "Културен и образователен център София",
+      "category": "education",
+      "address": "София, кв. Мотописта, ул. Кирил Ботев 3А",
+      "locationKind": "premises",
+      "primaryEvidence": {
+        "booking": "https://ezik.eu/contacts/",
+        "contact": "https://ezik.eu/contacts/",
+        "reviewedUrls": [
+          "https://ezik.eu/",
+          "https://ezik.eu/contacts/",
+          "https://ezik.eu/individual/",
+          "https://ezik.eu/our-courses/",
+          "https://ezik.eu/privacy-policy/"
+        ]
+      },
+      "services": [
+        {
+          "name": "Индивидуален урок по английски език",
+          "durationMin": 50,
+          "durationSourceUrl": "https://ezik.eu/individual/"
+        }
+      ],
+      "receiptKind": "service_reviewed",
+      "notes": "Actual own form has name/email/message, enrollment FAQ and precise Sofia teaching address corroborated by privacy policy. Individual service specifically invites a request and enrollment and is not an unbookable walk-in language retail listing. Current homepage group enrollment deadline20September does not override the individual FAQ allowing agreed start; no availability claim made. No form fields, arithmetic anti-spam or consent submitted. Contact says09:00 while repeated footers09:30, and may be administrative, so all hours omitted. Old pandemic-only page not used to assert present online-only delivery."
+    },
+    {
+      "order": 13,
+      "status": "included",
+      "id": "sofia-excelsior-dent-dospat42",
+      "name": "Дентален център Excelsior",
+      "category": "other",
+      "address": "София, ул. Доспат 42",
+      "locationKind": "premises",
+      "primaryEvidence": {
+        "booking": "https://excelsiorclinic.com/",
+        "contact": "https://excelsiorclinic.com/",
+        "reviewedUrls": [
+          "https://excelsiorclinic.com/",
+          "https://excelsiorclinic.com/uslovia.php"
+        ]
+      },
+      "services": [
+        {
+          "name": "Стоматологичен преглед и консултация"
+        },
+        {
+          "name": "Професионално почистване на зъби"
+        }
+      ],
+      "receiptKind": "service_reviewed",
+      "notes": "Own actual booking section explicitly offers voice-phone alternative on the exact same number, so phone entry is honest even though interactive calendar was not exercised. All8public dentist offerings visible; only ordinary exam and cleaning selected, not unrelated medicine. Terms3 says requested hour requires final clinic confirmation and procedure lengths are approximate; no duration scalar or automated availability promise imported. Exact patient venue and weekdays08–20 corroborated in terms. Copyright clause covers texts/photos/logo/design; root expressly cleared minimal independently phrased factual business data only, no asset/prose reuse."
+    },
+    {
+      "order": 14,
+      "status": "included",
+      "id": "sofia-saghir-dent-vasil-levski13",
+      "name": "Saghir Dent",
+      "category": "other",
+      "address": "София, бул. Васил Левски 13",
+      "locationKind": "premises",
+      "primaryEvidence": {
+        "booking": "https://www.saghirdent.com/kontakti/",
+        "contact": "https://www.saghirdent.com/kontakti/",
+        "reviewedUrls": [
+          "https://www.saghirdent.com/",
+          "https://www.saghirdent.com/kontakti/",
+          "https://www.saghirdent.com/uslugi/",
+          "https://www.saghirdent.com/nashata-klinika/"
+        ]
+      },
+      "services": [
+        {
+          "name": "Първичен стоматологичен преглед"
+        }
+      ],
+      "receiptKind": "service_reviewed",
+      "notes": "One genuine dental venue corroborated by contact and clinic FAQ, not repeated staff or equivalent Cyrillic URL alias. Actual public examination-request form and confirmation warning read without fields, consent, calendar choice or submission. First consultation is an exam/diagnostic discussion and treatment plan; no unrelated medicine, fillers or other injection service imported. MonFri09–20 literal contact schedule only; first/third Saturday monthly pattern cannot be represented as every Saturday, so Saturdays omitted. No fee, duration, map point, source photo or clinical outcome claim invented."
+    },
+    {
+      "order": 15,
+      "status": "included",
+      "id": "sofia-irisception-tsar-asen47",
+      "name": "Irisception · ирисова фотография",
+      "category": "other",
+      "address": "София, ул. Цар Асен 47",
+      "locationKind": "premises",
+      "primaryEvidence": {
+        "booking": "https://irisception.com/chesto-zadavani-vaprosi/",
+        "contact": "https://irisception.com/kontakti/",
+        "reviewedUrls": [
+          "https://irisception.com/",
+          "https://irisception.com/zapazete-chas/",
+          "https://irisception.com/chesto-zadavani-vaprosi/",
+          "https://irisception.com/czeni/",
+          "https://irisception.com/kontakti/",
+          "https://irisception.com/obsthi-usloviya/"
+        ]
+      },
+      "services": [
+        {
+          "name": "Ирисова фотосесия · един ирис и фотохартия 20×20 см",
+          "price": {
+            "amount": 40.9,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "един ирис + фотохартия 20×20 см · базова цена",
+            "sourceUrl": "https://irisception.com/czeni/",
+            "checkedOn": "2026-11-13"
+          }
+        }
+      ],
+      "receiptKind": "reviewed",
+      "notes": "Actual Bookly Book page visited first: readable instructions but HTML widget only Loading, not claimed exercised or rendered calendar. Independent complete owner FAQ expressly permits voice-phone booking, so row honestly uses phone booking. Current own tariff table explicitly one-iris20×20 photo-paper base80BGN/40.9EUR; literal EUR retained, no conversion, voucher fee or ambiguous digital-file/add-on sum invented. Booking says30minutes, tariff30–40, so no fixed duration scalar. Exact TsarAsen47 patient-free photo venue/contactTueSun11–18 corroborated. Terms concern gift vouchers and copyright texts/images/graphics, not a ban on independently phrased factual business data; no source artwork or prose reused."
+    },
+    {
+      "order": 16,
+      "status": "included",
+      "id": "sofia-lazar-belev-tundzha3",
+      "name": "Адвокат Лазар Белев",
+      "category": "consulting",
+      "address": "София, ул. Тунджа 3, ет.1",
+      "locationKind": "premises",
+      "primaryEvidence": {
+        "booking": "https://advokatbg.net/advokat-lazar-belev-kontakti/",
+        "contact": "https://advokatbg.net/advokat-lazar-belev-kontakti/",
+        "reviewedUrls": [
+          "https://advokatbg.net/",
+          "https://advokatbg.net/advokat-lazar-belev-kontakti/",
+          "https://advokatbg.net/bezplatni-pravni-konsultacii/"
+        ]
+      },
+      "services": [
+        {
+          "name": "Правна консултация в кантората",
+          "price": {
+            "amount": 30.68,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "час · консултация на място в офиса",
+            "sourceUrl": "https://advokatbg.net/bezplatni-pravni-konsultacii/",
+            "checkedOn": "2026-11-13"
+          }
+        }
+      ],
+      "receiptKind": "reviewed",
+      "notes": "Actual own appointments/contact page explicitly phone-agreed Sofia office visit, followed by accessible actual consultation fee section: onsite30.68EUR/60BGN perhour; remote20minute15.34EUR and asynchronous email excluded. No automatic60-minute appointment scalar inferred from hourly billing. Current homepage/footer identifies Tundzha3floor1 and weekday10–19; contact body has obvious missing-n typo Tud zha but header/footer agree Tundzha. Specific family-law detail returned verification challenge; stopped that path, not treated as reviewed or used as a no-public-price receipt. Only independently sourced general paid consultation selected; no client comments, legal advice or case stories imported."
+    },
+    {
+      "order": 17,
+      "status": "included",
+      "id": "sofia-georgi-veselinov-lavele19",
+      "name": "Адвокатска кантора Георги Веселинов и партньори",
+      "category": "consulting",
+      "address": "София, ул. Лавеле 19, ет.3",
+      "locationKind": "premises",
+      "primaryEvidence": {
+        "booking": "https://lawyer-georgiveselinov.com/online-booking/",
+        "contact": "https://lawyer-georgiveselinov.com/contacts/",
+        "reviewedUrls": [
+          "https://lawyer-georgiveselinov.com/",
+          "https://lawyer-georgiveselinov.com/online-booking/",
+          "https://lawyer-georgiveselinov.com/practice-areas-2/",
+          "https://lawyer-georgiveselinov.com/contacts/"
+        ]
+      },
+      "services": [
+        {
+          "name": "Правна консултация в кантората"
+        }
+      ],
+      "receiptKind": "service_reviewed",
+      "notes": "Specific first-party FAQ explicitly supplies phone appointment alternative and exact Lavele19floor3 office; contact corroborates same publicphone and weekday09–18. Calendar stage only was inspected, no date selected and no online availability/completed booking claimed. One law office not staff clones; service roster includes onsite legal consultation plus separately online services, so online-only service not relabelled. Contact template info@email.com ignored in favour of consistent official businessphone, no email stored. No prices/duration inferred or source legal advice/photos reused."
+    },
+    {
+      "order": 18,
+      "status": "included",
+      "id": "sofia-desislava-filipova-parchevich1",
+      "name": "Адвокатска кантора Десислава Филипова",
+      "category": "consulting",
+      "address": "София, ул. Петър Парчевич 1, ет.5, ап.14",
+      "locationKind": "premises",
+      "primaryEvidence": {
+        "booking": "https://advokatfilipova.eu/kontakti/",
+        "contact": "https://advokatfilipova.eu/kontakti/",
+        "reviewedUrls": [
+          "https://advokatfilipova.eu/",
+          "https://advokatfilipova.eu/kontakti/",
+          "https://advokatfilipova.eu/drugi-pravni-uslugi/"
+        ]
+      },
+      "services": [
+        {
+          "name": "Правна консултация в кантората"
+        }
+      ],
+      "receiptKind": "service_reviewed",
+      "notes": "Current owned Contact and homepage corroborate exact Parchevich1floor5apt14, publicphone and MonFri09–17:30. Phone entry is explicit appointment-only consultation, not a generic contact claim. Reader service timeout resolved by ordinary public HTTPS200 GET, not a refusal, CAPTCHA or bypass. Robots200 general search/reference permitted, training crawlers disallowed; no training, articles/images reuse or general license claimed. No fields/consent or embedded map activated; cached map-plugin coordinates intentionally NOT imported. Copyright materials/publications not copied; minimal independently phrased factual reference only. One firm, no staff/foreign-client aliases; no fee/duration invented."
+    },
+    {
+      "order": 19,
+      "status": "included",
+      "id": "sofia-edelvais-vitosha50",
+      "name": "Учебен център Еделвайс · НДК",
+      "category": "education",
+      "address": "София, бул. Витоша 50",
+      "locationKind": "premises",
+      "primaryEvidence": {
+        "booking": "https://edelvaische.com/",
+        "contact": "https://edelvaische.com/",
+        "reviewedUrls": [
+          "https://edelvaische.com/",
+          "https://edelvaische.com/pages/terms-and-conditions.html"
+        ]
+      },
+      "services": [
+        {
+          "name": "Индивидуален урок по български език и литература за ученици",
+          "durationMin": 90,
+          "durationSourceUrl": "https://edelvaische.com/"
+        }
+      ],
+      "receiptKind": "service_reviewed",
+      "notes": "Only ONE school record at primary Vitosha50 venue: own school-classrooms/NDK presentation, current Contact and full terms corroborate first address. Secondary HanAsparuh39 is NOT cloned because branch-specific lesson enrollment not independently established. Own service explicitly individual90minutes alongside separate small/standard groups; selected BEL tutoring only, no daycare or unverified art-therapy specialist. Request→callback→agreed program/format is real advance enrollment, not automatic availability. ContactMonSat09–19 may be administration rather than individual teaching timetable, so omitted. Terms retain unfilled registry placeholder, not invented owner identity; no student photos/testimonials or source prose copied."
+    },
+    {
+      "order": 20,
+      "status": "included",
+      "id": "sofia-chavdar-chenkov-site-consultation",
+      "name": "Арх. Чавдар Ченков · консултация на място",
+      "category": "consulting",
+      "address": null,
+      "locationKind": "service_area",
+      "primaryEvidence": {
+        "booking": "https://architectureconsulting.eu/bg/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/",
+        "contact": "https://architectureconsulting.eu/bg/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/",
+        "reviewedUrls": [
+          "https://architectureconsulting.eu/bg/",
+          "https://architectureconsulting.eu/bg/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/",
+          "https://architectureconsulting.eu/bg/%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%82%D0%B0%D1%86%D0%B8%D0%B8/"
+        ]
+      },
+      "services": [
+        {
+          "name": "Архитектурна консултация на място в София",
+          "price": {
+            "amount": 150,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "еднократна устна консултация · без ДДС и транспорт",
+            "sourceUrl": "https://architectureconsulting.eu/bg/%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%82%D0%B0%D1%86%D0%B8%D0%B8/",
+            "checkedOn": "2026-11-13"
+          }
+        }
+      ],
+      "receiptKind": "reviewed",
+      "notes": "Followed actual Reserve-consultation→owner contact form first, real name/email/property-region/service/question and optional document-upload fields plus explained confirmation→proposed onsite/online meeting. Did not enter/upload/submit. Full selected service explicitly offers onsite appointment in Sofia with travel and property-size/time/distance/urgency qualifiers; one Sofia mobile provider, not invented offices or quarter clones. Literal onsite architectural150EUR excludingVAT+transport retained; online100/email60, constructordifferent80 and written220 not conflated. No phone or exact weekly schedule published in these inspected pages; nullphone, nulladdress and nullcoordinates honest service_area. Privacy link reader cache miss is not claimed a full terms review; no source photographs/project plans or prose reused."
+    },
+    {
+      "order": 21,
+      "status": "pending",
+      "name": "Училища ЕВРОПА · Мария Луиза 45",
+      "sources": [
+        "https://europeschools.net/branch/sofia/",
+        "https://europeschools.net/terms/"
+      ],
+      "reason": "terms_reuse_restriction",
+      "notes": "Real current Sofia course/contact and owned enrollment form observed, but site terms expressly restrict informational resources/data to personal non-commercial use. Held; no import, no blanket copyright exception claimed."
+    },
+    {
+      "order": 22,
+      "status": "pending",
+      "name": "Училища ЕВРОПА · Граф Игнатиев 12",
+      "sources": [
+        "https://europeschools.net/branch/sofia/",
+        "https://europeschools.net/nova-lokatziya-na-uchilista-evropa-v-sofiya-ucheben-tzentyr-na-pl-garibaldi/",
+        "https://europeschools.net/terms/"
+      ],
+      "reason": "terms_reuse_restriction_and_branch_selector",
+      "notes": "Own current contact and2025opening article identify real GrafIgnatiev12; actual preferred-branch selector still omits this branch. General terms expressly personal/non-commercial informational-resources/data only; held, not converted to a phone listing."
+    },
+    {
+      "order": 23,
+      "status": "pending",
+      "name": "Училища ЕВРОПА · Надежда, Ломско шосе 112",
+      "sources": [
+        "https://europeschools.net/branch/sofia/",
+        "https://europeschools.net/terms/"
+      ],
+      "reason": "terms_reuse_restriction",
+      "notes": "Actual current primary course/contact and owned enrollment form observed, but express personal/non-commercial resources/data limitation warrants owner permission; not imported."
+    },
+    {
+      "order": 24,
+      "status": "pending",
+      "name": "Фарос · Ангиста 6",
+      "sources": [
+        "https://pharos.bg/kontakti-pharos/",
+        "https://pharos.bg/angliyski-ezik-v-sofiya/"
+      ],
+      "reason": "branch_binding_incomplete",
+      "notes": "Current contact lists Angista6floor2office4/0877708902, but actual preferred-branch selector and Sofia roster do not independently bind this venue to a named current teaching option. Not cloned from citywide school."
+    },
+    {
+      "order": 25,
+      "status": "pending",
+      "name": "Фарос · Младост 1, бл.53",
+      "sources": [
+        "https://pharos.bg/kontakti-pharos/",
+        "https://pharos.bg/angliyski-ezik-v-sofiya/"
+      ],
+      "reason": "current_branch_contact_mismatch",
+      "notes": "Named Mladost1 preferred-branch option and older service roster block53entrance2 found, but current detailed contact roster instead adds Angista6. No guessed branch-phone or relocation assumed."
+    },
+    {
+      "order": 26,
+      "status": "pending",
+      "name": "Юнити Академия · индивидуално пиано",
+      "sources": [
+        "https://unity.bg/bg/",
+        "https://unity.bg/bg/individualni-uroci-po-piano/"
+      ],
+      "reason": "outdated_published_course_tariff",
+      "notes": "Real prior-phone lesson enrollment and school venue listed, but selected tariff/module explicitly учебна2021 with11October2021start. Cannot relabel old810BGN27hours or270BGN9lesson installment current, nor claim tariff unpublished."
+    },
+    {
+      "order": 27,
+      "status": "pending",
+      "name": "Образователен център АСТРА",
+      "sources": [
+        "https://www.astra-centre.bg/",
+        "https://www.astra-centre.bg/site/contact",
+        "https://www.astra-centre.bg/course/6/",
+        "https://www.astra-centre.bg/course/30"
+      ],
+      "reason": "explicit_enrollment_path_incomplete",
+      "notes": "Current own individual-language packages20–320academic hours and BEL/math40–240hour packages plus exact SofiaNeru28venue read by normalHTTPS after reader misses. Contact form/phones present, but selected offer has no sufficiently explicit actual course-reservation path yet; not published from generic contact alone."
+    },
+    {
+      "order": 28,
+      "status": "pending",
+      "name": "Център Арати",
+      "sources": [
+        "https://arati-school.com/",
+        "https://arati-school.com/contact/",
+        "https://arati-school.com/%D0%BA%D1%83%D1%80%D1%81%D0%BE%D0%B2%D0%B5/"
+      ],
+      "reason": "verification_challenge",
+      "notes": "Own contact and indexed2026–27individual tariff lead found; actual course path returned request-verification challenge. Stopped that path; no alternate endpoint bypass or unpublished-price claim."
+    },
+    {
+      "order": 29,
+      "status": "pending",
+      "name": "Учебен център НИЯ · Младост",
+      "sources": [
+        "https://nia.bg/",
+        "https://nia.bg/contacts",
+        "https://nia.bg/s/enrol.php",
+        "https://nia.bg/s/nia/enrol.php",
+        "https://nia.bg/page/kursove-shesti-klas",
+        "https://nia.bg/page/kursove-sedmi-klas"
+      ],
+      "reason": "current_course_vs_actual_form_year_conflict",
+      "notes": "Own course pages current2026–27 and precise Nik olaGenadiev7floor3, with3×259EUR90academic hours/subject grade6 and3×369EUR120hours/subject grade7. Actual form visible but server text still2024/25 and26August2024start. Held instead of assuming JS fixes year, computing a published total or treating installment as lesson fee. No student/parent fields entered."
+    },
+    {
+      "order": 30,
+      "status": "pending",
+      "name": "PhotoSchool · София",
+      "sources": [
+        "https://www.photoschool.bg/",
+        "https://www.photoschool.bg/i/2/",
+        "https://www.photoschool.bg/s/3/"
+      ],
+      "reason": "past_event_next_date_not_confirmed",
+      "notes": "Actual own course entry says past event, next planned1October2027 and notify-me form, though detailed body contains2026Oct–Decschedule/450EURfee and150EURdeposit. Dates/program/price may change when announced. No current enrollment record or stale fee imported. Terms inspected partly, not claimed complete because long retail section omitted."
+    },
+    {
+      "order": 31,
+      "status": "pending",
+      "name": "Дентален кабинет Димитър Чоторов",
+      "sources": [
+        "https://dental.place.bg/"
+      ],
+      "reason": "http_503",
+      "notes": "Primary indexed lead has real SofiaRakovski156floor1 and prior-phone dental examination. Actual current homepage reader timeout then ordinary publicHTTPS503; no source-complete intake, no retries or blocked-as-unpublished receipt."
+    },
+    {
+      "order": 32,
+      "status": "pending",
+      "name": "Бистрев Груп · дентален център",
+      "sources": [
+        "https://www.bistrevgroup.com/",
+        "https://www.bistrevgroup.com/kontakt/",
+        "https://superdoc.bg/klinika/mediko-dentalna-klinika-bistrev-group"
+      ],
+      "reason": "provider_staff_menus_not_reviewed",
+      "notes": "Own actualBook links Superdoc clinic with named dentists/psychiatrists and advertised per-specialist tariffs. Contact confirmsBulgaria60entranceVfloor6, patientMonSat10–18, not dental-laboratory08:30–17:30. Actual individual dentist calendar/menu not completed, so no no-public-tariff claim or generic staff clone."
+    },
+    {
+      "order": 33,
+      "status": "pending",
+      "name": "Иванка Николова · Игриво нестандартно консултиране",
+      "sources": [
+        "https://ivankanikolova.eu/"
+      ],
+      "reason": "offering_qualification_scope_unclear",
+      "notes": "Own page describes doctoral degree in mathematical analysis and energy/numerology practices with consultations. Do not infer psychologist/psychotherapist qualification or relabel energy healing as allowed clinical psychology just to increase coverage."
+    },
+    {
+      "order": 34,
+      "status": "pending",
+      "name": "MG Construct · инж. Марин Гергов",
+      "sources": [
+        "https://mgconstruct.eu/",
+        "https://mgconstruct.eu/kontakti/",
+        "https://mgconstruct.eu/uslugi-klienti/",
+        "https://mgconstruct.eu/ceni/",
+        "https://mgconstruct.eu/obshti-uslovia/"
+      ],
+      "reason": "broad_commercial_information_reuse_restriction",
+      "notes": "Real prior-phone engineering consultation atPetarDelyan5 and literal60EURoffice/120EURonsiteSofia excludingVAT reviewed, but terms broad copyright/commercial reuse ban covers otherinformation and derivativecontent. Root expressly requested HOLD, no import or invented license."
+    },
+    {
+      "order": 35,
+      "status": "pending",
+      "name": "Адвокат Силви Славчева · София",
+      "sources": [
+        "https://lawslavcheva.com/",
+        "https://lawslavcheva.com/kontakti",
+        "https://lawslavcheva.com/advokat-sofia"
+      ],
+      "reason": "sofia_service_verification_challenge",
+      "notes": "Accessible current homepage/contact lists Lege5floor1office2 and inquiry form, but actual Sofia booked-service path returned verification challenge. Held; no bypass or inference of full branch booking/tariff from generic contact."
+    },
+    {
+      "order": 36,
+      "status": "pending",
+      "name": "Адвокат Юлиан Димитров",
+      "sources": [
+        "https://www.dimitrovlaw.bg/",
+        "https://www.dimitrovlaw.bg/contacts",
+        "https://www.dimitrovlaw.bg/prices.html"
+      ],
+      "reason": "blocked_actual_fee_menu",
+      "notes": "Exact SofiaTsarAsen2Bfloor1office2 and explicit prior-phone appointments oncontacts; actual linked Prices returned request-verification challenge. Not eligible for not_publicly_listed because real tariff exists but was not reviewed."
+    },
+    {
+      "order": 37,
+      "status": "pending",
+      "name": "Школа Златното сечение",
+      "sources": [
+        "https://zlatnotosechenie.com/"
+      ],
+      "reason": "js_only_primary_canvas",
+      "notes": "Indexed individual-lesson lead discovered, but current public reader and ordinary HTTPS body contain only page title, no actual service/enrollment/address facts. No hidden JS endpoint extraction; pending rendered public review."
+    },
+    {
+      "order": 38,
+      "status": "pending",
+      "name": "Еделвайс · Хан Аспарух 39",
+      "sources": [
+        "https://edelvaische.com/",
+        "https://edelvaische.com/pages/terms-and-conditions.html"
+      ],
+      "reason": "secondary_branch_specific_enrollment_not_established",
+      "notes": "Real secondary address is public, but actual booking form has course-interest choices, not independently verified branch course/teacher choices. One primary Vitosha50 school record only; no second branch clone."
+    },
+    {
+      "order": 39,
+      "status": "pending",
+      "name": "Миладо ООД",
+      "sources": [
+        "https://milado-bg.com/",
+        "https://milado-bg.com/Pravni-uslugi-service-6.html"
+      ],
+      "reason": "appointment_evidence_not_yet_reviewed",
+      "notes": "New own accounting/legal-consultation lead has exact SofiaPatriarhEvtimiy6 and literal hourly fee in indexed service page, but homepage only generic contact; actual reserved onsite-service entry not yet reviewed. Do not equate contact details with appointment."
+    },
+    {
+      "order": 40,
+      "status": "rejected",
+      "name": "NordStudeo",
+      "sources": [
+        "https://nordstudeo.com/kontakti-nordstudeo/",
+        "https://nordstudeo.com/individualno-obuchenie/"
+      ],
+      "reason": "selected_lessons_explicitly_online_only",
+      "notes": "Real Sofia office visits by prior agreement, but exact individual Scandinavian-language offering explicitly entirely online. An office meeting is not a sourced in-person language lesson, and online fee26EUR not used as Sofia onsite fee."
+    },
+    {
+      "order": 41,
+      "status": "rejected",
+      "name": "Dauchim · Дървеница",
+      "sources": [
+        "https://dauchim.com/lokacii/darvenitsa/"
+      ],
+      "reason": "existing_business_alias",
+      "notes": "Exactphone+359878850031 and actualAndreyLyapchev11 match existing sofia-amakids-darvenitsa. Not a new business ID; only genuinely separate Simeonovo premise added."
+    },
+    {
+      "order": 42,
+      "status": "rejected",
+      "name": "Popova & Partners · онлайн консултация",
+      "sources": [
+        "https://studiolegalepopova.eu/",
+        "https://studiolegalepopova.eu/contacts"
+      ],
+      "reason": "asynchronous_written_service_not_an_appointment",
+      "notes": "Contact process is document review then written electronic response within3working days; fee is for asynchronous online service. No actual onsite reserved consultation instruction established from reviewed pages, so not repurposed as physical appointment."
+    },
+    {
+      "order": 43,
+      "status": "rejected",
+      "name": "Давидкова и Китанова",
+      "sources": [
+        "https://dklegal.eu/"
+      ],
+      "reason": "outside_sofia",
+      "notes": "Actual own homepage and practice venue are KonstantinVelichkov12Varna. Past experience inSofia is not a current Sofia appointment business."
+    },
+    {
+      "order": 44,
+      "status": "rejected",
+      "name": "Existing own-site leads (grouped dedupe audit, not additional business count)",
+      "sources": [
+        "https://dentalplace.bg/",
+        "https://smilefactorybg.com/",
+        "https://www.prestige.bg/",
+        "https://drzdravkaasenova.com/",
+        "https://adeldent.com/",
+        "https://privateschooldreamers.com/",
+        "https://igdental.bg/",
+        "https://mireladent.com/",
+        "https://centerempathy.com/",
+        "https://bezproblemi.com/",
+        "https://vegabg.com/",
+        "https://www.adaptacia.info/",
+        "https://dr-serbezova.online/",
+        "https://vesta.help/",
+        "https://www.law-bba.com/",
+        "https://legalmasters.bg/",
+        "https://petkovalegal.com/",
+        "https://bellas.bg/",
+        "https://simeonovlawfirm.com/",
+        "https://photostudionana.com/",
+        "https://dianastrumin.com/",
+        "https://vkamenarska.com/",
+        "https://www.advokatpetrova.com/",
+        "https://orlinbaev.com/"
+      ],
+      "reason": "already_in_union",
+      "notes": "Compared actual current SOFIA_CATALOGUE plus ALL numbered2000intake modules, by ID/domain then normalized publicphone and address. These previously covered businesses/venues were not added again; Prestige8existingbranches, not new quarter clones."
+    },
+    {
+      "order": 45,
+      "status": "reconciled_existing_correction",
+      "id": "sofia-sokol-nedkov",
+      "sources": [
+        "https://www.sokolnedkov.bg/appointment/"
+      ],
+      "notes": "Root independently checked actual current120EURinclVAT/30minutes. Authoritative pricing-expansion-services-20261110 already overrides older raw discovery service with120 and a bound reviewed receipt, so no shared mutation or new business needed. Earlier003correction lead is reconciled, not an unresolved new price conflict."
+    }
+  ]
+}

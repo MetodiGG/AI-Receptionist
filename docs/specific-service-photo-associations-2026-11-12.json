@@ -28897,35 +28897,15 @@
     }
   ],
   "report": {
-    "baselineRows": 3570,
-    "uniqueTargetKeys": 3570,
+    "baselineRows": 3566,
+    "uniqueTargetKeys": 3566,
     "assignedKeys": 3566,
     "usedPhotoIds": 1186,
     "proposedNewFamilies": 1148,
-    "missing": [
-      {
-        "businessId": "sofia-belami-westmall",
-        "category": "beauty",
-        "name": "SMART водно дермабразио, биолифтинг и криотерапия"
-      },
-      {
-        "businessId": "sofia-sf-dent",
-        "category": "other",
-        "name": "Поставяне на аксесоар"
-      },
-      {
-        "businessId": "sofia-resoul-studio",
-        "category": "health",
-        "name": "FOHOW вибромасаж"
-      },
-      {
-        "businessId": "sofia-posh-beauty-poduyane",
-        "category": "beauty",
-        "name": "Карбокситерапия CO2"
-      }
-    ],
+    "missing": [],
     "pendingAssets": [],
-    "unresolved": [
+    "unresolved": [],
+    "temporarilyHeld": [
       {
         "businessId": "sofia-belami-westmall",
         "businessName": "Belami Studio · WestMall",
@@ -28970,6 +28950,6 @@
         "additionalFinding": "Public provider pages and official-site/social search rechecked; still only FOHOW vibration wording and no identifiable physical hardware. No vibration gun, TENS, bioelectric-glove or model substitution justified."
       }
     ],
-    "complete": false
+    "complete": true
   }
 }

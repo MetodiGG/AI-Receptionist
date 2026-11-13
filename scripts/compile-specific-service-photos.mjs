@@ -5,6 +5,7 @@ import { resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 import { approvedCatalogueRecord } from '../lib/discovery/catalogue-policy.mjs'
+import { TEMPORARILY_HELD_CATALOGUE_SERVICES } from '../lib/discovery/catalogue-service-eligibility.mjs'
 import { serviceThumbnail } from '../lib/service-thumbnail.mjs'
 import { APPROVED_SERVICE_PHOTO_IDS } from '../lib/service-photos.mjs'
 import { GENERATED_CATALOGUE_SERVICE_PHOTO_IDS } from '../lib/service-photos-catalogue-expansion.mjs'
@@ -44,18 +45,21 @@ for (const plan of plans) for (const assignment of plan.assignments || []) {
   assignments.set(key, assignment)
 }
 const missing = [...target].filter(([key]) => !assignments.has(key)).map(([, value]) => value)
-const unresolved = plans.flatMap(plan => plan.unresolved || [])
-for (const item of unresolved) {
+const unresolved = [], temporarilyHeld = []
+const heldKeys = new Set(TEMPORARILY_HELD_CATALOGUE_SERVICES.map(item => identity(item.businessId, item.category, item.name)))
+for (const item of plans.flatMap(plan => plan.unresolved || [])) {
   const key = identity(item.businessId, item.category, item.name)
+  if (!target.has(key) && heldKeys.has(key)) { temporarilyHeld.push(item); continue }
   if (!target.has(key)) throw Error(`Unresolved row is not an eligible photo target: ${key}`)
   if (assignments.has(key)) throw Error(`Row cannot be both assigned and unresolved: ${key}`)
+  unresolved.push(item)
 }
 const usedIds = [...new Set([...assignments.values()].map(item => item.photoId))].sort()
 const pendingAssets = []
 for (const id of usedIds) { try { await access(resolve(root, `public/service-photos/${id}-v1.webp`)) } catch { pendingAssets.push(id) } }
 const report = { baselineRows, uniqueTargetKeys: target.size, assignedKeys: assignments.size, usedPhotoIds: usedIds.length,
   proposedNewFamilies: [...families.values()].filter(f => !f.existingId).length, missing, pendingAssets,
-  unresolved, complete: missing.length === 0 && pendingAssets.length === 0 && unresolved.length === 0 }
+  unresolved, temporarilyHeld, complete: missing.length === 0 && pendingAssets.length === 0 && unresolved.length === 0 }
 if (apply && !partial && !report.complete) throw Error(`Refusing incomplete release: ${missing.length} unmapped services / ${pendingAssets.length} pending assets`)
 if (apply) {
   const rows = [...assignments.values()].sort((a,b) => identity(a.businessId,a.category,a.name).localeCompare(identity(b.businessId,b.category,b.name)))

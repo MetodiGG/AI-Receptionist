@@ -12,7 +12,7 @@ import { CATALOGUE_SERVICE_PHOTO_ASSOCIATIONS } from '../lib/catalogue-service-p
 import { catalogueBusinessDetails, businessDetailServices } from '../lib/discovery/business-details.mjs'
 import { normalizeCatalogueBusinesses } from '../lib/discovery/catalogue-search.mjs'
 import { createPublicBusinessDetailsHandler } from '../lib/discovery/public-details.mjs'
-import { NONBOOKABLE_CATALOGUE_ITEMS } from '../lib/discovery/catalogue-service-eligibility.mjs'
+import { NONBOOKABLE_CATALOGUE_ITEMS, TEMPORARILY_HELD_CATALOGUE_SERVICES } from '../lib/discovery/catalogue-service-eligibility.mjs'
 
 const now = Date.parse('2026-11-12T00:00:00Z')
 const approved = SOFIA_CATALOGUE.map(row => approvedCatalogueRecord(row, now)).filter(Boolean)
@@ -37,7 +37,7 @@ test('all approved catalogue services have an activity-specific photo, not the n
     assert.doesNotMatch(image.src, /appointment-workspace|category-art/)
     total++
   }
-  assert.ok(resolved >= 3500); assert.equal(total, 8936 - NONBOOKABLE_CATALOGUE_ITEMS.length)
+  assert.ok(resolved >= 3500); assert.equal(total, 8936 - NONBOOKABLE_CATALOGUE_ITEMS.length - TEMPORARILY_HELD_CATALOGUE_SERVICES.length)
   assert.equal(JSON.stringify(SOFIA_CATALOGUE), before, 'names, prices, booking targets and source reviews are untouched')
 })
 

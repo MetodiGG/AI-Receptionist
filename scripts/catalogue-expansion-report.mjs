@@ -30,9 +30,14 @@ export function reportBusinessType(row) {
   // Its short service name "Прием" alone does not express the specialty.
   if (row.id === 'sofia-orlin-baev-estestvena-akademia' && row.website === 'https://orlinbaev.com/') return 'Психология и психотерапия'
   if (reviewedPsychologySources.has(row.id) && reviewedPsychologySources.get(row.id) === row.website) return 'Психология и психотерапия'
+  // Classify the selected appointment, not another specialty mentioned in a
+  // mixed practice's name. No other doctors are imported with these visits.
+  const serviceText = row.services.map(service => service.name).join(' ')
+  if (/психиат(?:ър|р)|psychiatr/iu.test(serviceText)) return 'Психиатрия'
+  if (/психолог|психотерап|психоанал|psycholog|psychotherap/iu.test(serviceText)) return 'Психология и психотерапия'
   const text = [row.name, ...row.services.map(service => service.name)].join(' ')
   if (/ветерин|veterinar/iu.test(text)) return 'Ветеринарни услуги'
-  if (/психиатр|psychiatr/iu.test(text)) return 'Психиатрия'
+  if (/психиат(?:ър|р)|psychiatr/iu.test(text)) return 'Психиатрия'
   if (/зъб|стоматол|дентал|дент |дент$|dental|dent\b|ортодонт|алайнери/iu.test(text)) return 'Стоматология'
   if (/психолог|психотерап|психоанал|psycholog|psychotherap/iu.test(text)) return 'Психология и психотерапия'
   if (/лаборатор|изследвания|laborator/iu.test(text)) return 'Лаборатории за изследвания'

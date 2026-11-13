@@ -1,0 +1,858 @@
+{
+  "checkedOn": "2026-11-13",
+  "validUntil": "2027-02-11",
+  "scope": "New Sofia booked education, photographic and tattoo services. Own booking or explicit phone reservation evidence only. No driving overlap, general human clinics, Google scraping, paid geocoding, copied media, bookings, production writes or shared catalogue/map changes.",
+  "summary": {
+    "records": 21,
+    "education": 8,
+    "other": 13,
+    "services": 22,
+    "priceRows": 18,
+    "priceReviewed": 18,
+    "unpricedServiceReviewed": 3,
+    "pending": 32,
+    "rejected": 9,
+    "baselineRecords": 1081
+  },
+  "evidencePolicy": "Actual named booking/enrolment entry first, then specific services/prices/contact/footer and applicable terms. Receipts are exact-inventory reviews, not global tariff coverage. Inaccessible booking/tariff entries stay pending; administration/call hours are not teaching hours. Literal rates, package totals, advance-payment/portfolio-publication conditions and minimums are retained. Static inventory identities are assigned only by the integrating root after review; local ephemeral hashes are used for checks, not written to bypass a gate.",
+  "ledger": [
+    {
+      "order": 1,
+      "id": "sofia-artkutia-piano-rodopski-izvor",
+      "name": "АртКутия · уроци по пиано",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://artkutia.com/piano/"
+      ],
+      "bookingEvidenceUrl": "https://artkutia.com/piano/",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "notes": "Actual owner piano service page is itself the explicit phone reservation entry and contains the 45-minute fee, teacher, start times and Borovo address. Literal BGN retained without conversion. Start slots are not recast into inferred opening-hour intervals; no live availability or other unrelated art activity asserted."
+    },
+    {
+      "order": 2,
+      "id": "sofia-beez-tattoo-tsaribrodska7",
+      "name": "Beez Tattoo Sofia",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://tattoosofia.com/",
+        "https://tattoosofia.com/%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8/",
+        "https://tattoosofia.com/%D1%86%D0%B5%D0%BD%D0%B8/"
+      ],
+      "bookingEvidenceUrl": "https://tattoosofia.com/%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8/",
+      "priceCount": 0,
+      "locationDecision": "premises",
+      "notes": "Actual services page explicitly invites phone appointment booking for tattooing and consultation. Dedicated Prices page was fully accessible and explains project-specific quoting without numeric tattoo tariff. Contact street and phone are owner text; embedded Google review content, photos and ratings are not used. No schedule published on reviewed pages."
+    },
+    {
+      "order": 3,
+      "id": "sofia-studiolife-dimitar-dobrev8",
+      "name": "Studio Life · Антон Илиев",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://studiolife.bg/",
+        "https://studiolife.bg/zapazi-fotosesiya/",
+        "https://studiolife.bg/gallery/portfolio/biznes-portreti/",
+        "https://studiolife.bg/price-and-services/business-portrait/"
+      ],
+      "bookingEvidenceUrl": "https://studiolife.bg/zapazi-fotosesiya/",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "notes": "Followed actual Reserve Photoshoot entry first and inspected date/location and service/package selector without submission. Then reviewed dedicated business-portrait service and tariff pages. €80 is the entire four-image/one-look package, not a single retouched image or hourly studio rental. One-hour maximum remains text, not fixed duration. No weekly service hours found."
+    },
+    {
+      "order": 4,
+      "id": "sofia-ivana-todorova-photography",
+      "name": "Ивана Тодорова · фотограф",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://ivanatodorova.com/price/",
+        "https://ivanatodorova.com/calendar/",
+        "https://ivanatodorova.com/contacts/"
+      ],
+      "bookingEvidenceUrl": "https://ivanatodorova.com/calendar/",
+      "priceCount": 1,
+      "locationDecision": "service_area",
+      "notes": "Reviewed actual Calendar booking entry and explicit reservation phone, then accessible Prices and Contacts pages. Owner identifies herself as based in Sofia but no precise public studio street; one Sofia service-area record with null address/coordinates. Contact page hours explicitly say when you may call, so they are NOT imported as photoshoot hours. Approximate calculator time is not a fixed duration."
+    },
+    {
+      "order": 5,
+      "id": "sofia-yavor-donchev-wedding-photography",
+      "name": "Явор Дончев · сватбен фотограф",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://fotografsofia.com/",
+        "https://fotografsofia.com/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82/",
+        "https://fotografsofia.com/ceni-svatben-fotograf/"
+      ],
+      "bookingEvidenceUrl": "https://fotografsofia.com/ceni-svatben-fotograf/",
+      "priceCount": 1,
+      "locationDecision": "service_area",
+      "notes": "Actual Check Date entry and booking enquiry were reviewed, then current dedicated package menu and its own date/location form. Only explicitly named current MINI STORY two-hour package is imported. Contact-page footer also contains differently named legacy Signature/Classic labels; these are not copied or equated with current packages. Owner states Sofia base and countrywide work; one service-area listing, no guessed office or hours."
+    },
+    {
+      "order": 6,
+      "id": "sofia-loft-studio-cherkovna3",
+      "name": "Loft Studio Sofia",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.loftstudiosofia.com/",
+        "https://www.loftstudiosofia.com/book-online",
+        "https://www.loftstudiosofia.com/family",
+        "https://www.loftstudiosofia.com/booking-calendar/%D1%81%D0%B5%D0%BC%D0%B5%D0%B9%D0%BD%D0%B0-%D1%84%D0%BE%D1%82%D0%BE%D1%81%D0%B5%D1%81%D0%B8%D1%8F-%D0%BC%D0%B8%D0%BD%D0%B8",
+        "https://www.loftstudiosofia.com/blank-1"
+      ],
+      "bookingEvidenceUrl": "https://www.loftstudiosofia.com/booking-calendar/%D1%81%D0%B5%D0%BC%D0%B5%D0%B9%D0%BD%D0%B0-%D1%84%D0%BE%D1%82%D0%BE%D1%81%D0%B5%D1%81%D0%B8%D1%8F-%D0%BC%D0%B8%D0%BD%D0%B8",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "notes": "Followed actual studio booking menu through its named Family MINI reserve action and reviewed the direct booking-calendar page, duration and ten-image deliverable. €95 agrees on booking menu and family page. Reviewed provider terms and studio address/phone; registered company's residential management address is not mistaken for the Cherkovna service premises. No slot selected or booking submitted; no bare equipment rental imported."
+    },
+    {
+      "order": 7,
+      "id": "sofia-linguaclass-graf-ignatiev5",
+      "name": "Лингваклас · индивидуални езикови уроци",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://linguaclass-bg.com/",
+        "https://linguaclass-bg.com/%D0%B8%D0%BD%D0%B4%D0%B8%D0%B2%D0%B8%D0%B4%D1%83%D0%B0%D0%BB%D0%BD%D0%B8-%D1%83%D1%80%D0%BE%D1%86%D0%B8-%D0%BF%D0%BE-%D0%B8%D1%81%D0%BF%D0%B0%D0%BD%D1%81%D0%BA%D0%B8-%D0%B5%D0%B7%D0%B8%D0%BA/",
+        "https://linguaclass-bg.com/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/"
+      ],
+      "bookingEvidenceUrl": "https://linguaclass-bg.com/%D0%B8%D0%BD%D0%B4%D0%B8%D0%B2%D0%B8%D0%B4%D1%83%D0%B0%D0%BB%D0%BD%D0%B8-%D1%83%D1%80%D0%BE%D1%86%D0%B8-%D0%BF%D0%BE-%D0%B8%D1%81%D0%BF%D0%B0%D0%BD%D1%81%D0%BA%D0%B8-%D0%B5%D0%B7%D0%B8%D0%BA/",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "notes": "Reviewed actual individual-Spanish booking instructions and embedded enquiry form on the service page, then Contacts. Literal €15.50 per academic hour applies to one learner/general profile only, not a full package or a two-person lesson. Academic-hour length is not guessed. Contact page explicitly labels 09–19 administration hours; no teaching opening hours imported."
+    },
+    {
+      "order": 8,
+      "id": "sofia-berlitz-tsar-asen68",
+      "name": "Berlitz · София",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.berlitz.com/bg-bg",
+        "https://www.berlitz.com/bg-bg/kontakti",
+        "https://www.berlitz.com/bg-bg/ezikovi-centrove/sofia",
+        "https://www.berlitz.com/bg-bg/kursove/chastni-uroci"
+      ],
+      "bookingEvidenceUrl": "https://www.berlitz.com/bg-bg/kontakti",
+      "priceCount": 0,
+      "locationDecision": "premises",
+      "notes": "Actual Contact/enrolment form with language and service choices was inspected, along with the owner enrolment steps, private-lesson service and exact Sofia center page. Contact FAQ explicitly says programme/lesson-count/format prices are provided during consultation, with no numeric tariff on reviewed pages. Two differently labelled generic working-hour blocks on the center page are not resolved into guessed teaching hours."
+    },
+    {
+      "order": 9,
+      "id": "sofia-universum-maria-luiza41",
+      "name": "Универсум · езиков център",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://universum.bg/",
+        "https://universum.bg/%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD-%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B2%D0%B0%D0%BD%D0%B5.html",
+        "https://universum.bg/%D0%B5%D0%B7%D0%B8%D0%BA%D0%BE%D0%B2%D0%B8-%D0%BA%D1%83%D1%80%D1%81%D0%BE%D0%B2%D0%B5/%D0%B0%D0%BD%D0%B3%D0%BB%D0%B8%D0%B9%D1%81%D0%BA%D0%B8-%D0%B5%D0%B7%D0%B8%D0%BA.html"
+      ],
+      "bookingEvidenceUrl": "https://universum.bg/%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD-%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B2%D0%B0%D0%BD%D0%B5.html",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "notes": "Actual Online Enrolment form inspected: language, CEFR level and individual-training choice are explicit, not a generic contact form. Dedicated English tariff lists €276 total for 20 academic hours in individual format across A1–C2. No conversion of BGN, group-price conflict or group-specific clock times imported into private lesson. Owner footer supplies Maria Luiza 41 address; exact academic duration unpublished."
+    },
+    {
+      "order": 10,
+      "id": "sofia-inside-ink-sixth-september4",
+      "name": "Inside Ink Tattoo Studio · София",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.insideinktattoo.com/",
+        "https://www.insideinktattoo.com/zapazi-chas-za-konsultacia",
+        "https://www.insideinktattoo.com/contact",
+        "https://www.insideinktattoo.com/terms"
+      ],
+      "bookingEvidenceUrl": "https://www.insideinktattoo.com/zapazi-chas-za-konsultacia",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "notes": "Followed actual Reserve Consultation entry and inspected name/email/phone/date and selection controls without submission. Only expressly free pre-tattoo consultation is imported at zero, NOT the tattoo session or laser services. Owner Sofia street/phone and weekly studio hours reviewed separately from Pleven contact. No embedded third-party reviews/photos/ratings used."
+    },
+    {
+      "order": 11,
+      "id": "sofia-co-nets-hristo-belchev17",
+      "name": "Co-Nets · модни обучения",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://co-nets.eu/",
+        "https://co-nets.eu/produkt/%D0%B1%D0%B0%D0%B7%D0%BE%D0%B2-%D0%BA%D1%83%D1%80%D1%81-%D0%BF%D0%BE-%D0%BC%D0%BE%D0%B4%D0%B5%D0%BD-%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD/",
+        "https://co-nets.eu/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/",
+        "https://co-nets.eu/%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D0%B0-%D0%B8-%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8F/"
+      ],
+      "bookingEvidenceUrl": "https://co-nets.eu/produkt/%D0%B1%D0%B0%D0%B7%D0%BE%D0%B2-%D0%BA%D1%83%D1%80%D1%81-%D0%BF%D0%BE-%D0%BC%D0%BE%D0%B4%D0%B5%D0%BD-%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD/",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "notes": "Actual dated course enrolment product/menu and group/quantity entry were inspected without adding to cart or purchasing, then course content, contact and enrolment/cancellation terms. €270 is conditional advance-full-payment course total, not one six-hour meeting or a deposit; regular €290/two €145 instalments retained in public description. Client venue from terms, not separate registered office on Sitnyakovo. Dated group schedules are not made into weekly opening hours."
+    },
+    {
+      "order": 12,
+      "id": "sofia-panellinika-pozitano35",
+      "name": "Панелиника · индивидуален гръцки",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://panellinika.bg/",
+        "https://panellinika.bg/%D1%84%D0%BE%D1%80%D0%BC%D0%B0-%D0%B7%D0%B0-%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B2%D0%B0%D0%BD%D0%B5/",
+        "https://panellinika.bg/%D1%86%D0%B5%D0%BD%D0%B8-%D0%BD%D0%B0-%D1%83%D1%80%D0%BE%D1%86%D0%B8-%D0%BF%D0%BE-%D0%B3%D1%80%D1%8A%D1%86%D0%BA%D0%B8/",
+        "https://panellinika.bg/%D0%BA%D1%83%D1%80%D1%81%D0%BE%D0%B2%D0%B5/%D0%B8%D0%BD%D0%B4%D0%B8%D0%B2%D0%B8%D0%B4%D1%83%D0%B0%D0%BB%D0%BD%D0%BE-%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BF%D0%BE-%D0%B3%D1%80%D1%8A%D1%86%D0%BA%D0%B8-%D0%B5%D0%B7%D0%B8%D0%BA/",
+        "https://panellinika.bg/%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8F/",
+        "https://panellinika.bg/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/"
+      ],
+      "bookingEvidenceUrl": "https://panellinika.bg/%D1%84%D0%BE%D1%80%D0%BC%D0%B0-%D0%B7%D0%B0-%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B2%D0%B0%D0%BD%D0%B5/",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "notes": "Actual registration form inspected with individual/in-person/level/time choices, followed by private Greek description, current 2026/27 price menu, contact and individual-specific terms. €220 is mandatory monthly four-by-two-academic-hour advance total, not €27.50 for an entire visit; no academic-hour duration guessed. Expiry, textbooks, cancellation and change limit preserved. Header/contact hours are administrative availability, not asserted teaching schedule."
+    },
+    {
+      "order": 13,
+      "id": "sofia-sedeff-shar-planina75",
+      "name": "Седеф · школа по арабски език",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.sedeff.org/",
+        "https://www.sedeff.org/%D0%BF%D1%80%D0%B5%D0%B4%D1%81%D1%82%D0%BE%D1%8F%D1%89%D0%B8-%D0%BA%D1%83%D1%80%D1%81%D0%BE%D0%B2%D0%B5",
+        "https://www.sedeff.org/%D1%86%D0%B5%D0%BD%D0%B8",
+        "https://www.sedeff.org/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8",
+        "https://www.sedeff.org/%D0%BE%D0%B1%D1%89%D0%B8-%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8F"
+      ],
+      "bookingEvidenceUrl": "https://www.sedeff.org/%D0%BF%D1%80%D0%B5%D0%B4%D1%81%D1%82%D0%BE%D1%8F%D1%89%D0%B8-%D0%BA%D1%83%D1%80%D1%81%D0%BE%D0%B2%D0%B5",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "notes": "Followed explicit owner phone/email enrolment instructions on actual upcoming-course entry, then private-lesson tariff, contact and terms. Price page expressly gives individual teaching window 08–18 weekdays and teacher-dependent weekend availability, separate from office contact hours. Ordinary €30/60min imported, not conditional 20% pre-course discount. Group start-date/deposit discrepancies are excluded; only one Sofia premises record."
+    },
+    {
+      "order": 14,
+      "id": "sofia-photo-by-kami-portrait",
+      "name": "Photo by Kami · Камелия Атанасова",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.photobykami.com/",
+        "https://www.photobykami.com/studio-photos"
+      ],
+      "bookingEvidenceUrl": "https://www.photobykami.com/studio-photos",
+      "priceCount": 0,
+      "locationDecision": "service_area",
+      "notes": "Followed actual Book Consultation action; it resolves to the same substantive portrait-service page and inspected name/email/phone enquiry form. Owner explicitly says she has a Sofia studio and gives Sofia phone in footer; no public precise studio street, so one broad Sofia provider record without map pin. No numerical portrait fee on accessible service/home/booking content. Separate Contacts/rights pages cache-missed and are not claimed reviewed; neither is a price menu."
+    },
+    {
+      "order": 15,
+      "id": "sofia-cvetno-kaliakra19",
+      "name": "Цветно · арт студио",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.cvetno.art/",
+        "https://www.cvetno.art/service-page/%D1%80%D0%B8%D1%81%D1%83%D0%B2%D0%B0%D0%BD%D0%B5-%D0%B2%D1%8A%D1%80%D1%85%D1%83-%D1%81%D1%82%D1%8A%D0%BA%D0%BB%D0%BE",
+        "https://www.cvetno.art/%D0%BE%D0%B1%D1%89%D0%B8-%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8F"
+      ],
+      "bookingEvidenceUrl": "https://www.cvetno.art/service-page/%D1%80%D0%B8%D1%81%D1%83%D0%B2%D0%B0%D0%BD%D0%B5-%D0%B2%D1%8A%D1%80%D1%85%D1%83-%D1%81%D1%82%D1%8A%D0%BA%D0%BB%D0%BE",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "notes": "Actual named glass-painting reserve/service page and upcoming-session booking entry reviewed before owner homepage and terms. €25 agrees between booking page and homepage and includes materials/drink; cancellation preserved. Drawing lesson has €31 homepage versus €30 booking inconsistency, so that separate service is not imported and remains pending. No clock-based weekly studio schedule published. Corporate legal address agrees with teaching premises."
+    },
+    {
+      "order": 16,
+      "id": "sofia-stanislav-stratiev-photography",
+      "name": "Станислав Стратиев · сватбен фотограф",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://stanislavstratiev.com/",
+        "https://stanislavstratiev.com/svatben-fotograf-tseni.html"
+      ],
+      "bookingEvidenceUrl": "https://stanislavstratiev.com/svatben-fotograf-tseni.html",
+      "priceCount": 1,
+      "locationDecision": "service_area",
+      "notes": "Actual Reserve Photographer instructions explicitly permit direct phone enquiry and require personal availability/offer agreement before deposit. Accessible current owner price page supplies literal indicative hourly fee, scope and delivery, with no fixed session duration invented. Separate Contacts page presents challenge and was not bypassed/claimed inspected; approved explicit phone fallback on homepage and tariff used. Owner identifies Sofia base; one service-area record."
+    },
+    {
+      "order": 17,
+      "id": "sofia-arsovimage-sofia-events",
+      "name": "ArsovImage · заснемане на събития в София",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://arsovimage.com/",
+        "https://arsovimage.com/contact/",
+        "https://arsovimage.com/pricing/"
+      ],
+      "bookingEvidenceUrl": "https://arsovimage.com/contact/",
+      "priceCount": 1,
+      "locationDecision": "service_area",
+      "notes": "Followed actual Save Date invitation to owner Contacts, inspected appointment instruction, phone and enquiry form, then current Sofia service tariff and homepage. Chosen christening fee and follow-on hourly amount are from directly reviewed 2026 owner tariff, not older search snippet. Owner expressly works in Sofia while studio is in Bozhurishte: one mobile Sofia record only, no false Sofia premises or document-photo retail imported. Legal-terms challenge not bypassed; no hours asserted."
+    },
+    {
+      "order": 18,
+      "id": "sofia-yani-yakov-wedding-photography",
+      "name": "Яни Яков · сватбена фотография",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://yaniyakov.com/",
+        "https://yaniyakov.com/contacts/",
+        "https://yaniyakov.com/tseni-za-svatbena-fotografia/"
+      ],
+      "bookingEvidenceUrl": "https://yaniyakov.com/contacts/",
+      "priceCount": 1,
+      "locationDecision": "service_area",
+      "notes": "Actual general Check Date enquiry form inspected with names/contact, location and package choice; no date checked or submission made. Only SIGNATURE imported: homepage and dedicated tariff agree €1800, two photographers, nine-hour maximum. INTIMATE differs between homepage and tariff in photographer/drone scope and stays separately pending; partner video pricing also excluded. One Sofia-based mobile provider. Seasonal 2027 qualification, deposit, overtime, meal/travel/hotel conditions preserved; no weekly hours guessed."
+    },
+    {
+      "order": 19,
+      "id": "sofia-balin-balev-wedding-photography",
+      "name": "Балин Балев · сватбен фотограф",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://bbalev.com/",
+        "https://bbalev.com/investment/"
+      ],
+      "bookingEvidenceUrl": "https://bbalev.com/investment/",
+      "priceCount": 1,
+      "locationDecision": "service_area",
+      "notes": "Owner actual Date For Your Event booking entry and direct phone invitation reviewed before full investment menu. Main work in Sofia explicitly stated. Literal starting hourly fee is for Collection II with minimum two-hour commitment, not full-event total or deposit; no calculated €270 amount invented. Full-day collection's inconsistent generic delivery/photobook paragraphs are not imported; exact deadline is to be confirmed. No studio street or weekly schedule guessed."
+    },
+    {
+      "order": 20,
+      "id": "sofia-kamen-valkanov-angel-kanchev10b",
+      "name": "Фотография Вълканов 1929 · Камен Вълканов",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://sv29.com/",
+        "https://sv29.com/contacts/",
+        "https://sv29.com/services/portrait-photography/"
+      ],
+      "bookingEvidenceUrl": "https://sv29.com/",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "notes": "Actual Save Session entry followed to owner Contacts with named portrait studio, street and phone; homepage explicitly instructs phone/email/form advance appointments. Dedicated portrait service has exact Art Portrait package fee, one-hour duration, one look, four processed images and print. Other event/reklama packages not substituted. No clock-based studio opening hours found; no map/geocode/third-party media used."
+    },
+    {
+      "order": 21,
+      "id": "sofia-milena-gigova-shumen7",
+      "name": "Милена Гигова · фотограф",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.milenagigova.com/fotosesii-uslugi",
+        "https://www.milenagigova.com/kontakti",
+        "https://www.milenagigova.com/copy-of-%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8",
+        "https://www.milenagigova.com/family-price-list-bg",
+        "https://www.milenagigova.com/prava-i-pravila",
+        "https://www.milenagigova.com/headshots"
+      ],
+      "bookingEvidenceUrl": "https://www.milenagigova.com/kontakti",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "notes": "Actual Save Appointment entry inspected as Contacts And Reservations form, alternate booking page and owner booking/confirmation/deposit terms, then family-specific current Mini tariff. €190 is complete 15-image package for children older than three months and parents, conditional on portfolio publication rights; privacy/weekend/additional-image/deposit qualifications public. Headshots page has inconsistent headline versus itemised sum and is not imported. Real Sofia Shumen 7 studio; no fixed family duration or weekly hours guessed."
+    },
+    {
+      "order": 22,
+      "name": "Cat Shot Tattoo Shop",
+      "website": "https://cat-shot.com/kontakti/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://cat-shot.com/kontakti/"
+      ],
+      "notes": "Three real Sofia studios and daily hours published, including after-hours appointments, but this pass did not establish an explicit phone reservation contact or fully verify named-service enquiry path. Not cloned into three incomplete rows."
+    },
+    {
+      "order": 23,
+      "name": "Dimi Tattoo",
+      "website": "https://dimi-tattoo.com/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://dimi-tattoo.com/"
+      ],
+      "notes": "Owner homepage reader returns no content; indexed page also displays a temporary suspension heading. Reservation/date form and active venue availability need direct confirmation; projected price/deposit not imported."
+    },
+    {
+      "order": 24,
+      "name": "Ink Factory",
+      "website": "https://inkfactory.bg/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://inkfactory.bg/",
+        "https://inkfactory.bg/contacts/"
+      ],
+      "notes": "Real named-artist/time reservation enquiry form and phone read, but accessible owner text did not supply a street address for the permanent Sofia studio. No external map scraping or guessed address."
+    },
+    {
+      "order": 25,
+      "name": "Balkan Tattoo Atelier",
+      "website": "https://balkantattoo.com/en/home-english/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://balkantattoo.com/en/home-english/"
+      ],
+      "notes": "Real tattoo studio at Vitosha 156 with Tuesday–Saturday hours and contact; no explicit first-party appointment invitation or reservation workflow established in this pass. Generic contact alone not accepted."
+    },
+    {
+      "order": 26,
+      "name": "Hells Crew Tattoo",
+      "website": "https://www.hellscrewtattoo.com/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.hellscrewtattoo.com/",
+        "https://www.hellscrewtattoo.com/Ap"
+      ],
+      "notes": "Named tattoo services, Sofia venue and hours present, but actual Appointment entry /Ap is inaccessible. No blocked booking or tariff treated as reviewed or unpublished."
+    },
+    {
+      "order": 27,
+      "name": "Magic Needle Tattoo",
+      "website": "https://vasilevarts.com/index.php/faq/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://vasilevarts.com/index.php/faq/"
+      ],
+      "notes": "Owner tattoo workflow requires in-person design agreement and deposit; phone/email reservations expressly cover extended consultation, with exceptions for some tattoo clients. Full tattoo booking is not misrepresented as ordinary phone appointment. Private-studio schedule also separates visitors from booked clients."
+    },
+    {
+      "order": 28,
+      "name": "Smokov Tattoo",
+      "website": "https://smokov.com/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://smokov.com/",
+        "https://smokov.com/contact/"
+      ],
+      "notes": "Real Sofia owner service gallery and free-consultation contact found, but no explicit advance appointment instruction established in the inspected material. Generic contact did not qualify."
+    },
+    {
+      "order": 29,
+      "name": "SuperSnimki",
+      "website": "https://www.supersnimki.com/services",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.supersnimki.com/services",
+        "https://www.supersnimki.com/booking"
+      ],
+      "notes": "Detailed Sofia photoshoot packages read; actual Book Photoshoot route cache-misses repeatedly. No completed rendered booking review or unpublished-price receipt claimed."
+    },
+    {
+      "order": 30,
+      "name": "MotionLabs",
+      "website": "https://motionlabs.bg/booking",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://motionlabs.bg/booking"
+      ],
+      "notes": "Indexed own studio-rental menu includes genuine rates and Sofia street, but direct booking page returns timeout/502 during this pass. No booking controls verified and no missing-price inference."
+    },
+    {
+      "order": 31,
+      "name": "MN Studio Photography",
+      "website": "https://mnstudio.photo.blog/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://mnstudio.photo.blog/"
+      ],
+      "notes": "Own indexed service/rental description found, but advance appointment evidence and real studio street were not completed. Bare hourly space-price search snippet is not verification."
+    },
+    {
+      "order": 32,
+      "name": "No Limit Studio",
+      "website": "https://nolimitstudio.bg/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://nolimitstudio.bg/",
+        "https://nolimitstudio.bg/services/",
+        "https://nolimitstudio.bg/contacts/"
+      ],
+      "notes": "Owner services include Sofia-base wording but separate travel clauses mention Sliven, and actual Contacts route cache-missed. Full location/booking and applicable tariff conditions need reconciliation."
+    },
+    {
+      "order": 33,
+      "name": "Greenwich language centre",
+      "website": "https://www.greenwichbg.com/bg/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.greenwichbg.com/bg/"
+      ],
+      "notes": "Owner indexed individual lessons and Sofia address appear promising; direct primary page returns 403. No blocked primary menu treated as reviewed."
+    },
+    {
+      "order": 34,
+      "name": "Interactivia",
+      "website": "https://interactivia.bg/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://interactivia.bg/"
+      ],
+      "notes": "Individual in-person Sofia English appears in owner index, but actual page timed out. Booking/service/address review incomplete."
+    },
+    {
+      "order": 35,
+      "name": "Многознайко",
+      "website": "https://mnogoznayko.bg/urotsi/proben-urok/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://mnogoznayko.bg/urotsi/proben-urok/"
+      ],
+      "notes": "Owner indexed trial/individual lessons and fee structure found, but actual enrolment/service page cache-missed. Not imported on search signal alone."
+    },
+    {
+      "order": 36,
+      "name": "Mercury School",
+      "website": "https://mercury.school/uroci/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://mercury.school/uroci/",
+        "https://mercury.school/matematika-7klas/",
+        "https://mercury.school/%D1%86%D0%B5%D0%BD%D0%B8/",
+        "https://mercury.school/contacts-2/"
+      ],
+      "notes": "Real Sofia academic lessons and current prices reviewed, but contact +359883385080 and Malinov 51 venue overlap existing VeneraMusic and owner pages cross-link. Distinct merchant identity must be resolved before adding another provider record."
+    },
+    {
+      "order": 37,
+      "name": "Sense I",
+      "website": "https://www.senseistudy.eu/kids-education/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.senseistudy.eu/kids-education/",
+        "https://www.senseistudy.eu/contacts/",
+        "https://www.senseistudy.eu/%D1%84%D0%BE%D1%80%D0%BC%D0%B0-%D0%B7%D0%B0-%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B2%D0%B0%D0%BD%D0%B5/"
+      ],
+      "notes": "Own child-lesson menu and Sofia address read, but actual enrolment form cache-missed and no explicit telephone appointment fallback established. Monthly totals not copied as single visits."
+    },
+    {
+      "order": 38,
+      "name": "International House Sofia",
+      "website": "https://ihsofia.bg/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://ihsofia.bg/",
+        "https://ihsofia.bg/%D0%9A%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/",
+        "https://ihsofia.bg/%D0%98%D0%BD%D0%B4%D0%B8%D0%B2%D0%B8%D0%B4%D1%83%D0%B0%D0%BB%D0%BD%D0%B8-%D1%83%D1%80%D0%BE%D1%86%D0%B8/"
+      ],
+      "notes": "Real Sofia classrooms and explicit distinction between administration and teaching windows found; actual private-lesson tariff/booking service repeatedly timed out. Solun address also varies 62/64 within owner contacts; no guessed fourth branch."
+    },
+    {
+      "order": 39,
+      "name": "Школа Златното сечение",
+      "website": "https://zlatnotosechenie.com/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://zlatnotosechenie.com/"
+      ],
+      "notes": "Indexed own individual-enquiry form looks promising, but direct page is unreadable in this pass. Rendered service/form review not completed."
+    },
+    {
+      "order": 40,
+      "name": "Академия Олимпия",
+      "website": "https://olympia-academy.bg/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://olympia-academy.bg/",
+        "https://olympia-academy.bg/prices/",
+        "https://olympia-academy.bg/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/",
+        "https://olympia-academy.bg/%D0%B7%D0%B0%D0%BF%D0%B8%D1%82%D0%B2%D0%B0%D0%BD%D0%B5/"
+      ],
+      "notes": "Individual tariff, two-academic-hour minimum and no-after-18 lesson rule read, but actual Enquire/Enrol entry cache-missed. Contact 09:30–18:30 explicitly means answering questions, not teaching hours."
+    },
+    {
+      "order": 41,
+      "name": "Езикопедия",
+      "website": "https://www.ezikopedia.com/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.ezikopedia.com/",
+        "https://www.ezikopedia.com/pages/obuchenie/individualno-obuchenie",
+        "https://www.ezikopedia.com/contacts"
+      ],
+      "notes": "Real current private English/German rates, Sofia classroom and advance contract/payment requirements read. Generic feedback form/contact is not explicit phone appointment invitation; exact intake route remains to be verified."
+    },
+    {
+      "order": 42,
+      "name": "Алианс",
+      "website": "https://www.alliance.bg/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.alliance.bg/",
+        "https://www.alliance.bg/%D0%B8%D0%BD%D0%B4%D0%B8%D0%B2%D0%B8%D0%B4%D1%83%D0%B0%D0%BB%D0%BD%D0%BE-%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BF%D0%BE-%D0%B0%D0%BD%D0%B3%D0%BB%D0%B8%D0%B9%D1%81%D0%BA%D0%B8-%D0%B5%D0%B7%D0%B8%D0%BA"
+      ],
+      "notes": "Owner individual course and BGN price table accessible, but exact individual appointment intake route/branch current tariff not fully verified. General group enrolment news is not enough for private-lesson booking."
+    },
+    {
+      "order": 43,
+      "name": "Нов Лидер",
+      "website": "https://newleader.bg/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://newleader.bg/",
+        "https://newleader.bg/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/",
+        "https://newleader.bg/%D0%BA%D1%83%D1%80%D1%81%D0%BE%D0%B2%D0%B5-%D0%BF%D0%BE-%D0%B0%D0%BD%D0%B3%D0%BB%D0%B8%D0%B9%D1%81%D0%BA%D0%B8-%D0%BE%D1%82-%D0%B4%D0%B5%D0%BA%D0%B5%D0%BC%D0%B2%D1%80%D0%B8/"
+      ],
+      "notes": "Literal private 40-minute rates and real Sofia classroom read. Actual enrolment instructions are in-person payment or email plus transfer; generic Contact form alone was not claimed as a phone/online appointment flow. Office payment hours not teaching hours."
+    },
+    {
+      "order": 44,
+      "name": "Пеперудените криле",
+      "website": "https://suggestopediaenglish.com/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://suggestopediaenglish.com/",
+        "https://suggestopediaenglish.com/courses/razgovoren-angliiski-osnovno-2-sutrin/",
+        "https://suggestopediaenglish.com/zapitvane/"
+      ],
+      "notes": "Real scheduled November Sofia language course with fee/deposit/minimum group read, but actual required preliminary interview/enquiry entry cache-missed. No reservation-flow completion claimed."
+    },
+    {
+      "order": 45,
+      "name": "Славина АРТ",
+      "website": "https://slavina-art.com/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://slavina-art.com/",
+        "https://slavina-art.com/pages/sabitiya/risuvane/",
+        "https://slavina-art.com/pages/kontakti/"
+      ],
+      "notes": "Actual weekly child painting schedule, price and phone-reservation invitation reviewed, but service page simultaneously says Expect Soon. Confirm current active booking and specific venue before importing; two halls are not cloned indiscriminately."
+    },
+    {
+      "order": 46,
+      "name": "Shevnimashini / Ивна",
+      "website": "https://www.shevnimashini.com/index.php?path=170&route=product/category",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.shevnimashini.com/index.php?path=170&route=product/category"
+      ],
+      "notes": "Owner lists dated on-site sewing classes separately from three purchased asynchronous videos, but actual on-site class enrolment invitation/contact route not established. Retail video cart is not a booked physical lesson."
+    },
+    {
+      "order": 47,
+      "name": "Vassileo",
+      "website": "https://www.vassileo.com/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.vassileo.com/",
+        "https://www.vassileo.com/%D1%84%D0%BE%D1%82%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D1%81%D0%BA%D0%B8-%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8/",
+        "https://vassileo.pixieset.com/booking/fotosesiamini",
+        "https://vassileo.pixieset.com/booking"
+      ],
+      "notes": "Owner current photoshoot menu read, but both actual provider booking menu and Mini session entry cache-miss. No public booking-flow completion asserted."
+    },
+    {
+      "order": 48,
+      "name": "Албена Андонова-Матарова",
+      "website": "https://www.albenaandonova.com/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.albenaandonova.com/",
+        "https://www.albenaandonova.com/porachaj-fotosesiya.html"
+      ],
+      "notes": "Real owner homepage accessible but actual Order Photoshoot entry repeatedly inaccessible. Price search snippets not promoted to booking/source review."
+    },
+    {
+      "order": 49,
+      "name": "Ралица Демирева",
+      "website": "https://www.ralitzademireva.com/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.ralitzademireva.com/"
+      ],
+      "notes": "Owner domain surfaced as appointment photographer lead but direct source inaccessible; no primary service/price/booking verification claimed."
+    },
+    {
+      "order": 50,
+      "name": "Цветно · уроци по рисуване",
+      "website": "https://www.cvetno.art/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.cvetno.art/",
+        "https://www.cvetno.art/service-page/%D1%83%D1%80%D0%BE%D1%86%D0%B8-%D0%BF%D0%BE-%D1%80%D0%B8%D1%81%D1%83%D0%B2%D0%B0%D0%BD%D0%B5"
+      ],
+      "notes": "Specific drawing service has €31 homepage versus €30 actual reserve page. Held for reconciliation; separate consistent glass-painting appointment is included."
+    },
+    {
+      "order": 51,
+      "name": "Яни Яков · INTIMATE и партньорско видео",
+      "website": "https://yaniyakov.com/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://yaniyakov.com/",
+        "https://yaniyakov.com/tseni-za-svatbena-fotografia/"
+      ],
+      "notes": "INTIMATE scope differs between homepage (one photographer/no drone) and tariff (two photographers/drone); independent partner video amount also differs. Neither imported. SIGNATURE price/two-photographer/nine-hour scope agrees and is reviewed separately."
+    },
+    {
+      "order": 52,
+      "name": "Милена Гигова · Headshots",
+      "website": "https://www.milenagigova.com/headshots",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.milenagigova.com/headshots"
+      ],
+      "notes": "Headline from €120 conflicts with stated €80 shooting fee plus minimum four €11 images (€124). No computed or headline headshot price imported; independent family Mini inventory reviewed separately."
+    },
+    {
+      "order": 53,
+      "name": "Седеф · групови курсове",
+      "website": "https://www.sedeff.org/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.sedeff.org/",
+        "https://www.sedeff.org/%D0%BF%D1%80%D0%B5%D0%B4%D1%81%D1%82%D0%BE%D1%8F%D1%89%D0%B8-%D0%BA%D1%83%D1%80%D1%81%D0%BE%D0%B2%D0%B5",
+        "https://www.sedeff.org/%D1%86%D0%B5%D0%BD%D0%B8"
+      ],
+      "notes": "Course date/format and deposit details vary across accessible owner/indexed snapshots (upcoming-course €85 versus tariff 20%). Group rows excluded; ordinary individual €30/60min tariff has no such discrepancy."
+    },
+    {
+      "order": 54,
+      "name": "Асториа Груп",
+      "website": "https://astoria-academy.com/",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://astoria-academy.com/",
+        "https://astoria-academy.com/contact/"
+      ],
+      "notes": "Owner contact identifies Varna, not a verified physical Sofia service. Search query relevance was not location evidence."
+    },
+    {
+      "order": 55,
+      "name": "LinguaMundi",
+      "website": "https://linguamundi.org/",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://linguamundi.org/",
+        "https://linguamundi.org/kontakti/"
+      ],
+      "notes": "Owner current contact identifies Plovdiv and Blagoevgrad, not Sofia. Development-domain tariff was not assigned to a nonexistent Sofia branch."
+    },
+    {
+      "order": 56,
+      "name": "Делфин",
+      "website": "https://www.delphinschool.com/",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.delphinschool.com/",
+        "https://www.delphinschool.com/bg/pricing",
+        "https://www.delphinschool.com/contactus"
+      ],
+      "notes": "Actual owner Contact/booking entry identifies Petrich, Macedonia Square 3. No Sofia location verified."
+    },
+    {
+      "order": 57,
+      "name": "Школа Интензив",
+      "website": "https://www.intenziv.com/",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.intenziv.com/"
+      ],
+      "notes": "Owner current main site identifies Gabrovo; no first-party Sofia teaching premises established."
+    },
+    {
+      "order": 58,
+      "name": "ИкигаЙ",
+      "website": "https://www.ikigaibg.com/",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.ikigaibg.com/"
+      ],
+      "notes": "Owner identifies Dimitrovgrad and online, not verified in-person Sofia lessons."
+    },
+    {
+      "order": 59,
+      "name": "Photonya",
+      "website": "https://www.photonya.com/",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.photonya.com/",
+        "https://www.photonya.com/about/",
+        "https://www.photonya.com/prices/",
+        "https://www.photonya.com/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/"
+      ],
+      "notes": "Owner tariff explicitly treats Vratsa as base for travel charges. No Sofia base or exact Sofia branch established; nationwide event travel alone did not produce a cloned Sofia record."
+    },
+    {
+      "order": 60,
+      "name": "Galex Vision",
+      "website": "https://galexvision.com/",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://galexvision.com/"
+      ],
+      "notes": "Owner content repeatedly identifies Plovdiv service/team, not a new Sofia appointment premises."
+    },
+    {
+      "order": 61,
+      "name": "Fantasia Photography studio",
+      "website": "https://fantasiaphotography.mypixieset.com/price/",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://fantasiaphotography.mypixieset.com/price/",
+        "https://fantasiaphotography.mypixieset.com/contact/"
+      ],
+      "notes": "Actual studio street is in Kazichene, a separate settlement; not assigned Sofia city code 68134 or invented Sofia premises. No routine Sofia mobile service area was established for this studio listing."
+    },
+    {
+      "order": 62,
+      "name": "Iris Studio · София",
+      "website": "https://irisstudio.bg/",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://irisstudio.bg/"
+      ],
+      "notes": "Owner expressly says Sofia and Plovdiv serve without reservations; appointment-only Shipka 23 venue is Varna, not Sofia. No walk-in retail/iris print listing imported as appointment business."
+    }
+  ]
+}
+

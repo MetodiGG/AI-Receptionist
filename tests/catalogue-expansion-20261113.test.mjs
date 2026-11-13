@@ -6,7 +6,7 @@ import { NEIGHBORHOOD_20261113_RECORDS as additions, NEIGHBORHOOD_20261113_REVIE
 import { approvedCatalogueRecord, validateCatalogue } from '../lib/discovery/catalogue-policy.mjs'
 import { auditCatalogueBatch } from '../lib/discovery/catalogue-audit.mjs'
 import { assessPricingReview } from '../lib/discovery/catalogue-pricing-review.mjs'
-import { catalogueExpansionReport } from '../scripts/catalogue-expansion-report.mjs'
+import { catalogueExpansionReport, reportBusinessType } from '../scripts/catalogue-expansion-report.mjs'
 import { searchCatalogueForOnboarding, catalogueOnboardingDetail, createCatalogueOnboardingHandler } from '../lib/catalogue-onboarding.mjs'
 import { normalizeCatalogueBusinesses } from '../lib/discovery/catalogue-search.mjs'
 import { serviceThumbnail } from '../lib/service-thumbnail.mjs'
@@ -171,8 +171,16 @@ test('neighborhood/category report counts businesses separately from services an
   assert.equal(report.comparison.addedServiceFacts, additions.reduce((count, row) => count + row.services.length, 0))
   assert.equal(report.comparison.addedByNeighborhood.reduce((count, row) => count + row.businesses, 0), additions.length)
   assert.equal(report.comparison.addedMobileProviders, additions.filter(row => row.locationKind === 'service_area').length)
-  assert.equal(report.comparison.addedByBusinessType['Психология и психотерапия'], 7)
+  assert.equal(report.comparison.addedByBusinessType['Психология и психотерапия'], 24)
+  assert.equal(report.comparison.addedByBusinessType['Психиатрия'], 1)
   assert.equal(report.sourceRecords, baseline.sourceCount + additions.length)
   assert.equal(report.excludedGeneralClinics.length, 23)
   assert.equal(report.currentlyEligible, baseline.sourceCount - 23 + additions.length)
+})
+
+test('reporting distinguishes selected psychology visits in mixed practices from the actual psychiatry visit', () => {
+  for (const id of ['sofia-orpheus-psychotherapy-shipchenski52', 'sofia-kabinet-six-stefan-stambolov57']) {
+    assert.equal(reportBusinessType(additions.find(row => row.id === id)), 'Психология и психотерапия')
+  }
+  assert.equal(reportBusinessType(additions.find(row => row.id === 'sofia-stimul-psychiatry-pimen-zografski38')), 'Психиатрия')
 })

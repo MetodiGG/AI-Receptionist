@@ -1,0 +1,638 @@
+{
+  "checkedOn": "2026-11-13",
+  "validUntil": "2027-02-11",
+  "scope": "Distinct Sofia private psychologists/psychotherapists/psychiatry and pet-grooming intake. Final verified set contains mental-health practices only; the promising extra groomer was an existing exact-phone/address identity and was rejected.",
+  "summary": {
+    "records": 18,
+    "categories": {
+      "other": 18,
+      "pets": 0
+    },
+    "services": 20,
+    "priceRows": 13,
+    "priceReviewed": 11,
+    "unpricedServiceReviewed": 7,
+    "pending": 23,
+    "rejected": 6,
+    "dedupeSnapshotRecords": 1153
+  },
+  "finalAudit": {
+    "checkedOn": "2026-11-13",
+    "schemaPassed": 18,
+    "sourceGateReady": 18,
+    "strictPriceReviewsPassed": 11,
+    "strictUnpublishedServiceReviewsPassed": 7,
+    "exactPhoneOrOwnerDomainDuplicates": 0,
+    "nativePublicPartnerPhoneMatches": 0,
+    "focusedTestsPassed": 15,
+    "inventoryIdentities": "Omitted here for root integration; assessments used ephemeral pricingIdentity fingerprints.",
+    "appointmentReview": "Zdravko Asparuhov's complete owner phone/chat/callback and proposed-hour paragraph independently checked by integration reviewer. Viber preference is disclosed; no automatic availability, price or duration invented."
+  },
+  "evidencePolicy": "Owner/merchant booking entry reviewed before service/fee evidence. Public tariff is optional only with an explicit not_publicly_listed receipt for reviewed accessible service/appointment pages. Blocked actual menus, unresolved identity/address conflicts and online-only services stay pending/rejected. No Google/maps/provider-restricted scraping, geocoding, paid APIs, submissions, production or shared import/photo edits.",
+  "ledger": [
+    {
+      "order": 1,
+      "id": "sofia-iveta-rangelova-sveta-nedelya16",
+      "name": "Ивета Георгиева Рангелова · психолог и психотерапевт",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.iveta.bg/",
+        "https://www.iveta.bg/contact/",
+        "https://www.iveta.bg/nachin-na-rabota-iveta-rangelova-psiholog/ceni-terapiq/"
+      ],
+      "bookingEvidenceUrl": "https://www.iveta.bg/contact/",
+      "priceCount": 2,
+      "locationDecision": "premises",
+      "notes": "Reviewed actual booking/contact form and ordinary therapy tariffs. Individual appointment is 50 EUR/50 minutes, couples 60 EUR/60 minutes; missed appointment without 24-hour notice is payable. The stated weekdays 09–18 are telephone availability/callback instructions, not a confirmed therapy schedule, so no openingHours imported."
+    },
+    {
+      "order": 2,
+      "id": "sofia-tsveta-topuzlieva-gladston32",
+      "name": "Цвета Топузлиева · психолог и психотерапевт",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://ttherapy.bg/",
+        "https://ttherapy.bg/contact/",
+        "https://ttherapy.bg/kakvo-da-ochakvate/",
+        "https://ttherapy.bg/kognitivno-povedencheska-terapia/"
+      ],
+      "bookingEvidenceUrl": "https://ttherapy.bg/contact/",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "notes": "Reviewed actual phone-booking instructions, initial-consultation process and ordinary 60 EUR/60-minute and 85 EUR/90-minute options. Imported only the 60-minute session. Telephone answering window 09–10 weekdays is explicitly not therapy opening hours; no weekly consultation schedule guessed."
+    },
+    {
+      "order": 3,
+      "id": "sofia-metamorfozia-elena-nikolova-pop-bogomil49",
+      "name": "Елена Николова · кабинет Метаморфозия",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.metamorfozia.com/",
+        "https://www.metamorfozia.com/kontakti",
+        "https://www.metamorfozia.com/individualna-psihoterapia",
+        "https://www.metamorfozia.com/kontakt/"
+      ],
+      "bookingEvidenceUrl": "https://www.metamorfozia.com/kontakti",
+      "priceCount": 0,
+      "locationDecision": "premises",
+      "notes": "Reviewed current booking inquiry form and individual-psychotherapy page, not only homepage. Current service/booking pages give 45-minute sessions with adults and no public numeric consultation fee. Legacy contact URL publishes hours, while current contact page does not; left weekly schedule absent instead of assuming legacy hours remain current."
+    },
+    {
+      "order": 4,
+      "id": "sofia-adaptacia-tsar-simeon13",
+      "name": "Адаптация · амбулатория за психично здраве",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.adaptacia.info/",
+        "https://www.adaptacia.info/ceni/",
+        "https://www.adaptacia.info/kontakti/"
+      ],
+      "bookingEvidenceUrl": "https://www.adaptacia.info/kontakti/",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "notes": "Reviewed own booking/contact instructions and complete tariff; only psychology/psychotherapy imported, not general human medical specialties. 50 EUR standard psychological session is up to 50 minutes, so not encoded as exact duration. Cancellation is payable unless notice at least one day ahead. Actual practice hours 09–19 weekdays confirmed on contact page."
+    },
+    {
+      "order": 5,
+      "id": "sofia-orpheus-psychotherapy-shipchenski52",
+      "name": "Орфеус · частна психиатрична и психотерапевтична практика",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://tarashoeva.com/",
+        "https://tarashoeva.com/kontakti",
+        "https://tarashoeva.com/terapevtichni-sesii"
+      ],
+      "bookingEvidenceUrl": "https://tarashoeva.com/terapevtichni-sesii",
+      "priceCount": 0,
+      "locationDecision": "premises",
+      "notes": "Reviewed actual therapeutic-sessions page and phone appointment instructions with own street address. Individual psychotherapy is a real appointment service, 50 minutes. Contact and service pages disclose no numeric ordinary session fee and no weekly opening hours, only by prior appointment. Practice does not work with NHIF; no general medical specialties included."
+    },
+    {
+      "order": 6,
+      "id": "sofia-iva-slavkova-tsar-petar9",
+      "name": "Ива Славкова · психолог и психотерапевт",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://ivaslavkova.com/",
+        "https://ivaslavkova.com/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/",
+        "https://ivaslavkova.com/%D0%B8%D0%BD%D0%B4%D0%B8%D0%B2%D0%B8%D0%B4%D1%83%D0%B0%D0%BB%D0%BD%D0%B0-%D1%81%D0%B5%D1%81%D0%B8%D1%8F/"
+      ],
+      "bookingEvidenceUrl": "https://ivaslavkova.com/%D0%B8%D0%BD%D0%B4%D0%B8%D0%B2%D0%B8%D0%B4%D1%83%D0%B0%D0%BB%D0%BD%D0%B0-%D1%81%D0%B5%D1%81%D0%B8%D1%8F/",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "notes": "Reviewed own appointment invitation and actual individual-session tariff, then owner contact page street. 90 BGN for 50 minutes. Cancellation later than 48 hours incurs a fee, amount not stated. Owner service page gives 13–20 without weekdays; no guessed seven-day schedule. Other provider address references are not copied."
+    },
+    {
+      "order": 7,
+      "id": "sofia-slav-slavov-dyakon-ignatiy19",
+      "name": "Слав Славов · психолог и психотерапевт",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://gloriouswinner.com/",
+        "https://gloriouswinner.com/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/",
+        "https://lekarionline.com/doctors/slav-slavov"
+      ],
+      "bookingEvidenceUrl": "https://gloriouswinner.com/",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "notes": "Followed owner actual booking CTA into rendered Lekarionline Sofia cabinet profile/calendar without selecting a slot. Own current tariff distinguishes first appointment 80 EUR vs subsequent 70 EUR, up to 60 minutes; no exact duration or weekly hours inferred from three dated provider-calendar columns. Only ordinary consultation included, no Reiki or legal documents."
+    },
+    {
+      "order": 8,
+      "id": "sofia-kabinet-six-stefan-stambolov57",
+      "name": "Кабинет № 6 · психологическа и психиатрична практика",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://kabinet6.com/",
+        "https://kabinet6.com/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/",
+        "https://kabinet6.com/%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8/"
+      ],
+      "bookingEvidenceUrl": "https://kabinet6.com/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/",
+      "priceCount": 0,
+      "locationDecision": "premises",
+      "notes": "Reviewed own appointment/contact page and actual services page. Psychology phone belongs to Dorota Parvulova, separately from psychiatrist's number. Published inventory has psychological consultation and therapy but no numeric fee or fixed duration. Specialists work individual weekly schedules; no common opening hours invented."
+    },
+    {
+      "order": 9,
+      "id": "sofia-dinamika-murphy22",
+      "name": "Център Динамика · психотерапия",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://dinamikasofia.com/",
+        "https://dinamikasofia.com/bg/%D0%A2%D0%B5%D1%80%D0%B0%D0%BF%D0%B8%D1%8F.html",
+        "https://dinamikasofia.com/bg/%D0%9A%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8.html"
+      ],
+      "bookingEvidenceUrl": "https://dinamikasofia.com/bg/%D0%A2%D0%B5%D1%80%D0%B0%D0%BF%D0%B8%D1%8F.html",
+      "priceCount": 2,
+      "locationDecision": "premises",
+      "notes": "Reviewed actual first-appointment phone process and therapy tariff. First individual assessment is 45–65 EUR/50 min; first family assessment 60–75 EUR/75 min. Later consultations are a separate lower 30–50 EUR band, not imported. Phone-answering weekdays09–12+14–17 are explicitly contact hours, not therapy hours."
+    },
+    {
+      "order": 10,
+      "id": "sofia-stimul-psychiatry-pimen-zografski38",
+      "name": "МЦ Стимул · психиатрична практика",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.stimul.bg/",
+        "https://www.stimul.bg/taksi",
+        "https://calendar.stimul.bg/",
+        "https://calendar.stimul.bg/Patient/calendar?doctor=2"
+      ],
+      "bookingEvidenceUrl": "https://www.stimul.bg/taksi",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "notes": "Followed own online-booking entry to practice/doctor chooser; individual calendar timed out, so public phone appointment route is used. Own complete fees page explicitly publishes standard Bulgarian psychiatric examination 50 EUR/30min and telephone booking. No English/Russian tariff imported due different bilingual amounts; no neuromodulation, tests or general-doctor services. No complete weekly hours guessed."
+    },
+    {
+      "order": 11,
+      "id": "sofia-nadezhda-muzdrakova-joliot-curie20",
+      "name": "Надежда Муздракова · психолог",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.muzdrakova.com/"
+      ],
+      "bookingEvidenceUrl": "https://www.muzdrakova.com/",
+      "priceCount": 0,
+      "locationDecision": "premises",
+      "notes": "Single-page owner site: reviewed actual appointment invitation/contact form plus Services and Sessions sections, including lower page lines233–306; not just introductory homepage copy. Real office and individual consultations confirmed. No numeric consultation tariff, fixed duration or weekly schedule published; no therapy or diagnosis claims invented."
+    },
+    {
+      "order": 12,
+      "id": "sofia-petya-dimova-hadzhi-dimitar19",
+      "name": "Петя Димова · фамилен психолог",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://petya-dimova.com/"
+      ],
+      "bookingEvidenceUrl": "https://petya-dimova.com/",
+      "priceCount": 0,
+      "locationDecision": "premises",
+      "notes": "Owner single-page site reviewed fully: actual phone appointment instruction, office section, resume and family/individual service scope. Qualified family psychologist and family counselor, not a general human physician. No numeric appointment tariff or duration/weekly hours appears in these sections; no blocked separate price page substituted."
+    },
+    {
+      "order": 13,
+      "id": "sofia-zdravko-asparuhov-bogdan21",
+      "name": "Здравко Аспарухов · психолог и психотерапевт",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.zapsychotherapy.com/"
+      ],
+      "bookingEvidenceUrl": "https://www.zapsychotherapy.com/",
+      "priceCount": 0,
+      "locationDecision": "premises",
+      "notes": "Reviewed actual contact/appointment instructions and service scope on full single-page owner site. Provider prefers Viber, also responds to telephone inquiries; requests type of therapy, preferred time and email before proposing an appointment, later confirmed by email. No numerical tariff, duration or weekly hours published; no availability implied."
+    },
+    {
+      "order": 14,
+      "id": "sofia-teodora-marinova-pchela199",
+      "name": "Теодора Маринова · психолог и психотерапевт под супервизия",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://tm-psychology.com/",
+        "https://superdoc.bg/lekar/teodora-marinova"
+      ],
+      "bookingEvidenceUrl": "https://tm-psychology.com/",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "notes": "Followed actual owner Superdoc booking link and reviewed Sofia independent-practice branch, address, cancellation conditions and rendered merchant tariff. Bulgarian individual psychological consultation40 EUR/50min; English50 EUR and family75min60EUR are separate and omitted. Free cancellation until24h, later fee payable. Practitioner explicitly works under supervision. No weekly hours inferred from next available slot."
+    },
+    {
+      "order": 15,
+      "id": "sofia-tsvetelina-shopnikolova-james-bourchier76",
+      "name": "Цветелина Шопниколова · клиничен психолог",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://drshopnikolova.com/",
+        "https://superdoc.bg/lekar/tsvetelina-shopnikolova"
+      ],
+      "bookingEvidenceUrl": "https://drshopnikolova.com/",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "notes": "Followed owner actual Book CTA to rendered merchant booking profile and exact DKC CherniVrah Sofia branch with published phone, street and service menu. Only independent named clinical psychologist appointment imported, not general DKC specialties. Individual psychological consultation50 EUR/50min is explicit; family60min65EUR not conflated. Owner shell text still loading, therefore source service/address/price facts are merchant booking profile, not guessed."
+    },
+    {
+      "order": 16,
+      "id": "sofia-stoyan-kuzmanov-slavyanska22",
+      "name": "Стоян Кузманов · психотерапевтичен кабинет АтелиеТО",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.stoyankuzmanov.com/",
+        "https://www.stoyankuzmanov.com/about",
+        "https://www.stoyankuzmanov.com/uslugi",
+        "https://www.stoyankuzmanov.com/service-page/%D1%82%D0%B5%D1%80%D0%B0%D0%BF%D0%B5%D0%B2%D1%82%D0%B8%D1%87%D0%BD%D0%B8-%D1%81%D0%B5%D1%81%D0%B8%D0%B8",
+        "https://superdoc.bg/doctor/dashboard"
+      ],
+      "bookingEvidenceUrl": "https://www.stoyankuzmanov.com/about",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "notes": "Reviewed actual owner phone booking instructions and individual therapy service detail with 70 EUR/60min, for clients over14, ordinary long-term sessions. Broken Superdoc CTA points to doctor dashboard, so use explicit published phone route, not a provider form. Bank transfer is due2days before meeting; cancellation under24h payable; out-of-hours+50%. Recommended10–12session process is not priced as one package. Own weekdays09–20/weekends individual plan confirmed."
+    },
+    {
+      "order": 17,
+      "id": "sofia-kiril-grozdanov-triaditsa5b",
+      "name": "Кирил Грозданов · психолог",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://psygrozdanov.com/",
+        "https://psygrozdanov.com/%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8/",
+        "https://psygrozdanov.com/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/"
+      ],
+      "bookingEvidenceUrl": "https://psygrozdanov.com/%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8/",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "notes": "Reviewed actual owner telephone appointment FAQ, services tariff and contact page identifying separate Sofia cabinet (not Dupnitsa). Ordinary consultation50 EUR/60min is published. Contact form needs JS, so phone route chosen. Same-day cancellation leaves full amount payable; no weekly office schedule published. No second-city clone or online-only location inferred."
+    },
+    {
+      "order": 18,
+      "id": "sofia-yancho-yanchev-galichitsa37",
+      "name": "Янчо Янчев · психоаналитик и психотерапевт",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://psychotherapy-sofia.com/method/",
+        "https://psychotherapy-sofia.com/book-appointment/"
+      ],
+      "bookingEvidenceUrl": "https://psychotherapy-sofia.com/book-appointment/",
+      "priceCount": 0,
+      "locationDecision": "premises",
+      "notes": "Reviewed actual phone-booking page and detailed individual psychotherapy/method page. No own numeric session fee published; the30–100BGN passage describes the general Bulgarian market, not this practitioner's tariff, and was not imported. Phone answering10–19 daily differs from explicit office hours09:30–18:30 weekdays; only office block used. Less-than24h cancellation payable. Official owner method URL is used because domain landing page timed out."
+    },
+    {
+      "name": "Тодор Шопов",
+      "website": "https://todorshopov.com/services/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://todorshopov.com/services/"
+      ],
+      "notes": "Actual services page redirects to hosting suspended-account page. Search snippets show fees, but current tariff/booking cannot be reviewed; not treated as unpublished.",
+      "order": 19
+    },
+    {
+      "name": "Ваня Овчарова",
+      "website": "https://www.psihoterapia.biz/knt.php",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.psihoterapia.biz/knt.php"
+      ],
+      "notes": "Owner search result has appointment, fee and address, but direct page returns 502/cache miss. Another current owner /work/ route needs review before inclusion.",
+      "order": 20
+    },
+    {
+      "name": "Албена Венкова · PsihologSofia",
+      "website": "https://psihologsofia.bg/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://psihologsofia.bg/"
+      ],
+      "notes": "Actual embedded booking workflow and 60 EUR tariff available, but contact page renders only generic Sofia office wording, no real street address. Not inventing a premises address or using service_area to mask a missing office.",
+      "order": 21
+    },
+    {
+      "name": "Весела Манова",
+      "website": "https://veselamanova.com/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://veselamanova.com/"
+      ],
+      "notes": "Ordinary adult consultation 65 EUR/60 min is published, but actual booking product lacks readable date/time widget and contact page gives no Sofia street. No appointment submitted.",
+      "order": 22
+    },
+    {
+      "name": "Искра Пулин",
+      "website": "https://www.psihologiskrapulin.com/",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.psihologiskrapulin.com/"
+      ],
+      "notes": "Actual booking page places current cabinet at Ruse, ul.19 fevruari4, not Sofia. Search geography was misleading.",
+      "order": 23
+    },
+    {
+      "name": "RoSSy's Art Grooming",
+      "website": "https://rossygroom.bg/",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://rossygroom.bg/"
+      ],
+      "notes": "Owner website explicitly gives ul.VasilAprilov12,Varna. Not a Sofia premises.",
+      "order": 24
+    },
+    {
+      "name": "Mr. & Mrs. Pet",
+      "website": "https://mrmrspet.bg/",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://mrmrspet.bg/"
+      ],
+      "notes": "Owner grooming page gives s.GorniBogrov,HanBogrov33. Separate settlement, not Sofia68134; not relabeled as city office.",
+      "order": 25
+    },
+    {
+      "name": "Анастасия Манолска · Отвъд",
+      "website": "https://otvud.bg/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://otvud.bg/"
+      ],
+      "notes": "Phone/form booking and therapy service visible but no owner-published Sofia street address; in-person practice cannot be geolocated honestly.",
+      "order": 26
+    },
+    {
+      "name": "Боряна Ангелова · Открий себе си",
+      "website": "https://findyourself.today/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://findyourself.today/"
+      ],
+      "notes": "Owner homepage has Sofia street and appointment links, but actual /events booking entry cache-miss and /services shows access challenge; blocked inventory not counted unpublished.",
+      "order": 27
+    },
+    {
+      "name": "Славина Коцева",
+      "website": "https://slavinakotzeva.com/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://slavinakotzeva.com/"
+      ],
+      "notes": "Homepage includes actual booking invitation, Sofia street and consultation hours, but linked actual services and booking-contact pages are cache misses; deeper tariff absence not yet established.",
+      "order": 28
+    },
+    {
+      "name": "Мария Вапцарова",
+      "website": "https://vaptsarova.bg/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://vaptsarova.bg/"
+      ],
+      "notes": "Own consultation tariff exists, but primary Book links to AzOn already present in authoritative baseline. Actual AzOn booking route unreadable; hold pending distinct practice identity and appointment branch verification.",
+      "order": 29
+    },
+    {
+      "name": "Jigullett grooming salon",
+      "website": "https://www.notino.bg/saloni/jigullett-grooming-salon/",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.notino.bg/saloni/jigullett-grooming-salon/"
+      ],
+      "notes": "Exact phone +359899890757 and Orel8 address already present as Jigullett·Hladilnika in full authoritative baseline. Rejected after cross-phone dedupe; not added as a second provider profile.",
+      "order": 30
+    },
+    {
+      "name": "Физис · Гергана Кехайова",
+      "website": "https://www.physis.bg/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.physis.bg/"
+      ],
+      "notes": "Real Sofia address and45EUR/60min owner tariff reviewed. Explicit reservation instructions on prices page refer only to online email/prepayment, while in-person contacts page is generic; hold until actual in-office appointment invitation confirmed.",
+      "order": 31
+    },
+    {
+      "name": "Атeлие Афект",
+      "website": "https://atelieafect.com/",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://atelieafect.com/"
+      ],
+      "notes": "Shared TsarSimeon13 practice includes NikoletaNikolova already in authoritative baseline with same psychotherapy office; do not add second center profile without separate business inventory verification.",
+      "order": 32
+    },
+    {
+      "name": "Мартин Пазарджиев · hOUR SPACE",
+      "website": "https://www.hourspace.bg/martin-pazarjiev",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.hourspace.bg/martin-pazarjiev"
+      ],
+      "notes": "Real private therapist owner-hosted profile publishes45EUR/50min and65EUR/80mincouples; actual booking https://hourspacetherapy.as.me/martin-pazardjiev returns cache miss. Not calling actual booking tariff unpublished.",
+      "order": 33
+    },
+    {
+      "name": "Делян Киров · hOUR SPACE",
+      "website": "https://www.hourspace.bg/delyan-kirov",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.hourspace.bg/delyan-kirov"
+      ],
+      "notes": "Private psychology profile gives Sofia Vitosha1A cabinet365 and actual booking https://hourspace.as.me/delyan-kirov, but actual scheduler cache-miss. No unpublished receipt issued.",
+      "order": 34
+    },
+    {
+      "name": "АЛМА · психотерапевтичен център",
+      "website": "https://www.almatherapy.bg/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.almatherapy.bg/"
+      ],
+      "notes": "Owner individual60min service andMoskowska21B address reviewed. Both actual individual reservation URLs on book.almatherapy.bg return cache miss; no completed tariff absence conclusion.",
+      "order": 35
+    },
+    {
+      "name": "Савина Дилова",
+      "website": "https://savinadilova.com/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://savinadilova.com/"
+      ],
+      "notes": "Real psychology/therapy practice andTriaditsa5B address reviewed. Actual Book flow only free15minonline introduction and email-gated calendar; no verified ordinary in-office booking/fee path. Do not count online lead intake as an in-office consultation.",
+      "order": 36
+    },
+    {
+      "name": "Детелина Стаменова",
+      "website": "https://www.detelinastamenova.com/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.detelinastamenova.com/"
+      ],
+      "notes": "Actual phone appointment page available, but linked FAQ tariff/terms page shows access challenge and current page only city without street. No inference of unlisted prices or old office.",
+      "order": 37
+    },
+    {
+      "name": "Даниел Троев",
+      "website": "https://www.danieltroev.com/",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.danieltroev.com/"
+      ],
+      "notes": "Actual consultation booking article explicitly says he currently offers only online consultations countrywide/abroad. No Sofia premises appointment to add.",
+      "order": 38
+    },
+    {
+      "name": "HappyMind · Корнелия Борисова",
+      "website": "https://happymind.bg/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://happymind.bg/"
+      ],
+      "notes": "Current actual contact/booking form and45EUR/50min tariff visible, but street removed from current owner page; only an older search excerpt saysTodorKableshkov53. Not copied over current generic Sofia map link or geocoded.",
+      "order": 39
+    },
+    {
+      "name": "Баланс · психология",
+      "website": "https://psiholog-logopedbg.com/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://psiholog-logopedbg.com/"
+      ],
+      "notes": "Own homepage has appointment-process form, NarodnoHoro87A and30/35/50EUR fees, but linked actual services page inaccessible on repeated normal URLs. Hold deeper service review; not treated as unpublished.",
+      "order": 40
+    },
+    {
+      "name": "Стела Хараламбова",
+      "website": "https://haralambova.com/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://haralambova.com/"
+      ],
+      "notes": "Current contact route lists only online consultation fees and redirects actual booking to doteb.bg; old2019 Sofia office article is not sufficient current in-person confirmation.",
+      "order": 41
+    },
+    {
+      "name": "Мария Петкова · В съзвучие",
+      "website": "https://www.sazvuchie.bg/konsultacii/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.sazvuchie.bg/konsultacii/"
+      ],
+      "notes": "Real50EUR/60min psychology service andPrespa2 Sofia verified. First sessions require written Viber/email intake; preparation says answers only written queries, so not mislabeled phone-bookable. Returning-client Google calendar not opened under no-Google constraint.",
+      "order": 42
+    },
+    {
+      "name": "Angel Dent",
+      "website": "https://angeldents.com/prices/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://angeldents.com/prices/"
+      ],
+      "notes": "Actual published phone-appointment tariff available, but landing/contact URLs inaccessible and no real street or hours on reviewed tariff page. No invented premises address.",
+      "order": 43
+    },
+    {
+      "name": "YourSmile · Йорданка Бановска",
+      "website": "https://yoursmile.bg/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://yoursmile.bg/"
+      ],
+      "notes": "Owner25EURoral exam andrealVasilKanchev26/Superdocbranch verified. Provider price anchor did not expose menu in rendered response; homepage hoursMon14–20 differ fromServicesMon09–17. Hold for actual tariff reconciliation and no hours guessed.",
+      "order": 44
+    },
+    {
+      "name": "Lozenetz Dental Clinic",
+      "website": "https://lozenetzdentalclinic.com/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://lozenetzdentalclinic.com/"
+      ],
+      "notes": "Owner30EURexam tariff andBigla50 address available; actual booking opens5specialists with separate calendars/fees not fully inspected. Not claiming full branch/staff pricing review.",
+      "order": 45
+    },
+    {
+      "name": "Deutsche Dental Klinik",
+      "website": "https://ddk.bg/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://ddk.bg/"
+      ],
+      "notes": "Own site inaccessible through browser tool; no appointment or tariff receipt completed.",
+      "order": 46
+    },
+    {
+      "name": "Vasident",
+      "website": "https://vasident.com/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://vasident.com/"
+      ],
+      "notes": "Own site inaccessible through browser tool; search/directories cannot substitute actual appointment service/price review.",
+      "order": 47
+    }
+  ]
+}
+

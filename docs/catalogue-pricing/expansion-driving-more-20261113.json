@@ -1,0 +1,26 @@
+{
+  "checkedOn": "2026-11-13",
+  "scope": "Ten distinct Sofia driving schools/offices, selected refresher appointments or explicitly labelled packages. Static import only after schema, source, duplicate, photo and pricing-identity review. No calls or enrolments.",
+  "sourceModule": "lib/discovery/catalogue-data/neighborhood-driving-more-20261113.mjs",
+  "approved": [
+    {"id":"sofia-vasilena-drive-zheko-voyvoda","sources":["https://vasilenadrive.com/","https://vasilenadrive.com/contact/","https://vasilenadrive.com/services/"],"note":"30EUR/drivinghour,min2hours. Country-restricted form not bypassed; explicit own alternatephonebooking used. No assumption onehourmeans60minutes."},
+    {"id":"sofia-navigator-totleben","sources":["https://navigator-bg.org/"],"note":"30EUR/academic-hour, actual explicit enrolmentphones, current November2026course announcement, Totleben34 office. Fullcourse1200EUR not a lessonprice."},
+    {"id":"sofia-ddrive-obelya","sources":["https://ddrive.website/"],"note":"40EUR/refresherhour, actual own enquiryform with service choice, exact Obelya office; metropickup stations not separate offices."},
+    {"id":"sofia-vip-drive-lyulin7","sources":["https://www.vipdrivebg.com/","https://www.vipdrivebg.com/contact"],"note":"30EUR/refresherhour, actual owned bookingform, exact Lyulin7GreenCenteroffice. Promotions and enrolment/examfees excluded."},
+    {"id":"sofia-avtokursove-slavov-suhata-reka","sources":["https://avtokursslavov.com/%D0%BE%D0%BF%D1%80%D0%B5%D1%81%D0%BD%D0%B8%D1%82%D0%B5%D0%BB%D0%BD%D0%B8-%D1%88%D0%BE%D1%84%D1%8C%D0%BE%D1%80%D1%81%D0%BA%D0%B8-%D1%87%D0%B0%D1%81%D0%BE%D0%B2%D0%B5/","https://avtokursslavov.com/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/"],"note":"25EURperacademic-hour for1–8hours; exact block224andphone. Larger-bundle22/23EURdiscount not ordinaryrate; individual schedule no fixedhours guessed."},
+    {"id":"sofia-express-v-kirill-popov","sources":["https://avtokurs.bg/online-zapisvane-avtokurs/","https://avtokurs.bg/","https://avtokurs.bg/avtoshkola/","https://avtokurs.bg/contact-express-b/"],"note":"Actual enrolmentform; owner50min refresher no numeric price. Full course1100EUR not used. Exact branchphone/address corroboratedcontactandfooter."},
+    {"id":"sofia-express-v-boris-stefanov","sources":["https://avtokurs.bg/online-zapisvane-avtokurs/","https://avtokurs.bg/","https://avtokurs.bg/avtoshkola/","https://avtokurs.bg/contact-express-b/"],"note":"Separate verified officewithownphone, not an instructor duplicate; same explicitly owned50min service, no branchfee inferred."},
+    {"id":"sofia-ucha-zad-volana-slavia","sources":["https://uchazadvolana.bg/enroll","https://uchazadvolana.bg/prices","https://uchazadvolana.bg/contact"],"note":"ActualJSIABreview complete.300EUR is total for5refresherdrives, notfullcourse deposit or onevisitfee. Actual contacttraining/scheduleenquiryform, Koloman6namedoffice; nofinancialaction."},
+    {"id":"sofia-ucha-zad-volana-lozenets","sources":["https://uchazadvolana.bg/enroll","https://uchazadvolana.bg/prices","https://uchazadvolana.bg/contact"],"note":"Secondexplicitly namedownoffice JamesBourchier99–101. UnclearMotopista1404postcode-like number not imported; no additionalquarterclones."},
+    {"id":"sofia-lider-drive-tsarigradsko100","sources":["https://liderdrive-bg.com/"],"note":"ActualIAB45EURrefresherChooseCTA→signupformchecked, no submission. ExactSofiaaddress andphone repeatedlocation/footer. Mon-Sat08–21 literal sixdays; Sundayunknown, notclosed. ElinPelinnotofficeinSofia."}
+  ],
+  "pending": [
+    {"website":"https://www.eurocar3.com/","reason":"30BGN vs45BGN refresher price conflict across owner pages, including malformed EUR amount; not imported and not labelled unpublished."},
+    {"website":"https://zuzi.bg/","reason":"Appointment andservice exist but exact Sofia street still unconfirmed."},
+    {"website":"https://y1-sofia.com/","reason":"SofiaMladost only, no exactstreet; intakehours not lessonhours. Captcha not solved."},
+    {"website":"https://tonisofia.com/","reason":"20BGN lesson alongside veryold290BGN full-course context; requires current tariff confirmation."},
+    {"website":"https://www.avtoshkola-stop.com/","reason":"Actual25EURhour and phone confirmed but only map embed forvenue; exact owned textualaddress still absent."},
+    {"website":"https://kumanovi.com/","reason":"Actual Plovdiv business, not Sofia."},
+    {"website":"https://silviins.bg/","reason":"Actual Varna office, not Sofia."}
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "checkedOn": "2026-11-13",
+  "scope": "Continued own-source Sofia consultations, ordinary reservable appointments only. In progress; import and normalized static identity require final review.",
+  "sourceModule": "lib/discovery/catalogue-data/neighborhood-consulting-more-20261113.mjs",
+  "approved": [
+    { "id": "sofia-todor-mangarov-tundzha", "sources": ["https://tml-consult.bg/", "https://tml-consult.bg/contact/", "https://tml-consult.bg/advokatsko-vaznagrazhdenie/"], "note": "100EUR oral onsite consultation, actual request form, full weekly hours; no duration limit invented. Free phone introduction not mislabeled onsite tariff." },
+    { "id": "sofia-lina-tadros-alabin", "sources": ["https://advokat-tadros.com/", "https://advokat-tadros.com/contact/", "https://advokat-tadros.com/tarifa/"], "note": "Explicit phone appointment, full exact office address, individually agreed unpublished consultation price; no hours published." },
+    { "id": "sofia-ilona-petrova-pozitano", "sources": ["https://www.advokatpetrova.com/faq"], "note": "Actual own onsite phone appointment and50–100BGN ordinary initial consultation range, exactstreetphoneandweeklyhours verified.30–60minute range preserved in description, no fixed duration. Separate inaccessible online-calendar path not claimed inspected and no online fee used." },
+    { "id": "sofia-stanislav-stefanov-lyubata", "sources": ["https://stefanovlaw.com/kontakti/", "https://stefanovlaw.com/tarifa/"], "note": "Exact Lyubata7parter office and true Bulgarianphone. Actual own booking enquiry form and individually-agreed30/60minute onsite consultation types reviewed. Written remote opinion100–300BGN excluded, no ordinary numerical price published. Another ownaddress not used to multiply businesscount; template contacts ignored." }
+  ],
+  "pending": [
+    { "website": "https://www.advokatdzhendova.com/", "reason": "Actual Contacts identifies Varna and booking menu is remote-only. No Sofia office invented from nationwide coverage." },
+    { "website": "https://muchakova.com/", "reason": "Own onsite appointment contact previously found but selected onsitescope review incomplete.130/230EUR online-only tariffs cannot be copied to onsite. Actual booking embed unread here; not an unpublished-price claim." },
+    { "website": "https://kupenov.net/", "reason": "Strong exact Sofia contact indexed; actual service/appointment review not complete, not imported." },
+    { "website": "https://easybook.bg/schetovodni-uslugi-prime-audit-accounting", "reason": "25.56EUR consultation lead but actual specialist booking menu still unread; conditional freeannualcontract/monthlysubscription excluded." }
+  ]
+}

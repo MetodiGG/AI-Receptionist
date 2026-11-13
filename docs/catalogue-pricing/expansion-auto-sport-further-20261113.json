@@ -1,0 +1,393 @@
+{
+  "checkedOn": "2026-11-13",
+  "validUntil": "2027-02-11",
+  "scope": "Additional Sofia appointment-based independent auto repair and booked combat/Reformer businesses; no general gym admission, self-service washing, production changes or reservations.",
+  "intakeNotice": "Local evidence draft only. Root reviewer must independently verify, bind exact inventory identities and explicitly integrate. No live listing or booking created.",
+  "method": {
+    "sourcePriority": "Own website and actual Book entry first, then selected service/price pages and full contacts/footer. Parent in-app browser supplied independent actual-menu reads for JavaScript calendars as stated in individual notes.",
+    "dedupe": "Current SOFIA_CATALOGUE, all dated MORE modules and the five public native-partner snapshot records; final local audit recorded after writing.",
+    "constraints": "No paid providers, Google Maps data, reviews, photos, geocoding, hidden APIs, private bundles, account use, reservations or production writes. Stop on source-use restrictions/access challenges; blocked menus are pending, not unpublished fees."
+  },
+  "counts": {
+    "records": 17,
+    "services": 19,
+    "pricedServices": 12,
+    "unpublishedPriceReceipts": 7,
+    "pending": 11,
+    "rejected": 10
+  },
+  "localValidation": {
+    "checkedAt": "2026-11-13T12:00:00Z",
+    "schemaValid": 17,
+    "existingCatalogueAndMoreDedupeRecords": 1186,
+    "intakeReady": 17,
+    "intakePending": 0,
+    "intakeRejected": 0,
+    "nativePublicPartnersCompared": 5,
+    "nativePhoneDuplicates": 0,
+    "sourceDomains": 15,
+    "temporaryInventoryBoundPricingChecks": {
+      "reviewed": 10,
+      "service_reviewed": 7,
+      "pending": 0
+    },
+    "note": "Only temporary in-memory identities used to test source-receipt structure. No fingerprint persisted, no shared imports changed and no production listing created. Root independent review/integration and combined tests remain required. git diff --check clean."
+  },
+  "orderedLedger": [
+    {
+      "order": 1,
+      "id": "sofia-mdmotion-okolovrasten81",
+      "name": "MDMotion",
+      "status": "verified",
+      "website": "https://md-motion.com/",
+      "bookingUrl": "https://md-motion.com/",
+      "serviceUrls": [
+        "https://md-motion.com/"
+      ],
+      "contactUrl": "https://md-motion.com/",
+      "findings": "Read the complete own one-page website and followed its actual Book entry to the on-page appointment form. Public fields include preferred date/time, service and car details; no form submitted. Exact own Sofia address and phone present. Selected only diagnostic work, not emissions disabling or tuning promises. No numerical diagnostic fee or separate service-price link found in the public booking, services and footer sections. No opening hours, duration or coordinates inferred."
+    },
+    {
+      "order": 2,
+      "id": "sofia-yaki-vrabnitsa1",
+      "name": "Авто електро сервиз ЯКИ",
+      "status": "verified",
+      "website": "https://avtoservizyaki.wordpress.com/",
+      "bookingUrl": "https://avtoservizyaki.wordpress.com/",
+      "serviceUrls": [
+        "https://avtoservizyaki.wordpress.com/"
+      ],
+      "contactUrl": "https://avtoservizyaki.wordpress.com/",
+      "findings": "Read the complete owner-operated WordPress page, full repair list, own contact/address block and explicit appointment invitation. Primary phone 0876 66 42 72; alternate 0877 66 41 69 is the same venue, not a second business. Despite a page-title Prices label, no numeric diagnostic tariff appears in the actual public content and no dedicated price menu is linked. Did not use third-party directory amounts, reviews, photos or map data. Hours and duration remain unknown."
+    },
+    {
+      "order": 3,
+      "id": "sofia-autoclimamaster-lyulin2",
+      "name": "AutoClimaMASTER",
+      "status": "verified",
+      "website": "https://autoclimamaster.com/",
+      "bookingUrl": "https://autoclimamaster.com/contacts/",
+      "serviceUrls": [
+        "https://autoclimamaster.com/prices/",
+        "https://autoclimamaster.com/remont-na-avtoklimatici/"
+      ],
+      "contactUrl": "https://autoclimamaster.com/contacts/",
+      "findings": "Followed the owner's Book/contact entry first: real name/email/phone/message appointment enquiry form and phone booking FAQ, not a submitted booking. Read full own service page and current dedicated tariff, selecting only the standalone €36 diagnostic item. Old homepage promotional package differs from current tariff and is not imported. Omit hours because own service footer says weekday close20:00 but current contacts/price footer19:00. Typical around30-minute FAQ is not a fixed booked duration. No map or review data copied."
+    },
+    {
+      "order": 4,
+      "id": "sofia-s-tires-druzhba1",
+      "name": "S-Tires · Дружба 1",
+      "status": "verified",
+      "website": "https://www.s-tires.com/",
+      "bookingUrl": "https://www.s-tires.com/services/buycar/",
+      "serviceUrls": [
+        "https://www.s-tires.com/services/buycar/"
+      ],
+      "contactUrl": "https://www.s-tires.com/contacts/",
+      "findings": "Read the selected service's actual phone-reservation instructions and complete own tariff, then full contacts/footer; root retrieved with bounded public curl after normal timeout. Own venue Asen Yordanov17 and stationary service phone confirmed. Literal €30 (also60BGN) is the diagnostics line only; €25 chassis and €15 geometry are separately priced, not bundled. No generic contact form substituted for the explicit phone appointment path. No fixed duration or coordinates inferred."
+    },
+    {
+      "order": 5,
+      "id": "sofia-asd-autoservice-lihachov33",
+      "name": "ASD Autoservice",
+      "status": "verified",
+      "website": "https://asd-autoservice.com/",
+      "bookingUrl": "https://asd-autoservice.com/",
+      "serviceUrls": [
+        "https://asd-autoservice.com/uslugi/",
+        "https://asd-autoservice.com/promocii/",
+        "https://asd-autoservice.com/politika-za-poveritelnost/"
+      ],
+      "contactUrl": "https://asd-autoservice.com/contacts/",
+      "findings": "Followed the own Book entry and read its complete public vehicle/date/time/service form, then Bulgarian services, promotions, contacts and linked privacy. Selected Bulgarian computer-diagnostic service is real; no numeric diagnostic amount appears in booking/services. Promotions include expired October2026 vouchers and unrelated English-dollar template repair examples, none projected as local fees or durations. No standalone Prices navigation found. Privacy identifies ASD2002 EOOD; no additional Terms link or source-use prohibition encountered, not a licence claim. No submission."
+    },
+    {
+      "order": 6,
+      "id": "sofia-ansiko-ovcha-kupel",
+      "name": "Автосервиз АНСИКО",
+      "status": "verified",
+      "website": "https://bggas.com/",
+      "bookingUrl": "https://bggas.com/",
+      "serviceUrls": [
+        "https://bggas.com/avtoservizni-uslugi-v-sofia/"
+      ],
+      "contactUrl": "https://bggas.com/kontakti/",
+      "findings": "Read live public owner root, complete services and contacts with bounded curl after normal fetch timeouts. Root explicitly instructs phone booking for diagnostics. Exact published venue is Kostur street opposite Ovcha Kupel bus station, without a street number; retained that landmark and did not invent a number. Both owner phones describe the same workshop. No amount or linked price page for the selected diagnostic service in these reviewed sections. No coords/duration or map facts used."
+    },
+    {
+      "order": 7,
+      "id": "sofia-mygarage-lyulin7",
+      "name": "MYGARAGE · Люлин 7",
+      "status": "verified",
+      "website": "https://mygarage.services/",
+      "bookingUrl": "https://mygarage.services/pricing-coupons/",
+      "serviceUrls": [
+        "https://mygarage.services/pricing-coupons/"
+      ],
+      "contactUrl": "https://mygarage.services/contacts/",
+      "findings": "Followed root Book to the actual own Services/Prices page with complete public appointment form; fields request vehicle, date and time and warn that requested times may be unavailable. Full diagnostic row has separate car and van fees: selected literal15.34–30.68EUR car labour range only. All prices are explicitly indicative/labour-only and final quote depends on vehicle/parts. Own full contacts confirm Lyulin7 Dertliev46. Omit hours because root/header says Saturday09:00 but detailed contacts/footer10:00. No tyre service imported because owner describes tyre assistance through partners; no booking submitted."
+    },
+    {
+      "order": 8,
+      "id": "sofia-body-reformer-strelbishte",
+      "name": "Body Reformer",
+      "status": "verified",
+      "website": "https://body-reformer.com/",
+      "bookingUrl": "https://body-reformer.com/contact/",
+      "serviceUrls": [
+        "https://body-reformer.com/services/"
+      ],
+      "contactUrl": "https://body-reformer.com/contact/",
+      "findings": "Actual Book Now links to own contact appointment-request form with name/email/phone; not a generic gym admission or submitted reservation. Full services/prices explicitly states exclusively individual Reformer and single50-minute session31EUR; no package total divided into a visit and no rehabilitation promise copied. Address/phone confirmed in own contacts and footer. Hours omitted because root/contacts open09:00 but price page08:00. No linked separate Terms menu or factual source-use ban encountered; not a licence claim."
+    },
+    {
+      "order": 9,
+      "id": "sofia-orionauto-tsarigradsko391",
+      "name": "ОрионАуто",
+      "status": "verified",
+      "website": "https://orionauto.eu/",
+      "bookingUrl": "https://orionauto.eu/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8",
+      "serviceUrls": [
+        "https://orionauto.eu/"
+      ],
+      "contactUrl": "https://orionauto.eu/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8",
+      "findings": "Reviewed complete owner root services and actual contact appointment instructions in Bulgarian/English. Real named operator OrionAuto has its own phone and explicitly shares NVS building at Tsarigradsko391; not a new NVS wash clone or invented branch. Selected oil/filter work exists on root. Weekend attendance specifically requires prior arrangement; no generic weekday walk-in claim made. Root Terms/Privacy footer link currently returns root rather than a separate policy. Training-course150EUR and tool-cooperative50EUR refundable deposit are unrelated and excluded. No numeric oil-service charge, hours/duration/coords inferred."
+    },
+    {
+      "order": 10,
+      "id": "sofia-mapo-botevgradsko397a",
+      "name": "Автосервиз Мапо",
+      "status": "verified",
+      "website": "https://service4x4.org/index.php",
+      "bookingUrl": "https://service4x4.org/index.php",
+      "serviceUrls": [
+        "https://service4x4.org/diagnostic.php",
+        "https://service4x4.org/promo.php"
+      ],
+      "contactUrl": "https://service4x4.org/contacts.php",
+      "findings": "Read actual own admission/appointment instructions on service home, then complete diagnostic menu, contacts/footer and linked Promotions. Real Sofia workshop and phone confirmed; public contact form is a general question form, so explicit prior-arrangement phone path retained. Selected diagnostic service has no numerical fee. Promotion gives a percentage and historic antifreeze-product amounts, not a current diagnostic tariff. Full root explains individual quote and approval before extra work. No weekend hours invented from appointment-only statement; no map/photo/review facts copied."
+    },
+    {
+      "order": 11,
+      "id": "sofia-amaron-boxing-mladost3",
+      "name": "Боксов клуб Амарон",
+      "status": "verified",
+      "website": "https://www.amaronboxing.com/",
+      "bookingUrl": "https://www.amaronboxing.com/",
+      "serviceUrls": [
+        "https://www.amaronboxing.com/"
+      ],
+      "contactUrl": "https://www.amaronboxing.com/",
+      "findings": "Read complete owner one-page site, actual phone appointment instructions, private lesson offering, schedule, FAQ and contacts. Exact named venue is a hall in81SU ViktorHugo Mladost3; did not invent a street address. Coordinates are explicitly printed by owner in Contacts, not geocoded or scraped from a map. Private training price is individually agreed; regular group5BGN and regular-class60min do not establish a private-lesson fee/duration. No health/calorie/therapeutic claims imported; no opening hours inferred from timetable."
+    },
+    {
+      "order": 12,
+      "id": "sofia-6plus-lyulin",
+      "name": "6Plus · Люлин",
+      "status": "verified",
+      "website": "https://6plus.bg/",
+      "bookingUrl": "https://reservation.6plus.bg/",
+      "serviceUrls": [
+        "https://6plus.bg/page/tseni",
+        "https://6plus.bg/page/reglazh",
+        "https://6plus.bg/page/terms-policy",
+        "https://6plus.bg/page/terms-policy-services"
+      ],
+      "contactUrl": "https://6plus.bg/page/contacts",
+      "findings": "Owner Book first followed to actual own-subdomain app. Root independently rendered actual public IAB flow on2026-11-13: onlyGTP/Alignment/Tyres are online, and Alignment specifically offers Lyulin parking HIT+Praktiker. No slot chosen, customer data entered or booking submitted; no availability claim. Read full own alignment service, literal33EUR front-axle passenger-car row, qualifying baseline/indicative/VAT footnotes and exact own branch contacts/hours. General/store and service terms inspected, no source-use ban encountered in reviewed clauses; not a licence claim. Not diagnostics and not cloned conflicting AndreyLyapchev72/74 branch."
+    },
+    {
+      "order": 13,
+      "id": "sofia-6plus-europe",
+      "name": "6Plus · Европа",
+      "status": "verified",
+      "website": "https://6plus.bg/",
+      "bookingUrl": "https://reservation.6plus.bg/",
+      "serviceUrls": [
+        "https://6plus.bg/page/tseni",
+        "https://6plus.bg/page/reglazh",
+        "https://6plus.bg/page/terms-policy",
+        "https://6plus.bg/page/terms-policy-services"
+      ],
+      "contactUrl": "https://6plus.bg/page/contacts",
+      "findings": "Owner Book first followed to actual own-subdomain app. Root independently rendered actual public IAB flow on2026-11-13: onlyGTP/Alignment/Tyres are online, and Alignment specifically offers Europe144В opposite Bricolage. No slot chosen, customer data entered or booking submitted; no availability claim. Read full own alignment service, literal33EUR front-axle passenger-car row, qualifying baseline/indicative/VAT footnotes and exact own branch contacts/hours. General/store and service terms inspected, no source-use ban encountered in reviewed clauses; not a licence claim. Not diagnostics and not cloned conflicting AndreyLyapchev72/74 branch."
+    },
+    {
+      "order": 14,
+      "id": "sofia-6plus-hit-mladost",
+      "name": "6Plus · 3D реглаж ХИТ Младост",
+      "status": "verified",
+      "website": "https://6plus.bg/",
+      "bookingUrl": "https://reservation.6plus.bg/",
+      "serviceUrls": [
+        "https://6plus.bg/page/tseni",
+        "https://6plus.bg/page/reglazh",
+        "https://6plus.bg/page/terms-policy",
+        "https://6plus.bg/page/terms-policy-services"
+      ],
+      "contactUrl": "https://6plus.bg/page/contacts",
+      "findings": "Owner Book first followed to actual own-subdomain app. Root independently rendered actual public IAB flow on2026-11-13: onlyGTP/Alignment/Tyres are online, and Alignment specifically offers Mladost3 parking HITMax. No slot chosen, customer data entered or booking submitted; no availability claim. Read full own alignment service, literal33EUR front-axle passenger-car row, qualifying baseline/indicative/VAT footnotes and exact own branch contacts/hours. General/store and service terms inspected, no source-use ban encountered in reviewed clauses; not a licence claim. Not diagnostics and not cloned conflicting AndreyLyapchev72/74 branch."
+    },
+    {
+      "order": 15,
+      "id": "sofia-auto-oil-sveta-troitsa",
+      "name": "Ауто Ойл България",
+      "status": "verified",
+      "website": "https://shop.auto-oil.net/bg/avtoserviz.html",
+      "bookingUrl": "https://shop.auto-oil.net/bg/zapisvane_na_chas.html",
+      "serviceUrls": [
+        "https://shop.auto-oil.net/bg/avtoserviz.html"
+      ],
+      "contactUrl": "https://shop.auto-oil.net/bg/contacts.html",
+      "findings": "Followed the actual own Book page before the complete workshop tariff and contact pages. Root independently rendered its embedded SuperSaaS АУТООЙЛМАСЛА calendar in the in-app browser on the review date; no slot clicked, personal data entered or booking submitted. Kept the owner's stable booking page, not an ephemeral widget ID. Exact own Sveta Troitsa address, phone and weekly hours agree. Diagnostic fee is the literal 20 EUR row with the labour/consumables-from-workshop and complexity qualifications retained publicly. Inspected the linked payment/delivery terms; no source-use restriction encountered. No availability claim or unsourced duration/coordinates."
+    },
+    {
+      "order": 16,
+      "id": "sofia-sculpture-pimen-zografski17",
+      "name": "Sculpture Reformer Pilates",
+      "status": "verified",
+      "website": "https://sculpturepilates.bg/",
+      "bookingUrl": "https://book.sculpturepilates.bg/calendar/public",
+      "serviceUrls": [
+        "https://sculpturepilates.bg/"
+      ],
+      "contactUrl": "https://sculpturepilates.bg/",
+      "findings": "Followed the owner's actual Reserve entry first. Root independently rendered the public calendar on the review date and read real current-week group and personal Pilates entries, both 50 minutes, with Book-seat/closed actions; no reservation action clicked. Calendar did not show fees, so retained separate own-site single group 20 EUR and single individual 33 EUR, not card totals or inferred per-session prices. Full own one-page contact and class/price sections confirm exact venue and current phone. Read the complete linked rules and conditions, including advance booking and four-hour cancellation, with no source-use restriction encountered. Sculpture is a distinct owner/venue from Sculpt. Teacher timetable is not general opening hours; none invented."
+    },
+    {
+      "order": 17,
+      "id": "sofia-local-pilates-lerin41",
+      "name": "Local Pilates Studio",
+      "status": "verified",
+      "website": "https://www.localpilatesstudio.com/",
+      "bookingUrl": "https://calendar.google.com/calendar/appointments/schedules/AcZssZ3_hEjoSrPgbODpn7NStK0Vxyg99KCRYom2LerNYsJ0by19vLJByswbQpsbZdf6N-MSNN6exla0",
+      "serviceUrls": [
+        "https://www.localpilatesstudio.com/"
+      ],
+      "contactUrl": "https://www.localpilatesstudio.com/",
+      "findings": "Followed the owner's actual Book lesson short link first. Root independently rendered its direct resolved public Google appointment schedule on the review date: Local Pilates Studio/Pilates Sofia, exact Lerin41/Beli Brezi and Sofia timezone, with Reformer/Tower/Classical Mat descriptions and a general60-minute appointment label. No account, customer data, date/time or reservation action chosen. Full own service tariff separately publishes single individual30EUR and duet50EUR total for two, not per person or derived five-visit card amounts. Kept selected Reformer formats only; generic calendar appointment length not assigned as a fixed duration to both selected formats. Complete own contact confirms phone and exact venue; no weeklyhours or coordinates inferred. Google Calendar is the owner-linked booking provider, not a Maps/review data source."
+    }
+  ],
+  "pending": [
+    {
+      "name": "Мушмула — Reformer, Momentum / Tech Park",
+      "website": "https://mushmula.bg/reformer-pilates",
+      "bookingUrl": "https://mushmula.bg/mushmula-zapisvane",
+      "reason": "Parent independently rendered the actual public Book page: its nested calendar selects only the different Mladost 1 hall, with regular yoga/Pilates/child karate and no Reformer. The full own Reformer page confirms Momentum at Tsarigradsko Shose 111V and preferential 25/19 EUR; its Записване image has no link. Momentum Reformer booking route remains unverified; no branch/calendar or fee-condition inference."
+    },
+    {
+      "name": "LuxTint&Shine",
+      "website": "https://luxtintshine.setmore.com/",
+      "bookingUrl": "https://luxtintshine.setmore.com/book",
+      "reason": "Merchant-owned public profile lists Sofia Lavski Rid 7, phone, staffed interior/exterior services and fees. Actual Book path returned HTTP 429 during a bounded normal read; stopped and did not retry or bypass. Blocked menu is not an unpublished tariff."
+    },
+    {
+      "name": "Bagir BJJ",
+      "website": "https://www.bagirbjj.com/",
+      "bookingUrl": "https://www.bagirbjj.com/",
+      "reason": "Current live own request form explicitly says it is a test form with sending disabled. Own private training and exact Sofia venue observed, but no independent explicit phone-booking instruction verified. Do not represent the disabled form as usable."
+    },
+    {
+      "name": "MD Exotic",
+      "website": "https://mdexotic.com/",
+      "reason": "Own one-page service and fee content present, but the actual contact phone, address, email and hours fields were empty. Precise venue and real contact cannot be inferred."
+    },
+    {
+      "name": "Dobsik Auto",
+      "website": "https://dobsikauto.bg/?page_id=2663",
+      "bookingUrl": "https://dobsikauto.bg/?page_id=2663",
+      "blockedUrl": "https://dobsikauto.bg/?page_id=4562",
+      "reason": "Own appointment invitation and contact observed, but selected diagnostic service page returned a request-verification challenge. Stopped; fee menu is inaccessible, not proven unpublished."
+    },
+    {
+      "name": "CARS FOR YOU — workshop",
+      "website": "https://carsforyou.bg/autoservice.html",
+      "reason": "Actual booking widget could not load and exact workshop municipality remains unresolved. Rental office/service phones differ; do not turn the rental office into a workshop or infer Sofia city from a generic road address."
+    },
+    {
+      "name": "GLOBAL AUTOFIX",
+      "website": "https://mobileautoservice24.com/",
+      "reason": "Own public callback form and Sofia Iskar-zone service claims observed, but premises listed only as the industrial zone without a precise street/building. Did not invent a street or reclassify emergency mobile assistance as a separate booked home-visit business."
+    },
+    {
+      "name": "A-Tuning",
+      "website": "https://a-tuning.bg/serviz-2/",
+      "reason": "Own appointment invitation and phone observed but no exact Sofia premises street verified. No invented address or partner-detailing clone."
+    },
+    {
+      "name": "EuroTop",
+      "website": "https://eurotop.bg/service",
+      "reason": "Own workshop address is Trunska Mahala, Zemedelska 35, postcode 2227, conflicting with Sofia marketing. Municipality/city eligibility unresolved; not imported as Sofia city."
+    },
+    {
+      "name": "6Plus — Andrey Lyapchev",
+      "website": "https://6plus.bg/page/contacts",
+      "bookingUrl": "https://reservation.6plus.bg/",
+      "reason": "Own contact body says 74 while footer/general terms say 72. Actual booking near Shell/McDonalds does not resolve the street-number conflict. Other three separately proven branches imported; this branch remains on hold."
+    },
+    {
+      "name": "Street Detailing",
+      "website": "https://streetdetailingbg.com/",
+      "reason": "Search discovery mentions Plovdiv and Sofia, while the current own public page exposed only a Plovdiv page title and no readable booking/contact content. No Sofia branch inferred from the discovery snippet."
+    }
+  ],
+  "rejected": [
+    {
+      "name": "MotoExpert — potential Sofia branches",
+      "website": "https://motoexpert.bg/bg/services/index/cities/110",
+      "sourceUrl": "https://motoexpert.bg/bg/pages/obshti-usloviya-24",
+      "reason": "Own terms sections 8.5 and 10.1 restrict technical extraction/database reuse and public commercial reuse without written permission. Stopped further extraction; no branches imported."
+    },
+    {
+      "name": "D&D Auto — potential Sofia branches",
+      "website": "https://ddauto.bg/",
+      "sourceUrl": "https://ddauto.bg/privacy-policy/",
+      "reason": "Current own linked policy contains an explicit intellectual-property restriction on automated extraction and commercial use without written permission. Stopped; no branches imported."
+    },
+    {
+      "name": "Mobil",
+      "website": "https://www.mobilbg.eu/",
+      "sourceUrl": "https://www.mobilbg.eu/общи-условия-за-ползване-на-уебсайта-www-mobi/",
+      "reason": "Complete own linked terms sections 2.2–2.3 restrict copying/use without written permission and limit use to personal noncommercial purposes. Stopped; no Calendly/menu extraction continued."
+    },
+    {
+      "name": "AutoExpress-2",
+      "website": "https://autoexpress-2.com/",
+      "sourceUrl": "https://autoexpress-2.com/obshti-usloviq/",
+      "reason": "Own terms section 28 restricts publication/distribution of informational resources unless separately agreed. Stopped; no record imported."
+    },
+    {
+      "name": "Espace Auto expansion",
+      "website": "https://espaceauto.bg/",
+      "sourceUrl": "https://espaceauto.bg/obshti-uslovia/",
+      "reason": "Own terms prohibit reproduction of website information. No additional venues imported and no shared existing record edited; parent notified for broader existing-inventory audit."
+    },
+    {
+      "name": "Ауто Бавария — potential Sofia branches",
+      "website": "https://bmw-autobavaria.bg/public/services/service-center",
+      "sourceUrl": "https://bmw-autobavaria.bg/pravni-aspekti",
+      "reason": "Own Legal notice explicitly restricts copying for commercial purposes/distribution and publishing protected website elements on other sites. Stopped further extraction and asked browser reviewer to skip the booking provider; no branches imported."
+    },
+    {
+      "name": "Stelkite — service workshop",
+      "website": "https://stelkite.com/zapazi-chas-serviz",
+      "reason": "Own service appointment page places the workshop in Plovdiv, Ognevo 7. Sofia footer locations are retail shops, not evidence of Sofia repair branches."
+    },
+    {
+      "name": "7Cars Easy Drive",
+      "website": "https://7cars.bg/uslugi/avtoserviz-easy-drive/",
+      "reason": "Own FAQ restricts this service to vehicles bought from 7Cars; the listed office is not proven as a public workshop. Not a general publicly bookable service venue."
+    },
+    {
+      "name": "Kihon karate",
+      "website": "https://kdkkihon.eu/",
+      "reason": "Discovery showed class attendance/enrolment but no explicit prior booking path verified. Not imported as appointment-based merely because it has a timetable."
+    },
+    {
+      "name": "Chicanez Kart Shop / simulators",
+      "website": "https://chicanez.setmore.com/",
+      "reason": "Lead offered paid simulator sessions rather than the selected combat/yoga/Reformer or vehicle-care scope. Not used to pad business counts."
+    }
+  ]
+}

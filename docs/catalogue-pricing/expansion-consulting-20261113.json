@@ -1,0 +1,16 @@
+{
+  "checkedOn": "2026-11-13",
+  "scope": "One new Sofia private legal practice, owner-published appointment instructions, two ordinary consultation fees and weekly hours.",
+  "approved": [{
+    "id": "sofia-valentina-kamenarska-tsar-boris",
+    "sources": ["https://vkamenarska.com/", "https://vkamenarska.com/kontakti/", "https://vkamenarska.com/ceni/"],
+    "booking": "Phone only by prior arrangement; owner explicitly has no booking form.",
+    "prices": "60 EUR without documents, 80 EUR with documents, each up to one hour; not fixed appointment durations. Extra-hour and same-day paid retainer conditions preserved.",
+    "hours": "Owner contact Mon-Fri10-17. Public holidays closed; no unsupported weekend schedule, live availability or guessed coordinates."
+  }],
+  "pending": [
+    { "website": "https://muchakova.com/", "reason": "Exact Sofia office and prior-arrangement instruction found, but publicly priced130/230EUR sessions are online-only; not projected onto onsite appointments. No record added in this batch." },
+    { "website": "https://abc-consult.eu/", "reason": "Only exact Pernik office verified; marketing Sofia coverage is not a Sofia office." },
+    { "website": "https://easybook.bg/schetovodni-uslugi-prime-audit-accounting", "reason": "Employee booking page unavailable. Monthly accounting fee and contract-conditional free consultation not imported as ordinary single-visit fees." }
+  ]
+}

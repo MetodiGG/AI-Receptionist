@@ -8,6 +8,14 @@ import { categoryById } from '../lib/discovery/categories.mjs'
 import { catalogueBoundCoordinates } from '../lib/discovery/catalogue-coordinate-binding.mjs'
 
 const bgOrder = (a, b) => a.localeCompare(b, 'bg')
+// Exact owner-source scope checks, 2026-11-13. These neutral public names do
+// not themselves contain a specialty. Reporting is not a qualification claim
+// (Spasova's site describes further studies as still in progress).
+const reviewedPsychologySources = new Map([
+  ['sofia-zhenya-spasova-kableshkov', 'https://regresiatherapy.com/'],
+  ['sofia-desislava-markovska-yavorov', 'https://desislavamarkovska.com/'],
+  ['sofia-room-with-heart-izgrev', 'https://roomwithheart.com/'],
+])
 const counts = rows => {
   const categories = new Map()
   for (const row of rows) categories.set(row.category, (categories.get(row.category) || 0) + 1)
@@ -21,9 +29,18 @@ export function reportBusinessType(row) {
   // Exact dated owner-source review: https://orlinbaev.com/contact/.
   // Its short service name "Прием" alone does not express the specialty.
   if (row.id === 'sofia-orlin-baev-estestvena-akademia' && row.website === 'https://orlinbaev.com/') return 'Психология и психотерапия'
+  if (reviewedPsychologySources.has(row.id) && reviewedPsychologySources.get(row.id) === row.website) return 'Психология и психотерапия'
+  // Psychological preparation offered by a named dental practice is still
+  // dentistry, not a separate psychologist business.
+  if (/стоматол|дентал|дент |дент$|dental|dent\b|ортодонт/iu.test(row.name)) return 'Стоматология'
+  // Classify the selected appointment, not another specialty mentioned in a
+  // mixed practice's name. No other doctors are imported with these visits.
+  const serviceText = row.services.map(service => service.name).join(' ')
+  if (/психиат(?:ър|р)|psychiatr/iu.test(serviceText)) return 'Психиатрия'
+  if (/психолог|психотерап|психоанал|psycholog|psychotherap/iu.test(serviceText)) return 'Психология и психотерапия'
   const text = [row.name, ...row.services.map(service => service.name)].join(' ')
   if (/ветерин|veterinar/iu.test(text)) return 'Ветеринарни услуги'
-  if (/психиатр|psychiatr/iu.test(text)) return 'Психиатрия'
+  if (/психиат(?:ър|р)|psychiatr/iu.test(text)) return 'Психиатрия'
   if (/зъб|стоматол|дентал|дент |дент$|dental|dent\b|ортодонт|алайнери/iu.test(text)) return 'Стоматология'
   if (/психолог|психотерап|психоанал|psycholog|psychotherap/iu.test(text)) return 'Психология и психотерапия'
   if (/лаборатор|изследвания|laborator/iu.test(text)) return 'Лаборатории за изследвания'

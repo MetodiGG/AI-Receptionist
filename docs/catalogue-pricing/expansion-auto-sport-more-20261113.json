@@ -1,0 +1,850 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-13",
+  "validUntil": "2027-02-11",
+  "batchFile": "lib/discovery/catalogue-data/neighborhood-auto-sport-more-20261113.mjs",
+  "scope": "Separate continuation after the first100 new venues; own-source reserved yoga and Pilates Reformer sessions, with auto/wash candidate checks.",
+  "summary": {
+    "records": 17,
+    "services": 23,
+    "publishedPriceFacts": 20,
+    "withoutPublicPrices": 3,
+    "ownSiteDomains": 12,
+    "coordinatesAdded": 0
+  },
+  "method": "Actual Book entries inspected first, then public services/prices and contacts/footer. Explicit phone-booking alternative used only when separately readable selected-service instructions and tariff exist; unrendered JS online menu disclosed, never claimed reviewed. No accounts, private APIs, hidden bundles, bookings, payments, Google scraping, provider ratings/photos, geocoding or production changes. Prices literal and conditional; root must bind static identities after independent review.",
+  "dedupe": {
+    "index": "SOFIA_CATALOGUE current1081 raw records",
+    "status": "All17 records passed full-current1081 schema, ID/domain/phone and normalized-street identity audit on2026-11-13. No records were imported by this author.",
+    "branchRationale": "Four Yoga District studios have separately reviewed own booking calendars and exact addresses/phones. Social Studio has two separately addressed current halls and explicit same-price evidence. Studio7 Pilates page lists its6September andDobrudzha9 halls separately; no Aqua or group-onlyDobrudzha1 clone."
+  },
+  "orderedLedger": [
+    {
+      "order": 1,
+      "area": "Манастирски ливади / southern Sofia",
+      "status": "reviewed_sources",
+      "outcome": "Known first100 auto/detailing and currentKometa/ZonaWash verified as duplicates, not reimported. FourYogaDistrict studios discovered includingCoShare ML but actual JS menus pending."
+    },
+    {
+      "order": 2,
+      "area": "Център and Лозенец",
+      "status": "verified",
+      "outcome": "Studio7 two separately addressedPilates halls; YogaSchool atVitosha72; Alyoga individual-phone atBenkovski11; Vitality1Reformer atBanat2."
+    },
+    {
+      "order": 3,
+      "area": "Other Sofia neighborhoods",
+      "status": "verified_or_pending",
+      "outcome": "SenSib physical55+ reservedgroup at20April13; several other studios await publicJS calendar inspection."
+    },
+    {
+      "order": 4,
+      "area": "Манастирски ливади – Изток; Младост 4",
+      "status": "verified",
+      "outcome": "Root independently rendered CoShare and Sculpt actual publiccalendars; exactownfees/contacts inspected separately. Sculpt emptycurrentweek disclosed, no availability asserted."
+    },
+    {
+      "order": 5,
+      "area": "Оборище; Иван Вазов; Люлин 8",
+      "status": "verified",
+      "outcome": "SocialStudio two genuine hall-specific bookingcalendars rendered byroot; ownprices explicitly samebothvenues. CityServiceGroup ownedtyrechange reservationform read; separatealignmentfees not projected onto tyres."
+    },
+    {
+      "order": 6,
+      "area": "Additional candidates",
+      "status": "held_or_rejected",
+      "outcome": "BodyAtelier andBGGumi source-reuse restrictions respected. Unrendered pricecalculators, protected sites, missing appointmentproof and unbound streets remainpending."
+    },
+    {
+      "order": 7,
+      "area": "Център; Лозенец; Студентски комплекс; Гоце Делчев",
+      "status": "verified",
+      "outcome": "Root individually rendered Yoga District Mandala/Amara/Shazam calendars; only nonconflicting regular-yoga13EUR retained. Swan and Naya empty current weeks disclosed with actual calendars and separate literal fees; no free slots claimed."
+    },
+    {
+      "order": 8,
+      "area": "Sofia, exact Aruna street; remaining own-source leads",
+      "status": "verified_or_held",
+      "outcome": "Aruna actual class calendar read by root; genuinely unlisted aerial-yoga amount receives explicit service_reviewed receipt. Ananda/BGGumi/BodyAtelier reuse restrictions and Reservation.Studio automated-access restriction respected; unbound/unsupported leads remain pending."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "sofia-yoga-district-coshare",
+      "website": "https://theyogadistrict.net/",
+      "booking": {
+        "kind": "form",
+        "url": "https://book.theyogadistrict.net/calendar/public?site_id=7"
+      },
+      "bookingEvidence": {
+        "url": "https://theyogadistrict.net/grafik-coshare/",
+        "excerpt": "Собственият график за CoShare води към избрана зала CoShare и календар с реални йога класове и запазване на място."
+      },
+      "contactSource": "https://theyogadistrict.net/contacts/",
+      "address": "София, Манастирски ливади – Изток, бул. България 105А, вх. В",
+      "phone": "+359887317158",
+      "reviewedUrls": [
+        "https://theyogadistrict.net/",
+        "https://theyogadistrict.net/grafik-coshare/",
+        "https://book.theyogadistrict.net/calendar/public?site_id=7",
+        "https://theyogadistrict.net/classes/",
+        "https://theyogadistrict.net/prices/",
+        "https://theyogadistrict.net/contacts/"
+      ],
+      "services": [
+        {
+          "name": "Йога за всички — резервирана групова практика",
+          "price": {
+            "amount": 13,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "еднократно посещение в редовна практика",
+            "sourceUrl": "https://theyogadistrict.net/prices/",
+            "checkedOn": "2026-11-13"
+          }
+        }
+      ],
+      "reviewNotes": "Own branch booking entry followed first; root independently rendered actualsite7 calendar on2026-11-13:CoShare selected,currentNov13–19 yoga-for-all/classic/beginner classes, reserve-place/waitlist and five-minute arrival rule. No action on any class. Separate own published13EUR regular-practice single fee retained; calendar displays no fees. Exact branch street/phone/dailyhours confirmed on contact page. No Reformer fee imported: internal40/20 versus20/70 conflict held separately. Other branch calendars not inferred fromsite7."
+    },
+    {
+      "id": "sofia-naya-yoga-goce-delchev",
+      "website": "https://yoganaya.net/",
+      "booking": {
+        "kind": "form",
+        "url": "https://book.yoganaya.net/calendar/public"
+      },
+      "bookingEvidence": {
+        "url": "https://yoganaya.net/offline-classes/",
+        "excerpt": "Собствените практики и график водят към конфигуриран календар Yoga Naya; групов клас се провежда при минимум двама записани."
+      },
+      "contactSource": "https://yoganaya.net/contact/",
+      "address": "София, Гоце Делчев, ул. 406, бл. 257-А, вх. Б, партер",
+      "phone": "+359876857375",
+      "reviewedUrls": [
+        "https://yoganaya.net/",
+        "https://book.yoganaya.net/calendar/public",
+        "https://yoganaya.net/offline-classes/",
+        "https://yoganaya.net/prices/",
+        "https://yoganaya.net/contact/"
+      ],
+      "services": [
+        {
+          "name": "Йога — резервирана редовна групова практика",
+          "price": {
+            "amount": 12,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "еднократно посещение в редовна групова практика",
+            "sourceUrl": "https://yoganaya.net/prices/",
+            "checkedOn": "2026-11-13"
+          }
+        },
+        {
+          "name": "Индивидуален клас по йога",
+          "price": {
+            "amount": 26,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "еднократен индивидуален клас",
+            "sourceUrl": "https://yoganaya.net/prices/",
+            "checkedOn": "2026-11-13"
+          }
+        }
+      ],
+      "reviewNotes": "Actual owned NayaYoga calendar independently rendered byroot,currentNov13–19 with no events; this is not a permanently unavailable business or unpublished tariff finding. Full separate own Prices page gives12EUR regular single/26EUR individual single, not concession10EUR or divided package total. Physical-class page explicitly requires minimumtwo booked for group. Exactstreet/entrance/parter and two phones confirmed, primaryfirstphone retained. Ownrootdaily8–20 sourced. No duration/free place or reservation asserted."
+    },
+    {
+      "id": "sofia-social-studio-balsha",
+      "website": "https://socialstudio.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://book.socialstudio.bg/calendar/public?site_id=2"
+      },
+      "bookingEvidence": {
+        "url": "https://socialstudio.bg/",
+        "excerpt": "Началната страница отделя „Запази час онлайн“ за конкретните две студиа, всяко със собствен адрес и календар."
+      },
+      "contactSource": "https://socialstudio.bg/kontakti/",
+      "address": "София, Иван Вазов, ул. Балша 5",
+      "phone": "+359886555107",
+      "reviewedUrls": [
+        "https://socialstudio.bg/",
+        "https://book.socialstudio.bg/calendar/public?site_id=2",
+        "https://socialstudio.bg/kontakti/",
+        "https://socialstudio.bg/trenirovki/pilates-reformar/",
+        "https://socialstudio.bg/tseni/",
+        "https://socialstudio.bg/obshti-usloviya/"
+      ],
+      "services": [
+        {
+          "name": "Персонален пилатес реформър",
+          "price": {
+            "amount": 31,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "едно посещение с валидност 1 месец от покупката",
+            "sourceUrl": "https://socialstudio.bg/tseni/",
+            "checkedOn": "2026-11-13"
+          }
+        },
+        {
+          "name": "Групов пилатес реформър",
+          "price": {
+            "amount": 23,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "едно посещение с валидност 1 месец от покупката",
+            "sourceUrl": "https://socialstudio.bg/tseni/",
+            "checkedOn": "2026-11-13"
+          }
+        }
+      ],
+      "reviewNotes": "Actual branch2 owned calendar independently rendered by root on2026-11-13, with personalReformer40min; no group on initial current-week screen,Book/waitlist. Own complete contacts/service pages explicitly confirm personal and group formats at this exact hall,capacity4; full Prices expressly says same31EUR personal/23EUR group single tariff bothhalls,one-month validity. No schedule/fee projected merely from otherbranch. Terms§12 reviewed;4h/12h cancellation conditions retained. No EMS, trial discount, ordinary gym, oldGeoMilev venue, hours or current slot imported."
+    },
+    {
+      "id": "sofia-vitality1-banat-reformer",
+      "website": "https://vitality1.bg/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359898983335"
+      },
+      "bookingEvidence": {
+        "url": "https://vitality1.bg/pricing/",
+        "excerpt": "Ценоразписът изрично изисква предварително запазване на час за реформър на 0898 98 33 35 и отделя индивидуална от групова тренировка."
+      },
+      "contactSource": "https://www.vitality1.bg/contacts/",
+      "address": "София, ул. Банат 2",
+      "phone": "+359898983335",
+      "reviewedUrls": [
+        "https://vitality1.bg/",
+        "https://www.vitality1.bg/appointments/",
+        "https://vitality1.bg/pricing/",
+        "https://www.vitality1.bg/our-services/",
+        "https://www.vitality1.bg/contacts/"
+      ],
+      "services": [
+        {
+          "name": "Индивидуален пилатес реформър",
+          "price": {
+            "amount": 26,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "еднократно посещение, 50 минути",
+            "sourceUrl": "https://vitality1.bg/pricing/",
+            "checkedOn": "2026-11-13"
+          }
+        },
+        {
+          "name": "Групов пилатес реформър",
+          "price": {
+            "amount": 22,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "еднократно посещение, 50 минути",
+            "sourceUrl": "https://vitality1.bg/pricing/",
+            "checkedOn": "2026-11-13"
+          }
+        }
+      ],
+      "reviewNotes": "Followed actual owned appointments page first via visible public HTML after web-reader timeout; it renders a calendar but no selected service menu. Complete separate Prices page explicitly provides telephone-only advance reservation for Reformer and literal26EUR individual/22EUR group single visits,50min. Services and full contacts/root footer inspected. Used valid explicit phone fallback, not inferred calendar slots or online rates. ExactBanat2,Lozenets and weekly centre hours are own-source. Ordinary gym admission, packages and wellness tariffs excluded."
+    },
+    {
+      "id": "sofia-yoga-district-shazam",
+      "website": "https://theyogadistrict.net/",
+      "booking": {
+        "kind": "form",
+        "url": "https://book.theyogadistrict.net/calendar/public?site_id=3"
+      },
+      "bookingEvidence": {
+        "url": "https://theyogadistrict.net/grafik-shazam/",
+        "excerpt": "Собственият график свързва точно тази зала с отделен календар за предварително запазване на място в йога практика."
+      },
+      "contactSource": "https://theyogadistrict.net/contacts/",
+      "address": "София, Лозенец, бул. Черни връх 25",
+      "phone": "+359890511609",
+      "reviewedUrls": [
+        "https://theyogadistrict.net/",
+        "https://theyogadistrict.net/grafik-shazam/",
+        "https://book.theyogadistrict.net/calendar/public?site_id=3",
+        "https://theyogadistrict.net/classes/",
+        "https://theyogadistrict.net/prices/",
+        "https://theyogadistrict.net/contacts/"
+      ],
+      "services": [
+        {
+          "name": "Хатха йога — резервирана редовна групова практика",
+          "price": {
+            "amount": 13,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "еднократно посещение в редовна практика",
+            "sourceUrl": "https://theyogadistrict.net/prices/",
+            "checkedOn": "2026-11-13"
+          }
+        }
+      ],
+      "reviewNotes": "Root independently rendered actualsite3 calendar on2026-11-13 withШазам selected,currentNov13–19 and realHatha yoga entries plus Book-place and five-minute arrival rule; not inferred fromCoShare. Separate own published13EUR regular-practice single fee retained, no perclassonlineamount asserted. Exact branch street/phone/weekhours confirmed separately in ownContacts. No Reformer tariff, duration, currently free seat or booking imported. No account or reservation action."
+    },
+    {
+      "id": "sofia-studio7-6-septemvri",
+      "website": "https://studio7.bg/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359878840369"
+      },
+      "bookingEvidence": {
+        "url": "https://studio7.bg/",
+        "excerpt": "Сайтът изисква обаждане за запазване на час и описва първата индивидуална тренировка с пилатес реформър."
+      },
+      "contactSource": "https://studio7.bg/contact-us/",
+      "address": "София, ул. 6-ти Септември 14, партер",
+      "phone": "+359878840369",
+      "reviewedUrls": [
+        "https://studio7.bg/",
+        "https://studio7.bg/contact-us/",
+        "https://studio7.bg/pilates/"
+      ],
+      "services": [
+        {
+          "name": "Индивидуален пилатес реформър — карта за 7 тренировки",
+          "price": {
+            "amount": 210,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "карта за 7 тренировки в рамките на 2 месеца",
+            "sourceUrl": "https://studio7.bg/",
+            "checkedOn": "2026-11-13"
+          }
+        }
+      ],
+      "reviewNotes": "Own phone-booking instructions followed before Pilates and complete public tariff. Pilates page names this separate hall; root gives exact street. Literal seven-session package total retained with two-month/full-prepayment conditions. Group-only Dobrudzha1 and Aqua venue not projected. No branch hours or slot inferred."
+    },
+    {
+      "id": "sofia-studio7-dobrudzha9",
+      "website": "https://studio7.bg/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359878840369"
+      },
+      "bookingEvidence": {
+        "url": "https://studio7.bg/",
+        "excerpt": "Сайтът изисква обаждане за запазване на час и описва първата индивидуална тренировка с пилатес реформър."
+      },
+      "contactSource": "https://studio7.bg/contact-us/",
+      "address": "София, ул. Добруджа 9, партер",
+      "phone": "+359878840369",
+      "reviewedUrls": [
+        "https://studio7.bg/",
+        "https://studio7.bg/contact-us/",
+        "https://studio7.bg/pilates/"
+      ],
+      "services": [
+        {
+          "name": "Индивидуален пилатес реформър — карта за 7 тренировки",
+          "price": {
+            "amount": 210,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "карта за 7 тренировки в рамките на 2 месеца",
+            "sourceUrl": "https://studio7.bg/",
+            "checkedOn": "2026-11-13"
+          }
+        }
+      ],
+      "reviewNotes": "Own phone-booking instructions followed before Pilates and complete public tariff. Pilates page names this separate hall; root gives exact street. Literal seven-session package total retained with two-month/full-prepayment conditions. Group-only Dobrudzha1 and Aqua venue not projected. No branch hours or slot inferred."
+    },
+    {
+      "id": "sofia-yoga-school-vitosha72",
+      "website": "https://www.yogasofia.eu/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359887349056"
+      },
+      "bookingEvidence": {
+        "url": "https://www.yogasofia.eu/yogacoursesfees",
+        "excerpt": "Ценовата страница изисква предварителен контакт с учителя за единично посещение, само при свободно място и подходящо ниво."
+      },
+      "contactSource": "https://www.yogasofia.eu/contacts",
+      "address": "София, бул. Витоша 72, ет. 6",
+      "phone": "+359887349056",
+      "reviewedUrls": [
+        "https://www.yogasofia.eu/",
+        "https://www.yogasofia.eu/yogacoursesfees",
+        "https://www.yogasofia.eu/contacts",
+        "https://www.yogasofia.eu/scheduleyogacourses",
+        "https://www.yogasofia.eu/gentleyoga-autumn",
+        "https://www.yogasofia.eu/courses-description"
+      ],
+      "services": [
+        {
+          "name": "Йога в зала — еднократно посещение с предварителна уговорка",
+          "price": {
+            "amount": 10.2,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "еднократно посещение при свободно място и подходящо ниво",
+            "sourceUrl": "https://www.yogasofia.eu/yogacoursesfees",
+            "checkedOn": "2026-11-13"
+          }
+        }
+      ],
+      "reviewNotes": "Followed current course-enrollment page first, then complete public fees, course descriptions and contacts. Enrollment page title read via bounded public HTML after cache miss; embedded registration form not submitted. Chose explicit pre-arranged single-visit phone fallback, not inaccessible embedded-form inventory. Literal10.20EUR single fee and capacity/level conditions retained; no package division, online course or guaranteed place. November exclusions not converted into opening hours."
+    },
+    {
+      "id": "sofia-alyoga-benkovski",
+      "website": "https://www.alyogastudio.com/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359877198760"
+      },
+      "bookingEvidence": {
+        "url": "https://www.alyogastudio.com/prices",
+        "excerpt": "Цените изрично изискват предварително записване и публикуват отделен телефон за индивидуални практики."
+      },
+      "contactSource": "https://www.alyogastudio.com/prices",
+      "address": "София, ул. Георги Бенковски 11",
+      "phone": "+359877198760",
+      "reviewedUrls": [
+        "https://www.alyogastudio.com/",
+        "https://www.alyogastudio.com/prices",
+        "https://book.alyogastudio.com/calendar/",
+        "https://www.alyogastudio.com/classes"
+      ],
+      "services": [
+        {
+          "name": "Индивидуална йога практика — 60 минути",
+          "price": {
+            "amount": 35.79,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "индивидуална практика, 60 минути",
+            "sourceUrl": "https://www.alyogastudio.com/prices",
+            "checkedOn": "2026-11-13"
+          }
+        }
+      ],
+      "reviewNotes": "Followed actual public Graph/Book calendar first; it returned an unrendered JS shell, not a reviewed online menu. Own complete Prices page separately publishes explicit advance-booking instructions, dedicated individual-practice phone,60min35.79EUR/70BGN tariff and exact street. Imported only the phone-bookable individual session; no online-only price, class slot, free capacity or calendar usability claimed. Services and full footer reviewed."
+    },
+    {
+      "id": "sofia-yoga-district-mandala",
+      "website": "https://theyogadistrict.net/",
+      "booking": {
+        "kind": "form",
+        "url": "https://book.theyogadistrict.net/calendar/public?site_id=1"
+      },
+      "bookingEvidence": {
+        "url": "https://theyogadistrict.net/grafik-mandala/",
+        "excerpt": "Собственият график свързва точно тази зала с отделен календар за предварително запазване на място в йога практика."
+      },
+      "contactSource": "https://theyogadistrict.net/contacts/",
+      "address": "София, бул. Княгиня Мария Луиза 58, ет. 5",
+      "phone": "+359894488809",
+      "reviewedUrls": [
+        "https://theyogadistrict.net/",
+        "https://theyogadistrict.net/grafik-mandala/",
+        "https://book.theyogadistrict.net/calendar/public?site_id=1",
+        "https://theyogadistrict.net/classes/",
+        "https://theyogadistrict.net/prices/",
+        "https://theyogadistrict.net/contacts/"
+      ],
+      "services": [
+        {
+          "name": "Хатха йога — резервирана редовна групова практика",
+          "price": {
+            "amount": 13,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "еднократно посещение в редовна практика",
+            "sourceUrl": "https://theyogadistrict.net/prices/",
+            "checkedOn": "2026-11-13"
+          }
+        }
+      ],
+      "reviewNotes": "Root independently rendered actualsite1 calendar on2026-11-13 withМандала selected,currentNov13–19 and realHatha yoga entries plus Book-place and five-minute arrival rule; not inferred fromCoShare. Separate own published13EUR regular-practice single fee retained, no perclassonlineamount asserted. Exact branch street/phone/weekhours confirmed separately in ownContacts. No Reformer tariff, duration, currently free seat or booking imported. No account or reservation action."
+    },
+    {
+      "id": "sofia-yoga-district-amara",
+      "website": "https://theyogadistrict.net/",
+      "booking": {
+        "kind": "form",
+        "url": "https://book.theyogadistrict.net/calendar/public?site_id=2"
+      },
+      "bookingEvidence": {
+        "url": "https://theyogadistrict.net/grafik-amara/",
+        "excerpt": "Собственият график свързва точно тази зала с отделен календар за предварително запазване на място в йога практика."
+      },
+      "contactSource": "https://theyogadistrict.net/contacts/",
+      "address": "София, бул. Витоша 45, вход през ресторант УГО",
+      "phone": "+359898391491",
+      "reviewedUrls": [
+        "https://theyogadistrict.net/",
+        "https://theyogadistrict.net/grafik-amara/",
+        "https://book.theyogadistrict.net/calendar/public?site_id=2",
+        "https://theyogadistrict.net/classes/",
+        "https://theyogadistrict.net/prices/",
+        "https://theyogadistrict.net/contacts/"
+      ],
+      "services": [
+        {
+          "name": "Хатха йога — резервирана редовна групова практика",
+          "price": {
+            "amount": 13,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "еднократно посещение в редовна практика",
+            "sourceUrl": "https://theyogadistrict.net/prices/",
+            "checkedOn": "2026-11-13"
+          }
+        }
+      ],
+      "reviewNotes": "Root independently rendered actualsite2 calendar on2026-11-13 withАмара selected,currentNov13–19 and realHatha yoga entries plus Book-place and five-minute arrival rule; not inferred fromCoShare. Separate own published13EUR regular-practice single fee retained, no perclassonlineamount asserted. Exact branch street/phone/weekhours confirmed separately in ownContacts. No Reformer tariff, duration, currently free seat or booking imported. No account or reservation action."
+    },
+    {
+      "id": "sofia-sen-sib-20-april",
+      "website": "https://sensib.org/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359888341881"
+      },
+      "bookingEvidence": {
+        "url": "https://sensib.org/grafik/",
+        "excerpt": "Страницата на присъствената група посочва точния адрес и изисква предварително записване на 0888341881."
+      },
+      "contactSource": "https://sensib.org/kontakti/",
+      "address": "София, ул. 20-ти Април 13",
+      "phone": "+359888341881",
+      "reviewedUrls": [
+        "https://sensib.org/",
+        "https://sensib.org/grafik/",
+        "https://sensib.org/kontakti/",
+        "https://sensib.org/za-men/"
+      ],
+      "services": [
+        {
+          "name": "Йога, мобилност и сила за жени 55+",
+          "pricingDecision": "not_publicly_listed"
+        }
+      ],
+      "reviewNotes": "Read actual in-person group booking instructions, service scope, contact/footer and about/services page. Exact20April13 venue and dedicated phone are first-party. Only physical55+ class imported;8.90EUR online subscription and unrelated workshops are not its tariff. No separate public physical-class price menu linked on reviewed pages. Hours, duration, availability and health outcomes not inferred.",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://sensib.org/grafik/",
+        "serviceUrls": [
+          "https://sensib.org/grafik/",
+          "https://sensib.org/za-men/"
+        ],
+        "notes": "Physical55+ group page expressly says to phone for schedule, prices and enrollment, without numeric physical-class price. Online subscription amount is a different service; root, booking/services, about and contact/footer reviewed."
+      }
+    },
+    {
+      "id": "sofia-social-studio-cherkovna",
+      "website": "https://socialstudio.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://book.socialstudio.bg/calendar/public?site_id=1"
+      },
+      "bookingEvidence": {
+        "url": "https://socialstudio.bg/",
+        "excerpt": "Началната страница отделя „Запази час онлайн“ за конкретните две студиа, всяко със собствен адрес и календар."
+      },
+      "contactSource": "https://socialstudio.bg/kontakti/",
+      "address": "София, Оборище, ул. Черковна 80",
+      "phone": "+359886555107",
+      "reviewedUrls": [
+        "https://socialstudio.bg/",
+        "https://book.socialstudio.bg/calendar/public?site_id=1",
+        "https://socialstudio.bg/kontakti/",
+        "https://socialstudio.bg/trenirovki/pilates-reformar/",
+        "https://socialstudio.bg/tseni/",
+        "https://socialstudio.bg/obshti-usloviya/"
+      ],
+      "services": [
+        {
+          "name": "Персонален пилатес реформър",
+          "price": {
+            "amount": 31,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "едно посещение с валидност 1 месец от покупката",
+            "sourceUrl": "https://socialstudio.bg/tseni/",
+            "checkedOn": "2026-11-13"
+          }
+        },
+        {
+          "name": "Групов пилатес реформър",
+          "price": {
+            "amount": 23,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "едно посещение с валидност 1 месец от покупката",
+            "sourceUrl": "https://socialstudio.bg/tseni/",
+            "checkedOn": "2026-11-13"
+          }
+        }
+      ],
+      "reviewNotes": "Actual branch1 owned calendar independently rendered by root on2026-11-13, with personalReformer40min andgroupReformer50min,Book/waitlist. Own complete contacts/service pages explicitly confirm personal and group formats at this exact hall,capacity3; full Prices expressly says same31EUR personal/23EUR group single tariff bothhalls,one-month validity. No schedule/fee projected merely from otherbranch. Terms§12 reviewed;4h/12h cancellation conditions retained. No EMS, trial discount, ordinary gym, oldGeoMilev venue, hours or current slot imported."
+    },
+    {
+      "id": "sofia-reformer-club-swan",
+      "website": "https://reformerclubswan.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://book.reformerclubswan.com/calendar/public"
+      },
+      "bookingEvidence": {
+        "url": "https://reformerclubswan.com/",
+        "excerpt": "Собствените страници за двата вида тренировки свързват „Запази час“ с конфигуриран календар на Reformer Club Swan."
+      },
+      "contactSource": "https://reformerclubswan.com/kontakti/",
+      "address": "София, Студентски комплекс, ул. Проф. Арх. Петър Ташев 1А",
+      "phone": "+359887616504",
+      "reviewedUrls": [
+        "https://reformerclubswan.com/",
+        "https://book.reformerclubswan.com/calendar/public",
+        "https://reformerclubswan.com/tseni-i-grafik/",
+        "https://reformerclubswan.com/kontakti/"
+      ],
+      "services": [
+        {
+          "name": "Групов пилатес реформър",
+          "price": {
+            "amount": 15,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "еднократно посещение",
+            "sourceUrl": "https://reformerclubswan.com/tseni-i-grafik/",
+            "checkedOn": "2026-11-13"
+          }
+        },
+        {
+          "name": "Индивидуален пилатес реформър",
+          "price": {
+            "amount": 27,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "еднократно посещение",
+            "sourceUrl": "https://reformerclubswan.com/tseni-i-grafik/",
+            "checkedOn": "2026-11-13"
+          }
+        }
+      ],
+      "reviewNotes": "Actual owned Book calendar independently rendered byroot,currentNov13–19,ReformerClubSwan selected and no events. Configured booking destination verified, not a free-slot claim or permanent closure. Complete own tariff separately gives15EUR group/27EUR individual single visits; packages/student conditions and conditional free-first-session offer not substituted. Exactstreet/phone from owncontact. RootMF/Sat8–20 conflicts with Prices-page longer hours andSunday, so hours omitted. No duration guessed; no booking submitted."
+    },
+    {
+      "id": "sofia-sculpt-reformer-mladost4",
+      "website": "https://sculpt-pilates.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://sculptreformer.customer.fitsys.co/calendar/"
+      },
+      "bookingEvidence": {
+        "url": "https://sculpt-pilates.bg/pilates/",
+        "excerpt": "Собственият FAQ изисква предварителна резервация през свързания онлайн график за водени реформър тренировки."
+      },
+      "contactSource": "https://sculpt-pilates.bg/studio/",
+      "address": "София, Младост 4, ул. Проф. Александър Танев 488",
+      "phone": "+359896832525",
+      "reviewedUrls": [
+        "https://sculpt-pilates.bg/",
+        "https://sculptreformer.customer.fitsys.co/calendar/",
+        "https://sculpt-pilates.bg/tcenorazpis/",
+        "https://sculpt-pilates.bg/pilates/",
+        "https://sculpt-pilates.bg/studio/"
+      ],
+      "services": [
+        {
+          "name": "Групов пилатес реформър",
+          "price": {
+            "amount": 15,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "еднократна тренировка, 50 минути",
+            "sourceUrl": "https://sculpt-pilates.bg/tcenorazpis/",
+            "checkedOn": "2026-11-13"
+          }
+        },
+        {
+          "name": "Индивидуален пилатес реформър",
+          "price": {
+            "amount": 30,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "еднократна тренировка, 50 минути",
+            "sourceUrl": "https://sculpt-pilates.bg/tcenorazpis/",
+            "checkedOn": "2026-11-13"
+          }
+        }
+      ],
+      "reviewNotes": "Followed actual Fitsys Book entry first. Root independently rendered configured SculptReformer calendar,currentNov13–19 with no events; this is not an unpublished tariff conclusion or permanent closure. Separate complete own tariff gives15EUR group/30EUR individual single visits, not package division. Own PilatesFAQ gives50min and weekhours; exact address/phone from ownfooter. No current slots, login completion or availability claimed. Incidental review widgets, ratings/photos and maps not used."
+    },
+    {
+      "id": "sofia-aruna-yoga-stratiev",
+      "website": "https://arunayoga.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://book.arunayoga.bg/calendar/public"
+      },
+      "bookingEvidence": {
+        "url": "https://arunayoga.bg/",
+        "excerpt": "Собственият сайт свързва редовните йога практики с конфигуриран календар на Aruna Yoga за предварителна резервация."
+      },
+      "contactSource": "https://arunayoga.bg/kontakti/",
+      "address": "София, ул. Йордан Стратиев 1А, вх. А, ет. 2, VISTA BUSINESS CENTER",
+      "phone": "+359899968863",
+      "reviewedUrls": [
+        "https://arunayoga.bg/",
+        "https://book.arunayoga.bg/calendar/public",
+        "https://arunayoga.bg/uslugi/",
+        "https://arunayoga.bg/kontakti/"
+      ],
+      "services": [
+        {
+          "name": "Въздушна йога — резервирана групова практика",
+          "pricingDecision": "not_publicly_listed"
+        }
+      ],
+      "reviewNotes": "Actual own calendar independently rendered byroot on2026-11-13 with currentevents/aerialyoga advance-booking entries; no numeric class tariffs displayed, no login/account/reservation action. Own root explicitly lists aerial yoga; services and fullcontacts/footer reviewed, exactstreet/entrance/floor confirmed. No yoga Prices entry linked. Listed human-design/facial amounts are unrelated and not projected onto aerialyoga. No duration, hours or availability guessed.",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://book.arunayoga.bg/calendar/public",
+        "serviceUrls": [
+          "https://arunayoga.bg/",
+          "https://arunayoga.bg/uslugi/"
+        ],
+        "notes": "Rendered actual public class calendar and own service/root/contact pages inspected. No numeric aerial-yoga fee is displayed and no separate yoga price page linked. Non-yoga consultation/facial tariffs are not class prices; missing price remains absent."
+      }
+    },
+    {
+      "id": "sofia-city-service-group-lyulin8",
+      "website": "https://drago-bg.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://drago-bg.com/"
+      },
+      "bookingEvidence": {
+        "url": "https://drago-bg.com/",
+        "excerpt": "Сайтът изрично предлага онлайн резервация за сезонна смяна на гуми с публична форма за дата, час и автомобил."
+      },
+      "contactSource": "https://drago-bg.com/",
+      "address": "София, Люлин 8, ул. Ген. Асен Николов 36",
+      "phone": "+359888467947",
+      "reviewedUrls": [
+        "https://drago-bg.com/"
+      ],
+      "services": [
+        {
+          "name": "Сезонна смяна на гуми в сервиза",
+          "pricingDecision": "not_publicly_listed"
+        }
+      ],
+      "reviewNotes": "Followed actual own Book anchor to visible public tyre-change form, then complete service/price sections and contact/footer. Date/time/contact/registration fields readable without account; no form submitted. ExactLyulin8 street and phone first-party. Price section labels seasonal tyre change without amount, then separately lists alignment55BGN and check40BGN; those are not tyre-change fees. No hidden tariff link or calculator on public page. No second unnamed workshop, mobile duplicate, hours or duration invented.",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://drago-bg.com/",
+        "serviceUrls": [
+          "https://drago-bg.com/"
+        ],
+        "notes": "Public tyre-change reservation form and complete services/price section inspected. No seasonal tyre-change amount is listed; separately priced alignment and alignment-check operations are not copied as the selected tyre service."
+      }
+    }
+  ],
+  "pending": [
+    {
+      "name": "Body Atelier",
+      "website": "https://bodyatelier.bg/",
+      "termsUrl": "https://bodyatelier.bg/terms.php",
+      "reason": "Root rendered actual Book calendar and publicfees/contact verified, but own terms§2 prohibit copying/distribution/use without written permission. Excluded from records pending permission."
+    },
+    {
+      "name": "SR CARS tyres",
+      "website": "https://srcars-gumi.bg/",
+      "bookingUrl": "https://srcars-gumi.bg/цени/",
+      "reason": "ExactOvchaKupel venue and explicit phone booking verified; actual Prices contains JS estimator with dash amount. Calculator not rendered, so tariff pending, not not_publicly_listed."
+    },
+    {
+      "name": "Calma Yoga",
+      "website": "https://calmayogastudio.net/",
+      "reason": "Publictraining/root pages empty JS shells in web and bounded visibleHTMLfallback; no hidden APIs or bundles accessed."
+    },
+    {
+      "name": "AsanaDream",
+      "website": "https://asanadream.com/",
+      "reason": "Own actual Book path redirects /grafik-asanadream/ but displays no classes/form; publishedfees/contact clear, explicit phone-booking route not yet verified. Legacy servicepage member10BGN differs from currentmember7EUR; no fee imported."
+    },
+    {
+      "name": "Xuangui",
+      "website": "https://www.xuangui.com/",
+      "reason": "Explicit individual telephone appointments at Atelie hall, but exact Atelie street not bound by readable ownsources. Group timetableSkobelev58 not automatically equated with individualAtelie."
+    },
+    {
+      "name": "Budostyle karate",
+      "website": "https://www.budostyle-karate.com/",
+      "reason": "Sofia exactPirotska3 and kids timetable readable, no explicit reservation invitation found."
+    },
+    {
+      "name": "Overfight",
+      "website": "https://www.overfight.bg/",
+      "reason": "Three exact halls on owncontacts, but root class/enrollment cards remainLoading in available reader. Generic contact not inferred as appointment proof."
+    },
+    {
+      "name": "Yoga Iztok",
+      "website": "https://yogaiztok.com/",
+      "reason": "Ownsite403, not bypassed; third-party event feeds not substituted for complete ownbooking/services review."
+    },
+    {
+      "name": "Joy Yoga",
+      "website": "https://joyyoga.bg/",
+      "reason": "Bot verification challenge; stopped, not an unpublished tariff finding."
+    },
+    {
+      "name": "Yoga District Reformer tariffs only",
+      "website": "https://theyogadistrict.net/",
+      "priceUrl": "https://theyogadistrict.net/prices/",
+      "reason": "Same public page conflicts: dedicated Reformer section40EUR individual/20EUR group versus therapy table20EUR individual/70EUR group. Only nonconflicting regular yoga13EUR imported; no Reformer fee invented or selected."
+    },
+    {
+      "name": "Ananda centre",
+      "website": "https://ananda-bg.com/",
+      "termsUrl": "https://ananda-bg.com/privacy-policy/",
+      "reason": "Own booking invitation, services/contact and current tariff readable; content-use clause requires written consent. Not imported pending permission."
+    },
+    {
+      "name": "SENJI, Vasanna Space and Yoga Sihia provider-only leads",
+      "website": "https://reservation.studio/",
+      "termsUrl": "https://reservation.studio/bg/pages/terms",
+      "reason": "Provider terms§8 explicitly prohibit automated access/extraction without written permission. Stopped on reading; no provider facts imported."
+    },
+    {
+      "name": "Timshel Yoga",
+      "website": "https://timshel.yoga/",
+      "reason": "Exact ownvenue and reservedearlyyoga listed, but actual contact phone/email fields are blank and no usable booking form; not imported."
+    },
+    {
+      "name": "Kamato yoga",
+      "website": "https://www.kamato.bg/",
+      "reason": "Own reservation phone/tariff clear, but current visible week contains matPilates/otherfitness rather than selected yoga or Reformer. Not broadened to generic fitness or inferred a current yoga class."
+    }
+  ],
+  "rejected": [
+    {
+      "name": "Body Mind Spirit",
+      "website": "https://bodymindspirit.bg/",
+      "reason": "Current own site identifiesVarna, notSofia; stale indexed schedule is not aSofia venue."
+    },
+    {
+      "name": "BGGumi",
+      "website": "https://www.bggumi.com/",
+      "termsUrl": "https://www.bggumi.com/obshti-usloviya",
+      "reason": "Own terms§X.1 expressly prohibit public/commercial reproduction/linking/use without written permission. Reservation form was readable, but no listing imported."
+    }
+  ],
+  "status": "frozen_17_source_reviewed_records_ready_for_root_independent_review",
+  "validation": {
+    "schemaAndDuplicateAudit": "17 readyForReview; no pending or rejected against current1081",
+    "pricingReceiptShape": "14 reviewed price-bearing records and3 service_reviewed unpublished receipts, tested with temporary in-memory identities only; no fingerprints persisted",
+    "diffCheck": "Clean git diff --check and explicit untracked-file whitespace check; isolated batch only, not integrated.",
+    "productionWrites": 0,
+    "bookingsSubmitted": 0
+  }
+}
+

@@ -1,0 +1,678 @@
+{
+  "checkedOn": "2026-11-13",
+  "validUntil": "2027-02-11",
+  "scope": "Sofia scheduled home visits and booked individual lessons; no general human clinics, Google scraping, paid geocoding, photos or production writes.",
+  "summary": {
+    "records": 26,
+    "homeServices": 12,
+    "education": 14,
+    "services": 36,
+    "priceRows": 26,
+    "priceReviewed": 16,
+    "unpricedServiceReviewed": 10,
+    "pending": 12,
+    "rejected": 8
+  },
+  "evidencePolicy": "Primary owner booking/inquiry entry first, then actual service/tariff/contact/footer. Pending does not mean reviewed. Some reader-cache failures have explicit phone fallback; security challenges not bypassed. No-price receipts apply only to included exact services; no global tariff-coverage claim. Real branch premises are distinct; mobile providers have a single Sofia service-area record with null address/coordinates.",
+  "ledger": [
+    {
+      "order": 1,
+      "id": "sofia-chisto-home-visits",
+      "name": "Чисто · домашно почистване в София",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://chisto.bg/",
+        "https://chisto.bg/prices/"
+      ],
+      "bookingEvidenceUrl": "https://chisto.bg/",
+      "priceCount": 2,
+      "locationDecision": "service_area",
+      "notes": "Owner order-by-phone invitation and exact home-cleaning tariff reviewed, not retail cart. VAT, minimum and adjustment conditions retained. No day-specific visit hours found; one mobile Sofia record."
+    },
+    {
+      "order": 2,
+      "id": "sofia-feite-home-cleaning",
+      "name": "Феите · домашно почистване",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://feite.bg/"
+      ],
+      "bookingEvidenceUrl": "https://feite.bg/",
+      "priceCount": 0,
+      "locationDecision": "service_area",
+      "notes": "Actual Book entry resolves to inspected in-page form with name/email/phone/area/service. Substantive service/pricing FAQ on this same page reviewed. Separate house-cleaning link cache-missed, not counted as inspected. Explicit weekday hours and weekend by-request footer retained; no numeric price claimed."
+    },
+    {
+      "order": 3,
+      "id": "sofia-cleaningcompany-home-visits",
+      "name": "CleaningCompany.BG · почистване на дома",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://cleaningcompany.bg/",
+        "https://cleaningcompany.bg/contacts/",
+        "https://cleaningcompany.bg/pochistvane-na-domove-apartamenti-sofia-ceni/"
+      ],
+      "bookingEvidenceUrl": "https://cleaningcompany.bg/",
+      "priceCount": 2,
+      "locationDecision": "service_area",
+      "notes": "Owner booking FAQ followed to actual contact form, then full exact apartment service tariff. Starting prices and standard dirt condition retained. Flexible morning/evening/weekend prose not converted into clock hours; office not treated as mobile destination."
+    },
+    {
+      "order": 4,
+      "id": "sofia-handyservices-home-visits",
+      "name": "Handy Services · домашно почистване",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://handyservices.bg/",
+        "https://handyservices.bg/ceni/"
+      ],
+      "bookingEvidenceUrl": "https://handyservices.bg/",
+      "priceCount": 2,
+      "locationDecision": "service_area",
+      "notes": "Actual Request cleaning entry and in-page form with preferred date reviewed before full tariff and FAQ. Deeper service links cache-missed; no facts from them claimed. Homepage and tariff substantively name exact services. Minimum/VAT/indicative-final-offer conditions retained. Seven-day wording has no clock schedule."
+    },
+    {
+      "order": 5,
+      "id": "sofia-eco-clean-home-visits",
+      "name": "Еко Хоум Клийнинг · посещения в София",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://eco-clean-home.com/contact-us/",
+        "https://eco-clean-home.com/rezervaciq/",
+        "https://eco-clean-home.com/цени/"
+      ],
+      "bookingEvidenceUrl": "https://eco-clean-home.com/rezervaciq/",
+      "priceCount": 2,
+      "locationDecision": "service_area",
+      "notes": "Actual Reservation page first, accessible owner contact and full tariff next. No readable reservation form controls: explicit phone fallback used, no successful online flow claimed. Root and deeper service/FAQ pages timed out; accessible owner contact landing used as website. BGN amounts not converted; minimum and access/transport conditions retained."
+    },
+    {
+      "order": 6,
+      "id": "sofia-hometech-home-visits",
+      "name": "Хоум Тех Сервиз · ремонт на перални на адрес",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://hometechbg.com/",
+        "https://hometechbg.com/contacts",
+        "https://hometechbg.com/services",
+        "https://hometechbg.com/remont-na-peralni"
+      ],
+      "bookingEvidenceUrl": "https://hometechbg.com/remont-na-peralni",
+      "priceCount": 0,
+      "locationDecision": "service_area",
+      "notes": "Book visit route /visit-request cache-missed; published phone fallback and explicit scheduled-home-visit service instructions reviewed instead. Full repair FAQ read. Office 10–18 hours are not home-visit availability. No successful form or numeric repair tariff claimed."
+    },
+    {
+      "order": 7,
+      "id": "sofia-panservice-home-appliance-visits",
+      "name": "Pan Service · ремонт на перални на адрес",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://panservice-bg.com/",
+        "https://panservice-bg.com/заявки-в-софия/",
+        "https://panservice-bg.com/перални/"
+      ],
+      "bookingEvidenceUrl": "https://panservice-bg.com/перални/",
+      "priceCount": 2,
+      "locationDecision": "service_area",
+      "notes": "Actual Sofia requests entry followed to washing-machine booking/tariff, including labour heading, refusal/diagnosis, parts and charged transport notes. One mobile Sofia record despite two service bases. One base 09–19 hours not generalized to home-visit schedule."
+    },
+    {
+      "order": 8,
+      "id": "sofia-elektrotehnik-info-home-visits",
+      "name": "Elektrotehnik.info · електроуслуги в София",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://elektrotehnik.info/",
+        "https://elektrotehnik.info/контакти/",
+        "https://elektrotehnik.info/цени/",
+        "https://elektrotehnik.info/policy/"
+      ],
+      "bookingEvidenceUrl": "https://elektrotehnik.info/",
+      "priceCount": 2,
+      "locationDecision": "service_area",
+      "notes": "Owner visit-request instructions, actual October-2026 fee table and privacy/contact phone reviewed. Burgas registered office not misrepresented as Sofia premises; explicit Sofia home-service coverage supports one mobile record. No guessed hours, chatbot submission or materials/VAT inference."
+    },
+    {
+      "order": 9,
+      "id": "sofia-eltablo-er-stroy-home-visits",
+      "name": "Ер Строй Ремонти · електроуслуги на адрес",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://eltablo.bg/",
+        "https://eltablo.bg/vrazka-s-firma-er-stroy-remonti-eood",
+        "https://eltablo.bg/el-uslugi-tseni"
+      ],
+      "bookingEvidenceUrl": "https://eltablo.bg/el-uslugi-tseni",
+      "priceCount": 1,
+      "locationDecision": "service_area",
+      "notes": "Actual owner inquiry form and full price page reviewed. General repair tariff explicitly not maintained; separately published mandatory 30 BGN diagnostic-visit fee is the only priced inventory row. Follow-up day/hour agreement explicit. Contact 09–18 has no clear weekday schedule, so hours omitted."
+    },
+    {
+      "order": 10,
+      "id": "sofia-rodgers-design-home-assembly",
+      "name": "Rodgers Design · монтаж на мебели и санитария",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://rodgers-design.com/",
+        "https://www.rodgers-design.com/contact.html",
+        "https://rodgers-design.com/montazh-mebeli-sanitaria-sofia.html"
+      ],
+      "bookingEvidenceUrl": "https://www.rodgers-design.com/contact.html",
+      "priceCount": 2,
+      "locationDecision": "service_area",
+      "notes": "Owner actual Contact entry inspected on accessible www variant (non-www cache miss), then exact Sofia-2026 furniture/sanitary tariff. Home services, not retail. Starting prices preserved without parts/VAT/duration assumptions. No clock schedule published in inspected pages."
+    },
+    {
+      "order": 11,
+      "id": "sofia-rainfreshclean-home-visits",
+      "name": "RainFreshClean · почистване на адрес",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://rainfreshclean.eu/"
+      ],
+      "bookingEvidenceUrl": "https://rainfreshclean.eu/",
+      "priceCount": 2,
+      "locationDecision": "service_area",
+      "notes": "Actual Order modal fields, full package/service tariff, contacts and terms inspected on same substantive long owner page. Whole-object package not treated as unit price. First-party office GPS deliberately excluded because mobile Sofia service area; no structured hours found."
+    },
+    {
+      "order": 12,
+      "id": "sofia-radulov-cleaning-home-visits",
+      "name": "Radulov Cleaning · почистване след ремонт",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.radulovcleaning.bg/contacti/",
+        "https://www.radulovcleaning.bg/pochistvane-sled-remont/"
+      ],
+      "bookingEvidenceUrl": "https://www.radulovcleaning.bg/pochistvane-sled-remont/",
+      "priceCount": 0,
+      "locationDecision": "service_area",
+      "notes": "Actual Book inspection route cache-missed; owner service-page phone fallback and readable contact form inspected instead. Exact included service has explicit quote-after-free-inspection pricing section. Root and separate entrance service timed out, so accessible owner contact page is website. Office address is not a mobile visit destination."
+    },
+    {
+      "order": 13,
+      "id": "sofia-voice-lab-karpuzitsa",
+      "name": "Voice Lab · Преслава Мръвкова",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.voicelab.bg/",
+        "https://www.voicelab.bg/uroci-po-peene-sofia"
+      ],
+      "bookingEvidenceUrl": "https://www.voicelab.bg/",
+      "priceCount": 2,
+      "locationDecision": "premises",
+      "notes": "Followed owner Book consultation entry to the substantive singing page, then inspected actual homepage contact/appointment form and full monthly programme tariff. Only piano/vocal starter packages included, never divided into a supposed unit fee. Owner street address retained; image-only working hours and unreadable call phone not guessed."
+    },
+    {
+      "order": 14,
+      "id": "sofia-little-big-talents-otets-paisiy",
+      "name": "Малките Големи Таланти · музикален център",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.thelittlebigtalents.bg/",
+        "https://www.thelittlebigtalents.bg/pricing",
+        "https://www.thelittlebigtalents.bg/individual-lessons/pop-jazz-singing"
+      ],
+      "bookingEvidenceUrl": "https://www.thelittlebigtalents.bg/",
+      "priceCount": 2,
+      "locationDecision": "premises",
+      "notes": "Owner Book lesson/call invitation, official local phone/address, individual vocal page and full tariff reviewed. Monthly packages are whole totals. Duration range45–60 not encoded as guessed single duration. Weekday hours sourced; Saturday11–16 separately retained in record hours."
+    },
+    {
+      "order": 15,
+      "id": "sofia-bravo-center-gotse-delchev",
+      "name": "BRAVO Center · Гоце Делчев",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://bravocenter.bg/",
+        "https://bravocenter.bg/запиши-се/",
+        "https://bravocenter.bg/kontakt/",
+        "https://bravocenter.bg/individualno-obuchenie-angliiski/"
+      ],
+      "bookingEvidenceUrl": "https://bravocenter.bg/запиши-се/",
+      "priceCount": 0,
+      "locationDecision": "premises",
+      "notes": "Actual enrollment page followed first and individual service/contact details inspected. It links to owner contact form and provides local booking phone; no booking submitted. Homepage group-year promos not treated as individual price. Genuine unpublished individual tariff, not an inaccessible price-menu claim."
+    },
+    {
+      "order": 16,
+      "id": "sofia-elina-lyuben-karavelov",
+      "name": "Учебен център Елина · Любен Каравелов",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.elina-av.com/lang_courses.html",
+        "https://www.elina-av.com/uroci_po_angliiski.html",
+        "https://www.elina-av.com/contact.html"
+      ],
+      "bookingEvidenceUrl": "https://www.elina-av.com/uroci_po_angliiski.html",
+      "priceCount": 0,
+      "locationDecision": "premises",
+      "notes": "Owner exact lesson call instruction supports appointment, not just a generic contact number. Contact page supplies actual street address and every-day09–20 schedule. No inferred duration, price, geocode, teacher-wide fee or unrelated retail material."
+    },
+    {
+      "order": 17,
+      "id": "sofia-art-center-home-drawing",
+      "name": "Art Center · уроци по рисуване на адрес",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://alo372.wixsite.com/1234"
+      ],
+      "bookingEvidenceUrl": "https://alo372.wixsite.com/1234",
+      "priceCount": 1,
+      "locationDecision": "service_area",
+      "notes": "Substantive owner page inspected completely: actual phone enrollment, home visits within Sofia,60-minute tariff, minimum4/month, rebooking rule and every-day10:30–15:30 teaching window. Literal BGN not converted. Single service-area listing, not a fabricated studio address."
+    },
+    {
+      "order": 18,
+      "id": "sofia-arliz-orfey",
+      "name": "Езикова школа Арлиз · Лозенец",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://arliz.bg/",
+        "https://arliz.bg/individualno-obuchenie/",
+        "https://arliz.bg/kontakti/",
+        "https://arliz.bg/zapisvaneto-za-uchebnata-2026-2027-godina-zapochna/",
+        "https://arliz.bg/obshti-uslovia/"
+      ],
+      "bookingEvidenceUrl": "https://arliz.bg/zapisvaneto-za-uchebnata-2026-2027-godina-zapochna/",
+      "priceCount": 0,
+      "locationDecision": "premises",
+      "notes": "Current owner enrollment invitation explicitly includes individual programmes and call-to-enroll; exact individual service page and actual street contact reviewed. Terms link readable but only generic site shell. No purported complete tuition tariff, individual duration, ratings or Google hours copied."
+    },
+    {
+      "order": 19,
+      "id": "sofia-accent-benkovski",
+      "name": "АКЦЕНТ · Георги Бенковски",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.accentschool.net/",
+        "https://www.accentschool.net/uslugi/individualno-obuchenie",
+        "https://www.accentschool.net/contact",
+        "https://www.accentschool.net/za-nas/uchebni-bazi"
+      ],
+      "bookingEvidenceUrl": "https://www.accentschool.net/uslugi/individualno-obuchenie",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "notes": "Actual individual-teaching page links application route (cache miss); official phone/central enrollment fallback and full tariff checked. Owner teaching-bases page names both real addresses and tariff expressly applies to school teaching. No staff-specific tariffs or branch hours invented; actual classroom assigned by school. Whole10-hour BGN card,5-week validity and90-minute blocks retained."
+    },
+    {
+      "order": 20,
+      "id": "sofia-accent-vitosha",
+      "name": "АКЦЕНТ · Витоша",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.accentschool.net/",
+        "https://www.accentschool.net/uslugi/individualno-obuchenie",
+        "https://www.accentschool.net/contact",
+        "https://www.accentschool.net/za-nas/uchebni-bazi"
+      ],
+      "bookingEvidenceUrl": "https://www.accentschool.net/uslugi/individualno-obuchenie",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "notes": "Actual individual-teaching page links application route (cache miss); official phone/central enrollment fallback and full tariff checked. Owner teaching-bases page names both real addresses and tariff expressly applies to school teaching. No staff-specific tariffs or branch hours invented; actual classroom assigned by school. Whole10-hour BGN card,5-week validity and90-minute blocks retained."
+    },
+    {
+      "order": 21,
+      "id": "sofia-avo-dondukov",
+      "name": "АВО · Паметник Левски",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://avo.bg/",
+        "https://avo.bg/apply_individual?package=mini",
+        "https://avo.bg/kursove-za-vazrastni",
+        "https://avo.bg/contacts"
+      ],
+      "bookingEvidenceUrl": "https://avo.bg/apply_individual?package=mini",
+      "priceCount": 0,
+      "locationDecision": "premises",
+      "notes": "Actual individual-offer form and full service page inspected, not homepage only. All four named premises are owner-listed teaching branches/base. No particular staff, tariff or hour availability inferred for a branch: classroom/branch and schedule require confirmation. Form time choices not turned into opening hours. No form submitted; no group/exam fee reused as individual tuition."
+    },
+    {
+      "order": 22,
+      "id": "sofia-avo-graf-ignatiev",
+      "name": "АВО · Граф Игнатиев",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://avo.bg/",
+        "https://avo.bg/apply_individual?package=mini",
+        "https://avo.bg/kursove-za-vazrastni",
+        "https://avo.bg/contacts"
+      ],
+      "bookingEvidenceUrl": "https://avo.bg/apply_individual?package=mini",
+      "priceCount": 0,
+      "locationDecision": "premises",
+      "notes": "Actual individual-offer form and full service page inspected, not homepage only. All four named premises are owner-listed teaching branches/base. No particular staff, tariff or hour availability inferred for a branch: classroom/branch and schedule require confirmation. Form time choices not turned into opening hours. No form submitted; no group/exam fee reused as individual tuition."
+    },
+    {
+      "order": 23,
+      "id": "sofia-avo-mladost",
+      "name": "АВО · Младост",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://avo.bg/",
+        "https://avo.bg/apply_individual?package=mini",
+        "https://avo.bg/kursove-za-vazrastni",
+        "https://avo.bg/contacts"
+      ],
+      "bookingEvidenceUrl": "https://avo.bg/apply_individual?package=mini",
+      "priceCount": 0,
+      "locationDecision": "premises",
+      "notes": "Actual individual-offer form and full service page inspected, not homepage only. All four named premises are owner-listed teaching branches/base. No particular staff, tariff or hour availability inferred for a branch: classroom/branch and schedule require confirmation. Form time choices not turned into opening hours. No form submitted; no group/exam fee reused as individual tuition."
+    },
+    {
+      "order": 24,
+      "id": "sofia-avo-opalchenska",
+      "name": "АВО · учебна база Опълченска",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://avo.bg/",
+        "https://avo.bg/apply_individual?package=mini",
+        "https://avo.bg/kursove-za-vazrastni",
+        "https://avo.bg/contacts"
+      ],
+      "bookingEvidenceUrl": "https://avo.bg/apply_individual?package=mini",
+      "priceCount": 0,
+      "locationDecision": "premises",
+      "notes": "Actual individual-offer form and full service page inspected, not homepage only. All four named premises are owner-listed teaching branches/base. No particular staff, tariff or hour availability inferred for a branch: classroom/branch and schedule require confirmation. Form time choices not turned into opening hours. No form submitted; no group/exam fee reused as individual tuition."
+    },
+    {
+      "order": 25,
+      "id": "sofia-booktree-dragalevtsi",
+      "name": "Езикова школа БУК · Драгалевци",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.booktree.bg/",
+        "https://www.booktree.bg/contacts/",
+        "https://www.booktree.bg/individualno-ezikovo-obuchenie-vazratsni/",
+        "https://www.booktree.bg/tseni/",
+        "https://www.booktree.bg/uslovia-i-politiki/"
+      ],
+      "bookingEvidenceUrl": "https://www.booktree.bg/contacts/",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "notes": "Actual Book/consultation entry followed to readable owner contact form, then individual-adult programme and current tariff effective01-Aug-2026. Owner homepage explicitly offers in-person individual teaching at both offices; real branch addresses verified.25EUR is per40-minute academic hour, not a package.2-hour initial deposit retained from service page. Linked detailed terms challenged; no bypass or claim of full terms review. Admin hours not represented as teaching hours."
+    },
+    {
+      "order": 26,
+      "id": "sofia-booktree-gotse-delchev",
+      "name": "Езикова школа БУК · Гоце Делчев",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.booktree.bg/",
+        "https://www.booktree.bg/contacts/",
+        "https://www.booktree.bg/individualno-ezikovo-obuchenie-vazratsni/",
+        "https://www.booktree.bg/tseni/",
+        "https://www.booktree.bg/uslovia-i-politiki/"
+      ],
+      "bookingEvidenceUrl": "https://www.booktree.bg/contacts/",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "notes": "Actual Book/consultation entry followed to readable owner contact form, then individual-adult programme and current tariff effective01-Aug-2026. Owner homepage explicitly offers in-person individual teaching at both offices; real branch addresses verified.25EUR is per40-minute academic hour, not a package.2-hour initial deposit retained from service page. Linked detailed terms challenged; no bypass or claim of full terms review. Admin hours not represented as teaching hours."
+    },
+    {
+      "order": 27,
+      "name": "Cvetno · арт студио",
+      "website": "https://www.cvetno.art/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.cvetno.art/",
+        "https://www.cvetno.art/service-page/уроци-по-рисуване",
+        "https://www.cvetno.art/service-page/рисуване-за-кандидат-студенти"
+      ],
+      "notes": "Actual owner Book service pages read. Homepage lesson31EUR/candidate46EUR conflicts with booking30EUR/45EUR. Held pending owner confirmation, not unpublished and not silently selecting cheaper price."
+    },
+    {
+      "order": 28,
+      "name": "ИНСЕКТА България",
+      "website": "https://insecta.bg/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://insecta.bg/",
+        "https://insecta.bg/цени/",
+        "https://insecta.bg/заявка/"
+      ],
+      "notes": "Owner tariff explicitly labeled2025; actual request page security challenge. Do not certify a current2026 price or call this unpublished; owner/current-flow confirmation required."
+    },
+    {
+      "order": 29,
+      "name": "Pro Clean",
+      "website": "https://proclean.app/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://proclean.app/",
+        "https://proclean.app/book"
+      ],
+      "notes": "Search located owner booking form but live reader returned zero readable lines for root and booking. Not enough current owner service-area/tariff verification; no fictitious unpublished-price receipt."
+    },
+    {
+      "order": 30,
+      "name": "Greenwich",
+      "website": "https://www.greenwichbg.com/bg/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.greenwichbg.com/bg/"
+      ],
+      "notes": "Owner indexed individual-lesson/address evidence found, but actual own page returned403. Access restriction respected; not added as verified."
+    },
+    {
+      "order": 31,
+      "name": "Има Кой",
+      "website": "https://ima-koi.bg/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://ima-koi.bg/"
+      ],
+      "notes": "Search discovered owner furniture-assembly prices and phone, but live owner site was inaccessible through reader. No current complete booking/contact review."
+    },
+    {
+      "order": 32,
+      "name": "Хоум Дизайн Про",
+      "website": "https://www.homedesignpro.bg/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.homedesignpro.bg/"
+      ],
+      "notes": "Owner assembly-price page discovered but root inaccessible and actual request/contact flow not completed. No record published."
+    },
+    {
+      "order": 33,
+      "name": "Music Box · Лъвски рид",
+      "website": "https://musicboxbg.wixsite.com/musicbox",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://musicboxbg.wixsite.com/musicbox",
+        "https://musicboxbg.wixsite.com/musicbox/contact-c2q4"
+      ],
+      "notes": "Own home page provides lessons/address/phone, distinct phone from known Music Box catalogue. Actual Contact and enrollment conditions route repeatedly cache-missed. Held, not asserted unpublished."
+    },
+    {
+      "order": 34,
+      "name": "Културен и образователен център София",
+      "website": "https://ezik.eu/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://ezik.eu/",
+        "https://ezik.eu/individual/",
+        "https://ezik.eu/contacts/"
+      ],
+      "notes": "Owner home located2026/2027 enrollment, but individual service cache-missed and contact timed out. No exact street-address and individual tariff review completed."
+    },
+    {
+      "order": 35,
+      "name": "The Old Cleaners",
+      "website": "https://www.theoldcleaners.com/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.theoldcleaners.com/cleaning_services/почистване-на-къщи/",
+        "https://www.theoldcleaners.com/цени-за-почистване/",
+        "https://www.theoldcleaners.com/online-zaqvka-za-pochistvane/"
+      ],
+      "notes": "Owner house service advertises2.99BGN/m² while full tariff complex cleaning begins2EUR/m²; actual request route cache-missed and upholstery page security-challenged. Held for reconciliation, not unpublished."
+    },
+    {
+      "order": 36,
+      "name": "ФРЕСКО",
+      "website": "https://fresco-bg.com/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://fresco-bg.com/"
+      ],
+      "notes": "Search revealed real Sofia contact alongside unfinished Lorem Ipsum and dollar/xx tariff placeholders. Actual booking and reliable current inventory need fuller review; no placeholder price imported."
+    },
+    {
+      "order": 37,
+      "name": "РОДИНА · математика",
+      "website": "https://www.kursovete-bg.com/",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.kursovete-bg.com/",
+        "https://www.kursovete-bg.com/individualni-chastni-uroci-po-matematika.html",
+        "https://www.kursovete-bg.com/contact.html",
+        "https://www.kursovete-bg.com/rodina-school-training-base.html"
+      ],
+      "notes": "Actual registration and individual-lesson tariff read, including VAT and90-minute blocks. Own readable pages name Orlov/Lavov Most teaching bases but street addresses only in external embedded maps. No Google map scraping or guessed street address; held."
+    },
+    {
+      "order": 38,
+      "name": "Давитоз",
+      "website": "https://www.davitozonline.com/index.html",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.davitozonline.com/index.html"
+      ],
+      "notes": "Owner online-learning site found but exact current Sofia classroom enrollment/tariff route not completed; no online-only inventory assigned to a physical Sofia branch."
+    },
+    {
+      "order": 39,
+      "name": "Протон Сервиз",
+      "website": "https://www.protonservice.bg/",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.protonservice.bg/",
+        "https://www.protonservice.bg/index.php/form",
+        "https://www.protonservice.bg/index.php/service/washing"
+      ],
+      "notes": "Actual owner request form and service inspected; owner states Veliko Tarnovo/Arbanasi/Gorna Oryahovitsa region, not Sofia. Search query proximity was not coverage evidence."
+    },
+    {
+      "order": 40,
+      "name": "uroci-kitara.com",
+      "website": "https://www.uroci-kitara.com/",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.uroci-kitara.com/",
+        "https://www.uroci-kitara.com/цени/"
+      ],
+      "notes": "Owner content identifies Music Art Center, already present in dedupe inventory. Not another business merely because a second domain exists."
+    },
+    {
+      "order": 41,
+      "name": "ИкигаЙ",
+      "website": "https://www.ikigaibg.com/",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.ikigaibg.com/"
+      ],
+      "notes": "Owner identifies Dimitrovgrad and online teaching; not a verified physical Sofia service."
+    },
+    {
+      "order": 42,
+      "name": "Чист и здравословен дом",
+      "website": "https://chistobg.com/",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://chistobg.com/"
+      ],
+      "notes": "Actual site is a household-air/purifier advice blog, not a bookable cleaning-service business."
+    },
+    {
+      "order": 43,
+      "name": "Блясък",
+      "website": "https://blyasuk.com/",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://blyasuk.com/"
+      ],
+      "notes": "Search result exposed apparent placeholder booking phone0888000000. No reliable real appointment-business verification; not admitted."
+    },
+    {
+      "order": 44,
+      "name": "NordStudeo",
+      "website": "https://nordstudeo.com/",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://nordstudeo.com/",
+        "https://nordstudeo.com/kontakti-nordstudeo/",
+        "https://nordstudeo.com/individualno-obuchenie/"
+      ],
+      "notes": "Owner individual service is explicitly online-only. Sofia office contact is not evidence of physical lessons there, so not assigned as a local appointment premise."
+    },
+    {
+      "order": 45,
+      "name": "HandymanSofia",
+      "website": "https://handymansofia.com/",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://handymansofia.com/"
+      ],
+      "notes": "Actual readable root gives generic services/phone but lacks an explicit appointment/request flow in inspected content. Not approved solely from phone and homepage."
+    },
+    {
+      "order": 46,
+      "name": "Libero",
+      "website": "https://libero.bg/",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://libero.bg/"
+      ],
+      "notes": "Third-party provider profile discovered but own site inaccessible; no usable own-source business/booking relationship verified."
+    }
+  ]
+}

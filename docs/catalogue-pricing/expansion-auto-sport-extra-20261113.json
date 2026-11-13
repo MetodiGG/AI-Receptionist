@@ -1,0 +1,457 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-13",
+  "validUntil": "2027-02-11",
+  "batchFile": "lib/discovery/catalogue-data/neighborhood-auto-sport-extra-20261113.mjs",
+  "scope": "Isolated continuation of the auto/sport batch: six new Sofia appointment venues across five own-site domains.",
+  "summary": {
+    "records": 6,
+    "services": 6,
+    "publishedPriceFacts": 2,
+    "withoutPublicPrices": 4,
+    "ownSiteDomains": 5,
+    "coordinatesAdded": 0,
+    "openingHoursInvented": 0
+  },
+  "method": "Continuation after the first20 completed venues, not a claim of neighborhood completeness. Own actual booking entries read before service/price pages, with low-volume visible public HTML curl fallback only when normal web reader timed out. No accounts, private API/bundle inspection, payments, submitted enquiries, real bookings, Google reviews/ratings/photos/map scraping, geocoding, production write or deploy. Root must independently review these facts and bind exact static inventory identities. No-public-tariff receipts are service_reviewed, never a completed price review.",
+  "dedupe": {
+    "index": "/private/tmp/gorez-catalogue-expansion-20261113-VBYQa3/dedupe-index.json",
+    "status": "Own-domain/phone/address comparison against supplied index and first20; root intake recheck required.",
+    "branchRationale": "Maxima has two separately addressed public halls, not duplicate rooms. Club-wide public automatic monthly-dues option explicitly applies to current club members; not invented venue-specific rates. Katerini imported only Lomsko252, not its separate propshaft repair location. TopDrive relocation is one business, not old/new clones."
+  },
+  "orderedLedger": [
+    {
+      "order": 1,
+      "area": "Манастирски ливади and adjacent southern quarters, continuation",
+      "status": "reviewed_sources",
+      "outcome": "M&V/LouisAyer143 held for missing explicit booking invitation. Known ML operators and supplied-index auto/detailing businesses not duplicated. Maxima Borovo/Pavlovo full-address halls were independently verified later in the sport phase."
+    },
+    {
+      "order": 2,
+      "area": "Other Sofia auto workshops: sourced exact streets, unknown quarters retained null",
+      "status": "reviewed_sources",
+      "outcome": "TopDrive current relocation to Tsarigradsko220, AudiWorld Chepinsko55, Katerini Lomsko252. No hours or coordinates fabricated."
+    },
+    {
+      "order": 3,
+      "area": "Sport: Борово; Павлово",
+      "status": "reviewed_sources",
+      "outcome": "Two actual Maxima child-karate halls with explicit phone reservation. Exact public75EUR monthly automatic-membership option preserved, not divided into visits. Trial and acceptance/capacity required; no current places claimed."
+    },
+    {
+      "order": 4,
+      "area": "Sport: Дървеница",
+      "status": "reviewed_sources",
+      "outcome": "Prostranstvoto hosts SKGladiatorSofia children's taekwondo with dedicated booking phone; the own November2026 schedule is explicit. Public other-class tariffs are not projected onto taekwondo."
+    },
+    {
+      "order": 5,
+      "area": "Other martial arts clubs and auto candidates",
+      "status": "held_or_rejected",
+      "outcome": "Hereya excluded after reading explicit own-site reuse restriction. Dynamic-only SubZero menu and incomplete venue/booking candidates remain pending, not represented as unpublished tariffs."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "sofia-top-drive-tsarigradsko220",
+      "website": "https://www.topdrive.bg/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359888328210"
+      },
+      "bookingEvidence": {
+        "url": "https://www.topdrive.bg/bgr/autoservice",
+        "excerpt": "Собствената страница Автосервиз публикува телефони под „Запиши час за ремонт“, а контактите отделят номер за сервиз и записване."
+      },
+      "contactSource": "https://www.topdrive.bg/bgr/contacts",
+      "address": "София, бул. Цариградско шосе 220",
+      "phone": "+359888328210",
+      "reviewedUrls": [
+        "https://www.topdrive.bg/",
+        "https://www.topdrive.bg/bgr/autoservice",
+        "https://www.topdrive.bg/bgr/contacts"
+      ],
+      "services": [
+        {
+          "name": "Компютърна диагностика на автомобил",
+          "pricingDecision": "not_publicly_listed"
+        }
+      ],
+      "reviewNotes": "Followed the own workshop appointment instructions before reviewing the diagnostic service list and contact/footer. Current relocation notice on root/contact explicitly supersedes old Okolovrasten89 body text with Tsarigradsko220. Chose the dedicated service/appointments phone0888328210, not spare-parts phone. No diagnostic amount or diagnostic Prices entry on these public pages. Old oil promotions/retail goods are not a diagnostic tariff. No opening hours, duration or coordinates inferred. Public web reader usable; local curl certificate verification failed and was not bypassed. No enquiry or booking sent.",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://www.topdrive.bg/bgr/autoservice",
+        "serviceUrls": [
+          "https://www.topdrive.bg/bgr/autoservice"
+        ],
+        "notes": "Own repair-booking instructions, diagnostic service list, and contact/footer reviewed. No numeric diagnostic charge is published there; unrelated dated oil promotions and retail parts are not imported."
+      }
+    },
+    {
+      "id": "sofia-audi-world-chepinsko55",
+      "website": "https://audiworld.eu/",
+      "booking": {
+        "kind": "form",
+        "url": "https://audiworld.eu/контакти-автосервиз/"
+      },
+      "bookingEvidence": {
+        "url": "https://audiworld.eu/контакти-автосервиз/",
+        "excerpt": "Началната страница свързва смяната на масла и филтри с „Запишете час“, а контактите съдържат „Запази час“, телефон и формуляр."
+      },
+      "contactSource": "https://audiworld.eu/контакти-автосервиз/",
+      "address": "София, ул. Чепинско шосе 55",
+      "phone": "+359876773443",
+      "reviewedUrls": [
+        "https://audiworld.eu/",
+        "https://audiworld.eu/контакти-автосервиз/"
+      ],
+      "services": [
+        {
+          "name": "Смяна на двигателно масло и филтри — Audi, Volkswagen, Porsche",
+          "pricingDecision": "not_publicly_listed"
+        }
+      ],
+      "reviewNotes": "Followed the actual own 'Запишете час' link for oil/filter service to contact form before checking the homepage's explicit service inventory and footer. Exact Sofia street and phone are first-party. Contact form is a reservation enquiry, not confirmed availability. No numeric oil/filter labour or total amount or Prices entry on the readable public booking/service pages. The separate general Services link returned404; it is not represented as reviewed content and no detail-only service was copied. Selected oil/filter service is explicitly described on the readable root. No booking submitted.",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://audiworld.eu/контакти-автосервиз/",
+        "serviceUrls": [
+          "https://audiworld.eu/"
+        ],
+        "notes": "Own booking/contact form and readable root oil/filter service section inspected; neither publishes a charge, and neither has a Prices link. Broken ancillary general Services link disclosed separately; no inaccessible tariff claimed reviewed."
+      }
+    },
+    {
+      "id": "sofia-katerini-lomsko252",
+      "website": "https://katerini.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://katerini.bg/contact/"
+      },
+      "bookingEvidence": {
+        "url": "https://katerini.bg/",
+        "excerpt": "Сайтът изрично предлага бързо записване и „Запази час“, което води към собствената контактна форма за сервиза."
+      },
+      "contactSource": "https://katerini.bg/contact/",
+      "address": "София, промишлена зона Илиянци, бул. Ломско шосе 252",
+      "phone": "+359886633633",
+      "reviewedUrls": [
+        "https://katerini.bg/",
+        "https://katerini.bg/contact/",
+        "https://katerini.bg/reglazh-na-preden-most-i-zaden-most/",
+        "https://katerini.bg/remont-na-hodova-chast/"
+      ],
+      "services": [
+        {
+          "name": "Реглаж на преден и заден мост",
+          "pricingDecision": "not_publicly_listed"
+        }
+      ],
+      "reviewNotes": "Followed actual own 'Запази час' to public contact form, then detailed alignment and chassis-service pages. Imported only the Lomsko252 workshop, not the separate Kamenarska/Jumbo propshaft site. Exact phone and address are first-party. No numeric alignment amount in booking/contact/service text, and the accessible 'Достъпни цени' root link is general about text, not a hidden tariff. The offered free chassis check is not copied as zero-price alignment. No hours, duration, GPS, slot or booking inferred.",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://katerini.bg/contact/",
+        "serviceUrls": [
+          "https://katerini.bg/reglazh-na-preden-most-i-zaden-most/",
+          "https://katerini.bg/remont-na-hodova-chast/"
+        ],
+        "notes": "Actual own reservation-linked contact page and full alignment/chassis pages inspected; no numeric price for alignment is published. A free chassis inspection is a different service and does not make alignment free."
+      }
+    },
+    {
+      "id": "sofia-maxima-karate-borovo",
+      "website": "https://maximasport.com/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359887562437"
+      },
+      "bookingEvidence": {
+        "url": "https://maximasport.com/contacts/",
+        "excerpt": "Контактите и графикът изрично изискват запазване на място по телефон за избрана зала; правилникът предвижда прием след пробна тренировка."
+      },
+      "contactSource": "https://maximasport.com/contacts/",
+      "address": "София, Борово, ул. Родопски извор 43, 34 ОУ Стою Шишков",
+      "phone": "+359887562437",
+      "reviewedUrls": [
+        "https://maximasport.com/",
+        "https://maximasport.com/contacts/",
+        "https://maximasport.com/trenirovki-po-karate/do10/",
+        "https://maximasport.com/schedule/",
+        "https://online.maximakarate.com/funnel/membership/membership-registration-2/",
+        "https://maximasport.com/contacts/rule",
+        "https://maximasport.com/contacts/code"
+      ],
+      "services": [
+        {
+          "name": "Карате за деца 6–10 години — месечен членски внос",
+          "publishedPrice": {
+            "amount": 75,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "месечен членски внос за едно дете с автоматично плащане",
+            "sourceUrl": "https://online.maximakarate.com/funnel/membership/membership-registration-2/",
+            "checkedOn": "2026-11-13"
+          }
+        }
+      ],
+      "reviewNotes": "Own enrollment/phone reservation instructions followed before hall-specific schedule and age6–10 karate details. Both Borovo34OU and Pavlovo studio are genuine separately addressed halls, not duplicated rooms. Club rules and conduct code reviewed; admission depends on trial/coaching approval and free capacity. Actual linked public membership registration page read without login:75EUR/month one child,130EUR/month two siblings. Imported only literal75 monthly automatic-dues option, not per-session division, trial0, or sibling total. Amount charged year-round regardless of attendance; online enrollment1st–10th excludingJul/Aug and currently closed. Phone intake remains valid; no current spaces/checkout availability asserted. No schedule converted to opening hours."
+    },
+    {
+      "id": "sofia-maxima-karate-pavlovo",
+      "website": "https://maximasport.com/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359887562437"
+      },
+      "bookingEvidence": {
+        "url": "https://maximasport.com/contacts/",
+        "excerpt": "Контактите и графикът изрично изискват запазване на място по телефон за избрана зала; правилникът предвижда прием след пробна тренировка."
+      },
+      "contactSource": "https://maximasport.com/contacts/",
+      "address": "София, Павлово, ул. Проф. Иван Дуйчев 16А, вход откъм гърба на блока",
+      "phone": "+359887562437",
+      "reviewedUrls": [
+        "https://maximasport.com/",
+        "https://maximasport.com/contacts/",
+        "https://maximasport.com/trenirovki-po-karate/do10/",
+        "https://maximasport.com/schedule/",
+        "https://online.maximakarate.com/funnel/membership/membership-registration-2/",
+        "https://maximasport.com/contacts/rule",
+        "https://maximasport.com/contacts/code"
+      ],
+      "services": [
+        {
+          "name": "Карате за деца 6–10 години — месечен членски внос",
+          "publishedPrice": {
+            "amount": 75,
+            "currency": "EUR",
+            "kind": "fixed",
+            "unit": "месечен членски внос за едно дете с автоматично плащане",
+            "sourceUrl": "https://online.maximakarate.com/funnel/membership/membership-registration-2/",
+            "checkedOn": "2026-11-13"
+          }
+        }
+      ],
+      "reviewNotes": "Own enrollment/phone reservation instructions followed before Pavlovo hall schedule and age6–10 karate details. Pavlovo studio has its own exact first-party address; Borovo school is separately recorded. Club rules/conduct code require trial/coaching approval and capacity. Linked public member-payment page reviewed without login:75EUR/month one child,130EUR/month siblings. Exact75 monthly automatic-dues tariff retained with year-round/no-attendance conditions, never divided into a visit price. Online enrollment1st–10th excludingJul/Aug is currently closed; phone intake does not claim a slot. No trial0, ordinary gym access, guessed hours or booking."
+    },
+    {
+      "id": "sofia-prostranstvoto-gladiator-taekwondo",
+      "website": "https://prostranstvoto.bg/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359899200796"
+      },
+      "bookingEvidence": {
+        "url": "https://prostranstvoto.bg/grafik/",
+        "excerpt": "Графикът посочва таекуондо за деца със СК Гладиатор — София и изрично записване на 0899200796, включително през ноември 2026."
+      },
+      "contactSource": "https://prostranstvoto.bg/kontakti-prostranstvoto/",
+      "address": "София, Дървеница, ул. Равногор 4",
+      "phone": "+359899200796",
+      "reviewedUrls": [
+        "https://prostranstvoto.bg/",
+        "https://prostranstvoto.bg/grafik/",
+        "https://prostranstvoto.bg/kontakti-prostranstvoto/",
+        "https://prostranstvoto.bg/tseni/"
+      ],
+      "services": [
+        {
+          "name": "Групова тренировка по таекуондо за деца",
+          "pricingDecision": "not_publicly_listed"
+        }
+      ],
+      "reviewNotes": "Read actual class-booking instructions on the current November2026 timetable first. Venue explicitly identifies taekwondo for children by SKGladiatorSofia and separate reservation phone0899200796; facility contact0878100322 is an alias, not an extra branch. Own contact gives Ravnogor4/Darvenitsa. Then reviewed public Prices table: yoga/pilates and other class amounts exist, but no taekwondo tariff; none projected. Timetable contains sessions onNov11/13 and future weeks, not a guaranteed open slot. No ordinary self-directed functional workout imported. No duration/opening hours/GPS guessed; no message or reservation sent.",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://prostranstvoto.bg/grafik/",
+        "serviceUrls": [
+          "https://prostranstvoto.bg/grafik/"
+        ],
+        "notes": "Actual children's taekwondo booking/timetable and public Prices table inspected. Prices for yoga, pilates, dance and other activities are not taekwondo prices; no taekwondo amount is listed. Own contact/address/footer also checked."
+      }
+    }
+  ],
+  "pricingQualifications": [
+    {
+      "ids": [
+        "sofia-maxima-karate-borovo",
+        "sofia-maxima-karate-pavlovo"
+      ],
+      "sourceUrl": "https://online.maximakarate.com/funnel/membership/membership-registration-2/",
+      "literalFacts": "75EUR/month one child;130EUR/month two siblings. Automatic card charge every month throughout the year, regardless of attendance. Only current club trainees; registration opens1st–10th exceptJuly/August. Published page is readable without login, but online enrollment is closed onNov13.",
+      "decision": "Imported only75EUR with explicit monthly/automatic unit and all material conditions in description; never a per-session amount, trial-zero, sibling total, or ordinary gym admission. Phone reservation/coach acceptance remains separate; no confirmed slot claimed."
+    },
+    {
+      "id": "sofia-prostranstvoto-gladiator-taekwondo",
+      "sourceUrl": "https://prostranstvoto.bg/tseni/",
+      "decision": "Public Prices page includes yoga/pilates/etc but no taekwondo fee; no unrelated11EUR amount projected."
+    },
+    {
+      "id": "sofia-top-drive-tsarigradsko220",
+      "sourceUrl": "https://www.topdrive.bg/bgr/contacts",
+      "decision": "Explicit current relocation notice supersedes old contact-body Okolovrasten89. Dedicated appointment phone888328210 selected; old address not cloned. No diagnostic price inferred from old oil promotions or retail parts."
+    },
+    {
+      "id": "sofia-katerini-lomsko252",
+      "sourceUrl": "https://katerini.bg/reglazh-na-preden-most-i-zaden-most/",
+      "decision": "Free chassis inspection is not the alignment tariff; alignment price stays absent."
+    }
+  ],
+  "pending": [
+    {
+      "candidate": "M&V Service",
+      "urls": [
+        "https://mnvservice.com/"
+      ],
+      "reason": "Own ML/LouisAyer143 contact and services readable, but generic Call/Viber/Get in touch is not explicit appointment evidence."
+    },
+    {
+      "candidate": "AutoExpress-2",
+      "urls": [
+        "https://autoexpress-2.com/",
+        "https://autoexpress-2.com/czeni/",
+        "https://autoexpress-2.com/kontakt/",
+        "https://autoexpress-2.com/obshti-usloviq/"
+      ],
+      "reason": "Public numeric alignment tariff exists, but reservation navigation returned root and own street was not established in readable contact text. No import or unpublished-price claim; further permitted rendered booking/address review needed."
+    },
+    {
+      "candidate": "Stanoeva Sofia",
+      "urls": [
+        "https://www.stanoeva.com/",
+        "https://www.stanoeva.com/contact/"
+      ],
+      "reason": "Own explicit booking and8EUR single/12EUR individual tariff exist, but Sofia venue is only TempoFitness/OvchaKupel without street in own club text; Pernik not imported."
+    },
+    {
+      "candidate": "SubZero",
+      "urls": [
+        "https://sub-zero.bg/",
+        "https://sub-zero.bg/price/",
+        "https://bulgariasofia2.gymrealm.com/Schedulev2/EmbedGroupSchedulev2?Namespace=SubZero&ShowCapacity=True&ShowFilters=False&GymID=13&Login=True&ShowLogo=False&LoginRequired=True"
+      ],
+      "reason": "Actual public booking link renders unresolved Angular template/login placeholders in the available reader, not a reviewed boxing menu. Public14EUR group tariff exists; no claim it is unpublished and no ordinary10EUR gym access imported."
+    },
+    {
+      "candidate": "Agresiv",
+      "urls": [
+        "https://agresiv.bg/"
+      ],
+      "reason": "Individual combat-training service and halls found, but generic contact form alone did not establish explicit booked-session invitation."
+    },
+    {
+      "candidate": "Maxima old Lagera hall",
+      "urls": [
+        "https://maximasport.com/schedule/"
+      ],
+      "reason": "Legacy schedule modal mentions25OU/Lagera but no exact current street or counterpart in current contacts; not cloned as a third venue."
+    }
+  ],
+  "rejected": [
+    {
+      "candidate": "Hereya",
+      "urls": [
+        "https://hereyatkd.com/",
+        "https://hereyatkd.com/kontakti/",
+        "https://hereyatkd.com/za-hereya/grafik-i-zali/",
+        "https://hereyatkd.com/obshti-uslovia/"
+      ],
+      "reason": "Explicit first-party terms prohibit republication/distribution of site informational resources absent agreement. Stop further extraction and do not import halls; permission required."
+    },
+    {
+      "candidate": "Kankukai",
+      "urls": [
+        "https://www.kankukai.org/"
+      ],
+      "reason": "Own instructions explicitly say a place does not need reservation; timetable alone is insufficient for this appointment-only batch."
+    },
+    {
+      "candidate": "Ninja Performance",
+      "urls": [
+        "https://ninjacenterbg.com/"
+      ],
+      "reason": "Readable personal conditioning offer is not martial-arts service inventory and own text lacks an exact street; do not expand task to generic gym/conditioning candidates."
+    },
+    {
+      "candidate": "CarsDetailing/CleanRide",
+      "urls": [
+        "https://carsdetailing.bg/contact/",
+        "https://carsrepair.bg/contact/"
+      ],
+      "reason": "888844037 corresponds to supplied-index CleanRide operator; do not create a second business from alternate site/contact."
+    },
+    {
+      "candidate": "Previously supplied-index search results",
+      "urls": [
+        "https://serviz-petkov.com/",
+        "https://www.speedgarages.com/",
+        "https://autovillabg.com/",
+        "https://tlautoservice.com/",
+        "https://autoparksolutions.bg/",
+        "https://signaturedetailing.bg/",
+        "https://www.nebuladetailing.bg/"
+      ],
+      "reason": "Existing supplied-index identities; no duplicate domains/phones/address clones."
+    },
+    {
+      "candidate": "TopDrive old site",
+      "urls": [
+        "https://www.topdrive.bg/bgr/contacts"
+      ],
+      "reason": "Old Okolovrasten89 contact body is explicitly superseded by current relocation notice; not an additional venue."
+    },
+    {
+      "candidate": "Katerini separate propshaft site",
+      "urls": [
+        "https://katerini.bg/contact/"
+      ],
+      "reason": "Kamenarska/Jumbo location is distinct from Lomsko252; no branch-specific service intake/location review completed, so no duplicate inferred."
+    }
+  ],
+  "photoRecommendations": [
+    {
+      "ids": [
+        "sofia-top-drive-tsarigradsko220"
+      ],
+      "candidate": "auto-diagnostics",
+      "decision": "Existing specific family; no source photos copied."
+    },
+    {
+      "ids": [
+        "sofia-audi-world-chepinsko55"
+      ],
+      "candidate": "oil-change",
+      "decision": "Check exact available family in shared inventory; no map edits in this module."
+    },
+    {
+      "ids": [
+        "sofia-katerini-lomsko252"
+      ],
+      "candidate": "wheel-alignment",
+      "decision": "Existing specific family."
+    },
+    {
+      "ids": [
+        "sofia-maxima-karate-borovo",
+        "sofia-maxima-karate-pavlovo"
+      ],
+      "candidate": "sx-child-karate",
+      "decision": "Existing image visually reviewed: children in karate gi practicing under trainer; suitable neutral specific family."
+    },
+    {
+      "ids": [
+        "sofia-prostranstvoto-gladiator-taekwondo"
+      ],
+      "candidate": "sx-taekwondo",
+      "decision": "Visually reviewed image is adult pad kicking; child service is an age mismatch, so root must decide appropriate neutral coverage instead of blindly assigning."
+    }
+  ],
+  "safeguards": {
+    "coordinates": null,
+    "claimsNoNeighborhoodExhaustion": true,
+    "noBookingSubmitted": true,
+    "noProductionWrite": true,
+    "unpublishedTariffIsNotPriceReview": true,
+    "rootInventoryIdentityBindingRequired": true
+  }
+}

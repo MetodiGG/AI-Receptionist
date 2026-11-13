@@ -3,6 +3,7 @@ import { parseArgs } from 'node:util'
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 import { catalogueCoverage, auditCatalogueBatch } from '../lib/discovery/catalogue-audit.mjs'
 import { assessPricingReview } from '../lib/discovery/catalogue-pricing-review.mjs'
+import { catalogueRecordSchema } from '../lib/discovery/catalogue-policy.mjs'
 
 // Read-only local report. No external requests, source writes, automatic
 // import, Supabase access, deployments, Google keys or paid services.
@@ -15,8 +16,10 @@ if (values.input) {
   if (!Array.isArray(reviews) || new Set(reviews.map(row => row.id)).size !== reviews.length) throw Error('Expected unique, dated pricing source reviews')
   const byId = new Map(reviews.map(row => [row.id, row]))
   report.batch.readyForReview = report.batch.readyForReview.filter(id => {
-    const state = assessPricingReview(batch.find(row => row.id === id), byId.get(id))
-    if (state.state === 'reviewed') return true
+    // Match the public release gate's normalized inventory, not JSON source
+    // property order. Only already schema-accepted rows reach this branch.
+    const state = assessPricingReview(catalogueRecordSchema.parse(batch.find(row => row.id === id)), byId.get(id))
+    if (['reviewed', 'service_reviewed'].includes(state.state)) return true
     report.batch.pending.push({ id, reason: state.reason })
     return false
   })

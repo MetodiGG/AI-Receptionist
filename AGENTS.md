@@ -20,8 +20,13 @@ Keep literal published amounts, currency, ranges, “from”, units, package tot
 exclusions and conditional online prices with a source URL and review date.
 Never invent a price, convert an old tariff into a supposedly published one,
 or copy promotions, retail products, deposits or package totals as one visit.
-Conflicting, inaccessible or unpublished tariffs remain pending; obtain owner
-confirmation instead of claiming complete coverage. Respect access limits and
+Conflicting or inaccessible tariffs remain pending; obtain owner confirmation
+instead of claiming complete coverage. Per the owner's 2026-11-13 request,
+prices are optional for new verified appointment businesses: a genuinely
+unpublished tariff needs an explicit `not_publicly_listed` receipt covering
+the actual booking and services pages. This is `service_reviewed`, not a
+completed price review, and missing prices must remain absent. A blocked menu
+is not evidence of an unpublished tariff. Respect access limits and
 provider terms, and never submit a booking during a pricing review.
 
 Follow the pricing workflow in README.md. New or changed listings require a

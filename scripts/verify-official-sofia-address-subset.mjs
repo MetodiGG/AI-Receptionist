@@ -3,7 +3,7 @@ import { createHash } from 'node:crypto'
 import { parseArgs } from 'node:util'
 import { resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import approved from '../public/catalogue-official-address-points-20261113.json' with { type: 'json' }
+import approved from '../public/catalogue-official-address-points-growth-20261113.json' with { type: 'json' }
 import { indexOfficialSofiaAddresses, matchOfficialSofiaAddress } from '../lib/discovery/official-sofia-address.mjs'
 import { OFFICIAL_SOFIA_DATA_SHA256 } from '../lib/discovery/official-sofia-address-source.mjs'
 

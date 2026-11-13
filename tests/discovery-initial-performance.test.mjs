@@ -3,6 +3,7 @@ import test from 'node:test'
 import { readFile } from 'node:fs/promises'
 import { createRequire } from 'node:module'
 import * as React from 'react'
+import { DateTime } from 'luxon'
 import * as locations from '../lib/business-location.mjs'
 import * as categories from '../lib/discovery/categories.mjs'
 import * as locationQuery from '../lib/discovery/location-query.mjs'
@@ -12,6 +13,7 @@ import * as searchUi from '../lib/discovery/search-ui.mjs'
 import * as home from '../lib/discovery/home.mjs'
 import * as labs from '../lib/discovery/laboratories.mjs'
 import * as pagination from '../lib/discovery/catalogue-pagination.mjs'
+import { discoveryRequestSchema, parseIntent } from '../lib/discovery/intent.mjs'
 
 const require = createRequire(import.meta.url), { loadBindings, transform } = require('next/dist/build/swc')
 await loadBindings()
@@ -62,6 +64,7 @@ function fixture(patch = {}, draft = null) {
     entry() { for (const [id, timer] of [...timers]) if (timer.delay === 0) { timers.delete(id); timer.fn() } h.flush() },
     settleQuery() { for (const [id, timer] of [...timers]) if (timer.delay === 350) { timers.delete(id); timer.fn() } h.flush() },
     focus() { listeners.get('focus')?.(); h.flush() },
+    debounce() { f.settleQuery() },
     edit(value) { f.query().props.onChange({ target: { value } }); h.flush() },
     toggle() { const promise = f.location().props.onClick(); h.flush(); return promise },
     submit() { elements(h.tree, node => node.type === 'form')[0].props.onSubmit({ preventDefault() {} }); h.flush() },
@@ -140,12 +143,36 @@ test('typing and submitting a city search invalidates a pending location grant b
   try {
     await f.ready(); const pending = f.toggle()
     f.edit('Маникюр в Пловдив'); f.submit()
-    assert.equal(f.requests.length, 2); assert.equal(f.requests[1].body.cityCode, '56784')
+    assert.equal(f.requests.length, 2); assert.equal(f.requests[1].body.cityCode, undefined)
+    assert.equal(parseIntent(discoveryRequestSchema.parse(f.requests[1].body), DateTime.fromISO('2026-11-13T12:00:00Z')).cityCode, '56784')
     assert.equal(f.requests[1].body.coordinates, undefined)
     f.permission[0].resolve(locatedPoint()); await pending; await f.settle()
     assert.equal(f.requests.length, 2); assert.equal(f.query().props.value, 'Маникюр в Пловдив')
     f.requests[1].respond(response('new-city-row', { intent: { cityCode: '56784' } })); await f.settle()
     assert.equal(f.control('DiscoveryHomeBusinesses').props.result.results[0].id, 'new-city-row')
+  } finally { f.close() }
+})
+
+test('a fresh exact-name result supplies the displayed city, without changing a manual city or reusing a stale result', async () => {
+  const f = fixture()
+  try {
+    await f.ready()
+    const openFilters = () => { elements(f.h.tree, node => node.type === 'button' && node.props['aria-haspopup'] === 'dialog')[0].props.onClick({ currentTarget: {} }); f.h.flush() }
+    const closeFilters = () => { f.control('DiscoveryFilterSheet').props.onClose(); f.h.flush() }
+    f.edit('ПЪЗЕЛ · Борово'); f.debounce(); f.submit()
+    assert.equal(f.requests[1].body.cityCode, undefined)
+    f.requests[1].respond(response('sofia-branch', { intent: { cityCode: '68134' } })); await f.settle()
+    openFilters()
+    assert.equal(f.control('DiscoveryFilterSheet').props.initialValues.cityCode, '68134', 'use the server-resolved real branch city, not the town word in its name')
+    closeFilters()
+    f.edit('Маникюр в Пловдив'); f.debounce(); openFilters()
+    assert.equal(f.control('DiscoveryFilterSheet').props.initialValues.cityCode, '56784', 'editing the query must not reuse the previous result city')
+    closeFilters()
+    f.filters({ cityCode: '68134', neighborhood: '', category: '', radiusKm: 2 })
+    assert.equal(f.requests[2].body.cityCode, '68134')
+    f.requests[2].respond(response('sofia-manual', { intent: { cityCode: '56784' } })); await f.settle()
+    openFilters()
+    assert.equal(f.control('DiscoveryFilterSheet').props.initialValues.cityCode, '68134', 'manual city remains authoritative even with a conflicting response')
   } finally { f.close() }
 })
 

@@ -214,7 +214,14 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
     } catch (failure) { if (mounted.current && version === locationVersion.current) { coordinatesRef.current = null; setLocationEnabled(false); setCoordinates(null); setLocationError(failure.message); if (searchAfter && canDiscover() && !result) execute(payload({ coordinates: null })) } return null }
     finally { if (version === locationVersion.current) { locationInFlight.current = false; if (mounted.current) setLocating(false) } }
   }
-  const selectedCity = useMemo(() => coordinates ? '' : discoveryCitySelection(settledQuery, cityCode, cityWasChosen), [coordinates, settledQuery, cityCode, cityWasChosen])
+  const selectedCity = useMemo(() => {
+    if (coordinates) return ''
+    // Show the city of this exact settled response, not a town word inside a
+    // verified branch name. Never reuse it for edited text or a manual filter.
+    const resultCity = lastInput.current?.query === query.trim() ? result?.intent?.cityCode : null
+    if (!cityWasChosen && resultCity && BULGARIAN_CITIES.some(city => city.code === resultCity)) return resultCity
+    return discoveryCitySelection(settledQuery, cityCode, cityWasChosen)
+  }, [coordinates, settledQuery, cityCode, cityWasChosen, query, result])
   const homeFilters = { cityCode: selectedCity, neighborhood, category, radiusKm, nearby: Boolean(coordinates) }
   const activeFilters = homeFilterCount(homeFilters)
   const locationAction = locationEnabled ? homeCopy.locationOff : homeCopy.locationOn

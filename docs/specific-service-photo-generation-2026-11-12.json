@@ -23188,6 +23188,644 @@
         ],
         "method": "contact-sheet"
       }
+    },
+    {
+      "id": "sx-home-kitchen-base-cabinet-assembly",
+      "label": "Монтаж на долен кухненски шкаф",
+      "prompt": "Use case: photorealistic-natural. Asset type: square service thumbnail for GoRez. Service: Монтаж на долен кухненски шкаф. Scene: A professional adult furniture installer assembling a white flat-pack base kitchen cabinet at floor level in an ordinary home kitchen. Clearly show the open rectangular cabinet carcass, lower adjustable cabinet legs, unmounted matching door, hinges and the worker using a cordless screwdriver at a side-panel joint. It must read as a KITCHEN BASE CABINET, not a sink vanity, wardrobe, bedside table or desk. No sink or plumbing. Style: realistic editorial photograph with fictional people, natural skin, hands and material textures, soft warm-neutral daylight, documentary realism, clear centered action readable at 64px, square 1:1 composition, no heavy retouching. Illustrative activity only, not a real business's staff, premises or verified work. No text, price, logo, watermark, borders, collage, emoji, icon, CGI or 3D render.",
+      "sourceFile": "exec-a056cfad-0976-42c8-83bf-0dcba7a13349.png",
+      "sourceSha256": "65d668e04eaba46ad6f824fb994ea4b67dc8800f55b0b48bb3665767d88c8a9c",
+      "file": "public/service-photos/sx-home-kitchen-base-cabinet-assembly-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 9812,
+      "sha256": "e48d68b7ae89348c5b8299e9bba59a31a51232b5a019e53849ae5babcf5f52c6",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "65d668e04eaba46ad6f824fb994ea4b67dc8800f55b0b48bb3665767d88c8a9c",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual source and optimized thumbnail visual review"
+      }
+    },
+    {
+      "id": "sx-judo-adult-group",
+      "label": "Групова тренировка по джудо за възрастни",
+      "prompt": "Use case: photorealistic-natural. Asset type: square service thumbnail for GoRez. Service: Групова тренировка по джудо за възрастни. Scene: An adult judo group lesson on padded tatami: a qualified-looking adult coach in plain white judogi demonstrates a basic safe standing grip with an adult student while three other adult learners in white judogi watch and practice in the background. Realistic adults of varied appearance, natural hands, clearly judo lapel/sleeve grip, no striking, kicks, weapons, cages or boxing equipment. No active dangerous throw or injury. Generic unbranded training room. Style: realistic editorial photograph with fictional people, natural skin, hands and material textures, soft warm-neutral daylight, documentary realism, clear centered action readable at 64px, square 1:1 composition, no heavy retouching. Illustrative activity only, not a real business's staff, premises or verified work. No text, price, logo, watermark, borders, collage, emoji, icon, CGI or 3D render.",
+      "sourceFile": "exec-0e185ce8-e93d-4e8c-abe1-e13462c2fe44.png",
+      "sourceSha256": "8bbd179f6ec337369efff08db38691cf76abd128f53b8be28c538ee127015d86",
+      "file": "public/service-photos/sx-judo-adult-group-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 11318,
+      "sha256": "380c03adb83a6a89cee21187f93f94da8fd91c55bfd41392eeafda88584f8f57",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "8bbd179f6ec337369efff08db38691cf76abd128f53b8be28c538ee127015d86",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual source and optimized thumbnail visual review"
+      }
+    },
+    {
+      "id": "sx-judo-child-group",
+      "label": "Групова тренировка по джудо за деца",
+      "prompt": "Use case: photorealistic-natural. Asset type: square service thumbnail for GoRez. Service: Групова тренировка по джудо за деца. Scene: A supervised children's judo group lesson in a generic unbranded sports room, on padded tatami: a fully clothed adult coach in a plain white judogi gently demonstrates a basic safe standing lapel-and-sleeve grip to two primary-school-age children wearing well-fitted white judogi, with a few other children watching behind them. Ordinary realistic children, natural proportions and hands. Clearly a small GROUP JUDO CLASS, no blows, weapons, cages, injury, dangerous throws or forced holds. Style: realistic editorial photograph with fictional people, natural skin, hands and material textures, soft warm-neutral daylight, documentary realism, clear centered action readable at 64px, square 1:1 composition, no heavy retouching. Illustrative activity only, not a real business's staff, premises or verified work. No text, price, logo, watermark, borders, collage, emoji, icon, CGI or 3D render.",
+      "sourceFile": "exec-d4fc77e8-70a5-488d-8a41-900d58092cc8.png",
+      "sourceSha256": "1a6c2e269a667526b598d18be38f253d7e9eebb4f20a06a4b4e74f7add1abe2a",
+      "file": "public/service-photos/sx-judo-child-group-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 13004,
+      "sha256": "3a3c038cb62f4e127951bbb99a63c5c844926e9c659abe1676c440f08cb349f8",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "1a6c2e269a667526b598d18be38f253d7e9eebb4f20a06a4b4e74f7add1abe2a",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual source and optimized thumbnail visual review"
+      }
+    },
+    {
+      "id": "sx-home-washer-inlet-hose-replacement",
+      "label": "Смяна на входящ маркуч на пералня",
+      "prompt": "Use case: photorealistic-natural. Asset type: square service thumbnail for GoRez. Service: Смяна на входящ маркуч на пералня. Scene: Close documentary photo of an adult appliance technician's hands replacing a STANDARD WATER INLET HOSE at the small threaded 3/4-inch water inlet valve on the UPPER CORNER OF THE BACK of an ordinary front-loading domestic washing machine. Show a realistic slender smooth rubber hose approximately 12mm diameter with a small white plastic female screw-on coupling, hand-tightened onto the real small inlet valve. This is NOT a drain hose, not a ventilation duct, not a big corrugated pipe, not a central large port. Washer unplugged and water off; dry floor. The rear panel and tiny standard inlet connection are clear; no tools inside live electronics. Photorealistic editorial photograph with fictional people, authentic skin/material texture, natural hands, warm-neutral daylight, clearly recognizable at64px. Square1:1. Illustrative activity only, not a real business's staff, premises or verified work. No text, logos, price, watermark, collage, borders, emoji, CGI or 3D render.",
+      "sourceFile": "exec-09dd9f6b-0b74-4125-895e-f3119c922837.png",
+      "sourceSha256": "3696f6e65cac6f157bcdcbdbc5ce57d68b8af2240eeb31323213644c7a96c7f0",
+      "file": "public/service-photos/sx-home-washer-inlet-hose-replacement-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 9198,
+      "sha256": "92a7ef70e1464b8c9a2f65e611f7ed1fde1f8ca0cbfa6c84b32b09bf015c5f57",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "3696f6e65cac6f157bcdcbdbc5ce57d68b8af2240eeb31323213644c7a96c7f0",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual source and optimized thumbnail visual review"
+      }
+    },
+    {
+      "id": "sx-home-upholstery-washing-detail",
+      "label": "Пране на мека мебел",
+      "prompt": "Use case: photorealistic-natural. Asset type: square service thumbnail for GoRez. Service: Пране на мека мебел. Scene: Close-up documentary photograph of professional cleaning of upholstered soft furniture: natural hands in plain protective gloves working mild cleaning foam gently into a gray woven upholstered furniture surface with a small soft hand brush and clean cloth. Tight crop on textile, brush and hands, upholstery seams visible but no identifiable furniture type, no cushion count. No specialized extraction machine, no vacuum nozzle, no asserted steam or dry-cleaning equipment. It must clearly show textile upholstery being washed, not a desk or notebook. Photorealistic editorial photograph with fictional people, authentic skin/material texture, natural hands, warm-neutral daylight, clearly recognizable at64px. Square1:1. Illustrative activity only, not a real business's staff, premises or verified work. No text, logos, price, watermark, collage, borders, emoji, CGI or 3D render.",
+      "sourceFile": "exec-9b80981f-4435-43a5-9406-b94e6d77214e.png",
+      "sourceSha256": "7e1247a2262e9cd6a04eacab6915b09fccf8a36be94d071b3479e179cd4ab373",
+      "file": "public/service-photos/sx-home-upholstery-washing-detail-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 18120,
+      "sha256": "9b8e9dc04c249a97396a2c9f2b5f055dd6ead9830a482b4f8c63724b0059819a",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "7e1247a2262e9cd6a04eacab6915b09fccf8a36be94d071b3479e179cd4ab373",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual source and optimized thumbnail visual review"
+      }
+    },
+    {
+      "id": "sx-child-taekwondo-group",
+      "label": "Групова тренировка по таекуондо за деца",
+      "prompt": "Use case: photorealistic-natural. Asset type: square service thumbnail for GoRez. Service: Групова тренировка по таекуондо за деца. Scene: A friendly supervised small-group CHILDREN'S TAEKWONDO class in a plain unbranded training room with padded floor. A fully clothed adult coach in plain white dobok with V-neck collar holds a small black training paddle low at waist height for a primary-school-age child in white dobok practicing a controlled safe front kick. Three other clothed children in taekwondo uniforms watch behind, waiting their turn. Natural realistic children, hands, proportions and balance. No blows to people, no head kick, no injuries, no boxing gloves, no weapons, no judo grappling. Photorealistic editorial photograph with fictional people, authentic skin/material texture, natural hands, warm-neutral daylight, clearly recognizable at64px. Square1:1. Illustrative activity only, not a real business's staff, premises or verified work. No text, logos, price, watermark, collage, borders, emoji, CGI or 3D render.",
+      "sourceFile": "exec-b5d94127-a378-411a-9218-ed85995fc42c.png",
+      "sourceSha256": "3b0079bb3428ff7c2b87a6f7bf0d9c5d82a4d72906c1bb2399cffdf14763114c",
+      "file": "public/service-photos/sx-child-taekwondo-group-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 10966,
+      "sha256": "d69789cd208f79dec4d4ab2bedc97cf71fc4825eb218ff315c934dacf82ade93",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "3b0079bb3428ff7c2b87a6f7bf0d9c5d82a4d72906c1bb2399cffdf14763114c",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual source and optimized thumbnail visual review"
+      }
+    },
+    {
+      "id": "sx-hair-girl-haircut",
+      "label": "Подстригване на момиче",
+      "prompt": "Use case: photorealistic-natural. Asset type: square GoRez service thumbnail. Service: haircut for a girl. A kind adult female hairdresser in an ordinary unbranded salon gently trims the ends of a primary-school-age girl's straight shoulder-length brown hair with a real comb and scissors. The girl sits comfortably fully clothed under a neutral haircut cape, calm expression, seen in three-quarter profile; the scissors are safely at the hair ends away from face and skin. Authentic people, natural hands, skin and hair texture, warm soft daylight, medium close-up with clear central action readable at64px, square1:1. Fictional illustrative service scene, not a real business's premises or staff. No adult model substituting for a child, no hair dye, curling or braiding, no text, prices, logos, watermark, frame, collage, emoji, CGI or3D.",
+      "sourceFile": "exec-a537efdb-3d96-4f4a-b929-d42021a9a47d.png",
+      "sourceSha256": "8f51a60c27d0ab63cd472d1286b6dd1fc1451eec29255a098a586abcc3032d12",
+      "file": "public/service-photos/sx-hair-girl-haircut-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 11322,
+      "sha256": "0b2ba260a38e74f7077d2cefc1e295ca4e9f9b60f1a86043f7872118d9906054",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "8f51a60c27d0ab63cd472d1286b6dd1fc1451eec29255a098a586abcc3032d12",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual source and optimized thumbnail visual review"
+      }
+    },
+    {
+      "id": "sx-beauty-chocolate-facial-mask",
+      "label": "Козметична шоколадова терапия за лице",
+      "prompt": "Use case: photorealistic-natural. Create ONE square 1:1 photographic service thumbnail for a beauty directory, readable at 64px. A fictional adult woman lies comfortably on a professional facial treatment couch, eyes closed, hair tucked into a clean cream headband. Aesthetician's natural hands use a small flat cosmetic brush to apply a smooth thin dark-brown cosmetic chocolate mask onto the cheek, not around the eyes or lips. Tight calm close-up, clearly facial chocolate cosmetic treatment rather than body massage, mud therapy or food service. Natural warm-neutral daylight, lifelike skin, brush and mixture texture, credible anatomy. Generic illustrative scene, not a real business's premises, staff or verified work and no promised result. No typography, prices, brand packaging, logos, watermarks, labels, collage, emojis or CGI.",
+      "sourceFile": "exec-3ca72c33-d913-4562-9182-30be58ea2dc1.png",
+      "sourceSha256": "0d4f6defb04fd47fa056837bde8a77861df53a9a2c4d44695400b657dda58061",
+      "file": "public/service-photos/sx-beauty-chocolate-facial-mask-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 9586,
+      "sha256": "f29980de31b19cba1113a31369aefef578ac02db9bfae6bd7af0cc656937e479",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "0d4f6defb04fd47fa056837bde8a77861df53a9a2c4d44695400b657dda58061",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual source and optimized thumbnail visual review"
+      }
+    },
+    {
+      "id": "sx-beauty-male-facial-treatment",
+      "label": "Енергизираща козметична терапия за мъже",
+      "prompt": "Use case: photorealistic-natural. Create ONE square 1:1 realistic service photograph for a 64px cosmetic service thumbnail. A fictional adult man with short hair rests on a professional facial treatment couch, eyes relaxed and closed, shoulders fully covered with a clean towel. Aesthetician's natural hands gently apply a thin clear cosmetic emulsion to his cheek with fingertips, no body massage or shaving, no needles, machinery or exfoliation device. The central visible action is professional facial skincare for an adult male, credible anatomy and natural skin texture. Warm-neutral soft daylight, clean real treatment room softly out of focus, restrained editorial photograph not glamour retouching. Generic illustration, not verified work or actual staff/premises, no outcome claims. No brand names, logos, text, prices, watermarks, emoji, CGI or collage.",
+      "sourceFile": "exec-9960e737-8caa-421b-af38-7248234768da.png",
+      "sourceSha256": "131378eb70cb58d484457dc709cb8629b14760c028e8a56001f9498d8c9b062c",
+      "file": "public/service-photos/sx-beauty-male-facial-treatment-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 7236,
+      "sha256": "0ed6e1f3b0703623c531f666a753c386e84ae443199b6d1436d7700577f62052",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "131378eb70cb58d484457dc709cb8629b14760c028e8a56001f9498d8c9b062c",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual source and optimized thumbnail visual review"
+      }
+    },
+    {
+      "id": "sx-pet-nail-hygiene-trim-kit",
+      "label": "Нокти и хигиенно подстригване на домашен любимец",
+      "prompt": "Use case: photorealistic-natural. Create ONE square 1:1 close-up photograph for a 64px pet-grooming service thumbnail. Two natural professional groomer's hands hold the two distinct real tools used for a combined appointment: in one hand a small realistic spring-loaded pet nail clipper with curved cutting jaws; in the other a slim pet hygienic fur trimmer fitted with a short safe blade guard. Both tools central and clearly recognizable, clean grooming towel and a few fine clipped fur strands on the treatment surface. No animal pictured so no false breed, size or body-zone claim. Credible real tool proportions, no human nail-polish implements, no ear cleaning cotton sticks, no blood or injury, no veterinary medical devices. Warm-neutral authentic daylight and material texture, a real photographic illustration not a business staff/premises claim. No words, labels, logos, watermark, prices, collage, emoji or 3D render.",
+      "sourceFile": "exec-6dd5eebf-a9c1-405e-885d-bef5da567c79.png",
+      "sourceSha256": "e66fae32238ce3d4ed42afcb34fadb22a2a46ff5044dce11fb4e3493236ef6ee",
+      "file": "public/service-photos/sx-pet-nail-hygiene-trim-kit-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 12712,
+      "sha256": "fe0e60c0808defacdeea181bfdbce62f8f427e687d322ccd1122bf0abbfdef17",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "e66fae32238ce3d4ed42afcb34fadb22a2a46ff5044dce11fb4e3493236ef6ee",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual source and optimized thumbnail visual review"
+      }
+    },
+    {
+      "id": "sx-aerial-yoga-beginner",
+      "label": "Въздушна йога с инструктор",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square1:1 service photo for a64px GoRez thumbnail. Primary request: an adult woman practising beginner aerial yoga in a real-looking daylight studio with a qualified adult instructor beside her. Show a low, stable supported standing lunge: the broad fabric hammock supports her hips, both feet remain safely on the mat, hands lightly hold the two fabric sides. The two overhead suspension points are visible and securely attached; fabric is taut and behaves plausibly. Instructor watches calmly, not posed for camera. Full body, central simple readable composition, modest fitted sportswear, natural skin texture and realistic hands. Warm neutral light. No inversion, circus trick, risky aerial posture, extra limbs, text, logo or watermark. Fictional illustration, not actual Aruna premises or staff.",
+      "sourceFile": "exec-c1876336-7a98-42ad-ad35-69eaef9ce6aa.png",
+      "sourceSha256": "84b7f311b30f85f8f77a1945e80c60b9a716089ab9d4bdb465e151b03e96c5cc",
+      "file": "public/service-photos/sx-aerial-yoga-beginner-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 11634,
+      "sha256": "cd16eb7855d0d1f4793e4bdb854eec1007dde1e99a009e9ab1ce6bb9cf422db2",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "84b7f311b30f85f8f77a1945e80c60b9a716089ab9d4bdb465e151b03e96c5cc",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual source and optimized thumbnail visual review"
+      }
+    },
+    {
+      "id": "sx-glass-painting-workshop",
+      "label": "Творческо ателие — рисуване върху стъкло",
+      "prompt": "Use case: photorealistic-natural. Asset type: ONE square1:1 service photograph for a64px booking thumbnail. Primary request: an adult participant at a glass-painting art workshop carefully painting a small colourful botanical pattern onto the outside of a clear drinking glass with a fine brush. Their natural hands, the glass and brush tip are clearly visible in the centre; an adult instructor observes nearby. Seated at a tidy craft table with small open glass-paint pots, no wine or alcohol. Medium close-up wide enough to show participant and instructor, natural daylight, authentic paint textures, clear glass reflections. Realistic people and materials, not an illustration or icon. No printed designs, canvas painting, paperwork, logos, captions, watermark or collage. Fictional illustrative workshop, not a verified example of any business's work.",
+      "sourceFile": "exec-57d91f03-4a20-4d25-bfbc-dc1350afb1bd.png",
+      "sourceSha256": "fb15505ca9c2d0241d46a063479e4333cd30bd775d829eb9a9b8a853e18c2ded",
+      "file": "public/service-photos/sx-glass-painting-workshop-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 18156,
+      "sha256": "829d609342890e51bf65086f7ff10903cbc776689e30634ae5eda79d2be14101",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "fb15505ca9c2d0241d46a063479e4333cd30bd775d829eb9a9b8a853e18c2ded",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual source and optimized thumbnail visual review"
+      }
+    },
+    {
+      "id": "sx-fashion-design-course",
+      "label": "Базов курс по моден дизайн",
+      "prompt": "Use case: photorealistic-natural. Asset type: ONE square1:1 service photo for a small GoRez thumbnail. Primary request: a real-looking adult learner and an adult instructor in a fashion-design class, developing a garment design on a plain dressmaker mannequin. The learner naturally pins a muslin bodice onto the torso form while the instructor points to the fabric seam placement. Their upper bodies, hands, the mannequin and some fabric are central and readable. A simple fashion sketch with no readable lettering and cloth swatches on the table provide context. Soft daylight in a practical design studio, realistic woven fabric, pins handled safely, natural faces and hands. Not a retail clothing shop or alterations consultation. No notebook-with-pen placeholder, no brand marks, text, watermark or collage. Fictional illustrative class, not actual Co-Nets staff or premises.",
+      "sourceFile": "exec-b232140d-2e05-4f81-a48d-2634ce7e5c00.png",
+      "sourceSha256": "84e5d86da6f5fff479f62b50a2ffdbf32dcd253c64d45a594aa300977cb3c8b6",
+      "file": "public/service-photos/sx-fashion-design-course-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 14172,
+      "sha256": "3bb3c101d478fb727dbadf0f93e0aeb926a3a970fe6ed7e8923d0ff298c26d1a",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "84e5d86da6f5fff479f62b50a2ffdbf32dcd253c64d45a594aa300977cb3c8b6",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual source and optimized thumbnail visual review"
+      }
+    },
+    {
+      "id": "sx-arabic-individual-lesson",
+      "label": "Индивидуален урок по арабски език",
+      "prompt": "Use case: photorealistic-natural. Asset type: ONE square1:1 service photograph for a64px GoRez thumbnail. Primary request: a realistic adult language tutor giving one-to-one Arabic reading instruction to an adult learner at a small classroom table. Both are engaged and looking at an open Arabic-language beginner book; tutor points naturally to a line. Show authentic right-to-left Arabic script and a few large simple practice letters on the page, but no headline or overlay. Faces, natural hands and open book central and readable at small scale; ordinary everyday clothing, no stereotypical costume or religious symbols. Bright soft daylight, natural skin and paper textures, real classroom atmosphere. No flags, brand logos, computer-only video call, neutral desk without people, watermark or collage. Fictional illustrative lesson, not actual Sedeff teachers or students.",
+      "sourceFile": "exec-ea97b4cd-a189-4979-bcc4-c495e8a1cf29.png",
+      "sourceSha256": "546de630cf72617f19bf1667edb4f496f95bd23b5ac423de1235fff33c778c32",
+      "file": "public/service-photos/sx-arabic-individual-lesson-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 13494,
+      "sha256": "1f9d64bd2fb080e0e5d4a7aed415a7eccc841d34f91119869d01647dd0f508d9",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "546de630cf72617f19bf1667edb4f496f95bd23b5ac423de1235fff33c778c32",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual source and optimized thumbnail visual review"
+      }
+    },
+    {
+      "id": "sx-senior-women-yoga-mobility",
+      "label": "Йога, мобилност и сила за жени 55+",
+      "prompt": "Use case: photorealistic-natural. Asset type: ONE square1:1 service photograph for a64px booking thumbnail. Primary request: two realistic women around60years old practising gentle yoga and mobility with an adult instructor in a daylight studio. They perform a comfortable seated side stretch on separate thick yoga mats with knees bent naturally; instructor demonstrates beside them. Clearly mature faces and ordinary natural bodies, modest comfortable sportswear, plausible anatomy and hands, no extreme flexibility. Small resistance band resting neatly beside a mat suggests varied mobility/strength work but no action overload. Warm soft daylight, real wood floor, simple central composition and full bodies readable at small size. Not rehabilitation clinic or medical treatment. No young-only class, text, logo, watermark, collage or furniture-only placeholder. Fictional illustrative class, not real Sen Sib staff or clients.",
+      "sourceFile": "exec-7ab62565-ee60-4a23-9aa1-486f4de6ed7c.png",
+      "sourceSha256": "322b33818f51b30c460f5c27b0fb093c107af5283b90d8440ebe05f7233c8cfd",
+      "file": "public/service-photos/sx-senior-women-yoga-mobility-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 14100,
+      "sha256": "7a5e6a3dab35b7ca8d46dfa034a113bed249268ba739e6ab5d98617455c5bec6",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "322b33818f51b30c460f5c27b0fb093c107af5283b90d8440ebe05f7233c8cfd",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual source and optimized thumbnail visual review"
+      }
+    },
+    {
+      "id": "sx-tattoo-cover-up-session",
+      "label": "Прикриване на стара татуировка — Cover Up",
+      "prompt": "Use case: photorealistic-natural. Asset type: ONE square1:1 service photograph for a64px booking thumbnail. Primary request: a realistic professional tattoo artist working on an adult client's forearm to cover an old faded small tattoo with a larger botanical blackwork design. Medium close-up with artist's naturally gloved hands, tattoo machine, supported forearm and part of artist clearly shown. A faint old ink mark remains at one unfinished edge while completed opaque botanical ink overlaps it, making cover-up intention readable. Clean single-use barrier on armrest and professional studio hygiene, plausible tool contact, natural skin. No blood, wound detail, needles close-up, graphic injury or sensationalism. Simple natural daylight and realistic photographic textures. No lettering, logos, watermark, before/after collage or paperwork placeholder. Fictional illustrative tattoo service, not verified business work.",
+      "sourceFile": "exec-b6db1a1c-aeee-4eec-8088-4a5830315962.png",
+      "sourceSha256": "b16f617cfb7c864d832b94291f37e7d071a51268e006c2b50899bd8e4c515dab",
+      "file": "public/service-photos/sx-tattoo-cover-up-session-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 14170,
+      "sha256": "756b155f9b3d7d8f9ad537c5cc85da1dff9e99a6a9dd14b27388b0d06a694148",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "b16f617cfb7c864d832b94291f37e7d071a51268e006c2b50899bd8e4c515dab",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual source and optimized thumbnail visual review"
+      }
+    },
+    {
+      "id": "sx-family-studio-photoshoot",
+      "label": "Детска и семейна фотосесия в студио",
+      "prompt": "Use case: photorealistic-natural. Asset type: ONE square1:1 service photograph for a64px GoRez thumbnail. Primary request: a professional photographer taking a family studio portrait of two adult parents and their school-age child smiling naturally together against a plain warm neutral backdrop. Show photographer in three-quarter foreground holding a real camera to the eye and the family clearly visible beyond, one studio softbox at the edge. Fully clothed ordinary family, relaxed affectionate non-staged expressions, realistic hands and faces. The photography action and family subjects must both read clearly at thumbnail size. Soft light and authentic studio materials. No newborn, pregnancy-specific scene, wedding clothes, text, logo, watermark or split-panel collage. Fictional illustrative family photo session, not actual clients or premises.",
+      "sourceFile": "exec-283aa143-33cc-46e6-91d0-fdb7fc3cb29e.png",
+      "sourceSha256": "9320560123aa01831acbeb6b8a7e908fc747cffde3f0523949d49473287fb56a",
+      "file": "public/service-photos/sx-family-studio-photoshoot-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 10996,
+      "sha256": "1ebea8875e95f4823c65fe957c694ee2acb83db9275b5148e30bd4cc4bacfff7",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "9320560123aa01831acbeb6b8a7e908fc747cffde3f0523949d49473287fb56a",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual source and optimized thumbnail visual review"
+      }
+    },
+    {
+      "id": "sx-beauty-back-cleansing",
+      "label": "Козметично почистване на гръб",
+      "prompt": "Use case: photorealistic-natural. Asset type: ONE square1:1 service photo for a64px GoRez thumbnail. Primary request: a professional beauty therapist performing gentle cosmetic cleansing on an adult client's upper back with a round cleansing pad. Client lies face down on a spa bed; thick white towels cover the lower back and all private areas, only nonsexual upper back and shoulder skin visible. Therapist in clean professional clothing, natural gloved hands and calm attention; a small bowl of cosmetic cleanser nearby. Medium close-up showing actual upper-back cleansing, not a back massage or facial. Soft neutral daylight, realistic skin and fabric texture, tasteful clinical-clean salon environment. No lesions, extractions, needles, nudity, oil massage, text, logo, watermark or collage. Fictional illustrative service, not a real business treatment example.",
+      "sourceFile": "exec-cea94564-6e1a-420b-9408-ab11b7cc99f7.png",
+      "sourceSha256": "007e550a90f5c6681ad8f99ea52509ef80e58a47e0d17aedf76e55926b42b5b1",
+      "file": "public/service-photos/sx-beauty-back-cleansing-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 8492,
+      "sha256": "902159e11a81630652abe23055998f4ac8dde7a2873763882c3aa8bfa649d429",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "007e550a90f5c6681ad8f99ea52509ef80e58a47e0d17aedf76e55926b42b5b1",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual source and optimized thumbnail visual review"
+      }
+    },
+    {
+      "id": "sx-baptism-event-photography",
+      "label": "Фотозаснемане на кръщене",
+      "prompt": "Use case: photorealistic-natural. Asset type: ONE square1:1 service photograph for a64px GoRez thumbnail. Primary request: a realistic professional photographer quietly photographing a family gathered for an infant's christening in a traditional Eastern Orthodox church. Show photographer holding camera to eye in foreground and two fully clothed adult parents holding a fully clothed infant in a white christening outfit beside a baptismal font in background. Focus on the documentary photo-taking service, not ritual close-up or religious instruction. Natural family expressions and realistic hands, safe supported baby, warm church daylight and subtle candles/icons. Central clean composition readable small, no collage. No water being poured, no undressed child, no readable texts, brand marks or watermark. Fictional illustrative event, not an actual family or business portfolio.",
+      "sourceFile": "exec-f7fdba73-66d4-4a07-b464-dc6b11054f22.png",
+      "sourceSha256": "5a6b7bb90189994f024592412e281696f2076361a2ef6a640f8811be58822a03",
+      "file": "public/service-photos/sx-baptism-event-photography-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 14026,
+      "sha256": "fa97ce1f12274e88b5e01dd0fe330ec548ee6b000070da20799c36d12e4f626c",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "5a6b7bb90189994f024592412e281696f2076361a2ef6a640f8811be58822a03",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual source and optimized thumbnail visual review"
+      }
+    },
+    {
+      "id": "sx-mens-long-hair-scissor-cut",
+      "label": "Мъжко подстригване — дълга коса",
+      "prompt": "Use case: photorealistic-natural. Asset type: ONE square1:1 service photograph for a64px GoRez thumbnail. Primary request: a real-looking professional barber trimming the ends of an adult man's clearly shoulder-length hair using scissors and comb. The male client wears a clean barber cape, sits upright and has a natural short beard; his long hair reaches below the jaw toward shoulders and is unmistakably long, not a short fade. Barber's hands hold a separated section gently, scissors positioned plausibly at the ends. Medium close-up shows both the long-haired client and barber's actual cutting action, simple warm neutral barbershop background, natural skin and hair texture, daylight. No female client, no clipper fade, no hair colouring, no text, logo, watermark, split image or collage. Fictional illustrative service, not actual Fine Line staff or customer.",
+      "sourceFile": "exec-27de8474-ad72-4f56-9f94-c4b3184116ea.png",
+      "sourceSha256": "120cd7158c467b76a20cd90a0c3f21aac8abbf89ae844358d2ea4f020b04a223",
+      "file": "public/service-photos/sx-mens-long-hair-scissor-cut-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 9994,
+      "sha256": "a1cc15ace86db32c1c3f14755d7c88fab07d1d25a061cdaa39d00ce8b02fff59",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "120cd7158c467b76a20cd90a0c3f21aac8abbf89ae844358d2ea4f020b04a223",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual source and optimized thumbnail visual review"
+      }
+    },
+    {
+      "id": "sx-cornrows-natural-hair",
+      "label": "Плитки cornrows без екстеншъни",
+      "prompt": "Use case: photorealistic-natural. Asset type: ONE square1:1 service photograph for a64px booking thumbnail. Primary request: an adult professional braider creating neat cornrow braids using ONLY an adult woman's own natural hair, no extensions. Show close three-quarter overhead view of the client's head with several parallel flat raised braids following the scalp from forehead toward the nape; the braider's two natural hands are actively weaving the final short section. Client's natural medium-length textured hair, tidy visible part lines, modest salon cape. Distinctly scalp-hugging cornrows, NOT dangling box braids, ordinary plait or dreadlocks. Realistic hands, coherent hair strands and plausible braiding technique, clean daylight salon, natural textures. No synthetic hair bundles, colouring, text, brand mark, watermark or collage. Fictional illustrative scene, not actual Mimi's World staff or work.",
+      "sourceFile": "exec-fd44c86a-c509-4f5b-8a94-b664b838db05.png",
+      "sourceSha256": "d5ae2724fba674ac0e432b4b9ce9c30936b7150b2c27627f200b4dfa8cc2876c",
+      "file": "public/service-photos/sx-cornrows-natural-hair-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 10828,
+      "sha256": "a49cb7bb85853953e567ba2b6e7675b0e4bcd868670c577cbc5f2f7e8437e093",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "d5ae2724fba674ac0e432b4b9ce9c30936b7150b2c27627f200b4dfa8cc2876c",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual source and optimized thumbnail visual review"
+      }
+    },
+    {
+      "id": "sx-cornrows-feed-in-extensions",
+      "label": "Плитки cornrows с екстеншъни",
+      "prompt": "Use case: photorealistic-natural. Asset type: ONE square1:1 service photograph for a64px GoRez thumbnail. Primary request: an adult braider weaving cornrows WITH feed-in hair extensions on an adult female client in a real-looking salon. Medium close three-quarter overhead view clearly shows several neat scalp-hugging parallel cornrows with long braided ends; braider's two realistic hands add a small dark extension strand into the unfinished cornrow. A clean separated bundle of matching extension hair is visible nearby to communicate added hair. Natural part lines, tension not excessive, plausible hair and hand geometry, client clothed in salon cape. Actual hair styling action readable small, soft daylight and natural photographic textures. Not box braids, crochet curls, wig fitting or generic haircut. No logos, text, watermark or split-panel collage. Fictional illustrative service, not actual business work.",
+      "sourceFile": "exec-f7daeb8a-08ce-4f94-93f7-4199f5888da8.png",
+      "sourceSha256": "6ade822d841e952997fff3c26e0aa8ed645d5f6b821e7b7bc73ead95cd06395f",
+      "file": "public/service-photos/sx-cornrows-feed-in-extensions-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 12738,
+      "sha256": "48d348e8a471d4e9fafe75af9ebfe900bb5cace0e3c76ed345542b931f8ac389",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "6ade822d841e952997fff3c26e0aa8ed645d5f6b821e7b7bc73ead95cd06395f",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual source and optimized thumbnail visual review"
+      }
+    },
+    {
+      "id": "sx-crochet-hair-installation",
+      "label": "Прически с crochet техника",
+      "prompt": "Use case: photorealistic-natural. Asset type: ONE square1:1 service photograph for a64px GoRez thumbnail. Primary request: a professional adult hairstylist installing a curly hair extension using the crochet-braid method on a fully clothed adult woman in a daylight salon. Close three-quarter side/overhead composition shows the client's pre-braided cornrow base and one realistic small blunt latch-hook crochet hair tool guiding a loop of curly extension under one braid. Half of the hair is already loose crochet curls; a small unfinished base remains visible. Stylist's two natural hands hold tool and hair plausibly, no extra fingers. Hair procedure is superficial, no skin puncture, no blood or medical needle. Realistic tool, hair texture, daylight and clean salon cape. No ordinary box-braiding action, sewing needle, text, logos, watermark or collage. Fictional service illustration, not actual Mimi's World work.",
+      "sourceFile": "exec-f450a4af-ea14-4dfa-847d-4f785676b39d.png",
+      "sourceSha256": "b52055c6dda2c3db54e84987e8a0be175e7aeebf70788c7591a06b0d7822b0cc",
+      "file": "public/service-photos/sx-crochet-hair-installation-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 13990,
+      "sha256": "aae501fa62330ee9a90b2960e983731e08ce6530608e17df5cf381132f5d2268",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "b52055c6dda2c3db54e84987e8a0be175e7aeebf70788c7591a06b0d7822b0cc",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual source and optimized thumbnail visual review"
+      }
+    },
+    {
+      "id": "sx-reformer-duet-session",
+      "label": "Дуетна тренировка на Reformer — двама трениращи и инструктор",
+      "prompt": "Use case: photorealistic-natural. Asset type: square service thumbnail for a Bulgarian online-booking catalogue. Primary request: clearly show a DUET Pilates Reformer training session: exactly TWO adult women clients, each lying safely on her own separate real Pilates Reformer machine, plus ONE adult female instructor standing beside them supervising. No other clients or machines. Both clients doing a simple beginner footwork exercise, heads on headrests, knees comfortably bent, feet placed on the footbars; credible spring carriage, rails and straps, natural anatomy and hands. Instructor looks at their positioning with a calm attentive posture; no impossible contact or contorted movement. Scene: bright modest contemporary Pilates studio with soft daylight, wooden flooring and uncluttered pale neutral walls. Style: realistic candid editorial photograph with natural skin and fabric texture, not glamorous advertising. Composition: square 1:1, medium-wide eye-level three-quarter angle; exactly the two reformers and all three people clearly distinguishable and readable when downscaled to a small 60px thumbnail, main actions in central safe area. Constraints: no text, letters, brands, logos, watermark, notebook, clipboard, medical equipment or before-after claims. This is an illustrative example of the actual activity, not a specific business's premises or staff.",
+      "sourceFile": "exec-ea953bac-e7ee-4419-a452-9bd70d30e05a.png",
+      "sourceSha256": "705ca9e5ab235a3e4248fbe845e92983a8efa976714b9c2281729e2f79539bc6",
+      "file": "public/service-photos/sx-reformer-duet-session-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 10822,
+      "sha256": "9176dadcc94075b9f49e53f23aa8a847a4338cf92c131dcb7c9fb6f2e25871a4",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "705ca9e5ab235a3e4248fbe845e92983a8efa976714b9c2281729e2f79539bc6",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual source and optimized thumbnail visual review"
+      }
+    },
+    {
+      "id": "sx-dress-fitting-consultation",
+      "label": "Лична проба на рокля с моден консултант",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 small service thumbnail for a Bulgarian appointment catalogue. Primary request: a realistic private dress-fitting consultation in a modest elegant showroom: one fictional adult woman wearing a simple long cream evening dress, standing naturally in front of a mirror while one adult female fashion consultant checks the fit at the waist with fingertips. A few dresses on a rack in soft background, discreet full-length mirror. Clearly a fitting appointment, not a wedding ceremony, not a tailor sewing and not a retail product still life. Natural skin and hands, respectful fully clothed adults, warm soft daylight, cream-neutral restrained palette, candid editorial photograph, central medium composition easily legible at 60px. No typography, logo, watermark, price label, notebook, clipboard, distorted anatomy or text. Illustration of the activity only, not any particular business's premises, staff or work.",
+      "sourceFile": "exec-81427f6a-a1e1-4368-85cb-4e57a111f6cb.png",
+      "sourceSha256": "502b0ff1309c9abd9ac1fa4024c19e4bde2ba28c7e93bca21ecea55f471cc74f",
+      "file": "public/service-photos/sx-dress-fitting-consultation-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 11174,
+      "sha256": "4ed65fb06922cc3ac3cebe4fbe6d8e2250ae533675e983160f9f28671a76f6c1",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "502b0ff1309c9abd9ac1fa4024c19e4bde2ba28c7e93bca21ecea55f471cc74f",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual source and optimized 256px thumbnail inspection; correct named activity, no branding or notebook"
+      }
+    },
+    {
+      "id": "sx-rose-experience-degustation",
+      "label": "Представяне и дегустация с розов чай",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 small service thumbnail for an online appointment catalogue. Primary request: realistic small guided Bulgarian rose tasting experience: one fictional adult female host presenting a small clear cup of pale rose tea to two fictional adult visitors seated at a small light wooden tasting table. On the table clearly visible pink rose blossoms, a glass teapot with rose tea and a few small unbranded clear aroma bottles with no labels. Visitors listening and smelling a rose blossom, host calmly demonstrating. Contemporary modest boutique tasting room, no invented historic venue, no branded interiors. Close medium three-quarter view with central tea, rose flowers and human interaction readable at 60px; natural skin and hands, soft daylight, warm cream-neutral colors, candid editorial photography. No writing, logos, labels, watermark, notebook, clipboard, collage, beauty treatment, drinking alcohol, medical or therapeutic claims. Illustrative activity only, not actual business premises/staff/products.",
+      "sourceFile": "exec-eef81ee0-b45c-4f8f-a551-20062cd0b8ac.png",
+      "sourceSha256": "1d1e285adf06fbe74000f96b9c4b442df3778e29d7a9ac474c688f8a816e811c",
+      "file": "public/service-photos/sx-rose-experience-degustation-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 20734,
+      "sha256": "7585eb2180b706f5b8dce83418c13beb2dba5def1c81d8b81a8add43915dd762",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "1d1e285adf06fbe74000f96b9c4b442df3778e29d7a9ac474c688f8a816e811c",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual source and optimized 256px thumbnail inspection; correct named activity, no branding or notebook"
+      }
+    },
+    {
+      "id": "sx-fullbody-ems-duo-training",
+      "label": "ЕМС тренировка за двама с инструктор",
+      "prompt": "Use case: photorealistic-natural. Asset type: individual square 1:1 small service thumbnail for a Bulgarian fitness booking catalogue. Primary request: a realistic DUO full-body EMS fitness training session: exactly two fictional adult clients, one woman and one man, both standing on the gym floor doing gentle balanced shallow squats side by side, supervised by one adult female fitness trainer. Both clients wear credible close-fitting black EMS training vests and thigh/upper-arm electrode bands over ordinary modest black sports base layers; discreet tidy leads to a compact training control console positioned to the side, no exaggerated technology. Trainer stands between and slightly behind coaching safe posture, ordinary fitness not a medical procedure. Minimal bright cream-neutral gym, rubber floor, natural daylight, realistic fabric and skin, natural hands and anatomy. Clear medium-wide central three-quarter composition with both clients and trainer readable at 60px. No typography, labels, logos, watermarks, notebook, clipboard, lightning/glow effects, before-after claims, rehab or medical setting. Illustrative activity only, not a particular business's staff, equipment model or premises.",
+      "sourceFile": "exec-800c53fa-4000-4561-8ff4-2cefc80ee3a1.png",
+      "sourceSha256": "51649592ff757ec76e9c78c79fd6e889a4e55d55320d6d7fb7e1f83b15af26e9",
+      "file": "public/service-photos/sx-fullbody-ems-duo-training-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 14926,
+      "sha256": "344b535fbfebb6d50c9dbbccc7e026756cbf3f03d7766f7756f3621967aae6f3",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "51649592ff757ec76e9c78c79fd6e889a4e55d55320d6d7fb7e1f83b15af26e9",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual source and optimized 256px thumbnail inspection; correct named activity, no branding or notebook"
+      }
+    },
+    {
+      "id": "sx-auto-filter-machine-cleaning",
+      "label": "Машинно почистване на свален DPF филтър или катализатор",
+      "prompt": "Use case: photorealistic-natural. Asset type: square 1:1 60px service thumbnail. Primary request: a realistic workshop process of machine-cleaning a removed automotive exhaust particulate-filter or catalyst housing. A fictional adult mechanic wearing protective work gloves and clear safety glasses checks a compact enclosed aqueous flow-cleaning machine. Main central subject is a credible generic metal cylindrical exhaust-filter housing clamped safely inside the machine's open service enclosure, inlet/outlet hoses securely connected; machine is idle for inspection, no spray toward the person. No brushing the outside as substitute, no reinstalling a filter, no on-car software regeneration or emissions removal. Close three-quarter crop of technician's gloved hands, metal housing and machine connections, legible in a tiny thumbnail. Natural warm-neutral workshop light and honest used-metal texture, editorial photorealism, no brand/model/text/logo/watermark/clipboard/notebook or outcome claims. Illustrative activity, not particular business equipment.",
+      "sourceFile": "exec-c1e64991-4ddb-4cf7-8ee2-2db86bfc34b1.png",
+      "sourceSha256": "7747fa3668404941cbab5d5d44580748b0438d34c4758e45f3d85917204a78ba",
+      "file": "public/service-photos/sx-auto-filter-machine-cleaning-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 17704,
+      "sha256": "feab828598c92b8c7181d01f340fde51df11c6dc0836e4a0059d6bb529f4fda9",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "7747fa3668404941cbab5d5d44580748b0438d34c4758e45f3d85917204a78ba",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual source and optimized 256px thumbnail inspection; machine housing/hoses or opened audio head unit correctly distinguish activity; no notebook"
+      }
+    },
+    {
+      "id": "sx-auto-audio-navigation-module-repair",
+      "label": "Ремонт на автомобилен аудио или навигационен модул",
+      "prompt": "Use case: photorealistic-natural. Asset type: square 1:1 service thumbnail for 60px display. Primary request: realistic automotive electronics bench repair of a removed car audio/navigation head unit. A fictional adult technician's natural gloved hands using multimeter probes to test a component on the opened circuit board of a generic dashboard head unit on an antistatic mat. The detached unbranded head unit has a small dark screen and ordinary radio control knobs clearly visible beside its open electronic casing; no wire cutting or anti-theft bypass. Safe idle electronic testing, tidy small tools in soft background, macro three-quarter view, central head unit and hands legible at thumbnail scale. Photorealistic real materials, neutral warm workshop light. No vehicle engine bay, notebook, clipboard, labels, readable text, logos, watermarks, medical equipment or claims. Illustrative activity only, not specific brand, premises or verified work.",
+      "sourceFile": "exec-30c381e6-d442-484e-a51e-c65ca99ec345.png",
+      "sourceSha256": "511e8281a50dc7ee170c5f196c2a1467fd17444faf54f26f3d421f5c4910953b",
+      "file": "public/service-photos/sx-auto-audio-navigation-module-repair-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 18680,
+      "sha256": "187ed764855f81541554715df2e378c5c962fde73abebcdad2a180e396a70f77",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "511e8281a50dc7ee170c5f196c2a1467fd17444faf54f26f3d421f5c4910953b",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "individual source and optimized 256px thumbnail inspection; machine housing/hoses or opened audio head unit correctly distinguish activity; no notebook"
+      }
     }
   ],
   "rejectedSources": [
@@ -23309,12 +23947,17 @@
       "sourceSha256": "c767497c064b2bb34e0cb1640c4e08ad1df36635a2c378a124fb146c84c1536b",
       "reason": "Full multi-compartment wardrobe/body width asserts a particular door layout despite shared explicitly single-door and double-door hinged-wardrobe assembly offers; unsupported door-count presentation.",
       "replacementIds": "sx-home-hinged-wardrobe-assembly-macro"
+    },
+    {
+      "sourceFile": "exec-fe65a135-ab9f-46f1-982d-a0b715b98fe4.png",
+      "sourceSha256": "63733a20e3256cc5b019ce1e849791f7ff149c761be248e5c8a64f3813a9efd9",
+      "reason": "Independent visual review rejected an implausible oversized corrugated washer fitting; not published."
     }
   ],
   "report": {
-    "required": 1104,
-    "prepared": 1104,
-    "accepted": 1104,
+    "required": 1133,
+    "prepared": 1133,
+    "accepted": 1133,
     "pendingGeneration": [],
     "missingAsset": [],
     "unreviewed": [],

@@ -51,9 +51,12 @@ test('100 concurrent local searches consume no Google/model grants or provider r
 })
 test('the expanded individually sourced catalogue is committed; records are not synthetic ratings or partner accounts', () => {
   assert.ok(validateCatalogue(SOFIA_CATALOGUE).length >= 200)
+  // Validate the complete current source snapshot on its latest review day;
+  // the historical Nov11 search fixtures must still exclude future receipts.
+  const publicationClock = Date.parse('2026-11-13T12:00:00Z')
   for (const row of SOFIA_CATALOGUE) {
-    if (EXCLUDED_GENERAL_CLINIC_IDS.includes(row.id)) assert.equal(approvedCatalogueRecord(row, clock), null, row.id)
-    else assert.ok(approvedCatalogueRecord(row, clock), row.id)
+    if (EXCLUDED_GENERAL_CLINIC_IDS.includes(row.id)) assert.equal(approvedCatalogueRecord(row, publicationClock), null, row.id)
+    else assert.ok(approvedCatalogueRecord(row, publicationClock), row.id)
     assert.match(row.verification.booking.url, /^https:\/\//)
     const evidenceHost=new URL(row.verification.booking.url).hostname.replace(/^www\./, ''), ownerHost=new URL(row.website).hostname.replace(/^www\./, '')
     const explicitProviderReview = NEIGHBORHOOD_20261111_REVIEWS.find(review => review.id === row.id &&

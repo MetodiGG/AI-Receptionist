@@ -1,0 +1,2950 @@
+{
+  "version": 1,
+  "capturedOn": "2026-11-13",
+  "sourceCount": 981,
+  "records": [
+    {
+      "id": "sofia-mokro-nosle"
+    },
+    {
+      "id": "sofia-kaya-grooming"
+    },
+    {
+      "id": "sofia-tobbys-grooming"
+    },
+    {
+      "id": "sofia-pet-stop-place"
+    },
+    {
+      "id": "sofia-iq-detailing"
+    },
+    {
+      "id": "sofia-nebula-detailing"
+    },
+    {
+      "id": "sofia-autosteamclean-mobile"
+    },
+    {
+      "id": "sofia-cut-n-chill"
+    },
+    {
+      "id": "sofia-bobi-yarchev"
+    },
+    {
+      "id": "sofia-el-gato"
+    },
+    {
+      "id": "sofia-nail-cocktail-boutique"
+    },
+    {
+      "id": "sofia-elmida-beauty"
+    },
+    {
+      "id": "sofia-twisted-hladilnika"
+    },
+    {
+      "id": "sofia-twisted-slatina"
+    },
+    {
+      "id": "sofia-sofiyski-remonti"
+    },
+    {
+      "id": "sofia-danyelle-hair-beauty"
+    },
+    {
+      "id": "sofia-belami-westmall"
+    },
+    {
+      "id": "sofia-belami-park-center"
+    },
+    {
+      "id": "sofia-salon-fiore"
+    },
+    {
+      "id": "sofia-nn-hair-design"
+    },
+    {
+      "id": "sofia-uli-nails"
+    },
+    {
+      "id": "sofia-lumiere-beauty-club"
+    },
+    {
+      "id": "sofia-alvien-nails"
+    },
+    {
+      "id": "sofia-persia-beauty"
+    },
+    {
+      "id": "sofia-bloom-beauty-evelyn"
+    },
+    {
+      "id": "sofia-gpoint-five-corners"
+    },
+    {
+      "id": "sofia-gpoint-borovo"
+    },
+    {
+      "id": "sofia-gpoint-studentski-zimen-dvorets"
+    },
+    {
+      "id": "sofia-gpoint-ovcha-kupel-nbu"
+    },
+    {
+      "id": "sofia-gpoint-geo-milev"
+    },
+    {
+      "id": "sofia-gpoint-lyulin-10"
+    },
+    {
+      "id": "sofia-gpoint-mladost-1"
+    },
+    {
+      "id": "sofia-gpoint-dondukov"
+    },
+    {
+      "id": "sofia-gpoint-lozenets"
+    },
+    {
+      "id": "sofia-gpoint-hladilnika"
+    },
+    {
+      "id": "sofia-gpoint-suhata-reka"
+    },
+    {
+      "id": "sofia-gpoint-nadezhda-5"
+    },
+    {
+      "id": "sofia-gpoint-zona-b19"
+    },
+    {
+      "id": "sofia-gpoint-mladost-4"
+    },
+    {
+      "id": "sofia-gpoint-lyulin-7"
+    },
+    {
+      "id": "sofia-gpoint-dianabad"
+    },
+    {
+      "id": "sofia-gpoint-stadion-vasil-levski"
+    },
+    {
+      "id": "sofia-gpoint-manastirski-iztok"
+    },
+    {
+      "id": "sofia-gpoint-reduta"
+    },
+    {
+      "id": "sofia-gpoint-nadezhda-2"
+    },
+    {
+      "id": "sofia-gpoint-sadebna-palata"
+    },
+    {
+      "id": "sofia-gpoint-druzhba-2"
+    },
+    {
+      "id": "sofia-gpoint-manastirski-zapad"
+    },
+    {
+      "id": "sofia-gpoint-dragalevtsi"
+    },
+    {
+      "id": "sofia-gpoint-iztok"
+    },
+    {
+      "id": "sofia-gpoint-vma"
+    },
+    {
+      "id": "sofia-gpoint-ovcha-kupel-2"
+    },
+    {
+      "id": "sofia-gpoint-hadzhi-dimitar"
+    },
+    {
+      "id": "sofia-gpoint-mladost-2"
+    },
+    {
+      "id": "sofia-gpoint-sveta-troitsa"
+    },
+    {
+      "id": "sofia-gpoint-darvenitsa"
+    },
+    {
+      "id": "sofia-gpoint-banishora"
+    },
+    {
+      "id": "sofia-gpoint-ovcha-kupel-lyublyana"
+    },
+    {
+      "id": "sofia-gpoint-lyulin-8"
+    },
+    {
+      "id": "sofia-gpoint-studentski-nikola-gabrovski"
+    },
+    {
+      "id": "sofia-gpoint-vitosha"
+    },
+    {
+      "id": "sofia-gpoint-druzhba-1"
+    },
+    {
+      "id": "sofia-gpoint-mladost-3"
+    },
+    {
+      "id": "sofia-gpoint-belite-brezi"
+    },
+    {
+      "id": "sofia-gpoint-krasna-polyana"
+    },
+    {
+      "id": "sofia-gpoint-levski-g"
+    },
+    {
+      "id": "sofia-gpoint-ovcha-kupel-mizia"
+    },
+    {
+      "id": "sofia-gpoint-nadezhda-1"
+    },
+    {
+      "id": "sofia-ts-beauty-levski"
+    },
+    {
+      "id": "sofia-ts-laser-reduta"
+    },
+    {
+      "id": "sofia-ts-nail-reduta"
+    },
+    {
+      "id": "sofia-abi-beauty-serdika"
+    },
+    {
+      "id": "sofia-abi-beauty-lozenets"
+    },
+    {
+      "id": "sofia-abi-beauty-druzhba-1"
+    },
+    {
+      "id": "sofia-abi-beauty-druzhba-2"
+    },
+    {
+      "id": "sofia-abi-beauty-nadezhda"
+    },
+    {
+      "id": "sofia-abi-beauty-bul-bulgaria"
+    },
+    {
+      "id": "sofia-head-hunters-alabin"
+    },
+    {
+      "id": "sofia-head-hunters-lozenets"
+    },
+    {
+      "id": "sofia-head-hunters-mladost"
+    },
+    {
+      "id": "sofia-head-hunters-levski"
+    },
+    {
+      "id": "sofia-head-hunters-ruski-pametnik"
+    },
+    {
+      "id": "sofia-head-hunters-academy"
+    },
+    {
+      "id": "sofia-head-hunters-dondukov"
+    },
+    {
+      "id": "sofia-the-one-studio"
+    },
+    {
+      "id": "sofia-the-one-deluxe"
+    },
+    {
+      "id": "sofia-the-one-barbershop"
+    },
+    {
+      "id": "sofia-the-one-premium"
+    },
+    {
+      "id": "sofia-the-one-private"
+    },
+    {
+      "id": "sofia-the-one-famous"
+    },
+    {
+      "id": "sofia-jonita-auto"
+    },
+    {
+      "id": "sofia-vladi-service"
+    },
+    {
+      "id": "sofia-autoxpert"
+    },
+    {
+      "id": "sofia-autovilla"
+    },
+    {
+      "id": "sofia-autocomplex-rs"
+    },
+    {
+      "id": "sofia-tl-autoservice"
+    },
+    {
+      "id": "sofia-lucky-garage"
+    },
+    {
+      "id": "sofia-autoclinic-bg"
+    },
+    {
+      "id": "sofia-diana-tsarigradsko"
+    },
+    {
+      "id": "sofia-diana-botevgradsko"
+    },
+    {
+      "id": "sofia-diana-dragalevtsi"
+    },
+    {
+      "id": "sofia-diana-lyulin"
+    },
+    {
+      "id": "sofia-primex-botevgradsko"
+    },
+    {
+      "id": "sofia-primex-okolovrasten"
+    },
+    {
+      "id": "sofia-impact-boxing"
+    },
+    {
+      "id": "sofia-bastet-kickboxing"
+    },
+    {
+      "id": "sofia-lazarov-athletics"
+    },
+    {
+      "id": "sofia-bruno-bastos-bjj"
+    },
+    {
+      "id": "sofia-wmaa-mladost"
+    },
+    {
+      "id": "sofia-tsanev-manastirski"
+    },
+    {
+      "id": "sofia-tsanev-hipodruma"
+    },
+    {
+      "id": "sofia-tsanev-gotse-delchev"
+    },
+    {
+      "id": "sofia-tsanev-sveta-troitsa"
+    },
+    {
+      "id": "sofia-tsanev-zaharna-fabrika"
+    },
+    {
+      "id": "sofia-phoenix-taekwondo-druzhba"
+    },
+    {
+      "id": "sofia-ewto-lozenets"
+    },
+    {
+      "id": "sofia-ewto-stadium"
+    },
+    {
+      "id": "sofia-pilates-maria-reduta"
+    },
+    {
+      "id": "sofia-angels-pilates"
+    },
+    {
+      "id": "sofia-new-way-group-training"
+    },
+    {
+      "id": "sofia-jp-studio-reformer"
+    },
+    {
+      "id": "sofia-reformer-vibe"
+    },
+    {
+      "id": "sofia-kometa-autocenter"
+    },
+    {
+      "id": "sofia-omniris-pdr"
+    },
+    {
+      "id": "sofia-klimacicite-mobile"
+    },
+    {
+      "id": "sofia-po-manyashkiya-detailing"
+    },
+    {
+      "id": "sofia-georgis-garage-sofia"
+    },
+    {
+      "id": "sofia-luxspa-mobile-detailing"
+    },
+    {
+      "id": "sofia-pulsar-mobile-detailing"
+    },
+    {
+      "id": "sofia-sofia-detailing-studio"
+    },
+    {
+      "id": "sofia-zona-wash"
+    },
+    {
+      "id": "sofia-auto-manager-carwash"
+    },
+    {
+      "id": "sofia-fantastic-plumbing"
+    },
+    {
+      "id": "sofia-cleanrs"
+    },
+    {
+      "id": "sofia-chistnik"
+    },
+    {
+      "id": "sofia-antilopa-cleaning"
+    },
+    {
+      "id": "sofia-marani-cleaning"
+    },
+    {
+      "id": "sofia-borisov-clean"
+    },
+    {
+      "id": "sofia-si-cleaning"
+    },
+    {
+      "id": "sofia-remonti-metodiev-cleaning"
+    },
+    {
+      "id": "sofia-elpro"
+    },
+    {
+      "id": "sofia-uslugi-vik"
+    },
+    {
+      "id": "sofia-rotorem-home-repair"
+    },
+    {
+      "id": "sofia-petar-georgiev-appliance"
+    },
+    {
+      "id": "sofia-bravo-boiler-installation"
+    },
+    {
+      "id": "sofia-ac-clean-proclima"
+    },
+    {
+      "id": "sofia-clean2win"
+    },
+    {
+      "id": "sofia-cleandirect"
+    },
+    {
+      "id": "sofia-topcleaner"
+    },
+    {
+      "id": "sofia-freshclean"
+    },
+    {
+      "id": "sofia-monster-cleaning"
+    },
+    {
+      "id": "sofia-pochisteno"
+    },
+    {
+      "id": "sofia-podstrizhime-grooming"
+    },
+    {
+      "id": "sofia-sofia-vet-grooming"
+    },
+    {
+      "id": "sofia-ramona-grooming"
+    },
+    {
+      "id": "sofia-paw-paw-mobile"
+    },
+    {
+      "id": "sofia-felix-dogs-lyulin"
+    },
+    {
+      "id": "sofia-felix-dogs-lagera"
+    },
+    {
+      "id": "sofia-new-vita-grooming"
+    },
+    {
+      "id": "sofia-yorki-sofia"
+    },
+    {
+      "id": "sofia-physio-point"
+    },
+    {
+      "id": "sofia-omni-iztok"
+    },
+    {
+      "id": "sofia-omni-druzhba"
+    },
+    {
+      "id": "sofia-omni-amaya-massage"
+    },
+    {
+      "id": "sofia-topal-center"
+    },
+    {
+      "id": "sofia-arthromedica"
+    },
+    {
+      "id": "sofia-office-therapy"
+    },
+    {
+      "id": "sofia-physio-be-active"
+    },
+    {
+      "id": "sofia-sportmed"
+    },
+    {
+      "id": "sofia-dara-physiotherapy"
+    },
+    {
+      "id": "sofia-vibomi"
+    },
+    {
+      "id": "sofia-mm-therapy"
+    },
+    {
+      "id": "sofia-drum-action"
+    },
+    {
+      "id": "sofia-po-noti"
+    },
+    {
+      "id": "sofia-rhythm-academy"
+    },
+    {
+      "id": "sofia-keramika-zari"
+    },
+    {
+      "id": "sofia-vocal-vision-house"
+    },
+    {
+      "id": "sofia-aristea-buzludzha"
+    },
+    {
+      "id": "sofia-aristea-hristo-botev"
+    },
+    {
+      "id": "sofia-edno-school"
+    },
+    {
+      "id": "sofia-nota-music-room"
+    },
+    {
+      "id": "sofia-mymusic-center"
+    },
+    {
+      "id": "sofia-sokol-nedkov"
+    },
+    {
+      "id": "sofia-law-bba"
+    },
+    {
+      "id": "sofia-finansial-consultation"
+    },
+    {
+      "id": "sofia-spravo-consultation"
+    },
+    {
+      "id": "sofia-nikolay-nikolaev-law"
+    },
+    {
+      "id": "sofia-irina-konstantinova"
+    },
+    {
+      "id": "sofia-asotopbrain-consultation"
+    },
+    {
+      "id": "sofia-somenso-career"
+    },
+    {
+      "id": "sofia-np-dental-clinic"
+    },
+    {
+      "id": "sofia-kambov-dental-clinic"
+    },
+    {
+      "id": "sofia-pangeva-dental"
+    },
+    {
+      "id": "sofia-veadent-gurko"
+    },
+    {
+      "id": "sofia-veadent-skobelev"
+    },
+    {
+      "id": "sofia-belladente"
+    },
+    {
+      "id": "sofia-sf-dent"
+    },
+    {
+      "id": "sofia-e-dental-clinic"
+    },
+    {
+      "id": "sofia-impression-dent"
+    },
+    {
+      "id": "sofia-snap-dental-care"
+    },
+    {
+      "id": "sofia-margarita-dimitrova-psychologist"
+    },
+    {
+      "id": "sofia-kristina-sungarska"
+    },
+    {
+      "id": "sofia-body-and-soul-massage"
+    },
+    {
+      "id": "sofia-gloss-nails"
+    },
+    {
+      "id": "sofia-marty-academy-dospevski"
+    },
+    {
+      "id": "sofia-marty-gerena-veleka"
+    },
+    {
+      "id": "sofia-bull-barber-shop"
+    },
+    {
+      "id": "sofia-jezuscutz-studio"
+    },
+    {
+      "id": "sofia-luxury-nails-cherkovna"
+    },
+    {
+      "id": "sofia-queen-beauty-room"
+    },
+    {
+      "id": "sofia-salon-bard"
+    },
+    {
+      "id": "sofia-san-krasi-barber"
+    },
+    {
+      "id": "sofia-classy-barbershop"
+    },
+    {
+      "id": "sofia-neda-art-nails"
+    },
+    {
+      "id": "sofia-yd-beauty-brand"
+    },
+    {
+      "id": "sofia-coco-dry-bar-nail-house"
+    },
+    {
+      "id": "sofia-noxic-beauty"
+    },
+    {
+      "id": "sofia-salon-elegant-iztok"
+    },
+    {
+      "id": "sofia-ts-studio-blagorodna"
+    },
+    {
+      "id": "sofia-md-hairclub"
+    },
+    {
+      "id": "sofia-anna-nailz-art"
+    },
+    {
+      "id": "sofia-beauty-betyna-yovcheva"
+    },
+    {
+      "id": "sofia-dorado-beauty-wellness"
+    },
+    {
+      "id": "sofia-viktoria-beauty-lyulin"
+    },
+    {
+      "id": "sofia-beauty-studio-99"
+    },
+    {
+      "id": "sofia-the-one-nails-hair"
+    },
+    {
+      "id": "sofia-artemida-paradise"
+    },
+    {
+      "id": "sofia-artemida-studentski"
+    },
+    {
+      "id": "sofia-murphy-graf-ignatiev"
+    },
+    {
+      "id": "sofia-murphy-patriarh-evtimii"
+    },
+    {
+      "id": "sofia-snb-salon-dunav"
+    },
+    {
+      "id": "sofia-stephan-mladost"
+    },
+    {
+      "id": "sofia-stephan-lagera"
+    },
+    {
+      "id": "sofia-stephan-oborishte"
+    },
+    {
+      "id": "sofia-stephan-iztok"
+    },
+    {
+      "id": "sofia-stephan-borovo"
+    },
+    {
+      "id": "sofia-stephan-academy-stephan"
+    },
+    {
+      "id": "sofia-inspire-business-park"
+    },
+    {
+      "id": "sofia-inspire-mladost-1"
+    },
+    {
+      "id": "sofia-inspire-iztok"
+    },
+    {
+      "id": "sofia-inspire-paradise"
+    },
+    {
+      "id": "sofia-inspire-krastova-vada"
+    },
+    {
+      "id": "sofia-inspire-manastirski-livadi"
+    },
+    {
+      "id": "sofia-inspire-studentski-grad"
+    },
+    {
+      "id": "sofia-els-makeup"
+    },
+    {
+      "id": "sofia-classaqueen"
+    },
+    {
+      "id": "sofia-skinni-aesthetic"
+    },
+    {
+      "id": "sofia-magama-damyan-gruev"
+    },
+    {
+      "id": "sofia-terra-adora-spa-beauty"
+    },
+    {
+      "id": "sofia-kikimora-beauty-studio"
+    },
+    {
+      "id": "sofia-arlet-stars"
+    },
+    {
+      "id": "sofia-pellucci-lozenets"
+    },
+    {
+      "id": "sofia-lotos-pirin"
+    },
+    {
+      "id": "sofia-stephan-nails-academy"
+    },
+    {
+      "id": "sofia-mg-art-beauty"
+    },
+    {
+      "id": "sofia-rock-n-roll-barbershop"
+    },
+    {
+      "id": "sofia-texture-barbershop"
+    },
+    {
+      "id": "sofia-king-barber-ovcha-kupel"
+    },
+    {
+      "id": "sofia-barberians"
+    },
+    {
+      "id": "sofia-barber-shop-kano"
+    },
+    {
+      "id": "sofia-cutters-barber-club"
+    },
+    {
+      "id": "sofia-barrnat-style"
+    },
+    {
+      "id": "sofia-alexiev-slatina"
+    },
+    {
+      "id": "sofia-alexiev-la-barberia"
+    },
+    {
+      "id": "sofia-superbarber-vitosha"
+    },
+    {
+      "id": "sofia-nv-barbers-studentski-grad"
+    },
+    {
+      "id": "sofia-nv-barbers-malinova-dolina"
+    },
+    {
+      "id": "sofia-nv-barbers-manastirski-livadi"
+    },
+    {
+      "id": "sofia-nv-barbers-dianabad"
+    },
+    {
+      "id": "sofia-motorista-carwash"
+    },
+    {
+      "id": "sofia-lux-mbal-sveta-sofia-carwash"
+    },
+    {
+      "id": "sofia-superior-pickup-carwash"
+    },
+    {
+      "id": "sofia-wash-go-detailing"
+    },
+    {
+      "id": "sofia-topchiev-detailed"
+    },
+    {
+      "id": "sofia-carkings"
+    },
+    {
+      "id": "sofia-signature-detailing"
+    },
+    {
+      "id": "sofia-carbox-studio"
+    },
+    {
+      "id": "sofia-speed-garage-sofia"
+    },
+    {
+      "id": "sofia-factor-detailing"
+    },
+    {
+      "id": "sofia-nhs-detailing"
+    },
+    {
+      "id": "sofia-cosmos-detailing"
+    },
+    {
+      "id": "sofia-virage-details"
+    },
+    {
+      "id": "sofia-sarafovi-auto"
+    },
+    {
+      "id": "sofia-gumi-slick-krasna-polyana"
+    },
+    {
+      "id": "sofia-gumi-slick-simeonovsko"
+    },
+    {
+      "id": "sofia-sandi-auto"
+    },
+    {
+      "id": "sofia-clean-ride-autoservice"
+    },
+    {
+      "id": "sofia-drivealot"
+    },
+    {
+      "id": "sofia-auto-park-solutions"
+    },
+    {
+      "id": "sofia-cherven-bryag-boxing-sofia"
+    },
+    {
+      "id": "sofia-steel-style-boxing"
+    },
+    {
+      "id": "sofia-sila-karate-children"
+    },
+    {
+      "id": "sofia-heal-fit-gymnastics"
+    },
+    {
+      "id": "sofia-xzona-sport"
+    },
+    {
+      "id": "sofia-zdravi-lapi-grooming"
+    },
+    {
+      "id": "sofia-bumbachka-grooming"
+    },
+    {
+      "id": "sofia-serkan-uzun-lyulin"
+    },
+    {
+      "id": "sofia-serkan-uzun-ortopedia"
+    },
+    {
+      "id": "sofia-avitsena-rehabilitation"
+    },
+    {
+      "id": "sofia-radoslav-valev-law"
+    },
+    {
+      "id": "sofia-dm-physio-studentski"
+    },
+    {
+      "id": "sofia-dm-physio-mladost"
+    },
+    {
+      "id": "sofia-aura-massage"
+    },
+    {
+      "id": "sofia-mieli-massage"
+    },
+    {
+      "id": "sofia-svetoslav-grigorov-law"
+    },
+    {
+      "id": "sofia-linnea-language-school"
+    },
+    {
+      "id": "sofia-etud-drawing-lessons"
+    },
+    {
+      "id": "sofia-avarton-music-academy"
+    },
+    {
+      "id": "sofia-daga-vocal-studio"
+    },
+    {
+      "id": "sofia-legalmasters-consultation"
+    },
+    {
+      "id": "sofia-edelweiss-accounting"
+    },
+    {
+      "id": "sofia-happy-kids-dental"
+    },
+    {
+      "id": "sofia-face-id-dental"
+    },
+    {
+      "id": "sofia-vesi-todorova-psychologist"
+    },
+    {
+      "id": "sofia-desislava-kolchevska"
+    },
+    {
+      "id": "sofia-dental-place"
+    },
+    {
+      "id": "sofia-hrisiyana-varbanska"
+    },
+    {
+      "id": "sofia-denta-plus"
+    },
+    {
+      "id": "sofia-daniela-baldzhieva"
+    },
+    {
+      "id": "sofia-q-life-kinezitherapy"
+    },
+    {
+      "id": "sofia-bo-bella-grooming"
+    },
+    {
+      "id": "sofia-love-your-pets-grooming"
+    },
+    {
+      "id": "sofia-sofia-physio-center"
+    },
+    {
+      "id": "sofia-okto-oborishte"
+    },
+    {
+      "id": "sofia-okto-lozenets"
+    },
+    {
+      "id": "sofia-kainezi-therapy"
+    },
+    {
+      "id": "sofia-nikolay-chudotvorets-rehab"
+    },
+    {
+      "id": "sofia-lilia-stefanova"
+    },
+    {
+      "id": "sofia-vasilena-hristova"
+    },
+    {
+      "id": "sofia-art-uroci-zhanet-zhecheva"
+    },
+    {
+      "id": "sofia-innovation-private-lessons"
+    },
+    {
+      "id": "sofia-silvia-petkova-law"
+    },
+    {
+      "id": "sofia-simeonov-law-sofia"
+    },
+    {
+      "id": "sofia-georgi-malchev-law"
+    },
+    {
+      "id": "sofia-rastashki-law"
+    },
+    {
+      "id": "sofia-nikolay-dimitrov-insurance-law"
+    },
+    {
+      "id": "sofia-kavazova-tax-law"
+    },
+    {
+      "id": "sofia-haelan-bulgaria-rehab"
+    },
+    {
+      "id": "sofia-haelan-mladost-rehab"
+    },
+    {
+      "id": "sofia-sofia-dental-ivan-asen"
+    },
+    {
+      "id": "sofia-denta-pro"
+    },
+    {
+      "id": "sofia-uzunov-dental"
+    },
+    {
+      "id": "sofia-doctor-dent"
+    },
+    {
+      "id": "sofia-ismile-lozenets"
+    },
+    {
+      "id": "sofia-ismile-lyulin"
+    },
+    {
+      "id": "sofia-diana-radeva-logoped"
+    },
+    {
+      "id": "sofia-osoba-kinezitherapy"
+    },
+    {
+      "id": "sofia-physiohome-home-rehab"
+    },
+    {
+      "id": "sofia-soul-ceramics"
+    },
+    {
+      "id": "sofia-pink-cormorant"
+    },
+    {
+      "id": "sofia-ucheben-svyat-ivan-vazov"
+    },
+    {
+      "id": "sofia-ucheben-svyat-mladost"
+    },
+    {
+      "id": "sofia-zvuk-po-zvuk-pozitano"
+    },
+    {
+      "id": "sofia-zvuk-po-zvuk-velcho-atanasov"
+    },
+    {
+      "id": "sofia-yoga-vibe-san-stefano"
+    },
+    {
+      "id": "sofia-yoga-vibe-bulgaria"
+    },
+    {
+      "id": "sofia-yoga-vibe-garitage"
+    },
+    {
+      "id": "sofia-yoga-vibe-mladost"
+    },
+    {
+      "id": "sofia-moto-pfohe-jaguar-land-rover"
+    },
+    {
+      "id": "sofia-moto-pfohe-lyulin"
+    },
+    {
+      "id": "sofia-moto-pfohe-mladost"
+    },
+    {
+      "id": "sofia-satori-ivan-vazov"
+    },
+    {
+      "id": "sofia-satori-manastirski-livadi"
+    },
+    {
+      "id": "sofia-resoul-studio"
+    },
+    {
+      "id": "sofia-shun-dojo-nsa"
+    },
+    {
+      "id": "sofia-avtogumi-mladost"
+    },
+    {
+      "id": "sofia-eo-dent-arsenalski"
+    },
+    {
+      "id": "sofia-eo-dent-implantology"
+    },
+    {
+      "id": "sofia-eo-dent-dianabad"
+    },
+    {
+      "id": "sofia-eo-dent-lyulin"
+    },
+    {
+      "id": "sofia-denny-divine-sveti-naum"
+    },
+    {
+      "id": "sofia-denny-divine-strelbishte"
+    },
+    {
+      "id": "sofia-duda-druzhba"
+    },
+    {
+      "id": "sofia-duda-hadzhi-dimitar"
+    },
+    {
+      "id": "sofia-gigi-pilates-boyana"
+    },
+    {
+      "id": "sofia-reform-pilates-tanya-koleva"
+    },
+    {
+      "id": "sofia-vayasport"
+    },
+    {
+      "id": "sofia-bono-grooming"
+    },
+    {
+      "id": "sofia-baron-grooming"
+    },
+    {
+      "id": "sofia-zoofamilia-iztok"
+    },
+    {
+      "id": "sofia-underground-barbershop"
+    },
+    {
+      "id": "sofia-nalby-vip"
+    },
+    {
+      "id": "sofia-vesimed"
+    },
+    {
+      "id": "sofia-md-beauty-empire"
+    },
+    {
+      "id": "sofia-cheveux-sofia"
+    },
+    {
+      "id": "sofia-vyara-dragneva"
+    },
+    {
+      "id": "sofia-georgi-gochev-law"
+    },
+    {
+      "id": "sofia-elka-ilieva"
+    },
+    {
+      "id": "sofia-clean-labs"
+    },
+    {
+      "id": "sofia-gtp-prezident-lincoln"
+    },
+    {
+      "id": "sofia-serviz-petkov"
+    },
+    {
+      "id": "sofia-salon-de-beaute"
+    },
+    {
+      "id": "sofia-amik-sport"
+    },
+    {
+      "id": "sofia-sinxron-studios"
+    },
+    {
+      "id": "sofia-gumerov-studio"
+    },
+    {
+      "id": "sofia-dreamink-tattoo"
+    },
+    {
+      "id": "sofia-dan-k-style"
+    },
+    {
+      "id": "sofia-derma-expert-yakubitsa"
+    },
+    {
+      "id": "sofia-espace-auto-nissan"
+    },
+    {
+      "id": "sofia-lazercentar-levski"
+    },
+    {
+      "id": "sofia-lazercentar-stamboliyski"
+    },
+    {
+      "id": "sofia-lazercentar-patriarh"
+    },
+    {
+      "id": "sofia-lazercentar-studentski"
+    },
+    {
+      "id": "sofia-laser-expert"
+    },
+    {
+      "id": "sofia-ss-deluxe-signature-beauty"
+    },
+    {
+      "id": "sofia-nasi-style"
+    },
+    {
+      "id": "sofia-my-pilates-reformer"
+    },
+    {
+      "id": "sofia-the-hall-mladost"
+    },
+    {
+      "id": "sofia-sama-pilates"
+    },
+    {
+      "id": "sofia-kavident"
+    },
+    {
+      "id": "sofia-vd-dent"
+    },
+    {
+      "id": "sofia-dara-dent"
+    },
+    {
+      "id": "sofia-sofia-dental-studio"
+    },
+    {
+      "id": "sofia-msmile"
+    },
+    {
+      "id": "sofia-medica-62"
+    },
+    {
+      "id": "sofia-svedent"
+    },
+    {
+      "id": "sofia-splendent"
+    },
+    {
+      "id": "sofia-id-dental"
+    },
+    {
+      "id": "sofia-stoma-dent-smirnenski"
+    },
+    {
+      "id": "sofia-stoma-dent-chataldzha"
+    },
+    {
+      "id": "sofia-space-for-sharing"
+    },
+    {
+      "id": "sofia-mint-clinic"
+    },
+    {
+      "id": "sofia-dentel-centre"
+    },
+    {
+      "id": "sofia-dentel-lyulin"
+    },
+    {
+      "id": "sofia-kirilova-dent"
+    },
+    {
+      "id": "sofia-denta-house"
+    },
+    {
+      "id": "sofia-davident"
+    },
+    {
+      "id": "sofia-spadent"
+    },
+    {
+      "id": "sofia-vdent-sofia"
+    },
+    {
+      "id": "sofia-medpedicure-albena-zhivankina"
+    },
+    {
+      "id": "sofia-viks-beauty-studio"
+    },
+    {
+      "id": "sofia-shavi-krasno-selo"
+    },
+    {
+      "id": "sofia-shavi-beli-brezi"
+    },
+    {
+      "id": "sofia-shavi-lozenets"
+    },
+    {
+      "id": "sofia-tt777-trans-titan"
+    },
+    {
+      "id": "sofia-drumnik"
+    },
+    {
+      "id": "sofia-body-atelier"
+    },
+    {
+      "id": "sofia-dupissima-strelbishte"
+    },
+    {
+      "id": "sofia-dupissima-ring-mall"
+    },
+    {
+      "id": "sofia-dupissima-gotse-delchev"
+    },
+    {
+      "id": "sofia-fetish-hair-atelier"
+    },
+    {
+      "id": "sofia-esthemed-aesthetic"
+    },
+    {
+      "id": "sofia-beauty-studio-marry-moskovska"
+    },
+    {
+      "id": "sofia-beauty-studio-marry-kuklata"
+    },
+    {
+      "id": "sofia-beauty-studio-51"
+    },
+    {
+      "id": "sofia-beauty-center-karima"
+    },
+    {
+      "id": "sofia-goldy-grooming"
+    },
+    {
+      "id": "sofia-porsche-sofia-iztok-service"
+    },
+    {
+      "id": "sofia-porsche-sofia-jug-service"
+    },
+    {
+      "id": "sofia-porsche-sofia-zapad-service"
+    },
+    {
+      "id": "sofia-porsche-center-sofia"
+    },
+    {
+      "id": "sofia-bmw-m-car-sofia"
+    },
+    {
+      "id": "sofia-bmw-m-car-west"
+    },
+    {
+      "id": "sofia-toyota-tm-auto-west"
+    },
+    {
+      "id": "sofia-toyota-tm-auto-east"
+    },
+    {
+      "id": "sofia-silver-star-chelopechko"
+    },
+    {
+      "id": "sofia-niko-09"
+    },
+    {
+      "id": "sofia-del-service"
+    },
+    {
+      "id": "sofia-mobilna-diagnostika"
+    },
+    {
+      "id": "sofia-tennis-lyulin-6"
+    },
+    {
+      "id": "sofia-squash-club-bulgaria"
+    },
+    {
+      "id": "sofia-medical-arts"
+    },
+    {
+      "id": "sofia-bonident"
+    },
+    {
+      "id": "sofia-ig-dental"
+    },
+    {
+      "id": "sofia-yoursmile"
+    },
+    {
+      "id": "sofia-dentaglo"
+    },
+    {
+      "id": "sofia-lk-dent"
+    },
+    {
+      "id": "sofia-smile-factory-pavlovich"
+    },
+    {
+      "id": "sofia-kantora-zhelyazkov"
+    },
+    {
+      "id": "sofia-trifonov-sofia"
+    },
+    {
+      "id": "sofia-domashen-maistor-vasil"
+    },
+    {
+      "id": "sofia-latin-force-centre"
+    },
+    {
+      "id": "sofia-latin-force-pliska"
+    },
+    {
+      "id": "sofia-latin-force-mall-sofia"
+    },
+    {
+      "id": "sofia-studio-elita"
+    },
+    {
+      "id": "sofia-thai-spa-sopharma"
+    },
+    {
+      "id": "sofia-thai-spa-bulgaria-mall"
+    },
+    {
+      "id": "sofia-thai-spa-the-mall"
+    },
+    {
+      "id": "sofia-balance-clinic"
+    },
+    {
+      "id": "sofia-kipra-beauty"
+    },
+    {
+      "id": "sofia-vp-beauty-studio"
+    },
+    {
+      "id": "sofia-venis-belleza"
+    },
+    {
+      "id": "sofia-salt-art-iztok"
+    },
+    {
+      "id": "sofia-salt-art-druzhba"
+    },
+    {
+      "id": "sofia-salt-art-centre"
+    },
+    {
+      "id": "sofia-nie-kuchetata-grooming"
+    },
+    {
+      "id": "sofia-puppy-bubbles"
+    },
+    {
+      "id": "sofia-autoassist"
+    },
+    {
+      "id": "sofia-vita-base-two"
+    },
+    {
+      "id": "sofia-vita-base-one"
+    },
+    {
+      "id": "sofia-homelab-renovations"
+    },
+    {
+      "id": "sofia-homefixer"
+    },
+    {
+      "id": "sofia-one-space"
+    },
+    {
+      "id": "sofia-domashen-maistor-com"
+    },
+    {
+      "id": "sofia-art-and-shock"
+    },
+    {
+      "id": "sofia-malki-muzikalni-uroci"
+    },
+    {
+      "id": "sofia-city-music-school"
+    },
+    {
+      "id": "sofia-rayna-vasileva"
+    },
+    {
+      "id": "sofia-rockschool-sofia"
+    },
+    {
+      "id": "sofia-music-box-sinanishko"
+    },
+    {
+      "id": "sofia-music-box-mladost"
+    },
+    {
+      "id": "sofia-duo-black-white-oborishte"
+    },
+    {
+      "id": "sofia-duo-black-white-dianabad"
+    },
+    {
+      "id": "sofia-s-gumi-mobile"
+    },
+    {
+      "id": "sofia-tirepoint-mobile"
+    },
+    {
+      "id": "sofia-avtofar-lyulin-service"
+    },
+    {
+      "id": "sofia-autobic-asen-yordanov-6b"
+    },
+    {
+      "id": "sofia-vitae-therapy"
+    },
+    {
+      "id": "sofia-brasnarnicata-mladost"
+    },
+    {
+      "id": "sofia-areab19"
+    },
+    {
+      "id": "sofia-art-club-diplomat"
+    },
+    {
+      "id": "sofia-fotosmagoria"
+    },
+    {
+      "id": "sofia-6trak-studio"
+    },
+    {
+      "id": "sofia-elena-gyoshkova-logoped"
+    },
+    {
+      "id": "sofia-petya-zhelezova-logoped"
+    },
+    {
+      "id": "sofia-maria-petricheva-centre"
+    },
+    {
+      "id": "sofia-maria-petricheva-lyulin"
+    },
+    {
+      "id": "sofia-account-em"
+    },
+    {
+      "id": "sofia-arnica-accounting"
+    },
+    {
+      "id": "sofia-diamond-beauty-care"
+    },
+    {
+      "id": "sofia-ivon-reduta-one"
+    },
+    {
+      "id": "sofia-ivon-reduta-two"
+    },
+    {
+      "id": "sofia-nokutche-sofia"
+    },
+    {
+      "id": "sofia-studio-vnd"
+    },
+    {
+      "id": "sofia-blades-studio"
+    },
+    {
+      "id": "sofia-narra-beauty"
+    },
+    {
+      "id": "sofia-studio-sunday"
+    },
+    {
+      "id": "sofia-skin-design"
+    },
+    {
+      "id": "sofia-gr-pilates"
+    },
+    {
+      "id": "sofia-instyle-seven"
+    },
+    {
+      "id": "sofia-lidia-manova"
+    },
+    {
+      "id": "sofia-arena-isaev-gtp"
+    },
+    {
+      "id": "sofia-genica-ami-bue"
+    },
+    {
+      "id": "sofia-ramus-home-visits"
+    },
+    {
+      "id": "sofia-synevo-home-visits"
+    },
+    {
+      "id": "sofia-cibalab-home-visits"
+    },
+    {
+      "id": "sofia-physiolab"
+    },
+    {
+      "id": "sofia-bodyflow"
+    },
+    {
+      "id": "sofia-physio-health-sofia"
+    },
+    {
+      "id": "sofia-yan-physio-borovo"
+    },
+    {
+      "id": "sofia-yan-physio-stranski"
+    },
+    {
+      "id": "sofia-escapeway-crystal-skull"
+    },
+    {
+      "id": "sofia-escapeway-black-pearl"
+    },
+    {
+      "id": "sofia-horror-house"
+    },
+    {
+      "id": "sofia-game-castle-simeonovo"
+    },
+    {
+      "id": "sofia-game-castle-centre"
+    },
+    {
+      "id": "sofia-onspot"
+    },
+    {
+      "id": "sofia-nasko-car"
+    },
+    {
+      "id": "sofia-body-lab-pilates"
+    },
+    {
+      "id": "sofia-flowhaven-pilates"
+    },
+    {
+      "id": "sofia-tonic-pilates"
+    },
+    {
+      "id": "sofia-pilates-club-boyana"
+    },
+    {
+      "id": "sofia-sofia-pilates-studio"
+    },
+    {
+      "id": "sofia-dance-station-ndk"
+    },
+    {
+      "id": "sofia-mk-barber-studio"
+    },
+    {
+      "id": "sofia-magic-studio-nails"
+    },
+    {
+      "id": "sofia-lora-pozitano"
+    },
+    {
+      "id": "sofia-lora-za-zhenata"
+    },
+    {
+      "id": "sofia-lora-krasno-selo"
+    },
+    {
+      "id": "sofia-detsko-psihichno-zdrave-hipodruma"
+    },
+    {
+      "id": "sofia-detsko-psihichno-zdrave-evlogi-georgievi"
+    },
+    {
+      "id": "sofia-detsko-psihichno-zdrave-strelbishte"
+    },
+    {
+      "id": "sofia-park-clinic"
+    },
+    {
+      "id": "sofia-dentix-zahari-simov"
+    },
+    {
+      "id": "sofia-osem-dental-benkovski"
+    },
+    {
+      "id": "sofia-osem-dental-vitosha"
+    },
+    {
+      "id": "sofia-osem-dental-yug"
+    },
+    {
+      "id": "sofia-dr-stetson-dental"
+    },
+    {
+      "id": "sofia-vet-patrol"
+    },
+    {
+      "id": "sofia-vet-city-nishava"
+    },
+    {
+      "id": "sofia-vet-vyara-nadezhda-lyubov"
+    },
+    {
+      "id": "sofia-mvc-bulgaria"
+    },
+    {
+      "id": "sofia-yoyo-vet"
+    },
+    {
+      "id": "sofia-vet-mei"
+    },
+    {
+      "id": "sofia-amakids-geo-milev"
+    },
+    {
+      "id": "sofia-amakids-darvenitsa"
+    },
+    {
+      "id": "sofia-amakids-lyulin"
+    },
+    {
+      "id": "sofia-amakids-manastirski-livadi"
+    },
+    {
+      "id": "sofia-amakids-nadezhda"
+    },
+    {
+      "id": "sofia-algorithmics-pitagor"
+    },
+    {
+      "id": "sofia-algorithmics-mladost"
+    },
+    {
+      "id": "sofia-the-barber-shop-iztok"
+    },
+    {
+      "id": "sofia-auto-kotevi"
+    },
+    {
+      "id": "sofia-thinkinkneedle"
+    },
+    {
+      "id": "sofia-centerside-tattoo"
+    },
+    {
+      "id": "sofia-photofactory"
+    },
+    {
+      "id": "sofia-renita-kostadinova-photography"
+    },
+    {
+      "id": "sofia-dr-smily"
+    },
+    {
+      "id": "sofia-elirka-dent"
+    },
+    {
+      "id": "sofia-poliklinikata-lyulin"
+    },
+    {
+      "id": "sofia-deckoff-dental"
+    },
+    {
+      "id": "sofia-ds-dent-orlov-most"
+    },
+    {
+      "id": "sofia-new-dental-solutions"
+    },
+    {
+      "id": "sofia-all-dental-lagera"
+    },
+    {
+      "id": "sofia-smile-care"
+    },
+    {
+      "id": "sofia-des-georgieva-makeup"
+    },
+    {
+      "id": "sofia-posh-beauty-poduyane"
+    },
+    {
+      "id": "sofia-in-beauty"
+    },
+    {
+      "id": "sofia-s-line-wellness-beauty"
+    },
+    {
+      "id": "sofia-millennium-beauty-salon"
+    },
+    {
+      "id": "sofia-hairstyle-bedroom-beauty"
+    },
+    {
+      "id": "sofia-sugarnails-ovcha-kupel"
+    },
+    {
+      "id": "sofia-kerimov-derma-aesthetic-sofia"
+    },
+    {
+      "id": "sofia-beautify-cosmetic-studio"
+    },
+    {
+      "id": "sofia-maison-lumiere"
+    },
+    {
+      "id": "sofia-beautyq-pirin"
+    },
+    {
+      "id": "sofia-kerelski-manastirski-livadi"
+    },
+    {
+      "id": "sofia-skin-aesthetic-kotlarov"
+    },
+    {
+      "id": "sofia-adlen-aesthetic"
+    },
+    {
+      "id": "sofia-kk-aesthetic-center"
+    },
+    {
+      "id": "sofia-emaly-beauty-studio"
+    },
+    {
+      "id": "sofia-mila-savage-beauty-sofia"
+    },
+    {
+      "id": "sofia-eden-reformer-pilates"
+    },
+    {
+      "id": "sofia-shining-polishing-auto"
+    },
+    {
+      "id": "sofia-prane-na-matraci"
+    },
+    {
+      "id": "sofia-top-class-mobile-detailing"
+    },
+    {
+      "id": "sofia-rozetka-electrical"
+    },
+    {
+      "id": "sofia-electrouslugi-home-visits"
+    },
+    {
+      "id": "sofia-obekt-pro-electrical"
+    },
+    {
+      "id": "sofia-remontfix-home-renovation"
+    },
+    {
+      "id": "sofia-elscape-electrical"
+    },
+    {
+      "id": "sofia-slavia-sportes-private-boxing"
+    },
+    {
+      "id": "sofia-aleksov-auto-trebich"
+    },
+    {
+      "id": "sofia-gas-comers-rezbarska"
+    },
+    {
+      "id": "sofia-lion-services-avtoserviz"
+    },
+    {
+      "id": "sofia-dojoto-manastirski-livadi"
+    },
+    {
+      "id": "sofia-dojoto-geo-milev"
+    },
+    {
+      "id": "sofia-katerene-europe-private"
+    },
+    {
+      "id": "sofia-anton-kolev-pirin"
+    },
+    {
+      "id": "sofia-anton-kolev-calma"
+    },
+    {
+      "id": "sofia-ketty-vandova-boyana"
+    },
+    {
+      "id": "sofia-mandala-ivan-susanin"
+    },
+    {
+      "id": "sofia-kantora-petrova-damyan-gruev"
+    },
+    {
+      "id": "sofia-zvezdichki-boyanski-vodopad"
+    },
+    {
+      "id": "sofia-new-belief-markovska"
+    },
+    {
+      "id": "sofia-inacademy-home-lessons"
+    },
+    {
+      "id": "sofia-health-master-clinic-ralevitsa"
+    },
+    {
+      "id": "sofia-denta-consult-kazbek"
+    },
+    {
+      "id": "sofia-sofia-nikolova-logoped"
+    },
+    {
+      "id": "sofia-veselina-ilkova-home-logoped"
+    },
+    {
+      "id": "sofia-vesta-help-mladost"
+    },
+    {
+      "id": "sofia-logoped-mecho-puh-kableshkov"
+    },
+    {
+      "id": "sofia-merida-logoped-iztok"
+    },
+    {
+      "id": "sofia-academy-emotional-intelligence-vitosha"
+    },
+    {
+      "id": "sofia-studio-faria-ilinden"
+    },
+    {
+      "id": "sofia-empathy-diana-dimitrova"
+    },
+    {
+      "id": "sofia-specialized-psychology-graf-ignatiev"
+    },
+    {
+      "id": "sofia-promyana-sixth-september"
+    },
+    {
+      "id": "sofia-yoga-vibe-fit-lozenets"
+    },
+    {
+      "id": "sofia-yoga-aradhana"
+    },
+    {
+      "id": "sofia-cut-barber-manastirski-livadi"
+    },
+    {
+      "id": "sofia-cut-barber-yuzhen-park"
+    },
+    {
+      "id": "sofia-lyves-clinic-flora"
+    },
+    {
+      "id": "sofia-medconvex-lavski-rid"
+    },
+    {
+      "id": "sofia-smile-spot-borovo"
+    },
+    {
+      "id": "sofia-ortodont-vanina-atanasova"
+    },
+    {
+      "id": "sofia-via-dental-strelbishte"
+    },
+    {
+      "id": "sofia-via-dental-krasno-selo"
+    },
+    {
+      "id": "sofia-via-dental-obelya"
+    },
+    {
+      "id": "sofia-gradent-borovo"
+    },
+    {
+      "id": "sofia-studio-r-academy-manastirski"
+    },
+    {
+      "id": "sofia-vessy-mineva-manastirski"
+    },
+    {
+      "id": "sofia-mv-salon-og-manastirski"
+    },
+    {
+      "id": "sofia-angelic-glow-manastirski"
+    },
+    {
+      "id": "sofia-maria-marinova-borovo"
+    },
+    {
+      "id": "sofia-nikoleta-stoyanova-borovo"
+    },
+    {
+      "id": "sofia-evelina-despova-strelbishte"
+    },
+    {
+      "id": "sofia-gergana-dimova-pazel-strelbishte"
+    },
+    {
+      "id": "sofia-yana-dimitrova-detail-strelbishte"
+    },
+    {
+      "id": "sofia-asya-petrova-asaznanie-nishava"
+    },
+    {
+      "id": "sofia-elena-mecheva-mytalkspace-kosher"
+    },
+    {
+      "id": "sofia-mladen-penchev-private-goce-delchev"
+    },
+    {
+      "id": "sofia-trinergy-manastirski"
+    },
+    {
+      "id": "sofia-muscle-damage-gym-studio"
+    },
+    {
+      "id": "sofia-inergy-borovo-reserved-kickboxing"
+    },
+    {
+      "id": "sofia-chinkov-strelbishte"
+    },
+    {
+      "id": "sofia-angel-skinlab-strelbishte"
+    },
+    {
+      "id": "sofia-desislava-hristova-prosper-borovo"
+    },
+    {
+      "id": "sofia-georgi-baldzhiev-buxton"
+    },
+    {
+      "id": "sofia-stela-doncheva-krasno-selo"
+    },
+    {
+      "id": "sofia-vanya-yordanova-ivan-vazov"
+    },
+    {
+      "id": "sofia-petya-krasteva-buxton"
+    },
+    {
+      "id": "sofia-kamelia-todorova-za-men-krasno-selo"
+    },
+    {
+      "id": "sofia-iskra-dukova-lagera"
+    },
+    {
+      "id": "sofia-lena-lalcheva-hipodruma"
+    },
+    {
+      "id": "sofia-x-academy-borovo"
+    },
+    {
+      "id": "sofia-studio-s-strelbishte"
+    },
+    {
+      "id": "sofia-prestige-manastirski"
+    },
+    {
+      "id": "sofia-prestige-borovo"
+    },
+    {
+      "id": "sofia-prestige-buxton"
+    },
+    {
+      "id": "sofia-koalakids-strelbishte"
+    },
+    {
+      "id": "sofia-shkola-dekart-strelbishte"
+    },
+    {
+      "id": "sofia-shkola-dekart-buxton"
+    },
+    {
+      "id": "sofia-aratlitsi-krasno-selo"
+    },
+    {
+      "id": "sofia-the-kod-buxton"
+    },
+    {
+      "id": "sofia-dilyana-todorova-krasno-selo"
+    },
+    {
+      "id": "sofia-krasimir-zhivkov-az-moga-reduta"
+    },
+    {
+      "id": "sofia-georgi-radev-stamboliyski"
+    },
+    {
+      "id": "sofia-marieta-baycheva-webpsycare-nansen"
+    },
+    {
+      "id": "sofia-angel-nakov-petyofi"
+    },
+    {
+      "id": "sofia-anna-kabakova-tri-ushi"
+    },
+    {
+      "id": "sofia-anima-tsar-asen"
+    },
+    {
+      "id": "sofia-orlin-baev-estestvena-akademia"
+    },
+    {
+      "id": "sofia-ivan-simeonov-yuzhen-park"
+    },
+    {
+      "id": "sofia-svetla-bankova-rodopski-izvor"
+    },
+    {
+      "id": "sofia-harrity-tsar-boris-142"
+    },
+    {
+      "id": "sofia-concept-kazbek-35a"
+    },
+    {
+      "id": "sofia-kokoro-lagera"
+    },
+    {
+      "id": "sofia-alina-borovo"
+    },
+    {
+      "id": "sofia-risuvam-gorna-banya"
+    },
+    {
+      "id": "sofia-merilin-beli-brezi"
+    },
+    {
+      "id": "sofia-vesela-nikolova-lyulin-7"
+    },
+    {
+      "id": "sofia-eleonora-gacheva-intherapy-rakovski"
+    },
+    {
+      "id": "sofia-radka-nikolova-psychea-koshut"
+    },
+    {
+      "id": "sofia-elis-cholakova-yoan-ekzarh"
+    },
+    {
+      "id": "sofia-krasi-nikolova-ovcha-kupel-2"
+    },
+    {
+      "id": "sofia-aglaya-rangelova-triaditsa"
+    },
+    {
+      "id": "sofia-vessy-tasheva-nansen"
+    },
+    {
+      "id": "sofia-therapy-studio-ivan-vazov"
+    },
+    {
+      "id": "sofia-therapy-studio-mladost-2"
+    },
+    {
+      "id": "sofia-fx-studio-ovcha-kupel"
+    },
+    {
+      "id": "sofia-dental-house-zdravka-asenova"
+    },
+    {
+      "id": "sofia-bg-kanali-group"
+    },
+    {
+      "id": "sofia-cleaning-sofia"
+    },
+    {
+      "id": "sofia-vasilevi-clean"
+    },
+    {
+      "id": "sofia-besnite-chistachi"
+    },
+    {
+      "id": "sofia-aledora-cleaning"
+    },
+    {
+      "id": "sofia-body-silk-gotse-delchev"
+    },
+    {
+      "id": "sofia-body-silk-studentski-grad"
+    },
+    {
+      "id": "sofia-body-silk-patriarh-evtimiy"
+    },
+    {
+      "id": "sofia-body-silk-ovcha-kupel"
+    },
+    {
+      "id": "sofia-eluslugi-com"
+    },
+    {
+      "id": "sofia-vashia-remont"
+    },
+    {
+      "id": "sofia-nira-mobile-auto"
+    },
+    {
+      "id": "sofia-tsveti-mihalcheva-banat"
+    },
+    {
+      "id": "sofia-neli-vasileva-stefanova-zona-za-teb"
+    },
+    {
+      "id": "sofia-monika-simeonova-iztok"
+    },
+    {
+      "id": "sofia-monika-simeonova-lozenets"
+    },
+    {
+      "id": "sofia-seberazvitie-stamboliyski"
+    },
+    {
+      "id": "sofia-nikoleta-nikolova-tsar-simeon"
+    },
+    {
+      "id": "sofia-kristina-meramjieva-pozitano"
+    },
+    {
+      "id": "sofia-mira-blagoeva-hipodruma"
+    },
+    {
+      "id": "sofia-coquette-beauty-pavlovo"
+    },
+    {
+      "id": "sofia-lale-lazar-bozukov-strelbishte"
+    },
+    {
+      "id": "sofia-ginka-georgieva-healing-words"
+    },
+    {
+      "id": "sofia-vega-psychotherapy-georgi-sofiyski"
+    },
+    {
+      "id": "sofia-balance-reformer-ovcha-kupel"
+    },
+    {
+      "id": "sofia-savelia-pilates-lagera"
+    },
+    {
+      "id": "sofia-europe-climbing-lyulin-private"
+    },
+    {
+      "id": "sofia-bluepink-grooming-manastirski-livadi"
+    },
+    {
+      "id": "sofia-doggy-em-ovcha-kupel"
+    },
+    {
+      "id": "sofia-desi-remedy-ovcha-kupel"
+    },
+    {
+      "id": "sofia-nara-chragyan-ovcha-kupel"
+    },
+    {
+      "id": "sofia-g-point-lashes-ovcha-kupel"
+    },
+    {
+      "id": "sofia-tedi-nails-ovcha-kupel"
+    },
+    {
+      "id": "sofia-ka-beauty-mladost-3"
+    },
+    {
+      "id": "sofia-master-of-puppies-krasna-polyana"
+    },
+    {
+      "id": "sofia-felix-dogs-knyazhevo"
+    },
+    {
+      "id": "sofia-almar-brothers-borovo"
+    },
+    {
+      "id": "sofia-pavel-rusev-lyulin-3"
+    },
+    {
+      "id": "sofia-gogov-exclusive-hladilnika"
+    },
+    {
+      "id": "sofia-black-raven-vitosha"
+    },
+    {
+      "id": "sofia-refresh-ovcha-kupel"
+    },
+    {
+      "id": "sofia-upaya-pilates-manastirski"
+    },
+    {
+      "id": "sofia-reform-it-borovo"
+    },
+    {
+      "id": "sofia-dpool-private-swimming-lyulin"
+    },
+    {
+      "id": "sofia-stretching-school-borovo"
+    },
+    {
+      "id": "sofia-balkan-barber-prespa"
+    },
+    {
+      "id": "sofia-bulgarian-male-cherkovna"
+    },
+    {
+      "id": "sofia-master-fade-dragalevtsi"
+    },
+    {
+      "id": "sofia-rositsa-astakova-law"
+    },
+    {
+      "id": "sofia-karakolevi-partners-law"
+    },
+    {
+      "id": "sofia-go-clean-home-visits"
+    },
+    {
+      "id": "sofia-the-clean-spot-home-pickup"
+    },
+    {
+      "id": "sofia-vox-studio-lyulin"
+    },
+    {
+      "id": "sofia-ars-musica-rakovski"
+    },
+    {
+      "id": "sofia-assemblix-mobile-furniture"
+    },
+    {
+      "id": "sofia-21-cutz-gotse-delchev"
+    },
+    {
+      "id": "sofia-branimira-serbezova-mladost-1"
+    },
+    {
+      "id": "sofia-shabab-dental-krastova-vada"
+    },
+    {
+      "id": "sofia-petar-nikolov-law-alabin"
+    },
+    {
+      "id": "sofia-vn-serviz-home-repair"
+    },
+    {
+      "id": "sofia-eleazar-ovcha-kupel-narodno-horo"
+    },
+    {
+      "id": "sofia-eleazar-ovcha-kupel-metro"
+    },
+    {
+      "id": "sofia-eleazar-oborishte"
+    },
+    {
+      "id": "sofia-eleazar-teatralna"
+    },
+    {
+      "id": "sofia-eleazar-mladost4"
+    },
+    {
+      "id": "sofia-eleazar-lozenets"
+    },
+    {
+      "id": "sofia-paralel-buzludzha-private-lessons"
+    },
+    {
+      "id": "sofia-dd-cosmetics-lyulin4"
+    },
+    {
+      "id": "sofia-atelie-avram-lea-ivanova"
+    },
+    {
+      "id": "sofia-legacon-finance-antim"
+    },
+    {
+      "id": "sofia-ivaylo-ivanov-law-ovcha-kupel"
+    },
+    {
+      "id": "sofia-toni-chakarov-law"
+    },
+    {
+      "id": "sofia-sabin-milanov-lomsko"
+    },
+    {
+      "id": "sofia-jaklin-petrova-studentski"
+    },
+    {
+      "id": "sofia-denitsa-makeup-emiliyan"
+    },
+    {
+      "id": "sofia-mega-electronics-mobile-ac-service"
+    },
+    {
+      "id": "sofia-x-academy-lyulin"
+    },
+    {
+      "id": "sofia-x-academy-pirotska"
+    },
+    {
+      "id": "sofia-x-academy-mladost"
+    },
+    {
+      "id": "sofia-x-academy-geo-milev"
+    },
+    {
+      "id": "sofia-bonita-lyulin2"
+    },
+    {
+      "id": "sofia-bonita-druzhba1"
+    },
+    {
+      "id": "sofia-akademia-elit-lyulin7-lessons"
+    },
+    {
+      "id": "sofia-tancuvai-lyulin10-wedding-lessons"
+    },
+    {
+      "id": "sofia-maxplus-triaditsa-courses"
+    },
+    {
+      "id": "sofia-robokor-simeonovo"
+    },
+    {
+      "id": "sofia-desislava-eftimova-darvenitsa"
+    },
+    {
+      "id": "sofia-dentalis-kolchagov-suhata-reka"
+    },
+    {
+      "id": "sofia-biodent-geo-milev"
+    },
+    {
+      "id": "sofia-dentatime-geo-milev"
+    },
+    {
+      "id": "sofia-tridental-ilinden"
+    },
+    {
+      "id": "sofia-studio-dari-suhata-reka"
+    },
+    {
+      "id": "sofia-studio-ellies-borovo"
+    },
+    {
+      "id": "sofia-alma-bodycare-centre"
+    },
+    {
+      "id": "sofia-lazur-reduta"
+    },
+    {
+      "id": "sofia-bijue-beauty-krasna-polyana"
+    },
+    {
+      "id": "sofia-sol-major-sitnyakovo-guitar"
+    },
+    {
+      "id": "sofia-krasi-zhelyazkov-guitar-drangantsankov"
+    },
+    {
+      "id": "sofia-venera-music-mladost3"
+    },
+    {
+      "id": "sofia-svetulki-iskar-piano"
+    },
+    {
+      "id": "sofia-perfect-house-care-home-visits"
+    },
+    {
+      "id": "sofia-adeldent-banishora"
+    },
+    {
+      "id": "sofia-greortho-kotlenski-prohod"
+    },
+    {
+      "id": "sofia-iron-arena-massage-lyulin"
+    },
+    {
+      "id": "sofia-wai-thai-manastirski"
+    },
+    {
+      "id": "sofia-alenas-dent-studentski-grad"
+    },
+    {
+      "id": "sofia-stanimir-batovski-zona-b19"
+    },
+    {
+      "id": "sofia-ortodent-lozenets"
+    },
+    {
+      "id": "sofia-studio-tonus-iztok"
+    },
+    {
+      "id": "sofia-art-of-bliss-lavski-rid"
+    },
+    {
+      "id": "sofia-iveta-kostadinova-my-face"
+    },
+    {
+      "id": "sofia-nivas-5-ac-home-visits"
+    },
+    {
+      "id": "sofia-uslugite-enzi-home-repair"
+    },
+    {
+      "id": "sofia-bgprane-5d-home-visits"
+    },
+    {
+      "id": "sofia-skilful-simona97-home-repair"
+    },
+    {
+      "id": "sofia-spa-nomad-home-massage"
+    },
+    {
+      "id": "sofia-nordclima-fresh-system-home-visits"
+    },
+    {
+      "id": "sofia-stansis-clima-home-visits"
+    },
+    {
+      "id": "sofia-climavik-vitado-home-visits"
+    },
+    {
+      "id": "sofia-mobile-luxury-carwash"
+    },
+    {
+      "id": "sofia-gtpower-hadzhi-dimitar"
+    },
+    {
+      "id": "sofia-kass-photography-zona-b5"
+    },
+    {
+      "id": "sofia-photo-studio-nana-centre"
+    },
+    {
+      "id": "sofia-sweet-baby-moments-7-11-km"
+    },
+    {
+      "id": "sofia-bellas-photography-manastirski"
+    },
+    {
+      "id": "sofia-simeon-salov-photography"
+    },
+    {
+      "id": "sofia-autotest-gtp-mladost-eko"
+    },
+    {
+      "id": "sofia-autotest-gtp-4-kilometar"
+    },
+    {
+      "id": "sofia-autotest-gtp-opalchenska-margel"
+    },
+    {
+      "id": "sofia-autotest-gtp-metro-lyulin"
+    },
+    {
+      "id": "sofia-autotest-gtp-mitskevich"
+    },
+    {
+      "id": "sofia-ivan-lambrev-photography-centre"
+    },
+    {
+      "id": "sofia-hristina-plam-photography"
+    },
+    {
+      "id": "sofia-nenchovski-home-clearing"
+    },
+    {
+      "id": "sofia-chistachka-rudar-home-visits"
+    },
+    {
+      "id": "sofia-hamali-plus-home-moving"
+    },
+    {
+      "id": "sofia-peter-ivanov-product-photography"
+    },
+    {
+      "id": "sofia-goplus-lyulin"
+    },
+    {
+      "id": "sofia-yordanka-atanasova-portrait-lagera"
+    },
+    {
+      "id": "sofia-obosko-oleksii-bozhko-photography"
+    },
+    {
+      "id": "sofia-kevins-studio-event-photography"
+    },
+    {
+      "id": "sofia-rainbowclean-home-visits"
+    },
+    {
+      "id": "sofia-belisia-home-cleaning"
+    },
+    {
+      "id": "sofia-crystalcleanbg-home-visits"
+    },
+    {
+      "id": "sofia-avtoklimatik-druzhba"
+    },
+    {
+      "id": "sofia-jiji-dilyana-foteva-ivan-vazov"
+    },
+    {
+      "id": "sofia-hristina-laleva-photo-fairy-iztok"
+    },
+    {
+      "id": "sofia-go-cleaning-home-visits"
+    },
+    {
+      "id": "sofia-chichi-amichi-home-visits"
+    },
+    {
+      "id": "sofia-praneto-eood-home-visits"
+    },
+    {
+      "id": "sofia-yana-moyseeva-photography-stamboliyski"
+    },
+    {
+      "id": "sofia-elitsa-vasileva-photography"
+    },
+    {
+      "id": "sofia-headshot-studio-office-portraits"
+    },
+    {
+      "id": "sofia-proserv-condominium-consultation-gotse-delchev"
+    },
+    {
+      "id": "sofia-krasimira-bakoeva-law-botev"
+    },
+    {
+      "id": "sofia-vik-petrov-home-visits"
+    },
+    {
+      "id": "sofia-top-vik-tulang-home-visits"
+    },
+    {
+      "id": "sofia-tsg-accounting-kriva-reka"
+    },
+    {
+      "id": "sofia-legal-frame-shapkarev"
+    },
+    {
+      "id": "sofia-joy-grooming-kalimantsi"
+    },
+    {
+      "id": "sofia-blestimo-home-cleaning"
+    },
+    {
+      "id": "sofia-jigullett-orel"
+    },
+    {
+      "id": "sofia-sofia-dog-walks-training"
+    },
+    {
+      "id": "sofia-dream-time-academy-nadezhda2"
+    },
+    {
+      "id": "sofia-teofila-music-levski-g"
+    },
+    {
+      "id": "sofia-barimax-pest-home-visits"
+    },
+    {
+      "id": "sofia-sanista-vip-pest-home-visits"
+    },
+    {
+      "id": "sofia-bioravnovesie-pest-home-visits"
+    },
+    {
+      "id": "sofia-bts-academy-nadezhda2-maths"
+    },
+    {
+      "id": "sofia-music-art-center-miladinovi"
+    },
+    {
+      "id": "sofia-lyudmil-kiskimov-lyulin7"
+    },
+    {
+      "id": "sofia-mayya-marcheva-lyulin9"
+    },
+    {
+      "id": "sofia-driving-center-ilinden"
+    },
+    {
+      "id": "sofia-lea-dental-lyulin10"
+    },
+    {
+      "id": "sofia-dentica-levski-v"
+    },
+    {
+      "id": "sofia-tapicera-mobile-upholstery"
+    },
+    {
+      "id": "sofia-instabroz-mobile-furniture"
+    },
+    {
+      "id": "sofia-imagine-school-suhata-reka"
+    },
+    {
+      "id": "sofia-elpida-english-vitosha32"
+    },
+    {
+      "id": "sofia-mirela-dent-reduta"
+    },
+    {
+      "id": "sofia-dobrev-dental-buxton"
+    },
+    {
+      "id": "sofia-busy-school-nadezhda6-634"
+    },
+    {
+      "id": "sofia-intelia-bel-metro-city"
+    },
+    {
+      "id": "sofia-aspire-english-mladost"
+    },
+    {
+      "id": "sofia-aspire-english-geo-milev"
+    },
+    {
+      "id": "sofia-vasilevi-nadezhda3-driving"
+    },
+    {
+      "id": "sofia-mladost-korekt-druzhba2-driving"
+    },
+    {
+      "id": "sofia-shofiora-levski-g-driving"
+    },
+    {
+      "id": "sofia-xdrive-lyulin-refresher"
+    },
+    {
+      "id": "sofia-ucbulgaria-lyulin6-driving"
+    },
+    {
+      "id": "sofia-ti-si-art-silvia-gancheva-mladost1"
+    },
+    {
+      "id": "sofia-forma-atelier-bigla30"
+    },
+    {
+      "id": "sofia-art-studio-kalina-vitosha"
+    },
+    {
+      "id": "sofia-studio-arti-vitosha99"
+    },
+    {
+      "id": "sofia-tattoo-studio-arty"
+    },
+    {
+      "id": "sofia-vdrive-academy-mladost2-driving"
+    },
+    {
+      "id": "sofia-wave-studio-lyulin7-nails"
+    },
+    {
+      "id": "sofia-art-dzhungla-fakiry-shipchenski63"
+    },
+    {
+      "id": "sofia-galeria-arteria-benkovski51"
+    },
+    {
+      "id": "sofia-blossom-art-sharl-shampo1"
+    },
+    {
+      "id": "sofia-artopolis-tsarigradsko135d"
+    },
+    {
+      "id": "sofia-elan-school-vladimir-vazov8"
+    },
+    {
+      "id": "sofia-diana-strumin-strelbishte"
+    },
+    {
+      "id": "sofia-niki-mihaylov-photography"
+    },
+    {
+      "id": "sofia-mirash-home-photography"
+    },
+    {
+      "id": "sofia-alex-mitarov-family-photography"
+    },
+    {
+      "id": "sofia-nails-asya-druzhba"
+    },
+    {
+      "id": "sofia-bluess-art-studio-hemus63"
+    },
+    {
+      "id": "sofia-photo-buket-mladost-1"
+    },
+    {
+      "id": "sofia-artvibes-gallery-solunska32"
+    },
+    {
+      "id": "sofia-neli-slavova-mladost-3"
+    },
+    {
+      "id": "sofia-prosto-focus-lyuben-karavelov"
+    },
+    {
+      "id": "sofia-sami-academy-iskar"
+    },
+    {
+      "id": "sofia-hairstyle-maya-nguen-druzhba194g"
+    },
+    {
+      "id": "sofia-hristo-teodosiev-budapeshta"
+    },
+    {
+      "id": "sofia-vili-dosheva-alabin"
+    },
+    {
+      "id": "sofia-studio617-vrabnitsa-zlatenklas27"
+    },
+    {
+      "id": "sofia-royalbarbershop-nikolayhaytov18"
+    },
+    {
+      "id": "sofia-djotex-home-appliance-service"
+    },
+    {
+      "id": "sofia-sosuslugite-home-appliance-diagnostic"
+    },
+    {
+      "id": "sofia-domserviz-home-appliance-diagnostic"
+    },
+    {
+      "id": "sofia-sassy-faces-siyana-bigla64"
+    },
+    {
+      "id": "sofia-lstyle-beauty-belitebrezi43"
+    },
+    {
+      "id": "sofia-naura-beauty-dragalevtsi"
+    },
+    {
+      "id": "sofia-grimior-mobile-makeup"
+    },
+    {
+      "id": "sofia-osanna-relax-sheynovo"
+    },
+    {
+      "id": "sofia-kristor-massage-lom"
+    },
+    {
+      "id": "sofia-massage-corner-srebarna"
+    },
+    {
+      "id": "sofia-jenshen-mladost3"
+    },
+    {
+      "id": "sofia-yoni-wellness-yavorov"
+    },
+    {
+      "id": "sofia-float-zone-doyran"
+    },
+    {
+      "id": "sofia-topdiagnostika-mobile"
+    },
+    {
+      "id": "sofia-autokings-ekaterina-nencheva"
+    },
+    {
+      "id": "sofia-tsvety-bita-stamboliyski84"
+    },
+    {
+      "id": "sofia-studio-blondie-svetlostruy"
+    },
+    {
+      "id": "sofia-esprit-wellbeing-aleksandar-malinov"
+    },
+    {
+      "id": "sofia-spa-maat-kostenski-vodopad"
+    },
+    {
+      "id": "sofia-the-wellness-hristo-belchev"
+    },
+    {
+      "id": "sofia-pro-language-lyulin3"
+    },
+    {
+      "id": "sofia-forum-language-pliska"
+    },
+    {
+      "id": "sofia-espace-druzhba2"
+    },
+    {
+      "id": "sofia-lili-muzic-louis-ayer159"
+    },
+    {
+      "id": "sofia-lili-muzic-sharl-shampo1"
+    },
+    {
+      "id": "sofia-ability-ivan-vazov-bulgarian"
+    },
+    {
+      "id": "sofia-poliglot-stefan-karadzha7"
+    },
+    {
+      "id": "sofia-eid-service-iliantsi94"
+    },
+    {
+      "id": "sofia-sofia-auto-gas-star-lozenski35"
+    },
+    {
+      "id": "sofia-musicroom-hristo-botev129"
+    },
+    {
+      "id": "sofia-dreamers-balgarska-morava94a"
+    },
+    {
+      "id": "sofia-lingua-lux-pirotska20"
+    },
+    {
+      "id": "sofia-educenter-marin-drinov1"
+    },
+    {
+      "id": "sofia-be-alarm-systems-ovcha-kupel"
+    },
+    {
+      "id": "sofia-smart-repair-samokovsko151"
+    },
+    {
+      "id": "sofia-lash-vegas-bulgaria53"
+    },
+    {
+      "id": "sofia-guitarzone-general-gurko27"
+    },
+    {
+      "id": "sofia-flying-fingers-pirotska45"
+    },
+    {
+      "id": "sofia-risuvateli-oborishte73"
+    },
+    {
+      "id": "sofia-grade-up-neofit-rilski60"
+    },
+    {
+      "id": "sofia-alpha-detailing-batareya55b"
+    }
+  ]
+}

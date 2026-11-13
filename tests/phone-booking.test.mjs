@@ -1,3 +1,4 @@
+import * as brandLoading from './helpers/brand-loading.mjs'
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
@@ -16,7 +17,7 @@ const require=createRequire(import.meta.url),{loadBindings,transform}=require('n
 await loadBindings()
 async function component(path,stubs={}) {
  const {code}=await transform(await readFile(new URL('../'+path,import.meta.url),'utf8'),{filename:path,jsc:{parser:{syntax:'ecmascript',jsx:true},transform:{react:{runtime:'automatic'}}},module:{type:'commonjs'}})
- const module={exports:{}};new Function('require','module','exports',code)(name=>name in stubs?stubs[name]:require(name),module,module.exports);return module.exports
+ const module={exports:{}};new Function('require','module','exports',code)(name=>name in stubs?stubs[name]:(name === './brand-loading' ? brandLoading : require(name)),module,module.exports);return module.exports
 }
 const business={id:'phone-business',slug:'actual-phone-business',booking_mode:'phone',name:'Local fictional phone business',phone:'+359 (888) 123-456',services:[{id:'actual-service',name:'Published service',price:25,currency:'EUR',duration_min:30}],staff:[],workingHours:[]}
 const input=()=>({business:{name:business.name,slug:business.slug,booking_mode:'phone',phone:business.phone,contact_email:'owner@example.com',address:'Local QA address 1',timezone:'Europe/Sofia',industry:'beauty',city_ekatte:'68134',neighborhood:'Център',location_confirmed:true,public_profile:{latitude:42.665,longitude:23.286}},services:[{name:'Actual published price',price:20,currency:'BGN',price_details:{kind:'range',maximum:40},description:'Actual conditions'}],account:{email:'owner@example.com',password:'offline-example-only'},locale:'bg',consent:true,company:''})

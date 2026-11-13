@@ -1,3 +1,4 @@
+import * as brandLoading from './helpers/brand-loading.mjs'
 import assert from 'node:assert/strict'
 import test from 'node:test'
 import { readFile } from 'node:fs/promises'
@@ -48,7 +49,7 @@ function listHarness() {
   }
   stubs['../lib/discovery/list-pagination.mjs'] = pagination
   const module = { exports: {} }
-  new Function('require', 'module', 'exports', 'window', code)(name => name in stubs ? stubs[name] : require(name), module, module.exports, env)
+  new Function('require', 'module', 'exports', 'window', code)(name => name in stubs ? stubs[name] : (name === './brand-loading' ? brandLoading : require(name)), module, module.exports, env)
   function commit() {
     const effects = pending; pending = []
     for (const effect of effects) hooks[effect.slot]?.cleanup?.()

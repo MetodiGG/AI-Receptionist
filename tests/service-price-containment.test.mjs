@@ -1,3 +1,4 @@
+import * as brandLoading from './helpers/brand-loading.mjs'
 import assert from 'node:assert/strict'
 import test from 'node:test'
 import { readFile } from 'node:fs/promises'
@@ -46,7 +47,7 @@ async function load(name, additional = {}) {
     module: { type: 'commonjs' },
   })
   const stubs = { ...shared, ...additional }, module = { exports: {} }
-  new Function('require', 'module', 'exports', code)(name => Object.hasOwn(stubs, name) ? stubs[name] : require(name), module, module.exports)
+  new Function('require', 'module', 'exports', code)(name => Object.hasOwn(stubs, name) ? stubs[name] : (name === './brand-loading' ? brandLoading : require(name)), module, module.exports)
   return module.exports
 }
 const { DiscoveryBusinessCard } = await load('discovery-business-card', {

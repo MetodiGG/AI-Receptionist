@@ -1,3 +1,4 @@
+import * as brandLoading from './helpers/brand-loading.mjs'
 import assert from 'node:assert/strict'
 import test from 'node:test'
 import { readFile } from 'node:fs/promises'
@@ -19,7 +20,7 @@ const componentModule = { exports: {} }
 new Function('require', 'module', 'exports', code)(name => {
   if (name === '../lib/reviews.mjs') return { REVIEW_DIMENSIONS }
   if (name === './partner-google-rating') return { PartnerGoogleRating: () => null }
-  return require(name)
+  return (name === './brand-loading' ? brandLoading : require(name))
 }, componentModule, componentModule.exports)
 const { BusinessReviews, ReviewSummary, PartnerReviewSummary } = componentModule.exports
 const reviews = patch => ({ status: 'ready', data: { summary: { count: 0 }, items: [], next: null }, loadMore() {}, loadingMore: false, pageError: false, ...patch })
@@ -54,7 +55,7 @@ test('real averages, counts, dimensions, published comments and pagination remai
   for (const content of ['4.3', '12 отзива', REVIEW_DIMENSIONS.quality.bg, '4.5', 'QA Client', 'A real &lt;visit&gt;', 'Потвърдено посещение', 'Още отзиви', 'Останалите отзиви не се заредиха. Опитай отново.']) assert.ok(html.includes(content), content)
   assert.match(html, /<time dateTime="2026-11-01T12:00:00Z">/)
   assert.doesNotMatch(html, /business-reviews-empty|От реални посещения|покана по имейл/)
-  assert.match(render(reviews({ data, loadingMore: true }), 'en'), /<button[^>]*disabled=""[^>]*>Loading…<\/button>/)
+  assert.match(render(reviews({ data, loadingMore: true }), 'en'), /<button[^>]*disabled=""[^>]*><span class="gorez-loading"[^]*?<span class="sr-only">Loading…<\/span><\/span><\/button>/)
 })
 
 test('homepage/shared summary empty and compact behavior remains unchanged', () => {

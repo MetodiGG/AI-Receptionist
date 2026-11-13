@@ -1,5 +1,6 @@
 'use client'
 
+import { BrandLoading } from '../../../components/brand-loading'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Icon } from '../../../components/icon'
 import { OwnerPage } from '../../../components/owner-page'
@@ -74,7 +75,7 @@ function CustomersContent({ business, locale }) {
       <div className="admin-page-head"><div><p className="auth-kicker">CRM</p><h2>{en ? 'Clients' : 'Клиенти'}</h2><p>{en ? 'Contacts and appointment history in one place.' : 'Контакти и история на посещенията на едно място.'}</p></div><div className="admin-count"><strong>{customers.length}</strong><span>{en ? 'clients' : 'клиенти'}</span></div></div>
       <label className="admin-search"><span className="sr-only">{en ? 'Search clients' : 'Търси клиенти'}</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder={en ? 'Search by name, phone or email...' : 'Търси по име, телефон или имейл...'} /></label>
       {error && <p className="form-message" role="alert">{error}</p>}
-      {status === 'loading' && <div className="admin-loading"><span className="button-spinner" /> {en ? 'Loading clients...' : 'Зареждаме клиентите...'}</div>}
+      {status === 'loading' && <div className="admin-loading"><BrandLoading label={en ? 'Loading clients...' : 'Зареждаме клиентите...'}/></div>}
       {status === 'ready' && visible.length === 0 && <div className="empty-state"><h3>{en ? 'No clients found' : 'Няма намерени клиенти'}</h3><p>{en ? 'New clients will appear here after their first booking.' : 'Новите клиенти ще се появят тук след първата им резервация.'}</p></div>}
       <div className="customer-grid">{visible.map((customer) => {
         const customerStats = stats(customer.id)

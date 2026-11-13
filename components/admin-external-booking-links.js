@@ -1,5 +1,6 @@
 'use client'
 
+import { BrandLoading } from './brand-loading'
 import { useCallback, useEffect, useId, useRef, useState } from 'react'
 import { externalLinkDraftSchema } from '../lib/external-booking-links.mjs'
 import { useUnsavedChanges } from '../hooks/use-unsaved-changes'
@@ -103,7 +104,7 @@ export function AdminExternalBookingLinks({ send, locale = 'bg', preview = false
     </form>}
     {message && <p className="form-message" role="status">{message}</p>}
     <label className="external-link-search">{en ? 'Find a saved link by Place ID' : 'Намери записан линк по Place ID'}<input type="search" value={query} onChange={event => setQuery(event.target.value)} /></label>
-    {loading && <p role="status">{en ? 'Loading links…' : 'Зареждане на линковете…'}</p>}
+    {loading && <div role="status"><BrandLoading label={en ? 'Loading links…' : 'Зареждане на линковете…'} announce={false}/></div>}
     <div className="admin-business-cards">{data.links.map(row => <article className="admin-business-card" key={row.id}>
       <div className="external-link-card-heading"><h3>{row.label}</h3><strong>{row.verification_status === 'approved' ? (en ? 'Approved' : 'Одобрен') : row.verification_status === 'disabled' ? (en ? 'Disabled' : 'Изключен') : (en ? 'Draft' : 'Чернова')}</strong></div>
       <p>{en ? 'Last checked' : 'Последна проверка'}: {row.last_checked_at ? new Date(row.last_checked_at).toLocaleDateString(en ? 'en-GB' : 'bg-BG') : '—'}</p>

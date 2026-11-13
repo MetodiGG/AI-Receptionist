@@ -1,3 +1,4 @@
+import * as brandLoading from './helpers/brand-loading.mjs'
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
@@ -20,7 +21,7 @@ function loadComponent(react = React) {
   new Function('require', 'module', 'exports', code)(name => {
     if (name === 'react') return react
     if (name === './icon') return { Icon: ({ name }) => React.createElement('span', { 'data-icon': name }) }
-    return require(name)
+    return (name === './brand-loading' ? brandLoading : require(name))
   }, module, module.exports)
   return module.exports.CatalogueBusinessLookup
 }

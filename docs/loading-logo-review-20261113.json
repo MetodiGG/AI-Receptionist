@@ -1,0 +1,18 @@
+{
+  "checkedOn": "2026-11-13",
+  "status": "implemented_and_tested_not_published",
+  "scope": "Shared CSS-only loading indicator using the unchanged latest owner-supplied GoRez mark; no availability, booking, account or network behavior changes.",
+  "animation": { "fromDegrees": 0, "toDegrees": 180, "seconds": 1, "direction": "alternate", "reducedMotion": "static mark; verified by stylesheet/component regression tests, not browser media emulation" },
+  "accessibility": "Localized loading descriptions remain screen-reader-only. Decorative button indicators retain their existing accessible button names. Existing live regions avoid duplicate announcements.",
+  "tests": {
+    "node": { "command": "node --test --test-concurrency=4 tests/*.test.mjs", "passed": 2061, "failed": 0 },
+    "productionBuild": { "command": "pnpm --config.verify-deps-before-run=warn build --webpack", "result": "passed again on final loading-logo implementation; 92 generated static pages" },
+    "browser": { "route": "/dev/brand-loading", "widths": [360, 390, 430, 768, 1280], "horizontalOverflow": false, "allFourMarksLoaded": true, "observedAnimationName": "gorez-loading-half-turn", "screenReaderLabelsPixels": "1 by 1", "productionBookingsOrNotifications": 0 },
+    "diffCheck": "passed"
+  },
+  "screenshots": [
+    "/Users/metodig/.codex/visualizations/2026/10/13/01a13548-f728-7172-a396-a52db0f30e43/loading-logo-20261113/loading-logo-390.png",
+    "/Users/metodig/.codex/visualizations/2026/10/13/01a13548-f728-7172-a396-a52db0f30e43/loading-logo-20261113/loading-logo-1280.png"
+  ],
+  "previewSafety": "Development-only, noindex route; inert button and unknown calendar fixture; no provider, database, booking or notification request."
+}

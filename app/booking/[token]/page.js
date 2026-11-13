@@ -1,5 +1,6 @@
 'use client'
 
+import { BrandLoading } from '../../../components/brand-loading'
 import Link from 'next/link'
 import { DateTime } from 'luxon'
 import { useParams } from 'next/navigation'
@@ -51,7 +52,7 @@ export default function ManageBookingPage() {
     }
   }
 
-  if (status === 'loading') return <main className="booking-state-page"><div className="state-home-navigation"><HomeLink locale={locale}/></div><span className="button-spinner" /><p>{en ? 'Loading booking...' : 'Зареждаме резервацията...'}</p></main>
+  if (status === 'loading') return <main className="booking-state-page"><div className="state-home-navigation"><HomeLink locale={locale}/></div><BrandLoading locale={locale} size={48} label={en ? 'Loading booking…' : 'Зареждаме резервацията…'}/></main>
   if (status === 'error') return <main className="booking-state-page"><div className="state-home-navigation"><HomeLink locale={locale}/></div><LanguageSwitch locale={locale} onChange={setLocale} compact /><span className="booking-logo-mark">!</span><h1>{en ? 'Booking not found' : 'Не открихме резервацията'}</h1><p>{error}</p></main>
 
   const starts = DateTime.fromISO(appointment.starts_at).setZone(appointment.business.timezone).setLocale(locale)

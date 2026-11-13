@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict'
+import * as brandLoading from './helpers/brand-loading.mjs'
 import test from 'node:test'
 import { readFile } from 'node:fs/promises'
 import { createRequire } from 'node:module'
@@ -51,7 +52,7 @@ function renderDetailsState({ row, full = null, status, locale = 'bg', actions }
     '../lib/discovery/service-presentation.mjs': { servicePresentation: () => ({ description: '', conditions: [] }) },
   }
   const componentModule = { exports: {} }
-  new Function('require', 'module', 'exports', code)(name => name in stubs ? stubs[name] : require(name), componentModule, componentModule.exports)
+  new Function('require', 'module', 'exports', code)(name => name in stubs ? stubs[name] : name === './brand-loading' ? brandLoading : require(name), componentModule, componentModule.exports)
   const tree = componentModule.exports.DiscoveryBusinessDetails({ row, locale, actions, onClose: () => {}, triggerRef: { current: null } })
   assert.equal(stateIndex, states.length)
   return tree

@@ -1,3 +1,4 @@
+import * as brandLoading from './helpers/brand-loading.mjs'
 import assert from 'node:assert/strict'
 import test from 'node:test'
 import { readFile, stat } from 'node:fs/promises'
@@ -31,7 +32,7 @@ async function load(path, stubs = {}) {
     module: { type: 'commonjs' },
   })
   const module = { exports: {} }, imports = { './booking-button-content': content, ...stubs }
-  new Function('require', 'module', 'exports', code)(name => Object.hasOwn(imports, name) ? imports[name] : require(name), module, module.exports)
+  new Function('require', 'module', 'exports', code)(name => Object.hasOwn(imports, name) ? imports[name] : (name === './brand-loading' ? brandLoading : require(name)), module, module.exports)
   return module.exports
 }
 function elements(node, predicate, result = []) {

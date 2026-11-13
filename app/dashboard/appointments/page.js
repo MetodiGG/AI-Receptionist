@@ -1,5 +1,6 @@
 'use client'
 
+import { BrandLoading } from '../../../components/brand-loading'
 import { DateTime } from 'luxon'
 import { DateMenu } from '../../../components/date-menu'
 import Link from 'next/link'
@@ -99,7 +100,7 @@ function AppointmentsContent({ business, locale }) {
         <div className="booking-owner-actions"><Link className="secondary-button" href="/dashboard/settings?section=timeoff">{en ? 'Block time / break' : 'Блокирай време / почивка'}</Link><button className="primary-button" type="button" disabled={['external','phone'].includes(business.booking_mode) || status !== 'ready'} onClick={() => openManualBooking()}>+ {en ? 'New booking' : 'Нова резервация'}</button></div>
       </div>
       {error && <p className="form-message" role="alert">{error}</p>}
-      {status === 'loading' && <div className="admin-loading"><span className="button-spinner" /> {en ? 'Loading bookings...' : 'Зареждаме резервациите...'}</div>}
+      {status === 'loading' && <div className="admin-loading"><BrandLoading label={en ? 'Loading bookings...' : 'Зареждаме резервациите...'}/></div>}
       {status === 'ready' && <AppointmentCalendar appointments={appointments} staff={staff} timezone={business.timezone} locale={locale} updatingId={updatingId} actionError={error} refreshing={refreshing} onStatusChange={updateStatus} onReschedule={(item) => setMove({ appointment: item, date: '', staffId: item.staff?.id || '', startsAt: '' })} onCreateBooking={openManualBooking} onRefresh={load} />}
       {manualContext && <OwnerManualBookingDialog key={business.id} business={business} locale={locale} services={services} staff={staff} initialDate={manualContext.date} initialStaffId={manualContext.staffId} onClose={() => setManualContext(null)} onCreated={async () => { setManualContext(null); await load() }}/>}
       {move && <div className="modal-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) setMove(null) }}>

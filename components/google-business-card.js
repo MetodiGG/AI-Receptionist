@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { Icon } from './icon'
+import { BrandLoading } from './brand-loading'
 import { DiscoveryDistanceBadge } from './discovery-distance-badge'
 import { OutboundBookingButton } from './outbound-booking-button'
 import { BookingButtonContent } from './booking-button-content'
@@ -59,6 +60,7 @@ function useAuthorizedGoogleWidget({ card, locale, nearby, purpose = 'card', hos
 function WidgetNotice({ status, locale, onRetry }) {
   if (status === 'ready') return null
   const en = locale === 'en', loading = status === 'idle' || status === 'loading'
+  if (loading) return <div className="google-card-notice"><BrandLoading locale={locale} label={en ? 'Loading business…' : 'Зареждане на бизнеса…'}/></div>
   return <div className="google-card-notice" role="status"><p>{loading ? en ? 'Loading business…' : 'Зареждане на бизнеса…' : status === 'quota' ? en ? 'The request limit is reached. Google Maps remains available.' : 'Лимитът на заявките е достигнат. Google Maps остава достъпен.' : status === 'expired' ? en ? 'Refresh your search to load this business.' : 'Обнови търсенето, за да заредиш този бизнес.' : en ? 'Could not load this business.' : 'Бизнесът временно не се зарежда.'}</p>{!loading && status === 'error' && onRetry && <button type="button" className="secondary-button" onClick={onRetry}>{en ? 'Try again' : 'Опитай отново'}</button>}</div>
 }
 

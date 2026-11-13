@@ -1,5 +1,6 @@
 'use client'
 
+import { BrandLoading } from './brand-loading'
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { hasSupabaseConfig, supabase } from '../lib/supabase'
@@ -44,7 +45,7 @@ export function OwnerProvider({ children }) {
   }
 
   if (state.status === 'config') return <div className="config-warning"><div className="state-home-navigation"><HomeLink locale={locale}/></div><h2>{en ? 'Supabase configuration is missing' : 'Липсва Supabase конфигурация'}</h2></div>
-  if (state.status === 'loading') return <div className="loading-screen"><div className="state-home-navigation"><HomeLink locale={locale}/></div><div className="loading-box" role="status"><span className="button-spinner" /><span>{en ? 'Loading...' : 'Зареждаме...'}</span></div></div>
+  if (state.status === 'loading') return <div className="loading-screen"><div className="state-home-navigation"><HomeLink locale={locale}/></div><div className="loading-box"><BrandLoading locale={locale} size={48}/></div></div>
 
   return <OwnerContext.Provider value={{ ...state, refreshBusiness: load, locale, setLocale }}>
     <DashboardShell email={state.session?.user.email} title={state.business?.name || (en ? 'Business setup' : 'Настройка на бизнеса')} businessSlug={state.business?.slug} platformStatus={state.business?.platform_status} bookingMode={state.business?.booking_mode} onLogout={logout} locale={locale} onLocaleChange={setLocale}>

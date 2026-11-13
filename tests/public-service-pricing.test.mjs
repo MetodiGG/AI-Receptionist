@@ -1,3 +1,4 @@
+import * as brandLoading from './helpers/brand-loading.mjs'
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
@@ -133,7 +134,7 @@ new Function('require', 'module', 'exports', code)(name => {
     '../lib/directory.mjs': directoryData, '../lib/partner-categories.mjs': partnerCategories, '../lib/booking-mode.mjs': bookingMode,
     '../lib/business-profile-ui.mjs': profileUi, '../lib/product-events-client': { trackProductEvent: () => assert.fail('No booking event in SSR') },
   }
-  return Object.hasOwn(imports, name) ? imports[name] : require(name)
+  return Object.hasOwn(imports, name) ? imports[name] : (name === './brand-loading' ? brandLoading : require(name))
 }, module, module.exports)
 
 for (const locale of ['bg', 'en']) test(`${locale}: actual directory component uses complete stored price labels instead of hardcoding fixed scalar amounts`, () => {

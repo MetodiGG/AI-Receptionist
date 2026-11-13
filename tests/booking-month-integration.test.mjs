@@ -1,3 +1,4 @@
+import * as brandLoading from './helpers/brand-loading.mjs'
 import assert from 'node:assert/strict'
 import test from 'node:test'
 import { readFile, stat } from 'node:fs/promises'
@@ -54,7 +55,7 @@ function hookRunner(code, extraStubs = {}, options = {}) {
   const module = { exports: {} }
   const stubs = { react: mockReact, '../lib/monthly-booking-calendar.mjs': { ...monthHelpers, createMonthAvailabilityCache: options => monthHelpers.createMonthAvailabilityCache({ ...options, now: () => now }) }, ...extraStubs }
   new Function('require', 'module', 'exports', 'fetch', 'window', 'setInterval', 'clearInterval', 'Date', code)(
-    name => name in stubs ? stubs[name] : require(name), module, module.exports,
+    name => name in stubs ? stubs[name] : (name === './brand-loading' ? brandLoading : require(name)), module, module.exports,
     options.fetch || (() => assert.fail('Unexpected network request')),
     { matchMedia: () => ({ matches: true }) },
     callback => { const id = ++timerId; timers.set(id, callback); return id }, id => timers.delete(id), { now: () => now },

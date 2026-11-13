@@ -1,5 +1,6 @@
 'use client'
 
+import { BrandLoading } from '../../components/brand-loading'
 import { useEffect, useState } from 'react'
 import { supabase } from '../../lib/supabase'
 import { OwnerPage } from '../../components/owner-page'
@@ -71,7 +72,7 @@ function DashboardContent({ business, session, refreshBusiness, locale }) {
       <p>{business ? (en ? 'Here is what is happening in your business right now.' : 'Ето какво се случва в бизнеса ти в момента.') : (en ? 'Add your services, team and schedule. Public booking starts after GoRez reviews and publishes your profile.' : 'Добави услуги, екип и график. Публичното записване започва след преглед и публикуване на профила от GoRez.')}</p>
     </div></div>
     {!business && <BusinessSetup application session={session} locale={locale} onComplete={refreshBusiness} />}
-    {business && !data && !error && <div className="admin-loading" role="status"><span className="button-spinner" />{en ? 'Loading...' : 'Зареждаме...'}</div>}
+    {business && !data && !error && <div className="admin-loading" role="status"><BrandLoading announce={false} label={en ? 'Loading...' : 'Зареждаме...'}/></div>}
     {error && <div className="form-message" role="alert"><p>{en ? 'We could not load the data.' : 'Не успяхме да заредим данните.'} {error}</p><button className="secondary-button" type="button" onClick={() => setVersion(current => current + 1)}>{en ? 'Try again' : 'Опитай отново'}</button></div>}
     {business && data && <ReadyDashboard business={business} data={data} locale={locale} />}
   </main>

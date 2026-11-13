@@ -1,3 +1,4 @@
+import * as brandLoading from './helpers/brand-loading.mjs'
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
@@ -69,7 +70,7 @@ new Function('require', 'module', 'exports', code)(name => {
   if (name === 'next/navigation') return { notFound: () => { throw Error('LOCAL_FIXTURE_NOT_FOUND') } }
   if (name === '../../../components/discovery-business-card') return { DiscoveryBusinessCard: Card }
   if (name === '../../../lib/business-photos.mjs') return { getBusinessPhotos: () => [] }
-  return require(name)
+  return (name === './brand-loading' ? brandLoading : require(name))
 }, module, module.exports)
 function elements(node, predicate, result = []) {
   if (Array.isArray(node)) node.forEach(child => elements(child, predicate, result))

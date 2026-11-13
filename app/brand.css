@@ -4,3 +4,10 @@
 .home-business-partner .gorez-brand-mark { width:20px; height:20px; }
 .gorez-lockup .gorez-wordmark { font-family:"Trebuchet MS","Avenir Next",ui-sans-serif,system-ui,sans-serif; font-style:italic; font-weight:600; letter-spacing:-.07em; color:#332923; padding-right:4px; overflow:visible; }
 .gorez-wordmark .gorez-wordmark-accent { color:#d55e22; font-weight:900; }
+
+.gorez-loading { display:inline-flex; flex:0 0 auto; align-items:center; justify-content:center; width:calc(var(--loading-mark-size,32px) * 1.45); height:calc(var(--loading-mark-size,32px) * 1.45); vertical-align:middle; }
+.gorez-loading .gorez-loading-mark { animation:gorez-loading-half-turn 1s ease-in-out infinite alternate; transform-origin:center; will-change:transform; }
+.home-browse-skeleton,.directory-skeleton { position:relative; }
+.home-browse-skeleton>.gorez-loading,.directory-skeleton>.gorez-loading { position:absolute; top:24px; left:50%; transform:translateX(-50%); z-index:1; }
+@keyframes gorez-loading-half-turn { 0%,10% { transform:rotate(0deg); } 90%,100% { transform:rotate(180deg); } }
+@media (prefers-reduced-motion:reduce) { .gorez-loading .gorez-loading-mark { animation:none; transform:none; will-change:auto; } }

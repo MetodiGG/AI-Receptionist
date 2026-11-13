@@ -1,5 +1,6 @@
 'use client'
 
+import { BrandLoading } from './brand-loading'
 import { useEffect, useId, useRef, useState } from 'react'
 import { Icon } from './icon'
 import { BusinessPhotoGallery } from './business-photo-gallery'
@@ -65,7 +66,7 @@ export function DiscoveryBusinessDetails({ row, locale = 'bg', preview = false, 
       {photos.length ? <BusinessPhotoGallery key={`${row.id}-${photos[0].src}`} photos={photos} businessName={row.name} locale={locale} variant="details" autoplay={false} fallback={photoFallback}/> : photoFallback}
     </div>}
     <header><div>{row.source === 'gorez' && <p>{copy.partner}</p>}<h2 id={`${id}-title`}>{row.name}</h2><p className="business-details-category">{railCategory(business, locale)}</p></div></header>
-    {status === 'loading' && <p className="business-details-status" role="status">{copy.loadingDetails}</p>}
+    {status === 'loading' && <div className="business-details-status"><BrandLoading locale={locale} label={copy.loadingDetails}/></div>}
     {status === 'error' && <div className="business-details-status" role="alert"><p>{copy.detailsError}</p><button className="secondary-button" type="button" onClick={() => setAttempt(value => value + 1)}>{copy.retryDetails}</button></div>}
     {status === 'missing' && <p role="status">{copy.detailsUnavailable}</p>}
     {status === 'ready' && <>

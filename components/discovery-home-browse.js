@@ -1,5 +1,6 @@
 'use client'
 
+import { BrandLoading } from './brand-loading'
 import Link from 'next/link'
 import { useEffect, useMemo, useState } from 'react'
 import dynamic from 'next/dynamic'
@@ -41,11 +42,11 @@ export function DiscoveryHomeBusinesses({ locale, filters, preview = false, data
   const rail = !busy && !result?.clarification && <>
     {nearRows.map(card)}{google(result?.external, 'near-google')}
     {showFurther && <>{farRows.map(card)}{google(result?.furtherExternal, 'far-google')}</>}
-    {loadingMore && <li className="home-rail-loading" role="status"><span className="button-spinner"/><span>{en ? 'Loading businesses…' : 'Зареждаме бизнеси…'}</span></li>}
+    {loadingMore && <li className="home-rail-loading"><BrandLoading locale={locale} label={en ? 'Loading businesses…' : 'Зареждаме бизнеси…'}/></li>}
   </>
   const empty = !busy && !notice && !result?.clarification && !rows.length && !result?.external && !result?.furtherExternal && !nextPage
   return <DiscoveryBusinessList title={copy.explore} locale={locale} headingRef={headingRef} busy={busy} hasMore={hasMore} pending={loadingMore} requireScrollIntent={Boolean(hiddenFurther && result?.furtherExternal)} resetKey={resultKey ?? result?.checkedAt} pageKey={`${hiddenFurther ? 'further' : 'page'}:${result?.cataloguePage?.nextOffset ?? 'end'}:${rows.length}`} onNearEnd={hasMore && !loadingMore && !moreError ? advanceBusinesses : undefined} action={catalogueMode ? null : <Link href={`/partners?lang=${locale}`} prefetch={false}>{copy.all}<Icon name="arrow"/></Link>} message={<>
-    {busy && <div className="home-browse-skeleton" role="status"><span className="sr-only">{messages.searching}</span><i/><i/><i/></div>}
+    {busy && <div className="home-browse-skeleton" role="status"><BrandLoading locale={locale} label={messages.searching} announce={false}/><i aria-hidden="true"/><i aria-hidden="true"/><i aria-hidden="true"/></div>}
     {notice && <div className="home-browse-empty" role="alert"><p>{notice}</p><button className="secondary-button" type="button" onClick={error ? onRetry : directory.retry}>{copy.retry}</button></div>}
     {result?.clarification && <p className="discovery-clarification" role="status">{result.clarification.message}</p>}
     {result?.appointmentClarification && <p className="discovery-clarification" role="status">{result.appointmentClarification.message}</p>}

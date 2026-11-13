@@ -1,3 +1,4 @@
+import * as brandLoading from './helpers/brand-loading.mjs'
 import assert from 'node:assert/strict'
 import test from 'node:test'
 import { readFile } from 'node:fs/promises'
@@ -57,7 +58,7 @@ function renderDetails({ row, full = null, locale = 'bg', status = 'ready', acti
     '../lib/discovery/service-presentation.mjs': { servicePresentation: () => ({ description: '', conditions: [] }) },
   }
   const componentModule = { exports: {} }
-  new Function('require', 'module', 'exports', code)(name => name in stubs ? stubs[name] : require(name), componentModule, componentModule.exports)
+  new Function('require', 'module', 'exports', code)(name => name in stubs ? stubs[name] : (name === './brand-loading' ? brandLoading : require(name)), componentModule, componentModule.exports)
   const tree = componentModule.exports.DiscoveryBusinessDetails({ row, locale, actions, onClose: () => {}, triggerRef: { current: null } })
   assert.equal(stateIndex, states.length)
   const html = renderToStaticMarkup(tree)

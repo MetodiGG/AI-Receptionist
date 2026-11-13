@@ -1,3 +1,4 @@
+import { BrandLoading } from '../../components/brand-loading'
 export default function BusinessSearchLoading() {
-  return <main className="loading-screen"><div className="loading-box" role="status"><span className="button-spinner" />GoRez</div></main>
+  return <main className="loading-screen" aria-busy="true"><div className="loading-box"><BrandLoading size={48} label="Зареждане · Loading…"/></div></main>
 }

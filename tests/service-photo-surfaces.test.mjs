@@ -1,4 +1,5 @@
 import test from 'node:test'
+import * as brandLoading from './helpers/brand-loading.mjs'
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { createRequire } from 'node:module'
@@ -29,7 +30,7 @@ async function load(name, stubs) {
   const source = await readFile(new URL(filename, import.meta.url), 'utf8')
   const { code } = await transform(source, { filename, jsc: { parser: { syntax: 'ecmascript', jsx: true }, transform: { react: { runtime: 'automatic' } } }, module: { type: 'commonjs' } })
   const module = { exports: {} }
-  new Function('require', 'module', 'exports', code)(key => Object.hasOwn(stubs, key) ? stubs[key] : require(key), module, module.exports)
+  new Function('require', 'module', 'exports', code)(key => Object.hasOwn(stubs, key) ? stubs[key] : key === './brand-loading' ? brandLoading : require(key), module, module.exports)
   return module.exports
 }
 

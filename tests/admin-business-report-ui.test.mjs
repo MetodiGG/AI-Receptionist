@@ -1,3 +1,4 @@
+import * as brandLoading from './helpers/brand-loading.mjs'
 import assert from 'node:assert/strict'
 import test from 'node:test'
 import { readFile } from 'node:fs/promises'
@@ -57,7 +58,7 @@ function fixture(patch = {}) {
     return promise
   }
   const module = { exports: {} }
-  new Function('require', 'module', 'exports', code)(name => name === 'react' ? fakeReact : name === 'luxon' ? { DateTime } : require(name), module, module.exports)
+  new Function('require', 'module', 'exports', code)(name => name === 'react' ? fakeReact : name === 'luxon' ? { DateTime } : (name === './brand-loading' ? brandLoading : require(name)), module, module.exports)
   const h = harness(module.exports.AdminBusinessReport, { business, send, ...patch })
   h.flush()
   const f = {

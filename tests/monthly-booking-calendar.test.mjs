@@ -1,3 +1,4 @@
+import * as brandLoading from './helpers/brand-loading.mjs'
 import assert from 'node:assert/strict'
 import test from 'node:test'
 import { readFile } from 'node:fs/promises'
@@ -14,7 +15,7 @@ await loadBindings()
 const source = await readFile(new URL('../components/monthly-booking-calendar.js', import.meta.url), 'utf8')
 const { code } = await transform(source, { filename: 'monthly-booking-calendar.js', jsc: { parser: { syntax: 'ecmascript', jsx: true }, transform: { react: { runtime: 'automatic' } } }, module: { type: 'commonjs' } })
 const compiled = { exports: {} }
-new Function('require', 'module', 'exports', code)(name => name === '../lib/monthly-booking-calendar.mjs' ? calendarHelpers : require(name), compiled, compiled.exports)
+new Function('require', 'module', 'exports', code)(name => name === '../lib/monthly-booking-calendar.mjs' ? calendarHelpers : (name === './brand-loading' ? brandLoading : require(name)), compiled, compiled.exports)
 const { MonthlyBookingCalendar, MonthlyBookingCalendarView } = compiled.exports
 
 function slot(date, time = '10:00', zone = 'Europe/Sofia') {

@@ -1,5 +1,6 @@
 'use client'
 
+import { BrandLoading } from './brand-loading'
 import { useEffect, useId, useMemo, useRef, useState } from 'react'
 import { DateTime } from 'luxon'
 import { availabilityClock, bookingCalendarWindow, bookingMonthGrid, calendarMonthTitle, calendarWeekdays, createMonthAvailabilityCache, filterMonthlyAvailability, monthAvailabilityKey, monthlyAvailabilityDaySignature, shiftCalendarMonth, validateMonthlyAvailability } from '../lib/monthly-booking-calendar.mjs'
@@ -21,7 +22,7 @@ export function MonthlyBookingCalendarView({ month, timezone, locale = 'bg', cal
       </td>)}</tr>)}</tbody>
     </table>
     <div className="monthly-calendar-footer">
-      {status === 'error' ? <p className="monthly-calendar-error" role="status"><span>{en ? 'Calendar could not load.' : 'Календарът не се зареди.'}</span><button type="button" disabled={disabled} onClick={onRetry}>{en ? 'Retry' : 'Опитай пак'}</button></p> : status === 'loading' ? <p className="monthly-calendar-loading" role="status">{en ? 'Checking availability…' : 'Проверяваме наличността…'}</p> : <p className="monthly-calendar-legend"><span><i className="is-available" aria-hidden="true" />{en ? 'Available' : 'Свободни'}</span><span><i className="is-unavailable" aria-hidden="true" />{en ? 'Unavailable' : 'Заети'}</span></p>}
+      {status === 'error' ? <p className="monthly-calendar-error" role="status"><span>{en ? 'Calendar could not load.' : 'Календарът не се зареди.'}</span><button type="button" disabled={disabled} onClick={onRetry}>{en ? 'Retry' : 'Опитай пак'}</button></p> : status === 'loading' ? <div className="monthly-calendar-loading"><BrandLoading locale={locale} label={en ? 'Checking availability…' : 'Проверяваме наличността…'}/></div> : <p className="monthly-calendar-legend"><span><i className="is-available" aria-hidden="true" />{en ? 'Available' : 'Свободни'}</span><span><i className="is-unavailable" aria-hidden="true" />{en ? 'Unavailable' : 'Заети'}</span></p>}
     </div>
   </section>
 }

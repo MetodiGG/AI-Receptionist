@@ -1,5 +1,6 @@
 'use client'
 
+import { BrandLoading } from './brand-loading'
 import { useCallback, useEffect, useId, useRef, useState } from 'react'
 import { PhotoPicker } from './photo-picker'
 import { BusinessCategoryIcon } from './business-category-icon'
@@ -93,7 +94,7 @@ export function AdminCatalogue({ send, locale = 'bg', refreshKey = 0, onDirty, o
     <header><div><h2>{en ? 'Catalogue photos' : 'Каталог · снимки'}</h2><p>{en ? 'Manage cover photos for businesses outside the partner network.' : 'Основни снимки на бизнесите извън партньорската мрежа.'}</p></div>{data && <span>{data.total} {en ? 'businesses' : 'бизнеса'}</span>}</header>
     <div className="admin-business-filters"><label>{en ? 'Find a business' : 'Намери бизнес'}<input type="search" value={query} onChange={event => setQuery(event.target.value)} maxLength={100} placeholder={en ? 'Name, neighbourhood or service' : 'Име, квартал или услуга'} disabled={busy}/></label><label>{en ? 'Category' : 'Категория'}<select value={category} disabled={busy} onChange={event => setCategory(event.target.value)}><option value="">{en ? 'All categories' : 'Всички категории'}</option>{data?.categories.map(item => <option key={item.id} value={item.id}>{item[en ? 'en' : 'bg']} · {item.count}</option>)}</select></label></div>
     {error && !entry && <p className="form-message" role="alert">{error} <button type="button" className="secondary-button" onClick={load}>{en ? 'Retry' : 'Опитай отново'}</button></p>}
-    {loading && <p role="status">{en ? 'Loading catalogue…' : 'Зареждаме каталога…'}</p>}
+    {loading && <div role="status"><BrandLoading label={en ? 'Loading catalogue…' : 'Зареждаме каталога…'} announce={false}/></div>}
     <div className="catalogue-admin-list">{data?.entries.map(row => <article key={row.id} className="catalogue-admin-card">
       <div className="catalogue-admin-thumb">{row.photo ? <img src={row.photo.src} alt={row.photo.alt || row.name} loading="lazy"/> : <BusinessCategoryIcon category={row.category} size={70}/>}</div>
       <div><h3>{row.name}</h3><p>{categoryName(row.category)}</p><p>{row.address || row.neighborhood || (en ? 'Service at your address' : 'Услуга на адрес')}</p>{!row.editable && <p>{en ? 'Review required' : 'Нужен е преглед'}</p>}</div>

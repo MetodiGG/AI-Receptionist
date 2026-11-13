@@ -1,5 +1,6 @@
 'use client'
 
+import { BrandLoading } from './brand-loading'
 import { useEffect, useRef, useState } from 'react'
 import { loadPlacesLibrary } from '../lib/discovery/google-ui-loader.mjs'
 import { createPartnerRatingWidget } from '../lib/discovery/partner-rating-widget.mjs'
@@ -43,7 +44,7 @@ export function PartnerGoogleRating({ slug, locale = 'bg', preview = false }) {
   }, [slug, locale, preview])
   return <div className="partner-google-rating" data-status={status}>
     {(status === 'loading' || status === 'ready') && <span className="reputation-source" translate="no">Google Maps</span>}
-    {status === 'loading' && <span className="review-summary-muted" role="status">{locale === 'en' ? 'Loading Google rating…' : 'Зареждане на Google оценката…'}</span>}
+    {status === 'loading' && <BrandLoading locale={locale} size={24} label={locale === 'en' ? 'Loading Google rating…' : 'Зареждане на Google оценката…'}/>}
     <div ref={host} className="partner-google-rating-host" aria-label={status === 'loading' || status === 'ready' ? (locale === 'en' ? 'Rating from Google Maps' : 'Оценка от Google Maps') : undefined}/>
   </div>
 }

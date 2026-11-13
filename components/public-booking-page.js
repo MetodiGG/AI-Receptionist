@@ -1,5 +1,6 @@
 'use client'
 
+import { BrandLoading } from './brand-loading'
 import Link from 'next/link'
 import { useCallback, useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react'
 import { flushSync } from 'react-dom'
@@ -49,7 +50,7 @@ function SparkLogo({ businessName, locale }) {
 }
 
 function LoadingPage({ copy, locale }) {
-  return <main className="booking-state-page"><div className="state-home-navigation"><HomeLink locale={locale}/></div><span className="button-spinner" /><p>{copy.loading}</p></main>
+  return <main className="booking-state-page"><div className="state-home-navigation"><HomeLink locale={locale}/></div><BrandLoading locale={locale} label={copy.loading} size={48}/></main>
 }
 
 function ExternalBookingPanel({business,locale,preview=false,serviceId='',assistant=false}) {

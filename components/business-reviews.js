@@ -1,5 +1,6 @@
 'use client'
 
+import { BrandLoading } from './brand-loading'
 import { useCallback, useEffect, useId, useRef, useState } from 'react'
 import { REVIEW_DIMENSIONS } from '../lib/reviews.mjs'
 import { PartnerGoogleRating } from './partner-google-rating'
@@ -46,7 +47,7 @@ export function useBusinessReviews(slug, preview = null) {
 
 export function ReviewSummary({ summary, status, locale = 'bg', compact = false }) {
   const en = locale === 'en'
-  if (status === 'loading') return <span className="review-summary-muted">{en ? 'Loading reviews…' : 'Зареждане на отзиви…'}</span>
+  if (status === 'loading') return <BrandLoading locale={locale} size={24} label={en ? 'Loading reviews…' : 'Зареждане на отзиви…'}/>
   if (status === 'error') return <span className="review-summary-muted">{en ? 'Reviews are temporarily unavailable' : 'Отзивите временно не са достъпни'}</span>
   if (!summary?.count) return <span className="review-summary-muted">{en ? 'No reviews yet' : 'Все още няма отзиви'}</span>
   return <div className={`review-summary${compact ? ' compact' : ''}`}>
@@ -81,7 +82,7 @@ export function BusinessReviews({ reviews, locale = 'bg' }) {
       <time dateTime={item.created_at}>{new Intl.DateTimeFormat(en ? 'en-GB' : 'bg-BG', { dateStyle: 'medium' }).format(new Date(item.created_at))}</time>
     </article>)}</div>
     {pageError && <p role="alert" className="booking-inline-error">{en ? 'Could not load more reviews. Try again.' : 'Останалите отзиви не се заредиха. Опитай отново.'}</p>}
-    {data?.next && <button type="button" className="secondary-button" onClick={loadMore} disabled={loadingMore}>{loadingMore ? (en ? 'Loading…' : 'Зареждане…') : (en ? 'More reviews' : 'Още отзиви')}</button>}
+    {data?.next && <button type="button" className="secondary-button" onClick={loadMore} disabled={loadingMore}>{loadingMore ? <BrandLoading locale={locale} size={20}/> : (en ? 'More reviews' : 'Още отзиви')}</button>}
     </>}
   </section>
 }

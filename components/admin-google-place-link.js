@@ -1,5 +1,6 @@
 'use client'
 
+import { BrandLoading } from './brand-loading'
 import { useEffect, useState } from 'react'
 
 export function AdminGooglePlaceLink({ businessId, locale = 'bg', send, onBusy, onDirty, preview = false }) {
@@ -44,7 +45,7 @@ export function AdminGooglePlaceLink({ businessId, locale = 'bg', send, onBusy, 
       <button type="submit" className="primary-button" disabled={!valid || !checked || loading || busy}>{en ? 'Save verified link' : 'Запази проверената връзка'}</button>
       {saved && <button type="button" className="secondary-button" onClick={unlink} disabled={busy}>{en ? 'Remove Google link' : 'Премахни Google връзката'}</button>}
     </fieldset>
-    {loading && <p role="status">{en ? 'Loading…' : 'Зареждане…'}</p>}
+    {loading && <div role="status"><BrandLoading label={en ? 'Loading…' : 'Зареждане…'} announce={false}/></div>}
     {error && <p className="form-message" role="alert">{error}</p>}
     {notice && <p className="form-message" role="status">{notice}</p>}
   </form>

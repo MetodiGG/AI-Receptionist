@@ -82,6 +82,8 @@ test('optional coordinates retain existing strict profile validation before any 
   for(const mode of ['gorez','external','phone']) for(const public_profile of [
     {latitude:point.latitude},{longitude:point.longitude},{latitude:'42.665',longitude:point.longitude},
     {latitude:91,longitude:point.longitude},{latitude:point.latitude,longitude:181},
+    {latitude:0,longitude:0},{latitude:51.5,longitude:-.1},
+    {latitude:40.99,longitude:23},{latitude:42,longitude:29.01},
     {...point,verified:true},{...point,owner_id:'injected'},
   ]) {
     const input=application(mode);input.business.public_profile=public_profile

@@ -7,12 +7,12 @@ const manifest = JSON.parse(await readFile(new URL('../docs/partner-service-phot
 const clone = () => structuredClone(manifest)
 const readAsset = id => readFile(new URL(`../public/service-photos/${id}-v1.webp`, import.meta.url))
 
-test('the dated native inventory has 21 specific decoded photos, nine reviewed associations and three preserved public-only exclusions', async () => {
+test('the dated native inventory has 22 specific decoded photos, nine reviewed associations and three preserved public-only exclusions', async () => {
   const before = JSON.stringify(manifest)
   const report = await auditPartnerServicePhotos({ manifest })
   assert.equal(report.complete, true); assert.deepEqual(report.issues, [])
-  assert.equal(report.businesses, 5); assert.equal(report.rawServices, 24)
-  assert.equal(report.visibleServices, 21); assert.equal(report.specificServices, 21)
+  assert.equal(report.businesses, 6); assert.equal(report.rawServices, 25)
+  assert.equal(report.visibleServices, 22); assert.equal(report.specificServices, 22)
   assert.equal(report.hiddenPlaceholders, 3); assert.equal(report.reviewedPhotos, 9)
   const supplied = manifest.assets.find(asset => asset.id === 'partner-megan-supplied')
   assert.equal(supplied.provenance.kind, 'user_supplied')

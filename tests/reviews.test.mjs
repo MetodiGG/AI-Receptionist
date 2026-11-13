@@ -87,7 +87,7 @@ function profileHarness(overrides = {}) {
   const writes = [], ownership = []
   return { writes, ownership, handler: createProfileUpdateHandler({ authenticate: async () => user, ownsBusiness: async (...args) => { ownership.push(args); return true }, update: async (...args) => writes.push(args), allowAttempt: async () => true, ...overrides }) }
 }
-const profileBody = { businessId: token, profile: { description: { bg: 'A business', en: '' }, payments: ['card'], brands: ['QA Brand'], latitude: null, longitude: null }, reviewRequestsEnabled: true }
+const profileBody = { businessId: token, revision: 0, profile: { description: { bg: 'A business', en: '' }, payments: ['card'], brands: ['QA Brand'], latitude: null, longitude: null }, reviewRequestsEnabled: true }
 test('owner profile updates require a verified session, same origin and actual business ownership', async () => {
   for (const person of [null, { ...user, email_confirmed_at: null }, { ...user, is_anonymous: true }]) assert.equal((await profileHarness({ authenticate: async () => person }).handler(request(profileBody))).status, 401)
   const notOwner = profileHarness({ ownsBusiness: async () => false })
@@ -97,7 +97,7 @@ test('owner profile updates require a verified session, same origin and actual b
 test('owners can update only the public profile and review preference, not platform status, IDs or other owners', async () => {
   const h = profileHarness()
   assert.equal((await h.handler(request(profileBody))).status, 200)
-  assert.deepEqual(h.ownership[0], [token, owner]); assert.deepEqual(h.writes[0], [token, owner, { public_profile: profileBody.profile, review_requests_enabled: true }])
+  assert.deepEqual(h.ownership[0], [token, owner]); assert.deepEqual(h.writes[0], [token, owner, { public_profile: profileBody.profile, review_requests_enabled: true }, 0])
   for (const patch of [{ active: true }, { owner_id: token }, { profile: { ...profileBody.profile, platform_status: 'enabled' } }]) assert.equal((await h.handler(request({ ...profileBody, ...patch }))).status, 422)
   assert.equal(h.writes.length, 1)
   assert.equal((await profileHarness({ allowAttempt: async () => false }).handler(request(profileBody))).status, 429)

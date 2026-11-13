@@ -16,7 +16,7 @@ import { BusinessBookingSettings } from '../../../components/business-booking-se
 import { ServicePricingFields } from '../../../components/service-pricing-fields'
 import { ServiceNameInput } from '../../../components/service-name-input'
 import { editableServiceSchema } from '../../../lib/service-pricing.mjs'
-import { businessLocationFields, findCity } from '../../../lib/business-location.mjs'
+import { findCity } from '../../../lib/business-location.mjs'
 import { DURATION_OPTIONS, validDuration, scheduleFromHours, scheduleProblem, scheduleRows, scheduleErrorText, scheduleWriteError } from '../../../lib/business-schedule.mjs'
 
 const WEEK = {
@@ -53,6 +53,7 @@ export function SettingsContent({ business, refreshBusiness, locale, preview = f
   const [message, setMessage] = useState(null)
   const [notificationStatus, setNotificationStatus] = useState(null)
   const [dirtySections,setDirtySections] = useState({})
+  const [profileVersion, setProfileVersion] = useState(() => ({ businessId: business.id, revision: business.content_revision }))
   useUnsavedChanges(Object.values(dirtySections).some(Boolean),locale)
   const sections=[['business',en?'Business information':'Данни за бизнеса'],['public',en?'Public profile & reviews':'Публична страница и отзиви'],['photos',en?'Photos':'Снимки'],['services',en?'Services':'Услуги'],['staff',en?'Team':'Екип'],['booking',en?'Booking method':'Начин на резервация'],['hours',en?'Opening hours & schedule':'Работно време и график'],['timeoff',en?'Time off':'Отсъствия'],['assistant',en?'Assistant':'Асистент'],['data',en?'Data':'Данни'],['account',en?'Account':'Акаунт']]
   function changeSection(next) {
@@ -115,22 +116,24 @@ export function SettingsContent({ business, refreshBusiness, locale, preview = f
     if (section === 'business' && !findCity(profile.city_ekatte)) { setMessage({ type: 'error', text: en ? 'Choose your city from the list.' : 'Избери своя град от списъка.' }); return }
     if (!validDuration(profile.default_duration_min)) { setMessage({ type: 'error', text: en ? 'Enter a valid usual duration.' : 'Въведи валидна обичайна продължителност.' }); return }
     setSaving(true); setMessage(null)
-    const { error } = await supabase.from('businesses').update({
-      ...profile,
-      ...(findCity(profile.city_ekatte) ? businessLocationFields(profile.city_ekatte, profile.neighborhood) : { city_ekatte: null, neighborhood: null }),
-      default_duration_min: Number(profile.default_duration_min), booking_slot_minutes: Number(profile.booking_slot_minutes),
-      booking_window_days: Number(profile.booking_window_days),
-      minimum_notice_minutes: Number(profile.minimum_notice_minutes),
-      cancellation_notice_hours: Number(profile.cancellation_notice_hours),
-      contact_email: profile.contact_email.trim() || null,
-      website_url: profile.website_url.trim() || null,
-      privacy_contact_email: profile.privacy_contact_email.trim() || null,
-      booking_terms: profile.booking_terms.trim() || null,
-    }).eq('id', business.id)
-    setSaving(false)
-    if (error) { setMessage({ type: 'error', text: error.message }); return }
-    await refreshBusiness()
-    showSuccess(en ? 'Settings saved.' : 'Настройките са запазени.')
+    try {
+      const { data, error } = await supabase.auth.getSession()
+      if (error || !data.session) throw Object.assign(new Error('UNAUTHORIZED'), { code: 'UNAUTHORIZED' })
+      const response = await fetch('/api/owner/business-settings', { method: 'PATCH', headers: {
+        'Content-Type': 'application/json', Authorization: `Bearer ${data.session.access_token}`,
+      }, body: JSON.stringify({ ...profileVersion, profile }) })
+      const result = await response.json().catch(() => ({}))
+      if (!response.ok) throw Object.assign(new Error('SETTINGS_UNAVAILABLE'), { code: result.error?.code })
+      if (Number.isSafeInteger(result.revision)) setProfileVersion(current => ({ ...current, revision: result.revision }))
+      await refreshBusiness()
+      showSuccess(en ? 'Settings saved.' : 'Настройките са запазени.')
+    } catch (error) {
+      const labels = {
+        CONTENT_CHANGED: en ? 'Another edit was saved. Refresh and review before saving again.' : 'Има друга запазена промяна. Обнови и прегледай преди нов запис.',
+        UNAUTHORIZED: en ? 'Sign in again before saving.' : 'Влез отново преди записване.',
+      }
+      setMessage({ type: 'error', text: labels[error.code] || (en ? 'Could not save settings. Check the fields and try again.' : 'Настройките не са запазени. Провери полетата и опитай отново.') })
+    } finally { setSaving(false) }
   }
 
   async function addService() {

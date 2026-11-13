@@ -88,7 +88,7 @@ export async function auditPartnerServicePhotos({ fixture, manifest, readAsset =
     const service = business?.services.find(row => row.id === association.serviceId)
     if (!service || reviewedPartnerServicePhoto(service, business) !== association) issues.push({ serviceId: association.serviceId, reason: 'association-not-in-reviewed-public-inventory' })
   }
-  if (fixture.businesses.length !== 5 || rawServices !== 24 || visibleServices !== 21) issues.push({ reason: 'unexpected-dated-partner-inventory' })
+  if (fixture.businesses.length !== 6 || rawServices !== 25 || visibleServices !== 22) issues.push({ reason: 'unexpected-dated-partner-inventory' })
   return { complete: issues.length === 0 && reviewed === required.size && specificServices === visibleServices,
     businesses: fixture.businesses.length, rawServices, visibleServices, specificServices, hiddenPlaceholders: rawServices - visibleServices,
     reviewedPhotos: reviewed, issues }

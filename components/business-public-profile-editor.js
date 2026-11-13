@@ -10,6 +10,9 @@ export function BusinessPublicProfileEditor({ business, locale, onSaved, onBusy,
   const [description, setDescription] = useState(initial.description), [payments, setPayments] = useState(initial.payments), [brands, setBrands] = useState(initial.brands.join(', '))
   const [latitude, setLatitude] = useState(initial.latitude ?? ''), [longitude, setLongitude] = useState(initial.longitude ?? ''), [reviews, setReviews] = useState(business.review_requests_enabled ?? true)
   const [busy, setBusy] = useState(false), [message, setMessage] = useState(null)
+  // Bind the draft, not the latest parent props: a refresh may arrive while
+  // these useState fields still contain a pin from the previous address.
+  const [draftVersion, setDraftVersion] = useState(() => ({ businessId: business.id, revision: business.content_revision }))
   useEffect(()=>{onBusy?.(busy)},[busy,onBusy])
   async function submit(event) {
     event.preventDefault()
@@ -20,11 +23,15 @@ export function BusinessPublicProfileEditor({ business, locale, onSaved, onBusy,
     try {
       const { data } = await supabase.auth.getSession()
       if (!data.session) throw new Error('UNAUTHORIZED')
-      const response = await fetch('/api/owner/public-profile', { method: 'PATCH', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${data.session.access_token}` }, body: JSON.stringify({ businessId: business.id, profile: { description, payments, brands: [...new Set(brands.split(',').map(value => value.trim()).filter(Boolean))], latitude: latitude === '' ? null : Number(latitude), longitude: longitude === '' ? null : Number(longitude) }, reviewRequestsEnabled: reviews }) })
-      if (!response.ok) throw new Error('SAVE_FAILED')
+      const response = await fetch('/api/owner/public-profile', { method: 'PATCH', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${data.session.access_token}` }, body: JSON.stringify({ ...draftVersion, profile: { description, payments, brands: [...new Set(brands.split(',').map(value => value.trim()).filter(Boolean))], latitude: latitude === '' ? null : Number(latitude), longitude: longitude === '' ? null : Number(longitude) }, reviewRequestsEnabled: reviews }) })
+      const result = await response.json().catch(() => ({}))
+      if (!response.ok) throw new Error(result.error?.code || 'SAVE_FAILED')
+      if (Number.isSafeInteger(result.revision)) setDraftVersion(current => ({ ...current, revision: result.revision }))
       await onSaved()
       setMessage({ text: en ? 'Public profile saved.' : 'Публичният профил е запазен.' })
-    } catch { setMessage({ error: true, text: en ? 'Could not save. Check the fields and your sign-in, then try again.' : 'Не успяхме да запазим. Провери полетата и входа си, после опитай отново.' }) }
+    } catch (error) { setMessage({ error: true, text: error.message === 'CONTENT_CHANGED'
+      ? (en ? 'The business changed. Refresh and review the address and pin before saving again.' : 'Бизнесът е променен. Обнови и прегледай адреса и пина преди нов запис.')
+      : (en ? 'Could not save. Check the fields and your sign-in, then try again.' : 'Не успяхме да запазим. Провери полетата и входа си, после опитай отново.') }) }
     finally { setBusy(false) }
   }
   return <form id={formId} className="settings-panel public-profile-editor" onSubmit={submit}><div className="settings-panel-head"><h3>{en ? 'Public business profile' : 'Публична страница на бизнеса'}</h3><p>{en ? 'Optional details. Only fill in information that is accurate and ready to publish.' : 'Незадължителни детайли. Попълвай само вярна информация, готова за публикуване.'}</p></div>

@@ -3,6 +3,23 @@
   "scope": "Sanitized public active-partner service snapshot; public service facts only, no contact, staff, customer or booking data.",
   "businesses": [
     {
+      "id": "2ddceca9-1716-4ba2-bf63-2beaf0857afb",
+      "name": "АИМ АУТО ПЕЙНТ",
+      "industry": "auto",
+      "businessCategory": "auto_repair",
+      "services": [
+        {
+          "id": "ad048076-cdb2-462a-901f-147e4b7275e4",
+          "name": "Боядисване на детайл",
+          "category": null,
+          "description": null,
+          "price": 300,
+          "currency": "EUR",
+          "duration_min": 60
+        }
+      ]
+    },
+    {
       "id": "6b57b901-acd8-494b-a992-2cec551b4b00",
       "name": "autocomplexrs ltd",
       "industry": "auto",

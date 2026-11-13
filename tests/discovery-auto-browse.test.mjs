@@ -113,7 +113,7 @@ test('frontend starts a single city browse without waiting for permission and do
   assert.match(source, /search\(input, \{ navigate: Boolean\(initial\) \}\)/)
   assert.match(source, /browse: home && !next.query.trim\(\)/)
   assert.match(source, /!scrollAfterSearch.current/)
-  assert.match(source, /if \(inFlight.current\) return/)
+  assert.match(source, /inFlight\.current && JSON\.stringify\(input\) === JSON\.stringify\(lastInput\.current\)/)
   assert.doesNotMatch(source, /setInterval|watchPosition|localStorage|sessionStorage/)
   const empty = discoverySearchInput({ browse: true, coordinates: null })
   assert.equal(empty.browse, true); assert.equal(empty.cityCode, '68134'); assert.equal(empty.coordinates, undefined)

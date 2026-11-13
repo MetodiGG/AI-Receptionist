@@ -1,0 +1,801 @@
+{
+  "checkedOn": "2026-11-13",
+  "validUntil": "2027-02-11",
+  "status": "imported_local_not_published",
+  "scope": "New distinct Sofia appointment auto/tyre/detailing/staffed-wash and reserved sports venues; south-first where evidence permits.",
+  "method": {
+    "sourcePriority": "Actual public owner Book first; selected services/prices, contacts and relevant visible terms inspected. Minimal public facts, independently written labels; no provider bulk export.",
+    "coordinates": "All points null; no Nominatim/Maps/Google/provider geocoding.",
+    "pricing": "Literal owner fees only; selected genuine unpublished tariff has explicit priceSearch receipt. Blocked/ambiguous prices remain pending.",
+    "authorization": "No customer input, bookings, account/consent actions, source contact or production mutation."
+  },
+  "counts": {
+    "records": 11,
+    "services": 11,
+    "reviews": 11,
+    "pricedServices": 8,
+    "pending": 36,
+    "rejected": 4
+  },
+  "orderedLedger": [
+    {
+      "order": 1,
+      "id": "sofia-velikan-studentski-ivan-stranski1",
+      "name": "Великан · Студентски град",
+      "status": "verified",
+      "website": "https://velikan-ltd.com/",
+      "bookingUrl": "https://velikan-ltd.com/",
+      "serviceUrls": [
+        "https://velikan-ltd.com/",
+        "https://velikan-ltd.com/smqna-na-maslo-serviz-za-gumi/"
+      ],
+      "contactUrl": "https://velikan-ltd.com/",
+      "findings": "Actual owner appointment entry reviewed FIRST on full homepage: 'След записване на час' process and nearby call CTA point to literal +359899396628. Visible tel links and footer inspected, same current shared owner service phone for both real distinct named bases, not guessed per-branch number. Exact own address София, Студентски град, ул. Иван Странски 1, ъгъла с бул. Симеоновско шосе appears on same page and full service footer; no Maps link followed, no coordinate guessed. Homepage explicitly offers montage/demontage/balance and identifies both real premises. Full linked service page reviewed including all mechanical-service sections and footer; no current numeric owner tariff/Prices link for selected tyre labour was published on reviewed full pages. Old customer-review amounts40BGN/10BGN are THIRD-PARTY testimonials, not owner price list and NOT imported; no ratings/reviews/photos copied into catalogue. Real tyres service only: self-service carwash expressly excluded. No separate terms/privacy link visible across reviewed navigation/footer; not claiming unshown terms read or licensed. Generic24/7 footer/hours omitted rather than assuming each department always available. No call/form/customer details, booking, slot or consent action; phone appointment requires staff confirmation."
+    },
+    {
+      "order": 2,
+      "id": "sofia-velikan-mladost3-gyumyushev265",
+      "name": "Великан · Младост 3",
+      "status": "verified",
+      "website": "https://velikan-ltd.com/",
+      "bookingUrl": "https://velikan-ltd.com/",
+      "serviceUrls": [
+        "https://velikan-ltd.com/",
+        "https://velikan-ltd.com/smqna-na-maslo-serviz-za-gumi/"
+      ],
+      "contactUrl": "https://velikan-ltd.com/",
+      "findings": "Actual owner appointment entry reviewed FIRST on full homepage: 'След записване на час' process and nearby call CTA point to literal +359899396628. Visible tel links and footer inspected, same current shared owner service phone for both real distinct named bases, not guessed per-branch number. Exact own address София, Младост 3, ул. Жечо Гюмюшев 265 appears on same page and full service footer; no Maps link followed, no coordinate guessed. Homepage explicitly offers montage/demontage/balance and identifies both real premises. Full linked service page reviewed including all mechanical-service sections and footer; no current numeric owner tariff/Prices link for selected tyre labour was published on reviewed full pages. Old customer-review amounts40BGN/10BGN are THIRD-PARTY testimonials, not owner price list and NOT imported; no ratings/reviews/photos copied into catalogue. Real tyres service only: self-service carwash expressly excluded. No separate terms/privacy link visible across reviewed navigation/footer; not claiming unshown terms read or licensed. Generic24/7 footer/hours omitted rather than assuming each department always available. No call/form/customer details, booking, slot or consent action; phone appointment requires staff confirmation."
+    },
+    {
+      "order": 3,
+      "id": "sofia-autoklima-evropa80",
+      "name": "AutoKlima.bg",
+      "status": "verified",
+      "website": "https://www.autoclima.bg/",
+      "bookingUrl": "https://www.autoclima.bg/",
+      "serviceUrls": [
+        "https://www.autoclima.bg/"
+      ],
+      "contactUrl": "https://www.autoclima.bg/",
+      "findings": "Actual owner Book CTA followed FIRST: four visible 'Запази час' anchors lead to #контакти on full one-page owner site, no separate form/calendar configured. Current ordinary public GET verified exact tel+359888404677 and other literal service phones, address SofiaEvropa80 and complete published tariff/contact/footer; not inferred phone booking from generic contact alone. Import ONLY literal50BGN computer diagnostic of electronic climate-system components from additional services row; not generalizedvehiclecomputerdiagnostic, not80BGNelectric-compressorstandtest, not50BGNfrom-refrigerantcharge. No EUR conversion or VAT claim; no duration inferred. Actual linked individual diagnostic path returns ordinary404 after readercachemiss; its missing content is NOT treated as unpublishedtariff and NOT price source, because selected diagnostic is independentlyfullypriced/described on completecurrentonepage. Other malformed refrigerantquantity'0.100гр' rows, retail refrigerants, undefinedrefilltotals omitted. All public onepage service/pricing/about/contact/footer sections read; no Terms/privacy link visible, not claiming nonexistenttermspermission. Shop actual name AutoKlima.bg, no independentextraoperator inferred from external photo attribution. Exact domain/phones/address new againstcurrentcatalogue/intakes/nativefixtures bylocaltextsearch; neutralquarter andcoordsnull, noMap/image/providercontentaccess. No calls, forms, customerinput, bookings or consentactions."
+    },
+    {
+      "order": 4,
+      "id": "sofia-happy-win-slavia-child-tennis",
+      "name": "Happy Win · Славия",
+      "status": "verified",
+      "website": "https://happywin.bg/",
+      "bookingUrl": "https://happywin.bg/about/",
+      "serviceUrls": [
+        "https://happywin.bg/about/"
+      ],
+      "contactUrl": "https://happywin.bg/",
+      "findings": "Actual selected child-training enrollment entry reviewed FIRST on owner /about/: Sofia/Slavia groups current from03.10.2026 explicitly telephone0890552252 or owneremail. Separate nav online reservation links are court-rental routes, NOT falsely represented as coached-class booking; no court platform, account or booking accessed. Full current child-group section and heading hierarchy read: both named bases, then common child-group fee18EUR for single/trial training,60/120EUR monthly totals. Import only literal single18EUR, not free trial, no divided monthly fee. The section describes children beginning/advanced; introductory club focus6–8 does not constrain every class to that exact age, so no invented ageband/duration. MultiSport exclusion retained. Full owner homepage contacts identify HappyWin1AND2 together at Koloman1Slavia with separate receptionphones; this is ONE operator/premises record, not two same-address clones. Use actual Sofia child-enrollment phone0890552252, not Bankya0885778151. Bankya separatecity excluded. Owner public contact page ordinaryGET inspected after reader502: court links/no additional literal tariff or Terms link; /about/currenthome fullfooter no Terms/privacy link found, not claiming unshown terms acceptance/licence. Current daily8–21 genericclubhours omitted rather than asserting childlesson availability. Coordinates null; noMaps, customerreviews/photos or provider data copied; no call/form/customerinput/reservation/consent action."
+    },
+    {
+      "order": 5,
+      "id": "sofia-vk-tennis-academy-kliment4",
+      "name": "VK Tennis Academy",
+      "status": "verified",
+      "website": "https://vktennisacademy.com/bg",
+      "bookingUrl": "https://vktennisacademy.com/bg/calendar",
+      "serviceUrls": [
+        "https://vktennisacademy.com/bg/private",
+        "https://vktennisacademy.com/bg/plans"
+      ],
+      "contactUrl": "https://vktennisacademy.com/bg/contact",
+      "findings": "Actual owner Book entry followed FIRST to own /bg/calendar. Reader cache displayed September45EUR/olderUSDpackage menu; NOT imported. Ordinary public current GET of actual calendar independently read current13–19November named-coach training calendar and65EUR entries; current /private repeats same actual selected calendar. No slot selected, future availability not asserted: public HTML contains both unavailable messages and numeric fee cells, not proof of a particular slot. Complete CURRENT owner /plans read by ordinaryGET,65EUR regular single individual versus60EUR weekday10–16HappyHours; only65 standard tariff with exact applicable hours retained, not slashed/trial30EUR or divided packages. Current full Terms4.1effective05.11.2026 independently read including initially output-truncated middle7–10; operator changed to sports association03.11, no extra staff/business aliases. Exact training premise KlimentOhridski4 explicitly in CURRENTterms2/4.2 and fullcontact/footer; StoyanMihaylovski6 is registered correspondence office, NOT extra trainingvenue. Single participant coached service includescourt/balls/racket/equipment;55active+5preparation differs from inferred calendar slot spacing. Advancepayment/accountneeded to reserve,24h cancellation rules; no claim we accepted terms, registered, paid or submitted. Terms no explicit automation/database restriction found; minimal service/contact/fee facts only, no provider bulk inventory, testimonials, images, materials or prose. Same technical1club host operates ownermarketing/booking perterms, not a separate business. Hours omitted as trainingavailability not generalopeninghours; coordsnull/noMaps."
+    },
+    {
+      "order": 6,
+      "id": "sofia-360tennis-borisova-child-school",
+      "name": "Софийски тенис клуб 360 · детска школа",
+      "status": "verified",
+      "website": "https://360tennis.bg/",
+      "bookingUrl": "https://360tennis.bg/%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8/%D0%B4%D0%B5%D1%82%D1%81%D0%BA%D0%B0-%D1%82%D0%B5%D0%BD%D0%B8%D1%81-%D1%88%D0%BA%D0%BE%D0%BB%D0%B0/",
+      "serviceUrls": [
+        "https://360tennis.bg/%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8/%D0%B4%D0%B5%D1%82%D1%81%D0%BA%D0%B0-%D1%82%D0%B5%D0%BD%D0%B8%D1%81-%D1%88%D0%BA%D0%BE%D0%BB%D0%B0/",
+        "https://360tennis.bg/%D1%86%D0%B5%D0%BD%D0%B8/"
+      ],
+      "contactUrl": "https://360tennis.bg/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/",
+      "findings": "Actual selected child-school booking entry read FIRST: complete ownservicepage explicitly contactsandenrollment+359887905777. SeparatetopBookcourt is court-rentalonly, NOT represented as selectedcoachedchildbooking; noCourtproviderrequest. Fullschooltable single/additionaloutside-subscription12EUR withracketincluded whenneeded. Malformedmonthly labels4/8trainingsWEEKLYunderMONTHLYsubscription are ambiguous; NOT imported/divided, nofreefirstpromotion. Fullcurrentwinter2026/27mainPrices inspected too:40EURup-to-twoindividualcoachingdifferentservice,27/33courtrentaldifferentinventory; neitherprojectedontochildschool, no all-price-unpublished claim. FullownFAQexplicitphonebook,currentcontactpagefullform/footer/hours,fullTermsordinaryGET afterreadercachemiss. Terms2explicitexerciseaddressDraganTsankov3, ownerFAQpreciselyBorisovaGardennearstoneelephant/parallelSummerTheatre/ArmyStadium; no inventedstreetfrommap. Terms8 ordinaryintellectual-property clause overtexts/photos/audio/video withlegalexceptions, no explicitautomated/database/commercial-all-datarestriction found; minimalpublicfactualname/service/phone/address/literalfeeonly, independentlywrittenlabel, noexpressivematerials/images/reviews/copy. No legalpermissionclaim. SingleoperatorSmileTennisprogrammeNOTseparatebusinessfrom360. Generic07–23seasonhours omittedbecauseweekdaylessonavailabilityunproven. Childageover3mentionedbut3–99marketingnotpreciseagepolicy, noageband/durationinvented. Allcoordsnull/noMaps. No input, account, consent, call, booking or payment."
+    },
+    {
+      "order": 7,
+      "id": "sofia-pro-sport-nsa-kliment22",
+      "name": "Тенис клуб Про Спорт · НСА",
+      "status": "verified",
+      "website": "https://tcprosport-bg.com/",
+      "bookingUrl": "https://tcprosport-bg.com/amateurs/",
+      "serviceUrls": [
+        "https://tcprosport-bg.com/amateurs/"
+      ],
+      "contactUrl": "https://tcprosport-bg.com/contacts/",
+      "findings": "Actual selected coachedservice appointment instruction followed FIRST on fullowner/amateurs: explicitlyphoneadministrationto reserveindividualtraining. ToponlineBookTennisBookingisCOURTRENTALonly, not falsely selectedcoachingcalendar,no platformrequest/account. Fullselectedservice/currentordinaryGET exactliteral38BGN/19.43EURyear-roundCOACHFEE, court rent separatelyseason-dependent. Import only explicitlylabelledcoachcomponent, repeatedinpublicname/description/unit, neverpresent19.43asallinclusivevisit or inventsum/rent. WinterTryTennis6x2h173.85EUR/personingroup4also publishedbutnotselected/trialpromo/derivedprice; no missingpriceclaim. ExactSofiaKlimentOhridski22+currentphone0897558080 agreehome/service/fullcontact; no fakebranchorstaffaliases/retailproducts. Fullschoolprogramme3–5/5–8/8–9/9–10readbutnotselectedchildactivity; personalamateurtrainingnotgenericcourtadmission. Ownerhome/service/contactnavigationandfullfooterexamined,noseparateTerms/pricelistlinkvisible, notclaimunshownlegaltermsread or permission. No openinghoursorindividualdurationpublishedonselectedfullpages, omittednotinferredfromgroup2h. Coordsnull; noMaps/reviews/photos/providerbulk data. No call, enquiry, consent, customerinput, account, payment orbooking action."
+    },
+    {
+      "order": 8,
+      "id": "sofia-mega-spin-petar-mutafchiev13",
+      "name": "Mega Spin Sofia",
+      "status": "verified",
+      "website": "https://megaspin-bg.com/",
+      "bookingUrl": "https://megaspin-bg.com/",
+      "serviceUrls": [
+        "https://megaspin-bg.com/"
+      ],
+      "contactUrl": "https://megaspin-bg.com/",
+      "findings": "Actual headerBook followed FIRST to own/rezervacii publictable-rentalcalendar. It is expressly table-only, not coachedlesson; onlypublicpage inspected, no administrator/login/blocking/privateAPI/control interaction. Selectedlesson actualphonefallback independentlyexplicitinfullownFAQ: reservecoachbycalling0894485131 orowneremail. COMPLETEonepage actualservices/pricesection/FAQ/contacts/footer reviewed: separatetable-rental10EURperhour andlesson10EURPLUSvariablecoachfee. Numeric10isNOTall-inlesson andnotrecordedprice; totalcoachtrainingfee genuinelynotpublished, quoteexplicitlydependscoachqualification/type. This no-price receipt applies onlyselectedTOTALcoachedlesson, not falseclaimnoownerpricesanywhere. No price0/from10invented, publicdescription explainsrentalcomponent+unknowncoachfee. OrdinaryGET fullprivacy25.10.2026read aftercachemiss confirmsactualhallPetarMutafchiev13 andsamephone; Lyulin1block026registeredofficeNOTnewpremise. Explicitstandardtraining60minFAQ, notcalendarspacing; no agebandinferred, nochildclassselected. NootherTermslinkvisible, ordinarycopyrightonly, nolegalpermissionclaim. Currentweekday16–20/weekend10–20hours literalowncontact, noavailabilitypromise. No externaltennismasa tournamentproviderfetched/copied, no Mapsratings/images/reviews. Coordsnull, no providerbulkexport, customerinput, calls, account, consent, booking orpayment."
+    },
+    {
+      "order": 9,
+      "id": "sofia-fireball-tsarigradsko133",
+      "name": "Fireball · тенис на маса с треньор",
+      "status": "verified",
+      "website": "https://www.fireball.bg/",
+      "bookingUrl": "https://www.fireball.bg/%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D0%BD%D0%B8%D0%BA-%D0%B7%D0%B0-%D0%B2%D1%8A%D1%82%D1%80%D0%B5%D1%88%D0%BD%D0%B8%D1%8F-%D1%80%D0%B5%D0%B4/",
+      "serviceUrls": [
+        "https://www.fireball.bg/product-detail/%D1%86%D0%B2%D0%B5%D1%82%D0%BE%D0%BC%D0%B8%D1%80-%D1%86%D0%BE%D0%BD%D0%B5%D0%B2/",
+        "https://www.fireball.bg/table-tennis/academy/",
+        "https://www.fireball.bg/table-tennis/prices/"
+      ],
+      "contactUrl": "https://www.fireball.bg/contact-us-2/",
+      "findings": "Actual owner Book followed FIRST to /table-tennis/book-table-tennis/: expressly table rental, embedded BookingGood calendar not selected as coach booking. Selected coach roster explicitly says reserveindividualtraining; full internalrules4.1–4.2 independently allowphone reservations for all venue sports, actual receptionphone0878811222 fromfull contact. Contactenquiryform explicitly NOT forreservations/cancellations, therefore PHONEonly, no formmislabel. Full chosen coachprofile currentordinaryGET verified literal25BGN/houradult versus20BGN/non-schoolchild; onlyadult25 included,no conversiontoEUR,nochildfeealias. Full schoolservice+separateprices read: genericfrom20sparring/coach variesbyperson, doesnot contradict25namedcoach; table12/hour androbot32/hour aredifferentservice inventories. No inventedall-inclusivecourtfee,total,durationfromslotspacing or claimfreshcurrencyconversion. Publicdescription doesnotasserttablerentalincluded. Exactowncontact133Tsarigradsko,BIC-IZOTcorpus4, not YanaYazova14A registeredprivateapartment inrules; one realpremise, nostaffaliasbusiness. Whole94lineownrules read includingreservation/prepay/24hcancel, no automated/database restriction found; no separateTermslinkinreviewedfooter. Copyright only, minimal facts/freshlabel not copybiography/qualifications/images/reviews. Generalvenuehours7–22/weekend8–22notcoachingavailability, omitted. NoMaps/providerplatformfetch, accounts, consent, calls, forms/customerinput, reservation, payment orproductionchange."
+    },
+    {
+      "order": 10,
+      "id": "sofia-nuage-pilates-teofil-ganev5a",
+      "name": "NUAGE Pilates House",
+      "status": "verified",
+      "website": "https://nuagepilateshouse.bg/",
+      "bookingUrl": "https://nuagepilateshouse.bg/grafik",
+      "serviceUrls": [
+        "https://nuagepilateshouse.bg/trenirovki",
+        "https://nuagepilateshouse.bg/ceni"
+      ],
+      "contactUrl": "https://nuagepilateshouse.bg/kontakti",
+      "findings": "Actual own Book entry followed FIRST to complete public/grafik: namedweekly9–15November2026 ReformerGroup/Private classes, namedinstructor, actuallinkedfuture14/15November entries inspected aspubliccalendar only. No class/slot selected, account registered, termsaccepted orreservationcreated; no availabilityclaim. GenericcalendarURLretained notstaleevent/cart. Fullownservice/ceni/contact/footer read: selectedgroup20EURsingle,50minmax6coachedCosmosReformers. Individual34EUR and75/140/180EURgroupTOTALpackages separatelypublished notmixed/divided. No trial/deposit/retailActivewear asservicefee. Public12hcancelqualification retained; packages4/8one-month/12two-month notprojectedsingle. ActualTeofilGanev5A/HadzhiDimitar andsame0899929690 consistentallfourfullpages, notregisteredofficeorstaffalias. Literalopeninghours07–21weekdays08–20weekends fromexactcontact, notcalendaravailability. Fullnav/footer onlycopyrightno separateTerms/privacylinkvisible, notclaimunshowncontractread/licence. Ownercalendarneedsaccountforactualreservation aspublicinstructionsstate; we stoppedbeforeanyentry. Phone/Viber/WhatsApp aresecondarycontacts, actualwebsitebooking keptpriority. Minimalfactualrates/freshlabel only,no copieddescriptions/photos/reviews/Mapdata/providerbulkexport. Coordsnull,no externalmapfollowed."
+    },
+    {
+      "order": 11,
+      "id": "sofia-pilates54-mladost1-block54a",
+      "name": "Pilates Reformer 54",
+      "status": "verified",
+      "website": "https://pilates54.bg/",
+      "bookingUrl": "https://pilates54.bg/terms/",
+      "serviceUrls": [
+        "https://pilates54.bg/",
+        "https://pilates54.bg/pricing/"
+      ],
+      "contactUrl": "https://pilates54.bg/contact/",
+      "findings": "Actual owner Book entry followed FIRST from homepage to https://book.pilates54.bg/: public JS shell only, no service menu rendered in reader or ordinary public GET. No guessed /calendar path, login, account, slot, customer input or booking submitted. Selected PHONE fallback independently explicit in full own /terms section II.8: advance reservation mandatory for all group/individual classes, online system OR phone. Actual branch contact 0885454544 and Mladost1 block54A verified on full /contact and homepage/footer. Registered company address block54B/ap40 in terms is explicitly legal company address, not a second exercise venue; no duplicated branch or fabricated street. Full owner /pricing tariff: group20EUR single,4/64 and10/150 TOTAL packages,duo36 andprivate30 separate; selected only group20EUR with VAT as terms III.10. Homepage explicitly 50min and4 participants per room; trainer-led Reformer selected, not generic gym, medical rehabilitation, Cadillac therapy or chair-service assumption. Literal contact opening periods include13–14 weekday break and10–16 weekends, not calendar availability. Full133-line terms read including cancellation4h/prepayment/ordinary intellectual-property clause25; no explicit automated-extraction/database prohibition found, not a licence conclusion. Public description retains4h late-cancel use condition; packages not divided, trial/deposits/retail omitted. Online menu is honestly unread JS, not priced-reviewed or unavailable forever; no online-only price projected onto phone tariff. Only minimal owner facts and fresh service wording retained, no photos/reviews/Maps harvesting. Coords null."
+    }
+  ],
+  "pending": [
+    {
+      "name": "Next Level",
+      "website": "https://www.nextlevelclub.bg/",
+      "status": "held_source_terms",
+      "sourceUrl": "https://www.nextlevelclub.bg/wp-content/uploads/2025/02/BG-Online-Platform-Policy.pdf",
+      "reason": "Root read all 121 parsed PDF lines: no express robot/data-extraction ban, but separate express restriction on storing, distributing, third-party provision and commercial use of any part of website information without prior written consent. Content definition does not specifically enumerate business-data/database. Hold retained, not permission inferred; no further owner endpoints or requests made after decision."
+    },
+    {
+      "name": "Самсон",
+      "website": "https://samsonbg.com/",
+      "status": "held_appointment_evidence",
+      "reviewedUrls": [
+        "https://samsonbg.com/",
+        "https://samsonbg.com/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/",
+        "https://samsonbg.com/%D1%82%D1%80%D0%B5%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B8-5/"
+      ],
+      "reason": "Real group taekwondo venues and contacts visible, but no explicit prior-enrollment/appointment instruction read; generic contact and timetable alone not converted into reservations. No rows imported."
+    },
+    {
+      "name": "ХЕЕД АУТО",
+      "website": "https://www.heed-auto.com/bg/",
+      "status": "held_appointment_evidence",
+      "reviewedUrls": [
+        "https://www.heed-auto.com/bg/"
+      ],
+      "reason": "Own public canonical homepage read by ordinary GET after reader502; HanKubrat71 dedicated service telephone visible. Generic service enquiry/contact CTA only, no explicit appointment instruction confirmed. No retail price or inferred phone booking imported."
+    },
+    {
+      "name": "Super Diesel",
+      "website": "https://superdiesel.bg/",
+      "status": "held_appointment_evidence",
+      "reviewedUrls": [
+        "https://superdiesel.bg/"
+      ],
+      "reason": "Full public page has real diesel diagnosis/services and reception phone but only contact-or-visit instruction, no appointment request. Historical first garage address not projected as current premise; no row imported."
+    },
+    {
+      "name": "България плува",
+      "website": "https://swimbulgaria.bg/",
+      "status": "pending_actual_booking_review",
+      "bookingUrl": "https://sportpoint.bg/clubs/akademiia-bielgariia-pluva/workouts?layout=list",
+      "reviewedUrls": [
+        "https://swimbulgaria.bg/",
+        "https://swimbulgaria.bg/pools/"
+      ],
+      "reason": "Actual own Book entry found in visible anchor to merchant SportPoint calendar, reader could not access destination, root public-JS queue sent. Real five Sofia pools described; pool Sv.George has own aggregate47 vs homepage51 conflict, not guessed. No blocked calendar treated as unpublished prices; no row yet."
+    },
+    {
+      "name": "Next Gen",
+      "website": "https://www.tcnextgen.com/bg",
+      "status": "pending_actual_booking_branch_review",
+      "bookingUrl": "https://www.tcnextgen.com/bg/classes",
+      "reviewedUrls": [
+        "https://www.tcnextgen.com/bg",
+        "https://www.tcnextgen.com/bg/tenis-uchilishe",
+        "https://www.tcnextgen.com/bg/classes",
+        "https://www.tcnextgen.com/bg/contact"
+      ],
+      "reason": "Owner actual enrollment entry followed first; public HTML calendar shows future child TennisSchool60min classes; no Reserve controls in plainHTML, root JS queue sent. Single20EUR60min current-season article separate from old October subscriptions. Need real school premises/branch booking corroboration; not projecting shared calendar ontoTechSport."
+    },
+    {
+      "name": "Reservation.Studio-only Pilates leads",
+      "status": "held_source_terms",
+      "website": "https://reservation.studio/",
+      "sourceUrl": "https://reservation.studio/bg/pages/terms",
+      "reason": "Full current135parsedlineTerms read2026-11-13, effective13.07.2026. Section8 explicitly prohibits automated bots/scrapers access or extraction without written consent; Content definition includes every published information, profiles/services. Stopped all further Reservation.Studio requests. Nove, SENJI, FiTT FIVE, Waves not added or copied from provider inventory; no bypass."
+    },
+    {
+      "name": "Карате клуб Цанев · Дружба и29СУ",
+      "status": "held_trial_only",
+      "website": "https://tsanev.bg/",
+      "reviewedUrls": [
+        "https://tsanev.bg/",
+        "https://tsanev.bg/?lang=bg",
+        "https://tsanev.bg/contact/"
+      ],
+      "reason": "Current own7realvenues; five alreadybaseline. Newtwo namedDKIskarDruzhba and29SU GeorgiSRakovski20 currentpublicrequest/callbooking offers first FREE TRIAL only. Root explicitly holds trial-only/no promotional0 asregularservice. No current regular tariff invented or falselyunpublished, noMapslinks followed."
+    },
+    {
+      "name": "Айкикай Айкидо Скуул",
+      "status": "held_appointment_evidence",
+      "website": "https://aikischoolbg.com/",
+      "reviewedUrls": [
+        "https://aikischoolbg.com/",
+        "https://aikischoolbg.com/contact-us/",
+        "https://aikischoolbg.com/prices/",
+        "https://aikischoolbg.com/classes/",
+        "https://aikischoolbg.com/schedule/",
+        "https://aikischoolbg.com/useful-information/",
+        "https://aikischoolbg.com/news/"
+      ],
+      "reason": "ThreeactualSofia trainingdojos/current2026–27membertariff seen; no explicit prior-reservation instruction read on fullcontact/classes/price/schedule/pages. Generic enquiry and classschedule not turned into appointment. Actual single25EUR also requires annual130EUR eachpractitioner percurrenttariff; not imported unconstrained. Medicalbenefitclaims not reused."
+    },
+    {
+      "name": "Тендокан доджо",
+      "status": "pending_booking_menu_currentness",
+      "website": "https://www.tendokandojo.com/",
+      "bookingUrl": "https://www.tendokandojo.com/services",
+      "reviewedUrls": [
+        "https://www.tendokandojo.com/",
+        "https://www.tendokandojo.com/services",
+        "https://www.tendokandojo.com/aikido",
+        "https://www.tendokandojo.com/seminari"
+      ],
+      "reason": "Actualhome2026–27schedule/linkenrollment firstfollowed to/services; ordinarypublicGET onlyshell/noactualbookingcontrols. Separate oldclasses/prices/seminari page literal350BGN8weekintro but no currentcourse dates/actualenrollmentread, notinventedunpublished. ExactSofiaParkblock16Dtradezone5notprojectedBusinessParkblock5. No membership/privateforums or WixAPIs."
+    },
+    {
+      "name": "Шу Ха Ри",
+      "status": "held_tls_access",
+      "website": "https://shuhari-bg.com/",
+      "reviewedUrls": [
+        "https://shuhari-bg.com/"
+      ],
+      "reason": "Priorown502lead retestedreader502; ordinarypubliccurl failsTLSwrongcertificatehostname. Stopped,no -k,HTTPalternatehostorproviderworkaround. Thirdpartyadvertfee10EUR notadmitted."
+    },
+    {
+      "name": "МИРКАТ",
+      "status": "held_source_terms",
+      "website": "https://mirkat.bg/",
+      "sourceUrl": "https://mirkat.bg/general-terms",
+      "reviewedUrls": [
+        "https://mirkat.bg/",
+        "https://mirkat.bg/uslugi/servizni-uslugi-i-prodazhba-na-rezervni-chasti-i-aksesoari",
+        "https://mirkat.bg/general-terms"
+      ],
+      "reason": "Full156lineownerTerms sectionII explicitlyrestrictuse/copy/change/provisionofinformation/siteparts tothirdparties/systemswithoutwrittenapproval, plus collectinginformationrestriction. Informationexceptionnotassumedcommerciallicence. Stoppedfurtherendpoints, noimport. DistinctSfakianakiscompanynotassumedSFARetailrelation."
+    },
+    {
+      "name": "Дару Кар",
+      "status": "held_actual_booking_access",
+      "website": "https://darucar.bg/",
+      "bookingUrl": "https://plan.soft-nrg.com/group/fO-rwZh4j943wnCYvGiowKbqug5W4IOM16aqhwH7LHoI7kZnHoex2w/express",
+      "reviewedUrls": [
+        "https://darucar.bg/",
+        "https://darucar.bg/mehanichen-serviz/",
+        "https://darucar.bg/contact-us/"
+      ],
+      "reason": "ActualownBookentryfirstfollowed toSoftNRG returns403; STOPprovider,no browser/curlbypass. Ownmechanical/contactfullyread, exactIliaBeshkov2notIlian, servicephones real. GeneralservicePDFonlyinitialportionread/notclaimedfull. No accessibleindependentcompletecurrentselectedfee and explicitphonefallback read; notunpublished/menuinferred."
+    },
+    {
+      "name": "Ратола",
+      "status": "held_owner_empty",
+      "website": "https://ratola.com/bulgaria/service/",
+      "reviewedUrls": [
+        "https://ratola.com/bulgaria/service/"
+      ],
+      "reason": "Reader0lines; ordinarycanonicalpublicGETempty, noactualcurrentBook/service/tariffcompleted. Searchcachecontact/oldsummerhours notenough; notimportedalternativebrandorGTParmesamepremise."
+    },
+    {
+      "name": "MAXCAR",
+      "status": "held_rate_limit",
+      "website": "https://maxcar.bg/content/zarezhdane-na-avtoklimatici",
+      "reviewedUrls": [
+        "https://maxcar.bg/content/zarezhdane-na-avtoklimatici"
+      ],
+      "reason": "Currentselectedownerclimateservice429TooManyRequests; stopped,noalternateendpointorcurlbypass. Cachedfeesnotimported."
+    },
+    {
+      "name": "Виктор Мобил",
+      "status": "held_access_and_appointment",
+      "website": "https://viktormobil.com/",
+      "reviewedUrls": [
+        "https://viktormobil.com/",
+        "https://viktormobil.com/uslugi/mobilen-serviz-za-avtoklimatici",
+        "https://viktormobil.com/uslugi/mobilen-avtoserviz"
+      ],
+      "reason": "Accessibleownrootandfullclimateservicefeesread; actualnextlinkedmobileservice page verificationchallenge. Stoppedsource,nocurlbypass. No explicitpriorbookinstructionindependentofgenericphonecontact yet; no row or unpricedreceipt."
+    },
+    {
+      "name": "UPREFORMER · Малинова долина",
+      "status": "pending_public_js_booking",
+      "website": "https://upreformer.com/",
+      "bookingUrl": "https://book.upreformer.com/calendar/public?site_id=5",
+      "reviewedUrls": [
+        "https://upreformer.com/",
+        "https://upreformer.com/zali/malinova-dolina",
+        "https://upreformer.com/ceni",
+        "https://upreformer.com/obshti-usloviya",
+        "https://book.upreformer.com/calendar/public?site_id=5"
+      ],
+      "reason": "Rootauthorizesreservedvideo-guidedsessionWITHexplicitnoinstructor; fullspecificopenedbranchdetails/contact/format read, actualbranchlinkedcalendarfirstfollowed butreader0lines. RootpublicJSqueuesent, noadmissionuntilactualcalendarread. Ownstandard12EURsingle, no10EURactivedeposit/derivedpackageasvisitfee. Whole126lineTermsread;10hcancel,cardonly,gripsocksmandatory,12–16parentconditions. No reservation/consent/signature. Native Safari phase on2026-11-13 did not verify this menu: getApp hung and was interrupted; no page/class/slot/customer/consent action. Remains held, not rendered-booking reviewed."
+    },
+    {
+      "name": "UPREFORMER · Овча купел",
+      "status": "pending_public_js_booking",
+      "website": "https://upreformer.com/",
+      "bookingUrl": "https://book.upreformer.com/calendar/public?site_id=1",
+      "reviewedUrls": [
+        "https://upreformer.com/",
+        "https://upreformer.com/zali/ovcha-kupel",
+        "https://upreformer.com/ceni",
+        "https://upreformer.com/obshti-usloviya",
+        "https://book.upreformer.com/calendar/public?site_id=1"
+      ],
+      "reason": "Rootauthorizesreservedvideo-guidedsessionWITHexplicitnoinstructor; fullspecificopenedbranchdetails/contact/format read, actualbranchlinkedcalendarfirstfollowed butreader0lines. RootpublicJSqueuesent, noadmissionuntilactualcalendarread. Ownstandard12EURsingle, no10EURactivedeposit/derivedpackageasvisitfee. Whole126lineTermsread;10hcancel,cardonly,gripsocksmandatory,12–16parentconditions. No reservation/consent/signature. Native Safari phase on2026-11-13 did not verify this menu: getApp hung and was interrupted; no page/class/slot/customer/consent action. Remains held, not rendered-booking reviewed."
+    },
+    {
+      "name": "UPREFORMER · Банишора",
+      "status": "pending_public_js_booking",
+      "website": "https://upreformer.com/",
+      "bookingUrl": "https://book.upreformer.com/calendar/public?site_id=3",
+      "reviewedUrls": [
+        "https://upreformer.com/",
+        "https://upreformer.com/zali/banishora",
+        "https://upreformer.com/ceni",
+        "https://upreformer.com/obshti-usloviya",
+        "https://book.upreformer.com/calendar/public?site_id=3"
+      ],
+      "reason": "Rootauthorizesreservedvideo-guidedsessionWITHexplicitnoinstructor; fullspecificopenedbranchdetails/contact/format read, actualbranchlinkedcalendarfirstfollowed butreader0lines. RootpublicJSqueuesent, noadmissionuntilactualcalendarread. Ownstandard12EURsingle, no10EURactivedeposit/derivedpackageasvisitfee. Whole126lineTermsread;10hcancel,cardonly,gripsocksmandatory,12–16parentconditions. No reservation/consent/signature. Native Safari phase on2026-11-13 did not verify this menu: getApp hung and was interrupted; no page/class/slot/customer/consent action. Remains held, not rendered-booking reviewed."
+    },
+    {
+      "name": "UPREFORMER · Младост Олимп",
+      "status": "pending_branch_booking_tariff",
+      "website": "https://upreformer.com/",
+      "bookingUrl": "https://fitnessolymp.bg/grafik-grupovi-trenirovki/",
+      "reviewedUrls": [
+        "https://upreformer.com/zali/mladost-olimp",
+        "https://fitnessolymp.bg/grafik-grupovi-trenirovki/",
+        "https://upreformer.com/ceni"
+      ],
+      "reason": "OwnopenedrealvenueMladost4block422A named; actualbranchBookgoestoOlympownschedulexternalhostthenBookshop2. Not yetfullactualcalendar/tariffread; doNOTprojectshared12EURotherbranches ontoOlymp or inferinstructor. Native Safari phase on2026-11-13 did not verify this menu: getApp hung and was interrupted; no page/class/slot/customer/consent action. Remains held, not rendered-booking reviewed."
+    },
+    {
+      "name": "UPREFORMER · Лагера/Красно село",
+      "status": "held_address_conflict",
+      "website": "https://upreformer.com/",
+      "reviewedUrls": [
+        "https://upreformer.com/",
+        "https://upreformer.com/zali"
+      ],
+      "reason": "Owncachedzali stillSoon9Oct/Zhitnitsa22 butnewhome/newsKostenets14NidoResidenceopen; no blindpremisechoice/newbranchcount. Needactualbranchdetail+bookbeforeadmission. Native Safari phase on2026-11-13 did not verify this menu: getApp hung and was interrupted; no page/class/slot/customer/consent action. Remains held, not rendered-booking reviewed."
+    },
+    {
+      "name": "MG fitnesscoach",
+      "website": "https://magifitnesscoach.com/",
+      "status": "held_exact_training_venue",
+      "reviewedUrls": [
+        "https://magifitnesscoach.com/",
+        "https://magifitnesscoach.com/terms.html"
+      ],
+      "bookingUrl": "https://cal.com/magi.fitnesscoach/consultation",
+      "reason": "Owner20EURlive1:1actual fee and fullterms read; actualBook leads consultationcalendar readercachemiss. Owner publishes only Sofia/Bulgaria and online, not an exact training premise or explicit mobile-homevisit service. No fabricated address/service_area record."
+    },
+    {
+      "name": "MavrovFit",
+      "website": "https://mavrovfit.com/",
+      "status": "held_regular_training_booking",
+      "reviewedUrls": [
+        "https://mavrovfit.com/contact/",
+        "https://mavrovfit.com/personalni-fitnes-trenirovki-sofia/"
+      ],
+      "reason": "Own specificpersonaltraining premise DrAtanasMoskov5NextLevelMladost4 confirmed. Actual Book points to consultation/application/freefirsttrial, not yet completed ordinarytraining enrollment/tariff. No promotional0 or hostgymalias imported; no call/account."
+    },
+    {
+      "name": "EMS Zone Sofia",
+      "website": "https://emszonesofia.bg/",
+      "status": "pending_actual_public_calendar",
+      "bookingUrl": "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1QcakGYiDpPtbOssKx8BRxFpPNympM0fuZPoK-eVnuAwxOPL8rP_6RJtsIadHzGfmbMPPlhnug",
+      "reviewedUrls": [
+        "https://emszonesofia.bg/",
+        "https://emszonesofia.bg/book/",
+        "https://emszonesofia.bg/services/ems-trenirovka/",
+        "https://emszonesofia.bg/oferti/trenirovka-i-motion-ems/",
+        "https://emszonesofia.bg/oferti/1-ems-trenirovka/",
+        "https://emszonesofia.bg/contacts/",
+        "https://emszonesofia.bg/terms/",
+        "https://emszonesofia.bg/chesto-zadavani-vprosii/"
+      ],
+      "reason": "Current actualownerBook HTML has visible EMS training Googleappointment link, distinct i-shape/Normateccalendars excluded. Readerbookcacheold lackedEMS. RootJSqueuesent. Selected32EURsingle25minpuretraining/45whole-session ownpages, exactDimitarPetkov2shop3. No independentexplicitphonebookread yet; purchase/cartnotappointment. Full227lineownertermsread standardexpressiveIPclause notexplicitautomationban; noimportuntilactualcalendar. Native Safari phase on2026-11-13 did not verify this menu: getApp hung and was interrupted; no page/class/slot/customer/consent action. Remains held, not rendered-booking reviewed."
+    },
+    {
+      "name": "SRV Detailing",
+      "website": "https://srv-detailing.bg/",
+      "status": "held_source_terms",
+      "sourceUrl": "https://srv-detailing.bg/obshti-uslovia/",
+      "reason": "FullcurrentownTerms133lines read; scope line44 expressly prohibits automated collection of content. Stopped all additional requests/import. Actualbooktimeout notbypassed, knownfees not falselyunpublished."
+    },
+    {
+      "name": "BalanceLine · Mladost/Centre",
+      "website": "https://balanceline.balanceline.bg/",
+      "status": "pending_actual_public_calendar",
+      "bookingUrl": "https://balanceline.customer.fitsys.co/calendar/view_only",
+      "reviewedUrls": [
+        "https://balanceline.balanceline.bg/",
+        "https://balanceline.balanceline.bg/portfolio_page/reformer/",
+        "https://balanceline.balanceline.bg/prices_bg/",
+        "https://balanceline.balanceline.bg/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/"
+      ],
+      "reason": "Fullreal2venuecontacts and selectedReformer/Tower/Chair/Barrel coaching/rules read; individual40EURsingle, firstvisitmandatoryindividual;30EURfirstMladostnotgeneralfee,duet60TOTALnot30each. Actualcalendar readercachemiss, ordinaryGETshell BALANCELINE only, rootJSqueue. No independentphonebook,depositunquantifiednotfee. LinkedprivacyDOCXcachemiss notclaimedread. Native Safari phase on2026-11-13 did not verify this menu: getApp hung and was interrupted; no page/class/slot/customer/consent action. Remains held, not rendered-booking reviewed."
+    },
+    {
+      "name": "MG Tennis Club · Zaimov/Paradise",
+      "website": "https://mgtennisclub.com/",
+      "status": "pending_selected_training_request",
+      "bookingUrl": "https://mgtennisclub.com/groups",
+      "reviewedUrls": [
+        "https://mgtennisclub.com/",
+        "https://mgtennisclub.com/groups",
+        "https://mgtennisclub.com/children/school",
+        "https://mgtennisclub.com/contacts",
+        "https://mgtennisclub.com/terms",
+        "https://mgtennisclub.com/courts/mg-tennis-club-park-zaimov-club1.html",
+        "https://mgtennisclub.com/courts/mg-paradise-krastova-vada-club2.html"
+      ],
+      "reason": "Fullcurrentwinter2026/27bothactualvenues and20EURsinglebeginneradultgroups min2max4/advanceenrollmentafterprepay. Actualbranch-specific Makeenquiry buttons onselected/groups needJSmodal; rootqueue. Court-rentalportal notcoachedtrainingproof. ParadiseAsenYordanov6literal; Zaimovownerparklandmarknostreetnumberinvented. OwntermsHTMLonlyheading notclaimedfullcontractread. No clonedphysicalbranchesbeforeactualenrollment. Native Safari phase on2026-11-13 did not verify this menu: getApp hung and was interrupted; no page/class/slot/customer/consent action. Remains held, not rendered-booking reviewed."
+    },
+    {
+      "name": "DEMA Tennis",
+      "website": "https://demasport.com/",
+      "status": "held_current_season_training_tariff",
+      "reviewedUrls": [
+        "https://demasport.com/",
+        "https://demasport.com/тенис-училище"
+      ],
+      "reason": "ActualBookonlycourt-rentalTennisBookingclub25 notcoachedlesson. Ownschoolpricedpage explicitlyWINTER2025/26 withJan2026fees, stalepreviousseason; no current2026/27schooltariff/regularlessonbookcompleted. Coach-only20EURpluscourtfee notprojectedallinclusive. RealAlMalinov19venue notinventedavailability."
+    },
+    {
+      "name": "AutoExpress-2",
+      "website": "https://autoexpress-2.com/",
+      "status": "held_source_terms",
+      "reviewedUrls": [
+        "https://autoexpress-2.com/rezervacia/",
+        "https://autoexpress-2.com/czeni/",
+        "https://autoexpress-2.com/kontakt/",
+        "https://autoexpress-2.com/obshti-usloviq/"
+      ],
+      "reason": "Own current price list and public appointment-entry inspected, but full source terms §§26–28 explicitly cover databases and prohibit publishing/distributing site information resources without express agreement. Stop further extraction; not imported despite real services and literal fees."
+    },
+    {
+      "name": "София Скуош Център · Европа, сграда 15",
+      "website": "https://sofia-squash.com/",
+      "status": "pending_regular_service_pricing_review",
+      "reviewedUrls": [
+        "https://sofia-squash.com/",
+        "https://sofia-squash.com/играй-скуош-запази-час-онлайн/",
+        "https://sofia-squash.com/детска-школа-по-скуош/",
+        "https://sofia-squash.com/скуош-за-деца/",
+        "https://sofia-squash.com/контакти/",
+        "https://sofia-squash.com/ново-клубна-карта/",
+        "https://sofia-squash.com/безплатна-първа-тренировка-в-софия-ск/"
+      ],
+      "reason": "Distinct real squash venue at Iskarsko shose7 building15, not climbing building1. Actual top Book page is court rental with BookingGood, not independently reviewed regular coached menu. May2026 child school5–12 explicitly enrolls with coach0897540394 but no regular child fee found on that page; November3 announcement explicitly prior phone booking only for first FREE trial through year-end, not regular service. Do not import trial0 or infer regular class fees from court rental/old spring2025 academy. Keep held until complete regular selected menu/currentness resolved."
+    },
+    {
+      "name": "Тенис клуб Люлин 6",
+      "website": "https://tennislulin.com/",
+      "status": "held_access_and_duplicate_baseline",
+      "reviewedUrls": [
+        "https://tennislulin.com/",
+        "https://tennislulin.com/tennis_school/"
+      ],
+      "reason": "Selected school page produced verification challenge, not bypassed. Summer2026 programme ends October11, not current winter proof. Final runtime duplicate lookup independently found existing sofia-tennis-lyulin venue Dromo1; no new business imported."
+    },
+    {
+      "name": "Tennis Club 15–40",
+      "website": "https://www.tennisclub15-40.com/",
+      "status": "pending_explicit_coached_appointment",
+      "reviewedUrls": [
+        "https://www.tennisclub15-40.com/",
+        "https://www.tennisclub15-40.com/about/tennisForEveryone",
+        "https://www.tennisclub15-40.com/about/trainings",
+        "https://www.tennisclub15-40.com/about/prices",
+        "https://www.tennisclub15-40.com/about/base"
+      ],
+      "reason": "Full public owner pages after reader accessibility failure confirm training services, quoted individual offers by phone0887500594 and Akademik/Reduta host landmark. Top Book is court rental, not explicit coached-lesson reservation; generic offer inquiry not promoted to appointment. No invented numbered street or price. Held."
+    },
+    {
+      "name": "Flais · distinct group-training branches",
+      "website": "https://www.flaisfitness.bg/",
+      "status": "pending_current_pdf_and_branch_booking_review",
+      "reviewedUrls": [
+        "https://www.flaisfitness.bg/pravila/",
+        "https://www.flaisfitness.bg/documents/",
+        "https://www.flaisfitness.bg/wp-content/uploads/2026/10/Obshti-uslovia-Flais-BG-23.10.2026.pdf",
+        "https://www.flaisfitness.bg/fitnes-knyazhevo/",
+        "https://knyazhevo.flaisfitness.bg/calendar"
+      ],
+      "reason": "Full old HTML terms reviewed but own documents page links newer October23 PDF. PDF extraction output was truncated, so not claiming full current contract review. Knyazhevo actual public current-week calendar partially visible by ordinary GET, but not actual selected future class/reservation route and complete branch tariff. Amaya2 group activities expressly stopped October12; no clone. Keep all branches held; no gym-entry/trial promotion imported."
+    },
+    {
+      "name": "Самокишев Ауто",
+      "website": "https://samokishevauto.bg/",
+      "status": "pending_exact_premises_and_terms",
+      "reviewedUrls": [
+        "https://samokishevauto.bg/",
+        "https://samokishevauto.bg/appointment.html",
+        "https://samokishevauto.bg/services.html",
+        "https://samokishevauto.bg/prices.html"
+      ],
+      "reason": "Actual public owner appointment request form and complete from-price list read. Own home names MalinovaDolina but no exact exercise street found; privacy/terms linked page cachemiss not yet fully read. No invented address or coordinate from unrequested Google map; remains held."
+    },
+    {
+      "name": "CamperShop · service",
+      "website": "https://www.campershop.bg/",
+      "status": "held_access_tls",
+      "reviewedUrls": [
+        "https://www.campershop.bg/page/servizni-uslugi"
+      ],
+      "reason": "Owner service page returned526 status, a likely origin TLS failure. No certificate bypass, alternate-host retry or import performed."
+    },
+    {
+      "name": "Ninja Performance Center",
+      "website": "https://ninjacenterbg.com/",
+      "status": "pending_public_booking_and_host_address_binding",
+      "reviewedUrls": [
+        "https://ninjacenterbg.com/",
+        "https://ninjacenterbg.com/terms",
+        "https://ninjacenterbg.com/refund-cancellation"
+      ],
+      "reason": "Current own35EUR physical individual lesson at CoffitClub, phone0895562212, full short terms/cancel read. Book leads to auth with private-profile next target; no account/login/private page opened. Generic previously agreed-channel clause is not explicit phone-appointment instruction. Primary host Coffit about-us address GorskiPatnik40 found as lead, not finalized exercise-source proof. Hold, no fabricated coach aliases or generic admission."
+    }
+  ],
+  "rejected": [
+    {
+      "name": "Феникс · extra venues",
+      "website": "https://phoenixtk.com/",
+      "reason": "Search cache says10venues but full current own /dojangs says1 Sofia venue, Copenhagen23/23б already baseline; no invented ninebranches."
+    },
+    {
+      "name": "Чудните скали",
+      "website": "https://chudniteskali.com/za-parvi-pat-v-zalata-za-katerene/",
+      "reason": "Actualvenue Breez/YuriGagarinpool/OMV isVarna,notSofia."
+    },
+    {
+      "name": "SReforme",
+      "website": "https://sreforme.bg/",
+      "reason": "FullownhomecontactHristoBotev92PLOVDIV; noSofiabranchproven."
+    },
+    {
+      "name": "Pilates Room",
+      "website": "https://studiopilates.bg/index.php/contacts/",
+      "reason": "FullowncontactJoliotCurie18PLOVDIV. RetailphotoequipmentprojectinSofiaisnotoperatorpremise."
+    }
+  ],
+  "validation": {
+    "schema": "passed",
+    "runtimeRaw": 1438,
+    "otherIntakeFiles": 16,
+    "recordCount": 11,
+    "serviceCount": 11,
+    "audit": {
+      "readyForReview": [
+        "sofia-velikan-studentski-ivan-stranski1",
+        "sofia-velikan-mladost3-gyumyushev265",
+        "sofia-autoklima-evropa80",
+        "sofia-happy-win-slavia-child-tennis",
+        "sofia-vk-tennis-academy-kliment4",
+        "sofia-360tennis-borisova-child-school",
+        "sofia-pro-sport-nsa-kliment22",
+        "sofia-mega-spin-petar-mutafchiev13",
+        "sofia-fireball-tsarigradsko133",
+        "sofia-nuage-pilates-teofil-ganev5a",
+        "sofia-pilates54-mladost1-block54a"
+      ],
+      "pending": [],
+      "rejected": [],
+      "notice": "Schema and duplicate audit only. A reviewer must verify current first-party service, appointment, contact and address facts before explicitly importing any batch. Nothing is published automatically."
+    },
+    "pricing": [
+      {
+        "id": "sofia-velikan-studentski-ivan-stranski1",
+        "state": "service_reviewed",
+        "pricingState": "not_publicly_listed",
+        "checkedOn": "2026-11-13",
+        "reviewedPriceCount": 0
+      },
+      {
+        "id": "sofia-velikan-mladost3-gyumyushev265",
+        "state": "service_reviewed",
+        "pricingState": "not_publicly_listed",
+        "checkedOn": "2026-11-13",
+        "reviewedPriceCount": 0
+      },
+      {
+        "id": "sofia-autoklima-evropa80",
+        "state": "reviewed",
+        "checkedOn": "2026-11-13",
+        "reviewedPriceCount": 1
+      },
+      {
+        "id": "sofia-happy-win-slavia-child-tennis",
+        "state": "reviewed",
+        "checkedOn": "2026-11-13",
+        "reviewedPriceCount": 1
+      },
+      {
+        "id": "sofia-vk-tennis-academy-kliment4",
+        "state": "reviewed",
+        "checkedOn": "2026-11-13",
+        "reviewedPriceCount": 1
+      },
+      {
+        "id": "sofia-360tennis-borisova-child-school",
+        "state": "reviewed",
+        "checkedOn": "2026-11-13",
+        "reviewedPriceCount": 1
+      },
+      {
+        "id": "sofia-pro-sport-nsa-kliment22",
+        "state": "reviewed",
+        "checkedOn": "2026-11-13",
+        "reviewedPriceCount": 1
+      },
+      {
+        "id": "sofia-mega-spin-petar-mutafchiev13",
+        "state": "service_reviewed",
+        "pricingState": "not_publicly_listed",
+        "checkedOn": "2026-11-13",
+        "reviewedPriceCount": 0
+      },
+      {
+        "id": "sofia-fireball-tsarigradsko133",
+        "state": "reviewed",
+        "checkedOn": "2026-11-13",
+        "reviewedPriceCount": 1
+      },
+      {
+        "id": "sofia-nuage-pilates-teofil-ganev5a",
+        "state": "reviewed",
+        "checkedOn": "2026-11-13",
+        "reviewedPriceCount": 1
+      },
+      {
+        "id": "sofia-pilates54-mladost1-block54a",
+        "state": "reviewed",
+        "checkedOn": "2026-11-13",
+        "reviewedPriceCount": 1
+      }
+    ],
+    "sourceMatches": [
+      {
+        "id": "sofia-velikan-studentski-ivan-stranski1",
+        "matches": []
+      },
+      {
+        "id": "sofia-velikan-mladost3-gyumyushev265",
+        "matches": []
+      },
+      {
+        "id": "sofia-autoklima-evropa80",
+        "matches": []
+      },
+      {
+        "id": "sofia-happy-win-slavia-child-tennis",
+        "matches": []
+      },
+      {
+        "id": "sofia-vk-tennis-academy-kliment4",
+        "matches": []
+      },
+      {
+        "id": "sofia-360tennis-borisova-child-school",
+        "matches": []
+      },
+      {
+        "id": "sofia-pro-sport-nsa-kliment22",
+        "matches": []
+      },
+      {
+        "id": "sofia-mega-spin-petar-mutafchiev13",
+        "matches": []
+      },
+      {
+        "id": "sofia-fireball-tsarigradsko133",
+        "matches": []
+      },
+      {
+        "id": "sofia-nuage-pilates-teofil-ganev5a",
+        "matches": []
+      },
+      {
+        "id": "sofia-pilates54-mladost1-block54a",
+        "matches": []
+      }
+    ],
+    "nativePhoneConflicts": [],
+    "nativeReview": "Six known public native premises/identities considered: RS Evropa130, Kerelski Pirin83, Touch Pirin42, Zen Kazbek63, Vesi Sinanishko13 block12, AIM Dianabad/Rusalya. No same owner/contact-premise match; five known published phones also tested explicitly. AIM phone not guessed.",
+    "coordinates": "11 null",
+    "scope": "3 auto_repair and8 reserved fitness;0 generic gym/self-service wash."
+  },
+  "photoHandoff": {
+    "note": "No assets or shared photo maps edited. Root owns exact service-photo approval.",
+    "families": [
+      {
+        "ids": [
+          "sofia-velikan-studentski-ivan-stranski1",
+          "sofia-velikan-mladost3-gyumyushev265"
+        ],
+        "activity": "Staffed tyre fitting/demounting/balancing; reuse exact tyre-machine family, not selfservice wash."
+      },
+      {
+        "ids": [
+          "sofia-autoklima-evropa80"
+        ],
+        "activity": "Computer electronic automobile climate-system diagnostic; not freon refill or generic engine repair."
+      },
+      {
+        "ids": [
+          "sofia-happy-win-slavia-child-tennis",
+          "sofia-360tennis-borisova-child-school"
+        ],
+        "activity": "Child group tennis lesson."
+      },
+      {
+        "ids": [
+          "sofia-vk-tennis-academy-kliment4",
+          "sofia-pro-sport-nsa-kliment22"
+        ],
+        "activity": "One-to-one tennis coaching on court."
+      },
+      {
+        "ids": [
+          "sofia-mega-spin-petar-mutafchiev13",
+          "sofia-fireball-tsarigradsko133"
+        ],
+        "activity": "One-to-one table-tennis coaching; Fireball selected adult."
+      },
+      {
+        "ids": [
+          "sofia-nuage-pilates-teofil-ganev5a",
+          "sofia-pilates54-mladost1-block54a"
+        ],
+        "activity": "Instructor-led group Reformer Pilates."
+      }
+    ]
+  }
+}
+

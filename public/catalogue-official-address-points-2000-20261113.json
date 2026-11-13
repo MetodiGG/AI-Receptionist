@@ -8,10 +8,10 @@
   "sourceDataDate": null,
   "sourceDataDateNote": "The supplied CSV has no embedded as-of date; do not infer the original GeoJSON snapshot date.",
   "sourceFeatureCount": 125245,
-  "scope": "Combined previously reviewed501 full-precision GeoJSON-derived bindings and90 new CSV-derived bindings, without overwriting or changing a previous point.",
+  "scope": "Combined previously reviewed501 full-precision GeoJSON-derived bindings and93 new CSV-derived bindings, without overwriting or changing a previous point.",
   "modifications": "Selected source records and bound to reviewed business address identities; coordinate values unchanged.",
   "semantics": "official_postal_address_points_not_verified_entrances",
-  "pointCount": 591,
+  "pointCount": 594,
   "points": [
     {
       "id": "sofia-abi-beauty-nadezhda",
@@ -22098,6 +22098,120 @@
       "previousCoordinates": null
     },
     {
+      "id": "sofia-bb-care-bogdan15",
+      "name": "Studio BB Care",
+      "coordinates": {
+        "latitude": 42.696491,
+        "longitude": 23.353428,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. Богдан 15",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Оборище",
+        "sourceWebsite": "https://studiobbcare.bg/",
+        "addressId": "44292",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "44292",
+        "region": "Оборище",
+        "settlement": "гр. София",
+        "street": "ул. Богдан",
+        "house": "15",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared full owner-published street and house number against the sole municipal CSV row: Banat17,Bogdan15,OsogovskiProhod1,SvSvKirilIMetodiy90. No nearest/first/centroid or guessed quarter/entrance; six-decimal source postal point, not verified business entrance.",
+        "sourceUrls": [
+          "https://studiobbcare.bg/kontakti/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-dima-style-osogovski1",
+      "name": "Дима Стил · София",
+      "coordinates": {
+        "latitude": 42.680406,
+        "longitude": 23.292689,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. Осоговски проход 1, на ъгъла с ул. Добри Христов",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://dimastyle.com/",
+        "addressId": "92802",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "92802",
+        "region": "Красно село",
+        "settlement": "гр. София",
+        "street": "ул. Осоговски проход",
+        "house": "1",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared full owner-published street and house number against the sole municipal CSV row: Banat17,Bogdan15,OsogovskiProhod1,SvSvKirilIMetodiy90. No nearest/first/centroid or guessed quarter/entrance; six-decimal source postal point, not verified business entrance.",
+        "sourceUrls": [
+          "https://dimastyle.com/saloni",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-new-york-barbershop-kiril90",
+      "name": "New York Barbershop",
+      "coordinates": {
+        "latitude": 42.70303,
+        "longitude": 23.322787,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. Св. св. Кирил и Методий 90",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://www.notino.bg/saloni/new-york-barbershop/",
+        "addressId": "48905",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "48905",
+        "region": "Възраждане",
+        "settlement": "гр. София",
+        "street": "ул. Св. Св. Кирил и Методий",
+        "house": "90",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Manually compared full owner-published street and house number against the sole municipal CSV row: Banat17,Bogdan15,OsogovskiProhod1,SvSvKirilIMetodiy90. No nearest/first/centroid or guessed quarter/entrance; six-decimal source postal point, not verified business entrance.",
+        "sourceUrls": [
+          "https://www.notino.bg/saloni/new-york-barbershop/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
       "id": "sofia-yonidi-solun31",
       "name": "Образователен център Йониди",
       "coordinates": {
@@ -22148,7 +22262,7 @@
       "format": "CSV",
       "sha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
       "sourceFeatureCount": 125245,
-      "pointCount": 90,
+      "pointCount": 93,
       "coordinatePrecisionDecimalPlaces": 6
     }
   ]

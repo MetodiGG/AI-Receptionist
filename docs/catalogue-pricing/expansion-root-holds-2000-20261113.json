@@ -1,0 +1,36 @@
+{
+  "checkedOn": "2026-11-13",
+  "purpose": "Prevent repeated requests or accidental admission of held research leads. These are not public business records or counted additions.",
+  "held": [
+    {
+      "website": "https://www.intellect.bg/",
+      "status": "held_source_terms",
+      "termsUrl": "https://www.intellect.bg/usloviya-za-polzvane",
+      "reason": "Actual full terms expressly restrict both manual and automated copying and non-personal/commercial information use without permission. Stopped after reading; no branch, fee, service or address records imported. No alternate endpoint/provider workaround."
+    },
+    {
+      "website": "https://www.terziiski.com/rt/",
+      "status": "held_exact_premises_and_appointment_evidence",
+      "contactUrl": "https://www.terziiski.com/rt/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/",
+      "reason": "Actual public HTTPS200 home and contact reached after reader inaccessible response; no login, challenge or access-denial bypass. Own contact identifies Sofia but no exact street/house and only a generic message form. No invented premises or explicit selected-service booking invitation accepted; no outside-directory address or fee imported."
+    },
+    {
+      "website": "https://selfio.bg/",
+      "status": "held_actual_booking_menu",
+      "bookingUrl": "https://selfio.bg/booking?service=photoshoot",
+      "reason": "Owned booking document is a neutral services-loading shell; full actual paid menu not rendered. Full own terms read. Rental/self-photo and professional photographer packages are not interchangeable. No account, payment or date/customer fields entered; no inventory imported."
+    },
+    {
+      "website": "https://www.supersnimki.com/",
+      "status": "held_selected_booking_path",
+      "bookingUrl": "https://www.supersnimki.com/booking",
+      "reason": "Actual selected Book destination returned ordinary public HTTPS200 but no appointment form/menu in the inspected document. Price/package facts alone do not establish reviewed booking flow or an independent selected-service phone invitation. No inventory imported."
+    },
+    {
+      "website": "https://fotozona.bg/",
+      "status": "held_service_booking_and_operator_identity",
+      "reason": "Current own tariff, contact and studio/course pages read. Generic contact alone is not an explicit photo-session booking invitation; dated course is not a permanent available course. Potential shared studio/operator needs review; no staff-as-business clone or stale price imported."
+    }
+  ],
+  "uiLimitation": "Owner granted approximately20minutes of public-menu-only Safari control. Three beauty menus were genuinely read before handoff; subsequent native activation hung, was interrupted, and all unobserved menus remain held. No alternate automation channel, private browser state, customer data, forms or reservations used."
+}

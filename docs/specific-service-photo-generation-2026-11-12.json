@@ -4,6 +4,153 @@
   "scope": "Illustrative service-specific photos for approved Sofia catalogue entries; not actual business premises, staff, work or results.",
   "assets": [
     {
+      "id": "sx-auto-ac-electronic-diagnostics",
+      "sourceFile": "exec-fc6c36ee-7415-4f84-9595-5ee71abd030f.png",
+      "sourceSha256": "bf985b73ad9e9184aa6270bb62383f6ea43a403350f66732804f4104049c5174",
+      "file": "public/service-photos/sx-auto-ac-electronic-diagnostics-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 14188,
+      "sha256": "b84b38d42f69c009687a56880909df0bba40570f89f711a445657b90b70079ed",
+      "label": "Компютърна диагностика на автомобилна климатична система",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: square GoRez automotive-service thumbnail legible at64px.\nPrimary request: a fictional professional mechanic in ordinary work clothes performs COMPUTER DIAGNOSTICS of a stationary passenger car's AIR CONDITIONING electronic system. Close medium view through open front door: mechanic connects a credible handheld diagnostic scan tablet via cable beneath dashboard, with the actual car climate-control panel/air vents clearly visible beside the tablet. Mechanic is checking the AC electronics, not filling refrigerant or removing parts. Tablet has simple indistinct generic graphs/icons, no readable text/brand/fault-code claims. Natural workshop daylight, authentic hand/tool/plastic textures, plausible connections and safe parked car.\nConstraints: one square1:1 photograph, no text, watermark, logos, prices, notebook, emoji, CGI or actual business/work claim. Do not substitute manifold pressure gauges, leak sniffer, refrigerant recharge bottle or engine repair for electronic climate diagnostics.",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "bf985b73ad9e9184aa6270bb62383f6ea43a403350f66732804f4104049c5174",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and optimized256pxWebP. Car HVAC electronic scan tablet and actual dashboard climate controls verified, not pressure/leak/recharge equipment. Same adult client roots-only tint followed by rough drying verified, no haircut. No source-business media, text/watermark, neutral workspace or verified-work claim."
+      }
+    },
+    {
+      "id": "sx-hair-root-colour-rough-dry",
+      "sourceFile": "exec-c5e38356-d63a-40f0-b610-9c1cd847dd03.png",
+      "sourceSha256": "7099b46c29090de981abaac00c7040f69eea964942da945c420a5623714628b5",
+      "file": "public/service-photos/sx-hair-root-colour-rough-dry-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 14494,
+      "sha256": "097e089e73b473073640fe829dabf277e721d497e861b1f417d1f8f635e469cb",
+      "label": "Боядисване на корени с подсушаване",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: square specific-service thumbnail for GoRez, readable at64px.\nPrimary request: combined hair service ROOT COLOURING AND ROUGH BLOW-DRYING in a salon, represented by exactly TWO horizontal photo rows stacked inside ONE overall square1:1 canvas. Same fictional adult female client and same fictional hair stylist in both rows. TOP: gloved stylist precisely applies brown colour ONLY at visible regrown hair roots using tint brush and neat partings; no bleach, foils or haircut. BOTTOM: colour treatment complete and rinsed, same stylist gently rough-dries the same woman's naturally loose medium-brown hair with ordinary hair dryer, no scissors, curling/straightening iron, elaborate styled waves or haircut. Warm neutral daylight, realistic skin/hair/material texture, credible hands/tools, no advertising polish.\nConstraints: no text, prices, logos, watermark, emoji, borders or collage beyond these two coherent steps. Generic illustrative activity, not actual business staff/client/work or a promised result.",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "7099b46c29090de981abaac00c7040f69eea964942da945c420a5623714628b5",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and optimized256pxWebP. Car HVAC electronic scan tablet and actual dashboard climate controls verified, not pressure/leak/recharge equipment. Same adult client roots-only tint followed by rough drying verified, no haircut. No source-business media, text/watermark, neutral workspace or verified-work claim."
+      }
+    },
+    {
+      "id": "sx-child-tennis-group",
+      "label": "Групова тренировка по тенис за деца",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: square GoRez service thumbnail, legible at64px.\nStyle: natural realistic photographic service scene with lifelike fictional people, credible professional technique, ordinary skin/fabric/tool textures and soft daylight, restrained colors. One overall square1:1 canvas filled edge-to-edge.\nConstraints: generic illustrative scene, NOT actual named business/staff/client/premises or verified work. No recognizable real people, text, prices, brand logos, watermark, emoji, CGI, borders or notebook-only workspace.\nPrimary request: A real tennis coach guiding three fictional children aged8–11 on a tennis court. Children in ordinary age-appropriate sportswear each hold properly sized strung tennis rackets. One child practices a forehand with a clearly visible yellow tennis ball while the coach gives demonstration at a safe distance; other children wait attentively behind a practice marker. Court net and correct tennis rackets must be visible. This is group TENNIS coaching for children, NOT badminton/table tennis, not adults-only, not just court rental. Clear medium-wide framing of instructor and children.",
+      "sourceFile": "exec-8d54cfc8-798e-4e12-a6d0-8690c01ec0f3.png",
+      "sourceSha256": "d58c21cd6625c2c4c993c6a5dd73bb2bf7c69525f0c596766345faf662a89597",
+      "file": "public/service-photos/sx-child-tennis-group-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 18510,
+      "sha256": "d034852c4b937d48a4371feda4ebc3df7f76d791aff77a6685412a3f108180e9",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "d58c21cd6625c2c4c993c6a5dd73bb2bf7c69525f0c596766345faf662a89597",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and final256pxWebP. Correct age/group/one-to-one tennis versus table-tennis apparatus, men's natural hand care, and workshop tyre fitting plus metal-rim balancing weights verified. No text/watermark, source-business media, neutral workspace or verified-work claim. The initial tyre source is separately rejected, not published."
+      }
+    },
+    {
+      "id": "sx-adult-tennis-individual",
+      "label": "Индивидуална тренировка по тенис за възрастен",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: square GoRez service thumbnail, legible at64px.\nStyle: natural realistic photographic service scene with lifelike fictional people, credible professional technique, ordinary skin/fabric/tool textures and soft daylight, restrained colors. One overall square1:1 canvas filled edge-to-edge.\nConstraints: generic illustrative scene, NOT actual named business/staff/client/premises or verified work. No recognizable real people, text, prices, brand logos, watermark, emoji, CGI, borders or notebook-only workspace.\nPrimary request: One fictional adult tennis student and one adult coach on a tennis court during a one-to-one lesson. Student practices a forehand while coach beside and slightly behind demonstrates grip with a tennis racket, safely separated. Visible yellow tennis ball, correct strung tennis rackets and court net. Exactly one student with one coach, not a group, not a match or court rental, not badminton/table tennis. Natural medium-wide documentary framing.",
+      "sourceFile": "exec-7c8f0da5-7ef9-4833-b08d-aa333004f696.png",
+      "sourceSha256": "868475a33679a53fda80e51356396969a216577336b9db93d08223be225516e7",
+      "file": "public/service-photos/sx-adult-tennis-individual-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 13638,
+      "sha256": "d1e4ab0de7aeb342f0f5455b11b7c71aa533838c196729b0bf3363a64537a3d2",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "868475a33679a53fda80e51356396969a216577336b9db93d08223be225516e7",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and final256pxWebP. Correct age/group/one-to-one tennis versus table-tennis apparatus, men's natural hand care, and workshop tyre fitting plus metal-rim balancing weights verified. No text/watermark, source-business media, neutral workspace or verified-work claim. The initial tyre source is separately rejected, not published."
+      }
+    },
+    {
+      "id": "sx-adult-table-tennis-coaching",
+      "label": "Индивидуална тренировка по тенис на маса за възрастен",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: square GoRez service thumbnail, legible at64px.\nStyle: natural realistic photographic service scene with lifelike fictional people, credible professional technique, ordinary skin/fabric/tool textures and soft daylight, restrained colors. One overall square1:1 canvas filled edge-to-edge.\nConstraints: generic illustrative scene, NOT actual named business/staff/client/premises or verified work. No recognizable real people, text, prices, brand logos, watermark, emoji, CGI, borders or notebook-only workspace.\nPrimary request: One fictional adult table-tennis student receiving a one-to-one lesson from one adult coach in an ordinary indoor sports hall. A proper blue TABLE-TENNIS TABLE with central small net, small orange/white ball, and correctly shaped short solid rubber table-tennis paddles. Coach demonstrates a controlled forehand beside student at table edge, natural hand grips and safe spacing. Clearly table tennis not full-size tennis or badminton, exactly two adults, not a generic desk or notebook. Medium framing shows coach, student, table and net.",
+      "sourceFile": "exec-d640e039-0e8f-4089-8abc-9b2216eb86d7.png",
+      "sourceSha256": "3578aa7b3414e266e0bfc199a98b21873f3b26b87138434976e5672b7b63a62d",
+      "file": "public/service-photos/sx-adult-table-tennis-coaching-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 10870,
+      "sha256": "f40feeda738ab7cf86960f08463c0659499cbd3090260ec499ef3cea8d0cd112",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "3578aa7b3414e266e0bfc199a98b21873f3b26b87138434976e5672b7b63a62d",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and final256pxWebP. Correct age/group/one-to-one tennis versus table-tennis apparatus, men's natural hand care, and workshop tyre fitting plus metal-rim balancing weights verified. No text/watermark, source-business media, neutral workspace or verified-work claim. The initial tyre source is separately rejected, not published."
+      }
+    },
+    {
+      "id": "sx-auto-workshop-tyre-fit-balance",
+      "label": "Демонтаж, монтаж и баланс на автомобилни гуми в сервиз",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: square GoRez service thumbnail, legible at64px.\nStyle: natural realistic photographic service scene with lifelike fictional people, credible professional technique, ordinary skin/fabric/tool textures and soft daylight, restrained colors. One overall square1:1 canvas filled edge-to-edge.\nConstraints: generic illustrative scene, NOT actual named business/staff/client/premises or verified work. No recognizable real people, text, prices, brand logos, watermark, emoji, CGI, borders or notebook-only workspace.\nPrimary request: ONE overall square photographic canvas containing exactly TWO horizontal photo rows, top above bottom, both inside the same square. SAME fictional mechanic and matching passenger-car alloy wheel in a real tyre workshop. TOP: gloved mechanic uses stationary tyre-changing machine with proper bead tools to remove/refit black car tyre onto alloy rim. BOTTOM: same wheel secured on stationary wheel-balancing machine, mechanic applies small balance weight after measurement. Professional safe workshop setting, no spinning exposed wheel or implausible hands. Represents tyre removal/refitting AND balancing, not mobile van assistance, tyre recycling, storage, wheel alignment or just wiping a wheel. No readable machine labels/screens.\nTargeted edit of generated source:\nUse case: precise-object-edit.\nEdit target: the attached generated two-row square tyre-service illustration.\nChange ONLY: remove the tiny vertical white gibberish text along the extreme upper-left edge, leaving ordinary workshop texture; and correct the LOWER photo so the mechanic is applying a small adhesive balancing-weight strip to the INNER METAL BARREL of the alloy rim, never the rubber tyre sidewall. Adjust the hand/weight placement naturally to the exposed metal inner rim. The wheel is secured on the stationary balancing spindle with a plausible clamp. No added writing.\nPreserve: same fictional mechanic, workshop, upper tyre-fitting action, two horizontal photographic rows inside a square, natural photographic look and lighting. Do not add panels, brands, labels, logos, borders or text. It is an illustration, not actual business work.",
+      "sourceFile": "exec-fe3e06d8-b84a-40d4-95e4-9eb8edd70011.png",
+      "sourceSha256": "f4975e7d38f36fcbc5ef3046d73d5513477a9e10e12f16e23b2b1f5d9f70dddc",
+      "file": "public/service-photos/sx-auto-workshop-tyre-fit-balance-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 16360,
+      "sha256": "2dbb70853de488dbca6148de44f3f83dc00ac19d2cf231707be6dc9c17132c32",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "f4975e7d38f36fcbc5ef3046d73d5513477a9e10e12f16e23b2b1f5d9f70dddc",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and final256pxWebP. Correct age/group/one-to-one tennis versus table-tennis apparatus, men's natural hand care, and workshop tyre fitting plus metal-rim balancing weights verified. No text/watermark, source-business media, neutral workspace or verified-work claim. The initial tyre source is separately rejected, not published."
+      }
+    },
+    {
+      "id": "sx-nails-male-natural-manicure",
+      "label": "Мъжки маникюр без лак",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: square GoRez specific-service thumbnail readable at64px.\nPrimary request: professional men's MANICURE in a nail salon. Close medium photo shows a fictional adult male client's clearly masculine hand resting on a clean towel and a nail technician carefully filing and shaping his short natural fingernails. A small amount of client's forearm visible; natural coarse hair and everyday skin texture. No nail polish, gel extensions, bright nail art, feet or toenails. Human hand interaction clearly visible, not a tools-only flatlay or notebook. Soft neutral daylight, authentic skin/glove/file textures, credible safe technique.\nConstraints: square1:1, no writing, prices, watermark, logos, emoji, CGI or real identifying people. Generic illustrative service activity, not actual business staff/client/work.",
+      "sourceFile": "exec-4327c273-73a6-48bf-a3d2-22c24602a58a.png",
+      "sourceSha256": "28ab1a8c50ae612b53d0186b8faba401e61d8e67d3b4c5f1b8629098225af7db",
+      "file": "public/service-photos/sx-nails-male-natural-manicure-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 10686,
+      "sha256": "6fc79c751da26cf9a7c384b31ade2200db4edc889ed2f8581194994821fab84d",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "28ab1a8c50ae612b53d0186b8faba401e61d8e67d3b4c5f1b8629098225af7db",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and final256pxWebP. Correct age/group/one-to-one tennis versus table-tennis apparatus, men's natural hand care, and workshop tyre fitting plus metal-rim balancing weights verified. No text/watermark, source-business media, neutral workspace or verified-work claim. The initial tyre source is separately rejected, not published."
+      }
+    },
+    {
       "id": "sx-auto-headlight-polish-ppf",
       "label": "Полиране на фар и поставяне на защитно фолио",
       "prompt": "Use case: photorealistic-natural\nAsset type: square service thumbnail\nPrimary request: show the actual combined car service 'headlight polishing and protective clear PPF film installation'. A coherent two-panel photographic sequence of the SAME fictional technician and the same plain dark car headlight. Upper panel: technician safely polishing the cloudy headlight with a compact polishing machine. Lower panel: the restored headlight receiving transparent PPF film, worker's gloved hands carefully smoothing the clearly visible transparent film with a small squeegee. Real workshop, plausible headlight shape, natural materials and hands.\nStyle: natural photorealistic service photography, warmly neutral workshop lighting, close framed subject readable at64px. Exactly two photographic panels, no extra props or decorative collage.\nConstraints: no logos, text, watermarks, prices, notebook, emoji; generic illustrative scene, not claimed real business work. No applied coating bottle substituted for transparent film, no window glass instead of headlight.",
@@ -24153,6 +24300,11 @@
     }
   ],
   "rejectedSources": [
+    {
+      "sourceFile": "exec-34e33441-51a3-4a7e-9063-158126e6796b.png",
+      "sourceSha256": "481270bd5c46c77ed7eb3504847a17dc4326f4609f1940d91d916647c569095b",
+      "reason": "Generated tyre-service source rejected: tiny vertical text and lower-panel weight on rubber sidewall. Replaced by targeted built-in image edit; corrected source reviewed with weights on inner metal barrel."
+    },
     {
       "id": "sx-climbing-trio",
       "sourceFile": "exec-2232f855-a3e5-4344-8e1c-795ba406fcec.png",

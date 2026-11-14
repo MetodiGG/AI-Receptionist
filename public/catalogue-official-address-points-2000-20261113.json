@@ -8,10 +8,10 @@
   "sourceDataDate": null,
   "sourceDataDateNote": "The supplied CSV has no embedded as-of date; do not infer the original GeoJSON snapshot date.",
   "sourceFeatureCount": 125245,
-  "scope": "Combined original501fullprecision and168 currentCSVbindings, always original501thenexactsubsetorder; no pointcoordinate rewritten.",
+  "scope": "Combined original501fullprecision and178 currentCSVbindings, always original501thenexactsubsetorder; no pointcoordinate rewritten.",
   "modifications": "Selected source records and bound to reviewed business address identities; coordinate values unchanged.",
   "semantics": "official_postal_address_points_not_verified_entrances",
-  "pointCount": 669,
+  "pointCount": 679,
   "points": [
     {
       "id": "sofia-abi-beauty-nadezhda",
@@ -18710,6 +18710,396 @@
         "evidence": "Manually compared the owner-sourced Sofia street/house or explicit quarter/block/entrance with the sole exact municipal candidate. Postal point, not a verified business entrance. No nearest or centroid disambiguation.",
         "sourceUrls": [
           "https://englishworldacademy.com/контакти/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-allegro-vivace-andrey-lyapchev72",
+      "name": "Алегро Виваче · Младост 2",
+      "coordinates": {
+        "latitude": 42.648348,
+        "longitude": 23.374425,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ж.к. Младост 2, бул. „Андрей Ляпчев“ 72",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Младост 2",
+        "sourceWebsite": "https://suggestopediabg.com/",
+        "addressId": "94959",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "94959",
+        "region": "Младост",
+        "settlement": "гр. София",
+        "street": "бул. Андрей Ляпчев",
+        "house": "72",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Rootindividuallycomparedall10actualownerstreet/fullhouse/suffix againstsoleexactmunicipalCSVrow: Lyapchev72,Manov18,Petkov111,PimenZografski14,JacquesDuclos55,Bulgaria60Г,AsenYordanov11,Slivnitsa178,Hubavka8,Hubcha2. Exactsixdecimalsretained, postaladdressnotverifiedbusinessdoor/room. Sharedbuildingoperatorsmanuallydistinguishedbutnopointborrowedfromothermerchant. No first/nearest/houserange/campuscentroid/landmarksubstitution. NVSpark391,BioFaculty8andBalsha18stadiumexplicitlyheldpendingphysical-sitecorroboration; notincluded.",
+        "sourceUrls": [
+          "https://suggestopediabg.com/",
+          "https://suggestopediabg.com/contact/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-allegro-vivace-dimitar-manov18",
+      "name": "Алегро Виваче · Иван Вазов",
+      "coordinates": {
+        "latitude": 42.67969,
+        "longitude": 23.309521,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, кв. Иван Вазов, ул. „Димитър Манов“ 18",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Иван Вазов",
+        "sourceWebsite": "https://suggestopediabg.com/",
+        "addressId": "5115",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "5115",
+        "region": "Триадица",
+        "settlement": "гр. София",
+        "street": "ул. Димитър Манов",
+        "house": "18",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Rootindividuallycomparedall10actualownerstreet/fullhouse/suffix againstsoleexactmunicipalCSVrow: Lyapchev72,Manov18,Petkov111,PimenZografski14,JacquesDuclos55,Bulgaria60Г,AsenYordanov11,Slivnitsa178,Hubavka8,Hubcha2. Exactsixdecimalsretained, postaladdressnotverifiedbusinessdoor/room. Sharedbuildingoperatorsmanuallydistinguishedbutnopointborrowedfromothermerchant. No first/nearest/houserange/campuscentroid/landmarksubstitution. NVSpark391,BioFaculty8andBalsha18stadiumexplicitlyheldpendingphysical-sitecorroboration; notincluded.",
+        "sourceUrls": [
+          "https://suggestopediabg.com/",
+          "https://suggestopediabg.com/contact/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-yonev-kanchelov-dimitar-petkov111",
+      "name": "Адвокатско дружество Йонев и Канчелов",
+      "coordinates": {
+        "latitude": 42.698745,
+        "longitude": 23.300219,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. „Димитър Петков“ 111, ет. 2, офис 4",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://www.vbt-law.com/",
+        "addressId": "104298",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "104298",
+        "region": "Възраждане",
+        "settlement": "гр. София",
+        "street": "ул. Димитър Петков",
+        "house": "111",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Rootindividuallycomparedall10actualownerstreet/fullhouse/suffix againstsoleexactmunicipalCSVrow: Lyapchev72,Manov18,Petkov111,PimenZografski14,JacquesDuclos55,Bulgaria60Г,AsenYordanov11,Slivnitsa178,Hubavka8,Hubcha2. Exactsixdecimalsretained, postaladdressnotverifiedbusinessdoor/room. Sharedbuildingoperatorsmanuallydistinguishedbutnopointborrowedfromothermerchant. No first/nearest/houserange/campuscentroid/landmarksubstitution. NVSpark391,BioFaculty8andBalsha18stadiumexplicitlyheldpendingphysical-sitecorroboration; notincluded.",
+        "sourceUrls": [
+          "https://www.vbt-law.com/",
+          "https://www.vbt-law.com/contact",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-vm-dent-pimen-zografski14",
+      "name": "VM Dent · дентална клиника",
+      "coordinates": {
+        "latitude": 42.665462,
+        "longitude": 23.350432,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. Свети Пимен Зографски 14",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://vmdent.com/",
+        "addressId": "96366",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "96366",
+        "region": "Изгрев",
+        "settlement": "гр. София",
+        "street": "ул. Свети Пимен Зографски",
+        "house": "14",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Rootindividuallycomparedall10actualownerstreet/fullhouse/suffix againstsoleexactmunicipalCSVrow: Lyapchev72,Manov18,Petkov111,PimenZografski14,JacquesDuclos55,Bulgaria60Г,AsenYordanov11,Slivnitsa178,Hubavka8,Hubcha2. Exactsixdecimalsretained, postaladdressnotverifiedbusinessdoor/room. Sharedbuildingoperatorsmanuallydistinguishedbutnopointborrowedfromothermerchant. No first/nearest/houserange/campuscentroid/landmarksubstitution. NVSpark391,BioFaculty8andBalsha18stadiumexplicitlyheldpendingphysical-sitecorroboration; notincluded.",
+        "sourceUrls": [
+          "https://vmdent.com/",
+          "https://vmdent.com/kontakti/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-j-auto-jacques-duclos55",
+      "name": "J Auto · Джей Ауто",
+      "coordinates": {
+        "latitude": 42.718933,
+        "longitude": 23.359752,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, Малашевци, ул. Жак Дюкло 55",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Малашевци",
+        "sourceWebsite": "https://japanautoservice.com/",
+        "addressId": "90121",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "90121",
+        "region": "Подуяне",
+        "settlement": "гр. София",
+        "street": "ул. Жак Дюкло",
+        "house": "55",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Rootindividuallycomparedall10actualownerstreet/fullhouse/suffix againstsoleexactmunicipalCSVrow: Lyapchev72,Manov18,Petkov111,PimenZografski14,JacquesDuclos55,Bulgaria60Г,AsenYordanov11,Slivnitsa178,Hubavka8,Hubcha2. Exactsixdecimalsretained, postaladdressnotverifiedbusinessdoor/room. Sharedbuildingoperatorsmanuallydistinguishedbutnopointborrowedfromothermerchant. No first/nearest/houserange/campuscentroid/landmarksubstitution. NVSpark391,BioFaculty8andBalsha18stadiumexplicitlyheldpendingphysical-sitecorroboration; notincluded.",
+        "sourceUrls": [
+          "https://japanautoservice.com/",
+          "https://japanautoservice.com/contact/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-bestform-bulgaria60g",
+      "name": "BestForm Reformer Pilates",
+      "coordinates": {
+        "latitude": 42.668473,
+        "longitude": 23.290274,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, бул. България 60Г",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://bestform.bg/",
+        "addressId": "91590",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "91590",
+        "region": "Красно село",
+        "settlement": "гр. София",
+        "street": "бул. България",
+        "house": "60Г",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Rootindividuallycomparedall10actualownerstreet/fullhouse/suffix againstsoleexactmunicipalCSVrow: Lyapchev72,Manov18,Petkov111,PimenZografski14,JacquesDuclos55,Bulgaria60Г,AsenYordanov11,Slivnitsa178,Hubavka8,Hubcha2. Exactsixdecimalsretained, postaladdressnotverifiedbusinessdoor/room. Sharedbuildingoperatorsmanuallydistinguishedbutnopointborrowedfromothermerchant. No first/nearest/houserange/campuscentroid/landmarksubstitution. NVSpark391,BioFaculty8andBalsha18stadiumexplicitlyheldpendingphysical-sitecorroboration; notincluded.",
+        "sourceUrls": [
+          "https://bestform.bg/",
+          "https://bestform.bg/kontakt/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-malketov-asen-yordanov11",
+      "name": "Автосервиз Малкетов",
+      "coordinates": {
+        "latitude": 42.673125,
+        "longitude": 23.388451,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, СПЗ Слатина, бул. Асен Йорданов 11",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Слатина",
+        "sourceWebsite": "https://malketov.com/",
+        "addressId": "23134",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "23134",
+        "region": "Слатина",
+        "settlement": "гр. София",
+        "street": "бул. Асен Йорданов",
+        "house": "11",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Rootindividuallycomparedall10actualownerstreet/fullhouse/suffix againstsoleexactmunicipalCSVrow: Lyapchev72,Manov18,Petkov111,PimenZografski14,JacquesDuclos55,Bulgaria60Г,AsenYordanov11,Slivnitsa178,Hubavka8,Hubcha2. Exactsixdecimalsretained, postaladdressnotverifiedbusinessdoor/room. Sharedbuildingoperatorsmanuallydistinguishedbutnopointborrowedfromothermerchant. No first/nearest/houserange/campuscentroid/landmarksubstitution. NVSpark391,BioFaculty8andBalsha18stadiumexplicitlyheldpendingphysical-sitecorroboration; notincluded.",
+        "sourceUrls": [
+          "https://malketov.com/",
+          "https://malketov.com/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-simda-slivnitsa178-dance",
+      "name": "SIMDA · Sofia International Music & Dance Academy",
+      "coordinates": {
+        "latitude": 42.704331,
+        "longitude": 23.325092,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, бул. Сливница 178",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://simda.bg/",
+        "addressId": "49666",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "49666",
+        "region": "Оборище",
+        "settlement": "гр. София",
+        "street": "бул. Сливница",
+        "house": "178",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Rootindividuallycomparedall10actualownerstreet/fullhouse/suffix againstsoleexactmunicipalCSVrow: Lyapchev72,Manov18,Petkov111,PimenZografski14,JacquesDuclos55,Bulgaria60Г,AsenYordanov11,Slivnitsa178,Hubavka8,Hubcha2. Exactsixdecimalsretained, postaladdressnotverifiedbusinessdoor/room. Sharedbuildingoperatorsmanuallydistinguishedbutnopointborrowedfromothermerchant. No first/nearest/houserange/campuscentroid/landmarksubstitution. NVSpark391,BioFaculty8andBalsha18stadiumexplicitlyheldpendingphysical-sitecorroboration; notincluded.",
+        "sourceUrls": [
+          "https://simda.bg/",
+          "https://simda.bg/контакти/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-iskra-iskrenova-hubavka8",
+      "name": "Нотариус Искра Искренова",
+      "coordinates": {
+        "latitude": 42.679925,
+        "longitude": 23.362641,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, Гео Милев, ул. „Хубавка“ 8, партер",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Гео Милев",
+        "sourceWebsite": "https://fidosova.bg/",
+        "addressId": "24011",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "24011",
+        "region": "Слатина",
+        "settlement": "гр. София",
+        "street": "ул. Хубавка",
+        "house": "8",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Rootindividuallycomparedall10actualownerstreet/fullhouse/suffix againstsoleexactmunicipalCSVrow: Lyapchev72,Manov18,Petkov111,PimenZografski14,JacquesDuclos55,Bulgaria60Г,AsenYordanov11,Slivnitsa178,Hubavka8,Hubcha2. Exactsixdecimalsretained, postaladdressnotverifiedbusinessdoor/room. Sharedbuildingoperatorsmanuallydistinguishedbutnopointborrowedfromothermerchant. No first/nearest/houserange/campuscentroid/landmarksubstitution. NVSpark391,BioFaculty8andBalsha18stadiumexplicitlyheldpendingphysical-sitecorroboration; notincluded.",
+        "sourceUrls": [
+          "https://fidosova.bg/",
+          "https://fidosova.bg/контакти/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-krasimir-belezhkov-hubcha2",
+      "name": "Нотариус Красимир Бележков",
+      "coordinates": {
+        "latitude": 42.677208,
+        "longitude": 23.286381,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, Красно село, ул. „Хубча“ 2, ет. 2, над супермаркет „Фантастико“",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Красно село",
+        "sourceWebsite": "https://notarius617.com/",
+        "addressId": "19562",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "19562",
+        "region": "Красно село",
+        "settlement": "гр. София",
+        "street": "ул. Хубча",
+        "house": "2",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Rootindividuallycomparedall10actualownerstreet/fullhouse/suffix againstsoleexactmunicipalCSVrow: Lyapchev72,Manov18,Petkov111,PimenZografski14,JacquesDuclos55,Bulgaria60Г,AsenYordanov11,Slivnitsa178,Hubavka8,Hubcha2. Exactsixdecimalsretained, postaladdressnotverifiedbusinessdoor/room. Sharedbuildingoperatorsmanuallydistinguishedbutnopointborrowedfromothermerchant. No first/nearest/houserange/campuscentroid/landmarksubstitution. NVSpark391,BioFaculty8andBalsha18stadiumexplicitlyheldpendingphysical-sitecorroboration; notincluded.",
+        "sourceUrls": [
+          "https://notarius617.com/",
+          "https://notarius617.com/контакти/",
           "https://urbandata.sofia.bg/dataset/address_sofia-zip"
         ]
       },

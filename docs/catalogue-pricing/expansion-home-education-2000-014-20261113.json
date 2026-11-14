@@ -1,0 +1,226 @@
+{
+  "rootIntegrationReview": {"checkedAtUtc":"2026-11-14T03:06:46.260Z","note":"Rootread4fullrecords/reviews andactualadvanceconsultationlinkage. Threegenuinelyunpublishedconsultationsnotstatutorytransactionfees. BelezhkovLITERAL4.09EURPERHOUR EXVAT+20percent preserved, NOTcomputed4.91visit/8BGNconversion orfixed60min. Notaries/staff/floorsoneofficeeach, no walk-inactastimeslot. Existinglegalconsultimagepersonallyviewed; range95–97nopin/firstnumberguess.","identity":"Only newlyreviewednormalizedinventoryidentitiesassigned; existingbaseline/pricereviewfingerprintsuntouched; originalfreeze/sourceobservationdatespreserved."},
+  "batch": "home-education-2000-014-20261113",
+  "checkedOn": "2026-11-14",
+  "status": "frozen_source_complete",
+  "sourceModule": "lib/discovery/catalogue-data/neighborhood-home-education-2000-014-20261113.mjs",
+  "dateConvention": "UTCcalendarcheckedOn14; filename13intakeidentifier only. Actualsource reviewcompletiontimestamp incheckedAtUtc, no backdating. AppointmenttimesEurope/Sofia.",
+  "summary": {
+    "includedBusinesses": 4,
+    "includedServices": 4,
+    "literalPriceFacts": 1,
+    "strictUnpublishedReceipts": 3,
+    "phoneBookings": 4,
+    "ownedForms": 0,
+    "premises": 4,
+    "serviceAreas": 0,
+    "coordinates": 0,
+    "fixedDurationFacts": 0,
+    "weeklyHoursRows": 3,
+    "ledgerCases": 12,
+    "includedCases": 4,
+    "heldOrPendingCases": 5,
+    "rejectedCases": 2,
+    "reservedCases": 1
+  },
+  "ledger": [
+    {
+      "order": 1,
+      "status": "included",
+      "id": "sofia-dahterov-tsarigradsko5",
+      "checkedAtUtc": "2026-11-14T02:34:52Z",
+      "primaryEvidence": [
+        "https://dahterov.com/",
+        "https://dahterov.com/contacts/",
+        "https://dahterov.com/services/property-deals/"
+      ],
+      "booking": "ActualrootBook→Contact first, rootexplicitadvanceappointmentREQUIRED propertyNOTARYconsultation. Selectedpropertypageexplicitcallforconsultationbytitle+body, ownContact29442887/29461991/29441804. OneactualTsarigradsko5entranceB notfloor/staffclone. All3phones/host/name/address runtime/WIPpreflight0.",
+      "pricing": "SelectedpretransactionCONSULTATION no publishedfee. Samepropertypage separatelypublishes BGNmaterialinterestNOTARIALTRANSACTIONfees/exVAT/extras, notconsultfee; notconverted orimported, no whole-tariff-pricecompletionclaim. No inaccessibleactualconsultationmenu; strictnot_publicly_listed coversONLYconsultation, notfree.",
+      "hours": "OwnofficeMonFri08:30–17:30, Contactweekendclosed; statutoryTRANSACTION08:30–13:30 not substitutedconsultationhours. No fixedduration/coords.",
+      "sourcePolicy": "Actualrootallhref/contact/selectedproperty/footer no separateTerms/privacy/pricemenu surfaced. Ordinarycopyright2023 only, no blanketlicence/unseenpolicy/legalclearance; independentlywordedminimalfacts only, no legalrequirements/prose/templates/photos/teamcredentials copied. Robotspublicallow; no externalMaps/registry/API/call/form/document/payment/action/UI orgeocode."
+    },
+    {
+      "order": 2,
+      "status": "included",
+      "id": "sofia-iskra-iskrenova-hubavka8",
+      "checkedAtUtc": "2026-11-14T02:34:52Z",
+      "primaryEvidence": [
+        "https://fidosova.bg/",
+        "https://fidosova.bg/контакти/",
+        "https://fidosova.bg/услуги/"
+      ],
+      "booking": "ActualownContactexplicitphoneBOOKFORCONSULTATION, sameServiceindexconsultationcall884800101/877229622. ActualSofiaGeoMilevHubavka8groundfloor withsamecurrenthours/phones. No appointment/customerfields/call submitted.",
+      "identity": "CurrentnameIskraFidosovaIskrenova+legacyfidosova.bghost ONEpractice, no assistant/staff/namealiasclones. Bothphones/host/operator/address runtime+ALL2000WIP0.",
+      "pricing": "Onlynotarialconsultation genuinelyno numericfee/range/duration or tariffpricelink inactualBook/rootnav/footer/selectedfullServicesindex. Underlyingnotarialacts/drafting/transfers not imported orclaimedunpriced; no blockedmenu/0fee/statutoryconversion. Strictservice_reviewed notprice-reviewed.",
+      "hours": "MonFri09–17:30Sat10–14 actualconsultation/service/officehours. No Sundayclosure/holiday/duration guess.",
+      "sourcePolicy": "Robotsallowpublicexceptwp-admin, no wp-admin/ajax/APIrequested. Robustactualrootallhref/footer/contact/services no separateTerms/privacy/tarifflink surfaced. Ordinarycopyright only, no blanketlicence/legalclearance claim; minimal independentlywordedfacts, no instructions/news/articles/photos/teamqualifications/reviews copied, no Maps/externalregistry/datawrites."
+    },
+    {
+      "order": 3,
+      "status": "held_current_tariff",
+      "name": "Нотариус Катранджиева №835",
+      "website": "https://notarius835.bg/",
+      "primaryEvidence": [
+        "https://notarius835.bg/",
+        "https://notarius835.bg/kontakti/",
+        "https://notarius835.bg/taksi-tarifa/",
+        "https://notarius835.bg/notarialni-aktove-dokumenti/"
+      ],
+      "reason": "OwnactualBook genuineadvanceDAY/HOUR documentreview; feespagefull10382charhistoricstatutory2009BGN rates includesoralconsult8BGNperstartedhourExVAT anddocumentcheckingformulas. CurrentEURmerchantfeeuncertain, no automaticstatutoryconversion, nounpublishedreceiptwhenactualtariffpublished. Holdnoincludedrow pendingcurrentfee/serviceeligibilityreview.",
+      "booking": "OwnContact offhoursappointmentsrequireATLEAST2daysbeforedesiredday/hour; no 24/7orfreeguarantee. Mobile899161698 valid; sourceprintedlandline(+359)9530009 malformed/short, NOTcorrected/invented29530009. OwnHristoBotev1A exactaddress, no point/quarterguess.",
+      "sourcePolicy": "Publicrobotsallowexceptwp-admin; rootnav/footer no policy/pricetermsotherthan actualTarifffound. No externaltemplates/maps/calendar/customerdata orsubmission."
+    },
+    {
+      "order": 4,
+      "status": "included",
+      "id": "sofia-krasimir-belezhkov-hubcha2",
+      "checkedAtUtc": "2026-11-14T02:40:40Z",
+      "primaryEvidence": [
+        "https://notarius617.com/#rezervacii",
+        "https://notarius617.com/нотариални-услуги/",
+        "https://notarius617.com/контакти/",
+        "https://notarius617.com/notarialni-taksi/",
+        "https://notarius617.com/politika-za-poveritelnost/"
+      ],
+      "booking": "ActualrootBookanchorformonlyloadingstate(notclaimedrendered/GoogleCalendarreview). GenuineINDEPENDENTVOICEalternative: selectedServices listsCONSULTATIONS amongONLYADVANCEBOOK services, thenexplicit02-9876645forphonebooking withinworkingtime; Contactrepeatsexactinstruction/venue. No Googleiframe/API/formaccess, no date/input/submission.",
+      "pricing": "LiteralOWNERpublishedcurrentEUR4.09 PERHOUR oralconsultation EXVAT, +20%VATexplicitpublicdesc. NOT ourconversion8BGN orcomputed4.91 orfixedvisitfee. No fixed60minduration/startedhourroundinginferredfromcurrentpageonlyhourunit. Otherdocument/notarialfeeconditionsseparate, no fullpricemenuimport.",
+      "sourcePolicy": "Full3558char24Oct2026privacy ordinaryGDPR/technicalsecurity/forms; rootallhref no separateTerms surfaced, no DB/access/noncommercialwholewebsitebanobserved orlicence/legalclearanceclaim. No templates/statutes/qualifications/prose/images copied.",
+      "identity": "ActualHubcha2floor2KrasnoSeloFANTASTIKOoneoffice, notnearbygovernmentaddresses/otherlocationlists asbranches. Book29876645+alt887326767/currentoperator/host/address runtimeWIPzero.",
+      "hours": "ContactactualMonFri09–17 phonebook/officehours, no weekendclosure/duration/coords guesses."
+    },
+    {
+      "order": 5,
+      "status": "held_unrendered_book_and_conflicting_rules_identity",
+      "name": "Нотариус Александър Петров",
+      "website": "https://notariussofia.bg/",
+      "primaryEvidence": [
+        "https://notariussofia.bg/",
+        "https://notariussofia.bg/kalendar/",
+        "https://notariussofia.bg/pravila/"
+      ],
+      "reason": "ActualBookcalendar onlytitle27char no actualservice/day/time state reviewed. LinkedRules full7537char unexpectedlypatentlawfirm/PatentsOffices/coowners/patentfiling50%prepayment unlikeclaimednotary; operator/fee/applicabilityunresolved, notimported asnotarypaymentconditions. No alternativeendpoint/UI orpriceabsenceclaim; no record.",
+      "sourcePolicy": "No explicitautomation/DBbanobservedfullRules, confidentialNONPUBLICclientmaterialsnotwholepublicsiteban. Heldactualservice/booking/rulesbinding notclaimeduniversalprohibition.",
+      "privacy": "No privateform/customerinputs/maps/API orcalls, no online-onlyservice_area workaround."
+    },
+    {
+      "order": 6,
+      "status": "rejected_duplicate",
+      "name": "ИК Кантора / Ирина Константинова",
+      "website": "https://irinakonstantinova.com/",
+      "reason": "Runtimeexistingsofia-irina-konstantinova andpriorintakeledgers, onlysearch/localpreflight no newownedrequest."
+    },
+    {
+      "order": 7,
+      "status": "held_current_tariff",
+      "name": "Нотариус Станислав Филипов",
+      "website": "https://notariusfilipov.com/",
+      "primaryEvidence": [
+        "https://notariusfilipov.com/",
+        "https://notariusfilipov.com/bg/kontakti",
+        "https://notariusfilipov.com/bg/notarialni-tarifi"
+      ],
+      "reason": "GenuinerealownconsultationBook andpriorappointmentofficeHristoBelchev7floor3,877687531/29632721. TariffONLY8BGN/houroralconsultationExVAT; footer2026butnews2019, no explicitfeecurrencyupdate. Currentfeeuncertain heldconservativelynotnot_publicly_listed/automaticconversion. RootaskednarrowliteralBGNpolicydecision; no row yet.",
+      "access": "Robotsnormal500YiiNotFound error(notchallenge/403); ordinarypublicroot/contact/tariffHTTP200 readable, no API/alternatehost/privatepath followed. Rootallnav/footer no separateTerms/privacy surfaced exceptlegalGDPR/AMLlegislationtab(notcopied).",
+      "hours": "ActualpriorbookMonThu09–17Fri09–15:30; not importeduntilwholecandidateeligibilityclear.",
+      "booking": "OwnrootandContactReserveconsultation/selectedservicerequestform, no form/customerfields/action/consent/callsubmitted.",
+      "rootScopeClarification": "ParentclarifiedBGNalone/oldnews/auto2026footer DOESNOTproveexpiry; literalobservedBGNcanqualify ifclearCURRENTmerchantoffer, not merelyreproducednormative2009tariff. Currentpublicpage genericТарифазанотариусите editednormativetable/sourceversionbindinguncertain; conservativeHOLDnotclaimexpiredorunpublished. No EURconversion."
+    },
+    {
+      "order": 8,
+      "status": "held_unrendered_actual_book",
+      "name": "Нотариус Анна Найденова",
+      "website": "https://notariusnaydenova.eu/",
+      "primaryEvidence": [
+        "https://notariusnaydenova.eu/robots.txt",
+        "https://notariusnaydenova.eu/"
+      ],
+      "reason": "Publicrobotsallow/rootnormalHTTP200JSonly78charstitle/noactualanchor/Book/menu/Terms/contacts renderedforreader. SearchindexclaimsrealMladostvenue+phone, notacceptedwithoutactualBook/sourcecurrentreview. No endpointguess/privateAPI/alternateprovider/UI orpriceabsenceclaim; holdrendering."
+    },
+    {
+      "order": 9,
+      "status": "pending_selected_service_inventory_and_fee_scope",
+      "name": "Нотариус Евгения Братоева",
+      "website": "https://ebratoeva.bg/",
+      "primaryEvidence": [
+        "https://ebratoeva.bg/",
+        "https://ebratoeva.bg/bg/index.php",
+        "https://ebratoeva.bg/bg/contacts.php",
+        "https://ebratoeva.bg/bg/dejnosti.php",
+        "https://ebratoeva.bg/bg/priem.php"
+      ],
+      "booking": "Actualrootexplicitphoneadvancemeeting29816853/29870950/889934466; receptionpropertydocumentsprovidedfirstthenFIXEDtimeforreception+execution, otherendorsementswalkinpossible. DoNOTinventseparatepaidconsultationnotlistedintheServicesindex; no selectedrowyet.",
+      "reason": "Actualvenue/phone/appointmentstrong butpreciseeligibletransactionoffering/completepublicfee-sourcescope notreconciled; rootServicesreferenceSpr.php unreviewedso no claimgenuinelyunpublishedwholetransactiontariff. Holdselectedinventory ratherthanforcegenericconsultationorfreepreparatoryvisit.",
+      "address": "OWNcurrent89EvlogiHristoGeorgievi/entranceA/floor1, not externalaggregator89A/floor2. Onlyownsourcefactsconsidered, no municipalpoint/geocode.",
+      "hours": "OwnreceptionMonFri09–17:30, SaturdayONLYprioragreement/no numericSaturdayhours invented; offhoursaddsstatutorysupplementnotcalculated.",
+      "access": "Publicrobotsdisallow*.inc andformsent.php; noneaccessed. OneboundednormalrootGETeffectiveURLconfirmedhttps://ebratoeva.bg/bg/index.php before resolvingrelativecontact/services/reception. No sendform.php/mail/action/GoogleMaps/registryvalidatorlinksopened; no clientdocuments/phone/UI/customerwrite."
+    },
+    {
+      "order": 10,
+      "status": "included",
+      "id": "sofia-violeta-angelova-james-bourchier95-97",
+      "checkedAtUtc": "2026-11-14T02:52:20Z",
+      "primaryEvidence": [
+        "https://www.angelova789.com/"
+      ],
+      "booking": "ENTIREactualonepage3464charbody/allhref358chars reviewed: selectedpropertyserviceexplicitADVANCEAPPOINTMENTforconsultationonsubmittedownershipdocs +SAMEownedpage's soleactualphone877900444/email. Genuinephonearrangementlinkage rootreviewed, notgenericcontact-only; no inventedverbatimcalltobook/callback/calendar/form/instantconfirmation.",
+      "pricing": "No numericconsultationfee/range/duration, tariff/Priceslink orblockedactualBookmenu onallonepage/nav/footer. Strictnot_publicly_listed ONLYincludedconsultation, notallstatutorynotaryactsfree/unpriced. Missingpriceabsent, service_reviewed notprice-reviewed.",
+      "identity": "OneactualVioletaAngelova(notLyudmilaSTOPhost) practice atJamesBourchier95–97firstabovegroundfloorLozenets. Fivejurists/twoclerks/severalroomsONEoperator, no staff/roomclones; finalruntime+ALLotherWIP host/phone/name/address clear.",
+      "hours": "No numericweeklyhours/duration published, omitted; coordinatesnull.",
+      "sourcePolicy": "Robotsallowpublicexceptwp-admin, no blockedpathsrequested. Ownallnav/Book/service/footer no separateTerms/privacy/pricelink surfaced, footerstatesnotarysiteownership. Minimalindependentlywordedfacts only, no licence/unseenpolicy/legalclearance/prose/legalinstructions/teamcredentials/photos/reviews copied. No forms/date/customerdocuments/call/consent/payment/actions/API/maps/geocode/UI."
+    },
+    {
+      "order": 11,
+      "status": "excluded_medical_scope_search_only",
+      "name": "Dr Sasho Raykov",
+      "website": "https://raykovpractice.com/",
+      "reason": "Searchdiscoveryonly, specialtyunknownbyme soNO psychiatristassumption/ownhostGET. Rootindependentindexedreview foundreproductive/gynaecological/IVF physician, outsideownerpermittedmedicalscope; excluded.",
+      "noRequests": "Noownhostrequestedbythisauthor, noclinicalinventorycopied."
+    },
+    {
+      "order": 12,
+      "status": "reserved_other_reviewer",
+      "name": "Existea",
+      "website": "https://existea.com/",
+      "reason": "Search-onlypsychlead passedtorootprivatepracticeowner; rootreservedactualBook/fees/Terms. 90minfirstincl30free isNOTwholeFREEservice; no row/ownhostrequests fromthisauthor."
+    }
+  ],
+  "checkedAtUtc": "2026-11-14T02:53:46Z",
+  "photoRecommendations": [
+    [
+      "sofia-dahterov-tsarigradsko5",
+      "consulting",
+      "Консултация с нотариус по документи за имот в София",
+      "legal-consultation"
+    ],
+    [
+      "sofia-iskra-iskrenova-hubavka8",
+      "consulting",
+      "Консултация за нотариални документи и удостоверявания",
+      "legal-consultation"
+    ],
+    [
+      "sofia-krasimir-belezhkov-hubcha2",
+      "consulting",
+      "Устна нотариална консултация с предварително записване",
+      "legal-consultation"
+    ],
+    [
+      "sofia-violeta-angelova-james-bourchier95-97",
+      "consulting",
+      "Предварителна нотариална консултация по имотни документи",
+      "legal-consultation"
+    ]
+  ],
+  "photoReview": "legal-consultation registeredexistingasset viewedread-only2026-11-14T02:27:05Z: inpersonprofessional/clientdiscussionoverdossier, appropriateactualCONSULTATIONS; doesNOTclaimnotarialstamp/signing/propertytransfer. All4matcherneutralbeforeexactrootassociations. No newassetneeded; no sharedmap/manifest/IDs/assets edits.",
+  "verification": {
+    "schema": "4validated",
+    "existingRuntimePlusAllOther2000Intakes": 1658,
+    "audit": "4ready/0pending/0rejected",
+    "approval": "4approved",
+    "pricing": "1reviewedliteralprice,3service_reviewed genuineunpublished; ephemeralidentityforgateONLY, no persistedinventoryIdentity",
+    "receiptFix": "Removed #rezervacii from persisted617 reviewedUrls because safeBookingUrl rejectsfragments; actualsamehomepage isreviewedcanonicalURL, actualanchorobservation retainedinnotes/ledger. No sourcefact/gate weakened.",
+    "focusedTests": "16passed tests/catalogue-pricing-review.test.mjs +tests/catalogue-audit.test.mjs",
+    "notRunByAuthor": "No fullsuite/Python/productionbuild/catalogueintegration/deployment; rootownsfinalintegrationgates."
+  },
+  "frozenAtUtc": "2026-11-14T02:53:46Z"
+}

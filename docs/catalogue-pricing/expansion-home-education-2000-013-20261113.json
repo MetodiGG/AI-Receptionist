@@ -1,0 +1,428 @@
+{
+  "rootIntegrationReview": {"checkedAtUtc":"2026-11-14T02:53:05.079Z","note":"Rootread6fullrecords/reviews: oneGermanindividual25EURper45academicminnot470package; hardwarelabour48.99EURupto1hwithpartsseparate/freeattendanceNOTfreetotal; threeactualphysicalAllegroinitialadultlevelmeetingsFREEonlynotpaidlessons/coursefees, exactContactbinds3distinctvenues; oneactuallegalofficefamily/inheritanceconsult genuinelyunpricednotstatutoryfeeassumed. Existing3specificassetsrootpersonallyviewed. No fakefixedminutes, districtclones, caseadvice orproductionwrites.","identity":"Only newlyreviewednormalizedinventoryidentitiesassigned; existingbaseline/pricereviewfingerprintsuntouched; originalfreeze/sourceobservationdatespreserved."},
+  "batch": "home-education-2000-013-20261113",
+  "checkedOn": "2026-11-14",
+  "status": "frozen_source_complete",
+  "sourceModule": "lib/discovery/catalogue-data/neighborhood-home-education-2000-013-20261113.mjs",
+  "dateConvention": "UTCcalendarcheckedOn14; filename13intakeidentifier only. Actualsource reviewcompletiontimestamp incheckedAtUtc, no backdating. AppointmenttimesEurope/Sofia.",
+  "summary": {
+    "includedBusinesses": 6,
+    "includedServices": 6,
+    "literalPriceFacts": 5,
+    "paidPriceFacts": 2,
+    "explicitFreeServices": 3,
+    "strictUnpublishedReceipts": 1,
+    "phoneBookings": 5,
+    "ownedForms": 1,
+    "premises": 5,
+    "serviceAreas": 1,
+    "coordinates": 0,
+    "fixedDurationFacts": 0,
+    "weeklyHoursRows": 1,
+    "ledgerCases": 31,
+    "includedCases": 6,
+    "heldCases": 12,
+    "rejectedCases": 13
+  },
+  "ledger": [
+    {
+      "order": 1,
+      "status": "included",
+      "id": "sofia-famete-rakovski99",
+      "checkedAtUtc": "2026-11-14T02:13:50Z",
+      "primaryEvidence": [
+        "https://www.fatibg.com/online-zapisvane/",
+        "https://www.fatibg.com/individualni-uroci-po-nemski-ezik/",
+        "https://www.fatibg.com/контакти/",
+        "https://www.fatibg.com/общи-условия/"
+      ],
+      "booking": "Owned required-language form and explicit callback/place/details confirmation; online18+only, minorsinpersonwithparent. Noinputs/consent/submission.",
+      "pricing": "25EUR PER45min academicunit, NOT470EUR20unitpackage/23.50packageunit. Individualschedule agreed; cancelby10previousday/max20%hours otherwisecharged. No fixedappointmentduration or minunit inferred.",
+      "sourcePolicy": "Full26664charTerms reviewed throughEOF; teachingmaterials copyrightpersonalstudentuse, confidentialclassinfo withpublicinformationexception. No website/database/extraction ban observed. Minimal independentlywordedfacts only; no copiedteachingmaterial/photos/reviews or blanketpermission/legalclearance claim.",
+      "address": "CurrentownBook/contactRakovski99 actualinpersonGermanoffice. Mete5EOODDruzhba1block156 supplieraddress only, not secondvenue.",
+      "hours": "No weeklyteachinghours published inreviewedBook/contact/Terms; omitted.",
+      "coordinates": null
+    },
+    {
+      "order": 2,
+      "status": "included",
+      "id": "sofia-serviz-engineerings-home-computers",
+      "checkedAtUtc": "2026-11-14T02:13:50Z",
+      "primaryEvidence": [
+        "https://computer-serviz.bg/contacts.html",
+        "https://computer-serviz.bg/comp/repcomp.html",
+        "https://computer-serviz.bg/prices.html",
+        "https://computer-serviz.bg/"
+      ],
+      "booking": "ActualrootserviceRequest→Contact first; selectedSofiahomepage explicitlyrecommendsadvanceDAY/HOURphoneappointment896793133, no callplaced.",
+      "pricing": "48.99EURgeneralhardwareLABOUR UPTO1h, samefee selectedservice/fullprices;partsEXCLUDED. SofiaattendanceFREE notstandalone0fee. No fixed60minduration/VAT/mincrew guessed.",
+      "sourcePolicy": "Robots200publicallow exceptcgi-bin. Robustrootallhref/contact/service/pricelinks no Terms/privacy surfaced; footerAllRightsReserved only, no broadlicence/unseenTerms claim. Minimalfacts only.",
+      "address": "OneSofia service_area/home_visit, no streetpublished, nulladdress/coords. SupplierServizEngineeringsEOOD, Mark-Onefooteroperatoralias checkednotsecondbusiness.",
+      "hours": "GeneralcontactMonFri09–18 notprovenhomevisitschedule, numericopeningHours omitted."
+    },
+    {
+      "order": 3,
+      "status": "held_access_and_identity",
+      "name": "ELC",
+      "website": "https://www.elc.bg/",
+      "reason": "RobotsnormalHTTP403; STOP no root/Book/Terms/alternateendpoint. Searchphone892414994 alreadyruntimeIHБрегалница43; partnermentionprovesneitherindependence noralias. No use30EUR/hourMIN5prepaid as singlelesson; no record."
+    },
+    {
+      "order": 4,
+      "status": "held_source_scope",
+      "name": "Sofia Computers",
+      "website": "https://www.sofiacomputers.net/",
+      "source": "https://www.sofiacomputers.net/use.php",
+      "reason": "§3 broaduse/distributionANYinformation(graphics/text/layout)withoutconsent; no furtherhostrequests afterreview. Noinventoryincluded, no claimunpublishedfees. Fullsourceoutput truncated bytool, broadobservedclause enoughforhold; notclaimedwholepolicyclearance."
+    },
+    {
+      "order": 5,
+      "status": "held_price_conflict",
+      "name": "Cros Computers",
+      "website": "https://www.croscomputers.net/",
+      "primaryEvidence": [
+        "https://www.croscomputers.net/zapitvane/",
+        "https://www.croscomputers.net/obshti_yslovia-i-politiki/",
+        "https://www.croscomputers.net/uslugi-na-adres/",
+        "https://www.croscomputers.net/kompiutarni-uslugi-po-domovete-sofia/",
+        "https://www.croscomputers.net/ceni-uslugi/",
+        "https://www.croscomputers.net/kontakti-croscomputers/"
+      ],
+      "sourcePolicy": "§35copyrightcontent/design restrictions WITH explicitexception informationalpromotionofmerchantgoods/services. Rootnarrowlyallowedminimalindependentfacts, no copiedprose/media/database norlegalclearanceclaim. Terms1–45readfromcachedfirst19k; appendedprivacy/cookies tooloutputtruncated so notclaimfullappendicesreview.",
+      "reason": "Currentactualtariff contradictsattendanceflat20EUR vszones10/15/20, Windowsattendance5/7vs10/15/20. Other onsitelabour51EUR perstartedhour dependsseparateattendance; cannot flattenconflict ordeclareunpublished. OwnserviceTYPErequestformcallbackoffernotyetexplicitagreedhour; genericphone alone insufficient; holdwholecandidate pendingclearfee/appointment.",
+      "hours": "TariffMonSat09–19 vsContactMonFri09:30–19Sat09:30–17:30with12–13break; homevisithoursomitted, no synthesis."
+    },
+    {
+      "order": 6,
+      "status": "rejected_duplicate",
+      "name": "English Next Door",
+      "website": "https://www.english-nextdoor.com/",
+      "reason": "Runtime/WIP exactdomain/address/phone existingsofia-english-next-door-mladost3-block301. Searchleadonlynoownpagesrequested."
+    },
+    {
+      "order": 7,
+      "status": "rejected_duplicate",
+      "name": "Елпида",
+      "website": "https://elpida.bg/",
+      "reason": "Existingsofia-elpida-english-vitosha32, searchleadonlynonewownrequests."
+    },
+    {
+      "order": 8,
+      "status": "rejected_duplicate",
+      "name": "Еспас",
+      "website": "https://www.espacebg.com/",
+      "reason": "Existingsofia-espace-druzhba2, searchleadonlynonewownrequests."
+    },
+    {
+      "order": 9,
+      "status": "rejected_duplicate",
+      "name": "Универсум",
+      "website": "https://universum.bg/",
+      "reason": "Existingsofia-universum-maria-luiza41, searchleadonlynonewownrequests."
+    },
+    {
+      "order": 10,
+      "status": "rejected_duplicate",
+      "name": "Домашен майстор Васил",
+      "website": "https://domashen-maistor.bg/",
+      "reason": "Existingsofia-domashen-maistor-vasil, searchleadonlynonewownrequests."
+    },
+    {
+      "order": 11,
+      "status": "rejected_duplicate",
+      "name": "ASPIRE",
+      "website": "https://aspire-center.com/",
+      "reason": "BothactualMladost2/GeoMilev existing. One publicrobotsGET ranparallelwithruntimepreflight; aftermatch no deeperrequests/noaddedrows."
+    },
+    {
+      "order": 12,
+      "status": "held_source_terms",
+      "name": "Езиков център Нов стандарт",
+      "website": "https://www.nov-standart.com/bg/",
+      "source": "https://www.nov-standart.com/bg/usloviya-za-polzvane",
+      "reason": "Full6209charTerms read. I grantswebsiteonlypersonalNONCOMMERCIALuse; IIdefineswebsiteServices asaccessinformationresources/data. Noindependentlycopyingfacts exemption established. STOPnofurtherhostrequests, no bookings/selectedpaidpages opened afterclause. RSS/markedCreativeCommons exceptions notgeneralmerchantfactpermission."
+    },
+    {
+      "order": 13,
+      "status": "rejected_online_only",
+      "name": "ЦПО Хармония1 · езиково обучение",
+      "website": "https://www.harmonia1.com/",
+      "primaryEvidence": [
+        "https://www.harmonia1.com/условия-за-позлване/",
+        "https://www.harmonia1.com/документи-и-условия-за-записване/",
+        "https://www.harmonia1.com/езикови-обучения/"
+      ],
+      "reason": "Actualcurrentlanguagepage explicitlyONLYDISTANCE recordedvideolessons, no bookedinpersonlesson. AdministrativeSofiaMontvideo21address/documents/paymentplace not a teachingappointment. No languagefee row; promo105/60/3monthnotvisit. Otherlicensedvocationaloffersnotassumedeligible.",
+      "sourcePolicy": "Full3440charTerms read ordinaryinformationliability/cookies only, notheldforcopyright; rejectedonscopeactualBook. Floor4adminvsfloor1paymentunresolvednotused."
+    },
+    {
+      "order": 14,
+      "status": "held_appointment_and_current_tariff",
+      "name": "ИТЕМА-ПГ / Printers-BG",
+      "website": "https://www.printers-bg.com/",
+      "primaryEvidence": [
+        "https://www.printers-bg.com/",
+        "https://www.printers-bg.com/adress.html",
+        "https://www.printers-bg.com/service.html"
+      ],
+      "reason": "Selectedonsiterepair real butbookingonlygenericconsultcall/contact, no explicitday/hour orselectedrequestconfirmation proven. Currentlegacyhtml tariffBGNwith2006–2018footer, parts/labour/attendance separate, not treatedgenuinelyunpublished or silentlyconverted. No includedrow pendingactualappointment/currentfees.",
+      "access": "Publicrobots404/root200; initialUTF8mojibake notclaimedreadable. Oneencodingparsererror(readFilepromises0) logged, then boundedpublicrootdeclaredmetaWindows1251 proved; normalGETdecodedviaTextDecoderwindows1251. Correctedread fullselectedservice/contact/footer, no accessblock/endpointbypass. NoextraShop/product/APIrequests.",
+      "identity": "ActualITEMA-PGphone886700129+29718021, shop.itema-pg.comaliasnotindependentmerchant. Runtime+ALLWIPphone/company/basehostpreflight0, no staff/addressclones.",
+      "hours": "ContactMonFri09–17:30;servicealsoSat10–16 not importedwithouteligibleappointment. SofiaTsarigradsko133BICIZOTfloor4office402 isactualbusiness, not autoacceptedservicevenue."
+    },
+    {
+      "order": 15,
+      "status": "rejected_duplicate",
+      "name": "Duo Black&White",
+      "website": "https://duoblackandwhite.bg/",
+      "reason": "ExistingbothOborishte/Dianabad realvenues. Runtime+ALLWIPmatch, no newprimaryrequests."
+    },
+    {
+      "order": 16,
+      "status": "rejected_duplicate",
+      "name": "Керамика Зари",
+      "website": "https://keramika-zari.com/",
+      "reason": "Existingsofia-keramika-zari, exactruntime/WIPdomain. Searchdiscoveryonlynonewprimaryrequests."
+    },
+    {
+      "order": 17,
+      "status": "rejected_duplicate",
+      "name": "Vocal Vision House",
+      "website": "https://vocalvisionhouse.com/",
+      "reason": "Existingsofia-vocal-vision-house, searchleadonlynonewrequests."
+    },
+    {
+      "order": 18,
+      "status": "rejected_duplicate",
+      "name": "Avarton Music Academy",
+      "website": "https://avartonmusic.com/",
+      "reason": "Existingsofia-avarton-music-academy, searchleadonlynonewrequests."
+    },
+    {
+      "order": 19,
+      "status": "held_provider_and_scope",
+      "name": "Altarium",
+      "website": "https://www.altarium.bg/",
+      "reason": "Search-onlyactualBookexplicitFresha stoppedprovider; no Fresha/ownedpagesrequested. Spiritualclaims not imported; no providerworkaround."
+    },
+    {
+      "order": 20,
+      "status": "included",
+      "id": "sofia-allegro-vivace-shesti-septemvri37",
+      "address": "София, Essence Center, ул. „Шести септември“ 37",
+      "phone": "+359988833411",
+      "website": "https://suggestopediabg.com/",
+      "checkedAtUtc": "2026-11-14T02:21:11Z",
+      "primaryEvidence": [
+        "https://suggestopediabg.com/contact/",
+        "https://suggestopediabg.com/pricing-info/",
+        "https://suggestopediabg.com/terms-of-use/",
+        "https://suggestopediabg.com/english-courses/individual-classes/",
+        "https://suggestopediabg.com/"
+      ],
+      "booking": "ActualownContact listsall3currentnamedphysicallearninglocations/phones andexplicitreservedDAY/HOUR initialteacherplacementtest, notjustadministrativeaddress/onlineintro. Phoneforselectedrealvenue, sharedphonefor2actualvenuesallowednotmobile/staffclones. No call/submission.",
+      "pricing": "ONLY FREEinitialadultlanguageplacementtest, explicitadultpricingline; not40BGNpaidEnglish orpromofreefirstlesson or150BGNcourseDEPOSIT. No date/durationguess. Paidcoursefeesremainheld: Terms690BGNvspricing790BGN; no tariffcompletenessclaim.",
+      "branchScope": "IndividualEnglishsource sayssomecentre notALL, so no paidindividualEnglishassignedtoall3; actualContact bindsinitialtestbooking+eachcurrentvenue. Parentnarrowlyreviewedthisphysicaltestbranchbinding beforeaccept.",
+      "sourcePolicy": "RobotsgeneralpublicCrawl-delay10honoured betweenhostrequests. Full1912charTerms ordinarycourseenrollment/payment/refundcreditrules, no data/extraction/noncommercialsiteban observed. Independentlyphrasedminimalfacts only, no copied educationalmaterials/reviews/claims/prose/images/assetrights orlegalclearanceclaim.",
+      "hours": "No numericweeklyplacementtesthours published; no course/officehours substituted.",
+      "coordinates": null
+    },
+    {
+      "order": 21,
+      "status": "included",
+      "id": "sofia-allegro-vivace-andrey-lyapchev72",
+      "address": "София, ж.к. Младост 2, бул. „Андрей Ляпчев“ 72",
+      "phone": "+359893355354",
+      "website": "https://suggestopediabg.com/",
+      "checkedAtUtc": "2026-11-14T02:21:11Z",
+      "primaryEvidence": [
+        "https://suggestopediabg.com/contact/",
+        "https://suggestopediabg.com/pricing-info/",
+        "https://suggestopediabg.com/terms-of-use/",
+        "https://suggestopediabg.com/english-courses/individual-classes/",
+        "https://suggestopediabg.com/"
+      ],
+      "booking": "ActualownContact listsall3currentnamedphysicallearninglocations/phones andexplicitreservedDAY/HOUR initialteacherplacementtest, notjustadministrativeaddress/onlineintro. Phoneforselectedrealvenue, sharedphonefor2actualvenuesallowednotmobile/staffclones. No call/submission.",
+      "pricing": "ONLY FREEinitialadultlanguageplacementtest, explicitadultpricingline; not40BGNpaidEnglish orpromofreefirstlesson or150BGNcourseDEPOSIT. No date/durationguess. Paidcoursefeesremainheld: Terms690BGNvspricing790BGN; no tariffcompletenessclaim.",
+      "branchScope": "IndividualEnglishsource sayssomecentre notALL, so no paidindividualEnglishassignedtoall3; actualContact bindsinitialtestbooking+eachcurrentvenue. Parentnarrowlyreviewedthisphysicaltestbranchbinding beforeaccept.",
+      "sourcePolicy": "RobotsgeneralpublicCrawl-delay10honoured betweenhostrequests. Full1912charTerms ordinarycourseenrollment/payment/refundcreditrules, no data/extraction/noncommercialsiteban observed. Independentlyphrasedminimalfacts only, no copied educationalmaterials/reviews/claims/prose/images/assetrights orlegalclearanceclaim.",
+      "hours": "No numericweeklyplacementtesthours published; no course/officehours substituted.",
+      "coordinates": null
+    },
+    {
+      "order": 22,
+      "status": "included",
+      "id": "sofia-allegro-vivace-dimitar-manov18",
+      "address": "София, кв. Иван Вазов, ул. „Димитър Манов“ 18",
+      "phone": "+359893355354",
+      "website": "https://suggestopediabg.com/",
+      "checkedAtUtc": "2026-11-14T02:21:11Z",
+      "primaryEvidence": [
+        "https://suggestopediabg.com/contact/",
+        "https://suggestopediabg.com/pricing-info/",
+        "https://suggestopediabg.com/terms-of-use/",
+        "https://suggestopediabg.com/english-courses/individual-classes/",
+        "https://suggestopediabg.com/"
+      ],
+      "booking": "ActualownContact listsall3currentnamedphysicallearninglocations/phones andexplicitreservedDAY/HOUR initialteacherplacementtest, notjustadministrativeaddress/onlineintro. Phoneforselectedrealvenue, sharedphonefor2actualvenuesallowednotmobile/staffclones. No call/submission.",
+      "pricing": "ONLY FREEinitialadultlanguageplacementtest, explicitadultpricingline; not40BGNpaidEnglish orpromofreefirstlesson or150BGNcourseDEPOSIT. No date/durationguess. Paidcoursefeesremainheld: Terms690BGNvspricing790BGN; no tariffcompletenessclaim.",
+      "branchScope": "IndividualEnglishsource sayssomecentre notALL, so no paidindividualEnglishassignedtoall3; actualContact bindsinitialtestbooking+eachcurrentvenue. Parentnarrowlyreviewedthisphysicaltestbranchbinding beforeaccept.",
+      "sourcePolicy": "RobotsgeneralpublicCrawl-delay10honoured betweenhostrequests. Full1912charTerms ordinarycourseenrollment/payment/refundcreditrules, no data/extraction/noncommercialsiteban observed. Independentlyphrasedminimalfacts only, no copied educationalmaterials/reviews/claims/prose/images/assetrights orlegalclearanceclaim.",
+      "hours": "No numericweeklyplacementtesthours published; no course/officehours substituted.",
+      "coordinates": null
+    },
+    {
+      "order": 23,
+      "status": "held_physical_service_binding",
+      "name": "Адвокат Елена Меракова",
+      "website": "https://merakova-law.com/",
+      "primaryEvidence": [
+        "https://merakova-law.com/",
+        "https://merakova-law.com/terms"
+      ],
+      "reason": "ActualownedBooksection genuineconsultationrequestform andTermscontactaddressBorovo52office2, butactualBookonlygenericSofia/noexplicitinperson/officevenuebinding. No publicvoicephone visible, no inferredphone orphysicalappointment. Termsaddressnotautomaticallyactualservicepremise; holdpendingownerphysicalappointmentconfirmation, notpriceabsenceclaim.",
+      "sourcePolicy": "Publicrobotsallow; full5416charTerms/privacy reviewed, ordinaryGDPR/soleowner ElenaTodorovaMerakova identity. No explicitDB/access/noncommercialban observed; no legallicenceclaimed. No blog/articles/prose/images/credentials/customerdata copied."
+    },
+    {
+      "order": 24,
+      "status": "held_source_scope_and_booking",
+      "name": "БРЕЙНСТОРМ",
+      "website": "https://www.brainstormschool.net/",
+      "primaryEvidence": [
+        "https://www.brainstormschool.net/",
+        "https://www.brainstormschool.net/terms"
+      ],
+      "reason": "Full2328charTerms IPtext/images/logo/designpersonalnoncommercial withwrittenconsentforrepublishing; narrowfactualreferencescopeunresolved notuniversalbotban. ActualrootBookFREEconsultation MicrosoftBookings URL observedonly(notrequested), no paidEnglishmenuinspected/no paidserviceclaim; phoneactualBooklessonunconfirmed. Holdno furtherrequests untilscope/actualselectedappointmentclear.",
+      "bookingUrlObservedOnly": "https://outlook.office.com/book/Bookings1@brainstormschool.net/s/YmYuJIAWWkmnsY86WxGtIw2?ismsaljsauthenabled"
+    },
+    {
+      "order": 25,
+      "status": "included",
+      "id": "sofia-yonev-kanchelov-dimitar-petkov111",
+      "checkedAtUtc": "2026-11-14T02:26:30Z",
+      "primaryEvidence": [
+        "https://www.vbt-law.com/contact",
+        "https://www.vbt-law.com/services",
+        "https://www.vbt-law.com/"
+      ],
+      "booking": "ActualownContact explicitCALL878588541/887610499/878588561 toagreeconvenientmeetingtime, actualDimitarPetkov111floor2office4 bindsfirm. Onefirm, no3staffclones. No call/formsubmission.",
+      "pricing": "Strictgenuineunpublishedreceipt ONLYfamily/inheritanceconsultation: fullactualBook/contact/servicesindex/rootbody/footerallhrefs show no fee/range/duration/tarifflink; no blocked/conflictingmenu classifiedunpublished. No fee0/statutorytariff inferred; service_reviewed notprice-reviewed.",
+      "sourcePolicy": "PublicSquarespace robots prohibitconfig/search/account/API/static/formatqueries but allowroot/contact/services; no prohibitedpathrequested. No separateTerms/privacy surfacedactualreviewednav/footer, no unseenpolicyclearance/licenceclaim. Independentlyphrasedminimalfacts only, no legaladvice/clientcases/credentials/prose/photos/reviews copied.",
+      "hours": "Actualsamephoneappointment/contact page givesfirmMonFri09–18; no weekendclosure/afterhours inferred.",
+      "coordinates": null
+    },
+    {
+      "order": 26,
+      "status": "held_operator_authenticity",
+      "name": "Хамали.com / Хамали Хари",
+      "website": "https://xn--80aayld6c.com/",
+      "checkedAtUtc": "2026-11-14T02:24:00Z",
+      "primaryEvidence": [
+        "https://xn--80aayld6c.com/",
+        "https://xn--80aayld6c.com/obshti-usloviya.html",
+        "https://xn--80aayld6c.com/kontakti.html",
+        "https://xn--80aayld6c.com/ceni.html",
+        "https://xn--80aayld6c.com/za-nas.html"
+      ],
+      "booking": "ActualownformserviceTYPE/home-or-office/desiredDATE/2addresses/floors/lifts/description, Termsconfirmafterdate/crew/transportagreement; phone888649870. No field/checkbox/calculator/cart selected/submitted; no customercontact.",
+      "observedPricing": "Indicative49EUR/HOUR2movers+van MIN2h; additionalcrew/materials/floors/parking etc extra andfinalquoteconfirmed. 79EURhome-minrequest notsinglevisit; calculator0notfee. Not imported.",
+      "reason": "Rootconservativelyheldcurrentoperator/authenticity, notmerelymissingEIK: actualTermsfooterexplicitPRE-PUBLICATIONeditorialinstruction toaddfulllegaloperator/EIK/address, andAboutonlygeneric'HamaliHari'. Incompleteproduction-siteauthenticity, no row untilconcretecurrentmerchantconfirmation. No workaround/customercontact.",
+      "dedupe": "Actualphone/domain/name runtime+ALLWIP0; publicphonesearch onlyowncurrenthostresults, no independence inferredfromSEOquarterpages. MobileoneSofiaoperatorwouldbeone row, notquarterclones.",
+      "sourcePolicy": "Full3840charoperationalTerms reviewed, no access/data ban observed; authenticityholddistinctfromTermspermission. Publicrobotsallowexceptuploads, no uploads/API/hiddenJSON/CSVcatalog files fetched."
+    },
+    {
+      "order": 27,
+      "status": "rejected_duplicate_group",
+      "names": [
+        "СИМЕОНОВ АДВОКАТИ",
+        "Бонински, Бонинска и Апостолов",
+        "LegalMasters",
+        "Расташки & CO",
+        "Желязков",
+        "Николай Вивианов Василев",
+        "Лидия Манова",
+        "Георги Малчев",
+        "Трифонов"
+      ],
+      "reason": "CurrentruntimeSOFIA+ALL2000WIP exactcanonicaldomain/base/subdomain/operator/phones/addresses alreadyexisting. Searchdiscovery/localpreflightonly; no new merchantpages requested forduplicates."
+    },
+    {
+      "order": 28,
+      "status": "held_existing_pending_no_reopen",
+      "name": "Адвокат Николов · advokatnikolov.bg",
+      "website": "https://www.advokatnikolov.bg/",
+      "reason": "Prior006pending exactSofiavenue/phone andrenderedcalendar persists. Readlocal006ledgerbeforefurtherdeep; onlypublicrobotsGET beforelocalpendingrecognition. No newroot/calendar/contactrequests, no fake venue oronline-onlyservice_area workaround."
+    },
+    {
+      "order": 29,
+      "status": "held_unreviewed_own_appointment",
+      "name": "Prime Audit / Easybook search lead",
+      "reason": "Search-only25.56EURconditionalfreecontract/accountingappointmentlead; actualmerchantcanonicaldomain/operator/Terms/selectedBook unreviewed, no providerURLrequested. No fee/product/conditional0 imported."
+    },
+    {
+      "order": 30,
+      "status": "rejected_duplicate",
+      "name": "Учебен свят",
+      "reason": "Runtime2existingvenuesPetkoKaravelov5/Mladost; search/localpreflight only, no newmerchantrequests."
+    },
+    {
+      "order": 31,
+      "status": "held_online_only_or_reserved_discovery",
+      "names": [
+        "BUKI",
+        "International House Sofia"
+      ],
+      "reason": "BUKIsearchleadonly no provenphysicalownappointment; IHroot-owned3actualbranchesalreadycurrent. No ownrequests orduplicaterows."
+    }
+  ],
+  "checkedAtUtc": "2026-11-14T02:28:58Z",
+  "photoRecommendations": [
+    [
+      "sofia-famete-rakovski99",
+      "education",
+      "Индивидуални присъствени уроци по немски език",
+      "language-lesson"
+    ],
+    [
+      "sofia-serviz-engineerings-home-computers",
+      "home_services",
+      "Общи хардуерни услуги на адрес в София",
+      "sx-home-computer-support"
+    ],
+    [
+      "sofia-allegro-vivace-shesti-septemvri37",
+      "education",
+      "Първоначална езикова среща-събеседване за възрастни",
+      "language-lesson"
+    ],
+    [
+      "sofia-allegro-vivace-andrey-lyapchev72",
+      "education",
+      "Първоначална езикова среща-събеседване за възрастни",
+      "language-lesson"
+    ],
+    [
+      "sofia-allegro-vivace-dimitar-manov18",
+      "education",
+      "Първоначална езикова среща-събеседване за възрастни",
+      "language-lesson"
+    ],
+    [
+      "sofia-yonev-kanchelov-dimitar-petkov111",
+      "consulting",
+      "Правна консултация по семейно и наследствено право",
+      "legal-consultation"
+    ]
+  ],
+  "photoReview": "All3existingregisteredphysicalassets viewedread-only2026-11-14T02:27:05Z: language-lesson adultteacher+adultconversationwithlearningbook suitsactualadultinitiallanguageconversation, notgroup/child/paidsessionclaim; legal-consultation actualinpersondiscussion/dossier(no falselywrittenreportclaim); sx-home-computer-support generictechnician/client/laptop/router(home) withoutopenhardware/part-replacementclaim. Currentmatcher1activity/5neutral beforeexactrootassociations; rootownsphotos/maps/identities, no sharededits or newimagegap.",
+  "verification": {
+    "schema": "6validated",
+    "existingRuntimePlusAllOther2000Intakes": 1642,
+    "audit": "6ready/0pending/0rejected",
+    "approval": "6approved",
+    "pricing": "5reviewedpriced(including3explicitfree),1service_reviewed genuineunpublished; ephemeralidentityforgateONLY, no persistedinventoryIdentity",
+    "focusedTests": "16passed tests/catalogue-pricing-review.test.mjs +tests/catalogue-audit.test.mjs",
+    "notRunByAuthor": "No fullsuite/Python/productionbuild/catalogueintegration/deployment; rootownsfinalintegrationgates."
+  },
+  "frozenAtUtc": "2026-11-14T02:28:58Z"
+}

@@ -1,0 +1,26 @@
+{
+  "rootIntegrationReview": {"checkedAtUtc":"2026-11-14T03:44:26.605Z","note":"RootownfreshnativeContactBookthenactual2026PricesandfullPrivacyEOF. ThreeLITERALEURfacts0consultONLY/50detailedexam+NZIScard/60ultrasoundandpastewholemouth; freeconsultnotfreeclinicalexam/treatment, noNHSorclinicaleefectclaims. Oldsearch-only2012BGNPDFnotrequested/converted, current20Decpromosnotimported. Minimal3independentlywordedfactualservice/fee referencesnotwholeclinicaltariff/text/media; footertextandphotocopyrightnotblanketlicence, no sourceprose/cases/photographs copied. Sourceactualphone/currentoperator/Pernik90/BookdedupedagainstallruntimeandWIP. Existing2imagespersonallyviewed; no guessedhours/quarter/minutes/coords orproductionwrites.","identity":"Only newlyreviewednormalizedinventoryidentitiesassigned; existingbaseline/pricereviewfingerprintsuntouched; originalfreeze/sourceobservationdatespreserved."},
+  "checkedOn": "2026-11-14",
+  "checkedAtUtc": "2026-11-14T03:43:19.746Z",
+  "status": "frozen_source_complete_pending_integration",
+  "records": 1,
+  "services": 3,
+  "priceFacts": 3,
+  "reviewer": "/root",
+  "orderedLedger": [
+    {
+      "id": "sofia-estedental-maya-zhivkova-pernik90",
+      "decision": "ready_for_integration",
+      "source": "https://estedental.com/",
+      "booking": "ExplicitactualphoneBookforconsultation+prearrangedclinicalvisits, no genericcallbackformclaim.",
+      "pricing": "Current2026literalEUR0consultONLY/50exam+NZIScard/60ultrasound+pasteWHOLEMOUTH. OldunlinkedBGNPDFnotrequested/converted, promoexcluded.",
+      "sourceUse": "FullPrivacyEOFandfooterread. Authoredtext/media copyrightrespected byno copyingclinicalprose/cases/photographs. Only3minimalindependentlywordedfactualmerchantservice/fee/references, no blanketlicence/legalclearance.",
+      "location": "CurrentownContactPernik90, quarter/point/hoursunknown, nullnotguessed.",
+      "photos": [
+        "dental-exam",
+        "dental-exam",
+        "dental-cleaning"
+      ]
+    }
+  ]
+}

@@ -4,6 +4,226 @@
   "scope": "Illustrative service-specific photos for approved Sofia catalogue entries; not actual business premises, staff, work or results.",
   "assets": [
     {
+      "id": "sx-home-renovation-onsite-survey",
+      "sourceFile": "exec-f71be56c-95a7-41c8-a797-bdfa835c8510.png",
+      "sourceSha256": "319f3c5a1127eb4b0f9f6e63c2bb287628e52aac9262206b5db2ba9a9fed1aa9",
+      "file": "public/service-photos/sx-home-renovation-onsite-survey-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 10354,
+      "sha256": "581950e372d14892f5b31f1ff88f4886cc8b7561d5044a42607a93ac05964665",
+      "label": "Оглед на жилище преди цялостен ремонт",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square service-booking thumbnail for an ON-SITE HOME RENOVATION ASSESSMENT, not actual construction work.\nPrimary request: A realistic documentary photograph in an ordinary unfurnished older apartment before renovation. One fictional adult building contractor in plain work clothes and one fictional adult homeowner examine the condition of a worn plaster wall and doorway together. The contractor holds a compact laser distance meter aimed at the opposite wall while pointing out a small plaster crack; homeowner listens. The measuring device is visible but contains no readable digits or branding. Realistic human hands, natural daylight, warm restrained colours, honest ordinary lived-in building materials.\nComposition: Close enough to make the home condition inspection, contractor and homeowner legible at64px; one uncluttered square1:1 photo, no collage, no notebook or clipboard focus.\nConstraints: Show a PRE-RENOVATION SURVEY and discussion only. No active painting, drilling, demolition, completed luxury kitchen, architectural blueprints, promised engineering diagnosis, hazardous work, logos, price, text, watermark or identifiable real people. No implication that this is the actual remontiram.bg worker, customer, property or completed project. Generic illustrative activity photograph.\n\nFinal refinement using source exec-f16e31af-9e71-4b28-9788-c09c6df35589.png:\nEdit this illustrative home-renovation survey photograph. Keep the same square composition, fictional contractor and homeowner, pre-renovation apartment, wall crack and pointing gesture. Remove the entire visibly glowing red laser beam from the air and wall; a real measuring instrument should not produce a brightly visible beam through clear air. Keep a compact dark red and black handheld distance meter in the contractor's lower hand with no visible emitted light and no readable screen text. No other changes. Photorealistic natural documentary style, anatomically plausible hands, no labels, logos or text. This remains a fictional service illustration, not actual provider work.",
+      "generatedOn": "2026-11-14",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "319f3c5a1127eb4b0f9f6e63c2bb287628e52aac9262206b5db2ba9a9fed1aa9",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Rootviewedfullgeneratedsourceand256WebP. Fictionalcontractorandhomeownerinspectwornplaster/doorwaywithhandheldmeasure, noactivework/finishedrenovation/architecturaldrawings/notebook. Refinedtoremoveunrealisticvisiblelaserbeam, no clinical/engineeringdiagnosis/promise. Illustrationnotactualremontiramstaff/customer/property."
+      }
+    },
+    {
+      "id": "sx-auto-mobile-ignition-repair",
+      "sourceFile": "exec-724037b0-0ee7-486c-9778-c3e25f3f7238.png",
+      "sourceSha256": "6fa64f983076597fd8f1ce7a2ce3e9d35d9cc55c86b6fd52ef8d88f3568e3178",
+      "file": "public/service-photos/sx-auto-mobile-ignition-repair-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 18984,
+      "sha256": "911f928e5723c18a3a7168be58d08f50b715ce627a9ad2bf4bf16ec1b315c59e",
+      "label": "Мобилен ремонт и проверка на запалване",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square service thumbnail for MOBILE CAR IGNITION-SYSTEM REPAIR AT THE CUSTOMER'S ADDRESS.\nPrimary request: A realistic documentary close photograph of a fictional professional adult mobile mechanic in work clothes and gloves checking ignition-system wiring in an ordinary petrol car's open engine bay on a safe level private driveway. The mechanic uses a digital automotive multimeter and insulated probes near the ignition coil wiring, with a compact tool bag beside the car and a plain mobile service van softly visible behind. Engine off, plausible engine components and tools, no exaggerated sparks. Real metal/rubber texture and ordinary daylight.\nComposition: One square1:1 frame. Mechanic, ignition wiring and meter are the main focus; an actual hands-on vehicle electrical repair/check, not a desk consultation.\nConstraints: Illustrative generic activity, not the named provider's staff/van/customer/work, no exact defective part or completed repair/outcome claim. No jump-start battery booster, no underbody starter replacement, no keys/locksmith, no workshop lift, oil draining, welding, unsafe traffic location, text/price/logo/watermark/notebook.",
+      "generatedOn": "2026-11-14",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "6fa64f983076597fd8f1ce7a2ce3e9d35d9cc55c86b6fd52ef8d88f3568e3178",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Rootviewedfull1254sourceand256WebP; mobilemechaniccheckingignitionwiringwithmeter/insulatedprobesatanoffcarinleveldriveway. Notjumpstarter/underbodyreplacement/keylocksmith/deskconsultation orclaimofspecificfault/completedrepair. Genericfictionalprovider/van/client."
+      }
+    },
+    {
+      "id": "sx-conditioning-powerplate-programme",
+      "sourceFile": "exec-d38f275f-70f6-4f9b-8659-c93ac0216cb8.png",
+      "sourceSha256": "464e9fa0a43894bcec41bccd80400fc8b09c757d6d88a3fc0aa147f16556ab15",
+      "file": "public/service-photos/sx-conditioning-powerplate-programme-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 15098,
+      "sha256": "c3b064a43782809df00450fab0693d76f5c1930a4b62ac7285a4d969efc8bd04",
+      "label": "Кондиционни тренировки и Power Plate — програма",
+      "prompt": "Use case: photorealistic-natural\nAsset type: one square service thumbnail for a WHOLE FITNESS PROGRAMME combining CONDITIONING TRAINING AND POWER-PLATE-TYPE VIBRATION-PLATFORM EXERCISES.\nPrimary request: Exactly two equal horizontal photographic panels stacked inside one overall square1:1 image, the SAME fictional clearly adult woman in modest leggings and opaque sports top and SAME adult personal fitness coach in both. TOP: one-to-one basic conditioning in an ordinary fitness studio, woman performs a controlled shallow bodyweight squat or light resistance exercise while coach observes calmly beside her. BOTTOM: same adult woman stands balanced with slightly bent knees on a real professional compact vibration exercise platform with upright support handles, gently holding its handles while the coach observes beside it. Clearly a vibration-platform exercise station, not a treadmill, beauty bed or medical device. Natural daylight, credible machine geometry, realistic anatomy and material texture.\nConstraints: Generic illustrative combination of activities, not actual Feeria staff/client/premises/equipment model/results, not a claim that two panels equal the whole10-session package. No clinical therapy, weight-loss/before-after claims, high-risk poses, child, unrelated machine, text/counts/price/brand/logo/watermark or notebook. Ordinary supervised fitness, no technical treatment instructions.",
+      "generatedOn": "2026-11-14",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "464e9fa0a43894bcec41bccd80400fc8b09c757d6d88a3fc0aa147f16556ab15",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Rootviewedfull1254sourceand256WebP. Sameadultwoman/coachin2panels: conditioningandunbrandedprofessionalvibrationplatform, nottreadmill/beautybed/medicalrehab. Twovisualactivitiesnotclaimtwoimagesarewhole10sessions, nofitnessoutcomes/providerstaff/client/equipmentmodelassertion."
+      }
+    },
+    {
+      "id": "sx-adult-swimming-individual",
+      "sourceFile": "exec-04d3287d-4292-4047-94f4-a12bda138810.png",
+      "sourceSha256": "df36f70fbcc87c5958977ed6fbc439ff11c13277cc435c4b9b4f20e34b710d34",
+      "file": "public/service-photos/sx-adult-swimming-individual-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 16926,
+      "sha256": "c8e3736b4397330b9adfd26d2aada18e9ed85f51eeb4afe7f46fcbb2ba6c5fda",
+      "label": "Индивидуален урок по плуване за възрастен",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square booking catalogue thumbnail for an INDIVIDUAL SWIMMING LESSON FOR ONE ADULT.\nPrimary request: A realistic documentary photograph at an ordinary clean indoor swimming pool. Exactly one fictional clearly adult learner approximately30 in modest athletic swimwear and swim goggles practices a gentle swimming technique with a kickboard, while one adult professional swimming coach in an ordinary rash guard stands beside them in the shallow end and gives a simple hand gesture. Both clearly adults, individual instruction not a children's lesson or group. Water surface, pool edge and swimming equipment recognizable, natural indoor daylight, realistic water and anatomy, calm focused atmosphere.\nComposition: One square1:1 frame, learner and coach interaction clear at small thumbnail size; no unrelated panels.\nConstraints: Generic illustration not actual Azbuki pool/staff/customer/availability or a claimed lesson level. No child, group fitness, medical rehabilitation, extreme breath-holding/diving stunt, distressed swimmer, nudity/sexualized framing, text/price/brand/logo/watermark or notebook.",
+      "generatedOn": "2026-11-14",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "df36f70fbcc87c5958977ed6fbc439ff11c13277cc435c4b9b4f20e34b710d34",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Rootviewedfull1254sourceand256WebP. Clearlyadultlearnerwithadultcoach/kickboardininternalpool, nochild/group/clinicalrehab. FictionalillustrativeactivitynotactualAzbukipool/staff/customer/availability orlevelguarantee."
+      }
+    },
+    {
+      "id": "sx-university-admissions-consultation",
+      "sourceFile": "exec-61a6eb61-0d4a-41fe-9891-e5a4492aa063.png",
+      "sourceSha256": "2ca4fadb708794fcd85c6e7d19ed3f99453983dd2ea09fe7dd0218e7bb15d33b",
+      "file": "public/service-photos/sx-university-admissions-consultation-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 15110,
+      "sha256": "749c162959a4a9daef98024a773c81ce6d915c1932e88869096c1d343293524a",
+      "label": "Консултация за университет и кандидатстване в чужбина",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square booking catalogue thumbnail for an IN-PERSON UNIVERSITY STUDY-ABROAD ADMISSIONS CONSULTATION.\nPrimary request: A realistic documentary photograph inside an ordinary education-advising office. One fictional adult education adviser and one fictional clearly adult prospective university student approximately19–22 sit across a small desk, discussing university study options abroad. Adviser points to a simple colourful university-campus brochure and programme comparison sheets, student listens, an open laptop in the background shows generic campus thumbnails with no legible text. Both comfortably dressed in ordinary smart-casual clothes, natural expressions and plausible hands, daylight and realistic paper/fabric textures.\nComposition: One square1:1 photo, two people plus university brochures/campus visuals are the focus, readable at64px.\nConstraints: An education/admissions discussion, not a language lesson, job interview, psychotherapy or legal/notarial consultation. No graduation guarantee, acceptance letter, diploma, identifiable university logo, readable personal data, actual Integral/UNIFY staff or students/office, text/price/watermark, or notebook-only still life. Generic illustration of activity, not verified provider work.",
+      "generatedOn": "2026-11-14",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "2ca4fadb708794fcd85c6e7d19ed3f99453983dd2ea09fe7dd0218e7bb15d33b",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Rootviewedfull1254sourceand256WebP. Adultprospectivestudentandadviserreviewuniversitycampusbrochure/programmecomparison, notjobCV/therapy/languageclass. Genericfictionalpeople/office/materials, no actualIntegral/UNIFYclient/guaranteedadmission."
+      }
+    },
+    {
+      "id": "sx-secondary-study-abroad-consultation",
+      "sourceFile": "exec-bc490e9d-8519-4c42-8e9c-9093a82ae518.png",
+      "sourceSha256": "97e1d22041b1b475e861a8d63bfdc2511f3f27ffd6dbce5a22d0d8bc4f1f6f27",
+      "file": "public/service-photos/sx-secondary-study-abroad-consultation-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 15430,
+      "sha256": "41fb37112ee9ff1c2b27937ec0abab6ce91ff41b6ea0e443e487df545fdffa8e",
+      "label": "Консултация за средно образование в чужбина",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square booking catalogue thumbnail for a SECONDARY-SCHOOL STUDY-ABROAD CONSULTATION FOR A PUPIL AND PARENT.\nPrimary request: A realistic documentary photograph in a clean education-consultancy office. One fictional adult education adviser talks with a fictional teenage pupil approximately14–16 and the pupil's adult parent, seated together at a desk reviewing secondary-school options abroad. Adviser points to a generic school-campus brochure, with simple course-option sheets and a laptop showing an anonymous school-campus photo, no legible names. Teen wears modest casual clothing, parent and adviser ordinary smart casual, natural listening expressions, plausible anatomy/hands, soft daylight and real paper/fabric texture.\nComposition: One square1:1 photograph with all three people and the educational brochures clear; a guided school-planning discussion, not a classroom lesson.\nConstraints: Generic illustration, not actual Edlanta staff/child/parent/venue. No admission/visa guarantee, diplomas, graduation robes, medical/therapy scene, job CVs, identifiable school branding, readable personal data, text/price/logo/watermark or notebook-only workspace.",
+      "generatedOn": "2026-11-14",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "97e1d22041b1b475e861a8d63bfdc2511f3f27ffd6dbce5a22d0d8bc4f1f6f27",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Rootviewedfull1254sourceand256WebP. Teenagepupilwithadultparentandadviserdiscusssecondary-schoolcampusbrochure, notadult-onlyuniversitymeeting/classroom/jobCV/medicalcare. Genericfictionalpeople/venue, no actualEdlantaclientdata oradmissionguarantee."
+      }
+    },
+    {
+      "id": "sx-preteen-modern-hiphop-class",
+      "sourceFile": "exec-7de15c9d-7cab-4bc0-8641-8b1d13d36e3a.png",
+      "sourceSha256": "a2f6fdfa9185d999a104c41a2b0215e17d02f042b8939e51344e1351d15dddca",
+      "file": "public/service-photos/sx-preteen-modern-hiphop-class-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 13102,
+      "sha256": "79e5cb6e39f711589078a73f7d78242bbb0c63e6ab80d602674691360de4eb28",
+      "label": "Модерни танци и хип-хоп — група 10–14 г.",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square booking catalogue service thumbnail for MODERN DANCE AND HIP-HOP GROUP LESSONS AGE10–14.\nPrimary request: A documentary-style realistic photograph of one adult dance instructor teaching four fictional preteen/young-teen students approximately11–13 years old in a normal dance studio. They wear modest loose T-shirts, full-length joggers and trainers, practicing a simple upright hip-hop/modern step with relaxed bent knees and coordinated arm movement. Clearly older school students, neither small children nor an adult-only crew. Full bodies visible, realistic anatomy and hands, natural daylight, ordinary wooden floor and studio mirrors without distracting duplicates.\nComposition: One square1:1 photograph. The teacher and a small group, an immediately readable lesson rather than a concert or competition.\nConstraints: Illustrative age-appropriate class, not actual DIVA ZONE staff/children/studio or exact enrolment eligibility documentation. No sexualized clothing/pose, no extreme flexibility/breakdance stunt, no folk costumes or ballet, no medals, no logo/text/price/watermark/notebook.",
+      "generatedOn": "2026-11-14",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "a2f6fdfa9185d999a104c41a2b0215e17d02f042b8939e51344e1351d15dddca",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Rootpersonallyviewedfull1254sourceand256WebP; fourpreteen/youngteenstudentsandadultteacherinmodestlooseclothes, uprightgroupstreetdance. Notadultcrew/7–12smallchildgroup/ballet/folk. FictionalclassnotactualDIVApeople/venue."
+      }
+    },
+    {
+      "id": "sx-maternity-studio-photography",
+      "sourceFile": "exec-ec86c5de-49ca-47a9-a3f3-7be89a7baabe.png",
+      "sourceSha256": "4c2259a8a7587fe8e7bf1ca7b0f3697607f58b18ca7af4cf84e22c5f90bc8a5c",
+      "file": "public/service-photos/sx-maternity-studio-photography-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 7358,
+      "sha256": "23fc3627406651d9a176f742e6e7f35aebfb6098b86cd50d0ebe8fc4ab684456",
+      "label": "Студийна фотосесия за бременни",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square service thumbnail for a PREGNANCY / MATERNITY PHOTOGRAPHY SESSION IN A PHOTO STUDIO.\nPrimary request: A realistic documentary behind-the-scenes photograph of a fictional clearly adult pregnant woman in a modest opaque cream maternity dress standing comfortably in a simple photography studio, hands resting naturally on her covered pregnant abdomen. A fictional adult photographer with a professional camera is visible in the foreground photographing her, with a softbox and neutral backdrop. Natural body proportions, covered shoulders and neckline, ordinary warm studio light, realistic fabric texture, calm professional atmosphere.\nComposition: One square1:1 photograph; both the pregnant portrait subject and photographer/camera readable at thumbnail size, three-quarter-length view.\nConstraints: Generic illustration of a photography appointment, not actual Emotion Studio staff/client/work, not a medical examination. No nudity/underwear/transparent dress, no newborn baby, no forced arching or uncomfortable pose, no brand/logo/text/price/watermark/notebook, no before-after or outcome guarantee.",
+      "generatedOn": "2026-11-14",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "4c2259a8a7587fe8e7bf1ca7b0f3697607f58b18ca7af4cf84e22c5f90bc8a5c",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Rootpersonallyviewedfull1254sourceand256WebP; clearlyadultpregnantwomaninopaquefulldress/comfortableposeandactualphotographercamera/softbox, notmedicalexam/neutralroom. GenericillustrationnotactualEmotionStudioclient/work/staff."
+      }
+    },
+    {
+      "id": "sx-womens-short-blowdry-styling",
+      "sourceFile": "exec-4d243cc1-92db-4ff5-8621-5a529ba0fccd.png",
+      "sourceSha256": "8c427d22e59020c36dba677dd211d92af23d452df0eef8306dc25870758f92af",
+      "file": "public/service-photos/sx-womens-short-blowdry-styling-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 10764,
+      "sha256": "d5ed4643c53c60f6998b12690dd16f51e54420db2babbf973c76fd911d80d5cb",
+      "label": "Сешоар и стилизиране — къса коса",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square specific-service thumbnail for WOMEN'S BLOW-DRY AND STYLING ONLY.\nPrimary request: A natural realistic photograph inside an ordinary hair salon. A fictional adult female client in a normal opaque salon cape has short bob or pixie-bob hair around ear/chin length. A professional hairdresser uses a hand-held hair dryer and a round brush to shape and finish the client's hair. The dryer and round brush, correct hair length and realistic strand texture are clearly visible. Plausible hands, calm professional posture, soft natural daylight.\nComposition: One square1:1 photo, close/medium rear-side view that shows both the hairstyle's length and the active blow-dry tools, readable at64px.\nConstraints: ONLY blow-dry/styling, not a haircut or shampoo combination. No scissors, basin/washing, colour/bleach, extensions, treatment bottle claim, before-after, outcome promise, actual Maria Art staff/client/salon identity, text/price/logo/watermark/notebook.",
+      "generatedOn": "2026-11-14",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "8c427d22e59020c36dba677dd211d92af23d452df0eef8306dc25870758f92af",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Rootviewedfullsourceand256WebP. Actualhairdryer+roundbrushshapingear/chin-lengthbob; no scissors/cut/wash/colour/extensionsinclusion. Plausiblehands/tools, genericfictionalstylist/clientnotMariaArtactualwork."
+      }
+    },
+    {
+      "id": "sx-womens-shoulder-blowdry-styling",
+      "sourceFile": "exec-5768e57c-fa47-4a30-a624-4151e620dc72.png",
+      "sourceSha256": "6dd2257445d8b1c83499a115b27824a2b1277c5c6f1742df1e76c8a00c0b84be",
+      "file": "public/service-photos/sx-womens-shoulder-blowdry-styling-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 10584,
+      "sha256": "7f68a1938bea434a08ab0a9c5b882d7354c5f32ab2598903a58680eb94cd1f8c",
+      "label": "Сешоар и стилизиране — коса до раменете",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square specific-service thumbnail for WOMEN'S BLOW-DRY AND STYLING ONLY.\nPrimary request: A natural realistic photograph inside an ordinary hair salon. A fictional adult female client in a normal opaque salon cape has hair ending at the shoulders, not very long hair. A professional hairdresser uses a hand-held hair dryer and a round brush to shape and finish the client's hair. The dryer and round brush, correct hair length and realistic strand texture are clearly visible. Plausible hands, calm professional posture, soft natural daylight.\nComposition: One square1:1 photo, close/medium rear-side view that shows both the hairstyle's length and the active blow-dry tools, readable at64px.\nConstraints: ONLY blow-dry/styling, not a haircut or shampoo combination. No scissors, basin/washing, colour/bleach, extensions, treatment bottle claim, before-after, outcome promise, actual Maria Art staff/client/salon identity, text/price/logo/watermark/notebook.",
+      "generatedOn": "2026-11-14",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "6dd2257445d8b1c83499a115b27824a2b1277c5c6f1742df1e76c8a00c0b84be",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Rootviewedfullsourceand256WebP. Hairlengthendingatshoulderswithdryer/roundbrushonly, notpixie/longhair/cut/wash/colour/extensions. GenericfictionalactivitynotactualMariaArtstaff/client/venue/outcome."
+      }
+    },
+    {
       "id": "sx-auto-mobile-vacuum-oil",
       "sourceFile": "exec-8f073e6a-2da2-47df-9adb-3a1702a8d329.png",
       "sourceSha256": "901d0bee5cf76a207cf51557ef9fdcc71d1027fac0d0f748906f216915048b4a",

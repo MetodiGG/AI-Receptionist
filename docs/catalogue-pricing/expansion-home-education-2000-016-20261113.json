@@ -1,0 +1,309 @@
+{
+  "rootIntegrationReview": {"checkedAtUtc":"2026-11-14T04:05:57.501Z","note":"RootreadALL4records/reviewsandFULL18caseledger. UniversityChampions/DanbulONEoperator0ONLYorientation40min(parentexpected), subsequent50BGN/hournotpackage/60minduration. StudentCompassrealPHONEregistrationthenFREErequirementsconsultnotwholeagencycontract; 3phonealiasesnotproviders. Shiny2.80EUR/m2MIN160wholevisit, ALL5extraspublic/nostackingruleinvented, staffcallbacknotconfirmedslot. RemontFREEonlyonsiteinspection<=100m2RZPnotfreework/materials/engineeringdiagnosis/designplans; estimate50–750/m2NOTinspectionfee. Actualownedformsreadonlybeforemenus, no blockedtariffunpublished. Existinguniversity/homecleanimagesrootviewed; newwall/doorcondition-surveyfullsourceand256viewed, no notebook/work-deliverableimplication. Only2actualofficepremises+2Sofiaserviceareas, noquarterclones. Allsourcefacts14Nov, no customer/productionwrites.","identity":"Only newlyreviewednormalizedinventoryidentitiesassigned; existingbaseline/pricereviewfingerprintsuntouched; originalfreeze/sourceobservationdatespreserved."},
+  "batch": "home-education-2000-016-20261113",
+  "checkedOn": "2026-11-14",
+  "status": "frozen_source_complete",
+  "sourceModule": "lib/discovery/catalogue-data/neighborhood-home-education-2000-016-20261113.mjs",
+  "dateConvention": "UTCcalendarcheckedOn14; filename13intakeidentifier only. Actualsource reviewcompletiontimestamp incheckedAtUtc, no backdating. AppointmenttimesEurope/Sofia. Finitedatedoffers requireactualrecord/priceexpiry no laterlastverifieddate.",
+  "summary": {
+    "includedBusinesses": 4,
+    "includedServices": 5,
+    "literalPriceFacts": 5,
+    "explicitFreeServices": 3,
+    "paidPriceFacts": 2,
+    "strictUnpublishedReceipts": 0,
+    "phoneBookings": 2,
+    "ownedForms": 2,
+    "premises": 2,
+    "serviceAreas": 2,
+    "coordinates": 0,
+    "fixedDurationFacts": 1,
+    "weeklyHoursRows": 2,
+    "ledgerCases": 18,
+    "includedCases": 4,
+    "heldOrPendingCases": 8,
+    "rejectedCases": 6
+  },
+  "ledger": [
+    {
+      "status": "rejected_duplicate_group",
+      "names": [
+        "Райна Василева",
+        "Малки музикални уроци"
+      ],
+      "reason": "RuntimeSOFIA+ALL2000WIPpreflight found existingsofia-rayna-vasileva andsofia-malki-muzikalni-uroci withsameownedhosts/actualvenues. Local/searchonlyno newownedhostrequests; old015unrevieweddiscoveryresolvedasduplicates.",
+      "order": 1
+    },
+    {
+      "status": "held_source_use",
+      "name": "Kiflab",
+      "website": "https://kiflab.eu/",
+      "primaryEvidence": [
+        "https://kiflab.eu/robots.txt",
+        "https://kiflab.eu/",
+        "https://kiflab.eu/page/terms-and-conditions"
+      ],
+      "reason": "OwnactualTermsdefinitionsincludeALLsiteinformation+products/services/fees. Sections3.2/3.4/3.7 limitoutside-contextreusewithoutconsent andpersonalnoncommercialuse, otherpurposesforbidden. Reviewstoppedatthisexplicitrestriction, FULLremainingTermsnotclaimedreadwhereoutputtruncated. Selecteddatedworkshops/service/contacts/checkout/cart/actionsNOTrequested. No row/count/furtherhostrequests. Rob otsCrawlDelay3 and/contacts/*disallowrespected. Sourceuseholdnotlegalconclusion.",
+      "order": 2
+    },
+    {
+      "status": "held_unverified_discovery_host",
+      "names": [
+        "integrity.com.bg",
+        "orangedolphin.bg"
+      ],
+      "reason": "SuggesteddiscoverydomainsNOTassumedverifiedmerchantidentities. PublicrobotsGETDNSfailed, no root/Book/Terms/venuefactsaccepted, no alternatehostworkaround. IndependentsearchdidnotestablishthesespecificSofiabusinesses.",
+      "order": 3
+    },
+    {
+      "status": "rejected_not_appointment_operator",
+      "name": "StudyAbroad.bg",
+      "website": "https://studyabroad.bg/",
+      "primaryEvidence": [
+        "https://studyabroad.bg/robots.txt",
+        "https://studyabroad.bg/"
+      ],
+      "reason": "Actualrootnavigation iseducationnews/magazine/aggregateduniversityandconsultantinformation, notanindependentbookedserviceprovider. No deeperconsultantdirectory/aggregatefacts imported orotheragenciescloned.",
+      "order": 4
+    },
+    {
+      "status": "pending_current_appointment_binding",
+      "name": "ДАРБИ",
+      "website": "https://darbi.eu/",
+      "primaryEvidence": [
+        "https://darbi.eu/robots.txt",
+        "https://darbi.eu/",
+        "https://darbi.eu/dataprotection",
+        "https://darbi.eu/visshe-obrazovanie-v-chuzhbina/kandidatstvane/kandidatstvane-s-darbi",
+        "https://darbi.eu/visshe-obrazovanie-v-chuzhbina/testove/darbi-karieren-test"
+      ],
+      "reason": "ActualownedrootandselectedapplicationservicehaveSvetaNedelya4Sofia/29881092/29880340 andgenericcontactconsultantform; careerTestlinkisONLINEtestnotphysicalbookableappointment. No datedcurrentadvanceconsultappointmentproved. Searchold16/17May2024FREEeventnotusedfor2026availability. No mainrecord/school/department/staffclone ornot_publicly_listed receipt. FullGDPR6847charEOFordinaryprotectionpolicyread; robotsquerypaths/privateJoomladirsdisallowedandNOTrequested. No fields/captcha/calls/submission/actions/affiliate/newBookUI.",
+      "order": 5
+    },
+    {
+      "status": "rejected_duplicate",
+      "name": "Център за образование, кариера и развитие",
+      "website": "https://centarzaobrazovanie.com/",
+      "reason": "RuntimeSOFIA+ALL2000WIP sameMiladinovi41/893524014existingown006. Search/localpreflightonlyno newhostrequests.",
+      "order": 6
+    },
+    {
+      "status": "rejected_outside_sofia",
+      "name": "Study Buddy",
+      "website": "https://studybuddy.bg/",
+      "primaryEvidence": [
+        "https://studybuddy.bg/robots.txt",
+        "https://studybuddy.bg/",
+        "https://studybuddy.bg/terms/",
+        "https://studybuddy.bg/contacts/"
+      ],
+      "reason": "ActualContactandfooterBotevgradSaransk5Afloor1office3A, notSofia. OwnFREEconsultCTA→sameContactgenericrequest, noSofiavenue. Termsactualmainempty/wholebodyconfirmednoTermscontent; notclaimedcompletepolicyclearance, no furtherrequestsneeded. No row/count/fakeSofiaarea.",
+      "order": 7
+    },
+    {
+      "status": "held_online_only_appointment",
+      "name": "FutureMax",
+      "website": "https://www.futuremax.bg/",
+      "primaryEvidence": [
+        "https://futuremax.bg/robots.txt",
+        "https://www.futuremax.bg/",
+        "https://www.futuremax.bg/form"
+      ],
+      "reason": "ActualownedBookplainexplicitphone/videointroonly, callbackwithin24h, noactualphysicalSofiameeting/venuebound. Notacceptedfromgenericeducationlabelorfreeconsultclaim. NativeHTMLfieldsreadonlynonefilled/submitted, nofurtherPrivacy/Termsneededforheldrecord.",
+      "order": 8
+    },
+    {
+      "status": "included",
+      "id": "sofia-university-champions-hadzhi-dimitar135a",
+      "name": "University Champions / Данбъл",
+      "website": "https://www.unichamps.bg/",
+      "primaryEvidence": [
+        "https://www.unichamps.bg/robots.txt",
+        "https://www.unichamps.bg/",
+        "https://www.unichamps.bg/kontakti/",
+        "https://www.unichamps.bg/konsultacia-za-universitet-v-chujbina/",
+        "https://www.unichamps.bg/politika-na-sigurnost/",
+        "https://www.unichamps.bg/gdpr-politika/",
+        "https://www.unichamps.bg/obshti-usloviq"
+      ],
+      "booking": "ActualrootReserveConsultation→ownContact thenselectedFREEconsultpage explicitlybookSofiaOFFICEbyPHONE893291761orform/email. Phonechosen, currentofficeHad zhiDimitar135A. Realrequestformreadonlynotcalendar/confirmedslot.",
+      "pricing": "LiteralFREE40minorientationplusAFTERWARDadditionalSPECIALISED50BGN PERHOUR, notEURconversion/package/collegefee. Parentexpectedwithcandidatepublicdescription. Under16GDPRconsentobserved. NOclaimalladmissionservicesfree; contractadministrationfeesotherpackagesnotimported.",
+      "sourcePolicy": "FULLownTerms8544charsEOF+GDPR9870EOF+cookie3756EOFread. Ordinarycontract/GDPR/copyrightonly, no observedwebsiteautomation/database/noncommercialban. No licence/legalclearance/unseenpolicyclaim. Onlyminimalindependentlywordedfacts, no marketing/qualifications/media/reviews copied.",
+      "identity": "DanbulEIK203651897/UniversityChampions/danbulstudy.comONEoperator; BG893291761 andDK50628551+name/address/domainsagainstALLruntime+WIPzero. No website/room/country/staffaliases. CurrentContact135A vsregisteredprivacy135entrAapt15 retainedsource-specificnotinferredanotherpremise.",
+      "hours": "CurrentContactandselectedservicefooterMonFri09–17weekendclosed; freeorientationactualfixed40minonly, paidhourlyfeeNOTfixed60min; coordinatesnull.",
+      "checkedAtUtc": "2026-11-14T03:55:13Z",
+      "order": 9
+    },
+    {
+      "status": "included",
+      "id": "sofia-student-compass-stamboliyski175a",
+      "name": "Студентски компас",
+      "website": "https://student-compass.com/",
+      "primaryEvidence": [
+        "https://student-compass.com/robots.txt",
+        "https://student-compass.com/",
+        "https://student-compass.com/kandidatstvane_form.php",
+        "https://student-compass.com/kontakti.html"
+      ],
+      "booking": "Actualrootapplicationentry→ownedformreadFIRSTbutnotclaimedappointmentcalendar. RootexplicitREGISTRATIONbyphoneandCALL886338883/896220815thenVISITFREEconsultation; ContactsameactualStamboliyski175A/9780700. Thisexplicitadvancedvoicearrangementnotgenericcontact.",
+      "pricing": "LiteralFREEorientationaboutadmissionrequirements ONLY; actualContactseparatecontract/destination-dependentchargeforfullagencyapplicationprocedure, notimportedguessedfee. No duration/hours/pointpublished, omitted.",
+      "sourcePolicy": "Fullpublicroot/Contact/applicationformallnav/footerread; no Terms/privacy surfaced, no blockedmenu declaredunpublished/no fullagencytariffcompletenessclaim/licence. Robots200content-signalcommentswithoutactualyes/no rules; normalpublicHTML, nottraining. No sourceprose/admissionguarantees/credentials/images copied.",
+      "identity": "CollegeSvAriadna/student-compass/translationaffiliateONEagencyvenue; all3publishedphones+ownername/address/domainsruntime+ALLWIPzero. Onlyownedcurrentroot/Contact175Aaccepted, otherunreviewedsearchDruzhba36notpointguess/newvenue.",
+      "checkedAtUtc": "2026-11-14T03:55:13Z",
+      "order": 10
+    },
+    {
+      "status": "rejected_duplicate_group",
+      "names": [
+        "Duo Black&White",
+        "Учебен свят"
+      ],
+      "reason": "Actualruntime+ALL2000WIP twoexistingphysicalvenuesEACH; localpreflight/searchonlyno newownedrequestsorstaff/subjectaliases.",
+      "order": 11
+    },
+    {
+      "status": "held_source_use",
+      "name": "NEXTSTEP / Прометрикс",
+      "website": "https://nextstep.bg/",
+      "primaryEvidence": [
+        "https://nextstep.bg/robots.txt",
+        "https://nextstep.bg/",
+        "https://nextstep.bg/obshti-usloviya/"
+      ],
+      "reason": "FULLTerms4954charsEOF read: underForUs wholewebsiteownershipfollowedexplicitusingand/orcopyingINFORMATIONrequiresconsent. Broadinformationnotjustspecificcopyrightmedia, scopeunresolved. No furtherhostdata/service/Book/test/cartrequests, no row/count. ActualHestia/Prometrixaliases+879850373preflightzero butnoteligibilitypermission.",
+      "order": 12
+    },
+    {
+      "status": "held_online_only_appointment",
+      "name": "Astrea Recruitment",
+      "website": "https://astrea.bg/bg",
+      "primaryEvidence": [
+        "https://astrea.bg/robots.txt",
+        "https://astrea.bg/bg",
+        "https://astrea.bg/bg/terms",
+        "https://astrea.bg/bg/consultation",
+        "https://astrea.bg/bg/contacts",
+        "https://astrea.bg/bg/privacy"
+      ],
+      "reason": "ActualBookexplicitFREE40minONLINEvideoONLY, currentOdrin83floor3officeservesclientsbutdoesnotbindselectedconsultationtoINPERSON. No row/count; notinventSofiaonsitefromgenericoffice. ActualbookingJSavailabletimesloadingunrenderednotclaimedverifiedslots. FullTerms8561EOFordinarymediationconditionsread, Privacy26588retrievedonlyfirst8500readBEFOREonlineholdsoNOTfullpolicyclearance. Robots/api/_nextdisallowsrespected, no APIs/components/actions/customerfields/calls.",
+      "order": 13
+    },
+    {
+      "status": "rejected_duplicate_group",
+      "names": [
+        "ПОЧИСТЕНО",
+        "Чиста работа",
+        "Monster Cleaning"
+      ],
+      "reason": "RuntimeSOFIA+ALL2000WIPcurrentexacthosts/phonesexisting. Search/localpreflightonlyno newprimaryrequests.",
+      "order": 14
+    },
+    {
+      "status": "held_source_use",
+      "name": "DB-Clean",
+      "website": "https://db-clean.com/",
+      "primaryEvidence": [
+        "https://db-clean.com/robots.txt",
+        "https://db-clean.com/",
+        "https://db-clean.com/terms/"
+      ],
+      "reason": "FULLTerms7116EOF §11 expresslylimitscommercialuseofgeneralothercontentwithoutpriorwrittenconsent. Rootnarrowreviewconfirmedsource-useHOLDpendingclarifiedscope/consent, NOTclaimeduniversalautomationban/legalconclusion. No furtherhostdata/selectedservices/privacy/otherdomainrequestsafterdecision, no row/count. ActualSofiamobileappointment/individualpricecontextobservedbutnotusedforinclusion.",
+      "order": 15
+    },
+    {
+      "status": "included",
+      "id": "sofia-shiny-house-home-cleaning",
+      "name": "Shiny House BG",
+      "website": "https://shinyhousebg.bg/",
+      "primaryEvidence": [
+        "https://shinyhousebg.bg/robots.txt",
+        "https://shinyhousebg.bg/",
+        "https://shinyhousebg.bg/калкулатор/",
+        "https://shinyhousebg.bg/услуги/",
+        "https://shinyhousebg.bg/контакти/",
+        "https://shinyhousebg.bg/за-нас/"
+      ],
+      "booking": "ActualReserveOnline→sameownedcalculatorpagewithnativeSERVICE/ADDRESS/contactform. FAQexplicitemployeeCALLBACKafterrequesttoagreeDAY/HOUR; noinstantavailablecalendar. No input/calculation/antispamanswer/submission.",
+      "pricing": "LiteralBASICclean2.80EUR/m2MIN160EUR/PERVISIT. Sharedpublishedextraspublic: holiday/night+50%; outofhours/weekend+20%; equipmentwithoutlift1EUR/floor; transportbeyondringroad0.55EUR/km; providewater/electricity. No stackingruleorcalculatedtotalinvented. Othermenupricesnotimported/notcompletewholemenuclaim.",
+      "sourcePolicy": "Publicrobotsallow, completeBook6693/Services6386/Contact3689/Aboutallnav/footer/formlinksread; no separateTerms/privacy surfaced, no unseenpolicy/licence/legalclearanceclaim. Ordinaryindependentminimalfacts, no reviews/photos/logos/prosecopied. OneunselectedserviceparagraphLoremipsumobservednotusedtoinventserviceorqualifiedprovider.",
+      "identity": "Host+878746893/899469630+operatoragainstALLruntime/WIPzero. ONE Sofiahome_visit/provider, no customeroffice/noexactsourcepremise/coordinates published=>addressnull; notquarter/15kmterritoryclones. Sourcepage titleHouseClean, publicrecorddomain-derivedShinyHouseBGnotclaimedregisteredlegalname.",
+      "hours": "ActualContactMonSun07–19businessworkinghours. Typicalclean2–4h/drying2–5h/expressunder2hnotselectedfixedappointmentdurations. No guessedpin.",
+      "checkedAtUtc": "2026-11-14T03:55:13Z",
+      "order": 16
+    },
+    {
+      "status": "included",
+      "id": "sofia-remontiram-home-survey",
+      "name": "Ремонт София / remontiram.bg",
+      "website": "https://remontiram.bg/",
+      "primaryEvidence": [
+        "https://remontiram.bg/robots.txt",
+        "https://remontiram.bg/"
+      ],
+      "booking": "ActualBook#contactanchor→sameownedpageformwithproperty/area/condition/startpreference/optionalphotos/contact, explicitrequestcallbackforFREEONSITESURVEYandlaterindividualoffer. Canonicalrootwithoutfragmentreceipt, no actionURL/selection/input/photos/call/submission.",
+      "pricing": "ExplicitFREEinspectiononlyforapartment/houseUPTO100m2RZP Sofia+surrounds. Mainrenovationapprox50–750EUR/m2NOTzero/notborrowedintoselectedsurveyprice; notunpublishedreceipt/fullmenutariffclaim. Servicecapacityconfirmedbyproviderafterrequest.",
+      "sourcePolicy": "Wholepage3993chars+allhref/header/footer/formmarkupread, no separateTerms/privacy surfaced; no licence/legalclearanceclaim. RobotsordinaryNetlify404root200notchallenge/bypass. Repeatedcurrentownbrand/site/phone; no editorialprepublicationinstructionsseen. No pastedsourceprose/photoprojects/reviews/Googleclaims.",
+      "identity": "Host+897479475+brandagainstALLruntime/WIPzero. ONE Sofiaareaoperator/addresscoordinatesnull, no premises/staff/quarteraliases. Legalentitynotpublished/notinvented; brandnotclaimedregisteredtrademark. No weeklyhours/fixeddurationpublished.",
+      "checkedAtUtc": "2026-11-14T03:55:13Z",
+      "order": 17
+    },
+    {
+      "status": "pending_unreviewed_primary_prospects",
+      "names": [
+        "KirbyRental kirbyrental.com",
+        "Правим го domoupravitelsofia.com",
+        "Potenzera potenzera.com",
+        "Доби77 dobi77.com"
+      ],
+      "reason": "Domainpreflightruntime+ALLWIPzero andpriorledgersearchnoholdmatch. Search-onlyactualserviceleads; NOownrobots/root/Book/Terms/sourcefeesreviewyet, NOTaccepted. Nextbatchmayreviewactualindependentoperator/appointmentpath, notrentalretailascleaning/multiplemobilequarters.",
+      "order": 18
+    }
+  ],
+  "checkedAtUtc": "2026-11-14T03:55:13Z",
+  "verification": {
+    "runtimeAndAllOtherWipCompared": 1683,
+    "batchAudit": "4ready0pending0rejected",
+    "pricingGate": "4approved/4reviewed withtemporaryidentityONLYlocalcheck; rootassignsboundidentities",
+    "focusedTests": "22/22PASS pricingreview+catalogueaudit+home015, no fullsuite/build/productionactionbythisagent",
+    "noExternalGeocoding": true,
+    "noCustomerOrBookingWrites": true
+  },
+  "photoNeeds": {
+    "viewedAtUtc": "2026-11-14T03:55:13Z",
+    "associations": [
+      [
+        "sofia-university-champions-hadzhi-dimitar135a",
+        "consulting",
+        "Безплатна консултация за университет в чужбина",
+        "sx-university-admissions-consultation"
+      ],
+      [
+        "sofia-university-champions-hadzhi-dimitar135a",
+        "consulting",
+        "Допълнителна специализирана консултация за университет",
+        "sx-university-admissions-consultation"
+      ],
+      [
+        "sofia-student-compass-stamboliyski175a",
+        "consulting",
+        "Безплатна консултация за кандидатстване в чужбина",
+        "sx-university-admissions-consultation"
+      ],
+      [
+        "sofia-shiny-house-home-cleaning",
+        "home_services",
+        "Основно почистване на жилище в София",
+        "home-deep-clean"
+      ]
+    ],
+    "newImageGaps": [
+      {
+        "id": "sofia-remontiram-home-survey",
+        "category": "home_services",
+        "serviceName": "Безплатен оглед за цялостен ремонт на жилище",
+        "reason": "Reviewedexistinginteriordesignconsultationdepictsdesignplans/materialchoices; surveyofferonlyassessmentandlaterestimate, nodrawing/designpromised. Prefergenericonsitehousingconditionassessmentillustrative, notarchitecturaldeliverables/renovationexecution."
+      }
+    ],
+    "check": "Beforeexactrootassociationsall5serviceThumbnailneutral; rootmustmapexisting4+provideappropriatesurveyimage, no service removedforphotoavailability."
+  }
+}

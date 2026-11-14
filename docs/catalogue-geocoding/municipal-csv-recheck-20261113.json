@@ -166,8 +166,8 @@
     "uniquePostalSupersededByOwnerLiteralPoint": 1,
     "review": "Manually compared ten education/art/legal and seven other unique full street-house-suffix matches with the sole municipal row. DirtyGarage, child-swimming complex, BalanSense entrances and duplicate OtetsPaisiy3 remain unlocated. MalinovaSport sole postal rn99802 is not used: own current homepage explicitly publishes GPS42.630767,23.360355 beside its actual complex address; this literal owner point is separately bound to that address, not inferred from viewport or nearby postal coordinates. No claim to a particular court or parking entrance."
   },
-  "totalNewCsvBindings": 178,
-  "combinedReviewedOfficialPoints": 679,
+  "totalNewCsvBindings": 187,
+  "combinedReviewedOfficialPoints": 688,
   "previousCheckpoint1523Inventory": {
     "eligibleBusinesses": 1523,
     "withSourceBoundCoordinates": 839,
@@ -199,11 +199,11 @@
     "review": "Whole currenteligible inventory replayed offline against owner CSV after333new additions. No sole exact postal row left unreviewed: five held for physical-site clarification. Mobileproviders lackstationarypins; ambiguous/missingaddressesremainnull. Noexternalgeocoding/clientlocation or inventedkilometres."
   },
   "wholeEligibleInventoryAfterBindings": {
-    "eligibleBusinesses": 1642,
-    "withSourceBoundCoordinates": 883,
-    "withoutSourceBoundCoordinates": 759,
-    "unresolvedIncludingMobileProviders": 596,
-    "ambiguousExactPostalRowsHeld": 154,
+    "eligibleBusinesses": 1664,
+    "withSourceBoundCoordinates": 892,
+    "withoutSourceBoundCoordinates": 772,
+    "unresolvedIncludingMobileProviders": 606,
+    "ambiguousExactPostalRowsHeld": 155,
     "remainingUniquePostalRowsHeldForPhysicalSiteConfirmation": [
       "sofia-shining-polishing-auto",
       "sofia-katerene-europe-private",
@@ -213,9 +213,11 @@
       "sofia-double-yellow-squash-nsa",
       "sofia-nvs-workshop-tsarigradsko391",
       "sofia-ax-horca-bio-dragan-tsankov8",
-      "sofia-levski-rakovski-balsha18"
+      "sofia-levski-rakovski-balsha18",
+      "sofia-diva-zone-mladost2-bg-shkolo",
+      "sofia-azbuki-sport-musagenitsa-swimming"
     ],
-    "review": "Whole1642eligibleinventory replayedofflineagainstownerCSVafter427netadditions. Allsoleexactpostalrowsindividuallyreviewed; ninephysical-siteholdsnotblindlyaccepted, includingpark/faculty/stadium. Tennewexactfullstreet-house-suffixpostalbindingsnotverifiedentrance/indoordoor; no first,nearest,campuscentroid/landmark/rangeguess. MitvasexplicitownerGPSseparatelybound."
+    "review": "Whole1664eligibleinventory replayedofflineagainstUNCHANGEDownerCSVafter449netadditions. Allsoleexactpostalrowsmanuallyreviewed; elevenphysicalsiteholdsnotblindlyaccepted. NineNEWbindingssince1642areactualfullownerstreet/house/suffix/entrancepostalpointsNOTverifiedindoordoor/room. DIVA-schoolVasilDelov10/Azbuki-schoolViktoriaAngelova1heldforspecificphysicalvenue. Aurea33threeentrancesheld; UniversityChamps135AuntypedandStudentCompass175Anoexactrownotguessed. No Nominatim/Google/clientGPS/newexternalgeocode."
   },
   "rootCheckpoint1582Amendment": {
     "checkedAtUtc": "2026-11-14T01:13:51.423Z",
@@ -579,5 +581,85 @@
     ],
     "old501CoordinatesRewritten": 0,
     "observations": "OriginalsourceCSVunchanged; previous1582and1598historypreserved. Actualnewcomparisons14Nov. Sixknowncampus/courtyard/entranceholdsnotautomaticallyaccepted. No Nominatim/Maps/clientGPS/productionwrites;165auditclosed."
+  },
+  "previousCheckpoint1642Inventory": {
+    "eligibleBusinesses": 1642,
+    "withSourceBoundCoordinates": 883,
+    "withoutSourceBoundCoordinates": 759,
+    "unresolvedIncludingMobileProviders": 596,
+    "ambiguousExactPostalRowsHeld": 154,
+    "remainingUniquePostalRowsHeldForPhysicalSiteConfirmation": [
+      "sofia-shining-polishing-auto",
+      "sofia-katerene-europe-private",
+      "sofia-pro-sport-nsa-kliment22",
+      "sofia-ot-izvora-voenna-han-omurtag42",
+      "sofia-arnaudov-uzunova-tsar-boris19",
+      "sofia-double-yellow-squash-nsa",
+      "sofia-nvs-workshop-tsarigradsko391",
+      "sofia-ax-horca-bio-dragan-tsankov8",
+      "sofia-levski-rakovski-balsha18"
+    ],
+    "review": "Whole1642eligibleinventory replayedofflineagainstownerCSVafter427netadditions. Allsoleexactpostalrowsindividuallyreviewed; ninephysical-siteholdsnotblindlyaccepted, includingpark/faculty/stadium. Tennewexactfullstreet-house-suffixpostalbindingsnotverifiedentrance/indoordoor; no first,nearest,campuscentroid/landmark/rangeguess. MitvasexplicitownerGPSseparatelybound."
+  },
+  "rootCheckpoint1664Amendment": {
+    "checkedAtUtc": "2026-11-14 04:09:30 UTC",
+    "eligibleBusinesses": 1664,
+    "netAdditionsSinceLive1215": 449,
+    "newExactPostalBindingsSince1642": 9,
+    "approvedPostalPairs": [
+      [
+        "sofia-palante-rakovski78",
+        "46208"
+      ],
+      [
+        "sofia-diva-zone-hipodruma-boris81",
+        "102043"
+      ],
+      [
+        "sofia-emotion-studio-gotse-delchev48",
+        "20926"
+      ],
+      [
+        "sofia-integral-evlogi-georgievi99",
+        "39762"
+      ],
+      [
+        "sofia-unify-nikolay-haytov2",
+        "94825"
+      ],
+      [
+        "sofia-edlanta-vasil-levski3",
+        "38990"
+      ],
+      [
+        "sofia-estedental-maya-zhivkova-pernik90",
+        "48447"
+      ],
+      [
+        "sofia-feeria-strelbishte-dedeagach40",
+        "5285"
+      ],
+      [
+        "sofia-kosara-style-knyaz-boris132",
+        "44950"
+      ]
+    ],
+    "newSubtotal": 187,
+    "combined": 688,
+    "firstPartyPoints": 164,
+    "original501CoordinatesRewritten": 0,
+    "remainingNewPhysicalSiteHolds": [
+      {
+        "id": "sofia-diva-zone-mladost2-bg-shkolo",
+        "address": "София, ж.к. Младост 2, ул. Генерал-майор Васил Делов 10, БГ Школо",
+        "rn": "106247"
+      },
+      {
+        "id": "sofia-azbuki-sport-musagenitsa-swimming",
+        "address": "София, ж.к. Мусагеница, ул. Арх. Виктория Ангелова-Винарова 1",
+        "rn": "108460"
+      }
+    ],
+    "observations": "Currentcomparison14Nov, previoussourceobservations/receiptsretained. Officialpostalpointsnotactualindoordoor/clinicentranceguarantee. OwnerCSVunchanged, allambiguous/unresolvedheldNULLnotfakekm."
   }
 }

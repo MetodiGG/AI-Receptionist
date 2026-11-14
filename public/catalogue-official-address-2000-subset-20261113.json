@@ -11,11 +11,362 @@
   "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
   "sourceFeatureCount": 125245,
   "coordinatePrecisionDecimalPlaces": 6,
-  "scope": "178 individually reviewed exact postal bindings for current427 netadditions toward2000. Original501fullprecisionpoints unchanged; source/price-held unpublished rows absent.",
+  "scope": "187 individually reviewed exact postal bindings for current449 netadditions toward2000. Original501fullprecisionpoints unchanged; source/price-held unpublished rows absent.",
   "modifications": "Selected source records and bound to reviewed business address identities; coordinate values unchanged.",
   "semantics": "official_postal_address_points_not_verified_entrances",
-  "pointCount": 178,
+  "pointCount": 187,
   "points": [
+    {
+      "id": "sofia-kosara-style-knyaz-boris132",
+      "name": "Kosara Style",
+      "coordinates": {
+        "latitude": 42.697364,
+        "longitude": 23.319175,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. Княз Борис I 132",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://kosara.style/",
+        "addressId": "44950",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "44950",
+        "region": "Възраждане",
+        "settlement": "гр. София",
+        "street": "ул. Княз Борис I",
+        "house": "132",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "RootcomparedcurrentownKnyazBorisI132withsoleofficialSofiapostalrow44950allstreet/house/entrancefields; exact6decimalprecision, postaladdressnotverifiedindoordoor. AureaJamesBaucher33has3separateentrancesA/B/Vallheldwithoutguess. StudentCompass175Ahasnoexactmatch, UniversityChampions135Auntypedblockvsstreetnotinferred. Schoolcampusesandnineolderphysical-siteholdsremainunlocated; no first/nearest/centroid/borrowedmerchantpoint.",
+        "sourceUrls": [
+          "https://kosara.style/",
+          "https://kosara.style/kontakti-kosara-style",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-palante-rakovski78",
+      "name": "PaLante Dance Project",
+      "coordinates": {
+        "latitude": 42.698875,
+        "longitude": 23.329515,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. Георги С. Раковски 78",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://www.palante.eu/",
+        "addressId": "46208",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "46208",
+        "region": "Оборище",
+        "settlement": "гр. София",
+        "street": "ул. Георги С. Раковски",
+        "house": "78",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Rootindividuallycomparedall8actualownerfullpostaladdressesagainstsoleCSVrow: Rakovski78; TsarBorisIII81EXACTentranceВ; GotseDelchev48; EvlogiHristoGeorgievi99; NikolayHaytov2EXACTentranceГ; VasilLevski3; Pernik90; Dedeagach40. Fullstreet/house/suffix/entranceindividuallyreviewed, municipality6decimalprecisionretained. Postaladdressnotverifiedindoordoor/roomoractualstaff. NOpointborrowedfromanothermerchant. SchoolcampusesDIVA-VasilDelov10andAzbukiViktoriaAngelova1deliberatelyHELDpendingphysicalvenueentranceconfirmation, alongwithnineolderuniquephysical-siteholds. No first/nearest/viewport/centroid/landmark/house-rangeguess.",
+        "sourceUrls": [
+          "https://www.palante.eu/",
+          "https://www.palante.eu/contacts",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-diva-zone-hipodruma-boris81",
+      "name": "DIVA ZONE · Хиподрума",
+      "coordinates": {
+        "latitude": 42.680161,
+        "longitude": 23.28797,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ж.к. Хиподрума, бул. Цар Борис III 81, вх. В, ет. 2",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Хиподрума",
+        "sourceWebsite": "https://www.divazone.bg/",
+        "addressId": "102043",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "102043",
+        "region": "Красно село",
+        "settlement": "гр. София",
+        "street": "бул. Цар Борис III",
+        "house": "81",
+        "block": "",
+        "quarter": "",
+        "entrance": "В"
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Rootindividuallycomparedall8actualownerfullpostaladdressesagainstsoleCSVrow: Rakovski78; TsarBorisIII81EXACTentranceВ; GotseDelchev48; EvlogiHristoGeorgievi99; NikolayHaytov2EXACTentranceГ; VasilLevski3; Pernik90; Dedeagach40. Fullstreet/house/suffix/entranceindividuallyreviewed, municipality6decimalprecisionretained. Postaladdressnotverifiedindoordoor/roomoractualstaff. NOpointborrowedfromanothermerchant. SchoolcampusesDIVA-VasilDelov10andAzbukiViktoriaAngelova1deliberatelyHELDpendingphysicalvenueentranceconfirmation, alongwithnineolderuniquephysical-siteholds. No first/nearest/viewport/centroid/landmark/house-rangeguess.",
+        "sourceUrls": [
+          "https://www.divazone.bg/",
+          "https://www.divazone.bg/zali/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-emotion-studio-gotse-delchev48",
+      "name": "Emotion Studio · Емануела Станоева",
+      "coordinates": {
+        "latitude": 42.675112,
+        "longitude": 23.289638,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, бул. Гоце Делчев 48",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://www.emotion-studio.bg/",
+        "addressId": "20926",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "20926",
+        "region": "Красно село",
+        "settlement": "гр. София",
+        "street": "бул. Гоце Делчев",
+        "house": "48",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Rootindividuallycomparedall8actualownerfullpostaladdressesagainstsoleCSVrow: Rakovski78; TsarBorisIII81EXACTentranceВ; GotseDelchev48; EvlogiHristoGeorgievi99; NikolayHaytov2EXACTentranceГ; VasilLevski3; Pernik90; Dedeagach40. Fullstreet/house/suffix/entranceindividuallyreviewed, municipality6decimalprecisionretained. Postaladdressnotverifiedindoordoor/roomoractualstaff. NOpointborrowedfromanothermerchant. SchoolcampusesDIVA-VasilDelov10andAzbukiViktoriaAngelova1deliberatelyHELDpendingphysicalvenueentranceconfirmation, alongwithnineolderuniquephysical-siteholds. No first/nearest/viewport/centroid/landmark/house-rangeguess.",
+        "sourceUrls": [
+          "https://www.emotion-studio.bg/",
+          "https://www.emotion-studio.bg/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8.html",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-integral-evlogi-georgievi99",
+      "name": "Интеграл · образователни консултации София",
+      "coordinates": {
+        "latitude": 42.688336,
+        "longitude": 23.333147,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, бул. „Евлоги и Христо Георгиеви“ 99",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://www.integral.bg/",
+        "addressId": "39762",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "39762",
+        "region": "Средец",
+        "settlement": "гр. София",
+        "street": "бул. Евлоги и Христо Георгиеви",
+        "house": "99",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Rootindividuallycomparedall8actualownerfullpostaladdressesagainstsoleCSVrow: Rakovski78; TsarBorisIII81EXACTentranceВ; GotseDelchev48; EvlogiHristoGeorgievi99; NikolayHaytov2EXACTentranceГ; VasilLevski3; Pernik90; Dedeagach40. Fullstreet/house/suffix/entranceindividuallyreviewed, municipality6decimalprecisionretained. Postaladdressnotverifiedindoordoor/roomoractualstaff. NOpointborrowedfromanothermerchant. SchoolcampusesDIVA-VasilDelov10andAzbukiViktoriaAngelova1deliberatelyHELDpendingphysicalvenueentranceconfirmation, alongwithnineolderuniquephysical-siteholds. No first/nearest/viewport/centroid/landmark/house-rangeguess.",
+        "sourceUrls": [
+          "https://www.integral.bg/",
+          "https://www.integral.bg/kontakti",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-unify-nikolay-haytov2",
+      "name": "UNIFY · образователни консултации София",
+      "coordinates": {
+        "latitude": 42.671176,
+        "longitude": 23.352052,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. „Николай Хайтов“ 2, вх. Г, ет. 11, офис 36",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://www.unify.bg/",
+        "addressId": "94825",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "94825",
+        "region": "Изгрев",
+        "settlement": "гр. София",
+        "street": "ул. Николай Хайтов",
+        "house": "2",
+        "block": "",
+        "quarter": "",
+        "entrance": "Г"
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Rootindividuallycomparedall8actualownerfullpostaladdressesagainstsoleCSVrow: Rakovski78; TsarBorisIII81EXACTentranceВ; GotseDelchev48; EvlogiHristoGeorgievi99; NikolayHaytov2EXACTentranceГ; VasilLevski3; Pernik90; Dedeagach40. Fullstreet/house/suffix/entranceindividuallyreviewed, municipality6decimalprecisionretained. Postaladdressnotverifiedindoordoor/roomoractualstaff. NOpointborrowedfromanothermerchant. SchoolcampusesDIVA-VasilDelov10andAzbukiViktoriaAngelova1deliberatelyHELDpendingphysicalvenueentranceconfirmation, alongwithnineolderuniquephysical-siteholds. No first/nearest/viewport/centroid/landmark/house-rangeguess.",
+        "sourceUrls": [
+          "https://www.unify.bg/",
+          "https://www.unify.bg/contacts.html",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-edlanta-vasil-levski3",
+      "name": "ЕДЛАНТА · образователни консултации София",
+      "coordinates": {
+        "latitude": 42.686246,
+        "longitude": 23.322054,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, бул. „Васил Левски“ 3, ет. 1, ап. 1",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://www.edlanta.com/",
+        "addressId": "38990",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "38990",
+        "region": "Средец",
+        "settlement": "гр. София",
+        "street": "бул. Васил Левски",
+        "house": "3",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Rootindividuallycomparedall8actualownerfullpostaladdressesagainstsoleCSVrow: Rakovski78; TsarBorisIII81EXACTentranceВ; GotseDelchev48; EvlogiHristoGeorgievi99; NikolayHaytov2EXACTentranceГ; VasilLevski3; Pernik90; Dedeagach40. Fullstreet/house/suffix/entranceindividuallyreviewed, municipality6decimalprecisionretained. Postaladdressnotverifiedindoordoor/roomoractualstaff. NOpointborrowedfromanothermerchant. SchoolcampusesDIVA-VasilDelov10andAzbukiViktoriaAngelova1deliberatelyHELDpendingphysicalvenueentranceconfirmation, alongwithnineolderuniquephysical-siteholds. No first/nearest/viewport/centroid/landmark/house-rangeguess.",
+        "sourceUrls": [
+          "https://www.edlanta.com/",
+          "https://www.edlanta.com/kontakti",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-estedental-maya-zhivkova-pernik90",
+      "name": "Естедентал · д-р Мая Живкова",
+      "coordinates": {
+        "latitude": 42.702238,
+        "longitude": 23.301839,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. Перник 90",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://estedental.com/",
+        "addressId": "48447",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "48447",
+        "region": "Възраждане",
+        "settlement": "гр. София",
+        "street": "ул. Перник",
+        "house": "90",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Rootindividuallycomparedall8actualownerfullpostaladdressesagainstsoleCSVrow: Rakovski78; TsarBorisIII81EXACTentranceВ; GotseDelchev48; EvlogiHristoGeorgievi99; NikolayHaytov2EXACTentranceГ; VasilLevski3; Pernik90; Dedeagach40. Fullstreet/house/suffix/entranceindividuallyreviewed, municipality6decimalprecisionretained. Postaladdressnotverifiedindoordoor/roomoractualstaff. NOpointborrowedfromanothermerchant. SchoolcampusesDIVA-VasilDelov10andAzbukiViktoriaAngelova1deliberatelyHELDpendingphysicalvenueentranceconfirmation, alongwithnineolderuniquephysical-siteholds. No first/nearest/viewport/centroid/landmark/house-rangeguess.",
+        "sourceUrls": [
+          "https://estedental.com/",
+          "https://estedental.com/contact/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-feeria-strelbishte-dedeagach40",
+      "name": "Феерия · Стрелбище",
+      "coordinates": {
+        "latitude": 42.675728,
+        "longitude": 23.298964,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ж.к. Стрелбище, ул. Дедеагач 40",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Стрелбище",
+        "sourceWebsite": "https://feeria-bg.com/",
+        "addressId": "5285",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "5285",
+        "region": "Триадица",
+        "settlement": "гр. София",
+        "street": "ул. Дедеагач",
+        "house": "40",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Rootindividuallycomparedall8actualownerfullpostaladdressesagainstsoleCSVrow: Rakovski78; TsarBorisIII81EXACTentranceВ; GotseDelchev48; EvlogiHristoGeorgievi99; NikolayHaytov2EXACTentranceГ; VasilLevski3; Pernik90; Dedeagach40. Fullstreet/house/suffix/entranceindividuallyreviewed, municipality6decimalprecisionretained. Postaladdressnotverifiedindoordoor/roomoractualstaff. NOpointborrowedfromanothermerchant. SchoolcampusesDIVA-VasilDelov10andAzbukiViktoriaAngelova1deliberatelyHELDpendingphysicalvenueentranceconfirmation, alongwithnineolderuniquephysical-siteholds. No first/nearest/viewport/centroid/landmark/house-rangeguess.",
+        "sourceUrls": [
+          "https://feeria-bg.com/",
+          "https://feeria-bg.com/contact/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
     {
       "id": "sofia-allegro-vivace-andrey-lyapchev72",
       "name": "Алегро Виваче · Младост 2",

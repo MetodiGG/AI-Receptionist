@@ -1,0 +1,252 @@
+{
+  "rootIntegrationReview": {"checkedAtUtc":"2026-11-14T03:53:23.749Z","note":"Rootreadall4fullrecords/reviews. MobileignitionFROM26EUR/HOURplusMANDATORY30attendancepublic, notcomputed56/allin26 orfixed60minduration. FeeriaCenter15.34personalcoachWOMENnotVanya20.40/freefirstgymadmission; explicitownformstaffconfirms, no includedentryentitlementinvented. StrelbishteONLYwholeBronzealternative2 EXACT8conditioning+2PowerPlate153.40/max4weeks/PRIORVanyaCONVERSATION, notsingle15.34clone ordividedvisitfee; conflictinghoursomitted. Newcombinedactivityfullsource/thumbviewedwithsamefictionalwoman/coachnot10picturedvisits. Azbukiadult1:1swim25actualownerPHONEplusOWNfee, unreadGymRealmtemplateNOTavailability; childFAQanswerstatesexternalvisitorafter17:00preservedPUBLICLYwithoutweekday/weekendearlyentryinference. Actualrenamedstreet/oldnameandrealphoneindependentGaitanioperatorchecked, no sharedsourcepointborrowed. NewadultswimphotoFULLsource/thumbviewednotchild/adultchoice. Existingfemale1:1strengthimageviewed. Ownboilerplatepoliciesnotlegaloperatorproof, no clinicalclaims/provider/customer/productionwrites.","identity":"Only newlyreviewednormalizedinventoryidentitiesassigned; existingbaseline/pricereviewfingerprintsuntouched; originalfreeze/sourceobservationdatespreserved."},
+  "batch": "auto-sport-2000-017-20261113",
+  "status": "frozen_ready_for_root_review",
+  "dateConvention": "New observations checkedOn2026-11-14 UTC; Europe/Sofia appointment times unchanged; identifier20261113 retained.",
+  "scope": "Unique Sofia auto/carwash/detailing and reserved sport only; actual Book then selected services/full tariffs/contact. No generic admission, trials, staff/room/quarter aliases or unsupported chain fee transfers.",
+  "sourceRestrictions": [
+    "No UI/Maps/Nominatim/privateGPS/paidAPI/providerbulk/customerinput/consent/booking/productionmutations.",
+    "All global source/access STOPs retained. Setmore, Goldie, EasyWeek, Fresha, ReservationStudio, Studio24 and Notino are explicitly stopped along with other prior blocked sources; no further provider requests. An inadvertent Setmore read is logged as held, no provider facts admitted."
+  ],
+  "counts": {
+    "records": 4,
+    "services": 4,
+    "reviews": 4,
+    "pricedServices": 4,
+    "pending": 9,
+    "rejected": 2
+  },
+  "orderedLedger": [
+    {
+      "order": 1,
+      "id": "sofia-mobile-auto-899195996",
+      "name": "Мобилен автосервиз 24/7 · София",
+      "status": "verified",
+      "website": "https://mobilen-avtoserviz-bg.com/",
+      "bookingUrl": "https://mobilen-avtoserviz-bg.com/",
+      "serviceUrls": [
+        "https://mobilen-avtoserviz-bg.com/"
+      ],
+      "contactUrl": "https://mobilen-avtoserviz-bg.com/",
+      "findings": "Actual public call-dispatch entry reviewed FIRST: root independently publishes phone0899195996 and invites a call; its four-step process says phone contact determines arrival time and preliminary quote, then specialist attends the customer's Sofia address. Full one-page Services, complete Fees and Contact followed through actual nav anchors, which resolve to the same document; current tariff visibly publishes ignition repair from26EURperhour PLUS a separate30EUR Sofia attendance fee. Only this actual hourly labour component imported, not an all-in26 or computed56; exact final time/scope/quote requires owner confirmation. Dedicated name is generic owner brand with exact unique phone identity, not a duplicate of NiRa/Mobilix/Global/ServizAdres; runtime plus all current intakes phone/domain check empty before review. One service-area business address/quarter/coordinates null, not copy of a hypothetical workshop or city/quarter aliases. Full visible nav/footer has no separate Terms/Privacy link; no claim of unseen terms accepted/read or legal permission. No service duration inferred from hourly billing, no response/availability guarantees or generic24/7 appointment promise. Google-derived embedded reviews/ratings/photos were ignored and not imported, no external Maps/provider/UI/customer/consent/booking actions.",
+      "checkedAtUtc": "2026-11-14T03:22:38Z"
+    },
+    {
+      "order": 2,
+      "id": "sofia-feeria-buzludzha42",
+      "name": "Феерия · Център",
+      "status": "verified",
+      "website": "https://feeria-bg.com/",
+      "bookingUrl": "https://feeria-bg.com/",
+      "serviceUrls": [
+        "https://feeria-bg.com/pricing/"
+      ],
+      "contactUrl": "https://feeria-bg.com/contact/",
+      "findings": "Actual owned Book entry reviewed first: complete root/native regular training-request form with requested day/time, location chooserCenter/Strelbishte, subject/message and mandatory staffcallbackconfirmation. It is separate from the explicitly labelled FREE first-training form; no input/choice/submit or guaranteed slot. Full native Pricing current14May2026, Services/TRX, Facilities and Contact reviewed. Regular personal fitness with a coach literal15.34EUR/training, Vanya-specific20.40EUR not substituted; no fee conversion. Complete tariff has no separate ordinary gym-entry item for this selected coached service; no assertion of entry/card entitlement or other service inclusion. Strelbishte expressly restricted to fullBronze/Silver/Gold programmes after prior conversation with Vanya, so single15.34 fee is NOT cloned there. Actual Bronze alternative2 explicitly8conditioning+2PowerPlate, whole153.40EUR/max4weeks; no division into visit fees, no inferredHuber variant. Full visible linked 'Terms' actually/privacy-policy main content read fully to its end: personal-data declaration with company placeholders, not treated as proof of legal operator particulars/acceptance; no explicit source extraction/database/noncommercial-use restriction seen. Only minimal public business facts/fresh own labels retained; no source descriptions/images/logos/reviews/outcome claims, no barochamber/LPG/rehab or general gym admission. Exact two real premises/phone/branch limits, no room/staff aliases, no Maps/privateGPS/geocoder/provider/UI/account/consent/customer or booking actions. SelectedTHISvenue: regular individual fitness coaching for women15.34EUR, not a free trial,20.40Vanya-only session,TRX-specific inferred fee or fullprogramme. Exact CenterBuzludzha42 on Facilities/Contact; 40–42rootrange narrowed by actualcontact42. Opening hours from current corroborating branch pages; no weekend closures inferred and no duration inferred from form slot spacing.",
+      "checkedAtUtc": "2026-11-14T03:34:27Z"
+    },
+    {
+      "order": 3,
+      "id": "sofia-feeria-strelbishte-dedeagach40",
+      "name": "Феерия · Стрелбище",
+      "status": "verified",
+      "website": "https://feeria-bg.com/",
+      "bookingUrl": "https://feeria-bg.com/",
+      "serviceUrls": [
+        "https://feeria-bg.com/pricing/"
+      ],
+      "contactUrl": "https://feeria-bg.com/contact/",
+      "findings": "Actual owned Book entry reviewed first: complete root/native regular training-request form with requested day/time, location chooserCenter/Strelbishte, subject/message and mandatory staffcallbackconfirmation. It is separate from the explicitly labelled FREE first-training form; no input/choice/submit or guaranteed slot. Full native Pricing current14May2026, Services/TRX, Facilities and Contact reviewed. Regular personal fitness with a coach literal15.34EUR/training, Vanya-specific20.40EUR not substituted; no fee conversion. Complete tariff has no separate ordinary gym-entry item for this selected coached service; no assertion of entry/card entitlement or other service inclusion. Strelbishte expressly restricted to fullBronze/Silver/Gold programmes after prior conversation with Vanya, so single15.34 fee is NOT cloned there. Actual Bronze alternative2 explicitly8conditioning+2PowerPlate, whole153.40EUR/max4weeks; no division into visit fees, no inferredHuber variant. Full visible linked 'Terms' actually/privacy-policy main content read fully to its end: personal-data declaration with company placeholders, not treated as proof of legal operator particulars/acceptance; no explicit source extraction/database/noncommercial-use restriction seen. Only minimal public business facts/fresh own labels retained; no source descriptions/images/logos/reviews/outcome claims, no barochamber/LPG/rehab or general gym admission. Exact two real premises/phone/branch limits, no room/staff aliases, no Maps/privateGPS/geocoder/provider/UI/account/consent/customer or booking actions. SelectedTHISvenue: completeBronze programme alternative2 exactly8conditioning+2PowerPlate,153.40EURtotal,max4weeks, only after advance conversation/acceptance. Two named regular training-request location choices read, not treated as permission to bypass prior Vanya discussion. No singlevisit price or freefirstsession at this branch; no duration asserted. Hours omitted because Facilities morning13:30 conflicts root/footer13:00; no arbitrary choice. Native form request route only, no availability claim.",
+      "checkedAtUtc": "2026-11-14T03:34:27Z"
+    },
+    {
+      "order": 4,
+      "id": "sofia-azbuki-sport-musagenitsa-swimming",
+      "name": "Спортен комплекс Азбуки · плуване",
+      "status": "verified",
+      "website": "https://azbuki-sport.bg/",
+      "bookingUrl": "https://azbuki-sport.bg/contact_us",
+      "serviceUrls": [
+        "https://azbuki-sport.bg/lessons",
+        "https://azbuki-sport.bg/price"
+      ],
+      "contactUrl": "https://azbuki-sport.bg/contact_us",
+      "findings": "Actual owned top Book followed to its literal GymRealm schedule URL after source checks; public reader shows only Angular templates, not rendered activities, prices or available slots. Provider robots ordinary GET after reader inaccessible returns404, not an access bypass; no private API, bundle, UI, calendar filters, service/date/customer, login/account/payment/consent/action used. Honest independent PHONE fallback: full own Contact explicitly heads reception 'Запитване и запазване на час' and lists Tel alongside WhatsUp/Viber, not messaging-only inferred call. Complete own Prices and Lessons separately reviewed: adult individual swimming25EUR literal, child25EUR/group15/18/cards are different rows not merged or divided; selected ONLY ordinary adult1:1 swimming, not free pool admission or medical rehabilitation. Current full native tariff has no separate mandatory pool entry amount for the individual lesson; no invented assertion of card/other-service entitlement. No duration from timetable/slot spacing. Contact expressly publishes renamed ArhViktoriaAngelovaVinarova1 (formerly ProfArhStanchoBelkovski1), entrance from block87, exact Musagenitsa Sofia and matching receptionist number. One real school-owned sport complex, independent branding/phone from Gaitani dance tenant; no school/course/staff/room aliases. Full FAQ says external visitors accepted after17; pool listed opening/last-entry times are NOT assumed bookable individual-lesson hours and omitted. Entire own Terms/Privacy read, copied lodging/ski/rugby placeholders not used as service rules/legal-operator verification, no explicit extraction/database/noncommercial restriction found; no consent/clearance claim. Coordinates null, no Maps requests/source photos/ratings/reviews copied.",
+      "checkedAtUtc": "2026-11-14T03:39:06Z"
+    }
+  ],
+  "pending": [
+    {
+      "name": "DG Turbochargers · Орландовци и Витоша",
+      "website": "https://www.dgturbo.com/",
+      "status": "held_preexisting_global_provider_source_stop",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T03:22:38Z",
+      "reviewedUrls": [
+        "https://www.dgturbo.com/",
+        "https://www.dgturbo.com/zapazi-chas/",
+        "https://www.dgturbo.com/kontakti/",
+        "https://www.dgturbo.com/uslugi-dg-turboservice/"
+      ],
+      "sourceTermsUrl": "https://www.setmore.com/terms",
+      "notes": "Owned Book and Contact link two real venue booking pages, but both linked Setmore pages were inadvertently read because the prior global Setmore STOP was absent from the compacted working list. Parent reconfirmed it was already a global STOP; no further Setmore merchant/terms/alternate requests permitted. No provider service amounts, duration, address, contact or other provider facts are imported. Current terms primary search content additionally shows commercial-use and written-permission linking restrictions; the later copyright section is not treated as blanket permission. Independent real owner CALL-booking plus native tariff would require separate proof, not a relabeling of this provider data. No bookings, service/date/customer fields, consent, accounts or submissions used."
+    },
+    {
+      "name": "Аутомаджик",
+      "website": "https://www.automagic-bg.com/",
+      "status": "held_access_forbidden",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T03:22:38Z",
+      "reviewedUrls": [
+        "https://www.automagic-bg.com/"
+      ],
+      "notes": "Owned root returns403Forbidden. No curl/alternatehost/protocol/UI bypass; search-only appointment/service statements are not a completed primary review. No row imported."
+    },
+    {
+      "name": "MobiWash",
+      "website": "https://mobiwash.bg/",
+      "status": "held_mobile_city_scope_and_app_menu",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T03:22:38Z",
+      "reviewedUrls": [
+        "https://mobiwash.bg/",
+        "https://mobiwash.bg/contact",
+        "https://mobiwash.bg/policy"
+      ],
+      "notes": "Full owner one-page service/FAQ reviewed after actual call-request entry; it independently says request by phone and offers staffed mobile washing, not self-service. Contact/policy confirm a Sofia OFFICE, but current visible service-area text does not explicitly bind attendance coverage to Sofia. Main workflow is an account-based mobile application, not inspected/installed; no claim its regular menu is absent or fee reviewed. Office is not invented as a wash premise. Policy read fully, no consent accepted; contact Terms points to policy.html which reader could not load, not replaced with invented terms. Keep exact geographic/menu scope pending, no customer inputs/maps/reviews/images imported."
+    },
+    {
+      "name": "Сервиз Адрес",
+      "website": "https://serviz-adress.com/",
+      "status": "held_tariff_currentness_and_scope",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T03:22:38Z",
+      "reviewedUrls": [
+        "https://serviz-adress.com/",
+        "https://serviz-adress.com/ценоразпис/",
+        "https://serviz-adress.com/компютърна-диагностика/",
+        "https://serviz-adress.com/мобилен-автосервиз/"
+      ],
+      "notes": "Actual own call dispatch and Sofia mobile attendance explicit; no guessed physical bases or separate city aliases. Full linked fee table is BGN-only with old undated article presentation and generic hourly labour/attendance components, not verified as a current2026 selected diagnostic tariff. Known fee table cannot become not_publicly_listed, and no old BGΝ amount is converted or asserted current. No native chosen-date form, terms conclusion or customer contact action."
+    },
+    {
+      "name": "СИДЕР АУТО",
+      "website": "https://siderauto.com/",
+      "status": "held_actual_booking_and_price_js",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T03:34:27Z",
+      "reviewedUrls": [
+        "https://siderauto.com/",
+        "https://siderauto.com/appointment",
+        "https://siderauto.com/contacts"
+      ],
+      "notes": "Root explicitly links native appointment page; reader cache miss then ordinary public GET confirms location/service/date/time chooser templates, price-bearing service template and account requirement to submit. Actual services/fees are unread Angular-rendered values, not a complete no-fee menu. No UI, scriptbundle, API, account, location/service/date/customer or form action used; published contact number alone is not independent call-book proof. Keep exact-current menu pending, not unpublished."
+    },
+    {
+      "name": "Анел Спорт · Хотел Анел",
+      "website": "https://hotelanel.com/",
+      "status": "held_source_terms",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T03:34:27Z",
+      "reviewedUrls": [
+        "https://hotelanel.com/anel-sport/hall-for-group-events/",
+        "https://hotelanel.com/terms",
+        "https://hotelanel.com/privacy-policy/"
+      ],
+      "notes": "Owned programme has genuine regular phone-booked group classes, but actual Terms ordinary GET after readerCacheMiss contains definition I CONTENT=all site information including service tariffs and supplier data. VII allows copying/transfer/use content only personal/noncommercial and forbids public/commercial copying into other contexts, not merely source images/design. Conservative source HOLD/STOP, no legal ruling. Privacy request was already in flight before decisive clause read; no further endpoints/read/extraction after discovery, no data imported. No consent or reservation action."
+    },
+    {
+      "name": "Киро Ауто Партс",
+      "website": "https://www.autopartsbg.eu/",
+      "status": "held_prior_appointment_evidence",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T03:34:27Z",
+      "reviewedUrls": [
+        "https://www.autopartsbg.eu/bg/content/6-avtoserviz"
+      ],
+      "notes": "Current owned workshop service text and contacts visible within retail catalogue, but only generic call/contact invitation and service list, no explicit prior appointment for selected repair. Retail product prices/cart are not booked labour fees. Did not follow retail cart/account or invent appointment from a telephone number."
+    },
+    {
+      "name": "София Скуош Център",
+      "website": "https://sofia-squash.com/",
+      "status": "held_booking_route_robots_and_regular_tariff",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T03:34:27Z",
+      "reviewedUrls": [
+        "https://sofia-squash.com/",
+        "https://sofia-squash.com/играй-скуош-запази-час-онлайн/",
+        "https://sofia-squash.com/robots.txt",
+        "https://sport.bookinggood.net/robots.txt",
+        "https://sport.bookinggood.net/bg/terms"
+      ],
+      "priorReceipt": "expansion-auto-sport-2000-003-20261113.json",
+      "notes": "Actual own top Book page independently offers court booking online/phone. Public owner HTML embeds exactly https://sport.bookinggood.net/embed/facility/43/43. Before requesting that menu, actual provider robots.txt ordinary GET after inaccessible reader returned Disallow:/embed/; embedded menu NOT requested, no /bg/embed/alternate/places bypass. Known unreviewed court fee menu not relabeled unpublished. Prior003 held current regular coached tariff and trial-only page; no old child/spring fee transferred. Current provider Terms19Jun2025 fully read112lines, no explicit extraction or noncommercial restriction seen, not blanket permission or consent. Owner robots permits public pages excluding/wp-admin. No maps, slots, customer fields or accounts."
+    },
+    {
+      "name": "Вутов Автосервиз",
+      "website": "https://vutovauto.com/",
+      "status": "held_access_unauthorized",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T03:39:06Z",
+      "reviewedUrls": [
+        "https://vutovauto.com/"
+      ],
+      "notes": "Owned root returns401Unauthorized. No curl/login/alternatehost/route workaround. Earlier discovery snippet gives only StudentskiGrad, not exact venue or full selected service tariff. No phone alone/quarter-only premises invented."
+    }
+  ],
+  "rejected": [
+    {
+      "name": "София Дизел Център",
+      "website": "https://sofia-diesel-center.com/",
+      "status": "rejected_no_appointment_and_no_vehicle_intake",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T03:22:38Z",
+      "reviewedUrls": [
+        "https://sofia-diesel-center.com/"
+      ],
+      "notes": "Owner FAQ explicitly says no appointment is necessary, detached pumps/injectors accepted immediately, and vehicles cannot be brought for diagnosis/repair. Do not turn walk-in/mail-in parts work into a reserved vehicle-service business. No additional endpoints requested."
+    },
+    {
+      "name": "Автосервиз СИНХРО",
+      "website": "https://sinhro.bg/",
+      "status": "rejected_outside_sofia_city",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T03:34:27Z",
+      "reviewedUrls": [
+        "https://sinhro.bg/"
+      ],
+      "notes": "Complete owned root/footer explicitly places actual workshop in Godech SofiyskoShose40, not Sofia city. Generic road assistance coverage Sofia region does not prove a distinct Sofia repair business/premise. No city clone or transferred house address."
+    }
+  ],
+  "frozenAtUtc": "2026-11-14T03:39:47Z",
+  "validation": {
+    "schemaRecords": 4,
+    "otherUniqueRuntimeAndAllIntakeRecords": 1676,
+    "readyForReview": 4,
+    "pending": 0,
+    "rejected": 0,
+    "pricingReviewStates": {
+      "reviewed": 4,
+      "service_reviewed": 0
+    },
+    "inventoryIdentities": "Temporary diagnostic binding only; no inventoryIdentity persisted."
+  },
+  "photoContexts": [
+    {
+      "id": "sofia-mobile-auto-899195996",
+      "selectedService": "Mobile automotive ignition fault repair, one mechanic at the vehicle engine bay/electrical diagnostic equipment. Hourly labour, not towing, parts retail, tyre machine or cosmetic detailing."
+    },
+    {
+      "id": "sofia-feeria-buzludzha42",
+      "selectedService": "One adult woman with one personal fitness coach in an ordinary indoor fitness training session; no EMS wires, medical rehabilitation, massage or generic empty gym."
+    },
+    {
+      "id": "sofia-feeria-strelbishte-dedeagach40",
+      "selectedService": "Whole programme8conditioning+2PowerPlate personal sessions for adult women, max4weeks. Literal programme alternative2. Appropriate composite or coherent specific PowerPlate vibration-platform + ordinary coached conditioning context, not inferredHuber/LPG/EMS/medical treatment. No division of total153.40EUR."
+    },
+    {
+      "id": "sofia-azbuki-sport-musagenitsa-swimming",
+      "selectedService": "One ADULT beginner swimmer with one swim instructor at an indoor training pool. Selected adult1:1 lesson25EUR, not childgroup, childparent infant swimming, free pool admission ormedical rehabilitation. No age/duration invented."
+    }
+  ]
+}

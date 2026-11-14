@@ -1,0 +1,473 @@
+{
+  "rootIntegrationReview": {"checkedAtUtc":"2026-11-14T01:39:41.288Z","notes":"Rootreadall6fullrecords/6reviews. Labourperworkerhour+separatevehicles/min2h/exVAT notwholemovefees; newvehiclefreecarryingimage. Lili150–180BGN40–60m2/min70/30–100%surcharges literalundatedcurrentsource. Sfumato150EURexVATmaximum2h oralONLY not120scalar/writtenproject; oneSofiamobileprovider avoidsconflictingoffices. Kraftek/InOutfreeintroonlynotprojectfee. Sourceinventory/feequalifiers retained.","inventory":"Newnormalizedreviewedidentitiesonly; no legacybaseline/frozenhashrefresh, no sourceprice/datefabrication, no production/booking/notification/migration orhomepagechange."},
+  "batch": "home-education-2000-011-20261113",
+  "checkedOn": "2026-11-14",
+  "status": "frozen_source_complete",
+  "sourceModule": "lib/discovery/catalogue-data/neighborhood-home-education-2000-011-20261113.mjs",
+  "dateConvention": "UTCcalendarcheckedOn14; filename13intakeidentifier only. Actualsource reviewcompletiontimestamp incheckedAtUtc, no backdating. AppointmenttimesEurope/Sofia.",
+  "summary": {
+    "includedBusinesses": 6,
+    "includedServices": 6,
+    "reviews": 6,
+    "literalPriceFacts": 6,
+    "strictUnpublishedReceipts": 0,
+    "phoneBookings": 3,
+    "ownedForms": 3,
+    "premises": 2,
+    "serviceAreas": 4,
+    "coordinates": 0,
+    "fixedDurations": 0,
+    "appointmentHoursRows": 1,
+    "explicitFreeOffers": 2,
+    "eurOffers": 5,
+    "bgnOffers": 1,
+    "includedLedgerCases": 6,
+    "heldLedgerCases": 17,
+    "rejectedLedgerCases": 4
+  },
+  "ledger": [
+    {
+      "status": "pending_source_unavailable_maintenance",
+      "name": "Jessica",
+      "primaryEvidence": [
+        "https://jessica.bg/robots.txt"
+      ],
+      "notes": "Runtime+allWIP/priorledgerszeroexceptown010nextlead. ActualpublicrobotsHTTP502 Maintenance, no challengebypass/retryloop/alternatehost/provider/UI. SearchcachedSofiashowroom/designerbookingfactsNOTaccepted, actualTerms/Book/services/feesunreviewed, notunpublished.",
+      "order": 1,
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T01:02:33Z"
+    },
+    {
+      "status": "rejected_non_sofia_current_venue",
+      "name": "SOI interior design house",
+      "primaryEvidence": [
+        "https://soi.bg/robots.txt",
+        "https://soi.bg/",
+        "https://soi.bg/book/"
+      ],
+      "notes": "Robotsfirst200publicallowedexceptadmin/cartquerynonevisited. ActualownBookonlyTsaribrod33VARNA9000, phone887010199; noSofiapremise/actualSofiavisitproof. No intakeorfee/onlinecityclone. NoTermslinksurfacedroot, notclaimedfullsourceclearance.",
+      "order": 2,
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T01:02:33Z"
+    },
+    {
+      "status": "pending_local_merchant_identity_and_delivery",
+      "name": "Estimate Studio",
+      "primaryEvidence": [
+        "https://interiordesignoffer.com/robots.txt",
+        "https://interiordesignoffer.com/",
+        "https://interiordesignoffer.com/terms-privacy/"
+      ],
+      "notes": "RobotsactualAllowpublic/privateconfig/vendor/data/test/.gitforbiddennoneaccessed. ActualTerms first10000charsoutputpartlytruncated, notclaimedfullsourceclearance. NamedEstimateStudio/legalformOOD butseatLondonUK/no exactstreet/localcontractingentity/phone, saysnofrontoffice/localBulgariateamcanmeetatrequiest. No actualSofiaappointment/merchantuniquenessproofcomplete; no nationwideonlinecityclone/feepricefromprojectoffersorpublicauthorityaddress. No form/calculator/PrintOffer/action/API/customerdata.",
+      "order": 3,
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T01:02:33Z"
+    },
+    {
+      "status": "included",
+      "id": "sofia-kraftek-design-pimen-zografski16a",
+      "name": "Kraftek Design · мебелно студио",
+      "primaryEvidence": [
+        "https://mebeli.kraftekdesign.com/robots.txt",
+        "https://mebeli.kraftekdesign.com/",
+        "https://mebeli.kraftekdesign.com/politika-za-poveritelnost/",
+        "https://mebeli.kraftekdesign.com/zapazete-chas-za-bezplatna-srestha/",
+        "https://mebeli.kraftekdesign.com/kontakti/"
+      ],
+      "notes": "Actual Book form is explicit FREE initial designer meeting, preferred date/time within next10workingdays MonFri10–17, office/Sofia-site choice, owner confirms within1workingday; selected one actual office PimenZografski16A not staff/mobile clone. Published889012323. Full18637charprivacy completed two stored chunks after first output truncated, ordinary privacy/tracking; references Terms but no separate Terms href surfaced in reviewed root/footer/privacy. No broad permission/licence/legalclearance asserted, no creative assets/prose/portfolio/customer cases copied. Exact0EUR, no fixed duration. No chosen customer date/time, personal input, consent/file upload/call/submission/action/maps. Public normal curlGET only, robotsallowed. Parent/runtime+ALLintakes base-domain/subdomain/phone dedupe clear.",
+      "order": 4,
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T01:11:05Z"
+    },
+    {
+      "status": "included",
+      "id": "sofia-prohamali-home-moving",
+      "name": "Хамали Иванов · ProHamali",
+      "primaryEvidence": [
+        "https://prohamali.bg/robots.txt",
+        "https://prohamali.bg/",
+        "https://prohamali.bg/kontakti/",
+        "https://prohamali.bg/hamalski-uslugi/",
+        "https://prohamali.bg/premestvane-na-doma/"
+      ],
+      "notes": "Actual owner contact/request flow + explicit every-day prior arrangement and phone882264648; callback agrees price/execution. NamedIvanovPROTransEOOD, oneSofia mobile row, Nadezhda324floor8 not visitor venue. Fullhamalski13221/home13273chars reviewed after initial10000truncated snapshots; root anchor parser confirms exacthomepath (first safeGET slug followed visible nav label, not verifiedhref until subsequent parser; no action/access bypass). Literal indicative12.78EUR PERPERSON PERHOUR forSofia labour, FAQ explicitly allows labour without vehicle; separate25.56EUR/hour transportwithdriver, heavy/access/floors affectquote. No conversion/VAT/minimumcrew/hours/duration guessed, no wholemoveprice flattening. Homebundles61.36/112.48/296.55EUR retainconditions in source but not imported. No Terms/privacy link surfaced root/contact/fullservice/footer; no unseenTerms clearance orlicence claim. No testimonials/ratings/staff biographies/articles/photos copied, no form/call/submission/action/maps/customerdata. Runtime+ALLWIP domain/phone/operator dedupe clear.",
+      "order": 5,
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T01:11:05Z"
+    },
+    {
+      "status": "pending_explicit_appointment_path",
+      "name": "Pro Design Interiors",
+      "primaryEvidence": [
+        "https://pro-designinteriors.com/robots.txt",
+        "https://pro-designinteriors.com/",
+        "https://pro-designinteriors.com/services/",
+        "https://pro-designinteriors.com/contact-us/",
+        "https://pro-designinteriors.com/faq/"
+      ],
+      "notes": "Robotsallows normalpublicpages. ActualrootFreeConsultation entry leads Services#link1; fullFAQ offers FREE preliminary personal meeting and phone/email for advice. Current contact897062928 and Mladost4OkolovrastenPat251E TheRingTowerfloor2 verified. However visible contactform/general phone CTA does not clearly request/agree meetingdate/time; do not force generic contact asappointment. Hold realappointment binding, not claimunpublished fees, no intake/staffclone/retail projectrows. No separateTerms/privacy link surfaced; not fullunseenTerms clearance. No form/input/call/date/submission/action/maps.",
+      "order": 6,
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T01:11:05Z"
+    },
+    {
+      "status": "included",
+      "id": "sofia-inout-design-ishirkov23",
+      "name": "InOutDesign · интериорно студио",
+      "primaryEvidence": [
+        "https://inoutdesign.bg/robots.txt",
+        "https://inoutdesign.bg/",
+        "https://inoutdesign.bg/contact",
+        "https://inoutdesign.bg/pricing",
+        "https://inoutdesign.bg/about"
+      ],
+      "notes": "ActualFreeConsultation→ownContact explicitlyreservehourbytelephone899881544/897809979; exactStudentskiGradIshirkov23 actualpremise. LiteralFREE preliminary meeting forneeds/style/budget; projectpackages27/33/42EURm2 separatelyreviewedNOTvisitfee. No actualduration/servicehours/coordinates inferred. Fullroot/about/prices/contact/footer checked, no Terms/privacy surfaced; no unseenTerms clearance/licence claim. Publicrobotsallow/CrawlDelay1respected. Independentminimalfactualreferenceonly, no portfolio/prose/images/credentials. No form/date/customerinput/call/maps/social/action/submission. Runtime+ALLWIP bothphones/domain/name zero.",
+      "order": 7,
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T01:20:49Z"
+    },
+    {
+      "status": "included",
+      "id": "sofia-chisto-s-lili-home-cleaning",
+      "name": "Чисто с Лили · почистване в София",
+      "primaryEvidence": [
+        "https://chistoslili.eu/robots.txt",
+        "https://chistoslili.eu/",
+        "https://chistoslili.eu/условия-за-ползване/",
+        "https://chistoslili.eu/контакти/",
+        "https://chistoslili.eu/цени/",
+        "https://chistoslili.eu/почистване-на-домове/",
+        "https://chistoslili.eu/поверителност/"
+      ],
+      "notes": "Own actualRequestoffer form namedONETIMEhomecleaning+PREFERREDDATE+callback phone/email, noinputs. Publicnormal200 GET; rootWordPressdebugnotices treatedasincidentalpageoutput, no serverpaths/privatefilesfollowed. OneSofia mobilebrand877620205, Rudartsi registrationnotSofia venue. Currentliteralundatedprice150–180BGN apartment40–60m2, min70BGN,30–100%surcharge triggers preserved; not conversion/minute/hour/guaranteedfee/VATassumption. Full13001charTerms and1292charprivacy completed; Art9.2 specifically softwarecausingotherusersdifficulty, not universalautomation/extractionban. IsolatedDomestina cookie template text acknowledged as inconsistency, not ownership/partnership evidence; ownbrand/domain/contactphone/homeoffer/pricingconsistent. No broadlicence/unseenTerms clearance, no prose/media/reviews copied. Everydaysourcenottranslatedto24/7orfreeweekends. Runtime+ALLWIP phone/domain/name zero.",
+      "order": 8,
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T01:20:49Z"
+    },
+    {
+      "status": "included",
+      "id": "sofia-chista-rabota-home-moving",
+      "name": "Чиста работа · разчистване и преместване",
+      "primaryEvidence": [
+        "https://chistarabota-sofia.com/robots.txt",
+        "https://chistarabota-sofia.com/",
+        "https://chistarabota-sofia.com/index.php/contact-us/",
+        "https://chistarabota-sofia.com/services/",
+        "https://chistarabota-sofia.com/services/транспортни-услуги/",
+        "https://chistarabota-sofia.com/pricing-plan/"
+      ],
+      "notes": "ActualrootZayavetechas→own/index.php/contact-us inspected first; property/service formview only. SelectedfulltransportFAQ explicitlyHowtoreserve→PHONE894554750 (orowncallback), operatoragreesorder/schedule. OneSofia mobileoperator, Dianabad57office notpublicpremisesrow. Hourlyworker17.90EUR VATexcluded MIN2astronomicalhours; separatevehicle17.90EUR/hour<=1.5t not included labour. No duration120scalar/minimumwholemovequote/promo/numericservicehours fromoffice8–19. Fullservice/prices/selectedFAQ/contact/rootfooterlinks no Terms/privacy surfaced; no permission/licence/unseenTerms clearance claim. Sourcehas unrelatedtheme21labdemoBookanchor: hrefobservedNOTopened/used. No claimsfromreviews/ratings/articles/prose/photos; no form/date/call/calculator/map/action/submission/customerdata. Runtime+ALLWIP phone/domain/name zero.",
+      "order": 9,
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T01:20:49Z"
+    },
+    {
+      "status": "pending_scope_clinical_practice",
+      "name": "Логопед Пламена Дончева",
+      "primaryEvidence": [
+        "https://doncheva.bg/robots.txt",
+        "https://doncheva.bg/",
+        "https://doncheva.bg/obshti-uslovia/"
+      ],
+      "notes": "Full1442charTerms ordinarycopyrighttexts/images/materials§6, parentreadcachedfulltext and judged notexplicitrobot/database/noncommercial restriction; NOTcopiedcontent licence/legalclearance. Howeveractualmerchantidentityclinicalspeechdiagnostics/therapy; schoolprep-onlylistingcouldmaskclinicalpractice. HOLDscope untilindependentnonclinicaleducationidentity/offeringclearlyproved, noquotaexception. ActualBook/services/contactNOTrequestedafterobservedTerms pendingdecision; noacceptedfee/currentSofiaaddress/clinicalservice/priceSearch.",
+      "order": 10,
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T01:20:49Z"
+    },
+    {
+      "status": "pending_source_information_scope",
+      "name": "Адвокатска кантора Благоев и Чолаков · advo.bg",
+      "primaryEvidence": [
+        "https://advo.bg/robots.txt",
+        "https://advo.bg/",
+        "https://advo.bg/общи-условия/"
+      ],
+      "notes": "RobotsallowsAIretrieval, butcurrentfull5177charTerms Art7explicitALLpublishedinformation IP andno use/copy/modify/reproduce withoutconsentexceptlegalcases, broadinformationnotjustcreativeassetsscope. HOLD/no furtherhostrequests afterobservedclause; parentconfirmed. No actualBook/contact/service/pricemenu requestedafterSTOP, notunpublished. No copiedcases/reviews/articles/photos/nointake.",
+      "order": 11,
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T01:20:49Z"
+    },
+    {
+      "status": "rejected_non_sofia_current_venues",
+      "name": "Helly Academy",
+      "primaryEvidence": [
+        "https://hellyacademy.com/robots.txt",
+        "https://hellyacademy.com/",
+        "https://hellyacademy.com/contact-us/"
+      ],
+      "notes": "ActualcurrentownerContactonlytwoVARNAvenues KapitanRaychoNikolov101/Bila andEvlogiGeorgiev32, phone888110825. SearchSofiaquerynotlocalproof; no onlinecityclone. No actualservicefee/Terms deepbecausealreadyoutofscope, no fullsourceclearanceclaimed.",
+      "order": 12,
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T01:20:49Z"
+    },
+    {
+      "status": "pending_actual_paid_booking_unavailable",
+      "name": "SoulBG",
+      "primaryEvidence": [
+        "https://soulbg.com/robots.txt",
+        "https://soulbg.com/",
+        "https://soulbg.com/policy",
+        "https://soulbg.com/bezplatna-konsultacia",
+        "https://soulbg.com/appointment",
+        "https://soulbg.com/appointment/vladislava-bocheva",
+        "https://soulbg.com/contact",
+        "https://calendly.com/book-soulbg/vladislava-kabinet"
+      ],
+      "notes": "RootactualBook→/appointment→selectedownprofile embedsliteralCalendlybook-soulbg/vladislava-kabinet; normalwebreaderactualpubliceventinternalnotaccessible, no providerAPI/UIretry/customeraction. Ownfreeconsultation isASYNCEMAIL upto7days, notinpersonbooked0visit; root/contactother3/5dayresponses notserviceavailability. Contact888878880/HristoBelchev21floor5office513 current; /appointmentphone visiblymissingdigit, do notnormalizeinvent. Genericphonehelpschoosepsychologist, notexplicitvoiceBookpaidservice. HOLDactualpaidcalendar/fee, NOTnotpubliclylisted; no staffclones. Full7932charpolicyread statesusewithcitationexceptprotecteditems; independentfactsnosourceprose/media/biography/claims. No licenceguaranteeclaimed, no forms/freeemailrequest/call/action/Maps.",
+      "order": 13,
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T01:20:49Z"
+    },
+    {
+      "status": "pending_actual_booking_selected_price_menu",
+      "name": "Victoria Cleaning",
+      "primaryEvidence": [
+        "https://victoria-cleaning.bg/robots.txt",
+        "https://victoria-cleaning.bg/",
+        "https://victoria-cleaning.bg/book-now",
+        "https://victoria-cleaning.bg/контакт",
+        "https://victoria-cleaning.bg/почистване-на-фурна"
+      ],
+      "notes": "CurrentrootactualBookown/book-now listsservicecategories butselectedpaidmenu/date/customerflowJSnotobserved. Ownovenpageunrendered[pricetable_1]/[accordion_13] placeholders, NOTunpublishedfees; currentrootbundlesnotflatovenfee/pastOctpromos. Phone876240304/Mladost1block19 verified butContactgenericnotforcedvoiceBook. No categoryselection/addservice/action/query/cart/customerinput/submission/API/UI. No Terms/privacy link surfacedroot/Book/contact/oven; notfullsourceclearance. HOLDactualselectedmenu/appointmentpath, nointake.",
+      "order": 14,
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T01:20:49Z"
+    },
+    {
+      "status": "pending_local_merchant_identity_conflict",
+      "name": "Почистващи Услуги София · sofiapochistvane.com",
+      "primaryEvidence": [
+        "https://sofiapochistvane.com/robots.txt",
+        "https://sofiapochistvane.com/"
+      ],
+      "notes": "SearchshowsoldBGNfees butactualcurrentroot phone02032878708 andemailoffice@londoncleanersservices.co.uk/PoweredbyLondonCleanersServices; noSofialocaloperatorbinding confirmed. Holdidentity, doNOTusegenericSofiacopyasnewlocalbusiness, noactualBook/pricesrequested andnoallunpublishedclaim.",
+      "order": 15,
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T01:20:49Z"
+    },
+    {
+      "status": "pending_actual_appointment_path_current_site",
+      "name": "City Workforce",
+      "primaryEvidence": [
+        "https://www.workforce.bg/robots.txt",
+        "https://www.workforce.bg/"
+      ],
+      "notes": "ActualcurrentWixrootCityWorkforcefacilitiesmaintenance, SofiaAkademikMetodiPopov24A; searchold/uslugiWordPresstestimonialsAdamSmith/LoremIpsum NOTevidence. No realselectedhomeappointment/phoneBook proven, nointake/pricingreceipt. Onlyactualrootandrobots reviewed, nooldendpoint/provider/internalWixAPI.",
+      "order": 16,
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T01:20:49Z"
+    },
+    {
+      "status": "rejected_runtime_or_intake_duplicates",
+      "name": "Existing education/legal/pet operators",
+      "primaryEvidence": [
+        "https://advokatpetrova.com/",
+        "https://gradeup.bg/",
+        "https://irinakonstantinova.com/",
+        "https://music-box.bg/",
+        "https://detskopsihichnozdrave.org/",
+        "https://petkovalegal.com/",
+        "https://yordanovalaw.bg/",
+        "https://simeonovlawfirm.com/",
+        "https://kursovete-bg.com/",
+        "https://pochisteno.com/",
+        "https://artkutia.com/",
+        "https://svetulki.com/",
+        "https://mnogoznayko.bg/",
+        "https://petstopplace.com/"
+      ],
+      "notes": "SearchdiscoveryONLY; beforeanynewhostrequest runtimeSOFIA+ALL2000intakes dedupe foundsameoperators/domains/phones/premises. No clonednewservices/staff/aliases; existingfeesnotmutated. RodinaGurko74searchaddressnotnewbranchwithoutcurrentaddress/servicebinding andsameoperatorphone; retainednotnew. PrimaryEvidencehereareunrequestedcandidateidentifiers, NOTpagesclaimedreviewed.",
+      "order": 17,
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T01:20:49Z"
+    },
+    {
+      "status": "included",
+      "id": "sofia-sfumato-design-home-consultation",
+      "name": "Sfumato Design · консултация на адрес",
+      "primaryEvidence": [
+        "https://www.sfumato-design.com/robots.txt",
+        "https://www.sfumato-design.com/",
+        "https://www.sfumato-design.com/privacy",
+        "https://www.sfumato-design.com/експертни-консултации-за-интериорен/",
+        "https://www.sfumato-design.com/контакти/",
+        "https://www.sfumato-design.com/цени/"
+      ],
+      "notes": "Exact selectedpaidBASEonsiteSofia consultation CTA→ownedContact form href confirmed individually, no genericretail/async free advice reinterpretation. Ownerfollowup to clarifyrequest/time/scope before visit, notinstantcalendar. Literal150EUR WITHOUTVAT, UPTO2h MAXIMUM notdurationScalar, oralONLY/no writtenstatement/fullproject/technicaldrawings/repairmanagement; sourceoutsideSofiaextrasnotimported. OneSOFIA home_visit mobile recordaddressnullcoordinatesnull: currentContactBODYAlexiRilets16 conflictsFOOTERRalevitsa86A, neitherchosen asvisitorvenue; contact8–18/header9–18 numericservicehoursomitted. Fullprivacy3064charsordinaryGDPR; root/footer/privacy no separateTerms surfaced, no broadlicence/unseenTerms clearance. Project30/50/80EURm2/min30m2 reviewed separately, notonsitefee. Parent explicitapprovednarrowminimalfacts/homevisit afterexactCTA+addressconflict review. No prose/portfolio/reviews/qualifications/media copied, no date/time/customer/form/call/consent/Map/payment/action/API/UI. Runtime+ALLWIP domainand879100099/879100098 clear.",
+      "order": 18,
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T01:29:53Z"
+    },
+    {
+      "status": "pending_source_database_extraction_ban",
+      "name": "МебелПластДизайн · MPD",
+      "primaryEvidence": [
+        "https://www.mpd.bg/robots.txt",
+        "https://www.mpd.bg/",
+        "https://www.mpd.bg/obshti-usloviya/"
+      ],
+      "notes": "Full24496charTerms read three cachedchunks, Art15 explicittechnicalextractionofinformationalresources/partsfromdatabasestocreateownDB forbidden. STOPwholempd.bg/www host, parentnotified; robotsAllowdoesnotoverride. ActualBook/FAQ/contacts/services NOTrequestedafterobservedclause. Firstrootlinkparser accidentallyreadescapedcookie-templateanchorstring, no action/cookie/privateendpoint executed; boundedsecondrootGET parsedonlyrealscript-strippedanchors tofindTerms. No acceptedrow/fee/unpublishedreceipt/contentreuse.",
+      "order": 19,
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T01:29:53Z"
+    },
+    {
+      "status": "pending_source_all_information_scope",
+      "name": "DesignLine · БИЛДМАРК1 ЕООД",
+      "primaryEvidence": [
+        "https://designline.bg/robots.txt",
+        "https://designline.bg/",
+        "https://designline.bg/общи-условия/"
+      ],
+      "notes": "Full8439charTerms Art8 definesALLinformation includingnotlimitedtexts/audio/video and no use/copy/modify/reproducewithoutconsentexceptlaw. Broadinformationscope HOLD, parentnotified, no furtherhostrequests/Book/services/contacts afterobserved. NamedBuildmark1EOOD andinterior@calma.bg linktooperatorpotential010KuhniSofiaheldafteracquisition; notdistinctaliascount/noalternateoperator-domainworkaround. TermsEIK/VATdigitmismatchnotresolved/invented. RobotsSitemapLovableplaceholdernotfactofbusinessownership. No licence/legalclearanceclaim.",
+      "order": 20,
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T01:29:53Z"
+    },
+    {
+      "status": "pending_source_personal_noncommercial_scope",
+      "name": "D’STUDIO",
+      "primaryEvidence": [
+        "https://dstudio-bg.com/robots.txt",
+        "https://dstudio-bg.com/index.html",
+        "https://dstudio-bg.com/contact.html",
+        "https://dstudio-bg.com/terms.html"
+      ],
+      "notes": "CurrentTermsPartI wholewebsitepersonal/noncommercial scope plus authoredassetsautomateddownload/reusewithoutwrittenpermission; STOP/no furtherhostrequests afterobserved. Termsoutput9208charsincludedmiddletruncation, NOTclaimedfulltextclearance; alreadyclearstopinfirstpart. Prior safeGET/contact.html guessedfromconventionreturned404 BEFOREactualBookhref established; neverclaimedverifiedBook. ActualroothasTerms/privacyandpossibleinpageBook, noclientJS/UI/action/form/cart/request. No intake/fees/identityfromcreativeportfolios.",
+      "order": 21,
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T01:29:53Z"
+    },
+    {
+      "status": "pending_sofia_venue_or_actual_home_visit_binding",
+      "name": "Atmosphera",
+      "primaryEvidence": [
+        "https://www.atmosphera.bg/robots.txt",
+        "https://www.atmosphera.bg/",
+        "https://www.atmosphera.bg/правила-и-условия/",
+        "https://www.atmosphera.bg/kontakti/"
+      ],
+      "notes": "Full32849charTerms read storedchunks; largehistoricalstatute/trading/privacytext, no explicitautomation/dataDB/personal-noncommercial ban observed, NOTlicence/legalclearance. Current884740038/contactFREEconsultformname/phone/email/city/type/message, butcontacthasNOactualphysicaladdress. ActualrootBookhref /безплатна-консултация-интериорен-ди/ discoverednotyetrequested. NeedselectedactualBook+venueORexplicitSofiahomevisit beforeaccept; no inventedservice_area/pin/visitfee/projectpackage. Header10–19notserviceavailability. No content/media/reviews copied, noform/call/action/Map/providerAPI/UI. Carryfreshlead012.",
+      "order": 22,
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T01:29:53Z"
+    },
+    {
+      "status": "pending_explicit_appointment_path",
+      "name": "Inter Mattix",
+      "primaryEvidence": [
+        "https://intermattix.com/robots.txt",
+        "https://intermattix.com/",
+        "https://intermattix.com/contact.html"
+      ],
+      "notes": "RobotsContentSignal searchyes/ai-trainno/use-reference withOAI/ChatGPTUserAllow; taskisminimalreferencefactsnottraining. ActualContact887313119/EvlogiHristoGeorgievi155Sofia/FREEinitialconsultformcallback. Genericcontactdoesnotyetexplicitlybindappointmenttime/meeting; services/ceni/Termsdeepunreviewed, nofreepaidprojectclaim. No intake/priceSearch/currentfee/newSofiaonlineclone. No privateAPIs/docs/ads/backups/Map/form/action/UI. Carry012actualsourceworknotfrozenapproval.",
+      "order": 23,
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T01:29:53Z"
+    },
+    {
+      "status": "pending_actual_book_services_fees_scope_review",
+      "name": "Мина Цонева · интериор и градина",
+      "primaryEvidence": [
+        "https://mina-tsoneva.squarespace.com/robots.txt",
+        "https://mina-tsoneva.squarespace.com/"
+      ],
+      "notes": "Runtime+ALLWIP customdomain/minatsoneva.com andSquarespacesubdomain/name zero. ObservedSquarespacerobotsblocksTRAININGGPTBotbutgenericuserretrievalpublicpathsallowed; no training/crawl ofAPI/search/private/static. Rootonlyminimalpublicbooking/navigationreference, actualBook/contact/services/feesnotreviewed; no acceptance ofsearch150EURinitialvisit/packageor4hscalar. RootactualBook→/contact andservicepage→/design-services. Needcanonicaldomainrobots/Terms/address/onsiteSofia/publicselectedrequestproof. No submission/UI/action. Carry012.",
+      "order": 24,
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T01:29:53Z"
+    },
+    {
+      "status": "rejected_duplicate_operators_or_aliases",
+      "name": "Further existing merchants and reserved tattoo",
+      "primaryEvidence": [
+        "https://rastashki.com/",
+        "https://advokatsofia.bg/robots.txt",
+        "https://advmalchev.com/robots.txt",
+        "https://advokattrifonov.com/",
+        "https://ramonapet.com/",
+        "https://thinkinkneedle.com/"
+      ],
+      "notes": "Runtime+allintakes actualdomain/name/phone preflight catches Rastashkiadvokatsofia existing, Malchev existing, Trifonov alternatehost already005rejectedbyphone, Ramona existing. BeautyindependentlyconfirmedThinkinkneedle existingsofia-thinkinkneedle/887433809. NOnewstaff/domainalias/premiseclone. ForMalchev/RastashkirobotsONLYwerefetchedinparallelSAMEexecasdedupe BEFOREobservingruntime results; no deeprequestsafterduplicatefound. OtherlistedURLs search/candidateidentifiersonlynotclaimedreviewed; reservedTattooownershiprelayedbeautynotadded.",
+      "order": 25,
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T01:29:53Z"
+    },
+    {
+      "status": "pending_unverified_identity_search_only",
+      "name": "Socydiu / Zawamio / Earthrootx / primemanvitals / Blyasuk",
+      "primaryEvidence": [],
+      "notes": "Searchdiscoveryonly genericorunrelateddomains/placeholder-lookingphones/merchantidentityunproven. Nonefetchedordeemedrealfrompolishedsnippet/price/formalone. No intake, no copy ofstar/review/biography/qualifications. No proxyprovider/paidDB/Googlegeocodinglookup. Remainunverifiedratherthanfillquota.",
+      "order": 26,
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T01:29:53Z"
+    },
+    {
+      "status": "pending_same_operator_source_scope",
+      "name": "Ломбардо / artabg.com",
+      "primaryEvidence": [
+        "https://artabg.com/контакти/"
+      ],
+      "notes": "Searchsnippetonly identifiessameLombardooperatoras010lombardo-mebelsbg.com robotsTermsdeniedhold. NoartabgHTTP/page/Book/coordinatesfollowedtoavoidusingaliasasascopeworkaround; snippetGPSnotaccepted. Operatornotnewcounted withoutsource-scopeclearance. PrimaryEvidencehereunrequestedsearchidentifiernotcompletedpage review.",
+      "order": 27,
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T01:29:53Z"
+    }
+  ],
+  "lastUpdatedAtUtc": "2026-11-14T01:29:53Z",
+  "frozenAtUtc": "2026-11-14T01:29:53Z",
+  "validation": {
+    "checkedAtUtc": "2026-11-14T01:29:53Z",
+    "moduleSha256": "1f551da943d7047af9bddfe73a0f971f357ddf792edf78f2d625cbabc947195b",
+    "schemaApproved": 6,
+    "approvalGatePassed": 6,
+    "pricingReceiptsReviewed": 6,
+    "runtimeAndOtherWipBusinessUnion": 1614,
+    "batchAuditReady": 6,
+    "batchAuditPending": 0,
+    "batchAuditRejected": 0,
+    "focusedTests": "node --test tests/catalogue-pricing-review.test.mjs tests/catalogue-audit.test.mjs:16passed0failed",
+    "moduleSyntax": "node --check PASS",
+    "descriptionLimit": "All6 <=300chars",
+    "integrationBoundary": "No shared imports/identities/photos/maps/assets/scripts/production writes; final fullsuite/Python/build/native6publicphonecrosscheck owned byroot. Runtime dedupe excludes ownmodule, includes actualSOFIAandALL2000intakes."
+  },
+  "photoRecommendations": [
+    [
+      "sofia-kraftek-design-pimen-zografski16a",
+      "consulting",
+      "Безплатна предварителна среща с дизайнер за обзавеждане",
+      "sx-interior-design-consultation"
+    ],
+    [
+      "sofia-prohamali-home-moving",
+      "home_services",
+      "Товаро-разтоварни хамалски услуги",
+      "sx-home-furniture-move"
+    ],
+    [
+      "sofia-inout-design-ishirkov23",
+      "consulting",
+      "Безплатна първоначална консултация за интериорен проект",
+      "sx-interior-design-consultation"
+    ],
+    [
+      "sofia-chisto-s-lili-home-cleaning",
+      "home_services",
+      "Почистване на апартамент 40–60 м²",
+      "home-deep-clean"
+    ],
+    [
+      "sofia-chista-rabota-home-moving",
+      "home_services",
+      "Товаро-разтоварни услуги при преместване",
+      "sx-home-furniture-move"
+    ],
+    [
+      "sofia-sfumato-design-home-consultation",
+      "home_services",
+      "Базова интериорна консултация на адрес в София",
+      "sx-interior-design-consultation"
+    ]
+  ],
+  "photoNotes": "All6currentserviceThumbnail results neutral; root must exactmapreview. Visually inspected current256WebP sx-interior-design-consultation: designer/client/plan/materialsamples, no falsearchitectqualification/sitebranding. Home-deep-clean: surfacecleaningcloth appropriategenericapartmentillustration. sx-home-furniture-move:2moverscarryprotectedsofa throughdoor withvisiblevan; actuallabourservicesmatchactivitybut van/2workersareillustrativeNOTincludedtransport/mincrew/wholemovefee. Rootmayreusewithpublictransportseparatequalificationorchoosegenericno-vehiclelabourimageifstrict; no sharededits byus."
+}

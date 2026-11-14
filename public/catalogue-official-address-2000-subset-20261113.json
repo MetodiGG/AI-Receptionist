@@ -11,11 +11,479 @@
   "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
   "sourceFeatureCount": 125245,
   "coordinatePrecisionDecimalPlaces": 6,
-  "scope": "156 individually reviewed exact postal bindings for current367 additions toward2000. Original501fullprecisionpoints unchanged; eight unpublishedrestrictedsource records absent.",
+  "scope": "168 individually reviewed exact postal bindings for current399 netadditions toward2000. Original501fullprecisionpoints unchanged; source/price-held unpublished rows absent.",
   "modifications": "Selected source records and bound to reviewed business address identities; coordinate values unchanged.",
   "semantics": "official_postal_address_points_not_verified_entrances",
-  "pointCount": 156,
+  "pointCount": 168,
   "points": [
+    {
+      "id": "sofia-badminton-teo-vitosha155",
+      "name": "Бадминтон с Тео · зала Витоша",
+      "coordinates": {
+        "latitude": 42.637061,
+        "longitude": 23.324563,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. Околовръстен път 155, зала за бадминтон Витоша",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://badminton.bg/",
+        "addressId": "118103",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "118103",
+        "region": "Лозенец",
+        "settlement": "гр. София",
+        "street": "ул. Околовръстен път",
+        "house": "155",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Individuallycomparedactualownerstreet/fullhouse/suffix withsoleexactmunicipalCSVrow. Realindependentvenue at explicitfullstreetnumber: namedhall155 or hotel5, not an inferredcourtwithinunaddressedcampus orseparateSPAroomclone. Postalpointnotindoorroom/verifiedentrance. No first/nearest/campuscentroid/adjacent/landmarksubstitution. Publishedsixdecimalsunchanged; postalpointnotverifiedentrance.",
+        "sourceUrls": [
+          "https://badminton.bg/",
+          "https://badminton.bg/kontakti-badminton-bg/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-vitosha-park-spa-baku5",
+      "name": "Vitosha Park Hotel · SPA масажи",
+      "coordinates": {
+        "latitude": 42.656907,
+        "longitude": 23.352948,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. Баку 5, Vitosha Park Hotel",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://www.vitoshaparkhotel.com/en/relax-centre/",
+        "addressId": "101501",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "101501",
+        "region": "Студентски",
+        "settlement": "гр. София",
+        "street": "ул. Баку",
+        "house": "5",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Individuallycomparedactualownerstreet/fullhouse/suffix withsoleexactmunicipalCSVrow. Realindependentvenue at explicitfullstreetnumber: namedhall155 or hotel5, not an inferredcourtwithinunaddressedcampus orseparateSPAroomclone. Postalpointnotindoorroom/verifiedentrance. No first/nearest/campuscentroid/adjacent/landmarksubstitution. Publishedsixdecimalsunchanged; postalpointnotverifiedentrance.",
+        "sourceUrls": [
+          "https://www.vitoshaparkhotel.com/en/relax-centre/",
+          "https://www.vitoshaparkhotel.com/en/relax-centre/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-areti-krum-popov63",
+      "name": "Арети · булчински салон",
+      "coordinates": {
+        "latitude": 42.679174,
+        "longitude": 23.324192,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, Лозенец, ул. „Крум Попов“ 63",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Лозенец",
+        "sourceWebsite": "https://demetriosbride-bg.com/",
+        "addressId": "363",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "363",
+        "region": "Лозенец",
+        "settlement": "гр. София",
+        "street": "ул. Крум Попов",
+        "house": "63",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Individuallycomparedactualownerstreet/fullhouse/suffix withsoleexactmunicipalCSVrow. Realindependentpremise, no room/staffclone. No first/nearest/campuscentroid/adjacent/landmarksubstitution. Publishedsixdecimalsunchanged; postalpointnotverifiedentrance.",
+        "sourceUrls": [
+          "https://demetriosbride-bg.com/",
+          "https://demetriosbride-bg.com/contact",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-atelier-jollie-rozova-dolina12b",
+      "name": "Atelier Jollie · София",
+      "coordinates": {
+        "latitude": 42.681011,
+        "longitude": 23.324258,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, Лозенец, ул. „Розова долина“ 12Б, на ъгъла с ул. „Стоян Заимов“",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Лозенец",
+        "sourceWebsite": "https://www.jollie.bg/",
+        "addressId": "110639",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "110639",
+        "region": "Лозенец",
+        "settlement": "гр. София",
+        "street": "ул. Розова долина",
+        "house": "12Б",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Individuallycomparedactualownerstreet/fullhouse/suffix withsoleexactmunicipalCSVrow. Realindependentpremise, no room/staffclone. No first/nearest/campuscentroid/adjacent/landmarksubstitution. Publishedsixdecimalsunchanged; postalpointnotverifiedentrance.",
+        "sourceUrls": [
+          "https://www.jollie.bg/",
+          "https://www.jollie.bg/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-be-queen-kaliakra27",
+      "name": "Be Queen · бутик София",
+      "coordinates": {
+        "latitude": 42.682062,
+        "longitude": 23.322319,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, Лозенец, ул. „Калиакра“ 27",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Лозенец",
+        "sourceWebsite": "https://www.bequeen.bg/",
+        "addressId": "1102",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "1102",
+        "region": "Лозенец",
+        "settlement": "гр. София",
+        "street": "ул. Калиакра",
+        "house": "27",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Individuallycomparedactualownerstreet/fullhouse/suffix withsoleexactmunicipalCSVrow. Realindependentpremise, no room/staffclone. No first/nearest/campuscentroid/adjacent/landmarksubstitution. Publishedsixdecimalsunchanged; postalpointnotverifiedentrance.",
+        "sourceUrls": [
+          "https://www.bequeen.bg/",
+          "https://www.bequeen.bg/contacts/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-wedding-residence-bunaya16",
+      "name": "The Wedding Residence · София",
+      "coordinates": {
+        "latitude": 42.693786,
+        "longitude": 23.352517,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. „Буная“ 16, на ъгъла с ул. „Оборище“",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://weddingresidence.com/",
+        "addressId": "42289",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "42289",
+        "region": "Оборище",
+        "settlement": "гр. София",
+        "street": "ул. Буная",
+        "house": "16",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Individuallycomparedactualownerstreet/fullhouse/suffix withsoleexactmunicipalCSVrow. Realindependentpremise, no room/staffclone. No first/nearest/campuscentroid/adjacent/landmarksubstitution. Publishedsixdecimalsunchanged; postalpointnotverifiedentrance.",
+        "sourceUrls": [
+          "https://weddingresidence.com/",
+          "https://weddingresidence.com/za-nas/kontakti.html",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-spaska-asova-ekzarh-stefan62",
+      "name": "Д-р Спаска Асова · дентален кабинет",
+      "coordinates": {
+        "latitude": 42.729548,
+        "longitude": 23.301399,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ж.к. Надежда 2, ул. Екзарх Стефан 62",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Надежда 2",
+        "sourceWebsite": "https://asova.net/",
+        "addressId": "57162",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "57162",
+        "region": "Надежда",
+        "settlement": "гр. София",
+        "street": "ул. Екзарх Стефан",
+        "house": "62",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Individuallycomparedactualownerstreet/fullhouse/suffix withsoleexactmunicipalCSVrow. Realindependentpremise, no room/staffclone. No first/nearest/campuscentroid/adjacent/landmarksubstitution. Publishedsixdecimalsunchanged; postalpointnotverifiedentrance.",
+        "sourceUrls": [
+          "https://asova.net/",
+          "https://asova.net/%d0%ba%d0%be%d0%bd%d1%82%d0%b0%d0%ba%d1%82%d0%b8",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-angel-chernaev-hema-cherkovna28",
+      "name": "Ангел Чернаев · историческа фехтовка",
+      "coordinates": {
+        "latitude": 42.699156,
+        "longitude": 23.351924,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. Черковна 28, фехтовална зала",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://www.angel-swordsmanship.com/",
+        "addressId": "26393",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "26393",
+        "region": "Подуяне",
+        "settlement": "гр. София",
+        "street": "ул. Черковна",
+        "house": "28",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Individuallycomparedactualownerstreet/fullhouse/suffix withsoleexactmunicipalCSVrow. Realindependentpremise, no room/staffclone. No first/nearest/campuscentroid/adjacent/landmarksubstitution. Publishedsixdecimalsunchanged; postalpointnotverifiedentrance.",
+        "sourceUrls": [
+          "https://www.angel-swordsmanship.com/",
+          "https://www.angel-swordsmanship.com/contact-en",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-contrology-club-krakra2",
+      "name": "The Contrology Club",
+      "coordinates": {
+        "latitude": 42.696302,
+        "longitude": 23.337565,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. Кракра 2, ет. 1",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://www.thecontrologyclub.com/en/index.html",
+        "addressId": "44181",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "44181",
+        "region": "Оборище",
+        "settlement": "гр. София",
+        "street": "ул. Кракра",
+        "house": "2",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Individuallycomparedactualownerstreet/fullhouse/suffix withsoleexactmunicipalCSVrow. Realindependentpremise, no room/staffclone. No first/nearest/campuscentroid/adjacent/landmarksubstitution. Publishedsixdecimalsunchanged; postalpointnotverifiedentrance.",
+        "sourceUrls": [
+          "https://www.thecontrologyclub.com/en/index.html",
+          "https://www.thecontrologyclub.com/en/contact.html",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-kraftek-design-pimen-zografski16a",
+      "name": "Kraftek Design · мебелно студио",
+      "coordinates": {
+        "latitude": 42.665352,
+        "longitude": 23.350042,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, НПЗ Дианабад, ул. „Свети Пимен Зографски“ 16А",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Дианабад",
+        "sourceWebsite": "https://mebeli.kraftekdesign.com/",
+        "addressId": "99221",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "99221",
+        "region": "Изгрев",
+        "settlement": "гр. София",
+        "street": "ул. Свети Пимен Зографски",
+        "house": "16А",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Individuallycomparedactualownerstreet/fullhouse/suffix withsoleexactmunicipalCSVrow. Realindependentpremise, no room/staffclone. No first/nearest/campuscentroid/adjacent/landmarksubstitution. Publishedsixdecimalsunchanged; postalpointnotverifiedentrance.",
+        "sourceUrls": [
+          "https://mebeli.kraftekdesign.com/",
+          "https://mebeli.kraftekdesign.com/kontakti/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-inout-design-ishirkov23",
+      "name": "InOutDesign · интериорно студио",
+      "coordinates": {
+        "latitude": 42.646779,
+        "longitude": 23.343358,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, Студентски град, ул. „Професор Атанас Иширков“ 23",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Студентски град",
+        "sourceWebsite": "https://inoutdesign.bg/",
+        "addressId": "97068",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "97068",
+        "region": "Студентски",
+        "settlement": "гр. София",
+        "street": "ул. Проф. Атанас Иширков",
+        "house": "23",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Individuallycomparedactualownerstreet/fullhouse/suffix withsoleexactmunicipalCSVrow. Realindependentpremise, no room/staffclone. No first/nearest/campuscentroid/adjacent/landmarksubstitution. Publishedsixdecimalsunchanged; postalpointnotverifiedentrance.",
+        "sourceUrls": [
+          "https://inoutdesign.bg/",
+          "https://inoutdesign.bg/contact",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-it-corner-podcast-slavyanska29",
+      "name": "Podcast Studio Sofia · IT Corner Studio 2",
+      "coordinates": {
+        "latitude": 42.691766,
+        "longitude": 23.331561,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. Славянска 29",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Център",
+        "sourceWebsite": "https://podcaststudio.bg/",
+        "addressId": "25811",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "25811",
+        "region": "Средец",
+        "settlement": "гр. София",
+        "street": "ул. Славянска",
+        "house": "29",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Individuallycomparedactualownerstreet/fullhouse/suffix withsoleexactmunicipalCSVrow. Realindependentpremise, no room/staffclone. No first/nearest/campuscentroid/adjacent/landmarksubstitution. Publishedsixdecimalsunchanged; postalpointnotverifiedentrance.",
+        "sourceUrls": [
+          "https://podcaststudio.bg/",
+          "https://podcaststudio.bg/pages/contact",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
     {
       "id": "sofia-image-style-rosie-fil-madrid39",
       "name": "Studio Image & Style · Rosie Fil.",

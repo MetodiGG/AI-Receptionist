@@ -4,6 +4,212 @@
   "scope": "Illustrative service-specific photos for approved Sofia catalogue entries; not actual business premises, staff, work or results.",
   "assets": [
     {
+      "id": "sx-womens-short-cut-blowdry",
+      "sourceFile": "exec-b8e5ecbf-44d3-42f7-bbe7-b5efd0dabb63.png",
+      "sourceSha256": "f18d580807a591fc829b22ce0efb859156a290fe489264b1a5e3b97f433da255",
+      "file": "public/service-photos/sx-womens-short-cut-blowdry-v1.webp",
+      "sourceWidth": 1254,
+      "sourceHeight": 1254,
+      "width": 256,
+      "height": 256,
+      "bytes": 12934,
+      "sha256": "44e54aa803dc06124458fb724a09f5bafe31085f587e63b30cd8f65ec8098217",
+      "label": "Дамско подстригване и сешоар — къса коса",
+      "prompt": "Use case: photorealistic-natural\nAsset type: one square specific-service thumbnail for a booking catalogue, generic illustration not actual provider work.\nPrimary request: a realistic women's HAIRCUT AND BLOW-DRY service for an adult woman with short to medium bob-length hair. Exactly two equal horizontal photographic panels stacked within one overall square1:1 canvas, the SAME fictional adult female client and professional hairdresser in both panels. TOP: hairdresser naturally trims this client's hair using salon scissors and a comb while she wears a normal salon cape. BOTTOM: same hairstyle being blow-dried with a hand-held hair dryer and a round brush. Clearly recognizable believable tools and safe anatomy, natural skin, real hair texture, modest ordinary salon, soft daylight. Keep composition clear enough at64px.\nConstraints: ONLY cut and blow-dry, no washing basin/shampoo/wet scalp washing, colouring, bleach, extensions, treatment bottles, promised result, price, actual business logo or identity. No text, branding, watermark, exaggerated glamour, emoji or notebook. Two-photo sequence of same service, not unrelated collage.",
+      "generatedOn": "2026-11-14",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "f18d580807a591fc829b22ce0efb859156a290fe489264b1a5e3b97f433da255",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Rootindividuallyviewed1254pxgeneratedsources andactual256pxWebP. Exactshort-bob/longhair cut+blow-drytwo-step sequences withsamefictionalclient/stylist, noshampoo/wash/colour/treatmentinclusion invented. CorrectsourcefilevisuallyboundtodistinctlengthIDs, notcompletionorder. GenericAIactivity notnamedproviderwork/staff/venue/result."
+      }
+    },
+    {
+      "id": "sx-womens-long-cut-blowdry",
+      "sourceFile": "exec-6a76b187-af47-4153-8440-93ee5c96388d.png",
+      "sourceSha256": "89b6291be2a54f2c0123d48d668561ea5560db3998a2922efaddc2ceab56f506",
+      "file": "public/service-photos/sx-womens-long-cut-blowdry-v1.webp",
+      "sourceWidth": 1254,
+      "sourceHeight": 1254,
+      "width": 256,
+      "height": 256,
+      "bytes": 13254,
+      "sha256": "416add953c8581df8256070e19c797b5c8280ee8f3c3953aa92bbed72e2b63ab",
+      "label": "Дамско подстригване и сешоар — дълга коса",
+      "prompt": "Use case: photorealistic-natural\nAsset type: one square specific-service thumbnail for a booking catalogue, generic illustration not actual provider work.\nPrimary request: a realistic women's HAIRCUT AND BLOW-DRY service for an adult woman with long hair extending below her shoulders hair. Exactly two equal horizontal photographic panels stacked within one overall square1:1 canvas, the SAME fictional adult female client and professional hairdresser in both panels. TOP: hairdresser naturally trims this client's hair using salon scissors and a comb while she wears a normal salon cape. BOTTOM: same hairstyle being blow-dried with a hand-held hair dryer and a round brush. Clearly recognizable believable tools and safe anatomy, natural skin, real hair texture, modest ordinary salon, soft daylight. Keep composition clear enough at64px.\nConstraints: ONLY cut and blow-dry, no washing basin/shampoo/wet scalp washing, colouring, bleach, extensions, treatment bottles, promised result, price, actual business logo or identity. No text, branding, watermark, exaggerated glamour, emoji or notebook. Two-photo sequence of same service, not unrelated collage.",
+      "generatedOn": "2026-11-14",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "89b6291be2a54f2c0123d48d668561ea5560db3998a2922efaddc2ceab56f506",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Rootindividuallyviewed1254pxgeneratedsources andactual256pxWebP. Exactshort-bob/longhair cut+blow-drytwo-step sequences withsamefictionalclient/stylist, noshampoo/wash/colour/treatmentinclusion invented. CorrectsourcefilevisuallyboundtodistinctlengthIDs, notcompletionorder. GenericAIactivity notnamedproviderwork/staff/venue/result."
+      }
+    },
+    {
+      "id": "sx-adult-badminton-private-coaching",
+      "sourceFile": "exec-f30c58c3-3434-4811-85f5-ca813b847d11.png",
+      "sourceSha256": "df77cce27e6d27f88c88026b1b2702fff3b5113d822957119da4d882f628fcc9",
+      "file": "public/service-photos/sx-adult-badminton-private-coaching-v1.webp",
+      "sourceWidth": 1254,
+      "sourceHeight": 1254,
+      "width": 256,
+      "height": 256,
+      "bytes": 11822,
+      "sha256": "d42c897cdd65e07de761ff616be8505f98f47a882e7e987010ac493fd9e9834f",
+      "label": "Индивидуално обучение по бадминтон",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square activity-specific service thumbnail for a booking catalogue.\nPrimary request: a real-looking private BADMINTON coaching lesson in an ordinary indoor badminton hall: one adult learner and one adult coach. Coach calmly demonstrates a forehand grip with a lightweight badminton racket beside the learner, who holds their own badminton racket. A white feather shuttlecock clearly visible in the coach's other hand and the high badminton net/court lines in the background make the sport unmistakable. Both adults in ordinary modest athletic clothing, realistic hands/anatomy, focused conversational coaching, natural indoor sports lighting.\nComposition: medium shot including racket oval heads, feather shuttlecock and enough court, clear at 64px square; simple background.\nConstraints: no tennis ball/tennis racket, no child, no group lesson, no aggressive competition or unrealistic motion, no fee/inclusion claim, no notebook, branding, text, watermarks or collage. Generic fictional illustration, never actual provider people or venue.",
+      "generatedOn": "2026-11-14",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "df77cce27e6d27f88c88026b1b2702fff3b5113d822957119da4d882f628fcc9",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Rootindividuallyviewed full1254pxgeneratedsourceandfinal256pxWebP. Adultbadmintoncoach+adultlearner withlight rackets/shuttlecorrectnotchildtennis. Portableboosterpreparation hasdisconnectedinsulatedclamps andinstalledbattery, notbatteryreplacement/unsafeinventedconnectedprotocol. Fictionalillustrativeactivities not actualproviderstaff/venue/workoroutcome."
+      }
+    },
+    {
+      "id": "sx-auto-mobile-booster-preparation",
+      "sourceFile": "exec-922931f8-e6d6-446b-8dd8-04423bcd8d6d.png",
+      "sourceSha256": "32fd3c7397e302a6925d324ee241dbf7a77c9e01c19918f124d0380f64d844ea",
+      "file": "public/service-photos/sx-auto-mobile-booster-preparation-v1.webp",
+      "sourceWidth": 1254,
+      "sourceHeight": 1254,
+      "width": 256,
+      "height": 256,
+      "bytes": 14392,
+      "sha256": "ed74a01906c1303930b2ad2b13c4503e90d798e33df101b9a90b19b2d97bac5e",
+      "label": "Подаване на ток с мобилен бустер",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square specific service thumbnail for mobile car jump-start assistance.\nPrimary request: a realistic adult mobile auto technician standing beside the open hood of a normal passenger car parked on level outdoor pavement. Technician holds a compact portable battery jump-starter booster at the edge of the engine bay and prepares its two insulated red and black cable clamps, still visibly disconnected before use. The compact booster and red/black insulated clamps are prominent beside the car's installed ordinary battery, unmistakably preparing a jump-start rather than replacing a battery or using a diagnostic laptop.\nStyle: candid professional service photograph, daylight, believable hands/workwear/car and plastic/cable textures, uncluttered square medium close composition legible at64px.\nConstraints: no attached clamp arrangement or electrical instruction, no sparks, smoke, injury, replacement battery in hands, donor car, workshop lift, notebook, text, brand logos, watermark or collage. Generic fictional technician/car/location, not actual business work, staff or promised successful repair.",
+      "generatedOn": "2026-11-14",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "32fd3c7397e302a6925d324ee241dbf7a77c9e01c19918f124d0380f64d844ea",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Rootindividuallyviewed full1254pxgeneratedsourceandfinal256pxWebP. Adultbadmintoncoach+adultlearner withlight rackets/shuttlecorrectnotchildtennis. Portableboosterpreparation hasdisconnectedinsulatedclamps andinstalledbattery, notbatteryreplacement/unsafeinventedconnectedprotocol. Fictionalillustrativeactivities not actualproviderstaff/venue/workoroutcome."
+      }
+    },
+    {
+      "id": "sx-home-computer-support",
+      "label": "Компютърна помощ на адрес",
+      "sourceFile": "exec-84c3d974-a27e-4f50-918c-24c377bac79d.png",
+      "sourceSha256": "a58751ac57b6703ea8352a14837d6e8d47e172dcd3e7da6fc6d467b339c919c7",
+      "file": "public/service-photos/sx-home-computer-support-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 14554,
+      "sha256": "c8cfb6f112c04c338148077f1f63dc88a94f6ecd5346171b848c150cda9925c5",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square service thumbnail for computer support at a customer's home, to remain legible at 56–64 px.\nPrimary request: A realistic adult computer technician providing an on-site laptop diagnostic and setup visit in a modest home office. A second adult customer watches from beside the desk. Technician naturally operates the open laptop and checks the small home Wi-Fi router beside it; an Ethernet cable is visibly connected. Actual computer support activity, not selling a computer or filling out a notebook.\nStyle/medium: candid professional service photograph, realistic skin and hand anatomy, ordinary laptop and router, soft natural daylight, warm neutral room.\nComposition/framing: tight square medium shot centered on laptop, router and technician's hands, upper bodies visible enough to communicate a home visit. Simple uncluttered background.\nConstraints: No text, branding, watermark, check marks, prices or notebook. No medical doctor, white coat, stethoscope, remote-control claim, soldering, exposed mains, internal laptop disassembly, repair success claim, or identifiable private screen data. Illustrative fictional people/place only, never portray a named business's actual staff or work.",
+      "generatedOn": "2026-11-14",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "a58751ac57b6703ea8352a14837d6e8d47e172dcd3e7da6fc6d467b339c919c7",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Root individually viewed full1254pxsource andfinal256pxWebP. Technician activelyconfigures laptop andchecks homeWiFirouter alongsideadultclient, crediblehands/cableequipment, no notebook/medical/repair-success/devicecredentials. GenericillustrativeAIactivity not actualproviderstaff/customer/venue/work."
+      }
+    },
+    {
+      "id": "sx-audio-podcast-conversation",
+      "label": "Аудио подкаст — разговор в студио",
+      "sourceFile": "exec-4ea177d1-5634-49dc-b4f2-3067f2c25d24.png",
+      "sourceSha256": "95fb4116a4e7ce68399531f1753499df6c0bb1f9148c7464756d5af1cd12975b",
+      "file": "public/service-photos/sx-audio-podcast-conversation-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 12694,
+      "sha256": "c21693a4373d9067030695dd11656ee02ce5e0abedc62ae5bb78be91e5f8fd96",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square service thumbnail for a booking catalogue, generic AI illustration not an actual business photograph.\nPrimary request: a realistic AUDIO PODCAST recording conversation in an acoustically treated studio. Two fully clothed adults seated opposite each other at a small table speak naturally into two separate professional dynamic broadcast microphones on boom arms, each microphone positioned close to its speaker and facing them correctly. Both adults wear ordinary closed-back monitoring headphones. Simple audio recorder/mixer on table, fabric acoustic panels in background, warm natural studio lighting. Medium square composition, faces and microphones prominent, authentic skin, cable and fabric texture, natural hands.\nConstraints: audio-only conversation, not singing, voiceover script reading, video shooting, classroom, medical counselling or generic paperwork. No cameras, notebook, text, brand logos, watermark, collage or actual provider identity. Only two adults, anatomically believable, no exaggerated audio gear or promises.",
+      "generatedOn": "2026-11-14",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "95fb4116a4e7ce68399531f1753499df6c0bb1f9148c7464756d5af1cd12975b",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually viewed full generated source and optimized256pxWebP. Audio podcast clearly conversation microphones/headphones, no camera/edit inclusion promise. HEMA cooperative private coaching has padded protection/masks/gloves and blunt training swords, not Olympic foil/kendo/combat spectacle. Childfolk is ordinary schoolgroup horo, not adultballroom/exactageclaim. Movinglabour is furniturecarrying indoors without vehicle, no transport/crewsizeincluded assertion. GenericAIillustrations, not actualproviderpeople/venue/portfolio/work or promisedoutcomes."
+      }
+    },
+    {
+      "id": "sx-hema-private-coaching",
+      "label": "Индивидуален урок по историческа фехтовка HEMA",
+      "sourceFile": "exec-f8844580-9ade-43fc-8c6f-e36e57b5507f.png",
+      "sourceSha256": "caf8f4354d36e849b21ad803c0035dc25fde0cf8596b4c3a7f194b8513a743c7",
+      "file": "public/service-photos/sx-hema-private-coaching-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 8166,
+      "sha256": "24771659d402075dd319cd6c873c1b83a378f580748265e0674f20508588158b",
+      "prompt": "Use case: photorealistic-natural\nAsset type: one square illustrative booking thumbnail, not an actual instructor, student or club.\nPrimary request: calm individual HISTORICAL EUROPEAN FENCING (HEMA) lesson in an ordinary indoor fencing hall. One adult instructor and one adult learner both wear properly fitted full fencing masks with neck bibs, padded protective jackets, and protective gloves. They slowly rehearse a safe controlled long-sword guard using blunt steel training longswords with simple straight crossguards and rounded tips, blades held separated and pointed safely away from bodies, not striking. Instructor demonstrates the ready stance while learner mirrors. Two adults only, practical neutral training hall, authentic protective fabric and steel texture, square medium-wide framing.\nConstraints: sport lesson, no actual combat, injuries or weapons instruction diagrams; no Olympic foil/epee, kendo bamboo or samurai armour, no medieval costumes or theatrical fight, no unsafely unprotected faces or fingers. No club badges, logos, text, notebook, watermark, collage or claims about included equipment.",
+      "generatedOn": "2026-11-14",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "caf8f4354d36e849b21ad803c0035dc25fde0cf8596b4c3a7f194b8513a743c7",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually viewed full generated source and optimized256pxWebP. Audio podcast clearly conversation microphones/headphones, no camera/edit inclusion promise. HEMA cooperative private coaching has padded protection/masks/gloves and blunt training swords, not Olympic foil/kendo/combat spectacle. Childfolk is ordinary schoolgroup horo, not adultballroom/exactageclaim. Movinglabour is furniturecarrying indoors without vehicle, no transport/crewsizeincluded assertion. GenericAIillustrations, not actualproviderpeople/venue/portfolio/work or promisedoutcomes."
+      }
+    },
+    {
+      "id": "sx-child-bulgarian-folk-group",
+      "label": "Народни танци за деца в група",
+      "sourceFile": "exec-7fb2d73d-f0f8-4ad2-a2e3-a980e4704db1.png",
+      "sourceSha256": "9d93042334855ba0b69b6ac33530e0db3e17a624ad973d598dce6ae5e0d9b52b",
+      "file": "public/service-photos/sx-child-bulgarian-folk-group-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 16054,
+      "sha256": "3a47cd16ff8c8b1a4cc2ff03d08986ff631011cfd68219ab293357d58c30d4e1",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square service thumbnail of a generic child group dance class, illustrative not a verified provider photograph.\nPrimary request: a small mixed group of school-age children rehearsing a Bulgarian folk horo with an adult dance instructor in a bright ordinary school dance studio. Children in modest everyday sports clothes form a short hand-held line, practising a simple side-step together; instructor calmly demonstrates nearby. Show natural smiling or focused faces, realistic hand connections and body proportions, no exaggerated jumps. Clear group folk-dance movement, not a stage performance. Square medium-wide composition, natural daylight, real cloth and wooden-floor texture.\nConstraints: no exact service age range claim, no dance competition, no adult ballroom coupling, no ballet tutus, no karate, no elaborate ceremonial costumes, no sexualized clothing or pose. No school names, text, logos, notebook, watermark, collage or real-provider identity.",
+      "generatedOn": "2026-11-14",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "9d93042334855ba0b69b6ac33530e0db3e17a624ad973d598dce6ae5e0d9b52b",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually viewed full generated source and optimized256pxWebP. Audio podcast clearly conversation microphones/headphones, no camera/edit inclusion promise. HEMA cooperative private coaching has padded protection/masks/gloves and blunt training swords, not Olympic foil/kendo/combat spectacle. Childfolk is ordinary schoolgroup horo, not adultballroom/exactageclaim. Movinglabour is furniturecarrying indoors without vehicle, no transport/crewsizeincluded assertion. GenericAIillustrations, not actualproviderpeople/venue/portfolio/work or promisedoutcomes."
+      }
+    },
+    {
+      "id": "sx-home-moving-labour-no-vehicle",
+      "label": "Хамалски труд без включен транспорт",
+      "sourceFile": "exec-4e0cec96-7754-4934-b9cb-0a271dce5313.png",
+      "sourceSha256": "f2cc5fea8566d9f53a432ba2ad82241fd76fdc0b1409415d6650f2d86328a5c3",
+      "file": "public/service-photos/sx-home-moving-labour-no-vehicle-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 10950,
+      "sha256": "82e1dc11de1d1b0ea3217693b36cdad5d47c88e3237a9acfa038b143b9345c1a",
+      "prompt": "Use case: photorealistic-natural\nAsset type: one square specific-service thumbnail for hourly moving labour, generic illustrative activity not actual provider work or a promise of crew size.\nPrimary request: two adult professional movers carefully carrying a wrapped domestic sofa through a wide apartment doorway INSIDE an ordinary finished building. Natural work clothes, protective grip gloves, secure two-person handling of opposite sofa ends, believable body mechanics and modest load height. The image is about carrying/loading labour only. Close square medium-wide framing keeps sofa, doorway and both workers clear, realistic fabrics, protective wrapping, natural indoor daylight.\nConstraints: NO van, truck, car, road, transport journey or implied vehicle included. No brandeduniforms, text, logos, notebook, clipboard, watermark, collage, heroic extreme load, unsafe one-handed carrying or implausible fingers. Fully clothed adults. Not cleaning, furnishing retail or an entire-house-move package.",
+      "generatedOn": "2026-11-14",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "f2cc5fea8566d9f53a432ba2ad82241fd76fdc0b1409415d6650f2d86328a5c3",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually viewed full generated source and optimized256pxWebP. Audio podcast clearly conversation microphones/headphones, no camera/edit inclusion promise. HEMA cooperative private coaching has padded protection/masks/gloves and blunt training swords, not Olympic foil/kendo/combat spectacle. Childfolk is ordinary schoolgroup horo, not adultballroom/exactageclaim. Movinglabour is furniturecarrying indoors without vehicle, no transport/crewsizeincluded assertion. GenericAIillustrations, not actualproviderpeople/venue/portfolio/work or promisedoutcomes."
+      }
+    },
+    {
       "id": "sx-indoor-golf-simulator-lesson",
       "label": "Урок по голф на закрит симулатор",
       "sourceFile": "exec-d103cff3-fe5c-44da-9c9b-042cce20b4ed.png",

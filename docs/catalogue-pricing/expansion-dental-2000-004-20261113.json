@@ -1,0 +1,54 @@
+{
+  "checkedOn": "2026-11-14",
+  "checkedAtUtc": "2026-11-14 02:07:00 UTC",
+  "status": "root_integrated_local_not_published",
+  "sourceModule": "lib/discovery/catalogue-data/neighborhood-dental-2000-004-20261113.mjs",
+  "records": 2,
+  "services": 2,
+  "pricedServices": 0,
+  "sourceReviewedWithoutPublicPrices": 2,
+  "included": [
+    {
+      "id": "sofia-spaska-asova-ekzarh-stefan62",
+      "evidence": "Freshordinarynative200 explicitrootphoneBook +entireServices+Contacts read. Selectedordinaryexamination hasno currentnumerictariff, conditionalThursdayfreefactretainednot0all-days; old2015servicespublicationdateacknowledgednotrefreshedascurrenttariff. Actualnewvenue/hours fromownroot, no weekendhoursinvented.",
+      "photo": "dental-exam"
+    },
+    {
+      "id": "sofia-bgm-dent-lyulin8-block802",
+      "evidence": "ActualownrootBookhref→currentnativeContactBook, realphoneoralternativepreferred-day/timewindowrequestform. Chosenphone. Fullrootservices/selectedcompositefilling/Book no fee/tarifflink, notblocked. Headerblock802backentranceD consistent; bodyalso3004No9, postalidentitynotassumed/noextra venue. FormwindowsNOThours.",
+      "photo": "dental-filling"
+    }
+  ],
+  "limits": "Only dentistry permitted scope. No fabricatedfees/durations/insuredeligibility/outcomes/credentials. SourceTerms route notsurfacedfullreviewednav/footer, no unseenTermslegalclearance. No copy of sourceprose/reviews/photos/brandassets. No patientinput/form/captcha/call/Maps/providerAPI/production/settings/notification writes.",
+  "held": [
+    {
+      "website": "https://diamonddent.bg/",
+      "decision": "hold_no_confirmed_sofia_venue",
+      "reviewedUrls": [
+        "https://diamonddent.bg/robots.txt",
+        "https://diamonddent.bg/",
+        "https://diamonddent.bg/contacts/"
+      ],
+      "evidence": "Primarycontact addressVasilAprilov60floor2 withoutSofiamunicipalityconfirmation, noSofiarealvenuebookscopeverified; noPDFprice/menu intake. NotmadeSofiafromdiscoveryquery."
+    },
+    {
+      "website": "https://sidentbg.net/",
+      "decision": "outside_sofia",
+      "reviewedUrls": [
+        "https://sidentbg.net/robots.txt",
+        "https://sidentbg.net/"
+      ],
+      "evidence": "Ownrootactualfooter explicitlyVARNA/VladislavVarnenchik112. NoBook/fees/Terms/privatecart/accountfurtherrequests, norSofiaoperatorclone."
+    }
+  ],
+  "photoReview": "Rootviewedactualexisting256px dental-exam anddental-filling individually. Examinationmirror versuscompositefillingoperativeinstruments appropriate; no patient/staffidentities or actualproviderwork claims.",
+  "sourceObservations": "Webtransformedcache andfreshordinarynative GET distinguished. DNS sandboxfail only requiredapprovedordinarynetwork GET, no auth/challengebypass. No Nominatim/Maps/clientcoordinates.",
+  "validation": {
+    "schema": 2,
+    "ready": 2,
+    "pending": 0,
+    "rejected": 0,
+    "comparisonRecords": 1635,
+    "identityRule": "Onlynewincludedinventoryidentity, no oldbaseline/reviewfingerprint refresh"
+  }
+}

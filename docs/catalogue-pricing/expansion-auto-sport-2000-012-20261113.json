@@ -1,0 +1,435 @@
+{
+  "rootIntegrationReview": {"checkedAtUtc":"2026-11-14T02:10:06.601Z","note":"Rootreadall4fullproviderrows/services/reviews. Mandatoryseparatecourt8/11EURretainedfor20EURcoachONLYnotcomputedallinlesson; Ben/MobilcaronlyactualgenuinelyunpublishedOBDservice, notblockedtariffs. BGboostercallout25literalincludingSofiaattendancecurrentownservice+feesconsistent, diagnosticsconflictingfeeexcludednotunpublished. PMGarageheldforvisiblegeographicscope, no metadata/reviewcoverageguess. MobilcarrootfreshnativeexactGPSmanuallyboundseparategeo receipt; no map/viewport. Twofreshspecificphoto fullsource/final256reviewedandmanifested, existingOBDimagepersonallyviewed. Onlynewidentitiesassigned, originalbaselinesunchanged, no productionwrites/booking/phone/notifications."},
+  "batch": "auto-sport-2000-012-20261113",
+  "status": "frozen_ready_for_manual_source_review",
+  "dateConvention": "UTC source reviews2026-11-14, validUntil2027-02-12; filename remains batch identifier.",
+  "scope": "Distinct real reserved auto/service or sports premises; ownerBook then services/tariffs/full contact, no staff/court/quarter clones.",
+  "sourceRestrictions": "No UI/Maps/Nominatim/privateGPS/accounts/booking/consent/providerbulk; all held-source bans respected.",
+  "counts": {
+    "records": 4,
+    "services": 4,
+    "reviews": 4,
+    "pricedServices": 2,
+    "pending": 22,
+    "rejected": 3
+  },
+  "orderedLedger": [
+    {
+      "order": 1,
+      "id": "sofia-badminton-teo-vitosha155",
+      "name": "Бадминтон с Тео · зала Витоша",
+      "status": "verified",
+      "website": "https://badminton.bg/",
+      "bookingUrl": "https://badminton.bg/",
+      "serviceUrls": [
+        "https://badminton.bg/",
+        "https://badminton.bg/kontakti-badminton-bg/"
+      ],
+      "contactUrl": "https://badminton.bg/kontakti-badminton-bg/",
+      "findings": "Прегледани са цялата собствена начална страница с actual phone Book instruction, целият контакт с пълна текуща тарифа и собствената страница правила/екипировка. Owner изрично предлага hiringcoach за1човек/60мин20EUR БЕЗКОРТ; отделният задължителен court/person е8EURделник08–17 или11EURделник17–22/уикенд08–22. Това е буквалният coachinghire компонент, не all-in lesson от20, не депозит и няма изчислена28/31цена. Мултиспорт може да покрива корт за1човек/60мин, но не се приема налична карта за потребителя. При нает треньор racket/shuttle не се доплащат. Името/unit/publicdescription изрично разграничават двете задължителни съставки; root одобри този квалифициран компонент за преглед. Не се внася самостоятелно court hire като втори бизнес. Coach phone operator/venue/domain са проверени срещу actual runtime+всички intakes/native fixtures:0съвпадения. Контактната форма е изключена без reCAPTCHA service consent; не е активирана/използвана, има изрична независима телефонна покана. Пълната навигация/footer не показва owner website terms линк; reCAPTCHA Google policies не са отваряни и не е твърдяно legal clearance. Залните общи08–22 не са пренесени като работен график на треньора. Без Maps, отзиви, снимки, преписан текст или заявки.",
+      "checkedAtUtc": "2026-11-14T01:31:52Z"
+    },
+    {
+      "order": 2,
+      "id": "sofia-ben-garage-filip-kutev7",
+      "name": "Ben's Car Garage",
+      "status": "verified",
+      "website": "https://bengarage.com/",
+      "bookingUrl": "https://bengarage.com/",
+      "serviceUrls": [
+        "https://bengarage.com/uslugi/",
+        "https://bengarage.com/компютърна-диагностика/"
+      ],
+      "contactUrl": "https://bengarage.com/връзка-с-нас/",
+      "findings": "ActualownerrootFAQbookinstructionfirst:priorappointmentrecommendedforrepair/diagnostics;phoneandgenericcontactformusedtoagreetime. No dedicateddate/timebookingformconfigured, so explicitphonepathselectedinsteadofcallinggenericcontactformcalendar. FullrootordinaryGETaftertimeout,ServicesordinaryGETaftercachemiss, entireselectedComputerDiagnostics andfullContact/footer/navreviewed. ActualselectedserviceandServiceslistpublishno numericfee, noPriceslink/tariffimage/pricePDFvisible; no blockedconfiguredmenu. Missingfeeisnot_publicly_listed/service_reviewed, notprice-reviewed. ExactownFilipKutev7andphone0896925866 consistent; rootwarnsGPSaddresssearchmayroutewrongstreet, so no inventedcoordinate/municipalpoint/neighborhood. ContactMonFri09–18readbutSaturdaySundayunspecified, nofullhoursinvented. Root/service/contactnavhasnoactualTerms/Privacyanchor, nolegalclearanceclaim. Robotsreaderunavailable,nopermissioninference. Runtime+ALLintake/nativepreflightfoundnosameoperator/domain/phone. Two unrelated pet-grooming/Pilates operators share FilipKutev7 but have different branding/contacts/services; samebuildingisnotaduplicate. NoMapslinksopened, noexternalreviews/photos/logos/copieddescriptions, norequest/customerinput/call.",
+      "checkedAtUtc": "2026-11-14T01:54:42Z"
+    },
+    {
+      "order": 3,
+      "id": "sofia-mobilcar-parva-armiya92",
+      "name": "Автосервиз Мобилкар",
+      "status": "verified",
+      "website": "https://mobilcar.info/",
+      "bookingUrl": "https://mobilcar.info/avtoserviz/",
+      "serviceUrls": [
+        "https://mobilcar.info/avtoserviz/",
+        "https://mobilcar.info/pricelist/"
+      ],
+      "contactUrl": "https://mobilcar.info/contact/",
+      "findings": "ActualownAutoseriviz/Serviceworkflow reviewedFIRST forappointment: publishedscheduledintakearrangement,notclaimedverbatimphoneCTA. Matchingownreceptionphone0875232121onContact chosenindependentphonepath; genericcontactmessageformnotpretendedcalendar. Rootexplicitlyacceptedthisevidencecontext. FullServicesandentirecurrentPricelistreviewed;ordinaryGETconfirms25realservice rowsandALLpricecellsblank(nohiddenpriceimageotherthanlogos). SelectedComputerDiagnosticsgenuinelynonumericfee,notblockedknownmenu,not0. ExactBook/service/pricelist/contactandfullWayOfUse20termsread; generalIPrespectonly,noexplicitautomation/commercialfactreusebanobserved,nolegalclearance. Ownquote-beforeworkrequirescustomeragreement. Header/footerfullnavchecked,nootherdedicatedBook/provider. ExactprimaryNPZHadjiDimitarParvaBulgarskaArmia92,MonFri09–18/weekendclosedandphones consistent. ContactpublishesliteralGPSDD42.71083,23.34597labeledservizcoordinates—notviewport—butcoordinatesleftnullforrootmanualsourceAddressbinding. Actualruntime+ALLintakesdomain/phones/addresssameoperator0andnativemismatch. NoMaps/retailcatalog/reviews/photos/logos/copiedprose/call/customerinput/request.",
+      "checkedAtUtc": "2026-11-14T01:59:26Z"
+    },
+    {
+      "order": 4,
+      "id": "sofia-bgdiagnostika-mobile-booster",
+      "name": "BGdiagnostika · мобилно подаване на ток",
+      "status": "verified",
+      "website": "https://www.bgdiagnostika.com/bg/",
+      "bookingUrl": "https://www.bgdiagnostika.com/bg/chesto-zadavani-vaprosi.html",
+      "serviceUrls": [
+        "https://www.bgdiagnostika.com/bg/services/podavane-na-tok.html",
+        "https://www.bgdiagnostika.com/bg/ceni.html"
+      ],
+      "contactUrl": "https://www.bgdiagnostika.com/bg/contacts.html",
+      "findings": "ActualownerBookpathFIRSTvia ownserviceinstructiontoContactandFAQ:explicitcallorcontactmessage,thenstaffagreedday/time. Genericcontactformnotpresentedasdatedcalendar; independentphonechosen. FullRoot/service/completePrices/Contact/FAQread, ordinarypublicGETafterreaderblank/cachemisswhereapplicable. SelectedboosterservicecurrentownpageandPricelistbothliteral25EUR/48.89BGNincludingSofiavisit; EURliteralnotourconversion, noextraattendancedeposit/computedtotal. Onlythisindependentlyconsistentmobile serviceadmitted. Diagnosticfee50EUR/pricelistversusFAQ80BGNconflicts; diagnostictariff/serviceheldandNOTimported/notdeclaredunpublished. Climatepageotheraddressnotclonedasbranch. Oneoperator genuineSofiamobilecallout, service_areaaddressnull/coordsnull, althoughownContacthasworkshop5004No1; nosecondpremise/quarterclone. Contactphone0882300605/0894407405andhours07–20dailyconsistentwithFAQ. Entirepublicnav/footernoTerms/Privacyanchorvisible; notlegalclearanceclaim. Runtime+ALLintakes/nativephone/domainpreflight0. NoMaps/reviews/photos/retail/copieddescription/customerinput/booking.",
+      "checkedAtUtc": "2026-11-14T02:01:10Z"
+    }
+  ],
+  "pending": [
+    {
+      "name": "Bagir BJJ",
+      "website": "https://www.bagirbjj.com/",
+      "status": "held_book_form_test_disabled",
+      "reviewedUrls": [
+        "https://www.bagirbjj.com/",
+        "https://www.bagirbjj.com/terms.html"
+      ],
+      "notes": "Owner root has actualprivate/BJJ/Judo/Grappling services and program choices, but current actual ordinaryHTML public form explicitly TESTsendingdisabled; reader cachedview omitswarning. Cannot call it configuredbooking or pretend genericphone is an explicitprivatephoneBookpath. Fulltermsinformational use noexplicitextraction/commercialfactsbanfound, nolegalclearance; noinput."
+    },
+    {
+      "name": "Open Mat BJJ",
+      "website": "https://bjj.bg/bg",
+      "status": "held_source_terms_and_booking_scope",
+      "reviewedUrls": [
+        "https://bjj.bg/bg",
+        "https://bjj.bg/bg/contacts",
+        "https://bjj.bg/bg/terms-of-service"
+      ],
+      "notes": "Fullterms5March2026§2 prohibits reproducing entirewebsitecontent withoutwrittenpermission, broadundefinedcontent. Conservative sourcehold; regularreserved service proof also notcompleted. Noadditionalhostrequest/noimport."
+    },
+    {
+      "name": "VS Studio",
+      "website": "https://vs-studio.bg/",
+      "status": "held_access_verification",
+      "reviewedUrls": [
+        "https://vs-studio.bg/автомобилни-и-сградни-фолиа/"
+      ],
+      "notes": "Actualownerpage reader displays requestbeingverified. StopnoordinaryGET/alternateendpoint/UIattempt; noimport."
+    },
+    {
+      "name": "Автостъкла Груп",
+      "website": "https://avtostaklagrup.com/",
+      "status": "held_same_premise_identity_and_booking_phone",
+      "reviewedUrls": [
+        "https://avtostaklagrup.com/"
+      ],
+      "notes": "ActualcurrentownerGET aftertimeout read fullpublictext/anchors. ListedRoyak41 matches existingGlobalsameactivity; no proof distinctoperator/currentpremise ratherthanpredecessor/alias. BookCTA tel0888123456 placeholder disagrees displayed0877642523. Hold instead ofcloningvenue orsilentlyfixingbookphone. Own24/7vs08–20hoursconflictalso."
+    },
+    {
+      "name": "All Car Group",
+      "website": "https://allcar-group.bg/",
+      "status": "held_source_terms",
+      "reviewedUrls": [
+        "https://allcar-group.bg/",
+        "https://allcar-group.bg/kontakti/",
+        "https://allcar-group.bg/общи-условия/"
+      ],
+      "notes": "OwnBook/contact and Sofia mobile-servicearea explicit, but actualpublicterms§8(1)allinformation/8(3)use/copy/reproducewithoutconsent forbidden exceptstatutory. Conservative sourceSTOPbeforefurtherendpoints; noimport/nolegalruling. Did notclaimfulltermsallread beyondexplicitrestriction when tooltruncatedafterfoundclause."
+    },
+    {
+      "name": "Mirafiori",
+      "website": "https://mirafiori.bg/",
+      "status": "held_source_terms",
+      "reviewedUrls": [
+        "https://mirafiori.bg/",
+        "https://mirafiori.bg/en/services-en/",
+        "https://mirafiori.bg/en/contacts-en/",
+        "https://mirafiori.bg/en/terms-and-conditions-en/"
+      ],
+      "notes": "FullactualtermsIII1expresslyincludesdatabases/otherinformation andprohibitsanypart use/distribution/reproductionwithoutpriorwrittenconsent;III2personaluseonly/III3personalnoncommercialcopies. STOPallMirafioriendpoints; noimport/retryingcontacttimeout."
+    },
+    {
+      "name": "Tapiceri.bg",
+      "website": "https://tapiceri.bg/",
+      "status": "held_access_verification_selected_service",
+      "reviewedUrls": [
+        "https://tapiceri.bg/",
+        "https://tapiceri.bg/kontakti/",
+        "https://tapiceri.bg/uslugi/",
+        "https://tapiceri.bg/remont-na-avtovolani/"
+      ],
+      "notes": "Actualselectedsteeringwheelservicepage requestverification, STOPnobypass/furtherhost. Otherpublicpageswerealreadyinflightbeforechallengeobserved. Don'tcallselectedfulltariffunpublishedorimportfromgenericserviceoverview."
+    },
+    {
+      "name": "Virado",
+      "website": "https://www.virado-bg.com/",
+      "status": "held_access_verification_linked_operator",
+      "reviewedUrls": [
+        "https://viradobg.com/контакти/",
+        "https://viradobg.com/волани/",
+        "https://www.virado-bg.com/претапициране/"
+      ],
+      "notes": "Ownlinkedreupholsterypagehasactualpubliccar/date/time/name/phonerequest; exactKukush1mainphone0899772020 butdisplayedCallanchorothernumber. Mainpaintwheelpageactualrequestverification; STOPnoreadinglinkedbrandmirror asbypass. Fees/selectedscopeincomplete, noimport."
+    },
+    {
+      "name": "PDR Sofia / PDR Auto",
+      "website": "https://pdr-auto.eu/",
+      "status": "held_actual_price_booking_js",
+      "reviewedUrls": [
+        "https://pdr-auto.eu/",
+        "https://pdr-auto.eu/bg/pricing"
+      ],
+      "notes": "OwnercurrentSSRonlySEOservice/address/contactsummary; realconfiguredPrice route returnssamesummarywithoutprice/bookcontrols. NoUI/hiddenbundles/APIs; don'tclaimnotpublished."
+    },
+    {
+      "name": "PDRSofia.bg",
+      "website": "https://pdrsofia.bg/",
+      "status": "held_appointment_evidence_missing",
+      "reviewedUrls": [
+        "https://pdrsofia.bg/",
+        "https://pdrsofia.bg/контакти/"
+      ],
+      "notes": "Ownercontactinvitesfreeinspectiononsite withphone butnoexplicitpriorappointmentinstruction; primaryrootmostlyimagesnotfetchedasfacts. Exact12behind113addresscompoundnotguessed. No standalonefreeinspectionimport."
+    },
+    {
+      "name": "Сервиз за гуми Алекс",
+      "website": "https://service-gumialex.com/",
+      "status": "held_actual_public_js",
+      "reviewedUrls": [
+        "https://service-gumialex.com/",
+        "https://service-gumialex.com/hotel-za-gumi-sofia"
+      ],
+      "notes": "Searchownerindexedhotel/from6.39notcurrentvalidatedtariff; actualrootandlinkedservice reader/ordinaryGETonlytitle+GTM. NoBook/contactmenuvisible, nohiddenbundle/API/UI; heldnotunpublished."
+    },
+    {
+      "name": "Garage46 Sofia installation network",
+      "website": "https://garage46.bg/",
+      "status": "held_source_terms",
+      "reviewedUrls": [
+        "https://garage46.bg/pages/garage46-montaj-na-led-krushki-v-grad-sofia-vasil-levski",
+        "https://garage46.bg/policies/terms-of-service"
+      ],
+      "notes": "ActualbranchBookform/headlightalignmentfrom15EUR/publishedaddress visible, but observed§6restrictsServices(definedwebsite/information)topersonalnoncommercialuseandforbidsstoring/reproducing/republishingmaterialswithoutpriorwrittenconsent. ConservativeSTOPbeforeotherbranchpages; noimport/noLegalclearance. Termsoutputtruncatedafterrestriction,notclaimedfullallclausesread."
+    },
+    {
+      "name": "SBA network",
+      "website": "https://www.sba.bg/",
+      "status": "held_prior_source_terms",
+      "reviewedUrls": [],
+      "notes": "Local001source-useauditconfirms§8.3/8.6allaccessibleSitecontentcommercialuse requireswrittenconsent; earlierMladostrowrootremoved. Thisturnonlydiscoverysearchresult accidentallyrediscoveredbranches;NOnewSBA/CDN/Setmorepageopened, noimport. Do notrefresholdpublishedfacts."
+    },
+    {
+      "name": "CK Fortuna",
+      "website": "https://www.ckfortunabg.com/",
+      "status": "held_dns_unavailable",
+      "reviewedUrls": [
+        "https://www.ckfortunabg.com/"
+      ],
+      "notes": "Webreader502;ordinarypublicGETfallback failedDNSresolve. Noalternativehostbypass/retry, noactualmenu/Bookinspection, notunpublished."
+    },
+    {
+      "name": "Мобилен сервиз София",
+      "website": "https://mobilenservizsofia.com/",
+      "status": "held_actual_public_js",
+      "reviewedUrls": [
+        "https://mobilenservizsofia.com/"
+      ],
+      "notes": "Searchindexshowsmobileassistance/phone,butactualreader0linesandordinaryGETonlytitle+Lovableeditbadge. NoactualconfiguredBook/services/feesread. NoUI/API/bundle/editorrequest,notunpublished."
+    },
+    {
+      "name": "Конна база Драгалевци",
+      "website": "https://ezdasofia.bg/",
+      "status": "held_actual_booking_public_js",
+      "reviewedUrls": [
+        "https://ezdasofia.bg/",
+        "https://script.google.com/macros/s/AKfycbxflIZ8izhEXADZlhyl85WjgOaDGW57484olL2gJW1bSkKom_K4c20MGb6Zypvr5t8esQ/exec",
+        "https://ezdasofia.bg/products/езда",
+        "https://ezdasofia.bg/pages/contact",
+        "https://ezdasofia.bg/policies/terms-of-service"
+      ],
+      "notes": "ActualownerBookFIRSTpublicGoogleScriptreader0lines+ordinaryGETtitleonly,noactualmenu. Ownfulltermscleanbooking/safetycontext,noextractionrestrictionobserved;primarytermsaddressAcadSanders47/SofiaDragalevtsi. Actualpublicridingtariff15/30/45/50/80EURfor15/30/45/60/120minread,notretailhorse0. HeaderphoneBookbutFAQandtermsreservephonefor>120/specialrequests; donotprojectphonefallbackontostandard15–120lesson. NoUI/GoogleMaps/customerinput/cart/booking."
+    },
+    {
+      "name": "Тенев и Син · уроци по езда",
+      "website": "https://ezda-uroci.bg/",
+      "status": "held_current_public_tariff_conflict",
+      "reviewedUrls": [
+        "https://ezda-uroci.bg/"
+      ],
+      "notes": "OwnactualBooktoContact+FAQexplicitphoneappointments,addressHaydushkoIzvorche28. SamecurrentpublicrootnewEURtable20min20child/30min35/45min50/60min60againstFAQold30BGN15min/80BGN60, plus60format30ride+30care unclear. Donotchooseconvenienttableorclaimunpublished; allpricedlessonrowsheldpendingclarification. NoMaps/termscompletionclaim/booksubmission."
+    },
+    {
+      "name": "Fitness Plus",
+      "website": "https://fitnessplus.bg/",
+      "status": "held_reserved_training_evidence_missing",
+      "reviewedUrls": [
+        "https://fitnessplus.bg/",
+        "https://fitnessplus.bg/contact/",
+        "https://fitnessplus.bg/programs/",
+        "https://fitnessplus.bg/prices/",
+        "https://fitnessplus.bg/trainers/"
+      ],
+      "notes": "Actualcurrentfullpublicroot/programs/contacts/prices/trainersread. RealMladost2bl254/services/fee/grouptimetablebutonlygenericconsultation/contactform, noexplicitregulartrainingreservationinstructionfound. EnglishindexedPT30BGNoldnotprojectedintocurrentBGmenu. Notgenericgymadmission, nozeroconsultationimport."
+    },
+    {
+      "name": "BLB Dream Body / Радостина Радева",
+      "website": "https://www.blbdreambody.com/",
+      "status": "held_current_venue_booking_tariff_binding",
+      "reviewedUrls": [
+        "https://www.blbdreambody.com/"
+      ],
+      "notes": "CurrentrootpersonalcoachingatPrimeFitClubwhereindexedserviceoldTitanium+monthlypackages. FullrootreadbutactualBook/terms/exactPrimepremiseandindependentoperatorvsstaffaliasnotcompleted. Nooldindexed180/230EURprojected/claimunpublished."
+    },
+    {
+      "name": "Autobox Sport",
+      "website": "https://autoboxsport.com/",
+      "status": "held_dns_unavailable",
+      "reviewedUrls": [
+        "https://autoboxsport.com/"
+      ],
+      "notes": "Readerunavailable;ordinarypublicGETfallbackDNSfailure. Nootherhost/UIretry; noimportbasedthirdpartyexpiredGrabooffer."
+    },
+    {
+      "name": "PM Garage · мобилен сервиз за гуми",
+      "id": "sofia-pm-garage-mobile-tyres",
+      "website": "https://pm-garage.com/",
+      "status": "held_geographic_service_area_not_visibly_confirmed",
+      "checkedAtUtc": "2026-11-14T02:03:43Z",
+      "reviewedUrls": [
+        "https://pm-garage.com/",
+        "https://pm-garage.com/book-online/",
+        "https://pm-garage.com/contact-us/",
+        "https://pm-garage.com/pricing/"
+      ],
+      "notes": "Rootrequiresvisibleownservice-area/Book/ContactSofiascope. AlreadyinspectedpublicbodydoesnotconfirmSofiaattendanceoutsidecustomerreviews; OGcitylabelandsocialhandlesaloneinsufficient. Completeotherwiseverifiedcandidate/reviewpreservedbelowbutNOTadmitted/notcounted. Noadditionalworkaround/request, noimaginedcitywidecoverage.",
+      "priorRecord": {
+        "id": "sofia-pm-garage-mobile-tyres",
+        "name": "PM Garage · мобилен сервиз за гуми",
+        "cityCode": "68134",
+        "neighborhood": null,
+        "address": null,
+        "locationKind": "service_area",
+        "coordinates": null,
+        "category": "auto_repair",
+        "website": "https://pm-garage.com/",
+        "phone": "+359878700804",
+        "services": [
+          {
+            "name": "Мобилна смяна и баланс на гуми на адрес",
+            "category": "auto_repair",
+            "appointmentModel": "appointment",
+            "description": "Посещение на адрес след потвърдена заявка. Цената за труда се уточнява; за частен клиент с 1 автомобил има отделна такса повикване 20 лв. При 2 или повече автомобила таксата повикване отпада. Това не означава безплатна смяна."
+          }
+        ],
+        "booking": {
+          "kind": "form",
+          "url": "https://pm-garage.com/book-online/"
+        },
+        "verification": {
+          "status": "approved",
+          "checkedOn": "2026-11-14",
+          "validUntil": "2027-02-12",
+          "booking": {
+            "url": "https://pm-garage.com/book-online/",
+            "excerpt": "С предварително запазен час, нашият екип пристига на уговорения адрес на клиента. Резервацията ще бъде потвърдена от наш служител."
+          },
+          "contact": "https://pm-garage.com/contact-us/"
+        }
+      },
+      "priorReview": {
+        "id": "sofia-pm-garage-mobile-tyres",
+        "checkedOn": "2026-11-14",
+        "website": "https://pm-garage.com/",
+        "bookingEntry": "https://pm-garage.com/book-online/",
+        "bookingReview": "owned_booking_reviewed",
+        "reviewedUrls": [
+          "https://pm-garage.com/",
+          "https://pm-garage.com/book-online/",
+          "https://pm-garage.com/contact-us/",
+          "https://pm-garage.com/pricing/"
+        ],
+        "notes": "Прегледани са fullownerHome, actualBookOnline, currentPrices иContact; текущ ordinaryGET наRoot/Prices показва publicbook/contact/pricing anchors, без допълнителна услужна тарифа или tariffimage. Bookform има дата, адрес на повикване, брой коли, име/phone/email, след което собствено потвърждение от служител до края на работния ден; не е избирано/попълвано/изпращано нищо. Inert thanks/error template не се приема за реалноизпратенарезервация. ActualPrices изрично потвърждава предварително запазенчас, монтаж/демонтаж/баланс на адрес, но не публикува числова цена за самия труд. Публикуваните20лв са само отделно повикване за1частнакола;0за2+самоотпадналатакса, не безплатна услуга. Общоизвестнацена не е изчислена/измислена и не е from20; service_reviewed/not_publicly_listed за избраната мобилна работа, с честно описанкомпонент. София е изрично в ownerpublished publicogdescription наpricing: PM-GarageSofia/smianaadres, плюс ownerlinked socialbrandhandlesSofia; не се ползват отзиви като географскодоказателство. Няма публикуван точен сервизен premise, затова единservice_areaсaddressnull, не квартални/помещениклонинги. Phone0878700804 няма runtime+allintakes/nativeдубликат. Fullnavigation/footer не показва ownterms/privacyвръзка, не е legalclearance. NoMaps/socialrequests/photos/logos/reviews/copiedprose.",
+        "pricingDecision": "not_publicly_listed",
+        "priceSearch": {
+          "outcome": "not_published",
+          "bookingUrl": "https://pm-garage.com/book-online/",
+          "serviceUrls": [
+            "https://pm-garage.com/pricing/"
+          ],
+          "notes": "Прегледани са fullownerHome, actualBookOnline, currentPrices иContact; текущ ordinaryGET наRoot/Prices показва publicbook/contact/pricing anchors, без допълнителна услужна тарифа или tariffimage. Bookform има дата, адрес на повикване, брой коли, име/phone/email, след което собствено потвърждение от служител до края на работния ден; не е избирано/попълвано/изпращано нищо. Inert thanks/error template не се приема за реалноизпратенарезервация. ActualPrices изрично потвърждава предварително запазенчас, монтаж/демонтаж/баланс на адрес, но не публикува числова цена за самия труд. Публикуваните20лв са само отделно повикване за1частнакола;0за2+самоотпадналатакса, не безплатна услуга. Общоизвестнацена не е изчислена/измислена и не е from20; service_reviewed/not_publicly_listed за избраната мобилна работа, с честно описанкомпонент. София е изрично в ownerpublished publicogdescription наpricing: PM-GarageSofia/smianaadres, плюс ownerlinked socialbrandhandlesSofia; не се ползват отзиви като географскодоказателство. Няма публикуван точен сервизен premise, затова единservice_areaсaddressnull, не квартални/помещениклонинги. Phone0878700804 няма runtime+allintakes/nativeдубликат. Fullnavigation/footer не показва ownterms/privacyвръзка, не е legalclearance. NoMaps/socialrequests/photos/logos/reviews/copiedprose."
+        }
+      },
+      "priorOrderedEntry": {
+        "order": 2,
+        "id": "sofia-pm-garage-mobile-tyres",
+        "name": "PM Garage · мобилен сервиз за гуми",
+        "status": "verified",
+        "website": "https://pm-garage.com/",
+        "bookingUrl": "https://pm-garage.com/book-online/",
+        "serviceUrls": [
+          "https://pm-garage.com/pricing/"
+        ],
+        "contactUrl": "https://pm-garage.com/contact-us/",
+        "findings": "Прегледани са fullownerHome, actualBookOnline, currentPrices иContact; текущ ordinaryGET наRoot/Prices показва publicbook/contact/pricing anchors, без допълнителна услужна тарифа или tariffimage. Bookform има дата, адрес на повикване, брой коли, име/phone/email, след което собствено потвърждение от служител до края на работния ден; не е избирано/попълвано/изпращано нищо. Inert thanks/error template не се приема за реалноизпратенарезервация. ActualPrices изрично потвърждава предварително запазенчас, монтаж/демонтаж/баланс на адрес, но не публикува числова цена за самия труд. Публикуваните20лв са само отделно повикване за1частнакола;0за2+самоотпадналатакса, не безплатна услуга. Общоизвестнацена не е изчислена/измислена и не е from20; service_reviewed/not_publicly_listed за избраната мобилна работа, с честно описанкомпонент. София е изрично в ownerpublished publicogdescription наpricing: PM-GarageSofia/smianaadres, плюс ownerlinked socialbrandhandlesSofia; не се ползват отзиви като географскодоказателство. Няма публикуван точен сервизен premise, затова единservice_areaсaddressnull, не квартални/помещениклонинги. Phone0878700804 няма runtime+allintakes/nativeдубликат. Fullnavigation/footer не показва ownterms/privacyвръзка, не е legalclearance. NoMaps/socialrequests/photos/logos/reviews/copiedprose.",
+        "checkedAtUtc": "2026-11-14T01:41:52Z"
+      }
+    },
+    {
+      "name": "BGdiagnostika · диагностична тарифа (само неимпортирани услуги)",
+      "website": "https://www.bgdiagnostika.com/bg/",
+      "status": "held_diagnostic_tariff_conflict_only",
+      "reviewedUrls": [
+        "https://www.bgdiagnostika.com/bg/services/avtomobilna-diagnostika-na-myasto.html",
+        "https://www.bgdiagnostika.com/bg/ceni.html",
+        "https://www.bgdiagnostika.com/bg/chesto-zadavani-vaprosi.html"
+      ],
+      "notes": "Diagnosticservice/Pricelist50EURvsFAQ80BGNunresolved. No diagnostic row/import/not_publicly_listed. Separatebooster25EUR includingvisitindependentlyconsistentactualservice+tariffandownBookproofadmittedonce; notsecondoperator/quarterclone."
+    }
+  ],
+  "rejected": [
+    {
+      "name": "ABC GTP / Beta Star",
+      "website": "https://gtpabc.bg/",
+      "status": "rejected_outside_sofia",
+      "reviewedUrls": [
+        "https://gtpabc.bg/",
+        "https://gtpabc.bg/информация/"
+      ],
+      "notes": "Actualownerinformation identifiesonlyBlagoevgradPeyoYavorov10. NotSofia68134. NoGooglemaplinkfollowed."
+    },
+    {
+      "name": "AutoFriend",
+      "website": "https://autofriend.bg/",
+      "status": "rejected_concierge_not_actual_repair_operator",
+      "reviewedUrls": [
+        "https://autofriend.bg/uslugi/gtp/",
+        "https://autofriend.bg/ou/"
+      ],
+      "notes": "SelectedGTPpageandservicecontract1.1/5.3explicitlyorganize/transportcartothird-partylicensedstation/selectedgarage; notprovenownmechanic/GTPpremise. Do notclonepartnersorpretendGeorgiBelov2officeisinspectionstation. Noimport."
+    },
+    {
+      "name": "Канку-Кай",
+      "website": "https://www.kankukai.org/",
+      "status": "rejected_no_reserved_training",
+      "reviewedUrls": [
+        "https://www.kankukai.org/"
+      ],
+      "notes": "Actualownerexplicitlynopriorreservationrequired/freewalkintrial; regularweeklytimetableisnotreservedclass. Existing002holdcorroborated; noserviceimport."
+    }
+  ],
+  "frozenAtUtc": "2026-11-14T02:03:43Z",
+  "reviewLimitations": [
+    "PMGarage completecandidate/reviewheld because no visible first-party Sofiaattendance text; OG/socialhandlesnotaccepted.",
+    "BGdiagnostika diagnostics conflict held; onlyindependentlyconsistent25EURbooster selected.",
+    "Source-use notes are conservative workflow decisions, not legal clearance; no terms accepted.",
+    "No UI, Maps/Nominatim, production writes, customer inputs or real booking."
+  ],
+  "photoContexts": [
+    {
+      "id": "sofia-badminton-teo-vitosha155",
+      "context": "One adult badminton coach plus one adult learner on indoor badminton court, rackets and shuttlecock; privatecoach component excludes separatecourtfee. Nottennis/padel/squash."
+    },
+    {
+      "id": "sofia-ben-garage-filip-kutev7",
+      "context": "MechanicusingOBDdiagnosticinterface/laptop atactualcar, notwheelalignmentorenginewash."
+    },
+    {
+      "id": "sofia-mobilcar-parva-armiya92",
+      "context": "Computerdiagnosticsatgaragewithcar+OBDinterface/laptop, notgenericwrench."
+    },
+    {
+      "id": "sofia-bgdiagnostika-mobile-booster",
+      "context": "Mobile12Vjumpstartusingportablebatterybooster connected to car battery; notbatteryreplacement, towingorwallcharger."
+    }
+  ]
+}

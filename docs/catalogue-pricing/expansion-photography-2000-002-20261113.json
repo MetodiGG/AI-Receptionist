@@ -1,0 +1,72 @@
+{
+  "checkedAtUtc": "2026-11-13T23:39:15.093Z",
+  "checkedOn": "2026-11-13",
+  "status": "one_source_reviewed_operator_ready_after_root_checks",
+  "approved": [{"id":"sofia-photo-cafe-dertliev42","name":"Фото Кафе · услуги за фототехника","cityCode":"68134","neighborhood":"Люлин 7","address":"София, Люлин 7, бул. Петър Дертлиев 42, Грийн център","locationKind":"premises","coordinates":null,"category":"other","website":"https://club.photocafe.bg/","phone":"+359888701698","booking":{"kind":"phone","phone":"+359888701698"},"services":[{"name":"Хардуерно калибриране на монитор · в студиото","category":"other","appointmentModel":"appointment","description":"Една услуга на място в студиото след уговорен час. Мониторът се калибрира към устройството, с което работи; лаптопът трябва да е със захранване. Посещение при клиента е отделна тарифа.","price":{"amount":30,"currency":"EUR","kind":"fixed","sourceUrl":"https://club.photocafe.bg/services/","checkedOn":"2026-11-13","validUntil":"2027-02-11"}},{"name":"Мокро почистване на сензор на фотоапарат · EXTRA","category":"other","appointmentModel":"appointment","description":"Едно посещение след предварително записване. Включва сухо и мокро почистване на матрица на безогледална или DSLR камера. Необходима е напълно заредена батерия; не е ремонт на съществуващи механични дефекти.","price":{"amount":40,"currency":"EUR","kind":"fixed","sourceUrl":"https://club.photocafe.bg/services/","checkedOn":"2026-11-13","validUntil":"2027-02-11"}}],"verification":{"status":"approved","checkedOn":"2026-11-13","validUntil":"2027-02-11","booking":{"url":"https://club.photocafe.bg/obshti-uslovia-gdpr/","excerpt":"Услугите се извършват с предварително записване на час през контактната форма или по телефон. 088 870 1698."},"contact":"https://club.photocafe.bg/services/"},"review":{"id":"sofia-photo-cafe-dertliev42","website":"https://club.photocafe.bg/","checkedOn":"2026-11-13","bookingEntry":"phone","bookingReview":"phone_booking_reviewed","reviewedUrls":["https://club.photocafe.bg/","https://club.photocafe.bg/services/","https://club.photocafe.bg/obshti-uslovia-gdpr/","https://photocafe.bg/monitor-calibration/","https://photocafe.bg/sensor-cleaning/"],"notes":"ActualownServices appointment-entry and complete publicrequestform inspected FIRST beforeprices; ownfullTerms independently explicitly offer PHONE appointments for both exact services. CurrentordinarypublicHTTPS confirms30EURin-studioStandardmonitorcalibration and40EURExtra dry+wet sensorcleaning;35EURhomevisit and30EURdryonly notmixed. No card/memberdiscount, retailbookfee orarticleequipment/consumablepurchaseprice imported. Ownterms/services/footer same888701698 andactualLyulin7PetarDertliev42GreenCentre; historic2015comment old878number/floor2office65NOTadopted. Rootandclub areonelegalPhotoCafeoperator, nottwo businesses or an equipmentshop/staffclone. Bothdomainsrobotschecked before linkedarticles; no prohibitedadmin/search/API requested. Owner-linked olderarticles describe procedure and directtoactualcurrentServicesfees, notconflictingoldservicetariffs. Copyrightimages/materials notcopied orlicensed; onlyminimalindependentlyphrasedfactualbusiness/service/fees/contact facts andsources. Rootpricespagehasduplicatedcalibratormodelnames, so NOspecificbrand/model asserted. No weeklyhours/durationpublishedinreviewedservice/terms/footer, omitted. No sourcephotos/tutorialprose/testimonials/Mapslink/clientsdata/calls/formfields/consents/bookings/privateAPI/geocode. FullnativeTerms/currentServicesreadthroughordinaryHTTPS afterreadercachemiss, no accesschallenge."},"rootReviewAmendmentOn":"2026-11-14","scope":"One independent appointment operator and two actually priced technical services; not source photography, equipmentretail, mobile/staff/site clones. Original source observations13Nov retained; photo generation14Nov."}],
+  "scope": "Root photography lead review; one PhotoCafe operator admitted after actual own booking, service fee and full terms review. Five other leads remain held. No forms, calls, customer data, account signins, bookings, Maps or geocoding requests. Own media never copied to the catalogue.",
+  "cases": [
+    {
+      "business": "Nema Drama Production / LLama Studio",
+      "website": "https://www.nemadramaproduction.eu/",
+      "reviewedUrls": [
+        "https://www.nemadramaproduction.eu/robots.txt",
+        "https://www.nemadramaproduction.eu/студиоподнаем/",
+        "https://www.nemadramaproduction.eu/"
+      ],
+      "decision": "hold_access_challenge_and_exact_premises",
+      "notes": "Own booking-specific rental page read first; independent voice-phone reservation explicitly offered and normal full rental menu56EURupto2h/77for3h/92for4h/112for6h/135for8h, owner confirmation required. No fee imported. Subsequent ordinary GET of own homepage returned Justamoment challenge; STOP all further host/alternate hosted-booking requests. No actual postal address corroborated outside embed. Earlier webreader cached root/menu is not a completed current contact review. Robots generalcrawl-delay1 respected; no source photos or reviews copied."
+    },
+    {
+      "business": "Tutti Frutti Creative",
+      "website": "https://tuttifrutticreative.com/",
+      "reviewedUrls": [
+        "https://tuttifrutticreative.com/robots.txt",
+        "https://tuttifrutticreative.com/"
+      ],
+      "decision": "hold_supported_booking_path",
+      "notes": "Actual Contacts is inline iframe components/email-form.php?l=bg, which matches previously-read robots Disallow/*.php*. DIDNOTopen iframe, submit form or accept cookies. Bare public tel is not an explicit call-to-book instruction. Own primary root actual ordinary family112/153EUR fees and privacy+50%qualification read, not imported as tariff unpublished. Current root uses GeorgiMinchev40 inseasonnotice vs actualContact40–42; no precise address point chosen. No provider/client/source photography imported. A public Maps embed appeared only in read HTML attributes; never requested or retained in catalogue evidence."
+    },
+    {
+      "business": "Mariyan Tomoff Photography",
+      "website": "https://mariyantomoff.com/",
+      "reviewedUrls": [
+        "https://mariyantomoff.com/robots.txt",
+        "https://mariyantomoff.com/цени-и-пакети-нов/",
+        "https://mariyantomoff.com/общи-условия/"
+      ],
+      "decision": "hold_supported_booking_and_image_tariff_review",
+      "notes": "Actual reservation instructions specify Viber/Facebook/Instagram, not a confirmed nativevoicephone/form path. Generic project/contacttelephone not silently converted to supportedcallbooking. NativecurrentTermsfullyread toEOF; commercialrestriction explicitly concerns photographedimages, not claimed to prohibit minimalfactualreference. No source images copied. Price menu includes owner-linked tariff images not yet visually reviewed, so no unpublishedfee claim;30EURdeposit NOTservicefee. ExactTsarSimeon64sourceaddress observed but not admitted/geocoded."
+    },
+    {
+      "business": "Didi Verter Photography",
+      "website": "https://didiverter.com/",
+      "reviewedUrls": [
+        "https://didiverter.com/robots.txt",
+        "https://didiverter.com/ceni/",
+        "https://didiverter.com/contact/",
+        "https://didiverter.com/privacy-policy",
+        "https://didiverter.com/about/"
+      ],
+      "decision": "hold_current_sofia_operation_conflict",
+      "notes": "ActualpricepageBookvoicecontrol+native0878878591 read first, freshnormalGET confirmsBGNmenus. Studio250BGN/hour versus90minpackage and secondmobilelayout250afterbusinessportraits not flattened. Mini3portraitframes150BGN consistent but not imported. Privacy/Termslink bothsameprivacyURL, completelyread: ordinarypersonaldata, no explicitfactualextractionbanseen/nolegalclearanceclaim. WebreaderAboutoldercache saysLasVegasBased; freshnormalGET independently SAMEactualLasVegasBasedtravellingphotographer. Sofia-feepage does not safelyproveacurrentlocalappointmentoperator. HoldratherthaninventSofiabase/studioaddress. No sourceportraits/clienttestimonialsimported."
+    },
+    {
+      "business": "Photosesii-Sofia.com",
+      "website": "https://www.photosesii-sofia.com/",
+      "reviewedUrls": [
+        "https://www.photosesii-sofia.com/robots.txt",
+        "https://www.photosesii-sofia.com/faq/",
+        "https://www.photosesii-sofia.com/uslugi/biznes-fotosesiya/",
+        "https://www.photosesii-sofia.com/contact/"
+      ],
+      "decision": "hold_explicit_temporary_closure",
+      "notes": "ActualBookentryfromFAQ leads nativeContact with visible name/email/date/time/service/request fields; NOTfilled. PublicContactexplicitStudio temporarilyclosed and currentbusinesspage0000000000placeholder. OldFAQphone not adopted. Bodycachedmonthsold/notfalselycurrent, but no activebusiness admitted withoutcorroboration. TermsURLCachemissnotcompleted. RobotsnormalGETultimatelypublicallowedexceptsearch/API and AdsBot; initialFAQrequestwasparallelwithrobotslookup beforeitsbodyreturned, notclaimedrobotsprecheck. No prohibitedsearch/API, externalcalendar, formconsent or action requested."
+    }
+  ],
+  "duplicatesNotCounted": [
+    "sofia-ivan-lambrev-photography-centre",
+    "sofia-photo-studio-nana-centre",
+    "sofia-diana-strumin-strelbishte",
+    "sofia-red-point-studio-rilski-ezera12"
+  ]
+}

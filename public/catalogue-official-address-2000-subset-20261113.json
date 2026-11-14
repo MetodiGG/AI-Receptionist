@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "checkedOn": "2026-11-13",
+  "checkedOn": "2026-11-14",
   "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
   "licence": "CC-BY-4.0",
   "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
@@ -11,11 +11,205 @@
   "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
   "sourceFeatureCount": 125245,
   "coordinatePrecisionDecimalPlaces": 6,
-  "scope": "138 manually reviewed unique exact postal matches for the first308 new businesses toward the2000-business milestone. Existing501 full-precision points unchanged. No external geocoding requests.",
+  "scope": "146 individually reviewed exact postal bindings for current333 additions toward the2000-business milestone. Existing501 full-precision points unchanged. No external geocoding.",
   "modifications": "Selected source records and bound to reviewed business address identities; coordinate values unchanged.",
   "semantics": "official_postal_address_points_not_verified_entrances",
-  "pointCount": 138,
+  "pointCount": 146,
   "points": [
+    {
+      "id": "sofia-aramii-mladost1-genadiev5g",
+      "name": "Танцова къща Арамии",
+      "coordinates": {
+        "latitude": 42.653988,
+        "longitude": 23.37704,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ж.к. Младост 1, ул. Никола Генадиев 5Г",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Младост 1",
+        "sourceWebsite": "https://aramii.bg/",
+        "addressId": "96261",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "96261",
+        "region": "Младост",
+        "settlement": "гр. София",
+        "street": "ул. Никола Генадиев",
+        "house": "5Г",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Individually compared source street, exact full number/suffix and municipality row. Same actual reserved venue, not a room/staff clone. No nearest/first/centroid/landmark choice. Six-decimal source precision unchanged. Postal point, not a verified entrance.",
+        "sourceUrls": [
+          "https://aramii.bg/",
+          "https://aramii.bg/contact/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-horovodets-iztok-tsarigradsko101",
+      "name": "Хороводец · Изток",
+      "coordinates": {
+        "latitude": 42.67172,
+        "longitude": 23.365176,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, бул. Цариградско шосе 101, ет. 6, зала Latin Force",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://www.horovodets.com/",
+        "addressId": "103991",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "103991",
+        "region": "Слатина",
+        "settlement": "гр. София",
+        "street": "бул. Цариградско шосе",
+        "house": "101",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Individually compared source street, exact full number/suffix and municipality row. Same actual reserved venue, not a room/staff clone. No nearest/first/centroid/landmark choice. Six-decimal source precision unchanged. Postal point, not a verified entrance.",
+        "sourceUrls": [
+          "https://www.horovodets.com/",
+          "https://www.horovodets.com/bg/contact/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-horovodets-osogovo2",
+      "name": "Хороводец · Осогово",
+      "coordinates": {
+        "latitude": 42.696745,
+        "longitude": 23.307454,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. Осогово 2, зала Latin Force",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://www.horovodets.com/",
+        "addressId": "95051",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "95051",
+        "region": "Възраждане",
+        "settlement": "гр. София",
+        "street": "ул. Осогово",
+        "house": "2",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Individually compared source street, exact full number/suffix and municipality row. Same actual reserved venue, not a room/staff clone. No nearest/first/centroid/landmark choice. Six-decimal source precision unchanged. Postal point, not a verified entrance.",
+        "sourceUrls": [
+          "https://www.horovodets.com/",
+          "https://www.horovodets.com/bg/contact/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-ax-horca-slivnitsa178",
+      "name": "Ах Хорца · Лъвов мост",
+      "coordinates": {
+        "latitude": 42.704331,
+        "longitude": 23.325092,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, бул. Сливница 178, зала център–Лъвов мост",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://ax-horca.com/",
+        "addressId": "49666",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "49666",
+        "region": "Оборище",
+        "settlement": "гр. София",
+        "street": "бул. Сливница",
+        "house": "178",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Individually compared source street, exact full number/suffix and municipality row. Same actual reserved venue, not a room/staff clone. No nearest/first/centroid/landmark choice. Six-decimal source precision unchanged. Postal point, not a verified entrance.",
+        "sourceUrls": [
+          "https://ax-horca.com/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-naniz-lozenets-vaptsarov6",
+      "name": "Школа за народни танци Наниз",
+      "coordinates": {
+        "latitude": 42.665842,
+        "longitude": 23.319579,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, кв. Лозенец, бул. Никола Й. Вапцаров 6",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Лозенец",
+        "sourceWebsite": "https://naniz.bg/",
+        "addressId": "97998",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "97998",
+        "region": "Лозенец",
+        "settlement": "гр. София",
+        "street": "бул. Никола Й. Вапцаров",
+        "house": "6",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Individually compared source street, exact full number/suffix and municipality row. Same actual reserved venue, not a room/staff clone. No nearest/first/centroid/landmark choice. Six-decimal source precision unchanged. Postal point, not a verified entrance.",
+        "sourceUrls": [
+          "https://naniz.bg/",
+          "https://naniz.bg/contacts/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
     {
       "id": "sofia-910-nails-barber-vihren45a",
       "name": "910 nails & barber",
@@ -87,44 +281,6 @@
         "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
         "sourceUrls": [
           "https://ananda-bg.com/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/",
-          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
-        ]
-      },
-      "previousCoordinates": null
-    },
-    {
-      "id": "sofia-artista-visarion-belinski",
-      "name": "Artista Barber & Beauty Studio",
-      "coordinates": {
-        "latitude": 42.652234,
-        "longitude": 23.343374,
-        "method": "verified_official_address",
-        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
-        "sourceAddress": "София, ул. Висарион Белински 8",
-        "sourceCityCode": "68134",
-        "sourceNeighborhood": null,
-        "sourceWebsite": "https://artistastudio.setmore.com/",
-        "addressId": "97084",
-        "checkedOn": "2026-11-13",
-        "licence": "CC-BY-4.0",
-        "attribution": "ГИС София / Столична община"
-      },
-      "officialAddress": {
-        "rn": "97084",
-        "region": "Студентски",
-        "settlement": "гр. София",
-        "street": "ул. Висарион Белински",
-        "house": "8",
-        "block": "",
-        "quarter": "",
-        "entrance": ""
-      },
-      "review": {
-        "decision": "unique_exact_postal_address",
-        "reviewer": "/root",
-        "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
-        "sourceUrls": [
-          "https://artistastudio.setmore.com/",
           "https://urbandata.sofia.bg/dataset/address_sofia-zip"
         ]
       },
@@ -1765,44 +1921,6 @@
       "previousCoordinates": null
     },
     {
-      "id": "sofia-mens-cave-kipriyan44",
-      "name": "Men’s Cave · Берберница",
-      "coordinates": {
-        "latitude": 42.643433,
-        "longitude": 23.36628,
-        "method": "verified_official_address",
-        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
-        "sourceAddress": "София, ул. Св. Киприян 44",
-        "sourceCityCode": "68134",
-        "sourceNeighborhood": null,
-        "sourceWebsite": "https://berbernitza.setmore.com/",
-        "addressId": "95834",
-        "checkedOn": "2026-11-13",
-        "licence": "CC-BY-4.0",
-        "attribution": "ГИС София / Столична община"
-      },
-      "officialAddress": {
-        "rn": "95834",
-        "region": "Младост",
-        "settlement": "гр. София",
-        "street": "ул. Св. Киприян",
-        "house": "44",
-        "block": "",
-        "quarter": "",
-        "entrance": ""
-      },
-      "review": {
-        "decision": "unique_exact_postal_address",
-        "reviewer": "/root",
-        "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
-        "sourceUrls": [
-          "https://berbernitza.setmore.com/",
-          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
-        ]
-      },
-      "previousCoordinates": null
-    },
-    {
       "id": "sofia-monali-narodno-horo62",
       "name": "Monali Beauty Art Studio",
       "coordinates": {
@@ -1987,44 +2105,6 @@
         "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
         "sourceUrls": [
           "https://www.notino.bg/saloni/studio-new-wave/",
-          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
-        ]
-      },
-      "previousCoordinates": null
-    },
-    {
-      "id": "sofia-newlook-parchevich22a",
-      "name": "Newlook Barbershop",
-      "coordinates": {
-        "latitude": 42.691088,
-        "longitude": 23.317303,
-        "method": "verified_official_address",
-        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
-        "sourceAddress": "София, ул. Петър Парчевич 22А",
-        "sourceCityCode": "68134",
-        "sourceNeighborhood": null,
-        "sourceWebsite": "https://book.heygoldie.com/Newlook-Barbershop",
-        "addressId": "104225",
-        "checkedOn": "2026-11-13",
-        "licence": "CC-BY-4.0",
-        "attribution": "ГИС София / Столична община"
-      },
-      "officialAddress": {
-        "rn": "104225",
-        "region": "Триадица",
-        "settlement": "гр. София",
-        "street": "ул. Петър Парчевич",
-        "house": "22А",
-        "block": "",
-        "quarter": "",
-        "entrance": ""
-      },
-      "review": {
-        "decision": "unique_exact_postal_address",
-        "reviewer": "/root",
-        "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
-        "sourceUrls": [
-          "https://book.heygoldie.com/Newlook-Barbershop",
           "https://urbandata.sofia.bg/dataset/address_sofia-zip"
         ]
       },
@@ -2671,44 +2751,6 @@
         "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
         "sourceUrls": [
           "https://semeinausmivka.bg/",
-          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
-        ]
-      },
-      "previousCoordinates": null
-    },
-    {
-      "id": "sofia-sibova-nails-cherni-vrah75",
-      "name": "Sibova Nails Studio",
-      "coordinates": {
-        "latitude": 42.648636,
-        "longitude": 23.315477,
-        "method": "verified_official_address",
-        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
-        "sourceAddress": "София, бул. Черни връх 75",
-        "sourceCityCode": "68134",
-        "sourceNeighborhood": null,
-        "sourceWebsite": "https://sibova-nails-studio.easyweek.io/",
-        "addressId": "113785",
-        "checkedOn": "2026-11-13",
-        "licence": "CC-BY-4.0",
-        "attribution": "ГИС София / Столична община"
-      },
-      "officialAddress": {
-        "rn": "113785",
-        "region": "Лозенец",
-        "settlement": "гр. София",
-        "street": "бул. Черни връх",
-        "house": "75",
-        "block": "",
-        "quarter": "",
-        "entrance": ""
-      },
-      "review": {
-        "decision": "unique_exact_postal_address",
-        "reviewer": "/root",
-        "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
-        "sourceUrls": [
-          "https://sibova-nails-studio.easyweek.io/",
           "https://urbandata.sofia.bg/dataset/address_sofia-zip"
         ]
       },
@@ -5262,6 +5304,274 @@
         "evidence": "Manually compared actual owner-sourced street/full house number and named building with the sole exact municipal CSV row. Shared address may host independent operators; these are postal address points, not verified floor/room/entrance or court pins. HanOmurtag42 large courtyard and TsarBorisIII19 near-entrance wording remain held, not silently substituted.",
         "sourceUrls": [
           "https://ies.bg/kontakti/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-dunev-motor-sport-asen-yordanov4",
+      "name": "Дунев Мотор Спорт Р21",
+      "coordinates": {
+        "latitude": 42.674549,
+        "longitude": 23.376134,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, бул. Асен Йорданов 4",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://www.dunevmotorsport-r21.com/",
+        "addressId": "93542",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "93542",
+        "region": "Младост",
+        "settlement": "гр. София",
+        "street": "бул. Асен Йорданов",
+        "house": "4",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Individually compared exact owner-sourced road type/name, full house suffix or explicitquarter/block with sole municipal CSV row. AsenYordanov street10/Triaditsa and boulevard4/Mladost kept distinct. Postal points only, not claimed entrances/rooms. Duplicate Hadzhikotsev44 and GorskiPatnik40 entrances, rangeKozyak27–29 and relativeblock landmarks remain held; no nearest/first/centroid substitution.",
+        "sourceUrls": [
+          "https://www.dunevmotorsport-r21.com/kontakti/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-sheve-dance-albert-long5",
+      "name": "Танцова школа Шеве",
+      "coordinates": {
+        "latitude": 42.70275,
+        "longitude": 23.349031,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ж.к. Хаджи Димитър, ул. Д-р Алберт Лонг 5",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Хаджи Димитър",
+        "sourceWebsite": "https://sheve.bg/",
+        "addressId": "27401",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "27401",
+        "region": "Подуяне",
+        "settlement": "гр. София",
+        "street": "ул. Д-р Алберт Лонг",
+        "house": "5",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Individually compared exact owner-sourced road type/name, full house suffix or explicitquarter/block with sole municipal CSV row. AsenYordanov street10/Triaditsa and boulevard4/Mladost kept distinct. Postal points only, not claimed entrances/rooms. Duplicate Hadzhikotsev44 and GorskiPatnik40 entrances, rangeKozyak27–29 and relativeblock landmarks remain held; no nearest/first/centroid substitution.",
+        "sourceUrls": [
+          "https://sheve.bg/zapisvane/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-gaitani-druzhba2-obikolna36",
+      "name": "Гайтани · Дружба 2",
+      "coordinates": {
+        "latitude": 42.64474,
+        "longitude": 23.405263,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ж.к. Дружба 2, ул. Обиколна 36, актова зала на 163 ОУ Черноризец Храбър",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Дружба 2",
+        "sourceWebsite": "https://www.gaitani.com/",
+        "addressId": "110202",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "110202",
+        "region": "Искър",
+        "settlement": "гр. София",
+        "street": "ул. Обиколна",
+        "house": "36",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Individually compared exact owner-sourced road type/name, full house suffix or explicitquarter/block with sole municipal CSV row. AsenYordanov street10/Triaditsa and boulevard4/Mladost kept distinct. Postal points only, not claimed entrances/rooms. Duplicate Hadzhikotsev44 and GorskiPatnik40 entrances, rangeKozyak27–29 and relativeblock landmarks remain held; no nearest/first/centroid substitution.",
+        "sourceUrls": [
+          "https://www.gaitani.com/posts/501",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-gaitani-lyulin-dertliev25",
+      "name": "Гайтани · Люлин 10",
+      "coordinates": {
+        "latitude": 42.711383,
+        "longitude": 23.272612,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ж.к. Люлин 10, бул. Д-р Петър Дертлиев 25, сграда на магазин Лабиринт, ет. 3, зала Хоп-троп",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Люлин 10",
+        "sourceWebsite": "https://www.gaitani.com/",
+        "addressId": "93290",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "93290",
+        "region": "Люлин",
+        "settlement": "гр. София",
+        "street": "бул. Д-р Петър Дертлиев",
+        "house": "25",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Individually compared exact owner-sourced road type/name, full house suffix or explicitquarter/block with sole municipal CSV row. AsenYordanov street10/Triaditsa and boulevard4/Mladost kept distinct. Postal points only, not claimed entrances/rooms. Duplicate Hadzhikotsev44 and GorskiPatnik40 entrances, rangeKozyak27–29 and relativeblock landmarks remain held; no nearest/first/centroid substitution.",
+        "sourceUrls": [
+          "https://www.gaitani.com/posts/503",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-dreamtime-viskyar-planina2",
+      "name": "DreamTime Studio · масажи",
+      "coordinates": {
+        "latitude": 42.67064,
+        "longitude": 23.318148,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, кв. Лозенец, ул. Вискяр планина 2",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Лозенец",
+        "sourceWebsite": "https://dreamtime.bg/",
+        "addressId": "97932",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "97932",
+        "region": "Лозенец",
+        "settlement": "гр. София",
+        "street": "ул. Вискяр планина",
+        "house": "2",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Individually compared exact owner-sourced road type/name, full house suffix or explicitquarter/block with sole municipal CSV row. AsenYordanov street10/Triaditsa and boulevard4/Mladost kept distinct. Postal points only, not claimed entrances/rooms. Duplicate Hadzhikotsev44 and GorskiPatnik40 entrances, rangeKozyak27–29 and relativeblock landmarks remain held; no nearest/first/centroid substitution.",
+        "sourceUrls": [
+          "https://dreamtime.bg/kontakti",
+          "https://dreamtime.bg/obshti-usloviya",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-benyova-lyulin769b",
+      "name": "Laser Studio Benyova",
+      "coordinates": {
+        "latitude": 42.714691,
+        "longitude": 23.256222,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ж.к. Люлин, бл. 769 Б",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Люлин",
+        "sourceWebsite": "https://laserstudiobenyova.com/",
+        "addressId": "121657",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "121657",
+        "region": "Люлин",
+        "settlement": "гр. София",
+        "street": "",
+        "house": "",
+        "block": "769Б",
+        "quarter": "ж.к. Люлин",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Individually compared exact owner-sourced road type/name, full house suffix or explicitquarter/block with sole municipal CSV row. AsenYordanov street10/Triaditsa and boulevard4/Mladost kept distinct. Postal points only, not claimed entrances/rooms. Duplicate Hadzhikotsev44 and GorskiPatnik40 entrances, rangeKozyak27–29 and relativeblock landmarks remain held; no nearest/first/centroid substitution.",
+        "sourceUrls": [
+          "https://laserstudiobenyova.com/contacts/",
+          "https://laserstudiobenyova.com/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-groom-tosia-asen-yordanov10",
+      "name": "Tosia Grooming Salon",
+      "coordinates": {
+        "latitude": 42.653495,
+        "longitude": 23.312839,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, кв. Кръстова вада, ул. Асен Йорданов 10",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Кръстова вада",
+        "sourceWebsite": "https://groomtosia.com/en/",
+        "addressId": "121704",
+        "checkedOn": "2026-11-13",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "121704",
+        "region": "Триадица",
+        "settlement": "гр. София",
+        "street": "ул. Асен Йорданов",
+        "house": "10",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Individually compared exact owner-sourced road type/name, full house suffix or explicitquarter/block with sole municipal CSV row. AsenYordanov street10/Triaditsa and boulevard4/Mladost kept distinct. Postal points only, not claimed entrances/rooms. Duplicate Hadzhikotsev44 and GorskiPatnik40 entrances, rangeKozyak27–29 and relativeblock landmarks remain held; no nearest/first/centroid substitution.",
+        "sourceUrls": [
+          "https://groomtosia.com/en/",
           "https://urbandata.sofia.bg/dataset/address_sofia-zip"
         ]
       },

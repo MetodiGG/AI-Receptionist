@@ -1,271 +1,12 @@
 {
+  "rootIndependentOwnerRebind": {"checkedAtUtc":"2026-11-14T00:08:41.269Z","businessId":"sofia-nails-security-darwin","sourceObservationDate":"2026-11-13","decision":"Independent own Terms explicitly supports phone appointments; full own tariff already read13Nov supports all3 literal prices. Rebind current inventory to own sources only; omit Alteg-only durations and unverified inclusions. Later normal reader JSshell is not a new rendered review.","historicalPriorEntry":{"id":"sofia-nails-security-darwin","reviewedUrls":["https://www.nailssecurity.com/","https://n833990.alteg.io/company/778774/personal/menu?o=","https://www.nailssecurity.com/pricing","https://www.nailssecurity.com/terms"],"bookingExcerpt":"Записване онлайн през собствената система, по телефон или Instagram; Чарлз Дарвин14Б, Изток, София;+359877333461.","addressExcerpt":"14BCharlesDarwin,Iz tok,Sofia;+359877333461","hoursSource":null,"pricing":"Actual gelTop35EUR120min;gelPro40EUR90min;JapaneseuncoatedTop/Pro30EUR60min. All amounts match own fullpricing. Includesstrengthening+repair2nails ongelrows.","limitations":"Flexible10-20 gives nodays, hoursomitted. Junior/retail/promo excluded. Copyright: onlyminimal factual translated labels/amounts; no prose/photos/guarantees reused.","bookingUrl":"https://n833990.alteg.io/company/778774/personal/menu?o=","bookingKind":"form","address":"София, кв. Изток, ул. Чарлз Дарвин 14Б","addressSource":"https://www.nailssecurity.com/terms","phone":"+359877333461","hours":null,"services":[{"name":"Маникюр с гел лак — Top master","category":"nails","appointmentModel":"appointment","price":{"amount":35,"currency":"EUR","kind":"fixed","sourceUrl":"https://n833990.alteg.io/company/778774/personal/menu?o=","checkedOn":"2026-11-13","validUntil":"2027-02-11"},"durationMin":120,"durationSourceUrl":"https://n833990.alteg.io/company/778774/personal/menu?o=","durationCheckedOn":"2026-11-13","description":"Тарифа Top master; включва укрепване и поправка на два нокътя."},{"name":"Маникюр с гел лак — Pro master","category":"nails","appointmentModel":"appointment","price":{"amount":40,"currency":"EUR","kind":"fixed","sourceUrl":"https://n833990.alteg.io/company/778774/personal/menu?o=","checkedOn":"2026-11-13","validUntil":"2027-02-11"},"durationMin":90,"durationSourceUrl":"https://n833990.alteg.io/company/778774/personal/menu?o=","durationCheckedOn":"2026-11-13","description":"Тарифа Pro master; включва укрепване и поправка на два нокътя."},{"name":"Японски маникюр без покритие — Top или Pro master","category":"nails","appointmentModel":"appointment","price":{"amount":30,"currency":"EUR","kind":"fixed","sourceUrl":"https://n833990.alteg.io/company/778774/personal/menu?o=","checkedOn":"2026-11-13","validUntil":"2027-02-11"},"durationMin":60,"durationSourceUrl":"https://n833990.alteg.io/company/778774/personal/menu?o=","durationCheckedOn":"2026-11-13","description":"Тарифа Top или Pro master; маникюр без покритие и японска терапия."}],"reviewNotes":"Root independently clicked actual owner Book Now into Alteg merchant778774, then Select services after declining optional cookies; rendered exact current nail service tiers and durations, no customer/date/service submission. Independently read full indexed own Services&Pricing and terms after booking: gel Top35EUR/Pro40EUR, Japanese Top/Pro30EUR match actual menu. Duration120/90/60min comes only from actual menu. Junior tiers and retail press-on products excluded. Exact CharlesDarwin14B/Iz tok/Sofia and0877333461 corroborated on own pricing/terms. Flexible10-20 has no weekdays; no weekly hours inferred. Terms: confirmations required; up-to2h cancellation window, none presented as general availability. Copyright notice respected: only minimal factual translated service labels, literal prices, contact and durations retained; no expressive prose, images, designs, guarantees, ratings or reviews reused. Domain/phone/premises deduped1238+all2000 intakes. No coordinate or booking."}},
+  "rootAdditionalSourceTermsHolds": {"checkedAtUtc":"2026-11-14T00:00:17.972Z","decision":"hold_source_terms_before_publication","ids":["sofia-newlook-parchevich22a","sofia-sibova-nails-cherni-vrah75"],"sourceAudit":"docs/catalogue-pricing/platform-source-inventory-beauty-20261113.json","reason":"Goldie broad affiliatedSite/CompanyContent/manual-automated-copy restrictions leave merchant-fact scope unresolved; EasyWeek publicclient acceptableuse restricts scraping and competitiveproduct use. No merchant exception/thirdpartylicence assumed. Both entirelyprovider-dependent unpublished records held; existing independent owner fees/phone sources are treated separately, not blanket platform bans.","termsUrls":["https://heygoldie.com/terms-conditions","https://easyweek.io/terms"],"priorFreezeAudit":"Historical freeze hashes/counts remain historical. Previous1415and1523readybranches must not be merged."},
+  "rootSourceTermsHold": {"checkedAtUtc":"2026-11-13T23:32:13.799Z","decision":"hold_source_terms_before_publication","ids":["sofia-artista-visarion-belinski","sofia-mens-cave-kipriyan44"],"termsUrl":"https://www.setmore.com/terms","reason":"Already-read UseofSite commercial-use and third-party linking restrictions, broad Setmore.com domain/content definition, and contradictory later commercial copyright wording leave merchant scope unresolved. No merchant/subdomain exception or third-party data license found. Conservatively hold both unpublished provider-dependent records pending independent permitted owner source/authorization. STOP all newSetmore access; noalternateendpoint/UI bypass. SBA independentownerphone/tariff retained; historicalSetmorezero never used.","priorFreezeAudit":"Original frozen hashes/counts are historical, not currentapproval. Both previousreadybranches1415and1523 are obsolete pending replacement."},
   "checkedOn": "2026-11-13",
   "validUntil": "2027-02-11",
   "scope": "Ongoing manually reviewed unique Sofia beauty intake for the2000 eligible-business milestone. No aggregation, identity, photo, provider-bulk, geocoding, private GPS or production changes.",
   "dedupeRawCatalogueCount": 1238,
   "approved": [
-    {
-      "id": "sofia-artista-visarion-belinski",
-      "reviewedUrls": [
-        "https://artistastudio.setmore.com/",
-        "https://artistastudio.setmore.com/book"
-      ],
-      "bookingExcerpt": "Резервирай · собствена страница Artista Barber & Beauty Studio; Висарион Белински 8, София; +359877744323.",
-      "addressSource": "https://artistastudio.setmore.com/",
-      "addressExcerpt": "Висарион Белински8, София;+359877744323",
-      "hoursSource": "https://artistastudio.setmore.com/",
-      "hoursExcerpt": "Tue-Sat10-20;Mon+Sunclosed",
-      "pricing": "Only nonconflicting Barber tier: men haircut10EUR45min,hair+beard15EUR60min,beard8EUR30min. TopBarber main/description amounts conflict and are excluded.",
-      "limitations": "Unique owner-operated calendar. No quarter or coordinate inferred, no review/photo copied.",
-      "bookingUrl": "https://artistastudio.setmore.com/book",
-      "bookingKind": "form",
-      "address": "София, ул. Висарион Белински 8",
-      "phone": "+359877744323",
-      "hours": [
-        {
-          "weekday": 1,
-          "periods": []
-        },
-        {
-          "weekday": 2,
-          "periods": [
-            {
-              "open": "10:00",
-              "close": "20:00"
-            }
-          ]
-        },
-        {
-          "weekday": 3,
-          "periods": [
-            {
-              "open": "10:00",
-              "close": "20:00"
-            }
-          ]
-        },
-        {
-          "weekday": 4,
-          "periods": [
-            {
-              "open": "10:00",
-              "close": "20:00"
-            }
-          ]
-        },
-        {
-          "weekday": 5,
-          "periods": [
-            {
-              "open": "10:00",
-              "close": "20:00"
-            }
-          ]
-        },
-        {
-          "weekday": 6,
-          "periods": [
-            {
-              "open": "10:00",
-              "close": "20:00"
-            }
-          ]
-        },
-        {
-          "weekday": 7,
-          "periods": []
-        }
-      ],
-      "services": [
-        {
-          "name": "Мъжко подстригване — Barber",
-          "category": "barber",
-          "appointmentModel": "appointment",
-          "price": {
-            "amount": 10,
-            "currency": "EUR",
-            "kind": "fixed",
-            "sourceUrl": "https://artistastudio.setmore.com/book",
-            "checkedOn": "2026-11-13",
-            "validUntil": "2027-02-11"
-          },
-          "durationMin": 45,
-          "durationSourceUrl": "https://artistastudio.setmore.com/book",
-          "durationCheckedOn": "2026-11-13",
-          "description": "Тарифа Barber, не Top Barber."
-        },
-        {
-          "name": "Коса и брада — Barber",
-          "category": "barber",
-          "appointmentModel": "appointment",
-          "price": {
-            "amount": 15,
-            "currency": "EUR",
-            "kind": "fixed",
-            "sourceUrl": "https://artistastudio.setmore.com/book",
-            "checkedOn": "2026-11-13",
-            "validUntil": "2027-02-11"
-          },
-          "durationMin": 60,
-          "durationSourceUrl": "https://artistastudio.setmore.com/book",
-          "durationCheckedOn": "2026-11-13",
-          "description": "Тарифа Barber, не Top Barber."
-        },
-        {
-          "name": "Оформяне на брада — Barber",
-          "category": "barber",
-          "appointmentModel": "appointment",
-          "price": {
-            "amount": 8,
-            "currency": "EUR",
-            "kind": "fixed",
-            "sourceUrl": "https://artistastudio.setmore.com/book",
-            "checkedOn": "2026-11-13",
-            "validUntil": "2027-02-11"
-          },
-          "durationMin": 30,
-          "durationSourceUrl": "https://artistastudio.setmore.com/book",
-          "durationCheckedOn": "2026-11-13",
-          "description": "Тарифа Barber, не Top Barber."
-        }
-      ],
-      "reviewNotes": "Manually followed the actual Book link to the full public service-selection menu, then reviewed complete merchant services, own contact/address, weekly hours and booking-policy entry. Owner-operated unique branded calendar, not a generic directory export. Barber tier10EUR45min/15EUR60min/8EUR30min is consistent in both root and actual booking menu. Top Barber rows contain conflicting main/description amounts16vs15.34,21vs20.45,11vs10.23EUR and are deliberately excluded, not called unpublished. Exact Sofia street/house and published phone verified; closed Monday/Sunday and Tue-Sat10-20 are literal. No guessed quarter/coordinates. Domain/phone/premises checked against1238raw catalogue and all available2000 intake modules. No review/photo text copied, service/date/customer entry, call or reservation."
-    },
-    {
-      "id": "sofia-newlook-parchevich22a",
-      "reviewedUrls": [
-        "https://book.heygoldie.com/Newlook-Barbershop",
-        "https://book.heygoldie.com/Newlook-Barbershop/checkout",
-        "https://www.notino.bg/saloni/new-look-barber-shop/"
-      ],
-      "bookingExcerpt": "Book now · собствена Newlook Barbershop страница за записване; Петър Парчевич 22А, София; услуги в Select services.",
-      "addressSource": "https://book.heygoldie.com/Newlook-Barbershop",
-      "addressExcerpt": "PetarParchevich22А,Sofia,Bulgaria",
-      "hoursSource": "https://book.heygoldie.com/Newlook-Barbershop",
-      "hoursExcerpt": "Mon-Sat10-20;Sun11-18",
-      "pricing": "Current live owner root AND actual checkout20EUR30min fade/buzz/taper,28EUR30min hair+beard,15EUR15min beard.",
-      "limitations": "Web-reader checkout had one-year-old35/50/25BGN cache; re-read actual current root/checkout via ordinary HTTP and used matching liveEUR values. Older Notino menu variants held, not mixed. Own phone not exposed; null. No ratings/photos/customer entry/map request.",
-      "bookingUrl": "https://book.heygoldie.com/Newlook-Barbershop/checkout",
-      "bookingKind": "form",
-      "address": "София, ул. Петър Парчевич 22А",
-      "phone": null,
-      "hours": [
-        {
-          "weekday": 1,
-          "periods": [
-            {
-              "open": "10:00",
-              "close": "20:00"
-            }
-          ]
-        },
-        {
-          "weekday": 2,
-          "periods": [
-            {
-              "open": "10:00",
-              "close": "20:00"
-            }
-          ]
-        },
-        {
-          "weekday": 3,
-          "periods": [
-            {
-              "open": "10:00",
-              "close": "20:00"
-            }
-          ]
-        },
-        {
-          "weekday": 4,
-          "periods": [
-            {
-              "open": "10:00",
-              "close": "20:00"
-            }
-          ]
-        },
-        {
-          "weekday": 5,
-          "periods": [
-            {
-              "open": "10:00",
-              "close": "20:00"
-            }
-          ]
-        },
-        {
-          "weekday": 6,
-          "periods": [
-            {
-              "open": "10:00",
-              "close": "20:00"
-            }
-          ]
-        },
-        {
-          "weekday": 7,
-          "periods": [
-            {
-              "open": "11:00",
-              "close": "18:00"
-            }
-          ]
-        }
-      ],
-      "services": [
-        {
-          "name": "Fade, buzz cut или taper fade",
-          "category": "barber",
-          "appointmentModel": "appointment",
-          "price": {
-            "amount": 20,
-            "currency": "EUR",
-            "kind": "fixed",
-            "sourceUrl": "https://book.heygoldie.com/Newlook-Barbershop/checkout",
-            "checkedOn": "2026-11-13",
-            "validUntil": "2027-02-11"
-          },
-          "durationMin": 30,
-          "durationSourceUrl": "https://book.heygoldie.com/Newlook-Barbershop/checkout",
-          "durationCheckedOn": "2026-11-13"
-        },
-        {
-          "name": "Подстригване и оформяне на брада",
-          "category": "barber",
-          "appointmentModel": "appointment",
-          "price": {
-            "amount": 28,
-            "currency": "EUR",
-            "kind": "fixed",
-            "sourceUrl": "https://book.heygoldie.com/Newlook-Barbershop/checkout",
-            "checkedOn": "2026-11-13",
-            "validUntil": "2027-02-11"
-          },
-          "durationMin": 30,
-          "durationSourceUrl": "https://book.heygoldie.com/Newlook-Barbershop/checkout",
-          "durationCheckedOn": "2026-11-13"
-        },
-        {
-          "name": "Оформяне на брада",
-          "category": "barber",
-          "appointmentModel": "appointment",
-          "price": {
-            "amount": 15,
-            "currency": "EUR",
-            "kind": "fixed",
-            "sourceUrl": "https://book.heygoldie.com/Newlook-Barbershop/checkout",
-            "checkedOn": "2026-11-13",
-            "validUntil": "2027-02-11"
-          },
-          "durationMin": 15,
-          "durationSourceUrl": "https://book.heygoldie.com/Newlook-Barbershop/checkout",
-          "durationCheckedOn": "2026-11-13"
-        }
-      ],
-      "reviewNotes": "Owner-operated unique Goldie merchant website and actual Book checkout both read fully through ordinary public HTTP200, no API or submission. Current root and current actual checkout agree20/28/15EUR with30/30/15min. Web-reader checkout cache is over one year old with35/50/25BGN, so the live owner HTML was explicitly re-read; cached and older Notino10.23-12.78/7.67EUR variants are not imported or presented as current owner fees. Exact Parchevich22A/Sofia and full weekly schedule are on the live owner root. No readable own telephone exposed; left null rather than borrowing an older third-party contact. No generic provider footer hours, efficacy claims, ratings, reviews or photos copied. Exact domain/premises/name dedupe against1238raw and all available2000 intake modules. No Book service/date/person selected or reservation submitted."
-    },
     {
       "id": "sofia-sii-bello-tsar-ivan",
       "reviewedUrls": [
@@ -406,17 +147,16 @@
       "id": "sofia-nails-security-darwin",
       "reviewedUrls": [
         "https://www.nailssecurity.com/",
-        "https://n833990.alteg.io/company/778774/personal/menu?o=",
         "https://www.nailssecurity.com/pricing",
         "https://www.nailssecurity.com/terms"
       ],
       "bookingExcerpt": "Записване онлайн през собствената система, по телефон или Instagram; Чарлз Дарвин14Б, Изток, София;+359877333461.",
       "addressExcerpt": "14BCharlesDarwin,Iz tok,Sofia;+359877333461",
       "hoursSource": null,
-      "pricing": "Actual gelTop35EUR120min;gelPro40EUR90min;JapaneseuncoatedTop/Pro30EUR60min. All amounts match own fullpricing. Includesstrengthening+repair2nails ongelrows.",
+      "pricing": "Own fee page Top35EUR, Pro40EUR, Japanese Top/Pro30EUR. All external-calendar-only durations omitted.",
       "limitations": "Flexible10-20 gives nodays, hoursomitted. Junior/retail/promo excluded. Copyright: onlyminimal factual translated labels/amounts; no prose/photos/guarantees reused.",
-      "bookingUrl": "https://n833990.alteg.io/company/778774/personal/menu?o=",
-      "bookingKind": "form",
+      "bookingUrl": "https://www.nailssecurity.com/terms",
+      "bookingKind": "phone",
       "address": "София, кв. Изток, ул. Чарлз Дарвин 14Б",
       "addressSource": "https://www.nailssecurity.com/terms",
       "phone": "+359877333461",
@@ -425,56 +165,47 @@
         {
           "name": "Маникюр с гел лак — Top master",
           "category": "nails",
-          "appointmentModel": "appointment",
+          "description": "Тарифа за Top master; записване по телефона след потвърждение.",
           "price": {
             "amount": 35,
             "currency": "EUR",
             "kind": "fixed",
-            "sourceUrl": "https://n833990.alteg.io/company/778774/personal/menu?o=",
+            "sourceUrl": "https://www.nailssecurity.com/pricing",
             "checkedOn": "2026-11-13",
             "validUntil": "2027-02-11"
           },
-          "durationMin": 120,
-          "durationSourceUrl": "https://n833990.alteg.io/company/778774/personal/menu?o=",
-          "durationCheckedOn": "2026-11-13",
-          "description": "Тарифа Top master; включва укрепване и поправка на два нокътя."
+          "appointmentModel": "appointment"
         },
         {
           "name": "Маникюр с гел лак — Pro master",
           "category": "nails",
-          "appointmentModel": "appointment",
+          "description": "Тарифа за Pro master; записване по телефона след потвърждение.",
           "price": {
             "amount": 40,
             "currency": "EUR",
             "kind": "fixed",
-            "sourceUrl": "https://n833990.alteg.io/company/778774/personal/menu?o=",
+            "sourceUrl": "https://www.nailssecurity.com/pricing",
             "checkedOn": "2026-11-13",
             "validUntil": "2027-02-11"
           },
-          "durationMin": 90,
-          "durationSourceUrl": "https://n833990.alteg.io/company/778774/personal/menu?o=",
-          "durationCheckedOn": "2026-11-13",
-          "description": "Тарифа Pro master; включва укрепване и поправка на два нокътя."
+          "appointmentModel": "appointment"
         },
         {
           "name": "Японски маникюр без покритие — Top или Pro master",
           "category": "nails",
-          "appointmentModel": "appointment",
+          "description": "Тарифа за Top или Pro master; маникюр без покритие и японска терапия.",
           "price": {
             "amount": 30,
             "currency": "EUR",
             "kind": "fixed",
-            "sourceUrl": "https://n833990.alteg.io/company/778774/personal/menu?o=",
+            "sourceUrl": "https://www.nailssecurity.com/pricing",
             "checkedOn": "2026-11-13",
             "validUntil": "2027-02-11"
           },
-          "durationMin": 60,
-          "durationSourceUrl": "https://n833990.alteg.io/company/778774/personal/menu?o=",
-          "durationCheckedOn": "2026-11-13",
-          "description": "Тарифа Top или Pro master; маникюр без покритие и японска терапия."
+          "appointmentModel": "appointment"
         }
       ],
-      "reviewNotes": "Root independently clicked actual owner Book Now into Alteg merchant778774, then Select services after declining optional cookies; rendered exact current nail service tiers and durations, no customer/date/service submission. Independently read full indexed own Services&Pricing and terms after booking: gel Top35EUR/Pro40EUR, Japanese Top/Pro30EUR match actual menu. Duration120/90/60min comes only from actual menu. Junior tiers and retail press-on products excluded. Exact CharlesDarwin14B/Iz tok/Sofia and0877333461 corroborated on own pricing/terms. Flexible10-20 has no weekdays; no weekly hours inferred. Terms: confirmations required; up-to2h cancellation window, none presented as general availability. Copyright notice respected: only minimal factual translated service labels, literal prices, contact and durations retained; no expressive prose, images, designs, guarantees, ratings or reviews reused. Domain/phone/premises deduped1238+all2000 intakes. No coordinate or booking."
+      "reviewNotes": "Independent own-source receipt personally read on2026-11-13: complete own Services&Pricing publishes gel Top35EUR/Pro40EUR and Japanese Top/Pro30EUR; own Terms explicitly offers phone appointments at0877333461 and confirms CharlesDarwin14B/Iz tok/Sofia. Root source audit amendment2026-11-14 selects this independently supported PHONE route and own pricing only. Removed all Alteg-only durations and uncorroborated service inclusions; no Alteg fact is required by current public inventory. A later ordinary sameURLreader attempt returned a JSshell, not a fresh rendered review; the original13Nov own-source observation date is retained, not backdated or refreshed. Historical external-calendar visit remains in audit history only. Junior tiers, retail products, source photos/prose/reviews and assumed weeklyhours excluded. Flexible10-20 without weekdays is not a weeklyschedule. Confirmation remains required; no fabricated availability, customer input, call, booking, geocode or privateAPI."
     },
     {
       "id": "sofia-secrets-angels-hadzhikonstanginov",
@@ -543,136 +274,6 @@
         }
       ],
       "reviewNotes": "Reviewed actual named merchant phone-only reservation notice first, then full ordinary nail menu, salon About/contact and lower footer. Literal15.34EUR150min gel manicure,10.23EUR30min dry pedicure without polish,12.78EUR30min wet pedicure without polish. Other foot/gel variants, add-ons, wide extension ranges and marketing/clinical claims not imported. Own named merchant phone0888768687 and street/number88 confirmed; road spelling Хаджиконстангинов retained literally from merchant rather than silently correcting or geocoding. A different existing photographer at similarly spelled street88 is not this salon: distinct name/phone/website; no staff clone. No full weeklyhours rendered and no provider retail-support Mon-Fri09-17 or transient closure banner used as business hours. PricePDF button has no readable public URL, no complete PDF review claim or unpublished receipt. No rating/review/photo/prose copying, call or booking."
-    },
-    {
-      "id": "sofia-sibova-nails-cherni-vrah75",
-      "reviewedUrls": [
-        "https://sibova-nails-studio.easyweek.io/",
-        "https://booking.easyweek.io/sibova-nails"
-      ],
-      "bookingUrl": "https://booking.easyweek.io/sibova-nails",
-      "bookingKind": "form",
-      "bookingExcerpt": "Book now, reserve, and schedule an appointment with Sibova Nails Studio; Черни връх75, София;+359895083390.",
-      "address": "София, бул. Черни връх 75",
-      "addressSource": "https://sibova-nails-studio.easyweek.io/",
-      "phone": "+359895083390",
-      "hoursSource": "https://sibova-nails-studio.easyweek.io/",
-      "hours": [
-        {
-          "weekday": 1,
-          "periods": [
-            {
-              "open": "09:00",
-              "close": "20:00"
-            }
-          ]
-        },
-        {
-          "weekday": 2,
-          "periods": [
-            {
-              "open": "09:00",
-              "close": "20:00"
-            }
-          ]
-        },
-        {
-          "weekday": 3,
-          "periods": [
-            {
-              "open": "09:00",
-              "close": "20:00"
-            }
-          ]
-        },
-        {
-          "weekday": 4,
-          "periods": [
-            {
-              "open": "09:00",
-              "close": "20:00"
-            }
-          ]
-        },
-        {
-          "weekday": 5,
-          "periods": [
-            {
-              "open": "09:00",
-              "close": "20:00"
-            }
-          ]
-        },
-        {
-          "weekday": 6,
-          "periods": [
-            {
-              "open": "09:00",
-              "close": "20:00"
-            }
-          ]
-        },
-        {
-          "weekday": 7,
-          "periods": [
-            {
-              "open": "09:00",
-              "close": "20:00"
-            }
-          ]
-        }
-      ],
-      "services": [
-        {
-          "name": "Маникюр с гел лак",
-          "category": "nails",
-          "appointmentModel": "appointment",
-          "price": {
-            "amount": 46,
-            "currency": "EUR",
-            "kind": "fixed",
-            "sourceUrl": "https://booking.easyweek.io/sibova-nails",
-            "checkedOn": "2026-11-13",
-            "validUntil": "2027-02-11"
-          },
-          "durationMin": 90,
-          "durationSourceUrl": "https://booking.easyweek.io/sibova-nails",
-          "durationCheckedOn": "2026-11-13"
-        },
-        {
-          "name": "Класически маникюр без покритие",
-          "category": "nails",
-          "appointmentModel": "appointment",
-          "price": {
-            "amount": 30,
-            "currency": "EUR",
-            "kind": "fixed",
-            "sourceUrl": "https://booking.easyweek.io/sibova-nails",
-            "checkedOn": "2026-11-13",
-            "validUntil": "2027-02-11"
-          },
-          "durationMin": 60,
-          "durationSourceUrl": "https://booking.easyweek.io/sibova-nails",
-          "durationCheckedOn": "2026-11-13"
-        },
-        {
-          "name": "Японски маникюр",
-          "category": "nails",
-          "appointmentModel": "appointment",
-          "price": {
-            "amount": 36,
-            "currency": "EUR",
-            "kind": "fixed",
-            "sourceUrl": "https://booking.easyweek.io/sibova-nails",
-            "checkedOn": "2026-11-13",
-            "validUntil": "2027-02-11"
-          },
-          "durationMin": 60,
-          "durationSourceUrl": "https://booking.easyweek.io/sibova-nails",
-          "durationCheckedOn": "2026-11-13"
-        }
-      ],
-      "reviewNotes": "Reviewed owner-operated branded EasyWeek merchant website, then followed actual BookNow to merchant sibova-nails. Root independently rendered the actual JS service menu and exact CherniVrah75: gelmanicure46EUR90min, classicuncoated30EUR60min, Japanese36EUR60min. Named public menu, not directory summary or provider bulkdata. Root only viewed service menu/disabled Next; no customer, date or reservation. Full owner root/contact/FAQ and all seven09-20 weekday hours read independently; phone0895083390 matches. Staff are one salon, not separate businesses. No independent own domain discovered. No result/sterilization/medical claims, merchant ratings/reviews/photos or expressive prose retained. Full domain/phone/address dedupe1238+all2000intakes. Coordinates and quarter absent, not inferred."
     },
     {
       "id": "sofia-beauty-hub35-poligona",
@@ -1062,131 +663,6 @@
         }
       ],
       "reviewNotes": "Read actual named merchant phone-only nail appointment notice, then full selected nail menu, About/contact and business footer. Literal machine manicure with oldgel removal/newgel27.09EUR90min, normalpolish15.34EUR60min andmen15.33EUR45min; male amount not rounded up to the different normalpolish amount. Exact BulgarskaLegiya2B/Sofia and0877077096 confirmed. Published team represents one salon, not separate businesses. No independent own domain found. No full weeklyhours shown; provider support-line closure banner and retail09-17 hours are not salon facts. Source indexed two weeks ago, no live availability claim. Dedupe1238+all available2000intakes/native public phones. No clinical claims, marketing prose, reviews, ratings, photos, map coordinates, calls or booking actions."
-    },
-    {
-      "id": "sofia-mens-cave-kipriyan44",
-      "reviewedUrls": [
-        "https://berbernitza.setmore.com/",
-        "https://berbernitza.setmore.com/book"
-      ],
-      "bookingUrl": "https://berbernitza.setmore.com/book",
-      "bookingKind": "form",
-      "bookingExcerpt": "Резервирай · Men’s Cave Берберница; Св.Киприян44, София;+359895559077; собствено меню за записване.",
-      "address": "София, ул. Св. Киприян 44",
-      "addressSource": "https://berbernitza.setmore.com/",
-      "phone": "+359895559077",
-      "hoursSource": "https://berbernitza.setmore.com/",
-      "hours": [
-        {
-          "weekday": 1,
-          "periods": [
-            {
-              "open": "09:00",
-              "close": "19:00"
-            }
-          ]
-        },
-        {
-          "weekday": 2,
-          "periods": [
-            {
-              "open": "09:00",
-              "close": "19:00"
-            }
-          ]
-        },
-        {
-          "weekday": 3,
-          "periods": [
-            {
-              "open": "09:00",
-              "close": "19:00"
-            }
-          ]
-        },
-        {
-          "weekday": 4,
-          "periods": [
-            {
-              "open": "09:00",
-              "close": "19:00"
-            }
-          ]
-        },
-        {
-          "weekday": 5,
-          "periods": [
-            {
-              "open": "09:00",
-              "close": "19:00"
-            }
-          ]
-        },
-        {
-          "weekday": 6,
-          "periods": [
-            {
-              "open": "10:00",
-              "close": "18:00"
-            }
-          ]
-        },
-        {
-          "weekday": 7,
-          "periods": []
-        }
-      ],
-      "services": [
-        {
-          "name": "Мъжко подстригване — Цецо",
-          "category": "barber",
-          "appointmentModel": "appointment",
-          "price": {
-            "amount": 26,
-            "currency": "EUR",
-            "kind": "fixed",
-            "sourceUrl": "https://berbernitza.setmore.com/book",
-            "checkedOn": "2026-11-13",
-            "validUntil": "2027-02-11"
-          },
-          "durationMin": 45,
-          "durationSourceUrl": "https://berbernitza.setmore.com/book",
-          "durationCheckedOn": "2026-11-13"
-        },
-        {
-          "name": "Оформяне на брада — Цецо",
-          "category": "barber",
-          "appointmentModel": "appointment",
-          "price": {
-            "amount": 17,
-            "currency": "EUR",
-            "kind": "fixed",
-            "sourceUrl": "https://berbernitza.setmore.com/book",
-            "checkedOn": "2026-11-13",
-            "validUntil": "2027-02-11"
-          },
-          "durationMin": 30,
-          "durationSourceUrl": "https://berbernitza.setmore.com/book",
-          "durationCheckedOn": "2026-11-13"
-        },
-        {
-          "name": "Подстригване и оформяне на брада — Цецо",
-          "category": "barber",
-          "appointmentModel": "appointment",
-          "price": {
-            "amount": 40,
-            "currency": "EUR",
-            "kind": "fixed",
-            "sourceUrl": "https://berbernitza.setmore.com/book",
-            "checkedOn": "2026-11-13",
-            "validUntil": "2027-02-11"
-          },
-          "durationMin": 75,
-          "durationSourceUrl": "https://berbernitza.setmore.com/book",
-          "durationCheckedOn": "2026-11-13"
-        }
-      ],
-      "reviewNotes": "Followed actual Book link first; webreader book cache empty, so actual public book HTML read directly HTTP200, visible full service-selection menu matches current merchant root. No API, form, service/date/customer selection or booking. Three literal Ceco staff-tier rows26EUR45min haircut,17EUR30min beard,40EUR75min combo only; cheaper Kiril/Kristiana fees not blended or cloned as businesses. Exact owner SvKipriyan44/Sofia and0895559077; complete own MonFri09-19/Sat10-18/Sunclosed schedule. No independent own domain; merchant identifies itself as own website. Existing GPoint laser business at same street44 has different identity/domain/scope, not this branded three-barber venue; no GPoint fields or unverified building/entrance borrowed. Domain/phone/name/premises checked1238+all2000 intake/native snapshot. No merchant prose, reviews, photos, maps or coordinates retained."
     },
     {
       "id": "sofia-gs-studio-gotse-delchev116",

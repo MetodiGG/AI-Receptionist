@@ -4,6 +4,116 @@
   "scope": "Illustrative service-specific photos for approved Sofia catalogue entries; not actual business premises, staff, work or results.",
   "assets": [
     {
+      "id": "sx-monitor-hardware-calibration",
+      "label": "Хардуерно калибриране на монитор",
+      "prompt": "Use case: photorealistic-natural\nAsset type: one square GoRez specific-service booking thumbnail, readable at64px.\nPrimary request: a professional technician performing hardware colour calibration of a normal desktop monitor in a photography technical studio. A small unbranded real colourimeter hangs securely against the CENTER of the monitor screen by its cable, and the screen displays a few large plain colour calibration patches around the device, no text or software logos. An adult technician in ordinary work clothes is visible beside the monitor adjusting it naturally, realistic fingers, monitor, cable and device proportions. Soft neutral studio daylight, credible professional hardware calibration scene, not general computer repair or photo editing, central meter and colour patches clearly visible.\nConstraints: illustrative service, not actual business premises, person or equipment. No claimed exact device brand/model, no notebook or clipboard, no soldering, no broken screen, no prices, readable text, logo or watermark.\nTargeted edit: Use case: precise-object-edit. Edit target: the provided square photorealistic monitor calibration image. Change ONLY the hanging colorimeter: replace the visible white circular optical diffuser on its outward-facing side with a solid opaque matte-black rear housing, so the measurement face is correctly pressed against the monitor screen and not facing the viewer. Preserve the hanging cable, small device size and placement, person, face, hands, desk, photography studio, monitor, screen color patches, realistic lighting, square framing and all other details exactly. No text, logo, watermark or extra objects.",
+      "sourceFile": "exec-26bcc368-a980-47ed-bb25-eb05cd21e264.png",
+      "sourceSha256": "795c32cf34b8ccdea6977d596d917f7195ffadb530718a7630df9727be222291",
+      "file": "public/service-photos/sx-monitor-hardware-calibration-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 9020,
+      "sha256": "527532a1a159a06f23ddcb29e7c38c28e2b4b251fb01cf7c9fae83f1d632d555",
+      "generatedOn": "2026-11-14",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "795c32cf34b8ccdea6977d596d917f7195ffadb530718a7630df9727be222291",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually viewed full source and optimized256pxWebP. Hardware calibration has colourimeter measurement face against monitor, visible opaque rear facing viewer; camera cleaning shows actual exposed sensor and a flat proper swab, not lens cleaning. Illustrative only; not actual provider work, people, equipment models or premises."
+      }
+    },
+    {
+      "id": "sx-camera-sensor-wet-cleaning",
+      "label": "Мокро почистване на сензор на фотоапарат",
+      "prompt": "Use case: photorealistic-natural\nAsset type: one square specific-service thumbnail for a booking catalogue.\nPrimary request: realistic close-up of a trained adult camera-service technician gently wet-cleaning the protective surface of an exposed MIRRORLESS CAMERA SENSOR using a purpose-made clean flat rectangular sensor swab. Camera body has its lens removed and rests securely on a clean technical work mat; the rectangular sensor is clearly visible inside the lens-mount opening. One natural gloved hand supports the camera and the other holds the thin handled swab correctly, only light contact, no liquid droplets or puddles. A small unbranded camera-safe cleaning kit sits blurred nearby. Precise credible camera anatomy, electronics and gloved fingers, natural workshop daylight. Service action and exposed sensor must be unmistakable at64px square.\nConstraints: generic illustrative service, not an actual provider's work or exact camera model. Do not clean a lens or mirror instead of the sensor, no cotton ear bud, no household brush, no large vacuum cleaner, no water spray, no broken electronics, no notebook, no brand, logo, legible text or watermark.",
+      "sourceFile": "exec-8ea113ef-36b3-42b5-8d71-d0f70c37306f.png",
+      "sourceSha256": "d047f199bbb78931175a90253f98fa6fc531de1c3ba4c6a98213d8e8f4bfe058",
+      "file": "public/service-photos/sx-camera-sensor-wet-cleaning-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 11174,
+      "sha256": "17275731a9f536f3e0fa8e73283a78173fa6260d75a9704d4bf321af8dc862d3",
+      "generatedOn": "2026-11-14",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "d047f199bbb78931175a90253f98fa6fc531de1c3ba4c6a98213d8e8f4bfe058",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually viewed full source and optimized256pxWebP. Hardware calibration has colourimeter measurement face against monitor, visible opaque rear facing viewer; camera cleaning shows actual exposed sensor and a flat proper swab, not lens cleaning. Illustrative only; not actual provider work, people, equipment models or premises."
+      }
+    },
+    {
+      "id": "sx-auto-seller-prepurchase-visit",
+      "label": "Оглед на автомобил при продавача без клиента",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square GoRez service thumbnail recognizable at64px.\nPrimary request: a professional adult mobile pre-purchase vehicle inspector checking an ordinary used passenger car at a seller's outdoor parking place in daylight. Just ONE technician, no buyer or seller shown. Open bonnet, inspector wearing modest dark work clothes and using a small flashlight to examine visible engine-bay components carefully, natural hands and realistic car surfaces, unbranded car without legible number plates. The car remains on level paved ground; portable compact tool bag beside it. Editorial realistic photograph with clear car-plus-inspector silhouette.\nConstraints: generic illustrative service, not actual business employee, premises, work or vehicle report. No garage lift, no workshop pit, no dismantled engine, no notebook or clipboard-only composition, no text, brand, logo or watermark, no fabricated damage or result.",
+      "sourceFile": "exec-31b29ed5-3acf-4a6c-94f8-028ad7b0fc5b.png",
+      "sourceSha256": "06281ee5a97269edb1ed1ea74722edecbbea929e52e078cb0c008d9e1c720761",
+      "file": "public/service-photos/sx-auto-seller-prepurchase-visit-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 16506,
+      "sha256": "040186d984ed5468a4f9f503fcbc0323f899f26fef764c0bfdef02c6f280a403",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "06281ee5a97269edb1ed1ea74722edecbbea929e52e078cb0c008d9e1c720761",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and optimized256pxWebP. Onsite car inspection remains outside at seller with no buyer/lift; horizontal floor-mounted play-detector plates and technician in inspection pit, not vertical damper test or alignment; tint applied to lashes on lift shield, not eyebrow treatment/extensions. Illustrative only, not provider equipment, actual people/premises/work or verified outcome."
+      }
+    },
+    {
+      "id": "sx-auto-horizontal-suspension-play-test",
+      "label": "Хоризонтален машинен тест на ходова част",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square catalogue thumbnail for HORIZONTAL suspension-play testing on an ordinary passenger car.\nPrimary request: realistic professional automotive inspection bay. Close three-quarter view of the front wheel and suspension of a normal passenger car, BOTH front tyres resting on flat metal suspension-play detector plates flush with the inspection-bay floor. A technician safely standing in the inspection pit below floor level uses a flashlight to check a suspension joint while the detector plate moves the wheel a small amount sideways. Show a recognizable horizontal sliding plate with a narrow lateral travel guide, front tyre, lower suspension joint and technician's natural hand. Car is level, no jack or hoisted vehicle. Credible machinery and metal, natural workshop light, realistic editorial photo, clear activity at64px.\nConstraints: illustrative, not actual business equipment or work. NOT a vertical shock-absorber shaker, NOT wheel alignment cameras/laser targets, NOT OBD laptop diagnostics, no vertical lift, no wheel removal, no unsafe person lying beneath an unsupported car, no text, logo, number plate, watermark or notebook.",
+      "sourceFile": "exec-fe008dba-096e-402c-855b-db3df2815432.png",
+      "sourceSha256": "eff6c1d1774cc996f8d91dd46d91401b377197842d6cc6d74d4d0d8007a1775f",
+      "file": "public/service-photos/sx-auto-horizontal-suspension-play-test-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 15350,
+      "sha256": "f22a41afcfd51595239bb1b5720e50f5e1be92aa00e34fcf7eddda57f8e9cea7",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "eff6c1d1774cc996f8d91dd46d91401b377197842d6cc6d74d4d0d8007a1775f",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and optimized256pxWebP. Onsite car inspection remains outside at seller with no buyer/lift; horizontal floor-mounted play-detector plates and technician in inspection pit, not vertical damper test or alignment; tint applied to lashes on lift shield, not eyebrow treatment/extensions. Illustrative only, not provider equipment, actual people/premises/work or verified outcome."
+      }
+    },
+    {
+      "id": "sx-lash-lift-and-tint",
+      "label": "Ламиниране и боядисване на мигли",
+      "sourceFile": "exec-48289b64-f487-4141-a4a8-02fc364c7dce.png",
+      "prompt": "Use case: photorealistic-natural\nAsset type: one square specific-service booking catalogue photograph, recognizable at64px.\nPrimary request: realistic close-up of a fictional adult woman receiving professional EYELASH LIFT AND TINT together. Eyes safely closed. Upper eyelashes visibly arranged upward on a curved light silicone lifting shield on the eyelid; a trained beauty practitioner's gloved hand delicately applies dark lash tint to the actual eyelashes on that shield with a tiny tint applicator brush. Clean protective lower-lash pad, natural skin texture and realistic eyelash detail, ordinary soft salon daylight. Only one eye treatment in a single photo, precise hands, credible safe non-invasive beauty work, no dye in eye.\nConstraints: illustrative procedure, not actual business work or results. No eyebrow lamination or eyebrow dye, no lash extensions or tweezers, no needles, no tattoo, no notebook, no text, logos or watermark.",
+      "sourceSha256": "d247fd060f4ff2cc684e6c4d610319b2931dfd0a4672fafdacf89ef5526adc67",
+      "file": "public/service-photos/sx-lash-lift-and-tint-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 7366,
+      "sha256": "91b5a7bd10f31c34ca79efc296c57025ee2b69a14beb5d50b7973da90a6d7932",
+      "generatedOn": "2026-11-13",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "d247fd060f4ff2cc684e6c4d610319b2931dfd0a4672fafdacf89ef5526adc67",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and optimized256pxWebP. Onsite car inspection remains outside at seller with no buyer/lift; horizontal floor-mounted play-detector plates and technician in inspection pit, not vertical damper test or alignment; tint applied to lashes on lift shield, not eyebrow treatment/extensions. Illustrative only, not provider equipment, actual people/premises/work or verified outcome."
+      }
+    },
+    {
       "id": "sx-brow-tint-only",
       "label": "Боядисване на вежди",
       "sourceFile": "exec-b3b1874b-8880-4156-9036-21c4bf57469c.png",
@@ -24808,6 +24918,7 @@
     }
   ],
   "rejectedSources": [
+    {"id":"sx-monitor-hardware-calibration","sourceFile":"exec-3a1d5f34-b58e-4521-9b22-ecdbe97196be.png","sourceSha256":"55a34c7b7303e0ac0b63d1ebce5e0be21be56b87472aa6978e6c37799da45c86","reason":"Visible white optical diffuser incorrectly faces viewer rather than screen during calibration. Built-in targeted edit corrected the outward rear housing; original is not published.","replacementIds":"sx-monitor-hardware-calibration"},
     {
       "sourceFile": "exec-34e33441-51a3-4a7e-9063-158126e6796b.png",
       "sourceSha256": "481270bd5c46c77ed7eb3504847a17dc4326f4609f1940d91d916647c569095b",

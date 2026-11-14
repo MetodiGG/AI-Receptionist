@@ -1,0 +1,455 @@
+{
+  "rootIntegrationReview": {"checkedAtUtc":"2026-11-14T00:10:44.520Z","decision":"Root personally read all10 source records and10 full review notes. Horovodets is an independent branded school with own phone/programme/fees in real cohost venues, not a LatinForce employee alias. Aramii full/waitlist state is now explicitly public; prices/time are not a promise of space. DGGERY landmark cannot receive block48 point. Existing specific oilchange+folk activity assets matched individually. Original freeze hashes remain historical."},
+  "batch": "auto-sport-2000-008-20261113",
+  "status": "frozen_for_root_source_review",
+  "checkedOn": "2026-11-13",
+  "validUntil": "2027-02-11",
+  "dateConvention": "UTC review dates; Europe/Sofia may already be 2026-11-14. Booking schedules retain venue timezone.",
+  "scope": "Actual reserved Sofia auto, staffed car-wash, detailing and sport classes; own public sources only; no production writes or booking submissions.",
+  "prohibitedSources": "Inherited global/source restrictions respected. No Reservation.studio/Fresha/Mylink/ABC/Golden/MotoExpert/SFA/SRV/NextLevel/Athletic/Margel/PointS/EMK/EspaceAuto/Maleeva/AutoExpress2/Mirkat/Mobilbg/Gaitani further requests; no GoogleMaps/Nominatim/paid API/private GPS.",
+  "counts": {
+    "records": 10,
+    "services": 10,
+    "reviews": 10,
+    "pricedServices": 9,
+    "pending": 12,
+    "rejected": 24
+  },
+  "orderedLedger": [
+    {
+      "order": 1,
+      "id": "sofia-dggery-ovcha-kupel-lincoln",
+      "name": "Автосервиз DGGERY",
+      "status": "verified",
+      "website": "https://avtoserviz-dggery.com/",
+      "bookingUrl": "https://avtoserviz-dggery.com/",
+      "serviceUrls": [
+        "https://avtoserviz-dggery.com/"
+      ],
+      "contactUrl": "https://avtoserviz-dggery.com/",
+      "findings": "Book/contactentryfollowedfirst: actualownContactlinks resolve tosamepubliconepage andrealname/phone/email/messageenquiryform. FullServices/oilchangeentries likewise resolve tosamecompleteonepage; explicitoil/filterservice andSofia pickup/return byagreedtime reviewed. No numericselectedservicetariff orseparatePriceslinkpublished inreviewedmenu/footer; missingprice remainsabsent,not0. ContactownlandmarkaddressPresidentLincolnoppositeblock48+phone0884790638+MonFri08–17 readfully; no inventedhousenumber/point. Normalcopyrightandcookiesnotaccepted; no externalMaps/social/photos/reviews copied. Actualformreadonly,notfilled/submitted; nobookingcreated. Notpubliclylistedfeeappliestoselectedoil/filterserviceonly.",
+      "checkedAtUtc": "2026-11-13T23:39:04Z"
+    },
+    {
+      "order": 2,
+      "id": "sofia-aramii-mladost1-genadiev5g",
+      "name": "Танцова къща Арамии",
+      "status": "verified",
+      "website": "https://aramii.bg/",
+      "bookingUrl": "https://aramii.bg/zapisvane-zala-mladost/",
+      "serviceUrls": [
+        "https://aramii.bg/nova-nachinaeshta-grupa-28-9/",
+        "https://aramii.bg/grafik/"
+      ],
+      "contactUrl": "https://aramii.bg/contact/",
+      "findings": "Actual Book entry /zapisvane-zala-mladost/ inspected first by ordinary public GET after reader timeout: it states group is full and accepts reserve-list enquiries, gives explicit phone prior enrolment, exact venue and 8EUR. No submitted form or availability guarantee. Current programme confirms Mon/Wed19–20 beginner group started28Sep2026, so60min sourced. Old general13Nov2025 tariff7.16EUR is NOT projected to this newer specifically priced8EUR group; both pages reviewed and qualification retained. Owncontact confirms phone/address. Full visible menus/footer have ordinary copyright, no visible separate source-use terms link; no claimed permission audit. No Maps/social/photos/coords. One actual premises, no teacher/level aliases.",
+      "checkedAtUtc": "2026-11-13T23:43:18Z"
+    },
+    {
+      "order": 3,
+      "id": "sofia-sundance-mladost1a-rakovski12",
+      "name": "SUNDANCE · школа за народни танци",
+      "status": "verified",
+      "website": "https://sundance-bg.com/",
+      "bookingUrl": "https://sundance-bg.com/novi-grupi",
+      "serviceUrls": [
+        "https://sundance-bg.com/ceni-i-karti",
+        "https://sundance-bg.com/info-i-grafik"
+      ],
+      "contactUrl": "https://sundance-bg.com/",
+      "findings": "Actual owner Book /zapishi-se followed first; complete public HTML contains owner-linked Google Apps Script public enrolment iframe. That iframe GET exposes only a JS shell title, so no claim of interactive form/calendar or provider prices; no hidden bundles/API/UI retry. Independent own /novi-grupi explicitly permits enrolment by phone0878491118. Thus selected phone path is genuinely reviewed, not a fabricated fallback. Full own tariff explicitly8EUR one visit,40/7 and45/10 cards not divided. Current weekly programme includes beginner60min and dated12Oct2026 new group; Jan11 campaign date is not projected as next availability. Exact own venue/phone confirmed. Full visible own footer/menu no separate terms link; no consent accepted, no Maps/reviews/photos copied.",
+      "checkedAtUtc": "2026-11-13T23:43:18Z"
+    },
+    {
+      "order": 4,
+      "id": "sofia-horovodets-isul-mayor-agov4",
+      "name": "Хороводец · Център–ИСУЛ",
+      "status": "verified",
+      "website": "https://www.horovodets.com/",
+      "bookingUrl": "https://www.horovodets.com/",
+      "serviceUrls": [
+        "https://www.horovodets.com/bg/schedule/"
+      ],
+      "contactUrl": "https://www.horovodets.com/bg/contact/",
+      "findings": "Actual phone enrolment instructions on own homepage read first, then complete selected branch programme/tariff and full contact page. Current programme and own home enrolment announcement both identify actual beginner group started29Sep2026 Tue/Fri18:30–19:30 atCenterISUL. Owner gives Iskar100 andMayorAgov4 as same hall; both postal descriptions retained, no guessed point. Branch-specific fee:CenterISUL6EUR;Osogovo/Iztoк6.5EUR, not genericfrom6 or divided cards. Full current home HTML/footer links reviewed; no separate source-use terms visible, no permission claim. Own brand/operatorIrinaBoteva/0888988258 different from hostLatinForce; genuine independent school with its own current venue programme, fee and enrolment, not rental/staff alias. No map requests/images/reviews/coords or booking action.",
+      "checkedAtUtc": "2026-11-13T23:43:18Z"
+    },
+    {
+      "order": 5,
+      "id": "sofia-horovodets-iztok-tsarigradsko101",
+      "name": "Хороводец · Изток",
+      "status": "verified",
+      "website": "https://www.horovodets.com/",
+      "bookingUrl": "https://www.horovodets.com/",
+      "serviceUrls": [
+        "https://www.horovodets.com/bg/schedule/"
+      ],
+      "contactUrl": "https://www.horovodets.com/bg/contact/",
+      "findings": "Actual phone enrolment instructions on own homepage read first, then complete selected branch programme/tariff and full contact page. Current own programme and home enrolment announcement both show new beginner group started26Sep2026 Sat/Sun18:30–19:30. Venue is specificallyTsarigradsko101floor6, not another LatinForce address. Branch-specific fee:CenterISUL6EUR;Osogovo/Iztoк6.5EUR, not genericfrom6 or divided cards. Full current home HTML/footer links reviewed; no separate source-use terms visible, no permission claim. Own brand/operatorIrinaBoteva/0888988258 different from hostLatinForce; genuine independent school with its own current venue programme, fee and enrolment, not rental/staff alias. No map requests/images/reviews/coords or booking action.",
+      "checkedAtUtc": "2026-11-13T23:43:18Z"
+    },
+    {
+      "order": 6,
+      "id": "sofia-horovodets-osogovo2",
+      "name": "Хороводец · Осогово",
+      "status": "verified",
+      "website": "https://www.horovodets.com/",
+      "bookingUrl": "https://www.horovodets.com/",
+      "serviceUrls": [
+        "https://www.horovodets.com/bg/schedule/"
+      ],
+      "contactUrl": "https://www.horovodets.com/bg/contact/",
+      "findings": "Actual phone enrolment instructions on own homepage read first, then complete selected branch programme/tariff and full contact page. Current own homepage explicitly invites phone enrolment forOsogovo group starting3Oct2026; full programme has actual60min groups atthisvenue. Homepage labels15:30 asnewbeginner whereas programme labels15:30 beginnerII and17:30 beginnerI; no exactlevel/starttime claim imported. Level and class are confirmed on enrolment, not cloned asbusinesses. Branch-specific fee:CenterISUL6EUR;Osogovo/Iztoк6.5EUR, not genericfrom6 or divided cards. Full current home HTML/footer links reviewed; no separate source-use terms visible, no permission claim. Own brand/operatorIrinaBoteva/0888988258 different from hostLatinForce; genuine independent school with its own current venue programme, fee and enrolment, not rental/staff alias. No map requests/images/reviews/coords or booking action.",
+      "checkedAtUtc": "2026-11-13T23:43:18Z"
+    },
+    {
+      "order": 7,
+      "id": "sofia-ax-horca-slivnitsa178",
+      "name": "Ах Хорца · Лъвов мост",
+      "status": "verified",
+      "website": "https://ax-horca.com/",
+      "bookingUrl": "https://ax-horca.com/",
+      "serviceUrls": [
+        "https://ax-horca.com/"
+      ],
+      "contactUrl": "https://ax-horca.com/",
+      "findings": "Actual own Contact/enrolment entry followed first, fullpublicHTML form read(name/email/phone+namedvenue/timeoptions), then complete owner venue programme, sharedregular10EUR single-visit tariff and footer. Current ownerbody states beginner group started3Nov2026 Tue/Thu20–21 and actual enrolment dropdown has this venue20–21 choice. Othergroup options not cloned. No selectors/date/customerfields touched or formsubmitted. OfficeSitnyakovo41A is NOTteachingvenue. Other airport(oldterminal/museumwithoutstreet) andBioFaculty(schedule/startconflict) remainheld, not price-projected filler. No visible separate source-use terms link in full footer/menu; no legalpermissionclaim. Only minimalfacts/freshlabels; no expressivecopy, sourceimages/social/Maps or coordinates.",
+      "checkedAtUtc": "2026-11-13T23:45:46Z"
+    },
+    {
+      "order": 8,
+      "id": "sofia-ax-horca-veda-fondovi25a",
+      "name": "Ах Хорца · Веда1964",
+      "status": "verified",
+      "website": "https://ax-horca.com/",
+      "bookingUrl": "https://ax-horca.com/",
+      "serviceUrls": [
+        "https://ax-horca.com/"
+      ],
+      "contactUrl": "https://ax-horca.com/",
+      "findings": "Actual own Contact/enrolment entry followed first, fullpublicHTML form read(name/email/phone+namedvenue/timeoptions), then complete owner venue programme, sharedregular10EUR single-visit tariff and footer. Current ownerbody states beginner group started2Nov2026 Mon/Wed18–19 and actual enrolment dropdown hasVeda18–19 choice. 2027announcedgroup20–21 NOTimported. No selectors/date/customerfields touched or formsubmitted. OfficeSitnyakovo41A is NOTteachingvenue. Other airport(oldterminal/museumwithoutstreet) andBioFaculty(schedule/startconflict) remainheld, not price-projected filler. No visible separate source-use terms link in full footer/menu; no legalpermissionclaim. Only minimalfacts/freshlabels; no expressivecopy, sourceimages/social/Maps or coordinates.",
+      "checkedAtUtc": "2026-11-13T23:45:46Z"
+    },
+    {
+      "order": 9,
+      "id": "sofia-naniz-lozenets-vaptsarov6",
+      "name": "Школа за народни танци Наниз",
+      "status": "verified",
+      "website": "https://naniz.bg/",
+      "bookingUrl": "https://naniz.bg/%d0%bd%d0%be%d0%b2%d0%b8-%d0%b3%d1%80%d1%83%d0%bf%d0%b8-%d0%b7%d0%b0-%d0%bd%d0%b0%d1%80%d0%be%d0%b4%d0%bd%d0%b8-%d1%82%d0%b0%d0%bd%d1%86%d0%b8-%d0%b7%d0%b0-%d0%bd%d0%b0%d1%87%d0%b8%d0%bd%d0%b0%d0%b5/",
+      "serviceUrls": [
+        "https://naniz.bg/pricelist/",
+        "https://naniz.bg/schedule/"
+      ],
+      "contactUrl": "https://naniz.bg/contacts/",
+      "findings": "Actual owner September2026 group announcement reviewed first: explicit reserve place phone0878714445, current groups5/11Oct2026, exactVaptsarov6. Full own contact then selected price and programme pages inspected. Fees/programme are visible owner PNG documents, actually opened and visually read in full, not invented from empty reader: regular folk8EUR/adult single; child7, judo15, ballet10/13 separate NOTselected. Oct2026 weekly beginner slots19:30–20:30 andSunday18:15–19:15 prove60min. Older temporary closure notice is dated28Oct2023, superseded by specific2026enrolment/current programme, not treated as permanentclosure. No sourcephotographs/logos copied; only temporary tariff/schedule document reading. Plainfooter copyright, no separate terms linkvisible; no login/booking/Maps/provideraction. One actual school venue, no host teacher aliases.",
+      "checkedAtUtc": "2026-11-13T23:48:09Z"
+    },
+    {
+      "order": 10,
+      "id": "sofia-horovodets-samuil50",
+      "name": "Хороводец · Самуил",
+      "status": "verified",
+      "website": "https://www.horovodets.com/",
+      "bookingUrl": "https://www.horovodets.com/",
+      "serviceUrls": [
+        "https://www.horovodets.com/bg/schedule/"
+      ],
+      "contactUrl": "https://www.horovodets.com/bg/contact/",
+      "findings": "Actual own general unqualified enrolment section 'Sign up now' on homepage givesIrinaBoteva0888988258, separatefromtheautumnannouncement naming3otherpremises. SelectedSamuil follows this general school enrolment path, NOT an inferrednewbeginnerannouncement. Full own current programme has actual Samuil60min groups, fee6.50EUR explicitlyappliesSamuil and contactconfirmsSamuil50floor2. Today'sfeed/schedule level labels vary so no specificlevel or time imported; school confirmsappropriate group beforevisit. Independent Horovodets brand/phone/currentprogramme/tariff, not hostLatinForce staff/rentalalias. Old aboutus mentions historicStudentski/Druzhba, NOTnewbranches. Full current own footer no separatelinkedsource-use terms. No Maps/photos/reviews/availabilityfacts orbookingactions.",
+      "checkedAtUtc": "2026-11-13T23:51:38Z"
+    }
+  ],
+  "pending": [
+    {
+      "name": "Фолклорика · ОКИ Надежда / Сердика",
+      "status": "pending_appointment_evidence",
+      "sourceUrls": [
+        "https://www.folklorika.com/schedule_adults_OKI_nadejda.html",
+        "https://www.folklorika.com/schedule_adults_serdika.html",
+        "https://www.folklorika.com/contacts.html",
+        "https://www.folklorika.com/adults.html"
+      ],
+      "findings": "Current actual2026branchschedules prove levels4/6 atLomsko2 andlevel3 atGyueshevo50, notbeginners. Explicitpriorenrolment CTA solelybeginnergroups(level0), cannottransfer totheseadvancedgroups; no genericphonealone booking. Otherthreepremises alreadyhome007. Gerena2vs8andLozenetscurrent/closedconflictsnotresolved; noneadded."
+    },
+    {
+      "name": "АвтоНоватор",
+      "website": "https://avtonovator.bg/",
+      "status": "held_access_challenge",
+      "findings": "OwnerrootreturnssecurityverificationwithContinuebutton. No click/retry/alternateendpoint; thirdpartydirectorynotusedforimport."
+    },
+    {
+      "name": "Street Detailing",
+      "website": "https://streetdetailingbg.com/",
+      "status": "pending_public_menu_and_sofia_premise",
+      "findings": "OwnerrootreadableHTMLemptyJSshell,titlePlovdivvsoldindexedPlovdiv&Sofia; nohiddenbundle/APIread, noUI retry. ActualSofiavenue/book/servicefeeunverified; notunpublished."
+    },
+    {
+      "name": "Спортен център Пулев",
+      "website": "https://sportcenter.pulev.bg/",
+      "status": "pending_current_owner_menu_unavailable",
+      "findings": "Cached boxing andFolklorika pages mention new OvchaKupel/DimitarPopnikolov7 but current owner root/contact/schedule/prices publicGET returns PHP Composer >=8.3 platformerror. No reliable current appointment/fee/branchmenu review; no form/actions or maprequests. Not not_publicly_listed."
+    },
+    {
+      "name": "Адаптико · АРТетно",
+      "website": "https://www.adaptiko.bg/folk-dance",
+      "status": "pending_schedule_and_minimum_conflict",
+      "findings": "Actual ownerform proves advanceenrolment forages4–6atYunashkaPesen11 and10EUR pervisit, but scheduleToBeAnnounced and minimum1weeklyvisit vsformminimum1week2visits conflict. Not a provenstandalone10EUR bookableservice. Homeagentnotimportingalias."
+    },
+    {
+      "name": "Ах Хорца · Биологически факултет / Летище",
+      "website": "https://ax-horca.com/",
+      "status": "pending_branch_schedule_or_exact_address",
+      "findings": "BioFacultyDraganTsankov8 body mediumgroupstarted6Oct2026 but actual enrolmentdropdown18:30 saysstartdateTBC; no assumptionongoinggroup. Airport exactpremiseonlyoldterminalnowmuseum, no street/entry proof; no mapsrequest or campuspoint. These2notimported orcounted."
+    },
+    {
+      "name": "Академия България плува · Софийски басейни",
+      "website": "https://swimbulgaria.bg/",
+      "status": "held_booking_source_terms_or_independent_fee_required",
+      "sourceUrls": [
+        "https://swimbulgaria.bg/",
+        "https://swimbulgaria.bg/pools/",
+        "https://swimbulgaria.bg/trainings/",
+        "https://sportpoint.bg/tos"
+      ],
+      "findings": "Ownsite actualBooklinksSportPoint; initialbookreaderCachemiss, no furtherclubrequest afterfulltermsread. SportPoint8.3(2) explicitlyrestrictsprovidinganyextractedinformation/userdata commercially/noncommercially;12.1 includesdatabasesandwhole/partcontent. STOPnoproviderpricingcopy. OwnlocationsincludeStGeorgi47vsroot51conflict; Slivnitsaisoutsidecity;ABVpossiblyhostrelationshipnotduplicated. Independentownfees/phonepriorbookingnotcompleted, no not_publicly_listedclaim."
+    },
+    {
+      "name": "АБВ Спортен свят",
+      "website": "https://abvsport.com/",
+      "status": "pending_actual_js_booking_menu",
+      "sourceUrls": [
+        "https://abvsport.com/swimming_lessons/",
+        "https://book.abvsport.com/calendar/public?class_id=3&site_id=6",
+        "https://abvsport.com/contacts/"
+      ],
+      "findings": "Actual ownerlinked ownFitsyscalendar HTTP200emptyJSshell, noUIretry. Ownselectedlessonmenu15EUR/45min and30EURindividual notimported pendingactualbookmenu/terms. ExactvenueDospevski9 and0877695343 published; no reservation/customerdataentered. Known inaccessiblemenu notnot_publicly_listed."
+    },
+    {
+      "name": "Плувен клуб Люлин–София",
+      "website": "https://www.pluvanelyulin.com/",
+      "status": "pending_owner_site_lander",
+      "findings": "Current publicownerrootreaderno lines; ordinarypublicGETemptywithonly/landerlink, possibleparkeddomain. Oldindexedtariff/GoogleSites/thirdpartyvoucher notsufficientcurrentownsource. No alternateparkedendpointorMapsrequest, noimport."
+    },
+    {
+      "name": "Дилмани",
+      "website": "https://dilmani.com/",
+      "status": "pending_current_class_and_enrolment_review",
+      "findings": "Ownroot currentGET works afterreadertimeout; folkprogrammes andKoloman1phone published butlatestclass/enrolment/tariffpagesnotcompleted. Old2018–2021performancearticles not sufficientcurrentpaidclass proof. No login/teacheraliases."
+    },
+    {
+      "name": "Зала Сборенка",
+      "website": "https://www.zala-sborenka.com/",
+      "status": "pending_owner_source_inaccessible",
+      "findings": "Ownwebsiteobservedfrompublicsearchlead returnsinaccessible inreader. ThirdpartyoldMladost2address vsothercurrentMladost3leadnotimported. Noinventedbook/fee/address."
+    },
+    {
+      "name": "Фондация Шевица",
+      "website": "https://shevitsa.bg/",
+      "status": "pending_current_reserved_paid_class_scope",
+      "findings": "Ownroot/contact/events observed; ensembleadmission orpastSept26childrecruitingeventalone not completedregularbookableclass/menu/fee review. NoGoogleplace/Maps/consent/account actions."
+    }
+  ],
+  "rejected": [
+    {
+      "id": "sofia-zona-wash",
+      "website": "https://zonawash.bg/",
+      "status": "existing_runtime_or_intake_identity",
+      "findings": "Local runtime SOFIA_CATALOGUE plus all2000WIP dedupe shows existing actual operator/premise; not a newly reviewed service import. Existing source/services left unchanged."
+    },
+    {
+      "id": "sofia-kometa-autocenter",
+      "website": "https://autocenter-sofia.bg/",
+      "status": "existing_runtime_or_intake_identity",
+      "findings": "Local runtime SOFIA_CATALOGUE plus all2000WIP dedupe shows existing actual operator/premise; not a newly reviewed service import. Existing source/services left unchanged."
+    },
+    {
+      "id": "sofia-meguin-obikolna34",
+      "website": "https://meguin.bg/",
+      "status": "existing_runtime_or_intake_identity",
+      "findings": "Local runtime SOFIA_CATALOGUE plus all2000WIP dedupe shows existing actual operator/premise; not a newly reviewed service import. Existing source/services left unchanged."
+    },
+    {
+      "id": "sofia-bmw-m-car-sofia",
+      "website": "https://www.bmw-mcarsofia.bg/",
+      "status": "existing_runtime_or_intake_identity",
+      "findings": "Local runtime SOFIA_CATALOGUE plus all2000WIP dedupe shows existing actual operator/premise; not a newly reviewed service import. Existing source/services left unchanged."
+    },
+    {
+      "id": "sofia-bmw-m-car-west",
+      "website": "https://www.bmw-mcarsofia.bg/",
+      "status": "existing_runtime_or_intake_identity",
+      "findings": "Local runtime SOFIA_CATALOGUE plus all2000WIP dedupe shows existing actual operator/premise; not a newly reviewed service import. Existing source/services left unchanged."
+    },
+    {
+      "id": "sofia-serviz-petkov",
+      "website": "https://serviz-petkov.com/",
+      "status": "existing_runtime_or_intake_identity",
+      "findings": "Local runtime SOFIA_CATALOGUE plus all2000WIP dedupe shows existing actual operator/premise; not a newly reviewed service import. Existing source/services left unchanged."
+    },
+    {
+      "id": "sofia-gumi-slick-krasna-polyana",
+      "website": "https://gumi-slick.eu/",
+      "status": "existing_runtime_or_intake_identity",
+      "findings": "Local runtime SOFIA_CATALOGUE plus all2000WIP dedupe shows existing actual operator/premise; not a newly reviewed service import. Existing source/services left unchanged."
+    },
+    {
+      "id": "sofia-gumi-slick-simeonovsko",
+      "website": "https://gumi-slick.eu/",
+      "status": "existing_runtime_or_intake_identity",
+      "findings": "Local runtime SOFIA_CATALOGUE plus all2000WIP dedupe shows existing actual operator/premise; not a newly reviewed service import. Existing source/services left unchanged."
+    },
+    {
+      "id": "sofia-360tennis-borisova-child-school",
+      "website": "https://360tennis.bg/",
+      "status": "existing_runtime_or_intake_identity",
+      "findings": "Local runtime SOFIA_CATALOGUE plus all2000WIP dedupe shows existing actual operator/premise; not a newly reviewed service import. Existing source/services left unchanged."
+    },
+    {
+      "id": "sofia-amik-sport",
+      "website": "https://amiksport.bg/",
+      "status": "existing_runtime_or_intake_identity",
+      "findings": "Local runtime SOFIA_CATALOGUE plus all2000WIP dedupe shows existing actual operator/premise; not a newly reviewed service import. Existing source/services left unchanged."
+    },
+    {
+      "id": "sofia-tt777-trans-titan",
+      "website": "https://transtitan777bg.com/",
+      "status": "existing_runtime_or_intake_identity",
+      "findings": "Local runtime SOFIA_CATALOGUE plus all2000WIP dedupe shows existing actual operator/premise; not a newly reviewed service import. Existing source/services left unchanged."
+    },
+    {
+      "id": "sofia-auto-park-solutions",
+      "website": "https://autoparksolutions.bg/",
+      "status": "existing_runtime_or_intake_identity",
+      "findings": "Local runtime SOFIA_CATALOGUE plus all2000WIP dedupe shows existing actual operator/premise; not a newly reviewed service import. Existing source/services left unchanged."
+    },
+    {
+      "id": "sofia-superior-pickup-carwash",
+      "website": "https://detailingsuperior.online/",
+      "status": "existing_runtime_or_intake_identity",
+      "findings": "Local runtime SOFIA_CATALOGUE plus all2000WIP dedupe shows existing actual operator/premise; not a newly reviewed service import. Existing source/services left unchanged."
+    },
+    {
+      "id": "sofia-wash-go-detailing",
+      "website": "https://washandgodetail.com/",
+      "status": "existing_runtime_or_intake_identity",
+      "findings": "Local runtime SOFIA_CATALOGUE plus all2000WIP dedupe shows existing actual operator/premise; not a newly reviewed service import. Existing source/services left unchanged."
+    },
+    {
+      "id": "sofia-georgis-garage-sofia",
+      "website": "https://www.georgisgarage.com/",
+      "status": "existing_runtime_or_intake_identity",
+      "findings": "Local runtime SOFIA_CATALOGUE plus all2000WIP dedupe shows existing actual operator/premise; not a newly reviewed service import. Existing source/services left unchanged."
+    },
+    {
+      "id": "sofia-luxspa-mobile-detailing",
+      "website": "https://luxspadetailing.com/",
+      "status": "existing_runtime_or_intake_identity",
+      "findings": "Local runtime SOFIA_CATALOGUE plus all2000WIP dedupe shows existing actual operator/premise; not a newly reviewed service import. Existing source/services left unchanged."
+    },
+    {
+      "id": "sofia-iq-detailing",
+      "website": "https://iq-detailing.com/",
+      "status": "existing_runtime_or_intake_identity",
+      "findings": "Local runtime SOFIA_CATALOGUE plus all2000WIP dedupe shows existing actual operator/premise; not a newly reviewed service import. Existing source/services left unchanged."
+    },
+    {
+      "id": "sofia-be-alarm-systems-ovcha-kupel",
+      "website": "https://alsys.info/",
+      "status": "existing_runtime_or_intake_identity",
+      "findings": "Local runtime SOFIA_CATALOGUE plus all2000WIP dedupe shows existing actual operator/premise; not a newly reviewed service import. Existing source/services left unchanged."
+    },
+    {
+      "id": "sofia-po-manyashkiya-detailing",
+      "website": "https://po-manyashkiya-detailing.com/",
+      "status": "existing_runtime_or_intake_identity",
+      "findings": "Local runtime SOFIA_CATALOGUE plus all2000WIP dedupe shows existing actual operator/premise; not a newly reviewed service import. Existing source/services left unchanged."
+    },
+    {
+      "id": "sofia-nebula-detailing",
+      "website": "https://www.nebuladetailing.bg/",
+      "status": "existing_runtime_or_intake_identity",
+      "findings": "Local runtime SOFIA_CATALOGUE plus all2000WIP dedupe shows existing actual operator/premise; not a newly reviewed service import. Existing source/services left unchanged."
+    },
+    {
+      "id": "sofia-speed-garage-sofia",
+      "website": "https://www.speedgarages.com/",
+      "status": "existing_runtime_or_intake_identity",
+      "findings": "Local runtime SOFIA_CATALOGUE plus all2000WIP dedupe shows existing actual operator/premise; not a newly reviewed service import. Existing source/services left unchanged."
+    },
+    {
+      "id": "sofia-signature-detailing",
+      "website": "https://signaturedetailing.bg/",
+      "status": "existing_runtime_or_intake_identity",
+      "findings": "Local runtime SOFIA_CATALOGUE plus all2000WIP dedupe shows existing actual operator/premise; not a newly reviewed service import. Existing source/services left unchanged."
+    },
+    {
+      "id": "sofia-tancuvai-lyulin10-wedding-lessons",
+      "website": "https://tancuvai.com/",
+      "status": "existing_runtime_or_intake_identity",
+      "findings": "Local runtime SOFIA_CATALOGUE plus all2000WIP dedupe shows existing actual operator/premise; not a newly reviewed service import. Existing source/services left unchanged."
+    },
+    {
+      "id": "sofia-dance-station-ndk",
+      "website": "https://dancestation.bg/",
+      "status": "existing_runtime_or_intake_identity",
+      "findings": "Local runtime SOFIA_CATALOGUE plus all2000WIP dedupe shows existing actual operator/premise; not a newly reviewed service import. Existing source/services left unchanged."
+    }
+  ],
+  "sourceStopAdditions": [
+    {
+      "domain": "sportpoint.bg",
+      "termsUrl": "https://sportpoint.bg/tos",
+      "clause": "8.3(2),12.1",
+      "checkedAtUtc": "2026-11-13T23:51:38Z",
+      "decision": "STOP further provider requests. Explicit information/data reuse restriction, not only standard copyright. No record depends on provider facts."
+    },
+    {
+      "domain": "avtonovator.bg",
+      "decision": "STOP security verification, no continuation click."
+    }
+  ],
+  "freezeAudit": {
+    "checkedAtUtc": "2026-11-13T23:53:06Z",
+    "schemaRecords": 10,
+    "readyForReview": 10,
+    "pending": 0,
+    "rejected": 0,
+    "existingDistinctRuntimeAndIntakeRecords": 1566,
+    "pricingStates": {
+      "reviewed": 9,
+      "service_reviewed": 1
+    },
+    "identityBinding": "No inventoryIdentity persisted; root manual binding after source review.",
+    "nativeDedupe": "Known native6 public fixtures phones/operator/premises compared; no match. Current runtime and all new2000intakes compared by owner host/phone/exact premises, not rg only.",
+    "photoContexts": [
+      {
+        "id": "sofia-dggery-ovcha-kupel-lincoln",
+        "service": "Смяна на двигателно масло/филтър в сервиз. Pickup/return е опция, не отделен мобилен ремонт; съществуващ exact oilchange asset вероятно подходящ."
+      },
+      {
+        "ids": [
+          "sofia-aramii-mladost1-genadiev5g",
+          "sofia-sundance-mladost1a-rakovski12",
+          "sofia-horovodets-isul-mayor-agov4",
+          "sofia-horovodets-iztok-tsarigradsko101",
+          "sofia-horovodets-osogovo2",
+          "sofia-ax-horca-slivnitsa178",
+          "sofia-ax-horca-veda-fondovi25a",
+          "sofia-naniz-lozenets-vaptsarov6",
+          "sofia-horovodets-samuil50"
+        ],
+        "service": "Девет групови урока по български народни танци за възрастни/обичайни групи; не детски, не сценичен ансамбъл, не ballroom/Salsa. Existing exact adult folkgroup asset likely suitable after root visual review."
+      }
+    ],
+    "sourceWarnings": [
+      "Aramii selected new2026 beginner8EUR differs from older general2025tariff7.16. Actual enrolment page states full/reservelist; phone request qualification retained, no immediateavailability.",
+      "SUNDANCE own phone enrolment is explicit /novi-grupi; actual GoogleAppsScript form onlyJSshell so no claimcalendarcleared; independent own8EUR singlevisit tariff fullyread.",
+      "Horovodets4actualpremises owncurrentprogramme/contact/fees; shared hostLatinForce notsameoperator. Samuil uses general unqualified homepage'Sign up now' phone CTA, NOTthreeautumnnewgroupsCTA; exactlevel/time omitted.",
+      "AXtwoactualformvenues only; BioFaculty startdate conflict and airportinexactaddressheld. OfficeSitnyakovo41A notteachingpremise.",
+      "Naniz actual currentSep2026pricePNG+Oct2026schedulePNG visuallyreadfully;2023temporaryclosure not current because actual2026enrolment reviewed. No ownerphotos/imagesreused.",
+      "SportPoint new explicitdatareuseSTOP8.3(2)/12.1; no dependentrecord. ABVJSbookingheld, oldPluvanelyulinrootlanderheld. InheritedSTOPs remain."
+    ],
+    "verificationScope": "Local source review/schema/dedupe/pricing gate only; no shared imports/identities/photos/testfiles/productionDB or bookings. Root owns final integration/fullsuite/build."
+  }
+}

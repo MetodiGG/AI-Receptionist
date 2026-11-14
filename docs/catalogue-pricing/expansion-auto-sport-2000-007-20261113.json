@@ -1,0 +1,425 @@
+{
+  "checkedOn": "2026-11-13",
+  "validUntil": "2027-02-11",
+  "status": "frozen_for_root_source_review",
+  "scope": "Distinct real Sofia appointment auto/detailing/staffed-wash and reserved sport lessons; no retail/gymadmission/room/staff/service-area-quarter clones.",
+  "method": {
+    "sourcePriority": "ActualownBookfirst then full selectedservice/pricing/contact/footer/visibleterms.",
+    "coordinates": "NullunlessindependentlyreviewedliteralownerGPSfor exactsourceAddress. No Maps/Nominatim/geocoding/privateGPS.",
+    "authorization": "PublicownHTMLonly; no browser/accounts/fields/service/date/consent/calls/bookings/prod.",
+    "reviewDateBasis": "ActualUTC2026-11-13, SofiaNov14; per-sourceactualcheckedAtUtc clock receipts. Switch dateon00:00Z."
+  },
+  "counts": {
+    "records": 10,
+    "services": 10,
+    "reviews": 10,
+    "pricedServices": 9,
+    "pending": 13,
+    "rejected": 7
+  },
+  "orderedLedger": [
+    {
+      "order": 1,
+      "id": "sofia-redline-speed-prepurchase-mobile",
+      "name": "Redline Speed · оглед преди покупка на адрес",
+      "status": "verified",
+      "website": "https://redline-speed.com/",
+      "bookingUrl": "https://redline-speed.com/ogled-predi-pokupka",
+      "serviceUrls": [
+        "https://redline-speed.com/ogled-predi-pokupka",
+        "https://redline-speed.com/services"
+      ],
+      "contactUrl": "https://redline-speed.com/ogled-predi-pokupka",
+      "findings": "ActualownBookFIRSThomepage→contactpublicrequestformread, thenownerselectedprepurchasepageactualon-siterequestform/servicevariants/phone/email/dateoptionalfieldsreadwithoutchoicesorinputs/submission. SSRcurrentordinaryGETofselectedpageconfirms100EURpassengercarWITHOUTclient/115SUV/60motorcycle;90withclient/150inworkshopNOTprojected. Current100feeincludesVATandtransportSofia/surroundings; readerold30kmconditionNOTimportedbecausecurrentGETupdated. OwnserviceexplicitSofiaregionandphysicalsellerinspection, singlemobileoperator record/addressnullnotquarterclones. Currentpageannouncesworkshoprelocation: workshopinspectionstarts16Nov; on-siteinspectionsunchanged. ReaderoldVrazhdebnacontactvsrootAsenYordanov/nearArena8888notresolvedintoaccurateentrance, so no stationarypremise/coords imported; registeredLozenMogila53NOTvenue. Fulllegalterms4Nov2026readordinaryGETincludingtruncatedtailseparatelytoEOF: BOTEVGRUPEOOD204973207; standardcopyrightprotectedtexts/photos/logo/design, notautomatedextraction/datafactbanseen; no expressivecontent/photos/logos/sourceexampleVINreports copied. Requestnotcontract; ownerconfirmsdate/time/scopeprice; dismantlingexcludedunlessagreed, externalVINhistoryandroadtransportadditional. Ownselectedservice/minimalfreshdescriptiononly. No Mapsimage/routes/Google/geocoder/privateGPS/UI/challenge/captcha/consent/customerfields/booking/calls. Durationnotguessed, no guaranteedavailability.",
+      "checkedAtUtc": "2026-11-13T23:07:19Z"
+    },
+    {
+      "order": 2,
+      "id": "sofia-dunev-motor-sport-asen-yordanov4",
+      "name": "Дунев Мотор Спорт Р21",
+      "status": "verified",
+      "website": "https://www.dunevmotorsport-r21.com/",
+      "bookingUrl": "https://www.dunevmotorsport-r21.com/kontakti/",
+      "serviceUrls": [
+        "https://www.dunevmotorsport-r21.com/diagnostika-na-hodovata-chast-na-avtomobila/"
+      ],
+      "contactUrl": "https://www.dunevmotorsport-r21.com/kontakti/",
+      "findings": "ActualownBookFIRSTcurrentcontactform/date/time/type-required/name/contact fields read ordinaryGET after readerTimeout; formrequestscontacttoarrangevisit, noguaranteedinstanttime. No customer/service/date/consent/QRchat/call/submission. FullselectedmachinechassisdiagnosticpagecurrentGET explicitly40EURHORIZONTALtestpassengercar; vertical40EUR separate, SUV/bus50eachnotprojected, not80combinedtestorrepairfee. Originalarticle2014datebut currentbodyliteralEURcheckednow; no conversionfromoldBGN. Mainownsourcecurrentnavstillselectedservice+exactcontactAsenYordanov4/0899832121. Fulllongservicewarranty/repairtermsreadbyordinaryGET withinitialtruncatedmiddle/tailseparatelytoEOF; explicitprearrangedday/timeofvehicleacceptance andphoneorder, prices/servicehourstakespublicinreception notimportedaswebamount. Oldertermslevpaymentsnotusedtocreatenewcurrency/price. Servicecontract/personaldata,nosourceextractionrestrictionseen, nolegalclearanceclaim. Selectedlawfulphysicaltestonly: unrelatedmileage-stopper/emissions/tuning/retailproductsnotselected. Visitorcomments/sourcephotos/ratings/embeddedMaps notcopied/opened. RootruntimeallWIP/native6dedupenooperatoraliasfoundbeforeadmission; finalauditrequired. No duration/guarantee/locationpointinvented.",
+      "checkedAtUtc": "2026-11-13T23:14:23Z"
+    },
+    {
+      "order": 3,
+      "id": "sofia-sheve-dance-albert-long5",
+      "name": "Танцова школа Шеве",
+      "status": "verified",
+      "website": "https://sheve.bg/",
+      "bookingUrl": "https://sheve.bg/zapisvane/",
+      "serviceUrls": [
+        "https://sheve.bg/zapisvane/"
+      ],
+      "contactUrl": "https://sheve.bg/zapisvane/",
+      "findings": "ActualownBookFIRSTselected/zapisvane completepublicname/surname/phone/emailenrolmentformandFAQphonefallbackread, no fields/button/submission. Fullselectedcurrentprogramme28Sep2026MonWed19:30, exactSofiaHadjiDimitarDrAlbertLong5, literal60min,7EURsingle;52EUR8visitsvalid6weekscardnotdivided. FAQexplicitadult+teenagers/nopartner, childgroup'Soon'NOTimported. Ownrootretailcostumerentalstorealsoinspectedforfooterandlinkedterms; costumeprices/deposits/rentalshopKirilDrangov79NOTdancevenueandnotselectedrealservice. Fulltermsall179linesrentalconditions,paymentandplaincopyright,nosourceextractionrestrictionseen; no assumptionallretailrulesareclassconditions,noconsent/licenceclaim. Publicsamephone0894470145andbookpageoffice@sheve.bg bindactualschoolandownerretailbrand; no runtime/WIPphone/domain/addressidentitymatch. SourceembeddedGoogle/FBreviews/photos ignorednotcopied/opened. ClassscheduleNOTopeninghours, no coordinates/availabilityinvented, no accounts/Maps/geocoder/providerexports/UI/booking/calls.",
+      "checkedAtUtc": "2026-11-13T23:21:58Z"
+    },
+    {
+      "order": 4,
+      "id": "sofia-gaitani-druzhba2-obikolna36",
+      "name": "Гайтани · Дружба 2",
+      "status": "verified",
+      "website": "https://www.gaitani.com/",
+      "bookingUrl": "https://docs.google.com/forms/d/e/1FAIpQLScdBtt6gjIo8wfcwOQIg2cBF0mvbbjNO5pnT_4DGTET4Jpl3g/viewform?usp=send_form",
+      "serviceUrls": [
+        "https://www.gaitani.com/posts/501",
+        "https://www.gaitani.com/page/SOFIA/1"
+      ],
+      "contactUrl": "https://www.gaitani.com/posts/501",
+      "findings": "Currentownformandarticleindependently9Nov2026newbeginnersMonWed19:20,163OUObikolna36assemblyhall. Othergymgroupssame163OU notnewpremises; onlyoneGaitanirecord. ActualownerBookentryFIRSTeachindependentcurrentbrancharticle→observedforms.gle→resolvedpublicGoogleVIEWFORM; readerCachemiss/generic500redirectfollowedordinarypublicGET, no403/challengebypass. Completepublicfields/name/phone/emailandliteralbranch7EURsingle/49EURcalendarmonthread inowner-controlledform. SigninOFFERSdraftsaveonly; noaccountsignin, fields/options/buttons/submissions, noactualreservation. JavaScriptdisabledwarningreportedhonestly, formbodywascompletepublicSSR; noguaranteedinteractivecalendar/availabilityclaimed. Confirmationwithin7days;paymentonsite, monthlytotalnotdivided. FullcurrentownerSofiaprogrammeandfullcontacts/privacyread; privacyregisteredMladost4block420NOTdancevenue; standardcopyright+personaldata,cookiepolicy,noextractionbanseenonreadpolicy. AFTERthese selectedbranchforms/servicefeeswerefullyread,general/uslugireturnedverificationchallenge→STOPfutureallhostrequests; noalternateendpoint/bypassandnootherunpricedbranchesadded. Selectedbookingmenufullyreadbeforechallenge, notclaimwholechainpricecoverage. Centreheldbecausecitypageexplicitrepair/noactivitiesdespitefutureform;Flora65heldactualform410;VasilLevskiholdown'notcurrent'. No room/teacher/levelduplicates, no classageinferencefrom'groupof7years'(grouptenure,NOTchildage). No servicesduration/openinghours/coordsinvented. No merchantphotos/logos/reviews/expressioncopy, Maps/Nominatim/Googleplace/providerbulkexports/consent/calls/bookings.",
+      "checkedAtUtc": "2026-11-13T23:25:12Z"
+    },
+    {
+      "order": 5,
+      "id": "sofia-gaitani-mladost3-bl334",
+      "name": "Гайтани · Младост 3",
+      "status": "verified",
+      "website": "https://www.gaitani.com/",
+      "bookingUrl": "https://docs.google.com/forms/d/e/1FAIpQLSe5N1elLdi8xPD_ynv_kOI5LOzD9JTJvEHqKpBXIKGxkpuGSw/viewform?usp=send_form",
+      "serviceUrls": [
+        "https://www.gaitani.com/posts/504",
+        "https://www.gaitani.com/page/SOFIA/1"
+      ],
+      "contactUrl": "https://www.gaitani.com/posts/504",
+      "findings": "Currentownformandarticle9Nov2026beginnersMonWed20:20,ownerprivatebuildingbehind59ODZnextblock334. Hall1vsHall2/levelsNOTseparatebusinesses; onlyonewholephysicalGaitanicenter. ActualownerBookentryFIRSTeachindependentcurrentbrancharticle→observedforms.gle→resolvedpublicGoogleVIEWFORM; readerCachemiss/generic500redirectfollowedordinarypublicGET, no403/challengebypass. Completepublicfields/name/phone/emailandliteralbranch7EURsingle/49EURcalendarmonthread inowner-controlledform. SigninOFFERSdraftsaveonly; noaccountsignin, fields/options/buttons/submissions, noactualreservation. JavaScriptdisabledwarningreportedhonestly, formbodywascompletepublicSSR; noguaranteedinteractivecalendar/availabilityclaimed. Confirmationwithin7days;paymentonsite, monthlytotalnotdivided. FullcurrentownerSofiaprogrammeandfullcontacts/privacyread; privacyregisteredMladost4block420NOTdancevenue; standardcopyright+personaldata,cookiepolicy,noextractionbanseenonreadpolicy. AFTERthese selectedbranchforms/servicefeeswerefullyread,general/uslugireturnedverificationchallenge→STOPfutureallhostrequests; noalternateendpoint/bypassandnootherunpricedbranchesadded. Selectedbookingmenufullyreadbeforechallenge, notclaimwholechainpricecoverage. Centreheldbecausecitypageexplicitrepair/noactivitiesdespitefutureform;Flora65heldactualform410;VasilLevskiholdown'notcurrent'. No room/teacher/levelduplicates, no classageinferencefrom'groupof7years'(grouptenure,NOTchildage). No servicesduration/openinghours/coordsinvented. No merchantphotos/logos/reviews/expressioncopy, Maps/Nominatim/Googleplace/providerbulkexports/consent/calls/bookings.",
+      "checkedAtUtc": "2026-11-13T23:25:12Z"
+    },
+    {
+      "order": 6,
+      "id": "sofia-gaitani-lyulin-dertliev25",
+      "name": "Гайтани · Люлин 10",
+      "status": "verified",
+      "website": "https://www.gaitani.com/",
+      "bookingUrl": "https://docs.google.com/forms/d/e/1FAIpQLSd4_CdXoiZsl3S077b3BwK1DMONsGluePGtx-8vn7LawVyRrg/viewform?usp=send_form",
+      "serviceUrls": [
+        "https://www.gaitani.com/posts/503",
+        "https://www.gaitani.com/page/SOFIA/1"
+      ],
+      "contactUrl": "https://www.gaitani.com/posts/503",
+      "findings": "Currentownformandarticle9Nov2026beginnersMonWed19:30,LabirintPeterDertliev25floor3. FullSofiaprogrammeindependentlylabelsHoptropdancehall,samepremisenotnewroomclone. ActualownerBookentryFIRSTeachindependentcurrentbrancharticle→observedforms.gle→resolvedpublicGoogleVIEWFORM; readerCachemiss/generic500redirectfollowedordinarypublicGET, no403/challengebypass. Completepublicfields/name/phone/emailandliteralbranch7EURsingle/49EURcalendarmonthread inowner-controlledform. SigninOFFERSdraftsaveonly; noaccountsignin, fields/options/buttons/submissions, noactualreservation. JavaScriptdisabledwarningreportedhonestly, formbodywascompletepublicSSR; noguaranteedinteractivecalendar/availabilityclaimed. Confirmationwithin7days;paymentonsite, monthlytotalnotdivided. FullcurrentownerSofiaprogrammeandfullcontacts/privacyread; privacyregisteredMladost4block420NOTdancevenue; standardcopyright+personaldata,cookiepolicy,noextractionbanseenonreadpolicy. AFTERthese selectedbranchforms/servicefeeswerefullyread,general/uslugireturnedverificationchallenge→STOPfutureallhostrequests; noalternateendpoint/bypassandnootherunpricedbranchesadded. Selectedbookingmenufullyreadbeforechallenge, notclaimwholechainpricecoverage. Centreheldbecausecitypageexplicitrepair/noactivitiesdespitefutureform;Flora65heldactualform410;VasilLevskiholdown'notcurrent'. No room/teacher/levelduplicates, no classageinferencefrom'groupof7years'(grouptenure,NOTchildage). No servicesduration/openinghours/coordsinvented. No merchantphotos/logos/reviews/expressioncopy, Maps/Nominatim/Googleplace/providerbulkexports/consent/calls/bookings.",
+      "checkedAtUtc": "2026-11-13T23:25:12Z"
+    },
+    {
+      "order": 7,
+      "id": "sofia-gaitani-musagenitsa-belkovski1",
+      "name": "Гайтани · Мусагеница",
+      "status": "verified",
+      "website": "https://www.gaitani.com/",
+      "bookingUrl": "https://docs.google.com/forms/d/e/1FAIpQLSeacgOb9p-8EuSzdr0Y3J1IB-e06TQJpeYCAPuWeRFhAp0_xw/viewform?usp=send_form",
+      "serviceUrls": [
+        "https://www.gaitani.com/posts/484",
+        "https://www.gaitani.com/page/SOFIA/1"
+      ],
+      "contactUrl": "https://www.gaitani.com/posts/484",
+      "findings": "Currentownformandarticle13Oct2026beginnersTueThu20:10,whiteAzbukischoolbuildingopposite8thschool. ActualAzbukihostnotGaitanioperatoralias, independentGaitanibrand/phone/form; no schooladmissionimport. ActualownerBookentryFIRSTeachindependentcurrentbrancharticle→observedforms.gle→resolvedpublicGoogleVIEWFORM; readerCachemiss/generic500redirectfollowedordinarypublicGET, no403/challengebypass. Completepublicfields/name/phone/emailandliteralbranch7EURsingle/49EURcalendarmonthread inowner-controlledform. SigninOFFERSdraftsaveonly; noaccountsignin, fields/options/buttons/submissions, noactualreservation. JavaScriptdisabledwarningreportedhonestly, formbodywascompletepublicSSR; noguaranteedinteractivecalendar/availabilityclaimed. Confirmationwithin7days;paymentonsite, monthlytotalnotdivided. FullcurrentownerSofiaprogrammeandfullcontacts/privacyread; privacyregisteredMladost4block420NOTdancevenue; standardcopyright+personaldata,cookiepolicy,noextractionbanseenonreadpolicy. AFTERthese selectedbranchforms/servicefeeswerefullyread,general/uslugireturnedverificationchallenge→STOPfutureallhostrequests; noalternateendpoint/bypassandnootherunpricedbranchesadded. Selectedbookingmenufullyreadbeforechallenge, notclaimwholechainpricecoverage. Centreheldbecausecitypageexplicitrepair/noactivitiesdespitefutureform;Flora65heldactualform410;VasilLevskiholdown'notcurrent'. No room/teacher/levelduplicates, no classageinferencefrom'groupof7years'(grouptenure,NOTchildage). No servicesduration/openinghours/coordsinvented. No merchantphotos/logos/reviews/expressioncopy, Maps/Nominatim/Googleplace/providerbulkexports/consent/calls/bookings.",
+      "checkedAtUtc": "2026-11-13T23:25:12Z"
+    },
+    {
+      "order": 8,
+      "id": "sofia-gaitani-studentski-yosifov1",
+      "name": "Гайтани · Студентски град",
+      "status": "verified",
+      "website": "https://www.gaitani.com/",
+      "bookingUrl": "https://docs.google.com/forms/d/e/1FAIpQLSfUdprlIAfom1BFSPgX6SalQRVi8zFMhfd0ngybUADogTIhRA/viewform?usp=send_form",
+      "serviceUrls": [
+        "https://www.gaitani.com/posts/487",
+        "https://www.gaitani.com/page/SOFIA/1"
+      ],
+      "contactUrl": "https://www.gaitani.com/posts/487",
+      "findings": "Currentownformandarticle13Oct2026beginnersTueThu19:10,actualnamedYordanYosifov1floor1aboveLidlhostAthletic. FactsONLYfromindependentGaitanisource+ownform, NOAthleticrequests/termsoverride/genericgymadmission. Independentdanceoperatornotfitnessstaffalias. ActualownerBookentryFIRSTeachindependentcurrentbrancharticle→observedforms.gle→resolvedpublicGoogleVIEWFORM; readerCachemiss/generic500redirectfollowedordinarypublicGET, no403/challengebypass. Completepublicfields/name/phone/emailandliteralbranch7EURsingle/49EURcalendarmonthread inowner-controlledform. SigninOFFERSdraftsaveonly; noaccountsignin, fields/options/buttons/submissions, noactualreservation. JavaScriptdisabledwarningreportedhonestly, formbodywascompletepublicSSR; noguaranteedinteractivecalendar/availabilityclaimed. Confirmationwithin7days;paymentonsite, monthlytotalnotdivided. FullcurrentownerSofiaprogrammeandfullcontacts/privacyread; privacyregisteredMladost4block420NOTdancevenue; standardcopyright+personaldata,cookiepolicy,noextractionbanseenonreadpolicy. AFTERthese selectedbranchforms/servicefeeswerefullyread,general/uslugireturnedverificationchallenge→STOPfutureallhostrequests; noalternateendpoint/bypassandnootherunpricedbranchesadded. Selectedbookingmenufullyreadbeforechallenge, notclaimwholechainpricecoverage. Centreheldbecausecitypageexplicitrepair/noactivitiesdespitefutureform;Flora65heldactualform410;VasilLevskiholdown'notcurrent'. No room/teacher/levelduplicates, no classageinferencefrom'groupof7years'(grouptenure,NOTchildage). No servicesduration/openinghours/coordsinvented. No merchantphotos/logos/reviews/expressioncopy, Maps/Nominatim/Googleplace/providerbulkexports/consent/calls/bookings.",
+      "checkedAtUtc": "2026-11-13T23:25:12Z"
+    },
+    {
+      "order": 9,
+      "id": "sofia-gaitani-lozenets-139ou",
+      "name": "Гайтани · Лозенец",
+      "status": "verified",
+      "website": "https://www.gaitani.com/",
+      "bookingUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdDdkg9EaE675yLCJTZboCuH1Orwzm09Jdh1W0aj9dq58WmEQ/viewform?usp=send_form",
+      "serviceUrls": [
+        "https://www.gaitani.com/posts/498",
+        "https://www.gaitani.com/page/SOFIA/1"
+      ],
+      "contactUrl": "https://www.gaitani.com/posts/498",
+      "findings": "Currentownform10Nov2026specificallynames139OUZahariKrushagym/Arsenalskiboulevard; officialHOSTschoolcontactindependentlyfullpostalDimitarHadzhikotsev44. Sameuniquenamedschool, no geocoding/Mapsderivedaddress. Ownarticle18:30vsactualform19:40startconflict, so publicschedule/time/durationOMITTEDandmustconfirmwithclub. Namedvenue/form7EURfeeunambiguous. ActualownerBookentryFIRSTeachindependentcurrentbrancharticle→observedforms.gle→resolvedpublicGoogleVIEWFORM; readerCachemiss/generic500redirectfollowedordinarypublicGET, no403/challengebypass. Completepublicfields/name/phone/emailandliteralbranch7EURsingle/49EURcalendarmonthread inowner-controlledform. SigninOFFERSdraftsaveonly; noaccountsignin, fields/options/buttons/submissions, noactualreservation. JavaScriptdisabledwarningreportedhonestly, formbodywascompletepublicSSR; noguaranteedinteractivecalendar/availabilityclaimed. Confirmationwithin7days;paymentonsite, monthlytotalnotdivided. FullcurrentownerSofiaprogrammeandfullcontacts/privacyread; privacyregisteredMladost4block420NOTdancevenue; standardcopyright+personaldata,cookiepolicy,noextractionbanseenonreadpolicy. AFTERthese selectedbranchforms/servicefeeswerefullyread,general/uslugireturnedverificationchallenge→STOPfutureallhostrequests; noalternateendpoint/bypassandnootherunpricedbranchesadded. Selectedbookingmenufullyreadbeforechallenge, notclaimwholechainpricecoverage. Centreheldbecausecitypageexplicitrepair/noactivitiesdespitefutureform;Flora65heldactualform410;VasilLevskiholdown'notcurrent'. No room/teacher/levelduplicates, no classageinferencefrom'groupof7years'(grouptenure,NOTchildage). No servicesduration/openinghours/coordsinvented. No merchantphotos/logos/reviews/expressioncopy, Maps/Nominatim/Googleplace/providerbulkexports/consent/calls/bookings.",
+      "checkedAtUtc": "2026-11-13T23:25:12Z"
+    },
+    {
+      "order": 10,
+      "id": "sofia-baiadery-mladost2-budnina",
+      "name": "Клуб Баядери",
+      "status": "verified",
+      "website": "https://baiadery.com/",
+      "bookingUrl": "https://baiadery.com/%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D0%BA-%D0%BD%D0%B0-%D0%B3%D1%80%D1%83%D0%BF%D0%B8%D1%82%D0%B5/",
+      "serviceUrls": [
+        "https://baiadery.com/%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D0%BA-%D0%BD%D0%B0-%D0%B3%D1%80%D1%83%D0%BF%D0%B8%D1%82%D0%B5/"
+      ],
+      "contactUrl": "https://baiadery.com/contact-us/",
+      "findings": "ActualownBookFIRST→currentfullSchedulepublicnewadultgroupSep1_2026/MonWed20:20–21:20explicitinformation+enrolphones0886899705/0888622909. Selectedstable0888622909alsoownroot/contact, notanotherteacher/stafflisting. No instantcalendarpresent: contactformgenericinquiryNOTclaimedbooking, explicitphoneenrolused. FullactualselectedSchedule(currentupdate15Sep2026), fullcontact andcurrentroot/publicnav/footerread through ordinaryGET afterreadertruncatedroot. NO numericfeeontheactualselectedbooking/services/contactpages, no linkedPricesmenu orknowninaccessiblepricemenu; genuineunpublishedselectedadultbeginnerfee only, notclaimallhistoricalnews/priceselsewhereabsent. OldhomepageJan2025announcementnotusedas2026classproof; currentScheduleexplicitSep2026sameactualvenue. Selectedadult60minfromliteralcurrentinterval, child6–10/8–12differentprogrammesNOTprojected. No classscheduleasopeninghours. OwncontactpreciselyNCHBudninaMladost2nextblock220nearAlexTeodorovBalanstation, no street/housenumber/GPSinvented. Samephysicalhallalllevelsonebusiness, no host/staffclones; runtimeWIP/native6domain/phonenoidentitymatch. Visiblefooterordinarycopyright/no distinctsite-use/privacyextractionlinkseen, nolicence/acceptanceclaim. No expressivequote/photos/logos/reviews/Maps/providerexports/geocoder/UI/customerfields/calls/bookings.",
+      "checkedAtUtc": "2026-11-13T23:28:39Z"
+    }
+  ],
+  "pending": [
+    {
+      "name": "IVON Service / IVON Tyres",
+      "status": "held_access_challenge",
+      "website": "https://ivonservice.com/",
+      "reviewedUrls": [
+        "https://ivonservice.com/",
+        "https://ivonservice.com/booking/",
+        "https://ivonservice.com/ivon-service-gorna-bania/",
+        "https://ivonservice.com/services/",
+        "https://ivonservice.com/contacts/"
+      ],
+      "notes": "ActualBookfirstpublicformwithservicechoices/confirmbyphone; GornaBanyaEho1+0895701048 actualownerbranch currentcontacts. SERVICES page shows verificationchallenge, so STOPallhost nofollowupGET/UI/alternateendpoints and no unavailablemenu≠notpublished. BookingreaderoldSaturday09–19 conflictcurrentroot/branchclosed, not copied. OtherIVONTyresOvchaKupel/LevskiV mentioned butnot independentlyverifiedpremises/fees. No newrecords, no Googleembeds/reviews/photos/copied, nofields/consent/booking.",
+      "checkedAtUtc": "2026-11-13T23:02:58Z"
+    },
+    {
+      "name": "1040 Subaru Workshop",
+      "status": "pending_booking_address_review",
+      "website": "https://1040.bg/",
+      "reviewedUrls": [
+        "https://1040.bg/",
+        "https://1040.bg/calendar.html"
+      ],
+      "notes": "Readergenericinaccessible→ordinarypublicGETHTTP200root+calendarread. ActualBookcalendar.html embeds observed publicSuperSaaSschedulehttps://www.supersaas.com/schedule/Subaru_Workshop/calendar?m=0, notyetrequested/noJSverification. Rootshows SofiaandBurgastabs butno literalfullstreetaddressinvisibleHTML. Do notusemapmarker/viewportorinspecthiddenJSbundles toinventSofiapremise. Terms/sourcebookingmenu/fullpricecoverageuncompleted, noapproval/no unpricedreceipt.",
+      "checkedAtUtc": "2026-11-13T23:04:36Z"
+    },
+    {
+      "name": "Мобилен автосервиз · 0887 827 573",
+      "status": "pending_explicit_appointment_instruction",
+      "website": "https://www.mobilen-avtoserviz.com/",
+      "reviewedUrls": [
+        "https://www.mobilen-avtoserviz.com/",
+        "https://www.mobilen-avtoserviz.com/contacts/",
+        "https://www.mobilen-avtoserviz.com/ceni/",
+        "https://www.mobilen-avtoserviz.com/uslugi/"
+      ],
+      "notes": "ActualcontactentryFIRSTafterrootreader timeoutordinaryGET; fullservicesandcurrentEURtariffread. RealmobileSofiaservice/phone0887827573 withcallout30EURpluslabour25EURoil/filter andparts excluded; no sum/computationimport. Contactgenericcallus/emailformwithplaceholderlatintext, no explicitselectedservicepriorappointmentinstructionyet. Conservativeholdratherthanordinarycontact≠verifiedbooking. Runtimephone/hostno match sofar. No newfields/booking/calls/sourceimages/sourceMaps copied. No moreendpointsneededuntilstrongerbookevidence.",
+      "checkedAtUtc": "2026-11-13T23:09:37Z"
+    },
+    {
+      "name": "Cars Detailing",
+      "status": "held_possible_existing_alias",
+      "website": "https://carsdetailing.bg/",
+      "reviewedUrls": [
+        "https://carsdetailing.bg/contact/"
+      ],
+      "notes": "Actualowncontact expresslybookphone/form; fullfooterphone+359888844037 EXACTexistingCleanRidecarsrepair.bgphone. Dedupeaftercontactrevealsprobableautocarebusinessalias ratherthannewuniqueoperator; noadd/noextraaddressfromGoogleiframe. Ownselectedtariff/termsnotcompletedbecauseidentityhold.",
+      "checkedAtUtc": "2026-11-13T23:09:37Z"
+    },
+    {
+      "name": "DriveCleanBG",
+      "status": "held_outside_sofia_city",
+      "website": "https://drivecleanbg.com/",
+      "reviewedUrls": [
+        "https://drivecleanbg.com/"
+      ],
+      "notes": "Fullcurrentownerroot actualBook/service/contact contextread; premiseMramorVasilLevski57/1261 althoughmarketingcallsSofiaquarter. Mramorseparatesettlementnotconfirmedcity68134, so nofalseSofiapremise/quarterclone. Notimportfreeinspection0asregularservice. No laterprices/termscompletionclaim; noMaps/reviews/photoscopied.",
+      "checkedAtUtc": "2026-11-13T23:09:37Z"
+    },
+    {
+      "name": "Kazam Auto",
+      "status": "held_access_forbidden",
+      "website": "https://kazamauto.com/",
+      "reviewedUrls": [
+        "https://kazamauto.com/"
+      ],
+      "notes": "Ownrootreader403Forbidden. STOPnoalternateendpoints/curl/UI/retry orpricingabsenceclaim. Candidateappearsnewbyruntimehostbutnoimport.",
+      "checkedAtUtc": "2026-11-13T23:12:21Z"
+    },
+    {
+      "name": "Автосервиз Мобил",
+      "status": "held_source_terms",
+      "website": "https://www.mobilbg.eu/",
+      "reviewedUrls": [
+        "https://www.mobilbg.eu/",
+        "https://www.mobilbg.eu/%d0%be%d0%b1%d1%89%d0%b8-%d1%83%d1%81%d0%bb%d0%be%d0%b2%d0%b8%d1%8f-%d0%b7%d0%b0-%d0%bf%d0%be%d0%bb%d0%b7%d0%b2%d0%b0%d0%bd%d0%b5-%d0%bd%d0%b0-%d1%83%d0%b5%d0%b1%d1%81%d0%b0%d0%b9%d1%82%d0%b0-www-mobi/"
+      ],
+      "notes": "Fullcurrentownterms10June2026readordinaryGETafterreaderTimeout. §2.3 explicitinformationusageONLYpersonal/noncommercial;§2.2copy/distribute/use/publishcontentrequireswrittenconsent. Sourceholdunderrootconservativerule, notmerecopyrightdesignwarning. STOPallmobilbgnoadditionalbooking/Calendly/service/branch/pricefetch. OwnrootBookphoneandCalendlyobservedbutnoreservationtaken/noaccount/noinputs/noquotes/imagescopied. RealGeoMilevAcGeorgiBonchev6remainleadnotcount.",
+      "checkedAtUtc": "2026-11-13T23:12:21Z"
+    },
+    {
+      "name": "ShidoFitness",
+      "status": "pending_venue_booking_fee_currency",
+      "website": "https://shidofitness.com/",
+      "reviewedUrls": [
+        "https://shidofitness.com/",
+        "https://shidofitness.com/grafik/",
+        "https://shidofitness.com/contact/",
+        "https://shidofitness.com/trenirovki/",
+        "https://shidofitness.com/events/boxing/"
+      ],
+      "notes": "ActualSchedulefirstshows'запишисе'plusNoeventsavailable; selectedboxingownpagehasenrolcaptionbutnoobservedvalidformhref/explicitphoneschedulinginstruction. ContactactualGETemptybeyondnavigationheading, no literalfullstreetaddress; noGoogleembedopened. Ownroot10.00groupratecurrencyomitted(adjacentaerial13BGNnotproofall10unit), personalfeeindividualspecialistnoamount. Holdaddress+actualbook ratherthaninventcurrencyorordinarygymadmission/trial0. Aerialservicereaderrobotserror notretried. No thirdpartyfacts/sourcephotos/consent/customerfields/actions.",
+      "checkedAtUtc": "2026-11-13T23:15:25Z"
+    },
+    {
+      "name": "Гайтани · Център",
+      "status": "held_current_venue_closure_conflict",
+      "website": "https://www.gaitani.com/",
+      "reviewedUrls": [
+        "https://www.gaitani.com/posts/502",
+        "https://www.gaitani.com/page/SOFIA/1",
+        "https://forms.gle/KhQt7grMNiSLS1UV8",
+        "https://docs.google.com/forms/d/e/1FAIpQLSeQyhLoPPpRjd_0uTKXKE-7ReDOKDW_s8_xBOtgDh_kBxlETA/viewform?usp=send_form"
+      ],
+      "notes": "Selectedactualform16Nov2026future7EUR9vsarticle9Nov,currentSofiapageexplicit'Centre halls in repair,currentlynoactivities'. HOLDnotblindlyapprovefuturebookingforclosedpremise.No permanentclosureclaimorcoordinate/roomclones.",
+      "checkedAtUtc": "2026-11-13T23:25:12Z"
+    },
+    {
+      "name": "Гайтани · Манастирски ливади",
+      "status": "held_booking_gone",
+      "website": "https://www.gaitani.com/",
+      "reviewedUrls": [
+        "https://www.gaitani.com/posts/489",
+        "https://www.gaitani.com/page/SOFIA/1",
+        "https://forms.gle/hzs1dR5iWXgYyWKc8"
+      ],
+      "notes": "ActualownFlora65floor5class/bookphonearticleclearbutlinkedformreturns410Gone. No retry/alternateeditendpoint, no pricingabsenceclaim/otherbranch7EURprojection. Holdselectedbooking/tariffuntilownerconfirms; registeredclinic samebuildingnotaliasproof. No coordinates.",
+      "checkedAtUtc": "2026-11-13T23:25:12Z"
+    },
+    {
+      "name": "Гайтани · Васил Левски and remaining unpriced Sofia groups",
+      "status": "held_current_info_and_access_review",
+      "website": "https://www.gaitani.com/",
+      "reviewedUrls": [
+        "https://www.gaitani.com/page/SOFIA/1",
+        "https://www.gaitani.com/uslugi"
+      ],
+      "notes": "CurrentSofiapageexplicitVasilLevskiPopGruyu26'informationnotcurrent'. OtherrealHipodruma/GeoMilev/Druzhba1venuesnotclonedasnovicetariff. General/uslugi verificationchallenge encounteredafter6pricedselectedformscompleted→STOPallfuturegaitani.comrequests; no unpricedreceiptusedtoavoidunknownservice/menu. No sourcebanclaimaslegalruling, no challengebypass.",
+      "checkedAtUtc": "2026-11-13T23:25:12Z"
+    },
+    {
+      "name": "Tendokan Aikido Dojo",
+      "status": "pending_booking_address_review",
+      "website": "https://www.tendokandojo.com/",
+      "reviewedUrls": [
+        "https://www.tendokandojo.com/",
+        "https://www.tendokandojo.com/services",
+        "https://www.tendokandojo.com/aikido",
+        "https://www.tendokandojo.com/seminari"
+      ],
+      "notes": "ActualownerBookFIRSTrootenrol→/services; readercachemissordinaryGETonlyheader/nav, no actualbookingmenu. LegacyClasses&Prices/seminari shows350BGN8weekintroandotherpackages, no currentrenderedBookpath; nounpublishedreceiptbecauseknownprices. Rootcurrent2026/27schedulelinkobservednotdownloaded. HeaderBusinessParkSofia16D/trade5 vsfullcontactSofiaParkblock16D; potentialaddresslabelconflictnotgeocoded/guessedMladost. Phonecontactforquestionsnotindependentexplicitphoneenrolinstructionforselectedtariffyet. HolduntilactualBook/menu/exactpremisereview.Noaccount/memberpages/Maps/retail/logos/photos copied.",
+      "recordedAtUtc": "2026-11-13T23:31:03Z"
+    },
+    {
+      "name": "GLOBAL AUTOFIX",
+      "status": "pending_exact_premise_and_menu",
+      "website": "https://mobileautoservice24.com/",
+      "reviewedUrls": [
+        "https://mobileautoservice24.com/"
+      ],
+      "notes": "Currentownerrootexplicitpriorserviceappointment/form+phone0885727378; physicaladdressonlyNPZIskar1592Sofia, no literalexactstreet/premise. Singlephysicaloperatornotinventedintomobilequarterclones. SelectedactualBook/service/tariff/fulltermsnotcompleted, noapproval/no genuineunpublishedfeeclaim. NoMapslinks/images/reviews/privatepointsopened/copied.",
+      "recordedAtUtc": "2026-11-13T23:31:03Z"
+    }
+  ],
+  "rejected": [
+    {
+      "name": "Автосервиз при Данчо",
+      "website": "https://autoservizdancho.com/",
+      "status": "existing_runtime_identity",
+      "existingId": "sofia-pri-dancho-sinanishko22",
+      "notes": "LocalruntimeSOFIA_CATALOGUE+all2000intakes comparison identifiesexistingowner/premise/phone, notnewbusiness. No serviceinventoryorbaseline/identityupdated; no claimfreshfullpricingreview.",
+      "recordedAtUtc": "2026-11-13T23:31:03Z"
+    },
+    {
+      "name": "Автосервиз Ашли",
+      "website": "https://ashlibg.com/",
+      "status": "existing_runtime_identity",
+      "existingId": "sofia-ashli-rishki-prohod",
+      "notes": "LocalruntimeSOFIA_CATALOGUE+all2000intakes comparison identifiesexistingowner/premise/phone, notnewbusiness. No serviceinventoryorbaseline/identityupdated; no claimfreshfullpricingreview.",
+      "recordedAtUtc": "2026-11-13T23:31:03Z"
+    },
+    {
+      "name": "Ауто Ателие",
+      "website": "https://auto-atelier.bg/",
+      "status": "existing_runtime_identity",
+      "existingId": "sofia-auto-atelier-simeonovsko95",
+      "notes": "LocalruntimeSOFIA_CATALOGUE+all2000intakes comparison identifiesexistingowner/premise/phone, notnewbusiness. No serviceinventoryorbaseline/identityupdated; no claimfreshfullpricingreview.",
+      "recordedAtUtc": "2026-11-13T23:31:03Z"
+    },
+    {
+      "name": "Добсик Ауто",
+      "website": "https://dobsikauto.bg/",
+      "status": "existing_runtime_identity",
+      "existingId": "sofia-dobsikauto-aleksandar-ekzarh11",
+      "notes": "LocalruntimeSOFIA_CATALOGUE+all2000intakes comparison identifiesexistingowner/premise/phone, notnewbusiness. No serviceinventoryorbaseline/identityupdated; no claimfreshfullpricingreview.",
+      "recordedAtUtc": "2026-11-13T23:31:03Z"
+    },
+    {
+      "name": "S-Tires",
+      "website": "https://www.s-tires.com/",
+      "status": "existing_runtime_identity",
+      "existingId": "sofia-s-tires-druzhba1",
+      "notes": "LocalruntimeSOFIA_CATALOGUE+all2000intakes comparison identifiesexistingowner/premise/phone, notnewbusiness. No serviceinventoryorbaseline/identityupdated; no claimfreshfullpricingreview.",
+      "recordedAtUtc": "2026-11-13T23:31:03Z"
+    },
+    {
+      "name": "ZAR AUTO",
+      "website": "https://zarauto.bg/",
+      "status": "existing_runtime_identity",
+      "existingId": "sofia-zar-auto-kliment-ohridski",
+      "notes": "LocalruntimeSOFIA_CATALOGUE+all2000intakes comparison identifiesexistingowner/premise/phone, notnewbusiness. No serviceinventoryorbaseline/identityupdated; no claimfreshfullpricingreview.",
+      "recordedAtUtc": "2026-11-13T23:31:03Z"
+    },
+    {
+      "name": "ОрионАуто",
+      "website": "https://orionauto.eu/",
+      "status": "existing_runtime_identity",
+      "existingId": "sofia-orionauto-tsarigradsko391",
+      "notes": "LocalruntimeSOFIA_CATALOGUE+all2000intakes comparison identifiesexistingowner/premise/phone, notnewbusiness. No serviceinventoryorbaseline/identityupdated; no claimfreshfullpricingreview.",
+      "recordedAtUtc": "2026-11-13T23:31:03Z"
+    }
+  ],
+  "freezeAudit": {
+    "checkedAtUtc": "2026-11-13T23:31:03Z",
+    "schemaRecords": 10,
+    "readyForReview": 10,
+    "pending": 0,
+    "rejected": 0,
+    "existingDistinctRuntimeAndIntakeRecords": 1555,
+    "pricingStates": {
+      "reviewed": 9,
+      "service_reviewed": 1
+    },
+    "nativeDedupe": "Noidentitymatchwithnative6publicfixtures:AutocomplexRS/KerelskiPirin83/TouchPirin42/ZenKazbek63/VesiSinanishko13/AIMDianabad; no publicprivateprofile/GPSinspection.",
+    "identityBinding": "No inventoryIdentity persisted; rootmanualnormalizedreview required.",
+    "sourceWarnings": [
+      "GeneralGaitani/uslugi verificationchallengeAFTERsixselectedactualbranchformsandfeesfullyread; no further gaitani.com requests orunpricedotherbranches added. CurrentCentreexplicitrepair/noactivities HOLD andFlora65actualform410HOLD.",
+      "Mobilbg source terms§2.3personal/noncommercialinformationonly STOP; Kazam403 STOP; IvonServiceschallenge STOP; other inheritedplatform/sourceSTOPsremaininforce.",
+      "Gaitani class 'group on7years' describes tenure, NOTchildage. Onlyactualbeginnerprogramme/branchfees used; no staff/room/levelclones.",
+      "GaitaniLozenets actualformexplicit139OU; officialHOSTschoolcontactpostalDimitarHadzhikotsev44 reviewed separately. Ownarticle18:30vsform19:40 schedule omitted. No map/geocode inference."
+    ],
+    "photoContexts": [
+      {
+        "id": "sofia-redline-speed-prepurchase-mobile",
+        "service": "Оглед на лек автомобил при продавача, без купувача: един специалист, преносима проверка/диагностика и доклад. Не стационарна проверка на подемник, не ремонт."
+      },
+      {
+        "id": "sofia-dunev-motor-sport-asen-yordanov4",
+        "service": "Машинен ХОРИЗОНТАЛЕН тест на ходовата част на лек автомобил; платформен тестер за хлабини. Не OBD диагностика, не вертикален амортисьорен тест, не реглаж."
+      },
+      {
+        "ids": [
+          "sofia-sheve-dance-albert-long5",
+          "sofia-gaitani-druzhba2-obikolna36",
+          "sofia-gaitani-mladost3-bl334",
+          "sofia-gaitani-lyulin-dertliev25",
+          "sofia-gaitani-musagenitsa-belkovski1",
+          "sofia-gaitani-studentski-yosifov1",
+          "sofia-gaitani-lozenets-139ou",
+          "sofia-baiadery-mladost2-budnina"
+        ],
+        "service": "Групови български народни танци: Sheveвъзрастни/тийнейджъри; Baiaderyвъзрастниначинаещи; Gaitaniредовниначинаещигрупи, без измислена детска възраст. Съществуващият exactfolkgroupasset вероятно подходящ следrootvisualreview."
+      }
+    ],
+    "verificationScope": "Localschema/dedupe/pricingreceipt gate only. No sharedimports/identities/photos/testfiles/prodDB/networkbookings changed. Finalfullsuite/build/cataloguecheck ownedbyroot."
+  }
+}

@@ -64,7 +64,7 @@ test('official points count as located separately from owner and OSM metadata, w
     firstPartyPoints: 1, reviewedOsmAddressPoints: 1, officialSofiaAddressPoints: 1,
   })
   assert.equal(JSON.stringify([official, owner, osm, mobile, unknown, moved]), before)
-  const current = catalogueExpansionReport(SOFIA_CATALOGUE, { now: Date.parse('2026-11-13T12:00:00Z') })
+  const current = catalogueExpansionReport(SOFIA_CATALOGUE, { now: Date.parse('2026-11-14T12:00:00Z') })
   assert.equal(current.locations.officialSofiaAddressPoints, 366 + approvedGrowthLocations.pointCount + approved2000Locations.pointCount)
   assert.equal(current.locations.firstPartyPoints + current.locations.reviewedOsmAddressPoints + current.locations.officialSofiaAddressPoints, current.locations.located)
   assert.equal(current.locations.located + current.locations.unlocatedPremises + current.locations.serviceAreaProviders, current.currentlyEligible)

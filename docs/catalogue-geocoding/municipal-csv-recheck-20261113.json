@@ -53,8 +53,8 @@
   "next14HomeEducationBusinesses": { "newExactPostalBindings": 7, "ambiguousHeld": 1, "unresolvedIncludingMobileProviders": 6, "review": "Full owner-sourced street/house/suffix manually compared. Exact BachoKiro5 entranceБ and StudentCity block55 entranceГ preserved; no guessed block/street-number conversion. Mur72 has two rows and remains held. SofiaMath source details remain held for lack of a currently confirmed paid intake, not counted or source-bound to a public record." },
   "next19AutoBeautyBusinesses": { "newExactPostalBindings": 3, "ambiguousHeld": 5, "unresolvedHeld": 10, "uniquePostalButVenueHeld": 1, "review": "Bogdan15,OsogovskiProhod1,SvSvKirilIMetodiy90 manually compared to the sole exact row. Banat17 removed with provider-tariff-dependent business held after source access terms review. ProSport NSA KlimentOhridski22 matches rn21797 postal address, but large campus does not identify the actual tennis court. Own contacts publishes only an embed viewport and name, not a literal destination marker; no viewport or postal-campus point accepted as a precise venue pin." },
   "next37HomeAutoWellnessBusinesses": { "newExactPostalBindings": 17, "ambiguousHeld": 4, "unresolvedIncludingMobileProviders": 15, "uniquePostalSupersededByOwnerLiteralPoint": 1, "review": "Manually compared ten education/art/legal and seven other unique full street-house-suffix matches with the sole municipal row. DirtyGarage, child-swimming complex, BalanSense entrances and duplicate OtetsPaisiy3 remain unlocated. MalinovaSport sole postal rn99802 is not used: own current homepage explicitly publishes GPS42.630767,23.360355 beside its actual complex address; this literal owner point is separately bound to that address, not inferred from viewport or nearby postal coordinates. No claim to a particular court or parking entrance." },
-  "totalNewCsvBindings": 146,
-  "combinedReviewedOfficialPoints": 647,
+  "totalNewCsvBindings": 156,
+  "combinedReviewedOfficialPoints": 657,
   "previousCheckpoint1523Inventory": {
     "eligibleBusinesses": 1523,
     "withSourceBoundCoordinates": 839,
@@ -70,7 +70,7 @@
     ],
     "review": "Whole eligible inventory replayed offline against owner-supplied CSV. No additional sole exact postal row is unreviewed. Five unique rows remain deliberately held for actual physical-site clarification. Missing/ambiguous points remain null; no invented distances."
   },
-  "wholeEligibleInventoryAfterBindings": {
+  "previousCheckpoint1548Inventory": {
     "eligibleBusinesses": 1548,
     "withSourceBoundCoordinates": 847,
     "withoutSourceBoundCoordinates": 701,
@@ -84,6 +84,116 @@
       "sofia-arnaudov-uzunova-tsar-boris19"
     ],
     "review": "Whole currenteligible inventory replayed offline against owner CSV after333new additions. No sole exact postal row left unreviewed: five held for physical-site clarification. Mobileproviders lackstationarypins; ambiguous/missingaddressesremainnull. Noexternalgeocoding/clientlocation or inventedkilometres."
+  },
+  "wholeEligibleInventoryAfterBindings": {
+    "eligibleBusinesses": 1582,
+    "withSourceBoundCoordinates": 858,
+    "withoutSourceBoundCoordinates": 724,
+    "unresolvedIncludingMobileProviders": 569,
+    "ambiguousExactPostalRowsHeld": 149,
+    "remainingUniquePostalRowsHeldForPhysicalSiteConfirmation": [
+      "sofia-shining-polishing-auto",
+      "sofia-katerene-europe-private",
+      "sofia-pro-sport-nsa-kliment22",
+      "sofia-ot-izvora-voenna-han-omurtag42",
+      "sofia-arnaudov-uzunova-tsar-boris19",
+      "sofia-double-yellow-squash-nsa"
+    ],
+    "review": "Whole current1582eligibleinventory replayedofflineagainstownerCSVafter367newnetadditions. Everysoleexactpostalrow reviewed: sixphysicalsiteclarificationholdsremain. No first/nearest/centroid/guessedpoint orkilometres. GreenSportownerliteraldestinationdistinctfromURLviewportseparatelysourcebound; noGoogleMapsrequest."
+  },
+  "rootCheckpoint1582Amendment": {
+    "checkedAtUtc": "2026-11-14T01:13:51.423Z",
+    "eligibleBusinesses": 1582,
+    "netAdditionsSinceLive1215": 367,
+    "sourceHeldUnpublishedRowsRemovedAfter1548": [
+      "sofia-ddauto-lyulin-dertliev57",
+      "sofia-sba-mladost3-gtp"
+    ],
+    "newExactPostalBindingsSince1548": 11,
+    "removedCsvBindingsSince1548": 1,
+    "newSubtotal": 156,
+    "combined": 657,
+    "original501CoordinatesRewritten": 0,
+    "approvedPostalPairs": [
+      [
+        "sofia-house-of-pilates-van-gogh1",
+        "122994"
+      ],
+      [
+        "sofia-nosia-mladost1",
+        "108550"
+      ],
+      [
+        "sofia-nosia-todor-alexandrov17",
+        "45647"
+      ],
+      [
+        "sofia-mavelle-godech3",
+        "95989"
+      ],
+      [
+        "sofia-vean-tattoo-stambolov6",
+        "46316"
+      ],
+      [
+        "sofia-studio-s-mladost1-chomakov4a",
+        "99315"
+      ],
+      [
+        "sofia-olympia-tsaribrodska75",
+        "48648"
+      ],
+      [
+        "sofia-image-style-rosie-fil-madrid39",
+        "44619"
+      ],
+      [
+        "sofia-symmetry-design-bulgaria105a",
+        "120246"
+      ],
+      [
+        "sofia-slightly-offensive-strandzha52a",
+        "46962"
+      ],
+      [
+        "sofia-plamen-yurukov-aikido-dianabad",
+        "34419"
+      ]
+    ],
+    "ownerPoint": "docs/catalogue-geocoding/greensport-owner-point-20261114.json",
+    "remainingUniquePhysicalSiteHolds": [
+      {
+        "id": "sofia-shining-polishing-auto",
+        "address": "София, НПЗ Искър, ул. Мюнхен 14",
+        "rn": "96395"
+      },
+      {
+        "id": "sofia-katerene-europe-private",
+        "address": "София, Дружба 1, бул. Искърско шосе 7, Търговски център Европа, сграда 1",
+        "rn": "117374"
+      },
+      {
+        "id": "sofia-pro-sport-nsa-kliment22",
+        "address": "София, бул. Климент Охридски 22",
+        "rn": "21797"
+      },
+      {
+        "id": "sofia-ot-izvora-voenna-han-omurtag42",
+        "address": "София, ул. Хан Омуртаг 42, Winbet Sport & Event Centre, в двора на Военна академия",
+        "rn": "25167"
+      },
+      {
+        "id": "sofia-arnaudov-uzunova-tsar-boris19",
+        "address": "София, бул. Цар Борис III 19, до вх. А, партер",
+        "rn": "20180"
+      },
+      {
+        "id": "sofia-double-yellow-squash-nsa",
+        "address": "София, ул. Акад. Стефан Младенов 21, НСА, Многофункционална зала, ниво -1",
+        "rn": "112737"
+      }
+    ],
+    "observations": "Actual14Novrootcomparisonsdated14. Historical13Novsourcefactsand501fullprecisionpointsunchanged. SourceCSVoriginalSHArecheckedunchanged. NoNominatimcalls; limited165auditremainsclosed."
   },
   "rootCheckpoint1548Amendment": {
     "checkedAtUtc": "2026-11-14T00:14:54.377Z",

@@ -110,10 +110,10 @@ test('Classic M literal owner GPS is bound to the actual Dimitar Dobrev address 
   assert.equal(catalogueBoundCoordinates({ ...business, address: business.address + 'Б' }), null)
 })
 
-test('unpublished restricted-provider holds are absent from catalogue, onboarding, reviews, identities and postal subset', () => {
+test('unpublished restricted-source holds are absent from catalogue, onboarding, reviews, identities and postal subset', () => {
   for (const id of ['sofia-hair-garden-sladura7', 'sofia-sense-wellness-tsar-osvoboditel16',
     'sofia-artista-visarion-belinski', 'sofia-mens-cave-kipriyan44',
-    'sofia-newlook-parchevich22a', 'sofia-sibova-nails-cherni-vrah75']) {
+    'sofia-newlook-parchevich22a', 'sofia-sibova-nails-cherni-vrah75', 'sofia-ddauto-lyulin-dertliev57', 'sofia-sba-mladost3-gtp']) {
     assert.equal(row(id), undefined)
     assert.equal(identities[id], undefined)
     assert.ok(!reviews.some(item => item.id === id))

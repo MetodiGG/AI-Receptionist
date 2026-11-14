@@ -18,7 +18,8 @@ import { discoverySearchInput } from '../lib/discovery/search-ui.mjs'
 import approvedGrowthLocations from '../public/catalogue-official-address-growth-subset-20261113.json' with { type: 'json' }
 import approved2000Locations from '../public/catalogue-official-address-2000-subset-20261113.json' with { type: 'json' }
 
-const now = Date.parse('2026-11-13T12:00:00Z')
+// Current aggregate now includes genuinely reviewed14Nov sources; historical batch clocks remain unchanged.
+const now = Date.parse('2026-11-14T12:00:00Z')
 const ids = new Set(additions.map(row => row.id))
 const baseline = JSON.parse(await readFile(new URL('../docs/catalogue-pricing/expansion-baseline-20261113.json', import.meta.url)))
 
@@ -46,7 +47,7 @@ test('new unique, source-reviewed Sofia businesses are imported without mutating
     assert.ok(['reviewed', 'service_reviewed'].includes(outcome.state), `${row.id}: ${outcome.reason}`)
     assert.equal(outcome.state === 'reviewed', row.services.some(service => service.price), row.id)
     if (row.openingHours) {
-      assert.equal(row.openingHours.checkedOn, '2026-11-13')
+      assert.equal(row.openingHours.checkedOn, review.checkedOn, row.id)
       assert.ok(review.reviewedUrls.includes(row.openingHours.sourceUrl), row.id)
     }
     if (row.locationKind === 'service_area') assert.equal(row.coordinates, null)

@@ -1,0 +1,320 @@
+{
+  "rootIntegrationReview": {"checkedAtUtc":"2026-11-14T01:09:41.023Z","notes":"Rootreadall6fullrecords+6fullreviewnotes beforeintegration; sourcecompleteactualphone/formchannelsnotJSavailability claims. Literal namedGolf50minfee notperperson/all3claim; privatePadel60minincourt/racket; CrossFitprivate60min; Aikidomonthly80BGNnotoneclass; indoorwintercourt30EURVATinc; mobile/pitchfeesnotinvented. Five specificgeneratedassets+oneexistingfootballrental individuallyreviewed, sourceassetprovenance registered. Only newnormalizedinventory identities, nolegacybaseline/hashrefresh orproductionmutations. Sportscomplexhospitalhostname isnonmedicalcourtservice, notdoctor/cliniclisting."},
+  "batch": "auto-sport-2000-010-20261113",
+  "status": "frozen_ready_for_root_review",
+  "dateConvention": "UTC reviews after00:00Z use2026-11-14/2027-02-12; filename remains batch identifier. Europe/Sofia class times unchanged.",
+  "scope": "Own-source reserved sports/auto/staffedwash/detailing; real venues only, no genericgym/selfservice/teacher/room clones.",
+  "sourceRestrictions": "Inherited stops respected, no UI/Maps/Nominatim/privateGPS/providerbulk/booking/accounts/consent. AdditionalSofiaTennis403 and YogaIPriateli tariffverificationstop.",
+  "counts": {
+    "records": 6,
+    "services": 6,
+    "reviews": 6,
+    "pricedServices": 5,
+    "pending": 11,
+    "rejected": 3
+  },
+  "orderedLedger": [
+    {
+      "order": 1,
+      "id": "sofia-city-golf-academy-abagar462",
+      "name": "Sofia City Golf Academy",
+      "status": "verified",
+      "website": "https://scgolfacademy.bg/",
+      "bookingUrl": "https://scgolfacademy.bg/index.php/lessons/",
+      "serviceUrls": [
+        "https://scgolfacademy.bg/index.php/lessons/"
+      ],
+      "contactUrl": "https://scgolfacademy.bg/index.php/contacts/",
+      "findings": "Actual owner GolfLessons entry reviewedfirst, including its public booking requestform (name/contactphone/startdate/players1–3/email), then fullsamepage trainingtariff and dedicatedcontacts. No fields completed/date/playersselected or submit. Selected named GCQuad coachedlesson50min, not gymadmission, retailfitting or 18-holegame. CurrentliteralEUR61.20/50min read in fullactualHTTP200 and reader; BGN120 also printed but notconverted/repaired with guessedexchange. Feeunit stays onepublished50minlesson, notassertedperperson or allthreeplayerssamefee; higherpartyterms clarifiedbyowner. ExactownAbagar462/Sofia/phone verified; quarterunknownleftnull. No map requests/coordinates: ownerlink ll/z isviewport, notsourcepoint. Header/footer fullnavigation read, no terms/tariffPDF/otherBook linkvisible, ordinarycopyright notcopiedexpressivecontent. Runtime+all2000intakes+native6 domain/phone/address0match. No UI/accounts/payment/customerinput/booking/sourcephotos.",
+      "checkedAtUtc": "2026-11-14T00:28:16Z"
+    },
+    {
+      "order": 2,
+      "id": "sofia-premier-padel-private-georgi-belov5",
+      "name": "Premier Padel Club",
+      "status": "verified",
+      "website": "https://premierpadelclub.bg/",
+      "bookingUrl": "https://premierpadelclub.bg/classes.html",
+      "serviceUrls": [
+        "https://premierpadelclub.bg/classes.html"
+      ],
+      "contactUrl": "https://premierpadelclub.bg/",
+      "findings": "Actual owner Book→/bookings.html followedfirst and explicitly linked Courtlypage read: namedclub but available-slotmenu remainsLoadingJS, no claimcalendar/onlinepricescleared. Independent actualown/classes explicitly BookLesson+CallNow publishedbranchphone, with complete private1-on-1 tariff50EUR/60min includingcourt/racket; selectedphonefallback only. FullownedpublicHTTP200 coachingmenu read: lesson2total60/group25perperson/10pack400 notprojectedintosingleservice; Pilates/wellness/gymadmission notselected or separatebusiness. Root/contact/classes exactGeorgiBelov5/Gorubliane/phone agree. Own08–midnight differsprovider07–midnight; omitopeningHours andnotinvent23:59. Courtlyfullpublicterms readthrough170lines: standardIPelements, noexplicitextraction/database/noncommercial-only prohibition found; nolegalclearanceclaim. Sourcefee is exclusivelyowner, notunreadproviderchart. No termslinkincompleteownerfooter observed. Runtime+all2000intakes+native6 owner/phone/address0match. No UI/accounts/customerinput/slots/payment/booking/consent/sourcephotos.",
+      "checkedAtUtc": "2026-11-14T00:30:00Z"
+    },
+    {
+      "order": 3,
+      "id": "sofia-crossfit-serdika-vasil-levski",
+      "name": "CrossFit Serdika",
+      "status": "verified",
+      "website": "https://crossfitserdika.com/",
+      "bookingUrl": "https://crossfitserdika.com/",
+      "serviceUrls": [
+        "https://crossfitserdika.com/rates/",
+        "https://crossfitserdika.com/en/rates/"
+      ],
+      "contactUrl": "https://crossfitserdika.com/contact/",
+      "findings": "Actual owner Book/Schedule entry reviewedfirst: /schedule links Fitsysiframe; no new unknownFitsysrequest or claimcalendar/slot/onlinefeechecked. Explicit owner header/footer 'За записване' phone +359886321377 is used; separate generalcontact+359888801254 not substituted. Independent complete own BGtariff35.79EUR onepersonaltraining, own ENtariff explicitly60min1-to-1; not group15.34/unlimited/beginnercourse or freetrial. ExactstadiumsectorВ entry/address agreescontact/box; no guessedstreetnumber/postalpoint/coords. FullactualHTTP200 root/rates/contact read including publicnavigation/footer, no terms/privacy linkobserved andno expressivecontent/photoscopied. Hours fromowncontactMonFri07:30–20:30/weekend10:30–13:30. Runtime+all2000intakes0domain/name/phone/addressmatch, native6none. No booking/calendar selections/input/consent/account/payment/UI.",
+      "checkedAtUtc": "2026-11-14T00:43:44Z"
+    },
+    {
+      "order": 4,
+      "id": "sofia-plamen-yurukov-aikido-dianabad",
+      "name": "Пламен Юруков Айкидо Доджо",
+      "status": "verified",
+      "website": "https://sofia-aikido.com/",
+      "bookingUrl": "https://sofia-aikido.com/vazrastni/",
+      "serviceUrls": [
+        "https://sofia-aikido.com/vazrastni/"
+      ],
+      "contactUrl": "https://sofia-aikido.com/kontakti/",
+      "findings": "Actualownroot Book→contacts requestfirst, then dedicatedadult/vazrastni includes publicconfiguredadult/childservicechoices and multistepbooklabels service/instructor/date/customer/review/confirmation; fullactualHTTP200read, no service/date/person/input/submit selected. Confirmationtext is inerttemplate, NOTa completedreservation; noavailabilityclaim. Selectedregularadultgroupplan80BGN/monthliteralownprice/no visitlimit, notindividual1-on-1despitemaxattendeeperbooking1 genericwidgettext; no feeconvertedtoEUR, no freeyouthproject, durationomittedbecauseclasslengthvaries. DedicatedactualcontactexactDianabadNikolaGabrovski1/+359888771855; noMaps/coords. Fullpublicprivacy30Jan2024readinboundedchunks, primarilyGDPR/ecommercetemplate, noexplicitextraction/commercialfactsbanobserved; nootherlegal/pricePDFlinkvisibleinfullownerfooter. Runtime+all2000intakes+native6domain/phone0match, similarNikolaGabrovski102AGPointnotthisvenue. NoUI/accounts/customer/booking/payment/consent/sourcephotos.",
+      "checkedAtUtc": "2026-11-14T00:55:48Z"
+    },
+    {
+      "order": 5,
+      "id": "sofia-sport-complex-lozenets-tennis-kozyak2",
+      "name": "Спортен комплекс „Лозенец“",
+      "status": "verified",
+      "website": "https://sport.lozenetz-hospital.bg/",
+      "bookingUrl": "https://sport.lozenetz-hospital.bg/%D0%A1%D0%BF%D0%BE%D1%80%D1%82/%D0%A2%D0%B5%D0%BD%D0%B8%D1%81-%D0%BD%D0%B0-%D0%BA%D0%BE%D1%80%D1%82/l4",
+      "serviceUrls": [
+        "https://sport.lozenetz-hospital.bg/%D0%A1%D0%BF%D0%BE%D1%80%D1%82/%D0%A2%D0%B5%D0%BD%D0%B8%D1%81-%D0%BD%D0%B0-%D0%BA%D0%BE%D1%80%D1%82/l4",
+        "https://sport.lozenetz-hospital.bg/%D0%97%D0%B0-%D1%86%D0%B5%D0%BD%D1%82%D1%8A%D1%80%D0%B0/%D0%A6%D0%B5%D0%BD%D0%BE%D1%80%D0%B0%D0%B7%D0%BF%D0%B8%D1%81/s14"
+      ],
+      "contactUrl": "https://sport.lozenetz-hospital.bg/",
+      "findings": "ActualownBookphoneinstruction inselectedtennispage/footer reviewedfirst, then fullcurrentHTMLtariffdated28May2026 and actualownerlinked5pagePDF downloadedHTTP200/rendered/readallpages. PDFp2code32 clearly30EUR/onehour/winterXI–IV, p5VATincluded; HTMLagrees. No summer12/15/18fee/carddiscount substituted, courtNOTperplayer/coach/basinticket/genericgym/medicaltherapy. Actualowner2indoorcourtsyearround(winterballoonNov–Apr); selectedwinterhournoavailabilitypromise. SportscomplexownrootandPDF exactKozyak2/+35929607473; hospitalGDPRparentpageKozyak1 ismainhospitalnotnewconflictingvenue, publicparentexplicitlinkstoSportsComplex. Fullparentprivacy172lines read ordinaryGDPR/noexplicitextractionbanobserved; nofurtherlegal/bookinglinkvisibleownsportsnavigation. Runtime+all2000intakes+native6domain/canonicalmerchant/phone0match; neighboringBeautyPlaceKozyak27–29notthisoperator. Nohoursinferredfromsummerbands, coordsnulllargecomplex, noMaps/calls/booking/UI/accounts/consent/sourcephotos.",
+      "checkedAtUtc": "2026-11-14T00:57:54Z"
+    },
+    {
+      "order": 6,
+      "id": "sofia-greensport-minifootball-geomilev158",
+      "name": "Green Sport · спортен комплекс",
+      "status": "verified",
+      "website": "https://greensportbg.com/",
+      "bookingUrl": "https://greensportbg.com/contacts",
+      "serviceUrls": [
+        "https://greensportbg.com/service/tereni-za-minifutbol",
+        "https://greensportbg.com/services/sport"
+      ],
+      "contactUrl": "https://greensportbg.com/contacts",
+      "findings": "Actualowner/contacts phone-bookinstruction forpitchreadfirst: explicitlyreservepitchforfriendsand0887358547 labelledTerени, notrestaurant0877870018/bar017. CompletecurrentpublicHTTP200 selectedminifootballandSportoverview/root/contacts/footerread; selectedfootballrentalhasnonumericfee/duration andnodedicatedsportspricepage/PDFlinkinobservedfullnavigation. Restaurantmealmenusareseparatelylabellednotrentalprices/notselected. Genuineunpublishedselectedpitchfee, notblockedcalendar; actualphonepathonly, noBookingGoodrequest/platformdataused. HTMLcommented'freeemailreservation'notvisibleformNOTused/free-serviceclaim. ExactownGeoMilev158VTUcontactagree; onecomplexonlynottenpitches/restaurant/partyroomclones. Fieldcount4vs10inrootconflicts, omittedcount; quarter/hours/duration/coordsnull, largecampusnotarbitrarypostalpoint. Publiccontactcontainsliteralownerlinkedmarker3d42.6767565/4d23.3805799 vsdifferentviewport@42.690619/23.3132929, notimportedpointpendingrootmanualreview/noMapsrequest. No terms/privacylinkvisibleobservedownerfooter, ordinarycopyrightonly notcopiedexpressivecontent/photos/reviews. Runtime+all2000intakes+native6domain/phone/address0match; noUI/input/call/booking/payment/consent.",
+      "checkedAtUtc": "2026-11-14T01:00:27Z"
+    }
+  ],
+  "pending": [
+    {
+      "name": "Тендокан Доджо",
+      "website": "https://www.tendokandojo.com/",
+      "status": "held_booking_menu_address_conflict",
+      "reviewedUrls": [
+        "https://www.tendokandojo.com/",
+        "https://www.tendokandojo.com/services"
+      ],
+      "checkedOn": "2026-11-14",
+      "findings": "Actualowntrainingenrolment/serviceshref followedfirst;publicHTTP200SSR showsheader/navonly, no actualtrainingmenu/form. MainheaderBusinessParkSofia16DvscontactSofiaPark16Dconflict. Knownseparatepricepage indexedpackages notdeclaredunpublished norprojectedwithoutcurrentactualservice/venue confirmation. NoWixAPI/bundle/hiddenmenu/UI/accounts/bookings."
+    },
+    {
+      "name": "Централен полицейски карате и джу джицу клуб · София",
+      "website": "https://police-karate.bg/",
+      "status": "held_source_terms_and_booking_unverified",
+      "reviewedUrls": [
+        "https://www.police-karate.bg/",
+        "https://police-karate.bg/obsthi-usloviya/",
+        "https://police-karate.bg/zali-i-grafik/sofiya-stadion-rakovski/",
+        "https://police-karate.bg/zali-i-grafik/sofiya-nscz-dianabad/",
+        "https://police-karate.bg/zali-i-grafik/sofiya-stadion-gerena-osk-levski-sofiya/"
+      ],
+      "checkedOn": "2026-11-14",
+      "findings": "Actualthreebranchprogrammes/phones/venuesread, notclonedinrecords. FullcurrenttermsJan28_2025§8(1)allinformationand§8(3)copy/use/reproducewithoutconsent exceptstatutorycases: broadinformationrestrictionnotonlyexpressiveassets, conservativeHOLDrootnotified/no furtherrequests. Noexplicitpriorenrolment observed, genericinstructorcontactsinsufficient. NoMaps/photos/booking/consent."
+    },
+    {
+      "name": "JGOLF Simulator",
+      "website": "https://jgolf.org/",
+      "status": "held_access_challenge",
+      "checkedOn": "2026-11-14",
+      "reviewedUrls": [
+        "https://jgolf.org/"
+      ],
+      "findings": "Reader timeout; oneordinarypublicGET403Cloudflareblocked page. STOPentirehost no retry/alternateendpoint/UI. IndexedopeningOctober2026 notenoughproofactualopenedmenu/currentbooking; no import."
+    },
+    {
+      "name": "D&D Auto · Младост",
+      "website": "https://ddauto.bg/",
+      "status": "held_source_terms_and_possible_successor_duplicate",
+      "checkedOn": "2026-11-14",
+      "reviewedUrls": [
+        "https://ddauto.bg/",
+        "https://ddauto.bg/contact-us/",
+        "https://ddauto.bg/prices-uslugi-ceni-dd-auto-trade-service/",
+        "https://ddauto.bg/services/pregled-predi-patuvane/",
+        "https://ddauto.bg/services/smyana-na-maslo-i-filtri-dvigatel-sofia/",
+        "https://ddauto.bg/privacy-policy/"
+      ],
+      "findings": "ActualownerBook/contact form independentlylistsMladost+Lyulin branchchoices/name/date/time/vehicle/services; noinputs/submission. ExactMladostMalinov36 ownlabel'formerVIPservice'; runtimealreadysofia-vip-service-mladost1-malinov36, potentialsuccession/aliasnotcountednew. Fulllegalprivacy/IPtext explicitlyautomaticdevices/dataextraction/commercialsiteparts/listpricesprohibitionwithoutwrittenconsent. STOPDDhostslistedddtrade/ddclima/climadd/ddautoservice/ddauto/avtoklimatici, rootnotified. Neither45EURpretripnor30.59oilfeeimported; noclaimunpublished."
+    },
+    {
+      "name": "Padel Club Boyana · coaching",
+      "website": "https://boyanapadel.com/",
+      "status": "held_selected_private_booking_scope",
+      "checkedOn": "2026-11-14",
+      "reviewedUrls": [
+        "https://boyanapadel.com/",
+        "https://boyanapadel.com/coaching",
+        "https://boyanapadel.com/courts",
+        "https://boyanapadel.com/contact"
+      ],
+      "findings": "ActualownerBookonlyCourtlyappdownload; noinstall/account/UI. Independentowncoachingpage listsindividualsessionssinglescourt amongfourprogrammes, then sharedgeneralfirstlessonphoneCTA. Rootrequiresselected1-on-1directlyboundtoCTA; not explicitenoughsoconservativehold. NoCourtcourt-rentalfeesused, lessonnotclaimedfree/unpublished; exactSofiaBoyanaDaskalStoyanPopandreev11/+359885138782 sourced, noMaps."
+    },
+    {
+      "name": "CrossFit Dream Motopista",
+      "website": "https://ultimatetraining.bg/",
+      "status": "held_source_integrity",
+      "checkedOn": "2026-11-14",
+      "reviewedUrls": [
+        "https://ultimatetraining.bg/"
+      ],
+      "findings": "Ownerrootreader exposes unrelatedonion/Hydralink inheader. No maliciouslinkclicked, no furtherhostrequests, conservativeholdsourceintegrity. Existingsearchtariff/address notimported. No Fitsysrequests/UI/booking."
+    },
+    {
+      "name": "Infinity Team · Люлин 10 и Стрелбище",
+      "website": "https://dancesportsofia.com/",
+      "status": "held_source_rule_scope_and_colocated_identity",
+      "checkedOn": "2026-11-14",
+      "reviewedUrls": [
+        "https://dancesportsofia.com/",
+        "https://dancesportsofia.com/register",
+        "https://dancesportsofia.com/services",
+        "https://dancesportsofia.com/payments",
+        "https://dancesportsofia.com/terms",
+        "https://dancesportsofia.com/privacy",
+        "https://dancesportsofia.com/contacts",
+        "https://dancesportsofia.com/locations/majski-den",
+        "https://dancesportsofia.com/locations/bulgaria-43",
+        "https://dancesportsofia.com/about",
+        "https://dancesportsofia.com/__l5e/assets-v1/bbb9ee7f-2415-40ad-9168-3c906bbf5a31/pravilnik-vatreshen-red-2026.pdf"
+      ],
+      "findings": "Actualown/register publicfullenrolmentform hasbothrealvenuechoices andgroupconfirmation; fullpayments44EURmonthlyRegularmax8visits/max2perweek/person/calendar-month+auto-renewal(notunitvisitfee). ExactMayски26floor2 co-locatedoldTancuvai differentbrand/phones/EIK207691259butindependenceverificationpending; Bulgaria43/126OU exactcurrentownvenue. Fullownterms/privacyread. Scanned19pagePDFimage-only; rendered/readpages1–15, stoppedsource-scopequestiononp11§36(3)name/logo/graphics/contactlistsnotprivate/competitiveactivitywithoutwrittenpermission; p2scopeprimarilyparticipants/staff/onclubbehalf. p12§40expressivematerials. Rootnotifiedjudgment, nolegalclearanceclaim, nofurtherownerrequests/provider/privatecalendars/input/booking/payments."
+    },
+    {
+      "name": "Автосервиз София · от собственик",
+      "website": "https://avtoservizsofia.com/",
+      "status": "held_business_identity_and_address_unverified",
+      "checkedOn": "2026-11-14",
+      "reviewedUrls": [
+        "https://avtoservizsofia.com/",
+        "https://avtoservizsofia.com/za-nas/",
+        "https://avtoservizsofia.com/zayavka/"
+      ],
+      "findings": "Actualpublicownerrequestform andliteralindicativetariffread butnofirstpartypublishedphone, actualmechanic/legaloperatorname or premisesaddress. Ownstatesaddressprovidedonlyafterrequest. 136quarterSEO pagesnotdistinctvenues. Cannotdedupephysicaloperatororverifyidentity; noimport/requests/submissionsorpretendservice_areaaddress."
+    },
+    {
+      "name": "Overfight · три софийски зали",
+      "website": "https://www.overfight.bg/",
+      "status": "held_actual_branch_enrolment_loading",
+      "checkedOn": "2026-11-14",
+      "reviewedUrls": [
+        "https://www.overfight.bg/",
+        "https://www.overfight.bg/contacts",
+        "https://www.overfight.bg/about"
+      ],
+      "findings": "PublicrootactualHTTP200realhalls/enrolmentremainLoading; searchcachedindexbranchCTAsnotcurrentreadproof. OwncontactlistsEdison29/PetkoKaravelov5/EmiliyanStanev2Abl6 and0899111290, butgeneralcontactnotexplicitpriorbooking. No hiddenAPI/bundle/JSUI/providerrequest. OwnfooterPolitikaactually/aboutdescriptionnotseparatelegalterms. Holdall3notcloned."
+    },
+    {
+      "name": "Aiki School · три софийски доджота",
+      "website": "https://aikischoolbg.com/",
+      "status": "held_explicit_appointment_instruction_unverified",
+      "checkedOn": "2026-11-14",
+      "reviewedUrls": [
+        "https://aikischoolbg.com/",
+        "https://aikischoolbg.com/contact-us/",
+        "https://aikischoolbg.com/prices/",
+        "https://aikischoolbg.com/classes/",
+        "https://aikischoolbg.com/schedule/",
+        "https://aikischoolbg.com/useful-information/",
+        "https://aikischoolbg.com/privacy-policy/"
+      ],
+      "findings": "Real3venues/phones/schedules andcurrent2026–27 literal25EURsingle/80monthly PLUS130EURmandatoryannualfee ownfulltariffread; no fee imported/unqualified. Generalcontactform/currentphone/schedule notexplicitpriorappointment; usefulinformationnoenrolmentorbookinginstructionfound. Holdnotassumephonebook. FullprivacyordinaryGDPRnoexplicitextractionbanobserved. NoUI/maps/accounts/forminput."
+    },
+    {
+      "name": "PiPong · tenisnamasa.eu",
+      "website": "https://www.tenisnamasa.eu/",
+      "status": "held_access_tls",
+      "checkedOn": "2026-11-14",
+      "reviewedUrls": [
+        "https://www.tenisnamasa.eu/"
+      ],
+      "findings": "Reader502thenoneordinaryHTTPSGETfailsTLSissuerverification; STOPnobypass/HTTPalternate/retries/UI. Unownedplatformdiscoverynotprimarybooking/currentvenueproof. Noimport."
+    }
+  ],
+  "rejected": [
+    {
+      "name": "Evolve Pilates Lab",
+      "website": "https://evolvepilateslab.com/",
+      "reason": "outside_sofia",
+      "reviewedUrls": [
+        "https://evolvepilateslab.com/"
+      ],
+      "checkedOn": "2026-11-14",
+      "findings": "Ownroot explicitlyPlovdiv, Svoboda65A. NotSofia; noimport, noBookrequest."
+    },
+    {
+      "name": "RUMEX",
+      "website": "https://rumex-bg.com/",
+      "reason": "outside_sofia",
+      "checkedOn": "2026-11-14",
+      "reviewedUrls": [
+        "https://rumex-bg.com/"
+      ],
+      "findings": "OwnrootexplicitPlovdivdetailing; SofiaKZPaddressinsearchtermfooterisregulatornotvenue. Noimport/noBookrequest."
+    },
+    {
+      "name": "TAO · Школа за движение",
+      "website": "https://www.taoclub.org/",
+      "reason": "outside_sofia",
+      "checkedOn": "2026-11-14",
+      "reviewedUrls": [
+        "https://www.taoclub.org/zanimaniq"
+      ],
+      "findings": "OwnschedulefooterexplicitVelikoTarnovo; noSofiavenueverified. Noimport."
+    }
+  ],
+  "frozenAtUtc": "2026-11-14T01:01:28Z",
+  "validation": {
+    "schemaRecords": 6,
+    "existingUniqueRuntimeAndAllOtherIntakes": 1600,
+    "readyForReview": 6,
+    "pending": 0,
+    "rejected": 0,
+    "pricedReviews": 5,
+    "serviceReviewedWithoutPublicPrice": 1,
+    "identityPersistence": "No inventoryIdentity persisted; root binds after manual source/photo review.",
+    "nativeDedupe": "All selected domains, venue addresses and phones compared against known native6 fixture identities. Five listed phone checks none; AIM Dianabad/Rusalya premises/business identity distinct from selected rows."
+  },
+  "photoContexts": [
+    {
+      "id": "sofia-city-golf-academy-abagar462",
+      "context": "Indoor GC Quad golf simulator coached lesson: golf clubs and projection/screen, coach with adult learner; not outdoor range. Booking permits player1–3 request, no guaranteed feeperallplayers."
+    },
+    {
+      "id": "sofia-premier-padel-private-georgi-belov5",
+      "context": "Private padel lesson one coach and one adult learner on padel court with solid perforated padel rackets/glass enclosure; not tennis or squash. Includescourt+racket."
+    },
+    {
+      "id": "sofia-crossfit-serdika-vasil-levski",
+      "context": "Private one-to-one CrossFit functional-training lesson: one coach and one adult in indoorbox/gym, no generic unsupervisedaccess."
+    },
+    {
+      "id": "sofia-plamen-yurukov-aikido-dianabad",
+      "context": "Adult group aikido in dojo/tatami; whitegi, coachedcontrolledpairedtechnique. No children/freeprogram, no boxing gloves or speculative swordselected."
+    },
+    {
+      "id": "sofia-sport-complex-lozenets-tennis-kozyak2",
+      "context": "Booked winter indoor tennis court, two recreationaladultplayers with tennisrack/net on indoorfloor/coveredcourt; NOTcoachedlesson or outdoorclay/summer."
+    },
+    {
+      "id": "sofia-greensport-minifootball-geomilev158",
+      "context": "Reserved mini-football pitch with artificialturf, goal/net/enclosure and adultfriendsteam; no coachclaim/nochildrenbirthday/restaurant."
+    }
+  ]
+}

@@ -56,7 +56,7 @@ test('the expanded individually sourced catalogue is committed; records are not 
   assert.ok(validateCatalogue(SOFIA_CATALOGUE).length >= 200)
   // Validate the complete current source snapshot on its latest review day;
   // the historical Nov11 search fixtures must still exclude future receipts.
-  const publicationClock = Date.parse('2026-11-13T12:00:00Z')
+  const publicationClock = Date.parse('2026-11-14T12:00:00Z')
   for (const row of SOFIA_CATALOGUE) {
     if (EXCLUDED_GENERAL_CLINIC_IDS.includes(row.id)) assert.equal(approvedCatalogueRecord(row, publicationClock), null, row.id)
     else assert.ok(approvedCatalogueRecord(row, publicationClock), row.id)

@@ -8,10 +8,10 @@
   "sourceDataDate": null,
   "sourceDataDateNote": "The supplied CSV has no embedded as-of date; do not infer the original GeoJSON snapshot date.",
   "sourceFeatureCount": 125245,
-  "scope": "Combined previously reviewed501 full-precision GeoJSON-derived bindings and146 new CSV-derived bindings; no previous point overwritten.",
+  "scope": "Combined original501 fullprecision and156 currentCSVbindings in original501-then-subsetorder. Restricted unpublished source rows absent; coordinate values never rewritten.",
   "modifications": "Selected source records and bound to reviewed business address identities; coordinate values unchanged.",
   "semantics": "official_postal_address_points_not_verified_entrances",
-  "pointCount": 647,
+  "pointCount": 657,
   "points": [
     {
       "id": "sofia-abi-beauty-nadezhda",
@@ -18716,6 +18716,434 @@
       "previousCoordinates": null
     },
     {
+      "id": "sofia-image-style-rosie-fil-madrid39",
+      "name": "Studio Image & Style · Rosie Fil.",
+      "coordinates": {
+        "latitude": 42.697007,
+        "longitude": 23.352252,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, кв. Оборище, бул. Мадрид 39",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Оборище",
+        "sourceWebsite": "https://imageandstyle.eu/",
+        "addressId": "44619",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "44619",
+        "region": "Оборище",
+        "settlement": "гр. София",
+        "street": "бул. Мадрид",
+        "house": "39",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Individually compared actual owner street/house/suffix and explicit entrance when present with the sole exact municipalityCSVrow. Ordinary realpremise, notstaff/room/landmark orcampuscentroid. Sixdecimals preserved; officialpostalpoint, not verifiedentrance.",
+        "sourceUrls": [
+          "https://imageandstyle.eu/",
+          "https://imageandstyle.eu/contacts/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-symmetry-design-bulgaria105a",
+      "name": "Symmetry Design · шоурум Кошер",
+      "coordinates": {
+        "latitude": 42.658604,
+        "longitude": 23.285939,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, бул. България 105А, вх. А, ет. 1, ап. 1, комплекс Кошер",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://symmetrydesign.bg/",
+        "addressId": "120246",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "120246",
+        "region": "Триадица",
+        "settlement": "гр. София",
+        "street": "бул. България",
+        "house": "105А",
+        "block": "",
+        "quarter": "",
+        "entrance": "А"
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Individually compared actual owner street/house/suffix and explicit entrance when present with the sole exact municipalityCSVrow. Ordinary realpremise, notstaff/room/landmark orcampuscentroid. Sixdecimals preserved; officialpostalpoint, not verifiedentrance.",
+        "sourceUrls": [
+          "https://symmetrydesign.bg/",
+          "https://symmetrydesign.bg/kontakti/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-slightly-offensive-strandzha52a",
+      "name": "Slightly Offensive Studio",
+      "coordinates": {
+        "latitude": 42.700041,
+        "longitude": 23.312213,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. Странджа 52А",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Център",
+        "sourceWebsite": "https://offensive.bg/",
+        "addressId": "46962",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "46962",
+        "region": "Възраждане",
+        "settlement": "гр. София",
+        "street": "ул. Странджа",
+        "house": "52А",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Individually compared actual owner street/house/suffix and explicit entrance when present with the sole exact municipalityCSVrow. Ordinary realpremise, notstaff/room/landmark orcampuscentroid. Sixdecimals preserved; officialpostalpoint, not verifiedentrance.",
+        "sourceUrls": [
+          "https://offensive.bg/",
+          "https://offensive.bg/booking-form/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-plamen-yurukov-aikido-dianabad",
+      "name": "Пламен Юруков Айкидо Доджо",
+      "coordinates": {
+        "latitude": 42.664108,
+        "longitude": 23.34503,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ж.к. Дианабад, ул. Никола Габровски 1",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Дианабад",
+        "sourceWebsite": "https://sofia-aikido.com/",
+        "addressId": "34419",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "34419",
+        "region": "Изгрев",
+        "settlement": "гр. София",
+        "street": "ул. Никола Габровски",
+        "house": "1",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Individually compared actual owner street/house/suffix and explicit entrance when present with the sole exact municipalityCSVrow. Ordinary realpremise, notstaff/room/landmark orcampuscentroid. Sixdecimals preserved; officialpostalpoint, not verifiedentrance.",
+        "sourceUrls": [
+          "https://sofia-aikido.com/",
+          "https://sofia-aikido.com/kontakti/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-house-of-pilates-van-gogh1",
+      "name": "House of Pilates",
+      "coordinates": {
+        "latitude": 42.655778,
+        "longitude": 23.32017,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ж.к. Кръстова вада, ул. Винсент Ван Гог 1, комплекс Амая 3",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Кръстова вада",
+        "sourceWebsite": "https://houseofpilates.bg/",
+        "addressId": "122994",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "122994",
+        "region": "Лозенец",
+        "settlement": "гр. София",
+        "street": "ул. Винсент ван Гог",
+        "house": "1",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Individually compared exact owner-sourced road type/name/full house suffix with the single matching municipal row. Real selected branch premises, not room/staff clone. No entrance inferred from a neighbouring/first/nearest/average point. Published six-decimal source coordinates unchanged; postal address point, not verified entrance.",
+        "sourceUrls": [
+          "https://houseofpilates.bg/",
+          "https://houseofpilates.bg/contacts",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-nosia-mladost1",
+      "name": "Носия · Младост 1",
+      "coordinates": {
+        "latitude": 42.652122,
+        "longitude": 23.376631,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ж.к. Младост 1, ул. Димитър Доспевски 9",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Младост 1",
+        "sourceWebsite": "https://nosia-bg.com/",
+        "addressId": "108550",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "108550",
+        "region": "Младост",
+        "settlement": "гр. София",
+        "street": "ул. Димитър Доспевски",
+        "house": "9",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Individually compared exact owner-sourced road type/name/full house suffix with the single matching municipal row. Real selected branch premises, not room/staff clone. No entrance inferred from a neighbouring/first/nearest/average point. Published six-decimal source coordinates unchanged; postal address point, not verified entrance.",
+        "sourceUrls": [
+          "https://nosia-bg.com/",
+          "https://nosia-bg.com/hall-mladost/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-nosia-todor-alexandrov17",
+      "name": "Носия · Тодор Александров",
+      "coordinates": {
+        "latitude": 42.698152,
+        "longitude": 23.318471,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, бул. Тодор Александров 17",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Център",
+        "sourceWebsite": "https://nosia-bg.com/",
+        "addressId": "45647",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "45647",
+        "region": "Възраждане",
+        "settlement": "гр. София",
+        "street": "бул. Тодор Александров",
+        "house": "17",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Individually compared exact owner-sourced road type/name/full house suffix with the single matching municipal row. Real selected branch premises, not room/staff clone. No entrance inferred from a neighbouring/first/nearest/average point. Published six-decimal source coordinates unchanged; postal address point, not verified entrance.",
+        "sourceUrls": [
+          "https://nosia-bg.com/",
+          "https://nosia-bg.com/todor-alexandrov-hall/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-mavelle-godech3",
+      "name": "Mavelle · соларно студио",
+      "coordinates": {
+        "latitude": 42.718692,
+        "longitude": 23.258438,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ж.к. Люлин 8, ул. Годеч 3",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Люлин 8",
+        "sourceWebsite": "https://solarium-lulin.com/",
+        "addressId": "95989",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "95989",
+        "region": "Люлин",
+        "settlement": "гр. София",
+        "street": "ул. Годеч",
+        "house": "3",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Individually compared exact owner-sourced road type/name/full house suffix with the single matching municipal row. Real selected branch premises, not room/staff clone. No entrance inferred from a neighbouring/first/nearest/average point. Published six-decimal source coordinates unchanged; postal address point, not verified entrance.",
+        "sourceUrls": [
+          "https://solarium-lulin.com/",
+          "https://solarium-lulin.com/contacts/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-vean-tattoo-stambolov6",
+      "name": "VEAN TATTOO · София",
+      "coordinates": {
+        "latitude": 42.698933,
+        "longitude": 23.31646,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, бул. Стефан Стамболов 6",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://vean-tattoo.bg/salony/sofiya",
+        "addressId": "46316",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "46316",
+        "region": "Възраждане",
+        "settlement": "гр. София",
+        "street": "бул. Стефан Стамболов",
+        "house": "6",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Individually compared exact owner-sourced road type/name/full house suffix with the single matching municipal row. Real selected branch premises, not room/staff clone. No entrance inferred from a neighbouring/first/nearest/average point. Published six-decimal source coordinates unchanged; postal address point, not verified entrance.",
+        "sourceUrls": [
+          "https://vean-tattoo.bg/salony/sofiya",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-studio-s-mladost1-chomakov4a",
+      "name": "Студио S · Младост",
+      "coordinates": {
+        "latitude": 42.659192,
+        "longitude": 23.377183,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ж.к. Младост 1, ул. Д-р Стоян Чомаков 4А, търговска сграда ЧЕРГАТА, ет. 2",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Младост 1",
+        "sourceWebsite": "https://studios-edu.com/",
+        "addressId": "99315",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "99315",
+        "region": "Младост",
+        "settlement": "гр. София",
+        "street": "ул. Д-р Стоян Чомаков",
+        "house": "4А",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Individually compared exact owner-sourced road type/name/full house suffix with the single matching municipal row. Real selected branch premises, not room/staff clone. No entrance inferred from a neighbouring/first/nearest/average point. Published six-decimal source coordinates unchanged; postal address point, not verified entrance.",
+        "sourceUrls": [
+          "https://studios-edu.com/",
+          "https://studios-edu.com/mladost/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-olympia-tsaribrodska75",
+      "name": "Езикова академия Олимпия",
+      "coordinates": {
+        "latitude": 42.702507,
+        "longitude": 23.300115,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. Царибродска 75, ет. 1",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://olympia-academy.bg/",
+        "addressId": "48648",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "48648",
+        "region": "Възраждане",
+        "settlement": "гр. София",
+        "street": "ул. Царибродска",
+        "house": "75",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Individually compared exact owner-sourced road type/name/full house suffix with the single matching municipal row. Real selected branch premises, not room/staff clone. No entrance inferred from a neighbouring/first/nearest/average point. Published six-decimal source coordinates unchanged; postal address point, not verified entrance.",
+        "sourceUrls": [
+          "https://olympia-academy.bg/",
+          "https://olympia-academy.bg/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
       "id": "sofia-aramii-mladost1-genadiev5g",
       "name": "Танцова къща Арамии",
       "coordinates": {
@@ -19588,44 +20016,6 @@
         "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
         "sourceUrls": [
           "https://dauchim.com/kontakti/",
-          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
-        ]
-      },
-      "previousCoordinates": null
-    },
-    {
-      "id": "sofia-ddauto-lyulin-dertliev57",
-      "name": "D&D Auto Service · Люлин",
-      "coordinates": {
-        "latitude": 42.709214,
-        "longitude": 23.258599,
-        "method": "verified_official_address",
-        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
-        "sourceAddress": "София, Люлин, бул. Д-р Петър Дертлиев 57",
-        "sourceCityCode": "68134",
-        "sourceNeighborhood": "Люлин",
-        "sourceWebsite": "https://ddauto.bg/",
-        "addressId": "94858",
-        "checkedOn": "2026-11-13",
-        "licence": "CC-BY-4.0",
-        "attribution": "ГИС София / Столична община"
-      },
-      "officialAddress": {
-        "rn": "94858",
-        "region": "Люлин",
-        "settlement": "гр. София",
-        "street": "бул. Д-р Петър Дертлиев",
-        "house": "57",
-        "block": "",
-        "quarter": "",
-        "entrance": ""
-      },
-      "review": {
-        "decision": "unique_exact_postal_address",
-        "reviewer": "/root",
-        "evidence": "Manually compared the owner-sourced street and full house suffix or explicit quarter/block/entrance with the sole exact candidate in the user-supplied municipal CSV. No nearest/first/centroid choice. Source values kept at their published six-decimal precision. Official postal address point, not proof of the business entrance.",
-        "sourceUrls": [
-          "https://ddauto.bg/contact-us/",
           "https://urbandata.sofia.bg/dataset/address_sofia-zip"
         ]
       },

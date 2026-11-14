@@ -1,0 +1,972 @@
+{
+  "rootIntegrationReview": {"checkedAtUtc":"2026-11-14T00:32:54.201Z","notes":"Root personally read7fullrecords+7fullreviewnotes. Languagepackage totals/40vs45minunits/expiry/prepayment/materials/minimumsessionconditions retained, not pervisit. Cleaningperfloorarea/perseat minimum/VAT/surcharges remainpublic. Vasilev12–15selectedconsultservicehours, notbroaderoffice; feeunpublishednot0. ExistingStrelbishteuntouched; actualadditionalMladostbranchonly.","inventory":"Only current reviewed normalizedinventory identities added; historicalbaseline/frozenhashes unchanged. Sourceobservationdates13or14retained honestly; source-complete intake is not a real booking or a deployed partner profile."},
+  "batch": "home-education-2000-009-20261113",
+  "checkedOn": "2026-11-13",
+  "status": "frozen_source_complete",
+  "sourceModule": "lib/discovery/catalogue-data/neighborhood-home-education-2000-009-20261113.mjs",
+  "dateConvention": "UTC calendar checkedOn; filenames are intake identifiers. First4accepted rows genuinelyreviewed13before00Z; newestDivinity/CleanBG/Vasilev actualcheckedOn14 andvalidUntil2027-02-12. checkedAtUtc is actual evidence review completion, not inventedoriginalfetch time; Sofia appointmenthoursretainEurope/Sofia.",
+  "summary": {
+    "includedBusinesses": 7,
+    "includedServices": 7,
+    "literalPriceFacts": 6,
+    "strictUnpublishedReceipts": 1,
+    "phoneBooking": 5,
+    "ownedForms": 2,
+    "premises": 4,
+    "serviceAreas": 3,
+    "withServiceHours": 1,
+    "coordinates": 0,
+    "pendingCases": 23,
+    "rejectedCases": 42
+  },
+  "ledger": [
+    {
+      "order": 1,
+      "status": "included",
+      "checkedAtUtc": "2026-11-13T23:23:37Z",
+      "id": "sofia-omega-vitosha29",
+      "primaryEvidence": [
+        "https://omegals.bg/robots.txt",
+        "https://omegals.bg/",
+        "https://omegals.bg/obshti-uslovija/",
+        "https://omegals.bg/zajavi-kurs/",
+        "https://omegals.bg/kontakti/",
+        "https://omegals.bg/kursove/za-vyzrastni/anglijski-ezik/individualni/",
+        "https://omegals.bg/kursove/za-vyzrastni/anglijski-ezik/individualni/a1/?plan_id=01a03044-12f3-7c4e-9d5c-9d7fe5e87de2"
+      ],
+      "notes": "Actual owned full course-request form and exact selected A1/onsite10academic40minunits/1month165EUR plan; no conversion to perlesson fee or guarantee to completelevel. Plan href inspected before normalGET (public view selector not mutation). Actual teaching rooms and precise entrance1floor1Havana atVitosha29 bound byTerms+contact. Complete Terms no source accessban observed; not licenceclaim. Materials separate, no unilateral-refund preserved. Office/online schedules not onsite lessonhours. No fields/submission/customerdata/privateAPI/Google/provider/calendar actions."
+    },
+    {
+      "order": 2,
+      "status": "included",
+      "checkedAtUtc": "2026-11-13T23:23:37Z",
+      "id": "sofia-studio-s-mladost1-chomakov4a",
+      "primaryEvidence": [
+        "https://studios-edu.com/robots.txt",
+        "https://studios-edu.com/",
+        "https://studios-edu.com/chastni-urotsi/",
+        "https://studios-edu.com/chastni-urotsi-po-bel/",
+        "https://studios-edu.com/mladost/",
+        "https://studios-edu.com/studio-s-v-sofia/",
+        "https://studios-edu.com/tseni-kursove-urotsi-bel-matematika-risuvane/",
+        "https://studios-edu.com/about-us/obshti-usloviya/"
+      ],
+      "notes": "One actual additional premise: current selected inperson private service explicitly onlyStrelbishte/Mladost; Mladost realbranch and exact Chergata/Chomakov4Afloor2. AlreadyexistingStrelbishte not duplicated. Actual phonebook and19EUR per40minacademicunit, mandatoryminimum4lessons x2units and4teaching-day prepayment, day-beforecancel/otherwisecharged and26percent withdrawalTerms notconverted to onevisit or inventedtotal. Other10 SEO-address branches not private-proof; retiredKyustendil21 Terms address not imported. No fields/actions/Maps/sourcephotos/qualifications/clientdata."
+    },
+    {
+      "order": 3,
+      "status": "pending_actual_booking_challenge",
+      "checkedAtUtc": "2026-11-13T23:23:37Z",
+      "name": "Веди Макрина · всички неприети филиали",
+      "primaryEvidence": [
+        "https://vedimakrina.bg/robots.txt",
+        "https://vedimakrina.bg/obshti-usloviya/",
+        "https://vedimakrina.bg/",
+        "https://vedimakrina.bg/service/individualno-obuchenie/",
+        "https://vedimakrina.bg/mladost/programa-mladost/",
+        "https://vedimakrina.bg/vitosha/programa-vitosha/",
+        "https://vedimakrina.bg/kontakti/"
+      ],
+      "notes": "Robots publicAllow; actual annualTerms ordinaryeducationalcontract read via normalHTTPS afterreaderCachemiss beforeBook. Actual individual-service Book 'Виж филиалите' leads /kontakti/ challenge 'One moment, please'. Two initial program requests were in SAME batch before challenge observed; no retry/curl/alternatepath/ref/UI after observed block. Entirehost/allopenedrefs excluded forcontinued research, parent notified. No intake and not unpublished: actual Book blocked. Program annual groupfees800/500EUR not private lessonfees. Three named branches not automatic three rows; phone/service/fee binding incomplete."
+    },
+    {
+      "order": 4,
+      "status": "pending_branch_private_service_binding",
+      "checkedAtUtc": "2026-11-13T23:23:37Z",
+      "name": "Студио S · останалите общи София адреси",
+      "primaryEvidence": [
+        "https://studios-edu.com/studio-s-v-sofia/",
+        "https://studios-edu.com/chastni-urotsi/",
+        "https://studios-edu.com/chastni-urotsi-po-bel/"
+      ],
+      "notes": "Current broad list12Sofia addresses; selected current inperson private service explicitly teaches onlyStrelbishte/Mladost. Do not use broad list/footer/conditional individual-supportFAQ alone to clone ten more private lesson venues. Other current group courses need named branch/real paid advance enrollment proof and availability; not reviewed inthisbatch."
+    },
+    {
+      "order": 5,
+      "status": "pending_exact_venue_enrollment",
+      "checkedAtUtc": "2026-11-13T23:23:37Z",
+      "name": "Алта Бреа / Анджело Брера",
+      "primaryEvidence": [
+        "https://italianskiezik.com/robots.txt",
+        "https://italianskiezik.com/"
+      ],
+      "notes": "Carried from008; runtime domain/phone no existingmatch atinitialcheck. Publicrootfooter contains onlySofia1000/company/0888961411, exact current teachingstreet/selected ordinary enrollment/fees/policies incomplete. No thirdpartystreet/point or staleGrabooffer imported. No unpublished receipt."
+    },
+    {
+      "order": 6,
+      "status": "resolved_included",
+      "checkedAtUtc": "2026-11-13T23:23:37Z",
+      "name": "Пепеляшка",
+      "primaryEvidence": [
+        "https://pepeliashka.com/robots.txt",
+        "https://pepeliashka.com/"
+      ],
+      "notes": "Runtime exacthost0; robots normal200 Yoast emptyDisallow. Searchlead explicit cleaningrequest0888743438; actual Book/services/tariff/policy not reviewed yet. No intake until complete."
+    },
+    {
+      "order": 7,
+      "status": "rejected_duplicate",
+      "checkedAtUtc": "2026-11-13T23:23:37Z",
+      "name": "Студио S · Стрелбище",
+      "primaryEvidence": [
+        "https://studios-edu.com/"
+      ],
+      "notes": "Runtime exact existingsofia-studio-s-strelbishte/024082966/quarterblock91V. Not a new operator/staff/home-service clone; only different provenMladostvenue newly reviewed."
+    },
+    {
+      "order": 8,
+      "status": "rejected_duplicate",
+      "checkedAtUtc": "2026-11-13T23:23:37Z",
+      "name": "FreshClean",
+      "primaryEvidence": [
+        "https://freshclean.bg/"
+      ],
+      "notes": "Runtime exactexistingsofia-freshclean/+359878939788 service_area. Searchonly, no new menu/source requests after duplicate found."
+    },
+    {
+      "order": 9,
+      "status": "rejected_duplicate",
+      "checkedAtUtc": "2026-11-13T23:23:37Z",
+      "name": "Sofia Clean Agency",
+      "primaryEvidence": [
+        "https://sofiaclean.bg/"
+      ],
+      "notes": "Runtime exactexistingsofia-sofia-clean-agency-home-visits/+359889888557. No quarterclone or new source deep review."
+    },
+    {
+      "order": 10,
+      "status": "rejected_duplicate",
+      "checkedAtUtc": "2026-11-13T23:23:37Z",
+      "name": "Феите",
+      "primaryEvidence": [
+        "https://feite.bg/"
+      ],
+      "notes": "Runtime exactexistingsofia-feite-home-cleaning/+359885419022. No duplicate and no source deep requests."
+    },
+    {
+      "order": 11,
+      "status": "included",
+      "id": "sofia-pepelyashka-home-cleaning",
+      "name": "Пепеляшка",
+      "checkedAtUtc": "2026-11-14T00:04:18Z",
+      "primaryEvidence": [
+        "https://pepeliashka.com/robots.txt",
+        "https://pepeliashka.com/",
+        "https://pepeliashka.com/ceni/",
+        "https://pepeliashka.com/contacts/",
+        "https://pepeliashka.com/%D0%BF%D0%BE%D1%87%D0%B8%D1%81%D1%82%D0%B2%D0%B0%D0%BD%D0%B5-%D0%BD%D0%B0-%D0%B4%D0%BE%D0%BC%D0%BE%D0%B2%D0%B5/"
+      ],
+      "notes": "Current normal primary HTML Book explicitly phone cleaningrequest before exactservice/Fees/Contact. 3EUR/m2floorarea, minorder120EUR, VATincluded; carrying equipment withoutlift1EURfloor/outsideRing0.30EURkm and50/100percent conditiongroups preserved, no durationguess. OneSofia service_area with correspondence/registrationaddress not visitorvenue. No separateTerms/Privacylink surfaced, no licenceclaim. Reviewed beforeUTC00, accepted23:31:47Z; no sourcephotos/clientreviews/field/actions/calls/Google."
+    },
+    {
+      "order": 12,
+      "status": "included",
+      "id": "sofia-olympia-tsaribrodska75",
+      "name": "Академия Олимпия",
+      "checkedAtUtc": "2026-11-14T00:04:18Z",
+      "primaryEvidence": [
+        "https://olympia-academy.bg/robots.txt",
+        "https://olympia-academy.bg/",
+        "https://olympia-academy.bg/prices/",
+        "https://olympia-academy.bg/%D0%B7%D0%B0%D0%BF%D0%B8%D1%82%D0%B2%D0%B0%D0%BD%D0%B5/",
+        "https://olympia-academy.bg/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/",
+        "https://olympia-academy.bg/%D0%BE%D0%B1%D1%89%D0%B8-%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8F/"
+      ],
+      "notes": "Current selectedprivate Book→own enquiry form verified normalHTTP afterreaderCachemiss; context is paid tuitionenrollmentrequest, notautomaticreservedslot. Full Terms read first. Public DOM data-tab1 English linked inner-tab1 price225EUR/10x45min/A1–A2,5weekexpiry/fullprepay/materialsextra/12hcancel/no unilateralrefund. NototherGreek/German/child<=10tariff or discountedpackagepervisit. CurrentTsaribrodska75floor1; notoldBorisDrangov12directory or LovetchGDPRaddress. Bothphones runtime/allWIP checked0exceptownnewrow. Reviewed/accepted beforeUTC00 at23:50:24Z; typo inreceiptnote fixed23:50:59Z, schema4valid. No fields/actions/cart/bankdata/Maps/sourceprose/media."
+    },
+    {
+      "order": 13,
+      "status": "pending_source_noncommercial_ban",
+      "name": "МОНТФИЗ",
+      "checkedAtUtc": "2026-11-14T00:04:18Z",
+      "primaryEvidence": [
+        "https://www.montfiz.com/robots.txt",
+        "https://www.montfiz.com/",
+        "https://www.montfiz.com/privacy-policy"
+      ],
+      "notes": "Robots allowpublicroot with10secondcrawl-delay respected; disallows/contact,/sites,private/login/adminpaths notrequested. Actual /privacy-policy alsoWebsiteTerms §2UseLicense explicitlyrestrictsmaterials(data/programming) toindividual/nonbusiness andprohibitscommercial/publicpresentation/copy. STOP entirehost/allrefs immediatelyafter23:57Z receipt; parent+auto notified, no furtherGET/ref/UI/sourceofferfactsusedforintake. Rootmetadataonly beforetermread, no courses/contact/actions/login. Not narrowassets-only clause."
+    },
+    {
+      "order": 14,
+      "status": "pending_terms_js",
+      "name": "Electricos",
+      "checkedAtUtc": "2026-11-14T00:04:18Z",
+      "primaryEvidence": [
+        "https://www.electricos.bg/robots.txt",
+        "https://www.electricos.bg/",
+        "https://www.electricos.bg/terms.html"
+      ],
+      "notes": "Publicrobots allowsreferencebutdeniesadmin/account/sync; noneaccessed. ActualTerms returns onlyheading 'Зареждане…', not fullterms reviewed. No hiddenAPI/assets/UI workaround; emergency100EUR searchfigure not standaloneordinaryfee and nointake/unpublishedreceipt."
+    },
+    {
+      "order": 15,
+      "status": "pending_current_sofia_scope_conflict",
+      "name": "Дея Клийн",
+      "checkedAtUtc": "2026-11-14T00:04:18Z",
+      "primaryEvidence": [
+        "https://deya-clean.com/robots.txt",
+        "https://deya-clean.com/",
+        "https://deya-clean.com/pochistvane-vhodove-sofia/"
+      ],
+      "notes": "Searchcache Sofialanding differs fromCURRENT normalprimarybody: rootlocationPlovdiv andsame /...sofia/ URL repeatedly says 'Плодив'/Plovdiv, yetstilllistsSofiaquarters. Phone0886863795runtime0 butcitydeliverynotproven; no guessed Sofia servicearea or ownnewrow. Not unpublished: currentpagehasnumericfees butscopeconflictheld."
+    },
+    {
+      "order": 16,
+      "status": "pending_js_current_primary",
+      "name": "BG Hamali",
+      "checkedAtUtc": "2026-11-14T00:04:18Z",
+      "primaryEvidence": [
+        "https://bg-hamali-sofia.com/robots.txt",
+        "https://bg-hamali-sofia.com/"
+      ],
+      "notes": "RobotsAllow; fresh publicroot literalHTMLparseonly title, noactualBook/service/fee/contact read. Oldcachedsearch70BGNfigures notused, no inventedphone/menus/unpublishedreceipt. No hiddenAPI/assets/UI."
+    },
+    {
+      "order": 17,
+      "status": "pending_distinct_operator_identity",
+      "name": "profesionalnopochistvane.com",
+      "checkedAtUtc": "2026-11-14T00:04:18Z",
+      "primaryEvidence": [
+        "https://profesionalnopochistvane.com/robots.txt",
+        "https://profesionalnopochistvane.com/",
+        "https://profesionalnopochistvane.com/poveritelnost/",
+        "https://profesionalnopochistvane.com/za-nas/"
+      ],
+      "notes": "Robots explicitlyallowsAIreference; shortpublicprivacy fullyreadnoaccessban. Aboutclaimsdirectteam/no subcontractors andSofiaservice butno namedmerchant/legaloperator/phone shown. Same-style pochistvanevhodove site mayormaynotbe independent; cannotcounttwo distinctproviders fromdomainonlybrand. No intake pendingoperatorbinding; actualnumericprices knownfromsearchnotclaimedunpublished. No forms/submission."
+    },
+    {
+      "order": 18,
+      "status": "pending_distinct_operator_identity",
+      "name": "Чист вход / pochistvanevhodove.com",
+      "checkedAtUtc": "2026-11-14T00:04:18Z",
+      "primaryEvidence": [
+        "https://pochistvanevhodove.com/robots.txt",
+        "https://pochistvanevhodove.com/",
+        "https://pochistvanevhodove.com/za-nas/"
+      ],
+      "notes": "ExplicitAIrobotsAllow; AboutusesbrandChistVhod andSofiamobileworkflow butno independentmerchantoperator/phone verified. Same-templateProfessionalCleaningnotproven distinct; no town/quarter clones ortwo rowsfromdifferentdomainswithoutentitybinding. ActualfullBook/prices/policy incomplete, notunpublished."
+    },
+    {
+      "order": 19,
+      "status": "pending_dns_primary",
+      "name": "Чи100 / pochistvane.net",
+      "checkedAtUtc": "2026-11-14T00:04:18Z",
+      "primaryEvidence": [
+        "https://pochistvane.net/robots.txt",
+        "https://www.pochistvane.net/"
+      ],
+      "notes": "ApexrobotsDNSfailureHTTP000; actualwwwprimaryfromsearchnotyetchecked. Thisisnot403/challenge; mayinspectcanonicalwwwrobotsnext, no bypassofknownrestrictions. Searchactualfreeinspectionnotimportedaspaidcleaningfee. Exactcurrentbooking/service/prices/policy stillpending."
+    },
+    {
+      "order": 20,
+      "status": "pending_current_course_not_announced",
+      "name": "PhotoSchool",
+      "checkedAtUtc": "2026-11-14T00:22:41Z",
+      "primaryEvidence": [
+        "https://www.photoschool.bg/robots.txt",
+        "https://www.photoschool.bg/",
+        "https://www.photoschool.bg/s/3/"
+      ],
+      "notes": "CompleteTerms finished14Nov ordinarytrainingmaterial/photoIP, no database/accessbanobserved; no licenceclaim/sourcecurriculum/photoscopied. ActualSofia/t10currentVasilLevski57/887605093, but/i2,/i25,/i22 allmarkedpast/currentfutureplanned2027withfees/programmeTBA andnotificationonly, /i58past2025/2026. No actualcurrentlybookablepaidplace, no intake/oldtariff/onevenueperlecturer. No email/phonefields/consents/submission/Googlelinks opened.",
+      "checkedOn": "2026-11-14"
+    },
+    {
+      "order": 21,
+      "status": "pending_source_terms_stop",
+      "name": "HologramZoo",
+      "checkedAtUtc": "2026-11-14T00:22:41Z",
+      "primaryEvidence": [
+        "https://hologramzoo.bg/robots.txt",
+        "https://hologramzoo.bg/",
+        "https://hologramzoo.bg/obshti-uslovia/"
+      ],
+      "notes": "ActualTerms /obshti-uslovia/ sectionXV expressly prohibits technicalextraction of informationalresources/partsfromstore databases. Ban discoveredinboundedreading00:12Z14Nov after first24000charreadandremainingsegment; stoppedentirehost/allopenedrefs immediately, parentnotified. No Book/Ceni/actionrequestsafterbanobserved; no intake/fee/venuefactreuse.",
+      "checkedOn": "2026-11-14"
+    },
+    {
+      "order": 22,
+      "status": "rejected_duplicate",
+      "name": "instabroz.com",
+      "checkedAtUtc": "2026-11-14T00:04:18Z",
+      "primaryEvidence": [
+        "https://instabroz.com/"
+      ],
+      "notes": "Actualruntime+all2000exactexisting: sofia-instabroz-mobile-furniture. Searchdiscoveryonly; no newservices/quarter/staffalias. ForInstabroz/ImaKoi robots had already been queued in sameorchestratedcall beforemodelread dedupeoutput; no deepnewmenu afterduplicateobserved."
+    },
+    {
+      "order": 23,
+      "status": "rejected_duplicate",
+      "name": "ima-koi.bg",
+      "checkedAtUtc": "2026-11-14T00:04:18Z",
+      "primaryEvidence": [
+        "https://ima-koi.bg/"
+      ],
+      "notes": "Actualruntime+all2000exactexisting: sofia-ima-koi-furniture-home-visits. Searchdiscoveryonly; no newservices/quarter/staffalias. ForInstabroz/ImaKoi robots had already been queued in sameorchestratedcall beforemodelread dedupeoutput; no deepnewmenu afterduplicateobserved."
+    },
+    {
+      "order": 24,
+      "status": "rejected_duplicate",
+      "name": "remontimetodiev.com",
+      "checkedAtUtc": "2026-11-14T00:04:18Z",
+      "primaryEvidence": [
+        "https://remontimetodiev.com/"
+      ],
+      "notes": "Actualruntime+all2000exactexisting: sofia-remonti-metodiev-cleaning. Searchdiscoveryonly; no newservices/quarter/staffalias. ForInstabroz/ImaKoi robots had already been queued in sameorchestratedcall beforemodelread dedupeoutput; no deepnewmenu afterduplicateobserved."
+    },
+    {
+      "order": 25,
+      "status": "rejected_duplicate",
+      "name": "cleaningsofia.com",
+      "checkedAtUtc": "2026-11-14T00:04:18Z",
+      "primaryEvidence": [
+        "https://cleaningsofia.com/"
+      ],
+      "notes": "Actualruntime+all2000exactexisting: sofia-cleaning-sofia. Searchdiscoveryonly; no newservices/quarter/staffalias. ForInstabroz/ImaKoi robots had already been queued in sameorchestratedcall beforemodelread dedupeoutput; no deepnewmenu afterduplicateobserved."
+    },
+    {
+      "order": 26,
+      "status": "rejected_duplicate",
+      "name": "chistachka.com",
+      "checkedAtUtc": "2026-11-14T00:04:18Z",
+      "primaryEvidence": [
+        "https://chistachka.com/"
+      ],
+      "notes": "Actualruntime+all2000exactexisting: sofia-chistachka-rudar-home-visits. Searchdiscoveryonly; no newservices/quarter/staffalias. ForInstabroz/ImaKoi robots had already been queued in sameorchestratedcall beforemodelread dedupeoutput; no deepnewmenu afterduplicateobserved."
+    },
+    {
+      "order": 27,
+      "status": "rejected_duplicate",
+      "name": "cleanlabs.bg",
+      "checkedAtUtc": "2026-11-14T00:04:18Z",
+      "primaryEvidence": [
+        "https://cleanlabs.bg/"
+      ],
+      "notes": "Actualruntime+all2000exactexisting: sofia-clean-labs. Searchdiscoveryonly; no newservices/quarter/staffalias. ForInstabroz/ImaKoi robots had already been queued in sameorchestratedcall beforemodelread dedupeoutput; no deepnewmenu afterduplicateobserved."
+    },
+    {
+      "order": 28,
+      "status": "rejected_duplicate",
+      "name": "thecleanspotbg.com",
+      "checkedAtUtc": "2026-11-14T00:04:18Z",
+      "primaryEvidence": [
+        "https://thecleanspotbg.com/"
+      ],
+      "notes": "Actualruntime+all2000exactexisting: sofia-the-clean-spot-home-pickup. Searchdiscoveryonly; no newservices/quarter/staffalias. ForInstabroz/ImaKoi robots had already been queued in sameorchestratedcall beforemodelread dedupeoutput; no deepnewmenu afterduplicateobserved."
+    },
+    {
+      "order": 29,
+      "status": "rejected_duplicate",
+      "name": "abilityschool.eu",
+      "checkedAtUtc": "2026-11-14T00:04:18Z",
+      "primaryEvidence": [
+        "https://abilityschool.eu/"
+      ],
+      "notes": "Actualruntime+all2000exactexisting: sofia-ability-ivan-vazov-bulgarian. Searchdiscoveryonly; no newservices/quarter/staffalias. ForInstabroz/ImaKoi robots had already been queued in sameorchestratedcall beforemodelread dedupeoutput; no deepnewmenu afterduplicateobserved."
+    },
+    {
+      "status": "included",
+      "id": "sofia-divinity-home-cleaning",
+      "primaryEvidence": [
+        "https://divinity.bg/robots.txt",
+        "https://divinity.bg/",
+        "https://divinity.bg/usloviya-za-polzvane/",
+        "https://divinity.bg/ogled/",
+        "https://divinity.bg/services/",
+        "https://divinity.bg/contact/"
+      ],
+      "notes": "Actual ownedrequest includesSofia/apartment/house anddesiredDateTime explicitlyconfirmedbyfirm. Homecleaning literalfrom60EUR dependsarea/type, notfixedquote/freeinspection. CompleteTerms namedDivinitosEOOD, website/phoneorderingconfirmation, afterservicepayment. OneSofia service_area,nulladdress/point; managementDenkoglu23notvisitorvenue. DirectSofiaphone0899888063 separatelyfromothercities/accounting. Fullruntime+allWIPdomain/phonezero. No weeklyservicehours found; no inputs/calls/submission/Maps/privateAPI/customerdata/media/testimonials. FinalbookingkindphoneboundtoownTerms5.1/5.2explicitserviceordersbyphone, notdirectpaidcalendarclaimfromfreeinspectionform.",
+      "checkedAtUtc": "2026-11-14T00:22:41Z",
+      "checkedOn": "2026-11-14",
+      "order": 30
+    },
+    {
+      "status": "included",
+      "id": "sofia-clean-bg-home-cleaning",
+      "primaryEvidence": [
+        "https://clean.bg/robots.txt",
+        "https://clean.bg/",
+        "https://clean.bg/%d0%ba%d0%be%d0%bd%d1%82%d0%b0%d0%ba%d1%82/",
+        "https://clean.bg/%d0%b7%d0%b0-%d0%b4%d0%be%d0%bc%d0%be%d0%b2%d0%b5/",
+        "https://clean.bg/prane-na-meki-mebeli-i-moketi/",
+        "https://clean.bg/%d1%86%d0%b5%d0%bd%d0%b8/",
+        "https://clean.bg/%d0%b7%d0%b0-%d0%bd%d0%b0%d1%81/"
+      ],
+      "notes": "CurrentownedBookContact andselectedhomeFAQ explicitphone0896303031, offerthenagreedday. NamedKliynKampaniOOD, distinctfromotherCleanbrands, allruntime/WIPphoneszero. Upholstery10.25EUR/seat indicative, minimum99EURorder, VATexcluded, variableconditionsexplicitpublic. Exactselectedsource confirms extractionmethod, no guaranteeallstains. OneSofia mobile service_area, not4city/quarterclones. NoTerms/Privacylinksurfacedactualnav/footer; no licenceclaim. No weeklyservicehours published. LiteralunquotedHTMLanchors parsed, malformedexternalmenu notfollowed. No actions/inputs/calls/widgets/Google/geocode/clientdata/media.",
+      "checkedAtUtc": "2026-11-14T00:22:41Z",
+      "checkedOn": "2026-11-14",
+      "order": 31
+    },
+    {
+      "status": "included",
+      "id": "sofia-hristo-vasilev-james-bourchier103",
+      "primaryEvidence": [
+        "https://vasilev-lawoffice.com/robots.txt",
+        "https://vasilev-lawoffice.com/",
+        "https://vasilev-lawoffice.com/privacy-policy/",
+        "https://vasilev-lawoffice.com/kontakti/",
+        "https://vasilev-lawoffice.com/veshtno-pravo/"
+      ],
+      "notes": "ActualownContact phone889008827 explicitlybookingconsultations, notphonelegaladvice. CentralJamesBourchier103floor5office9 exactpremise; Rakovski145backofficenotcloned. RealconsultationhoursMondayFriday12–15 distinguishedfromoffice09–19, weekendexceptionbyagreementnotregularopening. FullBook/propertyservice/root/nav/footer/Privacy; fees afterrelevantdocuments/workcomplexity, no merchantnumericconsultationfee/tarifflink; regulatoryminimumschedule notmerchantprice. Strictnot_publicly_listedreceipt, notcompletedpricereview. Runtime+WIPdomain/phones/name/knownlinkedBGLawPosolstvoEuroformat aliaseszero. Minimalindependentfacts, noarticleprose/qualifications/legalresults/customerdata/Maps/action.",
+      "checkedAtUtc": "2026-11-14T00:22:41Z",
+      "checkedOn": "2026-11-14",
+      "order": 32
+    },
+    {
+      "status": "pending_blocked_actual_price_menu",
+      "name": "CleanMe",
+      "primaryEvidence": [
+        "https://cleanme.bg/robots.txt",
+        "https://cleanme.bg/",
+        "https://cleanme.bg/about/"
+      ],
+      "notes": "OwnactualPricesandpromotions /about/ onlyJavaScriptrequiredwidgets; numericmenu notread. Cannotclaimnotpublished or freecleaningfromfreepickup. Existingphone884861052/domainnoexistingmatch butactualpricedserviceandpickupqualificationincomplete. Rootofficehoursnotpickupservicehours; noUI/privateAPI/assets workaround.",
+      "checkedAtUtc": "2026-11-14T00:22:41Z",
+      "checkedOn": "2026-11-14",
+      "order": 33
+    },
+    {
+      "status": "rejected_non_sofia_current_venue",
+      "name": "BauClean",
+      "primaryEvidence": [
+        "https://www.bauclean.com/robots.txt",
+        "https://www.bauclean.com/"
+      ],
+      "notes": "Actualrootcontact givesVarnaDebar36andVarnaoperatorphones, no currentSofiadeliveryproof reviewed. Searchfee2.99EURnotimported. No cityclone/guessfromgenericcleaningsearch.",
+      "checkedAtUtc": "2026-11-14T00:22:41Z",
+      "checkedOn": "2026-11-14",
+      "order": 34
+    },
+    {
+      "status": "rejected_non_sofia_current_venue",
+      "name": "Психика БГ",
+      "primaryEvidence": [
+        "https://psihika.bg/robots.txt",
+        "https://psihika.bg/",
+        "https://psihika.bg/obsthi-usloviya-pravila-na-uslugata-i-politika-za-vrasthane/",
+        "https://psihika.bg/kontakti/"
+      ],
+      "notes": "CompletecurrentTerms requirephoneconfirmeddaythenpayment24hprior; actualContact cabinetsBurgasShishman30andPatriarhEvtimiy21, NOTSofia. No clinical/generalmedicalrow or cityinference. No price/cart/payment/actions/customerdata imported.",
+      "checkedAtUtc": "2026-11-14T00:22:41Z",
+      "checkedOn": "2026-11-14",
+      "order": 35
+    },
+    {
+      "status": "rejected_non_sofia_current_venue",
+      "name": "My Therapy",
+      "primaryEvidence": [
+        "https://mytherapy.bg/robots.txt",
+        "https://mytherapy.bg/",
+        "https://mytherapy.bg/%d1%87%d0%b5%d1%81%d1%82%d0%be-%d1%81%d1%80%d0%b5%d1%89%d0%b0%d0%bd%d0%b8-%d0%b2%d1%8a%d0%bf%d1%80%d0%be%d1%81%d0%b8/"
+      ],
+      "notes": "Robots20secondcrawl-delay respectedbetweenhostrequests. FullFAQ/Terms Bookexplicitphone butcabinetinRuse, addressonlyaftercontact. Old45–60BGNnotimported andnotunpublished. NoSofiarow/clientcase/prose/medicalpromises/fields.",
+      "checkedAtUtc": "2026-11-14T00:22:41Z",
+      "checkedOn": "2026-11-14",
+      "order": 36
+    },
+    {
+      "status": "rejected_non_sofia_current_venue",
+      "name": "HOME Езиковият ти дом",
+      "primaryEvidence": [
+        "https://www.ezikovdom.com/robots.txt",
+        "https://www.ezikovdom.com/"
+      ],
+      "notes": "CurrentownnavcoursesallPlovdiv, phone883933115. NoSofiapremiseproof, no onlineproviderclone/fees imported.",
+      "checkedAtUtc": "2026-11-14T00:22:41Z",
+      "checkedOn": "2026-11-14",
+      "order": 37
+    },
+    {
+      "status": "pending_no_current_sofia_onsite_service",
+      "name": "English House",
+      "primaryEvidence": [
+        "https://englishhouse-edu.com/robots.txt",
+        "https://englishhouse-edu.com/",
+        "https://englishhouse-edu.com/uslovia-za-zapisvane-na-kurs-angliiski/",
+        "https://englishhouse-edu.com/kontakti-english-house/",
+        "https://englishhouse-edu.com/individualni-poluindividualni-za-vazrastni/",
+        "https://englishhouse-edu.com/декларация-за-поверителност"
+      ],
+      "notes": "Actualselectedcurrentadultindividual lessons/prices17/28/135/635EUR explicitlyONLINE; actualcontact hasphone884142702butno currentSofiateachingstreet. EnrollmentTermsfullread; Privacytruncatedfirst10000charsNOTclaimedfullclearance. Noonlyonlinecityclone/no inventedpremise; offices09–19notlessons. Noforms/captcha/consents/actions.",
+      "checkedAtUtc": "2026-11-14T00:22:41Z",
+      "checkedOn": "2026-11-14",
+      "order": 38
+    },
+    {
+      "status": "pending_sofia_address_conflict",
+      "name": "Адвокат Венцислав Банчев",
+      "primaryEvidence": [
+        "https://advbanchev.com/robots.txt",
+        "https://advbanchev.com/",
+        "https://advbanchev.com/contact-us-bg/"
+      ],
+      "notes": "ActualownBookphone897257732explicitconsultation, runtime/WIPzero. Sofiaaddressnotplainprimarytext; ownContact embedsdifferingGoogleiframecurrentmainvsfooter destinations, notindependentlyconfirmedphysicalstreet. OnlyownerHTMLinspected; NOGoogleiframe/maprequestorcoordinateuse/geocoding. Do notdecodemapdataintocanonicaladdressorchooseoldquarters blindly. Holdrealvenueconfirmation; freeconsultationhero notimported.",
+      "checkedAtUtc": "2026-11-14T00:22:41Z",
+      "checkedOn": "2026-11-14",
+      "order": 39
+    },
+    {
+      "status": "rejected_non_sofia_current_venue",
+      "name": "Адвокат Велина Атанасова",
+      "primaryEvidence": [
+        "https://www.velinaatanasova.com/robots.txt",
+        "https://www.velinaatanasova.com/"
+      ],
+      "notes": "CurrentownrootexplicitStaraZagoraHadjiDimitarAsenov119floor2office3, notSofia. Robotsfaq-items/portfolio-itemsdeniednonevisited. No service/feeintakefromgenericSofiasearch.",
+      "checkedAtUtc": "2026-11-14T00:22:41Z",
+      "checkedOn": "2026-11-14",
+      "order": 40
+    },
+    {
+      "order": 41,
+      "status": "pending_historical_access_hold_and_price_conflict",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:29:03Z",
+      "name": "ЕС България · Дондуков/Младост",
+      "primaryEvidence": [
+        "https://esbulgaria.com/robots.txt",
+        "https://esbulgaria.com/",
+        "https://esbulgaria.com/общи-условия/",
+        "https://esbulgaria.com/общи-условия-индивидуално-обучение/",
+        "https://esbulgaria.com/индивидуално-обучение/",
+        "https://esbulgaria.com/контакти/",
+        "https://esbulgaria.com/faq/",
+        "https://esbulgaria.com/онлайн-форма-за-записване/",
+        "https://esbulgaria.com/защита-на-личните-данни/"
+      ],
+      "notes": "CurrentnormalpublicHTTPS200Termsoffering/contacts/FAQreviewoccurredbefore rediscoveryofown003historical individualTermsverificationchallenge (missingfromcompactedSTOPlist). Thisisrecordedhonestly, notcalledauthorizedretry/clearance; no furtherhost/refrequestsafterdiscovery, parentnotified, no factsaccepted. Actualpriceheader'Цена на час при пакет'contradictspackagepricefootnote; cannotflatten180EURtovisit/totalwithoutclearerbinding. Actualonlineform ONLINE-only notinpersonBook. Genuine2venuesnot2acceptedrows; no hiddenmenu falselyunpublished."
+    },
+    {
+      "order": 42,
+      "status": "pending_exact_current_group_and_source_scope",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:29:03Z",
+      "name": "Алианс · София",
+      "primaryEvidence": [
+        "https://alliance.bg/robots.txt",
+        "https://alliance.bg/",
+        "https://alliance.bg/алианс-контакти",
+        "https://alliance.bg/индивидуално-езиково-обучение",
+        "https://alliance.bg/индивидуално-обучение-по-английски-език",
+        "https://alliance.bg/алианс-новини/694-записването-в-алианс-продължава",
+        "https://alliance.bg/алианс-новини/681-курсове-по-английски-език-за-учебната-2026-2027-г"
+      ],
+      "notes": "ActualOct26lateenrollment phoneinvitation onlyselectedannualgroups atNDK; notproofspecificA1-B2group/place orthe separate30EURacademicprivate service. Annualtables realNDKandMariaLouiza45branchbindingsbutno automaticcloneofboth, no 100EURdiscountderivedtotal. All5phones/bothalliance.bg/alliance-bg.comruntime+allWIPzero. PolicyPDFsunder/images/ explicitlyrobotsdisallowedNOTrequested, no alternativepath/bypass. Source/minimumcontractscope andexactcurrentlyavailablepaidgroup remainunresolved, no fake90dayavailability/unpublishedclaim."
+    },
+    {
+      "order": 43,
+      "status": "pending_js_only_previous_hold",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:29:03Z",
+      "name": "Dimi Tattoo",
+      "primaryEvidence": [
+        "https://dimi-tattoo.com/robots.txt",
+        "https://dimi-tattoo.com/"
+      ],
+      "notes": "Runtime+allWIPzero; beautyconfirmedunreserved. PublicrobotsAllow, actualcurrentnormalrootonlytitle/no renderedBookform/service/actualvenue. Existingown001/002suspension/JShold reread, no repeatUI/assets/API workaround. Searchcachedfreeconsultation/deposit notimported, no zerooffer accepted."
+    },
+    {
+      "order": 44,
+      "status": "pending_exact_sofia_venue_previous_hold",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:29:03Z",
+      "name": "Black Sea Law Counsel / BSLC",
+      "primaryEvidence": [
+        "https://www.blacksealaw.com/robots.txt"
+      ],
+      "notes": "Onlynewrobotsreadbefore rediscoveringown008hold. Publicbg/en/rupagesallowed, queries/API/searchprohibitednonevisited. HistoricalownBookofferedSofiabutactualContactonlyBurgasaddresses; no newBook/Contactrequestsafterlocalholdread, no inventedvenue/onlinecityclone."
+    },
+    {
+      "order": 45,
+      "status": "rejected_non_sofia_current_venue",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:29:03Z",
+      "name": "Адвокат Виолета Джендова",
+      "primaryEvidence": [
+        "https://www.advokatdzhendova.com/robots.txt",
+        "https://www.advokatdzhendova.com/"
+      ],
+      "notes": "Actualcurrentroot explicitlyVarna plusonline45EUR30min/90EUR60min. NoSofiapremise, no intakeorpricecopy; actualBookhrefdurationselectoridentifiedbutNOTopened, nocart/calendar/fields/payment."
+    },
+    {
+      "order": 46,
+      "status": "pending_source_ip_scope_and_current_fee",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:29:03Z",
+      "name": "Благоев и Чолаков / advo.bg",
+      "primaryEvidence": [
+        "https://advo.bg/robots.txt",
+        "https://advo.bg/",
+        "https://advo.bg/общи-условия/"
+      ],
+      "notes": "FullactualTermsread: sourceoperatorSemargalOODandrightsEADBlagoev, allinformationIP/useclause withstatutoryexceptions. No blanketpermission/licenceclaim; minimalindependentlyphrasedfactsnotyetapproved. ActualpaidBook/currentfee notcompleted, nointake/no copiedsourcearticles/reviews. RootcontactParensov43entranceBdistinctfromsourceoperatorMalinov51address; do notsplitstaffnames/marketingoperatoraliases."
+    },
+    {
+      "order": 47,
+      "status": "pending_source_commercial_reuse_scope",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:29:03Z",
+      "name": "Apex & Pillar",
+      "primaryEvidence": [
+        "https://apexpillar.org/robots.txt",
+        "https://apexpillar.org/bg",
+        "https://apexpillar.org/terms"
+      ],
+      "notes": "Actualrobotsreferenceuse publicallowed/ai-trainno; account/API/adminallprohibitednonevisited. FullactualTerms says sitecontentmaynotbereproducedforcommercialusewithoutpermission. No blanketpermission/licenceclaim or acceptedfacts. Free20minCTAandSimeonovsko33notaccepteduntileligibility/sourceuseactualBookreviewcomplete; no fields/portal/credentials/customerdata."
+    },
+    {
+      "order": 48,
+      "status": "pending_full_terms_and_actual_booking",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:29:03Z",
+      "name": "Д. Владимиров и Партньори",
+      "primaryEvidence": [
+        "https://lawyer-bulgaria.bg/robots.txt",
+        "https://lawyer-bulgaria.bg/",
+        "https://lawyer-bulgaria.bg/общи-условия/"
+      ],
+      "notes": "RobotsactualAI/publicAllow exceptadmin/search/private; one-secondspacingrespected. Termsfirst10000charoutputtruncated, then10000–17000read, remainingandmissingmiddle NOTfullycompleted; do notclaimfullTerms/sourceclearance. NoactualBook/currentfee/contactfullreview, nointake/fees guessedfromprofessionalminimum. No additionaldeeprequestsplannedforthisfrozenbatch."
+    },
+    {
+      "order": 49,
+      "status": "pending_current_onsite_appointment_binding",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:29:03Z",
+      "name": "Al Hathaway",
+      "primaryEvidence": [
+        "https://alhathaway.net/robots.txt",
+        "https://alhathaway.net/",
+        "https://alhathaway.net/privacy-policy/"
+      ],
+      "notes": "NamedAlHathawayEOODpublicprivacyadministratorYavorov32; rootdigitalservice/freeconsultCTA. ActualpublicBooktimedflow/visitorpremisebinding notcompleted, managementaddressnotassumedappointmentvenue. Noindividualconsultfeeimport/unpublishedclaim oronlinecityclone. NoAPI/formfields/submission."
+    },
+    {
+      "order": 50,
+      "status": "rejected_duplicate",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:29:03Z",
+      "name": "Частна школа Мечтатели",
+      "primaryEvidence": [
+        "https://privateschooldreamers.com/"
+      ],
+      "notes": "FullactualruntimeSOFIA_CATALOGUE plusALL2000intakes canonicaldomain/operator/phone/address preflight alreadycontainsrealprovider. No staff/marketingdomain/newquarter/booking-subdomainclone. Searchdiscoveryonly, no deepercurrentrequests afterduplicateobserved. Aledora/BGPrane robotswerequeuedparallelbeforededupeoutputwasread; no furtherrequests."
+    },
+    {
+      "order": 51,
+      "status": "rejected_duplicate",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:29:03Z",
+      "name": "Родина",
+      "primaryEvidence": [
+        "https://kursovete-bg.com/"
+      ],
+      "notes": "FullactualruntimeSOFIA_CATALOGUE plusALL2000intakes canonicaldomain/operator/phone/address preflight alreadycontainsrealprovider. No staff/marketingdomain/newquarter/booking-subdomainclone. Searchdiscoveryonly, no deepercurrentrequests afterduplicateobserved. Aledora/BGPrane robotswerequeuedparallelbeforededupeoutputwasread; no furtherrequests."
+    },
+    {
+      "order": 52,
+      "status": "rejected_duplicate",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:29:03Z",
+      "name": "Културен и образователен център София",
+      "primaryEvidence": [
+        "https://ezik.eu/"
+      ],
+      "notes": "FullactualruntimeSOFIA_CATALOGUE plusALL2000intakes canonicaldomain/operator/phone/address preflight alreadycontainsrealprovider. No staff/marketingdomain/newquarter/booking-subdomainclone. Searchdiscoveryonly, no deepercurrentrequests afterduplicateobserved. Aledora/BGPrane robotswerequeuedparallelbeforededupeoutputwasread; no furtherrequests."
+    },
+    {
+      "order": 53,
+      "status": "rejected_duplicate",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:29:03Z",
+      "name": "Форум Плиска",
+      "primaryEvidence": [
+        "https://forumlang.com/"
+      ],
+      "notes": "FullactualruntimeSOFIA_CATALOGUE plusALL2000intakes canonicaldomain/operator/phone/address preflight alreadycontainsrealprovider. No staff/marketingdomain/newquarter/booking-subdomainclone. Searchdiscoveryonly, no deepercurrentrequests afterduplicateobserved. Aledora/BGPrane robotswerequeuedparallelbeforededupeoutputwasread; no furtherrequests."
+    },
+    {
+      "order": 54,
+      "status": "rejected_duplicate",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:29:03Z",
+      "name": "Желязков",
+      "primaryEvidence": [
+        "https://kantora.org/"
+      ],
+      "notes": "FullactualruntimeSOFIA_CATALOGUE plusALL2000intakes canonicaldomain/operator/phone/address preflight alreadycontainsrealprovider. No staff/marketingdomain/newquarter/booking-subdomainclone. Searchdiscoveryonly, no deepercurrentrequests afterduplicateobserved. Aledora/BGPrane robotswerequeuedparallelbeforededupeoutputwasread; no furtherrequests."
+    },
+    {
+      "order": 55,
+      "status": "rejected_duplicate",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:29:03Z",
+      "name": "Десислава Филипова",
+      "primaryEvidence": [
+        "https://advokatfilipova.eu/"
+      ],
+      "notes": "FullactualruntimeSOFIA_CATALOGUE plusALL2000intakes canonicaldomain/operator/phone/address preflight alreadycontainsrealprovider. No staff/marketingdomain/newquarter/booking-subdomainclone. Searchdiscoveryonly, no deepercurrentrequests afterduplicateobserved. Aledora/BGPrane robotswerequeuedparallelbeforededupeoutputwasread; no furtherrequests."
+    },
+    {
+      "order": 56,
+      "status": "rejected_duplicate",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:29:03Z",
+      "name": "Симеонов адвокати",
+      "primaryEvidence": [
+        "https://simeonovlawfirm.com/"
+      ],
+      "notes": "FullactualruntimeSOFIA_CATALOGUE plusALL2000intakes canonicaldomain/operator/phone/address preflight alreadycontainsrealprovider. No staff/marketingdomain/newquarter/booking-subdomainclone. Searchdiscoveryonly, no deepercurrentrequests afterduplicateobserved. Aledora/BGPrane robotswerequeuedparallelbeforededupeoutputwasread; no furtherrequests."
+    },
+    {
+      "order": 57,
+      "status": "rejected_duplicate",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:29:03Z",
+      "name": "Аделина Филипова",
+      "primaryEvidence": [
+        "https://filipova.bg/"
+      ],
+      "notes": "FullactualruntimeSOFIA_CATALOGUE plusALL2000intakes canonicaldomain/operator/phone/address preflight alreadycontainsrealprovider. No staff/marketingdomain/newquarter/booking-subdomainclone. Searchdiscoveryonly, no deepercurrentrequests afterduplicateobserved. Aledora/BGPrane robotswerequeuedparallelbeforededupeoutputwasread; no furtherrequests."
+    },
+    {
+      "order": 58,
+      "status": "rejected_duplicate",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:29:03Z",
+      "name": "Кирил Грозданов",
+      "primaryEvidence": [
+        "https://psygrozdanov.com/"
+      ],
+      "notes": "FullactualruntimeSOFIA_CATALOGUE plusALL2000intakes canonicaldomain/operator/phone/address preflight alreadycontainsrealprovider. No staff/marketingdomain/newquarter/booking-subdomainclone. Searchdiscoveryonly, no deepercurrentrequests afterduplicateobserved. Aledora/BGPrane robotswerequeuedparallelbeforededupeoutputwasread; no furtherrequests."
+    },
+    {
+      "order": 59,
+      "status": "rejected_duplicate",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:29:03Z",
+      "name": "Будинов и Будинов",
+      "primaryEvidence": [
+        "https://bb-lawoffice.com/"
+      ],
+      "notes": "FullactualruntimeSOFIA_CATALOGUE plusALL2000intakes canonicaldomain/operator/phone/address preflight alreadycontainsrealprovider. No staff/marketingdomain/newquarter/booking-subdomainclone. Searchdiscoveryonly, no deepercurrentrequests afterduplicateobserved. Aledora/BGPrane robotswerequeuedparallelbeforededupeoutputwasread; no furtherrequests."
+    },
+    {
+      "order": 60,
+      "status": "rejected_duplicate",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:29:03Z",
+      "name": "Расташки",
+      "primaryEvidence": [
+        "https://advokatsofia.bg/"
+      ],
+      "notes": "FullactualruntimeSOFIA_CATALOGUE plusALL2000intakes canonicaldomain/operator/phone/address preflight alreadycontainsrealprovider. No staff/marketingdomain/newquarter/booking-subdomainclone. Searchdiscoveryonly, no deepercurrentrequests afterduplicateobserved. Aledora/BGPrane robotswerequeuedparallelbeforededupeoutputwasread; no furtherrequests."
+    },
+    {
+      "order": 61,
+      "status": "rejected_duplicate",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:29:03Z",
+      "name": "Илона Петрова",
+      "primaryEvidence": [
+        "https://advokatpetrova.com/"
+      ],
+      "notes": "FullactualruntimeSOFIA_CATALOGUE plusALL2000intakes canonicaldomain/operator/phone/address preflight alreadycontainsrealprovider. No staff/marketingdomain/newquarter/booking-subdomainclone. Searchdiscoveryonly, no deepercurrentrequests afterduplicateobserved. Aledora/BGPrane robotswerequeuedparallelbeforededupeoutputwasread; no furtherrequests."
+    },
+    {
+      "order": 62,
+      "status": "rejected_duplicate",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:29:03Z",
+      "name": "Боева и Боева",
+      "primaryEvidence": [
+        "https://boevilaw.eu/"
+      ],
+      "notes": "FullactualruntimeSOFIA_CATALOGUE plusALL2000intakes canonicaldomain/operator/phone/address preflight alreadycontainsrealprovider. No staff/marketingdomain/newquarter/booking-subdomainclone. Searchdiscoveryonly, no deepercurrentrequests afterduplicateobserved. Aledora/BGPrane robotswerequeuedparallelbeforededupeoutputwasread; no furtherrequests."
+    },
+    {
+      "order": 63,
+      "status": "rejected_duplicate",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:29:03Z",
+      "name": "Яна Богданова",
+      "primaryEvidence": [
+        "https://advokat-kantora.com/"
+      ],
+      "notes": "FullactualruntimeSOFIA_CATALOGUE plusALL2000intakes canonicaldomain/operator/phone/address preflight alreadycontainsrealprovider. No staff/marketingdomain/newquarter/booking-subdomainclone. Searchdiscoveryonly, no deepercurrentrequests afterduplicateobserved. Aledora/BGPrane robotswerequeuedparallelbeforededupeoutputwasread; no furtherrequests."
+    },
+    {
+      "order": 64,
+      "status": "rejected_duplicate",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:29:03Z",
+      "name": "Тони Чакъров",
+      "primaryEvidence": [
+        "https://lawyer-chakarov.com/"
+      ],
+      "notes": "FullactualruntimeSOFIA_CATALOGUE plusALL2000intakes canonicaldomain/operator/phone/address preflight alreadycontainsrealprovider. No staff/marketingdomain/newquarter/booking-subdomainclone. Searchdiscoveryonly, no deepercurrentrequests afterduplicateobserved. Aledora/BGPrane robotswerequeuedparallelbeforededupeoutputwasread; no furtherrequests."
+    },
+    {
+      "order": 65,
+      "status": "rejected_duplicate",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:29:03Z",
+      "name": "Бесните Чистачи",
+      "primaryEvidence": [
+        "https://besnitechistachi.bg/"
+      ],
+      "notes": "FullactualruntimeSOFIA_CATALOGUE plusALL2000intakes canonicaldomain/operator/phone/address preflight alreadycontainsrealprovider. No staff/marketingdomain/newquarter/booking-subdomainclone. Searchdiscoveryonly, no deepercurrentrequests afterduplicateobserved. Aledora/BGPrane robotswerequeuedparallelbeforededupeoutputwasread; no furtherrequests."
+    },
+    {
+      "order": 66,
+      "status": "rejected_duplicate",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:29:03Z",
+      "name": "Силвия Петкова",
+      "primaryEvidence": [
+        "https://petkovalegal.com/"
+      ],
+      "notes": "FullactualruntimeSOFIA_CATALOGUE plusALL2000intakes canonicaldomain/operator/phone/address preflight alreadycontainsrealprovider. No staff/marketingdomain/newquarter/booking-subdomainclone. Searchdiscoveryonly, no deepercurrentrequests afterduplicateobserved. Aledora/BGPrane robotswerequeuedparallelbeforededupeoutputwasread; no furtherrequests."
+    },
+    {
+      "order": 67,
+      "status": "rejected_duplicate",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:29:03Z",
+      "name": "Георги Веселинов",
+      "primaryEvidence": [
+        "https://lawyer-georgiveselinov.com/"
+      ],
+      "notes": "FullactualruntimeSOFIA_CATALOGUE plusALL2000intakes canonicaldomain/operator/phone/address preflight alreadycontainsrealprovider. No staff/marketingdomain/newquarter/booking-subdomainclone. Searchdiscoveryonly, no deepercurrentrequests afterduplicateobserved. Aledora/BGPrane robotswerequeuedparallelbeforededupeoutputwasread; no furtherrequests."
+    },
+    {
+      "order": 68,
+      "status": "rejected_duplicate",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:29:03Z",
+      "name": "Трифонов",
+      "primaryEvidence": [
+        "https://trifonov.info/"
+      ],
+      "notes": "FullactualruntimeSOFIA_CATALOGUE plusALL2000intakes canonicaldomain/operator/phone/address preflight alreadycontainsrealprovider. No staff/marketingdomain/newquarter/booking-subdomainclone. Searchdiscoveryonly, no deepercurrentrequests afterduplicateobserved. Aledora/BGPrane robotswerequeuedparallelbeforededupeoutputwasread; no furtherrequests."
+    },
+    {
+      "order": 69,
+      "status": "rejected_duplicate",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:29:03Z",
+      "name": "Константинова",
+      "primaryEvidence": [
+        "https://irinakonstantinova.com/"
+      ],
+      "notes": "FullactualruntimeSOFIA_CATALOGUE plusALL2000intakes canonicaldomain/operator/phone/address preflight alreadycontainsrealprovider. No staff/marketingdomain/newquarter/booking-subdomainclone. Searchdiscoveryonly, no deepercurrentrequests afterduplicateobserved. Aledora/BGPrane robotswerequeuedparallelbeforededupeoutputwasread; no furtherrequests."
+    },
+    {
+      "order": 70,
+      "status": "rejected_duplicate",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:29:03Z",
+      "name": "Финансиал",
+      "primaryEvidence": [
+        "https://finansialbg.com/"
+      ],
+      "notes": "FullactualruntimeSOFIA_CATALOGUE plusALL2000intakes canonicaldomain/operator/phone/address preflight alreadycontainsrealprovider. No staff/marketingdomain/newquarter/booking-subdomainclone. Searchdiscoveryonly, no deepercurrentrequests afterduplicateobserved. Aledora/BGPrane robotswerequeuedparallelbeforededupeoutputwasread; no furtherrequests."
+    },
+    {
+      "order": 71,
+      "status": "rejected_duplicate",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:29:03Z",
+      "name": "Преслава Йорданова",
+      "primaryEvidence": [
+        "https://yordanovalaw.bg/"
+      ],
+      "notes": "FullactualruntimeSOFIA_CATALOGUE plusALL2000intakes canonicaldomain/operator/phone/address preflight alreadycontainsrealprovider. No staff/marketingdomain/newquarter/booking-subdomainclone. Searchdiscoveryonly, no deepercurrentrequests afterduplicateobserved. Aledora/BGPrane robotswerequeuedparallelbeforededupeoutputwasread; no furtherrequests."
+    },
+    {
+      "order": 72,
+      "status": "rejected_duplicate",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:29:03Z",
+      "name": "Aledora",
+      "primaryEvidence": [
+        "https://aledorabg.com/"
+      ],
+      "notes": "FullactualruntimeSOFIA_CATALOGUE plusALL2000intakes canonicaldomain/operator/phone/address preflight alreadycontainsrealprovider. No staff/marketingdomain/newquarter/booking-subdomainclone. Searchdiscoveryonly, no deepercurrentrequests afterduplicateobserved. Aledora/BGPrane robotswerequeuedparallelbeforededupeoutputwasread; no furtherrequests."
+    },
+    {
+      "order": 73,
+      "status": "rejected_duplicate",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:29:03Z",
+      "name": "BGPrane",
+      "primaryEvidence": [
+        "https://bgprane.com/"
+      ],
+      "notes": "FullactualruntimeSOFIA_CATALOGUE plusALL2000intakes canonicaldomain/operator/phone/address preflight alreadycontainsrealprovider. No staff/marketingdomain/newquarter/booking-subdomainclone. Searchdiscoveryonly, no deepercurrentrequests afterduplicateobserved. Aledora/BGPrane robotswerequeuedparallelbeforededupeoutputwasread; no furtherrequests."
+    }
+  ],
+  "lastUpdatedAtUtc": "2026-11-14T00:29:03Z",
+  "frozenAtUtc": "2026-11-14T00:29:03Z",
+  "verification": {
+    "schemaApproved": 7,
+    "duplicateAuditReady": 7,
+    "duplicateAuditPending": 0,
+    "duplicateAuditRejected": 0,
+    "comparisonRuntimePlusOtherIntakes": 1583,
+    "sourceReviewStates": {
+      "reviewed": 6,
+      "service_reviewed": 1
+    },
+    "focusedTests": {
+      "command": "node --test tests/catalogue-pricing-review.test.mjs tests/catalogue-audit.test.mjs",
+      "pass": 16,
+      "fail": 0
+    },
+    "scope": "Offline intake checks only; not published, no identities/sharedimports/assets/productionwrites.",
+    "nativePartners": "Six public partner service-fixture names compared; none match new merchants. Fixture has no contacts, so this is not a claim of native phone comparison; root owns cross-phone check."
+  },
+  "photoRecommendations": [
+    [
+      "sofia-omega-vitosha29",
+      "education",
+      "Индивидуален английски A1 за възрастни · 10 учебни часа",
+      "language-lesson"
+    ],
+    [
+      "sofia-studio-s-mladost1-chomakov4a",
+      "education",
+      "Индивидуален урок по БЕЛ · без кандидатстудентска подготовка",
+      "sx-school-literature-individual"
+    ],
+    [
+      "sofia-pepelyashka-home-cleaning",
+      "home_services",
+      "Комплексно почистване на дом",
+      "home-deep-clean"
+    ],
+    [
+      "sofia-olympia-tsaribrodska75",
+      "education",
+      "Индивидуален английски A1–A2 · пакет 10 учебни часа",
+      "language-lesson"
+    ],
+    [
+      "sofia-divinity-home-cleaning",
+      "home_services",
+      "Почистване на дом",
+      "home-deep-clean"
+    ],
+    [
+      "sofia-clean-bg-home-cleaning",
+      "home_services",
+      "Машинно изпиране на мека мебел",
+      "sx-home-upholstery-extraction-macro"
+    ],
+    [
+      "sofia-hristo-vasilev-james-bourchier103",
+      "consulting",
+      "Правна консултация по вещно право",
+      "legal-consultation"
+    ]
+  ],
+  "photoReviewNotes": "All5physicalproposedWebPs visuallyreviewed. Languageone-to-oneadultlesson; BELindividualteacher/olderpupilbooks; homekitchenwiping; extractionmacro crediblebecauseownerexplicitextractormethod; legaldeskdocuments. Exact7associationsrootowned, notmutatedhere. Fourcurrentmatcherneutralrowsrequireexplicitmaps, nonewassetnecessary."
+}

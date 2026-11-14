@@ -4,6 +4,226 @@
   "scope": "Illustrative service-specific photos for approved Sofia catalogue entries; not actual business premises, staff, work or results.",
   "assets": [
     {
+      "id": "sx-indoor-golf-simulator-lesson",
+      "label": "Урок по голф на закрит симулатор",
+      "sourceFile": "exec-d103cff3-fe5c-44da-9c9b-042cce20b4ed.png",
+      "sourceSha256": "94c085140434ffa41e30db6e8c75ecdbee033d36d18100bc72b6731985108eb0",
+      "file": "public/service-photos/sx-indoor-golf-simulator-lesson-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 9888,
+      "sha256": "3c088de5478487efed274c2caf4e5bfaae26c3b9a3e04b0416e2f32ae35f84b2",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square specific-service thumbnail for booking, generic illustrative photograph not provider premises or equipment model.\nPrimary request: realistic indoor golf simulator lesson. One fully clothed adult golfer holds an iron at a calm address position over a golf ball on a hitting mat; one adult coach stands safely beside and behind the golfer, pointing out the grip without entering the swing path. A believable projected golf-range screen and a small generic floor launch-monitor unit beside the ball make indoor simulator training unmistakable. Square medium-wide framing captures golfer, coach, club and screen clearly at small size. Authentic fabric, skin and indoor sports lighting.\nConstraints: not an outdoor golf course, gym, club fitting or retail lesson purchase; no crowd/group lesson assertion, no textbook or notebook. No logos, readable screen scores, exact hardware brand/model claim, watermark, collage, unsafe overlapping club or hands. Two adults only, anatomically natural.",
+      "generatedOn": "2026-11-14",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "94c085140434ffa41e30db6e8c75ecdbee033d36d18100bc72b6731985108eb0",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and optimized256pxWebP. Indoor simulator coaching distinct from outdoor golf/fitting; private padel has solid perforated rackets and glass court, not tennis/squash; functional coaching shows controlled kettlebell hinge with one client; cooperative standing aikido wrist entry not BJJ/judo sparring; indoor tennis has strung rackets and air-supported winter dome. Illustrative activity only, not exact provider premises, hardware model, staff, work or outcomes."
+      }
+    },
+    {
+      "id": "sx-private-padel-coaching",
+      "label": "Индивидуален урок по падел",
+      "sourceFile": "exec-847e5283-028f-45f2-b71b-e94090cc4137.png",
+      "sourceSha256": "25c5130e5959e205af4d0e3621bc393db7f6046b1ba3922ea838f8beb4bdea5e",
+      "file": "public/service-photos/sx-private-padel-coaching-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 17610,
+      "sha256": "044b12465d73d4c75214721187c3a721a7a7ec0d1a3bdb72f3ab042af118a6e5",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square service thumbnail, generic illustrative session not actual coach/client/business work.\nPrimary request: photorealistic ONE-TO-ONE PADEL lesson in a real glass-enclosed padel court. One adult learner and one adult coach stand on the same side of the low net discussing a compact forehand grip, holding distinctive solid perforated padel rackets with short handles and NO strings. Coach demonstrates slowly; learner watches. Blue court, glass wall and metal fencing visible, clear lesson interaction. Medium framing, natural daylight, believable anatomy and racket proportions.\nConstraints: PADEL, not tennis/badminton/squash; no strung rackets, no stadium crowd, not court-rental empty scene or doubles group. No logos, readable text, notebook, watermark, promotional before/after or collage. Fully clothed adults in ordinary sportswear.",
+      "generatedOn": "2026-11-14",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "25c5130e5959e205af4d0e3621bc393db7f6046b1ba3922ea838f8beb4bdea5e",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and optimized256pxWebP. Indoor simulator coaching distinct from outdoor golf/fitting; private padel has solid perforated rackets and glass court, not tennis/squash; functional coaching shows controlled kettlebell hinge with one client; cooperative standing aikido wrist entry not BJJ/judo sparring; indoor tennis has strung rackets and air-supported winter dome. Illustrative activity only, not exact provider premises, hardware model, staff, work or outcomes."
+      }
+    },
+    {
+      "id": "sx-aikido-adult-group",
+      "label": "Айкидо за възрастни в група",
+      "sourceFile": "exec-bab1b374-7591-46c2-8898-943682640d6e.png",
+      "sourceSha256": "bc4745604b39767715eb14d84b4e48012030934289dfe364d01100a9bc2ad8cf",
+      "file": "public/service-photos/sx-aikido-adult-group-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 9384,
+      "sha256": "b91bab06894bb8b745072041b6a5db41a1650160f9afd726e3612c72ab5d9ddc",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square illustrative booking thumbnail, not an actual club or its students.\nPrimary request: realistic adult GROUP AIKIDO practice in a clean dojo. Two adults in plain white martial-arts gi and simple white belts calmly rehearse a basic standing wrist-control entry: one partner lightly offers a wrist while the other guides the hand at waist height, no painful joint angle or throw. Two other adult students practise gently in background on pale mats. Aikido cooperative posture with upright relaxed stance, natural hands and anatomy, daylight, real cloth texture. Medium square framing, clearly a calm coached martial arts group.\nConstraints: no punching, kicking, BJJ groundwork, judo lapel throwing grip, weapons, injury, dramatic action, blackbelt qualification claim, children, notebook, text, logos or watermark. No actual provider identity or guaranteed result.",
+      "generatedOn": "2026-11-14",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "bc4745604b39767715eb14d84b4e48012030934289dfe364d01100a9bc2ad8cf",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and optimized256pxWebP. Indoor simulator coaching distinct from outdoor golf/fitting; private padel has solid perforated rackets and glass court, not tennis/squash; functional coaching shows controlled kettlebell hinge with one client; cooperative standing aikido wrist entry not BJJ/judo sparring; indoor tennis has strung rackets and air-supported winter dome. Illustrative activity only, not exact provider premises, hardware model, staff, work or outcomes."
+      }
+    },
+    {
+      "id": "sx-indoor-tennis-court-rental",
+      "label": "Наем на закрит тенис корт",
+      "sourceFile": "exec-a9feaafb-ff07-45ec-8270-cd162f9a1bb2.png",
+      "sourceSha256": "599b99dd485cd450a1ec076b447c5aac59c7e83c5f67106606f57dd5fd06253b",
+      "file": "public/service-photos/sx-indoor-tennis-court-rental-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 6378,
+      "sha256": "010054bae33701b1085052073b9e1f71253fd94dacb63e04ea02e5549760cea5",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square specific-service booking illustration, not actual provider premises.\nPrimary request: realistic indoor TENNIS court ready for an hourly rental inside a practical winter air-supported white sports dome. Clear full-size tennis net, correct white singles/doubles lines and two normal strung tennis rackets with tennis balls near the sideline. No people needed. View from baseline toward net, warm overhead court lighting, realistic sports-floor and dome materials, tidy ordinary facility. Composition instantly distinguishes indoor full-size tennis from squash/padel.\nConstraints: generic tennis premises, not a verified exact floor/surface model; no glass padel enclosure, perforated rackets, table tennis, ice, grass outdoors, event crowd, text, logos, watermark, notebook or collage.",
+      "generatedOn": "2026-11-14",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "599b99dd485cd450a1ec076b447c5aac59c7e83c5f67106606f57dd5fd06253b",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and optimized256pxWebP. Indoor simulator coaching distinct from outdoor golf/fitting; private padel has solid perforated rackets and glass court, not tennis/squash; functional coaching shows controlled kettlebell hinge with one client; cooperative standing aikido wrist entry not BJJ/judo sparring; indoor tennis has strung rackets and air-supported winter dome. Illustrative activity only, not exact provider premises, hardware model, staff, work or outcomes."
+      }
+    },
+    {
+      "id": "sx-crossfit-private-kettlebell-coaching",
+      "label": "Индивидуална функционална кросфит тренировка",
+      "sourceFile": "exec-198adcbd-44f5-42c7-a423-a2b99f1b2a21.png",
+      "sourceSha256": "d5d7fdddb4a10ee5d7a9d3fe5853ed0bf04638c5428d183e39ea098d9e82ffb2",
+      "file": "public/service-photos/sx-crossfit-private-kettlebell-coaching-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 11314,
+      "sha256": "dcbedbc61e44842b7ddd348bb464ef30915b9d6c597826e4f89eda9d4f7e784f",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square illustrative thumbnail for one-to-one functional CrossFit-style training, not an actual branded gym or coach.\nPrimary request: an adult trainer coaching one adult client through a controlled kettlebell deadlift in a practical functional-training gym. Client hinges at hips with neutral back, knees softly bent, both hands holding the handle of a single kettlebell between the feet before lifting. Coach stands beside and cues the hip hinge with an open hand, not touching or lifting the weight. Rubber floor and plain squat rig blurred behind. Two fully clothed adults only, realistic anatomy, believable kettlebell geometry, natural skin and training clothes, ordinary daylight, square medium framing.\nConstraints: coached strength movement within individual functional training, not a group class, medical rehab, competition, bodybuilding pose or generic paperwork. No extreme loading, unsafe rounded back, duplicate fingers, text, logos, watermark or collage.",
+      "generatedOn": "2026-11-14",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "d5d7fdddb4a10ee5d7a9d3fe5853ed0bf04638c5428d183e39ea098d9e82ffb2",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and optimized256pxWebP. Indoor simulator coaching distinct from outdoor golf/fitting; private padel has solid perforated rackets and glass court, not tennis/squash; functional coaching shows controlled kettlebell hinge with one client; cooperative standing aikido wrist entry not BJJ/judo sparring; indoor tennis has strung rackets and air-supported winter dome. Illustrative activity only, not exact provider premises, hardware model, staff, work or outcomes."
+      }
+    },
+    {
+      "id": "sx-personal-colour-analysis-drapes",
+      "label": "Персонален цветови анализ с платове",
+      "sourceFile": "exec-7a69e233-a83e-462c-9a58-4d4700df3ac4.png",
+      "sourceSha256": "cf5c4e9995f6b7191c39acaba8d34ed7c3b0a8fe6b6925a5364ea37c54f72666",
+      "file": "public/service-photos/sx-personal-colour-analysis-drapes-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 9956,
+      "sha256": "c227813979024a8cb825c19f499e27a4d105abb98cae8f2f85cf49b98cfdcdf5",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square service thumbnail for a booking catalogue, generic AI illustration, not a verified business photograph.\nPrimary request: Personal colour analysis consultation using fabric drapes beside an adult client's face.\nScene: A real-looking image consultant in a calm bright studio holds a fan of several distinct coloured fabric drapes just below an adult woman's chin, comparing colours against her face. Client sits upright facing a mirror; consultant's hands and fabric interaction are clear and anatomically natural. Close waist-up framing, drapes and face fill the square, recognisable at 56px.\nStyle: realistic editorial photography, natural skin texture, soft daylight, no beauty smoothing.\nConstraints: This is colour analysis, not applying makeup or hair colouring. No cosmetic tools, no clinic apparatus, no notebook, no text, no logos, no watermark. Fully clothed adults. One client and one consultant only. No fabricated before/after.",
+      "generatedOn": "2026-11-14",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "cf5c4e9995f6b7191c39acaba8d34ed7c3b0a8fe6b6925a5364ea37c54f72666",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and optimized256pxWebP. Specific colour-analysis fabric draping is not makeup; interior-design consultation in a finished room uses plans and material samples, not legal/architecture/construction credentials; curtain measurement uses real tape/window/fabric samples, not cleaning or installation. Illustrative only, not real provider people, premises, portfolio or promised results."
+      }
+    },
+    {
+      "id": "sx-interior-design-consultation",
+      "label": "Интериорна консултация и избор на материали",
+      "sourceFile": "exec-1bf0e726-eb66-47e4-993a-bcd26e01d705.png",
+      "sourceSha256": "a8d6aba85db700a4e54496849ac15aca33fe9b4b7f0a4cdafd431e6b68e4b58c",
+      "file": "public/service-photos/sx-interior-design-consultation-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 13418,
+      "sha256": "b1a55f1bb4e2bca6e13325d007d4d365ff32e154c73089448261ed9269abc7d3",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square service thumbnail for a booking catalogue, generic illustration rather than actual provider work.\nPrimary request: an adult interior design consultant and adult client discussing a room layout and material choices in a finished ordinary residential interior. A simple floor-plan sheet and small wood/stone/fabric finish samples on a table between them; consultant points naturally to the plan while the client considers the samples. Both people and material consultation clearly legible at small size. Warm daylight, authentic skin and material textures, restrained contemporary room, not a luxury promotional rendering.\nConstraints: not a building inspection or construction site; no hardhats, surveying equipment, trade uniforms, legal/medical credentials, sales cash register, installation work, notebook or clipboard. No text, logos, watermark, render/real-result comparisons. Two fully clothed adults, natural hands, one square coherent photo.",
+      "generatedOn": "2026-11-14",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "a8d6aba85db700a4e54496849ac15aca33fe9b4b7f0a4cdafd431e6b68e4b58c",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and optimized256pxWebP. Specific colour-analysis fabric draping is not makeup; interior-design consultation in a finished room uses plans and material samples, not legal/architecture/construction credentials; curtain measurement uses real tape/window/fabric samples, not cleaning or installation. Illustrative only, not real provider people, premises, portfolio or promised results."
+      }
+    },
+    {
+      "id": "sx-curtain-blind-home-measurement",
+      "label": "Вземане на размери за пердета и щори",
+      "sourceFile": "exec-af70ef2e-a7f2-4a8b-aa9f-ad8d91e56efa.png",
+      "sourceSha256": "cdc44a62452ef413f0a5958cf4ad544f8021307c7adcded12711546e83a1ef6d",
+      "file": "public/service-photos/sx-curtain-blind-home-measurement-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 13412,
+      "sha256": "513b689c2c32e98bc5f0be77262d3ed87373af9a7deab2c9239b40f460440dd5",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square specific-service thumbnail, generic AI illustration not a business portfolio photograph.\nPrimary request: a curtain and window-blind consultant taking window measurements in an ordinary finished living room. Adult consultant uses a tape measure along the inside of a real window frame; a second adult client observes and holds a small fan of curtain-fabric samples. Window frame, tape measure and fabric swatches prominent and instantly recognisable in square framing. Neutral clean room, soft daylight, real skin, fabric and painted-frame textures, believable geometry and hands.\nConstraints: this is a home curtain/blind measurement consultation, not cleaning, washing, installation or buying ready-made curtains. No cleaning nozzle or bucket, no medical/architect credentials, no notebook, clipboard, text, logo, watermark or collage. Keep people fully clothed, proportions natural.",
+      "generatedOn": "2026-11-14",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "cdc44a62452ef413f0a5958cf4ad544f8021307c7adcded12711546e83a1ef6d",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and optimized256pxWebP. Specific colour-analysis fabric draping is not makeup; interior-design consultation in a finished room uses plans and material samples, not legal/architecture/construction credentials; curtain measurement uses real tape/window/fabric samples, not cleaning or installation. Illustrative only, not real provider people, premises, portfolio or promised results."
+      }
+    },
+    {
+      "id": "sx-group-pilates-standing-control",
+      "label": "Групов пилатес — контрол и стойка",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square GoRez specific-service thumbnail, recognizable at64px.\nPrimary request: a realistic small ADULT GROUP PILATES class in a clean ordinary exercise studio. Three adults in modest fitted exercise clothing perform a controlled standing Pilates warm-up: feet parallel hip-width, soft knees, tall neutral spines, arms gently reaching forward at shoulder height while maintaining controlled core posture. A qualified-looking adult instructor beside the front participant demonstrates the same slow precise movement. Calm focused expressions, natural body proportions and hands, ordinary daylight, realistic skin and fabric. Frame chest through lower legs closely enough to recognize a coached group movement, with other adults slightly behind.\nConstraints: an illustrative part of a Pilates group class, not actual business staff/premises or a guaranteed outcome. No yoga prayer/tree pose, no dance stage, no jumping, no weights, no Pilates reformer machinery or floor mats visible because the service source does not specify apparatus. Not rehabilitation/medical treatment. No notebook, text, logos, watermark, or collage.",
+      "sourceFile": "exec-8999b3a6-c1b8-4bff-a33e-4fc00ae564dc.png",
+      "sourceSha256": "b478c14f6ff065e5066f066345f0f62010a9c877f36534a1d666dea52968d5f3",
+      "file": "public/service-photos/sx-group-pilates-standing-control-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 11670,
+      "sha256": "45c7b3b8ecd8eda2445f7ef23f7bebedcde28eb4c2513b6d760667f60fb866e9",
+      "generatedOn": "2026-11-14",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "b478c14f6ff065e5066f066345f0f62010a9c877f36534a1d666dea52968d5f3",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and optimized256pxWebP. Pilates image illustrates a coached standing-control warm-up in an adult group without inventing mat/Reformer apparatus; tanning booth is a realistic switched-off vertical ordinary UV solarium, a type explicitly offered by own source, not colarium or medical equipment. Illustrative, not actual provider premises, people, work or outcomes."
+      }
+    },
+    {
+      "id": "sx-vertical-solarium-equipment",
+      "label": "Вертикален солариум",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square service thumbnail for an ordinary salon solarium/tanning visit.\nPrimary request: realistic professional photograph of a modern unbranded VERTICAL UV TANNING BOOTH inside a clean tanning salon. The full-height curved door is open, clearly revealing dense vertical fluorescent tanning lamp tubes arranged around the cylindrical standing space, metal reflectors, a small safe textured standing floor, tidy white and brushed-metal casing and compact simple control panel with no readable text. The machine is switched OFF for this equipment photograph under normal room lighting, not emitting UV. A folded clean towel is on a nearby shelf, no other dominant objects. Clear central machine silhouette at64px, natural materials, believable scale and construction, no futuristic design.\nConstraints: generic illustrative equipment, not a verified photo of a business, no brand/model claim, no people or nudity, no medical/laser device, no red-light colarium or salt room, no health/safety/result claims, no notebook, text, logos, watermark or collage.",
+      "sourceFile": "exec-9d6e7b17-662a-4555-a7e6-983d07685704.png",
+      "sourceSha256": "c43f8ba601112d1c61b0d64efbbbb3909032dc57f24015ce03a5bd8891e15744",
+      "file": "public/service-photos/sx-vertical-solarium-equipment-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 6014,
+      "sha256": "d5fa69a63a2a1bef90f701701635c157599cee14909405339c6133ccc8658372",
+      "generatedOn": "2026-11-14",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "c43f8ba601112d1c61b0d64efbbbb3909032dc57f24015ce03a5bd8891e15744",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Individually inspected full generated source and optimized256pxWebP. Pilates image illustrates a coached standing-control warm-up in an adult group without inventing mat/Reformer apparatus; tanning booth is a realistic switched-off vertical ordinary UV solarium, a type explicitly offered by own source, not colarium or medical equipment. Illustrative, not actual provider premises, people, work or outcomes."
+      }
+    },
+    {
       "id": "sx-monitor-hardware-calibration",
       "label": "Хардуерно калибриране на монитор",
       "prompt": "Use case: photorealistic-natural\nAsset type: one square GoRez specific-service booking thumbnail, readable at64px.\nPrimary request: a professional technician performing hardware colour calibration of a normal desktop monitor in a photography technical studio. A small unbranded real colourimeter hangs securely against the CENTER of the monitor screen by its cable, and the screen displays a few large plain colour calibration patches around the device, no text or software logos. An adult technician in ordinary work clothes is visible beside the monitor adjusting it naturally, realistic fingers, monitor, cable and device proportions. Soft neutral studio daylight, credible professional hardware calibration scene, not general computer repair or photo editing, central meter and colour patches clearly visible.\nConstraints: illustrative service, not actual business premises, person or equipment. No claimed exact device brand/model, no notebook or clipboard, no soldering, no broken screen, no prices, readable text, logo or watermark.\nTargeted edit: Use case: precise-object-edit. Edit target: the provided square photorealistic monitor calibration image. Change ONLY the hanging colorimeter: replace the visible white circular optical diffuser on its outward-facing side with a solid opaque matte-black rear housing, so the measurement face is correctly pressed against the monitor screen and not facing the viewer. Preserve the hanging cable, small device size and placement, person, face, hands, desk, photography studio, monitor, screen color patches, realistic lighting, square framing and all other details exactly. No text, logo, watermark or extra objects.",

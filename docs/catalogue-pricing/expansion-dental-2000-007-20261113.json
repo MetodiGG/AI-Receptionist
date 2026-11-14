@@ -1,0 +1,80 @@
+{
+  "rootExistingPhotoReReview": {
+    "checkedOn": "2026-11-14",
+    "originalGenerationManifest": "docs/service-photo-generation-2026-11-12.json",
+    "decision": "Existingalready-generatedrights-clearedCHILDexamassetpromotedtotheexplicitallowlist, withoriginalsourceandpublichashesverified; NOTnewimagegeneration. SpecificSXmanifestintentionallydoesNOTduplicatelegacyassetbecauseitsverifieronlyacceptsSXrecords. No gate weakened, image not rewritten.",
+    "asset": {
+      "id": "child-dental-exam",
+      "sourceFile": "exec-fc3461d5-2808-4310-a522-c93d039e745d.png",
+      "sourceSha256": "3209e492aea9614b9857dc2596a30f8528c291bbfc1980176bccedf8d93c49c1",
+      "file": "public/service-photos/child-dental-exam-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 11626,
+      "sha256": "5240596a9cb6549d92aadbbbafe164458cdbf47eba86816a957f68d7c9803ddf",
+      "label": "Детски стоматологичен преглед",
+      "prompt": "Use case: photorealistic-natural\nAsset type: one individual square service thumbnail photograph for GoRez, a generic illustrative scene, not any actual business, employee or verified customer's work.\nStyle and framing: authentic candid commercial photograph with lifelike fictional people, real skin and material textures, soft natural daylight, warm neutral tones and restrained retouching. Square 1:1 close or medium crop; one clear main activity inside central75percent so readable at64px; shallow background detail.\nConstraints: no typography, logos, labels, watermarks, collages, before/after split, borders, emoji, CGI or 3D illustration. Natural anatomically correct people, hands and credible tools. \nService label outside image: Детски стоматологичен преглед.\nPrimary scene: A friendly masked dentist in gloves gently performs a simple dental check-up with a small dental mirror for a calm fictional school-age child reclining in a dental chair, a parent beside the chair. Bright welcoming dental room, professional safe posture and appropriate protective eyewear. One simple exam, no drilling, injections, extraction, blood, distress, diagnosis labels or readable patient records.",
+      "generatedOn": "2026-11-12",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "3209e492aea9614b9857dc2596a30f8528c291bbfc1980176bccedf8d93c49c1",
+        "reviewers": [
+          "/root"
+        ],
+        "checkedOn": "2026-11-14",
+        "method": "PROMOTIONofexistingRIGHTSCLEARED12NovgeneratedassettoEXACTserviceallowlist, NOTnew14Novimage. ROOTpersonallyviewed1254sourceand256WebP, bothcryptographichashes/bytesMATCHoriginalgeneral-generationmanifest. Actualchildmirrorcheck+parentnoteducationaltoothmodelonly/adultexam/drilling/treatment. FixesNoraexplicitdifferent-wordingneutralfallbackwithoutchangingservicename/fee/durationororiginalPNG/WebP. Fictionalchild/parent/dentistnotactualproviderwork."
+      }
+    }
+  },
+  "rootIntegrationReview": {"checkedAtUtc":"2026-11-14T04:38:22.803Z","note":"RootreadFULLrecord/reviewandFULLledger. NoraONEactualSlavyanska6practice, ownBookexplicitINDEPENDENTphone899128852, FreshaidentifiedNEVERrequested/providerdataNOTused. CurrentOWNprices42adultFIRSTexam+status,42CHILDFIRSTexam+status,98INITIALclean+AirflowGRADE1, notGrade2=132/standalone58/childexam+brush65/plans. No fixedminutes/wholemouth/NHS/outcomesinferred. AgentprovidedactualFULLselectedownerAirflowpageproofultrasound+manualinstrumentsTHENAirFlowplusownednavultrasoundcleaning, supportingtwo-panelphotoWITHOUTchangingliteralpriceunittoassumeextra. ROOTpersonallyviewedlegacyadult+CHILDexamandcombinedultrasoundAirflow, fictionalnotactualNoraassistant/patient/work. Wholepolicy/nav/sitemapinspectionhonestnoownpolicyfoundnotlegallicenceguarantee. No weeklyhours/quarter/pointguessed, no staffclones/sourceprose/media/clinicaladvice/customer/productionactions.","identity":"Only newlyreviewednormalizedinventoryidentitiesassigned; existingbaseline/pricereviewfingerprintsuntouched; originalfreeze/sourceobservationdatespreserved."},
+  "checkedOn": "2026-11-14",
+  "checkedAtUtc": "2026-11-14T04:35:30Z",
+  "reviewLocalDate": "2026-11-14",
+  "status": "frozen_source_complete_pending_integration",
+  "records": 1,
+  "services": 3,
+  "priceFacts": 3,
+  "reviewer": "/root/catalogue_beauty_nov13",
+  "scope": "Independent Sofia dentistry only, newly authorized by root. No non-dental medical clinics or medical aesthetics. Only this new intake and evidence ledger are edited.",
+  "orderedLedger": [{
+    "id": "sofia-noradent-slavyanska6",
+    "decision": "ready_for_integration",
+    "website": "https://www.noradent.bg/",
+    "reviewedUrls": ["https://www.noradent.bg/robots.txt", "https://www.noradent.bg/", "https://www.noradent.bg/booking/", "https://www.noradent.bg/contacts/", "https://www.noradent.bg/prices/", "https://www.noradent.bg/karta/", "https://www.noradent.bg/team/", "https://www.noradent.bg/services/pochistvane-na-zaben-kamak/", "https://www.noradent.bg/services/pochistvane-i-polirane-na-zabi-s-airflow/"],
+    "booking": {
+      "method": "independent_owner_phone_booking_reviewed",
+      "url": "https://www.noradent.bg/booking/",
+      "excerpt": "За да запазите час, моля използвайте бутона по-долу или тел. 0899128852",
+      "actualEntryOrder": "Root actual Book links inspected first: owner root form, then linked own /booking/ page. External bg.fresha.com target identified only, never requested. The owner explicitly offers voice phone as an independent alternative. No claim of a checked provider calendar or instant confirmation."
+    },
+    "prices": [
+      {"service": "Първичен преглед + снемане на зъбен статус", "literal": "42 Евро", "sourceUrl": "https://www.noradent.bg/prices/"},
+      {"service": "Първичен преглед + снемане на зъбен статус (деца)", "literal": "42 Евро", "sourceUrl": "https://www.noradent.bg/prices/"},
+      {"service": "Почистване + Airflow (първично) Степен 1", "literal": "98 Евро", "sourceUrl": "https://www.noradent.bg/prices/"}
+    ],
+    "priceDepth": "Complete native tariff reviewed and fresh ordinary HTTP corroboration obtained. Selected exact variants only, not whole tariff. Grade2, standalone Airflow, child brush/paste combination, treatment plans, bleaching, packages, restorations and surgery are not substituted. No minutes or whole-mouth scope inferred.",
+    "location": "Own root/footer and contacts agree Sofia Slavyanska6, +359899128852. Team identifies Nora Damyanova dentist, assistant and trainee assistant; not three businesses. No exact owned marker inspected; coordinates null. No quarter guessed.",
+    "hours": {"decision": "omitted_not_published_in_reviewed_pages", "sourceUrls": ["https://www.noradent.bg/", "https://www.noradent.bg/contacts/", "https://www.noradent.bg/booking/", "https://www.noradent.bg/team/"]},
+    "sourceUse": "Robots Allow public paths. Reviewed actual root/contact/booking/prices/team navigation and full footers plus own sitemap; no Terms/Privacy link observed there. Not proof of no policy and not blanket permission/legal clearance. Only three minimal independently worded factual references, no clinical article prose, testimonials, ratings, cases or source media reused.",
+    "dedupe": "Final executable SOFIA_CATALOGUE1698 plus ALL other2000 intake default.records: exactID, canonical www/protocol-normalized noradent.bg host and normalized899128852 phone all zero. Same Slavyanska6 address zero. No staff/old-English-domain aliases counted.",
+    "photoNeeds": ["adult dental examination", "child dental examination", "professional dental cleaning with Airflow; no bleaching or surgical depiction"]
+  }],
+  "pending": [
+    {"website":"https://alvadent.net/","decision":"hold_unrendered_owner_site","reviewedUrls":["https://alvadent.net/robots.txt","https://alvadent.net/"],"reason":"Robots allows public root, but web reader and fresh ordinary HTTP root expose only the page title/JavaScript shell, no rendered appointment/service/contact/legal menu. No bundle/API/UI bypass, no source-complete or unpublished-price claim."},
+    {"website":"https://www.zabolekar24h.com/","decision":"hold_booking_and_ordinary_tariff","reviewedUrls":["https://zabolekar24h.com/robots.txt","https://www.zabolekar24h.com/robots.txt","https://www.zabolekar24h.com/"],"reason":"Own root gives Lyulin8 street3004 number5 and 24h contact phones; it does not independently establish an appointment channel rather than walk-in emergency contact. Night EUR25/BGN48.89 is an ADDITIONAL20–08fee plus an advertised but unreviewed service tariff, never a service visit price. No selected service approved; not unpublished."},
+    {"website":"https://poibrenskadentist.free.bg/","decision":"hold_booking_channel_and_currentness","reviewedUrls":["https://poibrenskadentist.free.bg/robots.txt","https://poibrenskadentist.free.bg/","https://poibrenskadentist.free.bg/kontakti.html","https://poibrenskadentist.free.bg/terapiq.html"],"reason":"Robots404, current root/contact live with PetyaPoibrenska, ManastirskiLivadiWest SinanishkoEzero13 block12 groundfloor and 0888873693. Contact publishes weekday hours and prior appointments at weekends, but only labels phone as generic contact; no explicit independent voice-booking or supported form established. Footer2015, no claim of closed business from age alone. Linked prevention reader Cachemiss not completed. No directory facts/prices imported."},
+    {"website":"https://estadent.bg/","decision":"hold_unrendered_owner_site","reviewedUrls":["https://estadent.bg/robots.txt","https://estadent.bg/"],"reason":"Robots public Allow; reader root only GoogleTagManager iframe, no rendered booking/service/contact/legal content yet. No GTM request, JS bundle/API or provider bypass."},
+    {"website":"https://youdent.eu/","decision":"hold_booking_channel","reviewedUrls":["https://youdent.eu/robots.txt","https://youdent.eu/","https://youdent.eu/контакти/"],"reason":"Own dentistry-only root/team and Borovo Poduevo10/TopliDol9 firstfloor identified, one shared practice not two staff businesses. Actual root Call/Contact entry leads to generic name/email/message contact form and dentist phones, no appointment request purpose or independent explicit voice-booking established. No tariff link in visible root navigation; not labeled unpublished because booking gate remains incomplete. Privacy text visible but not a completed full policy review."},
+    {"website":"https://dentalcarebg.com/","decision":"hold_stop_actual_terms403_and_tariff_conflict","reviewedUrls":["https://dentalcarebg.com/robots.txt","https://dentalcarebg.com/","https://dentalcarebg.com/general-conditions.html","https://dentalcarebg.com/privacy-policy.html"],"reason":"Actual root Book is native adult/child appointment request form, not an instant calendar. Reader returned linked Terms but only first section was displayed; fresh ordinary HTTP request to actual same Terms returned403. STOP further host requests; no alternatepath/host/provider bypass, no claim of complete legal review. Root adult EUR parallel literals agree but adjacent BGN amounts disagree, unapproved; no fees imported, not unpublished. Robots search=yes,ai-train=no,use=reference not blanket reuse licence."},
+    {"website":"https://coldydent.com/","decision":"hold_dentistry_only_scope","reviewedUrls":["https://coldydent.com/robots.txt","https://coldydent.com/","https://coldydent.com/contact/","https://coldydent.com/general-terms-eng/","https://coldydent.com/privacy-policy-eng/","https://coldydent.com/general-dentistry-coldy-dent/","https://coldydent.com/faq/"],"reason":"Actual owner Book→Contact native appointment request form read first. Terms independently specify prior phone/email appointments with email confirmation, no emergency care. However selected own GeneralDentistry page expressly advertises multidisciplinary osteopathy/psychology/physiotherapy team; parent currently permits dentistry-only rather than general medical practices. Hold scope; no ordinary or unpublished-price record authored. Terms English version read to EOF; initial long Bulgarian output lost a small definitions segment, so not claimed a complete bilingual reading. Privacy/FAQ only partial reader output, not full. No selected fees, medical results, patient cases, testimonials or media copied."},
+    {"website":"https://medstom.com/","decision":"hold_source_use_scope_stop","reviewedUrls":["https://medstom.com/robots.txt","https://medstom.com/","https://medstom.com/bg/","https://medstom.com/services/terms.pdf","https://medstom.com/services/privacy.pdf"],"reason":"Own root canonical/bg/ explicitly closes StefanStambolov6 since2022 and identifies only Dondukov26A. Actual Contacts entry is owner root contact form, and own linked Terms articles1/10 explicitly describe it as appointment request for consultation/treatment. No price menu opened after Terms finding. Full PDF text six pages read, article12(1) includes databases and12(3) bars republication/distribution of published information resources absent express agreement. Conservative HOLD factual-data scope unresolved, not blanket legal conclusion. STOP further source requests; no clause override inferred from robotAllow. Linked Privacy reader Cachemiss and attempted same already-read Terms page3 screenshot Cachemiss, no completed visual PDF QA claim."}
+  ],
+  "rejected": [
+    {"website":"https://mdcprofandreeva.com/","decision":"excluded_outside_sofia_and_medical_aesthetics","reviewedUrls":["https://mdcprofandreeva.com/robots.txt","https://mdcprofandreeva.com/"],"reason":"Actual own root identifies Loza16 VARNA, not Sofia, and includes botox/fillers/mesotherapy. No provider Book or tariff opened and no Sofia row authored."}
+  ],
+  "discoveryDuplicates": ["dentalplace.bg", "dentaconsult.bg", "npdentalclinic.com", "drzdravkaasenova.com", "viadentalstudio.com", "mirablagoeva.bg", "ismile.bg", "vdent.bg", "mireladent.com", "dr-serbezova.online", "kiskimov.bg", "dentalbg.com", "lozenetzdentalclinic.com", "adeldent.com", "giuliadent.com", "sfdent.eu", "drtsonev.com", "zabolekar-ralev.com", "alldental.bg", "iddental.bg", "newdental.bg"],
+  "unreviewedLeads": [],
+  "validation": {"schema":"validateCatalogue passed1", "pricingGate":"assessPricingReview with pricingIdentity(validateCatalogue record) passed reviewed3; identity used in memory only, not authored", "dedupe":"runtime1698 + ALL other2000 intake records, ID/normalized host/phone/address zero", "photoIntegration":"root-owned, no new photo/shared files edited", "sharedTests":"Only separately root-assigned new tests/catalogue-2000-dental008-beauty017.test.mjs added;6/6 pass for already integrated Apex/Bridal, not represented as Nora runtime tests."},
+  "safeguards": "No restricted Fresha/Setmore/Mylink/ReservationStudio/Studio24/Goldie/EasyWeek/Alteg/Notino merchant requests; no Google/Maps/geocoder/Nominatim/private GPS/provider export; no source media or reviews copied; no form inputs, bookings, calls, payments, consent, customer data or production writes. Shared imports, identities, images, aggregators and existing intakes unchanged."
+}

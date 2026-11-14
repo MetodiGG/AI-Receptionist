@@ -1,0 +1,85 @@
+{
+  "rootIntegrationReview": {"checkedAtUtc":"2026-11-14T04:30:05.207Z","note":"RootpersonallyreadactualownROOTBookpublicformFIRSTandfullnativePrivacyEOF/CeniEOF/ContactEOF/selectedcleaningarticle; no publicoutputtruncationunresolved. TWOexplicitcurrentownerlistedSofiapremisesalsoEXACTBookclinicoptions, sharedOWNtariff4minimaldistinctfactsnotwholeclinicaltable. PRIVATE30notNHS15; detailed50; ultrasound50; literalcombinedRANGE70–80maximum80. No fixedminutes/medicalrecommendations/payereligibility/extra-treatmentinclusions. SamephysicalHaytov1StudioMbeautybuildingDIFFERENToperator/phone/site, no sharedpointborrowed; all3actualphones/operatoraliasesdedupedagainstallruntime/WIP. Actualweeklyhoursperbranch08–20MonFriSatSunclosed. Legacyexam/cleaningandgeneratedcombinedultrasound+AirFlowallROOTviewed, fictionalnotactualpracticeequipment/work. Source2026-11-14/no sourcephotos/authoredclinicalprose/wholeDBcopied, no clinicalgeneral-doctorrow/customer/productionactions.","identity":"Only newlyreviewednormalizedinventoryidentitiesassigned; existingbaseline/pricereviewfingerprintsuntouched; originalfreeze/sourceobservationdatespreserved."},
+  "batch": "dental-2000-008-20261113",
+  "checkedOn": "2026-11-14",
+  "checkedAtUtc": "2026-11-14 04:29:26 UTC",
+  "status": "root_source_complete_pending_exact_integration",
+  "sourceModule": "lib/discovery/catalogue-data/neighborhood-dental-2000-008-20261113.mjs",
+  "summary": {
+    "businesses": 2,
+    "services": 8,
+    "literalPriceFacts": 8,
+    "distinctFeeFacts": 4,
+    "phoneBookings": 0,
+    "ownedForms": 2,
+    "weeklyHours": 2,
+    "coordinates": 0,
+    "guessedMinutes": 0
+  },
+  "records": [
+    {
+      "id": "sofia-apex-dental-iztok-haytov1",
+      "name": "Apex Dental Center · Изток",
+      "address": "София, кв. Изток, ул. Николай Хайтов 1",
+      "phone": "+359897523411",
+      "review": {
+        "id": "sofia-apex-dental-iztok-haytov1",
+        "checkedOn": "2026-11-14",
+        "website": "https://apexdental.bg/",
+        "bookingEntry": "https://apexdental.bg/",
+        "bookingReview": "owned_booking_reviewed",
+        "reviewedUrls": [
+          "https://apexdental.bg/robots.txt",
+          "https://apexdental.bg/",
+          "https://apexdental.bg/privacy-policy/",
+          "https://apexdental.bg/ceni/",
+          "https://apexdental.bg/kontakti/",
+          "https://apexdental.bg/uslugi/obshta-dentalna-medicina/pochistvane-na-zaben-kamak/"
+        ],
+        "notes": "Root actualROOTBook entry inspectedFIRST: nativepublicHTMLcontainsownedrequestformwithname/phone/service/time-of-dayandEXACTclinicselectorHaytov1orSlatinska101A. No inputs/options/actions/consent/formsubmission/privateCF7endpoint; notclaimedrenderedUI/calendar/liveavailability/instantconfirmation. SelectedFORMcanonicalrootnofragments/unsupportedbranchparams, genericContactformnotcoercedvoicebook. FreshcurrentOWNsharedtariffFULLreadtoEOF beforefooter: privateexam+status30EURdistinctNHSpayer15; exam/status/detailedconsult50; ultrasoundclean50; combinedultrasound+AirFlowLITERAL70–80RANGEmaximum80notFROM/estimatedmaximum. Independenttreatmentplan20separatenotincluded, separateAirFlowonly40/secondary35nottransferred. No fixedminutespublished, allomitted. ONLYfourminimalindependentlyphrasedordinarydentalservice/feefacts, NOTwhole100rowtariff/repeatedclinicalprose/media/testimonials/outcomes/licenceorNHSpaymenteligibilityclaim. Sourcegeneralnon-dentalfillers/hairlaser/sleep-apnoea/clinicalclaims/materialfees/retailgelnotimported. ActualownContactFULLmain2venues/phones+ROOTBookEXACTtwooptionscorroborateconcurrentlyoperatingSofiapremises, sharedtariffnotinferredfromdifferentprovider. BranchspecificowncontactsMonFri08–20SatSunexplicitclosed. SameoperatorMilident2/TsvetelinaTodorova/Todorova1992/salondomain3phonesallruntime+ALL2000WIPzero; onlysamepostalbuildingStudioMbeautysalondifferentname/site/phone andLuxuryNailsApexproduct falsepositive, notmerchantaliases. No sharedpointborrowedfromStudioM. FullactualPrivacyMAINreadEOF afterinitialoutputtruncationwasresolvedbyanothernormalGETwithoutrepeatednav/footer: ordinary2018GDPR/cookies, accounting/deliverytemplatewordingnotindependentlegalidentityguarantee. No expresswebsitefacts/database/extraction/personalnoncommercialbanobserved; no separateTermsanchorinfullactualnav/footer, NOTblanketlicence/legalclearance. Publicrobotspermittedactualpaths; wp-admin/plugins/accounts/cart/checkout/adminajax/privateAPI/Maps/Google/mediadownloadnotrequested. Alladdresses/quarterssourcepublished, coordinatesnulluntilseparatelyreviewedofflineCSV. Rootpersonallyviewedexistingdental-exam/dental-cleaning/sx-dental-scale-airflowassets, fictitiousillustrationsnotactualproviderwork. ActualsourceUTC14Nov, no backdating, no customer/contact/booking/notification/payment/productionwrites."
+      },
+      "photos": [
+        "dental-exam",
+        "dental-exam",
+        "dental-cleaning",
+        "sx-dental-scale-airflow"
+      ]
+    },
+    {
+      "id": "sofia-apex-dental-slatina101a",
+      "name": "Apex Dental Center · Слатина",
+      "address": "София, кв. Слатина, ул. Слатинска 101А, ет. 2",
+      "phone": "+359877879344",
+      "review": {
+        "id": "sofia-apex-dental-slatina101a",
+        "checkedOn": "2026-11-14",
+        "website": "https://apexdental.bg/",
+        "bookingEntry": "https://apexdental.bg/",
+        "bookingReview": "owned_booking_reviewed",
+        "reviewedUrls": [
+          "https://apexdental.bg/robots.txt",
+          "https://apexdental.bg/",
+          "https://apexdental.bg/privacy-policy/",
+          "https://apexdental.bg/ceni/",
+          "https://apexdental.bg/kontakti/",
+          "https://apexdental.bg/uslugi/obshta-dentalna-medicina/pochistvane-na-zaben-kamak/"
+        ],
+        "notes": "Root actualROOTBook entry inspectedFIRST: nativepublicHTMLcontainsownedrequestformwithname/phone/service/time-of-dayandEXACTclinicselectorHaytov1orSlatinska101A. No inputs/options/actions/consent/formsubmission/privateCF7endpoint; notclaimedrenderedUI/calendar/liveavailability/instantconfirmation. SelectedFORMcanonicalrootnofragments/unsupportedbranchparams, genericContactformnotcoercedvoicebook. FreshcurrentOWNsharedtariffFULLreadtoEOF beforefooter: privateexam+status30EURdistinctNHSpayer15; exam/status/detailedconsult50; ultrasoundclean50; combinedultrasound+AirFlowLITERAL70–80RANGEmaximum80notFROM/estimatedmaximum. Independenttreatmentplan20separatenotincluded, separateAirFlowonly40/secondary35nottransferred. No fixedminutespublished, allomitted. ONLYfourminimalindependentlyphrasedordinarydentalservice/feefacts, NOTwhole100rowtariff/repeatedclinicalprose/media/testimonials/outcomes/licenceorNHSpaymenteligibilityclaim. Sourcegeneralnon-dentalfillers/hairlaser/sleep-apnoea/clinicalclaims/materialfees/retailgelnotimported. ActualownContactFULLmain2venues/phones+ROOTBookEXACTtwooptionscorroborateconcurrentlyoperatingSofiapremises, sharedtariffnotinferredfromdifferentprovider. BranchspecificowncontactsMonFri08–20SatSunexplicitclosed. SameoperatorMilident2/TsvetelinaTodorova/Todorova1992/salondomain3phonesallruntime+ALL2000WIPzero; onlysamepostalbuildingStudioMbeautysalondifferentname/site/phone andLuxuryNailsApexproduct falsepositive, notmerchantaliases. No sharedpointborrowedfromStudioM. FullactualPrivacyMAINreadEOF afterinitialoutputtruncationwasresolvedbyanothernormalGETwithoutrepeatednav/footer: ordinary2018GDPR/cookies, accounting/deliverytemplatewordingnotindependentlegalidentityguarantee. No expresswebsitefacts/database/extraction/personalnoncommercialbanobserved; no separateTermsanchorinfullactualnav/footer, NOTblanketlicence/legalclearance. Publicrobotspermittedactualpaths; wp-admin/plugins/accounts/cart/checkout/adminajax/privateAPI/Maps/Google/mediadownloadnotrequested. Alladdresses/quarterssourcepublished, coordinatesnulluntilseparatelyreviewedofflineCSV. Rootpersonallyviewedexistingdental-exam/dental-cleaning/sx-dental-scale-airflowassets, fictitiousillustrationsnotactualproviderwork. ActualsourceUTC14Nov, no backdating, no customer/contact/booking/notification/payment/productionwrites."
+      },
+      "photos": [
+        "dental-exam",
+        "dental-exam",
+        "dental-cleaning",
+        "sx-dental-scale-airflow"
+      ]
+    }
+  ],
+  "validation": "RootmustrunactualvalidateCatalogue/pricingIdentitynormalized+d edupe/gatesbeforeintegration. No rawfingerprints/legacybaselineedits.",
+  "sourceUse": "Minimalfourindependentbasicmerchantservice/feefactsnotwholeclinicaltariff; no authoredtreatmentprose/photos/clientreviews/copiedqualifications ormedicalrecommendations.",
+  "rootReadCompletion": "FreshnormalROOTBookthenFULLcurrentPrivacyarticle/Pricearticle/Contactarticle/selectedcleaningarticle; publicnav/footeralreadyFULLreadonROOT. Initialprivacyoutputtruncated; fullarticle explicitlyrerequestedwithoutduplicatefooterandFULLreadEOF. Header/footerremovalonlyoutputpresentation, nothiddenendpoint/accessbypass.",
+  "constraints": [
+    "No client inputs, forms submitted, checkbox/cookie consent, phone calls, private endpoints or bookings.",
+    "No new general medical clinics/doctors beyond permitted dentistry.",
+    "No Google, Nominatim, paid services, production DB/settings/credentials or notifications."
+  ]
+}

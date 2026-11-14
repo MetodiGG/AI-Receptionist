@@ -4,6 +4,182 @@
   "scope": "Illustrative service-specific photos for approved Sofia catalogue entries; not actual business premises, staff, work or results.",
   "assets": [
     {
+      "id": "sx-child-swimming-beginner-group",
+      "sourceFile": "exec-d68ca6fb-db01-4c0b-a53c-6c5cdd20a886.png",
+      "sourceSha256": "ca78e5051b6928c14f1a8a33bc7c60d3274f7c7364ff908e4171c447777a84bf",
+      "file": "public/service-photos/sx-child-swimming-beginner-group-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 16484,
+      "sha256": "2cdd3ea946aa0b1f9f8add3262b75ce4c2965c10a7329ff5a56c24e393085e23",
+      "label": "Групов урок по плуване за начинаещи деца",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square catalogue thumbnail for a BEGINNER CHILD GROUP SWIMMING LESSON, not private one-to-one coaching.\nPrimary request: A realistic documentary photograph in an ordinary indoor teaching pool. Exactly three fictional school-age children, boys and girls about7–10, practise an easy beginner kickboard exercise together, supervised closely by one fictional adult female swimming coach standing in the shallow water beside them. One child gently extends a blue kickboard in front while the coach guides it, the other two children wait safely at the pool edge holding their boards. All wear normal age-appropriate swimwear and goggles, with a calm supportive lesson, no distress or unsafe action. Clear water, soft daylight and real pool textures.\nComposition: one square1:1 photograph at poolside eye level; group of children, attentive coach and kickboards clearly visible at64px. Keep the coach within arm's reach; shallow-water controlled learning, no competitive race.\nConstraints: GROUP beginner instruction, not a single pupil private lesson, adult swim, infant-parent class, aqua-aerobics or unrestricted pool admission. Do not assert a provider's minimum age or exact class size from this generic picture. All people fictional, no actual V-SWIM coach/children, branded caps, school/hotel pool identity, price, letters, numerals, logos or watermark. Generic activity illustration, not verified provider work.",
+      "generatedOn": "2026-11-14",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "ca78e5051b6928c14f1a8a33bc7c60d3274f7c7364ff908e4171c447777a84bf",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Root personally viewed the complete generated source and 256px WebP. Three fictional school-age children in a supervised beginner group, kickboards and an attentive coach within arm's reach. Not a one-to-one adult lesson, infant lesson or unsupervised pool admission. The illustrative age and group size are not provider eligibility claims. No actual V-SWIM coach, pupils or school/hotel pool identity depicted."
+      }
+    },
+    {
+      "id": "sx-child-athletics-group-six-ten",
+      "sourceFile": "exec-9fadf69f-bf2c-46ea-8e13-2aadbc544240.png",
+      "sourceSha256": "805bdd925a161d351e371a6e3282c45a2acbe280fc7ce4ccda231d03b693856a",
+      "file": "public/service-photos/sx-child-athletics-group-six-ten-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 19302,
+      "sha256": "c85a2e40c153b2d7c14c056ef7a85ee957d632ddbc41235abffc616b18c2eb2f",
+      "label": "Групова лека атлетика за деца 6–10 години",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square service thumbnail for a GROUP ATHLETICS AND MOVEMENT CLASS for children aged6–10.\nPrimary request: A realistic documentary photograph of a fictional adult female sports coach guiding exactly four fictional children, boys and girls roughly7–9, through a simple low-hurdle and cone coordination exercise on an ordinary athletics practice area. One child steps over a very low15cm training hurdle while the others wait safely nearby, with another hurdle and coloured cones making the athletics practice clear. Coach attentive, natural expressions and balanced child anatomy, ordinary sportswear and trainers, realistic daylight and track texture.\nComposition: one uncluttered square1:1 photograph, coach and small child group plus low hurdles clearly visible/readable at64px.\nConstraints: No adultgym workout, school classroom, daycare, physiotherapy, unsafe high jumps, competition, audience or medals. All children fictional and appropriately clothed. No actual FitKids/PrioritySport staff, pupils or stadium/interior identification. No logo, written age/price, text or watermark; no promise of enrollment or particular equipment. Generic activity illustration.",
+      "generatedOn": "2026-11-14",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "805bdd925a161d351e371a6e3282c45a2acbe280fc7ce4ccda231d03b693856a",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "ROOTpersonallyviewedFULLgeneratedsourceAND256WebP. Exactly4fictionalboys/girlsabout7–9withadultcoach, verylowhurdles/cones/track, a safeathleticscoordinationdrillnotgym/daycare/medicalrehab. Actualselected6–10range respected, noactualFitKids/NSLpupils/staff/premiseclaim. Genericillustrativeactivitynotverifiedbusinesswork, nominorpersonaldataorrealathletephoto."
+      }
+    },
+    {
+      "id": "sx-child-girls-volleyball-beginners",
+      "sourceFile": "exec-d047bffc-2ddd-4f6e-9c98-e3fcdf46fba5.png",
+      "sourceSha256": "93d6d1fcad9621fe781c49a8b8030691feb4d7906828551739b0442babe60bbd",
+      "file": "public/service-photos/sx-child-girls-volleyball-beginners-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 12770,
+      "sha256": "bc9e251c0059e34d1957876f0bc088825cf116ba6fca915107944195ca943bbb",
+      "label": "Начална волейболна група за момичета",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square booking thumbnail for a BEGINNER GIRLS VOLLEYBALL GROUP, children born2015–2019.\nPrimary request: A realistic documentary sports photograph in a modest indoor volleyball gym. Exactly four fictional girls around8–10 and one fictional adult female coach practise an easy beginner forearm-pass drill with a soft volleyball. One girl receives a gentle low toss while the coach demonstrates correct joined forearms, other girls watching nearby, a suitably lowered volleyball net clearly visible behind them. Ordinary plain sports shirts, shorts or leggings, trainers, plausible anatomy and a calm supportive lesson, no intense match.\nComposition: one square1:1 photograph, children/coach/volleyball and net fill the view and remain legible at64px.\nConstraints: Girls are the child participants, not boys/adultplayers; no competitive team or crowd, diving injuries, professional stadium, uniforms/logos, actual Slavia staff/pupils or identified venue. Fictional appropriately clothed children, generic illustrative activity, not real club work. No text, price, number, emblem or watermark.",
+      "generatedOn": "2026-11-14",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "93d6d1fcad9621fe781c49a8b8030691feb4d7906828551739b0442babe60bbd",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "ROOTpersonallyviewedFULLgeneratedsourceAND256WebP. Exactly4fictionalgirlsabout8–10andadultcoach, beginnerforearmpasswithsoftvolleyballandnet; girlsbirthyearscope2015–2019roughly7–11in2026represented, notboyplayers/adultmatch/actualSlaviaathletes. Genericillustrativeactivitynotverifiedbusinesswork, nominorpersonaldataorrealathletephoto."
+      }
+    },
+    {
+      "id": "sx-boys-basketball-school-group",
+      "sourceFile": "exec-d1f2af41-6e52-47f3-bdb1-afd9aed29da7.png",
+      "sourceSha256": "d5e6fa51426543e94240986bf1e51826e31506ad1b395c9b77ac6426667f455c",
+      "file": "public/service-photos/sx-boys-basketball-school-group-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 12094,
+      "sha256": "a2f4113a10850fc68b976be364017f827e326017fc104c43dd177070ec3a569c",
+      "label": "Баскетболна школа за момчета",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square service thumbnail for a BOYS YOUTH BASKETBALL SCHOOL GROUP, eligible ages7–18.\nPrimary request: A realistic documentary photograph in an ordinary indoor basketball training hall. A fictional adult male coach guides exactly four fictional boys roughly11–14 in a basic ball-handling lesson. Two boys practise controlled low dribbling beside training cones, one boy listens to the coach, another holds a basketball waiting. One basketball hoop/backboard visible behind them, court lines and ordinary sportswear/trainers, natural attentive expressions and plausible hands/limbs.\nComposition: one uncluttered square1:1 photo, the youth boys/coaching and basketball activity unmistakable at64px.\nConstraints: Child/youngteen BOYS are the learners, not girls or a professionaladultmatch, no audience, sponsor uniforms, celebrities, text, price, watermark, actual Septemvri players/coach or identifiedhall. No unsafe contact/acrobatics/guaranteedachievement. Generic fictional training activity illustration.",
+      "generatedOn": "2026-11-14",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "d5e6fa51426543e94240986bf1e51826e31506ad1b395c9b77ac6426667f455c",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "ROOTpersonallyviewedFULLgeneratedsourceAND256WebP. 4fictionalBOYSabout11–14withadultcoachandbasketballhandling/cones/hoop, WITHINselected7–18eligibility; notgirls/professionalmatch/actualSeptemvristaff/players. Genericillustrativeactivitynotverifiedbusinesswork, nominorpersonaldataorrealathletephoto."
+      }
+    },
+    {
+      "id": "sx-mixed-child-basketball-school",
+      "sourceFile": "exec-e1db152f-4df1-449a-8441-ec7ad9fc2b34.png",
+      "sourceSha256": "a63f5ff10a13e0df6c2be328f3c1eae2d39977fa6265c6487b1b1603b6d11221",
+      "file": "public/service-photos/sx-mixed-child-basketball-school-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 12660,
+      "sha256": "4b0e95a68d65032ffca3c9c4a3606d2ba34e6dd1ddd4fc39adbecce5af35ac0a",
+      "label": "Смесена детска група по баскетбол",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square booking thumbnail for a MIXED BOYS AND GIRLS BASKETBALL SCHOOL GROUP, ages5–12.\nPrimary request: A realistic documentary photograph of a fictional adult woman basketball coach leading exactly four fictional children, two girls and two boys roughly7–10, in a simple beginner passing and dribbling exercise in a modest gym. Coach gently directs a bounce pass between two children, remaining children wait with small age-appropriate basketballs; a lowered child-training hoop/backboard and ordinarycourtlines visible. Plain sportsclothes and trainers, calm supportive lesson, believable child proportions and hands, natural indoorlight.\nComposition: one clear square1:1 photograph, mixed child group and basketball lesson readable at64px.\nConstraints: Not an adult professionalmatch or boys-only academy, no spectators, real Slavia pupils/staff, actual stadium branding/identity, uniforms/emblems, medals, text, price or watermark. Appropriately clothed fictional children, no unsafe action, generic service activity illustration not verified provider work.",
+      "generatedOn": "2026-11-14",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "a63f5ff10a13e0df6c2be328f3c1eae2d39977fa6265c6487b1b1603b6d11221",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "ROOTpersonallyviewedFULLgeneratedsourceAND256WebP. Exactly2fictionalgirls+2boysabout7–10andadultcoach, simplebounce-passwithloweredhoop, WITHINselected5–12range; notboys-only/adultmatch/actualSlaviaathletes/venue. Genericillustrativeactivitynotverifiedbusinesswork, nominorpersonaldataorrealathletephoto."
+      }
+    },
+    {
+      "id": "sx-bridal-dress-fitting-consultation",
+      "sourceFile": "exec-582a996b-b5bd-4e58-899c-06e472e76eb2.png",
+      "sourceSha256": "0a606fc5250199615301eeb1b17cb53d91b33b3f08240515acf087b43a55201a",
+      "file": "public/service-photos/sx-bridal-dress-fitting-consultation-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 8788,
+      "sha256": "77d7f1990fc925ab3847a7e37fac3f933c5ef14d5d6df12d77f16cb4e2734dcb",
+      "label": "Индивидуална проба на булчински рокли",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square catalogue thumbnail for an INDIVIDUAL BRIDAL-DRESS FITTING APPOINTMENT IN A BOUTIQUE.\nPrimary request: A realistic documentary photograph inside a modest elegant bridal boutique. One fictional adult woman about28, fully dressed in a simple opaque ivory wedding gown, stands before a full-length mirror and considers how the gown fits. One fictional adult female boutique consultant beside her gently indicates the skirt silhouette while discussing it. A small rail with a few different ivory dresses is clearly visible behind them. Natural expressions, plausible hands, ordinary daylight and realistic satin/lace textures, no glamour retouching. The wearer is fully clothed throughout.\nComposition: one uncluttered square1:1 photograph; the customer trying on a dress, attentive consultant and mirror are the focus and readable at64px.\nConstraints: Show a paid RESERVED FITTING CONSULTATION, not a makeup application, colour-analysis draping, wedding ceremony, glamour photoshoot, lingerie changing, clothing sales-only still life or sewing/alterations promised as included. No groom, crowd, bouquet, real designer branding, text, price, watermarks, identifiable real staff or actual Bridal Gallery interior. Generic fictional service illustration, not verified provider work or a dress available to buy.",
+      "generatedOn": "2026-11-14",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "0a606fc5250199615301eeb1b17cb53d91b33b3f08240515acf087b43a55201a",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Rootviewedfullsourceand256WebP: fictionaladultwomanfullyclothedinivorygown, oneadultboutiqueconsultantpointstohem silhouette, mirrorandfewdresses. Anactualfittingappointmentactivity, notmakeup/drapes/weddingceremony/sewingdeliverable/promiseddresspurchase. NoactualBridalGallerystaff/interior/designer/productrepresentation."
+      }
+    },
+    {
+      "id": "sx-auto-detached-electric-motor-diagnosis",
+      "sourceFile": "exec-dd1a2dc9-008e-414e-afab-9b3535feed96.png",
+      "sourceSha256": "afd7935a1da904b5503acf2999a4dfb2827dd81771f6ef3a2aa913ae743b7b28",
+      "file": "public/service-photos/sx-auto-detached-electric-motor-diagnosis-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 12974,
+      "sha256": "55ed93bedeba1845c09a5c990b785a37f740216c6c3679cc9539c662e411d74c",
+      "label": "Диагностика на свален автомобилен електромотор",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square booking-service illustration for workshop diagnosis of an AUTOMOTIVE ELECTRIC MOTOR ALREADY REMOVED FROM THE VEHICLE.\nPrimary request: A realistic close documentary photograph at an ordinary automotive electrical workbench. One fictional adult technician in plain dark workwear carefully places two insulated multimeter probes onto the exposed terminals of a compact detached automotive heater-blower DC electric motor. The bare motor is small, cylindrical, metallic, fully resting on a clean nonconductive work mat; its separated plastic blower housing is beside it. The technician's plausible hands, motor and meter are the clear focus. No powered spin, no sparks, no connected car battery or mains supply. Fine ordinary workshop textures and soft daylight.\nComposition: one uncluttered square1:1 photograph, close to the workbench, activity readable at64px.\nConstraints: This is BENCH DIAGNOSIS ONLY of a removed car component, not repair completion, removal/installation in a car, a whole-car inspection, household appliance or notebook consultation. No engine block/starter ignition repair implied. No words, logos, readable meter digits, price, watermark, or recognisable real worker/workshop. Generic fictional illustration, not actual Motorche equipment, staff or customer work.",
+      "generatedOn": "2026-11-14",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "afd7935a1da904b5503acf2999a4dfb2827dd81771f6ef3a2aa913ae743b7b28",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Rootviewedfullsourceand256WebP. Smallremovedautomotiveheater-blowerDCmotorwithseparateplasticfanwheelonbench, twoinsulatedmeterprobes, technicianhandsplausible; notwholecarOBD/engine/householdappliance/installation. Unpowereddiagnosisnotrepairoutcome. Fictionalstaff/workshopnotactualMotorche."
+      }
+    },
+    {
+      "id": "sx-bulgarian-folk-private-lesson",
+      "sourceFile": "exec-772fbcee-2b7b-4ea3-9d5e-8afc8b67d8b9.png",
+      "sourceSha256": "c107c6669669d50d5c1ba514fb4ce9e18578a863e6318817fa7a3588882bf03d",
+      "file": "public/service-photos/sx-bulgarian-folk-private-lesson-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 11012,
+      "sha256": "4d66ecb8a7008a8bdba2ffabce5dd752ce75b6f3aa14db643c7d458675c98131",
+      "label": "Индивидуален урок по български народни танци",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square booking thumbnail for a PRIVATE ONE-TO-ONE BULGARIAN FOLK-DANCE LESSON FOR AN ADULT.\nPrimary request: A realistic documentary photograph in a simple wooden-floor dance studio. Exactly two fictional adults: one female dance teacher about40 demonstrating a basic Bulgarian folk-dance footwork pattern, and one adult male learner about28 carefully mirroring her steps beside her. Both in plain comfortable rehearsal clothing, dark trousers and soft training shoes. Hands at waist with relaxed elbows, separated from each other, one foot lifted slightly in a clear taught step, natural balanced anatomy. The teacher turns slightly to observe the learner. Both entire bodies and their feet visible, warm daylight, no spectacular performance poses.\nComposition: one clear square1:1 photo, teacher and single learner fill the frame, no other people or audience, activity legible at64px.\nConstraints: A PRIVATE LESSON, not a group horo chain, ballroom or romantic partner embrace, ballet, yoga or public concert. No theatrical national costumes, invented actual Folklorika staff, venue identity, qualification, outcomes, text, price, logo or watermark. Generic fictional activity illustration, not verified business work.",
+      "generatedOn": "2026-11-14",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "c107c6669669d50d5c1ba514fb4ce9e18578a863e6318817fa7a3588882bf03d",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Rootviewedfullsourceand256WebP. ExactlyONEadultteacherandONEadultlearner, individualfolkstepwithfeetvisible/handsonwaist, no ballroomembrace/group-horo/stage/children. FictionalpeopleandroomnotactualFolklorikastaff/premises; nolessonavailabilityclaim."
+      }
+    },
+    {
       "id": "sx-home-renovation-onsite-survey",
       "sourceFile": "exec-f71be56c-95a7-41c8-a797-bdfa835c8510.png",
       "sourceSha256": "319f3c5a1127eb4b0f9f6e63c2bb287628e52aac9262206b5db2ba9a9fed1aa9",

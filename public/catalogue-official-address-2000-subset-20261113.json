@@ -11,11 +11,323 @@
   "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
   "sourceFeatureCount": 125245,
   "coordinatePrecisionDecimalPlaces": 6,
-  "scope": "187 individually reviewed exact postal bindings for current449 netadditions toward2000. Original501fullprecisionpoints unchanged; source/price-held unpublished rows absent.",
+  "scope": "195 individually reviewed new exact postal bindings toward2000. Original501fullprecisionpoints unchanged; source/price-held unpublished rows absent.",
   "modifications": "Selected source records and bound to reviewed business address identities; coordinate values unchanged.",
   "semantics": "official_postal_address_points_not_verified_entrances",
-  "pointCount": 187,
+  "pointCount": 195,
   "points": [
+    {
+      "id": "sofia-noradent-slavyanska6",
+      "name": "НораДент · д-р Нора Дамянова",
+      "coordinates": {
+        "latitude": 42.693615,
+        "longitude": 23.32772,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. Славянска 6",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://www.noradent.bg/",
+        "addressId": "42323",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "42323",
+        "region": "Средец",
+        "settlement": "гр. София",
+        "street": "ул. Славянска",
+        "house": "6",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Root manually compared all fields of six sole official municipal CSV rows with the already owner-reviewed complete business addresses: Slavyanska6/rn42323, Gen.Totleben95/rn19504, KlimentDenchev11/rn95880, EmilBersinski12/rn4247, Zlatovrah52/rn89153 and Lagера residential block59/rn19111. Street versus residential block numbering, suffix, city, quarter and coordinates individually checked. These are exact building postal points, not verified indoor rooms, floor5 access or ground-floor entrances. No other merchant coordinates, first/nearest/range/centroid or map viewport substituted. Original six-decimal CSV precision retained. Eleven older site-specific holds remain held.",
+        "sourceUrls": [
+          "https://www.noradent.bg/",
+          "https://www.noradent.bg/contacts/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-andreev-dental-totleben95",
+      "name": "Дентална клиника Андреев",
+      "coordinates": {
+        "latitude": 42.686893,
+        "longitude": 23.300864,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, бул. Ген. Тотлебен 95",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://andreevdentalclinic.com/",
+        "addressId": "19504",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "19504",
+        "region": "Красно село",
+        "settlement": "гр. София",
+        "street": "бул. Ген. Тотлебен",
+        "house": "95",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Root manually compared all fields of six sole official municipal CSV rows with the already owner-reviewed complete business addresses: Slavyanska6/rn42323, Gen.Totleben95/rn19504, KlimentDenchev11/rn95880, EmilBersinski12/rn4247, Zlatovrah52/rn89153 and Lagера residential block59/rn19111. Street versus residential block numbering, suffix, city, quarter and coordinates individually checked. These are exact building postal points, not verified indoor rooms, floor5 access or ground-floor entrances. No other merchant coordinates, first/nearest/range/centroid or map viewport substituted. Original six-decimal CSV precision retained. Eleven older site-specific holds remain held.",
+        "sourceUrls": [
+          "https://andreevdentalclinic.com/",
+          "https://andreevdentalclinic.com/kontakti/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-got-your-english-kliment-denchev11",
+      "name": "Got Your English? · Гео Милев",
+      "coordinates": {
+        "latitude": 42.680064,
+        "longitude": 23.364909,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, кв. Гео Милев, ул. „Климент Денчев“ 11",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Гео Милев",
+        "sourceWebsite": "https://gotyourenglish.com/",
+        "addressId": "95880",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "95880",
+        "region": "Слатина",
+        "settlement": "гр. София",
+        "street": "ул. Климент Денчев",
+        "house": "11",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Root manually compared all fields of six sole official municipal CSV rows with the already owner-reviewed complete business addresses: Slavyanska6/rn42323, Gen.Totleben95/rn19504, KlimentDenchev11/rn95880, EmilBersinski12/rn4247, Zlatovrah52/rn89153 and Lagера residential block59/rn19111. Street versus residential block numbering, suffix, city, quarter and coordinates individually checked. These are exact building postal points, not verified indoor rooms, floor5 access or ground-floor entrances. No other merchant coordinates, first/nearest/range/centroid or map viewport substituted. Original six-decimal CSV precision retained. Eleven older site-specific holds remain held.",
+        "sourceUrls": [
+          "https://gotyourenglish.com/",
+          "https://gotyourenglish.com/contact/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-ip-in-the-spotlight-bersinski12",
+      "name": "IP in the spotlight · адв. Теодора Лалова",
+      "coordinates": {
+        "latitude": 42.681058,
+        "longitude": 23.311068,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ул. „Емил Берсински“ 12, ет. 5",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://ipinthespotlight.bg/",
+        "addressId": "4247",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "4247",
+        "region": "Триадица",
+        "settlement": "гр. София",
+        "street": "ул. Емил Берсински",
+        "house": "12",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Root manually compared all fields of six sole official municipal CSV rows with the already owner-reviewed complete business addresses: Slavyanska6/rn42323, Gen.Totleben95/rn19504, KlimentDenchev11/rn95880, EmilBersinski12/rn4247, Zlatovrah52/rn89153 and Lagера residential block59/rn19111. Street versus residential block numbering, suffix, city, quarter and coordinates individually checked. These are exact building postal points, not verified indoor rooms, floor5 access or ground-floor entrances. No other merchant coordinates, first/nearest/range/centroid or map viewport substituted. Original six-decimal CSV precision retained. Eleven older site-specific holds remain held.",
+        "sourceUrls": [
+          "https://ipinthespotlight.bg/",
+          "https://ipinthespotlight.bg/kontakti/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-nurident-zlatovrah52",
+      "name": "Нуридент 1 · Златовръх 52",
+      "coordinates": {
+        "latitude": 42.67019,
+        "longitude": 23.331962,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ж.к. Лозенец, ул. Златовръх 52",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Лозенец",
+        "sourceWebsite": "https://nurident.com/bg/",
+        "addressId": "89153",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "89153",
+        "region": "Лозенец",
+        "settlement": "гр. София",
+        "street": "ул. Златовръх",
+        "house": "52",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Root manually compared all fields of six sole official municipal CSV rows with the already owner-reviewed complete business addresses: Slavyanska6/rn42323, Gen.Totleben95/rn19504, KlimentDenchev11/rn95880, EmilBersinski12/rn4247, Zlatovrah52/rn89153 and Lagера residential block59/rn19111. Street versus residential block numbering, suffix, city, quarter and coordinates individually checked. These are exact building postal points, not verified indoor rooms, floor5 access or ground-floor entrances. No other merchant coordinates, first/nearest/range/centroid or map viewport substituted. Original six-decimal CSV precision retained. Eleven older site-specific holds remain held.",
+        "sourceUrls": [
+          "https://nurident.com/bg/",
+          "https://nurident.com/bg/contact/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-mh-dental-center-lagera59",
+      "name": "M&H Dental Center · София",
+      "coordinates": {
+        "latitude": 42.686733,
+        "longitude": 23.298315,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ж.к. Лагера, бл. 59, партер",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Лагера",
+        "sourceWebsite": "https://mh-dentalcenter.com/",
+        "addressId": "19111",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "19111",
+        "region": "Красно село",
+        "settlement": "гр. София",
+        "street": "",
+        "house": "",
+        "block": "59",
+        "quarter": "ж.к. Лагера",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "Root manually compared all fields of six sole official municipal CSV rows with the already owner-reviewed complete business addresses: Slavyanska6/rn42323, Gen.Totleben95/rn19504, KlimentDenchev11/rn95880, EmilBersinski12/rn4247, Zlatovrah52/rn89153 and Lagера residential block59/rn19111. Street versus residential block numbering, suffix, city, quarter and coordinates individually checked. These are exact building postal points, not verified indoor rooms, floor5 access or ground-floor entrances. No other merchant coordinates, first/nearest/range/centroid or map viewport substituted. Original six-decimal CSV precision retained. Eleven older site-specific holds remain held.",
+        "sourceUrls": [
+          "https://mh-dentalcenter.com/",
+          "https://mh-dentalcenter.com/contacts/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-motorche-ivan-ivanov58",
+      "name": "Motorche.bg · автомобилни електромотори",
+      "coordinates": {
+        "latitude": 42.700476,
+        "longitude": 23.303592,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, бул. Инженер Иван Иванов 58",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": null,
+        "sourceWebsite": "https://motorche.bg/",
+        "addressId": "47338",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "47338",
+        "region": "Възраждане",
+        "settlement": "гр. София",
+        "street": "бул. Инж. Иван Иванов",
+        "house": "58",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "RootindividuallycomparedFULLownerstreet/house58EngineerIvanIvanovandLomskoShose2againstsoleofficialCSVrows47338/93468alladdressfieldsandcoordinates. OkiNadezhdanamedcurrentvenuehasanEXPLICITcompleteLomsko2postaladdress; thisisONLYbuildingpostalpointnotverifiedgroundfloorindoorroom/entrance/lessonaccess. MotorchecurrentContactaddress58notoldworkshop/nearbyaddress. No first/nearest/landmark/centroid/anothermerchantpointorcampusguess. Sixdecimalsourceprecisionretained. All11olderuniquephysicalsiteholdsremainheld.",
+        "sourceUrls": [
+          "https://motorche.bg/",
+          "https://motorche.bg/kontakti/",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
+    {
+      "id": "sofia-folklorika-oki-nadezhda-lomsko2",
+      "name": "Фолклорика · ОКИ-Надежда",
+      "coordinates": {
+        "latitude": 42.72437,
+        "longitude": 23.305535,
+        "method": "verified_official_address",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceAddress": "София, ж.к. Надежда, бул. Ломско шосе 2, ОКИ Надежда, зала на приземния етаж",
+        "sourceCityCode": "68134",
+        "sourceNeighborhood": "Надежда",
+        "sourceWebsite": "https://www.folklorika.com/",
+        "addressId": "93468",
+        "checkedOn": "2026-11-14",
+        "licence": "CC-BY-4.0",
+        "attribution": "ГИС София / Столична община"
+      },
+      "officialAddress": {
+        "rn": "93468",
+        "region": "Надежда",
+        "settlement": "гр. София",
+        "street": "бул. Ломско шосе",
+        "house": "2",
+        "block": "",
+        "quarter": "",
+        "entrance": ""
+      },
+      "review": {
+        "decision": "unique_exact_postal_address",
+        "reviewer": "/root",
+        "evidence": "RootindividuallycomparedFULLownerstreet/house58EngineerIvanIvanovandLomskoShose2againstsoleofficialCSVrows47338/93468alladdressfieldsandcoordinates. OkiNadezhdanamedcurrentvenuehasanEXPLICITcompleteLomsko2postaladdress; thisisONLYbuildingpostalpointnotverifiedgroundfloorindoorroom/entrance/lessonaccess. MotorchecurrentContactaddress58notoldworkshop/nearbyaddress. No first/nearest/landmark/centroid/anothermerchantpointorcampusguess. Sixdecimalsourceprecisionretained. All11olderuniquephysicalsiteholdsremainheld.",
+        "sourceUrls": [
+          "https://www.folklorika.com/",
+          "https://www.folklorika.com/contacts.html",
+          "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+        ]
+      },
+      "previousCoordinates": null
+    },
     {
       "id": "sofia-kosara-style-knyaz-boris132",
       "name": "Kosara Style",

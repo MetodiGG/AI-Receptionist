@@ -1,0 +1,361 @@
+{
+  "rootIntegrationReview": {"checkedAtUtc":"2026-11-14T04:32:13.631Z","note":"RootreadFULL3records/reviews+FULL23caseledgerandpersonallyviewedALL3proposedassets. Kirby23EURUPTO10m²WINDOWSbothsides/frames/ledgesWITHOUTladder/nonstandardassessedpublic, actualonsiteteamCLEANnotrental/day59orotherpackage; independentphoneBooknotunrenderedcalendaravailability. AviaFREEONLYFIRSTaccountancyorientationrealownconsultform+SofiaofficeFAQ, notwholemonthlypackage/taxadvice/2includedpremiumhours; nofixedminutes/taxrules/recommendations. VyarabelOWNNOWOPENpaidenrolformforFUTUREWHOLEBEL797EUR10weeks×4academicunits/Sun07:40–10:20/28Mar–13Jun2027, mandatoryparentcontract+ADVANCEpayment/extrabooks/exams+ALLwithdrawalconditionsPUBLIC, no paidgatewaytested/instantcapacity/797pervisit; MATHoptionHELDforacademicunits-clockmismatch, NOTanotherbusiness/service. Sourceexpiry12Febreviewsadvanceenrolmentnotclassdates. RootsetsONLYVyarabelneighborhoodМладост4fromEXPLICITOWNfulladdress, notCSVregioninference. No guessedpremises/hours/minutes; existingcorrectmanualwindow/accountancy/youngteenliteraturephotosfictionalnotactualwork; no API/Google/customer/productionactions.","identity":"Only newlyreviewednormalizedinventoryidentitiesassigned; existingbaseline/pricereviewfingerprintsuntouched; originalfreeze/sourceobservationdatespreserved."},
+  "batch": "home-education-2000-017-20261113",
+  "checkedOn": "2026-11-14",
+  "status": "frozen_source_complete",
+  "sourceModule": "lib/discovery/catalogue-data/neighborhood-home-education-2000-017-20261113.mjs",
+  "dateConvention": "UTCcalendarcheckedOn14; filename13intakeidentifier only. Source completion timestamp checkedAtUtc, no backdating; appointmenttimesEurope/Sofia.",
+  "summary": {
+    "includedBusinesses": 3,
+    "includedServices": 3,
+    "literalPriceFacts": 3,
+    "explicitFreeServices": 1,
+    "paidPriceFacts": 2,
+    "strictUnpublishedReceipts": 0,
+    "phoneBookings": 1,
+    "ownedForms": 2,
+    "premises": 2,
+    "serviceAreas": 1,
+    "coordinates": 0,
+    "fixedDurationFacts": 0,
+    "weeklyHoursRows": 1,
+    "ledgerCases": 23,
+    "includedCases": 3,
+    "heldOrPendingCases": 14,
+    "rejectedCases": 6
+  },
+  "ledger": [
+    {
+      "status": "held_dns_unverified",
+      "name": "Potenzera / Сняг Мастер",
+      "website": "https://potenzera.com/",
+      "primaryEvidence": [
+        "https://potenzera.com/robots.txt"
+      ],
+      "reason": "Suggestedsearchlead, ownrobotsGETDNSfailed. No owner/phone/address/Book/feesacceptedfromsearchalone, no alternatehost/API/workaround.",
+      "order": 1
+    },
+    {
+      "status": "held_source_use",
+      "name": "Доби77",
+      "website": "https://dobi77.com/",
+      "primaryEvidence": [
+        "https://dobi77.com/robots.txt",
+        "https://dobi77.com/",
+        "https://dobi77.com/obshhi-usloviya/"
+      ],
+      "reason": "ActualownnavBook/zayavete-vzemane/identifiedbutnotopenedbeforeFULLTerms17156charEOF. §19 definesALLinformationandrequiresconsentforitsuseexceptstatutorycases, notonlyspecificauthoredmedia. ParentconfirmedHOLDsource-use/nofurtherhostrequests. ActuallinkedcurrentSep2026PDFtariffNOTdownloadedorread; no Book/form/cart/product/action/payment/customerrequests. Notgenuineunpublishedreceipt/notrow/count/nolegalconclusion.",
+      "order": 2
+    },
+    {
+      "status": "held_existing_robots_policy",
+      "name": "Интерлогос",
+      "website": "https://interlogos.bg/",
+      "primaryEvidence": [
+        "https://interlogos.bg/robots.txt"
+      ],
+      "reason": "Prior008source-policyHOLDrobotsdisallowownTerms/privacy/cookies. Thispasscombinedrg/headoutputhidoldcaseamongmanyunrelatedduplicates, soONEpublicrobotsGETrepeatedbeforefullpriorcasefound; sameexplicitdisallowsread. No root/Terms/privacy/prohibitedpath/alternatepolicyhostrequests. No successfulcompletedsource-policyreviewclaimed. FuturepreflightschangedtoJSONper-domainfullcaseoutputratherthantruncatedcombinedrg; no record/count.",
+      "order": 3
+    },
+    {
+      "status": "held_source_use",
+      "name": "Правим го / Професионален домоуправител",
+      "website": "https://domoupravitelsofia.com/",
+      "primaryEvidence": [
+        "https://domoupravitelsofia.com/robots.txt",
+        "https://domoupravitelsofia.com/",
+        "https://domoupravitelsofia.com/politika-za-poveritelnost/",
+        "https://domoupravitelsofia.com/snegopochistvane-zhilizhtna-sgrada/"
+      ],
+      "reason": "FULLPrivacy7183EOFalsocontainsTerms. BroadwebsiteMaterials public/commercialdistributionandotherwebsiteuseforbidden; notclearminimalfacts carveout. Heldpendingclarifiedscope/consent, notclaimeduniversalautomationban/legalconclusion. SnowseasonservicepagefetchedinparallelBEFORErestrictionread, onlyfirst1408charmainshown; no subsequenthostdata/contact/fees/privateportal/pravimgoalternatehostrequests. No business/count/unpublishedreceipt.",
+      "order": 4
+    },
+    {
+      "status": "held_lesson_eligibility_minimum_fee",
+      "name": "Малки Великани",
+      "website": "https://malkivelikani.eu/",
+      "primaryEvidence": [
+        "https://malkivelikani.eu/robots.txt",
+        "https://malkivelikani.eu/",
+        "https://malkivelikani.eu/?page_id=32",
+        "https://malkivelikani.eu/?page_id=413",
+        "https://malkivelikani.eu/?page_id=34",
+        "https://malkivelikani.eu/?page_id=35",
+        "https://malkivelikani.eu/?page_id=25",
+        "https://malkivelikani.eu/wp-content/uploads/2026/05/Dogovor_Malki_Velikani.docx",
+        "https://malkivelikani.eu/wp-content/uploads/2026/05/Pravilnik_Malki_Velikani_Professional_Final.docx"
+      ],
+      "reason": "Current2026/27services20EURindividualconsult/NVO4gradebyprioragreementandphone898446461atJoliotCurie44Izgrev source-native. BUT300EUR/monthdaycare +Rules§5additionalactivitiesNOTincludedmonthlyfee leavesstandalone20appointmentvsenrolled-childaddoneligibility/minimumpaymentunresolved. ParentconfirmedHOLDno quotaexception/notunpublished/price-reviewedrow. No clinicalspeech/arttherapy/oldMay–Sep2026summerpackage imported.",
+      "documentReview": "Documents skillreadmain+read_review+writingqualityEOF. OnlypublicBLANKcontractandrules downloadedtoisolatedTEMP, OOXMLallparagraphs/tables/header/footerpartsread; bundledLibreOfficerendered1contract+3rulespages, ALL4PNGspersonallyviewed. Contractmonthlypay15th/possibleagreeddeposit/30daynotice, rules6–11years/additionalactivitiesoutsidebasicfee; no websiteautomation/database/source-usebanobservedbutno blanketlicence/legalclearanceclaim. NOmedicalcard/child-authorisation/consent/customerfilleddocumentsopened; no banking/paymentdetailscopiedintorepository. No clientdata/forms/selection/calls/submission.",
+      "order": 5
+    },
+    {
+      "status": "rejected_duplicate_group",
+      "names": [
+        "Многознайко",
+        "Ability",
+        "Елеазар (6 venues)",
+        "Duo Black&White",
+        "Учебен свят"
+      ],
+      "reason": "ActualruntimeSOFIA+ALL2000WIPexistingcanonicalhosts/operatorvenues, notonlyrg. Search/localpreflightonlyno primaryhostrequests orschool/staff/subjectaliases.",
+      "order": 6
+    },
+    {
+      "status": "rejected_duplicate_group",
+      "names": [
+        "Симеонов адвокати",
+        "Трифонов / advokattrifonov.com alias",
+        "Желязков",
+        "Ирина Константинова",
+        "Караколеви",
+        "Николай Николаев"
+      ],
+      "reason": "Allruntimecanonicalhosts/phone/venuealreadyrepresented; aliasEmilTrifonovsameoffice/old011ledgernotindependentmerchant. No newprimaryhostrequests orstaff/divisionalclones.",
+      "order": 7
+    },
+    {
+      "status": "rejected_duplicate_group",
+      "names": [
+        "Николай Василев",
+        "LegalMasters",
+        "Расташки / rastashki.com alias",
+        "Георги Гочев",
+        "Николай Димитров застрахователноправо",
+        "Георги Малчев",
+        "Радослав Вълев"
+      ],
+      "reason": "Search-onlyactualruntime+ALL2000WIPcanonicaldomains/names/phonesexisting. No newownedrequests; blockedLyudmilaAngelovasearchresultignored/notopened/notusedforinclusion.",
+      "order": 8
+    },
+    {
+      "status": "held_existing_access",
+      "name": "Мирчев Акаунтинг",
+      "website": "https://www.macbg.com/",
+      "reason": "Prior005actual403STOPreadinfullbeforeanynewhostrequest. No newrobots/root/Book/alternatehost; notusedasroutearounddenial. Arinalaothersamebuildingdifferentoffice/phoneindependentlypreflighted, notimportedalias.",
+      "order": 9
+    },
+    {
+      "status": "held_existing_source_use",
+      "name": "Contract.bg",
+      "website": "https://contract.bg/",
+      "reason": "Prior008Terms§2broadpersonal/noncommercialall-elementsrestrictionreadlocallybeforeanynewhostrequest. No furtherhostrequests/alternateprovider/fakeunpublishedfee.",
+      "order": 10
+    },
+    {
+      "status": "held_source_use",
+      "name": "Борис Кръстевич",
+      "website": "https://krastevich.bg/",
+      "primaryEvidence": [
+        "https://krastevich.bg/robots.txt",
+        "https://krastevich.bg/",
+        "https://krastevich.bg/usloviya-za-polzvane-na-uebsaita"
+      ],
+      "reason": "FULLactualTerms5177EOFbroadContentincludesinformation/data; acceptable-useforbidscommercialContentusewithoutwrittenconsent,§8alsoforbidsbacklinkswithoutconsent. HeldbeforeBook/service/fee/Contactdeepdata, no furtherhostrequests, no business/count, notlegalconclusion.",
+      "order": 11
+    },
+    {
+      "status": "held_actual_price_menu_unavailable",
+      "name": "Аринала Перфект",
+      "website": "https://arinala.com/",
+      "primaryEvidence": [
+        "https://arinala.com/robots.txt",
+        "https://arinala.com/",
+        "https://arinala.com/politika-za-poveritelnost/",
+        "https://arinala.com/services/schetovodni-uslugi/",
+        "https://arinala.com/services/danachni-konsultatsii/",
+        "https://arinala.com/tseni/",
+        "https://arinala.com/kontakti/"
+      ],
+      "reason": "GenuineownselectedpaidHOURLYconsultationNONabonementclientsinOFFICEbyadvanceappointment, realTotleben71–73floor4office3/888601522and29440562. ActuallinkedPRICES/tseni/HTTP404, notcompletedtariffreview/notgenuinelyunpublished. HOLDratherthanforceoptionalfee. FullPrivacy20608EOFgenericGDPRwithunfilledcontrollerfields notednotinventedlegaldata; no sourceusebanobserved/no blanketclearance. No extraunlinkedpriceendpoint/customercontact/formwrite.",
+      "order": 12
+    },
+    {
+      "status": "rejected_duplicate_group",
+      "names": [
+        "Петкова Legal",
+        "Еделвайс Accounting",
+        "Коломба"
+      ],
+      "reason": "ActualruntimeSOFIA+ALLWIPexistinghosts/operatorphones; Colombaaccountancywouldbeaservice/divisionalaliasofsamecurrentcleaningoperatornotnewbusiness. Search/localpreflightonlyno primaryrequests.",
+      "order": 13
+    },
+    {
+      "status": "rejected_duplicate_group",
+      "names": [
+        "TopCleaner",
+        "FreshClean",
+        "TotoClean",
+        "ChistoBG.net",
+        "Clean2Win",
+        "Феите"
+      ],
+      "reason": "ActualruntimeSOFIA+ALL2000WIPexactdomains/currentphonesexisting, oldallper-domainledgercasesread. No newprimaryrequests/no mobile-quarter/subjectclones.",
+      "order": 14
+    },
+    {
+      "status": "held_current_sofia_venue_booking",
+      "name": "Образователен център READY",
+      "website": "https://ready-edu.eu/",
+      "primaryEvidence": [
+        "https://ready-edu.eu/robots.txt",
+        "https://ready-edu.eu/",
+        "https://ready-edu.eu/политика-за-поверителност/",
+        "https://ready-edu.eu/контакти/",
+        "https://ready-edu.eu/chuzhdoezikovo-obuchenie/"
+      ],
+      "reason": "Prior001ordinarytimeoutNOT403/challenge, currentnormalpublicHTTPSreadableafterrobotsallow. ActualContactsRadomir/KyustendilexactaddressesbutSOFIAONLYdistrictTriaditsa/ManastirskiLivadi, no actualstreet/building/currentprivate lessonadvanceBookbinding, genericqueryform. No city/quartercentroid/educationmobileassumption/point; holdnotcount. Privacy17033retrievedfirst7000readbeforelocationHOLD, NOTfullpolicyEOFclearanceclaim.",
+      "order": 15
+    },
+    {
+      "status": "held_source_use",
+      "name": "Helen Doron Bulgaria",
+      "website": "https://helendoron.bg/",
+      "primaryEvidence": [
+        "https://helendoron.bg/robots.txt",
+        "https://helendoron.bg/",
+        "https://helendoron.bg/terms-of-use/"
+      ],
+      "reason": "FULLTerms8233EOFexplicitallwebsitecontentpersonal/noncommercialONLY; otherusewrittenpermission. No furtherBook/centre/branch/course/fees/contactrequests orlocalfranchise/provider/alternatecountryhostworkaround. No venue/demolesson/courseprojected/count; notnarrowcopyright-onlyexception/legalconclusion.",
+      "order": 16
+    },
+    {
+      "status": "held_source_use",
+      "name": "MathRiders",
+      "website": "https://mathriders.bg/",
+      "primaryEvidence": [
+        "https://mathriders.bg/robots.txt",
+        "https://mathriders.bg/",
+        "https://mathriders.bg/terms-of-use/"
+      ],
+      "reason": "ActualTermsfirst7000of21999readincludesexplicitbroadallwebsitecontentpersonal/noncommercialONLY/otherusewrittenpermission, sameHelenDoronoperator-context. StoppedbeforefurtherBook/centre/branch/contact/feesdata, no fullremainingEOFclaim. No workaround/aliases/count.",
+      "order": 17
+    },
+    {
+      "status": "pending_sofia_scope_and_policy",
+      "name": "LinguaMinds",
+      "website": "https://linguaminds.eu/",
+      "primaryEvidence": [
+        "https://linguaminds.eu/robots.txt",
+        "https://linguaminds.eu/"
+      ],
+      "reason": "OwnrootcentralofficeOtecPaisiy45APERNIK, mixedtemplate/unrelatedplaceholderlinks observednotopened. Search-directorySofialabelnotownSofiavenueproof. LinkedTerms/privacyPDFsNOTdownloaded/read, no course/Bookform/fees/currentSofiabranchaccepted, no priceunpublished/policyclearanceclaim. RemainpendinguntilrealownedSofiavenue/appointmentcanbeverified.",
+      "order": 18
+    },
+    {
+      "status": "rejected_duplicate_group",
+      "names": [
+        "ArtCenter alo372.wixsite.com/1234",
+        "ArtStudioKalina kalinahandjieva.com / artstudiokalina.eu",
+        "Glinity",
+        "TiSiArt SilviaGancheva",
+        "LinneaSchools"
+      ],
+      "reason": "Actualruntime+ALLWIPcanonicalmerchantURLs/aliases/phonesexisting. Kalinaaliasreconciledbyold003/007exact894240622/ChavdarMutafov22, notnewdomainmerchant; no ownedrequests. No school/staff/room/mobilequarterclones.",
+      "order": 19
+    },
+    {
+      "status": "included",
+      "id": "sofia-kirbypro-home-cleaning",
+      "name": "KirbyPro",
+      "website": "https://kirbyrental.com/",
+      "checkedAtUtc": "2026-11-14T04:27:38Z",
+      "primaryEvidence": [
+        "https://kirbyrental.com/robots.txt",
+        "https://kirbyrental.com/"
+      ],
+      "booking": "ActualBooknativecalendar/requestformobservedreadonly; slotsnotrenderedandNOdatesselected. ChosenINDEPENDENTvoiceBookexplicitphone896825553forfreedays/advanceagreement; realonsiteTEAMcleaningseparatefromrental, BookserviceoptionsincludeSEPARATEservices. Noforms/calls/customerdata/submission/actions.",
+      "pricing": "23EURforWINDOWScleanUPTO10m2includesglass/ledges/framesbothsidesWITHOUTladder; nonstandardobjectspriorassessment. Not2EUR/m2over20tier, notrental59day/99weekend/1173-monthprepay, no transport/cancellationrulesprojectedfromrentalcontract. No claimsallergy/babysafety/HEPA.",
+      "sourcePolicy": "Completewholebody12407charsreadincludingINLINErentalTermsNovember2026+PrivacyMarch2026; ordinarycontract/GDPRno data/extraction/sitepersonalnoncommercialbanobserved, no blanketlicence/legalclearance. ActualKirbyProindependentphysical-personoperatorbrand+phone/emailSofiamobile, NOTofficialKirbycompany. No publishedoffice/onsitefixedhours/duration/coordinatesinferred; ONE service_area/addressnull.",
+      "identity": "Allhost/phone/KirbyPro/emailaliasruntimeSOFIA+ALL2000WIPzero; no rentaldepartment/citycoverage/clones.",
+      "photo": "Personallyviewedwindow-cleaning-v1.webp: actualmanualwindowwashingnoguessedmachine/method, existingmatcheractivityspecific.",
+      "order": 20
+    },
+    {
+      "status": "included",
+      "id": "sofia-avia-invest-stamboliyski41",
+      "name": "Авиа Инвест",
+      "website": "https://accountingservice-bg.com/",
+      "checkedAtUtc": "2026-11-14T04:27:38Z",
+      "primaryEvidence": [
+        "https://accountingservice-bg.com/robots.txt",
+        "https://accountingservice-bg.com/",
+        "https://accountingservice-bg.com/kontakti/",
+        "https://accountingservice-bg.com/uslugi/danachni-konsultacii/",
+        "https://accountingservice-bg.com/chesto-zadavani-vaprosi/",
+        "https://accountingservice-bg.com/ceni/",
+        "https://accountingservice-bg.com/politika-za-poveritelnost/"
+      ],
+      "booking": "ActualrootnamedFREEconsultationCTA→ownContact#zapitvane nativeconsultationrequest(name/phone/email/message/privacy), canonicalContactnohash. SelectedownconsultationserviceNONexistingclientcanagreeindependentservice; FAQexplicitmeetphysicalSOFIAofficeORonline. No date/typecontrols/instantavailability/automaticconfirmation/callbacktimeclaimed. No formfilled/consent/call/submission/clientdocuments.",
+      "pricing": "ExplicitFREEFIRSTorientationidentifiesquestion/workscope, no wholeaccounting/tax/writtenopinion/monthlypackage. FULLpricesandselectedservice/FAQagree; separateFROM80/150/250EUR EXVATmonthlypackages/2premiumhoursnotcopyasconsultfee, paidlaterworkseparatelyagreed. Notunpublished/wholemenutariffcompleteclaim.",
+      "sourcePolicy": "FULLPrivacy5912EOF22Oct2026sameAviaInvestEOODEIK201628476/Stamboliyski41entrAfloor1apt1/897818116, ordinaryGDPR/cookiesnosourceusebanobserved. No separateTermsnavsurfaced/no licence/legalclearance/unseenpolicyclaim. AIassistantseparatefeatureNOTused/accessed/APIcalled; nosourcelegal/taxrules/advice/blogprose/guarantees/credentials/media copied.",
+      "identity": "Allhost/operator/EIK/phone/addressruntimeSOFIA+ALLWIPzero. ONErealoffice, actualContactfullfooterMonFri09–17, no fixedconsultduration/coordinatesinvented.",
+      "photo": "Personallyviewedaccounting-consultation-v1.webp, exactactualaccountancyorientationnotlawfirm/language/clinicalphoto.",
+      "order": 21
+    },
+    {
+      "status": "included",
+      "id": "sofia-vyarabel-mladost4-fontanite460v",
+      "name": "Вярабел",
+      "website": "https://www.vyarabel.com/",
+      "checkedAtUtc": "2026-11-14T04:27:38Z",
+      "primaryEvidence": [
+        "https://www.vyarabel.com/robots.txt",
+        "https://www.vyarabel.com/",
+        "https://www.vyarabel.com/общи-разпоредби",
+        "https://www.vyarabel.com/политика-за-поверителност",
+        "https://www.vyarabel.com/intenzivni-kursove-nvo-7",
+        "https://www.vyarabel.com/въпроси-и-отговори",
+        "https://www.vyarabel.com/ekip"
+      ],
+      "booking": "NOWactualownedpaidcourseenrolmentforFUTURE28Mar–13Jun2027BEL, nativeformmandatorypupil/parentfieldsandactual797EURdatedcoursechoice, optionalexamchoice, actualpaymentproceedbutton/instructionpurchasenotcompletewithoutpayment. NOclientselection/input/checkbox/button/action/paymentgatewayopened/tested, noslot/capacityguarantee. Notgenericfreecallback/waitlist/coursealreadybegunclaim. ParentreviewagreedcurrentpaidFUTUREenrolmentcanqualify.",
+      "pricing": "Literal797EURWHOLEintensiveBELcourse10weeks×4academicunits, actualSun07:40–10:20dates28Mar–13Jun2027. No divisionbylessons/academicminutes/fixedscalar. Mandatoryunder18parentcontract+ADVANCEfee; required3BELbooksandoptionalpracticeexamsSEPARATE; no combined10%promotion. CancellationALLpublic:>=2weeksbeforestartnocharge,then10%,afterstartbeforemid20%+PASTlessonsEVENabsent,aftermidno refund. Correctwholecourseunitnotweeklyonevisit.",
+      "sourcePolicy": "FULLcurrentTerms13497EOF01Jan2026+Privacy5190EOFread. TermsdistributionrestrictiononlySTUDENTteachingmaterials, notwebsiteautomation/database/allinformation/sourcepersonalNCban; no licence/legalclearanceclaim. Studentmaterials/privateCanvasplatformvyarabel.eu NOTopened/copied, no instructions/examquestions/ratings/claims/photos/reviews/prosecopied.",
+      "identity": "ONEactualteachingpremiseMladost4Fontanite460Vcourtyardrepeatedineachcurrentcourse. OfficialownTermscontact876900074, allhost/name/studentplatformalias/phone/addressruntime+ALLWIPzero, notchildcare/staffroom/oldsiteclones. No weeklybusinesshoursinferredfromcourseSat/Sunsessions/childcare08–18; no coordinates.",
+      "validity": "Record/price90daysuntil2027-02-12reviewsCURRENTadvanceENROLMENTbeforefuturecourse, nottodayweeklylessonavailability; actualcourseends13Jun2027, so90dayvaliditydoesnotrunpastend. Do not extendexpiry/refreshwithoutcurrentBookreview.",
+      "photo": "Personallyviewedsx-school-literature-group-v1.webp depictsappropriateyoungteenliteratureclass; proposeexactBELassociation, noadultlanguagephoto.",
+      "order": 22
+    },
+    {
+      "status": "held_service_units_ambiguity",
+      "name": "Вярабел · intensive mathematics ONLY",
+      "website": "https://www.vyarabel.com/intenzivni-kursove-nvo-7",
+      "reason": "SAMEactualpage/formMath797EUR10weeks/sessions×4academicunits, Sat13:10–15:10/27Mar–12Jun2027. Terms/FAQdoNOTdefineacademicminutes; otherBEL4units07:40–10:20. Couldbedifferentconventionsbutnotinferred/reconciled; onlyBELbusinessserviceincluded. Notanotherbusiness/nodurationscalar/no797per-lessondivision/no not_publicly_listedreceipt orfullmenutariffclaim.",
+      "order": 23
+    }
+  ],
+  "checkedAtUtc": "2026-11-14T04:27:38Z",
+  "verification": {
+    "runtimeAndAllOtherWipCompared": 1696,
+    "batchAudit": "3ready0pending0rejected",
+    "sourcePricingGate": "3approved/3reviewed, temporaryidentityONLYlocalassessment, rootownsboundintegrationidentity",
+    "focusedTests": "29/29PASS: pricingreview/catalogueaudit/home015/home016+beauty016; no fullsuite/build/productionactionsbythisagent",
+    "scope": "No otherdoctors/clinical/speechservices/retail/rental/roomstaffaliasimported. No newexternalgeocoding/maps/GPS/paidproviders.",
+    "writes": "Localisolatedintake/ledgerandassignedtestsONLY; no customerdata/calls/forms/consents/actions/submissions/booking/paymentwrites"
+  },
+  "photoNeeds": {
+    "viewedAtUtc": "2026-11-14T04:27:38Z",
+    "associations": [
+      [
+        "sofia-kirbypro-home-cleaning",
+        "home_services",
+        "Почистване на прозорци до 10 м²",
+        "window-cleaning"
+      ],
+      [
+        "sofia-avia-invest-stamboliyski41",
+        "consulting",
+        "Безплатна първа ориентационна счетоводна консултация",
+        "accounting-consultation"
+      ],
+      [
+        "sofia-vyarabel-mladost4-fontanite460v",
+        "education",
+        "Интензивен групов курс по БЕЛ за НВО 7. клас · 2027",
+        "sx-school-literature-group"
+      ]
+    ],
+    "newImageGaps": [],
+    "check": "KirbyexistingsemanticmatcheractivityandAviaexactaccountancy matcherresolveappropriatephotos; Vyarabelcurrentlyneutralbeforeproposedrootexplicitliteratureassociation. No sharededits."
+  }
+}

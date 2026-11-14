@@ -1,0 +1,525 @@
+{
+  "rootIntegrationReview": {"checkedAtUtc":"2026-11-14T05:01:25.142Z","note":"RootreadFULL6records/executedreviewlogicandFULL15caseledger+FULLphotorecommendations, personallyviewedALL4reusedassets. THREEYanko73actualnamedateliersBuxton13/Mladost2RUMoffice22/KarpuzitsaBachiyski6 withEXPLICITcallbeforevisitforallandAboutANYatelier, notmobilequarter/warehouse/staffclones. SpecificSOFAREUPHOLSTERYaftervisit/individualmaterialworkquote, NOTsofacleaning/freefinishedonehourrepair/transportfee. GotYourEnglishpriorgenericDemoHOLDresolvedONLYbyactualownedINDIVIDUAL60minINPERSONcardBookNow→realFluentForm; currentKlimentDenchev11notoldprivacyCopernicus27–29, soldoutonline250/147club/24eventNOTtransferred. VNLONEcitywideonsiteASSEMBLY+DISASSEMBLYprovider, actualadvanceagreedday/scope/feeandpayAFTERwork/NOdepositpublic, registeredBankyaNOTfakeSofiapremise; DAILYbyAppointmentnoinventedclock. ExistinghingemacroshowsREALincludedwardrobecomponent, notclaimingallfurnituretypesor actualbusinesswork. IPTheodoraactualPAIDinOFFICEBookbutnoamount, no freelegal/statutoryfee/registrationoutcome. SIXgenuineunpublishedreceiptsafterfullactualservice/Book/menu/policyreview, notblockedtariffs. SourcePrivacyContentIsProtectedordinary200notaccessbar; noclipboard/scriptprotectionbypass/claimedlicence. No weeklyhours/points/durationotherthanactualEnglish60invented. Allactivityphotosfictionalrepresentativeworknotproviderstaff; no customer/Google/geocode/productionactions.","identity":"Only newlyreviewednormalizedinventoryidentitiesassigned; existingbaseline/pricereviewfingerprintsuntouched; originalfreeze/sourceobservationdatespreserved."},
+  "batch": "home-education-2000-018-20261113",
+  "checkedOn": "2026-11-14",
+  "status": "frozen_source_complete",
+  "sourceModule": "lib/discovery/catalogue-data/neighborhood-home-education-2000-018-20261113.mjs",
+  "dateConvention": "UTCcalendarcheckedOn14; filename13intakeidentifier only. Actualsource completion timestamps, no backdating; bookingtimesEurope/Sofia.",
+  "summary": {
+    "includedBusinesses": 6,
+    "includedServices": 6,
+    "literalPriceFacts": 0,
+    "strictUnpublishedReceipts": 6,
+    "phoneBookings": 5,
+    "ownedForms": 1,
+    "premises": 5,
+    "serviceArea": 1,
+    "sourceCoordinates": 0,
+    "explicitDurations": 1,
+    "openingHours": 1,
+    "allRuntimeAndOtherIntakePreflight": 1708,
+    "ledgerCases": 15,
+    "heldOrPendingCases": 6,
+    "rejectedDuplicateGroups": 3
+  },
+  "ledger": [
+    {
+      "order": 1,
+      "status": "pending_booking_and_sofia_scope",
+      "checkedOn": "2026-11-14",
+      "name": "LinguaMinds",
+      "primaryEvidence": [
+        "https://linguaminds.eu/apply-form/"
+      ],
+      "notes": "Actual linked public owned application URL returned404 by ordinaryHTTPS read. Prior ownroot contact points to Pernik, not a proved physical Sofia premise. Do not infer Sofia venue or claim menu unpublished; linked Terms/privacy PDFs not read or cleared. No form/action/customerdata.",
+      "checkedAtUtc": "2026-11-14T04:50:44Z"
+    },
+    {
+      "order": 2,
+      "status": "rejected_duplicates",
+      "checkedOn": "2026-11-14",
+      "name": "Previously covered education and home providers",
+      "primaryEvidence": [
+        "https://studios-edu.com/",
+        "https://inacademy.bg/",
+        "https://eleazar.co.uk/",
+        "https://eluslugi.com/",
+        "https://www.freshhomebg.com/",
+        "https://sofiaclean.bg/",
+        "https://cleandirect.bg/",
+        "https://renovalume.bg/",
+        "https://topchievdetailed.com/",
+        "https://www.totoclean.bg/",
+        "https://innovationcenter.bg/",
+        "https://www.elina-av.com/",
+        "https://irinakonstantinova.com/",
+        "https://www.advokatpetrova.com/"
+      ],
+      "notes": "Actual runtimeSOFIA_CATALOGUE+ALL2000intake modules return existing operator/domain/phone/address identities before any new ownedroot requests. Search-discovery identifiers only, not claims current fullsource reviews; no staff/quarter/room/service aliases added.",
+      "checkedAtUtc": "2026-11-14T04:50:44Z"
+    },
+    {
+      "order": 3,
+      "status": "hold_secure_access",
+      "checkedOn": "2026-11-14",
+      "name": "hamali.site",
+      "primaryEvidence": [
+        "https://hamali.site/robots.txt"
+      ],
+      "notes": "OrdinaryHTTPSrobotsGET failed certificate verification: expiredSSLcertificate. No insecurecurlflag/HTTPalternatehost/bypass or deeperrequest, no row or tariffabsence claim.",
+      "checkedAtUtc": "2026-11-14T04:50:44Z"
+    },
+    {
+      "order": 4,
+      "status": "hold_booking_authenticity_and_current_enrolment",
+      "checkedOn": "2026-11-14",
+      "name": "Учебен център Пламен Румпалов",
+      "primaryEvidence": [
+        "https://rumpalov.com/robots.txt",
+        "https://rumpalov.com/",
+        "https://rumpalov.com/kursove/sofia",
+        "https://rumpalov.com/kursove/sofia/uslovia",
+        "https://rumpalov.com/contact/sofia"
+      ],
+      "notes": "ActualrootenrolCTAreturnsroot, publicContactonlygenericemailformwithCAPTCHA andno publishedvoicephoneobserved. Sofia NERAZDELNI2floor1/actualindividualmath90min120EURobserved, fullcourseTermsenrolapplication+advancepayment andrefundtermsread, but currentenrolmentdatesonly13Apr–21May/10–15Sep withoutyear/currentNovemberavailabilityproof. No genericform claimed actualselectedlessonbooking, no astrology/healthclaims/copiedtext imported. No CAPTCHA/forminputs/submission.",
+      "checkedAtUtc": "2026-11-14T04:50:44Z"
+    },
+    {
+      "order": 5,
+      "status": "hold_merchant_authenticity_and_nonfunctional_request",
+      "checkedOn": "2026-11-14",
+      "name": "ChemClean Pro / dimazoo.online",
+      "primaryEvidence": [
+        "https://dimazoo.online/robots.txt",
+        "https://dimazoo.online/"
+      ],
+      "notes": "Publicrobotsallowssearch/reference nottraining; fullrootincludingINLINEPrivacy/Termsread normally. Ownbrand ChemCleanProEEOD/phone888422456/SofiaTsarBorisIII136/homevisits/literalFROM80BGN3seatsofa package observed, but anomalousunrelateddomain andno independentownerbinding. Read-onlypublicHTMLbookinghandler explicitlypreventDefault thenSHOWsuccess/resetafter5s withNOrequest/fetch; not a verified functioning bookingrequest. Do not test POST/send_form.php or callphone, do not treat hidden success as actualsubmission. No row/currentmerchantclaim/sourceimages/reviews/healthguarantees copied.",
+      "checkedAtUtc": "2026-11-14T04:50:44Z"
+    },
+    {
+      "order": 6,
+      "status": "hold_source_use_scope",
+      "checkedOn": "2026-11-14",
+      "name": "АТП Консулт",
+      "primaryEvidence": [
+        "https://atpkonsult.com/robots.txt",
+        "https://atpkonsult.com/",
+        "https://atpkonsult.com/obshti-uslovija/"
+      ],
+      "notes": "Runtime+ALL2000domain0. PublicrootReserveConsultationCTA→Contact andinitialFREEorientation observed, but FULLactualTerms addresses informationalresources/content and everyusewithoutconsent asprohibited. Scopeunresolvedbroaderthanauthoredtext/images, sameconservativeArchilabapproach: HOLDno furtherhost/Book/feesrequestafterTerms. No universalbotban/legalconclusion/licence claimed; phoneTerms887469403vsroot878469445 notresolvedbecauseSTOP.",
+      "checkedAtUtc": "2026-11-14T04:50:44Z"
+    },
+    {
+      "order": 7,
+      "status": "rejected_duplicate_operator_alias",
+      "checkedOn": "2026-11-14",
+      "name": "MyLawyer / Росица Астакова",
+      "primaryEvidence": [
+        "https://mylawyer.bg/robots.txt",
+        "https://mylawyer.bg/",
+        "https://mylawyer.bg/privacy/",
+        "https://mylawyer.bg/policy/",
+        "https://mylawyer.bg/contact/",
+        "https://mylawyer.bg/honorari/",
+        "https://mylawyer.bg/pravo/targovsko/",
+        "https://mylawyer.bg/about/"
+      ],
+      "notes": "Newdomainpreflight0 butactualcurrentownname/voice879319933/CARIBRODSKA99 matchedexistingsofia-rositsa-astakova-law astakova.com. Actualordinaryconsult50EURUPTO60min current2026fee observed NOTnewbusiness/servicepriceamendment. Sameoperatoradvokatsofia.com/Kantora appnotcloned; oldsearch103notcurrentowner99. No owncustomerfields/chat/call/bookingwrite.",
+      "checkedAtUtc": "2026-11-14T04:50:44Z"
+    },
+    {
+      "order": 8,
+      "status": "rejected_duplicates",
+      "checkedOn": "2026-11-14",
+      "name": "Music and further home aliases",
+      "primaryEvidence": [
+        "https://www.uroci-kitara.com/",
+        "https://www.veneramusic.bg/",
+        "https://voxstudio.eu/",
+        "https://www.malkimuzikalniuroci.com/",
+        "https://uchebensviat.com/",
+        "https://dream-time.net/",
+        "https://instabroz.com/"
+      ],
+      "notes": "Actualruntime+ALL2000host/phone/operator preflight: MusicArtCenter897322146sameBratyaMiladinovi12B viaalternateuroci-kitara host; Venera,VOX,MalkiMusic,UchebenSvyat,DreamTime,Instabroz allalreadycovered. No furtherownedpagesrequests afterduplicates identified, noaliases/staff/quarterclones.",
+      "checkedAtUtc": "2026-11-14T04:50:44Z"
+    },
+    {
+      "order": 9,
+      "status": "hold_selected_booking_and_branch_binding",
+      "checkedOn": "2026-11-14",
+      "name": "Музикална школа Инфинити",
+      "primaryEvidence": [
+        "https://www.urocikitara.com/robots.txt",
+        "https://www.urocikitara.com/",
+        "https://www.urocikitara.com/10501086108510901072108210901080.html",
+        "https://www.urocikitara.com/1062107710851080.html",
+        "https://www.urocikitara.com/1050108310721089108010951077108910821072-108210801090107210881072.html",
+        "https://www.urocikitara.com/104510831077108210901088108010951077108910821072-108210801090107210881072.html",
+        "https://www.urocikitara.com/1043108810911087108610741086-10861073109110951077108510801077.html",
+        "https://www.urocikitara.com/105310861074108010851080.html"
+      ],
+      "notes": "ALLruntime+WIPdomain/888903222/Marinovska/Eliseev0. Literalordinaryindividual25EUR60min/20EUR45min andseparate4/8prepaidmonthpackages observedcurrentundatedPrices; oldcopyright/yearalone NOTclaimedexpiry. GenericContactSkobelev36/Odrin4onlyphone/query; explicitcallenrolmentappearsGROUPpage, whose20BGN60mincontradictsPricesgroup12EUR. Do not projectgroupBookasindividualappointment orflattenfeeconflict. News2020specificvenueinstrumentmapping/2023newyear isHISTORICALnotnew2026branchproof; Newsoutputtruncatedafterfirst24000chars, notclaimfullEOF. No sourceTermsnavobserved/no licenceclearanceclaim. Keepindividual+branchesHOLDpendingexplicitcurrentselectedbooking, notunpublished; group/arttherapy notimported. No externalFacebook/studentphotos/rehearsalrootreserved/actions opened.",
+      "checkedAtUtc": "2026-11-14T04:50:44Z"
+    },
+    {
+      "order": 10,
+      "id": "sofia-yanko-vasilev73-buxton-gortalov13",
+      "name": "Янко Василев 73 · ателие Бъкстон",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T04:50:44Z",
+      "primaryEvidence": [
+        "https://qnkovasilev73.bg/",
+        "https://qnkovasilev73.bg/index.php?p=contact",
+        "https://qnkovasilev73.bg/index.php?p=service&slug=pretapitsirane-divani",
+        "https://qnkovasilev73.bg/index.php?p=services",
+        "https://qnkovasilev73.bg/index.php?p=about",
+        "https://qnkovasilev73.bg/index.php?p=privacy"
+      ],
+      "actualBooking": {
+        "kind": "phone",
+        "phone": "+359988301635"
+      },
+      "bookingEvidenceUrl": "https://qnkovasilev73.bg/index.php?p=contact",
+      "bookingEvidence": "Контактите посочват ателието в Бъкстон и изрично искат обаждане преди посещение за уговорка на удобен час; избраната услуга води към собственото запитване.",
+      "services": [
+        {
+          "category": "other",
+          "appointmentModel": "appointment",
+          "name": "Претапициране на диван · уговорено посещение в ателието",
+          "description": "Посещение в ателието за обсъждане и възлагане на претапициране на диван, само след предварително уговорен час по телефона. Материалът, работата, цената, срокът и евентуалният транспорт се уточняват индивидуално; посещението не означава завършен ремонт в един час."
+        }
+      ],
+      "locationDecision": "premises",
+      "address": "София, ж.к. Бъкстон, ул. „Майор Горталов“ 13",
+      "neighborhood": "Бъкстон",
+      "coordinatesDecision": "source intake null; no exact owner marker used, no maps/geocoding request or spatial-accuracy claim",
+      "hoursDecision": "Not published for actual selected service; no office/delivery/event schedule guessed",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://qnkovasilev73.bg/index.php?p=contact",
+        "serviceUrls": [
+          "https://qnkovasilev73.bg/index.php?p=service&slug=pretapitsirane-divani",
+          "https://qnkovasilev73.bg/index.php?p=services",
+          "https://qnkovasilev73.bg/index.php?p=about"
+        ],
+        "notes": "Actual selected sofa-reupholstery request entry and own Contact reviewed first, then full selected service, full Services/About and Privacy/footer. The owner explicitly quotes each job by furniture condition, dimensions, material, scope and transport after discussion; no numeric sofa or atelier-visit fee, no Prices menu or blocked tariff found. Missing fee remains absent, not free. Other transport statements are not a standalone zero-price repair."
+      },
+      "notes": "Actual selectedSERVICE→ownContact#inquiry request reviewedFIRST without opening any action/endpoint. Canonicalfragment-freeContact in receipt. Nativeform real namedservices inclsofas/chairs/antiques, customername/phone/message/optionalphotos+privacy, but chosenindependentVOICEbooking: sameContact explicitlylistsTHREEphysicalateliers andcallBEFOREvisittoagreeconvenientTIME; About repeatsadvanceTIMEforanyatelier. SelectedBuxtonMajorGortalov13 isrealnamedatelier, notquarter-onlyhomearea ortransportcompany. IncludedTHREEnamedphysicalateliers: ContactallthreeimmediatelyboundtocallBEFOREvisit/agreeTIME, AboutrepeatsvisitingANYatelierforselectedmaterial/workscope/priceagreement; no merewarehouse/transport/retail/staffclones. Mladost2sourceidentifiesRUMbuilding/floor2office22withoutpublishedstreetnumber, preservednotinvented. Currentprimary988301635 andalternate888731120/legaloperatorYankoVasilev73EOOD/emailaliases/name againstALLruntime+ALL2000WIPzero. Fullselectedservice8348chars,Contact4937,Services3136,About3319,Privacy1707tokensreadEOF; no numeric selectedfee andno actualCenipage/blockedmenu. Jobprice/material/workscope/completiontime/transport individuallyagreed, no inventedFREEconsultation/price/hourlyslot/guaranteedrepairduration orfreealltransportconditions. Thisisappointmentatatelier categoryother, nothome_services/home_visit orwalkinretail. FullPrivacyGDPR/currentoperator/Mladost2controlleraddress, ordinarycookienoautomation/database/noncommercialrestrictionobserved; no separateTermslink surfaced/no unseenpolicy/licence/legalclearanceclaim. No openinghours orownerpointpublished, bothomitted; sources addressnotmunicipalguess. Sourcephotos/Googleembeddedreviews/ratings/artisanclaims/sourceprose NOTcopied, maplinksnotopened. Minimalindependentmerchant/service/appointmentfacts only. No ownformfields/images/upload/customerdata/checkbox/calls/messages/actions/submission/bookingwrite/Google/geocode/UI."
+    },
+    {
+      "order": 11,
+      "id": "sofia-yanko-vasilev73-mladost2-rum22",
+      "name": "Янко Василев 73 · ателие Младост 2",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T04:50:44Z",
+      "primaryEvidence": [
+        "https://qnkovasilev73.bg/",
+        "https://qnkovasilev73.bg/index.php?p=contact",
+        "https://qnkovasilev73.bg/index.php?p=service&slug=pretapitsirane-divani",
+        "https://qnkovasilev73.bg/index.php?p=services",
+        "https://qnkovasilev73.bg/index.php?p=about",
+        "https://qnkovasilev73.bg/index.php?p=privacy"
+      ],
+      "actualBooking": {
+        "kind": "phone",
+        "phone": "+359988301635"
+      },
+      "bookingEvidenceUrl": "https://qnkovasilev73.bg/index.php?p=contact",
+      "bookingEvidence": "Собствените контакти изброяват трите ателиета и изискват обаждане преди посещение за уговорка на удобен час; About потвърждава прием във всяко от тях.",
+      "services": [
+        {
+          "category": "other",
+          "appointmentModel": "appointment",
+          "name": "Претапициране на диван · уговорено посещение в ателието",
+          "description": "Посещение в ателието за обсъждане и възлагане на претапициране на диван, само след предварително уговорен час по телефона. Материалът, работата, цената, срокът и евентуалният транспорт се уточняват индивидуално; посещението не означава завършен ремонт в един час."
+        }
+      ],
+      "locationDecision": "premises",
+      "address": "София, ж.к. Младост 2, ул. „проф. Александър Теодоров-Балан“, търговски център РУМ, ет. 2, офис 22",
+      "neighborhood": "Младост 2",
+      "coordinatesDecision": "source intake null; no exact owner marker used, no maps/geocoding request or spatial-accuracy claim",
+      "hoursDecision": "Not published for actual selected service; no office/delivery/event schedule guessed",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://qnkovasilev73.bg/index.php?p=contact",
+        "serviceUrls": [
+          "https://qnkovasilev73.bg/index.php?p=service&slug=pretapitsirane-divani",
+          "https://qnkovasilev73.bg/index.php?p=services",
+          "https://qnkovasilev73.bg/index.php?p=about"
+        ],
+        "notes": "Actual selected sofa-reupholstery request entry and own Contact reviewed first, then full selected service, full Services/About and Privacy/footer. The owner explicitly quotes each job by furniture condition, dimensions, material, scope and transport after discussion; no numeric sofa or atelier-visit fee, no Prices menu or blocked tariff found. Missing fee remains absent, not free. Other transport statements are not a standalone zero-price repair."
+      },
+      "notes": "Actual selectedSERVICE→ownContact#inquiry request reviewedFIRST without opening any action/endpoint. Canonicalfragment-freeContact in receipt. Nativeform real namedservices inclsofas/chairs/antiques, customername/phone/message/optionalphotos+privacy, but chosenindependentVOICEbooking: sameContact explicitlylistsTHREEphysicalateliers andcallBEFOREvisittoagreeconvenientTIME; About repeatsadvanceTIMEforanyatelier. SelectedBuxtonMajorGortalov13 isrealnamedatelier, notquarter-onlyhomearea ortransportcompany. IncludedTHREEnamedphysicalateliers: ContactallthreeimmediatelyboundtocallBEFOREvisit/agreeTIME, AboutrepeatsvisitingANYatelierforselectedmaterial/workscope/priceagreement; no merewarehouse/transport/retail/staffclones. Mladost2sourceidentifiesRUMbuilding/floor2office22withoutpublishedstreetnumber, preservednotinvented. Currentprimary988301635 andalternate888731120/legaloperatorYankoVasilev73EOOD/emailaliases/name againstALLruntime+ALL2000WIPzero. Fullselectedservice8348chars,Contact4937,Services3136,About3319,Privacy1707tokensreadEOF; no numeric selectedfee andno actualCenipage/blockedmenu. Jobprice/material/workscope/completiontime/transport individuallyagreed, no inventedFREEconsultation/price/hourlyslot/guaranteedrepairduration orfreealltransportconditions. Thisisappointmentatatelier categoryother, nothome_services/home_visit orwalkinretail. FullPrivacyGDPR/currentoperator/Mladost2controlleraddress, ordinarycookienoautomation/database/noncommercialrestrictionobserved; no separateTermslink surfaced/no unseenpolicy/licence/legalclearanceclaim. No openinghours orownerpointpublished, bothomitted; sources addressnotmunicipalguess. Sourcephotos/Googleembeddedreviews/ratings/artisanclaims/sourceprose NOTcopied, maplinksnotopened. Minimalindependentmerchant/service/appointmentfacts only. No ownformfields/images/upload/customerdata/checkbox/calls/messages/actions/submission/bookingwrite/Google/geocode/UI."
+    },
+    {
+      "order": 12,
+      "id": "sofia-yanko-vasilev73-karpuzitsa-bachiyski6",
+      "name": "Янко Василев 73 · ателие Карпузица",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T04:50:44Z",
+      "primaryEvidence": [
+        "https://qnkovasilev73.bg/",
+        "https://qnkovasilev73.bg/index.php?p=contact",
+        "https://qnkovasilev73.bg/index.php?p=service&slug=pretapitsirane-divani",
+        "https://qnkovasilev73.bg/index.php?p=services",
+        "https://qnkovasilev73.bg/index.php?p=about",
+        "https://qnkovasilev73.bg/index.php?p=privacy"
+      ],
+      "actualBooking": {
+        "kind": "phone",
+        "phone": "+359988301635"
+      },
+      "bookingEvidenceUrl": "https://qnkovasilev73.bg/index.php?p=contact",
+      "bookingEvidence": "Собствените контакти изброяват трите ателиета и изискват обаждане преди посещение за уговорка на удобен час; About потвърждава прием във всяко от тях.",
+      "services": [
+        {
+          "category": "other",
+          "appointmentModel": "appointment",
+          "name": "Претапициране на диван · уговорено посещение в ателието",
+          "description": "Посещение в ателието за обсъждане и възлагане на претапициране на диван, само след предварително уговорен час по телефона. Материалът, работата, цената, срокът и евентуалният транспорт се уточняват индивидуално; посещението не означава завършен ремонт в един час."
+        }
+      ],
+      "locationDecision": "premises",
+      "address": "София, ж.к. Карпузица, ул. „полк. Стойчо Бачийски“ 6",
+      "neighborhood": "Карпузица",
+      "coordinatesDecision": "source intake null; no exact owner marker used, no maps/geocoding request or spatial-accuracy claim",
+      "hoursDecision": "Not published for actual selected service; no office/delivery/event schedule guessed",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://qnkovasilev73.bg/index.php?p=contact",
+        "serviceUrls": [
+          "https://qnkovasilev73.bg/index.php?p=service&slug=pretapitsirane-divani",
+          "https://qnkovasilev73.bg/index.php?p=services",
+          "https://qnkovasilev73.bg/index.php?p=about"
+        ],
+        "notes": "Actual selected sofa-reupholstery request entry and own Contact reviewed first, then full selected service, full Services/About and Privacy/footer. The owner explicitly quotes each job by furniture condition, dimensions, material, scope and transport after discussion; no numeric sofa or atelier-visit fee, no Prices menu or blocked tariff found. Missing fee remains absent, not free. Other transport statements are not a standalone zero-price repair."
+      },
+      "notes": "Actual selectedSERVICE→ownContact#inquiry request reviewedFIRST without opening any action/endpoint. Canonicalfragment-freeContact in receipt. Nativeform real namedservices inclsofas/chairs/antiques, customername/phone/message/optionalphotos+privacy, but chosenindependentVOICEbooking: sameContact explicitlylistsTHREEphysicalateliers andcallBEFOREvisittoagreeconvenientTIME; About repeatsadvanceTIMEforanyatelier. SelectedBuxtonMajorGortalov13 isrealnamedatelier, notquarter-onlyhomearea ortransportcompany. IncludedTHREEnamedphysicalateliers: ContactallthreeimmediatelyboundtocallBEFOREvisit/agreeTIME, AboutrepeatsvisitingANYatelierforselectedmaterial/workscope/priceagreement; no merewarehouse/transport/retail/staffclones. Mladost2sourceidentifiesRUMbuilding/floor2office22withoutpublishedstreetnumber, preservednotinvented. Currentprimary988301635 andalternate888731120/legaloperatorYankoVasilev73EOOD/emailaliases/name againstALLruntime+ALL2000WIPzero. Fullselectedservice8348chars,Contact4937,Services3136,About3319,Privacy1707tokensreadEOF; no numeric selectedfee andno actualCenipage/blockedmenu. Jobprice/material/workscope/completiontime/transport individuallyagreed, no inventedFREEconsultation/price/hourlyslot/guaranteedrepairduration orfreealltransportconditions. Thisisappointmentatatelier categoryother, nothome_services/home_visit orwalkinretail. FullPrivacyGDPR/currentoperator/Mladost2controlleraddress, ordinarycookienoautomation/database/noncommercialrestrictionobserved; no separateTermslink surfaced/no unseenpolicy/licence/legalclearanceclaim. No openinghours orownerpointpublished, bothomitted; sources addressnotmunicipalguess. Sourcephotos/Googleembeddedreviews/ratings/artisanclaims/sourceprose NOTcopied, maplinksnotopened. Minimalindependentmerchant/service/appointmentfacts only. No ownformfields/images/upload/customerdata/checkbox/calls/messages/actions/submission/bookingwrite/Google/geocode/UI."
+    },
+    {
+      "order": 13,
+      "id": "sofia-got-your-english-kliment-denchev11",
+      "name": "Got Your English? · Гео Милев",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T04:50:44Z",
+      "primaryEvidence": [
+        "https://gotyourenglish.com/",
+        "https://gotyourenglish.com/contact/",
+        "https://gotyourenglish.com/english-courses/",
+        "https://gotyourenglish.com/privacy-policy/",
+        "https://gotyourenglish.com/cookie-policy/"
+      ],
+      "actualBooking": {
+        "kind": "form",
+        "url": "https://gotyourenglish.com/contact/"
+      },
+      "bookingEvidenceUrl": "https://gotyourenglish.com/contact/",
+      "bookingEvidence": "Собственият списък предлага Individual English Lessons, 60 Minutes, In-Person, Price upon request и отделен Book Now към действителната собствена форма за уроци.",
+      "services": [
+        {
+          "category": "education",
+          "appointmentModel": "appointment",
+          "name": "Индивидуален присъствен урок по английски",
+          "description": "Индивидуален урок в София след първоначално обсъждане на нивото, целите и учебния план. Цената се предоставя при запитване; не е безплатен урок или групов онлайн курс. Заявката през собствената форма е за последваща уговорка, не за незабавно потвърден свободен час.",
+          "durationMin": 60,
+          "durationSourceUrl": "https://gotyourenglish.com/english-courses/",
+          "durationCheckedOn": "2026-11-14"
+        }
+      ],
+      "locationDecision": "premises",
+      "address": "София, кв. Гео Милев, ул. „Климент Денчев“ 11",
+      "neighborhood": "Гео Милев",
+      "coordinatesDecision": "source intake null; no exact owner marker used, no maps/geocoding request or spatial-accuracy claim",
+      "hoursDecision": "Not published for actual selected service; no office/delivery/event schedule guessed",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://gotyourenglish.com/contact/",
+        "serviceUrls": [
+          "https://gotyourenglish.com/english-courses/",
+          "https://gotyourenglish.com/"
+        ],
+        "notes": "Actual Individual English Lessons Book Now leads to own Contact request, inspected first; full current English Courses and homepage, full Privacy and Cookie policies/footer then read. Selected individual sixty-minute physical lesson explicitly says Price upon request; no numeric selected tariff or separate blocked Prices menu. Online sold-out250EUR groups,147EUR online club, dated24EUR social event and other offers are not individual lesson prices. No fee guessed or free intro substituted."
+      },
+      "notes": "Prior13NovnextledgerheldgenericContactFormDemo/unfinishedselectedservice. CurrentactualOWN IndividualEnglishLessons card explicitlyPriceuponrequest/60Minutes/OnlineORInPerson→BookNowhref/contact/ inspectedFIRST, resolvesselectedservicebinding notgenericgoalcontactalone. Contact isFluentForms POSTform1 withrequiredname/email/lesson-needsmessage, optionalphone, normalformCAPTCHAcontrols; actualmarkup+submission-scriptreference observedONLY notexecuted/tested, no CAPTCHA/nonce used oractionAPIrequested. Demo isaccessible-screenreaderlegend notproofmocksuccess; no instantcalendar/date/service-typecontrols/availability claimed. Nativequestion/requestforselectedpaidlesson only, laterstudyplan/timeagreement notguaranteedcourseplace. Fullroot/currentContact andselectedCourse allbindcurrentKlimentDenchev11Sofia/887632797; older20Mar2024Privacy/Cookies listCopernicus27–29office17/878969021, retainedlegacyprivacycontactNOTnewvenue orprojectedcurrentteachingaddress. Current2026Nov/Dec datedcontent supportslivingownerpage, individualoffer notmarkedNOspots; three250onlinegroupsAREsoldout andexcluded, 2026Maturacourseold/futureworkshops/socialevents notusedasordinarylessonfees. FullPrivacy16558chars andCookie6510EOFordinaryGDPR/analytics, no websiteautomation/database/noncommercialsourcebanobserved/no separateTermsnav orlicence/legalclearanceclaim. ALLruntime+ALL2000canonicalhost/botholdnewphones/VesselinaNaidenova/name/currentpremise0 beforeinclusion. RealoneSofiateachingvenue, nooldCopernicus/online/corporate/staffaliases. No weeklyteachinghours published, omitted; sourcecoordinatesnull, no mapsopened. No sourceprose/testimonials/ratings/qualifications/statistics/copiedcurriculum/photos. Minimalindependentfacts only; no account/customerdata/formfields/consent/CAPTCHAinteraction/submit/calendar/date/payment/calls/bookingwrite/Google/geocode/UI."
+    },
+    {
+      "order": 14,
+      "id": "sofia-vnl-trans-furniture-home-visits",
+      "name": "ВНЛ Транспорт · монтаж и демонтаж на адрес",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T04:50:44Z",
+      "primaryEvidence": [
+        "https://www.vnltrans.bg/",
+        "https://www.vnltrans.bg/usloviya.html",
+        "https://www.vnltrans.bg/poveritelnost.html"
+      ],
+      "actualBooking": {
+        "kind": "phone",
+        "phone": "+359892630308"
+      },
+      "bookingEvidenceUrl": "https://www.vnltrans.bg/",
+      "bookingEvidence": "Действителната заявка и телефонът са за оглед, оферта и предварителна уговорка; услугата изрично включва демонтаж и сглобяване на мебели на адрес в София.",
+      "services": [
+        {
+          "category": "home_services",
+          "appointmentModel": "home_visit",
+          "name": "Монтаж и демонтаж на мебели на адрес",
+          "description": "Монтаж и демонтаж на гардероби, легла, кухни и офис мебели в София, след предварителна уговорка за обхват, цена и срок. Офертата е индивидуална; плащането е след работата, без капаро. Безплатният оглед не означава безплатен монтаж или преместване."
+        }
+      ],
+      "locationDecision": "service_area",
+      "address": null,
+      "neighborhood": null,
+      "coordinatesDecision": "source intake null; no exact owner marker used, no maps/geocoding request or spatial-accuracy claim",
+      "hoursDecision": {
+        "sourceUrl": "https://www.vnltrans.bg/",
+        "checkedOn": "2026-11-14",
+        "days": [
+          {
+            "weekday": 1,
+            "periods": [],
+            "byAppointment": true
+          },
+          {
+            "weekday": 2,
+            "periods": [],
+            "byAppointment": true
+          },
+          {
+            "weekday": 3,
+            "periods": [],
+            "byAppointment": true
+          },
+          {
+            "weekday": 4,
+            "periods": [],
+            "byAppointment": true
+          },
+          {
+            "weekday": 5,
+            "periods": [],
+            "byAppointment": true
+          },
+          {
+            "weekday": 6,
+            "periods": [],
+            "byAppointment": true
+          },
+          {
+            "weekday": 7,
+            "periods": [],
+            "byAppointment": true
+          }
+        ]
+      },
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://www.vnltrans.bg/",
+        "serviceUrls": [
+          "https://www.vnltrans.bg/",
+          "https://www.vnltrans.bg/usloviya.html"
+        ],
+        "notes": "Actual own phone/quotation entry and native request form inspected first, then full Services/FAQ/contact/footer and complete Terms/Privacy. Selected furniture assembly/disassembly has an individually confirmed quote by volume, access, distance and scope, with no numeric service tariff or separate blocked Prices menu. Free survey/quote is not a free moving/assembly job; absent fee remains absent."
+      },
+      "notes": "ActualownCALL/FreeOffer→root#kontakti nativeform reviewedFIRST(name/email/subject/message/privacy); independentexplicitphoneprocess/onsiteORonlinesurvey/laterfixedoffer/advanceagreedDAYscope followed, notinstantbookingslot orcontractcreatedbyform. FULLrootServices6/4stepworkflow/FAQandContactEOFread; selectedfurnitureassembly/disassemblyrealprovidedonsiteSofia notretailproductdeliveryonly. ActualTerms20Jun2026§2noonlineorder/payment;§3contractonlyAFTERseparatebilateralconfirmationSCOPE/TIME/PRICE;§4individualfee/surveyofferFREE. CurrentFAQstatespaymentAFTERwork/noadvanceDEPOSIT, retainednotinventedallinclusiveVAT/partsprice. ONE citywideSofiahomevisitoperatorVNLTrans/VVIEngineeringEOODEIK206536665/892630308/vviengineering@gmail.com, ALLruntime+ALL2000WIPzero. RegisteredBankyaIvanyanskoShose1notclaimedSofiapremises, rootSofiaCenterquarter-onlynotinventedstreet/point; addresscoordinatesnull. ActualdailyBYADVANCEAGREEMENT includingweekends/outofhours, representedbyAppointmentwithNOinventedclock. FULLTerms3594chars+Privacy4553EOF; IP§6explicittexts/logo/images/design authoredassetsnarrowcopyright/reproductionclause, notdata/database/automation/personalnoncommercialban. Onlyindependentminimalservice/book/merchantfacts, no authoredprose/logos/design/photos/ratings/guarantees copied, no licence/legalclearanceclaim. No contactformvalues/consent/action/call/email/payment/order/customerdata/Google/geocode/UI/bookingwrites."
+    },
+    {
+      "order": 15,
+      "id": "sofia-ip-in-the-spotlight-bersinski12",
+      "name": "IP in the spotlight · адв. Теодора Лалова",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T04:50:44Z",
+      "primaryEvidence": [
+        "https://ipinthespotlight.bg/",
+        "https://ipinthespotlight.bg/kontakti/",
+        "https://ipinthespotlight.bg/konsultaciq-s-advokat/",
+        "https://ipinthespotlight.bg/zashtita-na-brand/",
+        "https://ipinthespotlight.bg/za-nas/",
+        "https://ipinthespotlight.bg/privacy-policy/"
+      ],
+      "actualBooking": {
+        "kind": "phone",
+        "phone": "+359888100382"
+      },
+      "bookingEvidenceUrl": "https://ipinthespotlight.bg/kontakti/",
+      "bookingEvidence": "Контактите изрично канят да се запише час за консултация в кантората на Емил Берсински 12 и посочват телефон; собствената услуга изрично е платена.",
+      "services": [
+        {
+          "category": "consulting",
+          "appointmentModel": "appointment",
+          "name": "Правна консултация за интелектуална собственост",
+          "description": "Платена консултация за интелектуална собственост в кантората след предварително уговорен час. Възнаграждението и обхватът се уточняват с практиката; регистрация на марка, държавни такси и последваща работа не са представени като включени в една среща."
+        }
+      ],
+      "locationDecision": "premises",
+      "address": "София, ул. „Емил Берсински“ 12, ет. 5",
+      "neighborhood": null,
+      "coordinatesDecision": "source intake null; no exact owner marker used, no maps/geocoding request or spatial-accuracy claim",
+      "hoursDecision": "Not published for actual selected service; no office/delivery/event schedule guessed",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://ipinthespotlight.bg/kontakti/",
+        "serviceUrls": [
+          "https://ipinthespotlight.bg/konsultaciq-s-advokat/",
+          "https://ipinthespotlight.bg/zashtita-na-brand/"
+        ],
+        "notes": "Actual consultation navigation and in-office appointment invitation/sole public phone inspected first, then full selected Paid Consultation, brand-service page, About, root navigation/footer and entire Privacy. The owner expressly provides paid consultations but no numeric consultation fee; no Prices menu or blocked tariff surfaced. Registration costs, statutory fees, grants and ongoing representation are separate topics, not an inferred one-visit fee or free statutory-aid exception."
+      },
+      "notes": "ActualrootConsultationWithLawyer→ownselectedpaidconsultationpage, thenownedContactexplicitBOOKATIMEFORCONSULTATIONINOUROFFICE directlywithcurrentEmilBersinski12floor5 andsame888100382. Realindependentvoicearrangement notgenericcontactalone/chat-only/onlinecalendar. SelectedpageexplicitconsultationsPAIDandwillremainPAID; fixedtimeconversationmentionedWITHOUTnumericminutes, omittedduration/fee. Brandserviceoffersconsultationbeforetrademarkapplication; notclaimedregistrationcompleted/protectedlegaloutcome orfullstatefeesincluded. FULLselectedpage/Contact6013/About6902/brand5920/rootread; noCeni/Termsnav oractualblockedpricemenu, absentselectedfee remainsmissing. FullPrivacy27663charsEOFreadin4chunksAFTERfirsttooltruncatedoutputwasexplicitlyre-readnormally(notclaimedfirsttruncatedviewcomplete); ownTheodoraLalova identity+currentofficephone/allruntime+ALL2000WIPzero. PrivacyordinaryGDPRplusfinalcopyrightclauseSPECIFIEStexts/photographicimages/othercopyrightobjects: onlyminimalindependentmerchant/service/appointmentfacts included, notprose/images/logo/credentials/clientstories/testimonials/legallawtext/policy copied; no blanketlicence/legalpermissionclaim. FooterpluginmessageContentIsProtected observedonordinarypublicHTTPS200body, noaccesschallenge/CAPTCHAreaderdenial/blockbypass, no scripts/clipboardprotectiondisabled/externalAPI/UI. No sourceautomation/database/personalnoncommercialrestrictionobservedinfullyreadactualpolicy, no unseenTermsclaim. EUfundCURRENTnoapplicationsnoticeirrelevantandNOTlistedservice; nofalseavailabilityforgrant. No ownbusinessweeklyhours/numericduration/ownerpointpublished, allomitted. Oneactualpractice notstaff/branddivisionclone. No calls/email/customerdata/consent/forms/bookingwrite/Google/geocode/paidAPI."
+    }
+  ],
+  "frozenAtUtc": "2026-11-14T04:50:44Z",
+  "sourceAccess": "Ordinary public HTTPS and public search discovery only. No native browser, Google/Maps/geocoding/private GPS, restricted providers, customer data, form selections/submission, calls, actions, cart/payment or production writes. Full actual source-use policies read where linked; ordinary authored-material copyright is not asserted to grant a license; broad information/automation/noncommercial restrictions remain held.",
+  "photoRecommendations": [
+    [
+      "sofia-yanko-vasilev73-buxton-gortalov13",
+      "other",
+      "Претапициране на диван · уговорено посещение в ателието",
+      "sx-home-sofa-reupholster"
+    ],
+    [
+      "sofia-yanko-vasilev73-mladost2-rum22",
+      "other",
+      "Претапициране на диван · уговорено посещение в ателието",
+      "sx-home-sofa-reupholster"
+    ],
+    [
+      "sofia-yanko-vasilev73-karpuzitsa-bachiyski6",
+      "other",
+      "Претапициране на диван · уговорено посещение в ателието",
+      "sx-home-sofa-reupholster"
+    ],
+    [
+      "sofia-got-your-english-kliment-denchev11",
+      "education",
+      "Индивидуален присъствен урок по английски",
+      "language-lesson"
+    ],
+    [
+      "sofia-vnl-trans-furniture-home-visits",
+      "home_services",
+      "Монтаж и демонтаж на мебели на адрес",
+      "sx-home-hinged-wardrobe-assembly-macro"
+    ],
+    [
+      "sofia-ip-in-the-spotlight-bersinski12",
+      "consulting",
+      "Правна консултация за интелектуална собственост",
+      "legal-consultation"
+    ]
+  ],
+  "photoNotes": "All proposed assets personally viewed. Sofa upholstery image depicts actual workshop reupholstery rather than washing. Language and legal consultation are exact activity matches. Furniture hinge macro depicts a real included wardrobe assembly/disassembly component; root should decide umbrella assembly/disassembly match, not assert it depicts every furniture type or real provider. No shared photo or manifest edits.",
+  "finalChecks": [
+    "validateCatalogue6/6; approvedCatalogueRecord6/6; auditCatalogueBatch versus1708 actual runtime+ALLother2000 intakes:6 ready,0pending,0rejected",
+    "Temporary pricingIdentity used only for local assessment, never persisted:6 service_reviewed/not_publicly_listed;0 invented fees",
+    "Source intake0coordinates;1explicit60-minute individual lesson;1daily byAppointment schedule only; no fabricated clocks",
+    "Root owns final independent review, integration/fingerprints/photos, public search/onboarding and full build/test/production decisions"
+  ]
+}

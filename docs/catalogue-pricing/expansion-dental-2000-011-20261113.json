@@ -1,0 +1,28 @@
+{
+  "rootIntegrationReview": {"checkedAtUtc":"2026-11-14T05:07:02.058Z","note":"RootreadFULLrecord/reviewandFULLledger. M&HONErealSofiaLagera59premise, ownactualappointmentformEXACTCITYselectorSofia/BurgasandindependentexplicitSofiaphoneBook886320669/887703517. OtherBurgasvenueEXCLUDED, dentists/techniciannotbusinessclones. LiteralFREEONLYinitialdentalconsultationnotwaxup/implants/prosthetics/treatment/fillers/medicalaestheticservices. Actualbody08–18versusheader/footer09–19hoursconflictALLomitted, no arbitrarychoice/durationmin/points. Sourcecurrentnativefullroot/Contact/form/navboundedpolicy-linkinspectionNOTunseenlegalclearance. Genericadult-examphotoROOTviewednoactualworkclaim. No customerform/call/consent/Google/geocode/provider/productionactions.","identity":"Only newlyreviewednormalizedinventoryidentitiesassigned; existingbaseline/pricereviewfingerprintsuntouched; originalfreeze/sourceobservationdatespreserved."},
+  "checkedOn": "2026-11-14",
+  "checkedAtUtc": "2026-11-14T05:02:29Z",
+  "reviewLocalDate": "2026-11-14",
+  "status": "frozen_source_complete_pending_integration",
+  "records": 1,
+  "services": 1,
+  "priceFacts": 1,
+  "reviewer": "/root/catalogue_beauty_nov13",
+  "orderedLedger": [{
+    "id": "sofia-mh-dental-center-lagera59",
+    "decision": "ready_for_integration",
+    "sourceUrls": ["https://mh-dentalcenter.com/robots.txt", "https://mh-dentalcenter.com/", "https://mh-dentalcenter.com/contacts/"],
+    "actualBook": "Root actual freeconsultationCTA→ownContacts read FIRST. Root also has full native appointmentrequest form name/email/phone/preferred date/time/message and exactCITYselectorSofia/Burgas, independently explicit AppointmentsCall with Sofia dentists886320669/887703517. Configured actual root form, not generic Contact message form. No input/actions/submission or instantcalendar/confirmation claim.",
+    "price": {"literal":"Безплатна консултация", "amount":0, "currency":"EUR", "unit":"само дентална консултация", "sourceUrl":"https://mh-dentalcenter.com/", "qualification":"Onlyinitial dentalconsultation; rootservice text independently describes freeinitialexam, not included waxup/prostheses/implants/fulltreatment. No minutes inferred, no free medicalaesthetic service imported."},
+    "depth": "Complete native root service/About/team/footer and actual nativeform read, Contacts full fresh normalHTTP after reader timeout. SeparateServices/About/Team nav entries use samepagefragment, no unread separate fee menu. Full native links+form show no Terms/Privacy/Prices/calendar target; bounded inspection not policiesabsence/legal permission. No publictariff needed forselectedliteralFREEvisit, no blockedmenu relabeledunpublished.",
+    "scope": "Primary dentalcentre created by dentistMagdalenaKovacheva, Sofia dentists+technician. Onlyordinarydentalconsultation selected; all fillers/botox/cosmetic/clinicaloutcome/materials cases excluded. Same co-located staff are not separateoperators. ONE SofiaLag era59 venue, BurgasOborishte56explicitlyoutsideSofia not counted.",
+    "location": "Current root/contact agree SofiaLagera block59groundfloor, exact Sofia886320669 and887703517; no invented street/entrance or map coordinates. Bothphones/operator/host/blockinitialdedupezero.",
+    "hours": {"decision":"omitted_conflicting_source_hours", "evidence":"RootmainSofiaMonFri08–18 vsheader/footer/actualContacts09–19. Saturdaypriorbooking not fixedordinaryhours; no arbitrarynormalization."},
+    "photos": ["adult ordinary dental consultation/examination only; no fillers, surgery, implant or laboratory construction"]
+  }],
+  "pending": [
+    {"website":"https://kirovdent.com/","decision":"hold_robots_server_failure","reviewedUrls":["https://kirovdent.com/robots.txt"],"reason":"Actualrobots request returnsHTTP500. Failclosed, no root/Book/service/Terms/menu request, no fee/unpublished claim. Searchsnippet only is discovery not source evidence."}
+  ],
+  "validation": {"schema":"validateCatalogue passed1", "reviewGate":"assessPricingReview with pricingIdentity(validated record) passed reviewed1; staticidentity omitted", "dedupe":"Final executableSOFIA_CATALOGUE1711+ALLother2000intakes: host/mappedprimaryandsecondarySofiaphones/operatorstaffnames/actualLagera59 address allzero. No co-located staff or technicianclone, no Burgasrow.","photos":"Adult dentalconsult/exam activity proposed, root owns independentvisualQA and mapping."},
+  "limits": "Sourcefacts only; no sourcemedia/ratings/reviews/prose reused. No Google/providerbulk/Maps/geocoder/Nominatim/privateGPS, restrictedproviderlinks or privateAPI; no calls/forms/slots/customerdata/consent/payments/bookingwrites/productionmutations. Ownnew011 files only, rootowns sharedimports/staticidentities/photos."
+}

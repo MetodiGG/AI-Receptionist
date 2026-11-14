@@ -1,0 +1,55 @@
+{
+  "rootIntegrationReview": {"checkedAtUtc":"2026-11-14T04:54:22.222Z","note":"RootreadFULL2records/reviewsandFULLledger. ColdyearliermultidisciplinaryHOLDsupersededONLYforordinaryinitialCONSULTATIVEDENTALexamafterownAbout/fullPrivacyidentifyPRIMARYDENTALpracticeManolIvchev/ManastirskiLivadi, no osteopath/bodybalance/generaldoctorstaff-business. ActualownBookconsultations→Contactform+EnglishTermspriorappointment/emailconfirmation, genuinelyunpublishedSELECTEDfeeafterfullBook/service/FAQ/Terms/Privacyreview; notwholeprotocol/free/no-pricefromfailure. AndreevactualOWNBookhrefexactBookdento merchant; fullcorporateTerms/PrivacyBEFOREpublicmerchantcards, no ban≠licence/robots≠permission. EXACTproviderFROM16/15minGENERALexamwithdiagnostics/plan andFROM70/45minULTRASOUND+POLISH: truefeeNOTdeposit/advance/bookingcharge; fullownfixed16consult/70AirFlowcorroboratesminimumamountsbutscopedifferencesNOTtransferred. ActualownServicesAPPOINTMENTformwithcallbackconfigured, no service/staff/slot/providerdialog/paymentcompletionclaimed. Provider/ownhourconflictsomitted. Legacyadult-exam/ultrasoundphotosROOTviewed, genericphaseNOTAirFlow/beforeafterpromise. SourceUTC14Nov,no point/qualification/outcome/copiedclinicalprose/reviews/sourcephotos/customer/productionwrite.","identity":"Only newlyreviewednormalizedinventoryidentitiesassigned; existingbaseline/pricereviewfingerprintsuntouched; originalfreeze/sourceobservationdatespreserved."},
+  "checkedOn": "2026-11-14",
+  "checkedAtUtc": "2026-11-14T04:47:26Z",
+  "reviewLocalDate": "2026-11-14",
+  "status": "frozen_source_complete_pending_integration",
+  "records": 2,
+  "services": 3,
+  "priceFacts": 2,
+  "unpricedServices": 1,
+  "reviewer": "/root/catalogue_beauty_nov13",
+  "orderedLedger": [
+    {
+      "id": "sofia-coldy-dent-balgarska-legiya2",
+      "decision": "ready_for_integration_service_reviewed_unpriced",
+      "website": "https://coldydent.com/",
+      "sourceUrls": ["https://coldydent.com/robots.txt", "https://coldydent.com/", "https://coldydent.com/contact/", "https://coldydent.com/general-dentistry-coldy-dent/", "https://coldydent.com/welcome-to-coldy-dent/", "https://coldydent.com/faq/", "https://coldydent.com/general-terms-eng/", "https://coldydent.com/privacy-policy-eng/"],
+      "actualBook": "Owner Book consultations→/contact/ native appointment request form read first. Name/phone/email/message/policy consent; no input, consent or submit. Terms2.1/2.2 independently require prior appointment and email confirmation, not emergency care or instant calendar.",
+      "scopeResolution": "Earlier frozen007 hold is superseded ONLY for this minimal ordinary dental row after root clarified that support by a psychologist/physio does not automatically exclude a dental practice. Full own About and full bilingual Privacy identify individual primary dental practice ColdyDent, founder dentistManolIvchev, real ManastirskiLivadi BulgarskaLegiya2. ONLY initial consultative examination on patient-raised problem from Terms definitions selected, not full diagnostic protocol which includes osteopath/body-balance methods, surgery, non-dental consultation or staff aliases. No medical or result promise copied.",
+      "priceSearch": {"outcome":"not_published","bookingUrl":"https://coldydent.com/contact/","serviceUrls":["https://coldydent.com/general-dentistry-coldy-dent/","https://coldydent.com/general-terms-eng/","https://coldydent.com/welcome-to-coldy-dent/","https://coldydent.com/faq/"],"notes":"Full actual Book/contact form and complete ordinary GeneralDentistry/About/FAQ plus English Terms and bilingual Privacy reviewed, including full public navigation/footer. Initial consultative examination is independently defined; no numeric fee for this chosen visit, public price link or external calendar identified. Terms mention tariff in the practice, not a published website amount. Not blocked-menu evidence and not an unpriced relabelling of a treatment package or other procedure. No duration guessed."},
+      "policies": "Full actual English Terms EOF; initial Bulgarian long-text gap lies in definitions that are complete in English, not claimed full bilingual Terms. Entire bilingual Privacy EOF read. Patient/contract confidentiality is not a general ban on public business facts, no explicit automation/extraction/database/noncommercial-use clause identified; no blanket licence or legal-clearance claim. No patient examples or records retrieved.",
+      "hours": "Actual own root/contact consistent MonFri08–16. Weekend absent not closed by inference.",
+      "location": "Own Privacy expressly SofiaManastirskiLivadi BulgarskaLegiya2 and same company officephone896593939; no Map link followed. Coordinates null.",
+      "photos": ["adult dental consultation/examination; NOT osteopathy, whole-body analysis, surgery or completed teeth transformation"]
+    },
+    {
+      "id": "sofia-andreev-dental-totleben95",
+      "decision": "ready_for_integration_price_reviewed",
+      "website": "https://andreevdentalclinic.com/",
+      "sourceUrls": ["https://andreevdentalclinic.com/robots.txt","https://andreevdentalclinic.com/","https://andreevdentalclinic.com/uslugi/","https://andreevdentalclinic.com/kontakti/","https://andreevdentalclinic.com/about-us/","https://andreevdentalclinic.com/lichni-danni/","https://andreevdentalclinic.com/%D1%86%D0%B5%D0%BD%D0%BE%D1%80%D0%B0%D0%B7%D0%BF%D0%B8%D1%81/","https://bookdento.com/robots.txt","https://bookdento.com/terms","https://bookdento.com/privacy","https://andreevdentalclinic.bookdento.com/robots.txt","https://andreevdentalclinic.bookdento.com/","https://andreevdentalclinic.bookdento.com/book","https://andreevdentalclinic.bookdento.com/locations"],
+      "entryOrder": "Actual owner Book href resolved first to exact merchant root. Both merchant/corporate robots plus full corporate Terms/Privacy read BEFORE merchant pages. Then actual root public HTML named menu→actual/book public initial start page, no doctor/service/date/slot or UI choices. Native owner Services then full actual own tariff, About, Contact, Privacy/cookies and footer reviewed.",
+      "configuredBook": "Independent current owner Services appointment request form with date/preferred time interval and explicit phone callback confirmation, verified by fresh normalHTTP. The actual Bookdento start read is not represented as a completed interactive menu/dialog/available slots/payment or bookingconfirmation.",
+      "prices": [
+        {"name":"Общ преглед","literal":"от 16 €","durationMin":15,"sourceUrl":"https://andreevdentalclinic.bookdento.com/","scope":"Merchant named generalexam withdiagnostics/plan; no consultation transplanted from differently qualified owner row."},
+        {"name":"Професионално почистване","literal":"от 70 €","durationMin":45,"sourceUrl":"https://andreevdentalclinic.bookdento.com/","scope":"Merchant explicitly ultrasoundcalculus/plaque removal+polishing, NOT claimed AirFlow."}
+      ],
+      "ownComparison": "Current full actual native own Cyrillic PriceList supplies16EUR generalexam+consult and70EUR calculusclean+AirFlow, separately labels NHS copay0. These whole-service amounts corroborate merchant minimum16/70, not deposit/advance/booking fees; different kind/scope preserved by selecting only provider EXACT FROM cards. No AirFlow, consultation, fixedamount or NHS condition transferred. Root explicitly approved this source/qualification choice before authoring. Other priced services, teeth implants/bleaching/retail/promos not imported.",
+      "policies": "Corporate https://bookdento.com/terms complete8sections and /privacy52lines September2026 read. Section5 merchant retains rights and platform only gets service-processing licence, not licence to us. No explicit automation/extraction/database/personalnoncommercial ban found, not blanket permission/legal clearance; minimal2 factual references, no provider prose/table/ratings/media reuse. Actual own full /lichni-danni/144lines ordinary patientGDPR/cookies; no expresssource-useban found. No separate ownTermsanchor observed. Reader attempt /privacy-policy/ was an unverified path/access-tool failure before actual linked /lichni-danni/ resolved, NOT used as completed evidence.",
+      "hours": "OMITTED: own contact Fri08–19/Satprioragreement vs merchantFri08–18/Sat09–14, real conflict. No inferred city-centre point/branch/staff alias.",
+      "location": "Own About/Contact and merchant /locations corroborate single SofiaGenTotleben95/+359884533345; no Maps/review link requested. Quarter/coordinates null.",
+      "photos": ["adult dental examination", "generic professional ultrasonic dental cleaning/polishing; NOT promised AirFlow or bleaching"]
+    }
+  ],
+  "pending": [
+    {"website":"https://sofiaimplantcentre.com/","status":"lead_partial_review_not_approved","reviewedUrls":["https://sofiaimplantcentre.com/robots.txt","https://sofiaimplantcentre.com/"],"reason":"Robots public pathsallowed/wpadminnotrequested; own root contains free treatment-plan callback enquiry and implant offers, but exact clinical appointment path/current full operator/contact/Terms/priceconditions not yet fully reviewed. No row or free consultation inferred from free treatmentplan. Source testimonials/ratings/media not copied."},
+    {"website":"https://www.dentisphere.shop/services.html","status":"prior_dental003_authenticity_hold_preserved","reason":"Local prior ledger reviewed only, no new source request. Generic BrightSmile lead remains unverified real operator/premise/appointment."}
+  ],
+  "validation": {
+    "schema": "validateCatalogue passed2",
+    "reviewGate": "assessPricingReview with pricingIdentity of each validated record: Coldy service_reviewed/not_publicly_listed/0prices, Andreev reviewed/2prices. No authored static identities.",
+    "dedupe": "Final executable SOFIA_CATALOGUE1699 plus ALL other2000 default.records. Both exact IDs/canonical own hosts/normalized phone overlaps0. Ownmanolivchev/name/operator preflight0. ExactTotleben95 overlaps0. BulgarskaLegiya2 substring catches unrelated CUTbarber B2A and HNStudio2B, not same exact premise/phone/name/operator; neither is cloned or modified.",
+    "mutations": "Only this new009 intake/ledger, earlier frozen007 intake/ledger, and independently root-assigned new Apex/Bridal test file edited in this turn; no existing frozen/shared records/identities/photos/imports changed. Initial add patch misspelled ledger root /Users/metig and failed before that file creation; verified intended module existed then created correct ledger via apply_patch, no blind overwrite or out-of-scope file used."
+  },
+  "limits": "Only2new ordinary dental practices, no clinic exclusion based merely on wordclinic, no generalmedical doctor/physio/osteopath staff-business duplicates. No restricted providers/Google/Maps/Nominatim/geocoding/privateGPS/bulkplatformexport/sourceimages/reviews/customerdata/forms/consent/bookingwrites/productionmutations. Staticidentities/sharedintegration/photoassets untouched. New specific photos remain root responsibility."
+}

@@ -1,0 +1,257 @@
+{
+  "rootIntegrationReview": {"checkedAtUtc":"2026-11-14T03:39:24.002Z","note":"Rootreadall4businesses/5services/fullreviews. Ivaactualday/hourphonefamilyconsultPAIDbutgenuineunpublishedamount, not0/statutoryfee. Integralactualthree-stepOWNpreferredSOFIAoffice/day/hourrequestconsultantconfirmation/freeFIRSThigheredonly, no WATlandmarkbranch/studentDBclones. UNIFYactualSofiaofficeBooktypes/realcalendarviewreadonly independentliteral0FIRSTorientationUPTO1h and50EURPERHOURspecialisedAFTERfirst; notfixed60min/alladmissionsfree. EDLANTAnativecontactrequestactualsecondarytype/onsiteformat+Sofiaspecificphone; freeinformationconsultationNOTwholepackage; actualunder14parentandIntegralunder16conditionspreserved. Existinglegalimageandnewuniversityadviser/secondarypupil+parentimagesfullsource/thumbpersonallyviewed, notlanguageclass/psychology/CV. No sourceoutcomeguarantees/studentdata/choice/submission/productionwrites.","identity":"Only newlyreviewednormalizedinventoryidentitiesassigned; existingbaseline/pricereviewfingerprintsuntouched; originalfreeze/sourceobservationdatespreserved."},
+  "batch": "home-education-2000-015-20261113",
+  "checkedOn": "2026-11-14",
+  "status": "frozen_source_complete",
+  "sourceModule": "lib/discovery/catalogue-data/neighborhood-home-education-2000-015-20261113.mjs",
+  "dateConvention": "UTCcalendarcheckedOn14; filename13intakeidentifier only. Actualsource reviewcompletiontimestamp incheckedAtUtc, no backdating. AppointmenttimesEurope/Sofia.",
+  "summary": {
+    "includedBusinesses": 4,
+    "includedServices": 5,
+    "literalPriceFacts": 4,
+    "explicitFreeServices": 3,
+    "paidPriceFacts": 1,
+    "strictUnpublishedReceipts": 1,
+    "phoneBookings": 1,
+    "ownedForms": 3,
+    "premises": 4,
+    "serviceAreas": 0,
+    "coordinates": 0,
+    "fixedDurationFacts": 0,
+    "weeklyHoursRows": 2,
+    "ledgerCases": 16,
+    "includedCases": 4,
+    "heldOrPendingCases": 8,
+    "rejectedCases": 4
+  },
+  "ledger": [
+    {
+      "order": 1,
+      "status": "rejected_duplicate",
+      "name": "Адвокатска кантора Вяра Драгнева",
+      "website": "https://dragneva.com/",
+      "reason": "Runtime+ALL2000WIP existingsofia-vyara-dragneva same885020552/KnyazBoris104A. Search/localpreflightonlyno newprimaryrequests."
+    },
+    {
+      "order": 2,
+      "status": "held_existing_address_conflict",
+      "name": "Infolaw · Мариана Розованова",
+      "website": "https://infolaw.bg/",
+      "reason": "Prior005ledger ownsamephoneFridtjofNansen47floor5office17 vsmaincontactOsogovo36floor1office3, unreconciled. No newhostrequests or clonedvenues; published50/70BGNmax1h+doubleoutofhours NOTunpublished."
+    },
+    {
+      "order": 3,
+      "status": "held_existing_access_and_forthcoming_venue",
+      "name": "Адвокат Атанасова",
+      "website": "https://advatanasova.bg/",
+      "reason": "Prior008actualreaderunavailable/onlyforthcomingSofia, no currentpremiseconfirmed. No newhostrequests or alternateendpoint/retry. Distinctfromrestrictedadvokatatanasova.com butnotaccepted."
+    },
+    {
+      "order": 4,
+      "status": "rejected_outside_sofia",
+      "name": "Петър Хамбарлийски",
+      "website": "https://hambarliyski.com/",
+      "reason": "Prior003actualownedBook officePlovdivRaykoDaskalov68, notSofia. OnepublicrobotsGET ranbefore readingoldledgerfullreason; no furtherroot/Book/Terms requests.",
+      "access": "Robots200search=yes/ai-train=no/use=reference andtrainingbotrestrictionsnotedwithoutgenerallicenceclaim; not usedtochangeoutsideCityrejection."
+    },
+    {
+      "order": 5,
+      "status": "held_existing_global_source",
+      "name": "Никола Благоев / advo.bg; Венелин Йорданов / nakazatelenadvokat.bg; BSLC; Сокол Недков",
+      "reason": "Searchdiscoveryonly. AdvoexplicitALLinformationbanSTOP, nakazatelenadvokat429priorSTOP, BSLCexistingmultipleholdsnotreopened, SokolNedkovalreadyexistingcorrect120EURboundreview. No newhost/refrequests or alternateproviderroute."
+    },
+    {
+      "order": 6,
+      "status": "pending_source_authenticity",
+      "name": "Адвокат Ненчо Рангелов",
+      "website": "https://www.nenchorangelov.com/",
+      "primaryEvidence": [
+        "https://www.nenchorangelov.com/robots.txt",
+        "https://www.nenchorangelov.com/"
+      ],
+      "reason": "ActualownedrootFIRSTunexpectedunrelatedexternalpharmacyanchorApotekGothenburg→apotekgothenburg.com observedNOTopened. Restrootlawfirm/nav coherent, no compromiseassertion; deeperBook/contacts/service review temporarilyheldpendingrootnarrowauthenticitydecision. SearchownsourceexplicitSofiaBuzludzha4/888351498 andadvanceDAY/HOUR not acceptedfromsearchalone.",
+      "access": "Publicrobotsallow, no challenge/deniedroute. No unrelatedpharmacy/advertising/social/API/actionrequests; no intakeyet.",
+      "rootDecision": "ParentconfirmedauthenticityHOLDforthisbatchuntilcurrentowneridentityreliablyconfirmed. No deeperownhostorunrelatedpharmacyrequests afterdecision; notaccepted."
+    },
+    {
+      "order": 7,
+      "status": "pending_booking_client_eligibility_and_source_policy",
+      "name": "Адвокат Мариан Георгиев Иванов",
+      "website": "https://bg.marianivanov.law/",
+      "reason": "Searchownsourceexplicitno telephoneLEGALCONSULTATIONS/freepublicwalkin, nonclientsmeetingonlywrittenDAY/HOURconfirmation, genericcorrespondencedoesnotguaranteeassignment/response. Source300EURhourinclusiveVAT notusedasnamedconsultationfee withoutfullactualBook/Terms/eligibilityreview. No ownhostrequests yet; no broadclientavailability/freephoneconsultclaim."
+    },
+    {
+      "order": 8,
+      "status": "included",
+      "id": "sofia-iva-todorova-dondukov93",
+      "checkedAtUtc": "2026-11-14T03:00:54Z",
+      "primaryEvidence": [
+        "https://advokattodorova.com/",
+        "https://advokattodorova.com/kontakti",
+        "https://advokattodorova.com/tarifa",
+        "https://advokattodorova.com/semeino-pravo"
+      ],
+      "booking": "ActualownContact explicitCALLtoagreeDAY+TIME forPERSONALconsultation, 887924687/24177888/898763537, exactSofiaDondukov93groundfloorentranceByaloMore. No form/phone/customerdata/action.",
+      "pricing": "FULLactualTariffexplicitALLoral/officeconsultationsPAID, feesindividuallyagreedbycase/work/time/deadlines, no numericamount/unit/duration/package. Oldminimumregulationreference notnormativerateimported/converted/currentlegaladvice. Genuineunpublishedservice_reviewed not0/free/price-reviewed, no inaccessiblemenu.",
+      "sourcePolicy": "Publicrobotsallowactualroot/contentbutdisallowserver/asset/privateJoomlapaths; noneaccessed. Actualrootallnav/contact/tariff/servicefooter no separateTerms/privacy surfaced; ordinarycopyright2013 only, no unseenpolicy/licence/legalclearanceclaim. Minimal independentlywordedfacts only, no advice/prose/templates/qualifications/images/reviews copied.",
+      "identity": "All3phones/basehost/operator/address preflightclear exceptfuzzynameIvanaTodorovaPHOTOGRAPHY(differentfirstname/domain/phone/industry) notsameoperator. Onepractice, no staffclones.",
+      "hours": "OwnContactweekday08:30–17:30 actualofficeconsultationhours, weekend/holidaysonlyprioragreement/nonumerichours invented. No fixedduration/coords."
+    },
+    {
+      "status": "held_scope_public_institution",
+      "name": "Istituto Italiano di Cultura di Sofia",
+      "website": "https://iicsofia.esteri.it/",
+      "reason": "Parentconfirmedgovernmentculturalinstitute outsidecurrentprivatebusiness/operator target. NOTsource-useSTOP. Searchown10EURpaidplacementtest/phone29812604atPatriarhEvtimiy21 promising butNOintake/count. OnlypublicrobotsGETallow(exceptwp-admin), no root/Book/Terms/course-page requests fromthisauthor; no privacy/licenceclaims ordatedcourseavailabilityinferred.",
+      "order": 9
+    },
+    {
+      "status": "rejected_duplicate_group",
+      "names": [
+        "РотоРем",
+        "Яна Богданова",
+        "Петьо Данков",
+        "SofLaw",
+        "ТФБ CityTower",
+        "IES",
+        "Илона Петрова"
+      ],
+      "reason": "RuntimeSOFIA+ALL2000WIP canonicaldomains/phones/addresses existing. Search/localpreflightonly; onepublicPetrovarobotsGET ranbeforematchobserved(normalcustom404page), no deeperBook/menu/contact requests/refresh/otherstaffroomclones.",
+      "order": 10
+    },
+    {
+      "status": "held_existing_missing_exact_venue",
+      "name": "Адвокат Венцислав Банчев",
+      "website": "https://advbanchev.com/",
+      "reason": "Existing005/008/009ownBook/sourcecontactmapsectionsSofia/Plovdiv butno readableSofiastreet; no Mapsiframe/directions geocodeornewhostrequests. NotacceptedfromgenericSofia label.",
+      "order": 11
+    },
+    {
+      "status": "rejected_duplicate",
+      "name": "Duo Black&White; Учебен свят",
+      "reason": "Searchonlyactualruntimeexisting2venueseach; no newownedrequests orstaff/subjectaliases. Prior013duplicatesalsoheldnotreopened.",
+      "order": 12
+    },
+    {
+      "status": "held_unreviewed_discovery",
+      "names": [
+        "Райна Василева · raynavasileva.com",
+        "Малки музикални уроци · malkimuzikalniuroci.com"
+      ],
+      "reason": "Search-onlymusiclessonleads, exactruntime/allWIPphone/operator/venue/actualBook/Terms notyetpreflighted thisbatch. No ownrequests orcoursefee/durationavailability claims. Rootrecordingstudiosownershiprespected.",
+      "order": 13
+    },
+    {
+      "status": "included",
+      "name": "Integral",
+      "website": "https://www.integral.bg/",
+      "sources": [
+        "https://www.integral.bg/",
+        "https://www.integral.bg/kontakti",
+        "https://www.integral.bg/visshe-obrazovanie-v-chuzhbina",
+        "https://www.integral.bg/privacy-policy"
+      ],
+      "notes": "Actualown3stepBook request haseducationtype, office/online, Sofiaoffice, PREFERREDday/hour andownerconfirmation. MainSofiaphysicalEvlogiHristoGeorgievi99/28050600; separateStudentskiGradWATofficeunboundtoincludedhighereducationservicenotcloned. SelectedhigheredpageexplicitFREEFIRSTconsultation. Privacy13053char sourcepolicyinreview, no rowyet.",
+      "primaryEvidence": [
+        "https://www.integral.bg/",
+        "https://www.integral.bg/kontakti",
+        "https://www.integral.bg/visshe-obrazovanie-v-chuzhbina",
+        "https://www.integral.bg/privacy-policy"
+      ],
+      "sourcePolicyReviewCompletedAtUtc": "2026-11-14T03:28:04Z",
+      "checkedAtUtc": "2026-11-14T03:31:01Z",
+      "id": "sofia-integral-evlogi-georgievi99",
+      "finalReview": "Full13053charPrivacyEOF read, ordinaryGDPR/no data/extraction/automation/sitepersonalnoncommercialban observed. CurrentownSofiamainofficeEvlogiHristoGeorgievi99/28050600 samelegaloperatorregisteredaddress. Actual3stepnativeBookpreferredOFFICESOFIA/day/hour/confirmation, NOstagesadvanced/fields/checkbox/submission. SelectedhigherEdexplicitFREEFIRSTservice notentireapplication/teachingpackage. Under16parentconsent preserved. No actualnumericweeklyconsultationhours/duration/point, omitted. SeparateStudentskiGradWAToffice/unboundservices NOTcounted.",
+      "pricing": "0EURfirstorientationonly; priceSourcehttps://www.integral.bg/visshe-obrazovanie-v-chuzhbina. No inventedfee/guaranteedadmission/scholarship/loan/course/travelclaims.",
+      "order": 14
+    },
+    {
+      "status": "included",
+      "name": "UNIFY",
+      "website": "https://www.unify.bg/",
+      "sources": [
+        "https://www.unify.bg/bezplatna-konsultaciq",
+        "https://www.unify.bg/contacts.html",
+        "https://www.unify.bg/pricing",
+        "https://www.unify.bg/about-us/privacy-policy.html"
+      ],
+      "notes": "ActualownedBookfirstfreewithin1h, paidSPECIALISED50EUR/hourAFTERfirstfree. Form actualtypesfreebachelor/freeMaster/paid, OfficeSOFIA/Varna/online, currentSofiadatesinclnonbusy19Nov10:00 seenreadonly(nochoice); NOslotpromiseoruserfield. Initialfullbodytruncated bytool because697schooldropdown; rereadnormalpublicsamepage withschool/cityoptionlistsomitted, full17218charbodyavailable andactualBookingmode/slotsretained, notpriceunpublishedworkaround. CurrentContact+allfooterSofiaNikolayHaytov2entrGfloor11office36/887717776; privacyoldEmiliyanStanev2A/877770732 controllercontactsnotvenueclone; binding/fee/aliasdedupefinalpending.",
+      "primaryEvidence": [
+        "https://www.unify.bg/bezplatna-konsultaciq",
+        "https://www.unify.bg/contacts.html",
+        "https://www.unify.bg/pricing",
+        "https://www.unify.bg/about-us/privacy-policy.html"
+      ],
+      "sourcePolicyReviewCompletedAtUtc": "2026-11-14T03:28:04Z",
+      "checkedAtUtc": "2026-11-14T03:31:01Z",
+      "id": "sofia-unify-nikolay-haytov2",
+      "finalReview": "Full6770charPrivacyEOF read, ordinaryGDPR/no data/extraction/automation/sitepersonalnoncommercialban observed. Completecompact17218charBookreadEOF: actualfreeBachelor/freeMaster/paidtype, separateOfficeSOFIA/Varna/online andactualfuturebusy/nonbusyslots; no choice/input/account/consent/submission, no publishedslotpromise. CurrentBook/Contact/footerNikolayHaytov2entrGfloor11office36/887717776, legacyprivacycontrollerEmiliyanStanev2A/877770732notnewvenue/currentphone; allcurrent/legacy/operatorphonesruntime+ALLWIPzero. OneactualSofiaoffice notstaff/Varna/mobilecityclones.",
+      "pricing": "Book0FIRSTorientationWITHIN1h(MAXIMUMnotfixed60); SPECIALISED50EUR PERHOUR AFTERfirstfree; actualPricingconfirms0first/50Bachelor/Master. Keepprerequisite/hourlyunit; no fee4.09/academicunit/conversion. Otheradmission/countryapplicationpackages notimported. ActualBookMonFri09–18officehours, coordsnull.",
+      "order": 15
+    },
+    {
+      "status": "included",
+      "name": "EDLANTA",
+      "website": "https://www.edlanta.com/",
+      "sources": [
+        "https://www.edlanta.com/sredno-obrazovanie-konsultacii",
+        "https://www.edlanta.com/kontakti",
+        "https://www.edlanta.com/privacy-policy-gdpr"
+      ],
+      "notes": "ActualselectedsecondaryeducationCTA 'Заявибезплатнаконсултация', destinationhrefunderinspection(no actionopened). ContactnativeConsultationRequest educationtype+inperson/online, age14/parentconditionalfields. CurrentSofiaVasilLevski3floor1apt1, secondarydepartment887851919/highered889086089. FullPrivacy28738charinreview, onlysource-policykeywordscanandfirstsectionsreadsofar; no claimfullclearance, no rowyet. Robotsreturnssoft404HTMLHTTP200notrobotsdirectives, noaccesschallenge/bypass.",
+      "primaryEvidence": [
+        "https://www.edlanta.com/sredno-obrazovanie-konsultacii",
+        "https://www.edlanta.com/kontakti",
+        "https://www.edlanta.com/privacy-policy-gdpr"
+      ],
+      "sourcePolicyReviewCompletedAtUtc": "2026-11-14T03:28:04Z",
+      "checkedAtUtc": "2026-11-14T03:31:01Z",
+      "id": "sofia-edlanta-vasil-levski3",
+      "finalReview": "Full28738charPrivacyEOF read, ordinaryGDPR/no data/extraction/automation/sitepersonalnoncommercialban observed, currentregisteredandcorrespondenceaddressVasilLevski3floor1apt1sameactualContact/Bookfooter. ActualselectedsecondaryserviceFREEconsultCTA href/kontakti#contact inspectedBEFOREopening canonicalContact (no action); nativeConsultationRequest serviceTYPE+INPERSON/ONLINE/age14parentfields, no office/datechoice claimed. SofiaSECONDARYdepartment887851919 chosen nothighered889086089, all+privacy29864001phones/operatorsWIPzero. No clientfields/parentdata/consent/marketing/submission. OnlyactualSofiaoffice, Burgasnotcounted.",
+      "pricing": "0EURinformationconsultationSECONDARYeducationforpupils/parents, notentireconsultancy/application/language/travelpackage; sourceCTAsaysfreeactualconsultationnotfreeadministrativereservation. DoNOTinventFIRSTconditionwhereabsent. Under14explicitparentconsent inPrivacy preserved. No numericduration/weeklyhours/point published, omitted. No unreviewedoldPDFaddressFritjofNansenused.",
+      "order": 16
+    }
+  ],
+  "checkedAtUtc": "2026-11-14T03:34:05Z",
+  "sourcePolicyLimits": "Allfacts independentlyphrasedminimalmerchant/realservice/appointment/feeconditions/office only. LinkedGDPRpolicies readtoEOF for3educationconsultancies; actualpublicnav/footer no separateTerms surfaced. No inferredlicence/legalguarantee/unseenpolicyclearance, no sourceprose/programme/uni/schoolDB/studentreviews/photos copied. No protectedprovider/Google/Maps/geocoding/customerwrites. No formvalues, consent, dates, login, booking, payment or actionlinks entered/submitted. Successmessagetemplates inHTML notactualsubmission.",
+  "photoRecommendations": [
+    [
+      "sofia-iva-todorova-dondukov93",
+      "consulting",
+      "Присъствена правна консултация по семейно право",
+      "legal-consultation"
+    ]
+  ],
+  "photoNeeds": [
+    [
+      "sofia-integral-evlogi-georgievi99",
+      "consulting",
+      "Безплатна първа консултация за висше образование в чужбина"
+    ],
+    [
+      "sofia-unify-nikolay-haytov2",
+      "consulting",
+      "Първа безплатна консултация за университет в чужбина"
+    ],
+    [
+      "sofia-unify-nikolay-haytov2",
+      "consulting",
+      "Специализирана образователна консултация след първа среща"
+    ],
+    [
+      "sofia-edlanta-vasil-levski3",
+      "consulting",
+      "Безплатна консултация за средно образование в чужбина"
+    ]
+  ],
+  "photoReview": "Ivaexistingregisteredlegal-consultation viewed02:27:05Zinpersondossierdiscussionappropriate. Foureducationadvisingservices currentlyneutral: rootownsreviewed/generationassociation; NOTlanguageclass ornotarialsigning. Needgenericindependenteducationaladvisor/applicant(andparentforsecondarycontext)planningmeeting, no uni/logo/admissionletter/visa/guaranteedoutcome/agencyoffice/stafflikeness orteachingactivity implied. No sharedphotos/map/manifest/IDs edited.",
+  "verification": {
+    "schema": "4validated",
+    "existingRuntimePlusAllOther2000Intakes": 1672,
+    "audit": "4ready/0pending/0rejected",
+    "approval": "4approved",
+    "pricing": "3price-reviewedbusinesses/4literalpricedservices(3free,1paid);1service_reviewed genuineunpublished. EphemeralidentityfortestONLY,nopersistedinventoryIdentity.",
+    "focusedTests": "16passed tests/catalogue-pricing-review.test.mjs +tests/catalogue-audit.test.mjs",
+    "notRunByAuthor": "No fullsuite/Python/productionbuild/sharedcatalogueintegration/deployment; rootownsfinalgates."
+  },
+  "frozenAtUtc": "2026-11-14T03:34:05Z"
+}

@@ -1,0 +1,20 @@
+{
+  "checkedOn": "2026-11-14",
+  "id": "sofia-mitvas-nissan-tsvetan-lazarov48",
+  "source": "https://nissan.mitvas.com/?cmd=contacts",
+  "sourceAddress": "София, ж.к. Дружба 1, бул. Проф. Цветан Лазаров 48",
+  "status": "approved_explicit_owner_dmm_gps_not_municipal_disambiguation",
+  "literalLabel": "GPS координати: N42°39.892', E23°23.283'",
+  "conversion": { "latitude": "42 + 39.892 / 60", "longitude": "23 + 23.283 / 60", "storage": "Decimaldegrees roundedto6places; this is unitconversion, not a claimofnewmeasurementprecision. Source resolution0.001arcminute retained in thisreceipt." },
+  "acceptedPoint": { "latitude": 42.664867, "longitude": 23.38805 },
+  "municipalCorroboration": {
+    "status": "ambiguous_two_exact_address_rows",
+    "selectedMunicipalPoint": null,
+    "candidates": [
+      { "rn": "88508", "region": "Искър", "latitude": 42.65259, "longitude": 23.405347, "separationMeters": 1965.7610162296057 },
+      { "rn": "98140", "region": "Младост", "latitude": 42.66482, "longitude": 23.387495, "separationMeters": 45.679536560958795 }
+    ]
+  },
+  "receipt": "Root personally read current nativeordinaryHTTP200 ownContact: actual serviceaddressDruzhba1TsvetanLazarov48 immediately followed byexplicitN/Edegrees-decimal-minutesGPS, matchingownphone028923838andweekday9–18hours. ConvertedliteralN/EtoWGS84decimaldegrees, no Mapsrequest/viewport/geocoding. Ownerpoint useddirectly andboundtoexactaddress. Owner-suppliedmunicipalCSV has two same-road-house rows nearly2kmapart; neither first/nearest/averagedrow accepted. Onepostalpairwithin45.68m is corroborationonly, not automaticambiguityresolution orreplacement ofexplicitownerGPS. No newofficialCSVbinding counted.",
+  "limits": "No specificentrance orsubmeterprecisionclaim. No Maps/Nominatim/customerGPS/form/phone/notification/productionwrite. Existing165audit remainsclosed. Pointfailsclosedifbusinessaddresschanges."
+}

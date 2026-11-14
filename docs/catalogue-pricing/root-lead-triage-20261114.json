@@ -1,0 +1,96 @@
+{
+  "checkedOn": "2026-11-14",
+  "status": "ongoing_root_lead_ledger_not_source_complete_intake",
+  "counts": {
+    "admitted": 2
+  },
+  "safety": "Public readonly discovery only; no source photos/prose/reviews, forms/customer inputs, calls, bookings, maps, geocoding or accounts. Search excerpts are not source-complete records.",
+  "holds": [
+    {
+      "business": "Дентален кабинет Д-р Шентова",
+      "website": "https://shentova-dent.com/",
+      "reviewedUrls": [
+        "https://shentova-dent.com/robots.txt",
+        "https://shentova-dent.com/",
+        "https://shentova-dent.com/about/",
+        "https://shentova-dent.com/treatments/"
+      ],
+      "decision": "hold_explicit_supported_booking_path",
+      "reason": "Own homepage normalHTTPS fullyread, ownAbout/Services read. Real OvchaKupel1block419entryВfloor1, public896324526, but no explicit call-for-appointment instruction/working reservationform in inspected menus; bare contact not silently converted to bookingproof. No price review completion or unpublished claim. Odd/even date opening hours cannot fit static weekdayperiods and are not flattened. Do not import technicalsiteauthor email."
+    },
+    {
+      "business": "Д-р Парушев",
+      "website": "https://drparushev.com/",
+      "reviewedUrls": [
+        "https://drparushev.com/robots.txt",
+        "https://drparushev.com/"
+      ],
+      "decision": "hold_actual_booking_rendering",
+      "reason": "Robots ordinaryGET404, not a challenge. Current rootwebreader0lines and normalHTTPS200 onlytitle/JSshell; search-indexed form/service/fee signals not a completed current actualbooking review. No JSbundle/API extraction/UI workaround/unpublished receipt."
+    },
+    {
+      "business": "Дентален кабинет Димитър Чоторов / MyDentalPlace",
+      "website": "https://dental.place.bg/",
+      "reviewedUrls": [
+        "https://dental.place.bg/robots.txt",
+        "https://mydentalplace.bg/robots.txt"
+      ],
+      "decision": "hold_current_under_construction",
+      "reason": "Historicalhome004actualroot503 hold found. Current oldrobots normalGET301 points newmydentalplace.bg/robots.txt; that ordinaryGET503underconstruction, upcomingopening notice. No more hostrequests, no assumed relocation/reopening or copiedoldfee."
+    },
+    {
+      "business": "Grey Pigeon Studios",
+      "website": "https://greypigeons.com/",
+      "decision": "hold_outside_sofia_city",
+      "reviewedUrls": [
+        "https://greypigeons.com/robots.txt",
+        "https://greypigeons.com/",
+        "https://greypigeons.com/rent-the-studio/"
+      ],
+      "reason": "Ownfullcurrentroot explicitlySvetovrachene/Sinchets19a1252outsideSofia68134. ActualBookfollowedbeforefootergeographyknownbutnotcompletedpricingreview; nofees/records/photos/hours/points reused, no furtherrequests. SearcholderBGNfiguresnotimported."
+    }
+  ],
+  "duplicates": [
+    "iSmileLozenets/Lyulin",
+    "БрилянтДентЛерин",
+    "NewDentalSolutions",
+    "FaceIDDental",
+    "БранимираСербезова",
+    "KayaGrooming",
+    "NewVita",
+    "BoBella",
+    "Podstrizhime",
+    "Ramona",
+    "PetStopPlace",
+    "Tobby",
+    "BlueCrossSofia",
+    "YorkiSofia",
+    "Goldy",
+    "IlonaPetrova",
+    "SofLaw",
+    "IrinaKonstantinova",
+    "YanaBogdanova",
+    "PetyoDankov"
+  ],
+  "previousHoldsNotRepeated": [
+    {
+      "source": "https://sistersofdogs.com/",
+      "prior": "pricing-expansion-services-20261110.mjs",
+      "reason": "Explicitappointmententrynotfound; currentsearchnotnewreview."
+    },
+    {
+      "source": "https://rossygroom.bg/",
+      "prior": "expansion-beauty-2000-004/007",
+      "reason": "Existingactualbookinghold, notreopened."
+    },
+    {
+      "source": "https://www.blacksealaw.com/",
+      "prior": "expansion-home-education-2000-003/005/008",
+      "reason": "ExistingexactSofia-venue/sourceholds not repeated."
+    }
+  ],
+  "newStreams": {
+    "interior": "12 runtime+ALLintake domains checked, zero matches; assigned currentnativeinterior sources to homeagent010. Onlyprimarysearchleads atroot; notadmitted basedon search.",
+    "recording": "Two independently reviewedSofiaoperators admitted: SlightlyOffensive realownedrequestform+FROM60EUR/hour;Anamorph realownedstudioreservationquoteform+80EUR/hourminimum3EXVATwithseparateextras. ActualAnamorphcalendarJSloadingNOTclaimedreviewed/available; ownexplicitindependentformselected. GreyPigeonoutsidecityheld;TheStageduplicateheld."
+  }
+}

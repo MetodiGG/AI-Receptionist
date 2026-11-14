@@ -1,0 +1,18 @@
+{
+  "rootIntegrationReview": {"checkedAtUtc":"2026-11-14T02:53:05.079Z","note":"RootownnativeactualBook/selectedServices fullreview. LiteralFREEconsultation onlynotfuturetreatment/clinicalresults; phonearrangement actualBookContactprimary. Dentalexamimagepersonallyviewed. No staffclone/templatehiddenconfirmationmessageclaim/casephoto/prosecopy, no productionbooking.","identity":"Only newlyreviewednormalizedinventoryidentitiesassigned; existingbaseline/pricereviewfingerprintsuntouched; originalfreeze/sourceobservationdatespreserved."},
+  "checkedOn": "2026-11-14",
+  "status": "source_complete_not_integrated",
+  "sourceModule": "lib/discovery/catalogue-data/neighborhood-dental-2000-005-20261113.mjs",
+  "records": 1,
+  "services": 1,
+  "pricedServices": 1,
+  "included": [{
+    "id": "sofia-vm-dent-pimen-zografski14",
+    "reviewedUrls": ["https://vmdent.com/robots.txt", "https://vmdent.com/", "https://vmdent.com/kontakti/", "https://vmdent.com/uslugi/"],
+    "evidence": "Root actual native ordinary200 source review. Real own Book→Contact visiblyfreeconsultation/876510055/SvPimenZografski14; selectedvoicearrangement. Literal0 consult only, nottreatmentfee or completenessclaim. FullServicesno treatmentamounts, no duration/hours/quarter/point guessed. Ownercase-reuseban honoured, no cases/photos/reviews copied. No formsubmission/documents/customerinformation or externalautomationactions."
+  }],
+  "photoRecommendation": ["sofia-vm-dent-pimen-zografski14", "other", "Безплатна дентална консултация", "dental-exam"],
+  "photoReview": "Root already individually viewed existing dental-exam256pxWebP. Generic fictional dental examination/consultation, not named staff, verified portfolio or guaranteed result.",
+  "limits": "Not in public runtime or onboarding until root schema/identity/photo/CSV integration. Full treatment-pricing coverage not claimed; no imported clinicalmarketing/results/qualifications. No emails, calls, bookings, Maps, Nominatim, production or credentials.",
+  "heldOrRejectedDiscovery": [{"website": "https://raykovpractice.com/", "decision": "outside_owner_medical_scope", "evidence": "Own indexed About/Services identify reproductive/IVF physician, not permitted dentistry/psychology/psychiatry. Searchdiscoveryonly; no hostGET, booking or servicepriceimport."}]
+}

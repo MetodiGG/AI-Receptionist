@@ -1,0 +1,354 @@
+{
+  "rootIntegrationReview": {"checkedAtUtc":"2026-11-14T01:01:31.429Z","notes":"Root read full7records/7fullreviewnotes. FourlimitedFREEintroconsultations notfullprojects/retailgoods, Verde50EURexVAT notpermetreprojecttariff, twofeesstrictunpublishednot0. Sevenactualoperators,4premises3mobile notshowroom/homevisitclones. Finishedroomdesigner/materialconsult andcurtainmeasurement assets individuallyreviewed; nohardhat/lawyer/cleaning substitutions.","inventory":"Only newly normalized reviewedserviceinventory identities added. Historicalbaseline untouched. Notactualavailability/realbooking/deployment."},
+  "batch": "home-education-2000-010-20261113",
+  "checkedOn": "2026-11-14",
+  "status": "frozen_source_complete",
+  "sourceModule": "lib/discovery/catalogue-data/neighborhood-home-education-2000-010-20261113.mjs",
+  "dateConvention": "Intakefilename13; actualUTCcheckedOn14, validUntil2027-02-12. checkedAtUtc recordsactualcompletedreview notinventedfetchstart. Europe/Sofiaappointmentsunchanged.",
+  "summary": {
+    "includedBusinesses": 7,
+    "includedServices": 7,
+    "literalPriceFacts": 5,
+    "explicitFreeServices": 4,
+    "paidPriceFacts": 1,
+    "strictUnpublishedReceipts": 2,
+    "phoneBooking": 5,
+    "ownedForms": 2,
+    "premises": 4,
+    "serviceAreas": 3,
+    "withServiceHours": 0,
+    "coordinates": 0,
+    "exactDurations": 1,
+    "pendingCases": 9,
+    "rejectedCases": 1
+  },
+  "ledger": [
+    {
+      "status": "included",
+      "id": "sofia-kuhnia-bg-geshov2e",
+      "primaryEvidence": [
+        "https://kuhnia.bg/robots.txt",
+        "https://kuhnia.bg/",
+        "https://kuhnia.bg/terms/",
+        "https://kuhnia.bg/enquiry/meeting/",
+        "https://kuhnia.bg/contacts/",
+        "https://kuhnia.bg/projects/list/"
+      ],
+      "notes": "FullTerms completed2segments ordinaryproduct/GDPR/materialsharingwithsourceURL, no renderings/photos/articleprose copiedorblanketlicenceclaim. ActualBookname/phone/email+timeconfirmation; explicitvoicephone chosen. SelectedProjects sourceexplicit15minFREE ANDstudioSofia/onlineconsultations, soonlynarrowfreepreliminarydesignconsultation acceptednotpaidfullproject/retailpurchase/deposit. ExactrealstudioGeshov2Ebuilding3.2floor1office112A, notVelingradregistration; timeconfirmedbydesigner. Contactdepartment08–17vs09–18notweeklyconsultationhours. Runtime+allWIPdomain+phonezero,0coords/noinputs/actions.",
+      "order": 1,
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:38:01Z"
+    },
+    {
+      "status": "included",
+      "id": "sofia-hamefa-kliment-ohridski105d",
+      "primaryEvidence": [
+        "https://hamefa.com/robots.txt",
+        "https://hamefa.com/",
+        "https://hamefa.com/privacy-policy/",
+        "https://hamefa.com/nastilki/",
+        "https://hamefa.com/uslugi/",
+        "https://hamefa.com/kontakti/"
+      ],
+      "notes": "Complete14882charPrivacy readfullinclmiddle/tail, namedMarker2013EOOD; noaccessbanobserved/nolegallicenceclaim. ActualflooringserviceexplicitreservedconsultationinSofiashowroom+voicephone889361161. ExactcurrentKliment105Dfloor2 inBook/contact/footer; RazlogfactorynotanotherSofiarow. Realdesignermeetingdistinctfromretailgoods/orderquotes. Projectmaterial/layout/mountingquotesnotconsultationfee; numericmeetingtariffgenuinelyunpublishedonfullreviewedBook/services/contact/root/footer, strictreceiptno0feeassumed. Nohours/duration/coordsinvented.",
+      "order": 2,
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:38:01Z"
+    },
+    {
+      "status": "pending_source_terms_stop",
+      "name": "Interior Center Zen · allvenues",
+      "primaryEvidence": [
+        "https://interiorcenterzen.com/robots.txt",
+        "https://interiorcenterzen.com/",
+        "https://interiorcenterzen.com/policies/terms-of-service"
+      ],
+      "notes": "ActualTermssection6 explicitwholeServices(includingwebsite/info/content) PERSONAL/NONCOMMERCIALonly. BanseenbeforeactualBook. Entirehost/allopenedrefsstoppedimmediately, parentnotified, noBook/services/contact/calendar/fee/venuefactsaccepted. No alternateendpoint/provider/UI.",
+      "order": 3,
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:38:01Z"
+    },
+    {
+      "status": "pending_source_terms_stop",
+      "name": "Euromebel",
+      "primaryEvidence": [
+        "https://euromebel.com/robots.txt",
+        "https://euromebel.com/",
+        "https://euromebel.com/obshti-usloviya/"
+      ],
+      "notes": "ActualTermssection6 explicitnoSCRAPING/extractiontools/reusewithoutpriorwrittenpermission. BanseenbeforeactualBook. Entirehost/allrefsSTOPparentconfirmed; noBook/Contactcalendar/actionrequestsorintake/fees accepted. No title/freeofferjustifiesbypass.",
+      "order": 4,
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:38:01Z"
+    },
+    {
+      "status": "pending_source_terms_stop",
+      "name": "IXDesign",
+      "primaryEvidence": [
+        "https://ixdesignstudio.com/robots.txt",
+        "https://ixdesignstudio.com/",
+        "https://ixdesignstudio.com/obshti-uslovia/",
+        "https://ixdesignstudio.com/terms-and-conditions/"
+      ],
+      "notes": "Art8 broadinformationalresourcesreproduction/publication/distributionunlessagreed, Art6includesdatabases. ActualalternateTermsrequestedSAMEinitialbatchbeforeArt8observed; noafterSTOPrequests. ParentindependentlyreadwholeactualTermsconfirmedHOLD/nonewrequests. NoactualBook/services/intake/feeuse.",
+      "order": 5,
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:38:01Z"
+    },
+    {
+      "status": "pending_source_scope_hold",
+      "name": "Archilab",
+      "primaryEvidence": [
+        "https://archilab.bg/robots.txt",
+        "https://archilab.bg/",
+        "https://archilab.bg/obshti-uslovia/"
+      ],
+      "notes": "FullshortTermsreadordinaryHTTPS200; parentreadfullalreadyobservedtext andconfirmedHOLD due broadinformationalcontentusewithoutconsentscopeunresolved, notclaimuniversalbotban/legalconclusion. No furtherhost/refrequests afterhold, no actualBook/services/intakeorpriceuse. FullalreadyreadTermsrelayedparentwithoutnewrequest.",
+      "order": 6,
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:38:01Z"
+    },
+    {
+      "status": "included",
+      "name": "Verde Interiori",
+      "primaryEvidence": [
+        "https://verdeinteriori.com/robots.txt",
+        "https://verdeinteriori.com/",
+        "https://verdeinteriori.com/general-terms-bg",
+        "https://verdeinteriori.com/contact-us",
+        "https://verdeinteriori.com/interioren-dizayn",
+        "https://verdeinteriori.com/ceni-za-interiorni-uslugi-1-4715"
+      ],
+      "notes": "Complete45kactualTermsfinishedallcachedsegments and405tokenmissingmiddleordinaryHTTPSread beforeBook; onlymaterials/photos/logos/imagesIP, no extraction/database/automation/Servicesnoncommercialrestrictionobserved, noassets/prose reusedorlicenceclaim. ActualrootReserveMeeting→ownedContactfullname/phone/email/message/consent/antispamform, nofields/checkbox/CAPTCHA/submission/login/actions. Fullselectedinteriorpage actualpriceURLfollowed; standaloneonsiteSofiainteriorconsultation50EUR WITHOUTVAT distinctfromindicative20/33/50EURm2projectpackages. Project50/50paymentnotinventedconsultationdeposit. OnlyoneSofiahome_visit service_areanulladdress/point; Patriarh78retailshowroomnotsecondprovider/officehoursnotvisitavailability. Actualformrequestrequirestime/address/scopeconfirmation; notfreeintro/calendarslotclaim.",
+      "order": 7,
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:58:09Z",
+      "id": "sofia-verde-interiori-home-consultation"
+    },
+    {
+      "order": 8,
+      "status": "included",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:58:09Z",
+      "name": "Tendencia BG · мобилен шоурум София",
+      "id": "sofia-tendencia-mobile-showroom",
+      "primaryEvidence": [
+        "https://www.tendencia.bg/robots.txt",
+        "https://www.tendencia.bg/",
+        "https://www.tendencia.bg/terms"
+      ],
+      "notes": "Robots404normalnotdenial. CompleteTerms3segmentsordinarygoods/GDPR, namesoldrelatedtendenciqpd.comandcurrentTendenciaPDEOODAboutbindssameoperator; no altendpointfetch/restrictionobserved/blanketpermissionclaim. ActualownedBookFREEconsult+measurementwithcall885415676forappointment, samepageexplicitSofiaMOBILEshowroom andcustomerhomevisitwithsamples/measurement. Main+otherphones/oldrelateddomain/fullruntime+WIPzero. OneSofiaarea/nulladdress/coords, noRuseorquarterclones. FreeinitialconsultONLY, paidtailoring/goods/installnotzero. Nohours/durationinvented/calls/inputs/actions/Maps/privateAPI/customerdata."
+    },
+    {
+      "order": 9,
+      "status": "included",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:58:09Z",
+      "name": "Пегасленд София",
+      "id": "sofia-pegasland-vasil-zlatarev54",
+      "primaryEvidence": [
+        "https://pegasland.com/robots.txt",
+        "https://pegasland.com/",
+        "https://pegasland.com/politika-za-poveritelnost/",
+        "https://pegasland.com/estestveni-kamuni/",
+        "https://pegasland.com/uslugi/",
+        "https://pegasland.com/kontakti/"
+      ],
+      "notes": "ActualselectedStoneBookReserveFREEconsult/CallUswithown991/992phonesfooter, explicitvoiceappointmentinvitationnotgenericretailonly. CallbuttonliteralemptyhrefinspectedNOTclicked/followed/claimedworkingcalendar; publishedmainphone879555991 used. Source<=30minMAXIMUMnotdurationscalar. FullshortPrivacyGDPR/no separateTermslinksurfaced/no accessrestrictionobserved/licenceclaim. Fullservice/contact/footerrealZlatarev54NPZIskarSofia; installationconditionalongoodsboughtfromsupplierpreserved, notimportedasfree. Weekday/Saturdayhoursretailshowroomnotconsultguarantee, omitted. Domain/bothphonesruntime+allWIPzero; nofields/consent/calls/Maps/portfolio/Google/action."
+    },
+    {
+      "order": 10,
+      "status": "included",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:58:09Z",
+      "name": "Dream Design · огледи в София",
+      "id": "sofia-dream-design-home-consultation",
+      "primaryEvidence": [
+        "https://dreamdesign.bg/robots.txt",
+        "https://dreamdesign.bg/",
+        "https://dreamdesign.bg/politika-za-poveritelnost",
+        "https://dreamdesign.bg/contacts",
+        "https://dreamdesign.bg/uslugi"
+      ],
+      "notes": "Robots404normalnotchallenge. ActualBookContact advancebookingmeetings/consultationsplusSofiaONLYinspection/consultationphone894711272, notgeneralVarna889080817Viber. FullServices/root/footer/Privacy ordinaryGDPR/browsingwithoutregistration; no numericSofiafee/pricelistlink, strictunpublishedreceipt, notcompletedpricereview/zerooffer. OnegenuineSofiamobileprovider,nulladdress/point; VarnaVladislav232officenotSofiapremise. Servicesprojectmanufacturequotesnotinitialconsultfee/duration. Runtime+allWIPbothphones/operatorzero. Nohours/durationinvented/calls/fields/CAPTCHA/actions/sourceportfolio/reviews/customerdata/Google/geocode."
+    },
+    {
+      "order": 11,
+      "status": "included",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:58:09Z",
+      "name": "Symmetry Design · шоурум Кошер",
+      "id": "sofia-symmetry-design-bulgaria105a",
+      "primaryEvidence": [
+        "https://symmetrydesign.bg/robots.txt",
+        "https://symmetrydesign.bg/",
+        "https://symmetrydesign.bg/politika-za-poveritelnost/",
+        "https://symmetrydesign.bg/kuhni-po-porachka/",
+        "https://symmetrydesign.bg/uslugi/",
+        "https://symmetrydesign.bg/kontakti/"
+      ],
+      "notes": "Complete9737charPrivacyordinaryGDPR, no access/extraction/database/noncommercialbanobserved/noTermslinksurfacedorlicenceclaim. ActualselectedkitchenFREEconsultBookownedname/phone/email/message/consentform explicitlycallbackAGREEshowroommeetingKosherorinspection, notwalkinretailonly/calendar/freeintroforpaidservice. Onlypreliminaryfreestudiomeetingaccepted, full3Dprojectafterapprovedoffer/contract andmanufacture1000EURlinear-metre guideNOTconsultfee. ExactcurrentBulgaria105AentranceAfloor1apt1Koshercontact/service/Privacyconsistent. Retail/office09–17notconsultationhours, omitted. Domain/phone878494210runtime+allWIPzero. No fields/consent/submission/qualityclaims/sourceportfolio/Google/privateAPI/call/action."
+    },
+    {
+      "order": 12,
+      "status": "pending_source_terms_stop",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:58:09Z",
+      "name": "Factory Success",
+      "primaryEvidence": [
+        "https://factorysuccess.eu/robots.txt",
+        "https://factorysuccess.eu/",
+        "https://factorysuccess.eu/общи-условия/"
+      ],
+      "notes": "FullactualTerms§4.2 explicitautomationdataextraction(scraping)ban foundBEFOREactualBook. Entirehost/allrefsSTOP,parentnotified; no furtherrequests/alternativeprovider/UI orintake/price/venueusefromcachedsearch. Noappointment/customerdataentered."
+    },
+    {
+      "order": 13,
+      "status": "pending_source_scope_hold",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:58:09Z",
+      "name": "Enter Your Plan",
+      "primaryEvidence": [
+        "https://enteryourplan.com/robots.txt",
+        "https://enteryourplan.com/",
+        "https://enteryourplan.com/terms/"
+      ],
+      "notes": "FullTermscompleted2segments; broadIPinformationalresources/databasespublication/distributionunlessagreedclause sameasIX. HOLDBEFOREactualBook, parentnotified; nofurtherrequests/actualserviceprice/venueacceptance/nouniversalbotbanclaim. Ordinarylatecancel100BGNobservedonlyTermsnotimported."
+    },
+    {
+      "order": 14,
+      "status": "pending_source_commercial_scope_hold",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:58:09Z",
+      "name": "Floor Arena",
+      "primaryEvidence": [
+        "https://floorarena.com/robots.txt",
+        "https://floorarena.com/",
+        "https://floorarena.com/policies/terms-of-service",
+        "https://floorarena.com/pages/услуги",
+        "https://floorarena.com/pages/contact"
+      ],
+      "notes": "Complete21150charactualcustomTerms finishedcachedsegments. §XII3 text/image/logo/brandcontentcommercialusewithoutconsentnotallowed; parentconfirmedHOLDscopepending, nofurtherrequests. Services/ContactwerequeuedSAMEexecBEFOREmodelobservedfinal§XII3cachedsegment; noafterSTOPrequest. Genuine§Xphoneorderedinstallation/freeonsiteinspectionnotacceptedbyquotaexception; nofakeunpublished, nofactorystore/area clone. No cart/checkout/reservation-of-retailgoods/action/Google/customerdata."
+    },
+    {
+      "order": 15,
+      "status": "pending_source_policy_robots_disallowed",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:58:09Z",
+      "name": "Мебели Ломбардо",
+      "primaryEvidence": [
+        "https://lombardo-mebelsbg.com/robots.txt"
+      ],
+      "notes": "Robotsactual200 explicitlyDisallow /общи-условия/,/политика-за-поверителност/,/политика-за-бисквитките/. Noneofthosepathsorencoded/alternate/UI/providerroutes requested. Source-policyreadnotcompleted, holdbeforeBook; searchprimaryappointmentleadnotacceptedasverifiedvenue/service/fee."
+    },
+    {
+      "order": 16,
+      "status": "pending_actual_booking_provider_review",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:58:09Z",
+      "name": "Кухни София",
+      "primaryEvidence": [
+        "https://kuhnisofia.bg/robots.txt",
+        "https://kuhnisofia.bg/",
+        "https://kuhnisofia.bg/как-да-поръчате/",
+        "https://kuhnisofia.bg/contacts/"
+      ],
+      "notes": "Robots200empty no restriction. OwnactualHowToOrder givesrealfree60minprojectantmeeting/currentBuildmark1acquisition/operatorandphone894403069, ownsourceAsenYordanov12/CherniVrah/Paradise/KrastovaVada; Seattlethemeplaceholderignored. ActualContactBookordinaryHTTPSone25secondtimeout0bytes, oneordinarywebreaderpubliccachedread(no403/challenge)showsBookexternalapi.leadconnectorhq.comwidget. NOproviderURLrequest/API/privateendpoint/fieldsorconsents; providerTerms+actualselectedformUNREVIEWED. HeaderphoneonlynotforcedtoexplicitvoiceBookfallback. Nointake/oldcachefees or fakeform/priceabsence; no retryloop."
+    },
+    {
+      "order": 17,
+      "status": "rejected_non_sofia_current_venue",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T00:58:09Z",
+      "name": "Мебели Янтра",
+      "primaryEvidence": [
+        "https://mebeliyantra.bg/robots.txt",
+        "https://mebeliyantra.bg/",
+        "https://mebeliyantra.bg/tv-cabinets/",
+        "https://mebeliyantra.bg/contact-us/"
+      ],
+      "notes": "ActualrootTermsandPrivacylinksincorrectlypointTVcabinetsproductpage, notclaimedTermsreview; no guessedpolicyroute. ActualcurrentContactGabrovo/899207946, noSofiapremise/appointmentdeliveryproof. No intake/price/media/alternatecityclone."
+    }
+  ],
+  "lastUpdatedAtUtc": "2026-11-14T00:58:09Z",
+  "nextDiscoveryLeads": [
+    {
+      "website": "https://jessica.bg/",
+      "status": "discovery_only_not_verified",
+      "notes": "Searchprimaryleadonly; no sourcepage/robots/terms/Book/feesreviewordedupecompletedyet. Intendednext011, notpartofapproved010."
+    },
+    {
+      "website": "https://interiordesignoffer.com/",
+      "status": "discovery_only_not_verified",
+      "notes": "Searchprimaryleadonly; no sourcepage/robots/terms/Book/feesreviewordedupecompletedyet. Intendednext011, notpartofapproved010."
+    },
+    {
+      "website": "https://soi.bg/",
+      "status": "discovery_only_not_verified",
+      "notes": "Searchprimaryleadonly; no sourcepage/robots/terms/Book/feesreviewordedupecompletedyet. Intendednext011, notpartofapproved010."
+    }
+  ],
+  "frozenAtUtc": "2026-11-14T00:58:09Z",
+  "verification": {
+    "schemaApproved": 7,
+    "duplicateAuditReady": 7,
+    "duplicateAuditPending": 0,
+    "duplicateAuditRejected": 0,
+    "comparisonRuntimePlusOtherIntakes": 1594,
+    "sourceReviewStates": {
+      "reviewed": 5,
+      "service_reviewed": 2
+    },
+    "focusedTests": {
+      "command": "node --test tests/catalogue-pricing-review.test.mjs tests/catalogue-audit.test.mjs",
+      "pass": 16,
+      "fail": 0
+    },
+    "scope": "Isolatedofflineintakeonly, no sharedimports/identities/photos/production/deploy/customer/bookings/geocode. Parentownsfinalnativephonecheck; sixpublicnativefixturemerchantnamesclearlydistinct."
+  },
+  "photoNeeds": [
+    [
+      "sofia-kuhnia-bg-geshov2e",
+      "consulting",
+      "Безплатна консултация с дизайнер за кухня",
+      "new_generic_interior_design_consultation"
+    ],
+    [
+      "sofia-hamefa-kliment-ohridski105d",
+      "consulting",
+      "Консултация за подова настилка от масив",
+      "new_generic_interior_design_consultation"
+    ],
+    [
+      "sofia-tendencia-mobile-showroom",
+      "home_services",
+      "Безплатна консултация и вземане на размери за пердета и щори",
+      "new_curtain_blind_home_measurement"
+    ],
+    [
+      "sofia-pegasland-vasil-zlatarev54",
+      "consulting",
+      "Безплатна консултация за естествен камък",
+      "new_generic_interior_design_consultation"
+    ],
+    [
+      "sofia-verde-interiori-home-consultation",
+      "home_services",
+      "Интериорна консултация с оглед на адрес в София",
+      "new_generic_onsite_interior_consultation"
+    ],
+    [
+      "sofia-dream-design-home-consultation",
+      "home_services",
+      "Оглед и консултация за интериорно обзавеждане",
+      "new_generic_onsite_interior_consultation"
+    ],
+    [
+      "sofia-symmetry-design-bulgaria105a",
+      "consulting",
+      "Безплатна предварителна консултация за кухненски проект",
+      "new_generic_interior_design_consultation"
+    ]
+  ],
+  "photoReviewNotes": "All7currentserviceThumbnail+cataFields neutral. Viewedexisting sx-architecture-onsite-consultation: hardhats/unfinishedbrickarchitecturalplan; notusedautomaticallyforfinishedinteriordesign/showrooms. Viewed sx-home-sheer-curtains: laundryprofessional atwashingstation, NOTTendenciameasurement. Rootmaygenerategenericdesigner/clientplanning/materialsamples(nojobqualificationorvendorclaim) andcurtain/blindmeasurementonhomewindow. NewgenericonsiteinteriorconsultcanfitVerde/Dream. IDsaboveARENEEDSnotregisteredexistingphotoIDs, nosharedmapping/assetmutationhere."
+}

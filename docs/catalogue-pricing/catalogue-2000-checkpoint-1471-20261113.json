@@ -1,0 +1,638 @@
+{
+  "checkedOn": "2026-11-13",
+  "status": "tested_local_checkpoint_not_published",
+  "liveEligibleBusinesses": 1215,
+  "localEligibleBusinesses": 1471,
+  "localRawRecords": 1494,
+  "newSincePublished": {
+    "businesses": 256,
+    "services": 424,
+    "businessesWithPublishedPrices": 162,
+    "servicesWithPublishedPrices": 322,
+    "businessesWithReviewedWeeklyHours": 87,
+    "premises": 235,
+    "citywideServiceAreaOperators": 21,
+    "primaryCategory": {
+      "auto_repair": 23,
+      "barber": 10,
+      "beauty": 10,
+      "car_wash": 3,
+      "consulting": 17,
+      "detailing": 3,
+      "education": 48,
+      "fitness": 28,
+      "hair": 21,
+      "health": 10,
+      "home_services": 16,
+      "nails": 25,
+      "other": 40,
+      "pets": 2
+    },
+    "businessTypes": {
+      "Автомивка": 3,
+      "Автосервиз": 23,
+      "Бръснарница": 10,
+      "Груминг": 2,
+      "Детайлинг": 3,
+      "За дома": 16,
+      "Консултации": 17,
+      "Красота": 10,
+      "Маникюр": 25,
+      "Психиатрия": 1,
+      "Психология и психотерапия": 6,
+      "Спорт": 28,
+      "Стоматология": 26,
+      "Татуировки и пиърсинг": 3,
+      "Терапии": 10,
+      "Уроци": 48,
+      "Фотография": 4,
+      "Фризьор": 21
+    },
+    "neighborhoodsExplicitlyPublished": {
+      "Банишора": 1,
+      "Бели брези": 1,
+      "Белите брези": 1,
+      "Борово": 2,
+      "Витоша": 2,
+      "Военна рампа": 1,
+      "Връбница 2": 2,
+      "Гео Милев": 5,
+      "Горубляне": 1,
+      "Дианабад": 1,
+      "Дружба 1": 1,
+      "Дружба 2": 6,
+      "Дървеница": 1,
+      "Зона Б-5": 2,
+      "Зона Б-5-3": 1,
+      "Изток": 5,
+      "Княжево": 1,
+      "Крива река": 1,
+      "Кръстова вада": 2,
+      "Лагера": 1,
+      "Левски": 1,
+      "Лозенец": 13,
+      "Люлин": 3,
+      "Люлин 10": 1,
+      "Люлин 3": 1,
+      "Люлин 4": 1,
+      "Люлин 8": 1,
+      "Малинова долина": 1,
+      "Манастирски ливади": 10,
+      "Младост": 2,
+      "Младост 1": 6,
+      "Младост 1А": 1,
+      "Младост 2": 2,
+      "Младост 3": 6,
+      "Младост 4": 2,
+      "Модерно предградие": 1,
+      "Мотописта": 1,
+      "Мусагеница": 1,
+      "Надежда": 1,
+      "Надежда 1": 1,
+      "Надежда 2": 1,
+      "Надежда 4": 1,
+      "Неуточнен квартал": 127,
+      "Оборище": 1,
+      "Овча купел": 1,
+      "Овча купел 1": 1,
+      "Орландовци": 1,
+      "Полигона": 1,
+      "Разсадника": 1,
+      "Редута": 2,
+      "Симеоново": 1,
+      "Сточна гара": 1,
+      "Студентски град": 8,
+      "Сухата река": 1,
+      "Хаджи Димитър": 2,
+      "Център": 11,
+      "Челопечене": 1
+    },
+    "neighborhoodCategoryBreakdown": [
+      {
+        "neighborhood": "Банишора",
+        "businesses": 1,
+        "categories": {
+          "fitness": 1
+        }
+      },
+      {
+        "neighborhood": "Бели брези",
+        "businesses": 1,
+        "categories": {
+          "education": 1
+        }
+      },
+      {
+        "neighborhood": "Белите брези",
+        "businesses": 1,
+        "categories": {
+          "other": 1
+        }
+      },
+      {
+        "neighborhood": "Борово",
+        "businesses": 2,
+        "categories": {
+          "education": 1,
+          "other": 1
+        }
+      },
+      {
+        "neighborhood": "Витоша",
+        "businesses": 2,
+        "categories": {
+          "fitness": 1,
+          "health": 1
+        }
+      },
+      {
+        "neighborhood": "Военна рампа",
+        "businesses": 1,
+        "categories": {
+          "auto_repair": 1
+        }
+      },
+      {
+        "neighborhood": "Връбница 2",
+        "businesses": 2,
+        "categories": {
+          "barber": 1,
+          "nails": 1
+        }
+      },
+      {
+        "neighborhood": "Гео Милев",
+        "businesses": 5,
+        "categories": {
+          "education": 1,
+          "fitness": 3,
+          "other": 1
+        }
+      },
+      {
+        "neighborhood": "Горубляне",
+        "businesses": 1,
+        "categories": {
+          "auto_repair": 1
+        }
+      },
+      {
+        "neighborhood": "Дианабад",
+        "businesses": 1,
+        "categories": {
+          "education": 1
+        }
+      },
+      {
+        "neighborhood": "Дружба 1",
+        "businesses": 1,
+        "categories": {
+          "pets": 1
+        }
+      },
+      {
+        "neighborhood": "Дружба 2",
+        "businesses": 6,
+        "categories": {
+          "auto_repair": 3,
+          "barber": 1,
+          "consulting": 1,
+          "nails": 1
+        }
+      },
+      {
+        "neighborhood": "Дървеница",
+        "businesses": 1,
+        "categories": {
+          "education": 1
+        }
+      },
+      {
+        "neighborhood": "Зона Б-5",
+        "businesses": 2,
+        "categories": {
+          "fitness": 1,
+          "other": 1
+        }
+      },
+      {
+        "neighborhood": "Зона Б-5-3",
+        "businesses": 1,
+        "categories": {
+          "consulting": 1
+        }
+      },
+      {
+        "neighborhood": "Изток",
+        "businesses": 5,
+        "categories": {
+          "education": 1,
+          "nails": 2,
+          "other": 2
+        }
+      },
+      {
+        "neighborhood": "Княжево",
+        "businesses": 1,
+        "categories": {
+          "education": 1
+        }
+      },
+      {
+        "neighborhood": "Крива река",
+        "businesses": 1,
+        "categories": {
+          "fitness": 1
+        }
+      },
+      {
+        "neighborhood": "Кръстова вада",
+        "businesses": 2,
+        "categories": {
+          "auto_repair": 1,
+          "hair": 1
+        }
+      },
+      {
+        "neighborhood": "Лагера",
+        "businesses": 1,
+        "categories": {
+          "other": 1
+        }
+      },
+      {
+        "neighborhood": "Левски",
+        "businesses": 1,
+        "categories": {
+          "nails": 1
+        }
+      },
+      {
+        "neighborhood": "Лозенец",
+        "businesses": 13,
+        "categories": {
+          "consulting": 2,
+          "education": 6,
+          "fitness": 1,
+          "health": 1,
+          "other": 3
+        }
+      },
+      {
+        "neighborhood": "Люлин",
+        "businesses": 3,
+        "categories": {
+          "car_wash": 1,
+          "detailing": 1,
+          "education": 1
+        }
+      },
+      {
+        "neighborhood": "Люлин 10",
+        "businesses": 1,
+        "categories": {
+          "auto_repair": 1
+        }
+      },
+      {
+        "neighborhood": "Люлин 3",
+        "businesses": 1,
+        "categories": {
+          "hair": 1
+        }
+      },
+      {
+        "neighborhood": "Люлин 4",
+        "businesses": 1,
+        "categories": {
+          "education": 1
+        }
+      },
+      {
+        "neighborhood": "Люлин 8",
+        "businesses": 1,
+        "categories": {
+          "beauty": 1
+        }
+      },
+      {
+        "neighborhood": "Малинова долина",
+        "businesses": 1,
+        "categories": {
+          "fitness": 1
+        }
+      },
+      {
+        "neighborhood": "Манастирски ливади",
+        "businesses": 10,
+        "categories": {
+          "auto_repair": 1,
+          "car_wash": 1,
+          "education": 2,
+          "other": 6
+        }
+      },
+      {
+        "neighborhood": "Младост",
+        "businesses": 2,
+        "categories": {
+          "auto_repair": 1,
+          "car_wash": 1
+        }
+      },
+      {
+        "neighborhood": "Младост 1",
+        "businesses": 6,
+        "categories": {
+          "beauty": 1,
+          "education": 3,
+          "fitness": 1,
+          "nails": 1
+        }
+      },
+      {
+        "neighborhood": "Младост 1А",
+        "businesses": 1,
+        "categories": {
+          "pets": 1
+        }
+      },
+      {
+        "neighborhood": "Младост 2",
+        "businesses": 2,
+        "categories": {
+          "detailing": 1,
+          "education": 1
+        }
+      },
+      {
+        "neighborhood": "Младост 3",
+        "businesses": 6,
+        "categories": {
+          "auto_repair": 2,
+          "beauty": 1,
+          "education": 1,
+          "hair": 1,
+          "nails": 1
+        }
+      },
+      {
+        "neighborhood": "Младост 4",
+        "businesses": 2,
+        "categories": {
+          "nails": 2
+        }
+      },
+      {
+        "neighborhood": "Модерно предградие",
+        "businesses": 1,
+        "categories": {
+          "detailing": 1
+        }
+      },
+      {
+        "neighborhood": "Мотописта",
+        "businesses": 1,
+        "categories": {
+          "education": 1
+        }
+      },
+      {
+        "neighborhood": "Мусагеница",
+        "businesses": 1,
+        "categories": {
+          "hair": 1
+        }
+      },
+      {
+        "neighborhood": "Надежда",
+        "businesses": 1,
+        "categories": {
+          "auto_repair": 1
+        }
+      },
+      {
+        "neighborhood": "Надежда 1",
+        "businesses": 1,
+        "categories": {
+          "other": 1
+        }
+      },
+      {
+        "neighborhood": "Надежда 2",
+        "businesses": 1,
+        "categories": {
+          "education": 1
+        }
+      },
+      {
+        "neighborhood": "Надежда 4",
+        "businesses": 1,
+        "categories": {
+          "nails": 1
+        }
+      },
+      {
+        "neighborhood": "Неуточнен квартал",
+        "businesses": 127,
+        "categories": {
+          "auto_repair": 9,
+          "barber": 7,
+          "beauty": 7,
+          "consulting": 10,
+          "education": 13,
+          "fitness": 12,
+          "hair": 14,
+          "health": 8,
+          "home_services": 16,
+          "nails": 12,
+          "other": 19
+        }
+      },
+      {
+        "neighborhood": "Оборище",
+        "businesses": 1,
+        "categories": {
+          "nails": 1
+        }
+      },
+      {
+        "neighborhood": "Овча купел",
+        "businesses": 1,
+        "categories": {
+          "fitness": 1
+        }
+      },
+      {
+        "neighborhood": "Овча купел 1",
+        "businesses": 1,
+        "categories": {
+          "education": 1
+        }
+      },
+      {
+        "neighborhood": "Орландовци",
+        "businesses": 1,
+        "categories": {
+          "auto_repair": 1
+        }
+      },
+      {
+        "neighborhood": "Полигона",
+        "businesses": 1,
+        "categories": {
+          "hair": 1
+        }
+      },
+      {
+        "neighborhood": "Разсадника",
+        "businesses": 1,
+        "categories": {
+          "education": 1
+        }
+      },
+      {
+        "neighborhood": "Редута",
+        "businesses": 2,
+        "categories": {
+          "hair": 1,
+          "other": 1
+        }
+      },
+      {
+        "neighborhood": "Симеоново",
+        "businesses": 1,
+        "categories": {
+          "education": 1
+        }
+      },
+      {
+        "neighborhood": "Сточна гара",
+        "businesses": 1,
+        "categories": {
+          "other": 1
+        }
+      },
+      {
+        "neighborhood": "Студентски град",
+        "businesses": 8,
+        "categories": {
+          "auto_repair": 1,
+          "barber": 1,
+          "education": 1,
+          "fitness": 3,
+          "hair": 1,
+          "nails": 1
+        }
+      },
+      {
+        "neighborhood": "Сухата река",
+        "businesses": 1,
+        "categories": {
+          "education": 1
+        }
+      },
+      {
+        "neighborhood": "Хаджи Димитър",
+        "businesses": 2,
+        "categories": {
+          "fitness": 1,
+          "nails": 1
+        }
+      },
+      {
+        "neighborhood": "Център",
+        "businesses": 11,
+        "categories": {
+          "consulting": 3,
+          "education": 6,
+          "other": 2
+        }
+      },
+      {
+        "neighborhood": "Челопечене",
+        "businesses": 1,
+        "categories": {
+          "fitness": 1
+        }
+      }
+    ]
+  },
+  "currentBatch": {
+    "businesses": 37,
+    "services": 56,
+    "pricedBusinesses": 22,
+    "priceFacts": 39
+  },
+  "intentionallyExcludedClinics": 23,
+  "remainingTo2000Local": 529,
+  "municipalCsv": {
+    "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "sourceInput": "Owner-supplied address_sofia.csv; original unchanged",
+    "newExactPostalBindings": 110,
+    "previouslyReviewedFullPrecisionPoints": 501,
+    "combinedReviewedOfficialPoints": 611,
+    "sourceBoundLocatedBusinesses": 810,
+    "unlocatedBusinesses": 661,
+    "ownerLiteralPointAdded": "sofia-malinova-dolina-sport-kliment127g",
+    "sourceRequests": "Offline CSV only; no Google/Nominatim requests"
+  },
+  "testsActuallyExecuted": {
+    "node": {
+      "passed": 2088,
+      "failed": 0
+    },
+    "python": {
+      "pricingExtraction": 8,
+      "bookingPricingFlow": 4,
+      "failed": 0
+    },
+    "productionBuild": {
+      "passed": true,
+      "bundler": "webpack",
+      "staticPages": 92
+    },
+    "csvReplay": {
+      "checked": 611,
+      "unique": 610,
+      "manualExistingDisambiguation": 1
+    },
+    "servicePhotos": {
+      "services": 9786,
+      "specific": 9786,
+      "neutral": 0,
+      "missing": 0,
+      "invalid": 0
+    },
+    "generatedPhotoProvenance": {
+      "checked": 1163,
+      "issues": 0
+    },
+    "browserScreenshots": "Not run for this data-only batch; native browser connector unavailable",
+    "liveBookingsOrNotificationsCreated": 0
+  },
+  "scope": "Only frozen, source-complete intakes count. All new businesses are covered by public search and partner onboarding. Restricted/blocked/ambiguous candidates and general human clinics are not counted. No production DB writes, migrations, paid services, customer bookings or notifications. Goal2000 remains incomplete.",
+  "publication": {
+    "lastVerifiedMain": "1d4a5037cbdfc0e89fceb67532621af12fb05bc8",
+    "frozenReleaseBranch": "codex/catalogue-2000-recovery-20261113",
+    "frozenReleaseCommit": "ec9049e1ac6a330e6f2850eac7791aa236163652",
+    "frozenReleaseEligible": 1415,
+    "nextBranch": "codex/catalogue-2000-next-20261113",
+    "state": "GitHub integration createPR403; owner manual PR/merge requested. No protected-main bypass or permission changes."
+  },
+  "generatedAssets": [
+    "sx-child-abacus-group",
+    "sx-adult-acrylic-painting-wine",
+    "sx-child-swimming-individual",
+    "sx-auto-tpms-programming",
+    "sx-mat-pilates-individual",
+    "sx-home-classical-massage",
+    "sx-legs-gluteal-massage",
+    "sx-hot-stone-back-massage"
+  ],
+  "validationNotes": [
+    "Eight newly generated specific illustrations checked individually at original and optimized256pxWebP, prompts and source/final hashes recorded. Built-in image_gen only; source PNGs retained outside repository. Two initial image-generation requests returned safety-system output errors; no rejected output was imported. Subsequent modest professional illustrations were generated and reviewed; no API/CLI fallback.",
+    "Calendar availability, booking submission, layout and production settings unchanged. Short-dated art and course offers retain explicit expiry; tests verify expiration. Mandatory extra access-card fee and included spa access remain qualified; whole lesson/month/course fees not divided.",
+    "Seventeen new postal-address points approved after individual comparison. Ambiguous entrances stay null. Owner literal MalinovaSport complex GPS is used instead of its conflicting unique postal point, with address binding and no specific-court/entrance claim. Old501 coordinate values unchanged."
+  ]
+}

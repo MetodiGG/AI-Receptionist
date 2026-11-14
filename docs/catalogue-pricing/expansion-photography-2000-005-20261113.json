@@ -1,0 +1,68 @@
+{
+  "rootIntegrationReview": {"checkedAtUtc":"2026-11-14T03:29:45.425Z","note":"Rootownfreshnative200BookTerms/wholecurrentPrices/Services/Contactonactualownlinked.comand.bg; sameoperatorONEstudio. SixLITERALEURwholephotoproductfees/framecountsnotper-frameorbundledivision/ourconversion. Publicunitsretainselfsitting6–7months+/variable40–60/60–90min/newbornnon-sitting/maternityupto3h/baptismceremonyandoutsidefamilyupto1h, NONEfixedscalar. All6descriptionswithin300charsbutpreserveparentwrittenconsent/recommended10daylead/delivery30workingdays/express+50percent/personaluseandportfoliooptoutmaydecline. Notactualsourcephotographscopied. Existingchild/newborn/baptismimagesindividuallyviewed; newmodestlycoveredmaternitysessionfullsource/thumbviewed. No stagingactualclientdata/photos/productionwrites.","identity":"Only newlyreviewednormalizedinventoryidentitiesassigned; existingbaseline/pricereviewfingerprintsuntouched; originalfreeze/sourceobservationdatespreserved."},
+  "checkedOn": "2026-11-14",
+  "checkedAtUtc": "2026-11-14T03:22:12.843Z",
+  "status": "frozen_source_review_pending_root_integration",
+  "module": "lib/discovery/catalogue-data/neighborhood-photography-2000-005-20261113.mjs",
+  "records": 1,
+  "services": 6,
+  "priceFacts": 6,
+  "sourceReviewedBy": "/root",
+  "actualSourceDay": "2026-11-14",
+  "steps": [
+    "Fullruntime+ALL2000intakeoperator/host/phonepreflight",
+    "ActualownedTermsCALLBookfirst",
+    "FullTermsandbothcurrentownedlinkedpricepages",
+    "ActualServices/Contactandrobots",
+    "LiteralEURwholeproducts/qualificationsretained",
+    "Specificphotomapping/rootintegrationpending"
+  ],
+  "sourceUse": "Actualphotographscommercial-reusepermissionnotassumed. No actual photographs/prose/clientmaterials copied. ReviewedTermsnotbroadsitefacts/automationban; nolegalclearance.",
+  "orderedLedger": [
+    {
+      "id": "sofia-emotion-studio-gotse-delchev48",
+      "decision": "ready_for_root_integration",
+      "source": "https://www.emotion-studio.bg/",
+      "identity": "Both.comand.bgSAMEoperatorEmanuelaStanoeva/phone889000873/GotseDelchev48, ONErealstudio.",
+      "pricing": "SixliteralprintedEURwholephotoproductfees92/163/230/143/143/178; printedBGNroundingnotconverted. No perframepackage division, promotion, deposit or fixeddurationinferred.",
+      "conditions": "Age/selfsitting/writtenparentconsent;recommended10dayadvance;standarddelivery30workingdays;express+50%;personalnoncommercialimages;defaultportfoliouseandpossibledeclineifoptout. Allpubliclypreserved."
+    }
+  ],
+  "holds": [
+    {
+      "source": "https://eyephoto.eu/",
+      "reason": "ActualTermslinkshowed verification challenge; STOPwholehost no furtherrequest/import. NeverunpublishedfromblockedTerms/menu. OwnrootBookreadwasparallelBEFOREobservedchallenge."
+    },
+    {
+      "source": "https://irisstudio.bg/",
+      "reason": "CurrentownrootexplicitSofia/PlovdivWALKINonly; BookonlyVarna. NoteligibleSofiaappointmentrow,no thirdparty/locationguess."
+    },
+    {
+      "source": "https://www.mvpstudioo.com/koledni-fotosesii/",
+      "reason": "SearchleadsaysKazicheneoutsidecurrentSofiacityinventory; noownedpagefetch/import."
+    }
+  ],
+  "rootResearchTriage": [
+    {
+      "source": "https://nirvanabyhv.bg/",
+      "decision": "existing_not_new",
+      "existingId": "sofia-hrisiyana-varbanska",
+      "note": "Initialrgsubsetmissedexistingservices-expansion-v2JSON; directruntimeconfirmedsamehost/phone/premisebeforeintake. No duplicateimport. Subsequentpreflightusesactualruntime+ALL2000intakes."
+    },
+    {
+      "source": "https://www.psychoblogia.org/",
+      "decision": "excluded_outside_sofia",
+      "note": "ActualownrootPlovdivprivatepractice; noSofiapremise."
+    },
+    {
+      "source": "https://www.noetic.bg/kosnultaciya-s-psiholog",
+      "decision": "excluded_outside_sofia",
+      "note": "ActualownpagePlovdivandonlineonly; noSofiapremise."
+    },
+    {
+      "source": "https://www.privlekatelen.com/consultations",
+      "decision": "excluded_outside_sofia",
+      "note": "ActualownpageRusestudio/online; noSofiapremise. Noownforms/payments/messages."
+    }
+  ]
+}

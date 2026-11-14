@@ -1,0 +1,67 @@
+{
+  "checkedOn": "2026-11-14",
+  "checkedAtUtc": "2026-11-14T01:01:31.429Z",
+  "status": "source_complete_root_review_not_published",
+  "module": "lib/discovery/catalogue-data/neighborhood-photography-2000-003-20261113.mjs",
+  "coverage": {
+    "operators": 2,
+    "services": 2,
+    "priceFacts": 2,
+    "forms": 2,
+    "hours": 0,
+    "coordinates": 0
+  },
+  "safety": "Onlyminimalindependentlyphrasedbusiness/service/contact/fee facts; noownerphotos/expressiveprose/reviews/ratings, no bookings/forminputs/calls/production/privateAPI/maps/geocode. No additionalmonthavailabilityengine.",
+  "approved": [
+    {
+      "id": "sofia-slightly-offensive-strandzha52a",
+      "address": "София, ул. Странджа 52А",
+      "review": {
+        "id": "sofia-slightly-offensive-strandzha52a",
+        "website": "https://offensive.bg/",
+        "checkedOn": "2026-11-14",
+        "bookingEntry": "https://offensive.bg/booking-form/",
+        "bookingReview": "owned_booking_reviewed",
+        "reviewedUrls": [
+          "https://offensive.bg/",
+          "https://offensive.bg/robots.txt",
+          "https://offensive.bg/booking-form/",
+          "https://offensive.bg/pricing/",
+          "https://offensive.bg/zvukozapisno-studio/",
+          "https://offensive.bg/politika-za-poveritelnost/"
+        ],
+        "notes": "ActualrootBook followed FIRST; complete native own requestform read through ordinary200GET after technicalreaderlimitedformrepresentation: realname/phone/email/service/date/message/consent/submit controls, no input/choice/submission. Selected actual service menu and entirePrices read; literalFROM60EUR/hour recording/edit/mix plus engineer, no invented fixed duration, video80EUR/hour or events700EUR/day mixed. Rehearsalminimum4h not attached to recording. Source contains unfilled testimonial templates: ignored, no ratings/reviews/claims copied. Exact actualStrandzha52A/SofiaCenter/879607085 repeated nativefooter. Fullpublicrobots read before source. Actualbooking/service-consent Privacy link normal404, NOT bypassed or treated as a source-use ban/permission; no separate general-useTerms link surfaced in reviewednav/footer. Only minimal independently phrased factual listing, no source media/expressive text. No weeklyhours in reviewed root/Book/pricing/selectedservice, omitted. Fullruntime+ALL2000intakes domain/phonepreflight0. Not actual verified availability/confirmation, not clientdata/calls/API/bundle/map/geocoder/calendar actions."
+      }
+    },
+    {
+      "id": "sofia-anamorph-istoria-slavyanobalgarska7",
+      "address": "София, ул. История Славянобългарска 7",
+      "review": {
+        "id": "sofia-anamorph-istoria-slavyanobalgarska7",
+        "website": "https://anamorphstudio.com/bg/",
+        "checkedOn": "2026-11-14",
+        "bookingEntry": "https://anamorphstudio.com/bg/contact-us/",
+        "bookingReview": "owned_booking_reviewed",
+        "reviewedUrls": [
+          "https://anamorphstudio.com/bg/",
+          "https://anamorphstudio.com/robots.txt",
+          "https://anamorphstudio.com/bg/booking/",
+          "https://anamorphstudio.com/bg/contact-us/",
+          "https://anamorphstudio.com/bg/rates/",
+          "https://anamorphstudio.com/bg/cookie-policy/"
+        ],
+        "notes": "ActualrootBook inspected FIRST: current public /booking native200HTML stops at booking-loading, not claimed rendered calendar or source availability. Independent own Contact explicitly accepts STUDIORESERVATION dates/needs for quote; full actual own requestform native200HTML read (name/email/phone/inquiry/message/submit), chosen as supported bookingpath, not generic contact inferred into booking. No fields/consent/date/cart/submit/payment/API/bundle actions. Entire current2026 Rates read: floor1base80EUR/hourEXVAT, min3h, timefromentrythroughvacation; cleaning80EUR plus electricity0.60EUR with sourceUNSPECIFIEDunit and technicalassistant120EUR no unit, preparation/dismantling45EUR/hour/floor. Publicdescription preserves separate extras/confirmedquote, does not invent energyunit, all-in total, deposit, setupduration or includedengineer. Floor2winterheating and2floor120EUR NOT selected; oneoperator/premise nottwofloorbusinesses. ExactownerIstoriaSlavyanobalgarska7/Sofia and878149019 repeatedContact/footer. 24/7accessONLYWITHRESERVATION not imported as ordinary servicehours/liveavailability. FullactualOctober2026cookiepolicy read through ordinary200 after technicalreaderCachemiss; no separate source-useTerms linked in checkednav/footer, no legalpermissionclaim. Robots exactpathchecked before publicrequests, no prohibitedcart/add-to-cart/admin/logs/privateAPI. No sourcephotos/prose/reviews/ratings/maps/GPS imported. Runtime+all2000domain/bothphones0."
+      }
+    }
+  ],
+  "limitations": [
+    "AnamorphactualBooknativeHTMLonlyloading; supportedindependentContactexplicitstudioreservationform fullyread. No false renderedcalendar orliveavailability claim.",
+    "Anamorph electricity0.60EURunitunspecified andassistant120EURunitunspecified; notinvented perunit/allintotal, extras requireconfirmedquote.",
+    "Offensiveactualconsent Privacy404, notpermission/ban; nofurtherlegalpathguessing. Ownserviceincludesemptytestimonialtemplates, ignored entirely.",
+    "No ordinaryweeklyopeninghours published; conditional24/7studioaccessnotservicehours."
+  ],
+  "photoContexts": {
+    "sofia-slightly-offensive-strandzha52a": "sx-audio-recording",
+    "sofia-anamorph-istoria-slavyanobalgarska7": "sx-photo-studio-rental"
+  }
+}

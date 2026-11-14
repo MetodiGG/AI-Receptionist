@@ -1,0 +1,611 @@
+{
+  "rootAdditionalSourceUseHolds": [{"checkedAtUtc":"2026-11-14T01:07:38.183Z","id":"sofia-sba-mladost3-gtp","decision":"hold_unpublished_source_before_publication","termsUrl":"https://cdn.uab.org/files/terms/general_terms.pdf","reason":"CurrentownerlinkedPDF8.3/8.6 expresslyrequirewrittenconsentforcommercialSitecontentuse. Conservativehold, notuniversalbotban/legalconclusion. Onlynewunpublished2000row removed; baselineLIVErows,sourcefactdates and historicalcheckpointcounts unchanged. Allreadybranches through1548 areobsolete andmustnotmerge.","audit":"docs/catalogue-pricing/source-use-auto-sport-2000-001-review-20261114.json","priorRecord":{"id":"sofia-sba-mladost3-gtp","name":"СБА · ГТП Младост","cityCode":"68134","neighborhood":"Младост 3","address":"София, Младост 3, срещу блок 353","locationKind":"premises","coordinates":null,"category":"auto_repair","website":"https://www.sba.bg/%D1%81%D0%B1%D0%B0-%D1%81%D0%BE%D1%84%D0%B8%D1%8F-%D0%BC%D0%BB%D0%B0%D0%B4%D0%BE%D1%81%D1%82","phone":"+359895558762","services":[{"name":"Годишен технически преглед — лек автомобил без АГУ","category":"auto_repair","appointmentModel":"appointment","description":"Редовна тарифа с ДДС за лек автомобил без АГУ, без отстъпка от членска или абонаментна карта. Цената и часът се потвърждават по телефона; плащането е на място. Противоречивият онлайн етикет „Безплатно“ не се използва като цена.","price":{"amount":60,"currency":"EUR","kind":"fixed","unit":"ГТП на лек автомобил без АГУ, редовна тарифа с ДДС","sourceUrl":"https://www.sba.bg/%D1%81%D0%B1%D0%B0-%D1%81%D0%BE%D1%84%D0%B8%D1%8F-%D0%BC%D0%BB%D0%B0%D0%B4%D0%BE%D1%81%D1%82","checkedOn":"2026-11-13","validUntil":"2027-02-11"}}],"openingHours":{"days":[{"weekday":1,"periods":[{"open":"08:30","close":"17:00"}]},{"weekday":2,"periods":[{"open":"08:30","close":"17:00"}]},{"weekday":3,"periods":[{"open":"08:30","close":"17:00"}]},{"weekday":4,"periods":[{"open":"08:30","close":"17:00"}]},{"weekday":5,"periods":[{"open":"08:30","close":"17:00"}]},{"weekday":6,"periods":[]},{"weekday":7,"periods":[]}],"sourceUrl":"https://www.sba.bg/%D1%81%D0%B1%D0%B0-%D1%81%D0%BE%D1%84%D0%B8%D1%8F-%D0%BC%D0%BB%D0%B0%D0%B4%D0%BE%D1%81%D1%82","checkedOn":"2026-11-13"},"booking":{"kind":"phone","phone":"+359895558762"},"verification":{"status":"approved","checkedOn":"2026-11-13","validUntil":"2027-02-11","booking":{"url":"https://www.sba.bg/%D1%81%D0%B1%D0%B0-%D1%81%D0%BE%D1%84%D0%B8%D1%8F-%D0%BC%D0%BB%D0%B0%D0%B4%D0%BE%D1%81%D1%82","excerpt":"Страницата на точния пункт „Запази час за годишен преглед в СБА Младост“ посочва отделен ГТП телефон 0895558762."},"contact":"https://www.sba.bg/%D1%81%D0%B1%D0%B0-%D1%81%D0%BE%D1%84%D0%B8%D1%8F-%D0%BC%D0%BB%D0%B0%D0%B4%D0%BE%D1%81%D1%82"}},"priorReview":{"id":"sofia-sba-mladost3-gtp","checkedOn":"2026-11-13","website":"https://www.sba.bg/%D1%81%D0%B1%D0%B0-%D1%81%D0%BE%D1%84%D0%B8%D1%8F-%D0%BC%D0%BB%D0%B0%D0%B4%D0%BE%D1%81%D1%82","bookingEntry":"phone","bookingReview":"phone_booking_reviewed","reviewedUrls":["https://www.sba.bg/%D1%81%D0%B1%D0%B0-%D1%81%D0%BE%D1%84%D0%B8%D1%8F-%D0%BC%D0%BB%D0%B0%D0%B4%D0%BE%D1%81%D1%82","https://d577.setmore.com/","https://cdn.uab.org/files/terms/general_terms.pdf"],"notes":"Followed the exact branch's actual Setmore booking entry first; it is brandedSBA Mladost and shows an inspection reservation, but its free label is not imported as a zero service fee or projected into online prices. The separate first-party branch page gives the published GTP telephone and full fee table, and owner terms5.3 state that the actual GTP service is paid on site. Root approved the explicit telephone path with the independent complete branch tariff. Direct live owner HTTP on2026-11-13 confirms60EUR ordinary passenger-car/noLPG fee; the web reader's two-week cached lower tariff is recorded as stale, not silently copied. Membership/free-card conditions are not applied. The exact owner landmark address is retained without inventing a street number or pin. No customer entry, request, duration assumption or reservation was made. The Setmore zero/free fee is explicitly conflicting or unreliable for the actual inspection, not proven to mean only a reservation fee; the online route is held, not declared fully price-consistent. The public owner phone/independent current tariff path alone is selected."},"priorOrderedEntry":{"order":20,"id":"sofia-sba-mladost3-gtp","name":"СБА · ГТП Младост","status":"verified","website":"https://www.sba.bg/%D1%81%D0%B1%D0%B0-%D1%81%D0%BE%D1%84%D0%B8%D1%8F-%D0%BC%D0%BB%D0%B0%D0%B4%D0%BE%D1%81%D1%82","bookingUrl":"https://www.sba.bg/%D1%81%D0%B1%D0%B0-%D1%81%D0%BE%D1%84%D0%B8%D1%8F-%D0%BC%D0%BB%D0%B0%D0%B4%D0%BE%D1%81%D1%82","serviceUrls":["https://www.sba.bg/%D1%81%D0%B1%D0%B0-%D1%81%D0%BE%D1%84%D0%B8%D1%8F-%D0%BC%D0%BB%D0%B0%D0%B4%D0%BE%D1%81%D1%82"],"contactUrl":"https://www.sba.bg/%D1%81%D0%B1%D0%B0-%D1%81%D0%BE%D1%84%D0%B8%D1%8F-%D0%BC%D0%BB%D0%B0%D0%B4%D0%BE%D1%81%D1%82","findings":"Followed the exact branch's actual Setmore booking entry first; it is brandedSBA Mladost and shows an inspection reservation, but its free label is not imported as a zero service fee or projected into online prices. The separate first-party branch page gives the published GTP telephone and full fee table, and owner terms5.3 state that the actual GTP service is paid on site. Root approved the explicit telephone path with the independent complete branch tariff. Direct live owner HTTP on2026-11-13 confirms60EUR ordinary passenger-car/noLPG fee; the web reader's two-week cached lower tariff is recorded as stale, not silently copied. Membership/free-card conditions are not applied. The exact owner landmark address is retained without inventing a street number or pin. No customer entry, request, duration assumption or reservation was made. The Setmore zero/free fee is explicitly conflicting or unreliable for the actual inspection, not proven to mean only a reservation fee; the online route is held, not declared fully price-consistent. The public owner phone/independent current tariff path alone is selected."}}],
+  "rootSourceUseHold": {"checkedAtUtc":"2026-11-14T00:44:46.242Z","id":"sofia-ddauto-lyulin-dertliev57","decision":"hold_unpublished_source_before_publication","termsUrl":"https://ddauto.bg/privacy-policy/","reason":"New complete current own Privacy source-use section explicitly restricts automaticextraction and reuse of lists/descriptions/prices/commercialsiteparts without writtenconsent. STOP allDDlistedhosts. No fresh sourceprice/currentpermission is inferred from prior completedbookingreview. Onlyunpublished2000Lyulinrecord removed; noexistingpublishedVIPoperator identity overwritten. Historicalfreeze/checkpointcounts remain historical; allpreviousreadybranches through1548mustnotmerge.","priorRecord":{"id":"sofia-ddauto-lyulin-dertliev57","name":"D&D Auto Service · Люлин","cityCode":"68134","neighborhood":"Люлин","address":"София, Люлин, бул. Д-р Петър Дертлиев 57","locationKind":"premises","coordinates":null,"category":"detailing","website":"https://ddauto.bg/","phone":"+359884884004","services":[{"name":"Полиране и лакиране NORM FIX — един фар","category":"detailing","appointmentModel":"appointment","description":"35 EUR за един фар по варианта NORM FIX с ДДС. Според размера, състоянието и трудността цената може да се промени след предварителен оглед; не е окончателна оферта.","price":{"amount":35,"currency":"EUR","kind":"fixed","unit":"за един фар, NORM FIX","sourceUrl":"https://ddauto.bg/services/polirane-na-farove-pastirane-lakirane/","checkedOn":"2026-11-13","validUntil":"2027-02-11"}}],"openingHours":{"days":[{"weekday":1,"periods":[{"open":"08:00","close":"18:00"}]},{"weekday":2,"periods":[{"open":"08:00","close":"18:00"}]},{"weekday":3,"periods":[{"open":"08:00","close":"18:00"}]},{"weekday":4,"periods":[{"open":"08:00","close":"18:00"}]},{"weekday":5,"periods":[{"open":"08:00","close":"18:00"}]},{"weekday":6,"periods":[]},{"weekday":7,"periods":[]}],"sourceUrl":"https://ddauto.bg/contact-us/","checkedOn":"2026-11-13"},"booking":{"kind":"form","url":"https://ddauto.bg/contact-us/"},"verification":{"status":"approved","checkedOn":"2026-11-13","validUntil":"2027-02-11","booking":{"url":"https://ddauto.bg/contact-us/","excerpt":"Собствената контактна форма има „Искам да запазя час“, дата, час, услуга и задължителен избор на сервиз D&D Люлин."},"contact":"https://ddauto.bg/contact-us/"}},"priorReview":{"id":"sofia-ddauto-lyulin-dertliev57","checkedOn":"2026-11-13","website":"https://ddauto.bg/","bookingEntry":"https://ddauto.bg/contact-us/","bookingReview":"owned_booking_reviewed","reviewedUrls":["https://ddauto.bg/","https://ddauto.bg/contact-us/","https://ddauto.bg/services/polirane-na-farove-pastirane-lakirane/","https://ddauto.bg/prices-uslugi-ceni-dd-auto-trade-service/"],"notes":"Followed actual owner Contact/Book form and inspected real request-type, date/time, service and mandatory workshop-selection controls; both actual Sofia venues are selectable, but only distinct LyulinDertliev57 is new. Read full Prices navigation and selected headlight-restoration page. Selected unpromoted NORMFIX35EUR for one headlight, inclusiveVAT, with owner size/condition/difficulty variation explicitly retained. Excluded ambiguous FastFix sale price, PRO variant, tail-light add-ons, emissions defeat, client-parts oil fee ambiguity and all copied Google review content. Owner form requires team handling; no slot/customer data entered. MladostMalinov36 explicitly formerVIP was NOT added because baseline already contains VIP at that premises; root informed for identity review."},"priorOrderedEntry":{"order":7,"id":"sofia-ddauto-lyulin-dertliev57","name":"D&D Auto Service · Люлин","status":"verified","website":"https://ddauto.bg/","bookingUrl":"https://ddauto.bg/contact-us/","serviceUrls":["https://ddauto.bg/services/polirane-na-farove-pastirane-lakirane/","https://ddauto.bg/prices-uslugi-ceni-dd-auto-trade-service/"],"contactUrl":"https://ddauto.bg/contact-us/","findings":"Followed actual owner Contact/Book form and inspected real request-type, date/time, service and mandatory workshop-selection controls; both actual Sofia venues are selectable, but only distinct LyulinDertliev57 is new. Read full Prices navigation and selected headlight-restoration page. Selected unpromoted NORMFIX35EUR for one headlight, inclusiveVAT, with owner size/condition/difficulty variation explicitly retained. Excluded ambiguous FastFix sale price, PRO variant, tail-light add-ons, emissions defeat, client-parts oil fee ambiguity and all copied Google review content. Owner form requires team handling; no slot/customer data entered. MladostMalinov36 explicitly formerVIP was NOT added because baseline already contains VIP at that premises; root informed for identity review."},"sourceDiscoveryReviewer":"/root/catalogue_auto_sport_nov13"},
+  "checkedOn": "2026-11-13",
+  "validUntil": "2027-02-11",
+  "status": "frozen_ready_for_root_review",
+  "scope": "Sofia auto repair, appointment detailing/staffed wash, reserved individual/group sport sessions; Manastirski Livadi first, southern quarters then other Sofia areas.",
+  "method": {
+    "sourcePriority": "Own website actual Book entry, selected services/prices and complete contact/footer; root-rendered public JS menus are explicitly credited in individual review receipts.",
+    "dedupe": "Refreshed SOFIA_CATALOGUE1290 raw plus all5 other numbered2000 intake files, deduplicated to1325 existing IDs; checked six known native identities/addresses and five published native phones. No duplicate owner+premise or contact+premise. Studio7 distinct group-only Dobroudja1 documented.",
+    "pricePolicy": "Literal sourced fees with subtype, unit, conditions and dates. Missing fees absent; unpublished receipts require full actual booking/services review. Inaccessible actual price menus, source restrictions and unresolved venue identities remain held."
+  },
+  "counts": {
+    "records": 19,
+    "services": 22,
+    "pricedServices": 16,
+    "pending": 24,
+    "rejected": 6
+  },
+  "orderedLedger": [
+    {
+      "order": 1,
+      "id": "sofia-abc-fight-club-vasil-levski",
+      "name": "ABC Fight Club · Национален стадион Васил Левски",
+      "status": "held_source_terms",
+      "website": "https://www.abcfight.com/",
+      "bookingUrl": "https://abc-fight-club.portal.1club.ai/classes",
+      "serviceUrls": [
+        "https://www.abcfight.com/trenirovki/kikboks/zali-kikboks/kikboks-na-stadion-vasil-levski/grupa-po-kikboks-za-deca-s-kalin-mirchev",
+        "https://abc-fight-club.portal.1club.ai/classes/kikboks-2026-11-16-0800",
+        "https://abc-fight-club.portal.1club.ai/classes"
+      ],
+      "contactUrl": "https://www.abcfight.com/trenirovki/kikboks/zali-kikboks/kikboks-na-stadion-vasil-levski/grupa-po-kikboks-za-deca-s-kalin-mirchev",
+      "findings": "Current full own terms explicitly prohibit robots/spiders/scrapers or other automated access for any purpose without written permission (Access section), restrict deep links and links from pages not owned by the linking party, and limit content use to personal purposes. This is not merely a standard image/design copyright notice. Stop source requests; no permission inferred and no record imported.",
+      "sourceTermsUrl": "https://www.abcfight.com/terms",
+      "checkedOn": "2026-11-13"
+    },
+    {
+      "order": 2,
+      "id": "sofia-pri-dancho-sinanishko22",
+      "name": "Автосервиз при Данчо",
+      "status": "verified",
+      "website": "https://autoservizdancho.com/",
+      "bookingUrl": "https://autoservizdancho.com/services/",
+      "serviceUrls": [
+        "https://autoservizdancho.com/services/"
+      ],
+      "contactUrl": "https://autoservizdancho.com/contact/",
+      "findings": "Read actual owner Services page appointment invitation and call/contact path first, then its complete repair/maintenance list and full Contacts/footer. Selected actual car diagnosis, not parts sales or tyre-storage contracts. No numeric diagnostic fee, service price list or priced booking menu is published on these accessible pages. A homepage promotional paragraph mentions online convenience, but no actual online scheduling form was configured in reviewed navigation, so only the explicit owner phone-reservation path is used. Exact SinanishkoEzero22 and phone agree on home, Services and Contact. No opening hours, duration, coordinates or available slots guessed; no third-party review data used."
+    },
+    {
+      "order": 3,
+      "id": "sofia-auto-atelier-simeonovsko95",
+      "name": "Ауто Ателие",
+      "status": "verified",
+      "website": "https://auto-atelier.bg/",
+      "bookingUrl": "https://auto-atelier.bg/contact/",
+      "serviceUrls": [
+        "https://auto-atelier.bg/service/elektricheska-sistema/",
+        "https://auto-atelier.bg/"
+      ],
+      "contactUrl": "https://auto-atelier.bg/contact/",
+      "findings": "Followed actual homepage Book-appointment CTA to owner Contact with explicit inspection/repair appointment instruction and public name/phone/email enquiry form; no form sent. Read selected Electrical-system service list, full homepage service navigation and precise contact/hours section. No numerical diagnosis-visit fee or linked public diagnostic tariff appears in these reviewed booking/services pages. Repair terms describe quote/parts/labour calculation after inspection; their1500BGN threshold and advance-part-payment rule are not visit prices. Exact Simeonovsko95 and phone agree on owner pages. Sunday schedule, geographic quarter, diagnostic duration and coordinates are not inferred."
+    },
+    {
+      "order": 4,
+      "id": "sofia-climbnsa-private-studentski-grad",
+      "name": "Клуб по катерене и алпинизъм НСА",
+      "status": "verified",
+      "website": "https://climbnsa.com/",
+      "bookingUrl": "https://climbnsa.com/%D1%82%D0%B5%D1%81%D1%82/",
+      "serviceUrls": [
+        "https://climbnsa.com/%D1%86%D0%B5%D0%BD%D0%B8-%D0%B8-%D0%B0%D0%B4%D1%80%D0%B5%D1%81/",
+        "https://climbnsa.com/%D0%BA%D1%83%D1%80%D1%81%D0%BE%D0%B2%D0%B5-%D0%BF%D0%BE-%D0%BA%D0%B0%D1%82%D0%B5%D1%80%D0%B5%D0%BD%D0%B5/kidsclimb/"
+      ],
+      "contactUrl": "https://climbnsa.com/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82/",
+      "findings": "Followed actual owner homepage Book-training/course entry to the published enrolment form with activity, contact and consent fields, then read actual selected training and full tariff/address/contact pages. Selected23EUR individual instructor session including equipment and hall fee, explicitly excluding insurance; did not copy cheaper uncoached wall admission, packages, retail or group-per-person assumptions. Owner identifies precise NSAStudentTown SportClimbing hall; no street number or coordinates invented. Public signup page path contains test but is the actual owner-linked booking entry, with genuine club activities; old September timetable is not current availability. Its card lookup and signup were never submitted. Hours omitted because instructor sessions are arranged against the hall schedule."
+    },
+    {
+      "order": 5,
+      "id": "sofia-ananda-yoga-yoan-ekzarh10",
+      "name": "Център Ананда · йога",
+      "status": "verified",
+      "website": "https://ananda-bg.com/",
+      "bookingUrl": "https://ananda-bg.com/",
+      "serviceUrls": [
+        "https://ananda-bg.com/%D0%B9%D0%BE%D0%B3%D0%B0/"
+      ],
+      "contactUrl": "https://ananda-bg.com/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/",
+      "findings": "Read actual owner's explicit prior-booking instruction and published phone contact path, then complete yoga service/calendar and tariff sections plus exact Contacts. Tariff distinguishes a single group visit13EUR, individual instruction35EURperhour, and unrelated35/55EUR monthly plans; selected only the two actual session types, not a monthly total as one visit. No fixed private-session duration inferred from the hourly unit or variable group calendar. Recorded precise YoanEkzarh10ground/firstfloor venue and one of two published general phones. Excluded holotropic processes, acupuncture, treatment claims, massage, retail and children's development courses. Public calendar dates are not a claim of live openings; no reservation or personal data submitted."
+    },
+    {
+      "order": 6,
+      "id": "sofia-swami-dev-murti-pobeda1",
+      "name": "Йога център Свами Дев Мурти",
+      "status": "verified",
+      "website": "https://swamidevmurti.com/",
+      "bookingUrl": "https://swamidevmurti.com/2026/09/07/%D0%B9%D0%BE%D0%B3%D0%B0-%D0%BA%D1%83%D1%80%D1%81-%D0%B7%D0%B0-%D0%BD%D0%B0%D1%87%D0%B8%D0%BD%D0%B0%D0%B5%D1%89%D0%B8-%D0%B2-%D0%BA%D0%BB%D1%83%D0%B1-%D1%81%D0%B2%D0%B0%D0%BC%D0%B8-%D0%B4/",
+      "serviceUrls": [
+        "https://swamidevmurti.com/2026/09/07/%D0%B9%D0%BE%D0%B3%D0%B0-%D0%BA%D1%83%D1%80%D1%81-%D0%B7%D0%B0-%D0%BD%D0%B0%D1%87%D0%B8%D0%BD%D0%B0%D0%B5%D1%89%D0%B8-%D0%B2-%D0%BA%D0%BB%D1%83%D0%B1-%D1%81%D0%B2%D0%B0%D0%BC%D0%B8-%D0%B4/"
+      ],
+      "contactUrl": "https://swamidevmurti.com/2026/09/07/%D0%B9%D0%BE%D0%B3%D0%B0-%D0%BA%D1%83%D1%80%D1%81-%D0%B7%D0%B0-%D0%BD%D0%B0%D1%87%D0%B8%D0%BD%D0%B0%D0%B5%D1%89%D0%B8-%D0%B2-%D0%BA%D0%BB%D1%83%D0%B1-%D1%81%D0%B2%D0%B0%D0%BC%D0%B8-%D0%B4/",
+      "findings": "Followed actual owner current autumn-course How-to-enrol GoogleForms entry first; the reader returned cache-miss, so no online form or availability is claimed reviewed. The same complete owner page explicitly provides telephone enrolment with named instructor, exact Pobeda1groundfloor venue and unconditional pay-each-visit10EUR; separate pensioner5EUR and full-course prices were not mistaken for the standard visit. Phone fallback is genuine and independently priced, not a bypass of an unread price-only menu. Course runs25September–18December2026, so verification and price expire18December rather than a fabricated permanent offer. No health/nutrition or treatment claims imported, no date/customer entry or submission performed."
+    },
+    {
+      "order": 8,
+      "id": "sofia-kamen-auto77-tsarigradsko387",
+      "name": "Камен Ауто 77",
+      "status": "verified",
+      "website": "https://www.avtoservizbg.com/",
+      "bookingUrl": "https://www.avtoservizbg.com/vzima_popravia_vryshta_kolata.html",
+      "serviceUrls": [
+        "https://www.avtoservizbg.com/smiana_na_spirachki.html",
+        "https://www.avtoservizbg.com/"
+      ],
+      "contactUrl": "https://www.avtoservizbg.com/",
+      "findings": "Read actual owner Take-repair-return appointment workflow first, with explicit advance telephone scheduling, diagnostic inspection and repair only after customer approves scope/quote; then complete owner brake-service page and contact/footer. Exact Tsarigradsko387VranaFarmyard and phone agree throughout. No numeric fee is published for selected brake repair in accessible booking/service pages. Separate20BGN collection fee and30BGN diagnostic charge conditional on declining repair are not a regular brake-visit price and were not imported. Other tyre prices are not evidence of brake labour fees. One actual workshop only, no quarter/service-area clones, invented times, coordinates or reviews."
+    },
+    {
+      "order": 9,
+      "id": "sofia-studio7-dobrudzha1-group",
+      "name": "Studio 7 · Добруджа 1",
+      "status": "verified",
+      "website": "https://studio7.bg/",
+      "bookingUrl": "https://studio7.bg/",
+      "serviceUrls": [
+        "https://studio7.bg/grupovi-trenirovki/"
+      ],
+      "contactUrl": "https://studio7.bg/contact-us/",
+      "findings": "Followed the owner's appointment entry and read its explicit telephone instruction, reservation/cancellation rules, exact group-only branch limitation and complete public tariff. The seven-session card is imported as a package total with the two-month validity and full upfront-payment condition, never as a single-visit fee. The separately published SENSE Hotel aqua venue is not admitted because its own aqua page says training is temporarily suspended for repairs. No map facts, live availability, customer data or booking submission were used."
+    },
+    {
+      "order": 10,
+      "id": "sofia-vaklinov-sin-orlandovtsi",
+      "name": "Ваклинов & Син · ГТП",
+      "status": "verified",
+      "website": "https://vaklinovsin.com/",
+      "bookingUrl": "https://vaklinovsin.com/zapazvane/",
+      "serviceUrls": [
+        "https://vaklinovsin.com/gtp/",
+        "https://vaklinovsin.com/tseni/"
+      ],
+      "contactUrl": "https://vaklinovsin.com/zapazvane/",
+      "findings": "Followed the owner's GTP Book entry first. Root independently rendered the actual three-step date/time, customer-details and completion booking interface without choosing a slot, entering data or submitting. Read the GTP service page, full tariff and owner footer for the exact Orlandovtsi venue and GTP-specific phone. The passenger-car tariff starts at 51 EUR including VAT, is explicitly basic/indicative, and is not the homepage's cheaper trailer amount. Contact-page protection was not bypassed; the complete address and correct phone are independently published in the accessible booking/service/footer pages. No duration is inferred from calendar spacing."
+    },
+    {
+      "order": 11,
+      "id": "sofia-calma-azul-tintyava84",
+      "name": "Calma Yoga Studio · Azul",
+      "status": "verified",
+      "website": "https://calmayogastudio.net/",
+      "bookingUrl": "https://book.calmayogastudio.net/calendar/public?site_id=1",
+      "serviceUrls": [
+        "https://calmayogastudio.net/",
+        "https://book.calmayogastudio.net/calendar/public?site_id=1"
+      ],
+      "contactUrl": "https://calmayogastudio.net/",
+      "findings": "Root independently read the entire rendered owner one-page website: the two exact studios, common phone, regular single-visit 11.80 EUR fee without a card and stated common opening hours. Root followed this specific studio's official schedule link and rendered its separately named public weekly calendar; this branch's actual Pilates class lasts 60 minutes. No reservation action, customer entry, slot selection or availability promise was made. Reduced youth/senior rates, medical therapies, astrology and unpriced private instruction are not selected. No owner terms/footer link was visible; no unshown terms are claimed reviewed or accepted."
+    },
+    {
+      "order": 12,
+      "id": "sofia-calma-verde-yana-yazova16",
+      "name": "Calma Yoga Studio · Verde",
+      "status": "verified",
+      "website": "https://calmayogastudio.net/",
+      "bookingUrl": "https://book.calmayogastudio.net/calendar/public?site_id=2",
+      "serviceUrls": [
+        "https://calmayogastudio.net/",
+        "https://book.calmayogastudio.net/calendar/public?site_id=2"
+      ],
+      "contactUrl": "https://calmayogastudio.net/",
+      "findings": "Root independently read the entire rendered owner one-page website: the two exact studios, common phone, regular single-visit 11.80 EUR fee without a card and stated common opening hours. Root followed this specific studio's official schedule link and rendered its separately named public weekly calendar; this branch's actual Pilates class lasts 60 minutes. No reservation action, customer entry, slot selection or availability promise was made. Reduced youth/senior rates, medical therapies, astrology and unpriced private instruction are not selected. No owner terms/footer link was visible; no unshown terms are claimed reviewed or accepted."
+    },
+    {
+      "order": 13,
+      "id": "sofia-carve-indoor-ski-kosta-lulchev52",
+      "name": "CARVE · ски и сноуборд на закрито",
+      "status": "verified",
+      "website": "https://carve.bg/",
+      "bookingUrl": "https://carve.bg/",
+      "serviceUrls": [
+        "https://carve.bg/ceni/",
+        "https://carve.bg/pravilnik/"
+      ],
+      "contactUrl": "https://carve.bg/",
+      "findings": "Followed the owner's actual Book entry and read the complete public request form in the page, then the detailed price table, inclusion notes, track-specific contact/hours and rules. Only the clearly separate adult ski regular group and individual rows are selected; the group row explicitly excludes the first visit. The one-hour session includes intervals and 30 minutes riding, not an invented hour of continuous exercise. Equipment and instructor are included. Beginner/advanced instruction differs as explained by the owner; no general ski-lift admission, bar booking, first-visit promotion, membership discount or package-derived fee is imported. No form data were entered or submitted and no current availability is asserted."
+    },
+    {
+      "order": 14,
+      "id": "sofia-nikal-kondakov5",
+      "name": "Автосервиз НикАл",
+      "status": "verified",
+      "website": "https://nikal-autoservice.bg/",
+      "bookingUrl": "https://nikal-autoservice.bg/%D1%81%D0%BC%D1%8F%D0%BD%D0%B0-%D0%BD%D0%B0-%D0%B3%D1%83%D0%BC%D0%B8/",
+      "serviceUrls": [
+        "https://nikal-autoservice.bg/%D1%81%D0%BC%D1%8F%D0%BD%D0%B0-%D0%BD%D0%B0-%D0%B3%D1%83%D0%BC%D0%B8/"
+      ],
+      "contactUrl": "https://nikal-autoservice.bg/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/",
+      "findings": "Read the owner homepage, actual complete tyre service page and contact page using ordinary public HTTP after web-reader timeouts. The selected service page explicitly instructs customers to call the published phone or use contact to arrange a tyre-change appointment and obtain an offer. Its full visible service text and accessible website menus do not publish a numeric tariff for this selected service; there is no separate real Prices link, while placeholder footer labels are not treated as a tariff. The exact Druzhba2 street address and weekday hours are published by the owner. No duration, per-wheel unit, amount, coordinates or Sunday closure is invented. No booking request was submitted."
+    },
+    {
+      "order": 15,
+      "id": "sofia-automechanicgroup-gtp-slivnitsa102",
+      "name": "Auto Mechanic Group · ГТП Сливница 102",
+      "status": "verified",
+      "website": "https://gtp.automechanicgroup.bg/",
+      "bookingUrl": "https://gtp.automechanicgroup.bg/",
+      "serviceUrls": [
+        "https://gtp.automechanicgroup.bg/",
+        "https://automechanicgroup.bg/"
+      ],
+      "contactUrl": "https://gtp.automechanicgroup.bg/",
+      "findings": "Followed the actual owner-linked GTP entry from the main owner website and read the entire public appointment/service/contact page using ordinary HTTP. It names the exact Slivnitsa102 inspection premises and GTP-specific phone, explains administrator confirmation and shows calendar, vehicle type, phone and optional email/registration fields. The whole visible GTP page and accessible main owner/contact menus contain no numeric GTP tariff or separate GTP Prices link; missing fees remain absent. No hidden API, bundle, map coordinates, customer input, date/time selection or submission was used. No live calendar availability or duration is claimed. The other YanakiMollov workshop is not cloned into another appointment listing without independent appointment proof."
+    },
+    {
+      "order": 16,
+      "id": "sofia-the-pilates-space-cherkovna3",
+      "name": "The Pilates Space",
+      "status": "verified",
+      "website": "https://thepilatesspace.bg/",
+      "bookingUrl": "https://book.thepilatesspace.bg/calendar/public",
+      "serviceUrls": [
+        "https://thepilatesspace.bg/",
+        "https://thepilatesspace.bg/tsenorazpis/"
+      ],
+      "contactUrl": "https://thepilatesspace.bg/kontakti/",
+      "findings": "Followed the actual owner Book link first; root independently rendered the named ThePilatesSpace public calendar with exact Cherkovna3 contact, regular 50-minute Reformer classes and actual reserve/waitlist actions. Read separate complete owner Rules, tariff and exact contact page. The displayed booking Terms view says terms have not been defined; no terms were accepted and the owner's /pravila/ remains the actual reviewed studio rules. Selected the regular20EUR single visit, not the first-customer reduction or a package-derived rate. Advance payment and12-hour cancellation rules remain qualified in the service description. No reservation action, customer entry, live-availability claim or map facts were used."
+    },
+    {
+      "order": 17,
+      "id": "sofia-meguin-obikolna34",
+      "name": "Автосервиз Мегуин",
+      "status": "verified",
+      "website": "https://meguin.bg/",
+      "bookingUrl": "https://meguin.bg/auto-service",
+      "serviceUrls": [
+        "https://meguin.bg/auto-service"
+      ],
+      "contactUrl": "https://meguin.bg/auto-service",
+      "findings": "Read the actual owner service appointment entry, complete separate service tariff and exact workshop contact/hours. Selected only the explicitly priced client-supplied oil/filter replacement option; retail oil products, material-inclusion assumptions, free interval reset and package totals are excluded. Read the complete published terms: ordinary text/image copyright restrictions are respected by recording minimal public facts with original labels/qualifications only, not copying descriptions, media, logos or designs. No source-specific extraction, database-export or hyperlink restriction was identified; this is not a legal-clearance claim. No customer request or booking was made."
+    },
+    {
+      "order": 18,
+      "id": "sofia-sk-studio-banishora-gymnastics",
+      "name": "SK Studio · художествена гимнастика",
+      "status": "verified",
+      "website": "https://skstudio.bg/",
+      "bookingUrl": "https://skstudio.bg/kontakt",
+      "serviceUrls": [
+        "https://skstudio.bg/uslugi/hudojestvena-gimnastika",
+        "https://skstudio.bg/grafik"
+      ],
+      "contactUrl": "https://skstudio.bg/kontakt",
+      "findings": "Followed the actual schedule request entry first and read its request-first process, public form fields, full selected gymnastics service, exact studio contact and complete terms. The week grid is JavaScript-dependent and no live slots are claimed; the owner separately explicitly permits calling to arrange the visit, so the selected phone fallback is honest. The complete visible service, booking/contact pages and accessible menus contain no numeric fee or separate Prices menu for this selected gymnastics class, not a blocked known tariff. Only nonmedical rhythmic gymnastics is imported; posture/scoliosis/flatfoot/recovery offerings are excluded. Minimal public facts and original concise wording only; ordinary copyright notice is not represented as owner permission or legal clearance. No booking data entered or submitted."
+    },
+    {
+      "order": 19,
+      "id": "sofia-the-core-reformer-terter24",
+      "name": "The Core Reformer Studio",
+      "status": "verified",
+      "website": "https://thecorereformer.com/",
+      "bookingUrl": "https://book.thecorereformer.com/calendar/public",
+      "serviceUrls": [
+        "https://thecorereformer.com/",
+        "https://book.thecorereformer.com/calendar/public"
+      ],
+      "contactUrl": "https://thecorereformer.com/",
+      "findings": "Followed the official owner Schedule link, read the complete separate owner homepage service/price/contact sections and root independently rendered the actual named public booking calendar. Both selected reformer class types are published as 50-minute sessions with real reservation actions; no action was clicked or customer information entered. Imported only the owner's literal single group/private fees; packages, duet totals, separate xBody EMS fees and health-effect claims are not projected into reformer services. Exact street and common hours are from the owner's contact section. No guessed coordinates, availability guarantees or copied media/design."
+    }
+  ],
+  "pending": [
+    {
+      "name": "Goddess Pilates",
+      "website": "https://goddesspilates.bg/",
+      "status": "held_closed",
+      "reason": "Root independently rendered live owner DOM and read official notice that physical studio is closing and no new reservations are accepted. Old indexed20EUR tariff/booking CTA are outdated. Do not publish.",
+      "sources": [
+        "https://goddesspilates.bg/",
+        "https://goddesspilates.bg/pricing"
+      ]
+    },
+    {
+      "name": "MotoExpert · five Sofia workshops",
+      "website": "https://motoexpert.bg/",
+      "status": "held_source_permission",
+      "reason": "Own terms §8.5 prohibit technical extraction of database resources to form another electronic database. Stop research and do not import any of the five otherwise verified Sofia branches without permission. Public booking/service/tariff facts were inspected but remain excluded.",
+      "sources": [
+        "https://motoexpert.bg/bg/pages/obshti-usloviya-24"
+      ]
+    },
+    {
+      "name": "Golden FitBody · unimported Sofia branches",
+      "website": "https://goldenfitbody.bg/locations",
+      "status": "held_source_terms",
+      "reason": "Root rendered own terms §8(3)2 banning software automated information extraction and §7(2) not granting commercial content licence. Stop further extraction; no new branches counted without permission. Root also observed Borovo detail PirinskiProhod29 versus generic location27 and differing hours; do not clone generic cards.",
+      "sources": [
+        "https://goldenfitbody.bg/obschi-usloviya",
+        "https://goldenfitbody.bg/locations",
+        "https://goldenfitbody.bg/pricing"
+      ]
+    },
+    {
+      "name": "MAXCAR Sofia workshop",
+      "website": "https://maxcar.bg/content/serviz",
+      "status": "held_access",
+      "reason": "Owner service page returned429TooManyRequests; stopped. Search tariff/address is a lead only, no admission or unpublished-price claim.",
+      "sources": [
+        "https://maxcar.bg/content/serviz"
+      ]
+    },
+    {
+      "name": "Tristana Ashtanga Yoga Sofia",
+      "website": "https://tristana.bg/",
+      "status": "held_booking_access",
+      "reason": "Owner actual booking link is a GoogleForms /edit editor-style URL. Text reader cache-miss and root security stopped it; no transformed URL or bypass. Owner12EURsingle tariff and Iskar54floor2 contact are real, but no separate explicit telephone reservation instruction found. Hold actual booking path, not unpublished fee.",
+      "sources": [
+        "https://tristana.bg/schedule/",
+        "https://tristana.bg/prices/",
+        "https://tristana.bg/contacts/"
+      ]
+    },
+    {
+      "name": "IVON Service",
+      "website": "https://ivonservice.com/",
+      "status": "held_access",
+      "reason": "Actual public /booking form and GornaBanyaEho1 branch read, but /services returned verification challenge. Do not treat unread service/price menu as unpublished. Other claimed IVON TYRES branches require independent exactownerreview before any admission.",
+      "sources": [
+        "https://ivonservice.com/booking/",
+        "https://ivonservice.com/services/",
+        "https://ivonservice.com/ivon-service-gorna-bania/"
+      ]
+    },
+    {
+      "name": "Medina Med Sofia branches",
+      "website": "https://medina-med.com/",
+      "status": "held_access",
+      "reason": "Actual tyre-service booking and Sofia Mladost/Vrazhdebna branch pages returned429TooManyRequests. Stop source requests; no retry/proxy or admission, no unpublished tariff claim.",
+      "sources": [
+        "https://medina-med.com/tyre-service-reservation/"
+      ]
+    },
+    {
+      "name": "D&D Mladost / published VIP identity",
+      "website": "https://ddauto.bg/",
+      "status": "held_identity_change",
+      "reason": "Owner current Contacts explicitly calls Malinov36 formerVIP. Existing baselineVIPService samevenue already counted. No new ID or cloned branch created; root alerted to review stale identity/operation.",
+      "sources": [
+        "https://ddauto.bg/contact-us/",
+        "https://vipservice-bg.com/"
+      ]
+    },
+    {
+      "name": "SFA Retail Sofia service centres",
+      "status": "held_source_permission",
+      "sourceUrls": [
+        "https://sfa-retail.bg/serviz",
+        "https://sfa-retail.bg/centrove/sofia1",
+        "https://sfa-retail.bg/centrove/sofia2",
+        "https://sfa-retail.bg/obshti-usloviya"
+      ],
+      "notes": "Public owner service and individual Sofia branch pages offer appointment requests, but section 3 of the published terms requires prior written authorisation to install a hyperlink to this website. No new SFA records are admitted and further extraction is stopped pending permission."
+    },
+    {
+      "name": "SR CARS Tyres",
+      "status": "held_booking_price_menu_review",
+      "sourceUrls": [
+        "https://srcars-gumi.bg/%D0%B7%D0%B0-%D0%BD%D0%B0%D1%81/",
+        "https://srcars-gumi.bg/%D1%86%D0%B5%D0%BD%D0%B8/",
+        "https://srcars-gumi.bg/%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8/",
+        "https://srcars-gumi.bg/%D0%BA%D1%8A%D0%B4%D0%B5-%D0%B4%D0%B0-%D0%BD%D0%B8-%D0%BD%D0%B0%D0%BC%D0%B5%D1%80%D0%B8%D1%82%D0%B5/"
+      ],
+      "notes": "Real owner phone appointment instruction and exact BoychoBoychev4 OvchaKupel address are readable. The actual price menu is an interactive tyre calculator whose unselected result is a dash. No numeric fee has been inspected; it cannot be labelled unpublished. Queue actual public UI review; no hidden data or endpoint extraction."
+    },
+    {
+      "name": "Studio7 SENSE Hotel aqua",
+      "status": "held_temporarily_suspended",
+      "sourceUrls": [
+        "https://studio7.bg/aqua/",
+        "https://studio7.bg/"
+      ],
+      "notes": "Owner aqua page explicitly says training is temporarily suspended because of repair works and reopening information will be published later. The generic homepage lists SENSE Hotel as an aqua venue, but this is not evidence of currently bookable classes."
+    },
+    {
+      "name": "GLOBAL AUTOFIX",
+      "status": "held_exact_venue",
+      "sourceUrls": [
+        "https://mobileautoservice24.com/",
+        "https://mobileautoservice24.com/kontakti",
+        "https://mobileautoservice24.com/uslugi",
+        "https://mobileautoservice24.com/obshti-usloviya"
+      ],
+      "notes": "Owner offers actual appointment form, explicit telephone booking and repair services but publishes only the broad Scientific-production zoneIskar1592 address, without a street/building. Mobile response is described as an emergency supplement, not an independently verified normal scheduled branch. Hold for exact actual premises proof; do not turn the business into a fabricated service-area listing or infer a point from an external map."
+    },
+    {
+      "name": "House of Pilates",
+      "status": "held_contact_conflict",
+      "sourceUrls": [
+        "https://houseofpilates.bg/",
+        "https://houseofpilates.bg/prices",
+        "https://houseofpilates.bg/pilates-reformer",
+        "https://houseofpilates.bg/terms",
+        "https://book.houseofpilates.bg/"
+      ],
+      "notes": "Complete owner terms contain an ordinary copyright notice, not an identified extraction/database restriction. Re-evaluated for minimal facts only. However terms section14 gives Bulgaria102 and a placeholder-looking phone, while consistent current service/prices/footer gives VincentVanGogh1 and878168888. Actual owner calendar is JavaScript-dependent and has not independently cleared the branch contact conflict. Hold pending direct owner/UI corroboration; do not select one location blindly."
+    },
+    {
+      "name": "BestAuto Tuning Centre",
+      "status": "held_booking_and_legacy_link_review",
+      "sourceUrls": [
+        "https://www.bestauto.bg/",
+        "https://www.bestauto.bg/stores/service"
+      ],
+      "notes": "Owner service text, contact block and footer consistently publish SimeonovskoShose36B, while a footer image's legacy directions link text points to a different address. No map facts copied. Actual appointment modal needs public rendered review to ensure service/fee selection; do not treat uninspected dynamic pricing as unpublished or add retail stores as workshop branches."
+    },
+    {
+      "name": "Sculpted Body",
+      "status": "held_booking_access",
+      "sourceUrls": [
+        "https://sculptedbody.bg/"
+      ],
+      "notes": "Distinct from published Sculpt and Sculpture. Public reader and ordinary owner HTTP expose only a JavaScript shell; actual Book menu, regular selected service fees and contact details have not been independently completed. No package total copied as a visit fee."
+    },
+    {
+      "name": "Pilates Lifestyle Club / Balanced Body Bulgaria",
+      "status": "held_actual_tariff_review",
+      "sourceUrls": [
+        "https://balancedbody.bg/index.php/ceni/",
+        "https://balancedbody.bg/index.php/about-us/",
+        "https://book.balancedbody.bg/calendar/public"
+      ],
+      "notes": "Real own Pilates studio and linked calendar at AlekoKonstantinov33; actual tariff is image-only and has not been visually read. No fee inferred, zero substituted or unpublished receipt created. Retail equipment dealership is not a second business."
+    },
+    {
+      "name": "Auto France3000",
+      "status": "held_current_source_maintenance",
+      "sourceUrls": [
+        "https://www.autofrance3000.com/renault",
+        "https://www.autofrance3000.com/renault/services",
+        "https://www.autofrance3000.com/renault/contacts",
+        "https://service.renault.bg/"
+      ],
+      "notes": "A real Rezbarska5 dealer/service premise appears in cached owner and Renault appointment sources, but the current contact route redirects to a temporary maintenance notice and actual specific-service booking/fees have not been fully reconciled. No brand-department duplicates or guessed service prices admitted."
+    },
+    {
+      "name": "63 Auto Wash",
+      "status": "held_tls_access",
+      "sourceUrls": [
+        "https://63autowash.com/online-booking/"
+      ],
+      "notes": "Own public HTTPS booking URL discovered, but web request timed out and ordinary curl rejected a certificate subject-name mismatch. TLS verification was not disabled. Third-party profiles, sale advertisements and old offers are not used as current first-party address/pricing evidence."
+    },
+    {
+      "name": "D-Bros Automotive",
+      "status": "held_actual_tariff_access",
+      "sourceUrls": [
+        "https://www.d-bros-automotive.eu/",
+        "https://dbros-garage.com/",
+        "https://dbros-garage.com/contacts",
+        "https://dbros-garage.com/index.php/pricelist"
+      ],
+      "notes": "Real exact Botevgradsko431 workshop, phone and actual owner booking/contact form reviewed. A public tariff exists in indexed owner results, but its current actual URL returns HTTP500 in both reader and direct owner request. Do not claim fee unpublished or import stale indexed PDF amounts. No emissions-defeat service selected; repair-only candidate remains held."
+    },
+    {
+      "name": "Tennis Club Zvezda",
+      "status": "held_current_coach_tariff_access",
+      "sourceUrls": [
+        "https://tennisclubzvezda.com/",
+        "https://tennisclubzvezda.com/tenis-trenyor/",
+        "https://sofiatennis.com/rezervatsii/kortove-zvezda",
+        "https://sofiatennis.com/igrach/rosen"
+      ],
+      "notes": "Current official site linked by the club's previous domain confirms Suhodolska175 and published indicative coach tariffs, but explicitly points to coach profiles for current fees. Actual owner-linked profile returns a JavaScript/cookie protection page; no bypass attempted. Court-hire fee is not a coaching fee; coaches are not separate business branches."
+    },
+    {
+      "name": "Taekwondo Club Ramus",
+      "status": "held_appointment_evidence",
+      "sourceUrls": [
+        "https://www.ramustkd.org/",
+        "https://www.ramustkd.org/%D0%B7%D0%B0%D0%BB%D0%B8/",
+        "https://www.ramustkd.org/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/"
+      ],
+      "notes": "Owner lists four real Sofia training premises and regular schedules, but no explicit prior class reservation/enrolment invitation or actual class booking route was found in reviewed pages. A generic phone, tournament registration or schedule alone is insufficient. No four-branch filler added."
+    },
+    {
+      "name": "Cars Detailing",
+      "status": "held_exact_venue",
+      "sourceUrls": [
+        "https://carsdetailing.bg/",
+        "https://carsdetailing.bg/contact/"
+      ],
+      "notes": "Owner has service descriptions, telephone and explicit appointment/contact form, but current contact only says Sofia without a street or actual workshop landmark. Do not infer the address from map embeds, service-area SEO text or third-party directories."
+    },
+    {
+      "name": "SBA Lyulin / other shared Setmore venues",
+      "status": "held_online_price_conflict",
+      "sourceUrls": [
+        "https://www.sba.bg/%D1%81%D0%B1%D0%B0-%D1%81%D0%BE%D1%84%D0%B8%D1%8F-%D0%BB%D1%8E%D0%BB%D0%B8%D0%BD",
+        "https://sbagtp.setmore.com/",
+        "https://cdn.uab.org/files/terms/general_terms.pdf"
+      ],
+      "notes": "Shared owner-linked Setmore catalogue labels actual inspection services free whereas owner branch tariff is paid. Payment-on-site rule5.3 does not independently prove this label is only a booking fee. No zero import or fabricated resolution. Mladost is separately admitted only by its explicit owner phone path and independently live-checked complete branch tariff; other venues remain held."
+    },
+    {
+      "id": "sofia-abc-fight-club-vasil-levski",
+      "name": "ABC Fight Club · Национален стадион Васил Левски",
+      "website": "https://www.abcfight.com/",
+      "status": "held_source_terms",
+      "reason": "Current full own terms explicitly prohibit robots/spiders/scrapers or other automated access for any purpose without written permission (Access section), restrict deep links and links from pages not owned by the linking party, and limit content use to personal purposes. This is not merely a standard image/design copyright notice. Stop source requests; no permission inferred and no record imported.",
+      "sources": [
+        "https://www.abcfight.com/terms"
+      ]
+    }
+  ],
+  "rejected": [
+    {
+      "name": "Mani Reformer Pilates",
+      "website": "https://manireformerstudio.com/",
+      "reason": "Own full Contacts and Prices explicitly locate business in BurgasIzgrev198, not Sofia. No branch fabricated.",
+      "sources": [
+        "https://manireformerstudio.com/kontakti/",
+        "https://manireformerstudio.com/ceni/"
+      ]
+    },
+    {
+      "name": "Kamato Sport",
+      "website": "https://www.kamato.bg/",
+      "reason": "Actual phone-booking and tariff reviewed, but own Contacts locate studio at PlovdivArhKamenPetkov64. No Sofia venue confirmed.",
+      "sources": [
+        "https://www.kamato.bg/programa/",
+        "https://www.kamato.bg/contacts/"
+      ]
+    },
+    {
+      "name": "Body Mind Spirit",
+      "website": "https://bodymindspirit.bg/",
+      "reason": "Owner home identifies actual venue VarnaBelasitsa4, not Sofia. Not admitted from broad search result.",
+      "sources": [
+        "https://bodymindspirit.bg/"
+      ]
+    },
+    {
+      "name": "Motion Service",
+      "website": "https://motionservice.eu/",
+      "reason": "Own home explicitly identifies PlovdivOstromila6 workshop, not Sofia.",
+      "sources": [
+        "https://motionservice.eu/"
+      ]
+    },
+    {
+      "name": "Espace Auto Renault alias",
+      "website": "https://espaceauto.bg/",
+      "reason": "Owner Renault page locates Sofia workshop Tsarigradsko100, same owner/premises as existing EspaceAutoNissan row. No duplicate created merely for another vehicle brand/department.",
+      "sources": [
+        "https://www.renault.espaceauto.bg/renault/",
+        "https://espaceauto.bg/appointment/"
+      ]
+    },
+    {
+      "name": "Yoga Parvati",
+      "status": "outside_sofia",
+      "sourceUrls": [
+        "https://yogaparvati.bg/kontakt/"
+      ],
+      "notes": "Exact own contact identifies Varna9002, RainoPopovich12; no Sofia branch imported from a reservation-provider social repost."
+    }
+  ],
+  "frozenOn": "2026-11-13",
+  "validation": {
+    "recordSchema": {
+      "passed": 19,
+      "rejected": 0
+    },
+    "sourceIntake": {
+      "ready": 19,
+      "pending": 0,
+      "rejected": 0
+    },
+    "pricingReceipts": {
+      "priceReviewedBusinesses": 13,
+      "serviceReviewedWithoutPublicPrices": 6,
+      "pending": 0,
+      "pricedServiceRows": 16,
+      "serviceRows": 22
+    },
+    "dedupe": {
+      "liveRawCatalogueRows": 1290,
+      "otherNumberedIntakeFiles": 5,
+      "uniqueExistingRowsAudited": 1325,
+      "nativeBusinessesNameAddressChecked": 6,
+      "nativePhonesChecked": 5,
+      "collisions": 0,
+      "sharedContactsExplained": [
+        "Studio7 Dobroudja1 is explicitly a separate group-only premise from existing6Septemvri14 andDobroudja9; not a trainer alias."
+      ]
+    },
+    "coordinates": "All19 retained new records keep coordinates:null; no new geocoding, provider map facts or user GPS.",
+    "commands": [
+      "Temporary in-memory pricingIdentity only for assessPricingReview; no inventoryIdentity persisted.",
+      "git diff --check -- owned module and ledger: clean.",
+      "2026-11-13 source-terms recheck removed ABC from records/reviews; remaining19 are the unchanged previously validated subset."
+    ],
+    "remainingRootWork": "Manual source approval, static inventory identities, shared imports/photos and full integration suite/build remain root-owned; nothing published by this intake."
+  },
+  "sourceTermsRecheck": {
+    "checkedOn": "2026-11-13",
+    "removedId": "sofia-abc-fight-club-vasil-levski",
+    "sourceUrl": "https://www.abcfight.com/terms",
+    "result": "held_source_terms",
+    "reason": "Current full own terms explicitly prohibit robots/spiders/scrapers or other automated access for any purpose without written permission (Access section), restrict deep links and links from pages not owned by the linking party, and limit content use to personal purposes. This is not merely a standard image/design copyright notice. Stop source requests; no permission inferred and no record imported."
+  }
+}

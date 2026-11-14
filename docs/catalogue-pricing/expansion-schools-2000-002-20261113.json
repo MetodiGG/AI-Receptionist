@@ -1,0 +1,16 @@
+{
+  "checkedOn": "2026-11-13",
+  "source": "https://ihsofia.bg/",
+  "method": "Rendered owner service offer -> actual enquiry button -> complete named contact/form page -> published privacy -> homepage. No customer data or submission.",
+  "included": [
+    { "id": "sofia-ih-sofia-sitnyakovo39a", "address": "София, бул. Ситняково 39А", "phone": "+359890291111", "prices": [40, 55], "currency": "EUR", "unit": "hour, not inferred60minute appointment", "locationEvidence": "Owner-named contact hyperlink destination marker42.692476,23.3555069, not the URL viewport centre." },
+    { "id": "sofia-ih-sofia-bregalnitsa43", "address": "София, ул. Брегалница 43", "phone": "+359892414994", "prices": [40, 55], "currency": "EUR", "unit": "hour, not inferred60minute appointment", "locationEvidence": "Own street address; link has only a place identifier, no fabricated coordinates." },
+    { "id": "sofia-ih-sofia-parensov39", "address": "София, ул. Ген. Паренсов 39", "phone": "+359890291111", "prices": [40, 55], "currency": "EUR", "unit": "hour, not inferred60minute appointment", "locationEvidence": "Owner-named contact hyperlink destination marker42.6883558,23.3306711, not the URL viewport centre. No permanent administration; explicitly listed teaching office." }
+  ],
+  "held": [
+    { "name": "International House Sofia · Борово", "reason": "The actual owner contact body and embedded address label say Solun64, while the footer says62. No branch record or point until resolved." }
+  ],
+  "hours": "Administrative weekday hours and flexible lesson windows are distinct; no weekly class schedule asserted.",
+  "media": "Illustrative existing project service assets only; no source photos, reviews or rating copied.",
+  "booking": "https://ihsofia.bg/Контакти/"
+}

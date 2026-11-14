@@ -1,0 +1,200 @@
+{
+  "rootIntegrationReview": {"checkedAtUtc":"2026-11-14T03:06:46.259Z","note":"Rootreadall5fullrecords/reviews. MalketovexplicitphoneBook/genuineunpublished; MobilixFROM75vacuum/privatepropertynotpublicstreet andconflictinghoursomitted, newvacuumassetfullsource/thumbpersonallyviewed; NVSactualownedpreferreddateform/diagnosticsunpricednototherbranchcarwashBGN; SIMDAchild7–12actualcurrentclass/independentlegaloperatornotAxHorcaalias/adultfeeNOTchildfee, newchildgroupimageviewed; AXBioFacultycurrent18:30intermediateformoptionresolvedpriorTBC, only19:30beginnersstillheld. No guessedcampuspoint/indoorroombranch/privatecalendaravailability.","identity":"Only newlyreviewednormalizedinventoryidentitiesassigned; existingbaseline/pricereviewfingerprintsuntouched; originalfreeze/sourceobservationdatespreserved."},
+  "batch": "auto-sport-2000-014-20261113",
+  "status": "frozen_ready_for_root_review",
+  "dateConvention": "New observations checkedOn2026-11-14 UTC; Europe/Sofia appointment times unchanged; identifier20261113 retained.",
+  "scope": "Real unique Sofia auto/carwash/detailing and reserved training only; owner primary sources, actual Book entry before selected service/fees and complete contacts. No generic gym admission/retail/deposits/emission defeat.",
+  "sourceRestrictions": [
+    "No UI/Maps/Nominatim/paidAPIs/privateGPS/providerbulk/customerinput/consent/bookings/productionmutations.",
+    "All communicated source/access STOPs retained; no alternate route bypass. Minimal factual labels/phone/address/literalfees only, no expressive text/photos/logos/reviews copied."
+  ],
+  "counts": {
+    "records": 5,
+    "services": 5,
+    "reviews": 5,
+    "pricedServices": 2,
+    "pending": 6,
+    "rejected": 0
+  },
+  "orderedLedger": [
+    {
+      "order": 1,
+      "id": "sofia-malketov-asen-yordanov11",
+      "name": "Автосервиз Малкетов",
+      "status": "verified",
+      "website": "https://malketov.com/",
+      "bookingUrl": "https://malketov.com/",
+      "serviceUrls": [
+        "https://malketov.com/uslugi"
+      ],
+      "contactUrl": "https://malketov.com/",
+      "findings": "ActualownBookFIRSTrootexplicitcall/email/callbackrequesttoagreeconvenientdayandtime; independentpublished0876876369phonepathselectedratherthangenericcallbackform. Actual Services readercachemiss thencompleteordinaryGETvisiblemenuall9repaircategoriesandfooterreviewed; selectedengineoil/filterserviceexplicitlylisted. FullRoot/About plusvisibleBook/services/contact/nav containno numericselectedfee, Prices/tariffPDF/image/menuanchoror knownblockedpricemenu; selectedservicegenuinelynotpubliclylisted/service_reviewed only. RootcontactpublishesexactSofiaSPZSlatinaAsenYordanov11andMonFri09–19; partialdaysonly,weekendnotassumedclosed. AboutidentifiesDimitarMalketovownerwithindependentbranding/phone; runtime+ALLintakes/native6domain/phone/address0. BothPrivacyandTermsanchoractually#andreturnroot, noavailablepolicytext/notclaimtermsaccepted/readorlegalclearance. Displayedcustomerreviewsignored/notcopied; noMapsreviewsorownerMapslinkopened, no coordinateinferred,coordsnull. No providerbulk/scripts/API/photos/logo/copiedprose/customerinput/callback/call/booking.",
+      "checkedAtUtc": "2026-11-14T02:27:42Z"
+    },
+    {
+      "order": 2,
+      "id": "sofia-mobilix-mobile-vacuum-oil",
+      "name": "Mobilix Auto Care · мобилен автосервиз",
+      "status": "verified",
+      "website": "https://mobilixautocare.bg/",
+      "bookingUrl": "https://mobilixautocare.bg/",
+      "serviceUrls": [
+        "https://mobilixautocare.bg/smyana-na-dvigatelno-maslo/"
+      ],
+      "contactUrl": "https://mobilixautocare.bg/",
+      "findings": "ActualownBookFIRSTrootCTAreadcurrentordinaryGETafterreaderTimeout; explicitphoneorformreservationthenstaffconfirmation, independent0882742755phonepathselectedbecauseJSbuttons notactualreadcalendar. FullselectedoilserviceandcurrentrootmenuFROM75EURconsistent, privategarage/yard/privateparkingREQUIRED/notpublicstreet, vacuumextractionapparatusliteral; oils/filters andfinalscopequotedbyVIN, no claimedfixedall-inpartsamountorcomputedconversion. Publishedwholemenuselectedfivefromfeesread, no retail/deposit/freepromotion chosen. Full8-clauseTermsordinaryGETafterreaderunavailable: mobileaccess/safety/confirmation/appointmentsadjustable, no explicitsourceextraction/commercial-datarestriction found(notlegalclearance/acceptedterms). ExactownerbodySofiamobileattendance, oneoperatorservice_area/addressnull/coordsnull,noregionclones. Generalhourssourcesconflictroot09–20daily/servicefooterweekday09–19Saturday09–15/terms09–19daily,allhoursomitted; generic40–120durationnotassignedselectedservice. Runtime+ALLintakes/native6domain/phone0. No Maps/scriptsAPI/providerexport/photos/logos/reviews/copiedprose/consent/customerinput/booking.",
+      "checkedAtUtc": "2026-11-14T02:34:11Z"
+    },
+    {
+      "order": 3,
+      "id": "sofia-nvs-workshop-tsarigradsko391",
+      "name": "NVS · автосервиз",
+      "status": "verified",
+      "website": "https://nvs.bg/",
+      "bookingUrl": "https://nvs.bg/workshop/",
+      "serviceUrls": [
+        "https://nvs.bg/workshop/"
+      ],
+      "contactUrl": "https://nvs.bg/contact-us/",
+      "findings": "ActualownBookFIRSTrootworkshopCTA→completeconfiguredownedrequestformwithvehicle/service/preferreddate/contactfields; readonlynoneentered/submitted,nodatepickeroraccount/livechatcalled. Actualselectedcomputerdiagnostic listedfullWorkshop, with entireRoot/About/Contacts/menu/footer reviewed. Workshopdiagnostics numericfeeabsent, no linkedworkshopPricesPDF/image/menuor blockedselectedtariff known; service_reviewed selecteddiagnostic only. SeparateownCarwashpage DOESpublisholdBGNfeesandObikolna4address, so NOTimported/unpublished/carwashbookingclaim, no crossbranchfees projected. Selectedworkshop addressTsarigradsko391 consistentRoot/Workshop/Contact/About andownrepairphone0988730020; onephysicalbusiness/notautohouse/rental/locksmith/carwashaliases. Servicehourstable09:30–18:30MonSat conflictsfooterworkshop09–18MonFri/weekendclosed,allhoursomittedhonestly. Fullobservednavigation/footer no separateownerTerms/Privacyanchorvisible, ordinarytrademarknoticeonly/notlegalpermissionclaim. Runtime+ALLintakes/native6domain/phone/address0; no fakequarter/point fromMuseum/campus,coordsnull. NoDpfdefeat/retail/rental/deposits imported. NoGoogleiframe/maps/providerbulk/photos/logo/reviews/copiedprose/customerinput/bookings.",
+      "checkedAtUtc": "2026-11-14T02:34:11Z"
+    },
+    {
+      "order": 4,
+      "id": "sofia-simda-slivnitsa178-dance",
+      "name": "SIMDA · Sofia International Music & Dance Academy",
+      "status": "verified",
+      "website": "https://simda.bg/",
+      "bookingUrl": "https://simda.bg/",
+      "serviceUrls": [
+        "https://simda.bg/events/модерни-танци-и-хип-хоп-с-катрин-7-12-г/",
+        "https://simda.bg/график/",
+        "https://simda.bg/цени/"
+      ],
+      "contactUrl": "https://simda.bg/контакти/",
+      "findings": "ActualownBookFIRSTrootexplicitEnrolCTA→ownContactpage withcurrent0888706645/genericenquiry. Parentapprovesindependentphonepath basedonthatlinkage pluscurrentselectedcourse; NOTfabricatedverbatimclassphoneCTA/instantcalendar. CurrentownedCourseeventordinaryGETaftercachemiss explicitly7–12children/12Oct2026ongoingMonWed18–19, exactSlivnitsa178; fullSchedule current2026classes/rulesread. FullPricespage357lineshasadultHipHop/Kpop5.11EUR butNOselected7–12childcoursefee; adult/otherdisciplinefees nottransferred, no knownblockedchildtariff, genuinelyunpublishedselectedservice/service_reviewed only. Emptyold2018weddingprojectandKpopabsentcurrentprogrammeNOTselected/notclaimedbookable. CurrentContactphone0888706645chosen, notold2024socialaggregator888887224. FullPrivacyordinaryGET states controllerSIMDAOOD/GDPR,noexpresscommercial/extractionrestrictionfound; nolegalclearance/consentclaim. Runtime+ALLWIPdomain/canonical/phone0; sharedbuildingexistingAxHorca0888391240: independentlyreadownerrootAxSportbrand/phone/Sitnyakovooffice, noSIMDAcrossbrand/phone/aliasfound; SIMDAownlegaloperatorSIMDAOOD. Keepmanualrootidentitycomparison, notassumeseparatejustdifferentprogramme. Onepremise/noroom/instructor/music aliases. Allcoordsnull,nocampuspoint/maps/reviews/photos/logo/prosecopied orcustomerfields/bookings.",
+      "checkedAtUtc": "2026-11-14T02:35:19Z",
+      "manualReview": "Independent SIMDA OOD/controller and own phone versus AxSport/AxHorca brand+different phone/office at same building; no crossbrand/alias found in reviewed owner pages. Root adjudicates before import."
+    },
+    {
+      "order": 5,
+      "id": "sofia-ax-horca-bio-dragan-tsankov8",
+      "name": "Ах Хорца · Биологически факултет",
+      "status": "verified",
+      "website": "https://ax-horca.com/",
+      "bookingUrl": "https://ax-horca.com/",
+      "serviceUrls": [
+        "https://ax-horca.com/"
+      ],
+      "contactUrl": "https://ax-horca.com/",
+      "findings": "FreshactualownBookFIRSTenrolmentformthenentireone-pagevenueprogramme/sharedtariff/contact/footerreviewed; currentordinaryGETvisibleHTMLdropdown explicitlyBioFacultyTueThu18:30–19:30 WITHOUTstartTBC, matchingbodyintermediategroupstarted6Oct2026. Previously008held18:30TBCnowresolvedbycurrentownedconfiguredoption; TBCremainsONLYdifferent19:30beginners, notimported. No optionclicked/selected,noform/customerinput/submit. ExactphysicalDraganTsankov8/BioFaculty distinctfrom2existingchainvenuesSlivnitsa178andVeda25A; shared10EURsinglevisitunder4-venueprogramme/directactualbranchBook sufficientlyboundnotseparatenetworkcampaign. Priceunitonepersononeclass, notmonthly45EURdivided/freecard. Actualweeklyclassspan60min(notgeneralduration). Airportoldterminal/museumstillheldnoexactstreet/entranceproof, noMapsrequest; noquarterorcampuscoordsinvented. OwnerAxSportbranding/0888391240andSitnyakovo41AOFFICEnotteachingaddress; no staff/level/roomclone. Runtime+ALLWIPsharedchaindomain/phone reviewedagainstactualdistinctnewpremise. Fullvisiblemenu/footer no separateownerTerms/Privacylinkshown, nolegalpermissionclaim. Minimalfreshfacts only,noimages/logos/reviews/social/expressiveprose/API/booking.",
+      "checkedAtUtc": "2026-11-14T02:35:19Z"
+    }
+  ],
+  "pending": [
+    {
+      "name": "Cars Detailing",
+      "website": "https://carsdetailing.bg/",
+      "status": "held_access_verification_and_exact_premise",
+      "reviewedUrls": [
+        "https://carsdetailing.bg/",
+        "https://carsdetailing.bg/terms/",
+        "https://carsdetailing.bg/contact/"
+      ],
+      "notes": "Actual Terms shows request-verification challenge; STOP no ordinaryGET/alternate/UI. Contact already-inflight returned explicitphonebook but city-only studio no exactstreet; not relabeledmobilearea. Known numerical fees not called unpublished."
+    },
+    {
+      "name": "Танцов колектив Вангелов",
+      "website": "https://vangeloff.eu/",
+      "status": "held_advance_enrolment_missing",
+      "reviewedUrls": [
+        "https://vangeloff.eu/",
+        "https://vangeloff.eu/contact.html",
+        "https://vangeloff.eu/vangeloff_groups.html"
+      ],
+      "notes": "Four namedgroups are levels/staffnotbusinesses. Own programme and exactTsarSamuil24/phone read but no actualadvanceenrolment/appointment instruction; siteforumregistration notservicebooking. No pendingpriceabsenceclaim."
+    },
+    {
+      "name": "Puppi Car Detailing",
+      "website": "https://puppidetailing.com/",
+      "status": "held_geographic_scope_voluyak",
+      "reviewedUrls": [
+        "https://puppidetailing.com/"
+      ],
+      "notes": "OwnedrootBookCTA→Contactobserved but no furtherrequests afterownfooterVoluyakSvoboda27. OwnerlabelsSofiakvVoluyak; independentcity68134coverage unclear/villageboundarynotresolved, no geocoding/Maps. Not importedasSofiacity/service_area."
+    },
+    {
+      "name": "BestDiagnostics",
+      "website": "https://bestdiagnostics.net/",
+      "status": "held_source_terms",
+      "reviewedUrls": [
+        "https://bestdiagnostics.net/",
+        "https://bestdiagnostics.net/?latepoint=instant&selected_service=1",
+        "https://bestdiagnostics.net/obshti-usloviya/"
+      ],
+      "notes": "Full own Terms§2.1 grants website use onlypersonal/noncommercial;§2.3contentcopy/distributionwithoutwrittenconsent. Conservative sourceSTOP no furtherendpoints/alternate/UI. ActualBookalreadyinflight returned0lines, notunpublished/noimport."
+    },
+    {
+      "name": "SD Auto 7",
+      "website": "https://www.sdauto7.com/",
+      "status": "held_outside_sofia_city",
+      "reviewedUrls": [
+        "https://www.sdauto7.com/"
+      ],
+      "notes": "SearchtitlemarketsSofia butactualvisibleownerheaderexplicitBoschCarService/Kostinbrod. No furtherendpoints/borrowedSofiacity/addressfake/service_arearelabel."
+    },
+    {
+      "name": "Ах Хорца · Летище",
+      "website": "https://ax-horca.com/",
+      "status": "held_exact_venue_entry_missing",
+      "reviewedUrls": [
+        "https://ax-horca.com/"
+      ],
+      "notes": "Actualprogramme/formnamedAirport17:30–18:30 butphysicalpremiseonlyoldterminalnowmuseum/noexactstreet/entry. Existing008holdretained; no airportcampuspoint/Mapsrequest/newclone."
+    }
+  ],
+  "rejected": [],
+  "frozenAtUtc": "2026-11-14T02:36:48Z",
+  "validation": {
+    "checkedAtUtc": "2026-11-14T02:36:48Z",
+    "schemaRecords": 5,
+    "duplicateGate": {
+      "comparedOtherUnique": 1651,
+      "ready": 5,
+      "pending": 0,
+      "rejected": 0
+    },
+    "pricingReview": {
+      "reviewed": 2,
+      "service_reviewed": 3,
+      "pending": 0
+    },
+    "inventoryIdentity": "Not persisted; only temporary diagnostic fingerprints. Root independently reviews source/photo and binds identities."
+  },
+  "photoContexts": [
+    {
+      "id": "sofia-malketov-asen-yordanov11",
+      "selected": "Mechanic changing engine oil and filter in a physical auto workshop; use exact engine oil/filter scene, not tyres."
+    },
+    {
+      "id": "sofia-mobilix-mobile-vacuum-oil",
+      "selected": "Mobile technician using a vacuum oil-extraction unit/tube at engine bay at safe private garage/yard/parking. Not ordinary gravity drain under raised vehicle, not roadside tyre/booster. Root checks exact existing asset or generates apparatus-specific image."
+    },
+    {
+      "id": "sofia-nvs-workshop-tsarigradsko391",
+      "selected": "Automotive computer diagnostics scan-tool/laptop with passenger car in workshop; no wash/DPF/battery scene."
+    },
+    {
+      "id": "sofia-simda-slivnitsa178-dance",
+      "selected": "Child group7–12 modern dance AND hip-hop with one teacher in studio, urban contemporary choreography; no adult ballroom, ballet barre, wedding couple or K-pop-only branding. Root checks exact age/style asset or generates."
+    },
+    {
+      "id": "sofia-ax-horca-bio-dragan-tsankov8",
+      "selected": "Adult/mixed public group Bulgarian folk dance, intermediate level; no child-only group or ballroom. Existing exact Bulgarian-folk group family expected."
+    }
+  ],
+  "newImageGaps": [
+    "Potential vacuum oil-extraction apparatus on private plot",
+    "Potential child7–12 modern/hip-hop group"
+  ]
+}

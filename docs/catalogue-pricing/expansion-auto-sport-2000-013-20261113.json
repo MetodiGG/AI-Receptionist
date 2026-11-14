@@ -1,0 +1,220 @@
+{
+  "rootIntegrationReview": {"checkedAtUtc":"2026-11-14T02:53:05.080Z","note":"Rootread4completebusinesses/services/reviews. JAuto differentbrandedoperator/phones atsharedindustrial55notDrivealotclone; oilfeeunpublished. Naydenov15EURisattendancecomponentnotwholetyretotal, preservedpublicly/nofrom15; Gumicon12.50perone13–15tyre/noattendancefee withRunFlat50percent/underground10extra preserved. Mobiletyremachine+balancernewsource/thumbviewedandmanifested. MitvasexactownerDMMGPSsourcepersonallyread/conversionreceipt+ambiguousCSVcorroboration separate; neitherfirstnorclosestpostalrowselected. Consultdiagnosticfeeunpublished, oldmaintenance/tariffsnotborrowed. No productionwrites.","identity":"Only newlyreviewednormalizedinventoryidentitiesassigned; existingbaseline/pricereviewfingerprintsuntouched; originalfreeze/sourceobservationdatespreserved."},
+  "batch": "auto-sport-2000-013-20261113",
+  "status": "frozen_ready_for_root_review",
+  "dateConvention": "New observations checkedOn2026-11-14 UTC; Europe/Sofia appointment times unchanged; identifier20261113 retained.",
+  "scope": "Real distinct Sofia auto_repair/car_wash/detailing and reserved sport training only. Null coordinates unless root explicitly integrates owner-literal source-bound marker.",
+  "sourceRestrictions": [
+    "NoUI/Maps/Nominatim/paidAPIs/privateGPS/customerinputs/realbookings/productionmutations.",
+    "All previously communicated source/access STOPs remain in force, including SBA/Garage46/Mirafiori. Minimal public facts only; no expressive text/images/logos/reviews copied."
+  ],
+  "counts": {
+    "records": 4,
+    "services": 4,
+    "reviews": 4,
+    "pricedServices": 1,
+    "pending": 9,
+    "rejected": 1
+  },
+  "orderedLedger": [
+    {
+      "order": 1,
+      "id": "sofia-j-auto-jacques-duclos55",
+      "name": "J Auto · Джей Ауто",
+      "status": "verified",
+      "website": "https://japanautoservice.com/",
+      "bookingUrl": "https://japanautoservice.com/contact/",
+      "serviceUrls": [
+        "https://japanautoservice.com/services/"
+      ],
+      "contactUrl": "https://japanautoservice.com/contact/",
+      "findings": "ActualownBookFIRSTroot/serviceCTA→Contact. Explicitcontactinstructionforinspection/repair/appointmentsby0887899725/0877899725selectedasphonefallback; genericcaptcha-protectedmessageformnotpresentedasinstantBook/noattemptsolve/input. EntirecurrentServicesordinaryGET, fullRoot/Contact/About/nav/footerreviewed. Selectedoil/filterworkexplicitlylisted; no numericselectedfeeorPricespage/tariffPDF/image/menuanchorvisible; no knowninaccessiblepricemenu. Genuineunpublishedselectedservicenotprice-reviewed. CurrentprimaryAboutidentifiesPlamenMinkovteamoperatingsince2008/Japan-specialist; ownbranding/domain/twophonessameonContact/Root, notteacher/staffalias. Runtime+ALLintakes/nativephones/domains0butDrivealotatsharedindustrialpostaladdress; readitsownrootforidentityONLYandfounddifferentbrand/domain/phone0882399529,noJAutophone/crossbrandalias. Sharedbuildingnotautomaticallyduplicatedoperator; manualsource-reviewflagretained. DoNOTclaimDrivealotold2022promotionalfeesreverifiedoruseitsphotos/reviews. ExactJAutoaddressJacquesDuclos55/Malashevtsipublished; coordsnull/notborrowotherbusinesspoint. PublishedMonFri09–19preserved; unknownweekendnotmarkedclosed. Wholeownnav/footerordinarycopyright,noownerTerms/Privacylinkvisible; nolegalclearanceclaim. NoMaps/providerexports/photos/logos/copiedprose/customerinput/call/booking.",
+      "checkedAtUtc": "2026-11-14T02:11:28Z",
+      "manualReview": "Shared industrial address with existing Drivealot but independent own brand/phones and named operator; no alias found in reviewed primary pages. Root adjudicates identity before import."
+    },
+    {
+      "order": 2,
+      "id": "sofia-naydenov-mobile-tyres",
+      "name": "Найденов Сервиз · мобилни гуми",
+      "status": "verified",
+      "website": "https://naydenov-service.com/",
+      "bookingUrl": "https://naydenov-service.com/contact/",
+      "serviceUrls": [
+        "https://naydenov-service.com/uslugi/",
+        "https://naydenov-service.com/"
+      ],
+      "contactUrl": "https://naydenov-service.com/contact/",
+      "findings": "ActualownBookFIRSThomeCTA→Contact readentirecurrentordinaryGET. RootdescribesonlineformbutactualContactDOMhasNOformandexplicitreserve/call0887973804; phonepathselectedhonestly,noconfiguredcalendarinvented. FullcanonicalServices/uslugi, linkedfooterlegacy/services, About, RootandContactread; bothservicepagesexplicitseasonaltyredismount/mount/balanceatSofiaaddressbyagreedday/time. Cityattendanceisvisibleownbodytext(notOG/social/reviews),service_areaaddressnull/coordsnull,no150kmquarterclones. Onlynumeric15EURpublishedasvisitfee, notwork/tyrechangeprice; rootexplicitphonequoteexactservicefee. Currentfullnav/footerhasnoPrices/tariffPDF/imageorotherlinkednumericworkmenu. Selectedtotalgenuinelynotpubliclylisted; service_reviewed/notprice-reviewed, known15componentretainedpubliclynotfrom15/0/all-in. No duration/30minresponseguarantee/24hworkhoursassumedfrommarketingtitle. Fullpublicnavordinarycopyright/noTermsPrivacylinkvisible,nolegalclearance. Ownerlinkedmobilenservizgumisofia.comsameoperatornotfetched/notsecondrecord. Runtime+ALLintakes/nativephones/domain/brand0. NoMaps/providerexports/reviews/photos/logos/copieddescription/customerfields/call/booking.",
+      "checkedAtUtc": "2026-11-14T02:15:39Z"
+    },
+    {
+      "order": 3,
+      "id": "sofia-gumicon-mobile-tyres",
+      "name": "Gumicon · мобилни гуми",
+      "status": "verified",
+      "website": "https://gumicon.bg/",
+      "bookingUrl": "https://gumicon.bg/сезонна-смяна-на-гуми/",
+      "serviceUrls": [
+        "https://gumicon.bg/сезонна-смяна-на-гуми/",
+        "https://gumicon.bg/pricing/"
+      ],
+      "contactUrl": "https://gumicon.bg/contact/",
+      "findings": "Actual own Book FIRST root→selected seasonal service explicitly instructs reserve by 0877756617 and agree day/time/address in Sofia; independent phone path, generic Contact enquiry not instant calendar. Full selected service, current ordinary-GET complete Prices menu, Root, About and Contact reviewed. Literal selected per-tyre 13/14/15-inch fee12.50EUR, no visit fee, RunFlat+50% and underground-car+10EUR preserved; not four-tyre total/from price/arrival duration. MainAbout body narrows attendance to Sofia-city while generic footer includes province; only proven Sofia-city scope imported as one service_area operator/addressnull/coordsnull, no neighbourhood clones. Actual Contact lists07–17 eachday, preserved; marketing40minarrival not duration/availability promise. Complete observed navigation/footer ordinarycopyright only, no visible ownerTerms/Privacy anchor; not alegalpermissionclaim. Runtime+ALLintake domains/phone/brand0; no native match. No mapsiframe opened, no scripts/privatewidget/API/providerexport/photos/reviews/logo/prose copied, no form/customerinput/call/booking.",
+      "checkedAtUtc": "2026-11-14T02:20:49Z"
+    },
+    {
+      "order": 4,
+      "id": "sofia-mitvas-nissan-tsvetan-lazarov48",
+      "name": "Митвас · Nissan сервиз",
+      "status": "verified",
+      "website": "https://nissan.mitvas.com/",
+      "bookingUrl": "https://nissan.mitvas.com/?cmd=service",
+      "serviceUrls": [
+        "https://nissan.mitvas.com/?cmd=service",
+        "https://nissan.mitvas.com/?cmd=services"
+      ],
+      "contactUrl": "https://nissan.mitvas.com/?cmd=contacts",
+      "findings": "Actual own Book FIRST root→?cmd=service complete public request form read, and current ordinary GET confirms visible Nissan Consult diagnostic service plus vehicle/contact/problem and preferred-visit fields. Owned form URL retained; no picker/date/customerinput/checkbox/marketingconsent/submission or private action endpoint called, no instant confirmation/available slots claimed. Full Services, Root, Contacts, repair Terms and Privacy read. Selected diagnostic service has no numeric fee in form/Services/root or linked diagnostic tariff; root's separate model-specific annual-maintenance BGN offers are NOT selected/not copied/converted and do not imply diagnostic fee. No blocked selected-price menu known, so selected diagnostic genuinely not publicly listed, service_reviewed only. Repair Terms refer to prevailing in-service labour rate but do not link a public diagnostic tariff; no source-extraction/commercial-data restriction found in the full reviewed repair Terms/Privacy, not alegalpermissionclaim. Exact own Druzhba1/TsvetanLazarov48/028923838, weekdays09–18; unknown weekend not closed. Literal own N42°39.892′ E23°23.283′ GPS exists, leftcoordsnull for root separate source-address review, no viewport/default point conversion. Runtime+ALLintakes/native6 domain/canonical/phone/address0; one physical Mitvas operator not separate Nissan/Bosch/GreatWall aliases. No retail/oldmaintenancefees, maps/providerexport/photos/logo/reviews/copieddescriptions or bookings.",
+      "checkedAtUtc": "2026-11-14T02:23:21Z"
+    }
+  ],
+  "pending": [
+    {
+      "name": "Carai.bg / Твоята част",
+      "website": "https://caraibg.com/",
+      "status": "held_placeholder_identity_booking",
+      "reviewedUrls": [
+        "https://caraibg.com/"
+      ],
+      "notes": "ActualcurrentrootdifferentretailbrandTvoiataChastandplaceholderphone0888123456, offersserviceslinkbutnotprovenrealmerchantserviceidentity/premise/contact. No furthercheckout/login/providerrequests; notstaffedwashfromgenericsearchsnippets."
+    },
+    {
+      "name": "Макам · Младост/Люлин/Дружба",
+      "website": "https://makam.bg/",
+      "status": "held_reserved_enrolment_evidence_missing",
+      "reviewedUrls": [
+        "https://makam.bg/",
+        "https://makam.bg/contact"
+      ],
+      "notes": "Fullactualroot3namedvenueprogrammesandownphone/contactformread. Noexplicitpriorenrolment/Bookinstructionfound, justgenericstartdancingquestions; cannotclone3walkingrouptimetablesasreservedservices. Pricesnotcompleted/nounpublishedreceipt."
+    },
+    {
+      "name": "Българска китка · four halls",
+      "website": "https://bulgarskakitka.com/",
+      "status": "held_actual_enrolment_form_missing",
+      "reviewedUrls": [
+        "https://bulgarskakitka.com/",
+        "https://bulgarskakitka.com/schedule-and-recordings/",
+        "https://bulgarskakitka.com/beginners/"
+      ],
+      "notes": "ActualBook→Schedule listsNSA/LouisAyer34/Solun45/Bolyarska15 andsayschoosevenueandfillform. CurrentordinaryGETshowsONLYsearchform(noactualenrolmentinputs/iframe), beginnerspagetitleonly/calendar. Noindependentexplicitphonebookinginstructionfound; nofake4businesses/unpublishedtariffclaim. Privacycachemissnotreadfull; noMapsframesrequested."
+    },
+    {
+      "name": "Radial.bg · Sofia centres",
+      "website": "https://radial.bg/",
+      "status": "held_actual_public_js_menu",
+      "reviewedUrls": [
+        "https://radial.bg/",
+        "https://radial.bg/autocenters/8"
+      ],
+      "notes": "Differentoperatorfromradial2000; SlivnitsaRuse1discoveryleadhasnewcontacts/priceunknown butactualreaderonlyGTMandordinaryGETonlyRadialtitle,noanchors/Book/services. Nootherendpoint/API/bundle/UI; heldnotunpublished; otherbrandexistingGumiSlickSimeonovsko89notcloned."
+    },
+    {
+      "name": "Auto Art Service",
+      "website": "https://autoartservice.com/",
+      "status": "held_source_terms",
+      "reviewedUrls": [
+        "https://autoartservice.com/",
+        "https://autoartservice.com/kontakti",
+        "https://autoartservice.com/условия-за-ползване"
+      ],
+      "notes": "Fullactual§2explicitmaterials(information/software)personalnoncommerciallicenceonly,nocommercial/publicreuse. STOPbeforeadditionalrequests; ServicesandDiagnosticreaderrequests alreadyinflightbeforetermrestrictionreturned/cachemissnotordinaryGETretried. CleanactualphoneBook/premisenotgroundsforexception.Noimport/nolegalruling."
+    },
+    {
+      "name": "Amarant Sofia",
+      "website": "https://amarantservice.bg/avtoservizi-v-sofia/",
+      "status": "held_access_403",
+      "reviewedUrls": [
+        "https://amarantservice.bg/avtoservizi-v-sofia/"
+      ],
+      "notes": "Rediscoveredownedsearchlead; actual403againmatchespriorrootintake403hold. STOPnofallbackcurl/alternatehost/UI. AddedglobalaccessSTOP,noimport."
+    },
+    {
+      "name": "Topes",
+      "website": "https://topesbg.com/",
+      "status": "held_access_connection_failed",
+      "reviewedUrls": [
+        "https://topesbg.com/"
+      ],
+      "notes": "Public reader unavailable; ordinary GET connection to443 failed, no data/menu/appointment assumed and no alternate host/TLS bypass."
+    },
+    {
+      "name": "GumiExpert",
+      "website": "https://gumiexpert.com/",
+      "status": "held_tariff_currentness_2025_heading",
+      "reviewedUrls": [
+        "https://gumiexpert.com/",
+        "https://gumiexpert.com/сезонна-смяна-на-гуми-на-адрес/",
+        "https://gumiexpert.com/контакт/"
+      ],
+      "notes": "Full public root seasonal-work menu is explicitly headed prices2025, including per-tyre work and mandatory20EURvisit. Own selected service/contact prove mobile Sofia booking but do not independently confirm same current fee. Parent requires HOLD currentness; not imported, not claimed unpublished. No UI/API bypass."
+    },
+    {
+      "name": "BestAuto",
+      "website": "https://www.bestauto.bg/",
+      "status": "held_booking_and_legacy_link_review",
+      "reviewedUrls": [
+        "https://www.bestauto.bg/",
+        "https://www.bestauto.bg/stores/service"
+      ],
+      "notes": "Prior001hold preserved: actual service contact/footer Simeonovsko36B versus legacy footer directions address conflict and actual appointment modal public price menu not rendered; no new requests/retail branch clones or not-publicly-listed claim."
+    }
+  ],
+  "rejected": [
+    {
+      "name": "Motero",
+      "website": "https://motero.bg/",
+      "status": "rejected_platform_not_service_operator",
+      "reviewedUrls": [
+        "https://motero.bg/"
+      ],
+      "notes": "Actualpublicrootisservicebookingplatform, notownworkshop. No publicrecommendedservicelistvisible; noplatformexport/privateclienthistory/account/booking."
+    }
+  ],
+  "frozenAtUtc": "2026-11-14T02:24:13Z",
+  "validation": {
+    "checkedAtUtc": "2026-11-14T02:24:13Z",
+    "schemaRecords": 4,
+    "duplicateGate": {
+      "comparedOtherUnique": 1643,
+      "ready": 4,
+      "pending": 0,
+      "rejected": 0
+    },
+    "pricingReview": {
+      "reviewed": 1,
+      "service_reviewed": 3,
+      "pending": 0
+    },
+    "inventoryIdentity": "Not persisted; diagnostic temporary fingerprints only. Root binds after independent manual integration review."
+  },
+  "photoContexts": [
+    {
+      "id": "sofia-j-auto-jacques-duclos55",
+      "selected": "Mechanic changing engine oil/filter in a Japanese passenger car, physical workshop; no engine overhaul/tyre scene."
+    },
+    {
+      "id": "sofia-naydenov-mobile-tyres",
+      "selected": "Mobile seasonal tyre dismount/mount/balance at customer's Sofia address, professional service van/equipment; not roadside booster or generic retail."
+    },
+    {
+      "id": "sofia-gumicon-mobile-tyres",
+      "selected": "Mobile tyre seasonal mount and balancing for13–15inch tyre at Sofia address; same real apparatus as mobile seasonal tyre service, not just spare-wheel emergency."
+    },
+    {
+      "id": "sofia-mitvas-nissan-tsvetan-lazarov48",
+      "selected": "Automotive computer diagnostics using a professional scan-tool/laptop on a Nissan passenger car in workshop; no Nissan logo required."
+    }
+  ],
+  "newImageGaps": "No new apparatus family requested; root independently matches exact existing oil/filter, mobile tyre mount/balance and automotive computer-diagnostic scenes. No forced generic photo."
+}

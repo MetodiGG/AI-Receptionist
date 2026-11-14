@@ -1,0 +1,598 @@
+{
+  "rootIntegrationReview": {"checkedAtUtc":"2026-11-13T23:27:11.216Z","corrections":[{"id":"sofia-nestor-notov-neru28","businessCategory":"other","serviceCategory":"other","reason":"Dentistry and psychology are not the massage/Therapies filter."}],"inventory":"Source names/prices/booking URLs/review dates unchanged. New review hashes bind existing validated policy serialization, not raw object key order; historical pricing baseline untouched.","freezeAudit":"Original reviewer freeze hashes/counts remain historical; these root amendments are explicit."},
+  "batch": "home-education-2000-007-20261113",
+  "checkedOn": "2026-11-13",
+  "dateConvention": "UTC calendar day per catalogue policy. Sofia local date is already2026-11-14; appointment hours remain Europe/Sofia. checkedAtUtc records actual review completion, not an invented original page-fetch timestamp.",
+  "status": "frozen_source_complete",
+  "sourceModule": "lib/discovery/catalogue-data/neighborhood-home-education-2000-007-20261113.mjs",
+  "summary": {
+    "includedBusinesses": 11,
+    "includedServices": 11,
+    "literalPriceFacts": 2,
+    "pricedBusinesses": 2,
+    "explicitUnpublishedBusinesses": 9,
+    "formBookings": 5,
+    "phoneBookings": 6,
+    "publishedServiceHours": 3,
+    "serviceAreas": 1,
+    "premises": 10,
+    "coordinates": 0,
+    "pendingCases": 21,
+    "rejectedCases": 7
+  },
+  "ledger": [
+    {
+      "order": 1,
+      "status": "included",
+      "id": "sofia-nestor-notov-neru28",
+      "primaryEvidence": [
+        "https://notov.dentist/",
+        "https://notov.dentist/#booking"
+      ],
+      "notes": "Actual owned selected appointment form + full own services/first visit/FAQ/contact/footer reviewed. No numeric fee/menu published, strict not_publicly_listed receipt in module. MonFri10–18 published. No form/customer/medical data, call, Google or map request. Full final runtime/phone/operator dedupe at freeze still required."
+    },
+    {
+      "order": 2,
+      "status": "pending_booking_scope",
+      "name": "VM Cleaning",
+      "primaryEvidence": [
+        "https://vm-cleaning.bg/",
+        "https://vm-cleaning.bg/prices",
+        "https://vm-cleaning.bg/uslugi/prane-na-divani",
+        "https://vm-cleaning.bg/faq"
+      ],
+      "notes": "Actual own Book phone explicitly reserves free inspection and quotation; subsequent paid cleaning date/request scope not fully observed, modal JS form not visible. Full31–41EURcanapeup-to3seats and25EURone-sided-singlemattress fees visible, not absent; no unpublished workaround. /faq normalpublicGET returns main template. Robots200explicitAPI/account/cart/admin/loginexclusions; none accessed. Hold actual paid booking binding before record, no free inspection invented as paid cleaning."
+    },
+    {
+      "order": 3,
+      "status": "pending_fee_conditions",
+      "name": "Мистър Клийн",
+      "primaryEvidence": [
+        "https://mr-clean.bg/",
+        "https://mr-clean.bg/kontakt/",
+        "https://mr-clean.bg/obhsti-usloviya/",
+        "https://mr-clean.bg/ceni/",
+        "https://mr-clean.bg/prane-na-divani/",
+        "https://mr-clean.bg/paketi-osnovno-pochistvane/"
+      ],
+      "notes": "Actual own service-request form and fullterms§4explicitphone/formorders genuine. Current20–65EUR/itemupholstery and2.50EUR/m²RZPStandard package visible, allwithoutVAT; don't use expired15Oct20percentpromotion. Fullgeneralpricepage has minimum50–60EURbycity plus separate minimum60EUR; no city-specific exact total inferred. Extrasparking1EUR/h,liftless0.60EUR/floor,beyondringroad0.60EUR/km,+30/50/100percentconditions require faithful selected-service quote. Held pending exact fee conditions, not unpublished. TermsIPtexts/images/logos protected, no general licence claim; no copies ofprose/reviews/media. Robots200emptyDisallow."
+    },
+    {
+      "order": 4,
+      "status": "pending_source_terms",
+      "name": "DEPO.BG",
+      "primaryEvidence": [
+        "https://www.depo.bg/",
+        "https://www.depo.bg/контакт-изхвърляне-стари-мебели/",
+        "https://www.depo.bg/usloviya-za-izpolzvane-na-saita/"
+      ],
+      "notes": "Own phone appointmentevidence and advertised fees visible but actualsiteTermsRights§2explicitpersonal/noncommercial use only/commercial reuse banned absentwrittenpermission. Stopped after clause; no furtherendpointrequests. Also terms self-describe freeintermediary/subcontractor model not verifiedsinglemerchant; not imported. No forms/calls/customeractions. Publicrobots200emptyDisallow not a republicationlicence."
+    },
+    {
+      "order": 5,
+      "status": "pending_current_source_availability",
+      "name": "Хамали София / Емил Славчев Груп",
+      "primaryEvidence": [
+        "https://hamali-sofiq.com/",
+        "https://hamali-sofiq.com/контакти/",
+        "https://hamali-sofiq.com/общи-условия/",
+        "https://hamali-sofiq.com/хамалски-услуги-цени/",
+        "https://hamali-sofiq.com/robots.txt"
+      ],
+      "notes": "Reader has dated cached genuine phoneagreeddate/time/24x7 and companyterms; currentordinaryrobotsGET returns200HTMLmaintenance/error template, not robots rules. Owncontact cache also conflictingGurko37vsKnyazBoris117premiseaddresses, not used as homevisitpin. Hold currentprimarysource availability/selected fees before approval; no maintenancebypass, account, API, map orcall."
+    },
+    {
+      "order": 6,
+      "status": "rejected_duplicate",
+      "name": "Пране Мека Мебел / pranemekamebel.com",
+      "primaryEvidence": [
+        "https://pranemekamebel.com/",
+        "https://pranemekamebel.com/kontakti/",
+        "https://pranemekamebel.com/tseni/"
+      ],
+      "notes": "Runtime canonicalphone899881654 matches existingsofia-prane-na-matraci atpranenamatraci.com. Different SEOdomain/servicefocus not distinctbusiness; no quarterclones ornewrow."
+    },
+    {
+      "order": 7,
+      "status": "rejected_outside_sofia",
+      "name": "Смарт Клийн / smartclean.bg",
+      "primaryEvidence": [
+        "https://smartclean.bg/"
+      ],
+      "notes": "Own currentsite identifiesPlovdivul.Sofia52; Sofia in streetname is not Sofia servicearea. No ownSofiascope verified, not imported."
+    },
+    {
+      "order": 8,
+      "status": "rejected_placeholder",
+      "name": "Блясък / blyasuk.com",
+      "primaryEvidence": [
+        "https://blyasuk.com/"
+      ],
+      "notes": "Search-only lead publicphone0888000000appearsplaceholder; no verifiedrealprovider orBookflow, not imported. No site/service facts accepted fromsearchsummary."
+    },
+    {
+      "order": 9,
+      "status": "rejected_duplicates",
+      "name": "Other home/dental prospects",
+      "primaryEvidence": [
+        "https://clean2win.com/",
+        "https://freshclean.bg/",
+        "https://blestimo.bg/",
+        "https://topcleaner.bg/",
+        "https://cleanrs.bg/",
+        "https://marani-cleaning.com/",
+        "https://remontimetodiev.com/",
+        "https://chistachka.com/",
+        "https://www.cleaningsofia.com/",
+        "https://feite.bg/",
+        "https://snapdental.eu/",
+        "https://dentalplace.bg/",
+        "https://jeeiims.wixsite.com/newdental",
+        "https://giuliadent.com/bg",
+        "https://smilecare.bg/",
+        "https://dentel.bg/",
+        "https://dr-serbezova.online/",
+        "https://leadental.bg/"
+      ],
+      "notes": "ActualruntimeSOFIA+all2000module domain/phone/name comparisons alreadyexisting. No geography/staff/alias clones. Some cachedhomepagefacts inspected before runtimecomparison returned; no sourcecopies imported."
+    },
+    {
+      "order": 10,
+      "status": "pending_source_robots",
+      "name": "Aurora Home",
+      "primaryEvidence": [
+        "https://www.aurora-home.eu/",
+        "https://www.aurora-home.eu/contact",
+        "https://www.aurora-home.eu/montazh-stenni-paneli",
+        "https://www.aurora-home.eu/terms",
+        "https://www.aurora-home.eu/faq",
+        "https://www.aurora-home.eu/robots.txt"
+      ],
+      "notes": "Reader pages inspected first; subsequent normal public robots200 explicitlyDisallow:/ forChatGPT-User/OAI-SearchBot and othernamedagents. STOP after discovery; no record/alternate/API requests. Own actual free designconsultation/inspection differs from paid wallpanelinstallation; not recast as paidinstantcalendar. No customerfields/forms/phonecalls/maps/actions. Future reviews check robots before deepBook."
+    },
+    {
+      "order": 11,
+      "status": "included",
+      "checkedAtUtc": "2026-11-13T22:07:24Z",
+      "id": "sofia-faza-home-electrical",
+      "primaryEvidence": [
+        "https://faza.bg/robots.txt",
+        "https://faza.bg/",
+        "https://faza.bg/контакти/",
+        "https://faza.bg/общи-условия/",
+        "https://faza.bg/монтаж-на-ключове-и-контакти/"
+      ],
+      "notes": "Robots firstAllow/. Actualphoneappointment plus fullterms requires writtenprice/work/visitacceptance, not instantbindingcalendar. One standardmechanism in healthybox/goodwires10–25EURinclVAT/labour/materials; no package confusion. Own workinghoursMonSat08–20, no24x7claim. CorrespondenceNishava103 is notcustomerpremise; oneSofiaservice_area. No ordinaryIPpermission/licenceclaim; no reviews/media/sourceprose copied. Runtime+all2000host/phone0 at review; finaldedupe still required."
+    },
+    {
+      "order": 12,
+      "status": "pending_source_terms",
+      "checkedAtUtc": "2026-11-13T22:07:24Z",
+      "name": "Елвидом ООД",
+      "primaryEvidence": [
+        "https://www.elvidom.bg/robots.txt",
+        "https://www.elvidom.bg/",
+        "https://www.elvidom.bg/условия"
+      ],
+      "notes": "Robots200 allows publicpages except specifiedtechnicalpaths. Reader linkedTerms cachemiss then ordinarypublicHTTPS fullHTML inspected. Copyrightsection grants allsite-servicespersonal/noncommercial use, prohibits public/commercialcopy and reuse inothersites, reserves agreements for anyinformationparts. Explicitgeneral-informationrestriction, not ordinaryphotos-onlyIPclause: STOP after discovery; no tariff/servicepages or formsrequested afterward, no record."
+    },
+    {
+      "order": 13,
+      "status": "rejected_duplicates",
+      "checkedAtUtc": "2026-11-13T22:07:24Z",
+      "name": "РотоРем / Uslugite / ELTABLO / АлБел",
+      "primaryEvidence": [
+        "https://www.rotorem.bg/",
+        "https://uslugite.bg/",
+        "https://eltablo.com/",
+        "https://eltablo.com/contacts",
+        "https://serviz-albel.com/",
+        "https://eluslugi.com/"
+      ],
+      "notes": "Runtime+all2000domains alreadyincludeRotorem,Uslugite,AlBel,Eluslugi. ELTABLO newdomain exactphone0876733901 matchesexistingsofia-obekt-pro-electrical el-uslugi.net; aliases not newmobilebusiness. ELTABLOrobots and owncontactread beforephonebindingdiscovered, no newrow. No cityquarterclones."
+    },
+    {
+      "order": 14,
+      "status": "included",
+      "checkedAtUtc": "2026-11-13T22:13:16Z",
+      "id": "sofia-glinity-hadjikonstantinov88",
+      "primaryEvidence": [
+        "https://www.glinity.com/robots.txt",
+        "https://www.glinity.com/",
+        "https://www.glinity.com/privacy-policy",
+        "https://www.glinity.com/gift-card"
+      ],
+      "notes": "Actualownedvisibleform/experienceoptions/date/time/guests/contact/consent reviewed as literalpublicHTML, nofieldsselected. Exactvenue/phone ownroot. Fullservices/FAQ/privacy/giftpage no ordinarynumericfee, strictnot_publicly_listed receipt. Giftvaluecustomerchosen notsessionfee. Durationandhours omitted for90vs90–120min andFri21:30eventvs20:00footer differences. Robotsordinary404, notdeny. No maps/media/reviews/actions."
+    },
+    {
+      "order": 15,
+      "status": "rejected_duplicate",
+      "checkedAtUtc": "2026-11-13T22:13:16Z",
+      "name": "Арт Студио Калина / kalinahandjieva.com",
+      "primaryEvidence": [
+        "https://www.kalinahandjieva.com/robots.txt",
+        "https://www.kalinahandjieva.com/"
+      ],
+      "notes": "Exactownphone0894240622+ChavdarMutafov22 matches existingsofia-art-studio-kalina-vitosha/artstudiokalina.eu. 20EURordinaryhour/30EURFridayindividual alreadysameoperator, notnewalias. Ownrobotsordinary404, publicrootactualphoneBook+feesread beforephonecomparison returned, nothingimported."
+    },
+    {
+      "order": 16,
+      "status": "included",
+      "checkedAtUtc": "2026-11-13T22:17:25Z",
+      "id": "sofia-magic-needle-gladstone20",
+      "primaryEvidence": [
+        "https://vasilevarts.com/robots.txt",
+        "https://vasilevarts.com/",
+        "https://vasilevarts.com/index.php/faq/",
+        "https://vasilevarts.com/index.php/en-faq/",
+        "https://vasilevarts.com/index.php/en-contacts/"
+      ],
+      "notes": "Only explicitlyfree18+ preliminaryconsultation, optionally reserveddate/timebyphone. PaidtattooONLYonsite afteragreement/deposit, not phonebooked orimported. FullFAQconditions read, noaftercare/medicalclaims copied. Contact20 vsFAQ20–22sameentrancerange, exactcontact20 retained, coordsnull. Visitorhours18–20:30 vs18–23:30conflict omitted. PublicnormalHTTP usedafterreadertimeout, noaccess-denialbypass. Rootapprovedthisnarrowconsultationonlyscope, notpaidtattooquote."
+    },
+    {
+      "order": 17,
+      "status": "included",
+      "checkedAtUtc": "2026-11-13T22:20:26Z",
+      "ids": [
+        "sofia-folklorika-druzhba2-block330",
+        "sofia-folklorika-nadezhda-lomsko73",
+        "sofia-folklorika-slatina-geo-milev136"
+      ],
+      "primaryEvidence": [
+        "https://www.folklorika.com/robots.txt",
+        "https://www.folklorika.com/",
+        "https://www.folklorika.com/contacts.html",
+        "https://www.folklorika.com/adults.html",
+        "https://www.folklorika.com/schedule_adults_drujba.html",
+        "https://www.folklorika.com/schedule_adults_nadejda.html",
+        "https://www.folklorika.com/schedule_adults_slatina.html"
+      ],
+      "notes": "Three genuinelydistinct actualcurrentclassvenues, eachownnamedgroup/phoneBookinstruction/selectedvenue reviewed, Sep2026updatedschedules. Druzhba1level;Nadezhdabeginner;Slatinabeginner only. Not staff/rentalgymaliases, chainphoneintentionallyshared andvenue-specificdocumented. No tariffs/feeslink in fullreviewedservice/contact/branchpages, strictunpublishedreceipts; Multisportnotprice. No guessedhours/duration/coords. Rootapprovedthese3scope afterspecificreview, other3branches+datedvocalheld."
+    },
+    {
+      "order": 18,
+      "status": "pending_linked_terms_service_pages",
+      "checkedAtUtc": "2026-11-13T22:16:31Z",
+      "name": "ВиК Експрес",
+      "primaryEvidence": [
+        "https://vikexpress.bg/robots.txt",
+        "https://vikexpress.bg/",
+        "https://vikexpress.bg/obshti-usloviya",
+        "https://vikexpress.bg/uslugi/otpushvane-kanali"
+      ],
+      "notes": "Ownphone0876550262/servicearea/appointmentprocess/businessnameEmViGroup visible, robotsAllow. ActuallinkedTerms andselectedserviceURL returnidenticalhomepage bothreaderandordinaryHTTPS, not substantiveTerms/servicepages. RootexplicitHOLD untilactualpagesreadable; unsuccessfulmenu notunpublished. No API/booking/customeraction."
+    },
+    {
+      "order": 19,
+      "status": "pending_operator_identity",
+      "checkedAtUtc": "2026-11-13T22:16:31Z",
+      "name": "ВиК Услуги София / uslugivik.com",
+      "primaryEvidence": [
+        "https://uslugivik.com/robots.txt",
+        "https://uslugivik.com/",
+        "https://uslugivik.com/kontakti/",
+        "https://uslugivik.com/za-nas/",
+        "https://uslugivik.com/uslugi/montazh-na-peralnya/"
+      ],
+      "notes": "Ownliteralrealservice-requestform/date/timeconfirmation offered but no publishedoperatorphone/legalidentity/address in reviewedabout/contact/footer; emailonlygenericdomain and testimonialsvary, no fake socialproof copied. Robotssearch/referenceAllow,trainNo; no training use. Do not inventphone/verifiedoperator or treatpublicform as proof distinctfromotherSEOhomeproviders; keepidentity/source-reviewhold. No actions/API/customerfields."
+    },
+    {
+      "order": 20,
+      "status": "pending_supported_booking_path",
+      "checkedAtUtc": "2026-11-13T22:16:31Z",
+      "name": "Вода Канал / vodaikanal.com",
+      "primaryEvidence": [
+        "https://vodaikanal.com/robots.txt",
+        "https://vodaikanal.com/",
+        "https://vodaikanal.com/kontakti/"
+      ],
+      "notes": "Actualownreservation onlyemail, no form/voicephone in reviewedcontacts, nationwidegenericservice. Websiteownwordspointtoarrangedvisit but currentintakebookingmodelsform/phone notemail. Do not fakephone/form orimportSEOcityclone. Sofiaactualpage readercachemissnotreviewednormalHTTP, no newrecord. Robotsreference/searchallowed,trainingdenied; no traininguse."
+    },
+    {
+      "order": 21,
+      "status": "pending_exact_teaching_venue",
+      "checkedAtUtc": "2026-11-13T22:16:31Z",
+      "name": "Фани Куцарова",
+      "primaryEvidence": [
+        "https://fannykoutzarova.com/robots.txt",
+        "https://fannykoutzarova.com/bg/уроци-по-пиано/",
+        "https://fannykoutzarova.com/bg/контакти/"
+      ],
+      "notes": "Genuineownprivatepianolessons inSofia/online+explicitphoneappointment0887617276, robotsAllow. ContactnormalpublicHTTPSafterreaderCachemiss has no teachingstreetaddress or explicithomevisitdelivery. Do not inventvenue/map orclassifyonlineonlyasSofiaphysicalstudio. ContactformCAPTCHA nottouched/bypassed."
+    },
+    {
+      "order": 22,
+      "status": "pending_actual_booking_menu_js",
+      "checkedAtUtc": "2026-11-13T22:16:31Z",
+      "name": "Zaho Ceramics",
+      "primaryEvidence": [
+        "https://zahoceramics.com/robots.txt",
+        "https://zahoceramics.com/"
+      ],
+      "notes": "RobotsAllow with1secondcrawldelay. Reader0lines; normalpublicHTML alsoonlypageTitle andnoservice/form/links, actualBook/fees/address notobservable. HoldJS, no API/assets/privateendpointorUIattempt."
+    },
+    {
+      "order": 23,
+      "status": "pending_explicit_appointment_evidence",
+      "checkedAtUtc": "2026-11-13T22:16:31Z",
+      "name": "Balkan Tattoo",
+      "primaryEvidence": [
+        "https://balkantattoo.com/robots.txt",
+        "https://balkantattoo.com/",
+        "https://balkantattoo.com/en/home-english/"
+      ],
+      "notes": "OwnstudioVitosha156/0878567798/currentTueSat10–18 andartiststatementsread, but contactonlynoactualBookinstruction/form found. No magicphoneappointmentclaim orcopiedsourceart/socialposts. Realstudioheldforbookingpath."
+    },
+    {
+      "order": 24,
+      "status": "pending_selected_booking_flow_js",
+      "checkedAtUtc": "2026-11-13T22:16:31Z",
+      "name": "VEAN Tattoo Sofia",
+      "primaryEvidence": [
+        "https://www.tattoo-vean.com/robots.txt",
+        "https://www.tattoo-vean.com/studio/sofia",
+        "https://customer.vean-tattoo.pl/booking?ask_country=true&ask_language=true&form_link=30"
+      ],
+      "notes": "OwnrealbranchStefanStambolov6/0877065747 andactualBooklinkedprovider inspected; onlyJSmessagenoreadablebranchselectedform/menu. No actualdate/customerselection/submission. Didnotreviewproviderrobots/termsbeforeinitialactualBooklink (disclosed orderinglimitation); no furtherproviderrequests orAPI. CurrentphoneonownpageonlygenericcontactnotexplicitvoiceBook, soHOLDnotunpublished. 11–20withoutweekdaysnotconverted7days."
+    },
+    {
+      "order": 25,
+      "status": "pending_actual_form_js",
+      "checkedAtUtc": "2026-11-13T22:17:25Z",
+      "name": "Firma Volta / The Purgatory",
+      "primaryEvidence": [
+        "https://www.firmavolta.com/robots.txt",
+        "https://www.firmavolta.com/",
+        "https://www.firmavolta.com/contact"
+      ],
+      "notes": "OwnBookinvitesformfortattooappointment, genuineIndustrialna7studio/0884230600/hours. ReaderandnormalpublicHTML showrequestinvitationbutnoactualformfields. Ordinarycontactphone notexplicitvoiceappointmentalternative; noinventedphonebook. RobotsordinarypublicallowedbutAPI/search/account/jsonprohibited, noneaccessed. HoldJS/selectedservice/fees/termsreview, no staffaliases."
+    },
+    {
+      "order": 26,
+      "status": "pending_conflicting_tariff",
+      "checkedAtUtc": "2026-11-13T22:18:03Z",
+      "name": "BRAIN Academy",
+      "primaryEvidence": [
+        "https://brainacademy.bg/robots.txt",
+        "https://brainacademy.bg/courses/music-for-kids/",
+        "https://brainacademy.bg/contacts/",
+        "https://brainacademy.bg/общи-условия/"
+      ],
+      "notes": "Genuinemusiccourseownselectedform/phoneBregalnitsa52, fullterms+contactread. Textsinglelesson25BGN/12.78EUR, monthly150BGN/76.69EUR; samecourseSidebarPrice150EURnotexplicitmonthly, ambiguousselectedscope. Rootrequiresholdratherthanassumesidebarpackage orunpublished; nofeesconverted/inserted. Courseafter15:30/open-ended vsgeneralchildcarehoursnotteachinghours. Noforms/customerdata/media."
+    },
+    {
+      "order": 27,
+      "status": "pending_branch_scope_or_address",
+      "checkedAtUtc": "2026-11-13T22:20:26Z",
+      "name": "Фолклорика remaining branches and singing",
+      "primaryEvidence": [
+        "https://www.folklorika.com/adults.html",
+        "https://www.folklorika.com/contacts.html",
+        "https://www.folklorika.com/individual.html",
+        "https://www.folklorika.com/folk_singing.html",
+        "https://www.folklorika.com/schedule_singing.html",
+        "https://www.folklorika.com/schedule_adults_gerena.html",
+        "https://www.folklorika.com/schedule_adults_OKI_nadejda.html",
+        "https://www.folklorika.com/schedule_adults_serdika.html"
+      ],
+      "notes": "GerenaadultspageVladimirVazov2 vsowncontacts+Sep2026schedule8 addressconflict, held. OKILomsko2onlylevels4/6 andSerdikaGyueshevo50onlylevel3; genericbeginnerBookCTA notboundtoselectedadvancedclass. Commonindividual-allbranchesstatementnotbranch-level Bookevidence, rootHOLD. Vocaltimetable2016/17Madren27 notcurrent2026offer. Noinactiveoldvenues/countsadded; fullcurrentadultspagedistinguishesretiredUASG/Universiada/Vitosha/Lyulin/Dianabad/Lozenets/Ovcha/ZonaB/Akademik explicitly."
+    },
+    {
+      "order": 28,
+      "status": "pending_current_private_lesson_venue",
+      "checkedAtUtc": "2026-11-13T22:18:03Z",
+      "name": "НЧ Надка Караджова 2012",
+      "primaryEvidence": [
+        "https://www.nadkakaradjova.com/robots.txt",
+        "https://www.nadkakaradjova.com/shkoli-i-kursove1",
+        "https://www.nadkakaradjova.com/contacts",
+        "https://www.nadkakaradjova.com/narodno-peene"
+      ],
+      "notes": "Fullpublicownselectedprivatevocalpage normalHTTPSaftercachemiss: phone0896705124/byagreement andchoiraddressChehov16A; oldgenericshkolipageNadya0886359344/TodorKableshkov52 differsfromcurrentcontact. Specificlocationwordingischoirnotexplicitprivate lessonroom; do notassumeprivatevenue/copyoldteacherasnewoperator. No private/studentfields/newsletter/Mapswrites. RobotsordinarypublicallowedbutAPI/json/account/searchprohibitednoneaccessed."
+    },
+    {
+      "order": 29,
+      "status": "pending_current_terms_and_actual_booking_flow_js",
+      "checkedAtUtc": "2026-11-13T22:20:26Z",
+      "name": "Inky Dragon / easybook.bg",
+      "primaryEvidence": [
+        "https://easybook.bg/robots.txt",
+        "https://easybook.bg/",
+        "https://easybook.bg/page/terms"
+      ],
+      "notes": "Ownmerchantsearchleadnotreservedroot. Termsfirst:robotspublicAllowexceptobjectIdqueries; ordinaryroot/termspage readerandnormalHTTP onlyJSshell/noactualfullcurrentterms. Searchindexedtermsnotcompleteactualreview; no merchantmenu/subsequentproviderrequests/API/UIattempt. Holdcurrentterms/renderedflow, notunpublished; no fees/identityacceptedfromsearchonly."
+    },
+    {
+      "order": 30,
+      "status": "included",
+      "checkedAtUtc": "2026-11-13T22:25:59Z",
+      "id": "sofia-orbis-evlogi-georgievi68",
+      "primaryEvidence": [
+        "https://orbis-school.com/robots.txt",
+        "https://orbis-school.com/",
+        "https://orbis-school.com/CELI.c153",
+        "https://orbis-school.com/Kontakti.c131",
+        "https://orbis-school.com/bg/Grafik.c161",
+        "https://orbis-school.com/Za-nas.c34"
+      ],
+      "notes": "ActualselectedindividualCELI/CILSphoneBook0898714456 beforeoffer/feecheck. Private40or60minoptions nonumericfee, strictunpublishedselectedreceipt; actualcurrentgrouptariffs217/250/255EUR/course withmin4/materialsextra notprivatevisitfees. No datedgroupoffer added. Exact68 owncontact; teachinghoursMonFri09:30–20:30/SatSun10–17explicitdistinctenrollmentoffice09:30–18. Noexamfee/resultclaim, sourcedexcerptonly, no sourceprose/graphics."
+    },
+    {
+      "order": 31,
+      "status": "included",
+      "checkedAtUtc": "2026-11-13T22:27:40Z",
+      "ids": [
+        "sofia-max-international-terter10",
+        "sofia-max-international-mladost3-block323",
+        "sofia-max-international-lyulin-petar-bonev4"
+      ],
+      "primaryEvidence": [
+        "https://maxinternational.bg/robots.txt",
+        "https://maxinternational.bg/",
+        "https://maxinternational.bg/ezikovo-obuchenie/individualno-ezikowo-obuchenie/",
+        "https://maxinternational.bg/kontakti/",
+        "https://maxinternational.bg/ezikovo-obuchenie/ezikovo-obuchenie-za-vuzrastni/angliiski-ezik/"
+      ],
+      "notes": "Actualselectedindividualpage explicitlylists3namedSofiateachingvenues beneathservice-specificteachinglocationheading; owncontacts corroboratesphysicalclassrooms, notfooteronlyaliases. Realfullyvisibleownedselectedlanguage/level/preferredtime/name/email/phoneform, nofields/submission. Ownpage explicitlylanguage/teacher/availabilitydetermineschosenvenue, publicdescriptionpreservesthisandnoinstantavailability. Rootconditionalbranchruleappliedtothisexactservicelevelbinding, notcloningbyquarter. Entireselectedindividual/EnglishFAQ/form/root/contact/footerreviewed; no individualfee/duration/hours numeric. Deposit50–100EURcreditedtowardcourse and EnglishWine120EUR4monthlyvisits/95currentstudents DIFFERENToffers, notprivatefee. GenericheaderBooktemplate readerrobotscheckerror documentedbelow, no retry/bypass; independentselectedserviceform fullyvisible, notactualblockedprice menu mislabelledunpublished."
+    },
+    {
+      "order": 32,
+      "status": "pending_exact_teaching_venue",
+      "checkedAtUtc": "2026-11-13T22:29:29Z",
+      "name": "Кеймбридж Център",
+      "primaryEvidence": [
+        "https://cambridge-centre.eu/robots.txt",
+        "https://cambridge-centre.eu/",
+        "https://cambridge-centre.eu/контакти/",
+        "https://cambridge-centre.eu/график-софия-стартиращи-обучения/",
+        "https://cambridge-centre.eu/за-нас/"
+      ],
+      "notes": "Robotsfirstpublicallowedexcludestechnicalpathsnoneaccessed. Owncurrentcontact phone0895622475/0878677344explicitcallforenrollment but onlycitylist/noactualSofiateachingstreetaddress, administrativecontacthours09–18notlessons. Sofiafullschedulebody notcompletelyreviewedandAboutreadertimeout notretried; no inventedpremise oractualtariffabsenceclaim. PotentialoverlappingInterAllianceoperatorneedsfurtheridentityreviewbeforeanycount."
+    },
+    {
+      "order": 33,
+      "status": "pending_exact_teaching_venue",
+      "checkedAtUtc": "2026-11-13T22:29:29Z",
+      "name": "Интер Алианс",
+      "primaryEvidence": [
+        "https://www.interalliance.bg/robots.txt",
+        "https://www.interalliance.bg/",
+        "https://www.interalliance.bg/запиши-се-за-курс/",
+        "https://www.interalliance.bg/контакти/"
+      ],
+      "notes": "Robotsfirstpublicallowed. Actualcurrentownformrequestbinding+callback/confirmation explicit;5percentconditionaldiscountnotcomputed/imported. Owncurrentcontact andformonlycitylist withnoactualSofiateachingstreetvenue. Administration7days09–18notlessons. No guessedaddress orcitywideeducationservicearea substitute. PotentialrelatedCambridgephonesranges/structuredoNOTproveidentitybythemselves; held pending actualpremise/operator/servicefeechecks."
+    },
+    {
+      "order": 34,
+      "status": "rejected_duplicates",
+      "checkedAtUtc": "2026-11-13T22:29:29Z",
+      "name": "Additional education prospect duplicates",
+      "primaryEvidence": [
+        "https://daga.karnolsky.eu/",
+        "https://www.musicart-center.com/",
+        "https://mymusic.center/",
+        "https://avartonmusic.com/",
+        "https://po-noti.com/",
+        "https://inacademy.bg/",
+        "https://abilityschool.eu/bg/",
+        "https://elpida.bg/",
+        "https://universum.bg/",
+        "https://www.kursovete-bg.com/",
+        "https://innovationcenter.bg/"
+      ],
+      "notes": "RuntimeSOFIA+all2000host/phone checks returnedexistingmerchantbeforedeepreviews; ownDagarobots wasread inparallelwithdeduperesult, notnewserviceverification. No newrows/staff/nearbyvenueclones, citedURLs are prospectidentifiers notclaimsfullpagesreviewed."
+    },
+    {
+      "order": 35,
+      "status": "pending_actual_header_template_only",
+      "checkedAtUtc": "2026-11-13T22:29:29Z",
+      "name": "Max International generic header template",
+      "primaryEvidence": [
+        "https://maxinternational.bg/blog/znpb_template_mngr/zaqvi-kurs/"
+      ],
+      "notes": "ActualgenericheaderBookreaderfailedcheckingrobots. No normalHTTPSretry/alternate/API/asset/UIworkaroundforthisURL. Thisunreviewedtemplateisheld, not assertedreviewed/noprice. The independentlylinked selectedindividualcourseURL itselfcontainsfullyreadable realnamedform andownphoneenrollment, so included3rowsbindONLYthatreviewedselectedform andexplicitservicevenuelist. Not a tariff-menuabsenceclaim."
+    }
+  ],
+  "checkedAtUtc": "2026-11-13T22:29:29Z",
+  "safety": {
+    "externalWrites": 0,
+    "reservationsSubmitted": 0,
+    "customerFieldsEntered": 0,
+    "consentsAccepted": 0,
+    "phoneCalls": 0,
+    "geocodingRequests": 0,
+    "googleMapsRequests": 0,
+    "providerPrivateApiRequests": 0,
+    "actionUrlsRequested": false,
+    "uiAttemptedInThisBatch": false,
+    "sourceAccess": "ordinary public reader/HTTPS HTML only, robots first for new deep reviews; explicit restrictions/blocks held without bypass. No source images/ratings/reviews/client cases imported.",
+    "dateConvention": "UTCcheckedOn2026-11-13; Sofia localdate2026-11-14. checkedAtUtc completion timestamps, appointmenthoursEurope/Sofia."
+  },
+  "validation": {
+    "checkedAtUtc": "2026-11-13T22:29:29Z",
+    "schemaApprovalAndPricingReceipts": "11/11 passed with ephemeral in-memory pricingIdentity only; nine service_reviewed/not_publicly_listed, two reviewed sourced fees (including one explicitlyfreeconsultation). No sharedidentity fingerprints changed.",
+    "runtimeAndWipDedupe": {
+      "existingUnionExcludingThisModule": 1505,
+      "ready": 11,
+      "pending": 0,
+      "rejected": 0,
+      "method": "ActualSOFIA_CATALOGUE plus allother2000intake modules, auditCatalogueBatch ownerhost/phone/streetidentity; newexactcontactphones independently compared. Intentional Folklorika3 andMax3 sharedchainphones at separatelydocumentedrealclassrooms."
+    },
+    "parentOwnsFullSuiteAndBuild": true,
+    "focusedTests": "node --test tests/catalogue-pricing-review.test.mjs tests/catalogue-onboarding.test.mjs:25/25PASS. No fullsuite/build run by intake agent while root integrates sharedfiles."
+  },
+  "photoReview": {
+    "checkedOn": "2026-11-13",
+    "method": "serviceThumbnail+catalogueServicePhotoFields all11services, sixneutral before exactmaps. Read-onlyview_image inspected actualreviewed dental/language/socket/tattooconsult/folkgroup and all3existingceramicclass variants. No sharededits.",
+    "existingSuggestions": [
+      [
+        "sofia-nestor-notov-neru28",
+        "health",
+        "Дентален преглед и консултация",
+        "dental-exam"
+      ],
+      [
+        "sofia-faza-home-electrical",
+        "home_services",
+        "Смяна на един контакт или ключ в здрава кутия",
+        "sx-home-switch-socket-install"
+      ],
+      [
+        "sofia-magic-needle-gladstone20",
+        "other",
+        "Предварителна консултация за татуировка · 18+",
+        "sx-tattoo-consult"
+      ],
+      [
+        "sofia-folklorika-druzhba2-block330",
+        "education",
+        "Групови уроци по народни танци за възрастни · ниво 1",
+        "sx-bulgarian-folk-group"
+      ],
+      [
+        "sofia-folklorika-nadezhda-lomsko73",
+        "education",
+        "Групови уроци по народни танци за възрастни · начинаещи",
+        "sx-bulgarian-folk-group"
+      ],
+      [
+        "sofia-folklorika-slatina-geo-milev136",
+        "education",
+        "Групови уроци по народни танци за възрастни · начинаещи",
+        "sx-bulgarian-folk-group"
+      ],
+      [
+        "sofia-orbis-evlogi-georgievi68",
+        "education",
+        "Индивидуална подготовка по италиански за CELI/CILS",
+        "language-lesson"
+      ],
+      [
+        "sofia-max-international-terter10",
+        "education",
+        "Индивидуално езиково обучение",
+        "language-lesson"
+      ],
+      [
+        "sofia-max-international-mladost3-block323",
+        "education",
+        "Индивидуално езиково обучение",
+        "language-lesson"
+      ],
+      [
+        "sofia-max-international-lyulin-petar-bonev4",
+        "education",
+        "Индивидуално езиково обучение",
+        "language-lesson"
+      ]
+    ],
+    "newImageGaps": [
+      {
+        "id": "sofia-glinity-hadjikonstantinov88",
+        "category": "education",
+        "serviceName": "Творческа сесия за рисуване на керамика за възрастни",
+        "need": "Adultguidedpaintingonreadyceramicmug/bowl withbrush/ceramicpaint, notwetclayshaping/potterywheel. Existingceramics-class/sx-adult-ceramics-group/sx-ceramics-age-choice visiblysculptclay, so misleadingforselectedpaintingservice. Originalgenericcropnobusinesslogos/copiedpatterns/venueclaim."
+      }
+    ]
+  }
+}

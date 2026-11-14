@@ -1,0 +1,46 @@
+{
+  "checkedOn": "2026-11-13",
+  "status": "frozen_imported_local_not_published",
+  "sourceModule": "lib/discovery/catalogue-data/neighborhood-photography-2000-001-20261113.mjs",
+  "sourcePolicy": "Actual owner Book entry first, full selected package menu and precise Contact next. Only minimal independently phrased facts; no owner/customer photos, logos, expressive prose or testimonials copied. No booking, form submission, calls, customer details or maps opened.",
+  "reviewed": [
+    {
+      "id": "sofia-yordanka-atanasova-smolyanska2",
+      "status": "duplicate_not_added",
+      "existingId": "sofia-yordanka-atanasova-portrait-lagera",
+      "booking": "https://yordankaatanasova.com/contacts.php",
+      "prices": "https://yordankaatanasova.com/prices.php",
+      "otherReviewedSources": ["https://yordankaatanasova.com/", "https://yordankaatanasova.com/faq.php", "https://yordankaatanasova.com/terms.php"],
+      "findings": "Three actual complete-session packages95EUR/60min/1edited,170EUR/120min/6edited,280EUR/240min/12edited. Separate shooting/selection times, extra15EUR/frame, optional60EURmakeup and no-raw-file condition distinguished; makeup/additional-frame charges not separate appointments. Actual Book reaches full own enquiry form; contact expressly appointment-only studioSmolyanska2Lagеra/0895931421. No generic business hours inferred. Standard authored text/design/photo copyright, no broad extraction/database prohibition found in fully reviewed own Terms. No source artwork copied."
+    },
+    {
+      "id": "sofia-vladimir-kadankov-tsaribrodska85",
+      "status": "source_complete_imported_local",
+      "bookingAndPrices": "https://kadankov.com/kadankov/%D0%BF%D1%80%D0%BE%D1%84%D0%B5%D1%81%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D0%BD%D0%B0-%D1%84%D0%BE%D1%82%D0%BE%D1%81%D0%B5%D1%81%D0%B8%D1%8F/",
+      "contact": "https://kadankov.com/kadankov/portfolio/",
+      "home": "https://kadankov.com/kadankov/",
+      "findings": "Actual selected session page includes explicit appointment phone0886106403. Full service description read; current ordinary liveHTTPS200 paragraph independently confirms150EUR for2h, unlike11-month-old reader cache200BGN.20–30editedframes remains range. Own Contact gives real studioTsaribrodska85 inSofia; no quarter, opening hours, extra mobile premises or current availability invented. No separate terms link found in actual public menu/footer; no general permission claimed. Source photo/social embeds not copied or requested."
+    }
+  ],
+  "pending": [
+    {
+      "name": "Bella's Photography",
+      "website": "https://bellas.bg/",
+      "status": "held_actual_current_price_menu",
+      "sources": ["https://bellas.bg/uslugi/biznes-portreti/", "https://bellas.bg/contacts/", "https://bellas.bg/general-terms/"],
+      "reason": "Own actual Book telephone0890517980 and exactManastirskiLivadi block15A confirmed. Reader actual business-portrait Prices section is empty while search exposes oldBGNpackages; not relabelled unpublished or assumed current. Current rendered menu/terms still needs review before inclusion. No numeric block entrance guessed."
+    },
+    {
+      "name": "Fantasia Photography",
+      "website": "https://fantasiaphotography.mypixieset.com/",
+      "status": "rejected_outside_sofia_city_scope",
+      "sources": ["https://fantasiaphotography.mypixieset.com/price/", "https://fantasiaphotography.mypixieset.com/contact/"],
+      "reason": "Complete actual Book/Contact now read: real studioTsarBorisIII20 inKazichane, a separate settlement rather thanSofia68134. Do not relabel the studio asSofia or invent aSofia mobile base from a generic outdoor service. Actual prices exist but do not override the city scope."
+    }
+  ],
+  "duplicatesNotAdded": [
+    { "website": "https://studiolife.bg/", "existingId": "sofia-studiolife-dimitar-dobrev8" },
+    { "website": "https://ivanatodorova.com/", "reason": "Already in published education-photo-more intake." },
+    { "website": "https://sweetbabymoments.com/", "reason": "Already in photography-owned-v1 intake." }
+  ]
+}

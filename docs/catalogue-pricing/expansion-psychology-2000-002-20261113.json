@@ -1,0 +1,18 @@
+{
+  "rootIntegrationReview": {"checkedAtUtc":"2026-11-14T02:53:05.079Z","note":"RootownfreshnativefullBook/Services/selectedconsultation/actualconsultationFAQ/Terms/Privacy. Actualofficeappointment phonepath; freephoneintro notwholefreephysicalsession, no numericfee genuinelylisted. Variable60–80/60–90/initial90 contexts notflattened into fixedminutes. Range17–21/AppleCentralOfficepoint/oldPrivacyadminmetadata notguessedprecisevenue; coordinatesnull. Adultcounsellingassetpersonallyviewed, no copiedtherapyadvice/outcomes orproductionwrites.","identity":"Only newlyreviewednormalizedinventoryidentitiesassigned; existingbaseline/pricereviewfingerprintsuntouched; originalfreeze/sourceobservationdatespreserved."},
+  "checkedOn": "2026-11-14",
+  "status": "source_complete_not_integrated",
+  "records": 1,
+  "services": 1,
+  "pricedServices": 0,
+  "sourceModule": "lib/discovery/catalogue-data/neighborhood-psychology-2000-002-20261113.mjs",
+  "included": [{
+    "id": "sofia-existea-magdalina-altavanska",
+    "method": "Root full native ordinary public HTTP200 actual Book, selected service, Servicesindex, FAQindex plus realconsultationFAQ, linked Terms and entire Privacy.",
+    "sourceContext": "OneSofia privatepsychologypractice896778319 atNikolaVaptsarov17–21, explicitphoneofficebooking; pricesgenuinelyunpublished forselectedconsultation. Freeintro notwholefreeappointment; variable60–80/60–90/general and90initial contexts do not establish one fixed duration.",
+    "locationLimit": "Addressrange preserved andcoordinatesnull. GenericAppleMapsCentralOffice link not accepted as boundpoint/notopened. Privacyregistered/adminaddress andoldlandline NOT currentclinic oranotherbranch.",
+    "sourceUse": "FullTerms ordinarydisclaimer; fullPrivacyordinaryGDPR withtechnical-services/template/adminmetadata noted, no blanketreusepermission claimed; no clinicalprose/testimonials/photos/clientrecords copied."
+  }],
+  "photoRecommendation": ["sofia-existea-magdalina-altavanska", "other", "Индивидуална психологическа консултация на живо", "psychology-consultation"],
+  "limits": "No appointments, calls, forms, patientdata, medication/advice, clinicaloutcomes, Maps/Nominatim, production, account orsettingswrites. No count untilrootintegrationgates."
+}

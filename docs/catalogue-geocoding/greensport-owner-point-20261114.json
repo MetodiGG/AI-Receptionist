@@ -1,0 +1,22 @@
+{
+  "checkedOn": "2026-11-14",
+  "checkedAtUtc": "2026-11-14T01:11:02.659Z",
+  "id": "sofia-greensport-minifootball-geomilev158",
+  "status": "approved_owner_published_destination_not_google_scrape",
+  "source": "https://greensportbg.com/contacts",
+  "sourceAddress": "София, ул. Гео Милев 158, ВТУ „Тодор Каблешков“",
+  "acceptedPoint": {
+    "latitude": 42.6767565,
+    "longitude": 23.3805799
+  },
+  "literalOwnerHrefMarker": "!8m2!3d42.6767565!4d23.3805799",
+  "rejectedViewport": {
+    "latitude": 42.690619,
+    "longitude": 23.3132929
+  },
+  "receipt": "RootpersonallyreadownContacts completepublicnativecontent andordinaryownHTMLactualnamedGreenSportplacehref. Businessitselfpublishesdestinationmarker3d/4d, distinctfromURL@viewport. NoGoogleMapsrequest/search/API/geocoding/clientGPSused. Threepostalrows atGeoMilev158ambiguous/collegecampus, nonechosen. Ownercomplexdestinationnotexactpitch/entranceclaim. Sourceaddressbindingfailsclosedafteraddressedit. Coordinatesoutsidepricingidentity, so existingnormalizedserviceidentityunchanged.",
+  "limitations": [
+    "Onecomplexbusinessonly; nofield/restaurantclones.",
+    "SourcepublishednamedcomplexdestinationnotindependentfieldGPSsurvey."
+  ]
+}

@@ -1,0 +1,4057 @@
+{
+  "checkedOn": "2026-11-13",
+  "checkedAtUtc": "2026-11-13T23:40:54Z",
+  "reviewLocalDate": "2026-11-14",
+  "method": "Local-only static inventory of all admitted *2000*.mjs records, selected booking/price/duration/evidence URLs and provider mentions. No network during inventory audit. A URL mention alone does not establish provider-dependent fees or an imported calendar.",
+  "runtimeSnapshotCount": 1544,
+  "allFormOrProviderMentionRows": 180,
+  "externalOrKnownPlatformRows": 81,
+  "corporateTermsReview": {
+    "checkedOn": "2026-11-13",
+    "completedAtUtc": "2026-11-13T23:53:38Z",
+    "reviewLocalDate": "2026-11-14",
+    "scope": "Official corporate robots/legal pages only. No new merchant, service-menu, availability or calendar requests. Existing Fresha, Setmore, Mylink and Reservation.studio stops preserved; their endpoints were not revisited. Corporate robots do not automatically describe merchant/custom-host robots. Findings are operational source-review decisions, not legal clearance or legal advice.",
+    "providers": [
+      {
+        "provider": "Notino",
+        "status": "reviewed_application_booking_terms_no_explicit_extraction_ban_found_merchant_access_still_stopped",
+        "robots": {
+          "url": "https://www.notino.bg/robots.txt",
+          "httpStatus": 200,
+          "finding": "General agent restrictions include query salon paths, account/order/cart/checkout and API routes. Neither checked legal path is disallowed. Prior merchant challenge remains a separate stop; no merchant request was made."
+        },
+        "legalPages": [
+          {
+            "url": "https://www.notino.bg/obshti-uslovia/",
+            "status": "reviewed_retail_scope",
+            "sections": ["1 introductory scope"],
+            "finding": "Retail goods-purchase terms are not sufficient to clear salon data reuse."
+          },
+          {
+            "url": "https://www.notino.bg/uslovija-za-izpolzvane-na-prilozhenieto-i-za-rezervacija-na-uslugi/",
+            "status": "reviewed_complete_booking_terms_body",
+            "sections": ["application and independent-partner scope", "booking conditions 1–11"],
+            "finding": "Application includes partner discovery and bookings; partners supply listing information independently. Condition 4 makes merchant prices indicative and complexity-dependent. No explicit robot, extraction, commercial-fact-reuse or database prohibition found in this checked booking-terms body. Separate partner agreements are mentioned but not reviewed; no permission or exhaustive platform-wide clearance inferred."
+          }
+        ],
+        "affectedInventory": {
+          "referencedRecords": 55,
+          "feeDependentRecords": 50,
+          "selectedBookingTargets": 2,
+          "recordIdsReference": "rows filtered by providerTags containing notino.bg"
+        },
+        "decision": "No newly proven blanket ban from these documents. Keep current no-new-merchant-access stop and parent review; prior receipts are not relabelled prohibited solely because a later challenge occurred."
+      },
+      {
+        "provider": "Goldie",
+        "status": "reviewed_restrictions_and_unresolved_merchant_content_scope_recommend_hold",
+        "robots": {
+          "url": "https://heygoldie.com/robots.txt",
+          "httpStatus": 200,
+          "finding": "Corporate file lists a sitemap without Disallow. Merchant-host robots were not requested."
+        },
+        "legalPages": [
+          {
+            "url": "https://heygoldie.com/terms-conditions",
+            "status": "reviewed_scope_use_and_content_clauses",
+            "publishedRevision": "July 2026",
+            "sections": ["2 definitions", "6 and 6.1.1 use", "11 Company Content", "12 trademarks"],
+            "finding": "Site includes affiliated subdomains and appointment scheduling. Section 6 limits use to internal purposes. Section 6.1.1 restricts disruptive/interfering use including unauthorized automation; this is not described here as an unconditional ban on every bot read. Section 11 broadly defines Company Content as content/materials/text/other information on Site or Services belonging to Company or licensors and restricts manual/automated copying without writing. No separately defined User/Customer Content exclusion found. Section 6 disclaims control over merchant content but does not expressly carve it out of section 11. Factual-fee scope remains unresolved."
+          }
+        ],
+        "affectedInventory": {
+          "recordIds": ["sofia-newlook-parchevich22a"],
+          "dependency": "Selected form and all three current fee/duration sources are Goldie merchant checkout; Notino mention is not independent current fee proof."
+        },
+        "decision": "Recommend hold source-dependent NewLook until independent permitted owner source or permission. No merchant revisit or assumption that merchant ownership grants an extraction licence."
+      },
+      {
+        "provider": "Altegio / Alteg.io",
+        "status": "reviewed_client_exception_and_license_database_restriction_scope_unresolved",
+        "robots": {
+          "url": "https://alteg.io/robots.txt",
+          "redirectFrom": "https://altegio.com/robots.txt",
+          "httpStatus": 200,
+          "finding": "Corporate robots disallows root /info/ and a specific /en/info/privacy-policy-and-terms-of-use path; the reviewed /en/info/terms/ and /en/info/license/ paths are not matched by those rules. No merchant requests."
+        },
+        "legalPages": [
+          {
+            "url": "https://alteg.io/en/info/terms/",
+            "status": "reviewed_scope_and_restrictions",
+            "publishedRevision": "2025-01-11 as displayed on document",
+            "sections": ["1.1.2 platform", "1.1.4 website", "2 agreement/client exception", "3 rights", "5 restrictions"],
+            "finding": "Website explicitly includes alteg.io and altegio.com subdomains. Public browsing can form agreement; public Tools used by Clients for booking/purchasing are expressly excepted in section 2.3. Catalogue research is not itself an appointment, so applicability of that exception is not assumed. Reviewed TOS restricts platform copying, security bypass and disruption, with no explicit scraping prohibition found."
+          },
+          {
+            "url": "https://alteg.io/en/info/license/",
+            "status": "reviewed_licensee_scope_and_database_clause",
+            "publishedRevision": "2025-01-11 as displayed on document",
+            "sections": ["1 definitions", "2 scope", "3 mandatory documents", "4.5 product use", "5 client data"],
+            "finding": "Licensee agreement section 4.5.3 prohibits creating own databases/information systems using Products. This is a Licensee restriction, not automatically an explicit public-client fact-reading ban. Product-specific documentation and all associated agreements not exhaustively reviewed."
+          }
+        ],
+        "affectedInventory": {"recordIds": ["sofia-nails-security-darwin"], "intake": "neighborhood-beauty-2000-001-20261113.mjs", "dependency": "Selected form and three fee/duration source URLs currently use Alteg. However frozen review independently read own https://www.nailssecurity.com/pricing and recorded matching Top35/Pro40/Japanese30EUR. Owner https://www.nailssecurity.com/terms booking excerpt explicitly preserves online, PHONE or Instagram booking. Durations came only from calendar. Initial audit missed the separate verification excerpt; this correction is based on the complete local module+ledger, not a new merchant request."},
+        "decision": "Unresolved Alteg scope, not a universal public extraction ban. Independent own phone+fees can support a parent-reviewed rebind without Alteg-derived durations; parent is rechecking only permitted own sources. No frozen source changes or merchant request by this audit."
+      },
+      {
+        "provider": "EasyWeek",
+        "status": "reviewed_public_client_and_business_restrictions_recommend_hold",
+        "robots": {
+          "url": "https://easyweek.io/robots.txt",
+          "httpStatus": 200,
+          "finding": "Corporate robots explicitly allows several AI agents subject to disallowed API/account/payment/booking and technical paths; both reviewed corporate legal paths are allowed. Robots permission does not override contractual use restrictions. No merchant requests."
+        },
+        "legalPages": [
+          {
+            "url": "https://easyweek.io/business/terms-and-policies",
+            "status": "reviewed_business_scope_and_acceptable_use",
+            "publishedRevision": "2026-09-18",
+            "sections": ["1 Service/Customer definitions", "12 merchant data", "16 acceptable use"],
+            "finding": "Registered-business subscription agreement includes website builder, widgets and marketplace. Section 16 restricts scraping/crawling, competitive output incorporation and competitive analysis. Merchant ownership/licence to EasyWeek is not a licence to third-party catalogue use."
+          },
+          {
+            "url": "https://easyweek.io/terms",
+            "status": "reviewed_public_client_scope_and_acceptable_use",
+            "publishedRevision": "2026-05-15",
+            "sections": ["1 Service scope", "2 independent providers", "6 user content", "9 acceptable use", "10 intellectual property"],
+            "finding": "Separate public-client terms cover website, marketplace, client app and related EasyWeek-branded services/sites. Section 9 restricts scraping/spidering/crawling except express allowed limits and separately prohibits using Service to compete/build a competing product. No minimal-factual-merchant exception identified."
+          }
+        ],
+        "affectedInventory": {"recordIds": ["sofia-sibova-nails-cherni-vrah75"], "dependency": "Owner website is EasyWeek-hosted; all three fees/durations and selected form depend on EasyWeek booking."},
+        "decision": "Recommend hold Sibova pending independent permitted owner evidence or permission, despite corporate robots allowing AI agents."
+      },
+      {
+        "provider": "Studio24",
+        "status": "terms_access_blocked_stop_unknown_scope",
+        "robots": {"url": "https://studio24.bg/robots.txt", "httpStatus": 200, "finding": "Allow / with Disallow /booking/*. Legal path not disallowed; no merchant request made."},
+        "legalPages": [
+          {"url": "https://studio24.bg/usloviya-za-polzvane", "status": "blocked_http_403_stopped", "finding": "Official Bulgarian terms URL discovered in search. Direct legal-page request returned 403; no alternate language, cache or HTML route used to bypass. Search snippets are not a complete terms review."}
+        ],
+        "affectedInventory": {"recordIds": ["sofia-beauty-hub35-poligona"], "dependency": "Selected Studio24 booking iframe; fees/durations independently from owner beautyhub35.com/uslugi. Also see historical Studio24 mentions elsewhere in rows; a mention is not a fee dependency.", "localReceipt": "Frozen001 review followed own Book through https://beautyhub35.com/rezervaciya to actual Studio24 iframe; parent independently rendered real merchant menu before this corporate403. Own25/35/20EUR matched; short women duration conflict omitted, other60/30 agreed. No explicit independent voice-booking invitation preserved; contact phone alone is not such proof. Existing complete calendar receipt is not erased merely by a later blocked corporate legal page."},
+        "decision": "Unknown platform scope is not a proven ban or automatic price removal. Keep access stopped; if independently explicit owner phone booking is absent, recommend holding selected provider-form path until permitted source/owner review."
+      },
+      {
+        "provider": "Fitsys",
+        "status": "corporate_footer_privacy_reviewed_public_use_terms_not_found_scope_unknown",
+        "robots": {"url": "https://www.fitsys.com/robots.txt", "httpStatus": 200, "finding": "Corporate robots contains empty Disallow. This does not clear custom merchant hosts."},
+        "legalPages": [
+          {"url": "https://www.fitsys.com/privacy-policy/", "status": "reviewed_privacy_not_general_use_terms", "finding": "Corporate footer link labelled Общи условия resolves to this privacy policy. Reviewed page concerns application personal-data collection, processing, security and third-party links; no automation/database/commercial-fact restriction found in it. It is not a complete general-use agreement or licence to merchant facts. No independent public-use Terms URL found in bounded corporate footer/search review; absence is not established globally."}
+        ],
+        "affectedInventory": {
+          "confirmedTechnologyRecordIds": ["sofia-bb-care-bogdan15"],
+          "sameShapeCustomBookingRecordIds": ["sofia-nails-club-mladost1-51", "sofia-nails-club-mladost4-488", "sofia-nails-club-mladost3-belov26", "sofia-nails-club-gm-dimitrov30", "sofia-nails-club-druzhba2-602"],
+          "dependency": "BB Care receipt names Fitsys; five NailsClub actual owned calendars share reservation URL shape but vendor identity is not asserted solely from path. Those six selected calendars supply fees/durations. Additional owned yoga/reformer calendars are listed in rows without vendor inference."
+        },
+        "decision": "No newly discovered explicit prohibition in checked privacy document, but actual-use agreement remains unknown. No blanket clearing or retrospective restriction invented."
+      }
+    ],
+    "notReviewed": ["Merchant-specific terms/robots in this phase", "All product-specific incorporated documentation", "Notino partner contract terms", "Corporate legal documents for Google Forms, Calendly, Superdoc and SimplyBook; these remain separately identifiable in rows"],
+    "mutationBoundary": "Only this audit evidence file updated. Frozen intake modules/reviews, shared imports, IDs, prices and photo mappings were not edited; parent owns hold/removal decisions."
+  },
+  "knownRestrictions": [
+    {
+      "provider": "Setmore",
+      "status": "stop_new_requests_pending_permission_or_scope_resolution",
+      "termsUrl": "https://www.setmore.com/terms",
+      "finding": "Already-read Terms: broad Site domain-content/functionality definition, commercial-use restriction and prior-written-permission linking restriction; later copyright paragraph says personal/commercial availability, unresolved internal conflict. No express merchant-calendar exemption found. Merchant ownership does not license third-party extraction. Artista and MensCave provider-dependent six services removed by parent while audit ran; remaining SBA historical URL only, independent owner phone/tariff."
+    },
+    {
+      "provider": "Fresha/freshasite",
+      "status": "stop_new_requests",
+      "termsUrl": "https://terms.fresha.com/terms-use",
+      "finding": "Already-read explicit automation/scraping/systematic electronic database restrictions; Site extends affiliated sites owned/operated by Fresha. freshasite.com not expressly named, no merchant exemption found; ownership/scope uncertainty held conservatively. HairGarden/Sense removed by parent; remaining Padmalaya uses independent own phone/current tariff."
+    },
+    {
+      "provider": "Reservation.studio (including custom merchant hosts)",
+      "status": "stop_new_requests",
+      "termsUrl": "https://reservation.studio/bg/pages/terms",
+      "finding": "Already-read §8 explicit automated access/extraction without permission; no new requests. No selected current2000 form/fee URL uses provider after prior holds."
+    },
+    {
+      "provider": "Mylink",
+      "status": "stop_new_requests",
+      "finding": "Already-read §7 automatic extraction/scraping restriction; exact terms URL was not recovered in this local inventory and is not freshly verified here. Makeup source-dependent row removed earlier by parent, remaining mentions do not provide imported provider fees."
+    },
+    {
+      "provider": "Notino",
+      "status": "application_booking_terms_reviewed_no_explicit_extraction_ban_found_current_challenge_stop_merchant_requests",
+      "finding": "Prior manually reviewed merchant publicHTML/UI facts admitted before later access challenge. Corporate booking terms subsequently reviewed separately above; no explicit extraction ban found in that body, no permission inferred. Current stop-new-access is not itself a discovered Terms/database prohibition. Snapshot has 55 references,50fee dependencies,2 selected forms."
+    }
+  ],
+  "groups": [
+    {
+      "provider": "setmore.com",
+      "referenced": 1,
+      "feeDependent": 0,
+      "selectedBookingTarget": 0,
+      "independentOtherSource": [
+        "sofia-sba-mladost3-gtp"
+      ]
+    },
+    {
+      "provider": "notino.bg",
+      "referenced": 55,
+      "feeDependent": 50,
+      "selectedBookingTarget": 2,
+      "independentOtherSource": [
+        "sofia-newlook-parchevich22a",
+        "sofia-studio-m-haytov1",
+        "sofia-mc-studio-maragidik26",
+        "sofia-den-i-nosht-mogilite2a",
+        "sofia-miracle-barber-obikolna275"
+      ]
+    },
+    {
+      "provider": "heygoldie.com",
+      "referenced": 1,
+      "feeDependent": 1,
+      "selectedBookingTarget": 1,
+      "independentOtherSource": []
+    },
+    {
+      "provider": "alteg.io",
+      "referenced": 1,
+      "feeDependent": 1,
+      "selectedBookingTarget": 1,
+      "independentOtherSource": []
+    },
+    {
+      "provider": "easyweek.io",
+      "referenced": 1,
+      "feeDependent": 1,
+      "selectedBookingTarget": 1,
+      "independentOtherSource": []
+    },
+    {
+      "provider": "studio24.bg",
+      "referenced": 1,
+      "feeDependent": 0,
+      "selectedBookingTarget": 1,
+      "independentOtherSource": [
+        "sofia-beauty-hub35-poligona"
+      ]
+    },
+    {
+      "provider": "fresha.com",
+      "referenced": 1,
+      "feeDependent": 0,
+      "selectedBookingTarget": 0,
+      "independentOtherSource": [
+        "sofia-padmalaya-sedmochislenitsi9"
+      ]
+    },
+    {
+      "provider": "calendly.com",
+      "referenced": 1,
+      "feeDependent": 0,
+      "selectedBookingTarget": 1,
+      "independentOtherSource": []
+    },
+    {
+      "provider": "simplybook.it",
+      "referenced": 1,
+      "feeDependent": 0,
+      "selectedBookingTarget": 0,
+      "independentOtherSource": [
+        "sofia-dental-care-center-arsenalski2"
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "module": "neighborhood-auto-sport-2000-001-20261113.mjs",
+      "id": "sofia-auto-atelier-simeonovsko95",
+      "inRuntime": true,
+      "website": "https://auto-atelier.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://auto-atelier.bg/contact/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-001-20261113.mjs",
+      "id": "sofia-climbnsa-private-studentski-grad",
+      "inRuntime": true,
+      "website": "https://climbnsa.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://climbnsa.com/%D1%82%D0%B5%D1%81%D1%82/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://climbnsa.com/%D1%86%D0%B5%D0%BD%D0%B8-%D0%B8-%D0%B0%D0%B4%D1%80%D0%B5%D1%81/"
+      ],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-001-20261113.mjs",
+      "id": "sofia-ddauto-lyulin-dertliev57",
+      "inRuntime": true,
+      "website": "https://ddauto.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://ddauto.bg/contact-us/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://ddauto.bg/services/polirane-na-farove-pastirane-lakirane/"
+      ],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-001-20261113.mjs",
+      "id": "sofia-vaklinov-sin-orlandovtsi",
+      "inRuntime": true,
+      "website": "https://vaklinovsin.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://vaklinovsin.com/zapazvane/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://vaklinovsin.com/tseni/"
+      ],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-001-20261113.mjs",
+      "id": "sofia-calma-azul-tintyava84",
+      "inRuntime": true,
+      "website": "https://calmayogastudio.net/",
+      "booking": {
+        "kind": "form",
+        "url": "https://book.calmayogastudio.net/calendar/public?site_id=1"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://calmayogastudio.net/"
+      ],
+      "durationSources": [
+        "https://book.calmayogastudio.net/calendar/public?site_id=1"
+      ],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-001-20261113.mjs",
+      "id": "sofia-calma-verde-yana-yazova16",
+      "inRuntime": true,
+      "website": "https://calmayogastudio.net/",
+      "booking": {
+        "kind": "form",
+        "url": "https://book.calmayogastudio.net/calendar/public?site_id=2"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://calmayogastudio.net/"
+      ],
+      "durationSources": [
+        "https://book.calmayogastudio.net/calendar/public?site_id=2"
+      ],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-001-20261113.mjs",
+      "id": "sofia-carve-indoor-ski-kosta-lulchev52",
+      "inRuntime": true,
+      "website": "https://carve.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://carve.bg/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://carve.bg/ceni/"
+      ],
+      "durationSources": [
+        "https://carve.bg/ceni/"
+      ],
+      "serviceCount": 2,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-001-20261113.mjs",
+      "id": "sofia-automechanicgroup-gtp-slivnitsa102",
+      "inRuntime": true,
+      "website": "https://gtp.automechanicgroup.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://gtp.automechanicgroup.bg/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-001-20261113.mjs",
+      "id": "sofia-the-pilates-space-cherkovna3",
+      "inRuntime": true,
+      "website": "https://thepilatesspace.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://book.thepilatesspace.bg/calendar/public"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://thepilatesspace.bg/tsenorazpis/"
+      ],
+      "durationSources": [
+        "https://book.thepilatesspace.bg/calendar/public"
+      ],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-001-20261113.mjs",
+      "id": "sofia-the-core-reformer-terter24",
+      "inRuntime": true,
+      "website": "https://thecorereformer.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://book.thecorereformer.com/calendar/public"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://thecorereformer.com/"
+      ],
+      "durationSources": [
+        "https://book.thecorereformer.com/calendar/public"
+      ],
+      "serviceCount": 2,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-001-20261113.mjs",
+      "id": "sofia-sba-mladost3-gtp",
+      "inRuntime": true,
+      "website": "https://www.sba.bg/%D1%81%D0%B1%D0%B0-%D1%81%D0%BE%D1%84%D0%B8%D1%8F-%D0%BC%D0%BB%D0%B0%D0%B4%D0%BE%D1%81%D1%82",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359895558762"
+      },
+      "providerTags": [
+        "setmore.com"
+      ],
+      "technologyTags": [
+        "Setmore"
+      ],
+      "providerUrls": [
+        "https://d577.setmore.com/"
+      ],
+      "priceSources": [
+        "https://www.sba.bg/%D1%81%D0%B1%D0%B0-%D1%81%D0%BE%D1%84%D0%B8%D1%8F-%D0%BC%D0%BB%D0%B0%D0%B4%D0%BE%D1%81%D1%82"
+      ],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-002-20261113.mjs",
+      "id": "sofia-autoglass-kobra-voenna-rampa",
+      "inRuntime": true,
+      "website": "https://autoglasskobra.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://autoglasskobra.bg/zapazi-chas/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-002-20261113.mjs",
+      "id": "sofia-autoglass-kobra-mladost",
+      "inRuntime": true,
+      "website": "https://autoglasskobra.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://autoglasskobra.bg/zapazi-chas/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-002-20261113.mjs",
+      "id": "sofia-gayatri-yoga-kopernik21",
+      "inRuntime": true,
+      "website": "https://gayatriyogastudio.net/",
+      "booking": {
+        "kind": "form",
+        "url": "https://gayatriyogastudio.net/%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D0%BA/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://gayatriyogastudio.net/%D1%86%D0%B5%D0%BD%D0%B8/"
+      ],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-002-20261113.mjs",
+      "id": "sofia-racket-speed-akademik-school",
+      "inRuntime": true,
+      "website": "https://racketspeedbg.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://racketspeedbg.com/za-zapisvane/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://racketspeedbg.com/detska-shkola/"
+      ],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-002-20261113.mjs",
+      "id": "sofia-racket-speed-93su-geo-milev32",
+      "inRuntime": true,
+      "website": "https://racketspeedbg.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://racketspeedbg.com/za-zapisvane/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://racketspeedbg.com/detska-shkola/"
+      ],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-002-20261113.mjs",
+      "id": "sofia-racket-speed-chelopechene58",
+      "inRuntime": true,
+      "website": "https://racketspeedbg.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://racketspeedbg.com/za-zapisvane/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://racketspeedbg.com/detska-shkola/"
+      ],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-002-20261113.mjs",
+      "id": "sofia-skoda-nadezhda-han-kubrat27",
+      "inRuntime": true,
+      "website": "https://service.skoda-auto.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://service.skoda-auto.bg/sign-up-for-service"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-002-20261113.mjs",
+      "id": "sofia-skoda-druzhba-tsvetan-lazarov93",
+      "inRuntime": true,
+      "website": "https://service.skoda-auto.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://service.skoda-auto.bg/sign-up-for-service"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-003-20261113.mjs",
+      "id": "sofia-vk-tennis-academy-kliment4",
+      "inRuntime": true,
+      "website": "https://vktennisacademy.com/bg",
+      "booking": {
+        "kind": "form",
+        "url": "https://vktennisacademy.com/bg/calendar"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://vktennisacademy.com/bg/plans"
+      ],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-003-20261113.mjs",
+      "id": "sofia-nuage-pilates-teofil-ganev5a",
+      "inRuntime": true,
+      "website": "https://nuagepilateshouse.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://nuagepilateshouse.bg/grafik"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://nuagepilateshouse.bg/ceni"
+      ],
+      "durationSources": [
+        "https://nuagepilateshouse.bg/trenirovki"
+      ],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-004-20261113.mjs",
+      "id": "sofia-malkite-ribki-kiril-buyukliyski30",
+      "inRuntime": true,
+      "website": "https://malkiteribki.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://malkiteribki.com/zapisvane-detza/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://malkiteribki.com/za-detza/tzeni/"
+      ],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-004-20261113.mjs",
+      "id": "sofia-autodiag-gorublyane-deyan-popov10",
+      "inRuntime": true,
+      "website": "https://www.avtodiagnostika.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://www.avtodiagnostika.bg/avto-uslugi/obuchavane-i-programirane-na-tpms-datchici-za-gumi"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-004-20261113.mjs",
+      "id": "sofia-malinova-dolina-sport-kliment127g",
+      "inRuntime": true,
+      "website": "https://malinovasport.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://malinovasport.bg/kids_sport/tennis-school/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://malinovasport.bg/kids_sport/tennis-school/"
+      ],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-004-20261113.mjs",
+      "id": "sofia-das-auto-service-evropeyski-pat43",
+      "inRuntime": true,
+      "website": "https://dasautoservice.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://dasautoservice.com/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-004-20261113.mjs",
+      "id": "sofia-balansense-galichitsa33",
+      "inRuntime": true,
+      "website": "https://balansense.com/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359877012661"
+      },
+      "providerTags": [],
+      "technologyTags": [
+        "Fitsys"
+      ],
+      "providerUrls": [],
+      "priceSources": [
+        "https://balansense.com/czeni/"
+      ],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-005-20261113.mjs",
+      "id": "sofia-in-the-mood-liditse16",
+      "inRuntime": true,
+      "website": "https://www.danceinthemood.info/",
+      "booking": {
+        "kind": "form",
+        "url": "https://www.danceinthemood.info/timetable/event/bachata-sensual/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://www.danceinthemood.info/timetable/event/bachata-sensual/"
+      ],
+      "durationSources": [
+        "https://www.danceinthemood.info/timetable/event/bachata-sensual/"
+      ],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-005-20261113.mjs",
+      "id": "sofia-ritmo-studentski-yordan-yosifov8b",
+      "inRuntime": true,
+      "website": "https://ritmo.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://ritmo.bg/sign-up/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://ritmo.bg/sign-up/"
+      ],
+      "durationSources": [
+        "https://ritmo.bg/sign-up/"
+      ],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-005-20261113.mjs",
+      "id": "sofia-andtango-borovo-rodopski-izvor45b",
+      "inRuntime": true,
+      "website": "https://www.andtangosofia.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://docs.google.com/forms/d/e/1FAIpQLSeZLKDTok5rowPoyrFidoAdY3B-q2DWx75QlDue_W3-pizxWw/viewform?usp=send_form"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://docs.google.com/forms/d/e/1FAIpQLSeZLKDTok5rowPoyrFidoAdY3B-q2DWx75QlDue_W3-pizxWw/viewform?usp=send_form"
+      ],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "provider_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-005-20261113.mjs",
+      "id": "sofia-ot-izvora-buxton-vihren10",
+      "inRuntime": true,
+      "website": "https://www.bghora.com/bg",
+      "booking": {
+        "kind": "form",
+        "url": "https://www.bghora.com/bg/novi-grupi/71/bghora-nova-grupa-za-balgarski"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [
+        "https://www.bghora.com/bg/novi-grupi/71/bghora-nova-grupa-za-balgarski"
+      ],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-005-20261113.mjs",
+      "id": "sofia-ot-izvora-slavia-koloman7",
+      "inRuntime": true,
+      "website": "https://www.bghora.com/bg",
+      "booking": {
+        "kind": "form",
+        "url": "https://www.bghora.com/bg/novi-grupi/1/bghora-grupa-za-narodni-tantsi"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://www.bghora.com/bg/novi-grupi/1/bghora-grupa-za-narodni-tantsi"
+      ],
+      "durationSources": [
+        "https://www.bghora.com/bg/novi-grupi/1/bghora-grupa-za-narodni-tantsi"
+      ],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-006-20261113.mjs",
+      "id": "sofia-ot-izvora-voenna-han-omurtag42",
+      "inRuntime": true,
+      "website": "https://www.bghora.com/bg",
+      "booking": {
+        "kind": "form",
+        "url": "https://www.bghora.com/bg/novi-grupi/41/bghora-grupa-za-narodni-tantsi"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://www.bghora.com/bg/novi-grupi/41/bghora-grupa-za-narodni-tantsi"
+      ],
+      "durationSources": [
+        "https://www.bghora.com/bg/novi-grupi/41/bghora-grupa-za-narodni-tantsi"
+      ],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-006-20261113.mjs",
+      "id": "sofia-ot-izvora-lyulin-dobri-nemirov5",
+      "inRuntime": true,
+      "website": "https://www.bghora.com/bg",
+      "booking": {
+        "kind": "form",
+        "url": "https://www.bghora.com/bg/novi-grupi/11/bghora-grupa-za-narodni-tantsi"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://www.bghora.com/bg/novi-grupi/11/bghora-grupa-za-narodni-tantsi"
+      ],
+      "durationSources": [
+        "https://www.bghora.com/bg/novi-grupi/11/bghora-grupa-za-narodni-tantsi"
+      ],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-006-20261113.mjs",
+      "id": "sofia-ot-izvora-sveta-troitsa-velichkov12",
+      "inRuntime": true,
+      "website": "https://www.bghora.com/bg",
+      "booking": {
+        "kind": "form",
+        "url": "https://www.bghora.com/bg/novi-grupi/65/bghora-grupa-za-narodni-tantsi"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://www.bghora.com/bg/novi-grupi/65/bghora-grupa-za-narodni-tantsi"
+      ],
+      "durationSources": [
+        "https://www.bghora.com/bg/novi-grupi/65/bghora-grupa-za-narodni-tantsi"
+      ],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-006-20261113.mjs",
+      "id": "sofia-ot-izvora-ruski-20ti-april13",
+      "inRuntime": true,
+      "website": "https://www.bghora.com/bg",
+      "booking": {
+        "kind": "form",
+        "url": "https://www.bghora.com/bg/novi-grupi/31/bghora-grupa-za-narodni-tantsi"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://www.bghora.com/bg/novi-grupi/31/bghora-grupa-za-narodni-tantsi"
+      ],
+      "durationSources": [
+        "https://www.bghora.com/bg/novi-grupi/31/bghora-grupa-za-narodni-tantsi"
+      ],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-006-20261113.mjs",
+      "id": "sofia-salsa-diva-bulgaria43",
+      "inRuntime": true,
+      "website": "https://www.salsadiva.info/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359898305773"
+      },
+      "providerTags": [],
+      "technologyTags": [
+        "Mylink"
+      ],
+      "providerUrls": [],
+      "priceSources": [
+        "https://www.salsadiva.info/prices.php"
+      ],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-006-20261113.mjs",
+      "id": "sofia-salsa-diva-europa-liditse1",
+      "inRuntime": true,
+      "website": "https://www.salsadiva.info/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359898305773"
+      },
+      "providerTags": [],
+      "technologyTags": [
+        "Mylink"
+      ],
+      "providerUrls": [],
+      "priceSources": [
+        "https://www.salsadiva.info/prices.php"
+      ],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-006-20261113.mjs",
+      "id": "sofia-zhivo-chudo-buxton40",
+      "inRuntime": true,
+      "website": "https://zhivochudo.com/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359879092000"
+      },
+      "providerTags": [],
+      "technologyTags": [
+        "Mylink"
+      ],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-006-20261113.mjs",
+      "id": "sofia-swingin-monkeys-20ti-april13",
+      "inRuntime": true,
+      "website": "https://swinginmonkeys.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://swinginmonkeys.com/"
+      },
+      "providerTags": [],
+      "technologyTags": [
+        "Fresha",
+        "Mylink"
+      ],
+      "providerUrls": [],
+      "priceSources": [
+        "https://swinginmonkeys.com/swing-dancing-locations/"
+      ],
+      "durationSources": [
+        "https://swinginmonkeys.com/swing-dancing-locations/"
+      ],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-006-20261113.mjs",
+      "id": "sofia-swingin-monkeys-osogovo2",
+      "inRuntime": true,
+      "website": "https://swinginmonkeys.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://swinginmonkeys.com/"
+      },
+      "providerTags": [],
+      "technologyTags": [
+        "Fresha",
+        "Mylink"
+      ],
+      "providerUrls": [],
+      "priceSources": [
+        "https://swinginmonkeys.com/swing-dancing-locations/"
+      ],
+      "durationSources": [
+        "https://swinginmonkeys.com/swing-dancing-locations/"
+      ],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-007-20261113.mjs",
+      "id": "sofia-redline-speed-prepurchase-mobile",
+      "inRuntime": false,
+      "website": "https://redline-speed.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://redline-speed.com/ogled-predi-pokupka"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://redline-speed.com/ogled-predi-pokupka"
+      ],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-007-20261113.mjs",
+      "id": "sofia-dunev-motor-sport-asen-yordanov4",
+      "inRuntime": false,
+      "website": "https://www.dunevmotorsport-r21.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://www.dunevmotorsport-r21.com/kontakti/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://www.dunevmotorsport-r21.com/diagnostika-na-hodovata-chast-na-avtomobila/"
+      ],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-007-20261113.mjs",
+      "id": "sofia-sheve-dance-albert-long5",
+      "inRuntime": false,
+      "website": "https://sheve.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://sheve.bg/zapisvane/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://sheve.bg/zapisvane/"
+      ],
+      "durationSources": [
+        "https://sheve.bg/zapisvane/"
+      ],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-007-20261113.mjs",
+      "id": "sofia-gaitani-druzhba2-obikolna36",
+      "inRuntime": false,
+      "website": "https://www.gaitani.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://docs.google.com/forms/d/e/1FAIpQLScdBtt6gjIo8wfcwOQIg2cBF0mvbbjNO5pnT_4DGTET4Jpl3g/viewform?usp=send_form"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://docs.google.com/forms/d/e/1FAIpQLScdBtt6gjIo8wfcwOQIg2cBF0mvbbjNO5pnT_4DGTET4Jpl3g/viewform?usp=send_form"
+      ],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "provider_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-007-20261113.mjs",
+      "id": "sofia-gaitani-mladost3-bl334",
+      "inRuntime": false,
+      "website": "https://www.gaitani.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://docs.google.com/forms/d/e/1FAIpQLSe5N1elLdi8xPD_ynv_kOI5LOzD9JTJvEHqKpBXIKGxkpuGSw/viewform?usp=send_form"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://docs.google.com/forms/d/e/1FAIpQLSe5N1elLdi8xPD_ynv_kOI5LOzD9JTJvEHqKpBXIKGxkpuGSw/viewform?usp=send_form"
+      ],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "provider_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-007-20261113.mjs",
+      "id": "sofia-gaitani-lyulin-dertliev25",
+      "inRuntime": false,
+      "website": "https://www.gaitani.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://docs.google.com/forms/d/e/1FAIpQLSd4_CdXoiZsl3S077b3BwK1DMONsGluePGtx-8vn7LawVyRrg/viewform?usp=send_form"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://docs.google.com/forms/d/e/1FAIpQLSd4_CdXoiZsl3S077b3BwK1DMONsGluePGtx-8vn7LawVyRrg/viewform?usp=send_form"
+      ],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "provider_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-007-20261113.mjs",
+      "id": "sofia-gaitani-musagenitsa-belkovski1",
+      "inRuntime": false,
+      "website": "https://www.gaitani.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://docs.google.com/forms/d/e/1FAIpQLSeacgOb9p-8EuSzdr0Y3J1IB-e06TQJpeYCAPuWeRFhAp0_xw/viewform?usp=send_form"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://docs.google.com/forms/d/e/1FAIpQLSeacgOb9p-8EuSzdr0Y3J1IB-e06TQJpeYCAPuWeRFhAp0_xw/viewform?usp=send_form"
+      ],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "provider_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-007-20261113.mjs",
+      "id": "sofia-gaitani-studentski-yosifov1",
+      "inRuntime": false,
+      "website": "https://www.gaitani.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://docs.google.com/forms/d/e/1FAIpQLSfUdprlIAfom1BFSPgX6SalQRVi8zFMhfd0ngybUADogTIhRA/viewform?usp=send_form"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://docs.google.com/forms/d/e/1FAIpQLSfUdprlIAfom1BFSPgX6SalQRVi8zFMhfd0ngybUADogTIhRA/viewform?usp=send_form"
+      ],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "provider_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-007-20261113.mjs",
+      "id": "sofia-gaitani-lozenets-139ou",
+      "inRuntime": false,
+      "website": "https://www.gaitani.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://docs.google.com/forms/d/e/1FAIpQLSdDdkg9EaE675yLCJTZboCuH1Orwzm09Jdh1W0aj9dq58WmEQ/viewform?usp=send_form"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://docs.google.com/forms/d/e/1FAIpQLSdDdkg9EaE675yLCJTZboCuH1Orwzm09Jdh1W0aj9dq58WmEQ/viewform?usp=send_form"
+      ],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "provider_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-auto-sport-2000-008-20261113.mjs",
+      "id": "sofia-dggery-ovcha-kupel-lincoln",
+      "inRuntime": false,
+      "website": "https://avtoserviz-dggery.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://avtoserviz-dggery.com/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-001-20261113.mjs",
+      "id": "sofia-newlook-parchevich22a",
+      "inRuntime": true,
+      "website": "https://book.heygoldie.com/Newlook-Barbershop",
+      "booking": {
+        "kind": "form",
+        "url": "https://book.heygoldie.com/Newlook-Barbershop/checkout"
+      },
+      "providerTags": [
+        "notino.bg",
+        "heygoldie.com"
+      ],
+      "technologyTags": [
+        "Notino"
+      ],
+      "providerUrls": [
+        "https://book.heygoldie.com/Newlook-Barbershop",
+        "https://book.heygoldie.com/Newlook-Barbershop/checkout",
+        "https://www.notino.bg/saloni/new-look-barber-shop/"
+      ],
+      "priceSources": [
+        "https://book.heygoldie.com/Newlook-Barbershop/checkout"
+      ],
+      "durationSources": [
+        "https://book.heygoldie.com/Newlook-Barbershop/checkout"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-001-20261113.mjs",
+      "id": "sofia-sii-bello-tsar-ivan",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/sii-bello/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359889477470"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [
+        "Notino"
+      ],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/sii-bello/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/sii-bello/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/sii-bello/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-001-20261113.mjs",
+      "id": "sofia-innova-beauty-morava",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/innova-beauty/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359876334979"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/innova-beauty/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/innova-beauty/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/innova-beauty/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-001-20261113.mjs",
+      "id": "sofia-nails-security-darwin",
+      "inRuntime": true,
+      "website": "https://www.nailssecurity.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://n833990.alteg.io/company/778774/personal/menu?o="
+      },
+      "providerTags": [
+        "alteg.io"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://n833990.alteg.io/company/778774/personal/menu?o="
+      ],
+      "priceSources": [
+        "https://n833990.alteg.io/company/778774/personal/menu?o="
+      ],
+      "durationSources": [
+        "https://n833990.alteg.io/company/778774/personal/menu?o="
+      ],
+      "serviceCount": 3,
+      "reviewKind": "provider_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-001-20261113.mjs",
+      "id": "sofia-secrets-angels-hadzhikonstanginov",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/the-secrets-of-the-angels/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359888768687"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/the-secrets-of-the-angels/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/the-secrets-of-the-angels/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/the-secrets-of-the-angels/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-001-20261113.mjs",
+      "id": "sofia-sibova-nails-cherni-vrah75",
+      "inRuntime": true,
+      "website": "https://sibova-nails-studio.easyweek.io/",
+      "booking": {
+        "kind": "form",
+        "url": "https://booking.easyweek.io/sibova-nails"
+      },
+      "providerTags": [
+        "easyweek.io"
+      ],
+      "technologyTags": [
+        "EasyWeek"
+      ],
+      "providerUrls": [
+        "https://sibova-nails-studio.easyweek.io/",
+        "https://booking.easyweek.io/sibova-nails"
+      ],
+      "priceSources": [
+        "https://booking.easyweek.io/sibova-nails"
+      ],
+      "durationSources": [
+        "https://booking.easyweek.io/sibova-nails"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-001-20261113.mjs",
+      "id": "sofia-beauty-hub35-poligona",
+      "inRuntime": true,
+      "website": "https://beautyhub35.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://studio24.bg/studios/iframe/WTanUNyNCmZsMSDj"
+      },
+      "providerTags": [
+        "studio24.bg"
+      ],
+      "technologyTags": [
+        "Studio24"
+      ],
+      "providerUrls": [
+        "https://studio24.bg/studios/iframe/WTanUNyNCmZsMSDj",
+        "https://studio24.bg/beauty-hub-35-s8108/v139"
+      ],
+      "priceSources": [
+        "https://beautyhub35.com/uslugi"
+      ],
+      "durationSources": [
+        "https://beautyhub35.com/uslugi"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "provider_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-001-20261113.mjs",
+      "id": "sofia-studio-m-haytov1",
+      "inRuntime": true,
+      "website": "https://studiompremium.com/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359885145949"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/studio-m_8/"
+      ],
+      "priceSources": [
+        "https://studiompremium.com/services/"
+      ],
+      "durationSources": [],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-001-20261113.mjs",
+      "id": "sofia-beauty-studio-si-belchev50",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/beauty-studio-si/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359889201940"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [
+        "Studio24"
+      ],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/beauty-studio-si/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/beauty-studio-si/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/beauty-studio-si/"
+      ],
+      "serviceCount": 1,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-001-20261113.mjs",
+      "id": "sofia-nail-bar-slaveykov1a",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/nail-bar_2/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359876616816"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/nail-bar_2/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/nail-bar_2/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/nail-bar_2/"
+      ],
+      "serviceCount": 2,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-001-20261113.mjs",
+      "id": "sofia-atelieto-tri-ushi6a",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/atelieto/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359876949362"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/atelieto/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/atelieto/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/atelieto/"
+      ],
+      "serviceCount": 2,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-001-20261113.mjs",
+      "id": "sofia-hair-beauty-club-mladost378",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/hair-beauty-club-and-laser/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359885808970"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/hair-beauty-club-and-laser/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/hair-beauty-club-and-laser/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/hair-beauty-club-and-laser/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-001-20261113.mjs",
+      "id": "sofia-hn-studio-balgarska-legiya2b",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/hn-studio/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359877077096"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/hn-studio/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/hn-studio/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/hn-studio/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-001-20261113.mjs",
+      "id": "sofia-gs-studio-gotse-delchev116",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/gs-studio-and-academy/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359877900100"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/gs-studio-and-academy/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/gs-studio-and-academy/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/gs-studio-and-academy/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-001-20261113.mjs",
+      "id": "sofia-catzilla-gotse-delchev100",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/catzilla/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359888010087"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/catzilla/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/catzilla/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/catzilla/"
+      ],
+      "serviceCount": 2,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-001-20261113.mjs",
+      "id": "sofia-mb-beauty-mladost482",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/mb-beauty/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359879883231"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/mb-beauty/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/mb-beauty/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/mb-beauty/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-001-20261113.mjs",
+      "id": "sofia-anigma-atanas-hranov131v",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/anigma-beauty/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359876197909"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/anigma-beauty/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/anigma-beauty/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/anigma-beauty/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-001-20261113.mjs",
+      "id": "sofia-hair-feeling-megapark",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/hair-feeling-salon/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359877442868"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/hair-feeling-salon/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/hair-feeling-salon/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/hair-feeling-salon/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-002-20261113.mjs",
+      "id": "sofia-beauty-bar-tsarigradsko91",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/beauty-bar/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359878141459"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/beauty-bar/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/beauty-bar/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/beauty-bar/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-002-20261113.mjs",
+      "id": "sofia-monali-narodno-horo62",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/monali-beauty-art-studio/",
+      "booking": {
+        "kind": "form",
+        "url": "https://www.notino.bg/saloni/monali-beauty-art-studio/"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/monali-beauty-art-studio/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/monali-beauty-art-studio/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/monali-beauty-art-studio/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "provider_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-002-20261113.mjs",
+      "id": "sofia-nova-hair-tvardishki17",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/nova-hair/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359889982805"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/nova-hair/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/nova-hair/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/nova-hair/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-002-20261113.mjs",
+      "id": "sofia-rs-beauty-okolchitsa31",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/rumi-sertova-beauty-salon/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359893259279"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/rumi-sertova-beauty-salon/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/rumi-sertova-beauty-salon/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/rumi-sertova-beauty-salon/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-002-20261113.mjs",
+      "id": "sofia-luxy-knyaz-boris97",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/luxy-beauty-center/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359894444091"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/luxy-beauty-center/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/luxy-beauty-center/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/luxy-beauty-center/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-002-20261113.mjs",
+      "id": "sofia-mar-prive-marinela",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/mar-prive/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359888828838"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/mar-prive/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/mar-prive/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/mar-prive/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-002-20261113.mjs",
+      "id": "sofia-hair-gallery-amur-exarh60",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/hair-gallery-amur-mariyana/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359877113715"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/hair-gallery-amur-mariyana/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/hair-gallery-amur-mariyana/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/hair-gallery-amur-mariyana/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-002-20261113.mjs",
+      "id": "sofia-ecru-lyulin386",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/studio-ekryu/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359897728146"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/studio-ekryu/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/studio-ekryu/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/studio-ekryu/"
+      ],
+      "serviceCount": 2,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-002-20261113.mjs",
+      "id": "sofia-gery-art-mladost307",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/gery-art/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359895417839"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/gery-art/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/gery-art/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/gery-art/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-002-20261113.mjs",
+      "id": "sofia-adria-nails-lyulin328",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/adria-beauty-and-wellness-boutique/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359897989370"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/adria-beauty-and-wellness-boutique/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/adria-beauty-and-wellness-boutique/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/adria-beauty-and-wellness-boutique/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-002-20261113.mjs",
+      "id": "sofia-new-me-yordan-yosifov7",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/new-me-hair-salon/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359879475385"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/new-me-hair-salon/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/new-me-hair-salon/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/new-me-hair-salon/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-002-20261113.mjs",
+      "id": "sofia-dogma-grooming-mladost528",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/dogma-grooming-studio/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359899150744"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/dogma-grooming-studio/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/dogma-grooming-studio/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/dogma-grooming-studio/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-002-20261113.mjs",
+      "id": "sofia-nails-iva-petleshkov80",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/nails-art-by-iva%F0%9F%8C%B8/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359876437444"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/nails-art-by-iva%F0%9F%8C%B8/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/nails-art-by-iva%F0%9F%8C%B8/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/nails-art-by-iva%F0%9F%8C%B8/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-002-20261113.mjs",
+      "id": "sofia-m-si-goritsa21",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/studio-m-si_1/",
+      "booking": {
+        "kind": "form",
+        "url": "https://www.notino.bg/saloni/studio-m-si_1/"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/studio-m-si_1/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/studio-m-si_1/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/studio-m-si_1/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "provider_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-002-20261113.mjs",
+      "id": "sofia-kriskatris-studentski60g",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/kriskatris-nail-barandbeauty-zone/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359884039698"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/kriskatris-nail-barandbeauty-zone/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/kriskatris-nail-barandbeauty-zone/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/kriskatris-nail-barandbeauty-zone/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-002-20261113.mjs",
+      "id": "sofia-hairport-ishirkov9",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/hairport-beauty-studio/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359884865775"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/hairport-beauty-studio/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/hairport-beauty-studio/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/hairport-beauty-studio/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-002-20261113.mjs",
+      "id": "sofia-beauty-expert-mladost146",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/studio-beauty-expert-mladost/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359878598170"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/studio-beauty-expert-mladost/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/studio-beauty-expert-mladost/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/studio-beauty-expert-mladost/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-002-20261113.mjs",
+      "id": "sofia-910-nails-barber-vihren45a",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/910-nails-and-barber/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359877261237"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/910-nails-and-barber/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/910-nails-and-barber/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/910-nails-and-barber/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-002-20261113.mjs",
+      "id": "sofia-ts-atelier-uvaliev1",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/tss-atelier/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359877304664"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/tss-atelier/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/tss-atelier/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/tss-atelier/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-003-20261113.mjs",
+      "id": "sofia-shtastlivi-lapi-druzhba108",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/zoomagazinandgruming-salon-,,shastlivi-lapi_1/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359892302087"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/zoomagazinandgruming-salon-,,shastlivi-lapi_1/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/zoomagazinandgruming-salon-,,shastlivi-lapi_1/"
+      ],
+      "durationSources": [],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-003-20261113.mjs",
+      "id": "sofia-persefona-uzunov14",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/salon-persefona/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359877678020"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/salon-persefona/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/salon-persefona/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/salon-persefona/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-003-20261113.mjs",
+      "id": "sofia-beauty-center-madrid34",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/beauty-center/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359885877507"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/beauty-center/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/beauty-center/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/beauty-center/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-003-20261113.mjs",
+      "id": "sofia-studio-mix-oborishte46",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/studio-za-krasota-miks/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359887803227"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/studio-za-krasota-miks/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/studio-za-krasota-miks/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/studio-za-krasota-miks/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-003-20261113.mjs",
+      "id": "sofia-mc-studio-maragidik26",
+      "inRuntime": true,
+      "website": "https://magicvetanova.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://magicvetanova.com/reserve/"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [
+        "Notino"
+      ],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/mc-studio/"
+      ],
+      "priceSources": [
+        "https://magicvetanova.com/womenshaircut/",
+        "https://magicvetanova.com/manhaircut/"
+      ],
+      "durationSources": [],
+      "serviceCount": 3,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-003-20261113.mjs",
+      "id": "sofia-paola-hair-targovska19",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/paola-hair-studio/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359885214959"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/paola-hair-studio/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/paola-hair-studio/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/paola-hair-studio/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-003-20261113.mjs",
+      "id": "sofia-r-hair-kishinev2",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/r-hair/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359882998518"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/r-hair/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/r-hair/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/r-hair/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-003-20261113.mjs",
+      "id": "sofia-new-wave-solun31",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/studio-new-wave/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359896783976"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/studio-new-wave/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/studio-new-wave/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/studio-new-wave/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-003-20261113.mjs",
+      "id": "sofia-studio27-boris-stefanov35",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/studio-27_1/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359879272722"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/studio-27_1/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/studio-27_1/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/studio-27_1/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-003-20261113.mjs",
+      "id": "sofia-over-over-vrabnitsa635",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/over-and-over/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359877506539"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/over-and-over/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/over-and-over/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/over-and-over/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-003-20261113.mjs",
+      "id": "sofia-feeling-musagenitsa107",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/feeling/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359888414869"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/feeling/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/feeling/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/feeling/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-003-20261113.mjs",
+      "id": "sofia-marart-vasil-levski1a",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/marart-studio_1/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359876333736"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/marart-studio_1/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/marart-studio_1/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/marart-studio_1/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-003-20261113.mjs",
+      "id": "sofia-silver-star-iskar47",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/studio-silver-star_1/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359878881078"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/studio-silver-star_1/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/studio-silver-star_1/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/studio-silver-star_1/"
+      ],
+      "serviceCount": 1,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-003-20261113.mjs",
+      "id": "sofia-niki-style-pchinya343",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/niki-style/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359894633849"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/niki-style/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/niki-style/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/niki-style/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-003-20261113.mjs",
+      "id": "sofia-fashion-life-exarh225",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/fashion-life/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359877177270"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/fashion-life/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/fashion-life/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/fashion-life/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-003-20261113.mjs",
+      "id": "sofia-nails-club-mladost1-51",
+      "inRuntime": true,
+      "website": "https://nailsclub.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://book.nailsclub.bg/reservations/start?site=1"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://book.nailsclub.bg/reservations/start?site=1"
+      ],
+      "durationSources": [
+        "https://book.nailsclub.bg/reservations/start?site=1"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-003-20261113.mjs",
+      "id": "sofia-nails-club-mladost4-488",
+      "inRuntime": true,
+      "website": "https://nailsclub.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://book.nailsclub.bg/reservations/start?site=2"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://book.nailsclub.bg/reservations/start?site=2"
+      ],
+      "durationSources": [
+        "https://book.nailsclub.bg/reservations/start?site=2"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-003-20261113.mjs",
+      "id": "sofia-nails-club-mladost3-belov26",
+      "inRuntime": true,
+      "website": "https://nailsclub.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://book.nailsclub.bg/reservations/start?site=3"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://book.nailsclub.bg/reservations/start?site=3"
+      ],
+      "durationSources": [
+        "https://book.nailsclub.bg/reservations/start?site=3"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-003-20261113.mjs",
+      "id": "sofia-nails-club-gm-dimitrov30",
+      "inRuntime": true,
+      "website": "https://nailsclub.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://book.nailsclub.bg/reservations/start?site=4"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://book.nailsclub.bg/reservations/start?site=4"
+      ],
+      "durationSources": [
+        "https://book.nailsclub.bg/reservations/start?site=4"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-003-20261113.mjs",
+      "id": "sofia-nails-club-druzhba2-602",
+      "inRuntime": true,
+      "website": "https://nailsclub.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://book.nailsclub.bg/reservations/start?site=5"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://book.nailsclub.bg/reservations/start?site=5"
+      ],
+      "durationSources": [
+        "https://book.nailsclub.bg/reservations/start?site=5"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-004-20261113.mjs",
+      "id": "sofia-alex-nails-bademova11",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/alex-nails/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359878928701"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [
+        "Notino"
+      ],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/alex-nails/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/alex-nails/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/alex-nails/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-004-20261113.mjs",
+      "id": "sofia-by-the-way-vrabnitsa632",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/by-the-way-studio/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359890115744"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [
+        "Notino"
+      ],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/by-the-way-studio/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/by-the-way-studio/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/by-the-way-studio/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-004-20261113.mjs",
+      "id": "sofia-bb-care-bogdan15",
+      "inRuntime": true,
+      "website": "https://studiobbcare.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://book.studiobbcare.bg/reservations/start?site=1"
+      },
+      "providerTags": [],
+      "technologyTags": [
+        "Fitsys"
+      ],
+      "providerUrls": [],
+      "priceSources": [
+        "https://book.studiobbcare.bg/reservations/start?site=1"
+      ],
+      "durationSources": [
+        "https://book.studiobbcare.bg/reservations/start?site=1"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-004-20261113.mjs",
+      "id": "sofia-den-i-nosht-mogilite2a",
+      "inRuntime": true,
+      "website": "https://www.lazernaepilaciq.bg/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359884273408"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [
+        "Notino"
+      ],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/studio-za-krasota-den-i-nosh/"
+      ],
+      "priceSources": [
+        "https://www.lazernaepilaciq.bg/"
+      ],
+      "durationSources": [],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-004-20261113.mjs",
+      "id": "sofia-dima-style-osogovski1",
+      "inRuntime": true,
+      "website": "https://dimastyle.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://dimastyle.com/zayavi-chas-v-nash-salon"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 3,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-004-20261113.mjs",
+      "id": "sofia-emotion-teodora-bulgaria106",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/emotion-by-teodora-pramatarova/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359879100012"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/emotion-by-teodora-pramatarova/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/emotion-by-teodora-pramatarova/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/emotion-by-teodora-pramatarova/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-004-20261113.mjs",
+      "id": "sofia-miracle-barber-obikolna275",
+      "inRuntime": true,
+      "website": "https://miraclebarber.com/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359878113915"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/miracle-barber-studio/"
+      ],
+      "priceSources": [
+        "https://miraclebarber.com/"
+      ],
+      "durationSources": [],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-004-20261113.mjs",
+      "id": "sofia-new-york-barbershop-kiril90",
+      "inRuntime": true,
+      "website": "https://www.notino.bg/saloni/new-york-barbershop/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359879604898"
+      },
+      "providerTags": [
+        "notino.bg"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://www.notino.bg/saloni/new-york-barbershop/"
+      ],
+      "priceSources": [
+        "https://www.notino.bg/saloni/new-york-barbershop/"
+      ],
+      "durationSources": [
+        "https://www.notino.bg/saloni/new-york-barbershop/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-005-20261113.mjs",
+      "id": "sofia-padmalaya-sedmochislenitsi9",
+      "inRuntime": true,
+      "website": "https://www.padmalaya.bg/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359883331617"
+      },
+      "providerTags": [
+        "fresha.com"
+      ],
+      "technologyTags": [
+        "Fresha"
+      ],
+      "providerUrls": [
+        "https://www.fresha.com/a/padmalaya-massage-center-sofia-ulitsa-sveti-sedmochislenitsi-9-ymp7oq47/booking?menu=true"
+      ],
+      "priceSources": [
+        "https://www.padmalaya.bg/ceni-na-masaji-sofia/"
+      ],
+      "durationSources": [
+        "https://www.padmalaya.bg/ceni-na-masaji-sofia/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-005-20261113.mjs",
+      "id": "sofia-human-body-masters-klementina36",
+      "inRuntime": true,
+      "website": "https://www.hbm.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://www.hbm.bg/запазване-на-час/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://www.hbm.bg/цени/"
+      ],
+      "durationSources": [
+        "https://www.hbm.bg/цени/"
+      ],
+      "serviceCount": 3,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-006-20261113.mjs",
+      "id": "sofia-new-vision-sveta-troitsa367a",
+      "inRuntime": true,
+      "website": "https://newvisionstudio.bg/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359887444663"
+      },
+      "providerTags": [],
+      "technologyTags": [
+        "Studio24"
+      ],
+      "providerUrls": [],
+      "priceSources": [
+        "https://newvisionstudio.bg/oformyane-na-vezhdi/"
+      ],
+      "durationSources": [],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-007-20261113.mjs",
+      "id": "sofia-benyova-lyulin769b",
+      "inRuntime": false,
+      "website": "https://laserstudiobenyova.com/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359878998319"
+      },
+      "providerTags": [],
+      "technologyTags": [
+        "Studio24"
+      ],
+      "providerUrls": [],
+      "priceSources": [
+        "https://laserstudiobenyova.com/ceni/migli/"
+      ],
+      "durationSources": [],
+      "serviceCount": 3,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-beauty-2000-007-20261113.mjs",
+      "id": "sofia-groom-tosia-asen-yordanov10",
+      "inRuntime": false,
+      "website": "https://groomtosia.com/en/",
+      "booking": {
+        "kind": "form",
+        "url": "https://book.groomtosia.com/book?lang=en"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://groomtosia.com/en/"
+      ],
+      "durationSources": [],
+      "serviceCount": 3,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-001-20261113.mjs",
+      "id": "sofia-petya-ivanova-newdental-kazbeg30",
+      "inRuntime": true,
+      "website": "https://jeeiims.wixsite.com/newdental",
+      "booking": {
+        "kind": "form",
+        "url": "https://jeeiims.wixsite.com/newdental/contact"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://jeeiims.wixsite.com/newdental/untitled"
+      ],
+      "durationSources": [],
+      "serviceCount": 2,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-001-20261113.mjs",
+      "id": "sofia-smokov-tattoo-tsar-asen20",
+      "inRuntime": true,
+      "website": "https://smokov.com/home-bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://smokov.com/contact/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-001-20261113.mjs",
+      "id": "sofia-robotika-manastirski-flora1a",
+      "inRuntime": true,
+      "website": "https://robotika.bg/robotika-5-6",
+      "booking": {
+        "kind": "form",
+        "url": "https://robotika.bg/register-course?group=02pgrlb99"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://robotika.bg/robotika-5-6"
+      ],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-001-20261113.mjs",
+      "id": "sofia-fotomiasto-smirnenski16",
+      "inRuntime": true,
+      "website": "https://fotomiasto.com/services/ирисова-фотография/",
+      "booking": {
+        "kind": "form",
+        "url": "https://fotomiasto.com/services/ирисова-фотография/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://fotomiasto.com/services/ирисова-фотография/"
+      ],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-001-20261113.mjs",
+      "id": "sofia-kodent-metodi-popov16",
+      "inRuntime": true,
+      "website": "https://kodent.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://kodent.bg/contact"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-001-20261113.mjs",
+      "id": "sofia-stoyan-tsonev-chavdar-mutafov22",
+      "inRuntime": true,
+      "website": "https://drtsonev.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://drtsonev.com/contacts/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-001-20261113.mjs",
+      "id": "sofia-dora-yovcheva-cherni-vrah7",
+      "inRuntime": true,
+      "website": "https://yovcheva.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://superdoc.bg/lekar/dora-yovcheva"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "provider_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-001-20261113.mjs",
+      "id": "sofia-bb-dental-sredna-gora32",
+      "inRuntime": true,
+      "website": "https://bbdental.eu/",
+      "booking": {
+        "kind": "form",
+        "url": "https://bbdental.eu/contact-us/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-001-20261113.mjs",
+      "id": "sofia-robotika-serdika-todor-aleksandrov17",
+      "inRuntime": true,
+      "website": "https://robotika.bg/robotika-5-6",
+      "booking": {
+        "kind": "form",
+        "url": "https://robotika.bg/register-course?group=f3tp47obb"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://robotika.bg/robotika-5-6"
+      ],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-001-20261113.mjs",
+      "id": "sofia-robotika-mladost1-saharov25",
+      "inRuntime": true,
+      "website": "https://robotika.bg/robotika-5-6",
+      "booking": {
+        "kind": "form",
+        "url": "https://robotika.bg/register-course?group=txext3c7r"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://robotika.bg/robotika-5-6"
+      ],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-002-20261113.mjs",
+      "id": "sofia-toto-clean-home-visits",
+      "inRuntime": true,
+      "website": "https://www.totoclean.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://www.totoclean.bg/services/prane-na-matraci-sofia"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-002-20261113.mjs",
+      "id": "sofia-sofia-clean-agency-home-visits",
+      "inRuntime": true,
+      "website": "https://sofiaclean.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://sofiaclean.bg/quote/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://sofiaclean.bg/еднократно-почистване-дома-офиса/",
+        "https://sofiaclean.bg/пране-килими-мека-мебел/"
+      ],
+      "durationSources": [],
+      "serviceCount": 2,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-002-20261113.mjs",
+      "id": "sofia-ivan-kalev-preslavska-planina2",
+      "inRuntime": true,
+      "website": "https://talkpartner.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://talkpartner.bg/psiholog-sofia-ceni/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://talkpartner.bg/psiholog-sofia-ceni/"
+      ],
+      "durationSources": [
+        "https://talkpartner.bg/psiholog-sofia-ceni/"
+      ],
+      "serviceCount": 2,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-002-20261113.mjs",
+      "id": "sofia-novainsight-ivan-penchev-kableshkov53",
+      "inRuntime": true,
+      "website": "https://novainsight.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://calendly.com/ivan-penchev-novainsight/meet-with-me"
+      },
+      "providerTags": [
+        "calendly.com"
+      ],
+      "technologyTags": [],
+      "providerUrls": [
+        "https://calendly.com/ivan-penchev-novainsight/meet-with-me"
+      ],
+      "priceSources": [],
+      "durationSources": [
+        "https://novainsight.bg/faq/"
+      ],
+      "serviceCount": 1,
+      "reviewKind": "provider_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-002-20261113.mjs",
+      "id": "sofia-tattoo-boutique-maria-luiza76",
+      "inRuntime": true,
+      "website": "https://www.tattooboutique.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://www.tattooboutique.bg/contact"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-003-20261113.mjs",
+      "id": "sofia-reloni-arsenalski5",
+      "inRuntime": true,
+      "website": "https://www.reloni.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://docs.google.com/forms/d/e/1FAIpQLSf9pTipSJKV1XFidAMCEyfbe__UyisTtgBRs9qsiAi273PW0Q/viewform?usp=header"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://www.reloni.com/ceni.php"
+      ],
+      "durationSources": [
+        "https://www.reloni.com/ceni.php"
+      ],
+      "serviceCount": 2,
+      "reviewKind": "provider_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-003-20261113.mjs",
+      "id": "sofia-domelino-home-visits",
+      "inRuntime": true,
+      "website": "https://domelino.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://domelino.com/contact/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://domelino.com/softfurniture/"
+      ],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-003-20261113.mjs",
+      "id": "sofia-kremena-trifonova-krastyo-sarafov40",
+      "inRuntime": true,
+      "website": "https://pravna-usluga.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://pravna-usluga.com/kontakti/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-003-20261113.mjs",
+      "id": "sofia-preslava-yordanova-hristo-botev21",
+      "inRuntime": true,
+      "website": "https://yordanovalaw.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://yordanovalaw.bg/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-003-20261113.mjs",
+      "id": "sofia-cool-dental-rakovski122a",
+      "inRuntime": true,
+      "website": "https://cooldental.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://cooldental.bg/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://cooldental.bg/prices/"
+      ],
+      "durationSources": [],
+      "serviceCount": 2,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-003-20261113.mjs",
+      "id": "sofia-dental-bk-sharl-shampo100",
+      "inRuntime": true,
+      "website": "https://dentalbk.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://dentalbk.bg/contact-3/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-003-20261113.mjs",
+      "id": "sofia-dental-care-center-arsenalski2",
+      "inRuntime": true,
+      "website": "https://www.dentalcare.bg/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+35924949797"
+      },
+      "providerTags": [
+        "simplybook.it"
+      ],
+      "technologyTags": [
+        "SimplyBook"
+      ],
+      "providerUrls": [
+        "https://dentalcarecenterbg.simplybook.it/v2/"
+      ],
+      "priceSources": [
+        "https://www.dentalcare.bg/service/pochistvane-na-zuben-kamyk-i-plaka/"
+      ],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-004-20261113.mjs",
+      "id": "sofia-jey-ovcha-kupel1-promishlena430",
+      "inRuntime": true,
+      "website": "https://jey.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://jey.bg/english/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-004-20261113.mjs",
+      "id": "sofia-cultural-language-centre-kiril-botev3a",
+      "inRuntime": true,
+      "website": "https://ezik.eu/",
+      "booking": {
+        "kind": "form",
+        "url": "https://ezik.eu/contacts/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [
+        "https://ezik.eu/individual/"
+      ],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-004-20261113.mjs",
+      "id": "sofia-saghir-dent-vasil-levski13",
+      "inRuntime": true,
+      "website": "https://www.saghirdent.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://www.saghirdent.com/kontakti/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-004-20261113.mjs",
+      "id": "sofia-irisception-tsar-asen47",
+      "inRuntime": true,
+      "website": "https://irisception.com/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359888852036"
+      },
+      "providerTags": [],
+      "technologyTags": [
+        "Bookly"
+      ],
+      "providerUrls": [],
+      "priceSources": [
+        "https://irisception.com/czeni/"
+      ],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "phone_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-004-20261113.mjs",
+      "id": "sofia-edelvais-vitosha50",
+      "inRuntime": true,
+      "website": "https://edelvaische.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://edelvaische.com/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [
+        "https://edelvaische.com/"
+      ],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-004-20261113.mjs",
+      "id": "sofia-chavdar-chenkov-site-consultation",
+      "inRuntime": true,
+      "website": "https://architectureconsulting.eu/bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://architectureconsulting.eu/bg/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://architectureconsulting.eu/bg/%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%82%D0%B0%D1%86%D0%B8%D0%B8/"
+      ],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-005-20261113.mjs",
+      "id": "sofia-boeva-boeva-yanko-sofiyski11",
+      "inRuntime": true,
+      "website": "https://boevilaw.eu/",
+      "booking": {
+        "kind": "form",
+        "url": "https://boevilaw.eu/contact/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-005-20261113.mjs",
+      "id": "sofia-petyo-dankov-deliyska-vodenitsa330",
+      "inRuntime": true,
+      "website": "https://dankov-advokat.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://dankov-advokat.com/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://dankov-advokat.com/"
+      ],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-005-20261113.mjs",
+      "id": "sofia-yana-bogdanova-vashington13",
+      "inRuntime": true,
+      "website": "https://advokat-kantora.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://advokat-kantora.com/index.html"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-005-20261113.mjs",
+      "id": "sofia-nikolay-gyoshev-pozitano39",
+      "inRuntime": true,
+      "website": "https://gyoshevlaw.com/bg",
+      "booking": {
+        "kind": "form",
+        "url": "https://gyoshevlaw.com/bg/kontakti"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://gyoshevlaw.com/bg/kontakti"
+      ],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-005-20261113.mjs",
+      "id": "sofia-bulgaria-serviz-group-home",
+      "inRuntime": true,
+      "website": "https://servicebg.net/",
+      "booking": {
+        "kind": "form",
+        "url": "https://servicebg.net/index.php/zayavka-za-remont"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-005-20261113.mjs",
+      "id": "sofia-lozenetz-dental-bigla50",
+      "inRuntime": true,
+      "website": "https://lozenetzdentalclinic.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://lozenetzdentalclinic.com/kontakti/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://lozenetzdentalclinic.com/cenorazpis/"
+      ],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-005-20261113.mjs",
+      "id": "sofia-martin-todorinov-nadezhda173",
+      "inRuntime": true,
+      "website": "https://www.martintodorinov.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://www.martintodorinov.com/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-006-20261113.mjs",
+      "id": "sofia-maximum-solunska8",
+      "inRuntime": true,
+      "website": "https://maximumsofia.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://maximumsofia.com/контакт/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://maximumsofia.com/възрастни/"
+      ],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-006-20261113.mjs",
+      "id": "sofia-artizba-cherni-vrah33e",
+      "inRuntime": true,
+      "website": "https://artizba.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://artizba.bg/produkt/planinska-krasota/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://artizba.bg/produkt/planinska-krasota/"
+      ],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-006-20261113.mjs",
+      "id": "sofia-lawyer-mediate-gicheva-tundzha25",
+      "inRuntime": true,
+      "website": "https://www.lawyer-mediate.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://www.lawyer-mediate.com/контакти/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-007-20261113.mjs",
+      "id": "sofia-nestor-notov-neru28",
+      "inRuntime": true,
+      "website": "https://notov.dentist/",
+      "booking": {
+        "kind": "form",
+        "url": "https://notov.dentist/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-007-20261113.mjs",
+      "id": "sofia-glinity-hadjikonstantinov88",
+      "inRuntime": true,
+      "website": "https://www.glinity.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://www.glinity.com/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-007-20261113.mjs",
+      "id": "sofia-max-international-terter10",
+      "inRuntime": true,
+      "website": "https://maxinternational.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://maxinternational.bg/ezikovo-obuchenie/individualno-ezikowo-obuchenie/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-007-20261113.mjs",
+      "id": "sofia-max-international-mladost3-block323",
+      "inRuntime": true,
+      "website": "https://maxinternational.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://maxinternational.bg/ezikovo-obuchenie/individualno-ezikowo-obuchenie/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-007-20261113.mjs",
+      "id": "sofia-max-international-lyulin-petar-bonev4",
+      "inRuntime": true,
+      "website": "https://maxinternational.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://maxinternational.bg/ezikovo-obuchenie/individualno-ezikowo-obuchenie/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-008-20261113.mjs",
+      "id": "sofia-zdravkov-legal-pozitano3",
+      "inRuntime": true,
+      "website": "https://zdravkov-legal.com/",
+      "booking": {
+        "kind": "form",
+        "url": "https://zdravkov-legal.com/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://zdravkov-legal.com/"
+      ],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-008-20261113.mjs",
+      "id": "sofia-colomba-home-cleaning",
+      "inRuntime": true,
+      "website": "https://colomba.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://colomba.bg/usluga/profesionalno-pochistvane-osnovno/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-home-education-2000-009-20261113.mjs",
+      "id": "sofia-omega-vitosha29",
+      "inRuntime": false,
+      "website": "https://omegals.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://omegals.bg/zajavi-kurs/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://omegals.bg/kursove/za-vyzrastni/anglijski-ezik/individualni/a1/?plan_id=01a03044-12f3-7c4e-9d5c-9d7fe5e87de2"
+      ],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-schools-2000-001-20261113.mjs",
+      "id": "sofia-britanica-beli-brezi",
+      "inRuntime": true,
+      "website": "https://www.britanica-edu.org/",
+      "booking": {
+        "kind": "form",
+        "url": "https://www.britanica-edu.org/form/svrzhete-se-s-nas"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-schools-2000-001-20261113.mjs",
+      "id": "sofia-britanica-bulgaria",
+      "inRuntime": true,
+      "website": "https://www.britanica-edu.org/",
+      "booking": {
+        "kind": "form",
+        "url": "https://www.britanica-edu.org/form/svrzhete-se-s-nas"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-schools-2000-001-20261113.mjs",
+      "id": "sofia-britanica-geo-milev",
+      "inRuntime": true,
+      "website": "https://www.britanica-edu.org/",
+      "booking": {
+        "kind": "form",
+        "url": "https://www.britanica-edu.org/form/svrzhete-se-s-nas"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-schools-2000-001-20261113.mjs",
+      "id": "sofia-britanica-lozenets",
+      "inRuntime": true,
+      "website": "https://www.britanica-edu.org/",
+      "booking": {
+        "kind": "form",
+        "url": "https://www.britanica-edu.org/form/svrzhete-se-s-nas"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-schools-2000-001-20261113.mjs",
+      "id": "sofia-britanica-lyulin",
+      "inRuntime": true,
+      "website": "https://www.britanica-edu.org/",
+      "booking": {
+        "kind": "form",
+        "url": "https://www.britanica-edu.org/form/svrzhete-se-s-nas"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-schools-2000-001-20261113.mjs",
+      "id": "sofia-britanica-mladost1",
+      "inRuntime": true,
+      "website": "https://www.britanica-edu.org/",
+      "booking": {
+        "kind": "form",
+        "url": "https://www.britanica-edu.org/form/svrzhete-se-s-nas"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-schools-2000-001-20261113.mjs",
+      "id": "sofia-britanica-mladost2",
+      "inRuntime": true,
+      "website": "https://www.britanica-edu.org/",
+      "booking": {
+        "kind": "form",
+        "url": "https://www.britanica-edu.org/form/svrzhete-se-s-nas"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-schools-2000-001-20261113.mjs",
+      "id": "sofia-britanica-tulovo",
+      "inRuntime": true,
+      "website": "https://www.britanica-edu.org/",
+      "booking": {
+        "kind": "form",
+        "url": "https://www.britanica-edu.org/form/svrzhete-se-s-nas"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-schools-2000-001-20261113.mjs",
+      "id": "sofia-britanica-pliska",
+      "inRuntime": true,
+      "website": "https://www.britanica-edu.org/",
+      "booking": {
+        "kind": "form",
+        "url": "https://www.britanica-edu.org/form/svrzhete-se-s-nas"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-schools-2000-001-20261113.mjs",
+      "id": "sofia-britanica-praga",
+      "inRuntime": true,
+      "website": "https://www.britanica-edu.org/",
+      "booking": {
+        "kind": "form",
+        "url": "https://www.britanica-edu.org/form/svrzhete-se-s-nas"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-schools-2000-001-20261113.mjs",
+      "id": "sofia-britanica-suhata-reka",
+      "inRuntime": true,
+      "website": "https://www.britanica-edu.org/",
+      "booking": {
+        "kind": "form",
+        "url": "https://www.britanica-edu.org/form/svrzhete-se-s-nas"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [],
+      "durationSources": [],
+      "serviceCount": 1,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-schools-2000-002-20261113.mjs",
+      "id": "sofia-ih-sofia-sitnyakovo39a",
+      "inRuntime": true,
+      "website": "https://ihsofia.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://ihsofia.bg/Контакти/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://ihsofia.bg/Индивидуални-уроци/"
+      ],
+      "durationSources": [],
+      "serviceCount": 2,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-schools-2000-002-20261113.mjs",
+      "id": "sofia-ih-sofia-bregalnitsa43",
+      "inRuntime": true,
+      "website": "https://ihsofia.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://ihsofia.bg/Контакти/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://ihsofia.bg/Индивидуални-уроци/"
+      ],
+      "durationSources": [],
+      "serviceCount": 2,
+      "reviewKind": "owned_booking_reviewed"
+    },
+    {
+      "module": "neighborhood-schools-2000-002-20261113.mjs",
+      "id": "sofia-ih-sofia-parensov39",
+      "inRuntime": true,
+      "website": "https://ihsofia.bg/",
+      "booking": {
+        "kind": "form",
+        "url": "https://ihsofia.bg/Контакти/"
+      },
+      "providerTags": [],
+      "technologyTags": [],
+      "providerUrls": [],
+      "priceSources": [
+        "https://ihsofia.bg/Индивидуални-уроци/"
+      ],
+      "durationSources": [],
+      "serviceCount": 2,
+      "reviewKind": "owned_booking_reviewed"
+    }
+  ],
+  "notes": [
+    "First inventory attempt's temporary URL classification in the orchestration runtime returned allfalse; corrected immediately with hostname parsing before this report. Source record URLs were never changed.",
+    "No legal assurance, blanket provider permission or automatic retrospective rejection inferred from unknown Terms. General copyright alone is not described as an automation ban.",
+    "All booking targets and service sources are public business data; no account/customer/privateGPS, reviews, ratings or media copied.",
+    "This report is a snapshot while parent removes held records/integrates new batches; current runtime membership can change independently."
+  ]
+}

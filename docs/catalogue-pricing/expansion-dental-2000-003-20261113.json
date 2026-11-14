@@ -1,0 +1,52 @@
+{
+  "checkedOn": "2026-11-13",
+  "checkedAtUtc": "2026-11-13T22:48:27Z",
+  "status": "frozen_source_reviewed_awaiting_integration",
+  "records": 1,
+  "services": 2,
+  "pricedServices": 2,
+  "included": [
+    {
+      "id": "sofia-yovadent-shumen5",
+      "sourceUrls": [
+        "https://orthosmile4kids.bg/",
+        "https://orthosmile4kids.bg/pages-6-za-novi-pacienti",
+        "https://orthosmile4kids.bg/contacts",
+        "https://orthosmile4kids.bg/pages-5-ceni",
+        "https://orthosmile4kids.bg/pages-10-obshti-usloviia",
+        "https://superdoc.bg/klinika/detska-dentalna-klinika-yovadent"
+      ],
+      "evidence": "Actual owner Book link first opens its named Superdoc clinic; clinic overview/doctor links only, not a completed interactive calendar/menu, no availability or confirmation claim. Independent own NewPatient rules explicitly allow advance telephone booking for the named dentist on889997294/879998080; selected this actual phone method, not generic footer contact. Own contact and exactShumen5groundfloor corroborate the same single dental practice, not one record per doctor/room. Complete native tariff read through ordinary public HTTPS200 after reader timeout: detailed dental consultation50EUR includes status, discussion and hygiene guidance, distinct from simple primary35; standalone fissure sealant40EUR per tooth, not expanded60 or a package. Only these two independently own-published fees imported; third-party doctor-specific fees and ratings/reviews/photos ignored. No durations or full-week hours stated in reviewed own pages, omitted. Current own Terms page has heading but empty text, no invented legal clearance; robots allows public pages except/admin. Minimal independent factual wording, no source descriptions/table/media reproduction. No clinical outcome, credentials, insured-price eligibility, appointments, calls, forms, consent, Google/Maps/geocode, customer information or production writes."
+    }
+  ],
+  "held": [
+    {
+      "website": "https://drparushev.com/",
+      "decision": "hold_actual_booking_unrendered",
+      "evidence": "No domain/mobile/address duplicate in full runtime and all intakes. Robots returns ordinaryNetlify404. Actual root HTTP200 is JS shell with title only, no readable native Book/fees/menu. Search snapshot suggests rates/form, but not imported without actual rendered review. No bundle/API/alternatehost/UI workaround."
+    },
+    {
+      "website": "https://www.dentisphere.shop/services.html",
+      "decision": "lead_authenticity_not_verified",
+      "evidence": "Search discovery only. No primary operator/real venue/booking review; generic BrightSmile lead not counted."
+    }
+  ],
+  "photoReview": {
+    "existingSuggestions": [
+      [
+        "sofia-yovadent-shumen5",
+        "other",
+        "Подробна детска дентална консултация със зъбен статус",
+        "sx-dental-child-first-visit"
+      ],
+      [
+        "sofia-yovadent-shumen5",
+        "other",
+        "Поставяне на силант на един зъб",
+        "sx-dental-sealant"
+      ]
+    ],
+    "review": "Root individually viewed both existing assets. Child examination/hygiene guidance and actual tooth fissure-sealant apparatus/application, not adult-only consultation or retail material."
+  },
+  "limits": "No platform fee extraction or implied online availability; independent owner voicebooking/tariff used. Native registration/search identifiers assigned only at integration. Scope limited to dentistry, no other physicians. Source checkedOn actualUTC13, localSofia14."
+}

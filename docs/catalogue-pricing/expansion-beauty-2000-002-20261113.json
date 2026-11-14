@@ -1,0 +1,1363 @@
+{
+  "rootSourceTermsHold": {"checkedAtUtc":"2026-11-13T23:14:52.714Z","decision":"hold_source_terms_before_publication","id":"sofia-hair-garden-sladura7","reason":"Fresha Terms updated2026-08-12 prohibit automated/systematic extraction. STOP further access, no endpoint/UI bypass. Remove unpublished record/review/identity/point.","termsUrl":"https://terms.fresha.com/terms-use","legacyFreezeAudit":"Previous freeze hashes/counts describe historical intake, not current approval. Old catalogue-2000-recovery branch must not be merged."},
+  "checkedOn": "2026-11-13",
+  "validUntil": "2027-02-11",
+  "scope": "Ongoing manually reviewed unique Sofia beauty intake batch002. No shared imports, identities, photos, geocoding, private GPS, booking submissions or production changes.",
+  "status": "frozen_ready_for_root_review",
+  "approved": [
+    {
+      "id": "sofia-beauty-bar-tsarigradsko91",
+      "reviewedUrls": [
+        "https://www.notino.bg/saloni/beauty-bar/"
+      ],
+      "bookingUrl": "https://www.notino.bg/saloni/beauty-bar/",
+      "bookingKind": "phone",
+      "bookingExcerpt": "Маникюр, педикюр и мъжко фризьорство — резервация по телефон; обадете се за час. +359878141459.",
+      "address": "София, бул. Цариградско шосе 91, бл. 113, вх. А",
+      "addressSource": "https://www.notino.bg/saloni/beauty-bar/",
+      "phone": "+359878141459",
+      "hoursSource": null,
+      "hours": null,
+      "services": [
+        {
+          "name": "Маникюр с гел лак",
+          "category": "nails",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 20.45,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/beauty-bar/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 75,
+          "durationSourceUrl": "https://www.notino.bg/saloni/beauty-bar/",
+          "durationCheckedOn": "2026-11-13"
+        },
+        {
+          "name": "Педикюр с гел лак",
+          "category": "nails",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 25.56,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/beauty-bar/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 75,
+          "durationSourceUrl": "https://www.notino.bg/saloni/beauty-bar/",
+          "durationCheckedOn": "2026-11-13"
+        },
+        {
+          "name": "Мъжко подстригване с измиване",
+          "category": "barber",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 12.78,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/beauty-bar/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 45,
+          "durationSourceUrl": "https://www.notino.bg/saloni/beauty-bar/",
+          "durationCheckedOn": "2026-11-13"
+        }
+      ],
+      "reviewNotes": "Actual named merchant nail and menhair categories explicitly phone-only appointment booking; then full relevant menus/About/contact/footer reviewed. Gelmanicure20.45EUR75min,pedicuregel25.56EUR75min,men haircut+wash12.78EUR45min only. Women hairlength ranges and variable durations not flattened. Exact Tsarigradsko91/block113/entranceA and0878141459 confirmed by merchant contact, not Maps. No independent own domain found. No full weeklyhours rendered; transient opening status and provider retail-support09-17 are not salon hours. PDF control exposes no URL, no claim of complete PDF review or unpublished tariff. Opened source cached two months, within90day review window, no live slot promise. Exact merchantpath/phone/premises checked against1238base+all available2000intakes/nativepublicphones; no duplicate. No expressive prose, reviews, ratings, photos, coordinates, calls or booking."
+    },
+    {
+      "id": "sofia-monali-narodno-horo62",
+      "reviewedUrls": [
+        "https://www.notino.bg/saloni/monali-beauty-art-studio/"
+      ],
+      "bookingUrl": "https://www.notino.bg/saloni/monali-beauty-art-studio/",
+      "bookingKind": "form",
+      "bookingExcerpt": "Резервирайте · Monali Beauty Art Studio, Народно хоро62, София;+359898503848; действително меню за записване.",
+      "address": "София, ул. Народно хоро 62",
+      "addressSource": "https://www.notino.bg/saloni/monali-beauty-art-studio/",
+      "phone": "+359898503848",
+      "hoursSource": null,
+      "hours": null,
+      "services": [
+        {
+          "name": "Маникюр с гел лак",
+          "category": "nails",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 26,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/monali-beauty-art-studio/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 60,
+          "durationSourceUrl": "https://www.notino.bg/saloni/monali-beauty-art-studio/",
+          "durationCheckedOn": "2026-11-13",
+          "description": "Цената не включва сваляне на покритие от друг салон."
+        },
+        {
+          "name": "Класически маникюр без покритие",
+          "category": "nails",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 18,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/monali-beauty-art-studio/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 40,
+          "durationSourceUrl": "https://www.notino.bg/saloni/monali-beauty-art-studio/",
+          "durationCheckedOn": "2026-11-13",
+          "description": "Цената не включва сваляне на гел лак или гел."
+        },
+        {
+          "name": "Класически дамски педикюр",
+          "category": "nails",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 28,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/monali-beauty-art-studio/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 60,
+          "durationSourceUrl": "https://www.notino.bg/saloni/monali-beauty-art-studio/",
+          "durationCheckedOn": "2026-11-13",
+          "description": "Цената не включва сваляне на гел лак или гел."
+        }
+      ],
+      "reviewNotes": "Followed actual named merchant Reserve entry; root independently read fresh public merchant menu then real Reserve dialog complete service list. Gel26EUR60min excludes other-salonremoval; classicuncoated18EUR40min andwomenclassicpedicure28EUR60min exclude oldgel/gelremoval, preserved publicly. Exact NarodnoHoro62/Sofia and0898503848 freshly corroborated. Ordinary nailservices only, no therapeutic feet/clinical claims, medical procedures, add-ons or staff clones. No independent owner domain or complete weeklyhours found. No provider retail support or transient status inference. Dedupe1238+all2000intakes/nativepubliccontacts. No service/date/customer chosen, booking submitted or reviews/photos/prose copied; root observed current actual dialog, not a homepage-only completion."
+    },
+    {
+      "id": "sofia-nova-hair-tvardishki17",
+      "reviewedUrls": [
+        "https://www.notino.bg/saloni/nova-hair/"
+      ],
+      "bookingUrl": "https://www.notino.bg/saloni/nova-hair/",
+      "bookingKind": "phone",
+      "bookingExcerpt": "Дамско фризьорство — резервация по телефон; обадете се на салона за час. +359889982805.",
+      "address": "София, ул. Твърдишки проход 17",
+      "addressSource": "https://www.notino.bg/saloni/nova-hair/",
+      "phone": "+359889982805",
+      "hoursSource": null,
+      "hours": null,
+      "services": [
+        {
+          "name": "Сешоар",
+          "category": "hair",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 12.78,
+            "maximum": 17.9,
+            "currency": "EUR",
+            "kind": "range",
+            "sourceUrl": "https://www.notino.bg/saloni/nova-hair/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 60,
+          "durationSourceUrl": "https://www.notino.bg/saloni/nova-hair/",
+          "durationCheckedOn": "2026-11-13"
+        },
+        {
+          "name": "Дамско подстригване със сешоар",
+          "category": "hair",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 15.34,
+            "maximum": 28.12,
+            "currency": "EUR",
+            "kind": "range",
+            "sourceUrl": "https://www.notino.bg/saloni/nova-hair/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 60,
+          "durationSourceUrl": "https://www.notino.bg/saloni/nova-hair/",
+          "durationCheckedOn": "2026-11-13"
+        },
+        {
+          "name": "Боядисване на корени със сешоар",
+          "category": "hair",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 33.23,
+            "maximum": 43.46,
+            "currency": "EUR",
+            "kind": "range",
+            "sourceUrl": "https://www.notino.bg/saloni/nova-hair/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 120,
+          "durationSourceUrl": "https://www.notino.bg/saloni/nova-hair/",
+          "durationCheckedOn": "2026-11-13"
+        }
+      ],
+      "reviewNotes": "Webreader opened nine-month stale cache; did not approve it. Root independently rendered fresh current actual womenhair merchant menu and explicit phone-only appointment notice. Fresh literal price ranges12.78-17.90EUR60min blowdry,15.34-28.12EUR60min haircut+blow,33.23-43.46EUR120min roots includingblow, not fixed low endpoints or converted oldfees. Exact TvardishkiProhod17/Sofia and0889982805 confirmed fresh. Then branch services/contact/footer checked; no independent domain or complete weeklyhours found. No generic retail-supporthours, live availability, borrowed KPMG address variations, medical claims or staff clones. Dedupe1238+allavailable2000intakes/nativepublicphones. No call, form, service/date/customer selection, reservation, reviews, photos, maps or marketing prose retained."
+    },
+    {
+      "id": "sofia-rs-beauty-okolchitsa31",
+      "reviewedUrls": [
+        "https://www.notino.bg/saloni/rumi-sertova-beauty-salon/"
+      ],
+      "bookingUrl": "https://www.notino.bg/saloni/rumi-sertova-beauty-salon/",
+      "bookingKind": "phone",
+      "bookingExcerpt": "Фризьорство, маникюр и педикюр — резервация по телефон; обадете се на салона за час. +359893259279.",
+      "address": "София, ул. Околчица 31",
+      "addressSource": "https://www.notino.bg/saloni/rumi-sertova-beauty-salon/",
+      "phone": "+359893259279",
+      "hoursSource": null,
+      "hours": null,
+      "services": [
+        {
+          "name": "Дамско подстригване със сешоар",
+          "category": "hair",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 23.01,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/rumi-sertova-beauty-salon/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 60,
+          "durationSourceUrl": "https://www.notino.bg/saloni/rumi-sertova-beauty-salon/",
+          "durationCheckedOn": "2026-11-13"
+        },
+        {
+          "name": "Мъжко подстригване",
+          "category": "barber",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 9.2,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/rumi-sertova-beauty-salon/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 30,
+          "durationSourceUrl": "https://www.notino.bg/saloni/rumi-sertova-beauty-salon/",
+          "durationCheckedOn": "2026-11-13"
+        },
+        {
+          "name": "Маникюр с гел лак",
+          "category": "nails",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 20.45,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/rumi-sertova-beauty-salon/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 60,
+          "durationSourceUrl": "https://www.notino.bg/saloni/rumi-sertova-beauty-salon/",
+          "durationCheckedOn": "2026-11-13"
+        }
+      ],
+      "reviewNotes": "Read actual merchant explicit phone-only booking for womenhair/menhair/nails first, then full relevant menus, About, exact Okolchitsa31/Sofia contact and footer. Ordinary women haircut+blow23.01EUR60min,men haircut9.20EUR30min,gelmanicure20.45EUR60min literal. Variable length blow/balayage durations not flattened; extensions per-row not imported as fullprocedure. Merchant uses RSBeautyStudio andRumiSertovaBeautySalon for the same venue; one record only. Both published contacts belong to same merchant, primary0893259279 retained, secondary0897807554 checked for duplicates but not cloned. No independent own domain or complete weeklyhours found, no retail09-17/support inference. PDF control lacks public URL, selected explicit menu prices not a complete PDF claim. Dedupe1238+all2000intakes/nativephones. No merchant prose, reviews, photos, coordinates, call or booking."
+    },
+    {
+      "id": "sofia-luxy-knyaz-boris97",
+      "reviewedUrls": [
+        "https://www.notino.bg/saloni/luxy-beauty-center/"
+      ],
+      "bookingUrl": "https://www.notino.bg/saloni/luxy-beauty-center/",
+      "bookingKind": "phone",
+      "bookingExcerpt": "Оформяне на вежди и грим — резервация по телефон; онлайн записването за тези услуги не е възможно. +359894444091.",
+      "address": "София, ул. Княз Борис I 97, в търговския център",
+      "addressSource": "https://www.notino.bg/saloni/luxy-beauty-center/",
+      "phone": "+359894444091",
+      "hoursSource": null,
+      "hours": null,
+      "services": [
+        {
+          "name": "Оформяне на вежди",
+          "category": "beauty",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 11,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/luxy-beauty-center/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 30,
+          "durationSourceUrl": "https://www.notino.bg/saloni/luxy-beauty-center/",
+          "durationCheckedOn": "2026-11-13"
+        },
+        {
+          "name": "Дневен грим",
+          "category": "beauty",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 47,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/luxy-beauty-center/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 60,
+          "durationSourceUrl": "https://www.notino.bg/saloni/luxy-beauty-center/",
+          "durationCheckedOn": "2026-11-13"
+        },
+        {
+          "name": "Вечерен грим",
+          "category": "beauty",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 47,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/luxy-beauty-center/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 60,
+          "durationSourceUrl": "https://www.notino.bg/saloni/luxy-beauty-center/",
+          "durationCheckedOn": "2026-11-13"
+        }
+      ],
+      "reviewNotes": "Actual merchant phone-only subsection contains browclean11EUR30min andday/eveningmakeup47EUR60min, followed by full selected service menu, About/contact/footer. These are imported only; active online nail/lamination menus not marked reviewed or borrowed, conflicting naildescriptionamounts excluded. Exact KnyazBorisI97/Sofia/shoppingcentre and0894444091 confirmed. One salon/team, no specialist clones. No independent own domain or complete weeklyhours found. No transient opening snippet or provider retail09-17 schedule used. Source current3weekcache, no slot availability claim. Dedupe1238+all2000intakes/nativepublicphones no match. No medical claims, expressive prose, ratings, reviews, photos, Maps, coordinates, call or booking."
+    },
+    {
+      "id": "sofia-mar-prive-marinela",
+      "reviewedUrls": [
+        "https://www.notino.bg/saloni/mar-prive/"
+      ],
+      "bookingUrl": "https://www.notino.bg/saloni/mar-prive/",
+      "bookingKind": "phone",
+      "bookingExcerpt": "Barber shop — резервация по телефон; онлайн записването за тези услуги не е възможно. +359888828838.",
+      "address": "София, бул. Джеймс Баучер 100, хотел Маринела, ниво B",
+      "addressSource": "https://www.notino.bg/saloni/mar-prive/",
+      "phone": "+359888828838",
+      "hoursSource": null,
+      "hours": null,
+      "services": [
+        {
+          "name": "Мъжко подстригване",
+          "category": "barber",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 50,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/mar-prive/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 40,
+          "durationSourceUrl": "https://www.notino.bg/saloni/mar-prive/",
+          "durationCheckedOn": "2026-11-13"
+        },
+        {
+          "name": "Оформяне на брада",
+          "category": "barber",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 30,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/mar-prive/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 30,
+          "durationSourceUrl": "https://www.notino.bg/saloni/mar-prive/",
+          "durationCheckedOn": "2026-11-13"
+        },
+        {
+          "name": "Мъжко подстригване и оформяне на брада",
+          "category": "barber",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 75,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/mar-prive/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 50,
+          "durationSourceUrl": "https://www.notino.bg/saloni/mar-prive/",
+          "durationCheckedOn": "2026-11-13",
+          "description": "Включва измиване и финален стайлинг."
+        }
+      ],
+      "reviewNotes": "Actual named merchant BarberShop section explicitly phone-only appointment booking, then full selected barber menu/About/exactcontact/footer reviewed. Literal haircut50EUR40min,beard30EUR30min,combo75EUR50min withwash+finish retained. Undefined VIP150EUR andunrelatedbeauty/PMU not selected. Exact JamesBoucher100/HotelMarinela/levelB and0888828838 confirmed; do not treat hotel itself or each barber as another listing. No independent own domain or full weeklyhours found, no retail09-17/transient status inference. Dedupe1238+allavailable2000intakes/nativephones, no match. No media/promo/efficacy claims, merchant prose, reviews, ratings, photos, Maps, coordinates, call or booking."
+    },
+    {
+      "id": "sofia-hair-gallery-amur-exarh60",
+      "reviewedUrls": [
+        "https://www.notino.bg/saloni/hair-gallery-amur-mariyana/"
+      ],
+      "bookingUrl": "https://www.notino.bg/saloni/hair-gallery-amur-mariyana/",
+      "bookingKind": "phone",
+      "bookingExcerpt": "Дамско и мъжко фризьорство при Марияна — резервация по телефон; обадете се за час. +359877113715.",
+      "address": "София, ул. Екзарх Йосиф 60",
+      "addressSource": "https://www.notino.bg/saloni/hair-gallery-amur-mariyana/",
+      "phone": "+359877113715",
+      "hoursSource": null,
+      "hours": null,
+      "services": [
+        {
+          "name": "Дамско подстригване с измиване и сешоар — Марияна",
+          "category": "hair",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 51.13,
+            "maximum": 66.47,
+            "currency": "EUR",
+            "kind": "range",
+            "sourceUrl": "https://www.notino.bg/saloni/hair-gallery-amur-mariyana/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 90,
+          "durationSourceUrl": "https://www.notino.bg/saloni/hair-gallery-amur-mariyana/",
+          "durationCheckedOn": "2026-11-13",
+          "description": "Тарифа на Марияна; не обща цена за всички специалисти."
+        },
+        {
+          "name": "Матиране с измиване и сешоар — Марияна",
+          "category": "hair",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 46.02,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/hair-gallery-amur-mariyana/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 75,
+          "durationSourceUrl": "https://www.notino.bg/saloni/hair-gallery-amur-mariyana/",
+          "durationCheckedOn": "2026-11-13",
+          "description": "Тарифа на Марияна."
+        },
+        {
+          "name": "Мъжко подстригване с измиване и стайлинг — Марияна",
+          "category": "barber",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 25.56,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/hair-gallery-amur-mariyana/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 60,
+          "durationSourceUrl": "https://www.notino.bg/saloni/hair-gallery-amur-mariyana/",
+          "durationCheckedOn": "2026-11-13",
+          "description": "Тарифа на Марияна."
+        }
+      ],
+      "reviewNotes": "Actual Mariyana named merchant women/menhair phone-only invitation followed by relevant full menu/About/contact/footer review. About explicitly identifies MariyanaKadieva as owner ofHairGalleryAmur andfounderMKBeautyAcademy: one salon, not multiple staff/academy businesses. Only her exact staffqualified haircut+wash+blow51.13-66.47EUR90min,toner+wash+blow46.02EUR75min,men25.56EUR60min retained. Denis/Pola/Erika separate staff pages not imported or cloned. Exact ExarhYosif60/Sofia and0877113715; unrelated existing psychologist samehouse is different operator/phone/domain. No independent own salon domain or weeklyhours found. No provider retail/transient-hour inference, marketing prose, medical claims, reviews, photos, coordinates, call or booking. Dedupe1238+all2000intakes/nativephones."
+    },
+    {
+      "id": "sofia-ecru-lyulin386",
+      "reviewedUrls": [
+        "https://www.notino.bg/saloni/studio-ekryu/",
+        "https://galinca.com/",
+        "https://galinca.com/za-nas/frizyorsko-studio-ekryu/",
+        "https://galinca.com/kontakti/"
+      ],
+      "bookingUrl": "https://www.notino.bg/saloni/studio-ekryu/",
+      "bookingKind": "phone",
+      "bookingExcerpt": "Дамско и мъжко фризьорство — резервация по телефон; обадете се на салона за час. +359897728146.",
+      "address": "София, ж.к. Люлин 3, бл. 386, партер",
+      "addressSource": "https://www.notino.bg/saloni/studio-ekryu/",
+      "phone": "+359897728146",
+      "hoursSource": null,
+      "hours": null,
+      "services": [
+        {
+          "name": "Дамско подстригване",
+          "category": "hair",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 11.25,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/studio-ekryu/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 30,
+          "durationSourceUrl": "https://www.notino.bg/saloni/studio-ekryu/",
+          "durationCheckedOn": "2026-11-13"
+        },
+        {
+          "name": "Мъжко подстригване",
+          "category": "barber",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 9.71,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/studio-ekryu/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "description": "Публикувана продължителност 20–30 минути; уточнете точния вариант при записване."
+        }
+      ],
+      "reviewNotes": "Read actual merchant women/menhair phone-only booking, full selected hair menu/About/contact/footer. Women11.25EUR30min,men9.71EUR published20-30min not flattened. Own corporate Galinca homepage/branch/contact then read liveHTTP200 after webreader timeouts: explicitly secondrealvenueEcru,exactLyulin3 block386; corporate contact0897728146 matches merchantbookingphone. Branchgeneral0899020654 is additionalownercontact, not another salon. Ownpage has actualservices but no separate active booking/tariff; merchant is chosen explicit appointment route, not retail cart. Do not borrow descriptionswashinclusions absent selected merchantcut. No complete weeklyhours, no retail-footer inference. Dedupe1238+all2000intakes/nativephones; no match. No reviews, photos, marketingprose, Maps, coordinates, calls or reservation."
+    },
+    {
+      "id": "sofia-gery-art-mladost307",
+      "reviewedUrls": [
+        "https://www.notino.bg/saloni/gery-art/"
+      ],
+      "bookingUrl": "https://www.notino.bg/saloni/gery-art/",
+      "bookingKind": "phone",
+      "bookingExcerpt": "Козметични услуги — резервация по телефон; обадете се на салона, за да запазите час. +359895417839.",
+      "address": "София, ж.к. Младост 3, бл. 307",
+      "addressSource": "https://www.notino.bg/saloni/gery-art/",
+      "phone": "+359895417839",
+      "hoursSource": null,
+      "hours": null,
+      "services": [
+        {
+          "name": "Шугаринг на подмишници",
+          "category": "beauty",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 10.23,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/gery-art/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 10,
+          "durationSourceUrl": "https://www.notino.bg/saloni/gery-art/",
+          "durationCheckedOn": "2026-11-13"
+        },
+        {
+          "name": "Кола маска на горна устна",
+          "category": "beauty",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 5.11,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/gery-art/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 10,
+          "durationSourceUrl": "https://www.notino.bg/saloni/gery-art/",
+          "durationCheckedOn": "2026-11-13"
+        },
+        {
+          "name": "Оформяне на вежди",
+          "category": "beauty",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 7.67,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/gery-art/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 15,
+          "durationSourceUrl": "https://www.notino.bg/saloni/gery-art/",
+          "durationCheckedOn": "2026-11-13"
+        }
+      ],
+      "reviewNotes": "Actual merchant cosmetic category explicitly phone-only appointments, then relevant full menu/About/contact/footer. Exact Mladost3 block307/Sofia and0895417839. Ordinary sugarunderarms10.23EUR10min,upperlipwax5.11EUR10min,browshape7.67EUR15min only; no electricity/medical/pregnancy or hairvariant services imported. Own salon identifies multiplebeautyservices, not separate employee businesses. No independent domain or complete weeklyhours found; transient openingstatus and provider retail09-17 not copied. Current lastweek public menu, no live slots claim. Dedupe1238+all2000intakes/nativepublicphones. Minimal factual labels only, no expressive prose, clinical claims, reviews, ratings, photos, Maps, coordinates, calls or booking."
+    },
+    {
+      "id": "sofia-adria-nails-lyulin328",
+      "reviewedUrls": [
+        "https://www.notino.bg/saloni/adria-beauty-and-wellness-boutique/"
+      ],
+      "bookingUrl": "https://www.notino.bg/saloni/adria-beauty-and-wellness-boutique/",
+      "bookingKind": "phone",
+      "bookingExcerpt": "Козметични услуги — резервация по телефон; онлайн записването за тези услуги не е възможно. +359897989370.",
+      "address": "София, ж.к. Люлин 8, ул. 328-ма 6",
+      "addressSource": "https://www.notino.bg/saloni/adria-beauty-and-wellness-boutique/",
+      "phone": "+359897989370",
+      "hoursSource": null,
+      "hours": null,
+      "services": [
+        {
+          "name": "Боядисване на мигли",
+          "category": "beauty",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 5.11,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/adria-beauty-and-wellness-boutique/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 30,
+          "durationSourceUrl": "https://www.notino.bg/saloni/adria-beauty-and-wellness-boutique/",
+          "durationCheckedOn": "2026-11-13"
+        },
+        {
+          "name": "Боядисване на вежди",
+          "category": "beauty",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 5.11,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/adria-beauty-and-wellness-boutique/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 30,
+          "durationSourceUrl": "https://www.notino.bg/saloni/adria-beauty-and-wellness-boutique/",
+          "durationCheckedOn": "2026-11-13"
+        },
+        {
+          "name": "Ламиниране на мигли",
+          "category": "beauty",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 30.68,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/adria-beauty-and-wellness-boutique/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 60,
+          "durationSourceUrl": "https://www.notino.bg/saloni/adria-beauty-and-wellness-boutique/",
+          "durationCheckedOn": "2026-11-13"
+        }
+      ],
+      "reviewNotes": "Actual named merchant cosmetic subsection explicitly phone-only appointment booking; read full relevant brow/lash menu, About/contact/footer. Eyelashdye5.11EUR30min,browdye5.11EUR30min,lashlamination30.68EUR60min. Active online nailservices are not imported or claimed bookingreviewed; undefined phoneonly children/gel services not given invented fees. Exact Lyulin8 street328th6/Sofia and0897989370 verified. One multi-staff salon; no ear-piercing/PMU/medicalclaims imported. No independent own domain or complete weeklyhours, provider retail09-17/transient status not businessschedule. Dedupe1238+all2000intakes/nativephones no match. No marketing prose, reviews, photos, Maps, coordinates, calls or booking."
+    },
+    {
+      "id": "sofia-new-me-yordan-yosifov7",
+      "reviewedUrls": [
+        "https://www.notino.bg/saloni/new-me-hair-salon/"
+      ],
+      "bookingUrl": "https://www.notino.bg/saloni/new-me-hair-salon/",
+      "bookingKind": "phone",
+      "bookingExcerpt": "Дамско и мъжко фризьорство — резервация по телефон; обадете се на салона за час. +359879475385.",
+      "address": "София, ул. Йордан Йосифов 7",
+      "addressSource": "https://www.notino.bg/saloni/new-me-hair-salon/",
+      "phone": "+359879475385",
+      "hoursSource": null,
+      "hours": null,
+      "services": [
+        {
+          "name": "Дамско подстригване",
+          "category": "hair",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 15.34,
+            "maximum": 20.45,
+            "currency": "EUR",
+            "kind": "range",
+            "sourceUrl": "https://www.notino.bg/saloni/new-me-hair-salon/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "description": "Публикувана продължителност 30–60 минути; точният вариант се уточнява при записване."
+        },
+        {
+          "name": "Мъжко подстригване с машинка",
+          "category": "barber",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 10.23,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/new-me-hair-salon/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 30,
+          "durationSourceUrl": "https://www.notino.bg/saloni/new-me-hair-salon/",
+          "durationCheckedOn": "2026-11-13"
+        },
+        {
+          "name": "Оформяне на коса с маша",
+          "category": "hair",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 30.68,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/new-me-hair-salon/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 60,
+          "durationSourceUrl": "https://www.notino.bg/saloni/new-me-hair-salon/",
+          "durationCheckedOn": "2026-11-13"
+        }
+      ],
+      "reviewNotes": "Actual named merchant women/menhair phone-only appointment notices, then full relevant menu/About/exactcontact/footer reviewed. Womenhaircut15.34-20.45EURrange30-60min retained publicly withoutinventedscalartime; menclipper10.23EUR30min,curlingironstyle30.68EUR60min literal. Extensions per-row, variablecolor andtechnicalservices not flattened. Exact YordanYosifov7/Sofia and0879475385; quarterStudentskiGrad explicitly About, not inferred. No independent domain or complete weeklyhours found. Provider retail-support closurebanner/09-17 hours not salonfacts. Dedupe1238+all2000intakes/nativephones no match. No medical claims, expressiveprose, reviews, ratings, photos, Maps, coordinates, call or booking."
+    },
+    {
+      "id": "sofia-dogma-grooming-mladost528",
+      "reviewedUrls": [
+        "https://www.notino.bg/saloni/dogma-grooming-studio/"
+      ],
+      "bookingUrl": "https://www.notino.bg/saloni/dogma-grooming-studio/",
+      "bookingKind": "phone",
+      "bookingExcerpt": "Груминг салон — отворено със записване, резервация по телефон; обадете се за час. +359899150744.",
+      "address": "София, ж.к. Младост 1А, бл. 528",
+      "addressSource": "https://www.notino.bg/saloni/dogma-grooming-studio/",
+      "phone": "+359899150744",
+      "hoursSource": null,
+      "hours": null,
+      "services": [
+        {
+          "name": "Цялостен груминг на куче — малка порода",
+          "category": "pets",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 38.35,
+            "maximum": 43.46,
+            "currency": "EUR",
+            "kind": "range",
+            "sourceUrl": "https://www.notino.bg/saloni/dogma-grooming-studio/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 120,
+          "durationSourceUrl": "https://www.notino.bg/saloni/dogma-grooming-studio/",
+          "durationCheckedOn": "2026-11-13"
+        },
+        {
+          "name": "Цялостен груминг на куче — средна порода",
+          "category": "pets",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 43.46,
+            "maximum": 51.13,
+            "currency": "EUR",
+            "kind": "range",
+            "sourceUrl": "https://www.notino.bg/saloni/dogma-grooming-studio/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 120,
+          "durationSourceUrl": "https://www.notino.bg/saloni/dogma-grooming-studio/",
+          "durationCheckedOn": "2026-11-13"
+        },
+        {
+          "name": "Изрязване на нокти на куче — малка порода",
+          "category": "pets",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 5.11,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/dogma-grooming-studio/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 10,
+          "durationSourceUrl": "https://www.notino.bg/saloni/dogma-grooming-studio/",
+          "durationCheckedOn": "2026-11-13"
+        }
+      ],
+      "reviewNotes": "Actual named merchant grooming category explicitly phone-only appointment booking and openbyappointment. Read full size-qualified menu/About/contact/footer: smallbreedfullgroom38.35-43.46EUR120min,mediumbreed43.46-51.13EUR120min,smallbreedclaw5.11EUR10min. No inventedkg/breedrestriction orcat services. Largebreed120-180min not flattened. Exact Mladost1A block528/Sofia and0899150744. No independent ownerdomain found. Business shows byappointment but no weeklyday/time schedule, no retail09-17/transientstatus inference. Additional pricelist image control not inspected/copied; selected visible menu prices explicit, no complete image/PDF or unpublishedtariff claim. Dedupe1238+all2000intakes/nativephones no match. No sedation/safety claims, reviews, ratings, photos, Maps, coordinates or booking actions."
+    },
+    {
+      "id": "sofia-nails-iva-petleshkov80",
+      "reviewedUrls": [
+        "https://www.notino.bg/saloni/nails-art-by-iva%F0%9F%8C%B8/"
+      ],
+      "bookingUrl": "https://www.notino.bg/saloni/nails-art-by-iva%F0%9F%8C%B8/",
+      "bookingKind": "phone",
+      "bookingExcerpt": "Маникюр и педикюр — резервация по телефон; онлайн записването не е възможно. +359876437444.",
+      "address": "София, ж.к. Хаджи Димитър, ул. Васил Петлешков 80",
+      "addressSource": "https://www.notino.bg/saloni/nails-art-by-iva%F0%9F%8C%B8/",
+      "phone": "+359876437444",
+      "hoursSource": null,
+      "hours": null,
+      "services": [
+        {
+          "name": "Маникюр с гел лак",
+          "category": "nails",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 25.56,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/nails-art-by-iva%F0%9F%8C%B8/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 120,
+          "durationSourceUrl": "https://www.notino.bg/saloni/nails-art-by-iva%F0%9F%8C%B8/",
+          "durationCheckedOn": "2026-11-13"
+        },
+        {
+          "name": "Мъжки маникюр",
+          "category": "nails",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 12.78,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/nails-art-by-iva%F0%9F%8C%B8/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 30,
+          "durationSourceUrl": "https://www.notino.bg/saloni/nails-art-by-iva%F0%9F%8C%B8/",
+          "durationCheckedOn": "2026-11-13"
+        },
+        {
+          "name": "Педикюр с гел лак",
+          "category": "nails",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 25.56,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/nails-art-by-iva%F0%9F%8C%B8/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 60,
+          "durationSourceUrl": "https://www.notino.bg/saloni/nails-art-by-iva%F0%9F%8C%B8/",
+          "durationCheckedOn": "2026-11-13"
+        }
+      ],
+      "reviewNotes": "Actual merchant nail category explicitly phone-only appointments, then full relevant menu/About/contact/footer. Literal gelmanicure25.56EUR120min,men12.78EUR30min,pedicuregel25.56EUR60min. French/ombre rows0.51-5.11EUR10-20min look like decorationaddons, not falsely imported asfullmanicure. Exact HadzhiDimitar/VasilPetleshkov80/Sofia and0876437444. About explicitly says Iva founded the branded salon, not simply staffcalendaratknownbusiness. No independent domain or complete weeklyhours found; provider retail09-17/transientstatus excluded. Dedupe1238+all2000intakes/nativephones no match. No efficacyclaims, expressiveprose, reviews, photos, Maps, coordinates, call or booking."
+    },
+    {
+      "id": "sofia-m-si-goritsa21",
+      "reviewedUrls": [
+        "https://www.notino.bg/saloni/studio-m-si_1/"
+      ],
+      "bookingUrl": "https://www.notino.bg/saloni/studio-m-si_1/",
+      "bookingKind": "form",
+      "bookingExcerpt": "Резервирайте · Студио M-SI, Горица21, София;+359879333178; действителен диалог за избор на услуги.",
+      "address": "София, ул. Горица 21",
+      "addressSource": "https://www.notino.bg/saloni/studio-m-si_1/",
+      "phone": "+359879333178",
+      "hoursSource": null,
+      "hours": null,
+      "services": [
+        {
+          "name": "Маникюр с гел лак",
+          "category": "nails",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 15,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/studio-m-si_1/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 90,
+          "durationSourceUrl": "https://www.notino.bg/saloni/studio-m-si_1/",
+          "durationCheckedOn": "2026-11-13"
+        },
+        {
+          "name": "Маникюр с гел лак и укрепване",
+          "category": "nails",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 20,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/studio-m-si_1/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 120,
+          "durationSourceUrl": "https://www.notino.bg/saloni/studio-m-si_1/",
+          "durationCheckedOn": "2026-11-13"
+        },
+        {
+          "name": "Педикюр с гел лак",
+          "category": "nails",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 20,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/studio-m-si_1/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 90,
+          "durationSourceUrl": "https://www.notino.bg/saloni/studio-m-si_1/",
+          "durationCheckedOn": "2026-11-13"
+        }
+      ],
+      "reviewNotes": "Actual named merchant Reserve button followed first; root independently rendered full fresh Services dialog afterinitialloading, confirmed gel15EUR90min,gel+strength20EUR120min,pedicuregel20EUR90min. Public selected tariff agrees. Then ownermerchant full relevant menu/About/contact/footer reviewed; exact Goritsa21/Sofia and0879333178. One salon namedM-SI, no extra staffbusiness. No independent domain or complete weeklyhours found; temporaryopening/retailsupport09-17 not salonhours. Haircolor25-105EUR andotherunreviewedservices not imported. No service,time,date,customer selected, no booking submitted. Dedupe1238+all2000intakes/nativephones. No marketingprose, ratings,reviews,photos, Maps orcoordinates retained."
+    },
+    {
+      "id": "sofia-kriskatris-studentski60g",
+      "reviewedUrls": [
+        "https://www.notino.bg/saloni/kriskatris-nail-barandbeauty-zone/",
+        "https://www.kriskatris.bg/",
+        "https://www.kriskatris.bg/manicure-pedicure",
+        "https://www.kriskatris.bg/cosmetic-procedures"
+      ],
+      "bookingUrl": "https://www.notino.bg/saloni/kriskatris-nail-barandbeauty-zone/",
+      "bookingKind": "phone",
+      "bookingExcerpt": "Маникюр и педикюр — резервация по телефон; онлайн записването не е възможно. +359884039698.",
+      "address": "София, ж.к. Студентски град, бл. 60Г, партер от вътрешната страна",
+      "addressSource": "https://www.notino.bg/saloni/kriskatris-nail-barandbeauty-zone/",
+      "phone": "+359884039698",
+      "hoursSource": "https://www.kriskatris.bg/",
+      "hours": [
+        {
+          "weekday": 1,
+          "periods": [
+            {
+              "open": "10:00",
+              "close": "19:30"
+            }
+          ]
+        },
+        {
+          "weekday": 2,
+          "periods": [
+            {
+              "open": "10:00",
+              "close": "19:30"
+            }
+          ]
+        },
+        {
+          "weekday": 3,
+          "periods": [
+            {
+              "open": "10:00",
+              "close": "19:30"
+            }
+          ]
+        },
+        {
+          "weekday": 4,
+          "periods": [
+            {
+              "open": "10:00",
+              "close": "19:30"
+            }
+          ]
+        },
+        {
+          "weekday": 5,
+          "periods": [
+            {
+              "open": "10:00",
+              "close": "19:30"
+            }
+          ]
+        },
+        {
+          "weekday": 6,
+          "periods": [
+            {
+              "open": "10:00",
+              "close": "17:00"
+            }
+          ]
+        }
+      ],
+      "services": [
+        {
+          "name": "Маникюр с гел лак",
+          "category": "nails",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 16.36,
+            "maximum": 20.45,
+            "currency": "EUR",
+            "kind": "range",
+            "sourceUrl": "https://www.notino.bg/saloni/kriskatris-nail-barandbeauty-zone/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 90,
+          "durationSourceUrl": "https://www.notino.bg/saloni/kriskatris-nail-barandbeauty-zone/",
+          "durationCheckedOn": "2026-11-13",
+          "description": "Доплащане 8 лв. за сваляне на гел лак, поставен в друг салон."
+        },
+        {
+          "name": "Педикюр с гел лак",
+          "category": "nails",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 15.34,
+            "maximum": 20.45,
+            "currency": "EUR",
+            "kind": "range",
+            "sourceUrl": "https://www.notino.bg/saloni/kriskatris-nail-barandbeauty-zone/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 70,
+          "durationSourceUrl": "https://www.notino.bg/saloni/kriskatris-nail-barandbeauty-zone/",
+          "durationCheckedOn": "2026-11-13"
+        },
+        {
+          "name": "Изграждане с гел и цветен гел лак",
+          "category": "nails",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 25.56,
+            "maximum": 35.79,
+            "currency": "EUR",
+            "kind": "range",
+            "sourceUrl": "https://www.notino.bg/saloni/kriskatris-nail-barandbeauty-zone/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 150,
+          "durationSourceUrl": "https://www.notino.bg/saloni/kriskatris-nail-barandbeauty-zone/",
+          "durationCheckedOn": "2026-11-13"
+        }
+      ],
+      "reviewNotes": "Actual merchant nailcategory phone-only appointment path first, then full relevant menu/About/contact/footer; ownindependent domain discovered and fullroot/nail/cosmeticpages read. Exact StudentskiGrad block60G groundfloorinside and0884039698 match bothsources, secondary0884074955 samevenue not clone. Literal gel16.36-20.45EUR90min plus8BGNother-salonremoval,gelpedicure15.34-20.45EUR70min,gelbuild+color25.56-35.79EUR150min; all ranges preserved. Promo28.12combo excluded. Own site no monetary nailtariff/BookCTA, merchant chosen explicit appointment route, not a no-publicprice claim. Own MonFri10-19:30/Sat10-17 schedule; Sunday unspecified left absent. Medical/rehabilitation/laser/academy rows not imported. Dedupe1238+all2000intakes/nativephones. No marketingprose, reviews,photos,Maps,coordinates,call orbooking."
+    },
+    {
+      "id": "sofia-hairport-ishirkov9",
+      "reviewedUrls": [
+        "https://www.notino.bg/saloni/hairport-beauty-studio/"
+      ],
+      "bookingUrl": "https://www.notino.bg/saloni/hairport-beauty-studio/",
+      "bookingKind": "phone",
+      "bookingExcerpt": "Barber услуги — резервация по телефон; онлайн записването за тези конкретни услуги не е възможно. +359884865775.",
+      "address": "София, ул. Проф. Атанас Иширков 9",
+      "addressSource": "https://www.notino.bg/saloni/hairport-beauty-studio/",
+      "phone": "+359884865775",
+      "hoursSource": null,
+      "hours": null,
+      "services": [
+        {
+          "name": "Fade с измиване и стайлинг",
+          "category": "barber",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 20.45,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/hairport-beauty-studio/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 50,
+          "durationSourceUrl": "https://www.notino.bg/saloni/hairport-beauty-studio/",
+          "durationCheckedOn": "2026-11-13"
+        },
+        {
+          "name": "Класическо оформяне на брада",
+          "category": "barber",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 7.67,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/hairport-beauty-studio/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "description": "Публикувана продължителност 15–30 минути; точният вариант се уточнява при записване."
+        },
+        {
+          "name": "Мъжко подстригване и стандартно оформяне на брада",
+          "category": "barber",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 23.01,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/hairport-beauty-studio/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 70,
+          "durationSourceUrl": "https://www.notino.bg/saloni/hairport-beauty-studio/",
+          "durationCheckedOn": "2026-11-13"
+        }
+      ],
+      "reviewNotes": "Actual merchant menhair subgroup afteractiveonlinecolourmenu explicitly phone-only: Fade20.45EUR50min withwash+style,beard7.67EURpublished15-30min no scalar invented,combo23.01EUR70min. These exact phone-only barber rows only, not active mainhair service17.90EUR40min orotherunreviewed calendars. Then relevant full menu/About/contact/footer; exact AtanasIshirkov9/Sofia and0884865775, StudentskiGrad explicitAbout. No independent own domain orcompleteweeklyhours found; transient-open/provider retail09-17 excluded. Dedupe1238+all2000intakes/nativephones no match. No medicalclaims, expressiveprose, reviews, photos, Maps,coordinates, call orbooking."
+    },
+    {
+      "id": "sofia-beauty-expert-mladost146",
+      "reviewedUrls": [
+        "https://www.notino.bg/saloni/studio-beauty-expert-mladost/"
+      ],
+      "bookingUrl": "https://www.notino.bg/saloni/studio-beauty-expert-mladost/",
+      "bookingKind": "phone",
+      "bookingExcerpt": "Козметични услуги — отворено със записване, резервация по телефон; обадете се за час. +359878598170.",
+      "address": "София, ж.к. Младост 1, бл. 146, от задната страна",
+      "addressSource": "https://www.notino.bg/saloni/studio-beauty-expert-mladost/",
+      "phone": "+359878598170",
+      "hoursSource": null,
+      "hours": null,
+      "services": [
+        {
+          "name": "Кола маска на горна устна",
+          "category": "beauty",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 5.11,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/studio-beauty-expert-mladost/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 15,
+          "durationSourceUrl": "https://www.notino.bg/saloni/studio-beauty-expert-mladost/",
+          "durationCheckedOn": "2026-11-13"
+        },
+        {
+          "name": "Кола маска на брадичка",
+          "category": "beauty",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 5.11,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/studio-beauty-expert-mladost/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 30,
+          "durationSourceUrl": "https://www.notino.bg/saloni/studio-beauty-expert-mladost/",
+          "durationCheckedOn": "2026-11-13"
+        },
+        {
+          "name": "Кола маска на гръб",
+          "category": "beauty",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 15.34,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/studio-beauty-expert-mladost/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 30,
+          "durationSourceUrl": "https://www.notino.bg/saloni/studio-beauty-expert-mladost/",
+          "durationCheckedOn": "2026-11-13"
+        }
+      ],
+      "reviewNotes": "Actual named merchant cosmetics phone-only appointment path andopenbyappointment notice; complete relevant wax menu/About/contact/footer reviewed. Only ordinary upperlip5.11EUR15min,chin5.11EUR30min,back15.34EUR30min wax imported. Mesotherapy/physiotherapy/equipment/clinicalclaims and variabletimebrows excluded; no clinical qualifications assumed from beauty salon. Exact Mladost1 block146/backside/Sofia and0878598170. No independent own domain orweeklydays/times found; byappointment not convertedto schedule, no retail09-17/transientstatus inference. PDFcontrol has no readableURL, no completePDF orunpublishedtariff claim. Dedupe1238+all2000intakes/nativephones no match. No prose,reviews,photos,Maps,coordinates,call orbooking."
+    },
+    {
+      "id": "sofia-910-nails-barber-vihren45a",
+      "reviewedUrls": [
+        "https://www.notino.bg/saloni/910-nails-and-barber/"
+      ],
+      "bookingUrl": "https://www.notino.bg/saloni/910-nails-and-barber/",
+      "bookingKind": "phone",
+      "bookingExcerpt": "Barber shop — резервация по телефон; онлайн записването за тези услуги не е възможно. +359877261237.",
+      "address": "София, ул. Вихрен 45А",
+      "addressSource": "https://www.notino.bg/saloni/910-nails-and-barber/",
+      "phone": "+359877261237",
+      "hoursSource": null,
+      "hours": null,
+      "services": [
+        {
+          "name": "Оформяне на брада с машинка",
+          "category": "barber",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 7.67,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/910-nails-and-barber/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 30,
+          "durationSourceUrl": "https://www.notino.bg/saloni/910-nails-and-barber/",
+          "durationCheckedOn": "2026-11-13"
+        },
+        {
+          "name": "Оформяне на брада с машинка и ножица",
+          "category": "barber",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 10.23,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/910-nails-and-barber/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 30,
+          "durationSourceUrl": "https://www.notino.bg/saloni/910-nails-and-barber/",
+          "durationCheckedOn": "2026-11-13"
+        },
+        {
+          "name": "Мъжко подстригване с ножица",
+          "category": "barber",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 17.9,
+            "currency": "EUR",
+            "kind": "fixed",
+            "sourceUrl": "https://www.notino.bg/saloni/910-nails-and-barber/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 60,
+          "durationSourceUrl": "https://www.notino.bg/saloni/910-nails-and-barber/",
+          "durationCheckedOn": "2026-11-13"
+        }
+      ],
+      "reviewNotes": "Actual merchant BarberShop subsection explicitly phone-only, then selected full barber menu/About/contact/footer reviewed. Initial older two-month page compared with fresh public web render crawled today: selected beardclipper7.67EUR30min,beardclipper+scissors10.23EUR30min,scissorhaircut17.90EUR60min agree; online nailprices changed and are not imported or marked bookingreviewed. Fade45-60min not flattened. Exact Vihren45A/Sofia and0877261237 corroborated fresh. Ordinary barber rows only, no medical/laser/skin claims imported. No independent own domain or full weeklyhours found; transient opening and provider retail09-17 not salon schedule. All current catalogue/intakes/native contacts checked, no duplicate. No expressive prose, reviews, ratings, photos, Maps, coordinates, call, customer/date choice or booking."
+    },
+    {
+      "id": "sofia-ts-atelier-uvaliev1",
+      "reviewedUrls": [
+        "https://www.notino.bg/saloni/tss-atelier/"
+      ],
+      "bookingUrl": "https://www.notino.bg/saloni/tss-atelier/",
+      "bookingKind": "phone",
+      "bookingExcerpt": "Дамско фризьорство — резервация по телефон; онлайн записването за тези услуги не е възможно. +359877304664.",
+      "address": "София, ул. Петър Увалиев 1",
+      "addressSource": "https://www.notino.bg/saloni/tss-atelier/",
+      "phone": "+359877304664",
+      "hoursSource": null,
+      "hours": null,
+      "services": [
+        {
+          "name": "Прав сешоар",
+          "category": "hair",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 15.34,
+            "maximum": 25.56,
+            "currency": "EUR",
+            "kind": "range",
+            "sourceUrl": "https://www.notino.bg/saloni/tss-atelier/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "description": "Публикувана продължителност 60–90 минути; точният вариант се уточнява при записване."
+        },
+        {
+          "name": "Боядисване на корени с измиване и сешоар",
+          "category": "hair",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 40.9,
+            "maximum": 43.46,
+            "currency": "EUR",
+            "kind": "range",
+            "sourceUrl": "https://www.notino.bg/saloni/tss-atelier/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 120,
+          "durationSourceUrl": "https://www.notino.bg/saloni/tss-atelier/",
+          "durationCheckedOn": "2026-11-13"
+        },
+        {
+          "name": "Възстановяваща терапия за коса със сешоар",
+          "category": "hair",
+          "appointmentModel": "appointment",
+          "price": {
+            "amount": 40.9,
+            "maximum": 46.02,
+            "currency": "EUR",
+            "kind": "range",
+            "sourceUrl": "https://www.notino.bg/saloni/tss-atelier/",
+            "checkedOn": "2026-11-13",
+            "validUntil": "2027-02-11"
+          },
+          "durationMin": 90,
+          "durationSourceUrl": "https://www.notino.bg/saloni/tss-atelier/",
+          "durationCheckedOn": "2026-11-13"
+        }
+      ],
+      "reviewNotes": "Actual named merchant womenhair subsection explicitly phone-only appointment invitation; complete relevant menu/About/exactcontact/footer reviewed in lastweek public render. Straightblow15.34-25.56EUR with published60-90min not flattened; rootsincludingwash+blow40.90-43.46EUR120min andhairtherapy+blow40.90-46.02EUR90min literal ranges. Active online nails are not imported or marked reviewed. Exact PetarUvaliev1/Sofia and0877304664; secondary0878280003 checked as same venue, no staffclone. Existing GPoint laser samehouse has different ownerbrand/domain/scope, no phone link or evidence it operates TS hair/nails; independent named storefront, not new GPoint department. No independent own domain or full weeklyhours found, Mondaybyrequest snippet not fullschedule. All current catalogue/intakes/native contacts checked. No efficacy claims, merchant prose, ratings, reviews, photos, Maps, coordinates, call or booking."
+    }
+  ],
+  "pending": [
+    {
+      "business": "Iana Nails Studio / NailsStudio R / Studio81 / ParadiSe Beauty Albena / Beauty VP House Nails",
+      "reviewedUrls": ["https://www.notino.bg/saloni/iana-nails-studio_1/", "https://www.notino.bg/saloni/nailsstudior/", "https://www.notino.bg/saloni/studio-81/", "https://www.notino.bg/saloni/paradise-beauty-albena/", "https://www.notino.bg/saloni/beauty-vp-house-nails/", "https://www.notino.bg/saloni/beauty-vp-house/"],
+      "reason": "Appointment/named merchant evidence found, but opened tariff pages are stale or at the three-month boundary; need fresh current confirmation before import. BeautyVP whole salon and nail page are ONE Lyulin958 venue, not two businesses. No unavailable-menu or stale-cache page is described as unpublished. Iana owner Yana is one studio, not separate Boryana staff clone."
+    },
+    {
+      "business": "Escala",
+      "reviewedUrls": ["https://beautystudioescala.com/", "https://www.notino.bg/saloni/studio-za-krasota-escala/"],
+      "reason": "Own current address Mladost1A block508/entranceB conflicts with merchant580 for the same0895435365. Own source also explicitly describes injection hydro-vacuum mesotherapy. Hold address and medical scope; no guessed correction or ordinary department clone."
+    },
+    {
+      "business": "George Todorov Beauty Club / Style by Monika Ivanova / STRINI / Pink Diamond branches",
+      "reviewedUrls": ["https://www.georgetodorovbeautyclub.com/", "https://studio24.bg/m/george-todorov-beauty-club-s5605?m=", "https://www.notino.bg/saloni/harmony-center-202/", "https://www.notino.bg/saloni/strini-studio/", "https://www.notino.bg/saloni/pink-diamond-beauty-studio-kv--lozenec/", "https://www.notino.bg/saloni/pink-diamond-beauty-studio-zona-b-19/"],
+      "reason": "Active actual booking menus still require rendering/current branch review. Own George contacts/tariff read but actual Studio24 web403 respected and queued for root browser review. PinkDiamond phone-only snippets are single-nail repair or courses, not a substitute for ordinary full nail booking; branch tariffs must be independently read. No completion or unpublished-tariff claim."
+    },
+    {
+      "business": "Beauty Studio Bozhan Angelov424 / Galina Keshan9 / MMM nails",
+      "reviewedUrls": ["https://www.notino.bg/saloni/studio-za-krasota-beauty-studio/", "https://galinca.com/", "https://galinca.com/za-nas/kozmetichno-studio/", "https://galinca.com/kontakti/", "https://mmmbeautystudio.framer.website/", "https://mmmbeautystudio.framer.website/price-list", "https://www.notino.bg/saloni/mmm-beauty-studio/"],
+      "reason": "BeautyStudio address source says BozhanAngelov424 without clearly identifying a block/quarter, so precision hold rather than guessed street number. Galina is real separate owner branch Keshan9/0888530741 but no explicit appointment invitation found on reviewed corporate pages; not imported. MMM nails actual booking route remains unconfirmed and lash fees conflict; not unpublished."
+    },
+    {
+      "business": "F&N Academy & Beauty Center",
+      "reviewedUrls": [
+        "https://www.notino.bg/saloni/fandn-academy-and-beauty-center/"
+      ],
+      "reason": "Named merchant exact Pirin22/Sofia, active online nailmenu unreviewed. Ordinary cosmetic phone-only menu exists but identity at samehouse as existing StephanBorovo needs evidence of independent operator, not a beauty department clone. Both published0893513193/0877879784 noted; no active-calendar bypass or unpublished claim."
+    },
+    {
+      "business": "NailsStudio R",
+      "reviewedUrls": [
+        "https://www.notino.bg/saloni/nailsstudior/"
+      ],
+      "reason": "Named merchant exact Pelister10/Sofia and phone-only nail section, but opened page cached six months with suspicious0-30.68pedicure range. Hold freshness/currentmenu, not unpublished."
+    },
+    {
+      "business": "Pink Dolls Aesthetic / Adi Cosmetic Center / ELIME",
+      "reviewedUrls": [
+        "https://pinkdollsaesthetic.com/",
+        "https://adicosmetic.com/",
+        "https://www.lazernaepilacia.com/"
+      ],
+      "reason": "Scope hold or exclusion: PinkDolls explicitly injection mesotherapy/medicalaesthetics; Adi own HTTP200 identifies dermatologist and Botox/filler department. ELIME own medicallaser/treatmentofmoles/fungus and Dermapen scope needs clarification before ordinary nonmedical intake. Do not import medical procedures or use ordinary staff to clone excluded clinical operator. No claim no publicprices."
+    }
+  ],
+  "duplicatesPreserved": [
+    {
+      "candidate": "Art & MakeUp Boutique manicure merchant",
+      "reviewedUrls": [
+        "https://www.notino.bg/saloni/art-and-make-up-boutique-manikyur/"
+      ],
+      "existingId": "sofia-art-makeup-boutique-strelbishte",
+      "reason": "Exact KestenovaGora26 existing whole salon; named merchant is nail department with different phone, not new premises. Preserve existing owner record, no staff/department clone."
+    }
+  ],
+  "sourceCoverage": {
+    "records": 20,
+    "services": 58,
+    "coordinatesImported": 0,
+    "inventoryIdentitiesAssigned": 0
+  }
+}

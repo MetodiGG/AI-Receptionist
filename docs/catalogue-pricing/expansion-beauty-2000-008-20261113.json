@@ -1,0 +1,91 @@
+{
+  "rootTaxonomyCorrection": {"checkedAtUtc":"2026-11-14T00:35:03.001Z","id":"sofia-vean-tattoo-stambolov6","businessCategory":"other","serviceCategory":"other","reason":"Match existing tattoo-business convention; bodyart is not ordinary facial/cosmeticcare. Source fees/names/bookingdates unchanged. Reporting identifies Tattoo type underother. New normalized inventory identity binds reviewedcorrection only; no legacybaseline refreshed."},
+  "rootIntegrationReview": {"checkedAtUtc":"2026-11-14T00:32:54.201Z","notes":"Root personally read2fullrecords+2reviewnotes. Nativeindependent phonepaths/currentfees selected; blockedVEANcustomer calendar neverused. Verticalordinarysolariumtype separatelyconfirmed ownsource, no colarium/healthclaims. Tattoo adult/fromBGN fees retainindicativerangeconditions, notdeposit/fixed/laser.","inventory":"Only current reviewed normalizedinventory identities added; historicalbaseline/frozenhashes unchanged. Sourceobservationdates13or14retained honestly; source-complete intake is not a real booking or a deployed partner profile."},
+  "checkedOn": "2026-11-14",
+  "validUntil": "2027-02-12",
+  "checkedAtUtc": "2026-11-14T00:25:31Z",
+  "reviewLocalDate": "2026-11-14",
+  "status": "frozen_two_source_complete_records",
+  "module": "lib/discovery/catalogue-data/neighborhood-beauty-2000-008-20261113.mjs",
+  "scope": "Unique Sofia ordinary beauty/hair/barber/nails/grooming/wellness and adult body-art appointments, only independently reviewed public sources within access limits. Parent owns shared imports, identities and photos.",
+  "dateConvention": "UTC calendar days. New completed reviews after00:00Z use14November and12February; frozen001–007 unchanged. Initial Mavelle reads beganUTC13; final inventory review completedUTC14.",
+  "accessLimits": [
+    "No nativeUI/browserautomation, calls, forms/customerfields/consent/submission or productionwrites.",
+    "No new Fresha/freshasite,Setmore,Mylink,Reservation.studio,Notino,Studio24 or challenged-owner requests. Corporate platform audit is separately saved; no universal legal clearance inferred.",
+    "No Google/Maps extraction, geocoding/Nominatim or privateGPS. No source media/reviews/ratings/prose reused. Coordinatesnull.",
+    "Check exacthost/pathrobots and linked rules before firstBook request. Hold blocked/unknown/conflictingtariffs; never relabelunpublished."
+  ],
+  "sourceCoverage": { "approvedRecords": 2, "services": 3, "pricedServices": 3, "unpricedServices": 0, "fullWeekHoursRecords": 2, "coordinates": 0, "inventoryIdentities": 0 },
+  "approved": [
+    {
+      "id": "sofia-mavelle-godech3",
+      "website": "https://solarium-lulin.com/",
+      "bookingReview": "phone_booking_reviewed",
+      "bookingUrl": "https://solarium-lulin.com/contacts/",
+      "bookingExcerpt": "ActualownerЗапишиСиЧас→ownContacts, explicitcallforappointments+359889656814.",
+      "reviewedUrls": ["https://solarium-lulin.com/", "https://solarium-lulin.com/robots.txt", "https://solarium-lulin.com/contacts/", "https://solarium-lulin.com/ceni/", "https://solarium-lulin.com/solarium/", "https://solarium-lulin.com/za-nas/"],
+      "address": "София, ж.к. Люлин 8, ул. Годеч 3",
+      "addressSource": "https://solarium-lulin.com/contacts/",
+      "hoursSource": "https://solarium-lulin.com/contacts/",
+      "hoursFinding": "ExplicitMonSun09–21, ownerroot/Contactconsistent.",
+      "priceFindings": ["Solarium ordinaryvisit0.70EUR/minute; not wholesessiontotal, no fabricatedduration."],
+      "notes": "Onevenue/operator andoneordinaryUVsolariumservice. No inventedseparatevertical/horizontalbusinesses or tierfees. Prepaidminute-cards, salttherapy/clinical/laser/colariumoutcomesandclaims excluded. No LinkedgeneralTerms in reviewednavigation/footer, genericcopyright notpermission. Sourcefacts partlyreadUTC13; finalsourceinventoryreviewUTC14. Fullruntime1560+all2000intakes1900rows domainpreflightzero; phone/premise rechecked beforefreeze. No stock/sourceimageasset or IDfingerprint added."
+    },
+    {
+      "id": "sofia-vean-tattoo-stambolov6",
+      "website": "https://vean-tattoo.bg/salony/sofiya",
+      "bookingReview": "phone_booking_reviewed",
+      "bookingUrl": "https://vean-tattoo.bg/vpros-otgovor",
+      "bookingExcerpt": "Native FAQ question8 explicitly lists telephone among methods for booking a tattoo. Sofia branch explicitly invites calls to877065747. Independent phone path, not online-calendar clearance.",
+      "reviewedUrls": ["https://vean-tattoo.bg/", "https://vean-tattoo.bg/robots.txt", "https://vean-tattoo.bg/salony/sofiya", "https://vean-tattoo.bg/vpros-otgovor", "https://vean-tattoo.bg/ceni", "https://vean-tattoo.bg/garanciya-za-rezervaciya", "https://customer.vean-tattoo.bg/robots.txt"],
+      "address": "София, бул. Стефан Стамболов 6",
+      "addressSource": "https://vean-tattoo.bg/salony/sofiya",
+      "hoursSource": "https://vean-tattoo.bg/salony/sofiya",
+      "hoursFinding": "ExplicitMonSun11–20; one Sofia branch only, no staff or other-city clones.",
+      "priceFindings": ["Татуировка по индивидуален проект from100BGN", "Покриване на стара татуировка from100BGN", "Own tariff calls values indicative and qualifies by master, size, complexity, placement and colour; no duration published for these variants. Sofia branch FAQ explicitly directs to this native price table."],
+      "notes": "Actual Book customerhost robots Disallow all observed BEFORE opening calendar. No calendar/menu/API/customer content request and no provider facts used. Independent native phone path and native current literal BGN tariff support selected adult body-art rows. /documents disallowed and not requested. Reservation-guarantee page was opened but not relied upon as a complete rules review. Promotion/coin rules not selected. Table also has lower-priced variants below its general100 minimum; excluded rather than reconciled by guessing. No promotion/deposit/junior/minor/piercing/medical laser/safety/result claim, price conversion, guessed duration/quarter/coords, media/reviews/ratings or identity added. Full runtime1571 plus all2000intakes1922 checked domain, name, branch/global phones: no duplicate. KinesiJoy shares street6 but has different operator domain/phone and service scope."
+    }
+  ],
+  "pending": [
+    { "business": "V&A Professional Hair Studio / StudioBEAUTY", "website": "https://beauty-silver.com/", "reason": "hold_price_access_challenge", "reviewedUrls": ["https://beauty-silver.com/robots.txt", "https://beauty-silver.com/", "http://beauty-silver.com/new/index.php/contact-us", "https://beauty-silver.com/index.php/2020-09-29-11-27-16", "https://beauty-silver.com/index.php/about-us", "https://beauty-silver.com/index.php/contact-us"], "notes": "Ownrootexplicitstaffphoneappointments Albena899495529/Vera898532551, oneoperatorNeru28Silverfloor1office25/Lyulin/Sofia. ActualBookCTA old/newcontact404, notclaimedworkingform. Pricingpage yielded verificationchallenge; STOP alldomainafterobserving. About/contactrequests had alreadybeen issued in samebatch beforechallenge surfaced; no laterrequests/bypass. Contactcompleted, Aboutdecodingerror. Do nottakepartialsearchtariffs or callunpublished."
+    },
+    { "business": "Timeless Body & Soul", "website": "https://timeless-bg.com/", "reason": "hold_information_reuse_scope_unresolved", "reviewedUrls": ["https://timeless-bg.com/robots.txt", "https://timeless-bg.com/", "https://timeless-bg.com/kontakti/", "https://timeless-bg.com/obshti-usloviya/"], "notes": "OwnTermsHTTP200wholetext: §15(2) restricts usinginformation inclcopying/modifying/distributing withoutproviderpermission. Not described as a universallegalrule or explicitbotban; parentconfirmsHOLD/no furtherrequests. Exactownphonebooking§10 andContact883452211/Simeonovsko178 established but no selectedtariffreview completed afterrestriction. ContactMonFri10–19/SatSun10–15 conflictsTerms§2 TueFri09–19/Sat09–14; nohoursimport. Ordinaryrelaxcouldnotbeadmittedbyassumingcopyrightscope; no record."
+    },
+    { "business": "Relaxora", "website": "https://relaxora.eu/", "reason": "hold_actual_booking_and_scope_review_incomplete", "reviewedUrls": ["https://relaxora.eu/robots.txt", "https://relaxora.eu/"], "notes": "OwnrootnativeSSR has ordinaryrelax50EUR60min but also promotions, memberships andmedical-analysismarketing excluded. OwnBorovo234A/886574666 published; bookingrequestSSRshowsMarch2026/chooseprocedure/name/phonecontrols, notproofcurrentrenderedcalendar oravailability. NoUI, service/date/customer/consententry orAPI. No independentlyexplicitvoicebookingpath read yet; legal/About stillpending, no row."
+    },
+    { "business": "Venera Fashion Studios6", "website": "https://salonivenera.com/", "reason": "hold_branch_selectedservice_appointment_and_tariff_review_unresolved", "reviewedUrls": ["https://salonivenera.com/robots.txt", "https://salonivenera.com/", "https://salonivenera.com/салони/", "https://salonivenera.com/услуги/козметични-услуги/депилация/", "https://salonivenera.com/цени/", "https://salonivenera.com/услуги/фризьорски-услуги/"], "notes": "Public6venues/phones reread. Hairpageactualcommonservices butno explicitselectedhairvoiceentry; waxingservice invitesappointments butnotall6branchwaxinventory proven. OldЦени404, notunpublishedclaim. Terms/privacy/cookiespathsrobotsDisallow decodedWindows1251; NOTrequested. No guessedweekdaysfrom09–20. Priorpendingnotcleared, noquotaclones."
+    },
+    { "business": "GlowUp", "website": "https://glowup-sofia.com/", "reason": "hold_owner_menu_and_independent_booking_review_incomplete", "reviewedUrls": ["https://glowup-sofia.com/robots.txt", "https://glowup-sofia.com/", "https://glowup-sofia.com/about-us", "https://glowup-sofia.com/about-us/"], "notes": "OwneractualBookstillStudio24; notfollowedbecauseproviderstop. Rootgenericphone876323233/SrednaGora99 notindependentphonebookingproof. AboutreaderCachemiss thenordinary301/trailingslash readertimeout; no completeAbout/servicefeeimage review, no unpublishedclaim orrow."
+    },
+    { "business": "Aladdin Barbershop", "website": "https://aladdinbarbers.com/", "reason": "hold_https_access_failure", "reviewedUrls": ["https://aladdinbarbers.com/robots.txt"], "notes": "FirstrobotsGETTLSinternalalert/STATUS000. No curl-k, insecureHTTP, browser, alternatehost ormerchantrequest. Searchleadnotimported."
+    },
+    { "business": "Studio Classa", "website": "https://www.studio-classa.com/", "reason": "hold_owner_access_incomplete", "reviewedUrls": ["https://www.studio-classa.com/robots.txt", "https://www.studio-classa.com/"], "notes": "robotsallowsnativepublic; rootreader400timeout; ordinaryGETtimeout25secwithpartial200bodyonlytitle. Sourcebook/menu/About notcompleted, no directory/searchfeeimport/unpublishedclaim."
+    },
+    { "business": "Hells Crew Tattoo", "website": "https://www.hellscrewtattoo.com/", "reason": "hold_explicit_competing_database_content_restriction", "reviewedUrls": ["https://www.hellscrewtattoo.com/robots.txt", "https://www.hellscrewtattoo.com/", "https://www.hellscrewtattoo.com/legal-notice", "https://www.hellscrewtattoo.com/legal-notice/"], "notes": "Robots404. Owner-linked LegalNotice canonical200 full native text before Book /Ap: §4 expressly restricts using site content for competing databases/commercial offers; §3 commercial copying needs written permission. STOP all further requests. No booking/service menu requested after discovery; no row or unpublished-price claim."
+    },
+    { "business": "Mastilnica", "website": "https://mastilnica.com/bg/", "reason": "hold_personal_use_information_scope_unresolved", "reviewedUrls": ["https://mastilnica.com/robots.txt", "https://mastilnica.com/bg/", "https://mastilnica.com/bg/contacts-2/", "https://mastilnica.com/bg/общи-условия/"], "notes": "Own Terms effective23Sep2026 §11 allows use/copy/distribution outside ordinary personal use only with prior written consent. Conservative scope hold, not a universal bot-law claim. STOP further requests including FAQ. Actual CTA is free consultation; Contact phone/email/chat but no completed tattoo booking path established.40/100EUR deposits are not service fees. Rakovski152 one operator, no artist clones. Embedded Google reviews ignored/not reused."
+    },
+    { "business": "Electric Ink Sofia", "website": "https://electric-ink-sofia.com/", "reason": "hold_robots_disallow_all", "reviewedUrls": ["https://electric-ink-sofia.com/robots.txt"], "notes": "First exacthost robots200 User-agent* Disallow/. STOP before root, Book or menu. Search discovery snippets not imported; no row/unpublished claim or alternate endpoint."
+    },
+    { "business": "Cat Shot Tattoo Shop3", "website": "https://cat-shot.com/cat-shot-tattoo-shop/", "reason": "hold_supported_booking_channel_not_proven", "reviewedUrls": ["https://cat-shot.com/robots.txt", "https://cat-shot.com/cat-shot-tattoo-shop/", "https://cat-shot.com/kontakti/", "https://cat-shot.com/artisti/"], "notes": "Owner explicitly describes3 separate studios Slaveykov7/Rakovski157/GrafIgnatiev74, daily12–19 and after19 only prior appointment. Native Contact form has actual name/email/phone/message/Send controls but generic WriteUs heading, not appointment-request coupling. Owner says call/email/artist directly, yet no published phone in full body or tel anchors. Supported phone/form booking not proven; no invented email booking URI or staff clones. No tariff completion claimed;3 venues are leads, not3 records."
+    },
+    { "business": "Ink Factory", "website": "https://inkfactory.bg/", "reason": "hold_exact_premise_address_missing", "reviewedUrls": ["https://inkfactory.bg/robots.txt", "https://inkfactory.bg/", "https://inkfactory.bg/contacts/", "https://inkfactory.bg/about/"], "notes": "Actual owner Book follows to native appointment-request form with visible name/email/phone/artist/file fields and explicit desired-time request, no input/submission. Sofia business and883359993 independently published, but no exact street/number in root/Contact/About or native contact anchors. Cannot import directory/Google address or mislabel physical studio as mobile operator. No row/unpublished receipt."
+    },
+    { "business": "White Rabbit Tattoos Sofia", "website": "https://whiterabbitsofia.com/", "reason": "hold_chat_only_supported_channel_integration", "reviewedUrls": ["https://whiterabbitsofia.com/robots.txt", "https://whiterabbitsofia.com/", "https://whiterabbitsofia.com/contact/", "https://whiterabbitsofia.com/faq/"], "notes": "ExactIskar16B entranceBudapeshta/888399699;15 artists one co-located studio, not15 businesses. Actual booking instructions explicitly direct message via Instagram/WhatsApp/Viber/email; generic footer phone is not explicit call-booking fallback. FAQ confirms appointments and native60EUR minimum but does not change supported channel. No chat-to-voice substitution, guessed numeric hours or imported safety/aftercare claims."
+    },
+    { "business": "Firma Volta / The Purgatory", "website": "https://www.firmavolta.com/", "reason": "hold_actual_booking_form_unrendered", "reviewedUrls": ["https://www.firmavolta.com/robots.txt", "https://www.firmavolta.com/", "https://www.firmavolta.com/contact"], "notes": "Owner appointment Contact explicitly requests filling form below for tattoo appointments, but full reader and native HTML expose no form/input/textarea controls: JS shell not completed actualform. Generic884230600 is not independently explicit call booking. Industrialna7/ThePurgatory one premise, Tatuely/Karmakitch artists not branches. No UI/API/bundle workaround or invented price/unpublished receipt."
+    },
+    { "business": "Ink Emperor Studio", "website": "https://inkemperorstudio.com/", "reason": "hold_booking_tariff_and_rules_review_incomplete", "reviewedUrls": ["https://inkemperorstudio.com/robots.txt", "https://inkemperorstudio.com/", "https://inkemperorstudio.com/kontakti/", "https://inkemperorstudio.com/obshti-usloviya/"], "notes": "Owner exactMladost4block487/894056626, not directory oldProfTanev790. Actual CTA offers free online consultation, not yet followed; ordinary tattoo services are separate. Own linked Terms technicalreaderCachemiss then sameURLordinary404; not a challenge bypass or completed Terms review. No numerical fees or hours confirmed; no row/unpublished claim. Guarantee/medical/safety marketing and Google ratings ignored."
+    }
+  ],
+  "duplicates": [
+    { "business": "Iron Arena massage", "existingId": "sofia-iron-arena-massage-lyulin", "notes": "Early limitedfilenamepreflightmissed olderneighborhood-massage-owned-v3; fullcurrentruntime+allintakesphone892911386/premiseNikolaBelovezhdov3caughtduplicateBEFOREauthoring. Newdomain/branchaliasnotcreated. FuturecandidatepreflightactualSOFIA_CATALOGUE+ALL2000moduleimports."
+    },
+    { "business": "BarrnatStyle,TheBlades,Underground,21Cutz,Royal,Abi6,Dupissima3,TSBeauty3,ArtOfBliss,Nokutche,ViktoriaBeauty,Noxic,Lumiere,ElGato,Narra,Goldy,MokroNosle,PawPaw,Felix3,VessyMineva,SabinMilanov,TsvetyBita,ELsMakeup,AnnaNailz,DesislavaEftimova", "notes": "Primarysearchdiscoveriesmatch existingruntimeownerhosts/phones/premises; no copieddirectoryfacts,newaliases/staff/coveredbranchclones. GSoldgs-studio.net discoveryphone877900100matchesexistingNotinoGSStudio116; notnew."
+    }
+  ],
+  "photoContexts": [
+    { "id": "sofia-mavelle-godech3", "service": "Солариум — посещение с таксуване на минута", "need": "Ordinary indoor UV solarium equipment/service context, not a laser machine, beach, saltroom, medicalprocedure or health-benefit image. Parent maps/generates assets, none copied from owner." },
+    { "id": "sofia-vean-tattoo-stambolov6", "services": ["Татуировка по индивидуален проект — за пълнолетни", "Покриване на стара татуировка — за пълнолетни"], "need": "Adult ordinary body-art tattooing on a non-intimate arm/body area, appropriate tattoo equipment and gloves, no copied artist design or branding. Cover-up needs its own honest tattoo context, not laser-removal equipment; parent exact photo review/generation required." }
+  ]
+}

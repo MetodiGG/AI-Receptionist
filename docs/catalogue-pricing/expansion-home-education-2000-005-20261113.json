@@ -1,0 +1,690 @@
+{
+  "batch": "home-education-2000-005-20261113",
+  "checkedOn": "2026-11-13",
+  "status": "frozen_imported_local_not_published",
+  "sourceModule": "lib/discovery/catalogue-data/neighborhood-home-education-2000-005-20261113.mjs",
+  "summary": {
+    "includedBusinesses": 14,
+    "includedServices": 14,
+    "literalPriceFacts": 6,
+    "priceReviewedBusinesses": 6,
+    "serviceReviewedWithoutPublicPrice": 8,
+    "withWeeklyHours": 8,
+    "withCoordinates": 0,
+    "mobileServiceBusinesses": 1,
+    "pendingCases": 26,
+    "rejectedCases": 4,
+    "reconciliationCases": 1
+  },
+  "evidencePolicy": {
+    "manualPublicReadOnly": true,
+    "actualBookingFirst": true,
+    "noCustomerDataOrFormsSubmitted": true,
+    "blockedOrConflictingMenusHeld": true,
+    "noGoogleMapsGeocodingPaidApi": true,
+    "noCoordinatesInferred": true,
+    "noInventoryIdentitiesAssigned": true,
+    "copyright": "Minimal independently phrased factual data only; no source prose/articles/photos/logos/ratings/client cases copied. Ordinary asset-only copyright clauses do not mean a blanket licence. Explicit data/extraction/noncommercial bans and access refusals remain held."
+  },
+  "accessReview": {
+    "method": "Public primary-source reader; normal public HTTPS GET only after cache miss/timeouts, not refusals. Stopped actual403/429; no browser, private state, endpoint reverse engineering, map requests or form submissions.",
+    "robots": [
+      {
+        "url": "https://sofia-math.org/robots.txt",
+        "result": "200: disallow/wp-admin, allowadmin-ajax; only ordinary public pages visited."
+      },
+      {
+        "url": "https://www.kursovete-bg.com/robots.txt",
+        "result": "200: disallow/cgi-bin; no restricted paths visited."
+      },
+      {
+        "url": "https://servicebg.net/robots.txt",
+        "result": "200:allowall,Crawl-delay3; directrequests separated."
+      },
+      {
+        "url": "https://iotacentre.bg/robots.txt",
+        "result": "200:WordPressadminonly disallow; noadminpaths visited."
+      },
+      {
+        "url": "https://lozenetzdentalclinic.com/robots.txt",
+        "result": "200:explicitOAI-SearchBot/ChatGPT-User groups disallowonlywp-adminandcdn-cgi/l; public selected pagesnotrestricted."
+      },
+      {
+        "url": "https://www.martintodorinov.com/robots.txt",
+        "result": "404 absentrobotsfile,notlicence; public visibleBook/service/form reviewed."
+      },
+      {
+        "url": "https://erudito.bg/robots.txt",
+        "result": "200:WordPressadminonly, but subsequent fullusepolicyexplicitextractionban meansheld."
+      },
+      {
+        "url": "https://mindhub.bg/robots.txt",
+        "result": "200User-agent*Disallowempty; publicpagesonly. JSactualmenu stillheld."
+      }
+    ],
+    "terms": "Gaidarova ordinary copyright-only clause reviewed with root explicit narrow factual clearance; SofiaMath fullGDPR and Rodina fullcourse+websiteprivacy policies read. Other record-specific partial/full review limits are stated in their receipts; no general legal permission claimed."
+  },
+  "ledger": [
+    {
+      "status": "included",
+      "id": "sofia-boeva-boeva-yanko-sofiyski11",
+      "name": "Адвокатска кантора Боева & Боева · Лозенец",
+      "address": "София, кв. Лозенец, ул. Янко Софийски войвода 11",
+      "locationKind": "premises",
+      "primaryEvidence": [
+        "https://boevilaw.eu/",
+        "https://boevilaw.eu/contact/",
+        "https://boevilaw.eu/law-tax/",
+        "https://boevilaw.eu/obshti-uslovia"
+      ],
+      "bookingEvidence": {
+        "url": "https://boevilaw.eu/contact/",
+        "excerpt": "Запазете час за консултация като използвате контактната форма по-долу"
+      },
+      "pricingDecision": "not_publicly_listed",
+      "notes": "One current central Lozenets office, corroborated by contact and November2025 own terms. Secondary Vitosha office is not cloned without branch-specific appointment assignment. First phone is consistent across header/contact/terms; inconsistent second phone omitted. Complete terms read through ordinary public HTTPS after reader cache miss; copyrighted prose/images/logo/video are not copied, only independently phrased minimal facts. No fields, dates or consent entered and no submission. No business hours or duration inferred.",
+      "order": 1
+    },
+    {
+      "status": "included",
+      "id": "sofia-nikoleta-markova-mur72",
+      "name": "Дентална клиника Доц. д-р Николета Маркова",
+      "address": "София, ж.к. Манастирски ливади – Запад, ул. Мур 72",
+      "locationKind": "premises",
+      "primaryEvidence": [
+        "https://markovadent.com/",
+        "https://markovadent.com/za-docent-markova/"
+      ],
+      "bookingEvidence": {
+        "url": "https://markovadent.com/",
+        "excerpt": "+359893656688 ... Запазете час"
+      },
+      "pricingDecision": "not_publicly_listed",
+      "notes": "One real Mur72 Sofia venue, no separate staff or university-location record. Actual telephone Book target independently confirmed in own public HTML without following map/photo links. Child dentistry and preventive programs are explicit own offerings; specialist is a dentist, not an out-of-scope general doctor. Literal weekday clinical schedule retained, weekends not inferred. Footer includes template placeholders and broken newsletter shortcode, neither used as evidence. No source articles/photos, patient data, duration or coordinates imported.",
+      "order": 2
+    },
+    {
+      "status": "included",
+      "id": "sofia-boudinoff-boudinoff-baucher87",
+      "name": "Адвокатско дружество Будинов и Будинов",
+      "address": "София, кв. Лозенец, бул. Джеймс Баучер 87",
+      "locationKind": "premises",
+      "primaryEvidence": [
+        "https://bb-lawoffice.com/",
+        "https://bb-lawoffice.com/thefirm/contact/",
+        "https://bb-lawoffice.com/thefirm/services/",
+        "https://bb-lawoffice.com/elements/cost-calc/",
+        "https://bb-lawoffice.com/thefirm/privacy-bb/"
+      ],
+      "bookingEvidence": {
+        "url": "https://bb-lawoffice.com/thefirm/contact/",
+        "excerpt": "Можете да запазите час за консултация като позвъните на нашите линии"
+      },
+      "pricingDecision": "literal_published_price",
+      "notes": "Actual contact/booking FAQ explicitly offers telephone scheduling and preferred-date request form. Full current services page publishes base from100EUR, standard140 and premium175; selected only base starting hourly consultation, not an invented universal rate. Calculator page read over ordinary HTTPS after reader miss: physical/online meetings billed per started hour excluding VAT, rank determines rate; no calculator values entered. Own exact office address/contact HOURS09–18 confirmed. Privacy page partial review only, not claimed full terms clearance. No staff clones, customer fields, consent or booking submission; no duration scalar inferred from hourly billing.",
+      "order": 3
+    },
+    {
+      "status": "included",
+      "id": "sofia-soflaw-dotova-bozhinova-bacho-kiro5",
+      "name": "Адвокатска кантора Дотова & Божинова · SofLaw",
+      "address": "София, ул. Бачо Киро 5, вх.Б, ет.3, ап.13",
+      "locationKind": "premises",
+      "primaryEvidence": [
+        "https://soflaw.bg/",
+        "https://soflaw.bg/contact/",
+        "https://soflaw.bg/pravni-konsultacii/"
+      ],
+      "bookingEvidence": {
+        "url": "https://soflaw.bg/contact/",
+        "excerpt": "Как да запишете час за консултация? Можете да се свържете с нас по телефон"
+      },
+      "pricingDecision": "not_publicly_listed",
+      "notes": "Current contact FAQ explicitly accepts telephone scheduling for onsite meetings and gives exact entrance/floor/apartment; one firm, not separate staff. Current homepage also expressly offers to reserve consultation time by the stated phone. Literal business weekday09–18 retained; service has variable30–60minutes or longer, so no duration scalar. No source legal advice, ratings, client testimonials or photos reproduced. Own public menus/footer reviewed; no separate terms/tariff link there. No form or consent submitted.",
+      "order": 4
+    },
+    {
+      "status": "included",
+      "id": "sofia-petyo-dankov-deliyska-vodenitsa330",
+      "name": "Адвокат Петьо Данков",
+      "address": "София, ж.к. Дружба 2, ул. Делийска воденица 330",
+      "locationKind": "premises",
+      "primaryEvidence": [
+        "https://dankov-advokat.com/"
+      ],
+      "bookingEvidence": {
+        "url": "https://dankov-advokat.com/",
+        "excerpt": "Запишете консултация ... Предпочитана дата ... Предпочитан час"
+      },
+      "pricingDecision": "literal_published_price",
+      "notes": "Actual Book consultation buttons lead to same-document request form with case type, preferred date/time and contact fields, all publicly readable. Complete same-page services, price table, precise contact and privacy policy reviewed. Own price table labels agreed hourly consultation60EUR and explicitly describes all amounts as minimum indicative values based on regulation, final fee individual; public description and from-kind preserve that qualification. Not a universal fixed quote or free consultation. Literal address330 preserved without converting it into a guessed block number. Saturday10–14by-booking text is not flattened into ordinary opening hours. No field, submission, consent or chatbot used.",
+      "order": 5
+    },
+    {
+      "status": "included",
+      "id": "sofia-bogomil-yordanov-sveti-naum55",
+      "name": "Адвокат Богомил Йорданов",
+      "address": "София, бул. Свети Наум 55",
+      "locationKind": "premises",
+      "primaryEvidence": [
+        "https://bogomilyordanov.com/",
+        "https://bogomilyordanov.com/contacts/",
+        "https://bogomilyordanov.com/practice/",
+        "https://bogomilyordanov.com/prices/",
+        "https://bogomilyordanov.com/zashtita/"
+      ],
+      "bookingEvidence": {
+        "url": "https://bogomilyordanov.com/contacts/",
+        "excerpt": "За да запишете час за консултация, моля, обадете се предварително по телефона."
+      },
+      "pricingDecision": "not_publicly_listed",
+      "notes": "One current Sofia office at SvetiNaum55 and first published appointment phone verified across contact/home/service pages. Did not duplicate advocate via alternate email domain or staff/biography labels. No weekly hours/duration/coordinates published for this selected meeting, so absent. Public privacy link reader cache miss was not claimed a completed terms review. Only minimal appointment-service/contact facts retained; no legal advice, source publications, autobiographical family/health detail, client cases or source media copied. No form or map used.",
+      "order": 6
+    },
+    {
+      "status": "included",
+      "id": "sofia-yana-bogdanova-vashington13",
+      "name": "Адвокат Яна Богданова",
+      "address": "София, ул. Георги Вашингтон 13, ет.3, офис 3.6",
+      "locationKind": "premises",
+      "primaryEvidence": [
+        "https://advokat-kantora.com/",
+        "https://advokat-kantora.com/index.html",
+        "https://advokat-kantora.com/page4.html"
+      ],
+      "bookingEvidence": {
+        "url": "https://advokat-kantora.com/index.html",
+        "excerpt": "Изпратете Вашето запитване или запишете час за консултация"
+      },
+      "pricingDecision": "not_publicly_listed",
+      "notes": "Exact Sofia office and weekday09–17 repeated in complete service/contact pages. Actual public appointment form inspected, not submitted; generic pre-rendered success message is not evidence of a submitted request or confirmed appointment. Form uses the site-builder infrastructure, no external account or private endpoint was accessed. No phone-only booking claim from generic number. Source copyright-only footer respected with minimal independently phrased facts, not service prose, articles or images. No duration or map coordinates inferred.",
+      "order": 7
+    },
+    {
+      "status": "included",
+      "id": "sofia-nikolay-gyoshev-pozitano39",
+      "name": "Адвокат Николай Гьошев",
+      "address": "София, ж.к. Зона Б-5-3, ул. Позитано 39",
+      "locationKind": "premises",
+      "primaryEvidence": [
+        "https://gyoshevlaw.com/bg",
+        "https://gyoshevlaw.com/bg/kontakti",
+        "https://gyoshevlaw.com/bg/services"
+      ],
+      "bookingEvidence": {
+        "url": "https://gyoshevlaw.com/bg/kontakti",
+        "excerpt": "Първата консултация е напълно безплатна - лична среща, онлайн или по телефона."
+      },
+      "pricingDecision": "literal_published_price",
+      "notes": "Actual Reserve-consultation entry leads to owned contact/request form. Current own contact explicitly offers first consultation in person in Sofia and literally publishes0лв; imported only that conditional initial meeting, not a free ordinary follow-up/representation claim or converted fee. Working /bg/services separately publishes regular online general consultation from80BGN; that different paid offer is not imported or represented as free. Exact office and weekdays09–18 read in contact. Broken alternate /bg/uslugi returned404, not claimed reviewed service/price page. No fields, request, consent or map activation. Privacy link aliases same contact section; no separate full terms clearance or duration/coordinates claimed.",
+      "order": 8
+    },
+    {
+      "status": "included",
+      "id": "sofia-gaidarova-orthodontics-toshev64b",
+      "name": "Ортодонтска клиника Гайдарова",
+      "address": "София, Манастирски ливади – Запад, ул. Генерал Стефан Тошев 64Б",
+      "locationKind": "premises",
+      "primaryEvidence": [
+        "https://breketi-sofia.com/",
+        "https://breketi-sofia.com/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/",
+        "https://breketi-sofia.com/%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8/",
+        "https://breketi-sofia.com/%D0%B2%D1%8A%D1%82%D1%80%D0%B5%D1%88%D0%BD%D0%B8-%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D0%B0-%D0%B7%D0%B0-%D0%BA%D0%BB%D0%B8%D0%BD%D0%B8%D0%BA%D0%B0-%D0%B3%D0%B0%D0%B9%D0%B4%D0%B0%D1%80%D0%BE/",
+        "https://breketi-sofia.com/%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8F-%D0%B7%D0%B0-%D0%BF%D0%BE%D0%BB%D0%B7%D0%B2%D0%B0%D0%BD%D0%B5/"
+      ],
+      "bookingEvidence": {
+        "url": "https://breketi-sofia.com/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/",
+        "excerpt": "Записвания за часове се правят само по телефон и спрямо работното време на клиниката."
+      },
+      "pricingDecision": "not_publicly_listed",
+      "notes": "One real GenStefanToshev64Б orthodontic venue; literal MonWed12:30–17:30/TueThu10–15 retained and no Friday/weekend availability invented. Only dentist first-exam offering, not medical injections/general doctors. Ordinary copyright clause inspected via normal public HTTPS after cache miss, with legal exceptions; parent explicitly cleared minimal independently phrased factual treatment on13November, same narrow approach as Excelsior. No licence or legal guarantee claimed, no source text/photos/logo/clinical outcomes reused. No phone call, form, consent, map or booking submission.",
+      "order": 9
+    },
+    {
+      "status": "held_current_paid_intake_unconfirmed",
+      "id": "sofia-sofia-math-pirotska79",
+      "admissionDecision": "Root and source reviewer re-read actual2026/27 enrollment and owned form after existing regression guard failed. First term is full; the second-term form supplies only an undated callback/trial inquiry, not a confirmed current paid intake. Original literal33EUR/two-academic-unit facts retained below for future recheck, but record, review, photo association, identity and municipal binding are not imported. Existing no-sold-out-venue test unchanged and passes.",
+      "name": "Школа София-Мат",
+      "address": "София, ул. Пиротска 79, ет.3, читалище Емил Шекерджийски – 1919",
+      "locationKind": "premises",
+      "primaryEvidence": [
+        "https://sofia-math.org/bg/",
+        "https://sofia-math.org/bg/forma-za-zapisvane/",
+        "https://sofia-math.org/bg/contacts/",
+        "https://sofia-math.org/bg/%D0%BA%D1%83%D1%80%D1%81%D0%BE%D0%B2%D0%B5-%D0%BC%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0/%D0%B8%D0%BD%D0%B4%D0%B8%D0%B2%D0%B8%D0%B4%D1%83%D0%B0%D0%BB%D0%BD%D0%B8-%D1%83%D1%80%D0%BE%D1%86%D0%B8/",
+        "https://sofia-math.org/bg/%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D0%BA-%D0%B8-%D1%86%D0%B5%D0%BD%D0%B8/",
+        "https://sofia-math.org/bg/%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D0%BA-%D0%B8-%D1%86%D0%B5%D0%BD%D0%B8/%D0%BD%D0%B0-%D0%B8%D0%BD%D0%B4%D0%B8%D0%B2%D0%B8%D0%B4%D1%83%D0%B0%D0%BB%D0%BD%D0%B8-%D1%83%D1%80%D0%BE%D1%86%D0%B8/",
+        "https://sofia-math.org/bg/gdpr-bg/",
+        "https://sofia-math.org/bg/%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B2%D0%B0%D0%BD%D0%B5-%D0%B7%D0%B0-%D1%83%D1%87%D0%B5%D0%B1%D0%BD%D0%B0-%D0%B3%D0%BE%D0%B4%D0%B8%D0%BD%D0%B0-2026-2027/"
+      ],
+      "bookingEvidence": {
+        "url": "https://sofia-math.org/bg/forma-za-zapisvane/",
+        "excerpt": "Изберете група / индивидуална подготовка ... Начален час на урока"
+      },
+      "pricingDecision": "literal_published_price",
+      "notes": "Actual registration form explicitly includes individual preparation, preferred days/start time and later callback. Deep separate current2026/27 individual tariff found after general group table: onsite33EUR for two academic units at one lesson/week, not cheaper30conditional twice-weekly fee. Four payment periods, included materials/trial exams, initial trial/test and first-term-full/second-term pre-enrollment conditions retained. Timely-notice/force-majeure makeups by mutual agreement are not a cash refund promise. Approximately90minutes varies with age, so no duration scalar. One actual Pirotska79 teaching venue; registered company Stoletov38Б is not a branch. FullGDPR read. No customer data, form/date/consent/submission or admin/map paths used.",
+      "order": 10
+    },
+    {
+      "status": "included",
+      "id": "sofia-rodina-klokotnitsa29",
+      "name": "Родина · индивидуални уроци по математика",
+      "address": "София, ул. Клокотница 29",
+      "locationKind": "premises",
+      "primaryEvidence": [
+        "https://www.kursovete-bg.com/",
+        "https://www.kursovete-bg.com/contact.html",
+        "https://www.kursovete-bg.com/individualni-chastni-uroci-po-matematika.html",
+        "https://www.kursovete-bg.com/rodina-school-training-base.html",
+        "https://www.kursovete-bg.com/terms.html",
+        "https://www.kursovete-bg.com/privacy.html"
+      ],
+      "bookingEvidence": {
+        "url": "https://www.kursovete-bg.com/contact.html",
+        "excerpt": "За записване в курс или в индивидуална форма, моля предварително позвънете на телефон 0887 099730."
+      },
+      "pricingDecision": "literal_published_price",
+      "notes": "Actual enrollment/contact path first and individual-service instructions explicitly require advance phone call to agree lesson day/time and length. Literal individual40–50EUR per two academic units retained, with footer exclusion of VAT; no conversion, single-unit price or assumed90minute scalar. Complete course terms and publicly linked website privacy/data policy read; no broad data/extraction/non-commercial restriction found there. Teaching-base page and terms bind all private/group classes to Klokotnitsa29. Unaddressed contact map labels and old Gurko74 information office are not additional venues. Conflicting administrative/teacher/footer hours omitted. No phone call, form, lesson/date choice or payment made.",
+      "order": 11
+    },
+    {
+      "status": "included",
+      "id": "sofia-bulgaria-serviz-group-home",
+      "name": "България сервиз груп · домашни посещения София",
+      "address": null,
+      "locationKind": "service_area",
+      "primaryEvidence": [
+        "https://servicebg.net/",
+        "https://servicebg.net/index.php/zayavka-za-remont",
+        "https://servicebg.net/index.php/kontakti",
+        "https://servicebg.net/index.php?catid=2:uncategorised&id=2:remont-na-peralna-susilna&view=article",
+        "https://servicebg.net/index.php/deklaracia-za-poveritelnost"
+      ],
+      "bookingEvidence": {
+        "url": "https://servicebg.net/index.php/zayavka-za-remont",
+        "excerpt": "Заявка за ремонт ... Населено място ... Адрес ... Кратко описание на повредата"
+      },
+      "pricingDecision": "not_publicly_listed",
+      "notes": "Exactly one Sofia mobile-service record despite three own Sofia service bases and national coverage; no per-quarter clones or premises distance pin. Genuine technical repair service, not merely a spare-parts store. Shared published mobile0882266900 corroborated by current Sofia contact; national0700 number not incorrectly converted. Own request form inspected including appliance/warranty inputs and anti-spam field, without entering data, uploading documents, solving challenge or submitting. No public hours on relevant pages, so omitted. Robots allows public pages with3second delay respected between direct host requests.",
+      "order": 12
+    },
+    {
+      "status": "included",
+      "id": "sofia-iota-studentski-bl55",
+      "name": "Образователен център Йота",
+      "address": "София, Студентски град, бл.55, вх.Г, откъм градинката",
+      "locationKind": "premises",
+      "primaryEvidence": [
+        "https://iotacentre.bg/",
+        "https://iotacentre.bg/podgotovka-za-nvo-7-klas-matematika/",
+        "https://iotacentre.bg/contact-us/",
+        "https://iotacentre.bg/terms-and-conditions/",
+        "https://iotacentre.bg/podgotovka-za-parvi-klas/"
+      ],
+      "bookingEvidence": {
+        "url": "https://iotacentre.bg/podgotovka-za-nvo-7-klas-matematika/",
+        "excerpt": "За записване или въпроси: Телефон: 0888 834 740"
+      },
+      "pricingDecision": "literal_published_price",
+      "notes": "Followed actual current2026/27 selected-course enrollment section explicitly accepting phone0888834740, not inferred from generic contact form. Same full page separately offers private mathematics lessons35EUR90minutes once/week with monthly prepayment and detailed cancellation terms, retained literally rather than course1080EUR/three360 installments. Full own terms read; onsite registration/contract/payment required and current centreblock55 differs registeredUniversityPark9, not a branch. Preschool130EUR/four visits not imported as one visit. No general opening hours inferred from group schedules; no claimed live slot or automatic enrollment. No child/customer fields, consent, calls, payment or map opened.",
+      "order": 13
+    },
+    {
+      "status": "included",
+      "id": "sofia-lozenetz-dental-bigla50",
+      "name": "Lozenetz Dental Clinic",
+      "address": "София, ж.к. Лозенец, ул. Бигла 50",
+      "locationKind": "premises",
+      "primaryEvidence": [
+        "https://lozenetzdentalclinic.com/",
+        "https://lozenetzdentalclinic.com/kontakti/",
+        "https://lozenetzdentalclinic.com/cenorazpis/",
+        "https://lozenetzdentalclinic.com/uslugi/",
+        "https://lozenetzdentalclinic.com/politika-za-poveritelnost/",
+        "https://superdoc.bg/klinika/dentalna-klinika-lozenetz"
+      ],
+      "bookingEvidence": {
+        "url": "https://lozenetzdentalclinic.com/kontakti/",
+        "excerpt": "Попълнете нашия кратък формуляр, за да заявите среща, и нашият екип ще се свърже с вас, за да потвърди"
+      },
+      "pricingDecision": "literal_published_price",
+      "notes": "Actual main Book first follows explicit owner link to this Superdoc clinic page, then owned contact/service-page meeting-request form independently inspected. Stored booking is owned appointment form requiring name/phone/service/message and later confirmation, not a claimed automated slot. Own current tariff has exact30EUR status exam; no provider ratings/photos/availability or clinician fees copied. One Bigla50 clinic, no six staff clones. Registered privacy-administrator addressSvOsiyKordobski124 is not treated as another clinic. Own current contact/footer addsSunday10–16 while provider page saysclosed; omittedSunday and retained only agreedweekday08–20. Privacy policy partial text review, not full terms clearance. No fields, consent or booking submitted, no maps/geocoding.",
+      "order": 14
+    },
+    {
+      "status": "included",
+      "id": "sofia-martin-todorinov-nadezhda173",
+      "name": "Дентална клиника Тодоринов",
+      "address": "София, ж.к. Надежда 1, бл.173",
+      "locationKind": "premises",
+      "primaryEvidence": [
+        "https://www.martintodorinov.com/"
+      ],
+      "bookingEvidence": {
+        "url": "https://www.martintodorinov.com/",
+        "excerpt": "Заявете час: ... Вашето име ... Вашият телефон за връзка"
+      },
+      "pricingDecision": "not_publicly_listed",
+      "notes": "One real Nadezhda1block173 dentist venue, not a general human clinic or separate staff profiles. Public form action/visible fields inspected in ordinary primary HTML, without calling endpoint, entering customer data or submitting. Complete main page contains no weekly hours or appointment duration, so omitted. Footer has ordinary copyright statement; minimal independently phrased facts only, no testimonials, source photos/logo or clinical assurances reused. Public robots404 is absent file, not an allow licence. Embedded map was not opened and its viewport coordinates were not imported.",
+      "order": 15
+    },
+    {
+      "order": 16,
+      "status": "pending",
+      "name": "Boeva & Boeva · Vitosha second office",
+      "primaryEvidence": [
+        "https://boevilaw.eu/contact/"
+      ],
+      "notes": "Own contact lists Vitosha1Aoffice106 as another office but shared actual appointment form has no branch assignment. Held, not a cloned business."
+    },
+    {
+      "order": 17,
+      "status": "pending",
+      "name": "АБВ Академия · six or seven course venues",
+      "primaryEvidence": [
+        "https://abvacademy.com/robotika/",
+        "https://abvacademy.com/robotika_deca/",
+        "https://abvacademy.com/commonrules/",
+        "https://abvacademy.com/robo-schedule-lozenets/",
+        "https://abvacademy.com/robo-schedule-mladost1/",
+        "https://abvacademy.com/robo-schedule-geomilev/",
+        "https://abvacademy.com/robo-schedule-lyulin/",
+        "https://abvacademy.com/payment/"
+      ],
+      "notes": "Real2026/27 program and enrollment phone0882035343 with named course venues; current terms read. Branch schedule/menu headings are empty in public HTML; actual rendered fee/enrollment surface still needs review, so not treated as unpublished. Root JS queue requested, no private endpoint accessed. GeoMilev branch actualRedutaVelchoAtanasov53 differs old homepageNikolaKaradzhov2; Lyulin actualGeorgiDrazhev6block389 not house389. Strelbishte has conflictingYordanYovkov13/Tulcha20, held separately. Actual online-payment menu returned five-line One moment challenge. Stopped host immediately, no HTTPS/JS alternative after challenge; root notified. Explicit not eligible for unpublished-price receipt."
+    },
+    {
+      "order": 18,
+      "status": "pending",
+      "name": "Юлия Цонкова · ordinary individual therapy",
+      "primaryEvidence": [
+        "https://julia.bg/",
+        "https://julia.bg/calendar/",
+        "https://julia.bg/контакт/",
+        "https://julia.bg/консултиране/индивидуална-терапия/"
+      ],
+      "notes": "Genuine psychologist and Mladost1DimitarDospevski9A venue; actual homepage Book routes to a specific family-constellation/transformation group program, not selected ordinary individual session. Generic individual contact form not enough. Exact group could be reviewed later with current schedule proof; no ordinary individual fee invented."
+    },
+    {
+      "order": 19,
+      "status": "pending",
+      "name": "Българска Хънтингтън Асоциация",
+      "primaryEvidence": [
+        "https://huntington.bg/",
+        "https://huntington.bg/chat-bot/"
+      ],
+      "notes": "Indexed free psychological support for rare-disease patients/carers with phone scheduling. Current named qualified professional and exact service venue not fully bound; officeDanailNikolaev26 vs family centreDruzhba1block2 not assumed two appointment venues. No general medical resources/client stories imported."
+    },
+    {
+      "order": 20,
+      "status": "pending",
+      "name": "Ваня Овчарова",
+      "primaryEvidence": [
+        "https://psihoterapia.biz/work/"
+      ],
+      "notes": "Own indexed prior-booking phone0895560282 and Tsaribrodska77office6. Reader returned502/home400; complete current service/booking/fee/terms review still pending, not declared unpriced."
+    },
+    {
+      "order": 21,
+      "status": "pending",
+      "name": "Elite Dental Solutions",
+      "primaryEvidence": [
+        "https://elitedentalsolutions.bg/"
+      ],
+      "notes": "Public reader yielded empty JS body; index suggests ManastirskiLivadiБ65 and0879800430 but actual Book/menu/contact not completed. Empty body is not evidence that tariff is unpublished."
+    },
+    {
+      "order": 22,
+      "status": "pending",
+      "name": "Medstom",
+      "primaryEvidence": [
+        "https://medstom.com/bg/",
+        "https://medstom.com/services/terms.pdf"
+      ],
+      "notes": "Real appointment source and dental tariff found; current Dondukov26А only, old Stambolov6 closed2022. Full six-page terms text reviewed: art12 explicitly covers databases/information-resource republication, broader than asset-only copyright. Held for permission; no clinical services imported."
+    },
+    {
+      "order": 23,
+      "status": "pending",
+      "name": "Damyanov Dental",
+      "primaryEvidence": [
+        "https://damyanovdental.com/",
+        "https://damyanovdental.com/kontakti/",
+        "https://damyanovdental.com/general-terms/"
+      ],
+      "notes": "Actual request form and Kazbek57В clinic corroborated. Own terms require written permission even for platform name and address references differ from current contact. Held for restrictions and source conflict; no unpriced shortcut."
+    },
+    {
+      "order": 24,
+      "status": "pending",
+      "name": "Д-р Николов · Kazbek",
+      "primaryEvidence": [
+        "https://dr-nikolov.bg/",
+        "https://dr-nikolov.bg/contact.html"
+      ],
+      "notes": "Reader timeout; indexed Kazbek57Б ground nearentranceВ is not enough for complete Book/service/terms review. No photo/doctor clone or guessed hours."
+    },
+    {
+      "order": 25,
+      "status": "pending",
+      "name": "Венелин Йорданов",
+      "primaryEvidence": [
+        "https://www.nakazatelenadvokat.bg/"
+      ],
+      "notes": "Actual HTTP429 encountered; stopped this host, no retry or bypass. Indexed appointment/contact cannot replace blocked primary review."
+    },
+    {
+      "order": 26,
+      "status": "pending",
+      "name": "Mirchev Accounting",
+      "primaryEvidence": [
+        "https://www.macbg.com/"
+      ],
+      "notes": "Actual HTTP403 encountered; stopped this host, no alternate access or bypass. No complete current tariff/service review."
+    },
+    {
+      "order": 27,
+      "status": "pending",
+      "name": "Greenwich",
+      "primaryEvidence": [
+        "https://www.greenwichbg.com/bg/"
+      ],
+      "notes": "Actual HTTP403 encountered; stopped host, no alternate host bypass. Indexed real individual lessons remain pending."
+    },
+    {
+      "order": 28,
+      "status": "pending",
+      "name": "Infolaw · Мариана Розованова",
+      "primaryEvidence": [
+        "https://infolaw.bg/"
+      ],
+      "notes": "Own same-phone current header/footerFridtjofNansen47floor5office17 conflicts maincontactOsogovo36floor1office3. Held, not two venue clones. Published oral50BGN/withdocuments70BGN and outside-hours double rates not imported or described as unpublished."
+    },
+    {
+      "order": 29,
+      "status": "pending",
+      "name": "E-Advokat · Крумова и партньори",
+      "primaryEvidence": [
+        "https://e-advokat.bg/"
+      ],
+      "notes": "Reader timeout. Indexed preferred-time request form promising, but exact venue/service/fee/terms not fully checked."
+    },
+    {
+      "order": 30,
+      "status": "pending",
+      "name": "Black Sea Law",
+      "primaryEvidence": [
+        "https://www.blacksealaw.com/bg/book-a-consultation"
+      ],
+      "notes": "Actual booking source not fully accessible in reader and Sofia address not verified. Online50EUR is not automatically onsite tariff; held."
+    },
+    {
+      "order": 31,
+      "status": "pending",
+      "name": "Адвокат Банчева",
+      "primaryEvidence": [
+        "https://advbanchev.com/contact-us-bg/"
+      ],
+      "notes": "Own indexed explicit phone scheduling, but exact Sofia address only in map surface while Plovdiv also listed. No map lookup or inferred Sofia venue."
+    },
+    {
+      "order": 32,
+      "status": "pending",
+      "name": "ChistDom",
+      "primaryEvidence": [
+        "https://chistdom.bg/"
+      ],
+      "notes": "Actual Book link points to external template xml-io.proteusthemes.com rather than owner appointment flow. Generic phone/contact question invitation insufficient. Own cleaning prices do not cure missing real Book evidence; held."
+    },
+    {
+      "order": 33,
+      "status": "pending",
+      "name": "MGConstruct",
+      "primaryEvidence": [
+        "https://mgconstruct.bg/"
+      ],
+      "notes": "Prior source has broad commercial-reuse restriction on other information. Root explicitly agreed hold; no factual-import workaround."
+    },
+    {
+      "order": 34,
+      "status": "pending",
+      "name": "Непроверени vocal/alpha domain suggestions",
+      "primaryEvidence": [
+        "https://erectaforce.com/",
+        "https://alphadental.bg/"
+      ],
+      "notes": "Unconfirmed source identity/domain suggestions only, not approved businesses and not included in counts."
+    },
+    {
+      "name": "Елвидом / Гаматерм",
+      "primaryEvidence": [
+        "https://www.elvidom.bg/",
+        "https://www.elvidom.bg/contacts",
+        "https://www.elvidom.bg/условия"
+      ],
+      "notes": "Real Sofia home visit appointment ranges and washing-machine tariff found; full public terms after reader miss explicitly restrict use to personal/noncommercial purposes and publication of information without written agreement. Held, no catalogue record. Do not use18BGNdiagnosis plus separate30BGNvisit as an all-inclusive18fee.",
+      "order": 35
+    },
+    {
+      "name": "Интерлогос",
+      "primaryEvidence": [
+        "https://interlogos.bg/",
+        "https://interlogos.bg/контакти/",
+        "https://interlogos.bg/цени/",
+        "https://interlogos.bg/условия-за-ползване/"
+      ],
+      "notes": "Real current TsarBorisIII21 and selected individual course fees; actual enrollment wording/flow still incomplete. Terms8claim allinformation and forbid copying without permission except statutorycases; not silently treated as asset-only clearance. Old2018termsactivityGrafIgnatiev41A differs current repeated21. Held pending exact booking/terms/address clarification.",
+      "order": 36
+    },
+    {
+      "name": "Мирчеви Дент",
+      "primaryEvidence": [
+        "https://mirchevident.com/",
+        "https://mirchevident.com/dental-map",
+        "https://mirchevident.com/dental-services"
+      ],
+      "notes": "Actual own contact source names Mladost1 and Pliska appointments, but selected full services request returned403. Stopped host without retry/bypass; no approved branch clones or unpublished fee claim.",
+      "order": 37
+    },
+    {
+      "name": "Sky Dental",
+      "primaryEvidence": [
+        "https://www.skydental.bg/"
+      ],
+      "notes": "Reader and normal publicHTML expose onlyJS shell/analytics iframe, not actual Book/service/menu. No private endpoint reverse engineering. Needs real rendered public booking/menu review; not unpriced.",
+      "order": 38
+    },
+    {
+      "name": "Ерудито",
+      "primaryEvidence": [
+        "https://erudito.bg/",
+        "https://erudito.bg/privacy-policy/"
+      ],
+      "notes": "Actual public owned linked annual-course form was read without fields/submission. Later full website policy explicitly forbids manual and automated extraction and passing information to third parties, includesdatabase rights. Held for permission; no business/service/fee facts imported. Stopped further host requests after identifying restriction. Broken alternate terms404 does not erase actual policy.",
+      "order": 39
+    },
+    {
+      "name": "MindHub · actual named Sofia course venues",
+      "primaryEvidence": [
+        "https://mindhub.bg/contact-us/Sofia",
+        "https://mindhub.bg/terms-and-conditions",
+        "https://mindhub.bg/contact-hall/mindhub-sofiya-borovo",
+        "https://mindhub.bg/contact-hall/mindhub-sofiya-mladost",
+        "https://mindhub.bg/contact-hall/mindhub-sofiya-lyulin",
+        "https://mindhub.bg/contact-hall/mindhub-sofiya-centr",
+        "https://mindhub.bg/contact-hall/chitalishche-konstantin-velichkov-1979",
+        "https://mindhub.bg/groups/moite-prvi-stpki-vv-vizualnoto-programirane/hall/mindhub-sofiya-borovo"
+      ],
+      "notes": "Five genuine named physical venues have own course links; other venue pages currentlyzero upcoming groups, not approved solely for venue count. Own full current terms reviewed: account+enrollment+payment, modular fee, attendance/makeup and7daywithdrawal rules. Reader course pages contain staleOctober group cards; fresh publicHTML is JS-loading with different availablevenues/noactualfee. Do not infer no price, import expired cached groups or use a free demo instead of paidcourse. Root rendered-review queue may resolve specific upcoming namedgroups without submission. Mindhub.bg and mh.academy one operator, no duplicated-domain business.",
+      "order": 40
+    },
+    {
+      "order": 41,
+      "status": "rejected_duplicate_or_alias",
+      "name": "PraneMekaMebel.com",
+      "primaryEvidence": [
+        "https://pranemekamebel.com/",
+        "https://pranenamatraci.com/"
+      ],
+      "notes": "Own phone0899881654 equals existingsofia-prane-na-matraci mobile operator. Rejected alias; no per-quarter clones."
+    },
+    {
+      "order": 42,
+      "status": "rejected_duplicate_or_alias",
+      "name": "Existing reviewed dental/legal/education aliases",
+      "primaryEvidence": [
+        "https://alldental.bg/",
+        "https://drzdravkaasenova.com/",
+        "https://www.dentica-clinic.com/",
+        "https://bezproblemi.com/"
+      ],
+      "notes": "AllDentalLagera, DentalHouseZdravkaAsenova, GiuliaDent, DentalPlace, Dentica, SvetlaBankova/bezproblemi, SilviaPetkovaLegal, Mnogoznayko, VoiceLab and XAcademy branches already in current catalogue/all2000intakes. Rejected as new businesses, not forced with staff/site aliases."
+    },
+    {
+      "status": "rejected_duplicate_or_alias",
+      "name": "Additional runtime-matched providers",
+      "primaryEvidence": [
+        "https://aspire-center.com/",
+        "https://gradeup.bg/",
+        "https://www.reloni.com/",
+        "https://simeonovlawfirm.com/",
+        "https://kantora.org/",
+        "https://trifonov.info/",
+        "https://advokattrifonov.com/",
+        "https://yoursmile.bg/",
+        "https://irinakonstantinova.com/",
+        "https://advokatsofia.bg/",
+        "https://www.advokatpetrova.com/"
+      ],
+      "notes": "Actual runtimeSOFIA_CATALOGUE plus all2000intakes match these merchants by canonicalhost or phone, including alternateTrifonovdomain. No staff, alternatebrand, duplicatecourse or oldcachedtariff newbusiness.",
+      "order": 43
+    },
+    {
+      "status": "rejected_outside_sofia",
+      "name": "Angel 3Dent",
+      "primaryEvidence": [
+        "https://angeldents.com/",
+        "https://angeldents.com/services/",
+        "https://angeldents.com/prices/"
+      ],
+      "notes": "Own Book and real tariff found but fullhomepage exactvenue is ByalaIvanKalchev2office3, notSofia. Rejected geographicalscope, not included despite searchkeywordSofia.",
+      "order": 44
+    },
+    {
+      "status": "reconciled_no_change",
+      "id": "sofia-reloni-arsenalski5",
+      "name": "Reloni · cached reader tariff mismatch",
+      "primaryEvidence": [
+        "https://www.reloni.com/ceni.php"
+      ],
+      "notes": "Reader/searchcurrent-cache showed1–12class60min30EUR/90min40EUR. Independent fresh publicHTTPS currentHTML showed1–11class40min30EUR/80min50EUR. Existing recovered003 authoritative record40min30EUR matches actualHTML; no source/price/duration amendment needed. Parent notified. No consumer data/form/payments.",
+      "order": 45
+    }
+  ],
+  "dedupe": {
+    "checkedAgainst": "Actual runtimeSOFIA_CATALOGUE plus every*2000*.mjs intake including unimported WIP modules, canonicalhost/phone/address compared; latest union1454IDs including this15.",
+    "conflicts": 0,
+    "knownSameOperator": "OneBulgariaServiceGroup mobileSofia row despite three bases; BoevaVitoshasecondoffice held; no staffclones. No MindHub record approved yet.",
+    "nativePartners": "Root must apply its authoritative native6publicpartner finalcheck; noprivateAPI or customer data accessed."
+  }
+}

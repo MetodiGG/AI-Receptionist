@@ -1,0 +1,61 @@
+{
+  "checkedOn": "2026-11-13",
+  "status": "tested_local_checkpoint_not_published",
+  "liveEligibleBusinesses": 1215,
+  "localEligibleBusinesses": 1398,
+  "localRawRecords": 1421,
+  "intentionallyExcludedClinics": 23,
+  "remainingTo2000Local": 602,
+  "newSincePublished": {
+    "businesses": 183,
+    "services": 315,
+    "businessesWithPublishedPrices": 118,
+    "servicesWithPublishedPrices": 247,
+    "businessesWithReviewedWeeklyHours": 56,
+    "premises": 164,
+    "citywideServiceAreaOperators": 19,
+    "primaryCategory": {
+      "auto_repair": 15, "barber": 8, "beauty": 10, "car_wash": 3,
+      "consulting": 6, "detailing": 2, "education": 35, "fitness": 14,
+      "hair": 19, "home_services": 15, "nails": 21, "other": 33, "pets": 2
+    },
+    "neighborhoodsExplicitlyPublished": {
+      "Банишора": 1, "Бели брези": 1, "Белите брези": 1, "Борово": 2,
+      "Военна рампа": 1, "Връбница 2": 1, "Гео Милев": 5, "Дианабад": 1,
+      "Дружба 1": 1, "Дружба 2": 4, "Дървеница": 1, "Зона Б-5": 1,
+      "Изток": 5, "Кръстова вада": 2, "Лагера": 1, "Лозенец": 6,
+      "Люлин": 3, "Люлин 3": 1, "Люлин 4": 1, "Люлин 8": 1,
+      "Манастирски ливади": 7, "Младост": 2, "Младост 1": 4,
+      "Младост 1А": 1, "Младост 2": 1, "Младост 3": 5, "Младост 4": 2,
+      "Модерно предградие": 1, "Мотописта": 1, "Мусагеница": 1,
+      "Надежда": 1, "Надежда 2": 1, "Надежда 4": 1, "Овча купел 1": 1,
+      "Орландовци": 1, "Полигона": 1, "Разсадника": 1, "Редута": 2,
+      "Симеоново": 1, "Сточна гара": 1, "Студентски град": 4,
+      "Сухата река": 1, "Хаджи Димитър": 1, "Център": 3, "Челопечене": 1
+    },
+    "withoutExplicitPublishedNeighborhood": 97,
+    "neighborhoodNote": "Unspecified does not mean no address. Exact sourced streets are retained; no quarter guessed from a street name and no premises invented for mobile operators."
+  },
+  "municipalCsv": {
+    "sourceRows": 125245, "sofiaRows": 83189,
+    "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+    "previousPublishedPointsRechecked": 501, "previousPointChanges": 0,
+    "newExactPostalBindings": 81, "combinedOfficialBindings": 582,
+    "independentReadOnlyReview": "passed",
+    "fullOfflineReplay": "582 checked; 581 unique and the original IN Beauty manual disambiguation; no network",
+    "unconfirmedOldPairsSuspended": ["sofia-shining-polishing-auto", "sofia-katerene-europe-private"],
+    "detailedReview": "docs/catalogue-geocoding/municipal-csv-recheck-20261113.json"
+  },
+  "testsActuallyExecuted": {
+    "node": { "passed": 2072, "failed": 0 },
+    "pythonPricingExtraction": { "passed": 8, "failed": 0 },
+    "pythonBookingPricingFlow": { "passed": 4, "failed": 0 },
+    "webpackProductionBuild": "passed; 92 static pages",
+    "catalogueIntegrity": "passed",
+    "inventoryBoundPricingReview": "passed; no blocked new/changed listing",
+    "servicePhotoCoverage": { "services": 9677, "specific": 9677, "neutral": 0, "missing": 0, "invalid": 0 },
+    "generatedPhotoProvenance": { "checked": 1148, "issues": 0 },
+    "liveBookingsOrNotificationsCreated": 0
+  },
+  "scope": "Frozen imported intake modules only. New drafts, held inaccessible menus, blocked reuse sources and duplicates are not counted. No production database mutations or paid services. Goal2000 remains incomplete."
+}

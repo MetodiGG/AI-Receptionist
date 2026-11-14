@@ -1,0 +1,11 @@
+{
+  "checkedOn": "2026-11-13",
+  "scope": "Root source-review holds, excluded from all admitted-business counts",
+  "holds": [
+    { "name": "Intellect language schools", "status": "held_source_terms", "source": "https://www.intellect.bg/usloviya-za-polzvane", "notes": "Specific personal/noncommercial section explicitly prohibits information reuse by automatic OR manual processing without written consent. Stopped collection; no branch imported. Existing Algorithmics/Intellect Mladost venue is also not counted a second time." },
+    { "name": "Golden FitBody additional studios", "status": "held_source_terms", "source": "https://goldenfitbody.bg/obschi-usloviya", "notes": "Terms article8(3)(2) explicitly prohibit software extraction. Stopped further branch extraction and did not import new studios. Branch Borovo also conflicts with general location page on street number and hours. Existing records unchanged by this new intake." },
+    { "name": "SmartyKids Sofia centres", "status": "held_source_terms", "source": "https://smarty-kids.bg/smk-gdpr/", "notes": "Reviewed terms before planned branch collection. Article8 restricts republication of site information resources without agreement. Did not continue or import its citywide venue list, photos, prose or tariffs." },
+    { "name": "BRITANICA central office", "status": "excluded_administration_not_teaching", "source": "https://www.britanica-edu.org/location/britanica-centralen-ofis", "notes": "Own detailed page describes central enquiries and directing clients to teaching branches. This administration venue is not added or counted as another teaching business." },
+    { "name": "BRITANICA marketing-cookie consent", "status": "not_accepted", "source": "https://www.britanica-edu.org/form/svrzhete-se-s-nas", "notes": "Environment reviewer rejected the accept-all marketing/statistics cookies action. Did not retry, alter privacy settings or circumvent. Read-only public information and the already readable public enquiry form remain available; no hidden branch-selector validation claimed." }
+  ]
+}

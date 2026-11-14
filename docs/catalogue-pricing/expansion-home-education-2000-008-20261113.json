@@ -1,0 +1,637 @@
+{
+  "rootIntegrationReview": {"checkedAtUtc":"2026-11-13T23:27:11.217Z","corrections":[{"id":"sofia-marina-paneva-banat3","businessCategory":"other","serviceCategory":"other","reason":"Dentistry and psychology are not the massage/Therapies filter."},{"id":"sofia-stela-gidikova-ivan-vazov38","businessCategory":"other","serviceCategory":"other","reason":"Dentistry and psychology are not the massage/Therapies filter."},{"id":"sofia-adelina-filipova-knyaz-boris108","businessCategory":"other","serviceCategory":"other","reason":"Dentistry and psychology are not the massage/Therapies filter."}],"inventory":"Source names/prices/booking URLs/review dates unchanged. New review hashes bind existing validated policy serialization, not raw object key order; historical pricing baseline untouched.","freezeAudit":"Original reviewer freeze hashes/counts remain historical; these root amendments are explicit."},
+  "batch": "home-education-2000-008-20261113",
+  "checkedOn": "2026-11-13",
+  "status": "frozen_for_root_review",
+  "sourceModule": "lib/discovery/catalogue-data/neighborhood-home-education-2000-008-20261113.mjs",
+  "dateConvention": "UTC calendar day per catalogue policy, Sofia localdate2026-11-14. Add checkedAtUtc review-completion timestamp to new cases. Booking hours remain Europe/Sofia.",
+  "summary": {
+    "includedBusinesses": 10,
+    "includedServices": 10,
+    "literalPriceFacts": 2,
+    "pendingCases": 16,
+    "rejectedCases": 19,
+    "reviewReceipts": 10,
+    "phoneBookings": 8,
+    "ownedRequestForms": 2,
+    "strictUnpublishedReceipts": 8,
+    "explicitFreeConsultations": 2,
+    "premises": 9,
+    "serviceAreaBusinesses": 1,
+    "weeklyServiceHours": 1,
+    "coordinates": 0
+  },
+  "ledger": [
+    {
+      "order": 1,
+      "status": "pending_source_automation_ban",
+      "checkedAtUtc": "2026-11-13T22:34:34Z",
+      "name": "Адвокат Людмила Ангелова",
+      "primaryEvidence": [
+        "https://advokat-lyudmila-angelova.com/robots.txt",
+        "https://advokat-lyudmila-angelova.com/kontakti/",
+        "https://advokat-lyudmila-angelova.com/konsultaciq/",
+        "https://advokat-lyudmila-angelova.com/obshti-usloviq/"
+      ],
+      "notes": "ActualBook/contact reviewed beforeTerms. OrdinarypublicTermsGET afterreadererror shows§5explicitprohibitionofautomatedscripts/botswithoutpriorpermission. STOP ondiscovery, rootnotified. ERROR: one subsequentbatch accidentally reopened alreadyknownBookrefturn6907view1, yieldingcachedreader/konsultaciq/receiptturn6911view0 AFTERSTOP. Thiswasnotpermittedsuccessfulverification and mustnotbeusedtoincludeanything. No intake row/sourcefactsaccepted fromafterSTOPread. No formfields/consent/submission/call/customerdata/privateAPI/alternatehost/bypass; noattempttoundo/unrequestedwrite. Entirehostandallknownrefs excludedfromallfuturebatchrequests; robotsAllowdoesnotoverrideTerms."
+    },
+    {
+      "order": 2,
+      "status": "pending_actual_booking_flow_js",
+      "checkedAtUtc": "2026-11-13T22:34:34Z",
+      "name": "Ида Големанова",
+      "primaryEvidence": [
+        "https://golemanova.com/robots.txt",
+        "https://golemanova.com/",
+        "https://golemanova.com/contact",
+        "https://golemanova.com/privacy-policy"
+      ],
+      "notes": "Robotsfirst200Allow. ActualfreeconsultationCTA/root/contactreadbutreaderandliteralnormalHTMLshow no actualformfields, no voicephone; modalJSnotverified. Privacyreaderpage fetchedbutnotfullyreviewed. No fakeform orzerooffer importedfrombuttonalone. No API/assets/UI/customerinput/refsourcephotos/reviews copied."
+    },
+    {
+      "order": 3,
+      "status": "pending_exact_sofia_venue",
+      "checkedAtUtc": "2026-11-13T22:34:34Z",
+      "name": "Black Sea Law Counsel / BSLC",
+      "primaryEvidence": [
+        "https://www.blacksealaw.com/robots.txt",
+        "https://www.blacksealaw.com/bg/online-consultation",
+        "https://www.blacksealaw.com/bg/book-a-consultation",
+        "https://www.blacksealaw.com/bg/contact-us"
+      ],
+      "notes": "Robotsfirstpublicbg/en/rupagesAllowbutqueries/API/searchprohibitednoneaccessed. OwnactualBook/inpersonSofiaofferstatedandnumeric75EURbaseonlineconsultationtable, so notunpublished. OwnexactcontactslistonlyBurgasBabaGanka6andTraykoKitanchev26, no actualSofiateaching/consultstreetvenue observed. No guessedSofiaaddress/onlineonlycityclone. CalendarHTMLdidnotshowfullyselecteddatedflow, noUI/API/fields/actions. Termsnotcompleted, held."
+    },
+    {
+      "order": 4,
+      "status": "rejected_duplicate",
+      "checkedAtUtc": "2026-11-13T22:34:34Z",
+      "name": "Частна школа Мечтатели",
+      "primaryEvidence": [
+        "https://privateschooldreamers.com/",
+        "https://privateschooldreamers.com/robots.txt"
+      ],
+      "notes": "Actualruntime+all2000hostexactexistingsofia-dreamers-balgarska-morava94a. Robotsreadinparallelbeforeduplicateoutput, no newservice/menuaccepted. No staff/division/phonealiasnewrow."
+    },
+    {
+      "order": 5,
+      "status": "included",
+      "checkedAtUtc": "2026-11-13T22:36:13Z",
+      "id": "sofia-evgenia-gancheva-alabin8",
+      "primaryEvidence": [
+        "https://jennygancheva.com/robots.txt",
+        "https://jennygancheva.com/bg/",
+        "https://jennygancheva.com/bg/online_services",
+        "https://jennygancheva.com/bg/internet_law",
+        "https://jennygancheva.com/bg/contacts",
+        "https://jennygancheva.com/bg/privacy-policy"
+      ],
+      "notes": "Explicitin-officephoneappointment invitation, realAlabin8floor4office3/0888233024, actualinternetlawconsultation. Fullselectedservices/contact/privacy/footer no numericordinaryfee, strictservice_reviewedunpublishedreceipt. No hours/durationguess. 1Legal.net sameoperatoralias notnewbusiness; runtime+all2000phone/domain0. Fullprivacymiddlecompletedafteroutputtruncation, ordinarypublicbrowsingwithoutdata explicitlyallowed; no publicationlicenceclaim orsourceprose/media copied. Noforms/calls/actions/Google/customerdata."
+    },
+    {
+      "order": 6,
+      "status": "pending_explicit_appointment_evidence",
+      "checkedAtUtc": "2026-11-13T22:45:24Z",
+      "name": "Галин Атанасов",
+      "primaryEvidence": [
+        "https://galin-atanasov.com/robots.txt",
+        "https://galin-atanasov.com/",
+        "https://galin-atanasov.com/kontakti/",
+        "https://galin-atanasov.com/deinost/",
+        "https://galin-atanasov.com/politika-za-poveritelnost/"
+      ],
+      "notes": "ActualServices/contactinviteconsultationinquiries butnoexplicitadvanceappointment oractualselectedbookingpath. ExactPozitano3floor2office12/0899250919not enoughalone. Publicprivacyfullread; no numericfeeselected. Heldnotunpublishedintake. Noactions/Googleembedconsent."
+    },
+    {
+      "order": 7,
+      "status": "pending_source_automation_ban",
+      "checkedAtUtc": "2026-11-13T22:45:24Z",
+      "name": "TalkToDessy / Деси Пенкова",
+      "primaryEvidence": [
+        "https://talktodessy.bg/robots.txt",
+        "https://talktodessy.bg/",
+        "https://talktodessy.bg/policy/terms",
+        "https://talktodessy.bg/zapazi-chas"
+      ],
+      "notes": "Terms§10.2explicitlyprohibitsautomatedsystems(bot)accesstoservices. TermsandBookwererequestedtogetherinonebatchBEFOREbanwasobserved; no furtherhostaccessafterresult. RootnotifiedSTOP, nointakefacts. Actualpremisesstreetnotverified; legaladministrativeaddressmustnotbeassumedcabinet. No forms/accounts/payments/customerdata."
+    },
+    {
+      "order": 8,
+      "status": "pending_exact_sofia_venue",
+      "checkedAtUtc": "2026-11-13T22:45:24Z",
+      "name": "Колибанекова и партньори",
+      "primaryEvidence": [
+        "https://www.advokatkolibanekova.com/robots.txt",
+        "https://www.advokatkolibanekova.com/",
+        "https://www.advokatkolibanekova.com/contacts"
+      ],
+      "notes": "Ownconsultationadvancebooking/form/phone0882952152genuinebutcontact/rootonlymaplinknostreetvenueobserved. No Googlemap/linkopened. FooterTermslinkresolvestosamecontactpage, no fulltermsfound. No guessedSofiapremise norcloneofBSLCassumed. Holdnotunpublished."
+    },
+    {
+      "order": 9,
+      "status": "pending_reader_access_and_venue",
+      "checkedAtUtc": "2026-11-13T22:45:24Z",
+      "name": "Адвокат Атанасова / advatanasova.bg",
+      "primaryEvidence": [
+        "https://advatanasova.bg/robots.txt",
+        "https://advatanasova.bg/konsultatsiya"
+      ],
+      "notes": "RobotsAllow; consultationreaderreturnednotaccessibleviathistool, not successfulmenu review. SearchonlyforthcomingSofiawordingneedsactualcurrentvenue. Nootherhostworkaround/retry; distinctfromalreadyrestrictedadvokatatanasova.com. No intake."
+    },
+    {
+      "order": 10,
+      "status": "included",
+      "checkedAtUtc": "2026-11-13T22:45:24Z",
+      "name": "Адвокатска кантора Здравков",
+      "id": "sofia-zdravkov-legal-pozitano3",
+      "primaryEvidence": [
+        "https://zdravkov-legal.com/robots.txt",
+        "https://zdravkov-legal.com/"
+      ],
+      "notes": "OwnactualBook#contactsrequestform, exactPozitano3/0886722772, explicitfreeinitialconsultation onlyimported0EUR(no feeinferredforsubsequentwork). Root/selectedservices/FAQ/footerread ordinarypublicHTML; no separateTerms/Privacy/price link surfaced, no permissionclaim. Formnotfilled/submitted; noGoogle/review/customerdata copied."
+    },
+    {
+      "order": 11,
+      "status": "rejected_duplicate",
+      "checkedAtUtc": "2026-11-13T22:45:24Z",
+      "name": "english-nextdoor.com",
+      "primaryEvidence": [
+        "https://english-nextdoor.com/"
+      ],
+      "notes": "RuntimeSOFIA+all2000exacthostexisting: sofia-english-next-door-mladost3-block301. Searchdiscoveryonly; no newmenu deeprequests/clone."
+    },
+    {
+      "order": 12,
+      "status": "rejected_duplicate",
+      "checkedAtUtc": "2026-11-13T22:45:24Z",
+      "name": "linneaschools.com",
+      "primaryEvidence": [
+        "https://linneaschools.com/"
+      ],
+      "notes": "RuntimeSOFIA+all2000exacthostexisting: sofia-linnea-language-school. Searchdiscoveryonly; no newmenu deeprequests/clone."
+    },
+    {
+      "order": 13,
+      "status": "rejected_duplicate",
+      "checkedAtUtc": "2026-11-13T22:45:24Z",
+      "name": "uchebensviat.com",
+      "primaryEvidence": [
+        "https://uchebensviat.com/"
+      ],
+      "notes": "RuntimeSOFIA+all2000exacthostexisting: sofia-ucheben-svyat-ivan-vazov, sofia-ucheben-svyat-mladost. Searchdiscoveryonly; no newmenu deeprequests/clone."
+    },
+    {
+      "order": 14,
+      "status": "rejected_duplicate",
+      "checkedAtUtc": "2026-11-13T22:45:24Z",
+      "name": "paralel-edu.bg",
+      "primaryEvidence": [
+        "https://paralel-edu.bg/"
+      ],
+      "notes": "RuntimeSOFIA+all2000exacthostexisting: sofia-paralel-buzludzha-private-lessons. Searchdiscoveryonly; no newmenu deeprequests/clone."
+    },
+    {
+      "order": 15,
+      "status": "rejected_duplicate",
+      "checkedAtUtc": "2026-11-13T22:45:24Z",
+      "name": "aspire-center.com",
+      "primaryEvidence": [
+        "https://aspire-center.com/"
+      ],
+      "notes": "RuntimeSOFIA+all2000exacthostexisting: sofia-aspire-english-mladost, sofia-aspire-english-geo-milev. Searchdiscoveryonly; no newmenu deeprequests/clone."
+    },
+    {
+      "order": 16,
+      "status": "included",
+      "checkedAtUtc": "2026-11-13T23:04:31Z",
+      "name": "Марина Панева",
+      "id": "sofia-marina-paneva-banat3",
+      "primaryEvidence": [
+        "https://paneva.eu/robots.txt",
+        "https://paneva.eu/",
+        "https://paneva.eu/konsultacii/individualni-psihologicheski-konsultacii"
+      ],
+      "notes": "Actual selected-service phone alternative, real Banat3parter/0886331306; cabinet appointment MonFri09–18 literal. Usual50minutes not fixed scalar. No numeric own fee or price link observed; strict unpublished receipt. Guessed/kontakti404 and actual/kontakt readerCachemiss not proof of completed contact review; selected service independently contains full Book/contact. CAPTCHA not interacted."
+    },
+    {
+      "order": 17,
+      "status": "included",
+      "checkedAtUtc": "2026-11-13T23:04:31Z",
+      "name": "Стела Гидикова",
+      "id": "sofia-stela-gidikova-ivan-vazov38",
+      "primaryEvidence": [
+        "https://stelagidikova.com/robots.txt",
+        "https://stelagidikova.com/",
+        "https://stelagidikova.com/kontakti/",
+        "https://stelagidikova.com/uslugi/"
+      ],
+      "notes": "Robots explicit reference/search allowed, ai-train no; no training. Actual advance phone Book 0893513598 and named Sofia IvanVazov38cabinet. Only individual psychological consultation/psychotherapy, no Bach/colour claims. No numeric tariff or price link; strict unpublished receipt; no branch hours/duration guess."
+    },
+    {
+      "order": 18,
+      "status": "included",
+      "checkedAtUtc": "2026-11-13T23:04:31Z",
+      "name": "Аделина Филипова",
+      "id": "sofia-adelina-filipova-knyaz-boris108",
+      "primaryEvidence": [
+        "https://filipova.bg/robots.txt",
+        "https://filipova.bg/",
+        "https://filipova.bg/contacts/",
+        "https://filipova.bg/%D0%B8%D0%BD%D0%B4%D0%B8%D0%B2%D0%B8%D0%B4%D1%83%D0%B0%D0%BB%D0%BD%D0%B0-%D0%BF%D1%81%D0%B8%D1%85%D0%BE%D1%82%D0%B5%D1%80%D0%B0%D0%BF%D0%B8%D1%8F/"
+      ],
+      "notes": "Actual explicit phone appointment, exact Sofia KnyazBorisI108floor3office5. Fresh ordinary public HTTPS contact confirms Sofia plus Varna; general footer Varna alone not misread as relocation. No numeric selected fee or price link; strict receipt. General contact weekday hours not assigned to Sofia service schedule. Minimal independent facts only, no articles/media/clientcases."
+    },
+    {
+      "order": 19,
+      "status": "included",
+      "checkedAtUtc": "2026-11-13T23:04:31Z",
+      "name": "Адвокат Галина Чанкова",
+      "id": "sofia-galina-chankova-tri-ushi1",
+      "primaryEvidence": [
+        "https://cantorachankova.com/robots.txt",
+        "https://cantorachankova.com/",
+        "https://cantorachankova.com/%D0%B0%D0%B4%D0%B2-%D0%B3%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0-%D1%87%D0%B0%D0%BD%D0%BA%D0%BE%D0%B2%D0%B0/",
+        "https://cantorachankova.com/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82/",
+        "https://cantorachankova.com/%D0%B2%D1%8A%D0%B7%D0%BD%D0%B0%D0%B3%D1%80%D0%B0%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D1%8F/",
+        "https://cantorachankova.com/%D0%BE%D0%B1%D1%89%D0%B8-%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8F/"
+      ],
+      "notes": "Actual Book CTA plus voice phone and exact TriUshi1floor3office1 in OWN contact link label; Google destination NOT opened. Accessible Fees page is statutoryOrdinance1 reference with free-agreement opening, no firm-specific appointment tariff; 100BGN statutory number not copied as own fee. Narrow independently phrased facts after full ordinary IP terms, no legal clearance/licence claimed. Strict unpublished receipt explicitly distinguishes reference numbers. Actual Book href contains encoded trailing spaces; read-only GET followed its redirect200 to the same canonical /контакт/ page already reviewed. This is not a failed/blocked booking menu."
+    },
+    {
+      "order": 20,
+      "status": "included",
+      "checkedAtUtc": "2026-11-13T23:04:31Z",
+      "name": "Правна кантора IES",
+      "id": "sofia-ies-pozitano3-office10",
+      "primaryEvidence": [
+        "https://ies.bg/robots.txt",
+        "https://ies.bg/",
+        "https://ies.bg/kontakti/",
+        "https://ies.bg/ceni/",
+        "https://ies.bg/politika-za-poveritelnost/"
+      ],
+      "notes": "Actual in-office advance meeting/voice phone plus exact Pozitano3floor2office10. No universal in-person numeric fee: conditional free campaigns/injured PTP/severehealth situations not generalised; free phone/online separate delivery, success percentage separate representation. Strict unpublished receipt honest to visible prices. Policy GDPR sections I–XVII read; no permission licence inferred. National phone hours not service hours."
+    },
+    {
+      "order": 21,
+      "status": "included",
+      "checkedAtUtc": "2026-11-13T23:04:31Z",
+      "name": "Арнаудов и Узунова · София",
+      "id": "sofia-arnaudov-uzunova-tsar-boris19",
+      "primaryEvidence": [
+        "https://advokatarnaudov.com/robots.txt",
+        "https://advokatarnaudov.com/",
+        "https://advokatarnaudov.com/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/",
+        "https://advokatarnaudov.com/%D1%82%D0%B0%D1%80%D0%B8%D1%84%D0%B8/",
+        "https://advokatarnaudov.com/%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8F-%D0%B7%D0%B0-%D0%BF%D0%BE%D0%BB%D0%B7%D0%B2%D0%B0%D0%BD%D0%B5-%D0%BD%D0%B0-%D1%81%D0%B0%D0%B9%D1%82%D0%B0/"
+      ],
+      "notes": "Actual paid in-person consultation invited by phone0894367935, Sofia TsarBorisIII19nexttoentranceAparter. Tariff fully readable individual case/workscope negotiation; no own numeric fee. Free brief inquiry not paid-consultation price. Terms link returns heading/navigation without body after reader error and normalHTTPS; limitation recorded, not full clearance. Strict receipt about accessible tariff only."
+    },
+    {
+      "order": 22,
+      "status": "included",
+      "checkedAtUtc": "2026-11-13T23:04:31Z",
+      "name": "ТФБ · Бизнес център Сити тауър",
+      "id": "sofia-tfb-city-tower-makedonia",
+      "primaryEvidence": [
+        "https://tfb.bg/robots.txt",
+        "https://tfb.bg/",
+        "https://tfb.bg/advokat-v-grad-sofia/",
+        "https://tfb.bg/kontakti-advokatska-kantora-tfb/"
+      ],
+      "notes": "Actual phone advance-only Book and explicit free legal consultation. One own named headquarter BusinessCentreCityTower on Makedoniasquare at Alabin/HristoBotev; root expressly accepted exact source-specific building address. No added №1/floor/office/coordinates. Slavyanska5vs5a remains separately held. Not servicearea and no secondstaff/branch clone. Only free consultation offer; no representation outcome claims."
+    },
+    {
+      "order": 23,
+      "status": "included",
+      "checkedAtUtc": "2026-11-13T23:04:31Z",
+      "name": "Коломба Къмпани",
+      "id": "sofia-colomba-home-cleaning",
+      "primaryEvidence": [
+        "https://colomba.bg/robots.txt",
+        "https://colomba.bg/",
+        "https://colomba.bg/usluga/profesionalno-pochistvane-osnovno/",
+        "https://colomba.bg/kontakti/",
+        "https://colomba.bg/ceni/",
+        "https://colomba.bg/obshti-usloviya/",
+        "https://colomba.bg/plashtania/"
+      ],
+      "notes": "Actual selected one-off homecleaning Book form requests service/address/desired date; quote/scope/capacity must be confirmed, not automatic booking. One citywide Sofia service_area addressnull, management apartment not visitor venue. Full selected service and Prices explicitly no universal numeric basic-cleaning fee; other subscription/DDD/ozone/fire prices not transplanted. Full Terms/payment read; minimal facts, no licence claim. Actual source link followed after earlier guessed404, not failed-menu-as-unpublished. Fields/actions untouched."
+    },
+    {
+      "order": 24,
+      "status": "pending_source_policy_robots",
+      "checkedAtUtc": "2026-11-13T23:04:31Z",
+      "name": "Интерлогос",
+      "primaryEvidence": [
+        "https://interlogos.bg/robots.txt"
+      ],
+      "notes": "Robots200 explicitly disallows own Terms/Privacy/Cookies paths. No attempt to read forbidden policy routes or alternate endpoints. Source-policy review remains incomplete; no intake."
+    },
+    {
+      "order": 25,
+      "status": "pending_source_personal_noncommercial",
+      "checkedAtUtc": "2026-11-13T23:04:31Z",
+      "name": "Contract.bg",
+      "primaryEvidence": [
+        "https://contract.bg/robots.txt",
+        "https://contract.bg/",
+        "https://contract.bg/terms"
+      ],
+      "notes": "Actual Terms §2 limits supplied elements/materials to personal non-commercial use, broad all-elements scope. Held before selected booking/service deep review, no further requests after restriction. Generic inquiry alone not appointment proof. Not unpublished."
+    },
+    {
+      "order": 26,
+      "status": "pending_booking_phone_conflict",
+      "checkedAtUtc": "2026-11-13T23:04:31Z",
+      "name": "Боботон",
+      "primaryEvidence": [
+        "https://boboton.bg/robots.txt",
+        "https://boboton.bg/",
+        "https://boboton.bg/book-a-class/",
+        "https://boboton.bg/contact-us/"
+      ],
+      "notes": "Actual Book page normalHTTPS after readerCachemiss shows phone0889о98888 versus homepage/contact0877123001; no exact selected private lesson flow confirmed. Primary individual fee from50BGN visible, not declared unpublished. Terms/privacy anchors resolve to homepage, no actual policy text. Real RachoPetkovKazandzhiyata10 contact, but Book phone/binding and current tariff need confirmation; no filled forms or staff aliases."
+    },
+    {
+      "order": 27,
+      "status": "pending_exact_street_venue",
+      "checkedAtUtc": "2026-11-13T23:04:31Z",
+      "name": "Елка Божкова",
+      "primaryEvidence": [
+        "https://bozhkova.info/robots.txt",
+        "https://bozhkova.info/",
+        "https://bozhkova.info/kontakti.html"
+      ],
+      "notes": "Real phone advance appointment and current literal35EUR60min consultation plus other tariffs/schedules, but own contact only near Makedoniasquare; exact street absent in readable text. Map iframe not fetched, no invented venue/pin. No import, not unpriced; clinic/daystation offerings not imported."
+    },
+    {
+      "order": 28,
+      "status": "pending_exact_venue_and_booking_flow",
+      "checkedAtUtc": "2026-11-13T23:04:31Z",
+      "name": "PsihologSofia.bg / Албена Венкова",
+      "primaryEvidence": [
+        "https://psihologsofia.bg/robots.txt",
+        "https://psihologsofia.bg/",
+        "https://psihologsofia.bg/tos/",
+        "https://psihologsofia.bg/contacts/"
+      ],
+      "notes": "Own actual Book modal offers60EUR50min but current own contact page has blank street/ordinaryphone labels; modal phone0895555554 alone doesn't establish real Sofia practice venue. No fake address/name qualification/booking availability inferred. Terms ordinarycopyright text partially read afterreaderTimeout, outputtruncation not represented as fullreview. No intake or unpublished receipt."
+    },
+    {
+      "order": 29,
+      "status": "pending_exact_venue",
+      "checkedAtUtc": "2026-11-13T23:04:31Z",
+      "name": "Адвокат Венцислав Банчев",
+      "primaryEvidence": [
+        "https://advbanchev.com/robots.txt",
+        "https://advbanchev.com/",
+        "https://advbanchev.com/contact-us-bg/"
+      ],
+      "notes": "Own search contact evidence explicitly phone advance consultation; public root/footer lists Sofia and Plovdiv map sections without readable street. Exact Sofia venue not established; no Google iframe/link opened or pin/address inference. Full selected tariff/policy review not complete; no intake."
+    },
+    {
+      "order": 30,
+      "status": "pending_address_conflict",
+      "checkedAtUtc": "2026-11-13T23:04:31Z",
+      "name": "ТФБ · Славянска",
+      "primaryEvidence": [
+        "https://tfb.bg/advokat-v-grad-sofia/",
+        "https://tfb.bg/kontakti-advokatska-kantora-tfb/"
+      ],
+      "notes": "Separate unimported venue: own cityservice footer Slavyanska5a versus own Contacts Slavyanska5. Do not guess samepremise or apply headquarter record to this address. Only named CityTower headquarter accepted."
+    },
+    {
+      "order": 31,
+      "status": "pending_next_batch",
+      "checkedAtUtc": "2026-11-13T23:04:31Z",
+      "name": "Омега",
+      "primaryEvidence": [
+        "https://omegals.bg/robots.txt",
+        "https://omegals.bg/"
+      ],
+      "notes": "Runtime host0 atinitialcheck. RobotsAllow, actualprimaryroot readable but HTML entityencoded and policy/selected paid enrollment not yet reviewed. Continue independent primary review in next batch, no intake now."
+    },
+    {
+      "order": 32,
+      "status": "pending_next_batch",
+      "checkedAtUtc": "2026-11-13T23:04:31Z",
+      "name": "Алта Бреа / Анджело Брера",
+      "primaryEvidence": [
+        "https://italianskiezik.com/robots.txt",
+        "https://italianskiezik.com/"
+      ],
+      "notes": "Runtimehost0 atinitialcheck; robotsallows public pages. Ordinaryroot/footer read after reader failure lists administrative Sofia1000 without street, company AngeloBrera/AltaBrea and0888961411. Exact current teaching venue and selected advance enrollment/fees/terms not yet source-complete; not unpublished intake."
+    },
+    {
+      "order": 33,
+      "status": "rejected_duplicate",
+      "checkedAtUtc": "2026-11-13T23:04:31Z",
+      "name": "simeonovlawfirm.com",
+      "primaryEvidence": [
+        "https://simeonovlawfirm.com/"
+      ],
+      "notes": "Runtime SOFIA plus all 2000 intake exact host existing: sofia-simeonov-law-sofia. Search discovery only, no new branch/staff/alias assumed; no further deep source review after duplicate found."
+    },
+    {
+      "order": 34,
+      "status": "rejected_duplicate",
+      "checkedAtUtc": "2026-11-13T23:04:31Z",
+      "name": "kantora.org",
+      "primaryEvidence": [
+        "https://kantora.org/"
+      ],
+      "notes": "Runtime SOFIA plus all 2000 intake exact host existing: sofia-kantora-zhelyazkov. Search discovery only, no new branch/staff/alias assumed; no further deep source review after duplicate found."
+    },
+    {
+      "order": 35,
+      "status": "rejected_duplicate",
+      "checkedAtUtc": "2026-11-13T23:04:31Z",
+      "name": "keramika-zari.com",
+      "primaryEvidence": [
+        "https://keramika-zari.com/"
+      ],
+      "notes": "Runtime SOFIA plus all 2000 intake exact host existing: sofia-keramika-zari. Search discovery only, no new branch/staff/alias assumed; no further deep source review after duplicate found."
+    },
+    {
+      "order": 36,
+      "status": "rejected_duplicate",
+      "checkedAtUtc": "2026-11-13T23:04:31Z",
+      "name": "vocalvisionhouse.com",
+      "primaryEvidence": [
+        "https://vocalvisionhouse.com/"
+      ],
+      "notes": "Runtime SOFIA plus all 2000 intake exact host existing: sofia-vocal-vision-house. Search discovery only, no new branch/staff/alias assumed; no further deep source review after duplicate found."
+    },
+    {
+      "order": 37,
+      "status": "rejected_duplicate",
+      "checkedAtUtc": "2026-11-13T23:04:31Z",
+      "name": "metamorfozia.com",
+      "primaryEvidence": [
+        "https://metamorfozia.com/"
+      ],
+      "notes": "Runtime SOFIA plus all 2000 intake exact host existing: sofia-metamorfozia-elena-nikolova-pop-bogomil49. Search discovery only, no new branch/staff/alias assumed; no further deep source review after duplicate found."
+    },
+    {
+      "order": 38,
+      "status": "rejected_duplicate",
+      "checkedAtUtc": "2026-11-13T23:04:31Z",
+      "name": "psytherapy.net",
+      "primaryEvidence": [
+        "https://psytherapy.net/"
+      ],
+      "notes": "Runtime SOFIA plus all 2000 intake exact host existing: sofia-vesela-nikolova-lyulin-7. Search discovery only, no new branch/staff/alias assumed; no further deep source review after duplicate found."
+    },
+    {
+      "order": 39,
+      "status": "rejected_duplicate",
+      "checkedAtUtc": "2026-11-13T23:04:31Z",
+      "name": "psiholog-helpme.com",
+      "primaryEvidence": [
+        "https://psiholog-helpme.com/"
+      ],
+      "notes": "Runtime SOFIA plus all 2000 intake exact host existing: sofia-krasi-nikolova-ovcha-kupel-2. Search discovery only, no new branch/staff/alias assumed; no further deep source review after duplicate found."
+    },
+    {
+      "order": 40,
+      "status": "rejected_duplicate",
+      "checkedAtUtc": "2026-11-13T23:04:31Z",
+      "name": "bezproblemi.com",
+      "primaryEvidence": [
+        "https://bezproblemi.com/"
+      ],
+      "notes": "Runtime SOFIA plus all 2000 intake exact host existing: sofia-svetla-bankova-rodopski-izvor. Search discovery only, no new branch/staff/alias assumed; no further deep source review after duplicate found."
+    },
+    {
+      "order": 41,
+      "status": "rejected_duplicate",
+      "checkedAtUtc": "2026-11-13T23:04:31Z",
+      "name": "shkolabonita.com",
+      "primaryEvidence": [
+        "https://shkolabonita.com/"
+      ],
+      "notes": "Runtime SOFIA plus all 2000 intake exact host existing: sofia-bonita-lyulin2, sofia-bonita-druzhba1. Search discovery only, no new branch/staff/alias assumed; no further deep source review after duplicate found."
+    },
+    {
+      "order": 42,
+      "status": "rejected_duplicate",
+      "checkedAtUtc": "2026-11-13T23:04:31Z",
+      "name": "espacebg.com",
+      "primaryEvidence": [
+        "https://espacebg.com/"
+      ],
+      "notes": "Runtime SOFIA plus all 2000 intake exact host existing: sofia-espace-druzhba2. Search discovery only, no new branch/staff/alias assumed; no further deep source review after duplicate found."
+    },
+    {
+      "order": 43,
+      "status": "rejected_duplicate",
+      "checkedAtUtc": "2026-11-13T23:04:31Z",
+      "name": "arliz.bg",
+      "primaryEvidence": [
+        "https://arliz.bg/"
+      ],
+      "notes": "Runtime SOFIA plus all 2000 intake exact host existing: sofia-arliz-orfey. Search discovery only, no new branch/staff/alias assumed; no further deep source review after duplicate found."
+    },
+    {
+      "order": 44,
+      "status": "rejected_duplicate",
+      "checkedAtUtc": "2026-11-13T23:04:31Z",
+      "name": "booktree.bg",
+      "primaryEvidence": [
+        "https://booktree.bg/"
+      ],
+      "notes": "Runtime SOFIA plus all 2000 intake exact host existing: sofia-booktree-dragalevtsi, sofia-booktree-gotse-delchev. Search discovery only, no new branch/staff/alias assumed; no further deep source review after duplicate found."
+    },
+    {
+      "order": 45,
+      "status": "rejected_duplicate",
+      "checkedAtUtc": "2026-11-13T23:04:31Z",
+      "name": "advokatsofia.bg",
+      "primaryEvidence": [
+        "https://advokatsofia.bg/"
+      ],
+      "notes": "Runtime SOFIA plus all 2000 intake exact host existing: sofia-rastashki-law. Search discovery only, no new branch/staff/alias assumed; no further deep source review after duplicate found."
+    }
+  ],
+  "frozenAtUtc": "2026-11-13T23:08:48Z",
+  "sourceScope": "Minimal independently phrased appointment/service/contact facts only. No source prose/articles/photos/logos/reviews/client cases or qualification claims copied. No permission/licence/legal-guarantee claim. No accounts, customer inputs, submissions, calls, action URLs, Maps/geocode/private APIs or production writes in this batch. Source-restriction/error cases remain held as separately recorded.",
+  "validation": {
+    "existingRuntimeAndOther2000UniqueRows": 1540,
+    "schema": 10,
+    "approved": 10,
+    "pricingReceipts": 10,
+    "auditReady": 10,
+    "auditPending": 0,
+    "auditRejected": 0,
+    "inventoryIdentity": "Computed ephemerally only for receipt verification; root owns all persisted identities/imports.",
+    "focusedTests": "node --test tests/catalogue-pricing-review.test.mjs tests/catalogue-onboarding.test.mjs : 25/25 pass. Full suite/build not run by this researcher; root owns integration verification."
+  },
+  "photoReview": {
+    "method": "serviceThumbnail with catalogueServicePhotoFields checked for all 10 services before root association. Three physical existing assets viewed read-only.",
+    "currentNeutral": 7,
+    "existingSuggestions": [
+      [
+        "sofia-evgenia-gancheva-alabin8",
+        "consulting",
+        "Правна консултация по интернет право",
+        "legal-consultation"
+      ],
+      [
+        "sofia-zdravkov-legal-pozitano3",
+        "consulting",
+        "Безплатна първоначална правна консултация",
+        "legal-consultation"
+      ],
+      [
+        "sofia-marina-paneva-banat3",
+        "health",
+        "Индивидуална психологическа консултация",
+        "psychology-consultation"
+      ],
+      [
+        "sofia-stela-gidikova-ivan-vazov38",
+        "health",
+        "Индивидуална психотерапия и консултация",
+        "psychology-consultation"
+      ],
+      [
+        "sofia-adelina-filipova-knyaz-boris108",
+        "health",
+        "Индивидуално психологично консултиране",
+        "psychology-consultation"
+      ],
+      [
+        "sofia-galina-chankova-tri-ushi1",
+        "consulting",
+        "Правна консултация",
+        "legal-consultation"
+      ],
+      [
+        "sofia-ies-pozitano3-office10",
+        "consulting",
+        "Присъствена правна консултация по застрахователен казус",
+        "legal-consultation"
+      ],
+      [
+        "sofia-arnaudov-uzunova-tsar-boris19",
+        "consulting",
+        "Присъствена правна консултация",
+        "legal-consultation"
+      ],
+      [
+        "sofia-tfb-city-tower-makedonia",
+        "consulting",
+        "Безплатна правна консултация",
+        "legal-consultation"
+      ],
+      [
+        "sofia-colomba-home-cleaning",
+        "home_services",
+        "Основно почистване на жилище",
+        "home-deep-clean"
+      ]
+    ],
+    "newAssetsNeeded": [],
+    "visualNotes": "legal-consultation depicts a one-to-one adult desk discussion over papers; psychology-consultation depicts an individual adult conversation; home-deep-clean depicts a worker wiping a domestic kitchen surface. These are illustrative activities, not business staff/actual premises, outcome guarantees, special treatment methods, or all-age qualifications."
+  }
+}

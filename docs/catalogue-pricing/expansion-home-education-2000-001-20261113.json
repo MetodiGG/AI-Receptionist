@@ -1,0 +1,667 @@
+{
+  "checkedOn": "2026-11-13",
+  "validUntil": "2027-02-11",
+  "scope": "Numbered2000 intake001: primary own-site Sofia appointment services, dental exception plus nonmedical tattoo/photo/education. No general human doctors/clinics, geocoding, Google scraping, private GPS, customer writes or deployment.",
+  "summary": {
+    "records": 21,
+    "services": 27,
+    "priceRows": 15,
+    "priceReviewed": 11,
+    "unpricedServiceReviewed": 10,
+    "coordinates": 0,
+    "weeklyHours": 11,
+    "pending": 16,
+    "rejected": 9,
+    "existingUnionRecords": 1255
+  },
+  "dedupe": {
+    "basis": "Current1238-row SOFIA_CATALOGUE plus every sibling2000 intake module at audit;1255-row union before this batch. Checked exact ID, normalized host and phone; no cross-union matches.",
+    "branches": "Only three real Robotika teaching venues share one phone/domain within this batch. Each exact selected named-group registration form independently rendered by root, each own course row separately prices the same named seven-lesson programme.",
+    "native": "Existing native six names screened; no matching public business name/contact. No private native data accessed."
+  },
+  "evidencePolicy": "Actual Book first then service/tariff/contact/footer. Genuine absent numeric prices use strict not_publicly_listed receipts and service_reviewed, not completed pricing. Every blocked/conflicting/currently-closed candidate stays pending. No inventoryIdentity persisted; root owns exact manual inventory binding and shared photos/integration.",
+  "accessReview": {
+    "mode": "Manual bounded public web reader plus ordinary merchant HTTPS GET after cache misses/timeouts; no automated crawl. No map/provider bulk export, authentication, consent, form submission or customer data.",
+    "robots": "No crawler run; robots were not separately fetched for these manual page reads. This is not a claim of blanket scraping permission.",
+    "terms": "Reviewed Robotika general terms, FotoMiasto terms effective16Sept2026 and KoDent terms; individual booking/cancellation restrictions read where exposed. No creative source prose, photographs, reviews or ratings reused. Normal HTTPS error/verification challenges not bypassed.",
+    "browserEvidence": "Root read-only CUA verified Robotika exact groups02pgrlb99,f3tp47obb,txext3c7r after hydration and FotoMiasto actual reservation form; no data or checkbox/submission actions. All other sources reviewed via public reader/ordinary HTTPS."
+  },
+  "ledger": [
+    {
+      "order": 1,
+      "id": "sofia-petya-ivanova-newdental-kazbeg30",
+      "name": "Newdental · д-р Петя Иванова",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://jeeiims.wixsite.com/newdental",
+        "https://jeeiims.wixsite.com/newdental/contact",
+        "https://jeeiims.wixsite.com/newdental/untitled"
+      ],
+      "bookingEvidenceUrl": "https://jeeiims.wixsite.com/newdental/contact",
+      "priceCount": 2,
+      "locationDecision": "premises",
+      "coordinatesDecision": "null — coordinates were not imported; no spatial-accuracy claim",
+      "hoursDecision": "Only source-explicit applicable weekly hours or by-agreement days imported.",
+      "notes": "Followed actual owner Book/Ask entry to the named contact form with callback telephone and message fields, then fully read the ordinary tariff and contacts/footer. Exact public source spelling Казбег30 retained, not silently renamed or geocoded. Mon–Fri09–19 and Sat09:30–17 are stated by the owner. BGN fees retained literally; no currency conversion, duration or current availability invented. Distinct from existing NewDentalSolutions by domain, telephone and address."
+    },
+    {
+      "order": 2,
+      "id": "sofia-ivaylo-stoyanov-408ma42",
+      "name": "Дентална клиника д-р Ивайло Стоянов",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://stoyanovdent.bg/"
+      ],
+      "bookingEvidenceUrl": "https://stoyanovdent.bg/",
+      "priceCount": 0,
+      "locationDecision": "premises",
+      "coordinatesDecision": "null — coordinates were not imported; no spatial-accuracy claim",
+      "hoursDecision": "No unambiguous applicable recurring weekly schedule imported; finite course schedules and office/shop hours remain separate.",
+      "notes": "Owner Book an examination CTA resolves to its on-page address/telephone contact section. Detailed prevention section explicitly offers examination and calculus removal/polishing. Single practice, not individual staff clones. Source says Monday–Saturday and emergency contact Sunday/holidays but gives no clock times; no openingHours guessed from those statements. No clinical guarantees or review text reused."
+    },
+    {
+      "order": 3,
+      "id": "sofia-elhnedi-priroda7",
+      "name": "Дентална клиника д-р Елхнеди",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.drelhnedi.com/",
+        "https://www.drelhnedi.com/contacts/"
+      ],
+      "bookingEvidenceUrl": "https://www.drelhnedi.com/",
+      "priceCount": 0,
+      "locationDecision": "premises",
+      "coordinatesDecision": "null — coordinates were not imported; no spatial-accuracy claim",
+      "hoursDecision": "Only source-explicit applicable weekly hours or by-agreement days imported.",
+      "notes": "Explicit own-site telephone appointment sentence establishes real booked examination, not merely a phone contact. Dedicated contacts confirm Priroda7 and Mon–Fri10–19. Only dental service is included; no staff clones, cosmetic medical injections, ratings, photos or treatment-outcome promises copied."
+    },
+    {
+      "order": 4,
+      "id": "sofia-giulia-dent-buxton57",
+      "name": "Giulia Dent · д-р Таня Ангелова",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://giuliadent.com/bg"
+      ],
+      "bookingEvidenceUrl": "https://giuliadent.com/bg",
+      "priceCount": 0,
+      "locationDecision": "premises",
+      "coordinatesDecision": "null — coordinates were not imported; no spatial-accuracy claim",
+      "hoursDecision": "Only source-explicit applicable weekly hours or by-agreement days imported.",
+      "notes": "Actual owner phone booking invitation is explicit several times. Exact Buxton57 and ManastirskiLivadi are stated by the practice, not inferred from the boulevard. Real weekly service hours imported including shorter Wednesday and Saturday. The prophylaxis section explicitly offers regular examinations and cleaning; no precise machine/method, fee, duration or Google material inferred."
+    },
+    {
+      "order": 5,
+      "id": "sofia-deathmag-tattoo-sixth-september33",
+      "name": "Deathmag Tattoo",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://deathmagtattoo.wordpress.com/",
+        "https://deathmagtattoo.wordpress.com/faq/",
+        "https://deathmagtattoo.wordpress.com/contact-us/"
+      ],
+      "bookingEvidenceUrl": "https://deathmagtattoo.wordpress.com/faq/",
+      "priceCount": 0,
+      "locationDecision": "premises",
+      "coordinatesDecision": "null — coordinates were not imported; no spatial-accuracy claim",
+      "hoursDecision": "No unambiguous applicable recurring weekly schedule imported; finite course schedules and office/shop hours remain separate.",
+      "notes": "Read own FAQ via normal public HTTP after reader cache miss; no block bypass. Contact page confirms SixthSeptember33 and common studio telephone. FAQ explicitly allows booking by any listed contact method, including that phone. Walk-ins are also welcome but do not negate the separately documented advance appointment path. No weekly clock schedule is stated; hours absent. Studio is one record, not seven staff profiles."
+    },
+    {
+      "order": 6,
+      "id": "sofia-smokov-tattoo-tsar-asen20",
+      "name": "Smokov Tattoo",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://smokov.com/home-bg/",
+        "https://smokov.com/contact/"
+      ],
+      "bookingEvidenceUrl": "https://smokov.com/contact/",
+      "priceCount": 0,
+      "locationDecision": "premises",
+      "coordinatesDecision": "null — coordinates were not imported; no spatial-accuracy claim",
+      "hoursDecision": "Only source-explicit applicable weekly hours or by-agreement days imported.",
+      "notes": "Actual owner consultation CTA opens the form; this is an inquiry followed by studio agreement, not automated availability. Own homepage and contact page agree on TsarAsen20 and phone. Mon–Sat11–19 applies to studio. No quoted customer prices, portfolio images, ratings or artist staff clones. Free consultation is not represented as a free tattoo."
+    },
+    {
+      "order": 7,
+      "id": "sofia-ralev-rayko-aleksiev4",
+      "name": "Дентална клиника Ралев",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://zabolekar-ralev.com/",
+        "https://zabolekar-ralev.com/tseni/",
+        "https://zabolekar-ralev.com/kontakti/"
+      ],
+      "bookingEvidenceUrl": "https://zabolekar-ralev.com/",
+      "priceCount": 2,
+      "locationDecision": "premises",
+      "coordinatesDecision": "null — coordinates were not imported; no spatial-accuracy claim",
+      "hoursDecision": "Only source-explicit applicable weekly hours or by-agreement days imported.",
+      "notes": "Actual phone Book appointment entry reviewed first, then dedicated ordinary tariff and contacts. Public tariff explicitly calls prices indicative; new-patient exam requires a current panoramic image and late cancellation/no-show under48hours is50EUR/hour. Those conditions retained publicly. Sunday is only by prior agreement, not an invented clock period. One dental practice, not separate staff profiles. Source rights notice respected: only public factual fees/address/hours paraphrased, no creative text/images copied."
+    },
+    {
+      "order": 8,
+      "id": "sofia-multimplants-hristo-hristov-postoyanstvo253",
+      "name": "Multimplants · д-р Христо Христов",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.multimplants.com/obadise/",
+        "https://superdoc.bg/lekar/d-r-hristo-hristov-3782",
+        "https://www.multimplants.com/bg/contact"
+      ],
+      "bookingEvidenceUrl": "https://www.multimplants.com/obadise/",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "coordinatesDecision": "null — coordinates were not imported; no spatial-accuracy claim",
+      "hoursDecision": "No unambiguous applicable recurring weekly schedule imported; finite course schedules and office/shop hours remain separate.",
+      "notes": "Followed actual owner-linked Superdoc Book entry to named Multimplants practice, visit-reason selector, exact matching address/phone and primary50EUR service menu; then own ordinary diagnostic service fee and contact page. Own page separately offers telephone booking, used in this record. Provider cash-on-site condition retained; review text/ratings/photos excluded. Contact page has no weekly clock schedule, so no hours or duration inferred. Dental practice only, not a general surgical clinic."
+    },
+    {
+      "order": 9,
+      "id": "sofia-robotika-manastirski-flora1a",
+      "verificationAndPriceValidUntil": "2026-12-19",
+      "name": "Академия Роботика · Манастирски ливади",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://robotika.bg/robotika-5-6",
+        "https://robotika.bg/register-course?group=02pgrlb99",
+        "https://robotika.bg/kontakti",
+        "https://robotika.bg/obshti-uslovia-robotika"
+      ],
+      "bookingEvidenceUrl": "https://robotika.bg/register-course?group=02pgrlb99",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "coordinatesDecision": "null — coordinates were not imported; no spatial-accuracy claim",
+      "hoursDecision": "No unambiguous applicable recurring weekly schedule imported; finite course schedules and office/shop hours remain separate.",
+      "notes": "Root independently rendered exact named-group registration URL and confirmed selected Kubo course, disabled selected ManastirskiLivadi Saturday14 group, parent/child/birthdate/contact/payment/terms fields and submit control; no data entered/submitted. I read own branch-specific service schedule,158EUR seven-lesson course and contact address plus full general terms. One instalment total, not a single lesson or86EUR instalment. Office10–18 is not class availability; finite seven-date course not encoded as year-round hours. No other-city or full waiting-list group cloned."
+    },
+    {
+      "order": 10,
+      "id": "sofia-fotomiasto-smirnenski16",
+      "name": "ФотоМясто · ирисова фотография",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://fotomiasto.com/services/ирисова-фотография/",
+        "https://fotomiasto.com/services/ирисова-фотография/",
+        "https://fotomiasto.com/contact/",
+        "https://fotomiasto.com/terms/"
+      ],
+      "bookingEvidenceUrl": "https://fotomiasto.com/services/ирисова-фотография/",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "coordinatesDecision": "null — coordinates were not imported; no spatial-accuracy claim",
+      "hoursDecision": "No unambiguous applicable recurring weekly schedule imported; finite course schedules and office/shop hours remain separate.",
+      "notes": "Root rendered actual #reservation-form: iris service selector, date/time/name/email/telephone/consent and Book button, no form submission. I read own exact iris package tariff, venue/contact and16Sept2026 terms. Selected49.39EUR one-iris20×20 photographic paper plus digital copy, VAT included, not unrelated print-only retail. Terms identify MacroStudio as common provider of FotoMiasto/PrintLab16; no separate brand clone. Store Mon–Fri9–19/Sat10:30–18 is explicitly shop hours, not claimed appointment hours. Counterintuitive45.50 larger package is not silently corrected or imported."
+    },
+    {
+      "order": 11,
+      "id": "sofia-kodent-metodi-popov16",
+      "name": "KoDent",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://kodent.bg/",
+        "https://kodent.bg/contact",
+        "https://kodent.bg/services?profilaktika-i-lechenie=",
+        "https://kodent.bg/services/profilaktichen-pregled",
+        "https://kodent.bg/terms"
+      ],
+      "bookingEvidenceUrl": "https://kodent.bg/contact",
+      "priceCount": 0,
+      "locationDecision": "premises",
+      "coordinatesDecision": "null — coordinates were not imported; no spatial-accuracy claim",
+      "hoursDecision": "Only source-explicit applicable weekly hours or by-agreement days imported.",
+      "notes": "Actual form has name/email/phone/service/optional clinician/message and Book control. Own contacts confirm exact MetodiPopov16 and weekly08:30–19/Sat10–14. Included dental examination only; unrelated injectable aesthetic procedures are excluded. Owner literal GPS numbers are not imported in this intake; no map/geocoding call or spatial-accuracy claim. No individual staff rows."
+    },
+    {
+      "order": 12,
+      "id": "sofia-dentalive-filip-kutev2a",
+      "name": "dentAlive",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.dentalive.bg/",
+        "https://www.dentalive.bg/contact/",
+        "https://www.dentalive.bg/pricing/",
+        "https://www.dentalive.bg/services/"
+      ],
+      "bookingEvidenceUrl": "https://www.dentalive.bg/contact/",
+      "priceCount": 2,
+      "locationDecision": "premises",
+      "coordinatesDecision": "null — coordinates were not imported; no spatial-accuracy claim",
+      "hoursDecision": "Only source-explicit applicable weekly hours or by-agreement days imported.",
+      "notes": "Own booking workflow explicitly uses phone/email followed by agreed convenient time; read it before ordinary named-service tariff and contact/service pages.50EUR first consultation and100EUR cleaning are literal basic service prices, not promotions or treatment-package totals. Services fetched via ordinary public HTTP after reader cache miss. Exact FilipKutev2a and service weekly hours sourced; quarter not guessed. No treatment duration or specific cleaning machine inferred."
+    },
+    {
+      "order": 13,
+      "id": "sofia-vclinic-james-bourchier83-85",
+      "name": "VClinic · дентална клиника",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.vclinic.bg/",
+        "https://www.vclinic.bg/контакти",
+        "https://www.vclinic.bg/услуги/избелване-на-зъби",
+        "https://www.vclinic.bg/услуги/почистване-на-зъбен-камък"
+      ],
+      "bookingEvidenceUrl": "https://www.vclinic.bg/",
+      "priceCount": 0,
+      "locationDecision": "premises",
+      "coordinatesDecision": "null — coordinates were not imported; no spatial-accuracy claim",
+      "hoursDecision": "Only source-explicit applicable weekly hours or by-agreement days imported.",
+      "notes": "Explicit owner phone Book appointment path and exact JamesBourchier83–85 office2 confirmed. Imported only clearly named whitening service supported by its proper service page, not the inconsistent cleaning template. Monday–Friday09–18 is own contact schedule. No guaranteed shades, clinical promises, fixed duration or price inferred. No maps, photos or customer material copied."
+    },
+    {
+      "order": 14,
+      "id": "sofia-semeina-usmivka-kyustendil53",
+      "name": "Семейна усмивка",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://semeinausmivka.bg/",
+        "https://semeinausmivka.bg/services",
+        "https://superdoc.bg/klinika/dentalna-klinika-semeyna-usmivka",
+        "https://superdoc.bg/lekar/kristina-blagova",
+        "https://superdoc.bg/lekar/pavlina-koleva"
+      ],
+      "bookingEvidenceUrl": "https://semeinausmivka.bg/",
+      "priceCount": 2,
+      "locationDecision": "premises",
+      "coordinatesDecision": "null — coordinates were not imported; no spatial-accuracy claim",
+      "hoursDecision": "Only source-explicit applicable weekly hours or by-agreement days imported.",
+      "notes": "Followed actual owner-linked practice booking directory into both named clinicians visit-reason/fee menus before own services and venue. Both publish50EUR primary examination and100EUR sixty-minute calculus cleaning/polishing requiring two consecutive online slots. Own phone consultation-booking path used; no staff clones. Source-exact Mon–Fri9–19 and Saturday only by agreement. General shop subscriptions/ratings/photos excluded. No assumption that every clinician treats children; selected services have no inferred child-age scope."
+    },
+    {
+      "order": 15,
+      "id": "sofia-vasident-angista8",
+      "name": "Васидент · д-р Вася Стойнева",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.vasident.com/",
+        "https://www.vasident.com/терапия/",
+        "https://www.vasident.com/контакти"
+      ],
+      "bookingEvidenceUrl": "https://www.vasident.com/",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "coordinatesDecision": "null — coordinates were not imported; no spatial-accuracy claim",
+      "hoursDecision": "No unambiguous applicable recurring weekly schedule imported; finite course schedules and office/shop hours remain separate.",
+      "notes": "Actual owner telephone appointment instructions reviewed before ordinary Therapy tariff and dedicated contact page.20EUR examination is literal; anesthesia20EUR is a separate row, not silently bundled. Exact Angista8 first floor and source-stated StochnaGara retained. Heading Working hours contains booking instructions only, no clock/weekday schedule; no openingHours invented. One family practice, not two clinicians counted separately."
+    },
+    {
+      "order": 16,
+      "id": "sofia-stoyan-tsonev-chavdar-mutafov22",
+      "name": "Д-р Стоян Цонев · дентален кабинет",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://drtsonev.com/",
+        "https://drtsonev.com/contacts/",
+        "https://drtsonev.com/prevention/"
+      ],
+      "bookingEvidenceUrl": "https://drtsonev.com/contacts/",
+      "priceCount": 0,
+      "locationDecision": "premises",
+      "coordinatesDecision": "null — coordinates were not imported; no spatial-accuracy claim",
+      "hoursDecision": "Only source-explicit applicable weekly hours or by-agreement days imported.",
+      "notes": "Contact and prevention pages read via normal public HTTP after reader timeouts. Actual date/time inquiry form establishes appointment request, not just generic contact. Own contacts confirm ChavdarMutafov22 ground floor; Lozenets is stated as municipality, so quarter remains null. Mon–Fri09–18 and Saturday by agreement, no Sunday opening. No private form submission or map request."
+    },
+    {
+      "order": 17,
+      "id": "sofia-dora-yovcheva-cherni-vrah7",
+      "name": "Д-р Дора Йовчева · стоматологична практика",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://yovcheva.com/",
+        "https://superdoc.bg/lekar/dora-yovcheva"
+      ],
+      "bookingEvidenceUrl": "https://yovcheva.com/",
+      "priceCount": 0,
+      "locationDecision": "premises",
+      "coordinatesDecision": "null — coordinates were not imported; no spatial-accuracy claim",
+      "hoursDecision": "No unambiguous applicable recurring weekly schedule imported; finite course schedules and office/shop hours remain separate.",
+      "notes": "Own site and owner-linked booking panel agree on exact CherniVrah7 and primary phone. Provider visit reasons and appointment panel reviewed without reservation. Owner schedule alternates even dates13–19 and odd dates09–14, with weekends closed; this cannot be represented honestly as a fixed weekly clock schedule, so hours omitted. Lozenets/Centre SEO is ambiguous, so no quarter guessed. One practice, not separate staff clones."
+    },
+    {
+      "order": 18,
+      "id": "sofia-bb-dental-sredna-gora32",
+      "name": "BB Dental",
+      "status": "service_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://bbdental.eu/",
+        "https://bbdental.eu/contact-us/",
+        "https://bbdental.eu/teeth-whitening/"
+      ],
+      "bookingEvidenceUrl": "https://bbdental.eu/contact-us/",
+      "priceCount": 0,
+      "locationDecision": "premises",
+      "coordinatesDecision": "null — coordinates were not imported; no spatial-accuracy claim",
+      "hoursDecision": "No unambiguous applicable recurring weekly schedule imported; finite course schedules and office/shop hours remain separate.",
+      "notes": "Exact SrednaGora32/ZoneB5 and common appointment phone are own published facts. Two clinicians have different individual work schedules; no single universal consultation schedule or staff clone is inferred. Actual form is request/callback, not instantaneous confirmed availability. No clinical promises, Google reviews/photos or individualized private quote imported."
+    },
+    {
+      "order": 19,
+      "id": "sofia-batinkov-dental-velcho-atanasov9",
+      "name": "Батинков Дентал",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://zabolekar-reduta.com/",
+        "https://zabolekar-reduta.com/контакти/",
+        "https://zabolekar-reduta.com/uslugi-i-ceni/",
+        "https://superdoc.bg/lekar/martin-batinkov"
+      ],
+      "bookingEvidenceUrl": "https://zabolekar-reduta.com/контакти/",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "coordinatesDecision": "null — coordinates were not imported; no spatial-accuracy claim",
+      "hoursDecision": "Only source-explicit applicable weekly hours or by-agreement days imported.",
+      "notes": "Actual own Book link and named provider appointment panel reviewed before own fee/service/contact pages. Imported only own ordinary100EUR one-surface/cervical filling with anesthesia, not conditional NHIF57.85EUR. Cleaning tariff conflicts95–105own vs90provider are held out; photo-exam45 plus optional20plan wording also not imported. Adult-only selected service avoids source conflict children10+vs12+. Own contact exact VelchoAtanasov9; Mon–Fri11–19. No inferred duration."
+    },
+    {
+      "order": 20,
+      "id": "sofia-robotika-serdika-todor-aleksandrov17",
+      "verificationAndPriceValidUntil": "2026-12-16",
+      "name": "Академия Роботика · Сердика",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://robotika.bg/robotika-5-6",
+        "https://robotika.bg/register-course?group=f3tp47obb",
+        "https://robotika.bg/kontakti",
+        "https://robotika.bg/obshti-uslovia-robotika"
+      ],
+      "bookingEvidenceUrl": "https://robotika.bg/register-course?group=f3tp47obb",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "coordinatesDecision": "null — coordinates were not imported; no spatial-accuracy claim",
+      "hoursDecision": "No unambiguous applicable recurring weekly schedule imported; finite course schedules and office/shop hours remain separate.",
+      "notes": "Root separately rendered this exact group URL after hydration and confirmed real registration fields plus readonly selected Сердика group and158EUR whole-course option, no data/consent/submission. I read own branch-specific seven60-minute course row, dates and dedicated venue contact. Not a chain-wide price inference: both exact group rows separately state158EUR. Same common phone but distinct actual teaching premises; no staff/citywide clone. Ten-to-eighteen office hours and finite class schedule are not year-round openingHours."
+    },
+    {
+      "order": 21,
+      "id": "sofia-robotika-mladost1-saharov25",
+      "verificationAndPriceValidUntil": "2026-12-19",
+      "name": "Академия Роботика · Младост 1",
+      "status": "price_reviewed",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://robotika.bg/robotika-5-6",
+        "https://robotika.bg/register-course?group=txext3c7r",
+        "https://robotika.bg/kontakti",
+        "https://robotika.bg/obshti-uslovia-robotika"
+      ],
+      "bookingEvidenceUrl": "https://robotika.bg/register-course?group=txext3c7r",
+      "priceCount": 1,
+      "locationDecision": "premises",
+      "coordinatesDecision": "null — coordinates were not imported; no spatial-accuracy claim",
+      "hoursDecision": "No unambiguous applicable recurring weekly schedule imported; finite course schedules and office/shop hours remain separate.",
+      "notes": "Root separately rendered this exact group URL after hydration and confirmed real registration fields plus readonly selected Младост 1 group and158EUR whole-course option, no data/consent/submission. I read own branch-specific seven60-minute course row, dates and dedicated venue contact. Not a chain-wide price inference: both exact group rows separately state158EUR. Same common phone but distinct actual teaching premises; no staff/citywide clone. Ten-to-eighteen office hours and finite class schedule are not year-round openingHours."
+    },
+    {
+      "order": 22,
+      "name": "Damyanov Dental Clinic",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://damyanovdental.com/"
+      ],
+      "notes": "Own contact booking form and Kazbek57V/Mon–Fri09–19 verified; specific periodontology/prevention page returns request-verification challenge. No bypass, cannot claim unpublished tariff. Hold actual service/price review."
+    },
+    {
+      "order": 23,
+      "name": "Росен Митков",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://rosenmitkov.com/"
+      ],
+      "notes": "Own current homepage banner says not accepting new clients despite an indexed service page saying accepts new clients. Real phone booking, GoceDelchev105 and50/65EUR55/80min tariffs are public, but current acceptance conflict held."
+    },
+    {
+      "order": 24,
+      "name": "Dentilis · д-р Лили Иванова",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://dentilis.bg/"
+      ],
+      "notes": "Own reader homepage repeatedly times out; normal HTTPS GET fails expired certificate. No TLS bypass. Cached tariff180BGN hygiene and owner-linked provider dental staff at general Preventica centre are insufficient to establish current distinct private business."
+    },
+    {
+      "order": 25,
+      "name": "ФотоСесии София",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.photosesii-sofia.com/contact/"
+      ],
+      "notes": "Own current contact page says studio temporarily closed, removes exact address and displays placeholder phone0000. Real legacy inquiry form remains; not imported despite older public services."
+    },
+    {
+      "order": 26,
+      "name": "Tattoo High Art",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://tattoo-high-art.com/appointment/"
+      ],
+      "notes": "Own appointment page currently directs writes via Viber/WhatsApp/Instagram, while contact form fields are not rendered in public HTML. No false phone-only route inferred. Homepage10–18 conflicts contact09–18. Old provider PDF not imported."
+    },
+    {
+      "order": 27,
+      "name": "Magic Needle Tattoo",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://vasilevarts.com/index.php/en-faq/"
+      ],
+      "notes": "Own FAQ explicitly limits ordinary tattoo booking to in-person studio consultation; email exceptions only for foreign/disadvantaged clients. No compatible generally available phone/form booking route verified, so held rather than misrepresenting generic contact."
+    },
+    {
+      "order": 28,
+      "name": "Firma Volta / The Purgatory",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.firmavolta.com/contact"
+      ],
+      "notes": "Own page invites tattoo-appointment inquiry via form, Industrialna7 and detailed hours. Public HTML has no actual form fields; needs rendered browser evidence. Phone is general contact, not separately explicit booking."
+    },
+    {
+      "order": 29,
+      "name": "Balkan Tattoo Atelier",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://balkantattoo.com/en/home-english/"
+      ],
+      "notes": "Own tattoo service, Vitosha156, Tue–Sat10–18 and phone verified. No explicit advance-booking invitation found on own page; generic contact alone is insufficient."
+    },
+    {
+      "order": 30,
+      "name": "2B Dent",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://2bdent.bg/"
+      ],
+      "notes": "Own HTTPS site not accessible in public reader. Third-party discovery facts not enough; no import."
+    },
+    {
+      "order": 31,
+      "name": "Д-р Николов",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.dr-nikolov.bg/"
+      ],
+      "notes": "Own site times out in public reader. No actual book/service/tariff review completed; held."
+    },
+    {
+      "order": 32,
+      "name": "Маргарита Дент",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://zabolekarsofia.com/"
+      ],
+      "notes": "Own homepage services and ordinary price lead found; actual Book/telephone appointment invitation not verified in accessible homepage. Do not substitute general contact or tariff for booking proof."
+    },
+    {
+      "order": 33,
+      "name": "Академия Роботика · Кръстова вада",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://robotika.bg/robotika-5-6"
+      ],
+      "notes": "Own SashoNikolovSladura7 Kubo group at Saturday16:15 is explicitly full/waitlist; held this group rather than claiming open enrollment. Other course/group may qualify after separate actual Book review."
+    },
+    {
+      "order": 34,
+      "name": "PhotoSchool",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://photoschool.bg/i/2/"
+      ],
+      "notes": "Own current course450EUR30meetings65+academic hours and Sofia venue lead found, but full actual booking/terms/venue review not completed. Notification for future event is not enrollment proof; pending further review."
+    },
+    {
+      "order": 35,
+      "name": "Ready education",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://ready-edu.eu/"
+      ],
+      "notes": "Own site timeout; directory discovery mentions Sofia and Radomir, not enough exact current Sofia venue/course booking proof."
+    },
+    {
+      "order": 36,
+      "name": "Sevda Shenkova",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://sevdashenkova.com/services/"
+      ],
+      "notes": "Search lead only: owner text says full schedule and pre-registration by email/Viber. Not yet fully reviewed; no false phone appointment path inferred."
+    },
+    {
+      "order": 37,
+      "name": "Д-р Парушев",
+      "status": "pending",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://drparushev.com/"
+      ],
+      "notes": "Own homepage returns no readable content, actual form/menu remains unreviewed. Distinct from existing dr-parusheva.com; do not import before actual source review."
+    },
+    {
+      "order": 38,
+      "name": "SIstudio",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://sistudio.eu/"
+      ],
+      "notes": "Own current venue is GeorgiBenkovski9G,7700Targovishte, not Sofia."
+    },
+    {
+      "order": 39,
+      "name": "Dimi Tattoo",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://dimi-tattoo.com/"
+      ],
+      "notes": "Own page shows Temporarily stopped plus conflicting Sofia addresses and demo/template-provider linkage. Actual operating booked venue not established; not accepted."
+    },
+    {
+      "order": 40,
+      "name": "Шабаб",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://shababdent.com/"
+      ],
+      "notes": "Exact existing sofia-shabab-dental-krastova-vada; no new business."
+    },
+    {
+      "order": 41,
+      "name": "Кискимов",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://kiskimov.bg/"
+      ],
+      "notes": "Exact existing sofia-lyudmil-kiskimov-lyulin7."
+    },
+    {
+      "order": 42,
+      "name": "YourSmile",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://yoursmile.bg/"
+      ],
+      "notes": "Exact existing sofia-yoursmile."
+    },
+    {
+      "order": 43,
+      "name": "New Belief",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.newbelieftherapy.com/"
+      ],
+      "notes": "Exact existing sofia-new-belief-markovska."
+    },
+    {
+      "order": 44,
+      "name": "Somenso",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://www.somenso.com/appointment/"
+      ],
+      "notes": "Same current provider sofia-somenso-career; not a new business clone."
+    },
+    {
+      "order": 45,
+      "name": "Instabroz",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://instabroz.com/"
+      ],
+      "notes": "Exact existing sofia-instabroz-mobile-furniture; one citywide provider, no quarter clones."
+    },
+    {
+      "order": 46,
+      "name": "DentView",
+      "status": "rejected",
+      "checkedOn": "2026-11-13",
+      "primaryEvidence": [
+        "https://dentviewbg.com/"
+      ],
+      "notes": "Own current dental practice is Varna, not Sofia."
+    }
+  ]
+}
+

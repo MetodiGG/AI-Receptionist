@@ -1,0 +1,27 @@
+{
+  "checkedOn": "2026-11-14",
+  "checkedAtUtc": "2026-11-14T01:39:40.884Z",
+  "id": "sofia-lr-solution-parva-armiya47",
+  "source": "https://www.lrsolution.bg/contacts/",
+  "sourceAddress": "София, Орландовци, ул. Първа Българска армия 47",
+  "status": "approved_explicit_owner_gps_label",
+  "acceptedPoint": {
+    "latitude": 42.7218145,
+    "longitude": 23.3315488
+  },
+  "literalLabel": "GPS координати:42.7218145,23.3315488",
+  "otherOwnerAddressLinkDestination": {
+    "latitude": 42.7215812,
+    "longitude": 23.3320593
+  },
+  "rejectedUrlViewport": {
+    "latitude": 42.7215851,
+    "longitude": 23.3298706
+  },
+  "receipt": "RootpersonallyreadcurrentnativeordinaryHTTP200ownContactsafterresearcherreceipt. LiteralbodyGPSlabelclearlybesideactualOrlandovtsiParvaBalgarskaArmiya47; preferredexplicitownerGPSovergenericstreetaddressMaplinkdestination(~49m away) and mapviewport. NoGoogleMapsrequest/geocoder/customerGPSused. Ownpointboundtoexactsourceaddress andfailsclosedafteraddresschange; no specificentranceclaim ornewpointprecision invented.",
+  "limitations": [
+    "Otherownerlink isstreetaddressnotnamedbusinesspin; nearbydestinationdocumented, nothidden or usedasGPSlabel.",
+    "24/7onpageisroadassistanceonly, notgarageservicehours.",
+    "No external165auditextension orMapsrequest."
+  ]
+}

@@ -1,0 +1,402 @@
+{
+  "rootIntegrationReview": {"checkedAtUtc":"2026-11-14T01:39:41.288Z","notes":"Rootreadallretained5fullrecords/reviews. RingMallprice-scopeholdnotintegrated/notunpublished. HladilnikaownFAQcommonprices+twoactualvenues andHladilnikafooterPricehrefsame9EURtariffanchor #block-new579 explicitlybindselectedschoolservice, Poduevoadjacencydisclosednotignored. HEMAprivateonlynotwalk-in; privateReformer33EUR50minnotold21; childfolk192EURquarter/2xweekly60notpervisit. LRliteralownerGPSrootcurrentnativeconfirmed, noGooglecall; sourceboundaddress. Three specificnewillustrativeassets+existingstretch/privateReformer/oil activityassets individuallyviewed.","inventory":"Newnormalizedreviewedidentitiesonly; no legacybaseline/frozenhashrefresh, no sourceprice/datefabrication, no production/booking/notification/migration orhomepagechange."},
+  "batch": "auto-sport-2000-011-20261113",
+  "status": "frozen_ready_for_root_review",
+  "dateConvention": "UTC source reviews2026-11-14, validUntil2027-02-12; filename remainsbatchidentifier.",
+  "scope": "Distinct actual reservedauto/servicepremises; ownerBookfirst, no showroom/court/staffaliases or service-areaquarterclones.",
+  "sourceRestrictions": "Global held hosts respected. No UI/Nominatim/private GPS/provider bulk/accounts/booking/customer/date/service inputs/consent. One accidental generic Maps search reader call during TSP review returned only Enable JavaScript; no business data/coordinates used, no further Maps calls, exact incident retained under TSP pending. No further Infinity/D&D/Anchelota requests.",
+  "counts": {
+    "records": 6,
+    "services": 6,
+    "reviews": 6,
+    "pricedServices": 4,
+    "pending": 14,
+    "rejected": 2
+  },
+  "orderedLedger": [
+    {
+      "order": 1,
+      "id": "sofia-silver-star-ringmall-service214",
+      "name": "Силвър Стар · Ring Mall сервизен прием",
+      "status": "verified",
+      "website": "https://www.silverstar.bg/",
+      "bookingUrl": "https://www.silverstar.bg/zapazi-svoya-chas-za-obsluzhvane-v-sofia-ring-mall/",
+      "serviceUrls": [
+        "https://www.silverstar.bg/special-offers/",
+        "https://www.silverstar.bg/zapazi-svoya-chas-za-obsluzhvane-v-sofia-ring-mall/"
+      ],
+      "contactUrl": "https://www.silverstar.bg/contacts/",
+      "findings": "Actualbranch-specificownedBookinstructionreadfirst; dedicatedownerarticleexplicitlysecondofficialservicelocation/expressionservicewithvehicleintakeRingMallparking0andmandatoryphoneappointment070070063. Notretail-onlyshowroom orstaffalias; distinctfromexistingChelopechko52. Fullcurrentownspecialoffers/servicepackagecurrentHTTP200read afterBook: selectedAclassW169/W176over5yearssincefirstregistration,nonAMG, FROM188.67EUR/369BGN,variesengine; originaloil/filter+listedchecks/StarDiagnosis. Generic183.55teasernotused; noduration guessed. OwnercontactexactRingMall214phoneagree; generic10–22showroomhoursnotprojectedontoserviceintake(nohoursrecorded). Fullactual21kcharacterclientprivacy/policiesreadGDPR/noexplicitextractionorcommercialfactbanobserved; nolegalclearanceclaim, noacceptedconsent. No photos/logos/reviews/prose copied. Runtime+all2000intakes/nativesowner/phone/address0matchforRingMall; otherSilverStarbranchnotcloned. NoUI/Maps/booking/call/VIN/customer/slot/account/consent/payment.",
+      "checkedAtUtc": "2026-11-14T01:08:07Z"
+    },
+    {
+      "order": 2,
+      "id": "sofia-lr-solution-parva-armiya47",
+      "name": "LR Solution",
+      "status": "verified",
+      "website": "https://www.lrsolution.bg/",
+      "bookingUrl": "https://www.lrsolution.bg/appointment/",
+      "serviceUrls": [
+        "https://www.lrsolution.bg/services/lube-oil-and-filters/",
+        "https://www.lrsolution.bg/services/"
+      ],
+      "contactUrl": "https://www.lrsolution.bg/contacts/",
+      "findings": "Прегледани са собствената начална страница, действителната публична форма за сервизен час, отделната услуга масла/филтри, списъкът услуги и пълните контакти. Формата има автомобил, дата, час, вид ремонт и контактни полета; не са избирани стойности и не е изпращана заявка. За избраното обслужване тези страници не публикуват сума, диапазон или продължителност; магазинът за части и автомобилните брошури не са тарифа за труда. Записът е service_reviewed, не price-reviewed. Собственият адрес и телефон са изрични; 24/7 е само пътна помощ, а сервизното работно време е понеделник–петък 08–17. Контактът публикува GPS етикет, но координати не се внасят автоматично. Не се внасят DPF/софтуерни предложения, рекламният безплатен оглед, снимки, отзиви или изразителни текстове. Навигацията и footer са проверени; няма видима отделна връзка към website terms, което не е твърдение за правно разрешение.",
+      "checkedAtUtc": "2026-11-14T01:16:00Z"
+    },
+    {
+      "order": 3,
+      "id": "sofia-stretching-school-hladilnika",
+      "name": "Stretching School · Хладилника",
+      "status": "verified",
+      "website": "https://www.stretchingschool.com/",
+      "bookingUrl": "https://www.stretchingschool.com/faq/",
+      "serviceUrls": [
+        "https://www.stretchingschool.com/",
+        "https://www.stretchingschool.com/faq/"
+      ],
+      "contactUrl": "https://www.stretchingschool.com/faq/",
+      "findings": "Пълната собствена начална страница и FAQ са прегледани. FAQ изрично посочва две отделни студиа и точния вход на Русалийски проход11, изисква предварително записване за всички тренировки и дава независимо телефонно записване. Общата тарифа Stretching публикува9EUR единично посещение; FAQ насочва към нея за цени на школата и описва групи до14 души/60мин. Не се пренасят картови единични стойности7.5–8.5EUR, няма детска група или лечебна услуга. Общият Fitsys линк е видян, но не е отварян и конкретният календар/наличности не са проверени; затова е честен phone_booking_reviewed fallback, не календарна резервация. Branch-level адресът е различен от наличния Подуево10, общият телефон/оператор са отчетени като истински втори обект, не нов инструктор. Няма видима връзка към отделни website terms в целите навигация/footer на двете страници; това не е правно разрешение. Не са копирани отзиви, снимки или описания.",
+      "checkedAtUtc": "2026-11-14T01:17:16Z"
+    },
+    {
+      "order": 4,
+      "id": "sofia-angel-chernaev-hema-cherkovna28",
+      "name": "Ангел Чернаев · историческа фехтовка",
+      "status": "verified",
+      "website": "https://www.angel-swordsmanship.com/",
+      "bookingUrl": "https://www.angel-swordsmanship.com/training-schedule",
+      "serviceUrls": [
+        "https://www.angel-swordsmanship.com/training-schedule",
+        "https://www.angel-swordsmanship.com/trenirovki-istoricheska-fehtovka"
+      ],
+      "contactUrl": "https://www.angel-swordsmanship.com/contact-en",
+      "findings": "Прегледани са цялата собствена начална страница, BG/EN страници за тренировките, личната професионална страница и контактът. EN Training schedule изрично кани за private lessons по email или phone и свързва тренировките с фехтовалната зала Черковна28, София. Собственият оператор/телефон са отделни и няма съвпадение с runtime+всички intake записи по домейн/телефон/помещение за HEMA. Груповите сряда/петък са walk-in и не се внасят; периодичният курс без обявен следващ старт също не се внася. Контактната форма показва storage-configuration warning и не се използва като Book URL. За избрания индивидуален урок няма число/валута/продължителност на действително прегледаните Book/service/contact страници, няма публична Price връзка в пълната навигация/footer: service_reviewed, не price-reviewed. Не се приема, че учебната екипировка от груповия курс е включена в частната цена. Няма видима отделна website terms връзка; не се твърди разрешение или приемане. Не са отваряни Maps, социални профили, формулярни входове или изпращани заявки.",
+      "checkedAtUtc": "2026-11-14T01:17:16Z"
+    },
+    {
+      "order": 5,
+      "id": "sofia-contrology-club-krakra2",
+      "name": "The Contrology Club",
+      "status": "verified",
+      "website": "https://www.thecontrologyclub.com/en/index.html",
+      "bookingUrl": "https://www.thecontrologyclub.com/en/contact.html",
+      "serviceUrls": [
+        "https://www.thecontrologyclub.com/en/services.html",
+        "https://www.thecontrologyclub.com/en/prices.html"
+      ],
+      "contactUrl": "https://www.thecontrologyclub.com/en/contact.html",
+      "findings": "Текущото публично HTML на собствените Home/Contact/Services/Prices е прочетено изцяло с ordinary GET след reader timeout/cache misses. Book a Session води към собствен Contact#booking, където няма реален календар или form, а изрични адрес/телефон и working hours by appointment. Използва се phone_booking_reviewed fallback по тази собствена покана/контакт, не измислен form. Текущата пълна Solo тарифа е33EUR за1session50min; индексът показва по-стари от21EUR/from стойности и не е ползван. Не се делят картите на посещения. Текущите50min private са съгласувани между Services/Prices; общото55min Reformer описание не е пренесено. Всички reservation/cancellation rules на страницата са прочетени, включително24h отказ/full fee no-show; няма отделна website terms връзка в пълната навигация/footer, не се твърди правно разрешение. Няма съвпадение по runtime+всички intakes домейн/phone; Кракра2А вокална школа е различен адрес/оператор. Не са копирани снимки/отзиви/изразителен текст и не са отваряни Maps или социални профили.",
+      "checkedAtUtc": "2026-11-14T01:24:00Z"
+    },
+    {
+      "order": 6,
+      "id": "sofia-urban-dance-studio-meridian22",
+      "name": "Urban Dance Studio · Меридиан 22",
+      "status": "verified",
+      "website": "https://meridian22.bg/urban-dance-studio",
+      "bookingUrl": "https://meridian22.bg/urban-dance-studio",
+      "serviceUrls": [
+        "https://meridian22.bg/urban-dance-studio"
+      ],
+      "contactUrl": "https://meridian22.bg/urban-dance-studio",
+      "findings": "Цялата собствена UDS страница е прегледана, после потвърдена с текущ ordinary GET: действителен график2026/2027, сряда/петък16:15–17:15 народни танци, изрично за записване0879409168, реално помещение доМладост2бл227. Текущата literal тарифа е192EUR за2пъти седмично и следващият блок уточнява предплащане на три тримесечия(окт–дек/ян–март/апр–юни), не месечна или еднократна цена. Старият индексиран336BGN не се ползва и192не се дели на посещения. Първото безплатно посещение не се внася като регулярна услуга. Общият UDS телефон0879164498 е отделен контакт, а Book използва изричния за записване. Няма форма/календарен линк за тази услуга; използва се собствен phone path. Няма school/teacher/дисциплинни aliases: само един реален UDS оператор, координиран с education агента. Full footer Общи условия води към politika-poveritelnost, прочетена изцяло: GDPR политика, без намерена изрична extraction/commercial-facts забрана; не е правно разрешение и не са приемани условия. Без точни координати/часове на целия бизнес/възрастова граница/медицински твърдения; няма копирани снимки, отзиви или детски лични данни.",
+      "checkedAtUtc": "2026-11-14T01:26:19Z"
+    }
+  ],
+  "pending": [
+    {
+      "name": "Hyundai · София сервизни бази",
+      "website": "https://hyundai.bg/",
+      "status": "held_source_terms",
+      "checkedOn": "2026-11-14",
+      "reviewedUrls": [
+        "https://hyundai.bg/zapazi-chas-serviz/",
+        "https://hyundai.bg/politikata-za-web-stranicata-ni/"
+      ],
+      "findings": "ActualownBookformfirst, thenfullcurrentwebsitepolicy20July2026 explicitlyinformation/text/images/graphics personalnoncommercialonly+noanypartreproduction/transmission/publicationwithoutwrittenpermission. Broaderthanexpressiveassetcopyright; STOPallHyundaiendpoints, rootnotified. No venue/fee imported,0ownerduplicatescurrentruntime/allintakes."
+    },
+    {
+      "name": "Omnicar Auto · София",
+      "website": "https://omnicar-auto.com/",
+      "status": "held_source_terms",
+      "checkedOn": "2026-11-14",
+      "reviewedUrls": [
+        "https://omnicar-auto.com/serviz-zapazvane-na-chas/",
+        "https://omnicar-auto.com/kontakti-sofiq/",
+        "https://omnicar-auto.com/%D0%BE%D0%B1%D1%89%D0%B8-%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8F/"
+      ],
+      "findings": "Actualpublicbookingformfirst/configuredservicechoices. Fullownsourceconditions explicitlycopy/reproduceINFORMATION/materialsanyformprohibited; broaderthanexpressiveassetcopyright. STOPallOmnicarendpoints/rootnotified. ThreeactualSofia235/935/188servicepremisesnotimported,showroomsnotcloned. Nofeesunpublishedclaim/inputs/date/customer/consent."
+    },
+    {
+      "name": "Kia · София",
+      "website": "https://kia.bg/",
+      "status": "held_actual_service_branch_address_loading",
+      "checkedOn": "2026-11-14",
+      "reviewedUrls": [
+        "https://kia.bg/bg/onlajn-serviz",
+        "https://www.kia.bg/bg/otorizirani-servizi",
+        "https://www.kia.bg/bg/dilyri",
+        "https://www.kia.bg/bg/vryzka-s-nas",
+        "https://www.kia.bg/bg/za-kia/pravila-i-politiki",
+        "https://www.kia.bg/bg/za-kia/uslovija-i-politiki/gdpr",
+        "https://www.kia.bg/bg/za-kia/gdpr/syobshtenie-za-poveritelnost-klienti"
+      ],
+      "findings": "ActualpublicBookfullservicecheckboxes/formreadfirst/noinput; currentownerSSRservice/dealersexactvenuecardsnotloaded(noAPI/bundle/UI). Owncontactservicephone029738788 separatefromsales070014777. GDPRcorrespondenceTsarigradsko144notassumedactualcurrentselectedservicevenue. FullpoliciesordinaryGDPRnoexplicitextractionbanobserved, butcontactcheckboxmentionswebsiteconditionswithoutvisiblelink. Heldactualbranchproof/noinferredaddress ornotpublishedprice. Noimports/accounts/inputs/booking/consent."
+    },
+    {
+      "name": "NACEA SERVICE",
+      "website": "https://service.naceaenginestore.com/",
+      "status": "held_operational_status_and_city",
+      "checkedAtUtc": "2026-11-14T01:16:00Z",
+      "reviewedUrls": [
+        "https://service.naceaenginestore.com/",
+        "https://service.naceaenginestore.com/contact",
+        "https://service.naceaenginestore.com/booking",
+        "https://service.naceaenginestore.com/terms"
+      ],
+      "notes": "Own contact publishes villa-zone Vrana–Lozen triangle, Viso60,1151 Sofia, while root projects/reviews explicitly contain DEMO labels and map configuration placeholders. Actual public booking and terms pages reader cache-missed; not described as unavailable or unpublished prices. No certainty that this is a currently operating Sofia-city service venue rather than a draft. Hold without invented city boundary/address/fee. No form input or submission."
+    },
+    {
+      "name": "Самокишев Ауто",
+      "website": "https://www.samokishevauto.bg/",
+      "status": "held_exact_venue_conflict",
+      "checkedAtUtc": "2026-11-14T01:19:00Z",
+      "reviewedUrls": [
+        "https://www.samokishevauto.bg/",
+        "https://www.samokishevauto.bg/appointment.html",
+        "https://www.samokishevauto.bg/Obsluzhvane.html",
+        "https://www.samokishevauto.bg/about.html",
+        "https://www.samokishevauto.bg/prices.html",
+        "https://www.samokishevauto.bg/privacy.html"
+      ],
+      "notes": "Actual public form is configured for car/service/date/time; visible inert success template is not a submitted booking. Own prices are real FROM values. Current root says Malinova Dolina while selected indexed service says Nadezhda; full owner pages do not give literal exact street premise. About also says Sunday open while root Sunday closed. Hold venue/hours conflict; cannot call prices unpublished or fabricate street from Maps."
+    },
+    {
+      "name": "TSP Team",
+      "website": "https://www.tsp-team.eu/",
+      "status": "held_exact_venue_missing",
+      "checkedAtUtc": "2026-11-14T01:19:00Z",
+      "reviewedUrls": [
+        "https://www.tsp-team.eu/contacts"
+      ],
+      "notes": "Own contact explicitly asks phone appointment for inspection, but visible postal address is only Sofia. Exact public workshop premise not established. An accidental general Google Maps search link reader call returned only Enable JavaScript, no business fact or coordinates; no Maps facts used and no further Maps request. Hold rather than invent street/service_area."
+    },
+    {
+      "name": "Анчелота · Анна Пейчева",
+      "website": "https://anchelota.com/",
+      "status": "held_source_terms",
+      "reviewedUrls": [
+        "https://anchelota.com/",
+        "https://anchelota.com/terms/"
+      ],
+      "notes": "Root explicitly retains conservative source hold: full terms §05 covers content(text,pictures,audio,code) personal/noncommercial sharing and asks contact for business use. Not an explicit robots/database prohibition, but commercial-catalogue scope unresolved. No more source requests and no imported facts/coordinates."
+    },
+    {
+      "name": "SR CARS Гуми",
+      "website": "https://srcars-gumi.bg/",
+      "status": "held_public_price_calculator_js",
+      "reviewedUrls": [
+        "https://srcars-gumi.bg/",
+        "https://srcars-gumi.bg/цени/",
+        "https://srcars-gumi.bg/услуги/"
+      ],
+      "notes": "Actual own phone prior-book instruction, venue BoychoBoychev4 and approximate30min tyre-change are explicit. Actual price page is a parameterised public calculator with result dash until selections. No controls selected, no hidden script/API read, no UI. Known configured price menu not reviewed, so not falsely marked not_publicly_listed. Hold."
+    },
+    {
+      "name": "КОЛОС-МС",
+      "website": "https://www.kolos-ms.net/",
+      "status": "held_access_403",
+      "reviewedUrls": [
+        "https://www.kolos-ms.net/en/3388/serviz-hiundai.htm"
+      ],
+      "notes": "Actual owner service page reader returns403Forbidden. No curl/alternate endpoints/UI bypass and no import."
+    },
+    {
+      "name": "The Black Swan Pilates",
+      "website": "https://theblackswanpilates.com/en/",
+      "status": "held_actual_booking_js",
+      "reviewedUrls": [
+        "https://theblackswanpilates.com/en/",
+        "https://theblackswanpilates.com/en/class-schedule-reformer-pilates-sofia/",
+        "https://theblackswanpilates.as.me/schedule/d6d76314/?categories%5B%5D=Group%20Classes"
+      ],
+      "notes": "Owner actually links Acuity group reservation page, ordinary public GET after no readable lines gives title only. No class/date/customer selection, no hidden menu/API/UI. Actual configured booking menu and price not reviewed. Do not infer unavailable sessions/unpublished tariff from JS-only response."
+    },
+    {
+      "name": "Фолклорика · ОКИ Надежда / Сердика",
+      "website": "https://www.folklorika.com/",
+      "status": "held_selected_group_appointment_scope",
+      "reviewedUrls": [
+        "https://www.folklorika.com/",
+        "https://www.folklorika.com/adults.html",
+        "https://www.folklorika.com/contacts.html",
+        "https://www.folklorika.com/schedule_adults_OKI_nadejda.html",
+        "https://www.folklorika.com/schedule_adults_serdika.html",
+        "https://www.folklorika.com/individual.html"
+      ],
+      "notes": "Real venues and current2026level4/6and3 groups explicit. Branch-level prior-book CTA is only for beginners(0level), which neither current schedule offers. Do not clone beginners into higher-level venues. Generic private-lessons offer not promoted as new premises without firmer branch booking scope. Existing3other branches remain untouched."
+    },
+    {
+      "name": "AzPluvam · Светломир Видулов",
+      "website": "https://azpluvam.com/",
+      "status": "held_current_tariff_and_intake_status",
+      "reviewedUrls": [
+        "https://azpluvam.com/"
+      ],
+      "notes": "Real owner phone booking and current footer Marinela location explicit, but visible numeric fee comes from a dated2024comment and later2025owner replies say unable to take new students. Do not project historical fee/current availability or call entire known numeric menu unpublished. No commenter personal data copied."
+    },
+    {
+      "name": "Jordan Racing Team",
+      "website": "https://www.jordan-racing.com/",
+      "status": "held_actual_public_js",
+      "reviewedUrls": [
+        "https://www.jordan-racing.com/"
+      ],
+      "notes": "Indexed owner snippet offers prior booking and exactVrazhdebna1st78 but actual owner reader/ordinaryGET only title, no visible current public Book/contact/service menu. Hold rather than projecting stale indexed text into approved receipt; no hidden bundle/API/UI."
+    },
+    {
+      "name": "Phoenix Taekwondo additional halls",
+      "website": "https://phoenixtk.com/",
+      "status": "held_not_current_distinct_venues",
+      "reviewedUrls": [
+        "https://phoenixtk.com/",
+        "https://phoenixtk.com/dojangs",
+        "https://phoenixtk.com/contact"
+      ],
+      "notes": "Search old snippet advertises10halls; actual current primarydojangs page shows only1locationDruzhba2Kopenhagen23, already included. No other currentpremises cloned, and trial-onlyCTA does not create regular service."
+    }
+  ],
+  "rejected": [
+    {
+      "name": "Autopro / Stelkite service booking",
+      "website": "https://stelkite.com/zapazi-chas-serviz",
+      "status": "outside_sofia_service_premise",
+      "notes": "Actual owner booking+service list explicitly names Plovdiv Ognevo7 as the workshop. Sofia footer addresses are retail shops, not proof of Sofia workshop appointments. No Sofia service branch cloned from retail stores."
+    },
+    {
+      "name": "Street Detailing",
+      "website": "https://streetdetailingbg.com/",
+      "status": "outside_sofia_or_unverified_branch",
+      "notes": "Search old snippet says Plovdiv&Sofia; current actual GET title only explicitly Plovdiv, no public branch address or Book menu. No Sofia import inferred from indexed old marketing."
+    }
+  ],
+  "frozenAtUtc": "2026-11-14T01:28:21Z",
+  "validation": {
+    "checkedAtUtc": "2026-11-14T01:28:21Z",
+    "schema": 6,
+    "existingUniqueRuntimeAndAllIntakesExcludingThisBatch": 1614,
+    "readyForReview": 6,
+    "pending": 0,
+    "rejected": 0,
+    "pricingReview": "4 reviewed + 2 service_reviewed/not_publicly_listed; inventoryIdentity bound only in memory for diagnostic, not persisted",
+    "dedupeNotes": "Domain+normalised phone+exact venue preflight against runtime SOFIA_CATALOGUE and all -2000- intakes; one shared Stretching operator is a sourced second real premise. Native6 known fixtures checked; no native match. Same-address Daga vocal studio Krakra2A is distinct from ContrologyKrakra2/floor1."
+  },
+  "photoContexts": [
+    {
+      "id": "sofia-silver-star-ringmall-service214",
+      "selectedService": "Qualified Mercedes A-class oil/filter technical maintenance package",
+      "context": "Mechanic changing engine oil/oil filter in workshop; no showroom/retail-only photo, no logo/brand copying."
+    },
+    {
+      "id": "sofia-lr-solution-parva-armiya47",
+      "selectedService": "Motor oil/filter service",
+      "context": "Actual oil/filter maintenance with mechanic, not road assistance/DPF work."
+    },
+    {
+      "id": "sofia-stretching-school-hladilnika",
+      "selectedService": "Group stretching60min",
+      "context": "Mixed/adult mat stretching group with instructor, no dedicated child class or medical treatment."
+    },
+    {
+      "id": "sofia-angel-chernaev-hema-cherkovna28",
+      "selectedService": "Individual historical European fencing HEMA lesson",
+      "context": "One adult instructor + one adult learner, training sword discipline; appropriate sport fencing protection (mask/gloves/neck protection), not Olympic foil/kendo/archery/medieval fight spectacle. Equipment/fee inclusion not asserted."
+    },
+    {
+      "id": "sofia-contrology-club-krakra2",
+      "selectedService": "Private Pilates Reformer50min",
+      "context": "One instructor + one adult using reformer apparatus; not generic mat/yoga or physiotherapy."
+    },
+    {
+      "id": "sofia-urban-dance-studio-meridian22",
+      "selectedService": "Children Bulgarian folk group2xweekly",
+      "context": "School-age mixed children group practicing Bulgarian folk dance with instructor in school studio; no exact age floor published, no adult ballroom/Bachata/StreetDance/karate substitute."
+    }
+  ],
+  "rootBranchPriceScopeHold": {
+    "checkedAtUtc": "2026-11-14T01:33:25.532Z",
+    "id": "sofia-silver-star-ringmall-service214",
+    "decision": "hold_unpublished_branch_price_scope_not_confirmed",
+    "reason": "DedicatedactualRingMallBookprovesrealserviceintake but 188.67EUR5yearAclasspackagecomesfromgeneralnetworkSpecialOffers. ResearcherexplicitlyconfirmsnoobservedclauseassigningpackageparticipationtoRingMall. No price transfer, no not_publicly_listed becauseknownunconfirmedtariffexists. Entireunpublishedrow/reviewnotintegrated; priorfreeze6 preservedashistory,current5. No furtherSilverStarrequests.",
+    "priorRecord": {
+      "id": "sofia-silver-star-ringmall-service214",
+      "name": "Силвър Стар · Ring Mall сервизен прием",
+      "cityCode": "68134",
+      "neighborhood": null,
+      "address": "София, ул. Околовръстен път 214, Sofia Ring Mall, прием на паркинг ниво 0",
+      "locationKind": "premises",
+      "coordinates": null,
+      "category": "auto_repair",
+      "website": "https://www.silverstar.bg/",
+      "phone": "+35970070063",
+      "services": [
+        {
+          "name": "Техническо обслужване · Mercedes-Benz A-класа W169/W176 над 5 години",
+          "category": "auto_repair",
+          "description": "Пакет от 188,67 EUR: двигателно масло и маслен филтър, проверки на гуми, светлини, акумулатор, стъклопочистване/течности и ходова част, Star Diagnosis. Само W169/W176 над 5 години от първа регистрация, без AMG; цената зависи от двигателя. Приемът е с уговорен час.",
+          "price": {
+            "amount": 188.67,
+            "currency": "EUR",
+            "kind": "from",
+            "unit": "пакет · A-класа W169/W176 над 5 г. · без AMG",
+            "sourceUrl": "https://www.silverstar.bg/special-offers/",
+            "checkedOn": "2026-11-14",
+            "validUntil": "2027-02-12"
+          },
+          "appointmentModel": "appointment"
+        }
+      ],
+      "booking": {
+        "kind": "phone",
+        "phone": "+35970070063"
+      },
+      "verification": {
+        "status": "approved",
+        "checkedOn": "2026-11-14",
+        "validUntil": "2027-02-12",
+        "booking": {
+          "url": "https://www.silverstar.bg/zapazi-svoya-chas-za-obsluzhvane-v-sofia-ring-mall/",
+          "excerpt": "Запазете час на 0700 700 63. Приемът за обслужване в Ring Mall е на паркинг ниво 0 и е с предварително записване."
+        },
+        "contact": "https://www.silverstar.bg/contacts/"
+      }
+    },
+    "priorReview": {
+      "id": "sofia-silver-star-ringmall-service214",
+      "checkedOn": "2026-11-14",
+      "website": "https://www.silverstar.bg/",
+      "bookingEntry": "phone",
+      "bookingReview": "phone_booking_reviewed",
+      "reviewedUrls": [
+        "https://www.silverstar.bg/",
+        "https://www.silverstar.bg/zapazi-svoya-chas-za-obsluzhvane-v-sofia-ring-mall/",
+        "https://www.silverstar.bg/contacts/",
+        "https://www.silverstar.bg/special-offers/",
+        "https://www.silverstar.bg/nova-usluga-za-sobstvenici-na-mercedes-benz/",
+        "https://www.silverstar.bg/%D0%BF%D0%BE%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%B8/",
+        "https://www.silverstar.bg/privacy-policy-ss-group"
+      ],
+      "notes": "Actualbranch-specificownedBookinstructionreadfirst; dedicatedownerarticleexplicitlysecondofficialservicelocation/expressionservicewithvehicleintakeRingMallparking0andmandatoryphoneappointment070070063. Notretail-onlyshowroom orstaffalias; distinctfromexistingChelopechko52. Fullcurrentownspecialoffers/servicepackagecurrentHTTP200read afterBook: selectedAclassW169/W176over5yearssincefirstregistration,nonAMG, FROM188.67EUR/369BGN,variesengine; originaloil/filter+listedchecks/StarDiagnosis. Generic183.55teasernotused; noduration guessed. OwnercontactexactRingMall214phoneagree; generic10–22showroomhoursnotprojectedontoserviceintake(nohoursrecorded). Fullactual21kcharacterclientprivacy/policiesreadGDPR/noexplicitextractionorcommercialfactbanobserved; nolegalclearanceclaim, noacceptedconsent. No photos/logos/reviews/prose copied. Runtime+all2000intakes/nativesowner/phone/address0matchforRingMall; otherSilverStarbranchnotcloned. NoUI/Maps/booking/call/VIN/customer/slot/account/consent/payment."
+    },
+    "currentRecords": 5,
+    "currentServices": 5,
+    "currentPricedServices": 3,
+    "currentUnpublishedServices": 2
+  },
+  "rootPublicCopyAmendment": {
+    "checkedAtUtc": "2026-11-14T01:33:25.533Z",
+    "id": "sofia-contrology-club-krakra2",
+    "note": "Removedinternalimport-languagefrompublicdescription; retainedactualonevisit/24hchange/fullno-showfee, no sourcefactschanged orhistoricaldate/hashrefresh. Newnormalizedidentitynotyetcreated."
+  }
+}

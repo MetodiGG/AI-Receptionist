@@ -27,6 +27,9 @@ const deps = patch => ({ config: discoveryConfig({ DISCOVERY_ENABLED: 'true' }),
 const input = patch => discoveryRequestSchema.parse({ query: 'маникюр', cityCode: '68134', ...patch })
 const intent = patch => ({ ...parseIntent(input(patch), now, { v2: true }), searchV2: true })
 const record = patch => ({ ...structuredClone(SOFIA_CATALOGUE[0]), ...patch })
+// Synthetic markers are whole tokens. A real transliterated street such as
+// Bademova contains "demo" internally and is not a synthetic catalogue row.
+const forbiddenCatalogueEvidence = /rating|reviewCount|placeId|maps\.google|googleusercontent|gstatic|\bdemo\b|\bfixture\b/i
 const business = patch => ({ id: '10000000-0000-4000-8000-000000000001', name: 'QA partner', slug: 'qa-partner', city_ekatte: '68134', city: 'София', industry: 'pets', active: true, platform_status: 'enabled', neighborhood: 'Борово', address: 'QA address', public_profile: { latitude: 42.67, longitude: 23.29 }, services: [{ id: 's1', name: 'Груминг за кучета', active: true, duration_min: 60 }], ...patch })
 
 test('free catalogue is the default and closes every metered flag even with old credentials configured', () => {
@@ -53,7 +56,7 @@ test('the expanded individually sourced catalogue is committed; records are not 
   assert.ok(validateCatalogue(SOFIA_CATALOGUE).length >= 200)
   // Validate the complete current source snapshot on its latest review day;
   // the historical Nov11 search fixtures must still exclude future receipts.
-  const publicationClock = Date.parse('2026-11-13T12:00:00Z')
+  const publicationClock = Date.parse('2026-11-14T12:00:00Z')
   for (const row of SOFIA_CATALOGUE) {
     if (EXCLUDED_GENERAL_CLINIC_IDS.includes(row.id)) assert.equal(approvedCatalogueRecord(row, publicationClock), null, row.id)
     else assert.ok(approvedCatalogueRecord(row, publicationClock), row.id)
@@ -63,7 +66,13 @@ test('the expanded individually sourced catalogue is committed; records are not 
       review.bookingReview === 'provider_booking_reviewed' && review.bookingEntry === row.verification.booking.url &&
       review.reviewedUrls.includes(row.website) && review.reviewedUrls.includes(row.verification.booking.url))
     assert.ok(evidenceHost===ownerHost || evidenceHost.endsWith(`.${ownerHost}`) || explicitProviderReview,row.id)
-    assert.doesNotMatch(JSON.stringify(row), /rating|reviewCount|placeId|maps\.google|googleusercontent|gstatic|demo|fixture/i)
+    assert.doesNotMatch(JSON.stringify(row), forbiddenCatalogueEvidence)
+  }
+})
+test('synthetic evidence guard preserves real Bademova addresses while still rejecting demo, fixture and provider metadata tokens', () => {
+  assert.doesNotMatch('sofia-alex-nails-bademova11', forbiddenCatalogueEvidence)
+  for (const marker of ['sofia-demo-business', 'sofia-fixture-business', '"rating":5', '"reviewCount":2', '"placeId":"value"', 'maps.google.com', 'googleusercontent.com', 'gstatic.com']) {
+    assert.match(marker, forbiddenCatalogueEvidence, marker)
   }
 })
 test('bad destinations, fake eligibility, arbitrary fields and unlicensed photos fail closed', () => {

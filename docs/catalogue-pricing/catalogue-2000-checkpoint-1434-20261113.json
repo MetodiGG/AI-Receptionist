@@ -1,0 +1,151 @@
+{
+  "checkedOn": "2026-11-13",
+  "status": "tested_local_checkpoint_not_published",
+  "liveEligibleBusinesses": 1215,
+  "localEligibleBusinesses": 1434,
+  "localRawRecords": 1457,
+  "intentionallyExcludedClinics": 23,
+  "remainingTo2000Local": 566,
+  "newSincePublished": {
+    "businesses": 219,
+    "services": 368,
+    "businessesWithPublishedPrices": 140,
+    "servicesWithPublishedPrices": 283,
+    "businessesWithReviewedWeeklyHours": 71,
+    "premises": 199,
+    "citywideServiceAreaOperators": 20,
+    "primaryCategory": {
+      "auto_repair": 18,
+      "barber": 10,
+      "beauty": 10,
+      "car_wash": 3,
+      "consulting": 13,
+      "detailing": 2,
+      "education": 37,
+      "fitness": 22,
+      "hair": 21,
+      "home_services": 16,
+      "nails": 25,
+      "other": 40,
+      "pets": 2
+    },
+    "neighborhoodsExplicitlyPublished": {
+      "Банишора": 1,
+      "Бели брези": 1,
+      "Белите брези": 1,
+      "Борово": 2,
+      "Военна рампа": 1,
+      "Връбница 2": 2,
+      "Гео Милев": 5,
+      "Дианабад": 1,
+      "Дружба 1": 1,
+      "Дружба 2": 6,
+      "Дървеница": 1,
+      "Зона Б-5": 1,
+      "Изток": 5,
+      "Кръстова вада": 2,
+      "Лагера": 1,
+      "Лозенец": 9,
+      "Люлин": 3,
+      "Люлин 3": 1,
+      "Люлин 4": 1,
+      "Люлин 8": 1,
+      "Манастирски ливади": 9,
+      "Младост": 2,
+      "Младост 1": 5,
+      "Младост 1А": 1,
+      "Младост 2": 1,
+      "Младост 3": 6,
+      "Младост 4": 2,
+      "Модерно предградие": 1,
+      "Мотописта": 1,
+      "Мусагеница": 1,
+      "Надежда": 1,
+      "Надежда 2": 1,
+      "Надежда 4": 1,
+      "Овча купел 1": 1,
+      "Орландовци": 1,
+      "Полигона": 1,
+      "Разсадника": 1,
+      "Редута": 2,
+      "Симеоново": 1,
+      "Сточна гара": 1,
+      "Студентски град": 8,
+      "Сухата река": 1,
+      "Хаджи Димитър": 2,
+      "Център": 3,
+      "Челопечене": 1,
+      "Зона Б-5-3": 1,
+      "Надежда 1": 1,
+      "Овча купел": 1,
+      "Оборище": 1,
+      "Левски": 1
+    },
+    "withoutExplicitPublishedNeighborhood": 113,
+    "neighborhoodNote": "Unspecified does not mean no address. Exact sourced streets are retained; no quarter guessed from a street name and no premises invented for mobile operators."
+  },
+  "municipalCsv": {
+    "sourceRows": 125245,
+    "sofiaRows": 83189,
+    "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+    "previousPublishedPointsRechecked": 501,
+    "previousPointChanges": 0,
+    "newExactPostalBindings": 93,
+    "combinedOfficialBindings": 594,
+    "independentReadOnlyReview": "passed",
+    "fullOfflineReplay": "594checked;593unique+originalINBeauty manual disambiguation; no network",
+    "unconfirmedOldPairsSuspended": [
+      "sofia-shining-polishing-auto",
+      "sofia-katerene-europe-private"
+    ],
+    "detailedReview": "docs/catalogue-geocoding/municipal-csv-recheck-20261113.json",
+    "newCampusPointHeld": "sofia-pro-sport-nsa-kliment22: a sole postal campus row is not an actual court marker; owner embeds only viewport/name, never used as coordinates"
+  },
+  "testsActuallyExecuted": {
+    "node": {
+      "passed": 2082,
+      "failed": 0
+    },
+    "pythonPricingExtraction": {
+      "passed": 8,
+      "failed": 0
+    },
+    "pythonBookingPricingFlow": {
+      "passed": 4,
+      "failed": 0
+    },
+    "webpackProductionBuild": "passed; 92 static pages",
+    "catalogueIntegrity": "passed",
+    "inventoryBoundPricingReview": "passed; no blocked new/changed listing",
+    "servicePhotoCoverage": {
+      "services": 9730,
+      "specific": 9730,
+      "neutral": 0,
+      "missing": 0,
+      "invalid": 0
+    },
+    "generatedPhotoProvenance": {
+      "checked": 1155,
+      "issues": 0
+    },
+    "liveBookingsOrNotificationsCreated": 0
+  },
+  "scope": "Frozen imported intake modules only. New drafts, held inaccessible menus, blocked reuse sources and duplicates are not counted. No production database mutations or paid services. Goal2000 remains incomplete.",
+  "validationNotes": [
+    "Initial1435business run passed2080of2081tests; marker regex falsely matched demo inside actual Bademova street slug. Fixed test to whole-token demo/fixture checks, preserved all source data and added explicit negative/positive marker regression.2082then passed.",
+    "New source terms review held one provider-tariff-dependent MakeupLashesBrows candidate. It was removed from public inventory, receipt, photo association and municipal binding rather than reclassified unpublished. Independent owner-sourced legacyAdlen/ALMA prices unchanged. No more provider requests.",
+    "Full2082tests, rebuilt92page production output and594point offlineCSV replay passed again at1434. Python8+4passed on the unchanged booking/pricing code and newly integrated intake set.",
+    "Seven new specific illustrative photos generated using built-in image_gen only, individually viewed at source and final256pxWebP;1155acceptedassetprovenance records pass. Original tyre source rejected for false weight placement/text; corrected built-in edit is the only published candidate.",
+    "Publicationbranchcodex/catalogue-2000-recovery-20261113 remains frozen at ec9049e1ac6a330e6f2850eac7791aa236163652,1415businesses/200new/90newCSVpoints,2076tests. Current newbranchcodex/catalogue-2000-next-20261113 not automatically merged or deployed.",
+    "GitHub integration createPR403 and nativeSafariactivation hung; manual owner PR/merge requested asynchronously while unaffected research continues. Goal2000 remains incomplete; live sourcecount1215 last verified."
+  ],
+  "generatedAssets": [
+    "sx-child-tennis-group",
+    "sx-adult-tennis-individual",
+    "sx-adult-table-tennis-coaching",
+    "sx-auto-workshop-tyre-fit-balance",
+    "sx-nails-male-natural-manicure",
+    "sx-auto-ac-electronic-diagnostics",
+    "sx-hair-root-colour-rough-dry"
+  ]
+}

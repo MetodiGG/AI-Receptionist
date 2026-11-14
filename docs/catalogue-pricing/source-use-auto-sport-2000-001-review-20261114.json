@@ -1,0 +1,183 @@
+{
+  "checkedOn": "2026-11-14",
+  "checkedAtUtc": "2026-11-14T00:58:01Z",
+  "reviewLocalDate": "2026-11-14",
+  "status": "completed_bounded_source_use_audit_not_legal_clearance",
+  "scope": "Independent local-first legal/source-use review of the retained unpublished auto-sport2000-001 intake only. No service/pricing fact refresh, frozen source edit, identity edit, shared import, production query or mutation.",
+  "intakeSnapshot": {
+    "module": "lib/discovery/catalogue-data/neighborhood-auto-sport-2000-001-20261113.mjs",
+    "moduleSha256": "ecb704121346d6ba13e9bacf2fb0e0359dbd28b16fb61f37c35d9d947a35c5e3",
+    "ledger": "docs/catalogue-pricing/expansion-auto-sport-2000-001-20261113.json",
+    "ledgerSha256": "c3884d4b5b105264edbfc9f4e22377b394ac0dd8a7d0bc77b1d1e776232de1c4",
+    "records": 18,
+    "services": 21,
+    "reviews": 18,
+    "note": "Original20 minus previousABC hold minus rootD&D hold leaves18, not19. Snapshot taken before root applies this audit's SBA hold. Runtime inclusion is not proof of LIVE publication. Parent identifies these2000 rows as unpublished; no production checks were performed."
+  },
+  "method": [
+    "Read existing full review receipts and ledger source-use holds first. ABC,D&D,MotoExpert,GoldenFitBody and all other previously stopped sources were not requested.",
+    "Fresh exact-host robots before current own footer/navigation checks. Only native legal/footer links and source-use notices inspected, including single-quoted hrefs; no booking calendars, contemporary price menus or provider corporate Terms revisited.",
+    "Read actual linked owner Terms/Privacy where allowed. Ordinary reader cache misses used same-URL ordinary HTTP only; no 403/challenge/robots bypass, proxy, alternate account or hidden API/bundle.",
+    "No copied expressive descriptions, source media/reviews/ratings, customer data, form entries, bookings, GPS, paid sources or Nominatim/Google Maps extraction. Findings are short factual paraphrases with exact URLs and scope limits.",
+    "No linked legal page found means only no document discovered in bounded current native navigation/footer. It does not establish that no terms exist or confer permission. Generic IP/copyright language is distinguished from express automation/database/noncommercial/commercial-content-use restrictions."
+  ],
+  "summary": {
+    "reviewedRetainedRows": 18,
+    "additionalConfirmedConservativeHolds": 1,
+    "additionalHoldIds": ["sofia-sba-mladost3-gtp"],
+    "restrictedOrUnavailableLegalReviewRows": 2,
+    "restrictedOrUnavailableLegalReviewIds": ["sofia-vaklinov-sin-orlandovtsi", "sofia-swami-dev-murti-pobeda1"],
+    "ordinaryIpNoticeRows": 3,
+    "ordinaryIpNoticeIds": ["sofia-ananda-yoga-yoan-ekzarh10", "sofia-meguin-obikolna34", "sofia-sk-studio-banishora-gymnastics"],
+    "otherBoundedNoExpressRestrictionObservedRows": 12,
+    "frozenOrSharedEdits": 0,
+    "productionMutations": 0
+  },
+  "cases": [
+    {
+      "id": "sofia-pri-dancho-sinanishko22",
+      "website": "https://autoservizdancho.com/",
+      "classification": "no_linked_legal_document_observed",
+      "reviewedUrls": ["https://autoservizdancho.com/robots.txt", "https://autoservizdancho.com/"],
+      "findings": "Publicroot200, robotswp-adminonly. Current native legal/footer pass shows ordinary2026copyright notice but no actual linked Terms/Privacy or express source-use restriction. No permission inferred, no menu or fee refresh."
+    },
+    {
+      "id": "sofia-auto-atelier-simeonovsko95",
+      "website": "https://auto-atelier.bg/",
+      "classification": "linked_repair_terms_and_privacy_no_express_source_restriction_observed",
+      "reviewedUrls": ["https://auto-atelier.bg/robots.txt", "https://auto-atelier.bg/", "https://auto-atelier.bg/privacy-policy/", "https://auto-atelier.bg/obshti-usloviya-za-izvarshvane-na-remont-n/"],
+      "findings": "Currentroot reallylinks both documents. Privacy includingcookie tail reviewed; repair-contract Terms supplemented existing whole-document receipt with current applicable contract/privacy/otherconditions portions. Published effective1Jun2019. They governrepairorders/payment/warranties/customerdata, not an identified automation/database/noncommercial/commercial-price-list prohibition. No source-use licence inferred and no fee changed."
+    },
+    {
+      "id": "sofia-climbnsa-private-studentski-grad",
+      "website": "https://climbnsa.com/",
+      "classification": "no_linked_legal_document_observed",
+      "reviewedUrls": ["https://climbnsa.com/robots.txt", "https://climbnsa.com/"],
+      "findings": "Robots200emptyDisallow; current native footer/navigation legal-link and restriction-notice passes expose no actual Terms/Privacy link. This is bounded discovery, not proof of universal permission. No training enrolment or price page revisited."
+    },
+    {
+      "id": "sofia-ananda-yoga-yoan-ekzarh10",
+      "website": "https://ananda-bg.com/",
+      "classification": "ordinary_protected_material_ip_notice_not_express_automation_ban",
+      "reviewedUrls": ["https://ananda-bg.com/robots.txt", "https://ananda-bg.com/", "https://ananda-bg.com/privacy-policy/"],
+      "observedSection": "Съдържание и авторски права within actual linked GeneralTerms+Privacy",
+      "findings": "Currentroot explicitlylinks combineddocument. It protects authoredtexts/images/logos/graphics/databases/software under copyright/IP laws and says use of those materials requires writtenconsent in that legal framework. This is broaderthan a footer notice but no separate express robot/scrape/database-extraction or noncommercial-only clause was identified. Do not interpret as a blanket legal clearance or authorisation to copy materials; existing minimal independently paraphrased factual listing needs parent judgement, not automatic removal solely from generic IP wording."
+    },
+    {
+      "id": "sofia-swami-dev-murti-pobeda1",
+      "website": "https://swamidevmurti.com/",
+      "classification": "unresolved_owner_policy_host_robots_disallow",
+      "reviewedUrls": ["https://swamidevmurti.com/robots.txt", "https://swamidevmurti.com/", "https://www.iubenda.com/robots.txt"],
+      "unopenedOwnerLinkedUrls": ["https://www.iubenda.com/privacy-policy/97895876", "https://www.iubenda.com/privacy-policy/97895876/cookie-policy"],
+      "findings": "Current ownerfooter links exactIubendaprivacy/cookiepolicy. ExactIubendarobots expresslyDisallow/privacy-policy/ (clientdocuments), observed BEFORE opening either document; STOP. No copy/alternate/cached corporate-policy request. Legalreview remains unresolved, not evidence Swami itself forbids minimal fact use and not automatic data-removal recommendation."
+    },
+    {
+      "id": "sofia-kamen-auto77-tsarigradsko387",
+      "website": "https://www.avtoservizbg.com/",
+      "classification": "no_linked_legal_document_observed",
+      "reviewedUrls": ["https://www.avtoservizbg.com/robots.txt", "https://www.avtoservizbg.com/"],
+      "findings": "Robots404, not ban. Current native root200 has ordinaryfooter copyright; double/singlequoted legal-link passes reveal no actual Terms/Privacy link or explicit source-use notice. No repair/price pages revisited, no permission claim."
+    },
+    {
+      "id": "sofia-studio7-dobrudzha1-group",
+      "website": "https://studio7.bg/",
+      "classification": "no_linked_general_legal_document_observed",
+      "reviewedUrls": ["https://studio7.bg/robots.txt", "https://studio7.bg/"],
+      "priorReceiptUrls": ["https://studio7.bg/contact-us/", "https://studio7.bg/grupovi-trenirovki/"],
+      "findings": "Existing complete receipt covers owner booking/cancellation rules. Freshrobotsallows/currentroot200 nativelegal-link/notices passes reveal no linked generalTerms/Privacy. No class/menu/fee refresh. Bounded finding not legal clearance; suspendedSENSEaqua remains held."
+    },
+    {
+      "id": "sofia-vaklinov-sin-orlandovtsi",
+      "website": "https://vaklinovsin.com/",
+      "classification": "unresolved_prior_owner_access_stop_preserved",
+      "reviewedUrls": [],
+      "priorReceiptUrls": ["https://vaklinovsin.com/", "https://vaklinovsin.com/zapazvane/", "https://vaklinovsin.com/gtp/", "https://vaklinovsin.com/tseni/"],
+      "findings": "Priorwhole review explicitly records protectedContact route and no bypass. No newrequest to thishost, includingrobots/footer, made in this audit. Existing successfulsource receipt preserved; currentunread legalpolicies not declared clear or automatically restrictive. Owner/source confirmation needed if parent requires full current legal assurance."
+    },
+    {
+      "id": "sofia-calma-azul-tintyava84",
+      "website": "https://calmayogastudio.net/",
+      "classification": "no_linked_legal_document_observed",
+      "reviewedUrls": ["https://calmayogastudio.net/robots.txt", "https://calmayogastudio.net/"],
+      "findings": "Priorroot independentlyrenderedwholeownerpage explicitly found no visible Terms/footerlink. Freshnative200root dualquote-link/notices passes agree; robots404notban. SameownercheckedonceforbothCalmavenues; no bookhost/calendar or vendor inference. Not proof no other policyexists."
+    },
+    {
+      "id": "sofia-calma-verde-yana-yazova16",
+      "website": "https://calmayogastudio.net/",
+      "classification": "no_linked_legal_document_observed",
+      "reviewedUrls": ["https://calmayogastudio.net/robots.txt", "https://calmayogastudio.net/"],
+      "findings": "Same currentowner/root andpriorwhole-page receipt as CalmaAzul; no actual linked Terms/Privacy discovered. No repeatedbranchcalendar/menus/fees or sourcepolicypermissionclaim."
+    },
+    {
+      "id": "sofia-carve-indoor-ski-kosta-lulchev52",
+      "website": "https://carve.bg/",
+      "classification": "linked_studio_rules_no_express_source_restriction_observed",
+      "reviewedUrls": ["https://carve.bg/robots.txt", "https://carve.bg/", "https://carve.bg/pravilnik/"],
+      "findings": "Actualcurrentownerfooter links/pravilnik. Complete rules govern reservations, firstvisit, clothing, equipment, cancellation andstudio/baruse; sourcephoto/videoownership notice. No express automation/extraction/database/noncommercial or commercialprice-list clause identified. Existingfeesnotchanged; EasyBookpurchase link NOTopened. No form interaction."
+    },
+    {
+      "id": "sofia-nikal-kondakov5",
+      "website": "https://nikal-autoservice.bg/",
+      "classification": "placeholder_general_terms_link_no_actual_document_observed",
+      "reviewedUrls": ["https://nikal-autoservice.bg/robots.txt", "https://nikal-autoservice.bg/"],
+      "findings": "Currentroot's GeneralTerms href is literal# placeholder, not a document to mark reviewed. Robots publicpathsallowed withspecificad/linkanalyser/downloaderbots blocked; no matching universal publiccontentban inferred. No actualpolicyfoundinboundedrootfooter, so unknown beyondthat; no selectedservice menu/fee request."
+    },
+    {
+      "id": "sofia-automechanicgroup-gtp-slivnitsa102",
+      "website": "https://gtp.automechanicgroup.bg/",
+      "classification": "linked_booking_privacy_no_express_source_restriction_observed",
+      "reviewedUrls": ["https://gtp.automechanicgroup.bg/robots.txt", "https://gtp.automechanicgroup.bg/", "https://gtp.automechanicgroup.bg/privacy.php", "https://automechanicgroup.bg/robots.txt", "https://automechanicgroup.bg/"],
+      "findings": "ExactGTPfooter linksprivacy.php, complete200nativebody governs bookingcontactdata; no source-use ban. Document itself says operator/contact/retention details need fillingbeforepublication, so not represented as comprehensivelegalclearance. Mainownerroot has no actual additionalTerms/Privacy linkinboundedpass. /gtpadmin and/api.php robotsdisallowed andnotrequested; no fields/calendar/menu/price interactions."
+    },
+    {
+      "id": "sofia-the-pilates-space-cherkovna3",
+      "website": "https://thepilatesspace.bg/",
+      "classification": "linked_studio_rules_no_express_source_restriction_observed",
+      "reviewedUrls": ["https://thepilatesspace.bg/robots.txt", "https://thepilatesspace.bg/", "https://thepilatesspace.bg/pravila/"],
+      "findings": "ActualrootlinksnativeRules, complete200body reviewed: phone/platformreservation, cancellation, payment, conduct andage rules. Ordinarycopyrightonly, no automation/database/noncommercial/commercialsource-use prohibition identified. ExistingrootrenderedbookingTermsundefinedreceipt preserved; no bookhost/providerTerms or tariff revisit."
+    },
+    {
+      "id": "sofia-meguin-obikolna34",
+      "website": "https://meguin.bg/",
+      "classification": "ordinary_text_image_ip_and_screenshot_notice_not_express_automation_ban",
+      "reviewedUrls": ["https://meguin.bg/robots.txt", "https://meguin.bg/", "https://meguin.bg/privacy-policy"],
+      "observedSections": ["1.2contentdefinition", "6Security", "finalonline-shop-scopeparagraph"],
+      "findings": "Complete currentlinkedTerms read, sameURLaspriorreceipt. Contentdefinition broadandincludesproducts/services/fees. Section6 restrictscopying/distributing/usingTEXTS/PHOTOS withoutpermission and makingcopies/screenshots, and bansfloodingfakeorders. Finalclause saysTermsonlyforonlineshop. No distinct robots/scraping/extraction/competingdatabase clause found. Not a licence or definitivefacts-versus-contentexemption; minimalparaphrasedservicefacts areparentjudgement, not automaticdeletionsolelybecauseordinarytext/imageIP. No screenshots, shopdata, productmedia or menus copied."
+    },
+    {
+      "id": "sofia-sk-studio-banishora-gymnastics",
+      "website": "https://skstudio.bg/",
+      "classification": "ordinary_protected_text_design_ip_clause_not_express_automation_ban",
+      "reviewedUrls": ["https://skstudio.bg/robots.txt", "https://skstudio.bg/", "https://skstudio.bg/obshti-usloviya", "https://skstudio.bg/politika-za-poveritelnost", "https://skstudio.bg/politika-za-biskvitkite"],
+      "observedSection": "Интелектуална собственост, currentTermsdated7Mar2026",
+      "findings": "Allthreeactualnativelegalpages fullyread. IPclause protects texts/images/graphics/design/contentlogic/sitestructure andlimitscopy/publication/commercialusewithoutconsent, expresslyexceptingwhatlawallows. No specificautomation/extraction/database/noncommercial-only siteaccessrestriction identified. UnlikeSBA's anycontentcommercialuseclause,this isexpresslyframedprotectedcreativeidentitywithlawexception; not legalclearance/minimal-factspermission. Privacy/cookies concerncustomer/analyticsdata, no D&D-styleextractionclause found. No medicalservice imported or sourcecontentcopied."
+    },
+    {
+      "id": "sofia-the-core-reformer-terter24",
+      "website": "https://thecorereformer.com/",
+      "classification": "no_linked_legal_document_observed",
+      "reviewedUrls": ["https://thecorereformer.com/robots.txt", "https://thecorereformer.com/"],
+      "findings": "Existingrootwholeownerpage/calendarreceipt inspected locally. Currentownroot200nativelegal/footer dualquote-link/notices passes reveal no actualTerms/Privacy link. No bookhost/legalmodal/providercorporate/page/menu/fee revisit; cannot inferpermissionfrommissinglink or identifyhiddenpoliciesfrombundles."
+    },
+    {
+      "id": "sofia-sba-mladost3-gtp",
+      "website": "https://www.sba.bg/сба-софия-младост",
+      "classification": "hold_explicit_commercial_content_use_requires_written_consent",
+      "parentDecision": "conservative_hold_confirmed_no_source_or_shared_edits_by_auditor",
+      "reviewedUrls": ["https://www.sba.bg/robots.txt", "https://www.sba.bg/", "https://cdn.uab.org/robots.txt", "https://cdn.uab.org/files/terms/general_terms.pdf"],
+      "sourceUrl": "https://cdn.uab.org/files/terms/general_terms.pdf",
+      "observedSections": ["1.2SiteisSBA.bgdomain", "8.3anyaccessibleSitecontentgovernedbyTerms", "8.4protectedmaterials/databases/resources", "8.6commercialSitecontentuseonlywithwrittenconsentanddefinedscope/time"],
+      "findings": "Already-linkedownTermsPDFcurrent200, publishedlastupdate1Nov2021. Section8.6expresslyrequireswrittenconsentforcommercialuseofSitecontent;8.3coversanyaccessiblecontent, notjustbrandedimages. Thisisspecificcommercial-content-useconsentcondition, notcalleduniversalbotbanorstatutorylegalconclusion. No exceptionforcataloguefact/feereuseidentifiedinobservedclauses; scopeuncertaintyhandledconservatively. STOP allSBA/CDNrequestsafterobservation; no furtherPDFpage, Setmore ormerchantrequest. RootacceptedHOLDforTHISunpublished2000rowpendingpermission/independentpermittedsource. No baselineLIVElistingdeleted, no price/identity/sourcefingerprint rewritten. PDFnotclaimedfullyvisuallyreviewedfornewfees; noneimported."
+    }
+  ],
+  "previousHoldsPreservedWithoutRequests": [
+    { "id": "sofia-abc-fight-club-vasil-levski", "sourceUrl": "https://www.abcfight.com/terms", "reason": "Existing explicit automation/access/personal-use hold; no new requests or row." },
+    { "business": "D&D Auto unpublished2000row", "sourceUrl": "https://ddauto.bg/", "reason": "Parent already removed source-use restricted row before audit; no request, frozen/shared edit or production mutation by auditor." }
+  ],
+  "limitations": [
+    "No global legal advice, permission or completeness guarantee. No new express automation/database ban found among accessible retained-owner policies; SBA explicit commercial-content-use clause is the one additional confirmedhold.",
+    "VaklinovprioraccessSTOP andIubendapolicydisallow remain unresolved, not re-labelled as permission or evidence of a business prohibition.",
+    "Missing native footer legal links, incompletepolicydrafts or unrendered legalviews are not proof of no terms. No guessed routes, sitemap crawl, hidden bundle/API, providercorporateTerms repeat or restrictedendpoint revisit used.",
+    "Only newly staged2000intake removal recommendations made. Parent owns exact identity/photo/import/CSV changes and any separate baseline review; no production state read or altered."
+  ]
+}

@@ -16,8 +16,10 @@ import { discoverBusinesses } from '../lib/discovery/search.mjs'
 import { discoveryConfig } from '../lib/discovery/config.mjs'
 import { discoverySearchInput } from '../lib/discovery/search-ui.mjs'
 import approvedGrowthLocations from '../public/catalogue-official-address-growth-subset-20261113.json' with { type: 'json' }
+import approved2000Locations from '../public/catalogue-official-address-2000-subset-20261113.json' with { type: 'json' }
 
-const now = Date.parse('2026-11-13T12:00:00Z')
+// Current aggregate now includes genuinely reviewed14Nov sources; historical batch clocks remain unchanged.
+const now = Date.parse('2026-11-14T12:00:00Z')
 const ids = new Set(additions.map(row => row.id))
 const baseline = JSON.parse(await readFile(new URL('../docs/catalogue-pricing/expansion-baseline-20261113.json', import.meta.url)))
 
@@ -35,7 +37,7 @@ test('new unique, source-reviewed Sofia businesses are imported without mutating
   assert.ok(additions.every(row => !oldIds.has(row.id)))
   assert.ok(baseline.records.every(row => SOFIA_CATALOGUE.some(item => item.id === row.id)))
   for (const row of additions) {
-    const location = approvedGrowthLocations.points.find(item => item.id === row.id)
+    const location = [...approvedGrowthLocations.points, ...approved2000Locations.points].find(item => item.id === row.id)
     assert.deepEqual(SOFIA_CATALOGUE.find(item => item.id === row.id), location ? { ...row, coordinates: location.coordinates } : row)
     assert.ok(approvedCatalogueRecord(row, now), row.id)
     const review = reviews.find(item => item.id === row.id)
@@ -45,7 +47,7 @@ test('new unique, source-reviewed Sofia businesses are imported without mutating
     assert.ok(['reviewed', 'service_reviewed'].includes(outcome.state), `${row.id}: ${outcome.reason}`)
     assert.equal(outcome.state === 'reviewed', row.services.some(service => service.price), row.id)
     if (row.openingHours) {
-      assert.equal(row.openingHours.checkedOn, '2026-11-13')
+      assert.equal(row.openingHours.checkedOn, review.checkedOn, row.id)
       assert.ok(review.reviewedUrls.includes(row.openingHours.sourceUrl), row.id)
     }
     if (row.locationKind === 'service_area') assert.equal(row.coordinates, null)
@@ -175,8 +177,8 @@ test('neighborhood/category report counts businesses separately from services an
   assert.equal(report.comparison.addedServiceFacts, additions.reduce((count, row) => count + row.services.length, 0))
   assert.equal(report.comparison.addedByNeighborhood.reduce((count, row) => count + row.businesses, 0), additions.length)
   assert.equal(report.comparison.addedMobileProviders, additions.filter(row => row.locationKind === 'service_area').length)
-  assert.equal(report.comparison.addedByBusinessType['Психология и психотерапия'], 24)
-  assert.equal(report.comparison.addedByBusinessType['Психиатрия'], 1)
+  assert.equal(report.comparison.addedByBusinessType['Психология и психотерапия'], 34)
+  assert.equal(report.comparison.addedByBusinessType['Психиатрия'], 2)
   assert.equal(report.sourceRecords, baseline.sourceCount + additions.length)
   assert.equal(report.excludedGeneralClinics.length, 23)
   assert.equal(report.currentlyEligible, baseline.sourceCount - 23 + additions.length)

@@ -1,0 +1,399 @@
+{
+  "checkedOn": "2026-11-13",
+  "validUntil": "2027-02-11",
+  "status": "frozen_ready_for_root_source_photo_review",
+  "scope": "Distinct Sofia appointment auto/detailing/staffed-wash and reserved sport lessons. Only public own HTML and independently explicit phone appointment instructions while native browser is unavailable.",
+  "method": {
+    "sourcePriority": "Owner actual Book entry first, selected service/full tariffs, complete contacts/footer/visible source restrictions.",
+    "coordinates": "Null unless literal exact owner marker independently reviewed; no Maps/Nominatim/privateGPS/geocoding.",
+    "pricing": "Literal published tariff with conditions; no computed conversions/packages/guessed duration.",
+    "authorization": "No accounts, dates/services/customer inputs, consent acceptance, reservations, calls or production writes."
+  },
+  "counts": {
+    "records": 11,
+    "services": 11,
+    "reviews": 11,
+    "pricedServices": 10,
+    "pending": 15,
+    "rejected": 0
+  },
+  "orderedLedger": [
+    {
+      "order": 1,
+      "id": "sofia-balet-classic-m-dimitar-dobrev8a",
+      "name": "Балетна школа Класик-М",
+      "status": "verified",
+      "website": "https://balet.classicm-bg.com/",
+      "bookingUrl": "https://balet.classicm-bg.com/%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D0%BA-%D0%BD%D0%B0-%D0%B7%D0%B0%D0%BD%D0%B8%D0%BC%D0%B0%D0%BD%D0%B8%D1%8F%D1%82%D0%B0-%D0%BF%D0%BE-%D0%B1%D0%B0%D0%BB%D0%B5%D1%82/",
+      "serviceUrls": [
+        "https://balet.classicm-bg.com/%D0%B1%D0%B0%D0%BB%D0%B5%D1%82-%D0%B7%D0%B0-%D0%B2%D1%8A%D0%B7%D1%80%D0%B0%D1%81%D1%82%D0%BD%D0%B8/"
+      ],
+      "contactUrl": "https://balet.classicm-bg.com/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/",
+      "findings": "Actual booking/contact entry inspected FIRST: own Schedule explicitly provides0885070787 for information and enrolment, including group/individual ballet; own inquiry form inspected but genericquestions, not falsely presented as instant booking. Full selected adult ballet tariff then contact/privacy read. Reader cached adult fee13EUR conflicts with current homepage15EUR; ordinary publicGET of exact selected adult page confirmed current15EUR single,67EUR/5visits and75EUR/8visits matching current own homepage, so stale cached13 not imported. Published regular15EUR single selected, no package division; POS/banktransfer only/no cash retained in public description. Exact owner contact gives SofiaStudentskiGradProfDrDimitarDobrev8entryA/floor2 and0885070787, privacy legalClassicM/ContactMariaStoyanova samepremisephone. Other existing businesses in samebuilding:JPStudio entryB/otherphone andStudioLife differentownerphone; these are not alternate names ofClassicM. No extra premises invented. Full linked privacy page read ordinaryGET after readerCachemiss; ordinary copyright and data-handling text, no separate site-use/extraction terms link visible. No consent, form fields, booking, maps/iframe or bank action. Explicit numeric ownerGPS is present but not imported, coordinates null. No schedule openinghours or generic duration inferred.",
+      "checkedAtUtc": "2026-11-13T22:11:31Z"
+    },
+    {
+      "order": 2,
+      "id": "sofia-electra-dance-gotse-delchev1g",
+      "name": "Electra Dance Studio",
+      "status": "verified",
+      "website": "https://www.electradancestudio.com/",
+      "bookingUrl": "https://www.electradancestudio.com/",
+      "serviceUrls": [
+        "https://www.electradancestudio.com/timetable/event/%D0%BC%D0%BE%D0%B4%D0%B5%D1%80%D0%BD%D0%B8-%D1%82%D0%B0%D0%BD%D1%86%D0%B8-electra-5-13-%D0%B3/",
+        "https://www.electradancestudio.com/%D1%86%D0%B5%D0%BD%D0%B8/"
+      ],
+      "contactUrl": "https://www.electradancestudio.com/",
+      "findings": "Actual own booking entry FIRST: homepage expressly tells clients to enrol on0888308401 before its programme, with same phone/address in complete contact/footer. No configured live booking link displayed; generic contact form's built-in error text is not an attempted submission. Selected actual modern-dance5–13 class then full tariff inspected; selected class readerCachemiss resolved viaordinary publicGET, showing real Monday/Wednesday18:30–19:30 andSaturday12:30–13:30, hence60min directly for this service. Full tariff literal15EUR single under ModernDance/MTVDance;50/100/150EUR cards not divided.30EURchildprivate/40EURadultprivate and160EURwedding package are different services, not imported. Selected group is not balletRoyalShine/vocalMickeyMouse where fee still forthcoming. Current exact own premiseGotseDelchevblock1Г/cornerKostenskiVodopad, Sofia, samephone. Quarter omitted because no explicit own label. No studio openinghours inferred from classschedule. Complete visible navigation/footer has ordinary copyright, no distinct terms/privacy link visible; not claiming unshown terms accepted. No externalMaps, customerreviews, photos, contacts/consent or booking action. Coordinatesnull.",
+      "checkedAtUtc": "2026-11-13T22:13:37Z"
+    },
+    {
+      "order": 3,
+      "id": "sofia-divadance-budapest88",
+      "name": "Клуб по спортни танци DivaDance",
+      "status": "verified",
+      "website": "https://divadance-bg.com/",
+      "bookingUrl": "https://divadance-bg.com/ceni",
+      "serviceUrls": [
+        "https://divadance-bg.com/uslugi",
+        "https://divadance-bg.com/ceni"
+      ],
+      "contactUrl": "https://divadance-bg.com/zapisvane",
+      "findings": "Own contact/enrolment path and full current enrolment form inspected ordinaryGET after readerCachemiss. Form contains child-group/private/wedding choices but not a dedicated adult-group choice, so not falsely used as configured instant adult reservation; phone fallback0897931770 from complete samepremisecontact combines with explicit adult prior-enrolment requirement on current full tariff. Selected adultgroup12EUR single, not child8/9EUR or club60/65EURmonthly. Full service page identifies coach-led adultgroups; full about establishes actualsportsdance programmes and namedcoaches, not generalfitnessadmission. Current ownhomepage announces2026–2027year/adultgroups, whereas detailed schedule still contains2025startingdates; no fixedweekday, availability, openinghours or duration imported from stale schedule. All sources independently sameBudapeshta88/phone. Full visible nav/footer ordinarycopyright no terms/privacy/source-restriction link shown; no claim of unshown terms acceptance. Exact dance subtype is not narrowed to salsa/pole/classicalballet and no performance/show rental selected. No forms, dates, contactmessages, calls, consent, maps or sourceimagery copied. Coordinatesnull. Runtime domain/phone/address none before admission.",
+      "checkedAtUtc": "2026-11-13T22:13:37Z"
+    },
+    {
+      "order": 4,
+      "id": "sofia-veronique-dance-20ti-april13",
+      "name": "Школа по танци VeroniQue · София",
+      "status": "verified",
+      "website": "https://veronique-bg.com/",
+      "bookingUrl": "https://veronique-bg.com/grafik-i-ceni",
+      "serviceUrls": [
+        "https://veronique-bg.com/grafik-i-ceni",
+        "https://veronique-bg.com/classical-ballet"
+      ],
+      "contactUrl": "https://veronique-bg.com/contacts",
+      "findings": "Own contact route inspected FIRST, then actual Sofia schedule's explicit adult/teen ballet enrolmentphone0883427650 and complete branch tariff. No livecalendar configured on owner navigation; generic messageform not treated as automatic booking. Selected ONLY exact60min classicalballet foundations/technique/pointe teen/adult tariff15EURsingle;90EURmonthly/50EURindividual/12.50EURchild/70EURwedding are distinct, not projected. Programme explicitly givesselectedphone0883, full contact also lists0888 under sameownerVeronikaBratanova; both are public businesscontacts, no conflict. Firsttrialfree not regularprice0 and qualified in publicdescription. Modernchildprogrammeages6–12 conflicts price-row8–14, therefore NOTselected. ExactSofiapremise20tiApril13/floor2/inpassage; BurgasDrama10excluded. ExistingSenSib sharedsamehall has differentindependentownerphone0888341881/ownsite/yoga55+, and is visible as rented morningyoga inVeroniqueprogramme, not sameoperator or newroomclone. Complete current contact/tariff/footers read, ordinarycopyright, no distinct source-use/termslink visible; unshowntermsnotclaimedreviewed. No timetableavailability/openinghoursguessed. No sourceimages/reviews/textcopy, no maps/customerfields/consents/bookings. Coordinatesnull.",
+      "checkedAtUtc": "2026-11-13T22:17:29Z"
+    },
+    {
+      "order": 5,
+      "id": "sofia-dance-academy-bulgaria73",
+      "name": "Dance Academy · бул. България",
+      "status": "verified",
+      "website": "https://danceacademy.bg/",
+      "bookingUrl": "https://danceacademy.bg/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/",
+      "serviceUrls": [
+        "https://danceacademy.bg/2015/11/24/%D0%B8%D0%BD%D0%B4%D0%B8%D0%B2%D0%B8%D0%B4%D1%83%D0%B0%D0%BB%D0%BD%D0%B8-%D1%83%D1%80%D0%BE%D1%86%D0%B8-2/",
+        "https://danceacademy.bg/%D1%86%D0%B5%D0%BD%D0%B8/"
+      ],
+      "contactUrl": "https://danceacademy.bg/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/",
+      "findings": "Actual own contact/enrolment entry FIRST: managerJuliaBorisova expresslynamed for schedules/courses/booking0893606495; full selectedindividualservice describes arranging suitabletime/style, no instantcalendar claimed. Genericcontactform inspected nofields/consent/submission. Full price menu effective01Sept2026read: literal50EUR totalfor oneadultORcouple/60min, not perperson/25EURcomputed;40EURchildunder16,130/200cards,150familytotal andothermodern/intensive fees notselected. Additionalcustomchoreographyfee requiresdiscussion, not silentlyincluded. Cancellationminimum24h mentioned ascondition inreceipt, no inventedpolicyenforcement. ExactcurrentowncontactBulgaria73behindMallBulgaria, allownpagesrepeatmanagerphones. NailCocktailsamepostalbuildingdifferentname/domainphone notidentitymatch. Electra currentstandaloneGotseDelchevblock1Г/differentphone isdistinctpremise; oldDanceAcademymentionsElectra classes do notcreate anotherbranchorstaffalias. HallhoursMonThu16–22,Fri17–22,Sat10–15,Sun10–19used, NOTseparatephoneoffice10–18. Fullcurrentmenu/footers ordinarycopyright withoutdistinctsource-restrictionlinkshown; no permissionclaim. SelectedserviceURLreaderCachemiss→ordinaryGETfullread, not hiddenendpoint. No maps, providerdata, sourcephotos, bookings or productionwrites. Coordinatesnull.",
+      "checkedAtUtc": "2026-11-13T22:17:29Z"
+    },
+    {
+      "order": 6,
+      "id": "sofia-in-the-mood-liditse16",
+      "name": "Школа по танци In the Mood",
+      "status": "verified",
+      "website": "https://www.danceinthemood.info/",
+      "bookingUrl": "https://www.danceinthemood.info/timetable/event/bachata-sensual/",
+      "serviceUrls": [
+        "https://www.danceinthemood.info/timetable/event/bachata-sensual/",
+        "https://www.danceinthemood.info/services/"
+      ],
+      "contactUrl": "https://www.danceinthemood.info/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/",
+      "findings": "Actual own booking/contact form inspected FIRST, then selectedBachataSensual page with its real namedclass enrolmentform/name/email/phone/questions and explicitclassbookingphone0899841996. Prefer actualownclassform overphone, no inputs/submission. Full selectedclass includes literal8EUR single and60min recurring group withBoris/Reni. Owncurrentschedule independently includes sameBachata60min atsamepremise, but listsTue/Fri whereas classdescription saysTue/Thu; specificweekday, fixedappointments and availability intentionally NOTpublished; publicdescription tellsclientconfirm. This is schedule-day discrepancy, not a conflicting service fee or invented slot. Fullservices ordinaryGET afterreaderTimeout confirms actualvenueGeoMilevLiditse16/cornerShipchenskiProhod59A/main0894725747, contact says59withoutA but exactselectedLiditse16matches, so primaryaddresskeptLiditse16no alternateboulevardnumber. Twointernalrooms onepremise nottwo businesses. No genericprivateprice inherited from groupfee, no partyrentalorperformance selected. Completevisibleheaders/footers ordinarycopyright, no distinctwebsite-use/privacytermslinkvisible; no unshownconditionsacceptance. No maps/provider/Google/thirdpartyreviews/sourceimages copied, no dates/consents/bookingcalls. Coordinatesnull.",
+      "checkedAtUtc": "2026-11-13T22:19:44Z"
+    },
+    {
+      "order": 7,
+      "id": "sofia-pambos-dancing-angel-kanchev2",
+      "name": "Pambos Dancing Center",
+      "status": "verified",
+      "website": "https://www.pambosalsa.com/",
+      "bookingUrl": "https://www.pambosalsa.com/novi-grupi/nova-grupa-po-bachata-za-nachinaeshti-v-sofiya-%E2%80%93-start-na-9-noemvri-2026",
+      "serviceUrls": [
+        "https://www.pambosalsa.com/novi-grupi/nova-grupa-po-bachata-za-nachinaeshti-v-sofiya-%E2%80%93-start-na-9-noemvri-2026",
+        "https://www.pambosalsa.com/tseni"
+      ],
+      "contactUrl": "https://www.pambosalsa.com/kontakti",
+      "findings": "Actual own homepage ENROLCTA followed FIRST→/kontakti: explicitenrolmentphone0887790641 andadultViber0888354771, actualselectedNov9Bachata page independentlygives0888354771 foradvancebooking. Use exactservicephone, no call/message/login/registration or booking action. FullselectedcurrentNov2026course andentireowncentralpricepage reviewed: regularadultsingle10EUR,8visits50EUR/16visits90EUR totalnotdivided.35EUR8visitlaunchpromotion expiredNov8, deliberatelynotimported or shownasregular. OngoingNov9group notsinglepastdatedevent; inclusion/currentcapacityrequiresphoneconfirmation, no promiseofavailability. Mainweeklygraphic images notreadforduration; structuredminutes omitted. ExactcurrentowncontactAngelKanchev2KTpodkrepa/groundfloor/plGaribaldi plusselectedclasssameaddress. Pambosalsa/lospambos areowneraliasesonevenue notseparatebusiness; staffphonesnotbranches. Fullvisiblefooter/navigation standardcopyrightwithoutdistinctwebsite-use/privacytermslinkshown; no assertionofunshowntermsacceptance. Clienttestimonials/photos ignored, no copyingexpressivetext, maps/iframe/networkproviderdata. No publicopeninghoursguessed. Coordinatesnull.",
+      "checkedAtUtc": "2026-11-13T22:22:23Z"
+    },
+    {
+      "order": 8,
+      "id": "sofia-ritmo-studentski-yordan-yosifov8b",
+      "name": "Ritmo Dance Studio · Студентски град",
+      "status": "verified",
+      "website": "https://ritmo.bg/",
+      "bookingUrl": "https://ritmo.bg/sign-up/",
+      "serviceUrls": [
+        "https://ritmo.bg/individual-lessons/",
+        "https://ritmo.bg/prices/"
+      ],
+      "contactUrl": "https://ritmo.bg/contact-us/",
+      "findings": "Actual owner Book entry FIRST→/sign-up/ public HTML afterreadertimeout, fullindividualmenuform visiblyread names/email/mobile/style/instructortype/callbackchoice. SelectedSalSA choice+oneinstructor literal32EUR/60min totalup2students;22EURassistant onlybeginnersunder1yearexperience,42EURchief,52EURfounders notimported. Actual#individual-lessons anchor observedonownerpricepage; fragment points same fullyreadform, no field/value selected. Fullselectedservice andpricepage thenreadordinaryGET aftertimeouts. Pricepage's generalgroup/individual NinjaTables areJS-emptyinHTML; NOTclaimedrendered/complete norusedasunpublishedproof. SelectedactualBOOKform itself fullypublishesapplicableinstructormenu/fee/duration/participantlimit and expresslyalltheseprivatelessonsinStudentski, so primarypricesource isactualform notunreadtable. Privateprogrammeexplicitlyoffersoneperson/couple/groupandphoneonlineenrolment. Fullcontacts/venue confirmsYordanYosifov8Бfloor1 andsamephone; thirdpartyold3ДВnotused. Threeinternalrooms inclfloor2 areonebusinessnotbranches. NDKschedulefullreadreveals explicitjointproject inexistingDanceStationpremise withits tariff, heldasexistinghost ratherthansecondnewvenue. Onlyreceptionhourslisted, therefore no businessopeninghours copied. Form mentionsdatapolicy butnovisiblepolicyhrefinreadnav/footer; no acceptanceclaim. No hiddentableAPI, customerfields/consent/maps/bookings/sourcephotos/textcopy. Coordinatesnull.",
+      "checkedAtUtc": "2026-11-13T22:25:30Z"
+    },
+    {
+      "order": 9,
+      "id": "sofia-andtango-borovo-rodopski-izvor45b",
+      "name": "&Tango Sofia · Борово",
+      "status": "verified",
+      "website": "https://www.andtangosofia.com/",
+      "bookingUrl": "https://docs.google.com/forms/d/e/1FAIpQLSeZLKDTok5rowPoyrFidoAdY3B-q2DWx75QlDue_W3-pizxWw/viewform?usp=send_form",
+      "serviceUrls": [
+        "https://www.andtangosofia.com/",
+        "https://docs.google.com/forms/d/e/1FAIpQLSeZLKDTok5rowPoyrFidoAdY3B-q2DWx75QlDue_W3-pizxWw/viewform?usp=send_form"
+      ],
+      "contactUrl": "https://www.andtangosofia.com/",
+      "findings": "Actual own Bookfirst→observedforms.gle/eHZUfdvrFS2PvcTt9→publicresolvedGoogleFormsVIEWFORM (notedit). Readerredirectfailure; ordinarysamepublicshortURLGET thenreadfullform: titleArgentineTangoCourseforBeginners, exactSpotlightRodopskiIzvor45Б, actualstart19Oct2026,Mon/Fri20:00, standard60EUR8visits60min, reducedunder27/45EUR andcouple120EUR notselected. GoogleoffersloginONLYtosavedraft, fields/name/email/role/phone/package arepublic, no accountused/fieldsentered/submit/consent. Fullownhomepage independentlysameBorovopremise/monthly60EUR andrealongoingbeginner/advancedgroups; selected8visitpackageusesactualformterms not guessedmonthlyvisitcount. No division7.5EUR or8hstructuredbookingduration. Ownerpublicsocialhandle_andtango anddomainidentifyoneTangooperator; no phonepublishedonreviewedownpage, keptnull ratherthanusingformcustomerphone or a thirdparty. ExistingGioia beautysharespostalbuildingbutdifferentbusinesscategory/operator, nottangoalias. Oneactualteachingpremise, no extrateacher/groupclones. SiteGoogleSitesfooteronly, no merchantseparatetermslinkvisible; notclaimunshowntermscheckedoraccepted. Selectedsourceproviderminimalmerchantfacts only, no platformexport/maps/customerreviews/photocopy. Coordinatesnull.",
+      "checkedAtUtc": "2026-11-13T22:30:34Z"
+    },
+    {
+      "order": 10,
+      "id": "sofia-ot-izvora-buxton-vihren10",
+      "name": "От Извора · Бъкстон–Павлово",
+      "status": "verified",
+      "website": "https://www.bghora.com/bg",
+      "bookingUrl": "https://www.bghora.com/bg/novi-grupi/71/bghora-nova-grupa-za-balgarski",
+      "serviceUrls": [
+        "https://www.bghora.com/bg/novi-grupi/71/bghora-nova-grupa-za-balgarski",
+        "https://www.bghora.com/bg/grafik"
+      ],
+      "contactUrl": "https://www.bghora.com/bg/novi-grupi/71/bghora-nova-grupa-za-balgarski",
+      "findings": "Actual own new-group BOOKentry followed FIRST to preciseBuxtonpage, readerCachemiss thenordinaryGETwholepage: namedcoach/form/enrolmentphone0887484339 required, realVihren10RiskEngineering andongoingMon/Wed18:40–19:40 started02Feb2026. Publicrequestform not instantconfirmedappointment, no captcha/inputs/consents/submission. Fullselectedpage thencompletewholebranchschedule andcontact/privacy read. SelectedBuxtongroup has NO numeric fee published in complete own group page or branch schedule, no linked blocked/JSprice menu found. OthernewSofiaSlavia/Studentski pages DO publish7EUR, but this isnotassumedchainwide or projectedontoBuxton. Genuine selectedbranch unpublished fee only, notclaimbusinesshasnopublicpricesanywhere. ReceiptexplicitlyscopeunpricedBuxtongrouponly. 60minfromliteral18:40–19:40, no openinghoursfromrehearsals. Fullprivacy coverspersonaldata/cookies, no extraction/websiteuseban there; no separateapplicablesourcerestrictionlinkvisible, notacceptedcookies. RegisteredKlokotnitsa35notteachingpremise. TwoadmittedOtIzvora aredistinctactualSofiavenues notteachers/niveaus/rooms; otherbrancheswillneedseparatereview. No Google/Mapsrequests/photos/reviews/textcopy/geocoding, coordinatesnull.",
+      "checkedAtUtc": "2026-11-13T22:36:48Z"
+    },
+    {
+      "order": 11,
+      "id": "sofia-ot-izvora-slavia-koloman7",
+      "name": "От Извора · стадион Славия",
+      "status": "verified",
+      "website": "https://www.bghora.com/bg",
+      "bookingUrl": "https://www.bghora.com/bg/novi-grupi/1/bghora-grupa-za-narodni-tantsi",
+      "serviceUrls": [
+        "https://www.bghora.com/bg/novi-grupi/1/bghora-grupa-za-narodni-tantsi",
+        "https://www.bghora.com/bg/grafik"
+      ],
+      "contactUrl": "https://www.bghora.com/bg/novi-grupi/1/bghora-grupa-za-narodni-tantsi",
+      "findings": "Actual preciseownernew-group BOOKpage inspectedFIRST: realpublicenrolmentform/fullnameemailphoneverification, explicitpriorbookingmandatory andindependentphone0887484339; nofields/captcha/consent/action. Samewholepage fullypublishesregular7EUR/1astronomicalhour,50EUR8visitmonthlytotalnotdivided, noMultisport. ExactvenueKoloman7Slaviastadium/cornerSlavia/externalstairsfloor3leftofrestaurantgarden, namedcoachAngelinaMalionova andsameglobalownerphone. Start05Oct2026realongoingweeklyprogramme, no guaranteedavailableplaceornewslotclaim. FullcurrentallbranchscheduleconfirmsactualdistinctSlaviavenue; notSlaviaSportesKoloman1norHappyWinSlaviaKoloman1newduplicate. Contact/privacyfullyread, ordinarypersonaldata/cookierules/no source-extractionprohibitionthere, no additionaltermslinkshown; noacceptanceclaim. RegisteredKlokotnitsa35notvenue. DistinctOtIzvoraBuxtonVihren10notclone; eachbranchfee reviewedseparately, no instructor/niveaucountinflation. No openinghourscopiedfromclassschedule, no sourcephotos/reviews/maps requests/providerexport/geocoder/bookings. Coordinatesnull.",
+      "checkedAtUtc": "2026-11-13T22:36:48Z"
+    }
+  ],
+  "pending": [
+    {
+      "name": "Pole Dance Bulgaria · Център, Младост, Лозенец",
+      "website": "https://poledance-bg.com/",
+      "status": "held_actual_booking_js",
+      "checkedAtUtc": "2026-11-13T22:11:31Z",
+      "reviewedUrls": [
+        "https://poledance-bg.com/",
+        "https://poledance.customer.fitsys.co/calendar/public?site_id=1",
+        "https://poledance-bg.com/studios",
+        "https://poledance-bg.com/prices",
+        "https://poledance-bg.com/contacts",
+        "https://poledance-bg.com/%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D0%B0-%D0%B7%D0%B0-%D0%BF%D0%BE%D1%81%D0%B5%D1%89%D0%B5%D0%BD%D0%B8%D0%B5_3_9"
+      ],
+      "notes": "Three actual separate studios published: Hristo Belchev2/floor6; Aleksandar Malinov51MetroCity floor-1;CherniVrah47A. Actual owner Book first leads site_id1 Fitsys page, readerCachemiss then ordinary publicGET only titlePoleDanceBG/no rendered calendar. Full own booking rules insist online attendance list, no independent explicit phone-reservation fallback. Own12EUR60min pole/aerial,13EUR90min,31EURprivate tariffs read; full rules read without content-extraction restriction, but do not equate known public fee with completed actual booking-menu review. Phone contacts only information9–18, not studio openinghours. All3held; no provider hidden API/UI/booking or maps requests."
+    },
+    {
+      "name": "Born2Dance Studio",
+      "website": "https://borntodance.bg/",
+      "status": "out_of_scope_plovdiv",
+      "checkedAtUtc": "2026-11-13T22:15:14Z",
+      "reviewedUrls": [
+        "https://borntodance.bg/"
+      ],
+      "notes": "Current owner homepage explicitly identifies real studio in Plovdiv, not Sofia. Searchquery location is not venue proof; no record admitted. Embedded Google review content ignored."
+    },
+    {
+      "name": "SIMDA · Sofia International Music and Dance Academy",
+      "website": "https://simda.bg/",
+      "status": "pending_explicit_advance_reservation_selected_service",
+      "checkedAtUtc": "2026-11-13T22:15:14Z",
+      "reviewedUrls": [
+        "https://simda.bg/",
+        "https://simda.bg/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/"
+      ],
+      "notes": "Actual BookCTA leads generic contact/messageform with publicSlivnitsa178 and0888706645. A specific selected-service prior reservation instruction has not been completed; enrolment not automatically sameasreservedclass. No generalgymentry, stale thirdpartyphone or tariff substituted. Currentownerfullservice/fee review incomplete; leavepending."
+    },
+    {
+      "name": "Танцово студио29",
+      "website": "https://www.dancestudio29.com/",
+      "status": "out_of_scope_burgas",
+      "checkedAtUtc": "2026-11-13T22:18:44Z",
+      "reviewedUrls": [
+        "https://www.dancestudio29.com/"
+      ],
+      "notes": "Owncurrenthomepage identifies BurgasZornitsablock75floor2. SearchlocationSofia isnot premisesproof; no record admitted."
+    },
+    {
+      "name": "Клуб Чанове · Mixtape5 и Царибродска",
+      "website": "https://www.chanove.com/",
+      "status": "held_access_challenge_booking_incomplete",
+      "checkedAtUtc": "2026-11-13T22:19:44Z",
+      "reviewedUrls": [
+        "https://www.chanove.com/",
+        "https://www.chanove.com/index.php/lessons/119-53",
+        "https://www.chanove.com/index.php/topmenu-18",
+        "https://www.chanove.com/index.php/news/201-98",
+        "https://www.chanove.com/index.php/news/230-kursove-tzaribrodska-85"
+      ],
+      "notes": "Actualcoursesdirectenrolmententryleadscontactwithphone/emailinstructions but no readablepublicenrolmentform; no falseinstantcalendar. OwnMixtapeCherniVrah1underpassgroupOct2026/8EUR andTsaribrodska85oldOct2025group visible, but branch-specificTsaribrodska page thenreturned verificationchallenge. The already scheduled contactGET also completed in the same toolcall before the model observed that challenge. No challengeinteraction, bypass, alternativepaths or subsequent requests after observing it. Allbranchesheld, notclaimunpublishedtariff.8EURnotconvertedfrominconsistent15.56BGN dualdisplay, and57EUR8visitcardnotdivided."
+    },
+    {
+      "name": "Ritmo · НДК / Dance Station",
+      "website": "https://ritmo.bg/",
+      "status": "held_existing_host_joint_project",
+      "checkedAtUtc": "2026-11-13T22:25:30Z",
+      "reviewedUrls": [
+        "https://ritmo.bg/schedule-ndk/"
+      ],
+      "notes": "Actualownbranchform/tariff fullyread aftertimeout, but ownerexpresslydescribes jointproject withDanceStationNDK existingcataloguevenueplBulgaria1, not independentlyproved newpremise.16EUR/60min isDanceStationtariff, no secondbusiness admitted forinstructorprogramme/roomalias."
+    },
+    {
+      "name": "SUNDANCE · Младост1А",
+      "website": "https://sundance-bg.com/",
+      "status": "held_actual_embedded_enrolment_js",
+      "checkedAtUtc": "2026-11-13T22:24:46Z",
+      "reviewedUrls": [
+        "https://sundance-bg.com/",
+        "https://sundance-bg.com/zapishi-se",
+        "https://sundance-bg.com/ceni-i-karti",
+        "https://sundance-bg.com/info-i-grafik",
+        "https://script.google.com/macros/s/AKfycbxZn0toD6J6d7-cEd-XsvbHRPZSMp4UiTgGbNt0Q2466feQSpa88q7jEST98t7RuOTN/exec"
+      ],
+      "notes": "ActualownBookfirst→/zapishi-se embedsvisiblepublicGoogleAppsScript formURL. Readerinaccessible thenordinaryGETonlySunDanceSchedule title/noformfields, nohiddenAPI/scriptbundle/UI. Own8EURsingle/40EUR7visit/45EUR10visit andexactSofiaMladost1AKrastyuRakovski12/publicphone known, butno independentlyexplicitphoneenrolmentfallbackverified. Actualformheldnotgenuinelyunpublishedprice. No records/0fee/consent."
+    },
+    {
+      "name": "Lindy Hop Bulgaria",
+      "website": "https://www.lindyhop.bg/",
+      "status": "held_actual_signup_menu_and_exact_venue_review",
+      "checkedAtUtc": "2026-11-13T22:30:34Z",
+      "reviewedUrls": [
+        "https://www.lindyhop.bg/",
+        "https://www.lindyhop.bg/lindyhop-beginners-sign-up/",
+        "https://www.lindyhop.bg/terms-conditions/"
+      ],
+      "notes": "OwnerBookanchortoenrolmentsection followedthenrealpublicbeginnerformpage, readablepageonlyheading/graphic withoutformfields. FulltermsreadordinaryGETaftercachemiss: eachregistrationindividual/confirmationnotguaranteed/feeslocationdependent, no sourceextractionban. Realmultiplehoststudios listedbutexactnonNDKstreetaddressesunverifiedwithoutMaps; NDKexistingDanceStationcurrentlyfull andnotnewvenue. Do notimport5borrowedrooms as5newbusinesses or transfer10EURtariffonto16EURNDK."
+    },
+    {
+      "name": "Swing Society",
+      "website": "https://www.swingsociety.bg/bg",
+      "status": "held_current_sofia_course_intake",
+      "checkedAtUtc": "2026-11-13T22:29:56Z",
+      "reviewedUrls": [
+        "https://www.swingsociety.bg/bg",
+        "https://www.swingsociety.bg/bg/sign-up",
+        "https://www.swingsociety.bg/bg/swing-za-nachinaeshti"
+      ],
+      "notes": "OwnactualBookentryread; publicGoogleForm linkknownbutnotrequestedbecause currentSofiabeginners are8weekcoursesfrom15/16Sept2026alreadyendedbyreviewdate andnextgroupannouncedsoon. Header'StaraZagoranextgroupopen' notSofia. OwnerlistsAfrikaiaKrumPopov12/100EUR16classesor60EURmonth,NationalStudentsHouseNarodnoSabranie58–59/80EUR8classes; no currentjoinableSofiacourseorregularsinglevisitclaim. No streetsinferredfromMaps. Course/term/currentservicefurtherreviewheld."
+    },
+    {
+      "name": "Гуми Диана · София",
+      "website": "https://diana-ltd.com/",
+      "status": "duplicate_existing_all_four_venues",
+      "checkedAtUtc": "2026-11-13T22:28:23Z",
+      "reviewedUrls": [
+        "https://diana-ltd.com/page/zapazi-chas",
+        "https://diana-ltd.com/Sofiya-c158"
+      ],
+      "notes": "ActualownerBookpublicfieldsread butnoinputs. FullSofiacontact statesexact4centres:Tsarigradsko268,Botevgradsko350,Ring110,Ring765. Runtimeconfirmsall4alreadybaseline; no newcloneandno brand alias. GTPclosed2020notselected. OwnerGPSlabelsnotcopied/modifiedinthisintake. No other source/menu/termsreview claimed ascompleted."
+    },
+    {
+      "name": "Дару Кар",
+      "website": "https://darucar.bg/",
+      "status": "held_provider403_existing_hold",
+      "checkedAtUtc": "2026-11-13T22:28:23Z",
+      "reviewedUrls": [
+        "https://darucar.bg/",
+        "https://plan.soft-nrg.com/group/fO-rwZh4j943wnCYvGiowKbqug5W4IOM16aqhwH7LHoI7kZnHoex2w/express",
+        "https://darucar.bg/wp-content/uploads/2024/01/General-Service-Conditions-2024.pdf"
+      ],
+      "notes": "ActualBookagainreturned403; prior003alreadyheldprovider403 discoveredinledgerduringthiscall. No subsequentproviderrequests/UI/bypass. HomepageactualIliaBeshkov2servicephoneknown,but no completedindependentfee/phonefallbackprovided. LinkedPDFmetadataonlynotfulltermsread; do notclaimunpublishedfee orvalidintake. SoftNRGproviderheldforthisreview."
+    },
+    {
+      "name": "Auto Italia / Ferrari Sofia",
+      "website": "https://www.autoitalia.bg/",
+      "status": "pending_actual_owner_booking_contact_terms_complete",
+      "checkedAtUtc": "2026-11-13T22:28:23Z",
+      "reviewedUrls": [
+        "https://www.autoitalia.bg/",
+        "https://www.autoitalia.bg/obshti_uslovie_servizna_deinost.pdf",
+        "https://sofia.ferraridealers.com/en_gb"
+      ],
+      "notes": "Ownroot isbrandselectorlinkingactualFerrari/Maserati ownersites, notservicebooking. FerrariownerlinkreaderTimeout, linked3page208line servicetermsPDF metadataonlynotfullyread. HistoricalthirdpartyKolumb43/243notpremiseproof; newbrandcurrentexactvenue/selectedservice/booking/fulltermsstillpending, norecord."
+    },
+    {
+      "name": "Живо Чудо · Бъкстон / Кракра",
+      "website": "https://zhivochudo.com/",
+      "status": "pending_next_batch_primary_phone_receipt",
+      "checkedAtUtc": "2026-11-13T22:33:19Z",
+      "reviewedUrls": [
+        "https://zhivochudo.com/",
+        "https://zhivochudo.com/nova-grupa"
+      ],
+      "notes": "ActualBook/nova-gruparedirectstocurrentownonepage. Ownerexplicitquestions/enrolment0879092000, BuxtonhallheadingandBratyaBuxton40/Krakra15contactsread. Fullfee/schedule/bindingreviewnotyetfinished; do notprojectoldthirdparty7/8EURfees orassumetwoactivebranches."
+    },
+    {
+      "name": "Salsa Diva · Hotel Europa / Bulgaria43",
+      "website": "https://www.salsadiva.info/",
+      "status": "pending_next_batch_own_form_privacy_encoding",
+      "checkedAtUtc": "2026-11-13T22:36:48Z",
+      "reviewedUrls": [
+        "https://www.salsadiva.info/",
+        "https://www.salsadiva.info/hoursubmit.php",
+        "https://www.salsadiva.info/prices.php",
+        "https://www.salsadiva.info/contacts.php",
+        "https://www.salsadiva.info/GDPR.php"
+      ],
+      "notes": "ActualBookownhoursubmit.phpreaderCachemissnotyetGETread. Fulltariff/contactread:8EURsingleSalsaBachataeach2realvenues,EuropeLiditse1 and126schoolBulgaria43; package totalsdiffer55vs50anddualBGNtextinconsistent, notconverted. PrivacyreaderUnicodeerror/ordinaryGETreviewstillpending. Actualfullform/selectedcurrentgroupsmustbecompletednextbatch, norecord."
+    },
+    {
+      "name": "От Извора · останалите реални локации",
+      "website": "https://www.bghora.com/bg",
+      "status": "pending_next_batch_exact_selected_branch_review",
+      "checkedAtUtc": "2026-11-13T22:36:48Z",
+      "reviewedUrls": [
+        "https://www.bghora.com/bg/grafik",
+        "https://www.bghora.com/bg/novi-grupi",
+        "https://www.bghora.com/bg/novi-grupi/13/bghora-grupa-za-narodni-tantsi"
+      ],
+      "notes": "FullcurrentownerlistsremainingSofiavenuesTodorAleksandrov31,20tiApril13,HanOmurtag42,DobriNemirov5,KonstantinVelichkov12 andHristoBotevStudentski26. OnlyBuxtonandSlavia independentlyadmittedhere. StudentskiexactvenueuniqueHristoBotevbut'26' lacksstreetlabel; do notguessBoyanKamenovaddress. Eachnewpremisemusthaveactualownselectedbooking/fee/addressreview; notteacherorlevelclones."
+    }
+  ],
+  "rejected": [],
+  "checkedAtUtc": "2026-11-13T22:39:17.889Z",
+  "frozenAtUtc": "2026-11-13T22:39:17.889Z",
+  "reviewConvention": {
+    "dateBasis": "UTC",
+    "checkedAtUtc": "2026-11-13T22:39:17.889Z",
+    "localTimeNote": "Europe/Sofia is already2026-11-14; checkedOn2026-11-13 is the actual UTC date, not backdating. Individual ledger checkedAtUtc values are actual observed review clock readings; the final local schema/audit timestamp is separate. Booking hours remain Europe/Sofia."
+  },
+  "validation": {
+    "checkedAtUtc": "2026-11-13T22:39:17.889Z",
+    "schemaRecords": 11,
+    "readyForReview": 11,
+    "pending": 0,
+    "rejected": 0,
+    "pricingReviewed": 10,
+    "serviceReviewedUnpublished": 1,
+    "existingRuntimeAndAll2000IntakeIdsCompared": 1513,
+    "nativeFixtureDedupe": "Manually checked names/domains/phones/premises against6 known public nativefixtures:AutocomplexRS Europe130/AnriNestle;Kerelski Pirin83;TouchCare Pirin42;Zen Kazbek63;Vesi Sinanishko13/block12;AIM Dianabad/Rusalya. No overlap.",
+    "inventoryIdentity": "Computed only in memory to validate each receipt against current source inventory. Root binds after source/photo review; no inventoryIdentity persisted."
+  },
+  "photoContexts": {
+    "classicM": "Adultgroupclassicalballet. Rootreviewed sx-adult-ballet appropriate.",
+    "electra": "Child5–13groupmodern dance withteacher. Rootreviewed sx-child-contemporary-dance appropriate.",
+    "divaDance": "AdultGROUP sportsdance. Fresh publiclabel notnarrowedtospecificLatin/Salsa; ownadultprogrammes&coaches. Parentcreatingadultpartner sportsdancegroupimage.",
+    "veronique": "Teen/adultGROUP classicalballetfoundations/technique/pointe60min. Existing sx-adult-ballet barreclass canserveactualclasswithoutclaimallelements.",
+    "danceAcademy": "PRIVATE generaldance lesson withoneinstructor+oneadultorcouple, stylebychoice. No inventedSalsa/Tango. Parentcreatinggenericprivateformatimage.",
+    "inTheMoodAndPambos": "AdultGROUP Bachata beginners. InTheMoodBachataSensual withBoris/Reni;Pamboscurrentbeginnercourse. ParentcreatingBachataGROUPimage.",
+    "ritmo": "PRIVATE Salsa lesson ONEinstructor+up2students(total32EUR); notgroup or2teachers. Parentcreatingoneinstructor+adultpairSalsaimage.",
+    "andTango": "AdultGROUP ArgentineTango beginners inSpotlightBorovo, standardpackage8×60min. ParentcreatingactualArgentineTangoGROUPimage,notwedding.",
+    "otIzvora": "GROUP Bulgarianfolk dances/hora, coachedlesson. SameoperatorTWOactualdistinctpremisesBuxtonVihren10andSlaviaKoloman7. Rootreviewed sx-bulgarian-folk-group suitable."
+  }
+}

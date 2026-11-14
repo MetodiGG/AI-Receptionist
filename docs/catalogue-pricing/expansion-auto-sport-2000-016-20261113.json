@@ -1,0 +1,198 @@
+{
+  "rootIntegrationReview": {"checkedAtUtc":"2026-11-14T03:29:45.424Z","note":"Rootreadall4records/reviews. PaLante7.50EURONEvisitcurrentrecurring10NovbeginneradultBachataactualownpublicenrolmentformnotgenericaccountcalendar, no pricepackage division oravailabilityclaim. DIVA3realvenuescurrent2026/27child10–14regularprogrammeindependentlyboundatfullownerBook/venue/service/schedule, firstvisitmustCALLnotfreegiftform/zero. Genuinelyunpublishedregularfeesnotinaccessiblemenu. Newpreteenclassfullsource/thumbviewednotyounger7–12/adultcrew. Allcoordsnulluntilseparateexactpostalreview; Mladost1landmarknohouseguess. NewrootparaphrasedBookevidenceavoidsreproducingthesameownerquotefor3venues.","identity":"Only newlyreviewednormalizedinventoryidentitiesassigned; existingbaseline/pricereviewfingerprintsuntouched; originalfreeze/sourceobservationdatespreserved."},
+  "batch": "auto-sport-2000-016-20261113",
+  "status": "frozen_ready_for_root_review",
+  "dateConvention": "New observations checkedOn2026-11-14 UTC; Europe/Sofia appointment times unchanged; identifier20261113 retained.",
+  "scope": "Real unique Sofia auto/carwash/detailing and reserved sports only; actual Book then selected services/fees/contact. No generic admission, trial-only, staff/room/quarter clones or unsupported network tariff transfers.",
+  "sourceRestrictions": [
+    "No UI/Maps/Nominatim/paidAPIs/privateGPS/providerbulk/customerinput/consent/bookings/productionmutations.",
+    "All prior source/access STOPs retained, including MFS current explicit extraction/database/commercial restrictions; no further requests to stopped hosts."
+  ],
+  "counts": {
+    "records": 4,
+    "services": 4,
+    "reviews": 4,
+    "pricedServices": 1,
+    "pending": 7,
+    "rejected": 0
+  },
+  "orderedLedger": [
+    {
+      "order": 1,
+      "id": "sofia-palante-rakovski78",
+      "name": "PaLante Dance Project",
+      "status": "verified",
+      "website": "https://www.palante.eu/",
+      "bookingUrl": "https://www.palante.eu/events/nova-grupa-bachata-ot-10-noemvri",
+      "serviceUrls": [
+        "https://www.palante.eu/events/nova-grupa-bachata-ot-10-noemvri",
+        "https://www.palante.eu/grupovi-uroci"
+      ],
+      "contactUrl": "https://www.palante.eu/contacts",
+      "findings": "Actual root November10 beginner Bachata Enrol CTA followed to its own selected class page first. This public page renders a specific enrollment form with required name/email, additional information and submit button, promising email confirmation; no account, customer fields or submission used. Separate generic weekly-class signup interface on the root asks registration, but it is NOT substituted for this actual public event enrollment form. Full selected class fee table publishes7.50EUR single and50EUR eight-class card; only literal single imported, no promotion/division/availability claim. Current root and Schedule both repeat November10 group Tuesday/Thursday19:15; start passed but recurring programme is current, acceptance subject confirmation, not a past one-off event. Full Contact confirms one real Rakovski78 Sofia studio and matching owner phone. Other teachers/levels/room and video courses are not businesses. No duration/hours inferred from schedule images, no Maps requests or copied assets/reviews. Complete visible owner nav/footer has no separate terms/privacy link; no permissions or consent claim.",
+      "checkedAtUtc": "2026-11-14T03:07:50Z"
+    },
+    {
+      "order": 2,
+      "id": "sofia-diva-zone-hipodruma-boris81",
+      "name": "DIVA ZONE · Хиподрума",
+      "status": "verified",
+      "website": "https://www.divazone.bg/",
+      "bookingUrl": "https://www.divazone.bg/grafik/",
+      "serviceUrls": [
+        "https://www.divazone.bg/moderni-tantsi-i-hip-hop-za-detsa-v-sofia/",
+        "https://www.divazone.bg/grafik/",
+        "https://www.divazone.bg/klasove/"
+      ],
+      "contactUrl": "https://www.divazone.bg/zali/",
+      "findings": "Actual selected-service Enrol CTA inspected first: its public form is expressly a gift first group lesson, not a regular-price appointment menu, and is NOT the selected booking route or imported as zero fee. Independent current Schedule explicitly requires advance call0886996868 before first attendance in any of these halls. The same complete2026/27 child-modern/hiphop service page and Schedule individually identify this actual venue and10–14 beginners regular60-minute class (Monday/Wednesday19:30–20:30); no availability counts or guarantees copied. Full Classes, Service, Schedule, Venues and root/contact footer expose no numeric regular fee, dedicated Prices/PDF or known inaccessible tariff menu, so selected regular group fee genuinely not publicly listed; not a claim that a trial offer has a regular price. Actual current root DOM all anchors/footer inspected after filtering scripts/styles before output; no Terms/Privacy links, and targeted host searches found none. Standard copyright/company/EIK only; no claim that unavailable policies were read/accepted or permission granted. Exact first-party venue/address/phone only; Mladost1 uses named chitalishte landmark without invented house number. One record per actual premise, not three rooms/groups/teachers; all raw coordinates null and class times not business hours. No UI, login, form/phone/customer inputs, Maps or source imagery/reviews.",
+      "checkedAtUtc": "2026-11-14T03:12:03Z"
+    },
+    {
+      "order": 3,
+      "id": "sofia-diva-zone-mladost1-chitalishte",
+      "name": "DIVA ZONE · Младост 1",
+      "status": "verified",
+      "website": "https://www.divazone.bg/",
+      "bookingUrl": "https://www.divazone.bg/grafik/",
+      "serviceUrls": [
+        "https://www.divazone.bg/moderni-tantsi-i-hip-hop-za-detsa-v-sofia/",
+        "https://www.divazone.bg/grafik/",
+        "https://www.divazone.bg/klasove/"
+      ],
+      "contactUrl": "https://www.divazone.bg/zali/",
+      "findings": "Actual selected-service Enrol CTA inspected first: its public form is expressly a gift first group lesson, not a regular-price appointment menu, and is NOT the selected booking route or imported as zero fee. Independent current Schedule explicitly requires advance call0886996868 before first attendance in any of these halls. The same complete2026/27 child-modern/hiphop service page and Schedule individually identify this actual venue and10–14 beginners regular60-minute class (Tuesday/Thursday19:30–20:30); no availability counts or guarantees copied. Full Classes, Service, Schedule, Venues and root/contact footer expose no numeric regular fee, dedicated Prices/PDF or known inaccessible tariff menu, so selected regular group fee genuinely not publicly listed; not a claim that a trial offer has a regular price. Actual current root DOM all anchors/footer inspected after filtering scripts/styles before output; no Terms/Privacy links, and targeted host searches found none. Standard copyright/company/EIK only; no claim that unavailable policies were read/accepted or permission granted. Exact first-party venue/address/phone only; Mladost1 uses named chitalishte landmark without invented house number. One record per actual premise, not three rooms/groups/teachers; all raw coordinates null and class times not business hours. No UI, login, form/phone/customer inputs, Maps or source imagery/reviews.",
+      "checkedAtUtc": "2026-11-14T03:12:03Z"
+    },
+    {
+      "order": 4,
+      "id": "sofia-diva-zone-mladost2-bg-shkolo",
+      "name": "DIVA ZONE · Младост 2",
+      "status": "verified",
+      "website": "https://www.divazone.bg/",
+      "bookingUrl": "https://www.divazone.bg/grafik/",
+      "serviceUrls": [
+        "https://www.divazone.bg/moderni-tantsi-i-hip-hop-za-detsa-v-sofia/",
+        "https://www.divazone.bg/grafik/",
+        "https://www.divazone.bg/klasove/"
+      ],
+      "contactUrl": "https://www.divazone.bg/zali/",
+      "findings": "Actual selected-service Enrol CTA inspected first: its public form is expressly a gift first group lesson, not a regular-price appointment menu, and is NOT the selected booking route or imported as zero fee. Independent current Schedule explicitly requires advance call0886996868 before first attendance in any of these halls. The same complete2026/27 child-modern/hiphop service page and Schedule individually identify this actual venue and10–14 beginners regular60-minute class (Monday/Wednesday andTuesday/Thursday20:00–21:00); no availability counts or guarantees copied. Full Classes, Service, Schedule, Venues and root/contact footer expose no numeric regular fee, dedicated Prices/PDF or known inaccessible tariff menu, so selected regular group fee genuinely not publicly listed; not a claim that a trial offer has a regular price. Actual current root DOM all anchors/footer inspected after filtering scripts/styles before output; no Terms/Privacy links, and targeted host searches found none. Standard copyright/company/EIK only; no claim that unavailable policies were read/accepted or permission granted. Exact first-party venue/address/phone only; Mladost1 uses named chitalishte landmark without invented house number. One record per actual premise, not three rooms/groups/teachers; all raw coordinates null and class times not business hours. No UI, login, form/phone/customer inputs, Maps or source imagery/reviews.",
+      "checkedAtUtc": "2026-11-14T03:12:04Z"
+    }
+  ],
+  "pending": [
+    {
+      "name": "Aiki School",
+      "website": "https://aikischoolbg.com/",
+      "status": "held_prior_appointment_evidence",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T03:07:50Z",
+      "reviewedUrls": [
+        "https://aikischoolbg.com/"
+      ],
+      "priorReceipt": "expansion-auto-sport-2000-010-20261113.json",
+      "notes": "Runtime and all current intake preflight no record; prior complete owner review already held three real venues for absence of explicit prior enrollment/appointment invitation, with known25EURsingle plus130EURmandatory annual fee. Current root reread shows same general contact link/phone and no new booking proof. Do not repeat full prior endpoints, import an unqualified25fee or relabel known tariff unpublished."
+    },
+    {
+      "name": "PDR Auto",
+      "website": "https://pdr-auto.eu/",
+      "status": "held_actual_price_booking_js",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T03:07:50Z",
+      "reviewedUrls": [
+        "https://pdr-auto.eu/"
+      ],
+      "priorReceipt": "expansion-auto-sport-2000-012-20261113.json",
+      "notes": "Current root remains a short SEO summary with Obelya13thStreet12V/899818977; actual linked price route was already held as unread JavaScript in012. No fresh price endpoint/UI/hiddenbundle/API. Known inaccessible pricing is not unpublished."
+    },
+    {
+      "name": "Hagel Pro Solution",
+      "website": "https://hagel-pro-solution.com/",
+      "status": "held_connection_failure",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T03:07:50Z",
+      "reviewedUrls": [
+        "https://hagel-pro-solution.com/"
+      ],
+      "notes": "Reader502 then ordinary public GET failed to connect port443. No alternate host/protocol/access bypass. Search-only mobile dent repair and old BGN from amounts not imported; actual booking/contact/terms/service review incomplete."
+    },
+    {
+      "name": "Автостъкла Груп",
+      "website": "https://avtostaklagrup.com/",
+      "status": "held_prior_same_premise_identity_and_placeholder_book",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T03:07:50Z",
+      "priorReceipt": "expansion-auto-sport-2000-012-20261113.json",
+      "reviewedUrls": [
+        "https://avtostaklagrup.com/"
+      ],
+      "notes": "Prior complete current owner012 receipt has unresolved Royak41 shared with Global, placeholder Book tel0888123456 contrary displayed0877642523, plus hours conflict. New root reader timeout does not resolve that. No repeat curl/alternate source workaround; no new row, contact repair or alias clone."
+    },
+    {
+      "name": "Pambos / Los Pambos",
+      "website": "https://www.lospambos.com/",
+      "status": "duplicate_canonical_merchant",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T03:07:50Z",
+      "existingId": "sofia-pambos-dancing-angel-kanchev2",
+      "reviewedUrls": [
+        "https://www.lospambos.com/"
+      ],
+      "notes": "Domain-only preflight initially no lospambos match, but full runtime name/phone comparison identified existing Pambos Dancing Center on pambosalsa.com with the same owner+359888354771/AngelKanchev2. Current owner root matches same brand/teacher. Do not add a different-domain duplicate or separate teacher/course business. Only root read; no further event/calendar requests."
+    },
+    {
+      "name": "Нашенци",
+      "website": "https://nashenci.org/",
+      "status": "held_tls_access_failure",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T03:16:26Z",
+      "reviewedUrls": [
+        "https://nashenci.org/"
+      ],
+      "notes": "Reader inaccessible, then ordinary public GET failed TLS issuer validation. No insecure TLS, alternate domain or protocol bypass; current programme, booking, exact venue and full tariff review remain incomplete. Search snippets and other suggested hostnames are discovery only, not imported facts."
+    },
+    {
+      "name": "Fire Taekwondo",
+      "website": "https://www.firetkd.net/",
+      "status": "held_exact_venue_and_reserved_programme",
+      "checkedOn": "2026-11-14",
+      "checkedAtUtc": "2026-11-14T03:16:26Z",
+      "reviewedUrls": [
+        "https://www.firetkd.net/za-nas",
+        "https://www.firetkd.net/kontakti"
+      ],
+      "notes": "Accessible owned About and Contact identify Sofia and contact numbers but no exact physical venue and no current selected class with prior enrollment binding. Generic name/email/message contact form is not by itself a specific reserved lesson. No guessed street, fee absence or separate staff/group businesses."
+    }
+  ],
+  "rejected": [],
+  "frozenAtUtc": "2026-11-14T03:17:41Z",
+  "validation": {
+    "schemaRecords": 4,
+    "otherUniqueRuntimeAndAllIntakeRecords": 1667,
+    "readyForReview": 4,
+    "pending": 0,
+    "rejected": 0,
+    "pricingReviewStates": {
+      "reviewed": 1,
+      "service_reviewed": 3
+    },
+    "inventoryIdentities": "Temporary diagnostics only; none persisted in this intake."
+  },
+  "photoContexts": [
+    {
+      "ids": [
+        "sofia-palante-rakovski78"
+      ],
+      "selectedService": "Adult beginner group Bachata dance lesson, one group instructor and adult participants. No private couple/solo-sport/ballet substitution."
+    },
+    {
+      "ids": [
+        "sofia-diva-zone-hipodruma-boris81",
+        "sofia-diva-zone-mladost1-chitalishte",
+        "sofia-diva-zone-mladost2-bg-shkolo"
+      ],
+      "selectedService": "Group modern dance and hip-hop for beginners aged10–14, with instructor. Do not blindly reuse7–12 younger-child or adult dance asset; root to review age-appropriate scene."
+    }
+  ]
+}

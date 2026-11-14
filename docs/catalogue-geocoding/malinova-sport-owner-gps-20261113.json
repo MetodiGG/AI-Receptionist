@@ -1,0 +1,12 @@
+{
+  "checkedOn": "2026-11-13",
+  "status": "reviewed_local_not_published",
+  "businessId": "sofia-malinova-dolina-sport-kliment127g",
+  "address": "София, Малинова долина, бул. Климент Охридски 127Г",
+  "sourceUrl": "https://malinovasport.bg/",
+  "point": { "latitude": 42.630767, "longitude": 23.360355 },
+  "sourceEvidence": "Current owner homepage contact section explicitly labels these literal coordinates GPS beside the actual complex street/house and same appointment phone. Independently read by root and the source reviewer. No map link was opened; not an embed viewport, search centre or postal interpolation.",
+  "supersededCandidate": { "municipalRn": "99802", "latitude": 42.628128, "longitude": 23.357999, "decision": "do_not_substitute_postal_point_for_owner_complex_destination" },
+  "scope": "One business/complex, not separate courts or parking lots. Owner explicitly describes three parking areas and recommends checking which is appropriate. This literal point is not proof of a particular entrance or tennis court. Existing address-first directions contract is unchanged; no new numeric directions override.",
+  "integrity": "Source-bound first_party_coordinates with exact sourceAddress; changed address fails closed. Pricing inventory unchanged. No Google/Nominatim requests, customer coordinates, accounts, calls, bookings or production writes."
+}

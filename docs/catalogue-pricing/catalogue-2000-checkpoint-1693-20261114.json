@@ -1,0 +1,1845 @@
+{
+  "checkedOn": "2026-11-14",
+  "checkedAtUtc": "2026-11-14 05:24:43 UTC",
+  "status": "tested_release_ready_acquisition_paused",
+  "branch": "codex/catalogue-2000-next-20261113",
+  "parentCommit": "1353ae467290da5762ab66d4bb401aa4f7b42f0d",
+  "target": 2000,
+  "remaining": 307,
+  "taskStatus": "Paused at the owner's explicit request after finalizing only already source-reviewed intakes. No further acquisition until the owner resumes.",
+  "lastConfirmedLive": {
+    "eligibleBusinesses": 1215,
+    "mainCommit": "1d4a5037cbdfc0e89fceb67532621af12fb05bc8",
+    "checkedAtUtc": "2026-11-14 05:19 UTC",
+    "evidence": "Read-only git ls-remote main. This is the pre-release observation, not a claim that the current local count was already deployed."
+  },
+  "current": {
+    "eligible": 1693,
+    "raw": 1716,
+    "services": 10079,
+    "locations": {
+      "located": 900,
+      "unlocatedPremises": 602,
+      "serviceAreaProviders": 191,
+      "heldCoordinates": 0,
+      "firstPartyPoints": 164,
+      "reviewedOsmAddressPoints": 40,
+      "officialSofiaAddressPoints": 696
+    },
+    "unlocated": 793,
+    "unlocatedMatchStates": {
+      "unresolved": 622,
+      "ambiguous": 160,
+      "unique": 11
+    },
+    "uniqueHeld": [
+      {
+        "id": "sofia-shining-polishing-auto",
+        "address": "София, НПЗ Искър, ул. Мюнхен 14",
+        "rn": "96395"
+      },
+      {
+        "id": "sofia-katerene-europe-private",
+        "address": "София, Дружба 1, бул. Искърско шосе 7, Търговски център Европа, сграда 1",
+        "rn": "117374"
+      },
+      {
+        "id": "sofia-pro-sport-nsa-kliment22",
+        "address": "София, бул. Климент Охридски 22",
+        "rn": "21797"
+      },
+      {
+        "id": "sofia-ot-izvora-voenna-han-omurtag42",
+        "address": "София, ул. Хан Омуртаг 42, Winbet Sport & Event Centre, в двора на Военна академия",
+        "rn": "25167"
+      },
+      {
+        "id": "sofia-arnaudov-uzunova-tsar-boris19",
+        "address": "София, бул. Цар Борис III 19, до вх. А, партер",
+        "rn": "20180"
+      },
+      {
+        "id": "sofia-double-yellow-squash-nsa",
+        "address": "София, ул. Акад. Стефан Младенов 21, НСА, Многофункционална зала, ниво -1",
+        "rn": "112737"
+      },
+      {
+        "id": "sofia-nvs-workshop-tsarigradsko391",
+        "address": "София, бул. Цариградско шосе 391, Парк музей Враня",
+        "rn": "21753"
+      },
+      {
+        "id": "sofia-ax-horca-bio-dragan-tsankov8",
+        "address": "София, бул. Драган Цанков 8, Биологически факултет",
+        "rn": "908"
+      },
+      {
+        "id": "sofia-levski-rakovski-balsha18",
+        "address": "София, ул. Балша 18",
+        "rn": "4069"
+      },
+      {
+        "id": "sofia-diva-zone-mladost2-bg-shkolo",
+        "address": "София, ж.к. Младост 2, ул. Генерал-майор Васил Делов 10, БГ Школо",
+        "rn": "106247"
+      },
+      {
+        "id": "sofia-azbuki-sport-musagenitsa-swimming",
+        "address": "София, ж.к. Мусагеница, ул. Арх. Виктория Ангелова-Винарова 1",
+        "rn": "108460"
+      }
+    ],
+    "visibleServices": 10067,
+    "sourceServices": 10079,
+    "intentionallyExcludedByOwnerScope": 23
+  },
+  "newSince1215": {
+    "businesses": 478,
+    "services": 705,
+    "pricedBusinesses": 309,
+    "priceFacts": 523,
+    "reviewedHours": 143,
+    "premises": 426,
+    "citywide": 52,
+    "primaryCategories": {
+      "auto_repair": 44,
+      "barber": 9,
+      "beauty": 16,
+      "car_wash": 3,
+      "consulting": 45,
+      "detailing": 3,
+      "education": 65,
+      "fitness": 107,
+      "hair": 26,
+      "health": 15,
+      "home_services": 36,
+      "nails": 29,
+      "other": 76,
+      "pets": 4
+    },
+    "businessTypes": {
+      "Автомивка": 3,
+      "Автосервиз": 44,
+      "Бръснарница": 9,
+      "Груминг": 4,
+      "Детайлинг": 3,
+      "Друга услуга": 13,
+      "За дома": 36,
+      "Консултации": 45,
+      "Красота": 16,
+      "Маникюр": 29,
+      "Психиатрия": 1,
+      "Психология и психотерапия": 10,
+      "Спорт": 107,
+      "Стоматология": 41,
+      "Татуировки и пиърсинг": 6,
+      "Терапии": 15,
+      "Уроци": 65,
+      "Фотография": 5,
+      "Фризьор": 26
+    },
+    "premisesByNeighborhood": [
+      {
+        "neighborhood": "Банишора",
+        "businesses": 2,
+        "categories": {
+          "fitness": 1,
+          "other": 1
+        },
+        "businessTypes": {
+          "Спорт": 1,
+          "Стоматология": 1
+        }
+      },
+      {
+        "neighborhood": "Бели брези",
+        "businesses": 2,
+        "categories": {
+          "education": 1,
+          "other": 1
+        },
+        "businessTypes": {
+          "Стоматология": 1,
+          "Уроци": 1
+        }
+      },
+      {
+        "neighborhood": "Борово",
+        "businesses": 3,
+        "categories": {
+          "education": 1,
+          "fitness": 1,
+          "other": 1
+        },
+        "businessTypes": {
+          "Спорт": 1,
+          "Стоматология": 1,
+          "Уроци": 1
+        }
+      },
+      {
+        "neighborhood": "Бъкстон",
+        "businesses": 3,
+        "categories": {
+          "fitness": 2,
+          "other": 1
+        },
+        "businessTypes": {
+          "Друга услуга": 1,
+          "Спорт": 2
+        }
+      },
+      {
+        "neighborhood": "Витоша",
+        "businesses": 2,
+        "categories": {
+          "fitness": 1,
+          "health": 1
+        },
+        "businessTypes": {
+          "Спорт": 1,
+          "Терапии": 1
+        }
+      },
+      {
+        "neighborhood": "Военна рампа",
+        "businesses": 1,
+        "categories": {
+          "auto_repair": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1
+        }
+      },
+      {
+        "neighborhood": "Връбница 2",
+        "businesses": 2,
+        "categories": {
+          "barber": 1,
+          "nails": 1
+        },
+        "businessTypes": {
+          "Бръснарница": 1,
+          "Маникюр": 1
+        }
+      },
+      {
+        "neighborhood": "Гевгелийски",
+        "businesses": 1,
+        "categories": {
+          "fitness": 1
+        },
+        "businessTypes": {
+          "Спорт": 1
+        }
+      },
+      {
+        "neighborhood": "Гео Милев",
+        "businesses": 10,
+        "categories": {
+          "consulting": 1,
+          "education": 2,
+          "fitness": 6,
+          "other": 1
+        },
+        "businessTypes": {
+          "Консултации": 1,
+          "Психология и психотерапия": 1,
+          "Спорт": 6,
+          "Уроци": 2
+        }
+      },
+      {
+        "neighborhood": "Горубляне",
+        "businesses": 2,
+        "categories": {
+          "auto_repair": 1,
+          "fitness": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1,
+          "Спорт": 1
+        }
+      },
+      {
+        "neighborhood": "Гоце Делчев",
+        "businesses": 1,
+        "categories": {
+          "fitness": 1
+        },
+        "businessTypes": {
+          "Спорт": 1
+        }
+      },
+      {
+        "neighborhood": "Дианабад",
+        "businesses": 3,
+        "categories": {
+          "consulting": 1,
+          "education": 1,
+          "fitness": 1
+        },
+        "businessTypes": {
+          "Консултации": 1,
+          "Спорт": 1,
+          "Уроци": 1
+        }
+      },
+      {
+        "neighborhood": "Драгалевци",
+        "businesses": 1,
+        "categories": {
+          "pets": 1
+        },
+        "businessTypes": {
+          "Груминг": 1
+        }
+      },
+      {
+        "neighborhood": "Дружба 1",
+        "businesses": 2,
+        "categories": {
+          "auto_repair": 1,
+          "pets": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1,
+          "Груминг": 1
+        }
+      },
+      {
+        "neighborhood": "Дружба 2",
+        "businesses": 9,
+        "categories": {
+          "auto_repair": 3,
+          "barber": 1,
+          "beauty": 1,
+          "consulting": 1,
+          "education": 1,
+          "fitness": 1,
+          "nails": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 3,
+          "Бръснарница": 1,
+          "Консултации": 1,
+          "Красота": 1,
+          "Маникюр": 1,
+          "Спорт": 1,
+          "Уроци": 1
+        }
+      },
+      {
+        "neighborhood": "Дървеница",
+        "businesses": 1,
+        "categories": {
+          "education": 1
+        },
+        "businessTypes": {
+          "Уроци": 1
+        }
+      },
+      {
+        "neighborhood": "Зона Б-5",
+        "businesses": 2,
+        "categories": {
+          "fitness": 1,
+          "other": 1
+        },
+        "businessTypes": {
+          "Спорт": 1,
+          "Стоматология": 1
+        }
+      },
+      {
+        "neighborhood": "Зона Б-5-3",
+        "businesses": 1,
+        "categories": {
+          "consulting": 1
+        },
+        "businessTypes": {
+          "Консултации": 1
+        }
+      },
+      {
+        "neighborhood": "Иван Вазов",
+        "businesses": 1,
+        "categories": {
+          "education": 1
+        },
+        "businessTypes": {
+          "Уроци": 1
+        }
+      },
+      {
+        "neighborhood": "Изток",
+        "businesses": 6,
+        "categories": {
+          "education": 1,
+          "nails": 2,
+          "other": 3
+        },
+        "businessTypes": {
+          "Маникюр": 2,
+          "Стоматология": 3,
+          "Уроци": 1
+        }
+      },
+      {
+        "neighborhood": "Карпузица",
+        "businesses": 1,
+        "categories": {
+          "other": 1
+        },
+        "businessTypes": {
+          "Друга услуга": 1
+        }
+      },
+      {
+        "neighborhood": "Княжево",
+        "businesses": 1,
+        "categories": {
+          "education": 1
+        },
+        "businessTypes": {
+          "Уроци": 1
+        }
+      },
+      {
+        "neighborhood": "Красно село",
+        "businesses": 1,
+        "categories": {
+          "consulting": 1
+        },
+        "businessTypes": {
+          "Консултации": 1
+        }
+      },
+      {
+        "neighborhood": "Крива река",
+        "businesses": 1,
+        "categories": {
+          "fitness": 1
+        },
+        "businessTypes": {
+          "Спорт": 1
+        }
+      },
+      {
+        "neighborhood": "Кръстова вада",
+        "businesses": 3,
+        "categories": {
+          "auto_repair": 1,
+          "fitness": 1,
+          "pets": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1,
+          "Груминг": 1,
+          "Спорт": 1
+        }
+      },
+      {
+        "neighborhood": "Лагера",
+        "businesses": 2,
+        "categories": {
+          "other": 2
+        },
+        "businessTypes": {
+          "Психология и психотерапия": 1,
+          "Стоматология": 1
+        }
+      },
+      {
+        "neighborhood": "Левски",
+        "businesses": 1,
+        "categories": {
+          "nails": 1
+        },
+        "businessTypes": {
+          "Маникюр": 1
+        }
+      },
+      {
+        "neighborhood": "Лозенец",
+        "businesses": 26,
+        "categories": {
+          "consulting": 4,
+          "education": 6,
+          "fitness": 5,
+          "health": 2,
+          "nails": 1,
+          "other": 8
+        },
+        "businessTypes": {
+          "Друга услуга": 3,
+          "Консултации": 4,
+          "Маникюр": 1,
+          "Психология и психотерапия": 1,
+          "Спорт": 5,
+          "Стоматология": 4,
+          "Терапии": 2,
+          "Уроци": 6
+        }
+      },
+      {
+        "neighborhood": "Люлин",
+        "businesses": 6,
+        "categories": {
+          "beauty": 1,
+          "car_wash": 1,
+          "education": 2,
+          "fitness": 1,
+          "other": 1
+        },
+        "businessTypes": {
+          "Автомивка": 1,
+          "Красота": 1,
+          "Спорт": 1,
+          "Стоматология": 1,
+          "Уроци": 2
+        }
+      },
+      {
+        "neighborhood": "Люлин 10",
+        "businesses": 2,
+        "categories": {
+          "auto_repair": 1,
+          "fitness": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1,
+          "Спорт": 1
+        }
+      },
+      {
+        "neighborhood": "Люлин 3",
+        "businesses": 3,
+        "categories": {
+          "fitness": 1,
+          "hair": 2
+        },
+        "businessTypes": {
+          "Спорт": 1,
+          "Фризьор": 2
+        }
+      },
+      {
+        "neighborhood": "Люлин 4",
+        "businesses": 1,
+        "categories": {
+          "education": 1
+        },
+        "businessTypes": {
+          "Уроци": 1
+        }
+      },
+      {
+        "neighborhood": "Люлин 7",
+        "businesses": 1,
+        "categories": {
+          "other": 1
+        },
+        "businessTypes": {
+          "Друга услуга": 1
+        }
+      },
+      {
+        "neighborhood": "Люлин 8",
+        "businesses": 4,
+        "categories": {
+          "beauty": 2,
+          "nails": 1,
+          "other": 1
+        },
+        "businessTypes": {
+          "Красота": 2,
+          "Маникюр": 1,
+          "Стоматология": 1
+        }
+      },
+      {
+        "neighborhood": "Малашевци",
+        "businesses": 1,
+        "categories": {
+          "auto_repair": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1
+        }
+      },
+      {
+        "neighborhood": "Малинова долина",
+        "businesses": 2,
+        "categories": {
+          "consulting": 1,
+          "fitness": 1
+        },
+        "businessTypes": {
+          "Консултации": 1,
+          "Спорт": 1
+        }
+      },
+      {
+        "neighborhood": "Манастирски ливади",
+        "businesses": 11,
+        "categories": {
+          "auto_repair": 1,
+          "car_wash": 1,
+          "education": 2,
+          "other": 7
+        },
+        "businessTypes": {
+          "Автомивка": 1,
+          "Автосервиз": 1,
+          "Психология и психотерапия": 1,
+          "Стоматология": 6,
+          "Уроци": 2
+        }
+      },
+      {
+        "neighborhood": "Младост",
+        "businesses": 2,
+        "categories": {
+          "auto_repair": 1,
+          "car_wash": 1
+        },
+        "businessTypes": {
+          "Автомивка": 1,
+          "Автосервиз": 1
+        }
+      },
+      {
+        "neighborhood": "Младост 1",
+        "businesses": 11,
+        "categories": {
+          "beauty": 1,
+          "education": 4,
+          "fitness": 4,
+          "health": 1,
+          "nails": 1
+        },
+        "businessTypes": {
+          "Красота": 1,
+          "Маникюр": 1,
+          "Спорт": 4,
+          "Терапии": 1,
+          "Уроци": 4
+        }
+      },
+      {
+        "neighborhood": "Младост 1А",
+        "businesses": 2,
+        "categories": {
+          "fitness": 1,
+          "pets": 1
+        },
+        "businessTypes": {
+          "Груминг": 1,
+          "Спорт": 1
+        }
+      },
+      {
+        "neighborhood": "Младост 2",
+        "businesses": 7,
+        "categories": {
+          "detailing": 1,
+          "education": 2,
+          "fitness": 3,
+          "other": 1
+        },
+        "businessTypes": {
+          "Детайлинг": 1,
+          "Друга услуга": 1,
+          "Спорт": 3,
+          "Уроци": 2
+        }
+      },
+      {
+        "neighborhood": "Младост 3",
+        "businesses": 8,
+        "categories": {
+          "auto_repair": 1,
+          "beauty": 1,
+          "education": 2,
+          "fitness": 1,
+          "hair": 1,
+          "nails": 1,
+          "other": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1,
+          "Красота": 1,
+          "Маникюр": 1,
+          "Спорт": 1,
+          "Татуировки и пиърсинг": 1,
+          "Уроци": 2,
+          "Фризьор": 1
+        }
+      },
+      {
+        "neighborhood": "Младост 4",
+        "businesses": 4,
+        "categories": {
+          "education": 1,
+          "fitness": 1,
+          "nails": 2
+        },
+        "businessTypes": {
+          "Маникюр": 2,
+          "Спорт": 1,
+          "Уроци": 1
+        }
+      },
+      {
+        "neighborhood": "Модерно предградие",
+        "businesses": 1,
+        "categories": {
+          "detailing": 1
+        },
+        "businessTypes": {
+          "Детайлинг": 1
+        }
+      },
+      {
+        "neighborhood": "Мотописта",
+        "businesses": 1,
+        "categories": {
+          "education": 1
+        },
+        "businessTypes": {
+          "Уроци": 1
+        }
+      },
+      {
+        "neighborhood": "Мусагеница",
+        "businesses": 3,
+        "categories": {
+          "fitness": 2,
+          "hair": 1
+        },
+        "businessTypes": {
+          "Спорт": 2,
+          "Фризьор": 1
+        }
+      },
+      {
+        "neighborhood": "Надежда",
+        "businesses": 4,
+        "categories": {
+          "auto_repair": 1,
+          "education": 2,
+          "fitness": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1,
+          "Спорт": 1,
+          "Уроци": 2
+        }
+      },
+      {
+        "neighborhood": "Надежда 1",
+        "businesses": 1,
+        "categories": {
+          "other": 1
+        },
+        "businessTypes": {
+          "Стоматология": 1
+        }
+      },
+      {
+        "neighborhood": "Надежда 2",
+        "businesses": 2,
+        "categories": {
+          "education": 1,
+          "other": 1
+        },
+        "businessTypes": {
+          "Стоматология": 1,
+          "Уроци": 1
+        }
+      },
+      {
+        "neighborhood": "Надежда 4",
+        "businesses": 1,
+        "categories": {
+          "nails": 1
+        },
+        "businessTypes": {
+          "Маникюр": 1
+        }
+      },
+      {
+        "neighborhood": "Неуточнен квартал",
+        "businesses": 179,
+        "categories": {
+          "auto_repair": 13,
+          "barber": 5,
+          "beauty": 9,
+          "consulting": 23,
+          "education": 17,
+          "fitness": 45,
+          "hair": 17,
+          "health": 10,
+          "nails": 12,
+          "other": 28
+        },
+        "businessTypes": {
+          "Автосервиз": 13,
+          "Бръснарница": 5,
+          "Друга услуга": 3,
+          "Консултации": 23,
+          "Красота": 9,
+          "Маникюр": 12,
+          "Психиатрия": 1,
+          "Психология и психотерапия": 3,
+          "Спорт": 45,
+          "Стоматология": 14,
+          "Татуировки и пиърсинг": 2,
+          "Терапии": 10,
+          "Уроци": 17,
+          "Фотография": 5,
+          "Фризьор": 17
+        }
+      },
+      {
+        "neighborhood": "НПЗ Искър",
+        "businesses": 1,
+        "categories": {
+          "consulting": 1
+        },
+        "businessTypes": {
+          "Консултации": 1
+        }
+      },
+      {
+        "neighborhood": "НПЗ Хаджи Димитър",
+        "businesses": 1,
+        "categories": {
+          "auto_repair": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1
+        }
+      },
+      {
+        "neighborhood": "Оборище",
+        "businesses": 2,
+        "categories": {
+          "consulting": 1,
+          "nails": 1
+        },
+        "businessTypes": {
+          "Консултации": 1,
+          "Маникюр": 1
+        }
+      },
+      {
+        "neighborhood": "Овча купел",
+        "businesses": 2,
+        "categories": {
+          "fitness": 2
+        },
+        "businessTypes": {
+          "Спорт": 2
+        }
+      },
+      {
+        "neighborhood": "Овча купел 1",
+        "businesses": 4,
+        "categories": {
+          "auto_repair": 1,
+          "education": 1,
+          "hair": 1,
+          "other": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1,
+          "Стоматология": 1,
+          "Уроци": 1,
+          "Фризьор": 1
+        }
+      },
+      {
+        "neighborhood": "Овча купел 2",
+        "businesses": 2,
+        "categories": {
+          "detailing": 1,
+          "fitness": 1
+        },
+        "businessTypes": {
+          "Детайлинг": 1,
+          "Спорт": 1
+        }
+      },
+      {
+        "neighborhood": "Орландовци",
+        "businesses": 2,
+        "categories": {
+          "auto_repair": 2
+        },
+        "businessTypes": {
+          "Автосервиз": 2
+        }
+      },
+      {
+        "neighborhood": "Полигона",
+        "businesses": 1,
+        "categories": {
+          "hair": 1
+        },
+        "businessTypes": {
+          "Фризьор": 1
+        }
+      },
+      {
+        "neighborhood": "Разсадника",
+        "businesses": 1,
+        "categories": {
+          "education": 1
+        },
+        "businessTypes": {
+          "Уроци": 1
+        }
+      },
+      {
+        "neighborhood": "Редута",
+        "businesses": 2,
+        "categories": {
+          "hair": 1,
+          "other": 1
+        },
+        "businessTypes": {
+          "Стоматология": 1,
+          "Фризьор": 1
+        }
+      },
+      {
+        "neighborhood": "Света Троица",
+        "businesses": 2,
+        "categories": {
+          "beauty": 1,
+          "fitness": 1
+        },
+        "businessTypes": {
+          "Красота": 1,
+          "Спорт": 1
+        }
+      },
+      {
+        "neighborhood": "Сердика",
+        "businesses": 1,
+        "categories": {
+          "fitness": 1
+        },
+        "businessTypes": {
+          "Спорт": 1
+        }
+      },
+      {
+        "neighborhood": "Симеоново",
+        "businesses": 1,
+        "categories": {
+          "education": 1
+        },
+        "businessTypes": {
+          "Уроци": 1
+        }
+      },
+      {
+        "neighborhood": "Славия",
+        "businesses": 1,
+        "categories": {
+          "fitness": 1
+        },
+        "businessTypes": {
+          "Спорт": 1
+        }
+      },
+      {
+        "neighborhood": "Слатина",
+        "businesses": 3,
+        "categories": {
+          "auto_repair": 1,
+          "education": 1,
+          "other": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1,
+          "Стоматология": 1,
+          "Уроци": 1
+        }
+      },
+      {
+        "neighborhood": "Сточна гара",
+        "businesses": 1,
+        "categories": {
+          "other": 1
+        },
+        "businessTypes": {
+          "Стоматология": 1
+        }
+      },
+      {
+        "neighborhood": "Стрелбище",
+        "businesses": 1,
+        "categories": {
+          "fitness": 1
+        },
+        "businessTypes": {
+          "Спорт": 1
+        }
+      },
+      {
+        "neighborhood": "Студентски град",
+        "businesses": 14,
+        "categories": {
+          "auto_repair": 1,
+          "barber": 1,
+          "consulting": 1,
+          "education": 1,
+          "fitness": 7,
+          "hair": 1,
+          "nails": 2
+        },
+        "businessTypes": {
+          "Автосервиз": 1,
+          "Бръснарница": 1,
+          "Консултации": 1,
+          "Маникюр": 2,
+          "Спорт": 7,
+          "Уроци": 1,
+          "Фризьор": 1
+        }
+      },
+      {
+        "neighborhood": "Суха река",
+        "businesses": 2,
+        "categories": {
+          "education": 1,
+          "other": 1
+        },
+        "businessTypes": {
+          "Стоматология": 1,
+          "Уроци": 1
+        }
+      },
+      {
+        "neighborhood": "Хаджи Димитър",
+        "businesses": 3,
+        "categories": {
+          "fitness": 2,
+          "nails": 1
+        },
+        "businessTypes": {
+          "Маникюр": 1,
+          "Спорт": 2
+        }
+      },
+      {
+        "neighborhood": "Хиподрума",
+        "businesses": 2,
+        "categories": {
+          "fitness": 1,
+          "hair": 1
+        },
+        "businessTypes": {
+          "Спорт": 1,
+          "Фризьор": 1
+        }
+      },
+      {
+        "neighborhood": "Хладилника",
+        "businesses": 2,
+        "categories": {
+          "fitness": 1,
+          "nails": 1
+        },
+        "businessTypes": {
+          "Маникюр": 1,
+          "Спорт": 1
+        }
+      },
+      {
+        "neighborhood": "Център",
+        "businesses": 26,
+        "categories": {
+          "barber": 1,
+          "consulting": 8,
+          "education": 8,
+          "fitness": 1,
+          "other": 8
+        },
+        "businessTypes": {
+          "Бръснарница": 1,
+          "Друга услуга": 3,
+          "Консултации": 8,
+          "Психология и психотерапия": 2,
+          "Спорт": 1,
+          "Татуировки и пиърсинг": 3,
+          "Уроци": 8
+        }
+      },
+      {
+        "neighborhood": "Челопечене",
+        "businesses": 1,
+        "categories": {
+          "fitness": 1
+        },
+        "businessTypes": {
+          "Спорт": 1
+        }
+      }
+    ],
+    "citywideOperators": [
+      {
+        "id": "sofia-toto-clean-home-visits",
+        "name": "Тото Клийн · посещения на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-chistobg-net-home-visits",
+        "name": "ChistoBG · почистване на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-sofia-clean-agency-home-visits",
+        "name": "Sofia Clean Agency · почистване на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-albel-ognyan-tsonev-home-repair",
+        "name": "Александър Бел · сервиз АлБел",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-kominochistachsofia-home-visits",
+        "name": "Коминочистач София · посещения на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-expres-partners-upholstery-home-visits",
+        "name": "Експрес Партнерс · пране на мека мебел",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-iliyan-ivanov-eltehnik-home-visits",
+        "name": "Ел техник · Илиян Иванов",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-renovalume-home-visits",
+        "name": "Renovalume · почистване на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-viksofia-eu-home-visits",
+        "name": "VikSofia.eu · водопроводчик на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-vik-sofia-eu-home-visits",
+        "name": "Vik-Sofia.eu · водопроводни услуги на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-integral17-home-visits",
+        "name": "Интеграл 17 · ВиК услуги на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-kanal-maistor-vik-pomosht-home-visits",
+        "name": "Канал Майстор · ВиК Помощ",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-electro-group-service-home-visits",
+        "name": "Електро Груп Сервиз · посещения на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-domelino-home-visits",
+        "name": "Домелино · почистване на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-rmk-service-dograma-home-visits",
+        "name": "RMK Service · ремонт на дограма",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-antonia-malcheva-home-consultation",
+        "name": "Антония Малчева · психологическо домашно посещение",
+        "businessType": "Психология и психотерапия"
+      },
+      {
+        "id": "sofia-glassmagics-mobile",
+        "name": "GlassMagics · мобилен ремонт на автостъкла",
+        "businessType": "Автосервиз"
+      },
+      {
+        "id": "sofia-milkris-autoglass-mobile",
+        "name": "МилКрис Сервиз · автостъкла на адрес",
+        "businessType": "Автосервиз"
+      },
+      {
+        "id": "sofia-chavdar-chenkov-site-consultation",
+        "name": "Арх. Чавдар Ченков · консултация на място",
+        "businessType": "Консултации"
+      },
+      {
+        "id": "sofia-bulgaria-serviz-group-home",
+        "name": "България сервиз груп · домашни посещения София",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-golden-hands-massage-home-visits",
+        "name": "Golden Hands · масаж на адрес",
+        "businessType": "Терапии"
+      },
+      {
+        "id": "sofia-faza-home-electrical",
+        "name": "Faza.bg · електроуслуги",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-colomba-home-cleaning",
+        "name": "Коломба Къмпани · почистване на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-redline-speed-prepurchase-mobile",
+        "name": "Redline Speed · оглед преди покупка на адрес",
+        "businessType": "Автосервиз"
+      },
+      {
+        "id": "sofia-global-autofix-mobile",
+        "name": "GLOBAL AUTOFIX · мобилна помощ",
+        "businessType": "Автосервиз"
+      },
+      {
+        "id": "sofia-pepelyashka-home-cleaning",
+        "name": "Пепеляшка · почистване на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-divinity-home-cleaning",
+        "name": "Дивинити · почистване на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-clean-bg-home-cleaning",
+        "name": "Clean.bg · почистване на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-tendencia-mobile-showroom",
+        "name": "Tendencia BG · мобилен шоурум София",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-verde-interiori-home-consultation",
+        "name": "Verde Interiori · консултация на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-dream-design-home-consultation",
+        "name": "Dream Design · огледи в София",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-prohamali-home-moving",
+        "name": "Хамали Иванов · ProHamali",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-chisto-s-lili-home-cleaning",
+        "name": "Чисто с Лили · почистване в София",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-chista-rabota-home-moving",
+        "name": "Чиста работа · разчистване и преместване",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-sfumato-design-home-consultation",
+        "name": "Sfumato Design · консултация на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-it-doctor-home-support",
+        "name": "IT Doctor · компютърна помощ на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-enter-computers-mobile-support",
+        "name": "Enter Computers · мобилен компютърен сервиз",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-serviz-computri-home-support",
+        "name": "Сервиз Компютри и Лаптопи · на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-bgdiagnostika-mobile-booster",
+        "name": "BGdiagnostika · мобилно подаване на ток",
+        "businessType": "Автосервиз"
+      },
+      {
+        "id": "sofia-serviz-engineerings-home-computers",
+        "name": "Сервиз Инженерингс · компютри на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-naydenov-mobile-tyres",
+        "name": "Найденов Сервиз · мобилни гуми",
+        "businessType": "Автосервиз"
+      },
+      {
+        "id": "sofia-gumicon-mobile-tyres",
+        "name": "Gumicon · мобилни гуми",
+        "businessType": "Автосервиз"
+      },
+      {
+        "id": "sofia-mobilix-mobile-vacuum-oil",
+        "name": "Mobilix Auto Care · мобилен автосервиз",
+        "businessType": "Автосервиз"
+      },
+      {
+        "id": "sofia-autodiag-expert-mobile",
+        "name": "AutoDiagExpert · мобилна автодиагностика",
+        "businessType": "Автосервиз"
+      },
+      {
+        "id": "sofia-avtodiagnoza-mobile-diagnostics",
+        "name": "Автодиагноза · диагностика на място",
+        "businessType": "Автосервиз"
+      },
+      {
+        "id": "sofia-filchev-auto-mobile-tyres",
+        "name": "Филчев Ауто · мобилен сервиз за гуми",
+        "businessType": "Автосервиз"
+      },
+      {
+        "id": "sofia-mobile-auto-899195996",
+        "name": "Мобилен автосервиз 24/7 · София",
+        "businessType": "Автосервиз"
+      },
+      {
+        "id": "sofia-shiny-house-home-cleaning",
+        "name": "Shiny House BG · почистване София",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-remontiram-home-survey",
+        "name": "Ремонт София · remontiram.bg",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-become-pro-football-sofia",
+        "name": "Become Pro · индивидуални футболни тренировки",
+        "businessType": "Спорт"
+      },
+      {
+        "id": "sofia-kirbypro-home-cleaning",
+        "name": "KirbyPro · почистване на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-vnl-trans-furniture-home-visits",
+        "name": "ВНЛ Транспорт · монтаж и демонтаж на адрес",
+        "businessType": "За дома"
+      }
+    ]
+  },
+  "deltaSince1664": {
+    "businesses": 29,
+    "services": 38,
+    "literalPriceFacts": 24,
+    "pricedBusinesses": 15,
+    "genuineUnpublishedPriceBusinesses": 14,
+    "reviewedHours": 9,
+    "officialPostalPoints": 8,
+    "newAcceptedIllustrativeAssets": 8,
+    "list": [
+      {
+        "id": "sofia-mitaka-service-gtp-kliment65e",
+        "name": "Митака Сървис · ГТП",
+        "neighborhood": null,
+        "category": "auto_repair",
+        "services": 1,
+        "priceFacts": 0
+      },
+      {
+        "id": "sofia-become-pro-football-sofia",
+        "name": "Become Pro · индивидуални футболни тренировки",
+        "neighborhood": null,
+        "category": "fitness",
+        "services": 1,
+        "priceFacts": 0
+      },
+      {
+        "id": "sofia-motorche-ivan-ivanov58",
+        "name": "Motorche.bg · автомобилни електромотори",
+        "neighborhood": null,
+        "category": "auto_repair",
+        "services": 1,
+        "priceFacts": 1
+      },
+      {
+        "id": "sofia-folklorika-oki-nadezhda-lomsko2",
+        "name": "Фолклорика · ОКИ-Надежда",
+        "neighborhood": "Надежда",
+        "category": "fitness",
+        "services": 1,
+        "priceFacts": 0
+      },
+      {
+        "id": "sofia-folklorika-serdika-gyueshevo50",
+        "name": "Фолклорика · Сердика",
+        "neighborhood": "Сердика",
+        "category": "fitness",
+        "services": 1,
+        "priceFacts": 0
+      },
+      {
+        "id": "sofia-fit-kids-priority-vasil-levski",
+        "name": "Fit Kids by Priority Sport",
+        "neighborhood": null,
+        "category": "fitness",
+        "services": 1,
+        "priceFacts": 1
+      },
+      {
+        "id": "sofia-slavia-volleyball-child-school",
+        "name": "ВК Славия · детска волейболна школа",
+        "neighborhood": null,
+        "category": "fitness",
+        "services": 1,
+        "priceFacts": 0
+      },
+      {
+        "id": "sofia-septemvri-basketball-usta-gencho1",
+        "name": "БК Септември · София",
+        "neighborhood": null,
+        "category": "fitness",
+        "services": 1,
+        "priceFacts": 0
+      },
+      {
+        "id": "sofia-slavia-basketball-child-school",
+        "name": "БК Славия · детска баскетболна школа",
+        "neighborhood": "Овча купел",
+        "category": "fitness",
+        "services": 1,
+        "priceFacts": 0
+      },
+      {
+        "id": "sofia-paintkillers-gryunanger43b",
+        "name": "PaintKillers",
+        "neighborhood": "Овча купел 2",
+        "category": "detailing",
+        "services": 1,
+        "priceFacts": 1
+      },
+      {
+        "id": "sofia-v-swim-sveti-georgi-vaptsarov47",
+        "name": "V-SWIM · басейн Свети Георги",
+        "neighborhood": "Лозенец",
+        "category": "fitness",
+        "services": 1,
+        "priceFacts": 1
+      },
+      {
+        "id": "sofia-v-swim-vitosha-rosario1",
+        "name": "V-SWIM · басейн Парк хотел Витоша",
+        "neighborhood": null,
+        "category": "fitness",
+        "services": 1,
+        "priceFacts": 1
+      },
+      {
+        "id": "sofia-bridal-gallery-karnigradska13",
+        "name": "Bridal Gallery · индивидуална проба",
+        "neighborhood": null,
+        "category": "consulting",
+        "services": 1,
+        "priceFacts": 1
+      },
+      {
+        "id": "sofia-noradent-slavyanska6",
+        "name": "НораДент · д-р Нора Дамянова",
+        "neighborhood": null,
+        "category": "other",
+        "services": 3,
+        "priceFacts": 3
+      },
+      {
+        "id": "sofia-apex-dental-iztok-haytov1",
+        "name": "Apex Dental Center · Изток",
+        "neighborhood": "Изток",
+        "category": "other",
+        "services": 4,
+        "priceFacts": 4
+      },
+      {
+        "id": "sofia-apex-dental-slatina101a",
+        "name": "Apex Dental Center · Слатина",
+        "neighborhood": "Слатина",
+        "category": "other",
+        "services": 4,
+        "priceFacts": 4
+      },
+      {
+        "id": "sofia-coldy-dent-balgarska-legiya2",
+        "name": "Coldy Dent · Манастирски ливади",
+        "neighborhood": "Манастирски ливади",
+        "category": "other",
+        "services": 1,
+        "priceFacts": 0
+      },
+      {
+        "id": "sofia-andreev-dental-totleben95",
+        "name": "Дентална клиника Андреев",
+        "neighborhood": null,
+        "category": "other",
+        "services": 2,
+        "priceFacts": 2
+      },
+      {
+        "id": "sofia-nurident-zlatovrah52",
+        "name": "Нуридент 1 · Златовръх 52",
+        "neighborhood": "Лозенец",
+        "category": "other",
+        "services": 1,
+        "priceFacts": 1
+      },
+      {
+        "id": "sofia-mh-dental-center-lagera59",
+        "name": "M&H Dental Center · София",
+        "neighborhood": "Лагера",
+        "category": "other",
+        "services": 1,
+        "priceFacts": 1
+      },
+      {
+        "id": "sofia-kirbypro-home-cleaning",
+        "name": "KirbyPro · почистване на адрес",
+        "neighborhood": null,
+        "category": "home_services",
+        "services": 1,
+        "priceFacts": 1
+      },
+      {
+        "id": "sofia-avia-invest-stamboliyski41",
+        "name": "Авиа Инвест · счетоводни консултации",
+        "neighborhood": null,
+        "category": "consulting",
+        "services": 1,
+        "priceFacts": 1
+      },
+      {
+        "id": "sofia-vyarabel-mladost4-fontanite460v",
+        "name": "Вярабел · учебно-артистичен център",
+        "neighborhood": "Младост 4",
+        "category": "education",
+        "services": 1,
+        "priceFacts": 1
+      },
+      {
+        "id": "sofia-yanko-vasilev73-buxton-gortalov13",
+        "name": "Янко Василев 73 · ателие Бъкстон",
+        "neighborhood": "Бъкстон",
+        "category": "other",
+        "services": 1,
+        "priceFacts": 0
+      },
+      {
+        "id": "sofia-yanko-vasilev73-mladost2-rum22",
+        "name": "Янко Василев 73 · ателие Младост 2",
+        "neighborhood": "Младост 2",
+        "category": "other",
+        "services": 1,
+        "priceFacts": 0
+      },
+      {
+        "id": "sofia-yanko-vasilev73-karpuzitsa-bachiyski6",
+        "name": "Янко Василев 73 · ателие Карпузица",
+        "neighborhood": "Карпузица",
+        "category": "other",
+        "services": 1,
+        "priceFacts": 0
+      },
+      {
+        "id": "sofia-got-your-english-kliment-denchev11",
+        "name": "Got Your English? · Гео Милев",
+        "neighborhood": "Гео Милев",
+        "category": "education",
+        "services": 1,
+        "priceFacts": 0
+      },
+      {
+        "id": "sofia-vnl-trans-furniture-home-visits",
+        "name": "ВНЛ Транспорт · монтаж и демонтаж на адрес",
+        "neighborhood": null,
+        "category": "home_services",
+        "services": 1,
+        "priceFacts": 0
+      },
+      {
+        "id": "sofia-ip-in-the-spotlight-bersinski12",
+        "name": "IP in the spotlight · адв. Теодора Лалова",
+        "neighborhood": null,
+        "category": "consulting",
+        "services": 1,
+        "priceFacts": 0
+      }
+    ]
+  },
+  "sourceModules": [
+    "lib/discovery/catalogue-data/neighborhood-auto-sport-2000-018-20261113.mjs",
+    "lib/discovery/catalogue-data/neighborhood-auto-sport-2000-019-20261113.mjs",
+    "lib/discovery/catalogue-data/neighborhood-auto-sport-2000-020-20261113.mjs",
+    "lib/discovery/catalogue-data/neighborhood-beauty-2000-017-20261113.mjs",
+    "lib/discovery/catalogue-data/neighborhood-dental-2000-007-20261113.mjs",
+    "lib/discovery/catalogue-data/neighborhood-dental-2000-008-20261113.mjs",
+    "lib/discovery/catalogue-data/neighborhood-dental-2000-009-20261113.mjs",
+    "lib/discovery/catalogue-data/neighborhood-dental-2000-010-20261113.mjs",
+    "lib/discovery/catalogue-data/neighborhood-dental-2000-011-20261113.mjs",
+    "lib/discovery/catalogue-data/neighborhood-home-education-2000-017-20261113.mjs",
+    "lib/discovery/catalogue-data/neighborhood-home-education-2000-018-20261113.mjs"
+  ],
+  "sourceLedgers": [
+    "docs/catalogue-pricing/expansion-auto-sport-2000-018-20261113.json",
+    "docs/catalogue-pricing/expansion-auto-sport-2000-019-20261113.json",
+    "docs/catalogue-pricing/expansion-auto-sport-2000-020-20261113.json",
+    "docs/catalogue-pricing/expansion-beauty-2000-017-20261113.json",
+    "docs/catalogue-pricing/expansion-dental-2000-007-20261113.json",
+    "docs/catalogue-pricing/expansion-dental-2000-008-20261113.json",
+    "docs/catalogue-pricing/expansion-dental-2000-009-20261113.json",
+    "docs/catalogue-pricing/expansion-dental-2000-010-20261113.json",
+    "docs/catalogue-pricing/expansion-dental-2000-011-20261113.json",
+    "docs/catalogue-pricing/expansion-home-education-2000-017-20261113.json",
+    "docs/catalogue-pricing/expansion-home-education-2000-018-20261113.json"
+  ],
+  "safeguards": {
+    "independentRealOperatorsAndBranchesOnly": true,
+    "allNewBusinessesAvailableInPublicSearchAndPartnerOnboarding": true,
+    "noFixedMinutesInferredFromPriceHourOrUpToRanges": true,
+    "literalSourceCurrencyAndPriceUnitsPreserved": true,
+    "bgnPublicConversionUsesExistingFormatterNotSourceMisattribution": true,
+    "noNewClinicsOrPhysiciansOutsideOwnerScope": true,
+    "missingConflictingOrBlockedPricesNotInventedOrCalledUnpublished": true,
+    "noInventedAddressesCoordinatesOrDistances": true,
+    "noNewNominatimCalls": true,
+    "originalOwnerCsvSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+    "ownerCsvUnchangedShaCheckedAtUtc": "2026-11-14 05:24 UTC",
+    "original501PointsFullPrecisionAndOrderUnchanged": true,
+    "sourceUseRestrictionsAndAccessHoldsRecordedInIndividualLedgers": true,
+    "noCustomerInputsBookingsCallsPaymentsNotificationsProductionDatabaseSettingsOrSecretsTouched": true,
+    "homepageLayoutBookingEngineAndDashboardUnchanged": true,
+    "acquisitionStoppedOnOwnerRequest": true,
+    "unfrozenAuto021AndHome019Excluded": true,
+    "mainLoadingLogoPreserved": "Read-only merge-tree with current main produced no tree difference from HEAD: the already-live PR58 logo content is already present on this branch."
+  },
+  "photos": {
+    "specificVisibleCatalogueServices": 10067,
+    "neutral": 0,
+    "missing": 0,
+    "invalidAssets": 0,
+    "acceptedReviewedGeneratedAssetsTotal": 1227,
+    "newAssets": [
+      {
+        "id": "sx-auto-detached-electric-motor-diagnosis",
+        "file": "public/service-photos/sx-auto-detached-electric-motor-diagnosis-v1.webp",
+        "label": "Диагностика на свален автомобилен електромотор",
+        "bytes": 12974,
+        "sha256": "55ed93bedeba1845c09a5c990b785a37f740216c6c3679cc9539c662e411d74c",
+        "sourceFile": "exec-dd1a2dc9-008e-414e-afab-9b3535feed96.png",
+        "sourceSha256": "afd7935a1da904b5503acf2999a4dfb2827dd81771f6ef3a2aa913ae743b7b28",
+        "generatedOn": "2026-11-14"
+      },
+      {
+        "id": "sx-bulgarian-folk-private-lesson",
+        "file": "public/service-photos/sx-bulgarian-folk-private-lesson-v1.webp",
+        "label": "Индивидуален урок по български народни танци",
+        "bytes": 11012,
+        "sha256": "4d66ecb8a7008a8bdba2ffabce5dd752ce75b6f3aa14db643c7d458675c98131",
+        "sourceFile": "exec-772fbcee-2b7b-4ea3-9d5e-8afc8b67d8b9.png",
+        "sourceSha256": "c107c6669669d50d5c1ba514fb4ce9e18578a863e6318817fa7a3588882bf03d",
+        "generatedOn": "2026-11-14"
+      },
+      {
+        "id": "sx-bridal-dress-fitting-consultation",
+        "file": "public/service-photos/sx-bridal-dress-fitting-consultation-v1.webp",
+        "label": "Индивидуална проба на булчински рокли",
+        "bytes": 8788,
+        "sha256": "77d7f1990fc925ab3847a7e37fac3f933c5ef14d5d6df12d77f16cb4e2734dcb",
+        "sourceFile": "exec-582a996b-b5bd-4e58-899c-06e472e76eb2.png",
+        "sourceSha256": "0a606fc5250199615301eeb1b17cb53d91b33b3f08240515acf087b43a55201a",
+        "generatedOn": "2026-11-14"
+      },
+      {
+        "id": "sx-child-athletics-group-six-ten",
+        "file": "public/service-photos/sx-child-athletics-group-six-ten-v1.webp",
+        "label": "Групова лека атлетика за деца 6–10 години",
+        "bytes": 19302,
+        "sha256": "c85a2e40c153b2d7c14c056ef7a85ee957d632ddbc41235abffc616b18c2eb2f",
+        "sourceFile": "exec-9fadf69f-bf2c-46ea-8e13-2aadbc544240.png",
+        "sourceSha256": "805bdd925a161d351e371a6e3282c45a2acbe280fc7ce4ccda231d03b693856a",
+        "generatedOn": "2026-11-14"
+      },
+      {
+        "id": "sx-child-girls-volleyball-beginners",
+        "file": "public/service-photos/sx-child-girls-volleyball-beginners-v1.webp",
+        "label": "Начална волейболна група за момичета",
+        "bytes": 12770,
+        "sha256": "bc9e251c0059e34d1957876f0bc088825cf116ba6fca915107944195ca943bbb",
+        "sourceFile": "exec-d047bffc-2ddd-4f6e-9c98-e3fcdf46fba5.png",
+        "sourceSha256": "93d6d1fcad9621fe781c49a8b8030691feb4d7906828551739b0442babe60bbd",
+        "generatedOn": "2026-11-14"
+      },
+      {
+        "id": "sx-boys-basketball-school-group",
+        "file": "public/service-photos/sx-boys-basketball-school-group-v1.webp",
+        "label": "Баскетболна школа за момчета",
+        "bytes": 12094,
+        "sha256": "a2f4113a10850fc68b976be364017f827e326017fc104c43dd177070ec3a569c",
+        "sourceFile": "exec-d1f2af41-6e52-47f3-bdb1-afd9aed29da7.png",
+        "sourceSha256": "d5e6fa51426543e94240986bf1e51826e31506ad1b395c9b77ac6426667f455c",
+        "generatedOn": "2026-11-14"
+      },
+      {
+        "id": "sx-mixed-child-basketball-school",
+        "file": "public/service-photos/sx-mixed-child-basketball-school-v1.webp",
+        "label": "Смесена детска група по баскетбол",
+        "bytes": 12660,
+        "sha256": "4b0e95a68d65032ffca3c9c4a3606d2ba34e6dd1ddd4fc39adbecce5af35ac0a",
+        "sourceFile": "exec-e1db152f-4df1-449a-8441-ec7ad9fc2b34.png",
+        "sourceSha256": "a63f5ff10a13e0df6c2be328f3c1eae2d39977fa6265c6487b1b1603b6d11221",
+        "generatedOn": "2026-11-14"
+      },
+      {
+        "id": "sx-child-swimming-beginner-group",
+        "file": "public/service-photos/sx-child-swimming-beginner-group-v1.webp",
+        "label": "Групов урок по плуване за начинаещи деца",
+        "bytes": 16484,
+        "sha256": "2cdd3ea946aa0b1f9f8add3262b75ce4c2965c10a7329ff5a56c24e393085e23",
+        "sourceFile": "exec-d68ca6fb-db01-4c0b-a53c-6c5cdd20a886.png",
+        "sourceSha256": "ca78e5051b6928c14f1a8a33bc7c60d3274f7c7364ff908e4171c447777a84bf",
+        "generatedOn": "2026-11-14"
+      }
+    ],
+    "provenanceManifest": "docs/specific-service-photo-generation-2026-11-12.json",
+    "mode": "Built-in image generation; mechanical Sharp256x256WebPq82effort6. Root personally viewed full sources and final thumbnails. Fictional illustrative people/venues, not verified provider work.",
+    "reusedChildExamination": {
+      "id": "child-dental-exam",
+      "newImage": false,
+      "originalGeneratedOn": "2026-11-12",
+      "originalManifest": "docs/service-photo-generation-2026-11-12.json",
+      "rootReview": "docs/catalogue-pricing/expansion-dental-2000-007-20261113.json",
+      "sourceAndPublicHashesUnchanged": true
+    },
+    "preflightCorrections": "Initial child-exam photo selection was rejected as neutral; explicit reviewed legacy-key selection fixed it. The first attempt to put a legacy asset into the sx-only provenance manifest was also rejected and was removed. Original legacy provenance retained; no release gate weakened or baseline refreshed.",
+    "partnerAudit": {
+      "businesses": 6,
+      "visibleServices": 22,
+      "specificServices": 22,
+      "hiddenPreviouslyConfirmedPlaceholders": 3,
+      "issues": 0
+    }
+  },
+  "testsActuallyRun": {
+    "fullNode": {
+      "command": "node --test --test-concurrency=4 tests/*.test.mjs",
+      "tests": 2228,
+      "pass": 2228,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "durationMs": 93903.242,
+      "note": "Full suite included the dental009–011 test, but the final home018/auto020 regression file had not yet been written and is executed separately below."
+    },
+    "focusedFinal": {
+      "command": "node --test tests/catalogue-2000-auto018.test.mjs tests/catalogue-2000-auto019.test.mjs tests/catalogue-2000-dental007.test.mjs tests/catalogue-2000-dental008-beauty017.test.mjs tests/catalogue-2000-dental009-dental011.test.mjs tests/catalogue-2000-home017.test.mjs tests/catalogue-2000-home018-auto020.test.mjs tests/catalogue-2000-official-locations.test.mjs",
+      "tests": 45,
+      "pass": 45,
+      "fail": 0,
+      "durationMs": 2346.298458
+    },
+    "pythonPricingExtraction": {
+      "command": "python3 tests/pricing-extraction_test.py",
+      "pass": 8,
+      "fail": 0
+    },
+    "pythonBookingPricingFlow": {
+      "command": "python3 tests/booking-pricing-flow_test.py",
+      "pass": 4,
+      "fail": 0
+    },
+    "productionBuild": {
+      "command": "pnpm --config.verify-deps-before-run=warn build --webpack",
+      "result": "passed",
+      "staticPages": 92,
+      "existingWarning": "Existing node_modules/lockfile sync warning; no install/dependency/lockfile changes."
+    },
+    "catalogueCheck": {
+      "command": "pnpm --config.verify-deps-before-run=warn catalogue:check",
+      "allThreeGates": "passed",
+      "approved": 1693,
+      "sourceRows": 1716,
+      "sourceReviewed": 1067,
+      "serviceReviewedWithoutPublicPrices": 237,
+      "legacyPending": 412,
+      "blockedNewOrChangedListings": [],
+      "visibleServices": 10067,
+      "specificComplete": true,
+      "provenanceComplete": true,
+      "reviewedNewPhotos": 1227,
+      "neutral": 0,
+      "missing": 0,
+      "invalidAssets": 0
+    },
+    "focusedAfterWhitespaceCleanup": {
+      "command": "node --test tests/catalogue-2000-home017.test.mjs tests/catalogue-2000-home018-auto020.test.mjs tests/catalogue-2000-official-locations.test.mjs",
+      "pass": 17,
+      "fail": 0,
+      "durationMs": 1493.921666
+    },
+    "wholeStagedPatchCheck": {
+      "command": "git diff --cached --check 1353ae467290da5762ab66d4bb401aa4f7b42f0d",
+      "result": "passed for45files before this report; repeated including report before commit",
+      "cleanup": "Removed only extra EOF blank lines in the two new home017/home018 source modules. No semantic data or assertions changed."
+    },
+    "nativeResponsiveWidths": {
+      "executed": false,
+      "reason": "No fresh five-width layout screenshots claimed for this catalogue/data-only release. Homepage layout, booking UI and dashboard are unchanged."
+    }
+  },
+  "publication": {
+    "requested": true,
+    "liveAtReportCreation": false,
+    "method": "After tests, push the reviewed branch and create/merge its PR through the normal integration or already-authorized signed-in owner GitHub UI. No permission/credential/settings changes, direct-main push, migration, real bookings or notifications.",
+    "previousIntegrationFailure": "403 Resource not accessible by integration",
+    "ownerUiNow": "Safari and the signed-in GitHub owner session became available again for final release.",
+    "obsoleteBranchesDoNotMerge": [
+      "codex/catalogue-2000-recovery-20261113",
+      "codex/catalogue-1523-ready-20261113",
+      "codex/catalogue-1548-ready-20261114"
+    ]
+  },
+  "retainedUnpublishedWip": [
+    "auto-sport-2000-021",
+    "home-education-2000-019",
+    "psychology-2000-003 research-only journal"
+  ],
+  "limitations": [
+    "307 eligible businesses remain to reach2000; the acquisition goal is not complete and is paused by the owner.",
+    "602 stationary businesses have no source-bound point; they do not receive invented distances.191 genuine citywide/mobile operators do not have a stationary business pin.",
+    "160 ambiguous postal matches,622 unresolved matches including mobile providers and11 unique-but-site-specific matches remain held.",
+    "A sourced postal building point is not a guarantee of the physical entrance or an interior room.",
+    "Missing or inaccessible tariffs are never fabricated; genuinely unpublished prices require the recorded explicit review. No complete whole-menu pricing claim."
+  ]
+}

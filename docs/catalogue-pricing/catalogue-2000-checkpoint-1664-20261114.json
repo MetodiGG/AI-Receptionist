@@ -1,0 +1,1661 @@
+{
+  "checkedOn": "2026-11-14",
+  "checkedAtUtc": "2026-11-14 04:13:27 UTC",
+  "status": "local_tested_checkpoint_not_published",
+  "branch": "codex/catalogue-2000-next-20261113",
+  "parentCommit": "84fd406d3ff6dd6702354915bf7b9ea6f29ae45f",
+  "target": 2000,
+  "remaining": 336,
+  "lastConfirmedLive": {
+    "eligibleBusinesses": 1215,
+    "mainCommit": "1d4a5037cbdfc0e89fceb67532621af12fb05bc8",
+    "evidence": "Read-only git ls-remote main remains unchanged at this checkpoint. Local branch counts are not a live deployment claim.",
+    "checkedAtUtc": "2026-11-14 03:14:54 UTC"
+  },
+  "current": {
+    "eligible": 1664,
+    "raw": 1687,
+    "services": 10041,
+    "locations": {
+      "located": 892,
+      "unlocatedPremises": 584,
+      "serviceAreaProviders": 188,
+      "heldCoordinates": 0,
+      "firstPartyPoints": 164,
+      "reviewedOsmAddressPoints": 40,
+      "officialSofiaAddressPoints": 688
+    },
+    "unlocated": 772,
+    "unlocatedMatchStates": {
+      "unresolved": 606,
+      "ambiguous": 155,
+      "unique": 11
+    },
+    "uniqueHeld": [
+      {
+        "id": "sofia-shining-polishing-auto",
+        "address": "София, НПЗ Искър, ул. Мюнхен 14",
+        "rn": "96395"
+      },
+      {
+        "id": "sofia-katerene-europe-private",
+        "address": "София, Дружба 1, бул. Искърско шосе 7, Търговски център Европа, сграда 1",
+        "rn": "117374"
+      },
+      {
+        "id": "sofia-pro-sport-nsa-kliment22",
+        "address": "София, бул. Климент Охридски 22",
+        "rn": "21797"
+      },
+      {
+        "id": "sofia-ot-izvora-voenna-han-omurtag42",
+        "address": "София, ул. Хан Омуртаг 42, Winbet Sport & Event Centre, в двора на Военна академия",
+        "rn": "25167"
+      },
+      {
+        "id": "sofia-arnaudov-uzunova-tsar-boris19",
+        "address": "София, бул. Цар Борис III 19, до вх. А, партер",
+        "rn": "20180"
+      },
+      {
+        "id": "sofia-double-yellow-squash-nsa",
+        "address": "София, ул. Акад. Стефан Младенов 21, НСА, Многофункционална зала, ниво -1",
+        "rn": "112737"
+      },
+      {
+        "id": "sofia-nvs-workshop-tsarigradsko391",
+        "address": "София, бул. Цариградско шосе 391, Парк музей Враня",
+        "rn": "21753"
+      },
+      {
+        "id": "sofia-ax-horca-bio-dragan-tsankov8",
+        "address": "София, бул. Драган Цанков 8, Биологически факултет",
+        "rn": "908"
+      },
+      {
+        "id": "sofia-levski-rakovski-balsha18",
+        "address": "София, ул. Балша 18",
+        "rn": "4069"
+      },
+      {
+        "id": "sofia-diva-zone-mladost2-bg-shkolo",
+        "address": "София, ж.к. Младост 2, ул. Генерал-майор Васил Делов 10, БГ Школо",
+        "rn": "106247"
+      },
+      {
+        "id": "sofia-azbuki-sport-musagenitsa-swimming",
+        "address": "София, ж.к. Мусагеница, ул. Арх. Виктория Ангелова-Винарова 1",
+        "rn": "108460"
+      }
+    ],
+    "visibleServices": 10029,
+    "sourceServices": 10041,
+    "intentionallyExcludedByOwnerScope": 23
+  },
+  "newSince1215": {
+    "businesses": 449,
+    "services": 667,
+    "pricedBusinesses": 294,
+    "priceFacts": 499,
+    "reviewedHours": 134,
+    "premises": 400,
+    "citywide": 49,
+    "primaryCategories": {
+      "auto_repair": 42,
+      "barber": 9,
+      "beauty": 16,
+      "car_wash": 3,
+      "consulting": 42,
+      "detailing": 2,
+      "education": 63,
+      "fitness": 98,
+      "hair": 26,
+      "health": 15,
+      "home_services": 34,
+      "nails": 29,
+      "other": 66,
+      "pets": 4
+    },
+    "businessTypes": {
+      "Автомивка": 3,
+      "Автосервиз": 42,
+      "Бръснарница": 9,
+      "Груминг": 4,
+      "Детайлинг": 2,
+      "Друга услуга": 10,
+      "За дома": 34,
+      "Консултации": 42,
+      "Красота": 16,
+      "Маникюр": 29,
+      "Психиатрия": 1,
+      "Психология и психотерапия": 10,
+      "Спорт": 98,
+      "Стоматология": 34,
+      "Татуировки и пиърсинг": 6,
+      "Терапии": 15,
+      "Уроци": 63,
+      "Фотография": 5,
+      "Фризьор": 26
+    },
+    "premisesByNeighborhood": [
+      {
+        "neighborhood": "Банишора",
+        "businesses": 2,
+        "categories": {
+          "fitness": 1,
+          "other": 1
+        },
+        "businessTypes": {
+          "Спорт": 1,
+          "Стоматология": 1
+        }
+      },
+      {
+        "neighborhood": "Бели брези",
+        "businesses": 2,
+        "categories": {
+          "education": 1,
+          "other": 1
+        },
+        "businessTypes": {
+          "Стоматология": 1,
+          "Уроци": 1
+        }
+      },
+      {
+        "neighborhood": "Борово",
+        "businesses": 3,
+        "categories": {
+          "education": 1,
+          "fitness": 1,
+          "other": 1
+        },
+        "businessTypes": {
+          "Спорт": 1,
+          "Стоматология": 1,
+          "Уроци": 1
+        }
+      },
+      {
+        "neighborhood": "Бъкстон",
+        "businesses": 2,
+        "categories": {
+          "fitness": 2
+        },
+        "businessTypes": {
+          "Спорт": 2
+        }
+      },
+      {
+        "neighborhood": "Витоша",
+        "businesses": 2,
+        "categories": {
+          "fitness": 1,
+          "health": 1
+        },
+        "businessTypes": {
+          "Спорт": 1,
+          "Терапии": 1
+        }
+      },
+      {
+        "neighborhood": "Военна рампа",
+        "businesses": 1,
+        "categories": {
+          "auto_repair": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1
+        }
+      },
+      {
+        "neighborhood": "Връбница 2",
+        "businesses": 2,
+        "categories": {
+          "barber": 1,
+          "nails": 1
+        },
+        "businessTypes": {
+          "Бръснарница": 1,
+          "Маникюр": 1
+        }
+      },
+      {
+        "neighborhood": "Гевгелийски",
+        "businesses": 1,
+        "categories": {
+          "fitness": 1
+        },
+        "businessTypes": {
+          "Спорт": 1
+        }
+      },
+      {
+        "neighborhood": "Гео Милев",
+        "businesses": 9,
+        "categories": {
+          "consulting": 1,
+          "education": 1,
+          "fitness": 6,
+          "other": 1
+        },
+        "businessTypes": {
+          "Консултации": 1,
+          "Психология и психотерапия": 1,
+          "Спорт": 6,
+          "Уроци": 1
+        }
+      },
+      {
+        "neighborhood": "Горубляне",
+        "businesses": 2,
+        "categories": {
+          "auto_repair": 1,
+          "fitness": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1,
+          "Спорт": 1
+        }
+      },
+      {
+        "neighborhood": "Гоце Делчев",
+        "businesses": 1,
+        "categories": {
+          "fitness": 1
+        },
+        "businessTypes": {
+          "Спорт": 1
+        }
+      },
+      {
+        "neighborhood": "Дианабад",
+        "businesses": 3,
+        "categories": {
+          "consulting": 1,
+          "education": 1,
+          "fitness": 1
+        },
+        "businessTypes": {
+          "Консултации": 1,
+          "Спорт": 1,
+          "Уроци": 1
+        }
+      },
+      {
+        "neighborhood": "Драгалевци",
+        "businesses": 1,
+        "categories": {
+          "pets": 1
+        },
+        "businessTypes": {
+          "Груминг": 1
+        }
+      },
+      {
+        "neighborhood": "Дружба 1",
+        "businesses": 2,
+        "categories": {
+          "auto_repair": 1,
+          "pets": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1,
+          "Груминг": 1
+        }
+      },
+      {
+        "neighborhood": "Дружба 2",
+        "businesses": 9,
+        "categories": {
+          "auto_repair": 3,
+          "barber": 1,
+          "beauty": 1,
+          "consulting": 1,
+          "education": 1,
+          "fitness": 1,
+          "nails": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 3,
+          "Бръснарница": 1,
+          "Консултации": 1,
+          "Красота": 1,
+          "Маникюр": 1,
+          "Спорт": 1,
+          "Уроци": 1
+        }
+      },
+      {
+        "neighborhood": "Дървеница",
+        "businesses": 1,
+        "categories": {
+          "education": 1
+        },
+        "businessTypes": {
+          "Уроци": 1
+        }
+      },
+      {
+        "neighborhood": "Зона Б-5",
+        "businesses": 2,
+        "categories": {
+          "fitness": 1,
+          "other": 1
+        },
+        "businessTypes": {
+          "Спорт": 1,
+          "Стоматология": 1
+        }
+      },
+      {
+        "neighborhood": "Зона Б-5-3",
+        "businesses": 1,
+        "categories": {
+          "consulting": 1
+        },
+        "businessTypes": {
+          "Консултации": 1
+        }
+      },
+      {
+        "neighborhood": "Иван Вазов",
+        "businesses": 1,
+        "categories": {
+          "education": 1
+        },
+        "businessTypes": {
+          "Уроци": 1
+        }
+      },
+      {
+        "neighborhood": "Изток",
+        "businesses": 5,
+        "categories": {
+          "education": 1,
+          "nails": 2,
+          "other": 2
+        },
+        "businessTypes": {
+          "Маникюр": 2,
+          "Стоматология": 2,
+          "Уроци": 1
+        }
+      },
+      {
+        "neighborhood": "Княжево",
+        "businesses": 1,
+        "categories": {
+          "education": 1
+        },
+        "businessTypes": {
+          "Уроци": 1
+        }
+      },
+      {
+        "neighborhood": "Красно село",
+        "businesses": 1,
+        "categories": {
+          "consulting": 1
+        },
+        "businessTypes": {
+          "Консултации": 1
+        }
+      },
+      {
+        "neighborhood": "Крива река",
+        "businesses": 1,
+        "categories": {
+          "fitness": 1
+        },
+        "businessTypes": {
+          "Спорт": 1
+        }
+      },
+      {
+        "neighborhood": "Кръстова вада",
+        "businesses": 3,
+        "categories": {
+          "auto_repair": 1,
+          "fitness": 1,
+          "pets": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1,
+          "Груминг": 1,
+          "Спорт": 1
+        }
+      },
+      {
+        "neighborhood": "Лагера",
+        "businesses": 1,
+        "categories": {
+          "other": 1
+        },
+        "businessTypes": {
+          "Психология и психотерапия": 1
+        }
+      },
+      {
+        "neighborhood": "Левски",
+        "businesses": 1,
+        "categories": {
+          "nails": 1
+        },
+        "businessTypes": {
+          "Маникюр": 1
+        }
+      },
+      {
+        "neighborhood": "Лозенец",
+        "businesses": 24,
+        "categories": {
+          "consulting": 4,
+          "education": 6,
+          "fitness": 4,
+          "health": 2,
+          "nails": 1,
+          "other": 7
+        },
+        "businessTypes": {
+          "Друга услуга": 3,
+          "Консултации": 4,
+          "Маникюр": 1,
+          "Психология и психотерапия": 1,
+          "Спорт": 4,
+          "Стоматология": 3,
+          "Терапии": 2,
+          "Уроци": 6
+        }
+      },
+      {
+        "neighborhood": "Люлин",
+        "businesses": 6,
+        "categories": {
+          "beauty": 1,
+          "car_wash": 1,
+          "education": 2,
+          "fitness": 1,
+          "other": 1
+        },
+        "businessTypes": {
+          "Автомивка": 1,
+          "Красота": 1,
+          "Спорт": 1,
+          "Стоматология": 1,
+          "Уроци": 2
+        }
+      },
+      {
+        "neighborhood": "Люлин 10",
+        "businesses": 2,
+        "categories": {
+          "auto_repair": 1,
+          "fitness": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1,
+          "Спорт": 1
+        }
+      },
+      {
+        "neighborhood": "Люлин 3",
+        "businesses": 3,
+        "categories": {
+          "fitness": 1,
+          "hair": 2
+        },
+        "businessTypes": {
+          "Спорт": 1,
+          "Фризьор": 2
+        }
+      },
+      {
+        "neighborhood": "Люлин 4",
+        "businesses": 1,
+        "categories": {
+          "education": 1
+        },
+        "businessTypes": {
+          "Уроци": 1
+        }
+      },
+      {
+        "neighborhood": "Люлин 7",
+        "businesses": 1,
+        "categories": {
+          "other": 1
+        },
+        "businessTypes": {
+          "Друга услуга": 1
+        }
+      },
+      {
+        "neighborhood": "Люлин 8",
+        "businesses": 4,
+        "categories": {
+          "beauty": 2,
+          "nails": 1,
+          "other": 1
+        },
+        "businessTypes": {
+          "Красота": 2,
+          "Маникюр": 1,
+          "Стоматология": 1
+        }
+      },
+      {
+        "neighborhood": "Малашевци",
+        "businesses": 1,
+        "categories": {
+          "auto_repair": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1
+        }
+      },
+      {
+        "neighborhood": "Малинова долина",
+        "businesses": 2,
+        "categories": {
+          "consulting": 1,
+          "fitness": 1
+        },
+        "businessTypes": {
+          "Консултации": 1,
+          "Спорт": 1
+        }
+      },
+      {
+        "neighborhood": "Манастирски ливади",
+        "businesses": 10,
+        "categories": {
+          "auto_repair": 1,
+          "car_wash": 1,
+          "education": 2,
+          "other": 6
+        },
+        "businessTypes": {
+          "Автомивка": 1,
+          "Автосервиз": 1,
+          "Психология и психотерапия": 1,
+          "Стоматология": 5,
+          "Уроци": 2
+        }
+      },
+      {
+        "neighborhood": "Младост",
+        "businesses": 2,
+        "categories": {
+          "auto_repair": 1,
+          "car_wash": 1
+        },
+        "businessTypes": {
+          "Автомивка": 1,
+          "Автосервиз": 1
+        }
+      },
+      {
+        "neighborhood": "Младост 1",
+        "businesses": 11,
+        "categories": {
+          "beauty": 1,
+          "education": 4,
+          "fitness": 4,
+          "health": 1,
+          "nails": 1
+        },
+        "businessTypes": {
+          "Красота": 1,
+          "Маникюр": 1,
+          "Спорт": 4,
+          "Терапии": 1,
+          "Уроци": 4
+        }
+      },
+      {
+        "neighborhood": "Младост 1А",
+        "businesses": 2,
+        "categories": {
+          "fitness": 1,
+          "pets": 1
+        },
+        "businessTypes": {
+          "Груминг": 1,
+          "Спорт": 1
+        }
+      },
+      {
+        "neighborhood": "Младост 2",
+        "businesses": 6,
+        "categories": {
+          "detailing": 1,
+          "education": 2,
+          "fitness": 3
+        },
+        "businessTypes": {
+          "Детайлинг": 1,
+          "Спорт": 3,
+          "Уроци": 2
+        }
+      },
+      {
+        "neighborhood": "Младост 3",
+        "businesses": 8,
+        "categories": {
+          "auto_repair": 1,
+          "beauty": 1,
+          "education": 2,
+          "fitness": 1,
+          "hair": 1,
+          "nails": 1,
+          "other": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1,
+          "Красота": 1,
+          "Маникюр": 1,
+          "Спорт": 1,
+          "Татуировки и пиърсинг": 1,
+          "Уроци": 2,
+          "Фризьор": 1
+        }
+      },
+      {
+        "neighborhood": "Младост 4",
+        "businesses": 3,
+        "categories": {
+          "fitness": 1,
+          "nails": 2
+        },
+        "businessTypes": {
+          "Маникюр": 2,
+          "Спорт": 1
+        }
+      },
+      {
+        "neighborhood": "Модерно предградие",
+        "businesses": 1,
+        "categories": {
+          "detailing": 1
+        },
+        "businessTypes": {
+          "Детайлинг": 1
+        }
+      },
+      {
+        "neighborhood": "Мотописта",
+        "businesses": 1,
+        "categories": {
+          "education": 1
+        },
+        "businessTypes": {
+          "Уроци": 1
+        }
+      },
+      {
+        "neighborhood": "Мусагеница",
+        "businesses": 3,
+        "categories": {
+          "fitness": 2,
+          "hair": 1
+        },
+        "businessTypes": {
+          "Спорт": 2,
+          "Фризьор": 1
+        }
+      },
+      {
+        "neighborhood": "Надежда",
+        "businesses": 3,
+        "categories": {
+          "auto_repair": 1,
+          "education": 2
+        },
+        "businessTypes": {
+          "Автосервиз": 1,
+          "Уроци": 2
+        }
+      },
+      {
+        "neighborhood": "Надежда 1",
+        "businesses": 1,
+        "categories": {
+          "other": 1
+        },
+        "businessTypes": {
+          "Стоматология": 1
+        }
+      },
+      {
+        "neighborhood": "Надежда 2",
+        "businesses": 2,
+        "categories": {
+          "education": 1,
+          "other": 1
+        },
+        "businessTypes": {
+          "Стоматология": 1,
+          "Уроци": 1
+        }
+      },
+      {
+        "neighborhood": "Надежда 4",
+        "businesses": 1,
+        "categories": {
+          "nails": 1
+        },
+        "businessTypes": {
+          "Маникюр": 1
+        }
+      },
+      {
+        "neighborhood": "Неуточнен квартал",
+        "businesses": 168,
+        "categories": {
+          "auto_repair": 11,
+          "barber": 5,
+          "beauty": 9,
+          "consulting": 20,
+          "education": 17,
+          "fitness": 41,
+          "hair": 17,
+          "health": 10,
+          "nails": 12,
+          "other": 26
+        },
+        "businessTypes": {
+          "Автосервиз": 11,
+          "Бръснарница": 5,
+          "Друга услуга": 3,
+          "Консултации": 20,
+          "Красота": 9,
+          "Маникюр": 12,
+          "Психиатрия": 1,
+          "Психология и психотерапия": 3,
+          "Спорт": 41,
+          "Стоматология": 12,
+          "Татуировки и пиърсинг": 2,
+          "Терапии": 10,
+          "Уроци": 17,
+          "Фотография": 5,
+          "Фризьор": 17
+        }
+      },
+      {
+        "neighborhood": "НПЗ Искър",
+        "businesses": 1,
+        "categories": {
+          "consulting": 1
+        },
+        "businessTypes": {
+          "Консултации": 1
+        }
+      },
+      {
+        "neighborhood": "НПЗ Хаджи Димитър",
+        "businesses": 1,
+        "categories": {
+          "auto_repair": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1
+        }
+      },
+      {
+        "neighborhood": "Оборище",
+        "businesses": 2,
+        "categories": {
+          "consulting": 1,
+          "nails": 1
+        },
+        "businessTypes": {
+          "Консултации": 1,
+          "Маникюр": 1
+        }
+      },
+      {
+        "neighborhood": "Овча купел",
+        "businesses": 1,
+        "categories": {
+          "fitness": 1
+        },
+        "businessTypes": {
+          "Спорт": 1
+        }
+      },
+      {
+        "neighborhood": "Овча купел 1",
+        "businesses": 4,
+        "categories": {
+          "auto_repair": 1,
+          "education": 1,
+          "hair": 1,
+          "other": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1,
+          "Стоматология": 1,
+          "Уроци": 1,
+          "Фризьор": 1
+        }
+      },
+      {
+        "neighborhood": "Овча купел 2",
+        "businesses": 1,
+        "categories": {
+          "fitness": 1
+        },
+        "businessTypes": {
+          "Спорт": 1
+        }
+      },
+      {
+        "neighborhood": "Орландовци",
+        "businesses": 2,
+        "categories": {
+          "auto_repair": 2
+        },
+        "businessTypes": {
+          "Автосервиз": 2
+        }
+      },
+      {
+        "neighborhood": "Полигона",
+        "businesses": 1,
+        "categories": {
+          "hair": 1
+        },
+        "businessTypes": {
+          "Фризьор": 1
+        }
+      },
+      {
+        "neighborhood": "Разсадника",
+        "businesses": 1,
+        "categories": {
+          "education": 1
+        },
+        "businessTypes": {
+          "Уроци": 1
+        }
+      },
+      {
+        "neighborhood": "Редута",
+        "businesses": 2,
+        "categories": {
+          "hair": 1,
+          "other": 1
+        },
+        "businessTypes": {
+          "Стоматология": 1,
+          "Фризьор": 1
+        }
+      },
+      {
+        "neighborhood": "Света Троица",
+        "businesses": 2,
+        "categories": {
+          "beauty": 1,
+          "fitness": 1
+        },
+        "businessTypes": {
+          "Красота": 1,
+          "Спорт": 1
+        }
+      },
+      {
+        "neighborhood": "Симеоново",
+        "businesses": 1,
+        "categories": {
+          "education": 1
+        },
+        "businessTypes": {
+          "Уроци": 1
+        }
+      },
+      {
+        "neighborhood": "Славия",
+        "businesses": 1,
+        "categories": {
+          "fitness": 1
+        },
+        "businessTypes": {
+          "Спорт": 1
+        }
+      },
+      {
+        "neighborhood": "Слатина",
+        "businesses": 2,
+        "categories": {
+          "auto_repair": 1,
+          "education": 1
+        },
+        "businessTypes": {
+          "Автосервиз": 1,
+          "Уроци": 1
+        }
+      },
+      {
+        "neighborhood": "Сточна гара",
+        "businesses": 1,
+        "categories": {
+          "other": 1
+        },
+        "businessTypes": {
+          "Стоматология": 1
+        }
+      },
+      {
+        "neighborhood": "Стрелбище",
+        "businesses": 1,
+        "categories": {
+          "fitness": 1
+        },
+        "businessTypes": {
+          "Спорт": 1
+        }
+      },
+      {
+        "neighborhood": "Студентски град",
+        "businesses": 14,
+        "categories": {
+          "auto_repair": 1,
+          "barber": 1,
+          "consulting": 1,
+          "education": 1,
+          "fitness": 7,
+          "hair": 1,
+          "nails": 2
+        },
+        "businessTypes": {
+          "Автосервиз": 1,
+          "Бръснарница": 1,
+          "Консултации": 1,
+          "Маникюр": 2,
+          "Спорт": 7,
+          "Уроци": 1,
+          "Фризьор": 1
+        }
+      },
+      {
+        "neighborhood": "Суха река",
+        "businesses": 2,
+        "categories": {
+          "education": 1,
+          "other": 1
+        },
+        "businessTypes": {
+          "Стоматология": 1,
+          "Уроци": 1
+        }
+      },
+      {
+        "neighborhood": "Хаджи Димитър",
+        "businesses": 3,
+        "categories": {
+          "fitness": 2,
+          "nails": 1
+        },
+        "businessTypes": {
+          "Маникюр": 1,
+          "Спорт": 2
+        }
+      },
+      {
+        "neighborhood": "Хиподрума",
+        "businesses": 2,
+        "categories": {
+          "fitness": 1,
+          "hair": 1
+        },
+        "businessTypes": {
+          "Спорт": 1,
+          "Фризьор": 1
+        }
+      },
+      {
+        "neighborhood": "Хладилника",
+        "businesses": 2,
+        "categories": {
+          "fitness": 1,
+          "nails": 1
+        },
+        "businessTypes": {
+          "Маникюр": 1,
+          "Спорт": 1
+        }
+      },
+      {
+        "neighborhood": "Център",
+        "businesses": 26,
+        "categories": {
+          "barber": 1,
+          "consulting": 8,
+          "education": 8,
+          "fitness": 1,
+          "other": 8
+        },
+        "businessTypes": {
+          "Бръснарница": 1,
+          "Друга услуга": 3,
+          "Консултации": 8,
+          "Психология и психотерапия": 2,
+          "Спорт": 1,
+          "Татуировки и пиърсинг": 3,
+          "Уроци": 8
+        }
+      },
+      {
+        "neighborhood": "Челопечене",
+        "businesses": 1,
+        "categories": {
+          "fitness": 1
+        },
+        "businessTypes": {
+          "Спорт": 1
+        }
+      }
+    ],
+    "citywideOperators": [
+      {
+        "id": "sofia-toto-clean-home-visits",
+        "name": "Тото Клийн · посещения на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-chistobg-net-home-visits",
+        "name": "ChistoBG · почистване на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-sofia-clean-agency-home-visits",
+        "name": "Sofia Clean Agency · почистване на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-albel-ognyan-tsonev-home-repair",
+        "name": "Александър Бел · сервиз АлБел",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-kominochistachsofia-home-visits",
+        "name": "Коминочистач София · посещения на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-expres-partners-upholstery-home-visits",
+        "name": "Експрес Партнерс · пране на мека мебел",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-iliyan-ivanov-eltehnik-home-visits",
+        "name": "Ел техник · Илиян Иванов",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-renovalume-home-visits",
+        "name": "Renovalume · почистване на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-viksofia-eu-home-visits",
+        "name": "VikSofia.eu · водопроводчик на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-vik-sofia-eu-home-visits",
+        "name": "Vik-Sofia.eu · водопроводни услуги на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-integral17-home-visits",
+        "name": "Интеграл 17 · ВиК услуги на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-kanal-maistor-vik-pomosht-home-visits",
+        "name": "Канал Майстор · ВиК Помощ",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-electro-group-service-home-visits",
+        "name": "Електро Груп Сервиз · посещения на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-domelino-home-visits",
+        "name": "Домелино · почистване на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-rmk-service-dograma-home-visits",
+        "name": "RMK Service · ремонт на дограма",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-antonia-malcheva-home-consultation",
+        "name": "Антония Малчева · психологическо домашно посещение",
+        "businessType": "Психология и психотерапия"
+      },
+      {
+        "id": "sofia-glassmagics-mobile",
+        "name": "GlassMagics · мобилен ремонт на автостъкла",
+        "businessType": "Автосервиз"
+      },
+      {
+        "id": "sofia-milkris-autoglass-mobile",
+        "name": "МилКрис Сервиз · автостъкла на адрес",
+        "businessType": "Автосервиз"
+      },
+      {
+        "id": "sofia-chavdar-chenkov-site-consultation",
+        "name": "Арх. Чавдар Ченков · консултация на място",
+        "businessType": "Консултации"
+      },
+      {
+        "id": "sofia-bulgaria-serviz-group-home",
+        "name": "България сервиз груп · домашни посещения София",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-golden-hands-massage-home-visits",
+        "name": "Golden Hands · масаж на адрес",
+        "businessType": "Терапии"
+      },
+      {
+        "id": "sofia-faza-home-electrical",
+        "name": "Faza.bg · електроуслуги",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-colomba-home-cleaning",
+        "name": "Коломба Къмпани · почистване на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-redline-speed-prepurchase-mobile",
+        "name": "Redline Speed · оглед преди покупка на адрес",
+        "businessType": "Автосервиз"
+      },
+      {
+        "id": "sofia-global-autofix-mobile",
+        "name": "GLOBAL AUTOFIX · мобилна помощ",
+        "businessType": "Автосервиз"
+      },
+      {
+        "id": "sofia-pepelyashka-home-cleaning",
+        "name": "Пепеляшка · почистване на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-divinity-home-cleaning",
+        "name": "Дивинити · почистване на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-clean-bg-home-cleaning",
+        "name": "Clean.bg · почистване на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-tendencia-mobile-showroom",
+        "name": "Tendencia BG · мобилен шоурум София",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-verde-interiori-home-consultation",
+        "name": "Verde Interiori · консултация на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-dream-design-home-consultation",
+        "name": "Dream Design · огледи в София",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-prohamali-home-moving",
+        "name": "Хамали Иванов · ProHamali",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-chisto-s-lili-home-cleaning",
+        "name": "Чисто с Лили · почистване в София",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-chista-rabota-home-moving",
+        "name": "Чиста работа · разчистване и преместване",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-sfumato-design-home-consultation",
+        "name": "Sfumato Design · консултация на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-it-doctor-home-support",
+        "name": "IT Doctor · компютърна помощ на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-enter-computers-mobile-support",
+        "name": "Enter Computers · мобилен компютърен сервиз",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-serviz-computri-home-support",
+        "name": "Сервиз Компютри и Лаптопи · на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-bgdiagnostika-mobile-booster",
+        "name": "BGdiagnostika · мобилно подаване на ток",
+        "businessType": "Автосервиз"
+      },
+      {
+        "id": "sofia-serviz-engineerings-home-computers",
+        "name": "Сервиз Инженерингс · компютри на адрес",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-naydenov-mobile-tyres",
+        "name": "Найденов Сервиз · мобилни гуми",
+        "businessType": "Автосервиз"
+      },
+      {
+        "id": "sofia-gumicon-mobile-tyres",
+        "name": "Gumicon · мобилни гуми",
+        "businessType": "Автосервиз"
+      },
+      {
+        "id": "sofia-mobilix-mobile-vacuum-oil",
+        "name": "Mobilix Auto Care · мобилен автосервиз",
+        "businessType": "Автосервиз"
+      },
+      {
+        "id": "sofia-autodiag-expert-mobile",
+        "name": "AutoDiagExpert · мобилна автодиагностика",
+        "businessType": "Автосервиз"
+      },
+      {
+        "id": "sofia-avtodiagnoza-mobile-diagnostics",
+        "name": "Автодиагноза · диагностика на място",
+        "businessType": "Автосервиз"
+      },
+      {
+        "id": "sofia-filchev-auto-mobile-tyres",
+        "name": "Филчев Ауто · мобилен сервиз за гуми",
+        "businessType": "Автосервиз"
+      },
+      {
+        "id": "sofia-mobile-auto-899195996",
+        "name": "Мобилен автосервиз 24/7 · София",
+        "businessType": "Автосервиз"
+      },
+      {
+        "id": "sofia-shiny-house-home-cleaning",
+        "name": "Shiny House BG · почистване София",
+        "businessType": "За дома"
+      },
+      {
+        "id": "sofia-remontiram-home-survey",
+        "name": "Ремонт София · remontiram.bg",
+        "businessType": "За дома"
+      }
+    ]
+  },
+  "deltaSince1642": {
+    "businesses": 22,
+    "services": 39,
+    "literalPriceFacts": 35,
+    "pricedBusinesses": 18,
+    "genuineUnpublishedPriceBusinesses": 4,
+    "reviewedHours": 7,
+    "officialPostalPoints": 9,
+    "newAcceptedIllustrativeAssets": 10
+  },
+  "sourceModules": [
+    "lib/discovery/catalogue-data/neighborhood-auto-sport-2000-016-20261113.mjs",
+    "lib/discovery/catalogue-data/neighborhood-auto-sport-2000-017-20261113.mjs",
+    "lib/discovery/catalogue-data/neighborhood-beauty-2000-014-20261113.mjs",
+    "lib/discovery/catalogue-data/neighborhood-beauty-2000-015-20261113.mjs",
+    "lib/discovery/catalogue-data/neighborhood-beauty-2000-016-20261113.mjs",
+    "lib/discovery/catalogue-data/neighborhood-dental-2000-006-20261113.mjs",
+    "lib/discovery/catalogue-data/neighborhood-home-education-2000-015-20261113.mjs",
+    "lib/discovery/catalogue-data/neighborhood-home-education-2000-016-20261113.mjs",
+    "lib/discovery/catalogue-data/neighborhood-photography-2000-005-20261113.mjs"
+  ],
+  "sourceLedgers": [
+    "docs/catalogue-pricing/expansion-auto-sport-2000-016-20261113.json",
+    "docs/catalogue-pricing/expansion-auto-sport-2000-017-20261113.json",
+    "docs/catalogue-pricing/expansion-beauty-2000-014-20261113.json",
+    "docs/catalogue-pricing/expansion-beauty-2000-015-20261113.json",
+    "docs/catalogue-pricing/expansion-beauty-2000-016-20261113.json",
+    "docs/catalogue-pricing/expansion-dental-2000-006-20261113.json",
+    "docs/catalogue-pricing/expansion-home-education-2000-015-20261113.json",
+    "docs/catalogue-pricing/expansion-home-education-2000-016-20261113.json",
+    "docs/catalogue-pricing/expansion-photography-2000-005-20261113.json"
+  ],
+  "safeguards": {
+    "independentRealOperatorsAndBranchesOnly": true,
+    "allNewBusinessesAvailableInPublicSearchAndPartnerOnboarding": true,
+    "noFixedMinutesInferredFromPriceHourOrUpToRanges": true,
+    "literalSourceCurrencyAndPriceUnitsPreserved": true,
+    "bgnPublicConversionUsesExistingFormatterNotSourceMisattribution": true,
+    "noNewClinicsOrPhysiciansOutsideOwnerScope": true,
+    "missingConflictingOrBlockedPricesNotInventedOrCalledUnpublished": true,
+    "noInventedAddressesCoordinatesOrDistances": true,
+    "noNewNominatimCalls": true,
+    "originalOwnerCsvSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+    "ownerCsvUnchangedShaCheckedAtUtc": "2026-11-14T04:11:53Z",
+    "original501PointsFullPrecisionAndOrderUnchanged": true,
+    "sourceUseRestrictionsAndAccessHoldsRecordedInIndividualLedgers": true,
+    "noCustomerInputsBookingsCallsPaymentsNotificationsProductionDatabaseSettingsOrSecretsTouched": true,
+    "homepageLayoutBookingEngineAndDashboardUnchanged": true
+  },
+  "photos": {
+    "specificVisibleCatalogueServices": 10029,
+    "neutral": 0,
+    "missing": 0,
+    "invalidAssets": 0,
+    "acceptedReviewedGeneratedAssetsTotal": 1219,
+    "newAssets": [
+      {
+        "id": "sx-preteen-modern-hiphop-class",
+        "sourceFile": "exec-7de15c9d-7cab-4bc0-8641-8b1d13d36e3a.png",
+        "sourceSha256": "a2f6fdfa9185d999a104c41a2b0215e17d02f042b8939e51344e1351d15dddca",
+        "file": "public/service-photos/sx-preteen-modern-hiphop-class-v1.webp",
+        "width": 256,
+        "height": 256,
+        "bytes": 13102,
+        "sha256": "79e5cb6e39f711589078a73f7d78242bbb0c63e6ab80d602674691360de4eb28",
+        "label": "Модерни танци и хип-хоп — група 10–14 г.",
+        "prompt": "Use case: photorealistic-natural\nAsset type: square booking catalogue service thumbnail for MODERN DANCE AND HIP-HOP GROUP LESSONS AGE10–14.\nPrimary request: A documentary-style realistic photograph of one adult dance instructor teaching four fictional preteen/young-teen students approximately11–13 years old in a normal dance studio. They wear modest loose T-shirts, full-length joggers and trainers, practicing a simple upright hip-hop/modern step with relaxed bent knees and coordinated arm movement. Clearly older school students, neither small children nor an adult-only crew. Full bodies visible, realistic anatomy and hands, natural daylight, ordinary wooden floor and studio mirrors without distracting duplicates.\nComposition: One square1:1 photograph. The teacher and a small group, an immediately readable lesson rather than a concert or competition.\nConstraints: Illustrative age-appropriate class, not actual DIVA ZONE staff/children/studio or exact enrolment eligibility documentation. No sexualized clothing/pose, no extreme flexibility/breakdance stunt, no folk costumes or ballet, no medals, no logo/text/price/watermark/notebook.",
+        "generatedOn": "2026-11-14",
+        "review": {
+          "status": "accepted",
+          "finalLayoutApproved": true,
+          "sourceSha256": "a2f6fdfa9185d999a104c41a2b0215e17d02f042b8939e51344e1351d15dddca",
+          "reviewers": [
+            "/root"
+          ],
+          "method": "Rootpersonallyviewedfull1254sourceand256WebP; fourpreteen/youngteenstudentsandadultteacherinmodestlooseclothes, uprightgroupstreetdance. Notadultcrew/7–12smallchildgroup/ballet/folk. FictionalclassnotactualDIVApeople/venue."
+        }
+      },
+      {
+        "id": "sx-maternity-studio-photography",
+        "sourceFile": "exec-ec86c5de-49ca-47a9-a3f3-7be89a7baabe.png",
+        "sourceSha256": "4c2259a8a7587fe8e7bf1ca7b0f3697607f58b18ca7af4cf84e22c5f90bc8a5c",
+        "file": "public/service-photos/sx-maternity-studio-photography-v1.webp",
+        "width": 256,
+        "height": 256,
+        "bytes": 7358,
+        "sha256": "23fc3627406651d9a176f742e6e7f35aebfb6098b86cd50d0ebe8fc4ab684456",
+        "label": "Студийна фотосесия за бременни",
+        "prompt": "Use case: photorealistic-natural\nAsset type: square service thumbnail for a PREGNANCY / MATERNITY PHOTOGRAPHY SESSION IN A PHOTO STUDIO.\nPrimary request: A realistic documentary behind-the-scenes photograph of a fictional clearly adult pregnant woman in a modest opaque cream maternity dress standing comfortably in a simple photography studio, hands resting naturally on her covered pregnant abdomen. A fictional adult photographer with a professional camera is visible in the foreground photographing her, with a softbox and neutral backdrop. Natural body proportions, covered shoulders and neckline, ordinary warm studio light, realistic fabric texture, calm professional atmosphere.\nComposition: One square1:1 photograph; both the pregnant portrait subject and photographer/camera readable at thumbnail size, three-quarter-length view.\nConstraints: Generic illustration of a photography appointment, not actual Emotion Studio staff/client/work, not a medical examination. No nudity/underwear/transparent dress, no newborn baby, no forced arching or uncomfortable pose, no brand/logo/text/price/watermark/notebook, no before-after or outcome guarantee.",
+        "generatedOn": "2026-11-14",
+        "review": {
+          "status": "accepted",
+          "finalLayoutApproved": true,
+          "sourceSha256": "4c2259a8a7587fe8e7bf1ca7b0f3697607f58b18ca7af4cf84e22c5f90bc8a5c",
+          "reviewers": [
+            "/root"
+          ],
+          "method": "Rootpersonallyviewedfull1254sourceand256WebP; clearlyadultpregnantwomaninopaquefulldress/comfortableposeandactualphotographercamera/softbox, notmedicalexam/neutralroom. GenericillustrationnotactualEmotionStudioclient/work/staff."
+        }
+      },
+      {
+        "id": "sx-womens-short-blowdry-styling",
+        "sourceFile": "exec-4d243cc1-92db-4ff5-8621-5a529ba0fccd.png",
+        "sourceSha256": "8c427d22e59020c36dba677dd211d92af23d452df0eef8306dc25870758f92af",
+        "file": "public/service-photos/sx-womens-short-blowdry-styling-v1.webp",
+        "width": 256,
+        "height": 256,
+        "bytes": 10764,
+        "sha256": "d5ed4643c53c60f6998b12690dd16f51e54420db2babbf973c76fd911d80d5cb",
+        "label": "Сешоар и стилизиране — къса коса",
+        "prompt": "Use case: photorealistic-natural\nAsset type: square specific-service thumbnail for WOMEN'S BLOW-DRY AND STYLING ONLY.\nPrimary request: A natural realistic photograph inside an ordinary hair salon. A fictional adult female client in a normal opaque salon cape has short bob or pixie-bob hair around ear/chin length. A professional hairdresser uses a hand-held hair dryer and a round brush to shape and finish the client's hair. The dryer and round brush, correct hair length and realistic strand texture are clearly visible. Plausible hands, calm professional posture, soft natural daylight.\nComposition: One square1:1 photo, close/medium rear-side view that shows both the hairstyle's length and the active blow-dry tools, readable at64px.\nConstraints: ONLY blow-dry/styling, not a haircut or shampoo combination. No scissors, basin/washing, colour/bleach, extensions, treatment bottle claim, before-after, outcome promise, actual Maria Art staff/client/salon identity, text/price/logo/watermark/notebook.",
+        "generatedOn": "2026-11-14",
+        "review": {
+          "status": "accepted",
+          "finalLayoutApproved": true,
+          "sourceSha256": "8c427d22e59020c36dba677dd211d92af23d452df0eef8306dc25870758f92af",
+          "reviewers": [
+            "/root"
+          ],
+          "method": "Rootviewedfullsourceand256WebP. Actualhairdryer+roundbrushshapingear/chin-lengthbob; no scissors/cut/wash/colour/extensionsinclusion. Plausiblehands/tools, genericfictionalstylist/clientnotMariaArtactualwork."
+        }
+      },
+      {
+        "id": "sx-womens-shoulder-blowdry-styling",
+        "sourceFile": "exec-5768e57c-fa47-4a30-a624-4151e620dc72.png",
+        "sourceSha256": "6dd2257445d8b1c83499a115b27824a2b1277c5c6f1742df1e76c8a00c0b84be",
+        "file": "public/service-photos/sx-womens-shoulder-blowdry-styling-v1.webp",
+        "width": 256,
+        "height": 256,
+        "bytes": 10584,
+        "sha256": "7f68a1938bea434a08ab0a9c5b882d7354c5f32ab2598903a58680eb94cd1f8c",
+        "label": "Сешоар и стилизиране — коса до раменете",
+        "prompt": "Use case: photorealistic-natural\nAsset type: square specific-service thumbnail for WOMEN'S BLOW-DRY AND STYLING ONLY.\nPrimary request: A natural realistic photograph inside an ordinary hair salon. A fictional adult female client in a normal opaque salon cape has hair ending at the shoulders, not very long hair. A professional hairdresser uses a hand-held hair dryer and a round brush to shape and finish the client's hair. The dryer and round brush, correct hair length and realistic strand texture are clearly visible. Plausible hands, calm professional posture, soft natural daylight.\nComposition: One square1:1 photo, close/medium rear-side view that shows both the hairstyle's length and the active blow-dry tools, readable at64px.\nConstraints: ONLY blow-dry/styling, not a haircut or shampoo combination. No scissors, basin/washing, colour/bleach, extensions, treatment bottle claim, before-after, outcome promise, actual Maria Art staff/client/salon identity, text/price/logo/watermark/notebook.",
+        "generatedOn": "2026-11-14",
+        "review": {
+          "status": "accepted",
+          "finalLayoutApproved": true,
+          "sourceSha256": "6dd2257445d8b1c83499a115b27824a2b1277c5c6f1742df1e76c8a00c0b84be",
+          "reviewers": [
+            "/root"
+          ],
+          "method": "Rootviewedfullsourceand256WebP. Hairlengthendingatshoulderswithdryer/roundbrushonly, notpixie/longhair/cut/wash/colour/extensions. GenericfictionalactivitynotactualMariaArtstaff/client/venue/outcome."
+        }
+      },
+      {
+        "id": "sx-university-admissions-consultation",
+        "sourceFile": "exec-61a6eb61-0d4a-41fe-9891-e5a4492aa063.png",
+        "sourceSha256": "2ca4fadb708794fcd85c6e7d19ed3f99453983dd2ea09fe7dd0218e7bb15d33b",
+        "file": "public/service-photos/sx-university-admissions-consultation-v1.webp",
+        "width": 256,
+        "height": 256,
+        "bytes": 15110,
+        "sha256": "749c162959a4a9daef98024a773c81ce6d915c1932e88869096c1d343293524a",
+        "label": "Консултация за университет и кандидатстване в чужбина",
+        "prompt": "Use case: photorealistic-natural\nAsset type: square booking catalogue thumbnail for an IN-PERSON UNIVERSITY STUDY-ABROAD ADMISSIONS CONSULTATION.\nPrimary request: A realistic documentary photograph inside an ordinary education-advising office. One fictional adult education adviser and one fictional clearly adult prospective university student approximately19–22 sit across a small desk, discussing university study options abroad. Adviser points to a simple colourful university-campus brochure and programme comparison sheets, student listens, an open laptop in the background shows generic campus thumbnails with no legible text. Both comfortably dressed in ordinary smart-casual clothes, natural expressions and plausible hands, daylight and realistic paper/fabric textures.\nComposition: One square1:1 photo, two people plus university brochures/campus visuals are the focus, readable at64px.\nConstraints: An education/admissions discussion, not a language lesson, job interview, psychotherapy or legal/notarial consultation. No graduation guarantee, acceptance letter, diploma, identifiable university logo, readable personal data, actual Integral/UNIFY staff or students/office, text/price/watermark, or notebook-only still life. Generic illustration of activity, not verified provider work.",
+        "generatedOn": "2026-11-14",
+        "review": {
+          "status": "accepted",
+          "finalLayoutApproved": true,
+          "sourceSha256": "2ca4fadb708794fcd85c6e7d19ed3f99453983dd2ea09fe7dd0218e7bb15d33b",
+          "reviewers": [
+            "/root"
+          ],
+          "method": "Rootviewedfull1254sourceand256WebP. Adultprospectivestudentandadviserreviewuniversitycampusbrochure/programmecomparison, notjobCV/therapy/languageclass. Genericfictionalpeople/office/materials, no actualIntegral/UNIFYclient/guaranteedadmission."
+        }
+      },
+      {
+        "id": "sx-secondary-study-abroad-consultation",
+        "sourceFile": "exec-bc490e9d-8519-4c42-8e9c-9093a82ae518.png",
+        "sourceSha256": "97e1d22041b1b475e861a8d63bfdc2511f3f27ffd6dbce5a22d0d8bc4f1f6f27",
+        "file": "public/service-photos/sx-secondary-study-abroad-consultation-v1.webp",
+        "width": 256,
+        "height": 256,
+        "bytes": 15430,
+        "sha256": "41fb37112ee9ff1c2b27937ec0abab6ce91ff41b6ea0e443e487df545fdffa8e",
+        "label": "Консултация за средно образование в чужбина",
+        "prompt": "Use case: photorealistic-natural\nAsset type: square booking catalogue thumbnail for a SECONDARY-SCHOOL STUDY-ABROAD CONSULTATION FOR A PUPIL AND PARENT.\nPrimary request: A realistic documentary photograph in a clean education-consultancy office. One fictional adult education adviser talks with a fictional teenage pupil approximately14–16 and the pupil's adult parent, seated together at a desk reviewing secondary-school options abroad. Adviser points to a generic school-campus brochure, with simple course-option sheets and a laptop showing an anonymous school-campus photo, no legible names. Teen wears modest casual clothing, parent and adviser ordinary smart casual, natural listening expressions, plausible anatomy/hands, soft daylight and real paper/fabric texture.\nComposition: One square1:1 photograph with all three people and the educational brochures clear; a guided school-planning discussion, not a classroom lesson.\nConstraints: Generic illustration, not actual Edlanta staff/child/parent/venue. No admission/visa guarantee, diplomas, graduation robes, medical/therapy scene, job CVs, identifiable school branding, readable personal data, text/price/logo/watermark or notebook-only workspace.",
+        "generatedOn": "2026-11-14",
+        "review": {
+          "status": "accepted",
+          "finalLayoutApproved": true,
+          "sourceSha256": "97e1d22041b1b475e861a8d63bfdc2511f3f27ffd6dbce5a22d0d8bc4f1f6f27",
+          "reviewers": [
+            "/root"
+          ],
+          "method": "Rootviewedfull1254sourceand256WebP. Teenagepupilwithadultparentandadviserdiscusssecondary-schoolcampusbrochure, notadult-onlyuniversitymeeting/classroom/jobCV/medicalcare. Genericfictionalpeople/venue, no actualEdlantaclientdata oradmissionguarantee."
+        }
+      },
+      {
+        "id": "sx-auto-mobile-ignition-repair",
+        "sourceFile": "exec-724037b0-0ee7-486c-9778-c3e25f3f7238.png",
+        "sourceSha256": "6fa64f983076597fd8f1ce7a2ce3e9d35d9cc55c86b6fd52ef8d88f3568e3178",
+        "file": "public/service-photos/sx-auto-mobile-ignition-repair-v1.webp",
+        "width": 256,
+        "height": 256,
+        "bytes": 18984,
+        "sha256": "911f928e5723c18a3a7168be58d08f50b715ce627a9ad2bf4bf16ec1b315c59e",
+        "label": "Мобилен ремонт и проверка на запалване",
+        "prompt": "Use case: photorealistic-natural\nAsset type: square service thumbnail for MOBILE CAR IGNITION-SYSTEM REPAIR AT THE CUSTOMER'S ADDRESS.\nPrimary request: A realistic documentary close photograph of a fictional professional adult mobile mechanic in work clothes and gloves checking ignition-system wiring in an ordinary petrol car's open engine bay on a safe level private driveway. The mechanic uses a digital automotive multimeter and insulated probes near the ignition coil wiring, with a compact tool bag beside the car and a plain mobile service van softly visible behind. Engine off, plausible engine components and tools, no exaggerated sparks. Real metal/rubber texture and ordinary daylight.\nComposition: One square1:1 frame. Mechanic, ignition wiring and meter are the main focus; an actual hands-on vehicle electrical repair/check, not a desk consultation.\nConstraints: Illustrative generic activity, not the named provider's staff/van/customer/work, no exact defective part or completed repair/outcome claim. No jump-start battery booster, no underbody starter replacement, no keys/locksmith, no workshop lift, oil draining, welding, unsafe traffic location, text/price/logo/watermark/notebook.",
+        "generatedOn": "2026-11-14",
+        "review": {
+          "status": "accepted",
+          "finalLayoutApproved": true,
+          "sourceSha256": "6fa64f983076597fd8f1ce7a2ce3e9d35d9cc55c86b6fd52ef8d88f3568e3178",
+          "reviewers": [
+            "/root"
+          ],
+          "method": "Rootviewedfull1254sourceand256WebP; mobilemechaniccheckingignitionwiringwithmeter/insulatedprobesatanoffcarinleveldriveway. Notjumpstarter/underbodyreplacement/keylocksmith/deskconsultation orclaimofspecificfault/completedrepair. Genericfictionalprovider/van/client."
+        }
+      },
+      {
+        "id": "sx-conditioning-powerplate-programme",
+        "sourceFile": "exec-d38f275f-70f6-4f9b-8659-c93ac0216cb8.png",
+        "sourceSha256": "464e9fa0a43894bcec41bccd80400fc8b09c757d6d88a3fc0aa147f16556ab15",
+        "file": "public/service-photos/sx-conditioning-powerplate-programme-v1.webp",
+        "width": 256,
+        "height": 256,
+        "bytes": 15098,
+        "sha256": "c3b064a43782809df00450fab0693d76f5c1930a4b62ac7285a4d969efc8bd04",
+        "label": "Кондиционни тренировки и Power Plate — програма",
+        "prompt": "Use case: photorealistic-natural\nAsset type: one square service thumbnail for a WHOLE FITNESS PROGRAMME combining CONDITIONING TRAINING AND POWER-PLATE-TYPE VIBRATION-PLATFORM EXERCISES.\nPrimary request: Exactly two equal horizontal photographic panels stacked inside one overall square1:1 image, the SAME fictional clearly adult woman in modest leggings and opaque sports top and SAME adult personal fitness coach in both. TOP: one-to-one basic conditioning in an ordinary fitness studio, woman performs a controlled shallow bodyweight squat or light resistance exercise while coach observes calmly beside her. BOTTOM: same adult woman stands balanced with slightly bent knees on a real professional compact vibration exercise platform with upright support handles, gently holding its handles while the coach observes beside it. Clearly a vibration-platform exercise station, not a treadmill, beauty bed or medical device. Natural daylight, credible machine geometry, realistic anatomy and material texture.\nConstraints: Generic illustrative combination of activities, not actual Feeria staff/client/premises/equipment model/results, not a claim that two panels equal the whole10-session package. No clinical therapy, weight-loss/before-after claims, high-risk poses, child, unrelated machine, text/counts/price/brand/logo/watermark or notebook. Ordinary supervised fitness, no technical treatment instructions.",
+        "generatedOn": "2026-11-14",
+        "review": {
+          "status": "accepted",
+          "finalLayoutApproved": true,
+          "sourceSha256": "464e9fa0a43894bcec41bccd80400fc8b09c757d6d88a3fc0aa147f16556ab15",
+          "reviewers": [
+            "/root"
+          ],
+          "method": "Rootviewedfull1254sourceand256WebP. Sameadultwoman/coachin2panels: conditioningandunbrandedprofessionalvibrationplatform, nottreadmill/beautybed/medicalrehab. Twovisualactivitiesnotclaimtwoimagesarewhole10sessions, nofitnessoutcomes/providerstaff/client/equipmentmodelassertion."
+        }
+      },
+      {
+        "id": "sx-adult-swimming-individual",
+        "sourceFile": "exec-04d3287d-4292-4047-94f4-a12bda138810.png",
+        "sourceSha256": "df36f70fbcc87c5958977ed6fbc439ff11c13277cc435c4b9b4f20e34b710d34",
+        "file": "public/service-photos/sx-adult-swimming-individual-v1.webp",
+        "width": 256,
+        "height": 256,
+        "bytes": 16926,
+        "sha256": "c8e3736b4397330b9adfd26d2aada18e9ed85f51eeb4afe7f46fcbb2ba6c5fda",
+        "label": "Индивидуален урок по плуване за възрастен",
+        "prompt": "Use case: photorealistic-natural\nAsset type: square booking catalogue thumbnail for an INDIVIDUAL SWIMMING LESSON FOR ONE ADULT.\nPrimary request: A realistic documentary photograph at an ordinary clean indoor swimming pool. Exactly one fictional clearly adult learner approximately30 in modest athletic swimwear and swim goggles practices a gentle swimming technique with a kickboard, while one adult professional swimming coach in an ordinary rash guard stands beside them in the shallow end and gives a simple hand gesture. Both clearly adults, individual instruction not a children's lesson or group. Water surface, pool edge and swimming equipment recognizable, natural indoor daylight, realistic water and anatomy, calm focused atmosphere.\nComposition: One square1:1 frame, learner and coach interaction clear at small thumbnail size; no unrelated panels.\nConstraints: Generic illustration not actual Azbuki pool/staff/customer/availability or a claimed lesson level. No child, group fitness, medical rehabilitation, extreme breath-holding/diving stunt, distressed swimmer, nudity/sexualized framing, text/price/brand/logo/watermark or notebook.",
+        "generatedOn": "2026-11-14",
+        "review": {
+          "status": "accepted",
+          "finalLayoutApproved": true,
+          "sourceSha256": "df36f70fbcc87c5958977ed6fbc439ff11c13277cc435c4b9b4f20e34b710d34",
+          "reviewers": [
+            "/root"
+          ],
+          "method": "Rootviewedfull1254sourceand256WebP. Clearlyadultlearnerwithadultcoach/kickboardininternalpool, nochild/group/clinicalrehab. FictionalillustrativeactivitynotactualAzbukipool/staff/customer/availability orlevelguarantee."
+        }
+      },
+      {
+        "id": "sx-home-renovation-onsite-survey",
+        "sourceFile": "exec-f71be56c-95a7-41c8-a797-bdfa835c8510.png",
+        "sourceSha256": "319f3c5a1127eb4b0f9f6e63c2bb287628e52aac9262206b5db2ba9a9fed1aa9",
+        "file": "public/service-photos/sx-home-renovation-onsite-survey-v1.webp",
+        "width": 256,
+        "height": 256,
+        "bytes": 10354,
+        "sha256": "581950e372d14892f5b31f1ff88f4886cc8b7561d5044a42607a93ac05964665",
+        "label": "Оглед на жилище преди цялостен ремонт",
+        "prompt": "Use case: photorealistic-natural\nAsset type: square service-booking thumbnail for an ON-SITE HOME RENOVATION ASSESSMENT, not actual construction work.\nPrimary request: A realistic documentary photograph in an ordinary unfurnished older apartment before renovation. One fictional adult building contractor in plain work clothes and one fictional adult homeowner examine the condition of a worn plaster wall and doorway together. The contractor holds a compact laser distance meter aimed at the opposite wall while pointing out a small plaster crack; homeowner listens. The measuring device is visible but contains no readable digits or branding. Realistic human hands, natural daylight, warm restrained colours, honest ordinary lived-in building materials.\nComposition: Close enough to make the home condition inspection, contractor and homeowner legible at64px; one uncluttered square1:1 photo, no collage, no notebook or clipboard focus.\nConstraints: Show a PRE-RENOVATION SURVEY and discussion only. No active painting, drilling, demolition, completed luxury kitchen, architectural blueprints, promised engineering diagnosis, hazardous work, logos, price, text, watermark or identifiable real people. No implication that this is the actual remontiram.bg worker, customer, property or completed project. Generic illustrative activity photograph.\n\nFinal refinement using source exec-f16e31af-9e71-4b28-9788-c09c6df35589.png:\nEdit this illustrative home-renovation survey photograph. Keep the same square composition, fictional contractor and homeowner, pre-renovation apartment, wall crack and pointing gesture. Remove the entire visibly glowing red laser beam from the air and wall; a real measuring instrument should not produce a brightly visible beam through clear air. Keep a compact dark red and black handheld distance meter in the contractor's lower hand with no visible emitted light and no readable screen text. No other changes. Photorealistic natural documentary style, anatomically plausible hands, no labels, logos or text. This remains a fictional service illustration, not actual provider work.",
+        "generatedOn": "2026-11-14",
+        "review": {
+          "status": "accepted",
+          "finalLayoutApproved": true,
+          "sourceSha256": "319f3c5a1127eb4b0f9f6e63c2bb287628e52aac9262206b5db2ba9a9fed1aa9",
+          "reviewers": [
+            "/root"
+          ],
+          "method": "Rootviewedfullgeneratedsourceand256WebP. Fictionalcontractorandhomeownerinspectwornplaster/doorwaywithhandheldmeasure, noactivework/finishedrenovation/architecturaldrawings/notebook. Refinedtoremoveunrealisticvisiblelaserbeam, no clinical/engineeringdiagnosis/promise. Illustrationnotactualremontiramstaff/customer/property."
+        }
+      }
+    ],
+    "provenanceManifest": "docs/specific-service-photo-generation-2026-11-12.json",
+    "mode": "Built-in image generation; mechanical Sharp256x256WebPq82effort6, fullsourceandfinalthumbpersonallyviewed. Surveyrefinedonceusingbuiltinimageedit toremoveunrealisticvisiblelaserbeam. Fictionalpeople/venuesnotactualproviderwork.",
+    "partnerAudit": {
+      "businesses": 6,
+      "visibleServices": 22,
+      "specificServices": 22,
+      "hiddenPreviouslyConfirmedPlaceholders": 3,
+      "issues": 0
+    }
+  },
+  "testsActuallyRun": {
+    "fullNode": {
+      "command": "node --test --test-concurrency=4 tests/*.test.mjs",
+      "tests": 2194,
+      "pass": 2194,
+      "fail": 0,
+      "durationMs": 86142.459708
+    },
+    "pythonPricingExtraction": {
+      "command": "python3 tests/pricing-extraction_test.py",
+      "pass": 8,
+      "fail": 0
+    },
+    "pythonBookingPricingFlow": {
+      "command": "python3 tests/booking-pricing-flow_test.py",
+      "pass": 4,
+      "fail": 0
+    },
+    "productionBuild": {
+      "command": "pnpm --config.verify-deps-before-run=warn build --webpack",
+      "result": "passed",
+      "staticPages": 92,
+      "existingWarning": "Existing node_modules/lockfile sync warning; no install/dependency/lockfile change."
+    },
+    "catalogueCheck": {
+      "command": "pnpm --config.verify-deps-before-run=warn catalogue:check",
+      "allThreeGates": "passed",
+      "approved": 1664,
+      "sourceRows": 1687,
+      "pricingBlockedNewOrChangedListings": [],
+      "specificComplete": true,
+      "provenanceComplete": true
+    },
+    "focusedAfterWhitespaceCleanup": {
+      "command": "node --test tests/catalogue-2000-home015.test.mjs tests/catalogue-2000-home016-beauty016.test.mjs tests/catalogue-2000-auto017-dental006.test.mjs tests/catalogue-2000-official-locations.test.mjs",
+      "pass": 24,
+      "fail": 0,
+      "durationMs": 872.052583
+    },
+    "wholeStagedPatchCheck": {
+      "command": "git diff --cached --check 84fd406d3ff6dd6702354915bf7b9ea6f29ae45f",
+      "result": "passed for40filesbeforethisreport; repeated includingreport beforecommit",
+      "formattingCleanup": "RemovedextraEOFblanklinesfromtwoNEWtestfilesviaapply_patch; no assertion/data/runtimechange."
+    },
+    "nativeResponsiveWidths": {
+      "executed": false,
+      "widthsRequested": [
+        360,
+        390,
+        430,
+        768,
+        1280
+      ],
+      "reason": "Nativebrowserconnectorunavailable duringthisphase. No freshscreenshots/viewporttestsclaimed; UI/layoutnotchanged."
+    }
+  },
+  "publication": {
+    "live": false,
+    "gitHubPrCreation": "Previouslyattemptednormalintegrationreturned403 Resource not accessible by integration. No permission/credential/settings change or bypass/direct-main push.",
+    "ownerUi": "OwnerprofileUIpreviouslyauthorizedbutnativeconnectorunavailable; nofreshUImergeorconfirmeddeployment.",
+    "obsoleteBranchesDoNotMerge": [
+      "codex/catalogue-2000-recovery-20261113",
+      "codex/catalogue-1523-ready-20261113",
+      "codex/catalogue-1548-ready-20261114"
+    ]
+  }
+}

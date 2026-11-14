@@ -1300,7 +1300,9 @@
       "failed": 0
     },
     "gitDiffCheck": {
-      "passed": true
+      "passed": true,
+      "command": "git diff --check 647968a59dfea69963473ee6b1505dbc813a9396",
+      "correction": "The initial staged-file check found one extra blank line at EOF in photography004; removed in a formatting-only follow-up. Whole-checkpoint diff rechecked, not just previously tracked unstaged files. No service facts, identities, prices, images or booking logic changed."
     },
     "warning": "Existing node_modules/lockfile workspace symlink warning; no install or dependency changes.",
     "notExecuted": [

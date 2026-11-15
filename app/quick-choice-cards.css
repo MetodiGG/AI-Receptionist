@@ -1,7 +1,7 @@
 /* Fast Choice is homepage-only. Real photos, service identifiers, safe
    outbound actions and the existing details dialog keep their own behavior. */
 .customer-home.quick-choice .home-business-grid { gap: 12px; padding: 4px 0 12px; }
-.customer-home.quick-choice .home-business-grid .home-business-card:is([data-source="gorez"],[data-source="catalogue"]) { display: grid; grid-template-columns: 92px minmax(0,1fr) 184px; grid-template-rows: auto auto; align-content: start; gap: 0 14px; height: auto; min-width: 0; padding: 14px; border: 1px solid #e8d8c8; border-radius: 12px; background: #fffcf7; box-shadow: none; }
+.customer-home.quick-choice .home-business-grid .home-business-card:is([data-source="gorez"],[data-source="catalogue"]) { display: grid; grid-template-columns: 92px minmax(0,1fr) 156px; grid-template-rows: auto auto; align-content: start; gap: 0 14px; height: auto; min-width: 0; padding: 14px; border: 1px solid #e8d8c8; border-radius: 12px; background: #fffcf7; box-shadow: none; }
 .customer-home.quick-choice .home-business-grid .home-business-card > .home-business-photo { grid-column: 1; grid-row: 1 / 3; align-self: start; width: 92px; height: 100px; aspect-ratio: auto; border-radius: 9px; }
 .customer-home.quick-choice .home-business-photo::after { display: none; }
 .customer-home.quick-choice .home-business-identity { grid-column: 2; grid-row: 1; min-width: 0; align-self: start; }
@@ -24,19 +24,19 @@
 .customer-home.quick-choice .home-business-services .home-service-price { flex: 0 1 auto; min-width: 0; max-width: 100%; margin-inline-start: auto; color: #8b421c; font-size: 16px; line-height: 1.45; white-space: normal; overflow-wrap: anywhere; word-break: normal; text-align: end; }
 .customer-home.quick-choice .home-business-services :is(.home-service-condition,.service-price-unit) { color: #625349; font-size: 15px; line-height: 1.5; }
 .customer-home.quick-choice .home-business-grid .home-business-card > .home-business-footer { grid-column: 3; grid-row: 1 / 3; align-self: center; min-width: 0; margin: 0; padding: 0 0 2px; }
-.customer-home.quick-choice .home-business-card > .home-business-footer > .home-business-actions { display: flex; flex-direction: column; flex-wrap: nowrap; align-items: stretch; gap: 9px; margin: 0; padding: 0; }
+.customer-home.quick-choice .home-business-card > .home-business-footer > .home-business-actions { display: flex; flex-direction: column; flex-wrap: nowrap; align-items: stretch; gap: 6px; margin: 0; padding: 0; }
 .customer-home.quick-choice .home-business-card > .home-business-footer > .home-business-actions > :is(.home-directions,.home-reserve,.outbound-booking-form) { flex: 0 1 auto; min-width: 0; width: 100%; max-width: 100%; }
-.customer-home.quick-choice .home-business-card > .home-business-footer > .home-business-actions :is(.home-directions,.home-reserve) { box-sizing: border-box; min-width: 0; max-width: 100%; min-height: 44px; padding: 8px 10px; border-radius: 9px; font-size: 15px; line-height: 1.35; box-shadow: inset 0 1px 0 #fff,0 1px 0 #d6b795; transform: none; }
+.customer-home.quick-choice .home-business-card > .home-business-footer > .home-business-actions :is(.home-directions,.home-reserve) { box-sizing: border-box; min-width: 0; max-width: 100%; min-height: 44px; padding: 6px 8px; border-radius: 12px; font-size: 15px; line-height: 1.3; box-shadow: inset 0 1px 0 #fff,0 1px 0 #d6b795; transform: none; }
 .customer-home.quick-choice .home-business-card > .home-business-footer > .home-business-actions :is(.home-directions,.home-reserve):is(:hover,:focus-visible) { box-shadow: inset 0 1px 0 #fff,0 1px 0 #d6b795; transform: none; }
-.customer-home.quick-choice .home-business-card > .home-business-footer .booking-calendar-icon { width: 27px; height: 27px; }
-.customer-home.quick-choice .home-business-card > .home-business-footer .home-directions > svg { flex-basis: 24px; width: 24px; height: 24px; }
+.customer-home.quick-choice .home-business-card > .home-business-footer .booking-calendar-icon { width: 24px; height: 24px; }
+.customer-home.quick-choice .home-business-card > .home-business-footer .home-directions > svg { flex-basis: 22px; width: 22px; height: 22px; }
 
 @media (max-width: 759px) {
   .customer-home.quick-choice .home-business-grid .home-business-card:is([data-source="gorez"],[data-source="catalogue"]) { grid-template-columns: 84px minmax(0,1fr); grid-template-rows: auto auto auto; column-gap: 12px; padding: 12px; }
   .customer-home.quick-choice .home-business-grid .home-business-card > .home-business-photo { grid-column: 1; grid-row: 1; width: 84px; height: 92px; margin: 0 0 8px; }
   .customer-home.quick-choice .home-business-grid .home-business-card > .home-business-services { grid-column: 1 / -1; grid-row: 2; margin-top: 7px; }
   .customer-home.quick-choice .home-business-grid .home-business-card > .home-business-footer { grid-column: 1 / -1; grid-row: 3; margin-top: 10px; }
-  .customer-home.quick-choice .home-business-card > .home-business-footer > .home-business-actions { flex-direction: row; flex-wrap: wrap; gap: 9px; }
+  .customer-home.quick-choice .home-business-card > .home-business-footer > .home-business-actions { flex-direction: row; flex-wrap: wrap; gap: 8px; }
   .customer-home.quick-choice .home-business-card > .home-business-footer > .home-business-actions > :is(.home-directions,.home-reserve,.outbound-booking-form) { flex: 1 1 min-content; width: auto; }
   .customer-home.quick-choice .home-business-card > .home-business-footer > .home-business-actions :is(.home-directions,.home-reserve) { padding-inline: 8px; }
 }

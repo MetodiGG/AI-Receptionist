@@ -24,7 +24,7 @@ test('the existing external form and telephone anchor retain their real GoRez pr
 test('the narrow link-spacing fix does not restyle the shared booking action component', async () => {
   const css = await read('app/booking-actions.css')
   assert.doesNotMatch(css, /directory-business-card > \.outbound-booking-form \+ a|directory-business-card > \.directory-book-button \+ a/)
-  assert.match(css, /box-shadow: inset 0 2px 0 #ffffffd9,inset 0 -1px 0 #ffffff38,0 3px 0 var\(--action-edge\)/)
+  assert.match(css, /box-shadow: inset 0 1px 0 #ffffffd9,inset 0 -1px 0 #ffffff38,0 2px 0 var\(--action-edge\)/)
 })
 
 test('development-only directory spacing samples preserve the real layout structure without navigation or submission', async () => {

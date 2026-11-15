@@ -78,7 +78,7 @@ export function GoogleBusinessCardFrame({ locale, origin, point, children, maps,
 export function GoogleBusinessCard({ card, locale = 'bg', providerLocale = locale, nearby = false, distanceOrigin = null }) {
   const host = useRef(null), [attempt, setAttempt] = useState(0), [contacts, setContacts] = useState(false)
   const { status, point } = useAuthorizedGoogleWidget({ card, locale: providerLocale, nearby, host, attempt })
-  const en = locale === 'en', reserve = <BookingButtonContent>{en ? 'Book a time' : 'Резервирай час'}</BookingButtonContent>
+  const en = locale === 'en', reserve = <BookingButtonContent>{en ? 'Book' : 'Резервирай'}</BookingButtonContent>
   const directions = railDirections({ source: 'google', placeId: card.placeId })
   const knownBooking = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(card.bookingLinkId || '')
   return <>

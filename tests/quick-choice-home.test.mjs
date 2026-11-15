@@ -24,10 +24,13 @@ test('quick choice removes the oversized search panel without shrinking editable
 
 test('all existing photographic categories stay horizontal and children wrap with photos and full labels', async () => {
   const [css, search, children] = await Promise.all(['app/quick-choice-home.css', 'components/discovery-search.js', 'components/discovery-subcategories.js'].map(read))
-  assert.match(css, /\.home-categories button \{ flex-direction:row/)
-  assert.match(css, /\.home-categories img \{ flex:0 0 35px; width:35px; height:35px/)
+  assert.match(css, /\.home-categories \.home-discovery-rail button \{ flex-direction:row/)
+  assert.match(css, /\.home-categories \.home-discovery-rail button \{[^}]*border-radius:999px/)
+  assert.match(css, /\.home-categories img \{[^}]*width:40px; height:40px/)
   assert.match(css, /\.discovery-subcategory-grid \{ display:flex; flex-wrap:wrap/)
-  assert.match(css, /\.discovery-subcategory-photo \{ flex-basis:30px; width:30px; height:30px/)
+  assert.match(css, /\.discovery-subcategories \{[^}]*--subcategory-photo-size:34px/)
+  assert.match(css, /\.discovery-subcategory-option \{[^}]*border-radius:999px/)
+  assert.match(css, /\.discovery-subcategory-photo \{[^}]*width:var\(--subcategory-photo-size\); height:var\(--subcategory-photo-size\)/)
   assert.match(search, /homeCategories\(locale\)\.map/)
   assert.match(children, /<SubcategoryPhoto src=\{item.photo\}/)
   assert.match(children, /aria-expanded=\{expanded\}/)

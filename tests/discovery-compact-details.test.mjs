@@ -36,6 +36,59 @@ test('representative matching priced services lead; cheap add-ons and unrelated 
   assert.equal(detailPriceLabel(railServiceItems(row)[1]), null)
 })
 
+test('selected football previews never append tennis from the full menu, including compact HTTP rows', () => {
+  for (const source of ['gorez','catalogue']) {
+    const row = { source, subcategory: 'fitness-football', services: [{ name: 'Наем на футболно игрище' }],
+      publicServiceNames: ['Наем на тенис корт', 'Наем на футболно игрище'],
+      details: { services: [{ name: 'Наем на тенис корт', price: 20, currency: 'EUR' }, { name: 'Наем на футболно игрище', price: 70, currency: 'EUR' }] } }
+    for (const value of [row, compactDiscoveryRow(row)]) {
+      assert.equal(value.subcategory, 'fitness-football')
+      assert.deepEqual(railServiceItems(value).map(service => [service.name,service.price]), [['Наем на футболно игрище',70]])
+    }
+    assert.equal(businessDetailServices(row).length, 2, 'opening details still retains the complete real menu')
+    assert.equal(railServiceItems({ ...row, subcategory: undefined }).length, 2, 'unfiltered parent browsing retains the existing preview behavior')
+  }
+})
+
+test('an unpriced selected service cannot be replaced or supplemented by another activity with a price', () => {
+  const row = { source: 'catalogue', subcategory: 'fitness-football', services: [{ name: 'Урок по футбол' }],
+    publicServiceNames: ['Урок по тенис','Урок по футбол'], details: { services: [{ name: 'Урок по тенис', price: 30, currency: 'EUR' }, { name: 'Урок по футбол' }] } }
+  for (const value of [row,compactDiscoveryRow(row)]) {
+    const services = railServiceItems(value)
+    assert.equal(services.length, 1)
+    assert.equal(services[0].name, 'Урок по футбол')
+    assert.equal(services[0].price, null)
+    assert.equal(detailPriceLabel(services[0]), null)
+  }
+})
+
+test('a strict compact preview cannot bypass matched service names through a mixed cached preview array', () => {
+  const row = { source: 'gorez', subcategory: 'fitness-football', services: [{ name: 'Урок по футбол' }], servicePreview: [{ name: 'Урок по тенис', price: 40 }, { name: 'Урок по футбол', price: 20 }] }
+  assert.deepEqual(railServiceItems(row).map(service => [service.name,service.price]), [['Урок по футбол',20]])
+  assert.deepEqual(railServiceItems({ ...row, services: [] }), [])
+  assert.equal(railServiceItems({ ...row, subcategory: undefined }).length, 2)
+})
+
+test('strict compaction retains the original objects for the representative matched services, even when they are not first', () => {
+  const services = Array.from({ length: 5 }, (_, index) => ({ id: `10000000-0000-4000-8000-${String(index+1).padStart(12,'0')}`, name: `Урок по футбол ${index+1}`, price: index < 3 ? null : 10+index, currency: 'EUR' }))
+  const row = { source: 'gorez', id, subcategory: 'fitness-football', services, details: { services: [...services,{ name: 'Урок по тенис', price: 25 }] } }
+  const expected = railServiceItems(row)
+  const compact = compactDiscoveryRow(row)
+  assert.deepEqual(compact.servicePreview.map(service => service.name), expected.map(service => service.name))
+  assert.deepEqual(railServiceItems(compact).map(service => service.name), expected.map(service => service.name))
+  assert.deepEqual(compact.services.map(service => service.id), [services[3].id,services[4].id])
+})
+
+test('strict same-name price conflicts stay unpriced after compaction while retaining a real matched identifier', () => {
+  const services = [{ id, name: 'Подстригване', price: 20 }, { id: '10000000-0000-4000-8000-000000000002', name: 'Подстригване', price: 35 }]
+  const row = { source: 'gorez', id, subcategory: 'hair-cut', services, details: { services } }
+  const compact = compactDiscoveryRow(row)
+  assert.equal(compact.services[0].id, id)
+  assert.equal(compact.servicePreview.length, 1)
+  assert.equal(compact.servicePreview[0].price, null)
+  assert.equal(railServiceItems(compact)[0].price, null)
+})
+
 test('the HTTP preview drops full menus/photos/hours but preserves category, directions, booking and availability', () => {
   const row = normalizeCatalogueBusinesses([SOFIA_CATALOGUE.find(row => row.id === 'sofia-autocomplex-rs')], { browse: true, searchV2: true, requirements: [] }, { now })[0]
   const compact = compactDiscoveryResponse({ results: [row], cataloguePage: { total: 1 } }).results[0]
@@ -88,6 +141,16 @@ test('owner full details retain all active services without exposing owner, cust
   assert.equal(business.details.phone, '+359888000001')
   assert.equal(business.details.sourceUrl, 'https://business.bg/')
   assert.doesNotMatch(JSON.stringify(business), /customer-private|private appointment|private-owner|private-billing|Hidden|owner_user_id|appointments|customers/)
+})
+
+test('public partner details preserve the stable reviewed activity cover ID through their thin allowlist', async () => {
+  const response = await createPublicBusinessDetailsHandler(dependencies())(request(), id)
+  const { business } = await response.json()
+  assert.equal(response.status, 200)
+  assert.equal(business.illustrativeCoverPhotoKey, 'classic-manicure')
+  assert.equal(business.businessCategory, 'nails')
+  assert.equal(business.publicServiceNames, undefined, 'the image ID does not require duplicating the public menu')
+  assert.doesNotMatch(JSON.stringify(business), /customer-private|private appointment|private-owner|private-billing|owner_user_id/)
 })
 
 test('the partner query is one scoped read with bounded full-menu relationships, never select star', async () => {

@@ -175,7 +175,7 @@ test('button-state visual fixture is development-only and cannot reserve, regist
   const page = await read('app/dev/button-states/page.js')
   assert.match(page, /if \(process.env.NODE_ENV !== 'development'\) notFound\(\)/)
   const buttons = [...page.matchAll(/<button\b([^>]+)>/g)].map(match => match[1])
-  assert.equal(buttons.length, 6, 'directions/reserve, service action, disabled directions/reserve and signup preview')
+  assert.equal(buttons.length, 11, 'directions/reserve, service action, disabled pair, narrow pair, profile mode/external controls and signup preview')
   for (const attributes of buttons) assert.match(attributes, /\btype="button"/)
   assert.equal(buttons.filter(attributes => /\bdisabled\b/.test(attributes)).length, 2)
   assert.match(page, /BookingButtonContent, BookingCalendarIcon/)

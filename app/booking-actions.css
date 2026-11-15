@@ -1,8 +1,20 @@
 /* Flyer-inspired customer actions. These rules change presentation only;
    provider-owned widgets, map art and owner/dashboard controls are untouched. */
-.booking-button-content { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-width: 0; max-width: 100%; vertical-align: middle; }
-.booking-button-label { min-width: 0; white-space: normal; overflow-wrap: normal; word-break: normal; hyphens: manual; text-align: center; }
+.booking-button-content { display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 7px; min-width: 0; max-width: 100%; vertical-align: middle; }
+/* Use the real longest-word width (including Android font metrics) as the
+   wrapping threshold. When the icon and word cannot share a row, move the
+   complete label underneath instead of painting it outside the button. */
+.booking-button-label { flex: 1 1 min-content; min-width: 0; max-width: 100%; white-space: normal; overflow-wrap: break-word; word-break: normal; hyphens: manual; text-align: center; }
 .booking-calendar-icon { display: block; flex: 0 0 auto; width: 30px; height: 30px; object-fit: contain; filter: drop-shadow(0 1px 1px #8d471a22); }
+
+/* Equal half-width grid columns can be narrower than a complete word after
+   Android text scaling. Paired actions share the available width by their
+   actual contents, then stack only if both word-safe minimums cannot fit.
+   A lone reserve action keeps the existing grid/right-column placement. */
+.home-business-actions:has(>.home-directions):has(>.home-reserve,>.outbound-booking-form) { display: flex; flex-wrap: wrap; align-items: stretch; }
+.home-business-actions > :is(.home-directions,.home-reserve,.outbound-booking-form) { flex: 1 1 min-content; }
+.profile-redesign .profile-mode-controls { display: flex; flex-wrap: wrap; }
+.profile-redesign .profile-mode-controls > button { flex: 1 1 min-content; max-width: 100%; }
 
 .home-business-actions .home-reserve,
 .home-business-actions .home-directions,
@@ -14,7 +26,7 @@
 .profile-redesign .profile-mode-controls button[aria-controls="profile-native-panel"] {
   --action-top: #fffaf3; --action-bottom: #ffead4; --action-border: #eac8a9; --action-edge: #dfb48f; --action-ink: #713619;
   display: inline-flex; flex-direction: row; align-items: center; justify-content: center; gap: 7px;
-  min-width: 0; min-height: 52px; margin-block: 0; padding: 9px 12px;
+  box-sizing: border-box; min-width: 0; max-width: 100%; min-height: 52px; height: auto; margin-block: 0; padding: 9px 12px;
   border: 1px solid var(--action-border); border-radius: 16px;
   color: var(--action-ink); background: linear-gradient(175deg,var(--action-top),var(--action-bottom));
   box-shadow: inset 0 2px 0 #ffffffd9,inset 0 -1px 0 #ffffff38,0 3px 0 var(--action-edge),0 6px 12px #99592e12;

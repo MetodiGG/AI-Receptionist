@@ -13,6 +13,7 @@ import * as rail from '../lib/discovery/rail.mjs'
 import * as servicePresentation from '../lib/discovery/service-presentation.mjs'
 import * as copy from '../lib/discovery/copy.mjs'
 import * as attribution from '../lib/discovery/catalogue-attribution.mjs'
+import { businessCoverPhoto } from '../lib/business-cover-photo.mjs'
 
 const now = Date.parse('2026-11-14T12:00:00Z')
 const real = SOFIA_CATALOGUE.find(row => row.id === 'sofia-in-beauty')
@@ -125,7 +126,8 @@ const page = await compile('../app/businesses/catalogue/[id]/page.js', {
   'next/link': simpleLink, 'next/navigation': { notFound: () => { throw Error('NOT_FOUND') }, permanentRedirect: url => { throw Error(`REDIRECT:${url}`) } },
   '../../../../components/brand-logo': { BrandLogo: () => React.createElement('span', null, 'GoRez') },
   '../../../../components/home-link': { HomeLink: () => React.createElement('a', { href: '/' }, 'Home') },
-  '../../../../components/business-profile': { BusinessProfileHeader: ({ business, shareUrl }) => React.createElement('header', { 'data-share-url': shareUrl, 'data-private-service-inventory': Boolean(business.details || business.services) }, React.createElement('h1', null, business.name), business.address) },
+  '../../../../components/business-profile': { BusinessProfileHeader: ({ business, shareUrl }) => React.createElement('header', { 'data-share-url': shareUrl, 'data-private-service-inventory': Boolean(business.details || business.services || business.publicServiceNames),
+    'data-activity-cover': business.illustrativeCoverPhotoKey, 'data-resolved-cover': businessCoverPhoto(business).src }, React.createElement('h1', null, business.name), business.address) },
   '../../../../components/service-thumbnail': { ServiceThumbnail: ({ service }) => React.createElement('img', { src: '/service-photos/test.webp', alt: service.name }) },
   '../../../../components/booking-button-content': { BookingButtonContent: ({ children }) => React.createElement('span', null, children) },
   '../../../../components/icon': { Icon: ({ name }) => React.createElement('svg', { 'data-icon': name, 'aria-hidden': true }) },
@@ -150,6 +152,22 @@ test('BG/EN route server-renders actual full service names/prices and safe real 
     assert.doesNotMatch(html, /aggregateRating|ratingValue|availableSlots|booking-experience|Избрана дата/)
     assert.match(html, /ГИС София \/ Столична община/)
     assert.ok((await page.generateMetadata({ params: Promise.resolve({ id: real.id }), searchParams: Promise.resolve({ lang: locale }) })).description.includes('IN Beauty'))
+  }
+})
+
+test('direct BG/EN folk-dance profile hero carries its stable activity image without serializing the service menu', async () => {
+  const folk = SOFIA_CATALOGUE.find(row => row.id === 'sofia-nosia-todor-alexandrov17')
+  assert.ok(folk)
+  responseProfile = actualProfile(folk)
+  assert.equal(responseProfile.business.illustrativeCoverPhotoKey, 'sx-bulgarian-folk-group')
+  for (const locale of ['bg', 'en']) {
+    const node = await page.default({ params: Promise.resolve({ id: folk.id }), searchParams: Promise.resolve({ lang: locale }) })
+    const html = renderToStaticMarkup(node)
+    assert.match(html, /data-activity-cover="sx-bulgarian-folk-group"/)
+    assert.match(html, /data-resolved-cover="\/business-cover-photos\/activity-sx-bulgarian-folk-group-v1\.webp"/)
+    assert.match(html, /data-private-service-inventory="false"/)
+    assert.doesNotMatch(html, /data-resolved-cover="[^"]*(?:fitness-v1|boxing)/)
+    assert.ok(html.includes(folk.name))
   }
 })
 

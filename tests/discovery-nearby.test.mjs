@@ -139,14 +139,15 @@ test('unknown distances and full-precision boundary violations never leak into t
   assert.deepEqual(groups, { nearby: ['A'], further: ['B'] })
 })
 
-test('one location label, explicit on/off consent and visible partner entry are retained', async () => {
+test('one location label, explicit on/off consent and menu partner access are retained', async () => {
   const ui = await read('components/discovery-search.js')
   assert.equal(DISCOVERY_COPY.bg.nearby, 'Около мен'); assert.doesNotMatch(DISCOVERY_COPY.bg.changeCity, /наблизо|около мен/iu)
   assert.match(ui, /if \(!automatic && locationEnabled\) \{[\s\S]*?setCoordinates\(null\)/)
   assert.ok(ui.indexOf('if (!automatic && locationEnabled) {') < ui.indexOf('await locationProvider('))
   assert.match(ui, /aria-pressed=\{locationEnabled\}/)
   assert.doesNotMatch(ui, /copy\.locationSet|copy\.clearLocation/)
-  assert.match(ui, /className="discovery-partner-entry"><Link href=\{`\/partners\?lang=/)
+  assert.doesNotMatch(ui, /className="discovery-partner-entry"|DiscoveryHomeBottom/)
+  assert.match(await read('components/marketing-navigation.js'), /href=\{`\/partners\?lang=\$\{locale\}`\}/)
   const more = await read('components/discovery-nearby-more.js')
   assert.match(more, /visible && scrolled/); assert.match(more, /window.scrollY > startY \+ 120/)
   assert.doesNotMatch(more, /fetch\(|getCurrentPosition|watchPosition|localStorage|sessionStorage/)

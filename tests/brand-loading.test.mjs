@@ -33,17 +33,41 @@ test('all loading contexts grow modestly while non-loading brand marks keep thei
   const logo=renderToStaticMarkup(createElement(BrandMark,{size:72}))
   assert.match(logo,/width="72" height="72"/);assert.match(logo,/sizes="48px"/)
 })
-test('CSS makes a fast four-direction tilt, keeps the logo recognizable and fully disables motion when requested', async () => {
+test('CSS makes complete left/right/up/down 3D turns with a seamless loop and no visible sphere', async () => {
   const css = await readFile(new URL('../app/brand.css', import.meta.url), 'utf8')
-  assert.match(css, /gorez-loading-four-way 850ms ease-in-out infinite/)
-  for (const tilt of ['rotateY(-26deg)','rotateY(26deg)','rotateX(24deg)','rotateX(-24deg)']) assert.ok(css.includes(tilt))
-  assert.ok(css.includes('translate3d(-2px,0,0)'));assert.ok(css.includes('translate3d(2px,0,0)'))
-  assert.ok(css.includes('translate3d(0,-2px,0)'));assert.ok(css.includes('translate3d(0,2px,0)'))
-  for (const [, angle] of css.matchAll(/rotate[XYZ]\((-?\d+)deg\)/g)) assert.ok(Math.abs(Number(angle))<=26)
-  assert.doesNotMatch(css,/rotate\(180deg\)|opacity\s*:/)
+  assert.match(css, /gorez-loading-orbit 2\.8s ease-in-out infinite/)
+  assert.match(css, /backface-visibility:visible/)
+  const orbit = css.slice(css.indexOf('@keyframes gorez-loading-orbit'), css.indexOf('@media (prefers-reduced-motion'))
+  assert.ok(orbit.includes('0%,50%,100% { transform:perspective(240px) rotateX(0deg) rotateY(0deg); }'))
+  assert.ok(orbit.includes('25% { transform:perspective(240px) rotateX(0deg) rotateY(-360deg); }'))
+  assert.ok(orbit.includes('75% { transform:perspective(240px) rotateX(360deg) rotateY(0deg); }'))
+  assert.doesNotMatch(orbit, /translate|rotateZ|opacity|scale/)
+  assert.doesNotMatch(css, /gorez-loading-four-way|gorez-loading-half-turn|::before|::after|background\s*:/)
   assert.match(css, /prefers-reduced-motion:reduce[^]*?gorez-loading-mark[^]*?animation:none; transform:none/)
   const source = await readFile(new URL('../components/brand-loading.js', import.meta.url), 'utf8')
   assert.doesNotMatch(source, /useEffect|setInterval|setTimeout|fetch\(|next\/image|use client/)
+})
+test('full perspective turns fit every current loading size without enlarging its fixed wrapper', async () => {
+  const css = await readFile(new URL('../app/brand.css', import.meta.url), 'utf8')
+  const perspective = Number(css.match(/perspective\((\d+)px\)/)?.[1])
+  assert.equal(perspective, 240)
+  assert.match(css, /width:calc\(var\(--loading-mark-size,40px\) \* 1\.45\)/)
+  // Project all four square corners through each axis for one full turn.
+  // Left/right and up/down use the same path in opposite directions.
+  for (const size of [20,24,28,40,50,60]) {
+    const half = size/2, envelope = size*1.45/2
+    for (let degree=0; degree<=360; degree++) {
+      const angle=degree*Math.PI/180
+      for (const x of [-half,half]) for (const y of [-half,half]) {
+        const yScale=perspective/(perspective-x*Math.sin(angle))
+        assert.ok(Math.abs(x*Math.cos(angle)*yScale)<=envelope)
+        assert.ok(Math.abs(y*yScale)<=envelope)
+        const xScale=perspective/(perspective-y*Math.sin(angle))
+        assert.ok(Math.abs(x*xScale)<=envelope)
+        assert.ok(Math.abs(y*Math.cos(angle)*xScale)<=envelope)
+      }
+    }
+  }
 })
 test('small search controls reserve motion space and compact/mobile labels do not hide the logo',async()=>{
   const css=await readFile(new URL('../app/brand.css',import.meta.url),'utf8')

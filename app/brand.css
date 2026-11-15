@@ -6,17 +6,16 @@
 .gorez-wordmark .gorez-wordmark-accent { color:#d55e22; font-weight:900; }
 
 .gorez-loading { display:inline-flex; flex:0 0 auto; align-items:center; justify-content:center; width:calc(var(--loading-mark-size,40px) * 1.45); height:calc(var(--loading-mark-size,40px) * 1.45); vertical-align:middle; }
-.gorez-loading .gorez-loading-mark { animation:gorez-loading-four-way 850ms ease-in-out infinite; transform-origin:center; will-change:transform; }
+.gorez-loading .gorez-loading-mark { animation:gorez-loading-orbit 2.8s ease-in-out infinite; transform-origin:center; backface-visibility:visible; will-change:transform; }
 .home-search-trigger:has(>.gorez-loading),.home-inline-control:has(>.gorez-loading) { padding:0; }
 .home-browse-skeleton,.directory-skeleton { position:relative; }
 .home-browse-skeleton>.gorez-loading,.directory-skeleton>.gorez-loading { position:absolute; top:24px; left:50%; transform:translateX(-50%); z-index:1; }
-/* Keep the G and check facing forward: fast directional tilts, never an
-   upside-down/edge-on flip. The fixed wrapper reserves the motion envelope. */
-@keyframes gorez-loading-four-way {
-  0%,100% { transform:perspective(180px) translate3d(0,0,0) rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
-  20% { transform:perspective(180px) translate3d(-2px,0,0) rotateX(12deg) rotateY(-26deg) rotateZ(-12deg); }
-  40% { transform:perspective(180px) translate3d(2px,0,0) rotateX(-8deg) rotateY(26deg) rotateZ(12deg); }
-  60% { transform:perspective(180px) translate3d(0,-2px,0) rotateX(24deg) rotateY(8deg) rotateZ(6deg); }
-  80% { transform:perspective(180px) translate3d(0,2px,0) rotateX(-24deg) rotateY(-8deg) rotateZ(-6deg); }
+/* Full left/right/up/down turns, as if rotating in an invisible sphere.
+   Each 700ms turn returns to the front; easing keeps reversals seamless.
+   Keep the back visible and reserve the same fixed envelope (no layout shift). */
+@keyframes gorez-loading-orbit {
+  0%,50%,100% { transform:perspective(240px) rotateX(0deg) rotateY(0deg); }
+  25% { transform:perspective(240px) rotateX(0deg) rotateY(-360deg); }
+  75% { transform:perspective(240px) rotateX(360deg) rotateY(0deg); }
 }
 @media (prefers-reduced-motion:reduce) { .gorez-loading .gorez-loading-mark { animation:none; transform:none; will-change:auto; } }

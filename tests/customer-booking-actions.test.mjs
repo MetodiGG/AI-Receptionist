@@ -106,7 +106,7 @@ test('shared booking content keeps complete BG/EN labels and a single decorative
 test('phone reserve CTA remains one validated tel link, while disabled or malformed destinations remain inert', () => {
   const html = render(OutboundBookingButton, { business, locale: 'bg' })
   assert.equal(artCount(html), 1); assert.match(html, /href="tel:\+359888123456"/)
-  assert.equal(visible(html), 'Резервирай час')
+  assert.equal(visible(html), 'Резервирай')
   assert.doesNotMatch(html, /<form\b|<button\b|method=|eventId|потвърден/)
   for (const extra of [{ disabled: true }, { business: { ...business, phone: 'javascript:alert(1)' } }]) {
     const inert = render(OutboundBookingButton, { business, locale: 'en', ...extra })
@@ -137,7 +137,7 @@ test('external and verified-place CTAs retain their protected POST action, hidde
     assert.ok(html.includes(`action="${path}"`))
     assert.match(html, /<input[^>]*type="hidden"[^>]*name="eventId"/)
     assert.match(html, /<button[^>]*type="submit"[^>]*disabled=""/)
-    assert.equal(artCount(html), 1); assert.equal(visible(html), 'Book an appointment')
+    assert.equal(artCount(html), 1); assert.equal(visible(html), 'Book')
   }
 })
 
@@ -179,7 +179,8 @@ test('directions retain the exact folded-map source bytes and current business d
   const tree = BusinessDirectionsLink({ business, locale: 'bg' })
   assert.equal(tree.type, 'a'); assert.equal(tree.props.target, '_blank'); assert.equal(tree.props.rel, 'noopener noreferrer')
   assert.equal(tree.props.href, profileData.businessDirectionsUrl(business))
-  assert.match(renderToStaticMarkup(tree), /Как да стигна/)
+  assert.match(renderToStaticMarkup(tree), /<span>Упътване<\/span>/)
+  assert.equal(tree.props['aria-label'], `Упътване — как да стигна · ${business.name}`)
   assert.equal(elements(tree, node => node.type === Icon && node.props.name === 'map').length, 1)
   assert.equal(artCount(renderToStaticMarkup(tree)), 0, 'do not substitute a calendar for directions')
 })
@@ -206,6 +207,25 @@ test('actual directory CTAs retain native links, safe phone links and protected 
     if (mode === 'gorez') { assert.match(html, /href="\/book\/fictional-booking-action\?lang=en"/); assert.doesNotMatch(html, /<form\b/) }
     if (mode === 'phone') { assert.match(html, /href="tel:\+359888123456"/); assert.doesNotMatch(html, /<form\b/) }
     if (mode === 'external') assert.match(html, /action="\/out\/business\/fictional-booking-action\?lang=en" method="post"/)
+  }
+})
+
+test('actual home and directory booking labels are compact in both languages without changing their real destinations', () => {
+  for (const [locale, label, directions] of [['bg', 'Резервирай', 'Упътване'], ['en', 'Book', 'Directions']]) {
+    for (const booking_mode of ['gorez', 'external', 'phone']) {
+      const row = { ...business, source: 'gorez', category: 'beauty', industry: 'beauty', services: [], booking_mode }
+      const home = render(DiscoveryBusinessCard, { row, locale, quickChoice: true })
+      assert.ok(home.includes(`<span class="booking-button-label">${label}</span>`))
+      assert.ok(home.includes(`<span class="home-maps-label">${directions}</span>`))
+      const directory = render(BusinessDirectory, { locale, data: { status: 'ready', businesses: [row] }, showFilters: false })
+      assert.ok(directory.includes(`<span class="booking-button-label">${label}</span>`))
+      for (const html of [home, directory]) {
+        assert.equal(artCount(html), 1)
+        if (booking_mode === 'gorez') assert.ok(html.includes(`href="/book/${business.slug}?lang=${locale}"`))
+        if (booking_mode === 'external') assert.ok(html.includes(`action="/out/business/${business.slug}?lang=${locale}" method="post"`))
+        if (booking_mode === 'phone') assert.ok(html.includes('href="tel:+359888123456"'))
+      }
+    }
   }
 })
 

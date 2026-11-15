@@ -139,7 +139,7 @@ test('Fast Choice CSS is homepage-scoped, keeps a vertical list and lets names, 
   const css = await readFile(new URL('../app/quick-choice-cards.css', import.meta.url), 'utf8')
   const selectors = [...css.replace(/\/\*[\s\S]*?\*\//g, '').matchAll(/([^{}]+)\{/g)].map(match => match[1].trim()).filter(value => !value.startsWith('@'))
   for (const selector of selectors) assert.ok(selector.startsWith('.customer-home.quick-choice '), selector)
-  assert.match(css, /grid-template-columns: 92px minmax\(0,1fr\) 184px/)
+  assert.match(css, /grid-template-columns: 92px minmax\(0,1fr\) 156px/)
   assert.match(css, /@media \(max-width: 759px\)/)
   assert.match(css, /grid-template-columns: 84px minmax\(0,1fr\)/)
   assert.match(css, /\.home-business-card > \.home-business-services \{ grid-column: 1 \/ -1/)

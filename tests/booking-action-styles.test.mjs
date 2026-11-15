@@ -7,7 +7,7 @@ test('flyer action styles load last and scope relief to customer booking/directi
   const [css, layout] = await Promise.all(['app/booking-actions.css','app/layout.js'].map(read))
   assert.ok(layout.indexOf("import './booking-actions.css'") > layout.indexOf("import './business-results.css'"))
   for (const selector of ['.home-business-actions .home-reserve','.home-business-actions .home-directions','.profile-redesign .profile-external-reserve','.business-directory .directory-book-button','.profile-redesign .profile-service-book']) assert.ok(css.includes(selector), selector)
-  assert.match(css, /box-shadow: inset 0 2px 0/)
+  assert.match(css, /box-shadow: inset 0 1px 0/)
   assert.equal(css.match(/\.partners-page \.business-directory \.directory-book-button,/g)?.length, 2, 'base relief and booking color also override the older three-class partner-directory style')
   assert.match(css, /flex-direction: row/)
   assert.match(css, /\.home-business-actions \.home-maps-label \{[^}]*color: inherit[^}]*font-weight: inherit/)
@@ -16,8 +16,8 @@ test('flyer action styles load last and scope relief to customer booking/directi
 
 test('action states remain bounded, keyboard visible, disabled-safe and reduced-motion aware', async () => {
   const css = await read('app/booking-actions.css')
-  assert.match(css, /min-height: 52px/)
-  assert.match(css, /\.profile-redesign \.profile-service-book \{[^}]*width: 46px; min-height: 46px/)
+  assert.match(css, /min-height: 44px/)
+  assert.match(css, /\.profile-redesign \.profile-service-book \{[^}]*width: 44px; min-height: 44px/)
   assert.match(css, /:not\(:disabled\):not\(\[aria-disabled="true"\]\):is\(:hover,:focus-visible\)/)
   assert.match(css, /outline: 3px solid #984419; outline-offset: 4px/)
   assert.match(css, /opacity: \.72; color: var\(--action-ink\); background: linear-gradient\(175deg,var\(--action-top\),var\(--action-bottom\)\); border-color: var\(--action-border\); transform: none/)
@@ -43,7 +43,7 @@ test('booking labels reflow by real word width instead of escaping beside the fi
   const css = await read('app/booking-actions.css')
   assert.match(css, /\.booking-button-content \{[^}]*flex-wrap: wrap[^}]*max-width: 100%/)
   assert.match(css, /\.booking-button-label \{[^}]*flex: 1 1 min-content[^}]*min-width: 0[^}]*max-width: 100%[^}]*white-space: normal[^}]*overflow-wrap: break-word[^}]*word-break: normal/)
-  assert.match(css, /box-sizing: border-box; min-width: 0; max-width: 100%; min-height: 52px; height: auto/)
+  assert.match(css, /box-sizing: border-box; min-width: 0; max-width: 100%; min-height: 44px; height: auto/)
   assert.match(css, /\.booking-calendar-icon \{[^}]*flex: 0 0 auto/)
   assert.doesNotMatch(css, /white-space: nowrap|word-break: break-all|text-overflow: ellipsis|overflow: hidden/)
   const source = await read('app/dev/button-states/page.js')

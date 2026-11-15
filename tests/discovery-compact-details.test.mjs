@@ -209,7 +209,7 @@ test('service grouping retains every service once and all new labels have BG/EN 
     assert.equal(typeof DISCOVERY_COPY.bg[key], 'string'); assert.equal(typeof DISCOVERY_COPY.en[key], 'string')
   }
   assert.equal(DISCOVERY_COPY.bg.viewDetailsLower, 'виж детайли')
-  assert.equal(DISCOVERY_COPY.en.directions, 'Get directions')
+  assert.equal(DISCOVERY_COPY.en.directions, 'Directions')
   assert.match(detailPriceLabel({ price: 30, currency: 'EUR' }, 'bg', { compact: true }), /^30\s*€/u)
   assert.match(detailPriceLabel({ price: 30.5, currency: 'EUR' }, 'bg', { compact: true }), /^30,5\s*€/u)
   assert.equal(detailPriceLabel({ price: 30, priceKind: 'range', currency: 'EUR' }), null, 'an incomplete range cannot silently become a fixed price')

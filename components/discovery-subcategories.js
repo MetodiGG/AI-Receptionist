@@ -21,8 +21,11 @@ export function DiscoverySubcategories({ category, title, options = [], selected
   const visible = expanded ? choices : first
   const extra = choices.length - first.length
   return <section className="discovery-subcategories" aria-label={en ? `${title} subcategories` : `Подкатегории · ${title}`} aria-busy={loading}>
-    <header className="discovery-subcategory-heading"><h3>{title}</h3><button type="button" className="discovery-subcategory-all" aria-pressed={!selected} disabled={loading} onClick={() => onSelect('')}>{en ? 'All' : 'Всички'}</button></header>
+    <h3 className="sr-only">{title}</h3>
     {choices.length > 0 ? <ul className="discovery-subcategory-grid" id={listId}>{visible.map(item => <li key={item.id}><button type="button" className="discovery-subcategory-option" aria-pressed={selected === item.id} disabled={loading} onClick={() => onSelect(item.id)}><SubcategoryPhoto src={item.photo}/><span>{item[locale] || item.label}</span></button></li>)}</ul> : selectedLabel && <p className="discovery-subcategory-selected">{en ? 'Selected: ' : 'Избрано: '}{selectedLabel}</p>}
-    {extra > 0 && <button type="button" className="discovery-subcategory-more" aria-expanded={expanded} aria-controls={listId} onClick={() => setExpanded(value => !value)}>{expanded ? (en ? 'Show less' : 'По-малко') : (en ? `More (${extra})` : `Още (${extra})`)}<Icon name="chevronDown"/></button>}
+    <div className="discovery-subcategory-controls">
+      <button type="button" className="discovery-subcategory-all" aria-pressed={!selected} disabled={loading} onClick={() => onSelect('')}>{en ? 'All' : 'Всички'}</button>
+      {extra > 0 && <button type="button" className="discovery-subcategory-more" aria-expanded={expanded} aria-controls={listId} onClick={() => setExpanded(value => !value)}>{expanded ? (en ? 'Show less' : 'По-малко') : (en ? `More (${extra})` : `Още (${extra})`)}<Icon name="chevronDown"/></button>}
+    </div>
   </section>
 }

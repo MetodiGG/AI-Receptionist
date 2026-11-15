@@ -40,7 +40,7 @@ test('registration exposes the exact bilingual choice and phone/external checkbo
  assert.match(bg,/Желая да получавам резервации само по телефонен номер/);assert.match(en,/I want to receive bookings only by phone/);assert.equal((bg.match(/checked=""/g)||[]).length,1);assert.doesNotMatch(bg,/type="url"/)
 })
 test('phone public booking action is one safe tel anchor, never a POST/form or fabricated confirmation; preview and bad numbers fail closed',()=>{
- const html=render(OutboundBookingButton,{business,locale:'bg'});assert.match(html,/href="tel:\+359888123456"/);assert.match(html,/Резервирай час/);assert.doesNotMatch(html,/<form|<button|method=|eventId|confirmed|потвърден/)
+ const html=render(OutboundBookingButton,{business,locale:'bg'});assert.match(html,/href="tel:\+359888123456"/);assert.match(html,/<span class="booking-button-label">Резервирай<\/span>/);assert.doesNotMatch(html,/<form|<button|method=|eventId|confirmed|потвърден/)
  for(const props of [{disabled:true},{business:{...business,phone:'javascript:alert(1)'}}]){const disabled=render(OutboundBookingButton,{business,...props});assert.match(disabled,/aria-disabled="true"/);assert.doesNotMatch(disabled,/<a\b|<form\b/)}
  assert.match(render(OutboundBookingButton,{business:{...business,booking_mode:'external'},locale:'bg'}),/<form[^>]+method="post"/)
 })

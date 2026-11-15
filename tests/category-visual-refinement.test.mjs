@@ -19,6 +19,11 @@ const { code } = await transform(await read(filename), { filename, jsc: { parser
 const module = { exports: {} }
 new Function('require', 'module', 'exports', code)(name => name === './icon' ? { Icon: () => null } : require(name), module, module.exports)
 const { DiscoverySubcategories } = module.exports
+const railFilename = 'components/discovery-home-rail.js'
+const { code: railCode } = await transform(await read(railFilename), { filename: railFilename, jsc: { parser: { syntax: 'ecmascript', jsx: true }, transform: { react: { runtime: 'automatic' } } }, module: { type: 'commonjs' } })
+const railModule = { exports: {} }
+new Function('require', 'module', 'exports', railCode)(name => name === './icon' ? { Icon: () => null } : require(name), railModule, railModule.exports)
+const { DiscoveryHomeRail } = railModule.exports
 
 test('all fourteen photographic parent choices retain their exact taxonomy IDs, BG/EN labels and own activity children', () => {
   assert.equal(HOME_CATEGORY_IDS.length, 14)
@@ -40,7 +45,7 @@ test('all fourteen photographic parent choices retain their exact taxonomy IDs, 
   }
 })
 
-test('existing local photos exceed 2x resolution for 40px parent and 34px child thumbnails', async () => {
+test('existing local photos exceed 2x resolution for enlarged 50px parent and 44px child thumbnails', async () => {
   const checked = new Map()
   async function metadata(src) {
     if (!checked.has(src)) checked.set(src, await sharp(new URL(`../public${src}`, import.meta.url).pathname).metadata())
@@ -50,7 +55,7 @@ test('existing local photos exceed 2x resolution for 40px parent and 34px child 
     for (const src of [category.photo, category.photo2x]) {
       const image = await metadata(src)
       assert.equal(image.format, 'webp', src)
-      assert.ok(image.width >= 80 && image.height >= 80, `${src}: 40px at 2x requires 80px`)
+      assert.ok(image.width >= 100 && image.height >= 100, `${src}: enlarged 50px parents at 2x require 100px`)
     }
     const largerVariant = await metadata(category.photo2x)
     assert.ok(largerVariant.width >= 184 && largerVariant.height >= 184, `${category.id}: larger legacy/mobile 92px photographs also have an adequate 2x source`)
@@ -59,7 +64,7 @@ test('existing local photos exceed 2x resolution for 40px parent and 34px child 
   for (const child of DISCOVERY_SUBCATEGORIES) {
     const image = await metadata(child.photo)
     assert.equal(image.format, 'webp', child.id)
-    assert.ok(image.width >= 90 && image.height >= 90, `${child.id}: 34px quick and 45px base children both have an adequate 2x source`)
+    assert.ok(image.width >= 90 && image.height >= 90, `${child.id}: enlarged 44px quick and existing 45px base children both have an adequate 2x source`)
   }
 })
 
@@ -73,6 +78,11 @@ test('every parent retains localized native photo buttons and an off-panel selec
     assert.ok(html.includes(selected.photo), `${locale}:${selected.id} selected photograph remains visible`)
     assert.ok(html.includes(selected.label.replaceAll('&', '&amp;')), `${locale}:${selected.id} selected label remains readable`)
     assert.equal((html.match(/class="discovery-subcategory-option"/g) || []).length, Math.min(4, options.length))
+    const context = locale === 'en' ? `${category.label} subcategories` : `Подкатегории · ${category.label}`
+    assert.ok(html.includes(`aria-label="${context.replaceAll('&', '&amp;')}"`), `${locale}:${category.id} retains its accessible parent context`)
+    assert.ok(html.includes(`<h3 class="sr-only">${category.label.replaceAll('&', '&amp;')}</h3>`), 'the parent heading stays available to assistive technology without visible repetition')
+    assert.ok(html.indexOf('discovery-subcategory-grid') < html.indexOf('discovery-subcategory-controls'), 'all activity photos precede the footer controls')
+    assert.ok(html.indexOf('discovery-subcategory-controls') < html.indexOf('discovery-subcategory-all'))
     assert.doesNotMatch(html, /https?:\/\/|<canvas|role="radio"|role="option"/)
   }
 })
@@ -91,15 +101,37 @@ test('main category refinement keeps real native selection, horizontal keyboard 
   assert.doesNotMatch(rail, /setInterval|cloneNode|autoPlay/)
 })
 
+test('the category title can be visually hidden without removing localized rail names, keyboard focus or arrow relationships', () => {
+  for (const [locale, title] of [['bg', 'Категории'], ['en', 'Categories']]) {
+    const html = renderToStaticMarkup(React.createElement(DiscoveryHomeRail, { title, locale, kind: 'categories', hideHeading: true },
+      homeCategories(locale).map(category => React.createElement('li', { key: category.id }, React.createElement('button', { type: 'button' }, category.label)))))
+    const heading = html.match(/<h2 id="([^"]+)" class="sr-only">([^<]+)<\/h2>/)
+    assert.ok(heading, locale)
+    assert.equal(heading[2], title)
+    assert.ok(html.includes(`aria-labelledby="${heading[1]}"`))
+    assert.ok(html.includes(`tabindex="0" aria-label="${title}"`))
+    assert.equal((html.match(/class="home-discovery-rail"/g) || []).length, 1)
+    assert.equal((html.match(/aria-controls=/g) || []).length, 2)
+    assert.ok(html.includes(`${locale === 'bg' ? 'Предишни' : 'Previous'} · ${title}`))
+    assert.ok(html.includes(`${locale === 'bg' ? 'Следващи' : 'Next'} · ${title}`))
+    const businesses = renderToStaticMarkup(React.createElement(DiscoveryHomeRail, { title: 'Visible businesses', locale, kind: 'businesses' }))
+    assert.match(businesses, /<h2 id="[^"]+">Visible businesses<\/h2>/)
+    assert.doesNotMatch(businesses, /class="sr-only"/)
+  }
+})
+
 test('parent and child photographs keep their hierarchy inside unframed capsules without checkmarks', async () => {
   const quick = await read('app/quick-choice-home.css'), base = await read('app/discovery-home.css'), child = await read('app/discovery-subcategories.css')
-  assert.match(rule(quick, '.customer-home.quick-choice .home-categories'), /--category-photo-size:\s*40px/)
-  assert.match(rule(quick, '.customer-home.quick-choice .discovery-subcategories'), /--subcategory-photo-size:\s*34px/)
+  assert.match(rule(quick, '.customer-home.quick-choice .home-categories'), /--category-photo-size:\s*50px/)
+  assert.match(rule(quick, '.customer-home.quick-choice .home-categories img'), /flex:\s*0 0 50px;\s*width:\s*50px;\s*height:\s*50px/)
+  assert.match(rule(quick, '.customer-home.quick-choice .discovery-subcategories'), /--subcategory-photo-size:\s*44px/)
   const parentTile = rule(quick, '.customer-home.quick-choice .home-categories .home-discovery-rail button')
   assert.match(parentTile, /border:\s*1px solid transparent/)
   assert.match(parentTile, /border-radius:\s*999px/)
-  assert.match(parentTile, /min-height:\s*56px/)
-  assert.match(rule(quick, '.customer-home.quick-choice .home-categories button > span'), /font-size:\s*16px/)
+  assert.match(parentTile, /min-height:\s*66px/)
+  assert.match(rule(quick, '.customer-home.quick-choice .home-categories button > span'), /font-size:\s*18px/)
+  assert.match(rule(quick, '.customer-home.quick-choice .discovery-subcategory-option'), /min-height:\s*56px/)
+  assert.match(rule(quick, '.customer-home.quick-choice .discovery-subcategory-option'), /font-size:\s*17px/)
   assert.match(rule(base, '.home-categories .home-discovery-rail button'), /border-radius:\s*999px/)
   assert.match(rule(child, '.discovery-subcategory-option'), /border-radius:\s*999px/)
   assert.match(rule(base, '.home-categories .home-discovery-rail button.selected'), /background-color:/)

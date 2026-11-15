@@ -59,6 +59,34 @@ test('More and Less operate locally and selecting a photograph submits its actua
   f.click('discovery-subcategory-more'); f.click('discovery-subcategory-all')
   assert.deepEqual(f.calls, ['tennis',''])
 })
+test('nested navigation keeps the parent context accessible and places All and More after the photographic activity choices', () => {
+  for (const locale of ['bg', 'en']) {
+    const title = locale === 'en' ? 'Sport' : 'Спорт'
+    const f = interactive({ locale, title })
+    assert.equal(f.tree.type, 'section')
+    assert.equal(f.tree.props['aria-label'], locale === 'en' ? 'Sport subcategories' : 'Подкатегории · Спорт')
+    const headings = elements(f.tree, node => node.type === 'h3')
+    assert.equal(headings.length, 1)
+    assert.equal(headings[0].props.className, 'sr-only')
+    assert.equal(headings[0].props.children, title)
+    const list = elements(f.tree, node => node.type === 'ul')[0]
+    const footer = elements(f.tree, node => node.props.className === 'discovery-subcategory-controls')
+    assert.equal(footer.length, 1)
+    const buttons = elements(footer[0], node => node.type === 'button')
+    assert.deepEqual(buttons.map(node => node.props.className), ['discovery-subcategory-all', 'discovery-subcategory-more'])
+    assert.equal(elements(list, node => node.type === 'button').length, 4)
+    assert.equal(elements(footer[0], node => node.props.className === 'discovery-subcategory-option').length, 0)
+    const more = buttons[1]
+    assert.equal(more.props['aria-controls'], list.props.id)
+    assert.equal(more.props['aria-expanded'], false)
+    assert.equal(buttons[0].props.children, locale === 'en' ? 'All' : 'Всички')
+    const html = renderToStaticMarkup(React.createElement(DiscoverySubcategories, { ...props, locale, title }))
+    assert.ok(html.indexOf('discovery-subcategory-grid') < html.indexOf('discovery-subcategory-controls'))
+    f.click('discovery-subcategory-more')
+    assert.equal(elements(f.tree, node => node.props.className === 'discovery-subcategory-controls').length, 1)
+    assert.equal(f.buttons().filter(node => node.props.className === 'discovery-subcategory-option').length, 5)
+  }
+})
 test('a restored selection beyond the first four stays visible without forcing an expanded panel', () => {
   const html = renderToStaticMarkup(React.createElement(DiscoverySubcategories, { ...props, selected: 'tennis' }))
   assert.match(html, /aria-pressed="true"[^>]*><img[^>]*tennis-v1.webp/)
@@ -81,27 +109,35 @@ test('loading prevents duplicate picks and failed photos never become unrelated 
   assert.match(source, /is-unavailable" aria-hidden="true"/)
   assert.doesNotMatch(source, /fetch\(|localStorage|sessionStorage|https?:\/\/|getCurrentPosition|calendar|emoji-/)
 })
-test('photo controls wrap labels without horizontal scrolling and retain touch and focus affordances', async () => {
+test('photo controls wrap text beside a fixed image in an adaptive grid without horizontal scrolling', async () => {
   const css = await readFile(new URL('../app/discovery-subcategories.css', import.meta.url), 'utf8')
-  assert.match(css, /grid-template-columns: repeat\(2,minmax\(0,1fr\)\)/)
+  assert.match(css, /grid-template-columns: repeat\(auto-fit,minmax\(min\(100%,216px\),1fr\)\)/)
   assert.match(css, /--subcategory-photo-size: 45px/)
   assert.match(css, /width: var\(--subcategory-photo-size\); height: var\(--subcategory-photo-size\)/)
   assert.match(css, /\.discovery-subcategory-option \{[^}]*font-size: 15px/)
-  assert.match(css, /flex-wrap: wrap/)
+  assert.match(css, /\.discovery-subcategory-option \{[^}]*flex-wrap: nowrap/)
   assert.match(css, /flex: 1 1 min-content; min-width: 0; max-width: 100%; white-space: normal/)
   assert.match(css, /min-height: 44px/)
   assert.match(css, /focus-visible \{ outline: 3px/)
+  const nested = css.match(/\.discovery-subcategories \{([^}]+)\}/)?.[1] || ''
+  assert.match(nested, /border-inline-start: 2px solid #d5b18b80/)
+  assert.match(nested, /padding-inline-start: 12px/)
+  assert.match(nested, /background: transparent/)
+  assert.match(css, /\.discovery-subcategory-controls \{[^}]*display: flex;[^}]*justify-content: space-between/)
+  assert.doesNotMatch(css, /grid-template-columns: repeat\([24],|\.discovery-subcategory-heading/)
   assert.doesNotMatch(css, /overflow-x: auto|white-space: nowrap|text-overflow: ellipsis|word-break: break-all/)
 })
-test('quick-choice subcategories gently enlarge existing photos and labels without changing their flexible list', async () => {
+test('quick-choice child choices remain visually nested, with larger photographs and responsive grid columns', async () => {
   const css = await readFile(new URL('../app/quick-choice-home.css', import.meta.url), 'utf8')
-  assert.match(css, /\.discovery-subcategories \{ --subcategory-photo-size:34px; --subcategory-option-padding:5px/)
-  assert.match(css, /\.discovery-subcategory-option \{[^}]*border-radius:999px;[^}]*font-size:16px/)
+  assert.match(css, /\.discovery-subcategories \{ --subcategory-photo-size:44px; --subcategory-option-padding:5px/)
+  assert.match(css, /\.discovery-subcategory-option \{[^}]*flex-wrap:nowrap;[^}]*min-height:56px;[^}]*border-radius:999px;[^}]*font-size:17px/)
   assert.match(css, /\.discovery-subcategory-photo \{ flex-basis:var\(--subcategory-photo-size\); width:var\(--subcategory-photo-size\); height:var\(--subcategory-photo-size\)/)
-  assert.match(css, /\.discovery-subcategory-grid \{ display:flex; flex-wrap:wrap/)
-  assert.match(css, /\.discovery-subcategory-grid > li \{ flex:1 1 130px; max-width:240px; min-width:0/)
+  assert.match(css, /\.discovery-subcategory-grid \{ display:grid; grid-template-columns:repeat\(auto-fit,minmax\(min\(100%,216px\),1fr\)\)/)
+  assert.match(css, /\.discovery-subcategory-grid > li \{[^}]*min-width:0/)
   assert.match(css, /\.discovery-subcategory-option \{[^}]*border:1px solid transparent/)
   assert.match(css, /\.discovery-subcategory-option\[aria-pressed="true"\] \{[^}]*background-color:/)
+  const option = css.match(/\.discovery-subcategory-option \{([^}]*)\}/)?.[1] || ''
+  assert.doesNotMatch(option, /(?:^|;)\s*height\s*:/)
 })
 test('selected subcategories use unframed capsules and native pressed states without generated checkmarks, including All', async () => {
   const css = await readFile(new URL('../app/discovery-subcategories.css', import.meta.url), 'utf8')

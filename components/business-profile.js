@@ -15,8 +15,9 @@ import { BookingCalendarIcon } from './booking-button-content'
 export function BusinessDirectionsLink({ business, locale = 'bg', address = false }) {
   const href = businessDirectionsUrl(business)
   if (!href) return null
-  const label = locale === 'en' ? 'Get directions' : 'Как да стигна'
-  return <a className={address ? 'business-profile-address profile-address-link' : 'home-directions profile-directions'} href={href} target="_blank" rel="noopener noreferrer" aria-label={`${label} · ${address ? business.address : business.name}`}>
+  const label = locale === 'en' ? 'Directions' : 'Упътване'
+  const accessibleLabel = locale === 'en' ? 'Get directions' : 'Упътване — как да стигна'
+  return <a className={address ? 'business-profile-address profile-address-link' : 'home-directions profile-directions'} href={href} target="_blank" rel="noopener noreferrer" aria-label={`${accessibleLabel} · ${address ? business.address : business.name}`}>
     <span className="profile-map-icon"><Icon name="map" /></span><span>{address ? business.address : label}</span>
   </a>
 }

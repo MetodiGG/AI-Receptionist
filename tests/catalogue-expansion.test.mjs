@@ -128,7 +128,7 @@ test('UI pagination aborts on a new query/unmount, guards stale responses, and d
   const rail = await readFile(new URL('../components/discovery-home-rail.js', import.meta.url), 'utf8')
   assert.match(rail, /movingRight && onNearEnd && advance\.current\.consume/)
   const browseSource = await readFile(new URL('../components/discovery-home-browse.js', import.meta.url), 'utf8')
-  assert.match(browseSource, /onNearEnd=\{!introCollapsed && hasMore && !loadingMore && !moreError \? advanceBusinesses/)
+  assert.match(browseSource, /onNearEnd=\{\(!introCollapsed \|\| awaitingIntroPage\) && hasMore && !loadingMore && !moreError \? advanceBusinesses/)
   assert.match(browseSource, /resultKey \?\? result\?\.checkedAt/)
   assert.match(browseSource, /initialPreview = false/)
   assert.match(browseSource, /introHasMore && !busy && !notice && !result\?\.clarification && <button/)

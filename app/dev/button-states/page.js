@@ -4,8 +4,8 @@ import { BookingButtonContent, BookingCalendarIcon } from '../../../components/b
 import { HOME_DISCOVERY_COPY } from '../../../lib/discovery/home.mjs'
 import { DISCOVERY_COPY } from '../../../lib/discovery/copy.mjs'
 
-// Safe, local-only native controls for hover/focus/press checks. No links,
-// handlers, booking forms, provider scripts, account data or network actions.
+// Safe, local-only native controls for hover/focus/press checks. No link
+// destinations, handlers, booking forms, account data or network actions.
 export default async function ButtonStatePreview({ searchParams }) {
   if (process.env.NODE_ENV !== 'development') notFound()
   const params = await searchParams
@@ -41,6 +41,28 @@ export default async function ButtonStatePreview({ searchParams }) {
         <h2>{en ? 'Profile controls' : 'Бутони в профила'}</h2>
         <div className="profile-mode-controls" data-button-fit-surface="profile-mode"><button type="button" style={actionStyle} aria-controls="profile-native-panel"><BookingButtonContent>{DISCOVERY_COPY[locale].reserveAppointment}</BookingButtonContent></button><button type="button" style={actionStyle}>{en ? 'Online assistant' : 'Онлайн асистент'}</button></div>
         <div id="profile-native-panel" data-button-fit-surface="profile-external" style={{ marginTop: 16 }}><button type="button" className="profile-external-reserve" style={actionStyle}><BookingButtonContent>{en ? 'Continue to booking' : 'Продължи към резервацията'}</BookingButtonContent></button></div>
+      </section>
+      <section className="partners-page platform-home" aria-label={en ? 'Partner profile link spacing' : 'Разстояние до профила на партньор'}>
+        <div className="business-directory">
+          <h2>{en ? 'LOCAL DESIGN TEST · Booking and profile navigation disabled' : 'ЛОКАЛЕН ДИЗАЙН ТЕСТ · Без резервации и отваряне на профили'}</h2>
+          <p>{en ? 'Fictional services and prices. The external wrapper is not a form; profile labels have no destination.' : 'Измислени услуги и цени. Външният бутон не е във формуляр; текстовете за профил са без линк.'}</p>
+          <div className="directory-results-grid">
+            <article className="directory-business-card" data-button-fit-surface="directory-external">
+              <div className="directory-business-head"><div><h3>{en ? 'DEMO · External booking studio' : 'ДЕМО · Студио с външен календар'}</h3></div></div>
+              <div className="directory-services"><small>{en ? 'Services' : 'Услуги'}</small><div><div className="directory-service-row"><div className="service-photo-name"><div className="directory-service-copy">{en ? 'Fictional haircut' : 'Примерно подстригване'}<small>30 {en ? 'min' : 'мин'}</small></div></div><b>18,00 €</b></div></div></div>
+              <p>{en ? 'Check available times on the business’s website' : 'Провери свободните часове в сайта на бизнеса'}</p>
+              <div className="outbound-booking-form"><button type="button" className="directory-book-button" style={actionStyle}><BookingButtonContent>{en ? 'Book an appointment' : 'Запази час'}</BookingButtonContent></button></div>
+              <a role="link" aria-disabled="true">{en ? 'View GoRez profile' : 'Виж профила в GoRez'}</a>
+            </article>
+            <article className="directory-business-card" data-button-fit-surface="directory-phone">
+              <div className="directory-business-head"><div><h3>{en ? 'DEMO · Phone booking studio' : 'ДЕМО · Студио с часове по телефон'}</h3></div></div>
+              <div className="directory-services"><small>{en ? 'Services' : 'Услуги'}</small><div><div className="directory-service-row"><div className="service-photo-name"><div className="directory-service-copy">{en ? 'Fictional manicure' : 'Примерен маникюр'}<small>45 {en ? 'min' : 'мин'}</small></div></div><b>25,00 €</b></div></div></div>
+              <p>{en ? 'Arrange an appointment by phone' : 'Уговори час по телефон'}</p>
+              <button type="button" className="directory-book-button" style={actionStyle}><BookingButtonContent>{en ? 'Book an appointment' : 'Резервирай час'}</BookingButtonContent></button>
+              <a role="link" aria-disabled="true">{en ? 'View GoRez profile' : 'Виж профила в GoRez'}</a>
+            </article>
+          </div>
+        </div>
       </section>
       <nav className="home-discovery-bottom" aria-label="Проверка на регистрационния бутон">
         <button type="button" className="home-bottom-card home-bottom-business" aria-label={copy.register}><span className="home-business-signup"><strong>{copy.registerAction}</strong><span className="home-free-label">{copy.free}</span></span></button>

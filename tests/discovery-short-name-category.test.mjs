@@ -5,6 +5,7 @@ import { createDiscoveryHandler } from '../lib/discovery/handler.mjs'
 import { discoveryConfig } from '../lib/discovery/config.mjs'
 import { matchingServices } from '../lib/discovery/internal-search.mjs'
 import { normalizeCatalogueBusinesses } from '../lib/discovery/catalogue-search.mjs'
+import { SERVICE_PREVIEW_LIMIT } from '../lib/discovery/rail.mjs'
 
 const now = DateTime.fromISO('2026-11-13T12:00:00Z')
 const service = (id, name, category, patch = {}) => ({ id, name, category, active: true, price: 20, currency: 'EUR', duration_min: 30, ...patch })
@@ -47,12 +48,12 @@ test('actual handler: an explicit category returns only its real declared servic
   const response = await handlerSearch(rows, { category: 'barber' })
   assert.deepEqual(response.results[0].services.map(row => row.name), ['Мъжко подстригване', 'Оформяне на брада'])
   const unspecified = await handlerSearch(rows, {})
-  // The HTTP boundary keeps its existing two-service preview cap; the
+  // The HTTP boundary uses the four-service preview cap; the
   // unfiltered server-side name match retains every actual public service.
-  assert.deepEqual(unspecified.results[0].services.map(row => row.name), rows.filter(row => row.active).slice(0, 2).map(row => row.name))
+  assert.deepEqual(unspecified.results[0].services.map(row => row.name), rows.filter(row => row.active).slice(0, SERVICE_PREVIEW_LIMIT).map(row => row.name))
   assert.deepEqual(matchingServices(partner(rows), { businessNameQuery: 'in beauty', category: null, service: '', searchV2: true }).map(row => row.name), rows.filter(row => row.active).map(row => row.name))
   const beardFirst = await handlerSearch([...rows].reverse(), {})
-  assert.deepEqual(beardFirst.results[0].services.map(row => row.name), rows.filter(row => row.active).reverse().slice(0, 2).map(row => row.name))
+  assert.deepEqual(beardFirst.results[0].services.map(row => row.name), rows.filter(row => row.active).reverse().slice(0, SERVICE_PREVIEW_LIMIT).map(row => row.name))
 })
 
 test('actual handler: missing/free native category needs actual service text, not the beauty industry', async () => {

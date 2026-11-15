@@ -49,35 +49,56 @@ function fixture(patch = {}) {
   return { get tree() { return tree }, props, update(patch) { Object.assign(props, patch); render(); return flush() }, expand() { expand(tree).props.onClick(); return flush() } }
 }
 
-for (const [locale, label] of [['bg', 'Още бизнеси'], ['en', 'More businesses']]) test(`${locale}: first visit shows the actual first ranked business, with explicit expansion and no automatic advance`, () => {
-  const current = result(), f = fixture({ locale, result: current }), initial = f.tree
+for (const [locale, label] of [['bg', 'Още бизнеси'], ['en', 'More businesses']]) test(`${locale}: first visit shows eight actual ranked businesses before explicit expansion`, () => {
+  const ids = Array.from({ length: 11 }, (_, i) => `hair-${i + 1}`)
+  const current = result(ids), f = fixture({ locale, result: current }), initial = f.tree
   assert.equal(initial.type, List)
-  assert.deepEqual(rows(initial).map(row => row.id), ['hair-first'])
+  assert.deepEqual(rows(initial).map(row => row.id), ids.slice(0, 8))
   assert.equal(rows(initial)[0], current.results[0], 'the real row object and booking identifiers are preserved')
-  assert.equal(current.results.length, 3, 'the source result set is not truncated')
+  assert.equal(current.results.length, 11, 'the source result set is not truncated')
   assert.equal(initial.props.onNearEnd, undefined, 'the list cannot install its automatic observer while collapsed')
-  assert.equal(initial.props.hasMore, true, 'the list cannot claim all businesses are loaded while two rows are hidden')
+  assert.equal(initial.props.hasMore, true, 'the list cannot claim all businesses are loaded while rows are hidden')
   assert.equal(expand(initial).props.children[0], label)
   assert.equal(expand(initial).props.type, 'button')
   const expanded = f.expand()
-  assert.deepEqual(rows(expanded).map(row => row.id), ['hair-first', 'hair-second', 'hair-third'])
+  assert.deepEqual(rows(expanded).map(row => row.id), ids)
   assert.equal(expand(expanded), undefined)
   assert.equal(expanded.props.hasMore, false, 'a fully expanded finite result set is now complete')
 })
 
-test('expanding a one-row first page restores real pagination instead of generating or guessing additional rows', () => {
+test('a short first page loads real pages until eight are available, without showing an early More button', () => {
   let pages = 0
   const f = fixture({ result: result(['real-first'], { cataloguePage: { nextOffset: 1 } }), onLoadMore: () => pages++ })
+  assert.equal(typeof f.tree.props.onNearEnd, 'function')
+  assert.equal(expand(f.tree), undefined)
+  assert.equal(pages, 0, 'rendering never fetches or guesses a business')
+  f.tree.props.onNearEnd()
+  assert.equal(pages, 1)
+  f.update({ loadingMore: true })
+  assert.equal(elements(f.tree, node => node.props.className === 'home-rail-loading').length, 1, 'short-page loading is visible before the eighth business')
+  assert.equal(f.tree.props.onNearEnd, undefined, 'do not request the same page twice')
+  assert.equal(expand(f.tree), undefined)
+  const ids = ['real-first', ...Array.from({ length: 7 }, (_, i) => `real-next-${i + 1}`)]
+  f.update({ loadingMore: false, result: result(ids, { checkedAt: 'next-page', cataloguePage: { nextOffset: 8 } }) })
+  assert.deepEqual(rows(f.tree).map(row => row.id), ids)
   assert.equal(f.tree.props.onNearEnd, undefined)
   assert.ok(expand(f.tree))
   f.expand()
   assert.equal(typeof f.tree.props.onNearEnd, 'function')
-  assert.equal(pages, 0, 'the visible button only expands; the existing paging mechanism remains authoritative')
-  f.tree.props.onNearEnd()
-  assert.equal(pages, 1)
-  f.update({ result: result(['real-first', 'real-next'], { checkedAt: 'next-page' }) })
-  assert.deepEqual(rows(f.tree).map(row => row.id), ['real-first', 'real-next'])
+  assert.equal(pages, 1, 'expansion restores paging, it does not issue a second request itself')
+  f.update({ result: result([...ids, 'real-ninth'], { checkedAt: 'third-page' }) })
+  assert.equal(rows(f.tree).length, 9)
   assert.equal(expand(f.tree), undefined, 'a response timestamp change does not collapse the expanded session')
+})
+
+test('More appears only after eight cards and only if there are additional actual results', () => {
+  for (const count of [0, 1, 7, 8, 9, 15]) {
+    const ids = Array.from({ length: count }, (_, i) => `real-${i + 1}`)
+    const current = result(ids), f = fixture({ result: current })
+    assert.equal(rows(f.tree).length, Math.min(count, 8))
+    assert.equal(Boolean(expand(f.tree)), count > 8)
+    assert.equal(current.results.length, count)
+  }
 })
 
 test('an explicit category/filter change immediately restores the full vertical result set', () => {

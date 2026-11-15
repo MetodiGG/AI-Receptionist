@@ -155,6 +155,25 @@ test('BG/EN route server-renders actual full service names/prices and safe real 
   }
 })
 
+test('catalogue profiles split the actual general menu before Prices without changing existing service fragment IDs', async () => {
+  responseProfile = actualProfile(SOFIA_CATALOGUE.find(row => row.id === 'sofia-beauty-studio-99'))
+  const expectedIds = details.groupDetailServices(details.businessDetailServices(responseProfile.business)).flatMap(group => group.services.map((service, index) => `service-${group.key || 'other'}-${index}`))
+  for (const locale of ['bg', 'en']) {
+    const html = renderToStaticMarkup(await page.default({ params: Promise.resolve({ id: responseProfile.row.id }), searchParams: Promise.resolve({ lang: locale }) }))
+    const general = html.match(/<section[^>]*aria-labelledby="catalogue-services-heading">([\s\S]*?)<\/section>/)?.[1]
+    const tariff = html.match(/<section[^>]*aria-labelledby="catalogue-prices-heading">([\s\S]*?)<\/section>/)?.[1]
+    assert.ok(general.includes(`>${copy.DISCOVERY_COPY[locale].servicesLabel}</h2>`))
+    assert.ok(tariff.includes(`>${copy.DISCOVERY_COPY[locale].pricesLabel}</h2>`))
+    assert.ok(html.indexOf(general) < html.indexOf(tariff))
+    assert.match(general, /<strong>Маникюр<\/strong>/); assert.match(general, /<strong>Педикюр<\/strong>/)
+    assert.doesNotMatch(general, /profile-service-price/)
+    assert.match(tariff, /Класически маникюр без лак/)
+    const ids = [...html.matchAll(/id="(service-[^"]+)"/g)].map(match => match[1])
+    assert.equal(ids.length, new Set(ids).size)
+    assert.deepEqual([...ids].sort(), [...expectedIds].sort())
+  }
+})
+
 test('direct BG/EN folk-dance profile hero carries its stable activity image without serializing the service menu', async () => {
   const folk = SOFIA_CATALOGUE.find(row => row.id === 'sofia-nosia-todor-alexandrov17')
   assert.ok(folk)

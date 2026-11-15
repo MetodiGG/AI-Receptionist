@@ -104,8 +104,11 @@ test('BG and EN natural language find only actual appointment services with one 
       const published = SOFIA_CATALOGUE.find(record => record.id === row.id)
       assert.ok(row.services.length && row.services.every(service => service.category === category && published.services.some(source => source.name === service.name && source.category === service.category)), query)
     }
-    const distances = result.results.map(row => row.distanceKm ?? Infinity)
-    assert.ok(distances.every((distance, index) => index === 0 || distance >= distances[index - 1]), 'newly located eligible venues remain ordered by actual centre distance')
+    for (let index = 1; index < result.results.length; index++) {
+      const previous = result.results[index - 1], current = result.results[index]
+      assert.ok(previous.relevance.tier >= current.relevance.tier, 'actual search relevance precedes geographic convenience')
+      if (previous.relevance.tier === current.relevance.tier) assert.ok((previous.distanceKm ?? Infinity) <= (current.distanceKm ?? Infinity), 'comparable results retain actual centre-distance ordering')
+    }
     // A historical example remains service-eligible, but cannot reserve a
     // first-page position ahead of newer, independently located nearer venues.
     const example = SOFIA_CATALOGUE.find(row => row.name === expected)
@@ -146,7 +149,7 @@ test('sports vocabulary covers martial arts and does not substitute a different 
     assert.equal(intent({ query }).category, 'fitness', query)
     const result = await discoverBusinesses(input({ query }), deps())
     assert.ok(result.results.every(row => row.services.some(service => service.name && !/фитнес карта|достъп до фитнес/iu.test(service.name))), query)
-    assert.ok(result.results.every(row => row.category === 'fitness'), query)
+    assert.ok(result.results.every(row => row.services.some(service => service.category === 'fitness')), query)
   }
   const boxing = await discoverBusinesses(input({ query: 'бокс' }), deps())
   assert.ok(boxing.results.length)
@@ -174,9 +177,10 @@ test('zero, one and several GoRez partners are retained and only eligible nearby
     assert.ok(result.results.some(row => row.source === 'catalogue'))
   }
 })
-test('internal availability is checked against the existing booking service and a newly occupied slot removes the partner', async () => {
+test('internal availability is checked against the existing booking service without hiding the real business when its requested time is occupied', async () => {
   const result = await discoverBusinesses(input({ query: 'груминг утре след 13:00' }), deps({ readInternal: async () => [business()], getBusiness: async () => ({ services: [{ id: 's1' }], timezone: 'Europe/Sofia' }), getSlots: async () => [] }))
-  assert.equal(result.results.some(row => row.source === 'gorez'), false)
+  assert.equal(result.results.find(row => row.source === 'gorez')?.availability.status, 'none')
+  assert.deepEqual(result.results.find(row => row.source === 'gorez')?.availability.slots, [])
   assert.ok(result.results.some(row => row.source === 'catalogue'))
 })
 test('duplicate matching never relies on names, the same contact at different branches is preserved', () => {

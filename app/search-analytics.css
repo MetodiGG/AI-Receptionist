@@ -1,0 +1,7 @@
+.admin-search-analytics { min-width:0; margin-top:24px; }
+.admin-search-analytics .admin-console-kpis { margin:16px 0; }
+.admin-search-analytics .admin-console-kpis article { min-width:0; }
+.admin-search-topic-list { list-style:none; margin:12px 0; padding:0; }
+.admin-search-topic-list li { display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px 16px; padding:12px 0; border-bottom:1px solid #e5ddd2; overflow-wrap:anywhere; }
+.admin-search-topic-list span { color:#665b51; }
+@media(max-width:430px) { .admin-search-analytics .admin-console-kpis { grid-template-columns:minmax(0,1fr); } }

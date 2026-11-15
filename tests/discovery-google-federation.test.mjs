@@ -2,7 +2,7 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { DateTime } from 'luxon'
-import { discoveryConfig } from '../lib/discovery/config.mjs'
+import { legacyGoogleConfig as discoveryConfig } from './helpers/legacy-google-config.mjs'
 import { createGooglePlacesAuthorizer, googlePlacesAuthConfigured, GOOGLE_PLACES_SCOPES } from '../lib/discovery/google-auth.mjs'
 import { readVercelRuntimeToken } from '../lib/discovery/google-federation.mjs'
 import { discoveryRequestSchema, parseIntent } from '../lib/discovery/intent.mjs'
@@ -15,7 +15,7 @@ import { createDiscoveryHandler } from '../lib/discovery/handler.mjs'
 const time = Date.parse('2026-10-26T12:00:00Z'), seconds = time / 1000
 const project = 'gorez-test-project', teamId = 'team_SYNTHETIC1234', projectId = 'prj_SYNTHETIC1234'
 const config = discoveryConfig({
-  DISCOVERY_PROVIDER_MODE: 'google',
+  DISCOVERY_PROVIDER_MODE: 'google', GOOGLE_PLACES_ACTIVATION_APPROVED: 'true', GOOGLE_PLACES_HARD_LIMITS_VERIFIED: 'true',
   DISCOVERY_ENABLED: 'true', VERCEL_ENV: 'preview', GOOGLE_PLACES_AUTH_MODE: 'vercel-oidc',
   GOOGLE_PLACES_PROJECT_ID: project, GOOGLE_WIF_PROJECT_NUMBER: '123456789012',
   GOOGLE_WIF_POOL_ID: 'gorez-preview', GOOGLE_WIF_PROVIDER_ID: 'vercel-preview',

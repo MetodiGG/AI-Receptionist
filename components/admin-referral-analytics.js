@@ -2,6 +2,7 @@
 
 import { BrandLoading } from './brand-loading'
 import { useEffect, useState } from 'react'
+import { AdminSearchAnalytics } from './admin-search-analytics'
 
 export function AdminReferralAnalytics({ send, locale = 'bg', preview = false, businesses = [], onReport }) {
   const en = locale === 'en'
@@ -22,5 +23,6 @@ export function AdminReferralAnalytics({ send, locale = 'bg', preview = false, b
     {preview ? <p>{en ? 'Local layout preview. No live statistics were loaded.' : 'Локална проверка на изгледа. Не са заредени реални статистики.'}</p> : error ? <p role="status">{en ? 'Statistics are temporarily unavailable.' : 'Статистиката временно не е достъпна.'}</p> : !summary ? <div role="status"><BrandLoading label={en ? 'Loading…' : 'Зареждане…'} announce={false}/></div> : <div className="admin-console-kpis">{['profileViews','partnerOutboundClicks','nonpartnerOutboundClicks','gorezBookings','publishedBusinesses'].map((key,i) => <article key={key}><small>{labels[i]}</small><strong>{summary[key]}</strong></article>)}</div>}
     <p>{en ? 'An external click does not confirm a reservation, a new customer or a sale. Profile views and clicks are anonymous events, not unique people; their collection starts with this release. GoRez bookings exclude cancellations and manually entered visits.' : 'Външният клик не потвърждава резервация, нов клиент или продажба. Прегледите и кликовете са анонимни събития, не уникални хора; събирането им започва с тази версия. GoRez резервациите изключват отказаните и ръчно въведените посещения.'}</p>
     <div className="settings-panel"><h3>{en ? 'Website visitors & page views' : 'Посетители и разгледани страници на сайта'}</h3><p>{en ? 'These totals are in your private Vercel project dashboard when Web Analytics is enabled. They are separate from booking and referral counts.' : 'Тези показатели са в личния ти Vercel панел, когато Web Analytics е включен. Те са отделни от броя резервации и пренасочвания.'}</p><a className="secondary-button" href="https://vercel.com/ai-receptionist12/ai-receptionist/analytics" target="_blank" rel="noopener noreferrer">{en ? 'Open Vercel Analytics' : 'Отвори Vercel Analytics'} ↗</a></div>
+    <AdminSearchAnalytics send={send} locale={locale} preview={preview}/>
   </section>
 }

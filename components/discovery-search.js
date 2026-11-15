@@ -23,6 +23,8 @@ import { applyHomeFilters, homeCategories, homeFilterCount, HOME_DISCOVERY_COPY 
 import { laboratoryShortcuts } from '../lib/discovery/laboratories.mjs'
 import { mergeCataloguePage } from '../lib/discovery/catalogue-pagination.mjs'
 import { DISCOVERY_LOCATION_MAX_AGE_MS, discoveryLocationError, discoveryLocationRetryMessage, freshDiscoveryLocation, sameDiscoveryOrigin } from '../lib/discovery/geolocation.mjs'
+import { DiscoveryAutocomplete } from './discovery-autocomplete'
+import { trackSearchEvent } from '../lib/search-analytics-client'
 
 const cities = [...BULGARIAN_CITIES].sort((a, b) => a.name.localeCompare(b.name, 'bg'))
 const duplicateCityNames = new Set(cities.filter((city, index) => cities.findIndex(other => other.name === city.name) !== index).map(city => city.name))
@@ -135,7 +137,7 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
     if (inFlight.current && JSON.stringify(input) === JSON.stringify(lastInput.current)) return
     // Each accepted response is tied to the actual submitted origin. A newer
     // search supersedes every success/error/finally path of its predecessor.
-    const version = ++searchVersion.current
+    const version = ++searchVersion.current, startedAt = Date.now()
     setResultKey(version); lastInput.current = input
     pageController.current?.abort(); pageInFlight.current = false; setLoadingMore(false); setMoreError('')
     scrollAfterSearch.current = navigate
@@ -152,8 +154,9 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
       if (mounted.current && !abort.signal.aborted && version === searchVersion.current) {
         if (input.coordinates && !freshDiscoveryLocation(coordinatesRef.current)) { expireLocation(); return }
         setResultOrigin(input.coordinates || null); setResultCity(data.intent?.cityCode || input.cityCode || ''); setResult(data)
+        trackSearchEvent({ event: 'search', query: input.query, locale, resultCount: data.results.length, durationMs: Date.now() - startedAt })
       }
-    } catch (failure) { if (mounted.current && version === searchVersion.current && (!abort.signal.aborted || timedOut)) setError(failure.message === 'RATE_LIMITED' ? 'RATE_LIMITED' : failure.message === 'VALIDATION_ERROR' ? 'VALIDATION_ERROR' : 'SEARCH_UNAVAILABLE') }
+    } catch (failure) { if (mounted.current && version === searchVersion.current && (!abort.signal.aborted || timedOut)) { setError(failure.message === 'RATE_LIMITED' ? 'RATE_LIMITED' : failure.message === 'VALIDATION_ERROR' ? 'VALIDATION_ERROR' : 'SEARCH_UNAVAILABLE'); trackSearchEvent({ event: 'search', query: input.query, locale, failed: true, durationMs: Date.now() - startedAt }) } }
     finally { clearTimeout(timer); if (version === searchVersion.current) { inFlight.current = false; if (mounted.current) setLoading(false) } }
   }
   async function loadMore() {
@@ -182,10 +185,22 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
   }
   function submit(event) {
     event.preventDefault()
-    if (query.trim().length < 2 || loading) return
+    if (query.trim().length < 2) return
     cancelPendingLocation()
     execute(payload())
   }
+  function selectSuggestion(item) {
+    cancelPendingLocation()
+    trackSearchEvent({ event: 'selection', query, locale, selection: item.kind })
+    if (item.kind === 'business') { trackSearchEvent({ event: 'profile', query, locale }); router.push(item.href); return }
+    const selected = item.kind === 'category' ? { category: item.category, query: categoryById(item.category)?.[locale] || item.label } : { category: '', query: item.query }
+    if (coordinates && item.neighborhood) selected.query = `${selected.query} ${item.neighborhood}`
+    setCategory(selected.category); setQuery(selected.query); setResult(null); setError('')
+    const location = { cityCode: item.cityCode || cityCode, cityWasChosen: true, neighborhood: item.neighborhood || neighborhood }
+    if (!coordinates) { setCityCode(location.cityCode); setCityWasChosen(true); setNeighborhood(location.neighborhood) }
+    execute(item.kind === 'category' && !coordinates ? { ...payload({ ...selected, ...location, query: '' }), browse: true } : payload({ ...selected, ...location }))
+  }
+  function allSuggestions() { trackSearchEvent({ event: 'selection', query, locale, selection: 'all' }); cancelPendingLocation(); execute(payload()) }
   async function locate({ automatic = false, searchAfter = true } = {}) {
     if (loading) return null
     if (!automatic && locationEnabled) {
@@ -246,10 +261,10 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
     {preview && !home && <p className="discovery-notice discovery-test" role="note">{copy.mock}</p>}
     <form className="discovery-form" onSubmit={submit}>
       <div className="discovery-query">
-        {home && <button className="home-search-trigger" type="submit" aria-label={loading ? copy.searching : copy.search} disabled={loading || query.trim().length < 2}>{loading ? <BrandLoading size={20} decorative/> : <Icon name="search"/>}</button>}
-        <label className="sr-only" htmlFor={compact ? 'home-ai-query' : 'ai-query'}>{home ? homeCopy.title : copy.title}</label><input id={compact ? 'home-ai-query' : 'ai-query'} value={query} maxLength={300} placeholder={copy.placeholder} autoComplete="off" enterKeyHint="search" disabled={loading} onChange={event => changeQuery(event.target.value)} required minLength={2}/>
+        {home && <button className="home-search-trigger" type="submit" aria-label={loading ? copy.searching : copy.search} aria-busy={loading} disabled={query.trim().length < 2}>{loading ? <BrandLoading size={20} decorative/> : <Icon name="search"/>}</button>}
+        <label className="sr-only" htmlFor={compact ? 'home-ai-query' : 'ai-query'}>{home ? homeCopy.title : copy.title}</label><DiscoveryAutocomplete id={compact ? 'home-ai-query' : 'ai-query'} value={query} onChange={changeQuery} onSelect={selectSuggestion} onAll={allSuggestions} locale={locale} cityCode={selectedCity || cityCode || DEFAULT_DISCOVERY_CITY} neighborhood={neighborhood} category={category} placeholder={copy.placeholder} dismissKey={resultKey} preview={preview}><input id={compact ? 'home-ai-query' : 'ai-query'} value={query} maxLength={300} placeholder={copy.placeholder} autoComplete="off" enterKeyHint="search" disabled={false} onChange={event => changeQuery(event.target.value)} required minLength={2}/></DiscoveryAutocomplete>
         {home && <><button className={`home-inline-control${activeFilters ? ' has-filters' : ''}`} type="button" onClick={openFilters} disabled={loading} aria-label={homeCopy.filters} aria-haspopup="dialog" aria-expanded={filtersOpen} aria-controls={filterId}><Icon name="sliders"/></button><button className={`home-inline-control home-inline-location${locationEnabled ? ' is-active' : ''}`} type="button" disabled={loading} onClick={locate} title={locating ? copy.locating : locationAction} aria-label={locating ? copy.locating : homeCopy.location} aria-describedby="location-info" aria-pressed={locationEnabled} aria-busy={locating}>{locating ? <BrandLoading size={20} decorative/> : <Icon name="map"/>}{coordinates && <span className="home-location-check" aria-hidden="true"><Icon name="check"/></span>}</button></>}
-        {!home && <button className="discovery-submit" aria-label={loading ? copy.searching : copy.search} disabled={loading || query.trim().length < 2} type="submit">{loading ? <BrandLoading size={20} decorative/> : <Icon name="arrow"/>}<span>{copy.search}</span></button>}
+        {!home && <button className="discovery-submit" aria-label={loading ? copy.searching : copy.search} aria-busy={loading} disabled={query.trim().length < 2} type="submit">{loading ? <BrandLoading size={20} decorative/> : <Icon name="arrow"/>}<span>{copy.search}</span></button>}
       </div>
       {!home && <><div className="discovery-controls">
         <label className="discovery-city"><span className="sr-only">{copy.city}</span><Icon name="pin"/><select value={selectedCity} disabled={loading} onChange={event => { cancelPendingLocation(); locationVersion.current++; coordinatesRef.current = null; setLocationEnabled(false); setCityCode(event.target.value); setCityWasChosen(true); setNeighborhood(''); setCoordinates(null); setLocationError(''); setResult(null); setResultOrigin(null) }}><option value="" disabled>{coordinates ? copy.changeCity : copy.anyCity}</option>{cities.map(city => <option key={city.code} value={city.code}>{en ? city.nameEn : city.name}{duplicateCityNames.has(city.name) ? ` · ${city.region}` : ''}</option>)}</select></label>

@@ -19,6 +19,7 @@ import { businessPhotoStyle } from '../lib/business-photo-layout.mjs'
 import { DiscoveryDistanceBadge } from './discovery-distance-badge'
 import { isCataloguePhotoSource } from '../lib/catalogue-photo-view.mjs'
 import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
+import { trackSearchEvent } from '../lib/search-analytics-client.js'
 const DiscoveryBusinessDetails = dynamic(() => import('./discovery-business-details').then(module => module.DiscoveryBusinessDetails))
 
 const emptyReviews = { summary: { count: 0 }, items: [] }
@@ -32,7 +33,7 @@ export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, 
   const copy = DISCOVERY_COPY[locale] || DISCOVERY_COPY.bg
   const [detailsOpen, setDetailsOpen] = useState(false), detailsTrigger = useRef(null)
   const hasDetails = internal || row.source === 'catalogue'
-  const openDetails = event => { detailsTrigger.current = event.currentTarget; setDetailsOpen(true) }
+  const openDetails = event => { detailsTrigger.current = event.currentTarget; setDetailsOpen(true); if (!preview) trackSearchEvent({ event: 'profile', locale }) }
   const photo = internal ? homeBusinessPhoto(row) : row.source === 'catalogue' && isCataloguePhotoSource(row.photo?.src) ? { ...row.photo, alt: { [locale]: row.photo.alt || row.name } } : null
   const reserve = <BookingButtonContent>{copy.reserveAppointment}</BookingButtonContent>
   const directionsLabel = copy.directions
@@ -55,9 +56,9 @@ export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, 
   return <article className="home-business-card" data-source={row.source}>
     {hasDetails && <button type="button" className="home-business-open" onClick={openDetails} aria-haspopup="dialog" aria-label={`${copy.detailsLabel} · ${row.name}`}/>}
     {visual}
-    {internal && <span className="home-business-partner"><BrandMark size={20}/>{en ? 'GoRez partner' : 'GoRez партньор'}</span>}
+    {internal && <span className="home-business-partner"><BrandMark size={20}/>{en ? 'GoRez Partner' : 'Партньор на GoRez'}</span>}
     <h3 title={row.name}>{row.name}</h3>
-    <p className="home-business-category">{railCategory(row, locale)}</p>
+    <p className="home-business-category">{railCategory(row, locale)}{(row.neighborhood || row.city) && <span className="home-business-neighborhood"> · {row.neighborhood || row.city}</span>}</p>
     {services.length > 0 && <ul className="home-business-services" aria-label={copy.servicesPrices}>{services.map(service => {
       const price = detailPriceLabel({ ...service, priceUnit: '' }, locale, { compact: true })
       const { conditions } = servicePresentation(service, locale)

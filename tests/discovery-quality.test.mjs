@@ -6,12 +6,12 @@ import { discoverySearchInput } from '../lib/discovery/search-ui.mjs'
 import { googleSearchRequest } from '../lib/discovery/google-places.mjs'
 import { normalizeInternalBusinesses } from '../lib/discovery/internal-search.mjs'
 import { discoverBusinesses } from '../lib/discovery/search.mjs'
-import { discoveryConfig } from '../lib/discovery/config.mjs'
+import { legacyGoogleConfig as discoveryConfig } from './helpers/legacy-google-config.mjs'
 
 const now = DateTime.fromISO('2026-10-30T12:00:00', { zone: 'Europe/Sofia' })
 const request = (query, patch = {}) => discoveryRequestSchema.parse(discoverySearchInput({ query, ...patch }))
 const parse = (query, patch = {}) => ({ ...parseIntent(request(query, patch), now, { v2: true }), searchV2: true })
-const config = { ...discoveryConfig({ DISCOVERY_PROVIDER_MODE: 'google' }), searchV2Enabled: true, googleEnabled: true, googleKey: 'fixture-key', maxResults: 12 }
+const config = { ...discoveryConfig({ GOOGLE_PLACES_ACTIVATION_APPROVED: 'true', GOOGLE_PLACES_HARD_LIMITS_VERIFIED: 'true', DISCOVERY_PROVIDER_MODE: 'google' }), searchV2Enabled: true, googleEnabled: true, googleKey: 'fixture-key', maxResults: 12 }
 const place = { id: 'FIXTURE_EXTERNAL', displayName: { text: 'Fictional exact service provider' }, googleMapsUri: 'https://www.google.com/maps/place/fixture', location: { latitude: 42.7, longitude: 23.3 } }
 function dependencies(patch = {}) {
   const calls = { google: 0, slots: 0, diagnostic: [] }

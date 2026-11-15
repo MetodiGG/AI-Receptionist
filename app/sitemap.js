@@ -1,14 +1,17 @@
 import { getSupabaseAdmin } from '../lib/supabase-admin'
 import { localizedUrl, languageAlternates } from '../lib/seo.mjs'
+import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { catalogueProfileSitemapEntries } from '../lib/catalogue-profile.mjs'
 export const dynamic='force-dynamic'
 export default async function sitemap() {
   const paths=['/','/for-businesses','/privacy','/terms','/partners','/faq']
-  const db=getSupabaseAdmin()
+  const db=getSupabaseAdmin(),partners=[]
   for(let offset=0;;offset+=500){
-    const {data,error}=await db.from('businesses').select('slug').eq('active',true).eq('platform_status','enabled').order('slug').range(offset,offset+499)
+    const {data,error}=await db.from('businesses').select('id,slug,name,active,platform_status,phone,address,city,city_ekatte,neighborhood,website_url').eq('active',true).eq('platform_status','enabled').order('slug').range(offset,offset+499)
     if(error)throw new Error('SITEMAP_UNAVAILABLE')
     for(const row of data||[])if(/^[a-z0-9-]{2,64}$/.test(row.slug))paths.push(`/book/${row.slug}`)
+    partners.push(...(data||[]))
     if(!data||data.length<500)break
   }
-  return paths.flatMap(path=>['bg','en'].map(locale=>({url:localizedUrl(path,locale),alternates:{languages:languageAlternates(path).languages}})))
+  return [...paths.flatMap(path=>['bg','en'].map(locale=>({url:localizedUrl(path,locale),alternates:{languages:languageAlternates(path).languages}}))), ...catalogueProfileSitemapEntries(SOFIA_CATALOGUE,Date.now(),{partners})]
 }

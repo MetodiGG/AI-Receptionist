@@ -9,14 +9,14 @@ import { googleSearchRequest } from '../lib/discovery/google-places.mjs'
 import { normalizeInternalBusinesses } from '../lib/discovery/internal-search.mjs'
 import { discoverBusinesses } from '../lib/discovery/search.mjs'
 import { createDiscoveryHandler } from '../lib/discovery/handler.mjs'
-import { discoveryConfig } from '../lib/discovery/config.mjs'
+import { legacyGoogleConfig as discoveryConfig } from './helpers/legacy-google-config.mjs'
 
 const origin = { latitude: 42.6627, longitude: 23.2849, consent: true }
 const input = patch => discoveryRequestSchema.parse({ query: '', browse: true, ...patch })
 const business = (id, industry, service, patch = {}) => ({ id, name: service, slug: `demo-${id}`, city: 'София', city_ekatte: '68134', industry, platform_status: 'enabled', active: true, services: [{ id: `s-${id}`, name: service, active: true, duration_min: 30 }], ...patch })
 function deps(patch = {}) {
   const calls = { fetch: [], budget: [] }
-  return { calls, config: { ...discoveryConfig({ DISCOVERY_PROVIDER_MODE: 'google' }), enabled: true, uiKitEnabled: true, googleKey: 'fake-server-key', browserKey: 'fake-restricted-browser-key', searchV2Enabled: true, aiEnabled: true, aiKey: 'fake-ai-key' },
+  return { calls, config: { ...discoveryConfig({ GOOGLE_PLACES_ACTIVATION_APPROVED: 'true', GOOGLE_PLACES_HARD_LIMITS_VERIFIED: 'true', DISCOVERY_PROVIDER_MODE: 'google' }), enabled: true, uiKitEnabled: true, googleKey: 'fake-server-key', browserKey: 'fake-restricted-browser-key', searchV2Enabled: true, aiEnabled: true, aiKey: 'fake-ai-key' },
     claimBudget: async (...args) => { calls.budget.push(args); return true },
     fetcher: async (url, init) => { calls.fetch.push({ url, init }); return Response.json({ places: [{ id: 'DEMO_PLACE', location: origin }] }) },
     allowAttempt: async () => true, readInternal: async () => [], readLinks: async () => [],

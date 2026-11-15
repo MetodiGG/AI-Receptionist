@@ -8,14 +8,17 @@ import { processBusinessApprovalEmails } from '../../../../lib/business-approval
 export const maxDuration = 30
 
 export const GET = createNotificationCron({ env: process.env, process: async () => {
-  const [notifications,media,referrals,catalogueMedia,businessApprovals] = await Promise.all([
+  const [notifications,media,referrals,catalogueMedia,businessApprovals,searchMetrics] = await Promise.all([
     processPendingNotifications(),
     cleanupBusinessMedia(getSupabaseAdmin()).catch(()=>({unavailable:true})),
     getSupabaseAdmin().rpc('prune_booking_referrals').then(result=>result.error?{unavailable:true}:{ok:true}).catch(()=>({unavailable:true})),
     cleanupCataloguePhotos(getSupabaseAdmin()).catch(()=>({unavailable:true})),
     processBusinessApprovalEmails().catch(()=>({unavailable:true})),
+    // Retention remains active after collection is switched off. A deployment
+    // without the optional migration safely reports only this task unavailable.
+    getSupabaseAdmin().rpc('prune_search_metrics').then(result=>result.error?{unavailable:true}:{ok:true}).catch(()=>({unavailable:true})),
   ])
-  return { ...notifications, media,referrals,catalogueMedia,businessApprovals }
+  return { ...notifications, media,referrals,catalogueMedia,businessApprovals,searchMetrics }
 } })
 export const POST = GET
 

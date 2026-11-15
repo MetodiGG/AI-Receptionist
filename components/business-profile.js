@@ -21,12 +21,12 @@ export function BusinessDirectionsLink({ business, locale = 'bg', address = fals
   </a>
 }
 
-export function BusinessProfileHeader({ business, locale }) {
+export function BusinessProfileHeader({ business, locale, shareUrl }) {
   const en = locale === 'en'
   const [shared, setShared] = useState(false)
   const [manualShare, setManualShare] = useState('')
   async function share() {
-    const url = profileShareUrl(business.slug, locale)
+    const url = shareUrl || profileShareUrl(business.slug, locale)
     const result = await shareProfileLink({ title: business.name, url }, navigator)
     if (result === 'copied') { setShared(true); setManualShare('') }
     else if (result === 'manual') setManualShare(url)

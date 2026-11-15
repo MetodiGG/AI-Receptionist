@@ -3,7 +3,7 @@ import assert from 'node:assert/strict'
 import { generateKeyPairSync, verify } from 'node:crypto'
 import { readFile } from 'node:fs/promises'
 import { DateTime } from 'luxon'
-import { discoveryConfig } from '../lib/discovery/config.mjs'
+import { legacyGoogleConfig as discoveryConfig } from './helpers/legacy-google-config.mjs'
 import { createGooglePlacesAuthorizer, googlePlacesAuthConfigured, GOOGLE_PLACES_SCOPES } from '../lib/discovery/google-auth.mjs'
 import { googlePlaceDetails, searchGooglePlaces } from '../lib/discovery/google-places.mjs'
 import { discoveryRequestSchema, parseIntent } from '../lib/discovery/intent.mjs'
@@ -20,7 +20,7 @@ const account = {
   token_uri: 'https://oauth2.googleapis.com/token', universe_domain: 'googleapis.com',
 }
 const config = discoveryConfig({
-  DISCOVERY_PROVIDER_MODE: 'google',
+  DISCOVERY_PROVIDER_MODE: 'google', GOOGLE_PLACES_ACTIVATION_APPROVED: 'true', GOOGLE_PLACES_HARD_LIMITS_VERIFIED: 'true',
   DISCOVERY_ENABLED: 'true', GOOGLE_PLACES_AUTH_MODE: 'oauth', GOOGLE_PLACES_PROJECT_ID: project,
   GOOGLE_PLACES_SERVICE_ACCOUNT_JSON: JSON.stringify(account),
   GOOGLE_PLACES_UI_KIT_ENABLED: 'true', GOOGLE_PLACES_UI_KIT_APPROVED: 'true',

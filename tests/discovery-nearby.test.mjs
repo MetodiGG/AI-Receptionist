@@ -6,7 +6,7 @@ import { discoveryRequestSchema, parseIntent } from '../lib/discovery/intent.mjs
 import { discoverySearchInput } from '../lib/discovery/search-ui.mjs'
 import { nearbySearchScope, partitionNearbyPlaceIds } from '../lib/discovery/nearby.mjs'
 import { discoverBusinesses } from '../lib/discovery/search.mjs'
-import { discoveryConfig } from '../lib/discovery/config.mjs'
+import { legacyGoogleConfig as discoveryConfig } from './helpers/legacy-google-config.mjs'
 import { googleSearchRequest } from '../lib/discovery/google-places.mjs'
 import { fictionalDiscoveryBusinesses, fictionalGoogleResponse } from '../lib/discovery/mock.mjs'
 import { rankDiscoveryResults } from '../lib/discovery/ranking.mjs'
@@ -20,7 +20,7 @@ const parse = input => ({ ...parseIntent(input, now, { v2: true }), searchV2: tr
 const read = path => readFile(new URL(`../${path}`, import.meta.url), 'utf8')
 function dependencies(patch = {}) {
   const calls = { fetch: [], budget: [] }
-  const config = { ...discoveryConfig({ DISCOVERY_PROVIDER_MODE: 'google', DISCOVERY_ENABLED: 'true' }), searchV2Enabled: true, uiKitEnabled: true, browserKey: 'test-only-browser', googleKey: 'test-only-server' }
+  const config = { ...discoveryConfig({ GOOGLE_PLACES_ACTIVATION_APPROVED: 'true', GOOGLE_PLACES_HARD_LIMITS_VERIFIED: 'true', DISCOVERY_PROVIDER_MODE: 'google', DISCOVERY_ENABLED: 'true' }), searchV2Enabled: true, uiKitEnabled: true, browserKey: 'test-only-browser', googleKey: 'test-only-server' }
   return { now, config, calls, readInternal: async intent => fictionalDiscoveryBusinesses(intent), readLinks: async () => [],
     claimBudget: async (...args) => { calls.budget.push(args); return true },
     fetcher: async (url, init) => { calls.fetch.push({ url, init }); return Response.json(fictionalGoogleResponse(JSON.parse(init.body))) },

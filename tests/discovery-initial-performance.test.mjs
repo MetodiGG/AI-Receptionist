@@ -46,18 +46,18 @@ function harness(component, props) {
 const point = { latitude: 42.66, longitude: 23.28, consent: true }
 const locatedPoint = () => ({ ...point, accuracyMeters: 25, observedAt: Date.now() })
 const response = (id = 'city-row', patch = {}) => ({ results: [{ id, source: 'catalogue', name: 'Local fictional QA result' }], externalStatus: 'catalogue', intent: { cityCode: '68134' }, cataloguePage: { offset: 0, total: 1, nextOffset: null }, ...patch })
-const controls = Object.fromEntries(['Icon', 'BrandMark', 'DiscoveryRouteArt', 'BusinessCategoryIcon', 'DiscoveryHomeRail', 'DiscoveryHomeBusinesses', 'DiscoveryHomeBottom', 'DiscoveryFilterSheet'].map(name => [name, Object.defineProperty(() => null, 'name', { value: name })]))
+const controls = Object.fromEntries(['Icon', 'BrandMark', 'DiscoveryRouteArt', 'BusinessCategoryIcon', 'DiscoveryHomeRail', 'DiscoveryHomeBusinesses', 'DiscoveryHomeBottom', 'DiscoveryFilterSheet', 'DiscoveryAutocomplete'].map(name => [name, Object.defineProperty(() => null, 'name', { value: name })]))
 function fixture(patch = {}, draft = null) {
-  const requests = [], permission = [], timers = new Map(), focused = [], navigations = [], listeners = new Map()
+  const requests = [], permission = [], timers = new Map(), focused = [], navigations = [], drafts = [], listeners = new Map()
   let timerId = 0, clears = 0
-  const imports = { react: hooks, 'next/link': () => null, 'next/navigation': { useRouter: () => ({ push: value => navigations.push(value) }) }, '../lib/business-location.mjs': locations, '../lib/discovery/categories.mjs': categories, '../lib/discovery/location-query.mjs': locationQuery, '../lib/discovery/copy.mjs': copy, '../lib/discovery/defaults.mjs': defaults, '../lib/discovery/draft.mjs': { peekDiscoveryDraft: () => draft, clearDiscoveryDraft: () => { clears++ }, setDiscoveryDraft() {} }, '../lib/discovery/search-ui.mjs': searchUi, '../lib/discovery/results-navigation.mjs': { focusDiscoveryResults: () => focused.push('focus') }, '../lib/discovery/home.mjs': home, '../lib/discovery/laboratories.mjs': labs, '../lib/discovery/catalogue-pagination.mjs': pagination }
+  const imports = { react: hooks, 'next/link': () => null, 'next/navigation': { useRouter: () => ({ push: value => navigations.push(value) }) }, '../lib/business-location.mjs': locations, '../lib/discovery/categories.mjs': categories, '../lib/discovery/location-query.mjs': locationQuery, '../lib/discovery/copy.mjs': copy, '../lib/discovery/defaults.mjs': defaults, '../lib/discovery/draft.mjs': { peekDiscoveryDraft: () => draft, clearDiscoveryDraft: () => { clears++ }, setDiscoveryDraft: value => drafts.push(value) }, '../lib/discovery/search-ui.mjs': searchUi, '../lib/discovery/results-navigation.mjs': { focusDiscoveryResults: () => focused.push('focus') }, '../lib/discovery/home.mjs': home, '../lib/discovery/laboratories.mjs': labs, '../lib/discovery/catalogue-pagination.mjs': pagination }
   const module = { exports: {} }
   new Function('require', 'module', 'exports', 'fetch', 'setTimeout', 'clearTimeout', 'window', 'navigator', 'requestAnimationFrame', 'cancelAnimationFrame', code)(name => name in imports ? imports[name] : name.startsWith('./') ? controls : require(name), module, module.exports,
     (url, init) => { let resolve, reject; const promise = new Promise((yes, no) => { resolve = yes; reject = no }); requests.push({ url, init, body: JSON.parse(init.body), reject, respond(value = response(), status = 200) { resolve({ ok: status >= 200 && status < 300, json: async () => value }) } }); return promise },
     (fn, delay) => { const id = ++timerId; timers.set(id, { fn, delay }); return id }, id => timers.delete(id), { isSecureContext: true, matchMedia: () => ({ matches: true }), addEventListener: (name, fn) => listeners.set(name, fn), removeEventListener: (name, fn) => { if (listeners.get(name) === fn) listeners.delete(name) } }, { geolocation: {} }, fn => { fn(); return 1 }, () => {})
   const h = harness(module.exports.DiscoverySearch, { home: true, locale: 'bg', locationProvider: () => { let resolve, reject; const promise = new Promise((yes, no) => { resolve = yes; reject = no }); permission.push({ resolve, reject }); return promise }, ...patch })
   const f = {
-    h, requests, permission, focused, navigations,
+    h, requests, permission, focused, navigations, drafts,
     control: name => elements(h.tree, node => node.type === controls[name])[0],
     query: () => elements(h.tree, node => node.type === 'input' && node.props.id === 'ai-query')[0],
     location: () => elements(h.tree, node => node.type === 'button' && node.props.className?.includes('home-inline-location'))[0],
@@ -364,4 +364,50 @@ test('suspended expiry timers cannot submit stale pagination coordinates or acce
       if (expireBeforeRequest) assert.equal(f.requests.length, 3, 'only a city fallback, never a stale page POST')
     } finally { f.close(); Date.now = realNow }
   }
+})
+
+test('business autocomplete selections open the canonical native or catalogue profile without a booking request', () => {
+  const f = fixture({ compact: true })
+  try {
+    for (const href of ['/book/qa-partner?lang=bg', '/businesses/catalogue/sofia-qa-external?lang=bg']) {
+      f.control('DiscoveryAutocomplete').props.onSelect({ kind: 'business', href }); f.h.flush()
+      assert.equal(f.navigations.at(-1), href)
+    }
+    assert.equal(f.requests.length, 0); assert.equal(f.permission.length, 0)
+  } finally { f.close() }
+})
+
+test('service and category autocomplete actions retain real locality and use existing complete discovery requests', async () => {
+  const f = fixture()
+  try {
+    await f.ready(); f.category('hair')
+    f.control('DiscoveryAutocomplete').props.onSelect({ kind: 'service', query: 'Маникюр', cityCode: '68134', neighborhood: 'Манастирски ливади' }); f.h.flush()
+    assert.deepEqual(f.requests.at(-1).body, { query: 'Маникюр', locale: 'bg', radiusKm: 2, cityCode: '68134', neighborhood: 'Манастирски ливади' })
+    assert.equal(f.requests.at(-2).init.signal.aborted, true)
+    f.control('DiscoveryAutocomplete').props.onSelect({ kind: 'category', category: 'nails', label: 'Маникюр', cityCode: '68134', neighborhood: 'Люлин' }); f.h.flush()
+    assert.deepEqual(f.requests.at(-1).body, { query: '', locale: 'bg', radiusKm: 2, browse: true, category: 'nails', cityCode: '68134', neighborhood: 'Люлин' })
+    assert.equal(f.permission.length, 0)
+  } finally { f.close() }
+})
+
+test('nearby service autocomplete keeps the consented origin and typed quarter without requesting another location', async () => {
+  const f = fixture()
+  try {
+    await f.ready(); const pending = f.toggle(); f.permission[0].resolve(locatedPoint()); await pending; await f.settle()
+    f.control('DiscoveryAutocomplete').props.onSelect({ kind: 'service', query: 'Маникюр', cityCode: '68134', neighborhood: 'Манастирски ливади' }); f.h.flush()
+    assert.equal(f.requests.at(-1).body.query, 'Маникюр Манастирски ливади')
+    assert.deepEqual(f.requests.at(-1).body.coordinates, point)
+    assert.equal(f.requests.at(-1).body.cityCode, undefined)
+    assert.equal(f.permission.length, 1)
+  } finally { f.close() }
+})
+
+test('compact autocomplete uses the existing in-memory discovery draft and never prefetches bookings', () => {
+  const f = fixture({ compact: true })
+  try {
+    f.control('DiscoveryAutocomplete').props.onSelect({ kind: 'service', query: 'Маникюр', cityCode: '68134', neighborhood: 'Манастирски ливади' }); f.h.flush()
+    assert.deepEqual(f.drafts.at(-1).request, { query: 'Маникюр', locale: 'bg', radiusKm: 2, cityCode: '68134', neighborhood: 'Манастирски ливади' })
+    assert.equal(f.navigations.at(-1), '/search?lang=bg')
+    assert.equal(f.requests.length, 0); assert.equal(f.permission.length, 0)
+  } finally { f.close() }
 })

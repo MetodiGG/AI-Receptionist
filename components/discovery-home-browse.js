@@ -29,7 +29,10 @@ export function DiscoveryHomeBusinesses({ locale, filters, preview = false, data
     [result, catalogueMode, directory.businesses, filters.cityCode, filters.neighborhood, filters.category, filters.radiusKm, filters.nearby, filters.coordinates])
   const nearby = Boolean(result?.intent?.coordinates || (!result && filters.coordinates?.consent))
   const distanceOrigin = useMemo(() => discoveryDistanceOrigin({ coordinates: filters.coordinates, cityCode: result?.intent?.cityCode || filters.cityCode }), [filters.coordinates, result?.intent?.cityCode, filters.cityCode])
-  const [nearRows, farRows] = useMemo(() => [rows.filter(row => row.proximityBand !== 'further'), rows.filter(row => row.proximityBand === 'further')], [rows])
+  // Deterministic own-catalogue relevance is already ranked before pagination.
+  // Repartitioning it by distance would move a weaker near result ahead of an
+  // exact farther match. Keep the existing provider bands for legacy Google.
+  const [nearRows, farRows] = useMemo(() => catalogueMode ? [rows, []] : [rows.filter(row => row.proximityBand !== 'further'), rows.filter(row => row.proximityBand === 'further')], [rows, catalogueMode])
   const showFurther = catalogueMode || expanded || (!nearRows.length && !result?.external)
   const hiddenFurther = Boolean(farRows.length || result?.furtherExternal) && !showFurther
   const nextPage = result?.cataloguePage?.nextOffset != null && Boolean(onLoadMore)

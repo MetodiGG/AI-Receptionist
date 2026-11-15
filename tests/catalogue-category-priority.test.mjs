@@ -87,7 +87,7 @@ test('multiple local partners keep their distance order and city-centre browsing
   assert.deepEqual(rankCatalogueBusinesses([point('partner','gorez',.005)],[point('closer','catalogue',.001)],{cityCode:'68134'}).map(row=>row.id),['closer','partner'])
 })
 
-test('local partner convenience never bypasses category, named neighbourhood, actual radius or occupied slots', async () => {
+test('local partner convenience preserves category, neighbourhood and radius guards while occupied businesses remain discoverable', async () => {
   const partner={id:'p',slug:'p',name:'Nearby Nails',city_ekatte:'68134',neighborhood:'Борово',industry:'beauty',public_profile:{latitude:origin.latitude,longitude:origin.longitude},services:[{id:'s',name:'Маникюр',active:true,price:20,duration_min:45,currency:'EUR'}]}
   const input={query:'маникюр',coordinates:{...origin,consent:true}}
   const result=await discoverBusinesses(input,deps({readInternal:async()=>[partner,{...partner,id:'far',slug:'far',public_profile:{latitude:42.8,longitude:23.4}}]}))
@@ -97,7 +97,9 @@ test('local partner convenience never bypasses category, named neighbourhood, ac
   const quarter=await discoverBusinesses({query:'маникюр',cityCode:'68134',neighborhood:'Връбница'},deps({readInternal:async()=>[partner]}))
   assert.equal(quarter.results.some(row=>row.id==='p'),false)
   const occupied=await discoverBusinesses({...input,query:'маникюр утре'},deps({readInternal:async()=>[partner],getBusiness:async()=>({services:partner.services,timezone:'Europe/Sofia'}),getSlots:async()=>[]}))
-  assert.equal(occupied.results.some(row=>row.id==='p'),false)
+  const occupiedPartner=occupied.results.find(row=>row.id==='p')
+  assert.equal(occupiedPartner?.availability.status,'none')
+  assert.deepEqual(occupiedPartner?.availability.slots,[])
 })
 
 test('the home category control executes Other as well as all other selections', async () => {

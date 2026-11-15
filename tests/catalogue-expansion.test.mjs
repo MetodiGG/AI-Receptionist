@@ -5,7 +5,7 @@ import { DateTime } from 'luxon'
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 import { discoverBusinesses } from '../lib/discovery/search.mjs'
 import { discoveryRequestSchema } from '../lib/discovery/intent.mjs'
-import { discoveryConfig } from '../lib/discovery/config.mjs'
+import { legacyGoogleConfig as discoveryConfig } from './helpers/legacy-google-config.mjs'
 import { createDiscoveryHandler } from '../lib/discovery/handler.mjs'
 import { mergeCataloguePage } from '../lib/discovery/catalogue-pagination.mjs'
 import { orderedRailRows, railExternalAction } from '../lib/discovery/rail.mjs'
@@ -101,7 +101,7 @@ test('bad page offsets fail validation, pages use the same anti-abuse gate, and 
   for (const offset of [-1, 0.5, CATALOGUE_MAX_SEARCH_ROWS + 1, '15', null]) assert.equal(discoveryRequestSchema.safeParse({ ...browse, catalogueOffset: offset }).success, false)
   const request = () => new Request('https://www.gorez.co/api/public/discovery', { method: 'POST', headers: { Origin: 'https://www.gorez.co', 'Content-Type': 'application/json' }, body: JSON.stringify({ ...browse, catalogueOffset: 15 }) })
   assert.equal((await createDiscoveryHandler(deps({ allowAttempt: async () => false }))(request())).status, 429)
-  const google = deps({ config: discoveryConfig({ DISCOVERY_ENABLED: 'true', DISCOVERY_PROVIDER_MODE: 'google' }) })
+  const google = deps({ config: discoveryConfig({ GOOGLE_PLACES_ACTIVATION_APPROVED: 'true', GOOGLE_PLACES_HARD_LIMITS_VERIFIED: 'true', DISCOVERY_ENABLED: 'true', DISCOVERY_PROVIDER_MODE: 'google' }) })
   assert.equal((await createDiscoveryHandler(google)(request())).status, 422)
 })
 

@@ -10,7 +10,7 @@ import { neighborhoodChoices } from '../lib/discovery/location-query.mjs'
 import { DISCOVERY_COPY, discoveryLocationMessage } from '../lib/discovery/copy.mjs'
 import { DEFAULT_DISCOVERY_RADIUS_KM, DISCOVERY_RADIUS_CHOICES } from '../lib/discovery/defaults.mjs'
 import { clearDiscoveryDraft, peekDiscoveryDraft, setDiscoveryDraft } from '../lib/discovery/draft.mjs'
-import { DEFAULT_DISCOVERY_CITY, DISCOVERY_SHORTCUTS, discoveryCategorySelection, discoveryCitySelection, discoverySearchInput, requestDiscoveryLocation, subcategorySelection, subcategoryById } from '../lib/discovery/search-ui.mjs'
+import { DEFAULT_DISCOVERY_CITY, DISCOVERY_SHORTCUTS, discoveryCategorySelection, discoveryCitySelection, discoveryInitialInput, discoverySearchInput, requestDiscoveryLocation, subcategorySelection, subcategoryById } from '../lib/discovery/search-ui.mjs'
 import { DiscoveryRouteArt } from './discovery-route-art'
 import { BusinessCategoryIcon } from './business-category-icon'
 import { focusDiscoveryResults } from '../lib/discovery/results-navigation.mjs'
@@ -32,8 +32,10 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
   const [filtersOpen, setFiltersOpen] = useState(false)
   const Title = compact ? 'h2' : 'h1'
   const SearchPanel = home ? 'div' : Fragment
+  const LocationPanel = home && !compact ? 'div' : Fragment
   const [initial] = useState(() => compact ? null : peekDiscoveryDraft())
-  const initialInput = initial?.request || initial
+  const initialInput = discoveryInitialInput(initial, { home, compact })
+  const [entryCategory, setEntryCategory] = useState(!initial && home && !compact)
   const initialCoordinates = freshDiscoveryLocation(initialInput?.coordinates)
   const [query, setQuery] = useState(initialInput?.query || ''), [category, setCategory] = useState(initialInput?.category || '')
   const [subcategory, setSubcategory] = useState(initialInput?.subcategory && subcategoryById(initialInput.subcategory)?.category === initialInput.category ? initialInput.subcategory : '')
@@ -113,15 +115,23 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
     setLocating(false); setLocationEnabled(Boolean(coordinates))
   }
   function clearSubcategoryOptions() { subcategoryScope.current = null; setSubcategoryOptions([]) }
-  function changeQuery(value) { cancelPendingLocation(); setQuery(value); setSubcategory(''); clearSubcategoryOptions() }
+  function changeQuery(value) {
+    cancelPendingLocation()
+    // Hair is a starting point, not a hidden restriction on the first typed
+    // search. Explicit category/subcategory choices retain their usual scope.
+    if (entryCategory) { setCategory(''); setEntryCategory(false) }
+    setQuery(value); setSubcategory(''); clearSubcategoryOptions()
+  }
   function chooseCategory(id) {
     cancelPendingLocation()
+    setEntryCategory(false)
     const selected = discoveryCategorySelection(query, id, locale)
     setCategory(selected.category); setSubcategory(''); clearSubcategoryOptions(); setQuery(selected.query); setResult(null); setError('')
     if ((home || coordinates) && selected.category) execute(payload({ ...selected, subcategory: '' }), { navigate: false })
   }
   function chooseSubcategory(id) {
     cancelPendingLocation()
+    setEntryCategory(false)
     const selected = subcategorySelection(query, category, id, locale)
     setSubcategory(selected.subcategory); setQuery(selected.query); setResult(null); setError('')
     execute(payload(selected), { navigate: false })
@@ -199,6 +209,7 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
   }
   function selectSuggestion(item) {
     cancelPendingLocation()
+    setEntryCategory(false)
     trackSearchEvent({ event: 'selection', query, locale, selection: item.kind })
     if (item.kind === 'business') { trackSearchEvent({ event: 'profile', query, locale }); router.push(item.href); return }
     const selected = item.kind === 'category' ? { category: item.category, subcategory: '', query: categoryById(item.category)?.[locale] || item.label } : { category: '', subcategory: '', query: item.query }
@@ -252,6 +263,7 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
   function openFilters(event) { filterTrigger.current = event.currentTarget; setFiltersOpen(true) }
   function applyFilters(draft) {
     cancelPendingLocation()
+    setEntryCategory(false)
     const next = applyHomeFilters({ query, category, subcategory, cityCode, cityWasChosen, coordinates, neighborhood, radiusKm }, draft, locale)
     setQuery(next.query); setCategory(next.category); setSubcategory(next.subcategory || ''); setCityCode(next.cityCode); setCityWasChosen(next.cityWasChosen)
     coordinatesRef.current = next.coordinates
@@ -260,6 +272,8 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
     if (canDiscover(next.query)) execute(payload(next))
   }
   const locationMessage = discoveryLocationRetryMessage(locationError, locale) || discoveryLocationMessage(locationError, { disabled: home && !locationEnabled && !locating }, locale)
+  const contextCity = cities.find(city => city.code === selectedCity)
+  const locationContext = coordinates ? (en ? 'Around you' : 'Около Вас') : contextCity ? `${en ? contextCity.nameEn : contextCity.name} · ${en ? 'city centre' : 'от центъра'}` : (en ? 'Selected area' : 'Избраният район')
   return <section className={`discovery-search ${compact ? 'discovery-compact' : ''}${home ? ' discovery-home' : ''}`} aria-labelledby={compact ? 'home-discovery-title' : 'discovery-title'}>
     <SearchPanel {...(home ? { className: 'home-search-panel' } : {})}>
     <header className={home ? 'home-discovery-heading' : compact ? '' : 'discovery-hero'}>
@@ -285,7 +299,10 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
         <label>{copy.radius}<select value={radiusKm} disabled={loading} onChange={event => { cancelPendingLocation(); clearSubcategoryOptions(); setRadius(Number(event.target.value)); setResult(null) }}>{DISCOVERY_RADIUS_CHOICES.map(radius => <option key={radius} value={radius}>{radius} km</option>)}</select></label>
       </div></details></>}
       <span className="sr-only" id={compact ? 'home-location-info' : 'location-info'}>{copy.locationInfo}</span>
-      {locationMessage && <p className="discovery-notice" role="status">{locationMessage}</p>}
+      <LocationPanel {...(home && !compact ? { className: 'home-search-context' } : {})}>
+      {home && !compact && <span className="home-location-context"><Icon name="pin"/>{locationContext}</span>}
+      {locationMessage && (home && !compact && !locationError ? <details className="home-location-help"><summary>{en ? 'About location' : 'За локацията'}<Icon name="chevronDown"/></summary><p>{locationMessage}</p></details> : <p className="discovery-notice" role="status">{locationMessage}</p>)}
+      </LocationPanel>
       {home && coordinates && <span className="sr-only" role="status">{homeCopy.locationEnabled}</span>}
       <span className="sr-only" aria-live="polite">{settledQuery.length >= 2 && !loading ? (en ? 'Press Find to search.' : 'Натисни Намери за търсене.') : ''}</span>
     </form>
@@ -293,6 +310,6 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
     {home && filtersOpen && <DiscoveryFilterSheet id={filterId} initialValues={homeFilters} locale={locale} onApply={applyFilters} onClose={() => setFiltersOpen(false)} triggerRef={filterTrigger}/>}
     {home && <><DiscoveryHomeRail title={homeCopy.categories} locale={locale} kind="categories">{homeCategories(locale).map((item, index) => <li key={item.id}><button type="button" disabled={loading} className={category === item.id ? 'selected' : ''} aria-pressed={category === item.id} onClick={() => chooseCategory(item.id)}><img src={item.photo} srcSet={`${item.photo} 160w, ${item.photo2x} 240w`} sizes="80px" width="160" height="160" alt="" loading={index < 4 ? 'eager' : 'lazy'} decoding="async"/><span>{item.label}</span></button></li>)}</DiscoveryHomeRail></>}
     {!compact && <DiscoverySubcategories category={category} title={categoryById(category)?.[locale]} options={subcategoryOptions} selected={subcategory} selectedLabel={subcategoryById(subcategory)?.[locale]} locale={locale} loading={loading} onSelect={chooseSubcategory}/>}
-    {!compact && <DiscoveryHomeBusinesses locale={locale} filters={{ ...homeFilters, cityCode: result ? resultCity : homeFilters.cityCode, coordinates: result ? resultOrigin : coordinates }} preview={preview} data={directoryData} result={result} resultKey={resultKey} loading={loading} error={error} onRetry={() => execute(payload())} headingRef={resultHeading} onLoadMore={loadMore} loadingMore={loadingMore} moreError={moreError} directoryEnabled={!home}/>}
+    {!compact && <DiscoveryHomeBusinesses locale={locale} filters={{ ...homeFilters, cityCode: result ? resultCity : homeFilters.cityCode, coordinates: result ? resultOrigin : coordinates }} preview={preview} data={directoryData} result={result} resultKey={resultKey} loading={loading} error={error} onRetry={() => execute(payload())} headingRef={resultHeading} onLoadMore={loadMore} loadingMore={loadingMore} moreError={moreError} directoryEnabled={!home} initialPreview={entryCategory} quickChoice={home}/>}
   </section>
 }

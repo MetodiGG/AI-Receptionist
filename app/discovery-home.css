@@ -114,6 +114,14 @@
 .discovery-business-details section { margin-top: 20px; }
 .discovery-business-details section > p { margin: 0; }
 .business-details-description { white-space: pre-line; }
+/* Public business copy should remain readable at the normal browser zoom.
+   Keep supporting tariff conditions distinct without shrinking the body text. */
+.discovery-business-details .business-details-description,
+.discovery-business-details .business-details-services .business-details-service-description { color: #574b42; font-size: 16px; line-height: 1.6; }
+.discovery-business-details .business-details-service-condition,
+.home-business-services .home-service-condition,
+.discovery-business-details .service-price-unit,
+.home-business-services .service-price-unit { color: #625349; font-size: 15px; line-height: 1.5; }
 .business-details-services { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
 .business-details-service-group + .business-details-service-group { margin-top: 18px; }
 .business-details-service-group h4 { margin: 0; padding-block: 6px; color: #914219; font-size: 16px; font-weight: 750; }
@@ -223,6 +231,13 @@
 .home-reserve svg { width: 17px; height: 17px; flex-shrink: 0; }
 .home-reserve[aria-disabled] { opacity: .7; cursor: default; }
 .home-browse-empty { margin: 16px 0 0; padding: 18px; border: 1px solid var(--line); border-radius: 16px; background: #ffffff80; color: var(--ink-soft); font-size: 16px; line-height: 1.6; }
+.home-location-help { margin-top: 4px; color: #675344; font-size: 15px; line-height: 1.5; }
+.home-location-help summary { display: flex; align-items: center; justify-content: flex-end; gap: 6px; width: fit-content; min-height: 44px; margin-left: auto; cursor: pointer; list-style: none; }
+.home-location-help summary::-webkit-details-marker { display: none; }
+.home-location-help summary > svg { width: 15px; height: 15px; }
+.home-location-help[open] summary > svg { transform: rotate(180deg); }
+.home-location-help summary:focus-visible { outline: 3px solid #984419; outline-offset: 3px; border-radius: 4px; }
+.home-location-help > p { margin: 0; padding: 4px 0 8px; font-size: 16px; line-height: 1.6; max-width: 65ch; }
 .home-browse-skeleton { display: flex; gap: 18px; max-width: 100%; overflow: hidden; padding-top: 20px; }
 .home-browse-skeleton i { flex: 0 0 200px; height: 230px; border-radius: 16px; background: #e9e5df; }
 .home-discovery-bottom { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); width: 100%; max-width: 680px; gap: 16px; margin: 28px auto 0; padding-top: 10px; }

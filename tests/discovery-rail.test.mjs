@@ -108,14 +108,15 @@ test('Google stays in its attributed horizontal UI Kit with native contact actio
   assert.match(source, /setAttribute\('action', 'call'\)/)
   assert.doesNotMatch(source, /\.shadowRoot|fetchFields|innerHTML|textContent\s*=|copy.externalHint/)
 })
-test('subsequent pages use the same rail after a user advance, never an observer loop or More button', async () => {
+test('subsequent pages retain the existing paging gate; only the initial one-business preview has a More button', async () => {
   const rail = await read('components/discovery-home-rail.js'), browse = await read('components/discovery-home-browse.js')
   assert.match(rail, /movingRight && onNearEnd && advance.current.consume/)
   assert.match(rail, /onWheel=/)
   assert.match(rail, /onPointerDown=/)
-  assert.match(browse, /onNearEnd=\{hasMore && !loadingMore && !moreError \? advanceBusinesses/)
+  assert.match(browse, /onNearEnd=\{!introCollapsed && hasMore && !loadingMore && !moreError \? advanceBusinesses/)
   assert.match(browse, /if \(hiddenFurther\) setExpanded\(true\)/)
-  assert.doesNotMatch(browse, /home-more-businesses|Още бизнеси|More businesses/)
+  assert.match(browse, /introHasMore && !busy && !notice && !result\?\.clarification && <button/)
+  assert.match(browse, /onClick=\{\(\) => setPreviewExpanded\(true\)\}/)
   assert.doesNotMatch(rail + browse, /fetch\(|IntersectionObserver|window.scrollY|readBookablePlaces/)
 })
 test('category labels never wrap, split letters, or rely on fixed two-line clipping', async () => {

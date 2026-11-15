@@ -36,12 +36,24 @@ test('the lossless PNG is an exact whole-image resize, not a redraw, crop, recol
   assert.doesNotMatch(component, /next\/image|clipPath|filter:/)
 })
 test('all active header/footer/partner marks share the current artwork; retired SVG references are not rendered', async () => {
-  const search = await read('components/discovery-search.js'), browse = await read('components/discovery-business-card.js')
-  for (const source of [search, browse]) {
-    assert.match(source, /import \{ BrandMark \} from '\.\/brand-logo'/)
-    assert.match(source, /<BrandMark size=/)
-    assert.doesNotMatch(source, /gorez-symbol\.svg/)
+  // DiscoverySearch no longer renders the removed bottom partner CTAs. Check
+  // the actual shared header/footer lockups and the business partner badge.
+  for (const [file, component] of [
+    ['components/marketing-navigation.js', 'BrandLogo'],
+    ['components/site-footer.js', 'BrandLogo'],
+    ['components/discovery-business-card.js', 'BrandMark'],
+  ]) {
+    const source = await read(file)
+    assert.match(source, new RegExp(`import \\{ ${component} \\} from '\\./brand-logo'`), file)
+    assert.match(source, new RegExp(`<${component}\\b`), file)
+    assert.doesNotMatch(source, /gorez-symbol\.svg/, file)
   }
+  const search = await read('components/discovery-search.js'), logo = await read('components/brand-logo.js')
+  assert.doesNotMatch(search, /gorez-symbol\.svg/)
+  assert.match(logo, /import \{ BRAND_MARK_SRC, BRAND_MARK_SRC_SET \} from '\.\.\/lib\/brand-assets\.mjs'/)
+  assert.match(logo, /src=\{BRAND_MARK_SRC\} srcSet=\{BRAND_MARK_SRC_SET\}/)
+  assert.match(logo, /<BrandMark eager=\{eager\}/)
+  assert.doesNotMatch(logo, /gorez-symbol\.svg/)
   const script = await read('scripts/prepare-brand-v4.mjs')
   assert.match(script, /COPYFILE_EXCL/); assert.match(script, /Refusing to overwrite/)
   assert.doesNotMatch(script, /fetch\(|removeAlpha|flatten\(|extract\(|imagegen/)

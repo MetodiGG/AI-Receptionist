@@ -192,7 +192,7 @@ test('both category controls fill the search in BG/EN, including switching a non
   assert.match(ui, /onChange=\{event => chooseCategory\(event.target.value\)\}/)
   const handler = ui.slice(ui.indexOf('function chooseCategory('), ui.indexOf('function execute('))
   assert.doesNotMatch(handler, /fetch\(|search\(|locate\(/)
-  assert.match(handler, /if \(\(home \|\| coordinates\) && selected.category\) execute\(payload\(selected\)\)/)
+  assert.match(handler, /if \(\(home \|\| coordinates\) && selected.category\) execute\(payload\(\{ \.\.\.selected, subcategory: '' \}\), \{ navigate: false \}\)/)
   assert.match(ui, /categoryBrowse: home/)
 })
 
@@ -246,12 +246,12 @@ test('radius helpers are not visible; location consent, error recovery and acces
   assert.match(legal, /без да изпраща точни координати за него/)
 })
 
-test('legacy results keep their registration CTA while the compact homepage moves onboarding to the bottom', async () => {
-  const ui = await read('components/discovery-search.js'), route = await read('app/for-businesses/page.js')
-  assert.match(ui, /\{!home && !compact && <div className="discovery-partner-entry">/)
-  assert.match(ui, /\{home && <DiscoveryHomeBottom locale=\{locale\}\/>\}/)
-  assert.match(ui, /<Link className="discovery-business-cta" href=\{`\/for-businesses\?lang=\$\{locale\}`\}/)
-  assert.match(ui, /<span>\{copy.registerBusiness\}<\/span>/)
+test('discovery removes duplicate partner cards and keeps both real destinations in the hamburger', async () => {
+  const ui = await read('components/discovery-search.js'), page = await read('components/discovery-page.js'), nav = await read('components/marketing-navigation.js'), route = await read('app/for-businesses/page.js')
+  assert.doesNotMatch(ui, /DiscoveryHomeBottom|className="discovery-partner-entry"|className="discovery-business-cta"/)
+  assert.doesNotMatch(page, /DiscoveryHomeBottom/)
+  assert.match(nav, /href=\{`\/partners\?lang=\$\{locale\}`\}/)
+  assert.match(nav, /href=\{`\/for-businesses\?lang=\$\{locale\}`\}/)
   assert.equal(DISCOVERY_COPY.bg.registerBusiness, 'Регистрирай бизнеса си безплатно')
   assert.equal(DISCOVERY_COPY.en.registerBusiness, 'Register your business for free')
   assert.match(route, /<BusinessOnboarding/)

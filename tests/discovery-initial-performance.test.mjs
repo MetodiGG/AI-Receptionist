@@ -13,6 +13,7 @@ import * as searchUi from '../lib/discovery/search-ui.mjs'
 import * as home from '../lib/discovery/home.mjs'
 import * as labs from '../lib/discovery/laboratories.mjs'
 import * as pagination from '../lib/discovery/catalogue-pagination.mjs'
+import { subcategoriesForCategory } from '../lib/discovery/subcategories.mjs'
 import { discoveryRequestSchema, parseIntent } from '../lib/discovery/intent.mjs'
 
 const require = createRequire(import.meta.url), { loadBindings, transform } = require('next/dist/build/swc')
@@ -46,7 +47,7 @@ function harness(component, props) {
 const point = { latitude: 42.66, longitude: 23.28, consent: true }
 const locatedPoint = () => ({ ...point, accuracyMeters: 25, observedAt: Date.now() })
 const response = (id = 'city-row', patch = {}) => ({ results: [{ id, source: 'catalogue', name: 'Local fictional QA result' }], externalStatus: 'catalogue', intent: { cityCode: '68134' }, cataloguePage: { offset: 0, total: 1, nextOffset: null }, ...patch })
-const controls = Object.fromEntries(['Icon', 'BrandMark', 'DiscoveryRouteArt', 'BusinessCategoryIcon', 'DiscoveryHomeRail', 'DiscoveryHomeBusinesses', 'DiscoveryHomeBottom', 'DiscoveryFilterSheet', 'DiscoveryAutocomplete'].map(name => [name, Object.defineProperty(() => null, 'name', { value: name })]))
+const controls = Object.fromEntries(['Icon', 'BrandMark', 'DiscoveryRouteArt', 'BusinessCategoryIcon', 'DiscoveryHomeRail', 'DiscoveryHomeBusinesses', 'DiscoverySubcategories', 'DiscoveryFilterSheet', 'DiscoveryAutocomplete'].map(name => [name, Object.defineProperty(() => null, 'name', { value: name })]))
 function fixture(patch = {}, draft = null) {
   const requests = [], permission = [], timers = new Map(), focused = [], navigations = [], drafts = [], listeners = new Map()
   let timerId = 0, clears = 0
@@ -69,6 +70,7 @@ function fixture(patch = {}, draft = null) {
     toggle() { const promise = f.location().props.onClick(); h.flush(); return promise },
     submit() { elements(h.tree, node => node.type === 'form')[0].props.onSubmit({ preventDefault() {} }); h.flush() },
     category(id) { const rail = elements(h.tree, node => node.type === controls.DiscoveryHomeRail && node.props.kind === 'categories')[0]; const item = rail.props.children[home.homeCategories().findIndex(row => row.id === id)]; item.props.children.props.onClick(); h.flush() },
+    subcategory(id) { f.control('DiscoverySubcategories').props.onSelect(id); h.flush() },
     filters(values) { elements(h.tree, node => node.type === 'button' && node.props['aria-haspopup'] === 'dialog')[0].props.onClick({ currentTarget: {} }); h.flush(); f.control('DiscoveryFilterSheet').props.onApply(values); h.flush() },
     async settle() { for (let i = 0; i < 15; i++) { await Promise.resolve(); h.flush() } },
     async ready() { f.entry(); assert.equal(requests.length, 1); requests[0].respond(); await f.settle() },
@@ -409,5 +411,65 @@ test('compact autocomplete uses the existing in-memory discovery draft and never
     assert.deepEqual(f.drafts.at(-1).request, { query: 'Маникюр', locale: 'bg', radiusKm: 2, cityCode: '68134', neighborhood: 'Манастирски ливади' })
     assert.equal(f.navigations.at(-1), '/search?lang=bg')
     assert.equal(f.requests.length, 0); assert.equal(f.permission.length, 0)
+  } finally { f.close() }
+})
+
+test('photographic child choices preserve the parent browse and location, reuse parent facets and keep controls in view', async () => {
+  const f = fixture()
+  const options = subcategoriesForCategory('fitness').map(item => ({ ...item, count: 1 }))
+  const intent = { cityCode: '68134', category: 'fitness' }
+  try {
+    await f.ready(); f.category('fitness')
+    f.requests[1].respond(response('sports-parent', { intent, subcategoryOptions: options })); await f.settle()
+    assert.equal(f.control('DiscoverySubcategories').props.options.length, options.length)
+    assert.equal(f.focused.length, 0, 'choosing a category does not scroll past its new children')
+    f.subcategory('fitness-folk-dance')
+    assert.deepEqual(f.requests[2].body, { query: '', locale: 'bg', radiusKm: 2, browse: true, category: 'fitness', subcategory: 'fitness-folk-dance', cityCode: '68134' })
+    assert.equal(f.control('DiscoverySubcategories').props.selected, 'fitness-folk-dance')
+    assert.equal(f.control('DiscoverySubcategories').props.options.length, options.length, 'child loading does not hide the accepted parent choices')
+    f.requests[2].respond(response('folk-only', { intent: { ...intent, subcategory: 'fitness-folk-dance' }, subcategoryOptions: options })); await f.settle()
+    assert.equal(f.focused.length, 0)
+    f.subcategory('')
+    assert.equal(f.requests[3].body.subcategory, undefined)
+    assert.equal(f.requests[3].body.category, 'fitness')
+    assert.equal(f.requests[3].body.browse, true)
+    assert.equal(f.permission.length, 0)
+  } finally { f.close() }
+})
+
+test('child filters survive a same-parent location change, but typed text and a new parent clear them', async () => {
+  const f = fixture()
+  try {
+    await f.ready(); f.category('fitness'); f.subcategory('fitness-yoga')
+    f.filters({ cityCode: '56784', neighborhood: 'Център', category: 'fitness', radiusKm: 5 })
+    assert.equal(f.requests.at(-1).body.subcategory, 'fitness-yoga')
+    assert.equal(f.requests.at(-1).body.cityCode, '56784')
+    assert.equal(f.requests.at(-1).body.neighborhood, 'Център')
+    assert.equal(f.requests.at(-1).body.radiusKm, 5)
+    f.edit('народни танци')
+    assert.equal(f.control('DiscoverySubcategories').props.selected, '')
+    assert.deepEqual(f.control('DiscoverySubcategories').props.options, [])
+    f.subcategory('fitness-yoga'); f.category('nails')
+    assert.equal(f.control('DiscoverySubcategories').props.selected, '')
+    assert.equal(f.requests.at(-1).body.subcategory, undefined)
+    assert.equal(f.requests.at(-1).body.category, 'nails')
+    assert.equal(f.requests.at(-1).body.cityCode, '56784')
+  } finally { f.close() }
+})
+
+test('late or mismatched child responses cannot overwrite the current parent facets or display wrong booking context', async () => {
+  const f = fixture()
+  const sports = subcategoriesForCategory('fitness').map(item => ({ ...item, count: 1 }))
+  const nails = subcategoriesForCategory('nails').map(item => ({ ...item, count: 1 }))
+  try {
+    await f.ready(); f.category('fitness'); f.subcategory('fitness-folk-dance')
+    f.requests[2].respond(response('wrong-child', { intent: { cityCode: '68134', category: 'fitness', subcategory: 'fitness-yoga' }, subcategoryOptions: sports })); await f.settle()
+    assert.equal(f.control('DiscoveryHomeBusinesses').props.result, null)
+    assert.equal(f.control('DiscoveryHomeBusinesses').props.error, 'SEARCH_UNAVAILABLE')
+    f.category('nails')
+    f.requests[3].respond(response('current-nails', { intent: { cityCode: '68134', category: 'nails' }, subcategoryOptions: nails })); await f.settle()
+    f.requests[1].respond(response('late-sports', { intent: { cityCode: '68134', category: 'fitness' }, subcategoryOptions: sports })); await f.settle()
+    assert.equal(f.control('DiscoveryHomeBusinesses').props.result.results[0].id, 'current-nails')
+    assert.ok(f.control('DiscoverySubcategories').props.options.every(item => item.category === 'nails'))
   } finally { f.close() }
 })

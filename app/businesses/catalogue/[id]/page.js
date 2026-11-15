@@ -39,7 +39,8 @@ export default async function CatalogueBusiness({ params, searchParams }) {
   const context = { id: business.id, name: business.name, source: 'catalogue', category: business.category }
   // The hero needs identity/location/photos only, not a second serialized copy
   // of the complete service menu or server-only review/source inventory.
-  const hero = { ...context, address: business.address, city: business.city, cityCode: business.cityCode, neighborhood: business.neighborhood, locationKind: business.locationKind, coordinates: business.coordinates, website: business.website, photos: business.photos }
+  const hero = { ...context, businessCategory: business.businessCategory || business.category, illustrativeCoverPhotoKey: business.illustrativeCoverPhotoKey,
+    address: business.address, city: business.city, cityCode: business.cityCode, neighborhood: business.neighborhood, locationKind: business.locationKind, coordinates: business.coordinates, website: business.website, photos: business.photos }
   const path = catalogueProfilePath(id), structured = catalogueProfileStructuredData(row, locale, now)
   return <main className="public-booking-page profile-redesign catalogue-profile-page" lang={locale}>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(structured) }}/>

@@ -41,7 +41,7 @@
 .home-location-check { position: absolute; bottom: 4px; right: 2px; display: grid; place-items: center; width: 14px; height: 14px; border-radius: 50%; color: white; background: #17683f; }
 .home-location-check svg { width: 12px; height: 12px; }
 .home-discovery-section { margin-top: 34px; min-width: 0; }
-.home-categories { position: relative; isolation: isolate; }
+.home-categories { --category-photo-size: 88px; position: relative; isolation: isolate; }
 .home-categories::before { content: ''; position: absolute; inset: -14px -14px -4px; z-index: -1; border: 1px solid #eabf9726; border-radius: 26px; background: linear-gradient(110deg,#fff1e2a0,#ffffff45 64%,#ffe8d250); pointer-events: none; }
 .home-businesses { position: relative; isolation: isolate; }
 .home-businesses::before { content: ''; position: absolute; inset: -14px -14px -12px; z-index: -1; border-radius: 26px; background: radial-gradient(ellipse at 15% 100%,#ffdfbd50,transparent 68%); pointer-events: none; }
@@ -56,13 +56,22 @@
 .home-rail-arrows button:disabled { opacity: .35; cursor: default; }
 .home-discovery-rail { display: flex; flex-wrap: nowrap; gap: 16px; width: 100%; max-width: 100%; margin: 0; padding: 4px 3px 14px; list-style: none; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-inline: contain; scrollbar-width: thin; scrollbar-color: #c8c1b8 transparent; scroll-padding-inline: 3px; }
 .home-discovery-rail > li { flex: 0 0 auto; min-width: 0; scroll-snap-align: start; }
-.home-categories .home-discovery-rail { gap: 20px; }
-.home-categories .home-discovery-rail > li { width: max-content; min-width: 94px; }
+.home-categories .home-discovery-rail { align-items: stretch; gap: 14px; padding: 7px 7px 10px; scroll-padding-inline: 7px; }
+.home-categories .home-discovery-rail > li { width: max-content; min-width: 110px; }
 .home-categories button { display: flex; flex-direction: column; align-items: center; gap: 10px; width: 100%; margin: 0; padding: 0; border: 0; border-radius: 16px; background: transparent; color: var(--ink); cursor: pointer; }
-.home-categories img { display: block; width: 78px; height: 78px; max-width: 100%; object-fit: cover; border-radius: 19px; background: #e8e3dc; outline: 1px solid #20212608; }
-.home-categories button > span { display: block; min-height: 24px; color: #4d4d54; font-size: 16px; font-weight: 600; line-height: 1.5; text-align: center; white-space: nowrap; overflow-wrap: normal; word-break: normal; }
-.home-categories button.selected img { outline: 3px solid var(--solar); outline-offset: 3px; }
-.home-categories button.selected > span { color: var(--solar-ink); }
+.home-categories .home-discovery-rail button { position: relative; height: 100%; gap: 11px; padding: 8px 10px 10px; border: 1px solid transparent; border-radius: 999px; background-color: transparent; background-image: linear-gradient(110deg,#fffdf70d,#e3964a00); box-shadow: none; touch-action: manipulation; transition: background-color 220ms ease,color 220ms ease; }
+.home-categories img { display: block; width: var(--category-photo-size); height: var(--category-photo-size); max-width: 100%; object-fit: cover; border-radius: 19px; background: #e8e3dc; outline: 1px solid #20212608; }
+.home-categories button > span { display: block; min-height: 24px; color: #4d4d54; font-size: 17px; font-weight: 600; line-height: 1.5; text-align: center; white-space: nowrap; overflow-wrap: normal; word-break: normal; transition: color 220ms ease; }
+.home-categories .home-discovery-rail button.selected { border-color: transparent; background-color: #e3964a1f; box-shadow: none; }
+.home-categories button.selected img { outline: 0; box-shadow: none; }
+.home-categories button.selected > span { color: #713c21; }
+/* Selection is a rounded colour wash, not a framed tile or an icon badge. */
+.home-categories .home-discovery-rail button:focus-visible { outline: 3px solid #984419; outline-offset: 3px; }
+.home-categories .home-discovery-rail button:not(:disabled):active { background-color: #d58b4530; box-shadow: none; }
+@media (hover: hover) and (pointer: fine) {
+  .home-categories .home-discovery-rail button:not(:disabled):hover { border-color: transparent; background-color: #e3964a0f; }
+  .home-categories .home-discovery-rail button.selected:not(:disabled):hover { border-color: transparent; background-color: #e3964a29; }
+}
 .home-categories button:disabled { opacity: .6; cursor: default; }
 .laboratory-shortcuts { display: flex; gap: 10px; max-width: 100%; margin: -2px 0 24px; padding: 4px 2px 8px; overflow-x: auto; overscroll-behavior-x: none; }
 .laboratory-shortcuts button { flex: 0 0 auto; margin: 0; font-size: 16px; white-space: nowrap; }
@@ -304,9 +313,10 @@
   .home-rail-arrows { display: none; }
   .home-discovery-rail { scrollbar-width: none; }
   .home-discovery-rail::-webkit-scrollbar { display: none; }
-  .home-categories .home-discovery-rail { gap: 12px; padding-bottom: 5px; }
-  .home-categories .home-discovery-rail > li { width: max-content; min-width: clamp(70px,20vw,82px); }
-  .home-categories img { width: clamp(70px,20vw,82px); height: clamp(70px,20vw,82px); border-radius: 17px; }
+  .home-categories { --category-photo-size: clamp(78px,22.4vw,92px); }
+  .home-categories .home-discovery-rail { gap: 10px; padding-bottom: 10px; }
+  .home-categories .home-discovery-rail > li { width: max-content; min-width: calc(var(--category-photo-size) + 22px); }
+  .home-categories img { border-radius: 17px; }
   .home-categories button { gap: 9px; }
   .home-businesses .home-discovery-rail { gap: 14px; }
   .home-businesses .home-discovery-rail > li { width: clamp(260px,72vw,288px); }
@@ -336,6 +346,8 @@
 @media (prefers-reduced-motion: reduce) { .home-discovery-bottom > .home-bottom-card { transition: none; } .home-discovery-bottom > .home-bottom-card:hover,.home-discovery-bottom > .home-bottom-card:active { transform: none; } }
 @media (prefers-reduced-motion: reduce) {
   .home-discovery-rail { scroll-behavior: auto; }
+  .home-categories .home-discovery-rail button,
+  .home-categories button > span { transition: none; }
   .home-search-trigger { transition: none; }
   .home-bottom-business .home-free-label,
   .home-business-card .home-reserve:not(:disabled):not([aria-disabled="true"]) { transition: none; }

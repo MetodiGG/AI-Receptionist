@@ -99,7 +99,8 @@ test('compact discovery cards pair each first-party service with its own thumbna
 test('the full catalogue menu retains the service description, duration, and published price link', () => {
   const [first, ...others] = services
   const row = { ...business, source: 'catalogue', details: { services: [{ ...first, priceKind: 'from', description: 'Published service terms', priceSourceUrl: 'https://example.com/prices' }, ...others] } }
-  const [manicure, pedicure] = serviceRows(render(DiscoveryBusinessDetails, { row, locale: 'en', preview: true }))
+  const [pedicure, manicure] = serviceRows(render(DiscoveryBusinessDetails, { row, locale: 'en', preview: true }))
+  assert.match(pedicure, /<strong>Pedicure<\/strong>/, 'general unpriced services precede the separate published tariff')
   assert.match(manicure, /data-service-kind="manicure".*<strong>Manicure<\/strong><span>35 min<\/span>/)
   assert.match(manicure, /<p class="business-details-service-description">Published service terms<\/p>/)
   assert.match(manicure, /<a class="business-details-price" href="https:\/\/example\.com\/prices"[^>]*>from €25\.00<\/a>/)

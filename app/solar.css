@@ -350,6 +350,10 @@ a.site-home-link:focus-visible { outline-color: #b94315; }
 .partners-page .directory-services span > span { padding: 0; background: transparent; }
 .partners-page .directory-services b { color: #4e4147; font-size: 16px; white-space: nowrap; }
 .partners-page .directory-results-grid .directory-book-button { min-height: 54px; color: #382014; background: var(--solar-button); border: 1px solid #ffad73; border-radius: 13px; box-shadow: var(--solar-depth); font-size: 17px; }
+/* Leave real flow space after the raised external/telephone booking action;
+   its profile link must not touch the button's lower 3D edge. */
+.partners-page .directory-business-card > .outbound-booking-form + a,
+.partners-page .directory-business-card > .directory-book-button + a { margin-block-start: 12px; }
 .partners-page .directory-empty { border-color: var(--line); background: #fffaf4; }
 .partners-page .directory-empty > svg { color: #9b3a17; }
 

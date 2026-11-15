@@ -4,7 +4,7 @@ import { readFile } from 'node:fs/promises'
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 import { normalizeCatalogueBusinesses } from '../lib/discovery/catalogue-search.mjs'
 import { compactDiscoveryResponse, compactDiscoveryRow } from '../lib/discovery/preview.mjs'
-import { railDirections, railExternalAction, railServiceItems, railCategory } from '../lib/discovery/rail.mjs'
+import { railDirections, railExternalAction, railServiceItems, railCategory, railServiceDescription, SERVICE_PREVIEW_LIMIT } from '../lib/discovery/rail.mjs'
 import { businessDetailServices, detailPriceLabel, groupDetailServices } from '../lib/discovery/business-details.mjs'
 import { createPublicBusinessDetailsHandler, readPublishedPartnerDetails, PUBLIC_DETAILS_FIELDS } from '../lib/discovery/public-details.mjs'
 import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
@@ -19,19 +19,23 @@ const dependencies = patch => ({ config: { enabled: true }, now: () => now, allo
   findCatalogue: async value => SOFIA_CATALOGUE.find(row => row.id === value), readCataloguePhotos: async () => [], readPartner: async () => rawPartner(), ...patch })
 const read = file => readFile(new URL(`../${file}`, import.meta.url), 'utf8')
 
-test('compact previews show zero, one, two or many services with a hard maximum of two', () => {
-  for (const count of [0, 1, 2, 5, 300]) {
+test('compact previews show only actual services with a shared hard maximum of four', () => {
+  assert.equal(SERVICE_PREVIEW_LIMIT, 4)
+  for (const count of [0, 1, 2, 3, 4, 5, 300]) {
     const services = Array.from({ length: count }, (_, i) => ({ name: `Service ${i}`, price: i + 10, currency: 'EUR' }))
     const row = { source: 'catalogue', services, details: { services } }
-    assert.equal(railServiceItems(row).length, Math.min(2, count))
-    assert.equal(railServiceItems(compactDiscoveryRow(row)).length, Math.min(2, count))
+    assert.equal(railServiceItems(row).length, Math.min(4, count))
+    assert.equal(railServiceItems({ ...row, servicePreview: services }).length, Math.min(4, count), 'older oversized cached previews use the same four-row boundary')
+    assert.equal(railServiceItems(compactDiscoveryRow(row)).length, Math.min(4, count))
+    assert.equal(compactDiscoveryRow(row).services.length, Math.min(4, count))
+    assert.equal(row.services.length, count, 'the full source menu is not truncated')
   }
 })
 
 test('representative matching priced services lead; cheap add-ons and unrelated prices do not displace them', () => {
   const row = { source: 'catalogue', services: [{ name: 'Маникюр' }, { name: 'Маникюр с гел лак' }, { name: 'Стикер на нокът' }],
     details: { services: [{ name: 'Маникюр' }, { name: 'Маникюр с гел лак', price: 30 }, { name: 'Стикер на нокът', price: 1 }, { name: 'Педикюр', price: 45 }] } }
-  assert.deepEqual(railServiceItems(row).map(service => service.name), ['Маникюр с гел лак', 'Маникюр'])
+  assert.deepEqual(railServiceItems(row).map(service => service.name), ['Маникюр с гел лак', 'Маникюр', 'Педикюр', 'Стикер на нокът'])
   assert.equal(railServiceItems(row)[1].price, null)
   assert.equal(detailPriceLabel(railServiceItems(row)[1]), null)
 })
@@ -76,7 +80,8 @@ test('strict compaction retains the original objects for the representative matc
   const compact = compactDiscoveryRow(row)
   assert.deepEqual(compact.servicePreview.map(service => service.name), expected.map(service => service.name))
   assert.deepEqual(railServiceItems(compact).map(service => service.name), expected.map(service => service.name))
-  assert.deepEqual(compact.services.map(service => service.id), [services[3].id,services[4].id])
+  assert.deepEqual(compact.services.map(service => service.id), [services[3].id,services[4].id,services[0].id,services[1].id])
+  for (const [index, service] of [services[3],services[4],services[0],services[1]].entries()) assert.equal(compact.services[index], service, 'compaction retains the original service object, not a synthetic ID/name pair')
 })
 
 test('strict same-name price conflicts stay unpriced after compaction while retaining a real matched identifier', () => {
@@ -95,8 +100,8 @@ test('the HTTP preview drops full menus/photos/hours but preserves category, dir
   assert.equal(compact.details, undefined)
   assert.equal(compact.publicServiceNames, undefined)
   assert.equal(compact.hours, undefined)
-  assert.equal(compact.servicePreview.length, 2)
-  assert.equal(compact.services.length, 2)
+  assert.equal(compact.servicePreview.length, 4)
+  assert.equal(compact.services.length, 4)
   assert.equal(compact.detailsRef, row.id)
   assert.equal(railCategory(compact), railCategory(row))
   assert.equal(railDirections(compact), railDirections(row))
@@ -106,6 +111,27 @@ test('the HTTP preview drops full menus/photos/hours but preserves category, dir
   const partner = { source: 'gorez', id, services: [] }
   assert.equal(compactDiscoveryResponse({ externalStatus: 'catalogue', results: [partner] }).results[0].googleRatingsEnabled, false)
   assert.equal(compactDiscoveryResponse({ externalStatus: 'ready', results: [partner] }).results[0].googleRatingsEnabled, undefined)
+})
+
+test('four-row compaction preserves zero, from, ranges, units and missing prices while the descriptive tagline still has two names', () => {
+  const services = [
+    { id, name: 'First actual service', price: 0, currency: 'EUR' },
+    { id: '10000000-0000-4000-8000-000000000002', name: 'Second actual service', price: 20, priceKind: 'from', currency: 'EUR', priceUnit: 'visit' },
+    { id: '10000000-0000-4000-8000-000000000003', name: 'Third actual service', price: 10.23, priceMaximum: 15.34, priceKind: 'range', currency: 'EUR' },
+    { id: '10000000-0000-4000-8000-000000000004', name: 'Fourth actual service', price: null, currency: 'EUR' },
+    { id: '10000000-0000-4000-8000-000000000005', name: 'Fifth actual service', price: null, currency: 'EUR' },
+  ]
+  const row = { source: 'gorez', id, category: 'hair', services, details: { services } }
+  const compact = compactDiscoveryRow(row)
+  assert.equal(railServiceDescription(row, 'en'), 'First actual service · Second actual service')
+  for (const value of [row, compact]) {
+    const preview = railServiceItems(value)
+    assert.deepEqual(preview.map(service => service.id), services.slice(0,4).map(service => service.id))
+    assert.equal(preview[0].price, 0)
+    assert.match(detailPriceLabel(preview[1], 'en'), /^from €20\.00 \/ visit$/)
+    assert.match(detailPriceLabel(preview[2], 'en'), /10\.23.*15\.34/)
+    assert.equal(detailPriceLabel(preview[3], 'en'), null)
+  }
 })
 
 test('a full catalogue menu is fetched on open with one optional batched photo read', async () => {

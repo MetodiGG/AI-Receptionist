@@ -80,10 +80,10 @@ for (const locale of ['bg', 'en']) test(`${locale}: Fast Choice uses one identit
   assert.equal(elements(f.tree, node => node.type === Details).length, 0)
 })
 
-test('Fast Choice preserves the two actual service rows, full range bounds, real image inputs, units and missing prices', () => {
+test('Fast Choice shows all three actual services without inventing a fourth, preserving ranges, real image inputs, units and missing prices', () => {
   const row = business(), f = fixture({ row }), list = nodeClass(f.tree, 'home-business-services')[0]
   const thumbs = elements(list, node => node.type === Thumbnail)
-  assert.equal(thumbs.length, 2)
+  assert.equal(thumbs.length, 3)
   assert.equal(thumbs[0].props.service.name, range.name)
   assert.equal(thumbs[0].props.service.id, range.id)
   assert.equal(thumbs[0].props.business, row)

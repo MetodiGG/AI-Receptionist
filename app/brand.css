@@ -5,9 +5,18 @@
 .gorez-lockup .gorez-wordmark { font-family:"Trebuchet MS","Avenir Next",ui-sans-serif,system-ui,sans-serif; font-style:italic; font-weight:600; letter-spacing:-.07em; color:#332923; padding-right:4px; overflow:visible; }
 .gorez-wordmark .gorez-wordmark-accent { color:#d55e22; font-weight:900; }
 
-.gorez-loading { display:inline-flex; flex:0 0 auto; align-items:center; justify-content:center; width:calc(var(--loading-mark-size,32px) * 1.45); height:calc(var(--loading-mark-size,32px) * 1.45); vertical-align:middle; }
-.gorez-loading .gorez-loading-mark { animation:gorez-loading-half-turn 1s ease-in-out infinite alternate; transform-origin:center; will-change:transform; }
+.gorez-loading { display:inline-flex; flex:0 0 auto; align-items:center; justify-content:center; width:calc(var(--loading-mark-size,40px) * 1.45); height:calc(var(--loading-mark-size,40px) * 1.45); vertical-align:middle; }
+.gorez-loading .gorez-loading-mark { animation:gorez-loading-four-way 850ms ease-in-out infinite; transform-origin:center; will-change:transform; }
+.home-search-trigger:has(>.gorez-loading),.home-inline-control:has(>.gorez-loading) { padding:0; }
 .home-browse-skeleton,.directory-skeleton { position:relative; }
 .home-browse-skeleton>.gorez-loading,.directory-skeleton>.gorez-loading { position:absolute; top:24px; left:50%; transform:translateX(-50%); z-index:1; }
-@keyframes gorez-loading-half-turn { 0%,10% { transform:rotate(0deg); } 90%,100% { transform:rotate(180deg); } }
+/* Keep the G and check facing forward: fast directional tilts, never an
+   upside-down/edge-on flip. The fixed wrapper reserves the motion envelope. */
+@keyframes gorez-loading-four-way {
+  0%,100% { transform:perspective(180px) translate3d(0,0,0) rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+  20% { transform:perspective(180px) translate3d(-2px,0,0) rotateX(12deg) rotateY(-26deg) rotateZ(-12deg); }
+  40% { transform:perspective(180px) translate3d(2px,0,0) rotateX(-8deg) rotateY(26deg) rotateZ(12deg); }
+  60% { transform:perspective(180px) translate3d(0,-2px,0) rotateX(24deg) rotateY(8deg) rotateZ(6deg); }
+  80% { transform:perspective(180px) translate3d(0,2px,0) rotateX(-24deg) rotateY(-8deg) rotateZ(-6deg); }
+}
 @media (prefers-reduced-motion:reduce) { .gorez-loading .gorez-loading-mark { animation:none; transform:none; will-change:auto; } }

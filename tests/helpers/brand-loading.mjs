@@ -13,4 +13,5 @@ async function component(file, imports = {}) {
   return result.exports
 }
 const logo = await component('brand-logo', { '../lib/brand-assets.mjs': brandAssets })
+export const { BrandMark } = logo
 export const { BrandLoading } = await component('brand-loading', { './brand-logo': logo })

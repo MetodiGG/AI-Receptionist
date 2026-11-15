@@ -80,19 +80,52 @@ function fixture(patch = {}, draft = null) {
   return f
 }
 
-test('initial homepage starts exactly one immediate city-centre browse without invoking location or scrolling', async () => {
+test('initial homepage starts exactly one hair city-centre browse without invoking location or scrolling', async () => {
   const f = fixture()
   try {
     assert.equal(f.control('DiscoveryHomeBusinesses').props.loading, true)
     assert.equal(f.control('DiscoveryHomeBusinesses').props.directoryEnabled, false)
     f.entry()
     assert.equal(f.requests.length, 1); assert.equal(f.permission.length, 0)
-    assert.deepEqual(f.requests[0].body, { query: '', locale: 'bg', radiusKm: 2, browse: true, cityCode: '68134' })
+    assert.deepEqual(f.requests[0].body, { query: '', locale: 'bg', radiusKm: 2, browse: true, category: 'hair', cityCode: '68134' })
+    assert.equal(f.control('DiscoverySubcategories').props.category, 'hair')
     f.requests[0].respond(); await f.settle()
     assert.equal(f.control('DiscoveryHomeBusinesses').props.result.results[0].id, 'city-row')
     assert.equal(f.control('DiscoveryHomeBusinesses').props.loading, false)
     assert.equal(f.query().props.disabled, false); assert.equal(f.location().props['aria-pressed'], false)
     assert.equal(f.focused.length, 0); assert.equal(f.permission.length, 0)
+  } finally { f.close() }
+})
+
+test('typing a first search releases the introductory hair filter, but explicit hair choices retain it', async () => {
+  for (const explicit of [false, true]) {
+    const f = fixture()
+    try {
+      await f.ready()
+      if (explicit) {
+        f.category('hair'); f.requests[1].respond(); await f.settle()
+      }
+      f.edit('боядисване'); f.submit()
+      assert.equal(f.requests.at(-1).body.category, explicit ? 'hair' : undefined)
+      assert.equal(f.requests.at(-1).body.query, 'боядисване')
+      assert.equal(f.control('DiscoverySubcategories').props.category, explicit ? 'hair' : '')
+    } finally { f.close() }
+  }
+})
+
+test('initial hair facets and first business render inline; changing category replaces the context', async () => {
+  const f = fixture()
+  try {
+    f.entry()
+    const children = subcategoriesForCategory('hair').slice(0, 4).map(child => ({ ...child, count: 1 }))
+    f.requests[0].respond(response('hair-business', { subcategoryOptions: children })); await f.settle()
+    assert.deepEqual(f.control('DiscoverySubcategories').props.options, children)
+    assert.equal(f.control('DiscoveryHomeBusinesses').props.result.results[0].id, 'hair-business')
+    assert.equal(f.focused.length, 0)
+    f.category('fitness')
+    assert.equal(f.requests[1].body.category, 'fitness')
+    assert.equal(f.control('DiscoverySubcategories').props.category, 'fitness')
+    assert.deepEqual(f.control('DiscoverySubcategories').props.options, [])
   } finally { f.close() }
 })
 

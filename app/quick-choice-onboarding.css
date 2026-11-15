@@ -1,0 +1,99 @@
+/* Quick choice: presentation of the existing partner application only.
+   Native, external and telephone flows keep their actual steps and controls. */
+.business-onboarding { max-width: 920px; padding: 24px 20px 48px; color: #382d25; }
+.business-onboarding > header { align-items: center; gap: 14px; margin-bottom: 18px; }
+.business-onboarding > header h1 { min-width: 0; margin: 0; font-size: clamp(23px,2.8vw,30px); line-height: 1.2; letter-spacing: -.035em; }
+.business-onboarding .onboarding-help { min-height: 44px; font-size: 15px; line-height: 1.4; }
+.business-onboarding .compact-business-setup { gap: 16px; }
+.business-onboarding .compact-business-setup .steps-card { position: static; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0,1fr); align-items: stretch; gap: 6px; padding: 0; overflow: visible; border: 0; border-radius: 0; background: transparent; box-shadow: none; }
+.business-onboarding .compact-business-setup .step-item { display: flex; flex-direction: column; justify-content: flex-start; align-items: center; gap: 0; min-width: 0; min-height: 46px; margin: 0; padding: 10px 2px 6px; border: 0; border-top: 3px solid #ded3c6; border-radius: 0; background: transparent; color: #74665a; }
+.business-onboarding .compact-business-setup .step-item.active { border-top-color: #a44f24; background: transparent; color: #803b19; }
+.business-onboarding .compact-business-setup .step-item.done { border-top-color: #658460; background: transparent; color: #42633e; }
+.business-onboarding .compact-business-setup .step-item:disabled { opacity: 1; }
+.business-onboarding .compact-business-setup .step-number { display: none; }
+.business-onboarding .compact-business-setup .step-label { display: block; min-width: 0; font-size: 15px; font-weight: 650; line-height: 1.35; letter-spacing: -.02em; text-align: center; white-space: normal; word-break: normal; }
+.business-onboarding .compact-business-setup .wizard-card { min-width: 0; border: 1px solid #e5d6c5; border-radius: 12px; background: #fffcf7; box-shadow: none; overflow: visible; }
+.business-onboarding .compact-business-setup .wizard-head { padding: 20px 22px 12px; border-bottom: 0; }
+.business-onboarding .compact-business-setup .wizard-head small { color: #765944; font-size: 15px; font-weight: 500; letter-spacing: 0; text-transform: none; }
+.business-onboarding .compact-business-setup .wizard-head h3 { margin: 6px 0 0; color: #3b2d23; font-size: 23px; line-height: 1.25; letter-spacing: -.025em; }
+.business-onboarding .compact-business-setup .wizard-head p { margin: 8px 0 0; color: #67574a; font-size: 16px; line-height: 1.55; }
+.business-onboarding .compact-business-setup .wizard-body { min-height: 0; padding: 8px 22px 22px; }
+.business-onboarding .compact-business-setup :is(.form-grid,.business-location-fields) { gap: 16px; }
+.business-onboarding .compact-business-setup :is(.field>label,.field>legend,.compact-label,.location-label,.staff-row>label,.onboarding-account>label) { min-width: 0; color: #59483a; font-size: 15px; font-weight: 600; line-height: 1.4; letter-spacing: 0; text-transform: none; }
+.business-onboarding .compact-business-setup :is(.text-input,.select-input,.compact-input,.onboarding-service-price-options input,.onboarding-service-price-options select,.weekly-day select,.opening-hours-period input) { width: 100%; min-width: 0; max-width: 100%; height: auto; min-height: 46px; padding: 10px 12px; border: 1px solid #d5c6b6; border-radius: 12px; color: #382d25; background: #fffefa; font-size: 16px; line-height: 1.4; }
+.business-onboarding .compact-business-setup :is(.onboarding-extra-fields textarea,.staff-row textarea,.onboarding-service-conditions textarea) { display: block; width: 100%; min-width: 0; max-width: 100%; min-height: 88px; padding: 10px 12px; border: 1px solid #d5c6b6; border-radius: 12px; color: #382d25; background: #fffefa; font: inherit; font-size: 16px; line-height: 1.5; resize: vertical; }
+.business-onboarding .compact-business-setup input::placeholder { color: #786b60; opacity: 1; }
+.business-onboarding .compact-business-setup .catalogue-name-control input { padding-left: 39px; padding-right: 36px; }
+.business-onboarding .compact-business-setup .checked-select-control { min-height: 46px; border-color: #d5c6b6; border-radius: 12px; background: #fffefa; }
+.business-onboarding .compact-business-setup .checked-select-control > input { min-height: 44px; font-size: 16px; }
+.business-onboarding .compact-business-setup .checked-select-control:focus-within { border-color: #a45127; box-shadow: 0 0 0 3px #eab07735; }
+.business-onboarding .compact-business-setup .checked-select-panel :is(.checked-option>span:last-child,p) { font-size: 15px; line-height: 1.45; }
+.business-onboarding .compact-business-setup :is(.catalogue-match-panel>p,.catalogue-match-panel small,.catalogue-match-count,.catalogue-manual-entry,.catalogue-lookup-status) { font-size: 15px; line-height: 1.45; }
+.business-onboarding .compact-business-setup .catalogue-match-panel li > button { flex-wrap: wrap; gap: 5px 12px; min-height: 54px; }
+.business-onboarding .compact-business-setup .catalogue-match-panel strong { font-size: 16px; line-height: 1.4; }
+.business-onboarding .compact-business-setup .catalogue-match-count { white-space: normal; }
+.business-onboarding .compact-business-setup :is(.onboarding-extra>summary,.service-pricing-options>summary,.onboarding-service-conditions>summary,.onboarding-service-price-options label,.onboarding-extra-fields fieldset label) { min-height: 44px; font-size: 15px; line-height: 1.5; }
+.business-onboarding .compact-business-setup :is(.helper-text,.onboarding-short-help,.onboarding-extra p,.onboarding-price-label,.catalogue-service-hint,.catalogue-loaded,.onboarding-account>small) { color: #695747; font-size: 15px; line-height: 1.55; }
+.business-onboarding .compact-business-setup .photo-picker-label { min-height: 48px; padding: 12px; border-radius: 12px; font-size: 15px; line-height: 1.45; }
+.business-onboarding .compact-business-setup .photo-picker-requirement { margin: 5px 0 0; font-size: 15px; line-height: 1.5; text-align: center; }
+.business-onboarding .compact-business-setup .booking-mode-fields { margin: 0; padding: 12px 0 0; border: 0; border-top: 1px solid #e4d6c7; border-radius: 0; background: transparent; }
+.business-onboarding .compact-business-setup .booking-mode-fields legend { color: #59483a; font-size: 15px; font-weight: 600; line-height: 1.4; }
+.business-onboarding .compact-business-setup .booking-mode-fields label { min-width: 0; font-size: 15px; line-height: 1.5; }
+.business-onboarding .compact-business-setup .booking-mode-choice { min-height: 44px; padding-block: 6px; }
+.business-onboarding .compact-business-setup .booking-mode-choice :is(strong,span) { min-width: 0; overflow-wrap: break-word; }
+.business-onboarding .compact-business-setup .booking-mode-fields p { margin: 8px 0; color: #695747; font-size: 15px; line-height: 1.55; }
+.business-onboarding .compact-business-setup .booking-mode-fields input[type="url"] { min-height: 46px; padding: 10px 12px; border-radius: 12px; font-size: 16px; }
+.business-onboarding .compact-business-setup :is(.repeat-list,.weekly-schedule-fields,.review-grid) { gap: 14px; }
+.business-onboarding .compact-business-setup :is(.onboarding-service-row,.staff-row,.weekly-day,.review-card) { min-width: 0; padding: 14px; border-color: #e4d6c7; border-radius: 12px; background: #fffefa; box-shadow: none; }
+.business-onboarding .compact-business-setup :is(.onboarding-service-row,.staff-row) > .icon-button { width: 40px; min-width: 40px; min-height: 44px; height: auto; padding: 8px; border-radius: 10px; }
+.business-onboarding .compact-business-setup .onboarding-service-row { grid-template-columns: minmax(0,2fr) minmax(100px,.75fr) minmax(100px,.75fr) 40px; }
+.business-onboarding .compact-business-setup .staff-row { grid-template-columns: minmax(0,1fr) minmax(0,1fr) 40px; }
+.business-onboarding .compact-business-setup .staff-row > .icon-button { grid-column: 3; grid-row: 1; }
+.business-onboarding .compact-business-setup .add-row-button { max-width: 100%; min-height: 44px; margin-top: 14px; padding: 9px 13px; border: 1px solid #dec4ab; border-radius: 12px; color: #77401f; background: #fff1df; font-size: 15px; line-height: 1.4; white-space: normal; }
+.business-onboarding .compact-business-setup .weekly-day legend { color: #58412e; font-size: 16px; }
+.business-onboarding .compact-business-setup .weekly-day label:not(.schedule-check) { color: #695747; font-size: 15px; line-height: 1.45; }
+.business-onboarding .compact-business-setup .weekly-day .schedule-check { min-width: 0; font-size: 15px; line-height: 1.45; }
+.business-onboarding .compact-business-setup .weekly-day.day-closed { background: #f3f0eb; }
+.business-onboarding .compact-business-setup :is(.opening-hours-editor>legend,.opening-hours-day>label) { font-size: 16px; line-height: 1.5; }
+.business-onboarding .compact-business-setup :is(.opening-hours-editor>p,.opening-hours-period>label,.opening-hours-day>span) { color: #695747; font-size: 15px; line-height: 1.5; }
+.business-onboarding .compact-business-setup .schedule-copy-weekdays { min-height: 44px; font-size: 15px; line-height: 1.4; white-space: normal; }
+.business-onboarding .compact-business-setup .review-card small { color: #715a46; font-size: 15px; font-weight: 500; letter-spacing: 0; text-transform: none; }
+.business-onboarding .compact-business-setup .review-card strong { color: #3c2f24; font-size: 17px; line-height: 1.4; }
+.business-onboarding .compact-business-setup .review-card p { color: #695747; font-size: 16px; line-height: 1.55; overflow-wrap: break-word; }
+.business-onboarding .compact-business-setup .review-icon { margin-bottom: 10px; border-radius: 9px; color: #8c4c24; background: #ffe4c8; }
+.business-onboarding .compact-business-setup .onboarding-consent { font-size: 15px; line-height: 1.6; }
+.business-onboarding .compact-business-setup .onboarding-account { min-width: 0; gap: 14px; }
+.business-onboarding .compact-business-setup .onboarding-account > a { width: fit-content; min-height: 44px; font-size: 15px; line-height: 1.5; overflow-wrap: break-word; }
+.business-onboarding .compact-business-setup .wizard-actions { align-items: stretch; gap: 12px; padding: 14px 22px; border-top: 1px solid #e4d6c7; border-radius: 0 0 12px 12px; background: #fcf6ee; }
+.business-onboarding .compact-business-setup .wizard-actions :is(.primary-button,.secondary-button) { min-width: 0; max-width: 100%; min-height: 46px; gap: 8px; padding: 10px 16px; border-radius: 12px; font-size: 15px; line-height: 1.35; white-space: normal; }
+.business-onboarding .compact-business-setup .wizard-actions .primary-button { color: #643115; border-color: #ce9b6c; background: linear-gradient(#ffe5c8,#f9cda1); box-shadow: inset 0 1px 0 #fff8ee,0 2px 0 #d3ab87; }
+.business-onboarding .compact-business-setup .wizard-actions .primary-button:hover:not(:disabled) { background: linear-gradient(#ffdfbd,#f7c391); }
+.business-onboarding .compact-business-setup .form-message { font-size: 16px; line-height: 1.55; }
+.business-onboarding .compact-business-setup .catalogue-import-dialog :is(header p,.catalogue-replace-note,.catalogue-import-selection,li small,li strong,.catalogue-import-select-all>strong,footer button) { font-size: 15px; line-height: 1.5; }
+.business-onboarding .compact-business-setup .catalogue-import-selection { flex-wrap: wrap; }
+.business-onboarding .compact-business-setup :is(button,input,select,textarea,summary,a):focus-visible { outline: 3px solid #a34e24; outline-offset: 3px; }
+.business-onboarding .compact-business-setup .checked-select-control > input:focus-visible { outline: 0; }
+.business-onboarding .onboarding-help:focus-visible { outline: 3px solid #a34e24; outline-offset: 3px; }
+
+@media (max-width: 600px) {
+  .business-onboarding { padding: 20px 12px 40px; }
+  .business-onboarding > header { gap: 10px; margin-bottom: 16px; }
+  .business-onboarding > header h1 { font-size: 24px; }
+  .business-onboarding .onboarding-help { margin-top: 0; font-size: 15px; }
+  .business-onboarding .compact-business-setup .steps-card { gap: 4px; }
+  .business-onboarding .compact-business-setup .step-label { font-size: 15px; }
+  .business-onboarding .compact-business-setup .wizard-head { padding: 18px 16px 12px; }
+  .business-onboarding .compact-business-setup .wizard-head h3 { font-size: 22px; }
+  .business-onboarding .compact-business-setup .wizard-body { padding: 6px 16px 18px; }
+  .business-onboarding .compact-business-setup .wizard-actions { gap: 10px; padding: 13px 16px; }
+  .business-onboarding .compact-business-setup .wizard-actions :is(.primary-button,.secondary-button) { flex: 0 1 auto; padding: 10px 12px; }
+  .business-onboarding .compact-business-setup .onboarding-service-row { grid-template-columns: minmax(0,1fr) minmax(0,1fr) 40px; gap: 10px 8px; padding: 12px; }
+  .business-onboarding .compact-business-setup .staff-row { grid-template-columns: minmax(0,1fr) 40px; }
+  .business-onboarding .compact-business-setup .staff-row > .icon-button { grid-column: 2; }
+  .business-onboarding .compact-business-setup .onboarding-service-price-options .settings-form-grid { grid-template-columns: minmax(0,1fr); }
+}
+@media (max-width: 349px) {
+  .business-onboarding .compact-business-setup .steps-card { grid-auto-flow: row; grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .business-onboarding .compact-business-setup .wizard-actions { flex-wrap: wrap; }
+  .business-onboarding .compact-business-setup .wizard-actions .primary-button { flex: 1 1 130px; }
+}

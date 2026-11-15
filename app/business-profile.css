@@ -167,10 +167,10 @@
 .profile-redesign .profile-service-row.is-selected { background:#fff5e8; border-radius:12px; box-shadow:0 0 0 8px #fff5e8; }
 .profile-redesign .profile-service-copy { min-width:0; display:grid; grid-template-columns:minmax(0,1fr); gap:4px; }
 .profile-redesign .profile-service-copy > strong { color:#4c382d; font-size:17px; font-weight:750; line-height:1.4; overflow-wrap:break-word; word-break:normal; hyphens:manual; }
-.profile-redesign .profile-service-copy > span { color:#7b6b5d; font-size:14px; }
-.profile-redesign .profile-service-description { color:#786251; font-size:14px; }
+.profile-redesign .profile-service-copy > span { color:#6b594b; font-size:15px; line-height:1.5; }
+.profile-redesign .profile-service-description { color:#625043; font-size:16px; }
 .profile-redesign .profile-service-description summary { width:fit-content; cursor:pointer; padding-block:4px; }
-.profile-redesign .profile-service-description p { margin:5px 0; line-height:1.5; white-space:pre-line; overflow-wrap:anywhere; }
+.profile-redesign .profile-service-description p { margin:5px 0; line-height:1.6; white-space:pre-line; overflow-wrap:break-word; word-break:normal; }
 .profile-redesign .profile-service-actions { display:flex; align-items:center; justify-content:flex-end; gap:12px; max-width:250px; }
 .profile-redesign .profile-service-price { color:#63402c; font-size:17px; line-height:1.35; font-weight:750; text-align:right; font-variant-numeric:tabular-nums; overflow-wrap:anywhere; }
 .profile-redesign .profile-service-book { display:grid; place-items:center; flex:0 0 44px; width:44px; min-height:44px; border:1px solid #dbad7c; border-radius:12px; color:#8d4d24; background:#ffe3bf; cursor:pointer; }
@@ -194,7 +194,7 @@
 .profile-redesign .business-team-list article { padding:14px; border-radius:12px; background:#faf1e5; }
 .profile-redesign .business-team-list article > div { min-width:0; }
 .profile-redesign .business-team-list h3 { font-size:17px; color:#583f2e; overflow-wrap:anywhere; }
-.profile-redesign .business-team-list p { font-size:15px; line-height:1.45; color:#7c6552; }
+.profile-redesign .business-team-list p { font-size:16px; line-height:1.5; color:#6b5544; }
 .profile-redesign .business-team-photo { width:56px; height:56px; flex:0 0 56px; border-radius:50%; object-fit:cover; }
 .profile-redesign .business-team-initial { flex-basis:48px; }
 .profile-redesign .business-about-description { margin:0 0 16px; font-size:16px; line-height:1.6; color:#75614f; }
@@ -208,12 +208,12 @@
 .profile-redesign .profile-hours summary > svg:last-child { width:16px; height:16px; margin-left:auto; transition:transform .18s ease; }
 .profile-redesign .profile-hours[open] summary > svg:last-child { transform:rotate(180deg); }
 .profile-redesign .profile-hours dl { padding-bottom:12px; }
-.profile-redesign .profile-hours dl > div { font-size:15px; gap:12px; }
+.profile-redesign .profile-hours dl > div { font-size:16px; line-height:1.5; gap:12px; }
 .profile-redesign .business-payment-methods { margin-top:18px; }
 .profile-redesign .business-payment-methods h3,.profile-redesign .profile-contact-brands h3 { font-size:16px; color:#6c4f3a; margin:0 0 10px; }
-.profile-redesign .business-payment-methods span { font-size:14px; padding:6px 10px; border-color:#e9dbc8; color:#7c5b40; }
+.profile-redesign .business-payment-methods span { font-size:15px; line-height:1.5; padding:6px 10px; border-color:#e9dbc8; color:#6b503b; }
 .profile-redesign .profile-contact-brands { margin-top:18px; color:#7c6552; }
-.profile-redesign .profile-contact-brands p { font-size:15px; margin:0; overflow-wrap:anywhere; }
+.profile-redesign .profile-contact-brands p { font-size:16px; line-height:1.5; margin:0; overflow-wrap:break-word; }
 .profile-redesign .business-location-actions { display:flex; align-items:center; gap:12px; margin-top:20px; }
 .profile-redesign .profile-directions { display:inline-flex; align-items:center; justify-content:center; width:auto; min-height:44px; gap:8px; padding:8px 14px; border:1px solid #e4c4a2; border-radius:12px; color:#80502e; background:#fff0db; font-size:15px; font-weight:750; box-shadow:none; }
 .profile-redesign .profile-directions .profile-map-icon { width:24px; height:24px; flex-basis:24px; background:transparent; }
@@ -226,7 +226,9 @@
 .profile-redesign .business-reviews-empty-stars svg { width:23px; height:23px; }
 .profile-redesign .business-reviews-empty p { margin:0; color:#7a6b60; font-size:16px; line-height:1.55; }
 .profile-redesign .business-review p { font-size:16px; color:#6d5543; }
-.profile-redesign .verified-visit,.profile-redesign .business-review time { font-size:14px; }
+.profile-redesign .verified-visit,.profile-redesign .business-review time { font-size:15px; line-height:1.5; color:#6b5a4e; }
+.profile-redesign .review-dimensions > div,
+.profile-redesign .review-summary { font-size:16px; line-height:1.5; color:#6b5a4e; }
 .profile-redesign .external-booking-panel h2 { margin:0 0 14px; color:#68412a; font-size:23px; }
 .profile-redesign .external-booking-panel > p { font-size:16px; line-height:1.6; color:#79614f; }
 .profile-redesign .profile-selected-service { display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
@@ -259,7 +261,7 @@
   .profile-redesign .profile-service-copy > strong { font-size:16px; }
   .profile-redesign .profile-service-actions { grid-column:2; gap:8px; max-width:100%; }
   .profile-redesign .profile-service-price { font-size:15px; }
-  .profile-redesign .profile-service-description { font-size:14px; }
+  .profile-redesign .profile-service-description { font-size:16px; }
   .profile-redesign .business-profile-section h2,.profile-redesign .profile-booking-heading h2 { font-size:22px; }
 }
 @media(prefers-reduced-motion:reduce) {

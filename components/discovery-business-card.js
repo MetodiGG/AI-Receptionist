@@ -28,7 +28,7 @@ function PartnerRailReviews({ row, locale, preview }) {
   return <div className="home-business-reviews"><PartnerReviewSummary slug={row.slug} reviews={reviews} locale={locale} preview={preview} includeGoogle={!preview && row.googleRatingsEnabled !== false} compact/></div>
 }
 
-export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, locale = 'bg', nearby = false, preview = false, distanceOrigin = null }) {
+export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, locale = 'bg', nearby = false, preview = false, distanceOrigin = null, quickChoice = false }) {
   const en = locale === 'en', internal = row.source === 'gorez', [failedPhoto, setFailedPhoto] = useState(null)
   const copy = DISCOVERY_COPY[locale] || DISCOVERY_COPY.bg
   const [detailsOpen, setDetailsOpen] = useState(false), detailsTrigger = useRef(null)
@@ -38,11 +38,24 @@ export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, 
   const reserve = <BookingButtonContent>{copy.reserveAppointment}</BookingButtonContent>
   const directionsLabel = copy.directions
   const services = railServiceItems(row)
+  const distance = <DiscoveryDistanceBadge origin={distanceOrigin} destination={row.coordinates} locale={locale} business={row}/>
   const visual = <div className="home-business-photo">
     {photo && photo.src !== failedPhoto ? <img src={photo.src} width={400} height={300} alt={photo.alt?.[locale] || row.name} loading="lazy" decoding="async" style={businessPhotoStyle(photo)} onError={() => setFailedPhoto(photo.src)}/> : <BusinessCoverPhoto business={row} locale={locale}/>}
-    <DiscoveryDistanceBadge origin={distanceOrigin} destination={row.coordinates} locale={locale} business={row}/>
-    {hasDetails && <span className="home-business-details-label">{copy.viewDetailsLower}</span>}
+    {!quickChoice && distance}
+    {hasDetails && !quickChoice && <span className="home-business-details-label">{copy.viewDetailsLower}</span>}
   </div>
+  const identity = <>
+    {internal && <span className="home-business-partner"><BrandMark size={20}/>{en ? 'GoRez Partner' : 'Партньор на GoRez'}</span>}
+    <h3 title={row.name}>{row.name}</h3>
+    <p className="home-business-category">{railCategory(row, locale)}{(row.neighborhood || row.city) && <span className="home-business-neighborhood"> · {row.neighborhood || row.city}</span>}</p>
+    {quickChoice && <div className="home-business-meta">{distance}{hasDetails && <button type="button" className="home-business-inline-details" onClick={openDetails} aria-haspopup="dialog" aria-label={`${copy.detailsLabel} · ${row.name}`}>{copy.viewDetailsLower}<Icon name="arrow"/></button>}</div>}
+  </>
+  const serviceList = services.length > 0 && <ul className="home-business-services" aria-label={copy.servicesPrices}>{services.map(service => {
+    const price = detailPriceLabel({ ...service, priceUnit: '' }, locale, { compact: true })
+    const { conditions } = servicePresentation(service, locale)
+    return <li key={service.name}><div className="service-photo-name"><ServiceThumbnail service={service} business={row} locale={locale} size={32}/><div className="home-service-copy"><span className="home-service-name" title={service.name}>{service.name}</span>{conditions.map(condition => <small className="home-service-condition" key={condition}>{condition}</small>)}</div></div>{price && <strong className="home-service-price">{price}{service.priceUnit && <small className="service-price-unit">{service.priceUnit}</small>}</strong>}</li>
+  })}</ul>
+  const reviews = internal ? <PartnerRailReviews row={row} locale={locale} preview={preview}/> : Number.isFinite(row.rating) && row.rating > 0 ? <div className="home-business-reviews">{row.reviewCount > 0 ? <ReviewSummary summary={{ average: row.rating, count: row.reviewCount }} status="ready" locale={locale} compact/> : <span>★ {row.rating} / 5</span>}</div> : null
   const actions = (business = row) => {
     const directions = railDirections(business)
     const internalBooking = business.source === 'gorez'
@@ -54,17 +67,11 @@ export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, 
     </div>
   }
   return <article className="home-business-card" data-source={row.source}>
-    {hasDetails && <button type="button" className="home-business-open" onClick={openDetails} aria-haspopup="dialog" aria-label={`${copy.detailsLabel} · ${row.name}`}/>}
+    {hasDetails && !quickChoice && <button type="button" className="home-business-open" onClick={openDetails} aria-haspopup="dialog" aria-label={`${copy.detailsLabel} · ${row.name}`}/>}
     {visual}
-    {internal && <span className="home-business-partner"><BrandMark size={20}/>{en ? 'GoRez Partner' : 'Партньор на GoRez'}</span>}
-    <h3 title={row.name}>{row.name}</h3>
-    <p className="home-business-category">{railCategory(row, locale)}{(row.neighborhood || row.city) && <span className="home-business-neighborhood"> · {row.neighborhood || row.city}</span>}</p>
-    {services.length > 0 && <ul className="home-business-services" aria-label={copy.servicesPrices}>{services.map(service => {
-      const price = detailPriceLabel({ ...service, priceUnit: '' }, locale, { compact: true })
-      const { conditions } = servicePresentation(service, locale)
-      return <li key={service.name}><div className="service-photo-name"><ServiceThumbnail service={service} business={row} locale={locale} size={32}/><div className="home-service-copy"><span className="home-service-name" title={service.name}>{service.name}</span>{conditions.map(condition => <small className="home-service-condition" key={condition}>{condition}</small>)}</div></div>{price && <strong className="home-service-price">{price}{service.priceUnit && <small className="service-price-unit">{service.priceUnit}</small>}</strong>}</li>
-    })}</ul>}
-    {internal ? <PartnerRailReviews row={row} locale={locale} preview={preview}/> : Number.isFinite(row.rating) && row.rating > 0 ? <div className="home-business-reviews">{row.reviewCount > 0 ? <ReviewSummary summary={{ average: row.rating, count: row.reviewCount }} status="ready" locale={locale} compact/> : <span>★ {row.rating} / 5</span>}</div> : null}
+    {quickChoice ? <div className="home-business-identity">{identity}{reviews}</div> : identity}
+    {serviceList}
+    {!quickChoice && reviews}
     <div className="home-business-footer">
       {actions()}
     </div>

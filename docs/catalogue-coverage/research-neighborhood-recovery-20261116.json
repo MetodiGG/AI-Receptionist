@@ -1,0 +1,212 @@
+{
+  "version": 1,
+  "checkedOn": "2026-11-16",
+  "status": "research_only_not_applied",
+  "basedOnCoverageSnapshot": "coverage-20261116.json",
+  "scope": "Ten existing premises with missing or broad neighborhood labels, selected from pets/barber/beauty/hair/nails. Public first-party contact/location pages only; no inferred quarter from street, coordinates, map pin, metro stop, district name or third-party directory.",
+  "counts": {
+    "existingRecordsReviewed": 10,
+    "newBusinessesAdded": 0,
+    "recordsChanged": 0,
+    "readyNeighborhoodCorrections": 1,
+    "heldFirstPartyIndexedHint": 1,
+    "heldNoExplicitQuarter": 5,
+    "heldContactUnavailable": 1,
+    "confirmedBroadOnly": 1,
+    "sourceTermsStop": 1
+  },
+  "readyCorrections": [
+    {
+      "id": "sofia-uli-nails",
+      "name": "Uli Nails",
+      "currentNeighborhood": null,
+      "proposedNeighborhood": "Гео Милев",
+      "addressUnchanged": "София, ул. Гео Милев 22",
+      "sourceUrl": "https://uli.bg/contacts",
+      "checkedOn": "2026-11-16",
+      "excerpt": "Намираме се в кв. Гео Милев, в близост до парк Гео Милев и спирки на градски транспорт.",
+      "sourceAccess": "The complete indexed primary contact page names the quarter. Web open returned Cache miss, not an access denial. A single ordinary public HTTPS GET subsequently succeeded and returned the same literal quarter statement in the contact-page HTML.",
+      "evidenceType": "explicit_first_party_premises_neighborhood",
+      "coordinateReview": {
+        "currentMethod": null,
+        "currentlyBound": false,
+        "changingNeighborhoodInvalidatesExistingPoint": false,
+        "action": "Keep coordinates null. No centroid/geocode/API call is authorized or required for this neighborhood-only proposal."
+      },
+      "integrationNotes": "Update the existing sourced record only, not a new ID. Street, website, booking, services, prices and hours remain unchanged. Current pricingIdentity hashes only ID, website, booking and services, so this quarter-only change does not justify refreshing a pricing receipt. Run the normal catalogue/onboarding/location tests before integration."
+    }
+  ],
+  "held": [
+    {
+      "id": "sofia-tobbys-grooming",
+      "name": "Tobby’s Grooming House",
+      "currentNeighborhood": null,
+      "proposedNeighborhood": null,
+      "status": "held_no_explicit_quarter",
+      "sourceUrl": "https://tobby.bg/",
+      "checkedOn": "2026-11-16",
+      "excerpt": "гр. София, ул. Белмекен 8",
+      "observation": "The live first-party contact/footer confirms the street but does not explicitly name a quarter. Do not infer one from the municipal point.",
+      "coordinateReview": {
+        "currentMethod": "verified_official_address",
+        "sourceNeighborhood": null,
+        "currentlyBound": true,
+        "changingNeighborhoodInvalidatesExistingPoint": true,
+        "action": "Any later sourced quarter change requires a reviewed official-address rebind; do not retain the old null-neighborhood receipt silently."
+      }
+    },
+    {
+      "id": "sofia-nail-cocktail-boutique",
+      "name": "Nail Cocktail Boutique",
+      "currentNeighborhood": null,
+      "proposedNeighborhood": null,
+      "unconfirmedHint": "Манастирски ливади",
+      "status": "held_first_party_indexed_hint_live_access_blocked",
+      "sourceUrl": "https://nailcocktailboutique.com/kontakti-nail-cocktail-boutique/",
+      "checkedOn": "2026-11-16",
+      "excerpt": "До Mall Bulgaria, кв. Манастирски ливади",
+      "observation": "A full primary contact-page search result explicitly supplies the quarter and matching boulevard73. The actual /zapazi-chas/ visit returned403, so the host was not retried via curl, alternate locale, proxy or browser. Keep the indexed hint pending permitted live confirmation; do not call blocked prices unpublished.",
+      "coordinateReview": {
+        "currentMethod": "verified_address_geocode",
+        "currentlyBound": true,
+        "changingNeighborhoodInvalidatesExistingPoint": false,
+        "action": "The existing OSM receipt binds sourceAddress only; do not change the street or coordinate receipt. A quarter-only patch would not invalidate it, but no patch is proposed yet."
+      }
+    },
+    {
+      "id": "sofia-elmida-beauty",
+      "name": "Elmida Beauty",
+      "currentNeighborhood": null,
+      "proposedNeighborhood": null,
+      "status": "held_no_explicit_quarter",
+      "sourceUrl": "https://elmidabeauty.com/kontakti/",
+      "checkedOn": "2026-11-16",
+      "excerpt": "ул. „Софроний Врачански“ 2,Площад „Възраждане“, София",
+      "observation": "The live contact page gives street/square only. A square or administrative district is not an explicit neighborhood statement.",
+      "coordinateReview": {
+        "currentMethod": null,
+        "currentlyBound": false,
+        "changingNeighborhoodInvalidatesExistingPoint": false,
+        "action": "Keep coordinates null and neighborhood unresolved."
+      }
+    },
+    {
+      "id": "sofia-salon-fiore",
+      "name": "Салон Фиоре",
+      "currentNeighborhood": null,
+      "proposedNeighborhood": null,
+      "status": "held_contact_unavailable",
+      "sourceUrl": "https://salonfiore.com/",
+      "checkedOn": "2026-11-16",
+      "observation": "One primary-page open timed out. No neighborhood statement was verified; no repeated requests or external directory substitute were used.",
+      "coordinateReview": {
+        "currentMethod": "verified_official_address",
+        "sourceNeighborhood": null,
+        "currentlyBound": true,
+        "changingNeighborhoodInvalidatesExistingPoint": true,
+        "action": "Preserve the record. A future explicit quarter change needs a fresh reviewed official-point binding."
+      }
+    },
+    {
+      "id": "sofia-nn-hair-design",
+      "name": "NN Hair Design",
+      "currentNeighborhood": null,
+      "proposedNeighborhood": null,
+      "status": "source_terms_stop_permission_required",
+      "sourceUrl": "https://nnhairdesign.eu/lichni-danni/",
+      "checkedOn": "2026-11-16",
+      "observation": "During bounded primary-source research, published terms surfaced restricting commercial reuse/extraction without written consent. Stopped this host. No new neighborhood, service or price fact is proposed from it. A legal registered-office address/district is not evidence of the current salon quarter.",
+      "coordinateReview": {
+        "currentMethod": null,
+        "currentlyBound": false,
+        "changingNeighborhoodInvalidatesExistingPoint": false,
+        "action": "No change; obtain suitable permission or a permissible independent authoritative source before further extraction."
+      }
+    },
+    {
+      "id": "sofia-classy-barbershop",
+      "name": "Classy Barbershop & Academy Salon",
+      "currentNeighborhood": null,
+      "proposedNeighborhood": null,
+      "status": "held_no_explicit_quarter",
+      "sourceUrl": "https://www.classy-barbershop.com/",
+      "checkedOn": "2026-11-16",
+      "excerpt": "ул. „Тинтява\" 84, 1113 София",
+      "observation": "The location section supplies a street; general promotional wording about central Sofia does not establish the administrative/local quarter. No quarter inferred.",
+      "coordinateReview": {
+        "currentMethod": "verified_official_address",
+        "sourceNeighborhood": null,
+        "currentlyBound": true,
+        "changingNeighborhoodInvalidatesExistingPoint": true,
+        "action": "A future quarter change requires a fresh reviewed official-point binding."
+      }
+    },
+    {
+      "id": "sofia-coco-dry-bar-nail-house",
+      "name": "COCO Dry Bar & Nail House",
+      "currentNeighborhood": null,
+      "proposedNeighborhood": null,
+      "status": "held_no_explicit_quarter",
+      "sourceUrl": "https://www.cocodrybar.bg/contacts",
+      "checkedOn": "2026-11-16",
+      "excerpt": "ул. Николай Хайтов 2, София, България",
+      "observation": "The contact page supplies the street and a nearby metro stop, neither of which is an explicit quarter statement.",
+      "coordinateReview": {
+        "currentMethod": "first_party_coordinates",
+        "currentlyBound": true,
+        "changingNeighborhoodInvalidatesExistingPoint": true,
+        "reason": "This point has no sourceAddress; its legacy binding explicitly includes the original null neighborhood. Actual catalogueBoundCoordinates simulation returns null after a hypothetical changed neighborhood.",
+        "action": "Do not assume all first-party points are quarter-independent. Re-review/rebind any future quarter change."
+      }
+    },
+    {
+      "id": "sofia-yd-beauty-brand",
+      "name": "Y.D Beauty Brand",
+      "currentNeighborhood": null,
+      "proposedNeighborhood": null,
+      "status": "held_no_explicit_quarter",
+      "sourceUrl": "https://ydbeautybrand.com/Booking",
+      "checkedOn": "2026-11-16",
+      "excerpt": "ул. Ловен парк 1, до вх. А офис 5, срещу парка, София",
+      "observation": "The booking-page contact/footer explicitly names the street only. The park/street name is not sufficient neighborhood evidence.",
+      "coordinateReview": {
+        "currentMethod": "verified_official_address",
+        "sourceNeighborhood": null,
+        "currentlyBound": true,
+        "changingNeighborhoodInvalidatesExistingPoint": true,
+        "action": "A future quarter change requires a fresh reviewed official-point binding."
+      }
+    },
+    {
+      "id": "sofia-new-vita-grooming",
+      "name": "New Vita · груминг салон",
+      "currentNeighborhood": "Обеля",
+      "proposedNeighborhood": null,
+      "status": "confirmed_broad_only_no_numbered_part",
+      "sourceUrl": "https://www.newvita.bg/kontakti",
+      "checkedOn": "2026-11-16",
+      "excerpt": "гр. София, жк. Обеля, ул. \"Кривините\" 6",
+      "observation": "The exact owner contact page still says Obelya, not Obelya1 or2. General served-area marketing does not locate the premises in a numbered part. Keep the broad label unresolved.",
+      "coordinateReview": {
+        "currentMethod": "verified_official_address",
+        "sourceNeighborhood": "Обеля",
+        "currentlyBound": true,
+        "changingNeighborhoodInvalidatesExistingPoint": true,
+        "action": "No change. Numbered-part evidence and a reviewed official-point rebind would be needed before narrowing."
+      }
+    }
+  ],
+  "bindingChecksExecuted": {
+    "module": "lib/discovery/catalogue-coordinate-binding.mjs:catalogueBoundCoordinates",
+    "method": "Read the function and execute it for each selected record, then simulate an unrelated non-null neighborhood on a shallow copy. No source data was mutated.",
+    "officialReceiptsInvalidatedByQuarterChange": ["sofia-tobbys-grooming", "sofia-salon-fiore", "sofia-classy-barbershop", "sofia-yd-beauty-brand", "sofia-new-vita-grooming"],
+    "legacyFirstPartyReceiptAlsoInvalidated": ["sofia-coco-dry-bar-nail-house"],
+    "osmSourceAddressBindingUnchangedByQuarterOnly": ["sofia-nail-cocktail-boutique"],
+    "noExistingPoint": ["sofia-elmida-beauty", "sofia-nn-hair-design", "sofia-uli-nails"]
+  },
+  "limits": [
+    "One ready correction does not mean the other nine records have wrong addresses; their quarters remain unproven under the explicit-source criterion.",
+    "No coordinate/geocoding request, Google Places call, municipality dataset reread, customer location, booking submission, database update or production deployment occurred.",
+    "No source prices, hours, reviews, photographs or service inventories were changed in this bounded neighborhood-only review."
+  ]
+}

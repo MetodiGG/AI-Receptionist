@@ -1,0 +1,22 @@
+{
+  "checkedOn": "2026-11-16",
+  "publicationStatus": "validated_release_candidate; deployment tracked by its GitHub PR",
+  "executedValidation": {"nodeTestsPassed": 2489, "nodeTestsFailed": 0, "pythonPricingTestsPassed": 12, "catalogueCheck": "passed", "productionWebpackBuild": "passed", "newBatchAndRecoverySpecificTests": "passed", "productionBookingsSubmitted": 0, "notificationsSent": 0},
+  "priority": "Fill neighborhood/category gaps before increasing raw total",
+  "baselineSnapshot": "coverage-20261116.json",
+  "afterSnapshot": "coverage-20261116-batch-001.json",
+  "approvedBefore": 1693,
+  "approvedAfter": 1696,
+  "newDistinctBusinesses": 3,
+  "newActualServices": 8,
+  "newPublicPrices": 0,
+  "inventedPricesDurationsCoordinates": 0,
+  "newRecords": [
+    {"id": "sofia-north-dog-grooming-vrabnitsa637", "neighborhood": "Връбница 2", "category": "pets", "services": 3, "booking": "phone", "publicPriceStatus": "not_publicly_listed", "hours": "Tue–Sat10:00–18:00; Mon/Sunclosed", "coordinates": "unknown, not guessed"},
+    {"id": "sofia-agron-service-benkovski-karavelov28", "neighborhood": "Бенковски", "category": "auto_repair", "services": 4, "booking": "owned_request_form_requires_staff_confirmation", "publicPriceStatus": "not_publicly_listed", "hours": "Mon–Fri08:30–18:00; Sat/Sunclosed", "coordinates": "unknown, not guessed"},
+    {"id": "sofia-vas-val-auto-malashevtsi-lavandula53", "neighborhood": "Малашевци", "category": "auto_repair", "services": 1, "booking": "phone_for_named_computer_diagnostics", "publicPriceStatus": "not_publicly_listed", "hours": "not published, left absent", "coordinates": "owner GPS typography ambiguous, not guessed"}
+  ],
+  "existingCorrectionsNotCountedAsNew": [{"id": "sofia-uli-nails", "neighborhood": "Гео Милев", "changes": "Recover explicit owner-stated quarter and literal address-bound Waze destination", "evidence": "neighborhood-recovery-applied-20261116.json"}],
+  "integration": "All three records use the shared public discovery and catalogue-onboarding source. All eight services have actual matching, previously approved photographic assets; no notebook, neutral image or emoji. No native partner account or booking created. No historical pricing baseline refreshed.",
+  "limitations": "A first small batch, not a claim that any50-per-cell target or10000business goal is met. Snapshot is physical-premises coverage, not proof of no mobile service. Unresolved source/menu access and missing quarters remain separate review queues."
+}

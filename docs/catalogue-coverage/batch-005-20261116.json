@@ -1,0 +1,42 @@
+{
+  "checkedOn": "2026-11-16",
+  "publicationStatus": "validated_ready_for_owner_authorized_publication; verify merged deployment/live separately",
+  "beforeSnapshot": "coverage-20261116-batch-004.json",
+  "afterSnapshot": "coverage-20261116-batch-005.json",
+  "approvedBefore": 1704,
+  "approvedAfter": 1707,
+  "sourceRecordsAfter": 1730,
+  "newDistinctPremisesListings": 3,
+  "newOperators": 2,
+  "newActualServiceRows": 3,
+  "newPublicNumericPrices": 0,
+  "records": [
+    {"id":"sofia-borbelov-dental-borovo61a","neighborhood":"Борово","category":"other","service":"Професионално почистване на плака и зъбен камък","fee":null,"duration":null,"booking":"Actual own phone invitation, same phone on native appointment-request destination","hours":"MonFri09–19; last appointment18 separately; weekend unknown","image":"dental-cleaning-v1.webp"},
+    {"id":"sofia-yastra-lyulin9-masalitinov901-private-folk","neighborhood":"Люлин 9","category":"fitness","service":"Индивидуален урок по български народни танци","fee":null,"duration":null,"booking":"Actual owner individual lesson by agreement in named MySoulsPlace hall, phone895672657","image":"sx-bulgarian-folk-private-lesson-v1.webp"},
+    {"id":"sofia-yastra-lyulin10-mayski26-private-folk","neighborhood":"Люлин 10","category":"fitness","service":"Индивидуален урок по български народни танци","fee":null,"duration":null,"booking":"Actual owner individual lesson by agreement in named Tancuvai hall, phone895672657; distinct teaching operator from existing co-located wedding lessons","image":"sx-bulgarian-folk-private-lesson-v1.webp"}
+  ],
+  "sourceReview": {
+    "journals": ["research-dental-beauty-010-20261116.json","research-sport-education-010-20261116.json","research-auto-other-010-20261116.json","research-official-address-005-20261116.json"],
+    "rootIndependent": "Read Borbelov actual homepage phone invitation first, native appointment Contact, full Services index and selected cleaning via ordinary public200 after reader cachemiss; canonical ten-section privacy read including separately completed truncated middle. Read Yastra own root/About/Contact and browser-rendered actual individual-lesson/price slider. Visible individual slide explicitly binds both named halls/phone. Full price DOM confirms negotiated individual fee. Source price screenshot caught transition and is not claimed final-price visual proof. Actual owner page automatically loaded Maps iframes; no Maps click, location lookup, geocoding or point import. No general clinic or other physician service imported.",
+    "pricing": "All3selected services genuinely have no public numeric fee in inspected actual booking/service routes; fresh source_reviewed receipts only. Separate group8/9BGN/hour, stage7BGN, conditional second6BGN and58BGN card are not individual fees, never divided/converted into fabricated published prices.",
+    "dedupe": "Current host/name/phone/address and normalized duplicate audit checked. One Yastra operator at two independently named real halls; no staff/level/service clones. Tancuvai co-location has different owner site/phone/service and no inherited data.",
+    "photos": "Main and independent reviewer visually inspected both existing precise photographic assets. Private folk lesson shows instructor and student practicing folk steps, not boxing/group/notebook; dental photo shows clinical teeth cleaning. No generated or copied owner raster needed. Exact IDs/names pinned to existing activity artwork without changing taxonomy.",
+    "holds": "010other prospects remain source-only holds/candidates, not business additions. Actual protection/terms restrictions respected; incomplete menu/policy review is not called an unpublished tariff. No blocked host reopened for this release."
+  },
+  "coordinates": {"imported":0,"result":"All3null. Borbelov no exact municipal row; Yastra10three entrances; Yastra9beside-block landmark. Read-only CSV with existing strict parser, unchanged source SHA, no geocoder."},
+  "coverage": {"physicalCellGains":["Борово×other6→7","Люлин9×fitness1→2","Люлин10×fitness2→3"],"cellsAt50":0,"zeroCells":1296,"missingQuarterPremises":586,"mobileProviders":192,"goalUnmet":true},
+  "validation": {
+    "nodeFullSuite":{"executed":true,"passed":2593,"failed":0,"skipped":0,"log":"artifacts/catalogue-coverage-20261116/batch-005-node-tests-final.log"},
+    "pythonPricing":{"executed":true,"passed":12,"files":["tests/pricing-extraction_test.py","tests/booking-pricing-flow_test.py"],"note":"Initial unittest discovery matched no importable hyphenated modules and ran0tests; both explicit files then executed8+4tests successfully. Zero-test discovery is not counted passed."},
+    "catalogueCheck":{"executed":true,"passed":true,"approved":1707,"sourceRecords":1730,"specificServicePhotos":10093,"missingNeutralInvalid":0,"blockedNewChanged":0,"recheck":0},
+    "productionBuild":{"executed":true,"passed":true,"command":"pnpm --config.verify-deps-before-run=warn build --webpack","log":"artifacts/catalogue-coverage-20261116/batch-005-build.log"},
+    "actualBrowser":{"executed":true,"environment":"Local production build; emulated viewport, not physical Android/iOS devices","profiles":3,"locales":["bg","en"],"widths":[320,360,390,430,768,1280],"cases":36,"pageOverflow":0,"unloadedImages":0,"serviceDetailsExpanded":true,"borbelovHoursExpanded":true,"screenshots":"artifacts/category-navigation-20261116/coverage-batch-005-*-local-{390,1280}.jpg"},
+    "independentReview":"59/59scoped tests and fresh actual source/asset review passed; current3hashes match normalized records",
+    "initialFailureResolved":"First focused26/27caught test expectation exact versus actual registry activity photoMatch. Exact key/src already correct; expectation corrected to existing activity taxonomy with strict exact asset binding. Resolver unchanged; final2593suite passed. Earlier agent test assertion mistakes also corrected, never claimed passed."
+  },
+  "scope": "Catalogue additions, photo associations, source receipts, reports/tests only. No backend, database, search/filtering/category mapping, booking, registration logic, customer data, production settings, dependencies or paid services changed. Historical snapshots and baselines untouched.",
+  "bookingsSubmitted": 0,
+  "callsMade": 0,
+  "notificationsSent": 0,
+  "remainingGoal": "50genuine options/category/neighborhood and10000overall remain unmet. No invented offices, prices, hours, points or quota coverage."
+}

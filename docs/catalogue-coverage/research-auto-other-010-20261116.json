@@ -1,0 +1,237 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-16",
+  "status": "research_only_six_hosts_no_admissions_two_office_candidates_pending_independent_review",
+  "scope": "Bounded research of at most six genuinely new appointment automotive, photography or consulting owner hosts, preferring undercovered Sofia quarters. This is a research ledger, not a catalogue import, permission receipt, legal opinion or proof of current availability. No service, price, business record, booking, source photograph, review or production configuration changed.",
+  "coveragePreflight": {
+    "snapshot": "docs/catalogue-coverage/coverage-20261116-batch-004.json",
+    "approvedBusinessesInSnapshot": 1704,
+    "physicalPremisesInSnapshot": 1512,
+    "mobileProvidersInSnapshot": 192,
+    "emptyPhysicalCells": 1296,
+    "physicalCellsAtTarget": 0,
+    "finding": "Consulting and photography leads were sought in sparse northwestern quarters after existing automotive records and source holds excluded the obvious repair/detailing candidates. Broad owner labels Обеля and Люлин are not numbered quarters. No new numbered-quarter coverage credit is claimed."
+  },
+  "method": [
+    "Read the current matrix, source-use STOPs, unresolved research and current catalogue locally before new owner requests. Separate local domain, name, professional phone and address deduplication outputs were read before network access; current source contained1727 rows, which is not the approved-business count.",
+    "Followed the actual owner appointment entry before preparing any selected-service facts. Read the actual service/tariff and contact/FAQ routes where accessible. Generic enquiry forms, merchandise orders and photographer head offices do not become physical appointment premises.",
+    "Limited ordinary public HTTPS GET was used after reader timeout, inaccessibility or cache miss, not as a workaround for an observed access denial. No hidden APIs, protected endpoints, source bundles, social-login content, payment, maps geocoding, paid Places, form fields, consents or submissions were used.",
+    "Kept exact office and appointment facts separately from marketing prose, source images, client reviews and professional-outcome claims. No statutory minimum, expired voucher amount, publication-conditioned photographic tariff or directory address was promoted to an unconditional merchant price or verified location.",
+    "An explicit403 stopped the PhotoChara host. Two request-sequencing issues are recorded below rather than treating unobserved/truncated policy output as a completed review."
+  ],
+  "deduplication": {
+    "currentSourceRowsAtPreflights": 1727,
+    "scope": ["lib/discovery", "docs/catalogue-coverage", "docs/catalogue-pricing"],
+    "matchesForSixNewHosts": [],
+    "finding": "No current catalogue or research identity match was found for the six new owner hosts. Local checks included IvanNikolov professional phones888542962/888056372/24262671 and the two exact office addresses, KrisPhotosofia phone899199807 and DenchoFeshchiev address lead, PhotoChara, E-photo, Zoephoto and DarinTrifonov aliases. No production/native-partner identity lookup was performed; root must perform final full-record and partner deduplication before any future import."
+  },
+  "ready": [],
+  "reviewCandidates": [
+    {
+      "name": "Адвокатска кантора Иван Николов · Обеля",
+      "status": "selected_service_and_real_office_facts_reviewed_independent_source_policy_and_quarter_review_pending",
+      "admissionRecommendedWithoutIndependentReview": false,
+      "operatorWebsite": "https://advokat-sofia.net/",
+      "premises": {
+        "locationKind": "premises",
+        "cityCode": "68134",
+        "ownerNeighborhood": "Обеля",
+        "exactOwnerAddress": "София, ж.к. Обеля, бл. 116, вх. А, ет. 1",
+        "source": "https://advokat-sofia.net/контакти/",
+        "proof": "Owner Contact independently titles this Адвокатска кантора Обеля and gives this specific office, separately from the Lyulin office. It is not a directory residence, service-area landing page or inferred duplicate branch.",
+        "neighborhoodCaveat": "Owner does not specify Обеля1 or Обеля2. Do not infer a numbered quarter from the block, map viewport or search snippet. Broad Обеля can be preserved if the independent admission reviewer accepts it; otherwise hold until clarification.",
+        "latitude": null,
+        "longitude": null
+      },
+      "professionalContacts": {
+        "appointmentPhone": "+359888542962",
+        "otherOwnerPhones": ["+359888056372", "+35924262671"],
+        "source": "https://advokat-sofia.net/контакти/"
+      },
+      "bookingReview": {
+        "status": "actual_first_party_phone_appointment_instruction_reviewed",
+        "entryLabel": "Запиши час за консултация",
+        "evidenceUrl": "https://advokat-sofia.net/адвокатски-услуги/бракоразводен-адвокат-софия-бракора/",
+        "target": "tel:+359888542962",
+        "finding": "The owner homepage, tariff and selected divorce-consultation page explicitly direct appointment requests to this professional phone. The same number appears with both named offices on Contact. Office, date, time and case-specific fee require confirmation; no live slots or native GoRez calendar are implied."
+      },
+      "selectedService": {
+        "suggestedIndependentNameBg": "Правна консултация по бракоразводен казус",
+        "suggestedCategory": "consulting",
+        "source": "https://advokat-sofia.net/адвокатски-услуги/бракоразводен-адвокат-софия-бракора/",
+        "verifiedScope": "Owner explicitly offers consultations concerning divorce matters. Only the consultation is proposed, not full litigation, guaranteed outcomes or a low-price claim.",
+        "suggestedCompactDescriptionBg": "Предварително уговорена консултация; уточнете по телефона офиса, часа и цената според конкретния казус.",
+        "numericPrice": null,
+        "durationMin": null,
+        "noNativeBooking": true
+      },
+      "pricingReview": {
+        "status": "actual_owner_menu_reviewed_fee_individually_quoted_no_numeric_merchant_amount",
+        "reviewedUrls": [
+          "https://advokat-sofia.net/цени/",
+          "https://advokat-sofia.net/адвокатски-услуги/",
+          "https://advokat-sofia.net/адвокатски-услуги/бракоразводен-адвокат-софия-бракора/",
+          "https://advokat-sofia.net/онлайн-адвокат/",
+          "https://advokat-sofia.net/контакти/"
+        ],
+        "finding": "Actual owner tariff requests contact for a consultation/case quotation. The online enquiry explanation also says the owner supplies the consultation price after reviewing the enquiry. No numerical merchant rate or fixed consultation duration appears in those completed public routes. The reference to Наредба№1 is a statutory-minimum reference, not a fixed merchant quote; no statutory amount was fetched, calculated, divided or converted for publication. A genuine not_publicly_listed intake may be considered only after root independently confirms this review, not because another source is blocked."
+      },
+      "hoursReview": {
+        "source": "https://advokat-sofia.net/контакти/",
+        "observedCommonOfficeHours": "Понеделник–петък10:00–18:00",
+        "finding": "Contact publishes these common office hours alongside both office contacts. No weekend statement or branch/staff-specific consultation schedule was established. Do not invent closed weekends, duration or live appointment availability; omit structured hours if the model cannot preserve that uncertainty."
+      },
+      "policyReview": {
+        "status": "independent_minimal_facts_review_required_no_blanket_automation_ban_claimed",
+        "termsAlreadyObserved": "https://advokat-sofia.net/общи-условия/",
+        "termsEffectiveOn": "2025-02-04",
+        "finding": "The previously returned complete Terms contain a broad copyright/reproduction clause and a requirement for owner confirmation before a contract. Root explicitly noted that a general copyright clause alone is not necessarily an automated-access prohibition for independently stated public facts. This is not an owner licence or legal clearance. Do not copy descriptions, photos, testimonials, guarantees or original legal commentary.",
+        "robots": {
+          "url": "https://advokat-sofia.net/robots.txt",
+          "status": 200,
+          "finding": "Wildcard excludes /politika-za-biskvitki/, /общи-условия/, /политика-за-поверителност/ and wordfence_lh queries. The actually reviewed homepage, services, selected service, fees, online-enquiry explanation and Contact are not excluded. No sitemap or excluded endpoint was subsequently requested after the robots body was observed."
+        },
+        "privacy": {
+          "url": "https://advokat-sofia.net/политика-за-поверителност/",
+          "status": "not_completed_reader_cache_miss_and_later_known_robots_exclusion",
+          "finding": "Do not treat this as a completed privacy review or permission receipt. No personal/client data or contact form was used."
+        },
+        "sequencingDisclosure": "Terms had already been returned by the web reader before the robots exclusions were known. An earlier combined ordinary policy request had truncated output whose final status/body were unobserved and cannot be relied on; it may have issued the privacy GET before the robots output was examined. A later robots-only request returned the exclusions above; all subsequent disallowed-policy requests stopped. A sandbox DNS failure is not a merchant access denial."
+      },
+      "requiredBeforeAdmission": "Root independently reviews the selected public-service facts, honest individual-quotation status, source-policy treatment and two-office identity. Resolve or explicitly retain only the broad owner quarter without numbered-quarter credit. No record, price-review identity, photographs or coordinate evidence prepared in this pass."
+    },
+    {
+      "name": "Адвокатска кантора Иван Николов · Люлин",
+      "status": "same_operator_separately_named_real_office_pending_independent_review",
+      "admissionRecommendedWithoutIndependentReview": false,
+      "operatorWebsite": "https://advokat-sofia.net/",
+      "premises": {
+        "locationKind": "premises",
+        "cityCode": "68134",
+        "ownerNeighborhood": "Люлин",
+        "exactOwnerAddress": "София, ж.к. Люлин, бул. Панчо Владигеров 42, кооперативен пазар, базар Искра, ет. 2",
+        "source": "https://advokat-sofia.net/контакти/",
+        "proof": "Owner Contact independently titles this Адвокатска кантора Люлин and gives this actual office, separately from Obelya. The previously read Terms also give PanchoVladigerov42. No quarter-specific SEO page is multiplied into branches.",
+        "neighborhoodCaveat": "Only broad Люлин is owner-confirmed. Do not assign any numbered Lyulin cell by street inference.",
+        "latitude": null,
+        "longitude": null
+      },
+      "selectedServiceAndReviewReference": "The same operator's one verified divorce-consultation service, explicit appointment phone, quotation-only fee review, common observed weekday hours and source-policy limitations are documented in the immediately preceding Obelya candidate. No separate staff price or branch availability is invented. If imported later, each entire record still requires its own ordinary schema/duplicate/whole-record identity and pricing review; this reference does not bypass those gates.",
+      "appointmentPhone": "+359888542962",
+      "sourceCompleteSelectedServiceFacts": true,
+      "requiredBeforeAdmission": "Independent root review of both distinct office identities and the policy/quarter caveats. This is a second real office candidate, not a second operator or an approved sparse numbered-quarter addition."
+    }
+  ],
+  "holds": [
+    {
+      "name": "Фотостудио Чара / PhotoChara",
+      "website": "https://photochara.com/",
+      "neighborhoodLead": "Люлин2",
+      "status": "STOP_observed_actual_owner_contact_403",
+      "admissionRecommended": false,
+      "ownerFactsObservedBeforeStop": "Root identifies a current Lyulin2 studio behind block214 entranceA and professional phones894355484/888517968. The Privacy company-management address at Vrabnitsa2 block606 is not substituted for that studio. No source photography or personal information imported.",
+      "bookingReview": "Incomplete. The actual Contact page, linked from the current owner menu, returned403; no date/appointment menu was verified and the generic Contact CTA is not promoted into booking.",
+      "pricingReview": "Incomplete, not not_publicly_listed. The already-in-flight Services read names photographic work and retail printing/gifts, but no importable selected-service or absence-of-fee receipt is prepared after the access denial.",
+      "observedUrls": [
+        {"url": "https://photochara.com/", "status": 200},
+        {"url": "https://photochara.com/privacy-policy/", "status": 200},
+        {"url": "https://photochara.com/kontakti/", "status": 403},
+        {"url": "https://photochara.com/uslugi/", "status": 200},
+        {"url": "https://photochara.com/robots.txt", "status": 200}
+      ],
+      "sequencingDisclosure": "Privacy/Contact/Services were issued together. A robots GET was already scheduled in the same orchestration and completed after that batch but before the agent read the Contact403. It was not a retry of Contact, but remains a request-sequencing defect and is disclosed rather than represented as a strict stop before all later network activity. Once the403 result was observed, no further host request, alternate path/provider, cache, native browser, hidden API or challenge workaround was attempted.",
+      "requiredBeforeAdmission": "Resolve owner access/permission separately; do not reopen or admit from snippets. Only then a fresh permitted actual Book/menu/price/current-premises review can be considered."
+    },
+    {
+      "name": "E-photo",
+      "website": "https://e-photo.bg/",
+      "status": "excluded_retail_printing_and_order_workflow_not_verified_appointment_service",
+      "admissionRecommended": false,
+      "access": "Reader root timed out and robots was inaccessible. Ordinary limited public GET returned root200 and robots404. A missing robots file is not commercial permission. No access denial was observed.",
+      "bookingReview": "Complete root navigation identifies uploading/ordering prints, photographic gifts and delivery/cart workflows, not a verified photographic appointment/session entry. No upload, order, cart or form was used.",
+      "pricingReview": "No selected appointment inventory proposed; retail-order prices are not session fees. Linked retail price/order/contact/policy routes were not fetched because eligibility had already failed.",
+      "premisesReview": "Discovery's Nadezhda1 reference is not promoted to an owner-confirmed appointment studio or coverage cell.",
+      "reviewedUrls": ["https://e-photo.bg/robots.txt", "https://e-photo.bg/"]
+    },
+    {
+      "name": "Zoe Photography / Зоя Делевска",
+      "website": "https://zoephoto.net/",
+      "status": "held_outdoor_sessions_head_office_not_verified_physical_session_premises",
+      "admissionRecommended": false,
+      "access": "Reader root timed out and robots was inaccessible. Ordinary public GET returned200 for both. Robots excludes wp-admin; no excluded path or sitemap was requested.",
+      "bookingReview": "Owner describes choosing an outdoor place/time with the customer and gives professional phone883312843 plus a generic enquiry form. The footer labels SuhataReka block57 as HeadOffice, not a place where the selected photographic session is performed. No form or telephone call used.",
+      "pricingReview": "Root has literal EUR packages and several distinct price-tag links. No full selected linked package review was completed because this physical-premises task does not admit an outdoor/head-office lead. No unconditional package, expiry/availability or not_publicly_listed receipt prepared.",
+      "premisesReview": "Do not turn the head office into a studio, assign a customer distance to an outdoor session, or create neighborhood copies. A later service-area review would require independent owner evidence of the actual served zone and complete selected package/appointment/policy review.",
+      "reviewedUrls": ["https://zoephoto.net/robots.txt", "https://zoephoto.net/"]
+    },
+    {
+      "name": "Нотариус Дарин Трифонов",
+      "website": "https://notariustrifonov.com/",
+      "status": "held_current_selected_fee_reference_unread_and_central_not_sparse_priority",
+      "admissionRecommended": false,
+      "access": "Root/robots reader timeout or inaccessibility; ordinary publicGET robots200 and root200. Actual Contact and Services were subsequently returned by reader. No access denial observed. Large root/services output was not treated as a completed EOF policy/tariff review where truncated.",
+      "bookingReview": "The owner's actual enquiry entry leads to Contact. The property-transaction explanation says documents are reviewed and a date/time is then arranged. A generic enquiry form alone is not a verified general consultation calendar; no fields submitted and no documents uploaded.",
+      "premisesAndHours": "Contact explicitly gives SofiaCentre, G.S.Rakovski140 floor2, entrance from HanAsparuh, professional phone29818297 and MonFri09:00–17:00. Conflicting controlled-entry wording after16:30/16:45 is not converted into guaranteed availability. No weekend hours or extra branches inferred from the broad served-neighborhood list.",
+      "pricingReview": "Services points to the actual statutory notarial tariff PDF on notary-chamber.bg. That external fee source was not fetched/reviewed, so its amounts remain unidentified, not not_publicly_listed. No case-value calculation, historical BGN conversion, VAT assumption or fixed notarial consultation fee prepared.",
+      "reviewedUrls": [
+        "https://notariustrifonov.com/robots.txt",
+        "https://notariustrifonov.com/",
+        "https://notariustrifonov.com/връзка-с-нас-контакти/",
+        "https://notariustrifonov.com/услуги/"
+      ],
+      "unreviewedKnownFeeSource": "https://notary-chamber.bg/sites/default/files/tarifa_za_notarialnite_taksi_km_zakona_za_notariusite_i_notarialnata_deynost.pdf",
+      "requiredBeforeAdmission": "Complete permitted actual selected appointment/service/fee/policy review without claiming the known unread tariff is absent. Centre is not given false sparse-neighborhood credit."
+    },
+    {
+      "name": "Кристиян Владимиров · Фотограф",
+      "website": "https://krisphotosofia.wixsite.com/home",
+      "status": "held_no_owner_verified_physical_session_address_or_quarter",
+      "admissionRecommended": false,
+      "professionalPhone": "+359899199807",
+      "sourcePolicy": {
+        "robots": {"url": "https://krisphotosofia.wixsite.com/robots.txt", "status": 200, "finding": "Wildcard allows public paths and excludes lightbox queries. No excluded lightbox, gallery API, sitemap or content bundle requested. Different named-bot rules were not used to impersonate another agent."},
+        "finding": "Reviewed owner Home/Contact/tariff/FAQ expose general copyright text, not a separately linked commercial-reuse or automation permission. No original images, reviews, descriptions or claims are prepared for import. FAQ was reader-cache-miss; one ordinary public GET returned200 and stripped comments/scripts/styles before text review."
+      },
+      "bookingReview": {
+        "status": "actual_owner_date_time_service_enquiry_form_reviewed_no_submission",
+        "entry": "https://krisphotosofia.wixsite.com/home",
+        "entryLabel": "Запазете своя час сега",
+        "target": "https://krisphotosofia.wixsite.com/home/свържете-се-с-мен",
+        "finding": "Actual form requests desired date, start time, service and duration, with professional phone899199807 and owner follow-up rather than instant availability. No field, consent, submit, calendar slot or payment was touched."
+      },
+      "pricingReview": {
+        "status": "actual_complete_owner_menu_and_FAQ_reviewed_publication_condition_not_unconditional_tariff",
+        "menu": "https://krisphotosofia.wixsite.com/home/портфолио-и-цени",
+        "conditions": "https://krisphotosofia.wixsite.com/home/чзв",
+        "finding": "Owner literally lists wedding first-hour150EUR then60EUR per following hour and individual quote above8hours. Other listed event/portrait first-hour rates are100EUR then60EUR per following hour. The stated rates require permission to use selected portfolio photographs; the actual FAQ says confidentiality adds30percent. Do not omit that material condition, calculate a substitute unconditional tariff, divide packages, pretend the owner quoted a fixed duration or assign these event fees to a studio appointment. Product work is individually quoted. These observations are not an approved inventory."
+      },
+      "premisesAndHoursReview": "No physical studio/session street, number, Sofia quarter or weekly hours appears in the complete owner Home, actual Contact, tariff or FAQ. Third-party Люлин1/ДенчоФещиев listing is a discovery lead only, not a premises proof. The owner describes photography at agreed locations/events; no studio, daily opening schedule, exact map point, whole-Sofia service zone or physical quarter credit inferred.",
+      "reviewedUrls": [
+        "https://krisphotosofia.wixsite.com/robots.txt",
+        "https://krisphotosofia.wixsite.com/home",
+        "https://krisphotosofia.wixsite.com/home/свържете-се-с-мен",
+        "https://krisphotosofia.wixsite.com/home/портфолио-и-цени",
+        "https://krisphotosofia.wixsite.com/home/чзв"
+      ],
+      "requiredBeforeAdmission": "Owner-confirmed actual studio premises, if any, or a separately approved mobile/service-area admission with real served-zone evidence, exact publication/confidentiality price conditions and independent source-policy review. Do not turn a directory address into a studio."
+    }
+  ],
+  "discoveryExcludedBeforeOwnerFetch": [
+    {"names": ["TL Auto Service", "CleanRide/carsrepair.bg", "MYGARAGE", "Caterini", "EID", "DAR", "GoPlus", "ПоМаняшкия", "Nebula", "SofiaDetailing", "IQ", "LuxSpa", "CarKings", "VaklinovSin"], "reason": "Existing current identities; no new owner request or cloned quarter branch."},
+    {"names": ["DGAutoService/Setmore", "SRV", "MotoExpert", "AutoCosmetics", "MADGarage", "WashDepot", "D&D", "Notarius835", "PhotoElfite"], "reason": "Existing source-policy/access STOPs or incomplete holds inspected locally; no refetch or snippet-based re-admission."},
+    {"names": ["SLStudio", "IvaIvanova Vrаbnitsa1", "Foto-bg", "SnimkiteVi", "PhotostudioAnastasia", "Auravel neighborhood pages"], "reason": "Directory/social/registry/retail or marketplace evidence did not establish a new first-party appointment premises. No owner fetch and no false branch or studio inferred."},
+    {"names": ["General medical clinic Varix", "Plovdiv ZaharnaFabrika automotive results", "funeral/retail leads outside this bounded pass"], "reason": "Owner medical/geographic/task eligibility boundary; not admitted to increase the count."}
+  ],
+  "result": {
+    "newBusinessesAdded": 0,
+    "readyForImportWithoutFurtherReview": 0,
+    "sourceCompleteAdmittedCandidates": 0,
+    "separatelyNamedOfficeCandidatesWithSelectedServiceFacts": 2,
+    "operatorsBehindThoseOfficeCandidates": 1,
+    "substantivelyInspectedNewMerchantHosts": 6,
+    "otherMerchantHoldsOrExclusions": 5,
+    "newNumberedQuarterCoverageCredit": 0,
+    "noBookingsMessagesOrdersUploadsOrConsentActions": true,
+    "onlyThisResearchFileChangedByThisTask": true
+  }
+}

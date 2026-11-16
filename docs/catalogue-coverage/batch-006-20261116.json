@@ -1,0 +1,205 @@
+{
+  "checkedOn": "2026-11-16",
+  "publicationStatus": "validated_ready_for_owner_authorized_publication; verify merged production deployment and live routes separately",
+  "beforeSnapshot": "coverage-20261116-batch-005.json",
+  "afterSnapshot": "coverage-20261116-batch-006.json",
+  "approvedBefore": 1707,
+  "approvedAfter": 1709,
+  "sourceRecordsAfter": 1732,
+  "newDistinctPremisesListings": 2,
+  "newOperators": 2,
+  "newActualServiceRows": 10,
+  "newPublicNumericPrices": 8,
+  "records": [
+    {
+      "id": "sofia-monika-hristova-lagera53",
+      "neighborhood": "Лагера",
+      "category": "other",
+      "services": [
+        "Индивидуална терапия",
+        "Терапия за двойки"
+      ],
+      "fee": null,
+      "duration": null,
+      "booking": "Own contact phone invitation read first, +359878908731; ordinary individual/couples sessions in named premises.",
+      "hours": "Unknown; no invented schedule",
+      "coordinates": null,
+      "pricingIdentity": "8419aa2ff52e152c1010ce31f442e79a4c43823386bf667791ad09979c2d99c6",
+      "reviewStatus": "service_reviewed/not_publicly_listed"
+    },
+    {
+      "id": "sofia-happy-pet-spa-druzhba2-283",
+      "neighborhood": "Дружба 2",
+      "category": "pets",
+      "services": 8,
+      "feesEUR": [
+        35,
+        45,
+        90,
+        40,
+        45,
+        60,
+        70,
+        90
+      ],
+      "durationsMinutes": [
+        120,
+        180,
+        240,
+        180,
+        180,
+        240,
+        240,
+        270
+      ],
+      "booking": "Own rendered Contact explicitly phone by appointment +359898629839, before full Home tariff reread. Contact/Home are fragment routes in one canonical document; no invented supported booking URL.",
+      "hours": "TueSat09–20; Monclosed; Sununknown",
+      "coordinates": null,
+      "pricingIdentity": "4184352e979418478537396c647e9b0aa00c07b95cf43b91a44652a52bd98bc3",
+      "reviewStatus": "reviewed; literal fee amounts and card-specific durations"
+    }
+  ],
+  "existingQuarterRecoveries": [
+    {
+      "id": "sofia-vayasport",
+      "quarterBefore": null,
+      "quarterAfter": "Мотописта",
+      "source": "https://vayasport.bg/kontakti/",
+      "newBusinessCredit": 0,
+      "unchanged": "All6existing prices and their old review, identity, address, website, phone and null coordinates; not a new tariff review.",
+      "pricingIdentity": "987683c29b5e9333045d24e04c94a2dd8b57d1f0e9e8b7484188b5c8daed868e"
+    },
+    {
+      "id": "sofia-lazarov-athletics",
+      "quarterBefore": null,
+      "quarterAfter": "Център",
+      "source": "https://www.lazarovathletics.com/contactus",
+      "newBusinessCredit": 0,
+      "unchanged": "Administrative district Oborishte stays in address, not quarter. Same previously reviewed official point47351, numeric coordinates, source and checkedOn2026-11-13. Only sourceNeighborhood metadata explicitly rebound to independently owner-confirmed Center. No new point import/certification, CSV access or geocoding.",
+      "pricingIdentity": "69d79413d172aaa2ac1bd7b8f31f56f47af8766f9f00a3b6b3cf743ba27ec63b",
+      "reviewStatus": "Historical pending fee review unchanged"
+    }
+  ],
+  "sourceReview": {
+    "journals": [
+      "research-coverage-011-20261116.json",
+      "research-mirabella-review-012-20261116.json",
+      "research-carwash-013-20261116.json",
+      "research-sport-education-014-20261116.json",
+      "research-beauty-pets-015-20261116.json",
+      "research-quarter-recovery-016-20261116.json"
+    ],
+    "rootIndependent": "Monika actual Contact phone booking first, full selected therapy/About/root/FAQ/additional linked pages and complete14-section privacy read. Ordinary verified200 used only for reader cache misses, not actual protections. Family FAQ60min context not generalized to both selected services. Dogspa root actually rendered; native Book/Contact inspected first and owner Home full8cards reread. Root read robots and declared sitemap as ordinary public documents, separated above Crawl-delay10. Full rendered Home/Contact nav/footer and declared sitemap expose no legal link; no guessed policy endpoints, bundle extraction or hidden API. No express relevant restriction observed, not a licence/legal clearance. Vaya/Lazarov actual own Contact independently corroborated quarters, no current fee review claimed.",
+    "pricing": "Dogspa8ordinary full-groom services retained literal fixed EUR and card durations, no invented price.unit; breed and weight tariffs distinct. Baby package, ambiguous add-ons and safety/certification claims excluded. Generic1–3h FAQ not used over specific4/4.5h cards. Monika genuinely unpublished fee remains absent, not0, and not a completed numeric price review. Frequency not hours. No calendar slots copied.",
+    "dedupe": "Exact source host/name/public phone/address checked against current1732 records and original normalized duplicate audit. Two distinct operators/premises, no staff/service/breed/weight clones as businesses.",
+    "holds": "DP genuine current calendar actually inspected without date/time/Next/customer action;12.80EUR unit per person vs whole4-person group unresolved, HOLD. Mirabella Calendly terms source-scope hold: no Calendly requests/retries or phone workaround. New other hold journals do not count toward businesses. Actual denied/challenged/restricted hosts not retried. 017/018 are next-batch research only, excluded from this release."
+  },
+  "photos": {
+    "generatedUsing": "Built-in image_gen, brand-new photorealistic illustrative activity, not provider portfolio; imagegen skill and prompt references read by main.",
+    "assets": [
+      "public/service-photos/sx-groom-french-bulldog-v1.webp",
+      "public/service-photos/sx-groom-chow-chow-v1.webp",
+      "public/business-cover-photos/activity-sx-groom-french-bulldog-v1.webp"
+    ],
+    "provenance": "docs/specific-service-photo-generation-2026-11-12.json and docs/business-activity-cover-sources-2026-11-15.json include complete prompts, original/generated hashes and review. Root and independent reviewer actually viewed both original PNGs and256WebPs; root actual browser inspected final mobile/desktop. Compression script performs mechanical full-frame resize only; originals untouched, max shipped edge720<1200.",
+    "associations": "French/Pug service uses French bulldog alternative, Chow uses Chow; Pom/Spitz uses existing Pomeranian. Five weight bands use existing breed/size-neutral human grooming-tools activity photo, not falsely assigned breed or notebook. Existing adult individual/couples counselling artwork reused exactly.",
+    "byteSizes": [
+      16582,
+      14794,
+      53788
+    ],
+    "neutralMissingInvalid": 0
+  },
+  "coordinates": {
+    "newImports": 0,
+    "oldPointContextRebindings": 1,
+    "geocoderRequests": 0,
+    "csvReadThisBatch": false,
+    "result": "No fabricated coordinates, nearest/first/centroid selections or distance promises. Dogspa7–11km is highway section, not street number. Existing4official point/cache hashes and historical checkedOn remain immutable."
+  },
+  "coverage": {
+    "physicalCellGains": [
+      "Дружба2×pets0→1",
+      "Лагера×other5→6",
+      "Мотописта×fitness0→1(existing quarter recovery)",
+      "Център×fitness8→9(existing quarter recovery)"
+    ],
+    "cellsAt50": 0,
+    "zeroCells": 1294,
+    "missingQuarterPremises": 584,
+    "mobileProviders": 192,
+    "goalUnmet": true
+  },
+  "validation": {
+    "nodeFullSuite": {
+      "executed": true,
+      "passed": 2622,
+      "failed": 0,
+      "skipped": 0,
+      "log": "artifacts/catalogue-coverage-20261116/batch-006-node-tests-rerun.log"
+    },
+    "initialFullRun": {
+      "executed": true,
+      "passed": 2620,
+      "failed": 1,
+      "total": 2621,
+      "log": "artifacts/catalogue-coverage-20261116/batch-006-node-tests-final.log",
+      "resolution": "Historical subset asserted old null-quarter metadata against new current Center binding. Test now reconstructs old row for historical replay, permits only exact Lazarov quarter metadata rebind and adds negative test that frozen null-quarter receipt cannot supply/overwrite current Center point. Runtime guards, numerical points, original snapshots/baselines not weakened or rewritten. Focused14/14 then full2622/2622 passed."
+    },
+    "pythonPricing": {
+      "executed": true,
+      "passed": 12,
+      "files": [
+        "tests/pricing-extraction_test.py",
+        "tests/booking-pricing-flow_test.py"
+      ]
+    },
+    "catalogueCheck": {
+      "executed": true,
+      "passed": true,
+      "approved": 1709,
+      "sourceRecords": 1732,
+      "specificServicePhotos": 10103,
+      "missingNeutralInvalid": 0,
+      "blockedNewChanged": 0,
+      "recheck": 0,
+      "log": "artifacts/catalogue-coverage-20261116/batch-006-catalogue-check-final.log"
+    },
+    "productionBuild": {
+      "executed": true,
+      "passed": true,
+      "command": "pnpm --config.verify-deps-before-run=warn build --webpack",
+      "log": "artifacts/catalogue-coverage-20261116/batch-006-build.log"
+    },
+    "actualBrowser": {
+      "executed": true,
+      "environment": "Local production build, emulated viewport not physical Android/iOS",
+      "profiles": 4,
+      "locales": [
+        "bg",
+        "en"
+      ],
+      "widths": [
+        320,
+        360,
+        390,
+        430,
+        768,
+        1280
+      ],
+      "cases": 48,
+      "pageOverflow": 0,
+      "unloadedImages": 0,
+      "allDisclosuresExpanded": true,
+      "probe": "artifacts/category-navigation-20261116/coverage-batch-006-local-browser-probes.json",
+      "screenshots": "artifacts/category-navigation-20261116/coverage-batch-006-*-local-{390,1280}.jpg"
+    },
+    "independentReview": "45/45 scoped checks passed; no source binding/baseline/fee safety blocker. Documentation-only copied Chow explanation corrected, no app/data change.",
+    "historicalHashes": "All four frozen point/cache file SHA256s and old Vaya/Lazarov normalized reconstruction/price identity checks still pass."
+  },
+  "scope": "Catalogue records, precise photo assets/associations, source receipts/reports and tests only. No UI redesign, backend/Supabase/database, search/filtering/ranking/category mappings, booking/registration logic, customer data, production config, dependencies or paid provider change.",
+  "bookingsSubmitted": 0,
+  "callsMade": 0,
+  "notificationsSent": 0,
+  "remainingGoal": "50genuine options/category/neighborhood and10000overall remain unmet. No invented offices, prices, hours, points or quota coverage."
+}

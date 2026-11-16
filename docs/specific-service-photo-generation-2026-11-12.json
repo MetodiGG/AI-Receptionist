@@ -4,6 +4,52 @@
   "scope": "Illustrative service-specific photos for approved Sofia catalogue entries; not actual business premises, staff, work or results.",
   "assets": [
     {
+      "id": "sx-groom-french-bulldog",
+      "label": "Груминг на френски булдог или мопс",
+      "sourceFile": "exec-1163315a-a36c-4ed9-8c90-d13690bfa3e5.png",
+      "sourceSha256": "7332887240f33d588f256b5a06cedb685ef73ddc44eb2bd3ceb23cd650e37a28",
+      "bytes": 16582,
+      "sha256": "ca1db486877e0936f457275ef367b438696403c43ddee426344cb58a3ee7d579",
+      "prompt": "Use case: photorealistic-natural. Asset type: square service thumbnail for a Bulgarian local-services marketplace. Primary request: realistic dog grooming of an adult French bulldog by an adult professional groomer. Scene: ordinary clean grooming salon, warm natural daylight, neutral practical work clothes, rubber grooming table, soft background. Show the clearly recognizable fawn French bulldog with large upright ears and dark muzzle, calm and comfortable, its whole head and compact body visible. A real human groomer gently brushes its short coat with a soft grooming mitt; natural hands touching fur correctly. Close photographic composition, dog is central, enough margin so its ears and face are not cropped in a square thumbnail. Real fur, skin and fabric textures. Only one dog, correct anatomy, no dramatic restraint, no shaving, no scissors near face. No branding, logos, text, notebooks or watermarks. This is a generic illustrative grooming scene, not an identifiable real salon or endorsement.",
+      "file": "public/service-photos/sx-groom-french-bulldog-v1.webp",
+      "width": 256,
+      "height": 256,
+      "generatedOn": "2026-11-16",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "7332887240f33d588f256b5a06cedb685ef73ddc44eb2bd3ceb23cd650e37a28",
+        "reviewers": [
+          "/root",
+          "/root/coverage_matrix"
+        ],
+        "method": "Root personally viewed the complete generated PNG and full-frame256px WebP. A recognisable adult dog of the named breed is groomed calmly by a fictional adult professional, natural hands, visible dog's face/ears, intact appropriate coat, no medical treatment, logos or notebook. French bulldog is one of the explicitly named French-bulldog/pug service alternatives; no false promise of every alternative in one picture. Generic illustrative activity, not actual provider premises, staff, customers or portfolio. Mechanical downscale and format conversion only, no crop or retouch; original PNG preserved unchanged."
+      }
+    },
+    {
+      "id": "sx-groom-chow-chow",
+      "label": "Груминг на Чао Чао",
+      "sourceFile": "exec-26de4484-e62e-4692-8934-dc6d5a0ed97f.png",
+      "sourceSha256": "b0a1fb89fe4a5918429d71ae020158d91e05776f08b01076b32b5641e83014e1",
+      "bytes": 14794,
+      "sha256": "ed52cbb3fdda8f8565b61b1434f00e910f9e5ad888fc5a39ba04ed0ecfcee974",
+      "prompt": "Use case: photorealistic-natural. Asset type: square service thumbnail for a Bulgarian local-services marketplace. Primary request: realistic full grooming and brushing of an adult reddish Chow Chow dog by an adult professional groomer. Scene: ordinary clean grooming salon, warm natural daylight, rubber grooming table and a softly blurred dryer in background. The clearly recognizable fluffy Chow Chow has small rounded ears, broad muzzle and thick intact double coat; calm and comfortable. A real human groomer gently brushes the dog's side with an appropriate slicker brush and naturally positioned hands. Close photographic composition, large dog central, entire face and ears visible with comfortable margins for a square thumbnail. Real fur and cloth textures, candid documentary photography rather than advertising gloss. Only one dog, accurate anatomy, no shaved or cut double coat, no medical treatment, no aggressive restraint. No text, brand marks, logos, notebook or watermark. Generic illustrative scene, not an identifiable real salon or endorsement.",
+      "file": "public/service-photos/sx-groom-chow-chow-v1.webp",
+      "width": 256,
+      "height": 256,
+      "generatedOn": "2026-11-16",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "b0a1fb89fe4a5918429d71ae020158d91e05776f08b01076b32b5641e83014e1",
+        "reviewers": [
+          "/root",
+          "/root/coverage_matrix"
+        ],
+        "method": "Root personally viewed the complete generated PNG and full-frame256px WebP. A recognisable adult Chow Chow is calmly brushed with a slicker brush by a fictional adult professional; natural hands, visible dog's face/ears and intact double coat, without shaving, medical treatment, logos or notebook. Brushing illustrates one part of full grooming, not proof that every package action is depicted. Generic illustrative activity, not actual provider premises, staff, customers or portfolio. Mechanical downscale and format conversion only, no crop or retouch; original PNG preserved unchanged."
+      }
+    },
+    {
       "id": "sx-outdoor-family-photoshoot",
       "label": "Семейна фотосесия на открито",
       "prompt": "Use case: photorealistic-natural. Asset type: square GoRez service thumbnail, illustrative outdoor family photography session. Primary request: a realistic professional woman photographer with a camera photographing a smiling family of two parents and their school-age child in a leafy city park, natural candid interaction. Composition: one coherent square photograph, no collage, photographer visible in the foreground side/back with camera at eye level, family clearly visible together in the central background, all heads fully within frame with generous top margin for thumbnail crops. Style: natural editorial photograph, lifelike skin and fabric textures, ordinary people, soft afternoon daylight, gentle background separation. Constraints: clearly outdoors, no studio equipment, no written words, no prices, no logos, no watermarks, no notebook, no glamour or artificial doll-like faces. This is generic AI illustrative artwork, not an actual business's photograph or portfolio.",
@@ -26027,9 +26073,9 @@
     }
   ],
   "report": {
-    "required": 1148,
-    "prepared": 1148,
-    "accepted": 1148,
+    "required": 1150,
+    "prepared": 1150,
+    "accepted": 1150,
     "pendingGeneration": [],
     "missingAsset": [],
     "unreviewed": [],

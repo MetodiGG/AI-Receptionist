@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-16",
+  "status": "bounded_target_discovery_two_new_owner_reviews_zero_admissions",
+  "scope": "New appointment-operated staff wash/detailing premises, prioritizing Vrazhdebna, Iliantsi and Kremikovtsi physical zero cells from snapshot005. At most six new primary owners were authorized, not six required admissions or a promise to find two eligible premises. Stopped after two substantive new owner reviews when remaining target discovery was known-held, directory/social-only, self-service, or wrong geography. This ledger alone changed; no data module, prices, account, booking or production write.",
+  "preflight": {
+    "snapshot": "docs/catalogue-coverage/coverage-20261116-batch-005.json",
+    "snapshotApprovedBusinesses": 1707,
+    "snapshotPhysicalPremises": 1515,
+    "runtimeSourceRows": 1730,
+    "targetCells": [
+      {"neighborhood": "Враждебна", "category": "car_wash", "count": 0},
+      {"neighborhood": "Илиянци", "category": "car_wash", "count": 0},
+      {"neighborhood": "Кремиковци", "category": "car_wash", "count": 0},
+      {"neighborhood": "Враждебна", "category": "detailing", "count": 0},
+      {"neighborhood": "Илиянци", "category": "detailing", "count": 0},
+      {"neighborhood": "Кремиковци", "category": "detailing", "count": 0}
+    ],
+    "finding": "Zeros are gaps in the source-premises ledger, not proof no providers exist or that fifty appointment-operated providers exist in each small quarter. Kremikovtsi administrative-district results are not automatically the Kremikovtsi quarter. Iliantsi boulevard or industrial-zone wording is not automatically the named quarter. Mobile or self-service options are not cloned into physical booked-service premises.",
+    "method": "Read current coverage workflow and existing auto002/detailing007/auto-other010 plus historical wash/detail and auto/sport holds locally. Before each of the two new owner-host requests, a separate local domain, brand, known professional phone and discovered premises search was completed and its output read. Repeated identity checks used the professional contacts learned from the owner. No existing hold or stopped host was reopened through another route."
+  },
+  "sourceSafety": {
+    "inheritedStopsRespected": ["SRV Detailing", "MotoExpert", "D&D owner aliases", "MAD Detailing", "AutoCosmetics", "MAD Garage", "Wash Depot", "MedinaMed429", "Studio24", "Setmore", "Calendly", "other existing restricted provider/owner hosts"],
+    "noCalendlyRequests": true,
+    "bookingFieldsEntered": 0,
+    "formsSubmitted": 0,
+    "callsEmailsMessagesUploadsOrConsentActions": 0,
+    "mapOrGeocoderRequests": 0,
+    "paidProviderRequests": 0,
+    "sourceImagesRatingsReviewsOrProtectedDescriptionsCopied": false,
+    "ordinaryGetQualification": "Robots/root inaccessibility and reader timeout only were followed by limited ordinary public HTTPS GET with normal TLS verification and manual redirect handling. Both inspected owner hosts returned ordinary200; no401/403/429/challenge or excluded endpoint was retried. No hidden API, state bundle, sitemap crawl, form action, account, CAPTCHA or alternate-source workaround used."
+  },
+  "ready": [],
+  "holds": [
+    {
+      "name": "GK Auto Detailing",
+      "website": "https://gkautodetailing.com/",
+      "professionalPhone": "+359887568730",
+      "status": "held_target_geography_and_precise_ordinary_appointment_scope_not_an_admission",
+      "admissionRecommendedWithoutRootReview": false,
+      "premises": {
+        "ownerAddress": "София, Герман1186, ул. Хан Аспарух3",
+        "ownerLocationLabel": "Герман, район Панчарево",
+        "sources": ["https://gkautodetailing.com/", "https://gkautodetailing.com/kontakti/", "https://gkautodetailing.com/privacy-policy/"],
+        "finding": "Current owner Home/FAQ, actual Contact and privacy address consistently give street3. Discovery's street13 is not copied, merged into a new branch or converted into coordinates. Actual settlement is German, not Vrazhdebna, Iliantsi or Kremikovtsi; no Sofia68134 quarter assignment or exact city identifier is fabricated. Outer-settlement admission requires a separately resolved scope/city decision, not geographical relabeling.",
+        "cityCodePrepared": null,
+        "neighborhoodPrepared": null,
+        "coordinates": null
+      },
+      "appointmentReview": {
+        "actualEntryFollowedFirst": "https://gkautodetailing.com/kontakti/",
+        "kind": "owned_contact_plus_explicit_advance_arrangement_FAQ_not_a_rendered_calendar",
+        "finding": "Actual Contact was followed before service/tariff review. It supplies the professional phone and a generic enquiry form. Current owner FAQ independently discusses an inspection before booking and Saturday work only by prior arrangement, with the same phone; extended vehicle drop-off/collection is also by agreement. No clear separate ordinary date/time request menu or explicit weekday service-specific phone-reservation invitation was established. Root must decide whether the actual advance-arrangement evidence suffices for a selected booked procedure; the generic enquiry form alone is not promoted into booking or a completed calendar."
+      },
+      "serviceAndTariffReview": {
+        "status": "complete_actual_owner_service_and_tariff_pages_read_no_inventory_prepared",
+        "serviceSource": "https://gkautodetailing.com/uslugi/",
+        "tariffSource": "https://gkautodetailing.com/tseni/",
+        "selectedFactsForPossibleIndependentReview": [
+          {"name": "Корекция на лака с базово керамично покритие", "kind": "range", "minimum": 450, "maximum": 600, "currency": "EUR", "sourceDurationText": "2–3дни", "durationMinutesPrepared": null, "qualification": "Price depends on vehicle size/condition; retain the combined operation rather than publishing this as polishing alone. No guaranteed correction percentage or durability/outcome claim imported."},
+          {"name": "Пълен интериорен детайлинг", "kind": "range", "minimum": 250, "maximum": 350, "currency": "EUR", "durationMinutesPrepared": null, "qualification": "Separate textile impregnation/leather coating are distinct tariff rows, not silently included extras. This range is not an ordinary exterior/complex wash fee."}
+        ],
+        "finding": "Read the full native Services and243-line Prices document to footer. Tariff includes distinct ceramics/PPF/interior/headlight/rim/motorcycle variants with units and conditions. Only two minimal factual range examples are retained for possible root review, not an approved whole tariff. No package division, invented exact minutes, fixed quote, product fee, staff rate, credential or warranty claim. This is priced evidence, never not_publicly_listed; neither amount was added to the catalogue."
+      },
+      "hoursReview": {
+        "sources": ["https://gkautodetailing.com/kontakti/", "https://gkautodetailing.com/"],
+        "observed": "Monday–Friday09:00–18:00; Saturday by prior arrangement in owner FAQ.",
+        "qualification": "Vehicle drop-off after07:30/collection by18:30, or specially arranged Sunday handling, are not continuous workshop hours, routine Sunday appointments or free slots. No weekly structured schedule prepared."
+      },
+      "sourcePolicy": {
+        "robots": {"url": "https://gkautodetailing.com/robots.txt", "status": 200, "finding": "Wildcard Disallow empty. Sitemap was not requested; this is not a licence."},
+        "privacy": {"url": "https://gkautodetailing.com/privacy-policy/", "status": 200, "finding": "Complete18-section linked policy read to footer, last-updatedMarch2018; it concerns personal inquiries/service contracts/cookies/data rights. No express automation, commercial-factual/database reuse ban observed. Ordinary copyright is not an owner licence or legal clearance. No separate actual Terms link surfaced in the inspected menu/footer."},
+        "access": "Reader returned Home, actual Contact, complete Services, complete Prices and complete Privacy. Robots was reader-inaccessible; a robots-only ordinaryGET returned200 before the later owner-page requests. No access denial, form, consent or Maps link used."
+      },
+      "deduplication": {"currentCatalogueAndResearchMatches": [], "checkedAliases": ["gkautodetailing", "GKAutoDetailing", "GK Auto Detailing", "superiorshine9", "887568730", "German HanAsparuh3/13"]},
+      "reviewedUrls": ["https://gkautodetailing.com/", "https://gkautodetailing.com/robots.txt", "https://gkautodetailing.com/kontakti/", "https://gkautodetailing.com/privacy-policy/", "https://gkautodetailing.com/uslugi/", "https://gkautodetailing.com/tseni/"],
+      "requiredBeforeAdmission": "Independent root review of actual appointment scope and any outer-settlement city eligibility, then an exact normalized inventory/price receipt and service photographs/tests if approved. It earns zero credit in the three target quarters and must not be imported as a Sofia-quarter business just to increase count."
+    },
+    {
+      "name": "Airflex",
+      "website": "https://airflex.bg/",
+      "professionalPhone": "+359888177600",
+      "status": "excluded_from_wash_detailing_pass_actual_air_suspension_repair_not_directory_wash_label",
+      "admissionRecommended": false,
+      "ownerPremisesObserved": "София, кв. Илиянци, бул. Рожен70А, на ъгъла с ул. Фрезия",
+      "finding": "Target discovery classified this as a wash. The entire actual owner root instead describes air-suspension refurbishment/repair, related suspension/diagnostics/tyre/rim service and hydraulic hoses; no wash or detailing appointment service was found in that root. It gives a general information/consultation contact and walk-in invitation, not an independently verified ordinary appointment invitation. Do not change category from a third-party directory or turn generic phone presence into Book.",
+      "pricingReview": "Owner root has literal numerical air-suspension repair-from pricing, but that is not a wash/detailing fee. No selected fee, missing-price receipt or completed model-specific repair menu is prepared. Linked manufacturer/hose/retail routes were not fetched after this task eligibility failed.",
+      "hoursObservedNotImported": "Owner root footer publishes Monday–Saturday09:00–21:00, Sundayrest. This does not establish actual booked wash operations or current slots.",
+      "sourcePolicyAndAccess": "Reader root timed out and robots was inaccessible. A robots-only ordinary publicGET returned200 with wp-admin exclusion before rootGET200. Entire comment/script/style-stripped root and actual anchor labels were read; no excluded admin path, sitemap, hidden API or form used. No full owner-policy or repair-admission clearance claimed after wash/detailing eligibility failed.",
+      "deduplication": {"currentCatalogueAndResearchMatches": [], "checkedTerms": ["airflex.bg", "Airflex", "Еърфлекс", "888177600", "Рожен70А"]},
+      "reviewedUrls": ["https://airflex.bg/robots.txt", "https://airflex.bg/"],
+      "requiredBeforeAnyDifferentTaskAdmission": "A separate independently authorized auto-repair review of the actual appointment route, selected current model/service fee and full applicable policy. This research does not establish a new bookable repair or wash record."
+    }
+  ],
+  "targetDiscoveryNotPromotedToOwnerEvidence": [
+    {"names": ["SIMPLY CAR WASH", "Автомивка Автолукс Враждебна", "Автомивка Враждебна46та", "Nadya", "TruckWash"], "finding": "Search/directories give names/addresses/contact or24h labels but no confirmed own-site appointment/menu/policy route in this pass. Directory ratings, prices/hours and a suggestion to telephone are not owner booking evidence. No target business admitted or owner domain guessed."},
+    {"names": ["QuickWash Рожен34", "5минути Ботевградско525", "self-service Rozhen23B", "TheBridgeCarWash"], "finding": "Self-service or mixed self-service/hand-wash discovery, with no verified owned staff appointment route. TheBridge is separately described as Chelopechene, not Kremikovtsi-quarter or Vrazhdebna merely because its directory appears there. No social login, walk-in-to-booking substitution or zone clone."},
+    {"names": ["RefreshAutoCosmetics", "LPGarage", "CompetitionAutoService"], "finding": "Only social/directory discovery established, with differing46ta2/Batareya55B/Botevgradsko441A locations. No owned ordinary appointment/menu proof or source-policy review. No private social-content retrieval, guessed current premises or per-alias listing."},
+    {"names": ["GLR Iliantsi12", "automotive site Iliantsi20", "new construction/land-sale leads"], "finding": "Boulevard name, administrative district, registry/management or proposed construction is not the current actual target-quarter appointment premises. No residential/register address or advertised property is converted into an operating wash."},
+    {"names": ["Dilli’sDetailing", "regional namesakes and unrelated foreign wash results"], "finding": "Discovery points to Bankya/other settlements or foreign businesses rather than the target quarters. No owner request or false Sofia-quarter clone."}
+  ],
+  "existingIdentitiesOrHoldsExcludedLocally": [
+    {"names": ["SRV", "JordanRacing", "NASTARTA", "NVS", "PrimeCarWash", "Lasurit", "RocketMotorsport", "D&D", "DGAutoDetailing"], "finding": "Local receipts disclosed express source restrictions, unrendered actual Book, ambiguous premises/operation or missing appointment evidence before new source requests. Search-index snippets did not cause a refetch, admission or fee-absence claim."},
+    {"names": ["Katerini", "EID Iliantsi94", "MYGARAGE", "Nebula", "Georgi’sGarage", "IQ", "LuxSpa", "CarKings", "Signature", "SofiaDetailing"], "finding": "Existing or previously reviewed identities, not new primary owners or extra nearby branches. No records modified."}
+  ],
+  "validation": {
+    "newPrimaryOwnerLimit": 6,
+    "newPrimaryOwnersSubstantivelyReviewed": 2,
+    "newOwnerAccessDenials": 0,
+    "sourceCompleteCandidatesReadyForTargetAdmission": 0,
+    "newBusinessesAdded": 0,
+    "targetPhysicalCellsAdded": 0,
+    "cataloguePricesAdded": 0,
+    "currentSourceRowsUnchangedByTask": true,
+    "otherFilesEditedByTask": false,
+    "productionWrites": false,
+    "commitOrDeployment": false,
+    "testScope": "Research JSON parse, local runtime/name/domain/phone/premises duplicate checks and scoped diff-check only. No actual new service calendar, app test suite, build, source appointment, booking or production success claimed."
+  }
+}

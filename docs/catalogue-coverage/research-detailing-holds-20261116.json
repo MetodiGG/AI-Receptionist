@@ -1,0 +1,33 @@
+{
+  "checkedOn": "2026-11-16",
+  "integratedBusinessCount": 0,
+  "scope": "Undercovered car-wash/detailing cells; inspected actual booking entry before services and contacts. These are leads, not admitted catalogue businesses.",
+  "holds": [
+    {
+      "name": "AutoCosmetics.bg / Дани Детайлинг",
+      "website": "https://autocosmetics.bg/",
+      "publishedNeighborhood": "Връбница 1",
+      "publishedAddress": "София, ж.к. Връбница 1, бл. 541",
+      "publicBusinessPhone": "+359884621051",
+      "reviewedUrls": ["https://autocosmetics.bg/", "https://autocosmetics.bg/kontakti/", "https://autocosmetics.bg/polirane-na-farove/", "https://autocosmetics.bg/polirane-na-avtomobil/", "https://autocosmetics.bg/postavyane-na-ppf-folio/"],
+      "priceFactsForLaterReview": [
+        {"service": "Полиране на фарове", "amount": 60, "currency": "EUR", "kind": "fixed", "sourceUrl": "https://autocosmetics.bg/polirane-na-farove/"},
+        {"service": "Полиране на автомобил", "amount": 180, "maximum": 610, "currency": "EUR", "kind": "range", "qualification": "Ориентировъчен диапазон; около 180 за базова едноетапна услуга, окончателна оферта след оглед според размер, боя и степен на корекция.", "sourceUrl": "https://autocosmetics.bg/polirane-na-avtomobil/"}
+      ],
+      "reason": "Own service/contact pages have contact actions and published procedures/prices, but no explicit appointment invitation or actual booking menu found in the inspected pages. A retail product shop phone and a contact form alone do not establish booking eligibility. Do not invent an appointment flow or import product amounts. Hours not established."
+    },
+    {
+      "name": "MAD GARAGE DETAILING",
+      "website": "https://madgaragedetailing.com/",
+      "reviewedUrls": ["https://madgaragedetailing.com/", "https://madgaragedetailing.com/kontakti/"],
+      "reason": "Current first-party contact says Central Station, Predgarov Square 2, while an external partner lead says Vardar3. Do not copy the old lead address or infer neighborhood. No explicit booking invitation found; linked lacquer-correction page timed out. Inaccessible menu is not an unpublished tariff."
+    },
+    {
+      "name": "Wash Depot · four Sofia premises",
+      "website": "https://washdepot.bg/",
+      "reviewedUrls": ["https://washdepot.bg/", "https://washdepot.bg/общи-условия/"],
+      "reason": "Owner site lists four branch contacts/hours and actual booking through a mobile app; the visible Book link only scrolls to the app section. No publicly inspectable branch-specific booking/service tariff menu was verified. Do not infer chain-wide services/prices or mark an uninspected app tariff not_publicly_listed. Do not create four admitted businesses from the homepage list alone."
+    }
+  ],
+  "safeguards": "No bookings, contact messages, app installs, customer data, Google Places calls or geocoding requests. No external ratings/reviews/photos copied."
+}

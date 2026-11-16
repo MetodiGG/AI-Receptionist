@@ -1,0 +1,71 @@
+{
+  "checkedOn": "2026-11-16",
+  "status": "research_only_not_integrated",
+  "priority": "Sofia neighborhood/category gaps before raw growth",
+  "scope": "Pet grooming in undercovered neighborhoods; no veterinary or medical services added",
+  "method": "Public first-party booking invitation, then linked services and contact pages. Compared against all 43 existing pet-service businesses and searched all catalogue data by name, domain and phone. No reservation, notification or account creation.",
+  "readyForInventoryReview": [
+    {
+      "proposedId": "sofia-north-dog-grooming-vrabnitsa637",
+      "name": "North Dog Grooming",
+      "category": "pets",
+      "cityCode": "68134",
+      "neighborhood": "Връбница 2",
+      "address": "София, ж.к. Връбница 2, бл. 637, до паркинга на Северен парк",
+      "coordinates": null,
+      "locationKind": "premises",
+      "website": "https://sites.google.com/view/northdoggrooming",
+      "phone": "+359898776598",
+      "booking": {"kind": "phone", "phone": "+359898776598"},
+      "bookingEvidence": {"url": "https://sites.google.com/view/northdoggrooming", "excerpt": "Запазете своя час на телефон: 0898 77 65 98"},
+      "contactSource": "https://sites.google.com/view/northdoggrooming/контакти",
+      "serviceSource": "https://sites.google.com/view/northdoggrooming/услуги",
+      "services": [
+        {"name": "Къпане и сушене на куче", "category": "pets", "appointmentModel": "appointment"},
+        {"name": "Подстригване и оформяне на куче", "category": "pets", "appointmentModel": "appointment"},
+        {"name": "Разресване на куче и премахване на заплитания", "category": "pets", "appointmentModel": "appointment"}
+      ],
+      "hours": {"sourceUrl": "https://sites.google.com/view/northdoggrooming/контакти", "published": "Вторник–Събота 10:00–18:00; Неделя и Понеделник почивни"},
+      "pricingReview": {
+        "status": "service_reviewed",
+        "reason": "not_publicly_listed",
+        "bookingReviewed": true,
+        "servicesReviewed": true,
+        "note": "The actual booking route is the published telephone invitation. The linked service page lists grooming procedures without amounts, price-list links or an online booking calendar. The contact page supplies opening hours and premises address. Prices must remain absent; this is not a completed price review."
+      },
+      "retrieval": "Homepage read using web open; actual navigation URLs found in first-party HTML. Contact/services pages read directly by public HTTPS GET because web reader returned cache miss. No browser execution or booking interaction.",
+      "deduplication": "No current catalogue match by North Dog Grooming, northdoggrooming domain path or +359898776598.",
+      "remainingBeforeIntegration": ["Bind review to normalized inventory identity", "Review exact service-photo associations", "Run catalogue, pricing and onboarding gates"]
+    }
+  ],
+  "holds": [
+    {
+      "name": "VIP Grooming",
+      "website": "https://www.vipgrooming.bg/",
+      "lead": "Search result shows phone booking and Нова Дружба, сграда 5",
+      "reason": "First-party page repeatedly timed out or returned 502. Search snippets are not a completed actual booking/services/address/tariff review. Do not integrate or count toward neighborhood coverage."
+    },
+    {
+      "name": "Груминг салон Лудият Макс",
+      "website": "https://madmax-grooming.com/",
+      "lead": "First-party metadata mentions Стрелбище, ул. Майор Първан Тошев 8 and an online-booking anchor",
+      "reason": "Web reader exposes only metadata and anchor links; following booking/services/contact returns the same metadata, not the actual menu. A directory lists a different Сухата река branch but no first-party branch evidence verified. Do not infer a second premises, prices or opening hours; hold for public interactive menu review."
+    },
+    {
+      "name": "Bary's Grooming Family",
+      "leadSource": "https://petalapa.com/groomers/sofiya/bary-s-grooming-family-sofiya",
+      "reason": "Directory lead in Левски зона Г only. No first-party appointment/services/tariff/contact evidence verified. A legal registered-office address is not a salon premises address; do not import it."
+    },
+    {
+      "name": "Груминг салон Шикозни лапи",
+      "leadSource": "https://www.oink.bg/biz/gruming_salon111029",
+      "reason": "Directory lead in Хаджи Димитър only; no first-party appointment/services review. Do not copy directory prices, hours, ratings, photos or coordinates."
+    }
+  ],
+  "rejectedGeographicFalsePositive": {
+    "name": "Dog Grooming Studio Barry",
+    "reason": "Search result is Бенковски postcode 4201, not Sofia's Бенковски neighborhood. Not a Sofia candidate."
+  },
+  "integratedBusinessCount": 0,
+  "pauseReason": "Parent requested finishing this small research ledger and stopping catalogue research to prioritize the new UI fix."
+}

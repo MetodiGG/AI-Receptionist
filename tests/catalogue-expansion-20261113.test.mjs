@@ -172,7 +172,10 @@ test('new services have activity-specific photos, never emoji or neutral appoint
 })
 
 test('neighborhood/category report counts businesses separately from services and citywide mobile providers', () => {
-  const report = catalogueExpansionReport(SOFIA_CATALOGUE, { baseline, now })
+  // Freeze this dated cohort, not the whole evolving current source count.
+  // Later batches have their own source receipts and coverage assertions.
+  const cohort = SOFIA_CATALOGUE.filter(row => row.verification.checkedOn <= '2026-11-14')
+  const report = catalogueExpansionReport(cohort, { baseline, now })
   assert.equal(report.comparison.addedBusinesses, additions.length)
   assert.equal(report.comparison.addedServiceFacts, additions.reduce((count, row) => count + row.services.length, 0))
   assert.equal(report.comparison.addedByNeighborhood.reduce((count, row) => count + row.businesses, 0), additions.length)

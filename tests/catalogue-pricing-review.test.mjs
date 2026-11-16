@@ -7,6 +7,7 @@ import { pricingIdentity, assessPricingReview, auditCataloguePricing } from '../
 import report from '../docs/catalogue-pricing/booking-flow-audit-20261110.json' with { type: 'json' }
 import { NEIGHBORHOOD_20261111_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-expansion-20261111.mjs'
 import { NEIGHBORHOOD_20261113_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-expansion-20261113.mjs'
+import { COVERAGE_20261116_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-coverage-20261116.mjs'
 const now = Date.parse('2026-11-11T12:00:00Z')
 const record = () => structuredClone(SOFIA_CATALOGUE.find(row => row.id === 'sofia-cut-n-chill'))
 const review = () => structuredClone(BOOKING_PRICE_REVIEWS.find(row => row.id === 'sofia-cut-n-chill'))
@@ -74,7 +75,10 @@ test('dated audit receipts cover every current ID without rewriting the historic
   assert.ok([...newIds].every(id => !historicalIds.has(id)))
   const latestIds = NEIGHBORHOOD_20261113_REVIEWS.map(row => row.id)
   assert.ok(latestIds.every(id => !historicalIds.has(id) && !newIds.has(id)))
-  const auditedIds = new Set([...historicalIds, ...newIds, ...latestIds])
+  const coverageIds = COVERAGE_20261116_REVIEWS.map(row => row.id)
+  assert.ok(coverageIds.every(id => !historicalIds.has(id) && !newIds.has(id) && !latestIds.includes(id)))
+  assert.equal(new Set(coverageIds).size, coverageIds.length)
+  const auditedIds = new Set([...historicalIds, ...newIds, ...latestIds, ...coverageIds])
   assert.equal(auditedIds.size, SOFIA_CATALOGUE.length)
   assert.ok(SOFIA_CATALOGUE.every(row => auditedIds.has(row.id)))
   for (const review of NEIGHBORHOOD_20261111_REVIEWS) {

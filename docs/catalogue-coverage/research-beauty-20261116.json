@@ -1,0 +1,133 @@
+{
+  "version": 1,
+  "checkedOn": "2026-11-16",
+  "scope": "Bounded manual discovery of beauty/hair leads for Sofia neighborhoods with zero currently mapped premises. Research only: no catalogue imports, provider crawling, coordinates, bookings, phone calls or production mutations.",
+  "catalogueBaseline": {
+    "approvedBusinesses": 1693,
+    "mappedZeroPremisesNeighborhoods": ["Враждебна", "Илиянци", "Кремиковци", "Обеля 1", "Република", "Свобода", "Суходол", "Толстой", "Триъгълника", "Факултета", "Филиповци", "Фондови жилища"],
+    "dedupeCheckedAgainst": ["lib/discovery/catalogue-data", "lib/discovery/sofia-catalogue.mjs"],
+    "dedupeMethod": "Local exact/variant name and provider-slug search. None of these four names/slugs found; this is not final address/contact identity deduplication.",
+    "newlyImportedBusinesses": 0
+  },
+  "queueProposal": {
+    "status": "proposal_only_not_applied_to_snapshot_or_runtime",
+    "existingSnapshotPreserved": "coverage-20261116.json",
+    "problem": "All 132 existing home_services businesses are service_area providers. The physical-premises matrix correctly has zero offices, but treating those zeros as an office acquisition queue does not measure customer choice for home visits.",
+    "ledgers": [
+      {
+        "name": "physicalPremisesIds",
+        "meaning": "Unique approved premises with sourced exact neighborhood and a real service in the category. Existing physical-coverage counts remain unchanged."
+      },
+      {
+        "name": "verifiedVisitProviderIds",
+        "meaning": "Unique approved providers with an explicitly reviewed first-party claim of serving this exact neighborhood, or an explicit Sofia-wide home-visit claim covering it. The existing locationKind or cityCode alone is insufficient.",
+        "requiredEvidence": ["named bookable home/mobile service", "public first-party service-area source URL", "short literal coverage excerpt", "review date and expiry", "scope type: exact neighborhood or explicit Sofia-wide coverage", "real booking entry reviewed"],
+        "unknownCoverage": "Leave unknown; do not count a generic service_area record automatically in 97 neighborhoods."
+      }
+    ],
+    "effectiveOptions": "Cardinality of the union of physicalPremisesIds and verifiedVisitProviderIds for one neighborhood/category. One provider ID counts once; a citywide provider is not cloned into multiple catalogue records. Preserve the physical and visiting subtotals separately.",
+    "dispatch": [
+      "Lowest verified effective-options count first, then lowest neighborhood coverage and scarcest relevant category; stable alphabetical ties.",
+      "For home_visit-only categories, send the gap to a service-area evidence review queue, not a request to invent local offices.",
+      "Maintain a separate address/neighborhood-resolution queue for the 592 current premises without a neighborhood and 34 with unresolved broad areas. Resolve from authoritative source addresses rather than assigning guessed quarter centroids.",
+      "Unknown visiting coverage does not become zero confirmed supply or false citywide coverage. Keep its evidence status explicit.",
+      "No public filtering, ranking, taxonomy or service-area semantics change is authorized by this proposal."
+    ]
+  },
+  "promisingZeroCells": [
+    {
+      "neighborhood": "Обеля 1",
+      "categoryIds": ["hair", "beauty", "nails"],
+      "currentMappedPremises": 0,
+      "whyPromising": "Two independently discovered named salons have explicit Obelya1 address signals. One has a provider booking/service menu indexed, but live access was blocked. These are leads, not verified additions."
+    },
+    {
+      "neighborhood": "Свобода",
+      "categoryIds": ["nails", "beauty"],
+      "currentMappedPremises": 0,
+      "whyPromising": "Mariana Art has a named provider booking/service-menu result with a specific Svoboda block. Direct live review remains blocked; no current price or hours fact has been imported."
+    },
+    {
+      "neighborhood": "Суходол",
+      "categoryIds": ["hair", "barber", "nails"],
+      "currentMappedPremises": 0,
+      "whyPromising": "Nilia has a recent dated social-post discovery signal for a barber zone at its Suhodol salon, but only a mirror was accessible. The actual owner page and booking invitation must be reviewed first."
+    }
+  ],
+  "candidates": [
+    {
+      "name": "Дияна Фешън",
+      "candidateNeighborhood": "Обеля 1",
+      "candidateCategoryIds": ["hair", "barber", "nails", "beauty"],
+      "status": "held_booking_provider_access_blocked",
+      "ownedWebsiteConfirmed": false,
+      "discoveryUrls": ["https://studio24.bg/diyana-feshan-s9313"],
+      "reportedAddressUnverified": "София, ж.к. Обеля 1, бл. 120",
+      "directVisit": {
+        "url": "https://studio24.bg/diyana-feshan-s9313",
+        "result": "403 Forbidden",
+        "response": "Stopped; no retries via locale variants, proxy, authentication or alternate extraction."
+      },
+      "serviceMenuSignal": "Indexed booking result names haircut, men's hair coloring, beard, nails and face/wax categories. This signal is not a completed service/price review.",
+      "priceFactsImported": [],
+      "hoursFactsImported": [],
+      "nextCheck": "Find and review an actual first-party website/social booking entry. Complete permitted live booking-menu and branch-address review; otherwise keep held."
+    },
+    {
+      "name": "Mariana Art Nails & Beauty Salon",
+      "candidateNeighborhood": "Свобода",
+      "candidateCategoryIds": ["nails", "beauty"],
+      "status": "held_booking_provider_access_blocked",
+      "ownedWebsiteConfirmed": false,
+      "discoveryUrls": ["https://studio24.bg/mariana-art-nails-beauty-salon-s9753"],
+      "reportedAddressUnverified": "София, ж.к. Свобода, бл. 32 (срещу бл. 4В)",
+      "directVisit": {
+        "url": "https://studio24.bg/mariana-art-nails-beauty-salon-s9753",
+        "result": "403 Forbidden",
+        "response": "Stopped; indexed translated pages were not treated as a successful live-menu review."
+      },
+      "serviceMenuSignal": "Indexed booking profile contains nails and lashes services with staff-specific variants. Do not collapse staff/length variants, package totals or add-ons into one normal visit.",
+      "priceFactsImported": [],
+      "hoursFactsImported": [],
+      "nextCheck": "Establish first-party booking ownership/link and review the live service menu with branch/staff variants; keep blocked status until accessible under provider rules."
+    },
+    {
+      "name": "NILIA hair salon",
+      "candidateNeighborhood": "Суходол",
+      "candidateCategoryIds": ["hair", "barber", "nails"],
+      "status": "held_first_party_booking_not_yet_verified",
+      "ownedWebsiteConfirmed": false,
+      "discoveryUrls": ["https://www.beautynailhairsalons.com/BG/Sofia/520358591670204/NILIA-hair-salon"],
+      "reportedAddressUnverified": "гр. София, кв. Суходол, ул. Траян Танев 23",
+      "discoverySignal": "A social mirror reproduces a 27.01.2026 post describing a barber zone and the handle kris_cuts_barber. Mirrors are lead discovery only, not authoritative import evidence.",
+      "serviceMenuSignal": "Haircut/beard/brow/ears-and-nose-wax service wording appears in the mirrored post; exact current owner inventory and booking invitation remain unverified.",
+      "priceFactsImported": [],
+      "hoursFactsImported": [],
+      "nextCheck": "Visit the real public owner/barber profile without login bypass; confirm the current premises, booking invitation and exact services. Do not copy old mirrored tariffs or medical-effect claims."
+    },
+    {
+      "name": "ИВАЯ · салон за красота",
+      "candidateNeighborhood": "Обеля 1",
+      "candidateCategoryIds": ["hair", "nails", "beauty"],
+      "status": "held_legacy_website_unavailable",
+      "ownedWebsiteConfirmed": false,
+      "discoveryUrls": ["https://frizorski.uslugi.catalog.bg/company/ивая+салон+за+красота/41296"],
+      "reportedAddressUnverified": "София, кв. Обеля 1, бл. 107, партер",
+      "legacyWebsiteLead": "http://www.ivaia.salonia.bg",
+      "directVisit": {
+        "url": "https://ivaia.salonia.bg/",
+        "result": "Inaccessible via web tool",
+        "response": "No current booking/services evidence established. A legacy directory website link is not proof the site or salon remains active."
+      },
+      "priceFactsImported": [],
+      "hoursFactsImported": [],
+      "nextCheck": "Find a current owner-controlled HTTPS site or public official booking page and confirm the active branch. Do not import from the old directory record alone."
+    }
+  ],
+  "researchLimitations": [
+    "No currently accessible owned website with a successfully reviewed actual Book flow was confirmed for these four zero-neighborhood leads. They must not be reported as approved new businesses.",
+    "Search-index address/service signals may be stale and are retained only to guide manual verification. No Google/third-party reviews, ratings, photos or coordinates were imported.",
+    "Provider 403 responses are not evidence of unpublished prices; none of the candidates qualifies for not_publicly_listed merely because access failed.",
+    "The 50-per-cell target is not evidence that 50 eligible businesses exist in each neighborhood/category. Genuine scarcity remains explicit."
+  ]
+}

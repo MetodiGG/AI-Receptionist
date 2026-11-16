@@ -1,0 +1,49 @@
+{
+  "checkedOn": "2026-11-16",
+  "status": "frozen_two_source_complete_businesses_not_published",
+  "priority": "Real physical businesses in under-covered northern Sofia neighborhoods and their actual offered categories; never clone a citywide provider or neighborhood SEO page to meet a quota.",
+  "scope": "Public read-only first-party review. No bookings, forms, customer inputs, phone calls, messages, Maps/geocoding, accounts, paid providers or production writes.",
+  "ready": [{
+    "id": "sofia-agron-service-benkovski-karavelov28",
+    "business": "Агрон Сервиз · Бенковски",
+    "neighborhood": "Бенковски",
+    "category": "auto_repair",
+    "sourceUrls": ["https://agronservice.bg/robots.txt", "https://agronservice.bg/", "https://agronservice.bg/zayavka-za-remont/", "https://agronservice.bg/uslugi/", "https://agronservice.bg/kontakti/", "https://agronservice.bg/chesto-zadavani-vaprosi/", "https://agronservice.bg/poveritelnost/"],
+    "bookingFinding": "Own root Book followed first. Complete ordinary public HTTPS200 request document reviewed: repair/maintenance kind, vehicle, applicant, desired working day/time band, consent and review. Staff callbacks confirm day/time; not an instant slot calendar. No form interaction or submission performed.",
+    "serviceFinding": "Four genuine own maintenance/mechanic operations retained: oil/filter, brakes, chassis and front/rear alignment. Included pre-handover carwash, retail parts and insurer compensation are not standalone appointments.",
+    "priceFinding": "No numeric selected tariff on the fully read request, Services, Contact or FAQ. FAQ explicitly says individual EUR quotation after inspection/diagnosis and approval before repair. Missing fees remain absent; service_reviewed, not price-reviewed.",
+    "addressFinding": "Own root/Contact/FAQ/Privacy consistently identify Sofia, Benkovski industrial zone, Lyuben Karavelov28. Public29367344 and886434910 are the same operator. No inferred coordinates.",
+    "hoursFinding": "Own Contact: MonFri08:30–18:00; SatSunclosed. Only explicit weekdays encoded.",
+    "sourceUseFinding": "Own robots allows ordinary pages, disallows status query/API/stats paths, none requested. Full current Privacy read; no separate Terms anchor or factual/database extraction prohibition found; no legal-licence assertion. Only minimal merchant/service facts retained, no source photos/prose/reviews/ratings.",
+    "integration": "Root must independently review, bind the exact normalized inventory, attach semantically matching approved photos and execute aggregate/onboarding/discovery tests before publication."
+  }, {
+    "id": "sofia-vas-val-auto-malashevtsi-lavandula53",
+    "business": "Вас Вал Авто · Малашевци",
+    "neighborhood": "Малашевци",
+    "category": "auto_repair",
+    "sourceUrls": ["https://vasvalauto.com/robots.txt", "https://vasvalauto.com/", "https://vasvalauto.com/index.php?lang=1&page=2", "https://vasvalauto.com/map.php?lang=1&page=1", "https://vasvalauto.com/faq.php?lang=1&page=5"],
+    "bookingFinding": "No separate root Book control. The actual service/appointment entry is the owned Services page, whose named computer-diagnostics section explicitly invites a phone call to arrange a time. Same published887471956. Only that appointment-qualified service retained.",
+    "priceFinding": "Entire selected Services, root, Contact and FAQ read to EOF. No numeric diagnostic tariff, separate price menu or blocked tariff found. Retail product menus are not service prices. No invented fee or free diagnostic claim.",
+    "addressFinding": "Owner root, Contact and FAQ explicitly identify Malashevtsi, Lavandula53, Sofia. Malformed own GPS text not reinterpreted as a precise point.",
+    "hoursFinding": "No own garage weekly timetable observed. Related same-operator RoyalEnfield retail/test-drive hours not imported.",
+    "sourceUseFinding": "Public robots HTTPS200 contains empty wildcard instructions and specific named email-harvester bans. No blocked path or harvesting performed. No separate legal terms/policy navigation surfaced; no licence or legal-clearance assertion. Only independent minimal service/contact/premise facts, no authored prose/photos/reviews/ratings.",
+    "dedupeFinding": "Runtime and existing-intake canonical domain,887471956, brand and Lavandula53 yielded zero existing operator. Related motorcycle-distribution brand not added as a second venue."
+  }],
+  "holds": [
+    {"business": "Прайм Ауто", "website": "https://primeauto.bg/", "reviewedUrls": ["https://primeauto.bg/robots.txt", "https://primeauto.bg/"], "reason": "Own root confirms Vrazhdebna Yapadzha11 and real mechanical services but only generic contact, no explicit appointment invitation or actual booking entry. No record, prices or unpublished-price receipt admitted."},
+    {"business": "ГТП мотори · Бенковски", "website": "https://gtp-motori.com/", "reviewedUrls": ["https://gtp-motori.com/robots.txt", "https://gtp-motori.com/", "https://gtp-motori.com/contact.php"], "reason": "Own root and Contact identify Benkovski LazarMihaylov36 and published tariffs/hours, but no explicit appointment booking entry. Public walk-in tariff alone does not satisfy the catalogue appointment rule; no fees imported."},
+    {"business": "D.G. Автосервиз", "website": "https://dgavtoservice.com/", "reviewedUrls": ["https://dgavtoservice.com/robots.txt", "https://dgavtoservice.com/", "https://dgavtoservice.com/booking/"], "reason": "Own Book points to Setmore. Prior repository-wide provider STOP found before any Setmore request. No provider page accessed, no generic telephone silently substituted as a verified independent booking flow, no record imported."},
+    {"business": "Гуми за Вас · Г. Минова", "website": "https://www.gumizavas.com/", "reviewedUrls": ["https://www.gumizavas.com/robots.txt", "https://www.gumizavas.com/"], "reason": "Own root establishes a citywide emergency mobile tyre operator with a Vrubnitsa address. Current evidence does not establish separately pre-bookable physical-premises service/hours; do not count the mobile operation as a new local branch or clone it into coverage cells."},
+    {"business": "Интерспийд · Обеля", "website": "https://www.interspeed.bg/", "reviewedUrls": ["https://www.interspeed.bg/robots.txt", "https://www.interspeed.bg/"], "reason": "Own root has a garage contact but the prominent24/7hours describe filling stations, not a proven service booking schedule. No actual appointment entry or mechanic tariff reviewed; no record or guessed garage hours."},
+    {"business": "NCar · Левски Г", "website": "https://ncar.bg/", "reviewedUrls": ["https://ncar.bg/robots.txt", "https://ncar.bg/", "https://ncar.bg/booking/", "https://ncar.bg/годишен-технически-преглед/"], "reason": "Actual owned Book public HTML contains day/time prompts but the service menu/calendar is not fully rendered or verified configured. Root has unfinished placeholder About and empty-service content. Selected technical-inspection page is real but does not establish a separate independent phone-appointment route. Hold rather than asserting completed booking review or no public tariff. No date/input/nextstep/form/account actions."},
+    {"business": "Комфорт Транс old garage lead", "website": "https://www.comfort-trans-bg.com/", "reviewedUrls": ["https://www.comfort-trans-bg.com/robots.txt", "https://www.comfort-trans-bg.com/"], "reason": "Current owner root is a coach-rental/passenger-transport operator at Maritsa11/Odesa49, not primary proof of the older Obelya garage listing. No identity/address/repair-price facts transferred from directories; unrelated operator is not admitted as an auto-repair business."},
+    {"business": "КАМ Моторс Дизайн", "website": "https://kam.abstudiodesign.com/", "reviewedUrls": ["https://kam.abstudiodesign.com/robots.txt", "https://kam.abstudiodesign.com/"], "reason": "Own public studio-hosted page lists Benkovski GeleKitov6 and services but only a generic contact/message form, with no explicit appointment invitation. No appointment inventory or unpublished-price receipt admitted."}
+  ],
+  "priorSourceStopsRespected": [
+    {"website": "https://motoexpert.bg/", "source": "docs/catalogue-pricing/expansion-auto-sport-further-20261113.json", "reason": "Prior explicit extraction/database/public commercial reuse restriction; no fresh owner-page requests or new branches."},
+    {"website": "https://srv-detailing.bg/", "source": "docs/catalogue-pricing/expansion-auto-sport-2000-003-20261113.json", "reason": "Prior source-terms STOP; no fresh owner-page requests or intake."}
+  ],
+  "duplicatesNotAdded": ["Катерини · Ломско252", "Е и Д · Военна рампа", "Алексов Ауто · Требич", "Авто-електро сервиз ЯКИ · Връбница1", "D-Bros Automotive", "Sofia Detailing Studio"],
+  "validation": "validateCatalogue plus auditCatalogueBatch against current SOFIA_CATALOGUE and assessPricingReview with temporary normalized in-memory identities; no stored fingerprint or aggregate changed by agent.",
+  "researchContinues": false
+}

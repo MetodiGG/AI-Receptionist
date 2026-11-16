@@ -1,0 +1,18 @@
+{
+  "checkedOn": "2026-11-16",
+  "status": "reviewed_change; release tracked in batch-001-20261116.json and its GitHub PR",
+  "newBusinessesAdded": 0,
+  "existingRecordsUpdated": 1,
+  "records": [{
+    "id": "sofia-uli-nails",
+    "sourceUrl": "https://uli.bg/contacts",
+    "verifiedBy": "Root real-browser review of the current public first-party Contacts page, following the independent recovery intake",
+    "sourceNeighborhoodEvidence": "The owner explicitly names кв. Гео Милев, not just the street name.",
+    "sourceDestinationUrl": "https://www.waze.com/ul?ll=42.684432%2C23.3582824&navigate=yes",
+    "sourceDestinationReview": "Literal Waze destination embedded by the owner alongside the same ul.GeoMilev22 address. The map provider itself was not queried. No municipal centroid, guessed GPS decimal or bulk geocoder used.",
+    "before": {"neighborhood": null, "coordinates": null},
+    "after": {"neighborhood": "Гео Милев", "latitude": 42.684432, "longitude": 23.3582824, "method": "first_party_coordinates", "sourceAddress": "София, ул. Гео Милев 22"},
+    "unchanged": ["id", "name", "street address", "website", "phone", "services", "prices", "booking destination", "working hours", "historic price-review identities"],
+    "binding": "The new point explicitly binds sourceAddress and passes catalogueBoundCoordinates; changing the street invalidates it. No legacy or official-coordinate receipt was refreshed."
+  }]
+}

@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "reviewedOn": "2026-11-16",
+  "status": "research_complete_no_admissions",
+  "scope": "Read-only owner-source research for new appointment-based automotive premises in sparse northern/eastern Sofia neighborhoods. No catalogue module, inventory identity, baseline, production record or booking changed.",
+  "priorityNeighborhoods": ["Захарна фабрика", "Военна рампа", "Илиянци", "Враждебна", "Сухата река", "Левски"],
+  "ready": [],
+  "holds": [
+    {
+      "name": "DG AutoDetailing Studio",
+      "website": "https://dg-autodetailing.com/",
+      "status": "held_exact_premises_address",
+      "reviewedUrls": ["https://dg-autodetailing.com/robots.txt", "https://dg-autodetailing.com/"],
+      "ownerFacts": {
+        "addressLiteral": "гр. София, кв. Сухата Река (само с предварителна уговорка)",
+        "phones": ["+359882019240", "+359884570470"],
+        "servicesWithIndividualQuote": ["Корекция на лаково покритие", "Интериорно почистване", "Нанасяне на защитни покрития"],
+        "unimportedHeadlightTariffLiteral": "Полиране на фарове + керамична UV защита е 100лв /при посещение на адрес е 140лв/."
+      },
+      "findings": "Full one-page owner menu and linked telephone routes reviewed. Prior arrangement is explicit, but only the quarter is supplied for the studio. No street, number, weekly hours, duration or coordinates are published. The three other named services are individually quoted, while the known headlight tariff is BGN-only and undated: neither amount is converted or imported. Headlight home attendance does not prove that the selected other services are mobile. Runtime1719 and current intake/research files have no matching host, normalized phone or brand. Robots200 excludes only wp-admin; no separate terms/privacy navigation surfaced. No photos, reviews or expressive prose copied; no legal-clearance assertion.",
+      "requiredBeforeAdmission": "Owner-confirmed exact studio street/number and directions, or independent owner evidence that specific selected services are provided on customer premises. Keep zero physical admissions until clarified."
+    },
+    {
+      "name": "Premium Auto",
+      "website": "https://premiumauto.bg/",
+      "status": "held_premises_identity_overlap",
+      "reviewedUrls": ["https://premiumauto.bg/robots.txt", "https://premiumauto.bg/", "https://premiumauto.bg/contacts/", "https://premiumauto.bg/faq/", "https://premiumauto.bg/for-us/"],
+      "ownerFacts": {"address": "София, кв. Военна рампа, бул. Илиянци 94", "phone": "+359886171766", "hours": "Понеделник–Петък09:00–18:00"},
+      "findings": "Own root explicitly instructs contacting a representative to arrange a convenient appointment; FAQ recommends prior booking. Contact identifies the same exact premises as existing sofia-eid-service-iliantsi94, although the published phone differs. About/FAQ retain template sections, which were not treated as business facts. Root offers maintenance, alignment, tyres, air-conditioning, electrical work and diagnostics. No completed selected-inventory price review is asserted. Robots200 excludes wp-admin; footer legal labels return root or are inert, not reviewed legal policies.",
+      "requiredBeforeAdmission": "Confirm genuinely separate operating premises/business identity rather than a prior name or alias at Iliantsi94. Do not increase neighborhood count from branding alone."
+    },
+    {
+      "name": "Car Paint Service",
+      "website": "https://carpaintservice.bg/",
+      "status": "held_actual_booking_js",
+      "reviewedUrls": ["https://carpaintservice.bg/robots.txt", "https://carpaintservice.bg/", "https://carpaintservice.bg/portfolio/", "https://carpaintservice.bg/services/", "https://carpaintservice.bg/contacts/", "https://carpaintservice.bg/privacy-policy/"],
+      "ownerFacts": {"address": "София, кв. Левски Г, ул. Поручик Георги Кюмюрджиев22", "phones": ["+359884095660", "+35924267700"]},
+      "findings": "Followed actual Reservations link first. Reader and ordinary public HTTPS GET both expose JavaScript-required content, not a verified service/date/time menu. An isolated IAB tab could not be created because that browser is unavailable; no existing user tab was controlled. Services/contact/root reviewed, but generic contact invitation is not substituted for an independent appointment route. Privacy page is placeholder Latin text, not legal clearance. No weekly hours surfaced. Robots200 contains sitemap only. No hidden API, script bundle, account or form submission used.",
+      "requiredBeforeAdmission": "Render and inspect the actual public reservation service menu, or obtain independently published owner telephone-appointment evidence and complete the applicable selected-service price review. An unread menu is not not_publicly_listed."
+    },
+    {
+      "name": "Лазурит Сервиз",
+      "website": "https://lasuritservice.com/",
+      "status": "held_appointment_address_tariff_currentness",
+      "reviewedUrls": ["https://www.lasuritservice.com/", "https://lasuritservice.com/robots.txt", "https://lasuritservice.com/", "https://lasuritservice.com/contact-us/", "https://lasuritservice.com/our-services/"],
+      "ownerFacts": {"address": "София, бул. Ботевградско шосе282", "hours": "Понеделник–Петък08:30–18:00", "unimportedTariffLiteral": "Цена на сервизен час в Лазурит Сервиз - 24 лв с ДДС."},
+      "findings": "WWW redirects normally to bare owner host; reader timeout was followed by ordinary public HTTPS GET, which succeeded. Owner root explicitly says a move to its new own base in July2018; old ZaharnaFabrika directory address was not reused. Current contact gives street/number but no named quarter. Own service page has known BGN hourly labour tariff, not a selected repair fee or verified current EUR tariff. Generic contact/message route only; no actual appointment invitation found. Robots200 excludes wp-admin. No directory amount, map viewport or historical branch imported.",
+      "requiredBeforeAdmission": "Confirm current quarter and appointment route; review current applicable tariff/qualification. Do not clone the old ZaharnaFabrika location."
+    },
+    {
+      "name": "ЕЛИА АУТО",
+      "website": "https://www.elia-auto.com/",
+      "status": "held_conflicting_owner_address_and_appointment",
+      "reviewedUrls": ["https://www.elia-auto.com/", "https://www.elia-auto.com/robots.txt", "https://www.elia-auto.com/?cat=2&page=main", "https://www.elia-auto.com/?cat=8&page=main"],
+      "findings": "Owner sidebar says LevskiG street571No3, while main Contacts says street572No3 by Varadero. Main contact page publishes09:00–18:00 with Saturday/Sundayclosed and phones0897942992/0897911104/029467111. Service list is real, but contacts are a general enquiry form with CAPTCHA and no explicit repair-appointment entry. No CAPTCHA solved and no map opened. Reader robots inaccessible; no claim of completed robots/terms/price review.",
+      "requiredBeforeAdmission": "Resolve owner street conflict and confirm actual appointment route before exact directions or catalogue admission."
+    },
+    {
+      "name": "Боби Старт63",
+      "website": "https://bobistart63.com/",
+      "status": "held_actual_appointment_evidence",
+      "reviewedUrls": ["https://bobistart63.com/", "https://bobistart63.com/robots.txt", "https://bobistart63.com/kontakti/", "https://bobistart63.com/za-nas/"],
+      "ownerFacts": {"address": "София, Сухата река, бул. Владимир Вазов44", "phone": "+359898678468"},
+      "findings": "Owner root, About and Contact reviewed: real repair/maintenance list and address, but only generic enquiry/contact, no explicit appointment invitation or actual booking entry. About body is empty. No weekly hours surfaced; no tariff absence receipt is claimed. Reader robots inaccessible. Do not promote telephone presence alone into booking evidence.",
+      "requiredBeforeAdmission": "Owner confirmation or explicit own-source appointment route, then applicable service/price review."
+    },
+    {
+      "name": "RocketMotorsport",
+      "website": "https://rocketbg.com/",
+      "status": "held_appointment_and_hours_conflict",
+      "reviewedUrls": ["https://rocketbg.com/", "https://rocketbg.com/robots.txt", "https://rocketbg.com/serviz/", "https://rocketbg.com/kontakti/", "https://rocketbg.com/za-nas/"],
+      "ownerFacts": {"address": "София, кв. Враждебна, ул.30№21", "phones": ["+359889200116", "+359885070238"]},
+      "findings": "Own root/service/contact confirm repair, diagnostics, DPF cleaning and air-conditioning services at a named Vrazhdebna location. Only generic contacts, no explicit prior-booking invitation. Root adds Saturday10–16 while Contacts publishes only Monday–Friday09–19; no schedule synthesized. About reader cache miss and robots inaccessible, neither is a completed review. No tariff absence assertion or service intake.",
+      "requiredBeforeAdmission": "Confirm appointment route and current weekly schedule; complete selected-service price review."
+    },
+    {
+      "name": "Carding PDR Team",
+      "website": "https://carding.bg/",
+      "status": "held_repair_appointment_and_quarter",
+      "reviewedUrls": ["https://carding.bg/", "https://carding.bg/services/", "https://carding.bg/contacts/", "https://carding.bg/robots.txt"],
+      "findings": "Own root/service/contact show genuine PDR dent/hail repair and IlioIliev8, but visible registration button is explicitly PDR-technician training, not a repair appointment. Contact is generic enquiry and gives no named quarter. Prices were not treated as a completed repair menu after training booking. Reader robots inaccessible. No training-to-repair substitution, guessed quarter or admission.",
+      "requiredBeforeAdmission": "Verify actual repair appointment route and precise owner-published neighborhood/address."
+    },
+    {
+      "name": "Авто Ангелов / Наско Ангелов lead",
+      "website": "https://www.avto-angelov.com/",
+      "status": "held_owner_source_unavailable",
+      "reviewedUrls": ["https://www.avto-angelov.com/", "https://www.avto-angelov.com/robots.txt"],
+      "findings": "Directory/search supplied only a discovery lead. Owner root reader timed out; ordinary HTTPS GET failed. No business facts, prices, appointment evidence, address or neighborhood imported from the directory. No alternate insecure endpoint or bypass attempted."
+    },
+    {
+      "name": "Автомикрон lead",
+      "website": "https://www.avtomikron.com/",
+      "status": "held_owner_source_unavailable",
+      "reviewedUrls": ["https://www.avtomikron.com/", "https://www.avtomikron.com/robots.txt"],
+      "findings": "Directory/search supplied only a discovery lead. Owner root/robots reader unavailable and ordinary HTTPS GET failed. No directory facts promoted to owner verification; no prices, address, services or new record admitted."
+    }
+  ],
+  "excludedBeforeFurtherOwnerRequests": [
+    {"website": "https://tlautoservice.com/", "reason": "Existing sofia-tl-autoservice; not a new business."},
+    {"website": "https://redline-speed.com/", "reason": "Existing sofia-redline-speed-prepurchase-mobile; no duplicate physical/quarter clone added."},
+    {"website": "https://carsrepair.bg/", "reason": "Existing sofia-clean-ride-autoservice; no duplicate addition. Root was inadvertently opened in the same call as preflight output; stopped after existing identity was observed."},
+    {"website": "https://siderauto.com/", "reason": "Prior held_actual_booking_and_price_js; no owner request repeated."},
+    {"website": "https://medina-med.com/", "reason": "Prior429/access hold; no owner request repeated."},
+    {"website": "https://motoexpert.bg/", "reason": "Prior source-terms STOP; no owner request."},
+    {"website": "https://srv-detailing.bg/", "reason": "Prior source-terms STOP; no owner request."},
+    {"website": "https://garage46.bg/", "reason": "Prior source hold; no owner request."},
+    {"website": "https://katerini.bg/", "reason": "Existing premises; no new request or clone."},
+    {"website": "https://www.eidservice2025.com/", "reason": "Existing sofia-eid-service-iliantsi94; used local identity for dedupe only."}
+  ],
+  "validation": {"newAdmissions": 0, "reservationsSubmitted": 0, "customerDataEntered": false, "productionWrites": false, "coordinatesInferred": false, "intakeModulesEdited": false}
+}

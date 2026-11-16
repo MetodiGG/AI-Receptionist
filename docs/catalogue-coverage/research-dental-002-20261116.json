@@ -1,0 +1,118 @@
+{
+  "checkedOn": "2026-11-16",
+  "status": "research_only_holds_not_integrated",
+  "priority": "Coverage-first: actual private dental premises in sparse Sofia neighborhoods, not citywide raw growth",
+  "targetNeighborhoods": ["Обеля 1", "Обеля 2", "Свобода", "Толстой", "Захарна фабрика", "Враждебна", "Бенковски", "Кремиковци"],
+  "catalogueSnapshotAtDeduplication": {"sourceRecords": 1719, "approvedBusinessesExpectedAfter23ScopeExclusions": 1696},
+  "method": "Public search for first-party websites and explicit booking evidence; followed actual first-party navigation and linked Services/Contacts pages. Compared names, domains and published professional phones against current catalogue source modules, including current pending coverage modules. No booking submission, client information, notification, private API, paid provider or production write. Directory results are leads only, not verified import receipts.",
+  "ready": [],
+  "holds": [
+    {
+      "proposedId": "sofia-km-dent-svoboda-zhekov22",
+      "name": "КМ Дент",
+      "candidateNeighborhood": "Свобода",
+      "website": "https://www.kmdent.com/",
+      "firstPartyReviewedUrls": ["https://www.kmdent.com/", "https://www.kmdent.com/contact/"],
+      "firstPartyFacts": {
+        "premisesAddress": "София, ж.к. Свобода, ул. Ген. Никола Жеков 22, бл. Бриз Север 2, партер",
+        "professionalPhones": ["+359888545681", "+359887392082"],
+        "serviceScope": ["Лечение на зъбен кариес", "Микроскопско кореново лечение", "Бондинг", "Дентално протезиране"],
+        "coordinates": null,
+        "hours": null
+      },
+      "actualBookingInspection": "Own main navigation offers Team and Contacts, but no Book entry was found. Opened the actual Contacts page first: it lists individual dentists' telephone numbers and travel instructions, without an explicit appointment invitation or booking form. Homepage service sections were then inspected. A displayed contact number by itself is not evidence of appointment booking under the repository rules.",
+      "pricingStatus": "not_completed",
+      "reason": "first_party_appointment_invitation_required",
+      "remaining": ["Confirm an explicit owner-published appointment route", "Then complete the actual booking/services tariff review", "Do not infer weekly hours or map point"],
+      "deduplication": "No match in current catalogue modules by kmdent.com, name or the two professional phones; absence of duplicate does not approve the candidate."
+    },
+    {
+      "proposedId": "sofia-diamant-dental-pashovi-obelya316",
+      "name": "Диамант-Дентал Д-р Пашови",
+      "candidateNeighborhood": "Обеля 2",
+      "website": "https://diamantdental.wixsite.com/diamantdental",
+      "firstPartyReviewedUrls": [
+        "https://diamantdental.wixsite.com/diamantdental",
+        "https://diamantdental.wixsite.com/diamantdental/contact",
+        "https://diamantdental.wixsite.com/diamantdental/services",
+        "https://diamantdental.wixsite.com/diamantdental/untitled"
+      ],
+      "actualBookingReviewedUrls": [
+        "https://superdoc.bg/klinika/familna-praktika-diamant-dental-d-r-pashovi",
+        "https://superdoc.bg/lekar/d-r-dimitrichka-pashova-260",
+        "https://superdoc.bg/lekar/d-r-svetoslav-pashov"
+      ],
+      "firstPartyFacts": {
+        "premisesAddress": "София, ж.к. Обеля 2, XXX ДКЦ, кабинети 315 и 316",
+        "professionalPhones": ["+359888638741", "+359878180263", "+359878180262"],
+        "serviceScope": ["Дентален преглед", "Лечение на кариес", "Кореново лечение", "Почистване на зъбен камък", "Кабинетно избелване на зъби"],
+        "coordinates": null,
+        "hours": null
+      },
+      "actualBookingInspection": "Found owner website, then followed actual Book links on the matching merchant practice page to both dentist appointment profiles. Provider pages match the own-site practice name, Obelya 2 DKC30 room316 and the respective doctor phones. Both expose the visit-reason selector and appointment section, but the calendar/menu remains JavaScript-loading in the web reader. The main owner site itself only provides contact/query routes and services; do not invent a same-site booking page.",
+      "pricingStatus": "pending_rendered_booking_menu",
+      "reason": "interactive_provider_menu_requires_review",
+      "remaining": ["Inspect the rendered visit-reason menu without submitting a booking", "Determine whether any service-specific tariff is published; a non-rendered selector is not evidence of no prices", "Use the actual verified provider route or obtain explicit own-site phone-appointment invitation; do not relabel a generic contact form as booking", "Retain any provider age restriction after rechecking: profile says children older than ten; do not indiscriminately import young-child services", "Do not duplicate the three dentists as separate premises"],
+      "deduplication": "No match in current catalogue modules by diamantdental.wixsite.com path, practice name or these three professional phones. VIA Dental Obelya in rooms317/318 is a distinct existing practice, not this practice."
+    },
+    {
+      "name": "Д-р Ивелина Василева",
+      "candidateNeighborhood": "Свобода",
+      "leadSource": "https://zdravenportal.com/д-р-ивелина-василева-стоматолог-гр-со",
+      "reason": "directory_only_no_owner_site_verified",
+      "notes": "Directory describes a Svoboda practice and appointments, but no current first-party website or actual owner booking/services tariff review was found. Do not import a second SofiaMed location, schedule, price or old directory contact as verified owner data."
+    },
+    {
+      "name": "Д-р Мирела Семкова",
+      "candidateNeighborhood": "Толстой",
+      "leadSource": "https://www.oink.bg/biz/dentalen_kabinet_d111857",
+      "additionalLead": "https://doctiming.bg/user/4983",
+      "reason": "directory_only_conflicting_contacts",
+      "notes": "Directory leads describe block34, but sources expose different telephone sets and an entrance written as З or 3. No first-party appointment/services review established; do not select a phone or coordinates by majority vote."
+    },
+    {
+      "name": "Д-р Невена Стаматова",
+      "candidateNeighborhood": "Толстой",
+      "leadSource": "https://www.rating.hapche.bg/rating/lekari-po-dentalna-meditsina/4935/nevena-stamatova",
+      "reason": "directory_only_no_owner_site_verified",
+      "notes": "Directory describes block32 and dental procedures, but this is not an inspected owner appointment/menu page. A separate aggregator conflates similarly named Stoma Dent records; do not merge this dentist into the existing Stoma Dent catalogue practice."
+    },
+    {
+      "name": "Д-р Величка Велева",
+      "candidateNeighborhood": "Враждебна",
+      "leadSource": "https://zdravenportal.com/д-р-величка-велева-стоматолог-гр-софи",
+      "reason": "directory_only_no_owner_site_verified",
+      "notes": "A directory lead identifies a dental practice in Vrazhdebna. No own site, actual appointment invitation and current service/tariff source were verified. Do not treat administrative district Kremikovtsi as the premises neighborhood."
+    },
+    {
+      "name": "Д-р Ася Бабалеева",
+      "candidateNeighborhood": "Враждебна",
+      "leadSource": "https://zdraven-arhiv.com/doctors/dr-asya-babaleeva/",
+      "reason": "directory_only_inconsistent_locality",
+      "notes": "Directory mixes с.Кремиковци and кв.Враждебна in one address. No own appointment/services source established. Do not fill both neighborhood cells or assign coordinates from that mixed locality."
+    },
+    {
+      "name": "Д-р Рашко Караджов",
+      "candidateNeighborhood": "Обеля 1",
+      "leadSource": "https://www.rating.hapche.bg/rating/lekari-po-dentalna-meditsina/3994/rashko-stoychev-karadzhov?height=520&inline=true&width=332",
+      "reason": "directory_only_no_verified_appointment_services",
+      "notes": "The directory gives a block102 lead and generic conditional boilerplate about online reservations, not proof this specific doctor accepts bookings there. No service list or owner tariff found; another directory gives a different entrance. Keep pending."
+    }
+  ],
+  "duplicateExisting": [
+    {"name": "VIA Dental Studio · Обеля 2", "id": "sofia-via-dental-obelya", "website": "https://viadentalstudio.com/", "reason": "Existing reviewed premises in DKC30 rooms317/318; no new branch to add."}
+  ],
+  "notTargetNeighborhoodEvidence": [
+    {
+      "name": "О.СЕМ · София Бенковски",
+      "sourceUrl": "https://osemdental.com/zapazvane-na-chas/",
+      "reason": "The owner branch is named for street Георги Бенковски49. The branch name does not establish location in Sofia's Бенковски neighborhood. Do not count as that sparse neighborhood or import solely to fill its cell."
+    }
+  ],
+  "outOfScopeRejected": [
+    {"name": "Д-р Миндов / МЦ Враждебна", "reason": "Search result is general human medical care, not one of the permitted dentistry/psychology/psychiatry exceptions. No catalogue import."}
+  ],
+  "coverageCaveat": "This search found no fully qualified new ready record in the selected sparse cells yet. That is not evidence that no suitable practices exist. No directory-only contact, inaccessible menu, generic booking boilerplate or ambiguous locality has been promoted to a verified business to satisfy a quota.",
+  "integratedBusinesses": 0,
+  "productionChanges": false
+}

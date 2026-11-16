@@ -1,0 +1,35 @@
+{
+  "checkedOn": "2026-11-16",
+  "publicationStatus": "validated_release_candidate; deployment tracked by its GitHub PR",
+  "executedValidation": {"nodeTestsPassed": 2502, "nodeTestsFailed": 0, "nodeTestsSkipped": 0, "pythonPricingTestsPassed": 12, "catalogueCheck": "passed", "productionWebpackBuild": "passed", "browserProfiles": 2, "browserLocales": ["bg", "en"], "browserWidths": [320, 360, 390, 430, 768, 1280], "browserLayoutCases": 24, "browserHorizontalOverflowCases": 0, "missingVisibleServicePhotos": 0, "productionBookingsSubmitted": 0, "notificationsSent": 0},
+  "priority": "Coverage-first: recover existing missing quarters and admit real new premises in empty cells before raw growth.",
+  "beforeSnapshot": "coverage-20261116-batch-001.json",
+  "afterSnapshot": "coverage-20261116-batch-002.json",
+  "approvedBefore": 1696,
+  "approvedAfter": 1698,
+  "newDistinctBusinesses": 2,
+  "newActualServices": 4,
+  "newPublicPrices": 4,
+  "existingQuarterRecoveries": 5,
+  "missingQuarterPremisesBefore": 591,
+  "missingQuarterPremisesAfter": 586,
+  "newRecords": [
+    {"id": "sofia-photo-studio-margo-svoboda", "neighborhood": "Свобода", "category": "other", "services": 1, "prices": "200–250EUR per family photosession, depending on wishes/agreed outdoor location", "booking": "owned date/place inquiry form; photographer confirmation", "hours": "not inferred from evening meeting guidance", "coordinates": "literal address-bound point published by the owner", "limitations": "Studio premises is not a promise of indoor family sessions. Portrait-price conflicts remain held."},
+    {"id": "sofia-maria-nemska-photo-suhodol", "neighborhood": "Суходол", "category": "other", "services": 3, "prices": "portrait100/baby100/newborn190EUR per studio photosession with minimum10images; extra image10EUR is not a separate service", "booking": "actual owned inquiry form on Sofia conditions page; photographer confirmation", "hours": "no weekly hours; only owner-announced Sofia dates", "coordinates": "not established, left null", "shortReviewEnds": "2026-12-16", "limitations": "Cake/child/maternity conflicting or ambiguous offers remain held; dates are not slots."}
+  ],
+  "existingCorrectionsNotCountedAsNew": [
+    {"id": "sofia-terra-adora-spa-beauty", "neighborhood": "Красно село", "categories": ["hair", "nails"]},
+    {"id": "sofia-stimul-psychiatry-pimen-zografski38", "neighborhood": "Дианабад", "categories": ["other"]},
+    {"id": "sofia-nadezhda-muzdrakova-joliot-curie20", "neighborhood": "Изгрев", "categories": ["other"]},
+    {"id": "sofia-petya-dimova-hadzhi-dimitar19", "neighborhood": "Център", "categories": ["other"]},
+    {"id": "sofia-ax-horca-veda-fondovi25a", "neighborhood": "Фондови жилища", "categories": ["fitness"]}
+  ],
+  "quarterCorrectionEvidence": "research-neighborhood-recovery-002-20261116.json; raw and normalized pre-change hashes tested against dc465f4. Only five neighborhood fields changed; all other fields, null coordinates and historical price-review identities unchanged.",
+  "newSourceEvidence": "research-lessons-photo-003-20261116.json; supplemented by root-rendered Margo Calendar and Maria full Sofia form/expanded booking FAQ. Actual calendar is static occupied events, not available slots. Provider/source policies checked without blocked-path/API requests.",
+  "photoDecision": "Reuse three visually inspected approved studio photographs for Maria. Generate a new coherent outdoor family photoshoot illustration for Margo rather than the wrong indoor studio photo or neutral notebook. Existing AI disclosure remains; no owner portfolio images copied.",
+  "excludedResearch": ["research-auto-002-20261116.json", "research-beauty-003-20261116.json", "research-dental-002-20261116.json"],
+  "productionBookingsSubmitted": 0,
+  "notificationsSent": 0,
+  "historicalBaselinesRefreshed": false,
+  "limitations": "No category/quarter has reached50 in the physical-premises report. Physical coverage is not all effective mobile service options. This batch is real incremental progress, not fulfilment of the10000business or50percell objective. No native partners, bookings, database/configuration, filtering or taxonomy changes."
+}

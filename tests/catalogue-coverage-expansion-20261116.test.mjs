@@ -212,10 +212,25 @@ test('every new service has a specific, existing photographic asset, never an em
   }
 })
 
-test('coverage counts new premises once in their source neighborhood and actual service categories, not citywide duplicates', () => {
+test('coverage counts actual premises once and keeps the reviewed home-visit identity outside physical-neighborhood quotas', () => {
   const report = catalogueCoverageReport(SOFIA_CATALOGUE, { now })
   const areas = [...report.neighborhoods, ...report.additionalNamedAreas]
-  for (const raw of additions) {
+  // Exactly this independently reviewed home visit joins the separate mobile
+  // queue; it cannot satisfy a physical category/quarter cell. A new unknown
+  // non-premises record still fails this explicit cohort expectation.
+  const mobile = additions.filter(row => row.locationKind !== 'premises')
+  assert.deepEqual(mobile.map(row => row.id), ['sofia-miele-servisbg-home-diagnostic'])
+  for (const raw of mobile) {
+    const row = record(raw.id)
+    assert.equal(row.locationKind, 'service_area')
+    assert.equal(row.neighborhood, null)
+    assert.equal(row.address, null)
+    assert.equal(row.coordinates, null)
+    assert.ok(row.services.every(service => service.category === 'home_services' && service.appointmentModel === 'home_visit'))
+    assert.ok(report.serviceAreaProviders.some(provider => provider.id === row.id))
+    assert.ok(areas.every(area => area.cells.every(cell => !cell.businessIds.includes(row.id))), 'A home visit earns zero physical-neighborhood quota credit')
+  }
+  for (const raw of additions.filter(row => row.locationKind === 'premises')) {
     const row = record(raw.id)
     assert.equal(row.locationKind, 'premises', 'This coverage-first batch must establish a real local premises')
     assert.ok(row.neighborhood, `${row.id}: an unknown neighborhood must not claim a filled cell`)

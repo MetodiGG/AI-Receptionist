@@ -1,0 +1,146 @@
+{
+  "version": 1,
+  "checkedOn": "2026-11-16",
+  "status": "bounded_two_candidate_research_complete_no_admissions",
+  "scope": "Next-batch research only: at most two new private legal consultation providers, selected through sparse-quarter discovery. No modules, existing records, services, tariffs, hours, coordinates, accounts, cases, appointments or production settings edited.",
+  "preflight": {
+    "instructionsRead": [
+      "docs/catalogue-coverage/README.md",
+      "docs/catalogue-coverage/coverage-20261116-batch-003.md",
+      "docs/catalogue-coverage/research-consulting-004-20261116.json",
+      "docs/catalogue-coverage/research-beauty-007-20261116.json"
+    ],
+    "method": "Local candidate name/domain searches against current catalogue modules and coverage/pricing research-intake ledgers were completed in separate calls before the respective owner requests. DilyanKolev's discovered phone was included in his preflight; both providers' observed phones were checked against the current runtime afterwards. No matching DilyanKolev/dk-law.bg or LyudmilaAngelova/advokat-lyudmila-angelova.com records or prior host holds were found. Existing source stops and pending leads were excluded locally, not reopened through another route.",
+    "priority": "Discovery focused on Druzhba1, Mladost2, Ilinden, Musagenitsa, Slatina and ZapadenPark: all below50 physical consulting premises in the batch003 snapshot. A search location does not establish the final candidate's actual quarter.",
+    "qualification": "These are new candidate identities only. Unresolved appointment, office, quarter, tariff or source-policy evidence prevents admission; no business count increase is claimed."
+  },
+  "ready": [],
+  "holds": [
+    {
+      "name": "Адвокат Дилян Колев",
+      "website": "https://dk-law.bg/",
+      "professionalPhone": "+359899334063",
+      "professionalEmail": "kolev@dk-law.bg",
+      "candidateCity": "София",
+      "candidateNeighborhood": null,
+      "verifiedPremisesAddress": null,
+      "status": "held_exact_current_office_and_reservable_consultation_required",
+      "admissionRecommended": false,
+      "actualBookReview": {
+        "observedEntry": "Имам казус",
+        "actualOwnerDestination": "https://dk-law.bg/kontakti/",
+        "workflowUrl": "https://dk-law.bg/kak-rabotq/",
+        "shortExcerpt": "и/или уговаряне на среща",
+        "finding": "Followed the real owner header CTA first. It opens the lawyer's case-inquiry form, not a dated appointment selector. The owner workflow describes a preliminary inquiry by form/email/phone, subsequent reply requesting information/documents and an optional meeting if necessary. A case inquiry or generic telephone is not promoted to a confirmed reservable consultation route. No fictitious consultation calendar or instant confirmation is claimed.",
+        "freshness": "The reader Contact/workflow snapshots were older. One ordinary current HTTPS GET to the same observed Contact URL returned200 and confirmed the same preliminary-inquiry/conditional-meeting process, city-only contact and phone. No denied source was retried.",
+        "interaction": "No input, case narrative, client name, documents, consent, call, email, account, form submission or appointment was made."
+      },
+      "officeAndQuarterFinding": "The actual owner Contact, homepage and workflow repeat Sofia only, without a street, number, exact quarter or an office meeting address. No physical premises or remote-only service model is inferred from this. An official BarRegister discovery result names a Druzhba1 office but was not independently reconciled with the current owner meeting location in this task.",
+      "officialAddressDiscoveryOnly": {
+        "url": "https://bar-register.bg/attorney/1900744210",
+        "finding": "Search discovery shows the same lawyer, dk-law.bg, phone and a Druzhba1 registered law-office address. It is not counted as owner-confirmed current consultation premises or silently substituted for the missing owner address. No client or residential register data used as an appointment venue."
+      },
+      "selectedServiceReview": {
+        "status": "not_completed_not_prepared_for_import",
+        "finding": "Owner homepage lists legal practice areas and offers oral/written legal help; the workflow explains individually agreed fees and subscriptions. No practice-area inventory or case-handling task is split into a fabricated standard bookable session. Full selected-service and fee review remains pending behind the admission prerequisites."
+      },
+      "pricingReview": {
+        "status": "not_completed_no_numeric_tariff_receipt",
+        "finding": "The inspected workflow says a fee/expense budget follows initial communication and subscription terms are individual. No numeric consultation tariff was verified in the inspected workflow. This is not a completed no-prices receipt: no not_publicly_listed claim or zero/free price is prepared."
+      },
+      "hours": null,
+      "coordinates": null,
+      "policyReview": {
+        "linkedPolicyUrl": "https://dk-law.bg/politika-za-obrabotka-i-zashtita-na-lichni-danni/",
+        "access": "Reader cache miss at the observed no-slash link; ordinary HTTPS GET returned301. Read only the public Location header to establish the canonical trailing-slash URL, then one normal GET returned200. No access denial, verification challenge, login, hidden API or alternate source bypass.",
+        "finding": "Returned privacy policy identifies the lawyer and professional contact, covers case-inquiry/confidentiality and data processing. No form data supplied. Output was truncated in part of one processing-grounds paragraph, so a full end-to-end policy clearance is not claimed. No general content licence inferred; no separate Terms link appeared in the inspected navigation/footer."
+      },
+      "reviewedUrls": [
+        "https://dk-law.bg/",
+        "https://dk-law.bg/kontakti/",
+        "https://dk-law.bg/kak-rabotq/"
+      ],
+      "partiallyReviewedPolicyUrl": "https://dk-law.bg/politika-za-obrabotka-i-zashtita-na-lichni-danni/",
+      "requiredBeforeAdmission": [
+        "Confirm a current exact owner meeting premises and quarter, or an explicit genuine remote consultation model, without inventing either.",
+        "Verify an explicit reservable consultation route and its conditions rather than treating a preliminary case inquiry as an appointment.",
+        "Complete selected-service/tariff and source-policy review; retain unknown hours, duration and coordinates."
+      ]
+    },
+    {
+      "name": "Адвокат Людмила Ангелова",
+      "website": "https://advokat-lyudmila-angelova.com/",
+      "professionalPhone": "+359878640284",
+      "professionalEmail": "lyudmila.angelova1@gmail.com",
+      "candidateCity": "София",
+      "candidateNeighborhood": null,
+      "observedOwnerPremisesAddress": "София, ул. „21-ви век“ 9, вх. Б, партер, офис Б-7",
+      "status": "STOP_owner_policy_page_403_and_exact_quarter_unresolved",
+      "admissionRecommended": false,
+      "actualBookReview": {
+        "observedEntry": "Запазете консултация",
+        "actualOwnerDestination": "https://advokat-lyudmila-angelova.com/konsultaciq/",
+        "shortExcerpt": "Консултациите се извършват само след предварителна заявка чрез формата по‑долу.",
+        "finding": "Followed the visible owner Book link on Contact first. The actual consultation page explicitly requires a prior request through its named legal-consultation form and repeats the office identity. This is genuine owner consultation-request evidence, not an instant confirmed date/time or GoRez availability. Form legal-area options were visible; no option, time or customer/case detail was entered or submitted.",
+        "contactSource": "https://advokat-lyudmila-angelova.com/kontakti/"
+      },
+      "identityAndQuarterFinding": "Contact and actual consultation page agree on 21-viVek9 entranceB, ground-floor officeB-7 and the primary phone. No exact Sofia quarter appears in these pages. Do not infer StudentskiGrad, Darvenitsa or a nearby quarter from street geography, postcode1700 or the linked map. The older consultation snapshot includes another telephone; no staff or second branch is created from it.",
+      "selectedServiceAndTariffReview": {
+        "status": "incomplete_due_to_policy_access_stop",
+        "finding": "The actual consultation form lists legal areas but no amount was verified there. A downloadable service file and additional owner service pages remain unread; they were deliberately not requested after the policy403. Consequently no exact service inventory, price, package, duration or not_publicly_listed receipt is prepared."
+      },
+      "hoursReview": {
+        "finding": "Both already-read pages publish Monday–Friday09:00–18:00 and emergency availability outside those hours. Emergency availability is not expanded into routine weekend appointments or a new weekly schedule. No hours are proposed for import while the candidate is held."
+      },
+      "coordinates": null,
+      "sourcePolicy": {
+        "termsUrl": "https://advokat-lyudmila-angelova.com/obshti-usloviq/",
+        "termsResult": "Reader Error fetching; not reviewed.",
+        "privacyUrl": "https://advokat-lyudmila-angelova.com/politika-za-poveritelnost/",
+        "privacyResult": "Reader403; not reviewed.",
+        "response": "STOP all further domain requests after403 was observed. No curl, browser, alternate locale/hostname, downloaded service file, proxy, hidden API or policy-path substitution. No source-use permission or clearance claimed.",
+        "concurrencyQualification": "Actual Book, observed Terms and observed Privacy links were requested together before the model received the403. No owner request after that response."
+      },
+      "reviewedUrls": [
+        "https://advokat-lyudmila-angelova.com/kontakti/",
+        "https://advokat-lyudmila-angelova.com/konsultaciq/"
+      ],
+      "attemptedButNotReviewedUrls": [
+        "https://advokat-lyudmila-angelova.com/obshti-usloviq/",
+        "https://advokat-lyudmila-angelova.com/politika-za-poveritelnost/"
+      ],
+      "requiredBeforeAdmission": [
+        "Resolve source-policy access/permission without bypassing the existing403 or retrying another technical route.",
+        "Establish the exact owner premises quarter from an appropriate primary or authoritative address-bound source; no map/postcode inference.",
+        "Then complete the exact selected consultation-service/tariff review, preserving any individually agreed fee conditions and unknown duration."
+      ]
+    }
+  ],
+  "discoveryAndLocalExclusions": [
+    {
+      "name": "Божидар Терзийски",
+      "reason": "Existing pending owner-booking/premises hold in expansion-home-education-2000-003-20261113.json; no new owner request."
+    },
+    {
+      "names": ["Василев и партньори", "Преслава Йорданова", "Георги Малчев", "Студио Фариа", "Лилия Стефанова", "Мария Петричева", "Кристина Сунгарска"],
+      "reason": "Existing catalogue identities or prior intake/holds found locally. No new aliases, departments or staff-as-business copies."
+    },
+    {
+      "name": "Contract.bg / Daisy and restricted booking providers",
+      "reason": "Known source/access restrictions were found in local ledgers; no source workaround. Mylink remains stopped under research-beauty-007."
+    },
+    {
+      "names": ["SG Accounting Services", "MGI Sofia", "СК Евростандарт", "Надежда Василева", "Emotional Consult", "Време и пространство"],
+      "reason": "Search-discovery signals only during bounded candidate selection. No actual owner Book interaction, source-complete admission or new service/fee record prepared for these leads. A callback/offer form or generic contact was not counted as a reservable session, and a service published near a quarter was not treated as a quarter premises."
+    }
+  ],
+  "counts": {
+    "newPrimaryCandidatesInspected": 2,
+    "sourceCompleteReady": 0,
+    "holds": 2,
+    "newBusinessesAdded": 0,
+    "recordsChanged": 0,
+    "pricesPreparedForImport": 0
+  },
+  "completion": "Two-candidate bound reached. Existing source stops respected; one additional policy403 hold recorded. No invented quarter, calendar, fee or office; no real appointment, notification or private legal-case collection. Root may independently review only after the listed prerequisites are resolved."
+}

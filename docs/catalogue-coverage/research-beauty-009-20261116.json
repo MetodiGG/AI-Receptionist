@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-16",
+  "status": "bounded_research_complete_one_new_primary_hold_zero_admissions",
+  "scope": "Up to two genuinely new ordinary beauty/hair/barber premises, prioritizing sparse Sofia quarters. One new own-site candidate received a substantive primary-source check. Other leads were already catalogued, previously held, directory-only or connected to stopped providers; they are not fabricated second completed reviews. No catalogue module, test, shared receipt, price identity, baseline, record, reservation or production setting changed.",
+  "coveragePreflight": {
+    "sourceRecords": 1727,
+    "source": "Current SOFIA_CATALOGUE and catalogueCoverageReport at2026-11-16T12:00:00Z",
+    "priorityCells": [
+      {"neighborhood": "Горубляне", "barber": 0, "hair": 0, "nails": 0, "beauty": 0},
+      {"neighborhood": "Малашевци", "barber": 0, "hair": 0, "nails": 0, "beauty": 0},
+      {"neighborhood": "Дружба 2", "barber": 1, "hair": 2, "nails": 3, "beauty": 3},
+      {"neighborhood": "Бенковски", "barber": 0, "hair": 0, "nails": 0, "beauty": 0},
+      {"neighborhood": "Враждебна", "barber": 0, "hair": 0, "nails": 0, "beauty": 0},
+      {"neighborhood": "Илиянци", "barber": 0, "hair": 0, "nails": 0, "beauty": 0}
+    ],
+    "qualification": "Physical catalogue counts, not a claim of no providers in these quarters. A map, registered residence, neighboring-quarter provider or stopped merchant menu cannot fill a cell."
+  },
+  "deduplicationAndSourceStops": {
+    "separateLocalPreflightBeforeEachNewOwnerHost": true,
+    "method": "Read earlier beauty001/003/007 research and current matrix. Separately searched all docs/lib by brand, host and aliases before new owner requests. Repeated runtime/all-local searches after learning actual professional phones. No provider requests were mixed into the preflight call.",
+    "candidateHost": "www.angelinapeacock.com",
+    "candidateAliasesChecked": ["ANGELINA PEACOCK", "AngelinaPeacock", "АНДЖЕЛИНА ПИЙКОК СОФИЯ"],
+    "candidatePhonesChecked": ["+359877223693", "+359877414156"],
+    "currentRuntimeMatches": [],
+    "inheritedStopsRespected": ["Studio24/s24", "Mylink", "Fresha/freshasite", "Setmore", "Notino", "Goldie", "EasyWeek", "ReservationStudio", "restricted Easybook"],
+    "note": "Search-index provider results were only discovery signals. No stopped merchant/provider URL, alternate language, mirror, login, browser workaround, hidden API or bundle was requested."
+  },
+  "ready": [],
+  "holds": [
+    {
+      "name": "ANGELINA PEACOCK SOFIA · Сердика Център",
+      "website": "https://www.angelinapeacock.com/",
+      "status": "held_actual_booking_provider_stop_and_no_independent_general_appointment_tariff",
+      "admissionRecommended": false,
+      "ownedPremisesFacts": {
+        "sourceUrl": "https://www.angelinapeacock.com/bg/aboutUs",
+        "description": "Owner Contact describes hair styling and manicure at Serdika Center in Sofia.",
+        "address": "София, бул. Ситняково 48, Сердика Център, ниво +1",
+        "phone": "+359877223693",
+        "neighborhood": null,
+        "coordinates": null,
+        "locationCaveat": "The shopping-center name does not establish Sofia's separate Serdika neighborhood. No quarter inferred from a directory, legal company address or map. The legal administration address in Terms is not the salon and is deliberately not retained as a customer premises."
+      },
+      "actualBookingEntry": {
+        "sourceUrl": "https://www.angelinapeacock.com/",
+        "label": "Запази час",
+        "observedHref": "https://studio24.bg/5413/m",
+        "providerRequested": false,
+        "finding": "Both actual root Book controls and Contact lead to this same stopped external provider. The provider menu, staff fees, durations, calendar and availability were not read; no claim of complete booking review. No phone-only source workaround is proposed."
+      },
+      "nativePhoneQualification": "Terms section15 explicitly discusses booking a complaint/rework appointment by the salon telephone or reception. This narrower remedy instruction is NOT promoted into proof that all ordinary hair/nail services accept advance telephone bookings. Cancellation and general contact numbers likewise do not replace the unread actual service menu.",
+      "pricing": {
+        "status": "pending_actual_service_tariff_not_unpublished",
+        "preparedServicePrices": [],
+        "finding": "Actual own navigation has Home, Book, Contact, Terms and language choices, with no native selected-service tariff visible. General hair/manicure wording and consumer rules do not supply numerical ordinary service prices. The actual known external menu remains unread because of the source stop; it must not become not_publicly_listed."
+      },
+      "hours": {
+        "observedLiteral": "10:00 – 22:00",
+        "sourceUrl": "https://www.angelinapeacock.com/bg/aboutUs",
+        "preparedOpeningHours": null,
+        "finding": "Owner Contact supplies a generic time range, not an explicit seven-day weekly table. No Monday–Sunday schedule, particular specialist timetable or free slots inferred."
+      },
+      "sourcePolicy": {
+        "robotsUrl": "https://www.angelinapeacock.com/robots.txt",
+        "robotsFinding": "Ordinary public GET returned wildcard Allow:/ after sandbox-only DNS failure. This does not override the separate Studio24 hold or grant a content licence.",
+        "termsUrl": "https://www.angelinapeacock.com/bg/terms",
+        "termsFinding": "Complete22-section own Terms, last-change15Jan2025, read to EOF. It covers informational use/valid orders, online confirmation, retail delivery/payment, missed visits and complaint/rework rules. Section4i limits stated website purposes to informational inquiries and lawful orders; no general commercial-reuse licence or legal clearance is asserted. Root source-use assessment remains necessary before admission. The administrative address, personal residence details and retail payment rules are not salon appointment evidence.",
+        "truncationHandling": "First tool output was truncated and was NOT claimed a full review. Repeated the same ordinary public Terms GET once, retained the complete21609-character visible text only in tool memory, and read all nonoverlapping chunks including the missing middle through section22/footer. No source document or personal residence data saved in this ledger.",
+        "unreviewed": "Separate privacy/cookie documents are mentioned in Terms text but not linked as distinct pages in inspected native navigation. No guessed URL, language switch, provider policy reopen or full source-clearance assertion."
+      },
+      "reviewedUrls": [
+        "https://www.angelinapeacock.com/robots.txt",
+        "https://www.angelinapeacock.com/",
+        "https://www.angelinapeacock.com/bg/terms",
+        "https://www.angelinapeacock.com/bg/aboutUs"
+      ],
+      "access": "Public reader could not access owner root/robots. Ordinary sandbox GET failed DNS; separately approved ordinary HTTPS GETs successfully read robots, actual root menu, own Terms and Contact. No401/403/429, challenge, source denial, private account or protection bypass. No direct provider request followed the observed external Book link.",
+      "safety": "No Book click into Studio24, account, fields, consent, slot, submission, call, email, message, payment, Google Maps link, social login, coordinate, geocoder, source photo, testimonial, rating, customer data or production write. Contact's Maps query link was observed as text only, not requested.",
+      "remainingBeforeAdmission": [
+        "Resolve root-approved source-use basis and an actually permitted current complete appointment/service/tariff route",
+        "Do not reopen Studio24 or reinterpret complaint-only telephone booking as an independent general booking path",
+        "Verify branch/staff-specific fees and ordinary selected-service scope; never infer from general hair/manicure labels",
+        "Use exact owner premises; unknown quarter and coordinates remain unknown until authoritative evidence is reviewed",
+        "Finish applicable source policies, exact photographs, deduplication and onboarding/public acceptance checks before any data import"
+      ]
+    }
+  ],
+  "discoveryOnlyNotPrimarySourceChecks": [
+    {"name": "Faded Barber Studio · Дружба 2", "finding": "Search discovery yields Fresha merchant/staff/menu signals. Fresha stop respected; no provider or fresha-hosted-site request, fee, staff duration, address import or unpublished-price receipt. No independently reviewed own website established."},
+    {"name": "Фризьорски салон Фиба · Дружба 2", "finding": "Search yields Chas and stopped Easybook profiles with inconsistent service/price/hour signals. A directory/profile is not an independently reviewed owner actual Book route. No merchant/provider request or tariff import; no template/provider rows treated as authoritative owner facts."},
+    {"name": "Harmony Center202 · Дружба 2", "finding": "Social mirror advertises Studio24/s24 department links. No stopped provider request, mirror-price import or separate employee business. Mirrored invalid-looking overnight hours are not a schedule."},
+    {"name": "FourStyle · Дружба 2", "finding": "Directory and social-mirror signals only; no current owned appointment/menu source established. No source import."},
+    {"names": ["Budinov nails", "V&R STUDIO", "STUDIO KANEBO"], "neighborhoodLead": "Горубляне", "finding": "Directory-only or stopped-provider signals. No reviewed own appointment website/menu; varying source street numbers are not resolved by guessing. A pet groomer listed as a human hair salon is not imported in this category."},
+    {"name": "Анисия Стил", "neighborhoodLead": "Малашевци", "finding": "Nearby-service directory and social mirror only; a business-register residence points elsewhere and does not prove a Malashevtsi salon. No registry residence, private details or nearby-provider listing used as premises. No owner website/menu successfully established."},
+    {"name": "ZEUS/URSA Levski", "finding": "Search results explicitly identify Varna, not Sofia's Levski. Excluded as geographic false positives before owner requests; no Sofia clone."},
+    {"name": "Сердика Center versus Сердика neighborhood", "finding": "Mall search results are not evidence the salons are located in the Serdika residential quarter. No taxonomy remapping."}
+  ],
+  "priorDuplicatesOrHoldsExcludedBeforeNewOwnerRequests": [
+    "Noxic Beauty, GPoint, ABI, Puzzle, NailsClub, MiracleBarber and Taormina already cover their verified Druzhba2 premises",
+    "Alexievs Slatina/LaBarberia,21Cutz,NalbyVIP,Dari and other exact native-site matches already exist; no staff/alias clones",
+    "OnlyCuts/Miranski23 already has an unresolved own-booking/source hold; not repeated as a new completed review",
+    "Stilisimmo three branches already held for actual Studio24 access and missing independent ordinary phone-booking proof; no fresh owner/provider menu requests",
+    "Earlier northern beauty001/003 and beauty007 Mylink, Studio24, Notino, unavailable owner, medical-scope and address-conflict holds retained"
+  ],
+  "validation": {
+    "newPrimaryOwnerCandidatesSubstantivelyInspected": 1,
+    "sourceCompleteReady": 0,
+    "newBusinessesAdded": 0,
+    "physicalNeighborhoodCoverageAdded": 0,
+    "servicePricesPreparedForImport": 0,
+    "catalogueModulesTestsSharedReceiptsChanged": false,
+    "bookingsOrFormsSubmitted": 0,
+    "customerDataEntered": false,
+    "stoppedProviderRequests": 0,
+    "mapOrGeocoderRequests": 0,
+    "paidApiCalls": 0,
+    "productionWrites": false,
+    "commitOrDeployment": false
+  }
+}

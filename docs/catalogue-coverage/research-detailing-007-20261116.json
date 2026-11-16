@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-16",
+  "status": "research_only_two_holds_no_admissions",
+  "scope": "At most two genuinely new appointment detailing or staff-operated hand-wash premises in undercovered Sofia quarters. No self-service bays, mobile-provider clones, production writes, real appointments, contact messages, source images or ratings imported. Only this research file changed.",
+  "coveragePreflight": {
+    "snapshot": "docs/catalogue-coverage/coverage-20261116-batch-003.json",
+    "approvedBusinessesInSnapshot": 1702,
+    "sparseTargetCells": [
+      {"neighborhood": "Суходол", "category": "detailing", "premisesInSnapshot": 0},
+      {"neighborhood": "Банишора", "category": "car_wash", "premisesInSnapshot": 0}
+    ],
+    "qualification": "These are source-neighborhood planning cells, not a claim that all customer choices or actual providers have been counted. The second candidate's neighborhood is only a discovery lead until an owner source confirms its exact premises."
+  },
+  "method": [
+    "Read the current coverage snapshot and existing automotive/detailing hold files locally before owner requests. Each of the two newly inspected hosts had a separate local brand/domain/phone/address deduplication preflight whose output was read before network access.",
+    "Followed the actual owner package contact entry where available before considering an importable service inventory. Generic enquiry forms and an unreachable owner domain are not completed appointment reviews or evidence of unpublished prices.",
+    "Checked actual owner terms and robots with bounded public web reads. Ordinary limited HTTPS GET was used only after reader inaccessibility, not after access denial. Same-host reads were paced. Stopped at the express owner-use restriction; did not switch providers, host aliases, caches or APIs to work around it.",
+    "Search and third-party directory or expired voucher results were discovery only. No rate, timetable, street point, neighborhood boundary, staff service, branch or live availability was inferred from them."
+  ],
+  "deduplication": {
+    "sourceRecordsAtPreflights": 1726,
+    "sourceCountIsNotApprovedCount": true,
+    "readyCandidateIdentityMatches": [],
+    "finding": "No current SOFIA_CATALOGUE or catalogue-data / catalogue-pricing / catalogue-coverage research match for mad-detailing.com / Martin Auto Detailing / its professional phone and street, or primecarwash.eu / Prime Car Wash / its discovery phones and street. Newness does not establish eligibility, source permission or current operation."
+  },
+  "ready": [],
+  "holds": [
+    {
+      "name": "Мартин Ауто Детайлинг Студио",
+      "website": "https://mad-detailing.com/",
+      "neighborhoodLead": "Суходол",
+      "status": "STOP_explicit_owner_commercial_content_restriction",
+      "admissionRecommended": false,
+      "sourcePolicy": {
+        "robots": {
+          "url": "https://mad-detailing.com/robots.txt",
+          "status": 200,
+          "finding": "Wildcard excludes /wp-admin/; public pages are not disallowed. No excluded endpoint or sitemap was requested. Robots does not override the express terms."
+        },
+        "terms": {
+          "url": "https://mad-detailing.com/общи-условия/",
+          "status": 200,
+          "relevantSections": ["II.8 definition of Content", "VI.3", "VI.5", "VI.6", "VI.8"],
+          "finding": "The definition covers service and tariff information as well as other site content. VI restricts reuse to personal noncommercial purposes and requires written owner consent for commercial use. This is an express project source-use STOP, not a legal opinion. No further intake or alternate-source workaround is recommended without resolving permission."
+        }
+      },
+      "bookingReview": {
+        "status": "incomplete_generic_contact_only_and_source_policy_stop",
+        "actualEntryObservedAt": "https://mad-detailing.com/",
+        "actualEntryLabel": "Контакт",
+        "targetReviewed": "https://mad-detailing.com/contact/",
+        "finding": "The actual package CTAs lead to the owner Contact page. It exposes name/email/phone/message enquiries and a call-back invitation, not an independently verified appointment instruction or appointment date/time menu. No form field was entered or submitted and no phone call was made. Do not promote this generic form into a confirmed booking flow."
+      },
+      "pricingReview": {
+        "status": "not_admissible_not_completed",
+        "finding": "The public owner page has literal EUR amounts and service qualifications, but the merchant source restriction independently stops commercial intake and appointment eligibility is incomplete. No numerical service rows, prices, durations or packages are prepared for publication. Do not call this not_publicly_listed, price-complete or source-complete. The terms also retain older generic BGN wording; no currency conflict is silently resolved."
+      },
+      "premisesAndHoursReview": {
+        "status": "owner_page_observed_not_proposed_for_import",
+        "finding": "Root gives a named Suhodol street premises and weekday hours; Contact repeats Suhodol and the same professional contact but only the quarter rather than the full street. The company management address in Terms must not replace the treatment/workshop premises. No coordinates, weekend opening or extra branch inferred."
+      },
+      "reviewedUrls": [
+        "https://mad-detailing.com/robots.txt",
+        "https://mad-detailing.com/",
+        "https://mad-detailing.com/contact/",
+        "https://mad-detailing.com/общи-условия/"
+      ],
+      "accessNotes": "Web reader read root, linked package Contact and complete linked Terms. Robots was inaccessible in the reader; a single ordinary HTTPS GET returned200. No challenge, 401/403/429, hidden endpoint or denial bypass. No further owner or provider pages fetched after the terms restriction was identified.",
+      "requiredBeforeAdmission": "Owner written permission consistent with the source rules, then actual appointment eligibility and complete selected-service/staff/menu review with independently checked exact premises. Do not use the current hold as a permission or inventory receipt."
+    },
+    {
+      "name": "Prime Car Wash",
+      "websiteLead": "https://primecarwash.eu/",
+      "neighborhoodLead": "Банишора",
+      "status": "held_owner_domain_DNS_unavailable_current_appointment_and_services_unreviewed",
+      "admissionRecommended": false,
+      "attemptedOwnerUrls": ["https://primecarwash.eu/robots.txt", "https://primecarwash.eu/"],
+      "accessFinding": "Both public URLs were inaccessible in the web reader. Ordinary limited HTTPS GET for each failed with getaddrinfo ENOTFOUND primecarwash.eu. This is an unreachable source, not a completed review and not proof the merchant is closed or has no published tariff. No alternate host/proxy/cache or hidden API was used.",
+      "bookingReview": {"status": "not_completed", "finding": "No live owner Book or explicit current appointment instruction was inspected. Expired voucher instructions are not substituted."},
+      "pricingReview": {"status": "not_completed", "finding": "No current owner service/staff tariff could be read. No third-party EUR conversion, historical promotional amount or missing-price receipt is proposed."},
+      "premisesContactHoursReview": {"status": "discovery_only_not_owner_verified", "finding": "Discovery mentions the Central Bus Station underground premises at MariaLuiza102 and differing professional phone numbers and hours across directories/older vouchers. No directory is promoted to first-party confirmation, no Banіshora boundary or exact point guessed, and no second business is created from the station labels."},
+      "discoveryUrls": [
+        "https://trqbvami.com/en/firmi/prime-car-wash-sofia/",
+        "https://grabo.bg/places/prime-car-wash",
+        "https://autosmart.bg/partner/parym-kar-uosh-prime-car-wash-avtomivka"
+      ],
+      "requiredBeforeAdmission": "Reachable current owner source or owner-supplied confirmation of actual staff-operated appointment service, exact current premises, service inventory, tariff status, contact, hours and source-use policy. No source-complete recommendation from the expired voucher or DNS failure."
+    }
+  ],
+  "discoveryExcludedBeforeOwnerFetch": [
+    {"names": ["SRV Detailing", "AutoCosmetics.bg", "MAD GARAGE DETAILING", "Wash Depot", "DriveCleanBG", "SZ Detailing"], "reason": "Existing source-policy STOP or incomplete-intake holds were found locally. No owner refetch or attempt to re-admit from fresh search snippets."},
+    {"names": ["IQ Detailing", "Nebula Detailing", "Georgi’s Garage", "Superior Detailing", "Wash & Go Detailing", "Sofia Detailing Studio", "Signature Detailing", "LuxSpa", "CarKings"], "reason": "Already present catalogue identities; not new businesses or cloned sparse-quarter branches. No new owner fetch."},
+    {"names": ["D.C.A Garage", "Auto Atelier Detailing Studio"], "reason": "Only third-party/social discovery leads found; no verified own live Book/menu/policy source. No owner host requested and no admission prepared."},
+    {"names": ["Alex Cars · Fondovi Zhilishta"], "reason": "Registry residence alone does not establish a public detailing workshop. No premises, Book or source review inferred."},
+    {"names": ["Paradise · Orlandovtsi", "Bubble Bay", "Kalas"], "reason": "Self-service or unresolved operation type in directory discovery. Staff-operated appointment service not established; no catalogue admission or source fetch."},
+    {"names": ["NSS · Voenna Rampa", "GLR", "Magic Auto Spa"], "reason": "Expired offers or directory-only current discovery, not a verified owned appointment/menu source. Conflicting quarter labels and co-located identities are not used to create new records."},
+    {"names": ["Auravel neighborhood pages", "StrugarPlovdiv ZaharnaFabrika", "AvtoservizSofia quarter pages"], "reason": "Marketplace or SEO service-area pages, not confirmed new local detailing premises; Plovdiv is not Sofia. No per-quarter clones."}
+  ],
+  "result": {"newBusinessesAdded": 0, "sourceCompleteCandidates": 0, "substantivelyInspectedNewHosts": 2, "holds": 2, "otherFilesChanged": false, "noBookingsOrMessagesSubmitted": true}
+}

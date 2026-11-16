@@ -1,0 +1,116 @@
+{
+  "version": 1,
+  "checkedOn": "2026-11-16",
+  "status": "bounded_research_complete_no_admissions",
+  "scope": "At most two genuinely new beauty-premises source checks in sparse southern Sofia quarters after northern leads were exhausted. Research only: no catalogue module, price identity, service inventory, hours, address, coordinate, booking, account or production edit.",
+  "priorityEvidence": {
+    "snapshotRead": "docs/catalogue-coverage/coverage-20261116-batch-003.md",
+    "snapshotApprovedBusinesses": 1702,
+    "selectedQuarters": [
+      { "neighborhood": "Симеоново", "mappedPremises": 4, "hair": 0, "barber": 0, "nails": 0, "beauty": 0 },
+      { "neighborhood": "Павлово", "mappedPremises": 4, "hair": 0, "barber": 0, "nails": 1, "beauty": 1 }
+    ],
+    "qualification": "These are historical snapshot physical-premises counts, not proof that no other provider serves the quarter or that fifty eligible independent businesses exist there."
+  },
+  "deduplication": {
+    "runtimeAsOf": "2026-11-16T12:00:00Z",
+    "sourceCountAtRead": 1726,
+    "approvedCountAtRead": 1703,
+    "preflightBeforeNetwork": "Separately read the current coverage snapshot and beauty research/intake ledgers, then locally searched candidate names and domains before requesting either selected source. No matches for Mystique/mylink.bg/mystique or Nirvana/nirvana.bg were found in current catalogue and intake/research files. Fresh phone/address evidence was checked locally afterwards.",
+    "checkedFields": ["business name and alias", "source hostname and merchant URL", "professional telephone", "premises street and number", "all current catalogue modules and intake/research holds"],
+    "matches": [],
+    "note": "Absence of local duplicates is not admission. The source-policy and professional-scope holds below independently prevent publication."
+  },
+  "ready": [],
+  "holds": [
+    {
+      "name": "Mystique",
+      "sourceUrl": "https://www.mylink.bg/mystique",
+      "sourceKind": "merchant_self_booking_profile_not_independently_confirmed_owner_website",
+      "candidateNeighborhood": "Симеоново",
+      "exactQuarterExcerpt": "Салон за красота в кв Симеоново",
+      "observedAddress": "улица „Витошки езера“ 12, София",
+      "observedProfessionalPhone": "+359894233362",
+      "identityFinding": "The named merchant profile gives its salon name, street/number, public phone and first-person Simeonovo description. Its location string combines Simeonovo and Vitosha without a separator; the business description itself explicitly names Simeonovo. No directory quarter, map, coordinate or numbered subdivision is inferred. Separate own-site or owner-social corroboration remains incomplete.",
+      "status": "STOP_provider_express_scraping_and_competitive_use_restriction",
+      "admissionRecommended": false,
+      "actualBookReview": {
+        "status": "not_completed_policy_stop_before_interaction",
+        "finding": "The public merchant page contains five visible manicure tariff rows with individual Reserve controls and a Pedicure tab. This is an actual advertised booking entry, but no Reserve control, service/tab, date, time or customer step was clicked. Neither a downstream menu nor an available slot is claimed reviewed. No phone-only admission workaround is proposed."
+      },
+      "tariffFinding": "Visible service prices exist, but their amounts, durations and inventory are deliberately not prepared for reuse after the provider policy stop. Pedicure and downstream selection were not inspected. This is not a completed tariff review and must not be labelled not_publicly_listed.",
+      "hoursFinding": "Only a current open/closed status and today's opening/closing time appeared in the profile. No complete weekly schedule was reviewed or inferred.",
+      "sourcePolicy": {
+        "termsUrl": "https://www.mylink.bg/terms-of-service",
+        "section": "7. Използване на услугите",
+        "shortExcerpt": "Не извършвате reverse engineering, decompilation, scraping, автоматизирано извличане на данни",
+        "finding": "Section7 expressly restricts scraping/automated extraction except where law explicitly permits it, and additionally restricts improper platform use to build a competing service. Source-use basis unresolved: conservative STOP, not a claim about universal legality. All further merchant/provider requests stopped when the clause was read. No browser, hidden API, alternate locale, profile mirror, phone reinterpretation or source change is used to work around it.",
+        "privacyUrl": "https://www.mylink.bg/privacy-policy",
+        "privacyFinding": "The returned public privacy notice was readable in the same policy request batch. No client/account information was entered or collected. No merchant-content licence to GoRez is claimed.",
+        "robotsUrl": "https://www.mylink.bg/robots.txt",
+        "robotsFinding": "Web reader reported inaccessible. No retry after the Terms STOP and no robots clearance claimed.",
+        "fullTermsQualification": "The applicable Section7 and start of Section8 were returned and read. The reader did not print the end of the Terms document; a complete end-to-end Terms review is not claimed. The explicit observed clause alone is sufficient for this research hold."
+      },
+      "accessFinding": "Initial merchant web-reader open returned cache miss. One ordinary public HTTPS GET returned200 and the visible page text/links were read, not protected API or JS application internals. The provider policies were then requested once through the reader. No401/403/429, challenge or technical restriction was bypassed. Transient HTTP cookies are not retained as catalogue evidence.",
+      "reviewedUrls": [
+        "https://www.mylink.bg/mystique",
+        "https://www.mylink.bg/terms-of-service",
+        "https://www.mylink.bg/privacy-policy"
+      ],
+      "requiredBeforeFurtherReview": "Resolve permission/source-use basis with root before reopening Mylink for catalogue intake; then independently confirm owner identity and inspect the actual complete selected booking tariff and schedule without submission."
+    },
+    {
+      "name": "Нирвана · Павлово",
+      "sourceUrl": "https://nirvana.bg/",
+      "sourceKind": "own_brand_website",
+      "candidateNeighborhood": "Павлово",
+      "exactQuarterExcerpt": "НИРВАНА ПАВЛОВО",
+      "observedAddress": "София, бул. Александър Пушкин 15",
+      "observedProfessionalPhone": "+359878555760",
+      "identityFinding": "The owner homepage explicitly labels its Pavlovo branch and gives this address/phone. A much older secondary discovery lead gave NarodenPevets2 with the same phone; that old address is not imported and no additional branch is invented.",
+      "status": "held_outside_ordinary_beauty_scope_medical_aesthetics",
+      "admissionRecommended": false,
+      "scopeFinding": "The current owner homepage presents an aesthetic-centre chain, names two physicians and dermatology/medical-aesthetic services, and explicitly labels its separate NDK branch a clinic. This is not the ordinary hair/barber/nails salon suggested by the old directory lead. No medical-aesthetic practice is repackaged as an independent ordinary beauty listing merely to fill Pavlovo coverage. Whether any standalone permitted nonmedical premises exists here remains unverified; no such claim is made.",
+      "actualBookReview": {
+        "status": "not_followed_after_professional_scope_hold",
+        "observedLabel": "Запази час",
+        "observedHref": "https://book.nirvana.bg/?utm_source=shop&utm_medium=website&utm_campaign=main-menu",
+        "finding": "Actual owner Book link was observed on the homepage but not requested. No service tariff, calendar, clinician, date, time, customer field or submission was inspected. No claim of completed booking review."
+      },
+      "tariffFinding": "The homepage links Prices and time-limited promotions, but neither tariff nor promotion was followed after the scope hold. No amount, package, conversion, duration or not_publicly_listed receipt is proposed.",
+      "hoursFinding": "A generic chain footer lists hours; branch/service applicability was not checked and no schedule is prepared for import.",
+      "sourcePolicy": {
+        "status": "not_completed_scope_hold_before_further_requests",
+        "finding": "Terms/privacy links were observed but not followed, because this candidate was already outside the assigned ordinary-beauty scope. No policy clearance or general reuse licence is claimed."
+      },
+      "accessFinding": "The initial public reader request timed out. One ordinary public HTTPS GET returned200 and the homepage was read. No challenge, access denial, login or alternate extraction workaround occurred. No further domain request after scope determination.",
+      "reviewedUrls": ["https://nirvana.bg/"],
+      "requiredBeforeAdmission": "Do not admit under this task. A materially different professional scope would require explicit root/user direction and an independently verified permitted premises, followed by full source-policy and appointment/tariff review."
+    }
+  ],
+  "discoveryOnlyNotPrimarySourceChecks": [
+    {
+      "names": ["Estetiko", "Beauty Box Aldea", "VERTE FE"],
+      "neighborhoodLead": "Горна баня",
+      "finding": "Bounded search found directory/social-mirror or stopped Studio24 signals but no accessible own-site actual booking evidence. No merchant/provider request, service tariff import, hours or confirmed admission."
+    },
+    {
+      "name": "Daisy Beauty Studio",
+      "sourceUrl": "https://daisysalon.eu/",
+      "finding": "Existing intake had a DDoS verification challenge STOP. Excluded locally before network; no domain or alternate endpoint requested."
+    },
+    {
+      "name": "Barrnat Style",
+      "finding": "Search returned a first-party tariff, but local preflight identified the existing sofia-barrnat-style record. No new owner request or alias addition."
+    }
+  ],
+  "counts": {
+    "newPrimaryPremisesCandidatesInspected": 2,
+    "sourceCompleteReady": 0,
+    "holds": 2,
+    "newBusinessesAdded": 0,
+    "recordsChanged": 0,
+    "servicePricesPreparedForImport": 0
+  },
+  "completion": "The two-candidate bound is reached. Zero source-complete candidates are reported honestly; no withheld or inaccessible tariff is misrepresented as unpublished. This ledger adds a substantive new provider-policy STOP and a medical-scope exclusion, not catalogue growth."
+}

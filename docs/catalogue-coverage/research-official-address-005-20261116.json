@@ -1,0 +1,13 @@
+{
+  "checkedOn": "2026-11-16",
+  "inputFile": "address_sofia.csv",
+  "inputSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+  "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+  "handling": "Read-only original CSV. Existing strict parser and exact-match index. No source edit/export/upload, no geocoder and no coordinate import.",
+  "results": [
+    {"candidate":"Borbelov Dental Solutions","address":"София, ж.к. Борово, ул. Пирински проход 61А","status":"unresolved","reason":"no_exact_address_candidate","coordinatesImported":false},
+    {"candidate":"Ястра · Люлин 10","address":"София, ж.к. Люлин 10, ул. Майски ден 26, ет. 2, зала Tancuvai.com","status":"ambiguous","reason":"three_exact_address_candidates_without_owner_entrance","candidateAddressIds":["102389","102388","102387"],"coordinatesImported":false},
+    {"candidate":"Ястра · Люлин 9","address":"София, ж.к. Люлин 9, ул. Николай Масалитинов, до бл. 901, зала My Soul’s Place","status":"unresolved","reason":"landmark_not_exact_premises_house_or_block_address","coordinatesImported":false}
+  ],
+  "limitations": "No nearest/first point or centroid. Three Lyulin10 entrances preserved separately. Lyulin9 nearby block is not the venue entrance. All proposed points remain null; postal points are not independent proof of business entrance."
+}

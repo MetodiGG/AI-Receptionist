@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-16",
+  "status": "bounded_research_complete_two_manual_review_candidates_two_holds",
+  "scope": "At most six new primary owner leads for private dental, psychological or nonmedical beauty appointments in sparse Sofia quarters. Stopped at two source-complete manual-review candidates among four new owner hosts. Research is not admission: no catalogue record, price, coordinate, shared review identity, production setting, reservation or customer record was changed by this journal.",
+  "coveragePreflight": {
+    "snapshot": "docs/catalogue-coverage/coverage-20261116-batch-004.md",
+    "finding": "Borovo, Geo Milev, Malinova dolina and Lagera remain below the requested fifty real premises per category. Owner-stated quarters are retained, never inferred from map centers, nearby addresses, district names or registered residences. New dental practices remain in the existing other category; private psychology remains in existing consulting. No taxonomy changes.",
+    "localPreflight": "Read current coverage README and earlier research/STOP ledgers, then searched all current lib/discovery, research ledgers and pricing intake JSON separately before each new owner host request. Repeated name/phone/address searches after identifying the owners. Existing source holds were not reopened.",
+    "newPrimaryOwnerHosts": ["borbelov.com", "omegadent.eu", "tsvetelinachobanova.com", "semeino-konsultirane.bg"],
+    "sourceStopsRespected": ["Studio24", "Setmore", "Notino", "Goldie", "EasyWeek", "Fresha", "ReservationStudio", "restricted Easybook", "Mylink", "dentlux.net", "advokat-lyudmila-angelova.com", "earlier own-site access/reuse holds"]
+  },
+  "ready": [
+    {
+      "name": "Borbelov Dental Solutions",
+      "status": "source_complete_manual_review_candidate",
+      "website": "https://borbelov.com/",
+      "city": "София",
+      "neighborhood": "Борово",
+      "address": "София, ж.к. Борово, ул. Пирински проход 61А",
+      "phone": "+359884204080",
+      "category": "other",
+      "appointmentModel": "appointment",
+      "coordinates": null,
+      "premisesEvidence": {
+        "sourceUrl": "https://borbelov.com/kontakti/",
+        "literalExcerpt": "ж.к. Борово, ул. Пирински проход 61А",
+        "finding": "Owner homepage and actual Contact agree on this named quarter and public practice street. Privacy controller has the same street plus floor/office, not silently promoted to patient-entry details. No coordinates, map directions or geocoder used."
+      },
+      "actualBooking": {
+        "route": "phone",
+        "sourceUrl": "https://borbelov.com/",
+        "literalExcerpt": "Запишете час за преглед или процедура",
+        "bookingUrl": "https://borbelov.com/kontakti/",
+        "finding": "Followed the homepage's actual appointment invitation before service review. The native destination contains an appointment-request form with examination/procedure purposes, consultation and other; it is not a live calendar or GoRez availability. Phone is independently invited by the homepage. No fields, consent, form submission, call or email."
+      },
+      "selectedServices": [
+        {
+          "literalName": "Професионално почистване на плака и зъбен камък и клинична орална хигиена",
+          "suggestedConciseName": "Професионално почистване на плака и зъбен камък",
+          "sourceUrl": "https://borbelov.com/uslugi/profilaktika/",
+          "price": null,
+          "currency": null,
+          "durationMinutes": null,
+          "conditions": "One owner-listed professional oral-hygiene procedure. No invented adult/child eligibility, fixed minutes, tariff, per-tooth charge, appointment availability or clinical outcome. Other child preventive procedures and splints are not selected."
+        }
+      ],
+      "pricingReview": {
+        "proposedDisposition": "not_publicly_listed",
+        "sourceReviewOnly": true,
+        "amountsPrepared": [],
+        "bookingEntryInspectedFirst": true,
+        "tariffProvenance": "Entire actual homepage, native appointment/contact destination, full services index, practice page and selected prophylaxis page reviewed. Navigation/footer provide no public tariff or separate booking provider/menu. The selected page initially had a reader cache miss, then one ordinary public GET returned HTTP200 and its complete visible text was read. No known unread or blocked tariff is converted into unpublished pricing.",
+        "reviewedUrls": ["https://borbelov.com/", "https://borbelov.com/kontakti/", "https://borbelov.com/uslugi/", "https://borbelov.com/dentalna-klinika/", "https://borbelov.com/uslugi/profilaktika/"],
+        "finding": "The offered cleaning service is explicitly verified, but no public amount for it was found on the actually inspected owner booking/service route. This is not a zero price, free offer or copied market estimate. Root must independently verify before receipt/admission."
+      },
+      "hours": {
+        "sourceUrl": "https://borbelov.com/kontakti/",
+        "weekdays": {"days": ["monday", "tuesday", "wednesday", "thursday", "friday"], "open": "09:00", "close": "19:00"},
+        "saturday": null,
+        "sunday": null,
+        "lastAppointmentStart": "18:00",
+        "finding": "Owner homepage/Contact agree on Monday–Friday09–19, with last possible appointment18. Closing remains19; last-start18 is a separate condition. Weekend is not stated and must not be invented as closed. A practice timetable is not specialist availability."
+      },
+      "sourcePolicy": {
+        "robotsUrl": "https://borbelov.com/robots.txt",
+        "robotsFinding": "HTTP200 wildcard policy disallows wp-admin and allows its admin-ajax file; neither was requested.",
+        "observedPrivacyLink": "https://www.borbelov.com/politika-za-lichnite-danni/",
+        "canonicalPrivacyUrl": "https://borbelov.com/politika-za-zashtita-na-lichnite-danni/",
+        "finding": "Observed footer/form privacy links normally redirect to canonical public policy, HTTP200. Full ten-section GDPR document read including initially truncated middle; last update23May2018. No express automated extraction, factual/database reuse or commercial-use restriction found in that reviewed policy. Ordinary copyright footer is not a reuse licence or legal clearance. No owner prose, source photographs, testimonials, patient information or ratings copied.",
+        "access": "Reader cache misses and ordinary public301 redirects only; no401/403/429, challenge, account, hidden API, protected provider or access-control workaround."
+      },
+      "deduplication": {"nameHostPhoneAddressMatches": [], "checkedTerms": ["borbelov", "Борбелов", "884204080", "Пирински проход61"]},
+      "remainingBeforeAdmission": ["Independent root review of owner Book/service/policy sources", "Strict normalized record and current source-reviewed price receipt", "Exact oral-hygiene photograph and public/onboarding tests", "No coordinates unless a later independently bound exact practice point is verified"]
+    },
+    {
+      "name": "Моника Христова · Семейно консултиране и терапия",
+      "status": "source_complete_manual_review_candidate_research_only",
+      "website": "https://semeino-konsultirane.bg/",
+      "city": "София",
+      "neighborhood": "Лагера",
+      "address": "София, ж.к. Лагера, бл. 53, вх. Г",
+      "phone": "+359878908731",
+      "category": "consulting",
+      "appointmentModel": "appointment",
+      "coordinates": null,
+      "actualBooking": {
+        "route": "phone",
+        "sourceUrl": "https://semeino-konsultirane.bg/kontakti/",
+        "literalExcerpt": "За записване на час.",
+        "bookingUrl": "https://semeino-konsultirane.bg/kontakti/",
+        "finding": "Actual native Contact explicitly assigns the phone to appointment booking. The FAQ independently says sessions occur at the stated office after advance arrangement. Generic inquiry form was not treated as instant booking or submitted. No private clinical or family information entered."
+      },
+      "premisesEvidence": {
+        "sourceUrl": "https://semeino-konsultirane.bg/kontakti/",
+        "literalExcerpt": "гр. София, ж.к. „Лагера“, бл. 53, вх. Г",
+        "finding": "Actual own Contact and privacy controller address agree. This is a physical consultation practice; online-session option does not create additional premises or evidence service in every quarter. Maps link observed but not followed."
+      },
+      "selectedServices": [
+        {"literalName": "Индивидуална терапия", "sourceUrl": "https://semeino-konsultirane.bg/individualna-terapiya/", "price": null, "currency": null, "durationMinutes": 60},
+        {"literalName": "Терапия за двойки", "sourceUrl": "https://semeino-konsultirane.bg/terapiya-za-dvoiki/", "price": null, "currency": null, "durationMinutes": 60}
+      ],
+      "durationEvidence": {
+        "sourceUrl": "https://semeino-konsultirane.bg/vaprosi/",
+        "literalExcerpt": "Продължителността на една сесия е 60 минути.",
+        "finding": "FAQ expressly covers both family and individual sessions and their advance booking at Lagera office. Frequency is usually weekly or fortnightly depending on agreement, not a package count or available slot. Root should confirm this general duration applies to both selected session names before import."
+      },
+      "pricingReview": {
+        "proposedDisposition": "not_publicly_listed",
+        "sourceReviewOnly": true,
+        "amountsPrepared": [],
+        "tariffProvenance": "Read complete owner root, actual appointment Contact, individual therapy, couples therapy, About, FAQ and both additional native footer service pages. The latter psychologist page has prices in its title but no numerical fee in its fully read visible content. Public page sitemap lists only these native pages and privacy; no tariff or external booking menu was present. No unread/blocked price page is relabelled unpublished.",
+        "reviewedUrls": ["https://semeino-konsultirane.bg/", "https://semeino-konsultirane.bg/kontakti/", "https://semeino-konsultirane.bg/individualna-terapiya/", "https://semeino-konsultirane.bg/terapiya-za-dvoiki/", "https://semeino-konsultirane.bg/za-men/", "https://semeino-konsultirane.bg/vaprosi/", "https://semeino-konsultirane.bg/semejna-konsultacziya/", "https://semeino-konsultirane.bg/psiholog/"]
+      },
+      "hours": null,
+      "scopeCaveat": "Private family psychotherapy/consultation, not another physician specialty or general clinic. Own About describes master's family counselling and systemic-family psychotherapy training. Do not import general explanatory psychologist-topic lists as offered diagnostic/medical procedures, copy outcome claims or invent qualifications beyond the inspected owner description.",
+      "sourcePolicy": {
+        "robotsUrl": "https://semeino-konsultirane.bg/robots.txt",
+        "robotsFinding": "HTTP200 wildcard Disallow empty. Only robots-declared sitemap index and its one page sitemap were inspected to identify policies/tariffs; no mass crawl or source-media download.",
+        "privacyUrl": "https://semeino-konsultirane.bg/privacy-policy/",
+        "finding": "The actual public page sitemap links this privacy page. After reader failure, normal publicGET returned200 and the complete fourteen-section policy dated20August2026 was read. It covers private inquiry/appointment data, professional confidentiality, technical cookies and rights; no express factual/automated/commercial reuse prohibition found. No separate Terms link/page in inspected native navigation or page sitemap. This is not a licence or legal clearance; ordinary copyright footer remains.",
+        "access": "Reader cache misses were resolved only through ordinary public same-host GETs and normal Cyrillic-to-canonical redirects. No401/403/429, challenge, account, consent acceptance, hidden endpoint or restricted provider workaround."
+      },
+      "deduplication": {"nameHostPhoneAddressMatches": [], "checkedTerms": ["semeino-konsultirane", "Моника Христова", "Monika Hristova", "878908731"]},
+      "remainingBeforeAdmission": ["Independent root review; no module was requested for this candidate", "Confirm exact selected-service duration scope and source-reviewed price receipt", "Specific individual/couples consultation images, strict schema and public/onboarding tests", "Weekly opening hours and coordinates remain unknown"]
+    }
+  ],
+  "holds": [
+    {
+      "name": "ОмегаДент",
+      "website": "https://omegadent.eu/",
+      "status": "held_source_policy_review_incomplete_robots_disallows_policy_paths",
+      "address": "София, кв. Гео Милев, ул. Коста Лулчев 58а",
+      "phones": ["+35929963969", "+359876565577", "+359877919222"],
+      "actualBooking": {"sourceUrl": "https://omegadent.eu/", "literalExcerpt": "ЗАПАЗИ ЧАС ПО ТЕЛЕФОНА", "observedDestination": "https://omegadent.eu/?p=90", "finding": "Actual Book followed before services. Native Contact returned readable ordinary publicGET and same exact premises/phones; inquiry form not submitted."},
+      "selectedServiceObservedNotPrepared": {"name": "Почистване на зъбен камък с ултразвук", "sourceUrl": "https://omegadent.eu/услуги/лечение-на-заболяванията-на-венците-и/"},
+      "hoursObserved": "Monday–Friday09:00–19:00; Saturday/Sunday explicitly rest days on owner Contact.",
+      "sourcePolicy": {
+        "robotsUrl": "https://omegadent.eu/robots.txt",
+        "finding": "HTTP200 explicitly Disallows cookie, privacy and Terms paths. Linked cookie policy had already been read200 before robots response revealed these restrictions; no further request to any disallowed policy path was made. Privacy and Terms were not read. Root notified of this hold; not admitted or described as fully policy-cleared.",
+        "cookiePolicyUrlAlreadyReadBeforeRobotsDiscovery": "https://omegadent.eu/политика-за-бисквитките/"
+      },
+      "reviewedUrls": ["https://omegadent.eu/", "https://omegadent.eu/?p=90", "https://omegadent.eu/услуги/", "https://omegadent.eu/услуги/профилактика/", "https://omegadent.eu/услуги/лечение-на-заболяванията-на-венците-и/", "https://omegadent.eu/политика-за-бисквитките/", "https://omegadent.eu/robots.txt"],
+      "pricing": "No service price or not_publicly_listed receipt prepared for admission while policy review is incomplete. No source restrictions bypassed with guessed alternative URLs, locales, providers or private APIs.",
+      "deduplication": "No exact name, host, discovered phones or CostaLulchev58a match in current sources/intake at review."
+    },
+    {
+      "name": "Цветелина Чобанова",
+      "website": "https://tsvetelinachobanova.com/",
+      "status": "held_no_explicit_actual_appointment_route",
+      "phone": "+359885000700",
+      "address": "София, ж.к. Малинова долина, бл. 4А",
+      "finding": "Own full homepage, actual Contact and linked psychotherapy page read. Contact has generic public phone/email and actual therapy service labels, but no independently established explicit appointment invitation, booking form or calendar. General phone presence is not promoted into appointment proof. No tariff, unpublished-price receipt or hours fabricated. Root homepage includes an unrelated test-domain Read more link; it was not followed or used as another owner/branch.",
+      "robotsFinding": "HTTP200 disallows wp-admin only, no restricted endpoint requested.",
+      "reviewedUrls": ["https://tsvetelinachobanova.com/robots.txt", "https://tsvetelinachobanova.com/", "https://tsvetelinachobanova.com/контакти/", "https://tsvetelinachobanova.com/about-us-2-2/"],
+      "deduplication": "No exact name, host or discovered phone match in current sources/intake at review."
+    }
+  ],
+  "discoveryOnlyExcludedBeforeOwnerRequests": [
+    {"names": ["VestaHelp", "therapy.bg", "Yoursmile", "MirаBlagoeva", "iSmile", "DrStetsonDentalCare"], "reason": "Existing current catalogue or earlier intake; no duplicate/staff/alias/branch invented."},
+    {"names": ["DentViewBG", "BarryBenkovski"], "reason": "Earlier sources identify Varna/Plovdiv, not Sofia; no geographic clone or directory-price import."},
+    {"names": ["Емдент", "Estadent", "Витоша Арт Дентал"], "reason": "Current existing module or prior unresolved own booking/render hold. DentalArtBG local intake explicitly lacks ordinary appointment invitation; not reopened."},
+    {"names": ["Empadent"], "reason": "Only directory/provider/register discovery signals established; no actual owner appointment website confirmed and no primary/provider request claimed."},
+    {"names": ["DowntownDental", "Майлер Център"], "reason": "Discovery only; no own source admission review completed in this bounded task. Do not count as new primary checks or ready records."}
+  ],
+  "validation": {
+    "newPrimaryOwnerCandidates": 4,
+    "sourceCompleteManualReviewCandidates": 2,
+    "holds": 2,
+    "newBusinessesAddedByJournal": 0,
+    "physicalNeighborhoodCoverageAddedByJournal": 0,
+    "numericalServicePricesPrepared": 0,
+    "actualSlotOrFormSubmitted": 0,
+    "sourceConsentAccepted": false,
+    "customerDataEntered": false,
+    "sourcePhotographsCopied": false,
+    "paidApiCalls": 0,
+    "geocoderOrMapLinkRequests": 0,
+    "productionWrites": false,
+    "commitOrDeployment": false,
+    "testScope": "JSON parse, current runtime/local duplicate checks and factual-excerpt word-bound checks only; no browser layout, complete app test suite or production functionality checks claimed for this research journal."
+  }
+}

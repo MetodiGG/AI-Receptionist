@@ -1,0 +1,249 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-16",
+  "scope": "Bounded next-batch research only: at most six new primary owners, Sofia physical sport/education premises, coverage gaps before aggregate growth.",
+  "status": "research_only_yastra_source_reviewed_other_leads_held",
+  "subsequentRootReview": {
+    "checkedOn": "2026-11-16",
+    "reviewedBy": "/root",
+    "scope": "Yastra two halls and the selected individually agreed folk-dance lesson only; other five primary leads remain held.",
+    "finding": "Root independently read the current owner root and rendered the actual schedule slider in the in-app browser. The visible individual-lesson slide binds both named halls and phone895672657. Full DOM tariff slide confirms the individual fee is negotiated;8/9BGN group fees are not applied. A price screenshot caught a transition and is not claimed as final rendered-price evidence. No date, customer or payment actions. Root also visually approved the existing sx-bulgarian-folk-private-lesson asset and owns the two precise service associations.",
+    "mapsQualification": "Owner page automatically loaded Maps iframes in root's browser; zero map-resource loads is not claimed for that browser. Root did not click Maps or geocode and no coordinates were derived. Research-child ordinary GET did not request Maps.",
+    "admission": "New isolated source module and focused tests are prepared separately. Root owns inventory fingerprints, aggregate admission and publication; this research journal itself adds0businesses."
+  },
+  "summary": {
+    "newPrimaryOwnersInspected": 6,
+    "primaryOwnerLimit": 6,
+    "candidatePremisesForIndependentReview": 2,
+    "candidateOperators": 1,
+    "heldPrimaryOwners": 5,
+    "catalogueAdditions": 0,
+    "approvedBusinessesAdded": 0,
+    "physicalQuotaCredit": 0,
+    "priceChanges": 0
+  },
+  "coverageContext": {
+    "sourceCatalogueCountAtPreflight": 1727,
+    "approvedPhysicalCountsReadFromCurrentLocalReport": [
+      { "neighborhood": "Бенковски", "fitness": 0, "education": 0 },
+      { "neighborhood": "Враждебна", "fitness": 0, "education": 0 },
+      { "neighborhood": "Горубляне", "fitness": 1, "education": 0 },
+      { "neighborhood": "Дружба 2", "fitness": 3, "education": 4 },
+      { "neighborhood": "Илиянци", "fitness": 0, "education": 0 },
+      { "neighborhood": "Люлин 10", "fitness": 2, "education": 2 },
+      { "neighborhood": "Люлин 6", "fitness": 0, "education": 1 },
+      { "neighborhood": "Люлин 9", "fitness": 1, "education": 0 },
+      { "neighborhood": "Малашевци", "fitness": 0, "education": 0 },
+      { "neighborhood": "Надежда 4", "fitness": 0, "education": 0 },
+      { "neighborhood": "Обеля 1", "fitness": 1, "education": 0 },
+      { "neighborhood": "Обеля 2", "fitness": 1, "education": 0 },
+      { "neighborhood": "Свобода", "fitness": 0, "education": 0 },
+      { "neighborhood": "Суходол", "fitness": 0, "education": 0 }
+    ],
+    "qualification": "These are exact premises-ledger counts, not total nearby search options. No counts changed by this research. Arholl and Miele were completed previously and were not researched or counted as new here."
+  },
+  "method": {
+    "localPreflightBeforeNetwork": true,
+    "preflightScope": ["current SOFIA_CATALOGUE", "all lib/discovery source modules", "docs/catalogue-coverage research and reports", "docs/catalogue-pricing historical reviews and holds"],
+    "discoverySourcesAreNotFinalEvidence": true,
+    "actualAppointmentEntryRequired": true,
+    "noFormsSubmitted": true,
+    "noPersonalDataEntered": true,
+    "noConsentOrPurchaseActions": true,
+    "noAccountAccess": true,
+    "noMapsRequested": true,
+    "noGeocoder": true,
+    "noPaidApi": true,
+    "noBundleOrPrivateApiExtraction": true,
+    "noSourcePhotoReuse": true,
+    "noSourceRestrictionBypass": true,
+    "accessNotes": [
+      "Public web reader cache misses were not treated as origin denials. Ordinary public GET was used only for Yastra and Titanium already-visible owner routes and public robots, with normal curl TLS verification.",
+      "Sandbox DNS failed before the permitted ordinary public GET escalation. Python's local CA trust store also failed on Yastra; curl's normal verified TLS succeeded. No TLS verification was disabled.",
+      "Y2 returned an ordinary HTTP200 SPA shell with only its title. The in-app browser was unavailable; that CUA attempt ended with a completion summary. No other user browser or tab was accessed.",
+      "Matematika6plus actual trial Book returned a verification challenge. No subsequent request to that owner host was made after the challenge was observed. Other same-call page requests had already been issued before the challenge response was known.",
+      "Titanium commercial-content reuse restriction caused an immediate source STOP. Its actual fee menu and booking action were not subsequently requested. No claim of reading the truncated full policies to EOF is made."
+    ]
+  },
+  "candidatesForIndependentReview": [
+    {
+      "researchId": "yastra-lyulin9-private-folk-lesson",
+      "operator": "Фолклорна формация Ястра",
+      "proposedName": "Ястра · Люлин 9",
+      "proposedCategory": "fitness",
+      "website": "https://yastra.dance/",
+      "phone": "+359895672657",
+      "serviceAreaType": "premises",
+      "neighborhood": "Люлин 9",
+      "address": "София, ж.к. Люлин 9, ул. Николай Масалитинов, до бл. 901, зала My Soul's Place",
+      "coordinates": null,
+      "openingHours": null,
+      "status": "source_complete_for_independent_review_not_import_approved",
+      "selectedService": {
+        "name": "Индивидуален урок по български народни танци",
+        "appointmentModel": "individual_training",
+        "price": null,
+        "durationMinutes": null,
+        "priceStatus": "explicitly_negotiated_not_public_numeric_tariff",
+        "publicDescriptionDraft": "Индивидуален урок в зала My Soul's Place в Люлин 9. Часът и цената се уточняват предварително по телефона с ръководителя."
+      },
+      "appointmentEvidence": {
+        "url": "https://yastra.dance/index.php/bg/2021-04-19-11-01-29",
+        "kind": "owned_individual_lesson_by_agreement_schedule_with_phone",
+        "finding": "The actual schedule explicitly pairs individually agreed lessons with both named halls and the owner's phone. Lyulin9 individual-lesson schedule is shown as Monday/Wednesday20:30, but this is not imported as opening hours, a duration, or a free slot. Booking must be confirmed by phone.",
+        "calendarChecks": [
+          { "url": "https://yastra.dance/index.php/bg/2021-04-19-11-00-44", "finding": "Actual Today event view shows16November2026 with no events. This is not evidence the school closed, nor proof of available slots." },
+          { "url": "https://yastra.dance/index.php/bg/2021-04-19-11-02-18", "finding": "Actual Calendar event view shows16–22November2026 with no events. No calendar navigation/date selection/action performed." }
+        ]
+      },
+      "tariffReview": {
+        "url": "https://yastra.dance/index.php/bg/2021-04-19-11-01-29",
+        "actualMenuRead": true,
+        "selectedIndividualFee": "индивидуален урок по договаряне",
+        "otherPublishedTariffFactsNotSelected": [
+          { "name": "Еднократно посещение My Soul's Place", "amount": 8, "currency": "BGN", "unit": "час" },
+          { "name": "Еднократно посещение Tancuvai.com", "amount": 9, "currency": "BGN", "unit": "час" },
+          { "name": "Сценични танци", "amount": 7, "currency": "BGN", "unit": "час" },
+          { "name": "Втори час при двоен час", "amount": 6, "currency": "BGN", "unit": "втори час, conditional" },
+          { "name": "Карта8посещения", "amount": 58, "currency": "BGN", "unit": "пакет, не едно посещение" }
+        ],
+        "qualification": "No numeric private-lesson fee or duration is published in the actual inspected schedule. Group fees are explicitly hall-specific and must not price the individual lesson. All BGN amounts are retained literally; no converted EUR amount is claimed to be published. Group schedule/price admission is deliberately excluded from the selected inventory pending visual review of duplicated responsive markup."
+      },
+      "reviewedUrls": [
+        "https://yastra.dance/",
+        "https://yastra.dance/index.php/bg/",
+        "https://yastra.dance/robots.txt",
+        "https://yastra.dance/index.php/bg/2021-04-19-11-01-29",
+        "https://yastra.dance/index.php/bg/2021-04-19-11-02-51",
+        "https://yastra.dance/index.php/bg/2021-04-19-11-06-12",
+        "https://yastra.dance/index.php/bg/2021-04-19-10-59-30",
+        "https://yastra.dance/index.php/bg/2021-04-19-11-00-44",
+        "https://yastra.dance/index.php/bg/2021-04-19-11-02-18"
+      ],
+      "dedupe": {
+        "ownerHostBrandAndPhoneMatchExisting": false,
+        "coLocatedExistingBusiness": "Tancuvai.com at the OTHER Lyulin10 hall already exists as sofia-tancuvai-lyulin10-wedding-lessons. Yastra has an independently named owner/site, programme and phone; no Tancuvai-owned facts used as Yastra evidence.",
+        "doNotCreateSeparateStaffOrLevelRecords": true
+      },
+      "sourcePolicy": "Public Joomla robots allow the inspected front-end paths and disallow administrative/system paths, which were not requested. No separate Terms/Privacy link was present in the fully read inspected navigation/footer. This is not a reuse licence or legal clearance; no protected prose/photos copied.",
+      "rootReviewBeforeImport": ["Inspect rendered schedule to distinguish visible current hall assignments from repeated/older responsive text.", "Confirm the selected unpriced individual-lesson receipt and phone route, not a general enquiry alone.", "Approve an existing precise folk-dance lesson photo; no neutral notebook.", "Keep coordinates null and owner location qualifier до бл.901; do not invent a house or block entrance."]
+    },
+    {
+      "researchId": "yastra-lyulin10-private-folk-lesson",
+      "operator": "Фолклорна формация Ястра",
+      "proposedName": "Ястра · Люлин 10",
+      "proposedCategory": "fitness",
+      "website": "https://yastra.dance/",
+      "phone": "+359895672657",
+      "serviceAreaType": "premises",
+      "neighborhood": "Люлин 10",
+      "address": "София, ж.к. Люлин 10, ул. Майски ден 26, ет. 2, зала Tancuvai.com",
+      "coordinates": null,
+      "openingHours": null,
+      "status": "source_complete_for_independent_review_not_import_approved",
+      "selectedService": {
+        "name": "Индивидуален урок по български народни танци",
+        "appointmentModel": "individual_training",
+        "price": null,
+        "durationMinutes": null,
+        "priceStatus": "explicitly_negotiated_not_public_numeric_tariff",
+        "publicDescriptionDraft": "Индивидуален урок в зала Tancuvai.com в Люлин10. Часът и цената се уточняват предварително по телефона с ръководителя на Ястра."
+      },
+      "appointmentEvidence": {
+        "url": "https://yastra.dance/index.php/bg/2021-04-19-11-01-29",
+        "kind": "owned_individual_lesson_by_agreement_schedule_with_phone",
+        "finding": "The same actual owner menu independently names the Lyulin10 hall for individual lessons Monday–Thursday from22:00, by agreement, with phone895672657. Not interpreted as continuous opening hours, a duration or currently bookable availability."
+      },
+      "tariffReview": {
+        "url": "https://yastra.dance/index.php/bg/2021-04-19-11-01-29",
+        "sameCompleteActualOwnerMenuAs": "yastra-lyulin9-private-folk-lesson",
+        "selectedIndividualFee": "индивидуален урок по договаряне",
+        "price": null,
+        "qualification": "The9BGN/hour regular group price for this hall is not applied to a private lesson. Stage classes, second-hour conditions, eight-visit card and free trial are excluded."
+      },
+      "reviewedUrlsSameAs": "yastra-lyulin9-private-folk-lesson",
+      "dedupe": {
+        "ownerHostBrandAndPhoneMatchExisting": false,
+        "coLocatedExistingBusiness": "sofia-tancuvai-lyulin10-wedding-lessons",
+        "distinction": "Yastra's owned programme, named leader and different phone establish a separately evidenced teaching operator using the existing hall, not a Tancuvai staff clone. Root must confirm this before admitting a second listing at this physical address.",
+        "notMultipliedByStaffOrLevels": true
+      },
+      "sourcePolicySameAs": "yastra-lyulin9-private-folk-lesson",
+      "rootReviewBeforeImport": ["Same full source/visible schedule review as Lyulin9.", "Confirm a distinct independently bookable operator at the co-located Tancuvai hall.", "No venue coordinate or hours inherited from the existing Tancuvai listing."]
+    }
+  ],
+  "heldPrimaryLeads": [
+    {
+      "business": "Crew Kids Academy",
+      "website": "https://crewkidsacademy.wixsite.com/academy",
+      "status": "held_enrolment_and_exact_quarter_not_verified",
+      "reviewedUrls": ["https://crewkidsacademy.wixsite.com/academy"],
+      "unsuccessfulReaderRequest": "https://crewkidsacademy.wixsite.com/academy/robots.txt",
+      "findings": "Full visible owner landing page reviewed: acting/camera education age7–17 in three age bands, workshops and casting preparation. Only a generic questions/message form appears, not a clearly described ordinary course enrolment or booked lesson. Owner gives PanchoVladigerov110office2, phone876888850; metro Obelya is only a transport reference, not an explicit numbered neighbourhood. No fee or further tariff/menu appears in the read page. No missing-price receipt created because actual enrolment and complete source-policy review remain unverified.",
+      "noActions": true,
+      "catalogueAdditions": 0,
+      "physicalQuotaCredit": 0
+    },
+    {
+      "business": "Y² Fit Studio",
+      "website": "https://www.y2fitstudio.com/",
+      "status": "held_actual_js_booking_and_tariff_not_rendered",
+      "reviewedUrls": ["https://www.y2fitstudio.com/robots.txt", "https://www.y2fitstudio.com/"],
+      "findings": "Fresh ordinary owner GET200 returns only SPA title and no readable links/forms. Robots explicitly allow public paths. Search discovery hints at Druzhba2block286, owner phone884754321, yoga/pilates/group fitness and prices, but those are NOT verified current facts or an actual booking review. In-app browser unavailable; no bundle/API extraction or other user tabs accessed. Root may render the actual visible booking/menu later. No claim tariff unpublished.",
+      "catalogueAdditions": 0,
+      "physicalQuotaCredit": 0
+    },
+    {
+      "business": "6+ Люлин · Школа по математика",
+      "website": "https://matematika6plus.bg/",
+      "status": "STOP_actual_booking_verification_challenge",
+      "reviewedUrlsBeforeStop": ["https://matematika6plus.bg/", "https://matematika6plus.bg/grafik/", "https://matematika6plus.bg/kontakti/"],
+      "challengeUrl": "https://matematika6plus.bg/kontaktna-forma/",
+      "unreadSameCallCacheMissUrl": "https://matematika6plus.bg/tselogodishni-kursove-po-matematika-v-sofiya-lyulin/",
+      "findings": "Actual prominent Book/trial route returned a request-verification challenge. No further owner-host request after it was observed. Other public pages in that already-issued parallel reader call returned a2026/27 monthly course table and contact. Those partial facts do not overcome unread actual Book and must not be admitted as a source-complete ordinary lesson. The trial request is not a regular paid class and no monthly package was split into a session. No normal-booking-by-phone assumption, no unpublished-tariff claim, no bypass.",
+      "catalogueAdditions": 0,
+      "physicalQuotaCredit": 0
+    },
+    {
+      "business": "Fitness Titanium · Люлин",
+      "website": "https://fitnesstitanium.bg/",
+      "status": "STOP_commercial_site_content_reuse_restriction",
+      "reviewedUrlsBeforeStop": [
+        "https://fitnesstitanium.bg/klubove/titanium-fitness-%D0%BB%D1%8E%D0%BB%D0%B8%D0%BD/",
+        "https://fitnesstitanium.bg/grupovi-zanimania/",
+        "https://fitnesstitanium.bg/grupovi-zanimania/titanium-fitness-%D0%BB%D1%8E%D0%BB%D0%B8%D0%BD/",
+        "https://fitnesstitanium.bg/tos-titanium/",
+        "https://fitnesstitanium.bg/tos/",
+        "https://fitnesstitanium.bg/robots.txt"
+      ],
+      "findings": "Owner branch and internal rules establish organised reserved group classes, not merely walk-in gym access. However, the linked website terms contain an explicit restriction on unauthorised commercial copying/distribution of site content; research stopped immediately once read. No subsequent tariff/contact/booking-provider requests, no admission and no reuse of protected descriptions/photos. Robots returned ordinary404HTML, not allow-all. Long policy output truncated, so full EOF reading is NOT attested; observed restriction is sufficient to hold. Reader group-class page was returned but its long combined output was not fully inspected; it is not a completed menu review.",
+      "actualFeeMenuNotRequestedAfterStop": "https://fitnesstitanium.bg/ceni/",
+      "externalAccountLinkNotRequested": "https://titanium.customer.fitsys.co/login",
+      "catalogueAdditions": 0,
+      "physicalQuotaCredit": 0
+    },
+    {
+      "business": "Езикови школи Еврика",
+      "website": "https://sites.google.com/site/amerrigo/",
+      "status": "held_no_exact_current_premises_mixed_remote_history",
+      "reviewedUrls": ["https://sites.google.com/site/amerrigo/"],
+      "findings": "Full visible owned page includes2026/27 language-school enrolment by phone899455981 and annual/course instalment facts, but no street or block address. Historical text names both Lyulin9/10 and an earlier remote-learning transition; later text names one Lyulin9 office. Do not turn this mixed history into two current premises. Daily09–21 is call-contact availability, not hall hours. Annual/instalment fees are not single visits; course-material charges and early-payment discount not imported. Exact branch/current onsite operation/policies remain unverified. No records or coordinates invented.",
+      "catalogueAdditions": 0,
+      "physicalQuotaCredit": 0
+    }
+  ],
+  "discoveryRejectedBeforePrimaryRequest": [
+    { "business": "Тенис клуб Люлин6 / GRPilates / Salt&Art / DreamTime / ArtMasters / Folklorika / AmikSport", "reason": "Existing source catalogue/ledgers; no new owner requests or duplicate records." },
+    { "business": "Phoenix extra halls / BodyFolk Свобода", "reason": "Prior held or explicitly paused sources; no recheck as new candidates." },
+    { "business": "Rodina / UP Academy neighbourhood SEO pages", "reason": "Prior known non-branch pages; no invented local premises." },
+    { "business": "Public vacation programmes, public school tournaments, park facilities and old reader archives", "reason": "Not new independently reserved paid businesses at a current private premises." },
+    { "business": "Badminton Europe Люлин", "reason": "Discovery only; potential operator/complex overlap with existing ClimbingEurope. No new primary request made in this bounded pass." },
+    { "business": "Directories, marketplace tutors, social mirrors and registry residence results", "reason": "Not final owner premises/enrolment evidence; no residential registrations used as a service venue." },
+    { "business": "ReservationStudio, Easybook, Mylink, Studio24, Fresha, Setmore and other prior STOP providers", "reason": "Discovery results not opened as verified sources; prior source restrictions preserved." }
+  ],
+  "nextActions": [
+    "Root independent visible/owned-source review of the two separately evidenced Yastra halls, operator distinction and negotiated individual-lesson inventory before any module, photo association, identity receipt or import.",
+    "If available, render Y2's actual public website and visible Book/menu without actions, rather than extract a JS bundle or invent unpublished prices.",
+    "Retain all other leads as holds. Do not reopen challenged or source-policy STOP hosts, and do not count the research as added businesses."
+  ]
+}

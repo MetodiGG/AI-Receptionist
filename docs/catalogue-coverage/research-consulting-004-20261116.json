@@ -1,0 +1,18 @@
+{
+  "checkedOn": "2026-11-16",
+  "status": "research_only_no_admission",
+  "ready": [],
+  "holds": [{
+    "name": "MedHub · адв. Надежда Панова",
+    "website": "https://www.medhub.bg/",
+    "actualAppointmentReview": "Own one-page service/contact page explicitly invites a first consultation by phone or actual inquiry form, online or at an office by arrangement. Named legal consultation scope is verified; this is legal support for medical businesses, not a new medical practitioner.",
+    "reviewedUrl": "https://www.medhub.bg/",
+    "knownPublicBusinessPhone": "+359885158185",
+    "sourceAccess": "Owner public root read. Footer policies point to a same-page modal, not a completed policy review here. Actual capital-conversion link /prevalutirane-na-kapitala.html returned reader cache miss; not a completed service-price review or unpublished-price receipt.",
+    "remaining": ["Verify owner-published business city/office or explicit scope for a genuine remote-only listing; countrywide service is not a physical Sofia neighborhood branch", "Complete actual policy/modal and selected-service tariff inspection", "Keep legal consultation separate from state/company capital, registration charges and medical service tariffs"],
+    "decision": "No Sofia neighborhood, premises or coordinates invented. Root did not submit, call, enter a legal case or collect private information. No record or price imported."
+  }],
+  "existingProvidersNotDuplicated": ["Петьо Данков", "Сокол Недков", "Тодор Мангъров", "Василев и партньори"],
+  "businessesAdded": 0,
+  "productionChanges": false
+}

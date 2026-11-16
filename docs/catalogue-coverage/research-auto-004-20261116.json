@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-16",
+  "status": "research_only_one_ready_for_independent_review",
+  "scope": "New physical automotive premises in sparse northern and western Sofia quarters. Read-only first-party evidence, not catalogue admission or an assertion of 50-business coverage. No catalogue, source identity, pricing fingerprint, production data, booking or runtime changed.",
+  "deduplication": {
+    "sourceRecordsChecked": 1722,
+    "sources": ["SOFIA_CATALOGUE runtime export", "all current docs/**/*.json, docs/**/*.mjs and docs/**/*.md research/review ledgers", "lib/discovery source modules"],
+    "method": "Preflight local brand/domain/phone/address searches before owner requests, followed by normalized runtime phone and exact host/address comparison. Owner aliases and prior source-use restrictions retained; old directory branches do not establish new current premises.",
+    "readyMatches": []
+  },
+  "ready": [
+    {
+      "proposedId": "sofia-mim-auto96-knyazhevo-lyublyana69",
+      "name": "М и М АУТО 96",
+      "category": "auto_repair",
+      "cityCode": "68134",
+      "neighborhood": "Княжево",
+      "address": "София, кв. Княжево, ул. Любляна 69",
+      "locationKind": "premises",
+      "coordinates": null,
+      "website": "https://www.mim96.eu/",
+      "phone": "+359895969696",
+      "additionalPublishedPhone": "+359876769696",
+      "booking": {"kind": "form", "url": "https://www.mim96.eu/zaqvka/"},
+      "selectedServices": [
+        {"name": "Диагностика", "category": "auto_repair", "appointmentModel": "appointment"},
+        {"name": "Ремонт и преглед на ходова част", "category": "auto_repair", "appointmentModel": "appointment"},
+        {"name": "Ремонт спирачна система", "category": "auto_repair", "appointmentModel": "appointment"},
+        {"name": "Смяна масло и филтри", "category": "auto_repair", "appointmentModel": "appointment"}
+      ],
+      "suggestedPublicQualification": "Предварително записване през формата за заявка; посочват се автомобилът, проблемът и желаната дата и час.",
+      "bookingReview": "owned_booking_reviewed",
+      "bookingFinding": "Followed the actual root repair-booking CTA before the service/tariff review. Complete public request document has name/contact, requested date/time, vehicle specifications and fault-description fields. This is a repair appointment request, not a verified live slot calendar or an automatic confirmation. No input, selection or submission performed; the separate roadside-assistance contact is not substituted for the repair request.",
+      "pricingReview": {
+        "state": "service_reviewed",
+        "status": "not_publicly_listed",
+        "reviewedUrls": ["https://www.mim96.eu/zaqvka/", "https://www.mim96.eu/uslugi/", "https://www.mim96.eu/", "https://www.mim96.eu/kontakti/", "https://www.mim96.eu/za-nas/"],
+        "finding": "Read the entire actual repair request, full selected-service page, root, Contact and About plus all visible navigation/footer links. No numeric fee, separate tariff route or unread selected price menu was published there. General competitive-price marketing is not an amount. Keep every selected price and duration absent; this is service-reviewed, not a completed numerical price review. No third-party tariff, product amount, roadside fee, free-service claim or currency conversion used."
+      },
+      "addressFinding": "The owner's human-written root, Services and Contact independently repeat Knyazhevo and Lyublyana69 with the same two phones. The old mimautorepair.com business-name/domain alias and both normalized phones yielded no current runtime/ledger match. No second premises created from third-party references to Okolovrasten941.",
+      "addressCaveat": "The owner Services page includes an unopened Google Maps URL whose place-name text labels Lyublyana69 as Karpuzitsa, whereas all human-written owner contact blocks call it Knyazhevo. Do not import its viewport/point or silently relabel the neighborhood from that URL. Root should independently review the intended quarter taxonomy before counting this in an exact quarter cell; no assertion that this resolves a boundary dispute.",
+      "hoursFinding": "Monday-Friday08:00-18:00 agrees. Root says Saturday09:00-17:00; dedicated Contact says Saturdayclosed. Sundayclosed agrees. Recommend omit openingHours entirely until the conflicting Saturday schedule is clarified, instead of synthesizing a complete timetable or using24/7roadside hours for the workshop.",
+      "excludedOffers": ["DPF/EGR removal or defeat", "Unqualified software/chip tuning", "Retail spare parts", "Roadside assistance as a second physical business", "Guessed second location from third-party syndication"],
+      "sourceReview": {
+        "reviewedOn": "2026-11-16",
+        "reviewedUrls": ["https://www.mim96.eu/robots.txt", "https://www.mim96.eu/", "https://www.mim96.eu/zaqvka/", "https://www.mim96.eu/uslugi/", "https://www.mim96.eu/kontakti/", "https://www.mim96.eu/za-nas/"],
+        "access": "Web reader opened root and the actual repair request. Initial ordinary shell GET failed DNS in the network-restricted sandbox. A separately approved ordinary public HTTPS GET outside that network sandbox returned200 for robots and all five known owner pages. No challenge/403, private endpoint, fake user agent, account, hidden API, script bundle or CAPTCHA bypass. Requests serial with pauses.",
+        "robots": "HTTPS200; wildcard Disallow is empty. Only the existing public page links above were followed; the advertised HTTP sitemap was not crawled.",
+        "policies": "Complete observed navigation/footer on all reviewed pages has no separate Terms/Privacy anchor. No explicit extraction/database/commercial-use restriction was observed in those public documents; this is not a licence or legal-clearance assertion. Only minimal independently paraphrased business/service/contact facts are retained, with no owner photographs, testimonials, ratings, portfolio, logos or expressive prose copied.",
+        "integrationRequirement": "Root independent review, exact normalized inventory-bound receipt, appropriate approved service photos, schema/dedup/onboarding/public-filter tests and release gates before any admission. Do not assert confirmed availability or publish conflicting hours."
+      }
+    }
+  ],
+  "holds": [
+    {
+      "name": "Автолаборатория",
+      "website": "https://www.autolaboratory.com/",
+      "status": "held_explicit_appointment_evidence",
+      "reviewedUrls": ["https://www.autolaboratory.com/robots.txt", "https://www.autolaboratory.com/", "https://www.autolaboratory.com/контакти/"],
+      "ownerFacts": {"neighborhood": "НПЗ Военна рампа", "address": "София, ул. проф. Иван Георгов 11", "phone": "+359888712045"},
+      "finding": "New own-site identity with real mechanic/diagnostics/headlight operations and explicit named quarter/address, but root/Contact show only a generic contact invitation. No actual appointment instruction or repair-booking entry independently established. No price-absence receipt, hours, coordinates or admission claimed. Reader robots inaccessible; no challenge bypass. Supplier and directory mentions were discovery-only, not owner booking evidence."
+    },
+    {
+      "name": "Норена 75",
+      "website": "https://www.norena75.com/",
+      "status": "held_appointment_and_named_neighborhood",
+      "reviewedUrls": ["https://www.norena75.com/", "https://www.norena75.com/robots.txt", "https://www.norena75.com/bg/kontakti"],
+      "ownerFacts": {"address": "София, бул. Европа 138, в двора на ПП Успех", "phones": ["+359888999777", "+359889254465"], "hours": "Понеделник-Петък08:30-17:30; Събота-Неделяпочивни"},
+      "finding": "New specialist workshop identity, distinct from existing DAR at the same numbered street property; no shared-address alias assumption or duplicate admission. Actual owned Contact/Enquiry CTA followed first; ordinary public HTTPS200 document contains service/fault/contact enquiry but no date/time or explicit appointment invitation. An inquiry alone is not claimed as a booking. Owner publishes a warehouse/production-zone description, not the named ModernoPredgradie quarter; third-party quarter labels were not promoted. Literal public GPS is deliberately not imported without separate source/address-binding review. No selected service-price review completed. Robots200 allows all. No forms, Maps, source images, wholesale equipment or customer reviews imported."
+    },
+    {
+      "name": "КОБА АУТО · two current Centre premises",
+      "website": "https://koba-auto.com/",
+      "status": "held_outside_preferred_northwest_scope_and_pending_service_policy_review",
+      "reviewedUrls": ["https://koba-auto.com/robots.txt", "https://koba-auto.com/", "https://koba-auto.com/kontakti/", "https://koba-auto.com/bosch-car-service-koba-auto"],
+      "ownerFacts": {"currentAddresses": ["София център, ул. Родопи 27", "София център, ул. Париж 14"], "bookingUrl": "https://koba-auto.com/kontakti/", "phones": ["+359884192080", "+359883394455", "+359877755407"]},
+      "finding": "Local runtime/ledger preflight found no current brand/domain/phone/address match. Current owner root explicitly has only two Centre venues. Actual Book opens Contact, which explicitly supplies repair-appointment telephones for each venue and complete Monday-Friday09-18/Saturday-Sundayclosed schedules. Old AutoBOX/Knyazhevo supplier/directory branch was not reused: these are not new western premises. Branch detail reader cache miss is not a completed menu or price review. Robots reader inaccessible. Do not admit either branch until independent complete selected service/tariff/policy review; no prices or unpublished-price receipt claimed."
+    },
+    {
+      "name": "ЕВРИ КАРС",
+      "website": "https://evry-cars.com/",
+      "status": "held_actual_appointment_and_exact_address",
+      "reviewedUrls": ["https://evry-cars.com/robots.txt", "https://evry-cars.com/"],
+      "finding": "Owner root reader exposes only a generic workshop introduction and NikolaPetkov street name, without an exact numbered current location, named workshop quarter or appointment route. References to clients from several surrounding quarters are not separate premises or proof of the workshop's quarter. No directory address, service inventory, fees, hours or coordinates imported. Robots reader inaccessible; no hidden route discovery or source completion claim."
+    },
+    {
+      "name": "Автокомплекс РИКО",
+      "website": "https://rikoauto.eu/",
+      "status": "held_owner_source_unavailable",
+      "reviewedUrls": ["https://rikoauto.eu/robots.txt", "https://rikoauto.eu/"],
+      "finding": "Public reader could not access owner root/robots. Supplier/directory mentions were discovery-only; no current workshop booking, wash menu, prices, hours, exact quarter or source-use review asserted. No retry via alternate insecure host, private endpoint or challenge bypass."
+    },
+    {
+      "name": "Kushev Detailing",
+      "website": "https://kushev.bg/",
+      "status": "held_outside_preferred_northwest_scope",
+      "reviewedUrls": ["https://kushev.bg/robots.txt", "https://kushev.bg/"],
+      "finding": "New local brand/host preflight, but owner root identifies KlimentOhridski67, not northern/western Sofia. General contact form is not asserted as an appointment; no service/tariff/terms/contact completion claimed. Stop this scoped pass here rather than expand into an unrelated southeastern district."
+    }
+  ],
+  "excludedBeforeFurtherRequests": [
+    {"names": ["DG AutoDetailing", "Premium Auto", "Car Paint Service", "Лазурит Сервиз", "ЕЛИА АУТО", "Боби Старт63", "RocketMotorsport", "Carding PDR", "Авто Ангелов", "Автомикрон", "NCar", "Интерспийд", "Гуми за Вас"], "reason": "Prior source/booking/address/access holds in auto001/002; not repeated as new completed reviews."},
+    {"names": ["MotoExpert", "SRV Detailing", "Маргел", "PointS", "EMK", "Garage46", "Setmore"], "reason": "Inherited source/provider restrictions respected; no direct owner/provider request in this pass. Unsolicited indexed search snippets are not imported facts or permission to resume."},
+    {"names": ["Сервиз за гуми АЛЕКС", "SZ Detailing", "DriveCleanBG", "MD Exotic", "TSP Team", "ХЕЕД АУТО", "AutoExpress-2", "Самокишев Ауто"], "reason": "Pre-existing research holds/reviews found locally before direct requests. No re-admission from indexed booking/price snippets."},
+    {"names": ["Катерини", "ЕиД Сервиз", "Алексов Ауто", "ЯКИ", "AutoVilla", "Автофар", "6Plus", "MYGARAGE", "GoPlus", "Sofia Detailing Studio", "IQ Detailing", "Nebula", "По-Маняшкия", "LuxSpa", "CarKings", "Tander Automotive"], "reason": "Existing current catalogue identities; no duplicate or fictitious quarter branch created."},
+    {"names": ["Wash Depot"], "reason": "Existing held multi-venue/provider review; source and booking work not duplicated."},
+    {"names": ["MZ Detailing", "Gixxer Detailing", "CAR DETAILING SOFIA", "RR Auto", "VAS Center", "Кархолик", "Тедимекс", "НАНС АУТО", "Ford Expert", "Oil Plus", "Motostar777"], "reason": "Discovery leads only; no qualifying own-site appointment review completed. A supplier, directory, legal registered office, product shop, social mirror or exact-looking phone is not sufficient owner appointment/premises evidence."}
+  ],
+  "sourceUseIncident": {
+    "website": "https://ddauto.bg/",
+    "decision": "STOP_no_extraction_no_admission_no_further_requests",
+    "priorEvidence": "docs/catalogue-pricing/expansion-auto-sport-2000-001-20261113.json rootSourceUseHold; docs/catalogue-pricing/source-use-auto-sport-2000-001-review-20261114.json",
+    "incident": "A local preflight and public root/robots reader call were mistakenly batched together. The local result disclosed the inherited restriction only after the public root request had already been sent. Immediately stopped: no services/prices/contact-policy follow-up, no business facts admitted or copied into proposed inventory. This root/robots access is transparently recorded, not claimed as no request. Subsequent preflights and external requests were separated.",
+    "reviewedUrls": ["https://ddauto.bg/robots.txt", "https://ddauto.bg/"],
+    "restriction": "Existing owner source-use receipt prohibits automated extraction and reuse of lists/descriptions/prices/commercial site parts without written consent. No new permission or tariff review inferred."
+  },
+  "validation": {"readyForRootReview": 1, "newAdmissions": 0, "coordinatesInferred": false, "bookingsSubmitted": 0, "customerDataEntered": false, "productionWrites": false, "catalogueModulesEdited": false, "paidPlacesCalls": 0, "geocoderCalls": 0}
+}

@@ -4,6 +4,8 @@ import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 import { approvedCatalogueRecord, validateCatalogue, EXCLUDED_GENERAL_CLINIC_IDS } from '../lib/discovery/catalogue-policy.mjs'
 import { categoryById } from '../lib/discovery/categories.mjs'
 import { auditCatalogueBatch } from '../lib/discovery/catalogue-audit.mjs'
+import { COVERAGE_20261116_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-coverage-20261116.mjs'
+import { assessManualIntakeReview } from './catalogue-manual-intake-review.mjs'
 
 export function cataloguePointCounts(records) {
   return {
@@ -14,7 +16,7 @@ export function cataloguePointCounts(records) {
 }
 
 // Offline only: no Google, crawling, source uploads, personal contacts or DB.
-export function cataloguePublicationState(records, now = Date.now()) {
+export function cataloguePublicationState(records, now = Date.now(), { manualReviews = COVERAGE_20261116_REVIEWS } = {}) {
   // Intentionally excluded records still pass the complete source schema.
   // A malformed source must not be hidden by the publication exclusion.
   const rows = validateCatalogue(records)
@@ -23,18 +25,48 @@ export function cataloguePublicationState(records, now = Date.now()) {
   const excluded = rows.filter(row => excludedIds.has(row.id))
   const recheck = rows.filter(row => row.verification.status === 'approved' &&
     !excludedIds.has(row.id) && !approvedCatalogueRecord(row, now))
+  const sourceReviews = new Map()
+  for (const review of manualReviews) if (review.manualIntakeResolution) {
+    if (sourceReviews.has(review.id)) throw Error(`Duplicate manual source review: ${review.id}`)
+    sourceReviews.set(review.id, review)
+  }
+  const currentById = new Map(current.map(row => [row.id, row]))
+  const manualIntakeResolutions = []
   // The offline intake gate remains limited to 5,000 candidates per batch;
   // validate a larger local inventory in bounded chunks, retaining previous
   // chunks as duplicate evidence. Public search pagination is unchanged.
   for (let offset = 0; offset < current.length; offset += 5000) {
     const audit = auditCatalogueBatch(current.slice(0, offset), current.slice(offset, offset + 5000), now)
-    if (audit.pending.length || audit.rejected.length) throw Error(`Catalogue review failed: ${JSON.stringify({ pending: audit.pending, rejected: audit.rejected })}`)
+    const rejected = [...audit.rejected]
+    const pending = audit.pending.filter(item => {
+      // Keep the ordinary intake warning intact. Only this warning may be
+      // resolved by a fresh, independently recorded, whole-record-bound manual
+      // source review. Duplicate/schema/expired/other failures never bypass it.
+      if (item.reason !== 'first_party_appointment_evidence_required') return true
+      const row = currentById.get(item.id)
+      // Ordinary intake reserves identity keys only for ready candidates, not
+      // pending ones. Before resolving a pending source warning, compare that
+      // record with ALL current peers using the unchanged identity-key logic.
+      // This catches another pending or later ready alias in the same chunk,
+      // and keeps the decision independent of ordering and chunk boundaries.
+      const duplicateAudit = auditCatalogueBatch(current.filter(peer => peer.id !== item.id), [row], now)
+      if (duplicateAudit.rejected.length) {
+        rejected.push(...duplicateAudit.rejected)
+        return true
+      }
+      const resolution = assessManualIntakeReview(row, sourceReviews.get(item.id), now)
+      if (!resolution) return true
+      manualIntakeResolutions.push(resolution)
+      return false
+    })
+    if (pending.length || rejected.length) throw Error(`Catalogue review failed: ${JSON.stringify({ pending, rejected })}`)
   }
-  return { rows, current, excluded, recheck }
+  return { rows, current, excluded, recheck, manualIntakeResolutions }
 }
 
 if (process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url) {
-  const { rows, current, excluded, recheck } = cataloguePublicationState(SOFIA_CATALOGUE)
+  const { rows, current, excluded, recheck, manualIntakeResolutions } = cataloguePublicationState(SOFIA_CATALOGUE)
+  if (manualIntakeResolutions.length) console.log(`Manual source reviews: ${manualIntakeResolutions.length} independently attested cross-host records; ordinary intake flags retained (${manualIntakeResolutions.map(row => row.id).join(', ')}).`)
   for (const row of rows) if (row.photo) {
     await access(fileURLToPath(new URL(`../public${row.photo.src}`, import.meta.url)))
   }

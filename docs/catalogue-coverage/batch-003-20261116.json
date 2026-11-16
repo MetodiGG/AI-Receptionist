@@ -1,0 +1,35 @@
+{
+  "checkedOn": "2026-11-16",
+  "publicationStatus": "validated_ready_for_owner_authorized_publication; publication must be verified separately",
+  "priority": "Real neighborhood/category coverage before raw growth; no clones, fabricated prices, coordinates or premises.",
+  "beforeSnapshot": "coverage-20261116-batch-002.json",
+  "afterSnapshot": "coverage-20261116-batch-003.json",
+  "approvedBefore": 1698,
+  "approvedAfter": 1702,
+  "newDistinctBusinesses": 4,
+  "newActualServices": 9,
+  "newPublicPriceFacts": 3,
+  "newUnpricedServiceRows": 6,
+  "newRecords": [
+    {"id": "sofia-diamant-dental-pashovi-obelya316", "neighborhood": "Обеля 2", "category": "other", "services": 2, "priceReview": "service_reviewed; actual menus inspected, no private monetary tariff published", "booking": "actual merchant practice entry with two linked dentist calendars", "limitations": "One private practice, not DKC30/general clinic/one business per clinician. Adult examination and calculus removal only. No NHIF-free inference, copied reviews, calendar times, hours or coordinates."},
+    {"id": "sofia-madmax-grooming-suhata-reka18", "neighborhood": "Сухата река", "category": "pets", "services": 1, "priceReview": "literal FROM40EUR, mixed-breed dog up to5kg with normal coat; final price onsite", "booking": "canonical own page containing actual service-pricing form", "hours": "Tue–Sun09:00–19:00, Mondayclosed", "limitations": "Rendered Contact and Impressum agree on block18; old Strelbishte SEO/noscript is not a second premises. Hygiene20vs25, puppy35vs40 and nail8vs10 conflicts held. No consent accepted, calendar gate crossed, private details or booking submitted."},
+    {"id": "sofia-mim-auto96-knyazhevo-lyublyana69", "neighborhood": "Княжево", "category": "auto_repair", "services": 4, "priceReview": "service_reviewed; complete actual own repair-request and service documents have no numeric fee", "booking": "owned desired date/time and vehicle/fault request", "limitations": "Saturday schedule conflicts, so no hours synthesized. Human-written owner quarter preserved; unopened Maps place label is not point evidence. No fixed duration, coordinates, DPF/EGR defeat or retail import."},
+    {"id": "sofia-art-masters-band-nadezhda1-172", "neighborhood": "Надежда 1", "category": "education", "services": 2, "priceReview": "single piano lesson60min30EUR or30min16EUR; durations include arrival/departure", "booking": "explicit lesson-time telephone invitation on the same owner's second Wix site, with matching current phone/operator/premises", "hours": "Mon–Fri08:30–20:00; Sat–Sun10:00–18:00", "limitations": "No monthly-package division, rental/free-lesson claim, copied teaching prose, teacher clones or unreviewed other branches. Thirty-minute prepayment/cancellation qualification retained."}
+  ],
+  "manualSourceIdentityReview": "Offline same-host intake warning remains for the exact Diamant and ArtMasters records. Each requires independently reviewed cross-source identity, fresh exact inventory pricing receipt and separate whole normalized-record identity before publication. No generic domain warning disabled, no owner website replaced to evade it, no historical pricing baseline refreshed. Publication also checks each pending cross-host record against all current peers using the unchanged ordinary identity logic, preventing aliases in either order or across5000-row boundaries. Reviewer labels are auditable local attestations, not digital signatures or automated source verification.",
+  "images": "Nine service rows use existing visually approved exact/activity photographic assets: adult dental examination and hygiene, mixed-dog grooming, mechanical diagnosis/chassis/brakes/oil, piano instruction. No new raster generation, source portfolio reuse, neutral notebook or emoji.",
+  "researchAndHolds": ["research-diamant-rendered-menu-20261116.json", "research-pets-004-20261116.json", "research-auto-004-20261116.json", "research-education-004-20261116.json", "research-consulting-004-20261116.json"],
+  "sourceUseTransparency": "Auto004 logs one mistakenly batched prior-STOP D&D root/robots access; no inventory facts admitted and no further requests. Future local source preflight and network requests separated. New StepByStep public/commercial-content restriction respected with no admission.",
+  "productionBookingsSubmitted": 0,
+  "notificationsSent": 0,
+  "validation": {
+    "nodeFullSuite": {"executed": true, "tests": 2555, "passed": 2555, "failed": 0, "log": "artifacts/catalogue-coverage-20261116/batch-003-node-tests-final.log"},
+    "pythonPricing": {"executed": true, "files": ["tests/pricing-extraction_test.py", "tests/booking-pricing-flow_test.py"], "tests": 12, "passed": 12},
+    "catalogueCheck": {"executed": true, "passed": true, "approvedBusinesses": 1702, "sourceRecords": 1725, "recheck": 0, "blockedNewOrChangedListings": 0, "specificServicePhotos": 10088, "missingNeutralOrInvalidServicePhotos": 0},
+    "productionBuild": {"executed": true, "passed": true, "command": "pnpm --config.verify-deps-before-run=warn build --webpack", "log": "artifacts/catalogue-coverage-20261116/batch-003-build.log", "limitation": "Existing external node_modules symlink uses Webpack; no dependency reinstall or production configuration change."},
+    "actualBrowser": {"executed": true, "environment": "localhost test preview; not physical Android or iOS devices", "profiles": 4, "locales": ["bg", "en"], "widths": [320, 360, 390, 430, 768, 1280], "cases": 48, "pageOverflow": 0, "unloadedServicePhotos": 0, "record": "artifacts/category-navigation-20261116/coverage-batch-003-responsive.json", "screenshots": ["artifacts/category-navigation-20261116/coverage-batch-003-local-mobile-390.jpg", "artifacts/category-navigation-20261116/coverage-batch-003-local-desktop-1280.jpg"], "interaction": "Rendered piano prepayment/cancellation details and grooming weekly hours expanded. Booking/call/map actions inspected without activating or submitting them."},
+    "initialFailuresResolved": "The initial catalogue gate correctly blocked two cross-host source cases; the initial full suite had2532/2533 passing before the source-host assertion was integrated with the strict manual receipt assessor. Independent review then found and fixed a pending-first duplicate alias gap before release. Final2555/2555 suite, duplicate boundary regressions and catalogue gate passed. The initial failed log is retained; it is not reported as a passing run.",
+    "sourceControl": "git diff --check passed; historical snapshots, price baselines and five prior coverage identities unchanged. No business, booking, filtering, backend, configuration or database logic altered."
+  },
+  "goalStillUnmet": "No physical category/quarter cell has50 premises. New source records are not native partners. Four genuine incremental admissions do not fulfil the10000-business or50-per-cell objective."
+}

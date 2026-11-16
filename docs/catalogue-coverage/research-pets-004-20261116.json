@@ -1,0 +1,136 @@
+{
+  "checkedOn": "2026-11-16",
+  "status": "research_only_holds_not_integrated",
+  "priority": "Coverage-first: actual private grooming/training premises in sparse northern Sofia quarters, not duplicated citywide service providers.",
+  "targetNeighborhoods": ["Обеля", "Обеля 1", "Обеля 2", "Свобода", "Толстой", "Враждебна", "Захарна фабрика", "Илиянци", "Бенковски", "Левски", "Левски В", "Левски Г"],
+  "broadenedNorthernNeighborhoods": ["Надежда 1", "Надежда 2", "Надежда 3", "Надежда 4", "Връбница 1", "Връбница 2", "Триъгълника", "Сухата река"],
+  "catalogueSnapshotAtDeduplication": {"sourceRecords": 1721, "approvedBusinesses": 1698, "existingPetCategoryBusinesses": 44},
+  "preNetworkReview": [
+    "Read current SOFIA_CATALOGUE pet premises, domains, phones and addresses plus all catalogue-data modules before pursuing lead pages.",
+    "Read earlier research-pets-20261116.json and expansion-pets-20261113.json holds. North Dog and already imported salons were not researched again as new businesses.",
+    "Read veterinary-scope-hold-20261111.json; parent confirmed no later owner authorization. New veterinary treatment remains excluded from admission; a genuine separately booked grooming service would need its own evidence.",
+    "Kept the existing Setmore/Studio24/Notino and blocked-owner source stops. No authenticated/account pages or access-limit bypass."
+  ],
+  "method": "Small manual public-source review. Actual owner navigation and appointment entry before services/tariffs/contact where available. Domains, names and professional phones checked locally before following owner leads. Search results and directories identify leads but do not constitute completed appointment, tariff, hours or premises verification. No form input/submission, phone call, email, message, calendar booking, geocoder, Maps point request or production write.",
+  "ready": [],
+  "holds": [
+    {
+      "name": "Grooming Studio Vera",
+      "candidateNeighborhood": "Свобода",
+      "leadSourceUrls": [
+        "https://petalapa.com/groomers/sofiya/vera-sofiya",
+        "https://poodle-bg.eu/grooming-society-bulgaria/",
+        "https://poodle-bg.eu/20/members/",
+        "https://www.dogyfashion.com/DOVOLNI-KLIENTI.htm"
+      ],
+      "ownerPublicSocialLead": "https://www.facebook.com/Grooming-Studio-Vera-1472690132861080/",
+      "appointmentReview": "No standalone owner site or actually inspected service/date booking invitation was established. The groomer's association/club profiles and a supplier reference corroborate a professional grooming identity, but do not prove the current salon appointment menu.",
+      "reason": "first_party_appointment_services_and_premises_required",
+      "pricingStatus": "not_completed",
+      "addressStatus": "Directory/affiliated-source lead says ул. Петко Д. Петков2; no current owner appointment/contact receipt verifies precise salon premises. Not imported as an address or map point.",
+      "remaining": ["Confirm a current owner-authored salon page with explicit appointment invitation", "Review its actual services and tariff, including breed/coat conditions", "Verify the precise salon address and any weekly schedule; do not substitute club correspondence hours/address"],
+      "deduplication": "No current catalogue/module or earlier hold match by Grooming Studio Vera, owner grooming identity or supplier-published professional salon number. Absence of a duplicate does not approve admission."
+    },
+    {
+      "name": "Sweet Grooming Salon",
+      "candidateNeighborhood": "Надежда 2",
+      "inBroadenedNorthernScope": true,
+      "leadSourceUrl": "https://petalapa.com/groomers/sofiya/sweet-grooming-salon-sofiya",
+      "actualPublicBookingEntryFollowed": "https://easybook.bg/sweet-grooming-salon-sofiya-nadezhda-2",
+      "appointmentReview": "Followed the directory's actual Book link to the matching public merchant profile, without submitting or opening a customer account. The profile exposes a service-search section but its full reservation menu remains unrendered in the reader. No actual selected service form was inspected.",
+      "reason": "provider_republication_policy_and_rendered_menu_unresolved",
+      "pricingStatus": "pending_not_unpublished",
+      "sourcePolicyReferences": [
+        "lib/discovery/catalogue-data/pricing-expansion-services-20261110.mjs: existing Easybook republication restriction receipt",
+        "lib/discovery/catalogue-data/pricing-booking-review-v1.mjs: existing detailed Easybook menu restriction",
+        "docs/catalogue-pricing/expansion-home-education-2000-007-20261113.json: provider policy review"
+      ],
+      "notes": "No standalone owner site was found during this pass. Stopped provider-menu work after reading the local policy receipts; do not revive earlier provider imports as blanket current reuse permission. Search-index tariffs, review-text service names, directory phones and source photographs are not imported. A legal registered office in Обеля2 is not the salon premises and must not fill that quarter's cell.",
+      "remaining": ["Find an independent owner-published appointment/services source and reusable tariff", "Otherwise keep pending for an explicit source-policy decision and real rendered service-form review"],
+      "deduplication": "No current catalogue/module or prior hold match by Sweet Grooming Salon, its merchant route or the directory's published professional phone."
+    },
+    {
+      "name": "Груминг салон Лудият Макс",
+      "candidateNeighborhood": "Сухата река / Стрелбище unresolved",
+      "inBroadenedNorthernScopeIfSuhataRekaConfirmed": true,
+      "website": "https://madmax-grooming.com/",
+      "priorHoldReference": "docs/catalogue-coverage/research-pets-20261116.json",
+      "reviewedUrls": ["https://madmax-grooming.com/"],
+      "actualBookingEntryFound": "https://madmax-grooming.com/#booking",
+      "appointmentReview": "The public main HTML exposes a real Book anchor, Services and Contacts anchors but not the rendered reservation controls. Ordinary public HTTPS200 HTML was read after the reader exposed only metadata. No app execution or guessed internal API was used.",
+      "reason": "rendered_owner_booking_and_conflicting_location_require_review",
+      "pricingStatus": "pending_rendered_owner_menu",
+      "locationConflict": "Current delivered HTML/JSON-LD and noscript text identify ж.к.Стрелбище, ул.МайорПърванТошев8. Search-visible first-party content instead describes ж.к.Сухата река, бл.18. Neither SEO metadata nor a search snippet settles the actual current premises. Do not create two branches from this conflict.",
+      "remaining": ["Inspect the actual rendered owner Book menu without submitting it", "Resolve current premises and whether a genuine distinct second branch exists", "Compare actual rendered tariffs and EUR/BGN qualifications; do not copy search-index from-prices", "Verify weekly grooming hours at the resolved premises"],
+      "deduplication": "No live catalogue record by madmax-grooming.com/name. This is a material update to an earlier pending source, not a new ready business or a second branch."
+    },
+    {
+      "name": "Mandarin Grooming Dog",
+      "candidateNeighborhood": "Надежда 1",
+      "inBroadenedNorthernScope": true,
+      "leadSourceUrl": "https://petalapa.com/groomers/sofiya/mandarin-grooming-dog-sofiya",
+      "ownerSocialLinkActuallyFollowed": "https://facebook.com/931520926714748",
+      "appointmentReview": "Followed the directory's actual owner-social link; the web reader returned Cache miss. No account, alternate access path or extracted hidden data was used. No standalone owner site or real merchant-booking profile was established.",
+      "reason": "owner_appointment_and_service_menu_not_reviewed",
+      "pricingStatus": "pending_not_unpublished",
+      "addressStatus": "Directory lead names Надежда1 block133; owner appointment/contact verification is still required before importing it. Directory hours and phone alone do not qualify a booking business.",
+      "deduplication": "No current catalogue/module or earlier hold match by Mandarin Grooming Dog or directory-published professional phone. No branch cloned from a retail registered office."
+    },
+    {
+      "name": "Груминг студио Джинаки",
+      "candidateNeighborhood": "Триъгълника",
+      "inBroadenedNorthernScope": true,
+      "leadSourceUrl": "https://petalapa.com/groomers/sofiya/gruming-studio-dzhinaki-sofiya",
+      "reason": "directory_only_no_owner_appointment_services_source",
+      "pricingStatus": "not_completed",
+      "addressStatus": "Directory lead names ул.МайорДимитърДумбалаков38; no current owner site, actual Book entry or owner premises verification found. Search results also conflate the same studio with Белите брези/Ворино31; no new premises is invented from those secondary labels.",
+      "deduplication": "No current catalogue/module or earlier hold match by Джинаки/Dzhinaki/Jinaki or directory-published professional phone."
+    }
+  ],
+  "geographicFalsePositives": [
+    {
+      "name": "K9 World · old Враждебна lead",
+      "website": "https://uchilishtezakucheta.com/",
+      "reviewedFirstPartyUrls": [
+        "https://k9-world.wixsite.com/dogtraining",
+        "https://k9-world.wixsite.com/dogtraining/service",
+        "https://k9-world.wixsite.com/dogtraining/about_us",
+        "https://uchilishtezakucheta.com/",
+        "https://uchilishtezakucheta.com/contact/",
+        "https://uchilishtezakucheta.com/обучение-на-кучета/"
+      ],
+      "professionalPhone": "+359884244952",
+      "actualAppointmentRouteReview": "The newer owner homepage has explicit consultation-signup buttons leading to its real Contact page. That page lists professional phone and addresses, not an actual date/slot form. No inquiry or booking was sent.",
+      "oldSourceIssue": "Old Wix contact/service footer gives Враждебна, ул.55 without premises number. Its real Prices link leads to https://k9-world.wix.com/uchilishtezakucheta and returns404. A broken tariff link is not an unpublished-price receipt.",
+      "newOwnerContactFacts": {
+        "listedOldSofiaAddress": "София, бул. Ботевградско шосе22",
+        "explicitlyMarkedNewAddress": "с. Лозен, ул. Маркова ливада3",
+        "groupLessonMeetingPoint": "Западен парк, бул. Вълчо Иванов4"
+      },
+      "decision": "Do not admit or count a Враждебна premises from the old Wix site. The newer same-phone owner site explicitly publishes a new village address and a separate public-park meeting place. No tariffs/hours/coordinates transferred between these locations. This provider may warrant a separately scoped owner-location review, but not a fabricated northern-quarter listing.",
+      "deduplication": "No current catalogue/module or prior hold match by either owner domain, K9World name or professional phone. The old Wix, Yola and newer owner domain represent the same provider, not three businesses."
+    },
+    {
+      "name": "Център за кучета Послушен · closed Враждебна training ground",
+      "website": "https://poslushen.com/",
+      "reviewedFirstPartyUrls": ["https://poslushen.com/", "https://poslushen.com/consultation-application/", "https://poslushen.com/news/"],
+      "actualAppointmentRouteReview": "Followed the real Apply-for-School link to the actual consultation application. It asks for pet/owner data and service selection. No fields, terms controls or submission were used. Geographic review then stopped admission before any detailed tariff import.",
+      "closureSourceUrl": "https://poslushen.com/news/",
+      "closureEffectiveOn": "2025-08-01",
+      "currentSourceAddress": "с. Локорско, ул. Слънчева планина19",
+      "decision": "Owner News explicitly says all activities move to Lokorsko and the Vrazhdebna training ground closes from1Aug2025. Its October2026 programme also uses Lokorsko. A current Vrazhdebna transport stop is not a salon/training premises. Older Help/contract text and third-party directories still name Vrazhdebna; do not import that stale location or duplicate the provider into a coverage cell.",
+      "deduplication": "No current catalogue/module or prior hold match by poslushen.com/name/professional phone. Not a ready Sofia-quarter addition."
+    },
+    {"name": "Dog Grooming Studio Barry", "sourceUrl": "https://zoospace.bg/animal-organizations/груминг-салон-dog-grooming-studio-barry-груминг-студио-барd/", "decision": "Prior pets ledger already rejects this Бенковски lead as postcode4201 outside Sofia. Preserved that rejection; did not research it again or relabel it as Sofia's Бенковски."},
+    {"name": "Grooming Salon Nelly", "sourceUrl": "https://petalapa.com/groomers/plovdiv/nelly-plovdiv", "decision": "Захарна фабрика result is explicitly Пловдив, not Sofia. No Sofia candidate or imported address."}
+  ],
+  "previousHoldsNotRepeated": [
+    {"name": "Bary's Grooming Family", "reference": "docs/catalogue-coverage/research-pets-20261116.json", "decision": "Still directory-only; no new owner source found. Registered office in ЛевскиВ is not proof of salon premises; do not replace the existing ЛевскиГ lead by that legal address."},
+    {"name": "VIP Grooming", "reference": "docs/catalogue-pricing/expansion-pets-20261113.json", "decision": "Existing unavailable-source hold preserved, outside this northern-quarter pass."},
+    {"name": "Груминг салон Шикозни лапи", "reference": "docs/catalogue-coverage/research-pets-20261116.json", "decision": "Existing directory-only hold preserved; no new owner booking/services source found."},
+    {"name": "Happy Paws", "reference": "docs/catalogue-pricing/expansion-pets-20261113.json", "decision": "Earlier owner403 respected; no renewed request or alternate-host bypass."}
+  ],
+  "coverageCaveat": "This pass did not produce a fully qualified new northern-quarter grooming/training premises. That does not establish absence of such businesses. Most discovered candidates lacked owner appointment evidence, carried stale/conflicting geography, or required a provider/source-policy decision. No missing tariff was invented or labelled unpublished merely because a menu was inaccessible. No veterinary treatment scope expansion and no business clones were used to satisfy the target.",
+  "integratedBusinesses": 0,
+  "productionChanges": false
+}

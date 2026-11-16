@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "reviewedOn": "2026-11-16",
+  "status": "bounded_research_complete_no_admissions",
+  "scope": "New hair/barber/beauty leads in sparse northern/western Sofia neighborhoods; owner websites preferred, actual appointment and exact premises evidence required. Read-only research only. No shared code, catalogue records, identity bindings, historical baselines, reservations or production state changed.",
+  "priorityNeighborhoods": ["Захарна фабрика", "Обеля", "Обеля 1", "Обеля 2", "Свобода", "Толстой", "Суходол", "Военна рампа", "Враждебна", "Фондови жилища"],
+  "adjacentUndercoveredNeighborhoodsSearched": ["Надежда", "Връбница", "Триъгълника"],
+  "ready": [],
+  "holds": [
+    {
+      "name": "Салон за красота N",
+      "website": "https://salon-n.eu/",
+      "status": "held_precise_owner_address_and_actual_menu",
+      "reviewedUrls": ["https://salon-n.eu/", "https://salon-n.eu/robots.txt"],
+      "appointmentFinding": "Own root explicitly invites telephone appointments at+359884923280. Actual Book anchor embeds Studio24; the external provider was not requested because of the existing access hold. Services and Contact navigation are anchors to the same owner page, not separate tariff pages.",
+      "ownerFacts": {"neighborhoodLiteral": "ж.к. Надежда", "phone": "+359884923280", "hoursLiteral": "Понеделник–Петък10–19; Събота–Неделя10–17", "generalServices": ["Подстригване", "Боядисване", "Стилизиране", "Маникюр", "Професионален грим"]},
+      "addressFinding": "Block173/entranceB is displayed inside an embedded Google-review widget, not independently in the owner's contact section. Do not promote Google widget data to owner-confirmed premises or infer a numbered Nadezhda subdivision. No map opened.",
+      "priceFinding": "Owner page has general service wording but no numeric tariff. Known external booking menu remains unread, so not_publicly_listed is NOT asserted. Reader robots inaccessible; no completed robots/terms clearance claimed.",
+      "requiredBeforeAdmission": "Owner-confirmed exact premises address and permitted complete actual service/menu review, including any staff-specific fees."
+    },
+    {
+      "name": "Airis Beauty Studio / Хелт България Рая",
+      "website": "https://airisbeautystudio.sellers.bg/",
+      "status": "held_independent_appointment_and_premises_identity",
+      "reviewedUrls": ["https://airisbeautystudio.sellers.bg/"],
+      "findings": "Read the full named merchant-hosted profile. First-person business text says Vrabnitsa2; account address says Nadezhda4, while office section lists Vrabnitsa2 block630 GardenResidence and phone0877750567. General contact/message only, no actual appointment invitation. A separate prior PBArt review already flagged department/operator overlap at AIRIS block630. No separate operator or active bookable service inferred from this incomplete page. Existing ReservationStudio STOP respected: discovery search says temporarily not accepting online reservations, but provider was not requested. No numeric tariff absence receipt, schedule or medical service imported.",
+      "requiredBeforeAdmission": "Independent owner booking invitation, exact active premises and operator separation from the already flagged PBArt department; applicable current service/price review."
+    },
+    {
+      "name": "Студио за красота ГАЛИНИ",
+      "candidateNeighborhood": "Обеля 2",
+      "status": "held_owner_page_unavailable",
+      "discoveryUrls": ["https://obelia.start.bg/", "https://www.beautynailhairsalons.com/BG/Sofia/328432839799/"],
+      "ownerUrlDiscovered": "https://m.facebook.com/Студио-за-красота-ГАЛИНИ-328432839799/",
+      "reviewedUrls": ["https://obelia.start.bg/", "https://obelia.start.bg/link.php?id=818431", "https://m.facebook.com/Студио-за-красота-ГАЛИНИ-328432839799/"],
+      "findings": "Quarter-directory link ordinary public GET returns302 to the public owner Facebook page. Reader owner request is cache miss; no authenticated UI, alternate extraction or mirror substitution. Mirrored/OSM/Overture address, hours and telephone remain discovery-only, not verified import facts.",
+      "requiredBeforeAdmission": "Review an accessible current owner appointment entry, exact address, service menu and prices/hours without bypass."
+    },
+    {
+      "name": "DP Style",
+      "candidateNeighborhood": "Обеля",
+      "status": "held_owner_page_unavailable",
+      "discoveryUrls": ["https://obelia.start.bg/"],
+      "ownerUrlDiscovered": "https://m.facebook.com/dp.style/",
+      "reviewedUrls": ["https://obelia.start.bg/", "https://obelia.start.bg/link.php?id=818432", "https://m.facebook.com/dp.style/"],
+      "findings": "Directory redirect yields a public owner Facebook URL; direct reader result is cache miss. No precise current address, active booking, menu, tariff or hours verified. No staff clone, directory facts or historic salon activity counted.",
+      "requiredBeforeAdmission": "Accessible current owner premises and appointment/service evidence."
+    }
+  ],
+  "discoveryOnlyNoMerchantRequests": [
+    {"name": "Cffety Lash Atelier", "candidateNeighborhood": "Обеля 1", "url": "https://www.notino.bg/saloni/cffety-lash-atelier/", "reason": "New name/merchant slug not found locally, but Notino prior challenge hold applies. Indexed provider address/menu is not a completed review. No request, alternate locale or source import."},
+    {"name": "MP Beauty & Relax", "candidateNeighborhood": "Обеля", "url": "https://www.notino.bg/saloni/mp-beauty-and-relax/", "reason": "Prior Notino challenge hold; no merchant requests. Indexed address is also quarter-only. No current prices or exact premises admitted."},
+    {"name": "Polina Lazarova Beauty Studio", "candidateNeighborhood": "Обеля 2", "url": "https://www.beautynailhairsalons.com/BG/Sofia/1484099311685789/Polina-Lazarova-Beauty-Studio", "reason": "Social mirror only; no exact owner street/number. A mirrored notice signals new fees from15November2026, so earlier tariff would additionally need recheck. No owner/menu review claimed."},
+    {"name": "ARETY Beauty House", "candidateNeighborhood": "Обеля", "url": "https://www.beautynailhairsalons.com/BG/Sofia/107561900821749/ARETY-Beauty-House", "reason": "Social mirror supplies an address lead only, not verified owner facts. No actual owner Book/menu read. Invasive aesthetic/medical claims in the mirror are outside ordinary beauty scope and must not be imported."},
+    {"name": "Nail Art by Elly", "candidateNeighborhood": "Обеля 2", "url": "https://www.beautynailhairsalons.com/BG/Sofia/104960855441559/Nail-Art-by-Elly", "reason": "Promising named artist and precise block/entrance signal, but only a mirror. Current owner page, appointment/service menu and actual fees not reviewed; no admission."},
+    {"name": "VI Beauty Salon", "candidateNeighborhood": "Обеля 1", "urls": ["https://businessaccountbg.com/vi-beauty-salon/", "https://www.oink.bg/biz/vi_beauty_salon"], "reason": "Directory/advertising discovery only, no independently reviewed owner booking entry. Sources vary58 versus58A and broad laser price has no exact selected-area qualification. No exact address or price imported; no overlap assumption with ARETY at58."},
+    {"name": "Козметичен център Джейн", "candidateNeighborhood": "Свобода", "url": "https://www.business.bg/f-14051/kozmetichen-centyr-dzhejn.html", "reason": "Multiple directory/mirror mentions but no current own website/actual appointment menu found. Old service lists include medical interventions; none imported. No telephone/contact-only admission."},
+    {"name": "Крис Студио", "candidateNeighborhood": "Толстой", "url": "https://www.oink.bg/biz/kris_studio", "reason": "Directory discovery only. Similar legal entity name does not prove it operates the Budintsi9 salon. No business-register residential address used as premises, no menu/booking imported."},
+    {"name": "Studio Queen", "candidateNeighborhood": "Фондови жилища", "url": "https://www.beautynailhairsalons.com/BG/Sofia/121124390978351/Studio-Queen", "reason": "Mirror points to Studio24; prior provider403 hold respected. No live owner/merchant menu review; indexed block217/hours remain unverified discovery."},
+    {"name": "Мелисса / Mystic Dazzler", "candidateNeighborhood": "Обеля 2", "url": "https://web-portalbg.com/firm/5212-salon-za-krasota-melissa-sofiia/", "reason": "Old directory and unrelated review article identify similar Lihachov31/31A premises but do not establish current independent operators. No training fee mistaken for a haircut, no alias clone or confirmed appointment."},
+    {"name": "Secret GlosS", "candidateNeighborhood": "Илиянци", "url": "https://www.oink.bg/biz/salon_za_krasota113927", "reason": "Directory-only discovery; no exact current primary appointment/service source established."},
+    {"name": "Stars", "candidateNeighborhood": "Триъгълника", "url": "https://www.oink.bg/biz/frizyorski_salon112014", "reason": "Directory-only discovery; no current own appointment/service source established."}
+  ],
+  "priorHoldsRespected": [
+    {"name": "Дияна Фешън", "reason": "Existing research-beauty-20261116.json Studio24 403; no retry."},
+    {"name": "Mariana Art Nails & Beauty Salon", "reason": "Existing Studio24 403; no alternate locale requested. Search snippet is not an import."},
+    {"name": "NILIA hair salon", "reason": "Existing mirror-only owner-booking hold; no duplicate research admission."},
+    {"name": "ИВАЯ", "reason": "Existing legacy-own-site unavailable hold; directory mention does not establish active premises."},
+    {"name": "N Stage", "reason": "Existing branch-address/booking/tariff-tier hold; no new owner requests or chain clones."},
+    {"name": "Notino / Studio24 / Setmore / ReservationStudio", "reason": "Prior access or terms holds respected; no direct provider/merchant requests, alternate locales, hidden APIs, bundles, proxies or authenticated extraction."}
+  ],
+  "duplicatesExcludedBeforeNewOwnerRequests": ["Салон Б.А.Р.Д. / salonbard.com", "Lumière Beauty Club / lumierebeautyclub.bg", "Студио617 / 617.studio", "Over and over / phone0877506539", "Neda Art Nails / nedaartnails.wixsite.com", "ПЪЗЕЛ Надежда / puzzlekids.biz", "Marty / barbershopmarty.com and new app alias", "PetStopPlace / petstopplace.com", "ABI Beauty six known centers / abibeauty.bg"],
+  "limitations": [
+    "No safe new source-complete appointment premises was established in this bounded pass; this does not prove those neighborhoods have no salons.",
+    "Search-index/provider/mirror facts were used only for lead discovery, not as completed booking, pricing, owner-address or weekly-hours evidence.",
+    "Blocked external menus were never labelled not_publicly_listed, and optional prices did not waive actual-booking or exact-premises checks.",
+    "No images, reviews, ratings, clinical claims, fabricated service prices, hours, durations, guessed quarter centers or map coordinates imported."
+  ],
+  "validation": {"newAdmissions": 0, "reservationsSubmitted": 0, "customerDataEntered": false, "productionWrites": false, "sharedCodeEdited": false, "coordinatesInferred": false}
+}

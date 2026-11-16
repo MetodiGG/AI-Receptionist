@@ -4,6 +4,29 @@
   "scope": "Illustrative service-specific photos for approved Sofia catalogue entries; not actual business premises, staff, work or results.",
   "assets": [
     {
+      "id": "sx-outdoor-family-photoshoot",
+      "label": "Семейна фотосесия на открито",
+      "prompt": "Use case: photorealistic-natural. Asset type: square GoRez service thumbnail, illustrative outdoor family photography session. Primary request: a realistic professional woman photographer with a camera photographing a smiling family of two parents and their school-age child in a leafy city park, natural candid interaction. Composition: one coherent square photograph, no collage, photographer visible in the foreground side/back with camera at eye level, family clearly visible together in the central background, all heads fully within frame with generous top margin for thumbnail crops. Style: natural editorial photograph, lifelike skin and fabric textures, ordinary people, soft afternoon daylight, gentle background separation. Constraints: clearly outdoors, no studio equipment, no written words, no prices, no logos, no watermarks, no notebook, no glamour or artificial doll-like faces. This is generic AI illustrative artwork, not an actual business's photograph or portfolio.",
+      "sourceFile": "exec-a485ac43-cc7b-4e69-ac52-7fbfb8e97eee.png",
+      "sourceSha256": "d0de9b1864f010e35ff276723a37622c1cfa1adf4f6b1f1e7bcbc03141fe8562",
+      "file": "public/service-photos/sx-outdoor-family-photoshoot-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 20522,
+      "sha256": "390a94b6d1b7aa6dc4ad1367227fd0b4c12dc044f93f05f97d3c28544dbf61ae",
+      "generatedOn": "2026-11-16",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "d0de9b1864f010e35ff276723a37622c1cfa1adf4f6b1f1e7bcbc03141fe8562",
+        "reviewers": [
+          "/root",
+          "/root/coverage_matrix"
+        ],
+        "method": "Root personally approved the generated source. Coverage-matrix agent personally inspected the complete source and both full-frame WebP derivatives at 256px and 720px: woman photographer with a camera, two parents and their school-age child in a leafy park; family faces and heads remain intact. Generic illustrative outdoor session, not actual provider staff, customers, premises or portfolio. Mechanical downscale and format conversion only; original PNG preserved unchanged."
+      }
+    },
+    {
       "id": "sx-child-swimming-beginner-group",
       "sourceFile": "exec-d68ca6fb-db01-4c0b-a53c-6c5cdd20a886.png",
       "sourceSha256": "ca78e5051b6928c14f1a8a33bc7c60d3274f7c7364ff908e4171c447777a84bf",

@@ -1,0 +1,180 @@
+{
+  "checkedOn": "2026-11-16",
+  "status": "research_only_not_integrated",
+  "priority": "Coverage-first: real photography premises and private music/art teaching in sparse Sofia neighborhoods; never replicate one citywide provider across neighborhoods.",
+  "targetNeighborhoods": ["Обеля 1", "Обеля 2", "Свобода", "Толстой", "Захарна фабрика", "Суходол", "Враждебна"],
+  "catalogueSnapshotAtDeduplication": {"sourceRecords": 1719, "approvedBusinesses": 1696, "asOf": "2026-11-16T12:00:00+02:00"},
+  "method": "Manually followed public first-party navigation to actual appointment/contact routes, then services, tariffs and premises. Compared names, website domains, professional telephone numbers and addresses against the entire current catalogue and all catalogue-data modules. Search-directory snippets are leads only. No form submission, reservation, email, private API, paid provider or production write. Weekly hours, fixed durations and map coordinates are not inferred.",
+  "ready": [
+    {
+      "proposedId": "sofia-photo-studio-margo-svoboda",
+      "name": "Photo Studio Margo · Маргарита Ангелова",
+      "category": "other",
+      "cityCode": "68134",
+      "neighborhood": "Свобода",
+      "address": "София, ж.к. Свобода, бул. Н. Жеков, бл. 4А (до CBA)",
+      "locationKind": "premises",
+      "website": "https://margaritaangelova.com/",
+      "phone": "+359899866672",
+      "booking": {"kind": "form", "url": "https://margaritaangelova.com/професионален-сватбен-фотограф/"},
+      "appointmentInspectionOrder": [
+        "Homepage's real Calendar navigation was followed first; web reader timed out. No live availability was inferred.",
+        "Homepage appointment FAQ explicitly invites telephone/email inquiries for the desired date and explains confirmation and package-dependent deposit.",
+        "Opened the actual Contacts route: inquiry form includes desired date, event location and message; the form was not completed or submitted.",
+        "Reviewed the actual family-session, individual-session and studio-photography pages, not an invented booking URL."
+      ],
+      "appointmentEvidence": {
+        "sourceUrl": "https://margaritaangelova.com/",
+        "excerpt": "Попитайте за вашата дата",
+        "summary": "Date inquiries by phone or form; confirmation is arranged with the photographer, not instantaneous calendar booking."
+      },
+      "contactSourceUrl": "https://margaritaangelova.com/професионален-сватбен-фотограф/",
+      "coordinatesEvidence": {
+        "latitude": 42.73572582730182,
+        "longitude": 23.30583665727182,
+        "method": "first_party_coordinates",
+        "sourceUrl": "https://margaritaangelova.com/професионален-сватбен-фотограф/",
+        "sourceAddress": "София, ж.к. Свобода, бул. Н. Жеков, бл. 4А (до CBA)",
+        "notes": "The owner contact page itself publishes this exact numeric Google Maps link next to its studio address. Retain source binding and independently validate before integration; this is not a municipal or client-origin point."
+      },
+      "services": [
+        {
+          "name": "Детска и семейна фотосесия",
+          "category": "other",
+          "appointmentModel": "appointment",
+          "price": {"amount": 200, "maximum": 250, "currency": "EUR", "kind": "range", "unit": "фотосесия; според желанията и локацията", "sourceUrl": "https://margaritaangelova.com/детски-и-семейни-фотосесии/", "checkedOn": "2026-11-16"},
+          "description": "На предварително избрано място, не задължително в студиото. Продължителност 60–90 минути; предаване до 10 работни дни. Точната цена и място се уточняват при запитване.",
+          "durationMin": null,
+          "sourceUrl": "https://margaritaangelova.com/детски-и-семейни-фотосесии/"
+        }
+      ],
+      "additionalVerifiedServicesNeedingTariffResolution": [
+        {
+          "name": "Индивидуална фотосесия / бизнес портрет",
+          "sourceUrl": "https://margaritaangelova.com/индивидуални-фотосесии/",
+          "pricingStatus": "published_conflict",
+          "conflict": "The same current page repeats the offer with 100–250 EUR in one block and 200–300 BGN in another. Neither amount is declared authoritative here. Do not label the tariff unpublished or silently convert/select one block."
+        },
+        {
+          "name": "Студийна портретна фотография",
+          "sourceUrl": "https://margaritaangelova.com/фотостудио-фотография/",
+          "pricingStatus": "not_resolved_due_to_related_offer_conflict",
+          "notes": "The actual public page was read via ordinary HTTPS GET after the web reader timed out; it describes business/artistic studio portraits but no amount. The related individual-session page has conflicting prices, so no unpublished-price receipt is asserted."
+        }
+      ],
+      "hours": null,
+      "hoursInspection": "Owner Contacts says studio meetings are arranged, usually after 18:30 on weekdays. This is not a complete opening schedule; do not invent 09:00–19:00 or encode all-day availability.",
+      "excludedCommercialRows": ["Gift vouchers from 300 BGN are a separate gift product, not the published family-session tariff."],
+      "firstPartyReviewedUrls": [
+        "https://margaritaangelova.com/",
+        "https://margaritaangelova.com/професионален-сватбен-фотограф/",
+        "https://margaritaangelova.com/детски-и-семейни-фотосесии/",
+        "https://margaritaangelova.com/индивидуални-фотосесии/",
+        "https://margaritaangelova.com/фотостудио-фотография/",
+        "https://margaritaangelova.com/ваучер-за-фотосесия/"
+      ],
+      "failedReaderUrls": ["https://margaritaangelova.com/календар/", "https://margaritaangelova.com/рекламна-фотография/"],
+      "deduplication": "No match across SOFIA_CATALOGUE or any catalogue-data module by margaritaangelova.com, owner/studio name, +359899866672 or published landline +35929864393.",
+      "integrationCaveat": "Only the clearly priced family-session service is ready from this review; portrait tariff conflicts remain explicit. The studio is in Svoboda, but the family session itself is at an agreed outdoor location. Do not advertise guaranteed service availability at the studio or duplicate into other quarters."
+    },
+    {
+      "proposedId": "sofia-maria-nemska-photo-suhodol",
+      "name": "Мария Немска · Студио София",
+      "category": "other",
+      "cityCode": "68134",
+      "neighborhood": "Суходол",
+      "address": "София, Суходол, ул. Траян Танев 21",
+      "locationKind": "premises",
+      "coordinates": null,
+      "website": "https://marianemska.com/",
+      "phone": "+359878464445",
+      "booking": {"kind": "form", "url": "https://marianemska.com/студио-софия-цени-и-условия/"},
+      "appointmentInspectionOrder": [
+        "Followed the homepage's actual inquiry link to Contacts, then the explicit Sofia studio prices-and-conditions route.",
+        "The Sofia FAQ specifically explains appointment booking by telephone or contact form. Its actual form was inspected but never completed or submitted.",
+        "Compared Sofia-specific tariffs to the generic Contacts page rather than importing Plovdiv or generic site amounts as Sofia prices."
+      ],
+      "appointmentEvidence": {
+        "sourceUrl": "https://marianemska.com/студио-софия-цени-и-условия/",
+        "excerpt": "КАК ДА СИ ЗАПИША ЧАС?",
+        "summary": "The immediately following answer offers the published professional phone and site contact form."
+      },
+      "contactSourceUrl": "https://marianemska.com/contact/",
+      "addressSourceUrl": "https://marianemska.com/студио-софия-цени-и-условия/",
+      "services": [
+        {
+          "name": "Портретна фотосесия в студио",
+          "category": "other",
+          "appointmentModel": "appointment",
+          "price": {"amount": 100, "currency": "EUR", "kind": "fixed", "unit": "фотосесия с минимум 10 снимки", "sourceUrl": "https://marianemska.com/студио-софия-цени-и-условия/", "checkedOn": "2026-11-16"},
+          "description": "В студио; пакет с минимум 10 снимки. Допълнителен кадър: 10 €. Часът и обявената дата за София се потвърждават от фотографа.",
+          "durationMin": null
+        },
+        {
+          "name": "Фотосесия за бебета в студио",
+          "category": "other",
+          "appointmentModel": "appointment",
+          "price": {"amount": 100, "currency": "EUR", "kind": "fixed", "unit": "фотосесия с минимум 10 снимки", "sourceUrl": "https://marianemska.com/студио-софия-цени-и-условия/", "checkedOn": "2026-11-16"},
+          "description": "В студио; пакет с минимум 10 снимки. Допълнителен кадър: 10 €. Само с предварително уговорен час на обявена дата за София.",
+          "durationMin": null
+        },
+        {
+          "name": "Фотосесия за новородени",
+          "category": "other",
+          "appointmentModel": "appointment",
+          "price": {"amount": 190, "currency": "EUR", "kind": "fixed", "unit": "фотосесия с минимум 10 снимки", "sourceUrl": "https://marianemska.com/студио-софия-цени-и-условия/", "checkedOn": "2026-11-16"},
+          "description": "Студиен пакет с минимум 10 снимки; допълнителен кадър 10 €. Възрастта, часът и конкретната обявена дата за София се уточняват предварително.",
+          "durationMin": null
+        }
+      ],
+      "additionalPublishedRowsHeld": [
+        {"service": "Smash Cake фотосесия", "reason": "Sofia-specific page says 130 EUR while generic Contacts says 140 EUR. No amount chosen; owner resolution required."},
+        {"service": "Фотография за деца", "reason": "Sofia-specific page describes outdoor photography; generic Contacts describes an identically priced studio session plus a separate outdoor package. Preserve location/package distinction before adding."},
+        {"service": "Фотосесия за бременни", "reason": "Sofia-specific page calls this outdoor, whereas generic Contacts distinguishes studio 180 EUR and outdoor 340 EUR. No generic/outdoor tariff or location has been substituted."}
+      ],
+      "additionalFeesNotIndependentServices": ["A further selected image costs 10 EUR; this is a package extra, not a separate bookable service."],
+      "hours": null,
+      "hoursInspection": "No full weekly opening schedule is published on the inspected routes. Owner lists specific Sofia attendance dates, not continuous availability.",
+      "futureSofiaDatesPublishedAsOfReview": ["2026-11-17", "2026-11-18", "2026-12-15", "2026-12-16"],
+      "availabilityCaveat": "These are owner-announced attendance dates, not bookable slots. Never create a native availability calendar, infer remaining capacity or promise appointments on other weekdays. Recheck these time-sensitive dates before publication and omit them from evergreen schedules.",
+      "firstPartyReviewedUrls": ["https://marianemska.com/", "https://marianemska.com/contact/", "https://marianemska.com/студио-софия-цени-и-условия/"],
+      "deduplication": "No match across SOFIA_CATALOGUE or any catalogue-data module by marianemska.com, Мария Немска, professional phone +359878464445 or ул. Траян Танев21. This is one Sofia studio, not a second copy of the Plovdiv studio.",
+      "integrationCaveat": "Only the three unambiguous studio packages are ready. Do not invent fixed duration, map coordinates or recurring working hours. Keep the Sofia-specific attendance limitation visible."
+    }
+  ],
+  "holds": [
+    {
+      "name": "Фотоъгъл · Михаела Масларска",
+      "candidateNeighborhood": "Свобода",
+      "website": "https://maslarska.com/",
+      "firstPartyFacts": {"address": "София, ж.к. Свобода, ул. Петко Д. Петков 10", "phone": "+359885136647", "serviceScope": ["Продуктова фотография", "Коледни фотосесии", "Сватбена фотография"], "hours": null, "coordinates": null},
+      "firstPartyReviewedUrls": ["https://maslarska.com/", "https://maslarska.com/photocorner/", "https://maslarska.com/contact/", "https://maslarska.com/gallery/product-photography/", "https://maslarska.com/gallery/christmas-photo-sessions/"],
+      "actualBookingInspection": "The owner contact route has a generic name/email/message form and professional phone. Portfolio galleries and studio description were then read, but no explicit invitation to book a particular service or date was verified. A phone or generic form alone does not satisfy the appointment gate.",
+      "pricingStatus": "not_completed",
+      "reason": "explicit_owner_appointment_route_required",
+      "remaining": ["Verify an actual owner-published appointment invitation or service/date inquiry route", "Only then finish the booking/services tariff receipt", "Do not turn lack of visible gallery prices into an unpublished-price receipt"],
+      "deduplication": "No match in catalogue modules by owner name, domain or published professional phone."
+    },
+    {
+      "name": "Venera Milanova Photography",
+      "candidateNeighborhood": "Враждебна",
+      "leadSource": "https://rio.bg/places/sofia/venera-milanova-photography",
+      "reason": "no_first_party_site_or_current_booking_verified",
+      "notes": "Voucher listing is a lead only. No owner site, complete appointment phone, current service menu or first-party street confirmation verified. Expired voucher offers must not become current catalogue tariffs."
+    },
+    {
+      "name": "Емануела Славейкова · уроци по пиано",
+      "candidateNeighborhood": "Обеля 2",
+      "leadSource": "https://uchiteli.bg/",
+      "reason": "directory_only_no_explicit_owner_premises_or_booking_review",
+      "notes": "Teacher-directory search lead only; no verified own website and precise lesson premises. Do not merge same-name people from unrelated sites or import private personal information."
+    }
+  ],
+  "notTargetNeighborhoodEvidence": [
+    {"name": "SinXron Studios", "sourceUrl": "https://sinxronstudios.com/", "reason": "Own site contact information gives ул. Шипченски проход69, not Толстой. Its citywide services do not fill the requested sparse neighborhood cells; upcoming audio tuition is not an active lesson service."},
+    {"name": "Фото Елфите", "leadSource": "https://www.ibusiness.bg/новини/фото-елфите-ново-фотостудио", "reason": "The announcement lists Beli Dunav block530 and merely says it serves surrounding quarters. Do not duplicate it into Обеля, Свобода or Толстой without an owner-confirmed distinct premises."}
+  ],
+  "coverageCaveat": "Two genuinely sourced new candidates, not three to six fabricated entries. No private music/art lesson provider was fully qualified in the target quarters during this pass. This is not evidence that none exist; directory-only, municipal cultural centers, unrelated street-name matches and citywide/mobile listings were not promoted to satisfy the quota.",
+  "integratedBusinesses": 0,
+  "productionChanges": false
+}

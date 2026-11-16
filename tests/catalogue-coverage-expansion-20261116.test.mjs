@@ -151,7 +151,7 @@ test('public details retain all sourced services, prices and hours; phone and ex
     assert.deepEqual(result.availability, { status: 'external', slots: [] })
     assert.deepEqual(railExternalAction(result, now), row.booking.kind === 'phone'
       ? { kind: 'phone', href: `tel:${row.booking.phone}` }
-      : { kind: 'form', href: row.booking.url })
+      : { kind: 'form', href: new URL(row.booking.url).href })
   }
 })
 

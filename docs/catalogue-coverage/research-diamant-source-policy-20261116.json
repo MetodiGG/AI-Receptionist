@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-16",
+  "status": "source_policy_preflight_complete_booking_menu_still_pending",
+  "scope": "Read-only policy/robots preflight for the two real Superdoc dentist booking routes identified in research-dental-002-20261116.json. No catalogue admission, record mutation, account, form submission, notification or booking.",
+  "sourceBusiness": "Диамант-Дентал Д-р Пашови · Обеля 2",
+  "providerPolicies": {
+    "robots": {
+      "url": "https://superdoc.bg/robots.txt",
+      "readerResult": "URL inaccessible via reader, not a403 or explicit denial",
+      "ordinaryHttpsGet": 200,
+      "body": "User-agent: *\nDisallow:\n",
+      "finding": "No public path restriction in the retrieved robots file. This is not a copyright licence or permission to ignore later access denials."
+    },
+    "terms": {
+      "url": "https://superdoc.bg/uslovia-za-polzvane",
+      "publishedLastUpdated": "2026-04-07",
+      "review": "Full171-line public reader page reviewed before opening the merchant profiles in this pass.",
+      "finding": "No express database, scraping, public factual-listing or commercial minimal-facts reuse prohibition found in the reviewed text. III.11 and IV.5 restrict commercial messages posted within Superdoc, not expressly an external independent factual directory. III.15/IV.6 say use is subject to the terms. IV.4/VI.8 address third-party copyright and footer reserves rights. No licence to copy biographies, descriptions, patient reviews, ratings, photographs or other protected material is inferred.",
+      "qualification": "Operational source-policy observation, not legal clearance, an affirmative reuse licence or assurance that every possible use is lawful. Keep independent minimal factual wording and own-source corroboration."
+    },
+    "privacy": {
+      "url": "https://superdoc.bg/privacy-policy",
+      "publishedLastUpdated": "2025-03-20",
+      "review": "Full172-line public reader page reviewed.",
+      "finding": "Describes patient/professional information, booking/payment/health data, sharing and privacy rights. No additional public-fact reuse restriction found. No patient information, profile/account data, payment details or health information entered or collected for the catalogue."
+    }
+  },
+  "actualPublicRoutesAfterPreflight": [
+    {
+      "url": "https://superdoc.bg/klinika/familna-praktika-diamant-dental-d-r-pashovi",
+      "result": "Public reader page available",
+      "finding": "Practice overview links to the two inspected dentist booking profiles. Not a separate business per clinician. Its earliest-slot summaries are transient and are not imported as GoRez availability or regular opening hours."
+    },
+    {
+      "url": "https://superdoc.bg/lekar/d-r-dimitrichka-pashova-260",
+      "result": "Public reader page available",
+      "readerBookingSection": "Visit-reason selector followed by JavaScript-loading calendar; selectable option inventory and any reason-dependent tariff remain unrendered.",
+      "matchingPremises": "Обеля 2, ДКЦ30, кабинет316",
+      "matchingProfessionalPhone": "+359888638741",
+      "importantQualification": "Profile limits child appointments to children older than ten; keep the exact clinician-specific age rule when reviewing selected services.",
+      "pricingStatus": "pending_rendered_booking_menu_not_not_publicly_listed"
+    },
+    {
+      "url": "https://superdoc.bg/lekar/d-r-svetoslav-pashov",
+      "result": "Public reader page available",
+      "readerBookingSection": "Visit-reason selector followed by JavaScript-loading calendar; selectable option inventory and any reason-dependent tariff remain unrendered.",
+      "matchingPremises": "Обеля 2, ДКЦ30, кабинет316",
+      "matchingProfessionalPhone": "+359878180263",
+      "importantQualification": "Child-consultation wording mentions age ten, not the same unambiguous older-than-ten phrase as the other profile. Do not infer a practice-wide age threshold or import young-child services without clarification.",
+      "pricingStatus": "pending_rendered_booking_menu_not_not_publicly_listed"
+    }
+  ],
+  "nextSafeCheck": [
+    "Use a normal public browser on only the exact two dentist routes to inspect the rendered reason selector and any visible price panel; no hidden API, source-bundle extraction, login, customer information or reservation.",
+    "Compare the selected reason, clinician, premises, literal tariff and qualifiers. If the price/menu is inaccessible, keep it pending rather than declaring prices unpublished.",
+    "Do not copy descriptions, reviews, ratings or images; do not import calendar free-slot summaries or create one catalogue business per clinician.",
+    "Stop on any later access denial, challenge or newly observed restrictive provider condition."
+  ],
+  "validation": {"admissions": 0, "apiRequests": 0, "customerInputs": 0, "bookings": 0, "productionWrites": false, "existingResearchLedgerEdited": false}
+}

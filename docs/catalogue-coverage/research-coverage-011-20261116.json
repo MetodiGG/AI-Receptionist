@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-16",
+  "status": "bounded_four_new_owner_reviews_one_strong_candidate_pending_render_three_holds_zero_admissions",
+  "scope": "Next research only, maximum four genuinely new first-party grooming, ordinary beauty or private psychological owners in low-coverage Sofia quarters; goal two source-complete candidates, not a promise of admissions. Four new own-site identities received substantive review. None is misrepresented as fully admitted or complete: one strong priced salon needs actual provider rendering/policy review and three cases remain held. Current batch005 data, tests, aggregates, shared review hashes, business records and production were not edited.",
+  "preflight": {
+    "method": "Read current coverage workflow and recent007/009/010 source holds. Searched current lib/discovery, all coverage research and pricing intake files by host/name before each new owner host request in separate calls. Repeated checks after discovering phones/aliases. Existing owner/provider holds were not reopened. Independently preflighted TidyCal and Calendly before their actual new merchant targets; older unrelated merchant holds were not treated as new candidate approval.",
+    "newPrimaryOwners": ["www.shepadobrina.com", "etikalife.com", "www.alma-beautyroom.com", "mirabellabeautystudio.com"],
+    "inheritedStopsRespected": ["Studio24", "Setmore", "Notino", "Goldie", "EasyWeek", "Fresha", "ReservationStudio", "restricted Easybook", "Mylink", "dentlux.net", "advokat-lyudmila-angelova.com", "earlier own-site challenge and express-reuse holds"],
+    "coverageQualification": "Druzhba1, HadzhiDimitar and HristoSmirnenski remain below the requested fifty physical premises per category. No map, street-name coincidence, district, shopping center or registered company residence is used to invent an exact quarter or business entrance. No service or staff clone creates extra businesses."
+  },
+  "ready": [],
+  "pendingIndependentReview": [
+    {
+      "name": "Mirabella Beauty Studio",
+      "website": "https://mirabellabeautystudio.com/",
+      "status": "strong_owned_priced_salon_pending_actual_external_calendar_render_and_provider_policy",
+      "category": "nails",
+      "city": "София",
+      "neighborhood": "Христо Смирненски",
+      "address": "София, ж.к. Христо Смирненски, ул. Марко Бочар 6",
+      "phone": "+359895001285",
+      "coordinates": null,
+      "actualBooking": {
+        "nativeEntryUrl": "https://mirabellabeautystudio.com/",
+        "nativeBookDestination": "https://mirabellabeautystudio.com/contacts",
+        "contactLiteralExcerpt": "Свържете се нас за записване на час:",
+        "finding": "Actual native Book opens owner Contact with explicitly invited appointment phone895001285 and a request form. This is not merely generic contact. The same homepage and Laser subsection also link the exact public Calendly merchant page below. Both actual routes were followed before owner tariff review; no phone route is proposed to evade an unread known service menu.",
+        "actualExternalTarget": "https://calendly.com/mirabellabeautystudio",
+        "externalResult": "Web reader cache miss. One ordinary publicGET returnedHTTP200 titled Calendly-MirabellaBeautyStudio but only a client-rendered shell. NO actual merchant event/service menu, dates, slots or fee conditions were rendered/read. Do not describe calendar review as complete or relabel it unpublished. Root was told this exact remaining rendering prerequisite.",
+        "bookingRouteForPossibleLaterAdmission": "Root must decide only after independent actual menu/provider-policy review. Native Contact independently supports phone appointments; a recorded phone is not sufficient to skip the actual linked calendar."
+      },
+      "selectedTariffFactsForManualReviewOnly": [
+        {"literalName": "Маникюр с гел лак", "amount": 25, "currency": "EUR", "kind": "fixed", "sourceUrl": "https://mirabellabeautystudio.com/uslugi", "durationMinutes": null},
+        {"literalName": "Педикюр с гел лак", "amount": 32, "currency": "EUR", "kind": "fixed", "sourceUrl": "https://mirabellabeautystudio.com/uslugi", "durationMinutes": null}
+      ],
+      "tariffProvenance": "After following actual Book/native Contact and exact Calendly target, read the complete native Services/Prices page. A later normal publicGET200 independently confirmed the current same25EUR/32EUR selected standalone nail procedures, not search snippets. Other service tables exist for hair and sex/body-zone-specific laser. Only two plainly named nail visits are proposed for root review; do not import all tables, nail-repair/add-on rows, laser outcomes, treatment claims, package splits or malformed BGN text. No unit or procedure duration is published for these two selected rows. This is not not_publicly_listed and no catalogue receipt/module was created.",
+      "hoursEvidence": {
+        "sourceUrl": "https://mirabellabeautystudio.com/contacts",
+        "literalExcerpt": "Работно време: от 9:30 до 19:30 без почивен ден.",
+        "finding": "Owner homepage, Contact and latest actual Prices footer agree on daily09:30–19:30. This is salon opening, not an individual employee timetable or free-slot promise."
+      },
+      "premisesEvidence": {
+        "sourceUrl": "https://mirabellabeautystudio.com/",
+        "literalExcerpt": "Ж.к.\" Христо Смирненски\", ул. \"Марко Бочар\" 6.",
+        "finding": "Owner repeats the exact named quarter and street6. Innovatis directory points to nearby Reduta wording, but owner first-party premises is retained without taxonomy remapping or coordinates. No Maps iframe/link requested."
+      },
+      "sourcePolicy": {
+        "ownerRobotsUrl": "https://mirabellabeautystudio.com/robots.txt",
+        "ownerRobotsFinding": "HTTP404 native no-such-page document, not a robots allow rule, access denial or source licence.",
+        "privacyUrl": "https://mirabellabeautystudio.com/politika-za-poveritelnost",
+        "consentDeclarationUrl": "https://mirabellabeautystudio.com/declaration-personal-data",
+        "ownerPolicyFinding": "Both actual linked public documents were completely readHTTP200 after reader cache misses. Privacy dated15Sep2023 covers minimized service/inquiry data, cookies, GDPR rights and redirects controller-contact questions to actual Contact. Consent page is only a declaration for submitted inquiries; merely reading it did NOT accept it. No express minimal-facts automation/database/commercial reuse ban observed; no separate general Terms link in inspected native menu/footer, no licence/legal clearance asserted. Privacy text mentions a cookie policy but no separate actual cookie-policy URL was established, so no guessed request or claim of its full review.",
+        "providerRobotsUrl": "https://calendly.com/robots.txt",
+        "providerRobotsFinding": "HTTP200 wildcard excludes query URLs and app/abuse paths, not this exact unparameterized merchant path. Specific archival/training bot groups differ; robots is not a content-reuse licence. No app, query, API, hidden state or bundle requested.",
+        "providerPolicyStatus": "Not completed: merchant shell did not expose an actual policy/footer link in the inspected text. No provider Terms URL guessed; independent review remains mandatory before admission."
+      },
+      "reviewedUrls": ["https://mirabellabeautystudio.com/", "https://mirabellabeautystudio.com/robots.txt", "https://mirabellabeautystudio.com/contacts", "https://calendly.com/robots.txt", "https://calendly.com/mirabellabeautystudio", "https://mirabellabeautystudio.com/uslugi", "https://mirabellabeautystudio.com/politika-za-poveritelnost", "https://mirabellabeautystudio.com/declaration-personal-data"],
+      "deduplication": "No name/domain/MichaelaKucheva/phone895001285 match in current catalogue or previous intake. No record created per stylist, nail worker, treatment or neighboring area.",
+      "remaining": ["Root actual browser rendering of the exact already-observed Calendly target; no calendar completion claimed", "Applicable provider/source policy review and exact fee/service-route reconciliation", "Independent root admission/photograph review, strict schema/inventory binding and tests if later approved"]
+    }
+  ],
+  "holds": [
+    {
+      "name": "Шепа добрина · Жанета Думова",
+      "website": "https://www.shepadobrina.com/",
+      "status": "held_exact_consultation_premises_missing_and_commerce_price_conditions_unresolved",
+      "observedNeighborhood": "Дружба 1",
+      "preparedPremisesAddress": null,
+      "observedConsultationPhone": "+359887437518",
+      "observedStoreContactPhone": "+359888586165",
+      "actualAppointmentEvidence": {
+        "sourceUrl": "https://www.shepadobrina.com/bg-product-details-19.html",
+        "finding": "Root specialist-consultation category leads to one actual consultation service/product page for psychologist/pedagogueJanetaDumova. The service page expressly invites consultation arrangement via Contact form or887437518. The root and latest actual native Contact give a different store/editorial phone888586165. Neither page supplies a street/block/room for a consultation; Druzhba1 alone is not a verified premises. No consent, cart or form action used."
+      },
+      "pricing": "The actual native category publicGET displayed40.90EUR, whereas reader service snapshot displayed40.90/34.76EUR. A product/cart price with unresolved current discount, service unit and consultation location is not selected as an ordinary visit fee, converted or marked unpublished. Numerical service prices prepared for import: none.",
+      "policyStatus": "RobotsHTTP200 disallows cms/ and ax*.php only; neither requested. General Terms/privacy/cookies were actual linked documents but not pursued after exact consultation-premises failure; no source-policy completion or admission basis claimed.",
+      "reviewedUrls": ["https://www.shepadobrina.com/robots.txt", "https://www.shepadobrina.com/", "https://www.shepadobrina.com/bg-catalog-details-7.html", "https://www.shepadobrina.com/contact-information.html", "https://www.shepadobrina.com/bg-product-details-19.html"],
+      "deduplication": "Host/brand, JanetaDumova and both discovered phones had no current module/intake match. Unknown street, coordinates, duration and hours remain unknown."
+    },
+    {
+      "name": "Etika Life · Екатерина Цолова",
+      "website": "https://etikalife.com/",
+      "status": "STOP_owner_selected_service_request_verification_challenge",
+      "observedAddress": "София, кв. Хаджи Димитър, бл. 172, вх. Б",
+      "phone": "+359884042203",
+      "actualBooking": {
+        "entryUrl": "https://etikalife.com/",
+        "nativeDestination": "https://etikalife.com/kontakti/",
+        "observedInPersonTarget": "https://tidycal.com/lifeetika/50-minute",
+        "finding": "Actual native Book opened Contact, explicitly offering own phone plus distinct online/in-person provider links. Followed the real in-person target before selected service review. Reader cache miss followed by ordinary publicGET200 yielded only the title of an in-person50minute consultation, not a rendered event/menu/calendar. Provider robotsHTTP200 wildcard Disallow empty; no date/slot selected. No unsupported rendering claim or import from hidden JSON/API."
+      },
+      "accessStop": {
+        "sourceUrl": "https://etikalife.com/uslugi/psihologicheska-konsultatsiya/",
+        "finding": "Actual native Psychological-consultation link returned a request-verification challenge. Immediately stopped all subsequent owner/provider requests. The simultaneously requested actual privacy page was already returned/read; no later browser, curl, alternate host/locale, proxy, calendar or phone reinterpretation used to bypass this new owner STOP. Root notified promptly."
+      },
+      "pricing": "Selected service/tariff not read because challenged, actual provider menu not rendered. No amount, unpublished-price receipt or completed price review. A title50minute event is not automatically assigned to each psychological/nutritional service.",
+      "scope": "Owner describes psychologist/nutritionist, adult/youthover15 consultations; only private psychological service was being considered, not nutrition packages, diagnoses, yoga, hypnosis or a medical clinic. No clinical claims/qualifications imported.",
+      "sourcePolicy": "Owner robots200 disallows wp-admin only; TidyCal robots200 allows public pages. Full actually returned privacy page covers controllerEtikaLifeEООД, inquiry/contract data and GDPR. Registered controllerElinPelin is not the stated Sofia practice or a second branch. No source-use clearance or full provider policy review asserted after the challenge.",
+      "reviewedUrls": ["https://etikalife.com/robots.txt", "https://etikalife.com/", "https://etikalife.com/kontakti/", "https://tidycal.com/robots.txt", "https://tidycal.com/lifeetika/50-minute", "https://etikalife.com/uslugi/psihologicheska-konsultatsiya/", "https://etikalife.com/privacy-policy/"],
+      "deduplication": "No exact host, EkaterinaTsolova or884042203 match in existing sources/intake. Coordinates and weekly hours not invented."
+    },
+    {
+      "name": "Alma Beautyroom",
+      "website": "https://www.alma-beautyroom.com/",
+      "status": "held_no_explicit_book_or_owned_exact_premises_and_template_demo_content",
+      "observedPhones": ["+359885121069", "+359887204343"],
+      "finding": "Reader could not access exact owner root/robots. Ordinary publicGETs returned root200 and robots404, without challenge. Actual own header names SilvanaDimitrovaHair and KrasimiraDimitrovaHair/Manicure with phones, but no explicit appointment invitation or textual exact Sofia premises. Own root also contains HTML5UP template/lorem/demo forms/tables. A second comment-stripped ordinaryGET verified template/demo content remains in source; no demo amounts or form labels are real tariff/booking evidence. Generic phone, GoogleMaps/Route links and a directory's GeoMilev68B address do not establish source-complete owner appointment/premises facts. No map opened or directory address/nearby-quarter guess imported.",
+      "pricing": "No real procedure inventory/price, not_publicly_listed receipt or weekly hours prepared. Template item amounts never treated as service prices.",
+      "policyStatus": "Robots404 is not access denial, wildcard permission or a content licence. No full applicable owner policy review or successful admission asserted.",
+      "reviewedUrls": ["https://www.alma-beautyroom.com/robots.txt", "https://www.alma-beautyroom.com/"],
+      "deduplication": "No host/brand, discovered two professionals or two phone matches in current sources/intake. No stylist clone made."
+    }
+  ],
+  "priorDiscoveriesExcludedLocallyBeforeNewOwnerRequests": [
+    {"names": ["Краси Николова", "Лена Лалчева", "Студио Фариа/Мина Касабова", "Кети Вандова"], "reason": "Already present catalogue modules/previous reviewed intake; not new businesses or primary reviews."},
+    {"names": ["Албена Венкова/PsihologSofia", "Весела Манова", "Баланс/psiholog-logopedbg", "Иванка Николова", "Надежда Василева"], "reason": "Existing unresolved intake/hold evidence; no refetch used to bypass it or inflate new-review count."},
+    {"names": ["Suntaria/TetiTelbiyska", "ABAcabinet", "DVFashion", "NGEsthetique"], "reason": "Discovery signals only, not primary checks. Stopped-provider leads not opened. ABA-specific professional eligibility unresolved, no private psychology qualification inferred. A boulevard namedHristoSmirnenski is not automatically that residential quarter."},
+    {"names": ["NadezhdaHospital", "HeraClinics", "SerdikaHospice", "general hospitals/medical centers"], "reason": "Outside independent permitted private consultation/ordinarybeauty target; no general clinic/physician expansion or employee clones."},
+    {"names": ["Перуника Янкова", "unrelated regional names"], "reason": "Search specifically identifies StaraZagora/Kazanlak rather than Sofia's similarly named quarter/street. No geographic clone."},
+    {"names": ["GloriousWinner/СлавСлавов", "Dragovska"], "reason": "Existing express commercial/content-use STOPs discovered locally; no owner/provider request or alternate-route workaround."}
+  ],
+  "validation": {
+    "newPrimaryOwnerReviews": 4,
+    "sourceCompleteCandidates": 0,
+    "strongPricedCandidatePendingIndependentRender": 1,
+    "holds": 3,
+    "newOwnerChallengeStops": 1,
+    "sourceCompleteTargetReached": false,
+    "newBusinessesAdded": 0,
+    "physicalQuarterCellsAdded": 0,
+    "pricesAdded": 0,
+    "actualFormsSlotsCartsSubmitted": 0,
+    "sourceConsentAccepted": false,
+    "customerDataEntered": false,
+    "sourcePhotosCopied": false,
+    "paidApiCalls": 0,
+    "mapOrGeocoderRequests": 0,
+    "current005DataOrTestsChanged": false,
+    "productionWrites": false,
+    "gitCommitOrDeployment": false,
+    "testScope": "Research journal JSON parse, runtime identity/dedup and short literal-excerpt checks only. No app suite, build, production check or successful actual calendar rendering claimed."
+  }
+}

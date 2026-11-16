@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-16",
+  "reviewedBy": "/root/coverage_matrix",
+  "scope": "Independent read-only review of the Mirabella candidate from research-coverage-011-20261116.json. Native appointment route, selected nail fees, premises/hours and applicable owner/provider policy. No CUA, modules, shared files, identities, bookings or production changes.",
+  "status": "held_Calendly_source_policy_STOP_and_unresolved_selected_service_calendar_scope",
+  "business": {
+    "name": "Mirabella Beauty Studio",
+    "website": "https://mirabellabeautystudio.com/",
+    "phone": "+359895001285",
+    "categoryUnderReview": "nails",
+    "cityCode": "68134",
+    "neighborhood": "Христо Смирненски",
+    "address": "София, ж.к. Христо Смирненски, ул. Марко Бочар 6",
+    "coordinates": null
+  },
+  "preflight": {
+    "completedBeforeNetworkInSeparateLocalCall": true,
+    "localSources": ["current lib/discovery source catalogue", "docs/catalogue-coverage", "docs/catalogue-pricing", "AGENTS.md pricing workflow", "README.md pricing workflow"],
+    "priorEvidenceRead": "research-coverage-011-20261116.json leaves the exact Calendly menu and provider policy pending; it does not approve using phone to avoid them.",
+    "existingCatalogueCountAtFinalRead": 1730,
+    "existingNameHostOrPhoneMatches": [],
+    "deduplication": "No existing runtime Mirabella name, owner host or phone895001285 match. No new listing made for a worker, treatment or nearby Reduta area. Prior unrelated Calendly merchant holds are not an approval for this merchant; owner-specific prior STOPs were not reopened."
+  },
+  "actualAppointmentPath": {
+    "rootUrl": "https://mirabellabeautystudio.com/",
+    "nativeBookDestination": "https://mirabellabeautystudio.com/contacts",
+    "contactReview": {
+      "url": "https://mirabellabeautystudio.com/contacts",
+      "literalShortExcerpt": "Свържете се нас за записване на час:",
+      "finding": "Native Book/header/footer links lead to the own Contact page. It explicitly invites appointment contact with895001285 and also offers an untouched name/email/phone/message enquiry form with data-consent control. This is genuine native appointment evidence, not merely a phone in a directory. No form input, checkbox or submission was used."
+    },
+    "externalBookTarget": "https://calendly.com/mirabellabeautystudio",
+    "externalAttempt": "The exact actual linked target returned a web-reader cache miss. This reviewer did not request a different merchant path, use CUA, parse hidden state/bundles or claim an actual rendered menu. Earlier011 ordinaryGET shell is not a completed calendar review.",
+    "nativePlacementEvidence": {
+      "root": "The hero has a general Book link to Contact and a neighbouring More link to this Calendly target. A separate laser section has an explicit Book link to the same target. The nail subsection links to native Services/Prices, not a nail-specific calendar.",
+      "prices": "On /uslugi the Calendly Book links occur in the laser section, after the separate nail tariff table and under its own laser heading. No distinct nail appointment-provider path appears in the inspected native document.",
+      "conclusion": "Placement supports an association with laser but DOES NOT prove that the actual Calendly merchant menu excludes manicure/pedicure. Do not assert laser-only calendar, completed nail-calendar review, or use general phone to bypass an unread/conflicting known selected-service menu."
+    }
+  },
+  "selectedNailTariffObservedNotImported": {
+    "url": "https://mirabellabeautystudio.com/uslugi",
+    "sourceType": "owned_public_service_price_table",
+    "independentReview": "Full native Services/Prices document was read through its footer after the actual native appointment path and exact external target were followed. This pass's price reading is a public reader result; the preceding011 reviewer separately recorded an ordinary current GET with the same amounts. No new live raw-price GET is claimed by this reviewer.",
+    "services": [
+      { "name": "Маникюр с гел лак", "amount": 25, "currency": "EUR", "kind": "fixed", "unit": null, "durationMinutes": null },
+      { "name": "Педикюр с гел лак", "amount": 32, "currency": "EUR", "kind": "fixed", "unit": null, "durationMinutes": null }
+    ],
+    "qualifications": "Two ordinary standalone service rows, not package totals, deposits, from-prices, per-nail repairs or optional design supplements. No duration, specialist-specific rate, tax assumption, unit or guarantee was invented. Hair tariffs, laser sex/body-zone tariffs, ear piercing, retail and treatment claims are not selected. Numeric prices are present; no not_publicly_listed receipt is legitimate or prepared."
+  },
+  "premisesAndHoursObservedNotImported": {
+    "urls": ["https://mirabellabeautystudio.com/", "https://mirabellabeautystudio.com/contacts", "https://mirabellabeautystudio.com/uslugi"],
+    "finding": "All three inspected owner documents repeat Sofia, expressly named HristoSmirnenski quarter, MarkoBochar6, MichaelaKucheva contact and895001285. Daily09:30–19:30 is stated as salon opening, not a nail-worker timetable or free slot. The own privacy/declaration document footers independently repeat this same public business identity/address/hours during this pass's ordinaryGET.",
+    "openingHoursFacts": { "weekdays": [1, 2, 3, 4, 5, 6, 7], "open": "09:30", "close": "19:30" },
+    "pointPolicy": "Coordinates remain null. No external Maps link/iframe, viewport, geocoder or directory quarter was used. A nearby Reduta directory label does not replace the explicit owner quarter."
+  },
+  "ownerPolicy": {
+    "robots": { "url": "https://mirabellabeautystudio.com/robots.txt", "httpStatus": 404, "finding": "Ordinary native no-such-page response. Not an allow-all rule, source licence, authentication requirement or challenge." },
+    "privacy": { "url": "https://mirabellabeautystudio.com/politika-za-poveritelnost", "httpStatus": 200, "completeToEOF": true, "documentDate": "2023-09-15", "finding": "Full actual linked document covers optional contact data, service/inquiry purposes, minimisation, cookies, rights and Contact for controller details. Cookie policy is mentioned in prose but no separate actual cookie-policy link is exposed in the inspected anchors. No guessed cookie endpoint or claim of reading a separate policy." },
+    "declaration": { "url": "https://mirabellabeautystudio.com/declaration-personal-data", "httpStatus": 200, "completeToEOF": true, "finding": "Full actual linked inquiry-data declaration read. Merely reading is not submitting the declaration; no consent control accepted and no inquiry sent." },
+    "termsFinding": "No separate general-use Terms or express minimal-business-facts/commercial-reuse prohibition observed in the fully read inspected owner navigation/footer and linked privacy/declaration. This is not a source licence, permission or legal-clearance conclusion.",
+    "accessMethod": "Reader cache misses followed by ordinary verified HTTPS GET after a sandbox-only DNS failure, using curl with normal TLS verification and stdlib HTMLParser. The10390-character combined policy/robots output was retained only in transient tool storage and then completely read; no dependency installation, protection bypass, personal information or source policy text copied into catalogue data."
+  },
+  "providerPolicySTOP": {
+    "provider": "Calendly",
+    "status": "STOP_all_further_provider_or_merchant_requests_after_actual_restrictions_observed",
+    "robots": {
+      "url": "https://calendly.com/robots.txt",
+      "finding": "Actual wildcard policy disallows query URLs, /app/ and abuse-report path; this exact unparameterised merchant target is not explicitly wildcard-disallowed. Other named bot groups are more restrictive. Robots is not a reuse licence or override of substantive provider terms."
+    },
+    "legalOverview": { "url": "https://calendly.com/legal", "documentDate": "2026-06-01", "completeVisibleTextRead": true, "finding": "Overview identifies AUP as applicable across user types and participant terms for access following an owner's scheduling invitation/link. No registered Calendly account was used or created." },
+    "acceptableUse": {
+      "url": "https://calendly.com/legal/acceptable-use-policy",
+      "documentDate": "2024-03-08",
+      "completeToEOF": false,
+      "restrictionObservedDirectly": true,
+      "shortExcerpt": "Accessing the Services in order to build a similar or competitive product or service",
+      "locations": ["DO NOT / wrongful activities: competitive-product access (reader line80)", "contact/user-profile collections for use outside Services (line86)", "personal/account-information gathering (line88)", "non-publicly-supported access/search, including scraping (line93)", "access-control bypass (line96)"],
+      "finding": "Actual policy, not merely a search snippet, explicitly restricts competitive access and collection of user/contact profiles for external use, in addition to unsupported scraping and excessive requests. The visible restrictions are enough for a conservative source hold. STOP was communicated immediately to root. No full-EOF reading is claimed for the long AUP response and no subsequent provider read was used to obtain more data."
+    },
+    "participantTerms": { "url": "https://calendly.com/legal/participant-terms-conditions", "documentDate": "2026-06-01", "completeToEOF": false, "finding": "Same already-issued legal-reader call returned the introduction and restrictions, including AUP incorporation and intended-recipient condition in3.1. Not claimed fully read to EOF. No additional provider, account or calendar request after the AUP restriction was observed." },
+    "scopeAndDecision": "This reviewer cannot grant a provider reuse licence. No Calendly profile, staff, event, slot or fee information is imported, and no hidden API/bundle or normal-browser retry is used after the source STOP. Native owner nail facts are not enough to silently waive the known unreviewed calendar. Candidate remains held; only independent owner clarification/appropriate source permission or a separately justified non-bypass route could change that status."
+  },
+  "reviewedUrls": [
+    "https://mirabellabeautystudio.com/",
+    "https://mirabellabeautystudio.com/contacts",
+    "https://mirabellabeautystudio.com/uslugi",
+    "https://mirabellabeautystudio.com/robots.txt",
+    "https://mirabellabeautystudio.com/politika-za-poveritelnost",
+    "https://mirabellabeautystudio.com/declaration-personal-data",
+    "https://calendly.com/robots.txt",
+    "https://calendly.com/legal",
+    "https://calendly.com/legal/acceptable-use-policy",
+    "https://calendly.com/legal/participant-terms-conditions"
+  ],
+  "attemptedButNotRendered": ["https://calendly.com/mirabellabeautystudio"],
+  "rootAcknowledgement": {
+    "receivedOn": "2026-11-16",
+    "statement": "Root acknowledged the Calendly source STOP and attested zero Calendly requests or browser loads by root in this turn. No further merchant/provider requests, Mirabella module or import. Candidate remains held for root decision; no blanket legal clearance."
+  },
+  "validation": {
+    "sourceCompleteAdmissionApproved": false,
+    "laserOnlyExternalCalendarEstablished": false,
+    "nativeSelectedFeesConfirmed": true,
+    "ownerPrivacyAndDeclarationReadToEOF": true,
+    "providerPolicyRestrictionObserved": true,
+    "actualCalendarRenderedByThisReviewer": false,
+    "CUAUsed": false,
+    "formsOrSlotsOrAccountsUsed": false,
+    "consentAccepted": false,
+    "customerDataEntered": false,
+    "mapsOrGeocoderRequested": false,
+    "newBusinessesAdded": 0,
+    "physicalQuarterCellsAdded": 0,
+    "pricesAdded": 0,
+    "codeOrSharedDataChanged": false,
+    "productionWrites": false,
+    "gitCommitOrDeployment": false,
+    "testScope": "Research JSON parsing and conservative zero-admission/STOP invariants only; no app tests or build claimed."
+  }
+}

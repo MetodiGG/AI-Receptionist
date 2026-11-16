@@ -1,0 +1,172 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-16",
+  "status": "bounded_research_six_owner_hosts_zero_admissions_five_operator_holds",
+  "scope": "Read-only sports/education premises research in exact zero cells from snapshot005, prioritising Vrazhdebna, Iliantsi, Kremikovtsi and Benkovski before other zero cells. Up to six new owner hosts; actual enrolment/lesson booking required, not a free trial, generic enquiry, walk-in admission, clone or citywide claim.",
+  "summary": {
+    "newPrimaryHostsAttempted": 6,
+    "primaryHostLimit": 6,
+    "distinctProspectiveOperators": 5,
+    "hostsWithReadableSubstantiveOwnerContent": 4,
+    "readyCandidates": 0,
+    "targetReadyCandidates": 2,
+    "targetReached": false,
+    "heldOperators": 5,
+    "newBusinessesAdded": 0,
+    "physicalQuarterCellsAdded": 0,
+    "pricesAdded": 0
+  },
+  "coverageContext": {
+    "snapshot": "coverage-20261116-batch-005.json",
+    "targetCells": [
+      { "neighborhood": "Враждебна", "fitness": 0, "education": 0 },
+      { "neighborhood": "Илиянци", "fitness": 0, "education": 0 },
+      { "neighborhood": "Кремиковци", "fitness": 0, "education": 0 },
+      { "neighborhood": "Бенковски", "fitness": 0, "education": 0 },
+      { "neighborhood": "Банишора", "fitness": 1, "education": 0 },
+      { "neighborhood": "Горна баня", "fitness": 0, "education": 1 },
+      { "neighborhood": "Драгалевци", "fitness": 0, "education": 2 }
+    ],
+    "qualification": "Physical source-quarter counts, not all nearby client search options. No category/quarter taxonomy or snapshot input changed. A street, metro reference, administrative district or registry residence does not establish a named quarter or teaching premises."
+  },
+  "preflight": {
+    "separateLocalChecksBeforeEachNewHostRequest": true,
+    "readInstructions": ["AGENTS.md", "README.md catalogue pricing workflow", "docs/catalogue-coverage/README.md", "prior004/007/010/011/012 research holds", "snapshot005 sport/education zero cells"],
+    "dedupeScope": ["current lib/discovery source modules", "all docs/catalogue-coverage", "all docs/catalogue-pricing"],
+    "newPrimaryHosts": ["www.dp-store.com", "fkvrazhdebna.sportclub.bg", "shkolausmivka.com", "gloriapalace.bg", "tennisclubdiplomat.com", "www.ditsport.com"],
+    "qualification": "GloriaPalace and its explicitly linked tennis operator are one prospective venue/operator case, not two new businesses. Host/brand and previously known aliases were checked locally before each new owner host request; newly discovered phones were also checked in the final local dedupe, with no match outside this journal. All inherited challenge/source-use holds and Calendly/restricted-provider STOPs were preserved."
+  },
+  "ready": [],
+  "holds": [
+    {
+      "business": "Драгомир Петков · DP футболни тренировки",
+      "website": "https://www.dp-store.com/",
+      "status": "held_published_charge_unit_not_clarified_despite_current_real_booking",
+      "category": "fitness",
+      "neighborhood": "Враждебна",
+      "address": "София, кв. Враждебна, ул. 30, стадион Враждебна",
+      "phone": "+359899178396",
+      "coordinates": null,
+      "openingHours": null,
+      "actualAppointmentReview": {
+        "menuUrl": "https://www.dp-store.com/book-online",
+        "selectedServiceUrl": "https://www.dp-store.com/service-page/%D0%BF%D0%BE%D0%B7%D0%B8%D1%86%D0%B8%D0%BE%D0%BD%D0%B8%D1%80%D0%B0%D0%BD%D0%B5",
+        "actualReserveDestination": "https://www.dp-store.com/booking-calendar/%D0%BF%D0%BE%D0%B7%D0%B8%D1%86%D0%B8%D0%BE%D0%BD%D0%B8%D1%80%D0%B0%D0%BD%D0%B5",
+        "contactUrl": "https://www.dp-store.com/kontakti",
+        "childReview": "Owned service page links to the actual service-list menu; followed its exact Reserve route before pricing completion. Current ordinaryGET200 menu/service both show12.80EUR/25.03BGN. Actual native calendar GET200 shows a scheduling invitation but its JS date/slot panel was not rendered by this child. Generic Contact phone was not substituted for that calendar. Current root navigation is retail-only, while the public menu/service/calendar remain live; no claim they are currently linked from root header.",
+        "subsequentRootBrowserReview": "Root independently rendered book-online, followed the exact Positioning Reserve navigation, and read the actual calendar/service information. The calendar automatically selected22November2026/10:00; root did NOT select a day/time, Next, customer field, consent or payment. Moreinfo confirmed Positioning,12.80EUR/25.03BGN,75minutes and the Vrazhdebna stadium/Dragomir identity. This resolves whether the programme/calendar is current, not whether the fee is per participant. No native availability or future slots copied into catalogue data.",
+        "rootScreenshot": "coverage-batch-006-dp-live-booking-review.jpg"
+      },
+      "literalServiceFactsNotImported": {
+        "name": "Позициониране",
+        "publishedAmount": 12.8,
+        "publishedCurrency": "EUR",
+        "secondaryPublishedAmount": 25.03,
+        "secondaryCurrency": "BGN",
+        "durationMinutes": 75,
+        "participants": 4,
+        "minimumAge": 15,
+        "priceUnit": null,
+        "conditions": "Cancellation no later than24hours before the agreed session. If too few participants join, the provider contacts the client no later than24hours before it to offer the next suitable scheduled training. Do not turn a4-person class into private1:1 coaching.",
+        "criticalHold": "Neither complete current menu/service text nor root's visible calendar review states whether12.80EUR buys one participation or the whole four-person group. Do not divide/multiply the fee, infer Wix defaults, import it as an ordinary single-participation charge, or relabel a known published but qualified-unclear tariff as unpublished. Root explicitly retained HOLD."
+      },
+      "cacheVsCurrent": "Older public reader book-online snapshot shows25BGN/12.78EUR, unlike the service page12.80EUR/25.03BGN. Current ordinaryGET independently confirms12.80 on BOTH actual menu and selected service, resolving that stale reader mismatch without currency conversion. Fee unit remains unresolved separately.",
+      "sourcePolicy": {
+        "robotsUrl": "https://www.dp-store.com/robots.txt",
+        "finding": "Actual Wix robots permits public routes and restricts lightbox/partials/gallery paths; none restricted were requested.",
+        "termsUrl": "https://www.dp-store.com/obshti-usloviya",
+        "privacyUrl": "https://www.dp-store.com/politika-za-poveritelnost",
+        "completeToEOF": true,
+        "policyFinding": "Full current linked commerce Terms and Privacy/cookie document read via normal verified GET. General copyright/compliance, registration, order/payment/refund and data rules; no express minimal-business-facts automation/database-reuse prohibition observed. Not a licence/legal clearance. Registered controller residence is not the stadium or a second training office. No retail glove/discount price, biography, photograph or customer review reused.",
+        "readMethod": "30522-character combined public policy/robots output held transiently and read in three non-overlapping chunks to EOF; no dependency install."
+      },
+      "reviewedUrls": ["https://www.dp-store.com/", "https://www.dp-store.com/book-online", "https://www.dp-store.com/service-page/%D0%BF%D0%BE%D0%B7%D0%B8%D1%86%D0%B8%D0%BE%D0%BD%D0%B8%D1%80%D0%B0%D0%BD%D0%B5", "https://www.dp-store.com/booking-calendar/%D0%BF%D0%BE%D0%B7%D0%B8%D1%86%D0%B8%D0%BE%D0%BD%D0%B8%D1%80%D0%B0%D0%BD%D0%B5", "https://www.dp-store.com/kontakti", "https://www.dp-store.com/robots.txt", "https://www.dp-store.com/obshti-usloviya", "https://www.dp-store.com/politika-za-poveritelnost"],
+      "identityQualification": "Own named coach/site/phone are separately evidenced, not a clone of FKVrazhdebna's generic club profile at the stadium. No other programme, participant, staff member or retail category made a new business. Missing exact entrance, coordinates and weekly hours remain absent."
+    },
+    {
+      "business": "ФК Враждебна",
+      "website": "https://fkvrazhdebna.sportclub.bg/",
+      "status": "held_no_explicit_current_enrolment_or_reserved_lesson_route",
+      "neighborhoodObserved": "Враждебна",
+      "addressObserved": "София, кв. Враждебна, ул. 30 и9",
+      "phoneObserved": "+359876042051",
+      "finding": "Current owned club subsite has team/match news, a named stadium and generic contact form/inquiry invitation. Actual Contact gives phone/stadium intersection, but no actual course enrolment, named reserved lesson, selected paid inventory or tariff. About returns no content. Stadium list confirms venue name, not an appointment service. Generic football-club existence/phone is insufficient; do not count matches or player profiles as business services.",
+      "policyReview": "Visible embedded cookie explanation was read, including essential session/account/consent cookies, anti-spam and map embeds; no controls accepted. Full applicable site-use policy/pricing review not pursued after appointment-evidence failure, and not claimed complete.",
+      "reviewedUrls": ["https://fkvrazhdebna.sportclub.bg/", "https://fkvrazhdebna.sportclub.bg/contacts", "https://fkvrazhdebna.sportclub.bg/about", "https://fkvrazhdebna.sportclub.bg/about/venues"],
+      "catalogueAdditions": 0
+    },
+    {
+      "business": "Учебен център Усмивка",
+      "website": "https://shkolausmivka.com/",
+      "status": "held_exact_zero_cell_quarter_and_complete_source_review_not_established",
+      "phoneObserved": "+359886327582",
+      "neighborhood": null,
+      "ownAddressesObserved": ["София, ул. Софроний Врачански62", "София, бул. Евлоги и Христо Георгиеви169"],
+      "actualAppointmentFinding": "Root general CTA mentions a free consultation, but the actual Courses page independently and explicitly invites phone enrolment for individual lessons in the centres, online or at a student's home. Exact native tariff Requestlesson links lead to Contact, which separately labels the phone for questions and enrolment. This is more than a generic enquiry, but no enrollment or form field used.",
+      "feeEvidenceNotImported": "Complete public tariff page distinguishes individual class/subject/level/duration and online variants from multi-lesson modules. Mathematics/BELgrades1–8 lists23EUR60minutes and32EUR90minutes, with a separate21EURonline line. Other subject/level cards have different25/28EUR60minute rates. No online amount, combined-subject package or9-lesson module divided into an onsite lesson. Root must review literal card/online qualifications before any priced inventory.",
+      "criticalHold": "Both own addresses are street-only with no expressly named Banіshora quarter. Teacher-directory/marketplace snippets label Banіshora/parkZaimov, but those are not owner location evidence and may be older venues. Do not infer quarter from these streets, the metro reference or the centre's area marketing; do not create a Banіshora quota cell or duplicate a teacher. Complete relevant source-policy/robots and branch-subject fee review were not reached in this bounded pass.",
+      "reviewedUrls": ["https://shkolausmivka.com/", "https://shkolausmivka.com/kontakti", "https://shkolausmivka.com/kursove", "https://shkolausmivka.com/tsenorazpis"],
+      "catalogueAdditions": 0
+    },
+    {
+      "business": "Тенис клуб Дипломат · комплекс Глория Палас",
+      "venueWebsite": "https://gloriapalace.bg/",
+      "actualLinkedOperatorWebsite": "https://tennisclubdiplomat.com/",
+      "status": "held_stale_2016_2018_tennis_evidence_actual_operator_DNS_unavailable",
+      "neighborhoodObserved": "Горна баня",
+      "addressObserved": "София, кв. Горна баня, бул. Никола Петков143",
+      "actualAppointmentFinding": "Venue root leads to Tennisclub landing and then its actual club article. That article explicitly points to the separate tennis operator and phone for court availability/reservations. However, body identifies winter2016/17 and summer2018 fees/hours. Header hotel/restaurant phones are not a current tennis appointment route or proof the old club programme continues.",
+      "operatorAccess": "Reader could not access the exact linked operator HTTPS root. Sandbox DNS failed; a permitted ordinary public GET outside sandbox also returned DNS resolution failure/HTTP000. No alternate domain, HTTP downgrade, proxy, cache workaround or invented unpublished fee used.",
+      "tariffDecision": "Old20/25BGN hourly amounts and07–21hours are explicitly2018 and NOT current facts. No current booking/services/tariff/complete policies from the actual operator. Do not convert old tariffs into supposedly current published EUR prices, import hotel-room enquiry fields as court booking or multiply the hotel and operator into two businesses.",
+      "reviewedUrls": ["https://gloriapalace.bg/", "https://gloriapalace.bg/tennis-and-padle-club/", "https://gloriapalace.bg/attraction/tennis-club/"],
+      "attemptedUnavailableUrl": "https://tennisclubdiplomat.com/",
+      "catalogueAdditions": 0
+    },
+    {
+      "business": "Дит Спорт · тенис клуб",
+      "website": "https://www.ditsport.com/",
+      "status": "held_current_owner_root_contains_only_domain_no_actual_service_or_book",
+      "discoveryQuarterNotVerified": "Драгалевци",
+      "finding": "Third-party tennis discovery cites this owner host, but this is not final premises/fee evidence. Web reader unavailable; sandbox-only DNS failure followed by one ordinary public GET200. The returned body contains only ditsport.com, no actual booking, named lesson/court menu, contact/address or current service facts. A200status or domain title is not source completion. No guessed paths, alternate hosts, old2015tariff or unpublished-price receipt.",
+      "attemptedUrls": ["https://www.ditsport.com/"],
+      "catalogueAdditions": 0
+    }
+  ],
+  "discoveryOnlyNotRequestedAsNewOwners": [
+    { "business": "Phoenix additional halls / BodyFolkСвобода", "reason": "Existing held/paused venue evidence read locally; no fresh request or new-branch claim." },
+    { "business": "DevaKolarskiВраждебна / TeamKunchevВръбница1 / Конна база Кремиковци и Онгъл / БотунецСпорт", "reason": "Discovery/directory/old promo or registry references, not a located current owned enrolment/menu source. No directory imported, expired voucher priced, registered residence used as a venue or primary owner request fabricated." },
+    { "business": "НИЯ/nia-bg.com alias versus nia.bg", "reason": "Local earlier intake identifies the same school with a current-course versus old actual-enrolment-year conflict. No alias used to reopen as a new source or evade the hold." },
+    { "business": "VerayaSport and similar restricted-provider-only leads", "reason": "Known ReservationStudio or other stopped-provider routes; not opened or used as verified fee/booking evidence." },
+    { "business": "Rodina/UPAcademy generic quarter pages, public schools/free programmes, clinic/doctors, other cities sharing street/school names", "reason": "Not new privately reserved premises in the selected exact zero cells; no national service cloned across quarters or clinical scope expansion." }
+  ],
+  "accessAndSafety": {
+    "ordinaryPublicGETAfterReaderCacheMissAndSandboxDNSOnly": true,
+    "sourceRestrictionBypass": false,
+    "CalendlyOrRestrictedProviderRequests": false,
+    "hiddenStateBundleOrApiExtraction": false,
+    "CUAUsedByResearchChild": false,
+    "rootDPBrowserReviewSeparatelyAttributed": true,
+    "manualSlotOrDateSelection": false,
+    "customerFieldsAccountConsentSubmissionOrPayment": false,
+    "sourcePhotosOrReviewsCopied": false,
+    "mapOrGeocoderRequestsByChild": false,
+    "paidApi": false,
+    "moduleOrSharedDataEdits": false,
+    "productionWrites": false,
+    "gitCommitOrDeployment": false
+  },
+  "nextActions": [
+    "Retain DP as a real current programme with an unresolved published charge unit, not an unpublished tariff. Source/owner clarification is needed before representing12.80 as a participation price.",
+    "Keep all other candidates held; no request beyond the six-primary-host cap, no further source work this turn per root.",
+    "Any future import needs independent root source/photo review, strict schema/identity binding, complete selected-service pricing conditions and tests. This journal itself adds no businesses or coverage."
+  ],
+  "validation": {
+    "newPrimaryHostsAttempted": 6,
+    "maximumPrimaryHostsRespected": true,
+    "readyCount": 0,
+    "newBusinessesAdded": 0,
+    "physicalQuarterCellsAdded": 0,
+    "pricesAdded": 0,
+    "testScope": "Research JSON parsing, bounded-host count and hold/zero-admission invariants only. No application tests, build or catalogue release claimed."
+  }
+}

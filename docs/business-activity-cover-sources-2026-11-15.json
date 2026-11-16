@@ -3,8 +3,31 @@
   "purpose": "Activity-correct illustrative business covers; never actual business premises, staff or work.",
   "generator": "Existing owner-approved built-in image_gen artwork; mechanical derivatives only.",
   "primaryBusinesses": 1693,
-  "uniquePrimaryPhotos": 383,
+  "uniquePrimaryPhotos": 384,
   "assets": [
+    {
+      "id": "sx-groom-french-bulldog",
+      "sourceFile": "exec-1163315a-a36c-4ed9-8c90-d13690bfa3e5.png",
+      "sourceSha256": "7332887240f33d588f256b5a06cedb685ef73ddc44eb2bd3ceb23cd650e37a28",
+      "file": "public/business-cover-photos/activity-sx-groom-french-bulldog-v1.webp",
+      "width": 720,
+      "height": 720,
+      "bytes": 53788,
+      "sha256": "8bb9418a725bbd63c5a467e2177e144883f8e2cea5b3df5b1bb0a34e84b442bf",
+      "businesses": 1,
+      "approvedServicePhoto": "public/service-photos/sx-groom-french-bulldog-v1.webp",
+      "approvedServicePhotoSha256": "ca1db486877e0936f457275ef367b438696403c43ddee426344cb58a3ee7d579",
+      "originalWidth": 1254,
+      "originalHeight": 1254,
+      "sourceCrop": {
+        "left": 0,
+        "top": 0,
+        "width": 1254,
+        "height": 1254
+      },
+      "transformation": "Proportional full-frame downscale from approved original PNG;720px WebP quality76; no crop, enlargement or generative editing.",
+      "sourceReceipt": "docs/specific-service-photo-generation-2026-11-12.json"
+    },
     {
       "id": "sx-outdoor-family-photoshoot",
       "file": "public/business-cover-photos/activity-sx-outdoor-family-photoshoot-v1.webp",
@@ -9390,6 +9413,6 @@
       "businesses": 6
     }
   ],
-  "totalNewBytes": 17609534,
+  "totalNewBytes": 17663322,
   "unresolved": []
 }

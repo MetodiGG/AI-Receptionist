@@ -1,0 +1,261 @@
+/* Opt-in public-site theme. Only colors change: photographs, branding, layout,
+   selection state and booking behavior retain their original implementation.
+   Compatibility tokens are scoped to public shells, not owner/admin screens. */
+html[data-theme="dark"] {
+  --dm-paper: #1d1916;
+  --dm-surface: #27211c;
+  --dm-raised: #332a23;
+  --dm-ink: #f5ece2;
+  --dm-muted: #c1b3a4;
+  --dm-line: #514438;
+  --dm-orange: #f2b884;
+  --dm-orange-soft: #483224;
+  --dm-green: #244b34;
+  --dm-green-ink: #d4f0d8;
+}
+html[data-theme="dark"]:has(body > :is(.marketing-page,.public-booking-page,.booking-state-page,.legal-page,.review-page,.launch-login-page,.recovery-page,.customer-page)),
+html[data-theme="dark"] body:has(> :is(.marketing-page,.public-booking-page,.booking-state-page,.legal-page,.review-page,.launch-login-page,.recovery-page,.customer-page)) {
+  background: var(--dm-paper);
+}
+html[data-theme="dark"] :is(.marketing-page,.public-booking-page,.booking-state-page,.legal-page,.review-page,.launch-login-page,.recovery-page,.customer-page) {
+  --ink: var(--dm-ink); --ink-soft: var(--dm-muted); --paper: var(--dm-paper);
+  --surface: var(--dm-surface); --line: var(--dm-line); --muted: var(--dm-muted);
+  --accent: #e8ae7b; --accent-strong: var(--dm-orange); --forest: var(--dm-orange);
+  --peach: var(--dm-orange-soft); --solar: #e7aa75; --solar-soft: var(--dm-orange-soft);
+  --solar-ink: #f4c79f; --graphite: var(--dm-ink); --danger: #ffb3a9;
+  --shadow: 0 18px 48px #00000024;
+  --booking-ink: var(--dm-ink);
+  color-scheme: dark;
+  color: var(--dm-ink);
+  background: var(--dm-paper);
+}
+html[data-theme="dark"] .customer-home.quick-choice {
+  background-color: var(--dm-paper);
+  background-image: linear-gradient(180deg,#1d1916 0%,#2c2119 34%,#31231a 66%,#1d1916 100%);
+}
+html[data-theme="dark"] .discovery-page::before { opacity: .18; }
+html[data-theme="dark"] :is(.marketing-page,.public-booking-page,.legal-page,.review-page,.launch-login-page,.recovery-page,.customer-page) :is(h1,h2,h3,h4) { color: var(--dm-ink); }
+html[data-theme="dark"] :is(.marketing-page,.public-booking-page,.legal-page,.review-page,.launch-login-page,.recovery-page,.customer-page) .gorez-lockup .gorez-wordmark { color: var(--dm-ink); }
+html[data-theme="dark"] :is(.marketing-page,.public-booking-page,.legal-page,.review-page,.launch-login-page,.recovery-page,.customer-page) .gorez-wordmark .gorez-wordmark-accent { color: var(--dm-orange); }
+html[data-theme="dark"] :is(.marketing-page,.public-booking-page,.legal-page,.review-page,.launch-login-page,.recovery-page,.customer-page) ::selection {
+  color: #241911; background: #e7aa75;
+}
+html[data-theme="dark"] :is(.marketing-page,.public-booking-page,.legal-page,.review-page,.launch-login-page,.recovery-page,.customer-page) :is(a,button,input,select,textarea,summary):focus-visible {
+  outline-color: #f2b884;
+}
+
+/* Header controls stay on the same baseline; the new moon/sun uses the same
+   warm accent as links. No brightness/inversion is applied to any artwork. */
+html[data-theme="dark"] .marketing-page .launch-navigation,
+html[data-theme="dark"] .public-booking-page .booking-topbar {
+  color: var(--dm-ink); background: #211c18f5; border-color: var(--dm-line);
+  box-shadow: 0 1px 0 #ffffff08;
+}
+html[data-theme="dark"] .marketing-page .launch-navigation .launch-menu {
+  color: var(--dm-ink); background: var(--dm-surface); border-color: var(--dm-line);
+  box-shadow: 0 16px 40px #00000040;
+}
+html[data-theme="dark"] .marketing-page .launch-menu a,
+html[data-theme="dark"] .launch-navigation .launch-brand,
+html[data-theme="dark"] .launch-login-page > header > a,
+html[data-theme="dark"] .public-booking-page .booking-brand { color: var(--dm-ink); }
+html[data-theme="dark"] .marketing-page .launch-navigation .launch-menu a:hover { color: #f8d7b7; background: var(--dm-raised); }
+html[data-theme="dark"] .marketing-page .launch-menu-toggle,
+html[data-theme="dark"] :is(.marketing-page,.public-booking-page,.legal-page,.review-page,.launch-login-page,.recovery-page,.customer-page) .theme-toggle {
+  color: var(--dm-orange); background: var(--dm-raised); border-color: #6f5038;
+  box-shadow: inset 0 1px 0 #ffffff0a,0 2px 0 #16120f;
+}
+html[data-theme="dark"] .marketing-page .launch-menu-toggle:hover,
+html[data-theme="dark"] :is(.marketing-page,.public-booking-page,.legal-page,.review-page,.launch-login-page,.recovery-page,.customer-page) .theme-toggle:hover { color:#ffe0bf; background:#493426; border-color:#b48b65; }
+
+/* Search, photographic category navigation, and compact results. */
+html[data-theme="dark"] .customer-home.quick-choice .home-search-panel { border-color: var(--dm-line); }
+html[data-theme="dark"] .customer-home.quick-choice .home-search-context { background: transparent; }
+html[data-theme="dark"] .customer-home.quick-choice :is(.home-location-help,.home-location-context) { color: var(--dm-muted); }
+html[data-theme="dark"] .customer-home.quick-choice .home-search-panel .home-discovery-heading h1,
+html[data-theme="dark"] .discovery-search > header :is(h1,h2),
+html[data-theme="dark"] .marketing-page :is(.directory-heading h1,.partner-category-overview-heading h2,.partner-category-selection-heading h2) { color: var(--dm-ink); }
+html[data-theme="dark"] .marketing-page :is(.discovery-form,.discovery-query,.discovery-card,.discovery-start,.discovery-availability,.directory-empty,.directory-filters,.discovery-notice,.home-fixture-notice,.discovery-test) {
+  color: var(--dm-ink); background: var(--dm-surface); border-color: var(--dm-line); box-shadow: none;
+}
+html[data-theme="dark"] .customer-home.quick-choice .discovery-home .discovery-query { background: var(--dm-surface); border-color: #88705d; }
+html[data-theme="dark"] .marketing-page .discovery-query input { color: var(--dm-ink); }
+html[data-theme="dark"] .marketing-page .discovery-query input::placeholder { color: var(--dm-muted); opacity: 1; }
+html[data-theme="dark"] .marketing-page :is(.home-search-trigger,.home-inline-control,.home-section-actions > a,.home-rail-arrows button) { color: var(--dm-orange); }
+html[data-theme="dark"] .customer-home.quick-choice .home-inline-location:not(.is-active),
+html[data-theme="dark"] .marketing-page :is(.home-inline-location.is-active,.discovery-location,.discovery-shortcuts button,.discovery-source-tabs button) {
+  color: var(--dm-ink); background: var(--dm-raised); border-color: var(--dm-line);
+}
+html[data-theme="dark"] .marketing-page :is(.discovery-shortcuts button.selected,.discovery-source-tabs button.selected,.discovery-location.selected) {
+  color: #ffe0bf; background: var(--dm-orange-soft); border-color: #af7c53;
+}
+html[data-theme="dark"] .customer-home.quick-choice .home-categories button > span { color: var(--dm-muted); }
+html[data-theme="dark"] .customer-home.quick-choice .home-categories .home-discovery-rail button.selected {
+  color: #ffe0bf; background: linear-gradient(110deg,#503725,#392a20); box-shadow: inset 0 0 0 1px #e4aa7424;
+}
+html[data-theme="dark"] .customer-home.quick-choice .home-categories button.selected > span { color: #ffe0bf; }
+html[data-theme="dark"] .marketing-page .discovery-subcategories { border-inline-start-color: #77573d; }
+html[data-theme="dark"] .customer-home.quick-choice :is(.discovery-subcategory-option,.discovery-subcategory-all,.discovery-subcategory-more),
+html[data-theme="dark"] .marketing-page :is(.discovery-subcategory-option,.discovery-subcategory-all,.discovery-subcategory-more) { color: var(--dm-ink); background-image: none; }
+html[data-theme="dark"] .customer-home.quick-choice :is(.discovery-subcategory-option,.discovery-subcategory-all)[aria-pressed="true"],
+html[data-theme="dark"] .customer-home.quick-choice .discovery-subcategory-more[aria-expanded="true"] {
+  color: #ffe0bf; background-color: var(--dm-orange-soft);
+}
+@media (hover:hover) and (pointer:fine) {
+  html[data-theme="dark"] .customer-home.quick-choice .home-categories .home-discovery-rail button:hover,
+  html[data-theme="dark"] .customer-home.quick-choice .discovery-subcategories :is(.discovery-subcategory-option,.discovery-subcategory-all,.discovery-subcategory-more):hover:not(:disabled) {
+    color: var(--dm-ink); background-color: #493426;
+  }
+}
+html[data-theme="dark"] .customer-home.quick-choice .home-business-grid .home-business-card:is([data-source="gorez"],[data-source="catalogue"]),
+html[data-theme="dark"] .marketing-page :is(.home-business-card,.directory-business-card,.partner-category-card,.partner-category-selection-heading) {
+  color: var(--dm-ink); background: var(--dm-surface); border-color: var(--dm-line); box-shadow: none;
+}
+html[data-theme="dark"] .customer-home.quick-choice .home-business-identity h3,
+html[data-theme="dark"] .marketing-page :is(.home-business-card h3,.directory-business-head h3,.partner-category-card) { color: var(--dm-ink); }
+html[data-theme="dark"] .marketing-page .home-business-services { color: var(--dm-ink); }
+html[data-theme="dark"] .customer-home.quick-choice .home-business-services .home-service-price,
+html[data-theme="dark"] .customer-home.quick-choice .home-business-inline-details,
+html[data-theme="dark"] .customer-home.quick-choice .home-business-identity .home-business-partner,
+html[data-theme="dark"] .marketing-page :is(.directory-services b,.directory-business-head small,.partner-category-arrow) { color: var(--dm-orange); }
+html[data-theme="dark"] .customer-home.quick-choice .home-business-identity .home-business-category,
+html[data-theme="dark"] .customer-home.quick-choice .home-business-meta .home-distance-badge,
+html[data-theme="dark"] .customer-home.quick-choice .home-business-services :is(.home-service-condition,.service-price-unit),
+html[data-theme="dark"] .customer-home.quick-choice .home-search-context,
+html[data-theme="dark"] .marketing-page :is(.home-business-category,.home-search-context,.discovery-intro-hint,.directory-business-head p,.directory-result-count,.directory-services small,.directory-service-copy small,.directory-empty p,.partner-category-card-copy > span,.partner-category-selection-heading p,.discovery-notice,.discovery-ranking,.discovery-attribution,.discovery-hours,.discovery-address,.discovery-category,.discovery-external-note,.discovery-loading) { color: var(--dm-muted); }
+html[data-theme="dark"] .marketing-page :is(.home-business-services > li,.directory-service-row,.discovery-services > div) { border-color: var(--dm-line); }
+html[data-theme="dark"] .marketing-page :is(.directory-service-row,.partner-category-art,.partner-category-arrow,.discovery-card-symbol,.discovery-understood > div span) { background: var(--dm-raised); }
+html[data-theme="dark"] .marketing-page :is(.home-business-show-more,.home-business-list-keyboard-load,.discovery-controls select,.discovery-refine select,.directory-filters select,.discovery-understood,.discovery-clarification) {
+  color: var(--dm-ink); background: var(--dm-raised); border-color: var(--dm-line);
+}
+html[data-theme="dark"] .marketing-page :is(.home-browse-skeleton > i,.directory-skeleton i,.directory-skeleton b) { background:var(--dm-raised); }
+html[data-theme="dark"] .marketing-page .directory-skeleton > div { background:var(--dm-surface); border-color:var(--dm-line); }
+html[data-theme="dark"] .marketing-page .discovery-skeleton i { background-image:linear-gradient(100deg,#302720,#49382a,#302720); }
+
+/* Browser top-layer dialogs retain their local focus/scroll handling. */
+html[data-theme="dark"] .marketing-page :is(.discovery-business-details,.discovery-filter-sheet,.discovery-suggestion-panel) {
+  color: var(--dm-ink); background: var(--dm-surface); border-color: #71563f; box-shadow: 0 18px 60px #00000050;
+}
+html[data-theme="dark"] .marketing-page :is(.discovery-business-details,.discovery-filter-sheet)::backdrop { background: #0c0908b8; }
+html[data-theme="dark"] .marketing-page :is(.business-details-toolbar,.discovery-business-details > footer,.business-details-close,.discovery-filter-sheet header button) {
+  color: var(--dm-ink); background: var(--dm-surface); border-color: var(--dm-line); box-shadow: none;
+}
+html[data-theme="dark"] .marketing-page :is(.business-details-category,.business-details-description,.business-details-note,.business-details-services span,.business-details-services p,.business-details-overview > li,.home-filter-fields label,.discovery-suggestion-status,.discovery-suggestion-group,.discovery-suggestion-option small) { color: var(--dm-muted); }
+html[data-theme="dark"] .marketing-page .business-details-hours-toggle > summary { color: var(--dm-ink); }
+html[data-theme="dark"] .marketing-page .business-details-hours-body > p { color: var(--dm-muted); }
+html[data-theme="dark"] .marketing-page .discovery-business-details .business-details-description,
+html[data-theme="dark"] .marketing-page .discovery-business-details .business-details-services .business-details-service-description,
+html[data-theme="dark"] .marketing-page .discovery-business-details :is(.business-details-service-condition,.service-price-unit,.business-details-hours-source) { color: var(--dm-muted); }
+html[data-theme="dark"] .marketing-page :is(.business-details-price,.business-details-service-group h4,.discovery-business-details a,.discovery-business-details header p,.discovery-suggestion-partner,.discovery-suggestion-status button,.discovery-suggestion-list > li:last-child strong) { color: var(--dm-orange); }
+html[data-theme="dark"] .marketing-page :is(.business-details-services li,.business-details-hours > div,.business-details-toolbar,.business-details-hours-section,.discovery-suggestion-list > li:last-child) { border-color: var(--dm-line); }
+html[data-theme="dark"] .marketing-page .discovery-suggestion-panel .discovery-suggestion-option { color: var(--dm-ink); }
+html[data-theme="dark"] .marketing-page .discovery-suggestion-panel .discovery-suggestion-option:is(:hover,.is-active,:focus-visible) { background: var(--dm-orange-soft); }
+html[data-theme="dark"] .marketing-page .discovery-suggestion-option > svg { color: var(--dm-orange); }
+html[data-theme="dark"] .marketing-page .home-filter-fields select { color: var(--dm-ink); background: var(--dm-raised); border-color: var(--dm-line); }
+html[data-theme="dark"] .marketing-page :is(.home-filter-reset,.home-filter-apply) { color: var(--dm-ink); background: var(--dm-raised); border-color: #8d6648; }
+
+/* Shared booking actions keep the original map and calendar artwork. */
+html[data-theme="dark"] :is(.marketing-page,.public-booking-page) :is(.home-directions,.home-reserve,.directory-book-button,.profile-directions,.profile-external-reserve,.profile-service-book),
+html[data-theme="dark"] .profile-redesign .profile-mode-controls button[aria-controls="profile-native-panel"] {
+  --action-top:#403025; --action-bottom:#35271f; --action-border:#886347; --action-edge:#17120f; --action-ink:#f7d2ad;
+  color: var(--action-ink); border-color: var(--action-border);
+  background: linear-gradient(175deg,var(--action-top),var(--action-bottom));
+  box-shadow: inset 0 1px 0 #ffffff12,0 2px 0 var(--action-edge);
+}
+html[data-theme="dark"] :is(.marketing-page,.public-booking-page) :is(.home-reserve,.directory-book-button,.profile-external-reserve,.profile-service-book),
+html[data-theme="dark"] .profile-redesign .profile-mode-controls button[aria-controls="profile-native-panel"] {
+  --action-top:#edbd93; --action-bottom:#dca471; --action-border:#c48a57; --action-edge:#513622; --action-ink:#2b1d13;
+}
+html[data-theme="dark"] .customer-home.quick-choice .home-business-card > .home-business-footer > .home-business-actions :is(.home-directions,.home-reserve) {
+  box-shadow: inset 0 1px 0 #ffffff12,0 1px 0 var(--action-edge);
+}
+html[data-theme="dark"] :is(.marketing-page,.public-booking-page) :is(.home-reserve,.directory-book-button,.profile-external-reserve,.profile-service-book):not(:disabled):not([aria-disabled="true"]):is(:hover,:focus-visible),
+html[data-theme="dark"] .profile-redesign .profile-mode-controls button[aria-controls="profile-native-panel"]:not(:disabled):is(:hover,:focus-visible) {
+  color:#261a12; background:linear-gradient(175deg,#f7cba3,#e9b079); border-color:#efc094; box-shadow:inset 0 1px 0 #ffffff24,0 2px 0 #513622;
+}
+html[data-theme="dark"] :is(.marketing-page,.public-booking-page) :is(.home-directions,.profile-directions):is(:hover,:focus-visible) {
+  color:#ffe0bf; background:#513927; border-color:#b48b65; box-shadow:inset 0 1px 0 #ffffff12,0 2px 0 #17120f;
+}
+
+/* Actual profile and its single shared calendar. Green still means bookable,
+   orange means selected, and diagonal gray disabled dates remain distinct. */
+html[data-theme="dark"] .public-booking-page :is(.business-profile-hero,.business-profile-section,.booking-card,.booking-summary,.booking-terms,.profile-share-button,.profile-share-fallback input,.profile-staff-choice select,.monthly-booking-calendar) {
+  color:var(--dm-ink); background:var(--dm-surface); border-color:var(--dm-line); box-shadow:none;
+}
+html[data-theme="dark"] .profile-redesign :is(.business-profile-name-row h1,.business-profile-section h2,.profile-service-copy > strong,.profile-booking-heading h2,.booking-section-head h3) { color:var(--dm-ink); }
+html[data-theme="dark"] .public-booking-page :is(.profile-service-price,.profile-address-link,.booking-eyebrow,.business-contact-links a,.profile-map-icon,.booking-consent a) { color:var(--dm-orange); }
+html[data-theme="dark"] .profile-redesign :is(.profile-service-copy > span,.profile-service-description,.profile-service-group > h3,.profile-staff-choice,.profile-share-fallback,.business-about-description,.business-weekly-hours dt,.business-team-list p,.business-review p,.business-review time,.verified-visit,.review-summary,.review-summary-muted,.reputation-source,.profile-booking-heading p,.booking-consent,.booking-terms,.booking-footer) { color:var(--dm-muted); }
+html[data-theme="dark"] .profile-redesign :is(.profile-service-row,.business-weekly-hours dl > div,.business-review,.review-dimensions) { border-color:var(--dm-line); }
+html[data-theme="dark"] .profile-redesign :is(.profile-map-icon,.business-team-list article,.business-team-initial,.profile-mode-controls button,.staff-options button,.booking-mode-switch,.booking-section-head > span) { color:var(--dm-ink); background:var(--dm-raised); border-color:var(--dm-line); }
+html[data-theme="dark"] .profile-redesign .profile-service-row.is-selected { background:var(--dm-orange-soft); box-shadow:0 0 0 8px var(--dm-orange-soft); }
+html[data-theme="dark"] .profile-redesign .profile-mode-controls button[aria-pressed="true"],
+html[data-theme="dark"] .profile-redesign .staff-options button.selected { color:#ffe0bf; background:var(--dm-orange-soft); border-color:#bb875d; }
+html[data-theme="dark"] .public-booking-page .booking-mode-switch button { color:var(--dm-muted); }
+html[data-theme="dark"] .public-booking-page .booking-mode-switch button.active { color:var(--dm-ink); background:#5c402b; }
+html[data-theme="dark"] .public-booking-page .monthly-calendar-nav { color:var(--dm-ink); background:var(--dm-raised); border-color:var(--dm-line); }
+html[data-theme="dark"] .public-booking-page .monthly-calendar-nav:not(:disabled):hover { color:#ffe0bf; background:#493426; border-color:#b48b65; }
+html[data-theme="dark"] .public-booking-page :is(.monthly-calendar-table th,.monthly-calendar-legend,.monthly-calendar-loading) { color:var(--dm-muted); }
+html[data-theme="dark"] .public-booking-page :is(.monthly-calendar-day.is-available,.profile-time-slots button),
+html[data-theme="dark"] .public-booking-page .monthly-calendar-legend i { color:var(--dm-green-ink); background:var(--dm-green); border-color:#5f8a69; }
+html[data-theme="dark"] .public-booking-page .monthly-calendar-day.is-available:not(:disabled):hover,
+html[data-theme="dark"] .profile-redesign .profile-time-slots button[aria-pressed="false"]:hover:not(:disabled) { color:#e3f7e7; background:#305c41; border-color:#8ab695; }
+html[data-theme="dark"] .public-booking-page .monthly-calendar-day.is-selected,
+html[data-theme="dark"] .public-booking-page .monthly-calendar-day.is-selected:not(:disabled):hover,
+html[data-theme="dark"] .profile-redesign .profile-time-slots button[aria-pressed="true"] { color:#ffe1bd; background:#654729; border-color:#ebb174; box-shadow:inset 0 0 0 1px #ebb174; }
+html[data-theme="dark"] .public-booking-page :is(.monthly-calendar-day.is-unavailable,.monthly-calendar-day.is-outside),
+html[data-theme="dark"] .public-booking-page .monthly-calendar-legend .is-unavailable { color:#b2a79c; background:linear-gradient(135deg,transparent calc(50% - .6px),#81766c 50%,transparent calc(50% + .6px)),#2f2a25; border-color:#51463c; }
+html[data-theme="dark"] .public-booking-page .monthly-calendar-day.is-unknown { color:var(--dm-muted); background:#302923; border-color:#51463c; }
+html[data-theme="dark"] .public-booking-page :is(.monthly-calendar-error,.monthly-calendar-error button) { color:#f4c59c; }
+html[data-theme="dark"] .public-booking-page .review-stars svg { stroke:#9f958b; }
+html[data-theme="dark"] .public-booking-page .review-stars .review-star-fill { fill:currentColor; stroke:currentColor; }
+html[data-theme="dark"] .public-booking-page :is(.booking-intake,.booking-intake-summary,.guided-chat-controls,.chat-message.assistant,.guided-booking-summary > span) { color:var(--dm-ink); background:var(--dm-surface); border-color:var(--dm-line); }
+html[data-theme="dark"] .public-booking-page :is(.booking-intake-grid label > span,.booking-intake-summary dd,.guided-step-head strong,.guided-form-grid label,.guided-booking-summary strong,.guided-success > strong) { color:var(--dm-ink); }
+html[data-theme="dark"] .public-booking-page :is(.booking-section-head p,.booking-intake > p,.booking-intake-summary dt,.booking-summary small,.chat-head small,.chat-note,.guided-step-head small,.guided-option-list button small,.guided-date-grid button small,.guided-date-grid button span,.guided-slot-grid button small,.guided-booking-summary small,.guided-success p,.booking-success > p:last-of-type) { color:var(--dm-muted); }
+html[data-theme="dark"] .public-booking-page :is(.chat-head,.guided-chat-controls) { border-color:var(--dm-line); }
+html[data-theme="dark"] .public-booking-page :is(.guided-action-grid button,.guided-step-head > button,.guided-pagination button,.guided-option-list button,.guided-date-grid button,.guided-slot-grid button) { color:var(--dm-ink); background:var(--dm-raised); border-color:var(--dm-line); }
+html[data-theme="dark"] .public-booking-page :is(.guided-option-list button b,.booking-text-button,.manage-booking-link) { color:var(--dm-orange); }
+html[data-theme="dark"] .public-booking-page .guided-option-list.compact button b { background:var(--dm-orange-soft); }
+html[data-theme="dark"] .public-booking-page :is(.guided-action-grid button,.guided-option-list button,.guided-date-grid button,.guided-slot-grid button):hover:not(:disabled) { color:var(--dm-ink); background:var(--dm-orange-soft); border-color:#b48b65; }
+html[data-theme="dark"] .public-booking-page .success-mark { color:var(--dm-green-ink); background:var(--dm-green); }
+
+/* Public forms and partner onboarding share the same quiet input surfaces. */
+html[data-theme="dark"] :is(.marketing-page,.public-booking-page,.legal-page,.review-page,.launch-login-page,.recovery-page,.customer-page) :is(input:not([type="checkbox"]):not([type="radio"]),textarea,select) {
+  color:var(--dm-ink); background-color:var(--dm-surface); border-color:#806852;
+}
+html[data-theme="dark"] :is(.marketing-page,.public-booking-page,.review-page,.launch-login-page,.recovery-page,.customer-page) :is(input,textarea)::placeholder { color:var(--dm-muted); opacity:1; }
+html[data-theme="dark"] :is(.marketing-page,.public-booking-page,.review-page,.launch-login-page,.recovery-page,.customer-page) :is(input,textarea,select) { accent-color:var(--dm-orange); }
+html[data-theme="dark"] :is(.marketing-page,.launch-login-page,.recovery-page,.customer-page,.review-page) :is(.access-card,.launch-login-card,.recovery-card,.customer-access-card,.customer-booking-card,.review-form-card,.review-visit-summary,.launch-price-card,.faq-group details,.faq-contact,.catalogue-import-dialog) {
+  color:var(--dm-ink); background:var(--dm-surface); border-color:var(--dm-line); box-shadow:none;
+}
+html[data-theme="dark"] :is(.marketing-page,.launch-login-page,.recovery-page,.customer-page,.review-page) :is(.auth-form label,.auth-subtitle,.recovery-note,.launch-login-intro > p:not(.marketing-kicker),.customer-access-copy p,.review-form-field small,.review-thank-you p,.faq-content > header p,.faq-group p,.faq-contact p,.launch-price-card span) { color:var(--dm-muted); }
+html[data-theme="dark"] :is(.marketing-page,.launch-login-page,.recovery-page,.customer-page,.review-page) :is(.secondary-button,.add-row-button,.icon-button,.faq-audience button,.faq-search input,.customer-pagination button) {
+  color:var(--dm-ink); background:var(--dm-raised); border-color:var(--dm-line); box-shadow:none;
+}
+html[data-theme="dark"] .marketing-page .faq-audience button[aria-selected="true"] { color:#ffe0bf; background:var(--dm-orange-soft); border-color:#af7c53; }
+html[data-theme="dark"] .marketing-page .faq-group details a { color:var(--dm-orange); }
+html[data-theme="dark"] :is(.marketing-page,.launch-login-page,.recovery-page,.customer-page,.review-page,.public-booking-page) :is(.primary-button,.booking-primary,.marketing-primary-cta) {
+  color:#2b1d13; background:linear-gradient(#edbd93,#dca471); border-color:#c48a57; box-shadow:inset 0 1px 0 #ffffff24,0 2px 0 #513622;
+}
+html[data-theme="dark"] :is(.marketing-page,.launch-login-page,.recovery-page,.customer-page,.review-page,.public-booking-page) :is(.primary-button,.booking-primary,.marketing-primary-cta):hover:not(:disabled) { color:#261a12; background:linear-gradient(#f7cba3,#e9b079); }
+html[data-theme="dark"] .business-onboarding { color:var(--dm-ink); }
+html[data-theme="dark"] .business-onboarding .compact-business-setup :is(.wizard-card,.onboarding-service-row,.staff-row,.weekly-day,.review-card,.checked-select-control,.catalogue-match-panel,.checked-select-panel,.service-name-suggestions,.photo-picker-label) { color:var(--dm-ink); background:var(--dm-surface); border-color:var(--dm-line); box-shadow:none; }
+html[data-theme="dark"] .business-onboarding .compact-business-setup :is(.wizard-head h3,.field > label,.field > legend,.compact-label,.location-label,.staff-row > label,.onboarding-account > label,.booking-mode-fields legend,.weekly-day legend,.review-card strong,.catalogue-match-panel strong) { color:var(--dm-ink); }
+html[data-theme="dark"] .business-onboarding .compact-business-setup :is(.wizard-head small,.wizard-head p,.helper-text,.onboarding-short-help,.onboarding-extra p,.onboarding-price-label,.catalogue-service-hint,.catalogue-loaded,.onboarding-account > small,.catalogue-match-panel small,.catalogue-match-panel > p,.catalogue-match-count,.catalogue-manual-entry,.catalogue-lookup-status,.booking-mode-fields p,.weekly-day label,.opening-hours-editor > p,.opening-hours-period > label,.opening-hours-day > span,.review-card small,.review-card p,.photo-picker-requirement) { color:var(--dm-muted); }
+html[data-theme="dark"] .business-onboarding .compact-business-setup :is(.text-input,.select-input,.compact-input,.onboarding-service-price-options input,.onboarding-service-price-options select,.weekly-day select,.opening-hours-period input,.onboarding-extra-fields textarea,.staff-row textarea,.onboarding-service-conditions textarea) { color:var(--dm-ink); background:var(--dm-surface); border-color:#806852; }
+html[data-theme="dark"] .business-onboarding .compact-business-setup :is(.wizard-actions,.weekly-day.day-closed,.review-icon,.add-row-button,.schedule-copy-weekdays) { color:var(--dm-ink); background:var(--dm-raised); border-color:var(--dm-line); }
+html[data-theme="dark"] .business-onboarding .compact-business-setup .step-item { color:var(--dm-muted); border-top-color:var(--dm-line); }
+html[data-theme="dark"] .business-onboarding .compact-business-setup .step-item.active { color:var(--dm-orange); border-top-color:#e7ad79; }
+html[data-theme="dark"] .business-onboarding .compact-business-setup .step-item.done { color:#b7d3ad; border-top-color:#85a87a; }
+html[data-theme="dark"] .business-onboarding .compact-business-setup .wizard-actions .primary-button { color:#2b1d13; background:linear-gradient(#edbd93,#dca471); border-color:#c48a57; box-shadow:inset 0 1px 0 #ffffff24,0 2px 0 #513622; }
+html[data-theme="dark"] :is(.marketing-page,.public-booking-page,.review-page,.launch-login-page,.recovery-page,.customer-page) .form-message { color:#ffbcb2; background:#452a25; border-color:#88554a; }
+html[data-theme="dark"] :is(.marketing-page,.public-booking-page,.review-page,.launch-login-page,.recovery-page,.customer-page) .form-message.success { color:#c5e6c2; background:#243b29; border-color:#527450; }
+
+html[data-theme="dark"] .legal-page article { color:var(--dm-ink); background:var(--dm-surface); border-color:var(--dm-line); box-shadow:none; }
+html[data-theme="dark"] .legal-page :is(p,.legal-note) { color:var(--dm-muted); }
+html[data-theme="dark"] .legal-page .legal-note { background:var(--dm-raised); }
+html[data-theme="dark"] .legal-page :is(.legal-logo,.legal-actions a) { color:var(--dm-orange); }
+html[data-theme="dark"] .marketing-page .site-footer,
+html[data-theme="dark"] .customer-home.quick-choice .site-footer-compact { color:var(--dm-ink); background:#181512; border-color:var(--dm-line); }
+html[data-theme="dark"] .marketing-page .site-footer :is(p,nav a) { color:var(--dm-muted); }
+html[data-theme="dark"] .marketing-page .site-footer :is(.site-contact,.gorez-lockup),
+html[data-theme="dark"] .marketing-page .site-footer nav a:hover { color:var(--dm-orange); }

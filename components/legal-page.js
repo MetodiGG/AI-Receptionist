@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { BrandLogo } from './brand-logo'
 import { HomeLink } from './home-link'
 import { LanguageSwitch } from './language-switch'
+import { ThemeToggle } from './theme-toggle'
 import { usePublicLocale } from '../hooks/use-public-locale'
 import { LEGAL_COPY } from '../lib/legal-copy.mjs'
 import { SUPPORT_EMAIL } from '../lib/product-config.mjs'
@@ -15,7 +16,7 @@ export function LegalPage({ type, initialLocale = 'bg', identity = {} }) {
   const copy = LEGAL_COPY[type][language]
   const supportEmail = SUPPORT_EMAIL
   return <main className="legal-page">
-    <div className="legal-header home-navigation-header"><Link className="legal-logo" href={`/?lang=${language}`} aria-label={en ? 'GoRez · Home' : 'GoRez · Начало'}><BrandLogo compact decorative eager /></Link><div className="home-header-actions"><LanguageSwitch locale={language} onChange={setLocale} compact /></div><HomeLink locale={language}/></div>
+    <div className="legal-header home-navigation-header"><Link className="legal-logo" href={`/?lang=${language}`} aria-label={en ? 'GoRez · Home' : 'GoRez · Начало'}><BrandLogo compact decorative eager /></Link><div className="home-header-actions"><ThemeToggle locale={language}/><LanguageSwitch locale={language} onChange={setLocale} compact /></div><HomeLink locale={language}/></div>
     <article lang={language}><p className="auth-kicker">{copy.kicker}</p><h1>{copy.title}</h1><p className="legal-updated">{copy.updated}</p>
     {copy.sections.map(([title, body]) => <section key={title}><h2>{title}</h2><p>{body}</p></section>)}
     <section><h2>{en ? 'Reviewed Sofia catalogue' : 'Проверен каталог за София'}</h2><p>{en ? 'In catalogue mode, discovery runs on GoRez using independently reviewed public business facts. Search text and permitted coordinates are processed on the GoRez server; precise location is not retained in search logs. The catalogue does not copy Google photographs, ratings or reviews. A listing does not establish partnership or verified appointment availability. Book a time opens the reviewed booking destination or appointment telephone; the business confirms the appointment. Google Maps is an outbound navigation link, not a map loaded on entry, and does not include your precise origin. Businesses may request correction or removal and supply photos with permission at info@gorez.co. Google Places and its paid widgets are disabled in this version; existing provider settings cannot activate them.' : 'В режим „каталог“ търсенето се изпълнява в GoRez с независимо проверени публични факти за бизнесите. Текстът и разрешените координати се обработват на сървъра на GoRez; точната локация не се пази в логовете за търсене. Не се копират снимки, оценки или отзиви от Google. Присъствието в каталога не означава партньорство или проверен свободен час. „Резервирай час“ отваря проверената страница за записване или телефона; бизнесът потвърждава посещението. „Google Maps“ е външен навигационен линк, не автоматично заредена карта, и не съдържа точната ти начална локация. За корекция, премахване или снимки с разрешение: info@gorez.co. Google Places и платените му елементи са изключени в тази версия и не могат да се включат чрез съществуващи настройки.'}</p></section>

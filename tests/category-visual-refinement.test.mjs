@@ -13,6 +13,7 @@ const read = file => readFile(new URL(`../${file}`, import.meta.url), 'utf8')
 const cssRules = css => [...css.replace(/\/\*[\s\S]*?\*\//g, '').matchAll(/([^{}]+)\{([^{}]*)\}/g)].map(match => ({ selector: match[1].trim(), body: match[2] }))
 const rule = (css, selector) => cssRules(css).find(item => item.selector === selector)?.body || ''
 const require = createRequire(import.meta.url), { loadBindings, transform } = require('next/dist/build/swc')
+const { parse } = require('next/dist/compiled/postcss-scss/scss-syntax')
 await loadBindings()
 const filename = 'components/discovery-subcategories.js'
 const { code } = await transform(await read(filename), { filename, jsc: { parser: { syntax: 'ecmascript', jsx: true }, transform: { react: { runtime: 'automatic' } } }, module: { type: 'commonjs' } })
@@ -64,7 +65,7 @@ test('existing local photos exceed 2x resolution for enlarged 50px parent and 44
   for (const child of DISCOVERY_SUBCATEGORIES) {
     const image = await metadata(child.photo)
     assert.equal(image.format, 'webp', child.id)
-    assert.ok(image.width >= 90 && image.height >= 90, `${child.id}: enlarged 44px quick and existing 45px base children both have an adequate 2x source`)
+    assert.ok(image.width >= 90 && image.height >= 90, `${child.id}: 44px quick and 45px legacy base children both have an adequate 2x source`)
   }
 })
 
@@ -83,6 +84,7 @@ test('every parent retains localized native photo buttons and an off-panel selec
     assert.ok(html.includes(`<h3 class="sr-only">${category.label.replaceAll('&', '&amp;')}</h3>`), 'the parent heading stays available to assistive technology without visible repetition')
     assert.ok(html.indexOf('discovery-subcategory-grid') < html.indexOf('discovery-subcategory-controls'), 'all activity photos precede the footer controls')
     assert.ok(html.indexOf('discovery-subcategory-controls') < html.indexOf('discovery-subcategory-all'))
+    if (options.length > 4) assert.ok(html.indexOf('discovery-subcategory-more') < html.indexOf('discovery-subcategory-all'), 'More precedes All in the visual and keyboard order for every parent')
     assert.doesNotMatch(html, /https?:\/\/|<canvas|role="radio"|role="option"/)
   }
 })
@@ -131,7 +133,7 @@ test('parent and child photographs keep their hierarchy inside unframed capsules
   assert.match(parentTile, /min-height:\s*66px/)
   assert.match(rule(quick, '.customer-home.quick-choice .home-categories button > span'), /font-size:\s*18px/)
   assert.match(rule(quick, '.customer-home.quick-choice .discovery-subcategory-option'), /min-height:\s*56px/)
-  assert.match(rule(quick, '.customer-home.quick-choice .discovery-subcategory-option'), /font-size:\s*17px/)
+  assert.match(rule(quick, '.customer-home.quick-choice .discovery-subcategory-option'), /font-size:\s*16px/)
   assert.match(rule(base, '.home-categories .home-discovery-rail button'), /border-radius:\s*999px/)
   assert.match(rule(child, '.discovery-subcategory-option'), /border-radius:\s*999px/)
   assert.match(rule(base, '.home-categories .home-discovery-rail button.selected'), /background-color:/)
@@ -165,4 +167,36 @@ test('selection and hover feedback never scale controls, hide labels or introduc
   assert.match(base, /\.home-categories \.home-discovery-rail button:focus-visible\s*\{[^}]*outline:\s*3px/)
   assert.match(base, /@media\s*\(prefers-reduced-motion:\s*reduce\)[\s\S]*\.home-categories[^}]*transition:\s*none/)
   assert.match(child, /@media\s*\(prefers-reduced-motion:\s*reduce\)[\s\S]*transition:\s*none/)
+})
+
+test('child choices keep two mobile columns and three desktop columns without moving photos above their labels', async () => {
+  const base = await read('app/discovery-subcategories.css'), quick = await read('app/quick-choice-home.css')
+  const baseGrids = cssRules(base).filter(item => /\.discovery-subcategory-grid$/.test(item.selector))
+  assert.ok(baseGrids.length > 0)
+  for (const item of baseGrids) assert.match(item.body, /grid-template-columns:\s*repeat\(2,minmax\(0,1fr\)\)/, item.selector)
+  const quickTree = parse(quick), gridSelector = '.customer-home.quick-choice .discovery-subcategory-grid'
+  const mobile = quickTree.nodes.find(node => node.type === 'rule' && node.selector === gridSelector)
+  assert.ok(mobile, 'the base quick-choice grid remains available below the desktop breakpoint')
+  assert.equal(mobile.nodes.find(node => node.prop === 'grid-template-columns').value, 'repeat(2,minmax(0,1fr))')
+  const desktopMedia = quickTree.nodes.filter(node => node.type === 'atrule' && node.name === 'media' && node.params === '(min-width:760px)')
+  const desktop = desktopMedia.flatMap(node => node.nodes).find(node => node.type === 'rule' && node.selector === gridSelector)
+  assert.ok(desktop, 'three columns are introduced only in the explicit desktop media query')
+  assert.equal(desktop.nodes.find(node => node.prop === 'grid-template-columns').value, 'repeat(3,minmax(0,1fr))')
+  assert.equal(desktop.nodes.find(node => node.prop === 'gap').value, '8px 14px')
+  const component = await read('components/discovery-subcategories.js')
+  assert.match(component, /matchMedia\('\(min-width: 760px\)'\)/, 'the six-choice JS limit and three-column CSS layout share the same 760px boundary')
+  for (const css of [base, quick]) {
+    assert.match(rule(css, css === base ? '.discovery-subcategory-option' : '.customer-home.quick-choice .discovery-subcategory-option'), /flex-wrap:\s*nowrap/)
+    const options = cssRules(css).filter(item => /\.discovery-subcategory-option$/.test(item.selector))
+    for (const item of options) {
+      const wrapping = item.body.match(/(?:^|;)\s*flex-wrap:\s*([^;]+)/)
+      if (wrapping) assert.equal(wrapping[1].trim(), 'nowrap', item.selector)
+      assert.doesNotMatch(item.body, /flex-direction:\s*(?:column|row-reverse)|(?:^|;)\s*height:/)
+    }
+    assert.doesNotMatch(css, /auto-fit|auto-fill|grid-auto-flow:\s*column/)
+  }
+  assert.match(rule(base, '.discovery-subcategory-photo'), /flex:\s*0 0 var\(--subcategory-photo-size\)/)
+  assert.match(rule(base, '.discovery-subcategory-photo'), /align-self:\s*center/, 'a short choice stays photo-and-text aligned when a longer peer stretches its grid row')
+  assert.match(rule(base, '.discovery-subcategory-option > span:not(.discovery-subcategory-photo)'), /min-width:\s*0;[^}]*white-space:\s*normal/)
+  assert.match(rule(base, '.discovery-subcategory-option > span:not(.discovery-subcategory-photo)'), /text-wrap:\s*balance/, 'multiword labels use balanced lines inside their responsive column')
 })

@@ -1,7 +1,7 @@
 /* Approved "Бърз избор" direction. Scoped to customer discovery; the original
    brand, header flag/menu, booking engine and owner/admin shells stay intact. */
 .customer-home.quick-choice { --paper:#f8f5ef; --surface:#fffcf7; --ink:#332923; --ink-soft:#6b625b; --line:#ddd3c8; background:#f8f5ef; }
-.customer-home.quick-choice .discovery-home { width:min(1080px,calc(100% - 40px)); margin:20px auto 30px; }
+.customer-home.quick-choice .discovery-home { width:min(960px,calc(100% - 40px)); margin:20px auto 30px; }
 .customer-home.quick-choice .home-search-panel { padding:0 0 12px; border:0; border-bottom:1px solid #ddd3c8; border-radius:0; background:transparent; box-shadow:none; }
 .customer-home.quick-choice .home-discovery-heading { margin-bottom:14px; }
 .customer-home.quick-choice .home-search-panel .home-discovery-heading h1 { color:#332923; font-size:clamp(24px,2.4vw,26px); font-weight:650; line-height:1.3; letter-spacing:-.035em; }
@@ -35,9 +35,9 @@
 .customer-home.quick-choice .home-categories button.selected img { outline:0; }
 .customer-home.quick-choice .home-rail-arrows button { width:44px; min-width:44px; border-radius:9px; background:transparent; }
 .customer-home.quick-choice .discovery-subcategories { --subcategory-photo-size:44px; --subcategory-option-padding:5px; margin:12px 0 18px; }
-.customer-home.quick-choice .discovery-subcategory-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,216px),1fr)); gap:8px; }
+.customer-home.quick-choice .discovery-subcategory-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
 .customer-home.quick-choice .discovery-subcategory-grid > li { max-width:none; min-width:0; }
-.customer-home.quick-choice .discovery-subcategory-option { flex-wrap:nowrap; gap:7px; min-height:56px; padding:var(--subcategory-option-padding); border:1px solid transparent; border-radius:999px; background:linear-gradient(110deg,#fffdf70d,#e3964a00); background-color:transparent; color:#4e3728; font-size:17px; font-weight:500; line-height:1.4; }
+.customer-home.quick-choice .discovery-subcategory-option { flex-wrap:nowrap; gap:7px; min-height:56px; padding:var(--subcategory-option-padding); border:1px solid transparent; border-radius:999px; background:linear-gradient(110deg,#fffdf70d,#e3964a00); background-color:transparent; color:#4e3728; font-size:16px; font-weight:500; line-height:1.4; }
 .customer-home.quick-choice .discovery-subcategory-photo { flex-basis:var(--subcategory-photo-size); width:var(--subcategory-photo-size); height:var(--subcategory-photo-size); border-radius:8px; }
 .customer-home.quick-choice .discovery-subcategory-option[aria-pressed="true"] { border-color:transparent; background-color:#f3a76919; box-shadow:none; }
 .customer-home.quick-choice :is(.discovery-subcategory-all,.discovery-subcategory-more) { min-height:44px; font-size:15px; font-weight:600; border-color:transparent; border-radius:999px; background:linear-gradient(110deg,#fffdf70d,#e3964a00); background-color:transparent; }
@@ -64,4 +64,35 @@
 }
 @media (prefers-reduced-motion:reduce) {
   .customer-home.quick-choice .home-categories .home-discovery-rail { scroll-behavior:auto; }
+}
+@media (max-width:759px) {
+  .customer-home.quick-choice .discovery-subcategory-option { font-size:15px; }
+}
+
+/* The approved desktop preview keeps the header and results on one quiet
+   content rail, with six photographic children arranged three by two. */
+@media (min-width:760px) {
+  .customer-home.quick-choice .launch-navigation { width:min(960px,calc(100% - 40px)); }
+  .customer-home.quick-choice .discovery-subcategory-grid { grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px 14px; }
+}
+
+/* Desktop canvas: ordinary document scrolling reveals the warm color wash in
+   every browser. It repeats seamlessly as more real businesses are revealed;
+   cards, controls, mobile colors and the document geometry stay unchanged. */
+@media (min-width:760px) {
+  .customer-home.quick-choice { background-color:#fbf8f2; background-image:linear-gradient(180deg,#fbf8f2 0%,#fbf3e7 34%,#f9e9d7 66%,#fbf8f2 100%); background-size:100% 1800px; background-repeat:repeat-y; background-attachment:scroll; }
+}
+/* Supported browsers add only a small scroll-linked drift, never a timed loop
+   or moving content. The gradient above remains the non-animated fallback. */
+@supports (animation-timeline:scroll()) {
+  @media (min-width:760px) and (prefers-reduced-motion:no-preference) {
+    .customer-home.quick-choice { animation:discovery-orange-scroll 1s linear both; animation-timeline:scroll(root block); }
+  }
+}
+@keyframes discovery-orange-scroll {
+  from { background-position:0 0; }
+  to { background-position:0 -320px; }
+}
+@media (min-width:760px) and (prefers-reduced-motion:reduce) {
+  .customer-home.quick-choice { animation:none; }
 }

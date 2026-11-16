@@ -4,6 +4,7 @@ import { readFile } from 'node:fs/promises'
 import { createRequire } from 'node:module'
 import * as React from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
+import { subcategoriesForCategory } from '../lib/discovery/subcategories.mjs'
 
 const require = createRequire(import.meta.url), { loadBindings, transform } = require('next/dist/build/swc')
 await loadBindings()
@@ -29,12 +30,88 @@ function elements(node, predicate, found = []) {
   return found
 }
 function interactive(patch = {}) {
-  const slots = [], calls = []; let index = 0
-  const component = loadComponent({ ...React, useId: () => 'subcategory-qa', useEffect() {}, useState(initial) { const at = index++; if (!(at in slots)) slots[at] = initial; return [slots[at], value => { slots[at] = typeof value === 'function' ? value(slots[at]) : value }] } })
+  const slots = [], calls = [], effects = [], pendingEffects = []; let index = 0, effectIndex = 0
+  const component = loadComponent({ ...React, useId: () => 'subcategory-qa', useEffect(callback, dependencies) {
+    const at = effectIndex++, previous = effects[at]
+    if (!previous || dependencies.some((value, offset) => !Object.is(value, previous.dependencies[offset]))) {
+      effects[at] = { callback, dependencies, cleanup: previous?.cleanup }
+      pendingEffects.push(at)
+    }
+  }, useState(initial) { const at = index++; if (!(at in slots)) slots[at] = initial; return [slots[at], value => { slots[at] = typeof value === 'function' ? value(slots[at]) : value }] } })
   const current = { ...props, onSelect: id => calls.push(id), ...patch }
-  const f = { tree: null, calls, render() { index = 0; f.tree = component(current) }, buttons() { return elements(f.tree, node => node.type === 'button') }, click(className) { f.buttons().find(node => node.props.className === className).props.onClick(); f.render() } }
+  const f = { tree: null, calls, render() { index = 0; effectIndex = 0; f.tree = component(current) }, buttons() { return elements(f.tree, node => node.type === 'button') }, click(className) { f.buttons().find(node => node.props.className === className).props.onClick(); f.render() }, flushEffects(browser = {}) {
+    const previous = Object.getOwnPropertyDescriptor(globalThis, 'window')
+    Object.defineProperty(globalThis, 'window', { configurable: true, value: browser })
+    try {
+      for (const at of pendingEffects.splice(0)) {
+        effects[at].cleanup?.()
+        effects[at].cleanup = effects[at].callback()
+      }
+    } finally { if (previous) Object.defineProperty(globalThis, 'window', previous); else delete globalThis.window }
+    f.render()
+  }, unmount() { for (const effect of effects) effect.cleanup?.() } }
   f.render(); return f
 }
+
+test('responsive collapsed choices hydrate from four to six on desktop, preserve the selected identifier on resize and clean up the media listener', () => {
+  for (const locale of ['bg', 'en']) {
+    const actualOptions = subcategoriesForCategory('fitness', locale).map(option => ({ ...option, count: 1 }))
+    assert.ok(actualOptions.length > 6)
+    const selected = actualOptions.at(-1), f = interactive({ locale, options: actualOptions, selected: selected.id })
+    const choices = () => f.buttons().filter(node => node.props.className === 'discovery-subcategory-option')
+    const labels = () => choices().map(node => elements(node, child => child.type === 'span')[0].props.children)
+    assert.equal(choices().length, 4, 'server and first client render share the same safe initial cap')
+    const listeners = new Set(), media = { matches: true, addEventListener(type, callback) { assert.equal(type, 'change'); listeners.add(callback) }, removeEventListener(type, callback) { assert.equal(type, 'change'); assert.ok(listeners.delete(callback)) } }
+    f.flushEffects({ matchMedia(query) { assert.equal(query, '(min-width: 760px)'); return media } })
+    assert.equal(listeners.size, 1)
+    assert.equal(choices().length, 6)
+    assert.deepEqual(labels(), [...actualOptions.slice(0, 5), selected].map(option => option[locale] || option.label))
+    const more = () => f.buttons().find(node => node.props.className === 'discovery-subcategory-more')
+    const moreLabel = () => more().props.children[0]
+    assert.equal(moreLabel(), locale === 'en' ? `More (${actualOptions.length - 6})` : `Още (${actualOptions.length - 6})`)
+    assert.equal(choices().filter(node => node.props['aria-pressed']).length, 1)
+    media.matches = false; for (const listener of listeners) listener({ matches: false }); f.render()
+    assert.equal(choices().length, 4, 'crossing below 760px restores the mobile cap')
+    assert.deepEqual(labels(), [...actualOptions.slice(0, 3), selected].map(option => option[locale] || option.label))
+    assert.equal(moreLabel(), locale === 'en' ? `More (${actualOptions.length - 4})` : `Още (${actualOptions.length - 4})`)
+    choices().at(-1).props.onClick()
+    assert.deepEqual(f.calls, [selected.id], 'resizing never changes the real identifier submitted by a selected photo')
+    f.click('discovery-subcategory-more')
+    assert.equal(choices().length, actualOptions.length)
+    assert.equal(more().props['aria-expanded'], true)
+    assert.equal(moreLabel(), locale === 'en' ? 'Show less' : 'По-малко')
+    media.matches = true; for (const listener of listeners) listener({ matches: true }); f.render()
+    assert.equal(choices().length, actualOptions.length, 'a deliberate expansion remains expanded across resize')
+    f.click('discovery-subcategory-more')
+    assert.equal(choices().length, 6)
+    f.click('discovery-subcategory-all')
+    assert.deepEqual(f.calls, [selected.id, ''])
+    f.unmount()
+    assert.equal(listeners.size, 0)
+  }
+})
+
+test('without matchMedia a mounted browser retains four truthful choices and the working More action', () => {
+  const f = interactive()
+  f.flushEffects()
+  assert.equal(f.buttons().filter(node => node.props.className === 'discovery-subcategory-option').length, 4)
+  f.click('discovery-subcategory-more')
+  assert.equal(f.buttons().filter(node => node.props.className === 'discovery-subcategory-option').length, 5)
+  f.unmount()
+})
+
+test('desktop short menus show only their real choices and keep All without a fabricated sixth item or More count', () => {
+  for (const locale of ['bg', 'en']) {
+    const f = interactive({ locale })
+    f.flushEffects({ matchMedia: () => ({ matches: true, addEventListener() {}, removeEventListener() {} }) })
+    assert.equal(f.buttons().filter(node => node.props.className === 'discovery-subcategory-option').length, options.length)
+    const footer = elements(f.tree, node => node.props.className === 'discovery-subcategory-controls')[0]
+    const controls = elements(footer, node => node.type === 'button')
+    assert.deepEqual(controls.map(node => node.props.className), ['discovery-subcategory-all'])
+    assert.equal(controls[0].props['aria-pressed'], true)
+    f.unmount()
+  }
+})
 
 test('photo subcategories render only parent choices with positive evidence in both languages', () => {
   for (const locale of ['bg','en']) {
@@ -59,11 +136,12 @@ test('More and Less operate locally and selecting a photograph submits its actua
   f.click('discovery-subcategory-more'); f.click('discovery-subcategory-all')
   assert.deepEqual(f.calls, ['tennis',''])
 })
-test('nested navigation keeps the parent context accessible and places All and More after the photographic activity choices', () => {
+test('nested navigation keeps the parent context accessible and places More before All after the photographic activity choices', () => {
   for (const locale of ['bg', 'en']) {
     const title = locale === 'en' ? 'Sport' : 'Спорт'
     const f = interactive({ locale, title })
     assert.equal(f.tree.type, 'section')
+    assert.equal(f.tree.props.lang, locale, 'native hyphenation uses the visible label language')
     assert.equal(f.tree.props['aria-label'], locale === 'en' ? 'Sport subcategories' : 'Подкатегории · Спорт')
     const headings = elements(f.tree, node => node.type === 'h3')
     assert.equal(headings.length, 1)
@@ -73,18 +151,33 @@ test('nested navigation keeps the parent context accessible and places All and M
     const footer = elements(f.tree, node => node.props.className === 'discovery-subcategory-controls')
     assert.equal(footer.length, 1)
     const buttons = elements(footer[0], node => node.type === 'button')
-    assert.deepEqual(buttons.map(node => node.props.className), ['discovery-subcategory-all', 'discovery-subcategory-more'])
+    assert.deepEqual(buttons.map(node => node.props.className), ['discovery-subcategory-more', 'discovery-subcategory-all'])
     assert.equal(elements(list, node => node.type === 'button').length, 4)
     assert.equal(elements(footer[0], node => node.props.className === 'discovery-subcategory-option').length, 0)
-    const more = buttons[1]
+    const more = buttons[0]
     assert.equal(more.props['aria-controls'], list.props.id)
     assert.equal(more.props['aria-expanded'], false)
-    assert.equal(buttons[0].props.children, locale === 'en' ? 'All' : 'Всички')
+    assert.equal(buttons[1].props.children, locale === 'en' ? 'All' : 'Всички')
     const html = renderToStaticMarkup(React.createElement(DiscoverySubcategories, { ...props, locale, title }))
     assert.ok(html.indexOf('discovery-subcategory-grid') < html.indexOf('discovery-subcategory-controls'))
     f.click('discovery-subcategory-more')
     assert.equal(elements(f.tree, node => node.props.className === 'discovery-subcategory-controls').length, 1)
     assert.equal(f.buttons().filter(node => node.props.className === 'discovery-subcategory-option').length, 5)
+    const expandedFooter = elements(f.tree, node => node.props.className === 'discovery-subcategory-controls')[0]
+    assert.deepEqual(elements(expandedFooter, node => node.type === 'button').map(node => node.props.className), ['discovery-subcategory-more', 'discovery-subcategory-all'])
+  }
+})
+test('All stays present as the only footer control when no additional activity choices exist', () => {
+  for (const locale of ['bg', 'en']) for (const count of [0, 4]) {
+    const f = interactive({ locale, options: options.slice(0, count), selected: 'folk', selectedLabel: 'Retained real selection' })
+    const footer = elements(f.tree, node => node.props.className === 'discovery-subcategory-controls')[0]
+    const buttons = elements(footer, node => node.type === 'button')
+    assert.equal(buttons.length, 1)
+    assert.equal(buttons[0].props.className, 'discovery-subcategory-all')
+    assert.equal(buttons[0].props.children, locale === 'en' ? 'All' : 'Всички')
+    assert.equal(buttons[0].props['aria-pressed'], false)
+    buttons[0].props.onClick()
+    assert.deepEqual(f.calls, [''])
   }
 })
 test('a restored selection beyond the first four stays visible without forcing an expanded panel', () => {
@@ -109,14 +202,16 @@ test('loading prevents duplicate picks and failed photos never become unrelated 
   assert.match(source, /is-unavailable" aria-hidden="true"/)
   assert.doesNotMatch(source, /fetch\(|localStorage|sessionStorage|https?:\/\/|getCurrentPosition|calendar|emoji-/)
 })
-test('photo controls wrap text beside a fixed image in an adaptive grid without horizontal scrolling', async () => {
+test('photo controls keep two columns with wrapping text beside fixed images without horizontal scrolling', async () => {
   const css = await readFile(new URL('../app/discovery-subcategories.css', import.meta.url), 'utf8')
-  assert.match(css, /grid-template-columns: repeat\(auto-fit,minmax\(min\(100%,216px\),1fr\)\)/)
+  assert.match(css, /grid-template-columns: repeat\(2,minmax\(0,1fr\)\)/)
   assert.match(css, /--subcategory-photo-size: 45px/)
   assert.match(css, /width: var\(--subcategory-photo-size\); height: var\(--subcategory-photo-size\)/)
   assert.match(css, /\.discovery-subcategory-option \{[^}]*font-size: 15px/)
   assert.match(css, /\.discovery-subcategory-option \{[^}]*flex-wrap: nowrap/)
   assert.match(css, /flex: 1 1 min-content; min-width: 0; max-width: 100%; white-space: normal/)
+  assert.match(css, /\.discovery-subcategory-option > span:not\(\.discovery-subcategory-photo\) \{[^}]*hyphens: auto/)
+  assert.match(css, /\.discovery-subcategory-option > span:not\(\.discovery-subcategory-photo\) \{[^}]*text-wrap: balance/)
   assert.match(css, /min-height: 44px/)
   assert.match(css, /focus-visible \{ outline: 3px/)
   const nested = css.match(/\.discovery-subcategories \{([^}]+)\}/)?.[1] || ''
@@ -124,15 +219,19 @@ test('photo controls wrap text beside a fixed image in an adaptive grid without 
   assert.match(nested, /padding-inline-start: 12px/)
   assert.match(nested, /background: transparent/)
   assert.match(css, /\.discovery-subcategory-controls \{[^}]*display: flex;[^}]*justify-content: space-between/)
-  assert.doesNotMatch(css, /grid-template-columns: repeat\([24],|\.discovery-subcategory-heading/)
+  assert.match(css, /\.discovery-subcategory-all \{[^}]*margin-inline-start: auto/)
+  assert.doesNotMatch(css, /\.discovery-subcategory-more \{[^}]*margin-inline-start: auto/)
+  assert.doesNotMatch(css, /auto-fit|auto-fill|grid-template-columns: repeat\([134],|\.discovery-subcategory-heading/)
   assert.doesNotMatch(css, /overflow-x: auto|white-space: nowrap|text-overflow: ellipsis|word-break: break-all/)
 })
-test('quick-choice child choices remain visually nested, with larger photographs and responsive grid columns', async () => {
+test('quick-choice child choices remain nested with large photographs, two mobile columns and three desktop columns', async () => {
   const css = await readFile(new URL('../app/quick-choice-home.css', import.meta.url), 'utf8')
   assert.match(css, /\.discovery-subcategories \{ --subcategory-photo-size:44px; --subcategory-option-padding:5px/)
-  assert.match(css, /\.discovery-subcategory-option \{[^}]*flex-wrap:nowrap;[^}]*min-height:56px;[^}]*border-radius:999px;[^}]*font-size:17px/)
+  assert.match(css, /\.discovery-subcategory-option \{[^}]*flex-wrap:nowrap;[^}]*min-height:56px;[^}]*border-radius:999px;[^}]*font-size:16px/)
+  assert.match(css, /@media \(max-width:759px\) \{\s*\.customer-home\.quick-choice \.discovery-subcategory-option \{ font-size:15px/)
   assert.match(css, /\.discovery-subcategory-photo \{ flex-basis:var\(--subcategory-photo-size\); width:var\(--subcategory-photo-size\); height:var\(--subcategory-photo-size\)/)
-  assert.match(css, /\.discovery-subcategory-grid \{ display:grid; grid-template-columns:repeat\(auto-fit,minmax\(min\(100%,216px\),1fr\)\)/)
+  assert.match(css, /\.discovery-subcategory-grid \{ display:grid; grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/)
+  assert.match(css, /@media \(min-width:760px\) \{[\s\S]*?\.discovery-subcategory-grid \{ grid-template-columns:repeat\(3,minmax\(0,1fr\)\); gap:8px 14px/)
   assert.match(css, /\.discovery-subcategory-grid > li \{[^}]*min-width:0/)
   assert.match(css, /\.discovery-subcategory-option \{[^}]*border:1px solid transparent/)
   assert.match(css, /\.discovery-subcategory-option\[aria-pressed="true"\] \{[^}]*background-color:/)
@@ -142,7 +241,7 @@ test('quick-choice child choices remain visually nested, with larger photographs
 test('selected subcategories use unframed capsules and native pressed states without generated checkmarks, including All', async () => {
   const css = await readFile(new URL('../app/discovery-subcategories.css', import.meta.url), 'utf8')
   const quick = await readFile(new URL('../app/quick-choice-home.css', import.meta.url), 'utf8')
-  assert.match(css, /\.discovery-subcategory-photo \{[^}]*align-self: flex-start/)
+  assert.match(css, /\.discovery-subcategory-photo \{[^}]*align-self: center/)
   assert.match(css, /\.discovery-subcategory-option \{[^}]*border-radius: 999px/)
   assert.match(css, /\.discovery-subcategory-all,\.discovery-subcategory-more \{[^}]*border-radius: 999px/)
   for (const sourceCss of [css, quick]) {

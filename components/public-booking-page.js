@@ -12,6 +12,7 @@ import { BookingIntakeFields, BookingIntakeSummary } from './booking-intake-fiel
 import { BookingConfirmationActions } from './booking-confirmation-actions'
 import { localizedApiMessage } from '../lib/localized-api-message.mjs'
 import { LanguageSwitch } from './language-switch'
+import { ThemeToggle } from './theme-toggle'
 import { HomeLink } from './home-link'
 import { usePublicLocale } from '../hooks/use-public-locale'
 import { collapseSlotsByLocalTime, formatBulgarianMonthShort } from '../lib/booking-window.mjs'
@@ -348,6 +349,7 @@ export default function PublicBookingPage({ initialLocale = 'bg', previewBusines
         <SparkLogo businessName={business.name} locale={locale} />
         <div className="booking-top-actions">
           <div className="booking-contact">{safeBookingPhone(business.phone) && <a className="booking-phone" href={safeBookingPhone(business.phone)}>{business.phone}</a>}</div>
+          <ThemeToggle locale={locale}/>
           <LanguageSwitch locale={locale} onChange={setLocale} compact />
           <Link className="booking-home-link" href={`/account?lang=${locale}`}>{locale === 'en' ? 'My bookings' : 'Моите резервации'}</Link>
           {ownerSession && ownsBusiness ? <nav className="booking-owner-nav" aria-label={locale === 'bg' ? 'Навигация за профила' : 'Account navigation'}>

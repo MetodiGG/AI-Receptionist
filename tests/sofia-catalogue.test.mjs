@@ -16,6 +16,8 @@ import { createGoogleCardGrantHandler } from '../lib/discovery/google-card-grant
 import { currentPublishedFact } from '../lib/discovery/business-details.mjs'
 import { serviceFitsBudget } from '../lib/discovery/internal-search.mjs'
 import { NEIGHBORHOOD_20261111_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-expansion-20261111.mjs'
+import { COVERAGE_20261116_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-coverage-20261116.mjs'
+import { assessManualIntakeReview } from '../scripts/catalogue-manual-intake-review.mjs'
 
 const now = DateTime.fromISO('2026-11-11T12:00:00Z'), clock = now.toMillis()
 const noProvider = () => assert.fail('Free catalogue must never call Google, AI, auth or a paid budget')
@@ -65,7 +67,9 @@ test('the expanded individually sourced catalogue is committed; records are not 
     const explicitProviderReview = NEIGHBORHOOD_20261111_REVIEWS.find(review => review.id === row.id &&
       review.bookingReview === 'provider_booking_reviewed' && review.bookingEntry === row.verification.booking.url &&
       review.reviewedUrls.includes(row.website) && review.reviewedUrls.includes(row.verification.booking.url))
-    assert.ok(evidenceHost===ownerHost || evidenceHost.endsWith(`.${ownerHost}`) || explicitProviderReview,row.id)
+    const manualSourceReview = COVERAGE_20261116_REVIEWS.find(review => review.id === row.id)
+    assert.ok(evidenceHost===ownerHost || evidenceHost.endsWith(`.${ownerHost}`) || explicitProviderReview ||
+      assessManualIntakeReview(row, manualSourceReview, publicationClock),row.id)
     assert.doesNotMatch(JSON.stringify(row), forbiddenCatalogueEvidence)
   }
 })

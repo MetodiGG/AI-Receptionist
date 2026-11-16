@@ -1,0 +1,22 @@
+{
+  "checkedOn": "2026-11-16",
+  "status": "next_batch_research_only_not_admitted",
+  "candidate": "Диамант-Дентал Д-р Пашови · Обеля 2",
+  "previousHold": "research-dental-002-20261116.json: actual provider reason/calendar not rendered",
+  "policyPreflight": "research-diamant-source-policy-20261116.json",
+  "rootActualBrowserReview": [
+    {"url": "https://superdoc.bg/lekar/d-r-dimitrichka-pashova-260", "result": "Actual public reason selector and complete calendar rendered. Primary-visit reason248 selected without choosing any slot or starting a booking. No monetary tariff displayed in this reviewed menu. Important information confirms dental examination, caries/root treatment and calculus removal. Clinician-specific child threshold older than10 must not become practice-wide eligibility."},
+    {"url": "https://superdoc.bg/lekar/d-r-svetoslav-pashov", "result": "Actual public reason selector and calendar fully rendered after initial loading. No slot selected and no booking/start destination followed. No monetary tariff in the reviewed public booking section. Merchant important information identifies dental examination, secondary review, professional oral hygiene, calculus removal, caries/endodontic treatment and other dental procedures. Child-age wording differs from the other clinician; not homogenized."}
+  ],
+  "criticalMenuCaveat": "The rendered visit-reason select also contains generic platform-wide administrative/medical reasons, including maternal healthcare. These are NOT evidence this dental practice offers those services. Never copy the generic selector as its service inventory; use only specific merchant/owner dental-service evidence.",
+  "ownPagesComparedAfterProviderMenu": ["https://diamantdental.wixsite.com/diamantdental/contact", "https://diamantdental.wixsite.com/diamantdental/services", "https://diamantdental.wixsite.com/diamantdental/untitled"],
+  "ownerFacts": {"neighborhood": "Обеля 2", "address": "София, ж.к. Обеля 2, XXX ДКЦ, кабинети315 и316", "phones": ["+359888638741", "+359878180263", "+359878180262"], "coordinates": null, "weeklyHours": null},
+  "candidateInventoryForFinalReview": ["Дентален преглед за възрастни", "Почистване на зъбен камък"],
+  "remainingBeforeAdmission": ["Confirm the clinic-level external entry and selected-service route rather than bind the business to a transient slot URL", "Finish dated unpublished-tariff receipt against actual complete owner/booking sources; do not infer prices from NHIF badges", "Check current catalogue/intake identities again; this is one practice, not one business per clinician", "Verify precise directions for the named DKC30 building and distinguish existing VIA Dental rooms317/318", "Review exact approved examination/calculus photographs and shared onboarding before import"],
+  "excludedFromReuse": ["patient names and reviews", "doctor biography prose", "portfolio/profile photographs", "ratings", "transient slot times and availability", "generic platform medical reasons"],
+  "noSlotClicked": true,
+  "noBookingOrCustomerInput": true,
+  "noProviderApi": true,
+  "productionChanges": false,
+  "businessesAdded": 0
+}

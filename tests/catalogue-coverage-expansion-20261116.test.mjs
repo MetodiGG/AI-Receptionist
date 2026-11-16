@@ -36,8 +36,29 @@ test('coverage-first batches add only distinct, schema-valid and source-reviewed
   assert.deepEqual([...new Set(reviews.map(row => row.id))].sort(), [...ids].sort())
   assert.equal(validateCatalogue(additions).length, additions.length)
   const audit = auditCatalogueBatch(SOFIA_CATALOGUE.filter(row => !ids.has(row.id)), additions, now)
-  assert.deepEqual(audit.readyForReview.sort(), [...ids].sort())
-  assert.deepEqual(audit.pending, [])
+  // The intake helper is not an automatic verifier: keep its different-host
+  // flag for this exact manually reviewed merchant, rather than weaken it.
+  const manuallyReviewed = ['sofia-diamant-dental-pashovi-obelya316', 'sofia-art-masters-band-nadezhda1-172']
+  assert.deepEqual(audit.readyForReview.sort(), [...ids].filter(id => !manuallyReviewed.includes(id)).sort())
+  assert.deepEqual(audit.pending, manuallyReviewed.map(id => ({ id, reason: 'first_party_appointment_evidence_required' })))
+  for (const id of manuallyReviewed) {
+    const resolution = receipt(id).manualIntakeResolution
+    assert.equal(resolution.flag, 'first_party_appointment_evidence_required')
+    if (id === 'sofia-diamant-dental-pashovi-obelya316') {
+      assert.equal(resolution.decision, 'manually_verified_provider_merchant_identity')
+      assert.equal(resolution.providerPractice, record(id).booking.url)
+      assert.ok(resolution.providerProfiles.every(url => receipt(id).reviewedUrls.includes(url)))
+      assert.equal(receipt(id).bookingReview, 'provider_booking_reviewed')
+    } else {
+      assert.equal(resolution.decision, 'manually_verified_same_owner_websites')
+      assert.equal(resolution.ownerWebsite, record(id).website)
+      assert.equal(resolution.appointmentEvidence, record(id).verification.booking.url)
+      assert.equal(resolution.currentContact, record(id).verification.contact)
+      assert.ok([resolution.appointmentEvidence, resolution.appointmentContact, resolution.currentPremises].every(url => receipt(id).reviewedUrls.includes(url)))
+      assert.equal(receipt(id).bookingReview, 'phone_booking_reviewed')
+    }
+    assert.ok(resolution.matchingPhones.includes(record(id).phone))
+  }
   assert.deepEqual(audit.rejected, [])
   for (const raw of additions) {
     const row = record(raw.id), review = receipt(raw.id)

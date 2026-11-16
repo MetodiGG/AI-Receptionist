@@ -1,0 +1,188 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-16",
+  "status": "research_only_pending_root_admission_review",
+  "scope": "New private lesson premises in sparse Sofia quarters. Research only: no shared catalogue module, review identity, historical baseline, database, partner account, booking or production setting changed.",
+  "targetNeighborhoods": ["Обеля 1", "Обеля 2", "Свобода", "Толстой", "Захарна фабрика", "Суходол", "Враждебна", "Илиянци", "Левски"],
+  "limitedExpandedNeighborhoods": ["Надежда", "Връбница", "Сухата река", "Хаджи Димитър", "Гевгелийски"],
+  "method": [
+    "Discovered public candidates, then checked current catalogue and all intake/research files by owner host, name, published professional phone and premises before reviewing new owner sources. Known Intellect/SmartyKids and other source-policy STOP hosts were not pursued.",
+    "Followed actual lesson-registration or scheduling evidence before accepting services and prices. Generic inquiry forms, subscription forms, empty rendered menus and pre-rendered success strings do not prove a booking was made or a tariff is absent.",
+    "Used bounded web reading and ordinary public HTTPS GET after reader timeout/cache-miss errors. Stopped at explicit restrictions. No login, protected API, bundle extraction, alternate provider access after denial, form entry/submission, customer data, call, real appointment or paid provider request.",
+    "Directory/search snippets are discovery leads only. Registry residence is not a teaching studio; district SEO pages are not branches; free public cultural programmes are not private appointment businesses. No coordinates or numbered neighborhood variants inferred.",
+    "All selected amounts are literal EUR facts from the owner tariff; packages, instrument rental, promotional lessons and conditional extra sessions are kept distinct. Photos, reviews, ratings, biographies, copyrighted lessons and expressive marketing prose were not copied."
+  ],
+  "deduplication": {
+    "currentSourceRecordsAtFinalRead": 1722,
+    "sourceCountIsNotApprovedCount": true,
+    "matchedNewCandidateIdentities": [],
+    "checkedFields": ["owner hostname and aliases", "school name", "published professional phone", "premises address", "all existing intake and research notes"],
+    "note": "A final read-only SOFIA_CATALOGUE import found no Art Masters, Meliva, Hypatia, Presiyana/Musify, Daniela Gotseva, English Together, Deva Kolarski or TvorchoLandia host/name/phone match. Existing and previously held candidates below were separately excluded rather than counted as additions."
+  },
+  "ready": [
+    {
+      "proposedId": "sofia-art-masters-band-nadezhda1-172",
+      "status": "source_complete_for_manual_root_review_not_imported",
+      "name": "Музикална школа Арт Мастърс Бенд · Надежда 1",
+      "category": "education",
+      "cityCode": "68134",
+      "neighborhood": "Надежда 1",
+      "address": "София, ж.к. Надежда 1, бл. 172, вх. Г",
+      "locationKind": "premises",
+      "coordinates": null,
+      "website": "https://amb2016.wixsite.com/music-school",
+      "phone": "+359888357317",
+      "booking": {"kind": "phone", "phone": "+359888357317"},
+      "appointmentEvidence": {
+        "sourceUrl": "https://artmastersband12.wixsite.com/amb12/----c15bq",
+        "excerpt": "За свободните часове и графика на школата, моля свържете се с телефоните за контакт",
+        "contactSourceUrl": "https://artmastersband12.wixsite.com/amb12/contact",
+        "finding": "This second owner-published Wix school page explicitly requests telephone arrangement of lesson times. Its linked Contacts gives the same Todorov phone and amb12 email as the current school site. Rehearsal-room booking is a different offer and is not used to manufacture music-lesson evidence."
+      },
+      "crossSourceOwnerBinding": {
+        "currentPremisesUrl": "https://amb2016.wixsite.com/music-school/blank-br2ta",
+        "currentContactUrl": "https://amb2016.wixsite.com/music-school/blank-citr",
+        "matchingFacts": ["Art Masters Band school", "Nadezhda block 172 entrance G", "+359888357317", "amb12@abv.bg", "founder/teacher Vladislav Todorov"],
+        "manualReviewRequired": "The appointment-proof hostname differs from the selected current website hostname. Retain the exact cross-source proof for manual admission; do not change the website or loosen the offline same-host intake helper to bypass its flag. Current About has a generic inquiry form only, not a confirmed calendar."
+      },
+      "services": [
+        {
+          "name": "Индивидуален урок по пиано · 60 мин",
+          "category": "education",
+          "appointmentModel": "appointment",
+          "durationMin": 60,
+          "durationSourceUrl": "https://amb2016.wixsite.com/music-school/blank-2",
+          "price": {"amount": 30, "currency": "EUR", "kind": "fixed", "unit": "единично занятие", "sourceUrl": "https://amb2016.wixsite.com/music-school/blank-2", "checkedOn": "2026-11-16"},
+          "description": "Единично занятие; 60 минути включват пристигане и тръгване. Плащане в края на часа."
+        },
+        {
+          "name": "Индивидуален урок по пиано · 30 мин",
+          "category": "education",
+          "appointmentModel": "appointment",
+          "durationMin": 30,
+          "durationSourceUrl": "https://amb2016.wixsite.com/music-school/blank-2",
+          "price": {"amount": 16, "currency": "EUR", "kind": "fixed", "unit": "единично занятие", "sourceUrl": "https://amb2016.wixsite.com/music-school/blank-2", "checkedOn": "2026-11-16"},
+          "description": "Препоръчва се за по-малки деца; 30 минути включват идване и тръгване. Предплащане; отмяна до предходния ден, иначе урокът се отчита."
+        }
+      ],
+      "serviceScopeEvidence": {
+        "sourceUrl": "https://amb2016.wixsite.com/music-school/blank-c1yws",
+        "finding": "Current teacher page explicitly includes piano. Three piano teachers are listed; the published tariff does not differentiate staff. No teacher is counted as another business and no guarantee of a specific teacher, branch slot or availability is imported.",
+        "otherVerifiedActivitiesNotAdded": ["синтезатор", "акустична и електрическа китара", "укулеле", "тарамбука", "солфеж"],
+        "reasonForRepresentativeSelection": "Two accurately qualified individual piano variants keep this review bounded. No older-only instrument list or performance/rental offering is represented as a current appointment service."
+      },
+      "hours": {
+        "monday": "08:30–20:00",
+        "tuesday": "08:30–20:00",
+        "wednesday": "08:30–20:00",
+        "thursday": "08:30–20:00",
+        "friday": "08:30–20:00",
+        "saturday": "10:00–18:00",
+        "sunday": "10:00–18:00",
+        "sourceUrl": "https://amb2016.wixsite.com/music-school/blank-br2ta",
+        "qualification": "Published school opening hours, not free lesson slots. Lesson date/time remains subject to teacher arrangement."
+      },
+      "tariffReview": {
+        "pricingDecision": "literal_published_prices",
+        "bookingReview": "phone_booking_reviewed",
+        "selectedTariffUrl": "https://amb2016.wixsite.com/music-school/blank-2",
+        "excludedRows": ["4-lesson monthly total 100 EUR", "8-lesson monthly total 184 EUR", "monthly instrument rental 22 EUR", "free lesson tied to monthly fee 2", "group/ensemble/internship fees discussed on site"],
+        "qualification": "Monthly packages are not divided into a supposed single-lesson price. A fifth calendar week is separately agreed; no extra fifth lesson is promised. Selected durations include arrival/departure, not uninterrupted instructional minutes. The actual individual tariff is EUR; no BGN conversion or stale sale amount used."
+      },
+      "sourcePolicy": {
+        "checkedOn": "2026-11-16",
+        "robots": [
+          {"url": "https://amb2016.wixsite.com/robots.txt", "status": 200, "result": "Wildcard allows public pages; excludes lightbox query. Ads bots exclude partial/gallery endpoints; PetalBot is blocked. No excluded endpoint requested."},
+          {"url": "https://artmastersband12.wixsite.com/robots.txt", "status": 200, "result": "Same public-page rule. No lightbox, partials, gallery API or blocked bot workaround used."}
+        ],
+        "navigationReview": "Current root, location, programme, tariff, staff and About/footer pages reviewed. No separate merchant terms/privacy navigation surfaced. Generic copyright/Wix attribution is not a reuse licence or legal clearance. Only independently worded minimal facts retained; no original content assets."
+      },
+      "reviewedUrls": [
+        "https://amb2016.wixsite.com/robots.txt",
+        "https://amb2016.wixsite.com/music-school",
+        "https://amb2016.wixsite.com/music-school/blank-br2ta",
+        "https://amb2016.wixsite.com/music-school/blank-citr",
+        "https://amb2016.wixsite.com/music-school/blank-c66t",
+        "https://amb2016.wixsite.com/music-school/blank-c1yws",
+        "https://amb2016.wixsite.com/music-school/blank-2",
+        "https://artmastersband12.wixsite.com/robots.txt",
+        "https://artmastersband12.wixsite.com/amb12/----c15bq",
+        "https://artmastersband12.wixsite.com/amb12/contact"
+      ],
+      "notSuccessfullyReviewed": ["https://amb2016.wixsite.com/music-school/pianoto-i-az returned reader cache miss; not needed for selected tariff or appointment proof", "https://artmastersband12.wixsite.com/amb12/----cni1 returned reader cache miss; not treated as a complete review"],
+      "integrationDependencies": ["Root independent admission and exact two-host identity review", "existing precise piano-lesson image/provenance association", "dated selected-inventory identity and onboarding acceptance tests", "Do not add the mentioned Mladost or Pernik locations without separate branch review"]
+    }
+  ],
+  "holds": [
+    {
+      "name": "Мюзифай · Пресияна Панова",
+      "neighborhoodLead": "Обеля (old quarter, not inferred Obelya 1/2)",
+      "website": "https://presiyanamusic.com/",
+      "institutionPage": "https://www.prosveta1928.com/musify.html",
+      "status": "held_live_source_service_price_and_policy_review_incomplete",
+      "discoveryFactsOnly": {"address": "ул. Ефрем Чучков 1, кв. Обеля", "phone": "+359894708575", "scheduling": "institution result says prior arranged schedule and contact for registration"},
+      "attempts": "Owner root reader timed out; robots reader inaccessible. Ordinary public owner root/robots GET failed. Institution root/music page is indexed but direct reader and ordinary GET failed. No denial bypass or alternate cache extraction.",
+      "requiredBeforeAdmission": "Read live owner/institution registration and complete current named lesson menu/tariff and policy check, or obtain owner confirmation. Indexed contact text alone is not a completed service review or evidence of an unpublished tariff. Do not import the institution's explicitly free monthly mathematics programme as this private school."
+    },
+    {
+      "name": "Учебен център Хипатия",
+      "neighborhoodLead": "Връбница 2",
+      "website": "https://hypatia-courses.eu/",
+      "status": "held_owner_domain_unavailable",
+      "discoveryFactsOnly": {"premises": "бл. 632", "phone": "+359894760183", "activity": "математика"},
+      "attempts": "Owner robots/root reader inaccessible; ordinary public GET gives DNS ENOTFOUND for both. Directory facts not admitted.",
+      "requiredBeforeAdmission": "Current reachable first-party appointment, exact teaching premises, service menu, tariff and policy review. Offline domain is not proof that prices are unpublished."
+    },
+    {
+      "name": "Step by Step / AMADEUS lead",
+      "website": "https://stepbystep-edu.com/",
+      "neighborhoodLead": "Сухата река (directory lead only)",
+      "status": "STOP_explicit_public_commercial_content_reuse_requires_written_consent",
+      "reviewedUrls": ["https://www.stepbystep-edu.com/robots.txt", "https://www.stepbystep-edu.com/", "https://stepbystep-edu.com/robots.txt", "https://stepbystep-edu.com/", "https://stepbystep-edu.com/лични-данни/", "https://register.stepbystep-edu.com/robots.txt"],
+      "finding": "WWW redirects normally to the bare owner host. Owner wildcard robots excludes wp-admin only. Before following real registration, read linked policy: Intellectual Property section prohibits public/commercial use of website content without prior written consent and limits the printing exception to personal noncommercial use. This source is STOP, despite robots permission. Registration menu, branch contacts and prices were not pursued after the restriction.",
+      "requiredBeforeAdmission": "Written owner permission or another independently authorized source path approved by root; do not use cached/provider/locale alternatives to evade the restriction. No protected descriptions, ratings, photos or merchant facts admitted."
+    },
+    {
+      "name": "Учебен център Мелива · Надежда lead",
+      "website": "https://www.meliva.bg/",
+      "status": "held_current_menu_and_terms_not_fully_reviewed",
+      "reviewedUrls": ["https://www.meliva.bg/robots.txt", "https://www.meliva.bg/", "https://www.meliva.bg/contact", "https://www.meliva.bg/individual_lessons", "https://drive.google.com/open?id=1yELEz2O6QADzvt7BR9cY3MhCIyYm6FDU"],
+      "ownerFacts": {"quarter": "Надежда (numbered part not published)", "address": "София, бул. Ломско шосе 50", "phones": ["+359895368333", "+359878789852"], "contactReceptionHours": "Понеделник–Петък09:00–18:00 or by telephone arrangement"},
+      "finding": "Own homepage offers individual tuition; exact branch Contact provides reception by arrangement, not separately verified course enrollment. Individual lessons route renders an empty offers area, so price/menu status remains pending. Linked Terms Drive document returns404. Robots404, not a ban. Homepage footer's apparent sample Working Hours was in commented template content and is NOT retained as business hours; Contact reception is not a teaching timetable. No unsupported Nadezhda numbered part, branch-wide identical tariff, new NoviIskar premise or teacher identity inferred.",
+      "requiredBeforeAdmission": "Inspect the actual live selected lesson/enrollment menu and branch-specific qualifications; resolve or review current Terms and confirm numbered quarter only if an owner/address authority proves it. Root could later visually inspect, but an unread price menu is not not_publicly_listed."
+    }
+  ],
+  "discoveryOnlyNotOwnerVerified": [
+    {"name": "Школа по езици Даниела Гоцева · Обеля 1", "leadUrl": "https://www.kartasofia.com/школа-по-езици-обеля-1-karta131780.html", "reason": "Only directories and an owner Facebook lead surfaced; no own current rendered registration/menu/price/policy review. No facts imported from directory repetition."},
+    {"name": "English Together · Обеля 2", "leadUrl": "https://www.britishcouncil.bg/exam/schools-institutions/partnership/programme-members", "reason": "Partner directory lists Obelya2 block230, but this is not an owner appointment/menu or proof that the listed registered residence is a teaching studio."},
+    {"name": "Дева Коларски · Враждебна", "leadUrl": "https://www.business.bg/f-57950/deva-kolarski.html", "reason": "Directory-only lead with differing intersection/street-address presentations. No owner current enrollment/services/tariff/hours source located; not admitted."},
+    {"name": "ТворчоЛандия · Обеля 2", "leadUrl": "https://sdeteto.com/events/klub-po-prilozni-izkustva-za-deca/2026-10-28", "reason": "Past October event at DrujbaSchool106No3; no independent current permanent teaching premise, live booking and fee policy reviewed. No full-time Obelya branch inferred from an event."},
+    {"name": "Клуб Хоро Веселите Шопи", "leadUrl": "https://businessaccountbg.com/veseli-shopi/narodni-tanci", "reason": "Profile advertises Svoboda/Nadezhda/Gevgeliyski but no exact premises. Not three new businesses; no street/number or authoritative enrollment/menu review."},
+    {"name": "Музикална школа Прима", "leadUrl": "https://kude.bg/obekti/muzikalna-shkola-prima/", "reason": "Registry residence at HadzhiDimitar is not a lesson studio; directory teaching location is central Dondukov66. No new HadzhiDimitar branch created."}
+  ],
+  "excludedPublicProgrammesOrFalseQuarterLeads": [
+    {"name": "НЧ Иван Вазов2014 · Криле от цвят и звук", "sourceUrl": "https://vazov.info/блог-2", "reviewedUrl": "https://vazov.info/", "reason": "Live owner news explicitly describes a wholly free municipal-supported eight-month art/music programme for eligible children. Its application is not a private paid appointment service. Form not opened or submitted."},
+    {"name": "DrujbaArt / Твори с Дружба", "sourceUrl": "https://drujba.org/drujba-art/", "reason": "School art competitions/free events, not a new private lesson-booking branch."},
+    {"name": "РОДИНА quarter SEO pages", "sourceUrl": "https://www.kursovete-bg.com/rodina-school-training-base.html", "reason": "Owner text names travel convenience from many northern quarters and one Klokotnitsa29 base; not premises in each named quarter. No Svoboda/Tolstoy/Iliyantsi/Gevgeliyski clones."},
+    {"name": "UP-Academy Nadеzhda article", "sourceUrl": "https://www.up-academy.bg/urotsi-matematika-matura2020-kandidatstvane-sofia-nadezhda/", "reason": "Discovery article explicitly says no classroom in Nadezhda and references other quarters/year2020; not a northern branch."}
+  ],
+  "deduplicatedOrPreviouslyHeld": [
+    {"name": "Музикална школа Теофила · Левски Г", "existingId": "sofia-teofila-music-levski-g"},
+    {"name": "DDrive / Д Драйв · Обеля", "existingModule": "lib/discovery/catalogue-data/neighborhood-driving-more-20261113.mjs"},
+    {"name": "BTS Academy · Надежда 2", "existingId": "sofia-bts-academy-nadezhda2-maths"},
+    {"name": "Imagine School · Сухата река", "existingId": "sofia-imagine-school-suhata-reka"},
+    {"name": "Школа Елън · Сухата река", "existingModule": "lib/discovery/catalogue-data/neighborhood-creative-north-east-v7-20261111.mjs"},
+    {"name": "Бизи", "existingModule": "lib/discovery/catalogue-data/neighborhood-education-north-v8-20261111.mjs", "note": "Old Svoboda directory lead is not a new branch; current admitted record is Nadezhda6. Other prior branches remain held."},
+    {"name": "Студио S", "existingReceipt": "docs/catalogue-pricing/expansion-progress-batch184-20261111.json"},
+    {"name": "ASPIRE", "existingReceipt": "docs/catalogue-pricing/expansion-home-education-2000-013-20261113.json"},
+    {"name": "ezik.eu", "existingReceipt": "docs/catalogue-pricing/expansion-home-education-2000-004-20261113.json"},
+    {"name": "GradeUp", "existingQueue": "docs/catalogue-coverage/coverage-20261116-batch-002.json"},
+    {"name": "Емануела Славейкова · Обеля 2", "existingHold": "docs/catalogue-coverage/research-lessons-photo-003-20261116.json"}
+  ],
+  "validation": {
+    "dataOnly": true,
+    "checksExecuted": ["JSON parsing passed", "git diff --check for this research file passed", "SHA-256 recorded in agent handoff"],
+    "notExecutedHere": ["catalogue integration checks", "application unit tests", "production build", "onboarding browser tests", "mobile/desktop screenshots", "production deployment"],
+    "note": "Root owns admission/integration and its required catalogue, image, onboarding, test and publication checks. This ledger alone adds zero public businesses."
+  }
+}

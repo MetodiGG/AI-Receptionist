@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-16",
+  "status": "child_research_superseded_by_root_rendered_selected_service_review_local_integration_not_published",
+  "scope": "Original child research stage changed only this ledger and admitted zero records. Subsequent independent root review and selected local Arholl module integration are separately recorded below. No partner account, booking, production or historical baseline change. A temporarily suspended venue and an existing held multi-hall lead remain excluded.",
+  "coveragePreflight": {
+    "sourceRecords": 1726,
+    "date": "2026-11-16",
+    "matrixSource": "scripts/catalogue-coverage-report.mjs evaluated against current SOFIA_CATALOGUE",
+    "priorityCells": [
+      {"neighborhood": "Обеля 1", "category": "fitness", "physicalBusinesses": 0},
+      {"neighborhood": "Свобода", "category": "fitness", "physicalBusinesses": 0},
+      {"neighborhood": "Враждебна", "category": "fitness", "physicalBusinesses": 0},
+      {"neighborhood": "Връбница 1", "category": "fitness", "physicalBusinesses": 0},
+      {"neighborhood": "Връбница 2", "category": "fitness", "physicalBusinesses": 0}
+    ],
+    "caveat": "Zero recorded physical businesses is a catalogue gap, not proof no providers exist. Neither search-directory coverage nor a paused club is used to fill it. Actual admission and exact-quarter coverage calculation remain with root."
+  },
+  "deduplication": {
+    "preflightSeparateBeforeOwnerNetwork": true,
+    "sources": ["Current SOFIA_CATALOGUE", "all docs research/pricing/source-use receipts", "lib/discovery/catalogue-data"],
+    "fields": ["merchant name", "current and historical owner host aliases", "professional telephone", "actual named branch/premises"],
+    "arhollMatches": [],
+    "bodyfolkMatches": [],
+    "arhollPhonesChecked": ["+359889758011", "+359877121456", "+359879044545"],
+    "bodyfolkPhonesChecked": ["+359896705123", "+359887514915", "+359897966294"],
+    "finalRuntimeCheck": "1726 source rows: zero exact Arholl/BodyFolk host or relevant professional-phone matches. Local preflight found no inherited source-use restriction for these hosts. Known education/provider STOPs were not reopened. Phoenix additional-venue holds were discovered locally before any direct Phoenix request, which was not made."
+  },
+  "candidateForIndependentRootReview": {
+    "proposedId": "sofia-arholl-arena-obelya1-124-reformer",
+    "name": "Arholl Arena · Обеля 1",
+    "website": "https://arholl-arena.bg/",
+    "phone": "+359889758011",
+    "category": "fitness",
+    "cityCode": "68134",
+    "locationKind": "premises",
+    "neighborhood": "Обеля 1",
+    "address": "София, ж.к. Обеля 1, бл. 124, комплекс Архолл Парк",
+    "coordinates": null,
+    "bookingProposal": {"kind": "phone", "phone": "+359889758011"},
+    "actualSelectedAppointmentEntry": {
+      "url": "https://arholl-arena.bg/service/reformer-pilates",
+      "section": "Запази своя час",
+      "excerpt": "За график и запазване на час при инструктор на телефон: 0889 758 011",
+      "finding": "This is an explicit appointment instruction INSIDE the named Reformer Pilates service, not a generic Contact label. Its phone agrees with current root and complete Contact. The independent owned telephone route is the proposed booking action. No call or appointment was made.",
+      "sequence": "Actual root schedule iframe followed before final selected-service/tariff review. Reader exposes an unrendered template. Named Reformer page then independently established the explicit instructor telephone-booking entry; the complete dedicated Prices document was inspected after that actual selected phone instruction.",
+      "notClaimed": "No generic phone contact relabeled as Book, no instructor timetable, guaranteed availability, checkout acceptance or live calendar verification."
+    },
+    "selectedService": {
+      "name": "Reformer Pilates · еднократно посещение с инструктор",
+      "category": "fitness",
+      "appointmentModel": "individual_training",
+      "price": {"amount": 20, "currency": "EUR", "kind": "fixed", "unit": "еднократно посещение за един човек с инструктор", "sourceUrl": "https://arholl-arena.bg/prices", "checkedOn": "2026-11-16"},
+      "description": "Еднократна тренировка по Reformer Pilates за един човек с индивидуална работа с инструктор. Денят, часът и инструкторът се уточняват предварително на 0889 758 011.",
+      "durationMin": null,
+      "scopeEvidence": "Dedicated Prices and root separately publish one single Reformer visit20EUR with individual work with an instructor. A distinct two-person Reformer visit is30EUR TOTAL; it is not the selected service and is not divided into15EUR per participant. Service page confirms the actual Reformer equipment activity and explicit instructor appointment. Individual instructor work is published, but no exclusive private1:1 guarantee beyond that wording is invented. No fixed lesson minutes or named-instructor-specific tariff is published in the inspected own documents.",
+      "pricingCaveat": "The amount is the literal published EUR20, not a calculation from companion BGN39.11. Do not project it to yoga, other instructors, group classes, medical/rehabilitation services, general gym admission or all other offers. The public JS purchase menu is not rendered here, so root must check that unresolved menu before claiming a completed booking-tariff review. Do not substitute an unpublished-price receipt or assume the menu contains the same price."
+    },
+    "excludedOffers": [
+      "General fitness/cardio admission and subscriptions",
+      "Two-person Reformer30EUR total represented as a one-person20EUR or15EUR fee",
+      "Eight-visit Reformer115EUR package divided into a fabricated single-session amount",
+      "Four/eight-visit group packages represented as a specific one-off yoga/dance class",
+      "Salt-room packages, vibration-platform programmes and staff identities as additional businesses",
+      "Physiotherapy, TECAR, shockwave and other medical/rehabilitation scope",
+      "First-fitness-visit gift, parking or membership loyalty perks represented as a free instructor appointment",
+      "Current widget slots, source photographs, reviews, ratings, credentials or promised health outcomes"
+    ],
+    "actualWidgetAndPurchaseReview": {
+      "rootScheduleUrl": "https://shop.arholl-arena.bg/Schedulev2/EmbedGroupScheduleV2?Namespace=ARHOLL&filterActivity=false&gymId=75&language=bg&login=false&loginRequired=false&showFilters=false&showInstructor=false&showlogo=false",
+      "reformerScheduleUrl": "https://shop.arholl-arena.bg/Schedulev2/EmbedGroupScheduleV2?Namespace=ARHOLL&filterActivity=false&gymId=75&language=bg&login=false&loginRequired=false&showFilters=false&showInstructor=false&showlogo=false",
+      "actualBuyLink": "https://shop.arholl-arena.bg/membership/PurchaseV2?Namespace=ARHOLL&gymId=75",
+      "finding": "The Reformer page embeds EXACTLY the same generic group-schedule URL as root. Both ordinary public web-reader views show Angular template placeholders rather than actual merchant class, staff, slot or monetary values. The literal Buy anchor from dedicated Prices was followed as one public GET; it likewise exposes only a purchase template. No controls or account/consent/customer/payment steps were exercised.",
+      "importantUncertainty": "The route name says group schedule, but this pass did NOT render its real contents and does NOT assert Reformer is excluded from that schedule. The separate named-service phone booking is explicit, but an unread actual purchase tariff cannot be silently bypassed or declared unpublished. Root should render the public schedule/purchase menu safely without buying, accepting terms, logging in, supplying data, selecting a slot or calling internal APIs before admission. No real client information appeared: all client/name/email/card fields were literal template tokens."
+    },
+    "premisesAndContactEvidence": {
+      "sourceUrl": "https://arholl-arena.bg/contacts",
+      "corroboratingUrls": ["https://arholl-arena.bg/", "https://arholl-arena.bg/service/reformer-pilates", "https://arholl-arena.bg/page/politika-za-poveritelnost"],
+      "finding": "The owner explicitly identifies the physical club in Obelya1, block124, ArhollPark complex. No numbered quarter inferred from a street, transport line or centroid. The same current889758011 is repeated in actual Reformer booking, root and Contact. Privacy/refund documents contain a different bracketed/contact879044545; this policy contact is not substituted for the repeatedly corroborated actual appointment phone. Historical arholl.com branding/877121456/09–21 timetable surfaced as discovery-only context and is not a second club or current booking source.",
+      "openingHours": {"monday": "07:00–22:00", "tuesday": "07:00–22:00", "wednesday": "07:00–22:00", "thursday": "07:00–22:00", "friday": "07:00–22:00", "saturday": "09:00–21:00", "sunday": "09:00–21:00"},
+      "hoursQualification": "Complete current owner Contact publishes these CLUB opening hours. They are not free Reformer slots or a named instructor schedule. No 60-minute duration inferred from a timetable, package, other activity or external source.",
+      "mapHandling": "Root/Contact expose Google direction and map iframe links; no external map link/iframe was requested or point copied. Coordinates remain null."
+    },
+    "sourcePolicyReview": {
+      "reviewedUrls": [
+        "https://arholl-arena.bg/robots.txt",
+        "https://shop.arholl-arena.bg/robots.txt",
+        "https://arholl-arena.bg/page/obshchi-usloviya",
+        "https://arholl-arena.bg/page/politika-za-poveritelnost",
+        "https://arholl-arena.bg/page/usloviya-za-vzstanovyavane-na-sredstva"
+      ],
+      "robots": "Ordinary root robots GET after sandbox DNS failure returned wildcard empty Disallow. Public shop robots request returned a404 FileOrDirectoryNotFound document, not an access prohibition or permission licence. No sitemap or bulk crawl.",
+      "terms": "Full public Terms covers club conduct, age/health/access responsibilities, personal-data processing and club schedule changes. Privacy full text concerns GDPR/member/customer data. Refund full text says discretionary customer cancellation needs advance notice, partially used subscriptions and missed client sessions are not refundable. No express automation/factual-database-reuse restriction surfaced in these full documents; no copyright licence or legal-clearance claim. Do not reproduce medical, liability, biography or marketing prose.",
+      "notCompleted": "Linked cookie-policy https://arholl-arena.bg/page/obshchi-usloviya-biskvitki returned reader CacheMiss, not a denial. Actual rendered shop terms references remain Angular placeholders, so no unseen provider contractual text is claimed reviewed. These are explicit remaining review items.",
+      "sourceAccess": "Ordinary public web reading. Separately approved ordinary root/shop robots HTTPS GET after sandbox-only DNS failure. No challenge, authenticated state, script bundle, private API, guessed endpoint, source bypass or provider-term evasion. Root normal navigation/actual iframe/Buy links only. No hidden API calls, selections, form fields, consents, account, customer data, purchase, payment, call, message, geocoder or paid service."
+    },
+    "reviewedOwnerFactUrls": [
+      "https://arholl-arena.bg/",
+      "https://arholl-arena.bg/service/reformer-pilates",
+      "https://arholl-arena.bg/prices",
+      "https://arholl-arena.bg/contacts"
+    ],
+    "admissionDependencies": [
+      "Independent root review of actual Reformer instructor phone-booking section FIRST, then complete own price/contact/branch/staff-specific conditions",
+      "Resolve the actual publicly linked JS purchase/service menu and its displayed monetary tariff/terms; do not silently call the template a completed review",
+      "Finish linked cookie-policy review through an ordinary permitted source if available",
+      "Only one-person reserved instructor Reformer20EUR operation; no general gym admission, split package, staff or duplicated branch rows",
+      "Exact approved Reformer activity artwork, dated inventory-bound receipt, deduplication, public exact-quarter discovery and BG/EN onboarding tests before any import/publication"
+    ]
+  },
+  "rootIndependentReview": {
+    "checkedOn": "2026-11-16",
+    "actualEntryFirst": "Root read the explicit Reformer service instructor-phone section first, then full Terms, Privacy, Refund, current Prices, Contact and cookie policy. The actual named phone route is not a generic contact substitution.",
+    "renderedSchedule": "Actual browser rendered the embedded shared group schedule. Visible16–29November2026 contains Zumba/HighHeels/yoga/dance and no Reformer in that visible window. This is not a blanket statement for other dates, nor a source of slots for GoRez.",
+    "renderedPurchase": "Root read the exact one-person price card actual Buy href https://shop.arholl-arena.bg/membership/PurchaseV2?&Namespace=ARHOLL&gymId=75 and opened it without a purchase. Actual rendered combobox contains subscription products including Reformer8visits and8visitsfor2, not a single-Reformer product. The selected single20EUR instructor visit independently and explicitly books by phone. All option choices, date values including auto-today, personal fields, consents, login and Pay remained untouched.",
+    "tariff": "Current browser-rendered own Prices publishes literal20EUR for one single Reformer visit with individual instructor work, distinct from30EUR totalfor2 and115EUR eight-visit package. Only the one-person20EUR operation is selected; no fixed duration, exclusive private1:1 guarantee or medical outcome.",
+    "sourcePolicies": "Full Terms/Privacy/Refund read. Missing reader cookie cache was resolved by ordinary public HTTPS200 and complete stdlib HTMLParser extraction. No site denial, challenge, policy acceptance, dependency install, hidden API or source-use workaround. Source policies concern club conduct/refunds/personaldata/cookies; no express minimal-facts commercial database/automation prohibition surfaced, not a legal licence assertion.",
+    "premises": "Current own Contact independently read via ordinary HTML GET confirms exact Obelya1block124ArhollPark, current889758011, club MonFri07–22/SatSun09–21. Hours are club hours, not instructor availability. General medical/rehabilitation, admission, subscriptions and all other activities remain excluded.",
+    "coordinates": "Root read-only owner-supplied municipal CSV hash verified and exact block/quarter matching found TWO candidate entrancesA/B. Owner Contact iframe inspected asHTMLonly contains an address-text query, no numeric point. No GoogleMap or geocoder request, no first/nearest/centroid choice; coordinates remain null. Detailed evidence research-official-address-004-20261116.json.",
+    "photo": "Root visually inspected existing reformer-pilates-v1.webp: person using Reformer equipment with an instructor. Actual semantic exact resolver already selects it in BG/EN; no new image generation, source-photo copying or association override.",
+    "normalizedInventoryIdentity": "0466ef76dc3c99c6de16843eb5b96f23874b2ced3cb90323408292dc708ff6f4",
+    "localIntegration": "One new record and one service, exactly one Obelya1×fitness physical cell, no new native partner. Full combined tests/browser/snapshot/build and separate owner-authorized publication still required.",
+    "artifacts": ["artifacts/category-navigation-20261116/coverage-batch-004-arholl-public-memberships.jpg"],
+    "productionBookingsSubmitted": 0,
+    "customerFieldsEntered": 0,
+    "paymentsOrAgreementsAccepted": 0
+  },
+  "heldCandidates": [
+    {
+      "name": "Body Folk · Свобода",
+      "website": "https://bodyfolk.com/",
+      "status": "held_owner_explicitly_suspends_lessons_at_this_venue",
+      "reviewedUrls": ["https://bodyfolk.com/", "https://bodyfolk.com/grafik/", "https://bodyfolk.com/contact/", "https://bodyfolk.com/za-nas/"],
+      "actualEntry": "Own root Schedule link was followed before any fee import. Current entire Schedule explicitly labels the Svoboda Rozhen25 venue as temporarily not holding classes. Third-party Multisport, social mirrors and expired voucher results still list it; those do not override the owner.",
+      "closureEvidence": {"sourceUrl": "https://bodyfolk.com/grafik/", "heading": "Ж.К. СВОБОДА (Временно не се провеждат занятия)", "listedVenue": "Бодифолк Арена, бул. Рожен25"},
+      "notImported": "No Svoboda row, price, hours, active slot or map point. In particular, do not import an expired eight-lesson voucher or turn its package total into one visit. No reopened date or confirmed active enrollment supplied.",
+      "otherBranchCaveat": "Same own Schedule names other real venues, but none is automatically cloned. Obelya2 beginners are also marked temporarily not held; advanced class names only Kristal venue without an exact full street/block address in the reviewed page. A new Poduyane hall or other branches would need their own complete enrollment/menu/source-policy/premises review, not a bulk provider expansion.",
+      "policyAndSafety": "Owner robots was inaccessible to the reader. After the explicit venue suspension, no retail shop/account/cart/checkout, private route, source photographs, policy completion or numerical fee review pursued. Contact has an inquiry form and professional contacts; no field, consent, form submission, call or message used. No legal licence or source-use completion claim."
+    },
+    {
+      "name": "Phoenix Taekwondo · additional Vrazhdebna hall lead",
+      "website": "https://phoenixtk.com/",
+      "status": "not_reopened_existing_additional_venue_hold",
+      "existingId": "sofia-phoenix-taekwondo-druzhba",
+      "existingReceipts": ["docs/catalogue-pricing/expansion-auto-sport-2000-003-20261113.json", "docs/catalogue-pricing/expansion-auto-sport-2000-011-20261113.json"],
+      "finding": "New search discovery again surfaces a ten-hall list including Vrazhdebna, but separate local preflight found the exact prior hold: complete own source then showed only the existing Druzhba2 premises. No direct owner request made in this pass; no current Vrazhdebna branch or free trial inferred from an indexed list, and no existing club identity counted twice."
+    }
+  ],
+  "validation": {
+    "newBusinessesAdmitted": 0,
+    "physicalNeighborhoodCoverageAdded": 0,
+    "candidateReadyForIndependentRootReview": 1,
+    "candidateFullyAdmittedOrBookingTariffComplete": 0,
+    "modulesTestsCheckerOrSharedReceiptsEdited": false,
+    "productionWrites": false,
+    "formsSubmitted": 0,
+    "customerDataEntered": false,
+    "accountsOrConsentsUsed": false,
+    "paidProviderRequests": 0,
+    "mapOrGeocoderRequests": 0,
+    "commitOrDeployment": false
+  }
+}

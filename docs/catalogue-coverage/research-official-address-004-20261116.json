@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-16",
+  "status": "root_reviewed_offline_selected_point_ready_for_integration",
+  "purpose": "Improve authoritative address accuracy separately from new-business counts. Source municipal CSV is read-only and not shipped to the app.",
+  "source": {
+    "inputFile": "address_sofia.csv",
+    "url": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "sha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+    "features": 125245,
+    "sofiaFeatures": 83189,
+    "licence": "CC-BY-4.0",
+    "attribution": "ГИС София / Столична община"
+  },
+  "method": "Existing strict readOfficialSofiaCsv and indexOfficialSofiaAddresses/matchOfficialSofiaAddress reused with exact reviewed street/house or quarter/block. Verified published source SHA before matching; missing settlement not imputed, rn IDs preserved, duplicate candidates not collapsed, source precision preserved. No workbook edits, network, Google Places or Nominatim requests.",
+  "ready": [
+    {
+      "id": "sofia-mim-auto96-knyazhevo-lyublyana69",
+      "address": "София, кв. Княжево, ул. Любляна 69",
+      "neighborhood": "Княжево",
+      "website": "https://www.mim96.eu/",
+      "ownerSource": "https://www.mim96.eu/kontakti/",
+      "ownerAddressReview": "Root and independent source review in batch003 already confirmed exact human-written street/69 and current phone. No service or price change.",
+      "result": {
+        "status": "unique",
+        "reason": "one_exact_address_candidate",
+        "candidates": 1,
+        "officialAddress": {
+          "rn": "93387",
+          "region": "Витоша",
+          "settlement": "гр. София",
+          "street": "ул. Любляна",
+          "house": "69",
+          "block": "",
+          "quarter": "",
+          "entrance": ""
+        },
+        "coordinates": {
+          "latitude": 42.666068,
+          "longitude": 23.249097
+        }
+      },
+      "decision": "Bind this exact official postal address point to unchanged city/neighborhood/address/website, checkedNov16. It is not independent proof of a business entrance. Municipal regionВитоша is an administrative field, not used to invent or replace the owner's quarter. Keep original price/service/booking identities."
+    }
+  ],
+  "held": [
+    {
+      "id": "sofia-arholl-arena-obelya1-124-reformer",
+      "address": "София, ж.к. Обеля 1, бл. 124, комплекс Архолл Парк",
+      "status": "ambiguous",
+      "candidates": 2,
+      "addressIds": [
+        "111649",
+        "111650"
+      ],
+      "entrances": [
+        "А",
+        "Б"
+      ],
+      "decision": "No unique business entrance from owner; no nearest/first/average/centroid choice. Owner Contact iframe inspected as HTML only and contains an address-textq, not numeric destination. Coordinates remain null."
+    },
+    {
+      "id": "sofia-madmax-grooming-suhata-reka18",
+      "address": "София, ж.к. Сухата река, бл. 18",
+      "status": "ambiguous",
+      "candidates": 5,
+      "decision": "Multiple official block points; no exact business entrance from owner. Coordinates stay null."
+    },
+    {
+      "id": "sofia-diamant-dental-pashovi-obelya316",
+      "address": "София, ж.к. Обеля 2, ул. Кривините, ДКЦ 30, кабинет 316",
+      "status": "unresolved",
+      "reason": "explicit_exact_address_required",
+      "candidates": 0,
+      "decision": "No invented house number or generic clinic/block centroid. No coordinates or manual receipt rebound."
+    }
+  ],
+  "scope": {
+    "newBusinesses": 0,
+    "newServices": 0,
+    "pricesChanged": 0,
+    "bookingsChanged": 0,
+    "productionWrites": 0,
+    "networkGeocoding": 0,
+    "sourceCsvChanged": false
+  },
+  "independentCheckNeeded": "Integration tests must prove exact point/address binding, old pricing identity unchanged and stale address/quarter/website cannot reuse the point. Full release gates still apply."
+}

@@ -1,0 +1,100 @@
+{
+  "version": 1,
+  "checkedOn": "2026-11-16",
+  "status": "bounded_single_candidate_complete_access_stop_no_admission",
+  "scope": "One genuinely new independent dental-practice source check in southern Sofia. Dentistry only; no facial injections, physician specialties, general medical clinic or medical-aesthetic listing is proposed. Research only, no source module or production edits.",
+  "preflight": {
+    "instructionsRead": [
+      "docs/catalogue-coverage/README.md",
+      "docs/catalogue-coverage/coverage-20261116-batch-003.md",
+      "docs/catalogue-coverage/research-dental-002-20261116.json",
+      "docs/catalogue-coverage/research-beauty-007-20261116.json"
+    ],
+    "asOf": "2026-11-16T12:00:00Z",
+    "sourceRecordsAtRead": 1726,
+    "approvedBusinessesAtRead": 1703,
+    "method": "Searched local current catalogue modules plus coverage and pricing research/intake ledgers for Dentlux/dentlux.net before the owner network request. No match or prior host STOP was found. After the homepage disclosed Dr.Stoilkova and the professional phone, separately searched these aliases, the phone and Simeonovsko220 before any follow-up owner page request; no match. A runtime all-record check also found no identity match.",
+    "matches": [],
+    "restrictedSources": "No Mylink, Studio24, Setmore, Notino, EasyWeek, Fresha, ReservationStudio, Easybook or other stopped booking provider was reopened. Prior northern dental holds were not repeated."
+  },
+  "ready": [],
+  "holds": [
+    {
+      "name": "Dr. Stoilkova Orthodontics and Aesthetics / Dentlux д-р Светлана Стоилкова",
+      "website": "https://dentlux.net/",
+      "sourceKind": "own_practice_website",
+      "candidateCity": "София",
+      "candidateNeighborhood": null,
+      "neighborhoodFinding": "The primary homepage gives SimeonovskoShose220 but no explicit Sofia quarter. The road name is not proof of Simeonovo or any numbered/administrative subdivision. Do not assign a sparse quarter from the road, postal code, nearby landmark or map.",
+      "observedOwnerAddress": "гр. София, бул. „Симеоновско шосе“ №220",
+      "observedProfessionalPhone": "+359888838915",
+      "identityFinding": "The homepage explicitly identifies Dr.Stoilkova Orthodontics and Aesthetics as Dentlux's new name and repeats the same address and telephone. They are aliases of one premises, not two new businesses. Neither alias, the host nor phone matches a current local record/intake.",
+      "status": "STOP_owner_request_verification_challenge",
+      "admissionRecommended": false,
+      "actualBookReview": {
+        "status": "incomplete_before_owner_access_stop",
+        "ownerEntryUrl": "https://dentlux.net/",
+        "shortExcerpt": "Твоята онлайн консултация и запазване на часове през Superdoc",
+        "finding": "A real appointment invitation names Superdoc on the homepage, but its actual outbound booking URL is not exposed in the reader output. The observed owner Contact link was followed first to establish the exact appointment/contact route; that page returned a verification challenge. No provider path was guessed, no provider page requested, and no generic header telephone was relabelled as completed phone-booking evidence.",
+        "noInteraction": "No service/staff/date/time selection, terms acceptance, call, account, message, customer data, form submission or booking."
+      },
+      "accessEvidence": {
+        "initialOwnerHomepage": {
+          "url": "https://dentlux.net/",
+          "result": "Readable public homepage through web reader."
+        },
+        "actualOwnerContact": {
+          "url": "https://dentlux.net/kontakti/",
+          "result": "One moment, please... / Please wait while your request is being verified...",
+          "response": "STOP all further domain access after observing the challenge. No curl, native browser, alternate hostname/locale, cache, proxy, JS bundle or hidden API workaround."
+        },
+        "sameBatchPolicyResults": [
+          { "url": "https://dentlux.net/robots.txt", "result": "Reader inaccessible; no clearance claimed." },
+          { "url": "https://dentlux.net/privacy-policy/", "result": "Reader cache miss; not claimed reviewed." }
+        ],
+        "concurrencyQualification": "The observed Contact link, linked privacy policy and robots were submitted in one bounded call before the model received the Contact challenge. No subsequent owner-domain request was made after the challenge became known."
+      },
+      "serviceAndScopeReview": {
+        "status": "incomplete_not_prepared_for_import",
+        "finding": "Homepage presents orthodontics/adult dentistry alongside a separate facial-aesthetics menu. Only adult dental evaluation would be eligible under the assignment; facial injections/physician services are excluded. No selected service page, staff-specific appointment tariff or complete clinical scope was reviewed after the challenge. No whole-practice medical-aesthetic scope assumption or service split is proposed."
+      },
+      "pricingReview": {
+        "status": "not_completed_not_unpublished",
+        "observedOwnerTariffLabel": "Ценоразпис",
+        "tariffLinkQualification": "The owner navigation exposes this price-list label, but it was not followed in this task. No endpoint is guessed or presented as a reviewed source.",
+        "finding": "No amount, fee qualifier, package, duration or price fact is prepared for publication. Known tariff/actual appointment menu is unread after access STOP, so not_publicly_listed is explicitly prohibited for this candidate."
+      },
+      "hours": null,
+      "coordinates": null,
+      "hoursAndCoordinatesFinding": "No weekly schedule, service duration or coordinates inferred, collected from Maps, geocoded or proposed.",
+      "policyReview": "Incomplete because privacy/robots were unavailable and owner Contact reached a verification challenge. No source-use permission, robots compliance clearance or general copyright licence is claimed. Only a short factual appointment excerpt and public identity/address fields are retained for the hold.",
+      "reviewedUrls": ["https://dentlux.net/"],
+      "attemptedButNotReviewedUrls": [
+        "https://dentlux.net/kontakti/",
+        "https://dentlux.net/robots.txt",
+        "https://dentlux.net/privacy-policy/"
+      ],
+      "requiredBeforeAdmission": [
+        "Resolve source access without bypassing the existing verification challenge; do not reopen under an alternate technical route.",
+        "Verify the actual owner-linked appointment URL and permitted provider policy, then fully inspect the selected adult dental visit/staff tariff without submission.",
+        "Obtain an explicit exact Sofia premises quarter rather than assigning from SimeonovskoShose220.",
+        "Complete ordinary dental scope, owner Contact, hours and source-policy review; preserve unknown fields and hold unsupported medical-aesthetic services."
+      ]
+    }
+  ],
+  "discoveryOnly": [
+    {
+      "url": "https://trqbvami.com/firmi/dentlux-sofia/",
+      "role": "Lead discovery only: yielded the own domain/address/phone. No directory tariffs, ratings, NHS fee, hours, services or coordinates used as authoritative facts."
+    }
+  ],
+  "counts": {
+    "newPrimaryCandidatesInspected": 1,
+    "sourceCompleteReady": 0,
+    "holds": 1,
+    "newBusinessesAdded": 0,
+    "recordsChanged": 0,
+    "pricesPreparedForImport": 0
+  },
+  "completion": "The assigned one-candidate bound is reached. Access STOP and missing exact quarter remain explicit. No broad search expansion, module edit, false price absence claim or production mutation."
+}

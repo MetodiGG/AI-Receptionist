@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-16",
+  "status": "independently_root_reviewed_selected_service_integrated_locally_not_published",
+  "scope": "One genuinely new Sofia appliance-service identity discovered during a sparse northern-neighborhood pass. This evidence alone admits zero businesses and adds zero physical-neighborhood coverage. Current batch003 modules, receipts, checker, tests, snapshots and production remain unchanged.",
+  "deduplication": {
+    "sourceRecordsChecked": 1725,
+    "localPreflightBeforeOwnerRequests": true,
+    "method": "Separate local searches over all docs/lib and current SOFIA_CATALOGUE before requesting the candidate owner host. Canonical host, MieleServisBG/СТАНИ83 identity, actual service phones and published premises checked; final runtime comparison repeated after source review.",
+    "candidateMatches": [],
+    "phonesChecked": ["+359888105240", "+359888450493", "+359896029056", "+359884580313"],
+    "existingLeadsNotReopened": [
+      {"name": "Джотекс", "existingId": "sofia-djotex-home-appliance-service", "reason": "Already one mobile provider. Its Obelya depot is not another business or a new physical home-service appointment."},
+      {"name": "ДомСервиз", "existingId": "sofia-domserviz-home-appliance-diagnostic", "reason": "Already a mobile home-service identity; no duplicated Nadezhda listing."},
+      {"name": "Културен и образователен център София", "existingId": "sofia-cultural-language-centre-kiril-botev3a", "reason": "Already a Motopista lesson premises, not a northern Sofia venue."}
+    ],
+    "sourceStopsRespected": "Known education/home holds and source-use STOPs were read locally before new owner requests. Intellect/SmartyKids/StepByStep and previously held teaching leads were not reopened. No known MieleServisBG host/name/phone/source-use hold matched locally. Search discovery results were not imported as final evidence."
+  },
+  "candidate": {
+    "name": "MieleServisBG · СТАНИ 83",
+    "website": "https://mieleservisbg.com/",
+    "category": "home_services",
+    "phone": "+359888105240",
+    "alternateServicePhone": "+359888450493",
+    "bookingProposal": {"kind": "phone", "phone": "+359888105240"},
+    "appointmentEvidence": {
+      "sourceUrl": "https://mieleservisbg.com/zashto-da-izberete-nas/",
+      "section": "Въпроси свързани с гаранция и сервиз",
+      "finding": "Owner expressly asks customers seeking Miele warranty or nonwarranty appliance servicing to call888105240 with the appliance model and fault. The separate Contact page labels this and888450493 as service phones, distinct from retail-order phones. This is a named servicing request instruction, not a generic contact alone. No dedicated Book page or date/time calendar was found in the complete ordinary root navigation. Root must independently confirm the telephone-request qualification before admission; no confirmed appointment or instant slot is claimed.",
+      "sequenceCaveat": "Root navigation and linked policy review preceded service inspection. A preliminary Services read exposed the tariff; About/FAQ then established the exact named-service telephone request. The entire current live tariff was re-read by ordinary HTTPS GET AFTER that actual service-request evidence. This is not a claim that a nonexistent Book button or an unseen calendar was followed first."
+    },
+    "selectedServiceForIndependentReview": {
+      "name": "Посещение и диагностика на извънгаранционен уред Miele",
+      "category": "home_services",
+      "appointmentModel": "home_visit",
+      "description": "Посещение на адрес в София и диагностика на извънгаранционен уред Miele. Обадете се с модела и проблема, за да се уточни посещението. Цената е за посещение и диагностика, не за цял ремонт.",
+      "price": {
+        "amount": 40,
+        "currency": "EUR",
+        "kind": "fixed",
+        "unit": "посещение и диагностика на адрес в София; уред извън гаранция",
+        "sourceUrl": "https://mieleservisbg.com/услуги/",
+        "checkedOn": "2026-11-16"
+      },
+      "durationMin": null,
+      "qualification": "Literal owner EUR40 for a visit plus diagnosis, independently confirmed in the entire live public Services document. Not a repair package, not a guaranteed total including parts or labor, not a free warranty visit and not a conversion from BGN. No fixed visit time or service duration is published. Miele is the served appliance brand; no authorized-manufacturer status is asserted."
+    },
+    "excludedOffers": [
+      "Retail appliances and spare-part product prices, including shopping-cart amounts",
+      "Warranty-covered work or free retail delivery represented as a universally free service",
+      "Appliance carrying50/30EUR represented as a diagnostic or repair appointment",
+      "Installation25/50EUR variants without their own complete telephone-request and inclusion review",
+      "Retail financing, credit, payments, returns or add-to-cart actions",
+      "Owner warranty, qualification and outcome claims copied as GoRez guarantees"
+    ],
+    "verifiedMerchantPremisesSeparateFromServiceWorksite": {
+      "neighborhood": "Надежда 1",
+      "address": "София, ж.к. Надежда 1, ул. Анастас Лозанчев, бл. 173, вх. В",
+      "sourceUrls": ["https://mieleservisbg.com/kontakti-i-magazin/", "https://mieleservisbg.com/zashto-da-izberete-nas/", "https://mieleservisbg.com/"],
+      "finding": "Owner Contact explicitly identifies Nadezhda1 block173 entranceV and AnastасLozanchev street. About confirms the actual physical shop at the same block and street; root footer repeats the same location. Contact additionally writes the street followed by173, but no separate street house number is invented in addition to the already explicit block173. This is factual merchant shop/service-base evidence, not proof the selected home diagnostic appointment is performed there.",
+      "coordinates": null,
+      "mapHandling": "Root exposes a Google Maps direction link, which was not opened. No map iframe, owner GPS, geocoder, viewport or approximate point was copied. Ordinary HTML reading did not load external map content."
+    },
+    "premisesHoursNotHomeVisitAvailability": {
+      "monday": "10:00–18:00", "tuesday": "10:00–18:00", "wednesday": "10:00–18:00", "thursday": "10:00–18:00", "friday": "10:00–18:00",
+      "saturday": "10:00–14:00", "sunday": "closed",
+      "sourceUrl": "https://mieleservisbg.com/kontakti-i-magazin/",
+      "corroboration": "About and root footer agree with the complete Contact weekly schedule.",
+      "publicationDecision": "These are shop/service-base hours. Do not import them as home-visit working slots or technician availability; omit a home-service openingHours field unless root obtains authoritative relevant evidence."
+    },
+    "coverageAndLocationDecision": {
+      "physicalNeighborhoodCoverageAdded": 0,
+      "confirmedServiceScope": "Selected price explicitly covers a home visit at an address in Sofia; no separate fee or timing is inferred for specific quarters or neighboring towns.",
+      "recommendedIfRootAdmitsOnlyThisService": "One service_area business identity with neighborhood/address/coordinates unset in the public home-visit record. Keep the separately verified shop as evidence, not as the diagnostic worksite or a source of nearby-distance claims. Root may decide its precise schema only after independent review.",
+      "doNotDo": ["Count a home_visit as a physical Nadezhda1 service appointment", "Clone the provider into50 or any other number of neighborhood cells", "Create a second retail or repair branch from the same operator", "Publish shop hours as free home appointments", "Invent office coordinates or guaranteed travel/arrival times"],
+      "targetCaveat": "This is a potentially useful verified home-service option, not a completed solution for a zero physical-premises cell or the50-business target. Effective service-area options remain a separate evidence ledger."
+    }
+  },
+  "sourceReview": {
+    "checkedOn": "2026-11-16",
+    "reviewedUrls": [
+      "https://mieleservisbg.com/robots.txt",
+      "https://mieleservisbg.com/",
+      "https://mieleservisbg.com/zashto-da-izberete-nas/",
+      "https://mieleservisbg.com/услуги/",
+      "https://mieleservisbg.com/kontakti-i-magazin/",
+      "https://mieleservisbg.com/garantsionen-serviz/",
+      "https://mieleservisbg.com/защита-на-личната-информация/",
+      "https://mieleservisbg.com/политика-за-поверителност/",
+      "https://mieleservisbg.com/начини-на-плащане/"
+    ],
+    "access": "Ordinary public web reading. Reader omits full root navigation/footer and returns cache miss for the two linked privacy documents. Initial ordinary curl robots request failed sandbox DNS only; separately approved ordinary public HTTPS GET returned the full robots, root navigation/footer and both entire privacy main documents. Complete live Services was similarly read after the actual telephone-request FAQ. No challenge, denied page, authentication, alternate source/provider path, API, script bundle, private state or CAPTCHA bypass.",
+    "robots": "Wildcard public pages allowed. wc-logs, WooCommerce transient/uploads, add-to-cart query actions and wp-admin excluded. None of those excluded/action routes was requested and the sitemap was not crawled.",
+    "policies": "Full linked PersonalInformationProtection and Privacy texts read to EOF before deep service follow-up; both concern customer personal data/e-commerce. Root visible navigation/footer has no separate Terms link. About includes retail-order, delivery, return and warranty FAQ. The complete Payment page was read only to check scope; no bank or financing details retained. No express factual-database-reuse, automation or general personal/noncommercial-only restriction surfaced in these inspected documents. This is not a copyright licence, manufacturer authorization or legal-clearance assertion. Only minimal independently phrased merchant/service/contact facts retained; no original photos, authored prose, testimonials, ratings or personal customer information copied.",
+    "safety": "No form field, search input, consent, login, account, call, email, booking, cart, add-to-cart, order, financing/payment action, customer data, source photo, map request, geocoder or paid provider. Static retail confirmation template text in root HTML is not treated as an actual submitted order. No production or catalogue write."
+  },
+  "rootIndependentReview": {
+    "checkedOn": "2026-11-16",
+    "sequence": "Root read actual named servicing phone instruction in About/FAQ first, then current complete live Services and Contact via ordinary HTTPS GET. Root navigation all anchors reviewed separately: no dedicated Book calendar. Both linked privacy main documents and robots read in full.",
+    "access": "Web reader cache misses for privacy are not access denials. First curl parsing attempt stopped only because local bs4 was absent; no install or site challenge. Same public documents then parsed completely with Python standard-library HTMLParser. No cart, add-to-cart, account, form, phone, consent or map action activated.",
+    "selectedScope": "Exactly one Sofia out-of-warranty Miele home visit plus diagnosis at literal40EUR. Public service_area/home_visit record has no shop address, neighborhood, coordinates, working hours or fixed duration; zero physical-neighborhood quota credit.",
+    "photo": "Root visually inspected existing sx-home-appliance-diagnose: home technician with multimeter, open appliance and customer. Ancillary clipboard is part of an actual diagnostic scene, not a generic notebook substitute. Separate exact business/service association added.",
+    "normalizedInventoryIdentity": "4d54eb45e74d08bbe4ed08e6b259f15fce6282477bc82b8c1a2d2e3d45ae33a3",
+    "isolatedTestsActuallyExecuted": {"file": "tests/catalogue-coverage-miele-20261116.test.mjs", "tests": 9, "passed": 9},
+    "publication": "Not part of published PR71/batch003. Local next batch only; full acceptance, responsive review, snapshot and publication still required. Historical snapshots, baselines and previous identities unchanged."
+  },
+  "remainingBeforePublication": [
+    "Run final combined schema, duplicate, source-pricing, exact-photo, public discovery and BG/EN partner-intake gates",
+    "Actual browser responsive review and complete test/build before next-batch publication",
+    "New snapshot and honest incremental report; never count this home visit as another physical office or repeat it per neighborhood"
+  ],
+  "validation": {
+    "readyForIndependentReview": 1,
+    "businessesAdded": 0,
+    "physicalNeighborhoodCoverageAdded": 0,
+    "catalogueModulesChanged": false,
+    "testsOrCheckerChanged": false,
+    "productionWrites": false,
+    "bookingsSubmitted": 0,
+    "customerDataEntered": false,
+    "mapOrGeocoderRequests": 0,
+    "paidProviderRequests": 0,
+    "commitOrDeployment": false
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-16",
+  "status": "research_only_source_policy_stop_no_admissions",
+  "scope": "One bounded new education or therapy premises candidate in an undercovered Sofia neighborhood. No catalogue module, publication checker, tests, inventory identities, baseline, database, partner account, production configuration or booking changed.",
+  "deduplication": {
+    "currentSourceRecordsAtRead": 1725,
+    "sourceCountIsNotApprovedCount": true,
+    "checkedFields": ["owner hostname", "business name", "published professional phone", "premises street and number", "existing intake and research holds"],
+    "candidateMatches": [],
+    "finding": "Separate local preflight before the new owner source review found no dragovska.com / Dragovska identity in SOFIA_CATALOGUE or the catalogue-pricing and catalogue-coverage research files. Previously held PsihologSofia and Vesela Manova leads were excluded without refetching their owner sites. Suntaria was discovery only and not pursued. No search result was counted as a listing."
+  },
+  "ready": [],
+  "holds": [
+    {
+      "name": "Теодора Драговска · Кинезитерапия и Логопедия",
+      "website": "https://dragovska.com/",
+      "neighborhoodLead": "Надежда 2",
+      "status": "STOP_explicit_owner_commercial_content_restriction",
+      "admissionRecommended": false,
+      "sourcePolicy": {
+        "robots": {
+          "url": "https://dragovska.com/robots.txt",
+          "status": 200,
+          "finding": "Wildcard public-page access is not disallowed; /imunify-bot-check is excluded. No excluded route, sitemap or protected endpoint was requested. This robots observation does not override the express owner terms."
+        },
+        "terms": {
+          "url": "https://dragovska.com/terms-and-conditions/",
+          "status": 200,
+          "section": "3. ИНТЕЛЕКТУАЛНА СОБСТВЕНОСТ",
+          "shortExcerpt": "Забранява се: копиране разпространение използване за търговски цели без изрично писмено съгласие.",
+          "finding": "The merchant expressly restricts copying, distribution and commercial use without written consent. Research stopped before following its external booking provider. No claimed reuse licence or legal clearance."
+        },
+        "privacy": {
+          "url": "https://dragovska.com/privacy-policy/",
+          "status": 200,
+          "finding": "The linked public privacy notice was read with the source-policy check. No customer or account data was supplied or collected. The registered controller address is not substituted for the treatment premises."
+        }
+      },
+      "bookingReview": {
+        "status": "not_completed_due_to_owner_policy_stop",
+        "ownerEntryObservedAt": "https://dragovska.com/terapii-i-ceni/",
+        "entryLabel": "Запази час онлайн",
+        "externalHostObserved": "tidycal.com",
+        "externalCalendarFetched": false,
+        "providerPolicyReviewed": false,
+        "qualification": "An actual owner Book link was observed, not a completed inspection of its service or booking menu. No date, time, customer details or submission was selected. No alternate provider route, cache, API or phone-booking interpretation was used to work around the owner restriction."
+      },
+      "scopeReview": {
+        "status": "incomplete_not_an_admission_basis",
+        "finding": "The owner presents an independent kinesitherapy and speech-therapy practice, not a general physician clinic in the reviewed pages. It also describes rehabilitation and other treatments. Full staffing, professional scope and service-level eligibility were not resolved because the policy STOP independently prevents admission. The practice must not be repackaged as a separate speech-therapy business merely to evade the no-general-clinics rule. No physician service, treatment claim or shared staff tariff is proposed."
+      },
+      "tariffReview": {
+        "status": "not_completed_do_not_import",
+        "finding": "The public service page contains prices, but the actual external booking menu was deliberately not reviewed after the owner policy STOP. No price, duration or service inventory is prepared for publication. This is neither a completed price review nor evidence of a not_publicly_listed tariff."
+      },
+      "requiredBeforeAnyFurtherReview": [
+        "Explicit owner written permission covering the contemplated commercial factual listing and source use, or another root-approved lawful basis consistent with the project source rules; no workaround through alternate access.",
+        "Independent confirmation that the actual premises and selected professional services satisfy the owner's permitted business scope, without splitting a prohibited general medical clinic into artificial listings.",
+        "Only after the source restriction is resolved: inspect provider policy and actual owner Book menu, selected service/staff tariff, contact, hours and exact premises before any admission recommendation."
+      ],
+      "reviewedUrls": [
+        "https://dragovska.com/terapii-i-ceni/",
+        "https://dragovska.com/robots.txt",
+        "https://dragovska.com/terms-and-conditions/",
+        "https://dragovska.com/privacy-policy/"
+      ],
+      "accessNotes": "The web reader could read the public service page but returned robots inaccessible and linked policy cache misses. Ordinary limited HTTPS GET then returned 200 for robots and both linked policies, with 1200 ms pauses between same-host requests. No 401/403/429, challenge or access-denial workaround occurred. The express terms discovered in that check are now a STOP for further commercial intake."
+    }
+  ],
+  "result": {
+    "newBusinessesAdded": 0,
+    "sourceCompleteCandidates": 0,
+    "policyHolds": 1,
+    "reasonForStopping": "This was a single strongest-candidate check rather than a wide search loop. The express owner policy is substantive progress for the hold ledger, not a successful addition or completed service/price review."
+  }
+}

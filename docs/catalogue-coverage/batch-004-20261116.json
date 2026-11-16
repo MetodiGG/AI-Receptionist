@@ -1,0 +1,149 @@
+{
+  "checkedOn": "2026-11-16",
+  "publicationStatus": "validated_ready_for_owner_authorized_publication; verify deployment/live separately",
+  "priority": "Verified neighborhood/category coverage before raw growth; mobile providers and address enrichments counted separately",
+  "beforeSnapshot": "coverage-20261116-batch-003.json",
+  "afterSnapshot": "coverage-20261116-batch-004.json",
+  "approvedBefore": 1702,
+  "approvedAfter": 1704,
+  "sourceRecordsAfter": 1727,
+  "newDistinctBusinesses": 2,
+  "newActualServices": 2,
+  "newPublicPriceFacts": 2,
+  "newRecords": [
+    {
+      "id": "sofia-arholl-arena-obelya1-124-reformer",
+      "neighborhood": "Обеля 1",
+      "category": "fitness",
+      "locationKind": "premises",
+      "services": 1,
+      "price": "20EUR fixed one-person single Reformer visit with instructor work",
+      "booking": "Explicit named Reformer instructor phone route; own public generic schedule and actual membership menu rendered by root before admission",
+      "hours": "Club MonFri07–22/SatSun09–21, not instructor slots",
+      "limitations": "No private1:1 guarantee, duration, duet split, subscription split, gym admission, medical service or native availability. Municipal block124 has2candidate entrances and owner iframe only address-text query; coordinates remain null."
+    },
+    {
+      "id": "sofia-miele-servisbg-home-diagnostic",
+      "neighborhood": null,
+      "category": "home_services",
+      "locationKind": "service_area",
+      "services": 1,
+      "price": "40EUR fixed Sofia home visit with diagnosis of out-of-warranty Miele appliance, NOT full repair/parts",
+      "booking": "Explicit owner named servicing instruction by service phone, not retail orders",
+      "physicalNeighborhoodQuotaCredit": 0,
+      "limitations": "One mobile provider, not offices in all quarters. Verified Nadezhda1 shop is not the service worksite, source of distance or home-visit availability. Address/neighborhood/coordinates/hours/duration remain unset."
+    }
+  ],
+  "existingEnrichments": [
+    {
+      "id": "sofia-mim-auto96-knyazhevo-lyublyana69",
+      "newBusiness": false,
+      "change": "One exact reviewed official postal address point for unchanged Lyublyana69",
+      "officialAddressId": "93387",
+      "latitude": 42.666068,
+      "longitude": 23.249097,
+      "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+      "sourceCsvSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+      "licence": "CC-BY-4.0",
+      "pricingIdentityUnchanged": "d66f80409e8752ce1f173e129c8e5946e3de030dab345be7866add36933199f7",
+      "limitations": "Postal address, not independently certified workshop entrance. No original service, tariff, booking or conflicting Saturday-hours change."
+    }
+  ],
+  "coverage": {
+    "newPhysicalPremises": 1,
+    "newMobileProviders": 1,
+    "newPhysicalCategoryNeighborhoodIncidences": 1,
+    "changedCell": "Обеля 1 × fitness:0→1",
+    "cellsAt50": 0,
+    "zeroCellsAfter": 1296,
+    "unknownQuarterPremises": 586,
+    "goalUnmet": true
+  },
+  "images": "Both services use existing independently visually approved exact/activity photographic assets: Reformer equipment with instructor; home appliance technician with multimeter/open panel. No new raster generation or owner-photo copying. Miele explicit exact-business activity mapping; Arholl existing semantic exact match without override.",
+  "sourceResearch": [
+    "research-home-005-20261116.json",
+    "research-pets-005-20261116.json",
+    "research-quarter-recovery-006-20261116.json",
+    "research-coverage-006-20261116.json",
+    "research-education-sport-007-20261116.json",
+    "research-detailing-007-20261116.json",
+    "research-beauty-007-20261116.json",
+    "research-dental-008-20261116.json",
+    "research-official-address-004-20261116.json",
+    "research-consulting-009-20261116.json",
+    "research-beauty-009-20261116.json"
+  ],
+  "holds": "Suspended BodyFolk venues, explicit source-use restrictions, protected/inaccessible sources, medical aesthetic scope and unconfirmed quarter facts remain holds, not admissions or unpublished-price reviews. Yorki named hotel address independently corroborated at hotel's own Contact; wording difference is not evidence of relocation and no address/point edited.",
+  "spreadsheetHandling": "Read-only municipal CSV analysis using existing strict JS parser and exact source hash. Source values/rn IDs/precision preserved; duplicate candidates never collapsed. No workbook export, CSV edit, Google Places or Nominatim request. Only selected dated proof and point are included, not full municipal source.",
+  "validation": {
+    "nodeFullSuite": {
+      "executed": true,
+      "tests": 2575,
+      "passed": 2575,
+      "failed": 0,
+      "skipped": 0,
+      "log": "artifacts/catalogue-coverage-20261116/batch-004-node-tests-final.log"
+    },
+    "pythonPricing": {
+      "executed": true,
+      "tests": 12,
+      "passed": 12,
+      "files": [
+        "tests/pricing-extraction_test.py",
+        "tests/booking-pricing-flow_test.py"
+      ]
+    },
+    "catalogueCheck": {
+      "executed": true,
+      "passed": true,
+      "sourceRecords": 1727,
+      "approvedBusinesses": 1704,
+      "recheck": 0,
+      "blockedNewOrChangedListings": 0,
+      "specificServicePhotos": 10090,
+      "missingNeutralOrInvalidServicePhotos": 0,
+      "officialPoints": 697
+    },
+    "productionBuild": {
+      "executed": true,
+      "passed": true,
+      "command": "pnpm --config.verify-deps-before-run=warn build --webpack",
+      "log": "artifacts/catalogue-coverage-20261116/batch-004-build.log",
+      "limitation": "Existing external node_modules symlink/workspace warning preserved; no reinstall, dependency or deployment-setting change."
+    },
+    "actualBrowser": {
+      "executed": true,
+      "environment": "localhost emulated viewport, not physical Android/iOS devices",
+      "profiles": 2,
+      "locales": [
+        "bg",
+        "en"
+      ],
+      "widths": [
+        320,
+        360,
+        390,
+        430,
+        768,
+        1280
+      ],
+      "cases": 24,
+      "pageOverflow": 0,
+      "unloadedServicePhotos": 0,
+      "conditionDetailsExpanded": true,
+      "arhollHoursExpanded": true,
+      "screenshots": [
+        "artifacts/category-navigation-20261116/coverage-batch-004-miele-local-mobile-390.jpg",
+        "artifacts/category-navigation-20261116/coverage-batch-004-miele-local-desktop-1280.jpg",
+        "artifacts/category-navigation-20261116/coverage-batch-004-arholl-local-mobile-390.jpg",
+        "artifacts/category-navigation-20261116/coverage-batch-004-arholl-local-desktop-1280.jpg"
+      ]
+    },
+    "independentReviews": "Miele integrated review46tests passed; MIM officialpoint/directions/attribution/identity suite46tests passed; root independently rendered Arholl and read all selected primary facts/policies.",
+    "initialFailureResolved": "Initial Miele+aggregate run23/24 caught the original premise-only assumption. Test now explicitly expects exactly this reviewed mobile ID and proves zero physical quota credit; all prior premises remain bound. Final full2575suite passed. Initial failing run is not claimed passed.",
+    "scope": "No search algorithms, category mappings, backend, database, native booking, customer data, notifications, paid services, production settings or historical snapshots/baselines changed."
+  },
+  "productionBookingsSubmitted": 0,
+  "notificationsSent": 0,
+  "remainingGoal": "10000verified businesses and50real options/category/neighborhood remain unmet. Do not count this release as goal completion."
+}

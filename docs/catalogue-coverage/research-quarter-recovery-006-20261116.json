@@ -1,0 +1,141 @@
+{
+  "version": 1,
+  "checkedOn": "2026-11-16",
+  "asOf": "2026-11-16T12:00:00Z",
+  "status": "research_only_not_applied",
+  "scope": "Bounded owner-contact-only neighborhood enrichment of five existing approved grooming/beauty premises with a null neighborhood. No new business, service, tariff, duration, hours, address or coordinate change is proposed.",
+  "workflow": {
+    "instructionsRead": [
+      "docs/catalogue-coverage/README.md",
+      "docs/catalogue-coverage/research-neighborhood-recovery-20261116.json",
+      "docs/catalogue-coverage/research-neighborhood-recovery-002-20261116.json"
+    ],
+    "preflight": "Local research/intake ledgers, current catalogue IDs and prior source holds were checked before the corresponding network calls, in separate calls. Contact sections were followed only on permitted owner sites. Existing stopped booking providers were not opened.",
+    "selection": "The first three new contact checks supplied no explicit Sofia quarter. Two further bounded beauty checks also supplied only street addresses. Celine and MD Beauty were screened locally but not revisited because prior intake/recovery already recorded their missing or ambiguous quarter wording.",
+    "sourceAccess": "Manual public owner-document reads through the web reader and the observed owner Contact anchors. On single-page sites the full document may be returned by the reader, but only the contact/address block is used as evidence in this task. No service/menu re-review, map link, booking provider, calendar, form submission, phone call, customer information or external geocoder was used.",
+    "copyright": "Only short factual address excerpts are retained, fewer than 25 quoted words per owner source. No owner photographs, reviews, marketing prose or implied reuse licence are copied."
+  },
+  "catalogueSnapshot": {
+    "sourceRecordCount": 1726,
+    "approvedRecordCount": 1703,
+    "note": "Read-only runtime count at the stated as-of time; other agents may add separate batches after this snapshot. All five IDs below were confirmed approved with neighborhood null."
+  },
+  "counts": {
+    "existingApprovedRecordsInspected": 5,
+    "readyNeighborhoodCorrections": 0,
+    "held": 5,
+    "newBusinessesAdded": 0,
+    "recordsChanged": 0
+  },
+  "readyCorrections": [],
+  "held": [
+    {
+      "id": "sofia-podstrizhime-grooming",
+      "name": "Подстрижи ме!",
+      "categoryUnchanged": "pets",
+      "currentNeighborhood": null,
+      "proposedNeighborhood": null,
+      "currentAddress": "София, ул. Шар планина 75",
+      "ownerUrl": "https://podstrizhime.bg/",
+      "sourceUrl": "https://podstrizhime.bg/",
+      "sourceSection": "Контакти → Адрес; the visible Contact and Book controls lead to this same-page contact block.",
+      "checkedOn": "2026-11-16",
+      "excerpt": "гр. София, ул. „Шар планина\" 75",
+      "status": "held_no_explicit_quarter",
+      "observation": "The actual owner contact address confirms the existing street and number but names no Sofia neighborhood. No inference from the street, map or surrounding businesses was made.",
+      "nextEvidenceRequired": "An unambiguous owner contact statement naming the exact quarter for this premises, or a separately authorized authoritative address-bound source."
+    },
+    {
+      "id": "sofia-yorki-sofia",
+      "name": "Груминг салон Йорки · София",
+      "categoryUnchanged": "pets",
+      "currentNeighborhood": null,
+      "proposedNeighborhood": null,
+      "currentAddress": "София, бул. Инж. Иван Иванов 10, Арт-хотел Симона",
+      "ownerUrl": "https://www.svetlanadimova.bg/",
+      "sourceUrl": "https://www.svetlanadimova.bg/",
+      "sourceSection": "Контакт → Адрес на салон София; the owner Contact anchor returns the same document.",
+      "checkedOn": "2026-11-16",
+      "excerpt": "Арт-хотел „Симона“ бул. Иван Гешев гр. София",
+      "status": "held_no_explicit_quarter_address_wording_differs",
+      "observation": "The Sofia contact block names the same hotel but a different boulevard wording and no street number or quarter. The explicitly named Vladislav Varnenchik quarter elsewhere in Contact belongs to Varna, not Sofia. Do not transfer it, infer a Sofia quarter, or silently rewrite the catalogue address.",
+      "nextEvidenceRequired": "Exact Sofia premises quarter remains unverified. Root separately corroborated the named hotel address; no address or point change is justified by the wording difference alone.",
+      "rootAddressCorroboration": {
+        "checkedOn": "2026-11-16",
+        "ownerContactRead": "https://www.svetlanadimova.bg/",
+        "namedPremisesFirstPartyContact": "https://hotelsimona.com/contact/",
+        "hotelShortExcerpt": "бул.Инж. Иван Иванов № 10",
+        "finding": "The groomer still explicitly names ArtHotelSimona for Sofia. The hotel's own Contact explicitly publishes the existing catalogue street and number, and additionally places the hotel on the corner with Vazkresenie and Iv.Ev.Geshov. Thus the boulevard wording difference is not evidence of a moved salon or a wrong municipal point. That corner may explain the alternate description, but this is an inference, not a confirmed merchant typo.",
+        "decision": "Keep current merchant address and already bound official point unchanged; no new coordinates obtained or imported, no geocoder or Maps request. No exact Sofia quarter follows from either document. The unrelated Varna quarter stays excluded. Hotel booking forms, calls, prices and other services were not used or submitted."
+      }
+    },
+    {
+      "id": "sofia-eurostandart28-hair-stroke-treti-mart28",
+      "name": "Евростандарт Център 28 · перманентен грим",
+      "categoryUnchanged": "beauty",
+      "currentNeighborhood": null,
+      "proposedNeighborhood": null,
+      "currentAddress": "София, ул. 3-ти Март 28",
+      "ownerUrl": "https://microblading28.com/",
+      "sourceUrl": "https://microblading28.com/",
+      "sourceSection": "Свържете се с нас → Адрес and Пояснения за местоположението.",
+      "checkedOn": "2026-11-16",
+      "excerpt": "София 1362, ул.“3-ти Март“ № 28",
+      "status": "held_no_explicit_quarter",
+      "observation": "Contact confirms the existing street and number. The additional landmark explanation references the ring road and New Bulgarian University, not an explicitly named premises quarter. Neither the postcode nor the university landmark establishes one.",
+      "nextEvidenceRequired": "An explicit exact quarter for this address, not an assumption based on postcode, landmark, campus or road."
+    },
+    {
+      "id": "sofia-skinni-aesthetic",
+      "name": "Skinni Aesthetic",
+      "categoryUnchanged": "beauty",
+      "currentNeighborhood": null,
+      "proposedNeighborhood": null,
+      "currentAddress": "София, бул. Владимир Вазов 92",
+      "ownerUrl": "https://skinni.bg/",
+      "sourceUrl": "https://skinni.bg/",
+      "sourceSection": "Owner footer → Адрес.",
+      "checkedOn": "2026-11-16",
+      "excerpt": "София, бул. Владимир Вазов 92, София",
+      "status": "held_no_explicit_quarter",
+      "observation": "The owner footer confirms the exact existing boulevard and number but no neighborhood. The map iframe or street geography was not used to assign a quarter.",
+      "nextEvidenceRequired": "Explicit owner premises quarter wording."
+    },
+    {
+      "id": "sofia-dorado-beauty-wellness",
+      "name": "DORADO Beauty & Wellness",
+      "categoryUnchanged": "nails",
+      "currentNeighborhood": null,
+      "proposedNeighborhood": null,
+      "currentAddress": "София, ул. Калиманци 19",
+      "ownerUrl": "https://www.dorado.bg/",
+      "sourceUrl": "https://www.dorado.bg/",
+      "sourceSection": "Owner footer contact/address block.",
+      "checkedOn": "2026-11-16",
+      "excerpt": "ул. Калиманци 19 1505 София",
+      "status": "held_no_explicit_quarter",
+      "observation": "The owner contact footer supplies street, number and postcode only. The visible Studio24 Book link was not opened because the provider is stopped and this task is Contact-only. No quarter was inferred from the postcode or Maps link.",
+      "nextEvidenceRequired": "An explicit owner quarter statement for the Kalimantsi19 premises."
+    }
+  ],
+  "localScreeningSkippedWithoutNetwork": [
+    {
+      "domains": ["tobby.bg", "loveyourpets.bg", "bumbachka.eu", "joygrooming.com"],
+      "reason": "Already inspected in the two existing recovery ledgers; no new source evidence justified repeating their street-only/unavailable contact checks."
+    },
+    {
+      "domains": ["nailcocktailboutique.com", "nnhairdesign.eu", "frizior.bg"],
+      "reason": "Prior live403, source-terms reuse stop, or request-verification challenge respectively; no host retry, proxy, alternate locale, provider or hidden API bypass."
+    },
+    {
+      "domains": ["celinehairclub.com", "mdbeautyempire.com"],
+      "reason": "Prior full contact review already recorded no exact quarter or ambiguous generic center wording. No new network request made."
+    }
+  ],
+  "integrationRequirements": [
+    "No ready correction exists in this ledger; do not apply its holds as neighborhood mappings.",
+    "Zero new businesses: these are existing catalogue IDs and must never inflate catalogue growth counts.",
+    "Keep existing services, tariffs, working hours, booking routes, durations, addresses, coordinate evidence and price-review fingerprints unchanged.",
+    "Root independently verifies any future exact quarter evidence before a separately tested patch."
+  ]
+}

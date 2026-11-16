@@ -1,0 +1,52 @@
+{
+  "checkedOn": "2026-11-16",
+  "status": "bounded_research_only_hold_not_integrated",
+  "scope": "One new northern Sofia grooming lead, with one preliminary geographic false positive discarded. No veterinary care or current catalogue data changes.",
+  "catalogueSnapshot": {"sourceRecords": 1725, "approvedBusinesses": 1702, "asOf": "2026-11-16T12:00:00Z"},
+  "preNetworkReview": {
+    "references": ["docs/catalogue-coverage/research-pets-004-20261116.json", "docs/catalogue-pricing/expansion-pets-20261113.json", "docs/catalogue-pricing/veterinary-scope-hold-20261111.json"],
+    "deduplication": "Before each lead's network discovery, separately searched all catalogue-data modules and local coverage/pricing research by its name and known street. Follow-up runtime comparison found zero current rows by SmilingDogs/Смайлинг and DOG-issimo/its directory phone.",
+    "stops": "Existing Setmore, Studio24, Notino, Goldie, EasyWeek, Fresha, ReservationStudio, restricted Easybook reuse and blocked owner sources remained stopped. No requests to these sources, alternate locale/host bypass or hidden API. MadMax and North Dog were not researched as new candidates again."
+  },
+  "ready": [],
+  "strongestNorthernLead": {
+    "name": "Груминг салон Смайлинг догс / Smiling Dogs",
+    "candidateNeighborhood": "Хаджи Димитър",
+    "status": "hold",
+    "reason": "current_operation_and_owner_appointment_source_unverified",
+    "leadSources": [
+      "https://petalapa.com/groomers/sofiya/gruming-salon-smayling-dogs-sofiya",
+      "https://www.oink.bg/biz/gruming_salon10"
+    ],
+    "actualPageReviewed": "https://www.oink.bg/biz/gruming_salon10",
+    "unavailableReaderUrl": "https://petalapa.com/groomers/sofiya/gruming-salon-smayling-dogs-sofiya",
+    "specificCaution": {
+      "sourceUrl": "https://www.oink.bg/biz/gruming_salon10",
+      "literalStatusExcerpt": "Затворено за постоянно",
+      "interpretation": "Secondary-directory closure warning, not independently confirmed owner closure. Another directory still lists grooming at Макгахан without a premises number. Neither directory establishes current operating status."
+    },
+    "firstPartyWebsite": null,
+    "actualBookingEntry": null,
+    "verifiedPremisesAddress": null,
+    "coordinates": null,
+    "verifiedServices": [],
+    "priceReviewStatus": "not_completed_not_unpublished",
+    "verifiedHours": null,
+    "appointmentReview": "No owner website or actual owner/merchant Book entry was established by the bounded name search or the opened directory. The displayed directory telephone and AI-authored service summary are not an appointment receipt. No price, service inventory or opening schedule is approved from them.",
+    "remaining": [
+      "Confirm the salon currently operates through a current owner-authored public source, resolving the closure warning.",
+      "Find and inspect its actual service appointment invitation or booking menu before reviewing prices.",
+      "Verify the precise premises on Макгахан, including number/entrance where supplied, from that owner source.",
+      "Then review actual services, breed/coat conditions, tariffs and any weekly hours; never label an uninspected tariff unpublished."
+    ],
+    "notUsed": "No registered-office apartment, masked-directory phone, ratings, reviews, photographs or directory AI prose became catalogue facts. No account, call, message, appointment form or source photo opened."
+  },
+  "preliminaryLeadDiscarded": {
+    "name": "DOG-issimo Grooming",
+    "leadSourceUrl": "https://petalapa.com/groomers/sofiya/dog-issimo-grooming-sofiya",
+    "secondaryGeographicCheck": "https://localbulgaria.net/firma/dog-issimo-grooming-sofia",
+    "reason": "The initially quarter-unspecified MayorPavelPavlov25 discovery is placed by secondary sources in Манастирски ливади, not a sparse northern quarter. No owner site or current appointment source verified. Stopped this lead after one name search rather than wandering outside scope or claiming a northern premises."
+  },
+  "verification": {"jsonParseExecuted": true, "runtimeDuplicateMatches": 0, "integratedBusinesses": 0, "productionChanges": false},
+  "conclusion": "No eligible addition from this tightly bounded pass. The precise northern hold is current-operation/owner-booking verification, not missing prices alone. This ledger is a resumption aid and does not claim no other suitable northern grooming businesses exist."
+}

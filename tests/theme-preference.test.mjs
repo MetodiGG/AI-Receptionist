@@ -55,6 +55,16 @@ function loadToggle(react = React) {
 }
 const ThemeToggle = loadToggle()
 
+test('the moon artwork is a stable solid crescent silhouette, not a platform emoji or the previous outline', async () => {
+  const { code: iconCode } = await transform(await read('components/icon.js'), { filename: 'components/icon.js', jsc: { parser: { syntax: 'ecmascript', jsx: true }, transform: { react: { runtime: 'automatic' } } }, module: { type: 'commonjs' } })
+  const module = { exports: {} }
+  new Function('require', 'module', 'exports', iconCode)(require, module, module.exports)
+  const html = renderToStaticMarkup(React.createElement(module.exports.Icon, { name: 'moon' }))
+  assert.match(html, /M8\.2 2\.3A10 10 0 1 1 3\.2 18\.1A10\.4 10\.4 0 0 0 8\.2 2\.3Z/)
+  assert.match(html, /fill="currentColor" stroke="none"/)
+  assert.doesNotMatch(html, /20\.9 13\.2|<image|<img|🌙/)
+})
+
 test('theme preferences accept only explicit supported values and retain the original light default', () => {
   assert.equal(theme.THEME_STORAGE_KEY, 'gorez.theme')
   for (const value of [undefined, null, '', 'system', 'Dark', 'auto', 1, '<script>dark</script>']) assert.equal(theme.normalizeTheme(value), 'light')

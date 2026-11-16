@@ -2,14 +2,14 @@
 .discovery-subcategories { --subcategory-photo-size: 45px; --subcategory-option-padding: 7px; margin: 12px 0 22px; padding: 0; padding-inline-start: 12px; min-width: 0; border-inline-start: 2px solid #d5b18b80; background: transparent; }
 .discovery-subcategory-controls { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; margin-top: 8px; min-width: 0; }
 .discovery-subcategory-all,.discovery-subcategory-more { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 44px; max-width: 100%; padding: 8px 12px; border: 1px solid transparent; border-radius: 999px; color: #713619; background: linear-gradient(110deg,#fffdf70d,#e3964a00); background-color: transparent; box-shadow: none; font: inherit; font-size: 15px; font-weight: 600; line-height: 1.4; cursor: pointer; transition: background-color 220ms ease, color 220ms ease; }
-.discovery-subcategory-all[aria-pressed="true"],.discovery-subcategory-more[aria-expanded="true"] { color: #713619; background-color: #f3a76919; border-color: transparent; box-shadow: none; }
+.discovery-subcategory-all[aria-pressed="true"],.discovery-subcategory-more[aria-expanded="true"] { color: #713619; background-color: #f3a76930; border-color: transparent; box-shadow: none; }
 .discovery-subcategory-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; margin: 0; padding: 0; list-style: none; min-width: 0; }
 .discovery-subcategory-grid > li { display: flex; min-width: 0; }
 .discovery-subcategory-option { position: relative; display: flex; flex-wrap: nowrap; align-items: center; justify-content: flex-start; gap: 8px; width: 100%; max-width: 100%; min-width: 0; min-height: 58px; padding: var(--subcategory-option-padding); border: 1px solid transparent; border-radius: 999px; color: #4e3728; background: linear-gradient(110deg,#fffdf70d,#e3964a00); background-color: transparent; box-shadow: none; font: inherit; font-size: 15px; font-weight: 500; line-height: 1.4; text-align: start; cursor: pointer; transition: background-color 220ms ease, color 220ms ease; }
 .discovery-subcategory-option > span:not(.discovery-subcategory-photo) { flex: 1 1 min-content; min-width: 0; max-width: 100%; white-space: normal; overflow-wrap: break-word; word-break: normal; hyphens: auto; text-wrap: balance; }
 .discovery-subcategory-photo { display: block; align-self: center; flex: 0 0 var(--subcategory-photo-size); width: var(--subcategory-photo-size); height: var(--subcategory-photo-size); border-radius: 10px; object-fit: cover; }
 .discovery-subcategory-photo.is-unavailable { background: #f6e9db; }
-.discovery-subcategory-option[aria-pressed="true"] { color: #684025; background-color: #f3a76919; border-color: transparent; box-shadow: none; }
+.discovery-subcategory-option[aria-pressed="true"] { color: #684025; background-color: #f3a76930; border-color: transparent; box-shadow: none; }
 .discovery-subcategory-option:active:not(:disabled),.discovery-subcategory-all:active:not(:disabled),.discovery-subcategory-more:active:not(:disabled) { background-color: #e9b48626; border-color: transparent; box-shadow: none; }
 .discovery-subcategories button:focus-visible { outline: 3px solid #984419; outline-offset: 3px; }
 .discovery-subcategories button:disabled { cursor: default; }
@@ -20,7 +20,7 @@
 .discovery-subcategory-selected { margin: 0; color: #6e5b4e; font-size: 15px; line-height: 1.5; }
 @media (hover: hover) and (pointer: fine) {
   .discovery-subcategory-option:hover:not(:disabled),.discovery-subcategory-all:hover:not(:disabled),.discovery-subcategory-more:hover:not(:disabled) { background-color: #edb98d12; border-color: transparent; box-shadow: none; }
-  .discovery-subcategory-option[aria-pressed="true"]:hover:not(:disabled),.discovery-subcategory-all[aria-pressed="true"]:hover:not(:disabled),.discovery-subcategory-more[aria-expanded="true"]:hover:not(:disabled) { background-color: #f3a76921; border-color: transparent; box-shadow: none; }
+  .discovery-subcategory-option[aria-pressed="true"]:hover:not(:disabled),.discovery-subcategory-all[aria-pressed="true"]:hover:not(:disabled),.discovery-subcategory-more[aria-expanded="true"]:hover:not(:disabled) { background-color: #f3a7693b; border-color: transparent; box-shadow: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   .discovery-subcategories :is(button,svg) { transition: none; }

@@ -91,7 +91,7 @@ html[data-theme="dark"] .marketing-page :is(.discovery-shortcuts button.selected
 }
 html[data-theme="dark"] .customer-home.quick-choice .home-categories button > span { color: var(--dm-muted); }
 html[data-theme="dark"] .customer-home.quick-choice .home-categories .home-discovery-rail button.selected {
-  color: #ffe0bf; background: linear-gradient(110deg,#503725,#392a20); box-shadow: inset 0 0 0 1px #e4aa7424;
+  color: #ffe0bf; background: linear-gradient(110deg,#5b3e2a,#453022); box-shadow: none;
 }
 html[data-theme="dark"] .customer-home.quick-choice .home-categories button.selected > span { color: #ffe0bf; }
 html[data-theme="dark"] .marketing-page .discovery-subcategories { border-inline-start-color: #77573d; }
@@ -99,12 +99,26 @@ html[data-theme="dark"] .customer-home.quick-choice :is(.discovery-subcategory-o
 html[data-theme="dark"] .marketing-page :is(.discovery-subcategory-option,.discovery-subcategory-all,.discovery-subcategory-more) { color: var(--dm-ink); background-image: none; }
 html[data-theme="dark"] .customer-home.quick-choice :is(.discovery-subcategory-option,.discovery-subcategory-all)[aria-pressed="true"],
 html[data-theme="dark"] .customer-home.quick-choice .discovery-subcategory-more[aria-expanded="true"] {
-  color: #ffe0bf; background-color: var(--dm-orange-soft);
+  color: #ffe0bf; background-color: #553a28;
+}
+@media (max-width:699px) {
+  html[data-theme="dark"] .customer-home.quick-choice .home-categories > .home-section-heading::before {
+    background: linear-gradient(90deg,#1d191600,#1d1916ed 58%,#1d1916);
+  }
+  html[data-theme="dark"] .customer-home.quick-choice .home-categories .home-rail-arrows button:last-child {
+    color: #ffe0bf; background: #493426f5;
+  }
 }
 @media (hover:hover) and (pointer:fine) {
   html[data-theme="dark"] .customer-home.quick-choice .home-categories .home-discovery-rail button:hover,
   html[data-theme="dark"] .customer-home.quick-choice .discovery-subcategories :is(.discovery-subcategory-option,.discovery-subcategory-all,.discovery-subcategory-more):hover:not(:disabled) {
     color: var(--dm-ink); background-color: #493426;
+  }
+  html[data-theme="dark"] .customer-home.quick-choice .home-categories .home-discovery-rail button.selected:not(:disabled):hover {
+    color: #ffe0bf; background: linear-gradient(110deg,#654630,#4e3626);
+  }
+  html[data-theme="dark"] .customer-home.quick-choice .discovery-subcategories :is(.discovery-subcategory-option[aria-pressed="true"],.discovery-subcategory-all[aria-pressed="true"],.discovery-subcategory-more[aria-expanded="true"]):hover:not(:disabled) {
+    color: #ffe0bf; background-color: #60432e;
   }
 }
 html[data-theme="dark"] .customer-home.quick-choice .home-business-grid .home-business-card:is([data-source="gorez"],[data-source="catalogue"]),

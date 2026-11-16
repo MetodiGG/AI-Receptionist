@@ -31,6 +31,7 @@
 .customer-home.quick-choice .home-categories img { flex:0 0 50px; width:50px; height:50px; border-radius:10px; outline:0; }
 .customer-home.quick-choice .home-categories button > span { color:#6b625b; font-size:18px; font-weight:600; line-height:1.4; }
 .customer-home.quick-choice .home-categories button.selected { border-color:transparent; }
+.customer-home.quick-choice .home-categories .home-discovery-rail button.selected { background-color:#e3964a3b; box-shadow:none; }
 .customer-home.quick-choice .home-categories button.selected > span { color:#713c21; }
 .customer-home.quick-choice .home-categories button.selected img { outline:0; }
 .customer-home.quick-choice .home-rail-arrows button { width:44px; min-width:44px; border-radius:9px; background:transparent; }
@@ -39,27 +40,40 @@
 .customer-home.quick-choice .discovery-subcategory-grid > li { max-width:none; min-width:0; }
 .customer-home.quick-choice .discovery-subcategory-option { flex-wrap:nowrap; gap:7px; min-height:56px; padding:var(--subcategory-option-padding); border:1px solid transparent; border-radius:999px; background:linear-gradient(110deg,#fffdf70d,#e3964a00); background-color:transparent; color:#4e3728; font-size:16px; font-weight:500; line-height:1.4; }
 .customer-home.quick-choice .discovery-subcategory-photo { flex-basis:var(--subcategory-photo-size); width:var(--subcategory-photo-size); height:var(--subcategory-photo-size); border-radius:8px; }
-.customer-home.quick-choice .discovery-subcategory-option[aria-pressed="true"] { border-color:transparent; background-color:#f3a76919; box-shadow:none; }
+.customer-home.quick-choice .discovery-subcategory-option[aria-pressed="true"] { border-color:transparent; background-color:#f3a76930; box-shadow:none; }
 .customer-home.quick-choice :is(.discovery-subcategory-all,.discovery-subcategory-more) { min-height:44px; font-size:15px; font-weight:600; border-color:transparent; border-radius:999px; background:linear-gradient(110deg,#fffdf70d,#e3964a00); background-color:transparent; }
-.customer-home.quick-choice .discovery-subcategory-all[aria-pressed="true"],.customer-home.quick-choice .discovery-subcategory-more[aria-expanded="true"] { color:#713619; border-color:transparent; background-color:#f3a76919; box-shadow:none; }
+.customer-home.quick-choice .discovery-subcategory-all[aria-pressed="true"],.customer-home.quick-choice .discovery-subcategory-more[aria-expanded="true"] { color:#713619; border-color:transparent; background-color:#f3a76930; box-shadow:none; }
 .customer-home.quick-choice .discovery-subcategory-more { margin-top:0; }
 @media (hover:hover) and (pointer:fine) {
   .customer-home.quick-choice .discovery-subcategories :is(.discovery-subcategory-option,.discovery-subcategory-all,.discovery-subcategory-more):hover:not(:disabled) { background-color:#edb98d12; border-color:transparent; box-shadow:none; }
-  .customer-home.quick-choice .discovery-subcategories :is(.discovery-subcategory-option[aria-pressed="true"],.discovery-subcategory-all[aria-pressed="true"],.discovery-subcategory-more[aria-expanded="true"]):hover:not(:disabled) { background-color:#f3a76921; border-color:transparent; box-shadow:none; }
+  .customer-home.quick-choice .home-categories .home-discovery-rail button.selected:not(:disabled):hover { background-color:#e3964a45; border-color:transparent; box-shadow:none; }
+  .customer-home.quick-choice .discovery-subcategories :is(.discovery-subcategory-option[aria-pressed="true"],.discovery-subcategory-all[aria-pressed="true"],.discovery-subcategory-more[aria-expanded="true"]):hover:not(:disabled) { background-color:#f3a7693b; border-color:transparent; box-shadow:none; }
 }
 .customer-home.quick-choice .discovery-subcategories :is(.discovery-subcategory-option,.discovery-subcategory-all,.discovery-subcategory-more):active:not(:disabled) { background-color:#e9b48626; border-color:transparent; box-shadow:none; }
 @media (prefers-reduced-motion:reduce) {
   .customer-home.quick-choice .discovery-subcategories :is(button,svg) { transition:none; }
 }
 .customer-home.quick-choice .home-business-grid { gap:14px; }
+.customer-home.quick-choice :is(.discovery-subcategories,.home-business-grid > li) { scroll-margin-block-start:24px; }
+.customer-home.quick-choice .discovery-subcategories:focus-visible { outline:2px solid #984419; outline-offset:4px; border-radius:12px; }
 .customer-home.quick-choice .home-business-show-more { font-weight:600; border-radius:10px; background:#fffcf7; }
 .customer-home.quick-choice .site-footer-compact { background:#f0e9df; }
 @media (max-width:699px) {
   .customer-home.quick-choice .discovery-home { width:calc(100% - 32px); margin-top:18px; }
   .customer-home.quick-choice .home-search-panel { margin-inline:0; }
-  .customer-home.quick-choice .home-categories .home-discovery-rail { gap:8px; }
+  .customer-home.quick-choice .home-categories .home-discovery-rail { gap:6px; padding-inline:3px 52px; scroll-padding-inline:3px 52px; }
+  .customer-home.quick-choice .home-categories .home-discovery-rail button { gap:8px; padding-inline:6px; }
   .customer-home.quick-choice .home-categories { grid-template-columns:minmax(0,1fr); column-gap:0; }
-  .customer-home.quick-choice .home-categories > .home-section-heading { position:absolute; width:0; height:0; }
+  /* Keep the real rail's next control visible on touch screens. The small
+     edge fade and partial next choice explain swiping without a new label. */
+  .customer-home.quick-choice .home-categories > .home-section-heading { position:absolute; z-index:2; inset-block-start:42px; inset-inline-end:0; width:44px; height:44px; pointer-events:none; }
+  .customer-home.quick-choice .home-categories > .home-section-heading::before { content:''; position:absolute; z-index:-1; inset-block:0; inset-inline:-24px -1px; background:linear-gradient(90deg,#f8f5ef00,#f8f5efed 58%,#f8f5ef); pointer-events:none; }
+  .customer-home.quick-choice .home-categories .home-section-actions { pointer-events:auto; }
+  .customer-home.quick-choice .home-categories .home-rail-arrows { display:flex; gap:0; }
+  .customer-home.quick-choice .home-categories .home-rail-arrows button:first-child { display:none; }
+  .customer-home.quick-choice .home-categories .home-rail-arrows button:last-child { display:grid; place-items:center; width:44px; height:44px; padding:10px; border:1px solid transparent; border-radius:999px; color:#713619; background:#f3ddc6f5; box-shadow:none; }
+  .customer-home.quick-choice .home-categories .home-rail-arrows button:last-child:disabled { opacity:.4; cursor:default; }
+  .customer-home.quick-choice .home-categories .home-rail-arrows button:focus-visible { outline:3px solid #984419; outline-offset:2px; }
   .customer-home.quick-choice .home-discovery-section { margin-top:18px; }
 }
 @media (prefers-reduced-motion:reduce) {

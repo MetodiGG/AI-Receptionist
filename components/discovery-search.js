@@ -13,7 +13,7 @@ import { clearDiscoveryDraft, peekDiscoveryDraft, setDiscoveryDraft } from '../l
 import { DEFAULT_DISCOVERY_CITY, DISCOVERY_SHORTCUTS, discoveryCategorySelection, discoveryCitySelection, discoveryInitialInput, discoverySearchInput, requestDiscoveryLocation, subcategorySelection, subcategoryById } from '../lib/discovery/search-ui.mjs'
 import { DiscoveryRouteArt } from './discovery-route-art'
 import { BusinessCategoryIcon } from './business-category-icon'
-import { focusDiscoveryResults } from '../lib/discovery/results-navigation.mjs'
+import { focusDiscoveryResults, focusDiscoverySubcategories, focusFirstDiscoveryBusiness } from '../lib/discovery/results-navigation.mjs'
 import { DiscoveryHomeRail } from './discovery-home-rail'
 import { DiscoveryHomeBusinesses } from './discovery-home-browse'
 import { DiscoverySubcategories } from './discovery-subcategories'
@@ -50,13 +50,22 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
   const [loadingMore, setLoadingMore] = useState(false), [moreError, setMoreError] = useState(''), [resultKey, setResultKey] = useState(0)
   const pageController = useRef(null), pageInFlight = useRef(false), searchVersion = useRef(0), lastInput = useRef(null)
   const controller = useRef(null), resultHeading = useRef(null), inFlight = useRef(false), locationInFlight = useRef(false), locationVersion = useRef(0), mounted = useRef(true), scrollAfterSearch = useRef(false)
+  const subcategoriesRef = useRef(null)
   useEffect(() => { const timer = setTimeout(() => setSettledQuery(query), 350); return () => clearTimeout(timer) }, [query])
   useEffect(() => { mounted.current = true; return () => { mounted.current = false; controller.current?.abort(); pageController.current?.abort() } }, [])
   useEffect(() => {
     if (compact || loading || !scrollAfterSearch.current || (!result && !error)) return
-    // After React commits the response: move to results/clarification/error,
-    // not the loading shell. Typing and source filters never retrigger this.
-    const frame = requestAnimationFrame(() => focusDiscoveryResults(resultHeading.current, window.matchMedia?.('(prefers-reduced-motion: reduce)').matches))
+    // Wait for this request's committed content, never a loading shell or a
+    // stale response. Consume navigation once, not on pagination/theme changes.
+    const destination = scrollAfterSearch.current
+    const frame = requestAnimationFrame(() => {
+      if (scrollAfterSearch.current !== destination) return
+      scrollAfterSearch.current = false
+      const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches
+      if (!error && destination === 'subcategories' && focusDiscoverySubcategories(subcategoriesRef.current, reduceMotion)) return
+      if (!error && destination === 'businesses') { focusFirstDiscoveryBusiness(resultHeading.current, reduceMotion); return }
+      focusDiscoveryResults(resultHeading.current, reduceMotion)
+    })
     return () => cancelAnimationFrame(frame)
   }, [result, error, loading, compact])
   useEffect(() => {
@@ -117,6 +126,7 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
   function clearSubcategoryOptions() { subcategoryScope.current = null; setSubcategoryOptions([]) }
   function changeQuery(value) {
     cancelPendingLocation()
+    scrollAfterSearch.current = false
     // Hair is a starting point, not a hidden restriction on the first typed
     // search. Explicit category/subcategory choices retain their usual scope.
     if (entryCategory) { setCategory(''); setEntryCategory(false) }
@@ -127,14 +137,14 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
     setEntryCategory(false)
     const selected = discoveryCategorySelection(query, id, locale)
     setCategory(selected.category); setSubcategory(''); clearSubcategoryOptions(); setQuery(selected.query); setResult(null); setError('')
-    if ((home || coordinates) && selected.category) execute(payload({ ...selected, subcategory: '' }), { navigate: false })
+    if ((home || coordinates) && selected.category) execute(payload({ ...selected, subcategory: '' }), { navigate: home ? 'subcategories' : false })
   }
   function chooseSubcategory(id) {
     cancelPendingLocation()
     setEntryCategory(false)
     const selected = subcategorySelection(query, category, id, locale)
     setSubcategory(selected.subcategory); setQuery(selected.query); setResult(null); setError('')
-    execute(payload(selected), { navigate: false })
+    execute(payload(selected), { navigate: home ? 'businesses' : false })
   }
   function execute(input, options) {
     if (compact) {
@@ -309,7 +319,7 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
     </SearchPanel>
     {home && filtersOpen && <DiscoveryFilterSheet id={filterId} initialValues={homeFilters} locale={locale} onApply={applyFilters} onClose={() => setFiltersOpen(false)} triggerRef={filterTrigger}/>}
     {home && <><DiscoveryHomeRail title={homeCopy.categories} locale={locale} kind="categories" hideHeading>{homeCategories(locale).map((item, index) => <li key={item.id}><button type="button" disabled={loading} className={category === item.id ? 'selected' : ''} aria-pressed={category === item.id} onClick={() => chooseCategory(item.id)}><img src={item.photo} srcSet={`${item.photo} 160w, ${item.photo2x} 240w`} sizes="80px" width="160" height="160" alt="" loading={index < 4 ? 'eager' : 'lazy'} decoding="async"/><span>{item.label}</span></button></li>)}</DiscoveryHomeRail></>}
-    {!compact && <DiscoverySubcategories category={category} title={categoryById(category)?.[locale]} options={subcategoryOptions} selected={subcategory} selectedLabel={subcategoryById(subcategory)?.[locale]} locale={locale} loading={loading} onSelect={chooseSubcategory}/>}
+    {!compact && <DiscoverySubcategories category={category} title={categoryById(category)?.[locale]} options={subcategoryOptions} selected={subcategory} selectedLabel={subcategoryById(subcategory)?.[locale]} locale={locale} loading={loading} onSelect={chooseSubcategory} navigationRef={subcategoriesRef}/>}
     {!compact && <DiscoveryHomeBusinesses locale={locale} filters={{ ...homeFilters, cityCode: result ? resultCity : homeFilters.cityCode, coordinates: result ? resultOrigin : coordinates }} preview={preview} data={directoryData} result={result} resultKey={resultKey} loading={loading} error={error} onRetry={() => execute(payload())} headingRef={resultHeading} onLoadMore={loadMore} loadingMore={loadingMore} moreError={moreError} directoryEnabled={!home} initialPreview={entryCategory} quickChoice={home}/>}
   </section>
 }

@@ -56,6 +56,12 @@ for (const locale of ['bg', 'en']) test(`${locale}: Fast Choice uses one identit
   const origin = { latitude: 42.66, longitude: 23.29, kind: 'location' }, row = business(), f = fixture({ locale, row, distanceOrigin: origin })
   const identity = nodeClass(f.tree, 'home-business-identity')
   assert.equal(identity.length, 1)
+  const heading = nodeClass(f.tree, 'home-business-heading')
+  assert.equal(heading.length, 1)
+  assert.equal(nodeClass(heading[0], 'home-business-photo').length, 1)
+  assert.equal(nodeClass(heading[0], 'home-business-identity').length, 1)
+  assert.equal(nodeClass(heading[0], 'home-business-services').length, 0, 'services are below the shared photo/name header')
+  assert.equal(nodeClass(heading[0], 'home-business-footer').length, 0, 'actions remain beside the service area, not in the header')
   assert.equal(text(elements(identity, node => node.type === 'h3')[0]), row.name)
   assert.equal(elements(f.tree, node => node.type === Badge).length, 1)
   const badge = elements(identity, node => node.type === Badge)[0]
@@ -129,6 +135,7 @@ test('native/external/phone booking and real directions keep their existing trus
 
 test('non-home callers keep the original gallery overlay, distance location, identity and actions by default', () => {
   const f = fixture({ quickChoice: undefined })
+  assert.equal(nodeClass(f.tree, 'home-business-heading').length, 0)
   assert.equal(nodeClass(f.tree, 'home-business-identity').length, 0)
   assert.equal(nodeClass(f.tree, 'home-business-inline-details').length, 0)
   assert.equal(nodeClass(f.tree, 'home-business-open').length, 1)
@@ -138,11 +145,14 @@ test('non-home callers keep the original gallery overlay, distance location, ide
 test('Fast Choice CSS is homepage-scoped, keeps a vertical list and lets names, prices and actions reflow', async () => {
   const css = await readFile(new URL('../app/quick-choice-cards.css', import.meta.url), 'utf8')
   const selectors = [...css.replace(/\/\*[\s\S]*?\*\//g, '').matchAll(/([^{}]+)\{/g)].map(match => match[1].trim()).filter(value => !value.startsWith('@'))
-  for (const selector of selectors) assert.ok(selector.startsWith('.customer-home.quick-choice '), selector)
-  assert.match(css, /grid-template-columns: 92px minmax\(0,1fr\) 156px/)
+  for (const selector of selectors) assert.ok(selector.startsWith('.customer-home.quick-choice ') || selector.startsWith('html:not([data-theme="dark"]) .customer-home.quick-choice '), selector)
+  assert.match(css, /grid-template-columns: minmax\(0,520px\) 154px/)
+  assert.match(css, /justify-content: space-between/)
   assert.match(css, /@media \(max-width: 759px\)/)
   assert.match(css, /grid-template-columns: 84px minmax\(0,1fr\)/)
-  assert.match(css, /\.home-business-card > \.home-business-services \{ grid-column: 1 \/ -1/)
+  assert.match(css, /\.home-business-heading > \.home-business-photo \{ grid-column: 1; grid-row: 1;/)
+  assert.match(css, /\.home-business-card > \.home-business-services \{ grid-column: 1; grid-row: 2;/)
+  assert.match(css, /\.home-business-card > \.home-business-footer \{ grid-column: 2; grid-row: 2;/)
   assert.match(css, /flex: 1 1 min-content/)
   assert.match(css, /min-height: 44px/)
   assert.match(css, /\.home-service-name \{[^}]*overflow: visible;[^}]*word-break: normal/)

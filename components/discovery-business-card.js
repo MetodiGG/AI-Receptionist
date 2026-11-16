@@ -68,8 +68,7 @@ export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, 
   }
   return <article className="home-business-card" data-source={row.source}>
     {hasDetails && !quickChoice && <button type="button" className="home-business-open" onClick={openDetails} aria-haspopup="dialog" aria-label={`${copy.detailsLabel} · ${row.name}`}/>}
-    {visual}
-    {quickChoice ? <div className="home-business-identity">{identity}{reviews}</div> : identity}
+    {quickChoice ? <div className="home-business-heading">{visual}<div className="home-business-identity">{identity}{reviews}</div></div> : <>{visual}{identity}</>}
     {serviceList}
     {!quickChoice && reviews}
     <div className="home-business-footer">

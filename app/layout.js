@@ -24,11 +24,13 @@ import './service-name-input.css'
 import './quick-choice-home.css'
 import './quick-choice-cards.css'
 import './quick-choice-onboarding.css'
+import './dark-mode.css'
 import { PwaRegister } from '../components/pwa-register'
 import { PublicWebAnalytics } from '../components/web-analytics'
 import { SITE_ORIGIN } from '../lib/seo.mjs'
 import { BRAND_APPLE_ICON, BRAND_FAVICON_PNG } from '../lib/brand-assets.mjs'
 import { SOCIAL_PREVIEW_TITLE, socialPreviewImage } from '../lib/social-preview.mjs'
+import { THEME_BOOTSTRAP_SCRIPT } from '../lib/theme-preference.mjs'
 
 export const metadata = {
   metadataBase: new URL(SITE_ORIGIN),
@@ -55,7 +57,8 @@ export const viewport = { themeColor: '#f6f5f2' }
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="bg" data-scroll-behavior="smooth">
+    <html lang="bg" data-scroll-behavior="smooth" data-theme="light" suppressHydrationWarning>
+      <head><script id="gorez-theme" dangerouslySetInnerHTML={{ __html: THEME_BOOTSTRAP_SCRIPT }}/></head>
       <body><PwaRegister />{children}<PublicWebAnalytics enabled={process.env.VERCEL_ENV === 'production'} /></body>
     </html>
   )

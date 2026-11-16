@@ -183,7 +183,7 @@ const panelStubs = {
   'next/link': Empty, 'next/navigation': { useParams: () => ({}), useRouter: () => ({}) }, 'react-dom': { flushSync: callback => callback() },
   './brand-logo': { BrandLogo: Empty }, './guided-booking-chat': { GuidedBookingChat: Empty }, './booking-intake-fields': { BookingIntakeFields: Empty, BookingIntakeSummary: Empty },
   './booking-confirmation-actions': { BookingConfirmationActions: Empty }, '../lib/localized-api-message.mjs': { localizedApiMessage: error => error?.message || 'Booking failed' },
-  './language-switch': { LanguageSwitch: Empty }, './home-link': { HomeLink: Empty }, '../hooks/use-public-locale': { usePublicLocale: () => ({ locale: 'en' }) },
+  './language-switch': { LanguageSwitch: Empty }, './theme-toggle': { ThemeToggle: Empty }, './home-link': { HomeLink: Empty }, '../hooks/use-public-locale': { usePublicLocale: () => ({ locale: 'en' }) },
   '../lib/booking-window.mjs': bookingWindow, './monthly-booking-calendar': { MonthlyBookingCalendar: MonthStub }, '../lib/supabase': { hasSupabaseConfig: false },
   '../lib/notification-copy.mjs': { notificationNotice: () => '' }, '../lib/product-events-client': { trackProductEvent: () => {} }, '../lib/booking-details-navigation.mjs': { focusBookingDetails: () => {} },
   './business-profile': { BusinessProfileHeader: Empty, BusinessProfileInformation: Empty, BusinessServiceList: Empty }, './icon': { Icon: Empty }, './business-reviews': { BusinessReviews: Empty, useBusinessReviews: () => ({}) },

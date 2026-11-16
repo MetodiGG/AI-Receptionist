@@ -9,6 +9,7 @@ import { BrandLogo } from './brand-logo'
 import { HomeLink } from './home-link'
 import { Icon } from './icon'
 import { LanguageSwitch } from './language-switch'
+import { ThemeToggle } from './theme-toggle'
 import { usePublicLocale } from '../hooks/use-public-locale'
 import { hasSupabaseConfig,supabase } from '../lib/supabase'
 import { customerAccountRedirect,customerSignupSchema,requestCustomerSignInLink } from '../lib/customer-account.mjs'
@@ -139,7 +140,7 @@ export function CustomerAccount({ preview = null }) {
   }
 
   return <main className="customer-page">
-    <nav className="customer-nav home-navigation-header" aria-label={en?'Account navigation':'Навигация за профила'}><Link href={`/?lang=${locale}`} aria-label="GoRez"><BrandLogo className="marketing-logo" eager /></Link><div className="home-header-actions"><AdminAccessLink locale={locale}/><LanguageSwitch locale={locale} onChange={setLocale} compact />{session && <button type="button" className="customer-signout" disabled={busy} onClick={logout}><Icon name="logout" />{en?'Sign out':'Изход'}</button>}</div><HomeLink locale={locale}/></nav>
+    <nav className="customer-nav home-navigation-header" aria-label={en?'Account navigation':'Навигация за профила'}><Link href={`/?lang=${locale}`} aria-label="GoRez"><BrandLogo className="marketing-logo" eager /></Link><div className="home-header-actions"><AdminAccessLink locale={locale}/><ThemeToggle locale={locale}/><LanguageSwitch locale={locale} onChange={setLocale} compact />{session && <button type="button" className="customer-signout" disabled={busy} onClick={logout}><Icon name="logout" />{en?'Sign out':'Изход'}</button>}</div><HomeLink locale={locale}/></nav>
     {checking?<section className="customer-loading" role="status"><BrandLoading announce={false} label={en?'Loading your account…':'Зареждаме профила…'}/></section>:!session?<section className="customer-access">
       <div className="customer-access-copy"><p className="marketing-kicker">{en?'Your GoRez':'Твоят GoRez'}</p><h1>{en?'Your time.':'Твоите часове.'}<br/><em>{en?'All in one place.':'На едно място.'}</em></h1><p>{en?'Upcoming visits and booking history, with one account.':'Предстоящи посещения и история с един профил.'}</p><div className="customer-access-feature"><Icon name="calendar" /><span>{en?'Keep track of every visit':'Следи всяко посещение'}</span></div><div className="customer-access-feature"><Icon name="check" /><span>{en?'Booking without an account is still available':'Можеш да резервираш и без профил'}</span></div></div>
       <section className="access-card customer-auth"><div className="customer-auth-tabs"><button type="button" aria-pressed={mode==='login'} onClick={()=>{setMode('login');setError('');setMessage('')}}>{en?'Sign in':'Вход'}</button><button type="button" aria-pressed={mode==='signup'} onClick={()=>{setMode('signup');setError('');setMessage('')}}>{en?'Register':'Регистрация'}</button></div><h2>{mode==='login'?(en?'Welcome back':'Добре дошъл отново'):(en?'Create your client account':'Създай клиентски профил')}</h2><form onSubmit={submit} className="auth-form">

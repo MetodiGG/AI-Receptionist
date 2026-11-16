@@ -173,9 +173,13 @@ test('real service calendar actions preserve actual identifiers, full accessible
 
 test('directions retain the exact folded-map source bytes and current business destination', async () => {
   const source = await readFile(new URL('../components/icon.js', import.meta.url), 'utf8')
-  const map = source.split('\n').find(line => /^\s*map:/.test(line))
+  const maps = source.split('\n').filter(line => /^\s*map:/.test(line))
+  assert.equal(maps.length, 1, 'there is one approved folded-map artwork entry')
+  const map = maps[0]
+  // Pin the approved map entry and its complete rendered SVG, not unrelated
+  // icons in the shared collection. Both hashes match the published baseline.
   assert.equal(createHash('sha256').update(map).digest('hex'), '9019629995c7ab3928f73a2e2818464b379c0e5d2a6ec4efb2abe504933bbdba')
-  assert.equal(createHash('sha256').update(source).digest('hex'), 'ec3ade456639ebb62a5f5a856b9a9c43daf7b342e4b2fc71e3ea06cd89afed44')
+  assert.equal(createHash('sha256').update(render(Icon, { name: 'map' })).digest('hex'), '7d8ec77ccefcdfaac92f11f745e6de5eb1a33ab02bf0e960477a0a2da6938016')
   const tree = BusinessDirectionsLink({ business, locale: 'bg' })
   assert.equal(tree.type, 'a'); assert.equal(tree.props.target, '_blank'); assert.equal(tree.props.rel, 'noopener noreferrer')
   assert.equal(tree.props.href, profileData.businessDirectionsUrl(business))

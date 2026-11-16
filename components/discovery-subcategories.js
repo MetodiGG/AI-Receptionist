@@ -12,20 +12,29 @@ function SubcategoryPhoto({ src }) {
 }
 
 export function DiscoverySubcategories({ category, title, options = [], selected = '', selectedLabel = '', locale = 'bg', loading = false, onSelect }) {
-  const listId = useId(), [expanded, setExpanded] = useState(false), en = locale === 'en'
+  const listId = useId(), [expanded, setExpanded] = useState(false), [collapsedLimit, setCollapsedLimit] = useState(4), en = locale === 'en'
   useEffect(() => setExpanded(false), [category])
+  useEffect(() => {
+    // Server HTML and the first client render agree; measure only after mount.
+    if (typeof window.matchMedia !== 'function') return
+    const media = window.matchMedia('(min-width: 760px)')
+    const update = () => setCollapsedLimit(media.matches ? 6 : 4)
+    update()
+    media.addEventListener('change', update)
+    return () => media.removeEventListener('change', update)
+  }, [])
   const choices = options.filter(item => item.category === category && typeof item.id === 'string' && localPhoto(item.photo) && (!Number.isFinite(item.count) || item.count > 0))
   if (!category || (!choices.length && !selected)) return null
-  const first = choices.slice(0, 4), selectedItem = choices.find(item => item.id === selected)
+  const first = choices.slice(0, collapsedLimit), selectedItem = choices.find(item => item.id === selected)
   if (selectedItem && !first.some(item => item.id === selected)) first[first.length - 1] = selectedItem
   const visible = expanded ? choices : first
   const extra = choices.length - first.length
-  return <section className="discovery-subcategories" aria-label={en ? `${title} subcategories` : `Подкатегории · ${title}`} aria-busy={loading}>
+  return <section className="discovery-subcategories" lang={locale} aria-label={en ? `${title} subcategories` : `Подкатегории · ${title}`} aria-busy={loading}>
     <h3 className="sr-only">{title}</h3>
     {choices.length > 0 ? <ul className="discovery-subcategory-grid" id={listId}>{visible.map(item => <li key={item.id}><button type="button" className="discovery-subcategory-option" aria-pressed={selected === item.id} disabled={loading} onClick={() => onSelect(item.id)}><SubcategoryPhoto src={item.photo}/><span>{item[locale] || item.label}</span></button></li>)}</ul> : selectedLabel && <p className="discovery-subcategory-selected">{en ? 'Selected: ' : 'Избрано: '}{selectedLabel}</p>}
     <div className="discovery-subcategory-controls">
-      <button type="button" className="discovery-subcategory-all" aria-pressed={!selected} disabled={loading} onClick={() => onSelect('')}>{en ? 'All' : 'Всички'}</button>
       {extra > 0 && <button type="button" className="discovery-subcategory-more" aria-expanded={expanded} aria-controls={listId} onClick={() => setExpanded(value => !value)}>{expanded ? (en ? 'Show less' : 'По-малко') : (en ? `More (${extra})` : `Още (${extra})`)}<Icon name="chevronDown"/></button>}
+      <button type="button" className="discovery-subcategory-all" aria-pressed={!selected} disabled={loading} onClick={() => onSelect('')}>{en ? 'All' : 'Всички'}</button>
     </div>
   </section>
 }

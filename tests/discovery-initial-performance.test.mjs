@@ -48,17 +48,24 @@ const point = { latitude: 42.66, longitude: 23.28, consent: true }
 const locatedPoint = () => ({ ...point, accuracyMeters: 25, observedAt: Date.now() })
 const response = (id = 'city-row', patch = {}) => ({ results: [{ id, source: 'catalogue', name: 'Local fictional QA result' }], externalStatus: 'catalogue', intent: { cityCode: '68134' }, cataloguePage: { offset: 0, total: 1, nextOffset: null }, ...patch })
 const controls = Object.fromEntries(['Icon', 'BrandMark', 'DiscoveryRouteArt', 'BusinessCategoryIcon', 'DiscoveryHomeRail', 'DiscoveryHomeBusinesses', 'DiscoverySubcategories', 'DiscoveryFilterSheet', 'DiscoveryAutocomplete'].map(name => [name, Object.defineProperty(() => null, 'name', { value: name })]))
-function fixture(patch = {}, draft = null) {
+function fixture(patch = {}, draft = null, { manualFrames = false } = {}) {
   const requests = [], permission = [], timers = new Map(), focused = [], navigations = [], drafts = [], listeners = new Map()
   let timerId = 0, clears = 0
+  const frames = new Map(); let frameId = 0
   const imports = { react: hooks, 'next/link': () => null, 'next/navigation': { useRouter: () => ({ push: value => navigations.push(value) }) }, '../lib/business-location.mjs': locations, '../lib/discovery/categories.mjs': categories, '../lib/discovery/location-query.mjs': locationQuery, '../lib/discovery/copy.mjs': copy, '../lib/discovery/defaults.mjs': defaults, '../lib/discovery/draft.mjs': { peekDiscoveryDraft: () => draft, clearDiscoveryDraft: () => { clears++ }, setDiscoveryDraft: value => drafts.push(value) }, '../lib/discovery/search-ui.mjs': searchUi, '../lib/discovery/results-navigation.mjs': { focusDiscoveryResults: () => focused.push('focus') }, '../lib/discovery/home.mjs': home, '../lib/discovery/laboratories.mjs': labs, '../lib/discovery/catalogue-pagination.mjs': pagination }
+  imports['../lib/discovery/results-navigation.mjs'] = {
+    focusDiscoveryResults: () => { focused.push('focus'); return true },
+    focusDiscoverySubcategories: () => { focused.push('subcategories'); return true },
+    focusFirstDiscoveryBusiness: () => { focused.push('businesses'); return true },
+  }
   const module = { exports: {} }
   new Function('require', 'module', 'exports', 'fetch', 'setTimeout', 'clearTimeout', 'window', 'navigator', 'requestAnimationFrame', 'cancelAnimationFrame', code)(name => name in imports ? imports[name] : name.startsWith('./') ? controls : require(name), module, module.exports,
     (url, init) => { let resolve, reject; const promise = new Promise((yes, no) => { resolve = yes; reject = no }); requests.push({ url, init, body: JSON.parse(init.body), reject, respond(value = response(), status = 200) { resolve({ ok: status >= 200 && status < 300, json: async () => value }) } }); return promise },
-    (fn, delay) => { const id = ++timerId; timers.set(id, { fn, delay }); return id }, id => timers.delete(id), { isSecureContext: true, matchMedia: () => ({ matches: true }), addEventListener: (name, fn) => listeners.set(name, fn), removeEventListener: (name, fn) => { if (listeners.get(name) === fn) listeners.delete(name) } }, { geolocation: {} }, fn => { fn(); return 1 }, () => {})
+    (fn, delay) => { const id = ++timerId; timers.set(id, { fn, delay }); return id }, id => timers.delete(id), { isSecureContext: true, matchMedia: () => ({ matches: true }), addEventListener: (name, fn) => listeners.set(name, fn), removeEventListener: (name, fn) => { if (listeners.get(name) === fn) listeners.delete(name) } }, { geolocation: {} }, fn => { if (!manualFrames) { fn(); return 1 }; const id = ++frameId; frames.set(id, fn); return id }, id => frames.delete(id))
   const h = harness(module.exports.DiscoverySearch, { home: true, locale: 'bg', locationProvider: () => { let resolve, reject; const promise = new Promise((yes, no) => { resolve = yes; reject = no }); permission.push({ resolve, reject }); return promise }, ...patch })
   const f = {
     h, requests, permission, focused, navigations, drafts,
+    frames() { const pending = [...frames.values()]; frames.clear(); pending.forEach(callback => callback()); h.flush() },
     control: name => elements(h.tree, node => node.type === controls[name])[0],
     query: () => elements(h.tree, node => node.type === 'input' && node.props.id === 'ai-query')[0],
     location: () => elements(h.tree, node => node.type === 'button' && node.props.className?.includes('home-inline-location'))[0],
@@ -95,6 +102,76 @@ test('initial homepage starts exactly one hair city-centre browse without invoki
     assert.equal(f.query().props.disabled, false); assert.equal(f.location().props['aria-pressed'], false)
     assert.equal(f.focused.length, 0); assert.equal(f.permission.length, 0)
   } finally { f.close() }
+})
+
+test('explicit category and child choices navigate once only after their current response commits', async () => {
+  for (const locale of ['bg', 'en']) {
+    const f = fixture({ locale })
+    try {
+      await f.ready()
+      assert.deepEqual(f.focused, [])
+      f.category('hair')
+      assert.deepEqual(f.focused, [], 'never navigate to a loading shell')
+      const child = subcategoriesForCategory('hair', locale)[0]
+      f.requests[1].respond(response('hair-parent', { subcategoryOptions: [{ ...child, count: 1 }] })); await f.settle()
+      assert.deepEqual(f.focused, ['subcategories'])
+      assert.ok(f.control('DiscoverySubcategories').props.navigationRef)
+      f.h.render(); f.h.flush()
+      assert.deepEqual(f.focused, ['subcategories'], 'ordinary re-renders do not repeat scrolling')
+      f.subcategory(child.id)
+      assert.equal(f.requests[2].body.subcategory, child.id)
+      assert.deepEqual(f.focused, ['subcategories'])
+      f.requests[2].respond(response('child-first', { intent: { cityCode: '68134', subcategory: child.id } })); await f.settle()
+      assert.deepEqual(f.focused, ['subcategories', 'businesses'])
+    } finally { f.close() }
+  }
+})
+
+test('late category responses cannot navigate or overwrite a newer choice; typing cancels queued navigation', async () => {
+  const f = fixture()
+  try {
+    await f.ready()
+    f.category('nails'); f.category('fitness')
+    assert.equal(f.requests[1].init.signal.aborted, true)
+    f.requests[1].respond(response('stale-nails')); await f.settle()
+    assert.deepEqual(f.focused, [])
+    f.requests[2].respond(response('current-sport')); await f.settle()
+    assert.deepEqual(f.focused, ['subcategories'])
+    assert.equal(f.control('DiscoveryHomeBusinesses').props.result.results[0].id, 'current-sport')
+    f.category('hair'); f.edit('ново търсене')
+    f.requests[3].respond(response('hair-after-typing')); await f.settle()
+    assert.deepEqual(f.focused, ['subcategories'], 'do not steal focus while the visitor is typing')
+  } finally { f.close() }
+})
+
+test('category loading failures navigate to the actual retry error, not missing children', async () => {
+  const f = fixture()
+  try {
+    await f.ready(); f.category('nails')
+    f.requests[1].respond({ error: { code: 'SEARCH_UNAVAILABLE' } }, 503); await f.settle()
+    assert.deepEqual(f.focused, ['focus'])
+    assert.equal(f.control('DiscoveryHomeBusinesses').props.error, 'SEARCH_UNAVAILABLE')
+  } finally { f.close() }
+})
+
+test('a queued animation frame is cancelled by a newer request, typing or unmount before it can steal focus', async () => {
+  for (const action of ['new-request', 'typing', 'unmount']) {
+    const f = fixture({}, null, { manualFrames: true })
+    try {
+      await f.ready(); f.category('nails')
+      f.requests[1].respond(response('nail-result')); await f.settle()
+      assert.deepEqual(f.focused, [], 'the real next animation frame has not run yet')
+      if (action === 'new-request') f.category('fitness')
+      if (action === 'typing') f.edit('ново търсене')
+      if (action === 'unmount') f.close()
+      f.frames()
+      assert.deepEqual(f.focused, [], action)
+      if (action === 'new-request') {
+        f.requests[2].respond(response('sport-result')); await f.settle(); f.frames()
+        assert.deepEqual(f.focused, ['subcategories'])
+      }
+    } finally { f.close() }
+  }
 })
 
 test('typing a first search releases the introductory hair filter, but explicit hair choices retain it', async () => {
@@ -447,7 +524,7 @@ test('compact autocomplete uses the existing in-memory discovery draft and never
   } finally { f.close() }
 })
 
-test('photographic child choices preserve the parent browse and location, reuse parent facets and keep controls in view', async () => {
+test('photographic child choices preserve browse/location and navigate from committed children to the first result', async () => {
   const f = fixture()
   const options = subcategoriesForCategory('fitness').map(item => ({ ...item, count: 1 }))
   const intent = { cityCode: '68134', category: 'fitness' }
@@ -455,13 +532,13 @@ test('photographic child choices preserve the parent browse and location, reuse 
     await f.ready(); f.category('fitness')
     f.requests[1].respond(response('sports-parent', { intent, subcategoryOptions: options })); await f.settle()
     assert.equal(f.control('DiscoverySubcategories').props.options.length, options.length)
-    assert.equal(f.focused.length, 0, 'choosing a category does not scroll past its new children')
+    assert.deepEqual(f.focused, ['subcategories'], 'choosing a category reveals its children, not the business list')
     f.subcategory('fitness-folk-dance')
     assert.deepEqual(f.requests[2].body, { query: '', locale: 'bg', radiusKm: 2, browse: true, category: 'fitness', subcategory: 'fitness-folk-dance', cityCode: '68134' })
     assert.equal(f.control('DiscoverySubcategories').props.selected, 'fitness-folk-dance')
     assert.equal(f.control('DiscoverySubcategories').props.options.length, options.length, 'child loading does not hide the accepted parent choices')
     f.requests[2].respond(response('folk-only', { intent: { ...intent, subcategory: 'fitness-folk-dance' }, subcategoryOptions: options })); await f.settle()
-    assert.equal(f.focused.length, 0)
+    assert.deepEqual(f.focused, ['subcategories', 'businesses'])
     f.subcategory('')
     assert.equal(f.requests[3].body.subcategory, undefined)
     assert.equal(f.requests[3].body.category, 'fitness')

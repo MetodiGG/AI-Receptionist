@@ -11,7 +11,7 @@ function SubcategoryPhoto({ src }) {
   return src && failed !== src ? <img className="discovery-subcategory-photo" src={src} width={40} height={40} alt="" loading="lazy" decoding="async" onError={() => setFailed(src)}/> : <span className="discovery-subcategory-photo is-unavailable" aria-hidden="true"/>
 }
 
-export function DiscoverySubcategories({ category, title, options = [], selected = '', selectedLabel = '', locale = 'bg', loading = false, onSelect }) {
+export function DiscoverySubcategories({ category, title, options = [], selected = '', selectedLabel = '', locale = 'bg', loading = false, onSelect, navigationRef }) {
   const listId = useId(), [expanded, setExpanded] = useState(false), [collapsedLimit, setCollapsedLimit] = useState(4), en = locale === 'en'
   useEffect(() => setExpanded(false), [category])
   useEffect(() => {
@@ -29,7 +29,7 @@ export function DiscoverySubcategories({ category, title, options = [], selected
   if (selectedItem && !first.some(item => item.id === selected)) first[first.length - 1] = selectedItem
   const visible = expanded ? choices : first
   const extra = choices.length - first.length
-  return <section className="discovery-subcategories" lang={locale} aria-label={en ? `${title} subcategories` : `Подкатегории · ${title}`} aria-busy={loading}>
+  return <section className="discovery-subcategories" ref={navigationRef} tabIndex={navigationRef ? -1 : undefined} lang={locale} aria-label={en ? `${title} subcategories` : `Подкатегории · ${title}`} aria-busy={loading}>
     <h3 className="sr-only">{title}</h3>
     {choices.length > 0 ? <ul className="discovery-subcategory-grid" id={listId}>{visible.map(item => <li key={item.id}><button type="button" className="discovery-subcategory-option" aria-pressed={selected === item.id} disabled={loading} onClick={() => onSelect(item.id)}><SubcategoryPhoto src={item.photo}/><span>{item[locale] || item.label}</span></button></li>)}</ul> : selectedLabel && <p className="discovery-subcategory-selected">{en ? 'Selected: ' : 'Избрано: '}{selectedLabel}</p>}
     <div className="discovery-subcategory-controls">

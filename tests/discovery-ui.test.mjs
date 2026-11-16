@@ -192,7 +192,7 @@ test('both category controls fill the search in BG/EN, including switching a non
   assert.match(ui, /onChange=\{event => chooseCategory\(event.target.value\)\}/)
   const handler = ui.slice(ui.indexOf('function chooseCategory('), ui.indexOf('function execute('))
   assert.doesNotMatch(handler, /fetch\(|search\(|locate\(/)
-  assert.match(handler, /if \(\(home \|\| coordinates\) && selected.category\) execute\(payload\(\{ \.\.\.selected, subcategory: '' \}\), \{ navigate: false \}\)/)
+  assert.match(handler, /if \(\(home \|\| coordinates\) && selected.category\) execute\(payload\(\{ \.\.\.selected, subcategory: '' \}\), \{ navigate: home \? 'subcategories' : false \}\)/)
   assert.match(ui, /categoryBrowse: home/)
 })
 

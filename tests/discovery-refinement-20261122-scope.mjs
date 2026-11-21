@@ -12,3 +12,12 @@ export const REFINEMENT_CHANGED_FILES = new Set([
 ])
 export const REFINEMENT_NEW_MEDIA = Object.freeze(REFINED_CATEGORY_IDS.flatMap(id => ['', '-2x', '-large'].map(suffix => `public/category-photos/${id}${suffix}-v3.webp`)))
 export const refinementAllowsNewMedia = path => REFINEMENT_NEW_MEDIA.includes(path)
+
+// The owner separately requested an in-Codex responsive review wrapper. These
+// exact development-only files do not permit changes to any production source.
+export const RESPONSIVE_PREVIEW_FILES = Object.freeze([
+  'app/dev/site-preview/page.js',
+  'app/dev/site-preview/preview.js',
+  'app/dev/site-preview/preview.css',
+])
+export const responsivePreviewAllowsNewFile = path => RESPONSIVE_PREVIEW_FILES.includes(path)

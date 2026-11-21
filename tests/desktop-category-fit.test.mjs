@@ -5,7 +5,7 @@ import { createHash } from 'node:crypto'
 import { readFile, readlink } from 'node:fs/promises'
 import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
-import { REFINEMENT_CHANGED_FILES, refinementAllowsNewMedia } from './discovery-refinement-20261122-scope.mjs'
+import { REFINEMENT_CHANGED_FILES, refinementAllowsNewMedia, responsivePreviewAllowsNewFile } from './discovery-refinement-20261122-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const BASE = '4be84916a4e2699e00e73243208c88f5aab1aae7'
@@ -30,8 +30,8 @@ test('the desktop fit baseline freezes production outside the explicitly authori
   const roots = ['app', 'components', 'hooks', 'lib', 'public', 'scripts', 'supabase']
   const belongs = path => roots.some(prefix => path.startsWith(prefix + '/'))
   const expected = baseline.filter(record => belongs(record.path)).map(record => record.path).sort()
-  const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z', '--', ...roots).split('\0').filter(path => path && frozenPath(path) && !refinementAllowsNewMedia(path))
-  assert.deepEqual([...new Set(actual)].sort(), expected, 'Only the twelve explicitly named v3 category-media siblings may be new; all other production paths remain present')
+  const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z', '--', ...roots).split('\0').filter(path => path && frozenPath(path) && !refinementAllowsNewMedia(path) && !responsivePreviewAllowsNewFile(path))
+  assert.deepEqual([...new Set(actual)].sort(), expected, 'Only the twelve named v3 media siblings and three dev-only preview wrapper files may be new; every historical production path remains present')
 })
 
 const require = createRequire(import.meta.url)

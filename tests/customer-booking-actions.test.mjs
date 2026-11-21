@@ -215,6 +215,7 @@ test('actual directory CTAs retain native links, safe phone links and protected 
 })
 
 test('actual home and directory booking labels are compact in both languages without changing their real destinations', () => {
+  const vectorCalendar = renderToStaticMarkup(React.createElement(Icon, { name: 'calendar' }))
   for (const [locale, label, directions] of [['bg', 'Резервирай', 'Упътване'], ['en', 'Book', 'Directions']]) {
     for (const booking_mode of ['gorez', 'external', 'phone']) {
       const row = { ...business, source: 'gorez', category: 'beauty', industry: 'beauty', services: [], booking_mode }
@@ -223,8 +224,10 @@ test('actual home and directory booking labels are compact in both languages wit
       assert.ok(home.includes(`<span class="home-maps-label">${directions}</span>`))
       const directory = render(BusinessDirectory, { locale, data: { status: 'ready', businesses: [row] }, showFilters: false })
       assert.ok(directory.includes(`<span class="booking-button-label">${label}</span>`))
+      assert.equal(artCount(home), 0, 'quick choice uses the existing vector calendar, not raster artwork')
+      assert.equal(home.split(vectorCalendar).length - 1, 1, 'exactly one existing calendar icon accompanies the home booking label')
+      assert.equal(artCount(directory), 1, 'the default directory BookingButtonContent remains unchanged')
       for (const html of [home, directory]) {
-        assert.equal(artCount(html), 1)
         if (booking_mode === 'gorez') assert.ok(html.includes(`href="/book/${business.slug}?lang=${locale}"`))
         if (booking_mode === 'external') assert.ok(html.includes(`action="/out/business/${business.slug}?lang=${locale}" method="post"`))
         if (booking_mode === 'phone') assert.ok(html.includes('href="tel:+359888123456"'))

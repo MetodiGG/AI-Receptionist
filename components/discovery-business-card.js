@@ -35,7 +35,9 @@ export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, 
   const hasDetails = internal || row.source === 'catalogue'
   const openDetails = event => { detailsTrigger.current = event.currentTarget; setDetailsOpen(true); if (!preview) trackSearchEvent({ event: 'profile', locale }) }
   const photo = internal ? homeBusinessPhoto(row) : row.source === 'catalogue' && isCataloguePhotoSource(row.photo?.src) ? { ...row.photo, alt: { [locale]: row.photo.alt || row.name } } : null
-  const reserve = <BookingButtonContent>{copy.reserveAppointment}</BookingButtonContent>
+  const reserve = quickChoice
+    ? <span className="booking-button-content"><Icon name="calendar"/><span className="booking-button-label">{copy.reserveAppointment}</span></span>
+    : <BookingButtonContent>{copy.reserveAppointment}</BookingButtonContent>
   const directionsLabel = copy.directions
   const services = railServiceItems(row)
   const distance = <DiscoveryDistanceBadge origin={distanceOrigin} destination={row.coordinates} locale={locale} business={row}/>

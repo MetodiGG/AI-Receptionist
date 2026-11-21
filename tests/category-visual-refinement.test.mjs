@@ -105,20 +105,24 @@ test('legacy non-home subcategory controls keep localized photos and an off-pane
   }
 })
 
-test('homepage category navigation mounts the guided native photo rows, preserving legacy child controls only outside home', async () => {
-  const search = await read('components/discovery-search.js'), guide = await read('components/guided-service-discovery.js'), css = await read('app/guided-discovery.css')
-  assert.match(search, /home && !compact && <GuidedServiceDiscovery/)
+test('homepage category navigation mounts native inline photo choices and preserves legacy child controls outside home', async () => {
+  const search = await read('components/discovery-search.js'), grid = await read('components/inline-category-grid.js'), css = await read('app/inline-discovery.css')
+  assert.match(search, /home && !compact && <InlineCategoryGrid/)
+  assert.match(search, /const inlinePanelOpen = Boolean\(category\)/)
+  assert.match(search, /home && !compact && <InlineDiscoveryPanel open=\{inlinePanelOpen\}>\{inlinePanelOpen \? <DiscoverySubcategories inline/)
+  assert.match(search, /home && !compact && <InlineDiscoverySummary/)
+  assert.match(search, /!compact && <DiscoveryHomeBusinesses/)
   assert.match(search, /!compact && !home && <DiscoverySubcategories/)
   assert.doesNotMatch(search, /<DiscoveryHomeRail/)
-  assert.match(guide, /type="button" className=\{\x60guide-row/)
-  assert.match(guide, /aria-pressed=\{kind === 'choice' \? selected : undefined\}/)
-  assert.match(guide, /selected=\{category === item.id\} onClick=\{\(\) => onCategory\(item.id\)\}/)
-  assert.match(guide, /label=\{item.label\} photo=\{item.photo\}/)
-  assert.match(guide, /requestAnimationFrame/)
-  assert.match(guide, /heading.current\?\.focus\(\{ preventScroll: true \}\)/)
-  assert.match(guide, /prefers-reduced-motion: reduce/)
-  assert.match(css, /prefers-reduced-motion: reduce/)
-  assert.doesNotMatch(guide, /setInterval|cloneNode|autoPlay|name="check"|✓|✔|✅/)
+  assert.match(grid, /type="button" className="inline-category-option"/)
+  assert.match(grid, /aria-pressed=\{category === item.id\} onClick=\{\(\) => onSelect\(item.id\)\}/)
+  assert.match(grid, /<CategoryPhoto category=\{item\}/)
+  assert.match(grid, /homeCategories\(language\)\.map\(item =>/)
+  assert.match(search, /requestAnimationFrame/)
+  assert.match(search, /focusFirstDiscoveryBusiness\(resultHeading.current, reduceMotion\)/)
+  assert.match(search, /prefers-reduced-motion: reduce/)
+  assert.match(css, /prefers-reduced-motion:\s*reduce/)
+  assert.doesNotMatch(grid, /setInterval|cloneNode|autoPlay|name="check"|✓|✔|✅/)
 })
 
 test('guided initial/category/service/result states render only their active photographic selection level in BG and EN', () => {

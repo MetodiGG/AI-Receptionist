@@ -4,7 +4,7 @@ import { readFile } from 'node:fs/promises'
 import { discoveryInitialInput, discoverySearchInput } from '../lib/discovery/search-ui.mjs'
 import { discoveryRequestSchema } from '../lib/discovery/intent.mjs'
 
-test('fresh homepage leaves category choice closed and does not infer hair or request location', () => {
+test('fresh homepage leaves inline categories unselected and does not infer hair or request location', () => {
   for (const locale of ['bg', 'en']) {
     const selection = discoveryInitialInput(null, { home: true })
     assert.equal(selection, null)
@@ -27,7 +27,7 @@ test('incoming queries and intentional empty/all-category searches override the 
   assert.equal(discoveryInitialInput({ query: 'тест' }, { home: true, compact: true }), null)
 })
 
-test('introductory category releases on typing; explicit choices keep their context and results stay inline', async () => {
+test('explicit choices keep their context while the unselected homepage browses immediately and stays inline', async () => {
   const source = await readFile(new URL('../components/discovery-search.js', import.meta.url), 'utf8')
   assert.match(source, /discoveryInitialInput\(initial, \{ home, compact \}\)/)
   assert.match(source, /if \(entryCategory\) \{ setCategory\(''\); setEntryCategory\(false\) \}/)
@@ -38,8 +38,14 @@ test('introductory category releases on typing; explicit choices keep their cont
   assert.match(source, /<DiscoverySubcategories category=\{category\}/)
   assert.match(source, /<DiscoveryHomeBusinesses/)
   assert.match(source, /initialPreview=\{false\}/)
-  assert.match(source, /useState\(initial \? 'results' : 'closed'\)/)
-  assert.match(source, /<GuidedServiceDiscovery locale=\{locale\} stage=\{guideStage\}/)
+  assert.match(source, /useState\(!compact && \(home \|\| Boolean\(initial\)\)\)/)
+  assert.match(source, /if \(!initial && !home\) return/)
+  assert.match(source, /home && !compact && <InlineCategoryGrid locale=\{locale\} category=\{category\} onSelect=\{chooseInlineCategory\}/)
+  assert.match(source, /const inlinePanelOpen = Boolean\(category\)/)
+  assert.match(source, /home && !compact && <InlineDiscoveryPanel open=\{inlinePanelOpen\}>\{inlinePanelOpen \? <DiscoverySubcategories inline/)
+  assert.match(source, /home && !compact && <InlineDiscoverySummary/)
+  assert.match(source, /!compact && <DiscoveryHomeBusinesses/)
+  assert.doesNotMatch(source, /guideStage|GuidedServiceDiscovery/)
   assert.match(source, /home && !compact && !locationError \? <details className="home-location-help"/)
   assert.match(source, /<p>\{locationMessage\}<\/p>/)
 })

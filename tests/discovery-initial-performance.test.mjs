@@ -50,7 +50,7 @@ function harness(component, props) {
 const point = { latitude: 42.66, longitude: 23.28, consent: true }
 const locatedPoint = () => ({ ...point, accuracyMeters: 25, observedAt: Date.now() })
 const response = (id = 'city-row', patch = {}) => ({ results: [{ id, source: 'catalogue', name: 'Local fictional QA result' }], externalStatus: 'catalogue', intent: { cityCode: '68134' }, cataloguePage: { offset: 0, total: 1, nextOffset: null }, ...patch })
-const controls = Object.fromEntries(['Icon', 'BrandMark', 'BrandLoading', 'DiscoveryRouteArt', 'BusinessCategoryIcon', 'DiscoveryHomeRail', 'DiscoveryHomeBusinesses', 'DiscoverySubcategories', 'GuidedServiceDiscovery', 'DiscoveryFilterSheet', 'DiscoveryAutocomplete'].map(name => [name, Object.defineProperty(() => null, 'name', { value: name })]))
+const controls = Object.fromEntries(['Icon', 'BrandMark', 'BrandLoading', 'DiscoveryRouteArt', 'BusinessCategoryIcon', 'DiscoveryHomeBusinesses', 'DiscoverySubcategories', 'InlineCategoryGrid', 'InlineDiscoverySummary', 'DiscoveryFilterSheet', 'DiscoveryAutocomplete'].map(name => [name, Object.defineProperty(() => null, 'name', { value: name })]))
 function fixture(patch = {}, draft = null, { manualFrames = false, initialUrl } = {}) {
   const requests = [], permission = [], timers = new Map(), focused = [], navigations = [], drafts = [], listeners = new Map(), analytics = [], historyCalls = []
   let timerId = 0, clears = 0, notifyNavigation = () => {}
@@ -91,9 +91,10 @@ function fixture(patch = {}, draft = null, { manualFrames = false, initialUrl } 
     h, requests, permission, focused, navigations, drafts, analytics, historyCalls,
     frames() { const pending = [...frames.values()]; frames.clear(); pending.forEach(callback => callback()); h.flush() },
     control: name => elements(h.tree, node => node.type === controls[name])[0],
-    guide: () => elements(h.tree, node => node.type === controls.GuidedServiceDiscovery)[0],
-    stage(value) { f.guide().props.onStage(value); h.flush() },
-    chooseCategory(id) { f.guide().props.onCategory(id); h.flush() },
+    grid: () => f.control('InlineCategoryGrid'),
+    children: () => f.control('DiscoverySubcategories'),
+    summary: () => f.control('InlineDiscoverySummary'),
+    chooseCategory(id) { f.grid().props.onSelect(id); h.flush() },
     url: () => currentUrl.href,
     pop(href) { currentUrl = new URL(href, currentUrl); notifyNavigation(); listeners.get('popstate')?.(); h.flush() },
     restoreUrlContext(href) { currentUrl = new URL(href, currentUrl); notifyNavigation(); h.flush() },
@@ -108,18 +109,20 @@ function fixture(patch = {}, draft = null, { manualFrames = false, initialUrl } 
     edit(value) { f.query().props.onChange({ target: { value } }); h.flush() },
     toggle() { const promise = f.location().props.onClick(); h.flush(); return promise },
     submit() { elements(h.tree, node => node.type === 'form')[0].props.onSubmit({ preventDefault() {} }); h.flush() },
-    // Async/search safety fixtures explicitly choose the parent and All.
-    // The All row is actionable during parent loading; identical input is
-    // deduplicated. Stage-specific interaction tests use chooseCategory().
-    category(id) { f.chooseCategory(id); f.subcategory('') },
-    subcategory(id) { f.guide().props.onService(id); h.flush() },
+    category(id) { f.chooseCategory(id) },
+    subcategory(id) { f.children().props.onSelect(id); h.flush() },
+    clearCategory() { f.summary().props.onClearCategory(); h.flush() },
+    clearService() { f.summary().props.onClearService(); h.flush() },
     filters(values) { elements(h.tree, node => node.type === 'button' && node.props['aria-haspopup'] === 'dialog')[0].props.onClick({ currentTarget: {} }); h.flush(); f.control('DiscoveryFilterSheet').props.onApply(values); h.flush() },
     async settle() { for (let i = 0; i < 15; i++) { await Promise.resolve(); h.flush() } },
     async ready() {
-      f.entry(); if (!requests.length) { f.stage('categories'); f.category('hair') }
+      // Explicitly select a guard-test baseline before the zero-delay initial
+      // all-category browse. The real initial browse has its own tests below.
+      if (!requests.length) f.category('hair')
+      f.entry()
       assert.equal(requests.length, 1); requests[0].respond(); await f.settle()
       // Establish an explicitly chosen result as the guard-test baseline.
-      // Its successful focus is not a later action under test.
+      // Drain any queued frames before the later action under test.
       if (manualFrames) f.frames()
       focused.length = 0
     },
@@ -129,44 +132,45 @@ function fixture(patch = {}, draft = null, { manualFrames = false, initialUrl } 
   return f
 }
 
-test('a normal homepage is compact with no invented category, automatic search, location prompt or results', async () => {
+test('a fresh inline homepage immediately browses every category without an invented selection or location prompt', async () => {
   const f = fixture()
   try {
-    assert.equal(f.control('DiscoveryHomeBusinesses'), undefined)
-    assert.equal(f.guide().props.stage, 'closed')
-    assert.equal(f.guide().props.category, '')
-    assert.equal(f.guide().props.subcategory, '')
-    assert.equal(f.guide().props.loading, false)
+    assert.ok(f.control('DiscoveryHomeBusinesses'))
+    assert.equal(f.grid().props.category, '')
+    assert.equal(f.summary().props.subcategory, '')
+    assert.equal(f.control('DiscoveryHomeBusinesses').props.loading, true)
+    assert.equal(f.children(), undefined)
+    assert.equal(f.summary().props.result, null)
     f.entry()
-    assert.equal(f.requests.length, 0); assert.equal(f.permission.length, 0)
+    assert.equal(f.requests.length, 1); assert.equal(f.permission.length, 0)
+    assert.deepEqual(f.requests[0].body, { query: '', locale: 'bg', radiusKm: 2, browse: true, cityCode: '68134' })
     assert.equal(f.query().props.disabled, false); assert.equal(f.location().props['aria-pressed'], false)
     assert.equal(f.focused.length, 0); assert.equal(f.permission.length, 0)
-    f.stage('categories')
-    assert.equal(f.guide().props.stage, 'categories')
-    assert.equal(f.control('DiscoveryHomeBusinesses'), undefined)
-    assert.equal(f.requests.length, 0, 'opening choices does not execute a hidden search')
-    assert.equal(f.analytics.length, 0, 'picker navigation is not a reservation, redirect or search event')
+    assert.equal(f.analytics.length, 0, 'an unfinished browse is not recorded as a search success')
+    f.requests[0].respond(response('all-category-result')); await f.settle()
+    assert.equal(f.control('DiscoveryHomeBusinesses').props.result.results[0].id, 'all-category-result')
+    f.h.render(); f.h.flush(); f.entry()
+    assert.equal(f.requests.length, 1, 'ordinary rendering must not repeat the initial browse')
   } finally { f.close() }
 })
 
-test('category replaces the active panel immediately; choosing a child displays and focuses only its committed matches', async () => {
+test('inline category activates children without jumping; child selection focuses only its committed matching results', async () => {
   for (const locale of ['bg', 'en']) {
     const f = fixture({ locale })
     try {
-      f.entry(); f.stage('categories'); f.chooseCategory('hair')
-      assert.equal(f.guide().props.stage, 'services')
-      assert.equal(f.guide().props.category, 'hair')
-      assert.equal(f.control('DiscoveryHomeBusinesses'), undefined, 'parent results stay out of the service selection panel')
+      f.chooseCategory('hair'); f.entry()
+      assert.equal(f.grid().props.category, 'hair')
+      assert.ok(f.control('DiscoveryHomeBusinesses'), 'results remain mounted under the inline choices')
+      assert.equal(f.children().props.inline, true)
       assert.deepEqual(f.focused, [])
       const child = subcategoriesForCategory('hair', locale)[0]
       f.requests[0].respond(response('hair-parent', { subcategoryOptions: [{ ...child, count: 1 }] })); await f.settle()
-      assert.deepEqual(f.focused, [], 'the active picker owns its heading focus, not a background result shell')
-      assert.ok(f.guide().props.navigationRef)
-      assert.deepEqual(f.guide().props.options, [{ ...child, count: 1 }])
+      assert.deepEqual(f.focused, [], 'a category selection does not jump down the page')
+      assert.ok(f.children().props.navigationRef)
+      assert.deepEqual(f.children().props.options, [{ ...child, count: 1 }])
       f.h.render(); f.h.flush()
       assert.deepEqual(f.focused, [], 'ordinary re-renders do not scroll to background businesses')
       f.subcategory(child.id)
-      assert.equal(f.guide().props.stage, 'results')
       assert.equal(f.requests[1].body.subcategory, child.id)
       assert.deepEqual(f.focused, [])
       f.requests[1].respond(response('child-first', { intent: { cityCode: '68134', subcategory: child.id } })); await f.settle()
@@ -185,23 +189,23 @@ test('late category responses cannot navigate or overwrite a newer choice; typin
     f.requests[1].respond(response('stale-nails')); await f.settle()
     assert.deepEqual(f.focused, [])
     f.requests[2].respond(response('current-sport')); await f.settle()
-    assert.deepEqual(f.focused, ['businesses'])
+    assert.deepEqual(f.focused, [], 'inline category updates never jump past their child choices')
     assert.equal(f.control('DiscoveryHomeBusinesses').props.result.results[0].id, 'current-sport')
     f.category('hair'); f.edit('ново търсене')
     f.requests[3].respond(response('hair-after-typing')); await f.settle()
-    assert.deepEqual(f.focused, ['businesses'], 'do not steal focus while the visitor is typing')
+    assert.deepEqual(f.focused, [], 'do not steal focus while the visitor is typing')
   } finally { f.close() }
 })
 
-test('category loading failures remain in the active service panel with retry feedback, not fabricated empty results', async () => {
+test('category loading failures keep inline choices and truthful retry feedback, not fabricated empty results', async () => {
   const f = fixture()
   try {
     await f.ready(); f.chooseCategory('nails')
     f.requests[1].respond({ error: { code: 'SEARCH_UNAVAILABLE' } }, 503); await f.settle()
     assert.deepEqual(f.focused, [])
-    assert.equal(f.guide().props.stage, 'services')
-    assert.equal(f.guide().props.error, 'SEARCH_UNAVAILABLE')
-    assert.equal(f.control('DiscoveryHomeBusinesses'), undefined)
+    assert.equal(f.control('DiscoveryHomeBusinesses').props.error, 'SEARCH_UNAVAILABLE')
+    assert.ok(f.children())
+    assert.equal(f.control('DiscoveryHomeBusinesses').props.result, null)
   } finally { f.close() }
 })
 
@@ -209,8 +213,8 @@ test('a queued animation frame is cancelled by a newer request, typing or unmoun
   for (const action of ['new-request', 'typing', 'unmount']) {
     const f = fixture({}, null, { manualFrames: true })
     try {
-      await f.ready(); f.category('nails')
-      f.requests[1].respond(response('nail-result')); await f.settle()
+      await f.ready(); f.category('nails'); f.subcategory(subcategoriesForCategory('nails')[0].id)
+      f.requests[2].respond(response('nail-result', { intent: { cityCode: '68134', subcategory: subcategoriesForCategory('nails')[0].id } })); await f.settle()
       assert.deepEqual(f.focused, [], 'the real next animation frame has not run yet')
       if (action === 'new-request') f.category('fitness')
       if (action === 'typing') f.edit('ново търсене')
@@ -218,7 +222,8 @@ test('a queued animation frame is cancelled by a newer request, typing or unmoun
       f.frames()
       assert.deepEqual(f.focused, [], action)
       if (action === 'new-request') {
-        f.requests[2].respond(response('sport-result')); await f.settle(); f.frames()
+        f.subcategory(subcategoriesForCategory('fitness')[0].id)
+        f.requests[4].respond(response('sport-result', { intent: { cityCode: '68134', subcategory: subcategoriesForCategory('fitness')[0].id } })); await f.settle(); f.frames()
         assert.deepEqual(f.focused, ['businesses'])
       }
     } finally { f.close() }
@@ -237,25 +242,25 @@ test('direct typing has no hidden introductory filter, but explicit category cho
       f.edit('боядисване'); f.submit()
       assert.equal(f.requests.at(-1).body.category, explicit ? 'hair' : undefined)
       assert.equal(f.requests.at(-1).body.query, 'боядисване')
-      assert.equal(f.guide().props.category, explicit ? 'hair' : '')
+      assert.equal(f.grid().props.category, explicit ? 'hair' : '')
     } finally { f.close() }
   }
 })
 
-test('category facets replace the previous context while only the service-selection panel is expanded', async () => {
+test('inline facets replace the previous category context and ignore non-positive or other-parent choices', async () => {
   const f = fixture()
   try {
-    f.entry(); f.stage('categories'); f.chooseCategory('hair')
+    f.chooseCategory('hair'); f.entry()
     const children = subcategoriesForCategory('hair').slice(0, 4).map(child => ({ ...child, count: 1 }))
-    f.requests[0].respond(response('hair-business', { subcategoryOptions: children })); await f.settle()
-    assert.deepEqual(f.guide().props.options, children)
-    assert.equal(f.control('DiscoveryHomeBusinesses'), undefined)
-    assert.equal(f.guide().props.stage, 'services')
+    const other = { ...subcategoriesForCategory('nails')[0], count: 4 }
+    f.requests[0].respond(response('hair-business', { subcategoryOptions: [...children, other, { ...children[0], count: 0 }] })); await f.settle()
+    assert.deepEqual(f.children().props.options, children)
+    assert.ok(f.control('DiscoveryHomeBusinesses'))
     assert.equal(f.focused.length, 0)
     f.chooseCategory('fitness')
     assert.equal(f.requests[1].body.category, 'fitness')
-    assert.equal(f.guide().props.category, 'fitness')
-    assert.deepEqual(f.guide().props.options, [])
+    assert.equal(f.grid().props.category, 'fitness')
+    assert.deepEqual(f.children().props.options, [])
   } finally { f.close() }
 })
 
@@ -266,6 +271,20 @@ test('an explicitly retained in-memory consented point starts nearby browse imme
     assert.deepEqual(f.requests[0].body.coordinates, point)
     assert.equal(f.requests[0].body.cityCode, undefined); assert.equal(f.requests[0].body.neighborhood, undefined)
     assert.equal(f.location().props['aria-pressed'], true); assert.equal(f.clears(), 1)
+  } finally { f.close() }
+})
+
+test('initial inline URL browsing reuses a fresh consented point without widening its radius or prompting again', () => {
+  const f = fixture({}, { request: { query: '', coordinates: locatedPoint(), radiusKm: 3 } }, { initialUrl: '/?category=fitness&radius=3&discover=closed' })
+  try {
+    f.entry()
+    assert.equal(f.requests.length, 1)
+    assert.deepEqual(f.requests[0].body.coordinates, point)
+    assert.equal(f.requests[0].body.radiusKm, 3)
+    assert.equal(f.requests[0].body.expandNearby, undefined)
+    assert.equal(f.requests[0].body.category, 'fitness')
+    assert.equal(f.permission.length, 0)
+    assert.doesNotMatch(f.url(), /latitude|longitude|coordinates|42\.66|23\.28/u)
   } finally { f.close() }
 })
 
@@ -443,7 +462,7 @@ test('editing a new city cannot relabel accepted city-centre distances, includin
   for (const intent of [{ cityCode: '68134' }, {}]) {
     const f = fixture()
     try {
-      f.entry(); f.stage('categories'); f.category('hair'); f.requests[0].respond(response('accepted-sofia', { intent })); await f.settle()
+      f.category('hair'); f.entry(); f.requests[0].respond(response('accepted-sofia', { intent })); await f.settle()
       f.edit('маникюр в Пловдив'); f.settleQuery()
       const rendered = f.control('DiscoveryHomeBusinesses').props
       assert.equal(f.query().props.value, 'маникюр в Пловдив')
@@ -476,10 +495,10 @@ test('superseded success/error/finally paths cannot replace a newer request or d
 test('an identical in-flight request stays deduplicated while a different context can supersede it', async () => {
   const f = fixture()
   try {
-    await f.ready(); f.category('hair'); f.category('hair')
+    await f.ready(); f.category('nails'); f.clearService()
     assert.equal(f.requests.length, 2)
     assert.equal(f.requests[1].init.signal.aborted, false)
-    f.category('nails')
+    f.category('fitness')
     assert.equal(f.requests.length, 3)
     assert.equal(f.requests[1].init.signal.aborted, true)
     f.requests[2].respond(response('current-nails')); await f.settle()
@@ -490,7 +509,7 @@ test('an identical in-flight request stays deduplicated while a different contex
 test('a late city page cannot append cards after the accepted device-origin request', async () => {
   const f = fixture()
   try {
-    f.entry(); f.stage('categories'); f.category('hair'); f.requests[0].respond(response('city-first', { cataloguePage: { offset: 0, total: 2, nextOffset: 1 } })); await f.settle()
+    f.category('hair'); f.entry(); f.requests[0].respond(response('city-first', { cataloguePage: { offset: 0, total: 2, nextOffset: 1 } })); await f.settle()
     const page = f.control('DiscoveryHomeBusinesses').props.onLoadMore(); f.h.flush()
     const pending = f.toggle(); f.permission[0].resolve(locatedPoint()); await pending; await f.settle()
     f.requests[2].respond(response('nearby-only', { intent: { coordinates: point } })); await f.settle()
@@ -584,14 +603,13 @@ test('photographic child choices preserve browse/location and navigate from comm
   try {
     await f.ready(); f.chooseCategory('fitness')
     f.requests[1].respond(response('sports-parent', { intent, subcategoryOptions: options })); await f.settle()
-    assert.equal(f.guide().props.options.length, options.length)
+    assert.equal(f.children().props.options.length, options.length)
     assert.deepEqual(f.focused, [], 'choosing a category reveals its children, not the business list')
-    assert.equal(f.guide().props.stage, 'services')
-    assert.equal(f.control('DiscoveryHomeBusinesses'), undefined)
+    assert.ok(f.control('DiscoveryHomeBusinesses'))
     f.subcategory('fitness-folk-dance')
     assert.deepEqual(f.requests[2].body, { query: '', locale: 'bg', radiusKm: 2, browse: true, category: 'fitness', subcategory: 'fitness-folk-dance', cityCode: '68134' })
-    assert.equal(f.guide().props.subcategory, 'fitness-folk-dance')
-    assert.equal(f.guide().props.options.length, options.length, 'child loading does not hide the accepted parent choices')
+    assert.equal(f.summary().props.subcategory, 'fitness-folk-dance')
+    assert.equal(f.children().props.options.length, options.length, 'child loading does not hide the accepted parent choices')
     f.requests[2].respond(response('folk-only', { intent: { ...intent, subcategory: 'fitness-folk-dance' }, subcategoryOptions: options })); await f.settle()
     assert.deepEqual(f.focused, ['businesses'])
     f.subcategory('')
@@ -612,10 +630,10 @@ test('child filters survive a same-parent location change, but typed text and a 
     assert.equal(f.requests.at(-1).body.neighborhood, 'Център')
     assert.equal(f.requests.at(-1).body.radiusKm, 5)
     f.edit('народни танци')
-    assert.equal(f.guide().props.subcategory, '')
-    assert.deepEqual(f.guide().props.options, [])
+    assert.equal(f.summary().props.subcategory, '')
+    assert.deepEqual(f.children().props.options, [])
     f.subcategory('fitness-yoga'); f.category('nails')
-    assert.equal(f.guide().props.subcategory, '')
+    assert.equal(f.summary().props.subcategory, '')
     assert.equal(f.requests.at(-1).body.subcategory, undefined)
     assert.equal(f.requests.at(-1).body.category, 'nails')
     assert.equal(f.requests.at(-1).body.cityCode, '56784')
@@ -635,34 +653,32 @@ test('late or mismatched child responses cannot overwrite the current parent fac
     f.requests[3].respond(response('current-nails', { intent: { cityCode: '68134', category: 'nails' }, subcategoryOptions: nails })); await f.settle()
     f.requests[1].respond(response('late-sports', { intent: { cityCode: '68134', category: 'fitness' }, subcategoryOptions: sports })); await f.settle()
     assert.equal(f.control('DiscoveryHomeBusinesses').props.result.results[0].id, 'current-nails')
-    assert.ok(f.guide().props.options.every(item => item.category === 'nails'))
+    assert.ok(f.children().props.options.every(item => item.category === 'nails'))
   } finally { f.close() }
 })
 
-test('a direct search from the compact initial homepage remains usable without completing any guided step', async () => {
+test('a direct typed search supersedes the automatic all-category browse without choosing a category', async () => {
   const f = fixture()
   try {
     f.entry(); f.edit('педикюр в Борово'); f.submit()
-    assert.equal(f.guide().props.stage, 'results')
-    assert.equal(f.guide().props.category, '')
-    assert.equal(f.requests.length, 1)
-    assert.equal(f.requests[0].body.query, 'педикюр в Борово')
-    assert.equal(f.requests[0].body.category, undefined)
+    assert.equal(f.grid().props.category, '')
+    assert.equal(f.requests.length, 2)
+    assert.equal(f.requests[0].init.signal.aborted, true)
+    assert.equal(f.requests[1].body.query, 'педикюр в Борово')
+    assert.equal(f.requests[1].body.category, undefined)
     assert.equal(f.permission.length, 0)
-    f.requests[0].respond(response('direct-service')); await f.settle()
+    f.requests[1].respond(response('direct-service')); await f.settle()
     assert.equal(f.control('DiscoveryHomeBusinesses').props.result.results[0].id, 'direct-service')
     assert.equal(f.query().props.value, 'педикюр в Борово')
   } finally { f.close() }
 })
 
-test('All services during parent loading reuses one request but retains the deliberate results focus', async () => {
+test('clearing a service during parent loading reuses the identical request and retains deliberate result focus', async () => {
   const f = fixture()
   try {
-    f.entry(); f.stage('categories'); f.chooseCategory('nails')
-    assert.equal(f.guide().props.stage, 'services')
-    f.subcategory('')
+    f.chooseCategory('nails'); f.entry()
+    f.clearService()
     assert.equal(f.requests.length, 1, 'the identical parent/All request is deduplicated')
-    assert.equal(f.guide().props.stage, 'results')
     assert.equal(f.control('DiscoveryHomeBusinesses').props.loading, true)
     assert.deepEqual(f.focused, [])
     f.requests[0].respond(response('all-nails')); await f.settle()
@@ -671,22 +687,25 @@ test('All services during parent loading reuses one request but retains the deli
   } finally { f.close() }
 })
 
-test('closing the picker cancels its pending result and a late success cannot reopen it or move focus', async () => {
+test('clearing the category cancels its pending result and late success cannot restore obsolete filters or move focus', async () => {
   const f = fixture({}, null, { manualFrames: true })
   try {
-    f.entry(); f.stage('categories'); f.chooseCategory('nails')
+    f.chooseCategory('nails'); f.entry()
     assert.equal(f.requests.length, 1)
-    f.stage('closed')
+    f.clearCategory()
     assert.equal(f.requests[0].init.signal.aborted, true)
     f.requests[0].respond(response('obsolete-parent')); await f.settle(); f.frames()
-    assert.equal(f.guide().props.stage, 'closed')
-    assert.equal(f.guide().props.loading, false)
-    assert.equal(f.control('DiscoveryHomeBusinesses'), undefined)
+    assert.equal(f.grid().props.category, '')
+    assert.equal(f.children(), undefined)
+    assert.equal(f.control('DiscoveryHomeBusinesses').props.loading, true)
+    assert.equal(f.control('DiscoveryHomeBusinesses').props.result, null)
     assert.deepEqual(f.focused, [])
-    assert.equal(f.analytics.length, 0, 'a cancelled picker fetch is not recorded as a successful search/booking')
-    f.stage('categories')
-    assert.equal(f.guide().props.stage, 'categories')
-    assert.equal(f.requests.length, 1, 'reopening category choices makes no additional request')
+    assert.equal(f.analytics.length, 0, 'a cancelled category fetch is not recorded as a successful search/booking')
+    assert.equal(f.requests.length, 2)
+    assert.equal(f.requests[1].body.category, undefined)
+    f.requests[1].respond(response('all-category-current')); await f.settle(); f.frames()
+    assert.equal(f.control('DiscoveryHomeBusinesses').props.result.results[0].id, 'all-category-current')
+    assert.deepEqual(f.focused, ['businesses'])
   } finally { f.close() }
 })
 
@@ -694,9 +713,8 @@ test('a valid category/child direct URL restores the actual locale, area and rad
   const f = fixture({ locale: 'en' }, null, { initialUrl: '/?lang=en&case=portrait&category=fitness&subcategory=fitness-folk-dance&city=56784&neighborhood=Тракия&radius=5' })
   try {
     f.entry()
-    assert.equal(f.guide().props.stage, 'results')
-    assert.equal(f.guide().props.category, 'fitness')
-    assert.equal(f.guide().props.subcategory, 'fitness-folk-dance')
+    assert.equal(f.grid().props.category, 'fitness')
+    assert.equal(f.summary().props.subcategory, 'fitness-folk-dance')
     assert.deepEqual(f.requests[0].body, { query: '', locale: 'en', radiusKm: 5, browse: true, category: 'fitness', subcategory: 'fitness-folk-dance', cityCode: '56784', neighborhood: 'Тракия' })
     assert.equal(f.permission.length, 0)
     assert.equal(f.historyCalls.length, 0, 'restoration does not push a duplicate history entry')
@@ -711,114 +729,109 @@ test('changing categories clears incompatible child state and returning to the s
   const sports = subcategoriesForCategory('fitness').map(item => ({ ...item, count: 1 }))
   const nails = subcategoriesForCategory('nails').map(item => ({ ...item, count: 1 }))
   try {
-    f.entry(); f.stage('categories'); f.chooseCategory('fitness')
+    f.chooseCategory('fitness'); f.entry()
     f.requests[0].respond(response('sports-parent', { subcategoryOptions: sports })); await f.settle()
     f.subcategory('fitness-yoga')
     f.requests[1].respond(response('yoga', { intent: { cityCode: '68134', category: 'fitness', subcategory: 'fitness-yoga' }, subcategoryOptions: sports })); await f.settle()
-    f.stage('categories'); f.chooseCategory('nails')
-    assert.equal(f.guide().props.subcategory, '')
+    f.chooseCategory('nails')
+    assert.equal(f.summary().props.subcategory, '')
     assert.equal(f.requests[2].body.subcategory, undefined)
-    assert.deepEqual(f.guide().props.options, [], 'old sports facets cannot appear under nails')
+    assert.deepEqual(f.children().props.options, [], 'old sports facets cannot appear under nails')
     f.requests[2].respond(response('nails-parent', { subcategoryOptions: nails })); await f.settle()
-    f.stage('categories'); f.chooseCategory('fitness')
-    assert.equal(f.guide().props.stage, 'services')
-    assert.equal(f.guide().props.subcategory, 'fitness-yoga')
-    assert.equal(f.requests[3].body.subcategory, undefined, 'facet refresh is still for the full parent scope')
+    f.chooseCategory('fitness')
+    assert.equal(f.summary().props.subcategory, 'fitness-yoga')
+    assert.equal(f.requests[3].body.subcategory, 'fitness-yoga', 'restored child state and the actual result request must agree')
     assert.equal(new URL(f.url()).searchParams.get('subcategory'), 'fitness-yoga')
-    f.requests[3].respond(response('fresh-sports', { subcategoryOptions: sports })); await f.settle()
-    assert.ok(f.guide().props.options.every(item => item.category === 'fitness'))
+    f.requests[3].respond(response('fresh-sports', { intent: { cityCode: '68134', subcategory: 'fitness-yoga' }, subcategoryOptions: sports })); await f.settle()
+    assert.ok(f.children().props.options.every(item => item.category === 'fitness'))
   } finally { f.close() }
 })
 
-test('browser Back and Forward restore each active step and abort superseded results without adding new history', async () => {
+test('browser Back and Forward restore category and child filters and abort superseded results without adding new history', async () => {
   const f = fixture()
   const options = subcategoriesForCategory('fitness').map(item => ({ ...item, count: 1 }))
   try {
-    f.entry(); f.stage('categories'); f.chooseCategory('fitness')
+    f.chooseCategory('fitness'); f.entry()
     f.requests[0].respond(response('parent', { subcategoryOptions: options })); await f.settle()
     f.subcategory('fitness-yoga')
     f.requests[1].respond(response('yoga', { intent: { cityCode: '68134', subcategory: 'fitness-yoga' }, subcategoryOptions: options })); await f.settle()
     const pushes = f.historyCalls.length
     f.back()
-    assert.equal(f.guide().props.stage, 'services')
-    assert.equal(f.guide().props.category, 'fitness')
-    assert.equal(f.guide().props.subcategory, '')
+    assert.equal(f.grid().props.category, 'fitness')
+    assert.equal(f.summary().props.subcategory, '')
     assert.equal(f.requests[2].body.subcategory, undefined)
     f.back()
-    assert.equal(f.guide().props.stage, 'categories')
-    assert.equal(f.guide().props.category, '')
+    assert.equal(f.grid().props.category, '')
     assert.equal(f.requests[2].init.signal.aborted, true)
     f.requests[2].respond(response('obsolete-parent')); await f.settle()
-    assert.equal(f.control('DiscoveryHomeBusinesses'), undefined)
-    f.back()
-    assert.equal(f.guide().props.stage, 'closed')
+    assert.ok(f.control('DiscoveryHomeBusinesses'))
+    assert.equal(f.control('DiscoveryHomeBusinesses').props.result, null)
+    assert.equal(f.requests.at(-1).body.category, undefined)
     f.forward()
-    assert.equal(f.guide().props.stage, 'categories')
+    assert.equal(f.grid().props.category, 'fitness')
+    assert.equal(f.summary().props.subcategory, '')
     f.forward()
-    assert.equal(f.guide().props.stage, 'services')
-    f.forward()
-    assert.equal(f.guide().props.stage, 'results')
-    assert.equal(f.guide().props.subcategory, 'fitness-yoga')
+    assert.equal(f.summary().props.subcategory, 'fitness-yoga')
     assert.equal(f.requests.at(-1).body.subcategory, 'fitness-yoga')
     assert.equal(f.historyCalls.length, pushes)
     assert.equal(f.permission.length, 0)
   } finally { f.close() }
 })
 
-test('Next URL-context restoration changes the active step without depending on a component popstate listener', async () => {
+test('Next URL-context restoration changes filters without depending on a component popstate listener', async () => {
   const f = fixture()
   const options = subcategoriesForCategory('fitness').map(item => ({ ...item, count: 1 }))
   try {
-    f.entry(); f.stage('categories'); f.chooseCategory('fitness')
+    f.chooseCategory('fitness'); f.entry()
     assert.equal(f.requests.length, 1, 'the local history write does not duplicate the parent fetch')
-    const servicesUrl = f.url()
+    const parentUrl = f.url()
     f.requests[0].respond(response('parent', { subcategoryOptions: options })); await f.settle()
     f.subcategory('fitness-yoga')
     assert.equal(f.requests.length, 2, 'the local results URL does not refetch its own action')
     const pushes = f.historyCalls.length
-    f.restoreUrlContext(servicesUrl)
-    assert.equal(f.guide().props.stage, 'services')
-    assert.equal(f.guide().props.category, 'fitness')
-    assert.equal(f.guide().props.subcategory, '')
+    f.restoreUrlContext(parentUrl)
+    assert.equal(f.grid().props.category, 'fitness')
+    assert.equal(f.summary().props.subcategory, '')
     assert.equal(f.requests[1].init.signal.aborted, true)
     assert.equal(f.requests.length, 3)
     assert.equal(f.requests[2].body.category, 'fitness')
     assert.equal(f.requests[2].body.subcategory, undefined)
     f.requests[1].respond(response('late-yoga')); await f.settle()
-    assert.equal(f.guide().props.stage, 'services')
-    assert.equal(f.control('DiscoveryHomeBusinesses'), undefined)
+    assert.equal(f.summary().props.subcategory, '')
+    assert.equal(f.control('DiscoveryHomeBusinesses').props.result, null)
     f.restoreUrlContext('/?lang=bg')
-    assert.equal(f.guide().props.stage, 'closed')
+    assert.equal(f.grid().props.category, '')
+    assert.equal(f.children(), undefined)
     assert.equal(f.requests[2].init.signal.aborted, true)
     assert.equal(f.historyCalls.length, pushes)
     assert.equal(f.permission.length, 0)
   } finally { f.close() }
 })
 
-test('unrelated Next URL context changes preserve unsubmitted search text and current guide state', () => {
+test('unrelated Next URL context and obsolete disclosure stages preserve unsubmitted text and current filters', () => {
   const f = fixture()
   try {
     f.entry(); f.edit('урок по пиано')
     f.restoreUrlContext('/?lang=en&case=long-label')
     assert.equal(f.query().props.value, 'урок по пиано')
-    assert.equal(f.guide().props.stage, 'closed')
-    assert.equal(f.requests.length, 0)
-    f.stage('categories'); f.edit('урок по цигулка')
+    assert.equal(f.grid().props.category, '')
+    assert.equal(f.requests.length, 1)
+    f.edit('урок по цигулка')
     const changedLocale = new URL(f.url())
-    changedLocale.searchParams.set('lang', 'bg'); changedLocale.searchParams.set('case', 'another')
+    changedLocale.searchParams.set('lang', 'bg'); changedLocale.searchParams.set('case', 'another'); changedLocale.searchParams.set('discover', 'services')
     f.restoreUrlContext(changedLocale.href)
     assert.equal(f.query().props.value, 'урок по цигулка')
-    assert.equal(f.guide().props.stage, 'categories')
-    assert.equal(f.requests.length, 0)
+    assert.equal(f.grid().props.category, '')
+    assert.equal(f.requests.length, 1)
   } finally { f.close() }
 })
 
-test('guided selections keep the visible typed query as a real constraint and never expand the selected nearby radius', async () => {
+test('inline selections keep visible typed text as a real constraint and never expand the selected nearby radius', async () => {
   const f = fixture({}, { request: { query: 'индивидуален урок', coordinates: locatedPoint(), radiusKm: 2 } })
   try {
     f.entry()
     f.requests[0].respond(response('initial-nearby', { intent: { coordinates: point } })); await f.settle()
-    f.stage('categories'); f.chooseCategory('education')
+    f.chooseCategory('education')
     assert.equal(f.query().props.value, 'индивидуален урок')
     assert.equal(f.requests[1].body.query, 'индивидуален урок')
     assert.equal(f.requests[1].body.category, 'education')
@@ -856,8 +869,196 @@ test('autocomplete navigation records its newly selected area rather than the pr
     assert.equal(current.cityWasChosen, true)
     assert.equal(current.query, 'Маникюр')
     assert.equal(current.category, '')
-    assert.equal(f.requests[0].body.cityCode, current.cityCode)
-    assert.equal(f.requests[0].body.neighborhood, current.neighborhood)
+    assert.equal(f.requests.at(-1).body.cityCode, current.cityCode)
+    assert.equal(f.requests.at(-1).body.neighborhood, current.neighborhood)
     assert.equal(f.permission.length, 0)
+  } finally { f.close() }
+})
+
+test('inline components stay in category, active children, summary, results order with no disclosure gate', () => {
+  const f = fixture()
+  const participating = new Map(['InlineCategoryGrid', 'DiscoverySubcategories', 'InlineDiscoverySummary', 'DiscoveryHomeBusinesses'].map(name => [controls[name], name]))
+  const order = () => elements(f.h.tree, node => participating.has(node.type)).map(node => participating.get(node.type))
+  try {
+    assert.deepEqual(order(), ['InlineCategoryGrid', 'InlineDiscoverySummary', 'DiscoveryHomeBusinesses'])
+    f.chooseCategory('fitness')
+    assert.deepEqual(order(), ['InlineCategoryGrid', 'DiscoverySubcategories', 'InlineDiscoverySummary', 'DiscoveryHomeBusinesses'])
+    assert.equal(f.children().props.inline, true)
+    assert.equal(f.children().props.onClearCategory, f.summary().props.onClearCategory)
+    f.clearCategory()
+    assert.deepEqual(order(), ['InlineCategoryGrid', 'InlineDiscoverySummary', 'DiscoveryHomeBusinesses'])
+  } finally { f.close() }
+})
+
+test('category tile toggles stay in place while removing a focused chip transfers focus only to committed results', async () => {
+  const f = fixture({}, null, { manualFrames: true })
+  try {
+    f.chooseCategory('fitness'); f.entry()
+    f.requests[0].respond(response('fitness')); await f.settle(); f.frames()
+    assert.deepEqual(f.focused, [])
+    f.chooseCategory('fitness')
+    f.requests[1].respond(response('tile-cleared')); await f.settle(); f.frames()
+    assert.equal(f.grid().props.category, '')
+    assert.deepEqual(f.focused, [], 'the still-mounted category tile retains its focus')
+    f.chooseCategory('nails')
+    f.requests[2].respond(response('nails')); await f.settle(); f.frames()
+    f.clearCategory()
+    assert.equal(f.grid().props.category, '')
+    assert.equal(f.children(), undefined)
+    assert.equal(f.control('DiscoveryHomeBusinesses').props.loading, true)
+    assert.deepEqual(f.focused, [], 'do not focus a loading shell after the chip disappears')
+    f.requests[3].respond(response('chip-cleared')); await f.settle()
+    assert.deepEqual(f.focused, [], 'wait for the actual committed animation frame')
+    f.frames()
+    assert.deepEqual(f.focused, ['businesses'])
+  } finally { f.close() }
+})
+
+test('repeating an inline category clears both levels while preserving typed query, city, quarter and radius', async () => {
+  const f = fixture({}, {
+    request: { query: 'йога за начинаещи', category: 'fitness', subcategory: 'fitness-yoga', cityCode: '56784', neighborhood: 'Тракия', radiusKm: 5 },
+    cityWasChosen: true,
+  })
+  try {
+    f.entry()
+    f.requests[0].respond(response('initial-yoga', { intent: { cityCode: '56784', subcategory: 'fitness-yoga' } })); await f.settle()
+    f.chooseCategory('fitness')
+    assert.equal(f.grid().props.category, '')
+    assert.equal(f.summary().props.subcategory, '')
+    assert.equal(f.children(), undefined)
+    assert.deepEqual(f.requests.at(-1).body, { query: 'йога за начинаещи', locale: 'bg', radiusKm: 5, cityCode: '56784', neighborhood: 'Тракия' })
+    assert.equal(f.query().props.value, 'йога за начинаещи')
+    const cleared = guidedNavigation.readGuidedNavigation(new URL(f.url()).search)
+    assert.equal(cleared.category, '')
+    assert.equal(cleared.subcategory, '')
+    assert.equal(cleared.stage, 'results')
+    f.chooseCategory('fitness')
+    assert.equal(f.summary().props.subcategory, 'fitness-yoga')
+    assert.equal(f.requests.at(-1).body.subcategory, 'fitness-yoga')
+    assert.equal(f.requests.at(-1).body.query, 'йога за начинаещи')
+    assert.equal(f.requests.at(-1).body.cityCode, '56784')
+    assert.equal(f.requests.at(-1).body.neighborhood, 'Тракия')
+    assert.equal(f.requests.at(-1).body.radiusKm, 5)
+    assert.equal(f.permission.length, 0)
+  } finally { f.close() }
+})
+
+test('removing only a service keeps its parent and geography, and does not later resurrect the cleared child', async () => {
+  const f = fixture({}, {
+    request: { query: '', category: 'fitness', subcategory: 'fitness-yoga', cityCode: '56784', neighborhood: 'Тракия', radiusKm: 3 },
+    cityWasChosen: true,
+  })
+  try {
+    f.entry()
+    f.clearService()
+    assert.equal(f.grid().props.category, 'fitness')
+    assert.equal(f.summary().props.subcategory, '')
+    assert.deepEqual(f.requests.at(-1).body, { query: '', locale: 'bg', radiusKm: 3, browse: true, category: 'fitness', cityCode: '56784', neighborhood: 'Тракия' })
+    f.chooseCategory('nails'); f.chooseCategory('fitness')
+    assert.equal(f.summary().props.subcategory, '')
+    assert.equal(f.requests.at(-1).body.subcategory, undefined)
+    assert.equal(f.requests.at(-1).body.category, 'fitness')
+    const count = f.requests.length, historyCount = f.historyCalls.length
+    f.subcategory(subcategoriesForCategory('nails')[0].id)
+    assert.equal(f.requests.length, count, 'a stale other-parent child must not become an inline filter')
+    assert.equal(f.historyCalls.length, historyCount)
+    f.children().props.onClearCategory(); f.h.flush()
+    assert.equal(f.grid().props.category, '')
+    assert.equal(f.summary().props.subcategory, '')
+  } finally { f.close() }
+})
+
+test('Forward restoration of a cleared service also clears category memory from the preceding Back snapshot', () => {
+  const f = fixture()
+  try {
+    f.chooseCategory('fitness'); f.entry(); f.subcategory('fitness-yoga'); f.clearService()
+    f.back()
+    assert.equal(f.summary().props.subcategory, 'fitness-yoga')
+    f.forward()
+    assert.equal(f.summary().props.subcategory, '')
+    f.chooseCategory('nails'); f.chooseCategory('fitness')
+    assert.equal(f.summary().props.subcategory, '')
+    assert.equal(f.requests.at(-1).body.subcategory, undefined)
+    assert.equal(f.requests.at(-1).body.category, 'fitness')
+  } finally { f.close() }
+})
+
+test('empty-state change-service removes only the deepest selected level and change-area opens existing filters', async () => {
+  const f = fixture({}, { request: { query: '', category: 'fitness', subcategory: 'fitness-yoga', cityCode: '68134', radiusKm: 5 } })
+  try {
+    f.entry()
+    f.requests[0].respond(response('unused', { results: [], intent: { cityCode: '68134', subcategory: 'fitness-yoga' }, cataloguePage: { offset: 0, total: 0, nextOffset: null } })); await f.settle()
+    f.control('DiscoveryHomeBusinesses').props.onChangeService(); f.h.flush()
+    assert.equal(f.grid().props.category, 'fitness')
+    assert.equal(f.summary().props.subcategory, '')
+    assert.equal(f.requests.at(-1).body.category, 'fitness')
+    assert.equal(f.requests.at(-1).body.subcategory, undefined)
+    f.requests.at(-1).respond(response('unused', { results: [], cataloguePage: { offset: 0, total: 0, nextOffset: null } })); await f.settle()
+    f.control('DiscoveryHomeBusinesses').props.onChangeService(); f.h.flush()
+    assert.equal(f.grid().props.category, '')
+    assert.equal(f.requests.at(-1).body.category, undefined)
+    assert.equal(f.summary().props.onChangeArea, f.control('DiscoveryHomeBusinesses').props.onChangeArea)
+    const trigger = {}
+    f.summary().props.onChangeArea({ currentTarget: trigger }); f.h.flush()
+    assert.equal(f.control('DiscoveryFilterSheet').props.triggerRef.current, trigger)
+    assert.equal(f.control('DiscoveryFilterSheet').props.initialValues.radiusKm, 5)
+    assert.equal(f.permission.length, 0)
+  } finally { f.close() }
+})
+
+test('legacy disclosure URLs restore real category and child filters once without controlling inline visibility', () => {
+  for (const stage of ['closed', 'categories', 'services', 'results']) {
+    const initialUrl = `/?lang=en&category=fitness&subcategory=fitness-yoga&discover=${stage}`
+    const f = fixture({ locale: 'en' }, null, { initialUrl })
+    try {
+      f.entry(); f.h.render(); f.h.flush(); f.entry()
+      assert.equal(f.requests.length, 1)
+      assert.equal(f.requests[0].body.category, 'fitness')
+      assert.equal(f.requests[0].body.subcategory, 'fitness-yoga')
+      assert.equal(f.grid().props.category, 'fitness')
+      assert.equal(f.summary().props.subcategory, 'fitness-yoga')
+      assert.ok(f.children()); assert.ok(f.control('DiscoveryHomeBusinesses'))
+      f.edit('йога за начинаещи')
+      f.restoreUrlContext(initialUrl.replace(`discover=${stage}`, `discover=${stage === 'closed' ? 'services' : 'closed'}`))
+      assert.equal(f.query().props.value, 'йога за начинаещи')
+      assert.equal(f.requests.length, 1, 'an obsolete stage change must not restore filters or repeat a search')
+      assert.equal(f.historyCalls.length, 0)
+    } finally { f.close() }
+  }
+  const empty = fixture({}, null, { initialUrl: '/?discover=closed' })
+  try {
+    empty.entry()
+    assert.equal(empty.requests.length, 1)
+    assert.equal(empty.requests[0].body.category, undefined)
+    assert.equal(empty.requests[0].body.browse, true)
+    assert.ok(empty.control('DiscoveryHomeBusinesses'))
+  } finally { empty.close() }
+})
+
+test('URL context restored before the initial timer wins without a duplicate default browse', () => {
+  const f = fixture()
+  try {
+    f.restoreUrlContext('/?category=fitness&subcategory=fitness-yoga&radius=5&discover=categories')
+    f.entry()
+    assert.equal(f.requests.length, 1)
+    assert.equal(f.requests[0].body.category, 'fitness')
+    assert.equal(f.requests[0].body.subcategory, 'fitness-yoga')
+    assert.equal(f.requests[0].body.radiusKm, 5)
+    assert.equal(f.historyCalls.length, 0)
+    assert.equal(f.permission.length, 0)
+  } finally { f.close() }
+})
+
+test('inline summary receives the identical accepted result metadata without fabricating totals or a page-only sort', async () => {
+  const f = fixture()
+  try {
+    f.entry()
+    const accepted = response('server-first', { results: [{ id: 'server-first', source: 'catalogue' }, { id: 'server-second', source: 'catalogue' }], cataloguePage: { offset: 0, total: 101, nextOffset: 2 } })
+    f.requests[0].respond(accepted); await f.settle()
+    assert.equal(f.summary().props.result, f.control('DiscoveryHomeBusinesses').props.result)
+    assert.equal(f.summary().props.result.cataloguePage.total, 101)
+    assert.deepEqual(f.summary().props.result.results.map(row => row.id), ['server-first', 'server-second'])
+    assert.equal(f.summary().props.loading, false)
+    assert.equal('sort' in f.requests[0].body, false)
   } finally { f.close() }
 })

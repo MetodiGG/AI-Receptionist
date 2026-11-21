@@ -2,6 +2,9 @@
 
 import { useEffect, useId, useState } from 'react'
 import { Icon } from './icon'
+import { categoryById } from '../lib/discovery/categories.mjs'
+import { homeCategories } from '../lib/discovery/home.mjs'
+import { INLINE_DISCOVERY_COPY } from '../lib/discovery/inline-copy.mjs'
 
 const localPhoto = source => typeof source === 'string' && /^\/service-photos\/[a-z0-9-]+\.webp$/.test(source)
 
@@ -11,19 +14,46 @@ function SubcategoryPhoto({ src }) {
   return src && failed !== src ? <img className="discovery-subcategory-photo" src={src} width={40} height={40} alt="" loading="lazy" decoding="async" onError={() => setFailed(src)}/> : <span className="discovery-subcategory-photo is-unavailable" aria-hidden="true"/>
 }
 
-export function DiscoverySubcategories({ category, title, options = [], selected = '', selectedLabel = '', locale = 'bg', loading = false, onSelect, navigationRef }) {
+function ParentCategoryPhoto({ src }) {
+  const [failed, setFailed] = useState(null)
+  return src && failed !== src ? <img className="inline-parent-photo" src={src} width={32} height={32} alt="" loading="lazy" decoding="async" onError={() => setFailed(src)}/> : <span className="inline-parent-photo is-unavailable" aria-hidden="true"/>
+}
+
+export function DiscoverySubcategories({ category, title, options = [], selected = '', selectedLabel = '', locale = 'bg', loading = false, onSelect, navigationRef, inline = false, onClearCategory }) {
   const listId = useId(), [expanded, setExpanded] = useState(false), [collapsedLimit, setCollapsedLimit] = useState(4), en = locale === 'en'
   useEffect(() => setExpanded(false), [category])
   useEffect(() => {
     // Server HTML and the first client render agree; measure only after mount.
-    if (typeof window.matchMedia !== 'function') return
+    if (inline || typeof window.matchMedia !== 'function') return
     const media = window.matchMedia('(min-width: 760px)')
     const update = () => setCollapsedLimit(media.matches ? 6 : 4)
     update()
     media.addEventListener('change', update)
     return () => media.removeEventListener('change', update)
-  }, [])
-  const choices = options.filter(item => item.category === category && typeof item.id === 'string' && localPhoto(item.photo) && (!Number.isFinite(item.count) || item.count > 0))
+  }, [inline])
+  const choices = options.filter(item => item.category === category && typeof item.id === 'string' && localPhoto(item.photo) && (inline ? Number.isFinite(item.count) && item.count > 0 : !Number.isFinite(item.count) || item.count > 0))
+  if (inline) {
+    const language = en ? 'en' : 'bg', copy = INLINE_DISCOVERY_COPY[language]
+    const parent = homeCategories(language).find(item => item.id === category)
+    // A settled empty category does not fabricate a service menu or counts.
+    // Pending service discovery has an honest status and inert placeholders.
+    if (!parent || (!choices.length && !loading)) return null
+    const parentTitle = categoryById(category)?.[language] || title
+    return <section className="discovery-subcategories is-inline" ref={navigationRef} tabIndex={navigationRef ? -1 : undefined} lang={language} aria-labelledby={`${listId}-title`} aria-busy={loading}>
+      <header className="inline-subcategories-header">
+        <h2 id={`${listId}-title`}>{copy.services}</h2>
+      </header>
+      <button type="button" className="inline-selected-parent" onClick={onClearCategory} aria-label={`${copy.clearCategory} · ${parentTitle}`} title={copy.clearCategory}><ParentCategoryPhoto src={parent.photo}/><span>{parentTitle}</span><Icon name="close"/></button>
+      <ul className="inline-service-grid" id={listId}>
+        <li><button type="button" className="inline-service-tile inline-service-all" aria-pressed={!selected} onClick={() => onSelect('')}><span className="inline-service-label">{copy.all}</span></button></li>
+        {choices.map(item => <li key={item.id}><button type="button" className="inline-service-tile" aria-pressed={selected === item.id} onClick={() => onSelect(item.id)}><span className="inline-service-photo-frame" aria-hidden="true"><SubcategoryPhoto src={item.photo}/></span><span className="inline-service-label">{item[language] || item.label}</span>{Number.isFinite(item.count) && item.count > 0 && <span className="inline-service-count" aria-label={`${item.count} ${item.count === 1 ? copy.business : copy.businesses}`}>{item.count}</span>}</button></li>)}
+      </ul>
+      {loading && <>
+        <p className="inline-services-loading" role="status">{copy.loading}</p>
+        <div className="inline-services-skeleton" aria-hidden="true"><div className="inline-service-skeleton"/><div className="inline-service-skeleton"/></div>
+      </>}
+    </section>
+  }
   if (!category || (!choices.length && !selected)) return null
   const first = choices.slice(0, collapsedLimit), selectedItem = choices.find(item => item.id === selected)
   if (selectedItem && !first.some(item => item.id === selected)) first[first.length - 1] = selectedItem

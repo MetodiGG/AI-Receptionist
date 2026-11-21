@@ -25,13 +25,16 @@ test('FAQ is consistently named ЧЗВ in Bulgarian navigation without rewriting
   assert.match(landing, /navFaq: 'ЧЗВ'/)
   assert.doesNotMatch(footer, /en\?'FAQ':'Въпроси'/)
 })
-test('the compact orange panel groups the heading and search only, leaving browse rails outside it', async () => {
+test('the compact orange panel groups the unchanged heading and search only, leaving inline discovery outside it', async () => {
   const search = await read('components/discovery-search.js'), css = await read('app/discovery-home.css')
   assert.match(search, /const SearchPanel = home \? 'div' : Fragment/)
   assert.match(search, /className: 'home-search-panel'/)
   assert.ok(search.indexOf('<SearchPanel ') < search.indexOf('<header className='))
   assert.ok(search.indexOf('</form>') < search.indexOf('</SearchPanel>'))
-  assert.ok(search.indexOf('</SearchPanel>') < search.indexOf('<GuidedServiceDiscovery'))
+  assert.ok(search.indexOf('</SearchPanel>') < search.indexOf('<InlineCategoryGrid'))
+  assert.ok(search.indexOf('<InlineCategoryGrid') < search.indexOf('<DiscoverySubcategories inline'))
+  assert.ok(search.indexOf('<DiscoverySubcategories inline') < search.indexOf('<InlineDiscoverySummary'))
+  assert.ok(search.indexOf('<InlineDiscoverySummary') < search.indexOf('<DiscoveryHomeBusinesses'))
   assert.match(css, /\.home-search-panel \{[^}]*border-radius: 30px;[^}]*linear-gradient/)
   assert.match(css, /font-family: "Avenir Next", "Segoe UI", ui-sans-serif/)
   assert.match(css, /\.home-discovery-heading h1 \{[^}]*font-weight: 700/)

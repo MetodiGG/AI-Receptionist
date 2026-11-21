@@ -1,0 +1,328 @@
+/* Presentation-only refinement of the existing homepage business cards.
+   Real media, two relevant service rows, labels and trusted actions stay intact.
+   The shared profile/details galleries and their controls are not targeted. */
+.customer-home.quick-choice .home-business-grid {
+  --premium-card-surface: #fffcf7;
+  --premium-card-ink: #2f211b;
+  --premium-card-muted: #715f52;
+  --premium-card-line: #e7d9ca;
+  --premium-card-raised: #f7efe5;
+  --premium-card-photo: #f3ece2;
+  --premium-card-accent: #9a481f;
+  --premium-card-booking: #f47a36;
+  --premium-card-booking-hover: #ee6c26;
+  --premium-card-focus: #9a481f;
+  gap: 16px;
+  container-type: inline-size;
+  container-name: premium-results;
+}
+
+.customer-home.quick-choice .home-business-grid article.home-business-card:is([data-source="gorez"],[data-source="catalogue"]) {
+  grid-template-columns: minmax(0,1fr) 168px;
+  gap: 0 24px;
+  padding: 22px;
+  border: 1px solid var(--premium-card-line);
+  border-radius: 22px;
+  color: var(--premium-card-ink);
+  background: var(--premium-card-surface);
+  box-shadow: 0 8px 24px rgb(86 53 31 / 5.5%), 0 1px 3px rgb(86 53 31 / 3%);
+}
+
+.customer-home.quick-choice .home-business-grid .home-business-card .home-business-heading {
+  grid-template-columns: 176px minmax(0,1fr);
+  column-gap: 20px;
+  align-items: center;
+}
+
+.customer-home.quick-choice .home-business-grid .home-business-card .home-business-heading > .home-business-photo {
+  --photo-preview-surface: var(--premium-card-photo);
+  box-sizing: border-box;
+  align-self: start;
+  width: 176px;
+  height: 132px;
+  aspect-ratio: 4 / 3;
+  margin: 0;
+  padding: 4px;
+  border: 1px solid var(--premium-card-line);
+  border-radius: 16px;
+  background: var(--photo-preview-surface);
+}
+
+.customer-home.quick-choice .home-business-grid .home-business-card .home-business-photo.is-real-photo > img {
+  object-fit: contain;
+  object-position: center;
+  border-radius: 10px;
+}
+
+.customer-home.quick-choice .home-business-grid .home-business-card .home-business-identity h3 {
+  margin: 0;
+  color: var(--premium-card-ink);
+  font-size: 1.4375rem;
+  font-weight: 750;
+  line-height: 1.28;
+  letter-spacing: -.025em;
+  overflow: visible;
+  white-space: normal;
+  overflow-wrap: normal;
+  word-break: normal;
+  -webkit-line-clamp: unset;
+}
+
+.customer-home.quick-choice .home-business-grid .home-business-card .home-business-identity .home-business-partner {
+  margin-bottom: 5px;
+  color: var(--premium-card-accent);
+  font-size: .9375rem;
+  font-weight: 600;
+}
+
+.customer-home.quick-choice .home-business-grid .home-business-card .home-business-identity .home-business-category {
+  margin-top: 5px;
+  color: var(--premium-card-muted);
+  font-size: .9375rem;
+  line-height: 1.5;
+}
+
+.customer-home.quick-choice .home-business-grid .home-business-card .home-business-meta {
+  gap: 0 12px;
+  margin-top: 3px;
+}
+
+.customer-home.quick-choice .home-business-grid .home-business-card .home-business-meta .home-distance-badge,
+.customer-home.quick-choice .home-business-grid .home-business-card .home-business-identity .home-business-reviews {
+  color: var(--premium-card-muted);
+}
+.customer-home.quick-choice .home-business-grid .home-business-card :is(.home-distance-badge,.home-distance-reference,.home-location-label) { font-size: .9375rem; font-variant-numeric: tabular-nums; }
+
+.customer-home.quick-choice .home-business-grid .home-business-card .home-business-inline-details {
+  min-height: 44px;
+  padding-block: 8px;
+  color: var(--premium-card-muted);
+  font-size: .9375rem;
+  font-weight: 550;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.customer-home.quick-choice .home-business-grid .home-business-card .home-business-inline-details:is(:hover,:focus-visible) {
+  color: var(--premium-card-accent);
+}
+
+/* The existing relevance-selected rows become calm chips, not a new menu.
+   Long names, literal ranges, units and conditions keep their natural height. */
+.customer-home.quick-choice .home-business-grid .home-business-card > .home-business-services {
+  display: grid;
+  gap: 8px;
+  margin: 18px 0 0;
+  color: var(--premium-card-ink);
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.customer-home.quick-choice .home-business-grid .home-business-card > .home-business-services > li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px 12px;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--premium-card-line);
+  border-radius: 13px;
+  background: var(--premium-card-raised);
+}
+
+.customer-home.quick-choice .home-business-grid .home-business-card .home-business-services .service-photo-name {
+  flex: 1 1 12rem;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.customer-home.quick-choice .home-business-grid .home-business-card .home-business-services .home-service-name {
+  color: var(--premium-card-ink);
+  font-weight: 600;
+  overflow: visible;
+  white-space: normal;
+  overflow-wrap: normal;
+  word-break: normal;
+  -webkit-line-clamp: unset;
+}
+
+.customer-home.quick-choice .home-business-grid .home-business-card .home-business-services .home-service-price {
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 100%;
+  margin-inline-start: auto;
+  padding: 4px 8px;
+  border-radius: 9px;
+  color: var(--premium-card-ink);
+  background: var(--premium-card-surface);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.45;
+  font-variant-numeric: tabular-nums;
+  white-space: normal;
+  overflow-wrap: normal;
+  word-break: normal;
+  text-align: end;
+}
+
+.customer-home.quick-choice .home-business-grid .home-business-card .home-business-services :is(.home-service-condition,.service-price-unit) {
+  color: var(--premium-card-muted);
+  font-size: .9375rem;
+  line-height: 1.5;
+}
+
+.customer-home.quick-choice .home-business-grid .home-business-card > .home-business-footer {
+  align-self: center;
+  width: 168px;
+  margin-top: 18px;
+  padding: 0;
+}
+
+/* Strong reservation, quiet directions and the existing tertiary details.
+   No visual reordering: keyboard and DOM action order remain the same. */
+.customer-home.quick-choice .home-business-grid article.home-business-card > .home-business-footer > .home-business-actions :is(.home-directions,.home-reserve) {
+  min-height: 46px;
+  padding: 10px 12px;
+  border: 1px solid var(--premium-card-line);
+  border-radius: 12px;
+  color: var(--premium-card-ink);
+  background: var(--premium-card-surface);
+  box-shadow: none;
+  font-size: .9375rem;
+  font-weight: 650;
+  line-height: 1.4;
+  transform: none;
+}
+
+.customer-home.quick-choice .home-business-grid article.home-business-card > .home-business-footer > .home-business-actions .home-reserve {
+  border-color: var(--premium-card-booking);
+  color: #2f211b;
+  background: linear-gradient(135deg,var(--premium-card-booking),#e56c2f);
+  box-shadow: inset 0 1px 0 #fff4e880,0 3px 8px rgb(122 61 29 / 9%);
+  font-weight: 750;
+}
+
+.customer-home.quick-choice .home-business-grid article.home-business-card > .home-business-footer > .home-business-actions .home-directions > svg {
+  color: var(--premium-card-accent);
+}
+
+/* Homepage actions share crisp vector artwork; other booking surfaces keep
+   their existing artwork and all action destinations remain unchanged. */
+.customer-home.quick-choice .home-business-grid .home-business-actions :is(.home-directions > svg,.booking-button-content > svg) {
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+}
+
+.customer-home.quick-choice .home-business-grid article.home-business-card > .home-business-footer > .home-business-actions .home-directions:not(:disabled):not([aria-disabled="true"]):is(:hover,:focus-visible) {
+  color: var(--premium-card-ink);
+  background: var(--premium-card-raised);
+  border-color: var(--premium-card-accent);
+  box-shadow: none;
+  transform: none;
+}
+
+.customer-home.quick-choice .home-business-grid article.home-business-card > .home-business-footer > .home-business-actions .home-reserve:not(:disabled):not([aria-disabled="true"]):is(:hover,:focus-visible,:active) {
+  color: #2f211b;
+  background: linear-gradient(135deg,var(--premium-card-booking),var(--premium-card-booking-hover));
+  border-color: var(--premium-card-booking-hover);
+  box-shadow: inset 0 1px 0 #fff4e880,0 3px 8px rgb(122 61 29 / 9%);
+  transform: none;
+}
+
+.customer-home.quick-choice .home-business-grid .home-business-card :is(.home-business-inline-details,.home-directions,.home-reserve):focus-visible {
+  outline: 3px solid var(--premium-card-focus);
+  outline-offset: 3px;
+}
+
+html[data-theme="dark"] .customer-home.quick-choice .home-business-grid {
+  --premium-card-surface: #291f19;
+  --premium-card-ink: #f5ece2;
+  --premium-card-muted: #c6b4a4;
+  --premium-card-line: #604a3a;
+  --premium-card-raised: #3b2b22;
+  --premium-card-photo: #3b2b22;
+  --premium-card-accent: #fdb681;
+  --premium-card-booking: #fdb681;
+  --premium-card-booking-hover: #ffca9f;
+  --premium-card-focus: #fdb681;
+}
+
+/* The article type keeps these homepage-only surfaces above the older shared
+   dark rules loaded afterward, without changing their application-wide tokens. */
+html[data-theme="dark"] .customer-home.quick-choice .home-business-grid article.home-business-card:is([data-source="gorez"],[data-source="catalogue"]) {
+  color: var(--premium-card-ink);
+  background: var(--premium-card-surface);
+  border-color: var(--premium-card-line);
+  box-shadow: 0 1px 3px rgb(40 24 15 / 8%),0 8px 24px rgb(40 24 15 / 11%);
+}
+
+@media (max-width: 759px) {
+  .customer-home.quick-choice .home-business-grid article.home-business-card:is([data-source="gorez"],[data-source="catalogue"]) {
+    grid-template-columns: minmax(0,1fr);
+    padding: 16px;
+    border-radius: 20px;
+  }
+
+  .customer-home.quick-choice .home-business-grid .home-business-card .home-business-heading {
+    grid-template-columns: 128px minmax(0,1fr);
+    column-gap: 14px;
+    align-items: start;
+  }
+
+  .customer-home.quick-choice .home-business-grid .home-business-card .home-business-heading > .home-business-photo {
+    width: 128px;
+    height: 96px;
+  }
+
+  .customer-home.quick-choice .home-business-grid .home-business-card .home-business-identity h3 {
+    font-size: 1.25rem;
+    line-height: 1.3;
+  }
+
+  .customer-home.quick-choice .home-business-grid .home-business-card > .home-business-services {
+    margin-top: 14px;
+  }
+
+  .customer-home.quick-choice .home-business-grid .home-business-card > .home-business-footer {
+    width: 100%;
+    margin-top: 14px;
+  }
+
+  .customer-home.quick-choice .home-business-grid article.home-business-card > .home-business-footer > .home-business-actions :is(.home-directions,.home-reserve) {
+    padding-inline: 10px;
+  }
+}
+
+@media (max-width: 360px) {
+  .customer-home.quick-choice .home-business-grid article.home-business-card:is([data-source="gorez"],[data-source="catalogue"]) {
+    padding: 14px;
+  }
+
+  .customer-home.quick-choice .home-business-grid .home-business-card .home-business-heading {
+    grid-template-columns: minmax(0,1fr);
+    column-gap: 12px;
+  }
+
+  .customer-home.quick-choice .home-business-grid .home-business-card .home-business-identity { grid-column: 1; grid-row: 2; margin-top: 12px; }
+
+  .customer-home.quick-choice .home-business-grid .home-business-card .home-business-heading > .home-business-photo {
+    width: 112px;
+    height: 84px;
+  }
+}
+
+/* Enlarged text gets the full card width instead of broken Bulgarian words. */
+@container premium-results (max-width:12rem) {
+  .customer-home.quick-choice .home-business-grid article.home-business-card:is([data-source="gorez"],[data-source="catalogue"]) { padding: 8px; }
+  .customer-home.quick-choice .home-business-grid .home-business-card .home-business-heading { grid-template-columns: minmax(0,1fr); }
+  .customer-home.quick-choice .home-business-grid .home-business-card .home-business-identity { grid-column: 1; grid-row: 2; margin-top: 12px; }
+  .customer-home.quick-choice .home-business-grid .home-business-card > .home-business-services > li { padding: 8px 6px; }
+  .customer-home.quick-choice .home-business-grid .home-business-card .home-business-services .service-photo-name { flex-direction: column; align-items: flex-start; }
+}
+@supports ((backdrop-filter:blur(12px)) or (-webkit-backdrop-filter:blur(12px))) {
+  .customer-home.quick-choice .home-business-grid article.home-business-card:is([data-source="gorez"],[data-source="catalogue"]),
+  html[data-theme="dark"] .customer-home.quick-choice .home-business-grid article.home-business-card:is([data-source="gorez"],[data-source="catalogue"]) { background: color-mix(in srgb,var(--premium-card-surface) 96%,transparent); }
+}

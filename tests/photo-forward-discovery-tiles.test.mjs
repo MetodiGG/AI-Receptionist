@@ -50,10 +50,11 @@ function numericRatio(value) {
   return parts[0] / (parts[1] || 1)
 }
 
-test('category and service photographs share fixed square mobile and 4:3 tablet/desktop tile ratios', () => {
-  for (const [viewport, container, expected] of [[320, 252, 1], [390, 334, 1], [699, 640, 1], [700, 640, 4 / 3], [820, 740, 4 / 3], [1000, 920, 4 / 3], [1280, 1080, 4 / 3]]) {
+test('mobile/tablet categories and all service tiles retain their approved fixed full-bleed ratios', () => {
+  for (const [viewport, container, expected] of [[320, 252, 1], [390, 334, 1], [699, 640, 1], [700, 640, 4 / 3], [768, 680, 4 / 3], [820, 740, 4 / 3], [999, 900, 4 / 3], [1000, 920, 4 / 3], [1280, 1080, 4 / 3]]) {
     const actual = []
-    for (const [tileSelector, frameSelector] of [['.inline-category-option', '.inline-category-photo-frame'], ['.inline-service-tile', '.inline-service-photo-frame']]) {
+    const levels = [['.inline-category-option', '.inline-category-photo-frame'], ['.inline-service-tile', '.inline-service-photo-frame']].filter(([selector]) => viewport < 1000 || selector === '.inline-service-tile')
+    for (const [tileSelector, frameSelector] of levels) {
       const tile = style(tileSelector, viewport, container), frame = style(frameSelector, viewport, container)
       actual.push(numericRatio(tile['aspect-ratio'] || frame['aspect-ratio']))
       assert.ok(!tile['min-height'] || parseFloat(tile['min-height']) <= 44, `${tileSelector}: a large pixel minimum cannot stretch a narrow square tile`)
@@ -64,7 +65,7 @@ test('category and service photographs share fixed square mobile and 4:3 tablet/
       assert.equal(frame.width, '100%')
       assert.equal(frame.height, '100%')
     }
-    assert.deepEqual(actual, [expected, expected], `${viewport}px: both tile levels share the same ratio`)
+    assert.deepEqual(actual, levels.map(() => expected), `${viewport}px: existing mobile/tablet category and service ratios stay unchanged`)
   }
 })
 

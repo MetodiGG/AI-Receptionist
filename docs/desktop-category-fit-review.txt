@@ -1,0 +1,81 @@
+GoRez — desktop category photo fit — local review
+
+Branch: codex/desktop-category-fit-20261121
+Baseline: 4be8491
+Preview: http://127.0.0.1:30827/dev/inline-discovery?lang=bg
+Use a desktop window at least 1000px wide. The narrow app pane intentionally
+keeps the unchanged mobile/tablet layout.
+Comparison gallery: /Users/metodig/.codex/visualizations/2026/10/13/01a13548-f728-7172-a396-a52db0f30e43/artifacts/desktop-category-fit-20261121/review.html
+
+Cause
+All 14 original category pictures are square 160/240px files. The desktop 4:3
+frame removed 25% of their vertical content, and the caption covered more.
+For Lessons this preserved the raised hand/head but hid torso, forearm/desk.
+A different focal point alone could not reveal both ends of the source.
+
+Correction
+Only 15 CSS lines, inside the existing min-width:1000px media rule:
+- full 1:1 photo area, with object-fit:contain and a separate caption row below;
+- automatic outer category-card height, min 48px caption at normal root text;
+- no desktop category-photo dark scrim, so original details/colors are clearer;
+- no desktop category image zoom on hover; card lift/arrow feedback remain;
+- same 4 desktop columns, spacing, vectors, labels, selected/focus styling.
+
+At 1440px all 14 photo areas measured 257.5x257.5; all captions start exactly at
+the photo bottom, not over it. All 14 cards measured 305.5px tall at normal BG
+text. Previously the visible frame was 257.5x193.125 with a 45.8px overlay.
+Lessons now shows the available original raised hand, torso, forearm and desk.
+Sports stance/feet, groomer dog paws, consultation papers and lower action
+details in the other categories are no longer removed by frame/label overlap.
+All 14 original images were visually inspected and loaded in the browser.
+No image was generated, replaced, cropped on disk or recolored.
+
+Scope kept unchanged
+- Mobile/tablet through 999px (including the approved narrow-label fallback).
+- Subcategory tiles, All-services control, skeletons, summary and business cards.
+- All original assets/focal source maps, query/state/history, filtering, prices,
+  bookings, analytics, BG/EN, theme handling, APIs/data/dependencies/config.
+- Existing image sources and resolution: displaying more of the same source
+  does not invent missing content. A source already cut at its own edge cannot
+  reveal pixels outside that original file.
+
+Verification
+- 2758/2758 Node tests pass; 0 fail/skip/cancel.
+- Pricing Python 8/8 and booking-flow Python 4/4 pass.
+- Raw Next.js webpack compilation passes; 99/99 static pages.
+- git diff --check passes.
+- New test protects 2811 production files against 4be and all CSS outside the
+  desktop category-only additions. Existing service/mobile rules stay frozen.
+- Browser 1440 light/dark: 14 equal square photo areas, 14 non-overlapping captions,
+  all 14 decoded images, no page overflow. Actual hover retains image transform
+  none/object-fit:contain; no renewed cropping.
+- 1000px: 4 columns, all category photos square and captions clear, no overflow.
+- 999px: unchanged 4:3/absolute overlay frame; 390px unchanged 1:1 mobile frame.
+- 1440 EN with 200% root text: no clipped names/photo overlap/page overflow.
+- Search measured styles/dimensions match the pre-change baseline.
+- Browser error log empty. No real bookings or notifications.
+
+Logs
+/tmp/gorez-desktop-fit-final-node.log
+/tmp/gorez-desktop-fit-final-webpack.log
+/tmp/gorez-desktop-fit-final-pricing-python.log
+/tmp/gorez-desktop-fit-final-booking-python.log
+/tmp/gorez-desktop-fit-final-catalogue.log
+/tmp/gorez-desktop-fit-final-build-wrapper.log
+
+Limits / release gates
+The category cards are deliberately taller to show the whole original photo.
+The normal build wrapper still stops on 44 existing price-review receipts
+(43 GPoint + Artizba); catalogue check still fails Artizba publication review.
+Raw compilation passed separately; review dates/data were not changed to bypass.
+200% is the existing dev root-text review, not native zoom/physical-device QA.
+Only main categories change: service/partner photos remain as before.
+Exploratory clip exports are kept in draft-clips and excluded from the gallery;
+comparison evidence uses inspected full native browser screenshots.
+
+Changed implementation: app/inline-discovery.css
+Tests: tests/desktop-category-fit.test.mjs
+       tests/photo-forward-discovery-tiles.test.mjs
+
+No production publication, GitHub push/merge, data/image edits or dependency
+updates. This result is prepared locally for review.

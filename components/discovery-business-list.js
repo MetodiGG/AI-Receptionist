@@ -3,8 +3,7 @@
 import { useEffect, useId, useRef } from 'react'
 import { createBusinessListAdvanceGate, observeBusinessListEnd } from '../lib/discovery/list-pagination.mjs'
 
-// Businesses use normal page flow. Categories keep their existing horizontal
-// rail, including its keyboard controls and native swipe behavior.
+// Businesses use normal page flow; the guided category picker is independent.
 export function DiscoveryBusinessList({ title, locale = 'bg', action, children, headingRef, busy = false, message, footer, onNearEnd, hasMore = false, pending = false, requireScrollIntent = false, resetKey, pageKey }) {
   const id = useId(), sentinel = useRef(null), gate = useRef(null)
   if (!gate.current) gate.current = createBusinessListAdvanceGate()
@@ -28,7 +27,7 @@ export function DiscoveryBusinessList({ title, locale = 'bg', action, children, 
     {message}
     <ul className="home-business-grid" id={id} role="list" aria-label={title}>{children}</ul>
     <div className="home-business-list-end" ref={sentinel} aria-hidden="true"/>
-    <button type="button" className="home-business-list-keyboard-load" onClick={advance} aria-controls={id} aria-disabled={!enabled} tabIndex={enabled ? 0 : -1}>{pending ? (locale === 'en' ? 'Loading businesses…' : 'Зареждаме бизнеси…') : !hasMore ? (locale === 'en' ? 'All businesses are loaded' : 'Всички бизнеси са заредени') : (locale === 'en' ? 'Load the next businesses' : 'Зареди следващите бизнеси')}</button>
+    <button type="button" className="home-business-list-keyboard-load" onClick={advance} aria-controls={id} aria-disabled={!enabled} tabIndex={enabled ? 0 : -1}>{pending || busy ? (locale === 'en' ? 'Loading businesses…' : 'Зареждаме бизнеси…') : !hasMore ? (locale === 'en' ? 'All businesses are loaded' : 'Всички бизнеси са заредени') : (locale === 'en' ? 'Load the next businesses' : 'Зареди следващите бизнеси')}</button>
     {footer}
   </section>
 }

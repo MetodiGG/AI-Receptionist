@@ -7,7 +7,8 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import sharp from 'sharp'
 import { homeCategories, HOME_CATEGORY_IDS } from '../lib/discovery/home.mjs'
 import { CATEGORY_IDS } from '../lib/discovery/categories.mjs'
-import { DISCOVERY_SUBCATEGORIES, subcategoriesForCategory, subcategorySelection } from '../lib/discovery/subcategories.mjs'
+import { DISCOVERY_SUBCATEGORIES, subcategoriesForCategory, subcategorySelection, subcategoryById } from '../lib/discovery/subcategories.mjs'
+import { GUIDED_DISCOVERY_COPY } from '../lib/discovery/guided-copy.mjs'
 
 const read = file => readFile(new URL(`../${file}`, import.meta.url), 'utf8')
 const cssRules = css => [...css.replace(/\/\*[\s\S]*?\*\//g, '').matchAll(/([^{}]+)\{([^{}]*)\}/g)].map(match => ({ selector: match[1].trim(), body: match[2] }))
@@ -25,6 +26,18 @@ const { code: railCode } = await transform(await read(railFilename), { filename:
 const railModule = { exports: {} }
 new Function('require', 'module', 'exports', railCode)(name => name === './icon' ? { Icon: () => null } : require(name), railModule, railModule.exports)
 const { DiscoveryHomeRail } = railModule.exports
+const guidedFilename = 'components/guided-service-discovery.js'
+const { code: guidedCode } = await transform(await read(guidedFilename), { filename: guidedFilename, jsc: { parser: { syntax: 'ecmascript', jsx: true }, transform: { react: { runtime: 'automatic' } } }, module: { type: 'commonjs' } })
+const guidedModule = { exports: {} }
+new Function('require', 'module', 'exports', guidedCode)(name => {
+  if (name === './icon') return { Icon: () => null }
+  if (name === './brand-loading') return { BrandLoading: () => null }
+  if (name === '../lib/discovery/home.mjs') return { homeCategories }
+  if (name === '../lib/discovery/subcategories.mjs') return { subcategoryById }
+  if (name === '../lib/discovery/guided-copy.mjs') return { GUIDED_DISCOVERY_COPY }
+  return require(name)
+}, guidedModule, guidedModule.exports)
+const { GuidedServiceDiscovery } = guidedModule.exports
 
 test('all fourteen photographic parent choices retain their exact taxonomy IDs, BG/EN labels and own activity children', () => {
   assert.equal(HOME_CATEGORY_IDS.length, 14)
@@ -46,7 +59,10 @@ test('all fourteen photographic parent choices retain their exact taxonomy IDs, 
   }
 })
 
-test('existing local photos exceed 2x resolution for enlarged 50px parent and 44px child thumbnails', async () => {
+test('existing local photos cover the larger guided thumbnails at2x without replacing category or subcategory artwork', async () => {
+  const guided = await read('app/guided-discovery.css')
+  const guidedPhotoSize = Number(rule(guided, '.guide-photo').match(/(?:^|;)\s*width:\s*(?:min\()?([\d]+)px/)?.[1])
+  assert.ok(guidedPhotoSize >= 50)
   const checked = new Map()
   async function metadata(src) {
     if (!checked.has(src)) checked.set(src, await sharp(new URL(`../public${src}`, import.meta.url).pathname).metadata())
@@ -56,20 +72,20 @@ test('existing local photos exceed 2x resolution for enlarged 50px parent and 44
     for (const src of [category.photo, category.photo2x]) {
       const image = await metadata(src)
       assert.equal(image.format, 'webp', src)
-      assert.ok(image.width >= 100 && image.height >= 100, `${src}: enlarged 50px parents at 2x require 100px`)
+      assert.ok(image.width >= guidedPhotoSize * 2 && image.height >= guidedPhotoSize * 2, `${src}: guided photographs retain a genuine2x source`)
     }
     const largerVariant = await metadata(category.photo2x)
     assert.ok(largerVariant.width >= 184 && largerVariant.height >= 184, `${category.id}: larger legacy/mobile 92px photographs also have an adequate 2x source`)
   }
-  assert.equal(DISCOVERY_SUBCATEGORIES.length, 104, 'presentation refinement must not remove or manufacture activity choices')
+  assert.equal(DISCOVERY_SUBCATEGORIES.length, 113, '104stable choices plus nine separately verified activity refinements')
   for (const child of DISCOVERY_SUBCATEGORIES) {
     const image = await metadata(child.photo)
     assert.equal(image.format, 'webp', child.id)
-    assert.ok(image.width >= 90 && image.height >= 90, `${child.id}: 44px quick and 45px legacy base children both have an adequate 2x source`)
+    assert.ok(image.width >= guidedPhotoSize * 2 && image.height >= guidedPhotoSize * 2, `${child.id}: full-size guided rows have an adequate2x source`)
   }
 })
 
-test('every parent retains localized native photo buttons and an off-panel selected child stays exposed to keyboard selection', () => {
+test('legacy non-home subcategory controls keep localized photos and an off-panel selected child exposed to keyboard selection', () => {
   for (const locale of ['bg', 'en']) for (const category of homeCategories(locale)) {
     const options = subcategoriesForCategory(category.id, locale).map(child => ({ ...child, count: 1 }))
     const selected = options.at(-1)
@@ -89,21 +105,86 @@ test('every parent retains localized native photo buttons and an off-panel selec
   }
 })
 
-test('main category refinement keeps real native selection, horizontal keyboard navigation and reduced-motion scrolling', async () => {
-  const search = await read('components/discovery-search.js'), rail = await read('components/discovery-home-rail.js')
-  const mainCategories = search.slice(search.indexOf('homeCategories(locale).map'), search.indexOf('</DiscoveryHomeRail>', search.indexOf('homeCategories(locale).map')))
-  assert.match(mainCategories, /<button type="button" disabled=\{loading\}/)
-  assert.match(mainCategories, /aria-pressed=\{category === item\.id\}/)
-  assert.match(mainCategories, /onClick=\{\(\) => chooseCategory\(item\.id\)\}/)
-  assert.match(mainCategories, /src=\{item\.photo\}/)
-  assert.match(mainCategories, /srcSet=\{`\$\{item\.photo\} 160w, \$\{item\.photo2x\} 240w`\}/)
-  assert.match(rail, /onKeyDown=\{onKeyDown\} tabIndex=\{0\}/)
-  assert.match(rail, /aria-controls=\{id\}/)
-  assert.match(rail, /prefers-reduced-motion: reduce/)
-  assert.doesNotMatch(rail, /setInterval|cloneNode|autoPlay/)
+test('homepage category navigation mounts the guided native photo rows, preserving legacy child controls only outside home', async () => {
+  const search = await read('components/discovery-search.js'), guide = await read('components/guided-service-discovery.js'), css = await read('app/guided-discovery.css')
+  assert.match(search, /home && !compact && <GuidedServiceDiscovery/)
+  assert.match(search, /!compact && !home && <DiscoverySubcategories/)
+  assert.doesNotMatch(search, /<DiscoveryHomeRail/)
+  assert.match(guide, /type="button" className=\{\x60guide-row/)
+  assert.match(guide, /aria-pressed=\{kind === 'choice' \? selected : undefined\}/)
+  assert.match(guide, /selected=\{category === item.id\} onClick=\{\(\) => onCategory\(item.id\)\}/)
+  assert.match(guide, /label=\{item.label\} photo=\{item.photo\}/)
+  assert.match(guide, /requestAnimationFrame/)
+  assert.match(guide, /heading.current\?\.focus\(\{ preventScroll: true \}\)/)
+  assert.match(guide, /prefers-reduced-motion: reduce/)
+  assert.match(css, /prefers-reduced-motion: reduce/)
+  assert.doesNotMatch(guide, /setInterval|cloneNode|autoPlay|name="check"|✓|✔|✅/)
 })
 
-test('the category title can be visually hidden without removing localized rail names, keyboard focus or arrow relationships', () => {
+test('guided initial/category/service/result states render only their active photographic selection level in BG and EN', () => {
+  const escaped = value => value.replaceAll('&', '&amp;')
+  for (const locale of ['bg', 'en']) {
+    const copy = GUIDED_DISCOVERY_COPY[locale]
+    const closed = renderToStaticMarkup(React.createElement(GuidedServiceDiscovery, { locale }))
+    assert.ok(closed.includes(escaped(copy.choose)))
+    assert.match(closed, /aria-expanded="false" aria-controls=/)
+    assert.match(closed, /<div class="guide-panel" id="[^"]+" hidden=""><\/div>/, 'the collapsed disclosure keeps an empty accessible controls target')
+    assert.doesNotMatch(closed, /class="guide-choices"|class="guide-summary"/)
+    const parents = renderToStaticMarkup(React.createElement(GuidedServiceDiscovery, { locale, stage: 'categories' }))
+    assert.ok(parents.includes(escaped(copy.categories)))
+    assert.ok(parents.includes(escaped(copy.close)))
+    assert.equal((parents.match(/guide-row--choice has-photo/g) || []).length, 14)
+    for (const parent of homeCategories(locale)) {
+      assert.ok(parents.includes(parent.photo))
+      assert.ok(parents.includes(escaped(parent.label)))
+    }
+    assert.doesNotMatch(parents, /home-discovery-rail|discovery-subcategory-grid/)
+    for (const parent of homeCategories(locale)) {
+      const options = subcategoriesForCategory(parent.id, locale).map(child => ({ ...child, count: 1 }))
+      const selected = options.at(-1)
+      const children = renderToStaticMarkup(React.createElement(GuidedServiceDiscovery, { locale, stage: 'services', category: parent.id, subcategory: selected.id, options }))
+      assert.ok(children.includes(escaped(copy.services)))
+      assert.ok(children.includes(escaped(copy.all)))
+      assert.ok(children.includes(escaped(copy.back)))
+      assert.ok(children.includes(escaped(parent.label)))
+      assert.equal((children.match(/guide-row--choice has-photo/g) || []).length, options.length, 'all available child choices, not a truncated carousel page')
+      assert.match(children, /aria-pressed="true"/)
+      for (const child of options) {
+        assert.ok(children.includes(child.photo), child.id)
+        assert.ok(children.includes(escaped(child.label)), child.id)
+      }
+      const results = renderToStaticMarkup(React.createElement(GuidedServiceDiscovery, { locale, stage: 'results', category: parent.id, subcategory: selected.id, options }))
+      assert.match(results, /class="guide-summary"/)
+      assert.ok(results.includes(escaped(copy.changeCategory)))
+      assert.ok(results.includes(escaped(copy.changeService)))
+      assert.ok(results.includes(escaped(selected.label)))
+      assert.match(results, /<div class="guide-panel" id="[^"]+" hidden=""><\/div>/)
+      assert.doesNotMatch(results, /class="guide-choices"/)
+    }
+  }
+})
+
+test('guided choices use equal side tracks, stable far-right vector cues, complete labels and a one/two-column vertical grid', async () => {
+  const css = await read('app/guided-discovery.css')
+  assert.match(rule(css, '.guide-row'), /grid-template-columns:\s*var\(--guide-slot\) minmax\(0, 1fr\) var\(--guide-slot\)/)
+  assert.match(css, /grid-template-columns:\s*minmax\(16px,var\(--guide-slot\)\) minmax\(min-content,1fr\) minmax\(16px,var\(--guide-slot\)\)/)
+  assert.match(rule(css, '.guide-side--start'), /justify-content:\s*flex-start/)
+  assert.match(rule(css, '.guide-side--end'), /justify-content:\s*flex-end/)
+  assert.match(rule(css, '.guide-side--end svg'), /width:\s*16px;\s*height:\s*16px/)
+  assert.match(rule(css, '.guide-label'), /text-align:\s*center/)
+  assert.match(rule(css, '.guide-label'), /white-space:\s*normal;\s*word-break:\s*normal/)
+  assert.match(rule(css, '.guide-row[aria-pressed="true"]'), /background:\s*linear-gradient/)
+  assert.match(rule(css, '.guided-discovery :is(button:focus-visible)'), /outline:\s*3px/)
+  assert.match(css, /@media \(hover:hover\)/)
+  assert.match(css, /@media \(prefers-reduced-motion: reduce\)/)
+  assert.doesNotMatch(css, /text-overflow:\s*ellipsis|(?:-webkit-)?line-clamp:|word-break:\s*break-all|overflow-x:\s*(?:scroll|auto)|scroll-snap-type|grid-auto-flow:\s*column/)
+  const tree = parse(css)
+  const mobile = tree.nodes.find(node => node.type === 'rule' && node.selector === '.guide-choices')
+  assert.equal(mobile.nodes.find(node => node.prop === 'grid-template-columns').value, 'minmax(0,1fr)')
+  const desktop = tree.nodes.find(node => node.type === 'atrule' && node.name === 'media' && node.params === '(min-width: 700px)').nodes.find(node => node.selector === '.guide-choices')
+  assert.equal(desktop.nodes.find(node => node.prop === 'grid-template-columns').value, 'repeat(2,minmax(0,1fr))')
+})
+test('legacy rails keep their localized hidden titles, keyboard focus and arrow relationships where still used', () => {
   for (const [locale, title] of [['bg', 'Категории'], ['en', 'Categories']]) {
     const html = renderToStaticMarkup(React.createElement(DiscoveryHomeRail, { title, locale, kind: 'categories', hideHeading: true },
       homeCategories(locale).map(category => React.createElement('li', { key: category.id }, React.createElement('button', { type: 'button' }, category.label)))))
@@ -122,7 +203,7 @@ test('the category title can be visually hidden without removing localized rail 
   }
 })
 
-test('parent and child photographs keep their hierarchy inside unframed capsules without checkmarks', async () => {
+test('legacy capsule CSS keeps its photograph hierarchy and no generated checkmarks', async () => {
   const quick = await read('app/quick-choice-home.css'), base = await read('app/discovery-home.css'), child = await read('app/discovery-subcategories.css')
   assert.match(rule(quick, '.customer-home.quick-choice .home-categories'), /--category-photo-size:\s*50px/)
   assert.match(rule(quick, '.customer-home.quick-choice .home-categories img'), /flex:\s*0 0 50px;\s*width:\s*50px;\s*height:\s*50px/)
@@ -150,7 +231,7 @@ test('parent and child photographs keep their hierarchy inside unframed capsules
   }
 })
 
-test('selection and hover feedback never scale controls, hide labels or introduce uncontrolled motion', async () => {
+test('legacy capsule selection and hover feedback do not scale controls, hide labels or introduce uncontrolled motion', async () => {
   const base = await read('app/discovery-home.css'), quick = await read('app/quick-choice-home.css'), child = await read('app/discovery-subcategories.css')
   const relevant = [...cssRules(base), ...cssRules(quick), ...cssRules(child)].filter(item => /\.home-categories|\.discovery-subcategory/.test(item.selector))
   for (const item of relevant) {
@@ -169,7 +250,7 @@ test('selection and hover feedback never scale controls, hide labels or introduc
   assert.match(child, /@media\s*\(prefers-reduced-motion:\s*reduce\)[\s\S]*transition:\s*none/)
 })
 
-test('child choices keep two mobile columns and three desktop columns without moving photos above their labels', async () => {
+test('legacy child controls retain their existing responsive columns without moving photos above labels', async () => {
   const base = await read('app/discovery-subcategories.css'), quick = await read('app/quick-choice-home.css')
   const baseGrids = cssRules(base).filter(item => /\.discovery-subcategory-grid$/.test(item.selector))
   assert.ok(baseGrids.length > 0)

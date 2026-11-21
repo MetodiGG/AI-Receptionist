@@ -86,10 +86,10 @@ for (const locale of ['bg', 'en']) test(`${locale}: Fast Choice uses one identit
   assert.equal(elements(f.tree, node => node.type === Details).length, 0)
 })
 
-test('Fast Choice shows all three actual services without inventing a fourth, preserving ranges, real image inputs, units and missing prices', () => {
+test('Fast Choice shows at most two actual services while preserving ranges, real image inputs, units and missing prices', () => {
   const row = business(), f = fixture({ row }), list = nodeClass(f.tree, 'home-business-services')[0]
   const thumbs = elements(list, node => node.type === Thumbnail)
-  assert.equal(thumbs.length, 3)
+  assert.equal(thumbs.length, 2)
   assert.equal(thumbs[0].props.service.name, range.name)
   assert.equal(thumbs[0].props.service.id, range.id)
   assert.equal(thumbs[0].props.business, row)
@@ -99,21 +99,26 @@ test('Fast Choice shows all three actual services without inventing a fourth, pr
   assert.match(text(price[0]), /10,23.*15,34.*€/)
   assert.ok(text(price[0]).includes(range.priceUnit))
   assert.ok(text(list).includes(range.name))
+  assert.equal(text(list).includes('Трета реална услуга'), false, 'remaining services stay available in full details, not the compact card')
   assert.equal(row.services.length, 3, 'only the preview is compact; the source menu is unchanged')
 })
 
-test('real photographs retain top-first framing, curated focal points and whole G Point logos', () => {
+test('real preview photographs are fully contained and centered without mutating curated metadata or cropping G Point logos', () => {
   const photographs = [
-    [{ src: '/businesses/fixture/interior.webp' }, 'cover', 'center top'],
-    [{ src: '/businesses/fixture/interior.webp', position: '50% 68%' }, 'cover', '50% 68%'],
+    { src: '/businesses/fixture/interior.webp' },
+    { src: '/businesses/fixture/interior.webp', position: '50% 68%' },
   ]
-  for (const [photo, fit, position] of photographs) {
+  for (const photo of photographs) {
+    const before = structuredClone(photo)
     const image = elements(fixture({ row: business({ photos: [photo] }) }).tree, node => node.type === 'img')[0]
-    assert.equal(image.props.style.objectFit, fit); assert.equal(image.props.style.objectPosition, position)
+    assert.equal(image.props.style.objectFit, 'contain'); assert.equal(image.props.style.objectPosition, 'center')
+    assert.deepEqual(photo, before)
+    if (photo.position) assert.equal(photoLayout.businessPhotoStyle(photo).objectPosition, photo.position, 'non-preview callers retain the original metadata contract')
   }
   const row = business({ source: 'catalogue', photo: { src: '/api/catalogue-media/eebc21d3-2f13-42cd-9f81-877eb6bc5736' } })
   const f = fixture({ row }), image = elements(f.tree, node => node.type === 'img')[0]
   assert.equal(image.props.style.objectFit, 'contain'); assert.equal(image.props.style.objectPosition, 'center')
+  assert.equal(image.props.style.backgroundColor, '#fff', 'the reviewed logo keeps its intentional white frame')
   image.props.onError(); f.render()
   assert.equal(elements(f.tree, node => node.type === Cover)[0].props.business, row, 'failed images retain the existing activity-specific fallback')
 })

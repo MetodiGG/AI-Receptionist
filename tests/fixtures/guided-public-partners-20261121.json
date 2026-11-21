@@ -1,0 +1,832 @@
+{
+  "checkedOn": "2026-11-21",
+  "source": "https://www.gorez.co/api/public/businesses",
+  "purpose": "Local preview only. Public metadata snapshot; booking actions disabled. First uploaded photo copied unchanged for five partners; both checked-in VESI originals reused in original order. No current square partner upload exists in this snapshot.",
+  "businesses": [
+    {
+      "id": "6b57b901-acd8-494b-a992-2cec551b4b00",
+      "source": "gorez",
+      "name": "autocomplexrs ltd",
+      "slug": "autocomplexrs-ltd",
+      "booking_mode": "gorez",
+      "address": "София, Модерно предградие, София бул Европа 130 и Анри Нестле",
+      "city_ekatte": "68134",
+      "city": "София",
+      "neighborhood": "Модерно предградие",
+      "coordinates": null,
+      "phone": "+359889618913",
+      "industry": "auto",
+      "theme_color": "#173e2a",
+      "photos": [],
+      "services": [
+        {
+          "id": "46ff9c8d-2eba-4f07-a71c-714c01b55d59",
+          "name": "Компютърна диагностика",
+          "price": 50,
+          "currency": "EUR",
+          "description": null,
+          "duration_min": 45,
+          "price_details": {},
+          "priceKind": "fixed",
+          "priceMaximum": null,
+          "priceUnit": ""
+        },
+        {
+          "id": "65f0c253-172b-4f56-b89c-0a9bfbcdd620",
+          "name": "Смяна на масло и филтри",
+          "price": 50,
+          "currency": "EUR",
+          "description": null,
+          "duration_min": 90,
+          "price_details": {},
+          "priceKind": "fixed",
+          "priceMaximum": null,
+          "priceUnit": ""
+        },
+        {
+          "id": "191082c0-a7f0-4f69-88e8-149ed69eac2c",
+          "name": "Преглед и оценка за ремонт",
+          "price": 50,
+          "currency": "EUR",
+          "description": null,
+          "duration_min": 30,
+          "price_details": {},
+          "priceKind": "fixed",
+          "priceMaximum": null,
+          "priceUnit": ""
+        },
+        {
+          "id": "9b74aa5f-2735-4d41-8c8b-fae2422c8a6f",
+          "name": "Ремонт двигатели",
+          "price": 1200,
+          "currency": "EUR",
+          "description": null,
+          "duration_min": 60,
+          "price_details": {},
+          "priceKind": "fixed",
+          "priceMaximum": null,
+          "priceUnit": ""
+        },
+        {
+          "id": "69f2e80d-6631-4fd4-8210-622272d68fcb",
+          "name": "Зареждане и ремонт климатик",
+          "price": 20,
+          "currency": "EUR",
+          "description": null,
+          "duration_min": 60,
+          "price_details": {},
+          "priceKind": "fixed",
+          "priceMaximum": null,
+          "priceUnit": ""
+        }
+      ]
+    },
+    {
+      "id": "f309d060-d96d-4237-8fa6-00db10b7ac3d",
+      "source": "gorez",
+      "name": "Kerelski Barber & Beauty",
+      "slug": "kerelski-barber-beauty-5a20a96575e2",
+      "booking_mode": "external",
+      "address": "София, Манастирски ливади, ул. Пирин 83",
+      "city_ekatte": "68134",
+      "city": "София",
+      "neighborhood": "Манастирски ливади",
+      "coordinates": {
+        "latitude": 42.66385031216646,
+        "longitude": 23.284281405717884
+      },
+      "phone": "+359876151924",
+      "industry": "beauty",
+      "theme_color": "#173e2a",
+      "photos": [
+        {
+          "src": "/api/business-media/56814f42-5525-4705-9a48-cc8a1dbe4759",
+          "width": 1170,
+          "height": 866,
+          "alt": {
+            "bg": "",
+            "en": ""
+          },
+          "caption": {
+            "bg": "",
+            "en": ""
+          }
+        },
+        {
+          "src": "/api/business-media/257b8079-178c-4e41-aa99-286073d5086a",
+          "width": 968,
+          "height": 1280,
+          "alt": {
+            "bg": "",
+            "en": ""
+          },
+          "caption": {
+            "bg": "",
+            "en": ""
+          }
+        },
+        {
+          "src": "/api/business-media/12c883e2-7562-4a14-b550-cdae017a2d82",
+          "width": 606,
+          "height": 800,
+          "alt": {
+            "bg": "",
+            "en": ""
+          },
+          "caption": {
+            "bg": "",
+            "en": ""
+          }
+        }
+      ],
+      "services": [
+        {
+          "id": "45c81056-2276-4c2f-8884-81cf7fa9d711",
+          "name": "Мъжко подстригване",
+          "price": 18,
+          "currency": "EUR",
+          "description": null,
+          "duration_min": 45,
+          "price_details": {},
+          "priceKind": "fixed",
+          "priceMaximum": null,
+          "priceUnit": ""
+        },
+        {
+          "id": "5b66bee1-6034-4f22-b1dd-85616533544f",
+          "name": "Оформяне на брада",
+          "price": 15,
+          "currency": "EUR",
+          "description": null,
+          "duration_min": 25,
+          "price_details": {},
+          "priceKind": "fixed",
+          "priceMaximum": null,
+          "priceUnit": ""
+        },
+        {
+          "id": "7804d6cb-d914-4c2e-8b56-1683c443c89f",
+          "name": "Кралско бръснене",
+          "price": 35,
+          "currency": "EUR",
+          "description": null,
+          "duration_min": 60,
+          "price_details": {},
+          "priceKind": "fixed",
+          "priceMaximum": null,
+          "priceUnit": ""
+        },
+        {
+          "id": "cbcb6597-0b5e-44d3-9adc-e0fdf6ca8838",
+          "name": "Боя",
+          "price": 10,
+          "currency": "EUR",
+          "description": null,
+          "duration_min": 60,
+          "price_details": {},
+          "priceKind": "fixed",
+          "priceMaximum": null,
+          "priceUnit": ""
+        },
+        {
+          "id": "4b9e9d79-f390-4de2-8da8-f04ab74206a6",
+          "name": "Детско подстригване",
+          "price": 15,
+          "currency": "EUR",
+          "description": null,
+          "duration_min": 60,
+          "price_details": {},
+          "priceKind": "fixed",
+          "priceMaximum": null,
+          "priceUnit": ""
+        },
+        {
+          "id": "6fab1326-f6fc-4ca2-ab5d-f098fadd3117",
+          "name": "Брада + коса",
+          "price": 25,
+          "currency": "EUR",
+          "description": null,
+          "duration_min": 60,
+          "price_details": {},
+          "priceKind": "fixed",
+          "priceMaximum": null,
+          "priceUnit": ""
+        }
+      ]
+    },
+    {
+      "id": "e5b029ba-3586-485b-ac19-978a8386922d",
+      "source": "gorez",
+      "name": "Touch and care center",
+      "slug": "touch-and-care-center-03e374409022",
+      "booking_mode": "external",
+      "address": "София, Манастирски ливади, Пирин 42",
+      "city_ekatte": "68134",
+      "city": "София",
+      "neighborhood": "Манастирски ливади",
+      "coordinates": {
+        "latitude": 42.6650291,
+        "longitude": 23.2825296
+      },
+      "phone": "+359885775767",
+      "industry": "beauty",
+      "theme_color": "#173e2a",
+      "photos": [
+        {
+          "src": "/api/business-media/e2ca41e1-f53a-4126-b810-c648b0710d8d",
+          "width": 1200,
+          "height": 644,
+          "alt": {
+            "bg": "",
+            "en": ""
+          },
+          "caption": {
+            "bg": "",
+            "en": ""
+          }
+        }
+      ],
+      "services": [
+        {
+          "id": "ddb089f1-4fb3-422f-8fae-5b1689c1a0da",
+          "name": "Апарат за лице “Меган”",
+          "price": 120,
+          "currency": "EUR",
+          "description": null,
+          "duration_min": 60,
+          "price_details": {},
+          "priceKind": "fixed",
+          "priceMaximum": null,
+          "priceUnit": ""
+        }
+      ]
+    },
+    {
+      "id": "09f6d770-cdd5-40d2-8e82-d7e2cc9e263a",
+      "source": "gorez",
+      "name": "Zen Barbershop",
+      "slug": "zen-barbershop",
+      "booking_mode": "external",
+      "address": "София, Манастирски ливади, Ул. Казбек 63",
+      "city_ekatte": "68134",
+      "city": "София",
+      "neighborhood": "Манастирски ливади",
+      "coordinates": {
+        "latitude": 42.6650223,
+        "longitude": 23.2867119
+      },
+      "phone": "0876945230",
+      "industry": "beauty",
+      "theme_color": "#173e2a",
+      "photos": [
+        {
+          "src": "/api/business-media/790125c8-57e7-4580-b6eb-d41b10a4955f",
+          "width": 1024,
+          "height": 619,
+          "alt": {
+            "bg": "",
+            "en": ""
+          },
+          "caption": {
+            "bg": "",
+            "en": ""
+          }
+        },
+        {
+          "src": "/api/business-media/a5b18b6d-6c50-495d-9b5f-a29530a8e3e9",
+          "width": 1280,
+          "height": 765,
+          "alt": {
+            "bg": "",
+            "en": ""
+          },
+          "caption": {
+            "bg": "",
+            "en": ""
+          }
+        },
+        {
+          "src": "/api/business-media/2f5cc8d9-9180-4ed4-a8f7-d89a308dcd85",
+          "width": 1280,
+          "height": 744,
+          "alt": {
+            "bg": "",
+            "en": ""
+          },
+          "caption": {
+            "bg": "",
+            "en": ""
+          }
+        },
+        {
+          "src": "/api/business-media/8ba4eb95-d0aa-46a1-b249-801f90ec48db",
+          "width": 1280,
+          "height": 728,
+          "alt": {
+            "bg": "",
+            "en": ""
+          },
+          "caption": {
+            "bg": "",
+            "en": ""
+          }
+        }
+      ],
+      "services": [
+        {
+          "id": "86a88b43-fa2f-4d34-b109-4a8b730f52cb",
+          "name": "Оформяне на брада",
+          "price": 15,
+          "currency": "EUR",
+          "description": null,
+          "duration_min": 15,
+          "price_details": {},
+          "priceKind": "fixed",
+          "priceMaximum": null,
+          "priceUnit": ""
+        },
+        {
+          "id": "1e61199f-4ad5-4874-a6d2-aab90ad19cc4",
+          "name": "Оформяне на вежди с конец",
+          "price": 5,
+          "currency": "EUR",
+          "description": null,
+          "duration_min": 10,
+          "price_details": {},
+          "priceKind": "fixed",
+          "priceMaximum": null,
+          "priceUnit": ""
+        },
+        {
+          "id": "5916e4b4-a1d3-4fe0-8b08-d489b140ee93",
+          "name": "Подстригване на коса",
+          "price": 18,
+          "currency": "EUR",
+          "description": null,
+          "duration_min": 25,
+          "price_details": {},
+          "priceKind": "fixed",
+          "priceMaximum": null,
+          "priceUnit": ""
+        },
+        {
+          "id": "a8c0d8e1-3e86-4d07-ab5f-71439b79f8dd",
+          "name": "Подстригване на коса и брада",
+          "price": 30,
+          "currency": "EUR",
+          "description": null,
+          "duration_min": 30,
+          "price_details": {},
+          "priceKind": "fixed",
+          "priceMaximum": null,
+          "priceUnit": ""
+        },
+        {
+          "id": "ef28ff51-cf90-49dc-9e1d-674713f604a2",
+          "name": "Подстригване на коса и брада и оформяне на вежди",
+          "price": 35,
+          "currency": "EUR",
+          "description": null,
+          "duration_min": 35,
+          "price_details": {},
+          "priceKind": "fixed",
+          "priceMaximum": null,
+          "priceUnit": ""
+        },
+        {
+          "id": "5d6acf61-79a2-4e9e-8682-8c3248863806",
+          "name": "Детско подстригване за момчета",
+          "price": 12,
+          "currency": "EUR",
+          "description": null,
+          "duration_min": 15,
+          "price_details": {},
+          "priceKind": "fixed",
+          "priceMaximum": null,
+          "priceUnit": ""
+        },
+        {
+          "id": "ddd44c38-1dea-433a-af51-4d812eaee013",
+          "name": "Кола маска за уши и нос",
+          "price": 5,
+          "currency": "EUR",
+          "description": null,
+          "duration_min": 10,
+          "price_details": {},
+          "priceKind": "fixed",
+          "priceMaximum": null,
+          "priceUnit": ""
+        }
+      ]
+    },
+    {
+      "id": "2ddceca9-1716-4ba2-bf63-2beaf0857afb",
+      "source": "gorez",
+      "name": "АИМ АУТО ПЕЙНТ",
+      "slug": "aim-auto-peynt-ebdfaa7f7f9f",
+      "booking_mode": "phone",
+      "address": "София, Дианабад, Ул.Русаля",
+      "city_ekatte": "68134",
+      "city": "София",
+      "neighborhood": "Дианабад",
+      "coordinates": {
+        "latitude": 42.6656666,
+        "longitude": 23.3476552
+      },
+      "phone": "+359894782311",
+      "industry": "auto",
+      "theme_color": "#173e2a",
+      "photos": [
+        {
+          "src": "/api/business-media/2a51a864-31b1-4759-a271-a5a32dabfca0",
+          "width": 1200,
+          "height": 676,
+          "alt": {
+            "bg": "",
+            "en": ""
+          },
+          "caption": {
+            "bg": "",
+            "en": ""
+          }
+        }
+      ],
+      "services": [
+        {
+          "id": "ad048076-cdb2-462a-901f-147e4b7275e4",
+          "name": "Боядисване на детайл",
+          "price": 300,
+          "currency": "EUR",
+          "description": null,
+          "duration_min": 60,
+          "price_details": {},
+          "priceKind": "fixed",
+          "priceMaximum": null,
+          "priceUnit": ""
+        }
+      ]
+    },
+    {
+      "id": "450c5c2f-db41-476b-a21e-98cf5ee29194",
+      "source": "gorez",
+      "name": "ВЕСИ СТУДИО",
+      "slug": "vesi-studio",
+      "booking_mode": "gorez",
+      "address": "София, Манастирски ливади, Ул. Синанишко езеро 13, бл 12",
+      "city_ekatte": "68134",
+      "city": "София",
+      "neighborhood": "Манастирски ливади",
+      "coordinates": {
+        "latitude": 42.6649597,
+        "longitude": 23.2835227
+      },
+      "phone": "+359895100024",
+      "industry": "beauty",
+      "theme_color": "#173e2a",
+      "photos": [
+        {
+          "src": "/api/business-media/450c5c2f-db41-476b-a21e-98cf5ee29195",
+          "width": 1200,
+          "height": 1600,
+          "position": "50% 68%",
+          "alt": {
+            "bg": "Интериорът на ВЕСИ СТУДИО с места за маникюр, педикюр и изчакване",
+            "en": "VESI STUDIO interior with manicure, pedicure and waiting areas"
+          },
+          "caption": {
+            "bg": "В студиото",
+            "en": "Inside the studio"
+          }
+        },
+        {
+          "src": "/api/business-media/450c5c2f-db41-476b-a21e-98cf5ee29196",
+          "width": 1200,
+          "height": 1600,
+          "position": "50% 56%",
+          "alt": {
+            "bg": "Стъклената витрина и входът на ВЕСИ СТУДИО",
+            "en": "The glass storefront and entrance to VESI STUDIO"
+          },
+          "caption": {
+            "bg": "Входът",
+            "en": "The entrance"
+          }
+        }
+      ],
+      "services": [
+        {
+          "id": "4622e6d9-af83-4e97-9b34-031c8c9355bf",
+          "name": "Маникюр",
+          "price": 30,
+          "currency": "EUR",
+          "description": null,
+          "duration_min": 60,
+          "price_details": {},
+          "priceKind": "fixed",
+          "priceMaximum": null,
+          "priceUnit": ""
+        },
+        {
+          "id": "a41aaf3d-99b6-4f6f-b80a-d1863c672f1d",
+          "name": "Педикюр",
+          "price": 36,
+          "currency": "EUR",
+          "description": null,
+          "duration_min": 60,
+          "price_details": {},
+          "priceKind": "fixed",
+          "priceMaximum": null,
+          "priceUnit": ""
+        }
+      ]
+    },
+    {
+      "id": "c6efda2d-a2c1-4ff5-93f6-9b9d4cf8bf7e",
+      "source": "gorez",
+      "name": "ЕлектроMAX",
+      "slug": "elektromax-07d1e7100c9e",
+      "booking_mode": "phone",
+      "address": "София, Западен парк, Булина Ливада 7",
+      "city_ekatte": "68134",
+      "city": "София",
+      "neighborhood": "Западен парк",
+      "coordinates": {
+        "latitude": 42.7023425,
+        "longitude": 23.283667
+      },
+      "phone": "0877661667",
+      "industry": "home_services",
+      "theme_color": "#173e2a",
+      "photos": [
+        {
+          "src": "/api/business-media/c32b8528-3715-4fb7-ab13-1c427dfe42a9",
+          "width": 473,
+          "height": 1024,
+          "alt": {
+            "bg": "",
+            "en": ""
+          },
+          "caption": {
+            "bg": "",
+            "en": ""
+          }
+        },
+        {
+          "src": "/api/business-media/ac1a83a7-6100-479e-bc0f-65d8916906b7",
+          "width": 554,
+          "height": 1200,
+          "alt": {
+            "bg": "",
+            "en": ""
+          },
+          "caption": {
+            "bg": "",
+            "en": ""
+          }
+        },
+        {
+          "src": "/api/business-media/98ecb95b-b8be-47ec-b0a0-331bea9878a9",
+          "width": 554,
+          "height": 1200,
+          "alt": {
+            "bg": "",
+            "en": ""
+          },
+          "caption": {
+            "bg": "",
+            "en": ""
+          }
+        },
+        {
+          "src": "/api/business-media/cebd3999-bdae-4a66-85f0-9c0717cd3038",
+          "width": 554,
+          "height": 1200,
+          "alt": {
+            "bg": "",
+            "en": ""
+          },
+          "caption": {
+            "bg": "",
+            "en": ""
+          }
+        },
+        {
+          "src": "/api/business-media/58d7496f-1adb-435c-8196-5cb80079712f",
+          "width": 554,
+          "height": 1200,
+          "alt": {
+            "bg": "",
+            "en": ""
+          },
+          "caption": {
+            "bg": "",
+            "en": ""
+          }
+        }
+      ],
+      "services": [
+        {
+          "id": "40c2ce2c-c092-4832-9f6c-9f227546b106",
+          "name": "Диагностика и ремонт на електроинсталации",
+          "price": 60,
+          "currency": "EUR",
+          "description": null,
+          "duration_min": 60,
+          "price_details": {},
+          "priceKind": "fixed",
+          "priceMaximum": null,
+          "priceUnit": ""
+        },
+        {
+          "id": "7d26736d-b9e6-47fb-aa43-d572dad035f4",
+          "name": "Електрическа поддръжка на съществуващи електроинсталации",
+          "price": 5,
+          "currency": "EUR",
+          "description": null,
+          "duration_min": 60,
+          "price_details": {},
+          "priceKind": "fixed",
+          "priceMaximum": null,
+          "priceUnit": ""
+        },
+        {
+          "id": "f88e3075-fd1b-4575-a4f9-8de37107ab69",
+          "name": "Изграждане на изцяло нови ел. инсталации - по договаряне ( в зависимост от жилището/сградата.",
+          "price": 1300,
+          "currency": "EUR",
+          "description": null,
+          "duration_min": 180,
+          "price_details": {},
+          "priceKind": "fixed",
+          "priceMaximum": null,
+          "priceUnit": ""
+        },
+        {
+          "id": "76463335-496c-45c0-83e1-2d1429a15838",
+          "name": "Подмяна на електрически табла",
+          "price": 200,
+          "currency": "EUR",
+          "description": null,
+          "duration_min": 180,
+          "price_details": {},
+          "priceKind": "fixed",
+          "priceMaximum": null,
+          "priceUnit": ""
+        },
+        {
+          "id": "7d4c136f-fc85-4f49-ae64-fd88a72bf2aa",
+          "name": "Подмяна на контакти , ключове осв. тела и аплици",
+          "price": 10,
+          "currency": "EUR",
+          "description": null,
+          "duration_min": 60,
+          "price_details": {},
+          "priceKind": "fixed",
+          "priceMaximum": null,
+          "priceUnit": ""
+        },
+        {
+          "id": "2abbaf72-1bf1-4e29-8d48-79366bddbe8a",
+          "name": "Диагностика и ремонт на електроуреди",
+          "price": 80,
+          "currency": "EUR",
+          "description": null,
+          "duration_min": 60,
+          "price_details": {},
+          "priceKind": "fixed",
+          "priceMaximum": null,
+          "priceUnit": ""
+        }
+      ]
+    }
+  ],
+  "localPhotos": {
+    "f309d060-d96d-4237-8fa6-00db10b7ac3d": [
+      {
+        "src": "/businesses/guided-preview/f309d060-d96d-4237-8fa6-00db10b7ac3d.webp",
+        "width": 1170,
+        "height": 866,
+        "alt": {
+          "bg": "",
+          "en": ""
+        },
+        "caption": {
+          "bg": "",
+          "en": ""
+        }
+      }
+    ],
+    "e5b029ba-3586-485b-ac19-978a8386922d": [
+      {
+        "src": "/businesses/guided-preview/e5b029ba-3586-485b-ac19-978a8386922d.webp",
+        "width": 1200,
+        "height": 644,
+        "alt": {
+          "bg": "",
+          "en": ""
+        },
+        "caption": {
+          "bg": "",
+          "en": ""
+        }
+      }
+    ],
+    "09f6d770-cdd5-40d2-8e82-d7e2cc9e263a": [
+      {
+        "src": "/businesses/guided-preview/09f6d770-cdd5-40d2-8e82-d7e2cc9e263a.webp",
+        "width": 1024,
+        "height": 619,
+        "alt": {
+          "bg": "",
+          "en": ""
+        },
+        "caption": {
+          "bg": "",
+          "en": ""
+        }
+      }
+    ],
+    "2ddceca9-1716-4ba2-bf63-2beaf0857afb": [
+      {
+        "src": "/businesses/guided-preview/2ddceca9-1716-4ba2-bf63-2beaf0857afb.webp",
+        "width": 1200,
+        "height": 676,
+        "alt": {
+          "bg": "",
+          "en": ""
+        },
+        "caption": {
+          "bg": "",
+          "en": ""
+        }
+      }
+    ],
+    "c6efda2d-a2c1-4ff5-93f6-9b9d4cf8bf7e": [
+      {
+        "src": "/businesses/guided-preview/c6efda2d-a2c1-4ff5-93f6-9b9d4cf8bf7e.webp",
+        "width": 473,
+        "height": 1024,
+        "alt": {
+          "bg": "",
+          "en": ""
+        },
+        "caption": {
+          "bg": "",
+          "en": ""
+        }
+      }
+    ]
+  },
+  "images": [
+    {
+      "businessId": "f309d060-d96d-4237-8fa6-00db10b7ac3d",
+      "source": "https://www.gorez.co/api/business-media/56814f42-5525-4705-9a48-cc8a1dbe4759",
+      "local": "/businesses/guided-preview/f309d060-d96d-4237-8fa6-00db10b7ac3d.webp",
+      "bytes": 132636,
+      "sha256": "5c770896c4f3926e22450ae5ffb21a84391435595a1f6940be68b07ce7b0fe7a",
+      "transformation": "none; byte-for-byte original public response",
+      "width": 1170,
+      "height": 866
+    },
+    {
+      "businessId": "e5b029ba-3586-485b-ac19-978a8386922d",
+      "source": "https://www.gorez.co/api/business-media/e2ca41e1-f53a-4126-b810-c648b0710d8d",
+      "local": "/businesses/guided-preview/e5b029ba-3586-485b-ac19-978a8386922d.webp",
+      "bytes": 41126,
+      "sha256": "78c9188b47f6938c6d9a7d0056b1b6d88e7c8044173ea593bba1821ea11afb1c",
+      "transformation": "none; byte-for-byte original public response",
+      "width": 1200,
+      "height": 644
+    },
+    {
+      "businessId": "09f6d770-cdd5-40d2-8e82-d7e2cc9e263a",
+      "source": "https://www.gorez.co/api/business-media/790125c8-57e7-4580-b6eb-d41b10a4955f",
+      "local": "/businesses/guided-preview/09f6d770-cdd5-40d2-8e82-d7e2cc9e263a.webp",
+      "bytes": 101614,
+      "sha256": "0ca34eea70aa17057539623c49f5fea34b9ba1c3d613285668be7d85eb1e840b",
+      "transformation": "none; byte-for-byte original public response",
+      "width": 1024,
+      "height": 619
+    },
+    {
+      "businessId": "2ddceca9-1716-4ba2-bf63-2beaf0857afb",
+      "source": "https://www.gorez.co/api/business-media/2a51a864-31b1-4759-a271-a5a32dabfca0",
+      "local": "/businesses/guided-preview/2ddceca9-1716-4ba2-bf63-2beaf0857afb.webp",
+      "bytes": 155654,
+      "sha256": "521892b66de936f7c02d04fca6b77dc583001788df0ccc53f4aa3866a59d1f9a",
+      "transformation": "none; byte-for-byte original public response",
+      "width": 1200,
+      "height": 676
+    },
+    {
+      "businessId": "c6efda2d-a2c1-4ff5-93f6-9b9d4cf8bf7e",
+      "source": "https://www.gorez.co/api/business-media/c32b8528-3715-4fb7-ab13-1c427dfe42a9",
+      "local": "/businesses/guided-preview/c6efda2d-a2c1-4ff5-93f6-9b9d4cf8bf7e.webp",
+      "bytes": 117498,
+      "sha256": "cdda323dfb38a8d1513d20e07b992f1ed028824c1e6c1bcde17710b4645e82d8",
+      "transformation": "none; byte-for-byte original public response",
+      "width": 473,
+      "height": 1024
+    }
+  ]
+}

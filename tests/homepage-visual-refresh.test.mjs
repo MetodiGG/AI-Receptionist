@@ -31,7 +31,7 @@ test('the compact orange panel groups the heading and search only, leaving brows
   assert.match(search, /className: 'home-search-panel'/)
   assert.ok(search.indexOf('<SearchPanel ') < search.indexOf('<header className='))
   assert.ok(search.indexOf('</form>') < search.indexOf('</SearchPanel>'))
-  assert.ok(search.indexOf('</SearchPanel>') < search.indexOf('title={homeCopy.categories}'))
+  assert.ok(search.indexOf('</SearchPanel>') < search.indexOf('<GuidedServiceDiscovery'))
   assert.match(css, /\.home-search-panel \{[^}]*border-radius: 30px;[^}]*linear-gradient/)
   assert.match(css, /font-family: "Avenir Next", "Segoe UI", ui-sans-serif/)
   assert.match(css, /\.home-discovery-heading h1 \{[^}]*font-weight: 700/)

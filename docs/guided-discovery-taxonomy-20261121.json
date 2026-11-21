@@ -1,0 +1,1032 @@
+{
+  "checkedOn": "2026-11-21",
+  "asOf": "2026-11-21T12:00:00Z",
+  "status": "local_preview_only_no_publication",
+  "catalogueFactsUnchanged": true,
+  "approvedBusinessesAtAudit": 1708,
+  "sourceRecords": 1732,
+  "previousSubcategories": 104,
+  "totalSubcategories": 113,
+  "preservedIds": [
+    "hair-cut",
+    "hair-colour",
+    "hair-balayage",
+    "hair-styling",
+    "hair-updos",
+    "hair-treatments",
+    "hair-extensions",
+    "nails-manicure",
+    "nails-gel",
+    "nails-pedicure",
+    "nails-extensions",
+    "nails-art",
+    "nails-removal-repair",
+    "beauty-face",
+    "beauty-laser",
+    "beauty-waxing",
+    "beauty-makeup",
+    "beauty-brows",
+    "beauty-lashes",
+    "beauty-permanent-makeup",
+    "beauty-body",
+    "barber-haircut",
+    "barber-beard",
+    "barber-hair-beard",
+    "barber-colour",
+    "barber-children",
+    "barber-brows-wax",
+    "auto_repair-diagnostics",
+    "auto_repair-oil-filters",
+    "auto_repair-engine",
+    "auto_repair-brakes-suspension",
+    "auto_repair-tyres",
+    "auto_repair-air-conditioning",
+    "auto_repair-electrics",
+    "auto_repair-body-paint",
+    "auto_repair-inspection",
+    "auto_repair-prepurchase",
+    "car_wash-exterior",
+    "car_wash-interior",
+    "car_wash-complete",
+    "car_wash-upholstery",
+    "car_wash-mobile",
+    "car_wash-pickup",
+    "fitness-folk-dance",
+    "fitness-yoga",
+    "fitness-pilates",
+    "fitness-boxing",
+    "fitness-latin-dance",
+    "fitness-modern-dance",
+    "fitness-personal-training",
+    "fitness-martial-arts",
+    "fitness-racket-sports",
+    "fitness-swimming",
+    "fitness-climbing",
+    "fitness-football",
+    "education-languages",
+    "education-school",
+    "education-instruments",
+    "education-singing",
+    "education-art",
+    "education-dance",
+    "education-driving",
+    "education-coding",
+    "pets-dogs",
+    "pets-cats",
+    "pets-bath-brush",
+    "pets-cut-trim",
+    "pets-hygiene",
+    "home_services-plumbing",
+    "home_services-electrical",
+    "home_services-cleaning",
+    "home_services-furniture-cleaning",
+    "home_services-renovation",
+    "home_services-air-conditioning",
+    "home_services-appliances",
+    "home_services-moving",
+    "home_services-pest-control",
+    "health-massage",
+    "health-kinesitherapy",
+    "health-physiotherapy",
+    "health-rehabilitation",
+    "health-manual",
+    "health-taping",
+    "health-lymphatic",
+    "consulting-legal",
+    "consulting-accounting",
+    "consulting-career",
+    "consulting-business",
+    "consulting-architecture",
+    "detailing-polishing",
+    "detailing-ceramic",
+    "detailing-ppf",
+    "detailing-wrap-tint",
+    "detailing-interior",
+    "detailing-headlights",
+    "detailing-leather",
+    "other-dental",
+    "other-psychology",
+    "other-psychiatry",
+    "other-speech-therapy",
+    "other-photography",
+    "other-tattoo-piercing",
+    "other-escape-rooms",
+    "other-studio-rental"
+  ],
+  "categoryAudit": [
+    {
+      "id": "barber",
+      "bg": "Бръснарница",
+      "en": "Barbers",
+      "totalOptions": 6,
+      "added": [],
+      "existingIds": [
+        "barber-haircut",
+        "barber-beard",
+        "barber-hair-beard",
+        "barber-colour",
+        "barber-children",
+        "barber-brows-wax"
+      ]
+    },
+    {
+      "id": "hair",
+      "bg": "Фризьор",
+      "en": "Hair",
+      "totalOptions": 9,
+      "added": [
+        "hair-children",
+        "hair-braids"
+      ],
+      "existingIds": [
+        "hair-cut",
+        "hair-colour",
+        "hair-balayage",
+        "hair-styling",
+        "hair-updos",
+        "hair-treatments",
+        "hair-extensions"
+      ]
+    },
+    {
+      "id": "nails",
+      "bg": "Маникюр",
+      "en": "Nails",
+      "totalOptions": 8,
+      "added": [
+        "nails-strengthening",
+        "nails-apparatus-pedicure"
+      ],
+      "existingIds": [
+        "nails-manicure",
+        "nails-gel",
+        "nails-pedicure",
+        "nails-extensions",
+        "nails-art",
+        "nails-removal-repair"
+      ]
+    },
+    {
+      "id": "beauty",
+      "bg": "Красота",
+      "en": "Beauty",
+      "totalOptions": 9,
+      "added": [
+        "beauty-brow-lamination"
+      ],
+      "existingIds": [
+        "beauty-face",
+        "beauty-laser",
+        "beauty-waxing",
+        "beauty-makeup",
+        "beauty-brows",
+        "beauty-lashes",
+        "beauty-permanent-makeup",
+        "beauty-body"
+      ]
+    },
+    {
+      "id": "car_wash",
+      "bg": "Автомивка",
+      "en": "Car wash",
+      "totalOptions": 6,
+      "added": [],
+      "existingIds": [
+        "car_wash-exterior",
+        "car_wash-interior",
+        "car_wash-complete",
+        "car_wash-upholstery",
+        "car_wash-mobile",
+        "car_wash-pickup"
+      ]
+    },
+    {
+      "id": "detailing",
+      "bg": "Детайлинг",
+      "en": "Detailing",
+      "totalOptions": 7,
+      "added": [],
+      "existingIds": [
+        "detailing-polishing",
+        "detailing-ceramic",
+        "detailing-ppf",
+        "detailing-wrap-tint",
+        "detailing-interior",
+        "detailing-headlights",
+        "detailing-leather"
+      ]
+    },
+    {
+      "id": "auto_repair",
+      "bg": "Автосервиз",
+      "en": "Auto repair",
+      "totalOptions": 10,
+      "added": [],
+      "existingIds": [
+        "auto_repair-diagnostics",
+        "auto_repair-oil-filters",
+        "auto_repair-engine",
+        "auto_repair-brakes-suspension",
+        "auto_repair-tyres",
+        "auto_repair-air-conditioning",
+        "auto_repair-electrics",
+        "auto_repair-body-paint",
+        "auto_repair-inspection",
+        "auto_repair-prepurchase"
+      ]
+    },
+    {
+      "id": "fitness",
+      "bg": "Спорт",
+      "en": "Sports",
+      "totalOptions": 13,
+      "added": [
+        "fitness-group-training"
+      ],
+      "existingIds": [
+        "fitness-folk-dance",
+        "fitness-yoga",
+        "fitness-pilates",
+        "fitness-boxing",
+        "fitness-latin-dance",
+        "fitness-modern-dance",
+        "fitness-personal-training",
+        "fitness-martial-arts",
+        "fitness-racket-sports",
+        "fitness-swimming",
+        "fitness-climbing",
+        "fitness-football"
+      ]
+    },
+    {
+      "id": "education",
+      "bg": "Уроци",
+      "en": "Lessons",
+      "totalOptions": 10,
+      "added": [
+        "education-mathematics",
+        "education-exam-preparation"
+      ],
+      "existingIds": [
+        "education-languages",
+        "education-school",
+        "education-instruments",
+        "education-singing",
+        "education-art",
+        "education-dance",
+        "education-driving",
+        "education-coding"
+      ]
+    },
+    {
+      "id": "pets",
+      "bg": "Груминг",
+      "en": "Pet grooming",
+      "totalOptions": 5,
+      "added": [],
+      "existingIds": [
+        "pets-dogs",
+        "pets-cats",
+        "pets-bath-brush",
+        "pets-cut-trim",
+        "pets-hygiene"
+      ]
+    },
+    {
+      "id": "home_services",
+      "bg": "За дома",
+      "en": "Home services",
+      "totalOptions": 10,
+      "added": [
+        "home_services-furniture-assembly"
+      ],
+      "existingIds": [
+        "home_services-plumbing",
+        "home_services-electrical",
+        "home_services-cleaning",
+        "home_services-furniture-cleaning",
+        "home_services-renovation",
+        "home_services-air-conditioning",
+        "home_services-appliances",
+        "home_services-moving",
+        "home_services-pest-control"
+      ]
+    },
+    {
+      "id": "consulting",
+      "bg": "Консултации",
+      "en": "Consulting",
+      "totalOptions": 5,
+      "added": [],
+      "existingIds": [
+        "consulting-legal",
+        "consulting-accounting",
+        "consulting-career",
+        "consulting-business",
+        "consulting-architecture"
+      ]
+    },
+    {
+      "id": "health",
+      "bg": "Терапии",
+      "en": "Therapies",
+      "totalOptions": 7,
+      "added": [],
+      "existingIds": [
+        "health-massage",
+        "health-kinesitherapy",
+        "health-physiotherapy",
+        "health-rehabilitation",
+        "health-manual",
+        "health-taping",
+        "health-lymphatic"
+      ]
+    },
+    {
+      "id": "other",
+      "bg": "Друга услуга",
+      "en": "Other service",
+      "totalOptions": 8,
+      "added": [],
+      "existingIds": [
+        "other-dental",
+        "other-psychology",
+        "other-psychiatry",
+        "other-speech-therapy",
+        "other-photography",
+        "other-tattoo-piercing",
+        "other-escape-rooms",
+        "other-studio-rental"
+      ]
+    }
+  ],
+  "additions": [
+    {
+      "id": "hair-children",
+      "category": "hair",
+      "bg": "Детско подстригване",
+      "en": "Children’s haircuts",
+      "photo": "/service-photos/kids-haircut-v1.webp",
+      "label": "Детско подстригване",
+      "businessCount": 31,
+      "serviceCount": 43,
+      "examples": [
+        {
+          "businessId": "sofia-belami-westmall",
+          "businessName": "Belami Studio · WestMall",
+          "serviceName": "Детско подстригване · до 7 години"
+        },
+        {
+          "businessId": "sofia-belami-park-center",
+          "businessName": "Belami Studio · Park Center",
+          "serviceName": "Детско подстригване · до 7 години"
+        },
+        {
+          "businessId": "sofia-persia-beauty",
+          "businessName": "Persia Beauty Sofia",
+          "serviceName": "Детско подстригване · до 10 години"
+        },
+        {
+          "businessId": "sofia-noxic-beauty",
+          "businessName": "Noxic Beauty",
+          "serviceName": "Детско подстригване до 7 г."
+        },
+        {
+          "businessId": "sofia-viktoria-beauty-lyulin",
+          "businessName": "Viktoria Beauty",
+          "serviceName": "Детско подстригване"
+        },
+        {
+          "businessId": "sofia-beauty-studio-99",
+          "businessName": "Beauty Studio 99",
+          "serviceName": "Детско подстригване до 7 г."
+        },
+        {
+          "businessId": "sofia-stephan-mladost",
+          "businessName": "Stephan · Младост",
+          "serviceName": "Детско подстригване до 7 години без измиване"
+        },
+        {
+          "businessId": "sofia-stephan-lagera",
+          "businessName": "Stephan · Лагера",
+          "serviceName": "Детско подстригване до 7 години без измиване"
+        }
+      ]
+    },
+    {
+      "id": "hair-braids",
+      "category": "hair",
+      "bg": "Плитки",
+      "en": "Braids",
+      "photo": "/service-photos/hair-braiding-v1.webp",
+      "label": "Плитки",
+      "businessCount": 17,
+      "serviceCount": 27,
+      "examples": [
+        {
+          "businessId": "sofia-persia-beauty",
+          "businessName": "Persia Beauty Sofia",
+          "serviceName": "Плитки"
+        },
+        {
+          "businessId": "sofia-noxic-beauty",
+          "businessName": "Noxic Beauty",
+          "serviceName": "Плитка рибена кост"
+        },
+        {
+          "businessId": "sofia-viktoria-beauty-lyulin",
+          "businessName": "Viktoria Beauty",
+          "serviceName": "Плитки"
+        },
+        {
+          "businessId": "sofia-viktoria-beauty-lyulin",
+          "businessName": "Viktoria Beauty",
+          "serviceName": "Сенегалски плитки с вграждане"
+        },
+        {
+          "businessId": "sofia-stephan-mladost",
+          "businessName": "Stephan · Младост",
+          "serviceName": "Плитка"
+        },
+        {
+          "businessId": "sofia-stephan-lagera",
+          "businessName": "Stephan · Лагера",
+          "serviceName": "Плитка"
+        },
+        {
+          "businessId": "sofia-stephan-oborishte",
+          "businessName": "Stephan · Оборище",
+          "serviceName": "Плитка"
+        },
+        {
+          "businessId": "sofia-stephan-iztok",
+          "businessName": "Stephan · Изток",
+          "serviceName": "Плитка"
+        }
+      ]
+    },
+    {
+      "id": "nails-strengthening",
+      "category": "nails",
+      "bg": "Укрепване на нокти",
+      "en": "Nail strengthening",
+      "photo": "/service-photos/sx-nails-strengthen-hands-v1.webp",
+      "label": "Укрепване на нокти",
+      "businessCount": 18,
+      "serviceCount": 29,
+      "examples": [
+        {
+          "businessId": "sofia-gloss-nails",
+          "businessName": "GLOSS! Nails Sofia",
+          "serviceName": "Изграждане и укрепване"
+        },
+        {
+          "businessId": "sofia-luxury-nails-cherkovna",
+          "businessName": "Luxury Nails / Academy & Salon",
+          "serviceName": "Укрепване с гел върху естествен нокът"
+        },
+        {
+          "businessId": "sofia-salon-bard",
+          "businessName": "Салон за красота Б.А.Р.Д.",
+          "serviceName": "Маникюр с гел лак и укрепване · без декорация"
+        },
+        {
+          "businessId": "sofia-salon-bard",
+          "businessName": "Салон за красота Б.А.Р.Д.",
+          "serviceName": "Маникюр с гел лак, укрепване и декорация"
+        },
+        {
+          "businessId": "sofia-salon-bard",
+          "businessName": "Салон за красота Б.А.Р.Д.",
+          "serviceName": "Маникюр с гел лак, укрепване и терапия Magnetic"
+        },
+        {
+          "businessId": "sofia-neda-art-nails",
+          "businessName": "Neda Art Nails",
+          "serviceName": "Маникюр с гел лак и укрепване на къси нокти"
+        },
+        {
+          "businessId": "sofia-noxic-beauty",
+          "businessName": "Noxic Beauty",
+          "serviceName": "Поправка и укрепване на счупен нокът"
+        },
+        {
+          "businessId": "sofia-noxic-beauty",
+          "businessName": "Noxic Beauty",
+          "serviceName": "Укрепване с акрилна пудра / поддръжка"
+        }
+      ]
+    },
+    {
+      "id": "nails-apparatus-pedicure",
+      "category": "nails",
+      "bg": "Апаратен педикюр",
+      "en": "Machine pedicure",
+      "photo": "/service-photos/sx-nails-russian-pedicure-v1.webp",
+      "label": "Апаратен педикюр",
+      "businessCount": 1,
+      "serviceCount": 2,
+      "examples": [
+        {
+          "businessId": "sofia-nail-cocktail-boutique",
+          "businessName": "Nail Cocktail Boutique",
+          "serviceName": "Апаратен педикюр с гел лак · Виктория"
+        },
+        {
+          "businessId": "sofia-nail-cocktail-boutique",
+          "businessName": "Nail Cocktail Boutique",
+          "serviceName": "Апаратен педикюр без лак · Виктория"
+        }
+      ]
+    },
+    {
+      "id": "beauty-brow-lamination",
+      "category": "beauty",
+      "bg": "Ламиниране на вежди",
+      "en": "Brow lamination",
+      "photo": "/service-photos/sx-brow-lamination-only-v1.webp",
+      "label": "Ламиниране на вежди",
+      "businessCount": 16,
+      "serviceCount": 25,
+      "examples": [
+        {
+          "businessId": "sofia-els-makeup",
+          "businessName": "EL’s Makeup",
+          "serviceName": "Ламиниране на вежди и мигли"
+        },
+        {
+          "businessId": "sofia-els-makeup",
+          "businessName": "EL’s Makeup",
+          "serviceName": "Ламиниране, оформяне и боядисване на вежди"
+        },
+        {
+          "businessId": "sofia-skinni-aesthetic",
+          "businessName": "Skinni Aesthetic",
+          "serviceName": "Ламиниране на вежди"
+        },
+        {
+          "businessId": "sofia-ss-deluxe-signature-beauty",
+          "businessName": "S&S Deluxe Signature Beauty",
+          "serviceName": "Оформяне и ламиниране на вежди"
+        },
+        {
+          "businessId": "sofia-ss-deluxe-signature-beauty",
+          "businessName": "S&S Deluxe Signature Beauty",
+          "serviceName": "Ламиниране на вежди"
+        },
+        {
+          "businessId": "sofia-ss-deluxe-signature-beauty",
+          "businessName": "S&S Deluxe Signature Beauty",
+          "serviceName": "Ламиниране на вежди + боядисване"
+        },
+        {
+          "businessId": "sofia-ss-deluxe-signature-beauty",
+          "businessName": "S&S Deluxe Signature Beauty",
+          "serviceName": "Ламиниране на вежди + ламиниране на мигли"
+        },
+        {
+          "businessId": "sofia-studio-elita",
+          "businessName": "Студио ЕЛИТА",
+          "serviceName": "Ламиниране на вежди и мигли"
+        }
+      ]
+    },
+    {
+      "id": "fitness-group-training",
+      "category": "fitness",
+      "bg": "Групови тренировки",
+      "en": "Group workouts",
+      "photo": "/service-photos/sx-strength-group-v1.webp",
+      "label": "Групови тренировки",
+      "businessCount": 39,
+      "serviceCount": 56,
+      "examples": [
+        {
+          "businessId": "sofia-jp-studio-reformer",
+          "businessName": "JP Studio",
+          "serviceName": "Групова тренировка по пилатес реформър · само за жени"
+        },
+        {
+          "businessId": "sofia-jp-studio-reformer",
+          "businessName": "JP Studio",
+          "serviceName": "Пилатес реформър · карта 4 групови тренировки · жени"
+        },
+        {
+          "businessId": "sofia-jp-studio-reformer",
+          "businessName": "JP Studio",
+          "serviceName": "Пилатес реформър · карта 8 групови тренировки · жени"
+        },
+        {
+          "businessId": "sofia-jp-studio-reformer",
+          "businessName": "JP Studio",
+          "serviceName": "Пилатес реформър · карта 12 групови тренировки · жени"
+        },
+        {
+          "businessId": "sofia-reformer-vibe",
+          "businessName": "Studio REFORMER Vibe",
+          "serviceName": "Пилатес реформър · групова тренировка"
+        },
+        {
+          "businessId": "sofia-reformer-vibe",
+          "businessName": "Studio REFORMER Vibe",
+          "serviceName": "Пилатес реформър · карта 4 групови тренировки"
+        },
+        {
+          "businessId": "sofia-reformer-vibe",
+          "businessName": "Studio REFORMER Vibe",
+          "serviceName": "Пилатес реформър · карта 8 групови тренировки"
+        },
+        {
+          "businessId": "sofia-reformer-vibe",
+          "businessName": "Studio REFORMER Vibe",
+          "serviceName": "Пилатес реформър · карта 12 групови тренировки"
+        }
+      ]
+    },
+    {
+      "id": "education-mathematics",
+      "category": "education",
+      "bg": "Математика",
+      "en": "Mathematics",
+      "photo": "/service-photos/math-lesson-v1.webp",
+      "label": "Математика",
+      "businessCount": 20,
+      "serviceCount": 31,
+      "examples": [
+        {
+          "businessId": "sofia-inacademy-home-lessons",
+          "businessName": "INacademy · Ина Маринова · уроци на адрес",
+          "serviceName": "Математика на адрес · 4 урока месечно"
+        },
+        {
+          "businessId": "sofia-inacademy-home-lessons",
+          "businessName": "INacademy · Ина Маринова · уроци на адрес",
+          "serviceName": "Математика на адрес · 8 урока месечно"
+        },
+        {
+          "businessId": "sofia-inacademy-home-lessons",
+          "businessName": "INacademy · Ина Маринова · уроци на адрес",
+          "serviceName": "Математика на адрес · 12 урока месечно"
+        },
+        {
+          "businessId": "sofia-x-academy-borovo",
+          "businessName": "X-Academy · Борово",
+          "serviceName": "Индивидуален урок по математика · 60 мин"
+        },
+        {
+          "businessId": "sofia-x-academy-borovo",
+          "businessName": "X-Academy · Борово",
+          "serviceName": "Индивидуален урок по математика · 90 мин"
+        },
+        {
+          "businessId": "sofia-studio-s-strelbishte",
+          "businessName": "Студио S · Стрелбище",
+          "serviceName": "Индивидуален урок по математика"
+        },
+        {
+          "businessId": "sofia-koalakids-strelbishte",
+          "businessName": "KoalaKids Academy · Стрелбище",
+          "serviceName": "Забавна математика за деца 4–8 г. · едно посещение"
+        },
+        {
+          "businessId": "sofia-koalakids-strelbishte",
+          "businessName": "KoalaKids Academy · Стрелбище",
+          "serviceName": "Забавна математика за деца 4–8 г. · месечен пакет"
+        }
+      ]
+    },
+    {
+      "id": "education-exam-preparation",
+      "category": "education",
+      "bg": "Подготовка за изпити",
+      "en": "Exam preparation",
+      "photo": "/service-photos/math-lesson-v1.webp",
+      "label": "Подготовка за изпити",
+      "businessCount": 2,
+      "serviceCount": 3,
+      "examples": [
+        {
+          "businessId": "sofia-akademia-elit-lyulin7-lessons",
+          "businessName": "Академия ЕЛИТ · частни уроци, Люлин 7",
+          "serviceName": "Индивидуална подготовка за НВО 7. клас · математика"
+        },
+        {
+          "businessId": "sofia-akademia-elit-lyulin7-lessons",
+          "businessName": "Академия ЕЛИТ · частни уроци, Люлин 7",
+          "serviceName": "Индивидуална подготовка за НВО 7. клас · БЕЛ"
+        },
+        {
+          "businessId": "sofia-vyarabel-mladost4-fontanite460v",
+          "businessName": "Вярабел · учебно-артистичен център",
+          "serviceName": "Интензивен групов курс по БЕЛ за НВО 7. клас · 2027"
+        }
+      ]
+    },
+    {
+      "id": "home_services-furniture-assembly",
+      "category": "home_services",
+      "bg": "Сглобяване на мебели",
+      "en": "Furniture assembly",
+      "photo": "/service-photos/sx-home-desk-assembly-v1.webp",
+      "label": "Сглобяване на мебели",
+      "businessCount": 7,
+      "serviceCount": 15,
+      "examples": [
+        {
+          "businessId": "sofia-uslugi-vik",
+          "businessName": "ВиК услуги София · uslugi-vik.com",
+          "serviceName": "монтаж на шкаф за мивка за баня"
+        },
+        {
+          "businessId": "sofia-assemblix-mobile-furniture",
+          "businessName": "Assemblix · монтаж на мебели на адрес",
+          "serviceName": "Сглобяване на двукрилен гардероб с плъзгащи врати"
+        },
+        {
+          "businessId": "sofia-assemblix-mobile-furniture",
+          "businessName": "Assemblix · монтаж на мебели на адрес",
+          "serviceName": "Сглобяване на трикрилен гардероб с плъзгащи врати"
+        },
+        {
+          "businessId": "sofia-assemblix-mobile-furniture",
+          "businessName": "Assemblix · монтаж на мебели на адрес",
+          "serviceName": "Сглобяване на нощно шкафче"
+        },
+        {
+          "businessId": "sofia-assemblix-mobile-furniture",
+          "businessName": "Assemblix · монтаж на мебели на адрес",
+          "serviceName": "Сглобяване на единично легло до около 90 см"
+        },
+        {
+          "businessId": "sofia-assemblix-mobile-furniture",
+          "businessName": "Assemblix · монтаж на мебели на адрес",
+          "serviceName": "Сглобяване на бюро"
+        },
+        {
+          "businessId": "sofia-instabroz-mobile-furniture",
+          "businessName": "Instabroz · монтаж на мебели",
+          "serviceName": "Монтаж на еднокрилен гардероб"
+        },
+        {
+          "businessId": "sofia-instabroz-mobile-furniture",
+          "businessName": "Instabroz · монтаж на мебели",
+          "serviceName": "Монтаж на двукрилен гардероб"
+        }
+      ]
+    }
+  ],
+  "method": "Read-only current approved catalogue services, not fresh external source review. New matcher rules use explicit service names with the existing category/domain safety guards. No business record, price, category ID, service inventory, photo, backend or search algorithm changed. Counts are businesses/service rows, not appointments or availability. Service qualifiers and fees remain intact in original results.",
+  "alreadyRepresented": [
+    {
+      "category": "hair",
+      "candidates": [
+        "Удължаване на коса"
+      ],
+      "by": [
+        "hair-extensions"
+      ]
+    },
+    {
+      "category": "nails",
+      "candidates": [
+        "Маникюр",
+        "Гел лак",
+        "Педикюр"
+      ],
+      "by": [
+        "nails-manicure",
+        "nails-gel",
+        "nails-pedicure"
+      ]
+    },
+    {
+      "category": "beauty",
+      "candidates": [
+        "Миглопластика",
+        "Грим за събития",
+        "Лазерна епилация",
+        "Кола маска/шугаринг"
+      ],
+      "by": [
+        "beauty-lashes",
+        "beauty-makeup",
+        "beauty-laser",
+        "beauty-waxing"
+      ],
+      "note": "Broad useful existing choices remain; no near-identical facet added just to rename the same result set."
+    },
+    {
+      "category": "barber",
+      "candidates": [
+        "Оформяне на брада",
+        "Бръснене",
+        "Коса и брада",
+        "Боядисване на брада"
+      ],
+      "by": [
+        "barber-beard",
+        "barber-hair-beard",
+        "barber-colour"
+      ]
+    },
+    {
+      "category": "auto_repair",
+      "candidates": [
+        "Диагностика",
+        "Масло и филтри",
+        "Гуми",
+        "Спирачки",
+        "Ходова част",
+        "Автоклиматици"
+      ],
+      "by": [
+        "auto_repair-diagnostics",
+        "auto_repair-oil-filters",
+        "auto_repair-tyres",
+        "auto_repair-brakes-suspension",
+        "auto_repair-air-conditioning"
+      ]
+    },
+    {
+      "category": "car_wash",
+      "candidates": [
+        "Външно измиване",
+        "Вътрешно почистване",
+        "Комплексно измиване",
+        "Пране на салон"
+      ],
+      "by": [
+        "car_wash-exterior",
+        "car_wash-interior",
+        "car_wash-complete",
+        "car_wash-upholstery"
+      ]
+    },
+    {
+      "category": "fitness",
+      "candidates": [
+        "Персонални тренировки",
+        "Плуване",
+        "Народни танци"
+      ],
+      "by": [
+        "fitness-personal-training",
+        "fitness-swimming",
+        "fitness-folk-dance"
+      ]
+    },
+    {
+      "category": "education",
+      "candidates": [
+        "Чужди езици",
+        "Музика",
+        "Програмиране"
+      ],
+      "by": [
+        "education-languages",
+        "education-instruments",
+        "education-singing",
+        "education-coding"
+      ]
+    },
+    {
+      "category": "pets",
+      "candidates": [
+        "Подстригване",
+        "Къпане",
+        "Грижа за козината",
+        "Подрязване на нокти"
+      ],
+      "by": [
+        "pets-cut-trim",
+        "pets-bath-brush",
+        "pets-hygiene"
+      ]
+    },
+    {
+      "category": "home_services",
+      "candidates": [
+        "Почистване",
+        "Електроуслуги",
+        "ВиК",
+        "Боядисване",
+        "Обслужване на климатици"
+      ],
+      "by": [
+        "home_services-cleaning",
+        "home_services-electrical",
+        "home_services-plumbing",
+        "home_services-renovation",
+        "home_services-air-conditioning"
+      ]
+    },
+    {
+      "category": "health",
+      "candidates": [
+        "Само съществуващи допустими терапии"
+      ],
+      "by": [
+        "health-massage",
+        "health-kinesitherapy",
+        "health-physiotherapy",
+        "health-rehabilitation",
+        "health-manual",
+        "health-taping",
+        "health-lymphatic"
+      ],
+      "note": "No new clinic/physician or medical modality introduced."
+    },
+    {
+      "category": "consulting",
+      "candidates": [
+        "Счетоводни",
+        "Бизнес",
+        "Кариерни"
+      ],
+      "by": [
+        "consulting-accounting",
+        "consulting-business",
+        "consulting-career"
+      ]
+    },
+    {
+      "category": "detailing",
+      "candidates": [
+        "Полиране",
+        "Керамично покритие",
+        "Интериорен детайлинг",
+        "Защитно фолио",
+        "Възстановяване на фарове"
+      ],
+      "by": [
+        "detailing-polishing",
+        "detailing-ceramic",
+        "detailing-interior",
+        "detailing-ppf",
+        "detailing-headlights"
+      ]
+    },
+    {
+      "category": "other",
+      "candidates": [
+        "Meaningful actual specialist groups"
+      ],
+      "by": [
+        "other-dental",
+        "other-psychology",
+        "other-psychiatry",
+        "other-speech-therapy",
+        "other-photography",
+        "other-tattoo-piercing",
+        "other-escape-rooms",
+        "other-studio-rental"
+      ],
+      "note": "Existing dental/psychology/psychiatry/speech/photo/tattoo/escape/studio options already distinguish real service groups; no artificial catchall expansion."
+    }
+  ],
+  "futureRecommendations": [
+    {
+      "category": "beauty",
+      "candidate": "Електроепилация",
+      "decision": "not_added",
+      "reason": "No explicit approved catalogue service name currently supports this distinct method. Consider only after verified real service data and suitable existing artwork."
+    }
+  ],
+  "photoReview": {
+    "generated": false,
+    "originalsChanged": false,
+    "method": "Agent personally inspected all eight different existing256pxWebPs used by nine new choices. Childhaircut, braiding, handnailstrengthening, rotarytoepedicure, browlamination, groupstrengthworkout, mathlesson and deskassembly depict their stated broad activity. Mathlesson reused for examprep as an appropriate educational fallback, not a promise about exam type. Groupworkout thumbnail is representative groupstrength activity; actual business cover is still derived independently from that business's service data.",
+    "reviewedBy": "/root/guided_taxonomy",
+    "allExistingAssetIds": true
+  },
+  "caveat": "One formerly active artizba-cherni-vrah33e listing expired2026-11-18; no historical validity or source gate refreshed to preserve old1709count. Public options remain server-counted for the current geographic scope and hide zero-count choices.",
+  "validation": {
+    "focusedTaxonomy": {
+      "executed": true,
+      "passed": 33,
+      "failed": 0,
+      "command": "node --test tests/discovery-subcategories.test.mjs tests/guided-taxonomy-20261121.test.mjs"
+    },
+    "expandedClassificationRegression": {
+      "executed": true,
+      "passed": 237,
+      "failed": 0,
+      "skipped": 0,
+      "files": [
+        "tests/discovery-subcategories.test.mjs",
+        "tests/guided-taxonomy-20261121.test.mjs",
+        "tests/discovery-service-matcher.test.mjs",
+        "tests/catalogue-category-priority.test.mjs",
+        "tests/discovery-brow-shaping.test.mjs",
+        "tests/discovery-short-name-category.test.mjs",
+        "tests/discovery-corpus.test.mjs",
+        "tests/discovery-quality.test.mjs"
+      ]
+    },
+    "diffCheck": "passed",
+    "networkRequests": 0,
+    "bookings": 0,
+    "productionWrites": 0,
+    "fullAppSuiteAndBuild": "Not executed by taxonomy subtask; main owns final integrated checks and visual preview."
+  }
+}

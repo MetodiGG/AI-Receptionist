@@ -4,12 +4,12 @@ import { readFile } from 'node:fs/promises'
 import { discoveryInitialInput, discoverySearchInput } from '../lib/discovery/search-ui.mjs'
 import { discoveryRequestSchema } from '../lib/discovery/intent.mjs'
 
-test('fresh homepage opens hair browsing in both languages without requesting location', () => {
+test('fresh homepage leaves category choice closed and does not infer hair or request location', () => {
   for (const locale of ['bg', 'en']) {
     const selection = discoveryInitialInput(null, { home: true })
-    assert.deepEqual(selection, { query: '', category: 'hair' })
+    assert.equal(selection, null)
     const request = discoverySearchInput({ ...selection, locale, browse: true, categoryBrowse: true })
-    assert.equal(request.category, 'hair')
+    assert.equal(request.category, undefined)
     assert.equal(request.query, '')
     assert.equal(request.browse, true)
     assert.equal(request.coordinates, undefined)
@@ -37,7 +37,9 @@ test('introductory category releases on typing; explicit choices keep their cont
   assert.match(source, /search\(input, \{ navigate: Boolean\(initial\) \}\)/)
   assert.match(source, /<DiscoverySubcategories category=\{category\}/)
   assert.match(source, /<DiscoveryHomeBusinesses/)
-  assert.match(source, /initialPreview=\{entryCategory\}/)
+  assert.match(source, /initialPreview=\{false\}/)
+  assert.match(source, /useState\(initial \? 'results' : 'closed'\)/)
+  assert.match(source, /<GuidedServiceDiscovery locale=\{locale\} stage=\{guideStage\}/)
   assert.match(source, /home && !compact && !locationError \? <details className="home-location-help"/)
   assert.match(source, /<p>\{locationMessage\}<\/p>/)
 })

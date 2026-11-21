@@ -3,14 +3,18 @@ import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 const read = path => readFile(new URL(`../${path}`, import.meta.url), 'utf8')
 
-test('business results stay one per row at every width; categories retain the horizontal rail', async () => {
-  const [css, list, search, layout] = await Promise.all(['app/business-results.css', 'components/discovery-business-list.js', 'components/discovery-search.js', 'app/layout.js'].map(read))
+test('business results stay one per row at every width and guided category choices stack instead of scrolling sideways', async () => {
+  const [css, list, search, layout, guide] = await Promise.all(['app/business-results.css', 'components/discovery-business-list.js', 'components/discovery-search.js', 'app/layout.js', 'app/guided-discovery.css'].map(read))
   assert.match(css, /--business-columns: 1/)
   assert.doesNotMatch(css, /--business-columns:\s*[2-9]/)
   assert.match(css, /\.home-business-grid \.home-business-card:is\([^\n]*display: grid; grid-template-columns: minmax\(210px,32%\) minmax\(0,1fr\)/)
   assert.match(css, /\.home-business-photo \{ grid-column: 1; grid-row: 1 \/ -1/)
   assert.doesNotMatch(css, /overflow(?:-y)?: (?:auto|scroll)|max-height:/)
-  assert.match(search, /<DiscoveryHomeRail title=\{homeCopy.categories\} locale=\{locale\} kind="categories"/)
+  assert.match(search, /home && !compact && <GuidedServiceDiscovery locale=\{locale\}/)
+  assert.doesNotMatch(search, /<DiscoveryHomeRail/)
+  assert.match(guide, /\.guide-choices \{ display: grid; grid-template-columns: minmax\(0,1fr\)/)
+  assert.match(guide, /@media \(min-width: 700px\) \{ \.guide-choices \{ grid-template-columns: repeat\(2,minmax\(0,1fr\)\)/)
+  assert.doesNotMatch(guide, /overflow-x:\s*(?:auto|scroll)|scroll-snap-type|grid-auto-flow:\s*column/)
   assert.doesNotMatch(list, /onWheel=|onScroll=|home-rail-arrows|home-discovery-rail/)
   assert.ok(layout.indexOf("import './business-results.css'") > layout.indexOf("import './service-photo-surfaces.css'"))
 })

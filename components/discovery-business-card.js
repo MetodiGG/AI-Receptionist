@@ -39,8 +39,8 @@ export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, 
   const directionsLabel = copy.directions
   const services = railServiceItems(row)
   const distance = <DiscoveryDistanceBadge origin={distanceOrigin} destination={row.coordinates} locale={locale} business={row}/>
-  const visual = <div className="home-business-photo">
-    {photo && photo.src !== failedPhoto ? <img src={photo.src} width={400} height={300} alt={photo.alt?.[locale] || row.name} loading="lazy" decoding="async" style={businessPhotoStyle(photo)} onError={() => setFailedPhoto(photo.src)}/> : <BusinessCoverPhoto business={row} locale={locale}/>}
+  const visual = <div className={`home-business-photo${photo && photo.src !== failedPhoto ? ' is-real-photo' : ''}`}>
+    {photo && photo.src !== failedPhoto ? <img src={photo.src} width={photo.width || 400} height={photo.height || 300} alt={photo.alt?.[locale] || row.name} loading="lazy" decoding="async" style={businessPhotoStyle(photo, { preview: true })} onError={() => setFailedPhoto(photo.src)}/> : <BusinessCoverPhoto business={row} locale={locale}/>}
     {!quickChoice && distance}
     {hasDetails && !quickChoice && <span className="home-business-details-label">{copy.viewDetailsLower}</span>}
   </div>

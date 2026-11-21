@@ -30,7 +30,7 @@ const partner=patch=>({id:'10000000-0000-4000-8000-000000000001',name:'Public da
   city_ekatte:'68134',city:'София',neighborhood:'Борово',address:'Тестова улица 2',public_profile:{latitude:42.67,longitude:23.29},services:[folk,yoga],...patch})
 
 test('every existing public category has stable bilingual photographic subcategories, using only approved local artwork',async()=>{
-  assert.equal(DISCOVERY_SUBCATEGORIES.length,104)
+  assert.equal(DISCOVERY_SUBCATEGORIES.length,113)
   assert.equal(new Set(SUBCATEGORY_IDS).size,SUBCATEGORY_IDS.length)
   assert.deepEqual([...new Set(DISCOVERY_SUBCATEGORIES.map(item=>item.category))].sort(),[...CATEGORY_IDS].sort())
   for(const category of CATEGORY_IDS)for(const locale of ['bg','en']){

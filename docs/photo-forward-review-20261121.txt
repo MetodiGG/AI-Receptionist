@@ -95,8 +95,8 @@ NARROW / ENLARGED-TEXT SAFETY DECISION
 The requested full words at15–16px cannot always fit inside two tiles at320px:
 actual initial measurements found Автоелектроника135px and Тенекеджийство130px
 against a122px caption. Shortening, clipping and shrinking violate the hard
-full-label requirements. An asynchronous preference question was sent.
-For this review the implementation preserves complete names: only service grids
+full-label requirements. The owner confirmed the narrow-only one-column option.
+The implementation preserves complete names: only service grids
 containing an actual localized word of14+ letters switch to one column in very
 narrow containers (<=20rem). The default category grid and ordinary320px nails
 grid remain two columns; all normal390px grids remain two columns.
@@ -107,7 +107,7 @@ All keeps equal40px side tracks and reduces only balancing gaps/padding.
 320px English longest labels and1440px Bulgarian enlarged text showed no clipped
 labels/captions or horizontal overflow. No displayed names were abbreviated.
 This is an explicit accessibility exception to a rigid two-column narrow grid,
-pending the user's preference, not an undisclosed change in filtering.
+approved by the owner, not an undisclosed change in filtering.
 
 PRESERVED SCOPE / TESTS
 - Search component is byte-identical to3858c4e, including all handlers/state.

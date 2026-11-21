@@ -55,18 +55,72 @@ function readable(foreground, background, label, minimum = 4.5) {
   assert.ok(actual >= minimum, `${label}: ${actual.toFixed(3)}:1 must reach ${minimum}:1`)
 }
 
-test('actual light/dark inline text and small-count tokens retain normal-text AA in every tile state', () => {
+test('existing light/dark semantic panel text and focus tokens retain normal-text AA', () => {
   for (const [theme, values] of [['light', inlineLight], ['dark', inlineDark]]) {
     for (const foreground of ['--inline-ink', '--inline-muted']) {
       for (const background of ['--inline-surface', '--inline-raised', '--inline-selected', '--inline-hover']) readable(values[foreground], values[background], `${theme} ${foreground} / ${background}`)
     }
     for (const background of ['--inline-surface', '--inline-selected', '--inline-hover']) readable(values['--inline-accent'], values[background], `${theme} tile focus`, 3)
   }
+})
+
+test('photo-forward captions and localized small counts retain AA over the brightest/darkest possible photos', () => {
+  const hasCaption = selector => /\.inline-(?:category|service)-caption/.test(selector)
+  const background = rule => resolve(declarations(rule).background, inlineLight)
+  const captionRule = inlineRules.find(rule => hasCaption(rule.selector) && !rule.selector.includes('aria-pressed') && /^#[\da-f]{8}$/i.test(background(rule) || ''))
+  const selectedRule = inlineRules.find(rule => hasCaption(rule.selector) && rule.selector.includes('aria-pressed') && /^#[\da-f]{8}$/i.test(background(rule) || ''))
+  assert.ok(captionRule); assert.ok(selectedRule)
+  const caption = declarations(captionRule), selected = declarations(selectedRule)
+  assert.equal(background(captionRule).toUpperCase(), '#2F211B99')
+  assert.equal(background(selectedRule).toUpperCase(), '#432318B3')
+  const scrim = inlineRules.find(rule => /::(?:before|after)/.test(rule.selector) && /--inline-photo-scrim-start|#2f211b26/i.test(declarations(rule).background || ''))
+  assert.ok(scrim, 'the full-tile scrim is separate from the stable text backplate')
+  const gradient = declarations(scrim).background.replace(/var\((--[\w-]+)\)/g, (_match, name) => inlineLight[name])
+  const stops = [...gradient.matchAll(/#[\da-f]{8}\b/gi)].map(match => match[0])
+  assert.deepEqual([stops[0], stops.at(-1)].map(stop => stop.toUpperCase()), ['#2F211B26', '#2F211BB3'])
   const count = declarations(inlineRules.find(rule => rule.selector === '.inline-service-count'))
-  assert.equal(count.color, 'var(--inline-muted)')
-  assert.equal(count.background, 'var(--inline-raised)')
-  assert.equal(count['font-size'], '.8125rem', 'small counts use normal-text AA, not a large-text exemption')
-  for (const values of [inlineLight, inlineDark]) readable(resolve(count.color, values), resolve(count.background, values), 'actual small count')
+  const label = declarations(inlineRules.find(rule => rule.selectors.includes('.inline-category-label')))
+  const tile = declarations(inlineRules.find(rule => rule.selectors.includes('.inline-category-option') && declarations(rule).color))
+  const primary = resolve([label.color, caption.color, tile.color].find(color => color && color !== 'inherit'), inlineLight)
+  const secondary = resolve(count.color, inlineLight)
+  assert.equal(primary.toUpperCase(), '#FFF4E8')
+  assert.equal(secondary.toUpperCase(), '#FFF2E7')
+  assert.equal(count.opacity || '1', '1', 'localized small counts must not fade below their verified contrast')
+  assert.equal(count['font-size'], '.75rem', 'localized small counts keep normal-text AA, not a large-text exemption')
+  for (const backdrop of ['#000000', '#FFFFFF']) for (const stop of stops) {
+    const photo = composite(stop, backdrop)
+    for (const [state, plate] of [['default', background(captionRule)], ['selected', background(selectedRule)]]) {
+      const composed = composite(plate, photo)
+      readable(primary, composed, `${state} caption over ${backdrop} / ${stop}`)
+      readable(secondary, composed, `${state} small count over ${backdrop} / ${stop}`)
+    }
+  }
+})
+
+test('the glass All row keeps AA text/focus and its selected-only frame never highlights an unselected action', () => {
+  const base = declarations(inlineRules.find(rule => rule.selector === '.inline-service-all' && declarations(rule).color))
+  const ordinary = declarations(inlineRules.find(rule => rule.selector === '.inline-service-all' && /color-mix/.test(declarations(rule).background || '')))
+  const selected = declarations(inlineRules.find(rule => rule.selector === '.inline-service-all[aria-pressed="true"]' && /color-mix/.test(declarations(rule).background || '')))
+  assert.equal(base.color, 'var(--inline-ink)')
+  for (const [name, actual, variable, opacity] of [['ordinary', ordinary, '--inline-surface', .9], ['selected', selected, '--inline-selected', .92]]) {
+    assert.match(actual.background, new RegExp(`var\\(${variable}\\)\\s*${opacity * 100}%`))
+    for (const [theme, values] of [['light', inlineLight], ['dark', inlineDark]]) for (const backdrop of ['#000000', '#FFFFFF']) {
+      const background = composite(values[variable], backdrop, opacity)
+      readable(resolve(base.color, values), background, `${theme} ${name} glass All text over ${backdrop}`)
+      readable(values['--inline-accent'], background, `${theme} ${name} All focus over ${backdrop}`, 3)
+    }
+  }
+  const selectedFrame = inlineRules.find(rule => rule.selectors.includes('.inline-service-all[aria-pressed="true"]::after') && declarations(rule).padding === '2px')
+  assert.ok(selectedFrame)
+  assert.equal(declarations(selectedFrame).background, 'var(--inline-photo-selected-edge)')
+  assert.ok(!inlineRules.some(rule => rule.selectors.includes('.inline-service-all::after')), 'the strong frame is conditional on the same aria-pressed state as the single visible check')
+  const check = declarations(inlineRules.find(rule => rule.selector === '.inline-tile-check'))
+  const stops = [...check.background.matchAll(/#[\da-f]{6}\b/gi)].map(match => rgba(match[0]))
+  assert.equal(stops.length, 2)
+  for (let step = 0; step <= 100; step++) {
+    const background = stops[0].slice(0, 3).map((value, index) => value + (stops[1][index] - value) * step / 100)
+    readable(check.color, background, `selected vector check ${step}%`)
+  }
 })
 
 test('glass panels retain AA at both actual opacity endpoints, including conservative backdrop extremes', () => {
@@ -147,9 +201,9 @@ function columns(selector, viewport, container, font = 16) {
   return count
 }
 
-test('CSS declares 2/3/4 category columns, 2/3 child columns and font-relative escape routes', () => {
+test('CSS declares matching 2/3/4 category and child columns with font-relative escape routes', () => {
   assert.deepEqual([columns('.inline-category-grid', 390, 334), columns('.inline-category-grid', 820, 740), columns('.inline-category-grid', 1280, 1080)], [2, 3, 4])
-  assert.deepEqual([columns('.inline-service-grid', 390, 334), columns('.inline-service-grid', 820, 740), columns('.inline-service-grid', 1280, 1080)], [2, 2, 3])
+  assert.deepEqual([columns('.inline-service-grid', 390, 334), columns('.inline-service-grid', 820, 740), columns('.inline-service-grid', 1280, 1080)], [2, 3, 4])
   assert.equal(columns('.inline-category-grid', 1100, 900, 32), 2, 'enlarged root font triggers the 32rem category reflow')
   for (const selector of ['.inline-category-grid', '.inline-service-grid']) assert.equal(columns(selector, 320, 252, 24), 1, `${selector}: larger default type wins over fixed column count`)
   for (const selector of ['.inline-category-label', '.inline-service-label', '.inline-summary-chip-label']) {

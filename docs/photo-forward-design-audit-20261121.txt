@@ -1,0 +1,96 @@
+GoRez photo-forward discovery — final source/token audit — 2026-11-21
+Baseline: 3858c4e
+
+Scope
+-----
+Reviewed final app/inline-discovery.css, category/inline-service markup and
+components/discovery-tile-photo-style.mjs. Only this report was edited by
+the final audit. Generic images are not claimed as business photographs.
+Search, data/taxonomy, APIs, booking, cards, summary and presence stay frozen.
+
+Final photo/caption layers
+-------------------------
+Each tile paints photo z0, full-tile scrim z1, caption z2, decorative vectors
+z3 and masked edge z4. Actual scrim:
+  #2F211B26 from 0% through 60% (38/255, approximately 15% opacity)
+  then increases to #2F211BB3 at the bottom (179/255, approximately 70%).
+The earlier 22% stop at 35% is removed. The upper photo remains brighter,
+but the unchanged minimum scrim keeps the same conservative text bound.
+
+Caption: #2F211B99 (60%), with 14px standard/WebKit backdrop blur.
+Selected caption: #432318B3. Label: #FFF4E8. Count: #FFF2E7 at .75rem,
+opacity:1. Selection changes label weight, not cream text color. Hover changes
+edge/scale without fading either caption. The backplate covers all wrapped text.
+
+Calculated AA contrast
+----------------------
+Ratios use full-precision sRGB source-over compositing and luminance, not
+rounded hex values. White is the brightest-photo bound; black is also checked.
+Normal-text AA is 4.5:1, including the small counts.
+
+State / white photo                    Label        Count
+Default, minimum scrim + 60% caption    4.6769:1     4.6163:1
+Selected, minimum scrim + warm caption  5.8249:1     5.7494:1
+Opaque default fallback               14.2940:1    14.1089:1
+Opaque selected fallback              12.9719:1    12.8039:1
+
+Default combined espresso opacity is 65.960784%; final RGB is approximately
+(117.802,108.567,104.609), rounded #766D69. Selected composite rounds #725B53.
+The minimum remains the flat 15% scrim region: later gradient positions darken.
+Count margin is modest: do not lower text/scrim/caption opacity or substitute
+darker count text without recalculation. Opaque no-blur bases are #2F211B
+default and #432318 selected, so fallbacks do not depend on the photograph.
+
+Chevron cream on #2F211BB3 is 5.3678:1 over white even without scrim credit
+(6.2267:1 with minimum scrim). Espresso check on #FFD0A0 to #F47A36 is at
+least 5.6738:1. Vectors are aria-hidden; button aria-pressed conveys selection.
+
+All-services control
+--------------------
+All stays a separate full-width non-photo control using semantic ink/surface
+colors. Opaque fallback: --inline-surface; selected: --inline-selected.
+When supported, 14px blur uses 90% surface normally and 92% selected surface.
+Only aria-pressed=true gets the warm two-pixel gradient ring and selected check;
+hover alone does not imply selection. Conservative text contrast over arbitrary
+white/black backdrops is 11.0456:1 light normal, 9.7454:1 light selected,
+9.5043:1 dark normal and 9.0296:1 dark selected.
+
+Dark panels and brand warmth
+----------------------------
+Canvas remains #1D1916; panel #2E241E is warm brown, not neutral gray.
+Panel versus canvas adds +5.29 OKLab-L percentage points (+4.90 HSL-L points).
+Opaque primary/muted/accent contrast is 12.96 / 7.54 / 8.78:1. The panel's
+89–94% glass with 16px blur retains conservative dark primary/muted minima
+9.1922 / 5.3509:1; light muted glass minimum is 4.5380:1. These are token
+and compositing calculations, not constant rendered-gradient measurements.
+
+Final responsive/crop behavior
+------------------------------
+Labels wrap whole words. A localized word of at least 14 letters sets
+data-long-label; at container max-width:20rem its service grid becomes one
+column. At max-width:14rem the category/service/skeleton grids become one
+column, captions use 4px inline padding, and All uses 4px inline padding/gap:0 while
+retaining equal 40px side tracks. This supports the enlarged-root-font reflow
+used in the final 200% text review without shortening service names.
+
+Final focal map after head/hat crop QA (not earlier suggested starts):
+  category hair, consulting, home_services, health, education, pets, other:
+    50% 0%, for both ordinary and 2x source keys;
+  service womens-haircut, kids-haircut, sx-career-consultation: 50% 0%;
+  service formal-updo: 55% 0%; all other assets: center.
+The helper changes only --inline-photo-position. No assets are replaced.
+Sports action and therapeutic massage retain center rather than universal top.
+
+Verification and limits
+-----------------------
+Final main-task verification recorded 2,754 tests passing and the raw production
+build passing. Freeze tests protect search/form, APIs, hooks, data/taxonomy,
+booking, cards/summary/presence, dependencies and the original media inventory.
+This audit itself made no implementation/test changes or external requests.
+
+Analytical bounds are not screenshot-pixel measurements or complete WCAG
+certification. Blur sampling near edges, masks, clipping and production CSS
+ordering remain browser-rendering concerns; the calculation assumes the scrim
+is retained in the sampled backdrop. Opaque fallbacks remain contrasted.
+No artwork edit, booking submission, notification or production publication
+is performed by this audit.

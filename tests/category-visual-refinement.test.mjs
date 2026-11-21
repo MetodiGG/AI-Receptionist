@@ -9,6 +9,7 @@ import { homeCategories, HOME_CATEGORY_IDS } from '../lib/discovery/home.mjs'
 import { CATEGORY_IDS } from '../lib/discovery/categories.mjs'
 import { DISCOVERY_SUBCATEGORIES, subcategoriesForCategory, subcategorySelection, subcategoryById } from '../lib/discovery/subcategories.mjs'
 import { GUIDED_DISCOVERY_COPY } from '../lib/discovery/guided-copy.mjs'
+import * as tilePhotoStyle from '../components/discovery-tile-photo-style.mjs'
 
 const read = file => readFile(new URL(`../${file}`, import.meta.url), 'utf8')
 const cssRules = css => [...css.replace(/\/\*[\s\S]*?\*\//g, '').matchAll(/([^{}]+)\{([^{}]*)\}/g)].map(match => ({ selector: match[1].trim(), body: match[2] }))
@@ -19,7 +20,7 @@ await loadBindings()
 const filename = 'components/discovery-subcategories.js'
 const { code } = await transform(await read(filename), { filename, jsc: { parser: { syntax: 'ecmascript', jsx: true }, transform: { react: { runtime: 'automatic' } } }, module: { type: 'commonjs' } })
 const module = { exports: {} }
-new Function('require', 'module', 'exports', code)(name => name === './icon' ? { Icon: () => null } : require(name), module, module.exports)
+new Function('require', 'module', 'exports', code)(name => name === './icon' ? { Icon: () => null } : name === './discovery-tile-photo-style.mjs' ? tilePhotoStyle : require(name), module, module.exports)
 const { DiscoverySubcategories } = module.exports
 const railFilename = 'components/discovery-home-rail.js'
 const { code: railCode } = await transform(await read(railFilename), { filename: railFilename, jsc: { parser: { syntax: 'ecmascript', jsx: true }, transform: { react: { runtime: 'automatic' } } }, module: { type: 'commonjs' } })
@@ -122,7 +123,8 @@ test('homepage category navigation mounts native inline photo choices and preser
   assert.match(search, /focusFirstDiscoveryBusiness\(resultHeading.current, reduceMotion\)/)
   assert.match(search, /prefers-reduced-motion: reduce/)
   assert.match(css, /prefers-reduced-motion:\s*reduce/)
-  assert.doesNotMatch(grid, /setInterval|cloneNode|autoPlay|name="check"|✓|✔|✅/)
+  assert.match(grid, /category === item.id && <span className="inline-tile-check" aria-hidden="true"><Icon name="check"/)
+  assert.doesNotMatch(grid, /setInterval|cloneNode|autoPlay|✓|✔|✅/)
 })
 
 test('guided initial/category/service/result states render only their active photographic selection level in BG and EN', () => {

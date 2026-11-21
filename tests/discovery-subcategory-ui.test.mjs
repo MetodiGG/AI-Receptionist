@@ -5,6 +5,7 @@ import { createRequire } from 'node:module'
 import * as React from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { subcategoriesForCategory } from '../lib/discovery/subcategories.mjs'
+import * as tilePhotoStyle from '../components/discovery-tile-photo-style.mjs'
 
 const require = createRequire(import.meta.url), { loadBindings, transform } = require('next/dist/build/swc')
 await loadBindings()
@@ -12,7 +13,7 @@ const source = await readFile(new URL('../components/discovery-subcategories.js'
 const { code } = await transform(source, { filename: 'discovery-subcategories.js', jsc: { parser: { syntax: 'ecmascript', jsx: true }, transform: { react: { runtime: 'automatic' } } }, module: { type: 'commonjs' } })
 function loadComponent(react = React) {
   const module = { exports: {} }
-  new Function('require', 'module', 'exports', code)(name => name === 'react' ? react : name === './icon' ? { Icon: () => null } : require(name), module, module.exports)
+  new Function('require', 'module', 'exports', code)(name => name === 'react' ? react : name === './icon' ? { Icon: () => null } : name === './discovery-tile-photo-style.mjs' ? tilePhotoStyle : require(name), module, module.exports)
   return module.exports.DiscoverySubcategories
 }
 const DiscoverySubcategories = loadComponent()

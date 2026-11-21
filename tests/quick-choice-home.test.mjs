@@ -43,7 +43,7 @@ test('homepage photographic choices keep every category and active service visib
   assert.doesNotMatch(inlineServices, /\.slice\(|discovery-subcategory-more|aria-expanded/)
   assert.doesNotMatch(search, /GuidedServiceDiscovery|guideStage/)
   assert.match(css, /\.inline-category-label,\.inline-service-label \{[^}]*text-align: center;[^}]*white-space: normal; overflow-wrap: normal; word-break: normal/)
-  assert.match(css, /\.inline-category-grid,\.inline-service-grid \{\s*display: grid; grid-template-columns: repeat\(2,minmax\(0,1fr\)\)/)
+  assert.match(css, /\.inline-category-grid,\.inline-service-grid(?:,\.inline-services-skeleton)? \{\s*display: grid; grid-template-columns: repeat\(2,minmax\(0,1fr\)\)/)
   assert.match(css, /prefers-reduced-motion:\s*reduce/)
   assert.doesNotMatch(css, /text-overflow:\s*ellipsis|line-clamp|overflow-x:\s*(?:auto|scroll)|word-break:\s*break-all/)
 })

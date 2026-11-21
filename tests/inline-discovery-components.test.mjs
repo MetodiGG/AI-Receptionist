@@ -7,6 +7,8 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import * as categories from '../lib/discovery/categories.mjs'
 import * as home from '../lib/discovery/home.mjs'
 import * as inlineCopy from '../lib/discovery/inline-copy.mjs'
+import { subcategoriesForCategory } from '../lib/discovery/subcategories.mjs'
+import * as tilePhotoStyle from '../components/discovery-tile-photo-style.mjs'
 
 const require = createRequire(import.meta.url), { loadBindings, transform } = require('next/dist/build/swc')
 await loadBindings()
@@ -23,6 +25,7 @@ function load(name, react = React) {
     react, './icon': { Icon: ({ name }) => React.createElement('svg', { 'data-icon': name, 'aria-hidden': true }) },
     '../lib/discovery/categories.mjs': categories, '../lib/discovery/home.mjs': home,
     '../lib/discovery/inline-copy.mjs': inlineCopy,
+    './discovery-tile-photo-style.mjs': tilePhotoStyle,
   }
   new Function('require', 'module', 'exports', compiled.get(name).code)(name => Object.hasOwn(stubs, name) ? stubs[name] : require(name), module, module.exports)
   return module.exports
@@ -37,6 +40,11 @@ function elements(node, predicate, found = []) {
   return found
 }
 const classed = (tree, className) => elements(tree, node => node.props.className?.split(' ').includes(className))
+function textContent(node) {
+  if (Array.isArray(node)) return node.map(textContent).join('')
+  if (React.isValidElement(node)) return node.props['aria-hidden'] ? '' : textContent(node.props.children)
+  return typeof node === 'string' || typeof node === 'number' ? String(node) : ''
+}
 const options = Array.from({ length: 8 }, (_, index) => ({ id: `fitness-real-${index}`, category: 'fitness', bg: `Реална услуга с пълно име ${index}`, en: `Actual service with full name ${index}`, photo: '/service-photos/yoga-class-v1.webp', count: index === 7 ? 314 : index + 1 }))
 
 for (const locale of ['bg', 'en']) test(`${locale}: fourteen persistent category tiles use full taxonomy names, existing photos and exact identifiers`, () => {
@@ -47,6 +55,8 @@ for (const locale of ['bg', 'en']) test(`${locale}: fourteen persistent category
   assert.equal(buttons.filter(button => button.props['aria-pressed']).length, 1)
   for (const [index, button] of buttons.entries()) {
     assert.equal(classed(button, 'inline-category-label')[0].props.children, categories.categoryById(home.HOME_CATEGORY_IDS[index])[locale])
+    const source = home.homeCategories(locale)[index].photo
+    assert.deepEqual(classed(button, 'inline-category-photo-frame')[0].props.style, tilePhotoStyle.discoveryTilePhotoStyle(source))
     button.props.onClick()
   }
   assert.deepEqual(calls, home.HOME_CATEGORY_IDS)
@@ -56,9 +66,39 @@ for (const locale of ['bg', 'en']) test(`${locale}: fourteen persistent category
   assert.equal((html.match(/class="inline-category-option"/g) || []).length, 14)
   assert.equal((html.match(/class="inline-category-photo"/g) || []).length, 14)
   assert.equal((html.match(/class="inline-category-photo-frame"/g) || []).length, 14)
+  assert.equal((html.match(/class="inline-category-caption"/g) || []).length, 14)
+  assert.equal((html.match(/data-icon="chevronDown"/g) || []).length, 14)
+  assert.equal((html.match(/data-icon="check"/g) || []).length, 1)
   assert.ok(html.includes(categories.categoryById('barber')[locale]))
   assert.match(html, /\/category-photos\/hair-v2\.webp/)
-  assert.doesNotMatch(html, /guide-|home-rail|aria-expanded|data-icon|tabindex|Back|Назад/)
+  assert.doesNotMatch(html, /guide-|home-rail|aria-expanded|tabindex|Back|Назад/)
+})
+
+test('responsive category photos use the existing 160w/240w originals and remember failures by their 240px primary source', () => {
+  let failed = null
+  const Component = load('inline-category-grid', {
+    ...directReact, useState: () => [failed, value => { failed = typeof value === 'function' ? value(failed) : value }],
+  }).InlineCategoryGrid
+  const tree = Component({ locale: 'bg', onSelect() {} })
+  const photo = elements(tree, node => typeof node.type === 'function' && node.type.name === 'CategoryPhoto')[0]
+  assert.ok(photo)
+  const categories = home.homeCategories('bg')
+  for (const category of categories) {
+    const image = photo.type({ category })
+    assert.equal(image.type, 'img')
+    assert.equal(image.props.src, category.photo2x)
+    assert.equal(image.props.srcSet, `${category.photo} 160w, ${category.photo2x} 240w`)
+    assert.equal(image.props.sizes, '(max-width:699px)50vw,(max-width:999px)33vw,280px')
+    assert.equal(image.props.width, 240); assert.equal(image.props.height, 240)
+    assert.equal(image.props.alt, ''); assert.equal(image.props.loading, 'lazy'); assert.equal(image.props.decoding, 'async')
+    image.props.onError()
+    assert.equal(failed, category.photo2x)
+    const unavailable = photo.type({ category })
+    assert.equal(unavailable.type, 'span')
+    assert.equal(unavailable.props.className, 'inline-category-photo is-unavailable')
+    assert.equal(unavailable.props['aria-hidden'], 'true')
+    assert.equal(elements(unavailable, node => node.type === 'img').length, 0, 'failure must not invent an unrelated fallback image')
+  }
 })
 
 for (const locale of ['bg', 'en']) test(`${locale}: inline children show every evidence-backed count, All first, full names and clear-category action`, () => {
@@ -72,21 +112,30 @@ for (const locale of ['bg', 'en']) test(`${locale}: inline children show every e
   ]
   const before = structuredClone(supplied)
   const tree = Component({ category: 'fitness', title: 'Do not use shortened title', options: supplied, locale, selected: options[7].id, inline: true, onSelect: id => calls.push(id), onClearCategory: () => cleared.push(true) })
-  const buttons = classed(tree, 'inline-service-tile'), copy = inlineCopy.INLINE_DISCOVERY_COPY[locale]
-  assert.equal(buttons.length, options.length + 1)
-  assert.ok(buttons[0].props.className.includes('inline-service-all'))
-  assert.equal(classed(buttons[0], 'inline-service-label')[0].props.children, copy.all)
-  assert.equal(classed(buttons[0], 'inline-service-count').length, 0)
-  assert.equal(elements(buttons[0], node => node.type === 'img').length, 0)
-  assert.equal(elements(buttons[0], node => typeof node.type === 'function').length, 0, 'All has no fabricated photographic slot')
-  assert.equal(classed(buttons[0], 'inline-service-photo-frame').length, 0)
+  const buttons = classed(tree, 'inline-service-tile'), all = classed(tree, 'inline-service-all')[0], copy = inlineCopy.INLINE_DISCOVERY_COPY[locale]
+  assert.equal(buttons.length, options.length)
+  assert.equal(classed(tree, 'inline-service-all').length, 1)
+  assert.equal(all.type, 'button')
+  assert.equal(all.props.type, 'button')
+  assert.equal(classed(all, 'inline-service-label')[0].props.children, copy.all)
+  assert.equal(classed(all, 'inline-service-count').length, 0)
+  assert.equal(classed(all, 'inline-service-photo-frame').length, 0, 'All is a category action, not an invented activity-photo tile')
+  assert.equal(classed(all, 'inline-service-all-side').length, 2)
+  for (const slot of classed(all, 'inline-service-all-side')) assert.ok(slot.props['aria-hidden'])
+  const grid = classed(tree, 'inline-service-grid')[0]
+  assert.equal(classed(grid, 'inline-service-all').length, 0, 'All must remain outside the photographic service grid')
+  const ordered = elements(tree, () => true)
+  assert.ok(ordered.indexOf(all) < ordered.indexOf(grid), 'the full-width All action comes before the service grid')
   assert.equal(classed(tree, 'inline-service-photo-frame').length, options.length)
-  assert.equal(buttons.filter(button => button.props['aria-pressed']).length, 1)
+  assert.deepEqual(classed(tree, 'inline-service-photo-frame').map(node => node.props.style), options.map(option => tilePhotoStyle.discoveryTilePhotoStyle(option.photo)))
+  assert.equal([all, ...buttons].filter(button => button.props['aria-pressed']).length, 1)
   assert.equal(classed(tree, 'inline-selected-parent')[0].props.children[1].props.children, categories.categoryById('fitness')[locale])
   assert.equal(elements(tree, node => node.type === 'h2')[0].props.children, copy.services)
-  assert.deepEqual(classed(tree, 'inline-service-count').map(node => node.props.children), options.map(option => option.count))
-  assert.equal(classed(tree, 'inline-service-count')[0].props['aria-label'], `1 ${copy.business}`)
-  assert.deepEqual(classed(tree, 'inline-service-label').slice(1).map(node => node.props.children), options.map(option => option[locale]))
+  assert.deepEqual(classed(tree, 'inline-service-count').map(textContent), options.map(option => `${option.count} ${option.count === 1 ? copy.business : copy.businesses}`))
+  assert.equal(textContent(classed(tree, 'inline-service-count')[0]), `1 ${copy.business}`)
+  assert.ok(classed(tree, 'inline-service-count').every(node => !node.props['aria-hidden']), 'visible localized count text is also its accessible name')
+  assert.deepEqual(classed(grid, 'inline-service-label').map(node => node.props.children), options.map(option => option[locale]))
+  all.props.onClick()
   for (const button of buttons) button.props.onClick()
   assert.deepEqual(calls, ['', ...options.map(option => option.id)])
   const clear = classed(tree, 'inline-selected-parent')[0]
@@ -100,8 +149,32 @@ for (const locale of ['bg', 'en']) test(`${locale}: inline children show every e
   assert.deepEqual(supplied, before)
   const html = render(DiscoverySubcategories, { category: 'fitness', options: supplied, locale, inline: true, onSelect() {}, onClearCategory() {} })
   assert.match(html, /class="discovery-subcategories is-inline"/)
-  assert.match(html, /class="inline-service-count" aria-label="314 /)
+  assert.ok(html.includes(`<span class="inline-service-count">314 ${copy.businesses}</span>`))
   assert.doesNotMatch(html, /subcategory-more|Show less|More \(|По-малко|Още \(|zero-count|negative-count|missing-count|wrong-parent|wrong-photo/)
+})
+
+test('photo focal helpers affect only exact approved source positioning, never image paths or caller data', async () => {
+  for (const family of ['hair', 'consulting', 'home_services', 'health', 'education', 'pets', 'other']) {
+    const category = home.homeCategories('bg').find(option => option.id === family)
+    assert.ok(category)
+    for (const source of [category.photo, category.photo2x]) assert.deepEqual(tilePhotoStyle.discoveryTilePhotoStyle(source), { '--inline-photo-position': '50% 0%' })
+  }
+  for (const [source, position] of [
+    ['/service-photos/womens-haircut-v1.webp', '50% 0%'],
+    ['/service-photos/kids-haircut-v1.webp', '50% 0%'],
+    ['/service-photos/formal-updo-v1.webp', '55% 0%'],
+    ['/service-photos/sx-career-consultation-v1.webp', '50% 0%'],
+  ]) assert.deepEqual(tilePhotoStyle.discoveryTilePhotoStyle(source), { '--inline-photo-position': position })
+  const caller = { src: '/category-photos/hair-v2.webp' }, before = structuredClone(caller)
+  for (const source of [undefined, '', caller, '/service-photos/gel-manicure-v1.webp', '/category-photos/hair-v2.webp?replacement=1', 'https://example.test/category-photos/hair-v2.webp']) {
+    assert.deepEqual(tilePhotoStyle.discoveryTilePhotoStyle(source), { '--inline-photo-position': 'center' })
+  }
+  assert.deepEqual(caller, before)
+  const first = tilePhotoStyle.discoveryTilePhotoStyle('/category-photos/hair-v2.webp')
+  first['--inline-photo-position'] = '0 0'
+  assert.deepEqual(tilePhotoStyle.discoveryTilePhotoStyle('/category-photos/hair-v2.webp'), { '--inline-photo-position': '50% 0%' })
+  const source = await readFile(new URL('../components/discovery-tile-photo-style.mjs', import.meta.url), 'utf8')
+  assert.doesNotMatch(source, /fetch\(|https?:\/\/|localStorage|sessionStorage|process\.|node:|getCurrentPosition|trackSearchEvent|trackProductEvent/)
 })
 
 test('loading has one real status, inert placeholders and usable All/known choices without invented counts', () => {
@@ -114,12 +187,77 @@ test('loading has one real status, inert placeholders and usable All/known choic
     assert.equal(skeleton.props['aria-hidden'], 'true')
     assert.equal(elements(skeleton, node => ['button', 'a', 'input'].includes(node.type)).length, 0)
     assert.equal(classed(skeleton, 'inline-service-count').length, 0)
-    const buttons = classed(tree, 'inline-service-tile')
-    assert.equal(buttons.length, choices.length + 1)
-    assert.ok(buttons.every(button => !button.props.disabled))
-    buttons[0].props.onClick()
+    const buttons = classed(tree, 'inline-service-tile'), all = classed(tree, 'inline-service-all')[0]
+    assert.equal(buttons.length, choices.length)
+    assert.ok([all, ...buttons].every(button => !button.props.disabled))
+    all.props.onClick()
     assert.deepEqual(calls, [''])
-    assert.deepEqual(classed(tree, 'inline-service-count').map(node => node.props.children), choices.map(option => option.count))
+    const copy = inlineCopy.INLINE_DISCOVERY_COPY.bg
+    assert.deepEqual(classed(tree, 'inline-service-count').map(textContent), choices.map(option => `${option.count} ${option.count === 1 ? copy.business : copy.businesses}`))
+  }
+})
+
+for (const locale of ['bg', 'en']) test(`${locale}: All and Gel polish are mutually exclusive selections, not simultaneous highlighted states`, () => {
+  const Component = load('discovery-subcategories', directReact).DiscoverySubcategories
+  const choices = subcategoriesForCategory('nails', locale).map((option, index) => ({ ...option, count: index + 1 }))
+  assert.ok(choices.some(option => option.id === 'nails-gel'))
+  for (const selected of ['', 'nails-gel']) {
+    const calls = [], tree = Component({ category: 'nails', options: choices, selected, locale, inline: true, onSelect: id => calls.push(id), onClearCategory() {} })
+    const all = classed(tree, 'inline-service-all')[0], tiles = classed(tree, 'inline-service-tile')
+    assert.equal(all.props['aria-pressed'], !selected)
+    assert.equal([all, ...tiles].filter(button => button.props['aria-pressed']).length, 1)
+    assert.equal(tiles.filter(button => button.props['aria-pressed']).length, selected ? 1 : 0)
+    const selectedTile = tiles.find(button => button.props['aria-pressed'])
+    if (selectedTile) {
+      assert.equal(classed(selectedTile, 'inline-service-label')[0].props.children, choices.find(option => option.id === selected)[locale])
+      selectedTile.props.onClick()
+      assert.deepEqual(calls, ['nails-gel'])
+    }
+    all.props.onClick()
+    assert.equal(calls.at(-1), '', 'the standalone action clears only the selected service')
+    const html = render(DiscoverySubcategories, { category: 'nails', options: choices, selected, locale, inline: true, onSelect() {}, onClearCategory() {} })
+    assert.equal((html.match(/aria-pressed="true"/g) || []).length, 1)
+    assert.equal((html.match(/data-icon="check"/g) || []).length, 1)
+  }
+})
+
+for (const locale of ['bg', 'en']) test(`${locale}: long-word safety is derived from every actual full localized service label without changing IDs or selections`, () => {
+  const Component = load('discovery-subcategories', directReact).DiscoverySubcategories
+  for (const category of home.HOME_CATEGORY_IDS) {
+    const choices = subcategoriesForCategory(category, locale).map(option => ({ ...option, count: 1 }))
+    const before = structuredClone(choices), calls = []
+    const tree = Component({ category, options: choices, locale, inline: true, onSelect: id => calls.push(id), onClearCategory() {} })
+    const grid = classed(tree, 'inline-service-grid')[0]
+    const labels = choices.map(option => option[locale] || option.label)
+    assert.equal(grid.props['data-long-label'], labels.some(label => /\p{L}{14,}/u.test(label)) ? 'true' : undefined, `${locale}:${category}`)
+    const tiles = classed(tree, 'inline-service-tile')
+    assert.deepEqual(classed(grid, 'inline-service-label').map(textContent), labels, 'all complete original names remain visible; no shortened display mapping')
+    for (const tile of tiles) tile.props.onClick()
+    assert.deepEqual(calls, choices.map(option => option.id))
+    assert.equal([classed(tree, 'inline-service-all')[0], ...tiles].filter(button => button.props['aria-pressed']).length, 1)
+    assert.deepEqual(choices, before)
+  }
+})
+
+test('long-word safety uses Unicode word length, the visible locale and accepted choices only', () => {
+  const Component = load('discovery-subcategories', directReact).DiscoverySubcategories
+  const short = { ...options[0], bg: 'Къса услуга', en: 'Short service', label: 'Fallback service' }
+  const flag = (locale, choices) => classed(Component({ category: 'fitness', options: choices, locale, inline: true, onSelect() {}, onClearCategory() {} }), 'inline-service-grid')[0].props['data-long-label']
+  assert.equal(flag('bg', [{ ...short, bg: 'Ж'.repeat(13) }]), undefined)
+  assert.equal(flag('bg', [{ ...short, bg: 'Ж'.repeat(14) }]), 'true')
+  assert.equal(flag('en', [{ ...short, en: 'A'.repeat(13) }]), undefined)
+  assert.equal(flag('en', [{ ...short, en: 'A'.repeat(14) }]), 'true')
+  assert.equal(flag('bg', [{ ...short, en: 'A'.repeat(20) }]), undefined, 'an untranslated alternate-language value cannot mark the visible short label')
+  assert.equal(flag('en', [{ ...short, bg: 'Ж'.repeat(20) }]), undefined)
+  assert.equal(flag('bg', [{ ...short, bg: 'Дълго име от няколко къси думи' }]), undefined)
+  assert.equal(flag('en', [{ ...short, en: '12345678901234567890' }]), undefined)
+  assert.equal(flag('bg', [{ ...short, bg: '', label: 'Ж'.repeat(14) }]), 'true', 'a real visible fallback label follows the same rule')
+  assert.equal(flag('bg', [short, { ...short, id: 'hidden-zero', bg: 'Ж'.repeat(20), count: 0 }, { ...short, id: 'hidden-parent', category: 'hair', bg: 'Ж'.repeat(20) }]), undefined)
+  for (const locale of ['bg', 'en']) {
+    const realFlag = category => classed(Component({ category, options: subcategoriesForCategory(category, locale).map(option => ({ ...option, count: 1 })), locale, inline: true, onSelect() {}, onClearCategory() {} }), 'inline-service-grid')[0].props['data-long-label']
+    assert.equal(realFlag('nails'), undefined, `${locale}: fitting nail labels retain two columns`)
+    if (locale === 'bg') assert.equal(realFlag('auto_repair'), 'true')
+    assert.equal(realFlag('other'), 'true')
   }
 })
 

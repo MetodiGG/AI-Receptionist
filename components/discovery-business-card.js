@@ -40,6 +40,12 @@ export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, 
     : <BookingButtonContent>{copy.reserveAppointment}</BookingButtonContent>
   const directionsLabel = copy.directions
   const services = railServiceItems(row)
+  // The hint describes the destination, never a confirmed appointment.
+  // It is presentation-only; the trusted actions below retain their routes.
+  const externalAction = !internal && railExternalAction(row)
+  const bookingHint = internal && row.slug
+    ? row.booking_mode === 'phone' ? copy.cardBookingPhone : isOffsiteBooking(row) ? copy.cardBookingExternal : copy.cardBookingNative
+    : externalAction ? externalAction.kind === 'phone' ? copy.cardBookingPhone : copy.cardBookingExternal : ''
   const distance = <DiscoveryDistanceBadge origin={distanceOrigin} destination={row.coordinates} locale={locale} business={row}/>
   const visual = <div className={`home-business-photo${photo && photo.src !== failedPhoto ? ' is-real-photo' : ''}`}>
     {photo && photo.src !== failedPhoto ? <img src={photo.src} width={photo.width || 400} height={photo.height || 300} alt={photo.alt?.[locale] || row.name} loading="lazy" decoding="async" style={businessPhotoStyle(photo, { preview: true })} onError={() => setFailedPhoto(photo.src)}/> : <BusinessCoverPhoto business={row} locale={locale}/>}
@@ -74,6 +80,7 @@ export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, 
     {serviceList}
     {!quickChoice && reviews}
     <div className="home-business-footer">
+      {quickChoice && bookingHint && <p className="home-business-booking-hint">{bookingHint}</p>}
       {actions()}
     </div>
     {detailsOpen && <DiscoveryBusinessDetails row={row} locale={locale} preview={preview} onClose={() => setDetailsOpen(false)} triggerRef={detailsTrigger} actions={actions}/>}

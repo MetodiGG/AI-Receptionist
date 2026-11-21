@@ -73,16 +73,30 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
     if (compact || loading || !scrollAfterSearch.current || (!result && !error)) return
     // Wait for this request's committed content, never a loading shell or a
     // stale response. Consume navigation once, not on pagination/theme changes.
-    const destination = scrollAfterSearch.current
+    const destination = scrollAfterSearch.current, version = searchVersion.current
+    let active = true, panelTimer = null
     const frame = requestAnimationFrame(() => {
-      if (scrollAfterSearch.current !== destination) return
-      scrollAfterSearch.current = false
       const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches
-      if (!error && destination === 'subcategories' && focusDiscoverySubcategories(subcategoriesRef.current, reduceMotion)) return
-      if (!error && destination === 'businesses') { focusFirstDiscoveryBusiness(resultHeading.current, reduceMotion); return }
-      focusDiscoveryResults(resultHeading.current, reduceMotion)
+      const reveal = () => {
+        if (!active || version !== searchVersion.current || scrollAfterSearch.current !== destination) return
+        scrollAfterSearch.current = false
+        if (!error && destination === 'subcategories' && focusDiscoverySubcategories(subcategoriesRef.current, reduceMotion)) return
+        if (!error && destination === 'businesses') { focusFirstDiscoveryBusiness(resultHeading.current, reduceMotion); return }
+        focusDiscoveryResults(resultHeading.current, reduceMotion)
+      }
+      // A fast response can arrive while the inline panel is growing/closing.
+      // Scroll against its final layout, not the temporary animated height.
+      const panel = !error && !reduceMotion ? destination === 'subcategories'
+        ? subcategoriesRef.current?.closest?.('.inline-discovery-panel')
+        : destination === 'businesses' ? resultHeading.current?.closest?.('.discovery-search')?.querySelector?.('.inline-discovery-panel') : null : null
+      if (!panel) { reveal(); return }
+      if (typeof panel.getAnimations === 'function') {
+        const animations = panel.getAnimations()
+        if (animations.length) { void Promise.allSettled(animations.map(animation => animation.finished)).then(reveal); return }
+        reveal()
+      } else panelTimer = setTimeout(reveal, 220)
     })
-    return () => cancelAnimationFrame(frame)
+    return () => { active = false; cancelAnimationFrame(frame); if (panelTimer !== null) clearTimeout(panelTimer) }
   }, [result, error, loading, compact])
   useEffect(() => {
     if (compact) return
@@ -168,7 +182,7 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
       void search(payload({ ...next, coordinates: point, ...(point ? { neighborhood: '' } : {}), expandNearby: false }), { navigate: false })
     }
   }
-  function chooseInlineCategory(id, { navigate = false } = {}) {
+  function chooseInlineCategory(id, { navigate } = {}) {
     if (id && !categoryById(id)) return
     cancelPendingLocation(); scrollAfterSearch.current = false; setEntryCategory(false)
     if (category && subcategory) rememberedServices.current.set(category, subcategory)
@@ -178,7 +192,7 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
     setCategory(nextCategory); setSubcategory(child); clearSubcategoryOptions(); setResult(null); setError('')
     // Preserve the real typed text, location and radius. Facets are returned
     // for the full parent scope even when its remembered child is selected.
-    execute(payload({ category: nextCategory, subcategory: child, expandNearby: false }), { navigate })
+    execute(payload({ category: nextCategory, subcategory: child, expandNearby: false }), { navigate: navigate ?? (nextCategory ? 'subcategories' : 'businesses') })
   }
   function chooseInlineService(id) {
     const selected = subcategoryById(id)

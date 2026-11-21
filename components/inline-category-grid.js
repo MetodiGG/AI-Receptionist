@@ -9,8 +9,9 @@ import { INLINE_DISCOVERY_COPY } from '../lib/discovery/inline-copy.mjs'
 
 function CategoryPhoto({ category }) {
   const [failed, setFailed] = useState(null)
-  const source = category.photo2x
-  return failed !== source ? <img className="inline-category-photo" src={source} srcSet={`${category.photo} 160w, ${category.photo2x} 240w`} sizes="(max-width:699px)50vw,(max-width:999px)33vw,280px" width={240} height={240} alt="" loading="lazy" decoding="async" onError={() => setFailed(source)}/> : <span className="inline-category-photo is-unavailable" aria-hidden="true"/>
+  const source = category.photoLarge || category.photo2x
+  const sources = `${category.photo} 160w, ${category.photo2x} 240w${category.photoLarge ? `, ${category.photoLarge} 640w` : ''}`
+  return failed !== source ? <img className="inline-category-photo" src={source} srcSet={sources} sizes="(max-width:699px)50vw,(max-width:999px)33vw,280px" width={240} height={category.photoHeight || 240} style={category.photoPosition ? { objectFit: 'cover', objectPosition: category.photoPosition } : undefined} alt="" loading="lazy" decoding="async" onError={() => setFailed(source)}/> : <span className="inline-category-photo is-unavailable" aria-hidden="true"/>
 }
 
 // A persistent presentation of the existing fourteen category identifiers.

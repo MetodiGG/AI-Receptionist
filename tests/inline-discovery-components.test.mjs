@@ -74,7 +74,7 @@ for (const locale of ['bg', 'en']) test(`${locale}: fourteen persistent category
   assert.doesNotMatch(html, /guide-|home-rail|aria-expanded|tabindex|Back|Назад/)
 })
 
-test('responsive category photos use the existing 160w/240w originals and remember failures by their 240px primary source', () => {
+test('category photos keep 160w/240w variants, opt only the four approved scenes into 640w, and remember their actual primary-source failure', () => {
   let failed = null
   const Component = load('inline-category-grid', {
     ...directReact, useState: () => [failed, value => { failed = typeof value === 'function' ? value(failed) : value }],
@@ -86,13 +86,15 @@ test('responsive category photos use the existing 160w/240w originals and rememb
   for (const category of categories) {
     const image = photo.type({ category })
     assert.equal(image.type, 'img')
-    assert.equal(image.props.src, category.photo2x)
-    assert.equal(image.props.srcSet, `${category.photo} 160w, ${category.photo2x} 240w`)
+    const source = category.photoLarge || category.photo2x
+    assert.equal(image.props.src, source)
+    assert.equal(image.props.srcSet, `${category.photo} 160w, ${category.photo2x} 240w${category.photoLarge ? `, ${category.photoLarge} 640w` : ''}`)
     assert.equal(image.props.sizes, '(max-width:699px)50vw,(max-width:999px)33vw,280px')
-    assert.equal(image.props.width, 240); assert.equal(image.props.height, 240)
+    assert.equal(image.props.width, 240); assert.equal(image.props.height, category.id === 'beauty' ? 360 : 240)
+    assert.deepEqual(image.props.style, category.id === 'beauty' ? { objectFit: 'cover', objectPosition: '50% 0%' } : undefined, 'only the owner-selected portrait receives deliberate top framing; other categories retain default complete-source containment')
     assert.equal(image.props.alt, ''); assert.equal(image.props.loading, 'lazy'); assert.equal(image.props.decoding, 'async')
     image.props.onError()
-    assert.equal(failed, category.photo2x)
+    assert.equal(failed, source)
     const unavailable = photo.type({ category })
     assert.equal(unavailable.type, 'span')
     assert.equal(unavailable.props.className, 'inline-category-photo is-unavailable')
@@ -154,11 +156,13 @@ for (const locale of ['bg', 'en']) test(`${locale}: inline children show every e
 })
 
 test('photo focal helpers affect only exact approved source positioning, never image paths or caller data', async () => {
-  for (const family of ['hair', 'consulting', 'home_services', 'health', 'education', 'pets', 'other']) {
+  for (const family of ['hair', 'consulting', 'home_services', 'health', 'education', 'other']) {
     const category = home.homeCategories('bg').find(option => option.id === family)
     assert.ok(category)
     for (const source of [category.photo, category.photo2x]) assert.deepEqual(tilePhotoStyle.discoveryTilePhotoStyle(source), { '--inline-photo-position': '50% 0%' })
   }
+  for (const source of ['/category-photos/pets-v2.webp', '/category-photos/pets-2x-v2.webp']) assert.deepEqual(tilePhotoStyle.discoveryTilePhotoStyle(source), { '--inline-photo-position': '50% 0%' }, 'the historical dog source keeps its reviewed focal metadata')
+  for (const source of ['/category-photos/pets-v3.webp', '/category-photos/pets-2x-v3.webp', '/category-photos/pets-large-v3.webp']) assert.deepEqual(tilePhotoStyle.discoveryTilePhotoStyle(source), { '--inline-photo-position': 'center' }, 'the new dog has genuine source headroom and needs no crop-position hack')
   for (const [source, position] of [
     ['/service-photos/womens-haircut-v1.webp', '50% 0%'],
     ['/service-photos/kids-haircut-v1.webp', '50% 0%'],

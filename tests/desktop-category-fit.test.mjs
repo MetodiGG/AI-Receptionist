@@ -5,6 +5,7 @@ import { createHash } from 'node:crypto'
 import { readFile, readlink } from 'node:fs/promises'
 import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
+import { REFINEMENT_CHANGED_FILES, refinementAllowsNewMedia } from './discovery-refinement-20261122-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const BASE = '4be84916a4e2699e00e73243208c88f5aab1aae7'
@@ -17,10 +18,11 @@ const baseline = git('ls-tree', '-r', '-z', BASE).split('\0').filter(Boolean).ma
   return { mode, type, oid, path }
 }).filter(record => record.type === 'blob' && frozenPath(record.path))
 
-test('the desktop-only fit pass freezes every other production file, including components, focal maps, images, APIs, booking and data', async () => {
+test('the desktop fit baseline freezes production outside the explicitly authorized 2026-11-22 photo/navigation/card follow-up', async () => {
   assert.equal(baseline.length, 2811)
   assert.equal(createHash('sha256').update(JSON.stringify(baseline)).digest('hex'), '43e47bf817bc8b6503d789cf5accfb749754f9c34e2323f24c8a32fe61497509')
-  for (let offset = 0; offset < baseline.length; offset += 32) await Promise.all(baseline.slice(offset, offset + 32).map(async record => {
+  const stillFrozen = baseline.filter(record => !REFINEMENT_CHANGED_FILES.has(record.path))
+  for (let offset = 0; offset < stillFrozen.length; offset += 32) await Promise.all(stillFrozen.slice(offset, offset + 32).map(async record => {
     const path = new URL('../' + record.path, import.meta.url)
     const bytes = record.mode === '120000' ? Buffer.from(await readlink(path)) : await readFile(path)
     assert.equal(createHash('sha1').update(`blob ${bytes.length}\0`).update(bytes).digest('hex'), record.oid, `${record.path} must remain byte-identical to ${BASE}`)
@@ -28,8 +30,8 @@ test('the desktop-only fit pass freezes every other production file, including c
   const roots = ['app', 'components', 'hooks', 'lib', 'public', 'scripts', 'supabase']
   const belongs = path => roots.some(prefix => path.startsWith(prefix + '/'))
   const expected = baseline.filter(record => belongs(record.path)).map(record => record.path).sort()
-  const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z', '--', ...roots).split('\0').filter(path => path && frozenPath(path))
-  assert.deepEqual([...new Set(actual)].sort(), expected, 'This CSS-only pass cannot add, remove or rename production files')
+  const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z', '--', ...roots).split('\0').filter(path => path && frozenPath(path) && !refinementAllowsNewMedia(path))
+  assert.deepEqual([...new Set(actual)].sort(), expected, 'Only the twelve explicitly named v3 category-media siblings may be new; all other production paths remain present')
 })
 
 const require = createRequire(import.meta.url)
@@ -105,7 +107,7 @@ const ratio = value => {
   return width / height
 }
 
-test('1000px+ categories reserve a separate caption below a square contained photo instead of cropping the original scene', () => {
+test('1000px+ categories retain square default-contained frames and separate captions; only the selected real Beauty portrait may opt into top framing', () => {
   for (const viewport of [1000, 1280, 1440]) {
     const tile = style('.inline-category-option', viewport)
     const photo = style('.inline-category-photo-frame', viewport)

@@ -5,6 +5,7 @@ import { createHash } from 'node:crypto'
 import { execFileSync } from 'node:child_process'
 import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
+import { REFINEMENT_CHANGED_FILES, REFINEMENT_NEW_MEDIA } from './discovery-refinement-20261122-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const baseline = 'c9e525b'
@@ -230,8 +231,13 @@ test('measured-safe sticky glass and 44px controls are scoped away from the unch
   assert.equal(chips['min-height'], '44px'); assert.equal(chips['min-width'], '44px')
   const sort = declarations(inlineRules.find(rule => rule.selector === '.inline-summary-sort select'))
   assert.equal(sort['min-height'], '44px')
+  // Match actual tag selectors, not the word "form" within the explicitly
+  // scoped existing .outbound-booking-form class inside business actions.
+  const searchSelector = /(?:^|[\s,>+~(])(?:h1|form)(?![\w-])|\.discovery-query|\.discovery-form|\.home-search|\.home-discovery-heading/
+  for (const selector of ['form', '.card form.outbound-booking-form', ':is(form,.other)', 'h1.hero', '.discovery-form']) assert.match(selector, searchSelector)
+  assert.doesNotMatch('.home-business-actions > .outbound-booking-form', searchSelector)
   for (const rule of [...inlineRules, ...cardRules]) {
-    assert.doesNotMatch(rule.selector, /\bh1\b|\bform\b|\.discovery-query|\.discovery-form|\.home-search|\.home-discovery-heading/)
+    assert.doesNotMatch(rule.selector, searchSelector)
     for (const name of Object.keys(declarations(rule))) assert.doesNotMatch(name, /^--(?:paper|ink|ink-soft|surface|line|accent|forest)$/)
   }
   const source = await read('components/discovery-search.js')
@@ -282,28 +288,33 @@ async function identicalBlobs(entries) {
   }))
 }
 
-test('all existing APIs, hooks, data/taxonomy, booking/media/config/dependency files and legacy CSS remain frozen to c9e525b', async () => {
-  await identicalBlobs(baselineTree.filter(record => frozenPath(record.path)))
+test('historical APIs, hooks, data/taxonomy, booking/media/config/dependencies and CSS stay frozen outside the exact approved 2026-11-22 paths', async () => {
+  await identicalBlobs(baselineTree.filter(record => frozenPath(record.path) && !REFINEMENT_CHANGED_FILES.has(record.path)))
   const rail = await read('lib/discovery/rail.mjs')
   assert.match(rail, /export const SERVICE_PREVIEW_LIMIT = 2/)
   assert.match(rail, /\.slice\(0, SERVICE_PREVIEW_LIMIT\)/)
 })
 
-test('homepage booking artwork uses the existing vector calendar without changing labels, destinations, analytics or eligibility', async () => {
+test('homepage card polish preserves vector booking artwork, exact action destinations/eligibility, profile analytics and original service-price rendering', async () => {
   const current = await read('components/discovery-business-card.js')
   const original = execFileSync('git', ['show', `${baseline}:components/discovery-business-card.js`], { cwd: root, encoding: 'utf8' })
-  const before = '  const reserve = <BookingButtonContent>{copy.reserveAppointment}</BookingButtonContent>'
-  const after = `  const reserve = quickChoice
-    ? <span className="booking-button-content"><Icon name="calendar"/><span className="booking-button-label">{copy.reserveAppointment}</span></span>
-    : <BookingButtonContent>{copy.reserveAppointment}</BookingButtonContent>`
-  assert.ok(original.includes(before))
-  assert.equal(current, original.replace(before, after), 'only the visual quick-choice icon may differ from the reviewed card')
+  const section = (source, startMarker, endMarker) => {
+    const start = source.indexOf(startMarker), end = source.indexOf(endMarker, start)
+    assert.ok(start >= 0 && end > start, `${startMarker} remains a distinct reviewed block`)
+    return source.slice(start, end)
+  }
+  assert.equal(section(current, '  const actions =', '  return <article'), section(original, '  const actions =', '  return <article'), 'native, external and telephone actions, trusted URLs, disabled preview controls and labels are unchanged')
+  assert.equal(section(current, '  const openDetails =', '  const photo ='), section(original, '  const openDetails =', '  const photo ='), 'only actual profile opening records the same profile event')
+  assert.equal(section(current, '  const distance =', '  const serviceList ='), section(original, '  const distance =', '  const serviceList ='), 'original photo containment, partner identity and location wording are intact')
+  assert.equal(section(current, '  const serviceList =', '  const reviews ='), section(original, '  const serviceList =', '  const reviews ='), 'service names, thumbnails, published prices, units and conditions remain exact')
+  assert.match(current, /const services = railServiceItems\(row\)/)
+  assert.match(current, /const reserve = quickChoice\s*\? <span className="booking-button-content"><Icon name="calendar"\/><span className="booking-button-label">\{copy\.reserveAppointment\}<\/span><\/span>\s*: <BookingButtonContent>\{copy\.reserveAppointment\}<\/BookingButtonContent>/)
 })
 
-test('every tracked public image and its path remains frozen to c9e525b, with no replacement image inventory', async () => {
+test('all historical public image bytes stay frozen; only the twelve explicitly approved v3 category siblings are added', async () => {
   const images = baselineTree.filter(record => imagePath(record.path))
   assert.equal(images.length, 1889, 'reviewed baseline public-image inventory')
   const current = execFileSync('git', ['ls-files', '--cached', '--others', '--exclude-standard', '-z', '--', 'public'], { cwd: root, encoding: 'utf8', maxBuffer: 4 * 1024 * 1024 }).split('\0').filter(imagePath)
-  assert.deepEqual([...new Set(current)].sort(), images.map(record => record.path).sort())
+  assert.deepEqual([...new Set(current)].sort(), [...images.map(record => record.path), ...REFINEMENT_NEW_MEDIA].sort())
   await identicalBlobs(images)
 })

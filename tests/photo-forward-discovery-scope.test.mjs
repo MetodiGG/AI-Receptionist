@@ -5,6 +5,7 @@ import { createHash } from 'node:crypto'
 import { readFile, readlink } from 'node:fs/promises'
 import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
+import { REFINEMENT_CHANGED_FILES, refinementAllowsNewMedia } from './discovery-refinement-20261122-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const BASE = '3858c4e5f7e96d8a53db09bc09dc3a014be7658b'
@@ -24,11 +25,12 @@ function frozenPath(path) {
 }
 const frozen = baseTree.filter(record => frozenPath(record.path))
 
-test('the photo-forward pass changes no search, API, taxonomy, images, booking, cards, summary, presence or dependency files from 3858c4e', async () => {
+test('the historical photo-forward baseline freezes everything outside the exact 2026-11-22 presentation/navigation exception list', async () => {
   assert.equal(frozen.length, 2625)
   assert.equal(sha256(JSON.stringify(frozen)), '5ca0ccae56c0a003d91c4d37e43a8f286d8fcf455527a11ddcc82d3b9c728278')
-  for (let offset = 0; offset < frozen.length; offset += 32) {
-    await Promise.all(frozen.slice(offset, offset + 32).map(async record => {
+  const stillFrozen = frozen.filter(record => !REFINEMENT_CHANGED_FILES.has(record.path))
+  for (let offset = 0; offset < stillFrozen.length; offset += 32) {
+    await Promise.all(stillFrozen.slice(offset, offset + 32).map(async record => {
       const path = new URL('../' + record.path, import.meta.url)
       const bytes = record.mode === '120000' ? Buffer.from(await readlink(path)) : await readFile(path)
       const oid = createHash('sha1').update(`blob ${bytes.length}\0`).update(bytes).digest('hex')
@@ -37,14 +39,12 @@ test('the photo-forward pass changes no search, API, taxonomy, images, booking, 
   }
   const expected = baseTree.filter(record => protectedRoot(record.path)).map(record => record.path).sort()
   assert.equal(expected.length, 2492)
-  const actual = git('ls-files', '--cached', '--others', '-z', '--', 'app/api', 'hooks', 'lib', 'public').split('\0').filter(Boolean)
-  assert.deepEqual([...new Set(actual)].sort(), expected, 'No new/renamed/removed data, APIs, taxonomy or media may hide outside the frozen manifest')
+  const actual = git('ls-files', '--cached', '--others', '-z', '--', 'app/api', 'hooks', 'lib', 'public').split('\0').filter(path => path && !refinementAllowsNewMedia(path))
+  assert.deepEqual([...new Set(actual)].sort(), expected, 'Only the exact twelve authorized v3 category-media siblings may be new; no new or renamed data/API/taxonomy paths')
 })
 
-test('the complete main search and booking/card/summary/presence sources retain their reviewed byte hashes', async () => {
+test('the unchanged main search form and summary/presence sources retain their reviewed byte hashes', async () => {
   const files = {
-    'components/discovery-search.js': '94e0b22f2830dbf5d81304188e7e8eaa87861db83f82669b7d50c26780cfd47a',
-    'components/discovery-business-card.js': 'f7d488df5789416d1c934dc939878968b71d9c937cade3642a963ac02cd31a01',
     'components/inline-discovery-summary.js': 'ab80456bd6692e129c4777ecddc61036d0085cb33e8b916d17b8129ea68cfb54',
     'components/inline-discovery-panel.js': '814c7f1d82b28b2743630c86118b7cf184995512921c4a937d922fd63342d6db',
     'app/inline-discovery-panel.css': '5982be44f3705c226a76b0ed9f260d3501b0d90ba28eec7ae038b94c45fb0b60',
@@ -77,14 +77,14 @@ test('approved tile markup cannot change category/service filtering, image failu
   const categoryBefore = git('show', BASE + ':components/inline-category-grid.js')
   const originalPhoto = between(categoryBefore, 'function CategoryPhoto(', '// A persistent')
   const approvedPhoto = originalPhoto
-    .replace('  const [failed, setFailed] = useState(null)\n', '  const [failed, setFailed] = useState(null)\n  const source = category.photo2x\n')
+    .replace('  const [failed, setFailed] = useState(null)\n', '  const [failed, setFailed] = useState(null)\n  const source = category.photoLarge || category.photo2x\n  const sources = `${category.photo} 160w, ${category.photo2x} 240w${category.photoLarge ? `, ${category.photoLarge} 640w` : \'\'}`\n')
     .replace('failed !== category.photo', 'failed !== source')
     .replace('src={category.photo}', 'src={source}')
-    .replace('srcSet={`${category.photo} 1x, ${category.photo2x} 2x`}', 'srcSet={`${category.photo} 160w, ${category.photo2x} 240w`} sizes="(max-width:699px)50vw,(max-width:999px)33vw,280px"')
-    .replace('width={80} height={80}', 'width={240} height={240}')
+    .replace('srcSet={`${category.photo} 1x, ${category.photo2x} 2x`}', 'srcSet={sources} sizes="(max-width:699px)50vw,(max-width:999px)33vw,280px"')
+    .replace('width={80} height={80}', "width={240} height={category.photoHeight || 240} style={category.photoPosition ? { objectFit: 'cover', objectPosition: category.photoPosition } : undefined}")
     .replace('setFailed(category.photo)', 'setFailed(source)')
   assert.notEqual(approvedPhoto, originalPhoto)
-  assert.equal(between(category, 'function CategoryPhoto(', '// A persistent'), approvedPhoto, 'only approved existing-image responsive metadata and its primary-source error key may differ')
+  assert.equal(between(category, 'function CategoryPhoto(', '// A persistent'), approvedPhoto, 'only explicitly approved responsive metadata, optional 640w sibling, real Beauty portrait framing and actual primary-source error key may differ')
 })
 
 const require = createRequire(import.meta.url)

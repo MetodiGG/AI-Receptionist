@@ -1,6 +1,9 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFile, stat, readdir } from 'node:fs/promises'
+import { createHash } from 'node:crypto'
+import { execFileSync } from 'node:child_process'
+import { fileURLToPath } from 'node:url'
 import sharp from 'sharp'
 import { createClient } from '@supabase/supabase-js'
 import { HOME_CATEGORY_IDS, HOME_DISCOVERY_COPY, homeCategories, homeFilterCount, defaultHomeFilters, applyHomeFilters, homeBusinessDistance, homeBusinessPhoto, homeBusinesses } from '../lib/discovery/home.mjs'
@@ -12,6 +15,7 @@ import { bookingAction } from '../lib/booking-mode.mjs'
 import { DateTime } from 'luxon'
 import { containDialogTab } from '../lib/dialog-focus.mjs'
 import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
+import { REFINED_CATEGORY_IDS, REFINEMENT_NEW_MEDIA } from './discovery-refinement-20261122-scope.mjs'
 
 const read = path => readFile(new URL(`../${path}`, import.meta.url), 'utf8')
 const origin = { latitude: 42.6627, longitude: 23.2849, consent: true }
@@ -30,10 +34,16 @@ test('every thumbnail maps exactly to an existing taxonomy id and usable BG/EN c
   for (const locale of ['bg', 'en']) for (const category of homeCategories(locale)) {
     assert.ok(category.label); assert.equal(discoveryCategorySelection('', category.id, locale).category, category.id)
     assert.ok(discoveryRequestSchema.safeParse(discoverySearchInput(discoveryCategorySelection('', category.id, locale))).success)
-    assert.equal(category.photo, `/category-photos/${category.id}-v${category.id === 'other' ? 4 : 2}.webp`)
+    const refined = REFINED_CATEGORY_IDS.includes(category.id)
+    const version = category.id === 'other' ? 4 : refined ? 3 : 2
+    assert.equal(category.photo, `/category-photos/${category.id}-v${version}.webp`)
+    assert.equal(category.photo2x, `/category-photos/${category.id}-2x-v${version}.webp`)
+    assert.equal(category.photoLarge, refined ? `/category-photos/${category.id}-large-v3.webp` : undefined)
+    assert.equal(category.photoHeight, category.id === 'beauty' ? 360 : undefined)
+    assert.equal(category.photoPosition, category.id === 'beauty' ? '50% 0%' : undefined)
   }
 })
-test('all fourteen category images retain the owner attachments, including the distinct Other services picture', async () => {
+test('all fourteen historical owner attachments are preserved alongside only the four approved 2026-11-22 replacements', async () => {
   const manifest = JSON.parse(await read('docs/homepage-category-photos-2026-11-04.json'))
   const own = manifest.assets.filter(row => row.origin !== 'generated')
   assert.equal(own.length, 14); assert.equal(new Set(own.map(row => row.source)).size, 14)
@@ -48,11 +58,62 @@ test('all fourteen category images retain the owner attachments, including the d
   assert.equal(other.origin, undefined); assert.equal(other.source, 'BECF761C-5CAF-4865-95F6-C7A7D56354BD/1-Photo-1.jpg')
   assert.notEqual(other.source, manifest.assets.find(row => row.id === 'consulting').source)
 })
+test('three generated category scenes and the owner-selected real Beauty photo retain exact provenance, original ratios and compressed variants', async () => {
+  const manifest = JSON.parse(await read('docs/category-photo-refinement-20261122.json'))
+  assert.equal(manifest.date, '2026-11-22')
+  assert.match(manifest.mode, /[Bb]uilt-in imagegen/)
+  assert.match(manifest.usage, /not photographs of actual partner/)
+  assert.match(manifest.usage, /(?:Never|Do not) assign these images to partner galleries or row\.photos/)
+  assert.deepEqual(manifest.assets.map(asset => asset.id).sort(), [...REFINED_CATEGORY_IDS].sort())
+  assert.deepEqual(manifest.assets.flatMap(asset => asset.files.map(file => file.file)).sort(), [...REFINEMENT_NEW_MEDIA].sort())
+  let total = 0
+  for (const asset of manifest.assets) {
+    if (asset.id === 'beauty') {
+      assert.equal(asset.origin, 'stock_photo', 'the real selected photograph must not be labelled generated')
+      assert.equal(asset.author, 'George Milton')
+      assert.equal(asset.photoUrl, 'https://www.pexels.com/photo/anonymous-young-female-visagiste-applying-blush-on-cheeks-of-customer-6953629/')
+      assert.match(asset.downloadUrl, /^https:\/\/images\.pexels\.com\/photos\/6953629\/pexels-photo-6953629\.jpeg\?/)
+      assert.equal(asset.license, 'Pexels License')
+      assert.equal(asset.licenseUrl, 'https://www.pexels.com/license/')
+      assert.equal(asset.licenseReviewed, '2026-11-22')
+      assert.match(asset.ownerSelection, /Option\s*4/i)
+      assert.equal(asset.prompt, null, 'a real stock photograph has no generation prompt')
+    } else {
+      assert.equal(asset.origin, 'generated')
+      assert.ok(asset.prompt.length > 100, `${asset.id}: retain the actual production prompt`)
+    }
+    assert.match(asset.sourceSha256, /^[a-f0-9]{64}$/)
+    assert.equal(asset.files.length, 3)
+    for (const [index, entry] of asset.files.entries()) {
+      const size = [160, 240, 640][index]
+      const height = asset.id === 'beauty' ? size * 1.5 : size
+      assert.equal(entry.width, size); assert.equal(entry.height, height)
+      const bytes = await readFile(new URL('../' + entry.file, import.meta.url))
+      assert.equal(bytes.length, entry.bytes)
+      assert.equal(createHash('sha256').update(bytes).digest('hex'), entry.sha256)
+      const image = await sharp(bytes).metadata()
+      assert.equal(image.format, 'webp'); assert.equal(image.width, size); assert.equal(image.height, height)
+      assert.equal(image.exif, undefined); assert.equal(image.xmp, undefined)
+      assert.ok(bytes.length < (size === 640 ? 160000 : 30000), `${entry.file}: bounded local tile payload`)
+      total += bytes.length
+    }
+  }
+  assert.ok(total < 600000, `all twelve new category variants remain under 600 kB: ${total}`)
+  const original = execFileSync('git', ['show', '4be84916a4e2699e00e73243208c88f5aab1aae7:lib/discovery/home.mjs'], { cwd: fileURLToPath(new URL('../', import.meta.url)), encoding: 'utf8' })
+  const replaceCategoryPresentation = source => source.replace(/export function homeCategories\(locale = 'bg'\) \{[\s\S]*?\n\}/, 'CATEGORY_PRESENTATION')
+  assert.equal(replaceCategoryPresentation(await read('lib/discovery/home.mjs')), replaceCategoryPresentation(original), 'category imagery cannot change home data, location, filtering, search or pricing functions')
+  for (const category of homeCategories()) if (!REFINED_CATEGORY_IDS.includes(category.id)) {
+    const version = category.id === 'other' ? 4 : 2
+    assert.equal(category.photo, `/category-photos/${category.id}-v${version}.webp`)
+    assert.equal(category.photo2x, `/category-photos/${category.id}-2x-v${version}.webp`)
+    assert.equal(category.photoLarge, undefined)
+  }
+})
 test('all photographic thumbnails have fixed responsive sizes, stripped metadata and a bounded payload', async () => {
   let total = 0
   for (const category of homeCategories()) for (const [src, size] of [[category.photo, 160], [category.photo2x, 240]]) {
     const path = new URL(`../public${src}`, import.meta.url), metadata = await sharp(path.pathname).metadata()
-    assert.equal(metadata.format, 'webp'); assert.equal(metadata.width, size); assert.equal(metadata.height, size)
+    assert.equal(metadata.format, 'webp'); assert.equal(metadata.width, size); assert.equal(metadata.height, category.id === 'beauty' ? size * 1.5 : size)
     assert.equal(metadata.exif, undefined); assert.equal(metadata.xmp, undefined)
     const bytes = (await stat(path)).size; total += bytes; assert.ok(bytes < 30000)
   }

@@ -1,0 +1,135 @@
+{
+  "date": "2026-11-22",
+  "mode": "Three built-in imagegen category assets plus the owner's selected real Pexels Beauty photograph (option4).",
+  "usage": "Generic navigation photographs/illustrations only, not photographs of actual partner premises. Approved replacements: fitness, beauty, barber, pets. Historical v2 owner assets remain untouched. Do not assign these images to partner galleries or row.photos or imply endorsement. No production publication.",
+  "processing": "Mechanical WebP resize at quality86 with stripped metadata. Generated images retain square framing at 160/240/640px. Beauty preserves its original2:3 aspect ratio at160x240,240x360,640x960; no pixel retouch or crop. UI cover/50%0% framing keeps the full head and blush brush visible; lower body is outside the tile. Original Pexels source retained in local review artifacts.",
+  "assets": [
+    {
+      "id": "fitness",
+      "sourceFilename": "exec-5f9e6b11-b6f9-4a6a-bbb8-e80c4f30b381.png",
+      "sourceSha256": "b25add5908e3e399275b07365c676d360a2e2453c027c866dc62107bba2766b5",
+      "origin": "generated",
+      "prompt": "Use case: photorealistic-natural. Asset type: square photographic category image for Sports on a booking marketplace, not a real listed venue. Primary request: realistic association football (soccer) training on a local outdoor grass pitch. One adult amateur player controlling a football with a boot, full body including head and both feet fully inside frame, distant goal visible enough to identify football. Candid sports photography, believable body anatomy, worn grass, ordinary fabric and leather texture, soft natural daylight, realistic noncinematic colors. Square 1:1 composition with generous breathing room above the head and below the boots, important action within central 75%, works as a small tile. No text, no logo, no watermark, no advertising, no render or cartoon look.",
+      "files": [
+        {
+          "file": "public/category-photos/fitness-v3.webp",
+          "width": 160,
+          "height": 160,
+          "bytes": 7220,
+          "sha256": "541d60975424d6ccdb179fe65a12abf6936a8b4e4dcfca597268401f78c8be98"
+        },
+        {
+          "file": "public/category-photos/fitness-2x-v3.webp",
+          "width": 240,
+          "height": 240,
+          "bytes": 15060,
+          "sha256": "ed146a293ef33aa23e16d9846d48461426802202e8c7c0a675027adcf2355758"
+        },
+        {
+          "file": "public/category-photos/fitness-large-v3.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 83102,
+          "sha256": "4c5f3e083879f0fd36c79c6143281dcc81e9a12350ad131c6e35f805ec0fa148"
+        }
+      ]
+    },
+    {
+      "id": "beauty",
+      "sourceFilename": "pexels-george-milton-6953629-original.jpg",
+      "sourceSha256": "b26a18913732a3b0fee339e12778db334650477e6298b140d49b433086a16456",
+      "origin": "stock_photo",
+      "author": "George Milton",
+      "photoUrl": "https://www.pexels.com/photo/anonymous-young-female-visagiste-applying-blush-on-cheeks-of-customer-6953629/",
+      "downloadUrl": "https://images.pexels.com/photos/6953629/pexels-photo-6953629.jpeg?cs=srgb&dl=pexels-george-milton-6953629.jpg&fm=jpg",
+      "license": "Pexels License",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "licenseReviewed": "2026-11-22",
+      "ownerSelection": "Option4 — blush application, explicitly selected in chat.",
+      "prompt": null,
+      "files": [
+        {
+          "file": "public/category-photos/beauty-v3.webp",
+          "width": 160,
+          "height": 240,
+          "bytes": 6702,
+          "sha256": "0443f10e39da867121e94c0dccd0dda25d7d171225eb79a02d4a7235f00e22ef"
+        },
+        {
+          "file": "public/category-photos/beauty-2x-v3.webp",
+          "width": 240,
+          "height": 360,
+          "bytes": 12216,
+          "sha256": "e4651f398d7629c8159cbc670110b2a95f2febbe62c2fbd8021fbca74e766f87"
+        },
+        {
+          "file": "public/category-photos/beauty-large-v3.webp",
+          "width": 640,
+          "height": 960,
+          "bytes": 49654,
+          "sha256": "11b3260ff268c87d75a248e18874682eb668206bfc70c840c6838936c584417e"
+        }
+      ]
+    },
+    {
+      "id": "barber",
+      "sourceFilename": "exec-7958c4a6-0988-4e17-8a00-52b51cb7d504.png",
+      "sourceSha256": "444adefdde43115555500d9578b0a35fb28dfa1f81b68f4b77ff46c3ba11e844",
+      "origin": "generated",
+      "prompt": "Use case: photorealistic-natural. Asset type: square photographic Barbershop category image on a booking marketplace, generic storefront not a real listed business. Primary request: believable contemporary neighborhood barbershop entrance, NO PEOPLE anywhere, with a clearly visible traditional barber pole lamp beside the door. Red-white-blue striped cylindrical barber pole with realistic glass reflections and metallic mounts, complete lamp top and bottom inside the frame; natural storefront details, window glimpse of a barber chair, warm wooden details. Real architectural street photography in soft daylight, accurate straight geometry, ordinary material texture, no fake HDR, no fantasy set, no overly stylized vintage look. Square 1:1 with entire pole inside central 75%, generous space at top and bottom. No readable signage, no brand logos, no watermarks, no person or human reflection.",
+      "files": [
+        {
+          "file": "public/category-photos/barber-v3.webp",
+          "width": 160,
+          "height": 160,
+          "bytes": 7782,
+          "sha256": "52581254a4d7534583947c3f63f44ec2ab526916ce734b5efecfce00a7cd5457"
+        },
+        {
+          "file": "public/category-photos/barber-2x-v3.webp",
+          "width": 240,
+          "height": 240,
+          "bytes": 15266,
+          "sha256": "9117a818b185cbda92811f359cdb58c5bac6050542271702f6c7bbdc2c99608c"
+        },
+        {
+          "file": "public/category-photos/barber-large-v3.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 79236,
+          "sha256": "ca9c0394acb931f847399051bf7940cd444ae944f421f04658f43c56c32fc657"
+        }
+      ]
+    },
+    {
+      "id": "pets",
+      "sourceFilename": "exec-b9580e28-588d-4953-8db2-ec6f32467af4.png",
+      "sourceSha256": "a1323deca0ef4b4f3c6fd29eb9299f92f170b02a41a2cd0212d2fdf54e32aefa",
+      "origin": "generated",
+      "prompt": "Use case: precise-object-edit. Input image is the edit target: the existing square grooming category photograph of an apricot poodle seated on a salon table. Correct ONLY the framing: pull back naturally and extend the scene so the dog's ENTIRE fluffy head, ears and top hair have generous 12-15% clear headroom, with full seated dog and front paws visible. Preserve the same recognizable dog, fur color, expression, bandana, realistic grooming salon and lighting. Keep the groomer's comb/hand natural and away from covering or cutting the top of the dog's head. The result should be photorealistic with real fine fur texture, not illustration or plastic. Square 1:1; no text, no logo, no watermark. Do not add other animals or people. Important subject entirely within central 75% of canvas.",
+      "files": [
+        {
+          "file": "public/category-photos/pets-v3.webp",
+          "width": 160,
+          "height": 160,
+          "bytes": 6108,
+          "sha256": "cb35b4c419b30ba64ac28eaab5d849b2acd8795b2e650222bf761b424b0eb481"
+        },
+        {
+          "file": "public/category-photos/pets-2x-v3.webp",
+          "width": 240,
+          "height": 240,
+          "bytes": 10652,
+          "sha256": "878f36de48ecce137021fe3e7be3db86071d29feadb608c72cf376f889f3cbbb"
+        },
+        {
+          "file": "public/category-photos/pets-large-v3.webp",
+          "width": 640,
+          "height": 640,
+          "bytes": 54016,
+          "sha256": "f6a925ac3cc5c23243a2948c4d7393f80885f6878ff902fde7d2ad63e0279056"
+        }
+      ]
+    }
+  ]
+}

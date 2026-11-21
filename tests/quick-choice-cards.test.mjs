@@ -138,6 +138,24 @@ test('native/external/phone booking and real directions keep their existing trus
   assert.equal(elements(footer, node => node.type === Link || node.type === Outbound).length, 0)
 })
 
+for (const locale of ['bg', 'en']) test(`${locale}: compact booking hints describe the real GoRez, external or phone route without claiming confirmation`, () => {
+  for (const [booking_mode, key] of [['gorez', 'cardBookingNative'], ['external', 'cardBookingExternal'], ['phone', 'cardBookingPhone']]) {
+    const row = business({ booking_mode, phone: '+359888000001' }), f = fixture({ row, locale })
+    const hint = nodeClass(f.tree, 'home-business-booking-hint')
+    assert.equal(hint.length, 1)
+    assert.equal(text(hint[0]), DISCOVERY_COPY[locale][key])
+    assert.equal(nodeClass(nodeClass(f.tree, 'home-business-actions'), 'home-business-booking-hint').length, 0, 'descriptive copy does not become an extra action or disturb button order')
+    assert.deepEqual(f.events, [], 'rendering the new hint is not a profile, booking or external event')
+  }
+  const phone = business({ source: 'catalogue', phone: '+359888000001', website: 'https://salon.bg/', booking: { verified: true, kind: 'phone', phone: '+359888000001', checkedOn: '2020-01-01', validUntil: '2099-01-01' } })
+  assert.equal(text(nodeClass(fixture({ row: phone, locale }).tree, 'home-business-booking-hint')[0]), DISCOVERY_COPY[locale].cardBookingPhone)
+  const form = business({ source: 'catalogue', booking: { verified: true, kind: 'form', url: 'https://salon.bg/book', checkedOn: '2020-01-01', validUntil: '2099-01-01' } })
+  assert.equal(text(nodeClass(fixture({ row: form, locale }).tree, 'home-business-booking-hint')[0]), DISCOVERY_COPY[locale].cardBookingExternal)
+  const unavailable = business({ source: 'catalogue', phone: null, website: 'https://salon.bg/' })
+  assert.equal(nodeClass(fixture({ row: unavailable, locale }).tree, 'home-business-booking-hint').length, 0, 'an unverified generic website is not a booking destination')
+  assert.equal(nodeClass(fixture({ quickChoice: false, locale }).tree, 'home-business-booking-hint').length, 0, 'other cards retain their previous presentation')
+})
+
 test('non-home callers keep the original gallery overlay, distance location, identity and actions by default', () => {
   const f = fixture({ quickChoice: undefined })
   assert.equal(nodeClass(f.tree, 'home-business-heading').length, 0)

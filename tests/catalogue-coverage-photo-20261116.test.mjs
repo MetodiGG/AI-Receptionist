@@ -1,4 +1,5 @@
 import test from 'node:test'
+import { locationRecoveryPriorRecord } from './location-recovery-20261122-scope.mjs'
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import batch from '../lib/discovery/catalogue-data/neighborhood-coverage-photo-20261116.mjs'
@@ -74,7 +75,9 @@ test('Margo retains only the exact owner-published point bound to its Svoboda ad
   })
   assert.deepEqual(catalogueBoundCoordinates(row), row.coordinates)
   assert.equal(catalogueBoundCoordinates({ ...row, address: 'София, ж.к. Свобода, друг адрес 5' }), null)
-  const maria = record(mariaId)
+  // Preserve the Nov16 intake claim; the later exact municipal match is
+  // tested against the actual current row in its separate Nov22 feature test.
+  const maria = locationRecoveryPriorRecord(record(mariaId))
   assert.equal(maria.neighborhood, 'Суходол')
   assert.equal(maria.address, 'София, Суходол, ул. Траян Танев 21')
   assert.equal(maria.coordinates, null)

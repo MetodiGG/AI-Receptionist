@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-22",
+  "baseCommit": "a44faaa77bdda3f129ca48f36385393761b58e31",
+  "status": "independently_reviewed_quarter_only_correction",
+  "newBusinessesAdded": 0,
+  "corrections": [
+    {
+      "id": "sofia-stephan-borovo",
+      "nameUnchanged": "Stephan · Борово",
+      "oldNeighborhood": null,
+      "newNeighborhood": "Манастирски ливади",
+      "addressUnchanged": "София, ул. Пирин 22",
+      "cityCodeUnchanged": "68134",
+      "websiteUnchanged": "https://www.stephan.bg/",
+      "phoneUnchanged": "+359888164144",
+      "sourceUrl": "https://www.stephan.bg/saloni/borovo",
+      "excerpt": "в столичния кв. Манастирски ливади",
+      "contactExcerpt": "ул.Пирин 22",
+      "review": "Child and root independently read the current branch page, which explicitly names this quarter and the identical street/house in Contact. The word Borovo in the branch name is not substituted for geographic evidence. No map, postcode, street/block-number or centroid inference used. This owner-sourced quarter is not independent polygon or business-entrance verification.",
+      "oldNormalizedRecordSha256": "053ce29de177ac1f113dc55b75e05b8277d16198b55ea369b0155c8264a324da",
+      "newNormalizedRecordSha256": "a25c159ca78869baeee00ceb863d2ba5d393f842202674c65acb4e1cad09776e",
+      "pricingIdentityUnchanged": "9ae012a74eb9166cb17f097c3936e090b19e1c63dc0106b556a04ae5e0e1c29f",
+      "priceReviewSha256Unchanged": "5485fdb99755c15bfbfb4e58c31382100f912145f60b303b043f4ead5fd7c473",
+      "serviceCountUnchanged": 64,
+      "priceReviewCheckedOnUnchanged": "2026-11-10",
+      "reviewedPriceFactsUnchanged": 61,
+      "point": {
+        "action": "Rebind only sourceNeighborhood after the existing municipal point has been applied; preserve every other field and all original source/subset bytes.",
+        "addressIdUnchanged": "11557",
+        "latitudeUnchanged": 42.66702142457208,
+        "longitudeUnchanged": 23.27695821128835,
+        "checkedOnUnchanged": "2026-11-13",
+        "sourceUnchanged": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "licenceUnchanged": "CC-BY-4.0",
+        "attributionUnchanged": "ГИС София / Столична община",
+        "oldPointSha256": "3217978849bdde28e91b10d1140ce703f2bc68878ce6835b82e86d6426c23a4b",
+        "newPointSha256": "eea8cbc278e9d8e3053106e48f0117ec27c86ad5bd7d138cda0fdcfdd2411dc5"
+      },
+      "isolatedCoverageEffect": {
+        "newBusinesses": 0,
+        "newPhysicalPremises": 0,
+        "newCoordinatePairs": 0,
+        "missingQuarterPremises": [584, 583],
+        "missingQuarterPremisesWithPoint": [377, 376],
+        "manastirskiHair": [6, 7],
+        "manastirskiHairWithPoint": [4, 5],
+        "manastirskiNails": [5, 6],
+        "manastirskiNailsWithPoint": [3, 4]
+      }
+    }
+  ],
+  "limits": "No services, prices, qualifications, hours, durations, booking/contact destinations, source verification dates, photos, taxonomy, native partner profile, database or production configuration changed by this correction. The61 prior price facts are not re-reviewed or refreshed here. No network geocoder, municipal dataset reload or customer/booking interaction used. One existing venue contributes once in each actual service category, not64 new businesses."
+}

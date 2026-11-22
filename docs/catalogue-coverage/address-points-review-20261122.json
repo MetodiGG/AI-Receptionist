@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-22",
+  "baseCommit": "a44faaa77bdda3f129ca48f36385393761b58e31",
+  "scope": "Existing approved Sofia premises only. Owner Contact/appointment source checked before local municipal comparison. No price, duration, booking, hours, verification-expiry, photograph or catalogue identity refresh. No new businesses and no network geocoder.",
+  "municipalSource": {
+    "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "input": "User-supplied address_sofia.csv, read-only",
+    "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+    "features": 125245,
+    "sofiaFeatures": 83189,
+    "streetIndexed": 62899,
+    "blockIndexed": 13872,
+    "parser": "scripts/read-official-sofia-csv.mjs",
+    "matcher": "lib/discovery/official-sofia-address.mjs:matchOfficialSofiaAddress",
+    "licence": "CC-BY-4.0",
+    "attribution": "ГИС София / Столична община",
+    "originalFileChanged": false,
+    "semantics": "Exact postal address, not independently verified business entrance. No nearest, first, averaged or centroid choice resolves ambiguity. Administrative region is not substituted for a sourced quarter."
+  },
+  "accepted": [
+    {
+      "id": "sofia-maria-nemska-photo-suhodol",
+      "ownerContactUrl": "https://marianemska.com/contact/",
+      "ownerAddressExcerpt": "ул. „Траян Танев“ 21 Суходол, София",
+      "sourceAddressUnchanged": "София, Суходол, ул. Траян Танев 21",
+      "websiteUnchanged": "https://marianemska.com/",
+      "phoneUnchanged": "+359878464445",
+      "oldCoordinates": null,
+      "matchStatus": "unique",
+      "candidateCount": 1,
+      "municipalRow": {
+        "rn": "88442", "region": "Овча купел", "settlement": "гр. София",
+        "street": "ул. Траян Танев", "streetnum": "21", "block": "", "lareaunit": "", "entrance": "",
+        "latitude": 42.695082, "longitude": 23.22738
+      },
+      "oldNormalizedRecordSha256": "f8cb0c98fe04fcb88426e6bdeceec8e3a4fa13bbb45d387af7516ebe6994ee13",
+      "newNormalizedRecordSha256": "c2f879493cb254b814bce4b07c8523572e21006dcdde0b774cee549781ed0767",
+      "newPointSha256": "6c2739a0bb0e060730e6f0f0a02b9558c43deb59ecb0f8daff821faf5babf6d1",
+      "pricingIdentityUnchanged": "483c75b2c2435a9d4b3a9b30aef2093804cc67eaa4f1d8bb1b60d27d5feba12b",
+      "priceReviewSha256Unchanged": "7909062a50b1bc7523987349da0e32cf371cb4dad0fe8da7d2755223e68bada8",
+      "servicesUnchanged": 3,
+      "businessVerificationCheckedOnUnchanged": "2026-11-16",
+      "businessVerificationValidUntilUnchanged": "2026-12-16",
+      "review": "Child and root independently checked the owner Contact identifying the identical Suhodol studio/phone. Full original municipal CSV hash matched the existing reviewed source; the strict index returns exactly one Sofia street/house candidate. Its administrative region Ovcha Kupel does not replace the owner quarter Suhodol. Store only this one newly reviewed address-bound point. Announced Sofia work dates are not a weekly schedule or live availability. The prior listing and price review expire16December and are deliberately not extended by this address-only review; no new appointment dates, fees, minutes or additional services are imported. No owner photograph, authored prose, customer data, calendar slot, contact form or real booking was used."
+    },
+    {
+      "id": "sofia-dar-auto-service-europa",
+      "ownerSourceUrl": "https://dar.autos/avtoservice",
+      "ownerSourceBodySha256": "6d3cba86e5bc90c99c50be0ef95b9923b1ba43862983f3137875ee483d65d74c",
+      "sourceAddressUnchanged": "София, Люлин 1, бул. Европа 138",
+      "websiteUnchanged": "https://dar.autos/",
+      "phoneUnchanged": "+359887515513",
+      "oldCoordinates": null,
+      "matchStatus": "explicit_owner_named_business_point",
+      "municipalCandidateCount": 0,
+      "ownerStructuredEntity": {
+        "type": "AutoRepair", "name": "ДАР АУТО СЕРВИЗ",
+        "url": "https://dar.autos/avtoservice",
+        "streetAddress": "бул. „Европа“ 138", "addressLocality": "София", "postalCode": "1360", "addressCountry": "BG",
+        "telephone": "+359887515513", "latitude": 42.7320882, "longitude": 23.2553455
+      },
+      "oldNormalizedRecordSha256": "c837c373b5f64ae70cd684db0134a4db3ab22b977c00bcbc6f7de991b165467b",
+      "newNormalizedRecordSha256": "d784093cbd673638fcf508075e10ef21ec20eabc86d73bf7f1569297fae79bec",
+      "newPointSha256": "28672e753592c01c5068bcd172b6cf4dcf2f70e56b3e0c74ac50e1931b4dd6db",
+      "pricingIdentityUnchanged": "7ac7a4bf8058dbafe4e47072b64bf6378ebf7cba3772a98b05caf02f07474372",
+      "priceReviewSha256Unchanged": "9bfc98ed7bc16a03db45da637d480319e6b9ffaaaec67e141a47c66c02f09bc7",
+      "servicesUnchanged": 1,
+      "businessVerificationCheckedOnUnchanged": "2026-11-13",
+      "businessVerificationValidUntilUnchanged": "2027-02-11",
+      "reviewedOwnerUrls": ["https://dar.autos/avtoservice", "https://dar.autos/robots.txt", "https://dar.autos/uslovia"],
+      "review": "Root and child independently read the literal owner HTML JSON-LD AutoRepair entity. Its name, exact Europe138/Sofia address, primary telephone and canonical service URL agree with the visible page. GeoCoordinates belongs to that entity, not a map viewport or nearby landmark. Visible heading explicitly retains Lyulin1; terms also describe the wider Lyulin1/ModernoPredgradie area, which does not create another branch or move the existing record. Robots permits public content and disallows admin/API routes; none of those routes or external maps were requested. Public terms were read without acceptance; no express restriction on this minimal factual point was found, not a copyright licence or legal-clearance assertion. Retain the full existing address and bind only the two literally published numbers to it. No municipal match was invented. Source point is owner-published, not independently address/entrance surveyed. The existing service, unpublished-price review, appointment route, opening-hours state and dates remain untouched."
+    }
+  ],
+  "held": [
+    {
+      "id": "sofia-studio617-vrabnitsa-zlatenklas27",
+      "ownerSourceUrl": "https://www.617.studio/contact.html",
+      "sourceAddress": "София, ж.к. Връбница 2, ул. Златен клас 27",
+      "candidateCount": 0,
+      "reason": "no_exact_address_candidate",
+      "action": "Keep coordinates null. Direct source-row inspection for the same street stem and house found no overlooked exact candidate; no alternative house/nearby block or guessed point."
+    },
+    {
+      "id": "sofia-tl-autoservice",
+      "ownerSourceUrl": "https://tlautoservice.com/kontakti/",
+      "sourceAddress": "София, Васил Левски, ул. Иван Добровски 1",
+      "candidateCount": 0,
+      "reason": "no_exact_address_candidate",
+      "action": "Keep coordinates null. No source street/house match; no default postcode, district or road-centre point."
+    },
+    {
+      "candidateId": "sofia-dentalnitsa-lomsko15",
+      "ownerSourceUrls": ["https://dentalnitsa.com/contacts/", "https://dentalnitsa.com/", "https://dentalnitsa.com/about/"],
+      "sourceAddress": "София, бул. Ломско шосе 15",
+      "candidateCount": 2,
+      "reason": "multiple_exact_address_candidates",
+      "candidateAddressIds": ["105349", "105348"],
+      "candidateEntrances": ["Б", "А"],
+      "action": "Source-qualified new dental-practice lead, not admitted or counted toward a quarter in this location-focused batch. Owner gives no entrance or exact quarter; municipal district Nadezhda is not a quarter. Do not choose the first/nearest entrance, average the two points or use secondary Triagalnika labels as verified owner geography. No fake coordinates, fees or service durations."
+    }
+  ],
+  "outcome": { "newBusinesses": 0, "newPhysicalPremises": 0, "newUsableAddressPoints": 2 },
+  "published": false
+}

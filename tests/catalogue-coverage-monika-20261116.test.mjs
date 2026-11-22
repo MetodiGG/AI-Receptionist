@@ -155,7 +155,7 @@ test('exact Lagera public discovery retains both services and phone action with 
 })
 
 test('two therapy services at one Lagera office contribute exactly one real other-category coverage option', () => {
-  const report = catalogueCoverageReport([row], { now })
+  const report = catalogueCoverageReport([row], { now, target: 50 })
   assert.equal(report.counts.approvedBusinesses, 1)
   assert.equal(report.counts.premises, 1)
   assert.equal(report.counts.serviceAreaProviders, 0)

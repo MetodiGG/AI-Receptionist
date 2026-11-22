@@ -1,3 +1,5 @@
+import { locationRecoveryAllowsFileChange, locationRecoveryAllowsNewFile, locationRecoveryPriorSource } from './location-recovery-20261122-scope.mjs'
+import { priority30ReportAllowsFileChange, priority30ReportAllowsNewFile, priority30ReportPriorSource } from './priority30-catalogue-report-scope.mjs'
 import { azisCatalogueAllowsFileChange, azisCatalogueAllowsNewFile, azisCataloguePriorSource } from './azis-style-catalogue-20261122-scope.mjs'
 import { regionalCatalogueAllowsFileChange, regionalCatalogueAllowsNewFile, regionalCataloguePriorSource } from './regional-catalogue-20261122-scope.mjs'
 import test from 'node:test'
@@ -15,7 +17,7 @@ import {
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const git = (...args) => execFileSync('git', args, { cwd: root, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 })
-const read = path => readFile(new URL('../' + path, import.meta.url), 'utf8').then(source => regionalCataloguePriorSource(path, azisCataloguePriorSource(path, source)))
+const read = path => readFile(new URL('../' + path, import.meta.url), 'utf8').then(source => regionalCataloguePriorSource(path, azisCataloguePriorSource(path, priority30ReportPriorSource(path, locationRecoveryPriorSource(path, source)))))
 const before = path => git('show', SPORTS_MOBILE_PHOTO_FIT_BASE + ':' + path)
 const sha256 = source => createHash('sha256').update(source).digest('hex')
 const cssPath = 'app/inline-discovery.css'
@@ -41,13 +43,13 @@ test('sports phone framing authorizes one exact CSS path and restores every prio
 })
 
 test('all other production, original photos, data, routes, booking, search and historical review bytes remain frozen', async () => {
-  const frozen = tree.filter(record => !sportsMobilePhotoFitAllowsFileChange(record.path) && !regionalCatalogueAllowsFileChange(record.path) && !azisCatalogueAllowsFileChange(record.path))
+  const frozen = tree.filter(record => !sportsMobilePhotoFitAllowsFileChange(record.path) && !regionalCatalogueAllowsFileChange(record.path) && !azisCatalogueAllowsFileChange(record.path) && !priority30ReportAllowsFileChange(record.path) && !locationRecoveryAllowsFileChange(record.path))
   for (let offset = 0; offset < frozen.length; offset += 32) await Promise.all(frozen.slice(offset, offset + 32).map(async record => {
     const path = new URL('../' + record.path, import.meta.url)
     const bytes = record.mode === '120000' ? Buffer.from(await readlink(path)) : await readFile(path)
     assert.equal(createHash('sha1').update('blob ' + bytes.length + '\0').update(bytes).digest('hex'), record.oid, record.path + ': only the phone sports CSS delta is authorized')
   }))
-  const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => path && !regionalCatalogueAllowsNewFile(path) && !azisCatalogueAllowsNewFile(path) && !(path === 'lib/discovery/public-catalogue.mjs' && azisCatalogueAllowsFileChange(path)) && productionPath(path))
+  const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => path && !locationRecoveryAllowsNewFile(path) && !priority30ReportAllowsNewFile(path) && !regionalCatalogueAllowsNewFile(path) && !azisCatalogueAllowsNewFile(path) && !(path === 'lib/discovery/public-catalogue.mjs' && azisCatalogueAllowsFileChange(path)) && productionPath(path))
   assert.deepEqual([...new Set(actual)].sort(), tree.map(record => record.path).sort(), 'no runtime, image, data or documentation path is added')
   for (const path of ['tests/discovery-refinement-20261122-scope.mjs', 'tests/next-security-upgrade-scope.mjs', 'tests/stationary-discovery-scope.mjs', 'tests/public-action-scope.mjs', 'tests/public-english-scope.mjs', 'tests/services-price-cards-scope.mjs', 'tests/catalogue-revalidation-20261122-scope.mjs']) assert.equal(await read(path), before(path), path + ': never rewrite a historical scope map')
 })

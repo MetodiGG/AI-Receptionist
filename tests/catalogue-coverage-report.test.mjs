@@ -3,13 +3,67 @@ import assert from 'node:assert/strict'
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 import { DISCOVERY_CATEGORIES } from '../lib/discovery/categories.mjs'
 import { NEIGHBOURHOODS } from '../lib/business-location.mjs'
-import { catalogueCoverageReport, coverageNeighborhood, coverageMarkdown } from '../scripts/catalogue-coverage-report.mjs'
+import { catalogueCoverageReport, coverageNeighborhood, coverageMarkdown, DEFAULT_CATALOGUE_COVERAGE_TARGET } from '../scripts/catalogue-coverage-report.mjs'
 
 const now = Date.parse('2026-11-16T00:00:00Z')
 const seed = SOFIA_CATALOGUE.find(row => row.id === 'sofia-mokro-nosle')
 const row = (id, patch = {}) => ({ ...structuredClone(seed), id: `sofia-coverage-${id}`, coordinates: null, neighborhood: 'Борово', ...patch })
 const fixture = rows => catalogueCoverageReport(rows, { now, neighborhoods: ['Борово', 'Младост 1', 'Младост 2'], target: 50 })
 const cell = (report, name, category) => report.neighborhoods.find(area => area.name === name)?.cells.find(item => item.categoryId === category)
+
+test('current priority defaults to30 and prose respects explicit historical or future targets', () => {
+  assert.equal(DEFAULT_CATALOGUE_COVERAGE_TARGET, 30)
+  const current = catalogueCoverageReport([], { now, neighborhoods: ['Борово'] })
+  assert.equal(current.targetPerCategoryPerNeighborhood, 30)
+  assert.equal(current.counts.outstandingBusinessCategoryIncidences, 30 * DISCOVERY_CATEGORIES.length)
+  for (const target of [7, 30, 50]) {
+    const report = catalogueCoverageReport([], { now, neighborhoods: ['Борово'], target })
+    const markdown = coverageMarkdown(report)
+    assert.match(markdown, new RegExp(`${target} различни реални обекта`))
+    assert.match(markdown, new RegExp(`целта е ${target}\\.`))
+    assert.match(markdown, new RegExp(`че ${target} подходящи обекта`))
+    assert.ok(report.policy.some(text => text.includes(`proof that ${target} eligible premises`)))
+  }
+})
+
+test('other supported cities neither fill Sofia cells nor inflate the excluded Sofia count', () => {
+  const report = fixture([row('sofia'), row('lom', { id: 'lom-coverage-fixture', cityCode: '44238', neighborhood: null }),
+    row('brusartsi', { id: 'brusartsi-coverage-fixture', cityCode: '06570', neighborhood: null }),
+    row('draft', { verification: { ...seed.verification, status: 'draft' } })])
+  assert.equal(report.counts.sourceRecords, 4)
+  assert.equal(report.counts.sourceSofiaRecords, 2)
+  assert.equal(report.counts.sourceOtherCityRecords, 2)
+  assert.equal(report.counts.approvedOtherCityBusinesses, 2)
+  assert.equal(report.counts.approvedBusinesses, 1)
+  assert.equal(report.counts.excludedOrNotCurrentlyEligible, 1)
+  assert.equal(cell(report, 'Борово', 'pets').count, 1)
+})
+
+test('nearby readiness separates bound points from raw, invalid, absent and service-area coordinates', () => {
+  const bound = row('bound')
+  bound.coordinates = { latitude: 42.67, longitude: 23.29, method: 'first_party_coordinates',
+    source: bound.website, sourceAddress: bound.address }
+  const unbound = row('unbound', { coordinates: { ...bound.coordinates, sourceAddress: 'София, друг адрес 1' } })
+  const legacyWithoutReceipt = row('legacy-no-receipt', { coordinates: { latitude: 42.67, longitude: 23.29,
+    method: 'first_party_coordinates', source: bound.website } })
+  const mobile = row('mobile', { locationKind: 'service_area', address: null, coordinates: null })
+  const report = catalogueCoverageReport([bound, unbound, legacyWithoutReceipt, row('absent'), mobile],
+    { now, neighborhoods: ['Борово'], target: 2 })
+  const pets = cell(report, 'Борово', 'pets')
+  assert.equal(pets.count, 3)
+  assert.equal(pets.targetMet, true)
+  assert.equal(pets.locatedCount, 1)
+  assert.equal(pets.unlocatedCount, 2)
+  assert.equal(pets.locatedGap, 1)
+  assert.equal(pets.locatedTargetMet, false)
+  assert.deepEqual(pets.locatedBusinessIds, [bound.id])
+  assert.equal(report.counts.premisesWithBoundCoordinates, 1)
+  assert.equal(report.counts.premisesWithoutBoundCoordinates, 2)
+  assert.equal(report.counts.excludedOrNotCurrentlyEligible, 1)
+  assert.equal(report.counts.serviceAreaProviders, 1)
+  assert.equal(report.counts.cellsAtLocatedTarget, 0)
+  assert.match(coverageMarkdown(report), /не гарантира резултати във всеки радиус/)
+})
 
 test('coverage counts unique business IDs per real service category, not services or primary label', () => {
   const rows = [row('multiple', { category: 'other', services: [

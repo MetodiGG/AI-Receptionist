@@ -176,7 +176,7 @@ test('exact-quarter public discovery retains eight sourced offers and phone acti
 })
 
 test('eight differently scoped tariffs count as one real physical Druzhba2 grooming option rather than eight businesses', () => {
-  const report = catalogueCoverageReport([row], { now })
+  const report = catalogueCoverageReport([row], { now, target: 50 })
   assert.equal(report.counts.approvedBusinesses, 1)
   assert.equal(report.counts.premises, 1)
   assert.equal(report.counts.serviceAreaProviders, 0)

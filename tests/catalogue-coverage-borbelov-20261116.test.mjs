@@ -153,7 +153,7 @@ test('exact-quarter public discovery preserves one unpriced cleaning and phone r
 })
 
 test('one verified Borovo practice earns one other-category cell, not staff, service, adjacent-quarter or citywide copies', () => {
-  const report = catalogueCoverageReport([row], { now })
+  const report = catalogueCoverageReport([row], { now, target: 50 })
   assert.equal(report.counts.approvedBusinesses, 1)
   assert.equal(report.counts.premises, 1)
   assert.equal(report.counts.serviceAreaProviders, 0)

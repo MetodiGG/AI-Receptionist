@@ -160,7 +160,7 @@ test('public quarter and category filtering keeps each hall local and expiry rem
 })
 
 test('the two verified premises earn one exact sport cell each, without neighbouring or teacher multiplication', () => {
-  const report = catalogueCoverageReport(rows, { now })
+  const report = catalogueCoverageReport(rows, { now, target: 50 })
   assert.equal(report.counts.approvedBusinesses, 2)
   assert.equal(report.counts.premises, 2)
   assert.equal(report.counts.serviceAreaProviders, 0)

@@ -6,6 +6,7 @@ import { readFile, readlink } from 'node:fs/promises'
 import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
 import { reviewedDiscoveryFileChange, refinementAllowsNewMedia } from './discovery-refinement-20261122-scope.mjs'
+import { nextSecurityUpgradeAllowsFileChange } from './next-security-upgrade-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const BASE = '3858c4e5f7e96d8a53db09bc09dc3a014be7658b'
@@ -28,7 +29,7 @@ const frozen = baseTree.filter(record => frozenPath(record.path))
 test('the historical photo-forward baseline freezes everything outside the exact 2026-11-22 presentation/navigation exception list', async () => {
   assert.equal(frozen.length, 2625)
   assert.equal(sha256(JSON.stringify(frozen)), '5ca0ccae56c0a003d91c4d37e43a8f286d8fcf455527a11ddcc82d3b9c728278')
-  const stillFrozen = frozen.filter(record => !reviewedDiscoveryFileChange(record.path))
+  const stillFrozen = frozen.filter(record => !reviewedDiscoveryFileChange(record.path) && !nextSecurityUpgradeAllowsFileChange(record.path))
   for (let offset = 0; offset < stillFrozen.length; offset += 32) {
     await Promise.all(stillFrozen.slice(offset, offset + 32).map(async record => {
       const path = new URL('../' + record.path, import.meta.url)

@@ -6,6 +6,7 @@ import { execFileSync } from 'node:child_process'
 import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
 import { reviewedDiscoveryFileChange, DISCOVERY_NEW_MEDIA } from './discovery-refinement-20261122-scope.mjs'
+import { nextSecurityUpgradeAllowsFileChange } from './next-security-upgrade-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const baseline = 'c9e525b'
@@ -274,7 +275,7 @@ async function identicalBlobs(entries) {
 }
 
 test('historical APIs, hooks, data/taxonomy, booking/media/config/dependencies and CSS stay frozen outside the exact approved 2026-11-22 paths', async () => {
-  await identicalBlobs(baselineTree.filter(record => frozenPath(record.path) && !reviewedDiscoveryFileChange(record.path)))
+  await identicalBlobs(baselineTree.filter(record => frozenPath(record.path) && !reviewedDiscoveryFileChange(record.path) && !nextSecurityUpgradeAllowsFileChange(record.path)))
   const rail = await read('lib/discovery/rail.mjs')
   assert.match(rail, /export const SERVICE_PREVIEW_LIMIT = 2/)
   assert.match(rail, /\.slice\(0, SERVICE_PREVIEW_LIMIT\)/)

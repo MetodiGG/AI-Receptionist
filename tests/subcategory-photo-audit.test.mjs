@@ -8,6 +8,7 @@ import { createRequire } from 'node:module'
 import sharp from 'sharp'
 import { DISCOVERY_SUBCATEGORIES } from '../lib/discovery/subcategories.mjs'
 import { COMPACT_SELECTION_CHANGED_FILES, CAR_WASH_REFINEMENT_NEW_MEDIA } from './discovery-refinement-20261122-scope.mjs'
+import { nextSecurityUpgradeAllowsFileChange } from './next-security-upgrade-scope.mjs'
 
 const BASE = 'eb36f6718141b9e616170a0b3d90bfcc868ad58b'
 const root = fileURLToPath(new URL('../', import.meta.url))
@@ -34,7 +35,7 @@ const baseline = git('ls-tree', '-r', '-z', BASE).split('\0').filter(Boolean).ma
 test('the compact-selection/photo follow-up has exactly ten reviewed source hashes and three new car-wash media paths; all other production bytes stay frozen', async () => {
   assert.deepEqual([...COMPACT_SELECTION_CHANGED_FILES].sort(), Object.keys(reviewed).sort())
   for (const [path, hash] of Object.entries(reviewed)) assert.equal(createHash('sha256').update(await read(path)).digest('hex'), hash, `${path}: any further change needs its own focused review, never a refreshed data baseline`)
-  const frozen = baseline.filter(record => !COMPACT_SELECTION_CHANGED_FILES.has(record.path))
+  const frozen = baseline.filter(record => !COMPACT_SELECTION_CHANGED_FILES.has(record.path) && !nextSecurityUpgradeAllowsFileChange(record.path))
   for (let offset = 0; offset < frozen.length; offset += 32) await Promise.all(frozen.slice(offset, offset + 32).map(async record => {
     const path = new URL('../' + record.path, import.meta.url)
     const bytes = record.mode === '120000' ? Buffer.from(await readlink(path)) : await readFile(path)

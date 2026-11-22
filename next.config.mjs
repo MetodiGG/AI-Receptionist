@@ -1,5 +1,6 @@
 const nextConfig = {
   allowedDevOrigins: ['127.0.0.1'],
+  experimental: { agentUpgrade: 'security' },
   async headers() {
     return [
       // Also prevents same-origin analytics requests carrying raw query strings.

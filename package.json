@@ -22,7 +22,7 @@
     "@vercel/oidc": "4.0.3",
     "google-auth-library": "10.9.1",
     "luxon": "^3.7.2",
-    "next": "16.4.1",
+    "next": "16.4.6",
     "qrcode": "1.5.4",
     "react": "19.3.0",
     "react-dom": "19.3.0",

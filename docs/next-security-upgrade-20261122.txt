@@ -1,0 +1,94 @@
+Next.js security upgrade — 22 November 2026
+
+Local branch: codex/next-security-16-4-6-20261122
+Worktree: /Users/metodig/.codex/visualizations/2026/10/13/01a13548-f728-7172-a396-a52db0f30e43/work/next-security-20261122
+Base: 042333fd81256623847b3149222a2971fec569b3
+No push, PR, deployment, business-data update, booking or notification.
+The original checkout and the existing 30827 review server are unchanged.
+
+Requested command
+pnpm --config.verify-deps-before-run=false exec next upgrade --agent=security
+
+The installed official CLI delegated to next@16.5.0-canary.60 for current
+assessment tooling; it selected stable Next.js16.4.6, not a canary app runtime,
+because16.4.1 is affected by a published advisory. Read both prepared guides
+shared.md and same-major.md completely. No codemod or major migration was run.
+
+Duplicate checks before modification
+- Local branches, all worktrees and local commits checked.
+- Fresh git fetch --no-tags origin succeeded; remote commit history has no
+  equivalent16.4.5/16.4.6 package upgrade.
+- GitHub provider open-PR API returned only unrelated analytics PRs26/27.
+- gh is not installed; used the available provider API instead.
+- Legacy thread-search tool was unavailable; repository/provider/live-agent
+  checks continued as instructed. No equivalent upgrade found.
+
+Changes (three production files only)
+- package.json: exact next16.4.1 ->16.4.6.
+- pnpm-lock.yaml: matching Next/env/eight SWC versions and integrity records,
+  plus the existing analytics Next peer references; no unrelated resolution
+  or dependency version changed.
+- next.config.mjs: experimental.agentUpgrade='security' only. This preserves
+  the requested reminder policy; it does not perform automatic upgrades.
+  allowedDevOrigins and every existing privacy/cache/robots header unchanged.
+
+Installation
+- A new independent node_modules directory was installed in this worktree.
+  The old UI worktree's shared node_modules symlink was not touched.
+- pnpm11.25.0 retained; frozen-lockfile reinstall succeeded.
+- next --version reports16.4.6.
+- React/react-dom19.3.0, Sharp0.35.5 and the existing Zod4.6.6 override unchanged.
+- Reassessment: 'No security update is needed for Next.js16.4.6.'
+
+Verification
+- FINAL complete Node suite2803/2803passed,0fail/skipped/cancelled.
+- Five new focused guards prove exact manifest/lock/config changes and freeze
+  every other production byte to042333f. Historical UI/data/media baseline
+  commits and allowlists are unchanged.
+- Pricing Python8/8 and booking Python4/4passed.
+- Direct Next production webpack build passed, TypeScript passed,100/100
+  static pages generated. No new application/compatibility errors found.
+- Browser: real local discovery loaded; category/subcategory filtering returned
+  matching businesses; original VESI gallery opened, moved1/2->2/2 and closed;
+  optimized photo loaded via /_next/image and retained contain framing.
+- Read-only local search POST returned200 application/json, valid decompressed
+  JSON, gzip, private/no-store caching; no double-compression parsing failure.
+- Local next start production smoke passed: homepage200, login200 with
+  no-referrer/private no-store, dev preview404, optimized640px image200 with
+  image/jpeg and no inappropriate extra compression.
+- git diff --check passed.
+- No real booking, calendar write, production notification or credential read.
+
+Existing release gates remain failing, not bypassed
+pnpm catalogue:check stops on the pre-existing Artizba source review.
+pnpm build stops before Next compilation on the same44 sourced-price receipts
+(43GPoint plus Artizba). No catalogue/pricing fingerprints or dates changed.
+Framework verification passed, but the standard release checks are not green.
+Per the upgrade CLI's instruction to report failure when verification fails,
+the overall CLI result is failure rather than a false all-checks-passed signal.
+This reports the existing release blocker, not a failed Next installation.
+
+Logs (local)
+/tmp/gorez-next-security-upgrade.log
+/tmp/gorez-next-security-install.log
+/tmp/gorez-next-security-frozen-install.log
+/tmp/gorez-next-security-reassessment.log
+/tmp/gorez-next-security-node.log
+/tmp/gorez-next-security-webpack.log
+/tmp/gorez-next-security-catalogue.log
+/tmp/gorez-next-security-build-wrapper.log
+/tmp/gorez-next-security-production-smoke.log
+/tmp/gorez-next-security-pricing-python.log
+/tmp/gorez-next-security-booking-python.log
+
+Official references
+https://nextjs.org/docs/app/guides/upgrading/agent-upgrade
+https://github.com/vercel/next.js/releases/tag/v16.4.5
+https://github.com/vercel/next.js/releases/tag/v16.4.6
+
+Using this worktree
+cd to the absolute worktree path above; pnpm install --frozen-lockfile.
+The original app is unchanged until the local upgrade commit is merged or
+cherry-picked, dependencies installed there, and its dev server restarted.
+Do not publish until the existing release gates are resolved and the owner
+approves publication. No claim that production has been patched is made.

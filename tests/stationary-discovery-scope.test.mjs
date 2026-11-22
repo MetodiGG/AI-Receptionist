@@ -1,3 +1,4 @@
+import { azisCatalogueAllowsFileChange, azisCatalogueAllowsNewFile, azisCataloguePriorSource } from './azis-style-catalogue-20261122-scope.mjs'
 import { regionalCatalogueAllowsFileChange, regionalCatalogueAllowsNewFile, regionalCataloguePriorSource } from './regional-catalogue-20261122-scope.mjs'
 import { catalogueRevalidationAllowsFileChange } from './catalogue-revalidation-20261122-scope.mjs'
 import { sportsMobilePhotoFitAllowsFileChange, sportsMobilePhotoFitPriorCss } from './sports-mobile-photo-fit-scope.mjs'
@@ -17,7 +18,7 @@ import {
 } from './stationary-discovery-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
-const read = path => readFile(new URL('../' + path, import.meta.url), 'utf8').then(source => regionalCataloguePriorSource(path, source))
+const read = path => readFile(new URL('../' + path, import.meta.url), 'utf8').then(source => regionalCataloguePriorSource(path, azisCataloguePriorSource(path, source)))
 const git = (...args) => execFileSync('git', args, { cwd: root, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 })
 const before = path => git('show', STATIONARY_DISCOVERY_BASE + ':' + path)
 const sha256 = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -37,7 +38,7 @@ test('stationary selection and truthful count authorization covers exactly ten r
   ].sort())
   assert.deepEqual(Object.keys(STATIONARY_DISCOVERY_NEW_HASHES), ['scripts/inventory-public-english.mjs'])
   for (const [path, hash] of Object.entries({ ...STATIONARY_DISCOVERY_HASHES, ...STATIONARY_DISCOVERY_NEW_HASHES })) {
-    const source = (publicEnglishAllowsFileChange(path) || path === 'scripts/inventory-public-english.mjs' && regionalCatalogueAllowsFileChange(path)) ? git('show', PUBLIC_ENGLISH_BASE + ':' + path) : await read(path)
+    const source = (publicEnglishAllowsFileChange(path) || path === 'scripts/inventory-public-english.mjs' && (regionalCatalogueAllowsFileChange(path) || azisCatalogueAllowsFileChange(path))) ? git('show', PUBLIC_ENGLISH_BASE + ':' + path) : await read(path)
     assert.equal(sha256(path === 'app/inline-discovery.css' ? sportsMobilePhotoFitPriorCss(source) : source), hash, path + ': further edits require a new focused review, not a refreshed baseline')
   }
   for (const path of ['package.json', 'pnpm-lock.yaml', 'next.config.mjs', 'lib/discovery/subcategories.mjs', 'lib/discovery/sofia-catalogue.mjs', 'components/discovery-search.js', 'public/category-photos/beauty-v3.webp']) {
@@ -48,13 +49,13 @@ test('stationary selection and truthful count authorization covers exactly ten r
 })
 
 test('every other production path, original image, taxonomy/data record, main search, booking and analytics byte stays frozen to the approved Next security commit', async () => {
-  const frozen = tree.filter(record => !stationaryDiscoveryAllowsFileChange(record.path) && !publicActionAllowsFileChange(record.path) && !publicEnglishAllowsFileChange(record.path) && !servicePriceCardsAllowsFileChange(record.path) && !catalogueRevalidationAllowsFileChange(record.path) && !regionalCatalogueAllowsFileChange(record.path) && !sportsMobilePhotoFitAllowsFileChange(record.path))
+  const frozen = tree.filter(record => !stationaryDiscoveryAllowsFileChange(record.path) && !publicActionAllowsFileChange(record.path) && !publicEnglishAllowsFileChange(record.path) && !servicePriceCardsAllowsFileChange(record.path) && !catalogueRevalidationAllowsFileChange(record.path) && !regionalCatalogueAllowsFileChange(record.path) && !azisCatalogueAllowsFileChange(record.path) && !sportsMobilePhotoFitAllowsFileChange(record.path))
   for (let offset = 0; offset < frozen.length; offset += 32) await Promise.all(frozen.slice(offset, offset + 32).map(async record => {
     const path = new URL('../' + record.path, import.meta.url)
     const bytes = record.mode === '120000' ? Buffer.from(await readlink(path)) : await readFile(path)
     assert.equal(createHash('sha1').update('blob ' + bytes.length + '\0').update(bytes).digest('hex'), record.oid, record.path + ' remains unchanged from ' + STATIONARY_DISCOVERY_BASE)
   }))
-  const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => path && !regionalCatalogueAllowsNewFile(path) && productionPath(path) && !(publicActionAllowsNewFile(path) || path === 'components/public-action.module.css' && publicEnglishAllowsFileChange(path)) && !publicEnglishAllowsNewFile(path) && !(path === 'scripts/check-public-english.mjs' && regionalCatalogueAllowsFileChange(path)) && !(path === 'lib/locale/service-english.json' && (catalogueRevalidationAllowsFileChange(path) || regionalCatalogueAllowsFileChange(path))) && !servicePriceCardsAllowsNewFile(path))
+  const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => path && !regionalCatalogueAllowsNewFile(path) && !azisCatalogueAllowsNewFile(path) && !(path === 'lib/discovery/public-catalogue.mjs' && azisCatalogueAllowsFileChange(path)) && productionPath(path) && !(publicActionAllowsNewFile(path) || path === 'components/public-action.module.css' && publicEnglishAllowsFileChange(path)) && !publicEnglishAllowsNewFile(path) && !(path === 'scripts/check-public-english.mjs' && (regionalCatalogueAllowsFileChange(path) || azisCatalogueAllowsFileChange(path))) && !(path === 'lib/locale/service-english.json' && (catalogueRevalidationAllowsFileChange(path) || (regionalCatalogueAllowsFileChange(path) || azisCatalogueAllowsFileChange(path)))) && !servicePriceCardsAllowsNewFile(path))
   assert.deepEqual([...new Set(actual)].sort(), [...tree.map(record => record.path), ...Object.keys(STATIONARY_DISCOVERY_NEW_HASHES)].sort(), 'no new production/data/image path other than the separately reviewed offline inventory utility')
 })
 

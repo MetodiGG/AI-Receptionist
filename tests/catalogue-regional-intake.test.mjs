@@ -18,25 +18,30 @@ import { serviceDisplayName, serviceDisplayUnit } from '../lib/locale/public-con
 const now = Date.parse('2026-11-22T12:00:00Z')
 const initialIds = ['lom-studio-krasota-elena-dunavska18', 'lom-europe-schools-slavyanska7']
 const ids = [...initialIds, 'lom-gpoint-slavyanska51']
-const row = id => REGIONAL_CATALOGUE.find(item => item.id === id)
+// Preserve the complete, original three-business/47-service review cohort.
+// Subsequent separately sealed intakes must not rewrite these source facts.
+const originalRegional = REGIONAL_CATALOGUE.filter(item => ids.includes(item.id))
+const originalReviews = PUBLIC_CATALOGUE_PRICE_REVIEWS.filter(item => ids.includes(item.id))
+const row = id => originalRegional.find(item => item.id === id)
 
-test('the append-only public inventory retains all Sofia rows and admits only the three source-reviewed Lom premises, never held Brusartsi leads', async () => {
+test('the original regional intake retains its three source-reviewed Lom premises and append-only Sofia prefix, never admitting its held Brusartsi leads', async () => {
   assert.deepEqual(REGIONAL_RAW_RECORDS.map(item => item.id), initialIds)
   assert.deepEqual(LOM_GPOINT_RAW_RECORDS.map(item => item.id), [ids[2]])
-  assert.deepEqual(REGIONAL_CATALOGUE.map(item => item.id), ids)
+  assert.deepEqual(originalRegional.map(item => item.id), ids)
+  assert.deepEqual(REGIONAL_CATALOGUE.slice(0, ids.length), originalRegional)
   assert.equal(validateCatalogue([...REGIONAL_RAW_RECORDS, ...LOM_GPOINT_RAW_RECORDS]).length, 3)
-  assert.equal(PUBLIC_CATALOGUE.length, SOFIA_CATALOGUE.length + 3)
+  assert.deepEqual(PUBLIC_CATALOGUE.slice(SOFIA_CATALOGUE.length, SOFIA_CATALOGUE.length + ids.length), originalRegional)
   assert.deepEqual(PUBLIC_CATALOGUE.slice(0, SOFIA_CATALOGUE.length), SOFIA_CATALOGUE)
   assert.deepEqual(PUBLIC_CATALOGUE.slice(SOFIA_CATALOGUE.length), REGIONAL_CATALOGUE)
   assert.equal(await readPublicCatalogue(), PUBLIC_CATALOGUE)
   assert.equal(new Set(PUBLIC_CATALOGUE.map(item => item.id)).size, PUBLIC_CATALOGUE.length)
-  for (const entry of REGIONAL_CATALOGUE) {
+  for (const entry of originalRegional) {
     assert.equal(findPublicCatalogueEntry(entry.id), entry)
     assert.equal(entry.cityCode, '44238'); assert.equal(entry.coordinates, null); assert.equal(entry.neighborhood, null)
     assert.equal(entry.locationKind, 'premises'); assert.ok(approvedCatalogueRecord(entry, now))
     assert.ok(Object.isFrozen(entry) && Object.isFrozen(entry.services))
   }
-  assert.equal(PUBLIC_CATALOGUE.filter(item => item.cityCode === '06570').length, 0)
+  assert.equal(originalRegional.filter(item => item.cityCode === '06570').length, 0)
   assert.equal(findPublicCatalogueEntry('brusartsi-not-reviewed-yet') ?? null, null)
 })
 
@@ -60,11 +65,11 @@ test('literal Elena fees, named specialist, real weekly hours and course-enrolme
     assert.equal(service.appointmentModel, 'group_reservation')
     assert.match(service.description, /определяне на нивото.*курс, графикът и таксата.*не е резервация за единичен урок/u)
   }
-  const outcomes = auditCataloguePricing(REGIONAL_CATALOGUE, [], PUBLIC_CATALOGUE_PRICE_REVIEWS, now)
+  const outcomes = auditCataloguePricing(originalRegional, [], originalReviews, now)
   assert.deepEqual(outcomes.blocking, [])
   assert.deepEqual(outcomes.records.map(item => [item.id, item.state]), [[ids[0], 'reviewed'], [ids[1], 'service_reviewed'], [ids[2], 'reviewed']])
   assert.ok(outcomes.records.every(item => item.legacy === false), 'none of the regional rows gains a Sofia legacy exemption')
-  for (const entry of REGIONAL_CATALOGUE) {
+  for (const entry of originalRegional) {
     const review = PUBLIC_CATALOGUE_PRICE_REVIEWS.find(item => item.id === entry.id)
     assert.equal(review.inventoryIdentity, pricingIdentity(entry), entry.id)
     assert.match(review.inventoryIdentity, /^[a-f0-9]{64}$/u)
@@ -98,7 +103,7 @@ test('regional source reviews bind manually normalized literal identities instea
     const source = await readFile(new URL('../lib/discovery/catalogue-data/' + filename, import.meta.url), 'utf8')
     assert.doesNotMatch(source, /pricingIdentity\s*\(/u, filename + ': the runtime source cannot automatically approve its own changed inventory')
   }
-  for (const entry of REGIONAL_CATALOGUE) {
+  for (const entry of originalRegional) {
     const review = PUBLIC_CATALOGUE_PRICE_REVIEWS.find(item => item.id === entry.id)
     const changed = { ...entry, services: entry.services.map((service, index) => index ? service : { ...service, description: (service.description || '') + ' Променено условие.' }) }
     assert.equal(assessPricingReview(changed, review, now).state, 'pending', entry.id + ': source edits need a fresh manual review')
@@ -106,7 +111,7 @@ test('regional source reviews bind manually normalized literal identities instea
 })
 
 test('each admitted real business and every service is discoverable and reusable in registration only within its actual city', () => {
-  for (const entry of REGIONAL_CATALOGUE) {
+  for (const entry of originalRegional) {
     const found = normalizeCatalogueBusinesses(PUBLIC_CATALOGUE, { cityCode: '44238', category: entry.category, browse: true, searchV2: true, requirements: [] }, { now }).find(item => item.id === entry.id)
     assert.ok(found, entry.id); assert.equal(found.city, 'Лом'); assert.equal(found.coordinates, null)
     assert.deepEqual(found.availability, { status: 'external', slots: [] })
@@ -121,13 +126,13 @@ test('each admitted real business and every service is discoverable and reusable
       assert.equal(draft.services[index].duration_min, service.durationMin ? String(service.durationMin) : '')
     }
   }
-  assert.deepEqual(normalizeCatalogueBusinesses(REGIONAL_CATALOGUE, { cityCode: '68134', browse: true, searchV2: true, requirements: [] }, { now }), [])
-  assert.deepEqual(normalizeCatalogueBusinesses(PUBLIC_CATALOGUE, { cityCode: '06570', browse: true, searchV2: true, requirements: [] }, { now }), [])
+  assert.deepEqual(normalizeCatalogueBusinesses(originalRegional, { cityCode: '68134', browse: true, searchV2: true, requirements: [] }, { now }), [])
+  assert.deepEqual(normalizeCatalogueBusinesses(originalRegional, { cityCode: '06570', browse: true, searchV2: true, requirements: [] }, { now }), [])
 })
 
 test('all 47 real regional services reuse exact existing photographic assets and complete offline English presentation', async () => {
   let serviceCount = 0
-  for (const entry of REGIONAL_CATALOGUE) for (const service of entry.services) {
+  for (const entry of originalRegional) for (const service of entry.services) {
     const fields = catalogueServicePhotoFields(service, entry)
     const alias = CATALOGUE_SERVICE_PHOTO_ASSOCIATIONS_20261122.find(([id, category, name]) => id === entry.id && category === service.category && name === service.name)
     assert.ok(alias, entry.id + ':' + service.name)

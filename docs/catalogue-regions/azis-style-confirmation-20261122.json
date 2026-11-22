@@ -1,0 +1,48 @@
+{
+  "checkedOn": "2026-11-22",
+  "reviewBy": "2027-02-20",
+  "sourceKind": "platform_owner_confirmation",
+  "authority": "The GoRez platform owner explicitly requested two catalogue listings and publication, confirmed the common telephone, supplied the service inventory, added children, and then changed the main category from Beauty to Hairdresser. This is NOT confirmation from the salon owner, a rendered appointment menu or a public price-list review.",
+  "confirmedPhone": "+359893804054",
+  "mainCategory": "hair",
+  "services": [
+    ["Мъжко подстригване", "hair"], ["Дамско подстригване", "hair"], ["Детско подстригване", "hair"],
+    ["Прически", "hair"], ["Удължаване на коса", "hair"], ["Сгъстяване на коса", "hair"],
+    ["Оформяне на вежди", "beauty"], ["Боядисване на коса", "hair"], ["Балеаж", "hair"]
+  ],
+  "editorialNormalization": "Corrected only the supplied spelling of eyebrow shaping/balayage and made the subject 'hair' explicit for thickening and colour. No method, gender restriction, package, price or duration inferred.",
+  "branches": [
+    {
+      "id": "lom-azis-stil-krum-pastarmadzhiev7",
+      "confirmationReference": "gorez-platform-confirmation-20261122-azis-lom",
+      "name": "Азис Стил · Лом",
+      "cityCode": "44238",
+      "address": "Лом, ул. Крум Пастърмаджиев 7",
+      "publicMapQuery": "Азис Стил Лом Крум Пастърмаджиев 7",
+      "independentReference": "https://mybulgariacenter.com/brsnarski-salon/montana/azis-stil/",
+      "sourceReview": "The actual public Google Maps business profile names the Lom hair salon and this address; no business telephone, hours, website or booking invitation is provided there. The GoRez owner subsequently confirmed the same telephone as Brusartsi. No corporate/residential registered address is substituted for the salon.",
+      "inventoryIdentity": "d95a31d153b8fc3a368b95572b3a7bfcf106364d2a994f09d4c60af8f1880369",
+      "confirmationFactsIdentity": "a39ea4c46022c43870618d080d42b5645d88ad026aa551f200175e539af4779c"
+    },
+    {
+      "id": "brusartsi-azis-stil-septemvri8",
+      "confirmationReference": "gorez-platform-confirmation-20261122-azis-brusartsi",
+      "name": "Азис Стил · Брусарци",
+      "cityCode": "06570",
+      "address": "Брусарци, ул. 9-ти септември 8",
+      "publicMapQuery": "Азис Стил 2 Брусарци 9-ти септември 8",
+      "sourceReview": "The user supplied a screenshot showing the named Brusartsi object. The actual Google Maps business profile was then inspected separately: name 'Азис Стил гр.Брусарци', address9September8 and public phone0893804054. The Google AI service summary is NOT used as the service source; services come from the user's subsequent explicit confirmation.",
+      "inventoryIdentity": "825b239b4da6857578ff4fcdeb839e7fb2d701072683eed40330713bf1941556",
+      "confirmationFactsIdentity": "04adf935e547d2b26cffaf9d623408dfdbb5d04b9cbd147a76c17643d0e1881b"
+    }
+  ],
+  "pricingDecision": "platform_owner_confirmed_unpriced",
+  "pricingMeaning": "No prices supplied. Not price-reviewed and not a claim that a tariff is unpublished. A blocked or missing website is not absence-of-price proof. The two exact dated confirmations are a separate source class, never a general exemption.",
+  "websiteMeaning": "The public Maps reference identifies a branch, not an owner website. It is not prefilled as the salon's website in partner registration. Public search/detail/profile/onboarding projections identify the platform-confirmed source.",
+  "unknown": ["prices", "durations", "openingHours", "preciseCoordinates", "neighborhood", "appointmentSlots"],
+  "bookingMeaning": "The contact action opens the confirmed salon telephone to discuss an appointment; it never confirms a GoRez booking or promises a free slot. No call or booking was made during verification.",
+  "identityProtection": "Literal normalized inventory and complete branch-facts hashes sealed after manual review; no runtime auto-rebinding. The bounded two-ID registry rejects changed addresses, contacts, category, dates, services or added unconfirmed facts.",
+  "media": "Reuse existing approved illustrative service assets only. No Google photos, ratings, review text, map payload or generated coordinates are copied into the catalogue.",
+  "privacy": "No private chat identifiers, account details, customer data or precise customer location included.",
+  "sideEffects": "No booking, call, customer form, email, consent, database update, Google Places API or paid service used."
+}

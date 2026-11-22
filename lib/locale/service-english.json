@@ -50,6 +50,42 @@
           "units": 0
         },
         "certifiedHumanTranslation": false
+      },
+      {
+        "checkedOn": "2026-11-22",
+        "businessId": "lom-azis-stil-krum-pastarmadzhiev7",
+        "recordIdentity": "d95a31d153b8fc3a368b95572b3a7bfcf106364d2a994f09d4c60af8f1880369",
+        "sourceKind": "platform_owner_confirmation",
+        "confirmationReference": "gorez-platform-confirmation-20261122-azis-lom",
+        "reason": "Exact-source English display for the nine Azis services supplied by the GoRez platform owner. This is not confirmation from the business owner, a website inspection or a public tariff review. Two new name keys are shared with the Brusartsi branch; seven existing exact translations are retained. No prices, durations, opening hours or coordinates are supplied or inferred.",
+        "entriesAdded": {
+          "names": 2,
+          "descriptions": 0,
+          "units": 0
+        },
+        "entriesReused": {
+          "names": 7
+        },
+        "businessOwnerConfirmed": false,
+        "certifiedHumanTranslation": false
+      },
+      {
+        "checkedOn": "2026-11-22",
+        "businessId": "brusartsi-azis-stil-septemvri8",
+        "recordIdentity": "825b239b4da6857578ff4fcdeb839e7fb2d701072683eed40330713bf1941556",
+        "sourceKind": "platform_owner_confirmation",
+        "confirmationReference": "gorez-platform-confirmation-20261122-azis-brusartsi",
+        "reason": "Exact-source English display for the same nine platform-owner-supplied Azis services at the separate Brusartsi address. This is not confirmation from the business owner or a public website/tariff review. All nine name translations, including the two shared Lom additions, are reused without adding duplicate cache keys. No prices, durations, opening hours or coordinates are supplied or inferred.",
+        "entriesAdded": {
+          "names": 0,
+          "descriptions": 0,
+          "units": 0
+        },
+        "entriesReused": {
+          "names": 9
+        },
+        "businessOwnerConfirmed": false,
+        "certifiedHumanTranslation": false
       }
     ],
     "sourceInventorySha256": "3dc68153b6dbd333d0990cf3c7658bb4e0235f79d7d1e8081cfc226034bab456",
@@ -59,7 +95,7 @@
       "suggestionPairs": "7cc072a02e5afc3310abd0fe61556bde065bd7bc34c39559d82d951cdb9f5760"
     },
     "counts": {
-      "names": 6044,
+      "names": 6046,
       "descriptions": 1793,
       "units": 661,
       "contextualNames": 335
@@ -121,6 +157,8 @@
     ]
   },
   "names": {
+    "Прически": "Hairstyling",
+    "Сгъстяване на коса": "Hair thickening",
     "Курсове по английски език за деца и ученици": "English courses for children and school students",
     "Езиково обучение за възрастни": "Language learning for adults",
     "Подготовка за изпити за сертификати на Кеймбридж": "Preparation for Cambridge certificate exams",

@@ -70,6 +70,7 @@ export function DiscoveryBusinessDetails({ row, locale = 'bg', preview = false, 
     {status === 'error' && <div className="business-details-status" role="alert"><p>{copy.detailsError}</p><button className="secondary-button" type="button" onClick={() => setAttempt(value => value + 1)}>{copy.retryDetails}</button></div>}
     {status === 'missing' && <p role="status">{copy.detailsUnavailable}</p>}
     {status === 'ready' && <>
+      {business.provenance?.kind === 'platform_owner_confirmed' && <p className="business-details-note">{copy.platformConfirmedSource}</p>}
       {description && <p className="business-details-description">{description}</p>}
       <section aria-labelledby={`${id}-services`}><h3 id={`${id}-services`}>{copy.servicesPrices}</h3>
         {services.length ? <PublicServiceMenu services={services} business={business} locale={locale} copy={copy}/> : <p>{copy.noServices}</p>}

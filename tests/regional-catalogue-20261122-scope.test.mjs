@@ -1,3 +1,4 @@
+import { azisCatalogueAllowsFileChange, azisCatalogueAllowsNewFile, azisCataloguePriorSource } from './azis-style-catalogue-20261122-scope.mjs'
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFile, readlink } from 'node:fs/promises'
@@ -13,7 +14,7 @@ import {
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const git = (...args) => execFileSync('git', args, { cwd: root, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 })
-const read = path => readFile(new URL('../' + path, import.meta.url), 'utf8')
+const read = path => readFile(new URL('../' + path, import.meta.url), 'utf8').then(source => azisCataloguePriorSource(path, source))
 const before = path => git('show', REGIONAL_CATALOGUE_BASE + ':' + path)
 const sha256 = source => createHash('sha256').update(source).digest('hex')
 const productionPath = path => path !== 'node_modules' && !/^tests\//u.test(path)
@@ -40,7 +41,7 @@ test('the regional stage seals only twenty exact existing adapter/gate paths, fi
   ].sort())
   for (const [path, hash] of Object.entries({ ...REGIONAL_CATALOGUE_HASHES, ...REGIONAL_CATALOGUE_NEW_HASHES })) {
     assert.equal(sha256(await read(path)), hash, path + ': any later change needs a separate focused review')
-    assert.equal(regionalCatalogueAllowsFileChange(path) || regionalCatalogueAllowsNewFile(path), true, path)
+    assert.equal(regionalCatalogueAllowsFileChange(path) || regionalCatalogueAllowsNewFile(path) || azisCatalogueAllowsFileChange(path), true, path)
   }
   for (const path of ['lib/discovery/sofia-catalogue.mjs', 'lib/discovery/catalogue-data/pricing-review-baseline-20261110.json', 'lib/discovery/catalogue-data/pricing-booking-review-identities-20261110.json', 'lib/discovery/subcategories.mjs', 'components/discovery-search.js', 'components/discovery-business-card.js', 'lib/service-thumbnail.mjs', 'lib/booking-engine.mjs', 'app/inline-discovery.css', 'package.json', 'pnpm-lock.yaml', 'next.config.mjs']) {
     assert.equal(regionalCatalogueAllowsFileChange(path), false, path)
@@ -49,13 +50,13 @@ test('the regional stage seals only twenty exact existing adapter/gate paths, fi
 })
 
 test('every other production, original asset, Sofia source/receipt/baseline, UI, booking and configuration byte remains frozen to the published release', async () => {
-  const frozen = tree.filter(record => !regionalCatalogueAllowsFileChange(record.path))
+  const frozen = tree.filter(record => !regionalCatalogueAllowsFileChange(record.path) && !azisCatalogueAllowsFileChange(record.path))
   for (let offset = 0; offset < frozen.length; offset += 32) await Promise.all(frozen.slice(offset, offset + 32).map(async record => {
     const path = new URL('../' + record.path, import.meta.url)
     const bytes = record.mode === '120000' ? Buffer.from(await readlink(path)) : await readFile(path)
     assert.equal(createHash('sha1').update('blob ' + bytes.length + '\0').update(bytes).digest('hex'), record.oid, record.path + ' stays byte-identical to ' + REGIONAL_CATALOGUE_BASE)
   }))
-  const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => path && productionPath(path))
+  const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => path && !azisCatalogueAllowsNewFile(path) && productionPath(path))
   assert.deepEqual([...new Set(actual)].sort(), [...tree.map(record => record.path), ...Object.keys(REGIONAL_CATALOGUE_NEW_HASHES)].sort(), 'only the exact five regional runtime files and three research receipts may enter the inventory')
   for (const path of oldScopes) assert.equal(await read(path), before(path), path + ': historical authorizations cannot be widened or rebaselined')
 })
@@ -63,7 +64,7 @@ test('every other production, original asset, Sofia source/receipt/baseline, UI,
 test('literal forward-delta reversals retain historical source/hash proofs without hiding unrelated edits', async () => {
   for (const path of Object.keys(REGIONAL_CATALOGUE_HASHES)) {
     const source = await read(path), previous = before(path)
-    assert.equal(regionalCataloguePriorSource(path, source), previous, path + ': every previous source byte is reconstructed')
+    assert.equal(regionalCataloguePriorSource(path, azisCataloguePriorSource(path, source)), previous, path + ': every previous source byte is reconstructed')
     assert.equal(regionalCataloguePriorSource(path, previous), previous)
     assert.throws(() => regionalCataloguePriorSource(path, source + '\n'), /Unreviewed regional source delta/u, path + ': an extra byte cannot disappear in canonicalization')
   }
@@ -90,7 +91,7 @@ test('the local details preview shares the same regional lookup while retaining 
   assert.match(source, /if \(!discoveryConfig\(process\.env\)\.devMock\) return new Response\(null, \{ status: 404 \}\)/u)
   assert.match(source, /findCatalogue: findPublicCatalogueEntry, readCataloguePhotos: async \(\) => \[\], readPartner: async \(\) => null/u)
   assert.doesNotMatch(source, /getSupabase|\.from\(|fetch\(|createPublicBooking|sendEmail|sendNotification/u)
-  assert.equal(regionalCataloguePriorSource(path, source), before(path))
+  assert.equal(regionalCataloguePriorSource(path, azisCataloguePriorSource(path, source)), before(path))
 })
 
 test('offline English adds only the three admitted course names and two descriptions, preserving every old translation and original review fingerprint', async () => {

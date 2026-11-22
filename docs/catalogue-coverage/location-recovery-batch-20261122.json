@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-22",
+  "baseCommit": "a44faaa77bdda3f129ca48f36385393761b58e31",
+  "targetPerCategoryPerNeighborhood": 30,
+  "priority": "Real Sofia neighbourhood/category options and usable locations before aggregate catalogue growth",
+  "newBusinessesAdded": 0,
+  "existingBusinessesImproved": 3,
+  "existingIds": ["sofia-stephan-borovo", "sofia-maria-nemska-photo-suhodol", "sofia-dar-auto-service-europa"],
+  "evidence": ["quarter-recovery-20261122.json", "address-points-review-20261122.json"],
+  "before": {
+    "sourceSofiaRecords": 1732, "approvedBusinesses": 1709, "premises": 1517, "serviceAreaProviders": 192,
+    "premisesWithBoundCoordinates": 903, "premisesWithoutBoundCoordinates": 614,
+    "missingNeighborhoodPremises": 584, "missingNeighborhoodPremisesWithBoundCoordinates": 377,
+    "mappedPickerPremises": 848, "businessCategoryIncidences": 979,
+    "outstandingBusinessCategoryIncidences": 51521, "totalTargetCells": 1750,
+    "zeroPhysicalCells": 1294, "zeroLocatedCells": 1437, "cellsAtTarget": 0, "cellsAtLocatedTarget": 0
+  },
+  "after": {
+    "sourceSofiaRecords": 1732, "approvedBusinesses": 1709, "premises": 1517, "serviceAreaProviders": 192,
+    "premisesWithBoundCoordinates": 905, "premisesWithoutBoundCoordinates": 612,
+    "missingNeighborhoodPremises": 583, "missingNeighborhoodPremisesWithBoundCoordinates": 376,
+    "mappedPickerPremises": 849, "businessCategoryIncidences": 981,
+    "outstandingBusinessCategoryIncidences": 51519, "totalTargetCells": 1750,
+    "zeroPhysicalCells": 1294, "zeroLocatedCells": 1435, "cellsAtTarget": 0, "cellsAtLocatedTarget": 0
+  },
+  "cells": [
+    { "neighborhood": "Манастирски ливади", "category": "hair", "physical": [6, 7], "located": [4, 5] },
+    { "neighborhood": "Манастирски ливади", "category": "nails", "physical": [5, 6], "located": [3, 4] },
+    { "neighborhood": "Суходол", "category": "other", "physical": [1, 1], "located": [0, 1] },
+    { "neighborhood": "Люлин 1", "category": "auto_repair", "physical": [1, 1], "located": [0, 1] }
+  ],
+  "unchanged": ["catalogue IDs and source record count", "all service inventories/prices/conditions/durations/hours", "all booking destinations and verification expiry dates", "all original photos and historical source/price/address snapshots", "taxonomy/search algorithms/ranking/radius/location fallback", "native partners/database/notifications/production configuration"],
+  "limitations": "Located means accepted current source/address binding, not a new independent entrance survey, available appointment or road-distance guarantee. Source-owned DAR point is distinguished from municipal postal address. Two previously zero located cells gain one real option each; no cell has reached30. Source-qualified but geographically unresolved new leads are not counted. This is incremental location/quarter recovery, not fulfilment of the catalogue goal.",
+  "published": false
+}

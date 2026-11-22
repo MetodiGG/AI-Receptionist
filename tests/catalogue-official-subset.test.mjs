@@ -1,4 +1,5 @@
 import test from 'node:test'
+import { locationRecoveryPriorRecord } from './location-recovery-20261122-scope.mjs'
 import assert from 'node:assert/strict'
 import approved from '../public/catalogue-official-address-points-20261113.json' with { type: 'json' }
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
@@ -22,7 +23,7 @@ test('frozen municipal subset adds 359 postal points and corrects seven reviewed
   // still match their original metadata byte-for-field.
   const reboundQuarters = new Map([['sofia-lazarov-athletics', 'Център']])
   for (const reviewed of approved.points) {
-    const row = SOFIA_CATALOGUE.find(row => row.id === reviewed.id)
+    const row = locationRecoveryPriorRecord(SOFIA_CATALOGUE.find(row => row.id === reviewed.id))
     assert.ok(row, reviewed.id)
     const reboundQuarter = reboundQuarters.get(row.id)
     const currentPoint = reboundQuarter ? { ...reviewed.coordinates, sourceNeighborhood: reboundQuarter } : reviewed.coordinates

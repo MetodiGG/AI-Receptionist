@@ -1,4 +1,5 @@
 import test from 'node:test'
+import { locationRecoveryPriorCatalogue } from './location-recovery-20261122-scope.mjs'
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { execFileSync } from 'node:child_process'
@@ -36,7 +37,7 @@ assert.equal(oldRows.size, 2)
 assert.equal(oldReviews.size, 2)
 const additions = currentAdditions.map(row => oldRows.get(row.id) || row)
 const reviews = currentReviews.map(row => oldReviews.get(row.id) || row)
-const SOFIA_CATALOGUE = currentCatalogue.map(row => oldRows.has(row.id) ? validateCatalogue([{ ...oldRows.get(row.id), coordinates: row.coordinates }])[0] : row)
+const SOFIA_CATALOGUE = locationRecoveryPriorCatalogue(currentCatalogue).map(row => oldRows.has(row.id) ? validateCatalogue([{ ...oldRows.get(row.id), coordinates: row.coordinates }])[0] : row)
 const ids = new Set(additions.map(row => row.id))
 const baseline = JSON.parse(await readFile(new URL('../docs/catalogue-pricing/expansion-baseline-20261113.json', import.meta.url)))
 

@@ -1,3 +1,4 @@
+import { locationRecoveryAllowsFileChange, locationRecoveryAllowsNewFile, locationRecoveryPriorSource, locationRecoveryPriorCatalogue } from './location-recovery-20261122-scope.mjs'
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFile, readlink } from 'node:fs/promises'
@@ -13,7 +14,7 @@ import { PRIORITY30_REPORT_BASE, PRIORITY30_REPORT_HASHES, PRIORITY30_REPORT_NEW
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const git = (...args) => execFileSync('git', args, { cwd: root, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 })
-const read = path => readFile(new URL('../' + path, import.meta.url), 'utf8')
+const read = path => readFile(new URL('../' + path, import.meta.url), 'utf8').then(source => locationRecoveryPriorSource(path, source))
 const before = path => git('show', PRIORITY30_REPORT_BASE + ':' + path)
 const sha256 = value => createHash('sha256').update(value).digest('hex')
 const productionPath = path => path !== 'node_modules' && !/^tests\//u.test(path)
@@ -43,13 +44,13 @@ test('priority30 authorizes exactly one offline report, two existing explanatory
 })
 
 test('all runtime, catalogue rows, tariffs, source receipts, original assets, previous snapshots and configuration stay byte-frozen with zero new admissions', async () => {
-  const frozen = tree.filter(record => !priority30ReportAllowsFileChange(record.path))
+  const frozen = tree.filter(record => !priority30ReportAllowsFileChange(record.path) && !locationRecoveryAllowsFileChange(record.path))
   for (let offset = 0; offset < frozen.length; offset += 32) await Promise.all(frozen.slice(offset, offset + 32).map(async record => {
     const path = new URL('../' + record.path, import.meta.url)
     const bytes = record.mode === '120000' ? Buffer.from(await readlink(path)) : await readFile(path)
     assert.equal(createHash('sha1').update('blob ' + bytes.length + '\0').update(bytes).digest('hex'), record.oid, record.path + ': the offline report must not mutate the product or historical evidence')
   }))
-  const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => path && productionPath(path))
+  const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => path && !locationRecoveryAllowsNewFile(path) && productionPath(path))
   assert.deepEqual([...new Set(actual)].sort(), [...tree.map(record => record.path), ...Object.keys(PRIORITY30_REPORT_NEW_HASHES)].sort(), 'no new runtime, data, media or executable path is authorized')
   for (const path of historicalScopes) assert.equal(await read(path), before(path), path + ': never widen old SHA maps or baseline authorizations')
 })
@@ -67,7 +68,9 @@ test('the newest exact forward reversal reconstructs all prior bytes before olde
 })
 
 test('the dated target30 snapshot is exactly reproducible and states source/public/location counts without a GPS, radius or achieved-quota claim', async () => {
-  const report = catalogueCoverageReport(SOFIA_CATALOGUE, { now })
+  // Replay the dated snapshot through only the three later reviewed row
+  // inverses; the current new-feature tests use the real recovered records.
+  const report = catalogueCoverageReport(locationRecoveryPriorCatalogue(SOFIA_CATALOGUE), { now })
   assert.equal(DEFAULT_CATALOGUE_COVERAGE_TARGET, 30)
   assert.equal(report.targetPerCategoryPerNeighborhood, 30)
   assert.deepEqual(JSON.parse(await read('docs/catalogue-coverage/coverage-20261122-priority30.json')), report)
@@ -78,7 +81,7 @@ test('the dated target30 snapshot is exactly reproducible and states source/publ
     missingNeighborhoodPremisesWithBoundCoordinates: 377, broadAreaUnresolvedPremises: 34,
     broadAreaUnresolvedPremisesWithBoundCoordinates: 21, totalTargetCells: 1750, zeroCells: 1294,
     cellsAtTarget: 0, cellsAtLocatedTarget: 0, businessCategoryIncidences: 979, outstandingBusinessCategoryIncidences: 51521 })) assert.equal(report.counts[key], value, key)
-  const rows = new Map(SOFIA_CATALOGUE.map(row => [row.id, row]))
+  const rows = new Map(locationRecoveryPriorCatalogue(SOFIA_CATALOGUE).map(row => [row.id, row]))
   const cells = [...report.neighborhoods, ...report.additionalNamedAreas].flatMap(area => area.cells)
   assert.equal(cells.filter(cell => cell.locatedCount === 0).length, 1437)
   for (const cell of cells) {
@@ -88,7 +91,7 @@ test('the dated target30 snapshot is exactly reproducible and states source/publ
     assert.equal(cell.unlocatedCount, cell.count - cell.locatedCount)
     assert.equal(cell.locatedGap, Math.max(0, 30 - cell.locatedCount))
   }
-  const mixed = catalogueCoverageReport(PUBLIC_CATALOGUE, { now })
+  const mixed = catalogueCoverageReport(locationRecoveryPriorCatalogue(PUBLIC_CATALOGUE), { now })
   assert.equal(mixed.counts.sourceRecords, 1737); assert.equal(mixed.counts.sourceOtherCityRecords, 5)
   assert.equal(mixed.counts.approvedOtherCityBusinesses, 5); assert.equal(mixed.counts.excludedOrNotCurrentlyEligible, 23)
   assert.deepEqual(mixed.neighborhoods, report.neighborhoods); assert.deepEqual(mixed.additionalNamedAreas, report.additionalNamedAreas)
@@ -98,7 +101,7 @@ test('the dated target30 snapshot is exactly reproducible and states source/publ
 })
 
 test('mobile-evidence tracks and the existing missing-quarter/address queues do not manufacture offices, numbered areas or new businesses', () => {
-  const report = catalogueCoverageReport(SOFIA_CATALOGUE, { now })
+  const report = catalogueCoverageReport(locationRecoveryPriorCatalogue(SOFIA_CATALOGUE), { now })
   const home = report.categories.find(category => category.id === 'home_services')
   assert.equal(home.premises, 0); assert.equal(home.serviceAreaProviders, 133)
   assert.ok(report.priorityQueue.filter(cell => cell.categoryId === 'home_services').every(cell => cell.count === 0 && cell.researchTrack === 'service_area_evidence'))

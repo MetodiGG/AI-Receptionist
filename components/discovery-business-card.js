@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { publicProse } from '../lib/locale/public-content.mjs'
 import { memo, useRef, useState } from 'react'
 import dynamic from 'next/dynamic'
 import { Icon } from './icon'
@@ -33,7 +34,7 @@ export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, 
   }
   const photo = internal ? homeBusinessPhoto(row)
     : row.source === 'catalogue' && isCataloguePhotoSource(row.photo?.src)
-      ? { ...row.photo, alt: { [locale]: row.photo.alt || row.name } } : null
+      ? { ...row.photo, alt: { [locale]: publicProse(row.photo.alt, locale) || row.name } } : null
 
   // Both the card and its hydrated details reuse these exact trusted routes.
   // Visual changes never turn phone/external actions into GoRez confirmations.
@@ -62,7 +63,7 @@ export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, 
     <div className="home-business-heading">
       <div className={`home-business-photo${photo && photo.src !== failedPhoto ? ' is-real-photo' : ''}`}>
         {photo && photo.src !== failedPhoto
-          ? <img src={photo.src} width={photo.width || 400} height={photo.height || 300} alt={photo.alt?.[locale] || row.name} loading="lazy" decoding="async" style={businessPhotoStyle(photo, { preview: true })} onError={() => setFailedPhoto(photo.src)}/>
+          ? <img src={photo.src} width={photo.width || 400} height={photo.height || 300} alt={publicProse(photo.alt, locale) || row.name} loading="lazy" decoding="async" style={businessPhotoStyle(photo, { preview: true })} onError={() => setFailedPhoto(photo.src)}/>
           : <BusinessCoverPhoto business={row} locale={locale}/>}
         <DiscoveryDistanceBadge origin={distanceOrigin} destination={row.coordinates} locale={locale} business={row} distanceOnly/>
       </div>

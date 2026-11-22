@@ -10,6 +10,7 @@ import * as bookingMode from '../lib/booking-mode.mjs'
 import * as rail from '../lib/discovery/rail.mjs'
 import * as cataloguePhotos from '../lib/catalogue-photo-view.mjs'
 import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
+import { businessDisplayAddress } from '../lib/locale/public-content.mjs'
 
 const require = createRequire(import.meta.url)
 const { loadBindings, transform } = require('next/dist/build/swc')
@@ -155,7 +156,7 @@ for (const locale of ['bg', 'en']) {
     assert.equal(calls[0].coordinates, null, 'fresh null coordinate clears stale preview')
     const addresses = elements(tree, node => node.type === 'section' && hasClass(node, 'business-details-address'))
     assert.equal(addresses.length, 1)
-    assert.ok(renderToStaticMarkup(addresses[0]).includes(full.address))
+    assert.ok(renderToStaticMarkup(addresses[0]).includes(businessDisplayAddress(full, locale)))
     const footers = elements(tree, node => node.type === 'footer')
     assert.equal(footers.length, 1)
     const links = elements(footers[0], node => node.type === 'a')

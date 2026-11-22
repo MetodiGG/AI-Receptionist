@@ -10,6 +10,8 @@ import * as photoSources from '../lib/catalogue-photo-view.mjs'
 import * as presentation from '../lib/discovery/service-presentation.mjs'
 import * as copy from '../lib/discovery/copy.mjs'
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { presentPublicService } from '../lib/locale/public-content-server.mjs'
+import { serviceDisplayName } from '../lib/locale/public-content.mjs'
 
 const now = Date.parse('2026-11-15T12:00:00Z'), id = 'split-menu-fixture'
 const require = createRequire(import.meta.url), { loadBindings, transform } = require('next/dist/build/swc')
@@ -51,15 +53,14 @@ test('partition follows actual display validation, preserving zero/from/ranges a
 
 for (const locale of ['bg', 'en']) test(`${locale}: the reported Beauty Studio99 menu first shows real general services, followed by matching actual price rows`, () => {
   const row = SOFIA_CATALOGUE.find(row => row.id === 'sofia-beauty-studio-99')
-  const services = details.businessDetailServices({ details: details.catalogueBusinessDetails(row, now) })
+  const services = details.businessDetailServices({ details: details.catalogueBusinessDetails(row, now) }).map(service => presentPublicService(service, row))
   const html = render(services, locale), general = section(html, 'services'), tariff = section(html, 'prices')
   assert.ok(general.includes(`>${copy.DISCOVERY_COPY[locale].servicesLabel}</h3>`))
   assert.ok(tariff.includes(`>${copy.DISCOVERY_COPY[locale].pricesLabel}</h3>`))
   assert.ok(html.indexOf(general) < html.indexOf(tariff))
-  assert.match(general, /<strong>Маникюр<\/strong>/)
-  assert.match(general, /<strong>Педикюр<\/strong>/)
+  for (const name of ['Маникюр', 'Педикюр']) assert.ok(general.includes(`<strong>${serviceDisplayName(presentPublicService({ name }, row), locale)}</strong>`))
   assert.doesNotMatch(general, /business-details-price|Класически маникюр без лак/)
-  assert.match(tariff, /Класически маникюр без лак/)
+  assert.ok(tariff.includes(serviceDisplayName(presentPublicService({ name: 'Класически маникюр без лак' }, row), locale)))
   assert.match(tariff, locale === 'bg' ? /20,45/ : /20\.45/)
   assert.match(tariff, /href="https:\/\/beautystudio99\.com\/"/)
   assert.equal((general.match(/<li>/g) || []).length, 2)

@@ -15,6 +15,8 @@ import * as servicePresentation from '../lib/discovery/service-presentation.mjs'
 import * as copy from '../lib/discovery/copy.mjs'
 import * as attribution from '../lib/discovery/catalogue-attribution.mjs'
 import { businessCoverPhoto } from '../lib/business-cover-photo.mjs'
+import * as publicContent from '../lib/locale/public-content.mjs'
+import { presentPublicService } from '../lib/locale/public-content-server.mjs'
 
 const now = Date.parse('2026-11-14T12:00:00Z')
 const real = SOFIA_CATALOGUE.find(row => row.id === 'sofia-in-beauty')
@@ -46,7 +48,7 @@ test('metadata uses the real name/services and current-locale canonical plus rec
   for (const locale of ['bg', 'en']) {
     const data = profile.catalogueProfileMetadata(real, locale, now), path = profile.catalogueProfilePath(real.id)
     assert.match(data.title.absolute, /IN Beauty/)
-    assert.ok(data.description.includes(real.services[0].name))
+    assert.ok(data.description.includes(publicContent.serviceDisplayName(presentPublicService(real.services[0], real), locale)))
     assert.equal(data.alternates.canonical, seo.localizedUrl(path, locale))
     assert.equal(data.alternates.languages['bg-BG'], seo.localizedUrl(path, 'bg'))
     assert.equal(data.alternates.languages.en, seo.localizedUrl(path, 'en'))
@@ -57,9 +59,9 @@ test('metadata uses the real name/services and current-locale canonical plus rec
 
 test('structured data contains actual services/contact only, never invented ratings, slots, stock work or guessed points', () => {
   const data = profile.catalogueProfileStructuredData(real, 'en', now)
-  assert.equal(data.name, real.name); assert.equal(data.address, real.address); assert.equal(data.telephone, real.phone)
+  assert.equal(data.name, real.name); assert.equal(data.address, publicContent.postalDisplay(real.address, 'en')); assert.equal(data.telephone, real.phone)
   assert.equal(data.url, seo.localizedUrl(profile.catalogueProfilePath(real.id), 'en'))
-  assert.deepEqual(data.hasOfferCatalog.itemListElement.map(item => item.itemOffered.name), real.services.map(service => service.name))
+  assert.deepEqual(data.hasOfferCatalog.itemListElement.map(item => item.itemOffered.name), real.services.map(service => publicContent.serviceDisplayName(presentPublicService(service, real), 'en')))
   for (const field of ['aggregateRating', 'review', 'image', 'photo', 'geo', 'openingHours', 'priceRange', 'availability']) assert.equal(field in data, false)
   assert.doesNotMatch(JSON.stringify(data), /"price"|"availability"/)
   const atHome = SOFIA_CATALOGUE.find(row => row.locationKind === 'service_area' && profile.indexableCatalogueRecord(row, now))
@@ -134,6 +136,7 @@ const page = await compile('../app/businesses/catalogue/[id]/page.js', {
   '../../../../components/icon': { Icon: ({ name }) => React.createElement('svg', { 'data-icon': name, 'aria-hidden': true }) },
   '../../../../lib/catalogue-profile-server': { readCatalogueSeoProfile: async () => responseProfile },
   '../../../../lib/catalogue-profile.mjs': profile, '../../../../lib/seo.mjs': seo,
+  '../../../../lib/locale/public-content.mjs': publicContent,
   '../../../../lib/discovery/business-details.mjs': details, '../../../../lib/discovery/rail.mjs': rail,
   '../../../../lib/discovery/service-presentation.mjs': servicePresentation, '../../../../lib/discovery/copy.mjs': copy,
   '../../../../lib/discovery/catalogue-attribution.mjs': attribution, './profile.css': {},
@@ -145,7 +148,7 @@ test('BG/EN route server-renders actual full service names/prices and safe real 
     const node = await page.default({ params: Promise.resolve({ id: real.id }), searchParams: Promise.resolve({ lang: locale }) })
     const html = renderToStaticMarkup(node)
     assert.match(html, new RegExp(`lang="${locale}"`))
-    for (const service of real.services) assert.ok(html.includes(renderToStaticMarkup(React.createElement('span', null, service.name)).slice(6, -7)), service.name)
+    for (const service of real.services) assert.ok(html.includes(renderToStaticMarkup(React.createElement('span', null, publicContent.serviceDisplayName(presentPublicService(service, real), locale))).slice(6, -7)), service.name)
     assert.ok(html.includes(real.booking.url)); assert.ok(html.includes(rail.railDirections(responseProfile.business).replaceAll('&', '&amp;')))
     assert.match(html, /d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3V6Z"/); assert.match(html, /75,00|75\.00/)
     assert.match(html, /data-private-service-inventory="false"/)
@@ -166,9 +169,9 @@ test('catalogue profiles split the actual general menu before Prices without cha
     assert.ok(general.includes(`>${copy.DISCOVERY_COPY[locale].servicesLabel}</h2>`))
     assert.ok(tariff.includes(`>${copy.DISCOVERY_COPY[locale].pricesLabel}</h2>`))
     assert.ok(html.indexOf(general) < html.indexOf(tariff))
-    assert.match(general, /<strong>Маникюр<\/strong>/); assert.match(general, /<strong>Педикюр<\/strong>/)
+    for (const name of ['Маникюр', 'Педикюр']) assert.ok(general.includes(`<strong>${publicContent.serviceDisplayName(presentPublicService({ name }), locale)}</strong>`))
     assert.doesNotMatch(general, /profile-service-price/)
-    assert.match(tariff, /Класически маникюр без лак/)
+    assert.ok(tariff.includes(publicContent.serviceDisplayName(presentPublicService({ name: 'Класически маникюр без лак' }), locale)))
     const ids = [...html.matchAll(/id="(service-[^"]+)"/g)].map(match => match[1])
     assert.equal(ids.length, new Set(ids).size)
     assert.deepEqual([...ids].sort(), [...expectedIds].sort())

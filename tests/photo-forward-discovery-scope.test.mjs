@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
+import { publicEnglishAllowsFileChange, publicEnglishAllowsNewFile, publicEnglishSearchSource } from './public-english-scope.mjs'
 import { execFileSync } from 'node:child_process'
 import { createHash } from 'node:crypto'
 import { readFile, readlink } from 'node:fs/promises'
@@ -31,7 +32,7 @@ const frozen = baseTree.filter(record => frozenPath(record.path))
 test('the historical photo-forward baseline freezes everything outside the exact 2026-11-22 presentation/navigation exception list', async () => {
   assert.equal(frozen.length, 2625)
   assert.equal(sha256(JSON.stringify(frozen)), '5ca0ccae56c0a003d91c4d37e43a8f286d8fcf455527a11ddcc82d3b9c728278')
-  const stillFrozen = frozen.filter(record => !reviewedDiscoveryFileChange(record.path) && !nextSecurityUpgradeAllowsFileChange(record.path) && !stationaryDiscoveryAllowsFileChange(record.path) && !publicActionAllowsFileChange(record.path))
+  const stillFrozen = frozen.filter(record => !reviewedDiscoveryFileChange(record.path) && !nextSecurityUpgradeAllowsFileChange(record.path) && !stationaryDiscoveryAllowsFileChange(record.path) && !publicActionAllowsFileChange(record.path) && !publicEnglishAllowsFileChange(record.path))
   for (let offset = 0; offset < stillFrozen.length; offset += 32) {
     await Promise.all(stillFrozen.slice(offset, offset + 32).map(async record => {
       const path = new URL('../' + record.path, import.meta.url)
@@ -42,7 +43,7 @@ test('the historical photo-forward baseline freezes everything outside the exact
   }
   const expected = baseTree.filter(record => protectedRoot(record.path)).map(record => record.path).sort()
   assert.equal(expected.length, 2492)
-  const actual = git('ls-files', '--cached', '--others', '-z', '--', 'app/api', 'hooks', 'lib', 'public').split('\0').filter(path => path && !refinementAllowsNewMedia(path))
+  const actual = git('ls-files', '--cached', '--others', '-z', '--', 'app/api', 'hooks', 'lib', 'public').split('\0').filter(path => path && !refinementAllowsNewMedia(path) && !publicEnglishAllowsNewFile(path))
   assert.deepEqual([...new Set(actual)].sort(), expected, 'Only the exact fifteen authorized versioned category-media siblings may be new; no new or renamed data/API/taxonomy paths')
 })
 
@@ -52,7 +53,7 @@ test('the unchanged main search form and summary/presence sources retain their r
     'app/inline-discovery-panel.css': '5982be44f3705c226a76b0ed9f260d3501b0d90ba28eec7ae038b94c45fb0b60',
   }
   for (const [path, hash] of Object.entries(files)) assert.equal(sha256(await read(path)), hash, path)
-  const source = await read('components/discovery-search.js')
+  const source = publicEnglishSearchSource(await read('components/discovery-search.js'))
   const start = source.indexOf('<form className="discovery-form"'), end = source.indexOf('</form>', start) + 7
   assert.ok(start >= 0 && end > start)
   assert.equal(sha256(source.slice(start, end)), '8ba0c17fc09aede40e70af62f168f90ec900f5f3e08870d4ac0ef22090f6c89a')

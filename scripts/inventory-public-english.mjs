@@ -3,7 +3,7 @@ import { readFile, mkdir, writeFile } from 'node:fs/promises'
 import { dirname, isAbsolute, relative, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { approvedCatalogueRecord } from '../lib/discovery/catalogue-policy.mjs'
-import { servicePresentation } from '../lib/discovery/service-presentation.mjs'
+import { serviceSourcePresentation } from '../lib/discovery/service-presentation.mjs'
 import { withServicePricing } from '../lib/service-pricing.mjs'
 
 // An offline authoring inventory, never a runtime translation service. Inputs
@@ -82,7 +82,7 @@ export function buildPublicEnglishInventory({ catalogue = [], partners = [], sug
       fields.names.add(service.name, context)
       // Preserve original pricing-condition recognition first. Only remaining
       // visible prose is an untranslated leaf; never overwrite the source row.
-      fields.descriptions.add(servicePresentation(service, 'en').description, context)
+      fields.descriptions.add(serviceSourcePresentation(service, 'en').description, context)
       const unit = source === 'catalogue' ? service.price?.unit : withServicePricing(service).priceUnit
       fields.units.add(unit, context)
     }
@@ -103,7 +103,7 @@ export function buildPublicEnglishInventory({ catalogue = [], partners = [], sug
   return {
     schemaVersion: 1, checkedOn, scope,
     purpose: 'Offline English presentation inventory; source names, prices, qualifications, IDs and records stay unchanged.',
-    descriptionStage: 'Remaining prose after servicePresentation(service, en); known translated conditions are not duplicated.',
+    descriptionStage: 'Remaining prose after serviceSourcePresentation(service, en); known translated conditions are not duplicated.',
     sourceFingerprints: { catalogue: sha256(catalogue), publicPartnerSnapshot: sha256(partners), suggestionPairs: sha256(seeds) },
     sourceCounts: { catalogueBusinesses: catalogue.length, eligibleCatalogueBusinesses: approved.length,
       selectedCatalogueBusinesses: selectedCatalogue.length, catalogueServices, partnerBusinesses: publicPartners.length, partnerServices },

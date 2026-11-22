@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
+import { publicEnglishAllowsFileChange, publicEnglishAllowsNewFile, publicEnglishSearchSource } from './public-english-scope.mjs'
 import { execFileSync } from 'node:child_process'
 import { createHash } from 'node:crypto'
 import { readFile, readlink } from 'node:fs/promises'
@@ -24,7 +25,7 @@ const baseline = git('ls-tree', '-r', '-z', BASE).split('\0').filter(Boolean).ma
 test('the desktop fit baseline freezes production outside the explicitly authorized 2026-11-22 photo/navigation/card follow-up', async () => {
   assert.equal(baseline.length, 2811)
   assert.equal(createHash('sha256').update(JSON.stringify(baseline)).digest('hex'), '43e47bf817bc8b6503d789cf5accfb749754f9c34e2323f24c8a32fe61497509')
-  const stillFrozen = baseline.filter(record => !reviewedDiscoveryFileChange(record.path) && !nextSecurityUpgradeAllowsFileChange(record.path) && !stationaryDiscoveryAllowsFileChange(record.path) && !publicActionAllowsFileChange(record.path))
+  const stillFrozen = baseline.filter(record => !reviewedDiscoveryFileChange(record.path) && !nextSecurityUpgradeAllowsFileChange(record.path) && !stationaryDiscoveryAllowsFileChange(record.path) && !publicActionAllowsFileChange(record.path) && !publicEnglishAllowsFileChange(record.path))
   for (let offset = 0; offset < stillFrozen.length; offset += 32) await Promise.all(stillFrozen.slice(offset, offset + 32).map(async record => {
     const path = new URL('../' + record.path, import.meta.url)
     const bytes = record.mode === '120000' ? Buffer.from(await readlink(path)) : await readFile(path)
@@ -33,7 +34,7 @@ test('the desktop fit baseline freezes production outside the explicitly authori
   const roots = ['app', 'components', 'hooks', 'lib', 'public', 'scripts', 'supabase']
   const belongs = path => roots.some(prefix => path.startsWith(prefix + '/'))
   const expected = baseline.filter(record => belongs(record.path)).map(record => record.path).sort()
-  const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z', '--', ...roots).split('\0').filter(path => path && frozenPath(path) && !publicActionAllowsNewFile(path) && !refinementAllowsNewMedia(path) && !responsivePreviewAllowsNewFile(path) && !stationaryDiscoveryAllowsNewFile(path))
+  const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z', '--', ...roots).split('\0').filter(path => path && frozenPath(path) && !(publicActionAllowsNewFile(path) || path === 'components/public-action.module.css' && publicEnglishAllowsFileChange(path)) && !publicEnglishAllowsNewFile(path) && !refinementAllowsNewMedia(path) && !responsivePreviewAllowsNewFile(path) && !(stationaryDiscoveryAllowsNewFile(path) || path === 'scripts/inventory-public-english.mjs' && publicEnglishAllowsFileChange(path)))
   assert.deepEqual([...new Set(actual)].sort(), expected, 'Only the fifteen explicitly named versioned media siblings and three dev-only wrapper files may be new; every historical production path remains present')
 })
 

@@ -106,11 +106,11 @@ test('budget guarantees use the full known visit total, not a starting or lower-
 })
 
 for (const locale of ['bg', 'en']) test(`${locale}: profile and assistant menu derive EUR labels from literal BGN without changing stored amounts or qualifications`, () => {
-  const fixed = fee({ price: 0 }), from = fee({ price_details: { kind: 'from' } }), range = fee({ currency: 'BGN', price_details: { kind: 'range', maximum: 35, unit: 'процедура' } })
+  const fixed = fee({ price: 0 }), from = fee({ price_details: { kind: 'from' } }), range = fee({ currency: 'BGN', presentationEn: { unit: 'procedure' }, price_details: { kind: 'range', maximum: 35, unit: 'процедура' } })
   assert.match(profileUi.profileServicePrice(fixed, locale), /0/)
   assert.match(profileUi.profileServicePrice(from, locale), locale === 'en' ? /^from / : /^от /)
   const label = profileUi.profileServicePrice(range, locale)
-  assert.match(label, locale === 'en' ? /10\.23/ : /10,23/); assert.match(label, locale === 'en' ? /17\.90/ : /17,90/); assert.match(label, /€/); assert.match(label, /процедура/)
+  assert.match(label, locale === 'en' ? /10\.23/ : /10,23/); assert.match(label, locale === 'en' ? /17\.90/ : /17,90/); assert.match(label, /€/); assert.match(label, locale === 'en' ? /procedure/ : /процедура/)
   assert.doesNotMatch(label, /BGN|лв/)
   assert.equal(range.price, 20); assert.equal(range.currency, 'BGN'); assert.equal(range.price_details.maximum, 35)
   assert.equal(profileUi.profileServicePrice(fee({ price_details: { kind: 'range', maximum: 1 } }), locale), locale === 'en' ? 'Ask the business' : 'Уточни с бизнеса')

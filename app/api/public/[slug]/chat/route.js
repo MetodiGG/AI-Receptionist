@@ -9,6 +9,8 @@ import { trackEvent } from '../../../../../lib/analytics'
 import { PRIVATE_RESPONSE_HEADERS } from '../../../../../lib/booking-safety.mjs'
 import { bookingCustomerSchema } from '../../../../../lib/booking-contact.mjs'
 import { assertInternalBooking } from '../../../../../lib/booking-mode.mjs'
+import { presentPublicBusiness, presentPublicService } from '../../../../../lib/locale/public-content-server.mjs'
+import { serviceDisplayName } from '../../../../../lib/locale/public-content.mjs'
 
 const conversationField = { conversationId: z.string().uuid().optional() }
 const localeField = { locale: z.enum(['bg', 'en']).optional().default('bg') }
@@ -135,6 +137,9 @@ export async function POST(request, context) {
     assertInternalBooking(business)
 
     const input = chatRequestSchema.parse(await request.json())
+    // Presentation copy only. Booking validation and writes retain the raw
+    // original business, service IDs, names, prices and eligibility rules.
+    const presentedBusiness = presentPublicBusiness(business)
     const conversation = await ensureConversation(business.id, input.conversationId)
     const supabase = getSupabaseAdmin()
     const { count, error: countError } = await supabase
@@ -152,25 +157,26 @@ export async function POST(request, context) {
     if (input.action === 'ask') {
       const topic = detectGuidedTopic(input.message)
       userText = input.message
-      reply = buildGuidedReply(business, topic, input.locale)
-      responseData = topic === 'services' ? { topic, services: guidedServiceMenu(business, input.locale) } : { topic }
+      reply = buildGuidedReply(presentedBusiness, topic, input.locale)
+      responseData = topic === 'services' ? { topic, services: guidedServiceMenu(presentedBusiness, input.locale) } : { topic }
     }
 
     if (input.action === 'faq') {
       userText = input.locale === 'en' ? `Question: ${input.topic}` : FAQ_LABELS[input.topic]
-      reply = buildGuidedReply(business, input.topic, input.locale)
-      if (input.topic === 'services') responseData = { services: guidedServiceMenu(business, input.locale) }
+      reply = buildGuidedReply(presentedBusiness, input.topic, input.locale)
+      if (input.topic === 'services') responseData = { services: guidedServiceMenu(presentedBusiness, input.locale) }
     }
 
     if (input.action === 'start_booking') {
       userText = input.locale === 'en' ? 'I would like to book an appointment.' : 'Искам да резервирам час.'
-      reply = buildGuidedReply(business, 'booking', input.locale)
+      reply = buildGuidedReply(presentedBusiness, 'booking', input.locale)
     }
 
     if (input.action === 'select_service') {
       const service = findService(business, input.serviceId)
-      userText = input.locale === 'en' ? `I choose ${service.name}.` : `Избирам „${service.name}“.`
-      reply = input.locale === 'en' ? `Great choice. ${service.name} takes ${service.duration_min} minutes. Who would you prefer?` : `Чудесен избор. ${service.name} е с продължителност ${service.duration_min} минути. При кого предпочиташ да бъде часът?`
+      const name = serviceDisplayName(presentPublicService(service, business), input.locale)
+      userText = input.locale === 'en' ? `I choose ${name}.` : `Избирам „${service.name}“.`
+      reply = input.locale === 'en' ? `Great choice. ${name} takes ${service.duration_min} minutes. Who would you prefer?` : `Чудесен избор. ${service.name} е с продължителност ${service.duration_min} минути. При кого предпочиташ да бъде часът?`
     }
 
     if (input.action === 'select_staff') {
@@ -239,11 +245,11 @@ export async function POST(request, context) {
       })
       const localStart = DateTime.fromISO(result.appointment.starts_at).setZone(business.timezone).setLocale(input.locale)
       userText = input.locale === 'en' ? 'I confirm the booking.' : 'Потвърждавам резервацията.'
-      reply = input.locale === 'en' ? `Done! ${result.service.name} is booked for ${localStart.toFormat('cccc, d LLLL')} at ${localStart.toFormat('HH:mm')} with ${result.staff.name}.` : `Готово! Запазих ${result.service.name} за ${localStart.toFormat('cccc, d LLLL')} в ${localStart.toFormat('HH:mm')} при ${result.staff.name}.`
+      reply = input.locale === 'en' ? `Done! ${serviceDisplayName(presentPublicService(result.service, business), input.locale)} is booked for ${localStart.toFormat('cccc, d LLLL')} at ${localStart.toFormat('HH:mm')} with ${result.staff.name}.` : `Готово! Запазих ${result.service.name} за ${localStart.toFormat('cccc, d LLLL')} в ${localStart.toFormat('HH:mm')} при ${result.staff.name}.`
       responseData = {
         booking: {
           appointment: result.appointment,
-          service: result.service,
+          service: presentPublicService(result.service, business),
           staff: result.staff,
           localTime: localStart.toFormat('HH:mm'),
           localDate: localStart.toISODate(),

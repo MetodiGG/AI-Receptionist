@@ -32,9 +32,9 @@ test('action states remain bounded, keyboard visible, disabled-safe and reduced-
 test('local button-state review has no booking, call, navigation or production submission path', async () => {
   const source = await read('app/dev/button-states/page.js')
   assert.match(source, /process.env.NODE_ENV !== 'development'\) notFound\(\)/)
-  assert.match(source, /BookingButtonContent/)
-  assert.match(source, /<Icon name="map"/)
-  assert.match(source, /className="home-reserve"[^>]*disabled/)
+  assert.match(source, /import \{ PublicAction, PublicActionPair \} from '\.\.\/\.\.\/\.\.\/components\/public-action'/)
+  assert.match(source, /<PublicAction[^>]+variant="secondary"/)
+  assert.match(source, /<PublicAction[^>]*disabled/)
   assert.doesNotMatch(source, /fetch\(|href=|action=|onClick=|type="submit"|supabase/)
   assert.match(source, /lang === 'en'/)
 })

@@ -8,6 +8,7 @@ import { notificationAvailability } from '../../../../../lib/notification-copy.m
 import { trackEvent } from '../../../../../lib/analytics'
 import { PRIVATE_RESPONSE_HEADERS } from '../../../../../lib/booking-safety.mjs'
 import { businessAddress } from '../../../../../lib/business-location.mjs'
+import { presentPublicBooking } from '../../../../../lib/locale/public-content-server.mjs'
 
 const tokenSchema = z.string().uuid()
 
@@ -15,7 +16,7 @@ async function getAppointment(token) {
   const supabase = getSupabaseAdmin()
   const { data, error } = await supabase
     .from('appointments')
-    .select('id,business_id,starts_at,ends_at,status,cancellation_token,notes,email_notifications_requested,email_reminders_requested,business:businesses(name,slug,phone,address,city_ekatte,city,neighborhood,timezone,cancellation_notice_hours,email_notifications_enabled),service:services(name,duration_min,price,currency),staff:staff(name),customer:customers(name,email,phone)')
+    .select('id,business_id,starts_at,ends_at,status,cancellation_token,notes,email_notifications_requested,email_reminders_requested,business:businesses(name,slug,phone,address,city_ekatte,city,neighborhood,industry,timezone,cancellation_notice_hours,email_notifications_enabled),service:services(name,category,duration_min,price,currency),staff:staff(name),customer:customers(name,email,phone)')
     .eq('cancellation_token', tokenSchema.parse(token))
     .maybeSingle()
   if (error) throw error
@@ -38,7 +39,7 @@ export async function GET(request, context) {
     }
     const appointment = await getAppointment(token)
     if (!appointment) return apiError('Резервацията не е намерена.', 404, 'NOT_FOUND')
-    return Response.json({ appointment }, { headers: PRIVATE_RESPONSE_HEADERS })
+    return Response.json({ appointment: presentPublicBooking(appointment) }, { headers: PRIVATE_RESPONSE_HEADERS })
   } catch (error) {
     const safe = getSafeError(error)
     return apiError(safe.message, safe.status, safe.code)
@@ -56,7 +57,7 @@ export async function POST(request, context) {
 
     const appointment = await getAppointment(token)
     if (!appointment) return apiError('Резервацията не е намерена.', 404, 'NOT_FOUND')
-    if (appointment.status === 'cancelled') return Response.json({ appointment }, { headers: PRIVATE_RESPONSE_HEADERS })
+    if (appointment.status === 'cancelled') return Response.json({ appointment: presentPublicBooking(appointment) }, { headers: PRIVATE_RESPONSE_HEADERS })
     if (!['booked', 'confirmed'].includes(appointment.status)) return apiError('Тази резервация вече не може да бъде отменена.', 409, 'CANNOT_CANCEL')
 
     const cutoff = DateTime.fromISO(appointment.starts_at).minus({ hours: appointment.business.cancellation_notice_hours || 0 })
@@ -82,7 +83,7 @@ export async function POST(request, context) {
       trackEvent({ businessId: appointment.business_id, eventType: 'booking_cancelled', source: 'customer-link' }),
     ])
 
-    return Response.json({ appointment: { ...appointment, ...data } }, { headers: PRIVATE_RESPONSE_HEADERS })
+    return Response.json({ appointment: presentPublicBooking({ ...appointment, ...data }) }, { headers: PRIVATE_RESPONSE_HEADERS })
   } catch (error) {
     const safe = getSafeError(error)
     return apiError(safe.message, safe.status, safe.code)

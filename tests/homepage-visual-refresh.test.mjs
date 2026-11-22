@@ -177,11 +177,11 @@ test('reduced motion disables the new transitions and pressed movement while ret
 test('button-state visual fixture is development-only and cannot reserve, register or call providers', async () => {
   const page = await read('app/dev/button-states/page.js')
   assert.match(page, /if \(process.env.NODE_ENV !== 'development'\) notFound\(\)/)
-  const buttons = [...page.matchAll(/<button\b([^>]+)>/g)].map(match => match[1])
+  const buttons = [...page.matchAll(/<(?:button|PublicAction)\b([^>]+)>/g)].map(match => match[1])
   assert.equal(buttons.length, 13, 'existing customer controls, inert external/phone directory actions and signup preview')
   for (const attributes of buttons) assert.match(attributes, /\btype="button"/)
   assert.equal(buttons.filter(attributes => /\bdisabled\b/.test(attributes)).length, 2)
-  assert.match(page, /BookingButtonContent, BookingCalendarIcon/)
+  assert.match(page, /import \{ PublicAction, PublicActionPair \} from '\.\.\/\.\.\/\.\.\/components\/public-action'/)
   const anchors = [...page.matchAll(/<a\b([^>]+)>/g)].map(match => match[1])
   assert.equal(anchors.length, 2, 'inert directory profile labels test adjacent-link spacing only')
   for (const attributes of anchors) assert.match(attributes, /role="link" aria-disabled="true"/)

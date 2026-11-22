@@ -94,13 +94,14 @@ test('normal text and arrow contrast meet AA across every primary gradient stop,
   assert.ok(contrast(rgb('#F5ECE2'),rgb('#443024')) >= 4.5)
 })
 
-test('pairs stay side by side from 320px, stack only below it, and keep form wrappers word-safe without old force-width hooks', () => {
-  assert.equal(style('.pair').display,'flex'); assert.equal(style('.pair')['flex-wrap'],'nowrap')
+test('pairs fit actual narrow containers, stack below 320px or for enlarged whole words, and retain word-safe forms without legacy hooks', () => {
+  assert.equal(style('.pair').display,'flex'); assert.equal(style('.pair')['flex-wrap'],'wrap')
+  assert.equal(style('.pair')['container-type'],'inline-size'); assert.equal(style('.pair')['container-name'],'public-actions')
   const responsive = rules.find(rule => rule.selector === '.pair' && declarations(rule)['flex-direction'] === 'column')
   assert.equal(responsive.parent.params,'(max-width:319px)')
   assert.equal(style('.pair > *').flex,'1 1 0'); assert.equal(style('.pair > *')['min-width'],'0')
   assert.equal(style('.pair > form > .action').width,'100%')
-  const narrow = rules.filter(rule => rule.parent.type === 'atrule' && rule.parent.params === '(min-width:320px) and (max-width:360px)')
+  const narrow = rules.filter(rule => rule.parent.type === 'atrule' && rule.parent.name === 'container' && rule.parent.params === 'public-actions (max-width:360px)')
   const words = declarations(narrow.find(rule => rule.selector === '.pair > *'))
   assert.equal(words.flex,'1 1 min-content'); assert.equal(words['min-width'],'min-content')
   assert.equal(declarations(narrow.find(rule => rule.selector === '.label'))['min-inline-size'],'min-content')

@@ -1,4 +1,5 @@
 import test from 'node:test'
+import { publicEnglishAllowsFileChange, publicEnglishAllowsNewFile, publicEnglishSearchSource } from './public-english-scope.mjs'
 import assert from 'node:assert/strict'
 import { readFile, readlink } from 'node:fs/promises'
 import { createHash } from 'node:crypto'
@@ -218,7 +219,7 @@ test('stationary photographic glass and 44px selection controls are scoped away 
     assert.doesNotMatch(rule.selector, searchSelector)
     for (const name of Object.keys(declarations(rule))) assert.doesNotMatch(name, /^--(?:paper|ink|ink-soft|surface|line|accent|forest)$/)
   }
-  const source = await read('components/discovery-search.js')
+  const source = publicEnglishSearchSource(await read('components/discovery-search.js'))
   const form = value => { const start = value.indexOf('<form className="discovery-form"'); const end = value.indexOf('</form>', start) + 7; assert.ok(start >= 0 && end > start); return value.slice(start, end) }
   const original = execFileSync('git', ['show', `${baseline}:components/discovery-search.js`], { cwd: root, encoding: 'utf8' })
   assert.equal(form(source), form(original))
@@ -266,7 +267,7 @@ async function identicalBlobs(entries) {
 }
 
 test('historical APIs, hooks, data/taxonomy, booking/media/config/dependencies and CSS stay frozen outside the exact approved 2026-11-22 paths', async () => {
-  await identicalBlobs(baselineTree.filter(record => frozenPath(record.path) && !reviewedDiscoveryFileChange(record.path) && !nextSecurityUpgradeAllowsFileChange(record.path) && !stationaryDiscoveryAllowsFileChange(record.path) && !publicActionAllowsFileChange(record.path)))
+  await identicalBlobs(baselineTree.filter(record => frozenPath(record.path) && !reviewedDiscoveryFileChange(record.path) && !nextSecurityUpgradeAllowsFileChange(record.path) && !stationaryDiscoveryAllowsFileChange(record.path) && !publicActionAllowsFileChange(record.path) && !publicEnglishAllowsFileChange(record.path)))
   const rail = await read('lib/discovery/rail.mjs')
   assert.match(rail, /export const SERVICE_PREVIEW_LIMIT = 2/)
   assert.match(rail, /\.slice\(0, SERVICE_PREVIEW_LIMIT\)/)

@@ -9,8 +9,8 @@ const business = {
   cancellation_notice_hours: 12,
   bot_instructions: 'При закъснение се обади предварително.',
   services: [
-    { id: 'service-1', name: 'Подстригване', duration_min: 30, price: 25, currency: 'EUR' },
-    { id: 'service-2', name: 'Боядисване', duration_min: 60, price: 50, currency: 'EUR' },
+    { id: 'service-1', name: 'Подстригване', presentationEn: { name: 'Haircut' }, duration_min: 30, price: 25, currency: 'EUR' },
+    { id: 'service-2', name: 'Боядисване', presentationEn: { name: 'Hair colouring' }, duration_min: 60, price: 50, currency: 'EUR' },
   ],
   staff: [
     { id: 'staff-1', name: 'Мая' },
@@ -59,19 +59,20 @@ test('does not start a booking flow without active services or staff', () => {
 test('builds English guided answers from the same verified business data', () => {
   const answer = buildGuidedReply(business, 'services', 'en')
   assert.match(answer, /Services:/)
-  assert.match(answer, /Подстригване/)
+  assert.match(answer, /Haircut/)
+  assert.doesNotMatch(answer, /Подстригване/)
   assert.match(buildGuidedReply(business, 'booking', 'en'), /First choose/i)
 })
 
 test('the visual service menu exposes only public fields and never turns missing prices into free services', () => {
   const fixture = { services: [
     { id: 'gel', name: 'Педикюр с гел лак', category: 'nails', duration_min: 45, price: 36, currency: 'EUR', privateNotes: 'not public' },
-    { id: 'unknown', name: 'Консултация', duration_min: null, price: null, currency: 'EUR' },
+    { id: 'unknown', name: 'Консултация', presentationEn: { name: 'Consultation' }, duration_min: null, price: null, currency: 'EUR' },
   ] }
   const [gel, unknown] = guidedServiceMenu(fixture, 'bg')
   assert.deepEqual(Object.keys(gel), ['id', 'name', 'category', 'duration_min', 'priceLabel'])
   assert.equal(gel.category, 'nails')
   assert.match(gel.priceLabel, /36,00/)
   assert.equal(unknown.priceLabel, 'Уточни с бизнеса')
-  assert.match(buildGuidedReply(fixture, 'services', 'en'), /Консултация — Ask the business/)
+  assert.match(buildGuidedReply(fixture, 'services', 'en'), /Consultation — Ask the business/)
 })

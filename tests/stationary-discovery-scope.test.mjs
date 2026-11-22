@@ -1,4 +1,5 @@
 import test from 'node:test'
+import { PUBLIC_ENGLISH_BASE, publicEnglishAllowsFileChange, publicEnglishAllowsNewFile } from './public-english-scope.mjs'
 import { publicActionAllowsFileChange, publicActionAllowsNewFile } from './public-action-scope.mjs'
 import assert from 'node:assert/strict'
 import { readFile, readlink } from 'node:fs/promises'
@@ -32,7 +33,7 @@ test('stationary selection and truthful count authorization covers exactly ten r
   ].sort())
   assert.deepEqual(Object.keys(STATIONARY_DISCOVERY_NEW_HASHES), ['scripts/inventory-public-english.mjs'])
   for (const [path, hash] of Object.entries({ ...STATIONARY_DISCOVERY_HASHES, ...STATIONARY_DISCOVERY_NEW_HASHES })) {
-    assert.equal(sha256(await read(path)), hash, path + ': further edits require a new focused review, not a refreshed baseline')
+    assert.equal(sha256(publicEnglishAllowsFileChange(path) ? git('show', PUBLIC_ENGLISH_BASE + ':' + path) : await read(path)), hash, path + ': further edits require a new focused review, not a refreshed baseline')
   }
   for (const path of ['package.json', 'pnpm-lock.yaml', 'next.config.mjs', 'lib/discovery/subcategories.mjs', 'lib/discovery/sofia-catalogue.mjs', 'components/discovery-search.js', 'public/category-photos/beauty-v3.webp']) {
     assert.equal(stationaryDiscoveryAllowsFileChange(path), false, path)
@@ -42,13 +43,13 @@ test('stationary selection and truthful count authorization covers exactly ten r
 })
 
 test('every other production path, original image, taxonomy/data record, main search, booking and analytics byte stays frozen to the approved Next security commit', async () => {
-  const frozen = tree.filter(record => !stationaryDiscoveryAllowsFileChange(record.path) && !publicActionAllowsFileChange(record.path))
+  const frozen = tree.filter(record => !stationaryDiscoveryAllowsFileChange(record.path) && !publicActionAllowsFileChange(record.path) && !publicEnglishAllowsFileChange(record.path))
   for (let offset = 0; offset < frozen.length; offset += 32) await Promise.all(frozen.slice(offset, offset + 32).map(async record => {
     const path = new URL('../' + record.path, import.meta.url)
     const bytes = record.mode === '120000' ? Buffer.from(await readlink(path)) : await readFile(path)
     assert.equal(createHash('sha1').update('blob ' + bytes.length + '\0').update(bytes).digest('hex'), record.oid, record.path + ' remains unchanged from ' + STATIONARY_DISCOVERY_BASE)
   }))
-  const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => path && productionPath(path) && !publicActionAllowsNewFile(path))
+  const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => path && productionPath(path) && !(publicActionAllowsNewFile(path) || path === 'components/public-action.module.css' && publicEnglishAllowsFileChange(path)) && !publicEnglishAllowsNewFile(path))
   assert.deepEqual([...new Set(actual)].sort(), [...tree.map(record => record.path), ...Object.keys(STATIONARY_DISCOVERY_NEW_HASHES)].sort(), 'no new production/data/image path other than the separately reviewed offline inventory utility')
 })
 

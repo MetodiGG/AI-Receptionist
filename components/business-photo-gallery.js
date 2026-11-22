@@ -5,6 +5,7 @@ import { useEffect, useId, useRef, useState } from 'react'
 import { nextPhotoIndex, photoSwipeDirection } from '../lib/business-photos.mjs'
 import { createPhotoAutoplay } from '../lib/photo-autoplay.mjs'
 import { businessPhotoStyle } from '../lib/business-photo-layout.mjs'
+import { publicProse } from '../lib/locale/public-content.mjs'
 
 export function BusinessPhotoGallery({ photos: suppliedPhotos = [], businessName, locale = 'bg', variant = 'profile', autoplay = true, fallback = null }) {
   const [failedSources, setFailedSources] = useState([])
@@ -37,7 +38,7 @@ export function BusinessPhotoGallery({ photos: suppliedPhotos = [], businessName
   if (!count) return fallback
   const activeIndex = index < count ? index : 0
   const photo = photos[activeIndex]
-  const text = value => typeof value === 'string' && value.trim() ? value : value?.[locale] || value?.bg || businessName
+  const text = value => publicProse(value, locale) || businessName
   const move = direction => { setPaused(true); setIndex(current => nextPhotoIndex(current, direction, count)) }
   const rejectPhoto = (source) => {
     setFailedSources(current => current.includes(source) ? current : [...current, source])

@@ -150,7 +150,7 @@ test('BG/EN public assistant menus and replies cannot reintroduce the three hidd
   for (const locale of ['bg', 'en']) {
     assert.deepEqual(guidedServiceMenu(raw, locale).map(row => row.id), real.map(row => row.id))
     assert.doesNotMatch(buildGuidedReply(raw, 'services', locale), /Нова услуга/)
-    assert.match(buildGuidedReply(raw, 'services', locale), /Ремонт двигатели/)
+    assert.match(buildGuidedReply(raw, 'services', locale), locale === 'en' ? /Service · English translation pending/ : /Ремонт двигатели/)
     const onlyHidden = business(placeholders)
     assert.deepEqual(guidedServiceMenu(onlyHidden, locale), [])
     assert.match(buildGuidedReply(onlyHidden, 'services', locale), locale === 'en' ? /no active services/ : /няма активни услуги/)

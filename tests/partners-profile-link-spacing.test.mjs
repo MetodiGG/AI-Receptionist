@@ -34,7 +34,7 @@ test('development-only directory spacing samples preserve the real layout struct
   assert.match(source, /className="directory-results-grid"/)
   assert.match(source, /data-button-fit-surface="directory-external"/)
   assert.match(source, /data-button-fit-surface="directory-phone"/)
-  assert.match(source, /<div className="outbound-booking-form"><button type="button" className="directory-book-button"/)
+  assert.match(source, /<div className=\{styles.outboundForm\} data-public-outbound-form><PublicAction type="button"/)
   assert.equal((source.match(/<a role="link" aria-disabled="true">/g) || []).length, 2)
   assert.doesNotMatch(source, /fetch\(|supabase|href=|action=|onClick=|<form\b|type="submit"/)
 })

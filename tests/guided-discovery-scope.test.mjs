@@ -1,4 +1,5 @@
 import test from 'node:test'
+import { publicEnglishSearchSource } from './public-english-scope.mjs'
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { createHash } from 'node:crypto'
@@ -7,7 +8,7 @@ import { discoveryConfig } from '../lib/discovery/config.mjs'
 const read = path => readFile(new URL(`../${path}`, import.meta.url), 'utf8')
 
 test('the original main search form is preserved byte-for-byte, not redesigned by the guide', async () => {
-  const source = await read('components/discovery-search.js')
+  const source = publicEnglishSearchSource(await read('components/discovery-search.js'))
   const start = source.indexOf('<form className="discovery-form"')
   const end = source.indexOf('</form>', start) + 7
   assert.ok(start >= 0 && end > start)

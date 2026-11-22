@@ -94,7 +94,7 @@ test('compact card provides one real distance badge and shared navigation; compl
   assert.match(card, /business=\{row\} distanceOnly/)
   const details = await read('components/discovery-business-details.js')
   assert.match(details, /detailPriceLabel\(\{ \.\.\.service, priceUnit: '' \}, locale\)/)
-  assert.match(details, /className="service-price-unit">\{service\.priceUnit\}/)
+  assert.match(details, /className="service-price-unit">\{serviceDisplayUnit\(service, locale\)\}/)
   assert.match(details, /className="business-details-price"/)
   assert.doesNotMatch(card, /railServiceDescription|<p className="home-business-services"/)
   assert.match(card, /<PublicAction as="a" variant="secondary"[^\n]+>\{copy.directions\}<\/PublicAction>/)

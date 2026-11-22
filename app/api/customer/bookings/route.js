@@ -1,10 +1,13 @@
-import { createCustomerBookingsHandler } from '../../../../lib/customer-account.mjs'
+import { createCustomerBookingsHandler, readCustomerBookingPresentationContext } from '../../../../lib/customer-account.mjs'
 import { requireUser } from '../../../../lib/server-auth'
 import { getSupabaseAdmin } from '../../../../lib/supabase-admin'
 import { consumeRateLimit } from '../../../../lib/rate-limit'
 import { ensureCustomerEmailProof } from '../../../../lib/customer-email-proof.mjs'
+import { presentPublicBooking } from '../../../../lib/locale/public-content-server.mjs'
 
 export const GET = createCustomerBookingsHandler({
+  presentBooking: presentPublicBooking,
+  readPresentationContext: rows => readCustomerBookingPresentationContext(getSupabaseAdmin(),rows),
   authenticate: requireUser,
   allowAttempt: (request,id) => consumeRateLimit(request,{ scope:`customer-history:${id}`,limit:60,windowSeconds:600,includeUserAgent:false }),
   authorizeEmail: (request,user) => ensureCustomerEmailProof({request,user,store:{

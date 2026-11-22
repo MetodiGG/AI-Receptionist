@@ -3,11 +3,15 @@ import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { createRequire } from 'node:module'
 import { discoveryConfig } from '../lib/discovery/config.mjs'
+import { presentPublicBusiness } from '../lib/locale/public-content-server.mjs'
+import { getBusinessPhotos } from '../lib/business-photos.mjs'
 
 const require = createRequire(import.meta.url)
 const { loadBindings, transform } = require('next/dist/build/swc')
 await loadBindings()
 const read = path => readFile(new URL('../' + path, import.meta.url), 'utf8')
+const snapshot = JSON.parse(await read('tests/fixtures/guided-public-partners-20261121.json'))
+const partners = snapshot.businesses.map(row => presentPublicBusiness({ ...row, photos: snapshot.localPhotos[row.id] || getBusinessPhotos(row) }))
 const filename = 'app/dev/guided-discovery/page.js'
 const { code } = await transform(await read(filename), {
   filename, jsc: { parser: { syntax: 'ecmascript', jsx: true }, transform: { react: { runtime: 'automatic' } } },
@@ -19,6 +23,9 @@ function pageFor(env) {
     'next/navigation': { notFound() { throw Error('NOT_FOUND') } },
     '../../../lib/discovery/config.mjs': { discoveryConfig },
     './preview': { GuidedDiscoveryPreview: Review },
+    '../../../lib/locale/public-content-server.mjs': { presentPublicBusiness },
+    '../../../lib/business-photos.mjs': { getBusinessPhotos },
+    '../../../tests/fixtures/guided-public-partners-20261121.json': snapshot,
   }
   new Function('require', 'module', 'exports', 'process', code)(name => Object.hasOwn(stubs, name) ? stubs[name] : require(name), module, module.exports, { env })
   return module.exports.default
@@ -37,10 +44,10 @@ test('only exact text=large enables a review prop while language and photo-revie
   const page = pageFor({ NODE_ENV: 'development', DISCOVERY_DEV_MOCK: 'true' })
   const large = await page({ searchParams: Promise.resolve({ text: 'large', lang: 'en', view: 'photos' }) })
   assert.equal(large.type, Review)
-  assert.deepEqual(large.props, { locale: 'en', photos: true, largeText: true })
+  assert.deepEqual(large.props, { locale: 'en', photos: true, largeText: true, partners })
   for (const text of [undefined, '', 'normal', '150%', 'LARGE', ['large']]) {
     const ordinary = await page({ searchParams: Promise.resolve({ text, lang: 'bg' }) })
-    assert.deepEqual(ordinary.props, { locale: 'bg', photos: false, largeText: false })
+    assert.deepEqual(ordinary.props, { locale: 'bg', photos: false, largeText: false, partners })
   }
 })
 

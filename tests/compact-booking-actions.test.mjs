@@ -12,6 +12,7 @@ import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
 import { HOME_DISCOVERY_COPY } from '../lib/discovery/home.mjs'
 import * as content from './helpers/booking-button-content.mjs'
 import * as publicAction from './helpers/public-action.mjs'
+import * as publicContent from '../lib/locale/public-content.mjs'
 
 const read = path => readFile(new URL(`../${path}`, import.meta.url), 'utf8')
 const require = createRequire(import.meta.url), { loadBindings, transform } = require('next/dist/build/swc')
@@ -33,6 +34,7 @@ const imports = {
   react: React, 'react-dom': require('react-dom'), luxon: { DateTime },
   '../lib/booking-mode.mjs': bookingMode, '../lib/business-profile-ui.mjs': profileUi,
   '../lib/booking-window.mjs': bookingWindow, '../lib/supabase': { hasSupabaseConfig: false },
+  '../lib/locale/public-content.mjs': publicContent,
   './booking-button-content': content, './outbound-booking-button': { OutboundBookingButton },
   './business-profile': { BusinessServiceList: Empty },
   './monthly-booking-calendar': { MonthlyBookingCalendar: () => assert.fail('no service was selected; no availability calendar should mount') },

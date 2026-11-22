@@ -1,5 +1,6 @@
 'use client'
 
+import { serviceDisplayName, businessDisplayAddress } from '../lib/locale/public-content.mjs'
 import { BrandLoading } from './brand-loading'
 import Link from 'next/link'
 import { useState } from 'react'
@@ -37,8 +38,8 @@ export function BusinessDirectory({ locale, preview = null, data = null, filters
       {!showCategoryOverview && <div className="directory-results-grid">{filtered.map(row => <article className="directory-business-card" key={row.id}>
         <BusinessPhotoGallery photos={row.photos} businessName={row.name} locale={locale} variant="directory"
           fallback={<BusinessCoverPhoto business={row} locale={locale} className="directory-business-cover"/>}/>
-        <div className="directory-business-head"><div><small>{getIndustryLabel(partnerIndustry(row.industry),locale)}</small><h3>{row.name}</h3>{row.address && <p>{row.address}</p>}</div></div>
-        <div className="directory-services"><small>{en ? 'Services' : 'Услуги'}</small><div>{row.services.slice(0,4).map(service => <div key={service.id} className="directory-service-row"><div className="service-photo-name"><ServiceThumbnail service={service} business={row} locale={locale} size={40}/><div className="directory-service-copy">{service.name}{service.duration_min!=null&&<small>{service.duration_min} {en ? 'min' : 'мин'}</small>}</div></div>{service.price != null && <b>{profileServicePrice(service, locale)}</b>}</div>)}</div></div>
+        <div className="directory-business-head"><div><small>{getIndustryLabel(partnerIndustry(row.industry),locale)}</small><h3>{row.name}</h3>{row.address && <p>{businessDisplayAddress(row, locale)}</p>}</div></div>
+        <div className="directory-services"><small>{en ? 'Services' : 'Услуги'}</small><div>{row.services.slice(0,4).map(service => <div key={service.id} className="directory-service-row"><div className="service-photo-name"><ServiceThumbnail service={service} business={row} locale={locale} size={40}/><div className="directory-service-copy">{serviceDisplayName(service, locale)}{service.duration_min!=null&&<small>{service.duration_min} {en ? 'min' : 'мин'}</small>}</div></div>{service.price != null && <b>{profileServicePrice(service, locale)}</b>}</div>)}</div></div>
         {bookingDisabled ? <PublicAction as="span" className="directory-reservation-action" aria-disabled="true" aria-label={en ? 'Design preview · booking disabled' : 'Дизайнерски преглед · без резервация'}>{en ? 'Book' : 'Резервирай'}</PublicAction> : isOffsiteBooking(row)?<><p>{isPhoneBooking(row)?(en?'Arrange an appointment by phone':'Уговори час по телефон'):(en?'Check available times on the business’s website':'Провери свободните часове в сайта на бизнеса')}</p><OutboundBookingButton business={row} locale={locale} className="directory-reservation-action"/><Link href={`/book/${row.slug}?lang=${locale}`}>{en?'View GoRez profile':'Виж профила в GoRez'}</Link></>:<PublicAction as={Link} className="directory-reservation-action" href={`/book/${row.slug}?lang=${locale}`} onClick={() => trackProductEvent('booking_started','book',locale)}>{en ? 'Book' : 'Резервирай'}</PublicAction>}
       </article>)}</div>}
       {!showCategoryOverview && !filtered.length && <div className="directory-empty"><h3>{en ? 'No businesses match these choices yet.' : 'Все още няма бизнеси по тези критерии.'}</h3>{!browseCategories && <button className="secondary-button" type="button" onClick={() => setFilters(EMPTY_DIRECTORY_FILTERS)}>{en ? 'Show all businesses' : 'Покажи всички бизнеси'}</button>}</div>}

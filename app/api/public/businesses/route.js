@@ -6,6 +6,7 @@ import { businessAddress } from '../../../../lib/business-location.mjs'
 import { createServerTiming } from '../../../../lib/server-timing.mjs'
 import { getBusinessPhotos } from '../../../../lib/business-photos.mjs'
 import { readDirectoryRows, directoryCoordinates } from '../../../../lib/public-directory.mjs'
+import { presentPublicBusiness } from '../../../../lib/locale/public-content-server.mjs'
 
 export async function GET(request) {
   const timing = createServerTiming()
@@ -36,7 +37,7 @@ export async function GET(request) {
         .map(({ active: _active, sort_order: _sortOrder, ...service }) => service),
     }))
 
-    return Response.json({ businesses }, { headers: { ...timing.headers(), 'Cache-Control': 'no-store' } })
+    return Response.json({ businesses: businesses.map(presentPublicBusiness) }, { headers: { ...timing.headers(), 'Cache-Control': 'no-store' } })
   } catch (error) {
     const safe = getSafeError(error)
     return apiError(safe.message, safe.status, safe.code)

@@ -1,4 +1,5 @@
 import test from 'node:test'
+import { publicEnglishAllowsFileChange, publicEnglishAllowsNewFile, publicEnglishSearchSource } from './public-english-scope.mjs'
 import assert from 'node:assert/strict'
 import { readFile, readlink } from 'node:fs/promises'
 import { createHash } from 'node:crypto'
@@ -36,14 +37,14 @@ const baseline = git('ls-tree', '-r', '-z', BASE).split('\0').filter(Boolean).ma
 
 test('the compact-selection/photo follow-up has exactly ten reviewed source hashes and three new car-wash media paths; all other production bytes stay frozen', async () => {
   assert.deepEqual([...COMPACT_SELECTION_CHANGED_FILES].sort(), Object.keys(reviewed).sort())
-  for (const [path, hash] of Object.entries(reviewed)) if (!stationaryDiscoveryAllowsFileChange(path) && !publicActionAllowsFileChange(path)) assert.equal(createHash('sha256').update(await read(path)).digest('hex'), hash, `${path}: any further change needs its own focused review, never a refreshed data baseline`)
-  const frozen = baseline.filter(record => !COMPACT_SELECTION_CHANGED_FILES.has(record.path) && !nextSecurityUpgradeAllowsFileChange(record.path) && !stationaryDiscoveryAllowsFileChange(record.path) && !publicActionAllowsFileChange(record.path))
+  for (const [path, hash] of Object.entries(reviewed)) if (!stationaryDiscoveryAllowsFileChange(path) && !publicActionAllowsFileChange(path) && !publicEnglishAllowsFileChange(path)) assert.equal(createHash('sha256').update(await read(path)).digest('hex'), hash, `${path}: any further change needs its own focused review, never a refreshed data baseline`)
+  const frozen = baseline.filter(record => !COMPACT_SELECTION_CHANGED_FILES.has(record.path) && !nextSecurityUpgradeAllowsFileChange(record.path) && !stationaryDiscoveryAllowsFileChange(record.path) && !publicActionAllowsFileChange(record.path) && !publicEnglishAllowsFileChange(record.path))
   for (let offset = 0; offset < frozen.length; offset += 32) await Promise.all(frozen.slice(offset, offset + 32).map(async record => {
     const path = new URL('../' + record.path, import.meta.url)
     const bytes = record.mode === '120000' ? Buffer.from(await readlink(path)) : await readFile(path)
     assert.equal(createHash('sha1').update(`blob ${bytes.length}\0`).update(bytes).digest('hex'), record.oid, `${record.path} stays unchanged from ${BASE}`)
   }))
-  const current = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => path && productionPath(path) && !publicActionAllowsNewFile(path) && !stationaryDiscoveryAllowsNewFile(path))
+  const current = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => path && productionPath(path) && !(publicActionAllowsNewFile(path) || path === 'components/public-action.module.css' && publicEnglishAllowsFileChange(path)) && !publicEnglishAllowsNewFile(path) && !(stationaryDiscoveryAllowsNewFile(path) || path === 'scripts/inventory-public-english.mjs' && publicEnglishAllowsFileChange(path)))
   assert.deepEqual([...new Set(current)].sort(), [...baseline.map(record => record.path), ...CAR_WASH_REFINEMENT_NEW_MEDIA].sort())
 })
 

@@ -1,5 +1,6 @@
 'use client'
 
+import { serviceDisplayName, serviceDisplayUnit, publicProse, businessDisplayAddress } from '../lib/locale/public-content.mjs'
 import { BrandLoading } from './brand-loading'
 import { useEffect, useId, useRef, useState } from 'react'
 import { Icon } from './icon'
@@ -21,8 +22,8 @@ export function DiscoveryBusinessDetails({ row, locale = 'bg', preview = false, 
   const services = businessDetailServices(business), hours = businessDetailHours(business)
   const { unpriced, priced } = splitDetailServiceMenu(services, locale)
   const serviceGroups = groupDetailServices(unpriced), priceGroups = groupDetailServices(priced)
-  const description = business.details?.description?.[locale] || business.details?.description?.bg || ''
-  const photos = business.source === 'gorez' ? business.photos || [] : isCataloguePhotoSource(business.photo?.src) ? [{ ...business.photo, alt: { [locale]: business.photo.alt || business.name } }] : []
+  const description = publicProse(business.details?.description, locale, business.presentationEn?.description)
+  const photos = business.source === 'gorez' ? business.photos || [] : isCataloguePhotoSource(business.photo?.src) ? [{ ...business.photo, alt: { [locale]: publicProse(business.photo.alt, locale) || business.name } }] : []
 
   useEffect(() => {
     if (!needsFetch) return
@@ -73,7 +74,7 @@ export function DiscoveryBusinessDetails({ row, locale = 'bg', preview = false, 
     {status === 'ready' && <>
       {description && <p className="business-details-description">{description}</p>}
       <section aria-labelledby={`${id}-services`}><h3 id={`${id}-services`}>{copy.servicesLabel}</h3>
-        {unpriced.length ? <ServiceGroups groups={serviceGroups} business={business} locale={locale} copy={copy}/> : priced.length ? <ul className="business-details-overview" aria-label={copy.servicesLabel}>{priced.map((service, index) => <li key={index}><ServiceThumbnail service={service} business={business} locale={locale} size={32}/><span>{service.name}</span></li>)}</ul> : <p>{copy.noServices}</p>}
+        {unpriced.length ? <ServiceGroups groups={serviceGroups} business={business} locale={locale} copy={copy}/> : priced.length ? <ul className="business-details-overview" aria-label={copy.servicesLabel}>{priced.map((service, index) => <li key={index}><ServiceThumbnail service={service} business={business} locale={locale} size={32}/><span>{serviceDisplayName(service, locale)}</span></li>)}</ul> : <p>{copy.noServices}</p>}
       </section>
       {priced.length > 0 && <section aria-labelledby={`${id}-prices`}><h3 id={`${id}-prices`}>{copy.pricesLabel}</h3>
         <ServiceGroups groups={priceGroups} business={business} locale={locale} copy={copy}/>
@@ -85,7 +86,7 @@ export function DiscoveryBusinessDetails({ row, locale = 'bg', preview = false, 
           <div className="business-details-hours-body">{hours.length ? <dl className="business-details-hours">{hours.map(day => <div key={day.weekday}><dt>{copy.weekdays[day.weekday - 1]}</dt><dd>{day.byAppointment ? copy.byAppointment : day.periods.join(' / ') || copy.closedDay}</dd></div>)}</dl> : <p>{copy.unpublishedHours}</p>}</div>
         </details>
       </section>
-      {business.address && <section className="business-details-address" aria-labelledby={`${id}-address`}><h3 id={`${id}-address`}>{copy.addressLabel}</h3><p>{business.address}</p></section>}
+      {business.address && <section className="business-details-address" aria-labelledby={`${id}-address`}><h3 id={`${id}-address`}>{copy.addressLabel}</h3><p>{businessDisplayAddress(business, locale)}</p></section>}
     </>}
     {status === 'ready' && <footer>{typeof actions === 'function' ? actions(business) : actions}</footer>}
   </dialog>
@@ -99,7 +100,7 @@ function ServiceMenu({ services, business, locale, copy }) {
   return <ul className="business-details-services">{services.map((service, index) => {
     const price = detailPriceLabel({ ...service, priceUnit: '' }, locale)
     const { description, conditions } = servicePresentation(service, locale)
-    const priceContent = <>{price}{service.priceUnit && <small className="service-price-unit">{service.priceUnit}</small>}</>
-    return <li key={index}><div className="service-photo-name"><ServiceThumbnail service={service} business={business} locale={locale} size={44}/><div className="business-details-service-copy"><strong>{service.name}</strong>{service.durationMin > 0 && <span>{service.durationMin} {copy.minutes}</span>}{conditions.map(condition => <small className="business-details-service-condition" key={condition}>{condition}</small>)}</div></div>{price && (service.priceSourceUrl ? <a className="business-details-price" href={service.priceSourceUrl} target="_blank" rel="noopener noreferrer" aria-label={`${detailPriceLabel(service, locale)} · ${copy.publishedPriceSource}`}>{priceContent}</a> : <strong className="business-details-price">{priceContent}</strong>)}{description && <p className="business-details-service-description">{description}</p>}</li>
+    const priceContent = <>{price}{service.priceUnit && <small className="service-price-unit">{serviceDisplayUnit(service, locale)}</small>}</>
+    return <li key={index}><div className="service-photo-name"><ServiceThumbnail service={service} business={business} locale={locale} size={44}/><div className="business-details-service-copy"><strong>{serviceDisplayName(service, locale)}</strong>{service.durationMin > 0 && <span>{service.durationMin} {copy.minutes}</span>}{conditions.map(condition => <small className="business-details-service-condition" key={condition}>{condition}</small>)}</div></div>{price && (service.priceSourceUrl ? <a className="business-details-price" href={service.priceSourceUrl} target="_blank" rel="noopener noreferrer" aria-label={`${detailPriceLabel(service, locale)} · ${copy.publishedPriceSource}`}>{priceContent}</a> : <strong className="business-details-price">{priceContent}</strong>)}{description && <p className="business-details-service-description">{description}</p>}</li>
   })}</ul>
 }

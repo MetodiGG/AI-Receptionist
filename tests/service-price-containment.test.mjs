@@ -16,6 +16,7 @@ import * as photoLayout from '../lib/business-photo-layout.mjs'
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 import * as bookingButtonContent from './helpers/booking-button-content.mjs'
 import * as publicAction from './helpers/public-action.mjs'
+import { serviceDisplayName, serviceDisplayUnit } from '../lib/locale/public-content.mjs'
 
 // Existing SWC/SSR convention: actual client components and price/data helpers,
 // inert visual/third-party stubs, no browser, fetch, booking or effect execution.
@@ -159,14 +160,14 @@ function assertRenderedService(service, locale) {
     const actual = renderedPrice(html, 'business-details-price')
     renderedText = actual.text
     const full = detailsData.detailPriceLabel({ ...service, priceUnit: '' }, locale)
-    assert.equal(actual.text, full + (service.priceUnit || ''), `${locale}: both detail markup variants retain full price and qualification`)
+    assert.equal(actual.text, full + serviceDisplayUnit(service, locale), `${locale}: both detail markup variants retain full price and qualification`)
     assert.equal(actual.tag, linked ? 'a' : 'strong')
     if (linked) {
       assert.ok(actual.markup.includes(`href="${sourceUrl}"`))
       assert.match(actual.markup, /rel="noopener noreferrer"/)
       assert.ok(actual.markup.includes(`aria-label="${escape(detailsData.detailPriceLabel(service, locale))}`))
     }
-    assert.ok(html.includes(escape(service.name)))
+    assert.ok(html.includes(escape(serviceDisplayName(service, locale))))
     assert.match(html, /data-service-thumbnail-size="44"/)
   }
   return renderedText
@@ -202,7 +203,7 @@ for (const locale of ['bg', 'en']) {
       assert.doesNotMatch(text, /…|\.\.\./)
       if (name === 'from') assert.ok(text.startsWith(locale === 'bg' ? 'от ' : 'from '))
       if (name === 'zero') assert.ok(text.includes('0'), 'a legitimate zero price must not disappear')
-      if (service.priceUnit) assert.ok(text.endsWith(service.priceUnit), 'all published minimum/package conditions remain readable')
+      if (service.priceUnit) assert.ok(text.endsWith(serviceDisplayUnit(service, locale)), 'the localized published minimum/package conditions or honest pending notice remain readable')
     })
   }
 }
@@ -233,6 +234,6 @@ test('unknown prices are still absent, never replaced by zero or a truncated fak
     assert.doesNotMatch(card, /class="home-service-price"/)
     assert.doesNotMatch(details, /class="business-details-price"/)
     assert.doesNotMatch(card, /home-service-name|home-business-services/)
-    assert.ok(details.includes(escape(longName)))
+    assert.ok(details.includes(escape(serviceDisplayName(row.services[0], locale))))
   }
 })

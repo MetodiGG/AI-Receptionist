@@ -4,6 +4,7 @@ import { readFile } from 'node:fs/promises'
 import { createRequire } from 'node:module'
 import { DateTime } from 'luxon'
 import * as bookingSafety from '../lib/booking-safety.mjs'
+import * as englishContent from '../lib/locale/public-content-server.mjs'
 
 const require = createRequire(import.meta.url)
 const { loadBindings, transform } = require('next/dist/build/swc')
@@ -159,6 +160,7 @@ function createHarness({ businessPatch, env = {}, simultaneousInserts = 0 } = {}
     '../../../../../lib/public-booking': booking,
     '../../../../../lib/rate-limit': { consumeRateLimit: async () => true },
     '../../../../../lib/booking-safety.mjs': bookingSafety,
+    '../../../../../lib/locale/public-content-server.mjs': englishContent,
     '../../../../../lib/server-auth': { requireUser: () => assert.fail('guest booking must not require an account') },
     '../../../../../lib/supabase-admin': { getSupabaseAdmin: () => supabase },
   })

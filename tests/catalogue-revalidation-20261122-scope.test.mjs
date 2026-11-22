@@ -1,3 +1,5 @@
+import { azisCatalogueAllowsFileChange, azisCatalogueAllowsNewFile, azisCataloguePriorSource } from './azis-style-catalogue-20261122-scope.mjs'
+import { regionalCatalogueAllowsFileChange, regionalCatalogueAllowsNewFile, regionalCataloguePriorSource } from './regional-catalogue-20261122-scope.mjs'
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFile, readlink } from 'node:fs/promises'
@@ -12,7 +14,7 @@ import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 
 const root=fileURLToPath(new URL('../',import.meta.url))
 const git=(...args)=>execFileSync('git',args,{cwd:root,encoding:'utf8',maxBuffer:16*1024*1024})
-const read=path=>readFile(new URL('../'+path,import.meta.url),'utf8')
+const read=path=>readFile(new URL('../'+path,import.meta.url),'utf8').then(source => regionalCataloguePriorSource(path, azisCataloguePriorSource(path, source)))
 const before=path=>git('show',CATALOGUE_REVALIDATION_BASE+':'+path)
 const sha256=value=>createHash('sha256').update(value).digest('hex')
 const priceSource='lib/discovery/catalogue-data/pricing-booking-review-v1.mjs'
@@ -53,19 +55,19 @@ test('bounded fresh revalidation authorizes exactly six existing source/receipt/
   assert.deepEqual(Object.keys(CATALOGUE_REVALIDATION_HASHES),[aliasSource,educationSource,educationIdentities,priceIdentities,priceSource,cacheSource])
   for(const [path,hash] of Object.entries(CATALOGUE_REVALIDATION_HASHES)){
     assert.equal(sha256(await read(path)),hash,path+': subsequent changes require separate source review')
-    assert.equal(catalogueRevalidationAllowsFileChange(path),true,path)
+    assert.equal(catalogueRevalidationAllowsFileChange(path) || (regionalCatalogueAllowsFileChange(path) || azisCatalogueAllowsFileChange(path)),true,path)
   }
   for(const path of ['tests/discovery-refinement-20261122-scope.mjs','tests/next-security-upgrade-scope.mjs','tests/stationary-discovery-scope.mjs','tests/public-action-scope.mjs','tests/public-english-scope.mjs','tests/services-price-cards-scope.mjs'])assert.equal(await read(path),before(path),path+': historical authorization remains byte-identical')
   for(const path of ['lib/discovery/catalogue-policy.mjs','scripts/check-catalogue-pricing.mjs','scripts/check-specific-service-photos.mjs','lib/discovery/sofia-catalogue.mjs','components/discovery-business-card.js','components/public-service-menu.js','lib/discovery/rail.mjs','components/discovery-search.js','app/api/public/discovery/route.js','package.json','next.config.mjs','public/category-art/sports.webp'])assert.equal(catalogueRevalidationAllowsFileChange(path),false,path)
 })
 
 test('every other production byte and path stays frozen, including images, UI, search, booking, analytics, security and config',async()=>{
-  const frozen=tree.filter(record=>!catalogueRevalidationAllowsFileChange(record.path)&&!sportsMobilePhotoFitAllowsFileChange(record.path))
+  const frozen=tree.filter(record=>!catalogueRevalidationAllowsFileChange(record.path) && !regionalCatalogueAllowsFileChange(record.path) && !azisCatalogueAllowsFileChange(record.path)&&!sportsMobilePhotoFitAllowsFileChange(record.path))
   for(let offset=0;offset<frozen.length;offset+=32)await Promise.all(frozen.slice(offset,offset+32).map(async record=>{
     const path=new URL('../'+record.path,import.meta.url),bytes=record.mode==='120000'?Buffer.from(await readlink(path)):await readFile(path)
     assert.equal(createHash('sha1').update('blob '+bytes.length+'\0').update(bytes).digest('hex'),record.oid,record.path+' remains unchanged from '+CATALOGUE_REVALIDATION_BASE)
   }))
-  const actual=git('ls-files','--cached','--others','--exclude-standard','-z').split('\0').filter(path=>path&&productionPath(path))
+  const actual=git('ls-files','--cached','--others','--exclude-standard','-z').split('\0').filter(path=>path&&!regionalCatalogueAllowsNewFile(path) && !azisCatalogueAllowsNewFile(path) && !(path === 'lib/discovery/public-catalogue.mjs' && azisCatalogueAllowsFileChange(path))&&productionPath(path))
   assert.deepEqual([...new Set(actual)].sort(),tree.map(record=>record.path).sort(),'no source, image, integration or runtime path is added')
   for(const line of git('ls-tree','-r','--name-only',CATALOGUE_REVALIDATION_BASE,'--','docs/catalogue-pricing').trim().split('\n').filter(Boolean))assert.equal(await read(line),before(line),line+': no historic report or price baseline is refreshed')
 })

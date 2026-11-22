@@ -241,7 +241,7 @@ test('real catalogue static lookup works without network and route keeps the ful
     const route = readFileSync(new URL('../app/api/public/catalogue-onboarding/route.js', import.meta.url), 'utf8')
     assert.match(route, /import 'server-only'/)
     assert.match(route, /runtime = 'nodejs'/)
-    assert.match(route, /SOFIA_CATALOGUE/)
-    assert.doesNotMatch(route, /supabase|consumeRateLimit|fetch\(|POST|createClient/)
+    assert.match(route, /PUBLIC_CATALOGUE/)
+    assert.doesNotMatch(route, /SOFIA_CATALOGUE|supabase|consumeRateLimit|fetch\(|POST|createClient/)
   } finally { globalThis.fetch = originalFetch }
 })

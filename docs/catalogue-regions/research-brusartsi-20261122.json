@@ -1,0 +1,147 @@
+{
+  "checkedOn": "2026-11-22",
+  "scope": "Physical appointment-service providers in the town of Brusartsi only; not other settlements in Brusartsi municipality.",
+  "city": {
+    "code": "06570",
+    "name": "Брусарци",
+    "nameEn": "Brusartsi",
+    "regionCode": "MON",
+    "municipalityCode": "MON07",
+    "settlementAdministrationCode": "MON07-00",
+    "sourceUrl": "https://www.nsi.bg/nrnm/ekatte/territorial-units?orderBy=obshtina_name&page=235&sort=desc",
+    "sourceLocator": "Official NSI row 4698, EKATTE 06570; town, Montana region.",
+    "alreadyPresentInProjectCityDictionary": true
+  },
+  "admitted": 0,
+  "held": 2,
+  "candidates": [
+    {
+      "name": "НЧ „Просвета – 1891“",
+      "status": "held",
+      "facts": {
+        "cityCode": "06570",
+        "address": "гр. Брусарци, ул. Г. Димитров № 106",
+        "website": "https://nchbrusartsi.wordpress.com/",
+        "phone": null,
+        "hours": null,
+        "coordinates": null,
+        "verifiedBookableServices": [],
+        "prices": []
+      },
+      "sources": [
+        {
+          "url": "https://brusartsi.com/section-212-content.html",
+          "kind": "official_municipal_source",
+          "observed": "Names this town's institution and address, links directly to the owner WordPress site; historical page dated 2013-03-04."
+        },
+        {
+          "url": "https://nchbrusartsi.wordpress.com/",
+          "kind": "owner_website",
+          "observed": "Owner site identifies the institution and town street address. Visible page contains no current enrollment or booking menu."
+        },
+        {
+          "url": "https://chitalishta.com/community/hash/c0f079c907911f4425c388a10464c4e67b7b0056",
+          "kind": "official_registry_access_incomplete",
+          "observed": "Indexed register entry 2556 supports town/address and shows contact 0885357007; direct retrieval returned 502. Phone is an unconfirmed lead, not admitted contact data."
+        }
+      ],
+      "missing": [
+        "Current appointment/enrollment route and actually available classes",
+        "Current service or course menu and admission conditions",
+        "Owner-confirmed booking phone and schedule"
+      ],
+      "pricingReview": {
+        "status": "pending",
+        "notPubliclyListedReceipt": false,
+        "reason": "Historical dance activity and an owner homepage without a current booking/service menu do not prove a currently bookable service or a genuinely unpublished tariff."
+      }
+    },
+    {
+      "name": "АПДП–ИП д-р Олга Папушева",
+      "status": "held",
+      "facts": {
+        "cityCode": "06570",
+        "officialHealthcareProviderCode": "0509112121",
+        "registeredActivity": "Първична дентална помощ",
+        "brusartsiBranchMentioned": true,
+        "address": null,
+        "website": null,
+        "phone": null,
+        "hours": null,
+        "coordinates": null,
+        "verifiedBookableServices": [],
+        "prices": []
+      },
+      "sources": [
+        {
+          "url": "https://www.iamn.bg/wp-content/uploads/registers/05_REGISTER_LZ_dejstvashti.pdf",
+          "kind": "official_healthcare_registry",
+          "sourceLocator": "PDF page 7, provider 0509112121",
+          "observed": "Names the provider and registered primary dental activity; address cell lists branches in Vidin, Ruzhintsi, Drenovets and explicitly Brusartsi, but does not give the Brusartsi street. This is not an owner booking menu."
+        }
+      ],
+      "unconfirmedLeads": [
+        {
+          "url": "https://doktori.bg/zabolekari/brusartsi/",
+          "reasonNotAdmitted": "Secondary register mirror gives Dimitar Blagoev 6, polyclinic building. Exact branch street and current booking contacts were not corroborated by an owner source."
+        }
+      ],
+      "missing": [
+        "Owner-confirmed exact address and phone for this specific branch",
+        "Current booking route, local service menu and acceptance conditions",
+        "Current branch hours and literal prices if published"
+      ],
+      "pricingReview": {
+        "status": "pending",
+        "notPubliclyListedReceipt": false,
+        "reason": "Registration of a dental branch is identity evidence, not a completed booking/services or tariff review. The old 2022 two-days-per-week report is not imported as a current schedule."
+      }
+    }
+  ],
+  "excludedFalseLocalMatches": [
+    {
+      "name": "AUTO-VAL",
+      "sourceUrl": "https://auto-val.com/za-nas/",
+      "reason": "Owner page locates the workshop at Suhodolska 205, Sofia; Brusartsi appears only in a nationwide courier/service list. Not a physical Brusartsi branch."
+    },
+    {
+      "name": "Автосервиз Монтана",
+      "sourceUrl": "https://carservice.xn----8sbbncpgk0b1c.com/rayoni.html",
+      "reason": "Regional coverage is not proof of a physical branch in the town of Brusartsi."
+    },
+    {
+      "name": "Бюти Красимира Любенова / Алексмикс–2009 / Victoria Auto",
+      "reason": "Discovery leads locate these in Vasilovtsi or Dondukovo, not the town of Brusartsi. Legal-registration activity alone is also not proof of a current appointment-service storefront."
+    },
+    {
+      "name": "Bratsigovo and Burgas salons, tyre centres and booking results",
+      "reason": "Different cities; similar search results are not evidence for Brusartsi."
+    },
+    {
+      "name": "Municipal counters, retail stores, EasyPay and school enrollment",
+      "reason": "Not the appointment-business service scope requested for the GoRez catalogue."
+    }
+  ],
+  "otherUnverifiedSignal": {
+    "name": "Регионална ветеринарна лечебница Брусарци",
+    "sourceUrl": "https://www.business.bg/f-70402/regionalna-veterinarna-lechebnica-brusarci.html",
+    "reasonNotAdmitted": "Secondary directory only; no owner-verified street, booking/service menu or current operating details. Not counted as a verified candidate."
+  },
+  "duplicatePreflight": {
+    "catalogueRowsInspected": 1732,
+    "matchingCityCodeRows": 0,
+    "matchingBrusartsiOrPapushevaIdentityRows": 0,
+    "note": "Read-only inspection of the normalized existing catalogue; no imported records or partner profiles created."
+  },
+  "accessAndSafety": {
+    "researchMethod": "Bounded manual web search and public source-page reading; project AGENTS.md and README pricing workflow reviewed.",
+    "bookingsSubmitted": 0,
+    "callsOrMessagesSent": 0,
+    "accountsOrConsentsCreated": 0,
+    "photosCopiedOrChanged": 0,
+    "geocodingRequests": 0,
+    "paidProvidersUsed": 0,
+    "accessControlsBypassed": false,
+    "unknownFieldsRemainAbsent": true
+  }
+}

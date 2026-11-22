@@ -26,6 +26,66 @@
           "units": 1
         },
         "certifiedHumanTranslation": false
+      },
+      {
+        "checkedOn": "2026-11-22",
+        "businessId": "lom-studio-krasota-elena-dunavska18",
+        "recordIdentity": "ddf213c545f6986a0800ae787a403ad7be58f8793813d2da92c473a7fcccec18",
+        "reason": "Exact-source manual English addition for the admitted Lom hair specialist's telephone appointment and published fixed EUR tariff description. Three existing English service names are reused unchanged; historical cache keys, source fingerprints and original review metadata remain intact.",
+        "entriesAdded": {
+          "names": 0,
+          "descriptions": 1,
+          "units": 0
+        },
+        "certifiedHumanTranslation": false
+      },
+      {
+        "checkedOn": "2026-11-22",
+        "businessId": "lom-europe-schools-slavyanska7",
+        "recordIdentity": "ce8a2177d659b6e29f91d4930399fae93c61c05dfee634aa701de0d301ae8333",
+        "reason": "Exact-source manual English additions for the three admitted Lom course offers and shared telephone enrolment description. Course fees remain unpublished and absent; no single lesson, free course or confirmed place is implied. Historical cache keys, source fingerprints and original review metadata remain intact.",
+        "entriesAdded": {
+          "names": 3,
+          "descriptions": 1,
+          "units": 0
+        },
+        "certifiedHumanTranslation": false
+      },
+      {
+        "checkedOn": "2026-11-22",
+        "businessId": "lom-azis-stil-krum-pastarmadzhiev7",
+        "recordIdentity": "d95a31d153b8fc3a368b95572b3a7bfcf106364d2a994f09d4c60af8f1880369",
+        "sourceKind": "platform_owner_confirmation",
+        "confirmationReference": "gorez-platform-confirmation-20261122-azis-lom",
+        "reason": "Exact-source English display for the nine Azis services supplied by the GoRez platform owner. This is not confirmation from the business owner, a website inspection or a public tariff review. Two new name keys are shared with the Brusartsi branch; seven existing exact translations are retained. No prices, durations, opening hours or coordinates are supplied or inferred.",
+        "entriesAdded": {
+          "names": 2,
+          "descriptions": 0,
+          "units": 0
+        },
+        "entriesReused": {
+          "names": 7
+        },
+        "businessOwnerConfirmed": false,
+        "certifiedHumanTranslation": false
+      },
+      {
+        "checkedOn": "2026-11-22",
+        "businessId": "brusartsi-azis-stil-septemvri8",
+        "recordIdentity": "825b239b4da6857578ff4fcdeb839e7fb2d701072683eed40330713bf1941556",
+        "sourceKind": "platform_owner_confirmation",
+        "confirmationReference": "gorez-platform-confirmation-20261122-azis-brusartsi",
+        "reason": "Exact-source English display for the same nine platform-owner-supplied Azis services at the separate Brusartsi address. This is not confirmation from the business owner or a public website/tariff review. All nine name translations, including the two shared Lom additions, are reused without adding duplicate cache keys. No prices, durations, opening hours or coordinates are supplied or inferred.",
+        "entriesAdded": {
+          "names": 0,
+          "descriptions": 0,
+          "units": 0
+        },
+        "entriesReused": {
+          "names": 9
+        },
+        "businessOwnerConfirmed": false,
+        "certifiedHumanTranslation": false
       }
     ],
     "sourceInventorySha256": "3dc68153b6dbd333d0990cf3c7658bb4e0235f79d7d1e8081cfc226034bab456",
@@ -35,8 +95,8 @@
       "suggestionPairs": "7cc072a02e5afc3310abd0fe61556bde065bd7bc34c39559d82d951cdb9f5760"
     },
     "counts": {
-      "names": 6041,
-      "descriptions": 1791,
+      "names": 6046,
+      "descriptions": 1793,
       "units": 661,
       "contextualNames": 335
     },
@@ -97,6 +157,11 @@
     ]
   },
   "names": {
+    "Прически": "Hairstyling",
+    "Сгъстяване на коса": "Hair thickening",
+    "Курсове по английски език за деца и ученици": "English courses for children and school students",
+    "Езиково обучение за възрастни": "Language learning for adults",
+    "Подготовка за изпити за сертификати на Кеймбридж": "Preparation for Cambridge certificate exams",
     "* консултация /15 мин.": "* consultation /15 min.",
     "1 пробна индивидуална тренировка:": "1 trial individual workout:",
     "1 пробно посещение в група:": "1 Trial visit to a group:",
@@ -6140,6 +6205,8 @@
     "смяна на предпазен клапан на бойлер": "change of boiler safety valve"
   },
   "descriptions": {
+    "Часът се уговаря по телефона. Цена от публикуваната EUR тарифа на фризьор Елена.": "Appointments are arranged by telephone. The price is taken from hairdresser Elena's published EUR price list.",
+    "Предварително записване по телефона и определяне на нивото. Подходящият курс, графикът и таксата се уточняват с учебния център; не е резервация за единичен урок.": "Advance enrolment by telephone and a level assessment. The appropriate course, timetable and fee are agreed with the learning centre; this is not a booking for a single lesson.",
     "1 час общо: до 40 минути снимане и 20 минути избор; една визия и една ретуширана снимка. Допълнителна снимка: 15 EUR. Необработени кадри не се предават; плащане в деня на сесията. Условията предвиждат възможност за публикуване на портрети; уточнете поверителността преди записване.": "1 hour total: up to 40 minutes of photography and 20 minutes for selection; one look and one retouched photograph. Additional photograph: 15 EUR. Unedited photographs are not supplied; payment on the day of the session. The conditions allow portraits to be published; agree privacy requirements before booking.",
     "1 час, 3–4 визии. Допълнителен кадър 10 EUR; уикенд и национални празници +55 EUR. Гримът/прическата са отделни услуги. За отказ от споделяне в портфолио уведомете фотографа изрично предварително.": "1 hour, 3–4 looks. Additional photograph 10 EUR; weekends and national holidays +55 EUR. Makeup and hairstyling are separate services. To opt out of portfolio sharing, inform the photographer explicitly in advance.",
     "10 EUR за едно посещение без месечна карта. Записване чрез формата за конкретната зала; групата и мястото се потвърждават от школата. Не е наем на зала, екстремен спорт или абонамент за 8 посещения.": "10 EUR for one visit without a monthly pass. Book through the form for the specific venue; the school confirms the group and place. Not venue hire, an extreme sport or a pass for 8 visits.",

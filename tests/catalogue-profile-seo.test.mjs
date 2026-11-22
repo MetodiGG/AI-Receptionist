@@ -211,7 +211,7 @@ test('sitemap preserves native published booking URLs and fails closed on privat
   const query = { select: value => { selection = value; return query }, eq: (key, value) => { assert.ok(['active', 'platform_status'].includes(key)); assert.ok(value === true || value === 'enabled'); return query }, order: () => query,
     range: async start => { offset = start; return fail ? { error: new Error('Private detail must not leak') } : { data: [native, { slug: '../private' }] } } }
   const module = await compile('../app/sitemap.js', { '../lib/supabase-admin': { getSupabaseAdmin: () => ({ from: () => query }) }, '../lib/seo.mjs': seo,
-    '../lib/discovery/sofia-catalogue.mjs': { SOFIA_CATALOGUE: [real] }, '../lib/catalogue-profile.mjs': profile }, { Date: { now: () => now } })
+    '../lib/discovery/public-catalogue.mjs': { PUBLIC_CATALOGUE: [real] }, '../lib/catalogue-profile.mjs': profile }, { Date: { now: () => now } })
   const entries = await module.default()
   assert.equal(offset, 0); assert.match(selection, /slug/); assert.doesNotMatch(selection, /email|customer|password|token/)
   assert.equal(entries.filter(item => item.url.includes('/book/current-partner?')).length, 2)
@@ -225,7 +225,7 @@ test('server profile reader queries public identity fields only, avoids invalid 
   const query = { select: value => { selected = value; return query }, eq: (field, value) => { assert.ok(field === 'active' && value === true || field === 'platform_status' && value === 'enabled'); return query }, order: () => query,
     range: async () => { queries++; return fail ? { error: Error('offline') } : { data: members } } }
   const module = await compile('../lib/catalogue-profile-server.js', { 'server-only': {}, react: { cache: fn => fn },
-    './discovery/sofia-catalogue.mjs': { SOFIA_CATALOGUE: [real] }, './discovery/catalogue-policy.mjs': { approvedCatalogueRecord }, './catalogue-profile.mjs': profile,
+    './discovery/public-catalogue.mjs': { PUBLIC_CATALOGUE: [real] }, './discovery/catalogue-policy.mjs': { approvedCatalogueRecord }, './catalogue-profile.mjs': profile,
     './catalogue-photo-server': { readPublicCataloguePhotos: async ids => { photoReads++; assert.deepEqual(ids, [real.id]); throw Error('unavailable image store') } },
     './supabase-admin': { getSupabaseAdmin: () => ({ from: table => { assert.equal(table, 'businesses'); return query } }) },
   }, { Date: { now: () => now } })

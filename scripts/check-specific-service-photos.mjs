@@ -1,10 +1,11 @@
 import { auditServicePhotoAssets } from './audit-service-photo-coverage.mjs'
 import { auditSpecificServicePhotoProvenance } from './verify-specific-service-photo-provenance.mjs'
 import { auditPartnerServicePhotos } from './audit-partner-service-photos.mjs'
+import { PUBLIC_CATALOGUE } from '../lib/discovery/public-catalogue.mjs'
 
 // Release gate: a file existing is insufficient. Every published catalogue
 // service must resolve to a real, compressed, non-neutral service photograph.
-const report = await auditServicePhotoAssets()
+const report = await auditServicePhotoAssets(PUBLIC_CATALOGUE)
 const provenance = await auditSpecificServicePhotoProvenance()
 const partners = await auditPartnerServicePhotos()
 console.log(JSON.stringify({ approvedBusinesses: report.approvedBusinesses, services: report.totals.services.total,

@@ -1,0 +1,242 @@
+{
+  "checkedOn": "2026-11-22",
+  "scope": "Manual Lom admission; Brusartsi has no admitted records in this initial module. Sofia data and historical fingerprints unchanged.",
+  "status": "local_prepared_for_root_review_not_published",
+  "workflow": {
+    "bookingBeforeTariff": true,
+    "sourcePolicy": "Primary owner pages only. Generic phone/homepage/contact is not explicit booking proof. No third-party source facts are admitted.",
+    "pricing": "Literal published EUR only. Ambiguous variants held. Genuine absent fees require explicit source receipt, not a blocked menu.",
+    "manualIdentityBinding": "The two source-admitted normalized inventories were hashed once with pricingIdentity after final factual selection. Literal hashes are stored; no runtime auto-binding."
+  },
+  "admitted": [
+    {
+      "id": "lom-studio-krasota-elena-dunavska18",
+      "business": "Студио за красота Елена",
+      "cityCode": "44238",
+      "address": "Лом, ул. Дунавска 18",
+      "phone": "+359887313032",
+      "website": "https://studiozakrasotaelena.com/",
+      "decision": "admit_three_reviewed_fixed_services",
+      "explicitBookingEvidence": {
+        "bookingUrl": "https://studiozakrasotaelena.com/kонтакти/",
+        "ownerHeading": "Записвания за час",
+        "ownerPhoneAction": "Обадете се",
+        "actualPhoneHref": "tel:%200887313032",
+        "servicePage": "https://studiozakrasotaelena.com/elena/",
+        "servicePageBookingAction": "Запазете час",
+        "servicePageActionDestination": "https://studiozakrasotaelena.com/kонтакти/",
+        "order": "Home appointment route → owner appointment/contact page → named specialist service tariff; live owner HTML corroboration."
+      },
+      "prices": {
+        "sourceUrl": "https://studiozakrasotaelena.com/elena/",
+        "currency": "EUR",
+        "checkedOn": "2026-11-22",
+        "internalReviewBy": "2027-02-20",
+        "facts": [
+          {
+            "name": "Подстригване",
+            "amount": 10
+          },
+          {
+            "name": "Оформяне на брада",
+            "amount": 5
+          },
+          {
+            "name": "Официална прическа",
+            "amount": 60
+          }
+        ],
+        "notes": "Published ordinary EUR fees, not converted BGN, not promotions, packages or deposits. No duration or gender inferred."
+      },
+      "openingHours": {
+        "sourceUrl": "https://studiozakrasotaelena.com/kонтакти/",
+        "weekdays": "09:00–18:00",
+        "saturday": "09:00–13:00",
+        "sunday": "closed"
+      },
+      "pointReview": {
+        "sourceUrl": "https://studiozakrasotaelena.com/kонтакти/",
+        "method": "Read only public map-link/iframe attributes in owner HTML.",
+        "finding": "Map iframe q is the full textual salon/address query, with zoom13; it contains no explicit business-marker latitude/longitude.",
+        "coordinates": null,
+        "googleRequested": false,
+        "geocoding": false,
+        "viewportOrCityCentreUsed": false
+      },
+      "inventoryIdentity": "ddf213c545f6986a0800ae787a403ad7be58f8793813d2da92c473a7fcccec18",
+      "heldServiceRows": [
+        {
+          "name": "Къдрене",
+          "publishedEUR": "25/35/50",
+          "reason": "Option/tier mapping not exact; no invented range or length labels."
+        },
+        {
+          "name": "Кичури",
+          "publishedEUR": "30/40/50",
+          "reason": "Hair-length-dependent options; exact tier mapping not supplied."
+        },
+        {
+          "name": "Боядисване с професионална боя",
+          "publishedEUR": "25/35/50",
+          "reason": "Hair-length-dependent options; exact tier mapping not supplied."
+        },
+        {
+          "name": "Боядисване с боя на клиента",
+          "publishedEUR": "10/15/20",
+          "reason": "Customer-supplied dye plus hair-length options; no inferred tiers."
+        },
+        {
+          "name": "Сешоар",
+          "publishedEUR": "10/20/30",
+          "reason": "Hair-length options; no exact mapping."
+        },
+        {
+          "name": "Терапии за коса",
+          "publishedEUR": "30/40/50",
+          "reason": "Treatment/length variants not exact."
+        },
+        {
+          "name": "Бретон/ Миене на коса",
+          "publishedEUR": "5",
+          "reason": "Slash label ambiguous; not split into separate standalone appointments."
+        }
+      ],
+      "unreviewedMenus": "Nails and makeup are not included. Failed reader access to other menus is not used as evidence that their prices are unpublished."
+    },
+    {
+      "id": "lom-europe-schools-slavyanska7",
+      "business": "Училища ЕВРОПА · Лом",
+      "cityCode": "44238",
+      "address": "Лом, ул. Славянска 7, ет. 2",
+      "phone": "+359878502178",
+      "alternatePublishedPhone": "+359896695577",
+      "website": "https://europeschools.net/branch/lom/",
+      "decision": "admit_three_actual_course_offers_without_prices",
+      "explicitBookingEvidence": {
+        "bookingUrl": "https://europeschools.net/branch/lom/",
+        "ownerHeading": "Как да се запишете?",
+        "ownerPhoneAction": "Обадете ни се",
+        "context": "The Lom-specific page invites phone enrolment for the listed courses, supplies primary/alternate numbers and describes entry placement before course selection.",
+        "order": "Actual Lom phone-enrolment section → branch course sections and price search; live owner HTML corroborates 2026–27 intake.",
+        "notExercised": [
+          "Google application document",
+          "contact form",
+          "online placement test",
+          "phone call",
+          "enrolment"
+        ]
+      },
+      "services": [
+        "Курсове по английски език за деца и ученици",
+        "Езиково обучение за възрастни",
+        "Подготовка за изпити за сертификати на Кеймбридж"
+      ],
+      "pricingDecision": "not_publicly_listed",
+      "priceSearch": {
+        "outcome": "not_published",
+        "bookingUrl": "https://europeschools.net/branch/lom/",
+        "serviceUrls": [
+          "https://europeschools.net/branch/lom/"
+        ],
+        "notes": "Inspected actual branch enrolment, the three selected course offers and public navigation. No numeric course fee or separate unread tariff menu is published there. Free placement tests and learning-resource bonuses are not free courses. This is service_reviewed, not price-reviewed."
+      },
+      "conditions": "Entry placement, appropriate course, timetable and fee agreed with centre; not a confirmed single lesson or free course.",
+      "openingHours": null,
+      "durations": null,
+      "pointReview": {
+        "sourceUrl": "https://europeschools.net/branch/lom/",
+        "method": "Inspect public HTML map/iframe/link and coordinate attributes, not hidden state.",
+        "finding": "No map or explicit business-marker coordinate DOM tags found.",
+        "coordinates": null,
+        "googleRequested": false,
+        "geocoding": false,
+        "viewportOrCityCentreUsed": false
+      },
+      "inventoryIdentity": "ce8a2177d659b6e29f91d4930399fae93c61c05dfee634aa701de0d301ae8333"
+    }
+  ],
+  "heldBusinesses": [
+    {
+      "business": "Автосервиз Дик-95 · Citroën",
+      "url": "https://di-ven.bg/bg/автосервиз-citroen/",
+      "decision": "hold_booking_evidence_missing",
+      "reason": "Owner publishes workshop service/phones/address but no explicit appointment or service-request CTA. Generic Contact/phone is insufficient under catalogue policy. No record admitted.",
+      "addressDetail": "Car workshop no.11 must not inherit manufacturing-base no.11A."
+    },
+    {
+      "business": "Счетоводна къща ОРДЕР ДЦ",
+      "url": "https://schetovodstvo.website2.me/",
+      "contactUrl": "https://schetovodstvo.website2.me/contact",
+      "servicesUrl": "https://schetovodstvo.website2.me/services",
+      "decision": "hold_booking_evidence_missing",
+      "reason": "Owner shows consulting/accounting offers and generic Contact Us phone, but no explicit invitation to schedule the named consultation/service. No record admitted.",
+      "addressDetail": "Owner states Дунавска37,second floor,office3; directories' first floor not imported.",
+      "priceDetail": "Website-builder hosting advertisement is not an accounting fee."
+    },
+    {
+      "business": "Клима Северозапад",
+      "url": "https://clima-severozapad.com/contact/",
+      "decision": "hold_address_conflict",
+      "reason": "Repeated owner postal text says Арда34; contact map-link label says Артанес30. No address/point or invented service_area record admitted."
+    },
+    {
+      "business": "Ангелов Одитинг",
+      "url": "https://anodit.com/contacts/",
+      "decision": "hold_no_lom_appointment_branch",
+      "reason": "Registered Lom address in terms is not evidence of a client-facing Lom office; current contact only gives Sofia."
+    },
+    {
+      "business": "Фотограф Любомир Борисов",
+      "url": "https://borisovv.com/контакти/",
+      "decision": "hold_lom_service_location_unproven",
+      "reason": "Lom is labelled office, actual photo studio is Sofia; no appointment premise inferred."
+    },
+    {
+      "business": "Студио Роаноук",
+      "url": "https://studioroanoke.com/",
+      "decision": "hold_owner_source_unavailable",
+      "reason": "Owner source returned502; directory advertisements do not complete owner booking/source review."
+    },
+    {
+      "business": "G Point · Лом",
+      "url": "https://gpoint.bg/запазване-час",
+      "decision": "separate_root_owned_review",
+      "reason": "No Sofia branch prices or durations inherited. Root may append only after the exact Lom selected-branch/gender menus are verified."
+    },
+    {
+      "business": "Ваймс Клима",
+      "url": "https://vaimsclima.com/",
+      "decision": "hold_service_intake_not_verified",
+      "reason": "Store/product/service-information wording is not an explicit named service booking invitation; no retail product amounts imported."
+    }
+  ],
+  "dedup": {
+    "againstCurrentSofiaCatalogue": 1732,
+    "exactHostAndNormalizedPhoneMatches": 0,
+    "withinBatchDistinctBusinessAddresses": 2,
+    "newRegionalAliasesNotCountedAsSeparateBusinesses": true
+  },
+  "safety": {
+    "bookingsSubmitted": 0,
+    "formsFilled": 0,
+    "formsSubmitted": 0,
+    "calls": 0,
+    "consentsAccepted": 0,
+    "notifications": 0,
+    "googleRequests": 0,
+    "paidProviders": 0,
+    "networkGeocoders": 0,
+    "thirdPartyPhotosImported": 0,
+    "personalCustomerData": 0,
+    "productionChanges": 0
+  },
+  "prepared": {
+    "records": 2,
+    "services": 6,
+    "publishedEURFacts": 3,
+    "unpricedServiceReviewedBusinesses": 1,
+    "brusartsiRecords": 0,
+    "sourcedPoints": 0,
+    "publication": "none"
+  }
+}

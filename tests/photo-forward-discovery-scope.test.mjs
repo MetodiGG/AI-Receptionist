@@ -1,4 +1,5 @@
 import { catalogueRevalidationAllowsFileChange } from './catalogue-revalidation-20261122-scope.mjs'
+import { sportsMobilePhotoFitAllowsFileChange, sportsMobilePhotoFitPriorCss } from './sports-mobile-photo-fit-scope.mjs'
 import { servicePriceCardsAllowsFileChange, servicePriceCardsAllowsNewFile } from './services-price-cards-scope.mjs'
 import assert from 'node:assert/strict'
 import test from 'node:test'
@@ -116,8 +117,10 @@ test('the historical sticky baseline is preserved as evidence, while only the ex
   assert.ok(before.length > 15, 'freeze the actual responsive, dark, sticky, focus and reduced-motion summary rules')
   const stickyRules = rules => rules.filter(rule => rule.selectors.includes('.inline-summary[data-sticky-safe="true"]'))
   assert.equal(stickyRules(before).length, 1)
-  assert.equal(stationaryDiscoveryAllowsFileChange('app/inline-discovery.css'), true)
-  assert.deepEqual(stickyRules(summaryRules(await read('app/inline-discovery.css'))), [])
+  assert.equal(stationaryDiscoveryAllowsFileChange('app/inline-discovery.css') || sportsMobilePhotoFitAllowsFileChange('app/inline-discovery.css'), true)
+  const css = await read('app/inline-discovery.css')
+  assert.deepEqual(summaryRules(css), summaryRules(sportsMobilePhotoFitPriorCss(css)), 'the exact phone sports delta cannot alter any stationary summary rule')
+  assert.deepEqual(stickyRules(summaryRules(css)), [])
   const current = await read('components/inline-discovery-summary.js')
   const original = git('show', BASE + ':components/inline-discovery-summary.js')
   const effect = source => source.slice(source.indexOf('  useEffect(() => {'), source.indexOf('  const parent = categoryById(category)'))

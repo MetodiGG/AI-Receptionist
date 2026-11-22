@@ -1,4 +1,5 @@
 import { catalogueRevalidationAllowsFileChange } from './catalogue-revalidation-20261122-scope.mjs'
+import { sportsMobilePhotoFitPriorCss } from './sports-mobile-photo-fit-scope.mjs'
 import { servicePriceCardsAllowsFileChange, servicePriceCardsAllowsNewFile } from './services-price-cards-scope.mjs'
 import assert from 'node:assert/strict'
 import test from 'node:test'
@@ -79,7 +80,7 @@ function canonical(node) {
 }
 
 test('desktop photo fit and approved compact controls/first-card heading gap cannot change unrelated tile, loading, result or motion CSS', () => {
-  assert.deepEqual(canonical(tree), canonical(before), 'Only desktop category fit, compact summary/header/removed-All regions, summary tokens and the exact first-card heading-gap selector may differ')
+  assert.deepEqual(canonical(parse(sportsMobilePhotoFitPriorCss(source))), canonical(before), 'Only desktop category fit, compact summary/header/removed-All regions, summary tokens and the exact first-card heading-gap selector may differ after restoring the separately proved phone-only sports delta')
   const changes = rules.filter(rule => isDesktop(rule) && categoryOnly(rule))
   assert.ok(changes.length > 0, 'a category-only desktop fit treatment is present')
   for (const rule of changes) {

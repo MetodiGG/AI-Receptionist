@@ -1,4 +1,5 @@
 import { catalogueRevalidationAllowsFileChange } from './catalogue-revalidation-20261122-scope.mjs'
+import { sportsMobilePhotoFitAllowsFileChange } from './sports-mobile-photo-fit-scope.mjs'
 import { servicePriceCardsAllowsFileChange, servicePriceCardsAllowsNewFile } from './services-price-cards-scope.mjs'
 import test from 'node:test'
 import assert from 'node:assert/strict'
@@ -34,7 +35,7 @@ test('compact previews and shared actions have exactly twelve reviewed existing 
 })
 
 test('every original image and other production byte/path stays identical to the committed stationary-discovery stage, including data/prices, search, filtering, booking and analytics',async () => {
-  const frozen = tree.filter(record => !publicActionAllowsFileChange(record.path) && !publicEnglishAllowsFileChange(record.path) && !servicePriceCardsAllowsFileChange(record.path) && !catalogueRevalidationAllowsFileChange(record.path))
+  const frozen = tree.filter(record => !publicActionAllowsFileChange(record.path) && !publicEnglishAllowsFileChange(record.path) && !servicePriceCardsAllowsFileChange(record.path) && !catalogueRevalidationAllowsFileChange(record.path) && !sportsMobilePhotoFitAllowsFileChange(record.path))
   for(let offset=0;offset<frozen.length;offset+=32) await Promise.all(frozen.slice(offset,offset+32).map(async record => {
     const path = new URL('../'+record.path,import.meta.url)
     const bytes = record.mode === '120000' ? Buffer.from(await readlink(path)) : await readFile(path)

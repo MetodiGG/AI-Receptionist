@@ -216,6 +216,14 @@
   .customer-home.quick-choice:has(.inline-discovery-categories) { --inline-tile-ratio: 4 / 3; }
   .inline-category-grid,.inline-service-grid,.inline-services-skeleton { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; }
 }
+/* Keep the footballer's head, boots and ball above the mobile caption.
+   Crop spare sky/grass, not the player; every other tile stays unchanged. */
+@media (max-width:699px) {
+  .inline-category-photo-frame .inline-category-photo[src="/category-photos/fitness-large-v3.webp"] {
+    height: calc(100% - 2.25rem); object-fit: cover; object-position: 50% 62%;
+  }
+  .inline-category-option:hover .inline-category-photo[src="/category-photos/fitness-large-v3.webp"] { transform: none; }
+}
 @media (min-width:1000px) {
   .inline-category-grid,.inline-service-grid,.inline-services-skeleton { grid-template-columns: repeat(4,minmax(0,1fr)); gap: 16px; }
   /* Category artwork is square. Reserve the whole original scene above its

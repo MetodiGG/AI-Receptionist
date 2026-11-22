@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-22",
+  "status": "research_only_no_new_admissions",
+  "priority": "30 real distinct service options per Sofia neighbourhood/category before aggregate catalogue growth",
+  "newlyAdmittedBusinesses": 0,
+  "scope": "Bounded read-only research and local deduplication against 1732 Sofia catalogue rows and existing intake/research. No candidate below fills a coverage cell. No runtime data, photographs, coordinates, tariffs, customer bookings, notifications, paid APIs or production settings changed.",
+  "leads": [
+    {
+      "name": "Nails by ROO",
+      "claimedArea": "Ботунец 2",
+      "discoveryUrl": "https://easybook.bg/nails-by-roo-sofiya-botunec",
+      "observedBookingUrl": "https://easybook.bg/nails-by-roo-sofiya-botunec/employee-ebru-remzi206100",
+      "status": "held_source_reuse_restriction_and_unreviewed_client_loaded_menu",
+      "review": "Actual public booking entry was followed without submission. Full interactive service menu was not reviewed. The platform reveals contact after reservation; no reservation or hidden-contact lookup was attempted. Inherited provider reuse restriction stops admission from this source. A current independently reusable merchant source is required."
+    },
+    {
+      "name": "Център за естествена красота Casablanca",
+      "claimedArea": "Филиповци",
+      "discoveryUrl": "https://easybook.bg/studio-za-estestvena-krasota-casablanca-sofiya-filipovci",
+      "observedBookingUrl": "https://easybook.bg/studio-za-estestvena-krasota-casablanca-sofiya-filipovci/employee-rajna-stoyanova-267",
+      "status": "held_source_reuse_restriction_incomplete_menu_and_independent_address_review",
+      "review": "Followed public Book entry without booking. No independent current merchant/contact confirmation or completed service/price menu. The alternative Studio24 page returned403 and was not bypassed. Claimed neighbourhood remains unconfirmed for admission. No price or unpublished-tariff receipt created."
+    },
+    {
+      "name": "HairStyle and MakeUp-Силвия",
+      "claimedArea": "Филиповци",
+      "discoveryUrl": "https://www.beautynailhairsalons.com/BG/Sofia/307323309968963/HairStyle-and-MakeUp-%D0%A1%D0%B8%D0%BB%D0%B2%D0%B8%D1%8F",
+      "status": "held_secondary_stale_mirror_and_incomplete_address",
+      "review": "Secondary mirror with a2025 post is a lead, not current owner evidence. Exact premises number, current merchant source and booking/service review still needed. No contact, service or price inventory imported."
+    },
+    {
+      "name": "Tempo Service",
+      "claimedArea": "Република",
+      "discoveryUrl": "https://www.temposervice.bg/",
+      "status": "held_appointment_invitation_not_confirmed",
+      "review": "Owner site identifies a real workshop/contact location and weekday opening hours. Only generic workshop/parts contacts observed, not explicit advance booking. Ordinary service tariff not reviewed; absence of public prices is not claimed. Need source-qualified appointment and exact address/location review before admission."
+    },
+    {
+      "name": "Warda Oriental",
+      "claimedArea": "Триъгълника",
+      "discoveryUrl": "https://wardaoriental.com/grafik/",
+      "blockedOwnerContactUrl": "https://wardaoriental.com/kontakti/",
+      "status": "held_owner429_stop",
+      "review": "Current schedule lead found; owner Contact returned429, so further host requests stopped. Secondary location/contact hints do not complete owner appointment, address or tariff review. No alternate API, locale/host workaround or unpublished-price assertion."
+    },
+    {
+      "name": "ЦИКО София — Ботунец",
+      "claimedArea": "Ботунец",
+      "discoveryUrl": "https://artcentersofia.bg/",
+      "observedBookingUrl": "https://artcentersofia.bg/registration",
+      "status": "held_current_branch_intake_and_terms_unconfirmed_account_required",
+      "review": "Public centre/activities lead and registration entry found. Enrolment requires a parent account; none created. Current configured branch/service intake, reusable source terms and fees remain unreviewed. Older intake notice is not used as a current confirmed appointment."
+    }
+  ],
+  "additionalStops": [
+    {
+      "source": "https://ch-otecpaisii1930.com/obshti-usloviya/",
+      "status": "source_reuse_permission_required",
+      "action": "Explicit commercial reuse restriction observed; further source reuse stopped. No Iliyanти record admitted from this source."
+    },
+    {
+      "source": "https://www.kirilimetodii1926.com/",
+      "status": "owner_and_robots_timeout",
+      "action": "Vrazhdebna lead remains held. No bypass or unsupported no-price conclusion."
+    }
+  ],
+  "deduplication": "The six named leads had no exact name/slug/known alias match in the current1732 Sofia records or local research/intake at this pass. This is not an independent final operator/premises identity approval. Existing or already-held D-Bros, Petkov, Katerini, EiD, Kris Studio, Secret GlosS, Dzhinaki and similar leads were not counted as new. New Vita catchment labels were not turned into multiple physical premises.",
+  "nextStep": "Prefer reusable owner evidence and clarification of existing point-bearing venues with missing quarters. Leave blocked/restricted candidates pending; never create bookings/accounts or clone providers to satisfy coverage."
+}

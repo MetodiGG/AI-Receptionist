@@ -1,3 +1,4 @@
+import { priority30ReportAllowsFileChange, priority30ReportAllowsNewFile, priority30ReportPriorSource } from './priority30-catalogue-report-scope.mjs'
 import { azisCatalogueAllowsFileChange, azisCatalogueAllowsNewFile, azisCataloguePriorSource } from './azis-style-catalogue-20261122-scope.mjs'
 import { regionalCatalogueAllowsFileChange, regionalCatalogueAllowsNewFile, regionalCataloguePriorSource } from './regional-catalogue-20261122-scope.mjs'
 import { catalogueRevalidationAllowsFileChange } from './catalogue-revalidation-20261122-scope.mjs'
@@ -14,7 +15,7 @@ import { publicEnglishAllowsFileChange, publicEnglishAllowsNewFile } from './pub
 
 const root = fileURLToPath(new URL('../',import.meta.url))
 const git = (...args) => execFileSync('git',args,{cwd:root,encoding:'utf8',maxBuffer:16*1024*1024})
-const read = path => readFile(new URL('../'+path,import.meta.url),'utf8').then(source => regionalCataloguePriorSource(path, azisCataloguePriorSource(path, source)))
+const read = path => readFile(new URL('../'+path,import.meta.url),'utf8').then(source => regionalCataloguePriorSource(path, azisCataloguePriorSource(path, priority30ReportPriorSource(path, source))))
 const before = path => git('show',PUBLIC_ACTION_BASE+':'+path)
 const productionPath = path => path !== 'node_modules' && !/^(?:tests|docs)\//.test(path) && !/\.(?:md|txt)$/i.test(path)
 const tree = git('ls-tree','-r','-z',PUBLIC_ACTION_BASE).split('\0').filter(Boolean).map(record => {
@@ -37,13 +38,13 @@ test('compact previews and shared actions have exactly twelve reviewed existing 
 })
 
 test('every original image and other production byte/path stays identical to the committed stationary-discovery stage, including data/prices, search, filtering, booking and analytics',async () => {
-  const frozen = tree.filter(record => !publicActionAllowsFileChange(record.path) && !publicEnglishAllowsFileChange(record.path) && !servicePriceCardsAllowsFileChange(record.path) && !catalogueRevalidationAllowsFileChange(record.path) && !regionalCatalogueAllowsFileChange(record.path) && !azisCatalogueAllowsFileChange(record.path) && !sportsMobilePhotoFitAllowsFileChange(record.path))
+  const frozen = tree.filter(record => !publicActionAllowsFileChange(record.path) && !publicEnglishAllowsFileChange(record.path) && !servicePriceCardsAllowsFileChange(record.path) && !catalogueRevalidationAllowsFileChange(record.path) && !regionalCatalogueAllowsFileChange(record.path) && !azisCatalogueAllowsFileChange(record.path) && !priority30ReportAllowsFileChange(record.path) && !sportsMobilePhotoFitAllowsFileChange(record.path))
   for(let offset=0;offset<frozen.length;offset+=32) await Promise.all(frozen.slice(offset,offset+32).map(async record => {
     const path = new URL('../'+record.path,import.meta.url)
     const bytes = record.mode === '120000' ? Buffer.from(await readlink(path)) : await readFile(path)
     assert.equal(createHash('sha1').update('blob '+bytes.length+'\0').update(bytes).digest('hex'),record.oid,record.path+' stays unchanged from '+PUBLIC_ACTION_BASE)
   }))
-  const actual = git('ls-files','--cached','--others','--exclude-standard','-z').split('\0').filter(path => path && !regionalCatalogueAllowsNewFile(path) && !azisCatalogueAllowsNewFile(path) && !(path === 'lib/discovery/public-catalogue.mjs' && azisCatalogueAllowsFileChange(path)) && productionPath(path) && !publicEnglishAllowsNewFile(path) && !(path === 'scripts/check-public-english.mjs' && (regionalCatalogueAllowsFileChange(path) || azisCatalogueAllowsFileChange(path))) && !(path === 'lib/locale/service-english.json' && (catalogueRevalidationAllowsFileChange(path) || (regionalCatalogueAllowsFileChange(path) || azisCatalogueAllowsFileChange(path)))) && !servicePriceCardsAllowsNewFile(path))
+  const actual = git('ls-files','--cached','--others','--exclude-standard','-z').split('\0').filter(path => path && !priority30ReportAllowsNewFile(path) && !regionalCatalogueAllowsNewFile(path) && !azisCatalogueAllowsNewFile(path) && !(path === 'lib/discovery/public-catalogue.mjs' && azisCatalogueAllowsFileChange(path)) && productionPath(path) && !publicEnglishAllowsNewFile(path) && !(path === 'scripts/check-public-english.mjs' && (regionalCatalogueAllowsFileChange(path) || azisCatalogueAllowsFileChange(path))) && !(path === 'lib/locale/service-english.json' && (catalogueRevalidationAllowsFileChange(path) || (regionalCatalogueAllowsFileChange(path) || azisCatalogueAllowsFileChange(path)))) && !servicePriceCardsAllowsNewFile(path))
   assert.deepEqual([...new Set(actual)].sort(),[...tree.map(record=>record.path),...Object.keys(PUBLIC_ACTION_NEW_HASHES)].sort(),'no data/media/API/config path is added')
 })
 

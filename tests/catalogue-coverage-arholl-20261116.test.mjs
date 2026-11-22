@@ -161,7 +161,7 @@ test('isolated exact-quarter public discovery preserves phone booking and qualif
 })
 
 test('the premises earns exactly one physical Obelya1 sport cell, without teacher, service, adjacent-quarter or citywide multiplication', () => {
-  const report = catalogueCoverageReport([row], { now })
+  const report = catalogueCoverageReport([row], { now, target: 50 })
   assert.equal(report.counts.approvedBusinesses, 1)
   assert.equal(report.counts.premises, 1)
   assert.equal(report.counts.serviceAreaProviders, 0)

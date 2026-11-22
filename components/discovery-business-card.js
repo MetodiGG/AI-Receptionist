@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { publicProse } from '../lib/locale/public-content.mjs'
+import { publicProse, serviceDisplayName, serviceDisplayUnit } from '../lib/locale/public-content.mjs'
 import { memo, useRef, useState } from 'react'
 import dynamic from 'next/dynamic'
 import { Icon } from './icon'
@@ -9,9 +9,13 @@ import { BrandMark } from './brand-logo'
 import { BusinessCoverPhoto } from './business-cover-photo'
 import { OutboundBookingButton } from './outbound-booking-button'
 import { PublicAction, PublicActionPair } from './public-action'
+import { ServiceThumbnail } from './service-thumbnail'
 import { isOffsiteBooking } from '../lib/booking-mode.mjs'
 import { homeBusinessPhoto } from '../lib/discovery/home.mjs'
-import { railDirections, railExternalAction } from '../lib/discovery/rail.mjs'
+import { railDirections, railExternalAction, railServiceItems } from '../lib/discovery/rail.mjs'
+import { detailPriceLabel } from '../lib/discovery/business-details.mjs'
+import { servicePresentation } from '../lib/discovery/service-presentation.mjs'
+import { serviceDescriptionDisclosure } from '../lib/discovery/service-description-disclosure.mjs'
 import { businessPhotoStyle } from '../lib/business-photo-layout.mjs'
 import { DiscoveryDistanceBadge } from './discovery-distance-badge'
 import { isCataloguePhotoSource } from '../lib/catalogue-photo-view.mjs'
@@ -23,6 +27,8 @@ const DiscoveryBusinessDetails = dynamic(() => import('./discovery-business-deta
 export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, locale = 'bg', preview = false, distanceOrigin = null }) {
   const en = locale === 'en', internal = row.source === 'gorez'
   const copy = DISCOVERY_COPY[locale] || DISCOVERY_COPY.bg
+  const directionsLabel = en ? copy.directions : 'Упъти'
+  const services = railServiceItems(row)
   const [failedPhoto, setFailedPhoto] = useState(null)
   const [detailsOpen, setDetailsOpen] = useState(false), detailsTrigger = useRef(null)
   const hasDetails = internal || row.source === 'catalogue'
@@ -45,8 +51,8 @@ export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, 
     const action = railExternalAction(business)
     return <PublicActionPair className="home-business-actions">
       {directions && (preview
-        ? <PublicAction as="span" variant="secondary" aria-disabled="true">{copy.directions}</PublicAction>
-        : <PublicAction as="a" variant="secondary" href={directions} target="_blank" rel="noopener noreferrer" aria-label={`${copy.directions} · ${business.name}`} title={en ? 'Opens Google Maps directions' : 'Отваря упътвания в Google Maps'}>{copy.directions}</PublicAction>)}
+        ? <PublicAction as="span" variant="secondary" aria-disabled="true">{directionsLabel}</PublicAction>
+        : <PublicAction as="a" variant="secondary" href={directions} target="_blank" rel="noopener noreferrer" aria-label={`${directionsLabel} · ${business.name}`} title={en ? 'Opens Google Maps directions' : 'Отваря упътвания в Google Maps'}>{directionsLabel}</PublicAction>)}
       {preview ? (internalBooking || action) && <PublicAction as="span" variant="primary" aria-disabled="true">{copy.reserveAppointment}</PublicAction>
         : internalBooking ? profile && (isOffsiteBooking(business)
           ? <OutboundBookingButton business={business} locale={locale}>{copy.reserveAppointment}</OutboundBookingButton>
@@ -57,7 +63,7 @@ export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, 
   }
 
   return <article className="home-business-card is-compact-preview" data-source={row.source}>
-    {/* One native details target covers the photo, name, details cue and empty
+    {/* One native details target covers the photo, name, service previews and empty
         card space. Real action controls sit above it, never inside a button. */}
     {hasDetails && <button type="button" className="home-business-open" onClick={openDetails} aria-haspopup="dialog" aria-label={`${copy.detailsLabel} · ${row.name}`}/>}
     <div className="home-business-heading">
@@ -70,7 +76,23 @@ export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, 
       <div className="home-business-identity">
         {internal && <span className="home-business-partner"><BrandMark size={20}/>{en ? 'GoRez Partner' : 'Партньор на GoRez'}</span>}
         <h3 title={row.name}>{row.name}</h3>
-        {hasDetails && <span className="home-business-inline-details">{copy.viewDetailsLower}<Icon name="arrow"/></span>}
+        {services.length > 0 && <ul className="home-business-service-preview" aria-label={copy.servicesLabel}>{services.map((service,index) => {
+          const price = detailPriceLabel({ ...service, priceUnit: '' }, locale, { compact: true })
+          const unit = price && service.priceUnit ? serviceDisplayUnit(service, locale) : ''
+          const { description, conditions } = servicePresentation(service, locale)
+          const { visible, hasConditions } = serviceDescriptionDisclosure(description)
+          return <li key={service.id || `${service.name}-${index}`}>
+            <ServiceThumbnail service={service} business={row} locale={locale} size={40}/>
+            <div className="home-business-preview-copy">
+              <div className="home-business-preview-main"><strong className="home-business-preview-name">{serviceDisplayName(service, locale)}</strong>{price && <span className="home-business-preview-price">{price}</span>}</div>
+              {unit && <span className="home-business-preview-unit">{unit}</span>}
+              {conditions.map(condition => <span className="home-business-preview-condition" key={condition}>{condition}</span>)}
+              {hasConditions && <span className="home-business-preview-condition" data-service-has-conditions>{copy.hasConditions}</span>}
+              {visible.map((paragraph,paragraphIndex) => <p className="home-business-preview-description" key={paragraphIndex}>{paragraph}</p>)}
+            </div>
+            {hasDetails && <span className="home-business-preview-chevron"><Icon name="chevronDown"/></span>}
+          </li>
+        })}</ul>}
         {actions()}
       </div>
     </div>

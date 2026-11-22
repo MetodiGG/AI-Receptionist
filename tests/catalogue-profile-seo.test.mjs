@@ -1,3 +1,4 @@
+import { loadPublicServiceMenu } from './helpers/public-service-menu.mjs'
 import test from 'node:test'
 import * as publicAction from './helpers/public-action.mjs'
 import assert from 'node:assert/strict'
@@ -21,6 +22,8 @@ import { presentPublicService } from '../lib/locale/public-content-server.mjs'
 const now = Date.parse('2026-11-14T12:00:00Z')
 const real = SOFIA_CATALOGUE.find(row => row.id === 'sofia-in-beauty')
 const clone = value => structuredClone(value)
+const publicServiceMenu = await loadPublicServiceMenu()
+
 const require = createRequire(import.meta.url)
 const { loadBindings, transform } = require('next/dist/build/swc')
 await loadBindings()
@@ -133,6 +136,7 @@ const page = await compile('../app/businesses/catalogue/[id]/page.js', {
     'data-activity-cover': business.illustrativeCoverPhotoKey, 'data-resolved-cover': businessCoverPhoto(business).src }, React.createElement('h1', null, business.name), business.address) },
   '../../../../components/service-thumbnail': { ServiceThumbnail: ({ service }) => React.createElement('img', { src: '/service-photos/test.webp', alt: service.name }) },
   '../../../../components/public-action': publicAction,
+  '../../../../components/public-service-menu': publicServiceMenu,
   '../../../../components/icon': { Icon: ({ name }) => React.createElement('svg', { 'data-icon': name, 'aria-hidden': true }) },
   '../../../../lib/catalogue-profile-server': { readCatalogueSeoProfile: async () => responseProfile },
   '../../../../lib/catalogue-profile.mjs': profile, '../../../../lib/seo.mjs': seo,
@@ -159,19 +163,17 @@ test('BG/EN route server-renders actual full service names/prices and safe real 
   }
 })
 
-test('catalogue profiles split the actual general menu before Prices without changing existing service fragment IDs', async () => {
+test('catalogue profiles show one Services & Prices menu without duplicating entries or changing existing service fragment IDs', async () => {
   responseProfile = actualProfile(SOFIA_CATALOGUE.find(row => row.id === 'sofia-beauty-studio-99'))
   const expectedIds = details.groupDetailServices(details.businessDetailServices(responseProfile.business)).flatMap(group => group.services.map((service, index) => `service-${group.key || 'other'}-${index}`))
   for (const locale of ['bg', 'en']) {
     const html = renderToStaticMarkup(await page.default({ params: Promise.resolve({ id: responseProfile.row.id }), searchParams: Promise.resolve({ lang: locale }) }))
-    const general = html.match(/<section[^>]*aria-labelledby="catalogue-services-heading">([\s\S]*?)<\/section>/)?.[1]
-    const tariff = html.match(/<section[^>]*aria-labelledby="catalogue-prices-heading">([\s\S]*?)<\/section>/)?.[1]
-    assert.ok(general.includes(`>${copy.DISCOVERY_COPY[locale].servicesLabel}</h2>`))
-    assert.ok(tariff.includes(`>${copy.DISCOVERY_COPY[locale].pricesLabel}</h2>`))
-    assert.ok(html.indexOf(general) < html.indexOf(tariff))
-    for (const name of ['Маникюр', 'Педикюр']) assert.ok(general.includes(`<strong>${publicContent.serviceDisplayName(presentPublicService({ name }), locale)}</strong>`))
-    assert.doesNotMatch(general, /profile-service-price/)
-    assert.ok(tariff.includes(publicContent.serviceDisplayName(presentPublicService({ name: 'Класически маникюр без лак' }), locale)))
+    const menu = html.match(/<section[^>]*aria-labelledby="catalogue-services-heading">([\s\S]*?)<\/section>/)?.[1]
+    assert.ok(menu.includes(renderToStaticMarkup(React.createElement('h2', { id: 'catalogue-services-heading' }, copy.DISCOVERY_COPY[locale].servicesPrices))))
+    assert.doesNotMatch(html, /catalogue-prices-heading|business-details-overview/)
+    for (const name of ['Маникюр', 'Педикюр']) assert.ok(menu.includes(renderToStaticMarkup(React.createElement('strong', { className: 'public-service-menu-name' }, publicContent.serviceDisplayName(presentPublicService({ name }), locale)))))
+    assert.ok(menu.includes(publicContent.serviceDisplayName(presentPublicService({ name: 'Класически маникюр без лак' }), locale)))
+    assert.equal((menu.match(/data-service-price-card=/g) || []).length, expectedIds.length)
     const ids = [...html.matchAll(/id="(service-[^"]+)"/g)].map(match => match[1])
     assert.equal(ids.length, new Set(ids).size)
     assert.deepEqual([...ids].sort(), [...expectedIds].sort())

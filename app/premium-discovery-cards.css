@@ -1,5 +1,5 @@
-/* Compact public previews. Full services, prices, location and reviews remain
-   in the existing details dialog. Action visuals live only in PublicAction. */
+/* Two real, relevant services invite a closer look. The complete menu, location
+   and reviews remain in details. Action visuals live only in PublicAction. */
 .customer-home .home-business-grid {
   --preview-surface: #fffcf7;
   --preview-ink: #35261e;
@@ -89,20 +89,102 @@
   line-height: 1.4;
 }
 .customer-home .home-business-grid .is-compact-preview .home-business-partner img { width: 18px; height: 18px; }
-.customer-home .home-business-grid .is-compact-preview .home-business-inline-details {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  min-height: 44px;
-  margin: 4px 0 12px;
+.customer-home .home-business-grid .is-compact-preview .home-business-service-preview {
+  display: grid;
+  gap: 8px;
+  margin: 14px 0 16px;
   padding: 0;
-  color: var(--preview-accent);
-  font-size: .875rem;
-  font-weight: 550;
-  line-height: 1.4;
-  text-decoration: none;
+  list-style: none;
 }
-.customer-home .home-business-grid .is-compact-preview .home-business-inline-details svg { width: 15px; height: 15px; stroke-width: 1.75; }
+.customer-home .home-business-grid .is-compact-preview .home-business-service-preview > li {
+  display: grid;
+  grid-template-columns: 40px minmax(0,1fr) 14px;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  min-height: 60px;
+  padding: 10px;
+  border: 1px solid var(--preview-line);
+  border-radius: 14px;
+  background: color-mix(in srgb,var(--preview-surface) 80%,var(--preview-photo));
+  box-shadow: inset 0 1px 0 #ffffff60;
+  transition: border-color 180ms ease,background-color 180ms ease;
+}
+.customer-home .home-business-grid .is-compact-preview .home-business-service-preview .service-thumbnail {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+}
+.customer-home .home-business-grid .is-compact-preview .home-business-preview-copy { min-width: 0; }
+.customer-home .home-business-grid .is-compact-preview .home-business-preview-main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 10px;
+  row-gap: 3px;
+  min-width: 0;
+}
+.customer-home .home-business-grid .is-compact-preview .home-business-preview-name {
+  flex: 1 1 8rem;
+  margin: 0;
+  color: var(--preview-ink);
+  font-size: .9375rem;
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: normal;
+  overflow: visible;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+.customer-home .home-business-grid .is-compact-preview .home-business-preview-price {
+  flex: 0 1 auto;
+  max-width: 100%;
+  margin-inline-start: auto;
+  color: var(--preview-accent);
+  font-size: .9375rem;
+  font-weight: 650;
+  line-height: 1.4;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: normal;
+}
+.customer-home .home-business-grid .is-compact-preview :is(.home-business-preview-unit,.home-business-preview-condition,.home-business-preview-description) {
+  display: block;
+  margin: 4px 0 0;
+  color: var(--preview-muted);
+  font-size: .8125rem;
+  font-weight: 400;
+  line-height: 1.5;
+  white-space: normal;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+.customer-home .home-business-grid .is-compact-preview .home-business-preview-unit { text-align: right; }
+.customer-home .home-business-grid .is-compact-preview .home-business-preview-chevron {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  color: var(--preview-accent);
+}
+.customer-home .home-business-grid .is-compact-preview .home-business-preview-chevron svg {
+  width: 14px;
+  height: 14px;
+  stroke-width: 1.75;
+  transform: rotate(-90deg);
+  transition: transform 180ms ease;
+}
+.customer-home .home-business-grid .is-compact-preview .home-business-identity h3 + .home-business-actions {
+  margin-top: 18px;
+}
+.customer-home .home-business-grid .is-compact-preview .home-business-service-preview + .home-business-actions {
+  margin-top: 0;
+}
+.customer-home .home-business-grid .is-compact-preview .home-business-service-preview p {
+  max-width: none;
+  font-size: .8125rem;
+  line-height: 1.4;
+}
 .customer-home .home-business-grid .is-compact-preview .home-business-actions {
   position: relative;
   z-index: 2;
@@ -153,7 +235,8 @@
   box-shadow: none;
 }
 @media (hover:hover) and (pointer:fine) {
-  .customer-home .home-business-grid .is-compact-preview:has(> .home-business-open:hover) .home-business-inline-details { text-decoration: underline; text-underline-offset: 4px; }
+  .customer-home .home-business-grid .is-compact-preview:has(> .home-business-open:hover) .home-business-service-preview > li { border-color: color-mix(in srgb,var(--preview-accent) 42%,var(--preview-line)); background: color-mix(in srgb,var(--preview-surface) 70%,var(--preview-photo)); }
+  .customer-home .home-business-grid .is-compact-preview:has(> .home-business-open:hover) .home-business-preview-chevron svg { transform: translateX(2px) rotate(-90deg); }
 }
 html[data-theme="dark"] .customer-home .home-business-grid {
   --preview-surface: #30261f;
@@ -172,13 +255,17 @@ html[data-theme="dark"] .customer-home .home-business-grid article.home-business
 }
 html[data-theme="dark"] .customer-home .home-business-grid .is-compact-preview .home-business-identity h3 { color: var(--preview-ink); }
 html[data-theme="dark"] .customer-home .home-business-grid .is-compact-preview .business-category-cover-label { color: #f8e3ce; background: #30241ded; }
+html[data-theme="dark"] .customer-home .home-business-grid .is-compact-preview .home-business-service-preview > li { box-shadow: inset 0 1px 0 #ffcda80c; }
 @media (max-width: 759px) {
   .customer-home .home-business-grid article.home-business-card.is-compact-preview { padding: 12px; border-radius: 22px; }
   .customer-home .home-business-grid article.home-business-card.is-compact-preview > .home-business-heading { grid-template-columns: minmax(0,1fr); gap: 16px; }
   .customer-home .home-business-grid .is-compact-preview .home-business-identity { grid-column: 1; grid-row: 2; margin: 0; }
   .customer-home .home-business-grid .is-compact-preview .home-business-identity h3 { font-size: 1.375rem; }
-  .customer-home .home-business-grid .is-compact-preview .home-business-inline-details { margin-bottom: 8px; }
+  .customer-home .home-business-grid .is-compact-preview .home-business-service-preview { margin-top: 12px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .customer-home .home-business-grid .is-compact-preview { animation: none; transition: none; }
+  .customer-home .home-business-grid .is-compact-preview .home-business-service-preview > li,
+  .customer-home .home-business-grid .is-compact-preview .home-business-preview-chevron svg { transition: none; }
+  .customer-home .home-business-grid .is-compact-preview:has(> .home-business-open:hover) .home-business-preview-chevron svg { transform: rotate(-90deg); }
 }

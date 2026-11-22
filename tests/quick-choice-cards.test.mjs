@@ -14,7 +14,7 @@ const require = createRequire(import.meta.url), { loadBindings, transform } = re
 await loadBindings()
 const filename = 'components/discovery-business-card.js'
 const { code } = await transform(await readFile(new URL('../' + filename, import.meta.url), 'utf8'), { filename, jsc: { parser: { syntax: 'ecmascript', jsx: true }, transform: { react: { runtime: 'automatic' } } }, module: { type: 'commonjs' } })
-const Empty = () => null, Details = () => null, Outbound = () => null, Badge = () => null, Cover = () => null, Link = () => null
+const Empty = () => null, Details = () => null, Outbound = () => null, Badge = () => null, Cover = () => null, Link = () => null, Thumbnail = () => null
 const Action = () => null, Pair = () => null
 function elements(node, predicate, found = []) {
   if (Array.isArray(node)) node.forEach(child => elements(child, predicate, found))
@@ -31,6 +31,7 @@ function fixture(patch = {}) {
     'next/link': { __esModule: true, default: Link }, 'next/dynamic': { __esModule: true, default: () => Details },
     './icon': { Icon: Empty }, './brand-logo': { BrandMark: Empty }, './business-cover-photo': { BusinessCoverPhoto: Cover },
     './outbound-booking-button': { OutboundBookingButton: Outbound }, './public-action': { PublicAction: Action, PublicActionPair: Pair },
+    './service-thumbnail': { ServiceThumbnail: Thumbnail },
     '../lib/booking-mode.mjs': bookingMode, '../lib/discovery/home.mjs': home, '../lib/discovery/rail.mjs': rail,
     '../lib/business-photo-layout.mjs': photoLayout, './discovery-distance-badge': { DiscoveryDistanceBadge: Badge },
     '../lib/catalogue-photo-view.mjs': cataloguePhotos, '../lib/discovery/copy.mjs': { DISCOVERY_COPY },
@@ -43,19 +44,24 @@ function fixture(patch = {}) {
   return { get tree() { return tree }, events, props, render }
 }
 
-for (const locale of ['bg', 'en']) test(`${locale}: compact card shows only identity, details and two actions, with a true photo-overlay distance`, () => {
+for (const locale of ['bg', 'en']) test(`${locale}: compact card shows identity, two relevant service previews and two actions, with a true photo-overlay distance`, () => {
   const origin = { latitude: 42.66, longitude: 23.29, kind: 'location' }, row = business(), before = structuredClone(row)
   const f = fixture({ locale, row, distanceOrigin: origin })
   const identity = nodeClass(f.tree, 'home-business-identity')[0]
   assert.equal(elements(identity, node => node.type === 'h3')[0].props.children, row.name)
   for (const removed of ['home-business-category', 'home-business-neighborhood', 'home-business-services', 'home-business-reviews', 'home-business-booking-hint']) assert.equal(nodeClass(f.tree, removed).length, 0)
-  assert.equal(nodeClass(f.tree, 'home-business-inline-details')[0].props.children[0], DISCOVERY_COPY[locale].viewDetailsLower)
+  assert.equal(nodeClass(f.tree, 'home-business-inline-details').length,0,'service previews replace the redundant visible details cue')
+  assert.equal(nodeClass(f.tree,'home-business-service-preview').length,1)
+  const thumbnails=elements(identity,node=>node.type===Thumbnail)
+  assert.equal(thumbnails.length,1)
+  assert.equal(thumbnails[0].props.service.name,row.services[0].name)
+  assert.equal(thumbnails[0].props.size,40)
   assert.equal(elements(identity, node => node.type === Pair).length, 1)
   assert.equal(elements(identity, node => node.type === Badge).length, 0)
   const badge = elements(nodeClass(f.tree, 'home-business-photo'), node => node.type === Badge)[0]
   assert.equal(badge.props.origin, origin); assert.equal(badge.props.destination, row.coordinates)
   assert.equal(badge.props.distanceOnly, true, 'unknown coordinates cannot be shown as a made-up numeric distance')
-  assert.deepEqual(row, before, 'removing preview prose never changes the complete service menu or source data')
+  assert.deepEqual(row, before, 'preview presentation never changes the complete service menu or source data')
 })
 
 for (const locale of ['bg', 'en']) test(`${locale}: one native whole-card details target opens once, preserves focus and does not emit booking analytics`, () => {
@@ -99,7 +105,7 @@ for (const locale of ['bg', 'en']) test(`${locale}: native, external, phone and 
     const row = business({ booking_mode, phone: '+359888000001' }), f = fixture({ row, locale })
     const map = elements(f.tree, node => node.type === Action && node.props.variant === 'secondary')[0]
     assert.equal(map.props.href, rail.railDirections(row)); assert.equal(map.props.rel, 'noopener noreferrer')
-    assert.equal(map.props.children, DISCOVERY_COPY[locale].directions)
+    assert.equal(map.props.children, locale==='en'?DISCOVERY_COPY[locale].directions:'Упъти')
     if (booking_mode === 'gorez') {
       const book = elements(f.tree, node => node.type === Action && node.props.variant === 'primary')[0]
       assert.equal(book.props.as, Link); assert.equal(book.props.href, `/book/real%2Fbranch?lang=${locale}`)
@@ -120,6 +126,69 @@ for (const locale of ['bg', 'en']) test(`${locale}: native, external, phone and 
   const preview = fixture({ locale, preview: true })
   assert.equal(elements(preview.tree, node => node.type === Outbound).length, 0)
   for (const item of elements(preview.tree, node => node.type === Action)) { assert.equal(item.props.as, 'span'); assert.equal(item.props['aria-disabled'], 'true'); assert.equal(item.props.href, undefined) }
+})
+
+for(const locale of ['bg','en'])test(`${locale}: real service names, ranges, from prices, units and price qualifications stay paired and visible`,()=>{
+  const services=[
+    {name:'Гел лак с укрепване и сваляне на материал',price:25,currency:'EUR',priceKind:'from',priceUnit:'пакет 2 посещения',
+      description:'Материалите не са включени.',presentationEn:{name:'Gel polish with strengthening and product removal',unit:'package of 2 visits',description:'Materials are not included.'}},
+    {name:'Педикюр',price:30,priceMaximum:50,priceKind:'range',currency:'EUR',
+      description:'Меню за посочения салон; вариантът и специалистът се потвърждават при записване.',presentationEn:{name:'Pedicure'}},
+    {name:'Трета услуга',price:999,currency:'EUR'},
+  ]
+  const row=business({services}),before=structuredClone(row),f=fixture({row,locale})
+  const names=nodeClass(f.tree,'home-business-preview-name'),prices=nodeClass(f.tree,'home-business-preview-price')
+  assert.equal(names.length,2);assert.equal(prices.length,2)
+  assert.deepEqual(names.map(node=>node.props.children),locale==='en'?[services[0].presentationEn.name,'Pedicure']:[services[0].name,'Педикюр'])
+  assert.match(prices[0].props.children,locale==='en'?/^from €25/u:/^от 25/u)
+  assert.match(prices[1].props.children,/30.*50/u)
+  assert.doesNotMatch(prices.map(node=>node.props.children).join(' '),/999|пакет|package/u,'units have their own visible line and are not duplicated')
+  assert.equal(nodeClass(f.tree,'home-business-preview-unit')[0].props.children,locale==='en'?'package of 2 visits':'пакет 2 посещения')
+  assert.equal(nodeClass(f.tree,'home-business-preview-description')[0].props.children,locale==='en'?'Materials are not included.':'Материалите не са включени.')
+  assert.equal(nodeClass(f.tree,'home-business-preview-condition')[0].props.children,locale==='en'?'Varies by option and specialist':'Според варианта и специалиста')
+  assert.equal(elements(nodeClass(f.tree,'home-business-service-preview'),node=>['a','button','form'].includes(node.type)).length,0,'preview rows open only the existing whole-card details target')
+  assert.equal(nodeClass(f.tree,'home-business-preview-chevron').length,2)
+  assert.deepEqual(row,before)
+})
+
+test('strict subcategory preview never fills its second row with a different service or guesses an unknown price',()=>{
+  const match={name:'Оформяне на вежди',price:null,category:'beauty'},unrelated={name:'Педикюр',price:40,category:'nails'}
+  const row=business({subcategory:'brows',services:[match],servicePreview:[match,unrelated],details:{services:[match,unrelated]}})
+  const f=fixture({row})
+  assert.deepEqual(nodeClass(f.tree,'home-business-preview-name').map(node=>node.props.children),[match.name])
+  assert.equal(nodeClass(f.tree,'home-business-preview-price').length,0)
+  assert.equal(elements(f.tree,node=>node.type===Thumbnail).length,1)
+  assert.deepEqual(f.events,[])
+  const empty=fixture({row:business({services:[]})})
+  assert.equal(nodeClass(empty.tree,'home-business-service-preview').length,0)
+  assert.equal(nodeClass(empty.tree,'home-business-inline-details').length,0)
+})
+
+for(const locale of ['bg','en'])test(`${locale}: approved compact preview folds long descriptions with a visible conditions warning and preserves the complete original details`,()=>{
+  const prose={
+    bg:'Оформяме косата с плавни линии и меко движение, като съчетаваме естествения цвят с фин завършек. Прическата подчертава индивидуалния стил и създава лекота, а внимателното измиване и подсушаване допълват усещането за свежа коса.',
+    en:'We shape the hair with flowing lines and soft movement, combining its natural colour with a refined finish. The hairstyle expresses individual style and creates a light feel, while careful washing and drying complete the fresh look.',
+  }
+  const condition={bg:'Цената не включва материали; доплащането се уточнява предварително.',en:'The price excludes materials; additional charges are agreed in advance.'}
+  const service={name:'Подстригване',price:20,currency:'EUR',priceUnit:'пакет 2 посещения',description:prose.bg+' '+condition.bg,
+    presentationEn:{name:'Haircut',unit:'package of 2 visits',description:prose.en+' '+condition.en}}
+  const row=business({services:[service]}),before=structuredClone(row),f=fixture({row,locale})
+  const paragraphs=nodeClass(f.tree,'home-business-preview-description').map(node=>node.props.children)
+  assert.deepEqual(paragraphs,[],'long source prose is opened through the existing whole-card details action')
+  const warnings=elements(f.tree,node=>node.props['data-service-has-conditions']===true)
+  assert.equal(warnings.length,1)
+  assert.equal(warnings[0].props.children,locale==='en'?'Conditions apply':'Има условия')
+  assert.equal(nodeClass(f.tree,'home-business-preview-unit')[0].props.children,locale==='en'?'package of 2 visits':'пакет 2 посещения')
+  assert.equal(elements(nodeClass(f.tree,'home-business-service-preview'),node=>['button','details','a','summary'].includes(node.type)).length,0,'the existing card click is the only preview disclosure action')
+  nodeClass(f.tree,'home-business-open')[0].props.onClick({currentTarget:{}});f.render()
+  assert.equal(elements(f.tree,node=>node.type===Details)[0].props.row,row)
+  assert.deepEqual(row,before,'full narrative and qualifications remain untouched for the complete menu')
+  const unknown='Авторът описва особеностите на подхода с внимание към контекста и запазва всички важни пояснения за човека, който ще чете този необичаен свободен текст. Обяснението продължава с неясно формулирани допълнения, които нямат предварително проверена структура.'
+  const fallback=fixture({row:business({services:[{...service,description:unknown}]}),locale:'bg'})
+  assert.equal(nodeClass(fallback.tree,'home-business-preview-description').length,0)
+  assert.equal(fallback.props.row.services[0].description,unknown)
+  const narrative=fixture({row:business({services:[{...service,description:prose.bg}]}),locale:'bg'})
+  assert.equal(elements(narrative.tree,node=>node.props['data-service-has-conditions']===true).length,0,'plain narrative is not mislabeled as a pricing qualification')
 })
 
 test('compact preview CSS reserves contained media, puts distance top-right, keeps disclosure readable and actions above the details target', async () => {

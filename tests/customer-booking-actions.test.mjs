@@ -223,7 +223,7 @@ test('actual home and directory booking labels are compact in both languages wit
       const row = { ...business, source: 'gorez', category: 'beauty', industry: 'beauty', services: [], booking_mode }
       const home = render(DiscoveryBusinessCard, { row, locale, quickChoice: true })
       assert.ok(home.includes(`<span class="public-action-label">${label}</span>`))
-      assert.ok(home.includes(`<span class="public-action-label">${directions}</span>`))
+      assert.ok(home.includes(`<span class="public-action-label">${locale==='en'?directions:'Упъти'}</span>`))
       const directory = render(BusinessDirectory, { locale, data: { status: 'ready', businesses: [row] }, showFilters: false })
       assert.ok(directory.includes(`<span class="public-action-label">${label}</span>`))
       assert.equal(artCount(home), 0, 'public booking actions no longer use raster calendar artwork')

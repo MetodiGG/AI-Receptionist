@@ -43,10 +43,26 @@ test('one whole-card target receives non-action clicks while shared action links
   const photo = declarations(find(rule => rule.selector.endsWith('.home-business-heading > .home-business-photo')))
   const identity = declarations(find(rule => rule.selector.endsWith('.home-business-identity')))
   assert.equal(photo['pointer-events'], 'none'); assert.equal(identity['pointer-events'], 'none')
-  const actions = declarations(find(rule => rule.selector.endsWith('.home-business-actions')))
+  const actions = declarations(find(rule => rule.selector.endsWith('.home-business-actions') && declarations(rule).position === 'relative'))
   assert.equal(actions['pointer-events'], 'auto'); assert.equal(actions['z-index'], '2')
   const focus = declarations(find(rule => rule.selector.endsWith('> .home-business-open:focus-visible')))
   assert.match(focus.outline, /^2px solid/); assert.equal(focus['outline-offset'], '3px')
+})
+
+test('service invitation rows have real photo space, complete text, honest separate price/units and quiet directional feedback',()=>{
+  const row=declarations(find(rule=>rule.selector.endsWith('.home-business-service-preview > li')))
+  assert.equal(row['grid-template-columns'],'40px minmax(0,1fr) 14px')
+  assert.equal(row['min-height'],'60px')
+  assert.equal(row['border-radius'],'14px')
+  const main=declarations(find(rule=>rule.selector.endsWith('.home-business-preview-main')))
+  assert.equal(main.display,'flex');assert.equal(main['flex-wrap'],'wrap')
+  const name=declarations(find(rule=>rule.selector.endsWith('.home-business-preview-name')))
+  for(const property of ['white-space','word-break','overflow-wrap'])assert.equal(name[property],'normal')
+  assert.equal(name.overflow,'visible')
+  const price=declarations(find(rule=>rule.selector.endsWith('.home-business-preview-price')))
+  assert.equal(price['font-variant-numeric'],'tabular-nums');assert.equal(price['margin-inline-start'],'auto')
+  assert.match(css,/prefers-reduced-motion: reduce[\s\S]*home-business-preview-chevron svg \{ transition: none;/u)
+  assert.doesNotMatch(css,/home-business-inline-details|line-clamp:\s*[1-9]|text-overflow: ellipsis/u)
 })
 
 test('card styling stays public-card scoped and does not duplicate shared button presentation or animate under reduced motion', () => {

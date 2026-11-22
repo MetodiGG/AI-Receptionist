@@ -1,3 +1,4 @@
+import { servicePriceCardsAllowsFileChange, servicePriceCardsAllowsNewFile } from './services-price-cards-scope.mjs'
 import test from 'node:test'
 import { PUBLIC_ENGLISH_BASE, publicEnglishAllowsFileChange, publicEnglishAllowsNewFile } from './public-english-scope.mjs'
 import { publicActionAllowsFileChange, publicActionAllowsNewFile } from './public-action-scope.mjs'
@@ -43,13 +44,13 @@ test('stationary selection and truthful count authorization covers exactly ten r
 })
 
 test('every other production path, original image, taxonomy/data record, main search, booking and analytics byte stays frozen to the approved Next security commit', async () => {
-  const frozen = tree.filter(record => !stationaryDiscoveryAllowsFileChange(record.path) && !publicActionAllowsFileChange(record.path) && !publicEnglishAllowsFileChange(record.path))
+  const frozen = tree.filter(record => !stationaryDiscoveryAllowsFileChange(record.path) && !publicActionAllowsFileChange(record.path) && !publicEnglishAllowsFileChange(record.path) && !servicePriceCardsAllowsFileChange(record.path))
   for (let offset = 0; offset < frozen.length; offset += 32) await Promise.all(frozen.slice(offset, offset + 32).map(async record => {
     const path = new URL('../' + record.path, import.meta.url)
     const bytes = record.mode === '120000' ? Buffer.from(await readlink(path)) : await readFile(path)
     assert.equal(createHash('sha1').update('blob ' + bytes.length + '\0').update(bytes).digest('hex'), record.oid, record.path + ' remains unchanged from ' + STATIONARY_DISCOVERY_BASE)
   }))
-  const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => path && productionPath(path) && !(publicActionAllowsNewFile(path) || path === 'components/public-action.module.css' && publicEnglishAllowsFileChange(path)) && !publicEnglishAllowsNewFile(path))
+  const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => path && productionPath(path) && !(publicActionAllowsNewFile(path) || path === 'components/public-action.module.css' && publicEnglishAllowsFileChange(path)) && !publicEnglishAllowsNewFile(path) && !servicePriceCardsAllowsNewFile(path))
   assert.deepEqual([...new Set(actual)].sort(), [...tree.map(record => record.path), ...Object.keys(STATIONARY_DISCOVERY_NEW_HASHES)].sort(), 'no new production/data/image path other than the separately reviewed offline inventory utility')
 })
 

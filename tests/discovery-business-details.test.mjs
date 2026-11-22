@@ -94,7 +94,7 @@ test('details are lazy-loaded, keyboard-accessible and local; exact address move
   assert.match(card, /dynamic\(\(\) => import\('\.\/discovery-business-details'\)/)
   assert.match(card, /detailsOpen && <DiscoveryBusinessDetails/)
   assert.match(card, /aria-haspopup="dialog"/); assert.doesNotMatch(card, /home-business-address/)
-  for (const required of ['showModal()', 'containDialogTab', 'aria-labelledby', 'onCancel=', 'trigger?.focus()', 'document.body.style.overflow = overflow', 'business.address && <section', 'services.map', 'hours.map']) assert.ok(dialog.includes(required), required)
+  for (const required of ['showModal()', 'containDialogTab', 'aria-labelledby', 'onCancel=', 'trigger?.focus()', 'document.body.style.overflow = overflow', 'business.address && <section', 'PublicServiceMenu services={services}', 'hours.map']) assert.ok(dialog.includes(required), required)
   assert.match(dialog, /\/api\/public\/discovery\/business\//)
   assert.doesNotMatch(dialog, /dangerouslySetInnerHTML|innerHTML|GoogleDiscoveryList/)
   const css = await read('app/discovery-home.css')

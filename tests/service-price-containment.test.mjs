@@ -1,3 +1,4 @@
+import { loadPublicServiceMenu } from './helpers/public-service-menu.mjs'
 import * as brandLoading from './helpers/brand-loading.mjs'
 import assert from 'node:assert/strict'
 import test from 'node:test'
@@ -25,6 +26,7 @@ const { loadBindings, transform } = require('next/dist/build/swc')
 await loadBindings()
 const Empty = () => null
 const thumbnail = ({ size }) => React.createElement('span', { 'data-service-thumbnail-size': size })
+const publicServiceMenu = await loadPublicServiceMenu({ ServiceThumbnail: thumbnail })
 const shared = {
   './booking-button-content': bookingButtonContent,
   './icon': { Icon: ({ name }) => React.createElement('svg', { 'aria-hidden': true, 'data-icon': name }) },
@@ -49,7 +51,7 @@ async function load(name, additional = {}) {
     module: { type: 'commonjs' },
   })
   const stubs = { ...shared, ...additional }, module = { exports: {} }
-  new Function('require', 'module', 'exports', code)(name => name === './public-action' ? publicAction : name === './public-action.module.css' ? publicAction.publicActionStyles : Object.hasOwn(stubs, name) ? stubs[name] : (name === './brand-loading' ? brandLoading : require(name)), module, module.exports)
+  new Function('require', 'module', 'exports', code)(name => name === './public-service-menu' ? publicServiceMenu : name === './public-action' ? publicAction : name === './public-action.module.css' ? publicAction.publicActionStyles : Object.hasOwn(stubs, name) ? stubs[name] : (name === './brand-loading' ? brandLoading : require(name)), module, module.exports)
   return module.exports
 }
 const { DiscoveryBusinessCard } = await load('discovery-business-card', {
@@ -152,12 +154,16 @@ function renderedPrice(html, className) {
 function assertRenderedService(service, locale) {
   const row = fixture(service)
   const card = render(DiscoveryBusinessCard, { row, locale, preview: true })
-  assert.doesNotMatch(card, /class="home-service-price"|class="home-service-name"|data-service-thumbnail-size=/, 'compact previews omit the tariff; no shortened or fabricated price substitutes it')
+  assert.ok(card.includes(escape(serviceDisplayName(service,locale))))
+  assert.ok(card.includes(escape(detailsData.detailPriceLabel({...service,priceUnit:''},locale,{compact:true}))))
+  assert.ok(card.includes(escape(serviceDisplayUnit(service,locale))))
+  assert.match(card,/data-service-thumbnail-size="40"/)
+  assert.doesNotMatch(card,/home-business-inline-details/)
   let renderedText
   for (const linked of [true, false]) {
     const menuService = { ...service, priceSourceUrl: linked ? sourceUrl : null }
     const html = render(DiscoveryBusinessDetails, { row: fixture(menuService), locale, preview: true, triggerRef: { current: null }, onClose: Empty })
-    const actual = renderedPrice(html, 'business-details-price')
+    const actual = renderedPrice(html, 'public-service-menu-price')
     renderedText = actual.text
     const full = detailsData.detailPriceLabel({ ...service, priceUnit: '' }, locale)
     assert.equal(actual.text, full + serviceDisplayUnit(service, locale), `${locale}: both detail markup variants retain full price and qualification`)
@@ -168,7 +174,7 @@ function assertRenderedService(service, locale) {
       assert.ok(actual.markup.includes(`aria-label="${escape(detailsData.detailPriceLabel(service, locale))}`))
     }
     assert.ok(html.includes(escape(serviceDisplayName(service, locale))))
-    assert.match(html, /data-service-thumbnail-size="44"/)
+    assert.match(html, /data-service-thumbnail-size="128"/)
   }
   return renderedText
 }
@@ -231,9 +237,9 @@ test('unknown prices are still absent, never replaced by zero or a truncated fak
     const row = fixture({ name: longName, category: 'barber', price: null, currency: 'EUR' })
     const card = render(DiscoveryBusinessCard, { row, locale, preview: true })
     const details = render(DiscoveryBusinessDetails, { row, locale, preview: true, triggerRef: { current: null }, onClose: Empty })
-    assert.doesNotMatch(card, /class="home-service-price"/)
+    assert.doesNotMatch(card, /class="home-business-preview-price"/)
     assert.doesNotMatch(details, /class="business-details-price"/)
-    assert.doesNotMatch(card, /home-service-name|home-business-services/)
+    assert.ok(card.includes(escape(serviceDisplayName(row.services[0],locale))))
     assert.ok(details.includes(escape(serviceDisplayName(row.services[0], locale))))
   }
 })

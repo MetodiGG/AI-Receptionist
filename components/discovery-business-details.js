@@ -1,18 +1,17 @@
 'use client'
 
-import { serviceDisplayName, serviceDisplayUnit, publicProse, businessDisplayAddress } from '../lib/locale/public-content.mjs'
+import { publicProse, businessDisplayAddress } from '../lib/locale/public-content.mjs'
 import { BrandLoading } from './brand-loading'
 import { useEffect, useId, useRef, useState } from 'react'
 import { Icon } from './icon'
 import { BusinessPhotoGallery } from './business-photo-gallery'
 import { BusinessCoverPhoto } from './business-cover-photo'
-import { ServiceThumbnail } from './service-thumbnail'
+import { PublicServiceMenu } from './public-service-menu'
 import { containDialogTab } from '../lib/dialog-focus.mjs'
-import { businessDetailHours, businessDetailServices, detailPriceLabel, groupDetailServices, splitDetailServiceMenu } from '../lib/discovery/business-details.mjs'
+import { businessDetailHours, businessDetailServices, detailPriceLabel } from '../lib/discovery/business-details.mjs'
 import { railCategory } from '../lib/discovery/rail.mjs'
 import { isCataloguePhotoSource } from '../lib/catalogue-photo-view.mjs'
 import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
-import { servicePresentation } from '../lib/discovery/service-presentation.mjs'
 
 export function DiscoveryBusinessDetails({ row, locale = 'bg', preview = false, onClose, triggerRef, actions }) {
   const copy = DISCOVERY_COPY[locale] || DISCOVERY_COPY.bg, dialog = useRef(null), id = useId()
@@ -20,8 +19,7 @@ export function DiscoveryBusinessDetails({ row, locale = 'bg', preview = false, 
   const [full, setFull] = useState(needsFetch ? null : row), [status, setStatus] = useState(needsFetch ? 'loading' : 'ready'), [attempt, setAttempt] = useState(0)
   const business = full ? { ...row, ...full } : row
   const services = businessDetailServices(business), hours = businessDetailHours(business)
-  const { unpriced, priced } = splitDetailServiceMenu(services, locale)
-  const serviceGroups = groupDetailServices(unpriced), priceGroups = groupDetailServices(priced)
+  const hasPrices = services.some(service => detailPriceLabel(service, locale) !== null)
   const description = publicProse(business.details?.description, locale, business.presentationEn?.description)
   const photos = business.source === 'gorez' ? business.photos || [] : isCataloguePhotoSource(business.photo?.src) ? [{ ...business.photo, alt: { [locale]: publicProse(business.photo.alt, locale) || business.name } }] : []
 
@@ -73,13 +71,10 @@ export function DiscoveryBusinessDetails({ row, locale = 'bg', preview = false, 
     {status === 'missing' && <p role="status">{copy.detailsUnavailable}</p>}
     {status === 'ready' && <>
       {description && <p className="business-details-description">{description}</p>}
-      <section aria-labelledby={`${id}-services`}><h3 id={`${id}-services`}>{copy.servicesLabel}</h3>
-        {unpriced.length ? <ServiceGroups groups={serviceGroups} business={business} locale={locale} copy={copy}/> : priced.length ? <ul className="business-details-overview" aria-label={copy.servicesLabel}>{priced.map((service, index) => <li key={index}><ServiceThumbnail service={service} business={business} locale={locale} size={32}/><span>{serviceDisplayName(service, locale)}</span></li>)}</ul> : <p>{copy.noServices}</p>}
+      <section aria-labelledby={`${id}-services`}><h3 id={`${id}-services`}>{copy.servicesPrices}</h3>
+        {services.length ? <PublicServiceMenu services={services} business={business} locale={locale} copy={copy}/> : <p>{copy.noServices}</p>}
+        {row.source === 'catalogue' && hasPrices && <p className="business-details-note">{copy.pricesNote}</p>}
       </section>
-      {priced.length > 0 && <section aria-labelledby={`${id}-prices`}><h3 id={`${id}-prices`}>{copy.pricesLabel}</h3>
-        <ServiceGroups groups={priceGroups} business={business} locale={locale} copy={copy}/>
-        {row.source === 'catalogue' && <p className="business-details-note">{copy.pricesNote}</p>}
-      </section>}
       <section className="business-details-hours-section" aria-labelledby={`${id}-hours`}>
         <details className="business-details-hours-toggle">
           <summary id={`${id}-hours`}><span>{copy.openingHours}</span><Icon name="chevronDown"/></summary>
@@ -90,17 +85,4 @@ export function DiscoveryBusinessDetails({ row, locale = 'bg', preview = false, 
     </>}
     {status === 'ready' && <footer>{typeof actions === 'function' ? actions(business) : actions}</footer>}
   </dialog>
-}
-
-function ServiceGroups({ groups, business, locale, copy }) {
-  return groups.map(group => <div className="business-details-service-group" key={group.key}>{groups.length > 1 && group.title && <h4>{group.title[locale]}</h4>}<ServiceMenu services={group.services} business={business} locale={locale} copy={copy}/></div>)
-}
-
-function ServiceMenu({ services, business, locale, copy }) {
-  return <ul className="business-details-services">{services.map((service, index) => {
-    const price = detailPriceLabel({ ...service, priceUnit: '' }, locale)
-    const { description, conditions } = servicePresentation(service, locale)
-    const priceContent = <>{price}{service.priceUnit && <small className="service-price-unit">{serviceDisplayUnit(service, locale)}</small>}</>
-    return <li key={index}><div className="service-photo-name"><ServiceThumbnail service={service} business={business} locale={locale} size={44}/><div className="business-details-service-copy"><strong>{serviceDisplayName(service, locale)}</strong>{service.durationMin > 0 && <span>{service.durationMin} {copy.minutes}</span>}{conditions.map(condition => <small className="business-details-service-condition" key={condition}>{condition}</small>)}</div></div>{price && (service.priceSourceUrl ? <a className="business-details-price" href={service.priceSourceUrl} target="_blank" rel="noopener noreferrer" aria-label={`${detailPriceLabel(service, locale)} · ${copy.publishedPriceSource}`}>{priceContent}</a> : <strong className="business-details-price">{priceContent}</strong>)}{description && <p className="business-details-service-description">{description}</p>}</li>
-  })}</ul>
 }

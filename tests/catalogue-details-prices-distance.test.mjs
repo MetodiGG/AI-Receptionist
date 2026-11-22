@@ -139,7 +139,8 @@ test('reviewed service details retain linked exact prices and expire without a p
 
 test('a discreet photo label and whole-card trigger open the accessible lazy dialog without a third bottom button', async () => {
   const card = await source('components/discovery-business-card.js'), css = await source('app/discovery-home.css')
-  assert.match(card, /home-business-inline-details/)
+  assert.match(card, /home-business-service-preview/)
+  assert.doesNotMatch(card, /home-business-inline-details/)
   assert.match(card, /className="home-business-open" onClick=\{openDetails\} aria-haspopup="dialog"/)
   assert.doesNotMatch(card, /home-business-details-link/)
   assert.match(card, /dynamic\(\(\) => import\('\.\/discovery-business-details'\)/)

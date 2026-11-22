@@ -16,7 +16,7 @@ export async function POST(request) {
     config, log: logDiscoveryUsage,
     allowAttempt: request => config.perMinute > 0 && consumeRateLimit(request, { scope: 'ai-discovery', limit: config.perMinute, windowSeconds: 60, includeUserAgent: false }),
     claimBudget: (...args) => createBudgetGuard(getSupabaseAdmin(), config, logDiscoveryUsage)(...args),
-    readInternal: intent => readInternalCandidates(getSupabaseAdmin(), intent),
+    readInternal: (intent, options) => readInternalCandidates(getSupabaseAdmin(), intent, options),
     hydrateInternalCandidates: ids => hydrateInternalCandidates(getSupabaseAdmin(), ids),
     readCataloguePhotos: readPublicCataloguePhotos,
     readLinks: async ids => {

@@ -9,6 +9,7 @@ import sharp from 'sharp'
 import { DISCOVERY_SUBCATEGORIES } from '../lib/discovery/subcategories.mjs'
 import { COMPACT_SELECTION_CHANGED_FILES, CAR_WASH_REFINEMENT_NEW_MEDIA } from './discovery-refinement-20261122-scope.mjs'
 import { nextSecurityUpgradeAllowsFileChange } from './next-security-upgrade-scope.mjs'
+import { stationaryDiscoveryAllowsFileChange, stationaryDiscoveryAllowsNewFile } from './stationary-discovery-scope.mjs'
 
 const BASE = 'eb36f6718141b9e616170a0b3d90bfcc868ad58b'
 const root = fileURLToPath(new URL('../', import.meta.url))
@@ -34,14 +35,14 @@ const baseline = git('ls-tree', '-r', '-z', BASE).split('\0').filter(Boolean).ma
 
 test('the compact-selection/photo follow-up has exactly ten reviewed source hashes and three new car-wash media paths; all other production bytes stay frozen', async () => {
   assert.deepEqual([...COMPACT_SELECTION_CHANGED_FILES].sort(), Object.keys(reviewed).sort())
-  for (const [path, hash] of Object.entries(reviewed)) assert.equal(createHash('sha256').update(await read(path)).digest('hex'), hash, `${path}: any further change needs its own focused review, never a refreshed data baseline`)
-  const frozen = baseline.filter(record => !COMPACT_SELECTION_CHANGED_FILES.has(record.path) && !nextSecurityUpgradeAllowsFileChange(record.path))
+  for (const [path, hash] of Object.entries(reviewed)) if (!stationaryDiscoveryAllowsFileChange(path)) assert.equal(createHash('sha256').update(await read(path)).digest('hex'), hash, `${path}: any further change needs its own focused review, never a refreshed data baseline`)
+  const frozen = baseline.filter(record => !COMPACT_SELECTION_CHANGED_FILES.has(record.path) && !nextSecurityUpgradeAllowsFileChange(record.path) && !stationaryDiscoveryAllowsFileChange(record.path))
   for (let offset = 0; offset < frozen.length; offset += 32) await Promise.all(frozen.slice(offset, offset + 32).map(async record => {
     const path = new URL('../' + record.path, import.meta.url)
     const bytes = record.mode === '120000' ? Buffer.from(await readlink(path)) : await readFile(path)
     assert.equal(createHash('sha1').update(`blob ${bytes.length}\0`).update(bytes).digest('hex'), record.oid, `${record.path} stays unchanged from ${BASE}`)
   }))
-  const current = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => path && productionPath(path))
+  const current = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => path && productionPath(path) && !stationaryDiscoveryAllowsNewFile(path))
   assert.deepEqual([...new Set(current)].sort(), [...baseline.map(record => record.path), ...CAR_WASH_REFINEMENT_NEW_MEDIA].sort())
 })
 
@@ -91,7 +92,9 @@ test('the additional home-category change is precisely the square car-wash illus
   let expected = git('show', BASE + ':lib/discovery/home.mjs')
   expected = expected.replace("['fitness', 'pets', 'beauty', 'barber']", "['fitness', 'pets', 'beauty', 'barber', 'car_wash']")
   expected = expected.replace("id === 'other' ? 4 : refined ? 3 : 2", "id === 'car_wash' ? 5 : id === 'other' ? 4 : refined ? 3 : 2")
-  assert.equal(await read('lib/discovery/home.mjs'), expected)
+  const displayOrder = source => source.replace(/export const HOME_CATEGORY_IDS = Object\.freeze\(\[[^\n]+\]\)/, 'CATEGORY_DISPLAY_ORDER')
+  assert.equal(stationaryDiscoveryAllowsFileChange('lib/discovery/home.mjs'), true, 'the separate exact stage guard proves only the authorized category display reorder')
+  assert.equal(displayOrder(await read('lib/discovery/home.mjs')), displayOrder(expected))
 })
 
 test('the final car-wash image retains exact generated-illustration provenance/prompt and square compressed files without masquerading as real partner media', async () => {

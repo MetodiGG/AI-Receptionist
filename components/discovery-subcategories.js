@@ -3,7 +3,6 @@
 import { useEffect, useId, useState } from 'react'
 import { Icon } from './icon'
 import { discoveryTilePhotoStyle } from './discovery-tile-photo-style.mjs'
-import { categoryById } from '../lib/discovery/categories.mjs'
 import { homeCategories } from '../lib/discovery/home.mjs'
 import { INLINE_DISCOVERY_COPY } from '../lib/discovery/inline-copy.mjs'
 
@@ -13,11 +12,6 @@ function SubcategoryPhoto({ src }) {
   const [failed, setFailed] = useState(null)
   // A failed image never becomes an unrelated activity or platform emoji.
   return src && failed !== src ? <img className="discovery-subcategory-photo" src={src} width={40} height={40} alt="" loading="lazy" decoding="async" onError={() => setFailed(src)}/> : <span className="discovery-subcategory-photo is-unavailable" aria-hidden="true"/>
-}
-
-function ParentCategoryPhoto({ src }) {
-  const [failed, setFailed] = useState(null)
-  return src && failed !== src ? <img className="inline-parent-photo" src={src} width={32} height={32} alt="" loading="lazy" decoding="async" onError={() => setFailed(src)}/> : <span className="inline-parent-photo is-unavailable" aria-hidden="true"/>
 }
 
 export function DiscoverySubcategories({ category, title, options = [], selected = '', selectedLabel = '', locale = 'bg', loading = false, onSelect, navigationRef, inline = false, onClearCategory }) {
@@ -39,12 +33,10 @@ export function DiscoverySubcategories({ category, title, options = [], selected
     // A settled empty category does not fabricate a service menu or counts.
     // Pending service discovery has an honest status and inert placeholders.
     if (!parent || (!choices.length && !loading)) return null
-    const parentTitle = categoryById(category)?.[language] || title
     const needsWideLabels = choices.some(item => /\p{L}{14,}/u.test(item[language] || item.label || ''))
     return <section className="discovery-subcategories is-inline" ref={navigationRef} tabIndex={navigationRef ? -1 : undefined} lang={language} aria-labelledby={`${listId}-title`} aria-busy={loading}>
       <header className="inline-subcategories-header">
         <h2 id={`${listId}-title`}>{copy.services}</h2>
-        <button type="button" className="inline-selected-parent" onClick={onClearCategory} aria-label={`${copy.clearCategory} · ${parentTitle}`} title={copy.clearCategory}><ParentCategoryPhoto src={parent.photo}/><span>{parentTitle}</span><Icon name="close"/></button>
       </header>
       <ul className="inline-service-grid" id={listId} data-long-label={needsWideLabels ? 'true' : undefined}>
         {choices.map(item => <li key={item.id}><button type="button" className="inline-service-tile" aria-pressed={selected === item.id} onClick={() => onSelect(item.id)}>

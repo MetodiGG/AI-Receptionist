@@ -7,6 +7,7 @@ import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
 import { reviewedDiscoveryFileChange, refinementAllowsNewMedia, responsivePreviewAllowsNewFile } from './discovery-refinement-20261122-scope.mjs'
 import { nextSecurityUpgradeAllowsFileChange } from './next-security-upgrade-scope.mjs'
+import { stationaryDiscoveryAllowsFileChange, stationaryDiscoveryAllowsNewFile } from './stationary-discovery-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const BASE = '4be84916a4e2699e00e73243208c88f5aab1aae7'
@@ -22,7 +23,7 @@ const baseline = git('ls-tree', '-r', '-z', BASE).split('\0').filter(Boolean).ma
 test('the desktop fit baseline freezes production outside the explicitly authorized 2026-11-22 photo/navigation/card follow-up', async () => {
   assert.equal(baseline.length, 2811)
   assert.equal(createHash('sha256').update(JSON.stringify(baseline)).digest('hex'), '43e47bf817bc8b6503d789cf5accfb749754f9c34e2323f24c8a32fe61497509')
-  const stillFrozen = baseline.filter(record => !reviewedDiscoveryFileChange(record.path) && !nextSecurityUpgradeAllowsFileChange(record.path))
+  const stillFrozen = baseline.filter(record => !reviewedDiscoveryFileChange(record.path) && !nextSecurityUpgradeAllowsFileChange(record.path) && !stationaryDiscoveryAllowsFileChange(record.path))
   for (let offset = 0; offset < stillFrozen.length; offset += 32) await Promise.all(stillFrozen.slice(offset, offset + 32).map(async record => {
     const path = new URL('../' + record.path, import.meta.url)
     const bytes = record.mode === '120000' ? Buffer.from(await readlink(path)) : await readFile(path)
@@ -31,7 +32,7 @@ test('the desktop fit baseline freezes production outside the explicitly authori
   const roots = ['app', 'components', 'hooks', 'lib', 'public', 'scripts', 'supabase']
   const belongs = path => roots.some(prefix => path.startsWith(prefix + '/'))
   const expected = baseline.filter(record => belongs(record.path)).map(record => record.path).sort()
-  const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z', '--', ...roots).split('\0').filter(path => path && frozenPath(path) && !refinementAllowsNewMedia(path) && !responsivePreviewAllowsNewFile(path))
+  const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z', '--', ...roots).split('\0').filter(path => path && frozenPath(path) && !refinementAllowsNewMedia(path) && !responsivePreviewAllowsNewFile(path) && !stationaryDiscoveryAllowsNewFile(path))
   assert.deepEqual([...new Set(actual)].sort(), expected, 'Only the fifteen explicitly named versioned media siblings and three dev-only wrapper files may be new; every historical production path remains present')
 })
 
@@ -58,7 +59,10 @@ function canonical(node) {
   if (node.type === 'comment') return null
   if (node.type === 'rule' && isDesktop(node) && categoryOnly(node)) return null
   if (node.type === 'decl' && /^--inline-summary-/.test(node.prop)) return null
+  if (node.type === 'decl' && node.prop === 'text-align' && node.parent?.selector === '.customer-home.quick-choice :is(.inline-discovery-categories,.discovery-subcategories.is-inline) h2') return null
+  if (node.type === 'decl' && node.prop === 'scroll-margin-top' && /^\.customer-home\.quick-choice:has\(\.inline-discovery-categories\) \.home-(?:business-grid > li|section-heading h2)/.test(node.parent?.selector || '')) return null
   const selectors = node.type === 'rule' ? node.selectors.filter(selector => !/\.inline-(?:summary|service-all|subcategories-header|selected-parent|category-clear)\b/.test(selector)
+    && !/\.inline-parent-photo\b/.test(selector)
     && selector !== '.customer-home.quick-choice:has(.inline-discovery-categories) .home-business-grid > li:first-child') : null
   if (selectors && !selectors.length) return null
   const children = node.nodes?.map(canonical).filter(Boolean)

@@ -81,15 +81,20 @@ test('tile images cover the entire frame and use only the approved presentation 
   }
 })
 
-test('the compact parent chip preserves its photo and 44px action without a redundant All-services row', () => {
+test('the removed parent chip and All-services row leave no stale geometry; selection imagery belongs to the stationary summary', () => {
   for (const [viewport, container] of [[320, 252], [390, 334], [820, 740], [1280, 1080]]) {
     assert.deepEqual(style('.inline-service-all', viewport, container), {})
-    const parent = style('.inline-selected-parent', viewport, container)
-    assert.ok(parseFloat(parent['min-height']) >= 44)
-    assert.equal(parent['max-width'], '100%')
-    const photo = style('.inline-parent-photo', viewport, container, 16, true)
-    assert.equal(photo.width, '28px')
-    assert.equal(photo.height, '28px')
+    assert.deepEqual(style('.inline-selected-parent', viewport, container), {})
+    assert.deepEqual(style('.inline-parent-photo', viewport, container, 16, true), {})
+    const action = style('.inline-summary-selection-label', viewport, container)
+    assert.ok(parseFloat(action['min-height']) >= 44)
+    assert.equal(action['max-width'], 'calc(100% + 12px)', 'symmetric hit-area padding is balanced by the existing negative margins, not stolen from a complete word')
+    const frame = style('.inline-summary-photo', viewport, container)
+    const size = viewport <= 360 ? '56px' : viewport <= 699 ? '64px' : '72px'
+    assert.equal(frame.width, size); assert.equal(frame.height, size)
+    const photo = style('.inline-summary-photo img', viewport, container)
+    assert.equal(photo.width, '100%')
+    assert.equal(photo.height, '100%')
     assert.equal(photo['object-fit'], 'cover')
     assert.equal(photo['object-position'] || 'center', 'center')
   }

@@ -7,6 +7,7 @@ import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
 import { reviewedDiscoveryFileChange, DISCOVERY_NEW_MEDIA } from './discovery-refinement-20261122-scope.mjs'
 import { nextSecurityUpgradeAllowsFileChange } from './next-security-upgrade-scope.mjs'
+import { stationaryDiscoveryAllowsFileChange } from './stationary-discovery-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const baseline = 'c9e525b'
@@ -125,20 +126,23 @@ test('glass panels retain AA at both actual opacity endpoints, including conserv
   }
 })
 
-test('compact orange/cream breadcrumb text, real counts, selected chips and focus retain AA in both themes', () => {
+test('photographic stationary selection labels, real counts and focus retain AA in both themes', () => {
   const base = declarations(inlineRules.find(rule => rule.selector === '.inline-summary' && declarations(rule).color))
-  const chip = declarations(inlineRules.find(rule => rule.selector === '.inline-summary-chip' && declarations(rule).color))
+  const label = declarations(inlineRules.find(rule => rule.selector === '.inline-summary-selection-label' && declarations(rule).color))
+  const primary = declarations(inlineRules.find(rule => rule.selector === '.inline-summary-selection-label.is-primary'))
   const count = declarations(inlineRules.find(rule => rule.selector === '.inline-summary-count'))
-  assert.equal(base.background, 'var(--inline-summary-surface)')
-  assert.equal(base.color, 'var(--inline-summary-ink)')
-  assert.equal(chip.color, 'var(--inline-summary-ink)')
+  assert.match(base.background, /linear-gradient\(var\(--inline-summary-surface\)/)
+  assert.equal(base.color, 'var(--inline-ink)')
+  assert.equal(label.color, 'var(--inline-summary-ink)')
+  assert.equal(primary.color, 'var(--inline-ink)')
   assert.equal(count.color, 'var(--inline-summary-ink)')
   for (const [theme, values] of [['light', inlineLight], ['dark', inlineDark]]) {
     for (const surface of ['--inline-summary-surface', '--inline-summary-chip', '--inline-selected', '--inline-hover']) {
       readable(values['--inline-summary-ink'], values[surface], `${theme} compact breadcrumb text / ${surface}`)
+      readable(values['--inline-ink'], values[surface], `${theme} primary selection and count / ${surface}`)
       readable(values['--inline-accent'], values[surface], `${theme} compact breadcrumb focus / ${surface}`, 3)
     }
-    for (const backdrop of ['#000000', '#FFFFFF']) readable(values['--inline-summary-ink'], composite(values['--inline-summary-surface'], backdrop, .94), `${theme} compact glass over ${backdrop}`)
+    for (const backdrop of ['#000000', '#FFFFFF']) for (const foreground of ['--inline-summary-ink', '--inline-ink']) readable(values[foreground], composite(values['--inline-summary-surface'], backdrop, .94), `${theme} compact glass over ${backdrop}`)
   }
   assert.ok(!inlineRules.some(rule => /\.inline-summary-(?:sort|area|context|meta)\b/.test(rule.selector)), 'removed sorting and duplicate controls leave no misleading visual controls')
 })
@@ -194,27 +198,29 @@ test('CSS declares matching 2/3/4 category and child columns with font-relative 
   assert.deepEqual([columns('.inline-service-grid', 390, 334), columns('.inline-service-grid', 820, 740), columns('.inline-service-grid', 1280, 1080)], [2, 3, 4])
   assert.equal(columns('.inline-category-grid', 1100, 900, 32), 2, 'enlarged root font triggers the 32rem category reflow')
   for (const selector of ['.inline-category-grid', '.inline-service-grid']) assert.equal(columns(selector, 320, 252, 24), 1, `${selector}: larger default type wins over fixed column count`)
-  for (const selector of ['.inline-category-label', '.inline-service-label', '.inline-summary-chip-label']) {
+  for (const selector of ['.inline-category-label', '.inline-service-label', '.inline-summary-selection-label > span']) {
     const style = declarations(inlineRules.find(rule => rule.selectors.includes(selector)))
     assert.equal(style['white-space'], 'normal'); assert.equal(style['word-break'], 'normal')
     assert.notEqual(style['text-overflow'], 'ellipsis')
   }
 })
 
-test('measured-safe sticky glass and 44px controls are scoped away from the unchanged main search form', async () => {
+test('stationary photographic glass and 44px selection controls are scoped away from the unchanged main search form', async () => {
   const summary = declarations(inlineRules.find(rule => rule.selector === '.inline-summary' && declarations(rule).position))
-  assert.equal(summary.position, 'relative'); assert.equal(summary.top, '8px')
-  const sticky = declarations(inlineRules.find(rule => rule.selector === '.inline-summary[data-sticky-safe="true"]'))
-  assert.equal(sticky.position, 'sticky', 'only a measured-safe summary may cover the scrolling viewport')
+  assert.equal(summary.position, 'static'); assert.equal(summary.top, undefined)
+  assert.ok(!inlineRules.some(rule => rule.selector.includes('data-sticky-safe')))
+  for (const rule of inlineRules.filter(rule => rule.selector.includes('.inline-summary'))) assert.ok(!['sticky', 'fixed'].includes(declarations(rule).position))
   const offsets = inlineRules.filter(rule => declarations(rule)['scroll-margin-top'])
   for (const selector of ['.home-business-grid > li', '.home-section-heading h2']) {
     const offset = offsets.find(rule => rule.selector.includes(selector))
     assert.ok(offset)
-    assert.equal(declarations(offset)['scroll-margin-top'], 'var(--inline-summary-offset,190px)', 'following results use the measured bar height rather than a stale fixed offset')
+    assert.equal(declarations(offset)['scroll-margin-top'], '24px', 'ordinary scrolling is not offset by a nonexistent sticky bar')
   }
+  const first = offsets.find(rule => rule.selector.endsWith('.home-business-grid > li:first-child'))
+  assert.equal(declarations(first)['scroll-margin-top'], 'calc(var(--inline-summary-offset,0px) + 3rem)', 'deliberate service selection keeps its measured context and heading above the first actual business')
   const shell = declarations(inlineRules.find(rule => rule.selector === '.marketing-page.customer-home.quick-choice:has(.inline-discovery-categories)'))
   assert.equal(shell['overflow-x'], 'clip'); assert.equal(shell['overflow-y'], 'visible')
-  const chips = declarations(inlineRules.find(rule => rule.selectors.includes('.inline-summary-chip') && declarations(rule)['min-height']))
+  const chips = declarations(inlineRules.find(rule => rule.selectors.includes('.inline-summary-selection-label') && declarations(rule)['min-height']))
   assert.equal(chips['min-height'], '44px'); assert.equal(chips['min-width'], '44px')
   assert.ok(!inlineRules.some(rule => rule.selector === '.inline-summary-sort select'), 'the removed non-functional sort is not a phantom touch target')
   // Match actual tag selectors, not the word "form" within the explicitly
@@ -232,9 +238,8 @@ test('measured-safe sticky glass and 44px controls are scoped away from the unch
   assert.equal(form(source), form(original))
   assert.equal(createHash('sha256').update(form(source)).digest('hex'), '8ba0c17fc09aede40e70af62f168f90ec900f5f3e08870d4ac0ef22090f6c89a')
   const summarySource = await read('components/inline-discovery-summary.js')
-  assert.match(summarySource, /data-sticky-safe=\{stickySafe \? 'true' : undefined\}/)
-  assert.match(summarySource, /Math\.min\(240, viewport \* \.3\)/)
-  assert.match(summarySource, /safe \? Math\.ceil\(height\) \+ 24 : 0/)
+  assert.doesNotMatch(summarySource, /data-sticky-safe|setStickySafe|position:\s*(?:sticky|fixed)/)
+  assert.match(summarySource, /Math\.min\(Math\.ceil\(height\) \+ 24, Math\.max\(0, viewport - 240\)\)/)
   assert.match(summarySource, /observer\?\.disconnect\(\)/)
 })
 
@@ -275,7 +280,7 @@ async function identicalBlobs(entries) {
 }
 
 test('historical APIs, hooks, data/taxonomy, booking/media/config/dependencies and CSS stay frozen outside the exact approved 2026-11-22 paths', async () => {
-  await identicalBlobs(baselineTree.filter(record => frozenPath(record.path) && !reviewedDiscoveryFileChange(record.path) && !nextSecurityUpgradeAllowsFileChange(record.path)))
+  await identicalBlobs(baselineTree.filter(record => frozenPath(record.path) && !reviewedDiscoveryFileChange(record.path) && !nextSecurityUpgradeAllowsFileChange(record.path) && !stationaryDiscoveryAllowsFileChange(record.path)))
   const rail = await read('lib/discovery/rail.mjs')
   assert.match(rail, /export const SERVICE_PREVIEW_LIMIT = 2/)
   assert.match(rail, /\.slice\(0, SERVICE_PREVIEW_LIMIT\)/)

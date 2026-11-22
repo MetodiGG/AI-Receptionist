@@ -7,6 +7,7 @@ import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
 import { reviewedDiscoveryFileChange, refinementAllowsNewMedia } from './discovery-refinement-20261122-scope.mjs'
 import { nextSecurityUpgradeAllowsFileChange } from './next-security-upgrade-scope.mjs'
+import { stationaryDiscoveryAllowsFileChange } from './stationary-discovery-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const BASE = '3858c4e5f7e96d8a53db09bc09dc3a014be7658b'
@@ -29,7 +30,7 @@ const frozen = baseTree.filter(record => frozenPath(record.path))
 test('the historical photo-forward baseline freezes everything outside the exact 2026-11-22 presentation/navigation exception list', async () => {
   assert.equal(frozen.length, 2625)
   assert.equal(sha256(JSON.stringify(frozen)), '5ca0ccae56c0a003d91c4d37e43a8f286d8fcf455527a11ddcc82d3b9c728278')
-  const stillFrozen = frozen.filter(record => !reviewedDiscoveryFileChange(record.path) && !nextSecurityUpgradeAllowsFileChange(record.path))
+  const stillFrozen = frozen.filter(record => !reviewedDiscoveryFileChange(record.path) && !nextSecurityUpgradeAllowsFileChange(record.path) && !stationaryDiscoveryAllowsFileChange(record.path))
   for (let offset = 0; offset < stillFrozen.length; offset += 32) {
     await Promise.all(stillFrozen.slice(offset, offset + 32).map(async record => {
       const path = new URL('../' + record.path, import.meta.url)
@@ -65,7 +66,7 @@ test('approved tile markup cannot change category/service filtering, image failu
     return source.slice(start, end)
   }
   for (const [start, end] of [
-    ['function SubcategoryPhoto(', 'export function DiscoverySubcategories('],
+    ['function SubcategoryPhoto(', '\n}\n'],
     ['export function DiscoverySubcategories(', '  if (inline) {'],
   ]) assert.equal(between(current, start, end), between(original, start, end))
   const legacyStart = '  if (!category ||'
@@ -106,14 +107,19 @@ function summaryRules(source) {
   return found
 }
 
-test('the compact summary keeps the exact measured sticky/scroll-offset contract while its approved visual presentation changes', async () => {
+test('the historical sticky baseline is preserved as evidence, while only the exact separately reviewed stationary summary replaces its old contract', async () => {
   const before = summaryRules(git('show', BASE + ':app/inline-discovery.css'))
   assert.ok(before.length > 15, 'freeze the actual responsive, dark, sticky, focus and reduced-motion summary rules')
   const stickyRules = rules => rules.filter(rule => rule.selectors.includes('.inline-summary[data-sticky-safe="true"]'))
-  assert.deepEqual(stickyRules(summaryRules(await read('app/inline-discovery.css'))), stickyRules(before))
+  assert.equal(stickyRules(before).length, 1)
+  assert.equal(stationaryDiscoveryAllowsFileChange('app/inline-discovery.css'), true)
+  assert.deepEqual(stickyRules(summaryRules(await read('app/inline-discovery.css'))), [])
   const current = await read('components/inline-discovery-summary.js')
   const original = git('show', BASE + ':components/inline-discovery-summary.js')
   const effect = source => source.slice(source.indexOf('  useEffect(() => {'), source.indexOf('  const parent = categoryById(category)'))
   assert.ok(effect(original).length > 1400)
-  assert.equal(effect(current), effect(original), 'resize cleanup, reduced-height sticky safety and following-content offset behavior are not presentation changes')
+  assert.equal(stationaryDiscoveryAllowsFileChange('components/inline-discovery-summary.js'), true)
+  assert.doesNotMatch(current, /data-sticky-safe|setStickySafe/)
+  assert.match(effect(current), /Math\.min\(Math\.ceil\(height\) \+ 24, Math\.max\(0, viewport - 240\)\)/)
+  assert.match(effect(current), /observer\?\.disconnect\(\)/)
 })

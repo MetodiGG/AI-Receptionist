@@ -12,6 +12,7 @@ import {
   NEXT_SECURITY_UPGRADE_FILES,
   nextSecurityUpgradeAllowsFileChange,
 } from './next-security-upgrade-scope.mjs'
+import { stationaryDiscoveryAllowsFileChange, stationaryDiscoveryAllowsNewFile } from './stationary-discovery-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const git = (...args) => execFileSync('git', args, { cwd: root, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 })
@@ -100,12 +101,12 @@ const tree = git('ls-tree', '-r', '-z', NEXT_SECURITY_UPGRADE_BASE).split('\0').
 }).filter(record => record.type === 'blob' && productionPath(record.path))
 
 test('every other production byte and path stays frozen to the last approved UI commit; no APIs, business data, prices, images, analytics or booking code changes', async () => {
-  const frozen = tree.filter(record => !nextSecurityUpgradeAllowsFileChange(record.path))
+  const frozen = tree.filter(record => !nextSecurityUpgradeAllowsFileChange(record.path) && !stationaryDiscoveryAllowsFileChange(record.path))
   for (let offset = 0; offset < frozen.length; offset += 32) await Promise.all(frozen.slice(offset, offset + 32).map(async record => {
     const path = new URL('../' + record.path, import.meta.url)
     const bytes = record.mode === '120000' ? Buffer.from(await readlink(path)) : await readFile(path)
     assert.equal(createHash('sha1').update('blob ' + bytes.length + '\0').update(bytes).digest('hex'), record.oid, record.path + ' remains unchanged from ' + NEXT_SECURITY_UPGRADE_BASE)
   }))
-  const current = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => path && productionPath(path))
+  const current = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => path && productionPath(path) && !stationaryDiscoveryAllowsNewFile(path))
   assert.deepEqual([...new Set(current)].sort(), tree.map(record => record.path).sort(), 'the security upgrade adds no new production paths')
 })

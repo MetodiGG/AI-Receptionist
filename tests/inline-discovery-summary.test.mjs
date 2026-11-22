@@ -5,6 +5,7 @@ import { createRequire } from 'node:module'
 import * as React from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
 import * as categories from '../lib/discovery/categories.mjs'
+import * as home from '../lib/discovery/home.mjs'
 import * as subcategories from '../lib/discovery/subcategories.mjs'
 import * as rail from '../lib/discovery/rail.mjs'
 import * as copy from '../lib/discovery/inline-copy.mjs'
@@ -22,6 +23,7 @@ const icon = await compile('components/icon.js')
 const imports = {
   './icon': icon,
   '../lib/discovery/categories.mjs': categories, '../lib/discovery/subcategories.mjs': subcategories,
+  '../lib/discovery/home.mjs': home,
   '../lib/discovery/rail.mjs': rail, '../lib/discovery/inline-copy.mjs': copy,
 }
 const { InlineDiscoverySummary } = await compile('components/inline-discovery-summary.js', {
@@ -44,7 +46,7 @@ test('compact inline labels preserve matching locale key sets without redundant 
   for (const locale of ['bg', 'en']) for (const value of Object.values(copy.INLINE_DISCOVERY_COPY[locale])) assert.ok(typeof value === 'string' && value.trim())
 })
 
-test('category and service are full localized removable chips with decorative vector crosses', () => {
+test('the photographic selection preserves complete localized category/service labels with decorative vector crosses', () => {
   for (const locale of ['bg', 'en']) {
     const html = render({ locale })
     const parent = categories.categoryById(props.category)[locale]
@@ -52,9 +54,12 @@ test('category and service are full localized removable chips with decorative ve
     assert.ok(html.includes(parent)); assert.ok(html.includes(child))
     assert.ok(html.includes(`${copy.INLINE_DISCOVERY_COPY[locale].clearCategory} · ${parent}`))
     assert.ok(html.includes(`${copy.INLINE_DISCOVERY_COPY[locale].clearService} · ${child}`))
-    assert.equal((html.match(/class="inline-summary-chip /g) || []).length, 2)
+    assert.equal((html.match(/class="inline-summary-selection-label/g) || []).length, 2)
     assert.equal((html.match(/<svg[^>]*aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/g) || []).length, 2)
-    assert.doesNotMatch(html, /aria-haspopup|aria-expanded|×|<img|guide-panel|guide-launch/)
+    assert.match(html, new RegExp(`src="${subcategories.subcategoryById(props.subcategory).photo}"`))
+    assert.match(html, /class="inline-summary-photo" aria-hidden="true"/)
+    assert.match(html, /alt="" width="72" height="72" loading="lazy" decoding="async"/)
+    assert.doesNotMatch(html, /aria-haspopup|aria-expanded|×|guide-panel|guide-launch|inline-summary-chip/)
   }
 })
 
@@ -67,38 +72,60 @@ test('breadcrumb callbacks only clear their own selection; the redundant area ac
   assert.deepEqual(called, ['category', 'service'])
 })
 
-test('unknown/mismatched selections cannot expose a false service chip or picker', () => {
+test('unknown/mismatched selections cannot expose a false service name or photograph', () => {
   const all = render({ category: '', subcategory: '' })
-  assert.match(all, /Всички категории/); assert.doesNotMatch(all, /inline-summary-chip /)
+  assert.match(all, /Всички категории/); assert.doesNotMatch(all, /inline-summary-selection-label|<img/)
   const mismatch = render({ subcategory: 'fitness-yoga' })
-  assert.match(mismatch, /inline-summary-chip--category/)
+  assert.match(mismatch, /inline-summary-selection-label is-primary/)
+  assert.ok(mismatch.includes(home.homeCategories('bg').find(item => item.id === props.category).photo2x))
   assert.doesNotMatch(mismatch, /Всички услуги в категорията|inline-summary-context/)
-  assert.doesNotMatch(mismatch, /inline-summary-chip--service|Йога/)
+  assert.doesNotMatch(mismatch, /Йога|yoga-class-v1/)
   const unknown = render({ category: 'not-a-category', subcategory: 'education-school' })
-  assert.doesNotMatch(unknown, /inline-summary-chip /)
+  assert.doesNotMatch(unknown, /inline-summary-selection-label|<img/)
 })
 
 test('counts describe only actual displayed unique rows, never an unverified catalogue total', () => {
   const html = render({ result: result({ results: [row('one'), row('one'), row('two'), { id: 'invalid', source: 'invalid' }], cataloguePage: { offset: 0, total: 999, nextOffset: 15 } }) })
-  assert.match(html, /<strong>2<\/strong> показани/)
-  assert.match(html, /Има още/)
+  assert.match(html, /<strong>2<\/strong><span>показани<\/span>/)
   assert.doesNotMatch(html, /999|200|свободни|часа|слота/)
   const last = render({ result: result({ cataloguePage: { offset: 0, total: 999, nextOffset: null } }) })
-  assert.match(last, /<strong>2<\/strong> показани/); assert.doesNotMatch(last, /Има още/)
+  assert.match(last, /<strong>2<\/strong><span>показани<\/span>/); assert.doesNotMatch(last, /Има още/)
+})
+
+test('only a safe fresh global count at least as large as unique displayed rows is called a total, including genuine zero and localized singular', () => {
+  for (const locale of ['bg', 'en']) {
+    const strings = copy.INLINE_DISCOVERY_COPY[locale]
+    const total = render({ locale, result: result({ exactTotal: 150 }) })
+    assert.match(total, /<strong>150<\/strong>/)
+    assert.ok(total.includes(`<span>${strings.businesses}</span>`))
+    assert.ok(total.includes(`${strings.totalCount}: 150`))
+    assert.doesNotMatch(total, /показани|shown|Има още|More available/)
+    const singular = render({ locale, result: result({ results: [row('one')], exactTotal: 1 }) })
+    assert.ok(singular.includes(`<strong>1</strong><span>${strings.business}</span>`))
+    const zero = render({ locale, result: result({ results: [], exactTotal: 0 }) })
+    assert.ok(zero.includes(`<strong>0</strong><span>${strings.businesses}</span>`))
+    for (const exactTotal of [undefined, null, -1, 0, 1, 2.5, '150', Infinity, NaN, Number.MAX_SAFE_INTEGER + 1]) {
+      const html = render({ locale, result: result({ exactTotal }) })
+      assert.ok(html.includes(`<strong>2</strong><span>${strings.shown}</span>`), String(exactTotal))
+      assert.ok(html.includes(`${strings.count}: 2`))
+    }
+  }
 })
 
 test('missing, malformed or exhausted paging metadata cannot invent more results or a total', () => {
   for (const cataloguePage of [undefined, { total: 500 }, { nextOffset: 0 }, { nextOffset: -1 }, { nextOffset: '15' }, { nextOffset: Infinity }]) {
     const html = render({ result: result({ results: [], cataloguePage }) })
-    assert.match(html, /<strong>0<\/strong> показани/)
+    assert.match(html, /<strong>0<\/strong><span>показани<\/span>/)
     assert.doesNotMatch(html, /Има още|500/)
   }
-  assert.match(render({ locale: 'en' }), /<strong>2<\/strong> shown/)
+  assert.match(render({ locale: 'en' }), /<strong>2<\/strong><span>shown<\/span>/)
 })
 
 test('loading hides stale counts and no-result-yet does not fabricate zero matches', () => {
   const loading = render({ loading: true })
   assert.match(loading, /aria-busy="true"/); assert.match(loading, /Зареждаме…/)
+  assert.match(loading, /class="inline-summary-count-placeholder" aria-hidden="true">—<\/span>/)
+  assert.match(loading, /role="status" aria-live="polite" aria-atomic="true"/)
   assert.doesNotMatch(loading, /<strong>2|показани|Има още/)
   const initial = render({ result: null })
   assert.match(initial, /Подходящи бизнеси/); assert.doesNotMatch(initial, /<strong>0/)
@@ -113,25 +140,40 @@ test('compact breadcrumbs never expose sorting, area pin or All-services context
     assert.equal(elements(tree, node => node.type === 'select').length, 0)
     const html = renderToStaticMarkup(tree)
     assert.doesNotMatch(html, /inline-summary-sort|inline-summary-area|inline-summary-context|inline-summary-meta|All services in this category|Всички услуги в категорията/)
-    assert.equal(elements(tree, node => node.props.className === 'inline-summary-separator')[0].props['aria-hidden'], 'true')
+    assert.equal(elements(tree, node => node.props.className === 'inline-summary-separator').length, 0)
   }
   assert.doesNotMatch(render({ result: null }), /Автоматична подредба|<select/)
 })
 
 test('clarification replaces cards, so even a malformed payload carrying rows cannot advertise them as displayed businesses', () => {
   for (const locale of ['bg', 'en']) for (const nextOffset of [null, 15]) {
-    const html = render({ locale, result: result({ clarification: { message: 'Choose a more specific service' }, cataloguePage: { total: 999, nextOffset } }) })
-    assert.match(html, new RegExp(`<strong>0<\\/strong> ${copy.INLINE_DISCOVERY_COPY[locale].shown}`))
+    const html = render({ locale, result: result({ clarification: { message: 'Choose a more specific service' }, exactTotal: 999, cataloguePage: { total: 999, nextOffset } }) })
+    assert.ok(html.includes(`<strong>0</strong><span>${copy.INLINE_DISCOVERY_COPY[locale].shown}</span>`))
     assert.doesNotMatch(html, /<strong>2|Има още|More available|999/)
   }
 })
 
-test('the decorative breadcrumb separator stays grouped with its service, never orphaned on a wrapped line', () => {
+test('full labels share a single photographic selection group, with one stronger service and no breadcrumb decoration', () => {
   const tree = InlineDiscoverySummary({ ...props, result: result() })
-  const [group] = elements(tree, node => node.props.className === 'inline-summary-service')
-  assert.equal(elements(group, node => node.props.className === 'inline-summary-separator').length, 1)
-  assert.equal(elements(group, node => node.props.className === 'inline-summary-chip inline-summary-chip--service').length, 1)
-  assert.equal(elements(tree, node => node.props.className === 'inline-summary-separator').length, 1)
+  const [group] = elements(tree, node => node.props.className === 'inline-summary-selection')
+  assert.equal(elements(group, node => node.props.className === 'inline-summary-labels').length, 1)
+  assert.equal(elements(group, node => node.props.className === 'inline-summary-selection-label is-primary').length, 1)
+  assert.equal(elements(tree, node => node.props.className === 'inline-summary-separator').length, 0)
+  for (const button of elements(group, node => node.type === 'button')) assert.equal(button.props.disabled, false)
+  const disabled = InlineDiscoverySummary({ ...props, onClearCategory: undefined, onClearService: undefined })
+  assert.ok(elements(disabled, node => node.type === 'button').every(button => button.props.disabled))
+})
+
+test('a failed selection photograph remains a quiet reserved frame and never becomes an unrelated image or emoji', () => {
+  const tree = InlineDiscoverySummary({ ...props })
+  const photo = elements(tree, node => typeof node.type === 'function' && node.type.name === 'SelectionPhoto')[0]
+  assert.ok(photo)
+  const frame = photo.type({ source: photo.props.source })
+  assert.equal(frame.props['aria-hidden'], 'true')
+  const [image] = elements(frame, node => node.type === 'img')
+  assert.equal(image.props.src, subcategories.subcategoryById(props.subcategory).photo)
+  assert.equal(image.props.alt, '')
+  assert.equal(photo.type({ source: undefined }), null)
 })
 
 test('summary does not mutate server order or introduce availability requests, counts or sorting parameters', async () => {
@@ -144,7 +186,7 @@ test('summary does not mutate server order or introduce availability requests, c
   assert.match(source, /orderedRailRows/)
 })
 
-async function stickyHarness({ height = 145, viewport = 844, previous = '', priority = '', observerAvailable = true } = {}) {
+async function clearanceHarness({ height = 145, viewport = 844, previous = '', priority = '', observerAvailable = true } = {}) {
   const priorWindow = Object.getOwnPropertyDescriptor(globalThis, 'window')
   const priorObserver = Object.getOwnPropertyDescriptor(globalThis, 'ResizeObserver')
   let measuredHeight = height, effect, observerCallback, resizeCallback, disconnected = false, removed = false, observed
@@ -172,7 +214,7 @@ async function stickyHarness({ height = 145, viewport = 844, previous = '', prio
       ...imports, react: { ...React, useId: () => 'inline-summary-order', useRef: () => ({ current: summary }), useState: initial => [initial, value => state.push(value)], useEffect: callback => { effect = callback } },
     })
     const initial = Component({ ...props, result: result() })
-    assert.equal(initial.props['data-sticky-safe'], undefined, 'server/first client render is nonsticky until measured')
+    assert.equal(initial.props['data-sticky-safe'], undefined, 'the summary is always stationary, before and after measurement')
     cleanup = effect()
     return {
       state, properties, browser, summary, get observed() { return observed }, get disconnected() { return disconnected }, get removed() { return removed },
@@ -182,38 +224,44 @@ async function stickyHarness({ height = 145, viewport = 844, previous = '', prio
   } catch (error) { restore(); throw error }
 }
 
-test('presentation-only observation measures safe sticky height and offsets following content by height plus 24px', async () => {
-  const fixture = await stickyHarness({ height: 145.2, viewport: 844 })
+test('presentation-only observation measures the stationary summary and reserves its height plus 24px for first-card scrolling', async () => {
+  const fixture = await clearanceHarness({ height: 145.2, viewport: 844 })
   try {
     assert.equal(fixture.observed, fixture.summary)
-    assert.equal(fixture.state.at(-1), true)
+    assert.deepEqual(fixture.state, [], 'measurement never activates a sticky state or rerenders filters')
     assert.deepEqual(fixture.properties.get('--inline-summary-offset'), { value: '170px', priority: '' })
     fixture.measureHeight(206)
-    assert.equal(fixture.state.at(-1), true)
+    assert.deepEqual(fixture.state, [])
     assert.equal(fixture.properties.get('--inline-summary-offset').value, '230px')
   } finally { fixture.restore() }
 })
 
-test('enlarged text or a short viewport disables sticky and removes the extra scroll offset', async () => {
-  const fixture = await stickyHarness()
+test('enlarged text keeps context clearance but caps it to leave at least 240px for the actual first business', async () => {
+  const fixture = await clearanceHarness()
   try {
     fixture.measureHeight(241)
-    assert.equal(fixture.state.at(-1), false)
-    assert.equal(fixture.properties.get('--inline-summary-offset').value, '0px')
+    assert.equal(fixture.properties.get('--inline-summary-offset').value, '265px')
     fixture.measureHeight(145)
     fixture.resize(400)
-    assert.equal(fixture.state.at(-1), false, '145px exceeds thirty percent of a 400px-high viewport')
+    assert.equal(fixture.properties.get('--inline-summary-offset').value, '160px')
+    fixture.resize(844)
+    assert.equal(fixture.properties.get('--inline-summary-offset').value, '169px')
+    fixture.resize(200)
     assert.equal(fixture.properties.get('--inline-summary-offset').value, '0px')
     fixture.resize(844)
-    assert.equal(fixture.state.at(-1), true)
     fixture.measureHeight(0)
-    assert.equal(fixture.state.at(-1), false, 'an unmeasurable summary cannot be marked sticky-safe')
+    assert.equal(fixture.properties.get('--inline-summary-offset').value, '0px')
+    for (const invalid of [NaN, Infinity, -1]) {
+      fixture.measureHeight(invalid)
+      assert.equal(fixture.properties.get('--inline-summary-offset').value, '0px')
+    }
+    assert.deepEqual(fixture.state, [])
   } finally { fixture.restore() }
 })
 
-test('sticky observation cleans up listeners, disconnects and restores the prior scoped CSS property', async () => {
+test('clearance observation cleans up listeners, disconnects and restores the prior scoped CSS property', async () => {
   for (const previous of ['', '88px']) {
-    const fixture = await stickyHarness({ previous, priority: previous ? 'important' : '' })
+    const fixture = await clearanceHarness({ previous, priority: previous ? 'important' : '' })
     try {
       fixture.cleanup()
       assert.equal(fixture.disconnected, true); assert.equal(fixture.removed, true)
@@ -226,12 +274,13 @@ test('sticky observation cleans up listeners, disconnects and restores the prior
   }
 })
 
-test('without ResizeObserver the summary stays safely in normal flow rather than relying on stale measurements', async () => {
-  const fixture = await stickyHarness({ observerAvailable: false })
+test('without ResizeObserver the stationary summary still measures immediately and on resize', async () => {
+  const fixture = await clearanceHarness({ observerAvailable: false })
   try {
-    assert.equal(fixture.state.at(-1), false)
-    assert.equal(fixture.properties.get('--inline-summary-offset').value, '0px')
+    assert.deepEqual(fixture.state, [])
+    assert.equal(fixture.properties.get('--inline-summary-offset').value, '169px')
     fixture.resize(900)
-    assert.equal(fixture.state.at(-1), false)
+    assert.deepEqual(fixture.state, [])
+    assert.equal(fixture.properties.get('--inline-summary-offset').value, '169px')
   } finally { fixture.restore() }
 })

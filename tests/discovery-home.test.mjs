@@ -44,6 +44,15 @@ test('every thumbnail maps exactly to an existing taxonomy id and usable BG/EN c
     assert.equal(category.photoPosition, category.id === 'beauty' ? '50% 0%' : undefined)
   }
 })
+test('homepage prioritizes Sports, Lessons, Home, Auto repair and Car wash while keeping every remaining category in its original relative order', () => {
+  const original = ['hair', 'nails', 'beauty', 'barber', 'auto_repair', 'car_wash', 'fitness', 'education', 'pets', 'home_services', 'health', 'consulting', 'detailing', 'other']
+  const priority = ['fitness', 'education', 'home_services', 'auto_repair', 'car_wash']
+  assert.deepEqual(HOME_CATEGORY_IDS.slice(0, priority.length), priority)
+  assert.deepEqual(HOME_CATEGORY_IDS.slice(priority.length), original.filter(id => !priority.includes(id)))
+  assert.equal(new Set(HOME_CATEGORY_IDS).size, 14)
+  assert.deepEqual([...HOME_CATEGORY_IDS].sort(), [...original].sort())
+  for (const locale of ['bg', 'en']) assert.deepEqual(homeCategories(locale).map(category => category.id), HOME_CATEGORY_IDS)
+})
 test('all fourteen historical owner attachments are preserved alongside the explicitly approved 2026-11-22 replacements', async () => {
   const manifest = JSON.parse(await read('docs/homepage-category-photos-2026-11-04.json'))
   const own = manifest.assets.filter(row => row.origin !== 'generated')
@@ -102,7 +111,9 @@ test('the first three generated scenes and selected real Beauty photo retain the
   }
   assert.ok(total < 600000, `all twelve new category variants remain under 600 kB: ${total}`)
   const original = execFileSync('git', ['show', '4be84916a4e2699e00e73243208c88f5aab1aae7:lib/discovery/home.mjs'], { cwd: fileURLToPath(new URL('../', import.meta.url)), encoding: 'utf8' })
-  const replaceCategoryPresentation = source => source.replace(/export function homeCategories\(locale = 'bg'\) \{[\s\S]*?\n\}/, 'CATEGORY_PRESENTATION')
+  const replaceCategoryPresentation = source => source
+    .replace(/export function homeCategories\(locale = 'bg'\) \{[\s\S]*?\n\}/, 'CATEGORY_PRESENTATION')
+    .replace(/export const HOME_CATEGORY_IDS = Object\.freeze\(\[[^\n]+\]\)/, 'CATEGORY_DISPLAY_ORDER')
   assert.equal(replaceCategoryPresentation(await read('lib/discovery/home.mjs')), replaceCategoryPresentation(original), 'category imagery cannot change home data, location, filtering, search or pricing functions')
   for (const category of homeCategories()) if (!revisedCategoryIds.has(category.id)) {
     const version = category.id === 'other' ? 4 : 2

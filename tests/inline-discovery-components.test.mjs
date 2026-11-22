@@ -60,7 +60,7 @@ for (const locale of ['bg', 'en']) test(`${locale}: fourteen persistent category
     button.props.onClick()
   }
   assert.deepEqual(calls, home.HOME_CATEGORY_IDS)
-  buttons[3].props.onClick()
+  buttons[home.HOME_CATEGORY_IDS.indexOf('barber')].props.onClick()
   assert.equal(calls.at(-1), 'barber', 'the parent, not the presentation component, owns deselection')
   const html = render(InlineCategoryGrid, { locale, category: 'barber', onSelect() {} })
   assert.equal((html.match(/class="inline-category-option"/g) || []).length, 14)
@@ -104,7 +104,7 @@ test('category photos keep 160w/240w variants, opt only the five approved scenes
   }
 })
 
-for (const locale of ['bg', 'en']) test(`${locale}: inline children show evidence-backed tiles and a compact parent action, without a redundant All row`, () => {
+for (const locale of ['bg', 'en']) test(`${locale}: inline children show evidence-backed tiles without a repeated parent chip or redundant All row`, () => {
   const calls = [], cleared = [], Component = load('discovery-subcategories', directReact).DiscoverySubcategories
   const supplied = [...options,
     { ...options[0], id: 'zero-count', count: 0 },
@@ -119,11 +119,13 @@ for (const locale of ['bg', 'en']) test(`${locale}: inline children show evidenc
   assert.equal(buttons.length, options.length)
   assert.equal(classed(tree, 'inline-service-all').length, 0)
   const grid = classed(tree, 'inline-service-grid')[0]
-  assert.equal(classed(classed(tree, 'inline-subcategories-header')[0], 'inline-selected-parent').length, 1, 'the parent action shares the heading row where it fits')
+  assert.equal(classed(tree, 'inline-selected-parent').length, 0, 'the selected category photo/name is not repeated above the service tiles')
+  const header = classed(tree, 'inline-subcategories-header')[0]
+  assert.equal(elements(header, node => node.type === 'h2').length, 1)
+  assert.equal(elements(header, node => node.type === 'button' || node.type === 'img' || typeof node.type === 'function').length, 0)
   assert.equal(classed(tree, 'inline-service-photo-frame').length, options.length)
   assert.deepEqual(classed(tree, 'inline-service-photo-frame').map(node => node.props.style), options.map(option => tilePhotoStyle.discoveryTilePhotoStyle(option.photo)))
   assert.equal(buttons.filter(button => button.props['aria-pressed']).length, 1)
-  assert.equal(classed(tree, 'inline-selected-parent')[0].props.children[1].props.children, categories.categoryById('fitness')[locale])
   assert.equal(elements(tree, node => node.type === 'h2')[0].props.children, copy.services)
   assert.deepEqual(classed(tree, 'inline-service-count').map(textContent), options.map(option => `${option.count} ${option.count === 1 ? copy.business : copy.businesses}`))
   assert.equal(textContent(classed(tree, 'inline-service-count')[0]), `1 ${copy.business}`)
@@ -131,17 +133,12 @@ for (const locale of ['bg', 'en']) test(`${locale}: inline children show evidenc
   assert.deepEqual(classed(grid, 'inline-service-label').map(node => node.props.children), options.map(option => option[locale]))
   for (const button of buttons) button.props.onClick()
   assert.deepEqual(calls, options.map(option => option.id))
-  const clear = classed(tree, 'inline-selected-parent')[0]
-  assert.equal(clear.type, 'button', 'the complete photo/name chip is a keyboard-accessible clear control')
-  assert.equal(clear.props['aria-label'], `${copy.clearCategory} · ${categories.categoryById('fitness')[locale]}`)
-  assert.equal(elements(tree, node => node.type === 'button' && node.props.onClick === clear.props.onClick).length, 1, 'only one category-clear control is rendered')
-  assert.equal(elements(clear, node => typeof node.type === 'function' && node.props.name === 'close').length, 1)
   assert.equal(classed(tree, 'inline-category-clear').length, 0)
-  clear.props.onClick()
-  assert.deepEqual(cleared, [true])
+  assert.deepEqual(cleared, [], 'passing the compatibility callback cannot manufacture a removed inline parent control')
   assert.deepEqual(supplied, before)
   const html = render(DiscoverySubcategories, { category: 'fitness', options: supplied, locale, inline: true, onSelect() {}, onClearCategory() {} })
   assert.match(html, /class="discovery-subcategories is-inline"/)
+  assert.doesNotMatch(html, /inline-selected-parent|inline-parent-photo/)
   assert.ok(html.includes(`<span class="inline-service-count">314 ${copy.businesses}</span>`))
   assert.doesNotMatch(html, /subcategory-more|Show less|More \(|По-малко|Още \(|zero-count|negative-count|missing-count|wrong-parent|wrong-photo/)
 })

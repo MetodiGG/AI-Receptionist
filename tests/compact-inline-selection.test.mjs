@@ -34,24 +34,32 @@ test('compact breadcrumb text, counts, selected chip, hover and focus have AA co
   }
 })
 
-test('summary is one compact wrapping row with 44px removable chips, not a multi-section sorting panel', async () => {
+test('stationary photographic summary is one wrapping selection/context surface with 44px labels, not a chip/sorting panel', async () => {
   const base = declarations(rules.find(rule => rule.selector === '.inline-summary' && declarations(rule).display))
   assert.equal(base.display, 'flex'); assert.equal(base['flex-wrap'], 'wrap')
-  assert.equal(base.padding, '8px 10px'); assert.equal(base['border-radius'], '20px')
-  assert.equal(base.background, 'var(--inline-summary-surface)')
-  const chip = declarations(rules.find(rule => rule.selector === '.inline-summary-chip' && declarations(rule).display))
-  assert.equal(chip['min-height'], '44px'); assert.equal(chip['max-width'], '100%')
-  const label = declarations(rules.find(rule => rule.selector === '.inline-summary-chip-label'))
+  assert.equal(base.position, 'static'); assert.equal(base.padding, '14px 18px')
+  assert.equal(base['border-radius'], 'var(--inline-radius-panel)')
+  assert.match(base.background, /linear-gradient\(var\(--inline-summary-surface\)/)
+  const action = declarations(rules.find(rule => rule.selector === '.inline-summary-selection-label' && declarations(rule).display))
+  assert.equal(action['min-height'], '44px'); assert.equal(action['min-width'], '44px'); assert.equal(action['max-width'], 'calc(100% + 12px)')
+  assert.equal(action['flex-wrap'], 'wrap', 'the close icon can move below a complete long word at enlarged text sizes')
+  const label = declarations(rules.find(rule => rule.selectors.includes('.inline-summary-selection-label > span')))
   assert.equal(label['white-space'], 'normal'); assert.equal(label['word-break'], 'normal')
   assert.equal(label.hyphens, 'none')
-  const group = declarations(rules.find(rule => rule.selector === '.inline-summary-service' && declarations(rule).display))
-  assert.equal(group.display, 'inline-flex'); assert.equal(group['max-width'], '100%')
-  assert.equal(group['flex-wrap'], undefined, 'the decorative separator stays beside the service, not on an orphaned flex line')
+  assert.equal(declarations(rules.find(rule => rule.selector === '.inline-summary-selection-label > span')).flex, '1 1 min-content')
+  const group = declarations(rules.find(rule => rule.selector === '.inline-summary-labels'))
+  assert.equal(group.display, 'flex'); assert.equal(group['flex-direction'], 'column'); assert.equal(group['min-width'], '0')
+  assert.equal(group.flex, '1 1 10rem', 'enlarged whole-word labels receive their own readable row rather than a narrow leftover strip')
+  assert.equal(declarations(rules.find(rule => rule.selector === '.inline-summary-selection'))['flex-wrap'], 'wrap')
+  for (const rule of rules.filter(rule => rule.selector.includes('.inline-summary'))) {
+    assert.notEqual(declarations(rule).position, 'sticky')
+    assert.notEqual(declarations(rule).position, 'fixed')
+  }
   const source = await read('components/inline-discovery-summary.js')
-  assert.doesNotMatch(source, /<select|inline-summary-(?:area|sort|context|meta)|copy\.all\b/)
+  assert.doesNotMatch(source, /<select|inline-summary-(?:area|sort|context|meta|chip|separator)|copy\.all\b|data-sticky-safe|setStickySafe/)
   assert.match(source, /<p className="inline-summary-count" role="status" aria-live="polite" aria-atomic="true"/)
   assert.match(source, /--inline-summary-offset/)
-  assert.match(source, /safe \? Math\.ceil\(height\) \+ 24 : 0/)
+  assert.match(source, /Math\.min\(Math\.ceil\(height\) \+ 24, Math\.max\(0, viewport - 240\)\)/)
 })
 
 test('inline services have no All button or leftover full-width All CSS, while legacy non-home clearing remains', async () => {
@@ -62,13 +70,14 @@ test('inline services have no All button or leftover full-width All CSS, while l
   assert.doesNotMatch(css, /inline-service-all|inline-summary-(?:area|sort|context|meta)/)
   const header = rules.find(rule => rule.selector === '.customer-home.quick-choice .discovery-subcategories.is-inline .inline-subcategories-header h2')
   assert.equal(declarations(header).margin, '0', 'the compact shared heading row overrides the older generic heading margin')
-  const parent = declarations(rules.find(rule => rule.selector === '.inline-selected-parent' && declarations(rule).display))
-  assert.equal(parent['min-height'], '44px'); assert.equal(parent.margin, '0')
+  assert.equal(declarations(header)['text-align'], 'center')
+  assert.doesNotMatch(inline, /inline-selected-parent|inline-parent-photo|inline-category-clear/)
+  assert.doesNotMatch(css, /inline-selected-parent|inline-parent-photo|inline-category-clear/)
 })
 
-test('first-business scrolling reserves a font-relative heading gap below the measured sticky breadcrumb', () => {
+test('first-business scrolling preserves the measured stationary summary above the first card without making headings sticky', () => {
   const first = rules.find(rule => rule.selector === '.customer-home.quick-choice:has(.inline-discovery-categories) .home-business-grid > li:first-child')
-  assert.equal(declarations(first)['scroll-margin-top'], 'calc(var(--inline-summary-offset,190px) + 3rem)')
+  assert.equal(declarations(first)['scroll-margin-top'], 'calc(var(--inline-summary-offset,0px) + 3rem)')
   const heading = rules.find(rule => rule.selectors.includes('.customer-home.quick-choice:has(.inline-discovery-categories) .home-section-heading h2'))
-  assert.equal(declarations(heading)['scroll-margin-top'], 'var(--inline-summary-offset,190px)', 'direct heading navigation retains its measured-only offset')
+  assert.equal(declarations(heading)['scroll-margin-top'], '24px', 'a stationary summary needs no persistent heading offset when scrolling normally')
 })

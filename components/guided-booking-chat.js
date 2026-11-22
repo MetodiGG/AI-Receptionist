@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { serviceDisplayName, publicProse } from '../lib/locale/public-content.mjs'
 import { DateTime } from 'luxon'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { formatBulgarianMonthShort, resolveVisibleBookingDays } from '../lib/booking-window.mjs'
@@ -106,7 +107,7 @@ export function GuidedBookingChat({ business, locale = 'bg', onShowBooking, onBu
   }
 
   async function chooseService(item) {
-    const result = await perform({ action: 'select_service', serviceId: item.id }, en ? `I choose “${item.name}”.` : `Избирам „${item.name}“.`)
+    const result = await perform({ action: 'select_service', serviceId: item.id }, en ? `I choose “${serviceDisplayName(item, locale)}”.` : `Избирам „${serviceDisplayName(item, locale)}“.`)
     if (!result) return
     setSelection({ serviceId: item.id, staffId: null, date: '', slot: null })
     setSlots([])
@@ -203,7 +204,7 @@ export function GuidedBookingChat({ business, locale = 'bg', onShowBooking, onBu
       <div className="chat-messages" aria-live="polite">
         {messages.map((message) => <div className={`chat-message ${message.role}`} key={message.id}>{message.services?.length ? <>
           <strong>{en ? 'Services and prices' : 'Услуги и цени'}</strong>
-          <ul className="guided-service-menu">{message.services.map(item => <li key={item.id}><span className="service-photo-name"><ServiceThumbnail service={item} business={business} locale={locale} size={36}/><span>{item.name}{Number(item.duration_min) > 0 && <small>{item.duration_min} {en ? 'min' : 'мин.'}</small>}</span></span><b>{item.priceLabel}</b></li>)}</ul>
+          <ul className="guided-service-menu">{message.services.map(item => <li key={item.id}><span className="service-photo-name"><ServiceThumbnail service={item} business={business} locale={locale} size={36}/><span>{serviceDisplayName(item, locale)}{Number(item.duration_min) > 0 && <small>{item.duration_min} {en ? 'min' : 'мин.'}</small>}</span></span><b>{item.priceLabel}</b></li>)}</ul>
         </> : message.content}</div>)}
         {sending && <div className="chat-message assistant typing"><i /><i /><i /></div>}
         <div ref={endRef} />
@@ -218,14 +219,14 @@ export function GuidedBookingChat({ business, locale = 'bg', onShowBooking, onBu
 
         {step === 'service' && <div className="guided-step">
           <div className="guided-step-head"><div><small>{en ? 'Step 1 of 5' : 'Стъпка 1 от 5'}</small><strong>{t.chooseService}</strong></div><button type="button" onClick={() => setStep('menu')}>{t.back}</button></div>
-          <div className="guided-option-list">{business.services.map((item) => <button type="button" onClick={() => chooseService(item)} disabled={sending} key={item.id}><span className="service-photo-name"><ServiceThumbnail service={item} business={business} locale={locale} size={36}/><span><strong>{item.name}</strong>{Number(item.duration_min) > 0 && <small>{item.duration_min} {en ? 'minutes' : 'минути'}</small>}</span></span><b>{profileServicePrice(item, locale)}</b></button>)}</div>
+          <div className="guided-option-list">{business.services.map((item) => <button type="button" onClick={() => chooseService(item)} disabled={sending} key={item.id}><span className="service-photo-name"><ServiceThumbnail service={item} business={business} locale={locale} size={36}/><span><strong>{serviceDisplayName(item, locale)}</strong>{Number(item.duration_min) > 0 && <small>{item.duration_min} {en ? 'minutes' : 'минути'}</small>}</span></span><b>{profileServicePrice(item, locale)}</b></button>)}</div>
         </div>}
 
         {step === 'staff' && <div className="guided-step">
           <div className="guided-step-head"><div><small>{en ? 'Step 2 of 5' : 'Стъпка 2 от 5'}</small><strong>{t.chooseStaff}</strong></div><button type="button" onClick={() => setStep('service')}>{t.back}</button></div>
           <div className="guided-option-list compact">
             <button type="button" onClick={() => chooseStaff(null)} disabled={sending}><span><strong>{t.noPreference}</strong><small>{t.earliest}</small></span><b>✦</b></button>
-            {availableStaff.map((person) => <button type="button" onClick={() => chooseStaff(person)} disabled={sending} key={person.id}><span><strong>{person.name}</strong><small>{person.bio || (en ? 'Specialist' : 'Специалист')}</small></span><b>{person.name.slice(0, 1).toUpperCase()}</b></button>)}
+            {availableStaff.map((person) => <button type="button" onClick={() => chooseStaff(person)} disabled={sending} key={person.id}><span><strong>{person.name}</strong><small>{publicProse(person.bio, locale, person.bioEn) || (en ? 'Specialist' : 'Специалист')}</small></span><b>{person.name.slice(0, 1).toUpperCase()}</b></button>)}
           </div>
         </div>}
 
@@ -263,7 +264,7 @@ export function GuidedBookingChat({ business, locale = 'bg', onShowBooking, onBu
         {step === 'confirm' && <div className="guided-confirmation">
           <div className="guided-step-head"><div><small>{en ? 'Step 5 of 5' : 'Стъпка 5 от 5'}</small><strong>{t.review}</strong></div><button type="button" onClick={() => setStep('details')}>{en ? 'Edit' : 'Редактирай'}</button></div>
           <div className="guided-booking-summary">
-            <span><small>{en ? 'Service' : 'Услуга'}</small><strong>{service?.name}</strong></span>
+            <span><small>{en ? 'Service' : 'Услуга'}</small><strong>{serviceDisplayName(service, locale)}</strong></span>
             <span><small>{en ? 'Date and time' : 'Дата и час'}</small><strong>{DateTime.fromISO(selection.slot.startsAt).setZone(business.timezone).setLocale(locale).toFormat('d LLLL, HH:mm')}</strong></span>
             <span><small>{en ? 'Specialist' : 'Специалист'}</small><strong>{selection.slot.staffName}</strong></span>
             <span><small>{en ? 'Client' : 'Клиент'}</small><strong>{details.name}</strong><small>{details.phone}</small><small>{details.email}</small></span>
@@ -276,7 +277,7 @@ export function GuidedBookingChat({ business, locale = 'bg', onShowBooking, onBu
         {step === 'done' && confirmation && <div className="guided-success">
           <span className="success-mark">✓</span>
           <strong>{t.confirmed}</strong>
-          <p>{confirmation.service.name} · {DateTime.fromISO(confirmation.appointment.starts_at).setZone(business.timezone).setLocale(locale).toFormat('d LLLL, HH:mm')} · {confirmation.staff.name}</p>
+          <p>{serviceDisplayName(confirmation.service, locale)} · {DateTime.fromISO(confirmation.appointment.starts_at).setZone(business.timezone).setLocale(locale).toFormat('d LLLL, HH:mm')} · {confirmation.staff.name}</p>
           <Link className="manage-booking-link" href={`/booking/${confirmation.appointment.cancellation_token}?lang=${locale}`}>{t.manage}</Link>
           <BookingConfirmationActions appointment={confirmation.appointment} business={business} service={confirmation.service} staff={confirmation.staff} locale={locale} />
           <button type="button" className="secondary-button" onClick={startOver}>{t.newChat}</button>

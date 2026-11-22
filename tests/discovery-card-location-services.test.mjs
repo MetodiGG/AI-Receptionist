@@ -57,7 +57,8 @@ test('location fallbacks do not invent a fixed address for a service-area busine
 test('matching services lead the vertical menu and prices are joined by service name, never array position', () => {
   const row = { source: 'catalogue', services: [{ name: 'Оформяне на вежди' }], publicServiceNames: ['Маникюр', 'Педикюр', 'Оформяне на вежди'],
     details: { services: [{ name: 'Педикюр', price: 30, currency: 'EUR' }, { name: 'Оформяне на вежди', price: 9.71, currency: 'EUR' }, { name: 'Маникюр', price: null }] } }
-  assert.deepEqual(railServiceItems(row).map(row => [row.name, row.price]), [['Оформяне на вежди', 9.71], ['Педикюр', 30], ['Маникюр', null]])
+  assert.deepEqual(railServiceItems(row).map(row => [row.name, row.price]), [['Оформяне на вежди', 9.71], ['Педикюр', 30]])
+  assert.deepEqual(businessDetailServices(row).map(service => [service.name, service.price]), [['Педикюр', 30], ['Оформяне на вежди', 9.71], ['Маникюр', null]], 'the two-row card does not alter the full menu or join prices by array index')
   assert.match(detailPriceLabel(railServiceItems(row)[0]), /9,71/)
   assert.match(detailPriceLabel(railServiceItems(row)[0], 'en'), /€9\.71/)
 })
@@ -65,10 +66,10 @@ test('matching services lead the vertical menu and prices are joined by service 
 test('menus are bounded, deduplicated, first-party only and retain legitimate zero/from prices', () => {
   const row = { source: 'gorez', services: [{ name: 'First', price: 0 }, { name: ' first ', price: 0 }, { name: 'Second', price: 20, priceKind: 'from' }, { name: 'Hidden', price: 10, active: false }, { name: 'Third' }, { name: 'Fourth' }] }
   const services = railServiceItems(row)
-  assert.deepEqual(services.map(row => row.name), ['First', 'Second', 'Third', 'Fourth'])
+  assert.deepEqual(services.map(row => row.name), ['First', 'Second'])
   assert.equal(services[0].price, 0)
   assert.match(detailPriceLabel(services[1]), /^от 20,00/)
-  assert.equal(services.length, 4)
+  assert.equal(services.length, 2)
   assert.deepEqual(railServiceItems({ ...row, source: 'google' }), [])
   assert.deepEqual(railServiceItems({ source: 'catalogue' }), [])
   const ambiguous = railServiceItems({ source: 'gorez', services: [{ name: 'Cut', price: 20 }, { name: 'Cut', price: 35 }] })
@@ -83,19 +84,24 @@ test('unknown/malformed prices are never displayed as a free service', () => {
   }
 })
 
-test('card markup provides one location badge, vertical service/price pairs and customer-friendly navigation', async () => {
+test('compact card provides one real distance badge, two relevant service invitations and shared navigation', async () => {
   const card = await read('components/discovery-business-card.js'), badge = await read('components/discovery-distance-badge.js'), css = await read('app/discovery-home.css')
   assert.match(card, /locale=\{locale\} business=\{row\}/)
   assert.doesNotMatch(card, /fallbackKm=/)
   assert.match(badge, /businessLocationBadge\(business, locale\)/)
   assert.match(badge, /<Icon name="pin"\//)
-  assert.match(card, /<ul className="home-business-services"/)
-  assert.match(card, /services.map\(service =>/)
+  assert.match(card, /const services = railServiceItems\(row\)/)
+  assert.match(card, /className="home-business-service-preview"/)
   assert.match(card, /detailPriceLabel\(\{ \.\.\.service, priceUnit: '' \}, locale, \{ compact: true \}\)/)
-  assert.match(card, /className="service-price-unit">\{service\.priceUnit\}/)
-  assert.match(card, /className="home-service-price"/)
+  assert.match(card, /className="home-business-preview-price">\{price\}/)
+  assert.match(card, /className="home-business-preview-unit">\{unit\}/)
+  assert.match(card, /business=\{row\} distanceOnly/)
+  const details = await read('components/discovery-business-details.js')
+  assert.match(details, /ServiceCards|ServiceMenu/)
   assert.doesNotMatch(card, /railServiceDescription|<p className="home-business-services"/)
-  assert.match(card, /const directionsLabel = copy.directions/)
+  assert.match(card, /<PublicAction as="a" variant="secondary"[^\n]+>\{directionsLabel\}<\/PublicAction>/)
+  assert.match(card, /directionsLabel = en \? copy.directions : 'Упъти'/)
+  assert.doesNotMatch(card,/home-business-inline-details/)
   assert.match(css, /\.home-business-services > li \{[^}]*grid-template-columns: minmax\(0,1fr\) fit-content\(44%\)/)
   assert.match(css, /\.home-service-name \{[^}]*min-width: 0;[^}]*overflow-wrap: anywhere/)
   assert.match(css, /\.home-service-price \{[^}]*white-space: normal/)

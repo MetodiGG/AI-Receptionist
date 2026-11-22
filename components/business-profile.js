@@ -1,5 +1,6 @@
 'use client'
 
+import { serviceDisplayName, publicProse, businessDisplayAddress } from '../lib/locale/public-content.mjs'
 import { useState } from 'react'
 import { BusinessPhotoGallery } from './business-photo-gallery'
 import { Icon } from './icon'
@@ -9,7 +10,7 @@ import { BusinessCoverPhoto } from './business-cover-photo'
 import { ServiceThumbnail } from './service-thumbnail'
 import { profileServicePrice, profileShareUrl, shareProfileLink } from '../lib/business-profile-ui.mjs'
 import { servicePresentation } from '../lib/discovery/service-presentation.mjs'
-import { BookingCalendarIcon } from './booking-button-content'
+import { PublicAction } from './public-action'
 
 // The same folded map and action class used by the homepage business cards.
 export function BusinessDirectionsLink({ business, locale = 'bg', address = false }) {
@@ -17,9 +18,8 @@ export function BusinessDirectionsLink({ business, locale = 'bg', address = fals
   if (!href) return null
   const label = locale === 'en' ? 'Directions' : 'Упътване'
   const accessibleLabel = locale === 'en' ? 'Get directions' : 'Упътване — как да стигна'
-  return <a className={address ? 'business-profile-address profile-address-link' : 'home-directions profile-directions'} href={href} target="_blank" rel="noopener noreferrer" aria-label={`${accessibleLabel} · ${address ? business.address : business.name}`}>
-    <span className="profile-map-icon"><Icon name="map" /></span><span>{address ? business.address : label}</span>
-  </a>
+  return address ? <a className="business-profile-address profile-address-link" href={href} target="_blank" rel="noopener noreferrer" aria-label={`${accessibleLabel} · ${businessDisplayAddress(business, locale)}`}><span className="profile-map-icon"><Icon name="map" /></span><span>{businessDisplayAddress(business, locale)}</span></a>
+    : <PublicAction as="a" variant="secondary" href={href} target="_blank" rel="noopener noreferrer" aria-label={`${accessibleLabel} · ${business.name}`}>{label}</PublicAction>
 }
 
 export function BusinessProfileHeader({ business, locale, shareUrl }) {
@@ -51,8 +51,8 @@ export function BusinessServiceList({ business, locale = 'bg', selectedServiceId
       {group.name !== (en ? 'Services' : 'Услуги') && <h3>{group.name}</h3>}
       <ul className="profile-service-list">{group.services.map(service => { const { description, conditions } = servicePresentation(service, locale); return <li key={service.id} className={`profile-service-row${selectedServiceId === service.id ? ' is-selected' : ''}`}>
         <ServiceThumbnail service={service} business={business} locale={locale} size={60}/>
-        <div className="profile-service-copy"><strong>{service.name}</strong>{Number(service.duration_min) > 0 && <span>{service.duration_min} {en ? 'min' : 'мин'}</span>}{(description || conditions.length > 0) && <details className="profile-service-description"><summary>{en ? 'Details' : 'Детайли'}</summary><p>{[...conditions, description].filter(Boolean).join('\n')}</p></details>}</div>
-        <div className="profile-service-actions"><strong className="profile-service-price">{profileServicePrice(service, locale)}</strong><button className="profile-service-book" type="button" disabled={disabled} onClick={() => onChoose(service.id)} aria-label={`${en ? 'Book' : 'Резервирай'} · ${service.name}`} aria-pressed={selectedServiceId === service.id} aria-controls="booking-experience"><BookingCalendarIcon size={28}/></button></div>
+        <div className="profile-service-copy"><strong>{serviceDisplayName(service, locale)}</strong>{Number(service.duration_min) > 0 && <span>{service.duration_min} {en ? 'min' : 'мин'}</span>}{(description || conditions.length > 0) && <details className="profile-service-description"><summary>{en ? 'Details' : 'Детайли'}</summary><p>{[...conditions, description].filter(Boolean).join('\n')}</p></details>}</div>
+        <div className="profile-service-actions"><strong className="profile-service-price">{profileServicePrice(service, locale)}</strong><PublicAction iconOnly type="button" disabled={disabled} onClick={() => onChoose(service.id)} aria-label={`${en ? 'Book' : 'Резервирай'} · ${serviceDisplayName(service, locale)}`} aria-pressed={selectedServiceId === service.id} aria-controls="booking-experience">{en ? 'Book' : 'Резервирай'}</PublicAction></div>
       </li>})}</ul>
     </div>)}</div>
     {!business.services?.length && <p className="profile-empty-services">{en ? 'Contact the business for its services.' : 'Свържи се с бизнеса за предлаганите услуги.'}</p>}
@@ -61,13 +61,13 @@ export function BusinessServiceList({ business, locale = 'bg', selectedServiceId
 
 export function BusinessProfileInformation({ business, locale }) {
   const en = locale === 'en', profile = publicProfileDetails(business), hours = businessWeeklyHours(business)
-  const description = profile.description[locale] || profile.description[en ? 'bg' : 'en']
+  const description = publicProse(profile.description, locale, business.presentationEn?.description)
   const [mapLoaded, setMapLoaded] = useState(false)
   const map = businessMapUrl(business), locationCredit = businessLocationAttribution(business)
   const weekdays = en ? ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] : ['Понеделник', 'Вторник', 'Сряда', 'Четвъртък', 'Петък', 'Събота', 'Неделя']
   const paymentNames = { cash: en ? 'Cash' : 'В брой', card: en ? 'Card' : 'С карта', bank: en ? 'Bank transfer' : 'Банков превод' }
   return <div className="business-profile-information">
-    {business.staff?.length > 0 && <section className="business-profile-section" id="business-team" aria-labelledby="business-team-heading"><h2 id="business-team-heading">{en ? 'Our team' : 'Нашият екип'}</h2><div className="business-team-list">{business.staff.map(person => { const photo = getStaffPhoto(business, person.id); return <article key={person.id}>{photo ? <img className="business-team-photo" src={photo.src} alt={person.name} width="56" height="56" loading="lazy"/> : <span className="business-team-initial" aria-hidden="true">{person.name.slice(0, 1).toUpperCase()}</span>}<div><h3>{person.name}</h3>{person.bio && <p>{person.bio}</p>}</div></article> })}</div></section>}
+    {business.staff?.length > 0 && <section className="business-profile-section" id="business-team" aria-labelledby="business-team-heading"><h2 id="business-team-heading">{en ? 'Our team' : 'Нашият екип'}</h2><div className="business-team-list">{business.staff.map(person => { const photo = getStaffPhoto(business, person.id); return <article key={person.id}>{photo ? <img className="business-team-photo" src={photo.src} alt={person.name} width="56" height="56" loading="lazy"/> : <span className="business-team-initial" aria-hidden="true">{person.name.slice(0, 1).toUpperCase()}</span>}<div><h3>{person.name}</h3>{person.bio && <p>{publicProse(person.bio, locale, person.bioEn)}</p>}</div></article> })}</div></section>}
     <section className="business-profile-section profile-contacts" id="business-location" aria-labelledby="business-location-heading">
       <h2 id="business-location-heading">{en ? 'Address & contacts' : 'Адрес и контакти'}</h2>
       {description && <p className="business-about-description">{description}</p>}

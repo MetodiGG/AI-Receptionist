@@ -16,14 +16,15 @@ import { customerAccountRedirect,customerSignupSchema,requestCustomerSignInLink 
 import { bookingStatusLabel } from '../lib/booking-safety.mjs'
 import { formatBulgarianMonthShort } from '../lib/booking-window.mjs'
 import { AdminAccessLink } from './admin-access-link'
+import { serviceDisplayName, businessDisplayAddress } from '../lib/locale/public-content.mjs'
 
 function CustomerBookingCard({ row,locale,view }) {
   const en=locale==='en'
   const date=DateTime.fromISO(row.starts_at).setZone(row.business.timezone||'Europe/Sofia').setLocale(locale)
   const end=DateTime.fromISO(row.ends_at).setZone(row.business.timezone||'Europe/Sofia')
-  return <article className="customer-booking-card" aria-label={`${row.service.name}, ${date.toFormat('d LLLL yyyy')}`}>
+  return <article className="customer-booking-card" aria-label={`${serviceDisplayName(row.service, locale)}, ${date.toFormat('d LLLL yyyy')}`}>
     <div className="customer-date-block"><span>{en?date.toFormat('LLL'):formatBulgarianMonthShort(date.month)}</span><strong>{date.toFormat('dd')}</strong><small>{date.toFormat('ccc')} · {date.year}</small></div>
-    <div className="customer-booking-main"><small>{row.business.name}</small><h2>{row.service.name}</h2><p><Icon name="clock" />{date.toFormat('HH:mm')}–{end.toFormat('HH:mm')}<span>·</span>{row.staff.name}</p>{row.business.address&&<p><Icon name="pin" />{row.business.address}</p>}</div>
+    <div className="customer-booking-main"><small>{row.business.name}</small><h2>{serviceDisplayName(row.service, locale)}</h2><p><Icon name="clock" />{date.toFormat('HH:mm')}–{end.toFormat('HH:mm')}<span>·</span>{row.staff.name}</p>{row.business.address&&<p><Icon name="pin" />{businessDisplayAddress(row.business, locale)}</p>}</div>
     <div className="customer-booking-actions"><span className={`customer-booking-status ${row.status}`}>{bookingStatusLabel(row.status,locale)}</span><Link href={`/booking/${row.cancellation_token}?lang=${locale}`}>{en?'View booking':'Виж резервацията'}<Icon name="arrow" /></Link>{view==='past'&&row.business.active&&<Link href={`/book/${row.business.slug}?lang=${locale}`}>{en?'Book again':'Запази отново'}</Link>}</div>
   </article>
 }

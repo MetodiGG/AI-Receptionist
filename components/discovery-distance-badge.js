@@ -1,8 +1,9 @@
 import { Icon } from './icon'
 import { businessLocationBadge, distanceBadge } from '../lib/discovery/distance-origin.mjs'
 
-export function DiscoveryDistanceBadge({ origin, destination, locale = 'bg', business = null }) {
+export function DiscoveryDistanceBadge({ origin, destination, locale = 'bg', business = null, distanceOnly = false }) {
   const badge = distanceBadge(origin, destination, locale)
+  if (distanceOnly && !badge) return null
   // A cached numeric distance without its actual origin is not evidence.
   const location = !badge ? businessLocationBadge(business, locale) : null
   if (!badge && !location) return null

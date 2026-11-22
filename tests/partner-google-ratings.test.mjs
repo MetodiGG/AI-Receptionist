@@ -101,7 +101,7 @@ test('rating components lazy-load one authorized widget, retain native attributi
   assert.match(summary, /translate="no">GoRez/); assert.match(client, /translate="no">Google Maps/)
   assert.match(summary, /ReviewSummary summary=\{data\?\.summary\}/)
   assert.match(summary, /item.comment && <p>\{item.comment\}/)
-  assert.match(await read('components/discovery-business-card.js'), /PartnerReviewSummary slug=\{row.slug\}/)
+  assert.doesNotMatch(await read('components/discovery-business-card.js'), /PartnerReviewSummary|PartnerGoogleRating|useBusinessReviews/, 'compact preview cards no longer mount rating widgets')
   // Task 1 removes the duplicate hero reputation block. Actual GoRez reviews
   // remain in the dedicated section; homepage attribution stays unchanged.
   assert.doesNotMatch(await read('components/business-profile.js'), /PartnerReviewSummary|PartnerGoogleRating/)

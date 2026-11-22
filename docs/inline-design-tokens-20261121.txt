@@ -1,0 +1,150 @@
+GoRez inline discovery — bold glass token review — 2026-11-21
+
+Scope
+-----
+The active design is the always-visible fourteen-category grid, inline child
+services, sticky espresso filter summary and refined existing business cards.
+It is not the prior guided/next-step/panel redesign. No publication is implied.
+
+app/inline-discovery.css uses --inline-* variables on the customer home only
+when its inline category component exists. app/premium-discovery-cards.css
+uses --premium-card-* variables on the homepage business grid. Neither file
+redefines generic --ink/--paper/--surface tokens or targets h1, the main search
+form, its heading, or .discovery-query. Existing form markup remains exactly
+the baseline bytes; its SHA-256 is:
+8ba0c17fc09aede40e70af62f168f90ec900f5f3e08870d4ac0ef22090f6c89a
+
+Inline palette (light / dark)
+-----------------------------
+--inline-ink          #332923 / #F5ECE2
+--inline-muted        #6B625B / #C6B4A4
+--inline-surface      #FFFCF7 / #291F19
+--inline-raised       #FFF5EA / #3B2B22
+--inline-selected     #FBE5D1 / #3B2B22
+--inline-hover        #FFF2E5 / #3B2B22
+--inline-accent       #B9471B / #FDB681
+--inline-espresso     #2F211B (both)
+--inline-on-espresso  #FFF4E8 (both)
+
+Light labels are espresso-brown rather than gray on gray. Dark colors remain
+warm, with readable light labels and peach selection/focus accents. The small
+child counts are .8125rem, so normal-text AA (4.5:1), not large-text AA, is used.
+
+Measured token contrast
+-----------------------
+These are calculated sRGB luminance ratios, not browser measurements. Display
+values are rounded to two decimals; tests compare full precision.
+
+Pair                                       Ratio
+Light ink / surface                        13.84:1
+Light muted / surface                       5.82:1
+Light muted / raised small-count fill        5.53:1
+Light muted / selected                      4.89:1
+Light muted / hover                         5.42:1
+Dark ink / surface                         13.78:1
+Dark muted / surface                        8.02:1
+Dark muted / raised/selected/hover           6.73:1
+Light accent / selected                     4.33:1 (focus/border; 3:1 check)
+Dark accent / raised                        7.84:1
+
+Glass compositing and espresso
+-----------------------------
+The frosted category/child panel uses 89% to 94% --inline-surface with a 16px
+backdrop blur; its opaque fallback uses the same surface. Testing the actual
+alpha endpoints over black and white bounds covers every possible backdrop
+RGB channel before the additional decorative border layer. Conservative
+minimum secondary-text contrast is 4.538:1 light and 5.729:1 dark. The light
+89% endpoint passes narrowly: do not lower its opacity without recalculating.
+
+The sticky bar has an opaque #2F211B fallback and #2F211BF2 (242/255 opacity)
+when backdrop filtering is supported. Its conservative worst case is white
+behind the translucent espresso. At that bound:
+
+#FFF4E8 normal summary text                 12.32:1
+#E9CBB3 secondary captions/hint              8.69:1
+#FFF4E8 on #FFF4E80D category/area chip      10.61:1
+#FFF4E8 on #F47A3624 service chip             9.88:1
+#FFF4E8 on opaque #865438 chip hover          5.80:1
+#FFF4E8 on #3E2D23 disabled select           12.07:1
+
+Chip ratios include both compositing layers, not just the nominal espresso
+color. The disabled select explicitly keeps opacity:1 and the light text fill.
+Its one native option truthfully describes automatic server order: proximity
+and relevance for browse; relevance and distance for a query. It is not a
+page-only sorting control or a promise of independently selectable nearest
+sorting. There is no added Today filter or unsupported appointment badge.
+
+Business-card palette and booking emphasis
+-----------------------------------------
+Light card surface/ink/muted/raised:
+#FFFCF7 / #2F211B / #715F52 / #F7EFE5
+Dark card surface/ink/muted/raised:
+#291F19 / #F5ECE2 / #C6B4A4 / #3B2B22
+
+Light card muted text is 5.93:1 on the surface and 5.33:1 on the service-chip
+fill. Dark muted service-chip text is 6.73:1. Complete names, literal prices,
+units and conditions keep natural wrapping; the existing two relevant service
+rows and trusted directions/reservation actions are not replaced.
+
+Reservation text stays #2F211B in both themes. The actual default gradient is
+--premium-card-booking to #E56C2F. Light start #F47A36 is 5.67:1; its deep end
+is 4.81:1. Dark start #FDB681 is 9.00:1, with the same 4.81:1 deep endpoint.
+The hover/focus/active gradient is #F47A36 to #EE6C26 in light mode (minimum
+5.03:1), and #FDB681 to #FFCA9F in dark mode (minimum 9.00:1). Tests sample
+all these implemented gradients. White text must not replace the espresso
+booking foreground: white on the #E56C2F endpoint is only 3.22:1.
+
+Layout and accessibility contracts
+----------------------------------
+Category CSS: two mobile columns, three at 700px, four at 1000px. Inline
+children: two columns, three at 1200px. Font-relative container queries allow
+two category columns at 32rem and a single category/child column at 14rem,
+so enlarged default type can take precedence over a rigid column count.
+Labels and filter chips wrap complete words rather than hiding text with
+ellipsis. Chip, area and native-sort targets are at least 44px high.
+
+The espresso summary starts in normal flow and becomes sticky 8px from the
+viewport top only after ResizeObserver measurement confirms that its positive
+height is at most min(240px, 30% of viewport height). Taller enlarged-text or
+short-viewport summaries stay nonsticky. The nearest discovery home receives
+--inline-summary-offset equal to ceil(height)+24px while safe, otherwise 0px;
+cards/headings use that measured scroll margin with a 190px fallback. Cleanup
+disconnects observation, removes the resize listener and restores the previous
+scoped property. Browsers without ResizeObserver remain safely nonsticky.
+The home alone uses overflow-x:clip and overflow-y:visible so its ancestor
+cannot trap sticky positioning. Reduced motion disables the tile animations.
+The panel has a presentation-only grid presence wrapper (200ms natural-height,
+opacity and 8px offset). Closing immediately sets inert and aria-hidden, retains
+only committed visual content for the short exit, then clears it. Reduced motion
+closes immediately; quick reopen cancels exit cleanup. It does not delay URL,
+selection or request changes. The desktop wrapper shares the 1120px rail width.
+The category grid and inline children map all accepted items without a More
+slice. The untouched non-home child picker retains its own existing behavior.
+
+Counts say actual unique rows shown, not cataloguePage.total: that total is
+computed before native hydration/revocation checks. Any “more results” marker
+comes from an actual positive nextOffset, never a fabricated total or slot count.
+
+Frozen baseline and verification
+--------------------------------
+tests/inline-discovery-visual-scope.test.mjs uses local Git baseline c9e525b
+and checks Git-blob hashes against current bytes for all existing API routes,
+hooks, existing lib data/taxonomy/config/booking/media code (navigation-state
+code remains an authorized exception), booking/media components, legacy CSS,
+package.json, pnpm-lock.yaml and next.config.mjs. All 1,889 baseline public
+images and their paths are checked, with no replacement image inventory.
+The homepage card source differs only by the exact quick-choice raster-artwork
+to existing Icon(calendar) substitution; default artwork and all action logic
+remain baseline-identical, covered by a separate normalized-source assertion.
+New inline-copy/UI files and authorized discovery search/subcategory state
+changes are not blocked by that freeze. The service-preview cap remains two.
+
+Run locally:
+node --test tests/inline-discovery-visual-scope.test.mjs
+
+This static/token test supplements the separate component and state tests.
+Its breakpoint checks evaluate CSS declarations; they are not screenshots,
+physical-device measurements or a claim of complete WCAG certification.
+Rendered mobile/desktop, default-font enlargement, keyboard, light/dark and
+production CSS-order review remain necessary. No DB/API/provider calls,
+booking submissions, notifications or production writes are made by this test.

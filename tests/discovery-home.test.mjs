@@ -1,6 +1,9 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFile, stat, readdir } from 'node:fs/promises'
+import { createHash } from 'node:crypto'
+import { execFileSync } from 'node:child_process'
+import { fileURLToPath } from 'node:url'
 import sharp from 'sharp'
 import { createClient } from '@supabase/supabase-js'
 import { HOME_CATEGORY_IDS, HOME_DISCOVERY_COPY, homeCategories, homeFilterCount, defaultHomeFilters, applyHomeFilters, homeBusinessDistance, homeBusinessPhoto, homeBusinesses } from '../lib/discovery/home.mjs'
@@ -12,8 +15,10 @@ import { bookingAction } from '../lib/booking-mode.mjs'
 import { DateTime } from 'luxon'
 import { containDialogTab } from '../lib/dialog-focus.mjs'
 import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
+import { REFINED_CATEGORY_IDS, REFINEMENT_NEW_MEDIA, CAR_WASH_REFINEMENT_NEW_MEDIA } from './discovery-refinement-20261122-scope.mjs'
 
 const read = path => readFile(new URL(`../${path}`, import.meta.url), 'utf8')
+const revisedCategoryIds = new Set([...REFINED_CATEGORY_IDS, 'car_wash'])
 const origin = { latitude: 42.6627, longitude: 23.2849, consent: true }
 const business = (patch = {}) => ({ id: 'public-fixture', slug: 'public-fixture', name: 'Local Fixture', city_ekatte: '68134', neighborhood: 'Манастирски ливади', industry: 'beauty', booking_mode: 'gorez', services: [{ id: 's', name: 'Маникюр', active: true, price: 25, duration_min: 45 }], coordinates: { ...origin }, photos: [], ...patch })
 
@@ -30,10 +35,25 @@ test('every thumbnail maps exactly to an existing taxonomy id and usable BG/EN c
   for (const locale of ['bg', 'en']) for (const category of homeCategories(locale)) {
     assert.ok(category.label); assert.equal(discoveryCategorySelection('', category.id, locale).category, category.id)
     assert.ok(discoveryRequestSchema.safeParse(discoverySearchInput(discoveryCategorySelection('', category.id, locale))).success)
-    assert.equal(category.photo, `/category-photos/${category.id}-v${category.id === 'other' ? 4 : 2}.webp`)
+    const refined = revisedCategoryIds.has(category.id)
+    const version = category.id === 'car_wash' ? 5 : category.id === 'other' ? 4 : refined ? 3 : 2
+    assert.equal(category.photo, `/category-photos/${category.id}-v${version}.webp`)
+    assert.equal(category.photo2x, `/category-photos/${category.id}-2x-v${version}.webp`)
+    assert.equal(category.photoLarge, refined ? `/category-photos/${category.id}-large-v${version}.webp` : undefined)
+    assert.equal(category.photoHeight, category.id === 'beauty' ? 360 : undefined)
+    assert.equal(category.photoPosition, category.id === 'beauty' ? '50% 0%' : undefined)
   }
 })
-test('all fourteen category images retain the owner attachments, including the distinct Other services picture', async () => {
+test('homepage prioritizes Sports, Lessons, Home, Auto repair and Car wash while keeping every remaining category in its original relative order', () => {
+  const original = ['hair', 'nails', 'beauty', 'barber', 'auto_repair', 'car_wash', 'fitness', 'education', 'pets', 'home_services', 'health', 'consulting', 'detailing', 'other']
+  const priority = ['fitness', 'education', 'home_services', 'auto_repair', 'car_wash']
+  assert.deepEqual(HOME_CATEGORY_IDS.slice(0, priority.length), priority)
+  assert.deepEqual(HOME_CATEGORY_IDS.slice(priority.length), original.filter(id => !priority.includes(id)))
+  assert.equal(new Set(HOME_CATEGORY_IDS).size, 14)
+  assert.deepEqual([...HOME_CATEGORY_IDS].sort(), [...original].sort())
+  for (const locale of ['bg', 'en']) assert.deepEqual(homeCategories(locale).map(category => category.id), HOME_CATEGORY_IDS)
+})
+test('all fourteen historical owner attachments are preserved alongside the explicitly approved 2026-11-22 replacements', async () => {
   const manifest = JSON.parse(await read('docs/homepage-category-photos-2026-11-04.json'))
   const own = manifest.assets.filter(row => row.origin !== 'generated')
   assert.equal(own.length, 14); assert.equal(new Set(own.map(row => row.source)).size, 14)
@@ -43,16 +63,70 @@ test('all fourteen category images retain the owner attachments, including the d
   assert.equal(manifest.assets.find(row => row.id === 'fitness').source, 'D914A4EC-9A84-4943-A760-068512CDA293/8-Photo-8.jpg')
   assert.equal(manifest.assets.find(row => row.id === 'home_services').source, 'B155FE42-F514-478B-B522-304A41594CED/1-Photo-1.jpg')
   assert.equal(manifest.assets.find(row => row.id === 'health').source, 'B155FE42-F514-478B-B522-304A41594CED/3-Photo-3.jpg')
-  assert.ok((await readdir(new URL('../public/category-photos/', import.meta.url))).every(name => /-v[234]\.webp$/.test(name)))
+  const finalCarWashFiles = new Set(CAR_WASH_REFINEMENT_NEW_MEDIA.map(path => path.split('/').at(-1)))
+  assert.ok((await readdir(new URL('../public/category-photos/', import.meta.url))).every(name => /-v[234]\.webp$/.test(name) || finalCarWashFiles.has(name)), 'only the three final car-wash v5 siblings may extend historical version names')
   const other = manifest.assets.find(row => row.id === 'other')
   assert.equal(other.origin, undefined); assert.equal(other.source, 'BECF761C-5CAF-4865-95F6-C7A7D56354BD/1-Photo-1.jpg')
   assert.notEqual(other.source, manifest.assets.find(row => row.id === 'consulting').source)
+})
+test('the first three generated scenes and selected real Beauty photo retain their original provenance/ratios while the other nine mappings stay unchanged', async () => {
+  const manifest = JSON.parse(await read('docs/category-photo-refinement-20261122.json'))
+  assert.equal(manifest.date, '2026-11-22')
+  assert.match(manifest.mode, /[Bb]uilt-in imagegen/)
+  assert.match(manifest.usage, /not photographs of actual partner/)
+  assert.match(manifest.usage, /(?:Never|Do not) assign these images to partner galleries or row\.photos/)
+  assert.deepEqual(manifest.assets.map(asset => asset.id).sort(), [...REFINED_CATEGORY_IDS].sort())
+  assert.deepEqual(manifest.assets.flatMap(asset => asset.files.map(file => file.file)).sort(), [...REFINEMENT_NEW_MEDIA].sort())
+  let total = 0
+  for (const asset of manifest.assets) {
+    if (asset.id === 'beauty') {
+      assert.equal(asset.origin, 'stock_photo', 'the real selected photograph must not be labelled generated')
+      assert.equal(asset.author, 'George Milton')
+      assert.equal(asset.photoUrl, 'https://www.pexels.com/photo/anonymous-young-female-visagiste-applying-blush-on-cheeks-of-customer-6953629/')
+      assert.match(asset.downloadUrl, /^https:\/\/images\.pexels\.com\/photos\/6953629\/pexels-photo-6953629\.jpeg\?/)
+      assert.equal(asset.license, 'Pexels License')
+      assert.equal(asset.licenseUrl, 'https://www.pexels.com/license/')
+      assert.equal(asset.licenseReviewed, '2026-11-22')
+      assert.match(asset.ownerSelection, /Option\s*4/i)
+      assert.equal(asset.prompt, null, 'a real stock photograph has no generation prompt')
+    } else {
+      assert.equal(asset.origin, 'generated')
+      assert.ok(asset.prompt.length > 100, `${asset.id}: retain the actual production prompt`)
+    }
+    assert.match(asset.sourceSha256, /^[a-f0-9]{64}$/)
+    assert.equal(asset.files.length, 3)
+    for (const [index, entry] of asset.files.entries()) {
+      const size = [160, 240, 640][index]
+      const height = asset.id === 'beauty' ? size * 1.5 : size
+      assert.equal(entry.width, size); assert.equal(entry.height, height)
+      const bytes = await readFile(new URL('../' + entry.file, import.meta.url))
+      assert.equal(bytes.length, entry.bytes)
+      assert.equal(createHash('sha256').update(bytes).digest('hex'), entry.sha256)
+      const image = await sharp(bytes).metadata()
+      assert.equal(image.format, 'webp'); assert.equal(image.width, size); assert.equal(image.height, height)
+      assert.equal(image.exif, undefined); assert.equal(image.xmp, undefined)
+      assert.ok(bytes.length < (size === 640 ? 160000 : 30000), `${entry.file}: bounded local tile payload`)
+      total += bytes.length
+    }
+  }
+  assert.ok(total < 600000, `all twelve new category variants remain under 600 kB: ${total}`)
+  const original = execFileSync('git', ['show', '4be84916a4e2699e00e73243208c88f5aab1aae7:lib/discovery/home.mjs'], { cwd: fileURLToPath(new URL('../', import.meta.url)), encoding: 'utf8' })
+  const replaceCategoryPresentation = source => source
+    .replace(/export function homeCategories\(locale = 'bg'\) \{[\s\S]*?\n\}/, 'CATEGORY_PRESENTATION')
+    .replace(/export const HOME_CATEGORY_IDS = Object\.freeze\(\[[^\n]+\]\)/, 'CATEGORY_DISPLAY_ORDER')
+  assert.equal(replaceCategoryPresentation(await read('lib/discovery/home.mjs')), replaceCategoryPresentation(original), 'category imagery cannot change home data, location, filtering, search or pricing functions')
+  for (const category of homeCategories()) if (!revisedCategoryIds.has(category.id)) {
+    const version = category.id === 'other' ? 4 : 2
+    assert.equal(category.photo, `/category-photos/${category.id}-v${version}.webp`)
+    assert.equal(category.photo2x, `/category-photos/${category.id}-2x-v${version}.webp`)
+    assert.equal(category.photoLarge, undefined)
+  }
 })
 test('all photographic thumbnails have fixed responsive sizes, stripped metadata and a bounded payload', async () => {
   let total = 0
   for (const category of homeCategories()) for (const [src, size] of [[category.photo, 160], [category.photo2x, 240]]) {
     const path = new URL(`../public${src}`, import.meta.url), metadata = await sharp(path.pathname).metadata()
-    assert.equal(metadata.format, 'webp'); assert.equal(metadata.width, size); assert.equal(metadata.height, size)
+    assert.equal(metadata.format, 'webp'); assert.equal(metadata.width, size); assert.equal(metadata.height, category.id === 'beauty' ? size * 1.5 : size)
     assert.equal(metadata.exif, undefined); assert.equal(metadata.xmp, undefined)
     const bytes = (await stat(path)).size; total += bytes; assert.ok(bytes < 30000)
   }
@@ -140,16 +214,30 @@ test('both partner booking modes retain fixed first-party entry points and curre
   assert.equal(bookingAction(business(), 'en').href, '/book/public-fixture?lang=en')
   assert.equal(bookingAction(business({ booking_mode: 'external' }), 'bg').href, '/out/business/public-fixture?lang=bg')
 })
-test('compact homepage composes existing search with native rails and no hero registration banner', async () => {
+test('homepage preserves the search panel and mounts persistent inline choices and summary before always-visible results', async () => {
   const home = await read('components/home-page.js'), search = await read('components/discovery-search.js')
   assert.match(home, /accountDeleted=\{accountDeleted\} home directoryData=/)
   assert.match(search, /home \? homeCopy\.title : copy\.title/)
   assert.match(search, /!compact && !home && <DiscoveryRouteArt/)
   assert.doesNotMatch(search, /className="discovery-partner-entry"/)
-  assert.ok(search.indexOf('title={homeCopy.categories}') < search.indexOf('<DiscoveryHomeBusinesses'))
+  let previous = search.indexOf('</SearchPanel>')
+  for (const component of ['<InlineCategoryGrid', '<DiscoverySubcategories inline', '<InlineDiscoverySummary', '<DiscoveryHomeBusinesses']) {
+    const index = search.indexOf(component)
+    assert.ok(index > previous, `${component} follows the preceding inline level`)
+    previous = index
+  }
+  assert.match(search, /home && !compact && <InlineCategoryGrid/)
+  assert.match(search, /const inlinePanelOpen = Boolean\(category\)/)
+  assert.match(search, /home && !compact && <InlineDiscoveryPanel open=\{inlinePanelOpen\}>\{inlinePanelOpen \? <DiscoverySubcategories inline/)
+  assert.match(search, /const inlineOptions = subcategoryOptions\.filter\(item => item.category === category && item.count > 0\)/)
+  assert.match(search, /options=\{inlineOptions\}/)
+  assert.match(search, /home && !compact && <InlineDiscoverySummary/)
+  assert.match(search, /!compact && <DiscoveryHomeBusinesses/)
+  assert.doesNotMatch(search, /GuidedServiceDiscovery|guideStage/)
+  assert.doesNotMatch(search, /<DiscoveryHomeRail/)
   assert.equal((search.match(/<DiscoveryHomeBusinesses /g) || []).length, 1)
   assert.doesNotMatch(search, /className="discovery-results"|className="discovery-understood"|className="discovery-source-tabs"/)
-  assert.ok(search.indexOf('<DiscoverySubcategories') < search.indexOf('<DiscoveryHomeBusinesses'))
+  assert.match(search, /!compact && !home && <DiscoverySubcategories/)
   assert.doesNotMatch(search, /DiscoveryHomeBottom/)
 })
 test('folded-map toggle requests permission only explicitly, exposes actual on/off state and ignores stale grants', async () => {
@@ -208,20 +296,25 @@ test('dialog Tab cycling covers forward/backward boundaries, hidden fields and W
   assert.equal(containDialogTab({ ...event, key: 'Escape' }, dialog), false)
   assert.equal(prevented, 3)
 })
-test('native carousels expose real scroll controls and keep all photographic choices reachable without autoplay', async () => {
-  const rail = await read('components/discovery-home-rail.js'), css = await read('app/discovery-home.css'), search = await read('components/discovery-search.js')
+test('legacy carousels retain accessible controls while the homepage mounts the complete photographic inline grid', async () => {
+  const rail = await read('components/discovery-home-rail.js'), css = await read('app/discovery-home.css'), search = await read('components/discovery-search.js'), grid = await read('components/inline-category-grid.js')
   assert.match(rail, /node\.scrollTo\(\{ left: railScrollTarget\(node, direction\)/); assert.match(rail, /aria-controls=\{id\}/); assert.match(rail, /tabIndex=\{0\}/)
   assert.match(rail, /prefers-reduced-motion/); assert.doesNotMatch(rail, /setInterval|fetch\(|cloneNode/)
   assert.match(css, /overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-inline: contain/)
   assert.match(css, /\.home-discovery-rail > li \{[^}]*scroll-snap-align: start/)
-  assert.match(search, /homeCategories\(locale\).map/); assert.match(search, /loading=\{index < 4 \? 'eager' : 'lazy'\}/)
+  assert.match(search, /home && !compact && <InlineCategoryGrid/)
+  assert.doesNotMatch(search, /<DiscoveryHomeRail/)
+  assert.match(grid, /homeCategories\(language\)\.map\(item =>/)
+  assert.match(grid, /<img className="inline-category-photo"[^\n]*loading="lazy"/)
+  assert.doesNotMatch(grid, /\.slice\(|overflow|showMore|fetch\(|requestDiscoveryLocation/)
 })
-test('the single browse rail uses actual photos/reviews and only server-budgeted Google plans', async () => {
+test('the single browse rail uses actual photos and only server-budgeted Google plans; compact previews omit reviews', async () => {
   const browse = await read('components/discovery-home-browse.js'), card = await read('components/discovery-business-card.js')
   assert.match(browse, /useDirectory/); assert.match(card, /homeBusinessPhoto\(row\)/)
   assert.match(card, /loading="lazy"/)
   assert.match(card, /<DiscoveryDistanceBadge origin=\{distanceOrigin\} destination=\{row.coordinates\}/)
-  assert.match(card, /useBusinessReviews\(row.slug/)
+  assert.doesNotMatch(card, /useBusinessReviews|PartnerRailReviews|home-business-reviews/)
+  assert.match(await read('components/public-booking-page.js'), /<BusinessReviews reviews=\{reviews\}/)
   assert.match(card, /const actions = \(business = row\) =>/)
   assert.match(card, /OutboundBookingButton business=\{business\}/)
   assert.match(browse, /google\(result\?\.external, 'near-google'\)/)

@@ -5,6 +5,7 @@ import { useEffect, useId, useRef, useState } from 'react'
 import { nextPhotoIndex, photoSwipeDirection } from '../lib/business-photos.mjs'
 import { createPhotoAutoplay } from '../lib/photo-autoplay.mjs'
 import { businessPhotoStyle } from '../lib/business-photo-layout.mjs'
+import { publicProse } from '../lib/locale/public-content.mjs'
 
 export function BusinessPhotoGallery({ photos: suppliedPhotos = [], businessName, locale = 'bg', variant = 'profile', autoplay = true, fallback = null }) {
   const [failedSources, setFailedSources] = useState([])
@@ -37,7 +38,7 @@ export function BusinessPhotoGallery({ photos: suppliedPhotos = [], businessName
   if (!count) return fallback
   const activeIndex = index < count ? index : 0
   const photo = photos[activeIndex]
-  const text = value => value?.[locale] || value?.bg || businessName
+  const text = value => publicProse(value, locale) || businessName
   const move = direction => { setPaused(true); setIndex(current => nextPhotoIndex(current, direction, count)) }
   const rejectPhoto = (source) => {
     setFailedSources(current => current.includes(source) ? current : [...current, source])
@@ -67,11 +68,11 @@ export function BusinessPhotoGallery({ photos: suppliedPhotos = [], businessName
   const counter = <span className="business-photo-counter" aria-live={playing ? 'off' : 'polite'}>{activeIndex + 1} / {count}</span>
 
   return <>
-    <div ref={root} className={`business-photo-gallery${variant === 'directory' ? ' directory-business-cover' : ''}`} role="region" aria-roledescription={en ? 'carousel' : 'галерия'} aria-label={en ? `Photos of ${businessName}` : `Снимки на ${businessName}`} data-photo-index={index} data-autoplay={playing} onKeyDown={keydown} onPointerEnter={event => { if (event.pointerType === 'mouse') setHovered(true) }} onPointerLeave={() => setHovered(false)} onFocusCapture={event => { if (event.target.matches(':focus-visible')) setPaused(true) }}>
+    <div ref={root} className={`business-photo-gallery${variant === 'directory' ? ' directory-business-cover' : ''}`} role="region" aria-roledescription={en ? 'carousel' : 'галерия'} aria-label={en ? `Photos of ${businessName}` : `Снимки на ${businessName}`} data-photo-fit="contain" data-photo-controls={count > 1 ? 'navigation' : 'counter'} data-photo-index={index} data-autoplay={playing} onKeyDown={keydown} onPointerEnter={event => { if (event.pointerType === 'mouse') setHovered(true) }} onPointerLeave={() => setHovered(false)} onFocusCapture={event => { if (event.target.matches(':focus-visible')) setPaused(true) }}>
       <button className="business-photo-open" type="button" onTouchStart={swipeStart} onTouchEnd={swipeEnd} onTouchCancel={() => { touchStart.current = null }} onClick={() => { if (dragged.current) { dragged.current = false; return }; setIsOpen(true); dialogRef.current?.showModal() }} aria-label={en ? `Open photos of ${businessName}` : `Отвори снимките на ${businessName}`}>
-        {variant === 'details' ? <Image src={photo.src} alt={text(photo.alt)} className="is-active" fill sizes="(max-width: 680px) 100vw, 640px" style={businessPhotoStyle(photo)} onError={() => rejectPhoto(photo.src)}/> : photos.map((item, itemIndex) => <Image src={item.src} alt={itemIndex === activeIndex ? text(item.alt) : ''} aria-hidden={itemIndex !== activeIndex} className={itemIndex === activeIndex ? 'is-active' : ''} fill key={item.src} preload={variant === 'profile' && itemIndex === 0} sizes={variant === 'directory' ? '(max-width: 760px) 100vw, 50vw' : '(max-width: 1200px) 100vw, 1160px'} style={businessPhotoStyle(item)} onError={() => rejectPhoto(item.src)}/>)}
+        {variant === 'details' ? <Image src={photo.src} alt={text(photo.alt)} className="is-active" fill sizes="(max-width: 680px) 100vw, 640px" style={businessPhotoStyle(photo, { preview: true })} onError={() => rejectPhoto(photo.src)}/> : photos.map((item, itemIndex) => <Image src={item.src} alt={itemIndex === activeIndex ? text(item.alt) : ''} aria-hidden={itemIndex !== activeIndex} className={itemIndex === activeIndex ? 'is-active' : ''} fill key={item.src} preload={variant === 'profile' && itemIndex === 0} sizes={variant === 'directory' ? '(max-width: 760px) 100vw, 50vw' : '(max-width: 1200px) 100vw, 1160px'} style={businessPhotoStyle(item, { preview: true })} onError={() => rejectPhoto(item.src)}/>)}
       </button>
-      {arrows}{playback}{counter}
+      <div className="business-photo-preview-controls">{arrows}{playback}{counter}</div>
     </div>
     <dialog ref={dialogRef} className="business-photo-dialog" aria-labelledby={titleId} onClose={() => setIsOpen(false)} onKeyDown={keydown} onClick={event => { if (event.target === event.currentTarget) dialogRef.current?.close() }}>
       <header><h2 id={titleId}>{businessName}</h2><button className="business-photo-close" type="button" onClick={() => dialogRef.current?.close()} aria-label={en ? 'Close photos' : 'Затвори снимките'}>×</button></header>

@@ -9,6 +9,7 @@ import * as monthHelpers from '../lib/monthly-booking-calendar.mjs'
 import * as bookingWindow from '../lib/booking-window.mjs'
 import * as profileUi from '../lib/business-profile-ui.mjs'
 import * as bookingButtonContent from './helpers/booking-button-content.mjs'
+import * as publicAction from './helpers/public-action.mjs'
 
 const require = createRequire(import.meta.url)
 const { loadBindings, transform } = require('next/dist/build/swc')
@@ -55,7 +56,7 @@ function hookRunner(code, extraStubs = {}, options = {}) {
   const module = { exports: {} }
   const stubs = { react: mockReact, '../lib/monthly-booking-calendar.mjs': { ...monthHelpers, createMonthAvailabilityCache: options => monthHelpers.createMonthAvailabilityCache({ ...options, now: () => now }) }, ...extraStubs }
   new Function('require', 'module', 'exports', 'fetch', 'window', 'setInterval', 'clearInterval', 'Date', code)(
-    name => name in stubs ? stubs[name] : (name === './brand-loading' ? brandLoading : require(name)), module, module.exports,
+    name => name === './public-action' ? publicAction : name === './public-action.module.css' ? publicAction.publicActionStyles : name in stubs ? stubs[name] : (name === './brand-loading' ? brandLoading : require(name)), module, module.exports,
     options.fetch || (() => assert.fail('Unexpected network request')),
     { matchMedia: () => ({ matches: true }) },
     callback => { const id = ++timerId; timers.set(id, callback); return id }, id => timers.delete(id), { now: () => now },
@@ -274,8 +275,9 @@ test('fictional calendar previews are production-gated, never use production pro
 
 test('mode artwork resolves to the intended local assets and the calendar stylesheet is loaded globally', async () => {
   const sharedContentSource = await readFile(new URL('../components/booking-button-content.js', import.meta.url), 'utf8')
-  assert.match(bookingSource, /import \{ BookingCalendarIcon, BookingButtonContent \} from '\.\/booking-button-content'/)
-  assert.match(bookingSource, /<BookingButtonContent/)
+  assert.match(bookingSource, /import \{ BookingCalendarIcon \} from '\.\/booking-button-content'/)
+  assert.match(bookingSource, /import \{ PublicAction, PublicActionPair \} from '\.\/public-action'/)
+  assert.match(bookingSource, /<PublicAction type="button" disabled=\{busy\} aria-pressed=\{mode === 'booking'\}/)
   for (const filename of ['calendar-3d-v1.webp', 'assistant-3d-v1.webp']) {
     assert.ok((filename.startsWith('calendar') ? sharedContentSource : bookingSource).includes(`/booking-art/${filename}`))
     assert.ok((await stat(new URL(`../public/booking-art/${filename}`, import.meta.url))).size > 0)

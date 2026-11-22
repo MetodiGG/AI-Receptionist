@@ -1,0 +1,183 @@
+GoRez — guided service discovery / local review, 21 November 2026
+
+STATUS
+Implemented in isolated branch codex/guided-service-discovery-20261121,
+based on main ff7f191c. Not pushed, merged or published to production.
+The original dirty checkout and unrelated catalogue work remain untouched.
+
+WORKING PREVIEW (server bound only to this computer)
+http://127.0.0.1:30821/dev/guided-discovery?lang=bg
+http://127.0.0.1:30821/dev/guided-discovery?lang=en
+http://127.0.0.1:30821/dev/guided-discovery?view=photos&lang=bg
+http://127.0.0.1:30821/dev/guided-discovery?lang=bg&text=large
+
+The last option emulates a 150% root font, not native browser zoom.
+The photo review uses unchanged public partner originals, including both
+VESI STUDIO portraits, and existing generated cover artwork.
+Booking/directions actions are deliberately disabled in this local preview.
+The preview route and its search adapter return 404 in production and hosted
+preview environments, even when DISCOVERY_DEV_MOCK=true is supplied.
+No production configuration, credentials, database or notifications changed.
+
+To restart from this isolated checkout, using the already installed runtime:
+env PATH=/Users/metodig/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin:/Users/metodig/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback:$PATH DISCOVERY_ENABLED=true DISCOVERY_DEV_MOCK=true DISCOVERY_SEARCH_V2_ENABLED=true pnpm --config.verify-deps-before-run=warn dev --webpack --hostname 127.0.0.1 --port 30821
+
+DESIGN AND BEHAVIOR
+Normal home has the existing search and one Choose a service control. No
+arbitrary category, category carousel or automatic geolocation request.
+Only the current stage expands: categories, specific services, or results.
+All 14 original categories remain; photographed rows are vertical, with one
+column on mobile and two on desktop when readable. The service stage has
+Back, Close, the selected category and All services in this category.
+Results have editable category/service summaries and at most two matching
+service/price rows per business; complete menus remain in existing details.
+
+Search markup is byte-for-byte identical to the approved main form (hash
+8ba0c17fc09aede40e70af62f168f90ec900f5f3e08870d4ac0ef22090f6c89a).
+Suggestions, typing, submission, filters and location controls were not
+redesigned. The guide updates their existing authoritative filter state.
+It retains typed query constraints, explicit area and radius, clears an
+incompatible child, and does not silently broaden a guided search.
+Real server facets determine which specific service choices are available.
+No exact matches produces change-service/change-area options, not unrelated
+businesses. Partner status does not bypass matching or geographic scope.
+
+Labels are centered over the WHOLE control, not remaining flex space:
+equal left/right grid tracks + centered middle track + symmetric padding.
+The left contains the existing photo (or an empty balancing track); the
+right contains a 16px vector cue. At enlarged text the equal side tracks can
+shrink symmetrically to admit complete words; arrows retain a 16px minimum.
+Measured center error was 0px normally and <=0.004px at 320px/150% text
+(subpixel rounding); arrows did not overlap labels.
+
+Warm cream surfaces, fine orange borders, restrained shadows and 180ms
+feedback reuse the current brand. Selected background, heavier text and
+localized Selected wording are recognizable without color alone. No emojis,
+checkmarks, underline-only selection or new decorative images were added.
+Focus rings, native buttons, disclosure semantics and reduced-motion CSS
+are present. Only the current heading receives transition focus; closing
+returns to the launcher. Next's supported URL subscription fixes native
+Back/Forward restoration without duplicate requests or a second filter store.
+
+PHOTOGRAPHS
+Real partner covers use object-fit:contain and centered positioning in a
+reserved neutral frame (128x116px desktop, 96x112px mobile including padding).
+Gallery previews also contain the whole photo; navigation/counter controls
+are in a separate lower gutter, not over the picture. Full-size originals,
+colors, content and gallery order remain unchanged. Original VESI hashes
+and dimensions are pinned by regression tests.
+Five first-photo public WebP responses were copied byte-for-byte for offline
+review, totaling 548528 bytes, with provenance and SHA256 in the fixture.
+No photograph was generated, stretched, recropped or reconstructed.
+AI cover disclosures are 11px, one line, minimal padding and contrast-safe;
+real partner photos never receive an AI illustration badge.
+
+TAXONOMY: 104 EXISTING + 9 SUPPORTED ADDITIONS = 113
+Counts refer to approved catalogue businesses / actual service rows at audit;
+they overlap and are not new businesses or mutually exclusive groups.
+
+New option                 Businesses / rows   Existing supporting example
+Children's haircuts        31 / 43             Belami: haircut up to 7 years
+Braids                     17 / 27             Noxic Beauty: fishtail braid
+Nail strengthening         18 / 29             Luxury Nails: gel strengthening
+Machine pedicure            1 / 2              Nail Cocktail: machine pedicure
+Brow lamination            16 / 25             Skinni: brow lamination
+Group workouts             39 / 56             JP Studio: group reformer class
+Mathematics                20 / 31             X-Academy: individual math lesson
+Exam preparation            2 / 3              ELIT: NVO math/Bulgarian preparation
+Furniture assembly          7 / 15             Assemblix: desk assembly
+
+All previous IDs, links, useful groups and Folk dance remain. Images are
+existing appropriate service assets; exam preparation reuses the math image.
+The full audit, IDs, exact service names and source inventory are recorded
+in docs/guided-discovery-taxonomy-20261121.json.
+Most other proposed groups already exist and were not duplicated. Explicit
+electrolysis has no currently supported service rows and remains a future
+recommendation, not an empty public option. No new clinical scope was added.
+
+VERIFICATION
+PASS: 2691/2691 Node tests, zero failed/skipped/cancelled.
+PASS: Python pricing extraction 8/8 and booking-pricing flow 4/4.
+PASS: separate next build --webpack compilation and production prerendering.
+PASS: specific-service photo checks; zero missing/neutral/invalid catalogue
+      service illustrations; original image hash and layout regressions.
+PASS: git diff --check; no data, pricing-baseline or dependency changes.
+
+Actual browser at 320,390,768,1440px: vertical choices, full labels, equal
+centering, no horizontal page overflow, responsive columns, <=2 preview
+services, BG/EN, unchanged direct search, filters/explicit quarter, empty
+matches, Back/Forward, refresh/deep link, remembered selection, category
+change clearing incompatible service, keyboard Enter/Tab/focus, hover,
+dark mode, portrait/landscape uploads and gallery next/previous order.
+150% root-font emulation checked at 320,390,1440px, without clipped guide
+labels or arrow overlap. Actual selected/focus/hover screenshots are saved.
+Pressed/reduced-motion behavior is code/regression checked; no native OS
+reduced-motion preference or physical Android/iOS device was changed.
+Loading/abort/deduplication/stale-response tests cover quick changes, closing
+during a request, and selecting All while the parent request is in flight.
+No real reservation, customer data entry or notification was created.
+
+EXISTING GATES THAT DID NOT PASS (NOT BYPASSED)
+pnpm catalogue:check stops on Artizba's existing source review expiry on
+2026-11-18. The standalone pricing gate flags 43 existing GPoint branches
+whose price review validity ended 2026-11-17, plus Artizba (44 rows).
+Therefore the full pnpm build wrapper stops before Next compilation.
+The separate Next compilation passed; this is NOT a claim that the full
+release gates passed. Business records, review dates and baselines were not
+refreshed to suppress those failures. They need a real source review before
+any future release. The dev CLI also displayed an existing Next security
+upgrade reminder; dependencies were deliberately not changed in this task.
+
+LIMITATIONS
+There is no square real partner upload in the current public snapshot;
+actual portrait/landscape assets were visually checked, square containment
+is unit-tested, and no square partner photo was invented or cropped.
+Local review is a dated public snapshot, not a live customer/booking system.
+Only the first photo of five remote partners is included offline; both
+checked-in VESI photos retain their original order. Production still uses
+each complete original gallery and existing reservation/redirect analytics.
+No production publication is authorized by this handoff; review comes first.
+
+CHANGED IMPLEMENTATION FILES
+components/guided-service-discovery.js
+components/discovery-search.js
+components/discovery-page.js
+components/discovery-home-browse.js
+components/discovery-business-list.js
+components/discovery-business-card.js
+components/business-cover-photo.js
+components/business-photo-gallery.js
+lib/discovery/guided-copy.mjs
+lib/discovery/guided-navigation.mjs
+lib/discovery/search-ui.mjs
+lib/discovery/rail.mjs
+lib/discovery/subcategories.mjs
+lib/business-photo-layout.mjs
+app/guided-discovery.css
+app/discovery-photo-refinement.css
+app/layout.js
+app/dev/guided-discovery/page.js
+app/dev/guided-discovery/preview.js
+app/dev/guided-discovery/search/route.js
+scripts/prepare-guided-preview.mjs
+tests/fixtures/guided-public-partners-20261121.json
+public/businesses/guided-preview/ (five unchanged WebP copies)
+docs/guided-discovery-taxonomy-20261121.json
+docs/guided-discovery-review-20261121.txt
+Focused new regression tests and adapted existing UI-contract tests are
+included; old non-home rail, matching, pricing and booking checks remain.
+
+SCREENSHOT REVIEW
+All four states at390px and1440px, plus320/768px, English, enlarged text,
+selected/focus/hover, dark mode and original photos are available in:
+/Users/metodig/.codex/visualizations/2026/10/13/01a13548-f728-7172-a396-a52db0f30e43/artifacts/guided-discovery-20261121/index.html
+
+Final logs:
+/tmp/gorez-guided-final-all-tests.log
+/tmp/gorez-guided-final-compile.log
+/tmp/gorez-guided-build-20261121.log (full wrapper's pricing gate failure)
+/tmp/gorez-guided-final-catalogue-NZOcFA
+/tmp/gorez-guided-final-pricing-g7AGps
+/tmp/gorez-guided-final-photos-8bMhQF
+/tmp/gorez-guided-final-python-extraction-FX635o
+/tmp/gorez-guided-final-python-booking-DATY6Z

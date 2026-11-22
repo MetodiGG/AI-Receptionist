@@ -1,0 +1,180 @@
+GoRez — photo-forward category/subcategory refinement — 2026-11-21
+
+STATUS
+Local review only. No production publication, push, merge, data/image writes,
+dependency changes, real reservations or notifications.
+Branch: codex/photo-forward-discovery-20261121
+Baseline: 3858c4e5f7e96d8a53db09bc09dc3a014be7658b
+Worktree: /Users/metodig/.codex/visualizations/2026/10/13/01a13548-f728-7172-a396-a52db0f30e43/work/photo-forward-discovery-20261121
+
+WORKING PREVIEW
+BG: http://127.0.0.1:30827/dev/inline-discovery?lang=bg
+EN: http://127.0.0.1:30827/dev/inline-discovery?lang=en
+200% text: http://127.0.0.1:30827/dev/inline-discovery?lang=en&text=large
+Before/after gallery: /Users/metodig/.codex/visualizations/2026/10/13/01a13548-f728-7172-a396-a52db0f30e43/artifacts/photo-forward-discovery-20261121/review.html
+The existing development preview is gated by DISCOVERY_DEV_MOCK and disables
+booking actions. The production configuration was not changed.
+
+WHAT CHANGED / WHY
+The former small floating thumbnail and large empty surface have been replaced
+by an original photograph filling the whole tile. A bottom smoked-glass caption
+holds the full centered name and a real localized business count. The count is
+12px near-cream text, not a gray pill.
+Both levels use one shared fixed tile ratio: 1:1 below700px and4:3 from700px.
+Captions grow upward over the picture; their content does not size the tile.
+Normal grids are2 columns on phones,3 at768px and4 at1440px.
+Examples measured in the browser:
+-390px: all category and service tiles165x165px.
+-320px: ordinary nails tiles134x134px.
+-768px: three service columns~219.33x164.50px.
+-1440px: four service columns257.5x193.125px.
+No name ellipsis, line clamp, manual line break, reduced text size or break-all.
+
+All services is no longer a tile or grid item. It is a full-width glass control
+above the service grid, minimum56px (58px with the40px thumbnail and padding),
+with equal40px side tracks and a centered middle label. Browser centering delta
+was0px. It wraps/grows when text is enlarged instead of hiding the full label.
+The selected-category photo/name/X chip remains a44px clear action.
+
+SELECTION / INTERACTION
+The authoritative aria-pressed state and callbacks are unchanged. The previous
+problem was visual: inactive All had an always-tinted background resembling the
+active tile. Only the actually selected control now receives the2px orange
+gradient ring, orange vector check badge and selected glass tint.
+Actual browser checks:
+- All selected => one selected service control / one check.
+- Gel polish selected => All false, Gel true, exactly one service check.
+- A category level can remain unselected initially; no arbitrary default added.
+All chevrons/checks use the existing vector Icon system and are aria-hidden.
+Circles are28px with15px chevrons at a stable top-right inset.
+Hover:2px lift, photo scale1.05 inside its frame, arrow shift2px; all three
+settled values were measured in the browser. Press feedback is scale.985.
+Keyboard focus is2px with2px offset and was captured.
+The existing200ms panel presence lifecycle and short capped tile stagger remain.
+Reduced-motion rules remove motion; loading skeletons have the same aspect ratio.
+An actual loading-transition screenshot shows the real square skeleton tiles.
+
+VISUAL SYSTEM / CONTRAST
+Existing warm palette/font/semantic tokens are preserved. Added photo tokens
+are espresso/cream/orange tints only, under --inline-photo-*.
+- Full-photo gradient:15% espresso through60% of height, then70% at the bottom.
+  Keeping the upper region lighter makes the photograph prominent.
+- Caption:60% espresso plus14px backdrop blur; selected warm-brown caption70%.
+  Opaque espresso/brown fallback when blur is unsupported.
+- Cream label#FFF4E8, near-cream count#FFF2E7, both opacity1.
+- Calculated conservative white-photo minima: labels4.677:1, counts4.616:1;
+  selected labels5.825:1, counts5.749:1. Opaque fallbacks >=12.80:1.
+- Panels share16px blur, a fine gradient border/top highlight and two restrained
+  brand-tinted shadow layers. Tile radius20px; panel26px/24pxmobile.
+- Dark page#1D1916, panel#2E241E: +5.29 OKLab-lightness points in opaque tokens.
+- Static brand radial gradients and a2.35%-alpha32px fine grid add background
+  layering in both themes, without animated gradients or new decorative images.
+- The All control uses90% surface/92% selected-surface glass where supported.
+These are color-compositing calculations, not a blanket WCAG certification.
+See docs/photo-forward-design-audit-20261121.txt for the detailed audit.
+
+PHOTOGRAPHS / FOCAL POINTS
+All1889 existing public image blobs/paths remain unchanged. No image generation,
+replacement, recoloring, download or raster-upscaling asset was performed.
+Existing category variants were inspected:160x160 and240x240. Category rendering
+now requests the existing240px variant when useful, with truthful160w/240w source
+descriptors and sizes. The old1x/2x descriptors did not reflect their real sizes.
+The original240px files still limit maximum retina detail; no detail was invented.
+A presentation-only exact-source map controls object-position, default center.
+After reviewing wide crops, top alignment was used for:
+- categories: Hair, Lessons, Pet grooming, Home services, Therapies, Consulting,
+  Other service; both existing image variants are covered;
+- services: women's haircut, children's haircut, formal updo (55% horizontal),
+  career consultation.
+These positions protect hats, heads and raised hands in4:3 crops. Sports and
+unmapped actions retain centered crops. Assets and taxonomy records are untouched.
+Partner photographs, galleries, containment, AI disclosure and business-card
+service previews were not changed by this task.
+
+NARROW / ENLARGED-TEXT SAFETY DECISION
+The requested full words at15–16px cannot always fit inside two tiles at320px:
+actual initial measurements found Автоелектроника135px and Тенекеджийство130px
+against a122px caption. Shortening, clipping and shrinking violate the hard
+full-label requirements. The owner confirmed the narrow-only one-column option.
+The implementation preserves complete names: only service grids
+containing an actual localized word of14+ letters switch to one column in very
+narrow containers (<=20rem). The default category grid and ordinary320px nails
+grid remain two columns; all normal390px grids remain two columns.
+The flag is presentation only, derived after the unchanged positive-count filter.
+It does not alter labels, mappings, IDs, results, analytics or query handling.
+At200% root text, grids reflow to fewer columns while retaining their fixed ratio;
+All keeps equal40px side tracks and reduces only balancing gaps/padding.
+320px English longest labels and1440px Bulgarian enlarged text showed no clipped
+labels/captions or horizontal overflow. No displayed names were abbreviated.
+This is an explicit accessibility exception to a rigid two-column narrow grid,
+approved by the owner, not an undisclosed change in filtering.
+
+PRESERVED SCOPE / TESTS
+- Search component is byte-identical to3858c4e, including all handlers/state.
+  Main-form SHA256:
+  8ba0c17fc09aede40e70af62f168f90ec900f5f3e08870d4ac0ef22090f6c89a
+- Measured search styles/sizes match the earlier baseline at390/1440, light/dark.
+- Shared taxonomy, BG/EN copy, URL/state restoration, stale-response protection,
+  pagination, location wording, analytics, booking logic and eligibility remain.
+- Full search/card/summary/presence code, APIs/hooks/lib/public/config/dependencies
+  are hash-frozen to3858c4e;2625 files and2492 protected paths are checked.
+  Original c9 data/asset protections also remain.
+- The non-inline subcategory branch and shared image functions remain baseline
+  identical. Only the inline presentation, captions, count text and All location
+  changed. The new long-word flag is isolated to that presentation.
+- Business cards/results and summary CSS declarations are unchanged; no new
+  availability, provider, sort or booking functionality was introduced.
+
+Final checks:
+1. pnpm test:2754/2754 PASS,0 failures/skips/cancellations.
+   /tmp/gorez-photo-forward-final-node.log
+2. Pricing Python tests8/8 +booking-flow Python tests4/4 PASS.
+   /tmp/gorez-photo-forward-final-pricing-python.log
+   /tmp/gorez-photo-forward-final-booking-python.log
+3. Raw Next webpack compilation PASS,99/99 static pages.
+   /tmp/gorez-photo-forward-final-webpack.log
+4. git diff --check PASS.
+5. Browser checks at320/390/768/1440, BG/EN, both themes, enlarged text, complete
+   long names, fixed ratios, actual All/Gel states, hover, keyboard focus,
+   count pluralization, image focal crops and actual loading skeletons.
+   Browser error log was empty.
+   Gallery includes12 baseline and12 after screenshots in the same390/1440,
+   light/dark, category/subcategory/results matrix, plus focused state examples.
+
+RELEASE GATES / LIMITATIONS
+- catalogue:check still fails the existing Artizba publication-review gate.
+- The normal build wrapper still stops on44 existing price-review receipts
+  (43 GPoint +Artizba); it does not reach compilation. Raw compilation passed
+  separately. Data/review dates/baselines were not modified to bypass these gates.
+  Logs: /tmp/gorez-photo-forward-final-catalogue.log
+        /tmp/gorez-photo-forward-final-build-wrapper.log
+- The existing Next CLI displayed a security-update recommendation. No package
+  upgrade or advisory assessment was performed in this visual-only task.
+-200% was tested using the existing dev root-text enlargement, not native browser
+  zoom or physical Android/iPhone hardware. Held press/reduced motion are covered
+  by CSS/lifecycle tests; no native held-finger or OS preference screenshot is
+  claimed. Hover/focus/loading were actually captured.
+- The site's pre-existing global minimum width is320px; an app preview pane below
+  that width may retain that existing minimum. Acceptance checks used >=320px.
+- The source photographs have finite resolution; no artificial upscaling assets
+  or extra image integrations were introduced.
+- All14 categories remain visible as requested, so the mobile page is naturally
+  taller with full photographic tiles. Nothing is hidden behind More.
+- Nothing published. Review the actual local preview before any production step.
+
+IMPLEMENTATION FILES
+app/inline-discovery.css
+components/inline-category-grid.js
+components/discovery-subcategories.js
+components/discovery-tile-photo-style.mjs
+
+New focused tests:
+tests/photo-forward-discovery-scope.test.mjs
+tests/photo-forward-discovery-tiles.test.mjs
+Existing authorized visual/component test expectations were updated; protected
+behavior, analytics and data assertions remain.
+
+RESTART
+From the isolated worktree, with the existing runtime on PATH:
+env DISCOVERY_ENABLED=true DISCOVERY_DEV_MOCK=true DISCOVERY_SEARCH_V2_ENABLED=true pnpm --config.verify-deps-before-run=false dev --webpack --hostname 127.0.0.1 --port 30827
+The dependency symlink is environment-owned and is not included in this change.

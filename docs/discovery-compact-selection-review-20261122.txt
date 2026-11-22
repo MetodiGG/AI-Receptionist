@@ -1,0 +1,104 @@
+GoRez compact discovery and partner-photo review — 2026-11-22
+
+Status: LOCAL ONLY. No push, PR, merge, deployment, database write, booking,
+notification, provider setting, paid integration or dependency change.
+Branch: codex/discovery-compact-selection-20261122
+Base: eb36f6718141b9e616170a0b3d90bfcc868ad58b
+The original Documents/AI-Receptionist checkout and its three unrelated
+untracked files were preserved.
+
+Implemented
+- Removed the redundant phone/external/native booking-mode hint above card
+  action buttons. Actual destinations, accessible action labels and analytics
+  remain unchanged.
+- Replaced the oversized selection/count/sort/location panel with a slim warm
+  translucent breadcrumb strip above Matching businesses. Category and service
+  can be cleared independently. It reports actual unique displayed rows, not an
+  unverified catalogue-wide total. More available appears only for a real
+  nextOffset and is suppressed for clarification responses.
+- Removed All services in this category from inline discovery only. Existing
+  non-home legacy clearing remains. The selected parent photo chip shares the
+  subcategory heading row where space allows.
+- Preserved measured sticky safety and added first-card heading clearance so
+  automatic scrolling does not put Matching businesses behind the summary.
+- Added finite 200ms card arrival, a first-six-row stagger capped at 150ms, and soft
+  hover/pressed feedback. Reduced motion disables animation and transforms.
+- Replaced the Car wash navigation image with the final requested fictional
+  generated scene: an entire orange car, a white adult male worker, hand
+  washing with a mitt, no pressure-washer gun. It is NOT a real partner photo.
+  Original v2 assets are unchanged; rejected stock candidates v3/v4 are kept
+  only in local review artifacts, not shipped. Final media: car_wash-v5.webp,
+  car_wash-2x-v5.webp, car_wash-large-v5.webp at 160/240/640 square pixels.
+  Built-in image_gen mode and the complete exact prompt/source/file hashes:
+  docs/car-wash-photo-20261122.json.
+- Audited 113 subcategory choices/107 unique sources across 14 categories.
+  Corrected upholstery washing to seat extraction; improved mobile washing
+  and vehicle inspection photos using existing precise service-photo assets.
+  Classification IDs, labels, regexes and matching functions remain identical.
+  Full audit: docs/subcategory-photo-audit-20261122.json.
+- Partner category navigation and selected-category headings now reuse the
+  exact shared homepage category photographs instead of pictograms. Reserved
+  88/72/64px contain frames preserve the complete photo. Existing industry
+  identifiers, links, counts, eligibility and real partner galleries unchanged.
+
+Changed production files (exact ten-path scope)
+app/inline-discovery.css
+app/premium-discovery-cards.css
+app/solar.css
+components/discovery-business-card.js
+components/discovery-subcategories.js
+components/inline-discovery-summary.js
+components/partner-categories.js
+lib/discovery/home.mjs
+lib/discovery/inline-copy.mjs
+lib/discovery/subcategories.mjs
+
+Verification
+- FINAL Node suite 2798/2798 passed, 0 failed/skipped/cancelled.
+  /tmp/gorez-compact-selection-node.log
+- Pricing Python 8/8 and booking Python 4/4 passed.
+- Direct Next webpack build passed, TypeScript passed, 100/100 static pages.
+  /tmp/gorez-compact-selection-webpack-final.log
+- git diff --check passed.
+- Exact source/data/media guards preserve every unrelated production byte,
+  the unchanged main search form and trusted booking/analytics action block.
+- Actual browser checks at 320/390/768/1440px, BG/EN, light/dark, keyboard
+  selection, Back/Forward, valid direct-link refresh, two-level selection,
+  actual shown-row counts 8 and 15 plus real continuation, independent clearing.
+- Enlarged text used actual 32px root text (200%) at 320 and 768px; no horizontal
+  page overflow or clipped essential labels observed. Targets retain 44px.
+- Final Car wash v5 source loaded in the browser; whole car and worker visible.
+- Partner category photos loaded on 1440px light/390px dark, selected Beauty heading
+  contains rather than crops the portrait. Partner preview uses clearly
+  labelled existing fictional fixtures, not invented real catalogue totals.
+- No production bookings or notifications were created.
+
+Pre-existing release gates (not bypassed)
+The normal pnpm build wrapper still stops on 44 existing sourced-price review
+receipts (43 GPoint plus Artizba). catalogue:check stops on the existing Artizba
+review. Scripts and catalogue/pricing data were not changed or rebaselined.
+The direct technical Next build passing does not mean these release gates pass.
+
+Working local previews (127.0.0.1 only, no public tunnel)
+http://127.0.0.1:30827/dev/site-preview?lang=bg
+  Switch Phone/Laptop, width and zoom without losing selection.
+http://127.0.0.1:30827/dev/partner-categories?lang=bg
+  Inert partner-category design fixture; booking disabled.
+
+Screenshot directory
+/Users/metodig/.codex/visualizations/2026/10/13/01a13548-f728-7172-a396-a52db0f30e43/artifacts/discovery-compact-selection-20261122
+Key FINAL screenshots:
+desktop1440-categories-final-light.jpg
+phone390-results-final-dark.jpg
+partners1440-light.jpg
+partners390-dark.jpg
+partners390-selected-dark.jpg
+interactive-preview-final.jpg
+Other intermediate screenshots are retained for comparison; do not mistake
+the rejected stock candidates in earlier images for the final v5 illustration.
+
+Limits
+Browser QA is local Chromium/Codex, not a physical Safari/Android device or
+production deployment. No physical-device assertion or live total is claimed.
+The 113-source audit verifies relevance; only representative rendered crops
+were additionally checked in the browser. No catalogue acquisition resumed.

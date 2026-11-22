@@ -1,3 +1,4 @@
+import { loadPublicServiceMenu } from './helpers/public-service-menu.mjs'
 import * as brandLoading from './helpers/brand-loading.mjs'
 import assert from 'node:assert/strict'
 import test from 'node:test'
@@ -15,6 +16,8 @@ import * as presentation from '../lib/discovery/service-presentation.mjs'
 import * as photoLayout from '../lib/business-photo-layout.mjs'
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 import * as bookingButtonContent from './helpers/booking-button-content.mjs'
+import * as publicAction from './helpers/public-action.mjs'
+import { serviceDisplayName, serviceDisplayUnit } from '../lib/locale/public-content.mjs'
 
 // Existing SWC/SSR convention: actual client components and price/data helpers,
 // inert visual/third-party stubs, no browser, fetch, booking or effect execution.
@@ -23,6 +26,7 @@ const { loadBindings, transform } = require('next/dist/build/swc')
 await loadBindings()
 const Empty = () => null
 const thumbnail = ({ size }) => React.createElement('span', { 'data-service-thumbnail-size': size })
+const publicServiceMenu = await loadPublicServiceMenu({ ServiceThumbnail: thumbnail })
 const shared = {
   './booking-button-content': bookingButtonContent,
   './icon': { Icon: ({ name }) => React.createElement('svg', { 'aria-hidden': true, 'data-icon': name }) },
@@ -47,7 +51,7 @@ async function load(name, additional = {}) {
     module: { type: 'commonjs' },
   })
   const stubs = { ...shared, ...additional }, module = { exports: {} }
-  new Function('require', 'module', 'exports', code)(name => Object.hasOwn(stubs, name) ? stubs[name] : (name === './brand-loading' ? brandLoading : require(name)), module, module.exports)
+  new Function('require', 'module', 'exports', code)(name => name === './public-service-menu' ? publicServiceMenu : name === './public-action' ? publicAction : name === './public-action.module.css' ? publicAction.publicActionStyles : Object.hasOwn(stubs, name) ? stubs[name] : (name === './brand-loading' ? brandLoading : require(name)), module, module.exports)
   return module.exports
 }
 const { DiscoveryBusinessCard } = await load('discovery-business-card', {
@@ -150,26 +154,29 @@ function renderedPrice(html, className) {
 function assertRenderedService(service, locale) {
   const row = fixture(service)
   const card = render(DiscoveryBusinessCard, { row, locale, preview: true })
-  const compact = detailsData.detailPriceLabel({ ...service, priceUnit: '' }, locale, { compact: true })
-  assert.equal(renderedPrice(card, 'home-service-price').text, compact + (service.priceUnit || ''))
-  assert.ok(card.includes(escape(service.name)), 'the complete service name survives SSR')
-  assert.match(card, /data-service-thumbnail-size="32"/)
+  assert.ok(card.includes(escape(serviceDisplayName(service,locale))))
+  assert.ok(card.includes(escape(detailsData.detailPriceLabel({...service,priceUnit:''},locale,{compact:true}))))
+  assert.ok(card.includes(escape(serviceDisplayUnit(service,locale))))
+  assert.match(card,/data-service-thumbnail-size="40"/)
+  assert.doesNotMatch(card,/home-business-inline-details/)
+  let renderedText
   for (const linked of [true, false]) {
     const menuService = { ...service, priceSourceUrl: linked ? sourceUrl : null }
     const html = render(DiscoveryBusinessDetails, { row: fixture(menuService), locale, preview: true, triggerRef: { current: null }, onClose: Empty })
-    const actual = renderedPrice(html, 'business-details-price')
+    const actual = renderedPrice(html, 'public-service-menu-price')
+    renderedText = actual.text
     const full = detailsData.detailPriceLabel({ ...service, priceUnit: '' }, locale)
-    assert.equal(actual.text, full + (service.priceUnit || ''), `${locale}: both detail markup variants retain full price and qualification`)
+    assert.equal(actual.text, full + serviceDisplayUnit(service, locale), `${locale}: both detail markup variants retain full price and qualification`)
     assert.equal(actual.tag, linked ? 'a' : 'strong')
     if (linked) {
       assert.ok(actual.markup.includes(`href="${sourceUrl}"`))
       assert.match(actual.markup, /rel="noopener noreferrer"/)
       assert.ok(actual.markup.includes(`aria-label="${escape(detailsData.detailPriceLabel(service, locale))}`))
     }
-    assert.ok(html.includes(escape(service.name)))
-    assert.match(html, /data-service-thumbnail-size="44"/)
+    assert.ok(html.includes(escape(serviceDisplayName(service, locale))))
+    assert.match(html, /data-service-thumbnail-size="128"/)
   }
-  return renderedPrice(card, 'home-service-price').text
+  return renderedText
 }
 
 const kerelski = SOFIA_CATALOGUE.find(row => row.id === 'sofia-kerelski-manastirski-livadi')
@@ -202,7 +209,7 @@ for (const locale of ['bg', 'en']) {
       assert.doesNotMatch(text, /…|\.\.\./)
       if (name === 'from') assert.ok(text.startsWith(locale === 'bg' ? 'от ' : 'from '))
       if (name === 'zero') assert.ok(text.includes('0'), 'a legitimate zero price must not disappear')
-      if (service.priceUnit) assert.ok(text.endsWith(service.priceUnit), 'all published minimum/package conditions remain readable')
+      if (service.priceUnit) assert.ok(text.endsWith(serviceDisplayUnit(service, locale)), 'the localized published minimum/package conditions or honest pending notice remain readable')
     })
   }
 }
@@ -230,8 +237,9 @@ test('unknown prices are still absent, never replaced by zero or a truncated fak
     const row = fixture({ name: longName, category: 'barber', price: null, currency: 'EUR' })
     const card = render(DiscoveryBusinessCard, { row, locale, preview: true })
     const details = render(DiscoveryBusinessDetails, { row, locale, preview: true, triggerRef: { current: null }, onClose: Empty })
-    assert.doesNotMatch(card, /class="home-service-price"/)
+    assert.doesNotMatch(card, /class="home-business-preview-price"/)
     assert.doesNotMatch(details, /class="business-details-price"/)
-    assert.ok(card.includes(escape(longName)) && details.includes(escape(longName)))
+    assert.ok(card.includes(escape(serviceDisplayName(row.services[0],locale))))
+    assert.ok(details.includes(escape(serviceDisplayName(row.services[0], locale))))
   }
 })

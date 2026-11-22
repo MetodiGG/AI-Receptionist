@@ -1,5 +1,7 @@
 'use client'
 
+import { postalDisplay } from '../lib/locale/public-content.mjs'
+
 import { useEffect, useRef, useState } from 'react'
 import { Icon } from './icon'
 import { DISCOVERY_CATEGORIES } from '../lib/discovery/categories.mjs'
@@ -31,8 +33,8 @@ export function DiscoveryFilterSheet({ initialValues, locale, onApply, onClose, 
     <form onSubmit={event => { event.preventDefault(); onApply(draft) }}>
       <header><h2 id={`${id}-title`}>{copy.filters}</h2><button type="button" onClick={onClose} aria-label={copy.close}><Icon name="close"/></button></header>
       <div className="home-filter-fields">
-        <label>{searchCopy.city}<select value={draft.cityCode} onChange={event => change('cityCode', event.target.value)}>{!draft.cityCode && <option value="">{initialValues.nearby ? searchCopy.nearby : searchCopy.anyCity}</option>}{cities.map(city => <option value={city.code} key={city.code}>{en ? city.nameEn : city.name}{duplicateNames.has(city.name) ? ` · ${city.region}` : ''}</option>)}</select></label>
-        <label>{searchCopy.neighborhood}<select value={draft.neighborhood} disabled={!draft.cityCode} onChange={event => change('neighborhood', event.target.value)}><option value="">{searchCopy.anyNeighborhood}</option>{neighborhoodChoices(draft.cityCode).map(name => <option key={name} value={name}>{name}</option>)}</select></label>
+        <label>{searchCopy.city}<select value={draft.cityCode} onChange={event => change('cityCode', event.target.value)}>{!draft.cityCode && <option value="">{initialValues.nearby ? searchCopy.nearby : searchCopy.anyCity}</option>}{cities.map(city => <option value={city.code} key={city.code}>{en ? city.nameEn : city.name}{duplicateNames.has(city.name) ? ` · ${postalDisplay(city.region, locale)}` : ''}</option>)}</select></label>
+        <label>{searchCopy.neighborhood}<select value={draft.neighborhood} disabled={!draft.cityCode} onChange={event => change('neighborhood', event.target.value)}><option value="">{searchCopy.anyNeighborhood}</option>{neighborhoodChoices(draft.cityCode).map(name => <option key={name} value={name}>{postalDisplay(name, locale)}</option>)}</select></label>
         <label>{en ? 'Category' : 'Категория'}<select value={draft.category} onChange={event => change('category', event.target.value)}><option value="">{en ? 'From my description' : 'От описанието'}</option>{DISCOVERY_CATEGORIES.map(category => <option key={category.id} value={category.id}>{category[locale]}</option>)}</select></label>
         <label>{searchCopy.radius}<select value={draft.radiusKm} onChange={event => change('radiusKm', Number(event.target.value))}>{DISCOVERY_RADIUS_CHOICES.map(radius => <option key={radius} value={radius}>{radius} km</option>)}</select></label>
       </div>

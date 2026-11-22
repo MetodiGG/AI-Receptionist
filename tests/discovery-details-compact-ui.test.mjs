@@ -1,3 +1,4 @@
+import { loadPublicServiceMenu } from './helpers/public-service-menu.mjs'
 import * as brandLoading from './helpers/brand-loading.mjs'
 import assert from 'node:assert/strict'
 import test from 'node:test'
@@ -10,6 +11,9 @@ import * as bookingMode from '../lib/booking-mode.mjs'
 import * as rail from '../lib/discovery/rail.mjs'
 import * as cataloguePhotos from '../lib/catalogue-photo-view.mjs'
 import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
+import { businessDisplayAddress } from '../lib/locale/public-content.mjs'
+
+const publicServiceMenu = await loadPublicServiceMenu({ ServiceThumbnail: () => React.createElement('span', { 'data-service-thumbnail': true }) })
 
 const require = createRequire(import.meta.url)
 const { loadBindings, transform } = require('next/dist/build/swc')
@@ -58,7 +62,7 @@ function renderDetails({ row, full = null, locale = 'bg', status = 'ready', acti
     '../lib/discovery/service-presentation.mjs': { servicePresentation: () => ({ description: '', conditions: [] }) },
   }
   const componentModule = { exports: {} }
-  new Function('require', 'module', 'exports', code)(name => name in stubs ? stubs[name] : (name === './brand-loading' ? brandLoading : require(name)), componentModule, componentModule.exports)
+  new Function('require', 'module', 'exports', code)(name => name === './public-service-menu' ? publicServiceMenu : name in stubs ? stubs[name] : (name === './brand-loading' ? brandLoading : require(name)), componentModule, componentModule.exports)
   const tree = componentModule.exports.DiscoveryBusinessDetails({ row, locale, actions, onClose: () => {}, triggerRef: { current: null } })
   assert.equal(stateIndex, states.length)
   const html = renderToStaticMarkup(tree)
@@ -155,7 +159,7 @@ for (const locale of ['bg', 'en']) {
     assert.equal(calls[0].coordinates, null, 'fresh null coordinate clears stale preview')
     const addresses = elements(tree, node => node.type === 'section' && hasClass(node, 'business-details-address'))
     assert.equal(addresses.length, 1)
-    assert.ok(renderToStaticMarkup(addresses[0]).includes(full.address))
+    assert.ok(renderToStaticMarkup(addresses[0]).includes(businessDisplayAddress(full, locale)))
     const footers = elements(tree, node => node.type === 'footer')
     assert.equal(footers.length, 1)
     const links = elements(footers[0], node => node.type === 'a')

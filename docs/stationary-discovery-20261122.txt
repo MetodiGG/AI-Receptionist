@@ -1,0 +1,39 @@
+Stationary discovery refinement — local review, 2026-11-22
+
+Prepared on codex/stationary-photo-summary-20261122, after the separately
+verified Next.js 16.4.6 security update. Not pushed or published.
+
+Centered the category and service headings. The presentation order starts with
+Sport, Lessons, Home services, Car repair and Car wash, with stable identifiers
+and mappings. Removed the repeated selected-parent control under the service
+heading. Replaced the pill/sorting strip with a photographic selection summary
+in normal document flow; it never becomes sticky. Deliberate service selection
+retains measured first-card scroll clearance. Enlarged text wraps whole words
+and moves the close affordance instead of clipping the service name.
+
+The full-search response now carries exactTotal only when both source indexes
+are freshly verified and the global unique count survives hydration/eligibility
+checks. Unknown or clipped/dated counts remain null and the UI honestly labels
+only the currently shown cards. Cursor candidate totals are never relabelled
+as a global business count. Autocomplete retains its existing cache behavior.
+The local Electrician example has 19 total matches, rather than 15 first-page
+cards. Source data, bookings, photos, prices and analytics were not edited.
+
+Checks: 2826/2826 Node tests before the final enlarged-text CSS refinement;
+115/115 focused and historical/new stage guards after it; git diff --check.
+The direct Next production build passed (100/100 pages). Browser checks include
+centered headings/order, desktop, 390px light, 320px dark, long service labels,
+and 320px with a 32px root font. Actual page width/scroll width both remain
+320px with enlarged text, and the whole long-word span has equal rendered and
+scroll widths. Scrolling moves the summary offscreen normally.
+
+Preview: http://127.0.0.1:30828/dev/inline-discovery?lang=bg
+Responsive wrapper: http://127.0.0.1:30828/dev/site-preview?lang=bg
+Local preview disables bookings and notifications.
+Screenshots are in the sibling artifacts/stationary-discovery-20261122 folder.
+
+Existing release gates remain separate: catalogue:check and the pnpm build
+wrapper report previously identified Artizba/G Point price-review receipts.
+Those data and review fingerprints were not rebaselined to hide the failures.
+English inventory export is an offline authoring utility only. It does not
+contact production, translate through an API or claim completed English coverage.

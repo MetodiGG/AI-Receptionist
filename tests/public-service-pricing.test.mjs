@@ -16,6 +16,7 @@ import * as partnerCategories from '../lib/partner-categories.mjs'
 import * as bookingMode from '../lib/booking-mode.mjs'
 import { guidedServiceMenu } from '../lib/guided-assistant.mjs'
 import * as bookingButtonContent from './helpers/booking-button-content.mjs'
+import * as publicAction from './helpers/public-action.mjs'
 
 const fee = (patch = {}) => ({ id: 'public-service-id', name: 'Подстригване', description: 'Реална публикувана услуга.', price: 20, currency: 'EUR', duration_min: 30, active: true, ...patch })
 const business = services => ({ id: '10000000-0000-4000-8000-000000000001', name: 'QA public studio', slug: 'qa-public-studio', active: true, platform_status: 'enabled', industry: 'beauty', services, staff: [], workingHours: [], staffServices: [] })
@@ -105,11 +106,11 @@ test('budget guarantees use the full known visit total, not a starting or lower-
 })
 
 for (const locale of ['bg', 'en']) test(`${locale}: profile and assistant menu derive EUR labels from literal BGN without changing stored amounts or qualifications`, () => {
-  const fixed = fee({ price: 0 }), from = fee({ price_details: { kind: 'from' } }), range = fee({ currency: 'BGN', price_details: { kind: 'range', maximum: 35, unit: 'процедура' } })
+  const fixed = fee({ price: 0 }), from = fee({ price_details: { kind: 'from' } }), range = fee({ currency: 'BGN', presentationEn: { unit: 'procedure' }, price_details: { kind: 'range', maximum: 35, unit: 'процедура' } })
   assert.match(profileUi.profileServicePrice(fixed, locale), /0/)
   assert.match(profileUi.profileServicePrice(from, locale), locale === 'en' ? /^from / : /^от /)
   const label = profileUi.profileServicePrice(range, locale)
-  assert.match(label, locale === 'en' ? /10\.23/ : /10,23/); assert.match(label, locale === 'en' ? /17\.90/ : /17,90/); assert.match(label, /€/); assert.match(label, /процедура/)
+  assert.match(label, locale === 'en' ? /10\.23/ : /10,23/); assert.match(label, locale === 'en' ? /17\.90/ : /17,90/); assert.match(label, /€/); assert.match(label, locale === 'en' ? /procedure/ : /процедура/)
   assert.doesNotMatch(label, /BGN|лв/)
   assert.equal(range.price, 20); assert.equal(range.currency, 'BGN'); assert.equal(range.price_details.maximum, 35)
   assert.equal(profileUi.profileServicePrice(fee({ price_details: { kind: 'range', maximum: 1 } }), locale), locale === 'en' ? 'Ask the business' : 'Уточни с бизнеса')
@@ -125,6 +126,7 @@ const { code } = await transform(source, { filename: 'components/business-direct
 const Empty = () => null, module = { exports: {} }
 new Function('require', 'module', 'exports', code)(name => {
   const imports = {
+    './public-action': publicAction, './public-action.module.css': publicAction.publicActionStyles,
     './booking-button-content': bookingButtonContent,
     react: React, 'next/link': { __esModule: true, default: ({ children }) => React.createElement('span', null, children) },
     './icon': { Icon: Empty }, './directory-filters': { DirectoryFilters: Empty }, './business-photo-gallery': { BusinessPhotoGallery: Empty },

@@ -11,6 +11,8 @@ import * as bookingWindow from '../lib/booking-window.mjs'
 import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
 import { HOME_DISCOVERY_COPY } from '../lib/discovery/home.mjs'
 import * as content from './helpers/booking-button-content.mjs'
+import * as publicAction from './helpers/public-action.mjs'
+import * as publicContent from '../lib/locale/public-content.mjs'
 
 const read = path => readFile(new URL(`../${path}`, import.meta.url), 'utf8')
 const require = createRequire(import.meta.url), { loadBindings, transform } = require('next/dist/build/swc')
@@ -20,7 +22,7 @@ async function load(path, imports) {
   const source = await read(path)
   const { code } = await transform(source, { filename: path, jsc: { parser: { syntax: 'ecmascript', jsx: true }, transform: { react: { runtime: 'automatic' } } }, module: { type: 'commonjs' } })
   const module = { exports: {} }
-  new Function('require', 'module', 'exports', code)(name => Object.hasOwn(imports, name) ? imports[name] : require(name), module, module.exports)
+  new Function('require', 'module', 'exports', code)(name => name === './public-action' ? publicAction : name === './public-action.module.css' ? publicAction.publicActionStyles : Object.hasOwn(imports, name) ? imports[name] : require(name), module, module.exports)
   return module.exports
 }
 const { OutboundBookingButton } = await load('components/outbound-booking-button.js', {
@@ -32,6 +34,7 @@ const imports = {
   react: React, 'react-dom': require('react-dom'), luxon: { DateTime },
   '../lib/booking-mode.mjs': bookingMode, '../lib/business-profile-ui.mjs': profileUi,
   '../lib/booking-window.mjs': bookingWindow, '../lib/supabase': { hasSupabaseConfig: false },
+  '../lib/locale/public-content.mjs': publicContent,
   './booking-button-content': content, './outbound-booking-button': { OutboundBookingButton },
   './business-profile': { BusinessServiceList: Empty },
   './monthly-booking-calendar': { MonthlyBookingCalendar: () => assert.fail('no service was selected; no availability calendar should mount') },
@@ -47,7 +50,7 @@ const business = {
   timezone: 'Europe/Sofia', phone: '+359 (888) 123-456', services: [], staff: [], workingHours: [],
 }
 const render = (Component, props) => renderToStaticMarkup(React.createElement(Component, props))
-const bookingLabels = html => [...html.matchAll(/<span class="booking-button-label">([^<]*)<\/span>/g)].map(match => match[1])
+const bookingLabels = html => [...html.matchAll(/<span class="public-action-label">([^<]*)<\/span>/g)].map(match => match[1])
 
 test('actual BG/EN native, external and phone public controls use short visible labels without shortening headings or legal copy', () => {
   for (const [locale, label] of [['bg', 'Резервирай'], ['en', 'Book']]) {

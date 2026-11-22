@@ -1,0 +1,59 @@
+GoRez — switchable local review inside Codex · 2026-11-22
+
+Preview: http://127.0.0.1:30827/dev/site-preview?lang=bg
+Laptop-first: http://127.0.0.1:30827/dev/site-preview?lang=bg&device=laptop
+English controls: http://127.0.0.1:30827/dev/site-preview?lang=en
+Branch: codex/responsive-review-20261122 · base 1dfb751
+
+What changed
+Only three new dev-only files: app/dev/site-preview/page.js, preview.js and
+preview.css. They wrap the existing /dev/inline-discovery fixture preview in
+one stable same-origin iframe. No production website source, photos, prices,
+catalogue, backend, booking, search, analytics or configuration was changed.
+The existing development-only guard returns notFound outside devMock.
+The dev server remains bound to 127.0.0.1; no tunnel or public/LAN exposure.
+
+Controls
+- Phone: real iframe viewport widths 320, 390, 430 px; height 844 px.
+- Laptop: real iframe viewport widths 1280, 1440 px; height 900 px.
+- Fit, 100%, zoom out/in (50–200%) alter presentation scale only, not CSS viewport.
+- Device/zoom changes preserve the iframe and selected category/service/history.
+- Full screen uses the browser's user-gesture API when available, with a graceful
+  denial message; support depends on the browser/Codex container.
+- Unframed opens the original review directly. Back to top resets both the
+  embedded site and the surrounding stage, without clearing the selection.
+- Native buttons/selects, 44px targets, focus states, BG/EN, light/dark host styles.
+- Initial iframe-ready detection handles load-before-host-hydration and does not
+  wait forever for lazy photographs after the usable document has appeared.
+
+Verification
+- Actual browser iframe DOM measured 1440px with four desktop category columns,
+  and 320px without horizontal page overflow. Phone 390 was also exercised.
+- Hair category -> haircut selected; switching phone/laptop and zoom kept both
+  selected states. This renders the actual implementation, not screenshots.
+- Fullscreen entered via its button; resize/zoom and the fallback are tested.
+- Top button verified host stage scroll 0 and iframe content reset to top.
+- Final handoff: Phone 390px, display scale 125%, visible Codex browser tab.
+- Host screenshots at the available 1280px browser width. A requested host320
+  override did not apply in that environment; do not claim outer-host320 QA or
+  physical-phone/touch/Safari testing. Inner320 was measured directly in the DOM.
+- The original fixture preview disables booking actions. This is not a claim
+  that every other app route/API is globally disabled or safe for public hosting.
+
+Checks
+- Full suite 2781/2781 pass, no failures/skips/cancellations.
+- 10 new focused wrapper tests; 4 existing desktop guards pass.
+- Pricing Python 8/8 and booking Python 4/4 pass.
+- Raw Next webpack compile/TypeScript/traces pass: 100/100 static pages.
+- Installed Next16 guide documents concurrent dev/build output isolation;
+  compile ran while .next/dev continued serving the preview.
+- All pre-existing production files remain byte-identical to 1dfb751. Inventory
+  guard only permits these exact three additional dev files; no rebaseline.
+- git diff --check passes.
+- Existing catalogue:check Artizba and normal-build 44 price-review blockers
+  (43 GPoint + Artizba) remain unchanged. No data/review-date workaround.
+
+Logs: /tmp/gorez-responsive-preview-*.log
+Screenshots: artifacts/responsive-preview-20261122/{phone-home-final,laptop-home-final}.jpg
+
+No production publication, GitHub push/merge, dependency update or new service.

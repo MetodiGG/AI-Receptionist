@@ -47,9 +47,10 @@ test('a nearby published partner appears first for shaping without a Google or A
   assert.deepEqual(result.results[0].services.map(row => row.name), names.slice(0, 2))
   assert.equal(result.results[0].availability.status, 'unknown')
 })
-test('unified partner cards retain their factual service category and the existing booking entry point', async () => {
+test('compact partner previews keep the existing booking entry point and original category data for details without repeating it in the card', async () => {
   const ui = await readFile(new URL('../components/discovery-business-card.js', import.meta.url), 'utf8')
-  assert.match(ui, /className="home-business-category">\{railCategory\(row, locale\)\}/)
+  assert.doesNotMatch(ui, /home-business-category|railCategory\(row, locale\)/)
+  assert.match(ui, /DiscoveryBusinessDetails row=\{row\}/)
   assert.match(ui, /href=\{profile\} prefetch=\{false\}/)
   assert.match(ui, /const actions = \(business = row\) =>/)
   assert.match(ui, /OutboundBookingButton business=\{business\}/)

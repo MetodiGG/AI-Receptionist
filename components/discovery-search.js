@@ -1,8 +1,10 @@
 'use client'
 
+import { postalDisplay } from '../lib/locale/public-content.mjs'
+
 import { BrandLoading } from './brand-loading'
 import { Fragment, useEffect, useId, useMemo, useRef, useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { Icon } from './icon'
 import { BULGARIAN_CITIES } from '../lib/business-location.mjs'
 import { DISCOVERY_CATEGORIES, categoryById } from '../lib/discovery/categories.mjs'
@@ -14,11 +16,15 @@ import { DEFAULT_DISCOVERY_CITY, DISCOVERY_SHORTCUTS, discoveryCategorySelection
 import { DiscoveryRouteArt } from './discovery-route-art'
 import { BusinessCategoryIcon } from './business-category-icon'
 import { focusDiscoveryResults, focusDiscoverySubcategories, focusFirstDiscoveryBusiness } from '../lib/discovery/results-navigation.mjs'
-import { DiscoveryHomeRail } from './discovery-home-rail'
 import { DiscoveryHomeBusinesses } from './discovery-home-browse'
 import { DiscoverySubcategories } from './discovery-subcategories'
+import { InlineCategoryGrid } from './inline-category-grid'
+import { InlineDiscoveryPanel } from './inline-discovery-panel'
+import { InlineDiscoverySummary } from './inline-discovery-summary'
+import { readGuidedNavigation, serializeGuidedNavigation } from '../lib/discovery/guided-navigation.mjs'
+import { GUIDED_DISCOVERY_COPY } from '../lib/discovery/guided-copy.mjs'
 import { DiscoveryFilterSheet } from './discovery-filter-sheet'
-import { applyHomeFilters, homeCategories, homeFilterCount, HOME_DISCOVERY_COPY } from '../lib/discovery/home.mjs'
+import { applyHomeFilters, homeFilterCount, HOME_DISCOVERY_COPY } from '../lib/discovery/home.mjs'
 import { mergeCataloguePage } from '../lib/discovery/catalogue-pagination.mjs'
 import { DISCOVERY_LOCATION_MAX_AGE_MS, discoveryLocationError, discoveryLocationRetryMessage, freshDiscoveryLocation, sameDiscoveryOrigin } from '../lib/discovery/geolocation.mjs'
 import { DiscoveryAutocomplete } from './discovery-autocomplete'
@@ -26,8 +32,19 @@ import { trackSearchEvent } from '../lib/search-analytics-client'
 
 const cities = [...BULGARIAN_CITIES].sort((a, b) => a.name.localeCompare(b.name, 'bg'))
 const duplicateCityNames = new Set(cities.filter((city, index) => cities.findIndex(other => other.name === city.name) !== index).map(city => city.name))
-export function DiscoverySearch({ locale = 'bg', compact = false, preview = false, cataloguePreview = false, locationProvider = requestDiscoveryLocation, home = false, directoryData }) {
+// Legacy links keep their actual filters, but an old disclosure stage is not
+// an inline filter and must neither hide results nor trigger another request.
+function readInlineNavigation(search) {
+  const params = new URLSearchParams(search)
+  params.delete('discover')
+  const selection = readGuidedNavigation(params)
+  return selection ? { ...selection, stage: 'results' } : null
+}
+export function DiscoverySearch({ locale = 'bg', compact = false, preview = false, cataloguePreview = false, locationProvider = requestDiscoveryLocation, home = false, directoryData, previewSearchEndpoint }) {
   const copy = DISCOVERY_COPY[locale], en = locale === 'en', router = useRouter()
+  const navigationParams = useSearchParams()
+  const linkedNavigation = home && !compact ? readInlineNavigation(navigationParams?.toString() || '') : null
+  const navigationKey = JSON.stringify(linkedNavigation), handledNavigationKey = useRef(navigationKey)
   const homeCopy = HOME_DISCOVERY_COPY[locale], filterId = useId(), filterTrigger = useRef(null)
   const [filtersOpen, setFiltersOpen] = useState(false)
   const Title = compact ? 'h2' : 'h1'
@@ -35,7 +52,8 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
   const LocationPanel = home && !compact ? 'div' : Fragment
   const [initial] = useState(() => compact ? null : peekDiscoveryDraft())
   const initialInput = discoveryInitialInput(initial, { home, compact })
-  const [entryCategory, setEntryCategory] = useState(!initial && home && !compact)
+  const [entryCategory, setEntryCategory] = useState(false)
+  const rememberedServices = useRef(new Map())
   const initialCoordinates = freshDiscoveryLocation(initialInput?.coordinates)
   const [query, setQuery] = useState(initialInput?.query || ''), [category, setCategory] = useState(initialInput?.category || '')
   const [subcategory, setSubcategory] = useState(initialInput?.subcategory && subcategoryById(initialInput.subcategory)?.category === initialInput.category ? initialInput.subcategory : '')
@@ -57,34 +75,62 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
     if (compact || loading || !scrollAfterSearch.current || (!result && !error)) return
     // Wait for this request's committed content, never a loading shell or a
     // stale response. Consume navigation once, not on pagination/theme changes.
-    const destination = scrollAfterSearch.current
+    const destination = scrollAfterSearch.current, version = searchVersion.current
+    let active = true, panelTimer = null
     const frame = requestAnimationFrame(() => {
-      if (scrollAfterSearch.current !== destination) return
-      scrollAfterSearch.current = false
       const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches
-      if (!error && destination === 'subcategories' && focusDiscoverySubcategories(subcategoriesRef.current, reduceMotion)) return
-      if (!error && destination === 'businesses') { focusFirstDiscoveryBusiness(resultHeading.current, reduceMotion); return }
-      focusDiscoveryResults(resultHeading.current, reduceMotion)
+      const reveal = () => {
+        if (!active || version !== searchVersion.current || scrollAfterSearch.current !== destination) return
+        scrollAfterSearch.current = false
+        if (!error && destination === 'subcategories' && focusDiscoverySubcategories(subcategoriesRef.current, reduceMotion)) return
+        if (!error && destination === 'businesses') { focusFirstDiscoveryBusiness(resultHeading.current, reduceMotion); return }
+        focusDiscoveryResults(resultHeading.current, reduceMotion)
+      }
+      // A fast response can arrive while the inline panel is growing/closing.
+      // Scroll against its final layout, not the temporary animated height.
+      const panel = !error && !reduceMotion ? destination === 'subcategories'
+        ? subcategoriesRef.current?.closest?.('.inline-discovery-panel')
+        : destination === 'businesses' ? resultHeading.current?.closest?.('.discovery-search')?.querySelector?.('.inline-discovery-panel') : null : null
+      if (!panel) { reveal(); return }
+      if (typeof panel.getAnimations === 'function') {
+        const animations = panel.getAnimations()
+        if (animations.length) { void Promise.allSettled(animations.map(animation => animation.finished)).then(reveal); return }
+        reveal()
+      } else panelTimer = setTimeout(reveal, 220)
     })
-    return () => cancelAnimationFrame(frame)
+    return () => { active = false; cancelAnimationFrame(frame); if (panelTimer !== null) clearTimeout(panelTimer) }
   }, [result, error, loading, compact])
   useEffect(() => {
     if (compact) return
-    // Render a usable city-centre catalogue immediately, without waiting up to
-    // eleven seconds for a permission dialog. Only an existing in-memory,
-    // consented point or a deliberate map-button press enables nearby search.
+    // Browse the full supported city inventory immediately, without choosing
+    // a category or waiting for a location permission prompt on first visit.
     const entryVersion = searchVersion.current
     const timer = setTimeout(() => {
       if (!mounted.current || entryVersion !== searchVersion.current) return
+      const linked = home ? readInlineNavigation(window.location.search) : null
+      if (linked) { restoreNavigation(linked); return }
       if (!initial && !home) return
       if (initial) clearDiscoveryDraft()
-      const input = payload({ ...initialInput, coordinates: coordinates || null, ...(coordinates ? { neighborhood: '' } : {}) })
+      const input = payload({ ...initialInput, coordinates: coordinates || null, ...(coordinates ? { neighborhood: '' } : {}), ...(!initial && home ? { expandNearby: false } : {}) })
       void search(input, { navigate: Boolean(initial) })
     }, 0)
     return () => clearTimeout(timer)
     // Initial navigation is consumed once, not every locale/filter change.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initial, compact])
+  useEffect(() => {
+    if (!home || compact || handledNavigationKey.current === navigationKey) return
+    handledNavigationKey.current = navigationKey
+    restoreNavigation(linkedNavigation || {
+      query: '', category: '', subcategory: '', cityCode: DEFAULT_DISCOVERY_CITY,
+      cityWasChosen: false, neighborhood: '', radiusKm: DEFAULT_DISCOVERY_RADIUS_KM, stage: 'results',
+    })
+    // Next owns native history restoration. Its URL subscription also survives
+    // cached route restores, where a raw popstate listener can miss the update.
+    // Only navigation fields participate: changing lang/case must not discard
+    // text that the visitor has typed but has not submitted yet.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [navigationKey, home, compact])
   useEffect(() => {
     if (!coordinates) return
     const expire = () => {
@@ -108,6 +154,57 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
     return discoverySearchInput({ ...next, categoryBrowse: home, browse: home && !next.query.trim() })
   }
   function canDiscover(text = query) { return text.trim().length >= 2 || (home && !text.trim()) }
+  function navigationSelection(patch = {}) { return { query, category, subcategory, cityCode, cityWasChosen, neighborhood, radiusKm, ...patch } }
+  function rememberNavigation(patch = {}, replace = false) {
+    if (!home || compact) return
+    const href = serializeGuidedNavigation(window.location.href, navigationSelection(patch), 'results')
+    const current = window.location.pathname + window.location.search + window.location.hash
+    if (href !== current) {
+      // This action already updates the single live filter state. Acknowledge
+      // its URL before Next publishes it, avoiding a duplicate fetch/restore.
+      handledNavigationKey.current = JSON.stringify(readInlineNavigation(new URL(href, window.location.href).searchParams))
+      window.history[replace ? 'replaceState' : 'pushState'](null, '', href)
+    }
+  }
+  function cancelSearchView() {
+    searchVersion.current++; controller.current?.abort(); pageController.current?.abort()
+    inFlight.current = false; pageInFlight.current = false; scrollAfterSearch.current = false
+    setLoading(false); setLoadingMore(false); setMoreError('')
+  }
+  function restoreNavigation(next) {
+    cancelPendingLocation(); cancelSearchView()
+    const point = next.cityWasChosen ? null : freshDiscoveryLocation(coordinatesRef.current)
+    coordinatesRef.current = point
+    setQuery(next.query); setCategory(next.category); setSubcategory(next.subcategory)
+    setCityCode(next.cityCode); setCityWasChosen(next.cityWasChosen); setNeighborhood(point ? '' : next.neighborhood)
+    setRadius(next.radiusKm); setCoordinates(point); setLocationEnabled(Boolean(point)); setLocationError('')
+    setEntryCategory(false); clearSubcategoryOptions(); setResult(null); setError('')
+    if (next.category) rememberedServices.current.set(next.category, next.subcategory || '')
+    if (canDiscover(next.query) || next.category) {
+      void search(payload({ ...next, coordinates: point, ...(point ? { neighborhood: '' } : {}), expandNearby: false }), { navigate: false })
+    }
+  }
+  function chooseInlineCategory(id, { navigate } = {}) {
+    if (id && !categoryById(id)) return
+    cancelPendingLocation(); scrollAfterSearch.current = false; setEntryCategory(false)
+    if (category && subcategory) rememberedServices.current.set(category, subcategory)
+    const nextCategory = id === category ? '' : id
+    const remembered = rememberedServices.current.get(nextCategory)
+    const child = nextCategory && subcategoryById(remembered)?.category === nextCategory ? remembered : ''
+    setCategory(nextCategory); setSubcategory(child); clearSubcategoryOptions(); setResult(null); setError('')
+    // Preserve the real typed text, location and radius. Facets are returned
+    // for the full parent scope even when its remembered child is selected.
+    execute(payload({ category: nextCategory, subcategory: child, expandNearby: false }), { navigate: navigate ?? (nextCategory ? 'subcategories' : 'businesses') })
+  }
+  function chooseInlineService(id) {
+    const selected = subcategoryById(id)
+    if (!category || (id && selected?.category !== category)) return
+    cancelPendingLocation(); setEntryCategory(false)
+    setSubcategory(id); rememberedServices.current.set(category, id)
+    execute(payload({ subcategory: id, expandNearby: false }), { navigate: 'businesses' })
+  }
+  function clearInlineCategory() { chooseInlineCategory('', { navigate: 'businesses' }) }
+  function clearInlineService() { chooseInlineService('') }
   function expireLocation() {
     locationVersion.current++; locationInFlight.current = false; coordinatesRef.current = null
     searchVersion.current++; controller.current?.abort(); pageController.current?.abort()
@@ -152,11 +249,19 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
       setDiscoveryDraft({ request: input, cityWasChosen, ...(input.coordinates && point ? { locationMetadata: { accuracyMeters: point.accuracyMeters, observedAt: point.observedAt } } : {}) })
       router.push(`/search?lang=${locale}`)
     }
-    else void search(input, options)
+    else {
+      if (home && options?.history !== false) rememberNavigation({ query: options?.historyQuery ?? query, category: input.category || '', subcategory: input.subcategory || '', ...options?.historySelection })
+      void search(input, options)
+    }
   }
   async function search(input = payload(), { navigate = true } = {}) {
     if (input.coordinates && (!freshDiscoveryLocation(coordinatesRef.current) || !sameDiscoveryOrigin(input, { coordinates: coordinatesRef.current }))) { expireLocation(); return }
-    if (inFlight.current && JSON.stringify(input) === JSON.stringify(lastInput.current)) return
+    if (inFlight.current && JSON.stringify(input) === JSON.stringify(lastInput.current)) {
+      // Selecting All while the parent is loading reuses its request, but is
+      // still a deliberate transition to results. Keep that new focus intent.
+      if (navigate) scrollAfterSearch.current = navigate
+      return
+    }
     // Facets describe the parent/category and submitted location, not just the
     // current result page. Keep that accepted scope stable during child picks.
     const facetKey = JSON.stringify({ query: input.query, category: input.category, cityCode: input.cityCode, neighborhood: input.neighborhood, coordinates: input.coordinates, radiusKm: input.radiusKm })
@@ -172,7 +277,7 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
     let timedOut = false
     const timer = setTimeout(() => { timedOut = true; abort.abort() }, 20000)
     try {
-      const response = await fetch(preview ? cataloguePreview ? '/dev/sofia-catalogue/search' : '/dev/discovery/search' : '/api/public/discovery', { method: 'POST', headers: { 'Content-Type': 'application/json' }, cache: 'no-store', signal: abort.signal, body: JSON.stringify(input) })
+      const response = await fetch(preview ? previewSearchEndpoint || (cataloguePreview ? '/dev/sofia-catalogue/search' : '/dev/discovery/search') : '/api/public/discovery', { method: 'POST', headers: { 'Content-Type': 'application/json' }, cache: 'no-store', signal: abort.signal, body: JSON.stringify(input) })
       const data = await response.json()
       if (!response.ok) throw new Error(data.error?.code || 'SEARCH_UNAVAILABLE')
       if (!Array.isArray(data.results) || typeof data.externalStatus !== 'string') throw new Error('SEARCH_UNAVAILABLE')
@@ -197,7 +302,7 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
     scrollAfterSearch.current = false; setLoadingMore(true); setMoreError('')
     const timer = setTimeout(() => abort.abort(), 20000)
     try {
-      const response = await fetch(preview ? cataloguePreview ? '/dev/sofia-catalogue/search' : '/dev/discovery/search' : '/api/public/discovery', { method: 'POST', headers: { 'Content-Type': 'application/json' }, cache: 'no-store', signal: abort.signal, body: JSON.stringify({ ...input, catalogueOffset: offset }) })
+      const response = await fetch(preview ? previewSearchEndpoint || (cataloguePreview ? '/dev/sofia-catalogue/search' : '/dev/discovery/search') : '/api/public/discovery', { method: 'POST', headers: { 'Content-Type': 'application/json' }, cache: 'no-store', signal: abort.signal, body: JSON.stringify({ ...input, catalogueOffset: offset }) })
       const data = await response.json()
       if (!response.ok) throw new Error(data.error?.code || 'SEARCH_UNAVAILABLE')
       if (!sameDiscoveryOrigin(input, data.intent)) throw new Error('SEARCH_UNAVAILABLE')
@@ -227,7 +332,7 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
     setCategory(selected.category); setSubcategory(''); clearSubcategoryOptions(); setQuery(selected.query); setResult(null); setError('')
     const location = { cityCode: item.cityCode || cityCode, cityWasChosen: true, neighborhood: item.neighborhood || neighborhood }
     if (!coordinates) { setCityCode(location.cityCode); setCityWasChosen(true); setNeighborhood(location.neighborhood) }
-    execute(item.kind === 'category' && !coordinates ? { ...payload({ ...selected, ...location, query: '' }), browse: true } : payload({ ...selected, ...location }))
+    execute(item.kind === 'category' && !coordinates ? { ...payload({ ...selected, ...location, query: '' }), browse: true } : payload({ ...selected, ...location }), { historyQuery: selected.query, historySelection: { ...selected, ...(!coordinates ? location : {}) } })
   }
   function allSuggestions() { trackSearchEvent({ event: 'selection', query, locale, selection: 'all' }); cancelPendingLocation(); execute(payload()) }
   async function locate({ automatic = false, searchAfter = true } = {}) {
@@ -279,11 +384,13 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
     coordinatesRef.current = next.coordinates
     setCoordinates(next.coordinates); setNeighborhood(next.neighborhood); setRadius(next.radiusKm); setLocationError(''); setFiltersOpen(false); setResult(null); setResultOrigin(null); setError('')
     locationVersion.current++; setLocationEnabled(Boolean(next.coordinates))
-    if (canDiscover(next.query)) execute(payload(next))
+    if (canDiscover(next.query)) execute(payload(next), { historyQuery: next.query, historySelection: next })
   }
   const locationMessage = discoveryLocationRetryMessage(locationError, locale) || discoveryLocationMessage(locationError, { disabled: home && !locationEnabled && !locating }, locale)
   const contextCity = cities.find(city => city.code === selectedCity)
   const locationContext = coordinates ? (en ? 'Around you' : 'Около Вас') : contextCity ? `${en ? contextCity.nameEn : contextCity.name} · ${en ? 'city centre' : 'от центъра'}` : (en ? 'Selected area' : 'Избраният район')
+  const inlineOptions = subcategoryOptions.filter(item => item.category === category && item.count > 0)
+  const inlinePanelOpen = Boolean(category)
   return <section className={`discovery-search ${compact ? 'discovery-compact' : ''}${home ? ' discovery-home' : ''}`} aria-labelledby={compact ? 'home-discovery-title' : 'discovery-title'}>
     <SearchPanel {...(home ? { className: 'home-search-panel' } : {})}>
     <header className={home ? 'home-discovery-heading' : compact ? '' : 'discovery-hero'}>
@@ -299,12 +406,12 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
         {!home && <button className="discovery-submit" aria-label={loading ? copy.searching : copy.search} aria-busy={loading} disabled={query.trim().length < 2} type="submit">{loading ? <BrandLoading size={20} decorative/> : <Icon name="arrow"/>}<span>{copy.search}</span></button>}
       </div>
       {!home && <><div className="discovery-controls">
-        <label className="discovery-city"><span className="sr-only">{copy.city}</span><Icon name="pin"/><select value={selectedCity} disabled={loading} onChange={event => { cancelPendingLocation(); clearSubcategoryOptions(); locationVersion.current++; coordinatesRef.current = null; setLocationEnabled(false); setCityCode(event.target.value); setCityWasChosen(true); setNeighborhood(''); setCoordinates(null); setLocationError(''); setResult(null); setResultOrigin(null) }}><option value="" disabled>{coordinates ? copy.changeCity : copy.anyCity}</option>{cities.map(city => <option key={city.code} value={city.code}>{en ? city.nameEn : city.name}{duplicateCityNames.has(city.name) ? ` · ${city.region}` : ''}</option>)}</select></label>
+        <label className="discovery-city"><span className="sr-only">{copy.city}</span><Icon name="pin"/><select value={selectedCity} disabled={loading} onChange={event => { cancelPendingLocation(); clearSubcategoryOptions(); locationVersion.current++; coordinatesRef.current = null; setLocationEnabled(false); setCityCode(event.target.value); setCityWasChosen(true); setNeighborhood(''); setCoordinates(null); setLocationError(''); setResult(null); setResultOrigin(null) }}><option value="" disabled>{coordinates ? copy.changeCity : copy.anyCity}</option>{cities.map(city => <option key={city.code} value={city.code}>{en ? city.nameEn : city.name}{duplicateCityNames.has(city.name) ? ` · ${postalDisplay(city.region, locale)}` : ''}</option>)}</select></label>
         <button className={`discovery-location ${coordinates ? 'selected' : ''}`} type="button" disabled={loading} onClick={locate} title={locating ? copy.locating : locationAction} aria-describedby={compact ? 'home-location-info' : 'location-info'} aria-label={locating ? copy.locating : copy.nearby} aria-pressed={Boolean(coordinates)}><Icon name="map"/>{locating ? copy.locating : copy.nearby}</button>
       </div>
       <div className="discovery-shortcuts" aria-label={en ? 'Service shortcuts' : 'Категории услуги'}>{DISCOVERY_SHORTCUTS.map(id => { const item = categoryById(id); return <button key={id} type="button" disabled={loading} className={category === id ? 'selected' : ''} aria-pressed={category === id} onClick={() => chooseCategory(id)}><BusinessCategoryIcon category={id} size={44} eager/>{item[locale]}</button> })}</div>
       <details className="discovery-filters"><summary>{copy.filters}</summary><div className="discovery-refine">
-        <label><span>{copy.neighborhood}</span><select value={neighborhood} disabled={!selectedCity || loading} onChange={event => { cancelPendingLocation(); clearSubcategoryOptions(); setCityCode(selectedCity); setCityWasChosen(true); setNeighborhood(event.target.value) }}><option value="">{copy.anyNeighborhood}</option>{neighborhoodChoices(selectedCity).map(name => <option key={name} value={name}>{name}</option>)}</select></label>
+        <label><span>{copy.neighborhood}</span><select value={neighborhood} disabled={!selectedCity || loading} onChange={event => { cancelPendingLocation(); clearSubcategoryOptions(); setCityCode(selectedCity); setCityWasChosen(true); setNeighborhood(event.target.value) }}><option value="">{copy.anyNeighborhood}</option>{neighborhoodChoices(selectedCity).map(name => <option key={name} value={name}>{postalDisplay(name, locale)}</option>)}</select></label>
         <label>{en ? 'Category' : 'Категория'}<select value={category} disabled={loading} onChange={event => chooseCategory(event.target.value)}><option value="">{en ? 'From my description' : 'От описанието'}</option>{DISCOVERY_CATEGORIES.map(item => <option key={item.id} value={item.id}>{item[locale]}</option>)}</select></label>
         <label>{copy.radius}<select value={radiusKm} disabled={loading} onChange={event => { cancelPendingLocation(); clearSubcategoryOptions(); setRadius(Number(event.target.value)); setResult(null) }}>{DISCOVERY_RADIUS_CHOICES.map(radius => <option key={radius} value={radius}>{radius} km</option>)}</select></label>
       </div></details></>}
@@ -318,8 +425,10 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
     </form>
     </SearchPanel>
     {home && filtersOpen && <DiscoveryFilterSheet id={filterId} initialValues={homeFilters} locale={locale} onApply={applyFilters} onClose={() => setFiltersOpen(false)} triggerRef={filterTrigger}/>}
-    {home && <><DiscoveryHomeRail title={homeCopy.categories} locale={locale} kind="categories" hideHeading>{homeCategories(locale).map((item, index) => <li key={item.id}><button type="button" disabled={loading} className={category === item.id ? 'selected' : ''} aria-pressed={category === item.id} onClick={() => chooseCategory(item.id)}><img src={item.photo} srcSet={`${item.photo} 160w, ${item.photo2x} 240w`} sizes="80px" width="160" height="160" alt="" loading={index < 4 ? 'eager' : 'lazy'} decoding="async"/><span>{item.label}</span></button></li>)}</DiscoveryHomeRail></>}
-    {!compact && <DiscoverySubcategories category={category} title={categoryById(category)?.[locale]} options={subcategoryOptions} selected={subcategory} selectedLabel={subcategoryById(subcategory)?.[locale]} locale={locale} loading={loading} onSelect={chooseSubcategory} navigationRef={subcategoriesRef}/>}
-    {!compact && <DiscoveryHomeBusinesses locale={locale} filters={{ ...homeFilters, cityCode: result ? resultCity : homeFilters.cityCode, coordinates: result ? resultOrigin : coordinates }} preview={preview} data={directoryData} result={result} resultKey={resultKey} loading={loading} error={error} onRetry={() => execute(payload())} headingRef={resultHeading} onLoadMore={loadMore} loadingMore={loadingMore} moreError={moreError} directoryEnabled={!home} initialPreview={entryCategory} quickChoice={home}/>}
+    {home && !compact && <InlineCategoryGrid locale={locale} category={category} onSelect={chooseInlineCategory}/>}
+    {home && !compact && <InlineDiscoveryPanel open={inlinePanelOpen}>{inlinePanelOpen ? <DiscoverySubcategories inline category={category} title={categoryById(category)?.[locale]} options={inlineOptions} selected={subcategory} selectedLabel={subcategoryById(subcategory)?.[locale]} locale={locale} loading={loading} onSelect={chooseInlineService} onClearCategory={clearInlineCategory} navigationRef={subcategoriesRef}/> : null}</InlineDiscoveryPanel>}
+    {home && !compact && <InlineDiscoverySummary locale={locale} category={category} subcategory={subcategory} result={result} loading={loading} onClearCategory={clearInlineCategory} onClearService={clearInlineService} onChangeArea={openFilters}/>}
+    {!compact && !home && <DiscoverySubcategories category={category} title={categoryById(category)?.[locale]} options={subcategoryOptions} selected={subcategory} selectedLabel={subcategoryById(subcategory)?.[locale]} locale={locale} loading={loading} onSelect={chooseSubcategory} navigationRef={subcategoriesRef}/>}
+    {!compact && <DiscoveryHomeBusinesses locale={locale} title={home ? GUIDED_DISCOVERY_COPY[locale].results : undefined} onChangeService={home ? subcategory ? clearInlineService : clearInlineCategory : undefined} onChangeArea={home ? openFilters : undefined} filters={{ ...homeFilters, cityCode: result ? resultCity : homeFilters.cityCode, coordinates: result ? resultOrigin : coordinates }} preview={preview} data={directoryData} result={result} resultKey={resultKey} loading={loading} error={error} onRetry={() => execute(payload({ expandNearby: false }))} headingRef={resultHeading} onLoadMore={loadMore} loadingMore={loadingMore} moreError={moreError} directoryEnabled={!home} initialPreview={false} quickChoice={home}/>}
   </section>
 }

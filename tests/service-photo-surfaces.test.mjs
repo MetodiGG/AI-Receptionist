@@ -1,3 +1,4 @@
+import { loadPublicServiceMenu } from './helpers/public-service-menu.mjs'
 import test from 'node:test'
 import * as brandLoading from './helpers/brand-loading.mjs'
 import assert from 'node:assert/strict'
@@ -20,6 +21,7 @@ import * as businessCover from '../lib/business-cover-photo.mjs'
 import * as servicePresentation from '../lib/discovery/service-presentation.mjs'
 import * as photoLayout from '../lib/business-photo-layout.mjs'
 import * as bookingButtonContent from './helpers/booking-button-content.mjs'
+import * as publicAction from './helpers/public-action.mjs'
 
 const require = createRequire(import.meta.url)
 const { loadBindings, transform } = require('next/dist/build/swc')
@@ -30,13 +32,14 @@ async function load(name, stubs) {
   const source = await readFile(new URL(filename, import.meta.url), 'utf8')
   const { code } = await transform(source, { filename, jsc: { parser: { syntax: 'ecmascript', jsx: true }, transform: { react: { runtime: 'automatic' } } }, module: { type: 'commonjs' } })
   const module = { exports: {} }
-  new Function('require', 'module', 'exports', code)(key => Object.hasOwn(stubs, key) ? stubs[key] : key === './brand-loading' ? brandLoading : require(key), module, module.exports)
+  new Function('require', 'module', 'exports', code)(key => key === './public-service-menu' ? publicServiceMenu : key === './public-action' ? publicAction : key === './public-action.module.css' ? publicAction.publicActionStyles : Object.hasOwn(stubs, key) ? stubs[key] : key === './brand-loading' ? brandLoading : require(key), module, module.exports)
   return module.exports
 }
 
 const noop = () => null
 const icon = { Icon: () => createElement('svg', { 'aria-hidden': true }) }
 const thumbnail = await load('service-thumbnail', { './icon': icon, '../lib/service-thumbnail.mjs': serviceArt })
+const publicServiceMenu = await loadPublicServiceMenu({ ServiceThumbnail: thumbnail.ServiceThumbnail, Icon: icon.Icon })
 const cover = await load('business-cover-photo', { '../lib/business-cover-photo.mjs': businessCover })
 const shared = {
   './booking-button-content': bookingButtonContent,
@@ -67,7 +70,7 @@ const services = [
   { id: 'pedicure', name: 'Pedicure', category: 'nails', price: null, currency: 'EUR', duration_min: 40 },
 ]
 const render = (Component, props) => renderToStaticMarkup(createElement(Component, props))
-const serviceRows = html => [...html.matchAll(/<li>(.*?)<\/li>/g)].map(([, row]) => row)
+const serviceRows = html => [...html.matchAll(/<li\b[^>]*data-service-price-card="true"[^>]*>([\s\S]*?)<\/li>/g)].map(([, row]) => row)
 
 test('public cards and details use the labelled category cover only until a real photo is supplied', () => {
   const catalogue = { ...business, source: 'catalogue', category: 'nails', services }
@@ -86,26 +89,30 @@ test('public cards and details use the labelled category cover only until a real
   assert.doesNotMatch(directoryHtml(real), /data-category-cover/)
 })
 
-test('compact discovery cards pair each first-party service with its own thumbnail and preserve its price', () => {
+test('compact discovery previews restore up to two original service thumbnails and prices without mutating the full menu', () => {
   const row = { ...business, source: 'catalogue', services }
+  const before = structuredClone(row)
   const html = render(DiscoveryBusinessCard, { row, locale: 'en', preview: true })
-  const [manicure, pedicure] = serviceRows(html)
-  assert.match(manicure, /class="service-photo-name".*data-service-kind="manicure".*class="home-service-name"[^>]*>Manicure<.*class="home-service-price">€25</)
-  assert.match(pedicure, /class="service-photo-name".*data-service-kind="pedicure".*class="home-service-name"[^>]*>Pedicure</)
-  assert.doesNotMatch(pedicure, /home-service-price/)
+  assert.match(html,/home-business-service-preview/)
+  assert.equal((html.match(/class="home-business-preview-name"/g)||[]).length,2)
+  assert.equal((html.match(/class="home-business-preview-price"/g)||[]).length,1)
+  assert.equal((html.match(/class="service-thumbnail /g)||[]).length,2)
+  assert.doesNotMatch(html,/home-business-inline-details/)
+  assert.deepEqual(row, before)
   assert.doesNotMatch(render(DiscoveryBusinessCard, { row: { ...row, source: 'google' }, locale: 'en', preview: true }), /home-business-services|service-photo-name/)
 })
 
 test('the full catalogue menu retains the service description, duration, and published price link', () => {
   const [first, ...others] = services
   const row = { ...business, source: 'catalogue', details: { services: [{ ...first, priceKind: 'from', description: 'Published service terms', priceSourceUrl: 'https://example.com/prices' }, ...others] } }
-  const [pedicure, manicure] = serviceRows(render(DiscoveryBusinessDetails, { row, locale: 'en', preview: true }))
-  assert.match(pedicure, /<strong>Pedicure<\/strong>/, 'general unpriced services precede the separate published tariff')
-  assert.match(manicure, /data-service-kind="manicure".*<strong>Manicure<\/strong><span>35 min<\/span>/)
-  assert.match(manicure, /<p class="business-details-service-description">Published service terms<\/p>/)
-  assert.match(manicure, /<a class="business-details-price" href="https:\/\/example\.com\/prices"[^>]*>from €25\.00<\/a>/)
-  assert.match(pedicure, /data-service-kind="pedicure".*<strong>Pedicure<\/strong>/)
-  assert.doesNotMatch(pedicure, /business-details-price/)
+  const [manicure, pedicure] = serviceRows(render(DiscoveryBusinessDetails, { row, locale: 'en', preview: true }))
+  assert.match(manicure, /data-service-kind="manicure"[\s\S]*class="public-service-menu-name">Manicure<\/strong>/)
+  assert.match(manicure, /class="public-service-menu-duration">35 min<\/span>/)
+  assert.match(manicure, /<p class="public-service-menu-note">Published service terms<\/p>/)
+  assert.match(manicure, /<a class="public-service-menu-price" href="https:\/\/example\.com\/prices"[^>]*><span>from €25\.00<\/span><\/a>/)
+  assert.match(pedicure, /data-service-kind="pedicure"[\s\S]*class="public-service-menu-name">Pedicure<\/strong>/)
+  assert.match(pedicure, /class="public-service-menu-unpriced"/)
+  assert.doesNotMatch(pedicure, /class="public-service-menu-price"/)
 })
 
 test('G Point logo remains whole and service prices retain compact online-only conditions without audit prose', async () => {
@@ -118,12 +125,14 @@ test('G Point logo remains whole and service prices retain compact online-only c
   const card = render(DiscoveryBusinessCard, { row, locale: 'bg', preview: true })
   const details = render(DiscoveryBusinessDetails, { row, locale: 'bg', preview: true })
   assert.match(card, /object-fit:contain;object-position:center;background-color:#fff/)
-  assert.ok(card.includes(name))
-  for (const html of [card, details]) {
+  assert.ok(card.includes(name),'the first two real relevant services invite the visitor to open the complete menu')
+  assert.match(card,/class="home-business-preview-unit">процедура<\/span>/)
+  assert.match(card,/Отстъпка само онлайн/)
+  for (const html of [card,details]) {
     assert.match(html, /Отстъпка само онлайн/)
     assert.doesNotMatch(html, /проверена на|зачеркнатата|Условията се потвърждават/)
-    assert.match(html, /class="service-price-unit">процедура<\/small>/)
   }
+  assert.match(details, /class="public-service-menu-unit">процедура<\/small>/)
   assert.match(details, /<div class="business-details-toolbar"><button[^>]+class="business-details-close"/)
   assert.match(details, /https:\/\/gpoint.bg\//)
   const css = await readFile(new URL('../app/service-photo-surfaces.css', import.meta.url), 'utf8')

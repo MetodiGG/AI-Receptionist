@@ -1,0 +1,54 @@
+Compact business previews and shared public actions — local review 2026-11-22
+
+Prepared after stationary-discovery commit 49ecbc6 on the isolated
+codex/compact-business-actions-20261122 branch. No push or publication.
+
+Public discovery cards now show a large photo, the business name, a details
+cue and directions/booking actions only. Services, tariffs, descriptions and
+reviews are not deleted; the complete menu remains in the existing details
+and public profile. A single native accessible button covers every non-action
+part of the card. Separate real action elements sit above it, never nested in
+the details button. Only actual details opening records the existing profile
+event, and the dialog restores focus to that native target.
+
+The existing verified distance/origin calculation appears at the photo's
+top-right with a small outline pin. Missing valid distance evidence produces
+no guessed numeric badge. City-centre and user-relative wording stays distinct.
+Generated cover disclosure remains visible at bottom-left, 11px, minimal
+padding and full readable opacity. Real partner photographs have no AI label.
+
+PublicAction and PublicActionPair implement one shared Variant A treatment:
+50px peach primary pill, espresso right-side arrow chip (no calendar), quiet
+secondary with a left outline-map chip, 14px/500 labels, 36px chips, 18px/1.75
+outline icons, controlled hover/press/focus, half-opacity disabled state and
+reduced-motion support. Existing search icons, branding and provider UI remain
+unchanged. Native links, telephone links and trusted external POST forms keep
+their original URLs, event IDs, submit lock, pageshow recovery and callbacks.
+The same component is used in cards/details, profiles, directory and public
+booking controls. It owns presentation only, not booking eligibility/logic.
+
+At 320px, word-safe unequal flex widths and tighter internal gaps keep both
+actions on one line with complete Bulgarian labels; below 320px the pair
+stacks. Browser measurements: 50px heights; Bulgarian label client/scroll
+widths 63/63 and 81/81; document client/scroll widths both 320px. A real-photo
+legacy :has() thumbnail rule was caught in browser and explicitly overridden:
+VESI STUDIO at 390px has a 328x246 frame and a full contained 1200x1600 portrait,
+not the former 96px thumbnail. Desktop photo frame is capped at 360x270, with
+actions at most 380px wide.
+
+Verification: 2836/2836 Node tests; direct Next.js 16.4.6 production webpack
+build passed (100 pages); focused shared-action/consumer/pricing/security/scope
+guards; git diff --check. Browser review covered 320,390,768,1440px, BG/EN,
+light/dark, actual VESI STUDIO portrait, AI cover, exact distance wording,
+details opening/closing and keyboard focus restoration. No real booking,
+outbound POST, notification or production write was performed.
+
+Preview: http://127.0.0.1:30828/dev/site-preview?lang=bg
+Screenshots: sibling artifacts/compact-business-actions-20261122 directory.
+Preview action controls are intentionally disabled and therefore half-opacity;
+enabled-state colors/contrast/hover/press are checked on the shared component.
+Physical Android devices and native browser zoom were not exercised here.
+
+English content is a separate pending stage, not claimed complete by this
+commit. Existing unrelated Artizba/G Point pricing-review release gates remain;
+neither business data nor review fingerprints were changed to bypass them.

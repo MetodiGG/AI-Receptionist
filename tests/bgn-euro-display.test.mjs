@@ -41,9 +41,9 @@ for (const locale of ['bg', 'en']) test(`${locale}: actual MG source80/47BGN bec
 
 for (const locale of ['bg', 'en']) test(`${locale}: FROM, both range bounds, units, zero and same-cent ranges preserve their meaning after conversion`, () => {
   const number = value => new Intl.NumberFormat(locale === 'en' ? 'en-IE' : 'bg-BG', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(value)
-  const source = Object.freeze({ price: 80, currency: 'BGN', priceKind: 'range', priceMaximum: 100, priceUnit: 'процедура', description: 'Само при онлайн записване.' })
+  const source = Object.freeze({ price: 80, currency: 'BGN', priceKind: 'range', priceMaximum: 100, priceUnit: 'процедура', presentationEn: { unit: 'procedure' }, description: 'Само при онлайн записване.' })
   const range = detailPriceLabel(source, locale)
-  assert.ok(range.includes(number(40.90))); assert.ok(range.includes(number(51.13))); assert.match(range, /€.*процедура|процедура/)
+  assert.ok(range.includes(number(40.90))); assert.ok(range.includes(number(51.13))); assert.match(range, locale === 'en' ? /procedure/ : /процедура/)
   assert.doesNotMatch(range, /BGN|лв/)
   const minimum = detailPriceLabel({ ...source, priceKind: 'from', priceMaximum: null }, locale)
   assert.match(minimum, locale === 'en' ? /^from / : /^от /)

@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Icon } from './icon'
+import { PublicAction } from './public-action'
 import { GoogleBusinessCardFrame, GoogleContactDialogFrame } from './google-business-card'
 import { DiscoveryBusinessCard } from './discovery-business-card'
 import { discoveryDistanceOrigin } from '../lib/discovery/distance-origin.mjs'
@@ -23,7 +23,7 @@ export function GoogleCardLocalPreview({ locale }) {
     <div className="google-preview-controls"><button type="button" className="secondary-button" onClick={() => setNearby(value => !value)} aria-pressed={nearby}>{en ? 'Demo location' : 'Демо локация'}: {nearby ? en ? 'on' : 'вкл.' : en ? 'off' : 'изкл.'}</button><p>{en ? 'No device location is requested. All distances use fictional QA business points.' : 'Не се иска реална локация. Всички точки на бизнесите са измислени за теста.'}</p></div>
     <ul className="home-discovery-rail" aria-label={en ? 'Fictional card layout' : 'Измислени тестови карти'}>
       <li><DiscoveryBusinessCard row={partner} locale={locale} nearby={nearby} preview distanceOrigin={origin}/></li>
-      {cards.map((card, index) => <li key={card.id}><GoogleBusinessCardFrame locale={locale} origin={origin} point={index === 3 ? null : { latitude: point.latitude + index * .002, longitude: point.longitude }} maps={<span className="home-directions" aria-disabled="true"><Icon name="map"/><span className="home-maps-label" translate="no">Google Maps</span></span>} booking={card.contact && <button type="button" className="home-reserve" onClick={() => setDialog(card)} aria-haspopup="dialog">{en ? 'Book a time' : 'Резервирай час'}</button>}>
+      {cards.map((card, index) => <li key={card.id}><GoogleBusinessCardFrame locale={locale} origin={origin} point={index === 3 ? null : { latitude: point.latitude + index * .002, longitude: point.longitude }} maps={<PublicAction as="span" variant="secondary" aria-disabled="true"><span translate="no">Google Maps</span></PublicAction>} booking={card.contact && <PublicAction type="button" onClick={() => setDialog(card)} aria-haspopup="dialog">{en ? 'Book a time' : 'Резервирай час'}</PublicAction>}>
         <div className="google-preview-native"><div className="google-preview-art"><span>{en ? 'DEMO · Google content area' : 'ДЕМО · място за Google съдържание'}</span></div><h3>{card.name}</h3><p className="home-business-category">{card.type}</p><p className="home-business-reviews">★ 4,8 · 12 {en ? 'demo reviews' : 'демо отзива'}</p>{!nearby && <p className="home-business-address">{en ? 'Fictional test address' : 'Измислен тестов адрес'}</p>}<p className="google-preview-label">{en ? 'Not a Google result. No live provider loaded.' : 'Не е Google резултат. Няма зареден доставчик.'}</p></div>
       </GoogleBusinessCardFrame></li>)}
     </ul>

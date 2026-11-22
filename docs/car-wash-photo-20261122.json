@@ -1,0 +1,35 @@
+{
+  "date": "2026-11-22",
+  "category": "car_wash",
+  "origin": "generated",
+  "mode": "built-in image_gen, new image without reference input",
+  "sourceFilename": "exec-40e994b1-1712-4830-999a-1ccaaaef5fc6.png",
+  "prompt": "Use case: photorealistic-natural. Asset type: square photographic-style Car Wash category illustration for the existing GoRez booking marketplace. This is a fictional generic business scene, NOT a real partner photograph. Primary request: a white adult male professional car-wash worker carefully hand-washing a clearly visible entire warm burnt-orange compact car with a soft soapy wash mitt in a real-looking indoor wash bay. No pressure-washer gun, no spray lance, no self-service equipment. Composition: square 1:1, eye-level three-quarter front view, the entire car from front bumper to rear bumper and both visible wheels inside the frame with generous margins. The worker stands beside the front quarter, face/head fully visible, naturally looking down at the wash mitt touching the hood. Keep car as the main subject, roughly two thirds of the composition, action within central75percent so square category tiles remain clear. Ordinary credible professional wash bay, off-white tiles and restrained warm-orange facility details, wet floor with subtle imperfect reflections, soap foam on car. Natural documentary automotive photography, soft daylight mixed with workshop lighting, 35mm lens, realistic skin pores, normal fabric texture, plausible hands and anatomy, physically accurate car geometry and ordinary imperfect surfaces. Not glossy fashion advertising, not plastic CGI, no oversaturated HDR, no cinematic haze. Brand palette warm cream/orange/espresso in environment, natural colors. No logos, no badges, no readable license plate or signage, no text, no watermark, no extra people.",
+  "sourceSha256": "041d28bfd6e282f0120b91e04495779b2f991e098314cf08c197a2fe90fd2b8c",
+  "content": "Fictional professional hand-wash illustration with an entire orange car and the user-requested fictional worker. No pressure-washer gun or partner identification.",
+  "processing": "Proportional square WebP resizing only; metadata stripped. No pixel crop or image retouch. The generated original remains in the built-in image output directory.",
+  "usage": "Generic category navigation illustration only, never a real partner photograph, claimed premises or endorsement. Historical v2 category photos and all partner images remain untouched. Rejected stock variants v3/v4 are preserved only in local review artifacts, not shipped. Local review only.",
+  "files": [
+    {
+      "file": "public/category-photos/car_wash-v5.webp",
+      "width": 160,
+      "height": 160,
+      "bytes": 9448,
+      "sha256": "1630669f5e49db2efaf703dac8347d5e66ced89b866189b821610ea75a0c3b2a"
+    },
+    {
+      "file": "public/category-photos/car_wash-2x-v5.webp",
+      "width": 240,
+      "height": 240,
+      "bytes": 19290,
+      "sha256": "647165fbd4c25b2522d8a067885d500d31789f07d4e2cf524f81fe7217a63dc9"
+    },
+    {
+      "file": "public/category-photos/car_wash-large-v5.webp",
+      "width": 640,
+      "height": 640,
+      "bytes": 112252,
+      "sha256": "a742a81a2f35f69cecb0bf787bcf985bffc1e3df4f3819bc1ee4df8e448cc13b"
+    }
+  ]
+}

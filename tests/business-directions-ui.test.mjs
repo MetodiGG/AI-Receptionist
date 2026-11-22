@@ -1,3 +1,4 @@
+import { loadPublicServiceMenu } from './helpers/public-service-menu.mjs'
 import assert from 'node:assert/strict'
 import * as brandLoading from './helpers/brand-loading.mjs'
 import test from 'node:test'
@@ -10,6 +11,8 @@ import * as bookingMode from '../lib/booking-mode.mjs'
 import * as rail from '../lib/discovery/rail.mjs'
 import * as cataloguePhotos from '../lib/catalogue-photo-view.mjs'
 import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
+
+const publicServiceMenu = await loadPublicServiceMenu()
 
 const require = createRequire(import.meta.url)
 const { loadBindings, transform } = require('next/dist/build/swc')
@@ -52,7 +55,7 @@ function renderDetailsState({ row, full = null, status, locale = 'bg', actions }
     '../lib/discovery/service-presentation.mjs': { servicePresentation: () => ({ description: '', conditions: [] }) },
   }
   const componentModule = { exports: {} }
-  new Function('require', 'module', 'exports', code)(name => name in stubs ? stubs[name] : name === './brand-loading' ? brandLoading : require(name), componentModule, componentModule.exports)
+  new Function('require', 'module', 'exports', code)(name => name === './public-service-menu' ? publicServiceMenu : name in stubs ? stubs[name] : name === './brand-loading' ? brandLoading : require(name), componentModule, componentModule.exports)
   const tree = componentModule.exports.DiscoveryBusinessDetails({ row, locale, actions, onClose: () => {}, triggerRef: { current: null } })
   assert.equal(stateIndex, states.length)
   return tree

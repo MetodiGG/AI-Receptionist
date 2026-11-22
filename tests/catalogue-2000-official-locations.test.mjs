@@ -1,8 +1,10 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
+import { execFileSync } from 'node:child_process'
 import previous from '../public/catalogue-official-address-points-growth-20261113.json' with { type: 'json' }
 import csv from '../public/catalogue-official-address-2000-subset-20261113.json' with { type: 'json' }
 import combined from '../public/catalogue-official-address-points-2000-20261113.json' with { type: 'json' }
+import freshReview from '../docs/catalogue-pricing/source-revalidation-svetlinki-artizba-20261122.json' with { type: 'json' }
 import { OFFICIAL_SOFIA_CSV_SHA256, OFFICIAL_SOFIA_DATA_SHA256 } from '../lib/discovery/official-sofia-address-source.mjs'
 import { OFFICIAL_SOFIA_PROCESSED_DATA_URL } from '../lib/discovery/catalogue-attribution.mjs'
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
@@ -12,6 +14,11 @@ import { catalogueBoundCoordinates } from '../lib/discovery/catalogue-coordinate
 import { catalogueRegistrationPoint } from '../lib/business-registration-location.mjs'
 import { businessMapsDirectionsUrl, businessDirectionsAddress } from '../lib/business-directions.mjs'
 import { reviewedBusinessDestination } from '../lib/business-directions-reviewed.mjs'
+
+// Postal-source receipts remain immutable. A fresh service/contact review
+// must not rewrite what was actually inspected for the November 13 address.
+const oldEducationText = execFileSync('git', ['show', 'b8dcdf4:lib/discovery/catalogue-data/neighborhood-home-education-2000-006-20261113.mjs'], { cwd: new URL('..', import.meta.url), encoding: 'utf8' })
+const oldEducation = (await import('data:text/javascript;base64,' + Buffer.from(oldEducationText).toString('base64'))).default.records
 
 test('new CSV subset preserves all prior full-precision points and distinguishes both source snapshots', () => {
   assert.equal(previous.pointCount, 501)
@@ -36,7 +43,14 @@ test('new manually reviewed postal matches retain identity, directions, attribut
     assert.equal(intake.coordinates, null, 'no owner pin overwritten')
     assert.deepEqual(published, { ...intake, coordinates: reviewed.coordinates })
     assert.equal(reviewed.review.decision, 'unique_exact_postal_address')
-    assert.ok(reviewed.review.sourceUrls.includes(intake.verification.contact))
+    if (intake.id === 'sofia-artizba-cherni-vrah33e') {
+      const original = oldEducation.find(row => row.id === intake.id)
+      assert.ok(reviewed.review.sourceUrls.includes(original.verification.contact))
+      for (const key of ['id', 'address', 'cityCode', 'neighborhood', 'website']) assert.deepEqual(intake[key], original[key], key)
+      assert.equal(intake.verification.contact, 'https://artizba.bg/obshti-usloviya/')
+      assert.equal(intake.verification.checkedOn, '2026-11-22')
+      assert.ok(freshReview.businesses.find(row => row.id === intake.id).sources.some(source => source.url === intake.verification.contact && source.httpStatus === 200))
+    } else assert.ok(reviewed.review.sourceUrls.includes(intake.verification.contact))
     assert.equal(reviewed.coordinates.addressId, reviewed.officialAddress.rn)
     assert.equal(reviewed.coordinates.licence, 'CC-BY-4.0')
     assert.equal(catalogueBoundCoordinates(published), published.coordinates)

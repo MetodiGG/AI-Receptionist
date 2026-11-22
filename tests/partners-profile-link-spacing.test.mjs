@@ -5,8 +5,8 @@ import { readFile } from 'node:fs/promises'
 const read = path => readFile(new URL(`../${path}`, import.meta.url), 'utf8')
 
 test('partner profile links get real flow spacing after either external forms or telephone actions', async () => {
-  const css = await read('app/solar.css')
-  const match = css.match(/\.partners-page \.directory-business-card > \.outbound-booking-form \+ a,\s*\.partners-page \.directory-business-card > \.directory-book-button \+ a \{([^}]+)\}/)
+  const css = await read('components/public-action.module.css')
+  const match = css.match(/\.outboundForm \+ a,\.action:global\(\.directory-reservation-action\) \+ a \{([^}]+)\}/)
   assert.ok(match, 'scope only adjacent profile links inside partner cards')
   assert.equal(match[1].trim(), 'margin-block-start: 12px;')
   assert.doesNotMatch(match[1], /transform|position|padding|height|line-height/)
@@ -15,10 +15,10 @@ test('partner profile links get real flow spacing after either external forms or
 test('the existing external form and telephone anchor retain their real GoRez profile destination', async () => {
   const directory = await read('components/business-directory.js')
   const outbound = await read('components/outbound-booking-button.js')
-  assert.match(directory, /<OutboundBookingButton business=\{row\} locale=\{locale\} className="directory-book-button"\/><Link href=\{`\/book\/\$\{row.slug\}\?lang=\$\{locale\}`\}>/)
+  assert.match(directory, /<OutboundBookingButton business=\{row\} locale=\{locale\} className="directory-reservation-action"\/><Link href=\{`\/book\/\$\{row.slug\}\?lang=\$\{locale\}`\}>/)
   assert.match(directory, /View GoRez profile.*Виж профила в GoRez/)
-  assert.match(outbound, /<form className="outbound-booking-form" action=\{path\} method="post"/)
-  assert.match(outbound, /<a className=\{className\} href=\{path\}>/)
+  assert.match(outbound, /<form className=\{styles.outboundForm\} data-public-outbound-form action=\{path\} method="post"/)
+  assert.match(outbound, /<PublicAction as="a" className=\{className\} href=\{path\}>/)
 })
 
 test('the narrow link-spacing fix does not restyle the shared booking action component', async () => {
@@ -34,7 +34,7 @@ test('development-only directory spacing samples preserve the real layout struct
   assert.match(source, /className="directory-results-grid"/)
   assert.match(source, /data-button-fit-surface="directory-external"/)
   assert.match(source, /data-button-fit-surface="directory-phone"/)
-  assert.match(source, /<div className="outbound-booking-form"><button type="button" className="directory-book-button"/)
+  assert.match(source, /<div className=\{styles.outboundForm\} data-public-outbound-form><PublicAction type="button"/)
   assert.equal((source.match(/<a role="link" aria-disabled="true">/g) || []).length, 2)
   assert.doesNotMatch(source, /fetch\(|supabase|href=|action=|onClick=|<form\b|type="submit"/)
 })

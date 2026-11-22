@@ -1,0 +1,869 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-22",
+  "baseCommit": "b8dcdf4315ee795904290ebd6463d4383a9fa42c",
+  "scope": "User-authorized bounded renewal of 45 existing expired source/price reviews; no catalogue acquisition or owner database writes.",
+  "normalizationProof": {
+    "sourceFilesCheckedAgainstBase": 314,
+    "beforeRecords": 1732,
+    "afterRecords": 1732,
+    "changedIds": [
+      "sofia-artizba-cherni-vrah33e",
+      "sofia-gpoint-banishora",
+      "sofia-gpoint-belite-brezi",
+      "sofia-gpoint-borovo",
+      "sofia-gpoint-darvenitsa",
+      "sofia-gpoint-dianabad",
+      "sofia-gpoint-dondukov",
+      "sofia-gpoint-dragalevtsi",
+      "sofia-gpoint-druzhba-1",
+      "sofia-gpoint-druzhba-2",
+      "sofia-gpoint-five-corners",
+      "sofia-gpoint-geo-milev",
+      "sofia-gpoint-hadzhi-dimitar",
+      "sofia-gpoint-hladilnika",
+      "sofia-gpoint-iztok",
+      "sofia-gpoint-krasna-polyana",
+      "sofia-gpoint-levski-g",
+      "sofia-gpoint-lozenets",
+      "sofia-gpoint-lyulin-10",
+      "sofia-gpoint-lyulin-7",
+      "sofia-gpoint-lyulin-8",
+      "sofia-gpoint-manastirski-iztok",
+      "sofia-gpoint-manastirski-zapad",
+      "sofia-gpoint-mladost-1",
+      "sofia-gpoint-mladost-2",
+      "sofia-gpoint-mladost-3",
+      "sofia-gpoint-mladost-4",
+      "sofia-gpoint-nadezhda-1",
+      "sofia-gpoint-nadezhda-2",
+      "sofia-gpoint-nadezhda-5",
+      "sofia-gpoint-ovcha-kupel-2",
+      "sofia-gpoint-ovcha-kupel-lyublyana",
+      "sofia-gpoint-ovcha-kupel-mizia",
+      "sofia-gpoint-ovcha-kupel-nbu",
+      "sofia-gpoint-reduta",
+      "sofia-gpoint-sadebna-palata",
+      "sofia-gpoint-stadion-vasil-levski",
+      "sofia-gpoint-studentski-nikola-gabrovski",
+      "sofia-gpoint-studentski-zimen-dvorets",
+      "sofia-gpoint-suhata-reka",
+      "sofia-gpoint-sveta-troitsa",
+      "sofia-gpoint-vitosha",
+      "sofia-gpoint-vma",
+      "sofia-gpoint-zona-b19",
+      "sofia-svetlinki-sheynovo13a"
+    ],
+    "unchangedRecords": 1687,
+    "beforeInventorySha256": "237a63e64802b46c95c032feb4993295357efac40e82f09950be3228fd563295",
+    "afterInventorySha256": "e0af5db43c503050ffcbdfc7061a6e8c8c609aa6eb353babfa2f4c79f544098c"
+  },
+  "gpoint": {
+    "sourceUrl": "https://gpoint.bg/%D0%B7%D0%B0%D0%BF%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B5-%D1%87%D0%B0%D1%81",
+    "version": "6.10.111",
+    "method": "Main-thread IAB: each Sofia location chosen explicitly, then women and men tabs clicked; only rendered label/h3/strong/em/duration text read. No service/date/slot selected, no personal fields entered, no booking submitted.",
+    "branchesChecked": 43,
+    "pricedFactsChecked": 1772,
+    "currency": "EUR",
+    "unit": "процедура",
+    "qualification": "Preferential fees require online booking. Do not use crossed-out old amounts, basket zero, bonus-credit advertising or inferred branch/staff availability. Seven-day internal recheck deadline is not a claimed promotion end date.",
+    "tableStorage": "Tables below are factored only AFTER all43 selected-branch women/men menus were read independently and their exact current amounts compared. No branch tariff was inferred from a different branch.",
+    "womenPrices": [
+      [
+        "Цяло лице",
+        30
+      ],
+      [
+        "Гърди",
+        24
+      ],
+      [
+        "1/2 корем",
+        24
+      ],
+      [
+        "Ръце",
+        28
+      ],
+      [
+        "1/2 ръце",
+        19
+      ],
+      [
+        "Мишници",
+        19
+      ],
+      [
+        "Пълен интим",
+        24
+      ],
+      [
+        "Цели крака",
+        45
+      ],
+      [
+        "Шия",
+        13
+      ],
+      [
+        "Врат",
+        13
+      ],
+      [
+        "Корем – лента",
+        13
+      ],
+      [
+        "Гръб",
+        32
+      ],
+      [
+        "Кръст",
+        27
+      ],
+      [
+        "Седалище",
+        24
+      ],
+      [
+        "Горна устна",
+        13
+      ],
+      [
+        "Брадичка",
+        13
+      ],
+      [
+        "Бакенбарди",
+        11
+      ],
+      [
+        "Скули",
+        11
+      ],
+      [
+        "Бедра",
+        27
+      ],
+      [
+        "Подбедрици",
+        27
+      ],
+      [
+        "Ареоли",
+        13
+      ],
+      [
+        "Бикини",
+        19
+      ],
+      [
+        "Уши",
+        13
+      ],
+      [
+        "Корем",
+        32
+      ]
+    ],
+    "menPricesWithoutIntimate": [
+      [
+        "Гръб",
+        54
+      ],
+      [
+        "Рамене",
+        25
+      ],
+      [
+        "Мишници",
+        22
+      ],
+      [
+        "Гърди",
+        35
+      ],
+      [
+        "Корем",
+        35
+      ],
+      [
+        "Кръст",
+        35
+      ],
+      [
+        "Седалище",
+        35
+      ],
+      [
+        "Ръце",
+        41
+      ],
+      [
+        "1/2 ръце",
+        25
+      ],
+      [
+        "Бедра",
+        49
+      ],
+      [
+        "Подбедрици",
+        41
+      ],
+      [
+        "Крака - бедра, подбедрици",
+        76
+      ],
+      [
+        "Шия",
+        17
+      ],
+      [
+        "Врат",
+        17
+      ],
+      [
+        "Уши",
+        15
+      ],
+      [
+        "Скули",
+        18
+      ],
+      [
+        "Цяло лице",
+        41
+      ]
+    ],
+    "optionalMaleIntimate": [
+      "Интим",
+      30
+    ],
+    "rawRenderedCaptureSha256": "a9c371482ae7b6bbde9aa8c294994c765e4d51709ea71f135e1db04d6e3d23db",
+    "independentComparisonFacts": {
+      "batchA": 908,
+      "batchB": 864,
+      "mismatches": 0
+    },
+    "branches": [
+      {
+        "id": "sofia-gpoint-banishora",
+        "displayedLocation": "София, Банишора\nбул. Генерал Николай Г. Столетов №84",
+        "womenRows": 24,
+        "menRows": 17,
+        "hasMaleIntimate": false,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "dc2aea4bfad652e0f0601ed0ee85df224b6d662ae2d0054ed997ab27bada2359",
+        "reviewedFeeInventorySha256": "aecbffe63c2330babb601c837718c302ef6972b134bf8980d6cdb7eb6b6741e2",
+        "previousInventoryIdentity": "f377f105cec4b3732701ccbd366f059265749cab56ca80aa7ebb86ce998e1d48",
+        "reviewedInventoryIdentity": "5838bbef493d8edb530bc2e5c2aeeee46cb9e82816c88b8b66713ce012a48efe",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-belite-brezi",
+        "displayedLocation": "София, Белите брези\nул. Лерин №14",
+        "womenRows": 24,
+        "menRows": 17,
+        "hasMaleIntimate": false,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "dc2aea4bfad652e0f0601ed0ee85df224b6d662ae2d0054ed997ab27bada2359",
+        "reviewedFeeInventorySha256": "aecbffe63c2330babb601c837718c302ef6972b134bf8980d6cdb7eb6b6741e2",
+        "previousInventoryIdentity": "339a8e5b70e62cbb814f141e76275f165b48ea49d35f53266540677c6008db8d",
+        "reviewedInventoryIdentity": "116b9cd51429c0237593f3d46396d7120a3286c6ca07a8e71e04e3a805a46d07",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-borovo",
+        "displayedLocation": "София, Борово\nул. Пирински проход №45 Б",
+        "womenRows": 24,
+        "menRows": 17,
+        "hasMaleIntimate": false,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "dc2aea4bfad652e0f0601ed0ee85df224b6d662ae2d0054ed997ab27bada2359",
+        "reviewedFeeInventorySha256": "aecbffe63c2330babb601c837718c302ef6972b134bf8980d6cdb7eb6b6741e2",
+        "previousInventoryIdentity": "f869a57f4d28ecd568a07938b99e769e2e296c01549541d16614981f89f282cc",
+        "reviewedInventoryIdentity": "6d361af38fd1b850385588e74136a15e34d21a657765c4b0561c4098034e185b",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-darvenitsa",
+        "displayedLocation": "София, Дървеница\nул. Проф. Георги Брадистилов №6",
+        "womenRows": 24,
+        "menRows": 17,
+        "hasMaleIntimate": false,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "dc2aea4bfad652e0f0601ed0ee85df224b6d662ae2d0054ed997ab27bada2359",
+        "reviewedFeeInventorySha256": "aecbffe63c2330babb601c837718c302ef6972b134bf8980d6cdb7eb6b6741e2",
+        "previousInventoryIdentity": "b4a284a3d38bfd773436de690d8a3a729a08e4955e17f97cd7b8305d4dba61cf",
+        "reviewedInventoryIdentity": "b8ee75c453c6b5e0cb0b6113d8cc80f756f4dd495d34989ed5cb66ad7b421e31",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-dianabad",
+        "displayedLocation": "София, Дианабад\nул. Проф. Христо Вакарелски №3",
+        "womenRows": 24,
+        "menRows": 17,
+        "hasMaleIntimate": false,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "dc2aea4bfad652e0f0601ed0ee85df224b6d662ae2d0054ed997ab27bada2359",
+        "reviewedFeeInventorySha256": "aecbffe63c2330babb601c837718c302ef6972b134bf8980d6cdb7eb6b6741e2",
+        "previousInventoryIdentity": "fded102d9b61b5ed21bea4e5bc28b695bd79cbb764a2a2a9b8562730be0c12dd",
+        "reviewedInventoryIdentity": "a67fbc5f1b0a411126e95e7f3af86e6e289f1732ce0fa3ff6b1f63ecb506c19f",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-dondukov",
+        "displayedLocation": "София, Дондуков\nул. Панайот Волов №9",
+        "womenRows": 24,
+        "menRows": 17,
+        "hasMaleIntimate": false,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "dc2aea4bfad652e0f0601ed0ee85df224b6d662ae2d0054ed997ab27bada2359",
+        "reviewedFeeInventorySha256": "aecbffe63c2330babb601c837718c302ef6972b134bf8980d6cdb7eb6b6741e2",
+        "previousInventoryIdentity": "292f90c5732620d786af1c6c6f9b0b1d4a5152bb3722fd2a9faa2be689380134",
+        "reviewedInventoryIdentity": "d763f4a0112802391276c9a7663e90d73a70f1aca574c755fb5e0d39165129e3",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-dragalevtsi",
+        "displayedLocation": "София, Драгалевци\nул. Лагадина №5",
+        "womenRows": 24,
+        "menRows": 17,
+        "hasMaleIntimate": false,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "dc2aea4bfad652e0f0601ed0ee85df224b6d662ae2d0054ed997ab27bada2359",
+        "reviewedFeeInventorySha256": "aecbffe63c2330babb601c837718c302ef6972b134bf8980d6cdb7eb6b6741e2",
+        "previousInventoryIdentity": "fdce70b0541113bdb3ae3715b57ef8bb44ebd5f7070f711f37c29365b94c54e9",
+        "reviewedInventoryIdentity": "c0ed97976ee0473cc6deba2c356133edebb66cc5f733cb090516aa8619d9ed6b",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-druzhba-1",
+        "displayedLocation": "София, Дружба 1\nбл. 186",
+        "womenRows": 24,
+        "menRows": 17,
+        "hasMaleIntimate": false,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "dc2aea4bfad652e0f0601ed0ee85df224b6d662ae2d0054ed997ab27bada2359",
+        "reviewedFeeInventorySha256": "aecbffe63c2330babb601c837718c302ef6972b134bf8980d6cdb7eb6b6741e2",
+        "previousInventoryIdentity": "a0c7e60cc03cdad073fe704e841fb38b08f5b691cdd32718329e2194fa112118",
+        "reviewedInventoryIdentity": "c89992d849596e9502ae79d862ba397ef3a7b89012c3c1ebbce68cbc5517e04a",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-druzhba-2",
+        "displayedLocation": "София, Дружба 2\nж.к. Дружба 2, бул. Копенхаген №38",
+        "womenRows": 24,
+        "menRows": 17,
+        "hasMaleIntimate": false,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "dc2aea4bfad652e0f0601ed0ee85df224b6d662ae2d0054ed997ab27bada2359",
+        "reviewedFeeInventorySha256": "aecbffe63c2330babb601c837718c302ef6972b134bf8980d6cdb7eb6b6741e2",
+        "previousInventoryIdentity": "ec1a2583aca4e727e533619f6717a93821c53fe682309eaa1906351a9d8a2642",
+        "reviewedInventoryIdentity": "91831a8d04cb35a2b5015f3664a1bf44b4f62154a06367dd3a48f69d3df491ad",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-five-corners",
+        "displayedLocation": "София, 5-те Кьошета\nул. св. Иван Рилски №4",
+        "womenRows": 24,
+        "menRows": 18,
+        "hasMaleIntimate": true,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "ae16bd1ee719c94ff836542c9fc13334ed9df5e096a9c336960a630784d47b28",
+        "reviewedFeeInventorySha256": "3ccdfc3fbe5476ed6db4914bc8720bc69b23cba62d88e8404368aa5749e83cba",
+        "previousInventoryIdentity": "791a6c9cb6e74dcbd37398fb249d7749bb08e43d99532e5c0ec8f66d226a1c44",
+        "reviewedInventoryIdentity": "784dd47d58c0e815a0c3d4a9a1ddf94e1078d319625ba41ff8a882b780f93b47",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-geo-milev",
+        "displayedLocation": "София, Гео Милев\nул. Галилео Галилей №20",
+        "womenRows": 24,
+        "menRows": 17,
+        "hasMaleIntimate": false,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "dc2aea4bfad652e0f0601ed0ee85df224b6d662ae2d0054ed997ab27bada2359",
+        "reviewedFeeInventorySha256": "aecbffe63c2330babb601c837718c302ef6972b134bf8980d6cdb7eb6b6741e2",
+        "previousInventoryIdentity": "f44b0c427b7dce54921c84e4ee6034e0b7bd8b7a240f77da41450e242e18842a",
+        "reviewedInventoryIdentity": "7a27b65580bb57217cb756de6101d20bdf8163edb860d2e04f4547e5dcd1a0cf",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-hadzhi-dimitar",
+        "displayedLocation": "София, Хаджи Димитър\nул. Васил Кънчев №26А",
+        "womenRows": 24,
+        "menRows": 17,
+        "hasMaleIntimate": false,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "dc2aea4bfad652e0f0601ed0ee85df224b6d662ae2d0054ed997ab27bada2359",
+        "reviewedFeeInventorySha256": "aecbffe63c2330babb601c837718c302ef6972b134bf8980d6cdb7eb6b6741e2",
+        "previousInventoryIdentity": "1b62b1f9a93607f2ecda47998e253c5be91f384b26f415e59baa85ada7e6a92f",
+        "reviewedInventoryIdentity": "88bbac852051f7dd90ab58e3aad11d9638a932a9c5da046f26023d9886426b81",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-hladilnika",
+        "displayedLocation": "София, Хладилника\nул. Козяк №43",
+        "womenRows": 24,
+        "menRows": 18,
+        "hasMaleIntimate": true,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "ae16bd1ee719c94ff836542c9fc13334ed9df5e096a9c336960a630784d47b28",
+        "reviewedFeeInventorySha256": "3ccdfc3fbe5476ed6db4914bc8720bc69b23cba62d88e8404368aa5749e83cba",
+        "previousInventoryIdentity": "1f03ac8295e39b82953273ab0d0c05515406cd99b4eaf6f95c7ed204fa94d980",
+        "reviewedInventoryIdentity": "b0b35afe736e4407730c9e56b048dd70274be7710709f1ce4f4ab5f5a8788b7f",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-iztok",
+        "displayedLocation": "София, Изток\nул. Майор Юрий Гагарин №20",
+        "womenRows": 24,
+        "menRows": 17,
+        "hasMaleIntimate": false,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "dc2aea4bfad652e0f0601ed0ee85df224b6d662ae2d0054ed997ab27bada2359",
+        "reviewedFeeInventorySha256": "aecbffe63c2330babb601c837718c302ef6972b134bf8980d6cdb7eb6b6741e2",
+        "previousInventoryIdentity": "648e460f4d4087237f281cb3327c2527725d3e67ffa7f9b474de25ca81fbc3ee",
+        "reviewedInventoryIdentity": "2962059ccc52c9e92cd8274e4f89736394395a4a04bf1e0c4498c89946f3c75b",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-krasna-polyana",
+        "displayedLocation": "София, Красна поляна\nбул. Вардар №26",
+        "womenRows": 24,
+        "menRows": 17,
+        "hasMaleIntimate": false,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "dc2aea4bfad652e0f0601ed0ee85df224b6d662ae2d0054ed997ab27bada2359",
+        "reviewedFeeInventorySha256": "aecbffe63c2330babb601c837718c302ef6972b134bf8980d6cdb7eb6b6741e2",
+        "previousInventoryIdentity": "f1fc1739c34a50016855c38b0027b638085a5cf992d3cb5e5c44b19a56415863",
+        "reviewedInventoryIdentity": "b75c2808aad62579053cb8a0f960e2cd76287ae7eadb8f6ce04532915b2a74b4",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-levski-g",
+        "displayedLocation": "София, Левски Г\nул. Могилите 2, маг. 59",
+        "womenRows": 24,
+        "menRows": 17,
+        "hasMaleIntimate": false,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "dc2aea4bfad652e0f0601ed0ee85df224b6d662ae2d0054ed997ab27bada2359",
+        "reviewedFeeInventorySha256": "aecbffe63c2330babb601c837718c302ef6972b134bf8980d6cdb7eb6b6741e2",
+        "previousInventoryIdentity": "5cd64067dda91866a2f6b543c4ecd24431f2b9f32f8889ffd68ead87e0e76159",
+        "reviewedInventoryIdentity": "52c7ac4c79afba2ebd6e8ee50cb3662344485a9e5b696983cca0796308711578",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-lozenets",
+        "displayedLocation": "София, Лозенец\nул. Богатица №3-5",
+        "womenRows": 24,
+        "menRows": 18,
+        "hasMaleIntimate": true,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "ae16bd1ee719c94ff836542c9fc13334ed9df5e096a9c336960a630784d47b28",
+        "reviewedFeeInventorySha256": "3ccdfc3fbe5476ed6db4914bc8720bc69b23cba62d88e8404368aa5749e83cba",
+        "previousInventoryIdentity": "d45a767acc9a4022ead002307369a9c0de598f60095303c7f30939b320cc754c",
+        "reviewedInventoryIdentity": "1099b472daca302747943fb3cf7117203bdfeab5dbd1149d8578fded5bb1f791",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-lyulin-10",
+        "displayedLocation": "София, Люлин 10\nжк. Люлин 10, бл. 153 А",
+        "womenRows": 24,
+        "menRows": 18,
+        "hasMaleIntimate": true,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "ae16bd1ee719c94ff836542c9fc13334ed9df5e096a9c336960a630784d47b28",
+        "reviewedFeeInventorySha256": "3ccdfc3fbe5476ed6db4914bc8720bc69b23cba62d88e8404368aa5749e83cba",
+        "previousInventoryIdentity": "3015f862f46225f448b50ebbb9d0c48f0130d5af656517e919ca61d757660b29",
+        "reviewedInventoryIdentity": "7fcca6253ffbf62a7db7f5124d25e8c09c0f1d12cdad175f363e0e9544e94fc2",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-lyulin-7",
+        "displayedLocation": "София, Люлин 7\nж.к. Люлин 7, бл. 785, вх. Б",
+        "womenRows": 24,
+        "menRows": 17,
+        "hasMaleIntimate": false,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "dc2aea4bfad652e0f0601ed0ee85df224b6d662ae2d0054ed997ab27bada2359",
+        "reviewedFeeInventorySha256": "aecbffe63c2330babb601c837718c302ef6972b134bf8980d6cdb7eb6b6741e2",
+        "previousInventoryIdentity": "d31504e7738d7e98777b24b1df04b3376ec7bf8d9e572088a1d4a689ee49c752",
+        "reviewedInventoryIdentity": "5ae1e86efa04ef0ee8861309147d4b69eb85ab37a36e285ccb0d3f34bc3a9b60",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-lyulin-8",
+        "displayedLocation": "София, Люлин 8\nул. Ген. Казимир Ернрот №52",
+        "womenRows": 24,
+        "menRows": 17,
+        "hasMaleIntimate": false,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "dc2aea4bfad652e0f0601ed0ee85df224b6d662ae2d0054ed997ab27bada2359",
+        "reviewedFeeInventorySha256": "aecbffe63c2330babb601c837718c302ef6972b134bf8980d6cdb7eb6b6741e2",
+        "previousInventoryIdentity": "b9098649d25ac89801051e6322e6f0f17c02ea74dccaee8443bd6656b2f0d9ca",
+        "reviewedInventoryIdentity": "4b99da0223a8ab511d67163a5122652f4b79d58587fc8a647d1cac8b68e7be25",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-manastirski-iztok",
+        "displayedLocation": "София, Манастирски ливади - Изток\nул. Боян Петров №110, бл.20 Б",
+        "womenRows": 24,
+        "menRows": 18,
+        "hasMaleIntimate": true,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "ae16bd1ee719c94ff836542c9fc13334ed9df5e096a9c336960a630784d47b28",
+        "reviewedFeeInventorySha256": "3ccdfc3fbe5476ed6db4914bc8720bc69b23cba62d88e8404368aa5749e83cba",
+        "previousInventoryIdentity": "8e0b9fec2a5e95a304992dacce00d7c56a128601caef63cf8fdd9d729737c002",
+        "reviewedInventoryIdentity": "ec8c3918a07d8c6c030c9d8fcc2a333550600adc17aa2342aab3eacdc9e6eac0",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-manastirski-zapad",
+        "displayedLocation": "София, Манастирски ливади - Запад\nул. Синанишко езеро №7, бл. 11",
+        "womenRows": 24,
+        "menRows": 18,
+        "hasMaleIntimate": true,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "ae16bd1ee719c94ff836542c9fc13334ed9df5e096a9c336960a630784d47b28",
+        "reviewedFeeInventorySha256": "3ccdfc3fbe5476ed6db4914bc8720bc69b23cba62d88e8404368aa5749e83cba",
+        "previousInventoryIdentity": "a4ebf2ea1aae64b089f9302f4c1ea880f79612780887041390b7cfb8084b1a03",
+        "reviewedInventoryIdentity": "0d3b046aa725f0b02cedfdb7f29cdbb654618f162515485ce35c40b9d9ef3cab",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-mladost-1",
+        "displayedLocation": "София, Младост 1\nж.к. Младост 1, бл. 148",
+        "womenRows": 24,
+        "menRows": 17,
+        "hasMaleIntimate": false,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "dc2aea4bfad652e0f0601ed0ee85df224b6d662ae2d0054ed997ab27bada2359",
+        "reviewedFeeInventorySha256": "aecbffe63c2330babb601c837718c302ef6972b134bf8980d6cdb7eb6b6741e2",
+        "previousInventoryIdentity": "e994f00b1fc53bade11b767d04c48bdc7c49ff20dd5fee006bd6d77afb8750b7",
+        "reviewedInventoryIdentity": "c9662af7623a682476a371f0f5c0d447eeab194b7e69e747d656bcbd1f34e787",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-mladost-2",
+        "displayedLocation": "София, Младост 2\nул. Св. Киприян №44, бл. 290",
+        "womenRows": 24,
+        "menRows": 17,
+        "hasMaleIntimate": false,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "dc2aea4bfad652e0f0601ed0ee85df224b6d662ae2d0054ed997ab27bada2359",
+        "reviewedFeeInventorySha256": "aecbffe63c2330babb601c837718c302ef6972b134bf8980d6cdb7eb6b6741e2",
+        "previousInventoryIdentity": "88f70eda4f07a4193f59358f936a6225178051bb6b96c13b0deb4abb2292697a",
+        "reviewedInventoryIdentity": "0a1b25ff4ce874ecab937417904f76266a5bab3c4c99f49d0de8b3d1f8805e94",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-mladost-3",
+        "displayedLocation": "София, Младост 3\nбл. 304, маг. 8",
+        "womenRows": 24,
+        "menRows": 17,
+        "hasMaleIntimate": false,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "dc2aea4bfad652e0f0601ed0ee85df224b6d662ae2d0054ed997ab27bada2359",
+        "reviewedFeeInventorySha256": "aecbffe63c2330babb601c837718c302ef6972b134bf8980d6cdb7eb6b6741e2",
+        "previousInventoryIdentity": "2239f3b9eb92362fca29a89ba8641271ae8422cd29ec7cceee206a90dafc810c",
+        "reviewedInventoryIdentity": "4ce8f51a36d161fe19bd64cb09a8fdaabd367bba67901f18c28edca3cf39ed9c",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-mladost-4",
+        "displayedLocation": "София, Младост 4\nж.к Младост 4, бл. 458, маг 6",
+        "womenRows": 24,
+        "menRows": 17,
+        "hasMaleIntimate": false,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "dc2aea4bfad652e0f0601ed0ee85df224b6d662ae2d0054ed997ab27bada2359",
+        "reviewedFeeInventorySha256": "aecbffe63c2330babb601c837718c302ef6972b134bf8980d6cdb7eb6b6741e2",
+        "previousInventoryIdentity": "dfab3d36195b439ffba64d71bb8a86c3879eeb2016a9f3386f8861720d5182c0",
+        "reviewedInventoryIdentity": "5edcc026e8a1c681db53b358c11ee5aa7287109a1fde7f1ee24c95cf2b3d162b",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-nadezhda-1",
+        "displayedLocation": "София, Надежда 1\nж.к. Надежда 1, ул. Възрожденска 24",
+        "womenRows": 24,
+        "menRows": 17,
+        "hasMaleIntimate": false,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "dc2aea4bfad652e0f0601ed0ee85df224b6d662ae2d0054ed997ab27bada2359",
+        "reviewedFeeInventorySha256": "aecbffe63c2330babb601c837718c302ef6972b134bf8980d6cdb7eb6b6741e2",
+        "previousInventoryIdentity": "595fec119ad15df09330748fd43b52d3a2a6def95c10740c9a0f7b8d440d5183",
+        "reviewedInventoryIdentity": "dbcfb8ca74931dee4a08c748e295a41a9ab40604eb1e08e3a2b8ab1adedc6ccd",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-nadezhda-2",
+        "displayedLocation": "София, Надежда 2\nул. Митрополит Авксентий Велешки №49, вх.В",
+        "womenRows": 24,
+        "menRows": 17,
+        "hasMaleIntimate": false,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "dc2aea4bfad652e0f0601ed0ee85df224b6d662ae2d0054ed997ab27bada2359",
+        "reviewedFeeInventorySha256": "aecbffe63c2330babb601c837718c302ef6972b134bf8980d6cdb7eb6b6741e2",
+        "previousInventoryIdentity": "5249045de3987731f645a2b4663873d5de896355d8a418a279fa1957206056a4",
+        "reviewedInventoryIdentity": "fd018367a0fce4b28f692a10cc5f6a69245cefe0e5fa8688f857c4e7ea90304b",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-nadezhda-5",
+        "displayedLocation": "София, Надежда 5\nж.к. Връбница 1, бл. 542",
+        "womenRows": 24,
+        "menRows": 18,
+        "hasMaleIntimate": true,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "ae16bd1ee719c94ff836542c9fc13334ed9df5e096a9c336960a630784d47b28",
+        "reviewedFeeInventorySha256": "3ccdfc3fbe5476ed6db4914bc8720bc69b23cba62d88e8404368aa5749e83cba",
+        "previousInventoryIdentity": "37ae95d24b05f6c02229afc524fc0b308f3a6e0fba77af0b63b49afcac4fa408",
+        "reviewedInventoryIdentity": "b4ee36261f121474d9f38d873cf63d3e9cb02692e1982fa283e99b8443f568bb",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-ovcha-kupel-2",
+        "displayedLocation": "София, Овча Купел 2\nул. Промишлена №33",
+        "womenRows": 24,
+        "menRows": 17,
+        "hasMaleIntimate": false,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "dc2aea4bfad652e0f0601ed0ee85df224b6d662ae2d0054ed997ab27bada2359",
+        "reviewedFeeInventorySha256": "aecbffe63c2330babb601c837718c302ef6972b134bf8980d6cdb7eb6b6741e2",
+        "previousInventoryIdentity": "669170bc69f16e5744ae79044f8944b9be6cbc23e8ff5c8054f8dc97c2ed5ab2",
+        "reviewedInventoryIdentity": "94a9e7f8de16787a64bdcfc6473ee120d2a756cec129757d212566338817bb6c",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-ovcha-kupel-lyublyana",
+        "displayedLocation": "София, Овча Купел - Любляна\nул. Витошка Поляна №3",
+        "womenRows": 24,
+        "menRows": 17,
+        "hasMaleIntimate": false,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "dc2aea4bfad652e0f0601ed0ee85df224b6d662ae2d0054ed997ab27bada2359",
+        "reviewedFeeInventorySha256": "aecbffe63c2330babb601c837718c302ef6972b134bf8980d6cdb7eb6b6741e2",
+        "previousInventoryIdentity": "4a1489bfef8456d4d8c790c0359e31ae78213bc65f0a9e88c5a677b6813ed540",
+        "reviewedInventoryIdentity": "a97a7b5a761ef37629edd8910105f64a0d8442010a5ddd626b685d9b420b3c7c",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-ovcha-kupel-mizia",
+        "displayedLocation": "София, Овча Купел 1 - Мизия\nул. 761-ва",
+        "womenRows": 24,
+        "menRows": 17,
+        "hasMaleIntimate": false,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "dc2aea4bfad652e0f0601ed0ee85df224b6d662ae2d0054ed997ab27bada2359",
+        "reviewedFeeInventorySha256": "aecbffe63c2330babb601c837718c302ef6972b134bf8980d6cdb7eb6b6741e2",
+        "previousInventoryIdentity": "15701e80fb6c6d6135c327961078718959b145df46c5f3eb9c861b9e1028495d",
+        "reviewedInventoryIdentity": "4b673e358e7e5bbf2d051b11a69f4dd5e20cacd0617a42ea64e40b0304e51807",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-ovcha-kupel-nbu",
+        "displayedLocation": "София, Овча Купел - НБУ\nул. Народно Хоро №81",
+        "womenRows": 24,
+        "menRows": 17,
+        "hasMaleIntimate": false,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "dc2aea4bfad652e0f0601ed0ee85df224b6d662ae2d0054ed997ab27bada2359",
+        "reviewedFeeInventorySha256": "aecbffe63c2330babb601c837718c302ef6972b134bf8980d6cdb7eb6b6741e2",
+        "previousInventoryIdentity": "bc8961374be588b5352d485b7391860a4fc3d866a69294f834f7ca652a99c712",
+        "reviewedInventoryIdentity": "d2b6dd5a0f11ada7398c87d863c0085fc99490263d4a6859439414ba183240e5",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-reduta",
+        "displayedLocation": "София, Редута\nул. Георги Минчев №40",
+        "womenRows": 24,
+        "menRows": 17,
+        "hasMaleIntimate": false,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "dc2aea4bfad652e0f0601ed0ee85df224b6d662ae2d0054ed997ab27bada2359",
+        "reviewedFeeInventorySha256": "aecbffe63c2330babb601c837718c302ef6972b134bf8980d6cdb7eb6b6741e2",
+        "previousInventoryIdentity": "970e24d20a7d225db4d1f0a18b3d080530ff554b623793c9cfa5cbbebb01bdbd",
+        "reviewedInventoryIdentity": "3a9903b4cf6888ef61931f46a681a0890c9b3b8637677a40fa54b94409db0ad2",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-sadebna-palata",
+        "displayedLocation": "София, Съдебна палата\nул. Княз Борис I №108, магазин 8",
+        "womenRows": 24,
+        "menRows": 17,
+        "hasMaleIntimate": false,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "dc2aea4bfad652e0f0601ed0ee85df224b6d662ae2d0054ed997ab27bada2359",
+        "reviewedFeeInventorySha256": "aecbffe63c2330babb601c837718c302ef6972b134bf8980d6cdb7eb6b6741e2",
+        "previousInventoryIdentity": "786978936c86da0026cd1c8d537126af08886bb97342fdad5142813330c142c0",
+        "reviewedInventoryIdentity": "dd3077eea8304c761bd04356d11efd4813198686de865e0a731d8dda1b05dbab",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-stadion-vasil-levski",
+        "displayedLocation": "София, Стадион Васил Левски\nул. Юрий Венелин №36",
+        "womenRows": 24,
+        "menRows": 17,
+        "hasMaleIntimate": false,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "dc2aea4bfad652e0f0601ed0ee85df224b6d662ae2d0054ed997ab27bada2359",
+        "reviewedFeeInventorySha256": "aecbffe63c2330babb601c837718c302ef6972b134bf8980d6cdb7eb6b6741e2",
+        "previousInventoryIdentity": "7b57861e3d0dfa8c28dfe45a262a298bd58c9ecc18c2746580cba8e0ea52c950",
+        "reviewedInventoryIdentity": "cb61f48e26790ee362f4863d55f84f8e21f5a618d3ff11ed298e0053fba3be85",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-studentski-nikola-gabrovski",
+        "displayedLocation": "София, Студентски град - Никола Габровски\nул. Никола Габровски №102А",
+        "womenRows": 24,
+        "menRows": 17,
+        "hasMaleIntimate": false,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "dc2aea4bfad652e0f0601ed0ee85df224b6d662ae2d0054ed997ab27bada2359",
+        "reviewedFeeInventorySha256": "aecbffe63c2330babb601c837718c302ef6972b134bf8980d6cdb7eb6b6741e2",
+        "previousInventoryIdentity": "b15f98014082c9672cb539d457adb33fa5211694e6724ec2d4d2a932bc78b4ed",
+        "reviewedInventoryIdentity": "061bf1735db558603b9803346187560cae307954bd042cf5335f3918d9c5babc",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-studentski-zimen-dvorets",
+        "displayedLocation": "София, Студентски град - Зимен дворец\nул. Петър Увалиев №1",
+        "womenRows": 24,
+        "menRows": 17,
+        "hasMaleIntimate": false,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "dc2aea4bfad652e0f0601ed0ee85df224b6d662ae2d0054ed997ab27bada2359",
+        "reviewedFeeInventorySha256": "aecbffe63c2330babb601c837718c302ef6972b134bf8980d6cdb7eb6b6741e2",
+        "previousInventoryIdentity": "be03fc6aaa630a7ec0dfaa7bdbfacae4c41776c3503c8a916e473d7e486b6d19",
+        "reviewedInventoryIdentity": "148fb57c79f68f8bbd25bd8b15b9e37b297fcac0e6ca59c5a743722f317f56ee",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-suhata-reka",
+        "displayedLocation": "София, Сухата река\nж.к. Сухата река, бл. 225 вх. Г",
+        "womenRows": 24,
+        "menRows": 18,
+        "hasMaleIntimate": true,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "ae16bd1ee719c94ff836542c9fc13334ed9df5e096a9c336960a630784d47b28",
+        "reviewedFeeInventorySha256": "3ccdfc3fbe5476ed6db4914bc8720bc69b23cba62d88e8404368aa5749e83cba",
+        "previousInventoryIdentity": "2a7f26d51e3695f0c53902303a14c1a1f3ce3417adc702bfe733806d1d17e561",
+        "reviewedInventoryIdentity": "8c751dcf19cde35cfc838402c0ec82d0965aa3eb18f0378d3c89607a0210a253",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-sveta-troitsa",
+        "displayedLocation": "София, Света Троица\nпл. Преображение",
+        "womenRows": 24,
+        "menRows": 17,
+        "hasMaleIntimate": false,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "dc2aea4bfad652e0f0601ed0ee85df224b6d662ae2d0054ed997ab27bada2359",
+        "reviewedFeeInventorySha256": "aecbffe63c2330babb601c837718c302ef6972b134bf8980d6cdb7eb6b6741e2",
+        "previousInventoryIdentity": "e800614f4503071ebe630363eba6ba37cefa2576e77d9bcd984a319910d51c29",
+        "reviewedInventoryIdentity": "f8570aef0816941d40a01d0713279551214fc2aa19257c567a41a9b28faba208",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-vitosha",
+        "displayedLocation": "София, Витоша\nбул. Симеоновско шосе №102А",
+        "womenRows": 24,
+        "menRows": 17,
+        "hasMaleIntimate": false,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "dc2aea4bfad652e0f0601ed0ee85df224b6d662ae2d0054ed997ab27bada2359",
+        "reviewedFeeInventorySha256": "aecbffe63c2330babb601c837718c302ef6972b134bf8980d6cdb7eb6b6741e2",
+        "previousInventoryIdentity": "a201ec9c45e9083324a31ed515343e7b76fa35a73da0992367036af7a82ad568",
+        "reviewedInventoryIdentity": "b14a78b2f23378476cfbed50d5b32136630cc3701241ae4dbdd9e383670bd108",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-vma",
+        "displayedLocation": "София, Военномедицинска Академия\nул. Феликс Каниц №1",
+        "womenRows": 24,
+        "menRows": 17,
+        "hasMaleIntimate": false,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "dc2aea4bfad652e0f0601ed0ee85df224b6d662ae2d0054ed997ab27bada2359",
+        "reviewedFeeInventorySha256": "aecbffe63c2330babb601c837718c302ef6972b134bf8980d6cdb7eb6b6741e2",
+        "previousInventoryIdentity": "808e5bf5f41625af884b23819431eb8fdf357dc19e2c5029f9785c2f73337719",
+        "reviewedInventoryIdentity": "3439948585818442be6c47e31311852ae23c458793df018bac658c4b92ae9236",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      },
+      {
+        "id": "sofia-gpoint-zona-b19",
+        "displayedLocation": "София, Зона Б19\nул. Царибродска №116",
+        "womenRows": 24,
+        "menRows": 18,
+        "hasMaleIntimate": true,
+        "womenPricesSha256": "b7d54b8a0a020eb41389c97875da466bf33893487d6e1c546f4818b572b76028",
+        "menPricesSha256": "ae16bd1ee719c94ff836542c9fc13334ed9df5e096a9c336960a630784d47b28",
+        "reviewedFeeInventorySha256": "3ccdfc3fbe5476ed6db4914bc8720bc69b23cba62d88e8404368aa5749e83cba",
+        "previousInventoryIdentity": "6a6380ca12fb08c8b7322515fc3a3838b7df007ccabea15fce5e10292c3da0a9",
+        "reviewedInventoryIdentity": "e38e99080d5ef59065b5206ba4f0c516a3f879d7c430491b09a8e5c156cb4e96",
+        "checkedOn": "2026-11-22",
+        "recheckUntil": "2026-11-29"
+      }
+    ]
+  },
+  "education": {
+    "receipt": "source-revalidation-svetlinki-artizba-20261122.json",
+    "liveArtCorroboration": "Root main-thread IAB independently rendered product/016: MountainLake26Nov2026 at18:45,28EUR,50displayed places. Reader-cache8Oct25EUR was stale and rejected. No quantity/cart/booking action."
+  },
+  "safety": {
+    "legacyPriceAndPhotoBaselinesChanged": false,
+    "checkersOrBuildCommandChanged": false,
+    "productionConfigurationChanged": false,
+    "newPhotos": false,
+    "bookingSubmitted": false,
+    "customerDetailsEntered": false,
+    "notificationsSent": false,
+    "databaseWrites": 0,
+    "paidServices": 0
+  }
+}

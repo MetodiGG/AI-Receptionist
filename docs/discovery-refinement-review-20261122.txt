@@ -1,0 +1,97 @@
+GoRez — category photographs, automatic navigation and business-card polish
+Local review · 2026-11-22
+
+Branch: codex/discovery-photo-navigation-20261122
+Base: 4cd3f7e (complete desktop category framing)
+Preview: http://127.0.0.1:30827/dev/inline-discovery?lang=bg
+Photo evidence: http://127.0.0.1:30827/dev/inline-discovery?lang=bg&view=photos
+Gallery: /Users/metodig/.codex/visualizations/2026/10/13/01a13548-f728-7172-a396-a52db0f30e43/artifacts/discovery-refinement-20261122/review.html
+Bookings are disabled in this existing dev-only preview. No production publish.
+
+Photographs
+- Sports: photorealistic football scene; whole player, boots and ball in frame.
+- Grooming: the old file cut the dog's top hair at its source edge. An imagegen
+  edit expands the framing, keeping the same apricot dog, ears, head and paws.
+- Barber: photorealistic unoccupied shop with the complete barber pole lamp.
+- Beauty: the owner rejected two generated faces and the first real options.
+  Final explicit choice was option 4: George Milton's real blush-application
+  photograph, Pexels 6953629. Original 2:3 ratio is preserved in local WebP files;
+  only CSS cover/top framing selects the tile view. Head and brush remain visible.
+- Old image files and the other ten category mappings remain unchanged.
+- New responsive sources: 160/240/640 px widths, stripped metadata, WebP quality 86.
+  Generated scenes are square; the real Beauty sources remain 160x240,
+  240x360 and 640x960. No pixel retouching of the real photograph.
+- Sources, exact prompts, final paths, dimensions, hashes and license are in
+  docs/category-photo-refinement-20261122.json. Built-in imagegen was used for
+  three final generic category assets; Beauty is licensed stock, not generated.
+- These are navigation assets, never assigned to partner premises/galleries.
+  Generic imagery must not imply that depicted people endorse GoRez.
+
+Interaction
+- Explicit category selection now scrolls/focuses the inline subcategory panel.
+- Service selection scrolls to the first committed matching business, below
+  the actual sticky summary offset. Empty/error destinations use the real heading.
+- Navigation waits for panel layout transitions. Reduced motion skips waiting.
+- A later request, typing, history restoration or unmount cancels queued movement.
+- Initial load, ordinary renders and pagination do not create new auto-scroll.
+- Existing query/location/filter/state/history logic remains the source of truth.
+
+Business-card presentation
+- Larger contained partner photos, stronger name hierarchy and quieter partner badge.
+- Two relevant service rows retain literal prices, ranges, units and conditions.
+- Warm accents, clearer spacing and tabular prices work in light and dark themes.
+- Localized hints distinguish GoRez, website and telephone booking; no confirmation
+  is implied. Directions/booking action code and profile analytics are byte-identical.
+- Buttons have equal icon/balancing tracks and centered whole-word labels.
+  At 390 px, both actions measured 158x48 px with label-center delta 0 px.
+  At 320 px, actions become two 258px-wide rows. No word splitting or truncation.
+- Enlarged text moves the desktop action column below services and allows wrapping.
+- Shared details/gallery/booking screens were not redesigned or rewritten.
+
+Browser verification
+- 320, 390, 768 and 1440 px; no horizontal overflow or clipped card labels.
+- BG/EN and both themes. Existing dev 200% root-text review passed; this is not
+  a claim of native browser zoom or physical-device testing.
+- Category -> subcategories: focused section at about 24 px from viewport top.
+- Service -> businesses: first card at about 175 px under sticky summary.
+- Back/Forward restored category/service URLs; no unsolicited new navigation.
+- Real partner landscape photos and VESI STUDIO's 1200x1600 portrait remain contain;
+  actual image files/order are unchanged. Real partner photos have no AI disclosure.
+- Existing AI business-cover disclosure remains visible; no bookings/notifications.
+- Final browser error log was empty. Screenshots are native unedited browser captures.
+  Intermediate screenshots and rejected candidates are not the final evidence.
+
+Checks
+- Full Node suite: 2771/2771 pass; no fail/skip/cancel.
+- Focused asset/scope guards: 62/62 pass after final stock-photo integration.
+- Pricing Python: 8/8 pass. Booking Python: 4/4 pass.
+- Raw Next webpack build: pass, 99/99 static pages; TypeScript/traces pass.
+- git diff --check: pass.
+- Historical baselines remain pinned. Six explicit presentation/navigation paths
+  may differ, twelve named image siblings may be added; all 1889 historical image
+  bytes, catalogue data, prices, booking, main search form and trusted action blocks
+  remain protected. No broad data/image baseline refresh was used.
+- Final card CSS SHA256:
+  f7766383b94a7f9db7ead8579e2ac7d4a75b7defb7b6eb12e0320dbce2f724ac
+
+Existing release limitations
+- catalogue:check still stops at the existing Artizba publication review.
+- Normal pnpm build stops before Next on 44 existing price-review receipts:
+  43 GPoint + Artizba, published_sourced_price_required. Raw compile passed separately.
+- No review dates, prices, inventory or configuration were changed to bypass them.
+- On dev restart the existing Next CLI displayed a security-upgrade reminder.
+  An ordinary retry resumed preview; no dependency/config upgrade or warning
+  suppression was performed. Dependency security review is outside this UI pass.
+- This work is local only. No GitHub push/merge, production configuration, API,
+  database, reservation, notification, dependency or partner-photo changes.
+
+Changed implementation
+lib/discovery/home.mjs
+components/inline-category-grid.js
+components/discovery-search.js
+components/discovery-business-card.js
+app/premium-discovery-cards.css
+lib/discovery/copy.mjs
+public/category-photos/{fitness,pets,beauty,barber}{,-2x,-large}-v3.webp
+
+Logs: /tmp/gorez-discovery-refinement-final-*.log

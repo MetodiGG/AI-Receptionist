@@ -1,0 +1,242 @@
+GoRez — inline discovery + premium visual refinement
+Review date: 2026-11-21
+Status: LOCAL REVIEW ONLY. No push, merge, production publication, DB writes,
+real bookings, notification sends, image replacements or dependency updates.
+
+WORKING PREVIEW
+---------------
+BG: http://127.0.0.1:30825/dev/inline-discovery?lang=bg
+EN: http://127.0.0.1:30825/dev/inline-discovery?lang=en
+Original partner photographs:
+http://127.0.0.1:30825/dev/inline-discovery?view=photos&lang=bg
+200% root-text review:
+http://127.0.0.1:30825/dev/inline-discovery?lang=bg&text=large
+
+Before/after browser gallery:
+/Users/metodig/.codex/visualizations/2026/10/13/01a13548-f728-7172-a396-a52db0f30e43/artifacts/inline-discovery-20261121/review.html
+
+The local route requires DISCOVERY_DEV_MOCK=true and is unavailable otherwise.
+Its search route reuses the real existing catalogue filtering/ranking pipeline
+and public partner snapshot. Booking/directions actions are disabled in review.
+The browser deliverable is open at the fresh BG homepage with no category
+selected. The temporary viewport override has been reset.
+
+ISOLATION / HISTORY
+-------------------
+Branch: codex/inline-discovery-refinement-20261121
+Worktree: /Users/metodig/.codex/visualizations/2026/10/13/01a13548-f728-7172-a396-a52db0f30e43/work/inline-discovery-refinement-20261121
+Baseline: c9e525b1bf56edaec50af62bcfa43aa7ab04f4f7 (guided flow)
+Original inline structural reference:
+ff7f191c6a8450f064e55fc55b3a05d6ceec075c
+
+Only the interaction structure was restored to inline. The previous look was
+not restored. The original working directory and earlier guided/premium and
+catalogue worktrees were preserved. Guided components remain in the repository
+for existing consumers/tests but are not mounted in the homepage UI.
+
+SHORT BEFORE CRITIQUE
+---------------------
+The baseline hid all category photographs behind a small CTA and required
+separate picker steps. Equal low-contrast cream surfaces and small thumbnails
+gave little visual hierarchy. The initial discovery area felt empty, while
+step navigation obscured the relationship between a selection and its results.
+
+STRUCTURE RESTORED / LOGIC PRESERVED
+-----------------------------------
+- Search, always-visible 14-category grid, inline child services, summary, results.
+- No "Избери услуга", step header/progress, picker stages or Back-between-steps.
+- No category preselected on a fresh visit. Explicit valid links still restore.
+- All categories render: 2 mobile / 3 tablet / 4 desktop columns. No carousel,
+  hidden More list, new taxonomy identifiers, or page-only filter copy.
+- Repeated selection of the active category clears it. Switching categories
+  clears incompatible children, remembers previous valid children, and preserves
+  the existing query, city/district, consented location and radius.
+- Child tiles use original photographs and real positive server facet counts in
+  the current location scope. Zero-count options are hidden; all usable options
+  are visible, without More. No-meaningful-child categories have no artificial
+  service panel.
+- Existing request ownership, abort/version guards, pagination, exact service
+  matching, distance wording, URL restoration and Back/Forward remain intact.
+- Clearing chips and choosing a service focus only committed current results;
+  switching a category does not force an unsolicited page jump.
+- The summary truthfully shows actual unique loaded businesses and whether an
+  actual nextOffset exists. It does not claim that pre-hydration cataloguePage.total
+  is an exact final public count.
+- Existing automatic server ranking is preserved. Its single disabled native
+  order option says proximity/relevance or relevance/distance, not an invented
+  independently selectable nearest-only sort. There is no page-only sorting.
+
+VISUAL DESIGN
+-------------
+- New scoped --inline-* and --premium-card-* tint/shade tokens only. Existing
+  generic/search tokens and font family are unchanged.
+- Static orange/peach radial mesh over warm cream; warm brown dark equivalents.
+- Semi-opaque 89–94% cream/warm-brown panels with 16px backdrop blur, solid
+  fallback, gradient fine edge, inner top highlight and two warm shadow layers.
+- Radii: panel 26px (24 mobile), tiles 18px (16 mobile), photo 16px (14 mobile),
+  chips 999px. No new decorative assets, neon, animated gradients or parallax.
+- Photographic frames: 64px mobile; 80px desktop category, 72px service. Actual
+  image interiors measure 62/78/70px because of the frame border.
+- Full centered labels, 15–16px normal labels; natural whole-word wrapping.
+  Desktop category names center in the remaining text area without an arrow.
+  Photo-forward child tiles and no-photo All tile center across the full tile.
+  The All tile's measured center delta was 0px.
+- Selected tiles use tinted fill, an accent border/inner edge, bolder label and
+  aria-pressed; not an underline or a checkmark.
+- Pointer hover: 1px lift and photo scale1.04 inside its frame. Pressed scale.985.
+  Actual browser hover matrices were measured; focus outline was 2px with offset.
+- One espresso contrast language for the measured-safe sticky summary and parent
+  chip. The summary only sticks if height <= min(240px,30% viewport), otherwise
+  remains in normal flow. Its measured height+24px drives result scroll offsets.
+- On 390px, the pinned summary starts at8px and the first card below it at179px;
+  there is no overlay over the first business.
+- A persistent presentation-only grid presence wrapper animates natural panel
+  height, opacity and8px offset for200ms. Logical selection/history/requests are
+  never delayed. Closed content is immediately inert and aria-hidden, retained
+  only for the exit, then removed. Rapid reopen cancels cleanup. Reduced motion
+  disposes immediately and disables transitions. Tile stagger ends within240ms.
+- Card surfaces, two service/price chips, secondary directions, tertiary details
+  and orange-gradient booking actions share the warm geometry/depth system.
+- Homepage booking artwork now uses existing vector Icon(calendar), matched22px
+  to Icon(map). The ordinary non-home BookingButtonContent artwork is preserved.
+  The rest of the card source is exactly baseline, including labels, links,
+  analytics, booking eligibility, external-site/phone/native distinctions.
+
+WHAT WAS KEPT
+-------------
+- All original files and paths for1889 public images; no photo generation/edit.
+- Real partner photos: object-fit contain, centered, reserved4:3 neutral frames,
+  no stretching, zoom or cropping. Originals and gallery order unchanged.
+- Original galleries remain contained. Both VESI portrait photos were checked;
+  Touch/Kerelski/Zen/AIM landscapes were checked. No square actual partner photo
+  exists in this snapshot; none was fabricated.
+- AI disclosure only on genuinely AI-marked cover:11px,1px3px padding, single
+  line, readable background. No AI badge on real uploaded partner photographs.
+- Two relevant services maximum, prices/conditions/units unchanged, full details.
+- All nine additions already present at c9e525b: children's haircuts, braids,
+  nail strengthening, apparatus pedicure, brow lamination, group workouts,
+  mathematics, exam preparation, furniture assembly. Shared taxonomy is frozen
+  on this branch, including Folk dance. No new/empty public subcategory added.
+- BG/EN, light/dark, keyboard/focus semantics, exact filters, original search.
+
+SEARCH / ASSET PROOF
+--------------------
+The exact existing form markup SHA-256 remains:
+8ba0c17fc09aede40e70af62f168f90ec900f5f3e08870d4ac0ef22090f6c89a
+Measured search widths/heights/type/borders/radii/backgrounds/colors/shadows
+match baseline at390 and1440 in both light and dark themes.
+Frozen-scope tests hash all existing APIs, hooks, library data/taxonomy,
+booking/media/config/dependencies and legacy CSS against c9e525b.
+All1889 public image blobs/paths are unchanged.
+Card source permits only the exact vector-artwork presentation substitution.
+
+AVAILABILITY / TRUST STRIP
+--------------------------
+Native booking has real date-qualified availability verification, but ordinary
+homepage browse exposes unknown availability and empty slot arrays; external,
+telephone and catalogue businesses do not provide verified live slots there.
+No nearest-slot badge or Available today filter was added. Future recommendation:
+a bounded date-qualified native availability integration with truthful coverage,
+not guessed slots or a fake platform-wide availability filter.
+No global trust-count strip was added: the paged result and partner hydration
+do not supply a reliable final global business/service/city total.
+
+VERIFICATION / EVIDENCE
+-----------------------
+- Final full Node suite:2736/2736 PASS,0 failures/skips/cancellations.
+  /tmp/gorez-inline-final-node-suite-6.log
+- Raw production webpack compilation:PASS,99 static pages generated.
+  /tmp/gorez-inline-final-webpack-build-6.log
+  Command: pnpm --config.verify-deps-before-run=false exec next build --webpack
+- Python extraction tests8/8 and booking-price-flow tests4/4 PASS.
+- Local physical service-photo audit:1708 approved businesses,10102 services;
+  all10102 resolve to photos,0 missing,0 neutral;1405 used assets valid,0 invalid.
+- git diff --check PASS.
+- Focused tests cover actual inline components, All/positive counts, BG/EN,
+  presentation lifecycle/reduced-motion cleanup, measured sticky safety,
+  conservative glass/text/booking-gradient contrast, image containment,
+  immutable source/assets, selection memory, request cancellation, rapid choice
+  changes, location consent/expiry, pagination and restored URL history.
+- Old guided-only visual expectations were adapted to the authorized inline
+  structure/vector artwork. Booking destination and behavior assertions remain.
+- Browser checks:320,390,768,1440; category2/3/4 and child2/3 columns; no page
+  overflow or clipped category/child/service/business names; BG/EN; light/dark.
+- Browser Back restores All and Forward restores Pilates, then refresh retains
+  fitness-pilates. Rapid Hair>Nails>Sports leaves only Sports' actual results.
+- A true unmatched query returns0 and concise recovery actions, not broadened
+  unrelated businesses. Change service retains the query; Change area opens
+  the unchanged existing filter dialog.
+- Actual VESI portrait1200x1600 and Touch landscape1200x644 use contain; real
+  images have no AI label. Actual AI label is11px with1px3px padding.
+- Final browser error log was empty.
+
+Contrast source calculations (not a blanket WCAG certification):
+light selected secondary4.89:1; small counts5.53:1; dark secondary6.73:1;
+worst89% light glass secondary4.538:1; espresso text12.32:1;
+booking gradient minimum4.81:1. Details in inline-design-tokens-20261121.txt.
+
+SCREENSHOT INVENTORY
+---------------------
+Gallery contains16 baseline screenshots (390/1440, light/dark, initial/category
+picker/services/results) and16 after screenshots (initial/category/services with
+results/empty), plus actual portrait/landscape/VESI gallery/AI examples,
+320/768 English, desktop hover, keyboard focus and enlarged-text examples.
+The after categories remain visible in the document even when a screenshot
+viewport is scrolled to child services or results. They are never collapsed.
+
+REFINEMENT PASSES
+-----------------
+1. Established all-category grids and glass/token hierarchy.
+2. Corrected thumbnail specificity against legacy44px caps; tuned320px labels.
+3. Reworked mobile sticky density and added measured safety/scroll margin;
+   large summaries no longer obscure business cards.
+4. Added font-relative reflow for enlarged text, wrapping automatic-order display,
+   vector booking artwork, dark card glass specificity and natural-height
+   open/close presence. Corrected the wrapper's desktop centering against later
+   imported CSS. Final panel bounds are160..1280 at1440px.
+
+LIMITATIONS / RELEASE GATES
+---------------------------
+- The full repository build wrapper is NOT green: existing price-review gates
+  reject43 G Point rows valid through2026-11-17 plus Artizba through2026-11-18.
+  catalogue:check also rejects Artizba. These failures were reproduced byte-for-
+  byte on untouched c9e525b. No review dates, prices or baselines were altered.
+- Raw Next compilation passes independently; that does not bypass release gates.
+- The existing Next CLI prints an update/security nudge. No dependency upgrade
+  or advisory assessment was performed as part of this visual-only task.
+-200% was verified with root text enlargement in the dev page, not native
+  browser zoom or a physical Android/iPhone. No physical-device claim is made.
+- Hover/focus were actually inspected; held-press and OS reduced-motion behavior
+  were verified by source/lifecycle tests, not a native held-input screenshot or
+  changed OS preference. The UI automation exposes no zoom/media emulation.
+- Sticky safety uses innerHeight, not software-keyboard visualViewport geometry.
+- Square partner photos were not available; portrait/landscape were verified.
+- Development preview actions are intentionally disabled. Production destinations
+  are preserved and tested, not followed to create bookings or notifications.
+- No production publication. Review this local result before any release.
+
+MODIFIED / ADDED IMPLEMENTATION
+-------------------------------
+app/layout.js
+app/dev/inline-discovery/page.js
+app/inline-discovery.css
+app/inline-discovery-panel.css
+app/premium-discovery-cards.css
+components/discovery-search.js
+components/discovery-subcategories.js
+components/discovery-business-card.js
+components/inline-category-grid.js
+components/inline-discovery-panel.js
+components/inline-discovery-summary.js
+lib/discovery/inline-copy.mjs
+
+Focused new tests: inline-discovery-components, inline-discovery-panel,
+inline-discovery-summary, inline-discovery-visual-scope. Existing homepage/
+initial-performance/layout/booking-visual tests were adapted as scoped above.
+No existing backend/API/hooks/data/images/dependencies/production config changed.
+
+RESTART LOCAL REVIEW
+---------------------
+From this isolated worktree, with the project's existing runtime on PATH:
+env DISCOVERY_ENABLED=true DISCOVERY_DEV_MOCK=true DISCOVERY_SEARCH_V2_ENABLED=true pnpm --config.verify-deps-before-run=false dev --webpack --hostname 127.0.0.1 --port 30825
+The dependency symlink is environment-owned and is not part of this change.

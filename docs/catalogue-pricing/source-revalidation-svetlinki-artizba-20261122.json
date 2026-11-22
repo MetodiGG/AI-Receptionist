@@ -1,0 +1,250 @@
+{
+  "schemaVersion": 1,
+  "reviewDate": "2026-11-22",
+  "scope": "Approved bounded fresh primary-source review of exactly Svetlinki and ART Izba. This is source evidence, not an override or replacement for catalogue/pricing checks.",
+  "baseCommit": "b8dcdf4",
+  "dataFile": "lib/discovery/catalogue-data/neighborhood-home-education-2000-006-20261113.mjs",
+  "methodology": {
+    "order": "Actual first-party Book entry/menu first, followed by selected service, public prices and full relevant terms.",
+    "access": "Read-only ordinary public HTTPS GET. The browser inventory was unavailable; public HTML and visible text were inspected without executing forms.",
+    "boundaries": [
+      "No account access, reservations, phone calls, form/date/quantity selections, consent submissions, cart actions, checkout, payments or notifications.",
+      "No Google/paid services or customer/private data.",
+      "No copied source photos, artwork, reviews, course materials or promotional prose. Only concise factual summaries and published service/price facts.",
+      "HTTPS response-body hashes are evidence, not permanence or a guarantee of availability."
+    ],
+    "actionsPerformed": 0,
+    "productionWrites": 0,
+    "newImageAssets": 0
+  },
+  "businesses": [
+    {
+      "id": "sofia-svetlinki-sheynovo13a",
+      "decision": "fresh_standing_tariff_same_services",
+      "sourceIdentity": {
+        "name": "Учебен център Светлинки",
+        "address": "София, ул. Шейново 13А",
+        "phone": "+359885808190",
+        "website": "https://svetlinki.com/"
+      },
+      "actualBooking": {
+        "kind": "phone",
+        "bookingInformationUrl": "https://svetlinki.com/kontakti",
+        "entry": "Homepage Book links to contact/date section, which explicitly permits phone scheduling if dates do not load.",
+        "noFuturePaidArtSlotClaimed": true
+      },
+      "sources": [
+        {
+          "url": "https://svetlinki.com/",
+          "role": "official identity and actual Book link",
+          "fetchedAtUtc": "2026-11-22T07:39:39.757959+00:00",
+          "httpStatus": 200,
+          "bodySha256": "719980c3cacc18265bf12f21b6019d6a5ebb752f743cd8b1dafdb7217803300b"
+        },
+        {
+          "url": "https://svetlinki.com/kontakti",
+          "role": "actual booking/contact, art dates, activity address and daily 08:00–20:00 hours",
+          "fetchedAtUtc": "2026-11-22T07:51:50.790641+00:00",
+          "httpStatus": 200,
+          "bodySha256": "31f3e86aa4a3c36afdb7ed0cba6f6ad21eb3da6f05965cde3dc4cd1aed7ce8cf"
+        },
+        {
+          "url": "https://svetlinki.com/art-rabotilnitsi",
+          "role": "selected standing art workshops and age/material/group qualifications",
+          "fetchedAtUtc": "2026-11-22T07:38:38.601946+00:00",
+          "httpStatus": 200,
+          "bodySha256": "f5d527b9e74ad31708b87ea311c4612775522d0a583300cc7184dc192a911479"
+        },
+        {
+          "url": "https://svetlinki.com/tseni",
+          "role": "current public tariff",
+          "fetchedAtUtc": "2026-11-22T07:38:24.483224+00:00",
+          "httpStatus": 200,
+          "bodySha256": "268c61bf54864ef9d778115c49a3aaf6fc07067974084f318c4da2316155a712"
+        },
+        {
+          "url": "https://svetlinki.com/obshti-usloviya",
+          "role": "full public terms read; art booking, price, cancellation and payment distinctions",
+          "fetchedAtUtc": "2026-11-22T07:38:41.481521+00:00",
+          "httpStatus": 200,
+          "bodySha256": "e86635be10bf065a558eec8c021f7d1cbbd11549f3f299db9ab4122f90b679b1"
+        }
+      ],
+      "supportedFacts": [
+        {
+          "name": "Кратка арт работилница за деца",
+          "amount": 15,
+          "currency": "EUR",
+          "kind": "fixed",
+          "unit": "посещение · 90 минути · материали включени",
+          "durationMin": 90
+        },
+        {
+          "name": "Дълга арт работилница за деца",
+          "amount": 25,
+          "currency": "EUR",
+          "kind": "fixed",
+          "unit": "посещение · 150 минути · материали включени",
+          "durationMin": 150
+        }
+      ],
+      "sharedQualifications": [
+        "Children aged 4–12; up to 6 participants; independently bookable themed Saturday workshop, all materials included.",
+        "Standing fee is per visit, not a monthly subscription, free trial or fifth-visit gift.",
+        "Date and place require confirmation by the centre; payment by bank/QR on site, not cash or online checkout.",
+        "Contact page still lists paid art dates only through 21 November. Later 23–26 November trial dates concern different reading/arithmetic programmes and were not imported as paid art availability."
+      ],
+      "validity": {
+        "checkedOn": "2026-11-22",
+        "validUntil": "2026-11-29",
+        "basis": "Seven-day internal source-recheck deadline, not provider-guaranteed price validity or a future available date."
+      },
+      "preserved": [
+        "Same two service names, descriptions, literal amounts, currency, units, durations and activity-specific photo associations.",
+        "Same business ID, address, phone, booking mode and coordinates. Other 13 records and reviews in this source module remain unchanged.",
+        "Global historical file dates were not refreshed."
+      ],
+      "oldInventoryIdentity": "804667ca067c81c940ba292f36d2ce0bbbfcbf8538741781319748ed39066380",
+      "reviewedInventoryIdentity": "6553ed5526c5847818d3871e2e5049cf9e56503415ba911d87516786366bbd2f",
+      "englishAdditions": []
+    },
+    {
+      "id": "sofia-artizba-cherni-vrah33e",
+      "decision": "replace_expired_event_with_exact_supported_future_event",
+      "sourceIdentity": {
+        "name": "ART Izba · София",
+        "address": "София, бул. Черни връх 33Е",
+        "phone": "+359894394054",
+        "website": "https://artizba.bg/"
+      },
+      "actualBooking": {
+        "kind": "form",
+        "url": "https://artizba.bg/produkt/016/",
+        "entry": "Homepage and Sofia calendar safe product-description link; the public product contains a POST cart form, followed later by quantity/participant/payment/order-confirmation steps.",
+        "form": {
+          "method": "post",
+          "action": "https://artizba.bg/produkt/016/",
+          "class": "cart"
+        },
+        "formSubmitted": false
+      },
+      "sources": [
+        {
+          "url": "https://artizba.bg/",
+          "role": "official identity, booking entry, current event list and literal 28 EUR corroboration",
+          "fetchedAtUtc": "2026-11-22T07:44:39.110640+00:00",
+          "httpStatus": 200,
+          "bodySha256": "fbd50f7547fa1060d406fabe7c49e5f53ade623040d27bdafe4c9b82cbf373c3"
+        },
+        {
+          "url": "https://artizba.bg/produkt-kategoriya/sofia/",
+          "role": "actual Sofia calendar and safe product link",
+          "fetchedAtUtc": "2026-11-22T07:40:10.760916+00:00",
+          "httpStatus": 200,
+          "bodySha256": "31b59c0adf033ae80d96bd2038f96437d32e1efba4ce25d89171fe5bf3e57a00"
+        },
+        {
+          "url": "https://artizba.bg/produkt/016/",
+          "role": "exact dated event, price, location, materials, minimum attendance and online-payment qualification",
+          "fetchedAtUtc": "2026-11-22T07:44:44.624077+00:00",
+          "httpStatus": 200,
+          "bodySha256": "79fba337d869105f556c8fbed5f89e7ccaf0e01e736b7d163d83d36be5aaeb22"
+        },
+        {
+          "url": "https://artizba.bg/faq/",
+          "role": "public booking/payment process and cancellation context; generic old tariff not used",
+          "fetchedAtUtc": "2026-11-22T07:50:43.697002+00:00",
+          "httpStatus": 200,
+          "bodySha256": "d3b11d42e3681b001e41c825a6340f99ec1c9f3a1cfdf5c65099a525060c03a0"
+        },
+        {
+          "url": "https://artizba.bg/obshti-usloviya/",
+          "role": "full relevant event/order/venue/cancellation terms read",
+          "fetchedAtUtc": "2026-11-22T07:50:43.834155+00:00",
+          "httpStatus": 200,
+          "bodySha256": "aae3140cbf42be7ecab340aedc26d1cfbc285a60248168bae9be97d0d82fd1f4"
+        },
+        {
+          "url": "https://artizba.bg/produkt/planinska-krasota/",
+          "role": "old 18 November product URL now returns 404; not renewed or treated as a permanent tariff",
+          "fetchedAtUtc": "2026-11-22T07:44:40.781992+00:00",
+          "httpStatus": 404,
+          "bodySha256": "e4f2dd53bbda4c665a27f31d36cd3e680dabc4814f9848ac9b75331e1ec86c26"
+        }
+      ],
+      "retiredEvent": {
+        "name": "Рисуване и вино „Есенна кошница“ · 18.11.2026",
+        "amount": 30,
+        "currency": "EUR",
+        "validUntil": "2026-11-18",
+        "sourceUrl": "https://artizba.bg/produkt/planinska-krasota/",
+        "preservedInGit": true
+      },
+      "supportedFacts": {
+        "name": "Рисуване и вино „Планинско езеро“ · 26.11.2026",
+        "eventDate": "2026-11-26",
+        "eventTime": "18:45",
+        "amount": 28,
+        "currency": "EUR",
+        "kind": "fixed",
+        "unit": "участник · събитие на 26.11.2026 от 18:45",
+        "sourceUrl": "https://artizba.bg/produkt/016/",
+        "displayedStock": 50,
+        "stockImportedAsAvailability": false
+      },
+      "qualifications": [
+        "Literal published standard 28 EUR per participant; 15% discount applies to online payment and is not calculated or substituted here.",
+        "All painting materials, wine and water, or juice for minors, are included.",
+        "At least 6 participants; if the provider cancels for insufficient attendance it offers refund or another event within 3 months.",
+        "Event cancellation earlier than 48 hours is governed by the published terms. Within 48 hours the place may be transferred subject to the notification rules; no blanket refund promise is made.",
+        "The product shows 2–3 hours and narrative says three hours; no invented fixed duration scalar is exported.",
+        "The separate 20 EUR iris-photography gift, two-for-one event totals, retail photos, vouchers and old generic FAQ 48 BGN tariff are not imported as this painting price.",
+        "Footer payment-currency boilerplate mentions BGN conversion; the literal visible product EUR figure is retained without performing our own conversion or asserting a charged currency.",
+        "Current venue is Cherni Vrah 33E, not registered Dobrila 10, historic Vitosha 192 or the Blagoevgrad branch."
+      ],
+      "validity": {
+        "checkedOn": "2026-11-22",
+        "validUntil": "2026-11-26",
+        "basis": "The actual dated event. It is not a permanent standing service price and must expire after this date."
+      },
+      "photo": {
+        "associationFile": "lib/catalogue-service-photo-associations-20261113.mjs",
+        "newExactAliasOnly": true,
+        "key": "sx-adult-acrylic-painting-wine",
+        "existingAssetUnchanged": true,
+        "oldAliasRetained": true
+      },
+      "preserved": [
+        "Same business ID, address, phone, coordinates, category and service count.",
+        "Other 13 records/reviews and historical dates unchanged.",
+        "Existing public opening-hours fact remains at its original 13 November review date; no blanket fresh hours claim."
+      ],
+      "oldInventoryIdentity": "fc521ff723cb01c6a4620d246b36105f8c0d47cfde4c558792dd681b97c04555",
+      "reviewedInventoryIdentity": "5dd83d0c7cc54943eefa8a4b198599ab6393b684cbcc810869cfa71a5a807c1c",
+      "englishAdditions": [
+        {
+          "section": "names",
+          "source": "Рисуване и вино „Планинско езеро“ · 26.11.2026",
+          "english": "Painting and wine “Mountain Lake” · 26.11.2026"
+        },
+        {
+          "section": "descriptions",
+          "source": "Групово рисуване с художник на 26.11.2026, 18:45. Материали, вино и вода или сок за непълнолетни са включени. Стандартна цена за участник; сайтът обявява 15% отстъпка при онлайн плащане, тук не е приспадната. Минимум 6 души. Отказ повече от 48 ч. предварително по условията.",
+          "english": "Group painting with an artist on 26.11.2026 at 18:45. Materials, wine and water, or juice for minors, are included. Standard price per participant; the website advertises a 15% discount for online payment, not deducted here. Minimum 6 people. Cancellation more than 48 hours in advance is subject to the terms."
+        },
+        {
+          "section": "units",
+          "source": "участник · събитие на 26.11.2026 от 18:45",
+          "english": "participant · event on 26.11.2026 at 18:45"
+        }
+      ]
+    }
+  ],
+  "integration": {
+    "sharedIdentityFileOwner": "parent agent; only two exact reviewed identities authorized",
+    "englishCacheOwner": "parent agent; only exact source strings reported above",
+    "historicalBaselinesChanged": false,
+    "pricingCheckerChanged": false,
+    "productionPublished": false
+  }
+}

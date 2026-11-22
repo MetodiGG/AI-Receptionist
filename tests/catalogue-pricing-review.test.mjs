@@ -57,8 +57,14 @@ test('expiry, future/invalid dates and missing source prices cannot pass the int
 test('the existing catalogue stays available and unresolved records remain explicitly pending', async () => {
   const baseline = JSON.parse(await readFile(new URL('../lib/discovery/catalogue-data/pricing-review-baseline-20261110.json', import.meta.url)))
   // This historical fixture is explicitly as of November 11. Later dated
-  // additions are exercised against their own current source receipts.
-  const historical = SOFIA_CATALOGUE.filter(row => row.verification.checkedOn <= '2026-11-11')
+  // additions are exercised against their own current source receipts. The
+  // 43 G Point inventories revalidated on November 22 are likewise not their
+  // old November 11 state; their past/fresh assessment is tested separately.
+  const revalidatedGPointIds = new Set(BOOKING_PRICE_REVIEWS.filter(row =>
+    row.id.startsWith('sofia-gpoint-') && row.website === 'https://gpoint.bg/' && row.checkedOn === '2026-11-22'
+  ).map(row => row.id))
+  assert.equal(revalidatedGPointIds.size, 43)
+  const historical = SOFIA_CATALOGUE.filter(row => row.verification.checkedOn <= '2026-11-11' && !revalidatedGPointIds.has(row.id))
   const ids = new Set(historical.map(row => row.id))
   const result = auditCataloguePricing(historical, baseline, BOOKING_PRICE_REVIEWS.filter(row => ids.has(row.id)), now)
   assert.equal(result.summary.total, historical.length)
@@ -122,7 +128,7 @@ test('chain pricing is branch-specific and never copies an academy or missing me
   assert.equal(reviews.length, 43)
   assert.equal(reviews.filter(row => row.services.some(item => item.name === 'Лазерна епилация · Интим · мъже')).length, 9)
   assert.ok(!reviews.find(row => row.id === 'sofia-gpoint-borovo').services.some(item => item.name === 'Лазерна епилация · Интим · мъже'))
-  assert.ok(reviews.every(row => row.services.every(item => item.price.validUntil === '2026-11-17' && /САМО при онлайн/.test(item.description) && !item.durationMin)))
+  assert.ok(reviews.every(row => row.services.every(item => item.price.validUntil === '2026-11-29' && /САМО при онлайн/.test(item.description) && !item.durationMin)))
   const head = BOOKING_PRICE_REVIEWS.filter(row => row.website === 'https://head-hunters.net/')
   assert.equal(head.length, 7)
   const haircut = slug => head.find(row => row.id.endsWith(slug)).services.find(item => item.name === 'Мъжко подстригване')

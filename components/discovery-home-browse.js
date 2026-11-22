@@ -12,13 +12,14 @@ import { orderedRailRows } from '../lib/discovery/rail.mjs'
 import { DiscoveryBusinessCard } from './discovery-business-card'
 import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
 import { discoveryDistanceOrigin } from '../lib/discovery/distance-origin.mjs'
+import { GUIDED_DISCOVERY_COPY } from '../lib/discovery/guided-copy.mjs'
 const GoogleBusinessCard = dynamic(() => import('./google-business-card').then(module => module.GoogleBusinessCard))
 const GoogleDiscoveryList = dynamic(() => import('./google-discovery-list').then(module => module.GoogleDiscoveryList))
 const noDirectory = Object.freeze({ businesses: [], status: 'ready' })
 const INTRO_BUSINESS_LIMIT = 8
 
-export function DiscoveryHomeBusinesses({ locale, filters, preview = false, initialPreview = false, quickChoice = false, data, result, resultKey, loading = false, error = '', onRetry, headingRef, onLoadMore, loadingMore = false, moreError = '', directoryEnabled = true }) {
-  const copy = HOME_DISCOVERY_COPY[locale], messages = DISCOVERY_COPY[locale], en = locale === 'en'
+export function DiscoveryHomeBusinesses({ locale, filters, title, onChangeService, onChangeArea, preview = false, initialPreview = false, quickChoice = false, data, result, resultKey, loading = false, error = '', onRetry, headingRef, onLoadMore, loadingMore = false, moreError = '', directoryEnabled = true }) {
+  const copy = { ...HOME_DISCOVERY_COPY[locale], explore: title || HOME_DISCOVERY_COPY[locale].explore }, messages = DISCOVERY_COPY[locale], en = locale === 'en'
   // The homepage starts the authoritative, paged catalogue browse immediately;
   // a parallel partner-only directory request is redundant there. The legacy
   // non-home fallback and explicitly supplied local fixtures remain unchanged.
@@ -60,7 +61,7 @@ export function DiscoveryHomeBusinesses({ locale, filters, preview = false, init
     {loadingMore && <li className="home-rail-loading"><BrandLoading locale={locale} label={en ? 'Loading businesses…' : 'Зареждаме бизнеси…'}/></li>}
   </>
   const empty = !busy && !notice && !result?.clarification && !rows.length && !result?.external && !result?.furtherExternal && !nextPage
-  return <DiscoveryBusinessList title={copy.explore} locale={locale} headingRef={headingRef} busy={busy} hasMore={hasMore || introHasMore} pending={loadingMore} requireScrollIntent={Boolean(hiddenFurther && result?.furtherExternal)} resetKey={resultKey ?? result?.checkedAt} pageKey={`${introCollapsed ? 'intro' : hiddenFurther ? 'further' : 'page'}:${result?.cataloguePage?.nextOffset ?? 'end'}:${rows.length}`} onNearEnd={(!introCollapsed || awaitingIntroPage) && hasMore && !loadingMore && !moreError ? advanceBusinesses : undefined} action={catalogueMode ? null : <Link href={`/partners?lang=${locale}`} prefetch={false}>{copy.all}<Icon name="arrow"/></Link>} message={<>
+  return <DiscoveryBusinessList title={copy.explore} locale={locale} headingRef={headingRef} busy={busy} hasMore={hasMore || introHasMore} pending={loadingMore} requireScrollIntent={Boolean(hiddenFurther && result?.furtherExternal)} resetKey={resultKey ?? result?.checkedAt} pageKey={`${introCollapsed ? 'intro' : hiddenFurther ? 'further' : 'page'}:${result?.cataloguePage?.nextOffset ?? 'end'}:${rows.length}`} onNearEnd={(!introCollapsed || awaitingIntroPage) && hasMore && !loadingMore && !moreError ? advanceBusinesses : undefined} action={catalogueMode || quickChoice ? null : <Link href={`/partners?lang=${locale}`} prefetch={false}>{copy.all}<Icon name="arrow"/></Link>} message={<>
     {busy && <div className="home-browse-skeleton" role="status"><BrandLoading locale={locale} label={messages.searching} announce={false}/><i aria-hidden="true"/><i aria-hidden="true"/><i aria-hidden="true"/></div>}
     {notice && <div className="home-browse-empty" role="alert"><p>{notice}</p><button className="secondary-button" type="button" onClick={error ? onRetry : directory.retry}>{copy.retry}</button></div>}
     {result?.clarification && <p className="discovery-clarification" role="status">{result.clarification.message}</p>}
@@ -70,7 +71,7 @@ export function DiscoveryHomeBusinesses({ locale, filters, preview = false, init
     {result?.warnings?.includes('catalogue_sofia_only') && <p className="discovery-notice" role="status">{en ? 'The reviewed catalogue currently covers Sofia. GoRez partners in other cities are still searchable.' : 'Провереният каталог засега е за София. Партньорите на GoRez в други градове остават достъпни.'}</p>}
     {result?.warnings?.includes('catalogue_unavailable') && <p className="discovery-notice" role="status">{en ? 'The catalogue is temporarily unavailable. GoRez bookings remain available.' : 'Каталогът временно не е достъпен. Резервациите в GoRez продължават да работят.'}</p>}
     {result?.warnings?.includes('internal_unavailable') && <p className="discovery-notice" role="status">{messages.internalUnavailable}</p>}
-    {empty && <p className="home-browse-empty" role="status">{en ? 'No matching businesses here yet. Try another service or area.' : 'Още няма подходящи бизнеси тук. Опитай друга услуга или район.'}</p>}
+    {empty && <div className="home-browse-empty" role="status"><p>{GUIDED_DISCOVERY_COPY[locale].empty}</p>{(onChangeService || onChangeArea) && <div className="guide-empty-actions">{onChangeService && <button type="button" onClick={onChangeService}>{GUIDED_DISCOVERY_COPY[locale].changeService}</button>}{onChangeArea && <button type="button" onClick={onChangeArea}>{GUIDED_DISCOVERY_COPY[locale].changeArea}</button>}</div>}</div>}
   </>} footer={<>
     {introHasMore && !busy && !notice && !result?.clarification && <button type="button" className="home-business-show-more" onClick={() => setPreviewExpanded(true)}>{en ? 'More businesses' : 'Още бизнеси'}<Icon name="chevronDown"/></button>}
     {moreError && <div className="discovery-notice" role="status"><p>{moreError === 'RATE_LIMITED' ? messages.rate : messages.error}</p><button type="button" className="secondary-button" onClick={onLoadMore}>{copy.retry}</button></div>}

@@ -4,6 +4,7 @@ import { consumeRateLimit } from '../../../../../lib/rate-limit'
 import { PRIVATE_RESPONSE_HEADERS, toPublicBooking } from '../../../../../lib/booking-safety.mjs'
 import { requireUser } from '../../../../../lib/server-auth'
 import { getSupabaseAdmin } from '../../../../../lib/supabase-admin'
+import { presentPublicBooking } from '../../../../../lib/locale/public-content-server.mjs'
 
 export async function POST(request, context) {
   try {
@@ -23,7 +24,7 @@ export async function POST(request, context) {
       if (!data) return apiError('Нямаш достъп до този бизнес.', 403, 'FORBIDDEN')
     }
     const booking = await createPublicBooking({ business, input: { ...input, source: owner ? 'manual' : 'web' } })
-    return Response.json({ booking: toPublicBooking(booking) }, { status: 201, headers: PRIVATE_RESPONSE_HEADERS })
+    return Response.json({ booking: presentPublicBooking(toPublicBooking(booking)) }, { status: 201, headers: PRIVATE_RESPONSE_HEADERS })
   } catch (error) {
     const safe = getSafeError(error)
     return apiError(safe.message, safe.status, safe.code)

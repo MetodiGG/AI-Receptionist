@@ -12,12 +12,13 @@ import { verifyDiscoveryAvailability, normalizeInternalBusinesses } from '../lib
 import { profileServicePrice } from '../lib/business-profile-ui.mjs'
 import { DateTime } from 'luxon'
 import * as bookingButtonContent from './helpers/booking-button-content.mjs'
+import * as publicAction from './helpers/public-action.mjs'
 const { safeBookingPhone,bookingAction,assertInternalBooking,isPhoneBooking,isOffsiteBooking,emptyOpeningHours }=bookingMode
 const require=createRequire(import.meta.url),{loadBindings,transform}=require('next/dist/build/swc')
 await loadBindings()
 async function component(path,stubs={}) {
  const {code}=await transform(await readFile(new URL('../'+path,import.meta.url),'utf8'),{filename:path,jsc:{parser:{syntax:'ecmascript',jsx:true},transform:{react:{runtime:'automatic'}}},module:{type:'commonjs'}})
- const module={exports:{}};new Function('require','module','exports',code)(name=>name in stubs?stubs[name]:(name === './brand-loading' ? brandLoading : require(name)),module,module.exports);return module.exports
+ const module={exports:{}};new Function('require','module','exports',code)(name=>name==='./public-action'?publicAction:name==='./public-action.module.css'?publicAction.publicActionStyles:name in stubs?stubs[name]:(name === './brand-loading' ? brandLoading : require(name)),module,module.exports);return module.exports
 }
 const business={id:'phone-business',slug:'actual-phone-business',booking_mode:'phone',name:'Local fictional phone business',phone:'+359 (888) 123-456',services:[{id:'actual-service',name:'Published service',price:25,currency:'EUR',duration_min:30}],staff:[],workingHours:[]}
 const input=()=>({business:{name:business.name,slug:business.slug,booking_mode:'phone',phone:business.phone,contact_email:'owner@example.com',address:'Local QA address 1',timezone:'Europe/Sofia',industry:'beauty',city_ekatte:'68134',neighborhood:'Център',location_confirmed:true,public_profile:{latitude:42.665,longitude:23.286}},services:[{name:'Actual published price',price:20,currency:'BGN',price_details:{kind:'range',maximum:40},description:'Actual conditions'}],account:{email:'owner@example.com',password:'offline-example-only'},locale:'bg',consent:true,company:''})
@@ -40,7 +41,7 @@ test('registration exposes the exact bilingual choice and phone/external checkbo
  assert.match(bg,/Желая да получавам резервации само по телефонен номер/);assert.match(en,/I want to receive bookings only by phone/);assert.equal((bg.match(/checked=""/g)||[]).length,1);assert.doesNotMatch(bg,/type="url"/)
 })
 test('phone public booking action is one safe tel anchor, never a POST/form or fabricated confirmation; preview and bad numbers fail closed',()=>{
- const html=render(OutboundBookingButton,{business,locale:'bg'});assert.match(html,/href="tel:\+359888123456"/);assert.match(html,/<span class="booking-button-label">Резервирай<\/span>/);assert.doesNotMatch(html,/<form|<button|method=|eventId|confirmed|потвърден/)
+ const html=render(OutboundBookingButton,{business,locale:'bg'});assert.match(html,/href="tel:\+359888123456"/);assert.match(html,/<span class="public-action-label">Резервирай<\/span>/);assert.doesNotMatch(html,/<form|<button|method=|eventId|confirmed|потвърден/)
  for(const props of [{disabled:true},{business:{...business,phone:'javascript:alert(1)'}}]){const disabled=render(OutboundBookingButton,{business,...props});assert.match(disabled,/aria-disabled="true"/);assert.doesNotMatch(disabled,/<a\b|<form\b/)}
  assert.match(render(OutboundBookingButton,{business:{...business,booking_mode:'external'},locale:'bg'}),/<form[^>]+method="post"/)
 })

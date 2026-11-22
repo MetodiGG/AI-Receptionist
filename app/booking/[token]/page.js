@@ -1,5 +1,6 @@
 'use client'
 
+import { serviceDisplayName, businessDisplayAddress } from '../../../lib/locale/public-content.mjs'
 import { BrandLoading } from '../../../components/brand-loading'
 import Link from 'next/link'
 import { DateTime } from 'luxon'
@@ -64,7 +65,7 @@ export default function ManageBookingPage() {
       <section className="manage-booking-card">
         <div className="manage-booking-head home-navigation-header"><div className="booking-brand"><BrandLogo compact decorative eager /><span className="booking-business-name"><small>GoRez</small><strong>{appointment.business.name}</strong></span></div><div className="home-header-actions"><LanguageSwitch locale={locale} onChange={setLocale} compact /></div><HomeLink locale={locale}/></div>
         <div className={`manage-status ${['cancelled', 'no_show'].includes(appointment.status) ? 'cancelled' : ''}`}><span>{['cancelled', 'no_show'].includes(appointment.status) ? '×' : '✓'}</span><div><small>{en ? 'Status' : 'Статус'}</small><strong>{bookingStatusLabel(appointment.status, locale)}</strong></div></div>
-        <h1>{appointment.service.name}</h1>
+        <h1>{serviceDisplayName(appointment.service, locale)}</h1>
         <div className="manage-details">
           <div><small>{en ? 'Date' : 'Дата'}</small><strong>{starts.toFormat('cccc, d LLLL yyyy')}</strong></div>
           <div><small>{en ? 'Time' : 'Час'}</small><strong>{starts.toFormat('HH:mm')}–{DateTime.fromISO(appointment.ends_at).setZone(appointment.business.timezone).toFormat('HH:mm')}</strong></div>
@@ -72,7 +73,7 @@ export default function ManageBookingPage() {
           <div><small>{en ? 'Client' : 'Клиент'}</small><strong>{appointment.customer.name}</strong></div>
         </div>
         {appointment.notes && <details className="appointment-notes manage-appointment-notes"><summary>{en ? 'Appointment details' : 'Детайли за посещението'}</summary><p>{appointment.notes}</p></details>}
-        {appointment.business.address && <p className="manage-address">⌖ {appointment.business.address}</p>}
+        {appointment.business.address && <p className="manage-address">⌖ {businessDisplayAddress(appointment.business, locale)}</p>}
         {error && <p className="booking-inline-error" role="alert">{error}</p>}
         {activeBooking && !canCancel && <p className="booking-privacy">{en ? 'The online cancellation deadline has passed. Contact the business directly.' : 'Срокът за онлайн отказ е изтекъл. Свържи се директно с бизнеса.'}</p>}
         {canCancel && <button className="cancel-booking-button" type="button" disabled={cancelling} onClick={cancelBooking}>{cancelling ? (en ? 'Cancelling...' : 'Отменяне...') : (en ? 'Cancel booking' : 'Отмени резервацията')}</button>}

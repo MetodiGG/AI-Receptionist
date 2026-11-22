@@ -2,6 +2,7 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { createHash } from 'node:crypto'
+import { execFileSync } from 'node:child_process'
 import sharp from 'sharp'
 import { businessActivityPhotoKey, businessCoverPhoto } from '../lib/business-cover-photo.mjs'
 import { BUSINESS_ACTIVITY_COVER_ASSETS } from '../lib/business-activity-cover-assets.mjs'
@@ -11,6 +12,11 @@ import { catalogueDetailsWithServicePhotos } from '../lib/catalogue-service-phot
 
 const service = (name, category, illustrativePhotoKey) => ({ name, category, ...(illustrativePhotoKey ? { illustrativePhotoKey } : {}) })
 const hash = value => createHash('sha256').update(value).digest('hex')
+const revalidatedIds = new Set(['sofia-svetlinki-sheynovo13a', 'sofia-artizba-cherni-vrah33e'])
+const oldEducationText = execFileSync('git', ['show', 'b8dcdf4:lib/discovery/catalogue-data/neighborhood-home-education-2000-006-20261113.mjs'], { cwd: new URL('..', import.meta.url), encoding: 'utf8' })
+const oldEducation = (await import('data:text/javascript;base64,' + Buffer.from(oldEducationText).toString('base64'))).default.records
+const historicalCatalogue = SOFIA_CATALOGUE.map(row => revalidatedIds.has(row.id)
+  ? { ...oldEducation.find(item => item.id === row.id), coordinates: row.coordinates } : row)
 
 test('all fourteen business categories resolve real published activities rather than the generic broad cover', () => {
   const cases = [
@@ -151,12 +157,15 @@ test('new activity cover derivatives are hash-bound to the existing approved sou
   assert.equal(bytes, manifest.totalNewBytes)
 })
 
-test('every approved current catalogue business has an activity-specific cover before and after compaction', () => {
+test('every approved November 15 catalogue business retains its large activity cover after later source revalidation', () => {
   let checked = 0
-  for (const raw of SOFIA_CATALOGUE) {
-    const business = approvedCatalogueRecord(raw, Date.parse('2026-11-15T00:00:00Z'))
+  const historicalNow = Date.parse('2026-11-15T00:00:00Z')
+  // Preserve this original generated-cover cohort rather than fold future
+  // reviews or later intakes into a historical source/derivative audit.
+  for (const raw of historicalCatalogue) {
+    const business = approvedCatalogueRecord(raw, historicalNow)
     if (!business) continue
-    const details = catalogueDetailsWithServicePhotos(business)
+    const details = catalogueDetailsWithServicePhotos(business, historicalNow)
     const key = businessActivityPhotoKey({ ...business, details })
     assert.ok(key, business.id)
     const cover = businessCoverPhoto({ category: business.category, illustrativeCoverPhotoKey: key })
@@ -165,6 +174,20 @@ test('every approved current catalogue business has an activity-specific cover b
     checked++
   }
   assert.ok(checked >= 1693)
+})
+
+test('both genuinely revalidated November 22 businesses keep their approved large activity covers', () => {
+  const currentNow = Date.parse('2026-11-22T12:00:00Z')
+  for (const raw of SOFIA_CATALOGUE.filter(row => revalidatedIds.has(row.id))) {
+    const business = approvedCatalogueRecord(raw, currentNow)
+    assert.ok(business, raw.id)
+    const details = catalogueDetailsWithServicePhotos(business, currentNow)
+    const key = businessActivityPhotoKey({ ...business, details })
+    assert.ok(key, raw.id)
+    const cover = businessCoverPhoto({ category: business.category, illustrativeCoverPhotoKey: key })
+    assert.equal(cover.activityPhotoKey, key)
+    assert.ok(cover.src.startsWith('/business-cover-photos/'), raw.id)
+  }
 })
 
 test('cover component preserves illustration disclosure, lazy loading and localized missing-photo feedback', async () => {

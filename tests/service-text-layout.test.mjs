@@ -1,3 +1,4 @@
+import { loadPublicServiceMenu } from './helpers/public-service-menu.mjs'
 import * as brandLoading from './helpers/brand-loading.mjs'
 import assert from 'node:assert/strict'
 import test from 'node:test'
@@ -19,6 +20,7 @@ import * as cataloguePhotos from '../lib/catalogue-photo-view.mjs'
 import * as presentation from '../lib/discovery/service-presentation.mjs'
 import * as photoLayout from '../lib/business-photo-layout.mjs'
 import * as bookingButtonContent from './helpers/booking-button-content.mjs'
+import * as publicAction from './helpers/public-action.mjs'
 
 // Real components/helpers compiled by the existing SWC/SSR convention. Only
 // visual/network integrations are inert; SSR never runs effects or bookings.
@@ -27,6 +29,7 @@ const { loadBindings, transform } = require('next/dist/build/swc')
 await loadBindings()
 const Empty = () => null
 const thumbnail = ({ service, size }) => React.createElement('span', { className: 'service-thumbnail', 'data-service-id': service.id, 'data-size': size, 'aria-hidden': true })
+const publicServiceMenu = await loadPublicServiceMenu({ ServiceThumbnail: thumbnail })
 const link = { __esModule: true, default: ({ children, href }) => React.createElement('a', { href }, children) }
 const shared = {
   './booking-button-content': bookingButtonContent,
@@ -54,7 +57,7 @@ async function load(filename, stubs = {}) {
   const source = await readFile(new URL(`../${filename}`, import.meta.url), 'utf8')
   const { code } = await transform(source, { filename, jsc: { parser: { syntax: 'ecmascript', jsx: true }, transform: { react: { runtime: 'automatic' } } }, module: { type: 'commonjs' } })
   const module = { exports: {} }, imports = { ...shared, ...stubs }
-  new Function('require', 'module', 'exports', code)(name => Object.hasOwn(imports, name) ? imports[name] : (name === './brand-loading' ? brandLoading : require(name)), module, module.exports)
+  new Function('require', 'module', 'exports', code)(name => name === './public-service-menu' ? publicServiceMenu : name === './public-action' ? publicAction : name === './public-action.module.css' ? publicAction.publicActionStyles : Object.hasOwn(imports, name) ? imports[name] : (name === './brand-loading' ? brandLoading : require(name)), module, module.exports)
   return module.exports
 }
 
@@ -129,15 +132,15 @@ for (const locale of ['bg', 'en']) {
     assert.equal(stress.detailsRef, undefined, 'details must never fetch this fake business')
   })
 
-  test(`${locale}: actual home/profile/directory/details retain full service names and actual formatted prices without splitting or abbreviating the input`, () => {
+  test(`${locale}: compact home and complete profile/directory/details retain full service names and exact formatted prices`, () => {
     const business = serviceTextFixture(locale, true)
     for (const service of business.services) {
       const row = { ...business, services: [service], details: { services: [service], hours: [] } }
       const html = render(DiscoveryBusinessCard, { row, locale, preview: true })
-      assert.ok(text(html).includes(service.name), service.name)
-      const price = detailData.detailPriceLabel({ ...service, priceUnit: '' }, locale, { compact: true })
-      assert.ok(text(html).includes(price))
-      assert.ok(text(html).includes(service.priceUnit))
+      assert.ok(text(html).includes(service.name))
+      assert.ok(text(html).includes(detailData.detailPriceLabel({...service,priceUnit:''},locale,{compact:true})))
+      assert.match(html,/home-business-service-preview/)
+      assert.doesNotMatch(html,/home-business-inline-details/)
       assert.doesNotMatch(html, /<a\b|<form\b/, 'preview actions are not links; decorative image preload hints are allowed')
     }
     const profile = render(BusinessServiceList, { business, locale, onChoose: () => {}, selectedServiceId: business.services[1].id })
@@ -168,6 +171,7 @@ for (const locale of ['bg', 'en']) {
 }
 
 function elements(node, predicate, found = []) {
+  node = publicAction.expandPublicActions(node)
   if (Array.isArray(node)) { for (const child of node) elements(child, predicate, found); return found }
   if (!React.isValidElement(node)) return found
   if (predicate(node)) found.push(node)

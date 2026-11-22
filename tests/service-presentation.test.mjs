@@ -21,7 +21,7 @@ test('all current G Point catalogue service descriptions are shortened without c
   const before = JSON.stringify(records)
   let services = 0
   for (const record of records) {
-    for (const service of catalogueBusinessDetails(record, Date.parse('2026-11-11T00:00:00Z')).services) {
+    for (const service of catalogueBusinessDetails(record, Date.parse('2026-11-22T12:00:00Z')).services) {
       if (!service.description.includes('Текуща цена с отстъпка')) continue
       const result = servicePresentation(service)
       assert.equal(result.description, '')
@@ -33,6 +33,19 @@ test('all current G Point catalogue service descriptions are shortened without c
   }
   assert.ok(services > 1000)
   assert.equal(JSON.stringify(records), before)
+})
+
+test('fresh G Point prices and discount badges cannot leak into a date before the source review', () => {
+  let checked = 0
+  for (const record of SOFIA_CATALOGUE.filter(row => row.id.startsWith('sofia-gpoint-'))) {
+    for (const service of catalogueBusinessDetails(record, Date.parse('2026-11-11T00:00:00Z')).services) {
+      if (!service.description.includes('Текуща цена с отстъпка')) continue
+      assert.equal(service.price, null)
+      assert.deepEqual(servicePresentation(service), { description: '', conditions: [] })
+      checked++
+    }
+  }
+  assert.equal(checked, 1772)
 })
 
 test('a missing or expired displayed price does not advertise a current discount', () => {

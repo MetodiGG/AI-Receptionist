@@ -1,5 +1,6 @@
 'use client'
 
+import { serviceDisplayName, businessDisplayAddress } from '../lib/locale/public-content.mjs'
 import { useState } from 'react'
 import Link from 'next/link'
 import { bookingCalendarFile } from '../lib/booking-confirmation.mjs'
@@ -27,7 +28,7 @@ export function BookingConfirmationActions({ appointment, business, service, sta
   }
 
   function downloadCalendar() {
-    const body = bookingCalendarFile({ appointment, businessName: business.name, serviceName: service.name, staffName: staff.name, address: business.address, locale })
+    const body = bookingCalendarFile({ appointment, businessName: business.name, serviceName: serviceDisplayName(service, locale), staffName: staff.name, address: businessDisplayAddress(business, locale), locale })
     const url = URL.createObjectURL(new Blob([body], { type: 'text/calendar;charset=utf-8' }))
     const anchor = document.createElement('a')
     anchor.href = url; anchor.download = 'gorez-appointment.ics'; anchor.click()

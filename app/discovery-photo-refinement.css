@@ -1,0 +1,87 @@
+/* Original partner uploads keep every edge in a quiet, reserved frame. Only
+   photo surfaces are touched; service thumbnails and search stay unchanged. */
+.home-business-photo.is-real-photo,
+.business-photo-gallery[data-photo-fit="contain"] {
+  --photo-preview-surface: var(--paper, #f5f1eb);
+  background: var(--photo-preview-surface);
+}
+.home-business-photo.is-real-photo::after { display: none; }
+.home-business-photo.is-real-photo > img { object-fit: contain; object-position: center; }
+
+/* A useful image without turning the compact preview into a large hero. */
+.customer-home.quick-choice .home-business-heading:has(> .home-business-photo.is-real-photo) { grid-template-columns: 128px minmax(0,1fr); }
+.customer-home.quick-choice .home-business-heading > .home-business-photo.is-real-photo { width: 128px; height: 116px; padding: 4px; }
+
+/* The gallery's controls live below the photograph, not across its content.
+   The frame remains stable when moving between portrait/landscape uploads. */
+.business-photo-gallery[data-photo-fit="contain"] { --photo-controls-space: 28px; }
+.business-photo-gallery[data-photo-controls="navigation"] { --photo-controls-space: 52px; }
+.business-photo-gallery[data-photo-fit="contain"] > .business-photo-open {
+  inset: 0 0 var(--photo-controls-space);
+  height: auto;
+}
+.business-photo-gallery[data-photo-fit="contain"] > .business-photo-open img { object-fit: contain; object-position: center; }
+.business-photo-gallery[data-photo-fit="contain"] > .business-photo-preview-controls {
+  position: absolute;
+  inset: auto 0 0;
+  display: grid;
+  grid-template-columns: 44px 44px minmax(0,1fr) 44px;
+  align-items: center;
+  gap: 8px;
+  height: var(--photo-controls-space);
+  padding: 4px 8px;
+  background: var(--photo-preview-surface);
+}
+.business-photo-preview-controls > :is(.business-photo-prev,.business-photo-next,.business-photo-playback) {
+  position: static;
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  transform: none;
+  color: var(--ink, #3e3028);
+  background: var(--surface, #fffdf9);
+  border-color: var(--line, #e5d8c9);
+  box-shadow: none;
+}
+.business-photo-preview-controls > .business-photo-prev { grid-column: 1; grid-row: 1; }
+.business-photo-preview-controls > .business-photo-playback { grid-column: 2; grid-row: 1; font-size: 15px; }
+.business-photo-preview-controls > .business-photo-next { grid-column: 4; grid-row: 1; }
+.business-photo-preview-controls > .business-photo-counter {
+  position: static;
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: end;
+  padding: 0 4px;
+  color: var(--ink-soft, #6b594c);
+  background: transparent;
+  border-radius: 0;
+  font-size: 12px;
+  line-height: 1.25;
+}
+.business-photo-preview-controls > button:focus-visible { outline: 3px solid var(--accent-strong, #a44e25); outline-offset: -3px; }
+.business-photo-gallery[data-photo-controls="counter"] > .business-photo-preview-controls { display: flex; justify-content: flex-end; }
+.business-profile-hero > .business-photo-gallery[data-photo-fit="contain"] { height: clamp(260px,40vw,360px); }
+.business-details-gallery .business-photo-gallery[data-photo-fit="contain"] { height: clamp(240px,52vw,320px); }
+
+/* Visible disclosure belongs only to generated cover artwork, never uploads.
+   Keep it readable at the small end rather than using near-zero opacity. */
+.business-category-cover[data-image-kind="ai-illustration"] > .business-category-cover-label {
+  inset: auto auto 4px 4px;
+  max-width: none;
+  padding: 1px 3px;
+  border: 0;
+  border-radius: 3px;
+  background: #fff8efe8;
+  color: #512b19;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+  box-shadow: none;
+}
+html[data-theme="dark"] .business-category-cover[data-image-kind="ai-illustration"] > .business-category-cover-label { background: #30241ded; color: #f8e3ce; }
+
+@media (max-width: 759px) {
+  .customer-home.quick-choice .home-business-heading:has(> .home-business-photo.is-real-photo) { grid-template-columns: 96px minmax(0,1fr); }
+  .customer-home.quick-choice .home-business-heading > .home-business-photo.is-real-photo { width: 96px; height: 112px; }
+}

@@ -1,3 +1,4 @@
+import { nearbyPointsAllowsFileChange, nearbyPointsAllowsNewFile, nearbyPointsPriorSource, nearbyPointsPriorCatalogue } from './nearby-points-20261122-scope.mjs'
 import { locationRecoveryAllowsFileChange, locationRecoveryAllowsNewFile, locationRecoveryPriorSource, locationRecoveryPriorCatalogue } from './location-recovery-20261122-scope.mjs'
 import { priority30ReportAllowsFileChange, priority30ReportAllowsNewFile, priority30ReportPriorSource } from './priority30-catalogue-report-scope.mjs'
 import test from 'node:test'
@@ -18,7 +19,7 @@ import { AZIS_CATALOGUE_BASE, AZIS_CATALOGUE_HASHES, AZIS_CATALOGUE_NEW_HASHES,
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const git = (...args) => execFileSync('git', args, { cwd: root, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 })
-const read = path => readFile(new URL('../' + path, import.meta.url), 'utf8').then(source => priority30ReportPriorSource(path, locationRecoveryPriorSource(path, source)))
+const read = path => readFile(new URL('../' + path, import.meta.url), 'utf8').then(source => priority30ReportPriorSource(path, locationRecoveryPriorSource(path, nearbyPointsPriorSource(path, source))))
 const before = path => git('show', AZIS_CATALOGUE_BASE + ':' + path)
 const sha256 = source => createHash('sha256').update(source).digest('hex')
 const productionPath = path => path !== 'node_modules' && !/^tests\//u.test(path)
@@ -52,13 +53,13 @@ test('the Azis stage authorizes exactly fifteen existing source/presentation pat
 })
 
 test('all other source, original image, historical receipt/baseline, UI, booking, search and configuration bytes stay frozen to the last committed regional stage', async () => {
-  const frozen = tree.filter(record => !azisCatalogueAllowsFileChange(record.path) && !priority30ReportAllowsFileChange(record.path) && !locationRecoveryAllowsFileChange(record.path))
+  const frozen = tree.filter(record => !azisCatalogueAllowsFileChange(record.path) && !priority30ReportAllowsFileChange(record.path) && !nearbyPointsAllowsFileChange(record.path) && !locationRecoveryAllowsFileChange(record.path))
   for (let offset = 0; offset < frozen.length; offset += 32) await Promise.all(frozen.slice(offset, offset + 32).map(async record => {
     const path = new URL('../' + record.path, import.meta.url)
     const bytes = record.mode === '120000' ? Buffer.from(await readlink(path)) : await readFile(path)
     assert.equal(createHash('sha1').update('blob ' + bytes.length + '\0').update(bytes).digest('hex'), record.oid, record.path + ' stays byte-identical to ' + AZIS_CATALOGUE_BASE)
   }))
-  const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => path && !locationRecoveryAllowsNewFile(path) && !priority30ReportAllowsNewFile(path) && productionPath(path))
+  const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => path && !nearbyPointsAllowsNewFile(path) && !locationRecoveryAllowsNewFile(path) && !priority30ReportAllowsNewFile(path) && productionPath(path))
   assert.deepEqual([...new Set(actual)].sort(), [...tree.map(record => record.path), ...Object.keys(AZIS_CATALOGUE_NEW_HASHES)].sort(), 'only the five exact reviewed intake files may enter production inventory')
   for (const path of historicalScopes) assert.equal(await read(path), before(path), path + ': no historical authorization is widened or rebaselined')
 })
@@ -81,7 +82,7 @@ test('all 1735 earlier normalized records and original regional receipts remain 
   assert.deepEqual(PUBLIC_CATALOGUE.slice(earlier.length), validateCatalogue(AZIS_RAW_RECORDS))
   assert.deepEqual(PUBLIC_CATALOGUE_PRICE_REVIEWS.slice(0, 3), [...REGIONAL_PRICE_REVIEWS, ...LOM_GPOINT_PRICE_REVIEWS])
   assert.equal(PUBLIC_CATALOGUE_PRICE_REVIEWS.length, 5)
-  assert.equal(sha256(JSON.stringify(locationRecoveryPriorCatalogue(SOFIA_CATALOGUE))), 'e0af5db43c503050ffcbdfc7061a6e8c8c609aa6eb353babfa2f4c79f544098c')
+  assert.equal(sha256(JSON.stringify(locationRecoveryPriorCatalogue(nearbyPointsPriorCatalogue(SOFIA_CATALOGUE)))), 'e0af5db43c503050ffcbdfc7061a6e8c8c609aa6eb353babfa2f4c79f544098c')
 })
 
 test('the new source authority stays bounded and client-light with no generic price waiver, runtime hash rebinding, providers or booking side effects', async () => {

@@ -1,3 +1,4 @@
+import { nearbyPointsAllowsFileChange, nearbyPointsAllowsNewFile, nearbyPointsPriorSource, nearbyPointsPriorCatalogue } from './nearby-points-20261122-scope.mjs'
 import { locationRecoveryAllowsFileChange, locationRecoveryAllowsNewFile, locationRecoveryPriorSource } from './location-recovery-20261122-scope.mjs'
 import { priority30ReportAllowsFileChange, priority30ReportAllowsNewFile, priority30ReportPriorSource } from './priority30-catalogue-report-scope.mjs'
 import { azisCatalogueAllowsFileChange, azisCatalogueAllowsNewFile, azisCataloguePriorSource } from './azis-style-catalogue-20261122-scope.mjs'
@@ -16,7 +17,7 @@ import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 
 const root=fileURLToPath(new URL('../',import.meta.url))
 const git=(...args)=>execFileSync('git',args,{cwd:root,encoding:'utf8',maxBuffer:16*1024*1024})
-const read=path=>readFile(new URL('../'+path,import.meta.url),'utf8').then(source => regionalCataloguePriorSource(path, azisCataloguePriorSource(path, priority30ReportPriorSource(path, locationRecoveryPriorSource(path, source)))))
+const read=path=>readFile(new URL('../'+path,import.meta.url),'utf8').then(source => regionalCataloguePriorSource(path, azisCataloguePriorSource(path, priority30ReportPriorSource(path, locationRecoveryPriorSource(path, nearbyPointsPriorSource(path, source))))))
 const before=path=>git('show',CATALOGUE_REVALIDATION_BASE+':'+path)
 const sha256=value=>createHash('sha256').update(value).digest('hex')
 const priceSource='lib/discovery/catalogue-data/pricing-booking-review-v1.mjs'
@@ -64,12 +65,12 @@ test('bounded fresh revalidation authorizes exactly six existing source/receipt/
 })
 
 test('every other production byte and path stays frozen, including images, UI, search, booking, analytics, security and config',async()=>{
-  const frozen=tree.filter(record=>!catalogueRevalidationAllowsFileChange(record.path) && !regionalCatalogueAllowsFileChange(record.path) && !azisCatalogueAllowsFileChange(record.path) && !priority30ReportAllowsFileChange(record.path) && !locationRecoveryAllowsFileChange(record.path)&&!sportsMobilePhotoFitAllowsFileChange(record.path))
+  const frozen=tree.filter(record=>!catalogueRevalidationAllowsFileChange(record.path) && !regionalCatalogueAllowsFileChange(record.path) && !azisCatalogueAllowsFileChange(record.path) && !priority30ReportAllowsFileChange(record.path) && !nearbyPointsAllowsFileChange(record.path) && !locationRecoveryAllowsFileChange(record.path)&&!sportsMobilePhotoFitAllowsFileChange(record.path))
   for(let offset=0;offset<frozen.length;offset+=32)await Promise.all(frozen.slice(offset,offset+32).map(async record=>{
     const path=new URL('../'+record.path,import.meta.url),bytes=record.mode==='120000'?Buffer.from(await readlink(path)):await readFile(path)
     assert.equal(createHash('sha1').update('blob '+bytes.length+'\0').update(bytes).digest('hex'),record.oid,record.path+' remains unchanged from '+CATALOGUE_REVALIDATION_BASE)
   }))
-  const actual=git('ls-files','--cached','--others','--exclude-standard','-z').split('\0').filter(path=>path&&!locationRecoveryAllowsNewFile(path)&&!priority30ReportAllowsNewFile(path)&&!regionalCatalogueAllowsNewFile(path) && !azisCatalogueAllowsNewFile(path) && !(path === 'lib/discovery/public-catalogue.mjs' && azisCatalogueAllowsFileChange(path))&&productionPath(path))
+  const actual=git('ls-files','--cached','--others','--exclude-standard','-z').split('\0').filter(path=>path&&!nearbyPointsAllowsNewFile(path) && !locationRecoveryAllowsNewFile(path)&&!priority30ReportAllowsNewFile(path)&&!regionalCatalogueAllowsNewFile(path) && !azisCatalogueAllowsNewFile(path) && !(path === 'lib/discovery/public-catalogue.mjs' && azisCatalogueAllowsFileChange(path))&&productionPath(path))
   assert.deepEqual([...new Set(actual)].sort(),tree.map(record=>record.path).sort(),'no source, image, integration or runtime path is added')
   for(const line of git('ls-tree','-r','--name-only',CATALOGUE_REVALIDATION_BASE,'--','docs/catalogue-pricing').trim().split('\n').filter(Boolean))assert.equal(await read(line),before(line),line+': no historic report or price baseline is refreshed')
 })

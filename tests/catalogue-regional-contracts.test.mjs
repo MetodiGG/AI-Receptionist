@@ -1,3 +1,4 @@
+import { nearbyPointsAllowsFileChange, nearbyPointsAllowsNewFile, nearbyPointsPriorSource, nearbyPointsPriorCatalogue } from './nearby-points-20261122-scope.mjs'
 import test from 'node:test'
 import { locationRecoveryPriorCatalogue } from './location-recovery-20261122-scope.mjs'
 import assert from 'node:assert/strict'
@@ -38,7 +39,7 @@ test('all 1732 original normalized Sofia records retain their published values a
   // e3bf738; one aggregate digest, not a refreshed per-record price baseline.
   assert.equal(SOFIA_CATALOGUE.length, 1732)
   assert.ok(SOFIA_CATALOGUE.every(row => row.cityCode === '68134' && row.id.startsWith('sofia-')))
-  assert.equal(createHash('sha256').update(JSON.stringify(locationRecoveryPriorCatalogue(SOFIA_CATALOGUE))).digest('hex'), 'e0af5db43c503050ffcbdfc7061a6e8c8c609aa6eb353babfa2f4c79f544098c')
+  assert.equal(createHash('sha256').update(JSON.stringify(locationRecoveryPriorCatalogue(nearbyPointsPriorCatalogue(SOFIA_CATALOGUE)))).digest('hex'), 'e0af5db43c503050ffcbdfc7061a6e8c8c609aa6eb353babfa2f4c79f544098c')
 })
 
 test('the shared catalogue allowlist accepts only the three reviewed city prefixes and rejects mismatched or unsafe identities', () => {

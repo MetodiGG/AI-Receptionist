@@ -9,6 +9,7 @@ import { NEIGHBORHOOD_20261111_REVIEWS } from '../lib/discovery/catalogue-data/n
 import { NEIGHBORHOOD_20261113_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-expansion-20261113.mjs'
 import { COVERAGE_20261116_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-coverage-20261116.mjs'
 import { SUHODOL_20261122_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-suhodol-20261122.mjs'
+import { INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-intake-20261123.mjs'
 const now = Date.parse('2026-11-11T12:00:00Z')
 const record = () => structuredClone(SOFIA_CATALOGUE.find(row => row.id === 'sofia-cut-n-chill'))
 const review = () => structuredClone(BOOKING_PRICE_REVIEWS.find(row => row.id === 'sofia-cut-n-chill'))
@@ -89,7 +90,11 @@ test('dated audit receipts cover every current ID without rewriting the historic
   const suhodolIds = SUHODOL_20261122_REVIEWS.map(row => row.id)
   assert.deepEqual(suhodolIds, ['sofia-maria-kamenova-suhodol-shtit9'])
   assert.ok(suhodolIds.every(id => !historicalIds.has(id) && !newIds.has(id) && !latestIds.includes(id) && !coverageIds.includes(id)))
-  const auditedIds = new Set([...historicalIds, ...newIds, ...latestIds, ...coverageIds, ...suhodolIds])
+  const earlierIds = new Set([...historicalIds, ...newIds, ...latestIds, ...coverageIds, ...suhodolIds])
+  const intakeIds = INTAKE_20261123_REVIEWS.map(row => row.id)
+  assert.deepEqual(intakeIds, ['sofia-vr-sofia-west-mall-lyulin7', 'sofia-brainland-lyulin3-block319v'])
+  assert.ok(intakeIds.every(id => !earlierIds.has(id)))
+  const auditedIds = new Set([...earlierIds, ...intakeIds])
   assert.equal(auditedIds.size, SOFIA_CATALOGUE.length)
   assert.ok(SOFIA_CATALOGUE.every(row => auditedIds.has(row.id)))
   for (const review of NEIGHBORHOOD_20261111_REVIEWS) {
@@ -101,6 +106,12 @@ test('dated audit receipts cover every current ID without rewriting the historic
     assert.ok(BOOKING_PRICE_REVIEWS.includes(review), 'the standard gate uses the exact new receipt object')
     assert.equal(assessPricingReview(record, review, Date.parse('2026-11-22T12:00:00Z')).state, 'reviewed', review.id)
     assert.equal(assessPricingReview(record, review, now).state, 'pending', 'a future receipt cannot fill the old November11 queue')
+  }
+  for (const [index, review] of INTAKE_20261123_REVIEWS.entries()) {
+    const record = SOFIA_CATALOGUE.find(row => row.id === review.id)
+    assert.ok(BOOKING_PRICE_REVIEWS.includes(review), 'the standard gate uses the exact intake receipt')
+    assert.equal(assessPricingReview(record, review, Date.parse('2026-11-23T12:00:00Z')).state, index === 0 ? 'reviewed' : 'service_reviewed', review.id)
+    assert.equal(assessPricingReview(record, review, now).state, 'pending')
   }
   assert.equal(report.summary.reservationsSubmitted, 0)
   assert.equal(report.summary.publicDiscovery.paidRequests, 0)

@@ -4,6 +4,28 @@
   "scope": "Illustrative service-specific photos for approved Sofia catalogue entries; not actual business premises, staff, work or results.",
   "assets": [
     {
+      "id": "sx-vr-arena-free-roam",
+      "label": "VR игра ARENA за 2–6 играчи",
+      "sourceFile": "exec-f919c6a9-9f18-4654-807b-83941ebdb31d.png",
+      "sourceSha256": "8847699a2d5740aa0203cdec94c0483a823d5e64d663f6e1b8e0046e280f9d54",
+      "bytes": 45148,
+      "sha256": "59240acd9cca245565cbf9b5353d31ada8398d937079e6be3fc881e8527c9580",
+      "prompt": "Use case: photorealistic-natural. Asset type: illustrative service photo for a local booking catalogue, not a depiction of a particular venue. A candid half-body, three-quarter-view photo of two adult visitors playing a shared free-roaming VR game. Each wears a clearly recognizable generic white VR headset and naturally holds two handheld controllers. Simple indoor activity room with softly lit walls, a matte floor and ample clear space around the players. Use realistic hands, natural poses, warm neutral lighting, and a clean editorial composition. Keep both headsets and controllers grouped near the center with generous crop-safe margins for a small square thumbnail. No brands, logos, signage, text, or watermark. No glowing holograms or science-fiction effects.",
+      "file": "public/service-photos/sx-vr-arena-free-roam-v1.webp",
+      "width": 640,
+      "height": 640,
+      "generatedOn": "2026-11-23",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "8847699a2d5740aa0203cdec94c0483a823d5e64d663f6e1b8e0046e280f9d54",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Root viewed the complete source and the complete 640px WebP. Two fictional adults with recognizable VR headsets and controllers illustrate shared free-roaming play. No partner imagery, representation of the real venue, marks or labels. Square downscale and format conversion only."
+      }
+    },
+    {
       "id": "sx-groom-french-bulldog",
       "label": "Груминг на френски булдог или мопс",
       "sourceFile": "exec-1163315a-a36c-4ed9-8c90-d13690bfa3e5.png",

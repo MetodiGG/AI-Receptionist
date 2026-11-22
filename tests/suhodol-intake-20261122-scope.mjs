@@ -1,5 +1,9 @@
 import { createHash } from 'node:crypto'
 import { readFileSync } from 'node:fs'
+import {
+  quarterRecoveryAllowsFileChange, quarterRecoveryAllowsNewFile,
+  quarterRecoveryPriorSource, quarterRecoveryPriorCatalogue,
+} from './quarter-recovery-20261123-scope.mjs'
 
 // Test-only exact inverse for this one new Suhodol office. Older receipts stay frozen.
 export const SUHODOL_INTAKE_BASE = '69a9f91780d47874bcdb614c957c78e3c4ce94be'
@@ -68,26 +72,27 @@ const exactFile = (path, hashes) => {
   if (!Object.hasOwn(hashes, path)) return false
   try { return sha256(readFileSync(new URL('../' + path, import.meta.url))) === hashes[path] } catch { return false }
 }
-export const suhodolIntakeAllowsFileChange = path => exactFile(path, SUHODOL_INTAKE_HASHES)
-export const suhodolIntakeAllowsNewFile = path => exactFile(path, SUHODOL_INTAKE_NEW_HASHES)
+export const suhodolIntakeAllowsFileChange = path => quarterRecoveryAllowsFileChange(path) || exactFile(path, SUHODOL_INTAKE_HASHES)
+export const suhodolIntakeAllowsNewFile = path => quarterRecoveryAllowsNewFile(path) || exactFile(path, SUHODOL_INTAKE_NEW_HASHES)
 
-// Compose this inverse before nearbyPoints, locationRecovery and every older dated cohort.
+// Undo the later exact stage before replaying this intake and the older cohorts.
 export function suhodolIntakePriorSource(path, source) {
-  if (!Object.hasOwn(priorHashes, path)) return source
-  if (sha256(source) === priorHashes[path]) return source
-  if (sha256(source) !== SUHODOL_INTAKE_HASHES[path]) throw Error('Unreviewed Suhodol intake source delta: ' + path)
-  let previous = source
+  const priorHash = Object.hasOwn(priorHashes, path) ? priorHashes[path] : null
+  if (priorHash !== null && sha256(source) === priorHash) return source
+  let previous = quarterRecoveryPriorSource(path, source)
+  if (priorHash === null) return previous
+  if (sha256(previous) !== SUHODOL_INTAKE_HASHES[path]) throw Error('Unreviewed Suhodol intake source delta: ' + path)
   for (const { before, after } of sourceEdits[path]) {
     if (!after || previous.split(after).length !== 2) throw Error('Ambiguous Suhodol intake source delta: ' + path)
     previous = previous.replace(after, () => before)
   }
-  if (sha256(previous) !== priorHashes[path]) throw Error('Suhodol intake must restore every prior source byte: ' + path)
+  if (sha256(previous) !== priorHash) throw Error('Suhodol intake must restore every prior source byte: ' + path)
   return previous
 }
 
 export function suhodolIntakePriorCatalogue(rows) {
   let removed = 0
-  return rows.filter(row => {
+  return quarterRecoveryPriorCatalogue(rows).filter(row => {
     if (!Object.hasOwn(SUHODOL_INTAKE_ROW_HASHES, row?.id)) return true
     if (sha256(JSON.stringify(row)) !== SUHODOL_INTAKE_ROW_HASHES[row.id]) throw Error('Unreviewed Suhodol intake record delta: ' + row.id)
     if (++removed > 1) throw Error('Duplicate Suhodol intake record: ' + row.id)

@@ -4,17 +4,23 @@ import { readFile, readlink } from 'node:fs/promises'
 import { createHash } from 'node:crypto'
 import { execFileSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
-import { SOFIA_CATALOGUE, RAW_SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
-import { PUBLIC_CATALOGUE } from '../lib/discovery/public-catalogue.mjs'
+import { SOFIA_CATALOGUE as currentCatalogue, RAW_SOFIA_CATALOGUE as currentRawCatalogue } from '../lib/discovery/sofia-catalogue.mjs'
+import { PUBLIC_CATALOGUE as currentPublicCatalogue } from '../lib/discovery/public-catalogue.mjs'
 import { BOOKING_PRICE_REVIEWS } from '../lib/discovery/catalogue-data/pricing-booking-review-v1.mjs'
 import { pricingIdentity } from '../lib/discovery/catalogue-pricing-review.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
 import { SUHODOL_INTAKE_BASE, SUHODOL_INTAKE_HASHES, SUHODOL_INTAKE_NEW_HASHES, SUHODOL_INTAKE_ROW_HASHES,
   suhodolIntakeAllowsFileChange, suhodolIntakeAllowsNewFile, suhodolIntakePriorSource, suhodolIntakePriorCatalogue } from './suhodol-intake-20261122-scope.mjs'
+import { quarterRecoveryAllowsNewFile, quarterRecoveryPriorSource, quarterRecoveryPriorCatalogue } from './quarter-recovery-20261123-scope.mjs'
 
+// Validate the historical receipts at this exact intake stage.
+const SOFIA_CATALOGUE = quarterRecoveryPriorCatalogue(currentCatalogue)
+const RAW_SOFIA_CATALOGUE = quarterRecoveryPriorCatalogue(currentRawCatalogue)
+const PUBLIC_CATALOGUE = quarterRecoveryPriorCatalogue(currentPublicCatalogue)
 const root = fileURLToPath(new URL('../', import.meta.url))
 const git = (...args) => execFileSync('git', args, { cwd: root, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 })
-const read = path => readFile(new URL('../' + path, import.meta.url), 'utf8')
+const readCurrent = path => readFile(new URL('../' + path, import.meta.url), 'utf8')
+const read = path => readCurrent(path).then(source => quarterRecoveryPriorSource(path, source))
 const before = path => git('show', SUHODOL_INTAKE_BASE + ':' + path)
 const sha256 = value => createHash('sha256').update(value).digest('hex')
 const rowHash = row => sha256(JSON.stringify(row))
@@ -57,17 +63,18 @@ test('all other checked-in runtime, old receipts, source photos and thirteen his
     const bytes = record.mode === '120000' ? Buffer.from(await readlink(path)) : await readFile(path)
     assert.equal(createHash('sha1').update('blob ' + bytes.length + '\0').update(bytes).digest('hex'), record.oid, record.path)
   }))
-  const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => path && productionPath(path))
+  const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => path && productionPath(path) && !quarterRecoveryAllowsNewFile(path))
   assert.deepEqual([...new Set(actual)].sort(), [...tree.map(record => record.path), ...Object.keys(SUHODOL_INTAKE_NEW_HASHES)].sort())
   for (const path of olderScopes) assert.equal(await read(path), before(path), path)
 })
 
-test('the newest literal inverse restores all four complete prior sources and refuses any additional source change', async () => {
+test('the Suhodol literal inverse restores all four complete prior sources and refuses any additional source change', async () => {
   for (const path of Object.keys(SUHODOL_INTAKE_HASHES)) {
-    const source = await read(path), previous = before(path)
+    const source = await readCurrent(path), previous = before(path)
     assert.equal(suhodolIntakePriorSource(path, source), previous, path)
+    assert.equal(suhodolIntakePriorSource(path, await read(path)), previous, path)
     assert.equal(suhodolIntakePriorSource(path, previous), previous, path)
-    assert.throws(() => suhodolIntakePriorSource(path, source + '\n'), /Unreviewed Suhodol intake source delta/u)
+    assert.throws(() => suhodolIntakePriorSource(path, source + '\n'), /Unreviewed (?:Suhodol intake|23 Nov (?:quarter recovery|intake)) source delta/u)
   }
   assert.equal(suhodolIntakePriorSource('unrelated-file', 'untouched'), 'untouched')
 })

@@ -95,6 +95,30 @@
         "entriesAdded": { "names": 0, "descriptions": 2, "units": 0 },
         "entriesReused": { "names": 2 },
         "certifiedHumanTranslation": false
+      },
+      {
+        "checkedOn": "2026-11-23",
+        "businessId": "sofia-vr-sofia-west-mall-lyulin7",
+        "inventoryIdentity": "efe50eceeeb48cd536fac2a2290664ce15860c294195755295854fec9412de51",
+        "reason": "Local English text for the exact source-reviewed Lyulin service; no external translation API.",
+        "entriesAdded": {
+          "names": 1,
+          "descriptions": 1,
+          "units": 1
+        },
+        "certifiedHumanTranslation": false
+      },
+      {
+        "checkedOn": "2026-11-23",
+        "businessId": "sofia-brainland-lyulin3-block319v",
+        "inventoryIdentity": "0c585c2b0a71ca51ec1e2ae7b344d7df7de9c6c0075447030bb2aaea5e350ac2",
+        "reason": "Local English text for the exact source-reviewed Lyulin service; no external translation API.",
+        "entriesAdded": {
+          "names": 1,
+          "descriptions": 1,
+          "units": 0
+        },
+        "certifiedHumanTranslation": false
       }
     ],
     "sourceInventorySha256": "3dc68153b6dbd333d0990cf3c7658bb4e0235f79d7d1e8081cfc226034bab456",
@@ -166,6 +190,8 @@
     ]
   },
   "names": {
+    "VR игра ARENA за 2–6 играчи": "VR ARENA game for 2–6 players",
+    "Английски език за възрастни": "English for adults",
     "Прически": "Hairstyling",
     "Сгъстяване на коса": "Hair thickening",
     "Курсове по английски език за деца и ученици": "English courses for children and school students",
@@ -6214,6 +6240,8 @@
     "смяна на предпазен клапан на бойлер": "change of boiler safety valve"
   },
   "descriptions": {
+    "30 минути в обща VR арена за 2–6 играчи, от петък до неделя. Цената е на човек, не за цялата група. Обектът потвърждава часа по телефона.": "30 minutes in a shared VR arena for 2–6 players, Friday to Sunday. The price is per person, not a group total. The venue confirms your time by phone.",
+    "Присъствен курс по английски за възрастни в група или индивидуално. Изпращаш запитване; центърът уточнява формата, графика и цената.": "An in-person English course for adults, in a group or one-to-one. Send an enquiry; the centre will confirm the format, timetable and price.",
     "Присъствена психологична консултация в кабинет с предварително записване. Часът се запазва през външния календар на специалиста.": "In-person psychological consultation at the practice by prior appointment. Book through the practitioner's external calendar.",
     "Присъствена семейна терапия в кабинет с предварително записване. Часът се запазва през външния календар на специалиста.": "In-person family therapy at the practice by prior appointment. Book through the practitioner's external calendar.",
     "Часът се уговаря по телефона. Цена от публикуваната EUR тарифа на фризьор Елена.": "Appointments are arranged by telephone. The price is taken from hairdresser Elena's published EUR price list.",
@@ -8011,6 +8039,7 @@
     "Часът се уговаря с преподавателя; първоначално се изготвя индивидуален график.": "The class is arranged with the lecturer; an individual schedule is initially drawn up."
   },
   "units": {
+    "на човек": "per person",
     "1 индивидуална тренировка · 50 мин": "1 personal training session · 50 min",
     "1 ирис · фотохартия 20×20 см + дигитално копие": "1 iris · 20×20 cm photo print + digital copy",
     "1 час": "1 hour",

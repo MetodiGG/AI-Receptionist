@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "publicationReviewDateUtc": "2026-11-22",
+  "status": "integrated_locally_not_published",
+  "priority": "30 distinct physical businesses with verified addresses per Sofia quarter and category, before aggregate growth",
+  "newBusinesses": 2,
+  "newServices": 2,
+  "verifiedPublicPriceFacts": 1,
+  "existingBusinessesChangedByThisIntake": 0,
+  "municipalSource": {
+    "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+    "sourceBytes": 12601716,
+    "sourceUnchanged": true,
+    "licence": "CC-BY-4.0",
+    "attribution": "ГИС София / Столична община",
+    "method": "Run the repository's strict offline UTF-8 CSV validator and exact address index on the unchanged user-supplied data. For Brainland the label used only in the municipal lookup was the generic Ж.К. Люлин printed in the CSV; preserve the actual business quarter explicitly supplied by the owner.",
+    "qualification": "Official address points, not GPS survey of the businesses or proof of administrative neighborhood boundaries. VR is the building's postal point, not the second-floor venue entrance."
+  },
+  "businesses": [
+    {
+      "id": "sofia-vr-sofia-west-mall-lyulin7",
+      "name": "VR Sofia · West Mall",
+      "category": "other",
+      "neighborhood": "Люлин 7",
+      "address": "София, ж.к. Люлин 7, бул. Царица Йоанна 15, West Mall, ет. 2",
+      "website": "https://www.vr-sofia.com/",
+      "phone": "+359886656559",
+      "locationKind": "premises",
+      "validUntil": "2026-12-23",
+      "duplicateCheck": "No candidate ID, brand, website, or phone overlap in 1733 current source records and pricing/coverage ledgers. Existing Belami Studio shares the mall but is a separate salon with different operator, brand, website, contact and activity. Use one VR operator at the venue, not one row for each game, game area or package.",
+      "addressSources": [
+        "https://www.vr-sofia.com/uslovia/",
+        "https://www.vr-sofia.com/kontakti/",
+        "https://www.vr-sofia.com/faq/",
+        "https://westmall.bg/bg/magazini/vr-sofia-west-mall"
+      ],
+      "addressEvidence": "The operator's reviewed terms identify ВЪРЧУЪЛ РИАЛИТИ ООД (208014299) and identify this Sofia customer venue separately from its registered address in Varna. The current owner contact, FAQ and terms footer explicitly locate the West Mall venue in Lyulin 7, floor 2; the mall tenant page corroborates the named tenant and phone. Municipal match by exact Sofia boulevard and number; one candidate.",
+      "municipalRow": {
+        "rn": "98466",
+        "region": "Люлин",
+        "settlement": "гр. София",
+        "street": "бул. Царица Йоанна",
+        "house": "15",
+        "block": "",
+        "quarter": "",
+        "entrance": "",
+        "latitude": 42.710348,
+        "longitude": 23.271305
+      },
+      "bookingEvidence": {
+        "actualBook": "https://www.vr-sofia.com/rezervacia/",
+        "bookingInstructions": "https://www.vr-sofia.com/faq/",
+        "method": "The actual CTA opened the live merchant-owned entry with choices and the explicit phone alternative. The separate FAQ confirms the direct booking phone and confirmation; no public default booking was made, no dates, event types or personal fields were selected. Use phone only.",
+        "limit": "The terms mention online deposit in one clause but phone confirmation and no current card payment in another; the current FAQ explicitly says to call and wait for business confirmation. Do not project deposits, payment methods, online availability, or exact cancellation terms."
+      },
+      "service": {
+        "name": "VR игра ARENA за 2–6 играчи",
+        "description": "30 минути в обща VR арена за 2–6 играчи, от петък до неделя. Цената е на човек, не за цялата група. Обектът потвърждава часа по телефона.",
+        "pricingDecision": "reviewed",
+        "pricePages": ["https://www.vr-sofia.com/ceni/", "https://www.vr-sofia.com/faq/"],
+        "price": { "amount": 18.5, "currency": "EUR", "unit": "на човек", "kind": "fixed", "minutes": 30 },
+        "limits": "One genuine ARENA slot product, minimum 2 and maximum 6, Friday–Sunday. FAQ confirms the literal per-person unit; not a group total. No weekday station game, package, separate 15-minute option or birthday deposit imported."
+      },
+      "openingHours": "Omitted: mall and owner weekday hours differ; ARENA product days are not a promise of times or capacity.",
+      "sourcePolicy": "Read the public owner terms through section 8; no specific restriction on separately paraphrased minimal business facts observed, not a reuse licence. The web tool did not expose a robots response; not asserted to be a 404 or permission. No external provider booking menu, source photography, reviews or marketing prose imported.",
+      "image": "Separate integration review visually approved the purpose-made sx-vr-arena-free-roam AI illustration. It is not a photo of the merchant, the venue or its customers. Neither old physical escape room art nor golf simulator art was substituted; no owner photos copied.",
+      "english": {
+        "name": "VR ARENA game for 2–6 players",
+        "description": "30 minutes in a shared VR arena for 2–6 players, Friday to Sunday. The price is per person, not a group total. The venue confirms your time by phone.",
+        "unit": "per person"
+      },
+      "inventoryIdentity": "efe50eceeeb48cd536fac2a2290664ce15860c294195755295854fec9412de51"
+    },
+    {
+      "id": "sofia-brainland-lyulin3-block319v",
+      "name": "Brainland",
+      "category": "education",
+      "neighborhood": "Люлин 3",
+      "address": "София, ж.к. Люлин 3, бл. 319, вх. В, партер",
+      "website": "https://www.brainland.bg/index.html",
+      "phone": "+359886355115",
+      "locationKind": "premises",
+      "validUntil": "2026-12-23",
+      "duplicateCheck": "No candidate ID, exact brand/domain/phone or same venue overlap among 1733 source records and prior ledgers. Max International shares the street but is at №4, not block 319 entrance В and has independent contacts/domain. Older entries for Brainland in third-party summaries are not taken as additional venues.",
+      "addressSources": [
+        "https://www.brainland.bg/kontakt.html",
+        "https://brainlandbg.wordpress.com/лятно-училище/лятна-занималня-люлин/"
+      ],
+      "addressEvidence": "The current owner's contact lists Lyulin 3, Petar Bonev 319 and the same phone as the prior owner-operated site. Its venue description explicitly gives block 319, entrance Cyrillic В, ground floor on the street side. The official generic Lyulin block has four entrance rows; exactly one matches entrance В. A lookup for street number 319 is not justified, and a lookup using 'Люлин 3' as a literal dataset label does not match the CSV's generic quarter field. Do not guess first or nearest entrance.",
+      "municipalRow": {
+        "rn": "30434",
+        "region": "Люлин",
+        "settlement": "гр. София",
+        "street": "",
+        "house": "",
+        "block": "319",
+        "quarter": "ж.к. Люлин",
+        "entrance": "В",
+        "latitude": 42.721203,
+        "longitude": 23.243208
+      },
+      "bookingEvidence": {
+        "actualBook": "https://www.brainland.bg/kontakt.html",
+        "ownerEntry": "https://www.brainland.bg/index.html",
+        "method": "The course enrolment CTA links the actual merchant-owned enquiry form. It is a supported enrolment request, not a scheduling calendar or guaranteed appointment. No form fields, placement test, contact or any real booking were submitted."
+      },
+      "service": {
+        "name": "Английски език за възрастни",
+        "description": "Присъствен курс по английски за възрастни в група или индивидуално. Изпращаш запитване; центърът уточнява формата, графика и цената.",
+        "pricingDecision": "not_publicly_listed",
+        "pricePages": ["https://www.brainland.bg/kontakt.html", "https://www.brainland.bg/vazrastni.html"],
+        "limit": "The programme and FAQ explicitly state that the price is quoted according to format and length. No numeric rate is published for the selected course and no tariff endpoint was skipped. A first consultation and placement test are free but are not the selected course. Omit prices, fixed duration and timetable."
+      },
+      "openingHours": "Omitted; published contact office hours are not lesson hours.",
+      "sourcePolicy": "Owner's reviewed public navigation has an ordinary copyright footer and no separate terms/price-menu link for this offer. The web tool did not expose a robots response, not asserted to be a 404 or permission. No copyrighted lessons, source photographs, teacher biographies, ratings or pupil information used.",
+      "image": "Existing illustration language-lesson (service-photos/language-lesson-v1.webp) independently viewed; two adults talking with an open language textbook, no misleading attribution to Brainland, its premises or participants.",
+      "english": {
+        "name": "English for adults",
+        "description": "An in-person English course for adults, in a group or one-to-one. Send an enquiry; the centre will confirm the format, timetable and price."
+      },
+      "inventoryIdentity": "0c585c2b0a71ca51ec1e2ae7b344d7df7de9c6c0075447030bb2aaea5e350ac2"
+    }
+  ],
+  "coverage": {
+    "targetPerQuarterCategory": 30,
+    "approvedSofiaBusinesses": [1710, 1712],
+    "premisesWithBoundCoordinates": [909, 911],
+    "totalTargetCells": 1750,
+    "cellsAtTarget": [0, 0],
+    "zeroPhysicalCells": [1292, 1292],
+    "cells": [
+      { "neighborhood": "Люлин 7", "category": "other", "physical": [3, 4], "located": [1, 2] },
+      { "neighborhood": "Люлин 3", "category": "education", "physical": [1, 2], "located": [0, 1] }
+    ]
+  },
+  "safeguards": {
+    "existingCataloguePricingBaselinesOrReportsRefreshed": false,
+    "partnerContactAttemptsFormsSubmissionsAccountsBookingsOrPayments": 0,
+    "mapGeocoderPaidProviderRequests": 0,
+    "productionWrites": 0
+  }
+}

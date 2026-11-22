@@ -17,6 +17,7 @@ import { reviewedDiscoveryFileChange, DISCOVERY_NEW_MEDIA } from './discovery-re
 import { nextSecurityUpgradeAllowsFileChange } from './next-security-upgrade-scope.mjs'
 import { stationaryDiscoveryAllowsFileChange } from './stationary-discovery-scope.mjs'
 import { publicActionAllowsFileChange, publicActionAllowsNewFile } from './public-action-scope.mjs'
+import { intakeAllowsNewFile } from './catalogue-intake-20261123-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const baseline = 'c9e525b'
@@ -296,7 +297,8 @@ test('compact card uses shared vector actions, trusted routes and profile-only a
 test('all historical public image bytes stay frozen; only the fifteen explicitly approved versioned category siblings are added', async () => {
   const images = baselineTree.filter(record => imagePath(record.path))
   assert.equal(images.length, 1889, 'reviewed baseline public-image inventory')
-  const current = execFileSync('git', ['ls-files', '--cached', '--others', '--exclude-standard', '-z', '--', 'public'], { cwd: root, encoding: 'utf8', maxBuffer: 4 * 1024 * 1024 }).split('\0').filter(imagePath)
+  // Later service images belong to their own SHA-checked receipt, not the visual redesign.
+  const current = execFileSync('git', ['ls-files', '--cached', '--others', '--exclude-standard', '-z', '--', 'public'], { cwd: root, encoding: 'utf8', maxBuffer: 4 * 1024 * 1024 }).split('\0').filter(path => imagePath(path) && !intakeAllowsNewFile(path))
   assert.deepEqual([...new Set(current)].sort(), [...images.map(record => record.path), ...DISCOVERY_NEW_MEDIA].sort())
   await identicalBlobs(images)
 })

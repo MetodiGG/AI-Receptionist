@@ -9,6 +9,7 @@ import { applyOfficialCatalogueLocations } from '../lib/discovery/catalogue-offi
 import { catalogueBoundCoordinates } from '../lib/discovery/catalogue-coordinate-binding.mjs'
 import { catalogueRegistrationPoint } from '../lib/business-registration-location.mjs'
 import { OFFICIAL_SOFIA_PROCESSED_DATA_URL } from '../lib/discovery/catalogue-attribution.mjs'
+import { quarterRecoveryPriorCatalogue } from './quarter-recovery-20261123-scope.mjs'
 
 test('growth postal matches are disjoint, attributed and linked without modifying the original subset', () => {
   assert.equal(original.pointCount, 366)
@@ -22,8 +23,9 @@ test('growth postal matches are disjoint, attributed and linked without modifyin
     const intake = additions.find(row => row.id === point.id)
     const published = SOFIA_CATALOGUE.find(row => row.id === point.id)
     assert.ok(intake && published, point.id)
+    const [historical] = quarterRecoveryPriorCatalogue([published])
     assert.equal(intake.coordinates, null, 'never overwrite an owner point')
-    assert.deepEqual(published, { ...intake, coordinates: point.coordinates })
+    assert.deepEqual(historical, { ...intake, coordinates: point.coordinates })
     assert.equal(catalogueBoundCoordinates(published), published.coordinates)
     assert.equal(catalogueRegistrationPoint(published.coordinates), null, 'no unattributed partner-pin import')
     assert.equal(point.review.decision, 'unique_exact_postal_address')

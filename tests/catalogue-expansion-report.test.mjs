@@ -1,3 +1,4 @@
+import { suhodolIntakeAllowsFileChange, suhodolIntakeAllowsNewFile, suhodolIntakePriorSource, suhodolIntakePriorCatalogue } from './suhodol-intake-20261122-scope.mjs'
 import test from 'node:test'
 import { nearbyPointsPriorCatalogue } from './nearby-points-20261122-scope.mjs'
 import assert from 'node:assert/strict'
@@ -14,7 +15,7 @@ const oldEducationText = execFileSync('git', ['show', 'b8dcdf4:lib/discovery/cat
 const oldEducation = (await import('data:text/javascript;base64,' + Buffer.from(oldEducationText).toString('base64'))).default.records
 // Preserve the November 14 source cohort; do not push the historical report
 // forward or inject November 22 reviews into a prior-date availability count.
-const historicalCatalogue = nearbyPointsPriorCatalogue(SOFIA_CATALOGUE).map(row => revalidatedIds.has(row.id)
+const historicalCatalogue = nearbyPointsPriorCatalogue(suhodolIntakePriorCatalogue(SOFIA_CATALOGUE)).map(row => revalidatedIds.has(row.id)
   ? { ...oldEducation.find(item => item.id === row.id), coordinates: row.coordinates } : row)
 
 test('report distinguishes real specialties without mutating underlying categories or inventing qualifications', () => {

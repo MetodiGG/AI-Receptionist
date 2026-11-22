@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-22",
+  "priority": "30 real businesses per category and Sofia quarter, not aggregate counts",
+  "status": "one_current_physical_candidate_resolved_others_held",
+  "admittedByThisBatch": [
+    "sofia-maria-kamenova-suhodol-shtit9"
+  ],
+  "holds": [
+    {
+      "name": "Салон Стил",
+      "claimedArea": "Враждебна",
+      "sources": [
+        "https://www.oink.bg/biz/salon_za_krasota114319"
+      ],
+      "status": "held_discovery_only_address_conflict_no_owner_booking_menu",
+      "finding": "Mirror signal25-ta22 versus directory24, no current own address/phone/Book/menu established. Not a current tariff review or unpublished-price receipt."
+    },
+    {
+      "name": "IME NAIL",
+      "claimedArea": "Кремиковци",
+      "sources": [
+        "https://www.beautynailhairsalons.com/BG/Sofia/1233428453372638/IME-NAIL"
+      ],
+      "status": "held_mirror403_challenge_stop",
+      "finding": "Only broad Sofia1849 plus secondary Cremikovtsi label. OrdinaryGET403 with cf-mitigated challenge; stopped the entire mirror host. Exact owner premises/contact/Book/menu not established."
+    },
+    {
+      "name": "Маникюр–Нора",
+      "claimedArea": "Филиповци",
+      "sources": [
+        "https://www.facebook.com/243053969364543",
+        "https://bulgaria.worldplaces.me/review/100011210-manikjur-nora.html"
+      ],
+      "status": "held_owner_reader_cachemiss_and_broad_address",
+      "finding": "Public owner page readerCacheMiss, no completed live owner appointment/menu/contact review. Directory broad quarter/GPS not admitted as exact owner premises or point."
+    }
+  ],
+  "falseMatchesExcluded": [
+    "FioreBeautyLab is Ивайло17/Centre, not CasablancaПогледец4",
+    "Nessi streetРепублика is not quarterРепублика",
+    "ЯнаРаковска/ВикторияАртНайлс company addresses do not establish operating salons",
+    "Ariel is Люлин3, not a second Филиповци branch",
+    "Old online-only Maria and current physical practice are one operator"
+  ],
+  "sharedStops": [
+    "beautynailhairsalons.com403/Cloudflare challenge",
+    "Existing Casablanca/Silvia/Studio24/Easybook/Mylink/SRV and other recorded restrictions were not reopened"
+  ],
+  "scope": "No held lead fills a quota or becomes not_publicly_listed because access failed. No source images/prose/reviews copied, bookings/forms/customer data/provider APIs/geocoders or production changes."
+}

@@ -86,6 +86,15 @@
         },
         "businessOwnerConfirmed": false,
         "certifiedHumanTranslation": false
+      },
+      {
+        "checkedOn": "2026-11-22",
+        "businessId": "sofia-maria-kamenova-suhodol-shtit9",
+        "inventoryIdentity": "071a732c6c5d784a600e7dea7d82110fca917ca3f5ad32225e248fb6f3261502",
+        "reason": "Two exact English descriptions for the independently reviewed in-office Suhodol services. Existing name translations are reused. Original cache snapshots and source metadata remain unchanged; no external translation API.",
+        "entriesAdded": { "names": 0, "descriptions": 2, "units": 0 },
+        "entriesReused": { "names": 2 },
+        "certifiedHumanTranslation": false
       }
     ],
     "sourceInventorySha256": "3dc68153b6dbd333d0990cf3c7658bb4e0235f79d7d1e8081cfc226034bab456",
@@ -6205,6 +6214,8 @@
     "смяна на предпазен клапан на бойлер": "change of boiler safety valve"
   },
   "descriptions": {
+    "Присъствена психологична консултация в кабинет с предварително записване. Часът се запазва през външния календар на специалиста.": "In-person psychological consultation at the practice by prior appointment. Book through the practitioner's external calendar.",
+    "Присъствена семейна терапия в кабинет с предварително записване. Часът се запазва през външния календар на специалиста.": "In-person family therapy at the practice by prior appointment. Book through the practitioner's external calendar.",
     "Часът се уговаря по телефона. Цена от публикуваната EUR тарифа на фризьор Елена.": "Appointments are arranged by telephone. The price is taken from hairdresser Elena's published EUR price list.",
     "Предварително записване по телефона и определяне на нивото. Подходящият курс, графикът и таксата се уточняват с учебния център; не е резервация за единичен урок.": "Advance enrolment by telephone and a level assessment. The appropriate course, timetable and fee are agreed with the learning centre; this is not a booking for a single lesson.",
     "1 час общо: до 40 минути снимане и 20 минути избор; една визия и една ретуширана снимка. Допълнителна снимка: 15 EUR. Необработени кадри не се предават; плащане в деня на сесията. Условията предвиждат възможност за публикуване на портрети; уточнете поверителността преди записване.": "1 hour total: up to 40 minutes of photography and 20 minutes for selection; one look and one retouched photograph. Additional photograph: 15 EUR. Unedited photographs are not supplied; payment on the day of the session. The conditions allow portraits to be published; agree privacy requirements before booking.",

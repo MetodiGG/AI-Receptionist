@@ -1,20 +1,25 @@
+import { suhodolIntakeAllowsFileChange, suhodolIntakeAllowsNewFile, suhodolIntakePriorSource, suhodolIntakePriorCatalogue } from './suhodol-intake-20261122-scope.mjs'
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFile, readlink } from 'node:fs/promises'
 import { createHash } from 'node:crypto'
 import { execFileSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
-import { SOFIA_CATALOGUE, RAW_SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
-import { PUBLIC_CATALOGUE } from '../lib/discovery/public-catalogue.mjs'
+import { SOFIA_CATALOGUE as currentCatalogue, RAW_SOFIA_CATALOGUE as currentRawCatalogue } from '../lib/discovery/sofia-catalogue.mjs'
+import { PUBLIC_CATALOGUE as currentPublicCatalogue } from '../lib/discovery/public-catalogue.mjs'
 import { pricingIdentity } from '../lib/discovery/catalogue-pricing-review.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
 import { NEARBY_POINTS_BASE, NEARBY_POINTS_HASHES, NEARBY_POINTS_NEW_HASHES, NEARBY_POINTS_ROW_HASHES,
   nearbyPointsAllowsFileChange, nearbyPointsAllowsNewFile, nearbyPointsPriorSource,
   nearbyPointsPriorRecord, nearbyPointsPriorCatalogue } from './nearby-points-20261122-scope.mjs'
 
+// Replay only this dated point stage; the later intake has its own current-row tests.
+const SOFIA_CATALOGUE = suhodolIntakePriorCatalogue(currentCatalogue)
+const RAW_SOFIA_CATALOGUE = suhodolIntakePriorCatalogue(currentRawCatalogue)
+const PUBLIC_CATALOGUE = suhodolIntakePriorCatalogue(currentPublicCatalogue)
 const root = fileURLToPath(new URL('../', import.meta.url))
 const git = (...args) => execFileSync('git', args, { cwd: root, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 })
-const read = path => readFile(new URL('../' + path, import.meta.url), 'utf8')
+const read = path => readFile(new URL('../' + path, import.meta.url), 'utf8').then(source => suhodolIntakePriorSource(path, source))
 const before = path => git('show', NEARBY_POINTS_BASE + ':' + path)
 const sha256 = value => createHash('sha256').update(value).digest('hex')
 const rowHash = value => sha256(JSON.stringify(value))
@@ -36,7 +41,7 @@ test('the new point review authorizes one exact source integration, one local ov
   ].sort())
   for (const [path, hash] of Object.entries({ ...NEARBY_POINTS_HASHES, ...NEARBY_POINTS_NEW_HASHES })) {
     assert.equal(sha256(await read(path)), hash, path)
-    assert.equal(nearbyPointsAllowsFileChange(path) || nearbyPointsAllowsNewFile(path), true, path)
+    assert.equal(suhodolIntakeAllowsFileChange(path) || nearbyPointsAllowsFileChange(path) || nearbyPointsAllowsNewFile(path), true, path)
   }
   for (const path of ['AGENTS.md', 'lib/discovery/catalogue-search.mjs', 'lib/discovery/catalogue-policy.mjs', 'lib/discovery/catalogue-coordinate-binding.mjs', 'lib/discovery/catalogue-data/address-points-recovery-20261122.mjs', 'lib/discovery/catalogue-data/pricing-booking-review-identities-20261110.json', 'lib/locale/service-english.json', 'components/discovery-business-card.js', 'scripts/catalogue-coverage-report.mjs', 'package.json', 'pnpm-lock.yaml']) {
     assert.equal(nearbyPointsAllowsFileChange(path), false); assert.equal(nearbyPointsAllowsNewFile(path), false)
@@ -44,20 +49,20 @@ test('the new point review authorizes one exact source integration, one local ov
 })
 
 test('all other runtime/source/tariff/photo/snapshot/config bytes and all twelve earlier scope maps remain frozen', async () => {
-  const frozen = tree.filter(record => !nearbyPointsAllowsFileChange(record.path))
+  const frozen = tree.filter(record => !suhodolIntakeAllowsFileChange(record.path) && !nearbyPointsAllowsFileChange(record.path))
   for (let offset = 0; offset < frozen.length; offset += 32) await Promise.all(frozen.slice(offset, offset + 32).map(async record => {
     const path = new URL('../' + record.path, import.meta.url)
     const bytes = record.mode === '120000' ? Buffer.from(await readlink(path)) : await readFile(path)
     assert.equal(createHash('sha1').update('blob ' + bytes.length + '\0').update(bytes).digest('hex'), record.oid, record.path)
   }))
-  const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => path && productionPath(path))
+  const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => path && !suhodolIntakeAllowsNewFile(path) && productionPath(path))
   assert.deepEqual([...new Set(actual)].sort(), [...tree.map(record => record.path), ...Object.keys(NEARBY_POINTS_NEW_HASHES)].sort())
   for (const path of olderScopes) assert.equal(await read(path), before(path), path)
 })
 
 test('the newest literal source and whole-row inverses fail closed and reconstruct only this precise historical point stage', async () => {
   const path = 'lib/discovery/sofia-catalogue.mjs', source = await read(path), previous = before(path)
-  assert.equal(nearbyPointsPriorSource(path, source), previous)
+  assert.equal(nearbyPointsPriorSource(path, suhodolIntakePriorSource(path, source)), previous)
   assert.equal(nearbyPointsPriorSource(path, previous), previous)
   assert.throws(() => nearbyPointsPriorSource(path, source + '\n'), /Unreviewed nearby points source delta/u)
   assert.deepEqual(Object.keys(NEARBY_POINTS_ROW_HASHES).sort(), ['sofia-shining-polishing-auto', 'sofia-vas-val-auto-malashevtsi-lavandula53', 'sofia-diva-zone-mladost2-bg-shkolo'].sort())

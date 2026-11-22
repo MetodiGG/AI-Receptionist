@@ -81,17 +81,15 @@ test('tile images cover the entire frame and use only the approved presentation 
   }
 })
 
-test('All is a full-width 56px row with equal 40px side tracks, never a photographic-ratio tile', () => {
+test('the compact parent chip preserves its photo and 44px action without a redundant All-services row', () => {
   for (const [viewport, container] of [[320, 252], [390, 334], [820, 740], [1280, 1080]]) {
-    const all = style('.inline-service-all', viewport, container)
-    assert.equal(all.display, 'grid')
-    assert.equal(all.width, '100%')
-    assert.ok(parseFloat(all['min-height']) >= 56, 'the full row remains a generous action target')
-    assert.match(all['grid-template-columns'], /^40px\s+minmax\(0,\s*1fr\)\s+40px$/)
-    assert.ok(!all['aspect-ratio'] || all['aspect-ratio'] === 'auto')
+    assert.deepEqual(style('.inline-service-all', viewport, container), {})
+    const parent = style('.inline-selected-parent', viewport, container)
+    assert.ok(parseFloat(parent['min-height']) >= 44)
+    assert.equal(parent['max-width'], '100%')
     const photo = style('.inline-parent-photo', viewport, container, 16, true)
-    assert.equal(photo.width, '40px')
-    assert.equal(photo.height, '40px')
+    assert.equal(photo.width, '28px')
+    assert.equal(photo.height, '28px')
     assert.equal(photo['object-fit'], 'cover')
     assert.equal(photo['object-position'] || 'center', 'center')
   }
@@ -120,8 +118,5 @@ test('only marked service grids use the narrow long-word fallback, with normal 3
   assert.equal(style('.inline-service-grid', 1280, 1080, 16, false, true)['grid-template-columns'], 'repeat(4,minmax(0,1fr))')
   assert.equal(style('.inline-service-label', 320, 268)['font-size'], '.9375rem', 'preserve readable 15px-at-default text instead of shrinking names')
   for (const selector of ['.inline-category-option', '.inline-service-tile']) assert.equal(numericRatio(style(selector, 320, 268, 16, false, true)['aspect-ratio']), 1)
-  const enlargedAll = style('.inline-service-all', 320, 252, 24)
-  assert.equal(enlargedAll['padding-inline'], '4px')
-  assert.equal(enlargedAll.gap, '0')
-  assert.match(enlargedAll['grid-template-columns'], /^40px\s+minmax\(0,\s*1fr\)\s+40px$/)
+  assert.deepEqual(style('.inline-service-all', 320, 252, 24), {})
 })

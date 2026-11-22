@@ -74,7 +74,7 @@ for (const locale of ['bg', 'en']) test(`${locale}: fourteen persistent category
   assert.doesNotMatch(html, /guide-|home-rail|aria-expanded|tabindex|Back|Назад/)
 })
 
-test('category photos keep 160w/240w variants, opt only the four approved scenes into 640w, and remember their actual primary-source failure', () => {
+test('category photos keep 160w/240w variants, opt only the five approved scenes into 640w, and remember actual primary-source failure and aspect ratios', () => {
   let failed = null
   const Component = load('inline-category-grid', {
     ...directReact, useState: () => [failed, value => { failed = typeof value === 'function' ? value(failed) : value }],
@@ -91,7 +91,8 @@ test('category photos keep 160w/240w variants, opt only the four approved scenes
     assert.equal(image.props.srcSet, `${category.photo} 160w, ${category.photo2x} 240w${category.photoLarge ? `, ${category.photoLarge} 640w` : ''}`)
     assert.equal(image.props.sizes, '(max-width:699px)50vw,(max-width:999px)33vw,280px')
     assert.equal(image.props.width, 240); assert.equal(image.props.height, category.id === 'beauty' ? 360 : 240)
-    assert.deepEqual(image.props.style, category.id === 'beauty' ? { objectFit: 'cover', objectPosition: '50% 0%' } : undefined, 'only the owner-selected portrait receives deliberate top framing; other categories retain default complete-source containment')
+    const expectedStyle = category.id === 'beauty' ? { objectFit: 'cover', objectPosition: '50% 0%' } : undefined
+    assert.deepEqual(image.props.style, expectedStyle, 'only the selected Beauty portrait receives deliberate top framing; square category scenes retain complete-source containment')
     assert.equal(image.props.alt, ''); assert.equal(image.props.loading, 'lazy'); assert.equal(image.props.decoding, 'async')
     image.props.onError()
     assert.equal(failed, source)
@@ -103,7 +104,7 @@ test('category photos keep 160w/240w variants, opt only the four approved scenes
   }
 })
 
-for (const locale of ['bg', 'en']) test(`${locale}: inline children show every evidence-backed count, All first, full names and clear-category action`, () => {
+for (const locale of ['bg', 'en']) test(`${locale}: inline children show evidence-backed tiles and a compact parent action, without a redundant All row`, () => {
   const calls = [], cleared = [], Component = load('discovery-subcategories', directReact).DiscoverySubcategories
   const supplied = [...options,
     { ...options[0], id: 'zero-count', count: 0 },
@@ -114,32 +115,22 @@ for (const locale of ['bg', 'en']) test(`${locale}: inline children show every e
   ]
   const before = structuredClone(supplied)
   const tree = Component({ category: 'fitness', title: 'Do not use shortened title', options: supplied, locale, selected: options[7].id, inline: true, onSelect: id => calls.push(id), onClearCategory: () => cleared.push(true) })
-  const buttons = classed(tree, 'inline-service-tile'), all = classed(tree, 'inline-service-all')[0], copy = inlineCopy.INLINE_DISCOVERY_COPY[locale]
+  const buttons = classed(tree, 'inline-service-tile'), copy = inlineCopy.INLINE_DISCOVERY_COPY[locale]
   assert.equal(buttons.length, options.length)
-  assert.equal(classed(tree, 'inline-service-all').length, 1)
-  assert.equal(all.type, 'button')
-  assert.equal(all.props.type, 'button')
-  assert.equal(classed(all, 'inline-service-label')[0].props.children, copy.all)
-  assert.equal(classed(all, 'inline-service-count').length, 0)
-  assert.equal(classed(all, 'inline-service-photo-frame').length, 0, 'All is a category action, not an invented activity-photo tile')
-  assert.equal(classed(all, 'inline-service-all-side').length, 2)
-  for (const slot of classed(all, 'inline-service-all-side')) assert.ok(slot.props['aria-hidden'])
+  assert.equal(classed(tree, 'inline-service-all').length, 0)
   const grid = classed(tree, 'inline-service-grid')[0]
-  assert.equal(classed(grid, 'inline-service-all').length, 0, 'All must remain outside the photographic service grid')
-  const ordered = elements(tree, () => true)
-  assert.ok(ordered.indexOf(all) < ordered.indexOf(grid), 'the full-width All action comes before the service grid')
+  assert.equal(classed(classed(tree, 'inline-subcategories-header')[0], 'inline-selected-parent').length, 1, 'the parent action shares the heading row where it fits')
   assert.equal(classed(tree, 'inline-service-photo-frame').length, options.length)
   assert.deepEqual(classed(tree, 'inline-service-photo-frame').map(node => node.props.style), options.map(option => tilePhotoStyle.discoveryTilePhotoStyle(option.photo)))
-  assert.equal([all, ...buttons].filter(button => button.props['aria-pressed']).length, 1)
+  assert.equal(buttons.filter(button => button.props['aria-pressed']).length, 1)
   assert.equal(classed(tree, 'inline-selected-parent')[0].props.children[1].props.children, categories.categoryById('fitness')[locale])
   assert.equal(elements(tree, node => node.type === 'h2')[0].props.children, copy.services)
   assert.deepEqual(classed(tree, 'inline-service-count').map(textContent), options.map(option => `${option.count} ${option.count === 1 ? copy.business : copy.businesses}`))
   assert.equal(textContent(classed(tree, 'inline-service-count')[0]), `1 ${copy.business}`)
   assert.ok(classed(tree, 'inline-service-count').every(node => !node.props['aria-hidden']), 'visible localized count text is also its accessible name')
   assert.deepEqual(classed(grid, 'inline-service-label').map(node => node.props.children), options.map(option => option[locale]))
-  all.props.onClick()
   for (const button of buttons) button.props.onClick()
-  assert.deepEqual(calls, ['', ...options.map(option => option.id)])
+  assert.deepEqual(calls, options.map(option => option.id))
   const clear = classed(tree, 'inline-selected-parent')[0]
   assert.equal(clear.type, 'button', 'the complete photo/name chip is a keyboard-accessible clear control')
   assert.equal(clear.props['aria-label'], `${copy.clearCategory} · ${categories.categoryById('fitness')[locale]}`)
@@ -181,7 +172,7 @@ test('photo focal helpers affect only exact approved source positioning, never i
   assert.doesNotMatch(source, /fetch\(|https?:\/\/|localStorage|sessionStorage|process\.|node:|getCurrentPosition|trackSearchEvent|trackProductEvent/)
 })
 
-test('loading has one real status, inert placeholders and usable All/known choices without invented counts', () => {
+test('loading has one real status, inert placeholders and usable known choices without a redundant All row or invented counts', () => {
   const Component = load('discovery-subcategories', directReact).DiscoverySubcategories
   for (const choices of [[], options]) {
     const calls = []
@@ -191,25 +182,24 @@ test('loading has one real status, inert placeholders and usable All/known choic
     assert.equal(skeleton.props['aria-hidden'], 'true')
     assert.equal(elements(skeleton, node => ['button', 'a', 'input'].includes(node.type)).length, 0)
     assert.equal(classed(skeleton, 'inline-service-count').length, 0)
-    const buttons = classed(tree, 'inline-service-tile'), all = classed(tree, 'inline-service-all')[0]
+    const buttons = classed(tree, 'inline-service-tile')
     assert.equal(buttons.length, choices.length)
-    assert.ok([all, ...buttons].every(button => !button.props.disabled))
-    all.props.onClick()
-    assert.deepEqual(calls, [''])
+    assert.ok(buttons.every(button => !button.props.disabled))
+    assert.equal(classed(tree, 'inline-service-all').length, 0)
+    assert.deepEqual(calls, [])
     const copy = inlineCopy.INLINE_DISCOVERY_COPY.bg
     assert.deepEqual(classed(tree, 'inline-service-count').map(textContent), choices.map(option => `${option.count} ${option.count === 1 ? copy.business : copy.businesses}`))
   }
 })
 
-for (const locale of ['bg', 'en']) test(`${locale}: All and Gel polish are mutually exclusive selections, not simultaneous highlighted states`, () => {
+for (const locale of ['bg', 'en']) test(`${locale}: no child or exactly one child is highlighted, with clearing delegated to the compact breadcrumb`, () => {
   const Component = load('discovery-subcategories', directReact).DiscoverySubcategories
   const choices = subcategoriesForCategory('nails', locale).map((option, index) => ({ ...option, count: index + 1 }))
   assert.ok(choices.some(option => option.id === 'nails-gel'))
   for (const selected of ['', 'nails-gel']) {
     const calls = [], tree = Component({ category: 'nails', options: choices, selected, locale, inline: true, onSelect: id => calls.push(id), onClearCategory() {} })
-    const all = classed(tree, 'inline-service-all')[0], tiles = classed(tree, 'inline-service-tile')
-    assert.equal(all.props['aria-pressed'], !selected)
-    assert.equal([all, ...tiles].filter(button => button.props['aria-pressed']).length, 1)
+    const tiles = classed(tree, 'inline-service-tile')
+    assert.equal(classed(tree, 'inline-service-all').length, 0)
     assert.equal(tiles.filter(button => button.props['aria-pressed']).length, selected ? 1 : 0)
     const selectedTile = tiles.find(button => button.props['aria-pressed'])
     if (selectedTile) {
@@ -217,11 +207,9 @@ for (const locale of ['bg', 'en']) test(`${locale}: All and Gel polish are mutua
       selectedTile.props.onClick()
       assert.deepEqual(calls, ['nails-gel'])
     }
-    all.props.onClick()
-    assert.equal(calls.at(-1), '', 'the standalone action clears only the selected service')
     const html = render(DiscoverySubcategories, { category: 'nails', options: choices, selected, locale, inline: true, onSelect() {}, onClearCategory() {} })
-    assert.equal((html.match(/aria-pressed="true"/g) || []).length, 1)
-    assert.equal((html.match(/data-icon="check"/g) || []).length, 1)
+    assert.equal((html.match(/aria-pressed="true"/g) || []).length, selected ? 1 : 0)
+    assert.equal((html.match(/data-icon="check"/g) || []).length, selected ? 1 : 0)
   }
 })
 
@@ -238,7 +226,7 @@ for (const locale of ['bg', 'en']) test(`${locale}: long-word safety is derived 
     assert.deepEqual(classed(grid, 'inline-service-label').map(textContent), labels, 'all complete original names remain visible; no shortened display mapping')
     for (const tile of tiles) tile.props.onClick()
     assert.deepEqual(calls, choices.map(option => option.id))
-    assert.equal([classed(tree, 'inline-service-all')[0], ...tiles].filter(button => button.props['aria-pressed']).length, 1)
+    assert.equal(tiles.filter(button => button.props['aria-pressed']).length, 0)
     assert.deepEqual(choices, before)
   }
 })

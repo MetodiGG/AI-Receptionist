@@ -44,14 +44,8 @@ export function DiscoverySubcategories({ category, title, options = [], selected
     return <section className="discovery-subcategories is-inline" ref={navigationRef} tabIndex={navigationRef ? -1 : undefined} lang={language} aria-labelledby={`${listId}-title`} aria-busy={loading}>
       <header className="inline-subcategories-header">
         <h2 id={`${listId}-title`}>{copy.services}</h2>
+        <button type="button" className="inline-selected-parent" onClick={onClearCategory} aria-label={`${copy.clearCategory} · ${parentTitle}`} title={copy.clearCategory}><ParentCategoryPhoto src={parent.photo}/><span>{parentTitle}</span><Icon name="close"/></button>
       </header>
-      <button type="button" className="inline-selected-parent" onClick={onClearCategory} aria-label={`${copy.clearCategory} · ${parentTitle}`} title={copy.clearCategory}><ParentCategoryPhoto src={parent.photo}/><span>{parentTitle}</span><Icon name="close"/></button>
-      <button type="button" className="inline-service-all" aria-pressed={!selected} onClick={() => onSelect('')}>
-        <span className="inline-service-all-side inline-service-all-side--start" aria-hidden="true"><ParentCategoryPhoto src={parent.photo}/></span>
-        <span className="inline-service-label">{copy.all}</span>
-        <span className="inline-service-all-side inline-service-all-side--end" aria-hidden="true"><span className="inline-tile-chevron"><Icon name="chevronDown"/></span></span>
-        {!selected && <span className="inline-tile-check" aria-hidden="true"><Icon name="check"/></span>}
-      </button>
       <ul className="inline-service-grid" id={listId} data-long-label={needsWideLabels ? 'true' : undefined}>
         {choices.map(item => <li key={item.id}><button type="button" className="inline-service-tile" aria-pressed={selected === item.id} onClick={() => onSelect(item.id)}>
           <span className="inline-service-photo-frame" style={discoveryTilePhotoStyle(item.photo)} aria-hidden="true"><SubcategoryPhoto src={item.photo}/></span>

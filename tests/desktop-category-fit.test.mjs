@@ -5,7 +5,7 @@ import { createHash } from 'node:crypto'
 import { readFile, readlink } from 'node:fs/promises'
 import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
-import { REFINEMENT_CHANGED_FILES, refinementAllowsNewMedia, responsivePreviewAllowsNewFile } from './discovery-refinement-20261122-scope.mjs'
+import { reviewedDiscoveryFileChange, refinementAllowsNewMedia, responsivePreviewAllowsNewFile } from './discovery-refinement-20261122-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const BASE = '4be84916a4e2699e00e73243208c88f5aab1aae7'
@@ -21,7 +21,7 @@ const baseline = git('ls-tree', '-r', '-z', BASE).split('\0').filter(Boolean).ma
 test('the desktop fit baseline freezes production outside the explicitly authorized 2026-11-22 photo/navigation/card follow-up', async () => {
   assert.equal(baseline.length, 2811)
   assert.equal(createHash('sha256').update(JSON.stringify(baseline)).digest('hex'), '43e47bf817bc8b6503d789cf5accfb749754f9c34e2323f24c8a32fe61497509')
-  const stillFrozen = baseline.filter(record => !REFINEMENT_CHANGED_FILES.has(record.path))
+  const stillFrozen = baseline.filter(record => !reviewedDiscoveryFileChange(record.path))
   for (let offset = 0; offset < stillFrozen.length; offset += 32) await Promise.all(stillFrozen.slice(offset, offset + 32).map(async record => {
     const path = new URL('../' + record.path, import.meta.url)
     const bytes = record.mode === '120000' ? Buffer.from(await readlink(path)) : await readFile(path)
@@ -31,7 +31,7 @@ test('the desktop fit baseline freezes production outside the explicitly authori
   const belongs = path => roots.some(prefix => path.startsWith(prefix + '/'))
   const expected = baseline.filter(record => belongs(record.path)).map(record => record.path).sort()
   const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z', '--', ...roots).split('\0').filter(path => path && frozenPath(path) && !refinementAllowsNewMedia(path) && !responsivePreviewAllowsNewFile(path))
-  assert.deepEqual([...new Set(actual)].sort(), expected, 'Only the twelve named v3 media siblings and three dev-only preview wrapper files may be new; every historical production path remains present')
+  assert.deepEqual([...new Set(actual)].sort(), expected, 'Only the fifteen explicitly named versioned media siblings and three dev-only wrapper files may be new; every historical production path remains present')
 })
 
 const require = createRequire(import.meta.url)
@@ -56,17 +56,21 @@ function categoryOnly(rule) {
 function canonical(node) {
   if (node.type === 'comment') return null
   if (node.type === 'rule' && isDesktop(node) && categoryOnly(node)) return null
+  if (node.type === 'decl' && /^--inline-summary-/.test(node.prop)) return null
+  const selectors = node.type === 'rule' ? node.selectors.filter(selector => !/\.inline-(?:summary|service-all|subcategories-header|selected-parent|category-clear)\b/.test(selector)
+    && selector !== '.customer-home.quick-choice:has(.inline-discovery-categories) .home-business-grid > li:first-child') : null
+  if (selectors && !selectors.length) return null
   const children = node.nodes?.map(canonical).filter(Boolean)
   if (children && !children.length) return null
   if (node.type === 'root') return children
   if (node.type === 'atrule') return { type: node.type, name: node.name, params: node.params, children }
-  if (node.type === 'rule') return { type: node.type, selectors: node.selectors, children }
+  if (node.type === 'rule') return { type: node.type, selectors, children }
   if (node.type === 'decl') return { type: node.type, prop: node.prop, value: node.value, important: Boolean(node.important) }
   return { type: node.type, value: node.toString() }
 }
 
-test('only category-targeted rules inside a desktop min-width of at least 1000px may differ from the approved CSS', () => {
-  assert.deepEqual(canonical(tree), canonical(before), 'Mobile/tablet rules, service tiles, All, loading placeholders, results, motion and summary CSS remain unchanged')
+test('desktop photo fit and approved compact controls/first-card heading gap cannot change unrelated tile, loading, result or motion CSS', () => {
+  assert.deepEqual(canonical(tree), canonical(before), 'Only desktop category fit, compact summary/header/removed-All regions, summary tokens and the exact first-card heading-gap selector may differ')
   const changes = rules.filter(rule => isDesktop(rule) && categoryOnly(rule))
   assert.ok(changes.length > 0, 'a category-only desktop fit treatment is present')
   for (const rule of changes) {

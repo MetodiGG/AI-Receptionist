@@ -60,7 +60,7 @@ test('all fourteen photographic parent choices retain their exact taxonomy IDs, 
   }
 })
 
-test('existing local photos cover the larger guided thumbnails at2x without replacing category or subcategory artwork', async () => {
+test('reviewed local photos cover the larger guided thumbnails at genuine2x without cropping or altering the source artwork', async () => {
   const guided = await read('app/guided-discovery.css')
   const guidedPhotoSize = Number(rule(guided, '.guide-photo').match(/(?:^|;)\s*width:\s*(?:min\()?([\d]+)px/)?.[1])
   assert.ok(guidedPhotoSize >= 50)

@@ -1,0 +1,1059 @@
+{
+  "date": "2026-11-22",
+  "scope": "Read-only visual review of all stable taxonomy photographs. Contact sheets use mechanical resizing/containment with labels outside photo pixels. No source/media/data edits.",
+  "totalChoices": 113,
+  "uniqueSources": 107,
+  "categories": {
+    "hair": 9,
+    "nails": 8,
+    "beauty": 9,
+    "barber": 6,
+    "auto_repair": 10,
+    "car_wash": 6,
+    "fitness": 13,
+    "education": 10,
+    "pets": 5,
+    "home_services": 10,
+    "health": 7,
+    "consulting": 5,
+    "detailing": 7,
+    "other": 8
+  },
+  "definiteMismatches": [
+    "car_wash-upholstery"
+  ],
+  "optionalClarityImprovements": [
+    "auto_repair-inspection",
+    "car_wash-mobile"
+  ],
+  "items": [
+    {
+      "id": "hair-cut",
+      "category": "hair",
+      "bg": "Подстригване",
+      "en": "Haircuts",
+      "source": "/service-photos/womens-haircut-v1.webp",
+      "depicts": "Stylist cuts a woman’s hair with scissors.",
+      "status": "keep"
+    },
+    {
+      "id": "hair-children",
+      "category": "hair",
+      "bg": "Детско подстригване",
+      "en": "Children’s haircuts",
+      "source": "/service-photos/kids-haircut-v1.webp",
+      "depicts": "Stylist cuts a young boy’s hair.",
+      "status": "keep"
+    },
+    {
+      "id": "hair-colour",
+      "category": "hair",
+      "bg": "Боядисване",
+      "en": "Hair colouring",
+      "source": "/service-photos/hair-color-v1.webp",
+      "depicts": "Stylist applies hair dye to roots with a brush.",
+      "status": "keep"
+    },
+    {
+      "id": "hair-balayage",
+      "category": "hair",
+      "bg": "Балеаж и кичури",
+      "en": "Balayage and highlights",
+      "source": "/service-photos/hair-balayage-v1.webp",
+      "depicts": "Stylist paints a separated section of hair for highlights.",
+      "status": "keep"
+    },
+    {
+      "id": "hair-styling",
+      "category": "hair",
+      "bg": "Сешоар и стилизиране",
+      "en": "Blow-dry and styling",
+      "source": "/service-photos/hair-blowdry-v1.webp",
+      "depicts": "Stylist uses hair dryer and round brush.",
+      "status": "keep"
+    },
+    {
+      "id": "hair-updos",
+      "category": "hair",
+      "bg": "Официални прически",
+      "en": "Occasion hairstyles",
+      "source": "/service-photos/formal-updo-v1.webp",
+      "depicts": "Stylist pins a formal bun/updo.",
+      "status": "keep"
+    },
+    {
+      "id": "hair-treatments",
+      "category": "hair",
+      "bg": "Терапии за коса",
+      "en": "Hair treatments",
+      "source": "/service-photos/sx-hair-treatment-v1.webp",
+      "depicts": "Conditioning/treatment combing at a salon wash basin.",
+      "status": "keep"
+    },
+    {
+      "id": "hair-extensions",
+      "category": "hair",
+      "bg": "Удължаване",
+      "en": "Hair extensions",
+      "source": "/service-photos/hair-extension-row-v1.webp",
+      "depicts": "Hands attach a row of hair extensions.",
+      "status": "keep"
+    },
+    {
+      "id": "hair-braids",
+      "category": "hair",
+      "bg": "Плитки",
+      "en": "Braids",
+      "source": "/service-photos/hair-braiding-v1.webp",
+      "depicts": "Stylist braids long hair.",
+      "status": "keep"
+    },
+    {
+      "id": "nails-manicure",
+      "category": "nails",
+      "bg": "Маникюр",
+      "en": "Manicure",
+      "source": "/service-photos/classic-manicure-v1.webp",
+      "depicts": "Manicurist shapes a client’s fingernails.",
+      "status": "keep"
+    },
+    {
+      "id": "nails-gel",
+      "category": "nails",
+      "bg": "Гел лак",
+      "en": "Gel polish",
+      "source": "/service-photos/gel-manicure-v1.webp",
+      "depicts": "Gel polish is applied with a brush; curing lamp visible.",
+      "status": "keep"
+    },
+    {
+      "id": "nails-pedicure",
+      "category": "nails",
+      "bg": "Педикюр",
+      "en": "Pedicure",
+      "source": "/service-photos/classic-pedicure-v1.webp",
+      "depicts": "Pedicurist files a toenail.",
+      "status": "keep"
+    },
+    {
+      "id": "nails-strengthening",
+      "category": "nails",
+      "bg": "Укрепване на нокти",
+      "en": "Nail strengthening",
+      "source": "/service-photos/sx-nails-strengthen-hands-v1.webp",
+      "depicts": "Clear strengthening product applied to natural fingernails.",
+      "status": "keep"
+    },
+    {
+      "id": "nails-apparatus-pedicure",
+      "category": "nails",
+      "bg": "Апаратен педикюр",
+      "en": "Machine pedicure",
+      "source": "/service-photos/sx-nails-russian-pedicure-v1.webp",
+      "depicts": "Electric nail file used on a toenail.",
+      "status": "keep"
+    },
+    {
+      "id": "nails-extensions",
+      "category": "nails",
+      "bg": "Ноктопластика",
+      "en": "Nail extensions",
+      "source": "/service-photos/nail-extension-v1.webp",
+      "depicts": "Product sculpted on a long extended nail.",
+      "status": "keep"
+    },
+    {
+      "id": "nails-art",
+      "category": "nails",
+      "bg": "Декорации",
+      "en": "Nail art",
+      "source": "/service-photos/nail-art-v1.webp",
+      "depicts": "Fine brush paints nail decoration.",
+      "status": "keep"
+    },
+    {
+      "id": "nails-removal-repair",
+      "category": "nails",
+      "bg": "Сваляне и поправка",
+      "en": "Removal and repair",
+      "source": "/service-photos/nail-gel-removal-v1.webp",
+      "depicts": "Foil wraps being removed from gel-polished nails.",
+      "status": "keep"
+    },
+    {
+      "id": "beauty-face",
+      "category": "beauty",
+      "bg": "Лице",
+      "en": "Facials",
+      "source": "/service-photos/facial-cleansing-v1.webp",
+      "depicts": "Facial cleansing with cotton pad.",
+      "status": "keep"
+    },
+    {
+      "id": "beauty-laser",
+      "category": "beauty",
+      "bg": "Лазерна епилация",
+      "en": "Laser hair removal",
+      "source": "/service-photos/laser-hair-removal-v1.webp",
+      "depicts": "Hair-removal handpiece used on a leg.",
+      "status": "keep"
+    },
+    {
+      "id": "beauty-waxing",
+      "category": "beauty",
+      "bg": "Кола маска",
+      "en": "Waxing",
+      "source": "/service-photos/waxing-v1.webp",
+      "depicts": "Wax applied/removed on a leg.",
+      "status": "keep"
+    },
+    {
+      "id": "beauty-makeup",
+      "category": "beauty",
+      "bg": "Грим",
+      "en": "Makeup",
+      "source": "/service-photos/makeup-v1.webp",
+      "depicts": "Makeup artist works on client’s face.",
+      "status": "keep"
+    },
+    {
+      "id": "beauty-brows",
+      "category": "beauty",
+      "bg": "Вежди",
+      "en": "Brows",
+      "source": "/service-photos/brow-shaping-v1.webp",
+      "depicts": "Tweezers shape an eyebrow.",
+      "status": "keep"
+    },
+    {
+      "id": "beauty-brow-lamination",
+      "category": "beauty",
+      "bg": "Ламиниране на вежди",
+      "en": "Brow lamination",
+      "source": "/service-photos/sx-brow-lamination-only-v1.webp",
+      "depicts": "Product applied to eyebrow for lamination.",
+      "status": "keep"
+    },
+    {
+      "id": "beauty-lashes",
+      "category": "beauty",
+      "bg": "Мигли",
+      "en": "Lashes",
+      "source": "/service-photos/lash-extensions-v1.webp",
+      "depicts": "Tweezers place eyelash extensions.",
+      "status": "keep"
+    },
+    {
+      "id": "beauty-permanent-makeup",
+      "category": "beauty",
+      "bg": "Перманентен грим",
+      "en": "Permanent makeup",
+      "source": "/service-photos/sx-beauty-brow-pmu-v1.webp",
+      "depicts": "Permanent-makeup pen used at eyebrow.",
+      "status": "keep"
+    },
+    {
+      "id": "beauty-body",
+      "category": "beauty",
+      "bg": "Процедури за тяло",
+      "en": "Body treatments",
+      "source": "/service-photos/pressotherapy-v1.webp",
+      "depicts": "Client in pressotherapy compression boots.",
+      "status": "keep",
+      "reason": "Pressotherapy is a legitimate example within broad body treatments."
+    },
+    {
+      "id": "barber-haircut",
+      "category": "barber",
+      "bg": "Мъжко подстригване",
+      "en": "Men’s haircuts",
+      "source": "/service-photos/mens-haircut-v1.webp",
+      "depicts": "Barber clips a man’s hair.",
+      "status": "keep"
+    },
+    {
+      "id": "barber-beard",
+      "category": "barber",
+      "bg": "Брада и бръснене",
+      "en": "Beard and shaving",
+      "source": "/service-photos/beard-trim-v1.webp",
+      "depicts": "Barber trims a man’s beard.",
+      "status": "keep"
+    },
+    {
+      "id": "barber-hair-beard",
+      "category": "barber",
+      "bg": "Коса и брада",
+      "en": "Hair and beard",
+      "source": "/service-photos/partner-hair-beard-brows-finish-v1.webp",
+      "depicts": "Finished male haircut and shaped beard/brows.",
+      "status": "keep"
+    },
+    {
+      "id": "barber-colour",
+      "category": "barber",
+      "bg": "Боядисване и камуфлаж",
+      "en": "Colour and camouflage",
+      "source": "/service-photos/hair-camouflage-v1.webp",
+      "depicts": "Colour/camouflage product applied to man’s hair.",
+      "status": "keep"
+    },
+    {
+      "id": "barber-children",
+      "category": "barber",
+      "bg": "Детско подстригване",
+      "en": "Children’s haircuts",
+      "source": "/service-photos/kids-haircut-v1.webp",
+      "depicts": "Boy receives a haircut.",
+      "status": "keep"
+    },
+    {
+      "id": "barber-brows-wax",
+      "category": "barber",
+      "bg": "Вежди и кола маска",
+      "en": "Brows and waxing",
+      "source": "/service-photos/barber-brow-threading-v1.webp",
+      "depicts": "Man’s eyebrow shaped with thread.",
+      "status": "keep"
+    },
+    {
+      "id": "auto_repair-diagnostics",
+      "category": "auto_repair",
+      "bg": "Диагностика",
+      "en": "Diagnostics",
+      "source": "/service-photos/auto-diagnostics-v1.webp",
+      "depicts": "Technician uses a diagnostic tablet with cable beside driver door.",
+      "status": "keep"
+    },
+    {
+      "id": "auto_repair-oil-filters",
+      "category": "auto_repair",
+      "bg": "Масла и филтри",
+      "en": "Oil and filters",
+      "source": "/service-photos/oil-change-v1.webp",
+      "depicts": "Motor oil poured through funnel into engine.",
+      "status": "keep"
+    },
+    {
+      "id": "auto_repair-engine",
+      "category": "auto_repair",
+      "bg": "Двигател",
+      "en": "Engine repairs",
+      "source": "/service-photos/sx-auto-engine-repair-v1.webp",
+      "depicts": "Mechanic works on open engine.",
+      "status": "keep"
+    },
+    {
+      "id": "auto_repair-brakes-suspension",
+      "category": "auto_repair",
+      "bg": "Спирачки и окачване",
+      "en": "Brakes and suspension",
+      "source": "/service-photos/brake-service-v1.webp",
+      "depicts": "Mechanic checks/replaces brake pads at wheel.",
+      "status": "keep"
+    },
+    {
+      "id": "auto_repair-tyres",
+      "category": "auto_repair",
+      "bg": "Гуми и реглаж",
+      "en": "Tyres and alignment",
+      "source": "/service-photos/tyre-change-v1.webp",
+      "depicts": "Wheel/tyre work at a balancing machine.",
+      "status": "keep"
+    },
+    {
+      "id": "auto_repair-air-conditioning",
+      "category": "auto_repair",
+      "bg": "Автоклиматици",
+      "en": "Car air conditioning",
+      "source": "/service-photos/car-aircon-service-v1.webp",
+      "depicts": "Technician uses automotive AC gauges and hoses.",
+      "status": "keep"
+    },
+    {
+      "id": "auto_repair-electrics",
+      "category": "auto_repair",
+      "bg": "Автоелектроника",
+      "en": "Auto electrics",
+      "source": "/service-photos/sx-auto-alternator-v1.webp",
+      "depicts": "Mechanic works on an alternator.",
+      "status": "keep"
+    },
+    {
+      "id": "auto_repair-body-paint",
+      "category": "auto_repair",
+      "bg": "Тенекеджийство и боядисване",
+      "en": "Bodywork and painting",
+      "source": "/service-photos/sx-auto-panel-spray-paint-v1.webp",
+      "depicts": "Vehicle panel is spray-painted in booth.",
+      "status": "keep"
+    },
+    {
+      "id": "auto_repair-inspection",
+      "category": "auto_repair",
+      "bg": "ГТП",
+      "en": "Vehicle inspection",
+      "source": "/service-photos/sx-auto-car-inspection-v1.webp",
+      "depicts": "Mechanic checks open engine with clipboard/customer beside him.",
+      "status": "clarity_optional",
+      "replacement": "/service-photos/vehicle-technical-inspection-v1.webp",
+      "reason": "Current engine/clipboard inspection is generic. Existing replacement shows measuring/inspection equipment in an inspection lane, clearer for GTP without changing taxonomy."
+    },
+    {
+      "id": "auto_repair-prepurchase",
+      "category": "auto_repair",
+      "bg": "Оглед преди покупка",
+      "en": "Pre-purchase inspection",
+      "source": "/service-photos/partner-car-lift-inspection-v1.webp",
+      "depicts": "Mechanic checks underside of vehicle on lift.",
+      "status": "keep"
+    },
+    {
+      "id": "car_wash-exterior",
+      "category": "car_wash",
+      "bg": "Външно измиване",
+      "en": "Exterior wash",
+      "source": "/service-photos/car-exterior-hand-wash-v1.webp",
+      "depicts": "Attendant hand-washes foamy car exterior with wash mitt.",
+      "status": "keep"
+    },
+    {
+      "id": "car_wash-interior",
+      "category": "car_wash",
+      "bg": "Вътрешно почистване",
+      "en": "Interior cleaning",
+      "source": "/service-photos/car-interior-vacuum-v1.webp",
+      "depicts": "Attendant vacuums car footwell/interior.",
+      "status": "keep"
+    },
+    {
+      "id": "car_wash-complete",
+      "category": "car_wash",
+      "bg": "Комплексно измиване",
+      "en": "Complete wash",
+      "source": "/service-photos/sx-wash-full-car-v1.webp",
+      "depicts": "Two-panel exterior washing and interior vacuuming of car.",
+      "status": "keep"
+    },
+    {
+      "id": "car_wash-upholstery",
+      "category": "car_wash",
+      "bg": "Пране на салон",
+      "en": "Upholstery cleaning",
+      "source": "/service-photos/car-interior-detailing-v1.webp",
+      "depicts": "Detail brush cleans dashboard/air vent; no seat shampoo/extraction.",
+      "status": "mismatch",
+      "replacement": "/service-photos/interior-car-clean-v1.webp",
+      "reason": "Seat/fabric wet extraction is distinct from brushing dashboard vents. Verified replacement shows clear extraction nozzle on cloth car seat."
+    },
+    {
+      "id": "car_wash-mobile",
+      "category": "car_wash",
+      "bg": "Мобилна автомивка",
+      "en": "Mobile car wash",
+      "source": "/service-photos/sx-wash-mobile-van-v1.webp",
+      "depicts": "Attendant washes a white van; service equipment van nearby.",
+      "status": "clarity_optional",
+      "replacement": "/service-photos/sx-wash-mobile-exterior-v1.webp",
+      "reason": "Current van washing is not a different activity, but can be mistaken for a vehicle-size service. Existing replacement clearly shows washing a car at customer premises with service van behind."
+    },
+    {
+      "id": "car_wash-pickup",
+      "category": "car_wash",
+      "bg": "Вземане и връщане",
+      "en": "Collection and return",
+      "source": "/service-photos/sx-wash-pickup-return-v1.webp",
+      "depicts": "Sequence of receiving keys, exterior washing, returning keys.",
+      "status": "keep"
+    },
+    {
+      "id": "fitness-folk-dance",
+      "category": "fitness",
+      "bg": "Народни танци",
+      "en": "Folk dance",
+      "source": "/service-photos/sx-bulgarian-folk-group-v1.webp",
+      "depicts": "Adults dance Bulgarian folk dance holding hands.",
+      "status": "keep"
+    },
+    {
+      "id": "fitness-yoga",
+      "category": "fitness",
+      "bg": "Йога",
+      "en": "Yoga",
+      "source": "/service-photos/yoga-class-v1.webp",
+      "depicts": "Group practices yoga.",
+      "status": "keep"
+    },
+    {
+      "id": "fitness-pilates",
+      "category": "fitness",
+      "bg": "Пилатес и реформър",
+      "en": "Pilates and reformer",
+      "source": "/service-photos/reformer-pilates-v1.webp",
+      "depicts": "Client and instructor use Pilates reformer.",
+      "status": "keep"
+    },
+    {
+      "id": "fitness-boxing",
+      "category": "fitness",
+      "bg": "Бокс и кикбокс",
+      "en": "Boxing and kickboxing",
+      "source": "/service-photos/boxing-v1.webp",
+      "depicts": "Boxer punches trainer’s pads.",
+      "status": "keep"
+    },
+    {
+      "id": "fitness-latin-dance",
+      "category": "fitness",
+      "bg": "Латино и социални танци",
+      "en": "Latin and social dance",
+      "source": "/service-photos/sx-adult-argentine-tango-group-v1.webp",
+      "depicts": "Adult pairs practice social/tango dance.",
+      "status": "keep"
+    },
+    {
+      "id": "fitness-modern-dance",
+      "category": "fitness",
+      "bg": "Модерни танци",
+      "en": "Modern dance",
+      "source": "/service-photos/sx-child-modern-hiphop-class-v1.webp",
+      "depicts": "Children practice modern/hip-hop dance.",
+      "status": "keep"
+    },
+    {
+      "id": "fitness-personal-training",
+      "category": "fitness",
+      "bg": "Персонални тренировки",
+      "en": "Personal training",
+      "source": "/service-photos/strength-training-v1.webp",
+      "depicts": "Trainer supervises a client lifting dumbbells.",
+      "status": "keep"
+    },
+    {
+      "id": "fitness-group-training",
+      "category": "fitness",
+      "bg": "Групови тренировки",
+      "en": "Group workouts",
+      "source": "/service-photos/sx-strength-group-v1.webp",
+      "depicts": "Group kettlebell workout with coach.",
+      "status": "keep"
+    },
+    {
+      "id": "fitness-martial-arts",
+      "category": "fitness",
+      "bg": "Бойни изкуства",
+      "en": "Martial arts",
+      "source": "/service-photos/karate-training-v1.webp",
+      "depicts": "Karate practice with instructor/pad.",
+      "status": "keep"
+    },
+    {
+      "id": "fitness-racket-sports",
+      "category": "fitness",
+      "bg": "Ракетни спортове",
+      "en": "Racket sports",
+      "source": "/service-photos/tennis-v1.webp",
+      "depicts": "Tennis lesson with racket and ball.",
+      "status": "keep"
+    },
+    {
+      "id": "fitness-swimming",
+      "category": "fitness",
+      "bg": "Плуване",
+      "en": "Swimming",
+      "source": "/service-photos/sx-adult-swimming-individual-v1.webp",
+      "depicts": "Swimming instructor supports adult in pool.",
+      "status": "keep"
+    },
+    {
+      "id": "fitness-climbing",
+      "category": "fitness",
+      "bg": "Катерене",
+      "en": "Climbing",
+      "source": "/service-photos/sx-climbing-private-v1.webp",
+      "depicts": "Instructor belays climber at climbing wall.",
+      "status": "keep"
+    },
+    {
+      "id": "fitness-football",
+      "category": "fitness",
+      "bg": "Футболни игрища",
+      "en": "Football pitches",
+      "source": "/service-photos/sx-football-pitch-rental-v1.webp",
+      "depicts": "Football pitch with goal, lines and ball.",
+      "status": "keep"
+    },
+    {
+      "id": "education-languages",
+      "category": "education",
+      "bg": "Езици",
+      "en": "Languages",
+      "source": "/service-photos/language-lesson-v1.webp",
+      "depicts": "Teacher and adult learner discuss an open language textbook.",
+      "status": "keep"
+    },
+    {
+      "id": "education-school",
+      "category": "education",
+      "bg": "Училищни предмети и матури",
+      "en": "School subjects and exams",
+      "source": "/service-photos/math-lesson-v1.webp",
+      "depicts": "Tutor helps teenager solve geometry in notebook.",
+      "status": "keep",
+      "reason": "Geometry tutoring is a genuine school-subject example. Shared image is not proof of incorrect mapping."
+    },
+    {
+      "id": "education-mathematics",
+      "category": "education",
+      "bg": "Математика",
+      "en": "Mathematics",
+      "source": "/service-photos/math-lesson-v1.webp",
+      "depicts": "Tutor helps teenager solve geometry in notebook.",
+      "status": "keep"
+    },
+    {
+      "id": "education-exam-preparation",
+      "category": "education",
+      "bg": "Подготовка за изпити",
+      "en": "Exam preparation",
+      "source": "/service-photos/math-lesson-v1.webp",
+      "depicts": "Tutor helps teenager solve geometry in notebook.",
+      "status": "keep",
+      "reason": "Math tutoring can be exam preparation. No specific unsupported exam is asserted; visual repetition alone does not require replacement."
+    },
+    {
+      "id": "education-instruments",
+      "category": "education",
+      "bg": "Музикални инструменти",
+      "en": "Musical instruments",
+      "source": "/service-photos/piano-lesson-v1.webp",
+      "depicts": "Piano teacher and learner at keyboard.",
+      "status": "keep"
+    },
+    {
+      "id": "education-singing",
+      "category": "education",
+      "bg": "Пеене",
+      "en": "Singing",
+      "source": "/service-photos/vocal-lesson-v1.webp",
+      "depicts": "Singing coach works with a vocalist and microphone.",
+      "status": "keep"
+    },
+    {
+      "id": "education-art",
+      "category": "education",
+      "bg": "Рисуване и приложни изкуства",
+      "en": "Drawing and crafts",
+      "source": "/service-photos/sx-adult-art-group-v1.webp",
+      "depicts": "Adult drawing class at easels.",
+      "status": "keep"
+    },
+    {
+      "id": "education-dance",
+      "category": "education",
+      "bg": "Танци",
+      "en": "Dance lessons",
+      "source": "/service-photos/dance-lesson-v1.webp",
+      "depicts": "Dance teacher demonstrates steps to a student.",
+      "status": "keep"
+    },
+    {
+      "id": "education-driving",
+      "category": "education",
+      "bg": "Шофьорски курсове",
+      "en": "Driving lessons",
+      "source": "/service-photos/driving-lesson-v1.webp",
+      "depicts": "Instructor helps learner in driving seat.",
+      "status": "keep"
+    },
+    {
+      "id": "education-coding",
+      "category": "education",
+      "bg": "Програмиране",
+      "en": "Programming",
+      "source": "/service-photos/sx-programming-class-v1.webp",
+      "depicts": "Instructor teaches programming at computers.",
+      "status": "keep"
+    },
+    {
+      "id": "pets-dogs",
+      "category": "pets",
+      "bg": "За кучета",
+      "en": "Dogs",
+      "source": "/service-photos/dog-full-grooming-v1.webp",
+      "depicts": "Groomer brushes a dog on grooming table.",
+      "status": "keep"
+    },
+    {
+      "id": "pets-cats",
+      "category": "pets",
+      "bg": "За котки",
+      "en": "Cats",
+      "source": "/service-photos/cat-grooming-v1.webp",
+      "depicts": "Groomer brushes a cat.",
+      "status": "keep"
+    },
+    {
+      "id": "pets-bath-brush",
+      "category": "pets",
+      "bg": "Къпане и разресване",
+      "en": "Bathing and brushing",
+      "source": "/service-photos/pet-bath-v1.webp",
+      "depicts": "Dog is washed in grooming tub.",
+      "status": "keep"
+    },
+    {
+      "id": "pets-cut-trim",
+      "category": "pets",
+      "bg": "Подстригване и триминг",
+      "en": "Haircuts and trimming",
+      "source": "/service-photos/dog-haircut-v1.webp",
+      "depicts": "Dog’s coat clipped by groomer.",
+      "status": "keep"
+    },
+    {
+      "id": "pets-hygiene",
+      "category": "pets",
+      "bg": "Нокти и хигиена",
+      "en": "Nails and hygiene",
+      "source": "/service-photos/dog-ear-cleaning-v1.webp",
+      "depicts": "Dog’s ear cleaned with pad.",
+      "status": "keep"
+    },
+    {
+      "id": "home_services-plumbing",
+      "category": "home_services",
+      "bg": "ВиК",
+      "en": "Plumbing",
+      "source": "/service-photos/plumbing-v1.webp",
+      "depicts": "Plumber repairs pipe under sink.",
+      "status": "keep"
+    },
+    {
+      "id": "home_services-electrical",
+      "category": "home_services",
+      "bg": "Електроуслуги",
+      "en": "Electrical work",
+      "source": "/service-photos/electrical-repair-v1.webp",
+      "depicts": "Electrician tests wall socket.",
+      "status": "keep"
+    },
+    {
+      "id": "home_services-cleaning",
+      "category": "home_services",
+      "bg": "Почистване",
+      "en": "Cleaning",
+      "source": "/service-photos/home-deep-clean-v1.webp",
+      "depicts": "Cleaner wipes kitchen worktop.",
+      "status": "keep"
+    },
+    {
+      "id": "home_services-furniture-cleaning",
+      "category": "home_services",
+      "bg": "Пране на мебели",
+      "en": "Furniture cleaning",
+      "source": "/service-photos/sofa-cleaning-v1.webp",
+      "depicts": "Extractor cleans upholstered sofa cushion.",
+      "status": "keep"
+    },
+    {
+      "id": "home_services-renovation",
+      "category": "home_services",
+      "bg": "Ремонти и боядисване",
+      "en": "Renovation and painting",
+      "source": "/service-photos/sx-home-plaster-paint-v1.webp",
+      "depicts": "Two-panel plastering and painting a wall.",
+      "status": "keep"
+    },
+    {
+      "id": "home_services-air-conditioning",
+      "category": "home_services",
+      "bg": "Климатици",
+      "en": "Air conditioning",
+      "source": "/service-photos/home-aircon-service-v1.webp",
+      "depicts": "Technician cleans wall-mounted air-conditioner filters.",
+      "status": "keep"
+    },
+    {
+      "id": "home_services-appliances",
+      "category": "home_services",
+      "bg": "Битова техника",
+      "en": "Appliance repair",
+      "source": "/service-photos/sx-home-appliance-repair-v1.webp",
+      "depicts": "Technician repairs a household washing machine.",
+      "status": "keep"
+    },
+    {
+      "id": "home_services-moving",
+      "category": "home_services",
+      "bg": "Преместване и мебели",
+      "en": "Moving and furniture",
+      "source": "/service-photos/sx-home-furniture-move-v1.webp",
+      "depicts": "Movers carry wrapped furniture into van.",
+      "status": "keep"
+    },
+    {
+      "id": "home_services-furniture-assembly",
+      "category": "home_services",
+      "bg": "Сглобяване на мебели",
+      "en": "Furniture assembly",
+      "source": "/service-photos/sx-home-desk-assembly-v1.webp",
+      "depicts": "Worker assembles a desk with drill.",
+      "status": "keep"
+    },
+    {
+      "id": "home_services-pest-control",
+      "category": "home_services",
+      "bg": "Дезинсекция и дератизация",
+      "en": "Pest control",
+      "source": "/service-photos/sx-home-rodent-control-v1.webp",
+      "depicts": "Pest-control worker services a bait station.",
+      "status": "keep"
+    },
+    {
+      "id": "health-massage",
+      "category": "health",
+      "bg": "Масажи",
+      "en": "Massage",
+      "source": "/service-photos/therapeutic-massage-v1.webp",
+      "depicts": "Therapist massages side-lying client.",
+      "status": "keep"
+    },
+    {
+      "id": "health-kinesitherapy",
+      "category": "health",
+      "bg": "Кинезитерапия",
+      "en": "Kinesitherapy",
+      "source": "/service-photos/sx-kinesitherapy-equipment-v1.webp",
+      "depicts": "Therapist assists exercise with balance/rehab equipment.",
+      "status": "keep"
+    },
+    {
+      "id": "health-physiotherapy",
+      "category": "health",
+      "bg": "Физиотерапия",
+      "en": "Physiotherapy",
+      "source": "/service-photos/physiotherapy-v1.webp",
+      "depicts": "Therapist guides resistance-band exercise.",
+      "status": "keep",
+      "reason": "Supervised resistance exercise is a genuine physical-therapy example; do not force equipment-only imagery based on a broad label."
+    },
+    {
+      "id": "health-rehabilitation",
+      "category": "health",
+      "bg": "Рехабилитация",
+      "en": "Rehabilitation",
+      "source": "/service-photos/physiotherapy-v1.webp",
+      "depicts": "Therapist guides resistance-band exercise.",
+      "status": "keep"
+    },
+    {
+      "id": "health-manual",
+      "category": "health",
+      "bg": "Мануална терапия",
+      "en": "Manual therapy",
+      "source": "/service-photos/manual-therapy-v1.webp",
+      "depicts": "Therapist mobilizes client’s arm/shoulder.",
+      "status": "keep"
+    },
+    {
+      "id": "health-taping",
+      "category": "health",
+      "bg": "Кинезиотейпинг",
+      "en": "Kinesiology taping",
+      "source": "/service-photos/sx-kinesiotaping-v1.webp",
+      "depicts": "Kinesiology tape applied to shoulder.",
+      "status": "keep"
+    },
+    {
+      "id": "health-lymphatic",
+      "category": "health",
+      "bg": "Лимфодренаж",
+      "en": "Lymphatic drainage",
+      "source": "/service-photos/sx-manual-lymph-drainage-v1.webp",
+      "depicts": "Therapist performs manual drainage massage on leg.",
+      "status": "keep"
+    },
+    {
+      "id": "consulting-legal",
+      "category": "consulting",
+      "bg": "Правни",
+      "en": "Legal",
+      "source": "/service-photos/legal-consultation-v1.webp",
+      "depicts": "Professional reviews documents with client; no court/gavel imagery.",
+      "status": "keep"
+    },
+    {
+      "id": "consulting-accounting",
+      "category": "consulting",
+      "bg": "Счетоводни и данъчни",
+      "en": "Accounting and tax",
+      "source": "/service-photos/accounting-consultation-v1.webp",
+      "depicts": "Professional reviews figures with calculator and client.",
+      "status": "keep"
+    },
+    {
+      "id": "consulting-career",
+      "category": "consulting",
+      "bg": "Кариерни",
+      "en": "Career",
+      "source": "/service-photos/sx-career-consultation-v1.webp",
+      "depicts": "Professional discusses CV-like document with client.",
+      "status": "keep"
+    },
+    {
+      "id": "consulting-business",
+      "category": "consulting",
+      "bg": "Бизнес",
+      "en": "Business",
+      "source": "/service-photos/legal-consultation-v1.webp",
+      "depicts": "Professional reviews documents with client; same general meeting image as Legal.",
+      "status": "keep",
+      "reason": "The shared legal-consultation file shows a general document-review meeting, without courtroom or legal-only symbols, so it also fits business consultation."
+    },
+    {
+      "id": "consulting-architecture",
+      "category": "consulting",
+      "bg": "Архитектура",
+      "en": "Architecture",
+      "source": "/service-photos/sx-architecture-onsite-consultation-v1.webp",
+      "depicts": "Architects review building plan at construction site.",
+      "status": "keep"
+    },
+    {
+      "id": "detailing-polishing",
+      "category": "detailing",
+      "bg": "Полиране",
+      "en": "Polishing",
+      "source": "/service-photos/sx-detail-body-polish-protect-v1.webp",
+      "depicts": "Two-panel machine polishing and paint protection.",
+      "status": "keep"
+    },
+    {
+      "id": "detailing-ceramic",
+      "category": "detailing",
+      "bg": "Керамични покрития",
+      "en": "Ceramic coating",
+      "source": "/service-photos/ceramic-car-coating-v1.webp",
+      "depicts": "Coating applicator pad applied to car paint.",
+      "status": "keep"
+    },
+    {
+      "id": "detailing-ppf",
+      "category": "detailing",
+      "bg": "PPF",
+      "en": "PPF protection",
+      "source": "/service-photos/sx-detail-ppf-front-v1.webp",
+      "depicts": "Protective film applied to car front.",
+      "status": "keep"
+    },
+    {
+      "id": "detailing-wrap-tint",
+      "category": "detailing",
+      "bg": "Фолиране и затъмняване",
+      "en": "Wrapping and tinting",
+      "source": "/service-photos/vehicle-window-tint-v1.webp",
+      "depicts": "Window film applied to vehicle side window.",
+      "status": "keep"
+    },
+    {
+      "id": "detailing-interior",
+      "category": "detailing",
+      "bg": "Интериорен детайлинг",
+      "en": "Interior detailing",
+      "source": "/service-photos/car-interior-detailing-v1.webp",
+      "depicts": "Detail brush cleans dashboard air vent.",
+      "status": "keep"
+    },
+    {
+      "id": "detailing-headlights",
+      "category": "detailing",
+      "bg": "Фарове",
+      "en": "Headlights",
+      "source": "/service-photos/headlight-restoration-v1.webp",
+      "depicts": "Machine polishes a masked headlamp.",
+      "status": "keep"
+    },
+    {
+      "id": "detailing-leather",
+      "category": "detailing",
+      "bg": "Кожа",
+      "en": "Leather care",
+      "source": "/service-photos/sx-detail-leather-protect-v1.webp",
+      "depicts": "Leather seat conditioned with pad.",
+      "status": "keep"
+    },
+    {
+      "id": "other-dental",
+      "category": "other",
+      "bg": "Зъболекари",
+      "en": "Dentists",
+      "source": "/service-photos/dental-exam-v1.webp",
+      "depicts": "Dentist examines adult patient.",
+      "status": "keep"
+    },
+    {
+      "id": "other-psychology",
+      "category": "other",
+      "bg": "Психолози и психотерапевти",
+      "en": "Psychologists and psychotherapists",
+      "source": "/service-photos/psychology-consultation-v1.webp",
+      "depicts": "Therapist talks with seated client.",
+      "status": "keep"
+    },
+    {
+      "id": "other-psychiatry",
+      "category": "other",
+      "bg": "Психиатри",
+      "en": "Psychiatrists",
+      "source": "/service-photos/sx-psychiatry-video-v1.webp",
+      "depicts": "Professional and client meet via laptop video.",
+      "status": "keep"
+    },
+    {
+      "id": "other-speech-therapy",
+      "category": "other",
+      "bg": "Логопеди",
+      "en": "Speech therapists",
+      "source": "/service-photos/speech-therapy-v1.webp",
+      "depicts": "Speech therapist uses mirror/oral exercise with child.",
+      "status": "keep"
+    },
+    {
+      "id": "other-photography",
+      "category": "other",
+      "bg": "Фотография",
+      "en": "Photography",
+      "source": "/service-photos/photography-session-v1.webp",
+      "depicts": "Photographer uses camera.",
+      "status": "keep"
+    },
+    {
+      "id": "other-tattoo-piercing",
+      "category": "other",
+      "bg": "Татуировки и пиърсинг",
+      "en": "Tattoos and piercing",
+      "source": "/service-photos/sx-tattoo-application-v1.webp",
+      "depicts": "Tattoo artist works on client’s arm.",
+      "status": "keep"
+    },
+    {
+      "id": "other-escape-rooms",
+      "category": "other",
+      "bg": "Ескейп стаи",
+      "en": "Escape rooms",
+      "source": "/service-photos/sx-escape-archaeology-v1.webp",
+      "depicts": "Group solves archaeological-themed escape-room puzzle.",
+      "status": "keep"
+    },
+    {
+      "id": "other-studio-rental",
+      "category": "other",
+      "bg": "Студиа под наем",
+      "en": "Studio rental",
+      "source": "/service-photos/sx-photo-studio-rental-v1.webp",
+      "depicts": "Empty photo studio with lights, backdrop and camera.",
+      "status": "keep"
+    }
+  ]
+}

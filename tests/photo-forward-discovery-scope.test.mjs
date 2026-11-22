@@ -5,7 +5,7 @@ import { createHash } from 'node:crypto'
 import { readFile, readlink } from 'node:fs/promises'
 import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
-import { REFINEMENT_CHANGED_FILES, refinementAllowsNewMedia } from './discovery-refinement-20261122-scope.mjs'
+import { reviewedDiscoveryFileChange, refinementAllowsNewMedia } from './discovery-refinement-20261122-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const BASE = '3858c4e5f7e96d8a53db09bc09dc3a014be7658b'
@@ -28,7 +28,7 @@ const frozen = baseTree.filter(record => frozenPath(record.path))
 test('the historical photo-forward baseline freezes everything outside the exact 2026-11-22 presentation/navigation exception list', async () => {
   assert.equal(frozen.length, 2625)
   assert.equal(sha256(JSON.stringify(frozen)), '5ca0ccae56c0a003d91c4d37e43a8f286d8fcf455527a11ddcc82d3b9c728278')
-  const stillFrozen = frozen.filter(record => !REFINEMENT_CHANGED_FILES.has(record.path))
+  const stillFrozen = frozen.filter(record => !reviewedDiscoveryFileChange(record.path))
   for (let offset = 0; offset < stillFrozen.length; offset += 32) {
     await Promise.all(stillFrozen.slice(offset, offset + 32).map(async record => {
       const path = new URL('../' + record.path, import.meta.url)
@@ -40,12 +40,11 @@ test('the historical photo-forward baseline freezes everything outside the exact
   const expected = baseTree.filter(record => protectedRoot(record.path)).map(record => record.path).sort()
   assert.equal(expected.length, 2492)
   const actual = git('ls-files', '--cached', '--others', '-z', '--', 'app/api', 'hooks', 'lib', 'public').split('\0').filter(path => path && !refinementAllowsNewMedia(path))
-  assert.deepEqual([...new Set(actual)].sort(), expected, 'Only the exact twelve authorized v3 category-media siblings may be new; no new or renamed data/API/taxonomy paths')
+  assert.deepEqual([...new Set(actual)].sort(), expected, 'Only the exact fifteen authorized versioned category-media siblings may be new; no new or renamed data/API/taxonomy paths')
 })
 
 test('the unchanged main search form and summary/presence sources retain their reviewed byte hashes', async () => {
   const files = {
-    'components/inline-discovery-summary.js': 'ab80456bd6692e129c4777ecddc61036d0085cb33e8b916d17b8129ea68cfb54',
     'components/inline-discovery-panel.js': '814c7f1d82b28b2743630c86118b7cf184995512921c4a937d922fd63342d6db',
     'app/inline-discovery-panel.css': '5982be44f3705c226a76b0ed9f260d3501b0d90ba28eec7ae038b94c45fb0b60',
   }
@@ -106,8 +105,14 @@ function summaryRules(source) {
   return found
 }
 
-test('rewriting tile CSS leaves the complete existing summary CSS cascade unchanged', async () => {
+test('the compact summary keeps the exact measured sticky/scroll-offset contract while its approved visual presentation changes', async () => {
   const before = summaryRules(git('show', BASE + ':app/inline-discovery.css'))
   assert.ok(before.length > 15, 'freeze the actual responsive, dark, sticky, focus and reduced-motion summary rules')
-  assert.deepEqual(summaryRules(await read('app/inline-discovery.css')), before)
+  const stickyRules = rules => rules.filter(rule => rule.selectors.includes('.inline-summary[data-sticky-safe="true"]'))
+  assert.deepEqual(stickyRules(summaryRules(await read('app/inline-discovery.css'))), stickyRules(before))
+  const current = await read('components/inline-discovery-summary.js')
+  const original = git('show', BASE + ':components/inline-discovery-summary.js')
+  const effect = source => source.slice(source.indexOf('  useEffect(() => {'), source.indexOf('  const parent = categoryById(category)'))
+  assert.ok(effect(original).length > 1400)
+  assert.equal(effect(current), effect(original), 'resize cleanup, reduced-height sticky safety and following-content offset behavior are not presentation changes')
 })

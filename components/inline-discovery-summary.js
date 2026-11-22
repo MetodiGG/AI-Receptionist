@@ -1,15 +1,14 @@
 'use client'
 
-import { useEffect, useId, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Icon } from './icon'
 import { categoryById } from '../lib/discovery/categories.mjs'
 import { subcategoryById } from '../lib/discovery/subcategories.mjs'
 import { orderedRailRows } from '../lib/discovery/rail.mjs'
 import { INLINE_DISCOVERY_COPY } from '../lib/discovery/inline-copy.mjs'
 
-export function InlineDiscoverySummary({ locale = 'bg', category = '', subcategory = '', result = null, loading = false, onClearCategory, onClearService, onChangeArea }) {
+export function InlineDiscoverySummary({ locale = 'bg', category = '', subcategory = '', result = null, loading = false, onClearCategory, onClearService }) {
   const language = locale === 'en' ? 'en' : 'bg', copy = INLINE_DISCOVERY_COPY[language]
-  const sortId = useId(), sortHintId = `${sortId}-hint`
   const summaryRef = useRef(null), [stickySafe, setStickySafe] = useState(false)
   useEffect(() => {
     const summary = summaryRef.current, shell = summary?.closest('.discovery-home')
@@ -43,29 +42,18 @@ export function InlineDiscoverySummary({ locale = 'bg', category = '', subcatego
   const selectedService = parent && child?.category === parent.id ? child : null
   const parentLabel = parent?.[language], serviceLabel = selectedService?.[language]
   const catalogueMode = ['catalogue', 'sofia_only'].includes(result?.externalStatus)
-  const rows = orderedRailRows(Array.isArray(result?.results) ? result.results : [], { preserveOrder: catalogueMode })
+  const rows = orderedRailRows(!result?.clarification && Array.isArray(result?.results) ? result.results : [], { preserveOrder: catalogueMode })
   // cataloguePage.total precedes native hydration/revocation checks, so it
   // cannot safely be presented as an exact final-displayable match total.
   const shown = new Intl.NumberFormat(language === 'en' ? 'en-GB' : 'bg-BG').format(rows.length)
   const nextOffset = result?.cataloguePage?.nextOffset
-  const hasMore = Number.isSafeInteger(nextOffset) && nextOffset > 0
-  const order = result?.intent ? result.intent.browse === true ? 'browse' : 'query' : 'current'
-  const orderLabel = order === 'browse' ? copy.sortBrowse : order === 'query' ? copy.sortQuery : copy.sortCurrent
+  const hasMore = !result?.clarification && Number.isSafeInteger(nextOffset) && nextOffset > 0
 
   return <section className="inline-summary" ref={summaryRef} data-sticky-safe={stickySafe ? 'true' : undefined} aria-label={copy.activeFilters} aria-busy={loading} lang={language}>
     <div className="inline-summary-filters">
       {parentLabel ? <button type="button" className="inline-summary-chip inline-summary-chip--category" onClick={onClearCategory} disabled={typeof onClearCategory !== 'function'} aria-label={`${copy.clearCategory} · ${parentLabel}`}><span className="inline-summary-chip-label">{parentLabel}</span><Icon name="close"/></button> : <span className="inline-summary-all">{copy.allCategories}</span>}
-      {serviceLabel ? <button type="button" className="inline-summary-chip inline-summary-chip--service" onClick={onClearService} disabled={typeof onClearService !== 'function'} aria-label={`${copy.clearService} · ${serviceLabel}`}><span className="inline-summary-chip-label">{serviceLabel}</span><Icon name="close"/></button> : parentLabel && <span className="inline-summary-context">{copy.all}</span>}
-      {typeof onChangeArea === 'function' && <button type="button" className="inline-summary-area" onClick={onChangeArea}><Icon name="pin"/><span>{copy.changeArea}</span></button>}
+      {serviceLabel && <span className="inline-summary-service"><span className="inline-summary-separator" aria-hidden="true"><Icon name="chevronDown"/></span><button type="button" className="inline-summary-chip inline-summary-chip--service" onClick={onClearService} disabled={typeof onClearService !== 'function'} aria-label={`${copy.clearService} · ${serviceLabel}`}><span className="inline-summary-chip-label">{serviceLabel}</span><Icon name="close"/></button></span>}
     </div>
-    <div className="inline-summary-meta">
-      <p className="inline-summary-count" role="status" aria-live="polite" aria-atomic="true">{loading ? copy.loading : result ? <><span aria-label={`${copy.count}: ${shown}`}><strong>{shown}</strong> {copy.shown}</span>{hasMore && <span className="inline-summary-more">{copy.moreAvailable}</span>}</> : copy.results}</p>
-      <div className="inline-summary-sort">
-        <label className="inline-summary-sort-label" htmlFor={sortId}>{copy.sorting}</label>
-        <select id={sortId} value={order} disabled title={copy.sortHint} aria-describedby={sortHintId}><option value={order}>{orderLabel}</option></select>
-        <span className="inline-summary-order-value" aria-hidden="true">{orderLabel}</span>
-        <span className="inline-summary-sort-hint" id={sortHintId}>{copy.sortHint}</span>
-      </div>
-    </div>
+    <p className="inline-summary-count" role="status" aria-live="polite" aria-atomic="true">{loading ? copy.loading : result ? <><span aria-label={`${copy.count}: ${shown}`}><strong>{shown}</strong> {copy.shown}</span>{hasMore && <span className="inline-summary-more">{copy.moreAvailable}</span>}</> : copy.results}</p>
   </section>
 }

@@ -70,11 +70,29 @@ test('the compact card keeps whole-word typography, contained photos, tabular pr
 
 test('polish remains scoped to public homepage cards, never main search or shared reservation forms', () => {
   for (const rule of rules) {
+    if (rule.parent.type === 'atrule' && rule.parent.name === 'keyframes') continue
     for (const selector of rule.selectors) {
       assert.ok(selector.includes('.customer-home.quick-choice .home-business-grid'), selector)
       assert.doesNotMatch(selector, /\.discovery-form|\.discovery-query|\.home-search|\.profile-redesign|\.business-details-gallery/)
     }
   }
+})
+
+test('result arrivals and action feedback are short, finite and fully disabled for reduced motion', () => {
+  const arrival = find(rule => rule.selector.includes('> li > article.home-business-card') && declarations(rule)['animation-name'])
+  assert.equal(declarations(arrival)['animation-name'], 'premium-card-arrive')
+  assert.equal(declarations(arrival)['animation-duration'], '200ms')
+  assert.equal(declarations(arrival)['animation-iteration-count'], '1')
+  const delays = rules.map(rule => declarations(rule)['--premium-card-enter-delay']).filter(Boolean).map(value => Number.parseFloat(value))
+  assert.deepEqual(delays, [30, 60, 90, 120, 150])
+  const frames = rules.filter(rule => rule.parent.type === 'atrule' && rule.parent.name === 'keyframes' && rule.parent.params === 'premium-card-arrive')
+  assert.deepEqual(frames.map(rule => declarations(rule).transform), ['translateY(6px)', 'translateY(0)'])
+  const reduced = rules.filter(rule => rule.parent.type === 'atrule' && /prefers-reduced-motion: reduce/.test(rule.parent.params))
+  assert.ok(reduced.some(rule => declarations(rule).animation === 'none'))
+  assert.ok(reduced.some(rule => declarations(rule).transition === 'none' && rule.selector.includes('.home-business-actions')))
+  assert.ok(reduced.some(rule => declarations(rule).transform === 'none' && rule.selector.includes(':is(:hover,:focus-visible,:active)')))
+  assert.doesNotMatch(css, /infinite|scroll-timeline|animation-timeline/)
+  assert.doesNotMatch(css, /home-business-booking-hint/)
 })
 
 test('the literal booking/directions action implementation and profile analytics are unchanged from the reviewed card', async () => {

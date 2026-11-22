@@ -38,10 +38,9 @@ function elements(node, predicate, found = []) {
   return found
 }
 
-test('shared inline labels preserve the full all-services phrase and both locale key sets', () => {
+test('compact inline labels preserve matching locale key sets without redundant All-services or sorting copy', () => {
   assert.deepEqual(Object.keys(copy.INLINE_DISCOVERY_COPY.bg).sort(), Object.keys(copy.INLINE_DISCOVERY_COPY.en).sort())
-  assert.equal(copy.INLINE_DISCOVERY_COPY.bg.all, 'Всички услуги в категорията')
-  assert.equal(copy.INLINE_DISCOVERY_COPY.en.all, 'All services in this category')
+  for (const locale of ['bg', 'en']) for (const key of ['all', 'changeArea', 'sorting', 'sortBrowse', 'sortQuery', 'sortCurrent', 'sortHint']) assert.equal(copy.INLINE_DISCOVERY_COPY[locale][key], undefined)
   for (const locale of ['bg', 'en']) for (const value of Object.values(copy.INLINE_DISCOVERY_COPY[locale])) assert.ok(typeof value === 'string' && value.trim())
 })
 
@@ -59,20 +58,21 @@ test('category and service are full localized removable chips with decorative ve
   }
 })
 
-test('chip callbacks only clear their selection and area callback remains independent', () => {
+test('breadcrumb callbacks only clear their own selection; the redundant area action is no longer rendered', () => {
   const called = []
   const tree = InlineDiscoverySummary({ ...props, onClearCategory: () => called.push('category'), onClearService: () => called.push('service'), onChangeArea: () => called.push('area') })
   const buttons = elements(tree, node => node.type === 'button')
-  assert.equal(buttons.length, 3)
+  assert.equal(buttons.length, 2)
   for (const button of buttons) { assert.equal(button.props.type, 'button'); button.props.onClick() }
-  assert.deepEqual(called, ['category', 'service', 'area'])
+  assert.deepEqual(called, ['category', 'service'])
 })
 
 test('unknown/mismatched selections cannot expose a false service chip or picker', () => {
   const all = render({ category: '', subcategory: '' })
   assert.match(all, /Всички категории/); assert.doesNotMatch(all, /inline-summary-chip /)
   const mismatch = render({ subcategory: 'fitness-yoga' })
-  assert.match(mismatch, /Всички услуги в категорията/)
+  assert.match(mismatch, /inline-summary-chip--category/)
+  assert.doesNotMatch(mismatch, /Всички услуги в категорията|inline-summary-context/)
   assert.doesNotMatch(mismatch, /inline-summary-chip--service|Йога/)
   const unknown = render({ category: 'not-a-category', subcategory: 'education-school' })
   assert.doesNotMatch(unknown, /inline-summary-chip /)
@@ -81,44 +81,57 @@ test('unknown/mismatched selections cannot expose a false service chip or picker
 test('counts describe only actual displayed unique rows, never an unverified catalogue total', () => {
   const html = render({ result: result({ results: [row('one'), row('one'), row('two'), { id: 'invalid', source: 'invalid' }], cataloguePage: { offset: 0, total: 999, nextOffset: 15 } }) })
   assert.match(html, /<strong>2<\/strong> показани/)
-  assert.match(html, /Има още резултати/)
+  assert.match(html, /Има още/)
   assert.doesNotMatch(html, /999|200|свободни|часа|слота/)
   const last = render({ result: result({ cataloguePage: { offset: 0, total: 999, nextOffset: null } }) })
-  assert.match(last, /<strong>2<\/strong> показани/); assert.doesNotMatch(last, /Има още резултати/)
+  assert.match(last, /<strong>2<\/strong> показани/); assert.doesNotMatch(last, /Има още/)
 })
 
 test('missing, malformed or exhausted paging metadata cannot invent more results or a total', () => {
   for (const cataloguePage of [undefined, { total: 500 }, { nextOffset: 0 }, { nextOffset: -1 }, { nextOffset: '15' }, { nextOffset: Infinity }]) {
     const html = render({ result: result({ results: [], cataloguePage }) })
     assert.match(html, /<strong>0<\/strong> показани/)
-    assert.doesNotMatch(html, /Има още резултати|500/)
+    assert.doesNotMatch(html, /Има още|500/)
   }
   assert.match(render({ locale: 'en' }), /<strong>2<\/strong> shown/)
 })
 
 test('loading hides stale counts and no-result-yet does not fabricate zero matches', () => {
   const loading = render({ loading: true })
-  assert.match(loading, /aria-busy="true"/); assert.match(loading, /Зареждаме резултатите…/)
-  assert.doesNotMatch(loading, /<strong>2|показани|Има още резултати/)
+  assert.match(loading, /aria-busy="true"/); assert.match(loading, /Зареждаме…/)
+  assert.doesNotMatch(loading, /<strong>2|показани|Има още/)
   const initial = render({ result: null })
   assert.match(initial, /Подходящи бизнеси/); assert.doesNotMatch(initial, /<strong>0/)
 })
 
-test('sort is a single disabled native option naming actual automatic order, not a page-only sort', () => {
-  for (const [intent, locale, label] of [
-    [{ browse: true }, 'bg', 'Близост и съответствие'],
-    [{ browse: true }, 'en', 'Proximity and relevance'],
-    [{ browse: false }, 'bg', 'Релевантност и разстояние'],
-    [{ service: 'yoga' }, 'en', 'Relevance and distance'],
+test('compact breadcrumbs never expose sorting, area pin or All-services context for any actual server ordering', () => {
+  for (const [intent, locale] of [
+    [{ browse: true }, 'bg'], [{ browse: true }, 'en'],
+    [{ browse: false }, 'bg'], [{ service: 'yoga' }, 'en'],
   ]) {
     const tree = InlineDiscoverySummary({ ...props, locale, result: result({ intent }) })
-    const [select] = elements(tree, node => node.type === 'select')
-    assert.equal(select.props.disabled, true); assert.equal(select.props.onChange, undefined)
-    assert.equal(select.props.children.type, 'option'); assert.equal(select.props.children.props.children, label)
-    assert.equal(select.props.title, copy.INLINE_DISCOVERY_COPY[locale].sortHint)
-    assert.equal(select.props['aria-describedby'], 'inline-summary-order-hint')
+    assert.equal(elements(tree, node => node.type === 'select').length, 0)
+    const html = renderToStaticMarkup(tree)
+    assert.doesNotMatch(html, /inline-summary-sort|inline-summary-area|inline-summary-context|inline-summary-meta|All services in this category|Всички услуги в категорията/)
+    assert.equal(elements(tree, node => node.props.className === 'inline-summary-separator')[0].props['aria-hidden'], 'true')
   }
-  assert.match(render({ result: null }), /Автоматична подредба/)
+  assert.doesNotMatch(render({ result: null }), /Автоматична подредба|<select/)
+})
+
+test('clarification replaces cards, so even a malformed payload carrying rows cannot advertise them as displayed businesses', () => {
+  for (const locale of ['bg', 'en']) for (const nextOffset of [null, 15]) {
+    const html = render({ locale, result: result({ clarification: { message: 'Choose a more specific service' }, cataloguePage: { total: 999, nextOffset } }) })
+    assert.match(html, new RegExp(`<strong>0<\\/strong> ${copy.INLINE_DISCOVERY_COPY[locale].shown}`))
+    assert.doesNotMatch(html, /<strong>2|Има още|More available|999/)
+  }
+})
+
+test('the decorative breadcrumb separator stays grouped with its service, never orphaned on a wrapped line', () => {
+  const tree = InlineDiscoverySummary({ ...props, result: result() })
+  const [group] = elements(tree, node => node.props.className === 'inline-summary-service')
+  assert.equal(elements(group, node => node.props.className === 'inline-summary-separator').length, 1)
+  assert.equal(elements(group, node => node.props.className === 'inline-summary-chip inline-summary-chip--service').length, 1)
+  assert.equal(elements(tree, node => node.props.className === 'inline-summary-separator').length, 1)
 })
 
 test('summary does not mutate server order or introduce availability requests, counts or sorting parameters', async () => {

@@ -15,9 +15,10 @@ import { bookingAction } from '../lib/booking-mode.mjs'
 import { DateTime } from 'luxon'
 import { containDialogTab } from '../lib/dialog-focus.mjs'
 import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
-import { REFINED_CATEGORY_IDS, REFINEMENT_NEW_MEDIA } from './discovery-refinement-20261122-scope.mjs'
+import { REFINED_CATEGORY_IDS, REFINEMENT_NEW_MEDIA, CAR_WASH_REFINEMENT_NEW_MEDIA } from './discovery-refinement-20261122-scope.mjs'
 
 const read = path => readFile(new URL(`../${path}`, import.meta.url), 'utf8')
+const revisedCategoryIds = new Set([...REFINED_CATEGORY_IDS, 'car_wash'])
 const origin = { latitude: 42.6627, longitude: 23.2849, consent: true }
 const business = (patch = {}) => ({ id: 'public-fixture', slug: 'public-fixture', name: 'Local Fixture', city_ekatte: '68134', neighborhood: 'Манастирски ливади', industry: 'beauty', booking_mode: 'gorez', services: [{ id: 's', name: 'Маникюр', active: true, price: 25, duration_min: 45 }], coordinates: { ...origin }, photos: [], ...patch })
 
@@ -34,16 +35,16 @@ test('every thumbnail maps exactly to an existing taxonomy id and usable BG/EN c
   for (const locale of ['bg', 'en']) for (const category of homeCategories(locale)) {
     assert.ok(category.label); assert.equal(discoveryCategorySelection('', category.id, locale).category, category.id)
     assert.ok(discoveryRequestSchema.safeParse(discoverySearchInput(discoveryCategorySelection('', category.id, locale))).success)
-    const refined = REFINED_CATEGORY_IDS.includes(category.id)
-    const version = category.id === 'other' ? 4 : refined ? 3 : 2
+    const refined = revisedCategoryIds.has(category.id)
+    const version = category.id === 'car_wash' ? 5 : category.id === 'other' ? 4 : refined ? 3 : 2
     assert.equal(category.photo, `/category-photos/${category.id}-v${version}.webp`)
     assert.equal(category.photo2x, `/category-photos/${category.id}-2x-v${version}.webp`)
-    assert.equal(category.photoLarge, refined ? `/category-photos/${category.id}-large-v3.webp` : undefined)
+    assert.equal(category.photoLarge, refined ? `/category-photos/${category.id}-large-v${version}.webp` : undefined)
     assert.equal(category.photoHeight, category.id === 'beauty' ? 360 : undefined)
     assert.equal(category.photoPosition, category.id === 'beauty' ? '50% 0%' : undefined)
   }
 })
-test('all fourteen historical owner attachments are preserved alongside only the four approved 2026-11-22 replacements', async () => {
+test('all fourteen historical owner attachments are preserved alongside the explicitly approved 2026-11-22 replacements', async () => {
   const manifest = JSON.parse(await read('docs/homepage-category-photos-2026-11-04.json'))
   const own = manifest.assets.filter(row => row.origin !== 'generated')
   assert.equal(own.length, 14); assert.equal(new Set(own.map(row => row.source)).size, 14)
@@ -53,12 +54,13 @@ test('all fourteen historical owner attachments are preserved alongside only the
   assert.equal(manifest.assets.find(row => row.id === 'fitness').source, 'D914A4EC-9A84-4943-A760-068512CDA293/8-Photo-8.jpg')
   assert.equal(manifest.assets.find(row => row.id === 'home_services').source, 'B155FE42-F514-478B-B522-304A41594CED/1-Photo-1.jpg')
   assert.equal(manifest.assets.find(row => row.id === 'health').source, 'B155FE42-F514-478B-B522-304A41594CED/3-Photo-3.jpg')
-  assert.ok((await readdir(new URL('../public/category-photos/', import.meta.url))).every(name => /-v[234]\.webp$/.test(name)))
+  const finalCarWashFiles = new Set(CAR_WASH_REFINEMENT_NEW_MEDIA.map(path => path.split('/').at(-1)))
+  assert.ok((await readdir(new URL('../public/category-photos/', import.meta.url))).every(name => /-v[234]\.webp$/.test(name) || finalCarWashFiles.has(name)), 'only the three final car-wash v5 siblings may extend historical version names')
   const other = manifest.assets.find(row => row.id === 'other')
   assert.equal(other.origin, undefined); assert.equal(other.source, 'BECF761C-5CAF-4865-95F6-C7A7D56354BD/1-Photo-1.jpg')
   assert.notEqual(other.source, manifest.assets.find(row => row.id === 'consulting').source)
 })
-test('three generated category scenes and the owner-selected real Beauty photo retain exact provenance, original ratios and compressed variants', async () => {
+test('the first three generated scenes and selected real Beauty photo retain their original provenance/ratios while the other nine mappings stay unchanged', async () => {
   const manifest = JSON.parse(await read('docs/category-photo-refinement-20261122.json'))
   assert.equal(manifest.date, '2026-11-22')
   assert.match(manifest.mode, /[Bb]uilt-in imagegen/)
@@ -102,7 +104,7 @@ test('three generated category scenes and the owner-selected real Beauty photo r
   const original = execFileSync('git', ['show', '4be84916a4e2699e00e73243208c88f5aab1aae7:lib/discovery/home.mjs'], { cwd: fileURLToPath(new URL('../', import.meta.url)), encoding: 'utf8' })
   const replaceCategoryPresentation = source => source.replace(/export function homeCategories\(locale = 'bg'\) \{[\s\S]*?\n\}/, 'CATEGORY_PRESENTATION')
   assert.equal(replaceCategoryPresentation(await read('lib/discovery/home.mjs')), replaceCategoryPresentation(original), 'category imagery cannot change home data, location, filtering, search or pricing functions')
-  for (const category of homeCategories()) if (!REFINED_CATEGORY_IDS.includes(category.id)) {
+  for (const category of homeCategories()) if (!revisedCategoryIds.has(category.id)) {
     const version = category.id === 'other' ? 4 : 2
     assert.equal(category.photo, `/category-photos/${category.id}-v${version}.webp`)
     assert.equal(category.photo2x, `/category-photos/${category.id}-2x-v${version}.webp`)

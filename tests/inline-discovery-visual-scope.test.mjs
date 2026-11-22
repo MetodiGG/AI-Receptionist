@@ -5,7 +5,7 @@ import { createHash } from 'node:crypto'
 import { execFileSync } from 'node:child_process'
 import { createRequire } from 'node:module'
 import { fileURLToPath } from 'node:url'
-import { REFINEMENT_CHANGED_FILES, REFINEMENT_NEW_MEDIA } from './discovery-refinement-20261122-scope.mjs'
+import { reviewedDiscoveryFileChange, DISCOVERY_NEW_MEDIA } from './discovery-refinement-20261122-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const baseline = 'c9e525b'
@@ -98,23 +98,11 @@ test('photo-forward captions and localized small counts retain AA over the brigh
   }
 })
 
-test('the glass All row keeps AA text/focus and its selected-only frame never highlights an unselected action', () => {
-  const base = declarations(inlineRules.find(rule => rule.selector === '.inline-service-all' && declarations(rule).color))
-  const ordinary = declarations(inlineRules.find(rule => rule.selector === '.inline-service-all' && /color-mix/.test(declarations(rule).background || '')))
-  const selected = declarations(inlineRules.find(rule => rule.selector === '.inline-service-all[aria-pressed="true"]' && /color-mix/.test(declarations(rule).background || '')))
-  assert.equal(base.color, 'var(--inline-ink)')
-  for (const [name, actual, variable, opacity] of [['ordinary', ordinary, '--inline-surface', .9], ['selected', selected, '--inline-selected', .92]]) {
-    assert.match(actual.background, new RegExp(`var\\(${variable}\\)\\s*${opacity * 100}%`))
-    for (const [theme, values] of [['light', inlineLight], ['dark', inlineDark]]) for (const backdrop of ['#000000', '#FFFFFF']) {
-      const background = composite(values[variable], backdrop, opacity)
-      readable(resolve(base.color, values), background, `${theme} ${name} glass All text over ${backdrop}`)
-      readable(values['--inline-accent'], background, `${theme} ${name} All focus over ${backdrop}`, 3)
-    }
-  }
-  const selectedFrame = inlineRules.find(rule => rule.selectors.includes('.inline-service-all[aria-pressed="true"]::after') && declarations(rule).padding === '2px')
+test('the compact menu removes the All row while retaining contrasted selected photo rings and vector checks', () => {
+  assert.ok(!inlineRules.some(rule => /\.inline-service-all\b/.test(rule.selector)), 'the removed full-width action cannot leave stale selected styling')
+  const selectedFrame = inlineRules.find(rule => rule.selectors.includes('.inline-service-tile[aria-pressed="true"]::after') && declarations(rule).padding === '2px')
   assert.ok(selectedFrame)
   assert.equal(declarations(selectedFrame).background, 'var(--inline-photo-selected-edge)')
-  assert.ok(!inlineRules.some(rule => rule.selectors.includes('.inline-service-all::after')), 'the strong frame is conditional on the same aria-pressed state as the single visible check')
   const check = declarations(inlineRules.find(rule => rule.selector === '.inline-tile-check'))
   const stops = [...check.background.matchAll(/#[\da-f]{6}\b/gi)].map(match => rgba(match[0]))
   assert.equal(stops.length, 2)
@@ -136,24 +124,22 @@ test('glass panels retain AA at both actual opacity endpoints, including conserv
   }
 })
 
-test('translucent espresso summary, chip states, secondary captions and native sort retain AA', () => {
-  const glass = inlineRules.find(rule => rule.selector === '.inline-summary' && /^#[\da-f]{8}$/i.test(declarations(rule).background || ''))
-  const glassFill = declarations(glass).background
-  assert.equal(glassFill.toUpperCase(), '#2F211BF2')
-  const chip = declarations(inlineRules.find(rule => rule.selector.includes('.inline-summary-chip,') && declarations(rule).color))
-  const service = declarations(inlineRules.find(rule => rule.selector === '.inline-summary-chip--service'))
-  const hover = declarations(inlineRules.find(rule => rule.selector.includes('.inline-summary-chip:hover')))
-  const select = declarations(inlineRules.find(rule => rule.selector === '.inline-summary-sort select'))
-  for (const backdrop of ['#000000', '#FFFFFF']) {
-    const espresso = composite(glassFill, backdrop)
-    for (const foreground of [inlineLight['--inline-on-espresso'], '#E9CBB3']) readable(foreground, espresso, `espresso text over ${backdrop}`)
-    readable(inlineLight['--inline-on-espresso'], composite(chip.background, espresso), 'translucent category/area chip')
-    readable(inlineLight['--inline-on-espresso'], composite(service.background, espresso), 'translucent service chip')
-    readable(inlineLight['--inline-on-espresso'], espresso, 'summary focus', 3)
+test('compact orange/cream breadcrumb text, real counts, selected chips and focus retain AA in both themes', () => {
+  const base = declarations(inlineRules.find(rule => rule.selector === '.inline-summary' && declarations(rule).color))
+  const chip = declarations(inlineRules.find(rule => rule.selector === '.inline-summary-chip' && declarations(rule).color))
+  const count = declarations(inlineRules.find(rule => rule.selector === '.inline-summary-count'))
+  assert.equal(base.background, 'var(--inline-summary-surface)')
+  assert.equal(base.color, 'var(--inline-summary-ink)')
+  assert.equal(chip.color, 'var(--inline-summary-ink)')
+  assert.equal(count.color, 'var(--inline-summary-ink)')
+  for (const [theme, values] of [['light', inlineLight], ['dark', inlineDark]]) {
+    for (const surface of ['--inline-summary-surface', '--inline-summary-chip', '--inline-selected', '--inline-hover']) {
+      readable(values['--inline-summary-ink'], values[surface], `${theme} compact breadcrumb text / ${surface}`)
+      readable(values['--inline-accent'], values[surface], `${theme} compact breadcrumb focus / ${surface}`, 3)
+    }
+    for (const backdrop of ['#000000', '#FFFFFF']) readable(values['--inline-summary-ink'], composite(values['--inline-summary-surface'], backdrop, .94), `${theme} compact glass over ${backdrop}`)
   }
-  readable(inlineLight['--inline-on-espresso'], hover.background, 'summary chip hover')
-  readable(select.color, select['background-color'], 'actual disabled sort label')
-  assert.equal(select.opacity, '1', 'the disabled native select must not silently fade its contrasted text')
+  assert.ok(!inlineRules.some(rule => /\.inline-summary-(?:sort|area|context|meta)\b/.test(rule.selector)), 'removed sorting and duplicate controls leave no misleading visual controls')
 })
 
 test('actual card labels, service chips and all booking gradients retain normal-text AA in both themes', () => {
@@ -227,10 +213,9 @@ test('measured-safe sticky glass and 44px controls are scoped away from the unch
   }
   const shell = declarations(inlineRules.find(rule => rule.selector === '.marketing-page.customer-home.quick-choice:has(.inline-discovery-categories)'))
   assert.equal(shell['overflow-x'], 'clip'); assert.equal(shell['overflow-y'], 'visible')
-  const chips = declarations(inlineRules.find(rule => rule.selector.includes('.inline-summary-chip,') && declarations(rule)['min-height']))
+  const chips = declarations(inlineRules.find(rule => rule.selectors.includes('.inline-summary-chip') && declarations(rule)['min-height']))
   assert.equal(chips['min-height'], '44px'); assert.equal(chips['min-width'], '44px')
-  const sort = declarations(inlineRules.find(rule => rule.selector === '.inline-summary-sort select'))
-  assert.equal(sort['min-height'], '44px')
+  assert.ok(!inlineRules.some(rule => rule.selector === '.inline-summary-sort select'), 'the removed non-functional sort is not a phantom touch target')
   // Match actual tag selectors, not the word "form" within the explicitly
   // scoped existing .outbound-booking-form class inside business actions.
   const searchSelector = /(?:^|[\s,>+~(])(?:h1|form)(?![\w-])|\.discovery-query|\.discovery-form|\.home-search|\.home-discovery-heading/
@@ -289,7 +274,7 @@ async function identicalBlobs(entries) {
 }
 
 test('historical APIs, hooks, data/taxonomy, booking/media/config/dependencies and CSS stay frozen outside the exact approved 2026-11-22 paths', async () => {
-  await identicalBlobs(baselineTree.filter(record => frozenPath(record.path) && !REFINEMENT_CHANGED_FILES.has(record.path)))
+  await identicalBlobs(baselineTree.filter(record => frozenPath(record.path) && !reviewedDiscoveryFileChange(record.path)))
   const rail = await read('lib/discovery/rail.mjs')
   assert.match(rail, /export const SERVICE_PREVIEW_LIMIT = 2/)
   assert.match(rail, /\.slice\(0, SERVICE_PREVIEW_LIMIT\)/)
@@ -311,10 +296,10 @@ test('homepage card polish preserves vector booking artwork, exact action destin
   assert.match(current, /const reserve = quickChoice\s*\? <span className="booking-button-content"><Icon name="calendar"\/><span className="booking-button-label">\{copy\.reserveAppointment\}<\/span><\/span>\s*: <BookingButtonContent>\{copy\.reserveAppointment\}<\/BookingButtonContent>/)
 })
 
-test('all historical public image bytes stay frozen; only the twelve explicitly approved v3 category siblings are added', async () => {
+test('all historical public image bytes stay frozen; only the fifteen explicitly approved versioned category siblings are added', async () => {
   const images = baselineTree.filter(record => imagePath(record.path))
   assert.equal(images.length, 1889, 'reviewed baseline public-image inventory')
   const current = execFileSync('git', ['ls-files', '--cached', '--others', '--exclude-standard', '-z', '--', 'public'], { cwd: root, encoding: 'utf8', maxBuffer: 4 * 1024 * 1024 }).split('\0').filter(imagePath)
-  assert.deepEqual([...new Set(current)].sort(), [...images.map(record => record.path), ...REFINEMENT_NEW_MEDIA].sort())
+  assert.deepEqual([...new Set(current)].sort(), [...images.map(record => record.path), ...DISCOVERY_NEW_MEDIA].sort())
   await identicalBlobs(images)
 })

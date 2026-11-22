@@ -5,6 +5,7 @@ import { createHash } from 'node:crypto'
 import { execFileSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
 import { CATALOGUE_REVALIDATION_BASE, CATALOGUE_REVALIDATION_HASHES, catalogueRevalidationAllowsFileChange } from './catalogue-revalidation-20261122-scope.mjs'
+import { sportsMobilePhotoFitAllowsFileChange } from './sports-mobile-photo-fit-scope.mjs'
 import { BOOKING_PRICE_REVIEWS } from '../lib/discovery/catalogue-data/pricing-booking-review-v1.mjs'
 import education from '../lib/discovery/catalogue-data/neighborhood-home-education-2000-006-20261113.mjs'
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
@@ -59,7 +60,7 @@ test('bounded fresh revalidation authorizes exactly six existing source/receipt/
 })
 
 test('every other production byte and path stays frozen, including images, UI, search, booking, analytics, security and config',async()=>{
-  const frozen=tree.filter(record=>!catalogueRevalidationAllowsFileChange(record.path))
+  const frozen=tree.filter(record=>!catalogueRevalidationAllowsFileChange(record.path)&&!sportsMobilePhotoFitAllowsFileChange(record.path))
   for(let offset=0;offset<frozen.length;offset+=32)await Promise.all(frozen.slice(offset,offset+32).map(async record=>{
     const path=new URL('../'+record.path,import.meta.url),bytes=record.mode==='120000'?Buffer.from(await readlink(path)):await readFile(path)
     assert.equal(createHash('sha1').update('blob '+bytes.length+'\0').update(bytes).digest('hex'),record.oid,record.path+' remains unchanged from '+CATALOGUE_REVALIDATION_BASE)

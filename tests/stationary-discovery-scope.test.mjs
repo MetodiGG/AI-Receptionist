@@ -1,4 +1,5 @@
 import { catalogueRevalidationAllowsFileChange } from './catalogue-revalidation-20261122-scope.mjs'
+import { sportsMobilePhotoFitAllowsFileChange, sportsMobilePhotoFitPriorCss } from './sports-mobile-photo-fit-scope.mjs'
 import { servicePriceCardsAllowsFileChange, servicePriceCardsAllowsNewFile } from './services-price-cards-scope.mjs'
 import test from 'node:test'
 import { PUBLIC_ENGLISH_BASE, publicEnglishAllowsFileChange, publicEnglishAllowsNewFile } from './public-english-scope.mjs'
@@ -35,7 +36,8 @@ test('stationary selection and truthful count authorization covers exactly ten r
   ].sort())
   assert.deepEqual(Object.keys(STATIONARY_DISCOVERY_NEW_HASHES), ['scripts/inventory-public-english.mjs'])
   for (const [path, hash] of Object.entries({ ...STATIONARY_DISCOVERY_HASHES, ...STATIONARY_DISCOVERY_NEW_HASHES })) {
-    assert.equal(sha256(publicEnglishAllowsFileChange(path) ? git('show', PUBLIC_ENGLISH_BASE + ':' + path) : await read(path)), hash, path + ': further edits require a new focused review, not a refreshed baseline')
+    const source = publicEnglishAllowsFileChange(path) ? git('show', PUBLIC_ENGLISH_BASE + ':' + path) : await read(path)
+    assert.equal(sha256(path === 'app/inline-discovery.css' ? sportsMobilePhotoFitPriorCss(source) : source), hash, path + ': further edits require a new focused review, not a refreshed baseline')
   }
   for (const path of ['package.json', 'pnpm-lock.yaml', 'next.config.mjs', 'lib/discovery/subcategories.mjs', 'lib/discovery/sofia-catalogue.mjs', 'components/discovery-search.js', 'public/category-photos/beauty-v3.webp']) {
     assert.equal(stationaryDiscoveryAllowsFileChange(path), false, path)
@@ -45,7 +47,7 @@ test('stationary selection and truthful count authorization covers exactly ten r
 })
 
 test('every other production path, original image, taxonomy/data record, main search, booking and analytics byte stays frozen to the approved Next security commit', async () => {
-  const frozen = tree.filter(record => !stationaryDiscoveryAllowsFileChange(record.path) && !publicActionAllowsFileChange(record.path) && !publicEnglishAllowsFileChange(record.path) && !servicePriceCardsAllowsFileChange(record.path) && !catalogueRevalidationAllowsFileChange(record.path))
+  const frozen = tree.filter(record => !stationaryDiscoveryAllowsFileChange(record.path) && !publicActionAllowsFileChange(record.path) && !publicEnglishAllowsFileChange(record.path) && !servicePriceCardsAllowsFileChange(record.path) && !catalogueRevalidationAllowsFileChange(record.path) && !sportsMobilePhotoFitAllowsFileChange(record.path))
   for (let offset = 0; offset < frozen.length; offset += 32) await Promise.all(frozen.slice(offset, offset + 32).map(async record => {
     const path = new URL('../' + record.path, import.meta.url)
     const bytes = record.mode === '120000' ? Buffer.from(await readlink(path)) : await readFile(path)
@@ -96,7 +98,7 @@ function canonical(node) {
   return { type: node.type, value: node.toString() }
 }
 test('CSS changes only summary presentation/normal-flow clearance, the removed inline parent control and centered discovery headings', async () => {
-  assert.deepEqual(canonical(parse(await read('app/inline-discovery.css'))), canonical(parse(before('app/inline-discovery.css'))))
+  assert.deepEqual(canonical(parse(sportsMobilePhotoFitPriorCss(await read('app/inline-discovery.css')))), canonical(parse(before('app/inline-discovery.css'))))
 })
 
 test('the exact-count API adds only a server freshness option; autocomplete, rich hydration, source fields and cursor semantics remain bounded and unchanged', async () => {

@@ -1,6 +1,6 @@
 import { getSupabaseAdmin } from '../lib/supabase-admin'
 import { localizedUrl, languageAlternates } from '../lib/seo.mjs'
-import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { PUBLIC_CATALOGUE } from '../lib/discovery/public-catalogue.mjs'
 import { catalogueProfileSitemapEntries } from '../lib/catalogue-profile.mjs'
 export const dynamic='force-dynamic'
 export default async function sitemap() {
@@ -13,5 +13,5 @@ export default async function sitemap() {
     partners.push(...(data||[]))
     if(!data||data.length<500)break
   }
-  return [...paths.flatMap(path=>['bg','en'].map(locale=>({url:localizedUrl(path,locale),alternates:{languages:languageAlternates(path).languages}}))), ...catalogueProfileSitemapEntries(SOFIA_CATALOGUE,Date.now(),{partners})]
+  return [...paths.flatMap(path=>['bg','en'].map(locale=>({url:localizedUrl(path,locale),alternates:{languages:languageAlternates(path).languages}}))), ...catalogueProfileSitemapEntries(PUBLIC_CATALOGUE,Date.now(),{partners})]
 }

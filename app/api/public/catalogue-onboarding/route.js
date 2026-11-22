@@ -1,14 +1,14 @@
 import 'server-only'
 
 import { createHash } from 'node:crypto'
-import { SOFIA_CATALOGUE } from '../../../../lib/discovery/sofia-catalogue.mjs'
+import { PUBLIC_CATALOGUE } from '../../../../lib/discovery/public-catalogue.mjs'
 import { createCatalogueOnboardingHandler, createCatalogueOnboardingRateLimiter } from '../../../../lib/catalogue-onboarding.mjs'
 
 export const runtime = 'nodejs'
 
 const consumeAttempt = createCatalogueOnboardingRateLimiter()
 const lookup = createCatalogueOnboardingHandler({
-  catalogue: SOFIA_CATALOGUE,
+  catalogue: PUBLIC_CATALOGUE,
   development: process.env.NODE_ENV === 'development',
   allowAttempt(request) {
     const address = (request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || request.headers.get('x-real-ip') || 'unknown').slice(0, 200)

@@ -5,12 +5,12 @@ import { buildPublicEnglishInventory } from './inventory-public-english.mjs'
 import { auditEnglishInventory } from '../lib/locale/english-coverage.mjs'
 
 export async function checkPublicEnglish({ scope = 'public', checkedOn = new Date().toISOString().slice(0, 10) } = {}) {
-  const [{ SOFIA_CATALOGUE }, { SERVICE_SUGGESTION_DATA }, snapshot, dictionary] = await Promise.all([
-    import('../lib/discovery/sofia-catalogue.mjs'), import('../lib/service-suggestion-data.mjs'),
+  const [{ PUBLIC_CATALOGUE }, { SERVICE_SUGGESTION_DATA }, snapshot, dictionary] = await Promise.all([
+    import('../lib/discovery/public-catalogue.mjs'), import('../lib/service-suggestion-data.mjs'),
     readFile(new URL('../tests/fixtures/guided-public-partners-20261121.json', import.meta.url), 'utf8').then(JSON.parse),
     readFile(new URL('../lib/locale/service-english.json', import.meta.url), 'utf8').then(JSON.parse),
   ])
-  const inventory = buildPublicEnglishInventory({ catalogue: SOFIA_CATALOGUE, partners: snapshot.businesses, suggestions: SERVICE_SUGGESTION_DATA, checkedOn, scope })
+  const inventory = buildPublicEnglishInventory({ catalogue: PUBLIC_CATALOGUE, partners: snapshot.businesses, suggestions: SERVICE_SUGGESTION_DATA, checkedOn, scope })
   return { checkedOn, scope, ...auditEnglishInventory(inventory, dictionary) }
 }
 

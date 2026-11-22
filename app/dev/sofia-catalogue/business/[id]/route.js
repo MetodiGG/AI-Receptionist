@@ -1,5 +1,5 @@
 import { discoveryConfig } from '../../../../../lib/discovery/config.mjs'
-import { SOFIA_CATALOGUE } from '../../../../../lib/discovery/sofia-catalogue.mjs'
+import { findPublicCatalogueEntry } from '../../../../../lib/discovery/public-catalogue.mjs'
 import { createPublicBusinessDetailsHandler } from '../../../../../lib/discovery/public-details.mjs'
 
 // Local read-only fixture. No database, owner/customer data, paid providers,
@@ -9,6 +9,6 @@ export async function GET(request, { params }) {
   const { id } = await params
   return createPublicBusinessDetailsHandler({
     config: { enabled: true, environment: 'development' }, allowAttempt: async () => true,
-    findCatalogue: async value => SOFIA_CATALOGUE.find(row => row.id === value), readCataloguePhotos: async () => [], readPartner: async () => null,
+    findCatalogue: findPublicCatalogueEntry, readCataloguePhotos: async () => [], readPartner: async () => null,
   })(request, id)
 }

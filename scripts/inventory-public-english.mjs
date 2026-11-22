@@ -139,11 +139,11 @@ async function main(args) {
     } else throw Error('Unknown option: ' + arg)
   }
   if (!options.output) throw Error('Use --output /absolute/path/outside/project/inventory.json [--checked-on YYYY-MM-DD] [--scope public|all] [--overwrite]')
-  const [{ SOFIA_CATALOGUE }, { SERVICE_SUGGESTION_DATA }, snapshot] = await Promise.all([
-    import('../lib/discovery/sofia-catalogue.mjs'), import('../lib/service-suggestion-data.mjs'),
+  const [{ PUBLIC_CATALOGUE }, { SERVICE_SUGGESTION_DATA }, snapshot] = await Promise.all([
+    import('../lib/discovery/public-catalogue.mjs'), import('../lib/service-suggestion-data.mjs'),
     readFile(new URL('../tests/fixtures/guided-public-partners-20261121.json', import.meta.url), 'utf8').then(JSON.parse),
   ])
-  const inventory = buildPublicEnglishInventory({ catalogue: SOFIA_CATALOGUE, partners: snapshot.businesses,
+  const inventory = buildPublicEnglishInventory({ catalogue: PUBLIC_CATALOGUE, partners: snapshot.businesses,
     suggestions: SERVICE_SUGGESTION_DATA, checkedOn: options['checked-on'] || new Date().toISOString().slice(0, 10), scope: options.scope || 'public' })
   await writePublicEnglishInventory(options.output, inventory, options)
   process.stdout.write(JSON.stringify({ output: resolve(options.output), checkedOn: inventory.checkedOn, scope: inventory.scope, sourceCounts: inventory.sourceCounts, totals: inventory.totals }, null, 2) + '\n')

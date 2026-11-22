@@ -1,0 +1,43 @@
+{
+  "checkedOn": "2026-11-22",
+  "status": "local_prepared_not_published",
+  "id": "lom-gpoint-slavyanska51",
+  "website": "https://gpoint.bg/",
+  "bookingUrl": "https://gpoint.bg/запазване-час",
+  "selectedBranch": "Лом · ул. Славянска №51",
+  "workflow": "Actual owner booking UI6.10.111: expand Lom location card, choose its location, verify selected Lom header, then independently read women and men menus. An initial Kozloduy hover preview was rejected and never imported. No booking or customer input was submitted.",
+  "inventoryIdentity": "20d8c0ded62047f53307fd09eada153c226bc4897adf57d61fc1bd0a15b67a4c",
+  "pricing": {
+    "currency": "EUR",
+    "kind": "fixed",
+    "unit": "процедура",
+    "condition": "Current discounted price applies only when booking online. Crossed-out old prices, empty-basket zero and the separate100% bonus-credit campaign are not procedure fees or deductions.",
+    "internalReviewBy": "2026-11-29",
+    "deadlineMeaning": "Internal seven-day recheck, not an owner-published promotion end date.",
+    "rowFormat": ["zone", "currentEUR", "publishedMinutes"],
+    "women": [
+      ["Цяло лице",30,20],["Гърди",24,15],["1/2 корем",24,10],["Ръце",28,20],["1/2 ръце",19,15],["Мишници",19,10],
+      ["Пълен интим",24,15],["Цели крака",45,40],["Шия",13,5],["Врат",13,5],["Корем – лента",13,5],["Гръб",32,15],
+      ["Кръст",27,10],["Седалище",24,10],["Горна устна",13,10],["Брадичка",13,5],["Бакенбарди",11,5],["Скули",11,5],
+      ["Бедра",27,20],["Подбедрици",27,20],["Ареоли",13,5],["Бикини",19,15],["Уши",13,5],["Корем",32,15]
+    ],
+    "men": [
+      ["Гръб",54,40],["Рамене",25,10],["Мишници",22,10],["Гърди",35,15],["Корем",35,15],["Кръст",35,10],["Седалище",35,10],
+      ["Ръце",41,30],["1/2 ръце",25,15],["Бедра",49,30],["Подбедрици",41,20],["Крака - бедра, подбедрици",76,60],
+      ["Шия",17,5],["Врат",17,5],["Уши",15,5],["Скули",18,5],["Цяло лице",41,25]
+    ],
+    "review": "All41 actual Lom rows reviewed independently; no branch prices or durations transferred from Sofia. The Lom menu has no male intimate service, so none is added. Owner homepage independently confirms online-only discount eligibility."
+  },
+  "location": {
+    "address": "Лом, ул. Славянска 51",
+    "ownerAddressHref": "https://g.page/r/CaHtrtOkgjNxEBM",
+    "coordinates": null,
+    "quarter": null,
+    "note": "Owner address and its actual map link inspected. No explicit numeric business marker was present in the link; no Google request, Places API or geocoder used. City/viewport centres are never business points."
+  },
+  "openingHours": null,
+  "phone": null,
+  "availableSlots": [],
+  "screenshot": "artifacts/lom-brusartsi-catalogue-20261122/gpoint-lom-menu.jpg",
+  "safety": "Read-only public research. No checkbox, appointment date/time, customer details, consent, payment, call, notification or form submission. No production writes."
+}

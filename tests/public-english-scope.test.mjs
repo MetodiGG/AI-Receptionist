@@ -1,3 +1,4 @@
+import { catalogueRevalidationAllowsFileChange } from './catalogue-revalidation-20261122-scope.mjs'
 import { servicePriceCardsAllowsFileChange, servicePriceCardsAllowsNewFile } from './services-price-cards-scope.mjs'
 import test from 'node:test'
 import assert from 'node:assert/strict'
@@ -17,7 +18,7 @@ const tree = git('ls-tree', '-r', '-z', PUBLIC_ENGLISH_BASE).split('\0').filter(
 
 test('English display follows its own exact reviewed byte inventory; historical scopes, raw catalogue, taxonomy, prices, media, booking engines and config remain frozen', async () => {
   for (const [path, hash] of Object.entries({ ...PUBLIC_ENGLISH_HASHES, ...PUBLIC_ENGLISH_NEW_HASHES })) {
-    if (servicePriceCardsAllowsFileChange(path)) continue
+    if (servicePriceCardsAllowsFileChange(path) || catalogueRevalidationAllowsFileChange(path)) continue
     assert.equal(createHash('sha256').update(await read(path)).digest('hex'), hash, path + ': later edits need a separate review')
   }
   for (const path of ['lib/discovery/sofia-catalogue.mjs', 'lib/discovery/subcategories.mjs', 'lib/discovery/rail.mjs', 'lib/booking-mode.mjs', 'lib/booking-engine.mjs', 'lib/product-events-client.js', 'app/api/public/discovery/route.js', 'components/public-action.js', 'package.json', 'pnpm-lock.yaml', 'next.config.mjs', 'public/category-photos/beauty-v3.webp']) {
@@ -27,7 +28,7 @@ test('English display follows its own exact reviewed byte inventory; historical 
   for (const path of ['tests/discovery-refinement-20261122-scope.mjs', 'tests/next-security-upgrade-scope.mjs', 'tests/stationary-discovery-scope.mjs', 'tests/public-action-scope.mjs']) {
     assert.equal(await read(path), git('show', PUBLIC_ENGLISH_BASE + ':' + path), path + ': do not expand old authorizations')
   }
-  const frozen = tree.filter(record => !publicEnglishAllowsFileChange(record.path) && !servicePriceCardsAllowsFileChange(record.path))
+  const frozen = tree.filter(record => !publicEnglishAllowsFileChange(record.path) && !servicePriceCardsAllowsFileChange(record.path) && !catalogueRevalidationAllowsFileChange(record.path))
   for (let offset = 0; offset < frozen.length; offset += 32) await Promise.all(frozen.slice(offset, offset + 32).map(async record => {
     const path = new URL('../' + record.path, import.meta.url)
     const bytes = record.mode === '120000' ? Buffer.from(await readlink(path)) : await readFile(path)

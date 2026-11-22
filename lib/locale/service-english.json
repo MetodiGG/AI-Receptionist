@@ -14,6 +14,20 @@
       "modelArchiveSha256": "a9fbf8de9f41d2bf8a37d3b9c56ed17553b95ba4d30a81462003ef88b05aea55",
       "draftSha256": "5da2fcc4cf23b006686aba3f5f3d9af326cf3bad563ee2e8b927044870c62cfc"
     },
+    "manualRevalidations": [
+      {
+        "checkedOn": "2026-11-22",
+        "businessId": "sofia-artizba-cherni-vrah33e",
+        "recordIdentity": "5dd83d0c7cc54943eefa8a4b198599ab6393b684cbcc810869cfa71a5a807c1c",
+        "reason": "Exact-source manual English additions for the verified replacement of the expired 18 November event. Historical cache keys and original snapshot/review metadata are retained.",
+        "entriesAdded": {
+          "names": 1,
+          "descriptions": 1,
+          "units": 1
+        },
+        "certifiedHumanTranslation": false
+      }
+    ],
     "sourceInventorySha256": "3dc68153b6dbd333d0990cf3c7658bb4e0235f79d7d1e8081cfc226034bab456",
     "sourceFingerprints": {
       "catalogue": "237a63e64802b46c95c032feb4993295357efac40e82f09950be3228fd563295",
@@ -21,9 +35,9 @@
       "suggestionPairs": "7cc072a02e5afc3310abd0fe61556bde065bd7bc34c39559d82d951cdb9f5760"
     },
     "counts": {
-      "names": 6040,
-      "descriptions": 1790,
-      "units": 660,
+      "names": 6041,
+      "descriptions": 1791,
+      "units": 661,
       "contextualNames": 335
     },
     "review": {
@@ -4846,6 +4860,7 @@
     "Рисуване за деца · единично групово занятие": "Drawing for children · single group class",
     "Рисуване за деца · месечен пакет 4 занятия": "Drawing for children · monthly package 4 Classes",
     "Рисуване и вино „Есенна кошница“ · 18.11.2026": "Painting and wine „Autumn Basket“ · 18.11.2026",
+    "Рисуване и вино „Планинско езеро“ · 26.11.2026": "Painting and wine “Mountain Lake” · 26.11.2026",
     "Рисуване и вино „Замръзналата гора“ · 29.12.2026": "Painting and wine „The frozen forest“ · 29.12.2026",
     "Рисуване и керамика · деца 3–6 г.": "Painting and ceramics · children 3–6 years",
     "Рисуване и керамика · деца 7–11 г.": "Painting and ceramics · children 7–11 years",
@@ -6332,6 +6347,7 @@
     "Групово обучение по салса L.A. style и бачата, след записване със школата. Редовната такса е за едно посещение, не за пакет или наем на залата. Денят и приемът в групата се потвърждават при уговарянето.": "Group Salsa Training L.A. style and bachata, after enrollment with the school. The regular fee is for one visit, not for a package or rent of the hall. The day and the reception in the group are confirmed upon arrangement.",
     "Групово рисуване (6–12 деца) за ученици от 1. до 6. клас, само с предварителна резервация. Занятието е два астрономически часа. Децата използват собствени скицник и акварелни бои; допълнителните материали за нови техники се осигуряват за групата.": "Group drawing class for 6–12 children in grades 1 to 6, by advance booking only. The class lasts two full clock hours. Children use their own sketchbook and watercolour paints; additional materials for new techniques are provided for the group.",
     "Групово рисуване с художник на 18.11.2026 от 18:45. Включени материали, вино и вода или сок за непълнолетни. Публикувана стандартна цена за участник, без изчисляване на онлайн отстъпка. Провежда се при минимум 6 души; отказ повече от 48 ч. предварително по условията.": "Group painting with an artist on 18.11.2026 from 18:45. Materials, wine and water included, or juice for minors. Published standard price per participant, without calculating an online discount. Requires at least 6 participants; cancellation more than 48 hours in advance under the conditions.",
+    "Групово рисуване с художник на 26.11.2026, 18:45. Материали, вино и вода или сок за непълнолетни са включени. Стандартна цена за участник; сайтът обявява 15% отстъпка при онлайн плащане, тук не е приспадната. Минимум 6 души. Отказ повече от 48 ч. предварително по условията.": "Group painting with an artist on 26.11.2026 at 18:45. Materials, wine and water, or juice for minors, are included. Standard price per participant; the website advertises a 15% discount for online payment, not deducted here. Minimum 6 people. Cancellation more than 48 hours in advance is subject to the terms.",
     "Групово рисуване с художник на 29.12.2026 от 18:45. Включени материали и чаша вино; алкохол само за 18+. Мястото се потвърждава след приемане и плащане, при телефонна уговорка — писмено съгласие. Пренасрочване поне 48 ч. предварително; минимум 10 участници.": "Group painting with an artist on 29.12.2026 from 18:45. Materials and a glass of wine included; alcohol for ages 18+ only. A place is confirmed after acceptance and payment; telephone arrangements require written agreement. Reschedule at least 48 hours in advance; minimum 10 participants.",
     "Гърди, корем, крака, ръце, подмишници и гръб.": "Chest, abdomen, legs, arms, armpits and back.",
     "Дамско подстригване с измиване на къса коса. По условието на салона цената може да е различна според гъстотата на косата и използваните продукти; уточнява се при записване.": "Women's haircut with washing short hair. On the condition of the salon, the price may vary according to the density of hair and the products used; to be specified when recording.",
@@ -8508,6 +8524,7 @@
     "участник · едно работно място · 60 минути": "per participant · one workstation · 60 minutes",
     "участник · клас по керамика": "per participant · ceramics class",
     "участник · събитие на 18.11.2026 от 18:45": "per participant · event on 18.11.2026 at 18:45",
+    "участник · събитие на 26.11.2026 от 18:45": "participant · event on 26.11.2026 at 18:45",
     "участник · събитие на 29.12.2026 от 18:45": "per participant · event on 29.12.2026 at 18:45",
     "учебен час": "academic hour",
     "учебен час (40 мин)": "academic hour (40 min)",

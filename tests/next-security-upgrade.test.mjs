@@ -1,3 +1,4 @@
+import { catalogueRevalidationAllowsFileChange } from './catalogue-revalidation-20261122-scope.mjs'
 import { servicePriceCardsAllowsFileChange, servicePriceCardsAllowsNewFile } from './services-price-cards-scope.mjs'
 import test from 'node:test'
 import { publicEnglishAllowsFileChange, publicEnglishAllowsNewFile, publicEnglishSearchSource } from './public-english-scope.mjs'
@@ -104,12 +105,12 @@ const tree = git('ls-tree', '-r', '-z', NEXT_SECURITY_UPGRADE_BASE).split('\0').
 }).filter(record => record.type === 'blob' && productionPath(record.path))
 
 test('every other production byte and path stays frozen to the last approved UI commit; no APIs, business data, prices, images, analytics or booking code changes', async () => {
-  const frozen = tree.filter(record => !nextSecurityUpgradeAllowsFileChange(record.path) && !stationaryDiscoveryAllowsFileChange(record.path) && !publicActionAllowsFileChange(record.path) && !publicEnglishAllowsFileChange(record.path) && !servicePriceCardsAllowsFileChange(record.path))
+  const frozen = tree.filter(record => !nextSecurityUpgradeAllowsFileChange(record.path) && !stationaryDiscoveryAllowsFileChange(record.path) && !publicActionAllowsFileChange(record.path) && !publicEnglishAllowsFileChange(record.path) && !servicePriceCardsAllowsFileChange(record.path) && !catalogueRevalidationAllowsFileChange(record.path))
   for (let offset = 0; offset < frozen.length; offset += 32) await Promise.all(frozen.slice(offset, offset + 32).map(async record => {
     const path = new URL('../' + record.path, import.meta.url)
     const bytes = record.mode === '120000' ? Buffer.from(await readlink(path)) : await readFile(path)
     assert.equal(createHash('sha1').update('blob ' + bytes.length + '\0').update(bytes).digest('hex'), record.oid, record.path + ' remains unchanged from ' + NEXT_SECURITY_UPGRADE_BASE)
   }))
-  const current = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => path && productionPath(path) && !(publicActionAllowsNewFile(path) || path === 'components/public-action.module.css' && publicEnglishAllowsFileChange(path)) && !publicEnglishAllowsNewFile(path) && !servicePriceCardsAllowsNewFile(path) && !(stationaryDiscoveryAllowsNewFile(path) || path === 'scripts/inventory-public-english.mjs' && publicEnglishAllowsFileChange(path)))
+  const current = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => path && productionPath(path) && !(publicActionAllowsNewFile(path) || path === 'components/public-action.module.css' && publicEnglishAllowsFileChange(path)) && !publicEnglishAllowsNewFile(path) && !(path === 'lib/locale/service-english.json' && catalogueRevalidationAllowsFileChange(path)) && !servicePriceCardsAllowsNewFile(path) && !(stationaryDiscoveryAllowsNewFile(path) || path === 'scripts/inventory-public-english.mjs' && publicEnglishAllowsFileChange(path)))
   assert.deepEqual([...new Set(current)].sort(), tree.map(record => record.path).sort(), 'the security upgrade adds no new production paths')
 })

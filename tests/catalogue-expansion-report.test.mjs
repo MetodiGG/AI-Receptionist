@@ -1,11 +1,20 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
+import { execFileSync } from 'node:child_process'
 import { catalogueExpansionReport, reportBusinessType, reportLocationCoverage } from '../scripts/catalogue-expansion-report.mjs'
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 import { NEIGHBORHOOD_20261111_RECORDS } from '../lib/discovery/catalogue-data/neighborhood-expansion-20261111.mjs'
 import { readFile } from 'node:fs/promises'
 import approvedGrowthLocations from '../public/catalogue-official-address-growth-subset-20261113.json' with { type: 'json' }
 import approved2000Locations from '../public/catalogue-official-address-2000-subset-20261113.json' with { type: 'json' }
+
+const revalidatedIds = new Set(['sofia-svetlinki-sheynovo13a', 'sofia-artizba-cherni-vrah33e'])
+const oldEducationText = execFileSync('git', ['show', 'b8dcdf4:lib/discovery/catalogue-data/neighborhood-home-education-2000-006-20261113.mjs'], { cwd: new URL('..', import.meta.url), encoding: 'utf8' })
+const oldEducation = (await import('data:text/javascript;base64,' + Buffer.from(oldEducationText).toString('base64'))).default.records
+// Preserve the November 14 source cohort; do not push the historical report
+// forward or inject November 22 reviews into a prior-date availability count.
+const historicalCatalogue = SOFIA_CATALOGUE.map(row => revalidatedIds.has(row.id)
+  ? { ...oldEducation.find(item => item.id === row.id), coordinates: row.coordinates } : row)
 
 test('report distinguishes real specialties without mutating underlying categories or inventing qualifications', () => {
   assert.equal(reportBusinessType({ name: 'Частна практика', category: 'other', services: [{ name: 'Психологична консултация' }] }), 'Психология и психотерапия')
@@ -64,7 +73,7 @@ test('official points count as located separately from owner and OSM metadata, w
     firstPartyPoints: 1, reviewedOsmAddressPoints: 1, officialSofiaAddressPoints: 1,
   })
   assert.equal(JSON.stringify([official, owner, osm, mobile, unknown, moved]), before)
-  const current = catalogueExpansionReport(SOFIA_CATALOGUE, { now: Date.parse('2026-11-14T12:00:00Z') })
+  const current = catalogueExpansionReport(historicalCatalogue, { now: Date.parse('2026-11-14T12:00:00Z') })
   assert.equal(current.locations.officialSofiaAddressPoints, 366 + approvedGrowthLocations.pointCount + approved2000Locations.pointCount)
   assert.equal(current.locations.firstPartyPoints + current.locations.reviewedOsmAddressPoints + current.locations.officialSofiaAddressPoints, current.locations.located)
   assert.equal(current.locations.located + current.locations.unlocatedPremises + current.locations.serviceAreaProviders, current.currentlyEligible)

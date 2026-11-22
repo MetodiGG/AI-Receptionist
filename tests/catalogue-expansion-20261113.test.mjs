@@ -1,8 +1,10 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
-import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
-import { NEIGHBORHOOD_20261113_RECORDS as additions, NEIGHBORHOOD_20261113_REVIEWS as reviews } from '../lib/discovery/catalogue-data/neighborhood-expansion-20261113.mjs'
+import { execFileSync } from 'node:child_process'
+import { fileURLToPath } from 'node:url'
+import { SOFIA_CATALOGUE as currentCatalogue } from '../lib/discovery/sofia-catalogue.mjs'
+import { NEIGHBORHOOD_20261113_RECORDS as currentAdditions, NEIGHBORHOOD_20261113_REVIEWS as currentReviews } from '../lib/discovery/catalogue-data/neighborhood-expansion-20261113.mjs'
 import { approvedCatalogueRecord, validateCatalogue } from '../lib/discovery/catalogue-policy.mjs'
 import { auditCatalogueBatch } from '../lib/discovery/catalogue-audit.mjs'
 import { assessPricingReview } from '../lib/discovery/catalogue-pricing-review.mjs'
@@ -18,8 +20,23 @@ import { discoverySearchInput } from '../lib/discovery/search-ui.mjs'
 import approvedGrowthLocations from '../public/catalogue-official-address-growth-subset-20261113.json' with { type: 'json' }
 import approved2000Locations from '../public/catalogue-official-address-2000-subset-20261113.json' with { type: 'json' }
 
-// Current aggregate now includes genuinely reviewed14Nov sources; historical batch clocks remain unchanged.
+// Preserve this dated Nov14 cohort. Only the two later revalidated records are
+// reconstructed from the exact prior commit; current Nov22 behavior is tested
+// separately below. Never globally redate old sources or skip their coverage.
 const now = Date.parse('2026-11-14T12:00:00Z')
+const refreshedNow = Date.parse('2026-11-22T12:00:00Z')
+const refreshedIds = new Set(['sofia-artizba-cherni-vrah33e', 'sofia-svetlinki-sheynovo13a'])
+const root = fileURLToPath(new URL('../', import.meta.url))
+const historicalSource = path => execFileSync('git', ['show', 'b8dcdf4315ee795904290ebd6463d4383a9fa42c:' + path], { cwd: root, encoding: 'utf8', maxBuffer: 1024 * 1024 })
+const previousEducation = (await import('data:text/javascript;base64,' + Buffer.from(historicalSource('lib/discovery/catalogue-data/neighborhood-home-education-2000-006-20261113.mjs')).toString('base64'))).default
+const previousIdentities = JSON.parse(historicalSource('lib/discovery/catalogue-data/neighborhood-reviewed-identities-20261113.json'))
+const oldRows = new Map(previousEducation.records.filter(row => refreshedIds.has(row.id)).map(row => [row.id, row]))
+const oldReviews = new Map(previousEducation.reviews.filter(row => refreshedIds.has(row.id)).map(row => [row.id, { ...row, inventoryIdentity: previousIdentities[row.id] }]))
+assert.equal(oldRows.size, 2)
+assert.equal(oldReviews.size, 2)
+const additions = currentAdditions.map(row => oldRows.get(row.id) || row)
+const reviews = currentReviews.map(row => oldReviews.get(row.id) || row)
+const SOFIA_CATALOGUE = currentCatalogue.map(row => oldRows.has(row.id) ? validateCatalogue([{ ...oldRows.get(row.id), coordinates: row.coordinates }])[0] : row)
 const ids = new Set(additions.map(row => row.id))
 const baseline = JSON.parse(await readFile(new URL('../docs/catalogue-pricing/expansion-baseline-20261113.json', import.meta.url)))
 
@@ -192,4 +209,45 @@ test('reporting distinguishes selected psychology visits in mixed practices from
     assert.equal(reportBusinessType(additions.find(row => row.id === id)), 'Психология и психотерапия')
   }
   assert.equal(reportBusinessType(additions.find(row => row.id === 'sofia-stimul-psychiatry-pimen-zografski38')), 'Психиатрия')
+})
+
+test('the two freshly revalidated records retain complete Nov22 coverage and cannot appear before their actual checked date', async () => {
+  const forbidden = () => assert.fail('No external provider, booking, database mutation or paid lookup')
+  const deps = { now: DateTime.fromMillis(refreshedNow), config: discoveryConfig({ DISCOVERY_ENABLED: 'true' }),
+    readInternal: async () => [], readCatalogue: async () => currentCatalogue,
+    fetcher: forbidden, claimBudget: forbidden, getBusiness: forbidden, getSlots: forbidden }
+  const freshHandler = createCatalogueOnboardingHandler({ catalogue: currentCatalogue, now: () => refreshedNow, allowAttempt: () => true })
+  const historicalHandler = createCatalogueOnboardingHandler({ catalogue: currentCatalogue, now: () => now, allowAttempt: () => true })
+  for (const id of refreshedIds) {
+    const row = currentAdditions.find(item => item.id === id), current = currentCatalogue.find(item => item.id === id)
+    assert.ok(row && current, id)
+    assert.equal(row.verification.checkedOn, '2026-11-22')
+    assert.equal(approvedCatalogueRecord(current, now), null, id + ': a new review is not backdated')
+    assert.ok(approvedCatalogueRecord(current, refreshedNow), id)
+    assert.equal(searchCatalogueForOnboarding(currentCatalogue, { query: row.name, cityCode: '68134' }, { now }).some(item => item.id === id), false)
+    assert.ok(searchCatalogueForOnboarding(currentCatalogue, { query: row.name, cityCode: '68134' }, { now: refreshedNow }).some(item => item.id === id))
+    const input = new Request('https://www.gorez.co/api/public/catalogue-onboarding?id=' + id + '&city=68134')
+    assert.equal((await historicalHandler(input)).status, 404, id)
+    const response = await freshHandler(input)
+    assert.equal(response.status, 200, id)
+    const draft = await response.json()
+    assert.deepEqual(draft.services.map(service => service.name), row.services.map(service => service.name))
+    assert.deepEqual(draft.services.map(service => service.price), row.services.map(service => String(service.price.amount)))
+    const review = currentReviews.find(item => item.id === id)
+    assert.equal(assessPricingReview(current, review, refreshedNow).state, 'reviewed', id)
+    assert.ok(!normalizeCatalogueBusinesses(currentCatalogue, { cityCode: '68134', category: row.category, browse: true, searchV2: true }, { now }).some(item => item.id === id))
+    const publicRows = normalizeCatalogueBusinesses(currentCatalogue, { cityCode: '68134', category: row.category, browse: true, searchV2: true }, { now: refreshedNow })
+    const found = publicRows.find(item => item.id === id)
+    assert.ok(found, id)
+    assert.deepEqual(found.details.services.map(service => service.name), row.services.map(service => service.name))
+    assert.equal(found.availability.status, 'external')
+    assert.deepEqual(found.availability.slots, [])
+    const result = await discoverBusinesses({ query: row.name, cityCode: '68134' }, deps)
+    assert.equal(result.clarification, null, row.name)
+    assert.ok(result.results.some(item => item.id === id), id)
+    const historical = await discoverBusinesses({ query: row.name, cityCode: '68134' }, { ...deps, now: DateTime.fromMillis(now) })
+    assert.ok(!historical.results.some(item => item.id === id), id)
+  }
+  assert.equal(currentAdditions.length, additions.length)
+  assert.equal(currentAdditions.filter(row => refreshedIds.has(row.id)).length, 2, 'neither refreshed record is skipped from current or historical coverage')
 })

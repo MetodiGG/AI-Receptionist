@@ -1,5 +1,6 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
+import { execFileSync } from 'node:child_process'
 import { readFile, access } from 'node:fs/promises'
 import { DateTime } from 'luxon'
 import { CATEGORY_IDS } from '../lib/discovery/categories.mjs'
@@ -12,12 +13,20 @@ import { discoveryConfig } from '../lib/discovery/config.mjs'
 
 const audit = JSON.parse(await readFile(new URL('../docs/guided-discovery-taxonomy-20261121.json', import.meta.url), 'utf8'))
 const now = DateTime.fromISO(audit.asOf)
-const approved = SOFIA_CATALOGUE.map(row => approvedCatalogueRecord(row, now.toMillis())).filter(Boolean)
+const revalidatedIds = new Set(['sofia-svetlinki-sheynovo13a', 'sofia-artizba-cherni-vrah33e'])
+const oldEducationText = execFileSync('git', ['show', 'b8dcdf4:lib/discovery/catalogue-data/neighborhood-home-education-2000-006-20261113.mjs'], { cwd: new URL('..', import.meta.url), encoding: 'utf8' })
+const oldEducation = (await import('data:text/javascript;base64,' + Buffer.from(oldEducationText).toString('base64'))).default.records
+// Audit counts and service examples describe November 21. Keep exactly the
+// two prior source versions instead of pretending their November 22 reviews
+// already existed or changing the immutable taxonomy audit to a newer date.
+const historicalCatalogue = SOFIA_CATALOGUE.map(row => revalidatedIds.has(row.id)
+  ? { ...oldEducation.find(item => item.id === row.id), coordinates: row.coordinates } : row)
+const approved = historicalCatalogue.map(row => approvedCatalogueRecord(row, now.toMillis())).filter(Boolean)
 const addedIds = audit.additions.map(item => item.id)
 const noProvider = () => assert.fail('Taxonomy filtering must not contact a metered provider, Maps, availability or booking endpoint')
 const deps = {
   config: discoveryConfig({ DISCOVERY_ENABLED: 'true' }), now,
-  readCatalogue: async () => SOFIA_CATALOGUE, readInternal: async () => [],
+  readCatalogue: async () => historicalCatalogue, readInternal: async () => [],
   claimBudget: noProvider, fetcher: noProvider, authorizeGoogle: noProvider, getBusiness: noProvider, getSlots: noProvider,
 }
 

@@ -1,3 +1,4 @@
+import { catalogueRevalidationAllowsFileChange } from './catalogue-revalidation-20261122-scope.mjs'
 import { servicePriceCardsAllowsFileChange, servicePriceCardsAllowsNewFile } from './services-price-cards-scope.mjs'
 import assert from 'node:assert/strict'
 import test from 'node:test'
@@ -33,7 +34,7 @@ const frozen = baseTree.filter(record => frozenPath(record.path))
 test('the historical photo-forward baseline freezes everything outside the exact 2026-11-22 presentation/navigation exception list', async () => {
   assert.equal(frozen.length, 2625)
   assert.equal(sha256(JSON.stringify(frozen)), '5ca0ccae56c0a003d91c4d37e43a8f286d8fcf455527a11ddcc82d3b9c728278')
-  const stillFrozen = frozen.filter(record => !reviewedDiscoveryFileChange(record.path) && !nextSecurityUpgradeAllowsFileChange(record.path) && !stationaryDiscoveryAllowsFileChange(record.path) && !publicActionAllowsFileChange(record.path) && !publicEnglishAllowsFileChange(record.path) && !servicePriceCardsAllowsFileChange(record.path))
+  const stillFrozen = frozen.filter(record => !reviewedDiscoveryFileChange(record.path) && !nextSecurityUpgradeAllowsFileChange(record.path) && !stationaryDiscoveryAllowsFileChange(record.path) && !publicActionAllowsFileChange(record.path) && !publicEnglishAllowsFileChange(record.path) && !servicePriceCardsAllowsFileChange(record.path) && !catalogueRevalidationAllowsFileChange(record.path))
   for (let offset = 0; offset < stillFrozen.length; offset += 32) {
     await Promise.all(stillFrozen.slice(offset, offset + 32).map(async record => {
       const path = new URL('../' + record.path, import.meta.url)
@@ -44,7 +45,7 @@ test('the historical photo-forward baseline freezes everything outside the exact
   }
   const expected = baseTree.filter(record => protectedRoot(record.path)).map(record => record.path).sort()
   assert.equal(expected.length, 2492)
-  const actual = git('ls-files', '--cached', '--others', '-z', '--', 'app/api', 'hooks', 'lib', 'public').split('\0').filter(path => path && !refinementAllowsNewMedia(path) && !publicEnglishAllowsNewFile(path) && !servicePriceCardsAllowsNewFile(path))
+  const actual = git('ls-files', '--cached', '--others', '-z', '--', 'app/api', 'hooks', 'lib', 'public').split('\0').filter(path => path && !refinementAllowsNewMedia(path) && !publicEnglishAllowsNewFile(path) && !(path === 'lib/locale/service-english.json' && catalogueRevalidationAllowsFileChange(path)) && !servicePriceCardsAllowsNewFile(path))
   assert.deepEqual([...new Set(actual)].sort(), expected, 'Only the exact fifteen authorized versioned category-media siblings may be new; no new or renamed data/API/taxonomy paths')
 })
 

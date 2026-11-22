@@ -13,6 +13,10 @@ import { catalogueServicePhotoFields } from '../lib/catalogue-service-photo-keys
 import { serviceThumbnail } from '../lib/service-thumbnail.mjs'
 
 const now = Date.parse('2026-11-13T22:30:00Z')
+// Only these two source receipts were genuinely re-reviewed on November 22;
+// preserve the original intake clock for every unrelated historical row.
+const revalidated = new Set(['sofia-svetlinki-sheynovo13a', 'sofia-artizba-cherni-vrah33e'])
+const sourceNow = id => revalidated.has(id) ? Date.parse('2026-11-22T12:00:00Z') : now
 const sources = [...home.records, ...auto.records, ...beauty.records]
 const row = id => SOFIA_CATALOGUE.find(item => item.id === id)
 const photo = (business, index = 0) => serviceThumbnail({ ...business.services[index], ...catalogueServicePhotoFields(business.services[index], business) }, { business })
@@ -23,8 +27,8 @@ test('three intakes retain thirty-six businesses and fifty-three services after 
   assert.equal(sources.flatMap(item => item.services).length, 53)
   for (const source of sources) {
     const current = row(source.id)
-    assert.ok(approvedCatalogueRecord(current, now), source.id)
-    const outcome = assessPricingReview(current, reviews.find(item => item.id === source.id), now)
+    assert.ok(approvedCatalogueRecord(current, sourceNow(source.id)), source.id)
+    const outcome = assessPricingReview(current, reviews.find(item => item.id === source.id), sourceNow(source.id))
     assert.equal(outcome.state, current.services.some(service => service.price) ? 'reviewed' : 'service_reviewed', `${source.id}: ${outcome.reason}`)
     current.services.forEach((service, index) => {
       const image = photo(current, index)
@@ -38,8 +42,9 @@ test('three intakes retain thirty-six businesses and fifty-three services after 
 test('all new businesses are searchable in partner registration with actual services and literal prices', () => {
   for (const source of sources) {
     const current = row(source.id)
-    assert.ok(searchCatalogueForOnboarding(SOFIA_CATALOGUE, { query: current.name.slice(0, 120), cityCode: '68134' }, { now }).some(item => item.id === current.id), current.id)
-    const draft = catalogueOnboardingDetail(SOFIA_CATALOGUE, current.id, { now, cityCode: '68134' })
+    const reviewedNow = sourceNow(source.id)
+    assert.ok(searchCatalogueForOnboarding(SOFIA_CATALOGUE, { query: current.name.slice(0, 120), cityCode: '68134' }, { now: reviewedNow }).some(item => item.id === current.id), current.id)
+    const draft = catalogueOnboardingDetail(SOFIA_CATALOGUE, current.id, { now: reviewedNow, cityCode: '68134' })
     assert.equal(draft.business.id, current.id)
     assert.equal(draft.business.address, current.address)
     assert.deepEqual(draft.services.map(service => service.name), current.services.map(service => service.name))
@@ -57,7 +62,7 @@ test('monthly and course fees remain whole packages and dated art offers expire 
   assert.match(abacus.services[0].price.unit, /4|месец/)
   assert.match(photo(abacus).src, /sx-child-abacus-group-v1\.webp$/)
   assert.equal(row('sofia-maximum-solunska8').services[0].price.amount, 535)
-  for (const [id, expires] of [['sofia-svetlinki-sheynovo13a', '2026-11-21'], ['sofia-artizba-cherni-vrah33e', '2026-11-18'], ['sofia-paintme-bulgaria-mall69', '2026-12-29']]) {
+  for (const [id, expires] of [['sofia-svetlinki-sheynovo13a', '2026-11-29'], ['sofia-artizba-cherni-vrah33e', '2026-11-26'], ['sofia-paintme-bulgaria-mall69', '2026-12-29']]) {
     const business = row(id)
     assert.equal(business.verification.validUntil, expires)
     assert.ok(business.services.every(service => service.price.validUntil === expires))

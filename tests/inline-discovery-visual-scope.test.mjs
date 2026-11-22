@@ -8,6 +8,7 @@ import { fileURLToPath } from 'node:url'
 import { reviewedDiscoveryFileChange, DISCOVERY_NEW_MEDIA } from './discovery-refinement-20261122-scope.mjs'
 import { nextSecurityUpgradeAllowsFileChange } from './next-security-upgrade-scope.mjs'
 import { stationaryDiscoveryAllowsFileChange } from './stationary-discovery-scope.mjs'
+import { publicActionAllowsFileChange, publicActionAllowsNewFile } from './public-action-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const baseline = 'c9e525b'
@@ -29,7 +30,7 @@ function tokens(astRules, prefix, dark = false) {
   return found
 }
 const inlineLight = tokens(inlineRules, '--inline-'), inlineDark = tokens(inlineRules, '--inline-', true)
-const cardLight = tokens(cardRules, '--premium-card-'), cardDark = tokens(cardRules, '--premium-card-', true)
+const cardLight = tokens(cardRules, '--preview-'), cardDark = tokens(cardRules, '--preview-', true)
 function resolve(value, values) {
   const variable = value?.match(/^var\((--[\w-]+)\)$/)
   return variable ? resolve(values[variable[1]], values) : value
@@ -147,27 +148,12 @@ test('photographic stationary selection labels, real counts and focus retain AA 
   assert.ok(!inlineRules.some(rule => /\.inline-summary-(?:sort|area|context|meta)\b/.test(rule.selector)), 'removed sorting and duplicate controls leave no misleading visual controls')
 })
 
-test('actual card labels, service chips and all booking gradients retain normal-text AA in both themes', () => {
+test('compact card names, details cues and focus retain AA in both themes; button gradients are tested in the shared component', () => {
   for (const [theme, values] of [['light', cardLight], ['dark', cardDark]]) {
-    for (const foreground of ['--premium-card-ink', '--premium-card-muted', '--premium-card-accent']) {
-      for (const background of ['--premium-card-surface', '--premium-card-raised']) readable(values[foreground], values[background], `${theme} card ${foreground} / ${background}`)
-    }
-    for (const background of ['--premium-card-surface', '--premium-card-raised']) readable(values['--premium-card-focus'], values[background], `${theme} card focus`, 3)
-    const gradients = cardRules.filter(rule => rule.selector.includes('.home-reserve') && /^linear-gradient/.test(declarations(rule).background || ''))
-    assert.equal(gradients.length, 2, 'test the real default and hover/focus/active booking fills')
-    for (const rule of gradients) {
-      const style = declarations(rule)
-      assert.equal(style.color.toLowerCase(), '#2f211b', 'booking text stays espresso in dark mode too')
-      const colors = [...style.background.matchAll(/#[\da-f]{6,8}\b|var\(--[\w-]+\)/gi)].map(match => rgba(resolve(match[0], values)))
-      assert.equal(colors.length, 2)
-      for (let step = 0; step <= 100; step++) {
-        const background = colors[0].slice(0, 3).map((value, index) => value + (colors[1][index] - value) * step / 100)
-        readable(style.color, background, `${theme} booking gradient ${step}%`)
-      }
-    }
+    for (const foreground of ['--preview-ink', '--preview-muted', '--preview-accent']) readable(values[foreground], values['--preview-surface'], `${theme} card ${foreground}`)
+    readable(values['--preview-focus'], values['--preview-surface'], `${theme} card focus`, 3)
   }
-  assert.equal(cardLight['--premium-card-booking'].toUpperCase(), '#F47A36')
-  assert.equal(cardDark['--premium-card-booking'].toUpperCase(), '#FDB681')
+  assert.doesNotMatch(cards.toString(), /home-reserve|home-directions/, 'the old duplicated button gradients are gone from card CSS')
 })
 
 function ancestorsApply(rule, viewport, container, font) {
@@ -280,26 +266,23 @@ async function identicalBlobs(entries) {
 }
 
 test('historical APIs, hooks, data/taxonomy, booking/media/config/dependencies and CSS stay frozen outside the exact approved 2026-11-22 paths', async () => {
-  await identicalBlobs(baselineTree.filter(record => frozenPath(record.path) && !reviewedDiscoveryFileChange(record.path) && !nextSecurityUpgradeAllowsFileChange(record.path) && !stationaryDiscoveryAllowsFileChange(record.path)))
+  await identicalBlobs(baselineTree.filter(record => frozenPath(record.path) && !reviewedDiscoveryFileChange(record.path) && !nextSecurityUpgradeAllowsFileChange(record.path) && !stationaryDiscoveryAllowsFileChange(record.path) && !publicActionAllowsFileChange(record.path)))
   const rail = await read('lib/discovery/rail.mjs')
   assert.match(rail, /export const SERVICE_PREVIEW_LIMIT = 2/)
   assert.match(rail, /\.slice\(0, SERVICE_PREVIEW_LIMIT\)/)
 })
 
-test('homepage card polish preserves vector booking artwork, exact action destinations/eligibility, profile analytics and original service-price rendering', async () => {
+test('compact card uses shared vector actions, trusted routes and profile-only analytics; full source services remain in details', async () => {
   const current = await read('components/discovery-business-card.js')
-  const original = execFileSync('git', ['show', `${baseline}:components/discovery-business-card.js`], { cwd: root, encoding: 'utf8' })
-  const section = (source, startMarker, endMarker) => {
-    const start = source.indexOf(startMarker), end = source.indexOf(endMarker, start)
-    assert.ok(start >= 0 && end > start, `${startMarker} remains a distinct reviewed block`)
-    return source.slice(start, end)
-  }
-  assert.equal(section(current, '  const actions =', '  return <article'), section(original, '  const actions =', '  return <article'), 'native, external and telephone actions, trusted URLs, disabled preview controls and labels are unchanged')
-  assert.equal(section(current, '  const openDetails =', '  const photo ='), section(original, '  const openDetails =', '  const photo ='), 'only actual profile opening records the same profile event')
-  assert.equal(section(current, '  const distance =', '  const serviceList ='), section(original, '  const distance =', '  const serviceList ='), 'original photo containment, partner identity and location wording are intact')
-  assert.equal(section(current, '  const serviceList =', '  const reviews ='), section(original, '  const serviceList =', '  const reviews ='), 'service names, thumbnails, published prices, units and conditions remain exact')
-  assert.match(current, /const services = railServiceItems\(row\)/)
-  assert.match(current, /const reserve = quickChoice\s*\? <span className="booking-button-content"><Icon name="calendar"\/><span className="booking-button-label">\{copy\.reserveAppointment\}<\/span><\/span>\s*: <BookingButtonContent>\{copy\.reserveAppointment\}<\/BookingButtonContent>/)
+  assert.match(current, /<PublicActionPair className="home-business-actions">/)
+  assert.match(current, /const directions = railDirections\(business\)/)
+  assert.match(current, /const action = railExternalAction\(business\)/)
+  assert.match(current, /isOffsiteBooking\(business\)/)
+  assert.match(current, /if \(!preview\) trackSearchEvent\(\{ event: 'profile', locale \}\)/)
+  assert.match(current, /row=\{row\}[^\n]*actions=\{actions\}/)
+  assert.match(current, /businessPhotoStyle\(photo, \{ preview: true \}\)/)
+  assert.match(current, /business=\{row\} distanceOnly/)
+  assert.doesNotMatch(current, /className="home-business-(?:services|category|reviews)"|BookingButtonContent|Icon name="calendar"/)
 })
 
 test('all historical public image bytes stay frozen; only the fifteen explicitly approved versioned category siblings are added', async () => {

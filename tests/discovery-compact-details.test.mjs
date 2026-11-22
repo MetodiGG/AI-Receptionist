@@ -223,10 +223,11 @@ test('service grouping retains every service once and all new labels have BG/EN 
   assert.equal(detailPriceLabel({ price: -2, currency: 'EUR' }), null)
 })
 
-test('card has one stretched keyboard-accessible details trigger and only two bottom actions', async () => {
+test('compact card has one stretched keyboard-accessible details trigger and one shared two-action group', async () => {
   const card = await read('components/discovery-business-card.js'), css = await read('app/discovery-home.css')
   assert.match(card, /className="home-business-open"[^>]+aria-haspopup="dialog"/)
-  assert.match(card, /home-business-details-label/)
+  assert.match(card, /home-business-inline-details/)
+  assert.match(card, /<PublicActionPair className="home-business-actions">/)
   assert.doesNotMatch(card, /home-business-details-link|<h3>.*<button/)
   assert.match(css, /\.home-business-open \{[^}]*inset: 0/)
   assert.match(css, /\.home-business-footer[^}]*z-index: 2/)

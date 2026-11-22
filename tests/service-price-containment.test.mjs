@@ -15,6 +15,7 @@ import * as presentation from '../lib/discovery/service-presentation.mjs'
 import * as photoLayout from '../lib/business-photo-layout.mjs'
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 import * as bookingButtonContent from './helpers/booking-button-content.mjs'
+import * as publicAction from './helpers/public-action.mjs'
 
 // Existing SWC/SSR convention: actual client components and price/data helpers,
 // inert visual/third-party stubs, no browser, fetch, booking or effect execution.
@@ -47,7 +48,7 @@ async function load(name, additional = {}) {
     module: { type: 'commonjs' },
   })
   const stubs = { ...shared, ...additional }, module = { exports: {} }
-  new Function('require', 'module', 'exports', code)(name => Object.hasOwn(stubs, name) ? stubs[name] : (name === './brand-loading' ? brandLoading : require(name)), module, module.exports)
+  new Function('require', 'module', 'exports', code)(name => name === './public-action' ? publicAction : name === './public-action.module.css' ? publicAction.publicActionStyles : Object.hasOwn(stubs, name) ? stubs[name] : (name === './brand-loading' ? brandLoading : require(name)), module, module.exports)
   return module.exports
 }
 const { DiscoveryBusinessCard } = await load('discovery-business-card', {
@@ -150,14 +151,13 @@ function renderedPrice(html, className) {
 function assertRenderedService(service, locale) {
   const row = fixture(service)
   const card = render(DiscoveryBusinessCard, { row, locale, preview: true })
-  const compact = detailsData.detailPriceLabel({ ...service, priceUnit: '' }, locale, { compact: true })
-  assert.equal(renderedPrice(card, 'home-service-price').text, compact + (service.priceUnit || ''))
-  assert.ok(card.includes(escape(service.name)), 'the complete service name survives SSR')
-  assert.match(card, /data-service-thumbnail-size="32"/)
+  assert.doesNotMatch(card, /class="home-service-price"|class="home-service-name"|data-service-thumbnail-size=/, 'compact previews omit the tariff; no shortened or fabricated price substitutes it')
+  let renderedText
   for (const linked of [true, false]) {
     const menuService = { ...service, priceSourceUrl: linked ? sourceUrl : null }
     const html = render(DiscoveryBusinessDetails, { row: fixture(menuService), locale, preview: true, triggerRef: { current: null }, onClose: Empty })
     const actual = renderedPrice(html, 'business-details-price')
+    renderedText = actual.text
     const full = detailsData.detailPriceLabel({ ...service, priceUnit: '' }, locale)
     assert.equal(actual.text, full + (service.priceUnit || ''), `${locale}: both detail markup variants retain full price and qualification`)
     assert.equal(actual.tag, linked ? 'a' : 'strong')
@@ -169,7 +169,7 @@ function assertRenderedService(service, locale) {
     assert.ok(html.includes(escape(service.name)))
     assert.match(html, /data-service-thumbnail-size="44"/)
   }
-  return renderedPrice(card, 'home-service-price').text
+  return renderedText
 }
 
 const kerelski = SOFIA_CATALOGUE.find(row => row.id === 'sofia-kerelski-manastirski-livadi')
@@ -232,6 +232,7 @@ test('unknown prices are still absent, never replaced by zero or a truncated fak
     const details = render(DiscoveryBusinessDetails, { row, locale, preview: true, triggerRef: { current: null }, onClose: Empty })
     assert.doesNotMatch(card, /class="home-service-price"/)
     assert.doesNotMatch(details, /class="business-details-price"/)
-    assert.ok(card.includes(escape(longName)) && details.includes(escape(longName)))
+    assert.doesNotMatch(card, /home-service-name|home-business-services/)
+    assert.ok(details.includes(escape(longName)))
   }
 })

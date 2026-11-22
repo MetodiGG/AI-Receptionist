@@ -20,6 +20,8 @@ export function Icon({ name }) {
     mail: <><rect x="3" y="5" width="18" height="14" rx="3" /><path d="m3 7 9 6 9-6" /></>,
     user: <><circle cx="12" cy="8" r="4" /><path d="M4 21v-2a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v2" /></>,
     arrow: <><path d="M5 12h14M13 6l6 6-6 6" /></>,
+    arrowUpRight: <path d="M6 18 18 6M6 6h12v12"/>,
+    outlineMap: <><path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3V6Z"/><path d="M9 3v15M15 6v15"/></>,
     back: <><path d="M19 12H5M11 18l-6-6 6-6" /></>,
     plus: <><path d="M12 5v14M5 12h14" /></>,
     trash: <><path d="M3 6h18M8 6V4h8v2M19 6l-1 15H6L5 6M10 11v5M14 11v5" /></>,

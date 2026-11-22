@@ -20,6 +20,7 @@ import * as businessCover from '../lib/business-cover-photo.mjs'
 import * as servicePresentation from '../lib/discovery/service-presentation.mjs'
 import * as photoLayout from '../lib/business-photo-layout.mjs'
 import * as bookingButtonContent from './helpers/booking-button-content.mjs'
+import * as publicAction from './helpers/public-action.mjs'
 
 const require = createRequire(import.meta.url)
 const { loadBindings, transform } = require('next/dist/build/swc')
@@ -30,7 +31,7 @@ async function load(name, stubs) {
   const source = await readFile(new URL(filename, import.meta.url), 'utf8')
   const { code } = await transform(source, { filename, jsc: { parser: { syntax: 'ecmascript', jsx: true }, transform: { react: { runtime: 'automatic' } } }, module: { type: 'commonjs' } })
   const module = { exports: {} }
-  new Function('require', 'module', 'exports', code)(key => Object.hasOwn(stubs, key) ? stubs[key] : key === './brand-loading' ? brandLoading : require(key), module, module.exports)
+  new Function('require', 'module', 'exports', code)(key => key === './public-action' ? publicAction : key === './public-action.module.css' ? publicAction.publicActionStyles : Object.hasOwn(stubs, key) ? stubs[key] : key === './brand-loading' ? brandLoading : require(key), module, module.exports)
   return module.exports
 }
 
@@ -86,13 +87,12 @@ test('public cards and details use the labelled category cover only until a real
   assert.doesNotMatch(directoryHtml(real), /data-category-cover/)
 })
 
-test('compact discovery cards pair each first-party service with its own thumbnail and preserve its price', () => {
+test('compact discovery previews omit the service menu without mutating its original thumbnails or prices; the full menu remains in details', () => {
   const row = { ...business, source: 'catalogue', services }
+  const before = structuredClone(row)
   const html = render(DiscoveryBusinessCard, { row, locale: 'en', preview: true })
-  const [manicure, pedicure] = serviceRows(html)
-  assert.match(manicure, /class="service-photo-name".*data-service-kind="manicure".*class="home-service-name"[^>]*>Manicure<.*class="home-service-price">€25</)
-  assert.match(pedicure, /class="service-photo-name".*data-service-kind="pedicure".*class="home-service-name"[^>]*>Pedicure</)
-  assert.doesNotMatch(pedicure, /home-service-price/)
+  assert.doesNotMatch(html, /home-business-services|home-service-name|home-service-price|service-photo-name/)
+  assert.deepEqual(row, before)
   assert.doesNotMatch(render(DiscoveryBusinessCard, { row: { ...row, source: 'google' }, locale: 'en', preview: true }), /home-business-services|service-photo-name/)
 })
 
@@ -118,8 +118,8 @@ test('G Point logo remains whole and service prices retain compact online-only c
   const card = render(DiscoveryBusinessCard, { row, locale: 'bg', preview: true })
   const details = render(DiscoveryBusinessDetails, { row, locale: 'bg', preview: true })
   assert.match(card, /object-fit:contain;object-position:center;background-color:#fff/)
-  assert.ok(card.includes(name))
-  for (const html of [card, details]) {
+  assert.ok(!card.includes(name), 'the compact preview no longer repeats the full service tariff')
+  for (const html of [details]) {
     assert.match(html, /Отстъпка само онлайн/)
     assert.doesNotMatch(html, /проверена на|зачеркнатата|Условията се потвърждават/)
     assert.match(html, /class="service-price-unit">процедура<\/small>/)

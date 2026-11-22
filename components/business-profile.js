@@ -9,7 +9,7 @@ import { BusinessCoverPhoto } from './business-cover-photo'
 import { ServiceThumbnail } from './service-thumbnail'
 import { profileServicePrice, profileShareUrl, shareProfileLink } from '../lib/business-profile-ui.mjs'
 import { servicePresentation } from '../lib/discovery/service-presentation.mjs'
-import { BookingCalendarIcon } from './booking-button-content'
+import { PublicAction } from './public-action'
 
 // The same folded map and action class used by the homepage business cards.
 export function BusinessDirectionsLink({ business, locale = 'bg', address = false }) {
@@ -17,9 +17,8 @@ export function BusinessDirectionsLink({ business, locale = 'bg', address = fals
   if (!href) return null
   const label = locale === 'en' ? 'Directions' : 'Упътване'
   const accessibleLabel = locale === 'en' ? 'Get directions' : 'Упътване — как да стигна'
-  return <a className={address ? 'business-profile-address profile-address-link' : 'home-directions profile-directions'} href={href} target="_blank" rel="noopener noreferrer" aria-label={`${accessibleLabel} · ${address ? business.address : business.name}`}>
-    <span className="profile-map-icon"><Icon name="map" /></span><span>{address ? business.address : label}</span>
-  </a>
+  return address ? <a className="business-profile-address profile-address-link" href={href} target="_blank" rel="noopener noreferrer" aria-label={`${accessibleLabel} · ${business.address}`}><span className="profile-map-icon"><Icon name="map" /></span><span>{business.address}</span></a>
+    : <PublicAction as="a" variant="secondary" href={href} target="_blank" rel="noopener noreferrer" aria-label={`${accessibleLabel} · ${business.name}`}>{label}</PublicAction>
 }
 
 export function BusinessProfileHeader({ business, locale, shareUrl }) {
@@ -52,7 +51,7 @@ export function BusinessServiceList({ business, locale = 'bg', selectedServiceId
       <ul className="profile-service-list">{group.services.map(service => { const { description, conditions } = servicePresentation(service, locale); return <li key={service.id} className={`profile-service-row${selectedServiceId === service.id ? ' is-selected' : ''}`}>
         <ServiceThumbnail service={service} business={business} locale={locale} size={60}/>
         <div className="profile-service-copy"><strong>{service.name}</strong>{Number(service.duration_min) > 0 && <span>{service.duration_min} {en ? 'min' : 'мин'}</span>}{(description || conditions.length > 0) && <details className="profile-service-description"><summary>{en ? 'Details' : 'Детайли'}</summary><p>{[...conditions, description].filter(Boolean).join('\n')}</p></details>}</div>
-        <div className="profile-service-actions"><strong className="profile-service-price">{profileServicePrice(service, locale)}</strong><button className="profile-service-book" type="button" disabled={disabled} onClick={() => onChoose(service.id)} aria-label={`${en ? 'Book' : 'Резервирай'} · ${service.name}`} aria-pressed={selectedServiceId === service.id} aria-controls="booking-experience"><BookingCalendarIcon size={28}/></button></div>
+        <div className="profile-service-actions"><strong className="profile-service-price">{profileServicePrice(service, locale)}</strong><PublicAction iconOnly type="button" disabled={disabled} onClick={() => onChoose(service.id)} aria-label={`${en ? 'Book' : 'Резервирай'} · ${service.name}`} aria-pressed={selectedServiceId === service.id} aria-controls="booking-experience">{en ? 'Book' : 'Резервирай'}</PublicAction></div>
       </li>})}</ul>
     </div>)}</div>
     {!business.services?.length && <p className="profile-empty-services">{en ? 'Contact the business for its services.' : 'Свържи се с бизнеса за предлаганите услуги.'}</p>}

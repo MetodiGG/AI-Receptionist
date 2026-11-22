@@ -3,44 +3,35 @@ import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { createRequire } from 'node:module'
 import * as React from 'react'
-import { renderToStaticMarkup } from 'react-dom/server'
 import * as rail from '../lib/discovery/rail.mjs'
 import * as home from '../lib/discovery/home.mjs'
-import * as prices from '../lib/discovery/business-details.mjs'
-import * as presentation from '../lib/discovery/service-presentation.mjs'
 import * as bookingMode from '../lib/booking-mode.mjs'
 import * as photoLayout from '../lib/business-photo-layout.mjs'
 import * as cataloguePhotos from '../lib/catalogue-photo-view.mjs'
 import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
-import * as bookingButtonContent from './helpers/booking-button-content.mjs'
 
 const require = createRequire(import.meta.url), { loadBindings, transform } = require('next/dist/build/swc')
 await loadBindings()
 const filename = 'components/discovery-business-card.js'
-const { code } = await transform(await readFile(new URL(`../${filename}`, import.meta.url), 'utf8'), { filename, jsc: { parser: { syntax: 'ecmascript', jsx: true }, transform: { react: { runtime: 'automatic' } } }, module: { type: 'commonjs' } })
-const Empty = () => null, Details = () => null, Outbound = () => null, Badge = () => null, Thumbnail = () => null, Cover = () => null, Link = () => null
+const { code } = await transform(await readFile(new URL('../' + filename, import.meta.url), 'utf8'), { filename, jsc: { parser: { syntax: 'ecmascript', jsx: true }, transform: { react: { runtime: 'automatic' } } }, module: { type: 'commonjs' } })
+const Empty = () => null, Details = () => null, Outbound = () => null, Badge = () => null, Cover = () => null, Link = () => null
+const Action = () => null, Pair = () => null
 function elements(node, predicate, found = []) {
   if (Array.isArray(node)) node.forEach(child => elements(child, predicate, found))
   else if (React.isValidElement(node)) { if (predicate(node)) found.push(node); elements(node.props.children, predicate, found) }
   return found
 }
-const text = node => renderToStaticMarkup(node).replace(/<[^>]*>/g, '').replace(/&amp;/g, '&')
 const nodeClass = (tree, className) => elements(tree, node => node.props.className === className)
-const range = { id: '10000000-0000-4000-8000-000000000001', name: 'Подстригване с дълго подробно име без отрязване на буквите', category: 'hair', price: 10.23, priceMaximum: 15.34, priceKind: 'range', currency: 'EUR', priceUnit: 'пакет по уговорка' }
-const business = patch => ({ id: 'real-business-id', source: 'gorez', name: 'Дълго име на реален партньор', slug: 'real/branch', industry: 'beauty', category: 'hair', neighborhood: 'Манастирски ливади', address: 'София, ул. Пирин 83', coordinates: { latitude: 42.657, longitude: 23.292 }, services: [range, { id: '10000000-0000-4000-8000-000000000002', name: 'Боядисване на коса', price: null, currency: 'EUR' }, { name: 'Трета реална услуга', price: null }], ...patch })
-
+const business = patch => ({ id: 'real-business-id', source: 'gorez', name: 'Дълго име на реален партньор', slug: 'real/branch', industry: 'beauty', category: 'hair', neighborhood: 'Манастирски ливади', address: 'София, ул. Пирин 83', coordinates: { latitude: 42.657, longitude: 23.292 }, services: [{ id: 'service-id', name: 'Мъжко подстригване', price: 18, currency: 'EUR' }], ...patch })
 function fixture(patch = {}) {
   const values = [null, false], refs = [], events = [], props = { row: business(), locale: 'bg', quickChoice: true, ...patch }
   let index = 0, tree
   const stubs = {
     react: { ...React, memo: component => component, useState() { const at = index++; return [values[at], value => { values[at] = value }] }, useRef(value) { const at = index++; return refs[at] ||= { current: value } } },
     'next/link': { __esModule: true, default: Link }, 'next/dynamic': { __esModule: true, default: () => Details },
-    './icon': { Icon: ({ name }) => React.createElement('svg', { 'data-icon': name }) }, './brand-logo': { BrandMark: Empty },
-    './business-cover-photo': { BusinessCoverPhoto: Cover }, './service-thumbnail': { ServiceThumbnail: Thumbnail },
-    './business-reviews': { useBusinessReviews: () => ({}), ReviewSummary: Empty, PartnerReviewSummary: Empty },
-    './outbound-booking-button': { OutboundBookingButton: Outbound }, './booking-button-content': bookingButtonContent,
+    './icon': { Icon: Empty }, './brand-logo': { BrandMark: Empty }, './business-cover-photo': { BusinessCoverPhoto: Cover },
+    './outbound-booking-button': { OutboundBookingButton: Outbound }, './public-action': { PublicAction: Action, PublicActionPair: Pair },
     '../lib/booking-mode.mjs': bookingMode, '../lib/discovery/home.mjs': home, '../lib/discovery/rail.mjs': rail,
-    '../lib/discovery/business-details.mjs': prices, '../lib/discovery/service-presentation.mjs': presentation,
     '../lib/business-photo-layout.mjs': photoLayout, './discovery-distance-badge': { DiscoveryDistanceBadge: Badge },
     '../lib/catalogue-photo-view.mjs': cataloguePhotos, '../lib/discovery/copy.mjs': { DISCOVERY_COPY },
     '../lib/search-analytics-client.js': { trackSearchEvent: event => events.push(event) },
@@ -52,140 +43,91 @@ function fixture(patch = {}) {
   return { get tree() { return tree }, events, props, render }
 }
 
-for (const locale of ['bg', 'en']) test(`${locale}: Fast Choice uses one identity, one accurate inline distance and one semantic details trigger`, () => {
-  const origin = { latitude: 42.66, longitude: 23.29, kind: 'location' }, row = business(), f = fixture({ locale, row, distanceOrigin: origin })
-  const identity = nodeClass(f.tree, 'home-business-identity')
-  assert.equal(identity.length, 1)
-  const heading = nodeClass(f.tree, 'home-business-heading')
-  assert.equal(heading.length, 1)
-  assert.equal(nodeClass(heading[0], 'home-business-photo').length, 1)
-  assert.equal(nodeClass(heading[0], 'home-business-identity').length, 1)
-  assert.equal(nodeClass(heading[0], 'home-business-services').length, 0, 'services are below the shared photo/name header')
-  assert.equal(nodeClass(heading[0], 'home-business-footer').length, 0, 'actions remain beside the service area, not in the header')
-  assert.equal(text(elements(identity, node => node.type === 'h3')[0]), row.name)
-  assert.equal(elements(f.tree, node => node.type === Badge).length, 1)
-  const badge = elements(identity, node => node.type === Badge)[0]
-  assert.equal(badge.props.origin, origin)
-  assert.equal(badge.props.destination, row.coordinates)
-  assert.equal(elements(nodeClass(f.tree, 'home-business-photo'), node => node.type === Badge).length, 0, 'no location badge covers a tiny photograph')
-  assert.equal(nodeClass(f.tree, 'home-business-open').length, 0, 'no invisible overlay blocks the compact actions')
-  assert.equal(nodeClass(f.tree, 'home-business-details-label').length, 0)
-  const triggers = elements(f.tree, node => node.type === 'button' && node.props['aria-haspopup'] === 'dialog')
-  assert.equal(triggers.length, 1)
-  assert.equal(triggers[0].props.className, 'home-business-inline-details')
-  assert.equal(text(triggers[0]), DISCOVERY_COPY[locale].viewDetailsLower)
-  assert.ok(triggers[0].props['aria-label'].includes(row.name))
+for (const locale of ['bg', 'en']) test(`${locale}: compact card shows only identity, details and two actions, with a true photo-overlay distance`, () => {
+  const origin = { latitude: 42.66, longitude: 23.29, kind: 'location' }, row = business(), before = structuredClone(row)
+  const f = fixture({ locale, row, distanceOrigin: origin })
+  const identity = nodeClass(f.tree, 'home-business-identity')[0]
+  assert.equal(elements(identity, node => node.type === 'h3')[0].props.children, row.name)
+  for (const removed of ['home-business-category', 'home-business-neighborhood', 'home-business-services', 'home-business-reviews', 'home-business-booking-hint']) assert.equal(nodeClass(f.tree, removed).length, 0)
+  assert.equal(nodeClass(f.tree, 'home-business-inline-details')[0].props.children[0], DISCOVERY_COPY[locale].viewDetailsLower)
+  assert.equal(elements(identity, node => node.type === Pair).length, 1)
+  assert.equal(elements(identity, node => node.type === Badge).length, 0)
+  const badge = elements(nodeClass(f.tree, 'home-business-photo'), node => node.type === Badge)[0]
+  assert.equal(badge.props.origin, origin); assert.equal(badge.props.destination, row.coordinates)
+  assert.equal(badge.props.distanceOnly, true, 'unknown coordinates cannot be shown as a made-up numeric distance')
+  assert.deepEqual(row, before, 'removing preview prose never changes the complete service menu or source data')
+})
+
+for (const locale of ['bg', 'en']) test(`${locale}: one native whole-card details target opens once, preserves focus and does not emit booking analytics`, () => {
+  const f = fixture({ locale }), triggers = elements(f.tree, node => node.type === 'button' && node.props['aria-haspopup'] === 'dialog')
+  assert.equal(triggers.length, 1); assert.equal(triggers[0].props.className, 'home-business-open')
+  assert.ok(triggers[0].props['aria-label'].includes(f.props.row.name))
+  assert.equal(elements(triggers[0], node => node.type === Action || node.type === Outbound).length, 0, 'links/forms are never nested inside a button')
+  assert.deepEqual(f.events, [])
   const trigger = { focus() {} }
   triggers[0].props.onClick({ currentTarget: trigger }); f.render()
   const details = elements(f.tree, node => node.type === Details)[0]
-  assert.equal(details.props.row, row)
-  assert.equal(details.props.locale, locale)
-  assert.equal(details.props.triggerRef.current, trigger, 'existing dialog returns focus to the exact clicked button')
+  assert.equal(details.props.row, f.props.row); assert.equal(details.props.locale, locale)
+  assert.equal(details.props.triggerRef.current, trigger)
   assert.deepEqual(f.events, [{ event: 'profile', locale }])
+  nodeClass(f.tree, 'home-business-open')[0].props.onClick({ currentTarget: trigger }); f.render()
+  assert.equal(f.events.length, 1, 'an already open card cannot create duplicate profile events')
   details.props.onClose(); f.render()
   assert.equal(elements(f.tree, node => node.type === Details).length, 0)
+  const inert = fixture({ locale, preview: true })
+  nodeClass(inert.tree, 'home-business-open')[0].props.onClick({ currentTarget: trigger }); inert.render()
+  assert.deepEqual(inert.events, [], 'local preview never records real profile or booking activity')
 })
 
-test('Fast Choice shows at most two actual services while preserving ranges, real image inputs, units and missing prices', () => {
-  const row = business(), f = fixture({ row }), list = nodeClass(f.tree, 'home-business-services')[0]
-  const thumbs = elements(list, node => node.type === Thumbnail)
-  assert.equal(thumbs.length, 2)
-  assert.equal(thumbs[0].props.service.name, range.name)
-  assert.equal(thumbs[0].props.service.id, range.id)
-  assert.equal(thumbs[0].props.business, row)
-  assert.equal(thumbs[1].props.service.price, null)
-  const price = nodeClass(list, 'home-service-price')
-  assert.equal(price.length, 1)
-  assert.match(text(price[0]), /10,23.*15,34.*€/)
-  assert.ok(text(price[0]).includes(range.priceUnit))
-  assert.ok(text(list).includes(range.name))
-  assert.equal(text(list).includes('Трета реална услуга'), false, 'remaining services stay available in full details, not the compact card')
-  assert.equal(row.services.length, 3, 'only the preview is compact; the source menu is unchanged')
-})
-
-test('real preview photographs are fully contained and centered without mutating curated metadata or cropping G Point logos', () => {
-  const photographs = [
-    { src: '/businesses/fixture/interior.webp' },
-    { src: '/businesses/fixture/interior.webp', position: '50% 68%' },
-  ]
-  for (const photo of photographs) {
-    const before = structuredClone(photo)
-    const image = elements(fixture({ row: business({ photos: [photo] }) }).tree, node => node.type === 'img')[0]
-    assert.equal(image.props.style.objectFit, 'contain'); assert.equal(image.props.style.objectPosition, 'center')
+test('real portrait, landscape and logo previews retain original image metadata and use full contain', () => {
+  for (const photo of [{ src: '/businesses/fixture/portrait.webp', width: 600, height: 900 }, { src: '/businesses/fixture/landscape.webp', position: '50% 68%', width: 1200, height: 600 }]) {
+    const before = structuredClone(photo), f = fixture({ row: business({ photos: [photo] }) })
+    const image = elements(f.tree, node => node.type === 'img')[0]
+    assert.equal(image.props.src, photo.src); assert.equal(image.props.style.objectFit, 'contain'); assert.equal(image.props.style.objectPosition, 'center')
     assert.deepEqual(photo, before)
-    if (photo.position) assert.equal(photoLayout.businessPhotoStyle(photo).objectPosition, photo.position, 'non-preview callers retain the original metadata contract')
   }
   const row = business({ source: 'catalogue', photo: { src: '/api/catalogue-media/eebc21d3-2f13-42cd-9f81-877eb6bc5736' } })
   const f = fixture({ row }), image = elements(f.tree, node => node.type === 'img')[0]
-  assert.equal(image.props.style.objectFit, 'contain'); assert.equal(image.props.style.objectPosition, 'center')
-  assert.equal(image.props.style.backgroundColor, '#fff', 'the reviewed logo keeps its intentional white frame')
+  assert.equal(image.props.style.backgroundColor, '#fff')
+  assert.equal(elements(f.tree, node => node.type === Cover).length, 0, 'real uploads do not receive the AI disclosure')
   image.props.onError(); f.render()
-  assert.equal(elements(f.tree, node => node.type === Cover)[0].props.business, row, 'failed images retain the existing activity-specific fallback')
+  assert.equal(elements(f.tree, node => node.type === Cover)[0].props.business, row)
 })
 
-test('native/external/phone booking and real directions keep their existing trusted routes', () => {
-  for (const booking_mode of ['gorez', 'external', 'phone']) {
-    const row = business({ booking_mode, phone: '+359888000001' }), f = fixture({ row })
-    const footer = nodeClass(f.tree, 'home-business-footer')[0]
-    const map = nodeClass(footer, 'home-directions')[0]
-    assert.equal(map.props.href, rail.railDirections(row))
-    assert.equal(map.props.rel, 'noopener noreferrer')
-    if (booking_mode === 'gorez') assert.equal(elements(footer, node => node.type === Link)[0].props.href, '/book/real%2Fbranch?lang=bg')
-    else assert.equal(elements(footer, node => node.type === Outbound)[0].props.business, row)
-  }
-  const f = fixture({ preview: true }), footer = nodeClass(f.tree, 'home-business-footer')[0]
-  assert.equal(nodeClass(footer, 'home-reserve')[0].props['aria-disabled'], 'true')
-  assert.equal(elements(footer, node => node.type === Link || node.type === Outbound).length, 0)
-})
-
-for (const locale of ['bg', 'en']) test(`${locale}: compact actions omit redundant booking hints without losing the real destination or accessible labels`, () => {
+for (const locale of ['bg', 'en']) test(`${locale}: native, external, phone and hydrated details actions retain exact destinations and eligibility`, () => {
   for (const booking_mode of ['gorez', 'external', 'phone']) {
     const row = business({ booking_mode, phone: '+359888000001' }), f = fixture({ row, locale })
-    assert.equal(nodeClass(f.tree, 'home-business-booking-hint').length, 0)
-    assert.equal(nodeClass(f.tree, 'home-business-actions').length, 1)
-    assert.deepEqual(f.events, [], 'presentation changes are not a profile, booking or external event')
-    const footer = nodeClass(f.tree, 'home-business-footer')[0]
-    if (booking_mode === 'gorez') assert.equal(elements(footer, node => node.type === Link)[0].props.href, `/book/real%2Fbranch?lang=${locale}`)
-    else assert.equal(elements(footer, node => node.type === Outbound)[0].props.business, row)
+    const map = elements(f.tree, node => node.type === Action && node.props.variant === 'secondary')[0]
+    assert.equal(map.props.href, rail.railDirections(row)); assert.equal(map.props.rel, 'noopener noreferrer')
+    assert.equal(map.props.children, DISCOVERY_COPY[locale].directions)
+    if (booking_mode === 'gorez') {
+      const book = elements(f.tree, node => node.type === Action && node.props.variant === 'primary')[0]
+      assert.equal(book.props.as, Link); assert.equal(book.props.href, `/book/real%2Fbranch?lang=${locale}`)
+    } else assert.equal(elements(f.tree, node => node.type === Outbound)[0].props.business, row)
+    nodeClass(f.tree, 'home-business-open')[0].props.onClick({ currentTarget: {} }); f.render()
+    const hydrate = business({ slug: 'updated', booking_mode: 'phone', phone: '+359888000002' })
+    const footer = elements(f.tree, node => node.type === Details)[0].props.actions(hydrate)
+    assert.equal(elements(footer, node => node.type === Outbound)[0].props.business, hydrate, 'details use freshly hydrated action state, not stale card destinations')
   }
-  const phone = business({ source: 'catalogue', phone: '+359888000001', website: 'https://salon.bg/', booking: { verified: true, kind: 'phone', phone: '+359888000001', checkedOn: '2020-01-01', validUntil: '2099-01-01' } })
-  const phoneTree = fixture({ row: phone, locale }).tree
-  assert.equal(nodeClass(phoneTree, 'home-business-booking-hint').length, 0)
-  assert.equal(nodeClass(phoneTree, 'home-reserve')[0].props.href, 'tel:+359888000001')
-  assert.ok(nodeClass(phoneTree, 'home-reserve')[0].props['aria-label'].includes(locale === 'en' ? 'Call to book a time' : 'Резервирай час по телефона'))
-  const form = business({ source: 'catalogue', booking: { verified: true, kind: 'form', url: 'https://salon.bg/book', checkedOn: '2020-01-01', validUntil: '2099-01-01' } })
-  const formTree = fixture({ row: form, locale }).tree
-  assert.equal(nodeClass(formTree, 'home-business-booking-hint').length, 0)
-  assert.equal(nodeClass(formTree, 'home-reserve')[0].props.href, 'https://salon.bg/book')
-  assert.ok(nodeClass(formTree, 'home-reserve')[0].props['aria-label'].includes(locale === 'en' ? 'Book on the business website' : 'Резервирай час в сайта на бизнеса'))
-  const unavailable = business({ source: 'catalogue', phone: null, website: 'https://salon.bg/' })
-  assert.equal(nodeClass(fixture({ row: unavailable, locale }).tree, 'home-business-booking-hint').length, 0, 'an unverified generic website is not a booking destination')
-  assert.equal(nodeClass(fixture({ quickChoice: false, locale }).tree, 'home-business-booking-hint').length, 0, 'other cards retain their previous presentation')
+  for (const [kind, href] of [['phone', 'tel:+359888000001'], ['form', 'https://salon.bg/book']]) {
+    const row = business({ source: 'catalogue', phone: '+359888000001', booking: { verified: true, kind, phone: '+359888000001', url: 'https://salon.bg/book', checkedOn: '2020-01-01', validUntil: '2099-01-01' } })
+    const book = elements(fixture({ row, locale }).tree, node => node.type === Action && node.props.variant === 'primary')[0]
+    assert.equal(book.props.href, href)
+    assert.ok(book.props['aria-label'].includes(locale === 'en' ? kind === 'phone' ? 'Call to book' : 'business website' : kind === 'phone' ? 'по телефона' : 'сайта на бизнеса'))
+  }
+  const unverified = business({ source: 'catalogue', phone: null, website: 'https://salon.bg/' })
+  assert.equal(elements(fixture({ row: unverified, locale }).tree, node => node.type === Action && node.props.variant === 'primary').length, 0)
+  const preview = fixture({ locale, preview: true })
+  assert.equal(elements(preview.tree, node => node.type === Outbound).length, 0)
+  for (const item of elements(preview.tree, node => node.type === Action)) { assert.equal(item.props.as, 'span'); assert.equal(item.props['aria-disabled'], 'true'); assert.equal(item.props.href, undefined) }
 })
 
-test('non-home callers keep the original gallery overlay, distance location, identity and actions by default', () => {
-  const f = fixture({ quickChoice: undefined })
-  assert.equal(nodeClass(f.tree, 'home-business-heading').length, 0)
-  assert.equal(nodeClass(f.tree, 'home-business-identity').length, 0)
-  assert.equal(nodeClass(f.tree, 'home-business-inline-details').length, 0)
-  assert.equal(nodeClass(f.tree, 'home-business-open').length, 1)
-  assert.equal(elements(nodeClass(f.tree, 'home-business-photo'), node => node.type === Badge).length, 1)
-})
-
-test('Fast Choice CSS is homepage-scoped, keeps a vertical list and lets names, prices and actions reflow', async () => {
-  const css = await readFile(new URL('../app/quick-choice-cards.css', import.meta.url), 'utf8')
-  const selectors = [...css.replace(/\/\*[\s\S]*?\*\//g, '').matchAll(/([^{}]+)\{/g)].map(match => match[1].trim()).filter(value => !value.startsWith('@'))
-  for (const selector of selectors) assert.ok(selector.startsWith('.customer-home.quick-choice ') || selector.startsWith('html:not([data-theme="dark"]) .customer-home.quick-choice '), selector)
-  assert.match(css, /grid-template-columns: minmax\(0,520px\) 154px/)
-  assert.match(css, /justify-content: space-between/)
-  assert.match(css, /@media \(max-width: 759px\)/)
-  assert.match(css, /grid-template-columns: 84px minmax\(0,1fr\)/)
-  assert.match(css, /\.home-business-heading > \.home-business-photo \{ grid-column: 1; grid-row: 1;/)
-  assert.match(css, /\.home-business-card > \.home-business-services \{ grid-column: 1; grid-row: 2;/)
-  assert.match(css, /\.home-business-card > \.home-business-footer \{ grid-column: 2; grid-row: 2;/)
-  assert.match(css, /flex: 1 1 min-content/)
-  assert.match(css, /min-height: 44px/)
-  assert.match(css, /\.home-service-name \{[^}]*overflow: visible;[^}]*word-break: normal/)
-  assert.match(css, /\.home-service-price \{[^}]*max-width: 100%;[^}]*white-space: normal/)
-  assert.doesNotMatch(css, /object-position:|object-fit:|text-overflow: ellipsis|overflow-x: auto|font-size: 1[0-4]px/)
+test('compact preview CSS reserves contained media, puts distance top-right, keeps disclosure readable and actions above the details target', async () => {
+  const css = await readFile(new URL('../app/premium-discovery-cards.css', import.meta.url), 'utf8')
+  assert.match(css, /aspect-ratio: 4 \/ 3/); assert.match(css, /object-fit: contain/)
+  assert.match(css, /\.home-business-photo > \.home-distance-badge \{[^}]*right: 10px;[^}]*left: auto/s)
+  assert.match(css, /\.home-business-actions \{[^}]*z-index: 2;[^}]*pointer-events: auto/s)
+  assert.match(css, /> \.home-business-open \{ z-index: 1/)
+  assert.match(css, /\.business-category-cover-label \{[^}]*font-size: 11px;[^}]*opacity: 1/s)
+  assert.doesNotMatch(css, /home-reserve|home-directions|booking-button-content|text-overflow: ellipsis/)
 })

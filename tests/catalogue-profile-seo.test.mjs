@@ -1,4 +1,5 @@
 import test from 'node:test'
+import * as publicAction from './helpers/public-action.mjs'
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { createRequire } from 'node:module'
@@ -129,7 +130,7 @@ const page = await compile('../app/businesses/catalogue/[id]/page.js', {
   '../../../../components/business-profile': { BusinessProfileHeader: ({ business, shareUrl }) => React.createElement('header', { 'data-share-url': shareUrl, 'data-private-service-inventory': Boolean(business.details || business.services || business.publicServiceNames),
     'data-activity-cover': business.illustrativeCoverPhotoKey, 'data-resolved-cover': businessCoverPhoto(business).src }, React.createElement('h1', null, business.name), business.address) },
   '../../../../components/service-thumbnail': { ServiceThumbnail: ({ service }) => React.createElement('img', { src: '/service-photos/test.webp', alt: service.name }) },
-  '../../../../components/booking-button-content': { BookingButtonContent: ({ children }) => React.createElement('span', null, children) },
+  '../../../../components/public-action': publicAction,
   '../../../../components/icon': { Icon: ({ name }) => React.createElement('svg', { 'data-icon': name, 'aria-hidden': true }) },
   '../../../../lib/catalogue-profile-server': { readCatalogueSeoProfile: async () => responseProfile },
   '../../../../lib/catalogue-profile.mjs': profile, '../../../../lib/seo.mjs': seo,
@@ -146,7 +147,7 @@ test('BG/EN route server-renders actual full service names/prices and safe real 
     assert.match(html, new RegExp(`lang="${locale}"`))
     for (const service of real.services) assert.ok(html.includes(renderToStaticMarkup(React.createElement('span', null, service.name)).slice(6, -7)), service.name)
     assert.ok(html.includes(real.booking.url)); assert.ok(html.includes(rail.railDirections(responseProfile.business).replaceAll('&', '&amp;')))
-    assert.match(html, /data-icon="map"/); assert.match(html, /75,00|75\.00/)
+    assert.match(html, /d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3V6Z"/); assert.match(html, /75,00|75\.00/)
     assert.match(html, /data-private-service-inventory="false"/)
     assert.match(html, /data-share-url="https:\/\/www\.gorez\.co\/businesses\/catalogue\/sofia-in-beauty\?lang=/)
     assert.doesNotMatch(html, /aggregateRating|ratingValue|availableSlots|booking-experience|Избрана дата/)

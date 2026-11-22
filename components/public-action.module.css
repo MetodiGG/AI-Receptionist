@@ -1,0 +1,84 @@
+/* One public booking/directions system. Local classes intentionally avoid the
+   historical home-reserve/profile button selectors and their 3D overrides. */
+.action {
+  --public-action-ink: #3A2217;
+  --public-action-primary: #F2A67E;
+  --public-action-primary-end: #E68F62;
+  --public-action-primary-hover: #F6B28D;
+  --public-action-primary-hover-end: #EC9E73;
+  --public-action-secondary: var(--surface,#FFFFFF);
+  --public-action-secondary-hover: var(--peach,#FFF0E4);
+  --public-action-line: #D5B69B;
+  --public-action-focus: #A5451E;
+  --public-action-chip: #3A2217;
+  --public-action-on-chip: #FFF4E8;
+  box-sizing: border-box;
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 0; max-width: 100%; min-height: 50px; height: auto;
+  margin: 0; padding: 6px; border: 1px solid transparent; border-radius: 999px;
+  font-family: inherit; font-size: 14px; font-weight: 500; line-height: 1.2;
+  letter-spacing: -.01em; text-align: center; text-decoration: none;
+  white-space: normal; word-break: normal; overflow-wrap: normal; hyphens: none;
+  cursor: pointer; vertical-align: middle;
+  box-shadow: inset 0 1px 0 #FFF4E880,0 2px 5px #784B2B12;
+  transition: background-color 180ms ease-out,border-color 180ms ease-out,box-shadow 180ms ease-out,transform 180ms ease-out;
+}
+.primary { color: var(--public-action-ink); background: linear-gradient(180deg,var(--public-action-primary),var(--public-action-primary-end)); border-color: #D68D55; }
+.secondary { color: #4A3F3A; background: var(--public-action-secondary); border-color: var(--public-action-line); }
+.content { display: flex; align-items: center; gap: 6px; width: 100%; min-width: 0; }
+.primaryContent { padding-inline-start: 8px; }
+.secondaryContent { padding-inline-end: 8px; }
+.label { flex: 1 1 min-content; min-width: 0; white-space: normal; word-break: normal; overflow-wrap: normal; hyphens: none; }
+.chip { display: grid; place-items: center; width: 36px; height: 36px; flex: 0 0 36px; border-radius: 999px; }
+.primaryContent .chip { color: var(--public-action-on-chip,#FFF4E8); background: var(--public-action-chip,#38251B); }
+.secondaryContent .chip { color: #B8643C; background: #F9E6D8; }
+.chip svg { display: block; width: 18px; height: 18px; stroke-width: 1.75; transition: transform 180ms ease-out; }
+.iconOnly { width: 50px; flex: 0 0 50px; }
+.iconOnlyContent { justify-content: center; padding: 0; }
+.iconOnlyContent .label { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.action:global(.directory-reservation-action) { width: 100%; margin-top: 16px; }
+.pair { display: flex; flex-wrap: nowrap; align-items: stretch; gap: 10px; min-width: 0; width: 100%; }
+.pair > * { flex: 1 1 0; min-width: 0; max-width: 100%; }
+.pair > form { display: flex; margin: 0; }
+.pair > form > .action { flex: 1; width: 100%; }
+.outboundForm { margin: 0; min-width: 0; width: 100%; }
+.outboundForm > .action { width: 100%; }
+.outboundForm + a,.action:global(.directory-reservation-action) + a { margin-block-start: 12px; }
+.action[aria-pressed="true"] { border-color: var(--public-action-focus); box-shadow: inset 0 0 0 1px var(--public-action-focus); }
+.pair:global(.profile-action-modes) { max-width: 520px; flex-wrap: wrap; }
+.pair:global(.profile-action-modes) > button:not([data-public-action]) { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 10px 12px; border: 1px solid #E9D5BE; border-radius: 12px; background: #FFFCF8; color: #73513C; font: inherit; font-size: 16px; line-height: 1.3; font-weight: 750; cursor: pointer; }
+.pair:global(.profile-action-modes) > button:not([data-public-action])[aria-pressed="true"] { color: #81421C; background: #FFE6C8; border-color: #DBA66F; box-shadow: inset 0 1px #FFF8EE; }
+.pair:global(.profile-action-modes) > button:not([data-public-action]):hover { background: #FFF0DE; border-color: #C4844D; }
+.pair:global(.profile-action-modes) > button:not([data-public-action]):focus-visible { outline: 2px solid #A5451E; outline-offset: 3px; }
+.action:focus-visible { outline: 2px solid var(--public-action-focus); outline-offset: 2px; }
+@media (hover:hover) and (pointer:fine) {
+  .primary:not(:disabled):not([aria-disabled="true"]):hover { background: linear-gradient(180deg,var(--public-action-primary-hover),var(--public-action-primary-hover-end)); box-shadow: inset 0 1px 0 #FFF4E8A3,0 3px 8px #784B2B1C; transform: translateY(-1px); }
+  .primary:not(:disabled):not([aria-disabled="true"]):hover .chip svg { transform: translate(2px,-2px); }
+  .secondary:not(:disabled):not([aria-disabled="true"]):hover { background: var(--public-action-secondary-hover); border-color: var(--public-action-focus); transform: translateY(-1px); }
+}
+.action:not(:disabled):not([aria-disabled="true"]):active { transform: scale(.98); box-shadow: inset 0 1px 2px #784B2B14; }
+.action:is(:disabled,[aria-disabled="true"]) { cursor: default; opacity: .5; transform: none; }
+/* Two complete Bulgarian words plus their fixed icon chips need unequal
+   shares at 320px. Distribute by actual word minima, never clip or shrink. */
+@media (min-width:320px) and (max-width:360px) {
+  .content { gap: 2px; }
+  .primaryContent,.secondaryContent { padding-inline: 0; }
+  .label { min-inline-size: min-content; }
+  .pair > * { flex: 1 1 min-content; min-width: min-content; }
+}
+@media (max-width:319px) { .pair { flex-direction: column; } }
+:global(html[data-theme="dark"]) .action {
+  --public-action-primary: #F5B17C; --public-action-primary-end: #EFA46C;
+  --public-action-primary-hover: #F9C093; --public-action-primary-hover-end: #F4B581;
+  --public-action-secondary: var(--surface,#2E241E); --public-action-secondary-hover: #443024;
+  --public-action-line: #8E674B; --public-action-focus: #FDB681;
+  box-shadow: inset 0 1px 0 #FFF4E814,0 2px 5px #38251B26;
+}
+:global(html[data-theme="dark"]) .secondary { color: #F5ECE2; }
+:global(html[data-theme="dark"]) .secondaryContent .chip { background: #F5B17C1F; }
+:global(html[data-theme="dark"]) .pair:global(.profile-action-modes) > button:not([data-public-action]) { color: #F5ECE2; background: #3B2B22; border-color: #8E674B; }
+@media (prefers-reduced-motion:reduce) {
+  .action,.chip svg { transition: none; }
+  .action:not(:disabled):not([aria-disabled="true"]):is(:hover,:active) { transform: none; }
+  .primary:not(:disabled):not([aria-disabled="true"]):hover .chip svg { transform: none; }
+}

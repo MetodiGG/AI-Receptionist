@@ -1,0 +1,86 @@
+import test from 'node:test'
+import assert from 'node:assert/strict'
+import { readFile, readlink } from 'node:fs/promises'
+import { createHash } from 'node:crypto'
+import { execFileSync } from 'node:child_process'
+import { fileURLToPath } from 'node:url'
+import { PUBLIC_ACTION_BASE, PUBLIC_ACTION_HASHES, PUBLIC_ACTION_NEW_HASHES, publicActionAllowsFileChange, publicActionAllowsNewFile } from './public-action-scope.mjs'
+
+const root = fileURLToPath(new URL('../',import.meta.url))
+const git = (...args) => execFileSync('git',args,{cwd:root,encoding:'utf8',maxBuffer:16*1024*1024})
+const read = path => readFile(new URL('../'+path,import.meta.url),'utf8')
+const before = path => git('show',PUBLIC_ACTION_BASE+':'+path)
+const productionPath = path => path !== 'node_modules' && !/^(?:tests|docs)\//.test(path) && !/\.(?:md|txt)$/i.test(path)
+const tree = git('ls-tree','-r','-z',PUBLIC_ACTION_BASE).split('\0').filter(Boolean).map(record => {
+  const [metadata,path] = record.split('\t'),[mode,type,oid] = metadata.split(' ')
+  return {mode,type,oid,path}
+}).filter(record => record.type === 'blob' && productionPath(record.path))
+
+test('compact previews and shared actions have exactly twelve reviewed existing paths and two new local component files',async () => {
+  assert.equal(Object.keys(PUBLIC_ACTION_HASHES).length,12)
+  assert.deepEqual(Object.keys(PUBLIC_ACTION_NEW_HASHES),['components/public-action.js','components/public-action.module.css'])
+  for (const [path,hash] of Object.entries({...PUBLIC_ACTION_HASHES,...PUBLIC_ACTION_NEW_HASHES})) {
+    assert.equal(createHash('sha256').update(await read(path)).digest('hex'),hash,path+': changed bytes need their own explicit focused review, not a new baseline')
+  }
+  for (const path of ['lib/discovery/rail.mjs','lib/discovery/sofia-catalogue.mjs','lib/discovery/subcategories.mjs','lib/booking-mode.mjs','components/discovery-search.js','app/inline-discovery.css','package.json','pnpm-lock.yaml','next.config.mjs']) {
+    assert.equal(publicActionAllowsFileChange(path),false,path)
+    assert.equal(publicActionAllowsNewFile(path),false,path)
+  }
+  for (const path of ['tests/discovery-refinement-20261122-scope.mjs','tests/next-security-upgrade-scope.mjs','tests/stationary-discovery-scope.mjs']) assert.equal(await read(path),before(path),'never expand historical allowlists')
+})
+
+test('every original image and other production byte/path stays identical to the committed stationary-discovery stage, including data/prices, search, filtering, booking and analytics',async () => {
+  const frozen = tree.filter(record => !publicActionAllowsFileChange(record.path))
+  for(let offset=0;offset<frozen.length;offset+=32) await Promise.all(frozen.slice(offset,offset+32).map(async record => {
+    const path = new URL('../'+record.path,import.meta.url)
+    const bytes = record.mode === '120000' ? Buffer.from(await readlink(path)) : await readFile(path)
+    assert.equal(createHash('sha1').update('blob '+bytes.length+'\0').update(bytes).digest('hex'),record.oid,record.path+' stays unchanged from '+PUBLIC_ACTION_BASE)
+  }))
+  const actual = git('ls-files','--cached','--others','--exclude-standard','-z').split('\0').filter(path => path && productionPath(path))
+  assert.deepEqual([...new Set(actual)].sort(),[...tree.map(record=>record.path),...Object.keys(PUBLIC_ACTION_NEW_HASHES)].sort(),'no data/media/API/config path is added')
+})
+
+function between(source,start,end) {
+  const first = source.indexOf(start),last = source.indexOf(end,first)
+  assert.ok(first>=0&&last>first,start)
+  return source.slice(first,last)
+}
+test('outbound action paths, one-use event IDs, synchronous POST lock and pageshow cleanup remain byte-identical',async () => {
+  const path='components/outbound-booking-button.js',current=await read(path),original=before(path)
+  assert.equal(between(current,' const [busy,setBusy]',' const content='),between(original,' const [busy,setBusy]',' const content='))
+  const submit = source => source.match(/onSubmit=\{event=>\{[^\n]+?\}\}/)?.[0]
+  assert.ok(submit(original));assert.equal(submit(current),submit(original))
+  assert.match(current,/<input type="hidden" name="eventId" value=\{eventId\}/)
+  assert.match(current,/action=\{path\} method="post"/)
+  assert.match(current,/disabled=\{busy\|\|disabled\}/)
+  assert.match(current,/disabled\|\|!path\?<PublicAction as="span"/)
+  assert.doesNotMatch(current,/trackProductEvent|trackSearchEvent|\bfetch\s*\(|location\./)
+})
+
+test('all directory photos, service names/prices, filters and analytics stay exact outside the single reviewed action/import line',async () => {
+  const canonical = source => source.split('\n').filter(line=>!/^import \{ (?:BookingButtonContent|PublicAction) \}/.test(line)&&!line.includes('{bookingDisabled ?')).join('\n')
+  assert.equal(canonical(await read('components/business-directory.js')),canonical(before('components/business-directory.js')))
+  const profile=await read('components/business-profile.js'),original=before('components/business-profile.js')
+  const unchanged = source => source.split('\n').filter(line=>!/^import \{ (?:BookingCalendarIcon|PublicAction) \}/.test(line)&&!line.includes('<div className="profile-service-actions">')).join('\n')
+  assert.equal(unchanged(profile.slice(profile.indexOf('export function BusinessProfileHeader'))),unchanged(original.slice(original.indexOf('export function BusinessProfileHeader'))))
+  assert.equal(between(profile,'export function BusinessDirectionsLink','export function BusinessProfileHeader').match(/const href[^\n]+/)?.[0],between(original,'export function BusinessDirectionsLink','export function BusinessProfileHeader').match(/const href[^\n]+/)?.[0])
+})
+
+test('Google authorization/widget/attribution and contact modal behavior remain unchanged; only GoRez-owned controls adopt shared presentation',async () => {
+  const path='components/google-business-card.js',current=await read(path),original=before(path)
+  assert.equal(between(current,'function useAuthorizedGoogleWidget','export function GoogleBusinessCardFrame'),between(original,'function useAuthorizedGoogleWidget','export function GoogleBusinessCardFrame'))
+  assert.equal(between(current,'export function GoogleContactDialogFrame','function GoogleBusinessContactDialog'),between(original,'export function GoogleContactDialogFrame','function GoogleBusinessContactDialog'))
+  const contact = source => source.slice(source.indexOf('function GoogleBusinessContactDialog')).split('\n').filter(line=>!line.includes('href={railDirections(')).join('\n')
+  assert.equal(contact(current),contact(original))
+})
+
+test('public booking/calendar state machine and forms remain byte-identical outside action-only JSX/import substitutions',async () => {
+  let expected=before('components/public-booking-page.js')
+  expected=expected.replace("import { BookingCalendarIcon, BookingButtonContent } from './booking-button-content'","import { BookingCalendarIcon } from './booking-button-content'\nimport { PublicAction, PublicActionPair } from './public-action'")
+    .replaceAll('<OutboundBookingButton business={business} locale={locale} className="profile-external-reserve" disabled={preview}><BookingButtonContent>{en?\'Book\':\'Резервирай\'}</BookingButtonContent></OutboundBookingButton>','<OutboundBookingButton business={business} locale={locale} disabled={preview}>{en?\'Book\':\'Резервирай\'}</OutboundBookingButton>')
+    .replace('<div className="business-booking-method"><div className="profile-mode-controls" role="group" aria-label={en ? \'Booking method\' : \'Начин за записване\'}>','<div className="business-booking-method"><PublicActionPair className="profile-action-modes" role="group" aria-label={en ? \'Booking method\' : \'Начин за записване\'}>')
+    .replace('<button type="button" disabled={busy} aria-pressed={mode === \'booking\'} aria-controls="profile-native-panel" onClick={() => setMode(\'booking\')}><BookingButtonContent>{en ? \'Book\' : \'Резервирай\'}</BookingButtonContent></button>','<PublicAction type="button" disabled={busy} aria-pressed={mode === \'booking\'} aria-controls="profile-native-panel" onClick={() => setMode(\'booking\')}>{en ? \'Book\' : \'Резервирай\'}</PublicAction>')
+    .replace('    </div></div>\n    <BusinessServiceList','    </PublicActionPair></div>\n    <BusinessServiceList')
+  assert.notEqual(expected,before('components/public-booking-page.js'))
+  assert.equal(await read('components/public-booking-page.js'),expected)
+})

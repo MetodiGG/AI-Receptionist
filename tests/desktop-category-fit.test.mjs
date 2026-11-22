@@ -8,6 +8,7 @@ import { fileURLToPath } from 'node:url'
 import { reviewedDiscoveryFileChange, refinementAllowsNewMedia, responsivePreviewAllowsNewFile } from './discovery-refinement-20261122-scope.mjs'
 import { nextSecurityUpgradeAllowsFileChange } from './next-security-upgrade-scope.mjs'
 import { stationaryDiscoveryAllowsFileChange, stationaryDiscoveryAllowsNewFile } from './stationary-discovery-scope.mjs'
+import { publicActionAllowsFileChange, publicActionAllowsNewFile } from './public-action-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const BASE = '4be84916a4e2699e00e73243208c88f5aab1aae7'
@@ -23,7 +24,7 @@ const baseline = git('ls-tree', '-r', '-z', BASE).split('\0').filter(Boolean).ma
 test('the desktop fit baseline freezes production outside the explicitly authorized 2026-11-22 photo/navigation/card follow-up', async () => {
   assert.equal(baseline.length, 2811)
   assert.equal(createHash('sha256').update(JSON.stringify(baseline)).digest('hex'), '43e47bf817bc8b6503d789cf5accfb749754f9c34e2323f24c8a32fe61497509')
-  const stillFrozen = baseline.filter(record => !reviewedDiscoveryFileChange(record.path) && !nextSecurityUpgradeAllowsFileChange(record.path) && !stationaryDiscoveryAllowsFileChange(record.path))
+  const stillFrozen = baseline.filter(record => !reviewedDiscoveryFileChange(record.path) && !nextSecurityUpgradeAllowsFileChange(record.path) && !stationaryDiscoveryAllowsFileChange(record.path) && !publicActionAllowsFileChange(record.path))
   for (let offset = 0; offset < stillFrozen.length; offset += 32) await Promise.all(stillFrozen.slice(offset, offset + 32).map(async record => {
     const path = new URL('../' + record.path, import.meta.url)
     const bytes = record.mode === '120000' ? Buffer.from(await readlink(path)) : await readFile(path)
@@ -32,7 +33,7 @@ test('the desktop fit baseline freezes production outside the explicitly authori
   const roots = ['app', 'components', 'hooks', 'lib', 'public', 'scripts', 'supabase']
   const belongs = path => roots.some(prefix => path.startsWith(prefix + '/'))
   const expected = baseline.filter(record => belongs(record.path)).map(record => record.path).sort()
-  const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z', '--', ...roots).split('\0').filter(path => path && frozenPath(path) && !refinementAllowsNewMedia(path) && !responsivePreviewAllowsNewFile(path) && !stationaryDiscoveryAllowsNewFile(path))
+  const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z', '--', ...roots).split('\0').filter(path => path && frozenPath(path) && !publicActionAllowsNewFile(path) && !refinementAllowsNewMedia(path) && !responsivePreviewAllowsNewFile(path) && !stationaryDiscoveryAllowsNewFile(path))
   assert.deepEqual([...new Set(actual)].sort(), expected, 'Only the fifteen explicitly named versioned media siblings and three dev-only wrapper files may be new; every historical production path remains present')
 })
 

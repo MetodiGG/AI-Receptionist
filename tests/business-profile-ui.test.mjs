@@ -8,6 +8,7 @@ import * as profileUi from '../lib/business-profile-ui.mjs'
 import * as profileData from '../lib/business-profile.mjs'
 import { SITE_ORIGIN } from '../lib/seo.mjs'
 import * as bookingButtonContent from './helpers/booking-button-content.mjs'
+import * as publicAction from './helpers/public-action.mjs'
 
 const { profileShareUrl, shareProfileLink, profileServicePrice, eligibleProfileStaff, profileBookingContextKey, scrollToProfileBooking } = profileUi
 const require = createRequire(import.meta.url)
@@ -26,7 +27,7 @@ async function compileComponent(path) {
 
 function evaluateComponent(code, stubs = {}) {
   const componentModule = { exports: {} }
-  new Function('require', 'module', 'exports', code)(name => name in stubs ? stubs[name] : require(name), componentModule, componentModule.exports)
+  new Function('require', 'module', 'exports', code)(name => name === './public-action' ? publicAction : name === './public-action.module.css' ? publicAction.publicActionStyles : name in stubs ? stubs[name] : require(name), componentModule, componentModule.exports)
   return componentModule.exports
 }
 
@@ -75,6 +76,7 @@ test('mode state is not keyed by language/mode; in-flight submissions and previe
 })
 
 function elements(node, predicate, result = []) {
+  node = publicAction.expandPublicActions(node)
   if (Array.isArray(node)) { for (const child of node) elements(child, predicate, result); return result }
   if (!React.isValidElement(node)) return result
   if (predicate(node)) result.push(node)
@@ -234,9 +236,8 @@ test('directions match the displayed postal address and use the actual homepage 
   assert.equal(href.searchParams.get('destination'), business.address + ', България')
   assert.equal(node.props.target, '_blank')
   assert.equal(node.props.rel, 'noopener noreferrer')
-  assert.equal(elements(node, item => item.type === Icon && item.props.name === 'map').length, 1)
   const html = render(BusinessDirectionsLink, { business, locale: 'en' })
-  assert.ok(html.includes(render(Icon, { name: 'map' })))
+  assert.ok(html.includes(render(Icon, { name: 'outlineMap' })))
   assert.doesNotMatch(html, /<circle|Icon name="pin"/)
   const addressOnly = BusinessDirectionsLink({ business: { ...business, public_profile: {} }, locale: 'bg', address: true })
   assert.equal(new URL(addressOnly.props.href).searchParams.get('destination'), business.address + ', България')

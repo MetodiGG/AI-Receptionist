@@ -10,6 +10,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { RESPONSIVE_PREVIEW_FILES, COMPACT_SELECTION_CHANGED_FILES, CAR_WASH_REFINEMENT_NEW_MEDIA } from './discovery-refinement-20261122-scope.mjs'
 import { nextSecurityUpgradeAllowsFileChange } from './next-security-upgrade-scope.mjs'
 import { stationaryDiscoveryAllowsFileChange, stationaryDiscoveryAllowsNewFile } from './stationary-discovery-scope.mjs'
+import { publicActionAllowsFileChange, publicActionAllowsNewFile } from './public-action-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const BASE = '1dfb751f48af0c1b5794e8b276e23fe0ddc95d3b'
@@ -23,13 +24,13 @@ const baseline = git('ls-tree', '-r', '-z', BASE).split('\0').filter(Boolean).ma
 
 test('the responsive wrapper and later approved compact selection add only exact review/media files while keeping all unrelated production bytes frozen', async () => {
   assert.deepEqual(RESPONSIVE_PREVIEW_FILES, ['app/dev/site-preview/page.js', 'app/dev/site-preview/preview.js', 'app/dev/site-preview/preview.css'])
-  const stillFrozen = baseline.filter(record => !COMPACT_SELECTION_CHANGED_FILES.has(record.path) && !nextSecurityUpgradeAllowsFileChange(record.path) && !stationaryDiscoveryAllowsFileChange(record.path))
+  const stillFrozen = baseline.filter(record => !COMPACT_SELECTION_CHANGED_FILES.has(record.path) && !nextSecurityUpgradeAllowsFileChange(record.path) && !stationaryDiscoveryAllowsFileChange(record.path) && !publicActionAllowsFileChange(record.path))
   for (let offset = 0; offset < stillFrozen.length; offset += 32) await Promise.all(stillFrozen.slice(offset, offset + 32).map(async record => {
     const path = new URL('../' + record.path, import.meta.url)
     const bytes = record.mode === '120000' ? Buffer.from(await readlink(path)) : await readFile(path)
     assert.equal(createHash('sha1').update(`blob ${bytes.length}\0`).update(bytes).digest('hex'), record.oid, `${record.path} must stay byte-identical to ${BASE}`)
   }))
-  const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => path && productionPath(path) && !stationaryDiscoveryAllowsNewFile(path))
+  const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => path && productionPath(path) && !publicActionAllowsNewFile(path) && !stationaryDiscoveryAllowsNewFile(path))
   assert.deepEqual([...new Set(actual)].sort(), [...baseline.map(record => record.path), ...RESPONSIVE_PREVIEW_FILES, ...CAR_WASH_REFINEMENT_NEW_MEDIA].sort(), 'only the three reviewed dev wrapper files and three car-wash media siblings can enter the inventory')
 })
 

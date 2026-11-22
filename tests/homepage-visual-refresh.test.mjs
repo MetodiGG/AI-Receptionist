@@ -113,11 +113,11 @@ test('registration text uses the exact GoRez Partners headline color without cha
 })
 test('Maps navigation is bold only for GoRez-owned cards, leaving Google provider attribution unchanged', async () => {
   const card = await read('components/discovery-business-card.js'), css = await read('app/discovery-home.css'), kit = await read('components/google-discovery-list.js')
-  assert.match(card, /<article className="home-business-card" data-source=\{row.source\}>/)
+  assert.match(card, /<article className="home-business-card is-compact-preview" data-source=\{row.source\}>/)
   assert.match(css, /\.home-business-card\[data-source="gorez"\] \.home-maps-label \{ font-weight: 700; \}/)
   assert.match(css, /\.home-maps-label, \.home-google-attribution \{[^}]*font-weight: 400;[^}]*white-space: nowrap;/)
   assert.match(css, /\.home-business-actions \.home-maps-label \{ width: 100%; font-size: 15px; line-height: 1\.2; text-align: center; white-space: normal; \}/)
-  assert.match(card, /className="home-maps-label">\{directionsLabel\}/)
+  assert.match(card, /<PublicAction as="a" variant="secondary"[^\n]+>\{copy.directions\}<\/PublicAction>/)
   assert.match(kit, /document.createElement\('gmp-place-attribution'\)/)
   assert.doesNotMatch(css, /\[data-source="google"\][^{]*\{[^}]*font-weight: 700|gmp-place-attribution[^}]*font-weight/)
 })

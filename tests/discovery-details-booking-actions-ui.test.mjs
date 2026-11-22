@@ -9,6 +9,7 @@ import * as bookingMode from '../lib/booking-mode.mjs'
 import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
 import { renderToStaticMarkup } from 'react-dom/server'
 import * as bookingButtonContent from './helpers/booking-button-content.mjs'
+import * as publicAction from './helpers/public-action.mjs'
 
 const require = createRequire(import.meta.url)
 const { loadBindings, transform } = require('next/dist/build/swc')
@@ -25,6 +26,7 @@ const OutboundBookingButton = () => null
 const Empty = () => null
 
 function elements(node, predicate, found = []) {
+  node = publicAction.expandPublicActions(node)
   if (Array.isArray(node)) for (const child of node) elements(child, predicate, found)
   else if (React.isValidElement(node)) {
     if (predicate(node)) found.push(node)
@@ -61,7 +63,7 @@ function detailsActions(row, locale) {
     '../lib/discovery/copy.mjs': { DISCOVERY_COPY },
   }
   const componentModule = { exports: {} }
-  new Function('require', 'module', 'exports', code)(name => name in stubs ? stubs[name] : (name === './brand-loading' ? brandLoading : require(name)), componentModule, componentModule.exports)
+  new Function('require', 'module', 'exports', code)(name => name === './public-action' ? publicAction : name === './public-action.module.css' ? publicAction.publicActionStyles : name in stubs ? stubs[name] : (name === './brand-loading' ? brandLoading : require(name)), componentModule, componentModule.exports)
   const tree = componentModule.exports.DiscoveryBusinessCard({ row, locale })
   assert.equal(stateIndex, states.length)
   const details = elements(tree, node => node.type === LazyDetails)
@@ -76,7 +78,7 @@ const validUntil = new Date(Date.now() + 7 * 86400000).toISOString().slice(0, 10
 const reviewed = booking => ({ ...booking, verified: true, checkedOn: day, validUntil })
 const fixture = patch => ({ id: 'sofia-callback-fixture', source: 'catalogue', name: 'Old preview name', category: 'beauty', services: [], phone,
   address: 'София, ул. Стар адрес 1', website: 'https://business.bg/', booking: reviewed({ kind: 'phone', phone }), ...patch })
-const reserveNodes = tree => elements(tree, node => node.props.className === 'home-reserve')
+const reserveNodes = tree => elements(tree, node => node.props['data-public-action'] === 'primary')
 
 test('actual details action callback uses the refreshed catalogue form/phone/cleared state and current name in BG and EN', () => {
   for (const locale of ['bg', 'en']) {

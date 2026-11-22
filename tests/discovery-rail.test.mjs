@@ -85,18 +85,17 @@ test('one Explore Businesses rail replaces the previous browse-plus-results layo
   assert.match(source, /result=\{result\} resultKey=\{resultKey\} loading=\{loading\}/)
   assert.match(source, /headingRef=\{resultHeading\}/)
 })
-test('only partners get a membership badge, ratings follow services, and exact addresses stay in business details', async () => {
+test('only partners get a membership badge; category/service/review clutter stays out of compact previews and exact addresses remain in details', async () => {
   const card = await read('components/discovery-business-card.js')
   assert.match(card, /internal && <span className="home-business-partner"/)
-  assert.ok(card.indexOf('home-business-category') < card.indexOf('<PartnerRailReviews'))
-  assert.ok(card.indexOf('className="home-business-services"') < card.indexOf('<PartnerRailReviews'))
+  assert.doesNotMatch(card, /home-business-category|home-business-services|PartnerRailReviews/)
   assert.match(card, /DiscoveryDistanceBadge origin=\{distanceOrigin\} destination=\{row.coordinates\}/)
   assert.doesNotMatch(card, /fallbackKm=/, 'a cached numeric distance cannot replace its actual origin')
   assert.doesNotMatch(card, /home-business-address/)
   assert.match(card, /DiscoveryBusinessDetails/)
   const details = await read('components/discovery-business-details.js')
   assert.match(details, /business.address && <section/)
-  assert.match(card, /className="home-directions"/)
+  assert.match(card, /<PublicAction as="a" variant="secondary"/)
   assert.doesNotMatch(card, /copy.external|externalHint|външни места|outside business|Няма снимка/)
 })
 test('Google stays in its attributed horizontal UI Kit with native contact actions, not a scraped counterfeit card', async () => {

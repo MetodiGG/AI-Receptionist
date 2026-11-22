@@ -308,12 +308,13 @@ test('legacy carousels retain accessible controls while the homepage mounts the 
   assert.match(grid, /<img className="inline-category-photo"[^\n]*loading="lazy"/)
   assert.doesNotMatch(grid, /\.slice\(|overflow|showMore|fetch\(|requestDiscoveryLocation/)
 })
-test('the single browse rail uses actual photos/reviews and only server-budgeted Google plans', async () => {
+test('the single browse rail uses actual photos and only server-budgeted Google plans; compact previews omit reviews', async () => {
   const browse = await read('components/discovery-home-browse.js'), card = await read('components/discovery-business-card.js')
   assert.match(browse, /useDirectory/); assert.match(card, /homeBusinessPhoto\(row\)/)
   assert.match(card, /loading="lazy"/)
   assert.match(card, /<DiscoveryDistanceBadge origin=\{distanceOrigin\} destination=\{row.coordinates\}/)
-  assert.match(card, /useBusinessReviews\(row.slug/)
+  assert.doesNotMatch(card, /useBusinessReviews|PartnerRailReviews|home-business-reviews/)
+  assert.match(await read('components/public-booking-page.js'), /<BusinessReviews reviews=\{reviews\}/)
   assert.match(card, /const actions = \(business = row\) =>/)
   assert.match(card, /OutboundBookingButton business=\{business\}/)
   assert.match(browse, /google\(result\?\.external, 'near-google'\)/)

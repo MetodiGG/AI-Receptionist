@@ -4,7 +4,7 @@ import { BrandLogo } from '../../../../components/brand-logo'
 import { HomeLink } from '../../../../components/home-link'
 import { BusinessProfileHeader } from '../../../../components/business-profile'
 import { ServiceThumbnail } from '../../../../components/service-thumbnail'
-import { BookingButtonContent } from '../../../../components/booking-button-content'
+import { PublicAction, PublicActionPair } from '../../../../components/public-action'
 import { Icon } from '../../../../components/icon'
 import { readCatalogueSeoProfile } from '../../../../lib/catalogue-profile-server'
 import { catalogueProfileMetadata, catalogueProfilePath, catalogueProfileStructuredData } from '../../../../lib/catalogue-profile.mjs'
@@ -53,10 +53,10 @@ export default async function CatalogueBusiness({ params, searchParams }) {
     <BusinessProfileHeader business={hero} locale={locale} shareUrl={localizedUrl(path, locale)}/>
     <div className="catalogue-profile-content">
       <p className="catalogue-profile-category">{railCategory(business, locale)}{business.neighborhood ? ` · ${business.neighborhood}` : ''}</p>
-      <div className="home-business-actions catalogue-profile-actions">
-        {directions && <a className="home-directions" href={directions} target="_blank" rel="noopener noreferrer"><Icon name="map"/><span>{copy.directions}</span></a>}
-        {action && <a className="home-reserve" href={action.href} target={action.kind === 'form' ? '_blank' : undefined} rel="noopener noreferrer" aria-label={`${action.kind === 'phone' ? (en ? 'Call to book a time' : 'Резервирай час по телефона') : (en ? 'Book on the business website' : 'Резервирай час в сайта на бизнеса')} · ${business.name}`}><BookingButtonContent>{copy.reserveAppointment}</BookingButtonContent></a>}
-      </div>
+      <PublicActionPair className="catalogue-profile-actions">
+        {directions && <PublicAction as="a" variant="secondary" href={directions} target="_blank" rel="noopener noreferrer">{copy.directions}</PublicAction>}
+        {action && <PublicAction as="a" href={action.href} target={action.kind === 'form' ? '_blank' : undefined} rel="noopener noreferrer" aria-label={`${action.kind === 'phone' ? (en ? 'Call to book a time' : 'Резервирай час по телефона') : (en ? 'Book on the business website' : 'Резервирай час в сайта на бизнеса')} · ${business.name}`}>{copy.reserveAppointment}</PublicAction>}
+      </PublicActionPair>
       {action && <p className="catalogue-booking-notice">{action.kind === 'phone' ? (en ? 'Arrange your time by phone. GoRez does not confirm phone appointments.' : 'Уговори час по телефон. GoRez не потвърждава телефонни резервации.') : (en ? 'Booking continues on the business website. Its calendar is not synchronized with GoRez.' : 'Записването продължава в сайта на бизнеса. Календарът му не е синхронизиран с GoRez.')}</p>}
       <section className="profile-services business-profile-section" aria-labelledby="catalogue-services-heading"><h2 id="catalogue-services-heading">{copy.servicesLabel}</h2>
         {unpriced.length ? <CatalogueServiceGroups groups={groupDetailServices(unpriced)} context={context} locale={locale} copy={copy} serviceAnchors={serviceAnchors}/> : priced.length ? <ul className="business-details-overview" aria-label={copy.servicesLabel}>{priced.map((service, index) => <li key={index}><ServiceThumbnail service={service} business={context} locale={locale} size={32}/><span>{service.name}</span></li>)}</ul> : <p>{copy.noServices}</p>}

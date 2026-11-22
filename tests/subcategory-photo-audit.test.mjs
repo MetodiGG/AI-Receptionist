@@ -10,6 +10,7 @@ import { DISCOVERY_SUBCATEGORIES } from '../lib/discovery/subcategories.mjs'
 import { COMPACT_SELECTION_CHANGED_FILES, CAR_WASH_REFINEMENT_NEW_MEDIA } from './discovery-refinement-20261122-scope.mjs'
 import { nextSecurityUpgradeAllowsFileChange } from './next-security-upgrade-scope.mjs'
 import { stationaryDiscoveryAllowsFileChange, stationaryDiscoveryAllowsNewFile } from './stationary-discovery-scope.mjs'
+import { publicActionAllowsFileChange, publicActionAllowsNewFile } from './public-action-scope.mjs'
 
 const BASE = 'eb36f6718141b9e616170a0b3d90bfcc868ad58b'
 const root = fileURLToPath(new URL('../', import.meta.url))
@@ -35,14 +36,14 @@ const baseline = git('ls-tree', '-r', '-z', BASE).split('\0').filter(Boolean).ma
 
 test('the compact-selection/photo follow-up has exactly ten reviewed source hashes and three new car-wash media paths; all other production bytes stay frozen', async () => {
   assert.deepEqual([...COMPACT_SELECTION_CHANGED_FILES].sort(), Object.keys(reviewed).sort())
-  for (const [path, hash] of Object.entries(reviewed)) if (!stationaryDiscoveryAllowsFileChange(path)) assert.equal(createHash('sha256').update(await read(path)).digest('hex'), hash, `${path}: any further change needs its own focused review, never a refreshed data baseline`)
-  const frozen = baseline.filter(record => !COMPACT_SELECTION_CHANGED_FILES.has(record.path) && !nextSecurityUpgradeAllowsFileChange(record.path) && !stationaryDiscoveryAllowsFileChange(record.path))
+  for (const [path, hash] of Object.entries(reviewed)) if (!stationaryDiscoveryAllowsFileChange(path) && !publicActionAllowsFileChange(path)) assert.equal(createHash('sha256').update(await read(path)).digest('hex'), hash, `${path}: any further change needs its own focused review, never a refreshed data baseline`)
+  const frozen = baseline.filter(record => !COMPACT_SELECTION_CHANGED_FILES.has(record.path) && !nextSecurityUpgradeAllowsFileChange(record.path) && !stationaryDiscoveryAllowsFileChange(record.path) && !publicActionAllowsFileChange(record.path))
   for (let offset = 0; offset < frozen.length; offset += 32) await Promise.all(frozen.slice(offset, offset + 32).map(async record => {
     const path = new URL('../' + record.path, import.meta.url)
     const bytes = record.mode === '120000' ? Buffer.from(await readlink(path)) : await readFile(path)
     assert.equal(createHash('sha1').update(`blob ${bytes.length}\0`).update(bytes).digest('hex'), record.oid, `${record.path} stays unchanged from ${BASE}`)
   }))
-  const current = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => path && productionPath(path) && !stationaryDiscoveryAllowsNewFile(path))
+  const current = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => path && productionPath(path) && !publicActionAllowsNewFile(path) && !stationaryDiscoveryAllowsNewFile(path))
   assert.deepEqual([...new Set(current)].sort(), [...baseline.map(record => record.path), ...CAR_WASH_REFINEMENT_NEW_MEDIA].sort())
 })
 

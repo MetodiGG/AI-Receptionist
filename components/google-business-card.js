@@ -5,7 +5,7 @@ import { Icon } from './icon'
 import { BrandLoading } from './brand-loading'
 import { DiscoveryDistanceBadge } from './discovery-distance-badge'
 import { OutboundBookingButton } from './outbound-booking-button'
-import { BookingButtonContent } from './booking-button-content'
+import { PublicAction, PublicActionPair } from './public-action'
 import { loadPlacesLibrary } from '../lib/discovery/google-ui-loader.mjs'
 import { createGoogleCardWidget } from '../lib/discovery/google-card-widget.mjs'
 import { widgetBusinessPoint } from '../lib/discovery/distance-origin.mjs'
@@ -71,18 +71,18 @@ export function GoogleBusinessCardFrame({ locale, origin, point, children, maps,
   return <article className="home-business-card google-business-card" data-source="google-ui-kit">
     <div className="google-card-distance-band"><DiscoveryDistanceBadge origin={origin} destination={point} locale={locale}/>{!point && !distancePending && <span className="google-distance-unavailable">{locale === 'en' ? 'Distance unavailable' : 'Разстоянието не е налично'}</span>}</div>
     {children}
-    <div className="home-business-actions">{maps}{booking}</div>
+    <PublicActionPair>{maps}{booking}</PublicActionPair>
   </article>
 }
 
 export function GoogleBusinessCard({ card, locale = 'bg', providerLocale = locale, nearby = false, distanceOrigin = null }) {
   const host = useRef(null), [attempt, setAttempt] = useState(0), [contacts, setContacts] = useState(false)
   const { status, point } = useAuthorizedGoogleWidget({ card, locale: providerLocale, nearby, host, attempt })
-  const en = locale === 'en', reserve = <BookingButtonContent>{en ? 'Book' : 'Резервирай'}</BookingButtonContent>
+  const en = locale === 'en', reserve = en ? 'Book' : 'Резервирай'
   const directions = railDirections({ source: 'google', placeId: card.placeId })
   const knownBooking = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(card.bookingLinkId || '')
   return <>
-    <GoogleBusinessCardFrame locale={locale} origin={distanceOrigin} point={point} distancePending={['idle', 'loading'].includes(status)} maps={directions && <a className="home-directions" href={directions} target="_blank" rel="noopener noreferrer" aria-label={en ? 'Google Maps directions' : 'Упътване в Google Maps'}><Icon name="map"/><span className="home-maps-label" translate="no">Google Maps</span></a>} booking={knownBooking ? <OutboundBookingButton linkId={card.bookingLinkId} locale={locale} className="home-reserve">{reserve}</OutboundBookingButton> : status === 'ready' && <button type="button" className="home-reserve" onClick={() => setContacts(true)} aria-haspopup="dialog">{reserve}</button>}>
+    <GoogleBusinessCardFrame locale={locale} origin={distanceOrigin} point={point} distancePending={['idle', 'loading'].includes(status)} maps={directions && <PublicAction as="a" variant="secondary" href={directions} target="_blank" rel="noopener noreferrer" aria-label={en ? 'Google Maps directions' : 'Упътване в Google Maps'}><span translate="no">Google Maps</span></PublicAction>} booking={knownBooking ? <OutboundBookingButton linkId={card.bookingLinkId} locale={locale}>{reserve}</OutboundBookingButton> : status === 'ready' && <PublicAction type="button" onClick={() => setContacts(true)} aria-haspopup="dialog">{reserve}</PublicAction>}>
       <WidgetNotice status={status} locale={locale} onRetry={() => setAttempt(value => value + 1)}/>
       <div className="google-card-native" ref={host} aria-label="Google Maps"/>
     </GoogleBusinessCardFrame>
@@ -111,6 +111,6 @@ function GoogleBusinessContactDialog({ card, locale, providerLocale, onClose }) 
     <WidgetNotice status={status} locale={locale} onRetry={() => setAttempt(value => value + 1)}/>
     <div ref={host} className="google-card-native" aria-label={en ? 'Contact details from Google Maps' : 'Контакти от Google Maps'}/>
     {status === 'ready' && <p className="google-contact-note">{en ? 'If no contact is listed, use Google Maps. Opening a website or calling does not confirm an appointment.' : 'Ако не е посочен контакт, използвай Google Maps. Отварянето на сайт или обаждането не потвърждават резервация.'}</p>}
-    <a className="home-directions google-dialog-maps" href={railDirections({ source: 'google', placeId: card.placeId })} target="_blank" rel="noopener noreferrer" translate="no"><Icon name="map"/><span className="home-maps-label">Google Maps</span></a>
+    <PublicAction as="a" variant="secondary" href={railDirections({ source: 'google', placeId: card.placeId })} target="_blank" rel="noopener noreferrer" translate="no">Google Maps</PublicAction>
   </GoogleContactDialogFrame>
 }

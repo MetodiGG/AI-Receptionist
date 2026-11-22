@@ -16,6 +16,7 @@ import * as partnerCategories from '../lib/partner-categories.mjs'
 import * as bookingMode from '../lib/booking-mode.mjs'
 import { guidedServiceMenu } from '../lib/guided-assistant.mjs'
 import * as bookingButtonContent from './helpers/booking-button-content.mjs'
+import * as publicAction from './helpers/public-action.mjs'
 
 const fee = (patch = {}) => ({ id: 'public-service-id', name: 'Подстригване', description: 'Реална публикувана услуга.', price: 20, currency: 'EUR', duration_min: 30, active: true, ...patch })
 const business = services => ({ id: '10000000-0000-4000-8000-000000000001', name: 'QA public studio', slug: 'qa-public-studio', active: true, platform_status: 'enabled', industry: 'beauty', services, staff: [], workingHours: [], staffServices: [] })
@@ -125,6 +126,7 @@ const { code } = await transform(source, { filename: 'components/business-direct
 const Empty = () => null, module = { exports: {} }
 new Function('require', 'module', 'exports', code)(name => {
   const imports = {
+    './public-action': publicAction, './public-action.module.css': publicAction.publicActionStyles,
     './booking-button-content': bookingButtonContent,
     react: React, 'next/link': { __esModule: true, default: ({ children }) => React.createElement('span', null, children) },
     './icon': { Icon: Empty }, './directory-filters': { DirectoryFilters: Empty }, './business-photo-gallery': { BusinessPhotoGallery: Empty },

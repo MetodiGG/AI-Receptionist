@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "status": "prepared_local_not_published",
+  "business": {
+    "id": "sofia-sm-group-korekt-druzhba1-block182",
+    "name": "С и М Груп Корект",
+    "category": "consulting",
+    "neighborhood": "Дружба 1",
+    "address": "София, ж.к. Дружба 1, бл. 182, офис 2",
+    "website": "https://www.smgroup-bg.com/",
+    "contact": "https://www.smgroup-bg.com/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/",
+    "phone": "+359889542503",
+    "duplicateCheck": "No current normalized business matched the names, public service phone, either owner domain, or the same quarter and block. The alternative smkorekt.com owner domain represents the same operator and is not counted.",
+    "coordinateEvidence": {
+      "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+      "municipalCsvSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+      "addressId": "34234",
+      "latitude": 42.663012,
+      "longitude": 23.392029,
+      "ownerPremises": "https://www.smgroup-bg.com/schetovoditel-druzhba/",
+      "evidence": "The owner explicitly offers in-person meetings at Druzhba 1, block 182, office 2. Its linked contact and privacy pages independently repeat that full address. The supplied municipal CSV has just one exact Sofia/Iskar row for block 182, under the broader official local-area label Druzhba. The owner supplies the narrower Druzhba 1. The point denotes the block's official postal address, not office 2 or a guessed entrance."
+    },
+    "service": {
+      "name": "Първоначална счетоводна консултация",
+      "firstPartyCta": "https://www.smgroup-bg.com/#contact",
+      "bookingDestination": "https://www.smgroup-bg.com/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/",
+      "serviceMenu": "https://www.smgroup-bg.com/schetovodni-uslugi/",
+      "relatedPriceList": "https://www.smgroup-bg.com/tseni/",
+      "price": { "amount": 0, "currency": "EUR", "kind": "fixed" },
+      "limits": "The owner publishes a free introductory consultation, then responds to a request to agree the meeting. EUR 0 denotes no charge, not a converted printed foreign currency. Monthly accounting tariffs are separate contracts, not appointment prices. No duration or live slots were inferred; no lasting booking was created."
+    },
+    "workingHours": {
+      "weekdays": "09:00–18:00",
+      "weekend": "not published",
+      "limits": "Office contact hours, not confirmed availability."
+    },
+    "image": { "asset": "/service-photos/accounting-consultation-v1.webp", "kind": "existing service illustration; not the office or employees" },
+    "inventoryIdentity": "81d3d3ed3afc21216957afd1b67a85d7c658ee431ec547ed5a10bf767fb321b2",
+    "normalizedRecordSha256": "e6ebeaa4d3721b767f78a23c3e6c61a54a3db24692dd1ae20efb496ed95fcc49"
+  }
+}

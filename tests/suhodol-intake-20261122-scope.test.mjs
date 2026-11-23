@@ -74,7 +74,7 @@ test('the Suhodol literal inverse restores all four complete prior sources and r
     assert.equal(suhodolIntakePriorSource(path, source), previous, path)
     assert.equal(suhodolIntakePriorSource(path, await read(path)), previous, path)
     assert.equal(suhodolIntakePriorSource(path, previous), previous, path)
-    assert.throws(() => suhodolIntakePriorSource(path, source + '\n'), /Unreviewed (?:Suhodol intake|23 Nov (?:quarter recovery|intake|auto-area|verified-premises|additional-premises|northern-east|quarter-priority|postal-precision|low-coverage intake|Mikron intake|north-west priority)) source delta/u)
+    assert.throws(() => suhodolIntakePriorSource(path, source + '\n'), /Unreviewed (?:Suhodol intake|23 Nov (?:quarter recovery|intake|auto-area|verified-premises|additional-premises|northern-east|quarter-priority|postal-precision|low-coverage intake|Mikron intake|north-west priority|three-area priority)) source delta/u)
   }
   assert.equal(suhodolIntakePriorSource('unrelated-file', 'untouched'), 'untouched')
 })

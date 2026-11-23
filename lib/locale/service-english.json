@@ -17,6 +17,22 @@
     "manualRevalidations": [
       {
         "checkedOn": "2026-11-23",
+        "businessId": "sofia-mushmula-poligona-tsarigradsko111v",
+        "inventoryIdentity": "b1758d087bc103af576e094313d4c29ef091ff81416c3da4c582ff58e3b58753",
+        "reason": "Preserves an in-person single group workout, the attendance minimum, and the previous-day cutoff for morning classes.",
+        "entriesAdded": { "names": 1, "descriptions": 1, "units": 0 },
+        "certifiedHumanTranslation": false
+      },
+      {
+        "checkedOn": "2026-11-23",
+        "businessId": "sofia-sm-group-korekt-druzhba1-block182",
+        "inventoryIdentity": "81d3d3ed3afc21216957afd1b67a85d7c658ee431ec547ed5a10bf767fb321b2",
+        "reason": "Preserves the no-charge initial meeting, callback to arrange it, and exclusion of monthly accounting from the quoted service.",
+        "entriesAdded": { "names": 1, "descriptions": 1, "units": 0 },
+        "certifiedHumanTranslation": false
+      },
+      {
+        "checkedOn": "2026-11-23",
         "businessId": "sofia-unigas-romano-voenna-rampa-konstantin3",
         "inventoryIdentity": "028a448ff160f4c9dc843b2c1e4ec377982270dd37bbbfd9c3cb8a0d250697a8",
         "reason": "Preserves the starting rather than fixed price, VAT, installed base configuration and conditional cost of the selected options.",
@@ -308,6 +324,8 @@
   },
   "names": {
     "Монтаж на газов инжекцион Romano Antonio ECO — 4 цилиндъра": "Romano Antonio ECO LPG injection system installation — 4 cylinders",
+    "Първоначална счетоводна консултация": "Initial accounting consultation",
+    "Групова HIIT тренировка": "Group HIIT workout",
     "Пилатес реформър – еднократна групова тренировка": "Reformer Pilates – single group class",
     "Оглед и диагностика на шибидах или панорамна система": "Sunroof or panoramic roof inspection and diagnostics",
     "Рожден ден на открито – половин ден": "Outdoor birthday party – half day",
@@ -6369,6 +6387,8 @@
   },
   "descriptions": {
     "Началната цена е с ДДС и включва системата с цилиндрична бутилка до 40 л, монтаж, настройка, сервизна книжка и монтажен протокол. Крайната цена зависи от автомобила, сложността на монтажа и избраните допълнения.": "The starting price includes VAT, the system with a cylindrical tank up to 40 L, installation, calibration, a service booklet and an installation report. The final price depends on the vehicle, the complexity of the installation and any optional extras.",
+    "Безплатна първа консултация по счетоводните нужди на бизнеса. След заявката кантората се свързва с вас, за да уточни срещата. Месечното обслужване не е включено.": "A free first consultation about your business’s accounting needs. The firm will contact you after your request to arrange the meeting. Monthly accounting services are not included.",
+    "Едно присъствено посещение на кръгова интервална тренировка. Изискват се предварително записване и поне двама записани. За сутрешните тренировки записването е до 19:00 ч. предния ден.": "One in-person interval circuit workout. Advance booking and at least two sign-ups are required. For morning classes, book by 19:00 the previous day.",
     "Едно групово занимание от 50 минути с предварителна резервация. Цената включва ДДС. Не се приемат карти MultiSport. Отмяна до 24 часа преди часа; при по-късна отмяна или неявяване публикуваните онлайн условия предвиждат пълна такса.": "One prebooked 50-minute group class. VAT is included. MultiSport cards are not accepted. Cancel at least 24 hours before the class; the published online terms charge the full price for late cancellation or a no-show.",
     "Огледът отнема около 30 минути на място. Частите и ремонтът се оферират отделно. Таксата за огледа се приспада, ако ремонтът бъде извършен.": "The on-site inspection takes about 30 minutes. Parts and repairs are quoted separately. The inspection fee is credited toward the repair if it is carried out.",
     "До 15 деца и 30 възрастни. Включва дигитална покана и базова украса; без храна, аниматор и организирани игри. Внасянето на храна и напитки е без доплащане, а за внесена торта се изисква сертификат. Дървените въглища за барбекю са срещу доплащане.": "Up to 15 children and 30 adults. A digital invitation and basic decoration are included; food, an entertainer and organised games are not. You may bring food and drinks at no extra charge; outside cake requires a certificate. Barbecue charcoal costs extra.",

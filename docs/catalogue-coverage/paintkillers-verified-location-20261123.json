@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "baseline": "f9947f8754e1e7c2ce7b82e88fda8775639e2335",
+  "status": "prepared_locally_not_published",
+  "id": "sofia-paintkillers-gryunanger43b",
+  "name": "PaintKillers",
+  "neighborhood": "Овча купел 2",
+  "category": "detailing",
+  "address": "София, ж.к. Овча купел 2, ул. Фридрих Грюнангер 43Б, вход от задната страна на блока",
+  "owner": "https://paintkillers.eu/",
+  "booking": { "kind": "phone", "phone": "+359879232329", "evidence": "https://paintkillers.eu/" },
+  "point": {
+    "source": "https://paintkillers.eu/",
+    "method": "first_party_coordinates",
+    "latitude": 42.6853601,
+    "longitude": 23.2470938,
+    "evidence": "The public home HTML embeds the owner's AutomotiveBusiness record as JSON-LD: name PaintKillers, canonical owner URL, exact phone +359879232329, Sofia postal code 1632, quarter Ovcha Kupel 2, Fridrih Gryunanger Street 43B and this explicit numeric GeoCoordinates pair. The venue directions section describes access from the back of the block and separately uses the identical coordinate pair as the target of its embedded marker. The shop also publishes a named business map link, but no map provider was queried and no map response, viewport, or locator metadata was imported. Privacy and service pages repeat the same owner-published physical address."
+  },
+  "corroboration": {
+    "officialPostalSource": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "municipalCsvSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+    "sameBlockEntrance": { "rn": "38909", "district": "Овча купел", "block": "43", "entrance": "Б", "latitude": 42.685483, "longitude": 23.247253, "distanceMetresApprox": 19 },
+    "venueReference": "https://www.vitosha.guide/bg/transport/paintkillers",
+    "interpretation": "The municipal CSV does not certify street house 43Б. The official entrance B of residential block 43 is about 19 m from the owner's rear-workshop pin; entrances A and V of the same block are about 46 m and 51 m away. The unrelated official same-street no. 2 is not this premises. The separate venue reference repeats the operator and Ovcha Kupel 2 43Б. These are corroboration of the physical block, not a claim that the municipal postal entrance is the shop entrance or that the owner's published address is a formal municipal street-number record. The location is classified as owner-published; only the owner's explicit point is applied."
+  },
+  "pointCollisionCheck": {
+    "exactPointOtherCatalogueIds": [],
+    "retiredIdPointMatches": [],
+    "nearestOtherLocatedCandidates": [
+      { "id": "sofia-gpoint-ovcha-kupel-2", "distanceMetresApprox": 422 },
+      { "id": "sofia-krasi-nikolova-ovcha-kupel-2", "distanceMetresApprox": 428 },
+      { "id": "sofia-doggy-em-ovcha-kupel", "distanceMetresApprox": 600 }
+    ]
+  },
+  "priceAndBooking": {
+    "retainedTariffSource": "https://paintkillers.eu/zashitno-folio",
+    "retainedBusinessContact": "https://paintkillers.eu/privacy-policy",
+    "retainedFacts": "The homepage still directly links the same telephone for advance appointments. The current service page still lists the basic full-front PPF package for bumper, hood, fenders and mirrors from EUR 750 and offers an appointment for a workshop inspection. No conflicting ordinary price or changed booking route was found for the retained row; no VAT treatment is added or inferred. No listing, tariff, price dates, public conditions, opening hours, or booking metadata have been amended or refreshed. This is solely a location verification, not a newly completed pricing review."
+  },
+  "sourcePolicy": "The public owner robots file allows these pages. Read-only verification; no calls, bookings, submitted forms, client data, protected map payload, paid lookup, or reused owner media.",
+  "previousRowSha256": "b30c3d3d777c1e9e5d6cfc72124b6e6550cacda63cb60b712af043e46b8ed6e2",
+  "reviewedRowSha256": "e17cbb0c84d212c3e83a010bf55d188026b6b5a49be334cf3bc1eb332fa5c54b",
+  "pricingIdentity": "61364180c6a730106134999a5a0a242780344187025e14d868e5cbc544a9b3b5",
+  "coverage": { "physical": [1, 1], "located": [0, 1] }
+}

@@ -25,6 +25,8 @@ import { ACPOWER_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data
 import { MIKRON_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-mikron-20261123.mjs'
 import { MY_REFORMER_SPACE_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-my-reformer-space-20261123.mjs'
 import { UNIGAS_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-unigas-20261123.mjs'
+import { SM_GROUP_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-sm-group-20261123.mjs'
+import { SPECIALIST_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-specialist-intake-20261123.mjs'
 const now = Date.parse('2026-11-11T12:00:00Z')
 const record = () => structuredClone(SOFIA_CATALOGUE.find(row => row.id === 'sofia-cut-n-chill'))
 const review = () => structuredClone(BOOKING_PRICE_REVIEWS.find(row => row.id === 'sofia-cut-n-chill'))
@@ -135,6 +137,8 @@ test('dated audit receipts cover every current ID without rewriting the historic
     [MIKRON_INTAKE_20261123_REVIEWS, 'sofia-mikron-dotsev-knyazhevo-tsarboris298', 'reviewed'],
     [MY_REFORMER_SPACE_INTAKE_20261123_REVIEWS, 'sofia-my-reformer-space-levski-g-vazov39', 'reviewed'],
     [UNIGAS_INTAKE_20261123_REVIEWS, 'sofia-unigas-romano-voenna-rampa-konstantin3', 'reviewed'],
+    [SM_GROUP_INTAKE_20261123_REVIEWS, 'sofia-sm-group-korekt-druzhba1-block182', 'reviewed'],
+    [SPECIALIST_INTAKE_20261123_REVIEWS, 'sofia-mushmula-poligona-tsarigradsko111v', 'reviewed'],
   ]) {
     assert.deepEqual(reviews.map(row => row.id), [id])
     assert.equal(auditedIds.has(id), false)

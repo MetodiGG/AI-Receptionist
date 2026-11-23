@@ -6,6 +6,7 @@ import batch from '../docs/catalogue-coverage/north-west-priority-20261123.json'
 import dpool from '../docs/catalogue-coverage/dpool-lyulin2-verified-location-20261123.json' with { type: 'json' }
 import viks from '../docs/catalogue-coverage/viks-lyulin8-verified-location-20261123.json' with { type: 'json' }
 import unigas from '../docs/catalogue-coverage/unigas-intake-20261123.json' with { type: 'json' }
+import { threeAreasAllowsFileChange, threeAreasAllowsNewFile, threeAreasPriorSource, threeAreasPriorCatalogue } from './catalogue-three-priority-areas-20261123-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const digest = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -36,10 +37,11 @@ function matchesFile(path, sha) {
   if (!sha) return false
   try { return digest(readFileSync(new URL('../' + path, import.meta.url))) === sha } catch { return false }
 }
-export const northWestAllowsFileChange = path => Object.hasOwn(changed, path) && matchesFile(path, changed[path][1])
-export const northWestAllowsNewFile = path => Object.hasOwn(added, path) && matchesFile(path, added[path])
+export const northWestAllowsFileChange = path => threeAreasAllowsFileChange(path) || Object.hasOwn(changed, path) && matchesFile(path, changed[path][1])
+export const northWestAllowsNewFile = path => threeAreasAllowsNewFile(path) || Object.hasOwn(added, path) && matchesFile(path, added[path])
 
 export function northWestPriorSource(path, source) {
+  source = threeAreasPriorSource(path, source)
   if (!Object.hasOwn(changed, path) || !/UNIGAS_INTAKE_20261123|sofia-unigas-romano-voenna-rampa-konstantin3|sx-auto-lpg-injection-installation/u.test(source)) return source
   const [before, after] = changed[path]
   if (digest(source) !== after) throw Error('Unreviewed 23 Nov north-west priority source delta: ' + path)
@@ -53,7 +55,7 @@ export function northWestPriorSource(path, source) {
 
 export function northWestPriorCatalogue(rows) {
   const seen = new Set()
-  return rows.flatMap(row => {
+  return threeAreasPriorCatalogue(rows).flatMap(row => {
     const point = pointRepairs.get(row.id), isNew = row.id === unigas.business.id
     if (!isNew && !point) return [row]
     if (seen.has(row.id)) throw Error('Duplicate north-west priority record: ' + row.id)

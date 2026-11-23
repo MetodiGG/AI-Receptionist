@@ -1,9 +1,12 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 import batch from '../docs/catalogue-coverage/north-west-priority-20261123.json' with { type: 'json' }
-import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { SOFIA_CATALOGUE as allCurrent } from '../lib/discovery/sofia-catalogue.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
 import { northWestPriorCatalogue } from './catalogue-north-west-priority-20261123-scope.mjs'
+import { threeAreasPriorCatalogue } from './catalogue-three-priority-areas-20261123-scope.mjs'
+
+const SOFIA_CATALOGUE = threeAreasPriorCatalogue(allCurrent)
 
 test('new workshop and two location repairs improve five exact priority cells without changing other records', () => {
   const prior = northWestPriorCatalogue(SOFIA_CATALOGUE)

@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "baseline": "f9947f8754e1e7c2ce7b82e88fda8775639e2335",
+  "checkedAt": "2026-11-23T12:00:00.000Z",
+  "status": "prepared_locally_not_published",
+  "targetPerQuarterCategory": 30,
+  "approvedBusinesses": [1727, 1729],
+  "locatedPremises": [938, 941],
+  "emptyLocatedPickerCells": [1037, 1034],
+  "emptyLocatedCells": [1403, 1400],
+  "cellsAtLocatedTarget": [0, 0],
+  "totalTargetCells": 1750,
+  "affected": [
+    {
+      "id": "sofia-sm-group-korekt-druzhba1-block182",
+      "kind": "new_business",
+      "neighborhood": "Дружба 1",
+      "category": "consulting",
+      "physical": [0, 1],
+      "located": [0, 1],
+      "evidence": "sm-group-intake-20261123.json"
+    },
+    {
+      "id": "sofia-mushmula-poligona-tsarigradsko111v",
+      "kind": "new_business",
+      "neighborhood": "Полигона",
+      "category": "fitness",
+      "physical": [0, 1],
+      "located": [0, 1],
+      "evidence": "specialist-intake-20261123.json"
+    },
+    {
+      "id": "sofia-paintkillers-gryunanger43b",
+      "kind": "location_only",
+      "neighborhood": "Овча купел 2",
+      "category": "detailing",
+      "physical": [1, 1],
+      "located": [0, 1],
+      "evidence": "paintkillers-verified-location-20261123.json"
+    }
+  ],
+  "scope": "Approved static local Sofia catalogue only, not production, partner CRM, live calendars or paid sources. Postal points are not entrance surveys. No broadening GPS radius or relabeling districts to fill quotas.",
+  "heldWithoutImport": [
+    { "name": "BestAuto", "reason": "Verified full street number and booking, but conflicting specific quarter names. Not assigned to a guessed quarter." },
+    { "name": "BONO Grooming", "reason": "The owner gives the building but the municipal file lists two entrances; the public map links to a viewport, not the shop point." },
+    { "name": "Harmonic Beauty & Aesthetics", "reason": "Owner booking and exact physical point are plausible; published older BGN tariff is undated. No conversion is passed off as a current price." }
+  ],
+  "nextLeadSources": [
+    { "category": "auto_repair", "source": "https://www.boschcarservice.com/bg/bg/", "use": "Find independent workshops; inspect each owner’s actual booking route and branch evidence." },
+    { "category": "education", "source": "https://mindhub.bg/halls", "use": "Use physical venue leads only; recheck that current enrollment points to the exact site and avoid duplicate operator locations." },
+    { "category": "fitness", "source": "https://www.sofia.bg/en/coordinates-sport", "use": "Use club leads; confirm ongoing official booking, meeting point and any published branch-specific price." }
+  ]
+}

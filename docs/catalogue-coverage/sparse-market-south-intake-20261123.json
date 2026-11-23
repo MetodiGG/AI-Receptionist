@@ -1,0 +1,68 @@
+{
+  "checkedOn": "2026-11-23",
+  "baselineCommit": "7617e55d8bb46706c5fae78c611b7356e880a2b1",
+  "status": "verified_intake_not_published",
+  "targetPerQuarterCategory": 30,
+  "businesses": [
+    {
+      "id": "sofia-kanev-carpet-knyazhevo-buket55",
+      "category": "home_services",
+      "neighborhood": "Княжево",
+      "address": "София, кв. Княжево, ул. Букет 55",
+      "municipal": {
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+        "addressId": "87487",
+        "latitude": 42.671295,
+        "longitude": 23.251376,
+        "licence": "CC-BY-4.0",
+        "match": "Exact unique Sofia street-and-number row in the municipal CSV, administrative district Vitosha. Owner says Knyazhevo at this exact number. The parcel is not independently polygon-verified. The CRC postal list supports No. 55 in postal band 1618, not neighboring odd Nos. 57–69 in band 1619."
+      },
+      "sources": {
+        "owner": "https://kanevcarpet.com/",
+        "ownerLocalPremises": "https://kanevcarpet.com/контакти/",
+        "ownerBookingForm": "https://kanevcarpet.com/онлайн-заявка/",
+        "ownerCurrentTariff": "https://kanevcarpet.com/услуги-и-цени/",
+        "ownerLegalIdentity": "https://kanevcarpet.com/за-нас/",
+        "postalCorroboration": "https://www.crc.bg/files/_bg/post_codes_all__4_-_2016full.pdf"
+      },
+      "sourceAndScopeNotes": "Owner terms linked in the form concern pickup/service performance and ordinary copyright notices, with no explicit fact/tariff commercial-use prohibition observed. Only independently paraphrased services and literal current prices used. Directory labels Karpuzitsa/1619 or the old Avtomivka Ekzotik share the same address and the owner's business landline; no car wash service or duplicate premises were imported. This is an actual processing/drop-off site that also arranges pickup from a customer's door, not a marketing-only service-area clone or an offer to clean carpets inside the customer's home.",
+      "booking": "Followed the owner's Online Request menu to a live provider-owned form with address, contact and operator callback instructions. The callback is for confirmation of the order and pickup, not immediate calendar confirmation or a reservation by GoRez. Published order phone +359895422456. No real booking, phone call or form submission. Site footer/landing hours differ, so no hours are imported.",
+      "pricing": [
+        { "service": "Машинно пране на килими · стандартна поръчка", "amount": 3, "kind": "fixed", "unit": "кв.м", "currency": "EUR", "condition": "up to 12 m², up to 10 days" },
+        { "service": "Машинно пране на килими · бърза поръчка", "amount": 4, "kind": "fixed", "unit": "кв.м", "currency": "EUR", "condition": "up to 12 m², up to 4 days" },
+        { "service": "Машинно пране на килими · експресна поръчка", "amount": 5, "kind": "fixed", "unit": "кв.м", "currency": "EUR", "condition": "up to 12 m², up to 24 hours, may be returned slightly damp" },
+        { "service": "Машинно пране на килими над 12 м²", "amount": 5, "kind": "fixed", "unit": "кв.м", "currency": "EUR", "condition": "prior request only, standard completion time not published" }
+      ],
+      "pricingQualification": "These amounts are cleaning rates including VAT, not final order totals. The latest own tariff page body rendered in the newer crawl publishes the four EUR tariffs; the older crawl shows superseded dual pricing. Older booking materials also disagree on transport terms, so no transport amount is published. No separate rows for collection, deodorizing, carry charges, penalties or storage.",
+      "imageKey": "carpet-cleaning",
+      "normalizedRecordSha256": "199ec81dd39bc56c56732d2a65cc8edf4e68602fa520f2b3f00ad469566956db",
+      "inventoryIdentity": "8da5180c605b0861316bba9e0c3d9971275d9e4d8f5f1f8b9714c43db453e6db",
+      "coverageAtReview": { "physical": [0, 1], "located": [0, 1] }
+    }
+  ],
+  "held": [
+    {
+      "name": "Detailing Studio 310",
+      "neighborhoodLead": "Карпузица",
+      "evidenceUrl": "https://detailingstudio310.com/terms-and-conditions/",
+      "reason": "First-party location and phone booking found, but source terms define content to include service tariffs and expressly require written permission for commercial use. Held regardless of published rates."
+    },
+    {
+      "name": "Мартин Ауто Детайлинг Студио",
+      "neighborhoodLead": "Суходол",
+      "evidenceUrl": "https://mad-detailing.com/общи-условия/",
+      "reason": "Previously documented commercial source-use prohibition remains in force; not reintroduced from fresh search results."
+    },
+    {
+      "name": "Crystal Clear Mobiwash",
+      "neighborhoodLead": "Драгалевци",
+      "reason": "Only directories found, with no first-party evidence of bookable premises. Municipal address has separate A/B entrance rows and the discovery source does not distinguish them."
+    },
+    {
+      "name": "Shinelab / Flash / Car Wash on Kamenitsa",
+      "neighborhoodLead": "Драгалевци",
+      "reason": "No usable first-party current service/booking source established. No generic directory contact or unresolved street number range was substituted."
+    }
+  ]
+}

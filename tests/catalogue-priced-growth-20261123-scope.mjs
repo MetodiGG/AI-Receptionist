@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url'
 import batch from '../docs/catalogue-coverage/priced-growth-20261123.json' with { type: 'json' }
 import wave from '../docs/catalogue-coverage/wave-lyulin-hair-growth-20261123.json' with { type: 'json' }
 import earlierPostal from '../docs/catalogue-coverage/north-exact-coverage-20261123.json' with { type: 'json' }
+import { sparseMarketGrowthAllowsFileChange, sparseMarketGrowthAllowsNewFile, sparseMarketGrowthPriorSource, sparseMarketGrowthPriorCatalogue } from './catalogue-sparse-market-growth-20261123-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = value => createHash('sha256').update(value).digest('hex')
@@ -35,10 +36,11 @@ const unchangedWaveSnapshots = new Set([wave.previousRowSha256,
 function hasHash(path, expected) {
   try { return Boolean(expected) && sha(readFileSync(new URL('../' + path, import.meta.url))) === expected } catch { return false }
 }
-export const pricedGrowthAllowsFileChange = path => Object.hasOwn(changed, path) && hasHash(path, changed[path][1])
-export const pricedGrowthAllowsNewFile = path => Object.hasOwn(added, path) && hasHash(path, added[path])
+export const pricedGrowthAllowsFileChange = path => sparseMarketGrowthAllowsFileChange(path) || Object.hasOwn(changed, path) && hasHash(path, changed[path][1])
+export const pricedGrowthAllowsNewFile = path => sparseMarketGrowthAllowsNewFile(path) || Object.hasOwn(added, path) && hasHash(path, added[path])
 
 export function pricedGrowthPriorSource(path, source) {
+  source = sparseMarketGrowthPriorSource(path, source)
   if (!Object.hasOwn(changed, path) ||
       !/applyWaveLyulinHair20261123|WAVE_LYULIN_HAIR_20261123_REVIEW|sofia-partydots-druzhba2-block280e|Класическо детско парти|sx-karting-driving-course/u.test(source)) return source
   const [before, after] = changed[path]
@@ -53,7 +55,7 @@ export function pricedGrowthPriorSource(path, source) {
 
 export function pricedGrowthPriorCatalogue(rows) {
   const seen = new Set()
-  return rows.flatMap(row => {
+  return sparseMarketGrowthPriorCatalogue(rows).flatMap(row => {
     const isWave = row.id === wave.id, addedHash = introduced.get(row.id)
     if (!isWave && !addedHash) return [row]
     if (seen.has(row.id)) throw Error('Duplicate priced-growth row: ' + row.id)

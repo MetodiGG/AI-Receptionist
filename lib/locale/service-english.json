@@ -419,6 +419,10 @@
     ]
   },
   "names": {
+    "Машинно пране на килими · стандартна поръчка": "Machine rug cleaning · standard service",
+    "Машинно пране на килими · бърза поръчка": "Machine rug cleaning · priority service",
+    "Машинно пране на килими · експресна поръчка": "Machine rug cleaning · express service",
+    "Машинно пране на килими над 12 м²": "Machine cleaning for rugs over 12 m²",
     "Класически балет за деца от 6 до 8 години": "Classical ballet for children aged 6 to 8",
     "Групов курс по картинг за деца (6–17 г.)": "Group karting course for children (ages 6–17)",
     "Групов курс по картинг за възрастни (18+)": "Group karting course for adults (18+)",
@@ -6517,6 +6521,10 @@
     "смяна на предпазен клапан на бойлер": "change of boiler safety valve"
   },
   "descriptions": {
+    "Срок до 10 дни. Тарифата е за пране на килими до 12 м² с включен ДДС. Вземането и връщането от адрес се уговарят и заплащат отделно.": "Ready within 10 days. This VAT-inclusive cleaning rate applies to rugs up to 12 m². Collection and return are arranged and charged separately.",
+    "Срок до 4 дни. Тарифата е за пране на килими до 12 м² с включен ДДС. Вземането и връщането от адрес се уговарят и заплащат отделно.": "Ready within 4 days. This VAT-inclusive cleaning rate applies to rugs up to 12 m². Collection and return are arranged and charged separately.",
+    "Срок до 24 часа; килимите може да бъдат върнати леко влажни. Тарифата е за пране на килими до 12 м² с включен ДДС. Вземането и връщането от адрес се уговарят и заплащат отделно.": "Ready within 24 hours; rugs may be returned slightly damp. This VAT-inclusive cleaning rate applies to rugs up to 12 m². Collection and return are arranged and charged separately.",
+    "Само с предварителна заявка. Цената е за пране с включен ДДС. Срокът и отделно платеният транспорт се уточняват с центъра.": "Advance request only. The cleaning price includes VAT. Confirm turnaround and separately charged transport with the centre.",
     "Групово занимание, ниво 2, в залата на 97 СУ. Клубът потвърждава място в групата и таксата при записване.": "Level 2 group class at Bratya Miladinovi School (No. 97). The club confirms group placement and the fee when you enrol.",
     "Цената е за целия курс: 270 € за делнична група или 300 € за група през уикенда. Курсът включва 9 дни теория и практика с 18 карания. Всеки урок е 80 минути. Уточнете началната дата и групата с академията.": "The price covers the full course: €270 for a weekday group or €300 for a weekend group. The course includes 9 days of theory and practice and 18 drives. Each lesson is 80 minutes. Ask the academy to confirm the start date and group.",
     "Цената е за целия курс от 9 дни теория и практика с 18 карания. Всеки урок е 80 минути. Вечерните групи започват в 21:00 ч. Уточнете началната дата и групата с академията.": "The price covers the full course of 9 days of theory and practice and 18 drives. Each lesson is 80 minutes. Evening groups start at 21:00. Ask the academy to confirm the start date and group.",

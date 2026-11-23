@@ -5,7 +5,7 @@ import { readFileSync } from 'node:fs'
 import batch from '../docs/catalogue-coverage/priced-growth-20261123.json' with { type: 'json' }
 import wave from '../docs/catalogue-coverage/wave-lyulin-hair-growth-20261123.json' with { type: 'json' }
 import dictionary from '../lib/locale/service-english.json' with { type: 'json' }
-import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { SOFIA_CATALOGUE as currentCatalogue } from '../lib/discovery/sofia-catalogue.mjs'
 import { catalogueBoundCoordinates } from '../lib/discovery/catalogue-coordinate-binding.mjs'
 import { normalizeCatalogueBusinesses } from '../lib/discovery/catalogue-search.mjs'
 import { createEnglishContentResolver } from '../lib/locale/public-content-resolver.mjs'
@@ -15,8 +15,10 @@ import { assessPricingReview, pricingIdentity } from '../lib/discovery/catalogue
 import { BOOKING_PRICE_REVIEWS } from '../lib/discovery/catalogue-data/pricing-booking-review-v1.mjs'
 import { WAVE_LYULIN_HAIR_20261123_REVIEW, applyWaveLyulinHair20261123 } from '../lib/discovery/catalogue-data/wave-lyulin-hair-growth-20261123.mjs'
 import { pricedGrowthPriorCatalogue } from './catalogue-priced-growth-20261123-scope.mjs'
+import { sparseMarketGrowthPriorCatalogue } from './catalogue-sparse-market-growth-20261123-scope.mjs'
 
 const now = Date.parse(batch.checkedAt)
+const SOFIA_CATALOGUE = sparseMarketGrowthPriorCatalogue(currentCatalogue)
 const byId = new Map(SOFIA_CATALOGUE.map(row => [row.id, row]))
 const sha = data => createHash('sha256').update(data).digest('hex')
 const english = createEnglishContentResolver(dictionary)

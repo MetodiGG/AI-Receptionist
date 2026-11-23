@@ -1,0 +1,48 @@
+{
+  "checkedOn": "2026-11-23",
+  "status": "local_only",
+  "municipalSource": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+  "municipalCsvSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+  "businesses": [
+    {
+      "id": "sofia-partydots-druzhba2-block280e",
+      "category": "other",
+      "neighborhood": "Дружба 2",
+      "address": "София, ж.к. Дружба 2, бл. 280, до вх. Е (Цариградски комплекс)",
+      "municipal": {
+        "addressId": "94621", "region": "Искър", "sourceObject": "ж.к. Дружба", "blockNumber": "280", "entrance": "Е",
+        "latitude": 42.647723, "longitude": 23.400698,
+        "pointScope": "The operator identifies block 280. The district's public official response for this named commercial premises identifies it next to entrance E. The official point anchors entrance E, not a separate door."
+      },
+      "entranceCorroboration": "https://call.sofia.bg/signals/768635",
+      "booking": {
+        "kind": "form", "url": "https://party-dots.com/", "actualEntry": "https://party-dots.com/#booking",
+        "conditions": "The booking wizard appears on the canonical landing page, with a visible first-party button that scrolls to it. A submitted request requires subsequent confirmation by the venue. No request, slots, or user information were sent or imported."
+      },
+      "prices": [
+        {
+          "name": "Класическо детско парти", "amount": 180, "currency": "EUR", "kind": "from",
+          "unit": "пакет", "durationMin": 150,
+          "conditions": "Package starting price, not per child. Up to 12 children, 2.5 hours, entertainer and decoration. Separate advertised packages and optional elements are not inferred for this offer.",
+          "sourceUrl": "https://party-dots.com/"
+        },
+        {
+          "name": "Тематично детско парти", "amount": 245, "currency": "EUR", "kind": "from", "unit": "пакет",
+          "conditions": "Package starting price, not per child. Theme choices including princesses, superheroes and unicorns; themed decoration and costumes. No duration or group limit is stated for this package.",
+          "sourceUrl": "https://party-dots.com/"
+        },
+        {
+          "name": "Премиум детско парти с кетъринг", "amount": 385, "currency": "EUR", "kind": "from", "unit": "пакет",
+          "conditions": "Package starting price, not per child. Catering, cake and photographer. No duration or group limit is stated for this package.",
+          "sourceUrl": "https://party-dots.com/"
+        }
+      ],
+      "inventoryIdentity": "e1760cd5b60a62886bb6101c18071c823013f1a449a9882cdf75f33912c2e5d6",
+      "rowSha256": "76fffa535bc15c57854cf6715005deea8b4e1f31edc6dc4a3e9264b861175f31"
+    }
+  ],
+  "illustrationAssets": {
+    "/service-photos/sx-indoor-childrens-birthday-party-v1.webp": "03e6d5809c32b56f4f07c348b2e1c5eaba2c54c593435f06983a4294487f29a0",
+    "/service-photos/sx-child-birthday-reportage-v1.webp": "f4b9b6570e402bf9bd3a0ae64f748619d627d9d6b3d4daecbc7cdc7131e64484"
+  }
+}

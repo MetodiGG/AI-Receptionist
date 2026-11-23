@@ -1,0 +1,144 @@
+{
+  "checkedOn": "2026-11-23",
+  "status": "locally_verified_not_published",
+  "id": "sofia-wave-studio-lyulin7-nails",
+  "address": "София, ж.к. Люлин 7, бл. 744",
+  "neighborhood": "Люлин 7",
+  "addressId": "52301",
+  "previousRowSha256": "5852e1537c4aa6722e5e0b1d14bf200bb8675b9ebc952763db6a50d4fcbec86f",
+  "reviewedRowSha256": "f573c560b17133fdf55baac1b8eaa6bf9667adfb11d3a8e22274cf135c2c8686",
+  "previousPricingIdentity": "c1476b4002935690f0d291eba1112a984f056c6e5add3086a37758fc21dab5e5",
+  "reviewedPricingIdentity": "73412d7d9805a1f9edb19dd313c7332b9d6aea4b2f5d48736ecdd7f0ffde6429",
+  "priceFacts": [
+    {
+      "name": "Дамско подстригване",
+      "amount": 15,
+      "imageKey": "womens-haircut"
+    },
+    {
+      "name": "Мъжко подстригване с измиване",
+      "amount": 12.5,
+      "imageKey": "sx-hair-seq-adult-wash-cut"
+    },
+    {
+      "name": "Мъжко подстригване с машинка и измиване",
+      "amount": 10,
+      "imageKey": "mens-haircut"
+    },
+    {
+      "name": "Детско подстригване (до 6 години)",
+      "amount": 10,
+      "imageKey": "kids-haircut"
+    },
+    {
+      "name": "Подстригване на бретон",
+      "amount": 2.5,
+      "imageKey": "sx-hair-fringe-trim"
+    },
+    {
+      "name": "Сешоар · къса коса",
+      "amount": 15,
+      "imageKey": "sx-womens-short-blowdry-styling"
+    },
+    {
+      "name": "Сешоар · средна коса",
+      "amount": 17.5,
+      "imageKey": "sx-womens-shoulder-blowdry-styling"
+    },
+    {
+      "name": "Сешоар · дълга коса",
+      "amount": 20,
+      "imageKey": "hair-blowdry"
+    },
+    {
+      "name": "Букли с маша · къса коса",
+      "amount": 23,
+      "imageKey": "sx-hair-tight-wand-curls"
+    },
+    {
+      "name": "Букли с маша · средна коса",
+      "amount": 30,
+      "imageKey": "sx-hair-tight-wand-curls"
+    },
+    {
+      "name": "Букли с маша · дълга коса",
+      "amount": 40,
+      "imageKey": "sx-hair-tight-wand-curls"
+    },
+    {
+      "name": "Кичури с шапка · 30 г блондор",
+      "amount": 35,
+      "imageKey": "sx-hair-cap-highlights"
+    },
+    {
+      "name": "Кичури с фолио · 30 г блондор",
+      "amount": 35,
+      "imageKey": "hair-highlights"
+    },
+    {
+      "name": "Кичури с фолио · 60 г блондор",
+      "amount": 40,
+      "imageKey": "hair-highlights"
+    },
+    {
+      "name": "Кичури с фолио · 90 г блондор",
+      "amount": 66,
+      "imageKey": "hair-highlights"
+    },
+    {
+      "name": "Боядисване с боя на клиента",
+      "amount": 20,
+      "imageKey": "full-hair-color"
+    },
+    {
+      "name": "Боядисване на корени · до 60 мл боя",
+      "amount": 30,
+      "imageKey": "sx-hair-root-colour-rough-dry"
+    },
+    {
+      "name": "Балеаж · средна коса",
+      "amount": 127,
+      "durationMin": 240,
+      "imageKey": "hair-balayage"
+    },
+    {
+      "name": "Балеаж · дълга коса",
+      "amount": 204,
+      "durationMin": 360,
+      "imageKey": "hair-balayage"
+    },
+    {
+      "name": "Матиране",
+      "amount": 40,
+      "durationMin": 60,
+      "imageKey": "hair-toning"
+    },
+    {
+      "name": "Официална прическа",
+      "amount": 40,
+      "imageKey": "formal-event-hairstyle"
+    },
+    {
+      "name": "Плитки на половин глава",
+      "amount": 30,
+      "imageKey": "hair-braiding"
+    },
+    {
+      "name": "Трайно изправяне с терапия",
+      "amount": 153,
+      "imageKey": "hair-straightening"
+    },
+    {
+      "name": "Трайно изправяне · до 6 месеца",
+      "amount": 204,
+      "imageKey": "hair-straightening"
+    }
+  ],
+  "operatorSource": "https://www.wave-studio.net/hairstyle/",
+  "manicureSource": "https://www.wave-studio.net/manicure/",
+  "contactSource": "https://www.wave-studio.net/contact-us/",
+  "bookingSource": "https://www.wave-studio.net/reservations/",
+  "money": "Exact EUR amounts, one quoted branch-specific service. Hair-length and lightener-amount options stay separate. The two balayage lengths and toner have explicit service durations; stated lifetimes of straightening are not appointment durations.",
+  "preserved": "Same venue ID, address, existing municipal point, phone booking, opening hours, and unchanged three original nail services and price values. Do not follow the stale NDK online widget as a booking destination. No new operator counted.",
+  "held": "Unqualified men's cold-perm price pair was not imported. Retail and services without matching independently described treatment, separately specified condition or relevant scoped photo were not added in this batch."
+}

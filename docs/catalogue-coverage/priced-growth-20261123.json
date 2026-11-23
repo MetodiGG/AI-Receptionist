@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 1,
+  "baseline": "e5c5340f50f47e275f2b79cdab80a18f6d6c3dcf",
+  "checkedAt": "2026-11-23T04:30:25.000Z",
+  "status": "prepared_locally_not_published",
+  "targetPerQuarterCategory": 30,
+  "totalTargetCells": 1750,
+  "pickerTargetCells": 1358,
+  "approvedCatalogueRecords": [
+    1751,
+    1754
+  ],
+  "locatedPremises": [
+    985,
+    988
+  ],
+  "emptyLocatedCells": [
+    1370,
+    1366
+  ],
+  "emptyLocatedPickerCells": [
+    1009,
+    1005
+  ],
+  "cellsAtLocatedTarget": [
+    0,
+    0
+  ],
+  "newDistinctOperators": 3,
+  "newPremises": 3,
+  "existingAddressBindings": 0,
+  "existingServiceExpansions": 1,
+  "verifiedPublicPriceFacts": 29,
+  "newRows": [
+    {
+      "id": "sofia-partydots-druzhba2-block280e",
+      "neighborhood": "Дружба 2",
+      "category": "other",
+      "addressId": "94621",
+      "normalizedRecordSha256": "76fffa535bc15c57854cf6715005deea8b4e1f31edc6dc4a3e9264b861175f31",
+      "inventoryIdentity": "e1760cd5b60a62886bb6101c18071c823013f1a449a9882cdf75f33912c2e5d6",
+      "pricingReview": "reviewed",
+      "imageKeys": [
+        "sx-indoor-childrens-birthday-party",
+        "sx-indoor-childrens-birthday-party",
+        "sx-child-birthday-reportage"
+      ]
+    },
+    {
+      "id": "sofia-karting-ring-academy-simeonovo-214",
+      "neighborhood": "Симеоново",
+      "category": "fitness",
+      "addressId": "109175",
+      "normalizedRecordSha256": "fc16d37d68fa8dd53b07e728d687c33e6157ccd8b8570c81125572643c0bc73f",
+      "inventoryIdentity": "2db74083fc00a61dadf7f65dbf2bdb2bf4a41dc1c68926b80a039ee4cd99b94b",
+      "pricingReview": "reviewed",
+      "imageKeys": [
+        "sx-karting-driving-course",
+        "sx-karting-driving-course"
+      ]
+    },
+    {
+      "id": "sofia-terpsihora-lyulin5-504-1",
+      "neighborhood": "Люлин 5",
+      "category": "fitness",
+      "addressId": "110122",
+      "normalizedRecordSha256": "1a537dc763359b1f51ec1fe1794daf7bcf67a17d77e5450bd1c52e54d09a8160",
+      "inventoryIdentity": "7855baa48bc50609f06332c1dc2acdea9cf441fb549127c5ac4352d68aa7ffc8",
+      "pricingReview": "service_reviewed",
+      "imageKeys": [
+        "sx-child-ballet"
+      ]
+    }
+  ],
+  "affected": [
+    {
+      "id": "sofia-wave-studio-lyulin7-nails",
+      "neighborhood": "Люлин 7",
+      "category": "hair",
+      "physical": [
+        0,
+        1
+      ],
+      "located": [
+        0,
+        1
+      ]
+    },
+    {
+      "id": "sofia-partydots-druzhba2-block280e",
+      "neighborhood": "Дружба 2",
+      "category": "other",
+      "physical": [
+        0,
+        1
+      ],
+      "located": [
+        0,
+        1
+      ]
+    },
+    {
+      "id": "sofia-karting-ring-academy-simeonovo-214",
+      "neighborhood": "Симеоново",
+      "category": "fitness",
+      "physical": [
+        0,
+        1
+      ],
+      "located": [
+        0,
+        1
+      ]
+    },
+    {
+      "id": "sofia-terpsihora-lyulin5-504-1",
+      "neighborhood": "Люлин 5",
+      "category": "fitness",
+      "physical": [
+        0,
+        1
+      ],
+      "located": [
+        0,
+        1
+      ]
+    }
+  ],
+  "evidenceFiles": [
+    "wave-lyulin-hair-growth-20261123.json",
+    "east-growth-intake-20261123.json",
+    "south-growth-intake-20261123.json",
+    "north-growth-intake-20261123.json"
+  ],
+  "scope": "Exact verified locations for three separate new operators, one existing venue gains a real additional category without a duplicate listing. Variant prices and qualifiers are taken from the named operator, never from checkouts, other venues or guessed appointments. Municipal points do not assert track entrance, available slots or confirmed bookings."
+}

@@ -11,9 +11,10 @@ import { applyNorthExactCoverage20261123 } from '../lib/discovery/catalogue-data
 import { applySaltartDruzhbaBinding20261123 } from '../lib/discovery/catalogue-data/saltart-druzhba-binding-20261123.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
 import { peripheryPriorCatalogue } from './catalogue-periphery-20261123-scope.mjs'
+import { pricedGrowthPriorCatalogue } from './catalogue-priced-growth-20261123-scope.mjs'
 
 const now = Date.parse('2026-11-23T04:00:00Z')
-const records = new Map(SOFIA_CATALOGUE.map(row => [row.id, row]))
+const records = new Map(pricedGrowthPriorCatalogue(SOFIA_CATALOGUE).map(row => [row.id, row]))
 const hash = row => createHash('sha256').update(JSON.stringify(row)).digest('hex')
 const reviewed = [...north.recoveries.map(receipt => [receipt, applyNorthExactCoverage20261123]),
   [saltart, applySaltartDruzhbaBinding20261123]]

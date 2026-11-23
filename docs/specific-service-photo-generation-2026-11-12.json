@@ -4852,6 +4852,28 @@
       }
     },
     {
+      "id": "sx-karting-driving-course",
+      "label": "Курс по картинг",
+      "prompt": "Use case: photorealistic-natural. Asset type: square catalogue service thumbnail for a karting driving course (generic AI illustration, not a photograph of the Sofia venue or any real person). Scene: safe, indoor kart circuit, stationary entry-level go-kart in its pit lane, track barrier in the soft background. An adult instructor in a plain non-branded jacket points at the black steering wheel while a learner in a properly fastened full-face helmet and simple racing suit sits in the stopped kart, looking at the wheel, hands naturally on it. Eye-level three-quarter editorial photo with the learner, instructor's gesture, steering wheel and recognizable go-kart centered together, easily readable at tiny size. Natural indoor lighting, realistic rubber and fabric, no speed, no race grid, no texting, no lettering, no watermark, no brands, no collage.",
+      "sourceFile": "exec-88c8c7d8-19f0-4c01-929d-35a6af296f7f.png",
+      "sourceSha256": "3c066c44e97e79b6bc46098a80187b0cd48bb92cc3a303186e9267862dc37b81",
+      "file": "public/service-photos/sx-karting-driving-course-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 14780,
+      "sha256": "483a979e75ec5222d321db2fb0f8918b09c5f8a1c7c06ba8fc8a2bb7dc77a274",
+      "generatedOn": "2026-11-23",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "3c066c44e97e79b6bc46098a80187b0cd48bb92cc3a303186e9267862dc37b81",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Visually checked at source size and 256px. The instructor, steering wheel, seated helmeted learner and kart remain legible; no venue, event or real person is claimed."
+      }
+    },
+    {
       "id": "sx-auto-parking-cable",
       "label": "Смяна на жило на ръчна спирачка",
       "prompt": "Use case: photorealistic-natural. Asset type: an individual square service photograph for a GoRez service thumbnail. Show the named activity clearly and realistically, with lifelike fictional people where appropriate, credible real tools/materials, natural hands and professional safe technique. Generic illustrative photograph, NOT actual business premises, staff, verified work or a claim of outcomes. Natural warm-neutral daylight, authentic skin/material texture, restrained editing, close or medium framing legible at64–88px. Square1:1, clear central subject. No typography, labels, prices, logos, watermarks, borders, emoji, CGI or3D render. For a true multi-step combination ONLY, a coherent2–3panel photographic sequence of the SAME fictional client/subject may depict its actual named steps, not unrelated collage.\nService: Смяна на жило на ръчна спирачка\nScene: Mechanic installs a new mechanical parking-brake cable under a raised car, cable guides and rear brake connection visible.",

@@ -48,6 +48,10 @@ import { SILVERSTAR_RING_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalo
 import { VERIFIED_SOUTH_NEXT_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-south-next-20261123.mjs'
 import { NORTH_NEXT_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-north-next-20261123.mjs'
 import { VERIFIED_EAST_NEXT_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-east-next-20261123.mjs'
+import { VERIFIED_EAST_GROWTH_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-east-growth-20261123.mjs'
+import { VERIFIED_SOUTH_GROWTH_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-south-growth-20261123.mjs'
+import { NORTH_GROWTH_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-north-growth-20261123.mjs'
+import { pricedGrowthPriorCatalogue } from './catalogue-priced-growth-20261123-scope.mjs'
 const now = Date.parse('2026-11-11T12:00:00Z')
 const record = () => structuredClone(SOFIA_CATALOGUE.find(row => row.id === 'sofia-cut-n-chill'))
 const review = () => structuredClone(BOOKING_PRICE_REVIEWS.find(row => row.id === 'sofia-cut-n-chill'))
@@ -104,9 +108,12 @@ test('the existing catalogue stays available and unresolved records remain expli
     row.id.startsWith('sofia-gpoint-') && row.website === 'https://gpoint.bg/' && row.checkedOn === '2026-11-22'
   ).map(row => row.id))
   assert.equal(revalidatedGPointIds.size, 43)
-  const historical = SOFIA_CATALOGUE.filter(row => row.verification.checkedOn <= '2026-11-11' && !revalidatedGPointIds.has(row.id))
+  const historical = pricedGrowthPriorCatalogue(SOFIA_CATALOGUE).filter(row =>
+    row.verification.checkedOn <= '2026-11-11' && !revalidatedGPointIds.has(row.id))
   const ids = new Set(historical.map(row => row.id))
-  const result = auditCataloguePricing(historical, baseline, BOOKING_PRICE_REVIEWS.filter(row => ids.has(row.id)), now)
+  const waveHistory = NEIGHBORHOOD_20261111_REVIEWS.find(row => row.id === 'sofia-wave-studio-lyulin7-nails')
+  const historicalReviews = BOOKING_PRICE_REVIEWS.filter(row => ids.has(row.id)).map(row => row.id === waveHistory.id ? waveHistory : row)
+  const result = auditCataloguePricing(historical, baseline, historicalReviews, now)
   assert.equal(result.summary.total, historical.length)
   assert.equal(result.blocking.length, 0)
   assert.ok(result.summary.pending > 0)
@@ -182,6 +189,9 @@ test('dated audit receipts cover every current ID without rewriting the historic
     [VERIFIED_SOUTH_NEXT_20261123_REVIEWS, 'sofia-elizabet-ritmika-dragalevtsi-bela-dona1', 'service_reviewed'],
     [NORTH_NEXT_INTAKE_20261123_REVIEWS, 'sofia-avtotapicera-iliyantsi-balcho7', 'service_reviewed'],
     [VERIFIED_EAST_NEXT_20261123_REVIEWS, 'sofia-carplay-bulgaria-gorublyane-pionerska2', 'service_reviewed'],
+    [VERIFIED_EAST_GROWTH_20261123_REVIEWS, 'sofia-partydots-druzhba2-block280e', 'reviewed'],
+    [VERIFIED_SOUTH_GROWTH_20261123_REVIEWS, 'sofia-karting-ring-academy-simeonovo-214', 'reviewed'],
+    [NORTH_GROWTH_INTAKE_20261123_REVIEWS, 'sofia-terpsihora-lyulin5-504-1', 'service_reviewed'],
   ]) {
     assert.deepEqual(reviews.map(row => row.id), [id])
     assert.equal(auditedIds.has(id), false)
@@ -196,7 +206,8 @@ test('dated audit receipts cover every current ID without rewriting the historic
   assert.ok(SOFIA_CATALOGUE.every(row => auditedIds.has(row.id)))
   for (const review of NEIGHBORHOOD_20261111_REVIEWS) {
     const record = SOFIA_CATALOGUE.find(row => row.id === review.id)
-    assert.equal(assessPricingReview(record, review, now).state, 'reviewed', review.id)
+    const [prior] = pricedGrowthPriorCatalogue([record])
+    assert.equal(assessPricingReview(prior, review, now).state, 'reviewed', review.id)
   }
   for (const review of SUHODOL_20261122_REVIEWS) {
     const record = SOFIA_CATALOGUE.find(row => row.id === review.id)

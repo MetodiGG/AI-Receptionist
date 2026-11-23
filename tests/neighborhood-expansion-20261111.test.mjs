@@ -7,6 +7,7 @@ import { assessPricingReview, pricingIdentity } from '../lib/discovery/catalogue
 import { NEIGHBORHOOD_20261111_RECORDS as records, NEIGHBORHOOD_20261111_REVIEWS as reviews } from '../lib/discovery/catalogue-data/neighborhood-expansion-20261111.mjs'
 import approvedOfficialLocations from '../public/catalogue-official-address-points-20261113.json' with { type: 'json' }
 import { quarterNextPriorCatalogue } from './catalogue-quarter-next-20261123-scope.mjs'
+import { pricedGrowthPriorCatalogue } from './catalogue-priced-growth-20261123-scope.mjs'
 const now = Date.parse('2026-11-11T12:00:00Z')
 const officialById = new Map(approvedOfficialLocations.points.map(row => [row.id, row]))
 function assertReviewedCoordinates(row, originalCoordinates) {
@@ -121,8 +122,9 @@ test('new nail salons retain distinct current venues, real phone booking, fees a
   const wave = SOFIA_CATALOGUE.find(item => item.id === 'sofia-wave-studio-lyulin7-nails')
   assert.equal(wave.neighborhood, 'Люлин 7')
   assert.equal(wave.booking.kind, 'phone', 'stale NDK provider destination is not used')
-  assert.deepEqual(wave.services.map(service => service.price.amount), [10.23, 12.78, 17.9])
-  assert.ok(wave.services.every(service => service.category === 'nails' && !service.durationMin))
+  const nails = wave.services.filter(service => service.category === 'nails')
+  assert.deepEqual(nails.map(service => service.price.amount), [10.23, 12.78, 17.9])
+  assert.ok(nails.every(service => !service.durationMin))
   const asya = SOFIA_CATALOGUE.find(item => item.id === 'sofia-nails-asya-druzhba')
   assert.equal(asya.neighborhood, 'Дружба 1', 'municipal section 244614040 establishes the exact quarter of Tirana 17')
   assert.equal(asya.booking.phone, '+359876670155')
@@ -776,8 +778,9 @@ test('new neighborhood businesses have schema-checked, exact reviewed inventorie
   assert.ok(records.length >= 2)
   assert.equal(reviews.length, records.length)
   assert.equal(new Set(reviews.map(row => row.id)).size, reviews.length)
+  const publishedAtCohort = new Map(pricedGrowthPriorCatalogue(SOFIA_CATALOGUE).map(row => [row.id, row]))
   for (const record of validateCatalogue(records)) {
-    const published = SOFIA_CATALOGUE.find(row => row.id === record.id)
+    const published = publishedAtCohort.get(record.id)
     const review = reviews.find(row => row.id === record.id)
     assert.ok(approvedCatalogueRecord(published, now), record.id)
     assert.equal(pricingIdentity(record), pricingIdentity(published), record.id)

@@ -17,11 +17,13 @@ import { BOOKING_PRICE_REVIEWS } from '../lib/discovery/catalogue-data/pricing-b
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
 import { serviceThumbnail } from '../lib/service-thumbnail.mjs'
 import { quarterNextPriorCatalogue } from './catalogue-quarter-next-20261123-scope.mjs'
+import { pricedGrowthPriorCatalogue } from './catalogue-priced-growth-20261123-scope.mjs'
 
 const now = Date.parse(batch.checkedAt)
-const byId = new Map(SOFIA_CATALOGUE.map(row => [row.id, row]))
+const current = pricedGrowthPriorCatalogue(SOFIA_CATALOGUE)
+const byId = new Map(current.map(row => [row.id, row]))
 const digest = row => createHash('sha256').update(JSON.stringify(row)).digest('hex')
-const prior = quarterNextPriorCatalogue(SOFIA_CATALOGUE)
+const prior = quarterNextPriorCatalogue(current)
 const priorById = new Map(prior.map(row => [row.id, row]))
 const englishResolver = createEnglishContentResolver(english)
 const near = (row, overrides) => normalizeCatalogueBusinesses([row], {
@@ -94,7 +96,7 @@ test('new businesses have independent operators, source-reviewed booking and fit
 })
 
 test('stored aggregate matches the actual newly covered cells and accurate-address counts', () => {
-  const reports = [prior, SOFIA_CATALOGUE].map(rows => catalogueCoverageReport(rows, { now, target: batch.targetPerQuarterCategory }))
+  const reports = [prior, current].map(rows => catalogueCoverageReport(rows, { now, target: batch.targetPerQuarterCategory }))
   const areas = report => [...report.neighborhoods, ...report.additionalNamedAreas]
   const empty = areas => areas.flatMap(area => area.cells).filter(cell => !cell.locatedCount).length
   assert.deepEqual(reports.map(report => report.counts.approvedBusinesses), batch.approvedCatalogueRecords)
@@ -102,8 +104,8 @@ test('stored aggregate matches the actual newly covered cells and accurate-addre
   assert.deepEqual(reports.map(report => empty(areas(report))), batch.emptyLocatedCells)
   assert.deepEqual(reports.map(report => empty(report.neighborhoods)), batch.emptyLocatedPickerCells)
   assert.deepEqual(reports.map(report => report.counts.cellsAtLocatedTarget), batch.cellsAtLocatedTarget)
-  assert.equal(batch.newRows.length, SOFIA_CATALOGUE.filter(row => !priorById.has(row.id)).length)
-  assert.equal(SOFIA_CATALOGUE.filter(row => priorById.has(row.id) && digest(priorById.get(row.id)) !== digest(row)).length,
+  assert.equal(batch.newRows.length, current.filter(row => !priorById.has(row.id)).length)
+  assert.equal(current.filter(row => priorById.has(row.id) && digest(priorById.get(row.id)) !== digest(row)).length,
     batch.existingAddressBindings)
   for (const change of batch.affected) {
     const cells = reports.map(report => areas(report).find(area => area.name === change.neighborhood)

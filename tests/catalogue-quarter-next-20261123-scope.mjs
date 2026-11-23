@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url'
 import batch from '../docs/catalogue-coverage/quarter-next-priority-20261123.json' with { type: 'json' }
 import locations from '../docs/catalogue-coverage/priority-address-recovery-20261123.json' with { type: 'json' }
 import north from '../docs/catalogue-coverage/north-next-intake-20261123.json' with { type: 'json' }
+import { pricedGrowthAllowsFileChange, pricedGrowthAllowsNewFile, pricedGrowthPriorSource, pricedGrowthPriorCatalogue } from './catalogue-priced-growth-20261123-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const digest = value => createHash('sha256').update(value).digest('hex')
@@ -36,10 +37,11 @@ const introduced = new Map(batch.newRows.map(row => [row.id, row.normalizedRecor
 function hasHash(path, sha) {
   try { return Boolean(sha) && digest(readFileSync(new URL('../' + path, import.meta.url))) === sha } catch { return false }
 }
-export const quarterNextAllowsFileChange = path => Object.hasOwn(changed, path) && hasHash(path, changed[path][1])
-export const quarterNextAllowsNewFile = path => Object.hasOwn(added, path) && hasHash(path, added[path])
+export const quarterNextAllowsFileChange = path => pricedGrowthAllowsFileChange(path) || Object.hasOwn(changed, path) && hasHash(path, changed[path][1])
+export const quarterNextAllowsNewFile = path => pricedGrowthAllowsNewFile(path) || Object.hasOwn(added, path) && hasHash(path, added[path])
 
 export function quarterNextPriorSource(path, source) {
+  source = pricedGrowthPriorSource(path, source)
   if (!Object.hasOwn(changed, path) || !/applyPriorityAddressRecovery20261123|VERIFIED_SOUTH_NEXT_20261123_REVIEWS|sofia-elizabet-ritmika-dragalevtsi-bela-dona1|Запишете първа тренировка по телефон\./u.test(source)) return source
   const [before, after] = changed[path]
   if (digest(source) !== after) throw Error('Unreviewed 23 Nov quarter-next priority source delta: ' + path)
@@ -53,7 +55,7 @@ export function quarterNextPriorSource(path, source) {
 
 export function quarterNextPriorCatalogue(rows) {
   const seen = new Set()
-  return rows.flatMap(row => {
+  return pricedGrowthPriorCatalogue(rows).flatMap(row => {
     const recovery = existing.get(row.id), next = introduced.get(row.id)
     if (!recovery && !next) return [row]
     if (seen.has(row.id)) throw Error('Duplicate quarter-next priority row: ' + row.id)

@@ -13,7 +13,7 @@ const electricalAssets = ['sx-home-electrical-inspect', 'sx-home-electrical-insp
   'sx-home-electrical-panel-equipment', 'sx-home-switch-socket-install', 'sx-home-appliance-repair']
 const src = key => `/service-photos/${key}-v1.webp`
 const assertLocalPhoto = async image => {
-  assert.match(image, /^\/(?:service|category)-photos\/[a-z0-9-]+\.webp$/u)
+  assert.match(image, /^\/(?:service|category)-photos\/[a-z0-9_-]+\.webp$/u)
   assert.doesNotMatch(image, /appointment-workspace|notebook/u)
   assert.ok((await stat(new URL(`../public${image}`, import.meta.url))).size > 0, image)
 }

@@ -17,6 +17,22 @@
     "manualRevalidations": [
       {
         "checkedOn": "2026-11-23",
+        "businessId": "sofia-koba-auto-paris14",
+        "inventoryIdentity": "e0119e48482448760a515a25754f418d7aa07f66b50588512f5335b9cd749a6a",
+        "reason": "Separates diagnostics from a repair commitment and keeps the branch's actual requested vehicle information.",
+        "entriesAdded": { "names": 0, "descriptions": 1, "units": 0 },
+        "certifiedHumanTranslation": false
+      },
+      {
+        "checkedOn": "2026-11-23",
+        "businessId": "sofia-candy-house-lyulin10-mayski-den22",
+        "inventoryIdentity": "f7c43a612a73c115ebb79ee07ff208c05c849b7277aec9c9570a6e4ab24b3688",
+        "reason": "Keeps the ten-child package, outside-cake fee, non-refundable deposit, separately stated advance and change deadline.",
+        "entriesAdded": { "names": 1, "descriptions": 1, "units": 0 },
+        "certifiedHumanTranslation": false
+      },
+      {
+        "checkedOn": "2026-11-23",
         "businessId": "sofia-masters-dance-lyulin-centre-nenov29",
         "inventoryIdentity": "03e72ecf1af20cb12b3fb0109f65a1abdacc2eb5d2e40ec3f1ab8c7e93e65d8a",
         "reason": "Keeps the adult-only beginner group, exact school choice and separately confirmed enrolment and fee.",
@@ -403,6 +419,7 @@
     ]
   },
   "names": {
+    "Детско тържество · пакет за 10 деца": "Children’s party · package for 10 children",
     "Български народни танци за начинаещи възрастни": "Bulgarian folk dance for adult beginners",
     "Диагностика на двигател": "Engine diagnostics",
     "Солна стая за възрастен · едно посещение": "Adult salt room · one visit",
@@ -6473,6 +6490,8 @@
     "смяна на предпазен клапан на бойлер": "change of boiler safety valve"
   },
   "descriptions": {
+    "Компютърната диагностика може да се заяви без ангажимент за ремонт. При записване уточнете симптомите, марката, модела и годината на автомобила.": "Computer diagnostics can be booked without committing to repairs. When booking, describe the symptoms and give the vehicle’s make, model and year.",
+    "За деца на 1–12 г. Храна и напитка за 10 деца, поднасяне на тортата. Доп. дете: 20 €. Внесена торта: 20 €; включена торта не е посочена. Невъзстановимо капаро 51,13 €. След уточняване се плащат 50% от стойността; уточнете отчитането на капарото. Заявки и промени най-късно 3 дни преди партито.": "Ages 1–12. Food and a drink for 10 children, and cake serving. Extra child: €20. Bringing a cake: €20; the package does not list a cake. Non-refundable €51.13 deposit. Once the order is agreed, 50% is payable; ask how the deposit counts. Requests and changes at least 3 days before the party.",
     "Групови занимания за възрастни без опит. Избери школата в Люлин във формуляра. Записването, графикът и таксата се уточняват с организатора.": "Group classes for adults with no experience. Select the Lyulin school on the form. The organiser confirms enrolment, the schedule and the fee.",
     "При предварително уговорен прием сервизът проверява работата на двигателя, електронните системи, сензорите и механичните компоненти.": "By appointment, the workshop checks engine performance, electronic systems, sensors and mechanical components.",
     "Първо посещение с преглед и създаване на досие. Цената е публикувана в Superdoc. За процедури по НЗОК кабинетът моли да носите здравноосигурителната си книжка.": "First visit with a dental examination and creation of a patient record. The price is published on Superdoc. For procedures covered by Bulgaria’s National Health Insurance Fund, the practice asks you to bring your health insurance booklet.",

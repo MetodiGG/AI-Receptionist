@@ -8,7 +8,7 @@ import dentalReceipt from '../docs/catalogue-coverage/frantsov-intake-20261123.j
 import autoReceipt from '../docs/catalogue-coverage/solux-auto-intake-20261123.json' with { type: 'json' }
 import masters from '../docs/catalogue-coverage/masters-dance-intake-20261123.json' with { type: 'json' }
 import english from '../lib/locale/service-english.json' with { type: 'json' }
-import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { SOFIA_CATALOGUE as currentCatalogue } from '../lib/discovery/sofia-catalogue.mjs'
 import { BOOKING_PRICE_REVIEWS } from '../lib/discovery/catalogue-data/pricing-booking-review-v1.mjs'
 import { assessPricingReview, pricingIdentity } from '../lib/discovery/catalogue-pricing-review.mjs'
 import { catalogueBoundCoordinates } from '../lib/discovery/catalogue-coordinate-binding.mjs'
@@ -19,8 +19,10 @@ import { serviceThumbnail } from '../lib/service-thumbnail.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
 import { cataloguePublicationState } from '../scripts/check-sofia-catalogue.mjs'
 import { sparsePremisesPriorCatalogue } from './catalogue-sparse-premises-20261123-scope.mjs'
+import { lyulinPremisesPriorCatalogue } from './catalogue-lyulin-premises-20261123-scope.mjs'
 
 const now = Date.parse(batch.checkedAt)
+const SOFIA_CATALOGUE = lyulinPremisesPriorCatalogue(currentCatalogue)
 const digest = value => createHash('sha256').update(value).digest('hex')
 const englishResolver = createEnglishContentResolver(english)
 const salt = saltReceipt.business, dentist = dentalReceipt.newBusiness, auto = autoReceipt.business

@@ -7,6 +7,7 @@ import salt from '../docs/catalogue-coverage/salt-hug-intake-20261123.json' with
 import frantsov from '../docs/catalogue-coverage/frantsov-intake-20261123.json' with { type: 'json' }
 import solux from '../docs/catalogue-coverage/solux-auto-intake-20261123.json' with { type: 'json' }
 import masters from '../docs/catalogue-coverage/masters-dance-intake-20261123.json' with { type: 'json' }
+import { lyulinPremisesAllowsFileChange, lyulinPremisesAllowsNewFile, lyulinPremisesPriorSource, lyulinPremisesPriorCatalogue } from './catalogue-lyulin-premises-20261123-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const digest = value => createHash('sha256').update(value).digest('hex')
@@ -38,10 +39,11 @@ const approvedAdditions = new Map([
 function hasHash(path, sha) {
   try { return Boolean(sha) && digest(readFileSync(new URL('../' + path, import.meta.url))) === sha } catch { return false }
 }
-export const sparsePremisesAllowsFileChange = path => Object.hasOwn(changed, path) && hasHash(path, changed[path][1])
-export const sparsePremisesAllowsNewFile = path => Object.hasOwn(added, path) && hasHash(path, added[path])
+export const sparsePremisesAllowsFileChange = path => lyulinPremisesAllowsFileChange(path) || Object.hasOwn(changed, path) && hasHash(path, changed[path][1])
+export const sparsePremisesAllowsNewFile = path => lyulinPremisesAllowsNewFile(path) || Object.hasOwn(added, path) && hasHash(path, added[path])
 
 export function sparsePremisesPriorSource(path, source) {
+  source = lyulinPremisesPriorSource(path, source)
   if (!Object.hasOwn(changed, path) || !/SALT_HUG_INTAKE_20261123|sofia-salt-hug-druzhba1-block195v|sx-adult-salt-room/u.test(source)) return source
   const [before, after] = changed[path]
   if (digest(source) !== after) throw Error('Unreviewed 23 Nov sparse-premises priority source delta: ' + path)
@@ -55,7 +57,7 @@ export function sparsePremisesPriorSource(path, source) {
 
 export function sparsePremisesPriorCatalogue(rows) {
   const seen = new Set()
-  return rows.filter(row => {
+  return lyulinPremisesPriorCatalogue(rows).filter(row => {
     const hash = approvedAdditions.get(row.id)
     if (!hash) return true
     if (seen.has(row.id)) throw Error('Duplicate sparse-premises intake: ' + row.id)

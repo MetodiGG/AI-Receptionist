@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "baseline": "0aa11d6be998f2a8f2dcdb4cb75f4f9a28ad12c5",
+  "checkedAt": "2026-11-23T03:30:00.000Z",
+  "status": "prepared_locally_not_published",
+  "targetPerQuarterCategory": 30,
+  "totalTargetCells": 1750,
+  "pickerTargetCells": 1358,
+  "approvedCatalogueRecords": [1738, 1740],
+  "locatedPremises": [951, 954],
+  "emptyLocatedCells": [1392, 1390],
+  "emptyLocatedPickerCells": [1027, 1025],
+  "cellsAtLocatedTarget": [0, 0],
+  "newIndependentOperators": 1,
+  "newLocationsOfExistingOperators": 1,
+  "fixedExistingEntrances": 1,
+  "affected": [
+    { "id": "sofia-candy-house-lyulin10-mayski-den22", "neighborhood": "Люлин 10", "category": "other", "change": "new_operator", "physical": [2, 3], "located": [0, 1] },
+    { "id": "sofia-koba-auto-paris14", "neighborhood": "Център", "category": "auto_repair", "change": "new_premises_existing_operator", "physical": [1, 2], "located": [1, 2] },
+    { "id": "sofia-felix-dogs-lyulin", "neighborhood": "Люлин 10", "category": "pets", "change": "existing_entrance", "physical": [1, 1], "located": [0, 1] }
+  ],
+  "scope": "Local checked-in Sofia premises and service areas as defined by the existing catalogue coverage programme, not a census of independent legal entities, not separately hosted partners, and no live fleet or reservation availability. The exact postal points come from the supplied municipal dataset.",
+  "heldExamples": [
+    { "candidate": "Солна стая ЕЛИТ", "reason": "The operator terms do not permit commercial use of the published content without a licence. No alternative source was used to avoid that restriction." },
+    { "candidate": "Бърборанчета (Bebe Land)", "reason": "The operator terms require prior written permission for use of their site content. No admission or fee was copied." },
+    { "candidate": "AMARANT MM", "reason": "The operator terms restrict reproduction or duplication of the service and the tariff image was not reopened." },
+    { "candidate": "NACEA", "reason": "No exact municipal number or independently attributable operations point, and the locality remains unclear." }
+  ]
+}

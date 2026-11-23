@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "baselineCommit": "0aa11d6be998f2a8f2dcdb4cb75f4f9a28ad12c5",
+  "status": "prepared_locally_not_published",
+  "targetPerQuarterCategory": 30,
+  "newBusiness": {
+    "id": "sofia-candy-house-lyulin10-mayski-den22",
+    "name": "Детски клуб „Бонбонената къща“",
+    "nameEn": "Candy House Children’s Club",
+    "category": "other",
+    "neighborhood": "Люлин 10",
+    "address": "София, ж.к. Люлин 10, ул. Майски ден 22",
+    "municipal": {
+      "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+      "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+      "addressId": "30325",
+      "district": "Люлин",
+      "settlement": "гр. София",
+      "latitude": 42.719352,
+      "longitude": 23.274338,
+      "licence": "CC-BY-4.0",
+      "pointScope": "The operator calls the venue Lyulin 10, Mayski Den 22, with a separately labeled navigation/parking link for 22Б. Its explicit destination pin—not a viewport or inferred centroid—corroborates municipal row 30325 at 1.51 m. The other municipal base-number row 54119 is 44.60 m from that pin. Row 30304 is marked 22А, a different house number, at 14.04 m. No exact municipal 22Б row was found. The only stored coordinate is the independently supplied municipal No. 22 point. This is not a survey of the visitor entrance or specific party room.",
+      "navigationMetadataScope": "The operator's own named directions link was inspected by HEAD only, with no redirects followed and no map page, API, map assets, ratings or place database fetched. No redirect coordinates or metadata are included in the catalogue, price review or executable data."
+    },
+    "ownerWebsite": "https://candyhouse-bg.com/",
+    "ownerContact": "https://candyhouse-bg.com/contact/",
+    "ownerTariff": "https://candyhouse-bg.com/prices/",
+    "ownerAccessRules": "https://candyhouse-bg.com/robots.txt",
+    "booking": {
+      "kind": "form",
+      "url": "https://candyhouse-bg.com/contact/",
+      "businessPhone": "+359895464206",
+      "evidence": "From the official homepage, the actual «Поръчай парти» CTA leads directly to the owner contact page. It presents a public name, email, and message inquiry form plus the published business phone. The tariff confirms a date and time are arranged with the club, in person or online, subject to a deposit. No form entry, submission, contact, credentials, availability check, or payment took place. The contact form is not a native appointment calendar or instant booking."
+    },
+    "service": {
+      "name": "Детско тържество · пакет за 10 деца",
+      "nameEn": "Children’s party · package for 10 children",
+      "amount": 300,
+      "currency": "EUR",
+      "kind": "fixed",
+      "unit": "пакет за 10 деца",
+      "unitEn": "package for 10 children",
+      "durationMin": 120,
+      "description": "За деца на 1–12 г. Храна и напитка за 10 деца, поднасяне на тортата. Доп. дете: 20 €. Внесена торта: 20 €; включена торта не е посочена. Невъзстановимо капаро 51,13 €. След уточняване се плащат 50% от стойността; уточнете отчитането на капарото. Заявки и промени най-късно 3 дни преди партито.",
+      "descriptionEn": "Ages 1–12. Food and a drink for 10 children, and cake serving. Extra child: €20. Bringing a cake: €20; the package does not list a cake. Non-refundable €51.13 deposit. Once the order is agreed, 50% is payable; ask how the deposit counts. Requests and changes at least 3 days before the party.",
+      "qualifications": "The regular EUR 300 package lists meals and drinks for ten children and ceremonial cake serving. Generic birthday conditions specify a two-hour party, a EUR 20 charge per additional child and a EUR 20 outside-cake fee. A cake, entertainer, exclusive hall and any particular indoor/outdoor section are not represented as included. The owner distinguishes a EUR 51.13 non-refundable deposit from a 50 percent advance once the order is agreed; the effect of the former on the latter is not stated. Requests and changes must be made at least three days before the event."
+    },
+    "termsScope": "Only independently worded factual service, prices and conditions from the public owner sources were used. The ordinary pages were allowed by the owner's robots file; no general website-terms or licence link was found in the reviewed public navigation/footer, and no licence is asserted. No owner marketing text, menu design, photo, logo, contact submission or customer content was imported.",
+    "illustrationCandidate": {
+      "status": "reviewed_generic_illustration",
+      "path": "/service-photos/sx-indoor-childrens-birthday-party-v1.webp",
+      "sha256": "03e6d5809c32b56f4f07c348b2e1c5eaba2c54c593435f06983a4294487f29a0",
+      "scope": "Original GoRez AI illustration of a generic indoor children's party room. It does not represent the actual venue, selected room, included cake, or a partner photograph. Keep the AI illustration disclosure."
+    },
+    "inventoryIdentity": "f7c43a612a73c115ebb79ee07ff208c05c849b7277aec9c9570a6e4ab24b3688",
+    "normalizedRecordSha256": "bddbb9cad7d8256c8670382252c3d9d007bc612a7b9dca0463eb85017921a8e4",
+    "rawRecordSha256": "01b66d21547c083cf92311d814c18a9870d740baca8a448d41ff48295267ac13",
+    "coverage": {
+      "physical": [
+        2,
+        3
+      ],
+      "located": [
+        0,
+        1
+      ]
+    }
+  }
+}

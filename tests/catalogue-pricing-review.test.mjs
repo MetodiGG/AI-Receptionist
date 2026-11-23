@@ -36,6 +36,8 @@ import { SALT_HUG_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-dat
 import { FRANTSOV_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-frantsov-intake-20261123.mjs'
 import { SOLUX_AUTO_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-solux-auto-intake-20261123.mjs'
 import { MASTERS_DANCE_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-masters-dance-intake-20261123.mjs'
+import { CANDY_HOUSE_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-candy-house-intake-20261123.mjs'
+import { KOBA_PARIS_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-koba-paris-intake-20261123.mjs'
 const now = Date.parse('2026-11-11T12:00:00Z')
 const record = () => structuredClone(SOFIA_CATALOGUE.find(row => row.id === 'sofia-cut-n-chill'))
 const review = () => structuredClone(BOOKING_PRICE_REVIEWS.find(row => row.id === 'sofia-cut-n-chill'))
@@ -157,6 +159,8 @@ test('dated audit receipts cover every current ID without rewriting the historic
     [FRANTSOV_INTAKE_20261123_REVIEWS, 'sofia-nikolay-frantsov-druzhba1-block18v', 'reviewed'],
     [SOLUX_AUTO_INTAKE_20261123_REVIEWS, 'sofia-solux-auto-pavlina4', 'service_reviewed'],
     [MASTERS_DANCE_INTAKE_20261123_REVIEWS, 'sofia-masters-dance-lyulin-centre-nenov29', 'service_reviewed'],
+    [CANDY_HOUSE_INTAKE_20261123_REVIEWS, 'sofia-candy-house-lyulin10-mayski-den22', 'reviewed'],
+    [KOBA_PARIS_INTAKE_20261123_REVIEWS, 'sofia-koba-auto-paris14', 'service_reviewed'],
   ]) {
     assert.deepEqual(reviews.map(row => row.id), [id])
     assert.equal(auditedIds.has(id), false)

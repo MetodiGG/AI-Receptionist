@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "baseline": "0aa11d6be998f2a8f2dcdb4cb75f4f9a28ad12c5",
+  "status": "prepared_locally_not_published",
+  "id": "sofia-felix-dogs-lyulin",
+  "category": "pets",
+  "neighborhood": "Люлин 10",
+  "previousAddress": "София, ж.к. Люлин 10, бл. 122, партер",
+  "address": "София, ж.к. Люлин 10, бл. 122, вх. Б, партер",
+  "ownerBranch": "https://www.felixdogs.com/gruming-lyulin/",
+  "ownerAddressCorroboration": "https://www.felixdogs.com/obshti-usloviya/",
+  "point": {
+    "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "method": "verified_official_address",
+    "municipalCsvSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+    "administrativeDistrict": "Люлин",
+    "registeredArea": "ж.к. Люлин",
+    "addressId": "30014",
+    "latitude": 42.717651,
+    "longitude": 23.270146,
+    "licence": "CC-BY-4.0",
+    "competingEntrances": [
+      { "entrance": "А", "addressId": "53906", "distanceMetresFromOwnerDestination": 25.10 },
+      { "entrance": "Б", "addressId": "30014", "distanceMetresFromOwnerDestination": 2.50 },
+      { "entrance": "В", "addressId": "53813", "distanceMetresFromOwnerDestination": 26.78 },
+      { "entrance": "Г", "addressId": "53739", "distanceMetresFromOwnerDestination": 54.12 }
+    ]
+  },
+  "verification": "The active owner grooming page gives the physical Lyulin 10 ground-floor venue at block 122. Separately, the shop operator's terms identify the co-addressed premises at entrance Б, ground floor. The named grooming branch's published destination points to within 2.50 m of that sole official entrance, not to a different block or another business. The owner branch provides the numbered neighbourhood; the CSV does not distinguish numbered subquarters. The embedded destination clause in the owner HTML is used to distinguish entries, not as stored coordinates. No map page, provider payload, geocoding endpoint, photo or reviews were requested. The municipal point is for entrance Б of the property; it is not a surveyed salon door.",
+  "unchanged": "No service, price, business hours, verification date or booking channel is refreshed by this address-only correction. The owner publishes general reference tariffs and says online prices can change after assessing the dog. No branch-specific fixed price was inferred or added.",
+  "previousRowSha256": "04dd8fc71366cce19fbd6b44334f236294c5059c33096cd27d547f7d7f3f9970",
+  "reviewedRowSha256": "387318476a72fc67d88c8a68eb87e031a7f54c14ae8abdaa8b65b8f2c482a868",
+  "pricingIdentity": "072bba030e1e5c1983965931e5d8666f6d4b0f60015808eb70ac7fdb591f60f6",
+  "coverage": { "physical": [1, 1], "located": [0, 1] }
+}

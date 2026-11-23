@@ -17,6 +17,7 @@ import { createEnglishContentResolver } from '../lib/locale/public-content-resol
 import { serviceThumbnail } from '../lib/service-thumbnail.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
 import { lyulinPremisesPriorCatalogue } from './catalogue-lyulin-premises-20261123-scope.mjs'
+import { sparseMarketPriorCatalogue } from './catalogue-sparse-market-20261123-scope.mjs'
 
 const now = Date.parse(batch.checkedAt)
 const candy = candyReceipt.newBusiness
@@ -98,15 +99,16 @@ test('Koba Paris is a separately bookable workshop, not a second operator or a c
 })
 
 test('the ledger verifies exact location coverage and distinguishes additions from an address-only repair', () => {
-  const prior = lyulinPremisesPriorCatalogue(SOFIA_CATALOGUE), before = new Set(prior.map(row => row.id))
-  assert.deepEqual(SOFIA_CATALOGUE.filter(row => !before.has(row.id)).map(row => row.id),
+  const current = sparseMarketPriorCatalogue(SOFIA_CATALOGUE)
+  const prior = lyulinPremisesPriorCatalogue(current), before = new Set(prior.map(row => row.id))
+  assert.deepEqual(current.filter(row => !before.has(row.id)).map(row => row.id),
     batch.affected.filter(item => item.change !== 'existing_entrance').map(item => item.id))
   assert.equal(batch.newIndependentOperators, batch.affected.filter(item => item.change === 'new_operator').length)
   assert.equal(batch.newLocationsOfExistingOperators, batch.affected.filter(item => item.change === 'new_premises_existing_operator').length)
   assert.throws(() => lyulinPremisesPriorCatalogue([byId(felix.id), byId(felix.id)]), /Duplicate/u)
   assert.throws(() => lyulinPremisesPriorCatalogue([{ ...byId(felix.id), address: 'София' }]), /Unreviewed/u)
-  assert.ok(prior.filter(row => row.id !== felix.id).every(row => SOFIA_CATALOGUE.includes(row)))
-  const reports = [prior, SOFIA_CATALOGUE].map(rows => catalogueCoverageReport(rows, { now, target: batch.targetPerQuarterCategory }))
+  assert.ok(prior.filter(row => row.id !== felix.id).every(row => current.includes(row)))
+  const reports = [prior, current].map(rows => catalogueCoverageReport(rows, { now, target: batch.targetPerQuarterCategory }))
   const all = report => [...report.neighborhoods, ...report.additionalNamedAreas]
   const empty = areas => areas.flatMap(area => area.cells).filter(cell => !cell.locatedCount).length
   assert.deepEqual(reports.map(r => r.counts.approvedBusinesses), batch.approvedCatalogueRecords)

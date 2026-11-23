@@ -38,6 +38,9 @@ import { SOLUX_AUTO_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-d
 import { MASTERS_DANCE_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-masters-dance-intake-20261123.mjs'
 import { CANDY_HOUSE_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-candy-house-intake-20261123.mjs'
 import { KOBA_PARIS_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-koba-paris-intake-20261123.mjs'
+import { VITOSHA_PAIR_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-vitosha-pair-intake-20261123.mjs'
+import { GEMINI4_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-gemini4-intake-20261123.mjs'
+import { ALVA_DENTAL_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-alva-dental-intake-20261123.mjs'
 const now = Date.parse('2026-11-11T12:00:00Z')
 const record = () => structuredClone(SOFIA_CATALOGUE.find(row => row.id === 'sofia-cut-n-chill'))
 const review = () => structuredClone(BOOKING_PRICE_REVIEWS.find(row => row.id === 'sofia-cut-n-chill'))
@@ -161,6 +164,10 @@ test('dated audit receipts cover every current ID without rewriting the historic
     [MASTERS_DANCE_INTAKE_20261123_REVIEWS, 'sofia-masters-dance-lyulin-centre-nenov29', 'service_reviewed'],
     [CANDY_HOUSE_INTAKE_20261123_REVIEWS, 'sofia-candy-house-lyulin10-mayski-den22', 'reviewed'],
     [KOBA_PARIS_INTAKE_20261123_REVIEWS, 'sofia-koba-auto-paris14', 'service_reviewed'],
+    [[VITOSHA_PAIR_20261123_REVIEWS[0]], 'sofia-kis-auto-simeonovo-bosilek3', 'reviewed'],
+    [[VITOSHA_PAIR_20261123_REVIEWS[1]], 'sofia-next-level-knyazhevo-tsar-boris272', 'reviewed'],
+    [GEMINI4_INTAKE_20261123_REVIEWS, 'sofia-gemini4-republika-729-22', 'service_reviewed'],
+    [ALVA_DENTAL_INTAKE_20261123_REVIEWS, 'sofia-alva-dental-hadzhi-dimitar107v', 'service_reviewed'],
   ]) {
     assert.deepEqual(reviews.map(row => row.id), [id])
     assert.equal(auditedIds.has(id), false)

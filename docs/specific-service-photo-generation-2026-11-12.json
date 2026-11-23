@@ -4810,6 +4810,25 @@
       }
     },
     {
+      "id": "sx-auto-bumper-spray-paint",
+      "label": "Боядисване на броня",
+      "prompt": "Use case: photorealistic-natural. Asset type: square activity illustration for a small GoRez service thumbnail. In a clean independent automotive spray booth, show a refinisher in protective gear applying paint with a spray gun to a single detached front car bumper cover on a stand. Clearly show the bumper's entire broad curved shape and grille opening in the center, legible at 60 pixels; tightly frame the spray gun, gloved hands and bumper. Neutral workshop lighting, realistic material and slight fine paint mist. No intact car, no door, no text, logos, plates or watermark. This is a generic illustration, not a photograph of a particular business.",
+      "sourceFile": "exec-ba8ad0f7-fb53-41b5-82a3-96ed67fa1b76.png",
+      "sourceSha256": "da85798f03bc6038cffba7c27236685c89f52d69c8e00256c9f5c81ed4cb111f",
+      "file": "public/service-photos/sx-auto-bumper-spray-paint-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 13786,
+      "sha256": "8693c08a15f6e07f9d92bd59faf7e2c8c7534f940eb5cd47c6f17bd55ec6861c",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "da85798f03bc6038cffba7c27236685c89f52d69c8e00256c9f5c81ed4cb111f",
+        "reviewers": ["/root"],
+        "method": "Source and optimized thumbnail individually inspected: detached bumper with spray gun; no doors, logos, or actual workshop claimed."
+      }
+    },
+    {
       "id": "sx-auto-panel-spray-paint",
       "label": "Боядисване на автомобилен детайл",
       "prompt": "Use case: photorealistic-natural\nAsset type: square service thumbnail for a vehicle repair booking website.\nPrimary request: a realistic documentary photograph clearly depicting professional spray painting of one car body panel, for the service Bulgarian 'Боядисване на детайл' (painting one vehicle panel).\nScene/backdrop: clean professional automotive spray booth, bright diffuse booth lights, muted workshop background.\nSubject: an adult professional auto painter wearing proper hooded protective coveralls, nitrile gloves and appropriate full respirator, carefully spraying a silver-grey car door exterior panel mounted securely upright on a painting stand. The painter holds an HVLP paint spray gun with a small top paint cup, nozzle aimed perpendicular to the panel at plausible working distance; a small realistic fan of paint mist travels toward the panel. Show door outline and spray gun clearly together.\nComposition/framing: square medium-close three-quarter documentary photograph, central door panel and spray gun occupy most of the frame so the specific task stays clear at 64px; painter visible partially at side, no focus on face. Natural believable human anatomy and equipment.\nConstraints: show actual panel painting in progress, not body dent repair, hair coloring, a notebook, car polishing, wheel painting, wall painting or a person checking a clipboard. No visible car manufacturer badge, text, business logo, watermarks, collage, borders or overlay. This is a generic AI illustration, not verified work by the business.",

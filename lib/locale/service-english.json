@@ -419,6 +419,11 @@
     ]
   },
   "names": {
+    "Боядисване на броня": "Bumper painting",
+    "Боядисване на врата или калник": "Car door or fender painting",
+    "Изчукване и подмяна на каросерийни детайли": "Body panel dent repair or replacement",
+    "Фитнес и групови тренировки · 7-дневна карта": "Gym and group classes · 7-day pass",
+    "Ремонт на автоматична скоростна кутия": "Automatic transmission repair",
     "Детско тържество · пакет за 10 деца": "Children’s party · package for 10 children",
     "Български народни танци за начинаещи възрастни": "Bulgarian folk dance for adult beginners",
     "Диагностика на двигател": "Engine diagnostics",
@@ -6490,6 +6495,11 @@
     "смяна на предпазен клапан на бойлер": "change of boiler safety valve"
   },
   "descriptions": {
+    "Включва демонтаж и монтаж на бронята. За час и крайна цена се свържете със сервиза.": "Includes removing and refitting the bumper. Contact the workshop to agree on an appointment and final price.",
+    "Включва демонтаж и монтаж на съответните части като тапицерия, огледало, дръжки и лайсни.": "Includes removing and refitting relevant components such as trim, mirrors, handles and mouldings.",
+    "Цената зависи от степента на повредата. Уточнете необходимия ремонт и оглед със сервиза.": "The price depends on the extent of the damage. Contact the workshop to discuss the repair and arrange an inspection.",
+    "Пакет за 7 дни, с неограничен достъп до фитнес и до едно групово занимание дневно според клуба. Отделно резервирайте място от графика на Княжево; покупката на картата не резервира тренировка.": "A 7-day pass with unlimited gym access and up to one group class daily, subject to the club schedule. Book a spot separately in the Knyazhevo calendar; buying the pass does not reserve a class.",
+    "Частичен или основен ремонт на автоматична скоростна кутия, включително демонтаж и монтаж при необходимост. Първоначалната оценка е ориентировъчна; точната оферта се уточнява след преглед.": "Partial or complete automatic transmission repair, including removal and installation when needed. The initial estimate is indicative; a firm quote is agreed after inspection.",
     "Компютърната диагностика може да се заяви без ангажимент за ремонт. При записване уточнете симптомите, марката, модела и годината на автомобила.": "Computer diagnostics can be booked without committing to repairs. When booking, describe the symptoms and give the vehicle’s make, model and year.",
     "За деца на 1–12 г. Храна и напитка за 10 деца, поднасяне на тортата. Доп. дете: 20 €. Внесена торта: 20 €; включена торта не е посочена. Невъзстановимо капаро 51,13 €. След уточняване се плащат 50% от стойността; уточнете отчитането на капарото. Заявки и промени най-късно 3 дни преди партито.": "Ages 1–12. Food and a drink for 10 children, and cake serving. Extra child: €20. Bringing a cake: €20; the package does not list a cake. Non-refundable €51.13 deposit. Once the order is agreed, 50% is payable; ask how the deposit counts. Requests and changes at least 3 days before the party.",
     "Групови занимания за възрастни без опит. Избери школата в Люлин във формуляра. Записването, графикът и таксата се уточняват с организатора.": "Group classes for adults with no experience. Select the Lyulin school on the form. The organiser confirms enrolment, the schedule and the fee.",
@@ -8317,6 +8327,7 @@
     "Часът се уговаря с преподавателя; първоначално се изготвя индивидуален график.": "The class is arranged with the lecturer; an individual schedule is initially drawn up."
   },
   "units": {
+    "карта за 7 дни": "7-day pass",
     "пакет за 10 деца": "package for 10 children",
     "пакет за половин ден": "half-day package",
     "пакет за цял ден": "full-day package",

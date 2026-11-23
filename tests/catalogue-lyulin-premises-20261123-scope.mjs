@@ -6,6 +6,7 @@ import batch from '../docs/catalogue-coverage/lyulin-premises-priority-20261123.
 import candy from '../docs/catalogue-coverage/candy-house-intake-20261123.json' with { type: 'json' }
 import felix from '../docs/catalogue-coverage/felix-dogs-lyulin-verified-location-20261123.json' with { type: 'json' }
 import koba from '../docs/catalogue-coverage/koba-paris-intake-20261123.json' with { type: 'json' }
+import { sparseMarketAllowsFileChange, sparseMarketAllowsNewFile, sparseMarketPriorSource, sparseMarketPriorCatalogue } from './catalogue-sparse-market-20261123-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const digest = value => createHash('sha256').update(value).digest('hex')
@@ -29,10 +30,11 @@ const addRows = new Map([candy.newBusiness, koba.business].map(row => [row.id, r
 function hasHash(path, sha) {
   try { return Boolean(sha) && digest(readFileSync(new URL('../' + path, import.meta.url))) === sha } catch { return false }
 }
-export const lyulinPremisesAllowsFileChange = path => Object.hasOwn(changed, path) && hasHash(path, changed[path][1])
-export const lyulinPremisesAllowsNewFile = path => Object.hasOwn(added, path) && hasHash(path, added[path])
+export const lyulinPremisesAllowsFileChange = path => sparseMarketAllowsFileChange(path) || Object.hasOwn(changed, path) && hasHash(path, changed[path][1])
+export const lyulinPremisesAllowsNewFile = path => sparseMarketAllowsNewFile(path) || Object.hasOwn(added, path) && hasHash(path, added[path])
 
 export function lyulinPremisesPriorSource(path, source) {
+  source = sparseMarketPriorSource(path, source)
   if (!Object.hasOwn(changed, path) || !/CANDY_HOUSE_INTAKE_20261123|sofia-candy-house-lyulin10-mayski-den22/u.test(source)) return source
   const [before, after] = changed[path]
   if (digest(source) !== after) throw Error('Unreviewed 23 Nov Lyulin-premises priority source delta: ' + path)
@@ -46,7 +48,7 @@ export function lyulinPremisesPriorSource(path, source) {
 
 export function lyulinPremisesPriorCatalogue(rows) {
   const seen = new Set()
-  return rows.flatMap(row => {
+  return sparseMarketPriorCatalogue(rows).flatMap(row => {
     const isFelix = row.id === felix.id
     const reviewed = isFelix ? felix.reviewedRowSha256 : addRows.get(row.id)
     if (!reviewed) return [row]

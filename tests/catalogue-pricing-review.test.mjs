@@ -27,6 +27,9 @@ import { MY_REFORMER_SPACE_INTAKE_20261123_REVIEWS } from '../lib/discovery/cata
 import { UNIGAS_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-unigas-20261123.mjs'
 import { SM_GROUP_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-sm-group-20261123.mjs'
 import { SPECIALIST_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-specialist-intake-20261123.mjs'
+import { KOBA_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-koba-intake-20261123.mjs'
+import { COURSES_RECREATION_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-courses-recreation-20261123.mjs'
+import { INFINITY_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-infinity-intake-20261123.mjs'
 const now = Date.parse('2026-11-11T12:00:00Z')
 const record = () => structuredClone(SOFIA_CATALOGUE.find(row => row.id === 'sofia-cut-n-chill'))
 const review = () => structuredClone(BOOKING_PRICE_REVIEWS.find(row => row.id === 'sofia-cut-n-chill'))
@@ -139,6 +142,9 @@ test('dated audit receipts cover every current ID without rewriting the historic
     [UNIGAS_INTAKE_20261123_REVIEWS, 'sofia-unigas-romano-voenna-rampa-konstantin3', 'reviewed'],
     [SM_GROUP_INTAKE_20261123_REVIEWS, 'sofia-sm-group-korekt-druzhba1-block182', 'reviewed'],
     [SPECIALIST_INTAKE_20261123_REVIEWS, 'sofia-mushmula-poligona-tsarigradsko111v', 'reviewed'],
+    [KOBA_INTAKE_20261123_REVIEWS, 'sofia-koba-auto-bosch-rodopi27', 'service_reviewed'],
+    [COURSES_RECREATION_INTAKE_20261123_REVIEWS, 'sofia-ucha-land-dianabad-novachnitsa3', 'reviewed'],
+    [INFINITY_INTAKE_20261123_REVIEWS, 'sofia-infinity-team-strelbishte-bulgaria43', 'service_reviewed'],
   ]) {
     assert.deepEqual(reviews.map(row => row.id), [id])
     assert.equal(auditedIds.has(id), false)

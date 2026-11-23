@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "publicationReviewDateUtc": "2026-11-23",
+  "status": "prepared_local_not_published",
+  "priority": "30 distinct physical businesses with verified addresses per Sofia quarter and category",
+  "newBusinessesPrepared": 1,
+  "newServicesPrepared": 1,
+  "verifiedPublicPriceFacts": 0,
+  "business": {
+    "id": "sofia-koba-auto-bosch-rodopi27",
+    "name": "КОБА АУТО · Bosch Car Service",
+    "category": "auto_repair",
+    "neighborhood": "Център",
+    "address": "София, Център, ул. Родопи 27",
+    "website": "https://koba-auto.com/",
+    "contact": "https://koba-auto.com/kontakti/",
+    "ownerWorkshop": "https://koba-auto.com/bosch-car-service-koba-auto/",
+    "phone": "+359884192080",
+    "locationKind": "premises",
+    "validUntil": "2026-12-23",
+    "duplicateCheck": "No normalized entry for this owner domain, service-desk phone or exact premises address in Sofia baseline ab870da. The owner identifies only Rodopi 27 as the Bosch branch. Its Paris 14 branch is not added. The closest already catalogued point, sofia-divadance-budapest88, is a different premises and approximately 90 m away.",
+    "coordinateEvidence": {
+      "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+      "municipalCsvSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+      "method": "verified_official_address",
+      "addressId": "28516",
+      "latitude": 42.706894,
+      "longitude": 23.327786,
+      "municipalAdministrativeDistrict": "Сердика",
+      "exactPremisesLocalityCorroboration": "https://grabo.bg/sofia/prane-na-avtosalon-0hz5dkd",
+      "utilityStreetNumberCorroboration": "https://frognews.bg/novini/kade-chez-spira-toka-2017-05-17-3.html",
+      "evidence": "The owner contact names the workshop as being in Sofia Centre at Rodopi 27; the independently hosted merchant listing gives this exact branch and Centre address, corroboration of locality only. The CEZ outage archive lists exact number 27 under the Serdika administrative heading, not under Poduyane; the name of this administrative district is not a quarter assignment. The supplied municipality data yields a single exact Rodopi 27 postal point for the settlement of Sofia; its quarter field is blank. The workshop's own directions link names that exact branch and its destination pin lies about 1 m from the municipal point. The listed point is the municipal number, not a third-party result, street centroid, viewport, nearby parcel or surveyed entrance. No coordinate or hours were taken from the utility archive or merchant listing."
+    },
+    "service": {
+      "name": "Компютърна диагностика на автомобил",
+      "description": "Диагностиката може да се запише отделно. Сервизът проверява електронните системи на автомобила и обяснява резултатите. Ремонт се извършва само след съгласуване.",
+      "bookingSource": "https://koba-auto.com/kontakti/",
+      "serviceSources": [
+        "https://koba-auto.com/bosch-car-service-koba-auto/",
+        "https://koba-auto.com/avtomobilna-diagnostika/",
+        "https://koba-auto.com/serviz/"
+      ],
+      "booking": "The owner’s public booking CTA leads to the branches and explicitly supplies a dedicated desk phone to book the Rodopi 27 workshop. The owner FAQ confirms a stand-alone diagnostic is possible. No online checkout, GoRez booking, live slots or appointment confirmation are represented.",
+      "pricingDecision": "not_publicly_listed",
+      "priceSearch": "Read the live public own-site booking flow and branch contact, branch FAQ, named service and complete own-site service menu. None lists a current ordinary tariff for this branch's stand-alone computer diagnostic. The FAQ describes a detailed quote; historical bundles are not rates for the selected service. No price or duration is stored."
+    },
+    "openingHours": {
+      "source": "https://koba-auto.com/kontakti/",
+      "weekdays": "09:00–18:00",
+      "weekend": "closed",
+      "limit": "Current owner-published Rodopi workshop opening hours only; no slots or historical merchant hours."
+    },
+    "sourcePolicy": "Read public company sources through ordinary HTTPS read-only access. The owner published public appointment and service facts, and robots excludes only wp-admin. No source photo or marketing copy, price from offers, admin paths, owner calls, enquiry/booking submissions, or paid services were used.",
+    "image": {
+      "status": "existing_catalogue_illustration",
+      "key": "auto-diagnostics",
+      "asset": "/service-photos/auto-diagnostics-v1.webp",
+      "sha256": "a088160be93fd90b2a73faeda041f99342c864ddc299614c3046b1a0ad33e4e1",
+      "limit": "An existing generic diagnostics illustration; not the owner's image or equipment."
+    },
+    "english": {
+      "name": "Vehicle computer diagnostics",
+      "description": "Diagnostics can be booked separately. The workshop checks the vehicle’s electronic systems and explains the results. Repairs are carried out only with the customer’s approval."
+    },
+    "inventoryIdentity": "e5016abd29f65291b2b02df7a07edc26049fe9f15f2bfacbc78821da8c8bd9eb",
+    "normalizedRecordSha256": "54d1758438b859c0ad0d22ecf3ec040b9e16261f57abb526bb842891bf4f7f84"
+  },
+  "isolatedCoverageDelta": {
+    "targetPerQuarterCategory": 30,
+    "neighborhood": "Център",
+    "category": "auto_repair",
+    "physical": [0, 1],
+    "located": [0, 1]
+  }
+}

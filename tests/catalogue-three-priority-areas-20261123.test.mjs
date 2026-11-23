@@ -7,7 +7,7 @@ import paint from '../docs/catalogue-coverage/paintkillers-verified-location-202
 import mushmula from '../docs/catalogue-coverage/specialist-intake-20261123.json' with { type: 'json' }
 import batch from '../docs/catalogue-coverage/three-priority-areas-20261123.json' with { type: 'json' }
 import english from '../lib/locale/service-english.json' with { type: 'json' }
-import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { SOFIA_CATALOGUE as allCurrent } from '../lib/discovery/sofia-catalogue.mjs'
 import { BOOKING_PRICE_REVIEWS } from '../lib/discovery/catalogue-data/pricing-booking-review-v1.mjs'
 import { assessPricingReview, pricingIdentity } from '../lib/discovery/catalogue-pricing-review.mjs'
 import { catalogueBoundCoordinates } from '../lib/discovery/catalogue-coordinate-binding.mjs'
@@ -16,7 +16,9 @@ import { matchesSubcategory } from '../lib/discovery/subcategories.mjs'
 import { createEnglishContentResolver } from '../lib/locale/public-content-resolver.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
 import { threeAreasPriorCatalogue } from './catalogue-three-priority-areas-20261123-scope.mjs'
+import { workshopLessonsPriorCatalogue } from './catalogue-workshop-lessons-20261123-scope.mjs'
 
+const SOFIA_CATALOGUE = workshopLessonsPriorCatalogue(allCurrent)
 const now = Date.parse(batch.checkedAt)
 const digest = row => createHash('sha256').update(JSON.stringify(row)).digest('hex')
 const byId = id => {

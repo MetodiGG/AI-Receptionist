@@ -17,6 +17,30 @@
     "manualRevalidations": [
       {
         "checkedOn": "2026-11-23",
+        "businessId": "sofia-infinity-team-strelbishte-bulgaria43",
+        "inventoryIdentity": "380cf108c38c833f495ff4643de16cf344112cc97dd0fb0bf388f5b63e5ab906",
+        "reason": "Preserves the 13+ age condition, branch and callback requirement without implying a free or confirmed trial.",
+        "entriesAdded": { "names": 1, "descriptions": 1, "units": 0 },
+        "certifiedHumanTranslation": false
+      },
+      {
+        "checkedOn": "2026-11-23",
+        "businessId": "sofia-koba-auto-bosch-rodopi27",
+        "inventoryIdentity": "e5016abd29f65291b2b02df7a07edc26049fe9f15f2bfacbc78821da8c8bd9eb",
+        "reason": "Preserves the standalone diagnostics appointment and customer approval before any repair. Reuses the existing English service name.",
+        "entriesAdded": { "names": 0, "descriptions": 1, "units": 0 },
+        "certifiedHumanTranslation": false
+      },
+      {
+        "checkedOn": "2026-11-23",
+        "businessId": "sofia-ucha-land-dianabad-novachnitsa3",
+        "inventoryIdentity": "acc02d09d23e8358facc3000233a1246278bcae86c7301f456cc153f865e9f35",
+        "reason": "Preserves the 10-class pass, term, group minimum and prior booking requirement, and keeps the form a request for contact.",
+        "entriesAdded": { "names": 1, "descriptions": 1, "units": 1 },
+        "certifiedHumanTranslation": false
+      },
+      {
+        "checkedOn": "2026-11-23",
         "businessId": "sofia-mushmula-poligona-tsarigradsko111v",
         "inventoryIdentity": "b1758d087bc103af576e094313d4c29ef091ff81416c3da4c582ff58e3b58753",
         "reason": "Preserves an in-person single group workout, the attendance minimum, and the previous-day cutoff for morning classes.",
@@ -326,6 +350,8 @@
     "Монтаж на газов инжекцион Romano Antonio ECO — 4 цилиндъра": "Romano Antonio ECO LPG injection system installation — 4 cylinders",
     "Първоначална счетоводна консултация": "Initial accounting consultation",
     "Групова HIIT тренировка": "Group HIIT workout",
+    "Групов курс по шах за деца": "Group chess course for children",
+    "Пробна групова тренировка по спортни танци": "Trial group dancesport training",
     "Пилатес реформър – еднократна групова тренировка": "Reformer Pilates – single group class",
     "Оглед и диагностика на шибидах или панорамна система": "Sunroof or panoramic roof inspection and diagnostics",
     "Рожден ден на открито – половин ден": "Outdoor birthday party – half day",
@@ -6389,6 +6415,9 @@
     "Началната цена е с ДДС и включва системата с цилиндрична бутилка до 40 л, монтаж, настройка, сервизна книжка и монтажен протокол. Крайната цена зависи от автомобила, сложността на монтажа и избраните допълнения.": "The starting price includes VAT, the system with a cylindrical tank up to 40 L, installation, calibration, a service booklet and an installation report. The final price depends on the vehicle, the complexity of the installation and any optional extras.",
     "Безплатна първа консултация по счетоводните нужди на бизнеса. След заявката кантората се свързва с вас, за да уточни срещата. Месечното обслужване не е включено.": "A free first consultation about your business’s accounting needs. The firm will contact you after your request to arrange the meeting. Monthly accounting services are not included.",
     "Едно присъствено посещение на кръгова интервална тренировка. Изискват се предварително записване и поне двама записани. За сутрешните тренировки записването е до 19:00 ч. предния ден.": "One in-person interval circuit workout. Advance booking and at least two sign-ups are required. For morning classes, book by 19:00 the previous day.",
+    "Диагностиката може да се запише отделно. Сервизът проверява електронните системи на автомобила и обяснява резултатите. Ремонт се извършва само след съгласуване.": "Diagnostics can be booked separately. The workshop checks the vehicle’s electronic systems and explains the results. Repairs are carried out only with the customer’s approval.",
+    "Карта за 10 занятия за начинаещи или напреднали в периода ноември 2026 – март 2027 г. Към картата са обявени и пет турнира. За всяко занятие се изисква предварително записване и поне шестима записани. Формулярът е заявка за контакт, а не потвърдено място.": "A 10-class pass for beginner or advanced groups from November 2026 to March 2027. The pass is advertised with five tournaments. Book ahead for each class; at least six sign-ups are required. The form is a contact request, not a confirmed place.",
+    "Пробна тренировка в групата за тийнейджъри и възрастни (13+) в залата на 126 ОУ. След заявката клубът ще се свърже с вас, за да уточни посещението.": "Trial session with the teens and adults group (13+) at the 126th School gym. After you make a request, the club will contact you to arrange the visit.",
     "Едно групово занимание от 50 минути с предварителна резервация. Цената включва ДДС. Не се приемат карти MultiSport. Отмяна до 24 часа преди часа; при по-късна отмяна или неявяване публикуваните онлайн условия предвиждат пълна такса.": "One prebooked 50-minute group class. VAT is included. MultiSport cards are not accepted. Cancel at least 24 hours before the class; the published online terms charge the full price for late cancellation or a no-show.",
     "Огледът отнема около 30 минути на място. Частите и ремонтът се оферират отделно. Таксата за огледа се приспада, ако ремонтът бъде извършен.": "The on-site inspection takes about 30 minutes. Parts and repairs are quoted separately. The inspection fee is credited toward the repair if it is carried out.",
     "До 15 деца и 30 възрастни. Включва дигитална покана и базова украса; без храна, аниматор и организирани игри. Внасянето на храна и напитки е без доплащане, а за внесена торта се изисква сертификат. Дървените въглища за барбекю са срещу доплащане.": "Up to 15 children and 30 adults. A digital invitation and basic decoration are included; food, an entertainer and organised games are not. You may bring food and drinks at no extra charge; outside cake requires a certificate. Barbecue charcoal costs extra.",
@@ -8449,6 +8478,7 @@
     "карта 10 учебни часа · валидност 5 седмици": "pass for 10 academic hours · valid for 5 weeks",
     "карта · общо 6 часа · сряда/събота": "pass · 6 hours in total · Wednesday/Saturday",
     "карта за 7 тренировки в рамките на 2 месеца": "pass for 7 training sessions within 2 months",
+    "карта за 10 посещения": "10-visit pass",
     "кв.м": "sq m",
     "кв.м без ДДС": "per sq m, excluding VAT",
     "кв.м без ДДС; минимум 180 € без ДДС": "per sq m, excluding VAT; minimum €180 excluding VAT",

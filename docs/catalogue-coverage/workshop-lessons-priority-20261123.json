@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "baseline": "ab870daa05a0b65be444c22b6839e4cb0ecaac95",
+  "checkedAt": "2026-11-23T12:00:00.000Z",
+  "status": "prepared_locally_not_published",
+  "targetPerQuarterCategory": 30,
+  "approvedBusinesses": [1729, 1732],
+  "locatedPremises": [941, 944],
+  "emptyLocatedPickerCells": [1034, 1033],
+  "emptyLocatedCells": [1400, 1399],
+  "cellsAtLocatedTarget": [0, 0],
+  "totalTargetCells": 1750,
+  "affected": [
+    {
+      "id": "sofia-koba-auto-bosch-rodopi27",
+      "neighborhood": "Център",
+      "category": "auto_repair",
+      "physical": [0, 1],
+      "located": [0, 1],
+      "evidence": "koba-intake-20261123.json"
+    },
+    {
+      "id": "sofia-ucha-land-dianabad-novachnitsa3",
+      "neighborhood": "Дианабад",
+      "category": "education",
+      "physical": [2, 3],
+      "located": [1, 2],
+      "evidence": "courses-recreation-intake-20261123.json"
+    },
+    {
+      "id": "sofia-infinity-team-strelbishte-bulgaria43",
+      "neighborhood": "Стрелбище",
+      "category": "fitness",
+      "physical": [2, 3],
+      "located": [1, 2],
+      "evidence": "infinity-intake-20261123.json"
+    }
+  ],
+  "scope": "Before/after of the approved static Sofia source, not production or a search guarantee. Only three new owner-operated venues, all address-bound. Two owners do not publish a tariff for the specific appointment; do not treat these as free. No prices, operators, neighborhoods, or points already present were changed.",
+  "heldWithoutImport": [
+    { "name": "Примекс · Околовръстен път", "reason": "The owner's explicit pin and exact official postal point disagree by roughly 139 metres. The footprint needs independent corroboration; do not just choose the nearest marker." },
+    { "name": "Биоестетик · Овча купел 1", "reason": "A €35 examination tariff appears after a different practice's location in a shared booking profile and is not tied to the private office. No rate assigned and no claim that a partially unavailable flow proved no rate." },
+    { "name": "ВК Левски София · Левски Г", "reason": "The public enrollment identifies the school but omits the tariff; the source that publishes it restricts reuse. No fields copied or republished." },
+    { "name": "Infinity Team · Люлин 10", "reason": "The exact street number has multiple entrance points. The public location is not independently tied to one entrance; only the other hall was added." }
+  ]
+}

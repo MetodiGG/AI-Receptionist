@@ -4,6 +4,26 @@
   "scope": "Illustrative service-specific photos for approved Sofia catalogue entries; not actual business premises, staff, work or results.",
   "assets": [
     {
+      "id": "sx-child-chess-group",
+      "label": "Групов курс по шах за деца",
+      "sourceFile": "exec-c312d92e-8f9f-44c2-933f-1e32a61b25a6.png",
+      "sourceSha256": "47c3b8836a6b0082d269b135dade9c01c417787a8746a981cde0fe36e5f02616",
+      "bytes": 50178,
+      "sha256": "40ce290cb7be5c9fbbbfc799d2b661de609b8694b23f8498ec591c94cad688d3",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square GoRez catalogue service photo for a group chess course for children.\nPrimary request: natural editorial photograph of a small seated beginner chess lesson, led by a tutor.\nScene/backdrop: quiet generic after-school classroom, a plain table, soft daylight from a side window.\nSubject: two school-age learners and a tutor’s hand pointing next to a clearly recognizable real chessboard with black and cream chess pieces; children seen from behind or partial shoulder profiles, not identifiable. This illustrates a service, not a real school or its people.\nComposition/framing: medium close three-quarter angle. Keep the neatly made chessboard and pieces at the center, strong enough to read in a small square thumbnail, safe margins on all sides. Use a believable straight square grid with realistic chess pieces set on squares and natural hands.\nLighting/mood: bright, warm-neutral daylight, natural surfaces, unstaged.\nConstraints: no text, lettering, logos, watermarks, notebooks, generic stationery, other games, brand marks, collage or rendered UI. Do not visually resemble a named premises.",
+      "file": "public/service-photos/sx-child-chess-group-v1.webp",
+      "width": 640,
+      "height": 640,
+      "generatedOn": "2026-11-23",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "47c3b8836a6b0082d269b135dade9c01c417787a8746a981cde0fe36e5f02616",
+        "reviewers": ["/root"],
+        "method": "Viewed the generated source and compressed 640px WebP. Clear chessboard and pieces dominate the frame; two anonymous pupils and the tutor visually communicate a lesson. No actual school, personnel or branded equipment is represented. Full-frame WebP resize only."
+      }
+    },
+    {
       "id": "sx-auto-lpg-injection-installation",
       "label": "Монтаж на газов инжекцион за 4 цилиндъра",
       "sourceFile": "exec-75a62e87-8c34-46ac-820d-66e2878c5982.png",

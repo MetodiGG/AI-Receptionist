@@ -6,6 +6,7 @@ import batch from '../docs/catalogue-coverage/three-priority-areas-20261123.json
 import sm from '../docs/catalogue-coverage/sm-group-intake-20261123.json' with { type: 'json' }
 import mushmula from '../docs/catalogue-coverage/specialist-intake-20261123.json' with { type: 'json' }
 import paint from '../docs/catalogue-coverage/paintkillers-verified-location-20261123.json' with { type: 'json' }
+import { workshopLessonsAllowsFileChange, workshopLessonsAllowsNewFile, workshopLessonsPriorSource, workshopLessonsPriorCatalogue } from './catalogue-workshop-lessons-20261123-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const digest = value => createHash('sha256').update(value).digest('hex')
@@ -31,10 +32,11 @@ function matchesFile(path, sha) {
   if (!sha) return false
   try { return digest(readFileSync(new URL('../' + path, import.meta.url))) === sha } catch { return false }
 }
-export const threeAreasAllowsFileChange = path => Object.hasOwn(changed, path) && matchesFile(path, changed[path][1])
-export const threeAreasAllowsNewFile = path => Object.hasOwn(added, path) && matchesFile(path, added[path])
+export const threeAreasAllowsFileChange = path => workshopLessonsAllowsFileChange(path) || Object.hasOwn(changed, path) && matchesFile(path, changed[path][1])
+export const threeAreasAllowsNewFile = path => workshopLessonsAllowsNewFile(path) || Object.hasOwn(added, path) && matchesFile(path, added[path])
 
 export function threeAreasPriorSource(path, source) {
+  source = workshopLessonsPriorSource(path, source)
   if (!Object.hasOwn(changed, path) || !/SM_GROUP_INTAKE_20261123|SPECIALIST_INTAKE_20261123|sofia-sm-group-korekt-druzhba1-block182|sofia-mushmula-poligona-tsarigradsko111v/u.test(source)) return source
   const [before, after] = changed[path]
   if (digest(source) !== after) throw Error('Unreviewed 23 Nov three-area priority source delta: ' + path)
@@ -48,7 +50,7 @@ export function threeAreasPriorSource(path, source) {
 
 export function threeAreasPriorCatalogue(rows) {
   const seen = new Set()
-  return rows.flatMap(row => {
+  return workshopLessonsPriorCatalogue(rows).flatMap(row => {
     const addedHash = newRows.get(row.id), locationRepair = row.id === paint.id
     if (!addedHash && !locationRepair) return [row]
     if (seen.has(row.id)) throw Error('Duplicate three-area priority record: ' + row.id)

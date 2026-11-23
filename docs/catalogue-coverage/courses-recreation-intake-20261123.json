@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "baselineCommit": "ab870daa05a0b65be444c22b6839e4cb0ecaac95",
+  "status": "prepared_locally_not_published",
+  "targetPerQuarterCategory": 30,
+  "newBusiness": {
+    "id": "sofia-ucha-land-dianabad-novachnitsa3",
+    "name": "Уча Ленд · Дианабад",
+    "nameEn": "Ucha Land · Dianabad",
+    "category": "education",
+    "neighborhood": "Дианабад",
+    "address": "София, кв. Дианабад, ул. Новачница 3, зала Уча Ленд",
+    "addressEn": "Sofia, Dianabad, 3 Novachnitsa St., Ucha Land Hall",
+    "municipal": {
+      "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+      "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+      "addressId": "108404",
+      "district": "Изгрев",
+      "settlement": "гр. София",
+      "literalStreet": "ул. Новачница",
+      "literalNumber": "3",
+      "latitude": 42.665446,
+      "longitude": 23.349114,
+      "licence": "CC-BY-4.0",
+      "pointScope": "Unique exact municipal postal row for the address. The owner labels this point its Ucha Land hall in Dianabad, not its Daga hall on a different street. No independently surveyed entrance or room point is claimed."
+    },
+    "ownerWebsite": "https://uchaland.com/",
+    "ownerServiceAndTariff": "https://uchaland.com/shakh/",
+    "ownerContact": "https://uchaland.com/shakh/",
+    "differentAdultOfferPage": "https://uchaland.com/zanimaniya-za-vuzrastni/",
+    "areaCorroboration": "The owner’s location list names both halls and Dianabad; the course schedule expressly fixes the chess groups to only Novachnitsa 3. The municipality’s unique row matches both street and number. A municipal discussion/proposal from 2021–22 is not treated as proof of an adopted street rename; the current operator and supplied address dataset agree on Novachnitsa.",
+    "booking": {
+      "kind": "form",
+      "url": "https://uchaland.com/shakh/",
+      "evidence": "The exact chess course page includes an owned reserve-a-child-place form and expressly describes the provider’s follow-up; the public form was opened read-only, without populating or sending it. The course’s adult marketing was inspected separately and not used to infer adult admission through the child-oriented form. No place or slot is guaranteed."
+    },
+    "service": {
+      "name": "Групов курс по шах за деца",
+      "nameEn": "Group chess course for children",
+      "amount": 100,
+      "currency": "EUR",
+      "kind": "fixed",
+      "unit": "карта за 10 посещения",
+      "unitEn": "10-visit pass",
+      "descriptionEn": "A 10-class pass for beginner or advanced groups from November 2026 to March 2027. The pass is advertised with five tournaments. Book ahead for each class; at least six sign-ups are required. The form is a contact request, not a confirmed place."
+    },
+    "termsScope": "The owner publishes 100 EUR for ten visits, not for a single session or a computed per-visit rate. The tournaments are stated alongside the pass; no separate booking or refund terms, unverified VAT, guarantee or timing were imported. The inspected owner pages retain copyright; no text, logo, photographs, course materials or other protected material are reproduced.",
+    "excluded": "No second studio, adult admissions, after-school childcare, appointments, account, child data, consent submission, payment, actual booking, copied photography or production writes.",
+    "image": {
+      "status": "accepted_illustration",
+      "asset": "/service-photos/sx-child-chess-group-v1.webp",
+      "sha256": "40ce290cb7be5c9fbbbfc799d2b661de609b8694b23f8498ec591c94cad688d3",
+      "limit": "New brand-neutral GoRez illustration of a group chess lesson, not the actual premises or children."
+    },
+    "inventoryIdentity": "acc02d09d23e8358facc3000233a1246278bcae86c7301f456cc153f865e9f35",
+    "normalizedRecordSha256": "ce824eaf06f3625dbf463eb5f75c980b6bdc7fe78e085d6e071239119bb64fbc",
+    "coverage": { "physical": [2, 3], "located": [1, 2] }
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-22",
+  "status": "prepared_local_not_published",
+  "sourceCommit": "69a9f91780d47874bcdb614c957c78e3c4ce94be",
+  "priority": "30 distinct real businesses per Sofia quarter and category, before aggregate growth",
+  "newBusinessesAdded": 1,
+  "newServices": 2,
+  "existingBusinessesChanged": 0,
+  "inventoryIdentity": "071a732c6c5d784a600e7dea7d82110fca917ca3f5ad32225e248fb6f3261502",
+  "business": {
+    "id": "sofia-maria-kamenova-suhodol-shtit9",
+    "name": "Мария Каменова · Моето слънце",
+    "cityCode": "68134",
+    "neighborhood": "Суходол",
+    "address": "София, кв. Суходол, ул. Щит 9",
+    "website": "https://moetoslunce.com/",
+    "phone": "+359898636810",
+    "locationKind": "premises",
+    "category": "other",
+    "validUntil": "2026-12-22"
+  },
+  "bookingEvidence": {
+    "ownerEntry": "https://moetoslunce.com/contact",
+    "ownerAbout": "https://moetoslunce.com/about",
+    "actualBook": "https://superdoc.bg/lekar/maria-kamenova",
+    "method": "Root rendered current own Contact/About and followed their exact public provider route. Independently corroborated by fresh ordinary200 GET and full public reason/tariff content, not reader snippets alone.",
+    "firstPartyEntry": "Own Contact explicitly links the exact Superdoc appointment profile. This is first-party appointment evidence, not a generic contact phone or an invented own calendar. The real destination remains the external profile.",
+    "currentPhysicalSelection": "Час в кабинет · Център за развитие Моето слънце · София · кв. Суходол, ул. Щит 9",
+    "reasons": [
+      "Детска консултация",
+      "Консултация",
+      "Семейна консултация"
+    ],
+    "selectedServices": [
+      {
+        "name": "Психологична консултация",
+        "sourceTitle": "Консултация",
+        "amount": 50,
+        "currency": "EUR",
+        "minutes": 60
+      },
+      {
+        "name": "Семейна терапия",
+        "sourceTitle": "Семейна терапия",
+        "amount": 60,
+        "currency": "EUR",
+        "minutes": 60
+      }
+    ],
+    "excluded": "Separate child consultation, psychotherapy duplicate, videos/Healee, retail courses, diagnosis/outcome claims and transient calendar slots are not extra businesses or imported appointments. No weekly hours inferred.",
+    "backlink": "Provider visibly links the same MoetoSlunce owner. Fresh raw href is http://www.moetoslunce.com; current owner HTTPS site was separately rendered. No claim that the raw href was HTTPS.",
+    "reviewers": [
+      "/root",
+      "/root/next_security_review"
+    ]
+  },
+  "conflictReview": {
+    "oldOwnerUrl": "https://mariakamenova.eu/maria-kamenova/",
+    "oldOffer": "60 BGN for one-hour online-only consultation",
+    "staleIndexedNewOffer": "40 EUR/hour",
+    "currentRenderedOwnOffer": "50 EUR/hour",
+    "decision": "Use only current in-office service-specific provider50/60EUR amounts, with owner current50EUR confirmation for ordinary consultation. The older explicitly online-only offer is a different mode, not converted or represented as a current in-office fee. Indexed40EUR is rejected against current rendered50EUR. Own generic50EUR is not applied to the distinct60EUR family tariff."
+  },
+  "municipalSource": {
+    "path": "/Users/metodig/Downloads/address_sofia.csv",
+    "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+    "sourceBytes": 12601716,
+    "sourceUnchanged": true,
+    "method": "Existing strict semicolon/header/ID/numeric validator, exact street-house matcher, checked hash before and after read; no nearest or first-candidate selection.",
+    "status": "unique",
+    "candidateCount": 1,
+    "row": {
+      "rn": "120774",
+      "region": "Овча купел",
+      "settlement": "гр. София",
+      "street": "ул. Щит",
+      "house": "9",
+      "block": "",
+      "quarter": "",
+      "entrance": "",
+      "latitude": 42.699806,
+      "longitude": 23.225159
+    },
+    "licence": "CC-BY-4.0",
+    "attribution": "ГИС София / Столична община",
+    "qualification": "Exact municipal postal point, not a surveyed practice entrance. Administrative region OvchaKupel is not substituted for actual Book-quarter Suhodol. No CSV or geocoder is loaded by the product."
+  },
+  "sourcePolicy": {
+    "ownedRobots": "Both owner domains ordinary200 permit reviewed public routes; new site is a normal rendered SPA, not an access block.",
+    "ownerPrivacy": "Root rendered complete current https://moetoslunce.com/privacy-policy. It describes inquiry/purchase/session personal-data processing. No express minimal factual-listing reuse ban observed. Not a licence or legal clearance.",
+    "legacyCopyright": "Old owner footer reserves authored materials; no old articles, photographs, creative prose, course content or health claims are republished.",
+    "providerRobots": "Fresh ordinary200, wildcard Disallow empty.",
+    "providerTerms": "https://superdoc.bg/uslovia-za-polzvane",
+    "providerTermsUpdated": "2026-04-07",
+    "providerTermsReview": "Complete171-line public Terms read. No express minimal-facts database/commercial directory reuse restriction found; rights reserved is not a licence. No patient names, reviews, ratings, biographies or source photographs retained in the catalogue."
+  },
+  "images": {
+    "newAssets": 0,
+    "bindings": [
+      [
+        "Психологична консултация",
+        "psychology-consultation"
+      ],
+      [
+        "Семейна терапия",
+        "family-counselling"
+      ]
+    ],
+    "review": "Root visually inspected both existing activity photographs. They are AI illustrations, not photos of Maria, her premises, clients or work."
+  },
+  "english": {
+    "newNames": 0,
+    "reusedNames": 2,
+    "newDescriptions": 2,
+    "externalTranslationRequests": 0,
+    "originalSnapshotsPreserved": true
+  },
+  "before": {
+    "sourceRecords": 1732,
+    "approvedBusinesses": 1709,
+    "premises": 1517,
+    "premisesWithBoundCoordinates": 908,
+    "premisesWithoutBoundCoordinates": 609,
+    "businessCategoryIncidences": 981,
+    "outstandingBusinessCategoryIncidences": 51519
+  },
+  "after": {
+    "sourceRecords": 1733,
+    "approvedBusinesses": 1710,
+    "premises": 1518,
+    "premisesWithBoundCoordinates": 909,
+    "premisesWithoutBoundCoordinates": 609,
+    "businessCategoryIncidences": 982,
+    "outstandingBusinessCategoryIncidences": 51518
+  },
+  "cells": [
+    {
+      "neighborhood": "Суходол",
+      "category": "other",
+      "physical": [
+        1,
+        2
+      ],
+      "located": [
+        1,
+        2
+      ],
+      "target": 30
+    }
+  ],
+  "cellsAtTarget": 0,
+  "safeguards": {
+    "duplicateCheck": "Current1732 source rows and local research by brand, domains, phone and exact premises; zero matches. One operator, not an online branch plus physical clone.",
+    "oldRecordsPricesReviewsAndPhotosChanged": false,
+    "historicalShaMapsOrBaselinesRefreshed": false,
+    "bookingsFormsContactsNotificationsAccountsPaymentsOrSlotSelections": 0,
+    "mapGeocoderPaidProviderRequests": 0,
+    "productionWrites": 0
+  }
+}

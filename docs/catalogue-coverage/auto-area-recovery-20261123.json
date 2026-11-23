@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "pointReviewDateUtc": "2026-11-22",
+  "baselineCommit": "e4c4ca1f060f795ef0a962503a140fad09b7b054",
+  "status": "integrated_locally_not_published",
+  "newBusinesses": 0,
+  "newBoundPoints": 2,
+  "reboundExistingPoints": 1,
+  "retainedAddressGeocodes": 1,
+  "municipalSource": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+  "municipalCsvSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+  "method": "Read-only exact addresses from the unchanged user-provided municipal data and separately corroborated owner addresses. For the already bound Tsaribrodska postal point only the supported quarter metadata changes. No source owner map, road centroid, survey of entrances, booking submission, retailer upload or service/pricing revalidation.",
+  "corrections": [
+    {
+      "id": "sofia-po-manyashkiya-detailing",
+      "category": "detailing",
+      "originalAddress": "София, ул. Царибродска 107",
+      "publishedAddress": "София, ул. Царибродска 107",
+      "originalQuarter": null,
+      "publishedQuarter": "Зона Б-19",
+      "owner": "https://po-manyashkiya-detailing.com/",
+      "municipalSources": [
+        "https://nag.sofia.bg/FileBrowser/File?path=esoft.portal%2FAVARIINI+STROITELNI+RABOTI+2021%2Fvazrajdane+02.2021.pdf",
+        "https://council.sofia.bg/documents/20182/1071747/R.113.pdf/789fba3f-a61b-42a0-88f5-4e54ec24a1b6"
+      ],
+      "evidence": "The owner gives №107 and the existing studio telephone with prior appointments. The municipal planning report row 25 ties №107–109 to the exact residential zone and planning block226. The same report also uses the less specific Center label in a second row. The subsequent municipal council decision identifies exact №107 in the same planning block and same parcel complex. The more specific named quarter is used; the administrative district Vazrazhdane and planning locality Zapadno Napravlenie are not used as replacements. Municipal material is used only to corroborate the site's postal geography, not ownership, entrance or operator identity.",
+      "point": { "id": "47458", "latitude": 42.70063093487165, "longitude": 23.29953644773413, "checkedOn": "2026-11-13", "new": false },
+      "normalizedRecordSha256": ["6092dfb3b4b102a4383d6eec2239507d202aa0e792f41f38d0a39725b72ee497", "c886d2b97f97ae3c0f951b885281251448d93672e6d6bb59597d068827fa1b22"],
+      "pricingIdentityUnchanged": "96a8fbfe64d29426131ec4aa03a52696def80ee5ce169c3e5e67d635add5cce0",
+      "physical": [0, 1],
+      "located": [0, 1]
+    },
+    {
+      "id": "sofia-georgis-garage-sofia",
+      "category": "detailing",
+      "originalAddress": "София, Студентски град, ул. Рашо Рашев 4",
+      "publishedAddress": "София, Студентски град, ул. Проф. Рашо Рашев 4",
+      "originalQuarter": "Студентски град",
+      "publishedQuarter": "Студентски град",
+      "owner": "https://www.georgisgarage.com/",
+      "addressCorroboration": ["https://tintandshieldacademy.com/kontakti/", "https://ggbrandshop.com/contact/"],
+      "municipalSources": ["https://studentski.bg/прием-първи-клас-2024-2025-уч-г-териториален-о/"],
+      "evidence": "The owner identifies the current Sofia studio at street Rashо Rashev №4 (not the separate Knezha location). The garage links its related academy, whose contact, the related brand-shop contact and the municipal district all spell the same street and number with the Professor street title. Use the full title for the unique exact municipal address. The garage's original phone action and service catalogue remain unchanged; no booking provider pages or shop products used.",
+      "point": { "id": "98477", "latitude": 42.649666, "longitude": 23.342937, "checkedOn": "2026-11-22", "new": true },
+      "normalizedRecordSha256": ["f791d149777cc134654bb2a4cc11b538d72bca926a0c39bccedbd6374ea6d4ea", "b1381ee86afe901b298291bbed182d5021e98cf7287898f524b9e415a1235bfe"],
+      "pricingIdentityUnchanged": "7020f5bd9aadea4965ddf587edb206e4006f1aadc8e464d3e16fa9360919b7ce",
+      "physical": [1, 1],
+      "located": [0, 1]
+    },
+    {
+      "id": "sofia-pulse-car-wash-mladost",
+      "category": "car_wash",
+      "originalAddress": "София, ж.к. Младост, Околовръстен път 251А",
+      "publishedAddress": "София, ж.к. Младост 4, Околовръстен път 251А",
+      "originalQuarter": "Младост",
+      "publishedQuarter": "Младост 4",
+      "owner": "https://pulsefit.bg/klubove/pulse-mladost/",
+      "branchBooking": "https://pulsefit.bg/pulse-car-wash/",
+      "addressCorroboration": ["https://pulsefit.bg/ekstri-v-pulse/avtomivka/", "https://pulsefit.bg/narodni-tanci-za-nachinaeshti-v-pulse-fitness-spa-mladost/"],
+      "evidence": "The operator venue names its exact numbered address (251А), calls itself the Mladost 4 club, and explicitly confirms its on-site staffed wash. Its wash-specific page lists the separate existing phone. The municipal dataset has exactly one Sofia row for the named Ring Road and same 251А suffix; the CSV types it as a street, whereas the operator displays the road name without a prefix in its contact address. The contact spelling is preserved with the more precise quarter. No gym timetable or different Pulse branch is applied to this wash.",
+      "point": { "id": "104368", "latitude": 42.624312, "longitude": 23.3728, "checkedOn": "2026-11-22", "new": true },
+      "normalizedRecordSha256": ["068d5cde43cb51ddacb0ab1c8641836fabe370070cbd86fdd0d3befe503257db", "3287c25e9e5892ec6cdf2c05fb712c51998f4f4b01b37d93e84a9621012041b6"],
+      "pricingIdentityUnchanged": "26de7b6dbce094d7b1f045f479442e8aed01166298eec65f92c4051ae3713188",
+      "physical": [1, 2],
+      "located": [1, 2]
+    },
+    {
+      "id": "sofia-lux-mbal-sveta-sofia-carwash",
+      "category": "car_wash",
+      "originalAddress": "София, бул. България 104, Корпус 2, ниво -1",
+      "publishedAddress": "София, бул. България 104, Корпус 2, ниво -1",
+      "originalQuarter": null,
+      "publishedQuarter": "Манастирски ливади",
+      "owner": "https://www.mbal-sofia.com/services/1",
+      "addressCorroboration": ["https://ecrier.bg/contact/"],
+      "municipalSources": ["https://council.sofia.bg/documents/20182/880994/%D0%A1%D0%9E%D0%9021-%D0%92%D0%9A08-15105-%D0%A2%D0%B5%D0%BE%D0%B4%D0%BE%D1%80%2B%D0%9F%D0%B5%D1%82%D0%BA%D0%BE%D0%B2.pdf/1a899e38-ec03-4aa8-9268-ed8768ee98c8"],
+      "evidence": "The operator explicitly identifies the staffed public car wash on level -1 of building 2 and gives its unchanged appointment phone. The primary tenant contact for the exact same MBAL Sveta Sofia building and exact boulevard №104 explicitly identifies Manastirski Livadi-West; a city council file corroborates the named hospital buildings in that locality. GoRez uses the existing parent quarter Манастирски ливади. Do not replace its existing address geocode with the general campus postal point, copy unrelated medical activity, or infer a change in services or prices.",
+      "point": { "source": "https://www.openstreetmap.org/way/1551254006", "latitude": 42.6595902, "longitude": 23.2843285, "checkedOn": "2026-11-06", "new": false },
+      "normalizedRecordSha256": ["42bc9a0bcf883ed25f73817efdd533294220777d573ca724d800ecce946d73f0", "a54144ab4be33677c5d6a560195e8a39f68664665a203a3916753e324c37439f"],
+      "pricingIdentityUnchanged": "dd3cafe56730bb91d4316853b385aaf8a160ff3277ff87d60a976eb87a6b9e90",
+      "physical": [2, 3],
+      "located": [1, 2],
+      "additionalCell": { "category": "detailing", "physical": [1, 2], "located": [0, 1] }
+    }
+  ],
+  "recoveryOnlyCoverage": {
+    "targetPerQuarterCategory": 30,
+    "approvedBusinesses": [1712, 1712],
+    "premisesWithBoundCoordinates": [911, 913],
+    "zeroCells": [1292, 1291],
+    "cellsAtLocatedTarget": [0, 0]
+  },
+  "holds": [
+    { "site": "https://www.nhsdetailingsofia.com/", "reason": "The owner explicitly names NPZ Iskar but the exact house index emits two indistinguishable entrance candidates. Adding the quarter alone would retire the previously bound legacy point. Leave the record unchanged until its own precise pin or a unique municipal number can be confirmed." },
+    { "site": "https://pulsefit.bg/klubove/pulse-arena-4-km-czarigradsko-shose/", "reason": "The venue confirms a wash but uses a landmark without exact street number; Mladost 1 vs Musagenitsa designation differs between its club and wash pages. Arena does not appear in the actual branch booking/promotion page, so do not infer eligible booking, prices or a fourth separate business." },
+    { "site": "https://www.speedgarages.com/", "reason": "Owner names the exact road and №266 but not a quarter. Published municipal/utility area groups and historic neighboring addresses establish administrative coverage, not a unique verified residential quarter for this premise. No new slot, service, or guessed neighborhood recorded." }
+  ]
+}

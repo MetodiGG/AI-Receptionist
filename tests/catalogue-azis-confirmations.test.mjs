@@ -1,4 +1,5 @@
 import test from 'node:test'
+import { suhodolIntakePriorCatalogue } from './suhodol-intake-20261122-scope.mjs'
 import assert from 'node:assert/strict'
 import { access, readFile } from 'node:fs/promises'
 import { DateTime } from 'luxon'
@@ -33,16 +34,18 @@ const expectedServices = [
   ['Оформяне на вежди', 'beauty'], ['Боядисване на коса', 'hair'], ['Балеаж', 'hair'],
 ]
 const originalRegional = validateCatalogue([...REGIONAL_RAW_RECORDS, ...LOM_GPOINT_RAW_RECORDS])
-const originalCatalogue = [...SOFIA_CATALOGUE, ...originalRegional]
+const originalCatalogue = [...suhodolIntakePriorCatalogue(SOFIA_CATALOGUE), ...originalRegional]
 const azis = REGIONAL_CATALOGUE.filter(row => ids.includes(row.id))
 const receipt = row => AZIS_PRICE_REVIEWS.find(review => review.id === row.id)
 const intent = (cityCode, category) => ({ cityCode, ...(category ? { category } : {}), browse: true, searchV2: true, requirements: [] })
 
 test('only the two explicitly confirmed premises append after all 1735 unchanged existing catalogue objects and receipts', () => {
+  // Replay the dated Azis append; later current-row intake tests cover Suhodol.
+  const originalPublicCatalogue = suhodolIntakePriorCatalogue(PUBLIC_CATALOGUE)
   assert.equal(originalCatalogue.length, 1735)
-  assert.deepEqual(PUBLIC_CATALOGUE.slice(0, originalCatalogue.length), originalCatalogue)
-  assert.deepEqual(PUBLIC_CATALOGUE.slice(originalCatalogue.length).map(row => row.id), ids)
-  assert.equal(PUBLIC_CATALOGUE.length, 1737)
+  assert.deepEqual(originalPublicCatalogue.slice(0, originalCatalogue.length), originalCatalogue)
+  assert.deepEqual(originalPublicCatalogue.slice(originalCatalogue.length).map(row => row.id), ids)
+  assert.equal(originalPublicCatalogue.length, 1737)
   assert.deepEqual(REGIONAL_CATALOGUE.slice(0, originalRegional.length), originalRegional)
   assert.deepEqual(PUBLIC_CATALOGUE_PRICE_REVIEWS, [...REGIONAL_PRICE_REVIEWS, ...LOM_GPOINT_PRICE_REVIEWS, ...AZIS_PRICE_REVIEWS])
   assert.deepEqual(PLATFORM_CATALOGUE_CONFIRMATIONS.map(row => row.id), ids)

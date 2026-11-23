@@ -1,20 +1,27 @@
+import { suhodolIntakeAllowsFileChange, suhodolIntakeAllowsNewFile, suhodolIntakePriorSource, suhodolIntakePriorCatalogue } from './suhodol-intake-20261122-scope.mjs'
+import { nearbyPointsAllowsFileChange, nearbyPointsAllowsNewFile, nearbyPointsPriorSource, nearbyPointsPriorCatalogue } from './nearby-points-20261122-scope.mjs'
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFile, readlink } from 'node:fs/promises'
 import { createHash } from 'node:crypto'
 import { execFileSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
-import { SOFIA_CATALOGUE, RAW_SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
-import { PUBLIC_CATALOGUE } from '../lib/discovery/public-catalogue.mjs'
+import { SOFIA_CATALOGUE as currentCatalogue, RAW_SOFIA_CATALOGUE as currentRawCatalogue } from '../lib/discovery/sofia-catalogue.mjs'
+import { PUBLIC_CATALOGUE as currentPublicCatalogue } from '../lib/discovery/public-catalogue.mjs'
 import { pricingIdentity } from '../lib/discovery/catalogue-pricing-review.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
 import { LOCATION_RECOVERY_BASE, LOCATION_RECOVERY_HASHES, LOCATION_RECOVERY_NEW_HASHES, LOCATION_RECOVERY_ROW_HASHES,
   locationRecoveryAllowsFileChange, locationRecoveryAllowsNewFile, locationRecoveryPriorSource,
   locationRecoveryPriorRecord, locationRecoveryPriorCatalogue } from './location-recovery-20261122-scope.mjs'
 
+// Replay this dated checkpoint; the separate nearby-point feature tests
+// exercise the actual current rows without either historical inverse.
+const SOFIA_CATALOGUE = nearbyPointsPriorCatalogue(suhodolIntakePriorCatalogue(currentCatalogue))
+const RAW_SOFIA_CATALOGUE = nearbyPointsPriorCatalogue(suhodolIntakePriorCatalogue(currentRawCatalogue))
+const PUBLIC_CATALOGUE = suhodolIntakePriorCatalogue(currentPublicCatalogue)
 const root = fileURLToPath(new URL('../', import.meta.url))
 const git = (...args) => execFileSync('git', args, { cwd: root, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 })
-const read = path => readFile(new URL('../' + path, import.meta.url), 'utf8')
+const read = path => readFile(new URL('../' + path, import.meta.url), 'utf8').then(source => nearbyPointsPriorSource(path, suhodolIntakePriorSource(path, source)))
 const before = path => git('show', LOCATION_RECOVERY_BASE + ':' + path)
 const sha256 = value => createHash('sha256').update(value).digest('hex')
 const rowHash = value => sha256(JSON.stringify(value))
@@ -35,7 +42,7 @@ test('the location recovery stage allows one exact catalogue integration and six
   ].sort())
   for (const [path, hash] of Object.entries({ ...LOCATION_RECOVERY_HASHES, ...LOCATION_RECOVERY_NEW_HASHES })) {
     assert.equal(sha256(await read(path)), hash, path + ': a later change needs its own explicit review')
-    assert.equal(locationRecoveryAllowsFileChange(path) || locationRecoveryAllowsNewFile(path), true, path)
+    assert.equal(suhodolIntakeAllowsFileChange(path) || nearbyPointsAllowsFileChange(path) || locationRecoveryAllowsFileChange(path) || locationRecoveryAllowsNewFile(path), true, path)
     assert.ok(!(await read(path)).endsWith('\n\n'))
   }
   for (const path of ['lib/discovery/catalogue-data/pricing-review-baseline-20261110.json', 'lib/discovery/catalogue-data/pricing-booking-review-identities-20261110.json', 'lib/discovery/catalogue-data/neighborhood-reviewed-identities-20261113.json', 'lib/discovery/catalogue-data/neighborhood-coverage-reviewed-identities-20261116.json', 'lib/discovery/catalogue-coordinate-binding.mjs', 'lib/discovery/catalogue-policy.mjs', 'lib/discovery/catalogue-search.mjs', 'lib/discovery/public-catalogue.mjs', 'lib/locale/service-english.json', 'scripts/catalogue-coverage-report.mjs', 'components/discovery-business-card.js', 'package.json', 'pnpm-lock.yaml', 'next.config.mjs']) {
@@ -44,13 +51,13 @@ test('the location recovery stage allows one exact catalogue integration and six
 })
 
 test('every other original asset, catalogue source/price/identity, historical snapshot, UI, search, booking and configuration byte stays frozen', async () => {
-  const frozen = tree.filter(record => !locationRecoveryAllowsFileChange(record.path))
+  const frozen = tree.filter(record => !suhodolIntakeAllowsFileChange(record.path) && !nearbyPointsAllowsFileChange(record.path) && !locationRecoveryAllowsFileChange(record.path))
   for (let offset = 0; offset < frozen.length; offset += 32) await Promise.all(frozen.slice(offset, offset + 32).map(async record => {
     const path = new URL('../' + record.path, import.meta.url)
     const bytes = record.mode === '120000' ? Buffer.from(await readlink(path)) : await readFile(path)
     assert.equal(createHash('sha1').update('blob ' + bytes.length + '\0').update(bytes).digest('hex'), record.oid, record.path)
   }))
-  const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => path && productionPath(path))
+  const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => path && !suhodolIntakeAllowsNewFile(path) && !nearbyPointsAllowsNewFile(path) && productionPath(path))
   assert.deepEqual([...new Set(actual)].sort(), [...tree.map(record => record.path), ...Object.keys(LOCATION_RECOVERY_NEW_HASHES)].sort())
   for (const path of historicalScopes) assert.equal(await read(path), before(path), path + ': all eleven earlier helper maps remain byte-identical')
 })

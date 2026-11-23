@@ -4,7 +4,7 @@ import { readFile } from 'node:fs/promises'
 import { createRequire } from 'node:module'
 import * as React from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
-import { subcategoriesForCategory } from '../lib/discovery/subcategories.mjs'
+import { matchesSubcategory, subcategoriesForCategory } from '../lib/discovery/subcategories.mjs'
 import * as tilePhotoStyle from '../components/discovery-tile-photo-style.mjs'
 
 const require = createRequire(import.meta.url), { loadBindings, transform } = require('next/dist/build/swc')
@@ -20,7 +20,7 @@ const DiscoverySubcategories = loadComponent()
 const options = [
   ['folk', 'Народни танци', 'Folk dance', 'sx-bulgarian-folk-group'],
   ['yoga', 'Йога', 'Yoga', 'yoga-class'],
-  ['pilates', 'Пилатес и реформър', 'Pilates and reformer', 'reformer-pilates'],
+  ['pilates', 'Реформър пилатес', 'Reformer Pilates', 'reformer-pilates'],
   ['boxing', 'Бокс и кикбокс', 'Boxing and kickboxing', 'boxing'],
   ['tennis', 'Тенис', 'Tennis', 'tennis'],
 ].map(([id,bg,en,photo]) => ({ id, category: 'fitness', bg, en, label: bg, photo: `/service-photos/${photo}-v1.webp`, count: 1 }))
@@ -53,6 +53,26 @@ function interactive(patch = {}) {
   }, unmount() { for (const effect of effects) effect.cleanup?.() } }
   f.render(); return f
 }
+
+test('the localized Reformer Pilates label preserves the restored identifier, image and matching aliases', () => {
+  const selected = 'fitness-pilates'
+  for (const [locale, label] of [['bg', 'Реформър пилатес'], ['en', 'Reformer Pilates']]) {
+    const option = subcategoriesForCategory('fitness', locale).find(item => item.id === selected)
+    assert.equal(option.label, label)
+    assert.equal(option.photo, '/service-photos/reformer-pilates-v1.webp')
+    const f = interactive({ locale, selected, options: [{ ...option, count: 1 }] })
+    const choice = f.buttons().find(node => node.props.className === 'discovery-subcategory-option')
+    assert.equal(choice.props['aria-pressed'], true)
+    assert.equal(elements(choice, node => node.type === 'span')[0].props.children, label)
+    choice.props.onClick()
+    assert.deepEqual(f.calls, [selected])
+    f.unmount()
+  }
+  for (const name of ['Пилатес и реформър', 'Пилатес на реформър', 'Mat Pilates', 'Reformer Pilates']) {
+    assert.ok(matchesSubcategory({ name, category: 'fitness' }, selected), name)
+  }
+  assert.equal(matchesSubcategory({ name: 'Йога', category: 'fitness' }, selected), false)
+})
 
 test('responsive collapsed choices hydrate from four to six on desktop, preserve the selected identifier on resize and clean up the media listener', () => {
   for (const locale of ['bg', 'en']) {

@@ -1,10 +1,12 @@
+import { suhodolIntakeAllowsFileChange, suhodolIntakeAllowsNewFile, suhodolIntakePriorSource, suhodolIntakePriorCatalogue } from './suhodol-intake-20261122-scope.mjs'
+import { nearbyPointsAllowsFileChange, nearbyPointsAllowsNewFile, nearbyPointsPriorSource, nearbyPointsPriorCatalogue } from './nearby-points-20261122-scope.mjs'
 import test from 'node:test'
 import { locationRecoveryPriorCatalogue } from './location-recovery-20261122-scope.mjs'
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { createHash } from 'node:crypto'
 import { DateTime } from 'luxon'
-import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { SOFIA_CATALOGUE as currentCatalogue } from '../lib/discovery/sofia-catalogue.mjs'
 import { CATALOGUE_CITY_CODES, CATALOGUE_ID_PATTERN, catalogueCity, catalogueIdMatchesCity, cataloguePointMatchesCity } from '../lib/discovery/catalogue-cities.mjs'
 import { catalogueRecordSchema, validateCatalogue } from '../lib/discovery/catalogue-policy.mjs'
 import { normalizeCatalogueBusinesses, rankCatalogueBusinesses, searchFreeCatalogue, isCataloguePartnerDuplicate } from '../lib/discovery/catalogue-search.mjs'
@@ -16,6 +18,7 @@ import { validSuggestionResponse } from '../lib/discovery/suggestions-ui.mjs'
 import { catalogueProfilePath, catalogueProfileView, catalogueProfileSitemapEntries, relatedCatalogueProfiles } from '../lib/catalogue-profile.mjs'
 import { assessPricingReview, pricingIdentity } from '../lib/discovery/catalogue-pricing-review.mjs'
 
+const SOFIA_CATALOGUE = suhodolIntakePriorCatalogue(currentCatalogue)
 const now = Date.parse('2026-11-22T12:00:00Z')
 const cityCases = [['sofia', '68134', 'София'], ['lom', '44238', 'Лом'], ['brusartsi', '06570', 'Брусарци']]
 // Synthetic contract fixtures, never source facts or imported business rows.
@@ -38,7 +41,7 @@ test('all 1732 original normalized Sofia records retain their published values a
   // e3bf738; one aggregate digest, not a refreshed per-record price baseline.
   assert.equal(SOFIA_CATALOGUE.length, 1732)
   assert.ok(SOFIA_CATALOGUE.every(row => row.cityCode === '68134' && row.id.startsWith('sofia-')))
-  assert.equal(createHash('sha256').update(JSON.stringify(locationRecoveryPriorCatalogue(SOFIA_CATALOGUE))).digest('hex'), 'e0af5db43c503050ffcbdfc7061a6e8c8c609aa6eb353babfa2f4c79f544098c')
+  assert.equal(createHash('sha256').update(JSON.stringify(locationRecoveryPriorCatalogue(nearbyPointsPriorCatalogue(SOFIA_CATALOGUE)))).digest('hex'), 'e0af5db43c503050ffcbdfc7061a6e8c8c609aa6eb353babfa2f4c79f544098c')
 })
 
 test('the shared catalogue allowlist accepts only the three reviewed city prefixes and rejects mismatched or unsafe identities', () => {

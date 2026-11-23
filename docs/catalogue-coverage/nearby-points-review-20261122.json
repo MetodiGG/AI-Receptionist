@@ -1,0 +1,221 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-22",
+  "status": "prepared_local_not_published",
+  "priority": "30 distinct real businesses per category per Sofia quarter; aggregate growth is secondary",
+  "newBusinessesAdded": 0,
+  "existingBusinessesWithNewPoints": 3,
+  "sourceCommit": "6e14249ebb27d0d24e2a436629fb7f2dd8a4a92b",
+  "municipalSource": {
+    "url": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+    "licence": "CC-BY-4.0",
+    "originalFileChanged": false,
+    "analysis": "Reuses the previous strict offline candidate queue. No new CSV read, geocoder or provider request in this review. A unique postal address is not a surveyed business entrance."
+  },
+  "accepted": [
+    {
+      "id": "sofia-shining-polishing-auto",
+      "name": "Shining Polishing AUTO",
+      "address": "София, НПЗ Искър, ул. Мюнхен 14",
+      "neighborhood": "НПЗ Искър",
+      "website": "https://polishingauto.bg/",
+      "phone": "+359893941418",
+      "sourceVerificationUnchanged": {
+        "checkedOn": "2026-11-10",
+        "validUntil": "2027-02-08"
+      },
+      "matchStatus": "unique_exact_municipal_postal_address",
+      "candidateCount": 1,
+      "municipalRow": {
+        "rn": "96395",
+        "region": "Искър",
+        "settlement": "гр. София",
+        "street": "ул. Мюнхен",
+        "house": "14",
+        "block": "",
+        "quarter": "",
+        "entrance": "",
+        "coordinates": {
+          "latitude": 42.659126,
+          "longitude": 23.412371
+        }
+      },
+      "ownerContactUrl": "https://polishingauto.bg/kontakti/",
+      "appointmentUrl": "https://polishingauto.bg/product/polirane-i-pastirane-na-avtomobil/",
+      "qualification": "Own contact separately identifies detailing premises and phone; the no-physical-shop notice concerns online retail, not the service premises. Exact postal point, not an entrance survey."
+    },
+    {
+      "id": "sofia-vas-val-auto-malashevtsi-lavandula53",
+      "name": "Вас Вал Авто · Малашевци",
+      "address": "София, кв. Малашевци, ул. Лавандула 53",
+      "neighborhood": "Малашевци",
+      "website": "https://vasvalauto.com/",
+      "phone": "+359887471956",
+      "sourceVerificationUnchanged": {
+        "checkedOn": "2026-11-16",
+        "validUntil": "2027-02-14"
+      },
+      "matchStatus": "unique_exact_municipal_postal_address",
+      "candidateCount": 1,
+      "municipalRow": {
+        "rn": "30118",
+        "region": "Подуяне",
+        "settlement": "гр. София",
+        "street": "ул. Лавандула",
+        "house": "53",
+        "block": "",
+        "quarter": "",
+        "entrance": "",
+        "coordinates": {
+          "latitude": 42.718868,
+          "longitude": 23.353062
+        }
+      },
+      "ownerContactUrl": "https://vasvalauto.com/map.php?lang=1&page=1",
+      "appointmentUrl": "https://vasvalauto.com/index.php?lang=1&page=2",
+      "qualification": "Malformed owner GPS N42°718864:E23°352763 was not converted or used. Independent strict municipal postal match only; no claim of a surveyed entrance."
+    },
+    {
+      "id": "sofia-diva-zone-mladost2-bg-shkolo",
+      "name": "DIVA ZONE · Младост 2",
+      "address": "София, ж.к. Младост 2, ул. Генерал-майор Васил Делов 10, БГ Школо",
+      "neighborhood": "Младост 2",
+      "website": "https://www.divazone.bg/",
+      "phone": "+359886996868",
+      "sourceVerificationUnchanged": {
+        "checkedOn": "2026-11-14",
+        "validUntil": "2027-02-12"
+      },
+      "matchStatus": "explicit_owner_named_hall_marker",
+      "coordinates": {
+        "latitude": 42.6360833,
+        "longitude": 23.3650101
+      },
+      "sourceUrl": "https://www.divazone.bg/zali/",
+      "appointmentUrl": "https://www.divazone.bg/grafik/",
+      "ownerSourceBodySha256": "293efafbaa52c2c2698b17c365bb36cbfd0086991d053782ec5b393ac6d95415",
+      "markerTitle": "Театър зала в БГ ШКОЛО",
+      "evidence": "Owner-rendered data-locations marker explicitly names this hall. Visible venue address and actual schedule tie it to Mladost2, VasilDelov10, same phone. The separate headquarters JSON-LD is not used. The school postal candidate is not used.",
+      "qualification": "Owner-published hall location, not an independently surveyed entrance."
+    }
+  ],
+  "held": [
+    {
+      "id": "sofia-katerene-europe-private",
+      "reason": "Owner root returned request-verification challenge; STOP. Inspected individual lesson did not establish precise street/building1 in the multi-building Europe complex."
+    },
+    {
+      "id": "sofia-azbuki-sport-musagenitsa-swimming",
+      "reason": "Unique school-campus postal point does not establish the pool or owner-stated entrance facing block87."
+    },
+    {
+      "id": "sofia-monika-hristova-lagera53",
+      "reason": "Owner confirms block53 entranceГ; inspected map numbers belong to viewport, not independently published entity marker."
+    },
+    {
+      "id": "sofia-double-yellow-squash-nsa",
+      "reason": "Own contact JSON-LD42.646389,23.348889 conflicts with its visible map query42.64691445104994,23.34826493526649, roughly78m apart. Neither selected or averaged; campus point not substituted."
+    },
+    {
+      "id": "sofia-pro-sport-nsa-kliment22",
+      "reason": "Own address confirmed; map embeds expose viewport coordinates, not a specific court/entrance marker. Campus postal point withheld."
+    },
+    {
+      "id": "sofia-arnaudov-uzunova-tsar-boris19",
+      "reason": "Office is beside entranceА at TsarBorisIII19; no explicit quarter or office-bound point. Postal entrance not assumed identical to office door."
+    },
+    {
+      "id": "sofia-ax-horca-bio-dragan-tsankov8",
+      "reason": "BiologicalFaculty hall has no specific room/entrance point or quarter. Enrolment18:30 option says startTBC while body announces6Oct2026. No programme/fee refresh."
+    },
+    {
+      "id": "sofia-levski-rakovski-balsha18",
+      "reason": "Own base spans80–90decares with multiple pitches. No individual training-site/entrance coordinate or precise quarter."
+    },
+    {
+      "id": "sofia-nvs-workshop-tsarigradsko391",
+      "reason": "Owner identifies new workshop hall at ParkMuseumVrana postal address; no workshop-bound point or precise quarter. Museum point not substituted."
+    },
+    {
+      "id": "sofia-ot-izvora-voenna-han-omurtag42",
+      "reason": "Hall is explicitly inside MilitaryAcademy courtyard. No hall/entrance point or precise quarter; broad SofiaCentre is insufficient."
+    }
+  ],
+  "incrementalCoverage": {
+    "premisesWithBoundCoordinates": [
+      905,
+      908
+    ],
+    "premisesWithoutBoundCoordinates": [
+      612,
+      609
+    ],
+    "approvedBusinesses": [
+      1709,
+      1709
+    ],
+    "physicalPremises": [
+      1517,
+      1517
+    ],
+    "zeroPhysicalCells": [
+      1294,
+      1294
+    ],
+    "zeroLocatedCells": [
+      1435,
+      1434
+    ],
+    "cellsAtTarget": [
+      0,
+      0
+    ],
+    "cells": [
+      {
+        "neighborhood": "НПЗ Искър",
+        "category": "detailing",
+        "physical": [
+          1,
+          1
+        ],
+        "located": [
+          0,
+          1
+        ]
+      },
+      {
+        "neighborhood": "Малашевци",
+        "category": "auto_repair",
+        "physical": [
+          2,
+          2
+        ],
+        "located": [
+          1,
+          2
+        ]
+      },
+      {
+        "neighborhood": "Младост 2",
+        "category": "fitness",
+        "physical": [
+          4,
+          4
+        ],
+        "located": [
+          1,
+          2
+        ]
+      }
+    ]
+  },
+  "safeguards": {
+    "servicesPricesDurationsHoursBookingAndPhotographsChanged": false,
+    "priceAndBusinessReviewDatesExtended": false,
+    "historicalSnapshotsOrShaMapsUpdated": false,
+    "productionWrites": false,
+    "bookingsNotificationsContactsAccountsOrFormsSubmitted": 0,
+    "mapGeocoderOrPaidProviderRequests": 0
+  }
+}

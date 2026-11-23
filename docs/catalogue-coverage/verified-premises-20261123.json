@@ -1,0 +1,57 @@
+{
+  "baselineCommit": "8f145b4edb6c076af614d644117e10257df12df0",
+  "checkedOn": "2026-11-23",
+  "status": "integrated_locally_not_published",
+  "municipalSource": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+  "municipalCsvSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+  "new": {
+    "id": "sofia-luckydent-dragalevtsi-gluharche10",
+    "name": "Luckydent · д-р Женина Пейкова",
+    "address": "София, кв. Драгалевци, ул. Глухарче 10",
+    "category": "other",
+    "point": { "addressId": "9317", "latitude": 42.631164, "longitude": 23.311752 },
+    "source": "https://superdoc.bg/lekar/zhenina-peykova",
+    "booking": "External practitioner-managed public appointment menu; no GoRez calendar or slot verification",
+    "service": "Първичен дентален преглед",
+    "priceEur": 30,
+    "sourceCondition": "Practice asks visitors to bring a recent panoramic dental X-ray, preferably digital and from the previous 6 months.",
+    "exclusions": "No other price or procedure imported. Tartar removal was not an independently named booking reason in the public form. No reviews, photo, ratings, opening hours or duration copied.",
+    "illustrativeServicePhoto": "/service-photos/dental-exam-v1.webp"
+  },
+  "recovered": [
+    {
+      "id": "sofia-lumiere-beauty-club",
+      "address": "София, Надежда 2, ул. Свети Никола Нови 2А",
+      "category": "nails",
+      "point": { "addressId": "118408", "latitude": 42.730781, "longitude": 23.303096 },
+      "owner": "https://www.lumierebeautyclub.bg/",
+      "municipalCorroboration": "https://nadezhda.sofia.bg/uploads/2025-NW/etazh_24.06.2025.pdf",
+      "evidence": "The owner confirms the same active phone, quarter and exact house suffix 2А. The municipal district confirms the official street spelling at the same number and in the same quarter. Exactly one city street/number row matched. Address spelling and point only; no tariffs, contact route or listing expiry changed."
+    },
+    {
+      "id": "sofia-ariel-beauty-lyulin3",
+      "address": "София, ж.к. Люлин 3, бул. Добринова скала, бл. 370, партер",
+      "category": "hair",
+      "point": { "addressId": "55596", "latitude": 42.722214, "longitude": 23.240986 },
+      "owner": "https://arielbeautystudio.eu/index.php",
+      "currentOwnerSite": "https://www.arielbeautystudio.eu/",
+      "explicitBlockCorroboration": "https://webrating.bg/profile/bulgaria/sofia-1/sofia-2/ariel-beauty-studio-salon-krasota-lazerna-epilaciya-sofia-liulin/",
+      "municipalCorroboration": "https://www.sofia.bg/documents/20127/1308738/spisak%2B5-32%2Bzona-%2870%29.pdf/7f267430-fb0b-41ef-81ef-fcc0b3a7e795",
+      "evidence": "Owner gives Люлин 3, Добринова скала 370, ground floor and the unchanged booking phone. The matching published business profile explicitly gives block 370 with the same phone; the city lists block 370 in Люлин 3 and one matching block row. This is a block point, not an entrance. No stale BGN tariff, dated promotion, contact route or expiry imported."
+    }
+  ],
+  "coverage": {
+    "targetPerQuarterCategory": 30,
+    "trackedCellsIncludingAdditionalNamedAreas": 1750,
+    "approvedSofiaBusinesses": [1713, 1714],
+    "premisesWithBoundCoordinates": [914, 917],
+    "emptyLocatedCells": [1427, 1425],
+    "cellsAtLocatedTarget": [0, 0],
+    "affected": [
+      { "neighborhood": "Драгалевци", "category": "other", "physical": [0, 1], "located": [0, 1] },
+      { "neighborhood": "Надежда 2", "category": "hair", "physical": [1, 1], "located": [0, 1] },
+      { "neighborhood": "Надежда 2", "category": "nails", "physical": [3, 3], "located": [1, 2] },
+      { "neighborhood": "Люлин 3", "category": "hair", "physical": [3, 3], "located": [1, 2] }
+    ]
+  }
+}

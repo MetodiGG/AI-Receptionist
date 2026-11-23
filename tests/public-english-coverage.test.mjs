@@ -43,10 +43,13 @@ test('the actual static cache covers every checked-in public/all source name, re
   assert.equal(all.complete, true)
   assert.equal(published.complete, true)
   // The original audited source cohort stays intact. This release adds only
-  // three Europe course names, the two Elena/Europe descriptions and now two
-  // explicitly confirmed Azis hair names. Historical review claims below do
-  // not become new owner-website/price reviews through these supplements.
-  assert.deepEqual(Object.fromEntries(Object.entries(all.totals).map(([key, value]) => [key, value.unique])), { names: 6040 + 3 + 2, descriptions: 1790 + 2, units: 660 })
+  // three Europe course names, two Elena/Europe descriptions, two explicitly
+  // confirmed Azis hair names, two reviewed Suhodol in-person descriptions,
+  // two exact Lyulin names/descriptions plus a price unit, and one new
+  // source-reviewed Gorublyane description and one Dragalevtsi preparation note.
+  // These manual additions leave the frozen historical review metadata below
+  // intact; supplements do not silently become extra original-cohort reviews.
+  assert.deepEqual(Object.fromEntries(Object.entries(all.totals).map(([key, value]) => [key, value.unique])), { names: 6040 + 3 + 2 + 2, descriptions: 1790 + 2 + 2 + 2 + 1 + 1, units: 660 + 1 })
   for (const result of [all, published]) for (const key of ['missing', 'invalid', 'quantityChanges', 'qualificationChanges']) assert.equal(result[key].length, 0, key)
   const cache = JSON.parse(await readFile(new URL('../lib/locale/service-english.json', import.meta.url), 'utf8'))
   assert.equal(cache.metadata.review.nameSourcesIndividuallyAgentReviewed, 6040)

@@ -106,43 +106,38 @@ async function componentHarness(initialProps = {}) {
   }
 }
 
-test('the actual compiled component renders only image elements and stops onError updates at the terminal inline photo', async () => {
-  const h = await componentHarness()
-  let wrapper = h.render(), image = wrapper.props.children
-  assert.equal(image.type, 'img'); assert.equal(image.props.src, NEUTRAL_SERVICE_PHOTO_SRC)
+test('public thumbnails never render the neutral notebook and stop after the matching image fails', async () => {
+  const unknown = await componentHarness()
+  assert.equal(unknown.render(), null)
+  assert.equal(unknown.module.exports.IllustrativeServicePhotoNote({ services: [unknown.props.service] }), null)
+  const h = await componentHarness({ service: { name: 'Маникюр', category: 'nails' } })
+  const wrapper = h.render(), image = wrapper.props.children
+  assert.equal(image.type, 'img'); assert.equal(image.props.src, '/service-photos/classic-manicure-v1.webp')
   assert.equal(image.props.width, 64); assert.equal(image.props.height, 64)
   assert.equal(image.props.loading, 'lazy'); assert.equal(image.props.decoding, 'async')
-  assert.equal(wrapper.props['data-photo-match'], 'neutral')
+  assert.equal(wrapper.props['data-photo-match'], 'exact')
   const originalError = image.props.onError
   originalError(); const once = h.failures(); originalError()
   assert.equal(h.failures(), once, 'repeated stale load errors do not keep changing state')
-  wrapper = h.render(); image = wrapper.props.children
-  assert.equal(image.type, 'img'); assert.equal(image.props.src, INLINE_NEUTRAL_SERVICE_PHOTO_SRC)
-  assert.equal(image.props.onError, undefined, 'no error/re-render loop or network request from the inline fallback')
-  assert.match(image.props.alt, /Neutral appointment photo/)
+  assert.equal(h.render(), null, 'no substitute image or retry after all matching artwork is unavailable')
   assert.equal(typeof h.module.exports.IllustrativeServicePhotoNote, 'function', 'existing export remains compatible')
   assert.doesNotMatch(h.source, /<Icon|service-thumbnail-icon|fetch\(|dangerouslySetInnerHTML/)
 })
 
-test('hydration detects a cached 404 that failed before onError and advances through cached neutral failure to inline once', async () => {
+test('hydration detects a cached 404 before onError and falls back to no picture if there is no good match', async () => {
   const business = { id: 'local-business', industry: 'other' }, service = { id: 'local-service', name: 'Неописана бъдеща услуга' }
   const trustedServiceImage = { businessId: business.id, serviceId: service.id, rightsCleared: true, businessProvided: true, src: '/businesses/local-business/cached-missing.webp' }
   const h = await componentHarness({ business, service, trustedServiceImage })
-  let image = h.render().props.children
+  const image = h.render().props.children
   assert.equal(image.props.src, trustedServiceImage.src)
   assert.equal(typeof image.props.onError, 'function')
   h.attach({ complete: true, naturalWidth: 0, currentSrc: `https://local.invalid${trustedServiceImage.src}` })
   h.flush() // The browser already emitted its failure before React hydration.
   assert.deepEqual(h.failures(), [trustedServiceImage.src])
-  image = h.render().props.children
-  assert.equal(image.props.src, NEUTRAL_SERVICE_PHOTO_SRC)
-  h.attach({ complete: true, naturalWidth: 0, currentSrc: `https://local.invalid${NEUTRAL_SERVICE_PHOTO_SRC}` }); h.flush()
-  assert.deepEqual(h.failures(), [trustedServiceImage.src, NEUTRAL_SERVICE_PHOTO_SRC])
-  image = h.render().props.children
-  assert.equal(image.props.src, INLINE_NEUTRAL_SERVICE_PHOTO_SRC); assert.equal(image.props.onError, undefined)
+  assert.equal(h.render(), null)
   const terminal = h.failures()
-  h.attach({ complete: true, naturalWidth: 0, currentSrc: INLINE_NEUTRAL_SERVICE_PHOTO_SRC }); h.flush(); h.render(); h.flush()
-  assert.equal(h.failures(), terminal, 'inline is terminal even if a browser reports a failed decode')
+  h.attach(null); h.flush(); h.render(); h.flush()
+  assert.equal(h.failures(), terminal, 'an absent image is terminal')
 })
 
 test('hydration never mistakes an unresolved lazy image, an empty currentSrc or a successful image for a cached failure', async () => {
@@ -152,9 +147,9 @@ test('hydration never mistakes an unresolved lazy image, an empty currentSrc or 
     { complete: false, naturalWidth: 0, currentSrc: 'https://local.invalid/pending.webp' },
     { complete: true, naturalWidth: 64, currentSrc: 'https://local.invalid/loaded.webp' },
   ]) {
-    const h = await componentHarness(); h.render(); h.attach(node); h.flush()
+    const h = await componentHarness({ service: { name: 'Маникюр', category: 'nails' } }); h.render(); h.attach(node); h.flush()
     assert.deepEqual(h.failures(), [], JSON.stringify(node))
-    assert.equal(h.render().props.children.props.src, NEUTRAL_SERVICE_PHOTO_SRC)
+    assert.equal(h.render().props.children.props.src, '/service-photos/classic-manicure-v1.webp')
   }
 })
 

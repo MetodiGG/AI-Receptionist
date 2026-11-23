@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "baseCommit": "35a67bf61b7217f73339f39fc3c843a3ae15225e",
+  "status": "prepared_local_not_published",
+  "targetPerQuarterCategory": 30,
+  "newBusinessesAdded": 0,
+  "corrections": [
+    {
+      "id": "sofia-e-dental-clinic",
+      "ownerContact": "https://e-dentalclinic.com/kontakti/",
+      "existingBookingDest": "https://superdoc.bg/klinika/e-dental-clinik",
+      "bookablePracticeCorroboration": "https://superdoc.bg/lekar/elvan-dervish",
+      "operatorAuthoredAddressCorroboration": "https://www.jobs.bg/job/8667497",
+      "sourceAddressUnchanged": "София, ул. Тодор Йончев 15",
+      "oldNeighborhood": null,
+      "newNeighborhood": "Малинова долина",
+      "firstPartyEvidence": "The branded Contact block gives street number 15 and the existing professional phone. Its public Book link resolves directly to the stored clinic destination, naming the same street and house number plus the explicit quarter. The provider page in that same clinic repeats the phone, address and quarter. The operator's dated public listing independently pairs the same street and house number with the quarter.",
+      "excludedEvidence": "Ignored the generic template footer, embedded map marker, transit proximity and any insurer or postal-code inference. No patient reviews, services, costs, hours or slots were copied; no form, slot, call, location request or appointment was made.",
+      "existingPoint": {
+        "addressId": "122446",
+        "latitude": 42.64032863332257,
+        "longitude": 23.344093580266776,
+        "method": "verified_official_address",
+        "checkedOn": "2026-11-13",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "attribution": "ГИС София / Столична община",
+        "changedField": "sourceNeighborhood"
+      },
+      "oldNormalizedRecordSha256": "32457e7adf34325f9a18fc366c1916b61eb75ee11e82f865fb6d72857fb3aef0",
+      "newNormalizedRecordSha256": "f52b50646c0484c24b87c06d698e7beea26326e742a23759d2c09e9dc1163ab9",
+      "pricingIdentityUnchanged": "151b810fa77eec1ce6d9431c58fe0086118ec54e41881ea765430dd242d964d4"
+    },
+    {
+      "id": "sofia-asd-autoservice-lihachov33",
+      "ownerContact": "https://asd-autoservice.com/contacts/",
+      "existingBookingDest": "https://asd-autoservice.com/",
+      "municipalAddressCorroboration": "https://www.sofia.bg/w/7615577",
+      "municipalOrder": "СОА26-РД40-76/19.06.2026",
+      "sourceAddressUnchanged": "София, ул. Акад. Дмитрий Лихачов 33",
+      "oldNeighborhood": null,
+      "newNeighborhood": "Обеля 2",
+      "firstPartyEvidence": "The operator's contact and appointment page names the exact street and house number and repeats the existing phone. The municipal notice published 2 July 2026 explicitly places the exact address in Obelya-2. The notice concerns a part of a cadastral parcel; used only to confirm the locality of street and house number, not to establish company ownership, entrance geometry, or a new coordinate pair.",
+      "existingPoint": {
+        "addressId": "93209",
+        "latitude": 42.743112017936646,
+        "longitude": 23.276454884025608,
+        "method": "verified_official_address",
+        "checkedOn": "2026-11-13",
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "attribution": "ГИС София / Столична община",
+        "changedField": "sourceNeighborhood"
+      },
+      "oldNormalizedRecordSha256": "07367e8b291fc267e9cfffb13c48a3765c9af36361d3e07305402cbd3f232fee",
+      "newNormalizedRecordSha256": "24f9d955db65a4f8005967d5401d8d9727b2a7977ec76bcbf0a5ea9fd83d2fe8",
+      "pricingIdentityUnchanged": "69d0bce0874dd284f02b018322602eea47a9f15dc98feadc9bfe377d1ea8984c"
+    }
+  ],
+  "coverage": {
+    "approvedSofiaBusinesses": [1710, 1710],
+    "premisesWithBoundCoordinates": [909, 909],
+    "premisesWithMissingNeighborhood": [583, 581],
+    "zeroPhysicalCells": [1294, 1292],
+    "cellsAtTarget": [0, 0],
+    "cells": [
+      { "neighborhood": "Малинова долина", "category": "other", "physical": [0, 1], "located": [0, 1] },
+      { "neighborhood": "Обеля 2", "category": "auto_repair", "physical": [0, 1], "located": [0, 1] }
+    ]
+  }
+}

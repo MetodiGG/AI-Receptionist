@@ -30,6 +30,7 @@ import './inline-discovery.css'
 import './premium-discovery-cards.css'
 import './dark-mode.css'
 import { PwaRegister } from '../components/pwa-register'
+import { GoRezScrollTop } from '../components/go-rez-scroll-top'
 import { PublicWebAnalytics } from '../components/web-analytics'
 import { SITE_ORIGIN } from '../lib/seo.mjs'
 import { BRAND_APPLE_ICON, BRAND_FAVICON_PNG } from '../lib/brand-assets.mjs'
@@ -63,7 +64,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="bg" data-scroll-behavior="smooth" data-theme="light" suppressHydrationWarning>
       <head><script id="gorez-theme" dangerouslySetInnerHTML={{ __html: THEME_BOOTSTRAP_SCRIPT }}/></head>
-      <body><PwaRegister />{children}<PublicWebAnalytics enabled={process.env.VERCEL_ENV === 'production'} /></body>
+      <body><PwaRegister />{children}<GoRezScrollTop /><PublicWebAnalytics enabled={process.env.VERCEL_ENV === 'production'} /></body>
     </html>
   )
 }

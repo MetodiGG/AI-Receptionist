@@ -15,6 +15,7 @@ import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mj
 import { businessMapsDirectionsUrl } from '../lib/business-directions.mjs'
 import { railExternalAction } from '../lib/discovery/rail.mjs'
 import { OFFICIAL_SOFIA_SOURCE_URL, OFFICIAL_SOFIA_ATTRIBUTION } from '../lib/discovery/official-sofia-address-source.mjs'
+import { quarterRecoveryPriorCatalogue } from './quarter-recovery-20261123-scope.mjs'
 
 const now = Date.parse('2026-11-22T12:00:00Z')
 const id = 'sofia-stephan-borovo', quarter = 'Манастирски ливади'
@@ -183,7 +184,7 @@ test('the isolated historical 1709-public-ID cohort gains exactly one sourced qu
     ...snapshot.serviceAreaProviders.map(row => row.id),
   ])
   assert.equal(priorIds.size, 1709)
-  const current = SOFIA_CATALOGUE.filter(row => priorIds.has(row.id))
+  const current = quarterRecoveryPriorCatalogue(SOFIA_CATALOGUE).filter(row => priorIds.has(row.id))
   assert.equal(current.length, priorIds.size, 'every earlier public ID remains; separate newly admitted rows are outside this quarter-only comparison')
   const old = current.map(row => row.id === id ? previous(row) : row)
   const before = catalogueCoverageReport(old, { now, target: 30 }), after = catalogueCoverageReport(current, { now, target: 30 })

@@ -86,6 +86,57 @@
         },
         "businessOwnerConfirmed": false,
         "certifiedHumanTranslation": false
+      },
+      {
+        "checkedOn": "2026-11-22",
+        "businessId": "sofia-maria-kamenova-suhodol-shtit9",
+        "inventoryIdentity": "071a732c6c5d784a600e7dea7d82110fca917ca3f5ad32225e248fb6f3261502",
+        "reason": "Two exact English descriptions for the independently reviewed in-office Suhodol services. Existing name translations are reused. Original cache snapshots and source metadata remain unchanged; no external translation API.",
+        "entriesAdded": { "names": 0, "descriptions": 2, "units": 0 },
+        "entriesReused": { "names": 2 },
+        "certifiedHumanTranslation": false
+      },
+      {
+        "checkedOn": "2026-11-23",
+        "businessId": "sofia-vr-sofia-west-mall-lyulin7",
+        "inventoryIdentity": "efe50eceeeb48cd536fac2a2290664ce15860c294195755295854fec9412de51",
+        "reason": "Local English text for the exact source-reviewed Lyulin service; no external translation API.",
+        "entriesAdded": {
+          "names": 1,
+          "descriptions": 1,
+          "units": 1
+        },
+        "certifiedHumanTranslation": false
+      },
+      {
+        "checkedOn": "2026-11-23",
+        "businessId": "sofia-brainland-lyulin3-block319v",
+        "inventoryIdentity": "0c585c2b0a71ca51ec1e2ae7b344d7df7de9c6c0075447030bb2aaea5e350ac2",
+        "reason": "Local English text for the exact source-reviewed Lyulin service; no external translation API.",
+        "entriesAdded": {
+          "names": 1,
+          "descriptions": 1,
+          "units": 0
+        },
+        "certifiedHumanTranslation": false
+      },
+      {
+        "checkedOn": "2026-11-23",
+        "businessId": "sofia-mline-auto-detailing-gorublyane-pionerska2",
+        "inventoryIdentity": "22a1889abea6bb183c29954ed66837a6058dcfe05cff3d91403fce0efcf3a364",
+        "reason": "One exact English description preserves the source-reviewed interior service and price qualifications. Existing title reused; no external translation API.",
+        "entriesAdded": { "names": 0, "descriptions": 1, "units": 0 },
+        "entriesReused": { "names": 1 },
+        "certifiedHumanTranslation": false
+      },
+      {
+        "checkedOn": "2026-11-23",
+        "businessId": "sofia-luckydent-dragalevtsi-gluharche10",
+        "inventoryIdentity": "aa9b7eda8b1d1f553a0f7ed12a6dcef1c72e1134ccf5ab328d8009b577b22912",
+        "reason": "English translation of the practice's visit preparation note. Existing title reused; no translation API.",
+        "entriesAdded": { "names": 0, "descriptions": 1, "units": 0 },
+        "entriesReused": { "names": 1 },
+        "certifiedHumanTranslation": false
       }
     ],
     "sourceInventorySha256": "3dc68153b6dbd333d0990cf3c7658bb4e0235f79d7d1e8081cfc226034bab456",
@@ -157,6 +208,8 @@
     ]
   },
   "names": {
+    "VR игра ARENA за 2–6 играчи": "VR ARENA game for 2–6 players",
+    "Английски език за възрастни": "English for adults",
     "Прически": "Hairstyling",
     "Сгъстяване на коса": "Hair thickening",
     "Курсове по английски език за деца и ученици": "English courses for children and school students",
@@ -6205,6 +6258,12 @@
     "смяна на предпазен клапан на бойлер": "change of boiler safety valve"
   },
   "descriptions": {
+    "Цялостно почистване на автомобилния интериор с пране на текстила. Крайната цена зависи от размера на автомобила и степента на замърсяване; озонирането се заплаща отделно.": "Complete car interior cleaning, including textile upholstery washing. The final price depends on vehicle size and soiling; ozone treatment costs extra.",
+    "Кабинетът моли да носите актуална панорамна снимка, за предпочитане дигитална и направена през последните 6 месеца.": "The practice asks you to bring a recent panoramic dental X-ray, preferably a digital image taken within the last 6 months.",
+    "30 минути в обща VR арена за 2–6 играчи, от петък до неделя. Цената е на човек, не за цялата група. Обектът потвърждава часа по телефона.": "30 minutes in a shared VR arena for 2–6 players, Friday to Sunday. The price is per person, not a group total. The venue confirms your time by phone.",
+    "Присъствен курс по английски за възрастни в група или индивидуално. Изпращаш запитване; центърът уточнява формата, графика и цената.": "An in-person English course for adults, in a group or one-to-one. Send an enquiry; the centre will confirm the format, timetable and price.",
+    "Присъствена психологична консултация в кабинет с предварително записване. Часът се запазва през външния календар на специалиста.": "In-person psychological consultation at the practice by prior appointment. Book through the practitioner's external calendar.",
+    "Присъствена семейна терапия в кабинет с предварително записване. Часът се запазва през външния календар на специалиста.": "In-person family therapy at the practice by prior appointment. Book through the practitioner's external calendar.",
     "Часът се уговаря по телефона. Цена от публикуваната EUR тарифа на фризьор Елена.": "Appointments are arranged by telephone. The price is taken from hairdresser Elena's published EUR price list.",
     "Предварително записване по телефона и определяне на нивото. Подходящият курс, графикът и таксата се уточняват с учебния център; не е резервация за единичен урок.": "Advance enrolment by telephone and a level assessment. The appropriate course, timetable and fee are agreed with the learning centre; this is not a booking for a single lesson.",
     "1 час общо: до 40 минути снимане и 20 минути избор; една визия и една ретуширана снимка. Допълнителна снимка: 15 EUR. Необработени кадри не се предават; плащане в деня на сесията. Условията предвиждат възможност за публикуване на портрети; уточнете поверителността преди записване.": "1 hour total: up to 40 minutes of photography and 20 minutes for selection; one look and one retouched photograph. Additional photograph: 15 EUR. Unedited photographs are not supplied; payment on the day of the session. The conditions allow portraits to be published; agree privacy requirements before booking.",
@@ -8000,6 +8059,7 @@
     "Часът се уговаря с преподавателя; първоначално се изготвя индивидуален график.": "The class is arranged with the lecturer; an individual schedule is initially drawn up."
   },
   "units": {
+    "на човек": "per person",
     "1 индивидуална тренировка · 50 мин": "1 personal training session · 50 min",
     "1 ирис · фотохартия 20×20 см + дигитално копие": "1 iris · 20×20 cm photo print + digital copy",
     "1 час": "1 hour",

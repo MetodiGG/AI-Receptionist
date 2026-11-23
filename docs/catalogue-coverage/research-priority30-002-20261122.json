@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-22",
+  "priority": "coverage30_per_Sofia_quarter_category_before_aggregate20000",
+  "newBusinessesAdded": 0,
+  "status": "bounded_review_no_admissions",
+  "targetPhysicalZeroQuarters": [
+    "Враждебна",
+    "Илиянци",
+    "Кремиковци",
+    "Република",
+    "Толстой",
+    "Триъгълника",
+    "Факултета",
+    "Филиповци"
+  ],
+  "method": "Checked local catalogue/research identities before owner reads. Staffed car washes first in the sparsest physical cells, then actual auto-repair/educational premises. New operator/premises or address recovery is not inferred from a street name, SEO service area, admin district or old voucher. Held candidates receive no quota credit.",
+  "leads": [
+    {
+      "name": "Автокомплекс ДАР · Азалия7",
+      "website": "https://www.autodar.bg/",
+      "status": "owner_request_verification_challenge_stop",
+      "finding": "Public owner root returned request verification. No further host requests, contacts, menu, prices or locations imported."
+    },
+    {
+      "name": "АвтоТапицерЪ · курсове",
+      "website": "https://avtotapicera.com/",
+      "sourceUrls": [
+        "https://avtotapicera.com/kursove/",
+        "https://avtotapicera.com/kontakti/",
+        "https://avtotapicera.com/"
+      ],
+      "status": "held_course_booking_channel_unverified",
+      "ownerAddress": "София, Илиянци, ул. Балчо Нейков7",
+      "professionalPhone": "+359884462293",
+      "review": "Actual course CTA followed first. Three buttons have literal href=\"#\"; homepage date wording is a plain DIV. Owner offers individual beginner steering-wheel upholstery course450EUR for complete10h course, with schedule according to instructor availability. Contact phone is designated for site orders/reupholstery, not an independently verified course-enrolment channel. No complete course tariff admission, minute duration, ordinary lesson rate or unpublished-price receipt.",
+      "sourcePolicy": "Robots200 allows inspected public paths; no visible Terms/Privacy route found. Not a reuse licence. No purchase/cart/account/form submitted.",
+      "localNameDomainPhoneMatches": 0
+    },
+    {
+      "name": "Джемини4",
+      "website": "https://www.gemini4.com/",
+      "sourceUrls": [
+        "https://www.gemini4.com/контакти/",
+        "https://www.gemini4.com/общи-условия-за-ремонт-на-автомобил/"
+      ],
+      "status": "held_advance_booking_and_full_tariff_review_incomplete",
+      "ownerAddress": "София, Република, ул.729№22",
+      "professionalPhone": "+359888147313",
+      "review": "Owner confirms actual automatic-transmission repair/diagnostics and weekday09–18. Generic contact is not explicit advance booking. Diagnostic page reader timed out; no assertion that prices are unpublished. No source-qualified inventory or tariff receipt prepared.",
+      "localNameDomainMatches": 0
+    },
+    {
+      "name": "АвторезервЕвропа",
+      "website": "https://avtorezervevropa.com/",
+      "sourceUrls": [
+        "https://avtorezervevropa.com/contact/",
+        "https://avtorezervevropa.com/about/"
+      ],
+      "status": "held_advance_booking_and_source_tariff_review_incomplete",
+      "ownerAddress": "София, Република, ул. Шопска китка2",
+      "professionalPhone": "+359884924584",
+      "review": "Owner distinguishes repair premises from recycling. Actual motor, gearbox, suspension, brake and electrical repairs, weekday09–18/Saturday09–13 observed. No explicit advance-booking route or complete admissible price/source-policy review. Not a car wash.",
+      "localNameDomainMatches": 0
+    },
+    {
+      "name": "Малки чудеса",
+      "website": "https://chudesa.bg/",
+      "sourceUrls": [
+        "https://chudesa.bg/zapazi-chas/",
+        "https://chudesa.bg/news/ot-septemvri-otnovo-startira-nashata-grupa-za-uchilisthna-gotovnost-zapazete-myastoto-na-svoeto-dete-osthe-sega/",
+        "https://chudesa.bg/service/logoritmika/",
+        "https://chudesa.bg/za-czentara/za-fondaciata-3/"
+      ],
+      "status": "held_precise_quarter_educational_scope_and_current_fee_review",
+      "ownerAddress": "София, ул. Майор Димитър Думбалаков38, ет.4",
+      "professionalPhone": "+359882952316",
+      "review": "Actual same-owner appointment request and current educational school-readiness option exist. No owner-stated precise quarter or entity-bound point established. Mixed clinical/developmental offerings are not imported as ordinary lessons. Current fee completion remains pending, not not_publicly_listed. Old policy/JSON-LD phone0887545446 is not substituted for repeatedly visible current contact.",
+      "sourcePolicy": "Robots200 with empty wildcard Disallow. No form submitted.",
+      "localNameDomainPhoneMatches": 0
+    },
+    {
+      "name": "Body Folk · historical Триъгълника venue",
+      "website": "https://bodyfolk.com/",
+      "sourceUrls": [
+        "https://bodyfolk.com/grafik/",
+        "https://bodyfolk.com/robots.txt"
+      ],
+      "status": "held_current_venue_not_present_and_owner403_stop",
+      "review": "Current own schedule does not list Толстой/Триъгълника; stale vouchers cannot establish a current branch. Robots ordinaryGET403; all further host requests stopped. No old-price/alternate-host workaround.",
+      "localNameDomainMatches": 0
+    }
+  ],
+  "previousHoldsNotReopened": [
+    "SRV terms STOP",
+    "GLR location/operator ambiguity",
+    "QuickWash/self-service wash leads",
+    "Warda429",
+    "Kris Studio",
+    "Vasanna provider-only lead",
+    "Dentalnitsa Lomsko15 ambiguous municipal entrances"
+  ],
+  "safeguards": {
+    "callsMessagesAccountsBookingsFormsOrNotifications": 0,
+    "mapGeocoderOrPaidRequests": 0,
+    "productionWrites": 0,
+    "customerDataSent": false,
+    "photosOrProtectedDescriptionsCopied": false
+  },
+  "nextAction": "Continue reusable current owner acquisition in weak cells. Resolve course-specific enrolment/precise-premises evidence before admission. Do not repeatedly reopen stopped hosts or count unresolved leads/points as new businesses."
+}

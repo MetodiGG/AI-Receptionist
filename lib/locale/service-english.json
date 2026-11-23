@@ -163,6 +163,23 @@
         "entriesAdded": { "names": 0, "descriptions": 1, "units": 0 },
         "entriesReused": { "names": 1 },
         "certifiedHumanTranslation": false
+      },
+      {
+        "checkedOn": "2026-11-23",
+        "businessId": "sofia-umni-deca-obelya2-106-3",
+        "inventoryIdentity": "8639c43409cfd70b04f8d5ad9707a134f2bcaaae80e690fbeeeecc217aa307db",
+        "reason": "English preserves the eligibility ages, abacus practice, enquiry-only trial, and absence of published fees or hours.",
+        "entriesAdded": { "names": 1, "descriptions": 1, "units": 0 },
+        "certifiedHumanTranslation": false
+      },
+      {
+        "checkedOn": "2026-11-23",
+        "businessId": "sofia-doichinova-lyulin3-block368",
+        "inventoryIdentity": "712cf95550b9bf19eee8c20a5bfac1e4c6c28fa2b4d29ff43ecb5fcc501f2d83",
+        "reason": "English keeps the exact dentist and branch to which the tariff applies and the conditional preparation note.",
+        "entriesAdded": { "names": 0, "descriptions": 1, "units": 0 },
+        "entriesReused": { "names": 1 },
+        "certifiedHumanTranslation": false
       }
     ],
     "sourceInventorySha256": "3dc68153b6dbd333d0990cf3c7658bb4e0235f79d7d1e8081cfc226034bab456",
@@ -234,6 +251,7 @@
     ]
   },
   "names": {
+    "Ментална аритметика за деца · математика с абакус": "Mental arithmetic for children · maths with an abacus",
     "Групово актьорско майсторство на английски за деца": "Group acting classes in English for children",
     "VR игра ARENA за 2–6 играчи": "VR ARENA game for 2–6 players",
     "Английски език за възрастни": "English for adults",
@@ -6285,6 +6303,8 @@
     "смяна на предпазен клапан на бойлер": "change of boiler safety valve"
   },
   "descriptions": {
+    "Присъствен курс за деца от 4 до 12 години със смятане наум и упражнения с абакус. Изпратете заявка за пробен урок; центърът ще се свърже с вас. Графикът и таксата не са публикувани.": "An in-person course for ages 4 to 12, with mental calculation and abacus exercises. Request a trial lesson and the centre will contact you. The schedule and fee are not published.",
+    "Цената е за преглед при д-р Гергана Зинкова в кабинета в Люлин 3. Носете предишната си медицинска документация, ако разполагате с нея.": "The price applies to an examination with Dr Gergana Zinkova at the Lyulin 3 practice. Bring any previous medical records if you have them.",
     "Четене и изтриване на грешки. Крайната цена за конкретния автомобил се уточнява предварително при записване.": "Reading and clearing fault codes. The final price for your vehicle is confirmed in advance when you book.",
     "Присъствени театрални занимания на английски в групи за 7–9 и 9–12 г. Центърът уточнява групата, графика и цената по телефона. Безплатното пробно посещение е отделно от редовните занимания.": "In-person drama classes in English for ages 7–9 and 9–12. Call the centre to confirm the group, schedule and price. The free trial is separate from the regular classes.",
     "Цялостно почистване на автомобилния интериор с пране на текстила. Крайната цена зависи от размера на автомобила и степента на замърсяване; озонирането се заплаща отделно.": "Complete car interior cleaning, including textile upholstery washing. The final price depends on vehicle size and soiling; ozone treatment costs extra.",

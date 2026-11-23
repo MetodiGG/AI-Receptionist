@@ -15,6 +15,8 @@ import { VERIFIED_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-dat
 import { EDUCATION_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-education-intake-20261123.mjs'
 import { GALILEODENT_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-galileodent-intake-20261123.mjs'
 import { VM_AUTO_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-vm-auto-intake-20261123.mjs'
+import { SPORT_EDUCATION_GAP_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-sport-education-gap-20261123.mjs'
+import { DOICHINOVA_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-doichinova-intake-20261123.mjs'
 const now = Date.parse('2026-11-11T12:00:00Z')
 const record = () => structuredClone(SOFIA_CATALOGUE.find(row => row.id === 'sofia-cut-n-chill'))
 const review = () => structuredClone(BOOKING_PRICE_REVIEWS.find(row => row.id === 'sofia-cut-n-chill'))
@@ -112,6 +114,19 @@ test('dated audit receipts cover every current ID without rewriting the historic
     assert.ok(BOOKING_PRICE_REVIEWS.includes(review))
     const business = SOFIA_CATALOGUE.find(row => row.id === review.id)
     assert.equal(assessPricingReview(business, review, Date.parse('2026-11-23T12:00:00Z')).state, index === 2 ? 'reviewed' : 'service_reviewed')
+    assert.equal(assessPricingReview(business, review, now).state, 'pending')
+  }
+  for (const [reviews, id, state] of [
+    [SPORT_EDUCATION_GAP_20261123_REVIEWS, 'sofia-umni-deca-obelya2-106-3', 'service_reviewed'],
+    [DOICHINOVA_INTAKE_20261123_REVIEWS, 'sofia-doichinova-lyulin3-block368', 'reviewed'],
+  ]) {
+    assert.deepEqual(reviews.map(row => row.id), [id])
+    assert.equal(auditedIds.has(id), false)
+    auditedIds.add(id)
+    const [review] = reviews
+    assert.ok(BOOKING_PRICE_REVIEWS.includes(review))
+    const business = SOFIA_CATALOGUE.find(row => row.id === id)
+    assert.equal(assessPricingReview(business, review, Date.parse('2026-11-23T12:00:00Z')).state, state)
     assert.equal(assessPricingReview(business, review, now).state, 'pending')
   }
   assert.equal(auditedIds.size, SOFIA_CATALOGUE.length)

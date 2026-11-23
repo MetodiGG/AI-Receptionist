@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
-import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { SOFIA_CATALOGUE as currentCatalogue } from '../lib/discovery/sofia-catalogue.mjs'
 import { PUBLIC_CATALOGUE } from '../lib/discovery/public-catalogue.mjs'
 import { approvedCatalogueRecord } from '../lib/discovery/catalogue-policy.mjs'
 import { catalogueBoundCoordinates } from '../lib/discovery/catalogue-coordinate-binding.mjs'
@@ -15,12 +15,14 @@ import { serviceThumbnail } from '../lib/service-thumbnail.mjs'
 import { serviceDisplayName, publicProse } from '../lib/locale/public-content.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
 import { additionalPriorCatalogue } from './catalogue-additional-20261123-scope.mjs'
+import { northernEastPriorCatalogue } from './catalogue-northern-east-20261123-scope.mjs'
 import dentalReceipt from '../docs/catalogue-coverage/galileodent-intake-20261123.json' with { type: 'json' }
 import tennisReceipt from '../docs/catalogue-coverage/tennis-lyulin-6-recovery-20261123.json' with { type: 'json' }
 import vmReceipt from '../docs/catalogue-coverage/vm-auto-intake-20261123.json' with { type: 'json' }
 import intakeReceipt from '../docs/catalogue-coverage/additional-premises-20261123.json' with { type: 'json' }
 
 const now = Date.parse('2026-11-23T12:00:00Z')
+const SOFIA_CATALOGUE = northernEastPriorCatalogue(currentCatalogue)
 const lookup = id => SOFIA_CATALOGUE.find(row => row.id === id)
 const neighborhoodResults = (row, options) => {
   const { latitude, longitude } = row.coordinates

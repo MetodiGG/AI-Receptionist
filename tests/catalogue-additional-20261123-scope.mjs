@@ -2,6 +2,7 @@ import { createHash } from 'node:crypto'
 import { execFileSync } from 'node:child_process'
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
+import { northernEastAllowsFileChange, northernEastAllowsNewFile, northernEastPriorSource, northernEastPriorCatalogue } from './catalogue-northern-east-20261123-scope.mjs'
 
 // The historical receipts must still verify every previous byte and row, not
 // exempt catalogue files from their tests whenever another batch is admitted.
@@ -39,10 +40,11 @@ const fileMatches = (path, sha) => {
 }
 const previousSources = new Map()
 
-export const additionalAllowsFileChange = path => Object.hasOwn(changed, path) && fileMatches(path, changed[path][1])
-export const additionalAllowsNewFile = path => Object.hasOwn(additions, path) && fileMatches(path, additions[path])
+export const additionalAllowsFileChange = path => northernEastAllowsFileChange(path) || Object.hasOwn(changed, path) && fileMatches(path, changed[path][1])
+export const additionalAllowsNewFile = path => northernEastAllowsNewFile(path) || Object.hasOwn(additions, path) && fileMatches(path, additions[path])
 
 export function additionalPriorSource(path, source) {
+  source = northernEastPriorSource(path, source)
   if (!Object.hasOwn(changed, path) ||
       !/EDUCATION_INTAKE_20261123|GALILEODENT_INTAKE_20261123|applyReviewedTennisLyulin6Recovery20261123|sofia-part-time-pavlovo-duychev12v/u.test(source)) return source
   const [before, after] = changed[path]
@@ -57,7 +59,7 @@ export function additionalPriorSource(path, source) {
 
 export function additionalPriorCatalogue(rows) {
   const seen = new Set()
-  return rows.flatMap(row => {
+  return northernEastPriorCatalogue(rows).flatMap(row => {
     const id = row?.id
     if (!Object.hasOwn(admitted, id) && id !== relocated) return [row]
     if (seen.has(id)) throw Error('Duplicate 23 Nov additional premises: ' + id)

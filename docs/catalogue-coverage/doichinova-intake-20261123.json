@@ -1,0 +1,37 @@
+{
+  "checkedOn": "2026-11-23",
+  "baselineCommit": "2dd2d5930e9e5df03ed6fa79911c61df31434fc7",
+  "status": "prepared_locally_not_published",
+  "targetPerQuarterCategory": 30,
+  "newBusiness": {
+    "id": "sofia-doichinova-lyulin3-block368",
+    "name": "Дентална клиника д-р Дойчинова · Люлин 3",
+    "category": "other",
+    "neighborhood": "Люлин 3",
+    "address": "София, ж.к. Люлин 3, ул. Добринова скала, бл. 368, ет. 1, ап. 1",
+    "municipal": {
+      "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+      "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+      "addressId": "55747",
+      "latitude": 42.722729,
+      "longitude": 23.241273,
+      "licence": "CC-BY-4.0",
+      "pointScope": "Unique Sofia, Lyulin district, Lyulin residential area block 368 row. Block point, not a surveyed door, floor or apartment. The NHIF source distinguishes the subquarter, floor and unit."
+    },
+    "officialPracticeSource": "https://reports.nhif.bg/nhif_reports/nhif_partners/?district=&page=dentists&rzok=22",
+    "officialPracticeEvidence": "The NHIF register entry for АИПППДМ Д Р ДОЙЧИНОВА ЕООД, managed by Сирма Дойчинова, independently specifies Люлин 3, бл. 368, ет. 1, ап. 1, the operator's published phone and practitioner Гергана Зинкова. Distinct physical branch from Овча купел.",
+    "operatorBookingEntry": "https://superdoc.bg/klinika/dentalna-klinika-d-r-doychinova-rayon-lyulin",
+    "practitionerBooking": "https://superdoc.bg/lekar/gergana-zinkova",
+    "bookingEvidence": "The clinic-managed Lyulin provider profile links its named clinician's public Book entry. That entry includes a named Lyulin 3 in-office choice and a visible Първичен преглед reason. The separate Lyulin branch price panel associates the same reason with EUR 15.34. The visit note asks to bring prior medical documents if available.",
+    "service": "Първичен дентален преглед",
+    "price": { "amount": 15.34, "currency": "EUR", "kind": "fixed", "practitioner": "д-р Гергана Зинкова", "validUntil": "2026-12-23" },
+    "branchHours": "The current clinic-managed Lyulin branch page lists weekdays 08:00–20:00 and weekend closed. A directory mixing both branches differs on Saturday; it was not used. These are premises hours, not a schedule for Dr Zinkova or an availability claim.",
+    "standaloneSiteCheck": "The link https://doichinova.com/ from the clinic-managed service page returned 502 Bad Gateway. It was not used as booking, contact, price or hours evidence.",
+    "providerTerms": "https://superdoc.bg/uslovia-za-polzvane",
+    "providerRobots": "https://superdoc.bg/robots.txt",
+    "inventoryIdentity": "712cf95550b9bf19eee8c20a5bfac1e4c6c28fa2b4d29ff43ecb5fcc501f2d83",
+    "illustration": "/service-photos/dental-exam-v1.webp",
+    "excluded": "No tariff generalized to other dentists or the Ovcha Kupel branch; no appointment duration, availability, price by insurance, patient material, owner image or ratings copied. No booking or contact submitted.",
+    "coverage": { "physical": [0, 1], "located": [0, 1] }
+  }
+}

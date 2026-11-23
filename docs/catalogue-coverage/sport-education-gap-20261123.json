@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "baselineCommit": "2dd2d5930e9e5df03ed6fa79911c61df31434fc7",
+  "status": "verified_draft_not_published",
+  "targetPerQuarterCategory": 30,
+  "newBusinesses": 1,
+  "newServices": 1,
+  "verifiedPublicPriceFacts": 0,
+  "newBusiness": {
+    "id": "sofia-umni-deca-obelya2-106-3",
+    "name": "Център за развитие „Умни деца“ · Обеля 2",
+    "category": "education",
+    "neighborhood": "Обеля 2",
+    "locationKind": "premises",
+    "address": "София, ж.к. Обеля 2, ул. 106 № 3, ЧСУ „Дружба“",
+    "website": "https://www.umnideca.com/",
+    "addressSources": [
+      "https://www.umnideca.com/",
+      "https://www.umnideca.com/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8",
+      "https://drujba.org/kontakti/"
+    ],
+    "phone": "+359883456852",
+    "validUntil": "2026-12-23",
+    "duplicateCheck": "No matching current source record or prior hold by business name, website, phone, exact street number or ID. The education provider is not the host school or another branch. Older venue mentions are not used in place of current provider and school contact pages.",
+    "municipalAddress": {
+      "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+      "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+      "sourceBytes": 12601716,
+      "addressId": "99218",
+      "region": "Връбница",
+      "settlement": "гр. София",
+      "street": "ул. 106",
+      "house": "3",
+      "quarter": "",
+      "block": "",
+      "entrance": "",
+      "latitude": 42.745418,
+      "longitude": 23.273875,
+      "licence": "CC-BY-4.0",
+      "attribution": "ГИС София / Столична община",
+      "method": "Manually reviewed exact numbered street. The unchanged CSV parser returned one Sofia row with literal ул. 106 (also checked for ordinal spellings) and house 3. The general automatic street index deliberately omits numbers-only roads; do not change or broaden it. The owner and the named host independently identify Obelya 2 and agree on street and number; Връбница in the CSV is the district, not a substitute for the quarter. This is a campus postal point, not a measured classroom, entrance, or neighborhood centroid."
+    },
+    "booking": {
+      "kind": "form",
+      "url": "https://www.umnideca.com/services-4",
+      "review": "Followed the actual owner courses CTA to the course menu and published trial-lesson form on the same page. Its fields request a preferred course and contact information for follow-up, not a confirmed appointment. No personal information entered, no form sent, no call or registration made; no other venues or separate summer programme included."
+    },
+    "service": {
+      "name": "Ментална аритметика за деца · математика с абакус",
+      "description": "Присъствен курс за деца от 4 до 12 години със смятане наум и упражнения с абакус. Изпратете заявка за пробен урок; центърът ще се свърже с вас. Графикът и таксата не са публикувани.",
+      "pricingDecision": "not_publicly_listed",
+      "pricingIdentity": "8639c43409cfd70b04f8d5ad9707a134f2bcaaae80e690fbeeeecc217aa307db",
+      "pricingEvidence": "The current owner programme, actual trial form and contact pages publish no numeric fee for the regular course or trial. The trial is not described as free. No session length, class time, charges or live availability inferred."
+    },
+    "sourcePolicy": "The indexed linked owner terms show an unfilled Wix template explaining what site owners might include in their own terms, not a business-specific reuse grant or prohibition. The footer privacy page also shows a generic Wix template; the refund policy did not load in the read-only tool. Use minimal paraphrased factual information, not the operator's images, advertising, curriculum, testimonials, or contact submissions.",
+    "recommendedIllustration": {
+      "id": "sx-child-abacus-group",
+      "service": "/service-photos/sx-child-abacus-group-v1.webp",
+      "cover": "/business-cover-photos/activity-sx-child-abacus-group-v1.webp",
+      "notes": "Existing catalogue activity illustration of children working with abacuses, not a photo of this provider, premises, or customers. Preserve visible AI disclosure on the cover."
+    },
+    "english": {
+      "business": "Umni Deca Learning Centre · Obelya 2",
+      "service": "Mental arithmetic for children · maths with an abacus",
+      "description": "An in-person course for ages 4 to 12, with mental calculation and abacus exercises. Request a trial lesson and the centre will contact you. The schedule and fee are not published."
+    },
+    "coverage": { "physical": [0, 1], "located": [0, 1] }
+  }
+}

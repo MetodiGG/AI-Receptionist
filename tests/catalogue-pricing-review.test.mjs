@@ -52,6 +52,7 @@ import { VERIFIED_EAST_GROWTH_20261123_REVIEWS } from '../lib/discovery/catalogu
 import { VERIFIED_SOUTH_GROWTH_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-south-growth-20261123.mjs'
 import { NORTH_GROWTH_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-north-growth-20261123.mjs'
 import { SPARSE_MARKET_SOUTH_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-sparse-market-south-20261123.mjs'
+import { DCA_LEVSKI_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-dca-levski-20261123.mjs'
 import { pricedGrowthPriorCatalogue } from './catalogue-priced-growth-20261123-scope.mjs'
 const now = Date.parse('2026-11-11T12:00:00Z')
 const record = () => structuredClone(SOFIA_CATALOGUE.find(row => row.id === 'sofia-cut-n-chill'))
@@ -194,6 +195,7 @@ test('dated audit receipts cover every current ID without rewriting the historic
     [VERIFIED_SOUTH_GROWTH_20261123_REVIEWS, 'sofia-karting-ring-academy-simeonovo-214', 'reviewed'],
     [NORTH_GROWTH_INTAKE_20261123_REVIEWS, 'sofia-terpsihora-lyulin5-504-1', 'service_reviewed'],
     [SPARSE_MARKET_SOUTH_20261123_REVIEWS, 'sofia-kanev-carpet-knyazhevo-buket55', 'reviewed'],
+    [DCA_LEVSKI_INTAKE_20261123_REVIEWS, 'sofia-dca-garage-levski-v-letostruy27', 'reviewed'],
   ]) {
     assert.deepEqual(reviews.map(row => row.id), [id])
     assert.equal(auditedIds.has(id), false)

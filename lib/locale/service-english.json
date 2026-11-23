@@ -419,6 +419,11 @@
     ]
   },
   "names": {
+    "Фолиране на задни автомобилни стъкла · купе": "Rear window film installation · coupe",
+    "Фолиране на задни автомобилни стъкла · седан / комби": "Rear window film installation · sedan / estate",
+    "Фолиране на задни автомобилни стъкла · SUV": "Rear window film installation · SUV",
+    "Фолиране на задни автомобилни стъкла · джип": "Rear window film installation · off-road vehicle",
+    "Фолиране на задни автомобилни стъкла · хеви джип": "Rear window film installation · heavy off-road vehicle",
     "Машинно пране на килими · стандартна поръчка": "Machine rug cleaning · standard service",
     "Машинно пране на килими · бърза поръчка": "Machine rug cleaning · priority service",
     "Машинно пране на килими · експресна поръчка": "Machine rug cleaning · express service",
@@ -6521,6 +6526,7 @@
     "смяна на предпазен клапан на бойлер": "change of boiler safety valve"
   },
   "descriptions": {
+    "Поставяне на защитно фолио на задните стъкла. Формулярът изпраща запитване; сервизът потвърждава класа на автомобила, приложимата цена и точния час.": "Protective film installation on the rear windows. The form sends an enquiry; the garage confirms the vehicle class, applicable price and appointment time.",
     "Срок до 10 дни. Тарифата е за пране на килими до 12 м² с включен ДДС. Вземането и връщането от адрес се уговарят и заплащат отделно.": "Ready within 10 days. This VAT-inclusive cleaning rate applies to rugs up to 12 m². Collection and return are arranged and charged separately.",
     "Срок до 4 дни. Тарифата е за пране на килими до 12 м² с включен ДДС. Вземането и връщането от адрес се уговарят и заплащат отделно.": "Ready within 4 days. This VAT-inclusive cleaning rate applies to rugs up to 12 m². Collection and return are arranged and charged separately.",
     "Срок до 24 часа; килимите може да бъдат върнати леко влажни. Тарифата е за пране на килими до 12 м² с включен ДДС. Вземането и връщането от адрес се уговарят и заплащат отделно.": "Ready within 24 hours; rugs may be returned slightly damp. This VAT-inclusive cleaning rate applies to rugs up to 12 m². Collection and return are arranged and charged separately.",

@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "baselineCommit": "3bc06dc2ca0d37e53c81ea4519941e47eaa1cb41",
+  "status": "verified_location_only",
+  "purpose": "Bind exactly three existing Sofia premises to municipal postal-address points when current owners identify a unique civic number on a road whose published spelling differs narrowly from its civic-register name.",
+  "municipalSource": {
+    "url": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+    "sourceBytes": 12601716,
+    "licence": "CC-BY-4.0",
+    "attribution": "ГИС София / Столична община"
+  },
+  "guard": "The existing exact ID, printed address, current neighborhood, category, website, phone, booking target, verified contact and physical premises must match; any existing point or changed identity stays untouched. The CSV matching policy remains strict. These are individually evidenced road spellings, not general fuzzy matching or a new location source.",
+  "businesses": [
+    {
+      "id": "sofia-reformer-club-swan",
+      "neighborhood": "Студентски комплекс",
+      "publicAddress": "София, Студентски комплекс, ул. Проф. Арх. Петър Ташев 1А",
+      "sourceEvidence": "The owner homepage names the local studio and 1А, repeats the listed business phone and links both appointment types to the exact current calendar destination. Municipal school address documentation independently names the expanded road and lists 1А and 1Б as distinct civic units. This is 1А, not a guessed entrance for No. 1.",
+      "sources": [
+        "https://reformerclubswan.com/",
+        "https://book.reformerclubswan.com/calendar/public",
+        "https://council.sofia.bg/documents/d/guest/soa26-vk66-1943-2-zelazkova"
+      ],
+      "bookingPreserved": { "kind": "form", "url": "https://book.reformerclubswan.com/calendar/public" },
+      "municipalMatch": { "rn": "104694", "region": "Студентски", "settlement": "гр. София", "street": "ул. Проф. Арх. Петър А. Ташев", "streetnum": "1А", "entrance": "", "latitude": 42.656389, "longitude": 23.348965 },
+      "roadAlias": "The municipality includes the middle initial А.; the owner omits it. One Sofia feature has the expanded civic address.",
+      "normalizedPriorRowSha256": "f1ca6fdff5193539283760df4caba7a8b9a2e1a6b1976c45cae9a15bef3d2feb",
+      "normalizedAfterRowSha256": "6f182c67d5b8cc3d159a8e4f9eb499a3e76a729bafd83350fcbf0b204db2c0e0",
+      "unchangedPricingIdentitySha256": "04a76b223142bfc1c841d8234333d3e0e86f33b85aecc18af146c5185cf1d5d3"
+    },
+    {
+      "id": "sofia-sundance-mladost1a-rakovski12",
+      "neighborhood": "Младост 1А",
+      "publicAddress": "София, ж.к. Младост 1А, ул. Кръстю Раковски 12",
+      "sourceEvidence": "The owner home, current timetable, and current group phone registration page repeat this same civic number, named neighborhood and listed appointment phone. Public municipality documentation confirms the spelling Кръстьо Раковски in the same neighborhood; the civic record uniquely identifies No. 12.",
+      "sources": [
+        "https://sundance-bg.com/",
+        "https://sundance-bg.com/info-i-grafik",
+        "https://sundance-bg.com/novi-grupi",
+        "https://www.sofia.bg/en/web/guest/w/8068749"
+      ],
+      "bookingPreserved": { "kind": "phone", "phone": "+359878491118" },
+      "municipalMatch": { "rn": "96556", "region": "Младост", "settlement": "гр. София", "street": "ул. Кръстьо Раковски", "streetnum": "12", "entrance": "", "latitude": 42.651794, "longitude": 23.380805 },
+      "roadAlias": "The owner spells the given name Кръстю; the municipality uses Кръстьо for the same Младост 1А road. No road bearing the owner spelling has a separate civic No. 12.",
+      "normalizedPriorRowSha256": "c43a99fc40b64774450926f0334ec9e0a5e2435ad9b0305a8274fa3da8d521fb",
+      "normalizedAfterRowSha256": "6c5c1fa5b99ede3b6cffd3d8a081b63a4b4ba25b21ac74191fef16b03fcf3523",
+      "unchangedPricingIdentitySha256": "212a51a5b5423a61cf381c837c32eaab766aaf9c93bea71477bbf3faa1ba0c6f"
+    },
+    {
+      "id": "sofia-stephan-iztok",
+      "neighborhood": "Изток",
+      "publicAddress": "София, ул. Антон Чехов 69",
+      "sourceEvidence": "The owner's branch page identifies ж.к. Изток, No. 69 and the preserved business phone. Municipal announcements for the Изток road confirm the longer name Антон П. Чехов; the numbered civic record uniquely identifies the same building.",
+      "sources": [
+        "https://www.stephan.bg/saloni/iztok",
+        "https://www.sofia.bg/documents/d/guest/2026-06-11-sek26-td26-330?download=true",
+        "https://www.sofia.bg/en/web/guest/w/8006261"
+      ],
+      "bookingPreserved": { "kind": "phone", "phone": "+359888456047" },
+      "municipalMatch": { "rn": "35482", "region": "Изгрев", "settlement": "гр. София", "street": "ул. Антон П. Чехов", "streetnum": "69", "entrance": "", "latitude": 42.670865, "longitude": 23.363502 },
+      "roadAlias": "The owner omits the middle initial П.; the city and official dataset retain it.",
+      "normalizedPriorRowSha256": "9229eece55f40c8bfa33d2721bb9a8da1afc01071324130863576a5e0ea33abb",
+      "normalizedAfterRowSha256": "176e0795d36747d44c86e32bc30b7028042f14c641d1639f35311961783fa4d1",
+      "unchangedPricingIdentitySha256": "450ca914fc7168c58044e00ab7375861a04d948096b0da18d00902d510223da6"
+    }
+  ],
+  "coverage": {
+    "newBusinesses": 0,
+    "newServices": 0,
+    "cityExistingPremisesNewlyLocated": 3,
+    "firstLocatedPremises": [
+      { "neighborhood": "Студентски комплекс", "category": "fitness", "change": [0, 1] },
+      { "neighborhood": "Младост 1А", "category": "fitness", "change": [0, 1] },
+      { "neighborhood": "Изток", "category": "nails", "change": [0, 1] }
+    ],
+    "additionalLocatedPremises": [
+      { "neighborhood": "Изток", "category": "hair", "change": [1, 2] }
+    ],
+    "qualification": "These are official civic-address points rather than inspected entrances or current availability. The already listed hair and nail services at the one Stephan premises explain its coverage contribution to two categories, not two businesses."
+  },
+  "safeguards": {
+    "servicesPricesBookingsApprovalsChanged": false,
+    "newBookingOrCustomerDataCollected": false,
+    "mapGeocoderOrPaidProviderRequests": 0,
+    "imageryOrMarketingProseRepublished": false,
+    "productionWrites": 0
+  }
+}

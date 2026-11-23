@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "status": "verified_location_only",
+  "purpose": "Attach the official postal-address point to one existing Sofia autoservice; preserve the unassigned neighborhood and all booking, catalogue and approval facts.",
+  "business": {
+    "id": "sofia-alkom-todor-kableshkov",
+    "name": "Автосервиз АЛКОМ",
+    "cityCode": "68134",
+    "category": "auto_repair",
+    "neighborhood": null,
+    "address": "София, бул. Тодор Каблешков 63",
+    "website": "https://alkomess.com/",
+    "booking": "Keep the previously reviewed owner form at https://alkomess.com/контакти and existing business contact. No call, submission, client data or updated availability.",
+    "inventory": "The already reviewed engine computer diagnostics service still has no numeric price. Business approval dates, service inventory, booking route and pricing review remain unchanged."
+  },
+  "sources": [
+    {
+      "url": "https://alkomess.com/контакти",
+      "evidence": "The owner's current contact and appointment page lists Тодор Каблешков 63 as the service location, with the existing business phone and separate appointment form."
+    },
+    {
+      "url": "https://alkomess.com/за-нас",
+      "evidence": "The owner's company page repeats the same civic number and full road name. Neither owner page identifies a separate search neighborhood."
+    },
+    {
+      "url": "https://www.sofia.bg/bg/web/guest/w/stolicna-obsina-obavava-predstoasa-procedura-po-prinuditelno-otcuzdavane-v-v-vr-zka-s-realizaciata-na-obekt-izgrazdane-na-uznoto-platno-na-bul-todor-k",
+      "evidence": "The municipality also calls this city corridor a boulevard, even though the address CSV labels this particular numbered point as a street. The corridor-wide reference is not used as evidence for the quarter of No. 63 or any driveway."
+    }
+  ],
+  "coordinateReview": {
+    "municipalSource": {
+      "url": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+      "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+      "sourceBytes": 12601716,
+      "licence": "CC-BY-4.0",
+      "attribution": "ГИС София / Столична община"
+    },
+    "match": {
+      "rn": "93850",
+      "region": "Витоша",
+      "settlement": "гр. София",
+      "street": "ул. Тодор Каблешков",
+      "streetnum": "63",
+      "lareaunit": "",
+      "entrance": "",
+      "latitude": 42.666177,
+      "longitude": 23.284384
+    },
+    "method": "Unique civic street-name and house-number match across the Sofia settlement, confirmed with the project's offline CSV reader. The normal typed-road matcher correctly reports no exact candidate for the owner boulevard string. A one-record manual road-type alias is justified by the owner and municipality calling the same named road a boulevard. This does not modify the strict matcher, replace the public address or create a reusable street-to-boulevard fallback.",
+    "qualification": "The matched feature has no named quarter or entrance. The administrative district Витоша is not the search quarter. Conflicting commercial references to Борово and Манастирски ливади are not promoted to a quarter; no catalog quadrant or proximity inference is used to attach a locality."
+  },
+  "identities": {
+    "baselineCommit": "3bc06dc2ca0d37e53c81ea4519941e47eaa1cb41",
+    "normalizedPriorRowSha256": "65d77e9402a6c0841c566bbe539c9c1a5f2e9f82fad5f3ade0fc1bf2a768248a",
+    "normalizedAfterRowSha256": "f8301503975dbec69b4345589d7ff7c4e52d0a6df726655d692df0f415724104",
+    "unchangedPricingIdentitySha256": "ebbac67182ed97d09c0e6ba5c87202d06669a7d12648d73caa13dfd9ebae8b23",
+    "guard": "Apply only to the named existing business at the reviewed city/address/category/site and booking/contact evidence when the stored point and neighborhood are both null. This is idempotent and changes only the coordinates field. The standard validator and coordinate binder both accept the null neighborhood binding and reject reusing it after a neighborhood edit."
+  },
+  "coverage": {
+    "city": "Sofia",
+    "newBusinesses": 0,
+    "newServices": 0,
+    "citywideExistingPremisesNewlyLocated": 1,
+    "neighborhoodsCredited": 0,
+    "meaning": "An official address point for distance and directions, not separately verified workshop entrance or road distance."
+  },
+  "safeguards": {
+    "servicesPricesBookingsApprovalsChanged": false,
+    "newBookingOrCustomerDataCollected": false,
+    "mapGeocoderOrPaidProviderRequests": 0,
+    "sourceImageryOrProseRepublished": false,
+    "productionWrites": 0
+  }
+}

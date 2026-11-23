@@ -3,6 +3,7 @@ import { execFileSync } from 'node:child_process'
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import batch from '../docs/catalogue-coverage/sparse-market-growth-20261123.json' with { type: 'json' }
+import { levskiAddressPriorityAllowsFileChange, levskiAddressPriorityAllowsNewFile, levskiAddressPriorityPriorSource, levskiAddressPriorityPriorCatalogue } from './catalogue-levski-address-priority-20261123-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = data => createHash('sha256').update(data).digest('hex')
@@ -26,10 +27,11 @@ const addedEvidence = /SPARSE_MARKET_SOUTH_20261123_|sofia-kanev-carpet-knyazhev
 function hasFileHash(path, expected) {
   return !!expected && sha(readFileSync(new URL('../' + path, import.meta.url))) === expected
 }
-export const sparseMarketGrowthAllowsFileChange = path => Object.hasOwn(changed, path) && hasFileHash(path, changed[path][1])
-export const sparseMarketGrowthAllowsNewFile = path => Object.hasOwn(added, path) && hasFileHash(path, added[path])
+export const sparseMarketGrowthAllowsFileChange = path => levskiAddressPriorityAllowsFileChange(path) || Object.hasOwn(changed, path) && hasFileHash(path, changed[path][1])
+export const sparseMarketGrowthAllowsNewFile = path => levskiAddressPriorityAllowsNewFile(path) || Object.hasOwn(added, path) && hasFileHash(path, added[path])
 
 export function sparseMarketGrowthPriorSource(path, source) {
+  source = levskiAddressPriorityPriorSource(path, source)
   if (!Object.hasOwn(changed, path) || !addedEvidence.test(source)) return source
   const [before, after] = changed[path]
   if (sha(source) !== after) throw Error('Unreviewed 23 Nov sparse-market growth source delta: ' + path)
@@ -43,7 +45,7 @@ export function sparseMarketGrowthPriorSource(path, source) {
 
 export function sparseMarketGrowthPriorCatalogue(rows) {
   const seen = new Set()
-  return rows.filter(row => {
+  return levskiAddressPriorityPriorCatalogue(rows).filter(row => {
     const expected = introduced.get(row.id)
     if (!expected) return true
     if (seen.has(row.id)) throw Error('Duplicate sparse-market growth row: ' + row.id)

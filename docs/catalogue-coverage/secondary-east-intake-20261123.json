@@ -1,0 +1,59 @@
+{
+  "checkedOn": "2026-11-23",
+  "baselineCommit": "7617e55d8bb46706c5fae78c611b7356e880a2b1",
+  "status": "bounded_research_only_no_records_admitted",
+  "targetPerQuarterCategory": 30,
+  "postalSource": {
+    "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+    "rule": "Require an exact owner-to-municipal point binding to count a physical location. Administrative district, a nearby residential entrance and an official point at a former business address are not substitutes."
+  },
+  "businesses": [],
+  "held": [
+    {
+      "name": "PWrapping",
+      "candidateNeighborhood": "Изток",
+      "category": "detailing",
+      "status": "live_public_booking_and_contact_conflict_with_static_sofia_address",
+      "leadReceipt": "docs/catalogue-coverage/sparse-market-north-intake-20261123.json",
+      "sources": ["https://pwrapping.com/", "https://pwrapping.com/#appointment", "https://pwrapping.com/#contact", "https://pwrapping.com/robots.txt"],
+      "municipalCandidateAddressId": "34672",
+      "municipalMatch": "The only official Sofia street/number match is бул. Д-р Г. М. Димитров 36, administrative district Изгрев, 42.665973, 23.362819. Изток is the neighborhood claimed by the static owner copy, not established by the CSV district.",
+      "ownerConflict": "Current raw HTML and the static reader show the same Sofia street address and +359885588822. The actively hydrated public page, independently observed twice, replaces the customer-facing contact location with Бургас, ж.к. Меден рудник, and swaps the phone link, FAQ and appointment contact to +359897989007. Do not declare a relocation confirmed, do not admit the static Sofia location, and do not infer a complete Burgas address.",
+      "bookingAndTariffReview": "Actual Book link resolves to the on-page appointment section; its live version invites a phone/Viber request and offers an inspection at no charge, then an individual quote for work. The live seven-option menu contains actual consultation, auto film and intake choices with no public monetary fee. A short vehicle intake is not the duration or cost of installing the wrap; no price or duration was imported. Footer carried an ordinary copyright notice and no separate public terms/fee links were exposed. Robots returned 404, not a reuse license. No call, personal data input, time selection, or booking.",
+      "duplicateCheck": "Zero runtime matches by PWrapping, domain, current or static phone, or the stated boulevard plus house number. Existing located Изток × detailing cell remains zero."
+    },
+    {
+      "name": "R&T Groom Paws Studio",
+      "category": "pets",
+      "status": "owner_source_content_use_stop",
+      "source": "https://rtgrooming.com/robots.txt",
+      "reason": "Owner robots response explicitly limits AI use to reference. Stop before direct appointment/data collection; do not use alias, cached menu, search snippets or a third-party booking route to bypass the restriction. No facts or price fields were imported."
+    },
+    {
+      "name": "Куче Нинджа",
+      "candidateNeighborhood": "Младост 1",
+      "category": "pets",
+      "status": "bookable_service_verified_but_named_separate_premises_has_no_exact_municipal_binding",
+      "sources": ["https://www.kucheninja.bg/", "https://www.kucheninja.bg/calculate", "https://www.kucheninja.bg/blank-8", "https://www.kucheninja.bg/robots.txt"],
+      "nearbyMunicipalAddressIdNotUsed": "33127",
+      "reason": "Owner publishes an explicit advance phone intake and an indicative calculator dependent on dog breed, weight and procedure. It identifies the salon as the separate Битов комбинат next to бл. 66, вх. 1. The nearest official block 66 entrance point is about 29 m from the owner's published business-location metadata and is not the salon's premises. The owner contact card does not give a different postal number, and the owner navigation short-link was not readable in the web reader. The legal registered office is another block and is not the salon. No flat price inferred from the calculator, promotions or product placeholders; final price and permissions need separate review if an exact site is confirmed."
+    }
+  ],
+  "excluded": [
+    {
+      "name": "Nebula Detailing Studio",
+      "reason": "Already a located Младост 3 × detailing record, `sofia-nebula-detailing`, at the same proprietor domain and telephone. No new listing, booking review replacement or coordinate change."
+    },
+    {
+      "name": "Ramona Natural Pet Market & Grooming",
+      "reason": "Already in the catalogue as `sofia-ramona-grooming` at the same proprietor domain, grooming number and Младост 1 premises. No clone."
+    },
+    {
+      "name": "Clean Carpet / CleanPoint",
+      "source": "https://clean-carpet.net/",
+      "reason": "The current owner describes the fixed base in Надежда and mobile pickup/drop-off options, not an eastern permanent operating premises. Do not count a service area or a scheduled mobile collection stop as a physical eastern location."
+    }
+  ],
+  "checks": {"newDistinctOperators": 0, "newVerifiedPoints": 0, "bookingFormsSubmitted": 0, "productionChanges": false}
+}

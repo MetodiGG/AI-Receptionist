@@ -13,6 +13,7 @@ import { serviceThumbnail } from '../lib/service-thumbnail.mjs'
 import { serviceDisplayName, publicProse } from '../lib/locale/public-content.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
 import evidence from '../docs/catalogue-coverage/education-intake-pavlovo-20261123.json' with { type: 'json' }
+import { additionalPriorCatalogue } from './catalogue-additional-20261123-scope.mjs'
 
 const now = Date.parse('2026-11-23T12:00:00Z')
 const { id, address, neighborhood } = evidence.newBusiness
@@ -66,7 +67,10 @@ test('public details match the checked programme, its illustrative photo and the
 })
 
 test('the new premises fills exactly the first physical and nearby education gap in Pavlovo', () => {
-  const reports = [SOFIA_CATALOGUE.filter(business => business.id !== id), SOFIA_CATALOGUE]
+  // Verify the dated Part Time receipt against its original cohort, even after
+  // other independently verified education businesses join the same quarter.
+  const before = additionalPriorCatalogue(SOFIA_CATALOGUE)
+  const reports = [before, [...before, row]]
     .map(rows => catalogueCoverageReport(rows, { now, target: 30 }))
   const cells = reports.map(report => report.neighborhoods.find(area => area.name === neighborhood).cells.find(cell => cell.categoryId === 'education'))
   assert.deepEqual(cells.map(cell => cell.count), evidence.newBusiness.coverage.physical)

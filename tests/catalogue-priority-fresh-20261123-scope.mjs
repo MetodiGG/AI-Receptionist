@@ -3,6 +3,7 @@ import { execFileSync } from 'node:child_process'
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import batch from '../docs/catalogue-coverage/priority-fresh-20261123.json' with { type: 'json' }
+import { priorityFoundAllowsFileChange, priorityFoundAllowsNewFile, priorityFoundPriorSource, priorityFoundPriorCatalogue } from './catalogue-priority-found-20261123-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = input => createHash('sha256').update(input).digest('hex')
@@ -27,10 +28,11 @@ const additions = new Map(batch.newRows.map(row => [row.id, row.normalizedRecord
 const evidence = /PRIORITY_FRESH_(?:EAST|NORTH|SOUTH|CORE)_20261123_|sofia-anev-barber-mladost1a-ahmatova532|partner-hair-beard-brows-finish|Измиването е включено в цената\./u
 
 const fileMatches = (path, digest) => !!digest && sha(readFileSync(new URL('../' + path, import.meta.url))) === digest
-export const priorityFreshAllowsFileChange = path => Object.hasOwn(changed, path) && fileMatches(path, changed[path][1])
-export const priorityFreshAllowsNewFile = path => Object.hasOwn(added, path) && fileMatches(path, added[path])
+export const priorityFreshAllowsFileChange = path => priorityFoundAllowsFileChange(path) || (Object.hasOwn(changed, path) && fileMatches(path, changed[path][1]))
+export const priorityFreshAllowsNewFile = path => priorityFoundAllowsNewFile(path) || (Object.hasOwn(added, path) && fileMatches(path, added[path]))
 
 export function priorityFreshPriorSource(path, source) {
+  source = priorityFoundPriorSource(path, source)
   if (!Object.hasOwn(changed, path) || !evidence.test(source)) return source
   const [before, after] = changed[path]
   if (sha(source) !== after) throw Error('Unreviewed 23 Nov fresh priority source delta: ' + path)
@@ -44,7 +46,7 @@ export function priorityFreshPriorSource(path, source) {
 
 export function priorityFreshPriorCatalogue(rows) {
   const seen = new Set()
-  return rows.filter(row => {
+  return priorityFoundPriorCatalogue(rows).filter(row => {
     const expected = additions.get(row.id)
     if (!expected) return true
     if (seen.has(row.id)) throw Error('Duplicate fresh priority row: ' + row.id)

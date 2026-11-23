@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "baseline": "317e840196ea59772910d7e38944fe578db4c83c",
+  "checkedAt": "2026-11-23T06:12:00.000Z",
+  "status": "integrated_locally_not_published",
+  "targetPerQuarterCategory": 30,
+  "pickerTargetCells": 1358,
+  "approvedCatalogueRecords": [1768, 1771],
+  "locatedPremises": [1008, 1011],
+  "emptyLocatedCells": [1352, 1352],
+  "emptyLocatedPickerCells": [993, 993],
+  "cellsAtLocatedTarget": [0, 0],
+  "newDistinctOperators": 3,
+  "verifiedPublicPriceFacts": 8,
+  "newRows": [
+    {
+      "id": "sofia-sparklab-mladost3-block304-3",
+      "name": "SparkLab · Младост 3",
+      "neighborhood": "Младост 3",
+      "category": "education",
+      "physical": [4, 5],
+      "located": [1, 2],
+      "addressId": "95686",
+      "reviewState": "reviewed",
+      "normalizedRecordSha256": "b42e02ca7d7b85cfeea97dd2c71cdeace27926831e47ce5fbb048952e38a26f2",
+      "receipt": "priority-found-core-20261123.json"
+    },
+    {
+      "id": "sofia-little-smiles-mladost1-nikola-genadiev5g",
+      "name": "Little Smiles",
+      "neighborhood": "Младост 1",
+      "category": "other",
+      "physical": [4, 5],
+      "located": [1, 2],
+      "addressId": "96261",
+      "reviewState": "reviewed",
+      "normalizedRecordSha256": "cd343093e2c7eb90434818970850889fb2294778f0c200a2edf48ea06ecf1d04",
+      "receipt": "priority-found-east-20261123.json"
+    },
+    {
+      "id": "sofia-jolly-kids-pavlovo-duychev12v",
+      "name": "Джоли Кидс · Павлово",
+      "neighborhood": "Павлово",
+      "category": "education",
+      "physical": [1, 2],
+      "located": [1, 2],
+      "addressId": "103070",
+      "reviewState": "reviewed",
+      "normalizedRecordSha256": "7acd13ca0fbe8f43d23ab4e4af5f83888d5d71a44305d279f7a2e6277b8ae0f1",
+      "receipt": "priority-found-south-20261123.json"
+    }
+  ],
+  "heldResearch": [
+    {
+      "name": "Картинг Бенковски · обучение",
+      "sources": ["https://kartingbenkovski.com/obuchenie-trenirovki-karting/", "https://kartingbenkovski.com/contact/", "https://kartingbenkovski.com/prices/", "https://www.auto-kart.com/obshti-uslovia-za-polzvane/"],
+      "reason": "The track independently provides an explicit training-booking phone and a named site at Gele Kitov 69, but there is no matching municipal street-and-number row. The linked separate course provider restricts site-content reuse under section 16.3; owner track prices are not the priced training packages. Ordinary ride prices relate to walk-ins, and the only expressly bookable ordinary ride price is a promotion. No admission and no inference of an unpublished tariff."
+    }
+  ]
+}

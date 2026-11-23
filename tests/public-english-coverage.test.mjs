@@ -69,7 +69,8 @@ test('the actual static cache covers every checked-in public/all source name, re
   // Drive School adds a course title, tuition and exam description, and per-course unit.
   // The tennis venue adds one outdoor court title, one rate description and the court-hour unit.
   // Anev, ONE SERVICE and the English school use three new descriptions, one title and one unit.
-  assert.deepEqual(Object.fromEntries(Object.entries(all.totals).map(([key, value]) => [key, value.unique])), { names: 6051 + 4 + 2 + 1 + 2 + 2 + 2 + 3 + 1 + 5 + 2 + 2 + 18 + 4 + 5 + 8 + 1 + 1 + 1 + 1, descriptions: 1804 + 3 + 2 + 1 + 2 + 3 + 3 + 4 + 2 + 5 + 5 + 3 + 11 + 4 + 1 + 7 + 1 + 1 + 1 + 3, units: 661 + 2 + 1 + 1 + 1 + 1 + 1 + 1 + 1 })
+  // The three additional operators add eight titles, seven qualified descriptions and one course unit.
+  assert.deepEqual(Object.fromEntries(Object.entries(all.totals).map(([key, value]) => [key, value.unique])), { names: 6051 + 4 + 2 + 1 + 2 + 2 + 2 + 3 + 1 + 5 + 2 + 2 + 18 + 4 + 5 + 8 + 1 + 1 + 1 + 1 + 8, descriptions: 1804 + 3 + 2 + 1 + 2 + 3 + 3 + 4 + 2 + 5 + 5 + 3 + 11 + 4 + 1 + 7 + 1 + 1 + 1 + 3 + 7, units: 661 + 2 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 })
   for (const result of [all, published]) for (const key of ['missing', 'invalid', 'quantityChanges', 'qualificationChanges']) assert.equal(result[key].length, 0, key)
   const cache = JSON.parse(await readFile(new URL('../lib/locale/service-english.json', import.meta.url), 'utf8'))
   assert.equal(cache.metadata.review.nameSourcesIndividuallyAgentReviewed, 6040)

@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "baselineCommit": "317e840",
+  "checkedOn": "2026-11-23",
+  "status": "reviewed_local_leaf_not_published",
+  "priority": "Distinct bookable premises with a priced service in a sparsely represented southwest Sofia neighborhood/category cell.",
+  "newBusinessesPrepared": 1,
+  "newServicesPrepared": 1,
+  "newPricesPrepared": 1,
+  "source": {
+    "municipalAddressDataset": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "municipalCsvSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+    "licence": "CC-BY-4.0",
+    "attribution": "ГИС София / Столична община",
+    "method": "Owner site ties Jolly Phonics to the Pavlovo programme and its public telephone. The operator's separately published company profile supplies the same programme phone at street number 12V; the municipal source supplies the unique exact postal point, not an inferred entrance."
+  },
+  "admitted": [{
+    "id": "sofia-jolly-kids-pavlovo-duychev12v",
+    "name": "Джоли Кидс · Павлово",
+    "category": "education",
+    "neighborhood": "Павлово",
+    "neighborhoodBasis": "Pavlovo is named by the owner as the branch for this programme and by the operator's company-profile contact details. The municipal row has district Витоша and no quarter field.",
+    "ownerPremises": "София, кв. Павлово, ул. Проф. Иван Дуйчев 12В",
+    "addressEvidence": {
+      "ownerContact": "https://jollykids.bg/contact",
+      "ownerPublishedCompanyProfile": "https://www.jobs.bg/company/286080?job=8572835",
+      "secondaryVenueCorroboration": "https://sofia.plays.bg/events/view/20040",
+      "notes": "The contact page abbreviates the number to 12. The company profile with programme phone and legal identity writes 12 В. The separately hosted summer listing corroborates the address only; no summer offer is imported."
+    },
+    "officialAddress": {
+      "rn": "103070",
+      "region": "Витоша",
+      "settlement": "гр. София",
+      "street": "ул. Проф. Иван Дуйчев",
+      "house": "12В",
+      "block": "",
+      "quarter": "",
+      "entrance": "",
+      "latitude": 42.660216,
+      "longitude": 23.267109,
+      "candidates": 1
+    },
+    "booking": {
+      "kind": "phone",
+      "phone": "+359889050604",
+      "ownerProgramme": "https://jollykids.bg/afternoon-classes-4-7",
+      "ownerContact": "https://jollykids.bg/contact",
+      "ownerEnrollmentChannel": "https://jollykids.bg/privacy-policy",
+      "ownerEnrollmentConditions": "https://jollykids.bg/general-terms",
+      "notes": "The named programme's inquiry action opens the owner contact page, which explicitly assigns this number to weekday Pavlovo programmes. The operator documents telephone course registration as a contact channel and requires an agreement and deposit for actual enrolment if a place is available. No form was submitted; no call, trial or place confirmed."
+    },
+    "tariff": {
+      "name": "Английски за деца на 4–7 г. · Jolly Phonics",
+      "amount": 165,
+      "currency": "EUR",
+      "unit": "monthly fee",
+      "source": "https://jollykids.bg/afternoon-classes-4-7",
+      "conditions": "Uses the published monthly option only. Under general terms II and III.4, the one-month deposit is applied to final-month tuition or a duly observed one-month notice period. General terms IV.1 state that it is not refunded when the student leaves without notice. No fee waivers, open dates, per-session charge, annual package, school hours, or trial pricing are inferred."
+    },
+    "duplicateCheck": {
+      "coLocatedCatalogueId": "sofia-part-time-pavlovo-duychev12v",
+      "differentCompanyNumbers": ["205335481", "204776722"],
+      "otherOperatorPublicIdentity": "https://www.jobs.bg/company/parttime?job_sid=8632060",
+      "otherOperatorDistinguishesProgrammes": "https://part-time.bg/summer-school-children-index",
+      "notes": "The separate companies have different domains, legal identities and dedicated public contacts. The existing row is the Part Time theatre programme, not this operator's phonics course. Co-location changes no existing row and supplies no additional inferred locations."
+    },
+    "media": {
+      "servicePhotoKey": "sx-child-language-group",
+      "businessCoverAsset": "activity-sx-child-language-group-v1.webp",
+      "semantics": "Existing AI illustration of child group language instruction, not documentary footage of this provider."
+    },
+    "locatedCellBefore": 1,
+    "locatedCellAfterIntegration": 2,
+    "normalizedRecordSha256": "7acd13ca0fbe8f43d23ab4e4af5f83888d5d71a44305d279f7a2e6277b8ae0f1",
+    "pricingIdentity": "bb857622a50a0367b9b837c3347481b8c8b74be14d1bac5d4bc722d9da18e7b2"
+  }],
+  "holds": [{
+    "name": "Insane Garage",
+    "neighborhood": "Филиповци",
+    "officialAddressId": "101153",
+    "reason": "The postal address alone does not establish a current owner-controlled appointment route for a specific service."
+  }, {
+    "name": "LVG",
+    "neighborhood": "Филиповци",
+    "officialAddressId": "120965",
+    "reason": "The postal address alone does not establish a current owner-controlled appointment route for a specific service."
+  }, {
+    "name": "Arguso",
+    "neighborhood": "Филиповци",
+    "reason": "Owner offers automotive upholstery, but the visible path is general inquiry rather than booking a particular service visit at verified premises."
+  }]
+}

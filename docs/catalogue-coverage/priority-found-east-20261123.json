@@ -1,0 +1,100 @@
+{
+  "checkedOn": "2026-11-23",
+  "baselineCommit": "317e840196ea59772910d7e38944fe578db4c83c",
+  "status": "verified_intake_not_published",
+  "targetPerQuarterCategory": 30,
+  "newDistinctOperators": 1,
+  "newLocatedPremises": 1,
+  "businesses": [
+    {
+      "id": "sofia-little-smiles-mladost1-nikola-genadiev5g",
+      "name": "Little Smiles",
+      "nameEn": "Little Smiles",
+      "category": "other",
+      "neighborhood": "Младост 1",
+      "address": "София, ж.к. Младост 1, ул. Никола Генадиев 5Г",
+      "coverageAtBaseline": {"physical": 4, "located": 1},
+      "municipal": {
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+        "addressId": "96261",
+        "latitude": 42.653988,
+        "longitude": 23.377040,
+        "region": "Младост",
+        "match": "The same owner-published address is present in the site header, contact section and location caption, explicitly in Младост 1. Exactly one Sofia municipal row matches ul. Nikola Genadiev 5Г. The municipal civic point is not a claimed interior room position.",
+        "licence": "CC-BY-4.0"
+      },
+      "sources": {
+        "owner": "https://www.littlesmiles.bg/",
+        "ownerRobots": "https://www.littlesmiles.bg/robots.txt",
+        "canonicalAliasRobots": "https://littlesmiles.bg/robots.txt"
+      },
+      "booking": "Live, public rendered main button says Резервирай място with tel:+359988832856, repeated as the designated event reservation number under Contact. The different ordinary visitor/VR number was not substituted for event booking. It is an off-platform phone enquiry; no slot, phone call, form, card or booking was submitted.",
+      "tariff": "The public owner Prices section gives fixed EUR totals for four packages, including group size limits, duration of the hall, food, animator and cake distinctions, a separately described refundable deposit, and extra-charge drinks. No individual price was obtained by dividing a package; walk-in entry, separately operated VR rates, add-ons, unrelated packages and holiday promotion were excluded. Photo below illustrates the birthday party venue activity, not the actual premises or the package inclusions.",
+      "sourceUse": "Both public owner hosts allow ordinary reading in robots.txt. Checked the rendered normal navigation and footer for separate applicable reuse terms; none were linked. Christmas promotion conditions were neither relied on nor included. No advertising prose, guest data, ratings, photographs or embedded maps were copied.",
+      "deduplication": "No runtime business matches the normalized operator name, domain or either published phone number. Other catalogued businesses in Младост 1 and Party Dots in Дружба 2 are separate operators.",
+      "imageKey": "sx-indoor-childrens-birthday-party",
+      "imageSha256": "03e6d5809c32b56f4f07c348b2e1c5eaba2c54c593435f06983a4294487f29a0",
+      "priceUnitBg": "пакет",
+      "priceUnitEn": "package",
+      "services": [
+        {
+          "nameBg": "Детски рожден ден · до 10 деца",
+          "nameEn": "Children’s birthday party · up to 10 children",
+          "amountEur": 240,
+          "durationMin": 120,
+          "descriptionBg": "Зала с детски кът, пица и напитки за 10 деца, игри и украса. Има асистент за игрите, но няма професионален аниматор. Капаро за резервация: 50 €, възстановимо при отказ поне 7 дни преди събитието. Допълнителните напитки се заплащат отделно.",
+          "descriptionEn": "Party room with play area, pizza and drinks for 10 children, games and decorations. A games assistant is included, but not a professional entertainer. €50 reservation deposit, refundable if cancelled at least seven days before the event. Extra drinks are charged separately."
+        },
+        {
+          "nameBg": "Детски рожден ден с аниматор · до 10 деца",
+          "nameEn": "Children’s birthday party with an entertainer · up to 10 children",
+          "amountEur": 380,
+          "durationMin": 120,
+          "descriptionBg": "Зала с детски кът, пица и напитки за 10 деца, игри, украса и професионален аниматор за два часа. Капаро за резервация: 50 €, възстановимо при отказ поне 7 дни преди събитието. Допълнителните напитки се заплащат отделно.",
+          "descriptionEn": "Party room with play area, pizza and drinks for 10 children, games, decorations and a professional entertainer for two hours. €50 reservation deposit, refundable if cancelled at least seven days before the event. Extra drinks are charged separately."
+        },
+        {
+          "nameBg": "Семеен рожден ден · до 10 деца и 10 възрастни",
+          "nameEn": "Family birthday party · up to 10 children and 10 adults",
+          "amountEur": 440,
+          "durationMin": 150,
+          "descriptionBg": "Зала с детски кът, игри, храна за децата и 70 мини брускети за възрастните, плюс аниматор за два часа. Тортата не е включена. Капаро за резервация: 50 €, възстановимо при отказ поне 7 дни преди събитието. Допълнителните напитки се заплащат отделно.",
+          "descriptionEn": "Party room with play area, games, food for the children and 70 mini bruschettas for adults, plus a two-hour entertainer. No cake included. €50 reservation deposit, refundable if cancelled at least seven days before the event. Extra drinks are charged separately."
+        },
+        {
+          "nameBg": "Голям семеен рожден ден · до 10 деца и 20 възрастни",
+          "nameEn": "Large family birthday party · up to 10 children and 20 adults",
+          "amountEur": 480,
+          "durationMin": 150,
+          "descriptionBg": "Зала с детски кът, игри, храна за децата и 120 мини брускети за възрастните, плюс аниматор за два часа. Включена е торта с фотоснимка. Капаро за резервация: 50 €, възстановимо при отказ поне 7 дни преди събитието. Допълнителните напитки се заплащат отделно.",
+          "descriptionEn": "Party room with play area, games, food for the children and 120 mini bruschettas for adults, plus a two-hour entertainer. A photo cake is included. €50 reservation deposit, refundable if cancelled at least seven days before the event. Extra drinks are charged separately."
+        }
+      ],
+      "normalizedRecordSha256": "cd343093e2c7eb90434818970850889fb2294778f0c200a2edf48ea06ecf1d04",
+      "inventoryIdentity": "25fe04ea4ca72242488431a9c8efffac4e24494715f8064722984a0369d163e9"
+    }
+  ],
+  "holds": [
+    {
+      "name": "Sport Olympique", "neighborhood": "Слатина", "category": "fitness",
+      "owner": "https://sportolympique.jimdofree.com/",
+      "municipalAddressId": "93263",
+      "reason": "First-party court phone booking and address verified; the outdoor tennis rates specify a window that ended on 30 October 2026. The older calendar link is on a service whose live robots publishes a reference-only content signal, so no fallback prices were taken from it. Separate first-party indoor class/venue pages did not supply a current ordinary price for admission to this priced batch."
+    },
+    {
+      "name": "Spartans Football Academy", "neighborhood": "Слатина", "category": "fitness",
+      "owner": "https://academyspartans.com/",
+      "ownerBooking": "https://academyspartans.com/rezerviray-trenirovka/",
+      "ownerServices": "https://academyspartans.com/trenirovki/",
+      "municipalAddressId": "93263",
+      "reason": "The live first-party booking form and linked training page disagree on the one-off prices and on the number of sessions in the packages. No old BGN tariff was EUR-converted, labelled current or treated as unpublished."
+    },
+    {
+      "name": "Ветеринарна клиника Джулайвет", "neighborhood": "Христо Смирненски", "category": "pets",
+      "owner": "https://julyvet.com/",
+      "ownerTerms": "https://julyvet.com/terms",
+      "reason": "First-party terms section 6 makes reuse conditional on written permission, so pricing was not imported. The listed block also has multiple municipal entrances, and no applicable owner-published entrance was verified."
+    }
+  ]
+}

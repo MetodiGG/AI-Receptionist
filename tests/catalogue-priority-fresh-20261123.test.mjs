@@ -4,7 +4,7 @@ import { readFile } from 'node:fs/promises'
 import test from 'node:test'
 import batch from '../docs/catalogue-coverage/priority-fresh-20261123.json' with { type: 'json' }
 import east from '../docs/catalogue-coverage/priority-fresh-east-20261123.json' with { type: 'json' }
-import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { SOFIA_CATALOGUE as currentCatalogue } from '../lib/discovery/sofia-catalogue.mjs'
 import { catalogueBoundCoordinates } from '../lib/discovery/catalogue-coordinate-binding.mjs'
 import { normalizeCatalogueBusinesses } from '../lib/discovery/catalogue-search.mjs'
 import { filterBusinessesBySubcategory } from '../lib/discovery/subcategories.mjs'
@@ -13,8 +13,10 @@ import { BOOKING_PRICE_REVIEWS } from '../lib/discovery/catalogue-data/pricing-b
 import { serviceThumbnail } from '../lib/service-thumbnail.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
 import { priorityFreshPriorCatalogue } from './catalogue-priority-fresh-20261123-scope.mjs'
+import { priorityFoundPriorCatalogue } from './catalogue-priority-found-20261123-scope.mjs'
 
 const now = Date.parse(batch.checkedAt)
+const SOFIA_CATALOGUE = priorityFoundPriorCatalogue(currentCatalogue)
 const prior = priorityFreshPriorCatalogue(SOFIA_CATALOGUE)
 const rows = new Map(SOFIA_CATALOGUE.map(row => [row.id, row]))
 const host = website => website ? new URL(website).hostname.replace(/^www\./u, '') : ''

@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto'
 import { readFileSync } from 'node:fs'
 import { intakeAllowsFileChange, intakeAllowsNewFile, intakePriorSource, intakePriorCatalogue } from './catalogue-intake-20261123-scope.mjs'
+import { autoAreaAllowsFileChange, autoAreaAllowsNewFile, autoAreaPriorSource, autoAreaPriorCatalogue } from './catalogue-auto-20261123-scope.mjs'
 
 // Historical receipts may ignore only these two verified corrections, not other edits.
 export const QUARTER_RECOVERY_BASE = '35a67bf61b7217f73339f39fc3c843a3ae15225e'
@@ -19,11 +20,11 @@ const digest = value => createHash('sha256').update(value).digest('hex')
 const fileMatches = (path, expectation) => {
   try { return digest(readFileSync(new URL('../' + path, import.meta.url))) === expectation } catch { return false }
 }
-export const quarterRecoveryAllowsFileChange = path => intakeAllowsFileChange(path) || (path === QUARTER_RECOVERY_SOURCE && fileMatches(path, newSourceHash))
-export const quarterRecoveryAllowsNewFile = path => intakeAllowsNewFile(path) || (Object.hasOwn(reviewedNewFiles, path) && fileMatches(path, reviewedNewFiles[path]))
+export const quarterRecoveryAllowsFileChange = path => autoAreaAllowsFileChange(path) || intakeAllowsFileChange(path) || (path === QUARTER_RECOVERY_SOURCE && fileMatches(path, newSourceHash))
+export const quarterRecoveryAllowsNewFile = path => autoAreaAllowsNewFile(path) || intakeAllowsNewFile(path) || (Object.hasOwn(reviewedNewFiles, path) && fileMatches(path, reviewedNewFiles[path]))
 
 export function quarterRecoveryPriorSource(path, current) {
-  const source = intakePriorSource(path, current)
+  const source = intakePriorSource(path, autoAreaPriorSource(path, current))
   if (path !== QUARTER_RECOVERY_SOURCE || digest(source) === oldSourceHash) return source
   if (digest(source) !== newSourceHash) throw Error('Unreviewed 23 Nov quarter recovery source delta: ' + path)
   const edits = [
@@ -44,7 +45,7 @@ export function quarterRecoveryPriorSource(path, current) {
 
 export function quarterRecoveryPriorCatalogue(rows) {
   const seen = new Set()
-  return intakePriorCatalogue(rows).map(row => {
+  return intakePriorCatalogue(autoAreaPriorCatalogue(rows)).map(row => {
     if (!Object.hasOwn(pairs, row?.id)) return row
     if (seen.has(row.id)) throw Error('Duplicate quarter recovery record: ' + row.id)
     seen.add(row.id)

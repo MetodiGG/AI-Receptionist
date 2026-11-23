@@ -14,6 +14,7 @@ import { businessMapsDirectionsUrl } from '../lib/business-directions.mjs'
 import { businessDisplayAddress, serviceDisplayName } from '../lib/locale/public-content.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
 import { QUARTER_RECOVERY_BASE, quarterRecoveryPriorCatalogue } from './quarter-recovery-20261123-scope.mjs'
+import { autoAreaPriorCatalogue } from './catalogue-auto-20261123-scope.mjs'
 
 const now = Date.parse('2026-11-23T12:00:00Z')
 const hash = value => createHash('sha256').update(JSON.stringify(value)).digest('hex')
@@ -122,7 +123,7 @@ test('BG/EN results use the correct quarter without changing service prices, ext
 test('the exact existing cohort gains one real, located entry in each of two formerly empty cells; the quota is not met', () => {
   // The separate dated intake is not part of these receipts. Do not exclude other IDs.
   const intake = new Set(['sofia-vr-sofia-west-mall-lyulin7', 'sofia-brainland-lyulin3-block319v'])
-  const current = SOFIA_CATALOGUE.filter(row => !intake.has(row.id))
+  const current = autoAreaPriorCatalogue(SOFIA_CATALOGUE).filter(row => !intake.has(row.id))
   const old = quarterRecoveryPriorCatalogue(current)
   assert.equal(current.length, 1733)
   assert.equal(hash(old), '5d47345ca472232cbe9a78edb7918b67556809f17cdc5aefcaea0df42e44d52b')

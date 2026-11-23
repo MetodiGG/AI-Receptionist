@@ -119,6 +119,15 @@
           "units": 0
         },
         "certifiedHumanTranslation": false
+      },
+      {
+        "checkedOn": "2026-11-23",
+        "businessId": "sofia-mline-auto-detailing-gorublyane-pionerska2",
+        "inventoryIdentity": "22a1889abea6bb183c29954ed66837a6058dcfe05cff3d91403fce0efcf3a364",
+        "reason": "One exact English description preserves the source-reviewed interior service and price qualifications. Existing title reused; no external translation API.",
+        "entriesAdded": { "names": 0, "descriptions": 1, "units": 0 },
+        "entriesReused": { "names": 1 },
+        "certifiedHumanTranslation": false
       }
     ],
     "sourceInventorySha256": "3dc68153b6dbd333d0990cf3c7658bb4e0235f79d7d1e8081cfc226034bab456",
@@ -6240,6 +6249,7 @@
     "смяна на предпазен клапан на бойлер": "change of boiler safety valve"
   },
   "descriptions": {
+    "Цялостно почистване на автомобилния интериор с пране на текстила. Крайната цена зависи от размера на автомобила и степента на замърсяване; озонирането се заплаща отделно.": "Complete car interior cleaning, including textile upholstery washing. The final price depends on vehicle size and soiling; ozone treatment costs extra.",
     "30 минути в обща VR арена за 2–6 играчи, от петък до неделя. Цената е на човек, не за цялата група. Обектът потвърждава часа по телефона.": "30 minutes in a shared VR arena for 2–6 players, Friday to Sunday. The price is per person, not a group total. The venue confirms your time by phone.",
     "Присъствен курс по английски за възрастни в група или индивидуално. Изпращаш запитване; центърът уточнява формата, графика и цената.": "An in-person English course for adults, in a group or one-to-one. Send an enquiry; the centre will confirm the format, timetable and price.",
     "Присъствена психологична консултация в кабинет с предварително записване. Часът се запазва през външния календар на специалиста.": "In-person psychological consultation at the practice by prior appointment. Book through the practitioner's external calendar.",

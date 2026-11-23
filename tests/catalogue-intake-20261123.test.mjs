@@ -22,6 +22,7 @@ import { catalogueOnboardingDetail } from '../lib/catalogue-onboarding.mjs'
 import { catalogueServicePhotoFields } from '../lib/catalogue-service-photo-keys.mjs'
 import { serviceThumbnail } from '../lib/service-thumbnail.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
+import { autoAreaPriorCatalogue } from './catalogue-auto-20261123-scope.mjs'
 
 // This UTC timestamp is after midnight in Sofia. The evidence records both dates.
 const clock = DateTime.fromISO('2026-11-22T22:30:00Z', { setZone: true })
@@ -111,8 +112,9 @@ test('the two municipal points are bound to actual customer premises, not a gene
 })
 
 test('the two additions fill exactly two physical and located cells without adding mobile providers or multiplying services', () => {
-  const before = catalogueCoverageReport(prior, { now, target: 30 })
-  const after = catalogueCoverageReport(SOFIA_CATALOGUE, { now, target: 30 })
+  const earlierStage = autoAreaPriorCatalogue(SOFIA_CATALOGUE)
+  const before = catalogueCoverageReport(earlierStage.filter(row => !ids.has(row.id)), { now, target: 30 })
+  const after = catalogueCoverageReport(earlierStage, { now, target: 30 })
   for (const key of ['sourceRecords', 'approvedBusinesses', 'premises', 'premisesWithBoundCoordinates', 'businessCategoryIncidences']) {
     assert.equal(after.counts[key], before.counts[key] + 2, key)
   }

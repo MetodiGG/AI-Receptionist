@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "publicationReviewDateUtc": "2026-11-22",
+  "status": "integrated_locally_not_published",
+  "priority": "30 distinct physical businesses with verified addresses per Sofia quarter and category, before aggregate growth",
+  "newBusinesses": 1,
+  "newServices": 1,
+  "verifiedPublicPriceFacts": 1,
+  "existingBusinessesChangedByThisIntake": 0,
+  "municipalSource": {
+    "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+    "sourceBytes": 12601716,
+    "sourceUnchanged": true,
+    "licence": "CC-BY-4.0",
+    "attribution": "ГИС София / Столична община",
+    "method": "Strict offline UTF-8 municipal CSV decode and manual exact typed street/house selection; exactly one dataset row for ул. Пионерска 2. Its settlement is the qualified label гр. София, кв. Горубляне, not the generic гр. София label used by the automated matcher. The qualification is recorded here without broadening that matcher.",
+    "qualification": "Exact municipal address point, not an independently surveyed business entrance or inferred center."
+  },
+  "businesses": [
+    {
+      "id": "sofia-mline-auto-detailing-gorublyane-pionerska2",
+      "name": "M-Line Auto Detailing",
+      "category": "detailing",
+      "neighborhood": "Горубляне",
+      "address": "София, кв. Горубляне, ул. Пионерска 2",
+      "website": "https://mlineautodetailing.com/",
+      "phone": "+359898515911",
+      "locationKind": "premises",
+      "validUntil": "2026-12-23",
+      "duplicateCheck": "No existing candidate ID, exact operator or domain, normalized contact phone, or same road/house match. Retain one listing for the single detailer; the cosmetic package's bundled base wash does not qualify as a distinct car-wash business.",
+      "addressSources": [
+        "https://mlineautodetailing.com/contact/",
+        "https://mlineautodetailing.com/services/",
+        "https://mladost.bg/wp-content/uploads/2024/04/94521.pdf"
+      ],
+      "addressEvidence": "The owner's contact names Sofia, street Пионерска 2, with the same phone used on the specific interior-detailing page. The district order includes this even house number in its Pionerska address range in Gorublyane. Two researchers independently checked the single exact typed row in the unchanged municipal export. Use the municipal postal point, not an approximate map center or a third-party map response.",
+      "municipalRow": {
+        "rn": "32182",
+        "region": "Младост",
+        "settlement": "гр. София, кв. Горубляне",
+        "street": "ул. Пионерска",
+        "house": "2",
+        "block": "",
+        "quarter": "",
+        "entrance": "",
+        "latitude": 42.631683,
+        "longitude": 23.40813
+      },
+      "bookingEvidence": {
+        "actualBook": "https://mlineautodetailing.com/",
+        "directService": "https://mlineautodetailing.com/services/interiorno-pochistvane/",
+        "bookingInstructions": "https://mlineautodetailing.com/contact/",
+        "method": "Owner homepage and the interior service both offer a direct call to book, with the same business number confirmed through the contact page. On-site assessment needs prior telephone arrangement. The visible generic contact form is not taken as a time-slot or booking route."
+      },
+      "service": {
+        "name": "Интериорен детайлинг",
+        "description": "Цялостно почистване на автомобилния интериор с пране на текстила. Крайната цена зависи от размера на автомобила и степента на замърсяване; озонирането се заплаща отделно.",
+        "pricingDecision": "reviewed",
+        "pricePages": ["https://mlineautodetailing.com/services/interiorno-pochistvane/"],
+        "price": { "amount": 190, "currency": "EUR", "kind": "from" },
+        "limits": "One individually booked complete interior-detailing service. The amount is a starting price, not a fixed quote; size and soiling determine the final amount. Ozone treatment is a separately published extra, and the package's base wash is not offered here as a standalone service. No duration, consultation price, optional treatments, polish, ceramic package or external availability is offered in this intake."
+      },
+      "openingHours": {
+        "source": "https://mlineautodetailing.com/contact/",
+        "weekdays": "09:00–19:00",
+        "saturday": "10:00–18:00",
+        "sunday": "closed",
+        "limit": "Public studio hours only; assessment visits by prior arrangement, no promise of instant service or free slots."
+      },
+      "sourcePolicy": "Only minimal public factual information from the operator is paraphrased. The owner's privacy notice was checked; a reuse license is not claimed. The web reader did not expose a robots response, so no absence or approval is inferred. No content blocker/profile/account, reviews, personal data, photos, marketing copy or paid services used.",
+      "image": {
+        "key": "sx-detail-complete-interior",
+        "asset": "/service-photos/sx-detail-complete-interior-v1.webp",
+        "sha256": "7046957a058ec5df854522714514ce8d038328aac026b599b4e13c05c1e9f631",
+        "limit": "Existing illustrative asset visually checked for dashboard, carpet and fabric seat cleaning, not imagery of this merchant or its customers."
+      },
+      "english": {
+        "name": "Interior Detailing",
+        "description": "Complete car interior cleaning, including textile upholstery washing. The final price depends on vehicle size and soiling; ozone treatment costs extra."
+      },
+      "inventoryIdentity": "22a1889abea6bb183c29954ed66837a6058dcfe05cff3d91403fce0efcf3a364"
+    }
+  ],
+  "coverage": {
+    "targetPerQuarterCategory": 30,
+    "approvedSofiaBusinesses": [1712, 1713],
+    "premisesWithBoundCoordinates": [913, 914],
+    "zeroCells": [1291, 1290],
+    "cellsAtLocatedTarget": [0, 0],
+    "cells": [
+      { "neighborhood": "Горубляне", "category": "detailing", "physical": [0, 1], "located": [0, 1] }
+    ]
+  },
+  "safeguards": {
+    "existingCataloguePricingBaselinesOrReportsRefreshed": false,
+    "partnerContactAttemptsFormsSubmissionsAccountsBookingsOrPayments": 0,
+    "mapGeocoderPaidProviderRequests": 0,
+    "productionWrites": 0
+  }
+}

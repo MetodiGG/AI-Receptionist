@@ -45,10 +45,11 @@ test('the actual static cache covers every checked-in public/all source name, re
   // The original audited source cohort stays intact. This release adds only
   // three Europe course names, two Elena/Europe descriptions, two explicitly
   // confirmed Azis hair names, two reviewed Suhodol in-person descriptions,
-  // and two exact Lyulin names/descriptions plus one per-person price unit.
+  // two exact Lyulin names/descriptions plus a price unit, and one new
+  // source-reviewed Gorublyane description.
   // These manual additions leave the frozen historical review metadata below
   // intact; supplements do not silently become extra original-cohort reviews.
-  assert.deepEqual(Object.fromEntries(Object.entries(all.totals).map(([key, value]) => [key, value.unique])), { names: 6040 + 3 + 2 + 2, descriptions: 1790 + 2 + 2 + 2, units: 660 + 1 })
+  assert.deepEqual(Object.fromEntries(Object.entries(all.totals).map(([key, value]) => [key, value.unique])), { names: 6040 + 3 + 2 + 2, descriptions: 1790 + 2 + 2 + 2 + 1, units: 660 + 1 })
   for (const result of [all, published]) for (const key of ['missing', 'invalid', 'quantityChanges', 'qualificationChanges']) assert.equal(result[key].length, 0, key)
   const cache = JSON.parse(await readFile(new URL('../lib/locale/service-english.json', import.meta.url), 'utf8'))
   assert.equal(cache.metadata.review.nameSourcesIndividuallyAgentReviewed, 6040)

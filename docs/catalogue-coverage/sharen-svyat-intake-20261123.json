@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "baselineCommit": "bf871f058d8fabd5cb3d21b953299e88667b4b89",
+  "status": "prepared_locally_not_published",
+  "targetPerQuarterCategory": 30,
+  "newBusiness": {
+    "id": "sofia-sharen-svyat-lyulin5-block519g",
+    "name": "Детски клуб „Шарен свят“ · Люлин 5",
+    "nameEn": "Sharen Svyat Children’s Club · Lyulin 5",
+    "category": "other",
+    "neighborhood": "Люлин 5",
+    "address": "София, ж.к. Люлин 5, бул. Райко Даскалов, бл. 519, вх. Г",
+    "municipal": {
+      "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+      "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+      "addressId": "52803",
+      "district": "Люлин",
+      "settlement": "гр. София",
+      "latitude": 42.713674,
+      "longitude": 23.245399,
+      "licence": "CC-BY-4.0",
+      "pointScope": "The owner's 519 G corresponds to 519, entrance Г, the unique matching row among the five municipal entrances of this block. It is not an independently surveyed door of the party room."
+    },
+    "ownerWebsite": "https://clubsharensvqt.com/",
+    "ownerContact": "https://clubsharensvqt.com/contact.html",
+    "ownerTariff": "https://clubsharensvqt.com/ceni.html",
+    "ownerService": "https://clubsharensvqt.com/detsko-parti.html",
+    "ownerTerms": "https://www.clubsharensvqt.com/obshti-usloviya.html",
+    "areaCorroborationUrls": ["https://aptekamedea.bg/shop/apteka-medeya-lyulin"],
+    "areaCorroboration": "The operator's contact and terms pages both state Lyulin 5, Rayko Daskalov Blvd, 519 G. The neighboring pharmacy's own branch page separately confirms Lyulin 5 and block 519 on the same boulevard; it is not used to infer the entrance letter, booking or price. The public catalogue has no existing club by name, phone, domain or exact venue.",
+    "booking": {
+      "kind": "phone",
+      "phone": "+359894229242",
+      "evidence": "The actual call-to-book link for the 10-child price card goes to the club contact page, explicitly labeled a reservations telephone. The owner terms authorize calling that same number and require agreeing date, time, group size and any extras. No booking, availability check, call, message or payment occurred."
+    },
+    "openingHoursEvidence": "The owner contact page publishes business hours 10:00–21:00 Monday–Sunday, not individual available party times.",
+    "service": {
+      "name": "Детски рожден ден · пакет за 10 деца",
+      "nameEn": "Children’s birthday · package for 10 children",
+      "amount": 299,
+      "currency": "EUR",
+      "kind": "fixed",
+      "unit": "пакет за 10 деца",
+      "unitEn": "package for 10 children",
+      "durationMin": 120,
+      "description": "Зала, украса, детско меню, кетъринг, аниматор и занимания. Още дете: 10,23 €. +30 мин: 30 €; +1 ч: 60 €. Без външна храна и напитки. Торта отделно; внесена: 7 € и сертификат. Невъзстановимо капаро 50 €; уточнете отчитане и отказ. Отлагане до 48 ч преди партито (3 дни при торта от клуба).",
+      "descriptionEn": "Hall, decorations, children’s meals, catering, an entertainer and activities. Extra child: €10.23. Extra 30 min: €30; extra 1 h: €60. No outside food or drinks. Cake is separate; bring your own for €7 with a certificate. Non-refundable €50 deposit; confirm how it is applied and the cancellation terms. Reschedule at least 48 h ahead (3 days with a club-ordered cake).",
+      "inclusions": "Two hours of hall hire for 10 children; 10 invitations; standard decorations; catering for parents and pizza with a drink for each child; one entertainer offering games and dancing, face painting, a bubble show and a disco; informal photos and a present for the birthday child.",
+      "qualifications": "€10.23 per extra child; extension €30 per 30 minutes or €60 per hour. The full-service packages do not allow outside food or drinks, except an outside cake with quality certification and a €7 service fee; an owner-ordered cake is separate. Custom decorations and professional photography are optional separate services not included here.",
+      "paymentAndChanges": "The tariff requires a non-refundable €50 deposit without stating how it is applied to the €299 package, and offers rescheduling at least 48 hours before the event or at least three days before when ordering cake from the club. The owner terms mention a possible fee for party cancellation with under 48 hours' notice (and a separate general under-24-hour cancellation reference). No fee amount beyond the stated deposit is confirmed, and no claim is made that the deposit is an extra fee or is credited. The listing asks customers to confirm how the deposit is applied and the cancellation terms directly."
+    },
+    "termsScope": "Clause 9 prohibits unauthorized use of the club’s protected website and venue materials. This receipt and listing use only independently paraphrased factual public information, ordinary links and a separately generated illustration. No owner prose, photos, logo, people, reviews, menu design or venue reconstruction is used.",
+    "illustrationCandidate": {
+      "status": "reviewed_generic_illustration",
+      "path": "/service-photos/sx-indoor-childrens-birthday-party-v1.webp",
+      "sha256": "03e6d5809c32b56f4f07c348b2e1c5eaba2c54c593435f06983a4294487f29a0",
+      "scope": "Staged generic indoor birthday room. No actual venue, visitors or provider assets. The cake is illustrative and the listing explicitly says it is not included."
+    },
+    "inventoryIdentity": "dfca4ae951fc0b5c0d95a7488faf3ebca9fe0cc771b6c8faadad524c42ac38e0",
+    "normalizedRecordSha256": "6c4c0f60008d5bd6bc11f11f8560183a5a69c8cba8cad8df5778ebb5ab9357c7",
+    "rawRecordSha256": "e7414c65b602691a8dcc3033166c2889b3d2b3d0b58050e1efefc0c46c61b8b5",
+    "coverage": { "physical": [1, 2], "located": [0, 1] }
+  }
+}

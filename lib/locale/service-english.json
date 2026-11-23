@@ -17,6 +17,30 @@
     "manualRevalidations": [
       {
         "checkedOn": "2026-11-23",
+        "businessId": "sofia-sharen-svyat-lyulin5-block519g",
+        "inventoryIdentity": "dfca4ae951fc0b5c0d95a7488faf3ebca9fe0cc771b6c8faadad524c42ac38e0",
+        "reason": "Preserves the priced 10-child package, extras, cake and postponement rules, and distinguishes the confirmed deposit requirement from how it is applied.",
+        "entriesAdded": { "names": 1, "descriptions": 1, "units": 1 },
+        "certifiedHumanTranslation": false
+      },
+      {
+        "checkedOn": "2026-11-23",
+        "businessId": "sofia-horo-moderno-predgradie-evropa20",
+        "inventoryIdentity": "b3cff2506266b23b8dd62f1d4e21dc2de590451f99b5df0714a5693a2f848842",
+        "reason": "Keeps the in-person beginner group, phone enrolment and points the customer to the school to confirm the fee.",
+        "entriesAdded": { "names": 1, "descriptions": 1, "units": 0 },
+        "certifiedHumanTranslation": false
+      },
+      {
+        "checkedOn": "2026-11-23",
+        "businessId": "sofia-des-georgieva-makeup",
+        "inventoryIdentity": "f79576363c2ca586aa8935ac89431f17b8bca9009c0beda91e2fb6161e16a3d1",
+        "reason": "Preserves separate studio confirmation, the 50% surcharge outside the stated hours and the expressive makeup service's exclusion of eyeliner.",
+        "entriesAdded": { "names": 0, "descriptions": 1, "units": 0 },
+        "certifiedHumanTranslation": false
+      },
+      {
+        "checkedOn": "2026-11-23",
         "businessId": "sofia-infinity-team-strelbishte-bulgaria43",
         "inventoryIdentity": "380cf108c38c833f495ff4643de16cf344112cc97dd0fb0bf388f5b63e5ab906",
         "reason": "Preserves the 13+ age condition, branch and callback requirement without implying a free or confirmed trial.",
@@ -1130,6 +1154,7 @@
     "Български народни танци · начинаещи · Света Троица": "Bulgarian folk dances · beginners · Sveta Troitsa",
     "Български народни танци · средно към напреднало ниво · Арменски дом": "Bulgarian folk dances · intermediate to advanced · Armenski Dom",
     "Български народни танци · средно ниво · Руски паметник": "Bulgarian Folk Dances · medium level · Russian Monument",
+    "Български народни танци за начинаещи": "Bulgarian folk dance for beginners",
     "Български народни танци за начинаещи · групов урок": "Bulgarian folk dances for beginners · group lesson",
     "Български народни танци за начинаещи · стадион Славия": "Bulgarian folk dances for beginners · Slavia Stadium",
     "Бърз маникюр · гел лак": "Quick manicure · gel polish",
@@ -1559,6 +1584,7 @@
     "Детски рожден ден · Всички спомени (25–40 кадъра)": "Kids birthday party · All memories (25–40 photos)",
     "Детски рожден ден · Любими моменти (10 кадъра)": "Kids birthday party · Favorite Moments (10 photos)",
     "Детски рожден ден · заснемане": "Kids birthday party · Filming",
+    "Детски рожден ден · пакет за 10 деца": "Children’s birthday · package for 10 children",
     "Детски стоматологичен преглед": "Children's dental examination",
     "Детско подстригване": "Children's haircut",
     "Детско подстригване ( на деца до 7 год.)": "Children's haircut (for children up to 7 years old)",
@@ -6412,6 +6438,7 @@
     "смяна на предпазен клапан на бойлер": "change of boiler safety valve"
   },
   "descriptions": {
+    "Зала, украса, детско меню, кетъринг, аниматор и занимания. Още дете: 10,23 €. +30 мин: 30 €; +1 ч: 60 €. Без външна храна и напитки. Торта отделно; внесена: 7 € и сертификат. Невъзстановимо капаро 50 €; уточнете отчитане и отказ. Отлагане до 48 ч преди партито (3 дни при торта от клуба).": "Hall, decorations, children’s meals, catering, an entertainer and activities. Extra child: €10.23. Extra 30 min: €30; extra 1 h: €60. No outside food or drinks. Cake is separate; bring your own for €7 with a certificate. Non-refundable €50 deposit; confirm how it is applied and the cancellation terms. Reschedule at least 48 h ahead (3 days with a club-ordered cake).",
     "Началната цена е с ДДС и включва системата с цилиндрична бутилка до 40 л, монтаж, настройка, сервизна книжка и монтажен протокол. Крайната цена зависи от автомобила, сложността на монтажа и избраните допълнения.": "The starting price includes VAT, the system with a cylindrical tank up to 40 L, installation, calibration, a service booklet and an installation report. The final price depends on the vehicle, the complexity of the installation and any optional extras.",
     "Безплатна първа консултация по счетоводните нужди на бизнеса. След заявката кантората се свързва с вас, за да уточни срещата. Месечното обслужване не е включено.": "A free first consultation about your business’s accounting needs. The firm will contact you after your request to arrange the meeting. Monthly accounting services are not included.",
     "Едно присъствено посещение на кръгова интервална тренировка. Изискват се предварително записване и поне двама записани. За сутрешните тренировки записването е до 19:00 ч. предния ден.": "One in-person interval circuit workout. Advance booking and at least two sign-ups are required. For morning classes, book by 19:00 the previous day.",
@@ -7503,6 +7530,8 @@
     "Посочено като мобилна услуга; не се предлага стационарно според тарифната таблица.": "Indicated as a mobile service; is not available on a fixed basis according to the tariff table.",
     "Поставяне на плоски мигли; поддръжката и свалянето са отделни услуги.": "Flat eyelash extensions; maintenance and removal are separate services.",
     "Потвърждението е допълнително от студиото. Преди 09:00 и след 19:00 се добавят 50% към цената.": "The confirmation is additional from the studio. Before 09:00 and after 19:00 are added 50% to the price.",
+    "Потвърждението е допълнително от студиото. Преди 09:00 и след 19:00 се добавят 50% към цената. Не включва очна линия.": "The studio confirms the booking separately. A 50% surcharge applies before 09:00 and after 19:00. Eyeliner is not included.",
+    "Присъствени групови занимания за начинаещи. Уточни по телефона приема в групата, графика и таксата.": "In-person group classes for beginners. Call the school to ask about joining the group, the schedule and the fee.",
     "Почасов диапазон според броя гости; точната оферта се потвърждава при записване. Цената включва използване на кадри в портфолиото на фотографа; поверителност се уточнява предварително.": "Hourly range according to number of guests; The exact offer is confirmed upon enrollment. The price includes use of footage in the photographer's portfolio; confidentiality shall be specified in advance.",
     "Почасова базова ориентировъчна цена; не обща цена за посещение и не обещана продължителност. Състоянието на козината и допълнителната работа влияят на крайната сума.": "Hourly base guide price; no total cost per visit and no promised duration. The condition of the coat and additional work affect the final amount.",
     "Почасова специализирана консултация след първата безплатна среща за избор и сравнение на програми и индивидуална стратегия за кандидатстване. Бакалавърският или магистърският интерес се уточнява в заявката. Самото подаване на кандидатури и университетските такси не са включен пакет.": "Hourly specialist consultation after the first free meeting, to choose and compare programmes and develop an individual application strategy. Specify undergraduate or postgraduate interest in the request. Submission of applications and university fees are not an included package.",
@@ -8230,6 +8259,7 @@
     "Часът се уговаря с преподавателя; първоначално се изготвя индивидуален график.": "The class is arranged with the lecturer; an individual schedule is initially drawn up."
   },
   "units": {
+    "пакет за 10 деца": "package for 10 children",
     "пакет за половин ден": "half-day package",
     "пакет за цял ден": "full-day package",
     "на човек": "per person",

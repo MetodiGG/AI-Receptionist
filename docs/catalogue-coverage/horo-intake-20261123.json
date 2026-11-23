@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "status": "reviewed_local_not_published",
+  "priority": "First verified sport premise in the Модерно предградие cell before aggregate catalogue growth",
+  "business": {
+    "id": "sofia-horo-moderno-predgradie-evropa20",
+    "name": "Танцова школа „Хоро“ · Модерно предградие",
+    "cityCode": "68134",
+    "neighborhood": "Модерно предградие",
+    "address": "София, кв. Модерно предградие, бул. Европа 20, НЧ „Св. св. Кирил и Методий – 1922“",
+    "website": "https://horo-bg.org/",
+    "phone": "+359887927762",
+    "validUntil": "2026-12-23",
+    "category": "fitness",
+    "locationKind": "premises",
+    "duplicateCheck": "No match for the operator brand, domain, exact business telephone or Evropa/Slivnitsa 20 in the current catalogue and prior coverage/pricing research. The other advertised Sofia hall, municipal building, individual leaders, rehearsals for each skill level and shows are not separate entries in this intake."
+  },
+  "addressEvidence": {
+    "servicePremises": [
+      "https://horo-bg.org/танцувай-с-нас/",
+      "https://horo-bg.org/танцова-школа-хоро-открива-нова-група/"
+    ],
+    "venueCorroboration": [
+      "https://www.sofia.bg/bg/landscaped-areas-in-the-district-of-vrubnitsa",
+      "https://artsofia.bg/bg/events/2025/05/24/narodno-chitalishte-sv-sv-kiril-i-metodij-1922-praznichni-iniciativi-po-sluchaj-24-maj-i-103-godini-ot-osnovavaneto-na-chitalishteto",
+      "https://chitalishta.com/community/hash/5e3dc6ee9aab01c3b1993fe6aec7488d0bf0bbaa"
+    ],
+    "municipalSource": {
+      "url": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+      "sha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+      "bytes": 12601716,
+      "licence": "CC-BY-4.0",
+      "attribution": "ГИС София / Столична община"
+    },
+    "municipalRow": {
+      "rn": "15217",
+      "region": "Връбница",
+      "settlement": "гр. София",
+      "street": "бул. Сливница",
+      "house": "20",
+      "block": "",
+      "quarter": "",
+      "entrance": "",
+      "latitude": 42.721792,
+      "longitude": 23.271684
+    },
+    "namedHostCorroboration": {
+      "dataset": "https://api.sofiaplan.bg/datasets/131",
+      "metadataAndReuse": "https://sofiaplan.bg/api/",
+      "attribution": "ОП „Софияплан“ · „Читалища“",
+      "date": "2020-08-07",
+      "featureId": "32385",
+      "gisId": "32368",
+      "featureCode": "13.025",
+      "publicAddress": "бул. Европа 20",
+      "latitude": 42.721805002,
+      "longitude": 23.271762,
+      "distanceFromCsvMetresApprox": 6.5
+    },
+    "decision": "The operator lists the exact numbered hall at the named cultural centre. City ownership and the culture registry confirm the named host and quarter, and the SofiaPlan open named feature uses the exact public address. The CSV contains no literal Evropa 20; its unique Sofia Slivnitsa 20 row in the correct municipality district is about 6.5 metres from that named building feature. The name and coordinate evidence relate specifically to this hall, not a general claim that both street names are interchangeable across Sofia. Keep the customer-facing address as Evropa 20 and the municipal CSV WGS84 point as the postal point, not an entrance survey."
+  },
+  "bookingEvidence": {
+    "actualEntry": "https://horo-bg.org/танцова-школа-хоро-открива-нова-група/",
+    "contact": "https://horo-bg.org/контакти/",
+    "currentClassProgramme": "https://horo-bg.org/танцувай-с-нас/",
+    "kind": "phone",
+    "decision": "The exact hall's owner enrollment announcement directs interested beginner dancers to continued classes and its actual contact page. The standing programme still offers beginners at the same hall, and the owner contact page names the public enrolment contact. The page shows a recurring weekday pattern, not open or guaranteed slots; the historical start day and both sets of clock times are not imported. No calls, CAPTCHA interaction, booking or form submissions."
+  },
+  "service": {
+    "name": "Български народни танци за начинаещи",
+    "description": "Присъствени групови занимания за начинаещи. Уточни по телефона приема в групата, графика и таксата.",
+    "appointmentModel": "group_reservation",
+    "pricingDecision": "not_publicly_listed",
+    "pricingReviewState": "service_reviewed",
+    "priceReview": "Read the actual publicly accessible enrollment/contact entry, recurring beginner programme and separate services page. There is no numerical price for the selected regular class or a published fee menu that could not be read. Performances are separate. No price, duration, opening hours or current availability shown.",
+    "english": {
+      "name": "Bulgarian folk dance for beginners",
+      "description": "In-person group classes for beginners. Call the school to ask about joining the group, the schedule and the fee."
+    },
+    "approvedActivityPhotoId": "sx-bulgarian-folk-group"
+  },
+  "sourcePolicy": "Reviewed public operator navigation/footer and targeted terms search, with no separately published data restriction found for these narrow paraphrased business facts. No reuse licence claimed. No biography, published timetable, full source excerpt, reviews or original imagery copied.",
+  "identities": {
+    "inventoryIdentity": "b3cff2506266b23b8dd62f1d4e21dc2de590451f99b5df0714a5693a2f848842",
+    "normalizedRecordSha256": "3e1c72c6964dec349f4eea5afa3a773486bc997a6df76a3096766b79d685fbb9"
+  },
+  "verifiedCoverageProjection": {
+    "target": 30,
+    "neighborhood": "Модерно предградие",
+    "category": "fitness",
+    "physicalPremises": [0, 1],
+    "withUsableAddressPoint": [0, 1],
+    "newBusinesses": 1,
+    "newServices": 1,
+    "verifiedPublicPriceFacts": 0
+  },
+  "safeguards": {
+    "reviewsAndOwnerAssetsCopied": false,
+    "contactAttemptsSubmissionsOrBookings": 0,
+    "mapGeocoderOrPaidProviderRequests": 0,
+    "productionWrites": 0
+  }
+}

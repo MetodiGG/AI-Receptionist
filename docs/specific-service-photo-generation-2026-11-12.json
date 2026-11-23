@@ -4,6 +4,26 @@
   "scope": "Illustrative service-specific photos for approved Sofia catalogue entries; not actual business premises, staff, work or results.",
   "assets": [
     {
+      "id": "sx-indoor-childrens-birthday-party",
+      "label": "Детски рожден ден на закрито",
+      "sourceFile": "exec-4f744393-cfb7-4249-9500-87ddae7aab2d.png",
+      "sourceSha256": "53cc4a8938bd0fcf20ac027dc03ab8c42cc0d47c789c63bf874628d7965b9eaf",
+      "bytes": 47050,
+      "sha256": "03e6d5809c32b56f4f07c348b2e1c5eaba2c54c593435f06983a4294487f29a0",
+      "prompt": "Use case: photorealistic-natural. Asset: square GoRez service thumbnail (keeps legibility at 40–80 px). Generate a candid, realistic editorial photograph of a generic indoor children's birthday party venue ready for guests: a modest, warm daylight room and a central child-height party table with a small unbranded birthday cake and neat reusable party tableware, bright colorful low chairs, and a clearly recognizable restrained cluster of cheerful balloons behind the table. Leave some clear play floor; tangible natural wood, domestic light and everyday proportions. Frame from child's eye level in a single scene, key features in the central crop. No people, no specific venue resemblance, no text, logo, numbers, collage, cameras, watermark, giant fantasy décor or stock gloss. This is a category illustration only, not a representation of any actual venue.",
+      "file": "public/service-photos/sx-indoor-childrens-birthday-party-v1.webp",
+      "width": 640,
+      "height": 640,
+      "generatedOn": "2026-11-23",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "53cc4a8938bd0fcf20ac027dc03ab8c42cc0d47c789c63bf874628d7965b9eaf",
+        "reviewers": ["/root"],
+        "method": "Viewed the full source and compressed WebP. Balloons, low chairs and the birthday table are legible at catalogue size. No real venue, photos, branding or people are represented. The cake is illustrative, not claimed as included; the exact listing states the owner's cake conditions. Full-frame resize and WebP conversion only."
+      }
+    },
+    {
       "id": "sx-child-chess-group",
       "label": "Групов курс по шах за деца",
       "sourceFile": "exec-c312d92e-8f9f-44c2-933f-1e32a61b25a6.png",

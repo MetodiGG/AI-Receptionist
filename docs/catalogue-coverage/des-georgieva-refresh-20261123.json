@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "baseline": "bf871f058d8fabd5cb3d21b953299e88667b4b89",
+  "status": "prepared_locally_not_published",
+  "id": "sofia-des-georgieva-makeup",
+  "name": "Des Georgieva Makeup Artist",
+  "category": "beauty",
+  "neighborhood": "Люлин 2",
+  "priorAddress": "София, ж.к. Люлин 2, бл. 280",
+  "address": "София, ж.к. Люлин 2, бл. 280, вх. В",
+  "ownerBooking": "https://www.desgeorgievamua.com/book-online",
+  "ownerServiceBase": "https://www.desgeorgievamua.com/service-page/",
+  "point": {
+    "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "method": "verified_official_address",
+    "addressId": "101062",
+    "latitude": 42.722343,
+    "longitude": 23.252351,
+    "municipalCsvSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+    "administrativeDistrict": "Люлин",
+    "evidence": "Checked the owner booking menu first, then the actual detail pages for all six services. Each identifies the in-studio location at the same public block and entrance. The municipal CSV contains exactly one matching entrance В for block 280 in district Люлин, and does not assign the numeric quarter; Люлин 2 is from the owner. This is a postal point, not a surveyed door. Do not use the neighboring entrances, infer a floor or an apartment, or import an address for mobile visits."
+  },
+  "tariff": {
+    "currency": "EUR",
+    "sourceEffectiveFrom": "2026-11-01",
+    "checkedOn": "2026-11-23",
+    "validUntil": "2026-12-23",
+    "bookingConditions": "The owner confirms requests separately. A 50% surcharge applies before 09:00 and after 19:00. The express service excludes eyeliner; the appointment duration is 40 minutes and the descriptive timing is 30–40 minutes. The trial is a starting price. The bridal price is only for the studio; a separate home visit, packages and supplements are not copied into this listing.",
+    "services": [
+      { "slug": "експресен-грим", "name": "Експресен грим", "oldAmount": 30, "amount": 40, "oldMinutes": 45, "minutes": 40, "kind": "fixed" },
+      { "slug": "ежедневен-грим", "name": "Ежедневен грим", "oldAmount": 40, "amount": 50, "oldMinutes": 75, "minutes": 80, "kind": "fixed" },
+      { "slug": "вечерен-грим", "name": "Вечерен грим", "oldAmount": 45, "amount": 50, "oldMinutes": 90, "minutes": 90, "kind": "fixed" },
+      { "slug": "абитуриентски-грим", "name": "Абитуриентски грим", "oldAmount": 60, "amount": 70, "oldMinutes": 90, "minutes": 100, "kind": "fixed" },
+      { "slug": "пробен-грим", "name": "Пробен грим", "oldAmount": 70, "amount": 70, "oldMinutes": 120, "minutes": 120, "kind": "from" },
+      { "slug": "сватбен-грим", "name": "Сватбен грим · в студиото", "oldAmount": 70, "amount": 80, "oldMinutes": 120, "minutes": 120, "kind": "fixed" }
+    ]
+  },
+  "priorRowSha256": "e3919beea5872429b424bb2e566fea1d9ddba568e2cf5aad87447aa100435e39",
+  "reviewedRowSha256": "f13ab69e30606c5a026335bf5b78fe8065518be27e8f8a0b58f2774724474850",
+  "priorPricingIdentity": "e2f688e7c2bc92b9afec8f78cce924650c21f606cd5a3cb35cfd226d932c5cd3",
+  "pricingIdentity": "f79576363c2ca586aa8935ac89431f17b8bca9009c0beda91e2fb6161e16a3d1"
+}

@@ -7,7 +7,7 @@ import koba from '../docs/catalogue-coverage/koba-intake-20261123.json' with { t
 import infinity from '../docs/catalogue-coverage/infinity-intake-20261123.json' with { type: 'json' }
 import batch from '../docs/catalogue-coverage/workshop-lessons-priority-20261123.json' with { type: 'json' }
 import english from '../lib/locale/service-english.json' with { type: 'json' }
-import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { SOFIA_CATALOGUE as currentCatalogue } from '../lib/discovery/sofia-catalogue.mjs'
 import { BOOKING_PRICE_REVIEWS } from '../lib/discovery/catalogue-data/pricing-booking-review-v1.mjs'
 import { assessPricingReview, pricingIdentity } from '../lib/discovery/catalogue-pricing-review.mjs'
 import { catalogueBoundCoordinates } from '../lib/discovery/catalogue-coordinate-binding.mjs'
@@ -16,6 +16,9 @@ import { matchesSubcategory } from '../lib/discovery/subcategories.mjs'
 import { createEnglishContentResolver } from '../lib/locale/public-content-resolver.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
 import { workshopLessonsPriorCatalogue } from './catalogue-workshop-lessons-20261123-scope.mjs'
+import { quarterRefreshPriorCatalogue } from './catalogue-quarter-refresh-20261123-scope.mjs'
+
+const SOFIA_CATALOGUE = quarterRefreshPriorCatalogue(currentCatalogue)
 
 const now = Date.parse(batch.checkedAt)
 const sha256 = bytes => createHash('sha256').update(bytes).digest('hex')

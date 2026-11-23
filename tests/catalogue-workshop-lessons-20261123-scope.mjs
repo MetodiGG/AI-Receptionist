@@ -6,6 +6,7 @@ import batch from '../docs/catalogue-coverage/workshop-lessons-priority-20261123
 import koba from '../docs/catalogue-coverage/koba-intake-20261123.json' with { type: 'json' }
 import ucha from '../docs/catalogue-coverage/courses-recreation-intake-20261123.json' with { type: 'json' }
 import infinity from '../docs/catalogue-coverage/infinity-intake-20261123.json' with { type: 'json' }
+import { quarterRefreshAllowsFileChange, quarterRefreshAllowsNewFile, quarterRefreshPriorSource, quarterRefreshPriorCatalogue } from './catalogue-quarter-refresh-20261123-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const digest = value => createHash('sha256').update(value).digest('hex')
@@ -34,10 +35,11 @@ function matchesFile(path, sha) {
   if (!sha) return false
   try { return digest(readFileSync(new URL('../' + path, import.meta.url))) === sha } catch { return false }
 }
-export const workshopLessonsAllowsFileChange = path => Object.hasOwn(changed, path) && matchesFile(path, changed[path][1])
-export const workshopLessonsAllowsNewFile = path => Object.hasOwn(added, path) && matchesFile(path, added[path])
+export const workshopLessonsAllowsFileChange = path => quarterRefreshAllowsFileChange(path) || Object.hasOwn(changed, path) && matchesFile(path, changed[path][1])
+export const workshopLessonsAllowsNewFile = path => quarterRefreshAllowsNewFile(path) || Object.hasOwn(added, path) && matchesFile(path, added[path])
 
 export function workshopLessonsPriorSource(path, source) {
+  source = quarterRefreshPriorSource(path, source)
   if (!Object.hasOwn(changed, path) || !/KOBA_INTAKE_20261123|COURSES_RECREATION_INTAKE_20261123|INFINITY_INTAKE_20261123|sofia-koba-auto-bosch-rodopi27|sofia-ucha-land-dianabad-novachnitsa3|sofia-infinity-team-strelbishte-bulgaria43|sx-child-chess-group/u.test(source)) return source
   const [before, after] = changed[path]
   if (digest(source) !== after) throw Error('Unreviewed 23 Nov workshop-lessons priority source delta: ' + path)
@@ -51,7 +53,7 @@ export function workshopLessonsPriorSource(path, source) {
 
 export function workshopLessonsPriorCatalogue(rows) {
   const seen = new Set()
-  return rows.filter(row => {
+  return quarterRefreshPriorCatalogue(rows).filter(row => {
     const hash = newRows.get(row.id)
     if (!hash) return true
     if (seen.has(row.id)) throw Error('Duplicate workshop-lessons priority record: ' + row.id)

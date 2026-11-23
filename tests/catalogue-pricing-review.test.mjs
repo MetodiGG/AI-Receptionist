@@ -30,6 +30,8 @@ import { SPECIALIST_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-d
 import { KOBA_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-koba-intake-20261123.mjs'
 import { COURSES_RECREATION_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-courses-recreation-20261123.mjs'
 import { INFINITY_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-infinity-intake-20261123.mjs'
+import { HORO_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-horo-intake-20261123.mjs'
+import { SHARENSVYAT_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-sharen-svyat-intake-20261123.mjs'
 const now = Date.parse('2026-11-11T12:00:00Z')
 const record = () => structuredClone(SOFIA_CATALOGUE.find(row => row.id === 'sofia-cut-n-chill'))
 const review = () => structuredClone(BOOKING_PRICE_REVIEWS.find(row => row.id === 'sofia-cut-n-chill'))
@@ -145,6 +147,8 @@ test('dated audit receipts cover every current ID without rewriting the historic
     [KOBA_INTAKE_20261123_REVIEWS, 'sofia-koba-auto-bosch-rodopi27', 'service_reviewed'],
     [COURSES_RECREATION_INTAKE_20261123_REVIEWS, 'sofia-ucha-land-dianabad-novachnitsa3', 'reviewed'],
     [INFINITY_INTAKE_20261123_REVIEWS, 'sofia-infinity-team-strelbishte-bulgaria43', 'service_reviewed'],
+    [HORO_INTAKE_20261123_REVIEWS, 'sofia-horo-moderno-predgradie-evropa20', 'service_reviewed'],
+    [SHARENSVYAT_INTAKE_20261123_REVIEWS, 'sofia-sharen-svyat-lyulin5-block519g', 'reviewed'],
   ]) {
     assert.deepEqual(reviews.map(row => row.id), [id])
     assert.equal(auditedIds.has(id), false)

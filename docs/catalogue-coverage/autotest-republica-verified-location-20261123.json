@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "baseline": "bf871f058d8fabd5cb3d21b953299e88667b4b89",
+  "status": "prepared_locally_not_published",
+  "id": "sofia-autotest-gtp-metro-lyulin",
+  "name": "ГТП Аутотест Груп · Метро Люлин",
+  "category": "auto_repair",
+  "previousNeighborhood": null,
+  "neighborhood": "Република",
+  "address": "София, бул. Европа 182, МЕТРО Люлин",
+  "owner": "https://gtp.bg/location/punkt-sofia-metro-liulin/",
+  "point": {
+    "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "method": "verified_official_address",
+    "addressId": "88654",
+    "latitude": 42.746792510015275,
+    "longitude": 23.23194185241712,
+    "municipalCsvSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+    "roundedPostalPoint": [42.746793, 23.231942],
+    "administrativeDistrict": "Връбница",
+    "evidence": "Kept the catalogue’s existing uniquely matched official municipal point and precision, address, source and original point review date. The corresponding user-supplied CSV row has a blank quarter and the administrative district Vrabnitsa; neither the district, business name Metro Lyulin, nor the point is used to infer the quarter. This is the postal point for the property, not a surveyed workshop door. No other catalogue listing shares this address ID or exact stored point."
+  },
+  "corroboration": {
+    "hostProperty": "https://www.metro.bg/magazini/sofia2",
+    "bulgarianRedCross": "https://www.redcross.bg/files/22937-containers-list-brc-10.09.2025-1-.pdf",
+    "bulgarianRedCrossPropertyRow": "7161",
+    "interpretation": "The current operator gives boulevard Evropa 182, METRO Lyulin. METRO’s own Sofia 2 location page gives the identical numbered Sofia address and explicitly names Auto Test Group as its on-site vehicle inspection provider. The Bulgarian Red Cross lists its METRO-2 container location in Sofia, Republica, at boulevard Evropa 182. This establishes the quarter of the actual shared property without assigning an approximate point or using the word Lyulin in the brand as a numbered quarter."
+  },
+  "priceAndBooking": {
+    "retainedTariffSource": "https://gtp.bg/location/punkt-sofia-metro-liulin/",
+    "ownerBookingLanding": "https://gtp.bg/reservation/",
+    "retainedBookingMode": "phone",
+    "retainedPhone": "+35970018752",
+    "retainedBookingEvidence": "https://gtp.bg/%D0%BE%D0%B1%D1%89%D0%B8-%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8F-%D0%BD%D0%B0-%D0%B0%D1%83%D1%82%D0%BE%D1%82%D0%B5%D1%81%D1%82-%D0%B3%D1%80%D1%83%D0%BF-%D0%B5%D0%BE%D0%BE%D0%B4/",
+    "matchedRetainedTariffs": {
+      "M1N1InspectionEUR": 59.9,
+      "LInspectionEUR": 59.9,
+      "O1O2InspectionEUR": 59.9,
+      "initialGasSystemInspectionEUR": 59.9,
+      "environmentalGroupEUR": 59.9,
+      "secondInspectionWithin30DaysEUR": 29.9,
+      "premiumPackageEUR": 44.9
+    },
+    "retainedFacts": "The current branch tariff displays the same published EUR amounts and service categories as the seven retained services. The operator’s own terms continue to allow reservations by call centre choosing the location, date/time and service, and retain the 10-minute advance arrival and tax-inclusive price terms. The actual branch reservation link was inspected without entering data; no appointment confirmation, new price, expiry, public description, hours, or other booking metadata is imported or refreshed. This is an address-scope correction, not a new pricing intake."
+  },
+  "sourcePolicy": "Read only public operator sources, the named host property and the independent Red Cross address register for this single venue. No map-provider result, account, call, booking submission, user data, source media or promotional/public reviews were used.",
+  "previousRowSha256": "a6a4d9e38a6c7af03d66a7f7c93e28810577f495273814b7ced67b706e8c5277",
+  "reviewedRowSha256": "bf09a1f3668eace09e9e219db9754ec42890ccd4d4f5b0c9f13ee12648d88dc2",
+  "pricingIdentity": "eb2e3a09d570cc53bcc0509923dc77c424aabe5ce4d8bd526777fe3824e3ed61",
+  "coverage": { "physical": [0, 1], "located": [0, 1] }
+}

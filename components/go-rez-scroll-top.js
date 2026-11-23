@@ -82,8 +82,9 @@ export function GoRezScrollTop() {
     }
   }, [pathname, visible])
 
-  function goToTop(event) {
-    if (event.detail === 0) focusPageStart()
+  // A focused control disappearing mid-scroll can interrupt the animation.
+  function goToTop() {
+    focusPageStart()
     window.scrollTo(scrollTopOptions(window.matchMedia('(prefers-reduced-motion: reduce)').matches))
   }
 

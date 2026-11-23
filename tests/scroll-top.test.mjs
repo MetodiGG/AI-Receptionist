@@ -23,6 +23,13 @@ test('the inset clears a visible bottom navigation and adapts to a larger dock',
   assert.equal(scrollTopDockInset(800, -10), null)
 })
 
+test('activation moves focus before the animated scroll for pointer and keyboard alike', () => {
+  const component = readFileSync(new URL('../components/go-rez-scroll-top.js', import.meta.url), 'utf8')
+  // A pointer-focused control hiding at the reveal threshold otherwise stops
+  // Chrome's smooth scroll before the page reaches the top.
+  assert.match(component, /function goToTop\(\) \{\s*focusPageStart\(\)\s+window\.scrollTo\(/)
+})
+
 test('the root mounts one localized button with keyboard focus return, theme and modal treatment', () => {
   const source = path => readFileSync(new URL(path, import.meta.url), 'utf8')
   const layout = source('../app/layout.js')

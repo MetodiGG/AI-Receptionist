@@ -12,7 +12,7 @@ const changed = {
   'lib/service-photo-catalogue-matches.mjs': ['aba631bc8637383a89f202a3e7868ccbc8c7a21f4544005e8649c27904efa70d', '1f87a862bf16e4e5bc3ef45ab45f81429d48a6183e36af38fbd1fb4e4c3c7117'],
 }
 const newFiles = {
-  'components/go-rez-scroll-top.js': '88452bc9897e9c25effe0754cc14edf40eadd75cff7e2075e1c57e9f453a88e3',
+  'components/go-rez-scroll-top.js': '6a47aa5141aee32906704e7a61c52a486856ad248658de7af44dd77ccaaad79c',
   'components/go-rez-scroll-top.module.css': '9602d7d2c727e96b89d5b20d99906dcf775cc9c6b3b947aac48b8f38e5eb518f',
   'lib/scroll-top.mjs': '75db68056c4127155d814d58055bfa32f56742f0a5678e94bb10943642612469',
 }

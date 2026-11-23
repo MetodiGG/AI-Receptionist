@@ -66,7 +66,9 @@ test('the actual static cache covers every checked-in public/all source name, re
   // Kanev Carpet adds four titles and descriptions; the D.C.A. rear-window menu adds five names and one common description.
   // Five verified premises add eight names, seven descriptions and the three-instalment unit.
   // The driving school adds one course title and one enrolment description.
-  assert.deepEqual(Object.fromEntries(Object.entries(all.totals).map(([key, value]) => [key, value.unique])), { names: 6051 + 4 + 2 + 1 + 2 + 2 + 2 + 3 + 1 + 5 + 2 + 2 + 18 + 4 + 5 + 8 + 1, descriptions: 1804 + 3 + 2 + 1 + 2 + 3 + 3 + 4 + 2 + 5 + 5 + 3 + 11 + 4 + 1 + 7 + 1, units: 661 + 2 + 1 + 1 + 1 + 1 })
+  // Drive School adds a course title, tuition and exam description, and per-course unit.
+  // The tennis venue adds one outdoor court title, one rate description and the court-hour unit.
+  assert.deepEqual(Object.fromEntries(Object.entries(all.totals).map(([key, value]) => [key, value.unique])), { names: 6051 + 4 + 2 + 1 + 2 + 2 + 2 + 3 + 1 + 5 + 2 + 2 + 18 + 4 + 5 + 8 + 1 + 1 + 1, descriptions: 1804 + 3 + 2 + 1 + 2 + 3 + 3 + 4 + 2 + 5 + 5 + 3 + 11 + 4 + 1 + 7 + 1 + 1 + 1, units: 661 + 2 + 1 + 1 + 1 + 1 + 1 + 1 })
   for (const result of [all, published]) for (const key of ['missing', 'invalid', 'quantityChanges', 'qualificationChanges']) assert.equal(result[key].length, 0, key)
   const cache = JSON.parse(await readFile(new URL('../lib/locale/service-english.json', import.meta.url), 'utf8'))
   assert.equal(cache.metadata.review.nameSourcesIndividuallyAgentReviewed, 6040)

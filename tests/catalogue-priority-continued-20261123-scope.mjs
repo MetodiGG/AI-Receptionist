@@ -3,6 +3,7 @@ import { execFileSync } from 'node:child_process'
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import batch from '../docs/catalogue-coverage/priority-continued-20261123.json' with { type: 'json' }
+import { priorityNextAllowsFileChange, priorityNextAllowsNewFile, priorityNextPriorSource, priorityNextPriorCatalogue } from './catalogue-priority-next-20261123-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = input => createHash('sha256').update(input).digest('hex')
@@ -24,10 +25,11 @@ const additions = new Map(batch.newRows.map(row => [row.id, row.normalizedRecord
 const evidence = /PRIORITY_CONTINUED_EAST_20261123_|sofia-yonitrade-suhata-reka-block10a|Шофьорски курс за категория B/u
 
 const fileMatches = (path, digest) => !!digest && sha(readFileSync(new URL('../' + path, import.meta.url))) === digest
-export const priorityContinuedAllowsFileChange = path => Object.hasOwn(changed, path) && fileMatches(path, changed[path][1])
-export const priorityContinuedAllowsNewFile = path => Object.hasOwn(added, path) && fileMatches(path, added[path])
+export const priorityContinuedAllowsFileChange = path => priorityNextAllowsFileChange(path) || (Object.hasOwn(changed, path) && fileMatches(path, changed[path][1]))
+export const priorityContinuedAllowsNewFile = path => priorityNextAllowsNewFile(path) || (Object.hasOwn(added, path) && fileMatches(path, added[path]))
 
 export function priorityContinuedPriorSource(path, source) {
+  source = priorityNextPriorSource(path, source)
   if (!Object.hasOwn(changed, path) || !evidence.test(source)) return source
   const [before, after] = changed[path]
   if (sha(source) !== after) throw Error('Unreviewed 23 Nov continued priority source delta: ' + path)
@@ -41,7 +43,7 @@ export function priorityContinuedPriorSource(path, source) {
 
 export function priorityContinuedPriorCatalogue(rows) {
   const seen = new Set()
-  return rows.filter(row => {
+  return priorityNextPriorCatalogue(rows).filter(row => {
     const expected = additions.get(row.id)
     if (!expected) return true
     if (seen.has(row.id)) throw Error('Duplicate continued priority row: ' + row.id)

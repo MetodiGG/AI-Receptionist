@@ -1,0 +1,69 @@
+{
+  "checkedOn": "2026-11-23",
+  "baselineCommit": "20349c2fa4a935f655a1bbc38f2968bf011c92c5",
+  "status": "verified_intake_not_published",
+  "targetPerQuarterCategory": 30,
+  "newDistinctOperators": 1,
+  "newLocatedPremises": 1,
+  "businesses": [
+    {
+      "id": "sofia-active-dental-mladost2-block295",
+      "name": "Дентална практика „Active“",
+      "nameEn": "Active Dental Practice",
+      "category": "other",
+      "neighborhood": "Младост 2",
+      "address": "София, ж.к. Младост 2, бл. 295, вх. 2, партер",
+      "municipal": {
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+        "addressId": "112843",
+        "latitude": 42.644243,
+        "longitude": 23.366363,
+        "region": "Младост",
+        "match": "One municipal row matches the owner-published quarter, block 295 and entrance 2. The dental practice in IAmN register record 2215112671 has the same block and entrance, and specifies office 4. The owner specifies the ground floor. This is an entrance address point, not a surveyed position of the interior office.",
+        "licence": "CC-BY-4.0"
+      },
+      "sources": {
+        "owner": "https://new.activedental.bg/",
+        "ownerRobots": "https://new.activedental.bg/robots.txt",
+        "ownerBook": "https://new.activedental.bg/book-appointment/",
+        "ownerContact": "https://new.activedental.bg/contact/",
+        "ownerDentalHealth": "https://new.activedental.bg/dentalno-zdrave/",
+        "ownerAesthetics": "https://new.activedental.bg/estetichna-stomatologia/",
+        "ownerImplants": "https://new.activedental.bg/implantologia/",
+        "ownerOrthodontics": "https://new.activedental.bg/ortodontia/",
+        "dentalPracticeRegister": "https://iamn.bg/wp-content/uploads/registers/22_REGISTER_LZ_dejstvashti.pdf"
+      },
+      "booking": "The first-party Book route was opened and responds normally; no usable online slots are advertised there. The operator explicitly invites appointment contact on the Dental Health service page and leads to the same-location contact phone +359876300990. The owner contact lists weekdays 09:00–18:00 and closes at weekends; these are business hours, not bookable slots. Phone is the only GoRez route. Generic contact form, other numbers, testimonials, patient data and images were not used or submitted.",
+      "tariff": "Read the actual booking landing, contact and all four first-party clinical menu pages; there is no numeric price or linked Prices page. Both selected services are named in the Dental Health menu. Review state service_reviewed / not_publicly_listed; no numeric prices, duration, insurance terms or availability inferred.",
+      "sourceUse": "Public owner routes respond normally. Robots allows ordinary pages and the reviewed site navigation/footer did not show a separate applicable terms/content-use page; no private data, protected page, original prose, photographs or testimonials were imported. The ordinary copyright notice is not a licence.",
+      "deduplication": "No current runtime record matches the normalized operator name, domain or booking phone. The other two primary Other records in this quarter do not match this provider and have no verified coordinates.",
+      "services": [
+        {
+          "nameBg": "Почистване на зъбен камък",
+          "nameEn": "Dental scaling",
+          "imageKey": "dental-cleaning",
+          "imageSha256": "aaff08357f740bdceba81e70a590e92a5a2bbeaa87d09c74a2cbfbf28e1c673f"
+        },
+        {
+          "nameBg": "Лечение на кариес",
+          "nameEn": "Cavity treatment",
+          "imageKey": "dental-filling",
+          "imageSha256": "10923d888fa9434948828469fc35c8640b717ae2b50a0e974625a28628efb178"
+        }
+      ],
+      "normalizedRecordSha256": "976a31ec7217586554881090bc6b70c37ff59d5a70492412bf3d24f40a9d02a3",
+      "inventoryIdentity": "559ff26348e451a0611ebf613978f6be453d42a4fccd24324a15b3c47b20328d"
+    }
+  ],
+  "holds": [
+    {
+      "name": "Бръснар Зейн",
+      "neighborhood": "Младост 2",
+      "category": "barber",
+      "source": "https://zeinbarbershop.lovable.app/",
+      "contrarySource": "https://m-residence.bg/bg/projects/m-residence-cyprian",
+      "reason": "Native render now exposes the owner appointment form, named services and prices, overcoming the earlier empty-shell hold. The barbershop gives ul. Sv. Kipriyan 60, which matches municipal row 94178. However, a current developer project advertises the same civic number as an Act 14 building with planned completion at the end of 2027. There may be a separate commercial entrance or legacy structure, but the current occupied salon unit needs corroboration before publishing directions or pin. No booking or phone/message sent, and no services or prices imported."
+    }
+  ]
+}

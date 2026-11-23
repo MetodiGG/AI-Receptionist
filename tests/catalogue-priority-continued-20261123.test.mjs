@@ -2,7 +2,7 @@ import assert from 'node:assert/strict'
 import test from 'node:test'
 import batch from '../docs/catalogue-coverage/priority-continued-20261123.json' with { type: 'json' }
 import east from '../docs/catalogue-coverage/priority-continued-east-20261123.json' with { type: 'json' }
-import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { SOFIA_CATALOGUE as CURRENT_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 import { catalogueBoundCoordinates } from '../lib/discovery/catalogue-coordinate-binding.mjs'
 import { normalizeCatalogueBusinesses } from '../lib/discovery/catalogue-search.mjs'
 import { assessPricingReview } from '../lib/discovery/catalogue-pricing-review.mjs'
@@ -10,8 +10,10 @@ import { BOOKING_PRICE_REVIEWS } from '../lib/discovery/catalogue-data/pricing-b
 import { serviceThumbnail } from '../lib/service-thumbnail.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
 import { priorityContinuedPriorCatalogue } from './catalogue-priority-continued-20261123-scope.mjs'
+import { priorityNextPriorCatalogue } from './catalogue-priority-next-20261123-scope.mjs'
 
 const now = Date.parse(batch.checkedAt)
+const SOFIA_CATALOGUE = priorityNextPriorCatalogue(CURRENT_CATALOGUE)
 const prior = priorityContinuedPriorCatalogue(SOFIA_CATALOGUE)
 const rows = new Map(SOFIA_CATALOGUE.map(row => [row.id, row]))
 const search = (row, overrides) => normalizeCatalogueBusinesses([row], {

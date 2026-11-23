@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "checkedAt": "2026-11-23T04:00:00Z",
+  "baselineCommit": "20349c2fa4a935f655a1bbc38f2968bf011c92c5",
+  "status": "verified_intake_not_published",
+  "targetPerQuarterCategory": 30,
+  "businesses": [
+    {
+      "id": "sofia-sokol-tennis-benkovski-stadium",
+      "category": "fitness",
+      "neighborhood": "Бенковски",
+      "address": "София, кв. Бенковски, бул. Лазар Михайлов, стадион „Георги Бенковски“",
+      "location": {
+        "type": "named_venue_not_civic_number",
+        "method": "first_party_coordinates",
+        "addressId": null,
+        "latitude": 42.741671187418945,
+        "longitude": 23.347205542328865,
+        "independentDocumentation": "Sofia's 2026 municipal event identifies the named stadium in this quarter. Decision R-314/2025 independently documents the sports property under municipal ownership file 2256, with the main sports building 68134.503.5951.3, and the public grounds' assignment to Sokol-Benkovski. The club's live booking-profile contact names the facility on Lazar Mihaylov Blvd. and directly sets the marker as that coordinate, not a viewport or a generated address approximation. The venue has no numbered civic CSV match. No. 130 in the decision is the registered address of the association, not stated as the entrance or address number of the tennis court."
+      },
+      "sources": {
+        "liveMerchantProfileAndBooking": "https://clicktoplay.io/club/%D1%82%D0%BA-%D1%81%D0%BE%D0%BA%D0%BE%D0%BB-%D0%B1%D0%B5%D0%BD%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%B8",
+        "bookingProviderPublicTerms": "https://clicktoplay.io/terms.php",
+        "municipalNamedFacility": "https://www.sofia.bg/bg/web/guest/w/7180307",
+        "municipalPropertyDecision": "https://council.sofia.bg/documents/d/guest/r-314-2025"
+      },
+      "rates": [
+        {
+          "name": "Наем на открит тенис корт",
+          "nameEn": "Outdoor tennis court rental",
+          "description": "Открит корт с изкуствена трева. Посочената онлайн цена е за 60 минути на един корт, без треньор. Проверете цената за избрания час в графика; плащане на място.",
+          "descriptionEn": "Outdoor artificial-grass court. The listed online rate is for 60 minutes on one court, without a coach. Check the price for your chosen time in the schedule; pay at the venue.",
+          "amount": 10,
+          "currency": "EUR",
+          "unit": "корт · час",
+          "unitEn": "court · hour",
+          "durationMin": 60,
+          "imageStatus": "reviewed_original_illustration_not_actual_venue",
+          "servicePhotoKey": "sx-outdoor-turf-tennis-court",
+          "thumbnailSha256": "12137ba319161d9bf47fa27c68478341d787da3ef2543d81ee35a31a6a501b19",
+          "coverSha256": "fd64ffbfeb5a36c598642ffdb667491e8c90b82974ae7951e008436cbee02e8f"
+        }
+      ],
+      "qualification": "The merchant's current, dated online calendar repeatedly offers the public 60-minute booking at EUR 10 for that one artificial-grass outdoor tennis court. Pay-at-venue is all that is represented. No trainer, other sport, guarantee of future prices, independently published hours, live GoRez slots or owner's photographs were inferred. Existing clay-court and coached tennis assets are inappropriate and were not selected for this intake.",
+      "identityCheck": "Brand, booking-profile address, facility name and independently corroborated municipality/club data were compared to the existing catalogue; no matching entity, duplicate facility or telephone. Compare the full merchant profile and phone, not the shared booking provider host alone.",
+      "pricingReview": "reviewed",
+      "normalizedRecordSha256": "61f8b6be3c3be2eb8c9951e9cf98562bb4954c0e46045b33b7f48d19b87450d1",
+      "inventoryIdentity": "771a7767f99e8d72db0c78b09f1200d43022d6f023ba7ecf484c1c9befb5da87",
+      "coverage": { "physical": [0, 1], "located": [0, 1] }
+    }
+  ],
+  "held": [
+    {
+      "name": "TK Team Kunchev",
+      "neighborhood": "Връбница 1",
+      "category": "fitness",
+      "sources": {
+        "currentMerchantProfile": "https://clicktoplay.io/club/tk-team-kunchev",
+        "independentFacilityPartner": "https://locations.mymultisport.bg/en/location/tennis-courts-team-kunchev",
+        "municipalSchoolAddress": "https://www.sofia.bg/en/municipality-schools-vrabnica"
+      },
+      "reason": "Current club and facility partner name the 74 SU grounds and publish the same phone. But the current court calendar displays all entries closed or not available, with no valid fee; numeric placeholders are not free admission. Its former booking URI now redirects to a generic page; the formerly indexed EUR 8.18 is not current and is not a group-training fee. Different public map points on the school grounds cannot be used interchangeably as the court entrance. Keep pending until the current group or court option is independently confirmed bookable at the proper point."
+    },
+    {
+      "name": "S&R beauty",
+      "neighborhood": "Орландовци",
+      "category": "beauty",
+      "municipalAddressId": "30367",
+      "evidence": ["https://www.orlikrasota.eu/profile-3586-s-r-beauty"],
+      "reason": "Known branch candidate at 42 Mara Buneva St. matching a unique official civic point. The appointment menu found in search is on a previously restricted provider and was not opened. No current own booking menu or explicit independently verified alternate booking route."
+    },
+    {
+      "name": "Be.You.Tiful",
+      "neighborhood": "Люлин 1",
+      "category": "beauty",
+      "evidence": ["https://www.beyoutifulstudio.com/", "https://hubost.com/firmi/be-you-tiful-sofia/"],
+      "reason": "The operator's website lists 102-ra St. without a civic number and separates hair/nail and beauty contact phones. It does not explicitly establish a current bookable service through either phone, and the identified schedule provider is already restricted; no ambiguous point or directory prices were imported."
+    },
+    {
+      "name": "Ратола Сервиз",
+      "neighborhood": "Орландовци",
+      "category": "auto_repair",
+      "evidence": ["https://ratola.com/bulgaria/service/contacts/bg/", "https://ratola.com/bulgaria/service/ktp/bg/"],
+      "reason": "The workshop and roadworthiness centre public pages distinguish contact channels; the current site does not explicitly verify that its general contact serves as ordinary bookable appointments. The historical offer required phone booking only for its split voucher bundle and is not current evidence."
+    }
+  ],
+  "coverageChange": { "newDistinctOperators": 1, "newLocatedPremises": 1, "newNonemptyExactCells": 1 },
+  "safeguards": "Only scoped public factual review, no accounts, mutations, paid integration, real reservations, copied venue images, inferred prices, or production changes."
+}

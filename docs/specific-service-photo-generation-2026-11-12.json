@@ -4,6 +4,28 @@
   "scope": "Illustrative service-specific photos for approved Sofia catalogue entries; not actual business premises, staff, work or results.",
   "assets": [
     {
+      "id": "sx-outdoor-turf-tennis-court",
+      "label": "Наем на открит тенис корт с изкуствена трева",
+      "sourceFile": "exec-2f29b5c0-6aec-4ab0-84a4-ae4a8f3a0e38.png",
+      "sourceSha256": "f714137a0e54196f4572e29a03c755ed4037517f8f463badb194cdcdd3622038",
+      "bytes": 20288,
+      "sha256": "12137ba319161d9bf47fa27c68478341d787da3ef2543d81ee35a31a6a501b19",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square illustrative photo for a service marketplace thumbnail\nPrimary request: a realistic outdoor tennis court with a clearly visible green artificial-grass playing surface, a regulation tennis net and white tennis court markings, plus one yellow tennis ball on the turf in the foreground.\nComposition: three-quarter court-level view, keep the turf, net, and recognizable tennis features in the central square for a small 256-pixel thumbnail. Soft natural daylight and a simple tree and fence background.\nMaterials: short even synthetic green turf with realistic texture, not natural long grass, clay, red dirt or hardcourt. No players, coaches, stadium names, signage, text, logos or watermark. Generic fictional venue, not a depiction of any specific business.",
+      "file": "public/service-photos/sx-outdoor-turf-tennis-court-v1.webp",
+      "width": 256,
+      "height": 256,
+      "generatedOn": "2026-11-23",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "f714137a0e54196f4572e29a03c755ed4037517f8f463badb194cdcdd3622038",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Viewed the original and the compressed square thumbnail. Green short artificial turf, white tennis markings, a net and a ball are visible without a coach or player. The fictional court is not the provider's venue. Full-frame WebP resize only."
+      }
+    },
+    {
       "id": "sx-adult-salt-room",
       "label": "Солна стая за възрастен",
       "sourceFile": "exec-64c49af7-4a9f-4839-9be6-7599b8348803.png",

@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "baselineCommit": "20349c2",
+  "checkedOn": "2026-11-23",
+  "status": "reviewed_local_leaf_not_published",
+  "priority": "Verified priced appointment premises in sparse cells of western and southwestern Sofia, without inferred neighborhoods, availability or prices.",
+  "newBusinessesPrepared": 1,
+  "newServicesPrepared": 1,
+  "newPricesPrepared": 1,
+  "source": {
+    "municipalAddressDataset": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "municipalCsvSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+    "attribution": "ГИС София / Столична община",
+    "licence": "CC-BY-4.0",
+    "method": "Exact municipal postal address matched against the supplied CSV; a postal point is not an independently surveyed facility entrance. Site evidence and official education-centre listing are complementary. No provider coordinates, forms submitted, personal data entered, calls, payments or remote mutations."
+  },
+  "admitted": [
+    {
+      "id": "sofia-drive-school-knyazhevo-tsar-boris365",
+      "name": "Drive School · Граматикови",
+      "category": "education",
+      "neighborhood": "Княжево",
+      "neighborhoodBasis": "The operator explicitly names Княжево on its teaching-centre contact page. The municipal row identifies the administrative district Витоша, without a separate neighbourhood field. The official transport listing independently agrees on #365 and the telephone.",
+      "ownerPremises": "София, кв. Княжево, бул. Цар Борис III 365",
+      "officialAddress": {
+        "rn": "13849",
+        "region": "Витоша",
+        "settlement": "гр. София",
+        "street": "бул. Цар Борис III",
+        "block": "",
+        "quarter": "",
+        "house": "365",
+        "entrance": "",
+        "latitude": 42.658797,
+        "longitude": 23.241196,
+        "candidates": 1
+      },
+      "ownerContact": "https://drive-school.eu/contact/",
+      "ownerIdentity": "https://drive-school.eu/about/",
+      "operatorRegister": {
+        "url": "https://rta.government.bg/upload/18444/uchebni_centrove.html",
+        "entry": "4239",
+        "registeredName": "АВТОКЛУБ 77",
+        "corroborated": "Teaching-centre address, contact telephone, B and B(78) entries; only the standard B course is admitted."
+      },
+      "booking": {
+        "kind": "form",
+        "url": "https://drive-school.eu/program/bcategoria/",
+        "rendered": "The course-specific CTA opens the owner's genuine modal form in place; it has no direct URL or instant availability display.",
+        "submitted": false
+      },
+      "tariff": {
+        "name": "Стандартен шофьорски курс · категория B",
+        "source": "https://drive-school.eu/",
+        "amount": 1120,
+        "currency": "EUR",
+        "unit": "full standard course, excluding exam fees",
+        "conditions": "The separate 60 EUR theory and 70 EUR practical exam fees are disclosed as conditions and are not individual bookable listings. No claim about total duration, VAT, available dates, prices of other courses or digital confirmation."
+      },
+      "openingHoursBasis": "Owner-listed office hours only, Monday to Friday 09:00–19:00. Actual lesson dates and times are arranged by the driving school.",
+      "media": {
+        "servicePhotoKey": "driving-lesson",
+        "businessCoverAsset": "activity-driving-lesson-v1.webp",
+        "semantics": "Reuse the existing category-appropriate illustrative artwork; it is not an operator photograph."
+      },
+      "locatedCellBefore": 1,
+      "locatedCellAfterIntegration": 2,
+      "normalizedRecordSha256": "c092d4565a26e3c28ff09c7e199be3bb7ee82388188f7e029cb55f7fb03a6bb6",
+      "pricingIdentity": "a03a9f7d566d9d28de649e893705145660406a5d9a456588a893d6209e747f30"
+    }
+  ],
+  "holds": [
+    {
+      "name": "Sport Edition / Nardo",
+      "category": "fitness",
+      "sources": ["https://nardobg.com/sport/", "https://nardobg.com/contacts/", "https://clickandplay.bg/sport-edition-padel-reservation40011.html"],
+      "reason": "Fresh browser opens the old owner-linked padel CTA at the generic replacement platform homepage, without a current facility-specific booking target. The owner supplies public tariffs and an address at ул. Индира Ганди 2, but a generic redirection or contact phone is not a verified booking route. No neighborhood or postal point credited."
+    },
+    {
+      "name": "EM Dental",
+      "category": "therapy",
+      "sources": ["https://emdental.bg/"],
+      "reason": "The owner identifies its dental practice at бул. Цар Борис III 288, with a unique municipal match, but the inspected native contact form is a general inquiry and no dedicated appointment action was verified."
+    },
+    {
+      "name": "Boyana Padel",
+      "category": "fitness",
+      "sources": ["https://boyanapadel.com/"],
+      "reason": "The owner identifies ул. Даскал Стоян Попандреев 11 and advertises padel, but the supplied municipal export has no exact match for #11. Neighboring points, coordinates taken from unrelated objects and commercial map APIs are not substitutes."
+    }
+  ]
+}

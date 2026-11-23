@@ -3,6 +3,7 @@ import { execFileSync } from 'node:child_process'
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import receipt from '../docs/catalogue-coverage/quarter-corroboration-20261123.json' with { type: 'json' }
+import { postalPrecisionAllowsFileChange, postalPrecisionAllowsNewFile, postalPrecisionPriorCatalogue, postalPrecisionPriorSource } from './catalogue-postal-precision-20261123-scope.mjs'
 
 // Exact inverse for earlier source and coverage receipts, not a runtime path.
 const root = fileURLToPath(new URL('../', import.meta.url))
@@ -34,9 +35,10 @@ const fileMatches = (path, hash) => {
 }
 const earlier = new Map()
 
-export const priorityAllowsFileChange = path => Object.hasOwn(changed, path) && fileMatches(path, changed[path][1])
-export const priorityAllowsNewFile = path => Object.hasOwn(additions, path) && fileMatches(path, additions[path])
+export const priorityAllowsFileChange = path => postalPrecisionAllowsFileChange(path) || Object.hasOwn(changed, path) && fileMatches(path, changed[path][1])
+export const priorityAllowsNewFile = path => postalPrecisionAllowsNewFile(path) || Object.hasOwn(additions, path) && fileMatches(path, additions[path])
 export function priorityPriorSource(path, source) {
+  source = postalPrecisionPriorSource(path, source)
   if (!Object.hasOwn(changed, path) || !/applyReviewedQuarterCorroboration20261123|DBROS_INTAKE_20261123|sofia-dbros-vrazhdebna-botevgradsko431/u.test(source)) return source
   const [before, after] = changed[path]
   if (digest(source) !== after) throw Error('Unreviewed 23 Nov quarter-priority source delta: ' + path)
@@ -50,7 +52,7 @@ export function priorityPriorSource(path, source) {
 
 export function priorityPriorCatalogue(rows) {
   const seen = new Set()
-  return rows.flatMap(row => {
+  return postalPrecisionPriorCatalogue(rows).flatMap(row => {
     const id = row?.id, relocation = relocations.get(id)
     if (!relocation && !Object.hasOwn(admitted, id)) return [row]
     if (seen.has(id)) throw Error('Duplicate 23 Nov quarter-priority premises: ' + id)

@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "pointReviewDateUtc": "2026-11-23",
+  "status": "prepared_not_published",
+  "newBusinesses": 0,
+  "newBoundPoints": 1,
+  "id": "sofia-agron-service-benkovski-karavelov28",
+  "category": "auto_repair",
+  "neighborhood": "Бенковски",
+  "addressUnchanged": "София, кв. Бенковски, ул. Любен Каравелов 28, промишлена зона",
+  "ownerContact": "https://agronservice.bg/kontakti/",
+  "ownerBooking": "https://agronservice.bg/zayavka-za-remont/",
+  "ownerServices": "https://agronservice.bg/uslugi/",
+  "ownerPricesExplanation": "https://agronservice.bg/chesto-zadavani-vaprosi/",
+  "operatorEvidence": "The owner identifies the single Sofia Benkovski industrial-zone workshop at Lyuben Karavelov 28 and its unchanged primary telephone. Its request form still supports arranging work with a desired day and a callback to confirm, not self-service reservation confirmation. The services and FAQ corroborate the four existing repair and maintenance entries and individualized EUR quotes after inspection or diagnostics; no new tariff, service, eligibility or booking facts are applied to the row.",
+  "insurerAddressCorroboration": "https://www.armeec.bg/api/files/536d9a2e-49ef-4f99-9034-3bbd930559ed",
+  "officialDistrictScope": "https://www.serdika.bg/images/stories/arhiv/Admin_uslugi/pravilnik.pdf",
+  "officialIndustrialAreaCorroboration": "https://www.sofia.bg/documents/d/guest/2024-11-19-rajon-serdika",
+  "municipalSource": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+  "municipalCsvSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+  "addressEvidence": "The owner and insurer identify the numbered Benkovski premise with the same phone; the insurer additionally names the former farmyard. The district rules (Art. 2(2)) and a city-hosted planning document explicitly assign Benkovski and its former-farmyard industrial locality to district Serdika. The municipal CSV has two exact Sofia street-name and house-number rows. One and only one is in district Serdika; the other is in Sredets, 6.18 km away. The municipality's evidence is used to resolve the postal geography manually, not infer operator ownership, an entrance, or a workshop parcel. The owner map uses a text search, not a pinned point, and was not used as a coordinate source.",
+  "selectedPoint": { "addressId": "111704", "district": "Сердика", "latitude": 42.740164, "longitude": 23.351434 },
+  "rejectedAddressId": "24843",
+  "pricingIdentityUnchanged": "36abd056f61fc4f664eef5c9114972271417008064bb55e28aeb0cd0292e518c",
+  "normalizedRecordSha256": [
+    "fa432397fa48c587ec91dcf15d3a909a1b50a51e8f84d70719968c0f1567286a",
+    "843237c1a058832e484baf3ebb1dcf3a5b8fd582e4da2bc72778fe6f5bbcd4f2"
+  ],
+  "scope": "Only the previously missing postal coordinate pair on the exact existing operator row changes. The offline dataset remains unchanged. No geocoder, call, booking or form submission, account, payment, production write or source assets used."
+}

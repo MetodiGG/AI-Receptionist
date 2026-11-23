@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
-import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { SOFIA_CATALOGUE as currentCatalogue } from '../lib/discovery/sofia-catalogue.mjs'
 import { PUBLIC_CATALOGUE } from '../lib/discovery/public-catalogue.mjs'
 import { catalogueBoundCoordinates } from '../lib/discovery/catalogue-coordinate-binding.mjs'
 import { normalizeCatalogueBusinesses } from '../lib/discovery/catalogue-search.mjs'
@@ -13,12 +13,14 @@ import { serviceThumbnail } from '../lib/service-thumbnail.mjs'
 import { serviceDisplayName, publicProse } from '../lib/locale/public-content.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
 import { priorityPriorCatalogue } from './catalogue-quarter-priority-20261123-scope.mjs'
+import { postalPrecisionPriorCatalogue } from './catalogue-postal-precision-20261123-scope.mjs'
 import receipt from '../docs/catalogue-coverage/quarter-priority-premises-20261123.json' with { type: 'json' }
 import garage from '../docs/catalogue-coverage/dbros-intake-20261123.json' with { type: 'json' }
 import dental from '../docs/catalogue-coverage/priority-dental-20261123.json' with { type: 'json' }
 import corroboration from '../docs/catalogue-coverage/quarter-corroboration-20261123.json' with { type: 'json' }
 
 const now = Date.parse(receipt.checkedAt)
+const SOFIA_CATALOGUE = postalPrecisionPriorCatalogue(currentCatalogue)
 const current = new Map(SOFIA_CATALOGUE.map(row => [row.id, row]))
 const original = priorityPriorCatalogue(SOFIA_CATALOGUE)
 const prior = new Map(original.map(row => [row.id, row]))

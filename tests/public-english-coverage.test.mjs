@@ -50,9 +50,10 @@ test('the actual static cache covers every checked-in public/all source name, re
   // one Pavlovo title and description, an Obelya diagnostic explanation,
   // an Obelya course and description, a Lyulin dentist-specific note, and
   // two D-Bros titles and descriptions. Kabident reuses an existing name.
+  // The next intake adds four exact titles, three descriptions and two package units.
   // These manual additions leave the frozen historical review metadata below
   // intact; supplements do not silently become extra original-cohort reviews.
-  assert.deepEqual(Object.fromEntries(Object.entries(all.totals).map(([key, value]) => [key, value.unique])), { names: 6040 + 3 + 2 + 2 + 1 + 1 + 2, descriptions: 1790 + 2 + 2 + 2 + 1 + 1 + 2 + 2 + 2, units: 660 + 1 })
+  assert.deepEqual(Object.fromEntries(Object.entries(all.totals).map(([key, value]) => [key, value.unique])), { names: 6051 + 4, descriptions: 1804 + 3, units: 661 + 2 })
   for (const result of [all, published]) for (const key of ['missing', 'invalid', 'quantityChanges', 'qualificationChanges']) assert.equal(result[key].length, 0, key)
   const cache = JSON.parse(await readFile(new URL('../lib/locale/service-english.json', import.meta.url), 'utf8'))
   assert.equal(cache.metadata.review.nameSourcesIndividuallyAgentReviewed, 6040)

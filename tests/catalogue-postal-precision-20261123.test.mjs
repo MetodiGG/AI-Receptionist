@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
-import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { SOFIA_CATALOGUE as currentCatalogue } from '../lib/discovery/sofia-catalogue.mjs'
 import { PUBLIC_CATALOGUE } from '../lib/discovery/public-catalogue.mjs'
 import { catalogueBoundCoordinates } from '../lib/discovery/catalogue-coordinate-binding.mjs'
 import { normalizeCatalogueBusinesses } from '../lib/discovery/catalogue-search.mjs'
@@ -14,12 +14,14 @@ import { applyReviewedQuickFitLocation20261123 } from '../lib/discovery/catalogu
 import { applyAgronVerifiedLocation20261123 } from '../lib/discovery/catalogue-data/agron-verified-location-20261123.mjs'
 import { applyReviewedRisuvamLocation20261123 } from '../lib/discovery/catalogue-data/risuvam-verified-location-20261123.mjs'
 import { postalPrecisionPriorCatalogue } from './catalogue-postal-precision-20261123-scope.mjs'
+import { lowCoveragePriorCatalogue } from './catalogue-low-coverage-20261123-scope.mjs'
 import quickfit from '../docs/catalogue-coverage/quickfit-verified-location-20261123.json' with { type: 'json' }
 import agron from '../docs/catalogue-coverage/agron-verified-location-20261123.json' with { type: 'json' }
 import risuvam from '../docs/catalogue-coverage/risuvam-verified-location-20261123.json' with { type: 'json' }
 import batch from '../docs/catalogue-coverage/postal-precision-20261123.json' with { type: 'json' }
 
 const now = Date.parse(batch.checkedAt)
+const SOFIA_CATALOGUE = lowCoveragePriorCatalogue(currentCatalogue)
 const originalRows = postalPrecisionPriorCatalogue(SOFIA_CATALOGUE)
 const original = new Map(originalRows.map(row => [row.id, row]))
 const rows = new Map(SOFIA_CATALOGUE.map(row => [row.id, row]))

@@ -16,6 +16,30 @@
     },
     "manualRevalidations": [
       {
+        "checkedOn": "2026-11-23",
+        "businessId": "sofia-pakosti-chudati-botunets-levski5",
+        "inventoryIdentity": "ccf04e51dbe29312086464ec5a7e5d285f10c7309ea5da36a6dc1ac51b9697f2",
+        "reason": "Package labels, booking periods, capacity and all displayed inclusions/exclusions retained.",
+        "entriesAdded": { "names": 2, "descriptions": 1, "units": 2 },
+        "certifiedHumanTranslation": false
+      },
+      {
+        "checkedOn": "2026-11-23",
+        "businessId": "sofia-ac-power-suhodol-badeshte4a",
+        "inventoryIdentity": "1d427bdb216466ff98929d48fcf6521df2b4c231fbcabb69bfc8490c9effd234",
+        "reason": "Retains the exact Euro 6 scope and separates removal and refitting from the cleaning-only price.",
+        "entriesAdded": { "names": 1, "descriptions": 1, "units": 0 },
+        "certifiedHumanTranslation": false
+      },
+      {
+        "checkedOn": "2026-11-23",
+        "businessId": "sofia-neksas-academy-chelopechene-yane28",
+        "inventoryIdentity": "10d2d458b4ca23a9a387f837df5d9944b96114d72db4ea5bcd03579602b6db30",
+        "reason": "Preserves in-person course format, minimum age and grade, and confirmation of admission, dates and fee.",
+        "entriesAdded": { "names": 1, "descriptions": 1, "units": 0 },
+        "certifiedHumanTranslation": false
+      },
+      {
         "checkedOn": "2026-11-22",
         "businessId": "sofia-artizba-cherni-vrah33e",
         "recordIdentity": "5dd83d0c7cc54943eefa8a4b198599ab6393b684cbcc810869cfa71a5a807c1c",
@@ -259,6 +283,10 @@
     ]
   },
   "names": {
+    "Рожден ден на открито – половин ден": "Outdoor birthday party – half day",
+    "Рожден ден на открито – цял ден": "Outdoor birthday party – full day",
+    "Машинно почистване на DPF/FAP филтър": "Machine cleaning of a DPF/FAP filter",
+    "Присъствен курс по заваряване": "In-person welding course",
     "Компютърна диагностика на двигател и електроника": "Computer diagnostics for engines and electronics",
     "Проверка на окачване и кормилно управление": "Suspension and steering inspection",
     "Ментална аритметика за деца · математика с абакус": "Mental arithmetic for children · maths with an abacus",
@@ -6313,6 +6341,9 @@
     "смяна на предпазен клапан на бойлер": "change of boiler safety valve"
   },
   "descriptions": {
+    "До 15 деца и 30 възрастни. Включва дигитална покана и базова украса; без храна, аниматор и организирани игри. Внасянето на храна и напитки е без доплащане, а за внесена торта се изисква сертификат. Дървените въглища за барбекю са срещу доплащане.": "Up to 15 children and 30 adults. A digital invitation and basic decoration are included; food, an entertainer and organised games are not. You may bring food and drinks at no extra charge; outside cake requires a certificate. Barbecue charcoal costs extra.",
+    "За дизелови автомобили Евро 6. Цената е само за почистване на филтъра. Демонтаж и монтаж на място се уговарят отделно.": "For Euro 6 diesel vehicles. The price covers filter cleaning only. Removal and refitting at the workshop are arranged separately.",
+    "Теория и практика по предварително съгласуван график. За кандидати, навършили 16 години, със завършен поне 6. клас. Условията за прием, датите и таксата се уточняват с академията.": "Theory and hands-on practice on a schedule agreed in advance. Applicants must be at least 16 years old and have completed at least grade 6. Confirm entry requirements, dates and the fee with the academy.",
     "Компютърна проверка на двигател и електронни блокове за автомобили от групата Volkswagen. Часът и цената се уточняват със сервиза.": "Computer diagnostics of the engine and electronic control units for Volkswagen Group vehicles. Confirm the appointment time and price with the workshop.",
     "Проверка на окачването и кормилната система за автомобили от групата Volkswagen. Часът и цената се уточняват със сервиза.": "Inspection of the suspension and steering system for Volkswagen Group vehicles. Confirm the appointment time and price with the workshop.",
     "Присъствен курс за деца от 4 до 12 години със смятане наум и упражнения с абакус. Изпратете заявка за пробен урок; центърът ще се свърже с вас. Графикът и таксата не са публикувани.": "An in-person course for ages 4 to 12, with mental calculation and abacus exercises. Request a trial lesson and the centre will contact you. The schedule and fee are not published.",
@@ -8120,6 +8151,8 @@
     "Часът се уговаря с преподавателя; първоначално се изготвя индивидуален график.": "The class is arranged with the lecturer; an individual schedule is initially drawn up."
   },
   "units": {
+    "пакет за половин ден": "half-day package",
+    "пакет за цял ден": "full-day package",
     "на човек": "per person",
     "1 индивидуална тренировка · 50 мин": "1 personal training session · 50 min",
     "1 ирис · фотохартия 20×20 см + дигитално копие": "1 iris · 20×20 cm photo print + digital copy",

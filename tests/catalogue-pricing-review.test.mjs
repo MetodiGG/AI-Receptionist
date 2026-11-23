@@ -19,6 +19,9 @@ import { SPORT_EDUCATION_GAP_20261123_REVIEWS } from '../lib/discovery/catalogue
 import { DOICHINOVA_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-doichinova-intake-20261123.mjs'
 import { DBROS_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-dbros-intake-20261123.mjs'
 import { PRIORITY_DENTAL_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-priority-dental-20261123.mjs'
+import { NEKSAS_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-neksas-20261123.mjs'
+import { PAKOSTI_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-pakosti-20261123.mjs'
+import { ACPOWER_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-acpower-20261123.mjs'
 const now = Date.parse('2026-11-11T12:00:00Z')
 const record = () => structuredClone(SOFIA_CATALOGUE.find(row => row.id === 'sofia-cut-n-chill'))
 const review = () => structuredClone(BOOKING_PRICE_REVIEWS.find(row => row.id === 'sofia-cut-n-chill'))
@@ -123,6 +126,9 @@ test('dated audit receipts cover every current ID without rewriting the historic
     [DOICHINOVA_INTAKE_20261123_REVIEWS, 'sofia-doichinova-lyulin3-block368', 'reviewed'],
     [DBROS_INTAKE_20261123_REVIEWS, 'sofia-dbros-vrazhdebna-botevgradsko431', 'service_reviewed'],
     [PRIORITY_DENTAL_INTAKE_20261123_REVIEWS, 'sofia-kabident-lyulin9-vlaikov27', 'service_reviewed'],
+    [NEKSAS_INTAKE_20261123_REVIEWS, 'sofia-neksas-academy-chelopechene-yane28', 'service_reviewed'],
+    [PAKOSTI_INTAKE_20261123_REVIEWS, 'sofia-pakosti-chudati-botunets-levski5', 'reviewed'],
+    [ACPOWER_INTAKE_20261123_REVIEWS, 'sofia-ac-power-suhodol-badeshte4a', 'reviewed'],
   ]) {
     assert.deepEqual(reviews.map(row => row.id), [id])
     assert.equal(auditedIds.has(id), false)

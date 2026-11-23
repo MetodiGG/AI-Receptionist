@@ -4,6 +4,46 @@
   "scope": "Illustrative service-specific photos for approved Sofia catalogue entries; not actual business premises, staff, work or results.",
   "assets": [
     {
+      "id": "sx-outdoor-birthday-venue",
+      "label": "Рожден ден на открито",
+      "sourceFile": "exec-4d23a8c2-cc02-41a4-b6c3-6add57dc6fd8.png",
+      "sourceSha256": "4f0d2e9b3d92144bcaff9b3f8be28283a6b9a1bfd52e30af66c5ea75f68e24af",
+      "bytes": 121170,
+      "sha256": "4e584a00886329ba630e169e5e6d4ed0dc424fd029c0cd2da21a59863c31a8bf",
+      "prompt": "Use case: photorealistic-natural. Asset type: square catalogue thumbnail for an outdoor children's birthday party venue; generic illustration, not an actual property. Scene: a welcoming leafy garden with real grass and fruit-tree shade, a simple wooden open-sided shelter behind a table, a restrained short strand of colourful triangular bunting, and a few child-sized seats around the central table. The place is ready for a birthday, but the image does not imply food, a cake, or organised games are included. No people or faces, no sign, no brand, no words or numbers, no logos or watermark. Photoshoot style: natural soft afternoon light, real wood and textile texture, eye-level medium-wide framing. Keep table, bunting and seating near the centre and legible at a small square crop.",
+      "file": "public/service-photos/sx-outdoor-birthday-venue-v1.webp",
+      "width": 640,
+      "height": 640,
+      "generatedOn": "2026-11-23",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "4f0d2e9b3d92144bcaff9b3f8be28283a6b9a1bfd52e30af66c5ea75f68e24af",
+        "reviewers": ["/root"],
+        "method": "Root viewed the complete source and full-size 640px WebP. Square garden venue artwork depicts shelter, bunting, seats and a table without people, catering, cake, organised games or logos; does not describe the real venue. Full-frame resize and WebP conversion only."
+      }
+    },
+    {
+      "id": "sx-in-person-welding-course",
+      "label": "Присъствен курс по заваряване",
+      "sourceFile": "exec-648a264e-4efa-4b37-a8e9-488aecac375f.png",
+      "sourceSha256": "022a05624269f17682f4f25c4415080affe3d9c7136a0f14a39eb6ae6688fcb7",
+      "bytes": 43780,
+      "sha256": "e6b61a5c131d10cf23d989d70e4585a37ec3212d1db640245d014779bae4f21a",
+      "prompt": "Use case: photorealistic-natural. Asset type: square service thumbnail for a catalogue, a generic illustration of an in-person welding course, not a real company. Scene: clean vocational training workshop; an adult trainee at a steel practice bench, with an instructor supervising beside them. Focal point: the trainee's fully lowered welding helmet, thick gloves and an unmistakable small bright welding arc on a plain steel practice piece, together near the centre so all remain legible in a tiny square crop. The instructor also wears a fully lowered protective welding helmet and protective clothing. Documentary photography, warm practical light with realistic dark steel texture, medium side angle, restrained localized sparks, simple uncluttered background. No signs, lettering, watermarks, real brand, real facility, vehicle, weapons or unsafe attire.",
+      "file": "public/service-photos/sx-in-person-welding-course-v1.webp",
+      "width": 640,
+      "height": 640,
+      "generatedOn": "2026-11-23",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "022a05624269f17682f4f25c4415080affe3d9c7136a0f14a39eb6ae6688fcb7",
+        "reviewers": ["/root"],
+        "method": "Root viewed the entire original image and the complete 640px WebP. Two fictional adults with lowered helmets and protective gloves convey workshop instruction; the central work piece and spark remain visible. No actual premises, logos or price claims. Mechanical full-square resize and WebP conversion only."
+      }
+    },
+    {
       "id": "sx-vr-arena-free-roam",
       "label": "VR игра ARENA за 2–6 играчи",
       "sourceFile": "exec-f919c6a9-9f18-4654-807b-83941ebdb31d.png",
@@ -26095,9 +26135,9 @@
     }
   ],
   "report": {
-    "required": 1150,
-    "prepared": 1150,
-    "accepted": 1150,
+    "required": 1233,
+    "prepared": 1233,
+    "accepted": 1233,
     "pendingGeneration": [],
     "missingAsset": [],
     "unreviewed": [],

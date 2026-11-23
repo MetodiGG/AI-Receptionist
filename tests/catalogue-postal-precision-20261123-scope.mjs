@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url'
 import quickfit from '../docs/catalogue-coverage/quickfit-verified-location-20261123.json' with { type: 'json' }
 import agron from '../docs/catalogue-coverage/agron-verified-location-20261123.json' with { type: 'json' }
 import risuvam from '../docs/catalogue-coverage/risuvam-verified-location-20261123.json' with { type: 'json' }
+import { lowCoverageAllowsFileChange, lowCoverageAllowsNewFile, lowCoveragePriorCatalogue, lowCoveragePriorSource } from './catalogue-low-coverage-20261123-scope.mjs'
 
 // Invert only the location-only delta for earlier test cohorts; runtime never
 // uses this to select a point or to approve new or altered source files.
@@ -33,11 +34,12 @@ function matchesFile(path, sha) {
   try { return digest(readFileSync(new URL('../' + path, import.meta.url))) === sha } catch { return false }
 }
 
-export const postalPrecisionAllowsFileChange = path => path === cataloguePath && matchesFile(path, sourceAfter)
-export const postalPrecisionAllowsNewFile = path => Object.hasOwn(newFiles, path) && matchesFile(path, newFiles[path])
+export const postalPrecisionAllowsFileChange = path => lowCoverageAllowsFileChange(path) || path === cataloguePath && matchesFile(path, sourceAfter)
+export const postalPrecisionAllowsNewFile = path => lowCoverageAllowsNewFile(path) || Object.hasOwn(newFiles, path) && matchesFile(path, newFiles[path])
 
 let earlier
 export function postalPrecisionPriorSource(path, source) {
+  source = lowCoveragePriorSource(path, source)
   if (path !== cataloguePath || !source.includes('applyReviewedQuickFitLocation20261123')) return source
   if (digest(source) !== sourceAfter) throw Error('Unreviewed 23 Nov postal-precision source delta: ' + path)
   if (earlier === undefined) {
@@ -50,7 +52,7 @@ export function postalPrecisionPriorSource(path, source) {
 
 export function postalPrecisionPriorCatalogue(rows) {
   const seen = new Set()
-  return rows.map(row => {
+  return lowCoveragePriorCatalogue(rows).map(row => {
     const exact = located.get(row.id)
     if (!exact) return row
     if (seen.has(row.id)) throw Error('Duplicate 23 Nov postal-precision listing: ' + row.id)

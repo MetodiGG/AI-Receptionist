@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "baseline": "753e214a0adcc02c463511a57bb951c71fc51938",
+  "checkedAt": "2026-11-23T12:00:00.000Z",
+  "status": "prepared_locally_not_published",
+  "scope": "Eligible static Sofia catalogue, not live partners. One independent premises per ID. Челопечене is an additional named area, not a standard picker label.",
+  "targetPerQuarterCategory": 30,
+  "approvedBusinesses": [1721, 1724],
+  "locatedPremises": [929, 932],
+  "emptyLocatedCells": [1411, 1408],
+  "emptyLocatedPickerCells": [1043, 1041],
+  "cellsAtLocatedTarget": [0, 0],
+  "newServices": 4,
+  "newPublicPrices": 3,
+  "affected": [
+    { "id": "sofia-neksas-academy-chelopechene-yane28", "name": "Нексас Академия", "neighborhood": "Челопечене", "category": "education", "physical": [0, 1], "located": [0, 1], "receipt": "neksas-intake-20261123.json" },
+    { "id": "sofia-pakosti-chudati-botunets-levski5", "name": "Пакости чудати", "neighborhood": "Ботунец", "category": "other", "physical": [1, 2], "located": [0, 1], "receipt": "pakosti-intake-20261123.json" },
+    { "id": "sofia-ac-power-suhodol-badeshte4a", "name": "Ауто Корект Пауър Тийм", "neighborhood": "Суходол", "category": "auto_repair", "physical": [0, 1], "located": [0, 1], "receipt": "acpower-intake-20261123.json" }
+  ],
+  "remainingHolds": [
+    { "name": "Pilates Body Studio", "neighborhood": "Люлин 8", "category": "fitness", "reason": "Owner confirms studio and appointment links, not direct ordinary EUR fee. The delegated platform restricts automated extraction and supplies no permission; the missed-appointment charge is not a service tariff." },
+    { "name": "ЧоН-Джи", "neighborhood": "Люлин 8", "category": "fitness", "reason": "Booking and house number listed; two municipal entrance points, neither confirmed by owner." },
+    { "name": "Dream Team Dancesport", "neighborhood": "Люлин 7", "category": "fitness", "reason": "Exact point at бул. Луи Пастьор 30, but a readable primary current appointment and tariff review was not established." },
+    { "name": "Немо", "neighborhood": "Люлин 5", "category": "fitness", "reason": "School listing and civic point checked; owner booking and tariff pages were unavailable. Older third-party evidence cannot establish current rates." }
+  ]
+}

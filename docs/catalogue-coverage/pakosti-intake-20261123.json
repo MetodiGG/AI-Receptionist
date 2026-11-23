@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "baselineCommit": "753e214a0adcc02c463511a57bb951c71fc51938",
+  "status": "prepared_locally_not_published",
+  "targetPerQuarterCategory": 30,
+  "newBusiness": {
+    "id": "sofia-pakosti-chudati-botunets-levski5",
+    "name": "Пакости чудати",
+    "nameEn": "Pakosti Chudati",
+    "category": "other",
+    "neighborhood": "Ботунец",
+    "address": "София, кв. Ботунец, ул. Васил Левски 5",
+    "municipal": {
+      "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+      "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+      "addressId": "72326",
+      "district": "Кремиковци",
+      "settlement": "гр. София",
+      "latitude": 42.738904,
+      "longitude": 23.508634,
+      "licence": "CC-BY-4.0",
+      "districtCorroboration": "https://www.sofia.bg/documents/d/guest/zapoved-kremikovci-2025",
+      "pointScope": "The operator names Botunets, Sofia and street number 5. The city's Kremikovtsi order groups all properties of this street in the district under Botunets. The municipal street-and-number is unique within Sofia city and Kremikovtsi district, distinct from the Lyulin street and the Sredets boulevard. The point is a postal point for the numbered property, not a surveyed entrance or an exact statement about any event area."
+    },
+    "ownerWebsite": "https://pakosti-chudati.com/",
+    "ownerContact": "https://pakosti-chudati.com/контакти/",
+    "ownerPackages": "https://pakosti-chudati.com/празненство/",
+    "ownerAbout": "https://pakosti-chudati.com/за_нас/",
+    "booking": {
+      "kind": "phone",
+      "phone": "+359899388364",
+      "evidence": "The owner links its contact page and explicitly invites customers to call to engage the venue. The owner contact and actual venue package page show the same number and exact premises. This is a request to the venue, not a scheduled or GoRez-confirmed reservation."
+    },
+    "openingHoursEvidence": "The owner's event page prints Thu–Fri 10:00–17:00 and Sat–Sun 09:00–19:00. Other days are not supplied, and event or slot availability is not inferred.",
+    "services": [
+      {
+        "name": "Рожден ден на открито – половин ден",
+        "nameEn": "Outdoor birthday party – half day",
+        "amount": 200,
+        "currency": "EUR",
+        "kind": "fixed",
+        "unit": "пакет за половин ден",
+        "unitEn": "half-day package"
+      },
+      {
+        "name": "Рожден ден на открито – цял ден",
+        "nameEn": "Outdoor birthday party – full day",
+        "amount": 250,
+        "currency": "EUR",
+        "kind": "fixed",
+        "unit": "пакет за цял ден",
+        "unitEn": "full-day package"
+      }
+    ],
+    "commonServiceDescriptionEn": "Up to 15 children and 30 adults. A digital invitation and basic decoration are included; food, an entertainer and organised games are not. You may bring food and drinks at no extra charge; outside cake requires a certificate. Barbecue charcoal costs extra.",
+    "excluded": "The €230 promotional package, extra time, recommended photographers and decorators, food and party extras are not separately imported. For the price use the amount published in EUR, not a converted value or per-person rate. The owner site was read publicly without any location, sign-in, account, form submission, actual booking or customer data.",
+    "sourceRights": "Public factual offers and contact were paraphrased in independent catalogue wording. The public footer displayed a terms label but did not expose a working terms link in the reader. No original copy, photos, video, user content, or protected/publicly unavailable material was reused. The owner's public gallery is not treated as a photo reuse licence.",
+    "illustrationCandidate": {
+      "status": "reviewed_generic_illustration",
+      "asset": "/service-photos/sx-outdoor-birthday-venue-v1.webp",
+      "reason": "Existing birthday thumbnails depict unrelated activities. This generated outdoor setting contains no real venue material, customers, food or entertainers and remains visibly marked as an illustration.",
+      "brief": "Generic AI illustration of a natural Bulgarian garden set up for a children's birthday: fruit trees, an inviting wooden shelter, bright but restrained textile bunting and a simple celebration table, no people, text or logos. Disclose it as an illustration; do not present it as the exact venue."
+    },
+    "inventoryIdentity": "ccf04e51dbe29312086464ec5a7e5d285f10c7309ea5da36a6dc1ac51b9697f2",
+    "normalizedRecordSha256": "9c64c681864049d058aa5e7c67d5badcc7a397bb0d6f779bf76840b7601e0610",
+    "coverage": { "physical": [1, 2], "located": [0, 1] }
+  }
+}

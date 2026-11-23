@@ -3,6 +3,7 @@ import { execFileSync } from 'node:child_process'
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import receipt from '../docs/catalogue-coverage/coordinate-scope-recovery-20261123.json' with { type: 'json' }
+import { priorityAllowsFileChange, priorityAllowsNewFile, priorityPriorSource, priorityPriorCatalogue } from './catalogue-quarter-priority-20261123-scope.mjs'
 
 // Keep prior whole-source and row audits exact as new checked premises arrive.
 // This restores only the precise reviewed deltas; it is never used by runtime.
@@ -35,10 +36,11 @@ const hashMatches = (path, sha) => {
 }
 const previousSources = new Map()
 
-export const northernEastAllowsFileChange = path => Object.hasOwn(changed, path) && hashMatches(path, changed[path][1])
-export const northernEastAllowsNewFile = path => Object.hasOwn(additions, path) && hashMatches(path, additions[path])
+export const northernEastAllowsFileChange = path => priorityAllowsFileChange(path) || Object.hasOwn(changed, path) && hashMatches(path, changed[path][1])
+export const northernEastAllowsNewFile = path => priorityAllowsNewFile(path) || Object.hasOwn(additions, path) && hashMatches(path, additions[path])
 
 export function northernEastPriorSource(path, source) {
+  source = priorityPriorSource(path, source)
   if (!Object.hasOwn(changed, path) ||
       !/applyReviewedCoordinateScopeRecovery20261123|SPORT_EDUCATION_GAP_20261123|DOICHINOVA_INTAKE_20261123|sofia-umni-deca-obelya2-106-3/u.test(source)) return source
   const [before, after] = changed[path]
@@ -53,7 +55,7 @@ export function northernEastPriorSource(path, source) {
 
 export function northernEastPriorCatalogue(rows) {
   const seen = new Set()
-  return rows.flatMap(row => {
+  return priorityPriorCatalogue(rows).flatMap(row => {
     const id = row?.id, relocation = alternatives.get(id)
     if (!relocation && !Object.hasOwn(admitted, id)) return [row]
     if (seen.has(id)) throw Error('Duplicate 23 Nov northern-east premises: ' + id)

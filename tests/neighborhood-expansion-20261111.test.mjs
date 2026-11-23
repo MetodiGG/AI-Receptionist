@@ -122,7 +122,7 @@ test('new nail salons retain distinct current venues, real phone booking, fees a
   assert.deepEqual(wave.services.map(service => service.price.amount), [10.23, 12.78, 17.9])
   assert.ok(wave.services.every(service => service.category === 'nails' && !service.durationMin))
   const asya = SOFIA_CATALOGUE.find(item => item.id === 'sofia-nails-asya-druzhba')
-  assert.equal(asya.neighborhood, 'Дружба', 'no inferred Druzhba1/2 quarter')
+  assert.equal(asya.neighborhood, 'Дружба 1', 'municipal section 244614040 establishes the exact quarter of Tirana 17')
   assert.equal(asya.booking.phone, '+359876670155')
   assert.deepEqual(asya.services.map(service => [service.price.amount, service.durationMin]), [[30, 90], [35, 90], [50, 120]])
   assert.equal(asya.coordinates.source, asya.website)

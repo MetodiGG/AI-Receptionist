@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
-import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { SOFIA_CATALOGUE as currentCatalogue } from '../lib/discovery/sofia-catalogue.mjs'
 import { PUBLIC_CATALOGUE } from '../lib/discovery/public-catalogue.mjs'
 import { approvedCatalogueRecord } from '../lib/discovery/catalogue-policy.mjs'
 import { catalogueBoundCoordinates } from '../lib/discovery/catalogue-coordinate-binding.mjs'
@@ -14,11 +14,13 @@ import { serviceThumbnail } from '../lib/service-thumbnail.mjs'
 import { serviceDisplayName, publicProse } from '../lib/locale/public-content.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
 import { northernEastPriorCatalogue } from './catalogue-northern-east-20261123-scope.mjs'
+import { priorityPriorCatalogue } from './catalogue-quarter-priority-20261123-scope.mjs'
 import aggregate from '../docs/catalogue-coverage/northern-east-premises-20261123.json' with { type: 'json' }
 import education from '../docs/catalogue-coverage/sport-education-gap-20261123.json' with { type: 'json' }
 import clinic from '../docs/catalogue-coverage/doichinova-intake-20261123.json' with { type: 'json' }
 
 const now = Date.parse(aggregate.checkedAt)
+const SOFIA_CATALOGUE = priorityPriorCatalogue(currentCatalogue)
 const records = new Map(SOFIA_CATALOGUE.map(row => [row.id, row]))
 const handler = createPublicBusinessDetailsHandler({
   config: { enabled: true }, now: () => now, allowAttempt: () => true,

@@ -180,6 +180,14 @@
         "entriesAdded": { "names": 0, "descriptions": 1, "units": 0 },
         "entriesReused": { "names": 1 },
         "certifiedHumanTranslation": false
+      },
+      {
+        "checkedOn": "2026-11-23",
+        "businessId": "sofia-dbros-vrazhdebna-botevgradsko431",
+        "inventoryIdentity": "ae5aec6ec72c3e056713214d5931a6ac73e08ec40d0747495f8c2baf912f60df",
+        "reason": "Review covers two distinct automotive services, the Volkswagen Group brand scope and the need to confirm time and price with the workshop.",
+        "entriesAdded": { "names": 2, "descriptions": 2, "units": 0 },
+        "certifiedHumanTranslation": false
       }
     ],
     "sourceInventorySha256": "3dc68153b6dbd333d0990cf3c7658bb4e0235f79d7d1e8081cfc226034bab456",
@@ -251,6 +259,8 @@
     ]
   },
   "names": {
+    "Компютърна диагностика на двигател и електроника": "Computer diagnostics for engines and electronics",
+    "Проверка на окачване и кормилно управление": "Suspension and steering inspection",
     "Ментална аритметика за деца · математика с абакус": "Mental arithmetic for children · maths with an abacus",
     "Групово актьорско майсторство на английски за деца": "Group acting classes in English for children",
     "VR игра ARENA за 2–6 играчи": "VR ARENA game for 2–6 players",
@@ -6303,6 +6313,8 @@
     "смяна на предпазен клапан на бойлер": "change of boiler safety valve"
   },
   "descriptions": {
+    "Компютърна проверка на двигател и електронни блокове за автомобили от групата Volkswagen. Часът и цената се уточняват със сервиза.": "Computer diagnostics of the engine and electronic control units for Volkswagen Group vehicles. Confirm the appointment time and price with the workshop.",
+    "Проверка на окачването и кормилната система за автомобили от групата Volkswagen. Часът и цената се уточняват със сервиза.": "Inspection of the suspension and steering system for Volkswagen Group vehicles. Confirm the appointment time and price with the workshop.",
     "Присъствен курс за деца от 4 до 12 години със смятане наум и упражнения с абакус. Изпратете заявка за пробен урок; центърът ще се свърже с вас. Графикът и таксата не са публикувани.": "An in-person course for ages 4 to 12, with mental calculation and abacus exercises. Request a trial lesson and the centre will contact you. The schedule and fee are not published.",
     "Цената е за преглед при д-р Гергана Зинкова в кабинета в Люлин 3. Носете предишната си медицинска документация, ако разполагате с нея.": "The price applies to an examination with Dr Gergana Zinkova at the Lyulin 3 practice. Bring any previous medical records if you have them.",
     "Четене и изтриване на грешки. Крайната цена за конкретния автомобил се уточнява предварително при записване.": "Reading and clearing fault codes. The final price for your vehicle is confirmed in advance when you book.",

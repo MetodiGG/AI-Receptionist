@@ -14,6 +14,7 @@ import { catalogueBoundCoordinates } from '../lib/discovery/catalogue-coordinate
 import { catalogueRegistrationPoint } from '../lib/business-registration-location.mjs'
 import { businessMapsDirectionsUrl, businessDirectionsAddress } from '../lib/business-directions.mjs'
 import { reviewedBusinessDestination } from '../lib/business-directions-reviewed.mjs'
+import { priorityPriorCatalogue } from './catalogue-quarter-priority-20261123-scope.mjs'
 
 // Postal-source receipts remain immutable. A fresh service/contact review
 // must not rewrite what was actually inspected for the November 13 address.
@@ -36,9 +37,10 @@ test('new CSV subset preserves all prior full-precision points and distinguishes
 })
 
 test('new manually reviewed postal matches retain identity, directions, attribution and real service facts', () => {
+  const postalCohort = priorityPriorCatalogue(SOFIA_CATALOGUE)
   for (const reviewed of csv.points) {
     const intake = additions.find(row => row.id === reviewed.id)
-    const published = SOFIA_CATALOGUE.find(row => row.id === reviewed.id)
+    const published = postalCohort.find(row => row.id === reviewed.id)
     assert.ok(intake && published, reviewed.id)
     assert.equal(intake.coordinates, null, 'no owner pin overwritten')
     assert.deepEqual(published, { ...intake, coordinates: reviewed.coordinates })

@@ -2,7 +2,7 @@ import assert from 'node:assert/strict'
 import test from 'node:test'
 import { createHash } from 'node:crypto'
 import { PUBLIC_CATALOGUE } from '../lib/discovery/public-catalogue.mjs'
-import { RAW_SOFIA_CATALOGUE, SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { RAW_SOFIA_CATALOGUE, SOFIA_CATALOGUE as currentCatalogue } from '../lib/discovery/sofia-catalogue.mjs'
 import { applyReviewedCoordinateScopeRecovery20261123 } from '../lib/discovery/catalogue-data/coordinate-scope-recovery-20261123.mjs'
 import { catalogueBoundCoordinates } from '../lib/discovery/catalogue-coordinate-binding.mjs'
 import { pricingIdentity } from '../lib/discovery/catalogue-pricing-review.mjs'
@@ -11,8 +11,10 @@ import { railExternalAction } from '../lib/discovery/rail.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
 import receipt from '../docs/catalogue-coverage/coordinate-scope-recovery-20261123.json' with { type: 'json' }
 import { northernEastPriorCatalogue } from './catalogue-northern-east-20261123-scope.mjs'
+import { priorityPriorCatalogue } from './catalogue-quarter-priority-20261123-scope.mjs'
 
 const now = Date.parse('2026-11-23T12:00:00Z')
+const SOFIA_CATALOGUE = priorityPriorCatalogue(currentCatalogue)
 const digest = value => createHash('sha256').update(JSON.stringify(value)).digest('hex')
 const rows = new Map(SOFIA_CATALOGUE.map(row => [row.id, row]))
 const stored = new Map(RAW_SOFIA_CATALOGUE.map(row => [row.id, row]))

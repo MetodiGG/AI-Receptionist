@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "baseline": "9fc6686600b9361ae4ae6bd4c088e651d1c43590",
+  "checkedAt": "2026-11-23T12:00:00.000Z",
+  "status": "prepared_locally_not_published",
+  "scope": "Eligible static Sofia catalogue at the review date, excluding live partner accounts. Location cells count physical premises with an address-bound point; each business is counted once overall.",
+  "targetPerQuarterCategory": 30,
+  "catalogueBusinessCount": [1719, 1721],
+  "locatedPremises": [924, 926],
+  "emptyLocatedCells": [1416, 1414],
+  "emptyLocatedPickerCells": [1048, 1046],
+  "totalPickerCells": 1358,
+  "totalTrackedCellsIncludingAdditionalAreas": 1750,
+  "cellsAtLocatedTarget": [0, 0],
+  "newPlaces": ["sofia-dbros-vrazhdebna-botevgradsko431", "sofia-kabident-lyulin9-vlaikov27"],
+  "newServices": 3,
+  "newSourcePrices": 0,
+  "existingPlacesRecovered": ["sofia-nails-asya-druzhba", "sofia-nestor-notov-neru28"],
+  "affected": [
+    { "neighborhood": "Враждебна", "category": "auto_repair", "physical": [0, 1], "located": [0, 1] },
+    { "neighborhood": "Дружба 1", "category": "nails", "physical": [2, 3], "located": [0, 1] },
+    { "neighborhood": "Люлин 7", "category": "other", "physical": [4, 5], "located": [2, 3] },
+    { "neighborhood": "Люлин 9", "category": "other", "physical": [2, 3], "located": [1, 2] }
+  ],
+  "evidence": ["dbros-intake-20261123.json", "priority-dental-20261123.json", "quarter-corroboration-20261123.json"],
+  "held": [
+    { "neighborhood": "Триъгълника", "candidate": "Самсон", "reason": "Owner and municipal address match for the taekwondo hall, but a city-wide contact number alone does not establish booking for that hall.", "source": "https://samsonbg.com/контакти/" },
+    { "neighborhood": "Челопечене", "candidate": "Умни деца", "reason": "Dated operator course notice and public records for the named venue specify conflicting location addresses.", "source": "https://www.umnideca.com/" },
+    { "neighborhood": "Илинден", "candidate": "Koche Grooming", "reason": "Existing record. Five distinct municipal block-114A entrances; no exact street-house match or operator entrance verified. No new record or pin." },
+    { "neighborhood": "Люлин 10", "candidate": "New Vision", "reason": "Owner address and contact found, but generic enquiry does not establish advance booking and the old 2016 BGN menu is not current proof of a service price.", "source": "https://newvisionlulin.wixsite.com/newvision/contact" }
+  ]
+}

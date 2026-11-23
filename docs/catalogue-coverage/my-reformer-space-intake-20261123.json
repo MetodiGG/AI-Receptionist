@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "baselineCommit": "e8d3e25f4eabd412b29c65816b10abbb670e4c49",
+  "status": "prepared_locally_not_published",
+  "targetPerQuarterCategory": 30,
+  "newBusiness": {
+    "id": "sofia-my-reformer-space-levski-g-vazov39",
+    "name": "My Reformer Space",
+    "nameEn": "My Reformer Space",
+    "category": "fitness",
+    "neighborhood": "Левски Г",
+    "address": "София, ж.к. Левски Г, бул. Владимир Вазов 39, ет. 3",
+    "municipal": {
+      "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+      "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+      "addressId": "98103",
+      "district": "Подуяне",
+      "settlement": "гр. София",
+      "latitude": 42.710434,
+      "longitude": 23.377636,
+      "licence": "CC-BY-4.0",
+      "pointScope": "Unique municipal postal row for the numbered building in Sofia. The exact floor comes from the owner; the postal point is not advertised as a surveyed door or separate floor position."
+    },
+    "ownerWebsite": "https://myreformerspace.bg/",
+    "ownerContact": "https://myreformerspace.bg/контакти/",
+    "ownerService": "https://myreformerspace.bg/пилатес-реформър/",
+    "ownerTariff": "https://myreformerspace.bg/цени/",
+    "ownerPhoneGuide": "https://myreformerspace.bg/чзв/",
+    "ownerVisitorGuide": "https://myreformerspace.bg/условия/",
+    "ownerTerms": "https://myreformerspace.bg/общи-условия/",
+    "ownerOnlineCalendar": "https://book.myreformerspace.bg/calendar/public",
+    "areaCorroboration": "The public booking-provider business profile identifies the same merchant and floor 3 at Владимир Вазов 39 and names Левски Г. The merchant-authored promotional listing also places Studio 1 at this Левски Г address. These sources corroborate the quarter and premise only; their promotions, terms, images, prices and scheduling are not used as the offer source. The terms' corporate management address is not the training venue.",
+    "areaCorroborationUrls": [
+      "https://easybook.bg/reformer-space-pilates-and-wellness-sofiya-levski-g",
+      "https://grabo.bg/sofia/pilates-reformer-0v7s4kk"
+    ],
+    "booking": {
+      "kind": "phone",
+      "phone": "+359878714300",
+      "evidence": "Followed the owner's actual public calendar CTA and rendered the public menu. It visibly offers group training in Studio 1 with a place-reservation action. No action or date was selected. The owner FAQ separately states that phone reservations are accepted; the owner tariff publishes the same direct number immediately beside its reservation options. Only the priced phone channel is represented. No online price, live slot, or GoRez-confirmed booking is claimed."
+    },
+    "openingHoursEvidence": "The owner contact page states 07:00–21:00 daily, with training by reservation and according to schedule. These are business opening hours, not bookable class slots.",
+    "service": {
+      "name": "Пилатес реформър – еднократна групова тренировка",
+      "nameEn": "Reformer Pilates – single group class",
+      "amount": 18,
+      "currency": "EUR",
+      "kind": "fixed",
+      "unit": "едно групово посещение",
+      "unitEn": "one group visit",
+      "durationMin": 50,
+      "descriptionEn": "One prebooked 50-minute group class. VAT is included. MultiSport cards are not accepted. Cancel at least 24 hours before the class; the published online terms charge the full price for late cancellation or a no-show."
+    },
+    "termsScope": "The owner FAQ and visitor guide state the general 24-hour cancellation window. The full-charge qualification for late cancellation/non-attendance comes specifically from section 4 of the owner online service terms, and is labeled accordingly in the service description. It is not represented as an unstated phone-specific charge or based on an external provider.",
+    "candidateIllustration": "/service-photos/sx-reformer-group-v1.webp",
+    "excluded": "No workshop promotion, single-visit price derived from a class card, individual fee, medical claim, partner status, copied assets, ratings, studio branch duplication, unverified online price or slot. No testing data were entered; no communications, booking, payment, or production writes were made.",
+    "inventoryIdentity": "8d92052c42bfb0283a765d94d32eb803a3777dffbee5fbc16a6c1fdd9444163e",
+    "normalizedRecordSha256": "96d4a2c0a7fda4b6f6f78cb99311a0b8a4efefa2a74bc050934b8d38baada049",
+    "coverage": { "physical": [0, 1], "located": [0, 1] }
+  }
+}

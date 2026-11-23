@@ -4,6 +4,26 @@
   "scope": "Illustrative service-specific photos for approved Sofia catalogue entries; not actual business premises, staff, work or results.",
   "assets": [
     {
+      "id": "sx-auto-sunroof-inspection",
+      "label": "Оглед и диагностика на шибидах или панорамна система",
+      "sourceFile": "exec-f40f1192-9f96-4cf6-b972-48cd6db7450a.png",
+      "sourceSha256": "caefa7470ccc95d7762c3b608070b105cebcca57bb612092b25fdf64a9ebd059",
+      "bytes": 46760,
+      "sha256": "ea092c97203f7f1bb92029ad5db7110b11ad41c9a6fcb0a6ac7cd3231f02da55",
+      "prompt": "Use case: photorealistic-natural. Asset type: square GoRez service thumbnail. In a simple automotive workshop, a mechanic in dark workwear leans over a parked silver car to visually inspect the exposed side track of its partially open panoramic sunroof, using a compact inspection light. Slightly elevated three-quarter view; put the rectangular roof opening, the remaining glass panel, exposed track, and mechanic's hands in the middle so the activity reads at thumbnail size. Realistic vehicle mechanics, natural workshop light, documentary texture. No laptop, no notebook, no detached engine, no replacement parts, no logos, no text or watermark.",
+      "file": "public/service-photos/sx-auto-sunroof-inspection-v1.webp",
+      "width": 640,
+      "height": 640,
+      "generatedOn": "2026-11-23",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "caefa7470ccc95d7762c3b608070b105cebcca57bb612092b25fdf64a9ebd059",
+        "reviewers": ["/root"],
+        "method": "Viewed the complete original and the 640px WebP. A mechanic is inspecting the track of an open vehicle sunroof with a small light; the glass, opening and hands read clearly at thumbnail scale. No authentic premises, logo or outcome claimed. Full-frame resize and WebP conversion only."
+      }
+    },
+    {
       "id": "sx-outdoor-birthday-venue",
       "label": "Рожден ден на открито",
       "sourceFile": "exec-4d23a8c2-cc02-41a4-b6c3-6add57dc6fd8.png",
@@ -26135,9 +26155,9 @@
     }
   ],
   "report": {
-    "required": 1233,
-    "prepared": 1233,
-    "accepted": 1233,
+    "required": 1234,
+    "prepared": 1234,
+    "accepted": 1234,
     "pendingGeneration": [],
     "missingAsset": [],
     "unreviewed": [],

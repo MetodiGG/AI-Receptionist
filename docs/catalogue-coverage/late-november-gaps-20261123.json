@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-23T12:00:00.000Z",
+  "baseline": "e8d3e25f4eabd412b29c65816b10abbb670e4c49",
+  "status": "prepared_local_not_published",
+  "targetPerQuarterCategory": 30,
+  "totalTargetCells": 1750,
+  "approvedBusinesses": [1724, 1726],
+  "locatedPremises": [932, 935],
+  "emptyLocatedPickerCells": [1041, 1040],
+  "emptyLocatedCells": [1408, 1406],
+  "cellsAtLocatedTarget": [0, 0],
+  "affected": [
+    {
+      "id": "sofia-mikron-dotsev-knyazhevo-tsarboris298",
+      "kind": "new_business",
+      "neighborhood": "Княжево",
+      "category": "auto_repair",
+      "physical": [1, 2],
+      "located": [1, 2],
+      "receipt": "mikron-intake-20261123.json"
+    },
+    {
+      "id": "sofia-my-reformer-space-levski-g-vazov39",
+      "kind": "new_business",
+      "neighborhood": "Левски Г",
+      "category": "fitness",
+      "physical": [0, 1],
+      "located": [0, 1],
+      "receipt": "my-reformer-space-intake-20261123.json"
+    },
+    {
+      "id": "sofia-pluven-klub-lyulin-33ou",
+      "kind": "address_point_only",
+      "neighborhood": "Люлин 3",
+      "category": "fitness",
+      "physical": [1, 1],
+      "located": [0, 1],
+      "receipt": "swimming-lyulin3-verified-location-20261123.json"
+    }
+  ],
+  "limitations": {
+    "localCoverageOnly": true,
+    "nativePartnersDeduplicatedIntoCounts": false,
+    "locationMeaning": "Verified postal addresses, not independently surveyed entrances or guaranteed radii.",
+    "additionalNamedAreas": "Левски Г is an additional sourced quarter, not merged into Левски or implicitly applied to another part; the city radius uses its exact point."
+  }
+}

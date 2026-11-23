@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "publicationReviewDateUtc": "2026-11-23",
+  "status": "prepared_local_not_published",
+  "priority": "30 distinct physical businesses with verified addresses per Sofia quarter and category",
+  "newBusinessesPrepared": 1,
+  "newServicesPrepared": 1,
+  "verifiedPublicPriceFacts": 1,
+  "business": {
+    "id": "sofia-mikron-dotsev-knyazhevo-tsarboris298",
+    "name": "Микрон Доцев",
+    "category": "auto_repair",
+    "neighborhood": "Княжево",
+    "address": "София, кв. Княжево, бул. Цар Борис III 298",
+    "website": "https://www.mikrondocev.com/",
+    "contact": "https://www.mikrondocev.com/contact-us",
+    "phone": "+359878473031",
+    "locationKind": "premises",
+    "validUntil": "2026-12-23",
+    "duplicateCheck": "No match in the current Sofia catalogue for the operator name, owner or reservation domain, any of the three published mobile contact numbers, or the exact boulevard and number. Mail-in service and the reservation subdomain are not separate businesses.",
+    "coordinateEvidence": {
+      "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+      "municipalCsvSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+      "method": "verified_official_address",
+      "addressId": "5509",
+      "latitude": 42.658608,
+      "longitude": 23.239234,
+      "evidence": "Owner homepage, contact and service menu consistently label their staffed venue at 298 Tsar Boris III as Knyazhevo. The unique municipal address has that exact numbered boulevard and administrative district Vitosha; its record does not name a residential quarter. Knyazhevo is explicit owner evidence, not inferred from the district or a nearby point. A third-party Karpuzitsa label is not used. The official data supply a postal point, not the surveyed entrance."
+    },
+    "service": {
+      "name": "Оглед и диагностика на шибидах или панорамна система",
+      "description": "Огледът отнема около 30 минути на място. Частите и ремонтът се оферират отделно. Таксата за огледа се приспада, ако ремонтът бъде извършен.",
+      "bookingAndPriceSource": "https://reservation.mikrondocev.com/bg",
+      "effectiveSourceDate": "2026-01-05",
+      "price": { "amount": 40, "currency": "EUR", "kind": "fixed" },
+      "booking": "The home booking button points directly to the named appointment option in the owner's reservation subdomain. The public request form has the selected service option, a date and time step, and submission controls. No date or slot was selected, no customer data entered, and no instant confirmation or live availability is claimed.",
+      "limits": "Fixed inspection tariff for a standard sunroof or a panoramic sunroof, not for the replacement of parts or completion of a repair. The same document expressly applies the inspection fee toward the repair when the repair is performed. The published approximate 30 minutes relates to the on-site inspection and is not a guaranteed reservation duration."
+    },
+    "openingHours": {
+      "source": "https://www.mikrondocev.com/contact-us",
+      "weekdays": "07:30–17:00",
+      "weekend": "closed",
+      "limit": "These are published workshop reception hours, not a guarantee of appointment availability."
+    },
+    "sourcePolicy": "Both first-party hosts' public robots documents allowed the pages. Public first-party privacy terms were inspected, with no applicable factual-use prohibition found. No workshop images, reviews or expressive wording were reused, and no commercial copyright licence or access beyond ordinary public documents is inferred.",
+    "image": {
+      "status": "accepted_illustration",
+      "asset": "/service-photos/sx-auto-sunroof-inspection-v1.webp",
+      "sha256": "ea092c97203f7f1bb92029ad5db7110b11ad41c9a6fcb0a6ac7cd3231f02da55",
+      "subject": "Mechanic inspecting an opened vehicle sunroof or panoramic glass roof in a workshop, with the roof opening and rails visible.",
+      "excludedExistingAsset": "sx-detail-all-glass-roof",
+      "limit": "Original built-in imagegen illustration of the inspection only. It does not depict this proprietor's staff, premises or actual repairs. The existing panorama detailing/coating image and generic placeholders are not used."
+    },
+    "english": {
+      "name": "Sunroof or panoramic roof inspection and diagnostics",
+      "description": "The on-site inspection takes about 30 minutes. Parts and repairs are quoted separately. The inspection fee is credited toward the repair if it is carried out."
+    },
+    "inventoryIdentity": "eeb6780531db254b4fbf288a7c098a0dd2619d3d7661e99a3ed6c8a4ba718b31",
+    "normalizedRecordSha256": "59ee6726119b9a4e576193ba619fd27c6b906adf3f883f494feda9008d09b771"
+  },
+  "isolatedCoverageDelta": {
+    "targetPerQuarterCategory": 30,
+    "neighborhood": "Княжево",
+    "category": "auto_repair",
+    "physical": [1, 2],
+    "located": [1, 2]
+  }
+}

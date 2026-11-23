@@ -17,6 +17,22 @@
     "manualRevalidations": [
       {
         "checkedOn": "2026-11-23",
+        "businessId": "sofia-my-reformer-space-levski-g-vazov39",
+        "inventoryIdentity": "8d92052c42bfb0283a765d94d32eb803a3777dffbee5fbc16a6c1fdd9444163e",
+        "reason": "Preserves a single group class as the unit, the published VAT and card conditions, and the separate scope of the online late-cancellation terms.",
+        "entriesAdded": { "names": 1, "descriptions": 1, "units": 0 },
+        "certifiedHumanTranslation": false
+      },
+      {
+        "checkedOn": "2026-11-23",
+        "businessId": "sofia-mikron-dotsev-knyazhevo-tsarboris298",
+        "inventoryIdentity": "eeb6780531db254b4fbf288a7c098a0dd2619d3d7661e99a3ed6c8a4ba718b31",
+        "reason": "Keeps the approximate on-site duration, separately quoted parts and repairs, and credit toward a completed repair.",
+        "entriesAdded": { "names": 1, "descriptions": 1, "units": 0 },
+        "certifiedHumanTranslation": false
+      },
+      {
+        "checkedOn": "2026-11-23",
         "businessId": "sofia-pakosti-chudati-botunets-levski5",
         "inventoryIdentity": "ccf04e51dbe29312086464ec5a7e5d285f10c7309ea5da36a6dc1ac51b9697f2",
         "reason": "Package labels, booking periods, capacity and all displayed inclusions/exclusions retained.",
@@ -283,6 +299,8 @@
     ]
   },
   "names": {
+    "Пилатес реформър – еднократна групова тренировка": "Reformer Pilates – single group class",
+    "Оглед и диагностика на шибидах или панорамна система": "Sunroof or panoramic roof inspection and diagnostics",
     "Рожден ден на открито – половин ден": "Outdoor birthday party – half day",
     "Рожден ден на открито – цял ден": "Outdoor birthday party – full day",
     "Машинно почистване на DPF/FAP филтър": "Machine cleaning of a DPF/FAP filter",
@@ -6341,6 +6359,8 @@
     "смяна на предпазен клапан на бойлер": "change of boiler safety valve"
   },
   "descriptions": {
+    "Едно групово занимание от 50 минути с предварителна резервация. Цената включва ДДС. Не се приемат карти MultiSport. Отмяна до 24 часа преди часа; при по-късна отмяна или неявяване публикуваните онлайн условия предвиждат пълна такса.": "One prebooked 50-minute group class. VAT is included. MultiSport cards are not accepted. Cancel at least 24 hours before the class; the published online terms charge the full price for late cancellation or a no-show.",
+    "Огледът отнема около 30 минути на място. Частите и ремонтът се оферират отделно. Таксата за огледа се приспада, ако ремонтът бъде извършен.": "The on-site inspection takes about 30 minutes. Parts and repairs are quoted separately. The inspection fee is credited toward the repair if it is carried out.",
     "До 15 деца и 30 възрастни. Включва дигитална покана и базова украса; без храна, аниматор и организирани игри. Внасянето на храна и напитки е без доплащане, а за внесена торта се изисква сертификат. Дървените въглища за барбекю са срещу доплащане.": "Up to 15 children and 30 adults. A digital invitation and basic decoration are included; food, an entertainer and organised games are not. You may bring food and drinks at no extra charge; outside cake requires a certificate. Barbecue charcoal costs extra.",
     "За дизелови автомобили Евро 6. Цената е само за почистване на филтъра. Демонтаж и монтаж на място се уговарят отделно.": "For Euro 6 diesel vehicles. The price covers filter cleaning only. Removal and refitting at the workshop are arranged separately.",
     "Теория и практика по предварително съгласуван график. За кандидати, навършили 16 години, със завършен поне 6. клас. Условията за прием, датите и таксата се уточняват с академията.": "Theory and hands-on practice on a schedule agreed in advance. Applicants must be at least 16 years old and have completed at least grade 6. Confirm entry requirements, dates and the fee with the academy.",

@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
-import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { SOFIA_CATALOGUE as currentCatalogue } from '../lib/discovery/sofia-catalogue.mjs'
 import { PUBLIC_CATALOGUE } from '../lib/discovery/public-catalogue.mjs'
 import { catalogueBoundCoordinates } from '../lib/discovery/catalogue-coordinate-binding.mjs'
 import { normalizeCatalogueBusinesses } from '../lib/discovery/catalogue-search.mjs'
@@ -13,12 +13,14 @@ import { railExternalAction } from '../lib/discovery/rail.mjs'
 import { serviceThumbnail } from '../lib/service-thumbnail.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
 import { lowCoveragePriorCatalogue } from './catalogue-low-coverage-20261123-scope.mjs'
+import { lateNovemberGapPriorCatalogue } from './catalogue-late-november-gaps-20261123-scope.mjs'
 import receipt from '../docs/catalogue-coverage/low-coverage-intake-20261123.json' with { type: 'json' }
 import neksas from '../docs/catalogue-coverage/neksas-intake-20261123.json' with { type: 'json' }
 import pkg from '../docs/catalogue-coverage/pakosti-intake-20261123.json' with { type: 'json' }
 import ac from '../docs/catalogue-coverage/acpower-intake-20261123.json' with { type: 'json' }
 
 const now = Date.parse(receipt.checkedAt)
+const SOFIA_CATALOGUE = lateNovemberGapPriorCatalogue(currentCatalogue)
 const rows = new Map(SOFIA_CATALOGUE.map(row => [row.id, row]))
 const handler = createPublicBusinessDetailsHandler({
   config: { enabled: true }, now: () => now, allowAttempt: () => true,

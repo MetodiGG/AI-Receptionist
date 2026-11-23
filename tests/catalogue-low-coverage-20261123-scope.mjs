@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url'
 import neksas from '../docs/catalogue-coverage/neksas-intake-20261123.json' with { type: 'json' }
 import pakosti from '../docs/catalogue-coverage/pakosti-intake-20261123.json' with { type: 'json' }
 import acpower from '../docs/catalogue-coverage/acpower-intake-20261123.json' with { type: 'json' }
+import { lateNovemberGapAllowsFileChange, lateNovemberGapAllowsNewFile, lateNovemberGapPriorCatalogue, lateNovemberGapPriorSource } from './catalogue-late-november-gaps-20261123-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const digest = value => createHash('sha256').update(value).digest('hex')
@@ -37,10 +38,11 @@ function fileMatches(path, sha) {
   if (!sha) return false
   try { return digest(readFileSync(new URL('../' + path, import.meta.url))) === sha } catch { return false }
 }
-export const lowCoverageAllowsFileChange = path => Object.hasOwn(changed, path) && fileMatches(path, changed[path][1])
-export const lowCoverageAllowsNewFile = path => Object.hasOwn(newFiles, path) && fileMatches(path, newFiles[path])
+export const lowCoverageAllowsFileChange = path => lateNovemberGapAllowsFileChange(path) || Object.hasOwn(changed, path) && fileMatches(path, changed[path][1])
+export const lowCoverageAllowsNewFile = path => lateNovemberGapAllowsNewFile(path) || Object.hasOwn(newFiles, path) && fileMatches(path, newFiles[path])
 
 export function lowCoveragePriorSource(path, source) {
+  source = lateNovemberGapPriorSource(path, source)
   if (!Object.hasOwn(changed, path) ||
       !/NEKSAS_INTAKE_20261123|sofia-neksas-academy-chelopechene-yane28|sx-in-person-welding-course/u.test(source)) return source
   const [before, after] = changed[path]
@@ -55,7 +57,7 @@ export function lowCoveragePriorSource(path, source) {
 
 export function lowCoveragePriorCatalogue(rows) {
   const seen = new Set()
-  return rows.filter(row => {
+  return lateNovemberGapPriorCatalogue(rows).filter(row => {
     const exact = admitted.get(row.id)
     if (!exact) return true
     if (seen.has(row.id) || digest(JSON.stringify(row)) !== exact) throw Error('Unreviewed or duplicate low-coverage intake: ' + row.id)

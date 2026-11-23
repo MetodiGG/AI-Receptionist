@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 1,
+  "baseline": "7622c05bb74e3fa294ca8a0d5bcdb7d80cf238f2",
+  "checkedAt": "2026-11-23T05:08:00.000Z",
+  "status": "integrated_locally_not_published",
+  "targetPerQuarterCategory": 30,
+  "pickerTargetCells": 1358,
+  "approvedCatalogueRecords": [
+    1756,
+    1761
+  ],
+  "locatedPremises": [
+    996,
+    1001
+  ],
+  "emptyLocatedCells": [
+    1359,
+    1356
+  ],
+  "emptyLocatedPickerCells": [
+    1000,
+    997
+  ],
+  "cellsAtLocatedTarget": [
+    0,
+    0
+  ],
+  "newDistinctOperators": 4,
+  "newPremises": 5,
+  "newBranchesOfExistingOperators": 1,
+  "verifiedPublicPriceFacts": 7,
+  "freeTrialsAmongPriceFacts": 1,
+  "serviceReviewedWithoutStandalonePrice": 1,
+  "newRows": [
+    {
+      "id": "sofia-elit-chess-sveta-troitsa-hisarya3a",
+      "name": "Детски образователен център ЕЛИТ",
+      "neighborhood": "Света Троица",
+      "category": "education",
+      "change": "new_operator",
+      "physical": [
+        0,
+        1
+      ],
+      "located": [
+        0,
+        1
+      ],
+      "addressId": "104662",
+      "reviewState": "reviewed",
+      "normalizedRecordSha256": "1f4ab7e8338cf0ab2db55db82c34fca2b16d119c8375b56592e08c16ee28cab9",
+      "receipt": "elit-chess-sveta-troitsa-intake-20261123.json"
+    },
+    {
+      "id": "sofia-studio-s-hadzhi-dimitar-vastanik5",
+      "name": "Студио S · Хаджи Димитър",
+      "neighborhood": "Хаджи Димитър",
+      "category": "education",
+      "change": "existing_operator_new_premises",
+      "existingOperatorRows": [
+        "sofia-studio-s-strelbishte",
+        "sofia-studio-s-mladost1-chomakov4a"
+      ],
+      "physical": [
+        0,
+        1
+      ],
+      "located": [
+        0,
+        1
+      ],
+      "addressId": "27532",
+      "reviewState": "reviewed",
+      "normalizedRecordSha256": "6ee104762cdf42ff0d3b45a84522b68be5ca1b1ee7a24b1c07b52e2be850afaa",
+      "receipt": "priority-distinct-east-20261123.json"
+    },
+    {
+      "id": "sofia-smartykids-lyulin9-block954",
+      "name": "SmartyKids · Люлин 9",
+      "neighborhood": "Люлин 9",
+      "category": "education",
+      "change": "new_operator",
+      "physical": [
+        0,
+        1
+      ],
+      "located": [
+        0,
+        1
+      ],
+      "addressId": "29763",
+      "reviewState": "reviewed",
+      "normalizedRecordSha256": "4fe5df17fb600546036c662b43c4f00ef6718559615a5a57b357da26dc137cdc",
+      "receipt": "priority-distinct-north-20261123.json"
+    },
+    {
+      "id": "sofia-limoncello-kids-buxton-gortalov1",
+      "name": "Лимончело · детски кът",
+      "neighborhood": "Бъкстон",
+      "category": "other",
+      "change": "new_operator",
+      "physical": [
+        5,
+        6
+      ],
+      "located": [
+        2,
+        3
+      ],
+      "addressId": "115431",
+      "reviewState": "reviewed",
+      "normalizedRecordSha256": "8e07184ddc143b7ce402654aa382b114a814f85f985f490c9a8b78e594e9aac6",
+      "receipt": "priority-distinct-north-20261123.json"
+    },
+    {
+      "id": "sofia-sr-cars-ovcha-kupel-boychev4",
+      "name": "SR CARS Гуми",
+      "neighborhood": "Овча купел",
+      "category": "auto_repair",
+      "change": "new_operator",
+      "physical": [
+        3,
+        4
+      ],
+      "located": [
+        2,
+        3
+      ],
+      "addressId": "36066",
+      "reviewState": "service_reviewed",
+      "normalizedRecordSha256": "959cef55a87096efdb2e89520c3ce3600e478afac2660686aa781f27ff87afdd",
+      "receipt": "priority-distinct-south-20261123.json"
+    }
+  ],
+  "scope": "These are local approved listing and address-binding counts, not total distinct legal entities. The branch is counted once in its own quarter and category, not as a new operator or as service coverage of surrounding districts. Fixed EUR rates retain their units and conditions; the demo is the only free offer and a calculator bundle is not used for balancing alone."
+}

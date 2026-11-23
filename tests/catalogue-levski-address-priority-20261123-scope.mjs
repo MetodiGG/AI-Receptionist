@@ -3,6 +3,7 @@ import { execFileSync } from 'node:child_process'
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import batch from '../docs/catalogue-coverage/levski-address-priority-20261123.json' with { type: 'json' }
+import { priorityDistinctAllowsFileChange, priorityDistinctAllowsNewFile, priorityDistinctPriorSource, priorityDistinctPriorCatalogue } from './catalogue-priority-distinct-20261123-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = input => createHash('sha256').update(input).digest('hex')
@@ -32,10 +33,11 @@ const recoveries = new Map(batch.existingChanges.map(row => [row.id, row]))
 const evidence = /DCA_LEVSKI_INTAKE_20261123_|sofia-dca-garage-levski-v-letostruy27|Фолиране на задни автомобилни стъкла · хеви джип/u
 
 const fileMatches = (path, digest) => !!digest && sha(readFileSync(new URL('../' + path, import.meta.url))) === digest
-export const levskiAddressPriorityAllowsFileChange = path => Object.hasOwn(changed, path) && fileMatches(path, changed[path][1])
-export const levskiAddressPriorityAllowsNewFile = path => Object.hasOwn(added, path) && fileMatches(path, added[path])
+export const levskiAddressPriorityAllowsFileChange = path => priorityDistinctAllowsFileChange(path) || Object.hasOwn(changed, path) && fileMatches(path, changed[path][1])
+export const levskiAddressPriorityAllowsNewFile = path => priorityDistinctAllowsNewFile(path) || Object.hasOwn(added, path) && fileMatches(path, added[path])
 
 export function levskiAddressPriorityPriorSource(path, source) {
+  source = priorityDistinctPriorSource(path, source)
   if (!Object.hasOwn(changed, path) || !evidence.test(source)) return source
   const [before, after] = changed[path]
   if (sha(source) !== after) throw Error('Unreviewed 23 Nov Levski address priority source delta: ' + path)
@@ -49,7 +51,7 @@ export function levskiAddressPriorityPriorSource(path, source) {
 
 export function levskiAddressPriorityPriorCatalogue(rows) {
   const seen = new Set()
-  return rows.flatMap(row => {
+  return priorityDistinctPriorCatalogue(rows).flatMap(row => {
     const recovery = recoveries.get(row.id), addition = additions.get(row.id)
     if (!recovery && !addition) return [row]
     if (seen.has(row.id)) throw Error('Duplicate Levski address priority row: ' + row.id)

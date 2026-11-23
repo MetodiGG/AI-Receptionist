@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "status": "prepared_local_not_published",
+  "priority": "30 distinct real businesses with verified street addresses per Sofia neighborhood and category",
+  "baselineCommit": "7622c05",
+  "newBusinessesPrepared": 1,
+  "newServicesPrepared": 1,
+  "publishedStandalonePriceFactsPrepared": 0,
+  "business": {
+    "id": "sofia-sr-cars-ovcha-kupel-boychev4",
+    "name": "SR CARS Гуми",
+    "website": "https://srcars-gumi.bg/",
+    "category": "auto_repair",
+    "neighborhood": "Овча купел",
+    "address": "София, кв. Овча купел, ул. Бойчо Бойчев 4",
+    "booking": {
+      "kind": "phone",
+      "phone": "+359897259900",
+      "sources": ["https://srcars-gumi.bg/услуги/", "https://srcars-gumi.bg/къде-да-ни-намерите/"],
+      "notes": "First-party Book links on the services, prices and location pages use this same telephone. The service is an appointment with the workshop; there is no GoRez booking, live availability or confirmation."
+    },
+    "officialPremisesPoint": {
+      "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+      "municipalCsvSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+      "addressId": "36066",
+      "latitude": 42.67338,
+      "longitude": 23.250802,
+      "municipalAdministrativeDistrict": "Овча купел",
+      "municipalNeighborhoodField": null,
+      "neighborhoodEvidence": "The first-party contact and services pages both explicitly place this workshop at ул. Бойчо Бойчев 4 in кв. Овча купел. The unique matching municipal postal-address point is not an entrance survey. The administrative district is not used as a substitute for an unconfirmed neighborhood and the location is not attributed to Овча купел 1 or 2."
+    },
+    "duplicateCheck": "No prior runtime entry matched the normalized business name, workshop domain, full public phone or exact street number. GTP President Lincoln, B&E Alarm Systems and ANSICO are separate auto businesses in the same neighborhood.",
+    "service": {
+      "name": "Баланс на гуми с HUNTER Road Force",
+      "serviceUrl": "https://srcars-gumi.bg/услуги/",
+      "pricingDecision": "not_publicly_listed",
+      "pricePage": "https://srcars-gumi.bg/цени/",
+      "priceCheck": "The working public calculator exposes only the combined tyre change and balance set as a base service. Regular passenger-vehicle examples checked in the browser were EUR 45 for R15, EUR 50 for R16 and EUR 60 for R17 before additions; each was explicitly an estimate for the combination, not a price for balancing alone. No estimates, boxed sets, duration of the separate tyre-change service, retail products or add-ons were imported.",
+      "english": {
+        "name": "HUNTER Road Force wheel balancing",
+        "description": "Wheel balancing under simulated load to identify vibration. Confirm the appointment and the price for balancing alone by phone."
+      },
+      "illustration": {
+        "key": "sx-auto-workshop-tyre-fit-balance",
+        "path": "/service-photos/sx-auto-workshop-tyre-fit-balance-v1.webp",
+        "sha256": "2dbb70853de488dbca6148de44f3f83dc00ac19d2cf231707be6dc9c17132c32",
+        "notes": "Existing project illustration of workshop tyre fitting and balancing; not an owner workshop, equipment, or employee photograph."
+      }
+    },
+    "openingHours": {
+      "mondayThroughSaturday": "09:00–19:00",
+      "sunday": null,
+      "notes": "Sunday is described only as seasonal, without a guaranteed schedule."
+    },
+    "sourceReview": "Reviewed the actual phone booking links, the full public service, price and contact pages and the visible cookie information. The linked privacy page returned a 404 in an ordinary browser; no policy text or legal consent is claimed. No embedded map was used as evidence; no owner call, customer details, booking, form, account or payment.",
+    "inventoryIdentity": "cff453a549b4bc8d29089af94f12dd880a02ac4d15f9571f26c272453168dc33",
+    "normalizedRecordSha256": "959cef55a87096efdb2e89520c3ce3600e478afac2660686aa781f27ff87afdd"
+  },
+  "isolatedCoverageDelta": {
+    "neighborhood": "Овча купел",
+    "category": "auto_repair",
+    "physical": [3, 4],
+    "located": [2, 3],
+    "target": 30
+  },
+  "held": [
+    {
+      "name": "Timeless Body & Soul",
+      "sources": ["https://timeless-bg.com/pilates/", "https://timeless-bg.com/masazhi/", "https://timeless-bg.com/kontakti/", "https://timeless-bg.com/obshti-usloviya/"],
+      "reason": "Physical contact at бул. Симеоновско шосе 178 agrees with unique municipal point 99052, but old indexed owner Pilates information and the current price/booking presentation differ. Exact coverage attribution for the owner's Симеоново-север wording and the current booking and source-policy checks must be reviewed before adding a listing. No legacy or current tariff imported."
+    },
+    {
+      "name": "UPREFORMER · Овча купел",
+      "sources": ["https://upreformer.com/zali/ovcha-kupel", "https://upreformer.com/ceni", "https://book.upreformer.com/calendar/public?site_id=1"],
+      "reason": "The owner branch and terms both say ул. 661 №10А. No exact postal row for that street and number was found; numbered rows on adjacent ул. 761 do not establish the branch point. No borrowed coordinate or rates imported."
+    },
+    {
+      "name": "Dental clinic StoeviDENT",
+      "reason": "The official healthcare register supports a clinic at Казбек 1, Бъкстон; only third-party platform booking/price results were found, not an operational owner site supplying booking and offer evidence."
+    }
+  ]
+}

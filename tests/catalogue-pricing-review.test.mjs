@@ -53,6 +53,10 @@ import { VERIFIED_SOUTH_GROWTH_20261123_REVIEWS } from '../lib/discovery/catalog
 import { NORTH_GROWTH_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-north-growth-20261123.mjs'
 import { SPARSE_MARKET_SOUTH_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-sparse-market-south-20261123.mjs'
 import { DCA_LEVSKI_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-dca-levski-20261123.mjs'
+import { ELIT_CHESS_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-elit-chess-20261123.mjs'
+import { PRIORITY_DISTINCT_EAST_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-priority-distinct-east-20261123.mjs'
+import { PRIORITY_DISTINCT_NORTH_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-priority-distinct-north-20261123.mjs'
+import { PRIORITY_DISTINCT_SOUTH_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-priority-distinct-south-20261123.mjs'
 import { pricedGrowthPriorCatalogue } from './catalogue-priced-growth-20261123-scope.mjs'
 const now = Date.parse('2026-11-11T12:00:00Z')
 const record = () => structuredClone(SOFIA_CATALOGUE.find(row => row.id === 'sofia-cut-n-chill'))
@@ -196,6 +200,11 @@ test('dated audit receipts cover every current ID without rewriting the historic
     [NORTH_GROWTH_INTAKE_20261123_REVIEWS, 'sofia-terpsihora-lyulin5-504-1', 'service_reviewed'],
     [SPARSE_MARKET_SOUTH_20261123_REVIEWS, 'sofia-kanev-carpet-knyazhevo-buket55', 'reviewed'],
     [DCA_LEVSKI_INTAKE_20261123_REVIEWS, 'sofia-dca-garage-levski-v-letostruy27', 'reviewed'],
+    [ELIT_CHESS_INTAKE_20261123_REVIEWS, 'sofia-elit-chess-sveta-troitsa-hisarya3a', 'reviewed'],
+    [[PRIORITY_DISTINCT_EAST_20261123_REVIEWS[0]], 'sofia-studio-s-hadzhi-dimitar-vastanik5', 'reviewed'],
+    [[PRIORITY_DISTINCT_NORTH_20261123_REVIEWS[0]], 'sofia-smartykids-lyulin9-block954', 'reviewed'],
+    [[PRIORITY_DISTINCT_NORTH_20261123_REVIEWS[1]], 'sofia-limoncello-kids-buxton-gortalov1', 'reviewed'],
+    [PRIORITY_DISTINCT_SOUTH_20261123_REVIEWS, 'sofia-sr-cars-ovcha-kupel-boychev4', 'service_reviewed'],
   ]) {
     assert.deepEqual(reviews.map(row => row.id), [id])
     assert.equal(auditedIds.has(id), false)

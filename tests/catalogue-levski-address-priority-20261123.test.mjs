@@ -3,7 +3,7 @@ import test from 'node:test'
 import batch from '../docs/catalogue-coverage/levski-address-priority-20261123.json' with { type: 'json' }
 import dcaEvidence from '../docs/catalogue-coverage/dca-levski-intake-20261123.json' with { type: 'json' }
 import alkomEvidence from '../docs/catalogue-coverage/alkom-postal-recovery-20261123.json' with { type: 'json' }
-import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { SOFIA_CATALOGUE as currentCatalogue } from '../lib/discovery/sofia-catalogue.mjs'
 import { catalogueBoundCoordinates } from '../lib/discovery/catalogue-coordinate-binding.mjs'
 import { normalizeCatalogueBusinesses } from '../lib/discovery/catalogue-search.mjs'
 import { assessPricingReview, pricingIdentity } from '../lib/discovery/catalogue-pricing-review.mjs'
@@ -15,8 +15,10 @@ import { serviceThumbnail } from '../lib/service-thumbnail.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
 import { addressPriorityQueue } from '../scripts/catalogue-address-priority.mjs'
 import { levskiAddressPriorityPriorCatalogue } from './catalogue-levski-address-priority-20261123-scope.mjs'
+import { priorityDistinctPriorCatalogue } from './catalogue-priority-distinct-20261123-scope.mjs'
 
 const now = Date.parse(batch.checkedAt)
+const SOFIA_CATALOGUE = priorityDistinctPriorCatalogue(currentCatalogue)
 const prior = levskiAddressPriorityPriorCatalogue(SOFIA_CATALOGUE)
 const [dca, alkom] = [batch.newRows[0].id, batch.existingChanges[0].id].map(id => SOFIA_CATALOGUE.find(row => row.id === id))
 const host = url => url ? new URL(url).hostname.replace(/^www\./u, '') : ''

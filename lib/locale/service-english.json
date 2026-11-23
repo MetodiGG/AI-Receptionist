@@ -419,6 +419,14 @@
     ]
   },
   "names": {
+    "Баланс на гуми с HUNTER Road Force": "HUNTER Road Force wheel balancing",
+    "Пробен урок по ментална аритметика за деца": "Trial mental arithmetic lesson for children",
+    "Посещение на закрит детски кът · 1 час": "Indoor children's play area visit · 1 hour",
+    "Групов курс по математика за 6. клас": "Grade 6 group mathematics course",
+    "Групов курс по български език и литература за 6. клас": "Grade 6 group Bulgarian language and literature course",
+    "Шахмат за деца · едно посещение": "Chess for children · single visit",
+    "Шахмат за деца · едно посещение седмично": "Chess for children · one visit per week",
+    "Шахмат за деца · две посещения седмично": "Chess for children · two visits per week",
     "Фолиране на задни автомобилни стъкла · купе": "Rear window film installation · coupe",
     "Фолиране на задни автомобилни стъкла · седан / комби": "Rear window film installation · sedan / estate",
     "Фолиране на задни автомобилни стъкла · SUV": "Rear window film installation · SUV",
@@ -6526,6 +6534,13 @@
     "смяна на предпазен клапан на бойлер": "change of boiler safety valve"
   },
   "descriptions": {
+    "Баланс на колелата под симулирано натоварване за откриване на вибрации. Часът и цената за самостоятелен баланс се уточняват по телефона.": "Wheel balancing under simulated load to identify vibration. Confirm the appointment and the price for balancing alone by phone.",
+    "Безплатен пробен урок в центъра за деца от 4 до 12 г. Формулярът е заявка; центърът потвърждава часа. Услугата не включва редовния курс или неговите такси.": "Free trial lesson at the centre for children aged 4–12. The form sends a request; the centre confirms the time. This does not include the regular course or its tuition.",
+    "Детски кът с аниматор в ресторанта за възраст 0–13 г. Под 3 г. – с придружител. Прием и предаване само с родител или упълномощен придружител; чисти чорапи или пантофки. Не се допускат деца със симптоми. По телефона уточнете часа и дали е нужна резервация на маса. Цената е с ДДС.": "Indoor play area with an entertainer in the restaurant for ages 0–13. Children under 3 must be accompanied. Only a parent or authorised adult may drop off and collect a child. Clean socks or slippers are required. Children with symptoms are not admitted. Call to confirm the time and whether a table booking is required. The price includes VAT.",
+    "Групов курс за учебната година от септември до юни: 120 учебни часа по една дисциплина. Публикуваната сума е една от трите вноски, не цена за занятие. Отсъствията не намаляват таксата. Центърът уточнява групата, договора и плащането след заявка.": "Group course for the September–June school year, with 120 academic hours in one subject. The published amount is one of three instalments, not a per-class fee. Missed classes do not reduce the fee. The centre confirms the group, contract and payment details after receiving the request.",
+    "Едно групово занимание по шахмат за деца от 4 години. Центърът потвърждава подходящата група и свободното място.": "One group chess class for children aged 4 and over. The centre confirms the appropriate group and whether a place is available.",
+    "Месечна такса при 1 посещение седмично. За второ дете при същия график таксата е 40 € на месец. Центърът потвърждава групата и свободното място.": "Monthly fee for 1 visit per week. The second child pays €40 per month on the same schedule. The centre confirms the group and whether a place is available.",
+    "Месечна такса при 2 посещения седмично. За второ дете при същия график таксата е 56 € на месец. Центърът потвърждава групата и свободното място.": "Monthly fee for 2 visits per week. The second child pays €56 per month on the same schedule. The centre confirms the group and whether a place is available.",
     "Поставяне на защитно фолио на задните стъкла. Формулярът изпраща запитване; сервизът потвърждава класа на автомобила, приложимата цена и точния час.": "Protective film installation on the rear windows. The form sends an enquiry; the garage confirms the vehicle class, applicable price and appointment time.",
     "Срок до 10 дни. Тарифата е за пране на килими до 12 м² с включен ДДС. Вземането и връщането от адрес се уговарят и заплащат отделно.": "Ready within 10 days. This VAT-inclusive cleaning rate applies to rugs up to 12 m². Collection and return are arranged and charged separately.",
     "Срок до 4 дни. Тарифата е за пране на килими до 12 м² с включен ДДС. Вземането и връщането от адрес се уговарят и заплащат отделно.": "Ready within 4 days. This VAT-inclusive cleaning rate applies to rugs up to 12 m². Collection and return are arranged and charged separately.",
@@ -8382,6 +8397,7 @@
     "Часът се уговаря с преподавателя; първоначално се изготвя индивидуален график.": "The class is arranged with the lecturer; an individual schedule is initially drawn up."
   },
   "units": {
+    "вноска · 3 за курса": "instalment · 3 per course",
     "карта за 7 дни": "7-day pass",
     "пакет за 10 деца": "package for 10 children",
     "пакет за половин ден": "half-day package",

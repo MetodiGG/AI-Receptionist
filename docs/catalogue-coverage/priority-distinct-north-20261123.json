@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "checkedAt": "2026-11-23T04:00:00Z",
+  "baselineCommit": "7622c05bb74e3fa294ca8a0d5bcdb7d80cf238f2",
+  "status": "verified_intake_not_published",
+  "targetPerQuarterCategory": 30,
+  "municipalSource": {
+    "url": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+    "licence": "CC-BY-4.0",
+    "attribution": "ГИС София / Столична община",
+    "scope": "Exact address points, not separate door locations or road distance."
+  },
+  "businesses": [
+    {
+      "id": "sofia-smartykids-lyulin9-block954",
+      "category": "education",
+      "neighborhood": "Люлин 9",
+      "address": "София, ж.к. Люлин 9, бул. Царица Йоанна, бл. 954",
+      "municipal": {
+        "addressId": "29763",
+        "district": "Люлин",
+        "latitude": 42.715097,
+        "longitude": 23.264963,
+        "disambiguation": "One Sofia row for the named block within the district, with no separate entrance candidates. The branch and owner city directory name part 9, the boulevard and Block 954. The Sofia education directory independently lists the same centre and block."
+      },
+      "sources": {
+        "branchAndActualBooking": "https://smarty-kids.bg/sofia-lyulin/",
+        "ownerCityDirectory": "https://smarty-kids.bg/sofia-center-map/",
+        "ownerMentalArithmeticProgram": "https://smarty-kids.bg/mentalna-aritmetika/",
+        "terms": "https://smarty-kids.bg/smk-gdpr/",
+        "independentEducationDirectory": "https://www.orliobrazovanie.eu/profile-14743-smartykids-liulin-detski-obrazovatelen-centar-po-mentalna-aritmetika"
+      },
+      "qualification": "No SmartyKids operator/domain, branded branch or matching booking phone already in the current normalized catalogue; only this branch is added. Its own on-page demo button leads to a rendered request form with a course selector. Do not copy other franchise sites, forms or paid tuition.",
+      "rates": [{
+        "name": "Пробен урок по ментална аритметика за деца",
+        "nameEn": "Trial mental arithmetic lesson for children",
+        "description": "Безплатен пробен урок в центъра за деца от 4 до 12 г. Формулярът е заявка; центърът потвърждава часа. Услугата не включва редовния курс или неговите такси.",
+        "descriptionEn": "Free trial lesson at the centre for children aged 4–12. The form sends a request; the centre confirms the time. This does not include the regular course or its tuition.",
+        "amount": 0,
+        "currency": "EUR",
+        "imageKey": "sx-child-abacus-group"
+      }],
+      "tariffScope": "A routinely listed, separate, no-fee demo service, not a promotion or a price for paid instruction. Published as free rather than by numeric amount; the data uses exact zero for this specifically named trial only. No regular tuition, class size, times or fixed trial duration inferred.",
+      "pricingReview": "reviewed",
+      "normalizedRecordSha256": "4fe5df17fb600546036c662b43c4f00ef6718559615a5a57b357da26dc137cdc",
+      "inventoryIdentity": "f0cd6234a453704f6f1f71cf50d50fb4dcb5ce4332557692a4c4dd27fa0cbd00",
+      "coverage": { "physical": [0, 1], "located": [0, 1] }
+    },
+    {
+      "id": "sofia-limoncello-kids-buxton-gortalov1",
+      "category": "other",
+      "neighborhood": "Бъкстон",
+      "address": "София, кв. Бъкстон, ул. Майор Горталов 1",
+      "municipal": {
+        "addressId": "115431",
+        "district": "Красно село",
+        "latitude": 42.672723,
+        "longitude": 23.27543,
+        "disambiguation": "One official Sofia row for Major Gortalov St. 1. Both owner contacts and the independent operator directory explicitly identify Бъкстон, which is not inferred from the administrative district."
+      },
+      "sources": {
+        "operator": "https://limoncello.bg/",
+        "childCentreTariffAndExplicitTelephoneBooking": "https://limoncello.bg/детски-център/",
+        "ownerLocationAndSeparateTableForm": "https://limoncello.bg/контакти/",
+        "independentPremisesAndPhone": "https://www.restaurant.bg/restoranti/sofia-restaurants-bukston-restoranti-sofia-bukston-restaurant-limoncello-food-friends-bukston-sofia-restorant-limonchelo-5705"
+      },
+      "qualification": "The dedicated child-centre service has its own hourly tariff and its own FAQ explicitly directs customers to telephone booking, recommending reservations on weekends and holidays. The broad button's restaurant-table form is not the catalogue booking target. Only the child-centre physical play visit is represented. Existing catalogue dedupe found no owner name, site, phone or same civic premises for this operator.",
+      "rates": [{
+        "name": "Посещение на закрит детски кът · 1 час",
+        "nameEn": "Indoor children's play area visit · 1 hour",
+        "description": "Детски кът с аниматор в ресторанта за възраст 0–13 г. Под 3 г. – с придружител. Прием и предаване само с родител или упълномощен придружител; чисти чорапи или пантофки. Не се допускат деца със симптоми. По телефона уточнете часа и дали е нужна резервация на маса. Цената е с ДДС.",
+        "descriptionEn": "Supervised play area inside the restaurant for ages 0–13. Children under 3 must be accompanied. A parent or authorised adult must handle drop-off and pick-up; bring clean socks or slippers. Children with symptoms cannot enter. Call to confirm the time and any table requirement. The price includes VAT.",
+        "amount": 4.09,
+        "currency": "EUR",
+        "unit": "час",
+        "durationMin": 60,
+        "imageKey": "sx-child-psychomotor-group"
+      }],
+      "tariffScope": "Literal public VAT-inclusive EUR amount for a one-hour visit. One hour is the quoted service unit, not an inferred minimum for all visits. No meal or table purchase is stated on the child-centre page; do not promise that none is required. No birthdays, restaurant menus, full day rates, prices converted from BGN, unverified sports activities, opening hours or availability are imported.",
+      "pricingReview": "reviewed",
+      "normalizedRecordSha256": "8e07184ddc143b7ce402654aa382b114a814f85f985f490c9a8b78e594e9aac6",
+      "inventoryIdentity": "339a9ad3c5c74eaae34d849075d3e4c7c369ac2d15d51a3eaeecc21be7e86c41",
+      "coverage": { "physical": [5, 6], "located": [2, 3] }
+    }
+  ],
+  "held": [
+    {
+      "name": "Complex Cocos · събития",
+      "neighborhood": "Надежда 3",
+      "source": "https://complexcocos.bg/sabitiya/",
+      "reason": "The native event phone and civic number are published, but the supplied municipal CSV contains no Христо Силянов No. 148; no nearby point or map listing substituted."
+    },
+    {
+      "name": "НЧ „Ведрина-1932“ · курс по рисуване",
+      "neighborhood": "Връбница 2",
+      "source": "https://chitalishte-vedrina.com/deinosti/risuvane-7-klas/",
+      "reason": "The owner and public registry agree on the unique municipal point 91075. The static class page describes enrolment in general but does not provide an actual reservation action or a service-specific booking instruction for the current course."
+    }
+  ],
+  "coverageChange": { "newDistinctOperators": 2, "newLocatedPremises": 2, "newNonemptyExactCells": 1 },
+  "safeguards": "Only paraphrased service facts, exact published charges, official address points and verified contact routes. No business-supplied media, live slots, notifications, purchases, child data, calls, form submissions or production changes."
+}

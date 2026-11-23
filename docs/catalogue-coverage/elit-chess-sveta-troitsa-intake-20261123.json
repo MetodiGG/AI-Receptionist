@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "baselineCommit": "7622c05bb74e3fa294ca8a0d5bcdb7d80cf238f2",
+  "checkedOn": "2026-11-23",
+  "status": "verified_local_intake",
+  "business": {
+    "id": "sofia-elit-chess-sveta-troitsa-hisarya3a",
+    "operator": "Детски образователен център ЕЛИТ ООД",
+    "neighborhood": "Света Троица",
+    "category": "education",
+    "address": "София, ж.к. Света Троица, ул. Хисаря 3А",
+    "normalizedRecordSha256": "1f4ab7e8338cf0ab2db55db82c34fca2b16d119c8375b56592e08c16ee28cab9",
+    "inventoryIdentity": "22e9256b374d17cf095e43944285121375b5413e7931aa731974f7d48de1b231",
+    "municipal": {
+      "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+      "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+      "addressId": "104662",
+      "latitude": 42.705321,
+      "longitude": 23.293615,
+      "district": "Илинден",
+      "licence": "CC-BY-4.0",
+      "attribution": "ГИС София / Столична община",
+      "scope": "The operator gives the precise civic number and Света Троица neighborhood; one exact Sofia municipal row gives Ілинден as its district, not a conflicting neighborhood. The point is not an independently inspected entrance."
+    },
+    "ownerContactAndEnquiry": "https://elit4kids.com/kontakti/",
+    "ownerTimetable": "https://elit4kids.com/grafik-na-dejnostite/",
+    "ownerChessProgramAndTariffs": "https://elit4kids.com/classes/shahmat-za-detsa-kam-shahmaten-klub-elit/",
+    "sourceAccess": "Owner robots published a clear Disallow field with no path. The form links its client privacy and cookie documents; no separate service-data reuse ban was found in the reviewed public navigation or privacy text. Only independently paraphrased factual content, exact public tariff facts and separately checked municipal address data are used. No owner assets, testimonials or private information copied.",
+    "booking": "The venue's timetable directs users to its own enrolment/enquiry form. Public contact form HTML includes an explicit children’s chess option. No date or seat confirmation, no form submission, no collected client data and no production notifications. The centre confirms appropriate level and actual place; listed hours are lessons or seasonal front-office hours, not availability.",
+    "priceFacts": [
+      { "name": "Шахмат за деца · едно посещение", "amount": 15, "currency": "EUR", "unit": "посещение" },
+      { "name": "Шахмат за деца · едно посещение седмично", "amount": 50, "currency": "EUR", "unit": "месечна такса", "secondChildMonthlyEUR": 40 },
+      { "name": "Шахмат за деца · две посещения седмично", "amount": 70, "currency": "EUR", "unit": "месечна такса", "secondChildMonthlyEUR": 56 }
+    ],
+    "condition": "The owner source dates these rates from 1 October 2026. The recurring amounts are per month, not per class. Second-child rates remain visible conditions rather than separate generally available offers. The public timetable shows different class lengths by level, so no single numeric duration is stored.",
+    "dedupe": "No prior normalized Sofia record matches either publicly listed phone, the owner host including saltroom subdomain, or the same civic address. The co-located salt room is not a second independent operator; not added with a separate booking channel in this intake.",
+    "imageKey": "sx-child-chess-group"
+  },
+  "coverage": { "newDistinctOperators": 1, "newPremises": 1, "educationLocatedInSvetaTroitsa": [0, 1] }
+}

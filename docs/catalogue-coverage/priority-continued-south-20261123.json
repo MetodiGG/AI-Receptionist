@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "baselineCommit": "3a1b2f9",
+  "status": "research_only_no_publication_changes",
+  "priority": "Distinct, bookable premises with precise addresses in sparse southern and western Sofia neighborhood/category cells",
+  "newBusinessesPrepared": 0,
+  "newServicesPrepared": 0,
+  "newPricesPrepared": 0,
+  "source": {
+    "municipalAddressDataset": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "municipalCsvSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+    "method": "Read-only exact municipal postal address and entrance matching; no approximate coordinates, address inference from adjacent house numbers, Google Maps, geocoding service, accounts, online submissions, calls or payments."
+  },
+  "holds": [
+    {
+      "name": "Янко Horse Riding / Конна база Нова Звезда",
+      "neighborhood": "Княжево",
+      "category": "fitness",
+      "sources": [
+        "https://qnko-horse-riding.com/contact-us/",
+        "https://qnko-horse-riding.com/",
+        "https://ezdabg.com/kontakti/",
+        "https://ezdabg.com/tseni/"
+      ],
+      "reason": "One owner site gives only the neighborhood in its visible riding directions, links to a neighborhood-level destination, and separately declares ул. Люти дол 32 in its public structured PostalAddress. A differently named operator actively advertises the same #32 in its own footer and price page but #33 as the stable in its own contact directions. The municipal file contains different precise points for both numbers (13167 and 13171). Both public sites have riding offers, different phones and different prices; that does not establish separately operated physical premises or a particular entrance. Do not count either operator from this conflict, reuse a pin, or collapse them without identity confirmation."
+    },
+    {
+      "name": "Конна база Драгалевци",
+      "neighborhood": "Драгалевци",
+      "category": "fitness",
+      "sources": [
+        "https://ezdasofia.bg/policies/legal-notice",
+        "https://ezdasofia.bg/pages/цени",
+        "https://ezdasofia.com/kak-da-ni-namerite"
+      ],
+      "reason": "Owner pages give services, tariffs and a dedicated reservation route, but ул. Акад. Сандерс 47 is explicitly the registered seat and has no exact address candidate in this municipal CSV. Older directions cite a parking/entrance beyond the closest known address, so #35, #35А and #37 are not substitutes. No point, service or price admitted."
+    },
+    {
+      "name": "Езиков център Алиса",
+      "neighborhood": "Овча купел 2",
+      "category": "education",
+      "sources": [
+        "https://www.alisa-bg.com/contact-us/",
+        "https://www.alisa-bg.com/записване-за-новата-учебна-година/",
+        "https://www.alisa-bg.com/курсове/"
+      ],
+      "reason": "The operator publishes a real telephone path for setting a placement appointment and lists block 19А, entrance 1 on its physical contact page, but there is no exact independent municipal block/entrance match. School-year pricing is supplied by quotation or after registration; neither seasonal enrolment nor a couple of nearest street records are proof of bookable coverage at a verified coordinate."
+    },
+    {
+      "name": "Karada",
+      "neighborhood": "Павлово – Бъкстон (owner's wording)",
+      "category": "beauty",
+      "sources": ["https://karada.bg/kontakti/", "https://karada.bg/czeni/"],
+      "reason": "Indexed owner pages name ул. Будилник 1 (municipal ID 11002), a direct appointment form and procedure prices, but ordinary fresh browser navigation failed on the owner contact, booking and price pages. Do not use the indexed snapshot as live service or booking evidence or treat the unavailable menu as an unpublished tariff. The joint locality name was not credited to either individual neighborhood."
+    },
+    {
+      "name": "Отвъд",
+      "neighborhood": "Симеоново (third-party only)",
+      "category": "therapy",
+      "sources": ["https://otvud.bg/"],
+      "reason": "The practitioner website describes consultations and prompts to book by email, but shows neither an exact office address nor an owner phone or HTTPS booking form for that premises. Do not import private residential details or borrow the third-party office evidence as first-party."
+    }
+  ],
+  "otherExclusions": [
+    "Ariel Beauty Studio, King Barber, New Way Gym, Algorithmics branches, Academy ELIT, Gumi Slick, Dentel, LEA Dental, Ashli, AutoVilla and Belami matched existing identities.",
+    "Infinity Team is already represented in the other hall; the prior May Day Street entrance ambiguity remains unresolved.",
+    "No generic auto service area was turned into one physical location per neighborhood; inherited restrictions were not reopened or worked around."
+  ]
+}

@@ -3,6 +3,7 @@ import { execFileSync } from 'node:child_process'
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import batch from '../docs/catalogue-coverage/priority-distinct-20261123.json' with { type: 'json' }
+import { priorityContinuedAllowsFileChange, priorityContinuedAllowsNewFile, priorityContinuedPriorSource, priorityContinuedPriorCatalogue } from './catalogue-priority-continued-20261123-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = input => createHash('sha256').update(input).digest('hex')
@@ -28,10 +29,11 @@ const additions = new Map(batch.newRows.map(row => [row.id, row.normalizedRecord
 const evidence = /ELIT_CHESS_INTAKE_20261123_|sofia-elit-chess-sveta-troitsa-hisarya3a|Шахмат за деца · едно посещение/u
 
 const fileMatches = (path, digest) => !!digest && sha(readFileSync(new URL('../' + path, import.meta.url))) === digest
-export const priorityDistinctAllowsFileChange = path => Object.hasOwn(changed, path) && fileMatches(path, changed[path][1])
-export const priorityDistinctAllowsNewFile = path => Object.hasOwn(added, path) && fileMatches(path, added[path])
+export const priorityDistinctAllowsFileChange = path => priorityContinuedAllowsFileChange(path) || (Object.hasOwn(changed, path) && fileMatches(path, changed[path][1]))
+export const priorityDistinctAllowsNewFile = path => priorityContinuedAllowsNewFile(path) || (Object.hasOwn(added, path) && fileMatches(path, added[path]))
 
 export function priorityDistinctPriorSource(path, source) {
+  source = priorityContinuedPriorSource(path, source)
   if (!Object.hasOwn(changed, path) || !evidence.test(source)) return source
   const [before, after] = changed[path]
   if (sha(source) !== after) throw Error('Unreviewed 23 Nov distinct priority source delta: ' + path)
@@ -45,7 +47,7 @@ export function priorityDistinctPriorSource(path, source) {
 
 export function priorityDistinctPriorCatalogue(rows) {
   const seen = new Set()
-  return rows.filter(row => {
+  return priorityContinuedPriorCatalogue(rows).filter(row => {
     const expected = additions.get(row.id)
     if (!expected) return true
     if (seen.has(row.id)) throw Error('Duplicate distinct priority row: ' + row.id)

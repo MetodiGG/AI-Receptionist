@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "baselineCommit": "3a1b2f96a78dac8ee7066f1e20ee76f73fbbfcc6",
+  "status": "research_only_no_admissions",
+  "targetPerQuarterCategory": 30,
+  "municipalSource": {
+    "url": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+    "licence": "CC-BY-4.0",
+    "attribution": "ГИС София / Столична община",
+    "scope": "Exact civic addresses, not verification of a customer entrance or a live appointment."
+  },
+  "businesses": [],
+  "held": [
+    {
+      "name": "Goddess Pilates",
+      "neighborhood": "Сердика",
+      "category": "fitness",
+      "address": "София, ж.к. Сердика, ул. Охридско езеро 50",
+      "municipal": { "addressId": "41515", "district": "Възраждане", "latitude": 42.692159, "longitude": 23.296412 },
+      "sources": {
+        "actualBooking": "https://goddesspilates.bg/#schedule",
+        "ownerRatesAndBookingPolicy": "https://goddesspilates.bg/pricing",
+        "ownerService": "https://goddesspilates.bg/pilates-reformar-sofia",
+        "independentVenue": "https://coolfit.bg/locations/goddess-pilates/",
+        "independentQuarter": "https://www.classes.bg/bg/discover/school/goddess-pilates"
+      },
+      "reason": "The actual owner CTA and direct anchor open the working public weekly calendar. Both the current and following week expressly showed no classes, so no active class in the actual booking menu could be reviewed. The owner describes booking as online only. Do not substitute a generic contact number. The owner states EUR 20 for one 50-minute group reformer visit for up to six people; no price or appointment has been admitted. Packages and the time-limited free introductory offer are not equivalent to the ordinary visit."
+    },
+    {
+      "name": "Undercoating.bg",
+      "neighborhood": "Люлин 10",
+      "category": "auto_repair",
+      "address": "София, ж.к. Люлин 10, бул. Европа 5",
+      "sources": {
+        "ownerRates": "https://undercoating.bg/",
+        "ownerTelephoneBooking": "https://undercoating.bg/chesto-zadavani-vaprosi/",
+        "ownerServices": "https://undercoating.bg/uslugi/",
+        "ownerEnquiryAndAddress": "https://undercoating.bg/kontakti/",
+        "publicCorroboration": "https://www.autos1000.com/BG/Sofia/423796297487919/undercoating.bg"
+      },
+      "reason": "The owner offers telephone appointments and publicly lists full-treatment rates by vehicle class and coating tier. The supplied municipal CSV has no Sofia row for Europe Blvd. No. 5; the available map embed contains a viewport rather than a certified civic point. No prices or approximate coordinates admitted. The tier-1 passenger-car promotion must not be imported as a permanent price."
+    },
+    {
+      "name": "Детски парти клуб Пакостници",
+      "neighborhood": "Връбница 2",
+      "category": "other",
+      "address": "София, ж.к. Връбница 2, бл. 636, до вх. А",
+      "municipalAddressId": "17993",
+      "sources": {
+        "ownerDomainListedByRegistry": "https://pakostnici.com/",
+        "historicOwnerAuthoredEntry": "https://sofia.plays.bg/courses/view/1104",
+        "independentTelephoneAndBlock": "https://www.goldenbook.bg/bg/b/detski-parti-klub-pakostnitsi-6007924"
+      },
+      "reason": "The older operator-authored entry disambiguates the entrance and gives a phone reservation instruction for the activities described at the time. The listed owner site was not accessible in this review and no current direct booking or hourly tariff for supervised play was verified."
+    },
+    {
+      "name": "Logiscool · София Люлин",
+      "neighborhood": "Люлин 7",
+      "category": "education",
+      "address": "София, бул. Джавахарлал Неру 28, Силвър център, ет. 1, офис 5",
+      "municipalAddressId": "94685",
+      "sources": {
+        "ownerBranch": "https://www.logiscool.com/bg/locations/sofia-lyulin",
+        "actualCampEntry": "https://www.logiscool.com/bg/locations/sofia-lyulin/camps",
+        "buildingOwner": "https://silver-centre.com/контакти/",
+        "independentBuildingQuarter": "https://localbulgaria.net/firma/silvar-tsentar-sofia"
+      },
+      "reason": "The primary branch page and unique municipal point establish the premises. Its actual public camp enrolment link returned HTTP 402 in the check; no application, phone alternative or downloaded fee table was substituted, and no branch rate was classified unpublished."
+    },
+    {
+      "name": "Asylum MMA & No Gi BJJ",
+      "neighborhood": "Люлин 9",
+      "category": "fitness",
+      "addressAsPublished": "София, ж.к. Люлин 9, ул. „400“ 22, зад бл. 961",
+      "sources": {
+        "historicOpeningAdvertisement": "https://onhuddle.co/bg/event/otkrivane-na-asylum-mma-no-gi-bjj-bezplaten-opan-mat-17206",
+        "publicClubProfile": "https://smoothcomp.com/ko/club/87721"
+      },
+      "reason": "The club profile returned HTTP 403; the opening event was a one-off and does not establish free recurring training or current booking. The recorded point for residential block 961 is not a point for the named hall behind it; no municipal street entry for 400 St. No. 22 was found."
+    }
+  ],
+  "coverageChange": { "newDistinctOperators": 0, "newLocatedPremises": 0, "newNonemptyExactCells": 0 },
+  "safeguards": "Public listings, public own booking interfaces and official civic points only. No real reservations, dates or slots selected, calls, private accounts, paid data providers, price or runtime catalogue changes."
+}

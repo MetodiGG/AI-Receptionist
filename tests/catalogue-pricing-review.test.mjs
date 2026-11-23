@@ -57,6 +57,7 @@ import { ELIT_CHESS_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-d
 import { PRIORITY_DISTINCT_EAST_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-priority-distinct-east-20261123.mjs'
 import { PRIORITY_DISTINCT_NORTH_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-priority-distinct-north-20261123.mjs'
 import { PRIORITY_DISTINCT_SOUTH_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-priority-distinct-south-20261123.mjs'
+import { PRIORITY_CONTINUED_EAST_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-priority-continued-east-20261123.mjs'
 import { pricedGrowthPriorCatalogue } from './catalogue-priced-growth-20261123-scope.mjs'
 const now = Date.parse('2026-11-11T12:00:00Z')
 const record = () => structuredClone(SOFIA_CATALOGUE.find(row => row.id === 'sofia-cut-n-chill'))
@@ -205,6 +206,7 @@ test('dated audit receipts cover every current ID without rewriting the historic
     [[PRIORITY_DISTINCT_NORTH_20261123_REVIEWS[0]], 'sofia-smartykids-lyulin9-block954', 'reviewed'],
     [[PRIORITY_DISTINCT_NORTH_20261123_REVIEWS[1]], 'sofia-limoncello-kids-buxton-gortalov1', 'reviewed'],
     [PRIORITY_DISTINCT_SOUTH_20261123_REVIEWS, 'sofia-sr-cars-ovcha-kupel-boychev4', 'service_reviewed'],
+    [PRIORITY_CONTINUED_EAST_20261123_REVIEWS, 'sofia-yonitrade-suhata-reka-block10a', 'service_reviewed'],
   ]) {
     assert.deepEqual(reviews.map(row => row.id), [id])
     assert.equal(auditedIds.has(id), false)

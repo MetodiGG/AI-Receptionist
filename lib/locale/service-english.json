@@ -419,6 +419,8 @@
     ]
   },
   "names": {
+    "Групови занимания за деца на 3–4 г. · Опосум": "Group activities for ages 3–4 · Possum",
+    "Наем на закрит тенис корт с клей": "Indoor clay tennis court rental",
     "Наем на открит тенис корт": "Outdoor tennis court rental",
     "Стандартен шофьорски курс · категория B": "Standard driving course · category B",
     "Шофьорски курс за категория B": "Category B driving course",
@@ -6546,6 +6548,8 @@
     "смяна на предпазен клапан на бойлер": "change of boiler safety valve"
   },
   "descriptions": {
+    "Присъствени занимания с игри и упражнения за движение и координация. Цената е за един урок при записване за срок от 11 урока, не за единично посещение. При записване след началото на срока се заплащат оставащите уроци.": "In-person games and exercises for movement and coordination. The price is per lesson when enrolling in an 11-lesson term, not a drop-in price. After the term starts, you pay for the remaining lessons.",
+    "Онлайн цената е за 60 минути на един осветен закрит клей корт, без треньор. Проверете цената за избрания час в графика; плащане на място.": "The displayed online rate is for 60 minutes on one floodlit indoor clay court, without a coach. Check the price for your selected time in the schedule; pay at the venue.",
     "Открит корт с изкуствена трева. Посочената онлайн цена е за 60 минути на един корт, без треньор. Проверете цената за избрания час в графика; плащане на място.": "Outdoor artificial-grass court. The listed online rate is for 60 minutes on one court, without a coach. Check the price for your chosen time in the schedule; pay at the venue.",
     "Курсът включва 38 учебни часа теория и 31 учебни часа кормуване. Отделно се заплащат 60 € за теоретичния изпит и 70 € за практическия изпит. Началната дата се уточнява с автошколата.": "The course includes 38 theory lessons and 31 driving lessons. The theory exam costs €60 and the practical exam €70, payable separately. Arrange the start date with the driving school.",
     "Курсът включва теоретично и практическо обучение. Записването е по телефон; началната дата, графикът и таксата се уточняват с учебния център.": "The course includes theory and practical driving. Enrol by phone; the school confirms the start date, timetable and fee.",
@@ -8422,6 +8426,7 @@
     "Часът се уговаря с преподавателя; първоначално се изготвя индивидуален график.": "The class is arranged with the lecturer; an individual schedule is initially drawn up."
   },
   "units": {
+    "на урок при срок от 11 урока": "per lesson in an 11-lesson term",
     "корт · час": "court · hour",
     "за курса, без изпитни такси": "per course, excluding exam fees",
     "за ниво от 10 урока": "per 10-lesson level",

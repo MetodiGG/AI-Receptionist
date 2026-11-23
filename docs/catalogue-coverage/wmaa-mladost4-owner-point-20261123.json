@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "baseline": "09ea20da9e462163d312d7cdc6e093e64de9ef07",
+  "status": "prepared_locally_not_published",
+  "id": "sofia-wmaa-mladost",
+  "category": "fitness",
+  "neighborhood": "Младост 4",
+  "address": "София, Младост 4, ул. Нов ден 129, бл. 429",
+  "ownerSources": {
+    "home": "https://wt1.eu/bg/",
+    "branch": "https://wt1.eu/bg/post/452fb09a/skoli",
+    "contact": "https://wt1.eu/bg/post/8e142a6e/kontakti",
+    "robots": "https://wt1.eu/robots.txt"
+  },
+  "point": {
+    "source": "https://wt1.eu/bg/post/452fb09a/skoli",
+    "method": "first_party_coordinates",
+    "structuredEntityId": "https://wt1.eu/#mladost",
+    "structuredEntityType": "SportsActivityLocation",
+    "latitude": 42.6319359,
+    "longitude": 23.3780751
+  },
+  "municipalCorroboration": {
+    "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "municipalCsvSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+    "administrativeDistrict": "Младост",
+    "registeredArea": "ж.к. Младост 4",
+    "block": "429",
+    "licence": "CC-BY-4.0",
+    "entrances": [
+      { "entrance": "1", "addressId": "95870", "distanceMetresFromOwnerPoint": 5.90 },
+      { "entrance": "2", "addressId": "95871", "distanceMetresFromOwnerPoint": 11.57 },
+      { "entrance": "3", "addressId": "97973", "distanceMetresFromOwnerPoint": 31.90 },
+      { "entrance": "4", "addressId": "97974", "distanceMetresFromOwnerPoint": 52.39 }
+    ]
+  },
+  "verification": "The public owner branch and home both publish a distinct structured Mladost 4 venue with the same exact point and 129 Nov Den Street. The visible current owner address also identifies block 429; the same page distinguishes the Ovcha Kupel branch as a different venue and point. The municipal CSV corroborates the physical block but has four entrance rows and no separate exact street-number row. The owner point is bound to the existing branch address without claiming an entrance number, indoor location or official civic-coordinate provenance.",
+  "unchanged": "The current owner contact separately confirms telephone appointments for the two existing catalogue services. No website, address, service, price, opening hours, approved dates, bookings or business registration were changed; no new prices or appointment availability are claimed.",
+  "previousRowSha256": "1da369a2973381fc61619fcc4da2b964104fa12a60a7991daaad19bf15a742e5",
+  "reviewedRowSha256": "c65873493190860afed007fa33c470fd4b0a6b8854177f4cc69546bb852ae40c",
+  "pricingIdentity": "b9ed98d371fa582076534083a6f9978b9db33e4036078aecbf9fde9f3b9968fb",
+  "coverage": { "physical": [3, 3], "located": [0, 1] }
+}

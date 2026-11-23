@@ -3,6 +3,7 @@ import { execFileSync } from 'node:child_process'
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import batch from '../docs/catalogue-coverage/priority-found-20261123.json' with { type: 'json' }
+import { prioritySparse2AllowsFileChange, prioritySparse2AllowsNewFile, prioritySparse2PriorCatalogue, prioritySparse2PriorSource } from './catalogue-priority-sparse2-20261123-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = input => createHash('sha256').update(input).digest('hex')
@@ -26,10 +27,11 @@ const additions = new Map(batch.newRows.map(row => [row.id, row.normalizedRecord
 const evidence = /PRIORITY_FOUND_(?:EAST|NORTH|SOUTH|CORE)_20261123_|sofia-sparklab-mladost3-block304-3|Курс по роботика · LEGO WeDo 2\.0/u
 
 const fileMatches = (path, digest) => !!digest && sha(readFileSync(new URL('../' + path, import.meta.url))) === digest
-export const priorityFoundAllowsFileChange = path => Object.hasOwn(changed, path) && fileMatches(path, changed[path][1])
-export const priorityFoundAllowsNewFile = path => Object.hasOwn(added, path) && fileMatches(path, added[path])
+export const priorityFoundAllowsFileChange = path => prioritySparse2AllowsFileChange(path) || (Object.hasOwn(changed, path) && fileMatches(path, changed[path][1]))
+export const priorityFoundAllowsNewFile = path => prioritySparse2AllowsNewFile(path) || (Object.hasOwn(added, path) && fileMatches(path, added[path]))
 
 export function priorityFoundPriorSource(path, source) {
+  source = prioritySparse2PriorSource(path, source)
   if (!Object.hasOwn(changed, path) || !evidence.test(source)) return source
   const [before, after] = changed[path]
   if (sha(source) !== after) throw Error('Unreviewed 23 Nov found priority source delta: ' + path)
@@ -43,7 +45,7 @@ export function priorityFoundPriorSource(path, source) {
 
 export function priorityFoundPriorCatalogue(rows) {
   const seen = new Set()
-  return rows.filter(row => {
+  return prioritySparse2PriorCatalogue(rows).filter(row => {
     const expected = additions.get(row.id)
     if (!expected) return true
     if (seen.has(row.id)) throw Error('Duplicate found priority row: ' + row.id)

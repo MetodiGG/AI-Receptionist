@@ -4,6 +4,28 @@
   "scope": "Illustrative service-specific photos for approved Sofia catalogue entries; not actual business premises, staff, work or results.",
   "assets": [
     {
+      "id": "sx-indoor-clay-tennis-court",
+      "label": "Наем на закрит тенис корт с клей",
+      "sourceFile": "exec-e1fbfe5d-6487-4b05-9563-019f912f1fdc.png",
+      "sourceSha256": "7eddcb84667a6fe862b65526faa0b5310aef682be6612ad57e891817b65c0afa",
+      "bytes": 7402,
+      "sha256": "dc8e3deff7b79e02ff90fc9df0d724830690f31d95afcd74e67bbfc5702ffd38",
+      "prompt": "Use case: photorealistic-natural. Asset type: small GoRez service-catalogue thumbnail, an illustrative example, not a photograph of a specific operator. Primary request: one real-looking empty indoor tennis court with a traditional granular terracotta-red clay surface inside a cream-white inflatable fabric sports dome. Wide landscape three-quarter view from a baseline corner, with a centrally readable black tennis net, correctly painted white singles and doubles court lines, unmistakable visible clay grain and harmless scuffs, subdued artificial court lighting and modest community sports-club finishes. Keep the black net, red clay surface and curved dome ceiling readable in a square center crop. No people, coach, text, logos, names, watermark, seating crowd, blue hardcourt, grass or artificial turf. Natural editorial sports photography, no cinematic filters.",
+      "file": "public/service-photos/sx-indoor-clay-tennis-court-v1.webp",
+      "width": 256,
+      "height": 256,
+      "generatedOn": "2026-11-23",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "7eddcb84667a6fe862b65526faa0b5310aef682be6612ad57e891817b65c0afa",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Viewed the original and compressed square thumbnail. The inflatable dome, red granular clay, black tennis net and white court lines are clear. The court is a fictional example, not a real venue, and shows no instructor or branding. Full-frame resize and WebP conversion only."
+      }
+    },
+    {
       "id": "sx-outdoor-turf-tennis-court",
       "label": "Наем на открит тенис корт с изкуствена трева",
       "sourceFile": "exec-2f29b5c0-6aec-4ab0-84a4-ae4a8f3a0e38.png",

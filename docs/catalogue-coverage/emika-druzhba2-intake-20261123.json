@@ -1,0 +1,40 @@
+{
+  "checkedOn": "2026-11-23",
+  "status": "local_only",
+  "municipalSource": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+  "municipalCsvSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+  "businesses": [
+    {
+      "id": "sofia-emika-druzhba2-block204",
+      "neighborhood": "Дружба 2",
+      "category": "education",
+      "address": "София, ж.к. Дружба 2, бл. 204",
+      "municipal": {
+        "addressId": "123792",
+        "region": "Искър",
+        "sourceObject": "ж.к. Дружба",
+        "blockNumber": "204",
+        "latitude": 42.655304,
+        "longitude": 23.396919,
+        "pointScope": "Exact unique block postal point. No separate entrance recorded or inferred."
+      },
+      "website": "https://emika.bg/",
+      "contactUrl": "https://emika.bg/контакти/",
+      "terms": "https://emika.bg/общи-условия/",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359877100607",
+        "url": "https://emika.bg/подготовка-за-нво-4-клас/",
+        "conditions": "The operator names the phone for this course in block 204. Contact the school for the timetable and subject modules; a phone enquiry is not a completed enrolment. Written enrolment and payment are required under the operator's terms."
+      },
+      "pricingState": "not_publicly_listed",
+      "pricingEvidence": "Ordinary direct HTTPS and rendered public text both confirm the current course page directs customers to contact Emika for tuition. Legacy search-cache prices and charges for separately advertised courses are not applied. The exact course remains unpriced.",
+      "openingHours": "Omitted. Contact page lists weekdays; the general terms include Saturday.",
+      "inventoryIdentity": "dc372d449e1647f1dae271b208c2e695bd5e0c2f3b37aff00d5bb159f8087c27",
+      "rowSha256": "4a11fe52dee3794c6b52f53031bb0c2352d3729950395790870cbb425cd0f0cb"
+    }
+  ],
+  "illustrationAssets": {
+    "/service-photos/sx-school-tutoring-pair-v1.webp": "d8d487e744e165b81456d08e483974061e78cab85cf818ca96670673f2153da6"
+  }
+}

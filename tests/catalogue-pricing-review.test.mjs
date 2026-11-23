@@ -41,6 +41,10 @@ import { KOBA_PARIS_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-d
 import { VITOSHA_PAIR_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-vitosha-pair-intake-20261123.mjs'
 import { GEMINI4_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-gemini4-intake-20261123.mjs'
 import { ALVA_DENTAL_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-alva-dental-intake-20261123.mjs'
+import { SPARSE_EAST_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-sparse-east-intake-20261123.mjs'
+import { SPARSE_SOUTH_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-sparse-south-intake-20261123.mjs'
+import { EMIKA_DRUZHBA2_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-emika-druzhba2-20261123.mjs'
+import { SILVERSTAR_RING_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-silverstar-ring-intake-20261123.mjs'
 const now = Date.parse('2026-11-11T12:00:00Z')
 const record = () => structuredClone(SOFIA_CATALOGUE.find(row => row.id === 'sofia-cut-n-chill'))
 const review = () => structuredClone(BOOKING_PRICE_REVIEWS.find(row => row.id === 'sofia-cut-n-chill'))
@@ -168,6 +172,10 @@ test('dated audit receipts cover every current ID without rewriting the historic
     [[VITOSHA_PAIR_20261123_REVIEWS[1]], 'sofia-next-level-knyazhevo-tsar-boris272', 'reviewed'],
     [GEMINI4_INTAKE_20261123_REVIEWS, 'sofia-gemini4-republika-729-22', 'service_reviewed'],
     [ALVA_DENTAL_INTAKE_20261123_REVIEWS, 'sofia-alva-dental-hadzhi-dimitar107v', 'service_reviewed'],
+    [SPARSE_EAST_INTAKE_20261123_REVIEWS, 'sofia-salt-home-druzhba2-block302a', 'reviewed'],
+    [SPARSE_SOUTH_INTAKE_20261123_REVIEWS, 'sofia-logos152-simeonovo-krairechna10', 'service_reviewed'],
+    [EMIKA_DRUZHBA2_20261123_REVIEWS, 'sofia-emika-druzhba2-block204', 'service_reviewed'],
+    [SILVERSTAR_RING_INTAKE_20261123_REVIEWS, 'sofia-silver-star-ring-mall-okolovrasten214', 'service_reviewed'],
   ]) {
     assert.deepEqual(reviews.map(row => row.id), [id])
     assert.equal(auditedIds.has(id), false)
@@ -175,7 +183,7 @@ test('dated audit receipts cover every current ID without rewriting the historic
     const [review] = reviews
     assert.ok(BOOKING_PRICE_REVIEWS.includes(review))
     const business = SOFIA_CATALOGUE.find(row => row.id === id)
-    assert.equal(assessPricingReview(business, review, Date.parse('2026-11-23T12:00:00Z')).state, state)
+    assert.equal(assessPricingReview(business, review, Date.parse('2026-11-23T12:00:00Z')).state, state, id)
     assert.equal(assessPricingReview(business, review, now).state, 'pending')
   }
   assert.equal(auditedIds.size, SOFIA_CATALOGUE.length)

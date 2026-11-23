@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "baseline": "e4d6789d86b67504c45e58f40cc2505e18b56228",
+  "status": "prepared_locally_not_published",
+  "scope": "Five pre-existing premises with no bound coordinates. No new listing, service, price, hours or booking change. One numbered quarter is recovered using independent explicitly addressed evidence. Postal coordinates are not a survey of tenant entrances.",
+  "municipalSource": {
+    "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "municipalCsvSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+    "licence": "CC-BY-4.0",
+    "attribution": "ГИС София / Столична община",
+    "handling": "Read-only exact-address match against the owner-supplied municipal CSV via the project parser. Only municipal coordinates are stored. No provider API, external address lookup request, form submission, routing request or dataset export."
+  },
+  "approvedCatalogueRecords": [1744, 1744],
+  "locatedPremises": [962, 967],
+  "recoveries": [
+    {
+      "id": "sofia-pharos-lyulin4-block446",
+      "neighborhood": "Люлин 4",
+      "category": "education",
+      "address": "София, ж.к. Люлин 4, бл.446, вх.Б",
+      "ownerAddressSource": "https://pharos.bg/kontakti-pharos/",
+      "ownerReview": "The Lyulin contact branch lists quarter 4, block 446, entrance Б and the catalogue booking phone. The separate public school course page repeats that entrance. Registry also has entrance А, excluded by the owner's explicit address.",
+      "municipalMatch": { "addressId": "101980", "region": "Люлин", "registeredArea": "ж.к. Люлин", "block": "446", "latitude": 42.71541, "longitude": 23.249382, "entranceRecorded": "Б", "exactCandidateCount": 1 },
+      "previousRowSha256": "d27363068db1aa12d8fe7d81a96ea91867dbfa749ff544fffc77c02ae2fc8d53",
+      "reviewedRowSha256": "62c48f3c366bde5997f2ca86fd6afd7aee6dceeb3ee249d165b75bd24df45966",
+      "pricingIdentity": "d4116af90a9fee2016a9eb9bb64f7c1698ce99ef3cac5f75e978306e4667e9eb",
+      "coverage": { "physical": [1, 1], "located": [0, 1] }
+    },
+    {
+      "id": "sofia-wave-studio-lyulin7-nails",
+      "neighborhood": "Люлин 7",
+      "category": "nails",
+      "address": "София, ж.к. Люлин 7, бл. 744",
+      "ownerAddressSource": "https://www.wave-studio.net/contact-us/",
+      "ownerReview": "The owner's Lyulin branch contact lists the numbered quarter, block and matching booking phone and separately lists another branch. The municipal CSV has one exact match for block 744 in district Lyulin, without separate entrances. Bind the postal block point only.",
+      "municipalMatch": { "addressId": "52301", "region": "Люлин", "registeredArea": "ж.к. Люлин", "block": "744", "latitude": 42.710662, "longitude": 23.268238, "entranceRecorded": null, "exactCandidateCount": 1 },
+      "previousRowSha256": "647fa16d747fc7ca938475a5b1975a71aa970d162dc5dd6c407b0ca42af5f81a",
+      "reviewedRowSha256": "5852e1537c4aa6722e5e0b1d14bf200bb8675b9ebc952763db6a50d4fcbec86f",
+      "pricingIdentity": "c1476b4002935690f0d291eba1112a984f056c6e5add3086a37758fc21dab5e5",
+      "coverage": { "physical": [1, 1], "located": [0, 1] }
+    },
+    {
+      "id": "sofia-yoyo-vet",
+      "neighborhood": "Люлин 4",
+      "category": "other",
+      "address": "София, ж.к. Люлин 4, бл. 408, вх. А, от задната страна откъм парка",
+      "ownerAddressSource": "https://yoyovet.com/",
+      "ownerReview": "The already-listed veterinary practice for animals explicitly publishes Lyulin 4, block 408, entrance А, rear side by the park and its existing phone. This updates only its postal anchor, not the catalogue's health-service scope. The official point represents the postal entrance; the business's rear approach instruction is preserved verbatim.",
+      "municipalMatch": { "addressId": "30115", "region": "Люлин", "registeredArea": "ж.к. Люлин", "block": "408", "latitude": 42.718155, "longitude": 23.245101, "entranceRecorded": "А", "exactCandidateCount": 1 },
+      "previousRowSha256": "d9bdbbd7fa10a9c786c1f431bfa05501b9ca4f56d6996dcce8710b03379f17b6",
+      "reviewedRowSha256": "7b7b224cd67da342d9df42ec5aaa43dbc5af8f69fb2ecaa8fe0bcb2659d3f772",
+      "pricingIdentity": "01bd70266ef7b9f604040b44b97381996423a315d7d56d5e9fc5cf6f144bd5e0",
+      "coverage": { "physical": [2, 2], "located": [0, 1] }
+    },
+    {
+      "id": "sofia-dr-smily",
+      "neighborhood": "Люлин 6",
+      "previousNeighborhood": null,
+      "category": "other",
+      "address": "София, ж.к. Люлин, ул. 601-ва, бл. 608, вх. Б",
+      "ownerAddressSource": "https://dr-smily.com/",
+      "quarterEvidence": "https://adm.bnr.bg/files/uploads/33_ZapadnaBulgaria.pdf",
+      "ownerReview": "Owner confirms street 601, block 608, entrance Б and the same phone but not the numbered quarter. The archived power utility schedule published by Bulgarian National Radio lists the exact block and entrance under Люлин 6. The independent official municipal address file yields one matching entrance. The published display address is unchanged; only the structured quarter and coordinate are added.",
+      "municipalMatch": { "addressId": "29631", "region": "Люлин", "registeredArea": "ж.к. Люлин", "block": "608", "latitude": 42.714473, "longitude": 23.250566, "entranceRecorded": "Б", "exactCandidateCount": 1 },
+      "previousRowSha256": "c1845fb4d39eb22008e82b4100d5d355c3a131efc2d6c17db972fff5ac599abc",
+      "reviewedRowSha256": "03b917deb7bab5735019f3d48be66d596d032598b231d6e539dd547289831e15",
+      "pricingIdentity": "d2ac189ce5315d9c86480ba473375655a8124a7e466e4e2876af67277bf4d6f4",
+      "coverage": { "physical": [0, 1], "located": [0, 1] }
+    },
+    {
+      "id": "sofia-dentel-lyulin",
+      "neighborhood": "Люлин 10",
+      "category": "other",
+      "address": "София, ж.к. Люлин 10, бл. 122, вх. Г, ет. 1",
+      "ownerAddressSource": "https://dentel.bg/kontakti/",
+      "ownerReview": "The owner's separate Lyulin contact and booking branches explicitly give block 122, entrance Г, floor 1 and the existing Lyulin phone. Other entrances of block 122 and the similarly named block 122А are excluded.",
+      "municipalMatch": { "addressId": "53739", "region": "Люлин", "registeredArea": "ж.к. Люлин", "block": "122", "latitude": 42.717252, "longitude": 23.269784, "entranceRecorded": "Г", "exactCandidateCount": 1 },
+      "previousRowSha256": "b9b57a4b6a379049464f65815d482fec21d0e15e218d84f85627ec507d795899",
+      "reviewedRowSha256": "e3fc6ceb9677bd2d4261403a15b4c80abbb1f0475f32bedf38d0f8ad8dcf396f",
+      "pricingIdentity": "7645a41b3a0ceb323de67a705a3404f75c5b3fcf63a2378cf848b9aa1505be90",
+      "coverage": { "physical": [3, 3], "located": [1, 2] }
+    }
+  ],
+  "holds": [
+    { "id": "sofia-arholl-arena-obelya1-124-reformer", "reason": "Operator specifies block 124 of Arholl Park without entrance. The municipal file has two exact block records, entrances А and Б; no unambiguous entrance evidence." },
+    { "id": "sofia-gr-pilates", "reason": "Operator names number 27 without an entrance; the municipal file offers three separate entrances." },
+    { "id": "sofia-dd-cosmetics-lyulin4", "reason": "Operator publishes block 410Б; municipal source does not list that block suffix and instead lists four entrances of block 410. The suffix was not reinterpreted as entrance Б." },
+    { "id": "sofia-bgm-dent-lyulin8-block802", "reason": "Owner Contact page shows both block 802 entrance Д and 3004 Street number 9; no confirmation of the currently used premises." },
+    { "id": "sofia-via-dental-obelya", "reason": "Operator gives the DKC XXX building but no number; current municipality building notice also omits the number. Only numeric street point 6 is insufficient to prove that building." },
+    { "id": "sofia-vaklinov-sin-orlandovtsi", "reason": "Owner writes postal number 107; the corresponding municipal street has number 107А but no 107. Unconfirmed suffix not substituted." },
+    { "id": "sofia-fixa-evropa29", "reason": "Owner-confirmed boulevard Europe number 29 absent from the available municipal snapshot. No point inferred from nearby numbers." }
+  ]
+}

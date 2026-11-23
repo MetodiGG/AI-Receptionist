@@ -6,6 +6,7 @@ import batch from '../docs/catalogue-coverage/sparse-market-priority-20261123.js
 import vitosha from '../docs/catalogue-coverage/vitosha-pair-intake-20261123.json' with { type: 'json' }
 import gemini from '../docs/catalogue-coverage/gemini4-intake-20261123.json' with { type: 'json' }
 import locations from '../docs/catalogue-coverage/sparse-address-bindings-20261123.json' with { type: 'json' }
+import { peripheryAllowsFileChange, peripheryAllowsNewFile, peripheryPriorSource, peripheryPriorCatalogue } from './catalogue-periphery-20261123-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const digest = value => createHash('sha256').update(value).digest('hex')
@@ -37,10 +38,11 @@ const recoveries = new Map(locations.recoveries.map(row => [row.id, row]))
 function hasHash(path, sha) {
   try { return Boolean(sha) && digest(readFileSync(new URL('../' + path, import.meta.url))) === sha } catch { return false }
 }
-export const sparseMarketAllowsFileChange = path => Object.hasOwn(changed, path) && hasHash(path, changed[path][1])
-export const sparseMarketAllowsNewFile = path => Object.hasOwn(added, path) && hasHash(path, added[path])
+export const sparseMarketAllowsFileChange = path => peripheryAllowsFileChange(path) || Object.hasOwn(changed, path) && hasHash(path, changed[path][1])
+export const sparseMarketAllowsNewFile = path => peripheryAllowsNewFile(path) || Object.hasOwn(added, path) && hasHash(path, added[path])
 
 export function sparseMarketPriorSource(path, source) {
+  source = peripheryPriorSource(path, source)
   if (!Object.hasOwn(changed, path) || !/VITOSHA_PAIR_20261123|sofia-kis-auto-simeonovo-bosilek3|Фитнес и групови тренировки · 7-дневна карта|sx-auto-bumper-spray-paint/u.test(source)) return source
   const [before, after] = changed[path]
   if (digest(source) !== after) throw Error('Unreviewed 23 Nov sparse-market priority source delta: ' + path)
@@ -54,7 +56,7 @@ export function sparseMarketPriorSource(path, source) {
 
 export function sparseMarketPriorCatalogue(rows) {
   const seen = new Set()
-  return rows.flatMap(row => {
+  return peripheryPriorCatalogue(rows).flatMap(row => {
     const recovery = recoveries.get(row.id), next = newHashes.get(row.id)
     if (!recovery && !next) return [row]
     if (seen.has(row.id)) throw Error('Duplicate sparse-market intake: ' + row.id)

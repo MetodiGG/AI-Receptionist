@@ -1,0 +1,40 @@
+{
+  "checkedOn": "2026-11-23",
+  "baselineCommit": "e4d6789d86b67504c45e58f40cc2505e18b56228",
+  "status": "verified_intake_not_published",
+  "targetPerQuarterCategory": 30,
+  "businesses": [
+    {
+      "id": "sofia-silver-star-ring-mall-okolovrasten214",
+      "category": "auto_repair",
+      "neighborhood": "Симеоново",
+      "address": "София, в.з. Симеоново – север, ул. Околовръстен път 214, Sofia Ring Mall, паркинг ниво 0",
+      "municipal": {
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+        "addressId": "109175",
+        "latitude": 42.624488,
+        "longitude": 23.352551,
+        "licence": "CC-BY-4.0",
+        "match": "The unique official Sofia street and number row in district Vitosha. Co-located first-party venue sources confirm the mall street point and the more precise Simeonovo-Sever label; the map point is the address and does not represent the car parking entrance."
+      },
+      "sources": {
+        "officialContact": "https://www.silverstar.bg/contacts/",
+        "officialBooking": "https://www.silverstar.bg/zapazi-svoya-chas-za-obsluzhvane-v-sofia-ring-mall/",
+        "officialService": "https://www.silverstar.bg/nova-usluga-za-sobstvenici-na-mercedes-benz/",
+        "officialDropOffHours": "https://stock.silverstar.bg/contact",
+        "officialOffers": "https://www.silverstar.bg/special-offers/",
+        "mallAddressCorroboration": "https://sofiaring.bg/contact?lang=bg",
+        "mallNeighborhoodCorroboration": "https://pulsefit.bg/klubove/pulse-energy-hyrox-training-club/"
+      },
+      "qualification": "Distinct appointment premises of an existing chain, not a new legal operator or duplicate of Chelopechko Shose No. 52. The operator states that the Ring Mall appointment drop-off is on level 0, identifies brake-disc service, and restricts the service scope to Mercedes-Benz. The specific vehicle-intake schedule on its stock site (10:00–19:00 daily) is different from the generic location's sales hours.",
+      "booking": "Advance appointments by phone only as sourced for the listed service. Neither the generic product enquiry form nor retail offers have been presented as booking. No contact, reservation or confirmed availability.",
+      "pricingDecision": "not_publicly_listed",
+      "tariffScope": "The owner's model-specific discount packages concern oil service and inspections; none defines a standalone Ring Mall brake-disc replacement price. No booking price, duration, discount or package is imported.",
+      "imageKey": "sx-auto-brake-disc",
+      "normalizedRecordSha256": "a96a324af95330dabcc9651aeeb7ef51e988f88b5e88784e3dd4c368d8954714",
+      "inventoryIdentity": "321ac94363b290d9e05dcb4a20661e635b6127eb4df40c98fac0cf3983bcb69d",
+      "coverageAtReview": { "physical": [1, 2], "located": [1, 2] }
+    }
+  ]
+}

@@ -18,6 +18,7 @@ import { applySparseAddressBindings20261123 } from '../lib/discovery/catalogue-d
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
 import { serviceThumbnail } from '../lib/service-thumbnail.mjs'
 import { sparseMarketPriorCatalogue } from './catalogue-sparse-market-20261123-scope.mjs'
+import { peripheryPriorCatalogue } from './catalogue-periphery-20261123-scope.mjs'
 
 const now = Date.parse(batch.checkedAt)
 const records = new Map(SOFIA_CATALOGUE.map(row => [row.id, row]))
@@ -97,13 +98,14 @@ test('four already-listed premises add only an identity-bound coordinate, preser
 })
 
 test('the coverage ledger describes distinct new operators and the first exact point in six cells', () => {
-  const prior = sparseMarketPriorCatalogue(SOFIA_CATALOGUE)
+  const current = peripheryPriorCatalogue(SOFIA_CATALOGUE)
+  const prior = sparseMarketPriorCatalogue(current)
   const earlier = new Map(prior.map(row => [row.id, row]))
-  const newRows = SOFIA_CATALOGUE.filter(row => !earlier.has(row.id))
+  const newRows = current.filter(row => !earlier.has(row.id))
   assert.deepEqual(newRows.map(x => x.id), batch.affected.filter(x => x.change === 'new_operator').map(x => x.id))
   assert.equal(new Set(newRows.map(x => new URL(x.website).hostname)).size, batch.newDistinctOperators)
   assert.equal(newRows.flatMap(row => row.services).filter(service => service.price).length, batch.verifiedPublicPriceFacts)
-  const reports = [prior, SOFIA_CATALOGUE].map(rows => catalogueCoverageReport(rows, { now, target: batch.targetPerQuarterCategory }))
+  const reports = [prior, current].map(rows => catalogueCoverageReport(rows, { now, target: batch.targetPerQuarterCategory }))
   const all = report => [...report.neighborhoods, ...report.additionalNamedAreas]
   const empty = areas => areas.flatMap(area => area.cells).filter(cell => !cell.locatedCount).length
   assert.deepEqual(reports.map(r => r.counts.approvedBusinesses), batch.approvedCatalogueRecords)

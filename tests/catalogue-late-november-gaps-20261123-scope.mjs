@@ -6,6 +6,7 @@ import batch from '../docs/catalogue-coverage/late-november-gaps-20261123.json' 
 import mikron from '../docs/catalogue-coverage/mikron-intake-20261123.json' with { type: 'json' }
 import reformer from '../docs/catalogue-coverage/my-reformer-space-intake-20261123.json' with { type: 'json' }
 import swimming from '../docs/catalogue-coverage/swimming-lyulin3-verified-location-20261123.json' with { type: 'json' }
+import { northWestAllowsFileChange, northWestAllowsNewFile, northWestPriorCatalogue, northWestPriorSource } from './catalogue-north-west-priority-20261123-scope.mjs'
 
 // Replay the original source and exact reviewed row inventory for historical scope tests.
 // This is intentionally not a runtime address or publication mechanism.
@@ -38,10 +39,11 @@ function fileMatches(path, sha) {
   if (!sha) return false
   try { return digest(readFileSync(new URL('../' + path, import.meta.url))) === sha } catch { return false }
 }
-export const lateNovemberGapAllowsFileChange = path => Object.hasOwn(changed, path) && fileMatches(path, changed[path][1])
-export const lateNovemberGapAllowsNewFile = path => Object.hasOwn(added, path) && fileMatches(path, added[path])
+export const lateNovemberGapAllowsFileChange = path => northWestAllowsFileChange(path) || Object.hasOwn(changed, path) && fileMatches(path, changed[path][1])
+export const lateNovemberGapAllowsNewFile = path => northWestAllowsNewFile(path) || Object.hasOwn(added, path) && fileMatches(path, added[path])
 
 export function lateNovemberGapPriorSource(path, source) {
+  source = northWestPriorSource(path, source)
   if (!Object.hasOwn(changed, path) || !/MIKRON_INTAKE_20261123|sofia-mikron-dotsev-knyazhevo-tsarboris298|sx-auto-sunroof-inspection/u.test(source)) return source
   const [before, after] = changed[path]
   if (digest(source) !== after) throw Error('Unreviewed 23 Nov Mikron intake source delta: ' + path)
@@ -55,7 +57,7 @@ export function lateNovemberGapPriorSource(path, source) {
 
 export function lateNovemberGapPriorCatalogue(rows) {
   const seen = new Set()
-  return rows.flatMap(row => {
+  return northWestPriorCatalogue(rows).flatMap(row => {
     const exact = addedRows.get(row.id)
     if (!exact && row.id !== swimming.business.id) return [row]
     if (seen.has(row.id)) throw Error('Duplicate late 23 Nov gap intake record: ' + row.id)

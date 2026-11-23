@@ -17,6 +17,14 @@
     "manualRevalidations": [
       {
         "checkedOn": "2026-11-23",
+        "businessId": "sofia-unigas-romano-voenna-rampa-konstantin3",
+        "inventoryIdentity": "028a448ff160f4c9dc843b2c1e4ec377982270dd37bbbfd9c3cb8a0d250697a8",
+        "reason": "Preserves the starting rather than fixed price, VAT, installed base configuration and conditional cost of the selected options.",
+        "entriesAdded": { "names": 1, "descriptions": 1, "units": 0 },
+        "certifiedHumanTranslation": false
+      },
+      {
+        "checkedOn": "2026-11-23",
         "businessId": "sofia-my-reformer-space-levski-g-vazov39",
         "inventoryIdentity": "8d92052c42bfb0283a765d94d32eb803a3777dffbee5fbc16a6c1fdd9444163e",
         "reason": "Preserves a single group class as the unit, the published VAT and card conditions, and the separate scope of the online late-cancellation terms.",
@@ -299,6 +307,7 @@
     ]
   },
   "names": {
+    "Монтаж на газов инжекцион Romano Antonio ECO — 4 цилиндъра": "Romano Antonio ECO LPG injection system installation — 4 cylinders",
     "Пилатес реформър – еднократна групова тренировка": "Reformer Pilates – single group class",
     "Оглед и диагностика на шибидах или панорамна система": "Sunroof or panoramic roof inspection and diagnostics",
     "Рожден ден на открито – половин ден": "Outdoor birthday party – half day",
@@ -6359,6 +6368,7 @@
     "смяна на предпазен клапан на бойлер": "change of boiler safety valve"
   },
   "descriptions": {
+    "Началната цена е с ДДС и включва системата с цилиндрична бутилка до 40 л, монтаж, настройка, сервизна книжка и монтажен протокол. Крайната цена зависи от автомобила, сложността на монтажа и избраните допълнения.": "The starting price includes VAT, the system with a cylindrical tank up to 40 L, installation, calibration, a service booklet and an installation report. The final price depends on the vehicle, the complexity of the installation and any optional extras.",
     "Едно групово занимание от 50 минути с предварителна резервация. Цената включва ДДС. Не се приемат карти MultiSport. Отмяна до 24 часа преди часа; при по-късна отмяна или неявяване публикуваните онлайн условия предвиждат пълна такса.": "One prebooked 50-minute group class. VAT is included. MultiSport cards are not accepted. Cancel at least 24 hours before the class; the published online terms charge the full price for late cancellation or a no-show.",
     "Огледът отнема около 30 минути на място. Частите и ремонтът се оферират отделно. Таксата за огледа се приспада, ако ремонтът бъде извършен.": "The on-site inspection takes about 30 minutes. Parts and repairs are quoted separately. The inspection fee is credited toward the repair if it is carried out.",
     "До 15 деца и 30 възрастни. Включва дигитална покана и базова украса; без храна, аниматор и организирани игри. Внасянето на храна и напитки е без доплащане, а за внесена торта се изисква сертификат. Дървените въглища за барбекю са срещу доплащане.": "Up to 15 children and 30 adults. A digital invitation and basic decoration are included; food, an entertainer and organised games are not. You may bring food and drinks at no extra charge; outside cake requires a certificate. Barbecue charcoal costs extra.",

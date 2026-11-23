@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "status": "verified_location_only",
+  "purpose": "Complete the civic address and attach its exact municipal point to the existing DPOOL sports premises in Lyulin 2.",
+  "business": {
+    "id": "sofia-dpool-private-swimming-lyulin",
+    "name": "DPOOL · индивидуални уроци по плуване",
+    "cityCode": "68134",
+    "category": "fitness",
+    "neighborhood": "Люлин 2",
+    "priorAddress": "София, Люлин 2, ул. Стефана Клинчарова, басейн на 90 СУ",
+    "address": "София, Люлин 2, ул. Стефана Клинчарова 3, басейн на 90 СУ",
+    "website": "https://dpool.bg/",
+    "booking": "Keep advance telephone booking at +359899161218 for individual lessons with an instructor. This is distinct from group training, uncoached public swim and competitive-team enquiries. No GoRez time slots or live hours are asserted.",
+    "inventory": "Keep the already reviewed 25 EUR single individual swimming lesson and 80 EUR total four-session individual package, whose validity is 30 days. Service facts, price sources, review dates and booking eligibility are unchanged."
+  },
+  "sources": [
+    {
+      "url": "https://dpool.bg/",
+      "evidence": "The operator names the swimming pool at the 90th School and publishes the existing advance-booking phone under individual sessions for children and adults. The booking evidence is the public phone instructions, not the generic enquiry form or competitive-team form."
+    },
+    {
+      "url": "https://sou90.org/kontakti/",
+      "evidence": "The host school independently gives its full civic address: Sofia, Lyulin 2, Stefana Klincharova Street 3."
+    },
+    {
+      "url": "https://lyulin.sofia.bg/dokumenti/uchilishta-na-teritoriata-na-rayon-lyulin/",
+      "evidence": "The district's school register corroborates the named school, quarter and civic number."
+    },
+    {
+      "url": "https://www.sofia.bg/en/tenders-arhiv-2018/-/asset_publisher/pYrzHmLSTSn9/content/rajon-lulin-obavava-publicno-opovesten-konkurs-za-otdavane-pod-naem-na-obekt-v-sgradata-na-90-su-gen-hose-de-san-martin-predstavlavas-pluven-basejn-i-",
+      "evidence": "The municipality's premises notice explicitly identifies the pool facility inside the 90th School at the same exact house number. The historical notice corroborates the premises only; active operation and booking come from the current operator."
+    }
+  ],
+  "coordinateReview": {
+    "method": "Replayed the exact municipal address matcher on the confirmed street and number; it returned one candidate with no entrance suffix. The postal point does not assert the position of the pool's visitor entrance.",
+    "municipalSource": {
+      "url": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+      "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+      "sourceBytes": 12601716,
+      "licence": "CC-BY-4.0",
+      "attribution": "ГИС София / Столична община"
+    },
+    "uniqueCivicRow": {
+      "rn": "91464",
+      "region": "Люлин",
+      "settlement": "гр. София",
+      "lareaunit": "",
+      "block": "",
+      "street": "ул. Стефана Клинчарова",
+      "streetnum": "3",
+      "entrance": "",
+      "latitude": 42.725397,
+      "longitude": 23.252730
+    }
+  },
+  "identities": {
+    "baselineCommit": "2167138505d08ab7e2c5e5198cca71b0bc96e918",
+    "normalizedPriorRowSha256": "c87d29ec9f215a906dc5fe55b17b2296386db70b113d2e5ff3c80cfd14cc1fe0",
+    "normalizedAfterRowSha256": "6dd40b06fb64fa813017d9ba242906a642f0a90d0499d483385ace6bc75ff03d",
+    "unchangedPricingIdentitySha256": "1cc1256a28d3e435a2d69078a3fd57cca8bdc9793ce442e40b4de4c559f501bc",
+    "guard": "Update the exact reviewed, unlocated address only while the same phone, website and booking/contact proof still match."
+  },
+  "verifiedCoverageProjection": {
+    "neighborhood": "Люлин 2",
+    "category": "fitness",
+    "physicalPremises": [1, 1],
+    "withUsableAddressPoint": [0, 1],
+    "newBusinesses": 0,
+    "newServices": 0
+  },
+  "safeguards": {
+    "pricesServicesBookingExpiryChanged": false,
+    "newBookingOrCustomerDataCollected": false,
+    "mapGeocoderOrPaidProviderRequests": 0,
+    "imageryOrMarketingProseCopied": false,
+    "productionWrites": 0
+  }
+}

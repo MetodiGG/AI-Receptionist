@@ -2,7 +2,7 @@ import assert from 'node:assert/strict'
 import test from 'node:test'
 import batch from '../docs/catalogue-coverage/late-november-gaps-20261123.json' with { type: 'json' }
 import reformer from '../docs/catalogue-coverage/my-reformer-space-intake-20261123.json' with { type: 'json' }
-import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { SOFIA_CATALOGUE as currentCatalogue } from '../lib/discovery/sofia-catalogue.mjs'
 import { PUBLIC_CATALOGUE } from '../lib/discovery/public-catalogue.mjs'
 import { normalizeCatalogueBusinesses } from '../lib/discovery/catalogue-search.mjs'
 import { filterBusinessesBySubcategory } from '../lib/discovery/subcategories.mjs'
@@ -12,8 +12,10 @@ import { serviceThumbnail } from '../lib/service-thumbnail.mjs'
 import { publicProse, serviceDisplayName } from '../lib/locale/public-content.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
 import { lateNovemberGapPriorCatalogue } from './catalogue-late-november-gaps-20261123-scope.mjs'
+import { northWestPriorCatalogue } from './catalogue-north-west-priority-20261123-scope.mjs'
 
 const now = Date.parse(batch.checkedAt)
+const SOFIA_CATALOGUE = northWestPriorCatalogue(currentCatalogue)
 const prior = lateNovemberGapPriorCatalogue(SOFIA_CATALOGUE)
 const { newBusiness: studio } = reformer
 

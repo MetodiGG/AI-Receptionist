@@ -4,6 +4,26 @@
   "scope": "Illustrative service-specific photos for approved Sofia catalogue entries; not actual business premises, staff, work or results.",
   "assets": [
     {
+      "id": "sx-auto-lpg-injection-installation",
+      "label": "Монтаж на газов инжекцион за 4 цилиндъра",
+      "sourceFile": "exec-75a62e87-8c34-46ac-820d-66e2878c5982.png",
+      "sourceSha256": "246ed539f438a39dd64c33f8bccc821d770e1552c72a18d568a3097af26035ab",
+      "bytes": 85784,
+      "sha256": "dcc3cddc32803b98e04a7e22449964d5b65be145fe1f523bd467d56f1c7a5050",
+      "prompt": "Use case: photorealistic-natural. Asset type: square service thumbnail for a car workshop catalogue, illustrative only. In a clean professional automotive workshop, a mechanic in ordinary dark workwear and gloves visually checks an unbranded automotive LPG injection kit beside the open hood of a parked four-cylinder passenger car before installation. The foreground shop trolley holds a compact four-injector rail and silver automotive LPG reducer with a few organized automotive hoses; the open engine bay is unmistakable behind it. A tight documentary three-quarter crop centered on the kit, mechanic's hands and engine bay, readable at small square thumbnail scale; natural workshop light and real wear on surfaces. No installation diagrams or step sequence, no fuel dispensing, tank, flames or sparks, no brand marks, license plates, text, watermark, notebooks or computer-diagnostic tablets.",
+      "file": "public/service-photos/sx-auto-lpg-injection-installation-v1.webp",
+      "width": 640,
+      "height": 640,
+      "generatedOn": "2026-11-23",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "246ed539f438a39dd64c33f8bccc821d770e1552c72a18d568a3097af26035ab",
+        "reviewers": ["/root"],
+        "method": "Viewed the entire source and 640px WebP. The parked car's engine bay, technician and four-branch injector rail convey automotive LPG installation preparation. The unbranded components are a generic illustration, not the actual supplier's equipment, premises or installation work. Full-frame resize and WebP conversion only."
+      }
+    },
+    {
       "id": "sx-auto-sunroof-inspection",
       "label": "Оглед и диагностика на шибидах или панорамна система",
       "sourceFile": "exec-f40f1192-9f96-4cf6-b972-48cd6db7450a.png",
@@ -26155,9 +26175,9 @@
     }
   ],
   "report": {
-    "required": 1234,
-    "prepared": 1234,
-    "accepted": 1234,
+    "required": 1235,
+    "prepared": 1235,
+    "accepted": 1235,
     "pendingGeneration": [],
     "missingAsset": [],
     "unreviewed": [],

@@ -72,7 +72,8 @@ test('human photos never substitute for dogs, cats, unnamed pets, species or bre
 })
 
 test('barber bundles, scissors, colouring and eyebrow techniques never get the other-half image', () => {
-  for (const name of ['Подстригване и оформяне на вежди', 'Коса, брада и вежди', 'ВИП комбо · коса, брада, вежди, уши и нос', 'Подстригване · с ножица', 'Мъжко подстригване с ножица', 'Коса и брада · боядисване', 'Бръснене на глава · шейвър', 'Оформяне на вежди · с бръснач', 'Оформяне на вежди с конец', 'Оформяне на вежди с пинсета', 'Боядисване на брада', 'Детско подстригване', 'Подстригване · за деца']) assert.equal(photo(name, 'barber'), null, name)
+  for (const name of ['Подстригване и оформяне на вежди', 'Коса, брада и вежди', 'ВИП комбо · коса, брада, вежди, уши и нос', 'Подстригване · с ножица', 'Мъжко подстригване с ножица', 'Коса и брада · боядисване', 'Бръснене на глава · шейвър', 'Оформяне на вежди · с бръснач', 'Оформяне на вежди с конец', 'Оформяне на вежди с пинсета', 'Боядисване на брада и подстригване', 'Детско подстригване', 'Подстригване · за деца']) assert.equal(photo(name, 'barber'), null, name)
+  assert.equal(photo('Боядисване на брада', 'barber'), 'sx-barber-beard-colour')
 })
 
 test('colour brands and quantities do not override roots, bleach, male clients or multiple activities', () => {

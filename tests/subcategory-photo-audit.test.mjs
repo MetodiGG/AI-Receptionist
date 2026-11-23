@@ -92,7 +92,14 @@ test('classification definitions, identifiers, labels, regexes and every matchin
   for (const [index, actual] of DISCOVERY_SUBCATEGORIES.entries()) {
     const reviewed = audit.items[index]
     assert.equal(actual.id, reviewed.id); assert.equal(actual.category, reviewed.category)
-    assert.equal(actual.bg, reviewed.bg); assert.equal(actual.en, reviewed.en)
+    if (actual.id === 'fitness-pilates') {
+      // Presentation-only rename is separately hash-pinned; keep the former
+      // text in the original image audit and verify the live display labels.
+      assert.equal(reviewed.bg, 'Пилатес и реформър'); assert.equal(reviewed.en, 'Pilates and reformer')
+      assert.equal(actual.bg, 'Реформър пилатес'); assert.equal(actual.en, 'Reformer Pilates')
+    } else {
+      assert.equal(actual.bg, reviewed.bg); assert.equal(actual.en, reviewed.en)
+    }
     assert.ok(reviewed.depicts.length > 20, `${actual.id}: retained actual visual review`)
     assert.equal(actual.photo, replacements[actual.id] || reviewed.source)
     if (replacements[actual.id]) assert.equal(reviewed.replacement, actual.photo)

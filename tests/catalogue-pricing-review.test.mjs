@@ -11,6 +11,7 @@ import { COVERAGE_20261116_REVIEWS } from '../lib/discovery/catalogue-data/neigh
 import { SUHODOL_20261122_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-suhodol-20261122.mjs'
 import { INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-intake-20261123.mjs'
 import { AUTO_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-auto-intake-20261123.mjs'
+import { VERIFIED_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-intake-20261123.mjs'
 const now = Date.parse('2026-11-11T12:00:00Z')
 const record = () => structuredClone(SOFIA_CATALOGUE.find(row => row.id === 'sofia-cut-n-chill'))
 const review = () => structuredClone(BOOKING_PRICE_REVIEWS.find(row => row.id === 'sofia-cut-n-chill'))
@@ -96,7 +97,8 @@ test('dated audit receipts cover every current ID without rewriting the historic
   assert.deepEqual(intakeIds, ['sofia-vr-sofia-west-mall-lyulin7', 'sofia-brainland-lyulin3-block319v'])
   assert.ok(intakeIds.every(id => !earlierIds.has(id)))
   assert.deepEqual(AUTO_INTAKE_20261123_REVIEWS.map(row => row.id), ['sofia-mline-auto-detailing-gorublyane-pionerska2'])
-  const auditedIds = new Set([...earlierIds, ...intakeIds, ...AUTO_INTAKE_20261123_REVIEWS.map(row => row.id)])
+  assert.deepEqual(VERIFIED_INTAKE_20261123_REVIEWS.map(row => row.id), ['sofia-luckydent-dragalevtsi-gluharche10'])
+  const auditedIds = new Set([...earlierIds, ...intakeIds, ...AUTO_INTAKE_20261123_REVIEWS.map(row => row.id), ...VERIFIED_INTAKE_20261123_REVIEWS.map(row => row.id)])
   assert.equal(auditedIds.size, SOFIA_CATALOGUE.length)
   assert.ok(SOFIA_CATALOGUE.every(row => auditedIds.has(row.id)))
   for (const review of NEIGHBORHOOD_20261111_REVIEWS) {

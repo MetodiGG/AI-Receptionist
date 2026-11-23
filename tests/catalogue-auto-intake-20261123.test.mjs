@@ -3,7 +3,7 @@ import assert from 'node:assert/strict'
 import receipt from '../docs/catalogue-coverage/auto-intake-20261123.json' with { type: 'json' }
 import { AUTO_INTAKE_20261123_RECORDS, AUTO_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-auto-intake-20261123.mjs'
 import { BOOKING_PRICE_REVIEWS } from '../lib/discovery/catalogue-data/pricing-booking-review-v1.mjs'
-import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { SOFIA_CATALOGUE as currentCatalogue } from '../lib/discovery/sofia-catalogue.mjs'
 import { validateCatalogue } from '../lib/discovery/catalogue-policy.mjs'
 import { auditCatalogueBatch } from '../lib/discovery/catalogue-audit.mjs'
 import { assessPricingReview, pricingIdentity } from '../lib/discovery/catalogue-pricing-review.mjs'
@@ -17,6 +17,9 @@ import { serviceThumbnail } from '../lib/service-thumbnail.mjs'
 import { catalogueOnboardingDetail } from '../lib/catalogue-onboarding.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
 import { AUTO_INTAKE_ID, autoAreaPriorCatalogue } from './catalogue-auto-20261123-scope.mjs'
+import { verifiedPriorCatalogue } from './catalogue-verified-20261123-scope.mjs'
+
+const SOFIA_CATALOGUE = verifiedPriorCatalogue(currentCatalogue)
 
 const now = Date.parse('2026-11-23T12:00:00Z')
 const record = SOFIA_CATALOGUE.find(row => row.id === AUTO_INTAKE_ID)

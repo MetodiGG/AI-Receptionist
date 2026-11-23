@@ -1,5 +1,7 @@
 import { createHash } from 'node:crypto'
 import { readFileSync } from 'node:fs'
+import { verifiedAllowsFileChange, verifiedAllowsNewFile, verifiedPriorSource, verifiedPriorCatalogue } from './catalogue-verified-20261123-scope.mjs'
+import { navigationPhotosAllowsFileChange, navigationPhotosAllowsNewFile, navigationPhotosPriorSource } from './public-navigation-photo-20261123-scope.mjs'
 
 // Only project the exact new automotive cohort when replaying earlier receipts.
 // Neither unrelated catalogue data nor other production files are exempt.
@@ -55,10 +57,11 @@ const exactFile = (path, hashes) => {
   if (!Object.hasOwn(hashes, path)) return false
   try { return digest(readFileSync(new URL('../' + path, import.meta.url))) === hashes[path] } catch { return false }
 }
-export const autoAreaAllowsFileChange = path => exactFile(path, afterHashes)
-export const autoAreaAllowsNewFile = path => exactFile(path, approvedNew)
+export const autoAreaAllowsFileChange = path => navigationPhotosAllowsFileChange(path) || verifiedAllowsFileChange(path) || exactFile(path, afterHashes)
+export const autoAreaAllowsNewFile = path => navigationPhotosAllowsNewFile(path) || verifiedAllowsNewFile(path) || exactFile(path, approvedNew)
 
 export function autoAreaPriorSource(path, current) {
+  current = verifiedPriorSource(path, navigationPhotosPriorSource(path, current))
   if (!Object.hasOwn(edits, path) || digest(current) === priorHashes[path]) return current
   if (!/AUTO_INTAKE_20261123|applyReviewedAutoAreaRecovery20261123|sofia-mline-auto-detailing-gorublyane-pionerska2/u.test(current)) return current
   if (digest(current) !== afterHashes[path]) throw Error('Unreviewed 23 Nov auto-area source delta: ' + path)
@@ -73,7 +76,7 @@ export function autoAreaPriorSource(path, current) {
 
 export function autoAreaPriorCatalogue(rows) {
   const seen = new Set(), result = []
-  for (const row of rows) {
+  for (const row of verifiedPriorCatalogue(rows)) {
     if (row?.id !== AUTO_INTAKE_ID && !Object.hasOwn(corrections, row?.id)) { result.push(row); continue }
     if (seen.has(row.id)) throw Error('Duplicate 23 Nov auto-area record: ' + row.id)
     seen.add(row.id)

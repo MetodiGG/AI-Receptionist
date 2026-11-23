@@ -157,12 +157,14 @@ test('failed photos fall through to honest neutral static and terminal inline ph
   assert.match(serviceThumbnail(unknown, { locale: 'unsupported' }).alt, /Неутрална/)
 })
 
-test('component reserves space, lazy-loads photos and stops its error chain at the inline fallback', async () => {
+test('component reserves space, lazy-loads matching photos and never displays generic fallback artwork', async () => {
   const source = await read('components/service-thumbnail.js')
   assert.match(source, /^'use client'/); assert.match(source, /useState\(\[\]\)/)
   assert.match(source, /loading="lazy" decoding="async"/); assert.match(source, /alt=\{thumbnail\.alt\}/)
   assert.match(source, /width=\{displaySize\} height=\{displaySize\}/); assert.match(source, /srcSet=\{thumbnail\.srcSet/)
-  assert.match(source, /onError=\{thumbnail\.src\.startsWith\('data:image\/webp;base64,'\) \? undefined : \(\) => setUnavailableSources/)
+  assert.match(source, /onError=\{\(\) => setUnavailableSources/)
+  assert.match(source, /thumbnail\.photoMatch === 'neutral' \? null : thumbnail\.src/)
+  assert.match(source, /if \(!src\) return null/)
   assert.doesNotMatch(source, /import.*Icon|<Icon|service-thumbnail-icon/)
   assert.match(source, /data-service-kind=\{thumbnail\.kind\}/); assert.match(source, /data-thumbnail-kind=\{thumbnail\.type\}/)
   assert.doesNotMatch(source, /fetch\(|supabase|https?:|dangerouslySetInnerHTML|<button|<a\b/)

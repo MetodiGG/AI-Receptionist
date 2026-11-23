@@ -6,6 +6,7 @@ import { validateCatalogue, approvedCatalogueRecord } from '../lib/discovery/cat
 import { assessPricingReview, pricingIdentity } from '../lib/discovery/catalogue-pricing-review.mjs'
 import { NEIGHBORHOOD_20261111_RECORDS as records, NEIGHBORHOOD_20261111_REVIEWS as reviews } from '../lib/discovery/catalogue-data/neighborhood-expansion-20261111.mjs'
 import approvedOfficialLocations from '../public/catalogue-official-address-points-20261113.json' with { type: 'json' }
+import { quarterNextPriorCatalogue } from './catalogue-quarter-next-20261123-scope.mjs'
 const now = Date.parse('2026-11-11T12:00:00Z')
 const officialById = new Map(approvedOfficialLocations.points.map(row => [row.id, row]))
 function assertReviewedCoordinates(row, originalCoordinates) {
@@ -13,7 +14,8 @@ function assertReviewedCoordinates(row, originalCoordinates) {
   assert.ok(original, row.id)
   assert.deepEqual(original.coordinates, originalCoordinates, 'the historical owner-source point remains unchanged')
   if (approved) assert.deepEqual(approved.previousCoordinates, originalCoordinates, 'an official correction must bind the exact previous source point')
-  assert.deepEqual(row.coordinates, approved ? approved.coordinates : originalCoordinates, row.id)
+  const [prior] = quarterNextPriorCatalogue([row])
+  assert.deepEqual(prior.coordinates, approved ? approved.coordinates : originalCoordinates, row.id)
   assert.equal(pricingIdentity(original), pricingIdentity(row), 'coordinate review must not change service or price identity')
 }
 

@@ -45,6 +45,9 @@ import { SPARSE_EAST_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-
 import { SPARSE_SOUTH_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-sparse-south-intake-20261123.mjs'
 import { EMIKA_DRUZHBA2_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-emika-druzhba2-20261123.mjs'
 import { SILVERSTAR_RING_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-silverstar-ring-intake-20261123.mjs'
+import { VERIFIED_SOUTH_NEXT_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-south-next-20261123.mjs'
+import { NORTH_NEXT_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-north-next-20261123.mjs'
+import { VERIFIED_EAST_NEXT_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-east-next-20261123.mjs'
 const now = Date.parse('2026-11-11T12:00:00Z')
 const record = () => structuredClone(SOFIA_CATALOGUE.find(row => row.id === 'sofia-cut-n-chill'))
 const review = () => structuredClone(BOOKING_PRICE_REVIEWS.find(row => row.id === 'sofia-cut-n-chill'))
@@ -176,6 +179,9 @@ test('dated audit receipts cover every current ID without rewriting the historic
     [SPARSE_SOUTH_INTAKE_20261123_REVIEWS, 'sofia-logos152-simeonovo-krairechna10', 'service_reviewed'],
     [EMIKA_DRUZHBA2_20261123_REVIEWS, 'sofia-emika-druzhba2-block204', 'service_reviewed'],
     [SILVERSTAR_RING_INTAKE_20261123_REVIEWS, 'sofia-silver-star-ring-mall-okolovrasten214', 'service_reviewed'],
+    [VERIFIED_SOUTH_NEXT_20261123_REVIEWS, 'sofia-elizabet-ritmika-dragalevtsi-bela-dona1', 'service_reviewed'],
+    [NORTH_NEXT_INTAKE_20261123_REVIEWS, 'sofia-avtotapicera-iliyantsi-balcho7', 'service_reviewed'],
+    [VERIFIED_EAST_NEXT_20261123_REVIEWS, 'sofia-carplay-bulgaria-gorublyane-pionerska2', 'service_reviewed'],
   ]) {
     assert.deepEqual(reviews.map(row => row.id), [id])
     assert.equal(auditedIds.has(id), false)

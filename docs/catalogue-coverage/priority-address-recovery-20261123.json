@@ -1,0 +1,185 @@
+{
+  "checkedOn": "2026-11-23",
+  "status": "prepared_locally_not_published",
+  "municipalSource": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+  "municipalCsvSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+  "licence": "CC-BY-4.0",
+  "recoveries": [
+    {
+      "id": "sofia-nikolay-nikolaev-law",
+      "neighborhood": "Изгрев",
+      "category": "consulting",
+      "address": "София, ж.к. Изгрев, ул. Фредерик Жолио-Кюри 20",
+      "ownerSource": "https://nikolaevlaw.com/",
+      "evidence": "Operator explicitly distinguishes the practice office at No. 20 from the address for correspondence in Mladost 3. Registered street name omits the hyphen.",
+      "municipal": {
+        "addressId": "22859",
+        "region": "Изгрев",
+        "street": "ул. Фредерик Жолио Кюри",
+        "streetNumber": "20",
+        "latitude": 42.670998,
+        "longitude": 23.350277
+      },
+      "previousRowSha256": "d64efaee4b49e302498190845f92de8aad3fef2d906f85e622ed89f115fd835c",
+      "reviewedRowSha256": "12a0ad56eb71a6da99982c9cbefba98011a2b863a584f5ca551f1fcda680b408",
+      "pricingIdentity": "f1efc89db4b93cf3eabaef5a806315c7430de5ad63388bf5893a8a241a3f7cf1"
+    },
+    {
+      "id": "sofia-gumi-slick-krasna-polyana",
+      "neighborhood": "Красна поляна 2",
+      "category": "auto_repair",
+      "address": "София, Красна поляна 2, бул. Никола Мушанов 114, вход на OMV",
+      "ownerSource": "https://gumi-slick.eu/",
+      "evidence": "Operator gives No. 114 and OMV access for this branch, and a different address for Simeonovsko Shose. Only the operator page was used to verify the address; no platform tariff was collected.",
+      "municipal": {
+        "addressId": "40838",
+        "region": "Красна поляна",
+        "street": "бул. Никола Мушанов",
+        "streetNumber": "114",
+        "latitude": 42.690574,
+        "longitude": 23.277552
+      },
+      "previousRowSha256": "f8cd7cadac62ed1e96b7dc0283d94d7fb4f0ce77f7326cdf176db0ca8f11f49b",
+      "reviewedRowSha256": "a49106df55953617910369a59f22bf632387c492599967e2060b6be81000f0c7",
+      "pricingIdentity": "12a15db50417841cb509de3d00c885d46260b361a12cde6c559abd105c8ed035"
+    },
+    {
+      "id": "sofia-dupissima-gotse-delchev",
+      "neighborhood": "Гоце Делчев",
+      "category": "beauty",
+      "address": "София, ж.к. Гоце Делчев, ул. Рикардо Вакарини 10Б",
+      "ownerSource": "https://dupissima.com/saloni-i-kontakti/",
+      "evidence": "Owner names the Gotse Delchev branch, street number 10Б and its distinct phone. The municipal spelling has double consonants; 10А and 10В were not used.",
+      "municipal": {
+        "addressId": "102261",
+        "region": "Триадица",
+        "street": "ул. Риккардо Ваккарини",
+        "streetNumber": "10Б",
+        "latitude": 42.666209,
+        "longitude": 23.29535
+      },
+      "previousRowSha256": "e4f836f375ae70431c958c5c64cabacb5bf13ecbbe747ab9758dde268f8d5e05",
+      "reviewedRowSha256": "fa85d901265b20bece375b09d6ae939837e6ae560709e37c065ff9e88c53d1ea",
+      "pricingIdentity": "c48a4525a20afa84998641ee37f8c784050a51469c298a0e5ce9f94b18f757c5"
+    },
+    {
+      "id": "sofia-katerene-europe-private",
+      "neighborhood": "Дружба 1",
+      "category": "fitness",
+      "address": "София, Дружба 1, бул. Искърско шосе 7, Търговски център Европа, сграда 1",
+      "ownerSource": "https://www.katerene.bg/courses/private/individualni-zanimaniia-po-katerene-v-zala",
+      "venueSource": "https://climbing.sportcentereurope.bg/за-нас/",
+      "evidence": "The instructor names the Druzhba 1 climbing wall. The venue independently specifies boulevard No. 7, building 1. The registry anchors the complex, not the indoor hall.",
+      "municipal": {
+        "addressId": "117374",
+        "region": "Искър",
+        "street": "бул. Искърско шосе",
+        "streetNumber": "7",
+        "latitude": 42.667138,
+        "longitude": 23.405364
+      },
+      "previousRowSha256": "a3e51cc651e7f02947c3fd97cc99540e81390e08bcbd2ef812d6567a45183a7d",
+      "reviewedRowSha256": "9cbc339039393f5bc09631b98b80f5bdb98f7827f8ab14a75dbb48506dba4b14",
+      "pricingIdentity": "b4a30c5302c6aea02a033f6b778d4573f1a08e7cd8062792a46c49b85f4a7975"
+    },
+    {
+      "id": "sofia-bluess-art-studio-hemus63",
+      "neighborhood": "Христо Смирненски",
+      "category": "education",
+      "address": "София, кв. Христо Смирненски, ул. Хемус, бл. 63, вх. А, ет. 14, ателие 113",
+      "ownerSource": "https://stanislavastoyanova.com/contact-bg/",
+      "evidence": "Contact page specifies block 63 entrance А, floor 14 and studio 113. Only the public entrance coordinates are mapped; the floor/studio remain in the original address.",
+      "municipal": {
+        "addressId": "90426",
+        "region": "Слатина",
+        "area": "ж.к. Христо Смирненски",
+        "block": "63",
+        "entrance": "А",
+        "latitude": 42.680738,
+        "longitude": 23.367988
+      },
+      "previousRowSha256": "1a00de98482efa34d4bfec23330685e7abdcfbb78ce65c417768b45bdcb545fa",
+      "reviewedRowSha256": "1bb9282a6b006ac6b68607ccf8f93cfe8234bb550c4f0ebeb0391f42fbfffcd9",
+      "pricingIdentity": "13c95102c9b98a873ebee42d12fcae4ac7a3e2848526001598fab5406f82b9df"
+    },
+    {
+      "id": "sofia-autotechnica-iskarsko-shose",
+      "neighborhood": "Гара Искър",
+      "category": "auto_repair",
+      "address": "София, Гара Искър, ул. Искърско шосе 13, на гърба на сервиз Дружба",
+      "ownerSource": "https://autotechnica.bg/service-appointment/",
+      "evidence": "Appointment page distinguishes the workshop at No. 13 from the corporate office and gives rear access. The municipal row calls it a boulevard; the business shorthand and access directions remain unchanged. The anchor is the registered address, not a gate.",
+      "municipal": {
+        "addressId": "117378",
+        "region": "Искър",
+        "street": "бул. Искърско шосе",
+        "streetNumber": "13",
+        "latitude": 42.670306,
+        "longitude": 23.399006
+      },
+      "previousRowSha256": "0846f1c5b42d0214e4f911c7dd8e38f0e14f26a5fa86dabca2693c843ee45e1d",
+      "reviewedRowSha256": "e9e4a011d4d19383b3f3aa8b35926fb620e420ee9f7c208ac972cf5a67168715",
+      "pricingIdentity": "4481be2cf10252a5412227650047b1ac3930910d4cd7dbe1a312dbfd0567b58f"
+    },
+    {
+      "id": "sofia-fotovideo-elite-dimitar-tsolov9",
+      "neighborhood": "Витоша",
+      "category": "other",
+      "address": "София, кв. Витоша, ул. Димитър Цолов 9, бл. 9",
+      "ownerSource": "https://fotovideoelite.com/kontakti/",
+      "evidence": "The operator lists both the Sofia premises at block 9 and a different Plovdiv branch. The registered point is the Sofia block, not a separate studio door.",
+      "municipal": {
+        "addressId": "104670",
+        "region": "Студентски",
+        "area": "кв. Витоша",
+        "block": "9",
+        "latitude": 42.656492,
+        "longitude": 23.340146
+      },
+      "previousRowSha256": "67db62e886d7e2832209e332c1f0c9c098dfdaa33e31859f73a6a91873183e16",
+      "reviewedRowSha256": "01db346e41e1c246924153bd6713c26fa57c2bd1ad3d38f7432c3ea5624f0e4c",
+      "pricingIdentity": "5f881b9ff2bf62e83db00f8b34a39558343a9099e02a586c3fe988db7bbd1f2d"
+    },
+    {
+      "id": "sofia-vasident-angista8",
+      "neighborhood": "Сточна гара",
+      "category": "other",
+      "address": "София, Сточна гара, ул. Ангиста №8, ет. 1",
+      "ownerSource": "https://www.vasident.com/",
+      "evidence": "The practice's public home page gives No. 8 and the same telephone on the appointment instruction and the address footer. The registered point is the building; the first floor remains in the original address.",
+      "municipal": {
+        "addressId": "49373",
+        "region": "Оборище",
+        "street": "ул. Ангиста",
+        "streetNumber": "8",
+        "latitude": 42.703897,
+        "longitude": 23.334116
+      },
+      "previousRowSha256": "ecd7f130bb5d5e08624690aeccd6c2af12f0ad013b1f29cd25ed27a81e3fc553",
+      "reviewedRowSha256": "8b1e549f3a13dcd1161f9bb63912656c0beafcf7a7adf7a8ae83e9c999cb882e",
+      "pricingIdentity": "bfa3fcc8e6702640d85e46bd3414c111ce4e1c8e4618dbd996c020d5950438ac"
+    }
+  ],
+  "held": [
+    {
+      "id": "sofia-dark-vision-tint-enyo-valchev1",
+      "reason": "Three registered entrances at number 1; no branch entrance established."
+    },
+    {
+      "id": "sofia-dentica-levski-v",
+      "reason": "Owner address confirmed, exact street number absent from the supplied municipal export."
+    },
+    {
+      "id": "sofia-flowhaven-pilates",
+      "reason": "Two registered entrances at number 12; no branch entrance established."
+    },
+    {
+      "id": "sofia-folklorika-serdika-gyueshevo50",
+      "reason": "Nearby block 12 is not the named sports complex at number 50."
+    },
+    {
+      "id": "sofia-vayasport",
+      "reason": "A matching street-name token at number 98 is a different street in Lyulin, not the boulevard in Motopista."
+    }
+  ]
+}

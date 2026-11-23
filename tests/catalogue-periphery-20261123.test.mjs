@@ -18,6 +18,7 @@ import { createEnglishContentResolver } from '../lib/locale/public-content-resol
 import { serviceThumbnail } from '../lib/service-thumbnail.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
 import { peripheryPriorCatalogue } from './catalogue-periphery-20261123-scope.mjs'
+import { quarterNextPriorCatalogue } from './catalogue-quarter-next-20261123-scope.mjs'
 
 const now = Date.parse(batch.checkedAt)
 const byId = new Map(SOFIA_CATALOGUE.map(row => [row.id, row]))
@@ -84,9 +85,10 @@ test('only the sourced Salt Home price is displayed and the course fee stays abs
 })
 
 test('periphery coverage separates a chain branch from three new operators and fills four previously empty cells', () => {
-  const previous = peripheryPriorCatalogue(SOFIA_CATALOGUE)
+  const current = quarterNextPriorCatalogue(SOFIA_CATALOGUE)
+  const previous = peripheryPriorCatalogue(current)
   const priorIds = new Set(previous.map(row => row.id))
-  const newRows = SOFIA_CATALOGUE.filter(row => !priorIds.has(row.id))
+  const newRows = current.filter(row => !priorIds.has(row.id))
   assert.deepEqual(newRows.map(row =>
     ({ id: row.id, neighborhood: row.neighborhood, category: row.category, normalizedRecordSha256: sha(JSON.stringify(row)) })),
     batch.newRows.map(({ existingOperatorRecordId, ...facts }) => facts))
@@ -104,7 +106,7 @@ test('periphery coverage separates a chain branch from three new operators and f
   assert.equal(byId.get(branch.existingOperatorRecordId).address, 'София, ул. Челопешко шосе 52')
   assert.notEqual(byId.get(branch.id).address, byId.get(branch.existingOperatorRecordId).address)
   assert.equal(newRows.flatMap(row => row.services).filter(service => service.price).length, batch.verifiedPublicPriceFacts)
-  const reports = [previous, SOFIA_CATALOGUE].map(rows => catalogueCoverageReport(rows, { now, target: batch.targetPerQuarterCategory }))
+  const reports = [previous, current].map(rows => catalogueCoverageReport(rows, { now, target: batch.targetPerQuarterCategory }))
   const areas = report => [...report.neighborhoods, ...report.additionalNamedAreas]
   const empty = areas => areas.flatMap(area => area.cells).filter(cell => !cell.locatedCount).length
   assert.deepEqual(reports.map(r => r.counts.approvedBusinesses), batch.approvedCatalogueRecords)

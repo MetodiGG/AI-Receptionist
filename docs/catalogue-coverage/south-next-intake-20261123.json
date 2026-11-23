@@ -1,0 +1,80 @@
+{
+  "checkedOn": "2026-11-23",
+  "baselineCommit": "66d6a40",
+  "status": "verified_intake_not_published",
+  "targetPerQuarterCategory": 30,
+  "businesses": [
+    {
+      "id": "sofia-elizabet-ritmika-dragalevtsi-bela-dona1",
+      "category": "fitness",
+      "neighborhood": "Драгалевци",
+      "address": "София, кв. Драгалевци, ул. Бела Дона 1, 50. ОУ „Васил Левски“",
+      "municipal": {
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+        "addressId": "11476",
+        "latitude": 42.629395,
+        "longitude": 23.309479,
+        "licence": "CC-BY-4.0",
+        "match": "Unique Sofia street-and-number row. Both the club and the district school register identify the same Dragalevtsi school premises. The coordinates designate the municipal building address, not an individual gym entrance."
+      },
+      "sources": {
+        "officialContactAndBooking": "https://elizabet-ritmika.com/kontakti/",
+        "officialProgrammes": "https://elizabet-ritmika.com/klubat/",
+        "officialGroupDescriptions": "https://elizabet-ritmika.com/sastezatelki/",
+        "municipalSchoolRegister": "https://www.raionvitosha.eu/bg/uyuilishta",
+        "citySchoolRegister": "https://www.sofia.bg/en/municipality-schools-vitosa"
+      },
+      "booking": "Owner invites prior telephone enrolment for the first training and names the school as its physical training venue. No submitted booking, payment or contact, no live schedule claimed.",
+      "qualification": "Group rhythmic gymnastics for children. The club publishes programme-level age and skill brackets, but the specific group, date and terms at this venue are confirmed by the operator. Do not add hours using a school schedule or assume the first training is free.",
+      "pricingDecision": "not_publicly_listed",
+      "tariffScope": "Owner telephone enrolment path and the club's programme and age-group pages reviewed. No fee, duration or branch-specific weekly timetable was published for the listed programme.",
+      "imageKey": "sx-child-rhythmic-gymnastics-group",
+      "normalizedRecordSha256": "907fe3cedacd8ebda37401facc21f57ca0e72874931982df2ce9cd2db6f0ba24",
+      "inventoryIdentity": "a6a4345a75c64683b3f505082ba357e92c412a74b781d04113d8708ff967a891",
+      "coverageAtReview": { "physical": [0, 1], "located": [0, 1] }
+    }
+  ],
+  "held": [
+    {
+      "name": "Sofia Karting Ring · Картинг академия",
+      "neighborhood": "Симеоново",
+      "category": "fitness",
+      "sources": {
+        "officialProgramme": "https://www.sofiakarting.com/school",
+        "officialProgrammeDetailed": "https://www.sofiakarting.com/картинг-училище/",
+        "officialPhoneBooking": "https://www.sofiakarting.com/contacts",
+        "officialFreeDrivingTariffsNotForThisCourse": "https://www.sofiakarting.com/prices",
+        "mallVenue": "https://sofiaring.bg/stores/sofia-karting-ring?lang=bg",
+        "mallNeighborhoodCorroboration": "https://pulsefit.bg/klubove/pulse-energy-hyrox-training-club/"
+      },
+      "addressEvidence": "Sofia Ring Mall, ул. Околовръстен път 214, Симеоново – север; the exact municipal Sofia address is row 109175 at 42.624488, 23.352551. Record the mall address point, not a track or parking entrance.",
+      "tariffScope": "Owner academic phone +359889622755. Both owner academy menus describe nine days, 18 drives and 80 minutes per lesson; the published whole-course price is EUR 270 weekday group or EUR 300 weekend group for ages 6–17 and EUR 300 for the evening adult group. These are not single-lesson or free-driving prices. No appointment was made.",
+      "reason": "No already available specific karting instruction illustration was found. Do not admit this candidate until there is a suitable available image and the academy facts are still current."
+    },
+    {
+      "name": "Capella Play · Ритейл Парк Княжево",
+      "neighborhood": "Княжево",
+      "category": "other",
+      "source": "https://www.capellaplay.bg/bg/obshti-usloviya-za-pokupki-i-polzvane",
+      "reason": "First-party contact names the location and booking is possible by phone, but the general terms restrict website use and published excerpts to personal, non-commercial purposes. No package prices or content were imported."
+    },
+    {
+      "name": "Glamur Beauty Bar",
+      "category": "nails",
+      "source": "https://studio24.bg/usloviya-za-polzvane",
+      "reason": "No independently accessible owner service and tariff menu was established; source platform expressly restricts business use. Public sources also disagree on Knyazhevo versus Karpuzitsa. Do not import prices or assign Knyazhevo from this evidence."
+    },
+    {
+      "name": "Beauty studio Княжево",
+      "category": "hair",
+      "reason": "The candidate address contains No. 1А, while the municipal CSV only has nearby No. 1 and no 1А. The appointment contact and address have not independently been confirmed with a direct owner source."
+    },
+    {
+      "name": "Auto Clean",
+      "neighborhood": "Драгалевци",
+      "category": "car_wash",
+      "reason": "The site is a self-service car wash. No evidence of a customer booking for an attended service at this address."
+    }
+  ]
+}

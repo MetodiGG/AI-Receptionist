@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url'
 import batch from '../docs/catalogue-coverage/periphery-priority-20261123.json' with { type: 'json' }
 import north from '../docs/catalogue-coverage/north-exact-coverage-20261123.json' with { type: 'json' }
 import saltart from '../docs/catalogue-coverage/saltart-druzhba-binding-20261123.json' with { type: 'json' }
+import { quarterNextAllowsFileChange, quarterNextAllowsNewFile, quarterNextPriorSource, quarterNextPriorCatalogue } from './catalogue-quarter-next-20261123-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const digest = value => createHash('sha256').update(value).digest('hex')
@@ -35,10 +36,11 @@ const introduced = new Map(batch.newRows.map(row => [row.id, row.normalizedRecor
 function hasHash(path, sha) {
   try { return Boolean(sha) && digest(readFileSync(new URL('../' + path, import.meta.url))) === sha } catch { return false }
 }
-export const peripheryAllowsFileChange = path => Object.hasOwn(changes, path) && hasHash(path, changes[path][1])
-export const peripheryAllowsNewFile = path => Object.hasOwn(additions, path) && hasHash(path, additions[path])
+export const peripheryAllowsFileChange = path => quarterNextAllowsFileChange(path) || Object.hasOwn(changes, path) && hasHash(path, changes[path][1])
+export const peripheryAllowsNewFile = path => quarterNextAllowsNewFile(path) || Object.hasOwn(additions, path) && hasHash(path, additions[path])
 
 export function peripheryPriorSource(path, source) {
+  source = quarterNextPriorSource(path, source)
   if (!Object.hasOwn(changes, path) || !/applyNorthExactCoverage20261123|SPARSE_EAST_INTAKE_20261123_REVIEWS|sofia-salt-home-druzhba2-block302a|Йога в солна стая · групова практика/u.test(source)) return source
   const [before, after] = changes[path]
   if (digest(source) !== after) throw Error('Unreviewed 23 Nov periphery priority source delta: ' + path)
@@ -52,7 +54,7 @@ export function peripheryPriorSource(path, source) {
 
 export function peripheryPriorCatalogue(rows) {
   const seen = new Set()
-  return rows.flatMap(row => {
+  return quarterNextPriorCatalogue(rows).flatMap(row => {
     const recovery = existing.get(row.id), next = introduced.get(row.id)
     if (!recovery && !next) return [row]
     if (seen.has(row.id)) throw Error('Duplicate periphery row: ' + row.id)

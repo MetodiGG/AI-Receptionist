@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "baselineCommit": "3eb5bfa",
+  "checkedOn": "2026-11-23",
+  "status": "reviewed_local_leaf_not_published",
+  "priority": "Located bookable premises in sparsely represented western Sofia neighborhood/category cells.",
+  "newBusinessesPrepared": 1,
+  "newServicesPrepared": 1,
+  "newPricesPrepared": 1,
+  "source": {
+    "municipalAddressDataset": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "municipalCsvSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+    "licence": "CC-BY-4.0",
+    "attribution": "ГИС София / Столична община",
+    "method": "Owner's English-specific enrolment poster binds the activity to the named host school and street number; the supplied civic file supplies the unique postal point. No commercial maps or inferred entrance, call, registration, account, payment or copied photographs."
+  },
+  "admitted": [{
+    "id": "sofia-magazinche-za-znanie-lyulin2",
+    "name": "Магазинче за знание",
+    "category": "education",
+    "neighborhood": "Люлин 2",
+    "neighborhoodBasis": "The provider's English enrolment artwork identifies the neighborhood and street, independently of the co-located pool. The municipal row identifies administrative district Люлин and has no neighborhood text.",
+    "ownerPremises": "София, ж.к. Люлин 2, ул. Стефана Клинчарова 3, 90. СУ",
+    "officialAddress": {
+      "rn": "91464",
+      "region": "Люлин",
+      "settlement": "гр. София",
+      "street": "ул. Стефана Клинчарова",
+      "house": "3",
+      "block": "",
+      "quarter": "",
+      "entrance": "",
+      "latitude": 42.725397,
+      "longitude": 23.252730,
+      "candidates": 1
+    },
+    "booking": {
+      "kind": "phone",
+      "ownerSource": "https://rannorazvitie.com/",
+      "phone": "+359877666626",
+      "visualEvidence": "Current English enrolment poster shown in the Activities section identifies the English-specific booking phone and the host school. The separate general/swimming phone was not used."
+    },
+    "tariff": {
+      "name": "Групов урок по английски за деца",
+      "amount": 15,
+      "currency": "EUR",
+      "unit": "per group lesson",
+      "source": "https://rannorazvitie.com/#angliiski-ezik",
+      "scheduleEvidence": "https://rannorazvitie.com/#grafik",
+      "conditions": "Advance phone registration is required. The 2026/27 timetable supports regular group sessions by grade and level; do not treat this as a live slot calendar, assert session length, or infer office opening hours."
+    },
+    "duplicateCheck": "The existing DPool provider at the same school has its own phone and distinct sport activity. No runtime match for this English operator name, site or booking phone. No other branches or services imported.",
+    "media": {
+      "servicePhotoKey": "sx-child-language-group",
+      "businessCoverAsset": "activity-sx-child-language-group-v1.webp",
+      "semantics": "Existing illustrative media only; not a photograph of the operator."
+    },
+    "locatedCellBefore": 0,
+    "locatedCellAfterIntegration": 1,
+    "normalizedRecordSha256": "2779846c20978ccdc2a137d009ffb1ab41afcb77bc3bcc5b7b0ca0cfe8e88b4e",
+    "pricingIdentity": "19310d0527ecdd76c77a757a5ddced0e1d66b0a49adfdccf7ff9b8711a991462"
+  }],
+  "holds": [{
+    "name": "NEO FIT",
+    "category": "fitness",
+    "neighborhood": "Люлин 2",
+    "addressSource": "https://sportsclubneofit.com/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/",
+    "bookingSource": "https://sportsclubneofit.com/%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%B8/",
+    "priceSource": "https://sportsclubneofit.com/%D1%86%D0%B5%D0%BD%D0%B8/",
+    "reason": "The operator publishes genuine rates and the precise ul. Gen. Mihail Savov 18 address has an exact municipal candidate 117068. The owner-linked current Programme page exposes no bookable class, the legacy dancing and mobility events do not permit booking, and the visible contact phone is not described as an individual boxing appointment route. No row or price admitted."
+  }, {
+    "name": "Kifetoi / Полиране на фарове",
+    "reason": "Fresh direct browser verification could not load the operator websites or their booking forms. Older indexed descriptions do not establish a current appointment route or verified price."
+  }, {
+    "name": "Auto Frost Comfort",
+    "reason": "The owner's contacts name several street numbers and give office phones, but there is no verified appointment action tied to a selected physical address. No branch or tariff inferred."
+  }]
+}

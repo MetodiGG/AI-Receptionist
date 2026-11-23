@@ -3,6 +3,7 @@ import { execFileSync } from 'node:child_process'
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import batch from '../docs/catalogue-coverage/priority-next-20261123.json' with { type: 'json' }
+import { priorityFreshAllowsFileChange, priorityFreshAllowsNewFile, priorityFreshPriorSource, priorityFreshPriorCatalogue } from './catalogue-priority-fresh-20261123-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = input => createHash('sha256').update(input).digest('hex')
@@ -32,10 +33,11 @@ const additions = new Map(batch.newRows.map(row => [row.id, row.normalizedRecord
 const evidence = /PRIORITY_NEXT_(?:EAST|SOUTH|NORTH)_20261123_|sofia-active-dental-mladost2-block295|sofia-drive-school-knyazhevo-tsar-boris365|Стандартен шофьорски курс · категория B|sx-outdoor-turf-tennis-court/u
 
 const fileMatches = (path, digest) => !!digest && sha(readFileSync(new URL('../' + path, import.meta.url))) === digest
-export const priorityNextAllowsFileChange = path => Object.hasOwn(changed, path) && fileMatches(path, changed[path][1])
-export const priorityNextAllowsNewFile = path => Object.hasOwn(added, path) && fileMatches(path, added[path])
+export const priorityNextAllowsFileChange = path => priorityFreshAllowsFileChange(path) || (Object.hasOwn(changed, path) && fileMatches(path, changed[path][1]))
+export const priorityNextAllowsNewFile = path => priorityFreshAllowsNewFile(path) || (Object.hasOwn(added, path) && fileMatches(path, added[path]))
 
 export function priorityNextPriorSource(path, source) {
+  source = priorityFreshPriorSource(path, source)
   if (!Object.hasOwn(changed, path) || !evidence.test(source)) return source
   const [before, after] = changed[path]
   if (sha(source) !== after) throw Error('Unreviewed 23 Nov next priority source delta: ' + path)
@@ -49,7 +51,7 @@ export function priorityNextPriorSource(path, source) {
 
 export function priorityNextPriorCatalogue(rows) {
   const seen = new Set()
-  return rows.filter(row => {
+  return priorityFreshPriorCatalogue(rows).filter(row => {
     const expected = additions.get(row.id)
     if (!expected) return true
     if (seen.has(row.id)) throw Error('Duplicate next priority row: ' + row.id)

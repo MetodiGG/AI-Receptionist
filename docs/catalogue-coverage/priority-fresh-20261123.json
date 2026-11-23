@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "baseline": "3eb5bfad6c0cc85cb57020191e43fdb753478b77",
+  "checkedAt": "2026-11-23T05:56:00.000Z",
+  "status": "integrated_locally_not_published",
+  "targetPerQuarterCategory": 30,
+  "pickerTargetCells": 1358,
+  "approvedCatalogueRecords": [1765, 1768],
+  "locatedPremises": [1005, 1008],
+  "emptyLocatedCells": [1354, 1352],
+  "emptyLocatedPickerCells": [995, 993],
+  "cellsAtLocatedTarget": [0, 0],
+  "newDistinctOperators": 3,
+  "verifiedPublicPriceFacts": 10,
+  "newRows": [
+    {
+      "id": "sofia-anev-barber-mladost1a-ahmatova532",
+      "name": "Anev Barber Shop",
+      "neighborhood": "Младост 1А",
+      "category": "barber",
+      "physical": [0, 1],
+      "located": [0, 1],
+      "addressId": null,
+      "addressEvidence": "The business published its precise shop point. Two municipal entrances corroborate the block, not a specific shop entrance.",
+      "reviewState": "reviewed",
+      "normalizedRecordSha256": "dcabc595b8f6d833192b420d9d3b8c2cab155eafaf34aa41dd7c9a9b0ab93d58",
+      "receipt": "priority-fresh-east-20261123.json"
+    },
+    {
+      "id": "sofia-one-service-vrabnitsa1-276-13",
+      "name": "ONE SERVICE",
+      "neighborhood": "Връбница 1",
+      "category": "auto_repair",
+      "physical": [1, 2],
+      "located": [1, 2],
+      "addressId": "14921",
+      "reviewState": "reviewed",
+      "normalizedRecordSha256": "e9dc4048b19cebe6601604085f8e0e00e402b422314e145232eaa203b4373df6",
+      "receipt": "priority-fresh-north-20261123.json"
+    },
+    {
+      "id": "sofia-magazinche-za-znanie-lyulin2",
+      "name": "Магазинче за знание",
+      "neighborhood": "Люлин 2",
+      "category": "education",
+      "physical": [1, 2],
+      "located": [0, 1],
+      "addressId": "91464",
+      "reviewState": "reviewed",
+      "normalizedRecordSha256": "2779846c20978ccdc2a137d009ffb1ab41afcb77bc3bcc5b7b0ca0cfe8e88b4e",
+      "receipt": "priority-fresh-south-20261123.json"
+    }
+  ],
+  "heldResearch": [
+    {
+      "name": "Partizala · Банишора",
+      "sources": ["https://partizala.com/parti-zala-banishora", "https://partizala.com/ceni-i-rezervatsii"],
+      "reason": "The operator lists ul. Sofroniy Vrachanski 62, ground floor, and a real private-event booking request. Prices are quoted individually. No exact no. 62 point is present in the Sofia municipal data; opposite and neighboring numbers cannot establish the entrance. The operator's map link is an address query rather than an exact pin."
+    },
+    {
+      "name": "West Gym · Гевгелийски",
+      "sources": ["https://fitness.west-gym.com/west-gym-gevgeliyski-3/", "https://tmarket.bg/page/magazin-gevgeliiski"],
+      "reason": "Both first parties identify the T-Market building across from residential block 1. The gym's map is a name query and the shop embed's camera center is not its pin. The existing business remains unchanged. Do not use the point of block 1, a nearby cashpoint, or the map camera."
+    },
+    {
+      "name": "СБА София · Орландовци / Военна рампа",
+      "sources": ["https://www.sba.bg/сба-софия-орландовци", "https://www.setmore.com/terms"],
+      "municipalAddressId": "92431",
+      "reason": "The operator's own page provides the address of the inspection station, its rates and a real Book link. That destination is hosted by Setmore, whose terms restrict systematic collection for directories, and the service link did not render in this review. No provider data or service listing imported."
+    },
+    {
+      "name": "Ауто Франс 3000 · Хаджи Димитър",
+      "sources": ["https://www.autofrance3000.com/renault/contacts", "https://www.autofrance3000.com/renault/about-us", "https://service.renault.bg/"],
+      "municipalAddressId": "52271",
+      "reason": "The operator and current central booking UI agree on ul. Rezbarska 5. Selecting the named branch shows the correct address and phone, but its live service list remains empty despite a successful menu response. No public branch deep link or working alternative service menu was verified. An empty menu is not evidence that prices are unpublished."
+    }
+  ]
+}

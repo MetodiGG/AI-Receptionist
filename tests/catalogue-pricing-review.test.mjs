@@ -61,6 +61,9 @@ import { PRIORITY_CONTINUED_EAST_20261123_REVIEWS } from '../lib/discovery/catal
 import { PRIORITY_NEXT_EAST_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-priority-next-east-20261123.mjs'
 import { PRIORITY_NEXT_NORTH_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-priority-next-north-20261123.mjs'
 import { PRIORITY_NEXT_SOUTH_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-priority-next-south-20261123.mjs'
+import { PRIORITY_FRESH_EAST_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-priority-fresh-east-20261123.mjs'
+import { PRIORITY_FRESH_NORTH_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-priority-fresh-north-20261123.mjs'
+import { PRIORITY_FRESH_SOUTH_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-priority-fresh-south-20261123.mjs'
 import { pricedGrowthPriorCatalogue } from './catalogue-priced-growth-20261123-scope.mjs'
 const now = Date.parse('2026-11-11T12:00:00Z')
 const record = () => structuredClone(SOFIA_CATALOGUE.find(row => row.id === 'sofia-cut-n-chill'))
@@ -213,6 +216,9 @@ test('dated audit receipts cover every current ID without rewriting the historic
     [PRIORITY_NEXT_EAST_20261123_REVIEWS, 'sofia-active-dental-mladost2-block295', 'service_reviewed'],
     [PRIORITY_NEXT_NORTH_20261123_REVIEWS, 'sofia-sokol-tennis-benkovski-stadium', 'reviewed'],
     [PRIORITY_NEXT_SOUTH_20261123_REVIEWS, 'sofia-drive-school-knyazhevo-tsar-boris365', 'reviewed'],
+    [PRIORITY_FRESH_EAST_20261123_REVIEWS, 'sofia-anev-barber-mladost1a-ahmatova532', 'reviewed'],
+    [PRIORITY_FRESH_NORTH_20261123_REVIEWS, 'sofia-one-service-vrabnitsa1-276-13', 'reviewed'],
+    [PRIORITY_FRESH_SOUTH_20261123_REVIEWS, 'sofia-magazinche-za-znanie-lyulin2', 'reviewed'],
   ]) {
     assert.deepEqual(reviews.map(row => row.id), [id])
     assert.equal(auditedIds.has(id), false)

@@ -1,0 +1,97 @@
+{
+  "checkedOn": "2026-11-23",
+  "baselineCommit": "3eb5bfad6c0cc85cb57020191e43fdb753478b77",
+  "status": "verified_intake_not_published",
+  "targetPerQuarterCategory": 30,
+  "newDistinctOperators": 1,
+  "newLocatedPremises": 1,
+  "businesses": [
+    {
+      "id": "sofia-anev-barber-mladost1a-ahmatova532",
+      "name": "Anev Barber Shop",
+      "nameEn": "Anev Barber Shop",
+      "category": "barber",
+      "neighborhood": "Младост 1А",
+      "address": "София, ж.к. Младост 1А, ул. Ана Ахматова, бл. 532",
+      "coverageAtBaseline": {"physical": 0, "located": 0},
+      "point": {
+        "source": "https://anevbarbershop.bg/",
+        "method": "first_party_coordinates",
+        "latitude": 42.6512079,
+        "longitude": 23.3843131,
+        "match": "The native shop JSON-LD binds this GeoCoordinates point to the named business, phone and published civic address. Its separately presented customer Directions button points to the exact same coordinate. This is the owner-designated business destination, not a municipal entrance, third-party geocode or map viewport. The embedded map and external maps data were not queried."
+      },
+      "municipalCorroboration": {
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+        "region": "Младост",
+        "entranceRows": [
+          {"addressId": "94575", "entrance": "1", "latitude": 42.651229, "longitude": 23.384470},
+          {"addressId": "96159", "entrance": "2", "latitude": 42.651094, "longitude": 23.384593}
+        ],
+        "streetBlockCorroboration": "https://inspectorat-so.org/images/2025/10/3/ml2.pdf",
+        "match": "The municipal file corroborates block 532 in Младост 1А, and the municipal inspectorate expressly ties the block to ul. Ana Ahmatova. The business publishes no entrance number. The owner point is approximately 13 m and 26 m from the two municipal entrance points respectively; proximity is not evidence that the shop uses either entrance.",
+        "licence": "CC-BY-4.0"
+      },
+      "sources": {
+        "owner": "https://anevbarbershop.bg/",
+        "ownerRobots": "https://anevbarbershop.bg/robots.txt"
+      },
+      "booking": "The actual owner booking/contact section expressly states appointments are by phone only. It links the same +359894419185 from Contact and repeats it beneath the price list. No online form, live slots, call or reservation was used. Generic external button or map behavior was not substituted for owner instructions.",
+      "tariff": "The live owner site publishes eight re-used fixed ordinary EUR service prices. The stated washing inclusion is retained without attributing a separate wash to eyebrow grooming. For the EUR 2 row the proprietor says only Brows, with no declared technique, so the entry does not specify threading, wax, tint or razor. No duration, hours, slot availability, taxes or payment terms were inferred. The EUR 10 child's haircut up to age five is not imported: the existing generic haircut asset's provenance explicitly depicts an eight-year-old and no appropriate approved alternative was identified.",
+      "sourceUse": "Robots publicly permits ordinary access. No separate source-use restriction appeared on the reviewed first-party document. No raw photos, site prose, external map data or customer feedback were copied.",
+      "deduplication": "No existing runtime identity matches the normalized operator name, domain or business phone. This is one operator at one storefront, not multiple entrances counted as businesses.",
+      "descriptionBg": "Измиването е включено в цената.",
+      "descriptionEn": "Washing is included in the price.",
+      "services": [
+        {
+          "nameBg": "Мъжко подстригване", "nameEn": "Men’s haircut", "publishedNameBg": "Мъжко подстригване", "amountEur": 15,
+          "imageKey": "mens-haircut", "imageSha256": "47c7c326b1ec33c108c103ac632d5ffebe85c86678fed85fc2d87880c01932ef"
+        },
+        {
+          "nameBg": "Оформяне на брада", "nameEn": "Beard trim", "publishedNameBg": "Оформяне на брада", "amountEur": 10,
+          "imageKey": "beard-trim", "imageSha256": "1ff2eeb005d46a1d92ae8e07128952b530d8e523770adb35bd288283069c4111"
+        },
+        {
+          "nameBg": "Подстригване и оформяне на брада", "nameEn": "Haircut and beard trim", "publishedNameBg": "Подстригване + брада", "amountEur": 20,
+          "imageKey": "haircut-beard-combo", "imageSha256": "fc3f95e32cb7de40e90ee9eb038a07741bae2ef1025c83849327fb59fe9aa149"
+        },
+        {
+          "nameBg": "Кралско бръснене", "nameEn": "Royal shave", "publishedNameBg": "Кралско бръснене", "amountEur": 15,
+          "imageKey": "classic-shave", "imageSha256": "92d114ebc7796b6114d1691c74dc93542cc6ebd9d1ff8e11e325ef0e58e750ec"
+        },
+        {
+          "nameBg": "Бръснене на глава", "nameEn": "Head shave", "publishedNameBg": "Бръснене на глава", "amountEur": 15,
+          "imageKey": "head-shave", "imageSha256": "53e3fed555e0dec855073e9ac192eeb581417b3a7fc86c76b4dc3f9bbb60b258"
+        },
+        {
+          "nameBg": "Бръснене на глава и оформяне на брада", "nameEn": "Head shave and beard trim", "publishedNameBg": "Глава + брада", "amountEur": 20,
+          "imageKey": "head-shave-beard-trim", "imageSha256": "0f52b8ed5dbd923693f9ee8893251872e8303f91fe904c2ffa0d84053ea129d1"
+        },
+        {
+          "nameBg": "Подстригване с машинка · един номер", "nameEn": "Single-length clipper cut", "publishedNameBg": "Машинка — един номер", "amountEur": 10,
+          "imageKey": "one-guard-buzz-cut", "imageSha256": "89c69a8aa0ca8ec77ec2045abb2888b9a36365989e5752553fee9226c9a212f9"
+        },
+        {
+          "nameBg": "Оформяне на вежди", "nameEn": "Eyebrow grooming", "publishedNameBg": "Вежди", "amountEur": 2,
+          "imageKey": "partner-hair-beard-brows-finish", "imageSha256": "5a20c4e8c9253fc3bf65c2b4c62ea07b19e85df62c73b3ebdb511dfb11588afb",
+          "imageNotes": "Previously approved fictional male portrait with both groomed brows visible, no treatment tool, no provider branding or claim of actual work. Illustrates a finished look only. Its existing partner/subcategory approval is documented in docs/partner-service-photo-assets-2026-11-13.json; integration must also accept the key for catalogue associations."
+        }
+      ],
+      "normalizedRecordSha256": "dcabc595b8f6d833192b420d9d3b8c2cab155eafaf34aa41dd7c9a9b0ab93d58",
+      "inventoryIdentity": "a309693e0f8c3a4c56fa0ca41417072852f14f19aa6304fa16bafc47293c992f"
+    }
+  ],
+  "holds": [
+    {
+      "name": "Спукано Стъкло", "neighborhood": "Горубляне", "category": "auto_repair",
+      "owner": "https://spukanostaklo.com/", "ownerBooking": "https://spukanostaklo.com/contact/", "ownerPrices": "https://spukanostaklo.com/price-repair/",
+      "reason": "The owner publishes a real telephone booking invitation and ul. Rosa 26, for which the municipal source has one row (32582). The linked tariff returned an active access challenge during the review. Earlier indexed prices were not used and the record was not treated as unpriced."
+    },
+    {
+      "name": "Ветеринарна клиника Анимейт", "neighborhood": "Дружба 1", "category": "pets",
+      "owner": "https://animate.bg/",
+      "reason": "The owner lists block 198 without a unit or entrance; the municipal file lists two distinct entrances (108444 and 108445). The public owner price page is still a placeholder and no owner-confirmed grooming menu was identified. No listing, price or entrance was inferred."
+    }
+  ]
+}

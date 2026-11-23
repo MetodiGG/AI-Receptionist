@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "baseline": "d6e27caa9ef5dfdc9d20c8f3a998373013cb90b0",
+  "status": "prepared_locally_not_published",
+  "checkedAt": "2026-11-23T03:16:00.000Z",
+  "targetPerQuarterCategory": 30,
+  "totalTargetCells": 1750,
+  "pickerTargetCells": 1358,
+  "approvedBusinesses": [1734, 1738],
+  "locatedPremises": [947, 951],
+  "emptyLocatedCells": [1395, 1392],
+  "emptyLocatedPickerCells": [1029, 1027],
+  "cellsAtLocatedTarget": [0, 0],
+  "affected": [
+    { "id": "sofia-salt-hug-druzhba1-block195v", "neighborhood": "Дружба 1", "category": "health", "physical": [0, 1], "located": [0, 1] },
+    { "id": "sofia-nikolay-frantsov-druzhba1-block18v", "neighborhood": "Дружба 1", "category": "other", "physical": [1, 2], "located": [0, 1] },
+    { "id": "sofia-solux-auto-pavlina4", "neighborhood": "НПЗ Хаджи Димитър", "category": "auto_repair", "physical": [1, 2], "located": [1, 2] },
+    { "id": "sofia-masters-dance-lyulin-centre-nenov29", "neighborhood": "Люлин - център", "category": "fitness", "physical": [0, 1], "located": [0, 1] }
+  ],
+  "sourceRules": "Counts reflect approved distinct Sofia catalogue records, not separately hosted partners or confirmed customer bookings. Binding a civic address supports discovery based on distance without claiming an independently surveyed customer door or a live slot. No metered discovery provider or booking submission.",
+  "heldExamples": [
+    { "candidate": "SelfIO", "reason": "The public booking page rendered, but the actual booking menu requires a path disallowed by the site's robots directions. The public price alone is not sufficient." },
+    { "candidate": "Автошкола Били-Бец", "reason": "The regulatory point and two offers were found, but the chosen service details and linked contact could not be checked without encountering a verification challenge." },
+    { "candidate": "ACTIVITY", "reason": "The exact Sofia office was found, but the office and appointment details remained blocked. This does not prove absence of prices." }
+  ]
+}

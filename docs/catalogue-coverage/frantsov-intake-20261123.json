@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "baselineCommit": "d6e27caa9ef5dfdc9d20c8f3a998373013cb90b0",
+  "status": "prepared_locally_not_published",
+  "targetPerQuarterCategory": 30,
+  "newBusiness": {
+    "id": "sofia-nikolay-frantsov-druzhba1-block18v",
+    "name": "Д-р Николай Францов · дентален кабинет",
+    "nameEn": "Dr Nikolay Frantsov · Dental Practice",
+    "category": "other",
+    "neighborhood": "Дружба 1",
+    "address": "София, ж.к. Дружба 1, бл. 18, вх. В",
+    "municipal": {
+      "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+      "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+      "addressId": "34860",
+      "district": "Искър",
+      "settlement": "гр. София",
+      "latitude": 42.667523,
+      "longitude": 23.394763,
+      "licence": "CC-BY-4.0",
+      "pointScope": "Exact municipal point for block 18, entrance В; the only matching entrance among the block’s municipal rows. It does not represent a surveyed clinic doorway, floor or suite."
+    },
+    "ownerWebsite": "https://nikolayfrantsov.bg/?page_id=9085",
+    "ownerContactEvidence": "The named dentist’s first-visit page gives the public business number, exact quarter, block and entrance and links the same externally bookable practice. The linked booking profile separately confirms the same single venue and phone. No floor or apartment detail is reproduced. The catalogue does not contain this specialist, co-branded premises, owner route, booking route or telephone as a competing entry.",
+    "phone": "+359888827736",
+    "booking": {
+      "kind": "form",
+      "url": "https://superdoc.bg/lekar/nikolay-frantsov",
+      "firstPartyEvidence": "https://nikolayfrantsov.bg/?page_id=9085",
+      "evidence": "The owner expressly offers a first-visit examination through the public booking CTA, which opens the provider listing for the matching office. The profile identifies exam and scaling as distinct reasons eligible for online booking and prices the initial dental examination alone at €25. The displayed price is the one published on the external channel; there is no claim that the same amount applies by phone or that GoRez confirms the appointment. No booking or slot action was selected and no information was sent."
+    },
+    "openingHoursEvidence": "The owner first-visit page publishes 09:00–19:00 Monday–Thursday and 09:00–17:00 Friday, closed on weekends. These are office hours, not slots.",
+    "service": {
+      "name": "Първичен дентален преглед",
+      "nameEn": "Initial dental examination",
+      "amount": 25,
+      "currency": "EUR",
+      "kind": "fixed",
+      "sourceUrl": "https://superdoc.bg/lekar/nikolay-frantsov",
+      "description": "Първо посещение с преглед и създаване на досие. Цената е публикувана в Superdoc. За процедури по НЗОК кабинетът моли да носите здравноосигурителната си книжка.",
+      "descriptionEn": "First visit with a dental examination and creation of a patient record. The price is published on Superdoc. For procedures covered by Bulgaria’s National Health Insurance Fund, the practice asks you to bring your health insurance booklet."
+    },
+    "terms": {
+      "sourceUrl": "https://superdoc.bg/uslovia-za-polzvane",
+      "scope": "Public platform terms describe healthcare professionals publishing their own profile addresses and fees. The review found no express restriction against an ordinary link or limited, cited factual price reference. No clinician biography, photographs, reviews or patient/booking data are copied."
+    },
+    "illustrationCandidate": {
+      "status": "reviewed_generic_illustration",
+      "path": "/service-photos/dental-exam-v1.webp",
+      "sha256": "a863205c6c203114d50299de16a22cadb4e4f6569cb37041704a554b349ce7e1",
+      "scope": "Existing generic dental examination illustration, not the named dentist, patients, instruments or practice premises."
+    },
+    "exclusions": "One dental-only premises. No scaling, treatment, separately quoted procedure, unverified duration, phone price, apartment details, actual appointment, eligibility for reimbursement, ratings, claim of partnership or booking in GoRez.",
+    "inventoryIdentity": "03167dd5db5316d8f0d00dce6701e7fa329b6719859b057fc7d20ac424a8ca48",
+    "normalizedRecordSha256": "35ef1945d9e12debce9d33138ef02decf025333706f6036971c201396026babc",
+    "rawRecordSha256": "82c8799ed9128747fac660d755ea49cb33671f002cc0257d2522f247fdaabed7",
+    "coverage": { "physical": [1, 2], "located": [0, 1] }
+  }
+}

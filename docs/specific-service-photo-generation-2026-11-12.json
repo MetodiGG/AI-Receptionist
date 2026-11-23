@@ -4,6 +4,26 @@
   "scope": "Illustrative service-specific photos for approved Sofia catalogue entries; not actual business premises, staff, work or results.",
   "assets": [
     {
+      "id": "sx-adult-salt-room",
+      "label": "Солна стая за възрастен",
+      "sourceFile": "exec-64c49af7-4a9f-4839-9be6-7599b8348803.png",
+      "sourceSha256": "229f8e17d1e98d5405b88e7fd1d95e0c861af3a1ee8bf27ef778cca78bf4bb4f",
+      "bytes": 60832,
+      "sha256": "5f798967ebc7983bbdc6d8806774478927a53f750046013cc176a643b8175210",
+      "prompt": "Use case: photorealistic-natural. Asset: square GoRez service thumbnail legible at 40–80 px. Render a single natural editorial photograph of a generic small adult salt relaxation room: one empty neutral reclining lounge chair, textured warm rosy-cream Himalayan salt brick wall and a visible undisturbed granular crystal-salt floor, with softly inset warm lamps. Frame at seated eye level, chair and clearly recognizable block texture in the center, authentic simple interior, diffuse warm light and natural materials. This is an illustrative wellness room, not any named provider or treatment result. No people, no yoga or massage equipment, no sauna or steam, no medical imagery, no large decorative crystal objects, no text, logo, watermark, split panels or stock gloss.",
+      "file": "public/service-photos/sx-adult-salt-room-v1.webp",
+      "width": 640,
+      "height": 640,
+      "generatedOn": "2026-11-23",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "229f8e17d1e98d5405b88e7fd1d95e0c861af3a1ee8bf27ef778cca78bf4bb4f",
+        "reviewers": ["/root"],
+        "method": "Viewed the entire original and 640px WebP. Single adult lounge chair with clear salt floor and wall, no people, imagery of treatment or claim of actual premises or medical effect. Full-frame resize and WebP conversion only."
+      }
+    },
+    {
       "id": "sx-indoor-childrens-birthday-party",
       "label": "Детски рожден ден на закрито",
       "sourceFile": "exec-4f744393-cfb7-4249-9500-87ddae7aab2d.png",

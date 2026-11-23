@@ -6,6 +6,7 @@ import des from '../docs/catalogue-coverage/des-georgieva-refresh-20261123.json'
 import auto from '../docs/catalogue-coverage/autotest-republica-verified-location-20261123.json' with { type: 'json' }
 import horo from '../docs/catalogue-coverage/horo-intake-20261123.json' with { type: 'json' }
 import sharen from '../docs/catalogue-coverage/sharen-svyat-intake-20261123.json' with { type: 'json' }
+import { sparsePremisesAllowsFileChange, sparsePremisesAllowsNewFile, sparsePremisesPriorSource, sparsePremisesPriorCatalogue } from './catalogue-sparse-premises-20261123-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const digest = value => createHash('sha256').update(value).digest('hex')
@@ -39,10 +40,11 @@ function matchesFile(path, sha) {
   if (!sha) return false
   try { return digest(readFileSync(new URL('../' + path, import.meta.url))) === sha } catch { return false }
 }
-export const quarterRefreshAllowsFileChange = path => Object.hasOwn(changed, path) && matchesFile(path, changed[path][1])
-export const quarterRefreshAllowsNewFile = path => Object.hasOwn(added, path) && matchesFile(path, added[path])
+export const quarterRefreshAllowsFileChange = path => sparsePremisesAllowsFileChange(path) || Object.hasOwn(changed, path) && matchesFile(path, changed[path][1])
+export const quarterRefreshAllowsNewFile = path => sparsePremisesAllowsNewFile(path) || Object.hasOwn(added, path) && matchesFile(path, added[path])
 
 export function quarterRefreshPriorSource(path, source) {
+  source = sparsePremisesPriorSource(path, source)
   if (!Object.hasOwn(changed, path) || !/applyDesGeorgievaRefresh20261123|DES_GEORGIEVA_REFRESH_20261123|f79576363c2ca586aa8935ac89431f17b8bca9009c0beda91e2fb6161e16a3d1|sx-indoor-childrens-birthday-party/u.test(source)) return source
   const [before, after] = changed[path]
   if (digest(source) !== after) throw Error('Unreviewed 23 Nov quarter-refresh priority source delta: ' + path)
@@ -56,7 +58,7 @@ export function quarterRefreshPriorSource(path, source) {
 
 export function quarterRefreshPriorCatalogue(rows) {
   const seen = new Set()
-  return rows.flatMap(row => {
+  return sparsePremisesPriorCatalogue(rows).flatMap(row => {
     const studio = row.id === des.id, inspection = row.id === auto.id
     const newHash = studio ? des.reviewedRowSha256 : inspection ? auto.reviewedRowSha256 : newRows.get(row.id)
     if (!newHash) return [row]

@@ -17,6 +17,38 @@
     "manualRevalidations": [
       {
         "checkedOn": "2026-11-23",
+        "businessId": "sofia-masters-dance-lyulin-centre-nenov29",
+        "inventoryIdentity": "03e72ecf1af20cb12b3fb0109f65a1abdacc2eb5d2e40ec3f1ab8c7e93e65d8a",
+        "reason": "Keeps the adult-only beginner group, exact school choice and separately confirmed enrolment and fee.",
+        "entriesAdded": { "names": 1, "descriptions": 1, "units": 0 },
+        "certifiedHumanTranslation": false
+      },
+      {
+        "checkedOn": "2026-11-23",
+        "businessId": "sofia-solux-auto-pavlina4",
+        "inventoryIdentity": "e3aabd7212aab1a174fd33ae6964c2dce0cd4461d5b2faaae16aa0fc818900c5",
+        "reason": "Distinguishes an engine diagnostics appointment from other repair offers and keeps the actual service scope.",
+        "entriesAdded": { "names": 1, "descriptions": 1, "units": 0 },
+        "certifiedHumanTranslation": false
+      },
+      {
+        "checkedOn": "2026-11-23",
+        "businessId": "sofia-nikolay-frantsov-druzhba1-block18v",
+        "inventoryIdentity": "03167dd5db5316d8f0d00dce6701e7fa329b6719859b057fc7d20ac424a8ca48",
+        "reason": "Preserves the first visit and provider-quoted fee, and the health insurance booklet condition without inventing coverage.",
+        "entriesAdded": { "names": 0, "descriptions": 1, "units": 0 },
+        "certifiedHumanTranslation": false
+      },
+      {
+        "checkedOn": "2026-11-23",
+        "businessId": "sofia-salt-hug-druzhba1-block195v",
+        "inventoryIdentity": "5f8964050dd78359c2095847a371ad30e701dd720dd426364724d2fb7322dff7",
+        "reason": "Distinguishes one private adult visit and actual venue entry restrictions without any health benefit claims.",
+        "entriesAdded": { "names": 1, "descriptions": 1, "units": 0 },
+        "certifiedHumanTranslation": false
+      },
+      {
+        "checkedOn": "2026-11-23",
         "businessId": "sofia-sharen-svyat-lyulin5-block519g",
         "inventoryIdentity": "dfca4ae951fc0b5c0d95a7488faf3ebca9fe0cc771b6c8faadad524c42ac38e0",
         "reason": "Preserves the priced 10-child package, extras, cake and postponement rules, and distinguishes the confirmed deposit requirement from how it is applied.",
@@ -371,6 +403,9 @@
     ]
   },
   "names": {
+    "Български народни танци за начинаещи възрастни": "Bulgarian folk dance for adult beginners",
+    "Диагностика на двигател": "Engine diagnostics",
+    "Солна стая за възрастен · едно посещение": "Adult salt room · one visit",
     "Монтаж на газов инжекцион Romano Antonio ECO — 4 цилиндъра": "Romano Antonio ECO LPG injection system installation — 4 cylinders",
     "Първоначална счетоводна консултация": "Initial accounting consultation",
     "Групова HIIT тренировка": "Group HIIT workout",
@@ -6438,6 +6473,10 @@
     "смяна на предпазен клапан на бойлер": "change of boiler safety valve"
   },
   "descriptions": {
+    "Групови занимания за възрастни без опит. Избери школата в Люлин във формуляра. Записването, графикът и таксата се уточняват с организатора.": "Group classes for adults with no experience. Select the Lyulin school on the form. The organiser confirms enrolment, the schedule and the fee.",
+    "При предварително уговорен прием сервизът проверява работата на двигателя, електронните системи, сензорите и механичните компоненти.": "By appointment, the workshop checks engine performance, electronic systems, sensors and mechanical components.",
+    "Първо посещение с преглед и създаване на досие. Цената е публикувана в Superdoc. За процедури по НЗОК кабинетът моли да носите здравноосигурителната си книжка.": "First visit with a dental examination and creation of a patient record. The price is published on Superdoc. For procedures covered by Bulgaria’s National Health Insurance Fund, the practice asks you to bring your health insurance booklet.",
+    "Самостоятелно посещение за възрастен след записване. Пристигнете 5 минути по-рано. Операторът посочва ограничения при температура над 37 °C, туберкулоза (включително преболедувана) или онкологично заболяване.": "A private adult visit by appointment. Arrive 5 minutes early. The venue lists restrictions for temperatures above 37 °C, current or past tuberculosis, or cancer.",
     "Зала, украса, детско меню, кетъринг, аниматор и занимания. Още дете: 10,23 €. +30 мин: 30 €; +1 ч: 60 €. Без външна храна и напитки. Торта отделно; внесена: 7 € и сертификат. Невъзстановимо капаро 50 €; уточнете отчитане и отказ. Отлагане до 48 ч преди партито (3 дни при торта от клуба).": "Hall, decorations, children’s meals, catering, an entertainer and activities. Extra child: €10.23. Extra 30 min: €30; extra 1 h: €60. No outside food or drinks. Cake is separate; bring your own for €7 with a certificate. Non-refundable €50 deposit; confirm how it is applied and the cancellation terms. Reschedule at least 48 h ahead (3 days with a club-ordered cake).",
     "Началната цена е с ДДС и включва системата с цилиндрична бутилка до 40 л, монтаж, настройка, сервизна книжка и монтажен протокол. Крайната цена зависи от автомобила, сложността на монтажа и избраните допълнения.": "The starting price includes VAT, the system with a cylindrical tank up to 40 L, installation, calibration, a service booklet and an installation report. The final price depends on the vehicle, the complexity of the installation and any optional extras.",
     "Безплатна първа консултация по счетоводните нужди на бизнеса. След заявката кантората се свързва с вас, за да уточни срещата. Месечното обслужване не е включено.": "A free first consultation about your business’s accounting needs. The firm will contact you after your request to arrange the meeting. Monthly accounting services are not included.",

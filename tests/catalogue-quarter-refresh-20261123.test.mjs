@@ -8,7 +8,7 @@ import horo from '../docs/catalogue-coverage/horo-intake-20261123.json' with { t
 import sharenReceipt from '../docs/catalogue-coverage/sharen-svyat-intake-20261123.json' with { type: 'json' }
 import batch from '../docs/catalogue-coverage/quarter-refresh-priority-20261123.json' with { type: 'json' }
 import english from '../lib/locale/service-english.json' with { type: 'json' }
-import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { SOFIA_CATALOGUE as currentCatalogue } from '../lib/discovery/sofia-catalogue.mjs'
 import { applyDesGeorgievaRefresh20261123, DES_GEORGIEVA_REFRESH_20261123_REVIEW } from '../lib/discovery/catalogue-data/des-georgieva-refresh-20261123.mjs'
 import { applyAutotestRepublicaVerifiedLocation20261123 } from '../lib/discovery/catalogue-data/autotest-republica-verified-location-20261123.mjs'
 import { BOOKING_PRICE_REVIEWS, BOOKING_REVIEWED_PRICING } from '../lib/discovery/catalogue-data/pricing-booking-review-v1.mjs'
@@ -20,8 +20,10 @@ import { createEnglishContentResolver } from '../lib/locale/public-content-resol
 import { serviceThumbnail } from '../lib/service-thumbnail.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
 import { quarterRefreshPriorCatalogue } from './catalogue-quarter-refresh-20261123-scope.mjs'
+import { sparsePremisesPriorCatalogue } from './catalogue-sparse-premises-20261123-scope.mjs'
 
 const now = Date.parse(batch.checkedAt)
+const SOFIA_CATALOGUE = sparsePremisesPriorCatalogue(currentCatalogue)
 const sharen = sharenReceipt.newBusiness
 const englishResolver = createEnglishContentResolver(english)
 const byId = id => {

@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "publicationReviewDateUtc": "2026-11-23",
+  "status": "prepared_locally_not_published",
+  "priority": "30 distinct physical businesses with verified addresses per Sofia quarter and category, before aggregate growth",
+  "newBusinessesPrepared": 1,
+  "newServicesPrepared": 1,
+  "verifiedPublicPriceFacts": 1,
+  "existingBusinessesChangedByThisIntake": 0,
+  "businesses": [
+    {
+      "id": "sofia-vm-auto-service-obelya-2-lomsko248a",
+      "name": "VM Auto Service",
+      "category": "auto_repair",
+      "neighborhood": "Обеля 2",
+      "address": "София, ж.к. Обеля 2, бул. Ломско шосе 248А",
+      "website": "https://www.vmauto.bg/",
+      "phone": "+359897937799",
+      "locationKind": "premises",
+      "validUntil": "2026-12-23",
+      "duplicateCheck": "No current catalogue identity matching the exact name, website host, normalized phone, or the street and house number. The same owner advertises vehicles under VM AUTO at this exact number; that activity is not a second catalogue business.",
+      "addressSources": [
+        "https://www.vmauto.bg/",
+        "https://www.vmauto.bg/za-nas",
+        "https://www.auto.bg/obiava/53665956/peugeot-3008-ochakvan-vnos-allure-top",
+        "https://www.auto.bg/obiava/23750434/mercedes-benz-e-350-ochakvan-vnos-v6-4matic-avantgarde"
+      ],
+      "addressEvidence": "The owner’s website confirms the exact street, number and contact. Seller-authored VM AUTO listings for the operator at the identical street and number and the same public telephone explicitly name Обеля 2. Service-area references to Люлин, Надежда and Илиянци on the workshop site do not constitute new locations.",
+      "coordinateEvidence": {
+        "source": "https://www.vmauto.bg/",
+        "method": "first_party_coordinates",
+        "latitude": 42.7571582,
+        "longitude": 23.270078,
+        "evidence": "The ordinary public HTML contains one named VM Auto Service AutoRepair JSON-LD entity with this exact street number, city and phone, with these GeoCoordinates values. Its own visually labelled workshop locator embeds the same coordinates. No third-party map was opened and no viewport values were used.",
+        "municipalCrossCheck": "The supplied offline Sofia municipal CSV contains number 248, but no exact 248А; the neighbouring number and its coordinates are deliberately not used."
+      },
+      "bookingEvidence": {
+        "actualBook": "https://www.vmauto.bg/#booking",
+        "directService": "https://www.vmauto.bg/uslugi/diagnostika",
+        "bookingInstructions": "https://www.vmauto.bg/za-nas",
+        "method": "The named service expressly asks the customer to call or book; the first-party telephone link and contact site use +359897937799. The separate online form appeared but its service options were not verified with third-party and non-GET requests blocked. No online appointment route, live availability, or instant confirmation is represented in GoRez."
+      },
+      "service": {
+        "name": "Компютърна диагностика на автомобил",
+        "description": "Четене и изтриване на грешки. Крайната цена за конкретния автомобил се уточнява предварително при записване.",
+        "pricingDecision": "reviewed",
+        "pricePages": ["https://www.vmauto.bg/ceni/diagnostika"],
+        "price": { "amount": 30, "currency": "EUR", "kind": "from" },
+        "limits": "One standing fault-code diagnostic service at a starting price, not a fixed quote or a resulting repair cost. The named service page explicitly states that the vehicle-specific price is quoted in advance when booking. No promotion, equipment sale, tyre package, materials, duration or additional service imported."
+      },
+      "openingHours": {
+        "source": "https://www.vmauto.bg/za-nas",
+        "weekdays": "09:00–18:00",
+        "saturday": "closed",
+        "sunday": "closed",
+        "limit": "These are public workshop hours, not appointment availability."
+      },
+      "sourcePolicy": "Reviewed the owner’s public robots policy, which allows the inspected paths and excludes admin/auth paths; reviewed the linked privacy notice. Only minimal factual information was recorded. No source image, review, marketing copy, protected page, or publication licence was reused or inferred. Browser inspection used an isolated profile and blocked third-party and non-GET requests.",
+      "image": {
+        "key": "auto-diagnostics",
+        "asset": "/service-photos/auto-diagnostics-v1.webp",
+        "sha256": "a088160be93fd90b2a73faeda041f99342c864ddc299614c3046b1a0ad33e4e1",
+        "limit": "Existing illustrative photo visually checked for a mechanic using a diagnostic tablet on a vehicle, not an image of this workshop."
+      },
+      "english": {
+        "name": "Computer diagnostics of a car",
+        "description": "Reading and clearing fault codes. The final price for your vehicle is confirmed in advance when you book."
+      },
+      "inventoryIdentity": "ba8844484e388884a5c31f12dd8f8cc4b6efb792e607543a4c68550f8641b061"
+    }
+  ],
+  "isolatedCoverageDelta": {
+    "targetPerQuarterCategory": 30,
+    "neighborhood": "Обеля 2",
+    "category": "auto_repair",
+    "physical": [1, 2],
+    "located": [1, 2]
+  },
+  "safeguards": {
+    "existingCataloguePricingBaselinesOrReportsRefreshed": false,
+    "partnerContactAttemptsFormsSubmissionsAccountsBookingsOrPayments": 0,
+    "mapGeocoderPaidProviderRequests": 0,
+    "productionWrites": 0
+  }
+}

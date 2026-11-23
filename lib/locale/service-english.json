@@ -137,6 +137,32 @@
         "entriesAdded": { "names": 0, "descriptions": 1, "units": 0 },
         "entriesReused": { "names": 1 },
         "certifiedHumanTranslation": false
+      },
+      {
+        "checkedOn": "2026-11-23",
+        "businessId": "sofia-part-time-pavlovo-duychev12v",
+        "inventoryIdentity": "b3536caaf7ee5dce3a80be41a43e1b3df6c4cac836ebc89f4943717f96dacca6",
+        "reason": "English title and description distinguish regular attended theatre classes from the free trial; no translation API.",
+        "entriesAdded": { "names": 1, "descriptions": 1, "units": 0 },
+        "certifiedHumanTranslation": false
+      },
+      {
+        "checkedOn": "2026-11-23",
+        "businessId": "sofia-galileodent-nadezhda4-lomsko182",
+        "inventoryIdentity": "d1e25c4f6778f183e3877c17b889259fe28c53cd88d3e5872da369437b1e5faf",
+        "reason": "The existing reviewed English name fits the checked dental examination; no new translation needed.",
+        "entriesAdded": { "names": 0, "descriptions": 0, "units": 0 },
+        "entriesReused": { "names": 1 },
+        "certifiedHumanTranslation": false
+      },
+      {
+        "checkedOn": "2026-11-23",
+        "businessId": "sofia-vm-auto-service-obelya-2-lomsko248a",
+        "inventoryIdentity": "ba8844484e388884a5c31f12dd8f8cc4b6efb792e607543a4c68550f8641b061",
+        "reason": "English keeps the fault-code scope and vehicle-specific final quote qualification. Reviewed title reused.",
+        "entriesAdded": { "names": 0, "descriptions": 1, "units": 0 },
+        "entriesReused": { "names": 1 },
+        "certifiedHumanTranslation": false
       }
     ],
     "sourceInventorySha256": "3dc68153b6dbd333d0990cf3c7658bb4e0235f79d7d1e8081cfc226034bab456",
@@ -208,6 +234,7 @@
     ]
   },
   "names": {
+    "Групово актьорско майсторство на английски за деца": "Group acting classes in English for children",
     "VR игра ARENA за 2–6 играчи": "VR ARENA game for 2–6 players",
     "Английски език за възрастни": "English for adults",
     "Прически": "Hairstyling",
@@ -6258,6 +6285,8 @@
     "смяна на предпазен клапан на бойлер": "change of boiler safety valve"
   },
   "descriptions": {
+    "Четене и изтриване на грешки. Крайната цена за конкретния автомобил се уточнява предварително при записване.": "Reading and clearing fault codes. The final price for your vehicle is confirmed in advance when you book.",
+    "Присъствени театрални занимания на английски в групи за 7–9 и 9–12 г. Центърът уточнява групата, графика и цената по телефона. Безплатното пробно посещение е отделно от редовните занимания.": "In-person drama classes in English for ages 7–9 and 9–12. Call the centre to confirm the group, schedule and price. The free trial is separate from the regular classes.",
     "Цялостно почистване на автомобилния интериор с пране на текстила. Крайната цена зависи от размера на автомобила и степента на замърсяване; озонирането се заплаща отделно.": "Complete car interior cleaning, including textile upholstery washing. The final price depends on vehicle size and soiling; ozone treatment costs extra.",
     "Кабинетът моли да носите актуална панорамна снимка, за предпочитане дигитална и направена през последните 6 месеца.": "The practice asks you to bring a recent panoramic dental X-ray, preferably a digital image taken within the last 6 months.",
     "30 минути в обща VR арена за 2–6 играчи, от петък до неделя. Цената е на човек, не за цялата група. Обектът потвърждава часа по телефона.": "30 minutes in a shared VR arena for 2–6 players, Friday to Sunday. The price is per person, not a group total. The venue confirms your time by phone.",

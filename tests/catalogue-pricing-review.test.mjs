@@ -12,6 +12,9 @@ import { SUHODOL_20261122_REVIEWS } from '../lib/discovery/catalogue-data/neighb
 import { INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-intake-20261123.mjs'
 import { AUTO_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-auto-intake-20261123.mjs'
 import { VERIFIED_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-intake-20261123.mjs'
+import { EDUCATION_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-education-intake-20261123.mjs'
+import { GALILEODENT_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-galileodent-intake-20261123.mjs'
+import { VM_AUTO_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-vm-auto-intake-20261123.mjs'
 const now = Date.parse('2026-11-11T12:00:00Z')
 const record = () => structuredClone(SOFIA_CATALOGUE.find(row => row.id === 'sofia-cut-n-chill'))
 const review = () => structuredClone(BOOKING_PRICE_REVIEWS.find(row => row.id === 'sofia-cut-n-chill'))
@@ -98,7 +101,19 @@ test('dated audit receipts cover every current ID without rewriting the historic
   assert.ok(intakeIds.every(id => !earlierIds.has(id)))
   assert.deepEqual(AUTO_INTAKE_20261123_REVIEWS.map(row => row.id), ['sofia-mline-auto-detailing-gorublyane-pionerska2'])
   assert.deepEqual(VERIFIED_INTAKE_20261123_REVIEWS.map(row => row.id), ['sofia-luckydent-dragalevtsi-gluharche10'])
+  const additions = [...EDUCATION_INTAKE_20261123_REVIEWS, ...GALILEODENT_INTAKE_20261123_REVIEWS, ...VM_AUTO_INTAKE_20261123_REVIEWS]
+  assert.deepEqual(additions.map(row => row.id), [
+    'sofia-part-time-pavlovo-duychev12v', 'sofia-galileodent-nadezhda4-lomsko182', 'sofia-vm-auto-service-obelya-2-lomsko248a',
+  ])
   const auditedIds = new Set([...earlierIds, ...intakeIds, ...AUTO_INTAKE_20261123_REVIEWS.map(row => row.id), ...VERIFIED_INTAKE_20261123_REVIEWS.map(row => row.id)])
+  for (const [index, review] of additions.entries()) {
+    assert.equal(auditedIds.has(review.id), false)
+    auditedIds.add(review.id)
+    assert.ok(BOOKING_PRICE_REVIEWS.includes(review))
+    const business = SOFIA_CATALOGUE.find(row => row.id === review.id)
+    assert.equal(assessPricingReview(business, review, Date.parse('2026-11-23T12:00:00Z')).state, index === 2 ? 'reviewed' : 'service_reviewed')
+    assert.equal(assessPricingReview(business, review, now).state, 'pending')
+  }
   assert.equal(auditedIds.size, SOFIA_CATALOGUE.length)
   assert.ok(SOFIA_CATALOGUE.every(row => auditedIds.has(row.id)))
   for (const review of NEIGHBORHOOD_20261111_REVIEWS) {

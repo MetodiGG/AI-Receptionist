@@ -1,3 +1,4 @@
+import { pr81LocationPriorSource, pr81LocationAllowsFileChange, pr81LocationAllowsNewFile } from "./pr81-location-only-scope.mjs"
 import { suhodolIntakeAllowsFileChange, suhodolIntakeAllowsNewFile, suhodolIntakePriorSource, suhodolIntakePriorCatalogue } from './suhodol-intake-20261122-scope.mjs'
 import { nearbyPointsAllowsFileChange, nearbyPointsAllowsNewFile, nearbyPointsPriorSource, nearbyPointsPriorCatalogue } from './nearby-points-20261122-scope.mjs'
 import { locationRecoveryAllowsFileChange, locationRecoveryAllowsNewFile, locationRecoveryPriorSource } from './location-recovery-20261122-scope.mjs'
@@ -22,7 +23,7 @@ import { lowCoverageAllowsNewFile } from './catalogue-low-coverage-20261123-scop
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const baseline = 'c9e525b'
-const read = path => readFile(new URL(`../${path}`, import.meta.url), 'utf8').then(source => regionalCataloguePriorSource(path, azisCataloguePriorSource(path, locationRecoveryPriorSource(path, nearbyPointsPriorSource(path, suhodolIntakePriorSource(path, source))))))
+const read = path => readFile(new URL(`../${path}`, import.meta.url), 'utf8').then(source => regionalCataloguePriorSource(path, azisCataloguePriorSource(path, locationRecoveryPriorSource(path, nearbyPointsPriorSource(path, suhodolIntakePriorSource(path, pr81LocationPriorSource(path, source)))))))
 const require = createRequire(import.meta.url)
 const { parse } = require('next/dist/compiled/postcss-scss/scss-syntax')
 const inline = parse(await read('app/inline-discovery.css'))
@@ -276,7 +277,7 @@ async function identicalBlobs(entries) {
 }
 
 test('historical APIs, hooks, data/taxonomy, booking/media/config/dependencies and CSS stay frozen outside the exact approved 2026-11-22 paths', async () => {
-  await identicalBlobs(baselineTree.filter(record => frozenPath(record.path) && !reviewedDiscoveryFileChange(record.path) && !nextSecurityUpgradeAllowsFileChange(record.path) && !stationaryDiscoveryAllowsFileChange(record.path) && !publicActionAllowsFileChange(record.path) && !publicEnglishAllowsFileChange(record.path) && !servicePriceCardsAllowsFileChange(record.path) && !catalogueRevalidationAllowsFileChange(record.path) && !regionalCatalogueAllowsFileChange(record.path) && !azisCatalogueAllowsFileChange(record.path) && !suhodolIntakeAllowsFileChange(record.path) && !nearbyPointsAllowsFileChange(record.path) && !locationRecoveryAllowsFileChange(record.path)))
+  await identicalBlobs(baselineTree.filter(record => !pr81LocationAllowsFileChange(record.path) && frozenPath(record.path) && !reviewedDiscoveryFileChange(record.path) && !nextSecurityUpgradeAllowsFileChange(record.path) && !stationaryDiscoveryAllowsFileChange(record.path) && !publicActionAllowsFileChange(record.path) && !publicEnglishAllowsFileChange(record.path) && !servicePriceCardsAllowsFileChange(record.path) && !catalogueRevalidationAllowsFileChange(record.path) && !regionalCatalogueAllowsFileChange(record.path) && !azisCatalogueAllowsFileChange(record.path) && !suhodolIntakeAllowsFileChange(record.path) && !nearbyPointsAllowsFileChange(record.path) && !locationRecoveryAllowsFileChange(record.path)))
   const rail = await read('lib/discovery/rail.mjs')
   assert.match(rail, /export const SERVICE_PREVIEW_LIMIT = 2/)
   assert.match(rail, /\.slice\(0, SERVICE_PREVIEW_LIMIT\)/)
@@ -299,7 +300,7 @@ test('all historical public image bytes stay frozen; only the fifteen explicitly
   const images = baselineTree.filter(record => imagePath(record.path))
   assert.equal(images.length, 1889, 'reviewed baseline public-image inventory')
   // Later service images belong to their own SHA-checked receipt, not the visual redesign.
-  const current = execFileSync('git', ['ls-files', '--cached', '--others', '--exclude-standard', '-z', '--', 'public'], { cwd: root, encoding: 'utf8', maxBuffer: 4 * 1024 * 1024 }).split('\0').filter(path => imagePath(path) && !intakeAllowsNewFile(path) && !lowCoverageAllowsNewFile(path))
+  const current = execFileSync('git', ['ls-files', '--cached', '--others', '--exclude-standard', '-z', '--', 'public'], { cwd: root, encoding: 'utf8', maxBuffer: 4 * 1024 * 1024 }).split('\0').filter(path => !pr81LocationAllowsNewFile(path) && imagePath(path) && !intakeAllowsNewFile(path) && !lowCoverageAllowsNewFile(path))
   assert.deepEqual([...new Set(current)].sort(), [...images.map(record => record.path), ...DISCOVERY_NEW_MEDIA].sort())
   await identicalBlobs(images)
 })

@@ -1,3 +1,4 @@
+import { pr81LocationPriorSource, pr81LocationAllowsFileChange, pr81LocationAllowsNewFile, pr81LocationMatchesPriorHash } from "./pr81-location-only-scope.mjs"
 import { suhodolIntakeAllowsFileChange, suhodolIntakeAllowsNewFile, suhodolIntakePriorSource, suhodolIntakePriorCatalogue } from './suhodol-intake-20261122-scope.mjs'
 import { nearbyPointsAllowsFileChange, nearbyPointsAllowsNewFile, nearbyPointsPriorSource, nearbyPointsPriorCatalogue } from './nearby-points-20261122-scope.mjs'
 import { locationRecoveryAllowsFileChange, locationRecoveryAllowsNewFile, locationRecoveryPriorSource } from './location-recovery-20261122-scope.mjs'
@@ -14,11 +15,11 @@ import { createHash } from 'node:crypto'
 import { execFileSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
 import { PUBLIC_ACTION_BASE, PUBLIC_ACTION_HASHES, PUBLIC_ACTION_NEW_HASHES, publicActionAllowsFileChange, publicActionAllowsNewFile } from './public-action-scope.mjs'
-import { publicEnglishAllowsFileChange, publicEnglishAllowsNewFile } from './public-english-scope.mjs'
+import { PUBLIC_ENGLISH_NEW_HASHES, publicEnglishAllowsFileChange, publicEnglishAllowsNewFile } from './public-english-scope.mjs'
 
 const root = fileURLToPath(new URL('../',import.meta.url))
 const git = (...args) => execFileSync('git',args,{cwd:root,encoding:'utf8',maxBuffer:16*1024*1024})
-const read = path => readFile(new URL('../'+path,import.meta.url),'utf8').then(source => regionalCataloguePriorSource(path, azisCataloguePriorSource(path, priority30ReportPriorSource(path, locationRecoveryPriorSource(path, nearbyPointsPriorSource(path, suhodolIntakePriorSource(path, source)))))))
+const read = path => readFile(new URL('../'+path,import.meta.url),'utf8').then(source => regionalCataloguePriorSource(path, azisCataloguePriorSource(path, priority30ReportPriorSource(path, locationRecoveryPriorSource(path, nearbyPointsPriorSource(path, suhodolIntakePriorSource(path, pr81LocationPriorSource(path, source))))))))
 const before = path => git('show',PUBLIC_ACTION_BASE+':'+path)
 const productionPath = path => path !== 'node_modules' && !/^(?:tests|docs)\//.test(path) && !/\.(?:md|txt)$/i.test(path)
 const tree = git('ls-tree','-r','-z',PUBLIC_ACTION_BASE).split('\0').filter(Boolean).map(record => {
@@ -30,7 +31,7 @@ test('compact previews and shared actions have exactly twelve reviewed existing 
   assert.equal(Object.keys(PUBLIC_ACTION_HASHES).length,12)
   assert.deepEqual(Object.keys(PUBLIC_ACTION_NEW_HASHES),['components/public-action.js','components/public-action.module.css'])
   for (const [path,hash] of Object.entries({...PUBLIC_ACTION_HASHES,...PUBLIC_ACTION_NEW_HASHES})) {
-    if (azisCatalogueAllowsFileChange(path) || publicEnglishAllowsFileChange(path) || publicEnglishAllowsNewFile(path) || servicePriceCardsAllowsFileChange(path) || catalogueRevalidationAllowsFileChange(path)) continue
+    if (pr81LocationAllowsFileChange(path) || azisCatalogueAllowsFileChange(path) || publicEnglishAllowsFileChange(path) || publicEnglishAllowsNewFile(path) || servicePriceCardsAllowsFileChange(path) || catalogueRevalidationAllowsFileChange(path)) continue
     assert.equal(createHash('sha256').update(await read(path)).digest('hex'),hash,path+': changed bytes need their own explicit focused review, not a new baseline')
   }
   for (const path of ['lib/discovery/rail.mjs','lib/discovery/sofia-catalogue.mjs','lib/discovery/subcategories.mjs','lib/booking-mode.mjs','components/discovery-search.js','app/inline-discovery.css','package.json','pnpm-lock.yaml','next.config.mjs']) {
@@ -41,13 +42,13 @@ test('compact previews and shared actions have exactly twelve reviewed existing 
 })
 
 test('every original image and other production byte/path stays identical to the committed stationary-discovery stage, including data/prices, search, filtering, booking and analytics',async () => {
-  const frozen = tree.filter(record => !publicActionAllowsFileChange(record.path) && !publicEnglishAllowsFileChange(record.path) && !servicePriceCardsAllowsFileChange(record.path) && !catalogueRevalidationAllowsFileChange(record.path) && !regionalCatalogueAllowsFileChange(record.path) && !azisCatalogueAllowsFileChange(record.path) && !priority30ReportAllowsFileChange(record.path) && !suhodolIntakeAllowsFileChange(record.path) && !nearbyPointsAllowsFileChange(record.path) && !locationRecoveryAllowsFileChange(record.path) && !sportsMobilePhotoFitAllowsFileChange(record.path))
+  const frozen = tree.filter(record => !pr81LocationAllowsFileChange(record.path) && !publicActionAllowsFileChange(record.path) && !publicEnglishAllowsFileChange(record.path) && !servicePriceCardsAllowsFileChange(record.path) && !catalogueRevalidationAllowsFileChange(record.path) && !regionalCatalogueAllowsFileChange(record.path) && !azisCatalogueAllowsFileChange(record.path) && !priority30ReportAllowsFileChange(record.path) && !suhodolIntakeAllowsFileChange(record.path) && !nearbyPointsAllowsFileChange(record.path) && !locationRecoveryAllowsFileChange(record.path) && !sportsMobilePhotoFitAllowsFileChange(record.path))
   for(let offset=0;offset<frozen.length;offset+=32) await Promise.all(frozen.slice(offset,offset+32).map(async record => {
     const path = new URL('../'+record.path,import.meta.url)
     const bytes = record.mode === '120000' ? Buffer.from(await readlink(path)) : await readFile(path)
     assert.equal(createHash('sha1').update('blob '+bytes.length+'\0').update(bytes).digest('hex'),record.oid,record.path+' stays unchanged from '+PUBLIC_ACTION_BASE)
   }))
-  const actual = git('ls-files','--cached','--others','--exclude-standard','-z').split('\0').filter(path => path && !suhodolIntakeAllowsNewFile(path) && !nearbyPointsAllowsNewFile(path) && !locationRecoveryAllowsNewFile(path) && !priority30ReportAllowsNewFile(path) && !regionalCatalogueAllowsNewFile(path) && !azisCatalogueAllowsNewFile(path) && !(path === 'lib/discovery/public-catalogue.mjs' && azisCatalogueAllowsFileChange(path)) && productionPath(path) && !publicEnglishAllowsNewFile(path) && !(path === 'scripts/check-public-english.mjs' && (regionalCatalogueAllowsFileChange(path) || azisCatalogueAllowsFileChange(path))) && !(path === 'lib/locale/service-english.json' && (suhodolIntakeAllowsFileChange(path) || catalogueRevalidationAllowsFileChange(path) || (regionalCatalogueAllowsFileChange(path) || azisCatalogueAllowsFileChange(path)))) && !servicePriceCardsAllowsNewFile(path))
+  const actual = git('ls-files','--cached','--others','--exclude-standard','-z').split('\0').filter(path => !pr81LocationAllowsNewFile(path) && path && !suhodolIntakeAllowsNewFile(path) && !nearbyPointsAllowsNewFile(path) && !locationRecoveryAllowsNewFile(path) && !priority30ReportAllowsNewFile(path) && !regionalCatalogueAllowsNewFile(path) && !azisCatalogueAllowsNewFile(path) && !(path === 'lib/discovery/public-catalogue.mjs' && azisCatalogueAllowsFileChange(path)) && productionPath(path) && !publicEnglishAllowsNewFile(path) && !pr81LocationMatchesPriorHash(path, PUBLIC_ENGLISH_NEW_HASHES[path]) && !(path === 'scripts/check-public-english.mjs' && (regionalCatalogueAllowsFileChange(path) || azisCatalogueAllowsFileChange(path))) && !(path === 'lib/locale/service-english.json' && (suhodolIntakeAllowsFileChange(path) || catalogueRevalidationAllowsFileChange(path) || (regionalCatalogueAllowsFileChange(path) || azisCatalogueAllowsFileChange(path)))) && !servicePriceCardsAllowsNewFile(path))
   assert.deepEqual([...new Set(actual)].sort(),[...tree.map(record=>record.path),...Object.keys(PUBLIC_ACTION_NEW_HASHES)].sort(),'no data/media/API/config path is added')
 })
 

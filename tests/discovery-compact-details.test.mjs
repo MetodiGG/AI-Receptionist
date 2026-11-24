@@ -186,13 +186,22 @@ test('public partner details preserve the stable reviewed activity cover ID thro
   assert.doesNotMatch(JSON.stringify(business), /customer-private|private appointment|private-owner|private-billing|owner_user_id/)
 })
 
-test('the partner query is one scoped read with bounded full-menu relationships, never select star', async () => {
+test('partner details read a scoped full menu and a separate minimal directions receipt, never select star', async () => {
   const calls = []
-  const query = new Proxy({}, { get: (_, key) => (...args) => { calls.push([key, ...args]); return key === 'maybeSingle' ? Promise.resolve({ data: rawPartner(), error: null }) : query } })
+  const query = new Proxy({}, { get: (_, key) => (...args) => {
+    calls.push([key, ...args])
+    if (key === 'maybeSingle') return Promise.resolve({ data: rawPartner(), error: null })
+    if (key === 'then') return args[0]({ data: [], error: null })
+    return query
+  } })
   await readPublishedPartnerDetails({ from: name => { assert.equal(name, 'businesses'); return query } }, id)
   assert.ok(calls.some(call => call[0] === 'eq' && call[1] === 'id' && call[2] === id))
   assert.ok(calls.some(call => call[0] === 'eq' && call[1] === 'platform_status' && call[2] === 'enabled'))
   assert.ok(calls.some(call => call[0] === 'limit' && call[1] === 500 && call[2].referencedTable === 'services'))
+  const selects = calls.filter(call => call[0] === 'select').map(call => call[1])
+  assert.equal(selects.length, 2)
+  assert.match(selects[1], /registration_location_sources/u)
+  assert.doesNotMatch(selects[1], /\*|phone|services\(|staff\(|customers|appointments|billing/u)
   assert.doesNotMatch(PUBLIC_DETAILS_FIELDS, /\*|owner_user_id|customers|appointments|billing/)
 })
 

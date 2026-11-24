@@ -12,6 +12,7 @@ import { catalogueOnboardingDetail, createCatalogueOnboardingHandler, searchCata
 import { normalizeCatalogueBusinesses, rankCatalogueBusinesses } from '../lib/discovery/catalogue-search.mjs'
 import { railExternalAction } from '../lib/discovery/rail.mjs'
 import { businessMapsDirectionsUrl } from '../lib/business-directions.mjs'
+import { cataloguePublicLocation } from '../lib/discovery/catalogue-public-location.mjs'
 import { OFFICIAL_SOFIA_SOURCE_URL, OFFICIAL_SOFIA_ATTRIBUTION, OFFICIAL_SOFIA_CSV_SHA256 } from '../lib/discovery/official-sofia-address-source.mjs'
 import { catalogueServicePhotoFields } from '../lib/catalogue-service-photo-keys.mjs'
 import { serviceThumbnail } from '../lib/service-thumbnail.mjs'
@@ -225,7 +226,7 @@ test('public Knyazhevo auto-repair discovery preserves external confirmation wit
   assert.deepEqual(normalizeCatalogueBusinesses([row()], { cityCode: '68134', neighborhood: 'Княжево', category: 'pets', browse: true, searchV2: true }, { now }), [])
 })
 
-test('public MIM distance uses the exact reviewed postal point while directions retain the unchanged numbered owner address', () => {
+test('public MIM distance and directions use the exact reviewed postal point without changing the numbered owner address', () => {
   const intent = { cityCode: '68134', neighborhood: 'Княжево', category: 'auto_repair', browse: true, searchV2: true }
   const [result] = normalizeCatalogueBusinesses([row()], intent, { now })
   assert.ok(result)
@@ -234,11 +235,12 @@ test('public MIM distance uses the exact reviewed postal point while directions 
   const [nearby] = rankCatalogueBusinesses([], [result], { ...intent, coordinates: { latitude: point.latitude, longitude: point.longitude + 0.01 } })
   assert.equal(nearby.distanceKm, 0.8, 'Rounded straight-line distance is not a road distance or travel time')
   assert.deepEqual(nearby.coordinates, point)
-  const directions = new URL(businessMapsDirectionsUrl(nearby))
+  const directions = new URL(businessMapsDirectionsUrl({ ...nearby, navigationLocation: cataloguePublicLocation(row()) }))
   assert.equal(directions.origin, 'https://www.google.com')
   assert.equal(directions.pathname, '/maps/dir/')
   assert.equal(directions.searchParams.get('api'), '1')
-  assert.equal(directions.searchParams.get('destination'), `${source.address}, България`)
+  assert.equal(nearby.address, source.address)
+  assert.equal(directions.searchParams.get('destination'), `${point.latitude},${point.longitude}`)
   assert.equal(directions.searchParams.has('origin'), false, 'A visitor location is not sent by constructing directions')
   assert.equal(directions.searchParams.has('destination_place_id'), false)
   assert.doesNotMatch(directions.href, /Karpuzitsa|Карпузица|941/u)

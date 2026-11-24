@@ -12,7 +12,8 @@ import { NEIGHBORHOOD_20261113_RECORDS as additions } from '../lib/discovery/cat
 import { applyOfficialCatalogueLocations } from '../lib/discovery/catalogue-official-locations.mjs'
 import { catalogueBoundCoordinates } from '../lib/discovery/catalogue-coordinate-binding.mjs'
 import { catalogueRegistrationPoint } from '../lib/business-registration-location.mjs'
-import { businessMapsDirectionsUrl, businessDirectionsAddress } from '../lib/business-directions.mjs'
+import { businessMapsDirectionsUrl } from '../lib/business-directions.mjs'
+import { cataloguePublicLocation } from '../lib/discovery/catalogue-public-location.mjs'
 import { reviewedBusinessDestination } from '../lib/business-directions-reviewed.mjs'
 import { priorityPriorCatalogue } from './catalogue-quarter-priority-20261123-scope.mjs'
 
@@ -59,9 +60,18 @@ test('new manually reviewed postal matches retain identity, directions, attribut
     assert.equal(catalogueRegistrationPoint(published.coordinates), null, 'do not strip attributed source into native two-number pin')
     assert.equal(Number(reviewed.coordinates.latitude.toFixed(6)), reviewed.coordinates.latitude)
     assert.equal(Number(reviewed.coordinates.longitude.toFixed(6)), reviewed.coordinates.longitude)
-    const destination = new URL(businessMapsDirectionsUrl({ ...published, source: 'catalogue' })).searchParams.get('destination')
+    const location = cataloguePublicLocation(published)
+    const href = businessMapsDirectionsUrl({ ...published, source: 'catalogue', navigationLocation: location })
+    if (published.id === 'sofia-kamen-auto77-tsarigradsko387') {
+      assert.equal(location.locationStatus, 'conflict', 'The historical postal point falls in a separate settlement')
+      assert.equal(location.coordinates, null)
+      assert.equal(href, null)
+      continue
+    }
+    const destination = new URL(href).searchParams.get('destination')
     const explicit = reviewedBusinessDestination({ ...published, source: 'catalogue' })
-    assert.equal(destination, explicit ? `${explicit.latitude},${explicit.longitude}` : businessDirectionsAddress(published))
+    const point = explicit || reviewed.coordinates
+    assert.equal(destination, `${point.latitude},${point.longitude}`)
   }
 })
 

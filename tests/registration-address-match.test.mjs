@@ -1,19 +1,20 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
-import { registrationAddressQuery, matchRegistrationAddress } from '../lib/registration-address-match.mjs'
+import { registrationAddressQuery, matchRegistrationAddress, validCachedRegistrationAddressPoint } from '../lib/registration-address-match.mjs'
 
 const business = patch => ({id:'offline-only-business',city_ekatte:'68134',city:'София',neighborhood:'Манастирски ливади',address:'Пирин 42',...patch})
-const candidate = patch => ({osm_type:'node',osm_id:123456,lat:'42.6650291',lon:'23.2825296',boundingbox:['42.6649291','42.6651291','23.2824296','23.2826296'],class:'amenity',type:'beauty',addresstype:'amenity',place_rank:30,
+const candidate = patch => ({osm_type:'node',osm_id:123456,lat:'42.6650291',lon:'23.2825296',boundingbox:['42.6649291','42.6651291','23.2824296','23.2826296'],class:'place',type:'house',addresstype:'house',place_rank:30,
   address:{country_code:'bg',city:'София',road:'ул. Пирин',house_number:'42',suburb:'Манастирски ливади'},...patch})
 const addressCandidate = address => candidate({address:{...candidate().address,...address}})
 const expected = {latitude:42.6650291,longitude:23.2825296,source_url:'https://www.openstreetmap.org/node/123456',licence:'ODbL-1.0',attribution:'© OpenStreetMap contributors'}
 
 test('query builder supports plain, adjacent-number, quoted, prefixed and full legacy street addresses', () => {
   for(const address of ['Пирин42','Пирин 42','ул.Пирин42','ул. Пирин 42','улица „Пирин“ № 42','София, Манастирски ливади, ул. Пирин 42','гр. София, кв. Манастирски ливади, Пирин42','гр.София кв.Манастирски ливади ул.Пирин42']) {
-    assert.deepEqual(registrationAddressQuery(business({address})),{street:'Пирин',house:'42',city:'София',query:'Пирин 42, Манастирски ливади, София, България'},address)
+    const typed=/ул/u.test(address)
+    assert.deepEqual(registrationAddressQuery(business({address})),{street:'Пирин',streetType:typed?'street':null,house:'42',city:'София',unitSpecified:false,query:`${typed?'ул. ':''}Пирин 42, Манастирски ливади, София, България`},address)
   }
-  assert.deepEqual(registrationAddressQuery(business({address:'София, Манастирски ливади, Пирин42',neighborhood:''})),{street:'Пирин',house:'42',city:'София',query:'Пирин 42, Манастирски ливади, София, България'})
+  assert.deepEqual(registrationAddressQuery(business({address:'София, Манастирски ливади, Пирин42',neighborhood:''})),{street:'Пирин',streetType:null,house:'42',city:'София',unitSpecified:false,query:'Пирин 42, Манастирски ливади, София, България'})
   assert.equal(registrationAddressQuery(business({address:'бул. България 102'})).street,'България')
   assert.equal(registrationAddressQuery(business({address:'6-ти септември 12'})).street,'6-ти септември')
   assert.equal(registrationAddressQuery(business({address:'Ултро 42'})).street,'Ултро','do not confuse a street name starting ул with a prefix')
@@ -24,7 +25,9 @@ test('only public address fields enter the query, with no business identity or c
   const input=business({name:'Private owner name',email:'private@example.com',phone:'+359888123456',id:'private-business-id',address:'Пирин 42, офис 2'})
   const query=registrationAddressQuery(input)
   assert.equal(query.query,'Пирин 42, Манастирски ливади, София, България')
-  assert.deepEqual(Object.keys(query).sort(),['city','house','query','street'])
+  assert.deepEqual(Object.keys(query).sort(),['city','house','query','street','streetType','unitSpecified'])
+  assert.equal(query.unitSpecified,true)
+  assert.equal(matchRegistrationAddress(input,[candidate()]),null)
   assert.doesNotMatch(JSON.stringify(query),/Private|private|example|359|офис/u)
 })
 
@@ -35,23 +38,52 @@ test('unknown, ambiguous, block-only, incomplete and private/confidential addres
   for(const patch of [{city_ekatte:'00000'},{city:'Варна'},{neighborhood:'owner@example.com'},{neighborhood:'+359888123456'},{address:'Варна, ул. Пирин 42'},{address:'София, Борово, ул. Пирин 42'}])assert.equal(registrationAddressQuery(business(patch)),null,JSON.stringify(patch))
 })
 
-test('exact building/POI match returns only numeric coordinates and recorded OSM source/licence', () => {
+test('exact postal building (never just a POI) returns numeric coordinates and recorded OSM source/licence', () => {
   assert.deepEqual(matchRegistrationAddress(business(),[candidate()]),expected)
   assert.deepEqual(matchRegistrationAddress(business(),[candidate({osm_type:'way',osm_id:'987654',class:'building',type:'yes',addresstype:'building'})]),{...expected,source_url:'https://www.openstreetmap.org/way/987654'})
   assert.deepEqual(matchRegistrationAddress(business(),[candidate({osm_type:'relation',osm_id:'987654',category:'building',class:undefined,type:'commercial',addresstype:'building',place_rank:28})]),{...expected,source_url:'https://www.openstreetmap.org/relation/987654'})
 })
 
-test('exact city/street/house matching accepts official BG and Latin forms, prefixes, titles and A suffix only', () => {
+test('non-visit businesses and coordinates conflicting with a separate Sofia municipality settlement are not accepted', () => {
+  for (const location_kind of ['service_area', 'mobile', 'online_only']) {
+    assert.equal(registrationAddressQuery(business({ location_kind })), null)
+    assert.equal(matchRegistrationAddress(business({ location_kind }), [candidate()]), null)
+  }
+  // Synthetic provider response claims Sofia's exact address while putting
+  // its point inside the municipal Republica exclusion. Not branch evidence.
+  const latitude = 42.74679251, longitude = 23.23194185
+  assert.equal(matchRegistrationAddress(business(), [candidate({ lat: latitude, lon: longitude,
+    boundingbox: [latitude - .00001, latitude + .00001, longitude - .00001, longitude + .00001] })]), null)
+  assert.equal(validCachedRegistrationAddressPoint({ ...expected, latitude, longitude }), false)
+})
+
+test('exact city/street/house matching keeps all Cyrillic and Latin building letters distinct', () => {
   for(const city of ['София','Sofia','Sofiya','гр. София'])assert.deepEqual(matchRegistrationAddress(business(),[addressCandidate({city,road:'Pirin',suburb:'Manastirski livadi'})]),expected)
   assert.deepEqual(matchRegistrationAddress(business({address:'ул. Проф. Стоян Киркович 42'}),[addressCandidate({road:'улица Професор Стоян Киркович'})]),expected)
-  assert.deepEqual(matchRegistrationAddress(business({address:'Пирин 42а'}),[addressCandidate({house_number:'42A'})]),expected)
-  for(const [requested,received] of [['42Б','42B'],['42В','42B'],['42','42A'],['42','042'],['42','42-44']])assert.equal(matchRegistrationAddress(business({address:`Пирин ${requested}`}),[addressCandidate({house_number:received})]),null,`${requested} / ${received}`)
+  assert.deepEqual(matchRegistrationAddress(business({address:'Пирин 42а'}),[addressCandidate({house_number:'42А'})]),expected)
+  for(const [requested,received] of [['42А','42A'],['42Б','42B'],['42В','42B'],['42','42A'],['42','042'],['42','42-44']])assert.equal(matchRegistrationAddress(business({address:`Пирин ${requested}`}),[addressCandidate({house_number:received})]),null,`${requested} / ${received}`)
+})
+
+test('reported boulevard 178Е regression: a synthetic exact building passes, not 178, 178E, a street, the province or another settlement', () => {
+  const reported=business({neighborhood:'',address:'бул. Сливница 178Е, София'})
+  const exact=addressCandidate({road:'булевард Сливница',house_number:'178Е',suburb:undefined})
+  assert.equal(registrationAddressQuery(reported).query,'бул. Сливница 178Е, София, България')
+  assert.equal(registrationAddressQuery(reported).house,'178Е')
+  assert.deepEqual(matchRegistrationAddress(reported,[exact]),expected)
+  assert.deepEqual(matchRegistrationAddress(reported,[addressCandidate({road:'ул. Сливница',house_number:'178'}),exact]),expected)
+  for (const changes of [{house_number:'178'},{house_number:'178E'},{road:'ул. Сливница'},{road:'Сливница'},
+    {town:'Сливница'},{village:'Мрамор'},{state:'Софийска област'},{city:undefined,municipality:'Столична'}]) {
+    assert.equal(matchRegistrationAddress(reported,[{...exact,address:{...exact.address,...changes}}]),null,JSON.stringify(changes))
+  }
+  for (const address of ['бул. Сливница 178Е, Сливница','бул. Сливница 178Е, София, Румъния','бул. Сливница 178Е, Софийска област']) {
+    assert.equal(registrationAddressQuery({...reported,address}),null,address)
+  }
 })
 
 test('matcher works for other Bulgarian cities without a Sofia coordinate box', () => {
   const varna=business({city_ekatte:'10135',city:'Варна',neighborhood:'Бриз',address:'Цар Борис III 12'})
   const hit=candidate({lat:'43.211375',lon:'27.91108',boundingbox:['43.211275','43.211475','27.91098','27.91118'],address:{country_code:'bg',city:'Varna',road:'Tsar Boris III',house_number:'12',suburb:'Бриз'}})
-  assert.deepEqual(registrationAddressQuery(varna),{street:'Цар Борис III',house:'12',city:'Варна',query:'Цар Борис III 12, Бриз, Варна, България'})
+  assert.deepEqual(registrationAddressQuery(varna),{street:'Цар Борис III',streetType:null,house:'12',city:'Варна',unitSpecified:false,query:'Цар Борис III 12, Бриз, Варна, България'})
   assert.deepEqual(matchRegistrationAddress(varna,[hit]),{...expected,latitude:43.211375,longitude:27.91108})
   const byala=business({city_ekatte:'07598',city:'Бяла',neighborhood:'',address:'Черноморска 12'})
   const byalaHit={...hit,address:{country_code:'bg',town:'Byala',state:'Област Варна',road:'Черноморска',house_number:'12'}}
@@ -68,7 +100,7 @@ test('different country, city, street, house and reliable quarter contradictions
 
 test('generic street/city results, interpolation, low precision and malformed identities fail closed', () => {
   for(const patch of [
-    {class:'highway',type:'residential',addresstype:'road'},{class:'place',type:'city',addresstype:'city'},
+    {class:'highway',type:'residential',addresstype:'road'},{class:'place',type:'city',addresstype:'city'},{class:'shop',type:'beauty',addresstype:'shop'},
     {type:'interpolation'},{type:'houses'},{osm_type:'way',class:'place',type:'house',addresstype:'house'},
     {extratags:{'addr:interpolation':'all'}},{place_rank:26},{place_rank:'3e1'},{place_rank:''},{place_rank:31},{rank_address:27},
     {osm_type:'../../evil'},{osm_id:'12/evil'},{osm_id:0},{osm_id:1.2},{osm_id:9007199254740992},
@@ -92,7 +124,8 @@ test('conflicting exact-address candidates require review rather than the top re
   assert.equal(matchRegistrationAddress(business(),[candidate(),far]),null)
   assert.equal(matchRegistrationAddress(business(),[far,candidate()]),null)
   const entrance=candidate({osm_id:345678,lat:'42.6650491',lon:'23.2825496'})
-  assert.deepEqual(matchRegistrationAddress(business(),[candidate(),entrance]),expected)
+  assert.equal(matchRegistrationAddress(business(),[candidate(),entrance]),null)
+  assert.deepEqual(matchRegistrationAddress(business(),[candidate(),candidate()]),expected)
   assert.deepEqual(matchRegistrationAddress(business(),[addressCandidate({house_number:'44'}),candidate()]),expected)
   for(const candidates of [undefined,null,{},[],Array(21).fill(candidate())])assert.equal(matchRegistrationAddress(business(),candidates),null)
 })

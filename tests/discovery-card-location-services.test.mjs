@@ -31,7 +31,11 @@ test('address-only examples never substitute a street or quarter for verified ki
     assert.ok(row, pattern.source)
     if (row.coordinates) assert.match(distanceBadge(discoveryDistanceOrigin({ cityCode: '68134' }), row.coordinates).value, /\d.+km/)
     else assert.equal(businessLocationBadge(row).value, '— km')
-    assert.match(railDirections(row), /^https:\/\/www.google.com\/maps\/dir\//)
+    const href = railDirections(row)
+    if (row.navigationLocation?.locationVerified && row.navigationLocation.coordinates) {
+      const {latitude,longitude} = row.navigationLocation.coordinates
+      assert.equal(new URL(href).searchParams.get('destination'),`${latitude},${longitude}`)
+    } else assert.equal(href,null)
   }
 })
 

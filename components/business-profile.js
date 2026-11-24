@@ -15,11 +15,18 @@ import { PublicAction } from './public-action'
 // The same folded map and action class used by the homepage business cards.
 export function BusinessDirectionsLink({ business, locale = 'bg', address = false }) {
   const href = businessDirectionsUrl(business)
-  if (!href) return null
+  const pending = locale === 'en' ? 'Location is being verified' : 'Локацията се уточнява'
   const label = locale === 'en' ? 'Directions' : 'Упътване'
   const accessibleLabel = locale === 'en' ? 'Get directions' : 'Упътване — как да стигна'
-  return address ? <a className="business-profile-address profile-address-link" href={href} target="_blank" rel="noopener noreferrer" aria-label={`${accessibleLabel} · ${businessDisplayAddress(business, locale)}`}><span className="profile-map-icon"><Icon name="map" /></span><span>{businessDisplayAddress(business, locale)}</span></a>
-    : <PublicAction as="a" variant="secondary" href={href} target="_blank" rel="noopener noreferrer" aria-label={`${accessibleLabel} · ${business.name}`}>{label}</PublicAction>
+  if (!href && !business.address) return null
+  if (address) {
+    const addressText = businessDisplayAddress(business, locale), Address = href ? 'a' : 'span'
+    const link = href ? { href, target: '_blank', rel: 'noopener noreferrer', 'aria-label': `${accessibleLabel} · ${addressText}` } : { title: pending }
+    return <Address className="business-profile-address profile-address-link" {...link}><span className="profile-map-icon"><Icon name="map" /></span><span>{addressText}</span></Address>
+  }
+  return href
+    ? <PublicAction as="a" variant="secondary" href={href} target="_blank" rel="noopener noreferrer" aria-label={`${accessibleLabel} · ${business.name}`}>{label}</PublicAction>
+    : <PublicAction as="span" variant="secondary" role="link" aria-disabled="true" aria-label={`${label} · ${pending}`} title={pending}>{label}</PublicAction>
 }
 
 export function BusinessProfileHeader({ business, locale, shareUrl }) {
@@ -78,7 +85,7 @@ export function BusinessProfileInformation({ business, locale }) {
       {profile.brands.length > 0 && <div className="profile-contact-brands"><h3>{en ? 'Brands' : 'Марки'}</h3><p>{[...new Set(profile.brands)].join(' · ')}</p></div>}
       <div className="business-location-actions"><BusinessDirectionsLink business={business} locale={locale}/>{map && !mapLoaded && <button type="button" className="profile-map-toggle" onClick={() => setMapLoaded(true)}><Icon name="map"/>{en ? 'Show map' : 'Покажи карта'}</button>}</div>
       {locationCredit && <p className="site-location-credit"><a href={locationCredit.licenceUrl} target="_blank" rel="noopener noreferrer">{locationCredit.label} · ODbL</a><span aria-hidden="true"> · </span><a href={locationCredit.sourceUrl} target="_blank" rel="noopener noreferrer">{en ? 'Location source' : 'Източник на локацията'}</a></p>}
-      {mapLoaded ? <iframe className="profile-map-frame" title={en ? `Map: ${business.name}` : `Карта: ${business.name}`} src={map} loading="lazy" referrerPolicy="strict-origin-when-cross-origin" /> : null}
+      {mapLoaded && map ? <iframe className="profile-map-frame" title={en ? `Map: ${business.name}` : `Карта: ${business.name}`} src={map} loading="lazy" referrerPolicy="strict-origin-when-cross-origin" /> : null}
     </section>
   </div>
 }

@@ -39,7 +39,8 @@ test('shared psychology practice is counted once and the private psychiatrist us
   assert.equal(doctor.booking.phone, '+359888673843')
   assert.equal(doctor.openingHours, undefined)
   assert.equal(reportBusinessType(doctor), 'Психиатрия')
-  assert.equal(new URL(businessMapsDirectionsUrl({ ...doctor, source: 'catalogue' })).searchParams.get('destination'), businessDirectionsAddress(doctor))
+  assert.equal(businessDirectionsAddress(doctor), doctor.address)
+  assert.equal(businessMapsDirectionsUrl({ ...doctor, source: 'catalogue' }), null, 'A source address alone is not a verified destination')
   for (const source of psychology.records) {
     const current = row(source.id)
     assert.ok(current.services.every(service => !service.price && !service.durationMin))

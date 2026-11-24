@@ -17,6 +17,7 @@ import * as detailsData from '../lib/discovery/business-details.mjs'
 import * as publicLocale from '../lib/public-locale.mjs'
 import * as partnerCategories from '../lib/partner-categories.mjs'
 import * as directoryData from '../lib/directory.mjs'
+import { withVerifiedDirections } from './helpers/pr81-verified-directions.mjs'
 
 const require = createRequire(import.meta.url)
 const { loadBindings, transform } = require('next/dist/build/swc')
@@ -183,13 +184,21 @@ test('directions retain the exact folded-map source bytes and current business d
   // icons in the shared collection. Both hashes match the published baseline.
   assert.equal(createHash('sha256').update(map).digest('hex'), '9019629995c7ab3928f73a2e2818464b379c0e5d2a6ec4efb2abe504933bbdba')
   assert.equal(createHash('sha256').update(render(Icon, { name: 'map' })).digest('hex'), '7d8ec77ccefcdfaac92f11f745e6de5eb1a33ab02bf0e960477a0a2da6938016')
-  const tree = publicAction.expandPublicActions(BusinessDirectionsLink({ business, locale: 'bg' }))
+  const verified = withVerifiedDirections(business)
+  const tree = publicAction.expandPublicActions(BusinessDirectionsLink({ business: verified, locale: 'bg' }))
   assert.equal(tree.type, 'a'); assert.equal(tree.props.target, '_blank'); assert.equal(tree.props.rel, 'noopener noreferrer')
-  assert.equal(tree.props.href, profileData.businessDirectionsUrl(business))
+  assert.equal(tree.props.href, profileData.businessDirectionsUrl(verified))
+  assert.equal(new URL(tree.props.href).searchParams.get('destination'), '42.665,23.282')
   assert.match(renderToStaticMarkup(tree), /<span class="public-action-label">Упътване<\/span>/)
   assert.equal(tree.props['aria-label'], `Упътване — как да стигна · ${business.name}`)
   assert.ok(renderToStaticMarkup(tree).includes(render(Icon, { name: 'outlineMap' })))
   assert.equal(artCount(renderToStaticMarkup(tree)), 0, 'do not substitute a calendar for directions')
+  const pending = publicAction.expandPublicActions(BusinessDirectionsLink({business,locale:'bg'}))
+  assert.equal(pending.type,'span')
+  assert.equal(pending.props.href,undefined)
+  assert.equal(pending.props['aria-disabled'],'true')
+  assert.equal(pending.props.className,tree.props.className)
+  assert.match(renderToStaticMarkup(pending), /Локацията се уточнява/)
 })
 
 test('actual home partner CTAs show one arrow while retaining native, external, phone and preview destinations', () => {
@@ -243,7 +252,8 @@ test('GoRez-owned Google booking CTA keeps verified-link POST protection and doe
   const known = render(GoogleBusinessCard, { card, locale: 'en' })
   assert.equal(arrowCount(known), 1)
   assert.match(known, /action="\/out\/place\/10000000-0000-4000-8000-000000000001\?lang=en" method="post"/)
-  assert.match(known, /data-public-action="secondary"/); assert.match(known, /Google Maps/)
+  assert.doesNotMatch(known, /data-public-action="secondary"|href="[^"]*google\.com\/maps/)
+  assert.match(known, /Google Maps/)
   const unknown = render(GoogleBusinessCard, { card: { ...card, bookingLinkId: null }, locale: 'en' })
   assert.equal(arrowCount(unknown), 0)
   assert.doesNotMatch(unknown, /data-public-action="primary"|<form\b/)

@@ -164,7 +164,7 @@ for (const locale of ['bg', 'en']) {
     assert.equal(footers.length, 1)
     const links = elements(footers[0], node => node.type === 'a')
     assert.equal(links.length, 1)
-    assert.equal(new URL(links[0].props.href).searchParams.get('destination'), `${full.address}, България`)
+    assert.equal(links[0].props.href,null,'an updated address cannot inherit an old map destination')
     assert.ok(html.indexOf('business-details-address') < html.indexOf('<footer>'), 'footer follows current address metadata')
     assert.ok(!html.includes(row.address), 'stale preview address is not visible')
     assert.equal(footers[0].props.style?.minHeight, undefined, 'no inline fixed minimum-height footer spacer')

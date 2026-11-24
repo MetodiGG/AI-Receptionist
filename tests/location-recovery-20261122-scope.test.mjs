@@ -1,3 +1,4 @@
+import { pr81LocationPriorSource, pr81LocationAllowsFileChange, pr81LocationAllowsNewFile } from "./pr81-location-only-scope.mjs"
 import { suhodolIntakeAllowsFileChange, suhodolIntakeAllowsNewFile, suhodolIntakePriorSource, suhodolIntakePriorCatalogue } from './suhodol-intake-20261122-scope.mjs'
 import { nearbyPointsAllowsFileChange, nearbyPointsAllowsNewFile, nearbyPointsPriorSource, nearbyPointsPriorCatalogue } from './nearby-points-20261122-scope.mjs'
 import test from 'node:test'
@@ -21,7 +22,7 @@ const RAW_SOFIA_CATALOGUE = nearbyPointsPriorCatalogue(suhodolIntakePriorCatalog
 const PUBLIC_CATALOGUE = suhodolIntakePriorCatalogue(currentPublicCatalogue)
 const root = fileURLToPath(new URL('../', import.meta.url))
 const git = (...args) => execFileSync('git', args, { cwd: root, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 })
-const read = path => readFile(new URL('../' + path, import.meta.url), 'utf8').then(source => nearbyPointsPriorSource(path, suhodolIntakePriorSource(path, source)))
+const read = path => readFile(new URL('../' + path, import.meta.url), 'utf8').then(source => nearbyPointsPriorSource(path, suhodolIntakePriorSource(path, pr81LocationPriorSource(path, source))))
 const before = path => git('show', LOCATION_RECOVERY_BASE + ':' + path)
 const sha256 = value => createHash('sha256').update(value).digest('hex')
 const rowHash = value => sha256(JSON.stringify(value))
@@ -51,13 +52,13 @@ test('the location recovery stage allows one exact catalogue integration and six
 })
 
 test('every other original asset, catalogue source/price/identity, historical snapshot, UI, search, booking and configuration byte stays frozen', async () => {
-  const frozen = tree.filter(record => !suhodolIntakeAllowsFileChange(record.path) && !nearbyPointsAllowsFileChange(record.path) && !locationRecoveryAllowsFileChange(record.path))
+  const frozen = tree.filter(record => !pr81LocationAllowsFileChange(record.path) && !suhodolIntakeAllowsFileChange(record.path) && !nearbyPointsAllowsFileChange(record.path) && !locationRecoveryAllowsFileChange(record.path))
   for (let offset = 0; offset < frozen.length; offset += 32) await Promise.all(frozen.slice(offset, offset + 32).map(async record => {
     const path = new URL('../' + record.path, import.meta.url)
     const bytes = record.mode === '120000' ? Buffer.from(await readlink(path)) : await readFile(path)
     assert.equal(createHash('sha1').update('blob ' + bytes.length + '\0').update(bytes).digest('hex'), record.oid, record.path)
   }))
-  const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => path && !suhodolIntakeAllowsNewFile(path) && !nearbyPointsAllowsNewFile(path) && productionPath(path))
+  const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => !pr81LocationAllowsNewFile(path) && path && !suhodolIntakeAllowsNewFile(path) && !nearbyPointsAllowsNewFile(path) && productionPath(path))
   assert.deepEqual([...new Set(actual)].sort(), [...tree.map(record => record.path), ...Object.keys(LOCATION_RECOVERY_NEW_HASHES)].sort())
   for (const path of historicalScopes) assert.equal(await read(path), before(path), path + ': all eleven earlier helper maps remain byte-identical')
 })

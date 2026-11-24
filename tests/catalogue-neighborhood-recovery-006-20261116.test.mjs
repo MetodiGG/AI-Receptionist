@@ -14,6 +14,7 @@ import { normalizeCatalogueBusinesses } from '../lib/discovery/catalogue-search.
 import { catalogueOnboardingDetail, searchCatalogueForOnboarding, createCatalogueOnboardingHandler } from '../lib/catalogue-onboarding.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
 import { businessMapsDirectionsUrl } from '../lib/business-directions.mjs'
+import { cataloguePublicLocation } from '../lib/discovery/catalogue-public-location.mjs'
 import { OFFICIAL_SOFIA_SOURCE_URL, OFFICIAL_SOFIA_ATTRIBUTION } from '../lib/discovery/official-sofia-address-source.mjs'
 
 const now = Date.parse('2026-11-16T12:00:00Z')
@@ -203,13 +204,19 @@ test('BG/EN registration search and detail prefill recovered quarters while the 
   }
 })
 
-test('quarter recovery preserves postal directions for both existing IDs and leaves the separate MIM address/point/price identity intact', () => {
+test('quarter recovery preserves verified directions and never uses a text-only address as a route', () => {
+  const directionsFor = row => businessMapsDirectionsUrl({ ...row, navigationLocation: cataloguePublicLocation(row) })
   for (const expected of recoveries) {
     const row = record(expected.id), before = previous(row)
-    const href = businessMapsDirectionsUrl(row)
-    assert.equal(href, businessMapsDirectionsUrl(before))
+    const href = directionsFor(row)
+    assert.equal(row.address, before.address)
+    assert.equal(href, directionsFor(before))
+    if (row.id === 'sofia-vayasport') {
+      assert.equal(href, null)
+      continue
+    }
     const url = new URL(href)
-    assert.equal(url.searchParams.get('destination'), `${row.address}, България`)
+    assert.equal(url.searchParams.get('destination'), `${row.coordinates.latitude},${row.coordinates.longitude}`)
     assert.equal(url.searchParams.get('destination_place_id'), null)
     assert.equal(url.searchParams.get('origin'), null)
   }
@@ -225,7 +232,7 @@ test('quarter recovery preserves postal directions for both existing IDs and lea
   assert.equal(pricingIdentity(mim), 'd66f80409e8752ce1f173e129c8e5946e3de030dab345be7866add36933199f7')
   assert.equal(mim.services.length, 4)
   assert.ok(mim.services.every(service => !service.price))
-  assert.equal(new URL(businessMapsDirectionsUrl(mim)).searchParams.get('destination'), `${mim.address}, България`)
+  assert.equal(new URL(directionsFor(mim)).searchParams.get('destination'), '42.666068,23.249097')
 })
 
 test('the two quarter corrections reduce missing-quarter premises by two without increasing catalogue or physical-business counts', () => {

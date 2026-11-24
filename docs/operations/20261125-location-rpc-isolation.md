@@ -1,0 +1,14 @@
+# Sofia address RPC isolation · 25 November 2026
+
+The first Sofia location migration defines strict lookup functions under names previously used by the loose matcher. Applying it alone to Production would allow an older Vercel deployment to obtain a new claim and mark a weak match as version 2. Do not rely on the current domain alias or deployment protection to distinguish callers.
+
+Deploy the application that calls only `claim_registration_address_lookup_v2` and `finish_registration_address_lookup_v2` **before** applying the database changes. If the new claim function is not yet in PostgREST, the application leaves addresses for manual review. It never retries an old endpoint, makes a geocoding request without a valid new claim, or blocks an already saved application.
+
+## Applying to the existing GoRez production database
+
+1. Confirm the production domain is serving the approved new app and verify the Supabase project reference `ilpdtvbymxqgimrboyvh` with the **main / PRODUCTION** label. Inspect the existing address RPCs and the presence of the location schema read-only. If either location migration was partially applied, stop and reconcile; this procedure assumes neither was applied.
+2. Apply the bodies of [20261124205000](../../supabase/migrations/20261124205000_sofia_exact_location_writes.sql) and [20261125001500](../../supabase/migrations/20261125001500_sofia_location_rpc_isolation.sql), in order, **in one transaction**. Do not commit just the first migration. The companion copies the strict definitions to the versioned names and replaces both old bodies in place with no-write responses. This preserves their signatures and OIDs, including for previously prepared callers. Only the service role may call these four functions. No booking table definition or booking data is changed.
+3. Use bounded lock and statement timeouts. Compare fingerprints of all existing appointment rows and all pre-existing business fields inside the same repeatable-read transaction. Roll back on any mismatch or unexpected function grants, triggers, or row-level security. Do not blindly run `supabase db push`: this project previously applied SQL through the dashboard without a migration-history schema.
+4. After commit, verify the exact RPC definitions, grants and protected queue with a signed-in GoRez administrator in **Бизнеси → Локации за проверка**. The public booking-read endpoint should still return successfully. Do not submit, edit, cancel or create a booking, change a business, or invoke the strict geocoder on live data to verify the release.
+
+If the application is rolled back after this migration, legacy geocoding remains disabled by the no-write functions. Already saved business applications or bookings are not rolled back. Revert the database only with a separately reviewed transaction; do not restore an older loose writer.

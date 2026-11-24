@@ -1,3 +1,4 @@
+import { pr81LocationPriorSource, pr81LocationAllowsFileChange, pr81LocationAllowsNewFile, pr81LocationMatchesPriorHash } from "./pr81-location-only-scope.mjs"
 import { suhodolIntakeAllowsFileChange, suhodolIntakeAllowsNewFile, suhodolIntakePriorSource, suhodolIntakePriorCatalogue } from './suhodol-intake-20261122-scope.mjs'
 import { nearbyPointsAllowsFileChange, nearbyPointsAllowsNewFile, nearbyPointsPriorSource, nearbyPointsPriorCatalogue } from './nearby-points-20261122-scope.mjs'
 import { locationRecoveryAllowsFileChange, locationRecoveryAllowsNewFile, locationRecoveryPriorSource } from './location-recovery-20261122-scope.mjs'
@@ -8,7 +9,7 @@ import { sportsMobilePhotoFitAllowsFileChange, sportsMobilePhotoFitPriorCss } fr
 import { servicePriceCardsAllowsFileChange, servicePriceCardsAllowsNewFile } from './services-price-cards-scope.mjs'
 import assert from 'node:assert/strict'
 import test from 'node:test'
-import { publicEnglishAllowsFileChange, publicEnglishAllowsNewFile, publicEnglishSearchSource } from './public-english-scope.mjs'
+import { PUBLIC_ENGLISH_NEW_HASHES, publicEnglishAllowsFileChange, publicEnglishAllowsNewFile, publicEnglishSearchSource } from './public-english-scope.mjs'
 import { execFileSync } from 'node:child_process'
 import { createHash } from 'node:crypto'
 import { readFile, readlink } from 'node:fs/promises'
@@ -22,7 +23,7 @@ import { publicActionAllowsFileChange, publicActionAllowsNewFile } from './publi
 const root = fileURLToPath(new URL('../', import.meta.url))
 const BASE = '3858c4e5f7e96d8a53db09bc09dc3a014be7658b'
 const sha256 = bytes => createHash('sha256').update(bytes).digest('hex')
-const read = path => readFile(new URL('../' + path, import.meta.url), 'utf8').then(source => regionalCataloguePriorSource(path, azisCataloguePriorSource(path, locationRecoveryPriorSource(path, nearbyPointsPriorSource(path, suhodolIntakePriorSource(path, source))))))
+const read = path => readFile(new URL('../' + path, import.meta.url), 'utf8').then(source => regionalCataloguePriorSource(path, azisCataloguePriorSource(path, locationRecoveryPriorSource(path, nearbyPointsPriorSource(path, suhodolIntakePriorSource(path, pr81LocationPriorSource(path, source)))))))
 const git = (...args) => execFileSync('git', args, { cwd: root, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 })
 const baseTree = git('ls-tree', '-r', '-z', BASE).split('\0').filter(Boolean).map(record => {
   const [metadata, path] = record.split('\t'), [mode, type, oid] = metadata.split(' ')
@@ -40,7 +41,7 @@ const frozen = baseTree.filter(record => frozenPath(record.path))
 test('the historical photo-forward baseline freezes everything outside the exact 2026-11-22 presentation/navigation exception list', async () => {
   assert.equal(frozen.length, 2625)
   assert.equal(sha256(JSON.stringify(frozen)), '5ca0ccae56c0a003d91c4d37e43a8f286d8fcf455527a11ddcc82d3b9c728278')
-  const stillFrozen = frozen.filter(record => !reviewedDiscoveryFileChange(record.path) && !nextSecurityUpgradeAllowsFileChange(record.path) && !stationaryDiscoveryAllowsFileChange(record.path) && !publicActionAllowsFileChange(record.path) && !publicEnglishAllowsFileChange(record.path) && !servicePriceCardsAllowsFileChange(record.path) && !catalogueRevalidationAllowsFileChange(record.path) && !regionalCatalogueAllowsFileChange(record.path) && !azisCatalogueAllowsFileChange(record.path) && !suhodolIntakeAllowsFileChange(record.path) && !nearbyPointsAllowsFileChange(record.path) && !locationRecoveryAllowsFileChange(record.path))
+  const stillFrozen = frozen.filter(record => !pr81LocationAllowsFileChange(record.path) && !reviewedDiscoveryFileChange(record.path) && !nextSecurityUpgradeAllowsFileChange(record.path) && !stationaryDiscoveryAllowsFileChange(record.path) && !publicActionAllowsFileChange(record.path) && !publicEnglishAllowsFileChange(record.path) && !servicePriceCardsAllowsFileChange(record.path) && !catalogueRevalidationAllowsFileChange(record.path) && !regionalCatalogueAllowsFileChange(record.path) && !azisCatalogueAllowsFileChange(record.path) && !suhodolIntakeAllowsFileChange(record.path) && !nearbyPointsAllowsFileChange(record.path) && !locationRecoveryAllowsFileChange(record.path))
   for (let offset = 0; offset < stillFrozen.length; offset += 32) {
     await Promise.all(stillFrozen.slice(offset, offset + 32).map(async record => {
       const path = new URL('../' + record.path, import.meta.url)
@@ -51,7 +52,7 @@ test('the historical photo-forward baseline freezes everything outside the exact
   }
   const expected = baseTree.filter(record => protectedRoot(record.path)).map(record => record.path).sort()
   assert.equal(expected.length, 2492)
-  const actual = git('ls-files', '--cached', '--others', '-z', '--', 'app/api', 'hooks', 'lib', 'public').split('\0').filter(path => path && !suhodolIntakeAllowsNewFile(path) && !nearbyPointsAllowsNewFile(path) && !locationRecoveryAllowsNewFile(path) && !regionalCatalogueAllowsNewFile(path) && !azisCatalogueAllowsNewFile(path) && !(path === 'lib/discovery/public-catalogue.mjs' && azisCatalogueAllowsFileChange(path)) && !refinementAllowsNewMedia(path) && !publicEnglishAllowsNewFile(path) && !(path === 'scripts/check-public-english.mjs' && (regionalCatalogueAllowsFileChange(path) || azisCatalogueAllowsFileChange(path))) && !(path === 'lib/locale/service-english.json' && (suhodolIntakeAllowsFileChange(path) || catalogueRevalidationAllowsFileChange(path) || (regionalCatalogueAllowsFileChange(path) || azisCatalogueAllowsFileChange(path)))) && !servicePriceCardsAllowsNewFile(path))
+  const actual = git('ls-files', '--cached', '--others', '-z', '--', 'app/api', 'hooks', 'lib', 'public').split('\0').filter(path => !pr81LocationAllowsNewFile(path) && path && !suhodolIntakeAllowsNewFile(path) && !nearbyPointsAllowsNewFile(path) && !locationRecoveryAllowsNewFile(path) && !regionalCatalogueAllowsNewFile(path) && !azisCatalogueAllowsNewFile(path) && !(path === 'lib/discovery/public-catalogue.mjs' && azisCatalogueAllowsFileChange(path)) && !refinementAllowsNewMedia(path) && !publicEnglishAllowsNewFile(path) && !pr81LocationMatchesPriorHash(path, PUBLIC_ENGLISH_NEW_HASHES[path]) && !(path === 'scripts/check-public-english.mjs' && (regionalCatalogueAllowsFileChange(path) || azisCatalogueAllowsFileChange(path))) && !(path === 'lib/locale/service-english.json' && (suhodolIntakeAllowsFileChange(path) || catalogueRevalidationAllowsFileChange(path) || (regionalCatalogueAllowsFileChange(path) || azisCatalogueAllowsFileChange(path)))) && !servicePriceCardsAllowsNewFile(path))
   assert.deepEqual([...new Set(actual)].sort(), expected, 'Only the exact fifteen authorized versioned category-media siblings may be new; no new or renamed data/API/taxonomy paths')
 })
 
@@ -130,7 +131,7 @@ test('the historical sticky baseline is preserved as evidence, while only the ex
   const original = git('show', BASE + ':components/inline-discovery-summary.js')
   const effect = source => source.slice(source.indexOf('  useEffect(() => {'), source.indexOf('  const parent = categoryById(category)'))
   assert.ok(effect(original).length > 1400)
-  assert.equal(stationaryDiscoveryAllowsFileChange('components/inline-discovery-summary.js'), true)
+  assert.equal(pr81LocationAllowsFileChange('components/inline-discovery-summary.js') || stationaryDiscoveryAllowsFileChange('components/inline-discovery-summary.js'), true)
   assert.doesNotMatch(current, /data-sticky-safe|setStickySafe/)
   assert.match(effect(current), /Math\.min\(Math\.ceil\(height\) \+ 24, Math\.max\(0, viewport - 240\)\)/)
   assert.match(effect(current), /observer\?\.disconnect\(\)/)

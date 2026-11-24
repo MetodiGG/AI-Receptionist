@@ -9,6 +9,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 import { approvedCatalogueRecord, EXCLUDED_GENERAL_CLINIC_IDS } from '../lib/discovery/catalogue-policy.mjs'
 import * as profile from '../lib/catalogue-profile.mjs'
+import * as profileData from '../lib/business-profile.mjs'
 import * as seo from '../lib/seo.mjs'
 import * as details from '../lib/discovery/business-details.mjs'
 import * as rail from '../lib/discovery/rail.mjs'
@@ -126,13 +127,20 @@ test('native canonical uses existing strict public identity matching, never name
 })
 
 const simpleLink = ({ href, children, prefetch, ...props }) => React.createElement('a', { ...props, href }, children)
+const testedIcons = await compile('../components/icon.js', {})
+const { BusinessDirectionsLink } = await compile('../components/business-profile.js', {
+  './business-photo-gallery': {}, './business-cover-photo': {}, './service-thumbnail': {}, './icon': testedIcons,
+  '../lib/locale/public-content.mjs': publicContent, '../lib/business-profile.mjs': profileData,
+  '../lib/business-photos.mjs': {}, '../lib/business-profile-ui.mjs': {},
+  '../lib/discovery/service-presentation.mjs': servicePresentation, './public-action': publicAction,
+})
 const actualProfile = row => ({ row, business: profile.catalogueProfileView(row, { now }), related: profile.relatedCatalogueProfiles(SOFIA_CATALOGUE, row, { now }), now })
 let responseProfile = actualProfile(real)
 const page = await compile('../app/businesses/catalogue/[id]/page.js', {
   'next/link': simpleLink, 'next/navigation': { notFound: () => { throw Error('NOT_FOUND') }, permanentRedirect: url => { throw Error(`REDIRECT:${url}`) } },
   '../../../../components/brand-logo': { BrandLogo: () => React.createElement('span', null, 'GoRez') },
   '../../../../components/home-link': { HomeLink: () => React.createElement('a', { href: '/' }, 'Home') },
-  '../../../../components/business-profile': { BusinessProfileHeader: ({ business, shareUrl }) => React.createElement('header', { 'data-share-url': shareUrl, 'data-private-service-inventory': Boolean(business.details || business.services || business.publicServiceNames),
+  '../../../../components/business-profile': { BusinessDirectionsLink, BusinessProfileHeader: ({ business, shareUrl }) => React.createElement('header', { 'data-share-url': shareUrl, 'data-private-service-inventory': Boolean(business.details || business.services || business.publicServiceNames),
     'data-activity-cover': business.illustrativeCoverPhotoKey, 'data-resolved-cover': businessCoverPhoto(business).src }, React.createElement('h1', null, business.name), business.address) },
   '../../../../components/service-thumbnail': { ServiceThumbnail: ({ service }) => React.createElement('img', { src: '/service-photos/test.webp', alt: service.name }) },
   '../../../../components/public-action': publicAction,
@@ -194,6 +202,16 @@ test('direct BG/EN folk-dance profile hero carries its stable activity image wit
     assert.doesNotMatch(html, /data-resolved-cover="[^"]*(?:fitness-v1|boxing)/)
     assert.ok(html.includes(folk.name))
   }
+})
+
+test('a moved address cannot borrow a catalogue direction or alter its existing booking link', async () => {
+  const original = actualProfile(real)
+  responseProfile = { ...original, business: { ...original.business, address: 'София, ул. Тест №99Е' } }
+  const node = await page.default({ params: Promise.resolve({ id: real.id }), searchParams: Promise.resolve({ lang: 'bg' }) })
+  const html = renderToStaticMarkup(node)
+  assert.doesNotMatch(html, /google\.com\/maps\/dir/u)
+  assert.match(html, /aria-disabled="true"[^>]*title="Локацията се уточнява"/u)
+  assert.ok(html.includes(real.booking.url))
 })
 
 test('missing catalogue routes are noindex/404 and strict native matches redirect to the existing canonical booking URL', async () => {

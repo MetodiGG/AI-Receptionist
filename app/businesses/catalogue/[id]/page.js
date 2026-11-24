@@ -3,7 +3,7 @@ import { postalDisplay } from '../../../../lib/locale/public-content.mjs'
 import { notFound, permanentRedirect } from 'next/navigation'
 import { BrandLogo } from '../../../../components/brand-logo'
 import { HomeLink } from '../../../../components/home-link'
-import { BusinessProfileHeader } from '../../../../components/business-profile'
+import { BusinessDirectionsLink, BusinessProfileHeader } from '../../../../components/business-profile'
 import { PublicServiceMenu } from '../../../../components/public-service-menu'
 import { PublicAction, PublicActionPair } from '../../../../components/public-action'
 import { Icon } from '../../../../components/icon'
@@ -11,7 +11,7 @@ import { readCatalogueSeoProfile } from '../../../../lib/catalogue-profile-serve
 import { catalogueProfileMetadata, catalogueProfilePath, catalogueProfileStructuredData } from '../../../../lib/catalogue-profile.mjs'
 import { localizedUrl, safeJsonLd } from '../../../../lib/seo.mjs'
 import { businessDetailHours, businessDetailServices, groupDetailServices } from '../../../../lib/discovery/business-details.mjs'
-import { railCategory, railDirections, railExternalAction } from '../../../../lib/discovery/rail.mjs'
+import { railCategory, railExternalAction } from '../../../../lib/discovery/rail.mjs'
 import { DISCOVERY_COPY } from '../../../../lib/discovery/copy.mjs'
 import { OSM_COPYRIGHT_URL, OFFICIAL_SOFIA_LICENSE_URL } from '../../../../lib/discovery/catalogue-attribution.mjs'
 import './profile.css'
@@ -39,12 +39,12 @@ export default async function CatalogueBusiness({ params, searchParams }) {
   // displayed once. Never use new priced/unpriced display indices for IDs.
   const serviceAnchors = new Map()
   for (const group of groupDetailServices(services)) group.services.forEach((service, index) => serviceAnchors.set(service, `service-${group.key || 'other'}-${index}`))
-  const action = railExternalAction(business, now), directions = railDirections(business)
+  const action = railExternalAction(business, now)
   const context = { id: business.id, name: business.name, source: 'catalogue', category: business.category }
   // The hero needs identity/location/photos only, not a second serialized copy
   // of the complete service menu or server-only review/source inventory.
   const hero = { ...context, businessCategory: business.businessCategory || business.category, illustrativeCoverPhotoKey: business.illustrativeCoverPhotoKey,
-    address: business.address, city: business.city, cityCode: business.cityCode, neighborhood: business.neighborhood, locationKind: business.locationKind, coordinates: business.coordinates, website: business.website, photos: business.photos }
+    address: business.address, city: business.city, cityCode: business.cityCode, neighborhood: business.neighborhood, locationKind: business.locationKind, coordinates: business.coordinates, navigationLocation: business.navigationLocation, website: business.website, photos: business.photos }
   const path = catalogueProfilePath(id), structured = catalogueProfileStructuredData(row, locale, now)
   return <main className="public-booking-page profile-redesign catalogue-profile-page" lang={locale}>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(structured) }}/>
@@ -53,7 +53,7 @@ export default async function CatalogueBusiness({ params, searchParams }) {
     <div className="catalogue-profile-content">
       <p className="catalogue-profile-category">{railCategory(business, locale)}{business.neighborhood ? ` · ${postalDisplay(business.neighborhood, locale)}` : ''}</p>
       <PublicActionPair className="catalogue-profile-actions">
-        {directions && <PublicAction as="a" variant="secondary" href={directions} target="_blank" rel="noopener noreferrer">{copy.directions}</PublicAction>}
+        <BusinessDirectionsLink business={hero} locale={locale}/>
         {action && <PublicAction as="a" href={action.href} target={action.kind === 'form' ? '_blank' : undefined} rel="noopener noreferrer" aria-label={`${action.kind === 'phone' ? (en ? 'Call to book a time' : 'Резервирай час по телефона') : (en ? 'Book on the business website' : 'Резервирай час в сайта на бизнеса')} · ${business.name}`}>{copy.reserveAppointment}</PublicAction>}
       </PublicActionPair>
       {action && <p className="catalogue-booking-notice">{action.kind === 'phone' ? (en ? 'Arrange your time by phone. GoRez does not confirm phone appointments.' : 'Уговори час по телефон. GoRez не потвърждава телефонни резервации.') : (en ? 'Booking continues on the business website. Its calendar is not synchronized with GoRez.' : 'Записването продължава в сайта на бизнеса. Календарът му не е синхронизиран с GoRez.')}</p>}

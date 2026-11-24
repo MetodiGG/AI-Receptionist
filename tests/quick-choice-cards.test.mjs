@@ -9,6 +9,7 @@ import * as bookingMode from '../lib/booking-mode.mjs'
 import * as photoLayout from '../lib/business-photo-layout.mjs'
 import * as cataloguePhotos from '../lib/catalogue-photo-view.mjs'
 import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
+import { withVerifiedDirections } from './helpers/pr81-verified-directions.mjs'
 
 const require = createRequire(import.meta.url), { loadBindings, transform } = require('next/dist/build/swc')
 await loadBindings()
@@ -102,7 +103,7 @@ test('real portrait, landscape and logo previews retain original image metadata 
 
 for (const locale of ['bg', 'en']) test(`${locale}: native, external, phone and hydrated details actions retain exact destinations and eligibility`, () => {
   for (const booking_mode of ['gorez', 'external', 'phone']) {
-    const row = business({ booking_mode, phone: '+359888000001' }), f = fixture({ row, locale })
+    const row = withVerifiedDirections(business({ booking_mode, phone: '+359888000001' })), f = fixture({ row, locale })
     const map = elements(f.tree, node => node.type === Action && node.props.variant === 'secondary')[0]
     assert.equal(map.props.href, rail.railDirections(row)); assert.equal(map.props.rel, 'noopener noreferrer')
     assert.equal(map.props.children, locale==='en'?DISCOVERY_COPY[locale].directions:'Упъти')

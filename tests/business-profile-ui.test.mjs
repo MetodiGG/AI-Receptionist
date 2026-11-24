@@ -6,6 +6,7 @@ import * as React from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
 import * as profileUi from '../lib/business-profile-ui.mjs'
 import * as profileData from '../lib/business-profile.mjs'
+import { publicBusinessLocation } from '../lib/business-directions.mjs'
 import { SITE_ORIGIN } from '../lib/seo.mjs'
 import * as bookingButtonContent from './helpers/booking-button-content.mjs'
 import * as publicAction from './helpers/public-action.mjs'
@@ -47,10 +48,12 @@ const { BusinessProfileHeader, BusinessDirectionsLink, BusinessServiceList, Busi
 const render = (Component, props) => renderToStaticMarkup(React.createElement(Component, props))
 const visibleText = html => html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim()
 
-const business = {
-  id: 'business-actual', slug: 'actual-studio', name: 'Actual Studio', industry: 'beauty',
+const fixturePoint = { latitude: 42.6650291, longitude: 23.2825296 }
+const unverifiedBusiness = {
+  id: 'd0000000-0000-4000-8000-000000000001', source: 'gorez', city: 'София', city_ekatte: '68134',
+  slug: 'actual-studio', name: 'Actual Studio', industry: 'beauty',
   address: 'ул. Примерна 7, София', phone: '+359888123456', website_url: 'https://studio.example.com',
-  public_profile: { description: { bg: 'Реално описание', en: 'Actual description' }, payments: ['cash', 'card'], brands: ['Actual Brand'], latitude: 42.712345, longitude: 23.334567 },
+  public_profile: { description: { bg: 'Реално описание', en: 'Actual description' }, payments: ['cash', 'card'], brands: ['Actual Brand'], ...fixturePoint },
   services: [
     { id: 'service-first', name: 'Първа услуга', category: 'Грижа', duration_min: 30, price: 0, currency: 'EUR', description: 'Публикувани условия' },
     { id: 'service-second', name: 'Second service', category: 'Грижа', duration_min: null, price: null, currency: 'USD' },
@@ -59,6 +62,7 @@ const business = {
   staffServices: [{ service_id: 'service-first', staff_id: 'staff-first' }],
   opening_hours: Array.from({ length: 7 }, (_, index) => ({ weekday: index + 1, periods: index < 5 ? [{ open: '09:00', close: '18:00' }] : [] })),
 }
+const business = { ...unverifiedBusiness, navigationLocation: publicBusinessLocation(unverifiedBusiness, fixturePoint) }
 
 test('mode state is not keyed by language/mode; in-flight submissions and previews cannot use the new controls to bypass safety', async () => {
   const booking = await readFile(new URL('../components/public-booking-page.js', import.meta.url), 'utf8')
@@ -227,20 +231,33 @@ test('profile header renders only real identity and direct actions, without cate
   assert.doesNotMatch(html, /<iframe|<script/)
 })
 
-test('directions match the displayed postal address and use the actual homepage folded-map Icon', () => {
+test('directions use only address-bound coordinates and retain the profile address and folded-map icon', () => {
   const node = BusinessDirectionsLink({ business, locale: 'en' })
   const href = new URL(node.props.href)
   assert.equal(href.origin, 'https://www.google.com')
   assert.equal(href.pathname, '/maps/dir/')
   assert.equal(href.searchParams.get('api'), '1')
-  assert.equal(href.searchParams.get('destination'), business.address + ', България')
+  assert.equal(href.searchParams.get('destination'), `${fixturePoint.latitude},${fixturePoint.longitude}`)
   assert.equal(node.props.target, '_blank')
   assert.equal(node.props.rel, 'noopener noreferrer')
   const html = render(BusinessDirectionsLink, { business, locale: 'en' })
   assert.ok(html.includes(render(Icon, { name: 'outlineMap' })))
   assert.doesNotMatch(html, /<circle|Icon name="pin"/)
-  const addressOnly = BusinessDirectionsLink({ business: { ...business, public_profile: {} }, locale: 'bg', address: true })
-  assert.equal(new URL(addressOnly.props.href).searchParams.get('destination'), business.address + ', България')
+  const linkedAddress = BusinessDirectionsLink({ business, locale: 'bg', address: true })
+  assert.equal(linkedAddress.type, 'a')
+  assert.equal(linkedAddress.props.href, node.props.href)
+  assert.ok(visibleText(render(BusinessDirectionsLink, { business, locale: 'bg', address: true })).includes(business.address))
+  for (const unverified of [unverifiedBusiness, { ...business, address: 'ул. Примерна 7А, София' }]) {
+    const addressOnly = BusinessDirectionsLink({ business: unverified, locale: 'bg', address: true })
+    assert.equal(addressOnly.type, 'span')
+    assert.equal(addressOnly.props.className, linkedAddress.props.className)
+    assert.equal(addressOnly.props.href, undefined)
+    assert.ok(visibleText(render(BusinessDirectionsLink, { business: unverified, locale: 'bg', address: true })).includes(unverified.address))
+    const hint = render(BusinessDirectionsLink, { business: unverified, locale: 'bg' })
+    assert.match(hint, /role="link"[^>]*aria-disabled="true"/)
+    assert.match(hint, /Локацията се уточнява/)
+    assert.doesNotMatch(hint, /href=/)
+  }
   assert.equal(BusinessDirectionsLink({ business: { ...business, address: '' } }), null)
 })
 
@@ -287,6 +304,9 @@ test('map iframe is mounted only after its real show-map button is activated', (
   assert.equal(frame.props.referrerPolicy, 'strict-origin-when-cross-origin')
   assert.equal(frame.props.title, `Map: ${business.name}`)
   assert.equal(elements(after, item => item.type === 'button' && item.props.className === 'profile-map-toggle').length, 0)
+  const raw = hooked.BusinessProfileInformation({ business: unverifiedBusiness, locale: 'en' })
+  assert.equal(elements(raw, item => item.type === 'iframe' || (item.type === 'button' && item.props.className === 'profile-map-toggle')).length, 0)
+  assert.equal(profileData.businessMapUrl(unverifiedBusiness), null)
 })
 
 test('booking auto-scroll is invoked only inside the explicit service action, not a mount effect', async () => {

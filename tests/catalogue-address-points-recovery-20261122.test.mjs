@@ -14,6 +14,7 @@ import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mj
 import { catalogueOnboardingDetail } from '../lib/catalogue-onboarding.mjs'
 import { createPublicBusinessDetailsHandler } from '../lib/discovery/public-details.mjs'
 import { businessMapsDirectionsUrl } from '../lib/business-directions.mjs'
+import { cataloguePublicLocation } from '../lib/discovery/catalogue-public-location.mjs'
 import { railExternalAction } from '../lib/discovery/rail.mjs'
 import { OFFICIAL_SOFIA_SOURCE_URL, OFFICIAL_SOFIA_ATTRIBUTION } from '../lib/discovery/official-sofia-address-source.mjs'
 
@@ -148,8 +149,11 @@ test('public details and BG/EN onboarding preserve all old service/price/action 
     const [newPublic] = normalizeCatalogueBusinesses([current], { cityCode: '68134', browse: true, searchV2: true }, { now })
     assert.deepEqual(newPublic.services, oldPublic.services); assert.deepEqual(newPublic.details, oldPublic.details)
     assert.deepEqual(railExternalAction(newPublic, now), railExternalAction(oldPublic, now))
-    assert.equal(businessMapsDirectionsUrl(current), businessMapsDirectionsUrl(before))
-    assert.equal(new URL(businessMapsDirectionsUrl(current)).searchParams.get('destination'), current.address + ', България')
+    assert.equal(business.address, current.address)
+    assert.equal(businessMapsDirectionsUrl(oldPublic), null, 'No pre-review address search')
+    assert.equal(new URL(businessMapsDirectionsUrl(business)).searchParams.get('destination'),
+      `${current.coordinates.latitude},${current.coordinates.longitude}`)
+    assert.equal(businessMapsDirectionsUrl({ ...newPublic, navigationLocation: cataloguePublicLocation(current) }), businessMapsDirectionsUrl(business))
     for (const locale of ['bg', 'en']) {
       const oldDraft = catalogueOnboardingDetail([before], current.id, { now, cityCode: '68134', locale })
       const draft = catalogueOnboardingDetail([current], current.id, { now, cityCode: '68134', locale })

@@ -17,6 +17,7 @@ import { detailPriceLabel } from '../lib/discovery/business-details.mjs'
 import { servicePresentation } from '../lib/discovery/service-presentation.mjs'
 import { serviceDescriptionDisclosure } from '../lib/discovery/service-description-disclosure.mjs'
 import { businessPhotoStyle } from '../lib/business-photo-layout.mjs'
+import { businessDirectionsAddress } from '../lib/business-directions.mjs'
 import { DiscoveryDistanceBadge } from './discovery-distance-badge'
 import { isCataloguePhotoSource } from '../lib/catalogue-photo-view.mjs'
 import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
@@ -28,6 +29,7 @@ export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, 
   const en = locale === 'en', internal = row.source === 'gorez'
   const copy = DISCOVERY_COPY[locale] || DISCOVERY_COPY.bg
   const directionsLabel = en ? copy.directions : 'Упъти'
+  const locationPending = en ? 'Location is being verified' : 'Локацията се уточнява'
   const services = railServiceItems(row)
   const [failedPhoto, setFailedPhoto] = useState(null)
   const [detailsOpen, setDetailsOpen] = useState(false), detailsTrigger = useRef(null)
@@ -50,9 +52,10 @@ export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, 
     const profile = internalBooking && business.slug ? `/book/${encodeURIComponent(business.slug)}?lang=${locale}` : null
     const action = railExternalAction(business)
     return <PublicActionPair className="home-business-actions">
-      {directions && (preview
+      {directions ? (preview
         ? <PublicAction as="span" variant="secondary" aria-disabled="true">{directionsLabel}</PublicAction>
-        : <PublicAction as="a" variant="secondary" href={directions} target="_blank" rel="noopener noreferrer" aria-label={`${directionsLabel} · ${business.name}`} title={en ? 'Opens Google Maps directions' : 'Отваря упътвания в Google Maps'}>{directionsLabel}</PublicAction>)}
+        : <PublicAction as="a" variant="secondary" href={directions} target="_blank" rel="noopener noreferrer" aria-label={`${directionsLabel} · ${business.name}`} title={en ? 'Opens Google Maps directions' : 'Отваря упътвания в Google Maps'}>{directionsLabel}</PublicAction>)
+        : businessDirectionsAddress(business) && <PublicAction as="span" variant="secondary" role="link" aria-disabled="true" aria-label={`${directionsLabel} · ${locationPending}`} title={locationPending}>{directionsLabel}</PublicAction>}
       {preview ? (internalBooking || action) && <PublicAction as="span" variant="primary" aria-disabled="true">{copy.reserveAppointment}</PublicAction>
         : internalBooking ? profile && (isOffsiteBooking(business)
           ? <OutboundBookingButton business={business} locale={locale}>{copy.reserveAppointment}</OutboundBookingButton>

@@ -11,7 +11,7 @@ const candidate={osm_type:'way',osm_id:12345,lat:'42.6655',lon:'23.2825',boundin
 const read=path=>readFile(new URL(`../${path}`,import.meta.url),'utf8')
 function resolverFixture({claim={state:'claimed',address_key:'offline-address-key',claim_token:'offline-claim',business},response=()=>new Response(JSON.stringify([candidate])),env={},claimError,finishError}={}){
  const claims=[],finishes=[],requests=[]
- const run=createRegistrationAddressResolver({env,store:{claim:async id=>{claims.push(id);if(claimError)throw claimError;return structuredClone(claim)},finish:async input=>{finishes.push(input);if(finishError)throw finishError;return {state:input.status}}},fetcher:async(url,init)=>{requests.push({url,init});return response(url,init)}})
+ const run=createRegistrationAddressResolver({env,store:{claim:async id=>{claims.push(id);if(claimError)throw claimError;return structuredClone(claim&&{match_version:2,business,...claim})},finish:async input=>{finishes.push(input);if(finishError)throw finishError;return {state:input.status}}},fetcher:async(url,init)=>{requests.push({url,init});return response(url,init)}})
  return {claims,finishes,requests,run:()=>run(bid)}
 }
 
@@ -35,12 +35,24 @@ test('one bounded request sends only the public address, not the business name o
  const f=resolverFixture();assert.deepEqual(await f.run(),{state:'matched'});assert.equal(f.requests.length,1)
  const {url,init}=f.requests[0],u=new URL(url)
  assert.equal(u.origin,'https://nominatim.openstreetmap.org');assert.equal(u.pathname,'/search')
- assert.deepEqual(Object.fromEntries(u.searchParams),{format:'jsonv2',addressdetails:'1',limit:'5',countrycodes:'bg','accept-language':'bg,en',q:'Пирин 42, София, България'})
+ assert.deepEqual(Object.fromEntries(u.searchParams),{format:'jsonv2',addressdetails:'1',limit:'5',countrycodes:'bg',viewbox:'23.1,42.9,23.65,42.45',bounded:'1','accept-language':'bg,en',q:'Пирин 42, София, България'})
  for(const secret of [business.name,business.phone,business.contact_email,owner])assert.equal(url.includes(secret),false)
  assert.equal(init.method,'GET');assert.equal(init.redirect,'error');assert.equal(init.cache,'no-store');assert.equal(init.body,undefined)
- assert.equal(init.headers.Accept,'application/json');assert.match(init.headers['User-Agent'],/^GoRez registration address lookup\/1\.0 \(\+https:\/\/www\.gorez\.co; info@gorez\.co\)$/)
+ assert.equal(init.headers.Accept,'application/json');assert.match(init.headers['User-Agent'],/^GoRez registration address lookup\/2\.0 \(\+https:\/\/www\.gorez\.co; info@gorez\.co\)$/)
  assert.ok(init.signal instanceof AbortSignal);assert.equal(init.signal.aborted,false)
  assert.deepEqual(f.finishes[0],{businessId:bid,addressKey:'offline-address-key',claimToken:'offline-claim',status:'matched',result:point,retryAfterSeconds:null})
+})
+test('old and invalid caches, outside branches and unit-specific addresses fail closed without a provider request',async()=>{
+ for (const claim of [
+  {state:'cached',match_version:1,result:point},
+  {state:'cached',result:{...point,latitude:43.2,longitude:27.8}},
+  {state:'cached',result:{...point,source_url:'https://example.com/point'}},
+  {state:'claimed',business:{...business,city_ekatte:'10135',city:'Варна'}},
+  {state:'claimed',business:{...business,address:'бул. Сливница 178Е, София, вх. Б'}},
+ ]) {
+  const f=resolverFixture({claim:{address_key:'key',claim_token:'claim',...claim}})
+  assert.deepEqual(await f.run(),{state:'no_match'});assert.equal(f.requests.length,0);assert.equal(f.finishes[0].result,null)
+ }
 })
 test('invalid/private or incomplete street text is held for review without geocoding; no-match stays no-match',async()=>{
  for(const address of ['Пирин','Пирин 42, email private@example.com','+359889999999','https://example.com/42']){
@@ -104,15 +116,42 @@ test('actual server after wrapper isolates synchronous scheduling and asynchrono
   dispatchFailure=true;assert.doesNotThrow(()=>actual.scheduleRegistrationAddressLookup(bid));assert.equal(logs.length,2)
  }finally{console.error=original}
 })
-test('actual server adapter sends only conditional claim/finish RPC arguments, and disabled lookup performs no DB operation',async()=>{
- const calls=[];const db={rpc:async(name,args)=>{calls.push({name,args});return{data:name==='claim_registration_address_lookup'?{state:'cached',address_key:'key',claim_token:'claim',result:point}:{state:'matched'}}}}
+test('actual server adapter only sends conditional V2 claim/finish RPC arguments, and disabled lookup performs no DB operation',async()=>{
+ const calls=[];const db={rpc:async(name,args)=>{calls.push({name,args});return{data:name==='claim_registration_address_lookup_v2'?{state:'cached',match_version:2,business,address_key:'key',claim_token:'claim',result:point}:{state:'matched'}}}}
  const actual=await serverModule('lib/registration-address-server.js',{'server-only':{},'next/server':{after(){}},'./supabase-admin':{getSupabaseAdmin:()=>db},'./registration-address-lookup.mjs':{createRegistrationAddressResolver}})
  const previous=process.env.REGISTRATION_ADDRESS_LOOKUP_ENABLED
  try{
   process.env.REGISTRATION_ADDRESS_LOOKUP_ENABLED='false';assert.deepEqual(await actual.resolveRegistrationAddress(bid),{state:'disabled'});assert.deepEqual(calls,[])
   delete process.env.REGISTRATION_ADDRESS_LOOKUP_ENABLED;assert.deepEqual(await actual.resolveRegistrationAddress(bid),{state:'matched'})
-  assert.deepEqual(calls,[{name:'claim_registration_address_lookup',args:{p_business:bid}},{name:'finish_registration_address_lookup',args:{p_business:bid,p_address_key:'key',p_claim_token:'claim',p_status:'matched',p_result:point,p_retry_after_seconds:null}}])
+  assert.deepEqual(calls,[{name:'claim_registration_address_lookup_v2',args:{p_business:bid}},{name:'finish_registration_address_lookup_v2',args:{p_business:bid,p_address_key:'key',p_claim_token:'claim',p_status:'matched',p_result:point,p_retry_after_seconds:null}}])
  }finally{if(previous===undefined)delete process.env.REGISTRATION_ADDRESS_LOOKUP_ENABLED;else process.env.REGISTRATION_ADDRESS_LOOKUP_ENABLED=previous}
+})
+test('a missing V2 claim fails closed during rollout without contacting the provider, calling finish, or trying legacy RPCs',async()=>{
+ const calls=[];let claimError={code:'PGRST202',message:'Could not find the V2 claim in the schema cache'}
+ const db={rpc:async(name,args)=>{calls.push({name,args});return{data:null,error:claimError}}}
+ const actual=await serverModule('lib/registration-address-server.js',{
+  'server-only':{},'next/server':{after(){}},'./supabase-admin':{getSupabaseAdmin:()=>db},
+  './registration-address-lookup.mjs':{createRegistrationAddressResolver:options=>createRegistrationAddressResolver({...options,env:{},fetcher:()=>assert.fail('No provider before a V2 claim')})},
+ })
+ assert.deepEqual(await actual.resolveRegistrationAddress(bid),{state:'review_required'})
+ assert.deepEqual(calls.splice(0),[{name:'claim_registration_address_lookup_v2',args:{p_business:bid}}])
+ for (const code of ['42501','42883','PGRST204']) {
+  claimError={code,message:'offline error'}
+  await assert.rejects(actual.resolveRegistrationAddress(bid),error=>error===claimError)
+  assert.deepEqual(calls.splice(0),[{name:'claim_registration_address_lookup_v2',args:{p_business:bid}}])
+ }
+})
+test('a missing V2 finish is still an error, without retrying a legacy finish',async()=>{
+ const calls=[],failure={code:'PGRST202',message:'Could not find the V2 finish in the schema cache'}
+ const db={rpc:async name=>{calls.push(name);return name==='claim_registration_address_lookup_v2'
+  ?{data:{state:'cached',match_version:2,business,address_key:'key',claim_token:'claim',result:point}}
+  :{data:null,error:failure}}}
+ const actual=await serverModule('lib/registration-address-server.js',{
+  'server-only':{},'next/server':{after(){}},'./supabase-admin':{getSupabaseAdmin:()=>db},
+  './registration-address-lookup.mjs':{createRegistrationAddressResolver:options=>createRegistrationAddressResolver({...options,env:{},fetcher:()=>assert.fail('Cached V2 claim cannot call provider')})},
+ })
+ await assert.rejects(actual.resolveRegistrationAddress(bid),error=>error===failure)
+ assert.deepEqual(calls,['claim_registration_address_lookup_v2','finish_registration_address_lookup_v2'])
 })
 test('actual owner request route uses verified ownership, private POST and a three-attempt per-owner hourly limit',async()=>{
  const quotas=[],scheduled=[],attempts=new Map()

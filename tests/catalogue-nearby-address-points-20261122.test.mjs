@@ -13,6 +13,7 @@ import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mj
 import { catalogueOnboardingDetail } from '../lib/catalogue-onboarding.mjs'
 import { createPublicBusinessDetailsHandler } from '../lib/discovery/public-details.mjs'
 import { businessMapsDirectionsUrl } from '../lib/business-directions.mjs'
+import { cataloguePublicLocation } from '../lib/discovery/catalogue-public-location.mjs'
 import { railExternalAction } from '../lib/discovery/rail.mjs'
 import { serviceDisplayName, businessDisplayAddress } from '../lib/locale/public-content.mjs'
 import { OFFICIAL_SOFIA_SOURCE_URL, OFFICIAL_SOFIA_ATTRIBUTION } from '../lib/discovery/official-sofia-address-source.mjs'
@@ -174,8 +175,16 @@ test('public details and both-language presentation/onboarding preserve services
     const [newPublic] = normalizeCatalogueBusinesses([current], { cityCode: '68134', browse: true, searchV2: true }, { now })
     assert.deepEqual(newPublic.services, oldPublic.services)
     assert.deepEqual(railExternalAction(newPublic, now), railExternalAction(oldPublic, now))
-    assert.equal(businessMapsDirectionsUrl(current), businessMapsDirectionsUrl(before))
-    assert.equal(new URL(businessMapsDirectionsUrl(current)).searchParams.get('destination'), current.address + ', България')
+    assert.equal(business.address, current.address)
+    assert.equal(businessMapsDirectionsUrl(oldPublic), null, 'No text-only route for the old address record')
+    assert.equal(businessMapsDirectionsUrl({ ...newPublic, navigationLocation: cataloguePublicLocation(current) }), businessMapsDirectionsUrl(business))
+    if (expected.id === 'sofia-shining-polishing-auto') {
+      assert.equal(business.navigationLocation.locationStatus, 'conflict')
+      assert.equal(businessMapsDirectionsUrl(business), null)
+    } else {
+      assert.equal(new URL(businessMapsDirectionsUrl(business)).searchParams.get('destination'),
+        `${expected.latitude},${expected.longitude}`)
+    }
     for (const locale of ['bg', 'en']) {
       assert.equal(businessDisplayAddress(business, locale), businessDisplayAddress(previous, locale))
       assert.deepEqual(business.details.services.map(service => serviceDisplayName(service, locale)),

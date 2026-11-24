@@ -1,3 +1,4 @@
+import { pr81LocationPriorSource, pr81LocationAllowsFileChange, pr81LocationAllowsNewFile } from "./pr81-location-only-scope.mjs"
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFile, readlink } from 'node:fs/promises'
@@ -19,7 +20,7 @@ const RAW_SOFIA_CATALOGUE = quarterRecoveryPriorCatalogue(currentRawCatalogue)
 const PUBLIC_CATALOGUE = quarterRecoveryPriorCatalogue(currentPublicCatalogue)
 const root = fileURLToPath(new URL('../', import.meta.url))
 const git = (...args) => execFileSync('git', args, { cwd: root, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 })
-const readCurrent = path => readFile(new URL('../' + path, import.meta.url), 'utf8')
+const readCurrent = path => readFile(new URL('../' + path, import.meta.url), 'utf8').then(source => pr81LocationPriorSource(path, source))
 const read = path => readCurrent(path).then(source => quarterRecoveryPriorSource(path, source))
 const before = path => git('show', SUHODOL_INTAKE_BASE + ':' + path)
 const sha256 = value => createHash('sha256').update(value).digest('hex')
@@ -57,13 +58,13 @@ test('one intake authorizes exactly four source integrations and five dated runt
 })
 
 test('all other checked-in runtime, old receipts, source photos and thirteen historical scope maps remain byte-identical', async () => {
-  const frozen = tree.filter(record => !suhodolIntakeAllowsFileChange(record.path))
+  const frozen = tree.filter(record => !pr81LocationAllowsFileChange(record.path) && !suhodolIntakeAllowsFileChange(record.path))
   for (let offset = 0; offset < frozen.length; offset += 32) await Promise.all(frozen.slice(offset, offset + 32).map(async record => {
     const path = new URL('../' + record.path, import.meta.url)
     const bytes = record.mode === '120000' ? Buffer.from(await readlink(path)) : await readFile(path)
     assert.equal(createHash('sha1').update('blob ' + bytes.length + '\0').update(bytes).digest('hex'), record.oid, record.path)
   }))
-  const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => path && productionPath(path) && !quarterRecoveryAllowsNewFile(path))
+  const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => !pr81LocationAllowsNewFile(path) && path && productionPath(path) && !quarterRecoveryAllowsNewFile(path))
   assert.deepEqual([...new Set(actual)].sort(), [...tree.map(record => record.path), ...Object.keys(SUHODOL_INTAKE_NEW_HASHES)].sort())
   for (const path of olderScopes) assert.equal(await read(path), before(path), path)
 })

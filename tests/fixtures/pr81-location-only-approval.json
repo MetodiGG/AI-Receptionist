@@ -1,0 +1,80 @@
+{
+  "baseline": "136d99c8fd546f30a42dd0fbbefe1727f3949032",
+  "changed": {
+    "app/api/public/[slug]/route.js": {
+      "before": "c3068aaa19d02666b96edbd090ab234f6068c4442ab17961632e5ce355b3cd2d",
+      "after": "1572afc160acf02d102ff7bb06285a97510fe6950371b2b9ceaaa937e257abf7"
+    },
+    "app/api/public/discovery/route.js": {
+      "before": "8b9304b57b29a9d030906fb4df226a04bccbca9a37c24045ec48565f978da2a8",
+      "after": "12e6b0cad4b9b6fb33c06325c161c690f2199960ccae21c282df030ddcf1b79b"
+    },
+    "app/businesses/catalogue/[id]/page.js": {
+      "before": "db7790feae34df6373790b48947404b6fff986ef97722abcbeeff4707a529fac",
+      "after": "582e1e4936f68e0085f24f735a92d3803aec532b15e81f35bc1ec317f3af269e"
+    },
+    "components/business-profile.js": {
+      "before": "eea39dfcd898563b1293128bb53574aef3a230c9681db91f130a41a5095bb882",
+      "after": "d8f0a13a224db9c16ce276e64678f23ffae829ad3ed87e76195bd34ae252fe7e"
+    },
+    "components/discovery-business-card.js": {
+      "before": "780f73501a0bc47940ee2e60acbc5bff3979b5536889441da32562a1dad93b05",
+      "after": "55e4ca2a2d66fb946314467b5c6af455a785247089a19d922796fc518f2c8af0"
+    },
+    "components/google-business-card.js": {
+      "before": "1ff48c3ce0b64bd6f52a373c57071331cc213ecd9bc85c064852a1364078edc6",
+      "after": "0809e49d4d5a2d9350e172ae0c10bf332fb3f464be0866a1374b9153b013785b"
+    },
+    "lib/business-directions-reviewed.mjs": {
+      "before": "69a7358b0f24bda72f530f5e676b54df1705628e2e452c96c4199e04889227bc",
+      "after": "f730753bb01398c2432bd8e40f111e56d7da5b47727701d823ed1e9288dfdedf"
+    },
+    "lib/business-directions.mjs": {
+      "before": "d44bfc09216a3f45cf50a257a1da241cb14980156473768a2bf725058e77d233",
+      "after": "7e640ee8823bbd463aed360381a6dad79ce2b8bec238cb21727201c6f9b442eb"
+    },
+    "lib/business-profile.mjs": {
+      "before": "d9b4366e4a64baad45f35d1659adb4b1378584199853fb83e0e0886986e7d95e",
+      "after": "ca6282b32085a01c2e3721fcc3e46e0eb8ad989955591122c0f32687aef68dac"
+    },
+    "lib/catalogue-profile.mjs": {
+      "before": "18f87d480d7ab588e20e36ed0fb8080f032cadd13e6528c528e095f7b1a00b29",
+      "after": "3c2bf28d54243de1074c3cdbe441e224598a92577b21ddd86951a409f1c9a08e"
+    },
+    "lib/discovery/catalogue-search.mjs": {
+      "before": "9bda4abd19bb9b80b9093c6ed7ef0274c7e94d7f4a0d643f97d5c1132cbf7c75",
+      "after": "f194ad6cd89e5fc57528fd5ccf50512fd4871eb166a16d0bba066f3a6f488cf0"
+    },
+    "lib/discovery/handler.mjs": {
+      "before": "218d1d2eb59533cc8a956e11f280abe47a8f0bf9c1ecb334d2e43d4c7f4fc630",
+      "after": "ec1a5ef57baeb0926a28a264ce530cc6a245ad8a220aad2743cea3bf40b27b58"
+    },
+    "lib/discovery/public-details.mjs": {
+      "before": "5446e1ad87f029f40fc06ac62e4096ff067f77b47b128312340279adb14db4a0",
+      "after": "2983fc755e6e8485c47234a8bd5641a041d2e6751e984b5b063bd951f090dd2b"
+    },
+    "lib/registration-address-lookup.mjs": {
+      "before": "e982e05f86052de9776557abe104acfb03f4a968e9d34109cf8cb1892df092a3",
+      "after": "f52fbcdd7b11c1a377cee45028205519440d978da10117ee3cecf6ff31a41443"
+    },
+    "lib/registration-address-match.mjs": {
+      "before": "7cffed3c893bc468078e343b90eb51fdd509a11782ee271992c45614ad7eb13f",
+      "after": "d5ab17d79bc6538ecaadc03f633f932324356332d5e036ba84a1a718af03defc"
+    },
+    "lib/registration-address-server.js": {
+      "before": "05534bdaa44c936c7b3063b81a02d310d8743244f1569ae15e8e5fcb07983a64",
+      "after": "d8580ba179bb9a13c6afb533e897241e9b22d8a79724c2418c60aae802cf270d"
+    }
+  },
+  "added": {
+    "docs/operations/20261125-location-rpc-isolation.md": "c7d673b106f1b07fe562d4422dc402d5649bec5b3963a298f5e021fd4b06785a",
+    "docs/operations/pr81-address-directions-20261125.md": "514f9a9abd9fc35108eb8954b98d7536bfc8642ea0abe623e68f9b917bcb7124",
+    "lib/discovery/catalogue-public-location.mjs": "62804d026ff80baec00b3e19d2b39a38e58f989a6fa740e3785b43c3ec19c755",
+    "lib/native-location-evidence.mjs": "825ccb104e9c69d669d8caa3b983dc712c0de207bf2298b8badba67a78acf959",
+    "lib/sofia-location-scope.mjs": "7ebfd5e4ce2c15369468abb27e2a000fa65b77fe06e47726f759fb181d1f796a",
+    "lib/sofia-settlement-boundaries.mjs": "aa1c9b4561b5e43216062c8c9db880c40e2a443f63b6ad8cfd5ec6251fb415ad",
+    "lib/sofia-settlement-exclusions.json": "0a072975361dd5cb2072fbfb41c979bb7187a201f81f13f616a84a5ebb9ff13f",
+    "supabase/migrations/20261124205000_sofia_exact_location_writes.sql": "dfc0d70f7fc2c1ba7284da1a5f283d21d7eead4e604b792db76d4293ad81747d",
+    "supabase/migrations/20261125001500_sofia_location_rpc_isolation.sql": "fef2d5bc242f212c3fcf98e8198ed0f2b9c5e10674d0e046d3faa928cc0374eb"
+  }
+}

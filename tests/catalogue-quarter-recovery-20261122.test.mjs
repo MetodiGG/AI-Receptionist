@@ -13,6 +13,7 @@ import { catalogueOnboardingDetail, searchCatalogueForOnboarding, createCatalogu
 import { createPublicBusinessDetailsHandler } from '../lib/discovery/public-details.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
 import { businessMapsDirectionsUrl } from '../lib/business-directions.mjs'
+import { cataloguePublicLocation } from '../lib/discovery/catalogue-public-location.mjs'
 import { railExternalAction } from '../lib/discovery/rail.mjs'
 import { OFFICIAL_SOFIA_SOURCE_URL, OFFICIAL_SOFIA_ATTRIBUTION } from '../lib/discovery/official-sofia-address-source.mjs'
 import { quarterRecoveryPriorCatalogue } from './quarter-recovery-20261123-scope.mjs'
@@ -153,9 +154,10 @@ test('BG/EN exact-quarter discovery and actual public details preserve service i
   const { business } = await response.json()
   assert.equal(business.neighborhood, quarter); assert.equal(business.details.services.length, 64)
   assert.deepEqual(business.coordinates, { latitude: oldPoint.latitude, longitude: oldPoint.longitude })
-  const href = businessMapsDirectionsUrl(row)
-  assert.equal(href, businessMapsDirectionsUrl(before))
-  assert.equal(new URL(href).searchParams.get('destination'), 'София, ул. Пирин 22, България')
+  assert.equal(business.address, 'София, ул. Пирин 22')
+  const href = businessMapsDirectionsUrl(business)
+  assert.equal(href, businessMapsDirectionsUrl({ ...before, navigationLocation: cataloguePublicLocation(before) }))
+  assert.equal(new URL(href).searchParams.get('destination'), `${oldPoint.latitude},${oldPoint.longitude}`)
   assert.equal(new URL(href).searchParams.get('origin'), null)
 })
 

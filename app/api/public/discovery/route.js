@@ -8,6 +8,7 @@ import { createBudgetGuard, logDiscoveryUsage } from '../../../../lib/discovery/
 import { createDiscoveryHandler } from '../../../../lib/discovery/handler.mjs'
 import { hydrateInternalCandidates, readInternalCandidates } from '../../../../lib/discovery/internal-search.mjs'
 import { readPublicCataloguePhotos } from '../../../../lib/catalogue-photo-server'
+import { attachNativeLocationEvidence } from '../../../../lib/native-location-evidence.mjs'
 
 export const runtime = 'nodejs'
 export async function POST(request) {
@@ -18,6 +19,7 @@ export async function POST(request) {
     claimBudget: (...args) => createBudgetGuard(getSupabaseAdmin(), config, logDiscoveryUsage)(...args),
     readInternal: (intent, options) => readInternalCandidates(getSupabaseAdmin(), intent, options),
     hydrateInternalCandidates: ids => hydrateInternalCandidates(getSupabaseAdmin(), ids),
+    attachNativeNavigation: rows => attachNativeLocationEvidence(getSupabaseAdmin(), rows),
     readCataloguePhotos: readPublicCataloguePhotos,
     readLinks: async ids => {
       const { data, error } = await getSupabaseAdmin().from('business_place_links').select('business_id,place_id').in('business_id', ids)

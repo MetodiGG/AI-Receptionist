@@ -1,0 +1,33 @@
+import { createHash } from 'node:crypto'
+import { execFileSync } from 'node:child_process'
+import { readFileSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
+import receipt from './fixtures/sofia-location-rpc-isolation-20261125-approval.json' with { type: 'json' }
+
+const root = fileURLToPath(new URL('../', import.meta.url))
+const sha = bytes => createHash('sha256').update(bytes).digest('hex')
+const prior = new Map()
+function exactFile(path, map, hashFor) {
+  if (!Object.hasOwn(map, path)) return false
+  try { return sha(readFileSync(new URL('../' + path, import.meta.url))) === hashFor(map[path]) }
+  catch { return false }
+}
+export const sofiaRpcAllowsFileChange = path => exactFile(path, receipt.changed, value => value.after)
+export const sofiaRpcAllowsNewFile = path => exactFile(path, receipt.added, value => value)
+export const sofiaRpcMatchesPriorHash = (path, hash) => Boolean(hash && Object.hasOwn(receipt.changed, path)
+  && receipt.changed[path].before === hash && sofiaRpcAllowsFileChange(path))
+
+// Strip only the exact November 25 release before invoking an older inverse.
+// Never deduce reviewed bytes from the working tree or a mutable branch name.
+export function sofiaRpcPriorSource(path, source) {
+  if (!Object.hasOwn(receipt.changed, path)) return source
+  const { before, after } = receipt.changed[path], hash = sha(source)
+  if (hash === before) return source
+  if (hash !== after) throw Error('Unreviewed 25 Nov Sofia location RPC delta: ' + path)
+  if (!prior.has(path)) {
+    const original = execFileSync('git', ['show', receipt.baseline + ':' + path], { cwd: root, maxBuffer: 8 * 1024 * 1024 })
+    if (sha(original) !== before) throw Error('Sofia location RPC baseline does not match pinned source: ' + path)
+    prior.set(path, original)
+  }
+  return typeof source === 'string' ? prior.get(path).toString('utf8') : Buffer.from(prior.get(path))
+}

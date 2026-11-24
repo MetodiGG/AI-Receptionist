@@ -116,15 +116,42 @@ test('actual server after wrapper isolates synchronous scheduling and asynchrono
   dispatchFailure=true;assert.doesNotThrow(()=>actual.scheduleRegistrationAddressLookup(bid));assert.equal(logs.length,2)
  }finally{console.error=original}
 })
-test('actual server adapter sends only conditional claim/finish RPC arguments, and disabled lookup performs no DB operation',async()=>{
- const calls=[];const db={rpc:async(name,args)=>{calls.push({name,args});return{data:name==='claim_registration_address_lookup'?{state:'cached',match_version:2,business,address_key:'key',claim_token:'claim',result:point}:{state:'matched'}}}}
+test('actual server adapter only sends conditional V2 claim/finish RPC arguments, and disabled lookup performs no DB operation',async()=>{
+ const calls=[];const db={rpc:async(name,args)=>{calls.push({name,args});return{data:name==='claim_registration_address_lookup_v2'?{state:'cached',match_version:2,business,address_key:'key',claim_token:'claim',result:point}:{state:'matched'}}}}
  const actual=await serverModule('lib/registration-address-server.js',{'server-only':{},'next/server':{after(){}},'./supabase-admin':{getSupabaseAdmin:()=>db},'./registration-address-lookup.mjs':{createRegistrationAddressResolver}})
  const previous=process.env.REGISTRATION_ADDRESS_LOOKUP_ENABLED
  try{
   process.env.REGISTRATION_ADDRESS_LOOKUP_ENABLED='false';assert.deepEqual(await actual.resolveRegistrationAddress(bid),{state:'disabled'});assert.deepEqual(calls,[])
   delete process.env.REGISTRATION_ADDRESS_LOOKUP_ENABLED;assert.deepEqual(await actual.resolveRegistrationAddress(bid),{state:'matched'})
-  assert.deepEqual(calls,[{name:'claim_registration_address_lookup',args:{p_business:bid}},{name:'finish_registration_address_lookup',args:{p_business:bid,p_address_key:'key',p_claim_token:'claim',p_status:'matched',p_result:point,p_retry_after_seconds:null}}])
+  assert.deepEqual(calls,[{name:'claim_registration_address_lookup_v2',args:{p_business:bid}},{name:'finish_registration_address_lookup_v2',args:{p_business:bid,p_address_key:'key',p_claim_token:'claim',p_status:'matched',p_result:point,p_retry_after_seconds:null}}])
  }finally{if(previous===undefined)delete process.env.REGISTRATION_ADDRESS_LOOKUP_ENABLED;else process.env.REGISTRATION_ADDRESS_LOOKUP_ENABLED=previous}
+})
+test('a missing V2 claim fails closed during rollout without contacting the provider, calling finish, or trying legacy RPCs',async()=>{
+ const calls=[];let claimError={code:'PGRST202',message:'Could not find the V2 claim in the schema cache'}
+ const db={rpc:async(name,args)=>{calls.push({name,args});return{data:null,error:claimError}}}
+ const actual=await serverModule('lib/registration-address-server.js',{
+  'server-only':{},'next/server':{after(){}},'./supabase-admin':{getSupabaseAdmin:()=>db},
+  './registration-address-lookup.mjs':{createRegistrationAddressResolver:options=>createRegistrationAddressResolver({...options,env:{},fetcher:()=>assert.fail('No provider before a V2 claim')})},
+ })
+ assert.deepEqual(await actual.resolveRegistrationAddress(bid),{state:'review_required'})
+ assert.deepEqual(calls.splice(0),[{name:'claim_registration_address_lookup_v2',args:{p_business:bid}}])
+ for (const code of ['42501','42883','PGRST204']) {
+  claimError={code,message:'offline error'}
+  await assert.rejects(actual.resolveRegistrationAddress(bid),error=>error===claimError)
+  assert.deepEqual(calls.splice(0),[{name:'claim_registration_address_lookup_v2',args:{p_business:bid}}])
+ }
+})
+test('a missing V2 finish is still an error, without retrying a legacy finish',async()=>{
+ const calls=[],failure={code:'PGRST202',message:'Could not find the V2 finish in the schema cache'}
+ const db={rpc:async name=>{calls.push(name);return name==='claim_registration_address_lookup_v2'
+  ?{data:{state:'cached',match_version:2,business,address_key:'key',claim_token:'claim',result:point}}
+  :{data:null,error:failure}}}
+ const actual=await serverModule('lib/registration-address-server.js',{
+  'server-only':{},'next/server':{after(){}},'./supabase-admin':{getSupabaseAdmin:()=>db},
+  './registration-address-lookup.mjs':{createRegistrationAddressResolver:options=>createRegistrationAddressResolver({...options,env:{},fetcher:()=>assert.fail('Cached V2 claim cannot call provider')})},
+ })
+ await assert.rejects(actual.resolveRegistrationAddress(bid),error=>error===failure)
+ assert.deepEqual(calls,['claim_registration_address_lookup_v2','finish_registration_address_lookup_v2'])
 })
 test('actual owner request route uses verified ownership, private POST and a three-attempt per-owner hourly limit',async()=>{
  const quotas=[],scheduled=[],attempts=new Map()

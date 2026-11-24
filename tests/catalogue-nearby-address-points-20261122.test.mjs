@@ -132,17 +132,28 @@ test('overlay is immutable/idempotent, checks every reviewed identity field and 
   assert.deepEqual(outputs.filter((entry, index) => entry !== inputs[index]).map(entry => entry.id).sort(), [...ids].sort())
 })
 
-test('new usable points unlock GPS radius only within exact quarter/category/city and never extend older eligibility', () => {
+test('verified points unlock GPS radius, but a disputed boundary cannot bypass quarter/category/city or expiry', () => {
   for (const expected of cases) {
     const current = row(expected.id), before = beforePoint(current)
     const intent = { cityCode: '68134', neighborhood: expected.quarter, category: expected.category, browse: true, searchV2: true,
       coordinates: { ...pointPair(expected), consent: true }, radiusKm: 0.25 }
     assert.deepEqual(normalizeCatalogueBusinesses([before], intent, { now }), [])
     const [found] = normalizeCatalogueBusinesses([current], intent, { now })
-    assert.ok(found)
-    assert.deepEqual(found.coordinates, pointPair(expected))
-    assert.equal(rankCatalogueBusinesses([], [found], intent)[0].distanceKm, 0)
-    assert.deepEqual(found.availability, { status: 'external', slots: [] })
+    if (expected.id === 'sofia-shining-polishing-auto') {
+      assert.equal(found, undefined, 'The historical postal point is inside a settlement boundary review band')
+      const [cityListing] = normalizeCatalogueBusinesses([current], { ...intent, coordinates: undefined, radiusKm: undefined }, { now })
+      assert.ok(cityListing, 'An uncertain pin does not erase an address or booking action')
+      assert.equal(cityListing.locationStatus, 'conflict')
+      assert.equal(cityListing.coordinates, null)
+      assert.deepEqual(cityListing.availability, { status: 'external', slots: [] })
+    } else {
+      assert.ok(found)
+      assert.deepEqual(found.coordinates, pointPair(expected))
+      assert.equal(rankCatalogueBusinesses([], [found], intent)[0].distanceKm, 0)
+      assert.deepEqual(found.availability, { status: 'external', slots: [] })
+      if (expected.addressId) assert.deepEqual(found.coordinateAttribution, { label: OFFICIAL_SOFIA_ATTRIBUTION, url: OFFICIAL_SOFIA_SOURCE_URL })
+      else assert.equal(found.coordinateAttribution, undefined)
+    }
     assert.deepEqual(normalizeCatalogueBusinesses([current], { ...intent, neighborhood: 'Друг квартал' }, { now }), [])
     assert.deepEqual(normalizeCatalogueBusinesses([current], { ...intent, cityCode: '44238' }, { now }), [])
     assert.deepEqual(normalizeCatalogueBusinesses([current], { ...intent, category: 'barber' }, { now }), [])
@@ -151,8 +162,6 @@ test('new usable points unlock GPS radius only within exact quarter/category/cit
     const expired = Date.parse(expected.validUntil + 'T12:00:00Z') + 86400000
     assert.equal(approvedCatalogueRecord(current, expired), null)
     assert.deepEqual(normalizeCatalogueBusinesses([current], intent, { now: expired }), [])
-    if (expected.addressId) assert.deepEqual(found.coordinateAttribution, { label: OFFICIAL_SOFIA_ATTRIBUTION, url: OFFICIAL_SOFIA_SOURCE_URL })
-    else assert.equal(found.coordinateAttribution, undefined)
   }
 })
 
@@ -167,15 +176,24 @@ test('public details and both-language presentation/onboarding preserve services
     const previousResponse = await handler(before)(request(), current.id)
     assert.equal(response.status, 200); assert.equal(previousResponse.status, 200)
     const { business } = await response.json(), { business: previous } = await previousResponse.json()
-    assert.deepEqual(business.coordinates, pointPair(expected))
+    const conflict = expected.id === 'sofia-shining-polishing-auto'
+    assert.deepEqual(business.coordinates, conflict ? null : pointPair(expected))
     assert.deepEqual(business.details, previous.details)
     assert.equal(business.details.services.length, expected.count)
     const [oldPublic] = normalizeCatalogueBusinesses([before], { cityCode: '68134', browse: true, searchV2: true }, { now })
     const [newPublic] = normalizeCatalogueBusinesses([current], { cityCode: '68134', browse: true, searchV2: true }, { now })
     assert.deepEqual(newPublic.services, oldPublic.services)
     assert.deepEqual(railExternalAction(newPublic, now), railExternalAction(oldPublic, now))
-    assert.equal(businessMapsDirectionsUrl(current), businessMapsDirectionsUrl(before))
-    assert.equal(new URL(businessMapsDirectionsUrl(current)).searchParams.get('destination'), current.address + ', България')
+    assert.equal(business.address, current.address)
+    assert.equal(businessMapsDirectionsUrl(oldPublic), null)
+    assert.equal(businessMapsDirectionsUrl(newPublic), businessMapsDirectionsUrl(business))
+    if (conflict) {
+      assert.equal(business.locationStatus, 'conflict')
+      assert.equal(businessMapsDirectionsUrl(business), null)
+    } else {
+      assert.equal(new URL(businessMapsDirectionsUrl(business)).searchParams.get('destination'),
+        `${expected.latitude},${expected.longitude}`)
+    }
     for (const locale of ['bg', 'en']) {
       assert.equal(businessDisplayAddress(business, locale), businessDisplayAddress(previous, locale))
       assert.deepEqual(business.details.services.map(service => serviceDisplayName(service, locale)),

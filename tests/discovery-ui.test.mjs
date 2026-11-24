@@ -117,8 +117,9 @@ function business(patch = {}) { return { id: 'fixture-only', name: 'Test nails',
 test('nearby internal businesses need verified coordinates inside the radius; unknown distance is not advertised as nearby', () => {
   const intent = parseIntent(discoveryRequestSchema.parse(discoverySearchInput({ query: 'маникюр', coordinates: origin })), now)
   assert.equal(normalizeInternalBusinesses([business()], intent).length, 0)
-  assert.equal(normalizeInternalBusinesses([business({ public_profile: { latitude: origin.latitude, longitude: origin.longitude } })], intent).length, 1)
-  assert.equal(normalizeInternalBusinesses([business({ public_profile: { latitude: 43.2, longitude: 27.9 } })], intent).length, 0)
+  assert.equal(normalizeInternalBusinesses([business({ public_profile: origin })], intent).length, 0)
+  assert.equal(normalizeInternalBusinesses([verifiedNativeFixture(business(), origin)], intent).length, 1)
+  assert.equal(normalizeInternalBusinesses([verifiedNativeFixture(business(), { latitude: 43.2, longitude: 27.9 })], intent).length, 0)
   const cityOnly = parseIntent(discoveryRequestSchema.parse(discoverySearchInput({ query: 'маникюр' })), now)
   assert.equal(normalizeInternalBusinesses([business()], cityOnly).length, 1)
 })
@@ -283,3 +284,4 @@ test('Google photos stay in the same native attributed list with supported typog
   assert.match(css, /--gmp-mat-font-body-small: 400 16px/)
   assert.match(css, /--gmp-mat-font-title-medium: 650 22px/)
 })
+import { verifiedNativeFixture } from './helpers/verified-native-location.mjs'

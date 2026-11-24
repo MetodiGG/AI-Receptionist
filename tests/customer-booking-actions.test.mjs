@@ -17,6 +17,7 @@ import * as detailsData from '../lib/discovery/business-details.mjs'
 import * as publicLocale from '../lib/public-locale.mjs'
 import * as partnerCategories from '../lib/partner-categories.mjs'
 import * as directoryData from '../lib/directory.mjs'
+import { DirectionsUnavailable, withVerifiedFixtureDirections } from './helpers/verified-directions.mjs'
 
 const require = createRequire(import.meta.url)
 const { loadBindings, transform } = require('next/dist/build/swc')
@@ -33,7 +34,7 @@ async function load(path, stubs = {}) {
     filename: path, jsc: { parser: { syntax: 'ecmascript', jsx: true }, transform: { react: { runtime: 'automatic' } } },
     module: { type: 'commonjs' },
   })
-  const module = { exports: {} }, imports = { './booking-button-content': content, ...stubs }
+  const module = { exports: {} }, imports = { './booking-button-content': content, './directions-unavailable': { DirectionsUnavailable }, ...stubs }
   new Function('require', 'module', 'exports', code)(name => name === './public-action' ? publicAction : name === './public-action.module.css' ? publicAction.publicActionStyles : Object.hasOwn(imports, name) ? imports[name] : (name === './brand-loading' ? brandLoading : require(name)), module, module.exports)
   return module.exports
 }
@@ -183,9 +184,10 @@ test('directions retain the exact folded-map source bytes and current business d
   // icons in the shared collection. Both hashes match the published baseline.
   assert.equal(createHash('sha256').update(map).digest('hex'), '9019629995c7ab3928f73a2e2818464b379c0e5d2a6ec4efb2abe504933bbdba')
   assert.equal(createHash('sha256').update(render(Icon, { name: 'map' })).digest('hex'), '7d8ec77ccefcdfaac92f11f745e6de5eb1a33ab02bf0e960477a0a2da6938016')
-  const tree = publicAction.expandPublicActions(BusinessDirectionsLink({ business, locale: 'bg' }))
+  const verified = withVerifiedFixtureDirections(business)
+  const tree = publicAction.expandPublicActions(BusinessDirectionsLink({ business: verified, locale: 'bg' }))
   assert.equal(tree.type, 'a'); assert.equal(tree.props.target, '_blank'); assert.equal(tree.props.rel, 'noopener noreferrer')
-  assert.equal(tree.props.href, profileData.businessDirectionsUrl(business))
+  assert.equal(tree.props.href, profileData.businessDirectionsUrl(verified))
   assert.match(renderToStaticMarkup(tree), /<span class="public-action-label">Упътване<\/span>/)
   assert.equal(tree.props['aria-label'], `Упътване — как да стигна · ${business.name}`)
   assert.ok(renderToStaticMarkup(tree).includes(render(Icon, { name: 'outlineMap' })))
@@ -220,7 +222,7 @@ test('actual directory CTAs retain native links, safe phone links and protected 
 test('actual home and directory booking labels are compact in both languages without changing their real destinations', () => {
   for (const [locale, label, directions] of [['bg', 'Резервирай', 'Упътване'], ['en', 'Book', 'Directions']]) {
     for (const booking_mode of ['gorez', 'external', 'phone']) {
-      const row = { ...business, source: 'gorez', category: 'beauty', industry: 'beauty', services: [], booking_mode }
+      const row = withVerifiedFixtureDirections({ ...business, source: 'gorez', category: 'beauty', industry: 'beauty', services: [], booking_mode })
       const home = render(DiscoveryBusinessCard, { row, locale, quickChoice: true })
       assert.ok(home.includes(`<span class="public-action-label">${label}</span>`))
       assert.ok(home.includes(`<span class="public-action-label">${locale==='en'?directions:'Упъти'}</span>`))
@@ -243,7 +245,7 @@ test('GoRez-owned Google booking CTA keeps verified-link POST protection and doe
   const known = render(GoogleBusinessCard, { card, locale: 'en' })
   assert.equal(arrowCount(known), 1)
   assert.match(known, /action="\/out\/place\/10000000-0000-4000-8000-000000000001\?lang=en" method="post"/)
-  assert.match(known, /data-public-action="secondary"/); assert.match(known, /Google Maps/)
+  assert.doesNotMatch(known, /data-public-action="secondary"|href="[^"]*google\.com\/maps/); assert.match(known, /Google Maps/)
   const unknown = render(GoogleBusinessCard, { card: { ...card, bookingLinkId: null }, locale: 'en' })
   assert.equal(arrowCount(unknown), 0)
   assert.doesNotMatch(unknown, /data-public-action="primary"|<form\b/)

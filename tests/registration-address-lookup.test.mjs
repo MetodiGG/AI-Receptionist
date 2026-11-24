@@ -11,7 +11,7 @@ const candidate={osm_type:'way',osm_id:12345,lat:'42.6655',lon:'23.2825',boundin
 const read=path=>readFile(new URL(`../${path}`,import.meta.url),'utf8')
 function resolverFixture({claim={state:'claimed',address_key:'offline-address-key',claim_token:'offline-claim',business},response=()=>new Response(JSON.stringify([candidate])),env={},claimError,finishError}={}){
  const claims=[],finishes=[],requests=[]
- const run=createRegistrationAddressResolver({env,store:{claim:async id=>{claims.push(id);if(claimError)throw claimError;return structuredClone(claim)},finish:async input=>{finishes.push(input);if(finishError)throw finishError;return {state:input.status}}},fetcher:async(url,init)=>{requests.push({url,init});return response(url,init)}})
+ const run=createRegistrationAddressResolver({env,store:{claim:async id=>{claims.push(id);if(claimError)throw claimError;return structuredClone(claim&&{match_version:2,business,...claim})},finish:async input=>{finishes.push(input);if(finishError)throw finishError;return {state:input.status}}},fetcher:async(url,init)=>{requests.push({url,init});return response(url,init)}})
  return {claims,finishes,requests,run:()=>run(bid)}
 }
 
@@ -35,12 +35,24 @@ test('one bounded request sends only the public address, not the business name o
  const f=resolverFixture();assert.deepEqual(await f.run(),{state:'matched'});assert.equal(f.requests.length,1)
  const {url,init}=f.requests[0],u=new URL(url)
  assert.equal(u.origin,'https://nominatim.openstreetmap.org');assert.equal(u.pathname,'/search')
- assert.deepEqual(Object.fromEntries(u.searchParams),{format:'jsonv2',addressdetails:'1',limit:'5',countrycodes:'bg','accept-language':'bg,en',q:'Пирин 42, София, България'})
+ assert.deepEqual(Object.fromEntries(u.searchParams),{format:'jsonv2',addressdetails:'1',limit:'5',countrycodes:'bg',viewbox:'23.1,42.9,23.65,42.45',bounded:'1','accept-language':'bg,en',q:'Пирин 42, София, България'})
  for(const secret of [business.name,business.phone,business.contact_email,owner])assert.equal(url.includes(secret),false)
  assert.equal(init.method,'GET');assert.equal(init.redirect,'error');assert.equal(init.cache,'no-store');assert.equal(init.body,undefined)
- assert.equal(init.headers.Accept,'application/json');assert.match(init.headers['User-Agent'],/^GoRez registration address lookup\/1\.0 \(\+https:\/\/www\.gorez\.co; info@gorez\.co\)$/)
+ assert.equal(init.headers.Accept,'application/json');assert.match(init.headers['User-Agent'],/^GoRez registration address lookup\/2\.0 \(\+https:\/\/www\.gorez\.co; info@gorez\.co\)$/)
  assert.ok(init.signal instanceof AbortSignal);assert.equal(init.signal.aborted,false)
  assert.deepEqual(f.finishes[0],{businessId:bid,addressKey:'offline-address-key',claimToken:'offline-claim',status:'matched',result:point,retryAfterSeconds:null})
+})
+test('old and invalid caches, outside branches and unit-specific addresses fail closed without a provider request',async()=>{
+ for (const claim of [
+  {state:'cached',match_version:1,result:point},
+  {state:'cached',result:{...point,latitude:43.2,longitude:27.8}},
+  {state:'cached',result:{...point,source_url:'https://example.com/point'}},
+  {state:'claimed',business:{...business,city_ekatte:'10135',city:'Варна'}},
+  {state:'claimed',business:{...business,address:'бул. Сливница 178Е, София, вх. Б'}},
+ ]) {
+  const f=resolverFixture({claim:{address_key:'key',claim_token:'claim',...claim}})
+  assert.deepEqual(await f.run(),{state:'no_match'});assert.equal(f.requests.length,0);assert.equal(f.finishes[0].result,null)
+ }
 })
 test('invalid/private or incomplete street text is held for review without geocoding; no-match stays no-match',async()=>{
  for(const address of ['Пирин','Пирин 42, email private@example.com','+359889999999','https://example.com/42']){
@@ -105,7 +117,7 @@ test('actual server after wrapper isolates synchronous scheduling and asynchrono
  }finally{console.error=original}
 })
 test('actual server adapter sends only conditional claim/finish RPC arguments, and disabled lookup performs no DB operation',async()=>{
- const calls=[];const db={rpc:async(name,args)=>{calls.push({name,args});return{data:name==='claim_registration_address_lookup'?{state:'cached',address_key:'key',claim_token:'claim',result:point}:{state:'matched'}}}}
+ const calls=[];const db={rpc:async(name,args)=>{calls.push({name,args});return{data:name==='claim_registration_address_lookup'?{state:'cached',match_version:2,business,address_key:'key',claim_token:'claim',result:point}:{state:'matched'}}}}
  const actual=await serverModule('lib/registration-address-server.js',{'server-only':{},'next/server':{after(){}},'./supabase-admin':{getSupabaseAdmin:()=>db},'./registration-address-lookup.mjs':{createRegistrationAddressResolver}})
  const previous=process.env.REGISTRATION_ADDRESS_LOOKUP_ENABLED
  try{

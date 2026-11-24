@@ -44,7 +44,7 @@ export default async function CatalogueBusiness({ params, searchParams }) {
   // The hero needs identity/location/photos only, not a second serialized copy
   // of the complete service menu or server-only review/source inventory.
   const hero = { ...context, businessCategory: business.businessCategory || business.category, illustrativeCoverPhotoKey: business.illustrativeCoverPhotoKey,
-    address: business.address, city: business.city, cityCode: business.cityCode, neighborhood: business.neighborhood, locationKind: business.locationKind, coordinates: business.coordinates, website: business.website, photos: business.photos }
+    address: business.address, city: business.city, cityCode: business.cityCode, neighborhood: business.neighborhood, locationKind: business.locationKind, coordinates: business.coordinates, locationVerified: business.locationVerified, locationStatus: business.locationStatus, locationBinding: business.locationBinding, website: business.website, photos: business.photos }
   const path = catalogueProfilePath(id), structured = catalogueProfileStructuredData(row, locale, now)
   return <main className="public-booking-page profile-redesign catalogue-profile-page" lang={locale}>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(structured) }}/>
@@ -63,7 +63,7 @@ export default async function CatalogueBusiness({ params, searchParams }) {
       </section>
       {hours.length > 0 && <section className="business-profile-section"><details className="business-weekly-hours profile-hours"><summary><Icon name="clock"/><span>{copy.openingHours}</span><Icon name="chevronDown"/></summary><dl>{hours.map(day => <div key={day.weekday}><dt>{copy.weekdays[day.weekday - 1]}</dt><dd>{day.byAppointment ? copy.byAppointment : day.periods.length ? day.periods.join(', ') : copy.closedDay}</dd></div>)}</dl></details></section>}
       <p className="catalogue-profile-source"><a href={business.website} target="_blank" rel="noopener noreferrer">{business.provenance?.kind === 'platform_owner_confirmed' ? copy.mapProfileLabel : copy.websiteLabel}</a></p>
-      {business.coordinates?.attribution && <p className="site-location-credit"><a href={business.coordinates.source} target="_blank" rel="noopener noreferrer">{business.coordinates.attribution}</a> · <a href={business.coordinates.licence === 'ODbL-1.0' ? OSM_COPYRIGHT_URL : OFFICIAL_SOFIA_LICENSE_URL} target="_blank" rel="noopener noreferrer">{business.coordinates.licence === 'ODbL-1.0' ? 'ODbL' : 'CC BY 4.0'}</a></p>}
+      {business.coordinateAttribution && <p className="site-location-credit"><a href={business.coordinateAttribution.url} target="_blank" rel="noopener noreferrer">{business.coordinateAttribution.label}</a> · <a href={business.coordinateAttribution.licence === 'ODbL-1.0' ? OSM_COPYRIGHT_URL : OFFICIAL_SOFIA_LICENSE_URL} target="_blank" rel="noopener noreferrer">{business.coordinateAttribution.licence === 'ODbL-1.0' ? 'ODbL' : 'CC BY 4.0'}</a></p>}
       {related.length > 0 && <section className="business-profile-section"><h2>{en ? 'Related businesses' : 'Още в тази категория'}</h2><ul className="catalogue-related-links">{related.map(item => <li key={item.id}><Link href={`${item.href}?lang=${locale}`} prefetch={false}>{item.name}{item.neighborhood ? <small>{postalDisplay(item.neighborhood, locale)}</small> : null}</Link></li>)}</ul></section>}
       <Link className="catalogue-profile-back" href={`/search?lang=${locale}`}>{en ? 'Search businesses and services' : 'Търси бизнеси и услуги'}</Link>
     </div>

@@ -32,7 +32,7 @@ const record = patch => ({ ...structuredClone(SOFIA_CATALOGUE[0]), ...patch })
 // Synthetic markers are whole tokens. A real transliterated street such as
 // Bademova contains "demo" internally and is not a synthetic catalogue row.
 const forbiddenCatalogueEvidence = /rating|reviewCount|placeId|maps\.google|googleusercontent|gstatic|\bdemo\b|\bfixture\b/i
-const business = patch => ({ id: '10000000-0000-4000-8000-000000000001', name: 'QA partner', slug: 'qa-partner', city_ekatte: '68134', city: 'София', industry: 'pets', active: true, platform_status: 'enabled', neighborhood: 'Борово', address: 'QA address', public_profile: { latitude: 42.67, longitude: 23.29 }, services: [{ id: 's1', name: 'Груминг за кучета', active: true, duration_min: 60 }], ...patch })
+const business = patch => verifiedNativeFixture({ id: '10000000-0000-4000-8000-000000000001', name: 'QA partner', slug: 'qa-partner', city_ekatte: '68134', city: 'София', industry: 'pets', active: true, platform_status: 'enabled', neighborhood: 'Борово', address: 'QA address', services: [{ id: 's1', name: 'Груминг за кучета', active: true, duration_min: 60 }], ...patch }, patch?.public_profile || { latitude: 42.67, longitude: 23.29 })
 
 test('free catalogue is the default and closes every metered flag even with old credentials configured', () => {
   const config = discoveryConfig({ DISCOVERY_ENABLED: 'true', GOOGLE_PLACES_ENABLED: 'true', GOOGLE_PLACES_REST_USE_APPROVED: 'true', GOOGLE_PLACES_BILLING_REGION: 'NON_EEA', GOOGLE_PLACES_UI_KIT_ENABLED: 'true', GOOGLE_PLACES_UI_KIT_APPROVED: 'true', GOOGLE_DISCOVERY_CARDS_ENABLED: 'true', GOOGLE_PARTNER_RATINGS_ENABLED: 'true', GOOGLE_PLACES_DETAILS_ENABLED: 'true', DISCOVERY_AI_ENABLED: 'true', OPENAI_API_KEY: 'fake', GOOGLE_MAPS_BROWSER_KEY: 'fake' })
@@ -254,3 +254,4 @@ test('UI keeps real catalogue cards with illustrative covers, one reserve label 
   assert.match(grid, /\.home-business-grid \.home-business-footer \{ margin-top: auto/)
   assert.match(grid, /\.home-business-grid \.home-business-card \{[^}]*min-height: 0/)
 })
+import { verifiedNativeFixture } from './helpers/verified-native-location.mjs'

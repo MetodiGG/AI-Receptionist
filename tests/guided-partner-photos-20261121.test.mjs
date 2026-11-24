@@ -85,11 +85,18 @@ test('string and localized original alt text survives the preview while empty me
 })
 
 test('only genuinely generated cover artwork has the visible disclosure and explicit illustration marker', () => {
-  const html = render(BusinessCoverPhoto, { business: { category: 'nails', services: [{ name: 'Класически маникюр', category: 'nails' }] }, locale: 'bg' })
+  const html = render(BusinessCoverPhoto, { business: {
+    id: 'sofia-photo-studio-margo-svoboda',
+    category: 'other',
+    illustrativeCoverPhotoKey: 'sx-outdoor-family-photoshoot',
+  }, locale: 'bg' })
+  assert.match(html, /activity-sx-outdoor-family-photoshoot-v1\.webp/)
   assert.match(html, /data-image-kind="ai-illustration"/)
   assert.match(html, /business-category-cover-label">AI илюстрация/)
   const missing = render(BusinessCoverPhoto, { business: { category: 'fitness', services: [{ name: 'Unmapped future sport' }] }, locale: 'en' })
   assert.doesNotMatch(missing, /data-image-kind|business-category-cover-label|AI illustration/)
+  const sharedPhoto = render(BusinessCoverPhoto, { business: { id: 'another-studio', category: 'nails', services: [{ name: 'Класически маникюр', category: 'nails' }] }, locale: 'bg' })
+  assert.doesNotMatch(sharedPhoto, /<img|data-image-kind|AI илюстрация/, 'no reused artwork for an unrelated business')
 })
 
 test('photo-only stylesheet reserves a control gutter and useful frames instead of zooming or obscuring the image', async () => {

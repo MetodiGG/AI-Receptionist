@@ -115,8 +115,9 @@ test('BG/EN results use the correct quarter without changing service prices, ext
       assert.deepEqual(business.details.services.map(service => serviceDisplayName(service, locale)),
         previous.details.services.map(service => serviceDisplayName(service, locale)))
     }
-    assert.equal(businessMapsDirectionsUrl(row), businessMapsDirectionsUrl(old))
-    assert.equal(new URL(businessMapsDirectionsUrl(row)).searchParams.get('destination'), row.address + ', България')
+    assert.equal(business.address, row.address)
+    assert.equal(businessMapsDirectionsUrl(business), businessMapsDirectionsUrl(previous))
+    assert.equal(new URL(businessMapsDirectionsUrl(business)).searchParams.get('destination'), `${latitude},${longitude}`)
   }
 })
 

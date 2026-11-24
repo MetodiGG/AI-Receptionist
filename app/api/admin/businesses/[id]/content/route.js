@@ -9,7 +9,7 @@ const handler = createContentHandler({
   allowAttempt: (request, id) => consumeRateLimit(request, { scope: `business-content:${id}`, limit: 60, windowSeconds: 3600, includeUserAgent: false }),
   readBusiness: async businessId => {
     const { data, error } = await getSupabaseAdmin().from('businesses')
-      .select('city_ekatte,neighborhood,address,public_profile,content_revision').eq('id', businessId).maybeSingle()
+      .select('city_ekatte,neighborhood,address,public_profile,content_revision,city').eq('id', businessId).maybeSingle()
     if (error) throw error
     return data
   },

@@ -4,7 +4,7 @@ import { getSupabaseAdmin } from '../../../../../lib/supabase-admin'
 import { consumeRateLimit } from '../../../../../lib/rate-limit'
 import { discoveryConfig } from '../../../../../lib/discovery/config.mjs'
 import { createBudgetGuard, logDiscoveryUsage } from '../../../../../lib/discovery/budget.mjs'
-import { createPartnerRatingHandler } from '../../../../../lib/discovery/partner-ratings.mjs'
+import { createPartnerRatingHandler, currentPublicSofiaPlaceLink, publicSofiaPlaceLinkFields } from '../../../../../lib/discovery/partner-ratings.mjs'
 
 export const runtime = 'nodejs'
 export async function POST(request, { params }) {
@@ -18,9 +18,10 @@ export async function POST(request, { params }) {
       return data
     },
     readLink: async businessId => {
-      const { data, error } = await getSupabaseAdmin().from('business_place_links').select('business_id,place_id,verified_by,verified_at').eq('business_id', businessId).maybeSingle()
+      const { data, error } = await getSupabaseAdmin().from('business_place_links')
+        .select(publicSofiaPlaceLinkFields).eq('business_id', businessId).maybeSingle()
       if (error) throw error
-      return data
+      return currentPublicSofiaPlaceLink(data, businessId)
     },
     claimBudget: (...args) => createBudgetGuard(getSupabaseAdmin(), config, logDiscoveryUsage)(...args),
   })(request, (await params).slug)

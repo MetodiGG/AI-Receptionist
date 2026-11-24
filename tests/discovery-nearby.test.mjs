@@ -8,12 +8,15 @@ import { nearbySearchScope, partitionNearbyPlaceIds } from '../lib/discovery/nea
 import { discoverBusinesses } from '../lib/discovery/search.mjs'
 import { legacyGoogleConfig as discoveryConfig } from './helpers/legacy-google-config.mjs'
 import { googleSearchRequest } from '../lib/discovery/google-places.mjs'
-import { fictionalDiscoveryBusinesses, fictionalGoogleResponse } from '../lib/discovery/mock.mjs'
+import { fictionalDiscoveryBusinesses as rawDemoBusinesses, fictionalGoogleResponse } from '../lib/discovery/mock.mjs'
 import { rankDiscoveryResults } from '../lib/discovery/ranking.mjs'
 import { normalizeInternalBusinesses } from '../lib/discovery/internal-search.mjs'
 import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
+import { verifiedNativeFixture } from './helpers/verified-native-location.mjs'
 
 const now = DateTime.fromISO('2026-11-02T09:00:00Z')
+const fictionalDiscoveryBusinesses = intent => rawDemoBusinesses(intent).map(row =>
+  verifiedNativeFixture({ ...row, address: 'София, ул. Примерна 7' }, row.public_profile))
 const coordinates = { latitude: 42.6977, longitude: 23.3219, consent: true }
 const request = (patch = {}) => discoveryRequestSchema.parse(discoverySearchInput({ query: 'маникюр', coordinates, expandNearby: true, ...patch }))
 const parse = input => ({ ...parseIntent(input, now, { v2: true }), searchV2: true })

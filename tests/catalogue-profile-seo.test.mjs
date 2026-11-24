@@ -163,6 +163,22 @@ test('BG/EN route server-renders actual full service names/prices and safe real 
   }
 })
 
+test('profile coordinates and licence notices describe the same accepted point and never credit a withheld point', () => {
+  const profileAt = id => actualProfile(SOFIA_CATALOGUE.find(row => row.id === id)).business
+  const municipal = profileAt('sofia-in-beauty')
+  assert.deepEqual(municipal.coordinates, { latitude: 42.65564914279809, longitude: 23.31449726584672 })
+  assert.deepEqual(municipal.coordinateAttribution, { label: attribution.OFFICIAL_SOFIA_ATTRIBUTION,
+    url: attribution.OFFICIAL_SOFIA_SOURCE_URL, licence: 'CC-BY-4.0' })
+  const osm = profileAt('sofia-nail-cocktail-boutique')
+  assert.equal(osm.locationStatus, 'verified_sofia')
+  assert.deepEqual(osm.coordinateAttribution, { label: attribution.OSM_ATTRIBUTION, url: attribution.OSM_COPYRIGHT_URL, licence: 'ODbL-1.0' })
+  const withheld = profileAt('sofia-shining-polishing-auto')
+  assert.equal(withheld.locationStatus, 'conflict')
+  assert.equal(withheld.coordinates, null)
+  assert.equal(withheld.coordinateAttribution, undefined)
+  assert.equal(rail.railDirections(withheld), null)
+})
+
 test('catalogue profiles show one Services & Prices menu without duplicating entries or changing existing service fragment IDs', async () => {
   responseProfile = actualProfile(SOFIA_CATALOGUE.find(row => row.id === 'sofia-beauty-studio-99'))
   const expectedIds = details.groupDetailServices(details.businessDetailServices(responseProfile.business)).flatMap(group => group.services.map((service, index) => `service-${group.key || 'other'}-${index}`))

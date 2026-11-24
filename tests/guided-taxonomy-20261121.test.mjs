@@ -4,6 +4,7 @@ import { execFileSync } from 'node:child_process'
 import { readFile, access } from 'node:fs/promises'
 import { DateTime } from 'luxon'
 import { CATEGORY_IDS } from '../lib/discovery/categories.mjs'
+import { SUBCATEGORY_REPLACEMENTS } from '../lib/discovery/subcategory-illustrations.mjs'
 import { DISCOVERY_SUBCATEGORIES, SUBCATEGORY_IDS, subcategoryById, subcategoriesForCategory, matchesSubcategory, subcategoryOptionsForBusinesses, filterBusinessesBySubcategory } from '../lib/discovery/subcategories.mjs'
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 import { approvedCatalogueRecord } from '../lib/discovery/catalogue-policy.mjs'
@@ -44,9 +45,11 @@ test('guided taxonomy keeps all104 legacy IDs in their order, all14 category rel
 })
 
 for (const addition of audit.additions) {
-  test(`new ${addition.id} has real approved service support, a correct parent and unchanged bilingual existing photo`, async () => {
+  test(`new ${addition.id} has real approved service support, the same bilingual taxonomy and approved artwork`, async () => {
     const definition = subcategoryById(addition.id)
-    assert.deepEqual(definition, Object.fromEntries(Object.entries(addition).filter(([key]) => !['businessCount', 'serviceCount', 'examples'].includes(key))))
+    const historical = Object.fromEntries(Object.entries(addition).filter(([key]) => !['businessCount', 'serviceCount', 'examples'].includes(key)))
+    const replacement = SUBCATEGORY_REPLACEMENTS[addition.id]
+    assert.deepEqual(definition, replacement ? { ...historical, photo: replacement, generatedPhoto: true } : historical)
     assert.ok(definition.bg && definition.en)
     for (const locale of ['bg', 'en']) {
       assert.equal(subcategoriesForCategory(definition.category, locale).find(item => item.id === addition.id).label, definition[locale])

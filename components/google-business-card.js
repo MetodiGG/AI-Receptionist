@@ -110,7 +110,6 @@ function GoogleBusinessContactDialog({ card, locale, providerLocale, onClose }) 
     <p className="google-contact-note">{en ? 'Use the business website or phone to ask about a time. Online booking and availability are not verified here.' : 'Избери сайта или телефона на бизнеса и уточни час. Онлайн резервацията и свободните часове тук не са проверени.'}</p>
     <WidgetNotice status={status} locale={locale} onRetry={() => setAttempt(value => value + 1)}/>
     <div ref={host} className="google-card-native" aria-label={en ? 'Contact details from Google Maps' : 'Контакти от Google Maps'}/>
-    {status === 'ready' && <p className="google-contact-note">{en ? 'If no contact is listed, use Google Maps. Opening a website or calling does not confirm an appointment.' : 'Ако не е посочен контакт, използвай Google Maps. Отварянето на сайт или обаждането не потвърждават резервация.'}</p>}
-    <PublicAction as="a" variant="secondary" href={railDirections({ source: 'google', placeId: card.placeId })} target="_blank" rel="noopener noreferrer" translate="no">Google Maps</PublicAction>
+    {status === 'ready' && <p className="google-contact-note">{en ? 'Opening a website or calling does not confirm an appointment.' : 'Отварянето на сайт или обаждането не потвърждават резервация.'}</p>}
   </GoogleContactDialogFrame>
 }

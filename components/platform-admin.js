@@ -21,6 +21,7 @@ import { AdminExternalBookingLinks } from './admin-external-booking-links'
 import { AdminReferralAnalytics } from './admin-referral-analytics'
 import { AdminBusinessReport } from './admin-business-report'
 import { AdminCatalogue } from './admin-catalogue'
+import { AdminLocationReview } from './admin-location-review'
 import { adminSections, adminSectionDestination } from '../lib/admin-navigation.mjs'
 
 const STATES={pending:['Чака одобрение','Awaiting approval'],published:['Публикуван','Published'],unpublished:['Непубликуван','Unpublished'],suspended:['Спрян от админ','Suspended'],archived:['В кошчето','In trash']}
@@ -228,6 +229,7 @@ export function PlatformAdmin({preview=null}) {
         {tab==='statistics'&&<AdminReferralAnalytics send={adminRequest} locale={locale} preview={Boolean(preview)} businesses={overview.businesses} onReport={openReport}/>}
         {tab==='catalogue'&&<AdminCatalogue send={adminRequest} locale={locale} onDirty={setCatalogueDirty} onBusy={setCatalogueBusy} refreshKey={linkRefreshKey}/>}
         {tab==='external-links'&&<AdminExternalBookingLinks onDirty={setLinkDirty} onBusy={setLinkBusy} refreshKey={linkRefreshKey} onManagePartners={()=>chooseSection('businesses')} send={adminRequest} locale={locale} preview={Boolean(preview)} previewData={preview?.externalLinks}/>}
+        {tab==='businesses'&&<AdminLocationReview send={adminRequest} onSelect={open} locale={locale} preview={Boolean(preview)} refreshKey={linkRefreshKey}/>}
         {tab==='businesses'&&<section className="admin-console-section">
           <header><div><h2>{en?'Business profiles':'Бизнес профили'}</h2><p>{en?'Visibility and management at a glance.':'Видимост и управление на едно място.'}</p></div><span>{businesses.length} {en?'results':'резултата'}</span></header>
           <div className="admin-business-filters"><label>{en?'Search':'Търси'}<input type="search" value={query} onChange={e=>setQuery(e.target.value)} placeholder={en?'Name, city or email':'Име, град или имейл'}/></label><label>{en?'Visibility':'Видимост'}<select value={state} onChange={e=>setState(e.target.value)}><option value="all">{en?'All, including trash':'Всички, включително кошчето'}</option>{Object.keys(STATES).map(key=><option key={key} value={key}>{text(STATES,key,en)}</option>)}</select></label></div>

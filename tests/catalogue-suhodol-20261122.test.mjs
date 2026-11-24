@@ -122,7 +122,7 @@ test('GPS-radius discovery retains strict actual category, quarter and city scop
   assert.deepEqual(normalizeCatalogueBusinesses([{ ...row, coordinates: null }], intent, { now }), [])
 })
 
-test('external calendar and street-address directions remain distinct from a confirmed GoRez reservation', () => {
+test('external calendar and verified postal-point directions remain distinct from a confirmed GoRez reservation', () => {
   assert.deepEqual(row.booking, { kind: 'form', url: booking })
   assert.equal(row.verification.booking.url, site + 'contact')
   assert.match(row.verification.booking.excerpt, /Запази час през Superdoc/u)
@@ -130,7 +130,8 @@ test('external calendar and street-address directions remain distinct from a con
   const [found] = normalizeCatalogueBusinesses([row], { cityCode: '68134', browse: true, searchV2: true }, { now })
   assert.deepEqual(railExternalAction(found, now), { kind: 'form', href: booking })
   assert.equal(found.source, 'catalogue'); assert.equal(found.gorezBusinessId, undefined)
-  assert.equal(new URL(businessMapsDirectionsUrl(row)).searchParams.get('destination'), row.address + ', България')
+  assert.equal(found.address, row.address)
+  assert.equal(new URL(businessMapsDirectionsUrl(found)).searchParams.get('destination'), '42.699806,23.225159')
   assert.equal(row.openingHours, undefined)
   assert.deepEqual(catalogueBusinessDetails(row, now).hours, [])
 })

@@ -6,6 +6,7 @@ import { CATEGORY_IDS } from '../lib/discovery/categories.mjs'
 import { DISCOVERY_SUBCATEGORIES, SUBCATEGORY_IDS, subcategoriesForCategory, subcategoryById, matchesSubcategory, businessSubcategoryIds, subcategoryOptionsForBusinesses } from '../lib/discovery/subcategories.mjs'
 import { SPECIFIC_SERVICE_PHOTO_IDS } from '../lib/specific-service-photo-ids.mjs'
 import { APPROVED_SERVICE_PHOTO_IDS } from '../lib/service-photos.mjs'
+import { SUBCATEGORY_REPLACEMENTS } from '../lib/discovery/subcategory-illustrations.mjs'
 import { REVIEWED_PARTNER_SERVICE_PHOTOS } from '../lib/partner-service-photos.mjs'
 import { GENERATED_CATALOGUE_SERVICE_PHOTO_IDS } from '../lib/service-photos-catalogue-expansion.mjs'
 import { discoveryRequestSchema, parseIntent } from '../lib/discovery/intent.mjs'
@@ -41,7 +42,12 @@ test('every existing public category has stable bilingual photographic subcatego
       assert.match(item.id,/^[a-z][a-z_-]*-[a-z0-9-]+$/)
       assert.match(item.photo,/^\/service-photos\/[a-z0-9-]+-v1\.webp$/)
       const id=item.photo.slice('/service-photos/'.length,-'-v1.webp'.length)
-      assert.ok(approvedPhotoIds.has(id),id)
+      if (SUBCATEGORY_REPLACEMENTS[item.id]) {
+        assert.equal(item.photo,SUBCATEGORY_REPLACEMENTS[item.id])
+        assert.equal(item.generatedPhoto,true)
+      } else {
+        assert.ok(approvedPhotoIds.has(id),id)
+      }
       await access(new URL('../public'+item.photo,import.meta.url))
       assert.equal(item.pattern,undefined,'do not serialize matching rules')
     }

@@ -15,6 +15,7 @@ import { BOOKING_PRICE_REVIEWS, BOOKING_REVIEWED_PRICING } from '../lib/discover
 import { catalogueBoundCoordinates } from '../lib/discovery/catalogue-coordinate-binding.mjs'
 import { assessPricingReview, pricingIdentity } from '../lib/discovery/catalogue-pricing-review.mjs'
 import { normalizeCatalogueBusinesses } from '../lib/discovery/catalogue-search.mjs'
+import { businessMapsDirectionsUrl } from '../lib/business-directions.mjs'
 import { matchesSubcategory } from '../lib/discovery/subcategories.mjs'
 import { createEnglishContentResolver } from '../lib/locale/public-content-resolver.mjs'
 import { serviceThumbnail } from '../lib/service-thumbnail.mjs'
@@ -72,14 +73,19 @@ test('studio tariff revokes the superseded receipt without modifying historical 
   assert.equal(applyDesGeorgievaRefresh20261123([newDes])[0], newDes)
 })
 
-test('Republica picking and radius honor the existing address-bound point and phone booking', () => {
+test('Republica keeps its address and phone booking while the disputed point is withheld from radius results', () => {
   assert.deepEqual(newAuto, { ...oldAuto, neighborhood: 'Република', coordinates: { ...oldAuto.coordinates, sourceNeighborhood: 'Република' } })
   assert.deepEqual(oldAuto.services, newAuto.services)
   assert.equal(pricingIdentity(newAuto), auto.pricingIdentity)
   assert.equal(catalogueBoundCoordinates(newAuto)?.addressId, auto.point.addressId)
-  const [result] = near(newAuto)
+  assert.deepEqual(near(newAuto), [], 'An exact municipal address alone cannot establish which settlement contains this point')
+  const [result] = near(newAuto, { coordinates: undefined, radiusKm: undefined })
   assert.equal(result.id, auto.id)
   assert.deepEqual(result.booking, { ...oldAuto.booking, verified: true, checkedOn: oldAuto.verification.checkedOn, validUntil: oldAuto.verification.validUntil })
+  assert.equal(result.address, newAuto.address)
+  assert.equal(result.locationStatus, 'conflict')
+  assert.equal(result.coordinates, null)
+  assert.equal(businessMapsDirectionsUrl(result), null)
   assert.deepEqual(near(newAuto, { neighborhood: 'Люлин 2' }), [])
   assert.deepEqual(near(newAuto, { coordinates: { latitude: 42.70, longitude: 23.23 } }), [])
   const foreign = { ...oldAuto, coordinates: { ...oldAuto.coordinates, addressId: '1' } }

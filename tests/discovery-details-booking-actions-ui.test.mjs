@@ -10,6 +10,7 @@ import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
 import { renderToStaticMarkup } from 'react-dom/server'
 import * as bookingButtonContent from './helpers/booking-button-content.mjs'
 import * as publicAction from './helpers/public-action.mjs'
+import { DirectionsUnavailable } from './helpers/verified-directions.mjs'
 
 const require = createRequire(import.meta.url)
 const { loadBindings, transform } = require('next/dist/build/swc')
@@ -42,6 +43,7 @@ function detailsActions(row, locale) {
   const states = [null, true]
   const stubs = {
     './booking-button-content': bookingButtonContent,
+    './directions-unavailable': { DirectionsUnavailable },
     react: { ...React, memo: component => component, useRef: value => ({ current: value }), useState: () => {
       assert.ok(stateIndex < states.length, 'unexpected state; update the explicit card harness')
       return [states[stateIndex++], () => assert.fail('render must not update state')]

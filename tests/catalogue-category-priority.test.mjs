@@ -88,9 +88,13 @@ test('multiple local partners keep their distance order and city-centre browsing
 })
 
 test('local partner convenience preserves category, neighbourhood and radius guards while occupied businesses remain discoverable', async () => {
-  const partner={id:'p',slug:'p',name:'Nearby Nails',city_ekatte:'68134',neighborhood:'Борово',industry:'beauty',public_profile:{latitude:origin.latitude,longitude:origin.longitude},services:[{id:'s',name:'Маникюр',active:true,price:20,duration_min:45,currency:'EUR'}]}
-  const input={query:'маникюр',coordinates:{...origin,consent:true}}
-  const result=await discoverBusinesses(input,deps({readInternal:async()=>[partner,{...partner,id:'far',slug:'far',public_profile:{latitude:42.8,longitude:23.4}}]}))
+  const location = (address, point, osmId) => ({ city:'София', address, location_revision:2,
+    public_profile:point, location_source:{ ...point, match_version:2, location_revision:2,
+      licence:'ODbL-1.0', attribution:'© OpenStreetMap contributors', source_url:`https://www.openstreetmap.org/node/${osmId}` } })
+  const partner={id:'p',slug:'p',name:'Nearby Nails',city_ekatte:'68134',neighborhood:'Борово',industry:'beauty',...location('ул. Солун 4',origin,1),services:[{id:'s',name:'Маникюр',active:true,price:20,duration_min:45,currency:'EUR'}]}
+  const far={...partner,id:'far',slug:'far',...location('ул. Солун 89',{latitude:42.69,longitude:23.29},2)}
+  const input={query:'маникюр',coordinates:{...origin,consent:true}, radiusKm:1}
+  const result=await discoverBusinesses(input,deps({readInternal:async()=>[partner,far]}))
   assert.equal(result.results[0].id,'p'); assert.equal(result.results.some(row=>row.id==='far'),false)
   const wrong=await discoverBusinesses({...input,query:'автосервиз'},deps({readInternal:async()=>[partner]}))
   assert.equal(wrong.results.some(row=>row.id==='p'),false)

@@ -29,9 +29,13 @@ test('address-only examples never substitute a street or quarter for verified ki
   for (const pattern of [/Beauty Studio Marry.*Куклата/iu, /Abi Beauty.*Лозенец/iu]) {
     const row = rows.find(row => pattern.test(row.name))
     assert.ok(row, pattern.source)
-    if (row.coordinates) assert.match(distanceBadge(discoveryDistanceOrigin({ cityCode: '68134' }), row.coordinates).value, /\d.+km/)
-    else assert.equal(businessLocationBadge(row).value, '— km')
-    assert.match(railDirections(row), /^https:\/\/www.google.com\/maps\/dir\//)
+    if (row.coordinates) {
+      assert.match(distanceBadge(discoveryDistanceOrigin({ cityCode: '68134' }), row.coordinates).value, /\d.+km/)
+      assert.equal(new URL(railDirections(row)).searchParams.get('destination'), `${row.coordinates.latitude},${row.coordinates.longitude}`)
+    } else {
+      assert.equal(businessLocationBadge(row).value, '— km')
+      assert.equal(railDirections(row), null)
+    }
   }
 })
 

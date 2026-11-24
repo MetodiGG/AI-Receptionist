@@ -73,7 +73,13 @@ test('unusable public-directory points never become plausible distance badges', 
     assert.equal(distanceBadge(origin, point), null)
     if (point) assert.equal(directoryCoordinates(point), null)
   }
-  assert.deepEqual(directoryCoordinates({ latitude: 42.7, longitude: 23.3 }), { latitude: 42.7, longitude: 23.3 })
+  const point = { latitude: 42.7, longitude: 23.3 }
+  const row = { id: 'directory-test', city_ekatte: '68134', city: 'София', address: 'ул. Чумерна 3', public_profile: point,
+    location_revision: '2', location_source: { ...point, match_version: 2, location_revision: '2',
+      licence: 'ODbL-1.0', attribution: '© OpenStreetMap contributors', source_url: 'https://www.openstreetmap.org/node/3' } }
+  assert.equal(directoryCoordinates(point), null, 'A plausible pair without address evidence must not show distance')
+  assert.deepEqual(directoryCoordinates(row), point)
+  assert.equal(directoryCoordinates({ ...row, location_revision: '3' }), null)
   for (const value of [null, undefined, NaN, Infinity, -1, '0.7']) assert.equal(displayDistanceKm(value), null)
 })
 

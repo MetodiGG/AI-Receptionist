@@ -1,0 +1,91 @@
+{
+  "source": "built-in image_gen",
+  "review": "The scenes are illustrations, not representations of a specific operator or a photograph of a partner. Original assets remain unchanged.",
+  "assets": [
+    {
+      "id": "barber-children",
+      "sourceFile": "exec-a37265db-8cc8-43e9-82b2-b5e2358611b1.png",
+      "sourceSha256": "070243979207088539003b86cf733c937bba4fb85bc7227ff311fe8d9804e369",
+      "output": "public/service-photos/go-subcategory-barber-children-v1.webp",
+      "sha256": "907f6939fa7ad0f7f208603cc9f0ef3e94677393c8749c17b7d602fe264b8d2b",
+      "bytes": 20698,
+      "originalWidth": 1254,
+      "dimensions": [
+        400,
+        400
+      ],
+      "before": "/service-photos/kids-haircut-v1.webp",
+      "after": "/service-photos/go-subcategory-barber-children-v1.webp",
+      "source": "illustrative",
+      "prompt": "Use case: photorealistic-natural. Asset type: square GoRez subcategory cover for a boy’s barbershop haircut; fictional editorial illustration. An older male barber seen from behind and to the side, using cordless clippers around the temple of a school-age boy in a charcoal cape, calm candid three-quarter profile in the mirror. Low elegant walnut-and-olive barbershop, window light, no barber pole required, clear electric clipper and crop at a small tile. Different scene from a smiling child front-facing during a woman's scissor haircut. Natural hair and hand texture. No text, logos, marks, other products or recognizable venue."
+    },
+    {
+      "id": "education-school",
+      "sourceFile": "exec-a8f9489e-9ec9-4d2f-84f8-229cc860a652.png",
+      "sourceSha256": "01f68b8c0e8572a75a1441767770ea063058370277fbd00c79d3c39b9c39397f",
+      "output": "public/service-photos/go-subcategory-education-school-v1.webp",
+      "sha256": "cd8d0cf8d583989a34751986ae24d1477724caf4bbc76b7bc74bfc8b4d9a1273",
+      "bytes": 22416,
+      "originalWidth": 1254,
+      "dimensions": [
+        400,
+        400
+      ],
+      "before": "/service-photos/math-lesson-v1.webp",
+      "after": "/service-photos/go-subcategory-education-school-v1.webp",
+      "source": "illustrative",
+      "prompt": "Use case: photorealistic-natural. Asset type: square GoRez category-navigation photo illustration for school subjects tutoring. Side-view daytime group lesson: one teacher at a classroom whiteboard with three simple unlabelled diagrams (leaf, river and orbit) and two older students at separate desks, classroom and teacher centered and legible as a small tile. Natural pale warm school environment, documentary photography, faces neutral and not front-facing. Not private mathematics instruction; no pencils pointing at paper, charts with tiny lettering, logos or watermark."
+    },
+    {
+      "id": "education-exam-preparation",
+      "sourceFile": "exec-347ee9db-e3b1-4a6f-9c69-137132649406.png",
+      "sourceSha256": "68038115fe0ffe62ed94f991697f6b0ed1084ff3e8c8d50b6f6d15a98634def8",
+      "output": "public/service-photos/go-subcategory-education-exam-preparation-v1.webp",
+      "sha256": "0d22e141a82b2fac27aa1801fd2acb4ad63af5617fed4de1187298dc4786d8c5",
+      "bytes": 31140,
+      "originalWidth": 1254,
+      "dimensions": [
+        400,
+        400
+      ],
+      "before": "/service-photos/math-lesson-v1.webp",
+      "after": "/service-photos/go-subcategory-education-exam-preparation-v1.webp",
+      "source": "illustrative",
+      "prompt": "Use case: photorealistic-natural. Asset type: square GoRez navigation photo illustration for exam preparation. Over-the-shoulder editorial photograph of a single high-school student revising independently at a sunny public reading-room table, hand placing a colored sticky tab in an open study binder, small silent analog timer beside the pages, rows of library shelves softly behind. Large centered silhouette and study materials readable at tile size. Not two people being tutored, not geometry instruction. No notebook alone, no text readable, no logos or watermark."
+    },
+    {
+      "id": "health-rehabilitation",
+      "sourceFile": "exec-172124d2-6887-4dc2-9bc1-39906d2cb69c.png",
+      "sourceSha256": "76ea2dddbf1f072f62169c744b3bf348d5ed54ee99e79c313e86e77bfb8f24a8",
+      "output": "public/service-photos/go-subcategory-health-rehabilitation-v1.webp",
+      "sha256": "c6c3f36d81ccc56b36c2e0630d20e6a0c49ab19dace1007f4018ddd08278fd5b",
+      "bytes": 18876,
+      "originalWidth": 1254,
+      "dimensions": [
+        400,
+        400
+      ],
+      "before": "/service-photos/physiotherapy-v1.webp",
+      "after": "/service-photos/go-subcategory-health-rehabilitation-v1.webp",
+      "source": "illustrative",
+      "prompt": "Use case: photorealistic-natural. Asset type: square GoRez subcategory photo for general rehabilitation, clearly illustrative and not a representation of an actual venue. In a modest well-lit rehab room, an older adult in sportswear takes a supported step between parallel bars under an observing therapist’s supervision; show hands on bars and stepping feet in a central balanced mid-wide composition. No stretching bands, no upper-body exercise, no hospital branding, no physiotherapy claims or treatment promises, no text or watermark. Observational natural photography."
+    },
+    {
+      "id": "consulting-business",
+      "sourceFile": "exec-1b9b437a-6bc0-42e0-8d60-339e1da482fa.png",
+      "sourceSha256": "416410bde0260e658e4c4cc39de8c9725eaa918622feb9bb4add9d6e3cf80720",
+      "output": "public/service-photos/go-subcategory-consulting-business-v1.webp",
+      "sha256": "7cefe05959f6c6cf81c909451315f2595483fe5ba802f34357f325abb1de1260",
+      "bytes": 26064,
+      "originalWidth": 1254,
+      "dimensions": [
+        400,
+        400
+      ],
+      "before": "/service-photos/legal-consultation-v1.webp",
+      "after": "/service-photos/go-subcategory-consulting-business-v1.webp",
+      "source": "illustrative",
+      "prompt": "Use case: photorealistic-natural. Asset type: square GoRez subcategory photo for business consulting. Three small-business co-founders at a standing-height wooden table during a strategy discussion, looking at simple blank swatches and a tablet with non-text abstract blocks while one gestures naturally. Wide side view and centered group in a modest, light-filled creative studio, credible clothes and hands. Different scene from two people across a seated legal desk, no signed documents, text, brand marks or watermark."
+    }
+  ]
+}

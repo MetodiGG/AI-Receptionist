@@ -1,0 +1,32 @@
+.container {
+  display: grid;
+  gap: .35rem;
+  align-content: start;
+  min-width: 0;
+}
+
+.container p { margin: 0; }
+.copy {
+  min-height: 44px;
+  padding: .35rem .95rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: .875rem;
+  font-weight: 600;
+  white-space: normal;
+}
+.copy:enabled { cursor: pointer; }
+.copy:disabled { opacity: .55; }
+.copy:enabled:hover { background: color-mix(in srgb, currentColor 7%, transparent); }
+.copy:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.container input {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+}

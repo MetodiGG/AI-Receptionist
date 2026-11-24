@@ -3,6 +3,7 @@ import test from 'node:test'
 import { readFile } from 'node:fs/promises'
 import { createReviewHandlers, reviewSchema, reviewVisit, publicReviewPage } from '../lib/reviews.mjs'
 import { businessWeeklyHours, groupBusinessServices, profileDetailsSchema, publicProfileDetails, businessDirectionsUrl, businessMapUrl } from '../lib/business-profile.mjs'
+import { publicNativeBusinessLocation } from '../lib/native-location-evidence.mjs'
 import { createProfileUpdateHandler, createReviewAdminHandlers } from '../lib/profile-management.mjs'
 import { buildNotificationEmail, notificationIsCurrent } from '../lib/notification-email.mjs'
 import { createNotificationWorker } from '../lib/notification-worker.mjs'
@@ -75,13 +76,24 @@ test('published working hours include real lunch breaks, omit inactive staff and
   business.workingHours.push({ staff_id: 'b', weekday: 1, open_time: '11:00', close_time: '14:00' })
   assert.deepEqual(businessWeeklyHours(business)[0].periods, ['09:00–18:00'])
 })
-test('directions encode an address safely and maps require owner-supplied coordinates, never guessed business positions', () => {
+test('directions and maps encode only the same current verified destination, never the free-text address', () => {
   const address = 'София, ул. Синанишко езеро 13 & 15'
-  assert.equal(new URL(businessDirectionsUrl({ address })).searchParams.get('destination'), address + ', България')
+  assert.equal(businessDirectionsUrl({ address }), null)
   assert.equal(businessMapUrl({ address }), null); assert.equal(businessDirectionsUrl({}), null)
-  const business = { address, public_profile: { latitude: 42.7, longitude: 23.32 } }
-  assert.equal(new URL(businessDirectionsUrl(business)).searchParams.get('destination'), address + ', България')
-  const map = new URL(businessMapUrl(business)); assert.equal(map.hostname, 'www.openstreetmap.org'); assert.equal(map.searchParams.get('marker'), '42.7,23.32')
+  const point = { latitude: 42.7, longitude: 23.32 }
+  const business = { id: 'test-venue', source: 'gorez', city_ekatte: '68134', city: 'София', address, locationAddress: 'ул. Синанишко езеро 13 & 15',
+    public_profile: point, location_revision: 4 }
+  assert.equal(businessMapUrl(business), null)
+  assert.equal(businessDirectionsUrl(business), null, 'An otherwise plausible stored pin does not establish the branch')
+  const reviewed = { ...business, ...publicNativeBusinessLocation({ ...business, location_source: { ...point, match_version: 2, location_revision: 4,
+    source_url: 'https://www.openstreetmap.org/node/1', licence: 'ODbL-1.0', attribution: '© OpenStreetMap contributors' } }) }
+  const route = new URL(businessDirectionsUrl(reviewed))
+  assert.equal(route.origin, 'https://www.google.com')
+  assert.deepEqual([...route.searchParams], [['api', '1'], ['destination', '42.7,23.32']])
+  const map = new URL(businessMapUrl(reviewed))
+  assert.equal(map.hostname, 'www.openstreetmap.org')
+  assert.equal(map.searchParams.get('marker'), route.searchParams.get('destination'))
+  assert.equal(businessMapUrl({ ...reviewed, address: address + 'Е' }), null)
 })
 function profileHarness(overrides = {}) {
   const writes = [], ownership = []

@@ -9,6 +9,7 @@ import * as bookingMode from '../lib/booking-mode.mjs'
 import * as photoLayout from '../lib/business-photo-layout.mjs'
 import * as cataloguePhotos from '../lib/catalogue-photo-view.mjs'
 import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
+import { DirectionsUnavailable, withVerifiedFixtureDirections } from './helpers/verified-directions.mjs'
 
 const require = createRequire(import.meta.url), { loadBindings, transform } = require('next/dist/build/swc')
 await loadBindings()
@@ -22,7 +23,7 @@ function elements(node, predicate, found = []) {
   return found
 }
 const nodeClass = (tree, className) => elements(tree, node => node.props.className === className)
-const business = patch => ({ id: 'real-business-id', source: 'gorez', name: 'Дълго име на реален партньор', slug: 'real/branch', industry: 'beauty', category: 'hair', neighborhood: 'Манастирски ливади', address: 'София, ул. Пирин 83', coordinates: { latitude: 42.657, longitude: 23.292 }, services: [{ id: 'service-id', name: 'Мъжко подстригване', price: 18, currency: 'EUR' }], ...patch })
+const business = patch => withVerifiedFixtureDirections({ id: 'real-business-id', source: 'gorez', name: 'Дълго име на реален партньор', slug: 'real/branch', industry: 'beauty', category: 'hair', neighborhood: 'Манастирски ливади', address: 'София, ул. Пирин 83', services: [{ id: 'service-id', name: 'Мъжко подстригване', price: 18, currency: 'EUR' }], ...patch }, { latitude: 42.657, longitude: 23.292 })
 function fixture(patch = {}) {
   const values = [null, false], refs = [], events = [], props = { row: business(), locale: 'bg', quickChoice: true, ...patch }
   let index = 0, tree
@@ -32,6 +33,7 @@ function fixture(patch = {}) {
     './icon': { Icon: Empty }, './brand-logo': { BrandMark: Empty }, './business-cover-photo': { BusinessCoverPhoto: Cover },
     './outbound-booking-button': { OutboundBookingButton: Outbound }, './public-action': { PublicAction: Action, PublicActionPair: Pair },
     './service-thumbnail': { ServiceThumbnail: Thumbnail },
+    './directions-unavailable': { DirectionsUnavailable },
     '../lib/booking-mode.mjs': bookingMode, '../lib/discovery/home.mjs': home, '../lib/discovery/rail.mjs': rail,
     '../lib/business-photo-layout.mjs': photoLayout, './discovery-distance-badge': { DiscoveryDistanceBadge: Badge },
     '../lib/catalogue-photo-view.mjs': cataloguePhotos, '../lib/discovery/copy.mjs': { DISCOVERY_COPY },

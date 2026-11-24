@@ -16,6 +16,7 @@ import * as presentation from '../lib/discovery/service-presentation.mjs'
 import * as photoLayout from '../lib/business-photo-layout.mjs'
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 import * as bookingButtonContent from './helpers/booking-button-content.mjs'
+import { DirectionsUnavailable } from './helpers/verified-directions.mjs'
 import * as publicAction from './helpers/public-action.mjs'
 import { serviceDisplayName, serviceDisplayUnit } from '../lib/locale/public-content.mjs'
 
@@ -29,6 +30,7 @@ const thumbnail = ({ size }) => React.createElement('span', { 'data-service-thum
 const publicServiceMenu = await loadPublicServiceMenu({ ServiceThumbnail: thumbnail })
 const shared = {
   './booking-button-content': bookingButtonContent,
+  './directions-unavailable': { DirectionsUnavailable },
   './icon': { Icon: ({ name }) => React.createElement('svg', { 'aria-hidden': true, 'data-icon': name }) },
   './service-thumbnail': { ServiceThumbnail: thumbnail },
   './business-cover-photo': { BusinessCoverPhoto: Empty },

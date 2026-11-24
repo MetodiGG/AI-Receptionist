@@ -11,11 +11,12 @@ import { ServiceThumbnail } from './service-thumbnail'
 import { profileServicePrice, profileShareUrl, shareProfileLink } from '../lib/business-profile-ui.mjs'
 import { servicePresentation } from '../lib/discovery/service-presentation.mjs'
 import { PublicAction } from './public-action'
+import { DirectionsUnavailable } from './directions-unavailable'
 
 // The same folded map and action class used by the homepage business cards.
 export function BusinessDirectionsLink({ business, locale = 'bg', address = false }) {
   const href = businessDirectionsUrl(business)
-  if (!href) return null
+  if (!href) return address ? <DirectionsUnavailable business={business} locale={locale} showAddress/> : null
   const label = locale === 'en' ? 'Directions' : 'Упътване'
   const accessibleLabel = locale === 'en' ? 'Get directions' : 'Упътване — как да стигна'
   return address ? <a className="business-profile-address profile-address-link" href={href} target="_blank" rel="noopener noreferrer" aria-label={`${accessibleLabel} · ${businessDisplayAddress(business, locale)}`}><span className="profile-map-icon"><Icon name="map" /></span><span>{businessDisplayAddress(business, locale)}</span></a>
@@ -34,7 +35,7 @@ export function BusinessProfileHeader({ business, locale, shareUrl }) {
   }
   return <section className="business-profile-hero" aria-labelledby="business-profile-name">
     <BusinessPhotoGallery photos={business.photos} businessName={business.name} locale={locale} key={business.id}
-      fallback={<BusinessCoverPhoto business={business} locale={locale} className="business-profile-no-photo" eager/>}/>
+      fallback={<BusinessCoverPhoto business={business} locale={locale} className="business-profile-no-photo" eager omitIfUnavailable/>}/>
     <div className="business-profile-identity">
       <div className="business-profile-name-row"><h1 id="business-profile-name">{business.name}</h1><button type="button" className="profile-share-button" aria-label={shared ? (en ? 'Link copied' : 'Линкът е копиран') : (en ? 'Share' : 'Сподели')} onClick={share}><Icon name="external" /><span role="status">{shared ? (en ? 'Copied' : 'Копирано') : (en ? 'Share' : 'Сподели')}</span></button></div>
       {business.address && <BusinessDirectionsLink business={business} locale={locale} address/>}

@@ -26,6 +26,7 @@ function load(name, react = React) {
     '../lib/discovery/categories.mjs': categories, '../lib/discovery/home.mjs': home,
     '../lib/discovery/inline-copy.mjs': inlineCopy,
     './discovery-tile-photo-style.mjs': tilePhotoStyle,
+    './discovery-subcategory-photo.module.css': { overlay: 'ai-photo-overlay', hint: 'ai-photo-hint' },
   }
   new Function('require', 'module', 'exports', compiled.get(name).code)(name => Object.hasOwn(stubs, name) ? stubs[name] : require(name), module, module.exports)
   return module.exports

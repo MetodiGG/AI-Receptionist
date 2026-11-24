@@ -20,7 +20,8 @@ await loadBindings()
 const filename = 'components/discovery-subcategories.js'
 const { code } = await transform(await read(filename), { filename, jsc: { parser: { syntax: 'ecmascript', jsx: true }, transform: { react: { runtime: 'automatic' } } }, module: { type: 'commonjs' } })
 const module = { exports: {} }
-new Function('require', 'module', 'exports', code)(name => name === './icon' ? { Icon: () => null } : name === './discovery-tile-photo-style.mjs' ? tilePhotoStyle : require(name), module, module.exports)
+const photoStyles={ overlay:'ai-photo-overlay',hint:'ai-photo-hint' }
+new Function('require', 'module', 'exports', code)(name => name === './icon' ? { Icon: () => null } : name === './discovery-tile-photo-style.mjs' ? tilePhotoStyle : name === './discovery-subcategory-photo.module.css' ? photoStyles : require(name), module, module.exports)
 const { DiscoverySubcategories } = module.exports
 const railFilename = 'components/discovery-home-rail.js'
 const { code: railCode } = await transform(await read(railFilename), { filename: railFilename, jsc: { parser: { syntax: 'ecmascript', jsx: true }, transform: { react: { runtime: 'automatic' } } }, module: { type: 'commonjs' } })
@@ -36,6 +37,7 @@ new Function('require', 'module', 'exports', guidedCode)(name => {
   if (name === '../lib/discovery/home.mjs') return { homeCategories }
   if (name === '../lib/discovery/subcategories.mjs') return { subcategoryById }
   if (name === '../lib/discovery/guided-copy.mjs') return { GUIDED_DISCOVERY_COPY }
+  if (name === './discovery-subcategory-photo.module.css') return photoStyles
   return require(name)
 }, guidedModule, guidedModule.exports)
 const { GuidedServiceDiscovery } = guidedModule.exports

@@ -8,28 +8,29 @@ import { createBudgetGuard, logDiscoveryUsage } from '../../../../lib/discovery/
 import { createDiscoveryHandler } from '../../../../lib/discovery/handler.mjs'
 import { hydrateInternalCandidates, readInternalCandidates } from '../../../../lib/discovery/internal-search.mjs'
 import { readPublicCataloguePhotos } from '../../../../lib/catalogue-photo-server'
+import { currentPublicSofiaPlaceLink, publicSofiaPlaceLinkFields } from '../../../../lib/discovery/partner-ratings.mjs'
 
 export const runtime = 'nodejs'
 export async function POST(request) {
   const config = discoveryConfig(process.env)
   const handler = createDiscoveryHandler({
-    config, log: logDiscoveryUsage,
+    config, sofiaOnly: true, log: logDiscoveryUsage,
     allowAttempt: request => config.perMinute > 0 && consumeRateLimit(request, { scope: 'ai-discovery', limit: config.perMinute, windowSeconds: 60, includeUserAgent: false }),
     claimBudget: (...args) => createBudgetGuard(getSupabaseAdmin(), config, logDiscoveryUsage)(...args),
     readInternal: (intent, options) => readInternalCandidates(getSupabaseAdmin(), intent, options),
     hydrateInternalCandidates: ids => hydrateInternalCandidates(getSupabaseAdmin(), ids),
     readCataloguePhotos: readPublicCataloguePhotos,
     readLinks: async ids => {
-      const { data, error } = await getSupabaseAdmin().from('business_place_links').select('business_id,place_id').in('business_id', ids)
+      const { data, error } = await getSupabaseAdmin().from('business_place_links').select(publicSofiaPlaceLinkFields).in('business_id', ids)
       if (error) throw error
-      return data || []
+      return (data || []).filter(row => currentPublicSofiaPlaceLink(row))
     },
     readPartnerPlaces: async ids => {
       const { data, error } = await getSupabaseAdmin().from('business_place_links')
-        .select('business_id,place_id,verified_by,verified_at,business:businesses!inner(id,active,platform_status)')
+        .select(publicSofiaPlaceLinkFields)
         .in('place_id', ids).limit(20)
       if (error) throw error
-      return data || []
+      return (data || []).filter(row => currentPublicSofiaPlaceLink(row))
     },
     readBookablePlaces: async ids => {
       const { data, error } = await getSupabaseAdmin().from('external_booking_links')

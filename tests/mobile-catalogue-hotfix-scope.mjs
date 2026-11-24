@@ -20,7 +20,7 @@ const changed = {
   ],
   "components/discovery-business-card.js": [
     "591d94afd7cc51fca5de38900178df026ecf26a8ecd69d1be64c923cb9c72cf7",
-    "ca89b271cd55973890f36fb84b0b31373cbe3b4c14f63de53a7d63a760d88730"
+    "c40282e90612bba20d15d24fba5dfd7f7351925a3a4b49c6e44adb0da498d60f"
   ],
   "components/discovery-business-details.js": [
     "db2bd89ab0ed9fa3d740993ce97f0e7134ec11d6ab6cc2b17fbd8ad6193be011",
@@ -29,10 +29,6 @@ const changed = {
   "lib/discovery-photo-presentation.mjs": [
     "cacf0ae20a6de45affee98b4eaa9b7526ab87e22215675310208dc4b1e43c43a",
     "07cfea897e142e39e32c43d983f92221cf3b400b9f982488a86fc1d5d1ce7ffa"
-  ],
-  "lib/discovery/service-description-disclosure.mjs": [
-    "58b664cc5a444fc875ff50799903c1c1f0a5ac8a578936a2748d97e13ad3822c",
-    "e2f67f3982211f84acf1f0fe2c2040420efcd60fcfaa6d47bc7465f521e7410e"
   ]
 }
 const added = {

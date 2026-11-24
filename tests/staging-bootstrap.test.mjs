@@ -5,6 +5,13 @@ import { PGlite } from '@electric-sql/pglite'
 import { btree_gist } from '@electric-sql/pglite/contrib/btree_gist'
 import { buildStagingBootstrap, STAGING_PROJECT_REF, STAGING_MIGRATIONS, PENDING_STAGING_MIGRATIONS } from '../scripts/prepare-staging.mjs'
 
+// Reintroduced with this release solely to document and test the location
+// schema already present in Production. This is not staging authorization.
+const PRODUCTION_LOCATION_REFERENCES = [
+  '20261124205000_sofia_exact_location_writes.sql',
+  '20261125001500_sofia_location_rpc_isolation.sql',
+]
+
 let db, artifact
 const fixture = `create role anon; create role authenticated; create role service_role bypassrls;
   create schema auth; create table auth.users(id uuid primary key,email text,email_confirmed_at timestamptz,deleted_at timestamptz);
@@ -26,8 +33,10 @@ test.after(async () => { await db?.close() })
 test('staging builder allows only the approved project and includes every reviewed migration in order', async () => {
   for (const ref of [undefined, '', 'ilpdtvbymxqgimrboyvh', 'otheremptyprojectabcd', "x';drop table t;--"]) await assert.rejects(buildStagingBootstrap(ref), /owner-approved/)
   const files = (await readdir(new URL('../supabase/migrations/', import.meta.url))).filter(name => /^\d{14}_.*\.sql$/.test(name)).sort()
-  assert.deepEqual([...STAGING_MIGRATIONS, ...PENDING_STAGING_MIGRATIONS].sort(), files)
+  assert.deepEqual([...STAGING_MIGRATIONS, ...PENDING_STAGING_MIGRATIONS, ...PRODUCTION_LOCATION_REFERENCES].sort(), files)
   assert.ok(PENDING_STAGING_MIGRATIONS.every(name => !STAGING_MIGRATIONS.includes(name)))
+  assert.ok(PRODUCTION_LOCATION_REFERENCES.every(name => !STAGING_MIGRATIONS.includes(name) && !PENDING_STAGING_MIGRATIONS.includes(name)))
+  assert.doesNotMatch(artifact.sql, /20261124205000_sofia_exact_location_writes|20261125001500_sofia_location_rpc_isolation|claim_registration_address_lookup_v2/)
   assert.doesNotMatch(artifact.sql, /change_business_media|business_content_audit/)
   assert.equal(artifact.migrations.length, 15); assert.match(artifact.sha256, /^[a-f0-9]{64}$/)
   assert.doesNotMatch(artifact.sql, /cron\.schedule|net\.http|ilpdtvbymxqgimrboyvh|service_role_key|resend_api_key/i)

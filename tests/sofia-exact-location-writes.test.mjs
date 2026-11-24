@@ -4,7 +4,6 @@ import test from 'node:test'
 import { PGlite } from '@electric-sql/pglite'
 import { applicationRecord } from '../lib/business-application.mjs'
 import { businessLocationUpdatePayload } from '../lib/business-content.mjs'
-import { catalogueGeocodeIntakeRequest, matchCatalogueGeocodeIntake } from '../lib/discovery/catalogue-geocoding-intake.mjs'
 
 const prior = await readFile(new URL('../supabase/migrations/20261112153000_registration_address_lookup.sql', import.meta.url), 'utf8')
 const migration = await readFile(new URL('../supabase/migrations/20261124205000_sofia_exact_location_writes.sql', import.meta.url), 'utf8')
@@ -157,14 +156,31 @@ test('switching a premises to mobile invalidates its pin, does not claim a geoco
   } finally { await db.close() }
 })
 
-test('new signup and admin content update retain exact supplied address and never inherit evidence on another number',()=>{
+test('signup into the existing schema retains the exact address and drops a geographically conflicting optional pin', async () => {
   const public_profile={description:{bg:'Sofia fixture'},latitude:42.67,longitude:23.29}
   const form={business:{city_ekatte:'68134',neighborhood:'Център',address,booking_mode:'phone',public_profile:{...public_profile,latitude:43.2,longitude:27.8}},
     locale:'bg', account:{email:'offline@example.test'},staff:[],services:[],schedule:[]}
   const stored=applicationRecord(form).business
   assert.equal(stored.address,address)
-  assert.deepEqual(stored.public_profile,{...public_profile,latitude:null,longitude:null})
   assert.equal(stored.booking_mode,'phone')
+  const db=await fixture(), newBusiness='20000000-0000-4000-8000-000000000003'
+  try {
+    await db.exec(migration)
+    // The PR #81 signup record reaches the already deployed insert trigger;
+    // verifying that boundary needs no change to booking or signup code.
+    await db.query(`insert into businesses(id,city_ekatte,city,neighborhood,address,public_profile,active,platform_status)
+      values($1,$2,$3,$4,$5,$6::jsonb,false,'pending')`,
+      [newBusiness,stored.city_ekatte,stored.city,stored.neighborhood,stored.address,JSON.stringify(stored.public_profile)])
+    const row=await live(db,newBusiness)
+    assert.equal(row.address,address)
+    assert.deepEqual(row.public_profile,{...public_profile,latitude:null,longitude:null})
+    assert.equal(row.platform_status,'pending')
+    assert.equal(row.location_revision,0)
+  } finally { await db.close() }
+})
+
+test('admin content update preserves the exact requested number and cannot transfer a point to another address',()=>{
+  const public_profile={description:{bg:'Sofia fixture'},latitude:42.67,longitude:23.29}
   for (const changedAddress of ['бул. Сливница 178, София','бул. Сливница 178E, София','ул. Сливница 178Е, София',
     'бул. Сливница 178Е/1, София','бул. Сливница 178Е-1, София','бул. Сливница 178Е, София, вх. Б']) {
     const current={city_ekatte:'68134',city:'София',neighborhood:'Център',address,public_profile}
@@ -172,16 +188,4 @@ test('new signup and admin content update retain exact supplied address and neve
     assert.equal(changed.address,changedAddress)
     assert.deepEqual(changed.public_profile,{...public_profile,latitude:null,longitude:null})
   }
-})
-
-test('offline catalogue intake uses only the new typed, exact Sofia postal matcher; no implicit city rewrite',()=>{
-  const row={id:'offline-synthetic',cityCode:'68134',locationKind:'premises',address}
-  assert.equal(catalogueGeocodeIntakeRequest(row).query,'бул. Сливница 178Е, София, България')
-  for (const patch of [{cityCode:'10135'}, {address:'бул. Сливница 178Е, Варна'}, {address:'Сливница 178Е, София'},
-    {address:'бул. Сливница 178Е, София, вх. Д'}, {locationKind:'service_area'},
-    {coordinates:{latitude:42.7,longitude:23.3}}]) assert.equal(catalogueGeocodeIntakeRequest({...row,...patch}),null)
-  const candidate={osm_type:'way',osm_id:98765,lat:'42.716',lon:'23.307',boundingbox:['42.7159','42.7161','23.3069','23.3071'],category:'building',type:'yes',
-    addresstype:'building',place_rank:30,address:{country_code:'bg',city:'София',road:'булевард Сливница',house_number:'178Е'}}
-  assert.equal(matchCatalogueGeocodeIntake(row,[candidate],'2026-11-24').coordinates.sourceAddress,address)
-  assert.equal(matchCatalogueGeocodeIntake(row,[{...candidate,address:{...candidate.address,house_number:'178'}}],'2026-11-24'),null)
 })

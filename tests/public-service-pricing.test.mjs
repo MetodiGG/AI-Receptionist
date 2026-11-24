@@ -23,10 +23,11 @@ const business = services => ({ id: '10000000-0000-4000-8000-000000000001', name
 function database(rows) {
   const calls = []
   return { calls, from(table) {
-    const call = { table, filters: [], limits: [], orders: [] }; calls.push(call)
+    const call = { table, filters: [], limits: [], orders: [], inclusions: [] }; calls.push(call)
     const query = {
       select(value) { call.fields = value; return query },
       eq(...value) { call.filters.push(value); return query },
+      in(...value) { call.inclusions.push(value); return query },
       order(...value) { call.orders.push(value); return query },
       limit(...value) { call.limits.push(value); return query },
       async maybeSingle() { return { data: rows[0] || null, error: null } },
@@ -64,14 +65,19 @@ test('full details and discovery reads request public price metadata without wea
   await readPublishedPartnerDetails(db, row.id)
   await readInternalCandidates(db, { category: 'hair', cityCode: '68134' })
   assert.match(PUBLIC_DETAILS_FIELDS, /services\([^)]*price_details/)
+  assert.equal(db.calls.length, 3, 'two service-bearing reads plus one bounded directions evidence read')
+  const [details, evidence, discovery] = db.calls
   for (const call of db.calls) {
-    assert.match(call.fields, /price_details/)
     assert.doesNotMatch(call.fields, /\*|owner_id|customers\(|appointments\(|billing/)
     assert.ok(call.filters.some(([field, value]) => field === 'active' && value === true))
     assert.ok(call.filters.some(([field, value]) => field === 'platform_status' && value === 'enabled'))
   }
-  assert.ok(db.calls[0].limits.some(([maximum, options]) => maximum === 500 && options?.referencedTable === 'services'))
-  assert.ok(db.calls[1].limits.some(([maximum]) => maximum === 100))
+  for (const call of [details, discovery]) assert.match(call.fields, /services\([^)]*price_details/u)
+  assert.match(evidence.fields, /registration_location_sources\(/u)
+  assert.doesNotMatch(evidence.fields, /services\(|price_details|phone|email/u)
+  assert.deepEqual(evidence.inclusions, [['id', [row.id]]])
+  assert.ok(details.limits.some(([maximum, options]) => maximum === 500 && options?.referencedTable === 'services'))
+  assert.ok(discovery.limits.some(([maximum]) => maximum === 100))
 })
 
 test('matching cards and full service menus retain range/from/unit/conditions but never arbitrary private service keys', () => {

@@ -6,6 +6,7 @@ import { businessWeeklyHours, groupBusinessServices, profileDetailsSchema, publi
 import { createProfileUpdateHandler, createReviewAdminHandlers } from '../lib/profile-management.mjs'
 import { buildNotificationEmail, notificationIsCurrent } from '../lib/notification-email.mjs'
 import { createNotificationWorker } from '../lib/notification-worker.mjs'
+import { withVerifiedDirections } from './helpers/pr81-verified-directions.mjs'
 
 const token = '10000000-0000-4000-8000-000000000001', owner = '20000000-0000-4000-8000-000000000001'
 const now = Date.parse('2026-10-26T15:00:00Z')
@@ -75,13 +76,20 @@ test('published working hours include real lunch breaks, omit inactive staff and
   business.workingHours.push({ staff_id: 'b', weekday: 1, open_time: '11:00', close_time: '14:00' })
   assert.deepEqual(businessWeeklyHours(business)[0].periods, ['09:00–18:00'])
 })
-test('directions encode an address safely and maps require owner-supplied coordinates, never guessed business positions', () => {
-  const address = 'София, ул. Синанишко езеро 13 & 15'
-  assert.equal(new URL(businessDirectionsUrl({ address })).searchParams.get('destination'), address + ', България')
-  assert.equal(businessMapUrl({ address }), null); assert.equal(businessDirectionsUrl({}), null)
-  const business = { address, public_profile: { latitude: 42.7, longitude: 23.32 } }
-  assert.equal(new URL(businessDirectionsUrl(business)).searchParams.get('destination'), address + ', България')
-  const map = new URL(businessMapUrl(business)); assert.equal(map.hostname, 'www.openstreetmap.org'); assert.equal(map.searchParams.get('marker'), '42.7,23.32')
+test('directions and the map require the same freshly verified branch point, not a raw address or raw pin', () => {
+  const address = 'София, ул. Синанишко езеро 13Е', point = { latitude: 42.7, longitude: 23.32 }
+  const row = { id:token,source:'gorez',address,public_profile:point }
+  for (const unsafe of [{address:'София, ул. Синанишко езеро 13 & 15'},row,{}]) {
+    assert.equal(businessDirectionsUrl(unsafe),null)
+    assert.equal(businessMapUrl(unsafe),null)
+  }
+  const verified = withVerifiedDirections(row,point)
+  assert.equal(new URL(businessDirectionsUrl(verified)).searchParams.get('destination'), '42.7,23.32')
+  const map = new URL(businessMapUrl(verified)); assert.equal(map.hostname, 'www.openstreetmap.org'); assert.equal(map.searchParams.get('marker'), '42.7,23.32')
+  for (const moved of [{...verified,address:'София, ул. Синанишко езеро 13'},{...verified,id:owner}]) {
+    assert.equal(businessDirectionsUrl(moved),null)
+    assert.equal(businessMapUrl(moved),null)
+  }
 })
 function profileHarness(overrides = {}) {
   const writes = [], ownership = []
@@ -169,7 +177,7 @@ test('new private pages are noindex/no-referrer; local fictional profile/review 
   assert.doesNotMatch(form, /trackProductEvent|trackEvent|dangerouslySetInnerHTML|localStorage/)
   assert.match(form, /<form onSubmit=\{submit\}/); assert.match(form, /required type="checkbox"/)
   const profile = await read('components/business-profile.js')
-  assert.match(profile, /mapLoaded \? <iframe/); assert.match(profile, /onClick=\{\(\) => setMapLoaded\(true\)\}/)
+  assert.match(profile, /mapLoaded && map \? <iframe/); assert.match(profile, /onClick=\{\(\) => setMapLoaded\(true\)\}/)
   assert.doesNotMatch(profile, /studio24|Valentino|5\.0|27 отзива/)
   const exportRoute = await read('app/api/owner/public-profile/route.js')
   assert.match(exportRoute, /\.eq\('id', id\)\.eq\('owner_id', user\.id\)/)

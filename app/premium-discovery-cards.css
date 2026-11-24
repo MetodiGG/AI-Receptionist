@@ -97,8 +97,9 @@
   list-style: none;
 }
 .customer-home .home-business-grid .is-compact-preview .home-business-service-preview > li {
-  display: grid;
-  grid-template-columns: 40px minmax(0,1fr) 14px;
+  /* The thumbnail can be unavailable; its absence must free its space
+     rather than auto-place the copy into the old thumbnail track. */
+  display: flex;
   align-items: center;
   gap: 10px;
   min-width: 0;
@@ -111,11 +112,12 @@
   transition: border-color 180ms ease,background-color 180ms ease;
 }
 .customer-home .home-business-grid .is-compact-preview .home-business-service-preview .service-thumbnail {
+  flex: 0 0 40px;
   width: 40px;
   height: 40px;
   border-radius: 10px;
 }
-.customer-home .home-business-grid .is-compact-preview .home-business-preview-copy { min-width: 0; }
+.customer-home .home-business-grid .is-compact-preview .home-business-preview-copy { flex: 1 1 0%; min-width: 0; }
 .customer-home .home-business-grid .is-compact-preview .home-business-preview-main {
   display: flex;
   flex-wrap: wrap;
@@ -162,6 +164,7 @@
 .customer-home .home-business-grid .is-compact-preview .home-business-preview-unit { text-align: right; }
 .customer-home .home-business-grid .is-compact-preview .home-business-preview-chevron {
   display: flex;
+  flex: 0 0 14px;
   align-items: center;
   justify-content: center;
   width: 14px;
@@ -269,3 +272,23 @@ html[data-theme="dark"] .customer-home .home-business-grid .is-compact-preview .
   .customer-home .home-business-grid .is-compact-preview .home-business-preview-chevron svg { transition: none; }
   .customer-home .home-business-grid .is-compact-preview:has(> .home-business-open:hover) .home-business-preview-chevron svg { transform: rotate(-90deg); }
 }
+
+/* Without relevant media, keep a real distance badge but not the photo slot. */
+.customer-home .home-business-grid article.home-business-card.is-compact-preview > .home-business-heading:not(:has(> .home-business-photo img)) {
+  grid-template-columns: minmax(0,1fr);
+  gap: 8px;
+}
+.customer-home .home-business-grid .is-compact-preview .home-business-heading:not(:has(> .home-business-photo img)) > .home-business-identity {
+  grid-column: 1;
+  grid-row: auto;
+}
+.customer-home .home-business-grid .is-compact-preview .home-business-heading > .home-business-photo:not(:has(img)) {
+  display: flex;
+  justify-content: end;
+  aspect-ratio: auto;
+  overflow: visible;
+  border: 0;
+  background: transparent;
+}
+.customer-home .home-business-grid .is-compact-preview .home-business-heading > .home-business-photo:empty { display: none; }
+.customer-home .home-business-grid .is-compact-preview .home-business-photo:not(:has(img)) > .home-distance-badge { position: static; }

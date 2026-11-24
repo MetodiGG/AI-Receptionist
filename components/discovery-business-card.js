@@ -72,7 +72,7 @@ export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, 
       <div className={`home-business-photo${photo && photo.src !== failedPhoto ? ' is-real-photo' : ''}`}>
         {photo && photo.src !== failedPhoto
           ? <img src={photo.src} width={photo.width || 400} height={photo.height || 300} alt={publicProse(photo.alt, locale) || row.name} loading="lazy" decoding="async" style={businessPhotoStyle(photo, { preview: true })} onError={() => setFailedPhoto(photo.src)}/>
-          : <BusinessCoverPhoto business={row} locale={locale}/>}
+          : <BusinessCoverPhoto business={row} locale={locale} omitIfUnavailable/>}
         <DiscoveryDistanceBadge origin={distanceOrigin} destination={row.coordinates} locale={locale} business={row} distanceOnly/>
       </div>
       <div className="home-business-identity">
@@ -82,7 +82,7 @@ export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, 
           const price = detailPriceLabel({ ...service, priceUnit: '' }, locale, { compact: true })
           const unit = price && service.priceUnit ? serviceDisplayUnit(service, locale) : ''
           const { description, conditions } = servicePresentation(service, locale)
-          const { visible, hasConditions } = serviceDescriptionDisclosure(description)
+          const { visible, hasConditions } = serviceDescriptionDisclosure(description, { maxVisibleLength: 96 })
           return <li key={service.id || `${service.name}-${index}`}>
             <ServiceThumbnail service={service} business={row} locale={locale} size={40}/>
             <div className="home-business-preview-copy">

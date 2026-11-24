@@ -9,7 +9,7 @@ import { BusinessCoverPhoto } from './business-cover-photo'
 import { PublicServiceMenu } from './public-service-menu'
 import { containDialogTab } from '../lib/dialog-focus.mjs'
 import { businessDetailHours, businessDetailServices, detailPriceLabel } from '../lib/discovery/business-details.mjs'
-import { railCategory } from '../lib/discovery/rail.mjs'
+import { railCategory, railServiceItems } from '../lib/discovery/rail.mjs'
 import { isCataloguePhotoSource } from '../lib/catalogue-photo-view.mjs'
 import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
 
@@ -19,6 +19,7 @@ export function DiscoveryBusinessDetails({ row, locale = 'bg', preview = false, 
   const [full, setFull] = useState(needsFetch ? null : row), [status, setStatus] = useState(needsFetch ? 'loading' : 'ready'), [attempt, setAttempt] = useState(0)
   const business = full ? { ...row, ...full } : row
   const services = businessDetailServices(business), hours = businessDetailHours(business)
+  const previewServices = status === 'loading' || status === 'error' ? railServiceItems(row) : []
   const hasPrices = services.some(service => detailPriceLabel(service, locale) !== null)
   const description = publicProse(business.details?.description, locale, business.presentationEn?.description)
   const photos = business.source === 'gorez' ? business.photos || [] : isCataloguePhotoSource(business.photo?.src) ? [{ ...business.photo, alt: { [locale]: publicProse(business.photo.alt, locale) || business.name } }] : []
@@ -48,7 +49,7 @@ export function DiscoveryBusinessDetails({ row, locale = 'bg', preview = false, 
     return () => { node.close(); document.body.style.overflow = overflow; trigger?.focus() }
   }, [triggerRef])
 
-  const photoFallback = <BusinessCoverPhoto business={business} locale={locale} className="business-details-photo-fallback" eager/>
+  const photoFallback = <BusinessCoverPhoto business={business} locale={locale} className="business-details-photo-fallback" eager omitIfUnavailable/>
 
   return <dialog ref={dialog} className="discovery-business-details" aria-labelledby={`${id}-title`} aria-busy={status === 'loading'} onCancel={event => {
     if (event.target !== event.currentTarget) return
@@ -66,6 +67,10 @@ export function DiscoveryBusinessDetails({ row, locale = 'bg', preview = false, 
       {photos.length ? <BusinessPhotoGallery key={`${row.id}-${photos[0].src}`} photos={photos} businessName={row.name} locale={locale} variant="details" autoplay={false} fallback={photoFallback}/> : photoFallback}
     </div>}
     <header><div>{row.source === 'gorez' && <p>{copy.partner}</p>}<h2 id={`${id}-title`}>{row.name}</h2><p className="business-details-category">{railCategory(business, locale)}</p></div></header>
+    {previewServices.length > 0 && <section aria-labelledby={`${id}-services-preview`}>
+      <h3 id={`${id}-services-preview`}>{copy.servicesPrices}</h3>
+      <PublicServiceMenu services={previewServices} business={row} locale={locale} copy={copy}/>
+    </section>}
     {status === 'loading' && <div className="business-details-status"><BrandLoading locale={locale} label={copy.loadingDetails}/></div>}
     {status === 'error' && <div className="business-details-status" role="alert"><p>{copy.detailsError}</p><button className="secondary-button" type="button" onClick={() => setAttempt(value => value + 1)}>{copy.retryDetails}</button></div>}
     {status === 'missing' && <p role="status">{copy.detailsUnavailable}</p>}

@@ -1,5 +1,6 @@
 import { createHash } from 'node:crypto'
 import { readFileSync } from 'node:fs'
+import { mobileCataloguePriorSource } from './mobile-catalogue-hotfix-scope.mjs'
 
 // Independent, exact-byte presentation stage. No historic authorization,
 // catalogue/price/translation baseline or media inventory is widened.
@@ -18,7 +19,10 @@ export const SERVICE_PRICE_CARDS_NEW_HASHES = Object.freeze({
 })
 function matches(path, hashes) {
   if (!Object.hasOwn(hashes, path)) return false
-  try { return createHash('sha256').update(readFileSync(new URL('../' + path, import.meta.url))).digest('hex') === hashes[path] }
+  try {
+    const current = readFileSync(new URL('../' + path, import.meta.url))
+    return createHash('sha256').update(mobileCataloguePriorSource(path, current)).digest('hex') === hashes[path]
+  }
   catch { return false }
 }
 export const servicePriceCardsAllowsFileChange = path => matches(path, SERVICE_PRICE_CARDS_HASHES)

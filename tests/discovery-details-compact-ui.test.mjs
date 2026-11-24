@@ -198,3 +198,21 @@ for (const status of ['loading', 'missing', 'error']) {
     assert.ok(!html.includes(row.address) && !html.includes('STALE_ACTION_FIXTURE'))
   })
 }
+
+test('already public matched prices stay available during detail loading or retry, not after a missing response', () => {
+  const row = { ...preview('catalogue'), subcategory: 'nails-gel',
+    services: [{ name: 'Гел лак' }],
+    servicePreview: [
+      { name: 'Гел лак', price: 25.56, currency: 'EUR', description: 'Цена за едно посещение.' },
+      { name: 'Друг вид услуга', price: 9, currency: 'EUR' },
+    ] }
+  for (const status of ['loading', 'error']) {
+    const { html } = renderDetails({ row, status })
+    assert.match(html, /Услуги и цени/)
+    assert.match(html, /Гел лак/)
+    assert.match(html, /25,56/)
+    assert.doesNotMatch(html, /Друг вид услуга|<footer>/)
+  }
+  const { html } = renderDetails({ row, status: 'missing' })
+  assert.doesNotMatch(html, /Гел лак|25,56|Услуги и цени/)
+})

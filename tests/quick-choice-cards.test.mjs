@@ -166,6 +166,19 @@ test('strict subcategory preview never fills its second row with a different ser
   assert.equal(nodeClass(empty.tree,'home-business-inline-details').length,0)
 })
 
+test('a long public note on an unpriced service is not printed in full on the card',()=>{
+  const description='Групови занимания в посочената зала. Формулярът е заявка за записване; клубът уточнява подходящата група, таксата и мястото преди посещение.'
+  const service={name:'Български народни танци · група за начинаещи',price:null,description}
+  const row=business({source:'catalogue',services:[service]})
+  const f=fixture({row})
+  assert.equal(nodeClass(f.tree,'home-business-preview-name')[0].props.children,service.name)
+  assert.equal(nodeClass(f.tree,'home-business-preview-price').length,0)
+  assert.equal(nodeClass(f.tree,'home-business-preview-description').length,0)
+  assert.equal(elements(f.tree,node=>node.props['data-service-has-conditions']===true)[0].props.children,'Има условия')
+  nodeClass(f.tree,'home-business-open')[0].props.onClick({currentTarget:{}});f.render()
+  assert.equal(elements(f.tree,node=>node.type===Details)[0].props.row.services[0].description,description)
+})
+
 for(const locale of ['bg','en'])test(`${locale}: approved compact preview folds long descriptions with a visible conditions warning and preserves the complete original details`,()=>{
   const prose={
     bg:'Оформяме косата с плавни линии и меко движение, като съчетаваме естествения цвят с фин завършек. Прическата подчертава индивидуалния стил и създава лекота, а внимателното измиване и подсушаване допълват усещането за свежа коса.',

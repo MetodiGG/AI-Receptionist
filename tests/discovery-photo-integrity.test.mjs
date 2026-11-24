@@ -70,6 +70,39 @@ test('the rights-checked genuine photo remains exact and unlabelled as AI; anoth
   assert.equal(Object.hasOwn(assignments.owners,legitimate.src),false)
 })
 
+test('the reported cards receive four distinct illustrations bound to their branch and exact service', async () => {
+  const scenes=[]
+  for (const [id,name,cover,thumbSrc,old] of [
+    ['sofia-nosia-todor-alexandrov17','Български народни танци · група за начинаещи','/business-cover-photos/go-nosia-todor-alexandrov-20261125-v1.webp','/service-photos/go-nosia-folk-dance-beginners-20261125-v1.webp','sx-bulgarian-folk-group'],
+    ['sofia-latin-force-centre','Индивидуален урок по танци','/business-cover-photos/go-latin-force-centre-20261125-v1.webp','/service-photos/go-latin-force-individual-dance-20261125-v1.webp','dance-lesson'],
+  ]) {
+    const service={name,category:'fitness',illustrativePhotoKey:old}
+    const row={id,source:'catalogue',businessCategory:'fitness',services:[service],illustrativeCoverPhotoKey:old}
+    const art=publicBusinessCoverPhoto(row)
+    assert.equal(art.src,cover)
+    assert.equal(publicBusinessCoverPhoto(row,{unavailableSources:[cover]}).src,null)
+    assert.notEqual(publicBusinessCoverPhoto({...row,id:'another-branch'}).src,cover)
+    const thumb=publicServiceThumbnail(service,{business:row})
+    assert.equal(thumb.src,thumbSrc)
+    assert.equal(thumb.source,'illustrative')
+    assert.notEqual(publicServiceThumbnail(service,{business:{...row,id:'other-branch'}}).src,thumbSrc)
+    assert.notEqual(publicServiceThumbnail({...service,name:'Непозната дейност'},{business:row}).src,thumbSrc)
+    assert.notEqual(publicServiceThumbnail(service,{business:row,unavailableSources:[thumbSrc]}).src,thumbSrc)
+    const [coverImage,thumbImage,oldImage]=await Promise.all([cover,thumbSrc,`/service-photos/${old}-v1.webp`]
+      .map(async path=>fingerprintDiscoveryPhoto(await asset(path))))
+    assert.deepEqual([coverImage.width,coverImage.height],[720,540])
+    assert.deepEqual([thumbImage.width,thumbImage.height],[320,320])
+    assert.equal(compareDiscoveryPhotos(coverImage,oldImage),null)
+    assert.equal(compareDiscoveryPhotos(thumbImage,oldImage),null)
+    scenes.push(coverImage,thumbImage)
+  }
+  for (let i=0;i<scenes.length;i++) for (let j=i+1;j<scenes.length;j++) {
+    assert.equal(compareDiscoveryPhotos(scenes[i],scenes[j]),null)
+  }
+  assert.equal(publicBusinessCoverPhoto({id:'unknown',source:'catalogue',category:'fitness',
+    services:[{name:'Непозната дейност'}]}).src,null)
+})
+
 test('new subcategory assets are independently labelled, source-reviewed and not resized copies of the old image', async () => {
   assert.equal(new Set(DISCOVERY_SUBCATEGORIES.map(row=>row.photo)).size,DISCOVERY_SUBCATEGORIES.length)
   assert.equal(manifest.assets.length,5)

@@ -8,6 +8,7 @@ import receipt from './fixtures/sofia-location-rpc-isolation-20261125-approval.j
 import previous from './fixtures/sofia-location-image-integrity-20261124-approval.json' with { type: 'json' }
 import { sofiaRpcAllowsFileChange, sofiaRpcAllowsNewFile, sofiaRpcPriorSource } from './sofia-location-rpc-isolation-20261125-scope.mjs'
 import { sofiaIntegrityAllowsFileChange, sofiaIntegrityAllowsNewFile, sofiaIntegrityMatchesPriorHash, sofiaIntegrityPriorSource } from './sofia-location-image-integrity-20261124-scope.mjs'
+import { mobileCatalogueAllowsNewFile } from './mobile-catalogue-hotfix-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const pathUrl = path => new URL('../' + path, import.meta.url)
@@ -74,18 +75,19 @@ test('every operational path, mode and every unrelated byte are identical to the
   }).filter(entry => operational(entry.path))
   const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').toString('utf8')
     .split('\0').filter(path => path && operational(path))
-  assert.deepEqual([...new Set(actual)].sort(),
+  const laterApprovedFiles = actual.filter(mobileCatalogueAllowsNewFile)
+  assert.deepEqual([...new Set(actual.filter(path => !mobileCatalogueAllowsNewFile(path)))].sort(),
     [...baseline.map(entry => entry.path), ...Object.keys(receipt.added)].sort())
   for (let offset = 0; offset < baseline.length; offset += 32) await Promise.all(baseline.slice(offset, offset + 32).map(async entry => {
     assert.equal(entry.type, 'blob', entry.path)
     const url = pathUrl(entry.path), stat = await lstat(url)
     const mode = stat.isSymbolicLink() ? '120000' : stat.isFile() ? stat.mode & 0o111 ? '100755' : '100644' : null
     assert.equal(mode, entry.mode, entry.path)
-    if (Object.hasOwn(receipt.changed, entry.path)) return
-    const bytes = stat.isSymbolicLink() ? Buffer.from(await readlink(url)) : await readFile(url)
+    const current = stat.isSymbolicLink() ? Buffer.from(await readlink(url)) : await readFile(url)
+    const bytes = sofiaRpcPriorSource(entry.path, current)
     assert.equal(createHash('sha1').update('blob ' + bytes.length + '\0').update(bytes).digest('hex'), entry.oid, entry.path)
   }))
-  for (const path of Object.keys(receipt.added)) {
+  for (const path of [...Object.keys(receipt.added), ...laterApprovedFiles]) {
     const stat = await lstat(pathUrl(path))
     assert.equal(stat.isFile() && !(stat.mode & 0o111), true, path)
   }

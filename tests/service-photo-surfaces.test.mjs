@@ -77,15 +77,15 @@ const services = [
 const render = (Component, props) => renderToStaticMarkup(createElement(Component, props))
 const serviceRows = html => [...html.matchAll(/<li\b[^>]*data-service-price-card="true"[^>]*>([\s\S]*?)<\/li>/g)].map(([, row]) => row)
 
-test('public cards and details report that an unassigned stock cover is unavailable, and preserve a genuine supplied gallery', () => {
+test('discovery omits unassigned covers without hiding the menu, and preserves genuine supplied galleries', () => {
   const catalogue = { ...business, source: 'catalogue', category: 'nails', services }
   const card = props => render(DiscoveryBusinessCard, { row: props, locale: 'en', preview: true })
   const details = props => render(DiscoveryBusinessDetails, { row: props, locale: 'bg', preview: true })
-  assert.match(card(catalogue), /data-category-cover="nails".*Photo unavailable/)
-  assert.match(details(catalogue), /data-category-cover="nails".*Снимката не е налична/)
-  assert.doesNotMatch(card(catalogue)+details(catalogue), /data-image-kind="ai-illustration"/)
+  assert.match(card(catalogue), /Manicure/)
+  assert.match(details(catalogue), /data-service-price-menu/)
+  assert.doesNotMatch(card(catalogue)+details(catalogue), /data-category-cover|Photo unavailable|Снимката не е налична|data-image-kind="ai-illustration"/)
   const partner = { ...catalogue, source: 'gorez', category: 'beauty', businessCategory: 'barber' }
-  assert.match(card(partner), /data-category-cover="barber"/)
+  assert.doesNotMatch(card(partner), /data-category-cover|Photo unavailable/)
   const real = { ...partner, photos: [{ src: '/businesses/fixture-studio/interior.webp' }] }
   assert.match(card(real), /src="\/businesses\/fixture-studio\/interior.webp"/)
   assert.match(details(real), /data-real-cover="\/businesses\/fixture-studio\/interior.webp"/)

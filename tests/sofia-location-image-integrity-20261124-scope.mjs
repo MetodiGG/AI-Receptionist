@@ -3,23 +3,30 @@ import { execFileSync } from 'node:child_process'
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import receipt from './fixtures/sofia-location-image-integrity-20261124-approval.json' with { type: 'json' }
+import { sofiaRpcAllowsFileChange, sofiaRpcAllowsNewFile, sofiaRpcMatchesPriorHash, sofiaRpcPriorSource } from './sofia-location-rpc-isolation-20261125-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = content => createHash('sha256').update(content).digest('hex')
 const prior = new Map()
 function exactFile(path, map, pick) {
   if (!Object.hasOwn(map, path)) return false
-  try { return sha(readFileSync(new URL('../' + path, import.meta.url))) === pick(map[path]) }
+  try { return sha(sofiaRpcPriorSource(path, readFileSync(new URL('../' + path, import.meta.url)))) === pick(map[path]) }
   catch { return false }
 }
-export const sofiaIntegrityAllowsFileChange = path => exactFile(path, receipt.changed, value => value.after)
-export const sofiaIntegrityAllowsNewFile = path => exactFile(path, receipt.added, value => value)
-export const sofiaIntegrityMatchesPriorHash = (path, hash) => Boolean(hash && receipt.changed[path]?.before === hash && sofiaIntegrityAllowsFileChange(path))
+export const sofiaIntegrityAllowsFileChange = path => Object.hasOwn(receipt.changed, path)
+  ? exactFile(path, receipt.changed, value => value.after) : sofiaRpcAllowsFileChange(path)
+export const sofiaIntegrityAllowsNewFile = path => Object.hasOwn(receipt.added, path)
+  ? exactFile(path, receipt.added, value => value) : sofiaRpcAllowsNewFile(path)
+export const sofiaIntegrityMatchesPriorHash = (path, hash) => Object.hasOwn(receipt.changed, path)
+  ? Boolean(hash && receipt.changed[path].before === hash && sofiaIntegrityAllowsFileChange(path))
+  : sofiaRpcMatchesPriorHash(path, hash)
 
 // Replay the reviewed baseline before each older phase's own literal inverse.
 // Every later byte must be pinned; unrelated changes are never hidden and an
 // in-scope file with append-only tampering cannot be canonicalized.
 export function sofiaIntegrityPriorSource(path, source) {
+  if (Object.hasOwn(receipt.changed, path) && sha(source) === receipt.changed[path].before) return source
+  source = sofiaRpcPriorSource(path, source)
   if (!Object.hasOwn(receipt.changed, path)) return source
   const { before, after } = receipt.changed[path], digest = sha(source)
   if (digest === before) return source

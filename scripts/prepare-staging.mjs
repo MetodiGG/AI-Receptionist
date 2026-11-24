@@ -23,6 +23,7 @@ export const PENDING_STAGING_MIGRATIONS = Object.freeze([
   '20261114100000_aggregate_search_metrics.sql',
   '20261114103000_public_search_inventory_indexes.sql',
   '20261124205000_sofia_exact_location_writes.sql',
+  '20261125001500_sofia_location_rpc_isolation.sql',
 ])
 // Explicitly reviewed allowlist: a later migration requires a new review/test.
 export const STAGING_MIGRATIONS = Object.freeze([

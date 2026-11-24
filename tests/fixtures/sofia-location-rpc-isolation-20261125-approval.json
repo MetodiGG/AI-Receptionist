@@ -1,0 +1,17 @@
+{
+  "baseline": "30ea62a03cbb2febf22215693afd0daa430bb481",
+  "changed": {
+    "lib/registration-address-server.js": {
+      "before": "05534bdaa44c936c7b3063b81a02d310d8743244f1569ae15e8e5fcb07983a64",
+      "after": "d8580ba179bb9a13c6afb533e897241e9b22d8a79724c2418c60aae802cf270d"
+    },
+    "scripts/prepare-staging.mjs": {
+      "before": "624f8d942c8f22928875d30b7c2949bf8b81f5bcb655e0be358bcad9b5e37e79",
+      "after": "816dd4925ae9f08fb351b7681a1f608a260d0b9800e69cf039fe124fc351e351"
+    }
+  },
+  "added": {
+    "docs/operations/20261125-location-rpc-isolation.md": "c7d673b106f1b07fe562d4422dc402d5649bec5b3963a298f5e021fd4b06785a",
+    "supabase/migrations/20261125001500_sofia_location_rpc_isolation.sql": "fef2d5bc242f212c3fcf98e8198ed0f2b9c5e10674d0e046d3faa928cc0374eb"
+  }
+}

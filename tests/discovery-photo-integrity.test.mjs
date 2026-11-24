@@ -70,6 +70,29 @@ test('the rights-checked genuine photo remains exact and unlabelled as AI; anoth
   assert.equal(Object.hasOwn(assignments.owners,legitimate.src),false)
 })
 
+test('public discovery can fill the reported cards with relevant labelled artwork without changing distinct assignments', async () => {
+  for (const [id,name,key] of [
+    ['sofia-nosia-todor-alexandrov17','Български народни танци · група за начинаещи','sx-bulgarian-folk-group'],
+    ['sofia-latin-force-centre','Индивидуален урок по танци','dance-lesson'],
+  ]) {
+    const service={name,category:'fitness',illustrativePhotoKey:key}
+    const row={id,source:'catalogue',businessCategory:'fitness',services:[service],illustrativeCoverPhotoKey:key}
+    const art=publicBusinessCoverPhoto(row,{allowActivityIllustrations:true})
+    assert.equal(art.src,`/business-cover-photos/activity-${key}-v1.webp`)
+    assert.equal(art.representative,true)
+    assert.equal(publicBusinessCoverPhoto(row).src,null)
+    assert.ok((await asset(art.src)).byteLength>0)
+    const thumb=publicServiceThumbnail(service,{business:row,allowActivityIllustrations:true})
+    assert.equal(thumb.source,'illustrative')
+    assert.equal(thumb.representative,true)
+    assert.ok((await asset(thumb.src)).byteLength>0)
+    assert.equal(publicServiceThumbnail({...service,name:'Непозната дейност',illustrativePhotoKey:undefined},
+      {business:row,allowActivityIllustrations:true}).src,null)
+  }
+  assert.equal(publicBusinessCoverPhoto({id:'unknown',source:'catalogue',category:'fitness',
+    services:[{name:'Непозната дейност'}]},{allowActivityIllustrations:true}).src,null)
+})
+
 test('new subcategory assets are independently labelled, source-reviewed and not resized copies of the old image', async () => {
   assert.equal(new Set(DISCOVERY_SUBCATEGORIES.map(row=>row.photo)).size,DISCOVERY_SUBCATEGORIES.length)
   assert.equal(manifest.assets.length,5)

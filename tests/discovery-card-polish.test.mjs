@@ -49,9 +49,17 @@ test('one whole-card target receives non-action clicks while shared action links
   assert.match(focus.outline, /^2px solid/); assert.equal(focus['outline-offset'], '3px')
 })
 
-test('service invitation rows have real photo space, complete text, honest separate price/units and quiet directional feedback',()=>{
+test('service invitation rows fill the available width with or without optional photo and chevron, and preserve prices',()=>{
   const row=declarations(find(rule=>rule.selector.endsWith('.home-business-service-preview > li')))
-  assert.equal(row['grid-template-columns'],'40px minmax(0,1fr) 14px')
+  assert.equal(row.display,'flex')
+  assert.equal(row['grid-template-columns'],undefined)
+  const thumbnail=declarations(find(rule=>rule.selector.endsWith('.home-business-service-preview .service-thumbnail')))
+  const copy=declarations(find(rule=>rule.selector.endsWith('.home-business-preview-copy')))
+  const chevron=declarations(find(rule=>rule.selector.endsWith('.home-business-preview-chevron')))
+  assert.equal(thumbnail.flex,'0 0 40px')
+  assert.equal(copy.flex,'1 1 0%')
+  assert.equal(copy['min-width'],'0')
+  assert.equal(chevron.flex,'0 0 14px')
   assert.equal(row['min-height'],'60px')
   assert.equal(row['border-radius'],'14px')
   const main=declarations(find(rule=>rule.selector.endsWith('.home-business-preview-main')))

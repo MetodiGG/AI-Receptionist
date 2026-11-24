@@ -21,6 +21,7 @@ import { DiscoveryDistanceBadge } from './discovery-distance-badge'
 import { isCataloguePhotoSource } from '../lib/catalogue-photo-view.mjs'
 import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
 import { trackSearchEvent } from '../lib/search-analytics-client.js'
+import { DirectionsUnavailable } from './directions-unavailable'
 
 const DiscoveryBusinessDetails = dynamic(() => import('./discovery-business-details').then(module => module.DiscoveryBusinessDetails))
 
@@ -50,9 +51,10 @@ export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, 
     const profile = internalBooking && business.slug ? `/book/${encodeURIComponent(business.slug)}?lang=${locale}` : null
     const action = railExternalAction(business)
     return <PublicActionPair className="home-business-actions">
-      {directions && (preview
+      {directions ? (preview
         ? <PublicAction as="span" variant="secondary" aria-disabled="true">{directionsLabel}</PublicAction>
-        : <PublicAction as="a" variant="secondary" href={directions} target="_blank" rel="noopener noreferrer" aria-label={`${directionsLabel} · ${business.name}`} title={en ? 'Opens Google Maps directions' : 'Отваря упътвания в Google Maps'}>{directionsLabel}</PublicAction>)}
+        : <PublicAction as="a" variant="secondary" href={directions} target="_blank" rel="noopener noreferrer" aria-label={`${directionsLabel} · ${business.name}`} title={en ? 'Opens Google Maps directions' : 'Отваря упътвания в Google Maps'}>{directionsLabel}</PublicAction>)
+        : <DirectionsUnavailable key={`${business.id}:${business.address || ''}`} business={business} locale={locale} preview={preview}/>}
       {preview ? (internalBooking || action) && <PublicAction as="span" variant="primary" aria-disabled="true">{copy.reserveAppointment}</PublicAction>
         : internalBooking ? profile && (isOffsiteBooking(business)
           ? <OutboundBookingButton business={business} locale={locale}>{copy.reserveAppointment}</OutboundBookingButton>

@@ -225,7 +225,7 @@ test('public Knyazhevo auto-repair discovery preserves external confirmation wit
   assert.deepEqual(normalizeCatalogueBusinesses([row()], { cityCode: '68134', neighborhood: 'Княжево', category: 'pets', browse: true, searchV2: true }, { now }), [])
 })
 
-test('public MIM distance uses the exact reviewed postal point while directions retain the unchanged numbered owner address', () => {
+test('public MIM distance and directions use the exact reviewed postal point without changing the numbered owner address', () => {
   const intent = { cityCode: '68134', neighborhood: 'Княжево', category: 'auto_repair', browse: true, searchV2: true }
   const [result] = normalizeCatalogueBusinesses([row()], intent, { now })
   assert.ok(result)
@@ -238,7 +238,8 @@ test('public MIM distance uses the exact reviewed postal point while directions 
   assert.equal(directions.origin, 'https://www.google.com')
   assert.equal(directions.pathname, '/maps/dir/')
   assert.equal(directions.searchParams.get('api'), '1')
-  assert.equal(directions.searchParams.get('destination'), `${source.address}, България`)
+  assert.equal(nearby.address, source.address)
+  assert.equal(directions.searchParams.get('destination'), `${point.latitude},${point.longitude}`)
   assert.equal(directions.searchParams.has('origin'), false, 'A visitor location is not sent by constructing directions')
   assert.equal(directions.searchParams.has('destination_place_id'), false)
   assert.doesNotMatch(directions.href, /Karpuzitsa|Карпузица|941/u)

@@ -47,7 +47,7 @@ export function InlineDiscoverySummary({ locale = 'bg', category = '', subcatego
   const selectedService = parent && child?.category === parent.id ? child : null
   const parentLabel = parent?.[language], serviceLabel = selectedService?.[language]
   const parentPhoto = homeCategories(language).find(item => item.id === parent?.id)
-  const photo = selectedService?.photo || parentPhoto?.photo2x
+  const photo = selectedService ? selectedService.photo : parentPhoto?.photo2x
   const catalogueMode = ['catalogue', 'sofia_only'].includes(result?.externalStatus)
   const rows = orderedRailRows(!result?.clarification && Array.isArray(result?.results) ? result.results : [], { preserveOrder: catalogueMode })
   // Only a freshly verified server count can be called a total. Cursor
@@ -60,6 +60,7 @@ export function InlineDiscoverySummary({ locale = 'bg', category = '', subcatego
   return <section className="inline-summary" ref={summaryRef} aria-label={copy.activeFilters} aria-busy={loading} lang={language}>
     <div className="inline-summary-selection">
       <SelectionPhoto source={photo}/>
+      {selectedService?.generatedPhoto && <span className="sr-only">{language === 'en' ? 'AI illustration' : 'AI илюстрация'}</span>}
       <div className="inline-summary-labels">
         {serviceLabel && clear(parentLabel, onClearCategory, copy.clearCategory, false)}
         {serviceLabel ? clear(serviceLabel, onClearService, copy.clearService, true)

@@ -6,16 +6,17 @@ import { BrandLoading } from './brand-loading'
 import { homeCategories } from '../lib/discovery/home.mjs'
 import { subcategoryById } from '../lib/discovery/subcategories.mjs'
 import { GUIDED_DISCOVERY_COPY } from '../lib/discovery/guided-copy.mjs'
+import photoStyles from './discovery-subcategory-photo.module.css'
 
-function ChoicePhoto({ source, fallback }) {
+function ChoicePhoto({ source }) {
   const [failed, setFailed] = useState(null)
-  const src = failed === source ? fallback : source
-  return <img className="guide-photo" src={src} width={64} height={64} alt="" loading="lazy" decoding="async" onError={() => setFailed(source)}/>
+  return failed === source ? <span className="guide-photo is-unavailable"/> :
+    <img className="guide-photo" src={source} width={64} height={64} alt="" loading="lazy" decoding="async" onError={() => setFailed(source)}/>
 }
 
-export function GuidedChoiceRow({ label, photo, fallbackPhoto, selected = false, onClick, children, kind = 'choice', expanded, controls, buttonRef }) {
+export function GuidedChoiceRow({ label, photo, selected = false, onClick, children, kind = 'choice', expanded, controls, buttonRef }) {
   return <button ref={buttonRef} type="button" className={`guide-row guide-row--${kind}${photo ? ' has-photo' : ''}`} aria-pressed={kind === 'choice' ? selected : undefined} aria-expanded={expanded} aria-controls={controls} onClick={onClick}>
-    <span className="guide-side guide-side--start" aria-hidden="true">{photo && <ChoicePhoto source={photo} fallback={fallbackPhoto || photo}/>}</span>
+    <span className="guide-side guide-side--start" aria-hidden="true">{photo && <ChoicePhoto source={photo}/>}</span>
     <span className="guide-label">{label}{children}</span>
     <span className="guide-side guide-side--end" aria-hidden="true"><Icon name={kind === 'reveal' ? 'chevronDown' : 'arrow'}/></span>
   </button>
@@ -62,7 +63,7 @@ export function GuidedServiceDiscovery({ locale = 'bg', stage = 'closed', catego
         <GuidedChoiceRow label={copy.all} selected={!subcategory} onClick={() => onService('')}><small className="guide-all-context">{parent?.label}</small></GuidedChoiceRow>
         {loading && <div className="guide-loading" role="status"><BrandLoading size={24} decorative/><span>{copy.loading}</span></div>}
         {error && <div className="guide-feedback" role="alert"><p>{copy.failed}</p><button type="button" className="guide-retry" onClick={onRetry}>{copy.retry}<Icon name="arrow"/></button></div>}
-        {!loading && !error && <ul className="guide-choices">{choices.map(item => <li key={item.id}><GuidedChoiceRow label={item[locale] || item.label} photo={item.photo} fallbackPhoto={parent?.photo} selected={subcategory === item.id} onClick={() => onService(item.id)}>{subcategory === item.id && <small className="guide-selected">{copy.selected}</small>}</GuidedChoiceRow></li>)}</ul>}
+        {!loading && !error && <ul className="guide-choices">{choices.map(item => <li key={item.id}><GuidedChoiceRow label={item[locale] || item.label} photo={item.photo} selected={subcategory === item.id} onClick={() => onService(item.id)}>{item.generatedPhoto && <small className={photoStyles.hint}>{locale === 'en' ? 'AI illustration' : 'AI илюстрация'}</small>}{subcategory === item.id && <small className="guide-selected">{copy.selected}</small>}</GuidedChoiceRow></li>)}</ul>}
         {!loading && !error && !choices.length && <p className="guide-no-services">{copy.noServices}</p>}
       </>}
     </>}</div>

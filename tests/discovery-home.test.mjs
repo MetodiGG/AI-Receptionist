@@ -198,7 +198,8 @@ test('business photographs accept only actual public media paths, never generic 
   for (const src of ['/category-photos/hair-v2.webp', '/category-art/hair-v1.webp', 'https://maps.googleapis.com/photo', 'https://example.com/a.jpg', 'javascript:alert(1)']) assert.equal(photo(src), null)
 })
 test('the directory exposes only valid public coordinate pairs, not guessed locations or null-as-zero coercion', () => {
-  assert.deepEqual(directoryCoordinates(origin), { latitude: origin.latitude, longitude: origin.longitude })
+  assert.equal(directoryCoordinates(origin), null)
+  assert.deepEqual(directoryCoordinates(verifiedNativeFixture({ city_ekatte: '68134' }, origin)), { latitude: origin.latitude, longitude: origin.longitude })
   for (const row of [{}, { latitude: null, longitude: null }, { latitude: 42, longitude: null }, { latitude: '42', longitude: '23' }, { latitude: Infinity, longitude: 23 }, { latitude: 91, longitude: 23 }]) assert.equal(directoryCoordinates(row), null)
 })
 test('public map point selection encodes only two JSON scalars, retaining publication filters and rate-safe own-data reads', async () => {
@@ -207,7 +208,7 @@ test('public map point selection encodes only two JSON scalars, retaining public
   assert.deepEqual(await readDirectoryRows(db), [])
   const fields = called.searchParams.get('select')
   assert.match(fields, /latitude:public_profile->latitude,longitude:public_profile->longitude/)
-  assert.doesNotMatch(fields.replace('latitude:public_profile->latitude,longitude:public_profile->longitude,', ''), /public_profile|owner_id|contact_email|customers|appointments|token/)
+  assert.doesNotMatch(fields.replace('latitude:public_profile->latitude,longitude:public_profile->longitude,location_kind:public_profile->>location_kind,', ''), /public_profile|owner_id|contact_email|customers|appointments|token/)
   assert.equal(called.searchParams.get('active'), 'eq.true'); assert.equal(called.searchParams.get('platform_status'), 'eq.enabled')
 })
 test('both partner booking modes retain fixed first-party entry points and current booking revalidation', () => {
@@ -333,3 +334,4 @@ test('development fixture cannot publish fictional businesses, locations or book
   assert.match(fixture, /home preview directoryData=/); assert.match(fixture, /ЛОКАЛЕН ПРЕГЛЕД/)
   assert.doesNotMatch(fixture, /fetch\(|\.from\(|signIn|GoogleDiscoveryList|trackProductEvent/)
 })
+import { verifiedNativeFixture } from './helpers/verified-native-location.mjs'

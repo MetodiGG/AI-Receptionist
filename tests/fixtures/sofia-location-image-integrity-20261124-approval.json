@@ -1,0 +1,225 @@
+{
+  "baseline": "136d99c8fd546f30a42dd0fbbefe1727f3949032",
+  "changed": {
+    "app/api/admin/businesses/[id]/content/route.js": {
+      "before": "9baba99e7ec82e3882a371c37ae53b2ef9657c138963b4fcb68b46a6315521d6",
+      "after": "3c45208bd1dee506ffeccc6d7d5a784d20fb5a9117c87a5a9dc86d56e708de77"
+    },
+    "app/api/admin/businesses/[id]/discovery/route.js": {
+      "before": "cf0a26a71cfb1c04714440e8b1c3f6565bddadfafbd5b11fe9e1451c1b1f4449",
+      "after": "8b44b211de3e52e2dbc20cf0556e76197a753e96242dad9022f56c5159524259"
+    },
+    "app/api/public/[slug]/google-rating/route.js": {
+      "before": "5e026b7a9b9b47ebdf03f050ff3a67ba63432f9fab22faf50edf42ceb861f6f3",
+      "after": "8509937796c36c25cc01d3e37613b5e0e5d980d21294a67fd7b1f1cef5033834"
+    },
+    "app/api/public/[slug]/route.js": {
+      "before": "c3068aaa19d02666b96edbd090ab234f6068c4442ab17961632e5ce355b3cd2d",
+      "after": "6ce8d321e7101b753cccdd8470786b67f46f0245bf1c4f488c84c8b5d1228af8"
+    },
+    "app/api/public/businesses/route.js": {
+      "before": "e01ce96a44bf800179edac0c5843ff531756b6a3a211100503fb0bd76c30b921",
+      "after": "c05c55e4b62ec36a3cc6d91f10da18bf2cb319cdde0a61addb6e480f961bf207"
+    },
+    "app/api/public/discovery/route.js": {
+      "before": "8b9304b57b29a9d030906fb4df226a04bccbca9a37c24045ec48565f978da2a8",
+      "after": "47667e8716edb12d0d1fd066027a55826046ad73799602bdb6aef1412c20e8c3"
+    },
+    "app/api/public/discovery/suggestions/route.js": {
+      "before": "4114a90f962e3302c5c0b73bfffd191ff6fed67c38f9cc09c7fc80e77fa125de",
+      "after": "bed83e9d852db7e0bd260efa05da69b3fa87bb0ffc753034e1cae8447aa6bfb4"
+    },
+    "app/businesses/catalogue/[id]/page.js": {
+      "before": "db7790feae34df6373790b48947404b6fff986ef97722abcbeeff4707a529fac",
+      "after": "eb005dd991603f15c7a335e824572cd8ed1db2cfae8263662c8fd7c82e2f22eb"
+    },
+    "app/service-thumbnail.css": {
+      "before": "687192f53f73327ad544cc4b38378f968dd443019a4ad5c5f3a4a82c873cd1f0",
+      "after": "7ad03cf795710935e212aab1d5439bbdc717d212d692978302d3396a4e343824"
+    },
+    "components/admin-google-place-link.js": {
+      "before": "7c7f5979ed08849e7858ce0043d403c2aa5473925788aaac633d3fd304fcff4f",
+      "after": "2c92fc8122afd9896c870d7d9521ba22dc437743562daf350643960ee1b1d891"
+    },
+    "components/business-cover-photo.js": {
+      "before": "531f47ae004d6f95f164b080509852add81efbc19f52a115dbf58a12ebff0ec8",
+      "after": "19508531dd733473fdf0e766b06cb876ebda576b9987254a9ea67fc366d9c3b2"
+    },
+    "components/business-profile.js": {
+      "before": "eea39dfcd898563b1293128bb53574aef3a230c9681db91f130a41a5095bb882",
+      "after": "5d210abbab9771143c1abd9f53807a0b57b8b8afd281386d83be5dc306430593"
+    },
+    "components/discovery-business-card.js": {
+      "before": "780f73501a0bc47940ee2e60acbc5bff3979b5536889441da32562a1dad93b05",
+      "after": "591d94afd7cc51fca5de38900178df026ecf26a8ecd69d1be64c923cb9c72cf7"
+    },
+    "components/discovery-home-browse.js": {
+      "before": "0d9e935e9e50a621e8369b859e53963926b09c827e572f1a2957891b06dc9d81",
+      "after": "0c47a870dd0354d1c8539714e7d97dc3c7cf06d0e91776a3bcd00ee66a71cc1a"
+    },
+    "components/discovery-subcategories.js": {
+      "before": "7216f83934b19a7be08a7441a2cc47d91934e99f3e312a19c85353921a3d9086",
+      "after": "9cd2b61a4526b67f69701d7b57204895a9e71440ec145da2cfde8091bcc97d0b"
+    },
+    "components/external-place-booking.js": {
+      "before": "8c8ee22859d2547c55c5e55ca5235074afe2192146c4f0303352fe8f52df551c",
+      "after": "a9b9893363d1d66df410f277ce52ca24897953b7699ee93ebece09d19f555e11"
+    },
+    "components/google-business-card.js": {
+      "before": "1ff48c3ce0b64bd6f52a373c57071331cc213ecd9bc85c064852a1364078edc6",
+      "after": "6e721bab58ee3758a2b42a10043e44746be90055f7fbbd9c0e65cbb3e5a08bf8"
+    },
+    "components/guided-service-discovery.js": {
+      "before": "485d243e58c0c5aabc7757fa9fc1c451dcf7b17f11a27629b115c914dabc475b",
+      "after": "0b968f201f281a4c7d492df612822cd70435feb1f90cf18bdd1dd472351eb1c0"
+    },
+    "components/inline-discovery-summary.js": {
+      "before": "02a15bd73dec0f252897e8b29d9755665061c17f1e07caf4b02e8e907606afad",
+      "after": "47862c7f7f9ef70443e5e778aa625f10cadb05cf4f87e45a173c43d0c9196b39"
+    },
+    "components/platform-admin.js": {
+      "before": "5ec841e1d1f099dbea79dd49e6ada76151dd476edd2f8e5fcffed16d4bd56348",
+      "after": "a7e04ad6b3256296dedd8caead9bfbd079ea71f4f0b6fa461abaae7365e5a124"
+    },
+    "components/service-thumbnail.js": {
+      "before": "cd17efcb4b9e67799a008f813def31d3930effcb23b31e5b8ce07bd33485262e",
+      "after": "f5f1cec2c118cf47c62f14d587b22ab5699c349f07722079356a334322f701d5"
+    },
+    "lib/business-application.mjs": {
+      "before": "734990c08fb2e3c4a4b45a2715081b9bcc6336aa4d6ce247074ac74c2b1afbc4",
+      "after": "57d09d25e260cd70acdc7286e62ea6792870bfb00c6814c7c0754a96e02204c4"
+    },
+    "lib/business-content.mjs": {
+      "before": "65f87990f179137749cf37e498c292d975d2c7d09a4c5491f415a6b3178b9748",
+      "after": "1c6e251bcf7b41231509f53255118bbec3b6dcea47505c93b009af045297ca7a"
+    },
+    "lib/business-directions-reviewed.mjs": {
+      "before": "69a7358b0f24bda72f530f5e676b54df1705628e2e452c96c4199e04889227bc",
+      "after": "f730753bb01398c2432bd8e40f111e56d7da5b47727701d823ed1e9288dfdedf"
+    },
+    "lib/business-directions.mjs": {
+      "before": "d44bfc09216a3f45cf50a257a1da241cb14980156473768a2bf725058e77d233",
+      "after": "84e4f2b2f63c89a542ea848897597648cc73b2d8ddf0e6bdc95142ca20e0858a"
+    },
+    "lib/business-profile.mjs": {
+      "before": "d9b4366e4a64baad45f35d1659adb4b1378584199853fb83e0e0886986e7d95e",
+      "after": "cf57d462660aac28e7d6658797184abc8efb650d738e74d78bb49a2a2d77fb13"
+    },
+    "lib/business-registration-location.mjs": {
+      "before": "c99585fc5c7d321dcb310f91c982b9ebd994c787d5e5d08c1a178fb5c9247daf",
+      "after": "15200ad77afa488e2f7c0fb40effd8c467e78b3d204a85db121c2daecb56140c"
+    },
+    "lib/catalogue-onboarding.mjs": {
+      "before": "f543454e8ddaec3e48511af716b9bdaf9fe921535c8081bfc5a0fc27411da52c",
+      "after": "35844b06288b0c234110c726125af735ba52fe322ef51b84a50895521363b97b"
+    },
+    "lib/catalogue-profile.mjs": {
+      "before": "18f87d480d7ab588e20e36ed0fb8080f032cadd13e6528c528e095f7b1a00b29",
+      "after": "9a37fb6a7694ca4546e72c255c9d4be8300f910ad94fc34b06615fb87c778dcf"
+    },
+    "lib/discovery/catalogue-search.mjs": {
+      "before": "9bda4abd19bb9b80b9093c6ed7ef0274c7e94d7f4a0d643f97d5c1132cbf7c75",
+      "after": "b782ef2fca9355d779bc92234450a701d8a8f8a1beece77dfa762944d876f66a"
+    },
+    "lib/discovery/internal-search.mjs": {
+      "before": "c5cd20e1a7bbca07cd0daf753d13dd86bd9269a1d06829b5cd681476dbb9e1ab",
+      "after": "0c407766c0a7f326a66949ae0c7fb649060d8cb374034827639997dcecd03a13"
+    },
+    "lib/discovery/partner-ratings.mjs": {
+      "before": "02e2fe23e7333f9941cce26c5fe9ba65ab20b6a39e76f717efcecad4f73263a2",
+      "after": "5fd55317014697d1abea891827d6c1f552767408f7220a8f67cdb88158c822dc"
+    },
+    "lib/discovery/public-details.mjs": {
+      "before": "5446e1ad87f029f40fc06ac62e4096ff067f77b47b128312340279adb14db4a0",
+      "after": "c62330956794b1ae825643fe6f19ae2109aa4569e9c6816bfaeb51fffc4473fc"
+    },
+    "lib/discovery/public-search-inventory.mjs": {
+      "before": "c9fac75cffca62e3ec81c0235318c79e637191777d239a34c184700923e1447e",
+      "after": "911e1cd0f323e1988cd40d69f8aa91416e4fc0de8fbe3513dc244733204c5ab4"
+    },
+    "lib/discovery/search.mjs": {
+      "before": "04873dc919130f3ebbefd0f3306b869e187d67ddab0dbf70857a5afaa673e3eb",
+      "after": "e48abbe78dba9953267331c935c452d91796faf9e5e58392c67dc78f9121890a"
+    },
+    "lib/discovery/subcategories.mjs": {
+      "before": "d45cdfb973e9f5faf5423a4a5f723c34b82a0f79aac981a674ca80e7e5c336d4",
+      "after": "e66795c7de66c0fc37579b5e7e1b0012fd2ab9e40b05c55e07bd586a830a7050"
+    },
+    "lib/discovery/suggestions.mjs": {
+      "before": "80984305cb6a4c48ab5da34bee0831b549eb69bf3136a265a45f9440f365488b",
+      "after": "2113a6bcf1840d5f54cc917230dee1253fc65731a7528ea811cb46c3591d850a"
+    },
+    "lib/locale/public-content.mjs": {
+      "before": "9f3c45ffd47f8e3f4be37cbeb8e027fef7bf02ed92ae59ecc72e0763df42bbf5",
+      "after": "0b46cb3be29df40ea3b2ff52fca09341fd35884eab44add24c7b9751abacc5f1"
+    },
+    "lib/onboarding-catalogue-draft.mjs": {
+      "before": "24fad7c430faead66e995078829b5bb57a0838e1f4428b53e2659cae0f39825f",
+      "after": "04985868b5654621358efb85d6880721ea330ab541c31b6f8613d9db14bbd95d"
+    },
+    "lib/public-booking.js": {
+      "before": "114f99e63084bc0953a0ea1ba33d1f2d996b531a1258a76a3de72e5eb5cb1201",
+      "after": "7074339e6bc58f1a910766f2be3937c8c7e40ccc97d0bc68ad846b47c74c71c2"
+    },
+    "lib/public-directory.mjs": {
+      "before": "eab058396862c366ebb9b07fdb54ecefb8544d3dda1175e1a9d08dfbc870d0a7",
+      "after": "0f068782f6823858f5b22f3401e1aed8b4db72c645cb62a266bcd6761ca115d0"
+    },
+    "lib/registration-address-lookup.mjs": {
+      "before": "e982e05f86052de9776557abe104acfb03f4a968e9d34109cf8cb1892df092a3",
+      "after": "f52fbcdd7b11c1a377cee45028205519440d978da10117ee3cecf6ff31a41443"
+    },
+    "lib/registration-address-match.mjs": {
+      "before": "7cffed3c893bc468078e343b90eb51fdd509a11782ee271992c45614ad7eb13f",
+      "after": "d5ab17d79bc6538ecaadc03f633f932324356332d5e036ba84a1a718af03defc"
+    },
+    "scripts/geocode-catalogue-once.mjs": {
+      "before": "ed192755df4b49cc0bdbc17e5fbfd4c6ad7ca85c94b81d8ac27ae53870ce70a6",
+      "after": "4145b2e21a395806ede9d24fb20955c0ceed609d7dad0a6628f5a275e1540fe9"
+    },
+    "scripts/prepare-staging.mjs": {
+      "before": "af2432906b7ac1f5f9f7626e4277d295006a21d409d4b95e59493a20af211d3c",
+      "after": "624f8d942c8f22928875d30b7c2949bf8b81f5bcb655e0be358bcad9b5e37e79"
+    }
+  },
+  "added": {
+    "app/api/admin/location-review/route.js": "4cd83c9aa0a43db8039a00d6bbf675ead1b8b73f85bb7c06a3d99cc451c56fd9",
+    "components/admin-location-review.js": "7662cef610442a9f6b0879dd21a3633484a03c7097d61bd4f3dbe6a936796646",
+    "components/directions-unavailable.js": "e3a0f3297ee4ed811f6ae8994424b0bae561576311de056bb213ec80decd9226",
+    "components/directions-unavailable.module.css": "8649233f5c345634c589b174cc22dcc80d49125f6db205470bdf348783abe974",
+    "components/discovery-subcategory-photo.module.css": "1b19591eb1f3246b271cebb1b0de6b7dab139b3872dbec6b50a4240b51a52541",
+    "docs/catalogue-geocoding/sofia-location-integrity-20261124.md": "49c61bc2ee110a0f184f9b84992de7b9b5b42e0353b0dccac4708280802ecfc9",
+    "docs/discovery-photo-integrity-20261124.md": "45de301896b8c5ccd9d8f1f30dbc34f020d521660639095d53eab690ac818a03",
+    "docs/discovery-photo-replacements-20261124.json": "d8e0cec2a687d6fe1b62a4346013b5ff2680e852c1d4be4edccd92f2d519fbae",
+    "docs/operations/sofia-location-audit-read-only.sql": "67642553374dd88b47de7acc49029616e2064216260cd5895f9b37609415fa7b",
+    "docs/review/2026-11-24/README.md": "29de4ec18a69881886877f682d8e608a94e29d64ad88326cdb4bba60bb39cec3",
+    "docs/review/2026-11-24/directions-review-mobile.png": "cd1a40e32b29497688b9cbbfd9189845466504a2c5df741a94f00965d8af2174",
+    "docs/review/2026-11-24/directions-verified-desktop.png": "95b4eff8c57f5fc4b4a43d12ef5f5c20f700dd8eefc0cf9f68fd0a7927f2af90",
+    "docs/review/2026-11-24/discovery-photo-before-after.webp": "74d85f09b93714bd0acb3c7a87adcfaa5c1511b6a90e30a306a56fe1b4871407",
+    "docs/review/2026-11-24/discovery-photo-generation-queue.json": "0a02cb56deef2791430a6c5f0a4ba4b5fd01bd938c2ef035c75ddf31a5d2b3cc",
+    "docs/review/2026-11-24/photo-education-desktop.png": "9b26461fcf4acacc3e9aa83fde23d9acc4482a8e1d6cf05aecd95c45b87100d8",
+    "docs/review/2026-11-24/photo-education-mobile.png": "9e7929d0a90ce5c780615e7cf8fbfc0df438912b3ccbb8e8ae532977b134f016",
+    "lib/discovery-photo-identity.mjs": "828410142ca17422731f3a95eae884f87933ff7147d3d7e4201c8ed3ad42aa8f",
+    "lib/discovery-photo-ownership.json": "e279b021fdb4d6f4ef44f7aaca96113b015f73aca0746e999533e7cde96acc89",
+    "lib/discovery-photo-presentation.mjs": "cacf0ae20a6de45affee98b4eaa9b7526ab87e22215675310208dc4b1e43c43a",
+    "lib/discovery/catalogue-geocoding-intake.mjs": "b76ab39ad2f94801cc026cf61a9b3d47b6c6dee21dcbe7dfbb675c9f87ff95a4",
+    "lib/discovery/catalogue-public-location.mjs": "62804d026ff80baec00b3e19d2b39a38e58f989a6fa740e3785b43c3ec19c755",
+    "lib/discovery/subcategory-illustrations.mjs": "1b3921ae8631ad4481a5be7ee35485b3d607ec1c4dc1253cc29dc2d83a42c035",
+    "lib/native-location-evidence.mjs": "b1d8d7db650c8e093af16016e88474476715813fdbe4ca6dd0b05cef1bc2722a",
+    "lib/native-location-review.mjs": "d8434270d0c6261335c1d570a552031a2b0f7317e1e58ee9a74ed91b48ec630d",
+    "lib/sofia-location-scope.mjs": "7ebfd5e4ce2c15369468abb27e2a000fa65b77fe06e47726f759fb181d1f796a",
+    "lib/sofia-settlement-boundaries.mjs": "aa1c9b4561b5e43216062c8c9db880c40e2a443f63b6ad8cfd5ec6251fb415ad",
+    "lib/sofia-settlement-exclusions.json": "0a072975361dd5cb2072fbfb41c979bb7187a201f81f13f616a84a5ebb9ff13f",
+    "public/service-photos/go-subcategory-barber-children-v1.webp": "907f6939fa7ad0f7f208603cc9f0ef3e94677393c8749c17b7d602fe264b8d2b",
+    "public/service-photos/go-subcategory-consulting-business-v1.webp": "7cefe05959f6c6cf81c909451315f2595483fe5ba802f34357f325abb1de1260",
+    "public/service-photos/go-subcategory-education-exam-preparation-v1.webp": "0d22e141a82b2fac27aa1801fd2acb4ad63af5617fed4de1187298dc4786d8c5",
+    "public/service-photos/go-subcategory-education-school-v1.webp": "cd8d0cf8d583989a34751986ae24d1477724caf4bbc76b7bc74bfc8b4d9a1273",
+    "public/service-photos/go-subcategory-health-rehabilitation-v1.webp": "c6c3f36d81ccc56b36c2e0630d20e6a0c49ab19dace1007f4018ddd08278fd5b",
+    "scripts/audit-discovery-photo-integrity.mjs": "304f9eec7146325fd0e2991ded2a703a1863bc579853f087c7c02604364528dd",
+    "scripts/audit-sofia-location-integrity.mjs": "0cf4608114408f787b4b6561d2b85eefce8bc674855f8633a90cfe027c499c53",
+    "scripts/discovery-photo-fingerprint.mjs": "a51ffb1619a098aef10238af95b8dd5715fa99d29c6fb1b35e4d06d3b46288a0",
+    "scripts/plan-sofia-location-corrections.mjs": "197cb401fdff07867e780de1c83b4f9fcc5b633d5b713541acbc8fc69e72d613",
+    "scripts/prepare-sofia-settlement-exclusions.mjs": "339c9685b35b87417f368525fb3157a83b5ef8652dfab89d873eb175fb14e23f",
+    "supabase/migrations/20261124205000_sofia_exact_location_writes.sql": "dfc0d70f7fc2c1ba7284da1a5f283d21d7eead4e604b792db76d4293ad81747d"
+  }
+}

@@ -35,18 +35,15 @@ test('verified booking wins, otherwise real phone wins without promoting a gener
 test('website actions reject insecure, credential-bearing, private, token-bearing and open-redirect destinations', () => {
   for (const website of ['javascript:alert(1)', 'data:text/html,x', 'http://example.com', 'https://a:b@example.com/', 'https://127.0.0.1/', 'https://metadata.google.internal/', 'https://example.com/?next=https://evil.com', 'https://example.com/#private', 'https://example.com/?token=private']) assert.equal(railExternalAction(place({ website })), null, website)
 })
-test('directions use the displayed public address before a potentially stale point without transmitting visitor origin', () => {
-  const url = new URL(railDirections(partner({ coordinates: { latitude: 42.66, longitude: 23.28 }, address: 'public address' })))
-  assert.equal(url.origin, 'https://www.google.com'); assert.equal(url.searchParams.get('destination'), 'public address, България')
-  assert.equal(url.searchParams.has('origin'), false)
-  assert.equal(new URL(railDirections(partner({ address: 'София, ул. Примерна' }))).searchParams.get('destination'), 'София, ул. Примерна, България')
+test('directions never use a stale partner point or an address-only guess', () => {
+  assert.equal(railDirections(partner({ coordinates: { latitude: 42.66, longitude: 23.28 }, address: 'public address' })), null)
+  assert.equal(railDirections(partner({ address: 'София, ул. Примерна' })), null)
   assert.equal(railDirections(partner()), null)
   assert.equal(railDirections(partner({ coordinates: { latitude: null, longitude: null } })), null)
 })
-test('Google directions link only uses the exact validated Place ID, never a supplied maps URL or guessed name match', () => {
-  const url = new URL(railDirections(place({ mapsUrl: 'https://evil.com/', name: 'not used' })))
-  assert.equal(url.searchParams.get('destination_place_id'), 'ChIJ_fixture_12345')
-  assert.equal(url.searchParams.get('destination'), 'ChIJ_fixture_12345')
+test('unverified Google IDs or injected URL/name cannot create directions', () => {
+  assert.equal(railDirections(place({ mapsUrl: 'https://evil.com/', name: 'not used' })), null)
+  assert.equal(railDirections(place({ placeId: 'ChIJ_fixture_12345', address: 'София, ул. Примерна' })), null)
   assert.equal(railDirections(place({ placeId: '../private' })), null)
 })
 test('eligible nearby partners precede contacts, while farther partners can never jump ahead of nearer Google places', () => {

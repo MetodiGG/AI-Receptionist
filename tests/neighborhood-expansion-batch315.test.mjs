@@ -5,7 +5,8 @@ import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 import { NEIGHBORHOOD_20261111_RECORDS as sourceRecords, NEIGHBORHOOD_20261111_REVIEWS as reviews } from '../lib/discovery/catalogue-data/neighborhood-expansion-20261111.mjs'
 import { approvedCatalogueRecord } from '../lib/discovery/catalogue-policy.mjs'
 import { assessPricingReview } from '../lib/discovery/catalogue-pricing-review.mjs'
-import { businessMapsDirectionsUrl } from '../lib/business-directions.mjs'
+import { businessDirectionsAddress, businessMapsDirectionsUrl } from '../lib/business-directions.mjs'
+import { cataloguePublicLocation } from '../lib/discovery/catalogue-public-location.mjs'
 import { OFFICIAL_SOFIA_SOURCE_URL, OFFICIAL_SOFIA_ATTRIBUTION } from '../lib/discovery/official-sofia-address-source.mjs'
 
 const now=Date.parse('2026-11-11T12:00:00Z')
@@ -66,13 +67,22 @@ test('batch315 contains14 real premises of13 owner hosts with90 dated literal pr
   }
 })
 
-test('all14 directions retain the actual postal address; only exact approved municipal points or labelled owner GPS are retained',()=>{
+test('all 14 preserve the postal address and only conflict-free reviewed points can produce directions',()=>{
   assert.deepEqual(ids.filter(id=>approvedPoints.has(id)).sort(),Object.keys(officialRns).sort())
   for(const row of ids.map(get)){
-    const url=new URL(businessMapsDirectionsUrl(row))
-    assert.ok(url.searchParams.get('destination').startsWith(row.address),row.id)
-    assert.equal(url.searchParams.has('origin'),false)
     assertReviewedCoordinates(row)
+    assert.equal(businessDirectionsAddress(row),row.address,row.id)
+    const location=cataloguePublicLocation(row)
+    const href=businessMapsDirectionsUrl({...row,...location})
+    if(approvedPoints.has(row.id)){
+      const url=new URL(href)
+      assert.equal(url.searchParams.get('destination'),`${row.coordinates.latitude},${row.coordinates.longitude}`,row.id)
+      assert.equal(url.searchParams.has('origin'),false)
+    }else{
+      assert.equal(location.locationStatus,row.id===ids[13]?'conflict':'unverified',row.id)
+      assert.equal(location.coordinates,null,row.id)
+      assert.equal(href,null,row.id)
+    }
   }
   const point=get(ids[13]).coordinates
   assert.deepEqual([point.latitude,point.longitude,point.method],[42.632047,23.439613,'first_party_coordinates'])

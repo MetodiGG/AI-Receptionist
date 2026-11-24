@@ -8,13 +8,14 @@ import { matchingServices, normalizeInternalBusinesses } from '../lib/discovery/
 import { discoverBusinesses } from '../lib/discovery/search.mjs'
 import { discoveryConfig } from '../lib/discovery/config.mjs'
 import { googleSearchRequest } from '../lib/discovery/google-places.mjs'
+import { verifiedNativeFixture } from './helpers/verified-native-location.mjs'
 
 const now = DateTime.fromISO('2026-11-04T09:00:00+02:00')
 const origin = { latitude: 42.66, longitude: 23.28, consent: true } // Synthetic point, not a customer's location.
 const input = query => discoveryRequestSchema.parse(discoverySearchInput({ query, coordinates: origin, expandNearby: true }))
 const intent = query => ({ ...parseIntent(input(query), now, { v2: true }), searchV2: true })
 const names = ['Оформяне на брада', 'Оформяне на вежди с конец', 'Ламиниране на вежди', 'Подстригване на коса', 'Маникюр']
-const business = { id: 'synthetic-partner', name: 'QA partner', slug: 'qa-partner', active: true, platform_status: 'enabled', industry: 'beauty', city_ekatte: '68134', neighborhood: 'Манастирски ливади', public_profile: { latitude: origin.latitude, longitude: origin.longitude }, services: names.map((name, id) => ({ id: String(id), name, active: true, duration_min: 30 })), staff: [], workingHours: [] }
+const business = verifiedNativeFixture({ id: 'synthetic-partner', name: 'QA partner', slug: 'qa-partner', active: true, platform_status: 'enabled', industry: 'beauty', city_ekatte: '68134', neighborhood: 'Манастирски ливади', services: names.map((name, id) => ({ id: String(id), name, active: true, duration_min: 30 })), staff: [], workingHours: [] }, origin)
 
 test('оформяне finds both actual shaping services without guessing beard or brow lamination', () => {
   const parsed = intent('оформяне')

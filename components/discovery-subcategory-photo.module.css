@@ -1,0 +1,22 @@
+.overlay, .hint {
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 2px 4px;
+  color: #fff7ee;
+  background: #32231ef2;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 1.15;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.overlay {
+  position: absolute;
+  inset-block-start: 8px;
+  inset-inline-start: 8px;
+}
+
+:global(.inline-service-tile[aria-pressed="true"]) .overlay {
+  inset-block-start: 40px;
+}

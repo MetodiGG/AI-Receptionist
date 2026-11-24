@@ -7,6 +7,7 @@ import { createPublicBusinessDetailsHandler } from '../lib/discovery/public-deta
 import { readDirectoryRows } from '../lib/public-directory.mjs'
 import { readBookableBusiness } from '../lib/public-business-query.mjs'
 import { guidedServiceMenu, buildGuidedReply } from '../lib/guided-assistant.mjs'
+import { publicNativeBusinessLocation } from '../lib/native-location-evidence.mjs'
 
 const businessId = '6b57b901-acd8-494b-a992-2cec551b4b00'
 const serviceIds = ['a8bfd4a9-1249-4a72-a1d3-5b78edfe2dd5', '146da856-04ad-40d2-8095-cdf34dc65bc6', '76f91048-afae-47ba-8d8b-003a99efe2c7']
@@ -131,13 +132,15 @@ test('native profile DTO filters only presentation; raw getPublicBusiness and ex
   const source = await read('lib/public-booking.js')
   const fn = source.match(/export function toPublicBusiness\(business\) \{[\s\S]*?\n\}/u)?.[0]
   assert.ok(fn)
-  const toPublicBusiness = new Function('visiblePublicServices', 'publicProfileDetails', 'getBusinessPhotos', 'notificationAvailability', 'process', `return (${fn.replace(/^export /, '')})`)(visiblePublicServices, () => ({}), row => row.photos || [], () => ({}), { env: {} })
+  const toPublicBusiness = new Function('visiblePublicServices', 'publicProfileDetails', 'getBusinessPhotos', 'notificationAvailability', 'publicNativeBusinessLocation', 'process', `return (${fn.replace(/^export /, '')})`)(visiblePublicServices, () => ({}), row => row.photos || [], () => ({}), publicNativeBusinessLocation, { env: {} })
   const raw = business(undefined, { contact_email: 'private@example.invalid', privacy_contact_email: 'privacy@example.invalid', email_notifications_enabled: true }), before = JSON.stringify(raw)
   const dto = toPublicBusiness(raw)
   assert.equal(dto.source, 'gorez', 'native profile directions receive an explicit server-derived source')
   assert.deepEqual(dto.services.map(row => row.id), real.map(row => row.id))
   assert.equal(dto.staffServices, raw.staffServices)
   assert.ok(!('contact_email' in dto) && !('privacy_contact_email' in dto))
+  assert.equal(dto.coordinates, null)
+  assert.equal(dto.locationVerified, false)
   assert.equal(JSON.stringify(raw), before)
   const rawRead = source.slice(source.indexOf('export async function getPublicBusiness'), source.indexOf('export async function getAvailableSlots'))
   assert.match(rawRead, /readBookableBusiness\(supabase, normalizedSlug\)/)

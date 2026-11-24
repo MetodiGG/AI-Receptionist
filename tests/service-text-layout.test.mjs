@@ -21,6 +21,7 @@ import * as presentation from '../lib/discovery/service-presentation.mjs'
 import * as photoLayout from '../lib/business-photo-layout.mjs'
 import * as bookingButtonContent from './helpers/booking-button-content.mjs'
 import * as publicAction from './helpers/public-action.mjs'
+import { DirectionsUnavailable } from './helpers/verified-directions.mjs'
 
 // Real components/helpers compiled by the existing SWC/SSR convention. Only
 // visual/network integrations are inert; SSR never runs effects or bookings.
@@ -38,6 +39,7 @@ const shared = {
   './business-cover-photo': { BusinessCoverPhoto: Empty },
   './service-thumbnail': { ServiceThumbnail: thumbnail },
   './outbound-booking-button': { OutboundBookingButton: () => assert.fail('fixture must not create an outbound booking') },
+  './directions-unavailable': { DirectionsUnavailable },
   'next/link': link,
   '../lib/booking-mode.mjs': bookingMode,
   '../lib/business-profile.mjs': profileData,

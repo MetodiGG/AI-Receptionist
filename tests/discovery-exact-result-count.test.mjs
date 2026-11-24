@@ -10,18 +10,19 @@ import { PUBLIC_SEARCH_INDEX_FIELDS, readPublishedSearchInventory } from '../lib
 import { compactDiscoveryResponse } from '../lib/discovery/preview.mjs'
 import { mergeCataloguePage } from '../lib/discovery/catalogue-pagination.mjs'
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { verifiedNativeFixture } from './helpers/verified-native-location.mjs'
 
 const now = DateTime.fromISO('2026-11-14T12:00:00Z')
 const forbidden = () => assert.fail('Counts must not fetch a provider, calendar, media, customer data or submit a booking')
 const id = number => `123e4567-e89b-42d3-a456-${String(number).padStart(12, '0')}`
-const native = (number, patch = {}) => ({
+const native = (number, patch = {}) => verifiedNativeFixture({
   id: id(number), slug: `count-public-${number}`, name: `Public count studio ${number}`,
   active: true, platform_status: 'enabled', industry: 'beauty', booking_mode: 'gorez',
   city_ekatte: '68134', city: 'София', address: 'ул. Пример 1', neighborhood: 'Борово',
   public_profile: { description: { bg: '', en: '' }, latitude: 42.67, longitude: 23.29, payments: [] },
   services: [{ id: `service-${number}`, name: 'Маникюр с гел лак', category: 'nails', active: true, price: 30, currency: 'EUR', duration_min: 30 }],
   ...patch,
-})
+}, patch.public_profile || { latitude: 42.67, longitude: 23.29 })
 const record = patch => ({
   ...structuredClone(SOFIA_CATALOGUE[0]), id: 'sofia-exact-count-reviewed', name: 'Reviewed count studio',
   category: 'nails', address: 'София, ул. Примерна 83', neighborhood: 'Борово', coordinates: null,
@@ -147,11 +148,17 @@ test('the total reuses native/catalogue identity suppression rather than adding 
 })
 
 test('current public metadata refresh replaces the full-search cached snapshot while ordinary autocomplete stays cached', async () => {
-  let rows = [native(1)], calls = 0
+  let rows = [native(1)], calls = 0, proofReads = 0
   const selections = []
   const db = createClient('https://count-fixture.supabase.invalid', 'test-public-placeholder', { global: { fetch: async url => {
-    calls++
     const params = new URL(url).searchParams
+    if (params.get('select').includes('location_source:registration_location_sources')) {
+      proofReads++
+      assert.match(params.get('id'), /^in\./)
+      assert.doesNotMatch(params.get('select'), /business_media|staff|workingHours|owner_id|contact_email|customers|appointments/)
+      return Response.json(rows)
+    }
+    calls++
     selections.push(params.get('select'))
     return Response.json(rows)
   } } })
@@ -164,6 +171,7 @@ test('current public metadata refresh replaces the full-search cached snapshot w
   assert.equal(calls, 2, 'one current metadata read replaces rather than supplements a rich global scan')
   assert.deepEqual((await readPublishedSearchInventory(db, { cityCode: '68134' })).map(row => row.id), [id(2), id(3)])
   assert.equal(calls, 2)
+  assert.equal(proofReads, 2, 'one batched branch-proof lookup per changed snapshot, none on cache hits')
   assert.ok(selections.every(fields => fields === PUBLIC_SEARCH_INDEX_FIELDS))
   assert.doesNotMatch(PUBLIC_SEARCH_INDEX_FIELDS, /owner_id|contact_email|staff|workingHours|business_media|customers|appointments|token/)
 })
@@ -171,7 +179,8 @@ test('current public metadata refresh replaces the full-search cached snapshot w
 test('simultaneous current refreshes share one in-flight public metadata load, with no query or GPS cache key', async () => {
   let calls = 0, release
   const pending = new Promise(resolve => { release = resolve })
-  const db = createClient('https://count-coalescing.supabase.invalid', 'test-public-placeholder', { global: { fetch: async () => {
+  const db = createClient('https://count-coalescing.supabase.invalid', 'test-public-placeholder', { global: { fetch: async url => {
+    if (new URL(url).searchParams.get('select').includes('location_source:registration_location_sources')) return Response.json([native(1)])
     calls++
     if (calls > 1) await pending
     return Response.json([native(1)])

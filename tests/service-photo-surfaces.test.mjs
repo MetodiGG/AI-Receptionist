@@ -7,6 +7,7 @@ import { createRequire } from 'node:module'
 import { createElement } from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
 import * as serviceArt from '../lib/service-thumbnail.mjs'
+import * as publicPhotoPresentation from '../lib/discovery-photo-presentation.mjs'
 import * as businessDetails from '../lib/discovery/business-details.mjs'
 import * as discoveryRail from '../lib/discovery/rail.mjs'
 import * as discoveryHome from '../lib/discovery/home.mjs'
@@ -22,6 +23,7 @@ import * as servicePresentation from '../lib/discovery/service-presentation.mjs'
 import * as photoLayout from '../lib/business-photo-layout.mjs'
 import * as bookingButtonContent from './helpers/booking-button-content.mjs'
 import * as publicAction from './helpers/public-action.mjs'
+import { DirectionsUnavailable } from './helpers/verified-directions.mjs'
 
 const require = createRequire(import.meta.url)
 const { loadBindings, transform } = require('next/dist/build/swc')
@@ -38,14 +40,17 @@ async function load(name, stubs) {
 
 const noop = () => null
 const icon = { Icon: () => createElement('svg', { 'aria-hidden': true }) }
-const thumbnail = await load('service-thumbnail', { './icon': icon, '../lib/service-thumbnail.mjs': serviceArt })
+const thumbnail = await load('service-thumbnail', { './icon': icon, '../lib/service-thumbnail.mjs': serviceArt,
+  '../lib/discovery-photo-presentation.mjs': publicPhotoPresentation })
 const publicServiceMenu = await loadPublicServiceMenu({ ServiceThumbnail: thumbnail.ServiceThumbnail, Icon: icon.Icon })
-const cover = await load('business-cover-photo', { '../lib/business-cover-photo.mjs': businessCover })
+const cover = await load('business-cover-photo', { '../lib/business-cover-photo.mjs': businessCover,
+  '../lib/discovery-photo-presentation.mjs': publicPhotoPresentation })
 const shared = {
   './booking-button-content': bookingButtonContent,
   './icon': icon, './service-thumbnail': { ...thumbnail, IllustrativeServicePhotoNote: noop }, './business-cover-photo': cover,
   './business-photo-gallery': { BusinessPhotoGallery: ({ photos, fallback }) => photos?.length ? createElement('div', { 'data-real-cover': photos[0].src }) : fallback },
   './outbound-booking-button': { OutboundBookingButton: noop },
+  './directions-unavailable': { DirectionsUnavailable },
   '../lib/booking-mode.mjs': bookingMode, '../lib/discovery/business-details.mjs': businessDetails,
   '../lib/discovery/rail.mjs': discoveryRail, '../lib/discovery/copy.mjs': discoveryCopy,
   '../lib/catalogue-photo-view.mjs': cataloguePhotos,
@@ -72,12 +77,13 @@ const services = [
 const render = (Component, props) => renderToStaticMarkup(createElement(Component, props))
 const serviceRows = html => [...html.matchAll(/<li\b[^>]*data-service-price-card="true"[^>]*>([\s\S]*?)<\/li>/g)].map(([, row]) => row)
 
-test('public cards and details use the labelled category cover only until a real photo is supplied', () => {
+test('public cards and details report that an unassigned stock cover is unavailable, and preserve a genuine supplied gallery', () => {
   const catalogue = { ...business, source: 'catalogue', category: 'nails', services }
   const card = props => render(DiscoveryBusinessCard, { row: props, locale: 'en', preview: true })
   const details = props => render(DiscoveryBusinessDetails, { row: props, locale: 'bg', preview: true })
-  assert.match(card(catalogue), /data-category-cover="nails".*AI illustration/)
-  assert.match(details(catalogue), /data-category-cover="nails".*AI илюстрация/)
+  assert.match(card(catalogue), /data-category-cover="nails".*Photo unavailable/)
+  assert.match(details(catalogue), /data-category-cover="nails".*Снимката не е налична/)
+  assert.doesNotMatch(card(catalogue)+details(catalogue), /data-image-kind="ai-illustration"/)
   const partner = { ...catalogue, source: 'gorez', category: 'beauty', businessCategory: 'barber' }
   assert.match(card(partner), /data-category-cover="barber"/)
   const real = { ...partner, photos: [{ src: '/businesses/fixture-studio/interior.webp' }] }
@@ -96,7 +102,7 @@ test('compact discovery previews restore up to two original service thumbnails a
   assert.match(html,/home-business-service-preview/)
   assert.equal((html.match(/class="home-business-preview-name"/g)||[]).length,2)
   assert.equal((html.match(/class="home-business-preview-price"/g)||[]).length,1)
-  assert.equal((html.match(/class="service-thumbnail /g)||[]).length,2)
+  assert.equal((html.match(/data-service-photo-unavailable="true"/g)||[]).length,2)
   assert.doesNotMatch(html,/home-business-inline-details/)
   assert.deepEqual(row, before)
   assert.doesNotMatch(render(DiscoveryBusinessCard, { row: { ...row, source: 'google' }, locale: 'en', preview: true }), /home-business-services|service-photo-name/)
@@ -106,11 +112,11 @@ test('the full catalogue menu retains the service description, duration, and pub
   const [first, ...others] = services
   const row = { ...business, source: 'catalogue', details: { services: [{ ...first, priceKind: 'from', description: 'Published service terms', priceSourceUrl: 'https://example.com/prices' }, ...others] } }
   const [manicure, pedicure] = serviceRows(render(DiscoveryBusinessDetails, { row, locale: 'en', preview: true }))
-  assert.match(manicure, /data-service-kind="manicure"[\s\S]*class="public-service-menu-name">Manicure<\/strong>/)
+  assert.match(manicure, /data-service-photo-unavailable="true"[\s\S]*class="public-service-menu-name">Manicure<\/strong>/)
   assert.match(manicure, /class="public-service-menu-duration">35 min<\/span>/)
   assert.match(manicure, /<p class="public-service-menu-note">Published service terms<\/p>/)
   assert.match(manicure, /<a class="public-service-menu-price" href="https:\/\/example\.com\/prices"[^>]*><span>from €25\.00<\/span><\/a>/)
-  assert.match(pedicure, /data-service-kind="pedicure"[\s\S]*class="public-service-menu-name">Pedicure<\/strong>/)
+  assert.match(pedicure, /data-service-photo-unavailable="true"[\s\S]*class="public-service-menu-name">Pedicure<\/strong>/)
   assert.match(pedicure, /class="public-service-menu-unpriced"/)
   assert.doesNotMatch(pedicure, /class="public-service-menu-price"/)
 })
@@ -145,8 +151,8 @@ test('partner cards preserve the service cap, names, durations, and published pr
   const businesses = [{ ...business, services: [...services, ...[3, 4, 5].map(id => ({ id: String(id), name: `Extra service ${id}`, price: 0, duration_min: 30 }))] }]
   const html = render(BusinessDirectory, { locale: 'en', partners: true, showFilters: false, bookingDisabled: true, preview: { businesses, status: 'ready' } })
   assert.equal([...html.matchAll(/class="directory-service-row"/g)].length, 4)
-  assert.match(html, /data-service-kind="manicure".*<div class="directory-service-copy">Manicure<small>35 min<\/small><\/div><\/div><b>€25\.00<\/b>/)
-  assert.match(html, /data-service-kind="pedicure".*<div class="directory-service-copy">Pedicure<small>40 min<\/small><\/div><\/div><\/div>/)
+  assert.match(html, /data-service-photo-unavailable="true".*<div class="directory-service-copy">Manicure<small>35 min<\/small><\/div><\/div><b>€25\.00<\/b>/)
+  assert.match(html, /data-service-photo-unavailable="true".*<div class="directory-service-copy">Pedicure<small>40 min<\/small><\/div><\/div><\/div>/)
   assert.match(html, /Extra service 4/)
   assert.doesNotMatch(html, /Extra service 5/)
 })

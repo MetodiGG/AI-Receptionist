@@ -6,7 +6,7 @@ import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 import { NEIGHBORHOOD_20261111_REVIEWS as reviews } from '../lib/discovery/catalogue-data/neighborhood-expansion-20261111.mjs'
 import { approvedCatalogueRecord } from '../lib/discovery/catalogue-policy.mjs'
 import { assessPricingReview } from '../lib/discovery/catalogue-pricing-review.mjs'
-import { businessMapsDirectionsUrl } from '../lib/business-directions.mjs'
+import { businessDirectionsAddress, businessMapsDirectionsUrl } from '../lib/business-directions.mjs'
 
 const now=Date.parse('2026-11-11T12:00:00Z')
 const rows=[...education.records,...auto.records]
@@ -30,15 +30,14 @@ test('batch327 imports only five approved distinct premises and28 source-qualifi
   }
 })
 
-test('actual full postal addresses are used without guessed GPS, neighborhood labels or live schedules',()=>{
+test('the original intake preserves actual full postal addresses without guessed GPS, neighbourhood labels or schedules',()=>{
   for(const row of rows){
     assert.equal(row.locationKind,'premises')
     assert.equal(row.coordinates,null)
     assert.equal(row.neighborhood,null)
     assert.equal(row.openingHours,undefined)
-    const url=new URL(businessMapsDirectionsUrl(row))
-    assert.ok(url.searchParams.get('destination').startsWith(row.address))
-    assert.equal(url.searchParams.has('origin'),false)
+    assert.equal(businessDirectionsAddress(row),row.address)
+    assert.equal(businessMapsDirectionsUrl(row),null,'No text-only route from an intake record')
   }
 })
 

@@ -106,20 +106,24 @@ async function componentHarness(initialProps = {}) {
   }
 }
 
+const exactPhotoService = { name: 'Педикюр с гел лак', category: 'nails' }
+const photoElement = node => React.Children.toArray(node?.props?.children).find(item=>item?.type==='img')
+const photoAbsent = node => node?.props?.['data-service-photo-unavailable'] === true && !photoElement(node)
+
 test('public thumbnails never render the neutral notebook and stop after the matching image fails', async () => {
   const unknown = await componentHarness()
-  assert.equal(unknown.render(), null)
+  assert.ok(photoAbsent(unknown.render()))
   assert.equal(unknown.module.exports.IllustrativeServicePhotoNote({ services: [unknown.props.service] }), null)
-  const h = await componentHarness({ service: { name: 'Маникюр', category: 'nails' } })
-  const wrapper = h.render(), image = wrapper.props.children
-  assert.equal(image.type, 'img'); assert.equal(image.props.src, '/service-photos/classic-manicure-v1.webp')
+  const h = await componentHarness({ service: exactPhotoService })
+  const wrapper = h.render(), image = photoElement(wrapper)
+  assert.equal(image.type, 'img'); assert.equal(image.props.src, '/service-photos/gel-pedicure-v1.webp')
   assert.equal(image.props.width, 64); assert.equal(image.props.height, 64)
   assert.equal(image.props.loading, 'lazy'); assert.equal(image.props.decoding, 'async')
   assert.equal(wrapper.props['data-photo-match'], 'exact')
   const originalError = image.props.onError
   originalError(); const once = h.failures(); originalError()
   assert.equal(h.failures(), once, 'repeated stale load errors do not keep changing state')
-  assert.equal(h.render(), null, 'no substitute image or retry after all matching artwork is unavailable')
+  assert.ok(photoAbsent(h.render()), 'no substitute image or retry after all matching artwork is unavailable')
   assert.equal(typeof h.module.exports.IllustrativeServicePhotoNote, 'function', 'existing export remains compatible')
   assert.doesNotMatch(h.source, /<Icon|service-thumbnail-icon|fetch\(|dangerouslySetInnerHTML/)
 })
@@ -128,13 +132,13 @@ test('hydration detects a cached 404 before onError and falls back to no picture
   const business = { id: 'local-business', industry: 'other' }, service = { id: 'local-service', name: 'Неописана бъдеща услуга' }
   const trustedServiceImage = { businessId: business.id, serviceId: service.id, rightsCleared: true, businessProvided: true, src: '/businesses/local-business/cached-missing.webp' }
   const h = await componentHarness({ business, service, trustedServiceImage })
-  const image = h.render().props.children
+  const image = photoElement(h.render())
   assert.equal(image.props.src, trustedServiceImage.src)
   assert.equal(typeof image.props.onError, 'function')
   h.attach({ complete: true, naturalWidth: 0, currentSrc: `https://local.invalid${trustedServiceImage.src}` })
   h.flush() // The browser already emitted its failure before React hydration.
   assert.deepEqual(h.failures(), [trustedServiceImage.src])
-  assert.equal(h.render(), null)
+  assert.ok(photoAbsent(h.render()))
   const terminal = h.failures()
   h.attach(null); h.flush(); h.render(); h.flush()
   assert.equal(h.failures(), terminal, 'an absent image is terminal')
@@ -147,9 +151,9 @@ test('hydration never mistakes an unresolved lazy image, an empty currentSrc or 
     { complete: false, naturalWidth: 0, currentSrc: 'https://local.invalid/pending.webp' },
     { complete: true, naturalWidth: 64, currentSrc: 'https://local.invalid/loaded.webp' },
   ]) {
-    const h = await componentHarness({ service: { name: 'Маникюр', category: 'nails' } }); h.render(); h.attach(node); h.flush()
+    const h = await componentHarness({ service: exactPhotoService }); h.render(); h.attach(node); h.flush()
     assert.deepEqual(h.failures(), [], JSON.stringify(node))
-    assert.equal(h.render().props.children.props.src, '/service-photos/classic-manicure-v1.webp')
+    assert.equal(photoElement(h.render()).props.src, '/service-photos/gel-pedicure-v1.webp')
   }
 })
 
@@ -159,7 +163,7 @@ test('image-error memory stays bounded when a thumbnail instance receives many d
   for (let index = 0; index < 16; index++) {
     const src = `/businesses/local-business/missing-${index}.webp`
     h.props.trustedServiceImage = { businessId: business.id, serviceId: service.id, rightsCleared: true, businessProvided: true, src }
-    const image = h.render().props.children
+    const image = photoElement(h.render())
     assert.equal(image.props.src, src); image.props.onError()
     assert.ok(h.failures().length <= 8)
     assert.ok(h.failures().includes(src), 'a new failure must not get stuck just because the cache is full')

@@ -122,8 +122,11 @@ const catalogue = coordinates => ({ id: 'sofia-location-fixture', name: 'Offline
 test('catalogue prefill carries only approved first-party coordinates, not OSM attribution stripped from its record', () => {
   assert.deepEqual(catalogueRegistrationPoint(sourcedPoint), point)
   for (const value of [point, { ...sourcedPoint, method: 'estimated' }, { ...sourcedPoint, source: 'javascript:alert(1)' }, { ...sourcedPoint, source: 'https://user:password@studio.example.com' }, { ...sourcedPoint, latitude: null }]) assert.equal(catalogueRegistrationPoint(value), null)
-  const now = Date.parse('2026-11-12T12:00:00Z'), firstParty = catalogue(sourcedPoint)
-  assert.deepEqual(catalogueOnboardingDetail([firstParty], firstParty.id, { now }).business.coordinates, sourcedPoint)
+  const boundPoint = { ...sourcedPoint, sourceAddress:'Test street 1' }
+  const now = Date.parse('2026-11-12T12:00:00Z'), firstParty = catalogue(boundPoint)
+  assert.deepEqual(catalogueOnboardingDetail([firstParty], firstParty.id, { now }).business.coordinates, boundPoint)
+  assert.equal(catalogueOnboardingDetail([catalogue(sourcedPoint)], firstParty.id, { now }).business.coordinates, undefined)
+  assert.equal(catalogueOnboardingDetail([{ ...firstParty,address:'Another branch 8' }], firstParty.id, { now }).business.coordinates, undefined)
   const osm = catalogue({ ...point, method: 'verified_address_geocode', source: 'https://www.openstreetmap.org/node/12345', sourceAddress: 'Test street 1', checkedOn: '2026-11-11', licence: 'ODbL-1.0', attribution: '© OpenStreetMap contributors' })
   const result = catalogueOnboardingDetail([osm], osm.id, { now })
   assert.ok(result); assert.equal(result.business.address, osm.address); assert.equal('coordinates' in result.business, false)

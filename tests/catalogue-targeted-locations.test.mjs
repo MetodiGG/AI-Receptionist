@@ -82,4 +82,7 @@ test('targeted maintenance refuses unbounded requests and does not need credenti
   const result = spawnSync(process.execPath, [script.pathname, '--approved-one-time', '--structured', '--max-requests', '26', '--cache', '/tmp/unused-cache.json', '--output', '/tmp/unused-output.json'], { encoding: 'utf8' })
   assert.notEqual(result.status, 0)
   assert.match(result.stderr, /explicit allowlist and at most 25 requests/)
+  const legacyBulk = spawnSync(process.execPath, [script.pathname, '--approved-one-time', '--cache', '/tmp/unused-cache.json', '--output', '/tmp/unused-output.json'], { encoding: 'utf8' })
+  assert.notEqual(legacyBulk.status, 0)
+  assert.match(legacyBulk.stderr, /separately approved address-only allowlist/)
 })

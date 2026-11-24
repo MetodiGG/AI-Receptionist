@@ -10,6 +10,7 @@ import { normalizeInternalBusinesses } from '../lib/discovery/internal-search.mj
 import { discoverBusinesses } from '../lib/discovery/search.mjs'
 import { createDiscoveryHandler } from '../lib/discovery/handler.mjs'
 import { legacyGoogleConfig as discoveryConfig } from './helpers/legacy-google-config.mjs'
+import { verifiedNativeFixture } from './helpers/verified-native-location.mjs'
 
 const origin = { latitude: 42.6627, longitude: 23.2849, consent: true }
 const input = patch => discoveryRequestSchema.parse({ query: '', browse: true, ...patch })
@@ -69,8 +70,20 @@ test('all-category browsing includes active services from different industries, 
     business('off', 'beauty', 'Маникюр', { active: false }), business('hidden', 'beauty', 'Маникюр', { platform_status: 'disabled' }), business('other-city', 'auto', 'Ремонт', { city_ekatte: '56784' }), business('empty', 'auto', 'Ремонт', { services: [] })]
   const intent = { ...parseIntent(input()), searchV2: true }
   assert.deepEqual(normalizeInternalBusinesses(rows, intent).map(row => row.id), ['hair', 'auto', 'sports', 'tutor'])
-  const located = rows.slice(0, 2).map(row => ({ ...row, public_profile: { latitude: origin.latitude, longitude: origin.longitude } }))
+  const located = rows.slice(0, 2).map(row => verifiedNativeFixture(row, origin))
   assert.equal(normalizeInternalBusinesses([...located, rows[2]], { ...parseIntent(input({ coordinates: origin })), searchV2: true }).length, 2)
+})
+test('Sofia-only mode rejects explicitly different cities and cannot expand into unverified provider results', async () => {
+  const local = business('hair', 'beauty', 'Подстригване')
+  const outside = business('outside', 'beauty', 'Подстригване', { city: 'Лом', city_ekatte: '44238' })
+  const d = deps({ sofiaOnly: true, readInternal: async () => [local, outside] })
+  const found = await discoverBusinesses(input(), d)
+  assert.deepEqual(found.results.map(row => row.id), ['hair'])
+  assert.equal(found.external, null)
+  assert.equal(d.calls.fetch.length, 0)
+  const remote = await discoverBusinesses(input({ cityCode: '44238' }), { ...d, readInternal: () => assert.fail('out-of-scope city is rejected before any read') })
+  assert.equal(remote.externalStatus, 'sofia_only')
+  assert.deepEqual(remote.results, [])
 })
 test('a browse category still requires actual service evidence and does not become an all-category search', () => {
   const intent = { ...parseIntent(input({ category: 'auto_repair' })), searchV2: true }
@@ -93,6 +106,21 @@ test('nearby automatic browse is consented, budgeted, distance-bounded and does 
   assert.equal(JSON.parse(d.calls.fetch[0].init.body).locationRestriction.circle.radius, 5000)
   assert.deepEqual(result.nearbyExpansion, { primaryRadiusKm: 2, outerRadiusKm: 5 })
   assert.doesNotMatch(JSON.stringify(result.external), /latitude|longitude/)
+})
+test('the public Sofia-only policy rejects other cities and does not use unverified external Places even if configured', async () => {
+  const outside = business('other', 'auto', 'Ремонт', { city: 'Пловдив', city_ekatte: '56784', public_profile: { latitude: origin.latitude, longitude: origin.longitude } })
+  const local = business('local', 'auto', 'Ремонт')
+  const d = deps({ sofiaOnly: true, readInternal: async intent => {
+    assert.equal(intent.sofiaOnly, true)
+    return [outside, local]
+  } })
+  const result = await discoverBusinesses(input(), d)
+  assert.deepEqual(result.results.map(row => row.id), ['local'])
+  assert.equal(result.externalStatus, 'sofia_only')
+  assert.equal(result.external, null)
+  const nearby = await discoverBusinesses(input({ coordinates: origin }), d)
+  assert.deepEqual(nearby.results, [])
+  assert.deepEqual(d.calls, { fetch: [], budget: [] })
 })
 test('quota exhaustion, missing key and Google failure leave real partner browse available without retries', async () => {
   for (const [patch, expected] of [[{ claimBudget: async () => false, fetcher: () => assert.fail('quota') }, 'quota'], [{ config: { ...deps().config, browserKey: '' }, fetcher: () => assert.fail('key') }, 'not_configured'], [{ fetcher: async () => { throw new Error('provider unavailable') } }, 'unavailable']]) {

@@ -1,7 +1,7 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
-import { createPartnerRatingHandler, verifiedPartnerPlaceLink } from '../lib/discovery/partner-ratings.mjs'
+import { createPartnerRatingHandler, currentPublicSofiaPlaceLink, verifiedPartnerPlaceLink } from '../lib/discovery/partner-ratings.mjs'
 import { createPartnerRatingWidget } from '../lib/discovery/partner-rating-widget.mjs'
 import { PROVIDER_COST_MICROUSD } from '../lib/discovery/config.mjs'
 import { legacyGoogleConfig as discoveryConfig } from './helpers/legacy-google-config.mjs'
@@ -43,6 +43,19 @@ test('cross-origin and cross-site grants cannot consume the rating budget', asyn
 test('identity requires the exact business ID plus an authenticated reviewer and a valid verified Place ID', () => {
   assert.equal(verifiedPartnerPlaceLink(link, businessId), link.place_id)
   for (const row of [null, { ...link, business_id: actor }, { ...link, verified_by: null }, { ...link, verified_by: 'owner' }, { ...link, verified_at: null }, { ...link, verified_at: 'invalid' }, { ...link, place_id: '<script>' }, { ...link, place_id: 'x'.repeat(201) }]) assert.equal(verifiedPartnerPlaceLink(row, businessId), null)
+})
+
+test('public Sofia place links require the current named branch revision and a non-conflicting locality', () => {
+  const business = { id: businessId, active: true, platform_status: 'enabled', location_revision: 2,
+    city_ekatte: '68134', city: 'София', address: 'бул. Сливница 178Е, София' }
+  const row = { ...link, location_revision: '2', business }
+  assert.equal(currentPublicSofiaPlaceLink(row, businessId), row)
+  for (const value of [{ ...row, location_revision: null }, { ...row, location_revision: 1 },
+    { ...row, business: { ...business, id: actor } },
+    { ...row, business: { ...business, active: false } },
+    { ...row, business: { ...business, city_ekatte: '44094', city: 'Лом' } },
+    { ...row, business: { ...business, address: 'бул. Сливница 178Е, гр. Лом' } },
+    { ...row, verified_at: '2200-06-01T00:00:00Z' }]) assert.equal(currentPublicSofiaPlaceLink(value, businessId), null)
 })
 
 test('unpublished, suspended, missing and unverified businesses never receive a Google rating grant', async () => {
@@ -123,7 +136,9 @@ test('Google identity links stay admin-only, with manual exact-branch verificati
   assert.match(route, /export async function GET/); assert.match(route, /export async function PUT/)
   assert.equal((route.match(/!isPlatformAdmin\(user\)/g) || []).length, 2)
   assert.match(route, /identityChecked: z.literal\(true\)/)
-  assert.match(route, /verified_by: user.id, verified_at: new Date\(\).toISOString\(\)/)
+  assert.match(route, /save_branch_place_link/)
+  assert.match(route, /p_actor: user.id/)
+  assert.match(route, /p_location_revision: input.locationRevision/)
   assert.match(editor, /checked: true|identityChecked: true/)
   assert.match(editor, /exact business and branch, not just a matching name/)
   assert.match(editor, /if \(!preview\) await send/)

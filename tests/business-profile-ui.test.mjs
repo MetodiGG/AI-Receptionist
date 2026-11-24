@@ -9,6 +9,7 @@ import * as profileData from '../lib/business-profile.mjs'
 import { SITE_ORIGIN } from '../lib/seo.mjs'
 import * as bookingButtonContent from './helpers/booking-button-content.mjs'
 import * as publicAction from './helpers/public-action.mjs'
+import { DirectionsUnavailable, withVerifiedFixtureDirections } from './helpers/verified-directions.mjs'
 
 const { profileShareUrl, shareProfileLink, profileServicePrice, eligibleProfileStaff, profileBookingContextKey, scrollToProfileBooking } = profileUi
 const require = createRequire(import.meta.url)
@@ -36,6 +37,7 @@ const profileCode = await compileComponent('../components/business-profile.js')
 const stubs = {
   './booking-button-content': bookingButtonContent,
   './icon': { Icon },
+  './directions-unavailable': { DirectionsUnavailable },
   './business-photo-gallery': { BusinessPhotoGallery: ({ businessName }) => React.createElement('div', { 'data-photo-gallery': businessName }) },
   './business-cover-photo': { BusinessCoverPhoto: () => React.createElement('div', { 'data-category-cover': 'beauty' }) },
   './service-thumbnail': { ServiceThumbnail: ({ service }) => React.createElement('span', { 'data-service-thumbnail': service.id, 'aria-hidden': true }), IllustrativeServicePhotoNote: () => null },
@@ -47,7 +49,7 @@ const { BusinessProfileHeader, BusinessDirectionsLink, BusinessServiceList, Busi
 const render = (Component, props) => renderToStaticMarkup(React.createElement(Component, props))
 const visibleText = html => html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim()
 
-const business = {
+const business = withVerifiedFixtureDirections({
   id: 'business-actual', slug: 'actual-studio', name: 'Actual Studio', industry: 'beauty',
   address: 'ул. Примерна 7, София', phone: '+359888123456', website_url: 'https://studio.example.com',
   public_profile: { description: { bg: 'Реално описание', en: 'Actual description' }, payments: ['cash', 'card'], brands: ['Actual Brand'], latitude: 42.712345, longitude: 23.334567 },
@@ -58,7 +60,7 @@ const business = {
   staff: [{ id: 'staff-first', name: 'Actual Person', bio: 'Публикувана биография' }, { id: 'staff-second', name: 'Second Person' }],
   staffServices: [{ service_id: 'service-first', staff_id: 'staff-first' }],
   opening_hours: Array.from({ length: 7 }, (_, index) => ({ weekday: index + 1, periods: index < 5 ? [{ open: '09:00', close: '18:00' }] : [] })),
-}
+})
 
 test('mode state is not keyed by language/mode; in-flight submissions and previews cannot use the new controls to bypass safety', async () => {
   const booking = await readFile(new URL('../components/public-booking-page.js', import.meta.url), 'utf8')
@@ -227,21 +229,22 @@ test('profile header renders only real identity and direct actions, without cate
   assert.doesNotMatch(html, /<iframe|<script/)
 })
 
-test('directions match the displayed postal address and use the actual homepage folded-map Icon', () => {
+test('verified directions use the branch point and the actual homepage folded-map Icon; unverified ones offer copy only', () => {
   const node = BusinessDirectionsLink({ business, locale: 'en' })
   const href = new URL(node.props.href)
   assert.equal(href.origin, 'https://www.google.com')
   assert.equal(href.pathname, '/maps/dir/')
   assert.equal(href.searchParams.get('api'), '1')
-  assert.equal(href.searchParams.get('destination'), business.address + ', България')
+  assert.equal(href.searchParams.get('destination'), '42.712345,23.334567')
   assert.equal(node.props.target, '_blank')
   assert.equal(node.props.rel, 'noopener noreferrer')
   const html = render(BusinessDirectionsLink, { business, locale: 'en' })
   assert.ok(html.includes(render(Icon, { name: 'outlineMap' })))
   assert.doesNotMatch(html, /<circle|Icon name="pin"/)
-  const addressOnly = BusinessDirectionsLink({ business: { ...business, public_profile: {} }, locale: 'bg', address: true })
-  assert.equal(new URL(addressOnly.props.href).searchParams.get('destination'), business.address + ', България')
-  assert.equal(BusinessDirectionsLink({ business: { ...business, address: '' } }), null)
+  const addressOnly = render(BusinessDirectionsLink, { business: { ...business, coordinates: null, public_profile: {} }, locale: 'bg', address: true })
+  assert.match(addressOnly, /Локацията се уточнява/)
+  assert.match(addressOnly, /Копирай адреса/)
+  assert.doesNotMatch(addressOnly, /href=/)
 })
 
 test('service calendar actions carry actual service identifiers and selection semantics', () => {

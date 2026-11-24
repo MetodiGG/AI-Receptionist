@@ -1,3 +1,4 @@
+import { sofiaIntegrityPriorSource, sofiaIntegrityAllowsFileChange, sofiaIntegrityAllowsNewFile } from "./sofia-location-image-integrity-20261124-scope.mjs"
 import { suhodolIntakeAllowsFileChange, suhodolIntakeAllowsNewFile, suhodolIntakePriorSource, suhodolIntakePriorCatalogue } from './suhodol-intake-20261122-scope.mjs'
 import { nearbyPointsAllowsFileChange, nearbyPointsAllowsNewFile, nearbyPointsPriorSource, nearbyPointsPriorCatalogue } from './nearby-points-20261122-scope.mjs'
 import { locationRecoveryAllowsFileChange, locationRecoveryAllowsNewFile, locationRecoveryPriorSource, locationRecoveryPriorCatalogue } from './location-recovery-20261122-scope.mjs'
@@ -19,7 +20,7 @@ const SOFIA_CATALOGUE = suhodolIntakePriorCatalogue(currentCatalogue)
 const PUBLIC_CATALOGUE = suhodolIntakePriorCatalogue(currentPublicCatalogue)
 const root = fileURLToPath(new URL('../', import.meta.url))
 const git = (...args) => execFileSync('git', args, { cwd: root, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 })
-const read = path => readFile(new URL('../' + path, import.meta.url), 'utf8').then(source => locationRecoveryPriorSource(path, nearbyPointsPriorSource(path, suhodolIntakePriorSource(path, source))))
+const read = path => readFile(new URL('../' + path, import.meta.url), 'utf8').then(source => locationRecoveryPriorSource(path, nearbyPointsPriorSource(path, suhodolIntakePriorSource(path, sofiaIntegrityPriorSource(path, source)))))
 const before = path => git('show', PRIORITY30_REPORT_BASE + ':' + path)
 const sha256 = value => createHash('sha256').update(value).digest('hex')
 const productionPath = path => path !== 'node_modules' && !/^tests\//u.test(path)
@@ -49,13 +50,13 @@ test('priority30 authorizes exactly one offline report, two existing explanatory
 })
 
 test('all runtime, catalogue rows, tariffs, source receipts, original assets, previous snapshots and configuration stay byte-frozen with zero new admissions', async () => {
-  const frozen = tree.filter(record => !priority30ReportAllowsFileChange(record.path) && !suhodolIntakeAllowsFileChange(record.path) && !nearbyPointsAllowsFileChange(record.path) && !locationRecoveryAllowsFileChange(record.path))
+  const frozen = tree.filter(record => !sofiaIntegrityAllowsFileChange(record.path) && !priority30ReportAllowsFileChange(record.path) && !suhodolIntakeAllowsFileChange(record.path) && !nearbyPointsAllowsFileChange(record.path) && !locationRecoveryAllowsFileChange(record.path))
   for (let offset = 0; offset < frozen.length; offset += 32) await Promise.all(frozen.slice(offset, offset + 32).map(async record => {
     const path = new URL('../' + record.path, import.meta.url)
     const bytes = record.mode === '120000' ? Buffer.from(await readlink(path)) : await readFile(path)
     assert.equal(createHash('sha1').update('blob ' + bytes.length + '\0').update(bytes).digest('hex'), record.oid, record.path + ': the offline report must not mutate the product or historical evidence')
   }))
-  const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => path && !suhodolIntakeAllowsNewFile(path) && !nearbyPointsAllowsNewFile(path) && !locationRecoveryAllowsNewFile(path) && productionPath(path))
+  const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => !sofiaIntegrityAllowsNewFile(path) && path && !suhodolIntakeAllowsNewFile(path) && !nearbyPointsAllowsNewFile(path) && !locationRecoveryAllowsNewFile(path) && productionPath(path))
   assert.deepEqual([...new Set(actual)].sort(), [...tree.map(record => record.path), ...Object.keys(PRIORITY30_REPORT_NEW_HASHES)].sort(), 'no new runtime, data, media or executable path is authorized')
   for (const path of historicalScopes) assert.equal(await read(path), before(path), path + ': never widen old SHA maps or baseline authorizations')
 })

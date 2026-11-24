@@ -9,7 +9,7 @@ export async function GET(request, context) {
     if (!await consumeRateLimit(request, { scope: `business:${slug}`, limit: 120, windowSeconds: 60 })) {
       return apiError('Твърде много заявки. Опитай отново след малко.', 429, 'RATE_LIMITED')
     }
-    const business = await getPublicBusiness(slug)
+    const business = await getPublicBusiness(slug, { includeLocationEvidence: true })
     if (!business) return apiError('Този бизнес не е открит.', 404, 'NOT_FOUND')
     return Response.json({ business: presentPublicBusiness(toPublicBusiness(business)) },{headers:{'Cache-Control':'private, no-store'}})
   } catch (error) {

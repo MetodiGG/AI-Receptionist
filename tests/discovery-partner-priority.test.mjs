@@ -10,6 +10,7 @@ import { discoverBusinesses } from '../lib/discovery/search.mjs'
 import { legacyGoogleConfig as discoveryConfig } from './helpers/legacy-google-config.mjs'
 import { googleSearchRequest } from '../lib/discovery/google-places.mjs'
 import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
+import { verifiedNativeFixture } from './helpers/verified-native-location.mjs'
 
 const now = DateTime.fromISO('2026-10-30T09:00:00Z')
 const origin = { latitude: 42.7, longitude: 23.3, consent: true } // Synthetic test point, never a user's location.
@@ -51,7 +52,7 @@ test('quarter matches tolerate registry prefixes/transliteration but never repla
 })
 
 test('eligible partners always precede a higher-scoring external business, including at the display cap', () => {
-  const intent = parse('барбершоп', { coordinates: origin }), rows = normalizeInternalBusinesses([business({ public_profile: atKm(1.8) })], intent)
+  const intent = parse('барбершоп', { coordinates: origin }), rows = normalizeInternalBusinesses([verifiedNativeFixture(business(), atKm(1.8))], intent)
   const result = rankDiscoveryResults(rows, [external({ coordinates: atKm(0) })], intent)
   assert.equal(result[0].source, 'gorez'); assert.equal(result[1].source, 'google')
   assert.ok(result[1].ranking.score > result[0].ranking.score, 'partner tier must not depend on an inflated score')
@@ -63,8 +64,9 @@ test('radius eligibility uses unrounded distance; missing, stale or invalid dist
   for (const radiusKm of [1, 2]) {
     const intent = parse('барбершоп', { coordinates: origin, radiusKm }), justOutside = atKm(radiusKm + .04)
     assert.equal(displayDistanceKm(distanceKm(origin, justOutside)), radiusKm)
-    assert.deepEqual(normalizeInternalBusinesses([business({ public_profile: justOutside })], intent), [])
-    assert.equal(normalizeInternalBusinesses([business({ public_profile: atKm(radiusKm - .01) })], intent).length, 1)
+    assert.deepEqual(normalizeInternalBusinesses([verifiedNativeFixture(business(), justOutside)], intent), [])
+    assert.equal(normalizeInternalBusinesses([verifiedNativeFixture(business(), atKm(radiusKm - .01))], intent).length, 1)
+    assert.deepEqual(normalizeInternalBusinesses([business({ public_profile: atKm(0) })], intent), [], 'an unattested raw point cannot pass the radius')
     for (const coordinates of [null, justOutside, { latitude: NaN, longitude: 23.3 }]) assert.deepEqual(rankDiscoveryResults([], [external({ coordinates, distanceKm: 0 })], intent), [])
   }
 })

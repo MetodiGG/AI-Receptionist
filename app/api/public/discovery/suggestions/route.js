@@ -9,7 +9,7 @@ import { createDiscoverySuggestionsHandler } from '../../../../../lib/discovery/
 export const runtime = 'nodejs'
 export async function POST(request) {
   return createDiscoverySuggestionsHandler({
-    config: discoveryConfig(process.env), catalogue: PUBLIC_CATALOGUE,
+    config: discoveryConfig(process.env), catalogue: PUBLIC_CATALOGUE, sofiaOnly: true,
     allowAttempt: request => consumeRateLimit(request, { scope: 'discovery-suggestions', limit: 120, windowSeconds: 60, includeUserAgent: false }),
     readInventory: options => readPublishedSearchInventory(getSupabaseAdmin(), options),
     revalidatePartners: ids => readPublishedSearchCandidates(getSupabaseAdmin(), ids),

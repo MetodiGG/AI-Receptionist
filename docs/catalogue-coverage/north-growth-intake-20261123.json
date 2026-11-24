@@ -1,0 +1,72 @@
+{
+  "checkedOn": "2026-11-23",
+  "baselineCommit": "e5c5340f50f47e275f2b79cdab80a18f6d6c3dcf",
+  "status": "verified_intake_not_published",
+  "targetPerQuarterCategory": 30,
+  "municipalSource": {
+    "url": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+    "licence": "CC-BY-4.0",
+    "attribution": "ГИС София / Столична община",
+    "scope": "The municipal point identifies the street address, not an independently verified hall entrance."
+  },
+  "businesses": [
+    {
+      "id": "sofia-terpsihora-lyulin5-504-1",
+      "category": "fitness",
+      "neighborhood": "Люлин 5",
+      "address": "София, ж.к. Люлин 5, ул. 504 № 1, 97 СУ „Братя Миладинови“",
+      "municipal": {
+        "addressId": "110122",
+        "district": "Люлин",
+        "latitude": 42.71338,
+        "longitude": 23.241802,
+        "disambiguation": "The current operator timetable explicitly names 97 SU Bratya Miladinovi for these classes. Sofia’s municipal school list identifies that specific school in Lyulin 5 at 504 Street No. 1. Only one entry in the local municipal CSV matches that street, number and district."
+      },
+      "sources": {
+        "operator": "https://caterpsihora.com/",
+        "actualTelephoneEnrolment": "https://caterpsihora.com/kontakti/",
+        "ownerCurrentServiceAndVenueSchedule": "https://caterpsihora.com/klasichesko_napravlenie/",
+        "municipalSchoolQuarterAndAddress": "https://www.sofia.bg/en/municipality-schools-lulin",
+        "staleDifferentVenueListingNotUsed": "https://kidu.bg/Kidu/Event/Details/4631cd9f-4c1c-ec11-b6e6-6045bd8debab"
+      },
+      "qualification": "Independent dance-club operator, with the booking phone checked before the current service programme. Only its Lyulin 5 group at 97 SU is included. The activity is a 45-minute group classical ballet class for ages 6–8. The weekly timetable establishes duration, not live openings.",
+      "booking": "Telephone enrolment for the group via the owner’s actual booking CTA. No booking or call was made; no schedule availability or instant confirmation is implied.",
+      "pricingDecision": "not_publicly_listed",
+      "tariffScope": "Owner booking and current programme pages do not show a current tariff for the selected group. The old third-party monthly amount names other schools and is not applicable here.",
+      "imageKeys": ["sx-child-ballet"],
+      "normalizedRecordSha256": "1a537dc763359b1f51ec1fe1794daf7bcf67a17d77e5450bd1c52e54d09a8160",
+      "inventoryIdentity": "7855baa48bc50609f06332c1dc2acdea9cf441fb549127c5ac4352d68aa7ffc8",
+      "coverage": { "physical": [0, 1], "located": [0, 1] }
+    }
+  ],
+  "held": [
+    {
+      "name": "ShapeRoom Studio",
+      "neighborhood": "Люлин 6",
+      "category": "fitness",
+      "source": "https://shaperoom.studio/",
+      "reason": "The owner confirms appointment-only functional training with a precise address, but does not state whether individual or group training can be booked. The required appointment model is not inferred."
+    },
+    {
+      "name": "Sport Edition · Нардо",
+      "neighborhood": "Люлин 6",
+      "category": "fitness",
+      "source": "https://nardobg.com/sport/",
+      "reason": "The owner's named football booking link redirects to an inaccessible general provider landing page. The owner posts a pitch tariff but gives no explicit phone reservation fallback on the reviewed sports or contact pages. Separate padel prices conflict between the operator’s own pages."
+    },
+    {
+      "name": "НЧ „Свобода-1955“ · клубни танци",
+      "neighborhood": "Надежда 4",
+      "category": "fitness",
+      "source": "https://n4svoboda.com/shkoli-sustavi-i-klubove/narodni-tanci/",
+      "reason": "The owner gives the venue as the hall near residential block 442, not a numbered address or the residential entrance. The registry’s addresses at 442 are apartment entrances; the institution's separate administration address cannot be assigned to this school hall."
+    }
+  ],
+  "isolatedCoverage": {
+    "approvedSofia": [1753, 1754],
+    "locatedSofiaPremises": [987, 988],
+    "emptyQuarterCategoryPairs": [1262, 1261],
+    "emptyLocatedQuarterCategoryPairs": [1367, 1366]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "baselineCommit": "fe2cd9e223c83a25da921ea561656d046c68dbae",
+  "checkedAt": "2026-11-23T12:00:00.000Z",
+  "status": "prepared_locally_not_published",
+  "scope": "Approved checked-in Sofia catalogue only; not the full count of live native partners. No service-area-only provider, generic area pin, or unverified address counts towards a located quarter-category.",
+  "targetPerQuarterCategory": 30,
+  "pickerNeighborhoods": 97,
+  "observedAdditionalNamedAreas": 28,
+  "trackedQuarterCategoryCells": 1750,
+  "approvedSofiaBusinesses": [1714, 1717],
+  "premisesWithBoundCoordinates": [917, 920],
+  "emptyLocatedPickerCells": [1057, 1054],
+  "emptyLocatedTrackedCells": [1425, 1422],
+  "cellsAtLocatedTarget": [0, 0],
+  "newPlaces": ["sofia-part-time-pavlovo-duychev12v", "sofia-galileodent-nadezhda4-lomsko182", "sofia-vm-auto-service-obelya-2-lomsko248a"],
+  "existingPlacesCorrected": ["sofia-tennis-lyulin-6"],
+  "affected": [
+    { "neighborhood": "Люлин 6", "category": "fitness", "physical": [0, 1], "located": [0, 1] },
+    { "neighborhood": "Надежда 4", "category": "other", "physical": [0, 1], "located": [0, 1] },
+    { "neighborhood": "Обеля 2", "category": "auto_repair", "physical": [1, 2], "located": [1, 2] },
+    { "neighborhood": "Павлово", "category": "education", "physical": [0, 1], "located": [0, 1] }
+  ],
+  "evidence": [
+    "education-intake-pavlovo-20261123.json",
+    "galileodent-intake-20261123.json",
+    "vm-auto-intake-20261123.json",
+    "tennis-lyulin-6-recovery-20261123.json"
+  ]
+}

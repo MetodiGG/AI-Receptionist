@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "baselineCommit": "f9947f8754e1e7c2ce7b82e88fda8775639e2335",
+  "status": "prepared_locally_not_published",
+  "targetPerQuarterCategory": 30,
+  "newBusiness": {
+    "id": "sofia-mushmula-poligona-tsarigradsko111v",
+    "name": "Мушмула · София Тех Парк",
+    "nameEn": "Mushmula · Sofia Tech Park",
+    "category": "fitness",
+    "neighborhood": "Полигона",
+    "address": "София, кв. Полигона, бул. Цариградско шосе 111В, зала Momentum",
+    "addressEn": "Sofia, Poligona, 111V Tsarigradsko Shose Blvd., Momentum Hall",
+    "municipal": {
+      "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+      "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+      "addressId": "112232",
+      "district": "Младост",
+      "settlement": "гр. София",
+      "literalStreet": "бул. Цариградско шосе",
+      "literalNumber": "111В",
+      "latitude": 42.665440,
+      "longitude": 23.374522,
+      "licence": "CC-BY-4.0",
+      "pointScope": "Exact and unique municipal street-number postal point for the building. The room is sourced separately. Neither the class room nor the entrance is independently surveyed. Unlettered 111 is not used."
+    },
+    "ownerWebsite": "https://mushmula.bg/",
+    "ownerContact": "https://mushmula.bg/kontakti",
+    "ownerService": "https://mushmula.bg/hiit-circuit-s-lili",
+    "ownerTariff": "https://mushmula.bg/grafik-momentum-teh-park",
+    "ownerTerms": "https://mushmula.bg/obshi-usloviya-za-polzvane",
+    "areaCorroboration": "The owner identifies its second studio inside Momentum at 111V. Momentum independently identifies Mushmula as an inside facility and gives the same complete street number. The published membership-program location names Poligona for this exact studio and street number; it corroborates physical locality only. The owner's label м. Къро is a place name, not a different numbered venue: SofiaPlan locates Sofia Tech Park in Къро and the VSU planning publication relates that locality to Poligona. The legal administrative district Mladost in the postal record is not the neighborhood. The studio’s Mladost-1 contact address belongs to its other branch and is not used.",
+    "areaCorroborationUrls": [
+      "https://momentumclimbing.bg/tsarigradsko-shose/",
+      "https://locations.mymultisport.bg/location/tantsovo-studio-mushmula-zala-walltopia",
+      "https://sofiaplan.bg/wp-content/uploads/2020/05/248Y32U.pdf",
+      "https://conference.vsu.bg/_upload/VSU2021_Vol_1a_compressed.pdf"
+    ],
+    "booking": {
+      "kind": "form",
+      "url": "https://mushmula.bg/grafik-momentum-teh-park",
+      "publicEmbeddedMenu": "https://bulgariasofia3.gymrealm.com/Schedulev2/EmbedGroupSchedulev2?Namespace=mushmula&ShowCapacity=True&ShowFilters=True&Days=7&GymID=888&StartMonday=True&GymArea=514",
+      "evidence": "The actual service CTA leads to the owner's branch-specific booking page. Its public embedded menu was rendered in Chromium and the named HIIT Circuit group row showed its selection control. This was observed without selecting any time or date, entering any information, logging in, or making a booking. Only the owner's branch page is the public destination; do not embed or deep-link provider content from GoRez."
+    },
+    "service": {
+      "name": "Групова HIIT тренировка",
+      "nameEn": "Group HIIT workout",
+      "amount": 8,
+      "currency": "EUR",
+      "kind": "fixed",
+      "unit": "едно групово посещение",
+      "unitEn": "one group visit",
+      "descriptionEn": "One in-person interval circuit workout. Advance booking and at least two sign-ups are required. For morning classes, book by 19:00 the previous day.",
+      "candidateIllustration": "/service-photos/sx-hiit-group-v1.webp"
+    },
+    "termsScope": "The branch owner’s single in-person non-package rate is 8 EUR. No VAT claim is inferred from old generic terms or the separately priced Reformer page. The owner's general minimum and morning cutoff are retained for the paid class; the third-party card network's other terms are not represented as merchant cash-price conditions. No provider time, slot, capacity, marketing claim or terms text is copied.",
+    "excluded": "No duplicate studio for the two activity names or host, no host contact or pricing, partner status, venue opening hours, guaranteed class duration, health promise, guessed price, and no mat Pilates placed in the Reformer subcategory. No profile, payment, or production writes.",
+    "inventoryIdentity": "b1758d087bc103af576e094313d4c29ef091ff81416c3da4c582ff58e3b58753",
+    "normalizedRecordSha256": "fc07b5d6779bdd0f29079d4630798c5b812333b88ad68a4cf2e3cc841e28a608",
+    "coverage": { "physical": [0, 1], "located": [0, 1] }
+  },
+  "held": [
+    {
+      "name": "Бонини кар · периодично обучение за професионални водачи",
+      "neighborhood": "Зона Б-18",
+      "reason": "The owner quotes 100 EUR for the periodic course and publishes a booking phone, but its course page only repeats the general suite of company/footer contacts. The actual periodic classroom venue is not independently established; the separate driving-school registry lists a different nearby address for another licence scope. Do not use either location for this course pending confirmation.",
+      "reviewedSources": [
+        "https://profesionalnakompetentnost.bg/kursove/profesionalna-kompetentnost/",
+        "https://profesionalnakompetentnost.bg/cena-za-kurs-za-profesionalna-kompetentnost-periodichno-o/",
+        "https://rta.government.bg/bg/archive_c_teoria"
+      ]
+    }
+  ]
+}

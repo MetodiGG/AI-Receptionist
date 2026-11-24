@@ -1,0 +1,51 @@
+{
+  "checkedOn": "2026-11-23",
+  "status": "local_only",
+  "municipalSource": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+  "businesses": [
+    {
+      "id": "sofia-kis-auto-simeonovo-bosilek3",
+      "neighborhood": "Симеоново",
+      "category": "auto_repair",
+      "address": "София, кв. Симеоново, ул. Босилек 3",
+      "municipal": { "addressId": "8417", "region": "Витоша", "street": "ул. Босилек", "number": "3", "latitude": 42.624473, "longitude": 23.332706 },
+      "booking": { "kind": "phone", "phone": "+359878969425", "url": "https://www.avtoservizkis.com/contact.php" },
+      "servicesUrl": "https://www.avtoservizkis.com/services.php",
+      "tariff": "https://www.avtoservizkis.com/price.php",
+      "hours": "Omitted. The owner page prints Mon–Sat 09:00–19:00 but on the next line claims no day off.",
+      "prices": [
+        { "name": "Боядисване на броня", "amount": 127.82, "kind": "from", "currency": "EUR", "condition": "Includes removing and refitting the bumper." },
+        { "name": "Боядисване на врата или калник", "amount": 112.48, "kind": "from", "currency": "EUR", "condition": "Includes removing and refitting the affected fittings and trim." },
+        { "name": "Изчукване и подмяна на каросерийни детайли", "amount": 35.79, "kind": "from", "currency": "EUR", "condition": "Depends on the degree of damage." }
+      ],
+      "inventoryIdentity": "ff32b6e980f66182061128c55096b4853cde399f90df138cddba0e4b51d12c08",
+      "rowSha256": "98041e4de16ce3555f9e818dd4583131b0d80d764464bc15a9de6eceba91d427"
+    },
+    {
+      "id": "sofia-next-level-knyazhevo-tsar-boris272",
+      "neighborhood": "Княжево",
+      "category": "fitness",
+      "address": "София, кв. Княжево, бул. Цар Борис III 272, Retail Park Княжево, последен етаж",
+      "municipal": { "addressId": "119913", "region": "Витоша", "street": "бул. Цар Борис III", "number": "272", "latitude": 42.660277, "longitude": 23.245037 },
+      "booking": { "kind": "form", "url": "https://knyazhevo.nextlevelclub.bg/calendar" },
+      "addressAndHours": "https://www.nextlevelclub.bg/klubove/knyazhevo/",
+      "bookingRules": "https://www.nextlevelclub.bg/dostup-do-moya-profil/",
+      "tariff": "https://knyazhevo.nextlevelclub.bg/buy-membership",
+      "prices": [
+        { "name": "Фитнес и групови тренировки · 7-дневна карта", "amount": 29, "kind": "fixed", "currency": "EUR", "unit": "карта за 7 дни", "condition": "Pass total; up to one group activity daily, subject to the branch. Reservation is separate from the purchase." }
+      ],
+      "inventoryIdentity": "1c2d8b4b4bb933d35ec86d72fa714466aa6393e326904307c859656718bbed7e",
+      "rowSha256": "14ed88ba0649b89d8240c026b9c88affd4ac7eb10e3dc6b3e22102b6d5cdf18b"
+    }
+  ],
+  "heldLocations": [
+    { "id": "sofia-malinova-dolina-sport-kliment127g", "source": "https://malinovasport.bg/", "reason": "The owner's explicit GPS and the single municipal 127Г postal point disagree by more than 300 m. No exact location is changed." },
+    { "name": "ФК Олимпия · Горубляне", "source": "https://www.olimpiafc.com/zapisvane-otbori/", "reason": "Season 2026/27 group enrollment is evidenced, but the supplied municipal file does not match the civic number supplied by another club for the stadium. Pending independent identification of the entrance." }
+  ],
+  "illustrationAssets": {
+    "/service-photos/sx-auto-bumper-spray-paint-v1.webp": "8693c08a15f6e07f9d92bd59faf7e2c8c7534f940eb5cd47c6f17bd55ec6861c",
+    "/service-photos/sx-auto-panel-spray-paint-v1.webp": "827417658111f065842acffba00759796072fe3024a4a688929816cfa54aa38e",
+    "/service-photos/sx-auto-body-panel-repair-v1.webp": "aa62311bc0170dd9ef8b1d50bdd4a12b78c6b4db162ad326e2d2f289d032d13b",
+    "/service-photos/sx-hiit-group-v1.webp": "266ae21a31a226c5af57df8741d8995dc0d55cf7dd5c565fa32ad6b92e2d1e4a"
+  }
+}

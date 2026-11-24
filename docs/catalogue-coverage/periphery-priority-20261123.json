@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "baseline": "e4d6789d86b67504c45e58f40cc2505e18b56228",
+  "checkedAt": "2026-11-23T04:15:00.000Z",
+  "status": "prepared_locally_not_published",
+  "targetPerQuarterCategory": 30,
+  "totalTargetCells": 1750,
+  "pickerTargetCells": 1358,
+  "approvedCatalogueRecords": [1744, 1748],
+  "locatedPremises": [962, 972],
+  "emptyLocatedCells": [1384, 1380],
+  "emptyLocatedPickerCells": [1019, 1015],
+  "cellsAtLocatedTarget": [0, 0],
+  "newDistinctOperators": 3,
+  "newPremises": 4,
+  "existingAddressBindings": 6,
+  "verifiedPublicPriceFacts": 1,
+  "newRows": [
+    { "id": "sofia-salt-home-druzhba2-block302a", "neighborhood": "Дружба 2", "category": "fitness", "normalizedRecordSha256": "807ead80597c0a9d2f57de3e95d4f265b377b2c96a0325c4fe1e9199bbe8989b" },
+    { "id": "sofia-logos152-simeonovo-krairechna10", "neighborhood": "Симеоново", "category": "education", "normalizedRecordSha256": "6906736c6f23921917eb2092bc077af4df5a813e0403bc984be7f90320a2eb87" },
+    { "id": "sofia-emika-druzhba2-block204", "neighborhood": "Дружба 2", "category": "education", "normalizedRecordSha256": "4a11fe52dee3794c6b52f53031bb0c2352d3729950395790870cbb425cd0f0cb" },
+    { "id": "sofia-silver-star-ring-mall-okolovrasten214", "neighborhood": "Симеоново", "category": "auto_repair", "normalizedRecordSha256": "a96a324af95330dabcc9651aeeb7ef51e988f88b5e88784e3dd4c368d8954714", "existingOperatorRecordId": "sofia-silver-star-chelopechko" }
+  ],
+  "affected": [
+    { "neighborhood": "Дружба 2", "category": "fitness", "ids": ["sofia-salt-art-druzhba", "sofia-salt-home-druzhba2-block302a"], "physical": [3, 4], "located": [2, 4] },
+    { "neighborhood": "Дружба 2", "category": "education", "ids": ["sofia-emika-druzhba2-block204"], "physical": [4, 5], "located": [2, 3] },
+    { "neighborhood": "Симеоново", "category": "education", "ids": ["sofia-logos152-simeonovo-krairechna10"], "physical": [2, 3], "located": [1, 2] },
+    { "neighborhood": "Симеоново", "category": "auto_repair", "ids": ["sofia-silver-star-ring-mall-okolovrasten214"], "physical": [1, 2], "located": [1, 2] },
+    { "neighborhood": "Люлин 4", "category": "education", "ids": ["sofia-pharos-lyulin4-block446"], "physical": [1, 1], "located": [0, 1] },
+    { "neighborhood": "Люлин 4", "category": "other", "ids": ["sofia-yoyo-vet"], "physical": [2, 2], "located": [0, 1] },
+    { "neighborhood": "Люлин 6", "category": "other", "ids": ["sofia-dr-smily"], "physical": [0, 1], "located": [0, 1] },
+    { "neighborhood": "Люлин 7", "category": "nails", "ids": ["sofia-wave-studio-lyulin7-nails"], "physical": [1, 1], "located": [0, 1] },
+    { "neighborhood": "Люлин 10", "category": "other", "ids": ["sofia-dentel-lyulin"], "physical": [3, 3], "located": [1, 2] }
+  ],
+  "evidenceFiles": ["sparse-east-intake-20261123.json", "sparse-south-intake-20261123.json", "emika-druzhba2-intake-20261123.json", "silverstar-ring-intake-20261123.json", "north-exact-coverage-20261123.json", "saltart-druzhba-binding-20261123.json"],
+  "held": [
+    { "candidate": "Транс Контрол 3", "source": "https://transcontrol3.com/robots.txt", "additionalSource": "https://myve.bg/obshti-usloviq.html", "reason": "The owner declares reference use and the application provider limits commercial reuse. No branch or tariff was imported. The public permit list does not replace operator-authorized appointment and pricing evidence." },
+    { "candidate": "Bijue Beauty", "source": "https://bijuebeauty.bg/kontakti/", "reason": "The official street address does not resolve to an exact municipal street-number row. Nearby block entrances do not match the owner location closely enough to substitute. Existing listing unchanged." },
+    { "candidate": "ФК Спортист-Кремиковци", "reason": "Adult activity is documented, but current children’s enrolment at an exact physical address was not confirmed. No listing was added." }
+  ],
+  "scope": "Counts are from the local Sofia catalogue. Approved records include branches and service-area providers and are not a census of distinct operators. The new operator count is distinct within the reviewed batch. An address point is not proof of a specific door, available appointment or result within any requested radius. No migration or production publication."
+}

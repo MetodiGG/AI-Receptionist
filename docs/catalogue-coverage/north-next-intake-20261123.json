@@ -1,0 +1,104 @@
+{
+  "checkedOn": "2026-11-23",
+  "baselineCommit": "66d6a405f28344931a67b57359f34208b54cd114",
+  "status": "verified_intake_not_published",
+  "targetPerQuarterCategory": 30,
+  "municipalSource": {
+    "url": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+    "licence": "CC-BY-4.0",
+    "attribution": "ГИС София / Столична община",
+    "scope": "Offline, exact postal points. No map-provider coordinates or guessed quarter centroids."
+  },
+  "businesses": [
+    {
+      "id": "sofia-avtotapicera-iliyantsi-balcho7",
+      "category": "detailing",
+      "neighborhood": "Илиянци",
+      "address": "София, кв. Илиянци, ул. Балчо Нейков 7",
+      "municipal": {
+        "addressId": "98126",
+        "district": "Надежда",
+        "latitude": 42.748355,
+        "longitude": 23.315198,
+        "disambiguation": "Unique row at exact street and number in Sofia. The owner's workshop contact and the Sofia Inspectorate's neighborhood register both state Iliantsi for No. 7; a municipal order listing the street as part of an industrial-area boundary does not transfer the address to the industrial-area category. The point is the official address, not a separately verified unit entrance."
+      },
+      "sources": {
+        "ownerContactAndReupholsteryIntake": "https://avtotapicera.com/kontakti/",
+        "ownerWorkshopServices": "https://avtotapicera.com/",
+        "ownerCourseTariffNotAppliedToWorkshopWork": "https://avtotapicera.com/kursove/",
+        "inspectorateQuarterAndNumber": "https://inspectorat-so.org/images/Documents/Spisuci/%D0%95%D0%9A%D0%9E%D0%91%D0%A3%D0%9B%D0%9F%D0%90%D0%9A/2017_SO_Nadezhda_Spisak.pdf",
+        "adjacentIndustrialBoundarySource": "https://www.sofia.bg/documents/d/guest/zapoved-soa25-rd09-4289-nadezda-2026"
+      },
+      "qualification": "One physical workshop with first-party separation of its retail-orders and its reupholstery contact, despite the same phone number appearing in both. This intake lists steering-wheel reupholstery only, neither retail items nor a separate education business.",
+      "booking": "Telephone request via the owner’s dedicated reupholstery contact. No booking or call was made; no schedule or confirmed appointment is implied.",
+      "pricingDecision": "not_publicly_listed",
+      "tariffScope": "The inspected owner contact and service menu give no public amount or duration for the steering-wheel reupholstery service. Stock steering wheels, care products and training package totals do not belong to this service. Conflicting third-party hours are not claimed.",
+      "imageKeys": ["sx-detail-steering-restore"],
+      "normalizedRecordSha256": "639e19922bf118f1e4701899d02ce8066a881305384b78ce7b2f904ee268b3b2",
+      "inventoryIdentity": "d2e4270d40c3985116369709eac3b6e6ba9e54bf3c01725a3b875859986a960e",
+      "coverage": { "physical": [0, 1], "located": [0, 1] }
+    }
+  ],
+  "existingBindings": [
+    {
+      "id": "sofia-lyudmil-kiskimov-lyulin7",
+      "category": "other",
+      "neighborhood": "Люлин 7",
+      "address": "София, ж.к. Люлин 7, бл. 731 Б, партер до входната врата",
+      "ownerAddressAndBooking": "https://kiskimov.bg/kontakti",
+      "municipal": { "addressId": "52238", "latitude": 42.710097, "longitude": 23.261567 },
+      "disambiguation": "Owner explicitly says Lyulin 7, block 731 Б, on the ground floor beside the entrance. The municipal export enumerates block 731 entrances А and Б; only Б is used.",
+      "normalizedRecordBeforeSha256": "e210d7f3c4a187a2b971ec8e6ad2768581c9a1c01bb798b6bd332ff0598c4524",
+      "normalizedRecordAfterSha256": "ac5ef6f7490959a8142d39009b6aceb49a0a03f4933b89c940c4934d06bbd4c4",
+      "priceInventoryUnchanged": true,
+      "coverage": { "physical": [5, 5], "located": [3, 4] }
+    },
+    {
+      "id": "sofia-radial2000-benkovski",
+      "category": "auto_repair",
+      "neighborhood": "Бенковски",
+      "address": "София, Бенковски, ул. Лазар Михайлов 29",
+      "ownerContact": "https://radial2000.com/contact-us/",
+      "ownerBooking": "https://radial2000.com/запази-си-час/",
+      "councilStreetTypeAlias": "https://council.sofia.bg/documents/20182/599819/R-83-PR%2B1%2C%2B2%2C%2B3-1.pdf/70754971-067f-42f9-9ffc-6c4dd4a76800",
+      "municipal": { "addressId": "58016", "latitude": 42.734007, "longitude": 23.343063 },
+      "disambiguation": "Owner and historical Sofia Council annex use улица for the named road and No. 29; the municipal export uses булевард with the same name, same number and explicit Benkovski settlement. There is one matching No. 29. No change to the public address or service inventory.",
+      "normalizedRecordBeforeSha256": "a73098f30c55dcb483bd9026101030ee5796ad2db00fbeb0bd74bfcf1d5ee82e",
+      "normalizedRecordAfterSha256": "0ebe667968a1917fcbd7dd3c53fae92b92fc797992a9bb62877c8c5044a925a3",
+      "priceInventoryUnchanged": true,
+      "coverage": { "physical": [2, 2], "located": [1, 2] }
+    }
+  ],
+  "held": [
+    {
+      "name": "АвтотапицерЪ · претапициране на автомобилни седалки",
+      "neighborhood": "Илиянци",
+      "category": "detailing",
+      "source": "https://avtotapicera.com/",
+      "reason": "The owner offers vehicle-seat reupholstery, but current photos show upholstery cleaning instead. Hold this service until a representative photo is available. The steering-wheel service has its own relevant photo."
+    },
+    {
+      "name": "Yana Rakovska hair.scalp lab",
+      "neighborhood": "Люлин 7",
+      "category": "hair",
+      "source": "https://www.mylink.bg/yana-rakovska",
+      "reason": "The only accessible appointment inventory was a restricted provider; its terms prohibit scraping or automated extraction. No accessible independent operator website supplied a matching appointment menu. No menu, tariffs or image imported."
+    },
+    {
+      "name": "Дияна Фешън",
+      "neighborhood": "Обеля 1",
+      "category": "hair",
+      "source": "https://studio24.bg/diyana-feshan-s9313",
+      "reason": "Block 120 has three address entrances and no first-party entrance evidence was found. No provider tariff or point retained."
+    },
+    {
+      "name": "Спортен комплекс Орландо спорт",
+      "neighborhood": "Орландовци",
+      "category": "fitness",
+      "source": "https://www.sofia.bg/documents/20121/129270/%D0%A0%D0%B0%D0%B9%D0%BE%D0%BD%2B%D0%A1%D0%B5%D1%80%D0%B4%D0%B8%D0%BA%D0%B0.pdf/58f19336-5607-4085-8a75-96e0af77a396",
+      "reason": "Historical municipal documents and third-party directories identify the facility. They do not establish a current first-party reservation route or a valid tariff."
+    }
+  ],
+  "isolatedCoverage": { "approvedSofia": [1749, 1750], "locatedSofiaPremises": [981, 984], "emptyQuarterCategoryPairs": [1266, 1265] }
+}

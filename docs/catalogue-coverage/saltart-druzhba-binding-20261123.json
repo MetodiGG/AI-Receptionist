@@ -1,0 +1,24 @@
+{
+  "checkedOn": "2026-11-23",
+  "status": "local_only",
+  "id": "sofia-salt-art-druzhba",
+  "neighborhood": "Дружба 2",
+  "category": "fitness",
+  "address": "София, ж.к. Дружба 2, бул. Проф. Цветан Лазаров 602",
+  "ownerAddressSource": "https://saltart.bg/kontakti-druzhba/",
+  "municipalSource": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+  "municipalMatch": {
+    "addressId": "121111",
+    "region": "Искър",
+    "registeredArea": "ж.к. Дружба",
+    "block": "602",
+    "entranceRecorded": null,
+    "latitude": 42.65782,
+    "longitude": 23.395274
+  },
+  "evidence": "The operator contact page unambiguously gives Druzhba 2 and the displayed number 602. Its own embedded destination, read without visiting the map, is about 5.3 metres from the only municipal block 602 in Iskar. The municipal point, not the embedded marker, is stored. There is no separately registered entrance; the original public address is kept. No claim about availability or therapeutic effects, and no change to booking, prices, services, names or operating hours.",
+  "previousRowSha256": "08a57272d5663f3848ee57584c09a1a0eaaba49d6dd6f07cef14480d22dd55bb",
+  "reviewedRowSha256": "65fd9c1de05ba51d3f9f19336a3a64e2be08175101871fb44ef44097f6d5d91b",
+  "pricingIdentity": "11f7b568a4a85afd0624b26b1ebab787c55627382a31e9ea7f93a181bc6d8801",
+  "coverage": { "physical": [3, 3], "located": [2, 3] }
+}

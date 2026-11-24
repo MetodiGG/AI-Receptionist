@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "status": "prepared_locally_not_published",
+  "targetPerQuarterCategory": 30,
+  "newBusiness": {
+    "id": "sofia-dbros-vrazhdebna-botevgradsko431",
+    "name": "D-Bros Automotive",
+    "address": "София, кв. Враждебна, бул. Ботевградско шосе 431, м. Япаджа",
+    "neighborhood": "Враждебна",
+    "category": "auto_repair",
+    "owner": "https://dbros-garage.com/",
+    "ownerContactAndActualBooking": "https://dbros-garage.com/contacts",
+    "ownerServiceTerms": "https://dbros-garage.com/about/obshchi-usloviya-serviz",
+    "secondaryOfficialSite": "https://www.d-bros-automotive.eu/",
+    "secondaryPublishedAddress": "The same street and number and Yapadzha site name, with matching published Monday to Friday 09:00–18:00. The two official sites publish different phone numbers; neither was guessed as the main number for GoRez.",
+    "officialAddress": {
+      "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+      "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+      "addressId": "94059",
+      "street": "бул. Ботевградско шосе",
+      "number": "431",
+      "administrativeDistrict": "Кремиковци",
+      "latitude": 42.710144,
+      "longitude": 23.425623,
+      "licence": "CC-BY-4.0",
+      "scope": "Single exact Sofia street/number postal point, not an entrance or viewport. The owner's repair terms explicitly locate the physical workshop in Vrazhdebna, separate from its legal seat in Mladost."
+    },
+    "appointment": "The book links on both service pages target the owner's appointment enquiry form. That rendered form permits a subject and message; the shop replies, no instant booking or slot is displayed in GoRez. No call, booking, login or form submission was made.",
+    "priceSearch": "The company's direct appointment form and both exact service price sections contained no amounts. No rates on a third-party or restricted platform, unpublished quotes, retail packages, invented duration, stock or other contextual business data were copied.",
+    "services": [
+      {
+        "name": "Компютърна диагностика на двигател и електроника",
+        "source": "https://dbros-garage.com/service/diagnostika-na-dvigatel-i-periferia",
+        "photo": "/service-photos/auto-diagnostics-v1.webp",
+        "englishName": "Computer diagnostics for engines and electronics"
+      },
+      {
+        "name": "Проверка на окачване и кормилно управление",
+        "source": "https://dbros-garage.com/service/proverka-na-okachvane-i-korilno-upravlenie",
+        "photo": "/service-photos/sx-auto-suspension-diagnose-repair-v1.webp",
+        "englishName": "Suspension and steering inspection"
+      }
+    ],
+    "inventoryIdentity": "ae5aec6ec72c3e056713214d5931a6ac73e08ec40d0747495f8c2baf912f60df",
+    "coverage": { "physical": [0, 1], "located": [0, 1] },
+    "duplicateReview": "No previous exact operator/domain/contact/address record. This intake represents one business, one garage and two services, not two companies for the two domains."
+  }
+}

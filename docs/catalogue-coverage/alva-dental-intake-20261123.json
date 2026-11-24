@@ -1,0 +1,60 @@
+{
+  "checkedOn": "2026-11-23",
+  "baselineCommit": "3a455cd",
+  "status": "prepared_locally_not_published",
+  "targetPerQuarterCategory": 30,
+  "newBusiness": {
+    "id": "sofia-alva-dental-hadzhi-dimitar107v",
+    "name": "Alva Dental Clinic",
+    "category": "other",
+    "neighborhood": "Хаджи Димитър",
+    "address": "София, ж.к. Хаджи Димитър, бл. 107, вх. В",
+    "website": "https://alvadent.net/",
+    "type": "Independent dental practice",
+    "municipal": {
+      "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+      "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+      "addressId": "50393",
+      "latitude": 42.70578,
+      "longitude": 23.34524,
+      "licence": "CC-BY-4.0",
+      "pointScope": "Unique 107 / entrance В match in Sofia, Poduyane, Hadzhi Dimitar. The postal point is not a survey of the practice entrance.",
+      "corroboration": "The owner homepage supplies the same postal address and professional phone in visible text and its own Dentist schema. Its separate owner-published point is approximately 3.6 m from rn50393. The official municipal point is retained; no map lookup was used."
+    },
+    "booking": {
+      "kind": "phone",
+      "phone": "+359885416040",
+      "source": "https://alvadent.net/",
+      "evidence": "The rendered homepage and Contact view invite appointments and display the same phone; both expose a tel link. Neither offers a public booking form or slot calendar. No call or reservation made."
+    },
+    "hours": {
+      "weekdays": "08:30–18:30",
+      "saturday": "closed",
+      "sunday": "closed",
+      "source": "https://alvadent.net/",
+      "scope": "Practice hours, not the availability of a dentist."
+    },
+    "services": [
+      { "name": "Профилактичен стоматологичен преглед", "photoKey": "dental-exam" },
+      { "name": "Професионално почистване на зъбен камък и полиране", "photoKey": "dental-cleaning" }
+    ],
+    "prices": {
+      "decision": "not_publicly_listed",
+      "evidence": "Read the two services in the rendered owner menu, plus the rendered homepage, actual Contact, practitioners and advertised sitemap. No individual or practice rate, duration, currency-denominated tariff or separate price list is visible. The homepage's generic structured price tier is not a numerical tariff. Prices stay absent."
+    },
+    "sourceReview": {
+      "publicViews": [
+        "https://alvadent.net/",
+        "https://alvadent.net/contact",
+        "https://alvadent.net/services",
+        "https://alvadent.net/practitioners",
+        "https://alvadent.net/robots.txt",
+        "https://alvadent.net/sitemap.xml"
+      ],
+      "notes": "The site serves its nested public views on normal internal navigation; unhydrated deep links return an empty HTTP 404. The three internal links were followed from the working public homepage with an isolated browser and their full text inspected. No failed deep link was treated as a missing tariff. The working homepage is the public destination. Robots allows public paths; neither rendered navigation nor sitemap links a separate policy or prices page. Footer has a regular copyright notice. No photos, ratings, expressive prose, credentials, treatment claims or private data copied."
+    },
+    "deduplication": "No existing catalogue match for the owner hostname, practice name, phone or exact address. Дентално студио д-р Николаев is separately located at ул. Клисура 20.",
+    "coverage": { "physical": [1, 2], "located": [1, 2] },
+    "inventoryIdentity": "a95da15828e341cb17c53ebb77067135efb0778b0f9c7cf76cddbb6bbbfd11ff"
+  }
+}

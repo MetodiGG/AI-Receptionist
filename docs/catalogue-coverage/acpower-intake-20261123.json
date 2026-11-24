@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "publicationReviewDateUtc": "2026-11-23",
+  "status": "prepared_locally_not_published",
+  "priority": "30 distinct physical businesses with verified addresses per Sofia quarter and category",
+  "newBusinessesPrepared": 1,
+  "newServicesPrepared": 1,
+  "verifiedPublicPriceFacts": 1,
+  "business": {
+    "id": "sofia-ac-power-suhodol-badeshte4a",
+    "name": "Ауто Корект Пауър Тийм",
+    "category": "auto_repair",
+    "neighborhood": "Суходол",
+    "address": "София, кв. Суходол, ул. Бъдеще 4А",
+    "website": "https://acpower.eu/",
+    "contact": "https://acpower.eu/contacts/",
+    "phone": "+359895784785",
+    "locationKind": "premises",
+    "validUntil": "2026-12-23",
+    "duplicateCheck": "Current Sofia catalogue has no matching normalized appointment telephone, host, exact business name or civic address. The garage and the owner's store and mobile response service are not duplicated as multiple premises.",
+    "coordinateEvidence": {
+      "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+      "municipalCsvSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+      "method": "verified_official_address",
+      "addressId": "113958",
+      "latitude": 42.695773,
+      "longitude": 23.228608,
+      "evidence": "The owner supports the exact numbered public repair workshop in Suhodol and distinguishes the service telephone from the store. One municipal Sofia street-and-house match includes the 4А suffix. Its administrative region is Ovcha Kupel; the residential quarter is retained from the owner. The point is the official postal address, not a surveyed workshop entrance. Neither the owner's short map link nor the address-text map embed was used."
+    },
+    "service": {
+      "name": "Машинно почистване на DPF/FAP филтър",
+      "description": "За дизелови автомобили Евро 6. Цената е само за почистване на филтъра. Демонтаж и монтаж на място се уговарят отделно.",
+      "appointmentAndPriceSource": "https://acpower.eu/%D0%BF%D0%BE%D1%87%D0%B8%D1%81%D1%82%D0%B2%D0%B0%D0%BD%D0%B5-%D0%BD%D0%B0-dpf-fap-%D1%84%D0%B8%D0%BB%D1%82%D1%8A%D1%80/",
+      "sourceModified": "2026-09-09",
+      "price": { "amount": 154, "currency": "EUR", "kind": "fixed" },
+      "booking": "The owner explicitly gives the same service telephone for arranging this named appointment. Do not expose the generic enquiry form, claim live availability or test-book.",
+      "limits": "The literal regular EUR tariff is for machine cleaning alone in the published Euro 6 scope. Removal and refitting at the workshop can be arranged separately and must not be represented as included. No catalyst tariff, emissions defeat, expired voucher, store product, work duration, shop hours or mobile variant is imported."
+    },
+    "sourcePolicy": "Public robots and the owner privacy policy were inspected. The selected owner pages were publicly readable, with no applicable factual-use prohibition found. The footer's separate personal-data declaration returned 404 by ordinary GET and is not evidence that permission or a reuse licence was granted. Only minimal merchant facts and the independently licensed municipal point are retained; no commercial source media, copy, reviews, accounts, calls, forms or bookings used.",
+    "image": {
+      "key": "sx-auto-filter-machine-cleaning",
+      "asset": "/service-photos/sx-auto-filter-machine-cleaning-v1.webp",
+      "sha256": "feab828598c92b8c7181d01f340fde51df11c6dc0836e4a0059d6bb529f4fda9",
+      "limit": "Existing illustrative image visually checked: an operator inspects a metal diesel particulate filter in a dedicated cleaning cabinet. Not a photograph of this workshop."
+    },
+    "english": {
+      "name": "Machine cleaning of a DPF/FAP filter",
+      "description": "For Euro 6 diesel vehicles. The price covers filter cleaning only. Removal and refitting at the workshop are arranged separately."
+    },
+    "inventoryIdentity": "1d427bdb216466ff98929d48fcf6521df2b4c231fbcabb69bfc8490c9effd234",
+    "normalizedRecordSha256": "7c9f33a224aad933390c308b3ee82256bd77a913b05049ebe8ecc2ed45b9144a"
+  },
+  "isolatedCoverageDelta": {
+    "targetPerQuarterCategory": 30,
+    "neighborhood": "Суходол",
+    "category": "auto_repair",
+    "physical": [0, 1],
+    "located": [0, 1]
+  },
+  "holds": [
+    { "existingId": "sofia-eid-service-iliantsi94", "reason": "Already uses the exact official address 95179 at its original full precision. The official postal export's rounded numbers are not substituted or recounted." },
+    { "candidate": "Румели 69 · Суходол", "reason": "The supplied municipal CSV matches its directory address, but no current first-party appointment evidence was found." },
+    { "candidate": "А Дизайн 77 · Филиповци", "reason": "The supplied municipal CSV matches the insured workshop's street and number, but no current first-party appointment evidence was found." }
+  ]
+}

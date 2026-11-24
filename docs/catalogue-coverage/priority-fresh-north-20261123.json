@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "checkedAt": "2026-11-23T04:00:00Z",
+  "baselineCommit": "3eb5bfad6c0cc85cb57020191e43fdb753478b77",
+  "status": "verified_intake_not_integrated",
+  "targetPerQuarterCategory": 30,
+  "municipalSource": {
+    "url": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+    "licence": "CC-BY-4.0",
+    "attribution": "ГИС София / Столична община"
+  },
+  "businesses": [
+    {
+      "id": "sofia-one-service-vrabnitsa1-276-13",
+      "category": "auto_repair",
+      "neighborhood": "Връбница 1",
+      "address": "София, ж.к. Връбница 1, ул. „276-та“ 13",
+      "municipal": {
+        "addressId": "14921",
+        "district": "Връбница",
+        "latitude": 42.729239,
+        "longitude": 23.283515,
+        "disambiguation": "The municipal dataset writes ул. 276; the operator's booking profile and independent directory both write ул. 276-та and explicitly specify no. 13 and Връбница 1. The supplied Sofia dataset has exactly one matching row for that numbered street and house number. The point belongs to the civic address; no separate workshop entrance is stated."
+      },
+      "sources": {
+        "actualMerchantProfileAndBookedService": "https://motero.bg/servizi/one-service",
+        "consumerPlatformTerms": "https://motero.bg/obshti-uslovia",
+        "merchantPlatformTerms": "https://motero.bg/uslovia-za-servizi",
+        "independentBusinessAndAddress": "https://www.oink.bg/biz/one_service"
+      },
+      "rates": [
+        {
+          "name": "Компютърна диагностика на автомобил",
+          "nameEn": "Computerised car diagnostics",
+          "description": "Публикуваната сума е ориентировъчна начална цена. Сервизът потвърждава окончателната цена след преглед на автомобила. Записването е през външна платформа; плащането е на място в сервиза.",
+          "descriptionEn": "The published amount is an indicative starting price. The workshop confirms the final price after inspecting the car. Book through the external platform and pay at the workshop.",
+          "kind": "from",
+          "amount": 50,
+          "currency": "EUR",
+          "imageKey": "auto-diagnostics"
+        }
+      ],
+      "qualification": "The native actual Book button opens the public service selector. Computer diagnostics is explicitly listed as its own service with an indicative starting amount; the profile explains final price after car inspection and paying only at the workshop. No parts, repairs, quote, payment or other bundled services are represented by the amount. Identical displayed time blocks are not an exact repair time. The independent directory masks the contact number, and no number is inferred or disclosed. No business owner media or protected platform content reused.",
+      "pricingReview": "reviewed",
+      "normalizedRecordSha256": "e9dc4048b19cebe6601604085f8e0e00e402b422314e145232eaa203b4373df6",
+      "inventoryIdentity": "920607c9ff8b37a0133f3810ca2c18ab42d16544af9b61401a7c2d86546ad946",
+      "coverage": { "physical": [1, 2], "located": [1, 2] }
+    }
+  ],
+  "held": [
+    {
+      "name": "ГТП София · Бенковски",
+      "neighborhood": "Бенковски",
+      "category": "auto_repair",
+      "evidence": ["https://gtp-sofia.com/", "https://gtp-sofia.com/gtp.php"],
+      "reason": "Owner states 36 Lazar Mihaylov and publishes a passenger-car inspection tariff. The street number does not match a record in the supplied Sofia CSV. An ordinary contact number was not verified as an actual reservation route, and old and current tariff labels cannot substitute for that check. No price or coordinate has been admitted."
+    }
+  ],
+  "coverageChange": { "newDistinctOperators": 1, "newLocatedPremises": 1, "newNonemptyExactCells": 0 },
+  "safeguards": "No calls, booking time selection, form submissions, private accounts, data changes, ratings copied from source, paid integration, or production publication."
+}

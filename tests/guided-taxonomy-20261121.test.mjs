@@ -10,6 +10,7 @@ import { approvedCatalogueRecord } from '../lib/discovery/catalogue-policy.mjs'
 import { discoveryRequestSchema } from '../lib/discovery/intent.mjs'
 import { discoverBusinesses } from '../lib/discovery/search.mjs'
 import { discoveryConfig } from '../lib/discovery/config.mjs'
+import { quarterRefreshPriorCatalogue } from './catalogue-quarter-refresh-20261123-scope.mjs'
 
 const audit = JSON.parse(await readFile(new URL('../docs/guided-discovery-taxonomy-20261121.json', import.meta.url), 'utf8'))
 const now = DateTime.fromISO(audit.asOf)
@@ -17,9 +18,9 @@ const revalidatedIds = new Set(['sofia-svetlinki-sheynovo13a', 'sofia-artizba-ch
 const oldEducationText = execFileSync('git', ['show', 'b8dcdf4:lib/discovery/catalogue-data/neighborhood-home-education-2000-006-20261113.mjs'], { cwd: new URL('..', import.meta.url), encoding: 'utf8' })
 const oldEducation = (await import('data:text/javascript;base64,' + Buffer.from(oldEducationText).toString('base64'))).default.records
 // Audit counts and service examples describe November 21. Keep exactly the
-// two prior source versions instead of pretending their November 22 reviews
-// already existed or changing the immutable taxonomy audit to a newer date.
-const historicalCatalogue = SOFIA_CATALOGUE.map(row => revalidatedIds.has(row.id)
+// prior source versions instead of pretending later reviews already existed
+// or changing the immutable taxonomy audit to a newer date.
+const historicalCatalogue = quarterRefreshPriorCatalogue(SOFIA_CATALOGUE).map(row => revalidatedIds.has(row.id)
   ? { ...oldEducation.find(item => item.id === row.id), coordinates: row.coordinates } : row)
 const approved = historicalCatalogue.map(row => approvedCatalogueRecord(row, now.toMillis())).filter(Boolean)
 const addedIds = audit.additions.map(item => item.id)

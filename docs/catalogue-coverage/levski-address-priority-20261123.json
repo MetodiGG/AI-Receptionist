@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "baseline": "3bc06dc2ca0d37e53c81ea4519941e47eaa1cb41",
+  "checkedAt": "2026-11-23T04:55:00.000Z",
+  "status": "integrated_locally_not_published",
+  "targetPerQuarterCategory": 30,
+  "pickerTargetCells": 1358,
+  "approvedCatalogueRecords": [1755, 1756],
+  "locatedPremises": [989, 996],
+  "emptyLocatedCells": [1365, 1359],
+  "emptyLocatedPickerCells": [1004, 1000],
+  "cellsAtLocatedTarget": [0, 0],
+  "newDistinctOperators": 1,
+  "newPremises": 1,
+  "existingAddressBindings": 6,
+  "verifiedPublicPriceFacts": 5,
+  "newRows": [
+    {
+      "id": "sofia-dca-garage-levski-v-letostruy27",
+      "neighborhood": "Левски В",
+      "category": "detailing",
+      "areaScope": "observed_additional_named_area",
+      "physical": [0, 1],
+      "located": [0, 1],
+      "addressId": "50943",
+      "normalizedRecordSha256": "d7698de460960f93e8bac3152dd745431a786a10ea2354723d74fe4c6d44ca2a",
+      "receipt": "dca-levski-intake-20261123.json"
+    }
+  ],
+  "existingChanges": [
+    {
+      "id": "sofia-alkom-todor-kableshkov",
+      "neighborhood": null,
+      "category": "auto_repair",
+      "addressId": "93850",
+      "neighborhoodCredit": 0,
+      "normalizedRecordBeforeSha256": "65d77e9402a6c0841c566bbe539c9c1a5f2e9f82fad5f3ade0fc1bf2a768248a",
+      "normalizedRecordAfterSha256": "f8301503975dbec69b4345589d7ff7c4e52d0a6df726655d692df0f415724104",
+      "receipt": "alkom-postal-recovery-20261123.json"
+    },
+    {
+      "id": "sofia-reformer-club-swan",
+      "neighborhood": "Студентски комплекс",
+      "addressId": "104694",
+      "neighborhoodCategoryEffects": [{ "category": "fitness", "physical": [1, 1], "located": [0, 1] }],
+      "normalizedRecordBeforeSha256": "f1ca6fdff5193539283760df4caba7a8b9a2e1a6b1976c45cae9a15bef3d2feb",
+      "normalizedRecordAfterSha256": "6f182c67d5b8cc3d159a8e4f9eb499a3e76a729bafd83350fcbf0b204db2c0e0",
+      "receipt": "named-road-alias-recovery-20261123.json"
+    },
+    {
+      "id": "sofia-sundance-mladost1a-rakovski12",
+      "neighborhood": "Младост 1А",
+      "addressId": "96556",
+      "neighborhoodCategoryEffects": [{ "category": "fitness", "physical": [1, 1], "located": [0, 1] }],
+      "normalizedRecordBeforeSha256": "c43a99fc40b64774450926f0334ec9e0a5e2435ad9b0305a8274fa3da8d521fb",
+      "normalizedRecordAfterSha256": "6c5c1fa5b99ede3b6cffd3d8a081b63a4b4ba25b21ac74191fef16b03fcf3523",
+      "receipt": "named-road-alias-recovery-20261123.json"
+    },
+    {
+      "id": "sofia-stephan-iztok",
+      "neighborhood": "Изток",
+      "addressId": "35482",
+      "neighborhoodCategoryEffects": [
+        { "category": "hair", "physical": [4, 4], "located": [1, 2] },
+        { "category": "nails", "physical": [4, 4], "located": [0, 1] }
+      ],
+      "normalizedRecordBeforeSha256": "9229eece55f40c8bfa33d2721bb9a8da1afc01071324130863576a5e0ea33abb",
+      "normalizedRecordAfterSha256": "176e0795d36747d44c86e32bc30b7028042f14c641d1639f35311961783fa4d1",
+      "receipt": "named-road-alias-recovery-20261123.json"
+    },
+    {
+      "id": "sofia-thinkinkneedle",
+      "neighborhood": "Надежда 1",
+      "addressId": "57101",
+      "neighborhoodCategoryEffects": [{ "category": "other", "physical": [2, 2], "located": [0, 1] }],
+      "normalizedRecordBeforeSha256": "00d3bb58fc042fff184a82a9277276969a39091aac8595c62fa91fc34b48abf0",
+      "normalizedRecordAfterSha256": "dee483edf71276e139186f21737421413b3517d50e3ac61fbb506c1b3f20d920",
+      "receipt": "north-west-entrance-recovery-20261123.json"
+    },
+    {
+      "id": "sofia-violina-damyanova-ovcha-kupel418",
+      "neighborhood": "Овча купел 1",
+      "addressId": "40253",
+      "neighborhoodCategoryEffects": [{ "category": "other", "physical": [1, 1], "located": [0, 1] }],
+      "normalizedRecordBeforeSha256": "c20bbb3a48714078d268ed9521024f91829c3900d6ac7402c2e09e59a611afdb",
+      "normalizedRecordAfterSha256": "5b5134211565f4e3581f5caa0545002eda4e9ae46edc24d28e12dc407bcab227",
+      "receipt": "north-west-entrance-recovery-20261123.json"
+    }
+  ],
+  "queue": {
+    "command": "node scripts/catalogue-address-priority.mjs --as-of 2026-11-23 --category detailing --limit 20",
+    "policy": "Order first by how many premises have bound addresses, not how many are listed. Separately identify existing premises to recheck and the minimum new premises needed if every existing candidate can be bound. No automatic edits."
+  },
+  "remainingHolds": [
+    {
+      "id": "sofia-pulse-car-wash-bulgaria",
+      "category": "car_wash",
+      "neighborhood": "Манастирски ливади",
+      "ownerBooking": "https://pulsefit.bg/pulse-car-wash/",
+      "ownerComplex": "https://pulsefit.bg/klubove/pulse-bulgaria-manastirski-livadi/",
+      "externalLocationLead": "https://mapcarta.com/N11919643141",
+      "reason": "The operator confirms the wash is in the Bulgaria complex. The owner gives 132 for the fitness complex, while the separately mapped wash is 132A. Keep the existing record unpinned until the wash-specific civic number or exact entrance is corroborated; do not assign the fitness desk's point."
+    }
+  ],
+  "scope": "These are current local eligibility and address-binding counts, not a guarantee of search results within every geographic radius. A newly located existing business without a corroborated neighborhood improves proximity with city or coordinates only. Counts use true current service categories; a single Stephan site contributes separately to hair and nails, not to the number of new businesses."
+}

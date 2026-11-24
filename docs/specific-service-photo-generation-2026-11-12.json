@@ -4,6 +4,190 @@
   "scope": "Illustrative service-specific photos for approved Sofia catalogue entries; not actual business premises, staff, work or results.",
   "assets": [
     {
+      "id": "sx-indoor-clay-tennis-court",
+      "label": "Наем на закрит тенис корт с клей",
+      "sourceFile": "exec-e1fbfe5d-6487-4b05-9563-019f912f1fdc.png",
+      "sourceSha256": "7eddcb84667a6fe862b65526faa0b5310aef682be6612ad57e891817b65c0afa",
+      "bytes": 7402,
+      "sha256": "dc8e3deff7b79e02ff90fc9df0d724830690f31d95afcd74e67bbfc5702ffd38",
+      "prompt": "Use case: photorealistic-natural. Asset type: small GoRez service-catalogue thumbnail, an illustrative example, not a photograph of a specific operator. Primary request: one real-looking empty indoor tennis court with a traditional granular terracotta-red clay surface inside a cream-white inflatable fabric sports dome. Wide landscape three-quarter view from a baseline corner, with a centrally readable black tennis net, correctly painted white singles and doubles court lines, unmistakable visible clay grain and harmless scuffs, subdued artificial court lighting and modest community sports-club finishes. Keep the black net, red clay surface and curved dome ceiling readable in a square center crop. No people, coach, text, logos, names, watermark, seating crowd, blue hardcourt, grass or artificial turf. Natural editorial sports photography, no cinematic filters.",
+      "file": "public/service-photos/sx-indoor-clay-tennis-court-v1.webp",
+      "width": 256,
+      "height": 256,
+      "generatedOn": "2026-11-23",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "7eddcb84667a6fe862b65526faa0b5310aef682be6612ad57e891817b65c0afa",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Viewed the original and compressed square thumbnail. The inflatable dome, red granular clay, black tennis net and white court lines are clear. The court is a fictional example, not a real venue, and shows no instructor or branding. Full-frame resize and WebP conversion only."
+      }
+    },
+    {
+      "id": "sx-outdoor-turf-tennis-court",
+      "label": "Наем на открит тенис корт с изкуствена трева",
+      "sourceFile": "exec-2f29b5c0-6aec-4ab0-84a4-ae4a8f3a0e38.png",
+      "sourceSha256": "f714137a0e54196f4572e29a03c755ed4037517f8f463badb194cdcdd3622038",
+      "bytes": 20288,
+      "sha256": "12137ba319161d9bf47fa27c68478341d787da3ef2543d81ee35a31a6a501b19",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square illustrative photo for a service marketplace thumbnail\nPrimary request: a realistic outdoor tennis court with a clearly visible green artificial-grass playing surface, a regulation tennis net and white tennis court markings, plus one yellow tennis ball on the turf in the foreground.\nComposition: three-quarter court-level view, keep the turf, net, and recognizable tennis features in the central square for a small 256-pixel thumbnail. Soft natural daylight and a simple tree and fence background.\nMaterials: short even synthetic green turf with realistic texture, not natural long grass, clay, red dirt or hardcourt. No players, coaches, stadium names, signage, text, logos or watermark. Generic fictional venue, not a depiction of any specific business.",
+      "file": "public/service-photos/sx-outdoor-turf-tennis-court-v1.webp",
+      "width": 256,
+      "height": 256,
+      "generatedOn": "2026-11-23",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "f714137a0e54196f4572e29a03c755ed4037517f8f463badb194cdcdd3622038",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Viewed the original and the compressed square thumbnail. Green short artificial turf, white tennis markings, a net and a ball are visible without a coach or player. The fictional court is not the provider's venue. Full-frame WebP resize only."
+      }
+    },
+    {
+      "id": "sx-adult-salt-room",
+      "label": "Солна стая за възрастен",
+      "sourceFile": "exec-64c49af7-4a9f-4839-9be6-7599b8348803.png",
+      "sourceSha256": "229f8e17d1e98d5405b88e7fd1d95e0c861af3a1ee8bf27ef778cca78bf4bb4f",
+      "bytes": 60832,
+      "sha256": "5f798967ebc7983bbdc6d8806774478927a53f750046013cc176a643b8175210",
+      "prompt": "Use case: photorealistic-natural. Asset: square GoRez service thumbnail legible at 40–80 px. Render a single natural editorial photograph of a generic small adult salt relaxation room: one empty neutral reclining lounge chair, textured warm rosy-cream Himalayan salt brick wall and a visible undisturbed granular crystal-salt floor, with softly inset warm lamps. Frame at seated eye level, chair and clearly recognizable block texture in the center, authentic simple interior, diffuse warm light and natural materials. This is an illustrative wellness room, not any named provider or treatment result. No people, no yoga or massage equipment, no sauna or steam, no medical imagery, no large decorative crystal objects, no text, logo, watermark, split panels or stock gloss.",
+      "file": "public/service-photos/sx-adult-salt-room-v1.webp",
+      "width": 640,
+      "height": 640,
+      "generatedOn": "2026-11-23",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "229f8e17d1e98d5405b88e7fd1d95e0c861af3a1ee8bf27ef778cca78bf4bb4f",
+        "reviewers": ["/root"],
+        "method": "Viewed the entire original and 640px WebP. Single adult lounge chair with clear salt floor and wall, no people, imagery of treatment or claim of actual premises or medical effect. Full-frame resize and WebP conversion only."
+      }
+    },
+    {
+      "id": "sx-indoor-childrens-birthday-party",
+      "label": "Детски рожден ден на закрито",
+      "sourceFile": "exec-4f744393-cfb7-4249-9500-87ddae7aab2d.png",
+      "sourceSha256": "53cc4a8938bd0fcf20ac027dc03ab8c42cc0d47c789c63bf874628d7965b9eaf",
+      "bytes": 47050,
+      "sha256": "03e6d5809c32b56f4f07c348b2e1c5eaba2c54c593435f06983a4294487f29a0",
+      "prompt": "Use case: photorealistic-natural. Asset: square GoRez service thumbnail (keeps legibility at 40–80 px). Generate a candid, realistic editorial photograph of a generic indoor children's birthday party venue ready for guests: a modest, warm daylight room and a central child-height party table with a small unbranded birthday cake and neat reusable party tableware, bright colorful low chairs, and a clearly recognizable restrained cluster of cheerful balloons behind the table. Leave some clear play floor; tangible natural wood, domestic light and everyday proportions. Frame from child's eye level in a single scene, key features in the central crop. No people, no specific venue resemblance, no text, logo, numbers, collage, cameras, watermark, giant fantasy décor or stock gloss. This is a category illustration only, not a representation of any actual venue.",
+      "file": "public/service-photos/sx-indoor-childrens-birthday-party-v1.webp",
+      "width": 640,
+      "height": 640,
+      "generatedOn": "2026-11-23",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "53cc4a8938bd0fcf20ac027dc03ab8c42cc0d47c789c63bf874628d7965b9eaf",
+        "reviewers": ["/root"],
+        "method": "Viewed the full source and compressed WebP. Balloons, low chairs and the birthday table are legible at catalogue size. No real venue, photos, branding or people are represented. The cake is illustrative, not claimed as included; the exact listing states the owner's cake conditions. Full-frame resize and WebP conversion only."
+      }
+    },
+    {
+      "id": "sx-child-chess-group",
+      "label": "Групов курс по шах за деца",
+      "sourceFile": "exec-c312d92e-8f9f-44c2-933f-1e32a61b25a6.png",
+      "sourceSha256": "47c3b8836a6b0082d269b135dade9c01c417787a8746a981cde0fe36e5f02616",
+      "bytes": 50178,
+      "sha256": "40ce290cb7be5c9fbbbfc799d2b661de609b8694b23f8498ec591c94cad688d3",
+      "prompt": "Use case: photorealistic-natural\nAsset type: square GoRez catalogue service photo for a group chess course for children.\nPrimary request: natural editorial photograph of a small seated beginner chess lesson, led by a tutor.\nScene/backdrop: quiet generic after-school classroom, a plain table, soft daylight from a side window.\nSubject: two school-age learners and a tutor’s hand pointing next to a clearly recognizable real chessboard with black and cream chess pieces; children seen from behind or partial shoulder profiles, not identifiable. This illustrates a service, not a real school or its people.\nComposition/framing: medium close three-quarter angle. Keep the neatly made chessboard and pieces at the center, strong enough to read in a small square thumbnail, safe margins on all sides. Use a believable straight square grid with realistic chess pieces set on squares and natural hands.\nLighting/mood: bright, warm-neutral daylight, natural surfaces, unstaged.\nConstraints: no text, lettering, logos, watermarks, notebooks, generic stationery, other games, brand marks, collage or rendered UI. Do not visually resemble a named premises.",
+      "file": "public/service-photos/sx-child-chess-group-v1.webp",
+      "width": 640,
+      "height": 640,
+      "generatedOn": "2026-11-23",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "47c3b8836a6b0082d269b135dade9c01c417787a8746a981cde0fe36e5f02616",
+        "reviewers": ["/root"],
+        "method": "Viewed the generated source and compressed 640px WebP. Clear chessboard and pieces dominate the frame; two anonymous pupils and the tutor visually communicate a lesson. No actual school, personnel or branded equipment is represented. Full-frame WebP resize only."
+      }
+    },
+    {
+      "id": "sx-auto-lpg-injection-installation",
+      "label": "Монтаж на газов инжекцион за 4 цилиндъра",
+      "sourceFile": "exec-75a62e87-8c34-46ac-820d-66e2878c5982.png",
+      "sourceSha256": "246ed539f438a39dd64c33f8bccc821d770e1552c72a18d568a3097af26035ab",
+      "bytes": 85784,
+      "sha256": "dcc3cddc32803b98e04a7e22449964d5b65be145fe1f523bd467d56f1c7a5050",
+      "prompt": "Use case: photorealistic-natural. Asset type: square service thumbnail for a car workshop catalogue, illustrative only. In a clean professional automotive workshop, a mechanic in ordinary dark workwear and gloves visually checks an unbranded automotive LPG injection kit beside the open hood of a parked four-cylinder passenger car before installation. The foreground shop trolley holds a compact four-injector rail and silver automotive LPG reducer with a few organized automotive hoses; the open engine bay is unmistakable behind it. A tight documentary three-quarter crop centered on the kit, mechanic's hands and engine bay, readable at small square thumbnail scale; natural workshop light and real wear on surfaces. No installation diagrams or step sequence, no fuel dispensing, tank, flames or sparks, no brand marks, license plates, text, watermark, notebooks or computer-diagnostic tablets.",
+      "file": "public/service-photos/sx-auto-lpg-injection-installation-v1.webp",
+      "width": 640,
+      "height": 640,
+      "generatedOn": "2026-11-23",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "246ed539f438a39dd64c33f8bccc821d770e1552c72a18d568a3097af26035ab",
+        "reviewers": ["/root"],
+        "method": "Viewed the entire source and 640px WebP. The parked car's engine bay, technician and four-branch injector rail convey automotive LPG installation preparation. The unbranded components are a generic illustration, not the actual supplier's equipment, premises or installation work. Full-frame resize and WebP conversion only."
+      }
+    },
+    {
+      "id": "sx-auto-sunroof-inspection",
+      "label": "Оглед и диагностика на шибидах или панорамна система",
+      "sourceFile": "exec-f40f1192-9f96-4cf6-b972-48cd6db7450a.png",
+      "sourceSha256": "caefa7470ccc95d7762c3b608070b105cebcca57bb612092b25fdf64a9ebd059",
+      "bytes": 46760,
+      "sha256": "ea092c97203f7f1bb92029ad5db7110b11ad41c9a6fcb0a6ac7cd3231f02da55",
+      "prompt": "Use case: photorealistic-natural. Asset type: square GoRez service thumbnail. In a simple automotive workshop, a mechanic in dark workwear leans over a parked silver car to visually inspect the exposed side track of its partially open panoramic sunroof, using a compact inspection light. Slightly elevated three-quarter view; put the rectangular roof opening, the remaining glass panel, exposed track, and mechanic's hands in the middle so the activity reads at thumbnail size. Realistic vehicle mechanics, natural workshop light, documentary texture. No laptop, no notebook, no detached engine, no replacement parts, no logos, no text or watermark.",
+      "file": "public/service-photos/sx-auto-sunroof-inspection-v1.webp",
+      "width": 640,
+      "height": 640,
+      "generatedOn": "2026-11-23",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "caefa7470ccc95d7762c3b608070b105cebcca57bb612092b25fdf64a9ebd059",
+        "reviewers": ["/root"],
+        "method": "Viewed the complete original and the 640px WebP. A mechanic is inspecting the track of an open vehicle sunroof with a small light; the glass, opening and hands read clearly at thumbnail scale. No authentic premises, logo or outcome claimed. Full-frame resize and WebP conversion only."
+      }
+    },
+    {
+      "id": "sx-outdoor-birthday-venue",
+      "label": "Рожден ден на открито",
+      "sourceFile": "exec-4d23a8c2-cc02-41a4-b6c3-6add57dc6fd8.png",
+      "sourceSha256": "4f0d2e9b3d92144bcaff9b3f8be28283a6b9a1bfd52e30af66c5ea75f68e24af",
+      "bytes": 121170,
+      "sha256": "4e584a00886329ba630e169e5e6d4ed0dc424fd029c0cd2da21a59863c31a8bf",
+      "prompt": "Use case: photorealistic-natural. Asset type: square catalogue thumbnail for an outdoor children's birthday party venue; generic illustration, not an actual property. Scene: a welcoming leafy garden with real grass and fruit-tree shade, a simple wooden open-sided shelter behind a table, a restrained short strand of colourful triangular bunting, and a few child-sized seats around the central table. The place is ready for a birthday, but the image does not imply food, a cake, or organised games are included. No people or faces, no sign, no brand, no words or numbers, no logos or watermark. Photoshoot style: natural soft afternoon light, real wood and textile texture, eye-level medium-wide framing. Keep table, bunting and seating near the centre and legible at a small square crop.",
+      "file": "public/service-photos/sx-outdoor-birthday-venue-v1.webp",
+      "width": 640,
+      "height": 640,
+      "generatedOn": "2026-11-23",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "4f0d2e9b3d92144bcaff9b3f8be28283a6b9a1bfd52e30af66c5ea75f68e24af",
+        "reviewers": ["/root"],
+        "method": "Root viewed the complete source and full-size 640px WebP. Square garden venue artwork depicts shelter, bunting, seats and a table without people, catering, cake, organised games or logos; does not describe the real venue. Full-frame resize and WebP conversion only."
+      }
+    },
+    {
+      "id": "sx-in-person-welding-course",
+      "label": "Присъствен курс по заваряване",
+      "sourceFile": "exec-648a264e-4efa-4b37-a8e9-488aecac375f.png",
+      "sourceSha256": "022a05624269f17682f4f25c4415080affe3d9c7136a0f14a39eb6ae6688fcb7",
+      "bytes": 43780,
+      "sha256": "e6b61a5c131d10cf23d989d70e4585a37ec3212d1db640245d014779bae4f21a",
+      "prompt": "Use case: photorealistic-natural. Asset type: square service thumbnail for a catalogue, a generic illustration of an in-person welding course, not a real company. Scene: clean vocational training workshop; an adult trainee at a steel practice bench, with an instructor supervising beside them. Focal point: the trainee's fully lowered welding helmet, thick gloves and an unmistakable small bright welding arc on a plain steel practice piece, together near the centre so all remain legible in a tiny square crop. The instructor also wears a fully lowered protective welding helmet and protective clothing. Documentary photography, warm practical light with realistic dark steel texture, medium side angle, restrained localized sparks, simple uncluttered background. No signs, lettering, watermarks, real brand, real facility, vehicle, weapons or unsafe attire.",
+      "file": "public/service-photos/sx-in-person-welding-course-v1.webp",
+      "width": 640,
+      "height": 640,
+      "generatedOn": "2026-11-23",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "022a05624269f17682f4f25c4415080affe3d9c7136a0f14a39eb6ae6688fcb7",
+        "reviewers": ["/root"],
+        "method": "Root viewed the entire original image and the complete 640px WebP. Two fictional adults with lowered helmets and protective gloves convey workshop instruction; the central work piece and spark remain visible. No actual premises, logos or price claims. Mechanical full-square resize and WebP conversion only."
+      }
+    },
+    {
       "id": "sx-vr-arena-free-roam",
       "label": "VR игра ARENA за 2–6 играчи",
       "sourceFile": "exec-f919c6a9-9f18-4654-807b-83941ebdb31d.png",
@@ -4670,6 +4854,25 @@
       }
     },
     {
+      "id": "sx-auto-bumper-spray-paint",
+      "label": "Боядисване на броня",
+      "prompt": "Use case: photorealistic-natural. Asset type: square activity illustration for a small GoRez service thumbnail. In a clean independent automotive spray booth, show a refinisher in protective gear applying paint with a spray gun to a single detached front car bumper cover on a stand. Clearly show the bumper's entire broad curved shape and grille opening in the center, legible at 60 pixels; tightly frame the spray gun, gloved hands and bumper. Neutral workshop lighting, realistic material and slight fine paint mist. No intact car, no door, no text, logos, plates or watermark. This is a generic illustration, not a photograph of a particular business.",
+      "sourceFile": "exec-ba8ad0f7-fb53-41b5-82a3-96ed67fa1b76.png",
+      "sourceSha256": "da85798f03bc6038cffba7c27236685c89f52d69c8e00256c9f5c81ed4cb111f",
+      "file": "public/service-photos/sx-auto-bumper-spray-paint-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 13786,
+      "sha256": "8693c08a15f6e07f9d92bd59faf7e2c8c7534f940eb5cd47c6f17bd55ec6861c",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "da85798f03bc6038cffba7c27236685c89f52d69c8e00256c9f5c81ed4cb111f",
+        "reviewers": ["/root"],
+        "method": "Source and optimized thumbnail individually inspected: detached bumper with spray gun; no doors, logos, or actual workshop claimed."
+      }
+    },
+    {
       "id": "sx-auto-panel-spray-paint",
       "label": "Боядисване на автомобилен детайл",
       "prompt": "Use case: photorealistic-natural\nAsset type: square service thumbnail for a vehicle repair booking website.\nPrimary request: a realistic documentary photograph clearly depicting professional spray painting of one car body panel, for the service Bulgarian 'Боядисване на детайл' (painting one vehicle panel).\nScene/backdrop: clean professional automotive spray booth, bright diffuse booth lights, muted workshop background.\nSubject: an adult professional auto painter wearing proper hooded protective coveralls, nitrile gloves and appropriate full respirator, carefully spraying a silver-grey car door exterior panel mounted securely upright on a painting stand. The painter holds an HVLP paint spray gun with a small top paint cup, nozzle aimed perpendicular to the panel at plausible working distance; a small realistic fan of paint mist travels toward the panel. Show door outline and spray gun clearly together.\nComposition/framing: square medium-close three-quarter documentary photograph, central door panel and spray gun occupy most of the frame so the specific task stays clear at 64px; painter visible partially at side, no focus on face. Natural believable human anatomy and equipment.\nConstraints: show actual panel painting in progress, not body dent repair, hair coloring, a notebook, car polishing, wheel painting, wall painting or a person checking a clipboard. No visible car manufacturer badge, text, business logo, watermarks, collage, borders or overlay. This is a generic AI illustration, not verified work by the business.",
@@ -4690,6 +4893,28 @@
           "/root/catalogue_home_education_nov13"
         ],
         "method": "Individual source-resolution and optimized-thumbnail visual review; generic panel spray painting, not actual business work"
+      }
+    },
+    {
+      "id": "sx-karting-driving-course",
+      "label": "Курс по картинг",
+      "prompt": "Use case: photorealistic-natural. Asset type: square catalogue service thumbnail for a karting driving course (generic AI illustration, not a photograph of the Sofia venue or any real person). Scene: safe, indoor kart circuit, stationary entry-level go-kart in its pit lane, track barrier in the soft background. An adult instructor in a plain non-branded jacket points at the black steering wheel while a learner in a properly fastened full-face helmet and simple racing suit sits in the stopped kart, looking at the wheel, hands naturally on it. Eye-level three-quarter editorial photo with the learner, instructor's gesture, steering wheel and recognizable go-kart centered together, easily readable at tiny size. Natural indoor lighting, realistic rubber and fabric, no speed, no race grid, no texting, no lettering, no watermark, no brands, no collage.",
+      "sourceFile": "exec-88c8c7d8-19f0-4c01-929d-35a6af296f7f.png",
+      "sourceSha256": "3c066c44e97e79b6bc46098a80187b0cd48bb92cc3a303186e9267862dc37b81",
+      "file": "public/service-photos/sx-karting-driving-course-v1.webp",
+      "width": 256,
+      "height": 256,
+      "bytes": 14780,
+      "sha256": "483a979e75ec5222d321db2fb0f8918b09c5f8a1c7c06ba8fc8a2bb7dc77a274",
+      "generatedOn": "2026-11-23",
+      "review": {
+        "status": "accepted",
+        "finalLayoutApproved": true,
+        "sourceSha256": "3c066c44e97e79b6bc46098a80187b0cd48bb92cc3a303186e9267862dc37b81",
+        "reviewers": [
+          "/root"
+        ],
+        "method": "Visually checked at source size and 256px. The instructor, steering wheel, seated helmeted learner and kart remain legible; no venue, event or real person is claimed."
       }
     },
     {
@@ -26095,9 +26320,9 @@
     }
   ],
   "report": {
-    "required": 1150,
-    "prepared": 1150,
-    "accepted": 1150,
+    "required": 1235,
+    "prepared": 1235,
+    "accepted": 1235,
     "pendingGeneration": [],
     "missingAsset": [],
     "unreviewed": [],

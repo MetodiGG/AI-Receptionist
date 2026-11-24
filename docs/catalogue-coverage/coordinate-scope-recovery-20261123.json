@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "baseline": "2dd2d5930e9e5df03ed6fa79911c61df31434fc7",
+  "status": "prepared_locally_not_published",
+  "targetPerQuarterCategory": 30,
+  "municipalInput": {
+    "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "sha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+    "attribution": "ГИС София / Столична община",
+    "licence": "CC-BY-4.0",
+    "features": 125245,
+    "method": "Read-only full-file parse and exact Sofia street/type/number/entrance match. Existing bindings use original full precision; CSV comparison uses six decimals. A postal point is not a verified individual entrance."
+  },
+  "recovered": [
+    {
+      "id": "sofia-azbuki-sport-musagenitsa-swimming",
+      "name": "Спортен комплекс Азбуки · плуване",
+      "address": "София, ж.к. Мусагеница, ул. Арх. Виктория Ангелова-Винарова 1",
+      "neighborhood": ["Мусагеница", "Мусагеница"],
+      "category": "fitness",
+      "postal": { "rn": "108460", "latitude": 42.663686, "longitude": 23.364306 },
+      "previousPointMissing": true,
+      "sources": [
+        "https://azbuki-sport.bg/contact_us",
+        "https://azbuki-sport.bg/lessons",
+        "https://azbuki-sport.bg/price",
+        "https://ivanapostolov.bg/контакти/"
+      ],
+      "review": "The proprietor publishes the street, number, quarter and phone for both enquiry and reservation. The co-located school confirms the modern street name and district. The owner's linked school place marker is 41 m from the exact municipal postal row; the municipal position, not marker or viewport, is used. The historical street-name alternative is not used. The existing adult individual swimming price of EUR 25 and phone booking remain unchanged; no change to dates or availability.",
+      "coverage": { "physical": [2, 2], "located": [0, 1] },
+      "previousRowSha256": "ce69a27481e3fe6da340a19e1b3e8ca35e2e0c48ccd60179667154c4e1bd98e5",
+      "reviewedRowSha256": "1a11a1f4fa7f6bbd6a0198040946ce79294d0b11974244f863c9412320401196",
+      "pricingIdentity": "5fdf3662c8fb3b2dccb86f84c01a9075d2e9e9bbb3180587067913b80f9a242c"
+    },
+    {
+      "id": "sofia-carbox-studio",
+      "name": "Carbox Studio & Detailing Center",
+      "address": "София, бул. Симеоновско шосе 104",
+      "neighborhood": [null, "Витоша"],
+      "category": "detailing",
+      "postal": { "rn": "116434", "latitude": 42.64307038723681, "longitude": 23.334093899551668 },
+      "sources": [
+        "https://carboxbg.com/kontakti/",
+        "https://carboxbg.com/zapishi-chas/",
+        "https://www.moew.government.bg/static/media/ups/tiny/filebase/Waste/Opakovki/ZAPOVEDI_RESHENIYA_2019/Приложение 2 Изпълнение цели ЕКОБУЛПАК БЪЛГАРИЯ АД - част 1.pdf",
+        "https://colourlock.bg/partners/"
+      ],
+      "review": "The owner's contact and booking page confirm the unchanged number and phone for this workshop. The MOEW register entry for a co-located company explicitly distinguishes the Витоша neighborhood from the Лозенец administrative district at the same number. The independent business partner roster links the same workshop, number and phone. The owner's link is within 25 m of the already checked municipal point, which retains its original verification date and exact coordinates. The preserved services count only as detailing, not a separate car wash or branch.",
+      "coverage": { "physical": [0, 1], "located": [0, 1] },
+      "previousRowSha256": "aadc8540c84273e37b504ebad3fe59c56963dc3f45317f2755b28da5307aa8ee",
+      "reviewedRowSha256": "2abede50c23c62ee7df17b326499484f9b12d824989567551fdcd8487f21e306",
+      "pricingIdentity": "13c6941c97a47f844aadd67f04e92547730f1c80d006272e354621ea2588c7a1"
+    },
+    {
+      "id": "sofia-new-vita-grooming",
+      "name": "New Vita · груминг салон",
+      "address": "София, ж.к. Обеля, ул. Кривините 6",
+      "neighborhood": ["Обеля", "Обеля 2"],
+      "category": "pets",
+      "postal": { "rn": "114663", "latitude": 42.744552031499396, "longitude": 23.276655474548427 },
+      "sources": [
+        "https://www.newvita.bg/kontakti",
+        "https://www.newvita.bg/uslugi/gruming-salon",
+        "https://www.newvita.bg/uslugi/ortopediya",
+        "https://www.med.bg/en/job/8681989"
+      ],
+      "review": "An owner-published address names Обеля 2 at the same house number. An operator-authored recruitment listing corroborates the numbered quarter and explicitly locates grooming at the same business; salary and unrelated services were not collected. The existing appointment form and only the existing non-medical grooming listing are retained. The same exact civic point retains its original review date and precision.",
+      "coverage": { "physical": [0, 1], "located": [0, 1] },
+      "previousRowSha256": "d499349e0a7f3e0178584b68bb31c6fd782142b26e4350a0c5d10af92240efa1",
+      "reviewedRowSha256": "1a1a49a599574abe6a9a2b858a51179fcbe9b7fdaede11c933f46b4c019e65e5",
+      "pricingIdentity": "98017d22065e60e162888ea37f5cc0eb9e9c82af3948d3ab8bf176c8f8b04b39"
+    },
+    {
+      "id": "sofia-lucky-garage",
+      "name": "Lucky Garage",
+      "address": "София, ул. Подлозище 89",
+      "neighborhood": [null, "Горна баня"],
+      "category": "auto_repair",
+      "previousPointMissing": true,
+      "ownerPoint": { "latitude": 42.6885066, "longitude": 23.2310177, "source": "https://luckydrive.bg/contacts/" },
+      "sources": ["https://luckygarage.bg/kontakti/", "https://luckydrive.bg/contacts/"],
+      "review": "The garage's booking and contact page and the co-owned public contact page agree on its phone and exact numbered location; the latter explicitly identifies Горна баня and links the garage brand. Both owner pages publish the same place identifier in their location links. The retained coordinates are the named place's own coordinate pair in the published address anchor, not the viewport or map iframe centre. No exact municipal row exists for number 89: no neighbouring or area point is used. No paid lookup, new booking route, price or service.",
+      "coverage": { "physical": [0, 1], "located": [0, 1] },
+      "previousRowSha256": "b7b95d19928f5602dcb36369f1b5a86df0eff759e023ed972c230b8f82c927ee",
+      "reviewedRowSha256": "c42091700f2c793097386176732aef42c26e0b9baacfa2688269c3e69ffe86d4",
+      "pricingIdentity": "edabe8eae87d601627fb8a32f516b3c4185b008fce8c47a12062b7724205af27"
+    }
+  ],
+  "held": [
+    { "name": "SmartyKids · Люлин 9", "source": "https://smarty-kids.bg/smk-gdpr/", "reason": "Terms section on intellectual property restricts redistribution of information resources. No import from the operator site without clearance." },
+    { "name": "Боряна Минковска · Дружба 1", "source": "https://superdoc.bg/lekar/boryana-minkovska", "reason": "The available in-office consultation options do not identify which tariff applies; do not attach public rates for individual, family or English appointments to a generic option. Exact postal point is not sufficient to approve an unsupported price." },
+    { "id": "sofia-katerene-europe-private", "source": "https://sportcentereurope.bg/контакти/", "reason": "The exact same civic number's postal point is about 916 m from the venue host's embedded map centre. That centre is not an entrance measurement either. No location was selected or substituted." }
+  ],
+  "impactInIsolation": {
+    "newBusinesses": 0,
+    "approvedBusinesses": [1717, 1717],
+    "usablePostalOrOwnerPoints": [920, 922],
+    "emptyLocatedQuarterCategoryCells": [1422, 1418],
+    "cellsAtLocatedTarget": [0, 0],
+    "additionalLocationSearchesUseExistingInventory": true,
+    "liveWrites": 0
+  }
+}

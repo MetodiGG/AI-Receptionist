@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "baseline": "09ea20da9e462163d312d7cdc6e093e64de9ef07",
+  "checkedAt": "2026-11-23T06:30:00.000Z",
+  "status": "integrated_locally_not_published",
+  "targetPerQuarterCategory": 30,
+  "pickerTargetCells": 1358,
+  "approvedCatalogueRecords": [1771, 1773],
+  "locatedPremises": [1011, 1015],
+  "emptyLocatedCells": [1352, 1348],
+  "emptyLocatedPickerCells": [993, 989],
+  "cellsAtLocatedTarget": [0, 0],
+  "newDistinctOperators": 2,
+  "verifiedPublicPriceFacts": 2,
+  "newRows": [
+    {
+      "id": "sofia-lokomotiv-tennis-voenna-rampa-rozhen23",
+      "name": "Тенис клуб Локомотив София",
+      "neighborhood": "Военна рампа",
+      "category": "fitness",
+      "physical": [0, 1],
+      "located": [0, 1],
+      "addressId": null,
+      "reviewState": "reviewed",
+      "normalizedRecordSha256": "e9b11503451ea17fc78de39cb6a905d7ca89fd0142d7a86911ebfdce4130d014",
+      "receipt": "priority-sparse2-north-20261123.json"
+    },
+    {
+      "id": "sofia-kindyroo-lyulin8-tsaritsa-yoanna68",
+      "name": "КиндиРу · Люлин 8",
+      "neighborhood": "Люлин 8",
+      "category": "education",
+      "physical": [1, 2],
+      "located": [1, 2],
+      "addressId": "93260",
+      "reviewState": "reviewed",
+      "normalizedRecordSha256": "69b0d53f580b20d78374668af2b5b81a16c51ec49c787c08fc0d9c51ff968d78",
+      "receipt": "priority-sparse2-south-20261123.json"
+    }
+  ],
+  "recoveredRows": [
+    {
+      "id": "sofia-stephan-lagera",
+      "name": "Stephan · Лагера",
+      "neighborhood": "Лагера",
+      "address": "София, бул. Цар Борис III 22",
+      "coordinates": [42.6862009, 23.2980089],
+      "coordinateMethod": "first_party_coordinates",
+      "addressId": null,
+      "previousRowSha256": "269f33f8aee05edb3b52ed2de1e6f5c5fb8362a32c5d233021cc5ddc0a3aaed2",
+      "normalizedRecordSha256": "7f963d0bacadc957fd50ba819ef266fba16f7e8b4af59d3febb9dd997add22ef",
+      "inventoryIdentity": "cae19b141e1849407e79769979618bf44a6d89181d03acaa592c3e9e160be2fc",
+      "categories": [
+        { "category": "hair", "physical": [1, 1], "located": [0, 1] },
+        { "category": "nails", "physical": [1, 1], "located": [0, 1] }
+      ],
+      "sources": {
+        "ownerBranch": "https://www.stephan.bg/saloni/lagera",
+        "ownerBooking": "https://www.stephan.bg/m/booking",
+        "ownerDestinationLink": "https://www.google.bg/maps/place/Salon+Stephan+Lagera/@42.6862009,23.2958202,17z/data=!3m1!4b1!4m5!3m4!1s0x40aa8535f32e9da3:0x2329fc898942698d!8m2!3d42.6862009!4d23.2980089?hl=bg"
+      },
+      "note": "The first-party branch links its own named destination. Use the place coordinates in the proprietor's published Directions URL, not the different viewport centre or any approximate point. No civic point for No. 22 was found; neither street-side interpolation nor the nearby odd numbers is valid. Existing address, phone booking, all 64 services and pricing evidence remain unchanged. One existing physical premises, counted in two distinct category cells."
+    },
+    {
+      "id": "sofia-wmaa-mladost",
+      "name": "WMAA Винг Чун · Младост 4",
+      "neighborhood": "Младост 4",
+      "address": "София, Младост 4, ул. Нов ден 129, бл. 429",
+      "coordinates": [42.6319359, 23.3780751],
+      "coordinateMethod": "first_party_coordinates",
+      "addressId": null,
+      "previousRowSha256": "1da369a2973381fc61619fcc4da2b964104fa12a60a7991daaad19bf15a742e5",
+      "normalizedRecordSha256": "c65873493190860afed007fa33c470fd4b0a6b8854177f4cc69546bb852ae40c",
+      "inventoryIdentity": "b9ed98d371fa582076534083a6f9978b9db33e4036078aecbf9fde9f3b9968fb",
+      "categories": [{ "category": "fitness", "physical": [3, 3], "located": [0, 1] }],
+      "receipt": "wmaa-mladost4-owner-point-20261123.json"
+    }
+  ],
+  "heldResearch": [
+    {
+      "name": "Master of Puppies · Красна поляна 2 (existing)",
+      "source": "https://www.masterofpuppies.net/",
+      "reason": "The business is in a separate building near block 205. The nearby block point and the embedded map viewport are not verified points for the premises."
+    },
+    {
+      "name": "Elexis Beauty Academy · Студентски град",
+      "source": "https://elexis.bg/courses/kurs-po-mikropigmentaciya-i-mikrobleyding/",
+      "reason": "The owner names the street and number but no exact entrance. The municipal dataset has six different entrance positions, and the homepage's generic street-address pin does not identify which one the business uses. No new listing or price was added."
+    }
+  ],
+  "nextReviewCandidates": [
+    {
+      "id": "sofia-arnica-accounting",
+      "neighborhood": "Дружба 2",
+      "category": "consulting",
+      "source": "https://arnica.bg/contact/",
+      "note": "Existing listing with no bound point. Review the current proprietor's address at block 304 next to entrance A against the exact civic record; a legacy indexed subpage describes a different address. Not included in this batch."
+    }
+  ]
+}

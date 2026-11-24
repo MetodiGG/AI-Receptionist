@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "baselineCommit": "09ea20d",
+  "checkedOn": "2026-11-23",
+  "status": "reviewed_local_leaf_not_published",
+  "priority": "Distinct bookable premises and published appointment fees in sparsely represented western Sofia neighborhood/category cells.",
+  "newBusinessesPrepared": 1,
+  "newServicesPrepared": 1,
+  "newPricesPrepared": 1,
+  "source": {
+    "municipalAddressDataset": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "municipalCsvSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+    "licence": "CC-BY-4.0",
+    "attribution": "ГИС София / Столична община"
+  },
+  "admitted": [{
+    "id": "sofia-kindyroo-lyulin8-tsaritsa-yoanna68",
+    "name": "КиндиРу · Люлин 8",
+    "category": "education",
+    "neighborhood": "Люлин 8",
+    "ownerPremises": "София, ж.к. Люлин 8, бул. Царица Йоанна 68, ет. 2",
+    "addressEvidence": {
+      "ownerContactAndPriceTab": "https://kindyroo.bg/#program",
+      "ownerBookingCentreList": "https://portal.kindyroo.bg/public/centers",
+      "neighborhoodAtExactNumber": "https://www.okolo.bg/bg/%D0%BE%D0%B1%D0%B5%D0%BA%D1%82%D0%B8",
+      "independentNeighborhoodCorroboration": "https://nova.bg/civi/view/26821/",
+      "historicalMirrorWithDifferentNumber": "https://www.schoolandcollegelistings.com/BG/Sofia/1081293568565929/Kindyroo-Sofia-Lyulin---%D0%9A%D0%B8%D0%BD%D0%B4%D0%B8%D1%80%D1%83-%D0%A1%D0%BE%D1%84%D0%B8%D1%8F-%D0%9B%D1%8E%D0%BB%D0%B8%D0%BD",
+      "notes": "The Lyulin tab in the live proprietor site and the Sofia Lyulin card in its current enrolment portal independently show no. 68, floor 2 and 0889545049. Other public sources identify the exact 68 as Lyulin 8; the municipal CSV assigns it to the district Люлин without a quarter label. A third-party mirror, including an archived snapshot with 2025 material, instead gives no. 70; the mirror was not used as current address evidence or as proof of a move. No. 70 is a distinct municipal point 103559 and is excluded."
+    },
+    "officialAddress": {
+      "rn": "93260",
+      "region": "Люлин",
+      "settlement": "гр. София",
+      "street": "бул. Царица Йоанна",
+      "house": "68",
+      "block": "",
+      "quarter": "",
+      "entrance": "",
+      "latitude": 42.718474,
+      "longitude": 23.258111,
+      "candidates": 1
+    },
+    "booking": {
+      "kind": "form",
+      "url": "https://portal.kindyroo.bg/public/timetable?centerId=31",
+      "ownerEntry": "https://portal.kindyroo.bg/public/centers",
+      "publicBusinessContact": "+359889545049",
+      "terms": "https://kindyroo.bg/terms-and-conditions-privacy-policy/",
+      "notes": "The owner site links to the public group enrolment flow. Selecting Sofia showed the named centre card; the durable direct URL resolves to centre 31's current term with the actual Possum age 3–4 group. Did not select a slot, copy availability, enter a child's or parent's data, sign in, submit an enrolment or initiate payment."
+    },
+    "tariff": {
+      "name": "Групови занимания за деца на 3–4 г. · Опосум",
+      "amount": 19.94,
+      "currency": "EUR",
+      "unit": "per lesson within an eleven-lesson term",
+      "source": "https://kindyroo.bg/#program",
+      "conditions": "The live Lyulin-only price tab gives this lesson rate under the eleven-lesson term. Mid-term enrolment pays proportionally for the remaining lessons. The price is not a drop-in fee. No calculated term total, exact durations, programme hours or rate for another branch are added."
+    },
+    "duplicateCheck": "No existing runtime provider by KindyROO transliteration, proprietor host, exact programme telephone, or same street-point ID. Other branches at the selector were not added or conflated; only one exact site and one active group were recorded.",
+    "media": {
+      "servicePhotoKey": "sx-child-learning-trial",
+      "businessCoverAsset": "activity-sx-child-learning-trial-v1.webp",
+      "semantics": "Existing styled illustration of guided child learning activity. Not a photograph of the academy, no trial offer implied."
+    },
+    "locatedCellBefore": 1,
+    "locatedCellAfterIntegration": 2,
+    "normalizedRecordSha256": "69b0d53f580b20d78374668af2b5b81a16c51ec49c787c08fc0d9c51ff968d78",
+    "pricingIdentity": "693d599650afd9f485fa06fa4d48dbd0953678232c759cb2b5fd0c2109f09dd6"
+  }],
+  "holds": [{
+    "name": "Йококан Доджо",
+    "neighborhood": "Люлин - център",
+    "officialAddressId": "98386",
+    "reason": "The owner shows a walk-in invitation, trial offer, instructor questions by phone and membership dues. No current booked group admission was corroborated for the chosen discipline through the official owner path."
+  }, {
+    "name": "КиндиРу · Бъкстон",
+    "neighborhood": "Бъкстон",
+    "reason": "Current booking centre shows Генерал Стефан Тошев 64А; the supplied municipality file has 64 but no exact 64А. The postal point for 64 cannot stand in for 64А."
+  }]
+}

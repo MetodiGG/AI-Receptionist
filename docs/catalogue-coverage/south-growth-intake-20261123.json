@@ -1,0 +1,55 @@
+{
+  "checkedOn": "2026-11-23",
+  "baselineCommit": "e5c5340f50f47e275f2b79cdab80a18f6d6c3dcf",
+  "status": "verified_intake_not_published",
+  "targetPerQuarterCategory": 30,
+  "businesses": [
+    {
+      "id": "sofia-karting-ring-academy-simeonovo-214",
+      "category": "fitness",
+      "neighborhood": "Симеоново",
+      "address": "София, в.з. Симеоново – север, ул. Околовръстен път 214, Sofia Ring Mall",
+      "municipal": {
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+        "addressId": "109175",
+        "latitude": 42.624488,
+        "longitude": 23.352551,
+        "licence": "CC-BY-4.0",
+        "match": "Unique Sofia street-and-number row. Owner and mall name the same facility at No. 214; a co-located first-party venue page identifies the mall address as Simeonovo-Sever. The point identifies the mall address, not a track entrance."
+      },
+      "sources": {
+        "officialAcademyPhoneBooking": "https://www.sofiakarting.com/contacts",
+        "officialProgrammeAndPrices": "https://www.sofiakarting.com/school",
+        "officialDetailedProgramme": "https://www.sofiakarting.com/картинг-училище/",
+        "officialFreeDrivingPricesNotForTheseCourses": "https://www.sofiakarting.com/prices",
+        "mallVenueCorroboration": "https://sofiaring.bg/stores/sofia-karting-ring?lang=bg",
+        "mallNeighborhoodCorroboration": "https://pulsefit.bg/klubove/pulse-energy-hyrox-training-club/"
+      },
+      "booking": "The owner expressly accepts academy requests via its dedicated telephone +359889622755. Dates and group placement come from the academy, not GoRez. The public enquiry form was inspected without data entry or submission; no vacancy was claimed.",
+      "qualification": "Only the group karting academy is covered, not retail vouchers, drop-in driving, birthday packages or other mall operators. The track's advertised opening hours were not used as academy hours. Each of the two programmes covers nine days of theory and practice and 18 drives, with separate lessons of 80 minutes each; the total course scope is stated instead of presenting 80 minutes as full course duration.",
+      "pricing": [
+        { "service": "Групов курс по картинг за деца (6–17 г.)", "kind": "range", "weekday": 270, "weekend": 300, "unit": "курс", "currency": "EUR" },
+        { "service": "Групов курс по картинг за възрастни (18+)", "kind": "fixed", "amount": 300, "unit": "курс", "currency": "EUR", "condition": "evening cohort; published start time 21:00, dates confirmed directly" }
+      ],
+      "imageKey": "sx-karting-driving-course",
+      "imageOrigin": "AI illustration of karting instruction, not an owner photo or a representation of the actual venue.",
+      "normalizedRecordSha256": "fc16d37d68fa8dd53b07e728d687c33e6157ccd8b8570c81125572643c0bc73f",
+      "inventoryIdentity": "2db74083fc00a61dadf7f65dbf2bdb2bf4a41dc1c68926b80a039ee4cd99b94b",
+      "coverageAtReview": { "physical": [0, 1], "located": [0, 1] }
+    }
+  ],
+  "held": [
+    {
+      "name": "NILIA hair salon",
+      "neighborhood": "Суходол",
+      "category": "hair",
+      "reason": "An identifiable salon has a consistent reported postal address, but available directory and social mirrors provide different contacts for salon, barber and nail services. No directly accessible current owner service or booking route was established for the salon's hairdressing services."
+    },
+    {
+      "name": "InForce BG",
+      "neighborhood": "Западен парк",
+      "reason": "Current public website describes a mix of massage and medical-adjacent care and gives only a position near block 71, not a verifiable postal number or premise. No nearby block point was substituted."
+    }
+  ]
+}

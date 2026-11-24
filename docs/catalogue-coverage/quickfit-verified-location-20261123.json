@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "baseline": "b4e6eed3749051d197b44bb93df4b8a9d45faa8c",
+  "status": "prepared_locally_not_published",
+  "id": "sofia-quickfit-otets-paisiy3",
+  "neighborhood": "Зона Б-5",
+  "category": "fitness",
+  "address": "София, Зона Б-5, ул. Отец Паисий 3",
+  "owner": "https://quickfitbg.com/",
+  "evidence": [
+    "https://locations.mymultisport.bg/location/sportna-zala-quickfit",
+    "https://payments.coolfit.bg/Partners",
+    "https://school32.com/wp-content/uploads/2024/04/%D0%9F%D1%80%D0%B8%D0%BB%D0%B5%D0%B6%D0%B0%D1%89%D0%B8_%D1%80%D0%B0%D0%B9%D0%BE%D0%BD%D0%B8_2024-2025_32.%D0%A1%D0%A3%D0%98%D0%A7%D0%95.pdf"
+  ],
+  "officialPostalSource": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+  "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+  "municipal": { "addressId": "102014", "district": "Възраждане", "latitude": 42.696474, "longitude": 23.311801, "licence": "CC-BY-4.0" },
+  "rejectedOtherSofiaPostalCandidate": { "addressId": "72791", "district": "Кремиковци", "latitude": 42.740344, "longitude": 23.510772 },
+  "review": "The operator and its independent sports-pass partner give the same numbered venue address, quarter and phone. Page 4 of the public 32nd School catchment list explicitly assigns Sofia, Otets Paisiy Street no. 3 to Zone B-5-3 in Vazrazhdane. An exact city-wide street-number query has two candidates; the other belongs to Kremikovtsi. Adopt only the independently disambiguated municipal postal point, not a map viewport, unverified door marker or approximate quarter centre. All other records remain unaffected.",
+  "priceAndBooking": "Owner tariff still offers the existing EUR 36 single individual mat Pilates appointment for one person and asks clients to call. Do not mix the different Reformer tariff, groups, packs or gym access into it. Existing booking, price, source dates and validity remain unchanged. No calls, bookings or form submissions.",
+  "previousRowSha256": "5b71840e7b632d83bb46c1022c9fe96a9c51c89a8ad21cb4d9d4105d16c3a109",
+  "reviewedRowSha256": "c76298873d84df479a010d06f6d7e79f6a7053d346a89b5eb84798b0fed08fd7",
+  "pricingIdentity": "7d64b3a7ce0f637c34ab56d0ae12bf20d2165153fd804b95bf6829d5839d137c",
+  "coverage": { "physical": [1, 1], "located": [0, 1] }
+}

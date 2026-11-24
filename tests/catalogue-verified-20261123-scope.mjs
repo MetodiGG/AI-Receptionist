@@ -1,5 +1,6 @@
 import { createHash } from 'node:crypto'
 import { readFileSync } from 'node:fs'
+import { additionalAllowsFileChange, additionalAllowsNewFile, additionalPriorSource, additionalPriorCatalogue } from './catalogue-additional-20261123-scope.mjs'
 
 // Project only this exact receipt when running a historical source/cohort audit.
 const changed = {
@@ -45,10 +46,11 @@ const fileMatches = (path, hash) => {
   if (!hash) return false
   try { return digest(readFileSync(new URL('../' + path, import.meta.url))) === hash } catch { return false }
 }
-export const verifiedAllowsFileChange = path => Object.hasOwn(changed, path) && fileMatches(path, changed[path][1])
-export const verifiedAllowsNewFile = path => Object.hasOwn(additions, path) && fileMatches(path, additions[path])
+export const verifiedAllowsFileChange = path => additionalAllowsFileChange(path) || Object.hasOwn(changed, path) && fileMatches(path, changed[path][1])
+export const verifiedAllowsNewFile = path => additionalAllowsNewFile(path) || Object.hasOwn(additions, path) && fileMatches(path, additions[path])
 
 export function verifiedPriorSource(path, current) {
+  current = additionalPriorSource(path, current)
   if (!Object.hasOwn(changed, path) ||
       !/VERIFIED_INTAKE_20261123|applyVerifiedAddressRecovery20261123|sofia-luckydent-dragalevtsi-gluharche10/u.test(current)) return current
   const [priorHash, currentHash, reverse] = changed[path]
@@ -60,7 +62,7 @@ export function verifiedPriorSource(path, current) {
 
 export function verifiedPriorCatalogue(rows) {
   const seen = new Set()
-  return rows.flatMap(row => {
+  return additionalPriorCatalogue(rows).flatMap(row => {
     const intake = row?.id === VERIFIED_INTAKE_ID
     if (!intake && !Object.hasOwn(recovered, row?.id)) return [row]
     if (seen.has(row.id)) throw Error('Duplicate 23 Nov verified premises: ' + row.id)

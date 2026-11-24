@@ -6,6 +6,52 @@
   "uniquePrimaryPhotos": 384,
   "assets": [
     {
+      "id": "sx-indoor-clay-tennis-court",
+      "sourceFile": "exec-e1fbfe5d-6487-4b05-9563-019f912f1fdc.png",
+      "sourceSha256": "7eddcb84667a6fe862b65526faa0b5310aef682be6612ad57e891817b65c0afa",
+      "file": "public/business-cover-photos/activity-sx-indoor-clay-tennis-court-v1.webp",
+      "width": 720,
+      "height": 720,
+      "bytes": 63034,
+      "sha256": "55e0bd91caca539df3369322ba3184dec19502db5aaa64f280ab07a47a9b6755",
+      "businesses": 1,
+      "approvedServicePhoto": "public/service-photos/sx-indoor-clay-tennis-court-v1.webp",
+      "approvedServicePhotoSha256": "dc8e3deff7b79e02ff90fc9df0d724830690f31d95afcd74e67bbfc5702ffd38",
+      "originalWidth": 1254,
+      "originalHeight": 1254,
+      "sourceCrop": {
+        "left": 0,
+        "top": 0,
+        "width": 1254,
+        "height": 1254
+      },
+      "transformation": "Proportional full-frame downscale from the same reviewed original PNG; 720px WebP quality 78; no crop, enlargement or generative editing.",
+      "sourceReceipt": "docs/specific-service-photo-generation-2026-11-12.json"
+    },
+    {
+      "id": "sx-outdoor-turf-tennis-court",
+      "sourceFile": "exec-2f29b5c0-6aec-4ab0-84a4-ae4a8f3a0e38.png",
+      "sourceSha256": "f714137a0e54196f4572e29a03c755ed4037517f8f463badb194cdcdd3622038",
+      "file": "public/business-cover-photos/activity-sx-outdoor-turf-tennis-court-v1.webp",
+      "width": 720,
+      "height": 720,
+      "bytes": 138192,
+      "sha256": "fd64ffbfeb5a36c598642ffdb667491e8c90b82974ae7951e008436cbee02e8f",
+      "businesses": 1,
+      "approvedServicePhoto": "public/service-photos/sx-outdoor-turf-tennis-court-v1.webp",
+      "approvedServicePhotoSha256": "12137ba319161d9bf47fa27c68478341d787da3ef2543d81ee35a31a6a501b19",
+      "originalWidth": 1254,
+      "originalHeight": 1254,
+      "sourceCrop": {
+        "left": 0,
+        "top": 0,
+        "width": 1254,
+        "height": 1254
+      },
+      "transformation": "Proportional full-frame downscale from the same reviewed original PNG; 720px WebP quality 77; no crop, enlargement or generative editing.",
+      "sourceReceipt": "docs/specific-service-photo-generation-2026-11-12.json"
+    },
+    {
       "id": "sx-groom-french-bulldog",
       "sourceFile": "exec-1163315a-a36c-4ed9-8c90-d13690bfa3e5.png",
       "sourceSha256": "7332887240f33d588f256b5a06cedb685ef73ddc44eb2bd3ceb23cd650e37a28",
@@ -9413,6 +9459,6 @@
       "businesses": 6
     }
   ],
-  "totalNewBytes": 17663322,
+  "totalNewBytes": 17864548,
   "unresolved": []
 }

@@ -1,0 +1,35 @@
+{
+  "checkedOn": "2026-11-23",
+  "status": "local_only",
+  "municipalSource": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+  "municipalCsvSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+  "businesses": [
+    {
+      "id": "sofia-carplay-bulgaria-gorublyane-pionerska2",
+      "neighborhood": "Горубляне",
+      "category": "auto_repair",
+      "address": "София, кв. Горубляне, ул. Пионерска 2",
+      "municipal": {
+        "addressId": "32182", "region": "Младост", "settlement": "гр. София, кв. Горубляне",
+        "street": "ул. Пионерска", "number": "2", "latitude": 42.631683, "longitude": 23.408130
+      },
+      "contactUrl": "https://carplay-bg.com/kontakti",
+      "operatorTerms": "https://carplay-bg.com/obshti-uslovia",
+      "serviceUrl": "https://carplay-bg.com/uslugi/multimedia-upgrades",
+      "booking": { "kind": "form", "url": "https://carplay-bg.com/zapazi-chas?service=multimedia-upgrades", "bookingScope": "The owner’s rendered form preselects this service and shows the same exact location. Sends a request; no submission, available slot, prepaid deposit, or confirmed appointment is claimed." },
+      "pricingState": "not_publicly_listed",
+      "pricingEvidence": "Neither the rendered booking route nor the selected service page publishes a workshop tariff for the visit. The separate shop publishes prices for specific products and free-install offers on certain items; none is used as the fee for this appointment. The stated 1–2 hours are an installation estimate, not a fixed appointment duration.",
+      "separateIdentity": "The owner’s terms name CarPlay Bulgaria EOOD. The existing independent M-Line Detailing at the same building uses a separate website, phone and unrelated booked service. The municipal postal point is shared by the physical address, not interpreted as a common operator.",
+      "inventoryIdentity": "70b0210e7153c318b66285e8f01eb0a89c36a414ceca48e704e6bed5a65ab2a2",
+      "rowSha256": "fedb0ac37e69f37bb2b2605259391c2dcb4bb6d3eea72a06885e447d87b8fd4d"
+    }
+  ],
+  "heldLocations": [
+    { "name": "Fade Control · Подуяне", "source": "https://fadecontrol.bg/book-appointment/", "reason": "Exact address exists, but the actual booking screen stays on its loading message even after rendering; no configured public service menu or rates could be read. Not treated as unpublished pricing." },
+    { "name": "City Jungle · Дружба 2", "source": "https://cityjungle.bg/grooming", "reason": "The current owner pages give block 616 and its own phone appointment path, while earlier groomer references still give block 227. Block 616 has two official entrances, and no entrance letter is confirmed for grooming. No point assigned." },
+    { "name": "Print.bg · Горубляне", "source": "https://print.bg/index.php/kontakt", "reason": "The operator invites in-office appointments with a print consultant, separate from order pickup, and the exact municipal point exists. The present catalogue has no suitable photographic illustration of a print consultation; links and prices for product orders are not a substitute." }
+  ],
+  "illustrationAssets": {
+    "/service-photos/sx-auto-audio-navigation-module-repair-v1.webp": "187ed764855f81541554715df2e378c5c962fde73abebcdad2a180e396a70f77"
+  }
+}

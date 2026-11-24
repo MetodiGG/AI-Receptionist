@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-23T12:00:00.000Z",
+  "baseline": "2167138505d08ab7e2c5e5198cca71b0bc96e918",
+  "status": "prepared_local_not_published",
+  "targetPerQuarterCategory": 30,
+  "totalTargetCells": 1750,
+  "approvedBusinesses": [
+    1726,
+    1727
+  ],
+  "locatedPremises": [
+    935,
+    938
+  ],
+  "emptyLocatedPickerCells": [
+    1040,
+    1037
+  ],
+  "emptyLocatedCells": [
+    1406,
+    1403
+  ],
+  "cellsAtLocatedTarget": [
+    0,
+    0
+  ],
+  "affected": [
+    {
+      "id": "sofia-unigas-romano-voenna-rampa-konstantin3",
+      "kind": "new_business",
+      "neighborhood": "Военна рампа",
+      "receipt": "unigas-intake-20261123.json",
+      "cells": {
+        "auto_repair": {
+          "physical": [
+            2,
+            3
+          ],
+          "located": [
+            1,
+            2
+          ]
+        }
+      }
+    },
+    {
+      "id": "sofia-dpool-private-swimming-lyulin",
+      "kind": "address_and_point_only",
+      "neighborhood": "Люлин 2",
+      "receipt": "dpool-lyulin2-verified-location-20261123.json",
+      "cells": {
+        "fitness": {
+          "physical": [
+            1,
+            1
+          ],
+          "located": [
+            0,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "id": "sofia-viks-beauty-studio",
+      "kind": "point_only",
+      "neighborhood": "Люлин 8",
+      "receipt": "viks-lyulin8-verified-location-20261123.json",
+      "cells": {
+        "hair": {
+          "physical": [
+            1,
+            1
+          ],
+          "located": [
+            0,
+            1
+          ]
+        },
+        "nails": {
+          "physical": [
+            2,
+            2
+          ],
+          "located": [
+            0,
+            1
+          ]
+        },
+        "beauty": {
+          "physical": [
+            4,
+            4
+          ],
+          "located": [
+            2,
+            3
+          ]
+        }
+      }
+    }
+  ],
+  "limitations": "Local static Sofia scope. No deduplicated live-partner snapshot. Postal points are not surveyed doorways. Gap counts are not a guarantee of results in every radius.",
+  "held": [
+    {
+      "id": "sofia-katerene-europe-private",
+      "reason": "The unique numbered postal match does not demonstrate the point for Building 1 at the multi-building complex; campus sources disagree materially. No coordinate or quarter change.",
+      "source": "https://nag.sofia.bg/RegisterInfo/Info?url=EofWSyACtG4%3D"
+    },
+    {
+      "name": "Next Level Люлин 5",
+      "reason": "Owner platform terms restrict commercial content use without express permission. No catalogue row, service, rate or photo linkage added.",
+      "source": "https://www.nextlevelclub.bg/dokumenti/"
+    },
+    {
+      "name": "BMW Ауто Бавария Запад",
+      "reason": "Owner-linked booking service returned access denied on ordinary read. No bypass, price-import completion or absent-tariff decision.",
+      "source": "https://www.bmw-autobavaria.bg/services/exclusive"
+    }
+  ]
+}

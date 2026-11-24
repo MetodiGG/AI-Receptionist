@@ -1,0 +1,72 @@
+{
+  "checkedOn": "2026-11-23",
+  "baselineCommit": "7617e55d8bb46706c5fae78c611b7356e880a2b1",
+  "status": "bounded_research_only_no_records_admitted",
+  "targetPerQuarterCategory": 30,
+  "scope": ["car_wash", "detailing", "pets", "home_services"],
+  "postalSource": {
+    "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+    "rule": "Read the user-provided municipal CSV without changes. Only exact, unambiguous postal bindings qualify; a map viewport, adjacent street number, guessed block crosswalk or unmatched entrance does not."
+  },
+  "businesses": [],
+  "held": [
+    {
+      "name": "VIP Grooming",
+      "candidateNeighborhood": "Дружба 2",
+      "category": "pets",
+      "status": "owner_booking_and_price_menu_now_reachable_exact_postal_binding_unresolved",
+      "sources": ["https://www.vipgrooming.bg/robots.txt", "https://www.vipgrooming.bg/", "https://www.vipgrooming.bg/terms-of-service"],
+      "previousReview": "docs/catalogue-coverage/research-pets-20261116.json",
+      "reason": "Owner robots allows fetching. Current owner homepage responded 200 with appointment contact, phone link and a public EUR tariff. Owner identifies the premises only as Complex Nova Druzhba, Building 5 without a posted entrance, crosswalk or exact point. Nearby municipal blocks 624 (five entrances) and 625 do not establish which point belongs to this salon; no directory coordinates or rates were imported.",
+      "nextRequiredEvidence": "A current owner or authoritative postal/cadastral source explicitly tying the salon or commercial Building 5 entrance to a single address point, followed by final source-terms, rate conditions and image review."
+    },
+    {
+      "name": "Kanalihit / Пайп Строй Груп",
+      "candidateNeighborhood": "Враждебна",
+      "category": "home_services",
+      "status": "owner_home_visit_request_and_quote_reviewed_exact_office_point_ambiguous",
+      "sources": ["https://kanalihit.com/kontakti/", "https://kanalihit.com/vik-uslugi/videodiagnostika-na-kanali/", "https://kanalihit.com/za-nas/"],
+      "municipalCandidateAddressIds": ["86507", "91060"],
+      "reason": "Operator's own contact and dedicated drain-camera diagnostics page publish phone requests with an individual quote. Official София, Кремиковци, ул. 58 № 3 has two municipal positions, roughly 29 m apart. The owner page's embedded public map markup gives the viewport, not a verified business marker, and it does not disambiguate the two rows. No walk-in or fixed price is inferred.",
+      "nextRequiredEvidence": "Confirm an exact office entrance or owner-published position and confirm it is customer-facing before counting a physical location for this mobile provider."
+    },
+    {
+      "name": "Бонанза · Професионално почистване",
+      "candidateNeighborhood": "Дружба 2",
+      "category": "home_services",
+      "status": "source_terms_and_premises_conflict_stop",
+      "sources": ["https://www.bonanza08.com/contacts/", "https://www.bonanza08.com/services/", "https://www.bonanza08.com/условия-за-ползване/"],
+      "municipalCandidateAddressIds": ["119571"],
+      "reason": "The current contact office matches the exact municipal ул. Делийска воденица 31 row and the services page describes individually quoted jobs after inspection. Owner Terms Art. 2 lists a different address for business activity; Art. 8 restricts reuse of site information absent consent. No business, photos, service text or review was imported; do not retry the source for reuse without permission."
+    },
+    {
+      "name": "ДМД Клима",
+      "candidateNeighborhood": "Горубляне",
+      "category": "home_services",
+      "status": "current_public_premises_conflict",
+      "sources": ["https://remontklima.com/contact", "https://remontklima.com/uslugi-i-serviz"],
+      "municipalCandidateAddressIds": ["21273"],
+      "reason": "Owner page footer lists Горубляне, ул. Пети ноември 8, a single municipal match. The same current Contact page's main address is instead ул. Иван Пешев 38, с. Лозен. No second customer-facing location inferred, and the exact service tariff has not been approved."
+    },
+    {
+      "name": "NASTARTA CarWash",
+      "candidateNeighborhood": "Хаджи Димитър",
+      "category": "car_wash",
+      "status": "prior_booking_and_wash_location_hold_not_resolved",
+      "sources": ["https://nastarta-shop.com/avtomivka/"],
+      "previousReview": "docs/catalogue-pricing/expansion-wash-detail-20261113.json",
+      "reason": "The owner wash page links appointment booking and shows tariffs, but no independent wash-specific premises resolving the existing Дианабад versus Хаджи Димитър shop-address conflict was found. Municipal ул. Сопот has 33А, not the advertised shop 33. No substitution or reuse of the old tariffs."
+    },
+    {
+      "name": "City Jungle Grooming",
+      "candidateNeighborhood": "Дружба 2",
+      "category": "pets",
+      "status": "prior_entrance_hold_not_resolved",
+      "sources": ["https://cityjungle.bg/grooming"],
+      "municipalCandidateAddressIds": ["118237", "118238"],
+      "reason": "The prior owner address at бл. 616 still has no new authoritative entrance confirmation. A or B cannot be selected from a map viewport or directory address. No new images, menu facts or location were imported."
+    }
+  ],
+  "checks": {"newDistinctOperators": 0, "newVerifiedPoints": 0, "bookingFormsSubmitted": 0, "productionChanges": false}
+}

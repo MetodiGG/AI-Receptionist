@@ -1,0 +1,63 @@
+{
+  "checkedOn": "2026-11-23",
+  "status": "local_only",
+  "municipalSource": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+  "municipalCsvSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+  "businesses": [
+    {
+      "id": "sofia-salt-home-druzhba2-block302a",
+      "neighborhood": "Дружба 2",
+      "category": "fitness",
+      "address": "София, ж.к. Дружба 2, бл. 302, партер, зад вх. А",
+      "municipal": {
+        "addressId": "21895",
+        "region": "Искър",
+        "sourceObject": "ж.к. Дружба",
+        "blockNumber": "302",
+        "entrance": "А",
+        "latitude": 42.649786,
+        "longitude": 23.406227,
+        "pointScope": "The published point is for building entrance A, not a separately surveyed rear door. Four municipal rows exist for different entrances; the operator's own contact page identifies the block in Druzhba 2, and its booking link identifies the rear of entrance A."
+      },
+      "contactUrl": "https://solnastaya.com/kontakti/",
+      "ownerReservations": "https://solnastaya.com/reservations/",
+      "entranceCorroboration": "https://easybook.bg/solna-staya-salt-home-sofiya-druzhba-2",
+      "booking": { "kind": "phone", "phone": "+359883227407", "url": "https://solnastaya.com/joga/" },
+      "prices": [
+        {
+          "name": "Йога в солна стая · групова практика",
+          "amount": 17.9,
+          "currency": "EUR",
+          "kind": "fixed",
+          "sourceUrl": "https://solnastaya.com/joga/",
+          "condition": "Price accompanies the named group class for at most five participants; the source does not explicitly say whether payment is per person or for the whole group. No unit is supplied."
+        }
+      ],
+      "serviceSchedule": "The operator publishes Saturdays 17:00–18:30 for this activity; no calendar slots are claimed.",
+      "openingHours": "Omitted: regular venue hours differ on the operator's site and the operator-linked booking profile.",
+      "separateIdentity": "The existing Salt&Art listing uses a different business name, site, telephone and premises; a teacher's stated prior training there is not a branch relationship.",
+      "inventoryIdentity": "7b914bf06310bb1a5e02c6ef2212618af0e9571bd4a50f6c76b856943a5fb086",
+      "rowSha256": "807ead80597c0a9d2f57de3e95d4f265b377b2c96a0325c4fe1e9199bbe8989b"
+    }
+  ],
+  "heldLocations": [
+    {
+      "name": "АРЕС · Дружба 2",
+      "source": "https://rsauto.bg/",
+      "reason": "Exact municipal point and owner tariff were found for the branch, but its general service/contact pages do not explicitly invite advance booking for this named service."
+    },
+    {
+      "name": "Sider Auto · Враждебна",
+      "source": "https://siderauto.com/robots.txt",
+      "reason": "The source declares reference-only use and disallows automated AI access; no business or service row was ingested."
+    },
+    {
+      "name": "Prime Auto · Враждебна",
+      "source": "https://primeauto.bg/",
+      "reason": "The stated ul. Yapadzha 11 could not be corroborated at an exact municipal point. No coordinates or telephone booking claim were inferred."
+    }
+  ],
+  "illustrationAssets": {
+    "/service-photos/yoga-class-v1.webp": "c2e52e6f841c3df840baff5e2398a2b3c5f4ffe48cec1c20ae563b4b817ccf4f"
+  }
+}

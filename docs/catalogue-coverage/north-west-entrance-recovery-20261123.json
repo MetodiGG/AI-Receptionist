@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "checkedAt": "2026-11-23T04:00:00Z",
+  "baselineCommit": "3bc06dc2ca0d37e53c81ea4519941e47eaa1cb41",
+  "status": "verified_coordinates_only",
+  "targetPerQuarterCategory": 30,
+  "municipalSource": {
+    "url": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+    "licence": "CC-BY-4.0",
+    "attribution": "ГИС София / Столична община",
+    "method": "Exact Sofia district, housing complex, block and named entrance matched with the repository’s offline municipal CSV reader. Points describe civic entrances, not independently verified individual doors or road/travel distance."
+  },
+  "bindings": [
+    {
+      "id": "sofia-thinkinkneedle",
+      "category": "other",
+      "neighborhood": "Надежда 1",
+      "address": "София, ж.к. Надежда 1, бл. 153, вх. В, откъм ул. Сава Филаретов",
+      "firstParty": "https://thinkinkneedle.com/",
+      "evidence": "The operator’s instructions and footer name the same exact entrance on block 153 and tell customers to approach from Sava Filaretov Street behind the building. The direction remains in the catalogue address. Municipal row 57101 is the unique entrance В for that block in Надежда I, not an assertion about the exact separate studio doorway.",
+      "municipalMatch": {
+        "addressId": "57101",
+        "region": "Надежда",
+        "housingComplex": "ж.к. Надежда I",
+        "block": "153",
+        "entrance": "В",
+        "latitude": 42.729081,
+        "longitude": 23.29718
+      },
+      "normalizedBeforeSha256": "00d3bb58fc042fff184a82a9277276969a39091aac8595c62fa91fc34b48abf0",
+      "normalizedAfterSha256": "dee483edf71276e139186f21737421413b3517d50e3ac61fbb506c1b3f20d920",
+      "unchangedPricingIdentity": "3bf5ade5d64d704404653235cd6a41d47c63d8d8deae669d0e3f87d31d89dc7e",
+      "exactCellLocatedCount": [0, 1]
+    },
+    {
+      "id": "sofia-violina-damyanova-ovcha-kupel418",
+      "category": "other",
+      "neighborhood": "Овча купел 1",
+      "address": "София, ж.к. Овча купел 1, бл. 418, вх. И, ет. 1",
+      "firstParty": "https://viodent.wixsite.com/viodent/contact",
+      "independentConfirmation": "https://doktori.bg/zabolekar/violina-damyanova-damyanova/",
+      "evidence": "The operator’s contact lists block 418, entrance И, floor 1 and the existing catalogue phone. An independent November 2026 snapshot from the national health and insurer registries lists the same practice and exact entrance in Овча купел 1; other numbers from that registry snapshot were not used. The sole municipal row for the named entrance in this district is 40253, where the municipal housing-complex field is written without the part number. The operator and independent exact premises address establish part 1; the district label is not used to infer it.",
+      "municipalMatch": {
+        "addressId": "40253",
+        "region": "Овча купел",
+        "housingComplex": "ж.к. Овча купел",
+        "block": "418",
+        "entrance": "И",
+        "latitude": 42.688937,
+        "longitude": 23.252361
+      },
+      "normalizedBeforeSha256": "c20bbb3a48714078d268ed9521024f91829c3900d6ac7402c2e09e59a611afdb",
+      "normalizedAfterSha256": "5b5134211565f4e3581f5caa0545002eda4e9ae46edc24d28e12dc407bcab227",
+      "unchangedPricingIdentity": "5ba603b70053a9e55197d739130b077b5ce54323b74f82a223c67c9b1fd3f133",
+      "exactCellLocatedCount": [0, 1]
+    }
+  ],
+  "coverageChange": {
+    "newBusinesses": 0,
+    "newServices": 0,
+    "existingPremisesNewlyLocated": 2,
+    "newNonemptyExactCells": 2
+  },
+  "safeguards": "Only coordinates changed. The binding is guarded by the ID and existing address, city, quarter, category, contact and booking identity, and will not overwrite another coordinate. No prices, booking routes, availability, approval dates, customer data or production records were changed."
+}

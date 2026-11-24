@@ -1,0 +1,47 @@
+{
+  "checkedOn": "2026-11-23",
+  "baselineCommit": "3a1b2f96a78dac8ee7066f1e20ee76f73fbbfcc6",
+  "status": "verified_intake_not_published",
+  "targetPerQuarterCategory": 30,
+  "newDistinctOperators": 1,
+  "newLocatedPremises": 1,
+  "businesses": [
+    {
+      "id": "sofia-yonitrade-suhata-reka-block10a",
+      "name": "Учебен център Йонитрейд · Сухата река",
+      "category": "education",
+      "neighborhood": "Сухата река",
+      "address": "София, ж.к. Сухата река, бл. 10, вх. А, ет. 1, ап. 2",
+      "municipal": {
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+        "addressId": "27553",
+        "latitude": 42.703324,
+        "longitude": 23.355127,
+        "region": "Подуяне",
+        "match": "Exact owner-published quarter, block and entrance have one distinct municipal row. The official driving-school register, permit 3173, corroborates Category B and the precise entrance/room. No other entry, business location, point or road segment substituted.",
+        "licence": "CC-BY-4.0"
+      },
+      "coverageAtBaseline": {"physical": [4, 5], "located": [2, 3]},
+      "sources": {
+        "owner": "https://yonitrate.info/",
+        "ownerContact": "https://yonitrate.info/контакти",
+        "ownerCourse": "https://yonitrate.info/шофьорски-курсове",
+        "ownerRobots": "https://yonitrate.info/robots.txt",
+        "drivingSchoolRegister": "https://rta.government.bg/upload/18140/uchebni_centrove_01_10_2026.html"
+      },
+      "booking": "The live native homepage expressly allows course registration by phone. Its separate section names the branch and +359888403319, which the public owner Contact repeats. Category B is described in the complete owner course menu and verified at this exact teaching venue by permit 3173. The public listing offers only the current branch phone. The parallel owner-linked web form is outdated and requests unnecessary personal identifiers for this catalogue flow; it is omitted entirely from the runtime record, is not a pricing source, and was not submitted. No live seat confirmation, call, or specific next date.",
+      "tariff": "No published ordinary Category B tariff on the actual owner telephone booking page, dedicated driving-course menu, or Contact. There is no linked Prices page in the inspected public navigation. Seasonal promotional announcements contain no normal applicable tariff and were excluded. Review state service_reviewed / not_publicly_listed, not reviewed numeric pricing. No exact minutes, rates, durations or branch hours added.",
+      "sourceUse": "Owner robots response excludes administrative paths, not the checked public pages. The full public navigation and footer showed no separate applicable terms/content-use link and only an ordinary copyright notice. No company prose, photographs, private data or terms-obscured content imported. This is not a claim of a licence.",
+      "deduplication": "No existing runtime identity matched normalized operator name, domain, owner phones or address. Автокурсове Славов in the same quarter uses another domain, phone and block; no existing provider is replaced. The second business address is not counted or assigned a neighborhood.",
+      "serviceNameBg": "Шофьорски курс за категория B",
+      "serviceNameEn": "Category B driving course",
+      "descriptionBg": "Курсът включва теоретично и практическо обучение. Записването е по телефон; началната дата, графикът и таксата се уточняват с учебния център.",
+      "descriptionEn": "The course includes theory and practical driving. Enrol by phone; the school confirms the start date, timetable and fee.",
+      "imageKey": "driving-lesson",
+      "imageSha256": "6eb2df23573ddc62e3dd40cce16ae312f8e2b9cf5df43429e33a5c99627bf7ae",
+      "normalizedRecordSha256": "91455a5493697ed338967d003cce9d234d7e981630f447ed23fd9a3935908a9c",
+      "inventoryIdentity": "7f3db9ee844043ce242d1afb746644c04589f141c5d7f6f5f95e4faf2937578a"
+    }
+  ]
+}

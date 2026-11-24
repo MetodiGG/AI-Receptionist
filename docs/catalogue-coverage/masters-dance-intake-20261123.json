@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "status": "reviewed_locally_not_published",
+  "checkedOn": "2026-11-23",
+  "business": {
+    "id": "sofia-masters-dance-lyulin-centre-nenov29",
+    "name": "Майсторите на танца · Люлин",
+    "cityCode": "68134",
+    "neighborhood": "Люлин - център",
+    "address": "София, Люлин - център, ул. Архитект Георги Ненов 29, Спортен център „Сиконко“, ет. 2",
+    "website": "https://www.mastersofthedance.com/",
+    "phone": "+359894637337",
+    "validUntil": "2026-12-23",
+    "category": "fitness",
+    "locationKind": "premises",
+    "duplicateCheck": "No current listing or prior intake for this trade name, operator domain or main contact. Existing climbing club sofia-europe-climbing-lyulin-private shares the building but is independently operated, has its own phone/domain and different activities. One new dance-school operator, not one business per activity or enrollee."
+  },
+  "addressEvidence": {
+    "ownerBranch": "https://www.mastersofthedance.com/школи/софия-люлин/",
+    "officialAddressSource": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "municipalSourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+    "municipalLicence": "CC-BY-4.0",
+    "municipalAttribution": "ГИС София / Столична община",
+    "hostCorroboration": "https://climbing-lulin.sportcentereurope.bg/za-nas/",
+    "officialLocalityCorroboration": "https://dv.parliament.bg/DVWeb/showMaterialDV.jsp?idMat=147794",
+    "municipalRow": {
+      "rn": "94791", "region": "Люлин", "settlement": "гр. София",
+      "street": "ул. Арх. Георги Ненов", "number": "29", "entrance": "",
+      "latitude": 42.717601, "longitude": 23.255448
+    },
+    "decision": "Owner’s live exact branch names Lyulin-centre, Sikonkо / Sports Centre Lyulin, street and number, and second floor. Independent venue tenant and the gazette support the address/host and centre designation respectively. There is exactly one literal Sofia municipal row 29; it is the building address, not the door to the second-floor dance room. Do not assign a numbered Lyulin neighbourhood."
+  },
+  "bookingEvidence": {
+    "entry": "https://www.mastersofthedance.com/контакти/",
+    "programme": "https://www.mastersofthedance.com/школи/софия-люлин/",
+    "decision": "The owner branch requires advance enrollment; the regularly rehearsing adult beginner group is explicitly open for enrollment. The owner's actual public form offers dance lessons for adults and the Lyulin venue. It requests enrollment, not a guaranteed class booking. No fields, settings, payments or slot selection used."
+  },
+  "service": {
+    "name": "Български народни танци за начинаещи възрастни",
+    "description": "Групови занимания за възрастни без опит. Избери школата в Люлин във формуляра. Записването, графикът и таксата се уточняват с организатора.",
+    "appointmentModel": "group_reservation",
+    "pricingDecision": "not_publicly_listed",
+    "pricingReviewState": "service_reviewed",
+    "priceReview": "Opened the actual owner form, complete current branch timetable and school index; no numeric adult beginner group fee, price page or inaccessible fee menu. Spectacle and event deposit claims do not apply. Other programmes and clock times are not imported as durations, opening hours or available slots.",
+    "english": {
+      "name": "Bulgarian folk dance for adult beginners",
+      "description": "Group classes for adults with no experience. Select the Lyulin school on the form. The organiser confirms enrolment, the schedule and the fee."
+    },
+    "approvedActivityPhotoId": "sx-bulgarian-folk-group"
+  },
+  "sourcePolicy": "Official robots returned 200 with an empty wildcard disallow. The branch page, public form and published privacy policy were accessible; the reviewed public navigation exposed no separate terms link or restriction against independently paraphrased minimal business facts. This is not a reuse licence. No marketing text, images, performer data or prospective customer data copied.",
+  "identities": {
+    "inventoryIdentity": "03e72ecf1af20cb12b3fb0109f65a1abdacc2eb5d2e40ec3f1ab8c7e93e65d8a",
+    "normalizedRecordSha256": "f7da59af3237f20c6001c02b1c7ce3477769f1e86ec0f07a06b1d922d85a4f7c"
+  },
+  "verifiedCoverageProjection": {
+    "target": 30, "neighborhood": "Люлин - център", "category": "fitness",
+    "scope": "observed_additional_named_area",
+    "physicalPremises": [0, 1], "withUsableAddressPoint": [0, 1],
+    "newBusinesses": 1, "newServices": 1, "verifiedPublicPriceFacts": 0
+  },
+  "safeguards": {
+    "contactAttemptsSubmissionsBookingsPayments": 0, "mapGeocoderOrPaidProviderRequests": 0, "productionWrites": 0
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "baseline": "3a455cdd510f2a1d31d11e40927e35c5eb7467fd",
+  "status": "prepared_locally_not_published",
+  "scope": "Four existing Sofia premises, each in a previously unlocated quarter/category combination. This adds no operators or listings, changes no displayed addresses, and is not an entrance survey or a new review of services, schedules, prices or booking channels.",
+  "municipalSource": {
+    "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "municipalCsvSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+    "licence": "CC-BY-4.0",
+    "attribution": "ГИС София / Столична община",
+    "handling": "Used the owner-supplied municipal CSV read-only with the existing strict parser. No provider API, geocoding request, map page, photos, routing lookup, source row edits or full dataset export. Independently confirmed the numbered quarters from operators, not from map pin positions."
+  },
+  "recoveries": [
+    {
+      "id": "sofia-prestige-lyulin160",
+      "neighborhood": "Люлин 10",
+      "category": "education",
+      "address": "София, ж.к. Люлин 10, бл. 160, ет. 1 над партер",
+      "ownerAddressSource": "https://www.prestige.bg/contacts",
+      "ownerReview": "Owner branch states Lyulin 10, block 160, first floor above ground floor. The address-linked destination in this owner's own HTML is within 5.69 m of the single municipal block point. Only the municipal point is retained; the owner link was inspected without visiting the map provider.",
+      "municipalMatch": { "addressId": "115872", "region": "Люлин", "registeredArea": "ж.к. Люлин", "block": "160", "latitude": 42.713896, "longitude": 23.266459, "entranceRecorded": null, "exactCandidateCount": 1 },
+      "previousRowSha256": "9baa9b6f477b11b2bb9dbc81d28da63bf6da3deb3a9846a2315222a8374e7cae",
+      "reviewedRowSha256": "808e9a717da69f6b97a80ecfded2bb185ccf1a8d384a37fd9e7ef5deedf75b76",
+      "pricingIdentity": "0159be0e4f8db09fac0a884b9a33e0c7b8453c5fe4a75b8fc79b1baef7760493",
+      "coverage": { "physical": [2, 2], "located": [0, 1] }
+    },
+    {
+      "id": "sofia-amakids-lyulin",
+      "neighborhood": "Люлин 8",
+      "category": "education",
+      "address": "София, ж.к. Люлин 8, ул. 3004-та 5",
+      "ownerAddressSource": "https://www.amakids.bg/nashite-tsentrove/sofia-lyulin",
+      "ownerReview": "The specific owner branch lists the numbered quarter, number 5 on street 3004-та and the same phone as the existing record. Its map embed contains a business-name query, not coordinates; no provider page was opened. The sole official street entry uses the numeric name without the ordinal suffix.",
+      "municipalMatch": { "addressId": "99226", "region": "Люлин", "street": "ул. 3004", "streetNumber": "5", "latitude": 42.721143, "longitude": 23.257457, "entranceRecorded": null, "exactCandidateCount": 1 },
+      "previousRowSha256": "346c9c2cc62fa996a0b3f3a90374d9609c2060785eeb926172266058664585f2",
+      "reviewedRowSha256": "d13365511c7bf8c3f1f9329d0237b22776b253d09521b8cb81b7e62d005e6716",
+      "pricingIdentity": "9f9d4ca6d30f4d8770dbe606dbcf26e02d6a758f0e5d2fe78e425a9a89d288e2",
+      "coverage": { "physical": [1, 1], "located": [0, 1] }
+    },
+    {
+      "id": "sofia-premier-padel-private-georgi-belov5",
+      "neighborhood": "Горубляне",
+      "category": "fitness",
+      "address": "София, Горубляне, ул. Георги Белов 5",
+      "ownerAddressSource": "https://premierpadelclub.bg/",
+      "ownerAddressCorroboration": "https://premierpadelclub.bg/bookings.html",
+      "ownerClassPage": "https://premierpadelclub.bg/classes.html",
+      "ownerReview": "The operator gives the quarter and number 5 on Георги Белов. Its classes and reservations pages provide the same address in the map embed query, not coordinates. The municipal street uses the title Инж. and the region Младост is administrative, not a replacement for the operator's neighbourhood. The point represents the postal property, not an independently surveyed court or entrance.",
+      "municipalMatch": { "addressId": "105905", "region": "Младост", "street": "ул. Инж. Георги Белов", "streetNumber": "5", "latitude": 42.637477, "longitude": 23.402211, "entranceRecorded": null, "exactCandidateCount": 1 },
+      "previousRowSha256": "58277d7c62970385be4bac1e11bf7df8fc678997cfc77b6ce39c82f71f0a92a7",
+      "reviewedRowSha256": "d7f72a75cbeeb6a9848c9c5630adfefcab1a55c21548bfe33e6cdea433702690",
+      "pricingIdentity": "99db81021697db84143164dc9470ba0754f237e3781b12126a2ff8e744cd0b49",
+      "coverage": { "physical": [1, 1], "located": [0, 1] }
+    },
+    {
+      "id": "sofia-happy-pet-spa-druzhba2-283",
+      "neighborhood": "Дружба 2",
+      "category": "pets",
+      "address": "София, ж.к. Дружба 2, Цариградско шосе, 7–11 км, Цариградски комплекс, бл. 283, вх. Б",
+      "ownerAddressSource": "https://dogspa.bg/#/contacts",
+      "ownerCanonicalSource": "https://dogspa.bg/",
+      "ownerAddressCapture": "artifacts/category-navigation-20261116/coverage-batch-006-dogspa-contact.jpg (original search-discovery-20261114 review worktree)",
+      "ownerAddressReviewRecord": "docs/catalogue-coverage/batch-006-20261116.json",
+      "ownerReview": "Visually re-read the saved full rendered operator Contact acquired in the 2026-11-16 review. The address card explicitly identifies block 283 entrance Б in Дружба 2 and the phone; pick the single matching entrance. Current homepage retrieval confirmed the live operator name and matching number. The current HTML reader did not render the client-side hash route, and no map destination or marker was queried or reused.",
+      "municipalMatch": { "addressId": "94615", "region": "Искър", "registeredArea": "ж.к. Дружба", "block": "283", "latitude": 42.646173, "longitude": 23.400555, "entranceRecorded": "Б", "exactCandidateCount": 1, "excludedEntrance": { "addressId": "94614", "entrance": "А" } },
+      "previousRowSha256": "bab750e409083a30718c31eb4907fa4183502a9c3b1b3ce89ecae01c056b0a86",
+      "reviewedRowSha256": "6b7d0dc1fbe18ef5345647d0f7bb250baf50c0130ff0d7ca1de353eea06a48ac",
+      "pricingIdentity": "4184352e979418478537396c647e9b0aa00c07b95cf43b91a44652a52bd98bc3",
+      "coverage": { "physical": [1, 1], "located": [0, 1] }
+    }
+  ]
+}

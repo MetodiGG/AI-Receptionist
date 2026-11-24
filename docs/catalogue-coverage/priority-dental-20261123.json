@@ -1,0 +1,49 @@
+{
+  "checkedOn": "2026-11-23",
+  "baselineCommit": "9fc6686600b9361ae4ae6bd4c088e651d1c43590",
+  "status": "prepared_locally_not_published",
+  "targetPerQuarterCategory": 30,
+  "newBusiness": {
+    "id": "sofia-kabident-lyulin9-vlaikov27",
+    "name": "Кабидент · д-р Биляна Стоянова",
+    "category": "other",
+    "neighborhood": "Люлин 9",
+    "address": "София, ж.к. Люлин 9, ул. Тодор Г. Влайков 27, вх. В, ет. 1, ап. 1",
+    "municipal": {
+      "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+      "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+      "addressId": "55487",
+      "latitude": 42.722308,
+      "longitude": 23.266502,
+      "licence": "CC-BY-4.0",
+      "pointScope": "Sofia, Lyulin district, street no. 27 entrance V. It is a municipal postal point for the entrance rather than a surveyed office point. Do not select the A or B rows for this address."
+    },
+    "officialPracticeSource": "https://iamn.bg/wp-content/uploads/registers/22_REGISTER_LZ%20dejstvashti.pdf",
+    "officialPracticeEvidence": "Official dental practice registration item 2219112594 uses the KabiDent and Bilyana Stoyanova identifiers and gives Тодор Влайков 27, вх. В. The owner adds floor 1 and apartment 1 on its own site and gives the quarter, Люлин 9.",
+    "ownerBooking": "https://ddent1324.wixsite.com/kabident",
+    "ownerContact": "https://ddent1324.wixsite.com/kabident/contact",
+    "ownerServiceMenu": "https://ddent1324.wixsite.com/kabident/departments",
+    "ownerTreatment": "https://ddent1324.wixsite.com/kabident/cardiology",
+    "otherReviewedServicePages": ["https://ddent1324.wixsite.com/kabident/neurology", "https://ddent1324.wixsite.com/kabident/orthopaedics"],
+    "service": "Лечение на кариес",
+    "bookingEvidence": "The owner site's Book Now points to its landing page, with an explicit appointment invitation and the same professional telephone repeated on the visits/contact page. The actual treatment page is headed Лечение и профилактика and identifies treatment for caries. There is no usable self-service scheduler; the public action is a telephone link.",
+    "priceSearch": "The actual booking landing page, visit contact, service overview and all three clinical service pages were checked; each clinically relevant menu rendered through the ordinary public route and no amount or owner tariff page was found.",
+    "pricingDecision": "not_publicly_listed",
+    "inventoryIdentity": "59efcafddf8e5909de4b26d605a6e173ac7f1a3248b78d003649a705ac21d48d",
+    "illustration": "/service-photos/dental-filling-v1.webp",
+    "excluded": "No claim of fixed price, guaranteed treatment without assessment, duration, office hours or slot availability. No contact made, form submitted, photos, ratings or patient material copied. No duplicate of the separately operated Pilates venue at the same postal number.",
+    "coverage": { "physical": [2, 3], "located": [1, 2] }
+  },
+  "held": [
+    {
+      "name": "OSENSKA Dental Care",
+      "neighborhood": "Люлин 6",
+      "reason": "Published paid-exam fee does not distinguish or bind the primary, follow-up or preventive booking reasons; no price or business record was inferred."
+    },
+    {
+      "name": "Денталница",
+      "neighborhood": "Триъгълника",
+      "reason": "Previously held in research-priority30-002-20261122: two entrances for Ломско шосе 15 and no operator evidence clarifying which entrance is used."
+    }
+  ]
+}

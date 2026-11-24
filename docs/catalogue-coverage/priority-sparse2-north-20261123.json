@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "checkedAt": "2026-11-23T04:00:00Z",
+  "baselineCommit": "09ea20da9e462163d312d7cdc6e093e64de9ef07",
+  "status": "verified_intake_not_published",
+  "targetPerQuarterCategory": 30,
+  "businesses": [
+    {
+      "id": "sofia-lokomotiv-tennis-voenna-rampa-rozhen23",
+      "category": "fitness",
+      "neighborhood": "Военна рампа",
+      "address": "София, кв. Военна рампа, бул. „Рожен“ 23, спортен комплекс „Локомотив“",
+      "location": {
+        "type": "named_venue_not_civic_point",
+        "method": "first_party_coordinates",
+        "addressId": null,
+        "latitude": 42.73658371,
+        "longitude": 23.31459427,
+        "independentDocumentation": "The merchant's profile supplies the mapped destination and street address, not a generated street or district midpoint. The MultiSport facility and Sofia Tennis court directories independently name Voenna rampa, the club, the same address and the same club telephone. The district's public sports list corroborates the named stadium at 23 Rozhen Boulevard. There is no numbered civic-address point in the supplied municipal CSV for this address; the marker is not reported as a municipal door point."
+      },
+      "sources": {
+        "liveMerchantProfileAndBooking": "https://clicktoplay.io/club/%D0%BB%D0%BE%D0%BA%D0%BE%D0%BC%D0%BE%D1%82%D0%B8%D0%B2-%D1%81%D0%BE%D1%84%D0%B8%D1%8F",
+        "bookingProviderPublicTerms": "https://clicktoplay.io/terms.php",
+        "facilityPartner": "https://locations.mymultisport.bg/location/tenis-klub-lokomotiv-sofia",
+        "independentCourtDirectory": "https://sofiatennis.com/kortove/lokomotiv-sofia",
+        "municipalDistrictSportsFacilities": "https://nadezhda.sofia.bg/obrazovanie/%D1%81%D0%BF%D0%BE%D1%80%D1%82",
+        "municipalAddressDataset": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "municipalAddressCsvSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef"
+      },
+      "rates": [
+        {
+          "name": "Наем на закрит тенис корт с клей",
+          "nameEn": "Indoor clay tennis court rental",
+          "description": "Онлайн цената е за 60 минути на един осветен закрит клей корт, без треньор. Проверете цената за избрания час в графика; плащане на място.",
+          "descriptionEn": "The displayed online rate is for 60 minutes on one floodlit indoor clay court, without a coach. Check the price for your selected time in the schedule; pay at the venue.",
+          "amount": 20,
+          "currency": "EUR",
+          "unit": "корт · час",
+          "unitEn": "court · hour",
+          "durationMin": 60,
+          "imageStatus": "generated_illustrative_indoor_clay_not_actual_premises",
+          "photoId": "sx-indoor-clay-tennis-court"
+        }
+      ],
+      "qualification": "The current merchant timetable exposes a EUR 20 rate for sixty minutes at two lighted indoor clay courts. The allocation is a court rental with payment at the venue, not a lesson or a guaranteed price for future dates. The separate outdoor court lacks a current visible fare in this review and was excluded. No platform membership discount, ordinary opening hours, on-site GoRez booking, or live GoRez slots were inferred.",
+      "identityCheck": "Public phone, named merchant and location were compared with existing local catalogue entries and aliases; no duplicate club location. Compare the actual merchant profile rather than only the shared booking-platform hostname.",
+      "pricingReview": "reviewed",
+      "normalizedRecordSha256": "e9b11503451ea17fc78de39cb6a905d7ca89fd0142d7a86911ebfdce4130d014",
+      "inventoryIdentity": "826225f93bdb1df20635e5c3b991f8f41d0d07af0c93f0df3c7a079f91504fe5",
+      "coverage": { "physical": [0, 1], "located": [0, 1] }
+    }
+  ],
+  "held": [
+    {
+      "name": "Арена Обеля",
+      "neighborhood": null,
+      "category": "fitness",
+      "municipalAddressId": "112433",
+      "evidence": [
+        "https://clicktoplay.io/club/%D0%B0%D1%80%D0%B5%D0%BD%D0%B0-%D0%BE%D0%B1%D0%B5%D0%BB%D1%8F",
+        "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+      ],
+      "reason": "The merchant profile gives 95 Pancho Vladigerov Boulevard (unique civic point at 42.736514, 23.272366). Its current calendar did not expose a price or a reservable option; absence in this view does not prove a tariff does not exist. The profile telephone also appears as a policy contact of an already-reviewed fitness operator; separate operator and exact quarter were not substantiated."
+    },
+    {
+      "name": "ОФК София — Обеля",
+      "neighborhood": null,
+      "category": "fitness",
+      "evidence": [
+        "https://ufcsofia.com/about/tereni",
+        "https://ufcsofia.com/about/obshchi-usloviya",
+        "https://www.ufcsofia.com/index.php/trainings",
+        "https://ufcsofia.com/register"
+      ],
+      "reason": "The football school's venue page, schedule and terms identify children's coaching and enrollment, not a pitch-rental tariff from Arena Obelya. It gives No. 96, not the No. 95 supported by the civic file. The registration page returned a public access limit and was not retried. School-specific marker, numbered quarter, and an accessible current enrollment option must be checked before admitting a branch or publishing any fee."
+    }
+  ],
+  "coverageChange": { "newDistinctOperators": 1, "newLocatedPremises": 1, "newNonemptyExactCells": 1 },
+  "safeguards": "Only scoped public factual review; no accounts, mutations, paid integration, real reservations, copied venue images, inferred prices, or production changes."
+}

@@ -1,0 +1,87 @@
+{
+  "checkedOn": "2026-11-23",
+  "checkedAt": "2026-11-23T04:00:00Z",
+  "baselineCommit": "3bc06dc2ca0d37e53c81ea4519941e47eaa1cb41",
+  "status": "verified_intake_not_published",
+  "targetPerQuarterCategory": 30,
+  "business": {
+    "id": "sofia-dca-garage-levski-v-letostruy27",
+    "category": "detailing",
+    "neighborhood": "Левски В",
+    "address": "София, ж.к. Левски В, ул. Летоструй 27",
+    "municipal": {
+      "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+      "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+      "addressId": "50943",
+      "district": "Подуяне",
+      "latitude": 42.706986,
+      "longitude": 23.374326,
+      "licence": "CC-BY-4.0",
+      "attribution": "ГИС София / Столична община",
+      "scope": "Unique exact street and number in the supplied CSV. This is an address point, not an independently verified entrance."
+    },
+    "sources": {
+      "operator": "https://www.dcagarage.com/",
+      "actualBookDestinationAndContact": "https://www.dcagarage.com/adres/",
+      "freshRenderedContact": "https://www.dcagarage.com/adres/#contact",
+      "windowFilmService": "https://www.dcagarage.com/folirane/",
+      "detailedVehicleTariff": "https://www.dcagarage.com/ceni-folirane/",
+      "corroboratingIndexOnly": "https://www.autoyas.com/BG/Sofia/385277484679361/D.C.A-Garage"
+    },
+    "addressResolution": "The latest directly rendered operator contact names No. 27 and both known public business phone numbers. An older snapshot of the same page, captured before the move, shows No. 101. The index of an operator social-post mirror dates the move to 11 September 2026, explicitly names No. 27 and shows both matching phones. Direct mirror access returned 403 and was not bypassed; no tariff, content or assets were taken from it.",
+    "bookingScope": "Followed the window-film service’s Book CTA first. It opens the same owner contact form, which accepts a message with name, email and subject; it has no date or slot selector and is not a confirmed reservation. The garage is the contact for confirming the vehicle class, applicable price and time. No form was filled or submitted, no calls were made, and no live slots or duration were inferred.",
+    "tariffScope": "The detailed vehicle tariff lists the exact euro amounts for applying protective film to rear windows. The generic minimum on the informational service page does not identify a rear-window vehicle tier and is not used. The BGN amounts are not converted. All five stated rear-window tiers are admitted without combining SUV with either of the proprietor’s two separate off-road tiers. No discount, front-window treatment or cleaning price is inferred.",
+    "scopeAndRights": "Only checked public owner pages and a municipal address point inform the listing; no reviews, publication text, photographs, calendar data or other protected media were imported. No separate terms page was found on the reviewed operator pages. The existing GoRez illustration is not an operator photograph.",
+    "priceFacts": [
+      {
+        "name": "Фолиране на задни автомобилни стъкла · купе",
+        "nameEn": "Rear window film installation · coupe",
+        "amount": 179,
+        "currency": "EUR",
+        "imageKey": "vehicle-window-tint"
+      },
+      {
+        "name": "Фолиране на задни автомобилни стъкла · седан / комби",
+        "nameEn": "Rear window film installation · sedan / estate",
+        "amount": 230,
+        "currency": "EUR",
+        "imageKey": "vehicle-window-tint"
+      },
+      {
+        "name": "Фолиране на задни автомобилни стъкла · SUV",
+        "nameEn": "Rear window film installation · SUV",
+        "amount": 255,
+        "currency": "EUR",
+        "imageKey": "vehicle-window-tint"
+      },
+      {
+        "name": "Фолиране на задни автомобилни стъкла · джип",
+        "nameEn": "Rear window film installation · off-road vehicle",
+        "amount": 281,
+        "currency": "EUR",
+        "imageKey": "vehicle-window-tint"
+      },
+      {
+        "name": "Фолиране на задни автомобилни стъкла · хеви джип",
+        "nameEn": "Rear window film installation · heavy off-road vehicle",
+        "amount": 306,
+        "currency": "EUR",
+        "imageKey": "vehicle-window-tint"
+      }
+    ],
+    "serviceDescription": {
+      "bg": "Поставяне на защитно фолио на задните стъкла. Формулярът изпраща запитване; сервизът потвърждава класа на автомобила, приложимата цена и точния час.",
+      "en": "Protective film installation on the rear windows. The form sends an enquiry; the garage confirms the vehicle class, applicable price and appointment time."
+    },
+    "pricingReview": "reviewed",
+    "normalizedRecordSha256": "d7698de460960f93e8bac3152dd745431a786a10ea2354723d74fe4c6d44ca2a",
+    "inventoryIdentity": "e0979595ba6645467d299dcf90a959b8ade0129df9c4f2bb38566e52c89c6bce",
+    "coverage": { "physical": [0, 1], "located": [0, 1] }
+  },
+  "isolatedCoverage": {
+    "approvedSofia": [1755, 1756],
+    "locatedSofiaPremises": [989, 990],
+    "emptyQuarterCategoryPairs": [1260, 1259],
+    "emptyLocatedQuarterCategoryPairs": [1365, 1364]
+  }
+}

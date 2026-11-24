@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "publicationReviewDateUtc": "2026-11-23",
+  "status": "prepared_local_not_published",
+  "priority": "30 distinct physical businesses with verified addresses per Sofia quarter and category",
+  "newCatalogueRecordsPrepared": 1,
+  "newPhysicalWorkshopsPrepared": 1,
+  "newDistinctOperatorsPrepared": 0,
+  "newServicesPrepared": 1,
+  "verifiedPublicPriceFacts": 0,
+  "business": {
+    "id": "sofia-koba-auto-paris14",
+    "name": "КОБА АУТО · Париж 14",
+    "category": "auto_repair",
+    "neighborhood": "Център",
+    "address": "София, Център, ул. Париж 14",
+    "website": "https://koba-auto.com/avtoserviz-czentar-sofiya/",
+    "contact": "https://koba-auto.com/kontakti/",
+    "phone": "+359877755407",
+    "locationKind": "premises",
+    "validUntil": "2026-12-23",
+    "operatorEvidence": {
+      "operatorWebsite": "https://koba-auto.com/",
+      "existingOperatorWorkshopId": "sofia-koba-auto-bosch-rodopi27",
+      "existingOperatorWorkshopPhone": "+359884192080",
+      "venueSeparationMetersApprox": 817,
+      "evidence": "The operator explicitly runs two physical workshops at separately numbered addresses, each with a dedicated reception phone and its own public premises and booking description. Paris 14 is a workshop with its own equipment, not a service area or staff profile. Only Rodopi 27 is a Bosch Car Service location; Paris 14 is not. No change to the Rodopi record and no second-operator count."
+    },
+    "duplicateCheck": "The only same-brand and same-domain catalogue match in 0aa11d6 is the distinct operator workshop at Rodopi 27. The Paris 14 service phone, exact premises address and branch URL are not already present. The nearest existing bound catalogue point is a different provider on Georgi S. Rakovski 70, approximately 103 m away.",
+    "coordinateEvidence": {
+      "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+      "municipalCsvSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+      "method": "verified_official_address",
+      "addressId": "26592",
+      "latitude": 42.699817,
+      "longitude": 23.330498,
+      "municipalAdministrativeDistrict": "Оборище",
+      "evidence": "The operator workshop page and the separate Paris branch contact entry identify the same exact Sofia street number in the Centre. The supplied municipal CSV returns one exact numbered Sofia record, with an empty quarter field and administrative district Oborishte. The explicitly named locality Centre comes from the branch and is not inferred from that administrative district. No third-party map coordinates, neighboring property or workshop entrance were asserted."
+    },
+    "service": {
+      "name": "Компютърна диагностика на автомобил",
+      "description": "Компютърната диагностика може да се заяви без ангажимент за ремонт. При записване уточнете симптомите, марката, модела и годината на автомобила.",
+      "bookingSource": "https://koba-auto.com/kontakti/",
+      "serviceSources": [
+        "https://koba-auto.com/avtoserviz-czentar-sofiya/",
+        "https://koba-auto.com/avtomobilna-diagnostika/",
+        "https://koba-auto.com/serviz/"
+      ],
+      "booking": "The actual appointment CTA points to the owner branch-specific contact page. Paris 14 publishes its dedicated telephone and separately bookable diagnostics without a repair commitment. No online confirmation, live slots, staff-specific offer or direct GoRez booking was represented.",
+      "pricingDecision": "not_publicly_listed",
+      "priceSearch": "The Paris-specific booking/reception and FAQ, dedicated diagnostics page and entire owner service menu rendered in public. No numeric price or duration is stated for this routine Paris 14 diagnostic. The unrelated suspension promotion and other branch's repair terms were excluded."
+    },
+    "openingHours": {
+      "source": "https://koba-auto.com/kontakti/",
+      "weekdays": "09:00–18:00",
+      "weekend": "closed",
+      "limit": "Operator-stated business hours of Paris 14, not slot availability."
+    },
+    "sourcePolicy": "Ordinary read-only inspection of public operator pages. No account, booking, call, payment, tracking consent, paid map API, source images, reviews or marketing copied in the record.",
+    "image": {
+      "status": "existing_catalogue_illustration",
+      "key": "auto-diagnostics",
+      "asset": "/service-photos/auto-diagnostics-v1.webp",
+      "sha256": "a088160be93fd90b2a73faeda041f99342c864ddc299614c3046b1a0ad33e4e1",
+      "limit": "Existing generic diagnostics illustration, not a photo of the venue, employee or equipment."
+    },
+    "english": {
+      "name": "Vehicle computer diagnostics",
+      "description": "Computer diagnostics can be booked without committing to repairs. When booking, describe the symptoms and give the vehicle’s make, model and year."
+    },
+    "inventoryIdentity": "e0119e48482448760a515a25754f418d7aa07f66b50588512f5335b9cd749a6a",
+    "normalizedRecordSha256": "dd8dc8a98885c903de3fad3c0dfd195eba033628e3495df1ca5146c9bdb27988"
+  },
+  "isolatedCoverageDelta": {
+    "targetPerQuarterCategory": 30,
+    "neighborhood": "Център",
+    "category": "auto_repair",
+    "physical": [1, 2],
+    "located": [1, 2]
+  }
+}

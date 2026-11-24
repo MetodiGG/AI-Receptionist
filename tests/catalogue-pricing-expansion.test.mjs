@@ -3,21 +3,25 @@ import assert from 'node:assert/strict'
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 import { BOOKING_PRICE_REVIEWS } from '../lib/discovery/catalogue-data/pricing-booking-review-v1.mjs'
 import { PRICING_EXPANSION_RECORDS, PRICING_EXPANSION_REVIEWS } from '../lib/discovery/catalogue-data/pricing-expansion-20261110.mjs'
+import originalReviewIdentities from '../lib/discovery/catalogue-data/pricing-booking-review-identities-20261110.json' with { type: 'json' }
 import { normalizeCatalogueBusinesses } from '../lib/discovery/catalogue-search.mjs'
 import { assessPricingReview } from '../lib/discovery/catalogue-pricing-review.mjs'
+import { quarterRefreshPriorCatalogue } from './catalogue-quarter-refresh-20261123-scope.mjs'
 
 const now=Date.parse('2026-11-10T12:00:00Z')
-const record=id=>SOFIA_CATALOGUE.find(row=>row.id===id)
+const originalCatalogue=quarterRefreshPriorCatalogue(SOFIA_CATALOGUE)
+const record=id=>originalCatalogue.find(row=>row.id===id)
 const menu=(id,name)=>record(id).services.find(row=>row.name===name)
 
 test('every new local business has priced appointment evidence and an inventory-bound review',()=>{
  const ids=new Set()
  for(const raw of PRICING_EXPANSION_RECORDS){
   assert.ok(!ids.has(raw.id),raw.id); ids.add(raw.id)
-  const row=record(raw.id),receipt=BOOKING_PRICE_REVIEWS.find(item=>item.id===raw.id)
+  const row=record(raw.id),originalReceipt=PRICING_EXPANSION_REVIEWS.find(item=>item.id===raw.id)
   assert.ok(row,raw.id)
+  assert.ok(originalReceipt,raw.id)
   assert.ok(row.services.some(item=>item.price),raw.id)
-  assert.equal(assessPricingReview(row,receipt,now).state,'reviewed',raw.id)
+  assert.equal(assessPricingReview(row,{...originalReceipt,inventoryIdentity:originalReviewIdentities[raw.id]},now).state,'reviewed',raw.id)
   assert.equal(row.verification.checkedOn,'2026-11-10',raw.id)
   assert.equal(row.gorezBusinessId,undefined,'A catalogue addition is not a claimed GoRez partner')
   if(row.locationKind==='service_area') assert.equal(row.coordinates,null)

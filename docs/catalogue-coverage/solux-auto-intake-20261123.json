@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "publicationReviewDateUtc": "2026-11-23",
+  "status": "prepared_local_not_published",
+  "priority": "30 distinct physical businesses with verified addresses per Sofia quarter and category",
+  "newBusinessesPrepared": 1,
+  "newServicesPrepared": 1,
+  "verifiedPublicPriceFacts": 0,
+  "business": {
+    "id": "sofia-solux-auto-pavlina4",
+    "name": "Solux Auto",
+    "category": "auto_repair",
+    "neighborhood": "НПЗ Хаджи Димитър",
+    "address": "София, НПЗ Хаджи Димитър, ул. Павлина Унуфриева 4",
+    "website": "https://solux-auto.com/",
+    "phone": "+359892373737",
+    "locationKind": "premises",
+    "validUntil": "2026-12-23",
+    "duplicateCheck": "No normalized entry for this business name, operator site, canonical service telephone or Pavlina Unufrieva address in baseline d6e27ca. The nearest existing bound catalogue point (sofia-dara-dent, approximately 430 m away) is a separate dental premises.",
+    "coordinateEvidence": {
+      "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+      "municipalCsvSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+      "method": "verified_official_address",
+      "addressId": "28159",
+      "latitude": 42.706551,
+      "longitude": 23.33836,
+      "municipalAdministrativeDistrict": "Подуяне",
+      "exactPremisesLocalityCorroboration": "https://www.buildingoftheyear.bg/bg/uchastnici/offfice25/mnogofunkcionalna-biznes-sgrada-sunotec",
+      "municipalIndustrialLocalityCorroboration": "https://council.sofia.bg/documents/d/guest/r-611",
+      "operatorPremisesCorroboration": "https://www.jobs.bg/job/8656806",
+      "evidence": "The owner lists street and number in the Bulgarian and English contact sections. Its current service reception hiring notice names the exact address and specifically describes receiving customer vehicles, corroborating actual workshop operations rather than just a head-office address. The building project independently lists the exact street and number under НПЗ „Хаджи Димитър – Малашевци“; municipal planning confirms the industrial locality. НПЗ Хаджи Димитър is the same named industrial reporting area already used in the catalogue, not a residential attribution to Хаджи Димитър or Малашевци. The supplied municipal data gives one exact number 4 with a blank quarter field. The co-located property’s postal-address point is used, not a surveyed workshop entrance, inferred postcode, industrial-area center, or map viewport."
+    },
+    "service": {
+      "name": "Диагностика на двигател",
+      "description": "При предварително уговорен прием сервизът проверява работата на двигателя, електронните системи, сензорите и механичните компоненти.",
+      "bookingSource": "https://solux-auto.com/",
+      "serviceSources": ["https://solux-auto.com/", "https://solux-auto.com/en/"],
+      "booking": "Following the owner appointment CTA returned to the same public page. Independently of the generic enquiry form in the contact area, the diagnostics menu instructs customers to call its public service number and the FAQ confirms advance arrangement for reception. A telephone appointment is represented; no online booking, confirmation, GoRez membership or slots.",
+      "pricingDecision": "not_publicly_listed",
+      "priceSearch": "Reviewed the owner appointment and contact flow, advance-reception FAQ and entire Bulgarian and English service menus. Neither lists a current tariff for the specific engine diagnosis, and the owner's public site provides no distinct price page or booking menu with prices. No amount, duration or availability is stored."
+    },
+    "openingHours": null,
+    "sourcePolicy": "Ordinary read-only inspection of public company pages and their cookie policy; public operator job notice and property/planning corroboration were used only for the precise address, with no copying of photos, work schedule, advertising or reviews. No booking, enquiry, owner call, account access, map provider API or source restriction bypass.",
+    "image": {
+      "status": "existing_catalogue_illustration",
+      "key": "auto-diagnostics",
+      "asset": "/service-photos/auto-diagnostics-v1.webp",
+      "sha256": "a088160be93fd90b2a73faeda041f99342c864ddc299614c3046b1a0ad33e4e1",
+      "limit": "Existing generic vehicle diagnostics illustration, not a photograph of Solux Auto, its staff or equipment."
+    },
+    "english": {
+      "name": "Engine diagnostics",
+      "description": "By appointment, the workshop checks engine performance, electronic systems, sensors and mechanical components."
+    },
+    "inventoryIdentity": "e3aabd7212aab1a174fd33ae6964c2dce0cd4461d5b2faaae16aa0fc818900c5",
+    "normalizedRecordSha256": "1c486a1fd1873ec7f36bfae40272ef3bf6b58d000ad1a963cffce39cf3c754ce"
+  },
+  "isolatedCoverageDelta": {
+    "targetPerQuarterCategory": 30,
+    "neighborhood": "НПЗ Хаджи Димитър",
+    "scope": "observed_additional_named_area",
+    "category": "auto_repair",
+    "physical": [1, 2],
+    "located": [1, 2]
+  }
+}

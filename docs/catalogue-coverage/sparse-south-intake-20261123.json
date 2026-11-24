@@ -1,0 +1,63 @@
+{
+  "checkedOn": "2026-11-23",
+  "baselineCommit": "e4d6789d86b67504c45e58f40cc2505e18b56228",
+  "status": "verified_intake_not_published",
+  "targetPerQuarterCategory": 30,
+  "businesses": [
+    {
+      "id": "sofia-logos152-simeonovo-krairechna10",
+      "category": "education",
+      "neighborhood": "Симеоново",
+      "address": "София, кв. Симеоново, ул. Крайречна 10, читалище „Отец Паисий“",
+      "municipal": {
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+        "addressId": "91042",
+        "latitude": 42.61345,
+        "longitude": 23.338174,
+        "licence": "CC-BY-4.0",
+        "disambiguation": "Three municipal rows have this street and number. The owner names and links the Simeonovo community-centre venue; the district and venue register confirm it. Only row 91042 matches the named venue, rather than row 99203 farther west or row 54810 in Lyulin. The coordinate is the official address point, not a verified entrance."
+      },
+      "sources": {
+        "officialContactAndBooking": "https://www.logos152.com/",
+        "officialBranch": "https://www.logos152.com/about-us",
+        "officialEnglishIndex": "https://www.logos152.com/english",
+        "officialEnglishGroups": "https://www.logos152.com/grypovizanimaniq",
+        "officialIndividualEnglish": "https://www.logos152.com/angliiski-za-vuzrasthni",
+        "districtVenueCorroboration": "https://www.raionvitosha.eu/bg/post/predstavyane-investitsionen-proekt",
+        "venueRegisterCorroboration": "https://chitalishta.com/community/hash/fcbfbae545a7b4e76078cc976753b451045cca66"
+      },
+      "qualification": "The owner names the physical Simeonovo branch, its separate display of public contact hours, and the two reviewed English programmes. The enrolment controls on both programmes lead to the owner's contact section. Only the Simeonovo branch is in this intake; the co-located Robokor robotics provider has a different operator, business phone and programme.",
+      "booking": "Telephone enrolment enquiry using the published owner contact; no booking was submitted, no contact was made, and no slot availability is claimed.",
+      "pricingDecision": "not_publicly_listed",
+      "tariffScope": "No fee or duration for either reviewed programme was displayed on the owner enrolment and programme pages; no tariff is included. An owner contact dialog did not enumerate its general policy documents. It did not advertise a tariff for either programme, and this receipt makes no assertion about documents that did not render.",
+      "imageKeys": ["sx-child-language-group", "language-lesson"],
+      "normalizedRecordSha256": "6906736c6f23921917eb2092bc077af4df5a813e0403bc984be7f90320a2eb87",
+      "inventoryIdentity": "04c7d453a43f70fb7f4e61bcbbf325577f7390bcff244a210c7d08dbc6b768f9",
+      "coverage": { "physical": [2, 3], "located": [1, 2] }
+    }
+  ],
+  "held": [
+    {
+      "name": "Ring Road",
+      "neighborhood": "Драгалевци",
+      "category": "auto_repair",
+      "source": "https://ringroad.bg/",
+      "reason": "The owner lists a physical workshop at No. 62 and its separate garage phone, but an explicit owner booking step or service-specific invitation was not established during this review."
+    },
+    {
+      "name": "Ем Комплект Ауто Център",
+      "neighborhood": "Павлово",
+      "category": "auto_repair",
+      "source": "https://www.emcomplect.com/contacts",
+      "reason": "The published branch workshop and network listing agree on No. 51 but use different booking phone numbers. Confirm the operator and appointment contact before adding it."
+    },
+    {
+      "name": "Padel Club Sofia · Царско село",
+      "neighborhood": "Драгалевци",
+      "category": "fitness",
+      "source": "https://sofiapadel.bg/clubs/padel-club-sofia-tsarsko-selo",
+      "reason": "The owner club listing and current calendar disagree with a historical platform tariff. Confirm current scope, duration and price for the court rental before adding it."
+    }
+  ]
+}

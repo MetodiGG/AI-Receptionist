@@ -1,0 +1,125 @@
+{
+  "checkedOn": "2026-11-23",
+  "baselineCommit": "7617e55d8bb46706c5fae78c611b7356e880a2b1",
+  "status": "research_only_no_admissions",
+  "targetPerQuarterCategory": 30,
+  "focus": "Sparse exact premises in northern and western Sofia, particularly car wash, detailing and grooming.",
+  "municipalSource": {
+    "url": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+    "licence": "CC-BY-4.0",
+    "attribution": "ГИС София / Столична община",
+    "scope": "Exact street-address comparisons, not independent verification of the premises entrance or a quarter boundary."
+  },
+  "businesses": [],
+  "held": [
+    {
+      "name": "Wash Depot · West Mall",
+      "neighborhood": "Люлин 7",
+      "category": "car_wash",
+      "municipalAddressId": "98466",
+      "evidence": [
+        "https://washdepot.bg/",
+        "https://westmall.bg/bg/magazini/washdepot",
+        "https://washdepot.bg/общи-условия/"
+      ],
+      "reason": "Owner and venue independently confirm the premises at 15 Tsaritsa Yoanna Blvd., level -2. The actual booking CTA and terms steer to the proprietor’s mobile app, where customers choose a service and see the tariff. A general branch phone is not verified as a booking fallback. App-only tariffs were not reviewed and must not be marked unpublished."
+    },
+    {
+      "name": "Sweet Grooming Salon",
+      "neighborhood": "Надежда 2",
+      "category": "pets",
+      "municipalAddressId": "56285",
+      "evidence": [
+        "https://petalapa.com/groomers/sofiya/sweet-grooming-salon-sofiya",
+        "https://easybook.bg/sweet-grooming-salon-sofiya-nadezhda-2/employee-cvetelina-yaneva-562",
+        "https://easybook.bg/page/terms"
+      ],
+      "reason": "Exact premises at 14 Aprilsko Vastanie St.; the grooming booking and rates are found on the previously restricted Easybook provider. No independent owner-operated menu or explicit alternate booking route was verified; do not import the provider’s tariff or classify it as unpublished."
+    },
+    {
+      "name": "Ветеринарен кабинет и зоомагазин Алекс",
+      "neighborhood": "Надежда 2",
+      "category": "pets",
+      "municipalAddressId": "57913",
+      "evidence": [
+        "https://www.business.bg/f-169353/zoomagazin-i-veterinaren-kabinet-aleks.html",
+        "https://easybook.bg/veterinaren-kabinet-i-zoomagazin-aleks-sofiya-nadezhda-2",
+        "https://easybook.bg/page/terms"
+      ],
+      "reason": "Exact premises at 41 Hristo Silyanov St.; the standalone grooming rates and reservations were found only on the previously restricted provider. A business directory publishes a contact phone but does not establish named phone booking. Veterinary and retail rows are not interchangeable with grooming."
+    },
+    {
+      "name": "D.C.A. Garage",
+      "neighborhood": "Левски В",
+      "category": "detailing",
+      "municipalAddressIdForCurrentCandidate": "50943",
+      "evidence": [
+        "https://www.dcagarage.com/",
+        "https://www.dcagarage.com/adres/",
+        "https://www.dcagarage.com/folirane/",
+        "https://www.dcagarage.com/ceni-folirane/"
+      ],
+      "reason": "The current owner contact page shows 27 Letostruy St., matched by one municipal entry; the actual Book CTA reached an older owner contact snapshot at No. 101. The older snapshot alone need not describe the current premises, but the current branch and explicit booking channel require independent corroboration. The published vehicle-type-specific tariff is not interchangeable with generic cleaning packages."
+    },
+    {
+      "name": "D.G. Автосервиз · Орландовци",
+      "neighborhood": "Орландовци",
+      "category": "auto_repair",
+      "municipalAddressId": "53583",
+      "evidence": [
+        "https://dgavtoservice.com/booking/",
+        "https://dgavtoservice.com/contacts/",
+        "https://www.dgturbo.com/kontakti/"
+      ],
+      "reason": "Owner domains agree on 7 Istoria Slavyanobalgarska Blvd., but the branch-specific Book link goes to a provider with a prior source stop. The separate contact phone is not independently verified as an alternate branch booking route. No prices or services admitted."
+    },
+    {
+      "name": "Happy Paws",
+      "category": "pets",
+      "evidence": [
+        "https://happypaws.bg/grooming",
+        "https://happypaws.bg/blog/happy-paws-s-nov-butikov-grooming-salon/",
+        "https://happypaws.bg/terms-and-conditions"
+      ],
+      "reason": "Owner documents premises at 18–20 Ohridsko Ezero St.; neither that combined address nor either endpoint was present on the street in the supplied municipal CSV. Neighborhood descriptions are inconsistent in secondary sources and the current grooming page returned 403 on direct inspection. Do not approximate the point or audit around an access restriction."
+    },
+    {
+      "name": "MZ Detailing Sofia",
+      "neighborhood": "Люлин 8",
+      "category": "detailing",
+      "evidence": [
+        "https://grabo.bg/sofia/obnovi-avtomobila-0wr74k",
+        "https://maxobazar.com/mz-detailing-sofia?lang=en"
+      ],
+      "reason": "Public leads describe a mobile option and a separate premises at 400 St. No. 48. No exact row for that street number was found in the municipal CSV, no independent owner booking page could be verified and promotional voucher amounts were not imported."
+    }
+  ],
+  "deduplicated": [
+    {
+      "id": "sofia-iq-detailing",
+      "reason": "Already a located Павлово × detailing business in the normalized catalogue. Updated public tariffs are not new coverage."
+    },
+    {
+      "id": "sofia-doggy-em-ovcha-kupel",
+      "reason": "Already a located Овча купел 1 × pets business via its established first-party coordinate. A nearby official municipal point independently corroborates the address; no new coverage."
+    }
+  ],
+  "outsideGeographicScope": [
+    {
+      "name": "PWrapping",
+      "neighborhood": "Изток",
+      "category": "detailing",
+      "address": "София, кв. Изток, бул. „Д-р Г. М. Димитров“ 36",
+      "municipalAddressId": "34672",
+      "municipalDistrict": "Изгрев",
+      "latitude": 42.665973,
+      "longitude": 23.362819,
+      "operatorWebsite": "https://pwrapping.com/",
+      "ownerSectionsReviewed": ["„Запази час“ reached by the owner CTA", "„Уговорете оглед по телефона“", "„Услуги“", "„Елате в студиото“"],
+      "bookingAndTariffScope": "Owner shows an on-page booking flow and explicitly offers telephone requests for an inspection. The owner describes a free inspection/consultation leading to an individual quote, not a confirmed installation slot or a zero-price installation. Current public service descriptions include PPF and vehicle wrapping; no installation price was verified and rendered booking choices still merit review before tariff classification.",
+      "reason": "Good lead for the empty Изток × detailing cell, but outside the assigned north/west geography. The owner and official address point establish premises; any future intake must preserve quote-first scope and must not infer durations or availability from an inspection request."
+    }
+  ],
+  "coverageChange": { "newOperators": 0, "newLocatedPremises": 0, "newNonemptyExactCells": 0 }
+}

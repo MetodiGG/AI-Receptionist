@@ -1,0 +1,46 @@
+{
+  "checkedOn": "2026-11-23",
+  "baselineCommit": "fe2cd9e223c83a25da921ea561656d046c68dbae",
+  "status": "integrated_locally_not_published",
+  "targetPerQuarterCategory": 30,
+  "newBusiness": {
+    "id": "sofia-part-time-pavlovo-duychev12v",
+    "category": "education",
+    "neighborhood": "Павлово",
+    "address": "София, кв. Павлово, ул. Проф. Иван Дуйчев 12В",
+    "municipal": {
+      "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+      "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+      "addressId": "103070",
+      "latitude": 42.660216,
+      "longitude": 23.267109,
+      "licence": "CC-BY-4.0"
+    },
+    "officialProgram": "https://part-time.bg/drama-class-index",
+    "officialContact": "https://part-time.bg/contact-index",
+    "corroboration": ["https://sofia.plays.bg/courses/view/973", "https://www.jobs.bg/company/parttime?job_sid=8670739", "https://www.jobs.bg/job/8573120"],
+    "evidence": "The current venue and appointment phone match across the owner's programme and contact pages. The owner abbreviates the postal number to 12; the accessible Sofia Plays venue record gives exact 12В and the same telephone and website. Public search listings by the operator also corroborate 12В; no blocked Jobs.bg page was retrieved for the intake. Unique official №12В has its own row, not the neighbours at 12А, 12Б, or 12Г. The point is a municipal address, not a claimed entrance.",
+    "booking": "Owner trial CTA leads to the programme's appointment entry, with telephone enrolment for the two regular groups. No submitted form, account, phone call, advertising, or calendar access.",
+    "qualification": "The regular English-language drama programme is in-person for two age groups, 7–9 and 9–12. A complimentary trial does not set the regular price. No recurring tuition, exact service duration, opening hours or live slots asserted.",
+    "pricingIdentity": "b3536caaf7ee5dce3a80be41a43e1b3df6c4cac836ebc89f4943717f96dacca6",
+    "pricingDecision": "not_publicly_listed",
+    "illustration": "/service-photos/sx-acting-child-v1.webp",
+    "coverage": { "physical": [0, 1], "located": [0, 1] }
+  },
+  "held": [
+    {
+      "name": "Академия Сигма",
+      "neighborhood": "Овча купел",
+      "category": "education",
+      "source": "https://sigma-academy.bg/obshti-usloviya",
+      "reason": "Site terms limit commercial reuse of website content. Keep the lead out of public data now; confirm the tariff and service directly with separate permission or use an independently published, permitted operator source. No price or booking record imported."
+    },
+    {
+      "name": "Дентален кабинет на д-р Богдан Тонев",
+      "neighborhood": "Дружба 2",
+      "category": "other",
+      "source": "https://superdoc.bg/lekar/bogdan-tonev",
+      "reason": "Exact district and municipal postal point were found, but the public price label does not distinguish the provider's two exam options, and the older regulator attachment has incompatible labels and an inconsistent cover. Require an unambiguous current service-and-price source before adding. No price or booking record imported."
+    }
+  ]
+}

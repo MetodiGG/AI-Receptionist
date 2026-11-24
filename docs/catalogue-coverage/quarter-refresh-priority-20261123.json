@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-23T03:03:00.000Z",
+  "status": "prepared_locally_not_published",
+  "baseline": "bf871f058d8fabd5cb3d21b953299e88667b4b89",
+  "targetPerQuarterCategory": 30,
+  "totalTargetCells": 1750,
+  "pickerTargetCells": 1358,
+  "approvedBusinesses": [1732, 1734],
+  "locatedPremises": [944, 947],
+  "emptyLocatedCells": [1399, 1395],
+  "emptyLocatedPickerCells": [1033, 1029],
+  "cellsAtLocatedTarget": [0, 0],
+  "affected": [
+    { "id": "sofia-horo-moderno-predgradie-evropa20", "neighborhood": "Модерно предградие", "category": "fitness", "change": "new_business", "physical": [0, 1], "located": [0, 1] },
+    { "id": "sofia-sharen-svyat-lyulin5-block519g", "neighborhood": "Люлин 5", "category": "other", "change": "new_business", "physical": [1, 2], "located": [0, 1] },
+    { "id": "sofia-des-georgieva-makeup", "neighborhood": "Люлин 2", "category": "beauty", "change": "verified_entrance_and_tariff_refresh", "physical": [1, 1], "located": [0, 1] },
+    { "id": "sofia-autotest-gtp-metro-lyulin", "neighborhood": "Република", "category": "auto_repair", "change": "corroborated_quarter_existing_point", "physical": [0, 1], "located": [0, 1] }
+  ],
+  "sourceRules": "No paid provider, geocoding queries, fabricated prices, replicated locations, real reservations or production writes. The tested public distance capability depends on the address-bound point, not on membership or current calendar availability. The local report excludes separately hosted partner rows unless deduplicated against a verified snapshot.",
+  "heldExamples": [
+    { "candidate": "Автостъкла Кобра", "reason": "A municipal point and operating evidence were found, but the actual owner booking menu was unavailable. This does not establish an unpublished tariff." },
+    { "candidate": "Екзотик · Братя Каневи", "reason": "A house-number point was found, but sources disagree on the precise quarter and the operator's pickup order is not a booked visit to the premises." },
+    { "candidate": "Kobakova Clinic", "reason": "The clinic's postal point was found, but its branch-specific live booking tariff could not be independently read." },
+    { "candidate": "Salt Hug", "reason": "Requires an appropriate standalone image, without depicting yoga, children or a different purchased service." },
+    { "candidate": "ТК Звезда", "reason": "The branch court rental is distinct from individual lessons; current public evidence and the named neighborhood disagree." }
+  ]
+}

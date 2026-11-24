@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "status": "verified_location_only",
+  "purpose": "Attach an exact municipal postal-address point to the existing education premises in Горна баня, without adding a business or service.",
+  "business": {
+    "id": "sofia-risuvam-gorna-banya",
+    "name": "Risuvam.bg · уроци по рисуване",
+    "cityCode": "68134",
+    "category": "education",
+    "neighborhood": "Горна баня",
+    "address": "София, Горна баня, ул. Планиница 17, читалище Пробуда",
+    "website": "https://risuvam.bg/",
+    "booking": "Preserve telephone booking on +359876444281 and the previously reviewed contact and booking source. No booking placed; no availability or opening hours inferred.",
+    "inventory": "Keep the three lesson records and their existing €30/€45/€55 prices per 2/3/4-hour visit. The €30 starter kit is optional and is not a lesson fee. Business approval (2026-11-11 to 2027-02-09) and service price sources and dates are unchanged."
+  },
+  "sources": [
+    {
+      "url": "https://risuvam.bg/",
+      "evidence": "First-party operator identifies the physical drawing lessons at local community centre Пробуда on ул. Планиница 17 in Горна баня and publishes the existing telephone for information and enrolment. Its linked map was not used to select coordinates."
+    },
+    {
+      "url": "https://probudagb.com/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8/",
+      "evidence": "The host's own contact page independently names ул. Планиница 17."
+    },
+    {
+      "url": "https://chitalishta.com/community/3003/1566",
+      "evidence": "The official community-centre register confirms current active host Пробуда-1926-Горна баня, registration 1566, BULSTAT 000671615, ул. Планиница 17, Овча купел district, Горна баня quarter."
+    },
+    {
+      "url": "https://www.sofia.bg/en/w/citalisa-i-bibliote-1",
+      "evidence": "The Sofia municipal culture directory independently lists the named centre at street number 17."
+    },
+    {
+      "url": "https://risuvam.bg/prices/",
+      "evidence": "Current operator tariff supports the same group lesson fees already in the catalogue. This attachment does not renew the booking or pricing review."
+    }
+  ],
+  "coordinateReview": {
+    "method": "Select only the original reviewed GIS Sofia CSV row after disambiguating the duplicate literal address against the named host layer and the operator, host and official register evidence.",
+    "municipalSource": {
+      "url": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+      "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+      "sourceBytes": 12601716,
+      "licence": "CC-BY-4.0",
+      "attribution": "ГИС София / Столична община"
+    },
+    "sameNumberCandidates": [
+      {
+        "rn": "23774",
+        "region": "Овча купел",
+        "settlement": "гр. София",
+        "street": "ул. Планиница",
+        "streetnum": "17",
+        "entrance": "",
+        "latitude": 42.67722,
+        "longitude": 23.239203,
+        "distanceToCorroboratingHostMetres": 22.44,
+        "decision": "selected"
+      },
+      {
+        "rn": "37115",
+        "region": "Овча купел",
+        "settlement": "гр. София",
+        "street": "ул. Планиница",
+        "streetnum": "17",
+        "entrance": "",
+        "latitude": 42.677931,
+        "longitude": 23.239206,
+        "distanceToCorroboratingHostMetres": 98.65,
+        "decision": "not corroborated"
+      }
+    ],
+    "openHostCorroboration": {
+      "attribution": "ОП „Софияплан“ · набор „Читалища“",
+      "datasetDirectory": "https://sofiaplan.bg/api/",
+      "datasetUrl": "https://api.sofiaplan.bg/datasets/131",
+      "datasetDate": "2020-08-07",
+      "openLicenceAnnouncement": "https://sofiaplan.bg/2021/10/28/open-data/",
+      "reusePolicy": "https://sofiaplan.bg/%D0%BF%D1%80%D0%B0%D0%B2%D0%B0-%D0%B7%D0%B0-%D0%BF%D0%BE%D0%BB%D0%B7%D0%B2%D0%B0%D0%BD%D0%B5-%D0%BD%D0%B0-%D0%BC%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D0%B8/",
+      "featureId": "32340",
+      "sourceRegistry": "МК",
+      "hostRegistration": "1566",
+      "hostBulstat": "000671615",
+      "address": "ул. Планиница 17",
+      "latitude": 42.677050997,
+      "longitude": 23.239053,
+      "use": "The openly published, manually refined named feature has the same address, registration and BULSTAT as the host in the national register. Only CSV row 23774 is within the existing 75-metre corroboration threshold. The host-layer geometry is not the runtime point, is not promoted elsewhere and does not identify an entrance or classroom."
+    }
+  },
+  "identities": {
+    "baselineCommit": "b4e6eed3749051d197b44bb93df4b8a9d45faa8c",
+    "normalizedPriorRowSha256": "443783b338a7e4c9b10a95e230e83bdfd72509dfc901c20f83c32cdb9e4c2f98",
+    "normalizedAfterRowSha256": "b1fb325233c62a36fd4b62e49e2a0fc0cf45d190accf4a4bfdaca8b27787d7cc",
+    "unchangedPricingIdentitySha256": "f416d2de7259160010493b2d3e6d54fbf64c334e59def4380f954f5fa79388b2",
+    "guard": "Apply the point only to the reviewed operator, contact and exact civic address while its point is missing. Changed premises or booking details and already located rows pass through unchanged."
+  },
+  "verifiedCoverageProjection": {
+    "neighborhood": "Горна баня",
+    "category": "education",
+    "physicalPremises": [1, 1],
+    "withUsableAddressPoint": [0, 1],
+    "newBusinesses": 0,
+    "newServices": 0
+  },
+  "safeguards": {
+    "pricesServicesBookingExpiryChanged": false,
+    "newBookingOrCustomerDataCollected": false,
+    "mapGeocoderOrPaidProviderRequests": 0,
+    "imageryOrMarketingProseCopied": false,
+    "productionWrites": 0
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "baselineCommit": "317e840196ea59772910d7e38944fe578db4c83c",
+  "status": "verified_intake_not_published",
+  "business": {
+    "id": "sofia-sparklab-mladost3-block304-3",
+    "name": "SparkLab · Младост 3",
+    "category": "education",
+    "neighborhood": "Младост 3",
+    "address": "София, ж.к. Младост 3, бл. 304, вх. 3, магазин 9",
+    "point": {
+      "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+      "method": "verified_official_address",
+      "municipalId": "95686",
+      "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+      "latitude": 42.645418,
+      "longitude": 23.380369,
+      "match": "The owner contacts and enrolment both specify entrance 3, shop 9. The municipal row is the exact named entrance, not an independently surveyed point inside the shop. Entrances 1 and 2 are separate and were not used.",
+      "licence": "CC-BY-4.0"
+    },
+    "booking": {
+      "kind": "phone",
+      "phone": "+359876452447",
+      "sources": ["https://sparklab.bg/contacts/", "https://sparklab.bg/zapisvane/", "https://sparklab.bg/zapazvame-cenite-2026-2027/"],
+      "match": "Native course enrolment CTA resolves to the centre's public page. The displayed business phone is explicitly offered as a way to register, independently confirmed by the school-year announcement and in-course contact. This is not a self-confirmed booking, current slot or a generic enquiry. The external form provider was not used as a data source or booking destination."
+    },
+    "rates": [
+      { "programme": "LEGO WeDo 2.0", "source": "https://sparklab.bg/lego-wedo-level-1/", "singlePaymentEur": 219, "twoInstalmentsEachEur": 115 },
+      { "programme": "LEGO Spike Essential", "source": "https://sparklab.bg/spike-essentials-level-2/", "singlePaymentEur": 219, "twoInstalmentsEachEur": 115 },
+      { "programme": "LEGO Spike Prime", "source": "https://sparklab.bg/lego-spike-prime-level-3/", "singlePaymentEur": 239, "twoInstalmentsEachEur": 129 }
+    ],
+    "priceTerms": "The single payment is for one level with 10 group lessons, each 90 minutes; materials are included. The optional split uses two payments due before lessons one and six. Neither an instalment nor the free trial is the price of the full level. The current school-year announcement corroborates WeDo's current EUR 219 instead of the previous EUR 200. No quantity inferred for series of multiple levels.",
+    "servicePhoto": { "id": "sx-child-robotics", "source": "illustrative", "sha256": "68d8686af4f7e45eef361b1ee5028fa1562b73d95f3c260b2ef13d57aaeb33ff" },
+    "scope": "Only the directly operated Mladost 3 location is admitted. A separately named room on Ekzarh Antim I 43 has a confirmed civic point but the course page says the group is being formed or expected; other halls are third-party venues. Do not count them as new operators. No guessed opening hours, class availability or age requirement; no customer items or merchant images were copied.",
+    "normalizedRecordSha256": "b42e02ca7d7b85cfeea97dd2c71cdeace27926831e47ce5fbb048952e38a26f2",
+    "inventoryIdentity": "c7d27922a8c601c962811c57d30b9c39cfdc8902148a832d29e43ef0934d6850",
+    "coverage": { "physical": [4, 5], "located": [1, 2] }
+  }
+}

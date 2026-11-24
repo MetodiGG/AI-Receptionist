@@ -1,0 +1,37 @@
+{
+  "checkedOn": "2026-11-23",
+  "baselineCommit": "fe2cd9e223c83a25da921ea561656d046c68dbae",
+  "status": "prepared_locally_not_published",
+  "targetPerQuarterCategory": 30,
+  "newBusiness": {
+    "id": "sofia-galileodent-nadezhda4-lomsko182",
+    "name": "Галилеодент",
+    "category": "other",
+    "neighborhood": "Надежда 4",
+    "address": "София, ж.к. Надежда 4, бул. Ломско шосе 182, ет. 1, ателие 2",
+    "municipal": {
+      "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+      "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+      "addressId": "104319",
+      "latitude": 42.734741,
+      "longitude": 23.293965,
+      "licence": "CC-BY-4.0",
+      "pointScope": "The only exact Sofia street-number row. Postal building point, not a certified door or floor."
+    },
+    "neighborhoodSource": "https://nag.sofia.bg/FileBrowser/File?path=esoft.portal%2FGRADOUSTROISTVENI+ZAPOVEDI-REGISTAR%2F2021%2FRA50-391_22.06.2021%2F391.pdf",
+    "neighborhoodEvidence": "Municipal order RA50-391, 22 June 2021, links the building at no. 182 and UPI XVI-781 to the neighbouring parcel 68134.1384.2138 in the local Nadezhda 4 plan (pages 2 and 3). The adjacent metro exit for Vrubnitsa 2 in the owner's directions is not the clinic's quarter.",
+    "officialPracticeSource": "https://reports.nhif.bg/nhif_reports/nhif_partners/?district=&page=dentists&rzok=22",
+    "officialPracticeEvidence": "The current NHIF directory item named ЕТ ГАЛИЛЕОДЕНТ ГАЛЯ МИТОВА АПМП ИППДП confirms the dental practice and same phone, and adds floor 1, studio 2 to the exact matching boulevard and number.",
+    "ownerBooking": "https://galileodent.com/",
+    "ownerServiceMenu": "https://galileodent.com/процедури/",
+    "ownerServiceEvidence": "https://galileodent.com/процедури/лечение-на-зъбен-кариес/",
+    "service": "Профилактичен дентален преглед",
+    "bookingEvidence": "The owner expressly publishes telephone appointments on the landing and procedure pages; the first-visit section identifies an in-office preventive dental examination. No test call, form submission, internal booking or slot check.",
+    "priceSearch": "No amount for the selected examination was displayed on the public booking invitation, procedures menu, specific first-visit section or special-offers page. Public page/project sitemaps contained no tariff page. A later redundant contact-page reader presented a verification screen; the finding relies on accessible booking and service evidence, not that screen or a workaround.",
+    "pricingDecision": "not_publicly_listed",
+    "inventoryIdentity": "d1e25c4f6778f183e3877c17b889259fe28c53cd88d3e5872da369437b1e5faf",
+    "illustration": "/service-photos/dental-exam-v1.webp",
+    "excluded": "No price, duration, office-hours extrapolation, separately bookable treatment, patient material, owner image or ratings copied. No duplicate branch inferred from practitioners.",
+    "coverage": { "physical": [0, 1], "located": [0, 1] }
+  }
+}

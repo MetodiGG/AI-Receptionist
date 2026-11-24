@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "baseline": "3a455cdd510f2a1d31d11e40927e35c5eb7467fd",
+  "checkedAt": "2026-11-23T03:50:00.000Z",
+  "status": "prepared_locally_not_published",
+  "targetPerQuarterCategory": 30,
+  "totalTargetCells": 1750,
+  "pickerTargetCells": 1358,
+  "approvedCatalogueRecords": [1740, 1744],
+  "locatedPremises": [954, 962],
+  "emptyLocatedCells": [1390, 1384],
+  "emptyLocatedPickerCells": [1025, 1019],
+  "cellsAtLocatedTarget": [0, 0],
+  "newDistinctOperators": 4,
+  "newPremises": 4,
+  "existingAddressBindings": 4,
+  "verifiedPublicPriceFacts": 4,
+  "affected": [
+    { "id": "sofia-kis-auto-simeonovo-bosilek3", "neighborhood": "Симеоново", "category": "auto_repair", "change": "new_operator", "physical": [0, 1], "located": [0, 1] },
+    { "id": "sofia-next-level-knyazhevo-tsar-boris272", "neighborhood": "Княжево", "category": "fitness", "change": "new_operator", "physical": [0, 1], "located": [0, 1] },
+    { "id": "sofia-gemini4-republika-729-22", "neighborhood": "Република", "category": "auto_repair", "change": "new_operator", "physical": [1, 2], "located": [1, 2] },
+    { "id": "sofia-alva-dental-hadzhi-dimitar107v", "neighborhood": "Хаджи Димитър", "category": "other", "change": "new_operator", "physical": [1, 2], "located": [1, 2] },
+    { "id": "sofia-prestige-lyulin160", "neighborhood": "Люлин 10", "category": "education", "change": "existing_address_bound", "physical": [2, 2], "located": [0, 1] },
+    { "id": "sofia-amakids-lyulin", "neighborhood": "Люлин 8", "category": "education", "change": "existing_address_bound", "physical": [1, 1], "located": [0, 1] },
+    { "id": "sofia-premier-padel-private-georgi-belov5", "neighborhood": "Горубляне", "category": "fitness", "change": "existing_address_bound", "physical": [1, 1], "located": [0, 1] },
+    { "id": "sofia-happy-pet-spa-druzhba2-283", "neighborhood": "Дружба 2", "category": "pets", "change": "existing_address_bound", "physical": [1, 1], "located": [0, 1] }
+  ],
+  "evidenceFiles": ["vitosha-pair-intake-20261123.json", "gemini4-intake-20261123.json", "alva-dental-intake-20261123.json", "sparse-address-bindings-20261123.json"],
+  "scope": "Local approved Sofia records include both existing premises of chains and service-area providers, not a legal-entity census. Newly verified postal bindings are kept separate from new operator counts. This is not a guarantee of radius coverage, walk-in availability or reservation confirmation."
+}

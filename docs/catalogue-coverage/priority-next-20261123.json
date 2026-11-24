@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "baseline": "20349c2fa4a935f655a1bbc38f2968bf011c92c5",
+  "checkedAt": "2026-11-23T05:34:00.000Z",
+  "status": "integrated_locally_not_published",
+  "targetPerQuarterCategory": 30,
+  "pickerTargetCells": 1358,
+  "approvedCatalogueRecords": [1762, 1765],
+  "locatedPremises": [1002, 1005],
+  "emptyLocatedCells": [1356, 1354],
+  "emptyLocatedPickerCells": [997, 995],
+  "cellsAtLocatedTarget": [0, 0],
+  "newDistinctOperators": 3,
+  "verifiedPublicPriceFacts": 2,
+  "newRows": [
+    {
+      "id": "sofia-active-dental-mladost2-block295",
+      "name": "Дентална практика „Active“",
+      "neighborhood": "Младост 2",
+      "category": "other",
+      "physical": [2, 3],
+      "located": [0, 1],
+      "addressId": "112843",
+      "reviewState": "service_reviewed",
+      "normalizedRecordSha256": "976a31ec7217586554881090bc6b70c37ff59d5a70492412bf3d24f40a9d02a3",
+      "receipt": "priority-next-east-20261123.json"
+    },
+    {
+      "id": "sofia-sokol-tennis-benkovski-stadium",
+      "name": "ТК Сокол Бенковски",
+      "neighborhood": "Бенковски",
+      "category": "fitness",
+      "physical": [0, 1],
+      "located": [0, 1],
+      "addressId": null,
+      "addressEvidence": "Named venue and merchant's explicit marker corroborated by municipal documentation; not a numbered civic point.",
+      "reviewState": "reviewed",
+      "normalizedRecordSha256": "61f8b6be3c3be2eb8c9951e9cf98562bb4954c0e46045b33b7f48d19b87450d1",
+      "receipt": "priority-next-north-20261123.json"
+    },
+    {
+      "id": "sofia-drive-school-knyazhevo-tsar-boris365",
+      "name": "Drive School · Граматикови",
+      "neighborhood": "Княжево",
+      "category": "education",
+      "physical": [1, 2],
+      "located": [1, 2],
+      "addressId": "13849",
+      "reviewState": "reviewed",
+      "normalizedRecordSha256": "c092d4565a26e3c28ff09c7e199be3bb7ee82388188f7e029cb55f7fb03a6bb6",
+      "receipt": "priority-next-south-20261123.json"
+    }
+  ],
+  "heldResearch": [
+    {
+      "name": "Prep Class · Хиподрума",
+      "sources": ["https://prepclass.net/school-year/", "https://prepclass.net/contact-us/"],
+      "municipalAddressId": "19465",
+      "reason": "The native current-year schedule shows active group English tuition for this branch; the native contacts specify block 122 entrance Е and a distinct branch telephone. The normal public pages expose only generic enquiry, with no explicit branch course registration action or branch-specific price. A separate dated open lesson is not current enrolment evidence. Retain the exact address for later verification, but do not import a booking route or price."
+    },
+    {
+      "name": "Автошкола 13 · Разсадника",
+      "sources": ["https://avtoshkola13.bg/", "https://avtoshkola13.bg/kontakti/", "https://rta.government.bg/upload/18140/uchebni_centrove_01_10_2026.html"],
+      "municipalAddressId": "47067",
+      "reason": "Operator and permit 4576 independently match the exact civic address and public telephone. The normal service menu produced a verification interstitial and the linked enrolment form was not available in the check. No service price or scope was inferred."
+    },
+    {
+      "name": "RD Beauty Nails Studio · Банишора",
+      "sources": ["https://rdbeautystudio.com/"],
+      "reason": "The operator site did not load and the civic address carried by other public notices, ул. Беласица 11, has two different official municipal entrances. No appointment provider substitution or guessed entrance."
+    },
+    {
+      "name": "Вирадо · Захарна фабрика",
+      "sources": ["https://www.virado-bg.com/"],
+      "municipalAddressId": "93128",
+      "reason": "An indexed owner contact shows a vehicle appointment form and corroborates ул. Кукуш 1, but the current owner's homepage returned a verification challenge. No further review of gated routes, no tariff or booking admitted."
+    }
+  ]
+}

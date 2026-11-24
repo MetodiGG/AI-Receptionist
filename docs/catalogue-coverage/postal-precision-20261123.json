@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "baseline": "b4e6eed3749051d197b44bb93df4b8a9d45faa8c",
+  "checkedAt": "2026-11-23T12:00:00.000Z",
+  "status": "prepared_locally_not_published",
+  "scope": "Static Sofia catalogue, not live partners. Select a manually corroborated municipal postal point for each existing premise. Points represent the civic address, not a surveyed door or new business.",
+  "targetPerQuarterCategory": 30,
+  "newBusinesses": 0,
+  "newServices": 0,
+  "newPrices": 0,
+  "approvedBusinesses": [1721, 1721],
+  "locatedPremises": [926, 929],
+  "emptyLocatedCells": [1414, 1411],
+  "emptyLocatedPickerCells": [1046, 1043],
+  "cellsAtLocatedTarget": [0, 0],
+  "affected": [
+    { "id": "sofia-quickfit-otets-paisiy3", "neighborhood": "Зона Б-5", "category": "fitness", "physical": [1, 1], "located": [0, 1], "rejectedCoordinates": [42.740344, 23.510772], "receipt": "quickfit-verified-location-20261123.json" },
+    { "id": "sofia-agron-service-benkovski-karavelov28", "neighborhood": "Бенковски", "category": "auto_repair", "physical": [2, 2], "located": [0, 1], "rejectedCoordinates": [42.687168, 23.328791], "receipt": "agron-verified-location-20261123.json" },
+    { "id": "sofia-risuvam-gorna-banya", "neighborhood": "Горна баня", "category": "education", "physical": [1, 1], "located": [0, 1], "rejectedCoordinates": [42.677931, 23.239206], "receipt": "risuvam-verified-location-20261123.json" }
+  ],
+  "notAdmitted": [
+    { "name": "Картинг Бенковски", "neighborhood": "Бенковски", "owner": "https://kartingbenkovski.com/contact/", "booking": "https://kartingbenkovski.com/obuchenie-trenirovki-karting/", "reason": "Address and real phone booking confirmed, but no exact postal row. Do not use a generic maps search, a track polygon's centre or the unsurveyed 2017 partner coordinate as the premise point. The rental EUR tariff is distinct from lessons and the linked voucher is not an unconditional phone-booked lesson tariff." },
+    { "name": "ZALA", "neighborhood": "Враждебна", "targetAddressId": "85155", "otherPublicSource": "https://coolfit.bg/locations/zala/", "reason": "Published sports-pass partner confirms appointment phone and Pilates. The listed operator page returned HTTP 429; do not treat an inaccessible direct tariff as a price absence and do not use membership fees for direct single classes." },
+    { "id": "sofia-fixa-evropa29", "neighborhood": "Люлин 10", "owner": "https://fixa.bg/", "reason": "No exact postal row; embedded map viewport is not an owner venue pin." },
+    { "id": "sofia-radial2000-benkovski", "neighborhood": "Бенковски", "owner": "https://radial2000.com/", "reason": "No exact postal row; owner map overview does not establish a site-specific point." },
+    { "id": "sofia-art-studio-kalina-vitosha", "neighborhood": "Витоша", "owner": "https://artstudiokalina.eu/", "reason": "Six postal entrance candidates at the stated house number. No operator evidence selecting an entrance." }
+  ]
+}

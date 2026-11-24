@@ -6,11 +6,15 @@ import { catalogueStreetAddress, matchCatalogueGeocode, OSM_ATTRIBUTION } from '
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 import { catalogueRecordSchema } from '../lib/discovery/catalogue-policy.mjs'
 import { normalizeCatalogueBusinesses } from '../lib/discovery/catalogue-search.mjs'
+import { northernEastPriorCatalogue } from './catalogue-northern-east-20261123-scope.mjs'
 
 const row = patch => ({ ...structuredClone(SOFIA_CATALOGUE[0]), coordinates:null, address:'София, ул. Примерна 12А, ет. 2', locationKind:'premises', ...patch })
 const candidate = patch => ({ osm_type:'way',osm_id:123,lat:'42.67',lon:'23.29',addresstype:'building',
   boundingbox:['42.6699','42.6701','23.2899','23.2901'],address:{city:'София',country_code:'bg',road:'улица Примерна',house_number:'12A'},...patch })
 const checkedOn = '2026-11-06'
+// The original municipal replacement had no named neighborhood for Carbox.
+// Replay only the exact later receipt; the current binding has its own test.
+const historicalCatalogue = northernEastPriorCatalogue(SOFIA_CATALOGUE)
 const retiredOsmPoints = Object.freeze({
   'sofia-san-krasi-barber': { latitude: 42.7131329, longitude: 23.2480611, method: 'verified_address_geocode', source: 'https://www.openstreetmap.org/node/9552185683', addressId: '104973' },
   'sofia-carbox-studio': { latitude: 42.6272014, longitude: 23.3310508, method: 'verified_address_geocode', source: 'https://www.openstreetmap.org/way/172804668', addressId: '116434' },
@@ -62,7 +66,7 @@ test('the automatic address batch can be reproduced offline from its one-time ca
   assert.equal(updates.length,38)
   const official = JSON.parse(await readFile(new URL('../public/catalogue-official-address-points-20261113.json', import.meta.url), 'utf8'))
   for(const update of updates) {
-    const record=SOFIA_CATALOGUE.find(item=>item.id===update.id)
+    const record=historicalCatalogue.find(item=>item.id===update.id)
     const original={...record,coordinates:null},requested=catalogueStreetAddress(original)
     assert.ok(requested,update.id)
     assert.deepEqual(matchCatalogueGeocode(original,cache[requested.query],checkedOn),update,update.id)
@@ -106,7 +110,7 @@ test('historical OSM receipts remain byte-identical to the published baseline de
   for (const replacement of manual) {
     assert.equal(replacement.coordinates.addressId, corrections[replacement.id].addressId)
     assert.deepEqual(replacement.previousCoordinates, corrections[replacement.id].previous)
-    assert.deepEqual(SOFIA_CATALOGUE.find(row => row.id === replacement.id).coordinates, replacement.coordinates)
+    assert.deepEqual(historicalCatalogue.find(row => row.id === replacement.id).coordinates, replacement.coordinates)
   }
 })
 

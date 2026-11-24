@@ -1,0 +1,269 @@
+{
+  "schemaVersion": 1,
+  "baseline": "66d6a405f28344931a67b57359f34208b54cd114",
+  "checkedAt": "2026-11-23T04:19:00.000Z",
+  "status": "prepared_locally_not_published",
+  "targetPerQuarterCategory": 30,
+  "totalTargetCells": 1750,
+  "pickerTargetCells": 1358,
+  "approvedCatalogueRecords": [
+    1748,
+    1751
+  ],
+  "locatedPremises": [
+    972,
+    985
+  ],
+  "emptyLocatedCells": [
+    1380,
+    1370
+  ],
+  "emptyLocatedPickerCells": [
+    1015,
+    1009
+  ],
+  "cellsAtLocatedTarget": [
+    0,
+    0
+  ],
+  "newDistinctOperators": 3,
+  "newPremises": 3,
+  "existingAddressBindings": 10,
+  "verifiedPublicPriceFacts": 0,
+  "newRows": [
+    {
+      "id": "sofia-elizabet-ritmika-dragalevtsi-bela-dona1",
+      "neighborhood": "Драгалевци",
+      "category": "fitness",
+      "normalizedRecordSha256": "907fe3cedacd8ebda37401facc21f57ca0e72874931982df2ce9cd2db6f0ba24",
+      "imageKeys": [
+        "sx-child-rhythmic-gymnastics-group"
+      ],
+      "pricingReview": "service_reviewed"
+    },
+    {
+      "id": "sofia-avtotapicera-iliyantsi-balcho7",
+      "neighborhood": "Илиянци",
+      "category": "detailing",
+      "normalizedRecordSha256": "639e19922bf118f1e4701899d02ce8066a881305384b78ce7b2f904ee268b3b2",
+      "imageKeys": [
+        "sx-detail-steering-restore"
+      ],
+      "pricingReview": "service_reviewed"
+    },
+    {
+      "id": "sofia-carplay-bulgaria-gorublyane-pionerska2",
+      "neighborhood": "Горубляне",
+      "category": "auto_repair",
+      "normalizedRecordSha256": "fedb0ac37e69f37bb2b2605259391c2dcb4bb6d3eea72a06885e447d87b8fd4d",
+      "imageKeys": [
+        "sx-auto-audio-navigation-module-repair"
+      ],
+      "pricingReview": "service_reviewed"
+    }
+  ],
+  "affected": [
+    {
+      "neighborhood": "Изгрев",
+      "category": "consulting",
+      "ids": [
+        "sofia-nikolay-nikolaev-law"
+      ],
+      "physical": [
+        1,
+        1
+      ],
+      "located": [
+        0,
+        1
+      ]
+    },
+    {
+      "neighborhood": "Красна поляна 2",
+      "category": "auto_repair",
+      "ids": [
+        "sofia-gumi-slick-krasna-polyana"
+      ],
+      "physical": [
+        1,
+        1
+      ],
+      "located": [
+        0,
+        1
+      ]
+    },
+    {
+      "neighborhood": "Гоце Делчев",
+      "category": "beauty",
+      "ids": [
+        "sofia-dupissima-gotse-delchev"
+      ],
+      "physical": [
+        2,
+        2
+      ],
+      "located": [
+        0,
+        1
+      ]
+    },
+    {
+      "neighborhood": "Дружба 1",
+      "category": "fitness",
+      "ids": [
+        "sofia-katerene-europe-private"
+      ],
+      "physical": [
+        1,
+        1
+      ],
+      "located": [
+        0,
+        1
+      ]
+    },
+    {
+      "neighborhood": "Люлин 7",
+      "category": "other",
+      "ids": [
+        "sofia-lyudmil-kiskimov-lyulin7"
+      ],
+      "physical": [
+        5,
+        5
+      ],
+      "located": [
+        3,
+        4
+      ]
+    },
+    {
+      "neighborhood": "Христо Смирненски",
+      "category": "education",
+      "ids": [
+        "sofia-bluess-art-studio-hemus63"
+      ],
+      "physical": [
+        1,
+        1
+      ],
+      "located": [
+        0,
+        1
+      ]
+    },
+    {
+      "neighborhood": "Бенковски",
+      "category": "auto_repair",
+      "ids": [
+        "sofia-radial2000-benkovski"
+      ],
+      "physical": [
+        2,
+        2
+      ],
+      "located": [
+        1,
+        2
+      ]
+    },
+    {
+      "neighborhood": "Гара Искър",
+      "category": "auto_repair",
+      "ids": [
+        "sofia-autotechnica-iskarsko-shose"
+      ],
+      "physical": [
+        1,
+        1
+      ],
+      "located": [
+        0,
+        1
+      ]
+    },
+    {
+      "neighborhood": "Витоша",
+      "category": "other",
+      "ids": [
+        "sofia-fotovideo-elite-dimitar-tsolov9"
+      ],
+      "physical": [
+        1,
+        1
+      ],
+      "located": [
+        0,
+        1
+      ]
+    },
+    {
+      "neighborhood": "Сточна гара",
+      "category": "other",
+      "ids": [
+        "sofia-vasident-angista8"
+      ],
+      "physical": [
+        1,
+        1
+      ],
+      "located": [
+        0,
+        1
+      ]
+    },
+    {
+      "neighborhood": "Драгалевци",
+      "category": "fitness",
+      "ids": [
+        "sofia-elizabet-ritmika-dragalevtsi-bela-dona1"
+      ],
+      "physical": [
+        0,
+        1
+      ],
+      "located": [
+        0,
+        1
+      ]
+    },
+    {
+      "neighborhood": "Илиянци",
+      "category": "detailing",
+      "ids": [
+        "sofia-avtotapicera-iliyantsi-balcho7"
+      ],
+      "physical": [
+        0,
+        1
+      ],
+      "located": [
+        0,
+        1
+      ]
+    },
+    {
+      "neighborhood": "Горубляне",
+      "category": "auto_repair",
+      "ids": [
+        "sofia-carplay-bulgaria-gorublyane-pionerska2"
+      ],
+      "physical": [
+        4,
+        5
+      ],
+      "located": [
+        1,
+        2
+      ]
+    }
+  ],
+  "evidenceFiles": [
+    "south-next-intake-20261123.json",
+    "north-next-intake-20261123.json",
+    "east-next-intake-20261123.json",
+    "priority-address-recovery-20261123.json"
+  ],
+  "scope": "Local Sofia records include branches and mobile providers; approved records do not count distinct operators. Review three newly eligible independent operators without numeric tariffs; no listed product, course from another service, or expired cached rate was substituted. Verified postal points support radius searches without claiming door position, live slots, or availability."
+}

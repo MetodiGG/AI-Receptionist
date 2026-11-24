@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "baselineCommit": "ab870daa05a0b65be444c22b6839e4cb0ecaac95",
+  "status": "prepared_locally_not_published",
+  "targetPerQuarterCategory": 30,
+  "newBusiness": {
+    "id": "sofia-infinity-team-strelbishte-bulgaria43",
+    "name": "Infinity Team · Стрелбище",
+    "nameEn": "Infinity Team · Strelbishte",
+    "category": "fitness",
+    "neighborhood": "Стрелбище",
+    "address": "София, ж.к. Стрелбище, бул. България 43, 126 ОУ „Петко Ю. Тодоров“",
+    "municipal": {
+      "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+      "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+      "addressId": "4111",
+      "district": "Триадица",
+      "settlement": "гр. София",
+      "latitude": 42.673677,
+      "longitude": 23.296217,
+      "licence": "CC-BY-4.0",
+      "pointScope": "Unique city row for 43 Bulgaria Blvd, the verified postal address of the host school; not a surveyed hall or school entrance."
+    },
+    "ownerWebsite": "https://dancesportsofia.com/",
+    "ownerSchedule": "https://dancesportsofia.com/schedule",
+    "ownerContact": "https://www.infinityteambg.com/contacts",
+    "phone": "+359898418277",
+    "ownerServices": "https://dancesportsofia.com/services",
+    "ownerPayments": "https://dancesportsofia.com/payments",
+    "ownerTerms": "https://dancesportsofia.com/terms",
+    "areaCorroborationUrls": [
+      "https://www.sofia.bg/documents/d/guest/prilozenie-5-6",
+      "https://sop.bg/126ou-1010/contacts.html"
+    ],
+    "areaCorroboration": "The club schedule and the owner's linked companion site name Strelbishte and 43 Bulgaria Blvd. The municipal appendix independently names both the school and Strelbishte at this number (PDF page 59). The school separately names the same postal address. The local previous entry under a different club at the same host is not this provider. The club's second venue is not part of this receipt.",
+    "booking": {
+      "kind": "form",
+      "url": "https://dancesportsofia.com/register",
+      "evidence": "The owner booking invitation leads to the trial request and its public location selector explicitly offers the Strelbishte hall. The club callback is required; this is not a live slot or a GoRez reservation. The owner homepage and schedule identify the recurring ages 13 and up group at the exact address. No selections, data entry, message, reservation, payment or other external write was made."
+    },
+    "service": {
+      "name": "Пробна групова тренировка по спортни танци",
+      "nameEn": "Trial group dancesport training",
+      "description": "Пробна тренировка в групата за тийнейджъри и възрастни (13+) в залата на 126 ОУ. След заявката клубът ще се свърже с вас, за да уточни посещението.",
+      "descriptionEn": "Trial session with the teens and adults group (13+) at the 126th School gym. After you make a request, the club will contact you to arrange the visit.",
+      "appointmentModel": "group_reservation",
+      "pricingDecision": "not_publicly_listed",
+      "outcome": "not_published",
+      "priceEvidence": "The actual registration form, service descriptions, schedule, terms and payments page give no tariff for this single group trial. Published monthly group memberships do not quote a trial, and the individual-lesson system is for a different service. The listing does not imply a free trial."
+    },
+    "termsScope": "The owner terms were reviewed through an ordinary public read. They describe registration/callback and class conduct; no express prohibition against narrow paraphrased factual listing or ordinary links was identified. The intake does not copy media, member information, distinctive prose or the full class schedule.",
+    "candidateIllustration": "/service-photos/sx-adult-ballroom-group-v1.webp",
+    "exclusions": "No second club venue, class card, per-visit price inferred from a membership, individual lesson, fixed duration, timetable, live slot, free-trial claim, copied image, partner status or court/school as a provider.",
+    "inventoryIdentity": "380cf108c38c833f495ff4643de16cf344112cc97dd0fb0bf388f5b63e5ab906",
+    "normalizedRecordSha256": "938ed5a7e8a586454497a3000310e60c7d0b5e31967917d92c39e7b9241d2627",
+    "rawRecordSha256": "e6d545ec57868237a8364e0d629055031d2cc7d26f108d873eb495f8bcbb1448",
+    "coverage": { "physical": [2, 3], "located": [1, 2] }
+  }
+}

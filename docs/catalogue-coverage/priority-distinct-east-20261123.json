@@ -1,0 +1,83 @@
+{
+  "checkedOn": "2026-11-23",
+  "baselineCommit": "7622c05bb74e3fa294ca8a0d5bcdb7d80cf238f2",
+  "status": "verified_premises_expansion_not_published",
+  "targetPerQuarterCategory": 30,
+  "newDistinctOperators": 0,
+  "newLocatedPremises": 1,
+  "businesses": [
+    {
+      "id": "sofia-studio-s-hadzhi-dimitar-vastanik5",
+      "name": "Студио S · Хаджи Димитър",
+      "category": "education",
+      "neighborhood": "Хаджи Димитър",
+      "address": "София, ж.к. Хаджи Димитър, ул. Въстаник 5",
+      "existingOperator": ["sofia-studio-s-strelbishte", "sofia-studio-s-mladost1-chomakov4a"],
+      "distinctPremises": "The current owner branch page and contact directory both give this physical venue. No existing runtime record matched this street number and the same owner or phone. This is another branch of the same operator, not a new operator.",
+      "municipal": {
+        "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+        "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+        "addressId": "27532",
+        "latitude": 42.703247,
+        "longitude": 23.347842,
+        "region": "Подуяне",
+        "match": "Unique Sofia street and integer house number in the supplied municipal asset. The operator gives the quarter as Хаджи Димитър; the CSV field Подуяне is the administrative district, not the neighborhood.",
+        "licence": "CC-BY-4.0"
+      },
+      "coverageAtBaseline": {"physical": [0, 1], "located": [0, 1]},
+      "ownerBranch": "https://studios-edu.com/hadzhi-dimitar/",
+      "ownerContact": "https://studios-edu.com/contacts/",
+      "ownerCourseAndTariff": "https://studios-edu.com/bel-za-6-klas/",
+      "ownerEnrollmentEntry": "https://forms.gle/S3uXkx4MAaTr7E2D7",
+      "ownerLinkedEnrollmentForm": "https://docs.google.com/forms/d/e/1FAIpQLSc-PMlVvD-o3N9X3VG9vIrHxR1Xp3cKGlUeJvJPoAL1DPgglw/viewform",
+      "ownerTerms": "https://studios-edu.com/about-us/obshti-usloviya/",
+      "ownerRobots": "https://studios-edu.com/robots.txt",
+      "booking": "The course page links to the public school-branded form. It accepts grade, discipline, Sofia branch and group format and describes a non-binding request with a callback. No sign-in, student data, slot, request or real enrolment tested. The terms require a registration form, an individual contract and payment before enrolment is complete. The call number is the existing public school-wide number, not claimed as a dedicated branch or class schedule.",
+      "tariff": "Either sixth-grade subject costs three equal instalments of EUR 390, payable on enrolment, at the end of November and in February. This is the rate of one required instalment, not one visit, a deposit, a discount or the whole-course total. Each subject has 120 academic units over the year (September–June). The branch lists both subjects on Saturday or Sunday; the school confirms group/availability. Absences do not reduce the fee. Combined plans, promotions and grade-7 tariffs with inconsistent published academic-hour totals were left out.",
+      "termsScope": "Owner robots returns a blank Disallow. Owner terms concern courses, enrolment, cancellation/refunds and personal data; no express commercial factual-inventory reuse denial found in the current public terms. No source text, photos, reviews or map payload were imported. No licence claim.",
+      "services": [
+        {
+          "name": "Групов курс по математика за 6. клас",
+          "nameEn": "Grade 6 group mathematics course",
+          "imageKey": "math-lesson",
+          "imageSha256": "965f28ad7e500cda7b9a4622bd5fd1edfbe58ac52834c4e616fc7542037ea1b0"
+        },
+        {
+          "name": "Групов курс по български език и литература за 6. клас",
+          "nameEn": "Grade 6 group Bulgarian language and literature course",
+          "imageKey": "sx-school-literature-group",
+          "imageSha256": "d4ef790072d3d256d790a288bb8dd1fcdf3d1fcdfe71536e19a0299104b650b1"
+        }
+      ],
+      "descriptionBg": "Групов курс за учебната година от септември до юни: 120 учебни часа по една дисциплина. Публикуваната сума е една от трите вноски, не цена за занятие. Отсъствията не намаляват таксата. Центърът уточнява групата, договора и плащането след заявка.",
+      "descriptionEn": "Group course for the September–June school year, with 120 academic hours in one subject. The published amount is one of three instalments, not a per-class fee. Missed classes do not reduce the fee. The centre confirms the group, contract and payment details after receiving the request.",
+      "priceUnitBg": "вноска · 3 за курса",
+      "priceUnitEn": "instalment · 3 per course",
+      "normalizedRecordSha256": "6ee104762cdf42ff0d3b45a84522b68be5ca1b1ee7a24b1c07b52e2be850afaa",
+      "inventoryIdentity": "6cc38426b2059bb6f0504dca98329f47f8c518519ad19a0af89eebc8d00a962f"
+    }
+  ],
+  "held": [
+    {
+      "name": "Росен 85",
+      "candidateNeighborhood": "Хаджи Димитър",
+      "source": "https://www.rosen85.com/za-nas/obshchi-usloviya",
+      "reason": "Distinct school at the same civic address, but the proprietor terms restrict site reuse to personal noncommercial purposes and otherwise require express written permission. Do not ingest services, images or tariffs."
+    },
+    {
+      "name": "Smile Academy",
+      "candidateNeighborhood": "Горубляне",
+      "category": "education",
+      "ownerAddress": "София, кв. Горубляне, ул. Самоковско шосе 66, ет. 1, офис 2",
+      "municipalAddressId": "101971",
+      "municipalPoint": [42.624911, 23.405927],
+      "sources": ["https://smile-academy.com/за-нас/въпроси-и-отговори/", "https://smile-academy.com/контакти/", "https://smile-academy.com/за-нас/общи-условия/", "https://smile-academy.com/цени/"],
+      "reason": "The exact branch address and office are explicit in proprietor material; the street/number matches one municipal point and the runtime owner/number/address comparison found no duplicate. The proprietor's English course page directs customers to the public contact form for a trial lesson; the terms distinguish a request, level assessment and final contract/payment. The linked current 2026/27 tariff page returned a verification interstitial. Stop the source review; neither old indexed tariffs nor an unpublished-price receipt are eligible, and the trial was not inferred to be free. No address or schedule was added."
+    },
+    {
+      "name": "Йонитрейд",
+      "source": "https://yonitrate.info/",
+      "reason": "Actual proprietor specifies the confirmed municipal location at Сухата река бл. 10, entrance A, in an already covered education cell. The second address on Владимир Вазов 39 is an explicit location, but the actual neighborhood is not identified by the operator; the named Левски В stop is a transit reference. Do not assign a new empty quarter or duplicate the operator using the second legal name in the permit register. A complete separate tariff/form review is still needed."
+    }
+  ]
+}

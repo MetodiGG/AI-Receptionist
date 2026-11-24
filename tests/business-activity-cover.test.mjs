@@ -9,13 +9,14 @@ import { BUSINESS_ACTIVITY_COVER_ASSETS } from '../lib/business-activity-cover-a
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 import { approvedCatalogueRecord } from '../lib/discovery/catalogue-policy.mjs'
 import { catalogueDetailsWithServicePhotos } from '../lib/catalogue-service-photo-keys.mjs'
+import { quarterRefreshPriorCatalogue } from './catalogue-quarter-refresh-20261123-scope.mjs'
 
 const service = (name, category, illustrativePhotoKey) => ({ name, category, ...(illustrativePhotoKey ? { illustrativePhotoKey } : {}) })
 const hash = value => createHash('sha256').update(value).digest('hex')
 const revalidatedIds = new Set(['sofia-svetlinki-sheynovo13a', 'sofia-artizba-cherni-vrah33e'])
 const oldEducationText = execFileSync('git', ['show', 'b8dcdf4:lib/discovery/catalogue-data/neighborhood-home-education-2000-006-20261113.mjs'], { cwd: new URL('..', import.meta.url), encoding: 'utf8' })
 const oldEducation = (await import('data:text/javascript;base64,' + Buffer.from(oldEducationText).toString('base64'))).default.records
-const historicalCatalogue = SOFIA_CATALOGUE.map(row => revalidatedIds.has(row.id)
+const historicalCatalogue = quarterRefreshPriorCatalogue(SOFIA_CATALOGUE).map(row => revalidatedIds.has(row.id)
   ? { ...oldEducation.find(item => item.id === row.id), coordinates: row.coordinates } : row)
 
 test('all fourteen business categories resolve real published activities rather than the generic broad cover', () => {

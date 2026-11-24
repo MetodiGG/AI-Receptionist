@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "baseline": "2dd2d5930e9e5df03ed6fa79911c61df31434fc7",
+  "checkedAt": "2026-11-23T12:00:00.000Z",
+  "status": "prepared_locally_not_published",
+  "scope": "Approved static Sofia catalogue only, independently of live native partner accounts. One actual premises per ID; address corrections never increase the new-business count.",
+  "targetPerQuarterCategory": 30,
+  "catalogueBusinessCount": [1717, 1719],
+  "locatedPremises": [920, 924],
+  "emptyLocatedCells": [1422, 1416],
+  "emptyLocatedPickerCells": [1054, 1048],
+  "totalPickerCells": 1358,
+  "totalTrackedCellsIncludingAdditionalAreas": 1750,
+  "cellsAtLocatedTarget": [0, 0],
+  "newPlaces": ["sofia-umni-deca-obelya2-106-3", "sofia-doichinova-lyulin3-block368"],
+  "newServices": 2,
+  "newSourcePrices": 1,
+  "existingPlacesRecovered": [
+    "sofia-azbuki-sport-musagenitsa-swimming",
+    "sofia-carbox-studio",
+    "sofia-new-vita-grooming",
+    "sofia-lucky-garage"
+  ],
+  "affected": [
+    { "neighborhood": "Мусагеница", "category": "fitness", "physical": [2, 2], "located": [0, 1] },
+    { "neighborhood": "Витоша", "category": "detailing", "physical": [0, 1], "located": [0, 1] },
+    { "neighborhood": "Обеля 2", "category": "pets", "physical": [0, 1], "located": [0, 1] },
+    { "neighborhood": "Обеля 2", "category": "education", "physical": [0, 1], "located": [0, 1] },
+    { "neighborhood": "Горна баня", "category": "auto_repair", "physical": [0, 1], "located": [0, 1] },
+    { "neighborhood": "Люлин 3", "category": "other", "physical": [0, 1], "located": [0, 1] }
+  ],
+  "evidence": ["coordinate-scope-recovery-20261123.json", "sport-education-gap-20261123.json", "doichinova-intake-20261123.json"]
+}

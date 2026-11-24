@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "status": "prepared_locally_not_published",
+  "baseline": "d6e27caa9ef5dfdc9d20c8f3a998373013cb90b0",
+  "business": {
+    "id": "sofia-salt-hug-druzhba1-block195v",
+    "name": "Salt Hug · Дружба 1",
+    "neighborhood": "Дружба 1",
+    "category": "health",
+    "address": "София, ж.к. Дружба 1, бл. 195, вх. В",
+    "website": "https://salthug.eu/",
+    "contact": "https://salthug.eu/kontakti/",
+    "municipalPoint": {
+      "dataset": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+      "sha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+      "row": "102668",
+      "administrativeDistrict": "Искър",
+      "registeredArea": "ж.к. Дружба",
+      "latitude": 42.663708,
+      "longitude": 23.403790,
+      "addressLinkage": "The exact entrance in the municipal file agrees with the booking and contact address. The owner supplies the subquarter Дружба 1; the municipal record has only the broader name. The postal point is not a surveyed door.",
+      "licence": "CC-BY-4.0"
+    },
+    "booking": {
+      "kind": "phone",
+      "phone": "+359893502073",
+      "source": "https://salthug.eu/solna-staya-sofia/",
+      "ownerFaq": "https://salthug.eu/chesto-zadavani-vaprosi-solna-staya/",
+      "basis": "The exact venue's reservation section displays the public phone alongside the separate online option. The search rendering of the owner's FAQ explicitly states that the same number takes requests. The contact page body and tariff independently show that number; a malformed header number is not used. The third-party online menu returned 403, and neither its prices nor capacity is inferred. Only the distinct owner telephone reservation and public facility tariff are used."
+    },
+    "hours": "Weekdays 14:00–20:00, weekend 10:00–20:00 according to the owner contact page. These are venue hours, not live availability.",
+    "normalizedRecordSha256": "1965baf391a900dca3db964d1533b4cd3ef1270b444a91050f45199edc1fa7f2",
+    "inventoryIdentity": "5f8964050dd78359c2095847a371ad30e701dd720dd426364724d2fb7322dff7"
+  },
+  "service": {
+    "name": "Солна стая за възрастен · едно посещение",
+    "nameEn": "Adult salt room · one visit",
+    "tariff": "https://salthug.eu/ceni/",
+    "amount": 10,
+    "currency": "EUR",
+    "kind": "fixed",
+    "unit": "едно посещение",
+    "unitEn": "one visit",
+    "durationMin": 40,
+    "description": "Самостоятелно посещение за възрастен след записване. Пристигнете 5 минути по-рано. Операторът посочва ограничения при температура над 37 °C, туберкулоза (включително преболедувана) или онкологично заболяване.",
+    "descriptionEn": "A private adult visit by appointment. Arrive 5 minutes early. The venue lists restrictions for temperatures above 37 °C, current or past tuberculosis, or cancer.",
+    "priceDecision": "Direct EUR 10 on the adult single-visit menu and the separate venue page. Do not import the bundles with discrepant currency pairs, accompanying children, treatments or therapeutic claims. This is a private wellness room booking, not a medical provider or a specialist appointment.",
+    "photoKey": "sx-adult-salt-room",
+    "photo": "/service-photos/sx-adult-salt-room-v1.webp",
+    "photoSha256": "5f798967ebc7983bbdc6d8806774478927a53f750046013cc176a643b8175210",
+    "photoOrigin": "Purpose-made generic illustration, not the actual venue or its staff and not owner photography."
+  },
+  "coverage": { "physical": [0, 1], "located": [0, 1] },
+  "duplicateReview": "Current Sofia runtime contains no matching domain, telephone, normalized venue identity or municipal entrance ID. Existing Salt Art businesses use different premises and an independent operator.",
+  "safeguards": "No samples of commercial marketing text or any map, booking form submission, paid data, owner photography or production write."
+}

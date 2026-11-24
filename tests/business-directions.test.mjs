@@ -1,5 +1,6 @@
 import test from 'node:test'
 import { nearbyPointsPriorRecord } from './nearby-points-20261122-scope.mjs'
+import { quarterNextPriorCatalogue } from './catalogue-quarter-next-20261123-scope.mjs'
 import assert from 'node:assert/strict'
 import { businessDirectionsAddress, businessMapsDirectionsUrl } from '../lib/business-directions.mjs'
 import { REVIEWED_BUSINESS_DESTINATIONS, REVIEWED_NATIVE_BUSINESS_DESTINATIONS, reviewedBusinessDestination } from '../lib/business-directions-reviewed.mjs'
@@ -185,11 +186,13 @@ test('reviewed landmark destinations are branch/address-bound and cannot overrid
 
 test('uncorroborated old Shining and Europe pins cannot override the verified full postal address', () => {
   for (const id of ['sofia-shining-polishing-auto', 'sofia-katerene-europe-private']) {
-    // Preserve the rejected old-pin cohort. The separate nearby-point tests
-    // validate Shining's later exact municipal point and unchanged directions.
-    const row = nearbyPointsPriorRecord(SOFIA_CATALOGUE.find(row => row.id === id))
+    // Preserve the rejected old-pin cohort without discarding later exact receipts.
+    const current = SOFIA_CATALOGUE.find(row => row.id === id)
+    const [prior] = quarterNextPriorCatalogue([current])
+    const row = nearbyPointsPriorRecord(prior)
     assert.equal(row.coordinates, null, id)
     assert.equal(destination({ ...row, source: 'catalogue' }), row.address + ', България', id)
+    assert.equal(destination({ ...current, source: 'catalogue' }), row.address + ', България', id)
     assert.ok(!REVIEWED_BUSINESS_DESTINATIONS.some(value => value.id === id))
   }
 })

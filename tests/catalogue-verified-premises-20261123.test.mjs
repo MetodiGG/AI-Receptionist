@@ -1,7 +1,7 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import receipt from '../docs/catalogue-coverage/verified-premises-20261123.json' with { type: 'json' }
-import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { SOFIA_CATALOGUE as currentCatalogue } from '../lib/discovery/sofia-catalogue.mjs'
 import { BOOKING_PRICE_REVIEWS } from '../lib/discovery/catalogue-data/pricing-booking-review-v1.mjs'
 import { VERIFIED_INTAKE_20261123_RECORDS, VERIFIED_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-intake-20261123.mjs'
 import { applyVerifiedAddressRecovery20261123 } from '../lib/discovery/catalogue-data/verified-address-recovery-20261123.mjs'
@@ -16,8 +16,10 @@ import { publicProse, serviceDisplayName } from '../lib/locale/public-content.mj
 import { serviceThumbnail } from '../lib/service-thumbnail.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
 import { verifiedPriorCatalogue } from './catalogue-verified-20261123-scope.mjs'
+import { additionalPriorCatalogue } from './catalogue-additional-20261123-scope.mjs'
 
 const now = Date.parse('2026-11-23T12:00:00Z')
+const SOFIA_CATALOGUE = additionalPriorCatalogue(currentCatalogue)
 const prior = verifiedPriorCatalogue(SOFIA_CATALOGUE)
 const actual = new Map(SOFIA_CATALOGUE.map(row => [row.id, row]))
 const previous = new Map(prior.map(row => [row.id, row]))

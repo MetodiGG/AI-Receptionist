@@ -13,9 +13,11 @@ import { catalogueBusinessDetails, businessDetailServices } from '../lib/discove
 import { normalizeCatalogueBusinesses } from '../lib/discovery/catalogue-search.mjs'
 import { createPublicBusinessDetailsHandler } from '../lib/discovery/public-details.mjs'
 import { NONBOOKABLE_CATALOGUE_ITEMS, TEMPORARILY_HELD_CATALOGUE_SERVICES } from '../lib/discovery/catalogue-service-eligibility.mjs'
+import { quarterRefreshPriorCatalogue } from './catalogue-quarter-refresh-20261123-scope.mjs'
 
 const now = Date.parse('2026-11-12T00:00:00Z')
-const approved = SOFIA_CATALOGUE.map(row => approvedCatalogueRecord(row, now)).filter(Boolean)
+const originalCatalogue = quarterRefreshPriorCatalogue(SOFIA_CATALOGUE)
+const approved = originalCatalogue.map(row => approvedCatalogueRecord(row, now)).filter(Boolean)
 const withoutPhoto = service => Object.fromEntries(Object.entries(service).filter(([key]) => key !== 'illustrativePhotoKey'))
 
 test('browser photo keys are finite allowlisted local IDs, never arbitrary paths or URLs', () => {
@@ -52,7 +54,7 @@ test('exact associations cannot cross businesses, categories or service wording'
 })
 
 test('public browse and detail adapters retain exact service photo IDs without changing prices or booking data', () => {
-  const rows = normalizeCatalogueBusinesses(SOFIA_CATALOGUE, { cityCode: '68134', browse: true, requirements: [] }, { now })
+  const rows = normalizeCatalogueBusinesses(originalCatalogue, { cityCode: '68134', browse: true, requirements: [] }, { now })
   assert.equal(rows.length, approved.length)
   for (const row of rows) {
     const raw = approved.find(item => item.id === row.id)

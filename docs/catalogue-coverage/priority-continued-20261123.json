@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "baseline": "3a1b2f96a78dac8ee7066f1e20ee76f73fbbfcc6",
+  "checkedAt": "2026-11-23T05:18:00.000Z",
+  "status": "integrated_locally_not_published",
+  "targetPerQuarterCategory": 30,
+  "pickerTargetCells": 1358,
+  "approvedCatalogueRecords": [1761, 1762],
+  "locatedPremises": [1001, 1002],
+  "emptyLocatedCells": [1356, 1356],
+  "emptyLocatedPickerCells": [997, 997],
+  "cellsAtLocatedTarget": [0, 0],
+  "newDistinctOperators": 1,
+  "verifiedPublicPriceFacts": 0,
+  "newRows": [
+    {
+      "id": "sofia-yonitrade-suhata-reka-block10a",
+      "name": "Учебен център Йонитрейд · Сухата река",
+      "neighborhood": "Сухата река",
+      "category": "education",
+      "physical": [4, 5],
+      "located": [2, 3],
+      "addressId": "27553",
+      "reviewState": "service_reviewed",
+      "normalizedRecordSha256": "91455a5493697ed338967d003cce9d234d7e981630f447ed23fd9a3935908a9c",
+      "receipt": "priority-continued-east-20261123.json"
+    }
+  ],
+  "heldResearch": [
+    {
+      "receipt": "priority-continued-north-20261123.json",
+      "reason": "Five candidates stayed out because a current appointment could not be verified or no exact provider entrance could be bound."
+    },
+    {
+      "receipt": "priority-continued-south-20261123.json",
+      "reason": "Five near misses excluded; separate records explain the conflicting, unavailable or incomplete physical-location and booking evidence."
+    },
+    {
+      "name": "Дентална клиника Подуяне",
+      "neighborhood": "Сухата река",
+      "category": "other",
+      "ownerContact": "https://dentalclinicpoduene.com/contacts/",
+      "municipalAddressId": "115607",
+      "reason": "Exact civic address and public appointment phone found, but the actual provider service menu produced a verification interstitial. No service or price inferred from the blocked menu; no admission."
+    },
+    {
+      "name": "Laser & Beauty Studio Maria Ilieva",
+      "neighborhood": "Сухата река",
+      "category": "beauty",
+      "reason": "Existing restricted-source hold in docs/catalogue-pricing/expansion-beauty-2000-015-20261113.json; booking host is not available for automated review and the previously gated route was not revisited. No admission."
+    },
+    {
+      "name": "Golden FitBody Nova Sport",
+      "neighborhood": "Княжево",
+      "category": "fitness",
+      "terms": "https://goldenfitbody.bg/obschi-usloviya",
+      "reason": "Official terms restrict automated extraction and reuse; no additional collection after finding the restriction. Local operator identity, exact point and tariffs were not admitted."
+    }
+  ]
+}

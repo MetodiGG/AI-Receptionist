@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "baseline": "7617e55d8bb46706c5fae78c611b7356e880a2b1",
+  "checkedAt": "2026-11-23T04:40:00.000Z",
+  "status": "integrated_locally_not_published",
+  "targetPerQuarterCategory": 30,
+  "pickerTargetCells": 1358,
+  "approvedCatalogueRecords": [1754, 1755],
+  "locatedPremises": [988, 989],
+  "emptyLocatedCells": [1366, 1365],
+  "emptyLocatedPickerCells": [1005, 1004],
+  "cellsAtLocatedTarget": [0, 0],
+  "newDistinctOperators": 1,
+  "newPremises": 1,
+  "verifiedPublicPriceFacts": 4,
+  "newRows": [
+    {
+      "id": "sofia-kanev-carpet-knyazhevo-buket55",
+      "neighborhood": "Княжево",
+      "category": "home_services",
+      "physical": [0, 1],
+      "located": [0, 1],
+      "addressId": "87487",
+      "normalizedRecordSha256": "199ec81dd39bc56c56732d2a65cc8edf4e68602fa520f2b3f00ad469566956db",
+      "receipt": "sparse-market-south-intake-20261123.json"
+    }
+  ],
+  "duplicateHeld": [
+    {
+      "candidate": "Пране Мека Мебел",
+      "website": "https://pranemekamebel.com/kontakti/",
+      "existingId": "sofia-prane-na-matraci",
+      "existingWebsite": "https://pranenamatraci.com/kontakti/",
+      "reason": "Identical public booking phone, materially overlapping mobile cleaning menu and appointment workflow. Do not create a second operator or award neighborhood credits. Cross-site portfolio expansion requires its own inventory review."
+    }
+  ],
+  "scope": "Counts describe the local approved Sofia inventory, not unique legal entities overall. One fixed premise operates by confirmed pickup requests; the provider is not repeated across neighborhoods. Postal-point coverage is not a guarantee of results in any particular search radius."
+}

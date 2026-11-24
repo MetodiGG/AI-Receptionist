@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "status": "verified_location_only",
+  "purpose": "Recover coverage in Люлин 6 × Спорт without adding or duplicating a business.",
+  "business": {
+    "id": "sofia-tennis-lyulin-6",
+    "name": "Тенис клуб Люлин 6",
+    "category": "fitness",
+    "cityCode": "68134",
+    "address": "София, местност Друмо 1",
+    "previousNeighborhood": "Люлин",
+    "reviewedNeighborhood": "Люлин 6",
+    "website": "https://tennislulin.com/",
+    "ownerContact": "https://tennislulin.com/contact/",
+    "phone": "+359876663676",
+    "booking": "Preserve the existing owner contact and telephone action, verified from the owner contact page. The separate reservations CTA led to https://tennislulin.com/tennishoe/, which did not render in the web reader. No booking engine, availability or new pricing is represented as reviewed. Nothing submitted.",
+    "inventory": "One existing service, Тенис корт с резервация, no published price stored. Do not import season membership, group lessons, event/session prices, or partner-card conditions into this recovery. Leave the business verification dates 2026-11-06 and 2027-02-04 intact."
+  },
+  "sources": [
+    {
+      "url": "https://tennislulin.com/contact/",
+      "evidence": "Current owner contact confirms the tennis venue at locality Друмо 1 in Люлин and its public booking phone. It is the source of the existing coordinates; its general wording alone does not name the numbered quarter."
+    },
+    {
+      "url": "https://tennislulin.com/2025/01/19/11/25/4753/",
+      "evidence": "Owner-published indexed club venue announcement gives both ж.к. Люлин 6 and locality Друмо 1. The direct article was a cache miss during review; use its public extract as corroboration, not as an availability or service-menu source."
+    },
+    {
+      "url": "https://locations.mymultisport.bg/location/tenis-klub-lyulin-6",
+      "evidence": "Readable current venue sheet names Люлин 6 explicitly, links the same operator site and lists the identical public booking phone. Its opposite-block-650 wording is a landmark only and must not replace the owner's actual address or point."
+    },
+    {
+      "url": "https://www.bgtennis.bg/menu.php?t_id=261",
+      "evidence": "The Bulgarian Tennis Federation public directory corroborates Tennis Club Lyulin 6 venue at locality Друмо 1. No tournament-specific services, personal contacts or card rates taken from other providers."
+    }
+  ],
+  "coordinateReview": {
+    "method": "Retain previously vouched first-party coordinates and source URL without rounding or replacement; explicitly bind that point to the unchanged address string.",
+    "retainedPoint": {
+      "latitude": 42.707625017444485,
+      "longitude": 23.256896419547754,
+      "source": "https://tennislulin.com/contact/",
+      "method": "first_party_coordinates",
+      "sourceAddress": "София, местност Друмо 1"
+    },
+    "municipalSource": {
+      "url": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+      "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+      "sourceBytes": 12601716,
+      "licence": "CC-BY-4.0",
+      "attribution": "ГИС София / Столична община"
+    },
+    "municipalRow": {
+      "rn": "118654",
+      "region": "Люлин",
+      "settlement": "гр. София",
+      "lareaunit": "м. Друмо",
+      "block": "",
+      "street": "",
+      "streetnum": "1",
+      "entrance": "",
+      "latitude": 42.707614,
+      "longitude": 23.25683
+    },
+    "corroboration": "Strictly parsed municipal CSV yielded one explicit Sofia locality Друмо house 1 row (not the nearest coordinate). It is roughly 5.6 m from the original owner point. Municipal administrative region and locality fields do not themselves identify the picker subquarter or an entrance; the independently sourced explicit neighborhood is required."
+  },
+  "identities": {
+    "normalizedPriorRowSha256": "bfde6b30dff3ced7dcc1b119d1d144ca03196f8344a7aeb6ed6cf26bf649476a",
+    "normalizedAfterRowSha256": "0b8290e2d6daf6e9b4c391a95d3139ed3f298f9f8b5282a9bca71f604975f1c9",
+    "unchangedPricingIdentitySha256": "6d9ce85df4c77ae3ca305ee8efe9606a11cf764ef7f00eb5fa74596c8e2543aa",
+    "guard": "Apply only to the complete previously reviewed row, including services, booking, contact, original point and approval data. Pass through changed or already corrected rows untouched."
+  },
+  "verifiedCoverageProjection": {
+    "location": "Люлин 6",
+    "category": "fitness",
+    "physicalPremises": [0, 1],
+    "withUsableAddressPoint": [0, 1],
+    "newBusinesses": 0,
+    "newServices": 0,
+    "displacedBroadAreaPremises": 1,
+    "totalSofiaBoundPointChange": 0
+  },
+  "safeguards": {
+    "pricesServicesBookingExpiryChanged": false,
+    "newBookingOrCustomerDataCollected": false,
+    "mapGeocoderOrPaidProviderRequests": 0,
+    "imageryOrMarketingProseCopied": false,
+    "productionWrites": 0
+  }
+}

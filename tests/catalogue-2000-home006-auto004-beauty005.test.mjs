@@ -11,6 +11,7 @@ import { catalogueBoundCoordinates } from '../lib/discovery/catalogue-coordinate
 import { searchCatalogueForOnboarding, catalogueOnboardingDetail } from '../lib/catalogue-onboarding.mjs'
 import { catalogueServicePhotoFields } from '../lib/catalogue-service-photo-keys.mjs'
 import { serviceThumbnail } from '../lib/service-thumbnail.mjs'
+import { postalPrecisionPriorCatalogue } from './catalogue-postal-precision-20261123-scope.mjs'
 
 const now = Date.parse('2026-11-13T22:30:00Z')
 // Only these two source receipts were genuinely re-reviewed on November 22;
@@ -111,5 +112,6 @@ test('owner literal complex GPS is used instead of its different postal point an
   assert.deepEqual(complex.coordinates, { latitude: 42.630767, longitude: 23.360355, method: 'first_party_coordinates', source: 'https://malinovasport.bg/', sourceAddress: complex.address })
   assert.equal(catalogueBoundCoordinates(complex), complex.coordinates)
   assert.equal(catalogueBoundCoordinates({ ...complex, address: complex.address + 'А' }), null)
-  for (const id of ['sofia-dirty-garage-mladost2-block272b', 'sofia-malkite-ribki-kiril-buyukliyski30', 'sofia-balansense-galichitsa33', 'sofia-quickfit-otets-paisiy3']) assert.equal(row(id).coordinates, null, id)
+  const originalAddressCohort = new Map(postalPrecisionPriorCatalogue(SOFIA_CATALOGUE).map(item => [item.id, item]))
+  for (const id of ['sofia-dirty-garage-mladost2-block272b', 'sofia-malkite-ribki-kiril-buyukliyski30', 'sofia-balansense-galichitsa33', 'sofia-quickfit-otets-paisiy3']) assert.equal(originalAddressCohort.get(id).coordinates, null, id)
 })

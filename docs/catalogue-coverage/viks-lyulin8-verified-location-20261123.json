@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "baselineCommit": "2167138505d08ab7e2c5e5198cca71b0bc96e918",
+  "checkedOn": "2026-11-23",
+  "pointReviewDateUtc": "2026-11-23",
+  "status": "prepared_not_published",
+  "newBusinesses": 0,
+  "newBoundPoints": 1,
+  "existingBusiness": {
+    "id": "sofia-viks-beauty-studio",
+    "name": "VIKS Beauty Studio",
+    "neighborhood": "Люлин 8",
+    "addressUnchanged": "София, ж.к. Люлин 8, ул. 3011 № 7",
+    "website": "https://viks.info/",
+    "bookingUnchanged": { "kind": "form", "url": "https://viks.info/booking" },
+    "ownerReviewedUrls": [
+      "https://viks.info/",
+      "https://viks.info/booking",
+      "https://viks.info/manikyur-lyulin",
+      "https://viks.info/pedikyur-lyulin"
+    ],
+    "ownerEvidence": "The site footer, the dedicated owner service pages and the linked reservation destination independently give the same named studio, Lyulin 8, street 3011 number 7 and public venue telephone. The booking footer is visible but the booking menu is not needed for this coordinates-only review. No claim about live availability, fees or new services is made. The original booking destination, business eligibility dates, three service identities and price state remain unchanged.",
+    "municipal": {
+      "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+      "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+      "addressId": "55173",
+      "district": "Люлин",
+      "settlement": "гр. София",
+      "latitude": 42.721247,
+      "longitude": 23.256882,
+      "licence": "CC-BY-4.0",
+      "pointScope": "Single exact match for the municipal district, settlement, numbered street and civic number. It is the postal point for the building; no entrance, adjacent street, house-number interpolation, map viewport, geocoder or neighborhood centroid is used."
+    },
+    "normalizedRecordSha256": [
+      "1ebab30002bb4c403345b08811e67a85f086e65d613da334fc13c67276c31f5f",
+      "55ffd935d27a7e9ffa66455a07b8ab6419f386df411f52bf4d3d5d9c13d04253"
+    ],
+    "pricingIdentityUnchanged": "e5553cf9aaf41a2897ae1f77975fba02c25c54bd2a951f5035f641aba86cca11",
+    "verificationDatesUnchanged": { "checkedOn": "2026-11-06", "validUntil": "2027-02-04" },
+    "serviceCountUnchanged": 3,
+    "scopedCellCounts": {
+      "hair": { "physical": [1, 1], "located": [0, 1] },
+      "nails": { "physical": [2, 2], "located": [0, 1] },
+      "beauty": { "physical": [4, 4], "located": [2, 3] }
+    }
+  },
+  "scope": "Only the previously missing coordinates on the one existing, exact owner premises. No copies of website assets, accounts, production data, clicks into booking steps, communications, customer information, payments, new business or service records."
+}

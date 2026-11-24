@@ -12,6 +12,64 @@ import { SUHODOL_20261122_REVIEWS } from '../lib/discovery/catalogue-data/neighb
 import { INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-intake-20261123.mjs'
 import { AUTO_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-auto-intake-20261123.mjs'
 import { VERIFIED_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-intake-20261123.mjs'
+import { EDUCATION_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-education-intake-20261123.mjs'
+import { GALILEODENT_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-galileodent-intake-20261123.mjs'
+import { VM_AUTO_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-vm-auto-intake-20261123.mjs'
+import { SPORT_EDUCATION_GAP_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-sport-education-gap-20261123.mjs'
+import { DOICHINOVA_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-doichinova-intake-20261123.mjs'
+import { DBROS_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-dbros-intake-20261123.mjs'
+import { PRIORITY_DENTAL_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-priority-dental-20261123.mjs'
+import { NEKSAS_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-neksas-20261123.mjs'
+import { PAKOSTI_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-pakosti-20261123.mjs'
+import { ACPOWER_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-acpower-20261123.mjs'
+import { MIKRON_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-mikron-20261123.mjs'
+import { MY_REFORMER_SPACE_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-my-reformer-space-20261123.mjs'
+import { UNIGAS_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-unigas-20261123.mjs'
+import { SM_GROUP_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-sm-group-20261123.mjs'
+import { SPECIALIST_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-specialist-intake-20261123.mjs'
+import { KOBA_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-koba-intake-20261123.mjs'
+import { COURSES_RECREATION_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-courses-recreation-20261123.mjs'
+import { INFINITY_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-infinity-intake-20261123.mjs'
+import { HORO_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-horo-intake-20261123.mjs'
+import { SHARENSVYAT_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-sharen-svyat-intake-20261123.mjs'
+import { SALT_HUG_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-salt-hug-intake-20261123.mjs'
+import { FRANTSOV_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-frantsov-intake-20261123.mjs'
+import { SOLUX_AUTO_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-solux-auto-intake-20261123.mjs'
+import { MASTERS_DANCE_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-masters-dance-intake-20261123.mjs'
+import { CANDY_HOUSE_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-candy-house-intake-20261123.mjs'
+import { KOBA_PARIS_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-koba-paris-intake-20261123.mjs'
+import { VITOSHA_PAIR_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-vitosha-pair-intake-20261123.mjs'
+import { GEMINI4_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-gemini4-intake-20261123.mjs'
+import { ALVA_DENTAL_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-alva-dental-intake-20261123.mjs'
+import { SPARSE_EAST_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-sparse-east-intake-20261123.mjs'
+import { SPARSE_SOUTH_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-sparse-south-intake-20261123.mjs'
+import { EMIKA_DRUZHBA2_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-emika-druzhba2-20261123.mjs'
+import { SILVERSTAR_RING_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-silverstar-ring-intake-20261123.mjs'
+import { VERIFIED_SOUTH_NEXT_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-south-next-20261123.mjs'
+import { NORTH_NEXT_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-north-next-20261123.mjs'
+import { VERIFIED_EAST_NEXT_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-east-next-20261123.mjs'
+import { VERIFIED_EAST_GROWTH_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-east-growth-20261123.mjs'
+import { VERIFIED_SOUTH_GROWTH_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-south-growth-20261123.mjs'
+import { NORTH_GROWTH_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-north-growth-20261123.mjs'
+import { SPARSE_MARKET_SOUTH_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-sparse-market-south-20261123.mjs'
+import { DCA_LEVSKI_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-dca-levski-20261123.mjs'
+import { ELIT_CHESS_INTAKE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-elit-chess-20261123.mjs'
+import { PRIORITY_DISTINCT_EAST_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-priority-distinct-east-20261123.mjs'
+import { PRIORITY_DISTINCT_NORTH_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-priority-distinct-north-20261123.mjs'
+import { PRIORITY_DISTINCT_SOUTH_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-priority-distinct-south-20261123.mjs'
+import { PRIORITY_CONTINUED_EAST_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-priority-continued-east-20261123.mjs'
+import { PRIORITY_NEXT_EAST_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-priority-next-east-20261123.mjs'
+import { PRIORITY_NEXT_NORTH_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-priority-next-north-20261123.mjs'
+import { PRIORITY_NEXT_SOUTH_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-priority-next-south-20261123.mjs'
+import { PRIORITY_FRESH_EAST_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-priority-fresh-east-20261123.mjs'
+import { PRIORITY_FRESH_NORTH_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-priority-fresh-north-20261123.mjs'
+import { PRIORITY_FRESH_SOUTH_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-priority-fresh-south-20261123.mjs'
+import { PRIORITY_FOUND_CORE_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-priority-found-core-20261123.mjs'
+import { PRIORITY_FOUND_EAST_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-priority-found-east-20261123.mjs'
+import { PRIORITY_FOUND_SOUTH_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-priority-found-south-20261123.mjs'
+import { PRIORITY_SPARSE2_NORTH_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-priority-sparse2-north-20261123.mjs'
+import { PRIORITY_SPARSE2_SOUTH_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-priority-sparse2-south-20261123.mjs'
+import { pricedGrowthPriorCatalogue } from './catalogue-priced-growth-20261123-scope.mjs'
 const now = Date.parse('2026-11-11T12:00:00Z')
 const record = () => structuredClone(SOFIA_CATALOGUE.find(row => row.id === 'sofia-cut-n-chill'))
 const review = () => structuredClone(BOOKING_PRICE_REVIEWS.find(row => row.id === 'sofia-cut-n-chill'))
@@ -68,9 +126,12 @@ test('the existing catalogue stays available and unresolved records remain expli
     row.id.startsWith('sofia-gpoint-') && row.website === 'https://gpoint.bg/' && row.checkedOn === '2026-11-22'
   ).map(row => row.id))
   assert.equal(revalidatedGPointIds.size, 43)
-  const historical = SOFIA_CATALOGUE.filter(row => row.verification.checkedOn <= '2026-11-11' && !revalidatedGPointIds.has(row.id))
+  const historical = pricedGrowthPriorCatalogue(SOFIA_CATALOGUE).filter(row =>
+    row.verification.checkedOn <= '2026-11-11' && !revalidatedGPointIds.has(row.id))
   const ids = new Set(historical.map(row => row.id))
-  const result = auditCataloguePricing(historical, baseline, BOOKING_PRICE_REVIEWS.filter(row => ids.has(row.id)), now)
+  const waveHistory = NEIGHBORHOOD_20261111_REVIEWS.find(row => row.id === 'sofia-wave-studio-lyulin7-nails')
+  const historicalReviews = BOOKING_PRICE_REVIEWS.filter(row => ids.has(row.id)).map(row => row.id === waveHistory.id ? waveHistory : row)
+  const result = auditCataloguePricing(historical, baseline, historicalReviews, now)
   assert.equal(result.summary.total, historical.length)
   assert.equal(result.blocking.length, 0)
   assert.ok(result.summary.pending > 0)
@@ -98,12 +159,92 @@ test('dated audit receipts cover every current ID without rewriting the historic
   assert.ok(intakeIds.every(id => !earlierIds.has(id)))
   assert.deepEqual(AUTO_INTAKE_20261123_REVIEWS.map(row => row.id), ['sofia-mline-auto-detailing-gorublyane-pionerska2'])
   assert.deepEqual(VERIFIED_INTAKE_20261123_REVIEWS.map(row => row.id), ['sofia-luckydent-dragalevtsi-gluharche10'])
+  const additions = [...EDUCATION_INTAKE_20261123_REVIEWS, ...GALILEODENT_INTAKE_20261123_REVIEWS, ...VM_AUTO_INTAKE_20261123_REVIEWS]
+  assert.deepEqual(additions.map(row => row.id), [
+    'sofia-part-time-pavlovo-duychev12v', 'sofia-galileodent-nadezhda4-lomsko182', 'sofia-vm-auto-service-obelya-2-lomsko248a',
+  ])
   const auditedIds = new Set([...earlierIds, ...intakeIds, ...AUTO_INTAKE_20261123_REVIEWS.map(row => row.id), ...VERIFIED_INTAKE_20261123_REVIEWS.map(row => row.id)])
+  for (const [index, review] of additions.entries()) {
+    assert.equal(auditedIds.has(review.id), false)
+    auditedIds.add(review.id)
+    assert.ok(BOOKING_PRICE_REVIEWS.includes(review))
+    const business = SOFIA_CATALOGUE.find(row => row.id === review.id)
+    assert.equal(assessPricingReview(business, review, Date.parse('2026-11-23T12:00:00Z')).state, index === 2 ? 'reviewed' : 'service_reviewed')
+    assert.equal(assessPricingReview(business, review, now).state, 'pending')
+  }
+  for (const [reviews, id, state] of [
+    [SPORT_EDUCATION_GAP_20261123_REVIEWS, 'sofia-umni-deca-obelya2-106-3', 'service_reviewed'],
+    [DOICHINOVA_INTAKE_20261123_REVIEWS, 'sofia-doichinova-lyulin3-block368', 'reviewed'],
+    [DBROS_INTAKE_20261123_REVIEWS, 'sofia-dbros-vrazhdebna-botevgradsko431', 'service_reviewed'],
+    [PRIORITY_DENTAL_INTAKE_20261123_REVIEWS, 'sofia-kabident-lyulin9-vlaikov27', 'service_reviewed'],
+    [NEKSAS_INTAKE_20261123_REVIEWS, 'sofia-neksas-academy-chelopechene-yane28', 'service_reviewed'],
+    [PAKOSTI_INTAKE_20261123_REVIEWS, 'sofia-pakosti-chudati-botunets-levski5', 'reviewed'],
+    [ACPOWER_INTAKE_20261123_REVIEWS, 'sofia-ac-power-suhodol-badeshte4a', 'reviewed'],
+    [MIKRON_INTAKE_20261123_REVIEWS, 'sofia-mikron-dotsev-knyazhevo-tsarboris298', 'reviewed'],
+    [MY_REFORMER_SPACE_INTAKE_20261123_REVIEWS, 'sofia-my-reformer-space-levski-g-vazov39', 'reviewed'],
+    [UNIGAS_INTAKE_20261123_REVIEWS, 'sofia-unigas-romano-voenna-rampa-konstantin3', 'reviewed'],
+    [SM_GROUP_INTAKE_20261123_REVIEWS, 'sofia-sm-group-korekt-druzhba1-block182', 'reviewed'],
+    [SPECIALIST_INTAKE_20261123_REVIEWS, 'sofia-mushmula-poligona-tsarigradsko111v', 'reviewed'],
+    [KOBA_INTAKE_20261123_REVIEWS, 'sofia-koba-auto-bosch-rodopi27', 'service_reviewed'],
+    [COURSES_RECREATION_INTAKE_20261123_REVIEWS, 'sofia-ucha-land-dianabad-novachnitsa3', 'reviewed'],
+    [INFINITY_INTAKE_20261123_REVIEWS, 'sofia-infinity-team-strelbishte-bulgaria43', 'service_reviewed'],
+    [HORO_INTAKE_20261123_REVIEWS, 'sofia-horo-moderno-predgradie-evropa20', 'service_reviewed'],
+    [SHARENSVYAT_INTAKE_20261123_REVIEWS, 'sofia-sharen-svyat-lyulin5-block519g', 'reviewed'],
+    [SALT_HUG_INTAKE_20261123_REVIEWS, 'sofia-salt-hug-druzhba1-block195v', 'reviewed'],
+    [FRANTSOV_INTAKE_20261123_REVIEWS, 'sofia-nikolay-frantsov-druzhba1-block18v', 'reviewed'],
+    [SOLUX_AUTO_INTAKE_20261123_REVIEWS, 'sofia-solux-auto-pavlina4', 'service_reviewed'],
+    [MASTERS_DANCE_INTAKE_20261123_REVIEWS, 'sofia-masters-dance-lyulin-centre-nenov29', 'service_reviewed'],
+    [CANDY_HOUSE_INTAKE_20261123_REVIEWS, 'sofia-candy-house-lyulin10-mayski-den22', 'reviewed'],
+    [KOBA_PARIS_INTAKE_20261123_REVIEWS, 'sofia-koba-auto-paris14', 'service_reviewed'],
+    [[VITOSHA_PAIR_20261123_REVIEWS[0]], 'sofia-kis-auto-simeonovo-bosilek3', 'reviewed'],
+    [[VITOSHA_PAIR_20261123_REVIEWS[1]], 'sofia-next-level-knyazhevo-tsar-boris272', 'reviewed'],
+    [GEMINI4_INTAKE_20261123_REVIEWS, 'sofia-gemini4-republika-729-22', 'service_reviewed'],
+    [ALVA_DENTAL_INTAKE_20261123_REVIEWS, 'sofia-alva-dental-hadzhi-dimitar107v', 'service_reviewed'],
+    [SPARSE_EAST_INTAKE_20261123_REVIEWS, 'sofia-salt-home-druzhba2-block302a', 'reviewed'],
+    [SPARSE_SOUTH_INTAKE_20261123_REVIEWS, 'sofia-logos152-simeonovo-krairechna10', 'service_reviewed'],
+    [EMIKA_DRUZHBA2_20261123_REVIEWS, 'sofia-emika-druzhba2-block204', 'service_reviewed'],
+    [SILVERSTAR_RING_INTAKE_20261123_REVIEWS, 'sofia-silver-star-ring-mall-okolovrasten214', 'service_reviewed'],
+    [VERIFIED_SOUTH_NEXT_20261123_REVIEWS, 'sofia-elizabet-ritmika-dragalevtsi-bela-dona1', 'service_reviewed'],
+    [NORTH_NEXT_INTAKE_20261123_REVIEWS, 'sofia-avtotapicera-iliyantsi-balcho7', 'service_reviewed'],
+    [VERIFIED_EAST_NEXT_20261123_REVIEWS, 'sofia-carplay-bulgaria-gorublyane-pionerska2', 'service_reviewed'],
+    [VERIFIED_EAST_GROWTH_20261123_REVIEWS, 'sofia-partydots-druzhba2-block280e', 'reviewed'],
+    [VERIFIED_SOUTH_GROWTH_20261123_REVIEWS, 'sofia-karting-ring-academy-simeonovo-214', 'reviewed'],
+    [NORTH_GROWTH_INTAKE_20261123_REVIEWS, 'sofia-terpsihora-lyulin5-504-1', 'service_reviewed'],
+    [SPARSE_MARKET_SOUTH_20261123_REVIEWS, 'sofia-kanev-carpet-knyazhevo-buket55', 'reviewed'],
+    [DCA_LEVSKI_INTAKE_20261123_REVIEWS, 'sofia-dca-garage-levski-v-letostruy27', 'reviewed'],
+    [ELIT_CHESS_INTAKE_20261123_REVIEWS, 'sofia-elit-chess-sveta-troitsa-hisarya3a', 'reviewed'],
+    [[PRIORITY_DISTINCT_EAST_20261123_REVIEWS[0]], 'sofia-studio-s-hadzhi-dimitar-vastanik5', 'reviewed'],
+    [[PRIORITY_DISTINCT_NORTH_20261123_REVIEWS[0]], 'sofia-smartykids-lyulin9-block954', 'reviewed'],
+    [[PRIORITY_DISTINCT_NORTH_20261123_REVIEWS[1]], 'sofia-limoncello-kids-buxton-gortalov1', 'reviewed'],
+    [PRIORITY_DISTINCT_SOUTH_20261123_REVIEWS, 'sofia-sr-cars-ovcha-kupel-boychev4', 'service_reviewed'],
+    [PRIORITY_CONTINUED_EAST_20261123_REVIEWS, 'sofia-yonitrade-suhata-reka-block10a', 'service_reviewed'],
+    [PRIORITY_NEXT_EAST_20261123_REVIEWS, 'sofia-active-dental-mladost2-block295', 'service_reviewed'],
+    [PRIORITY_NEXT_NORTH_20261123_REVIEWS, 'sofia-sokol-tennis-benkovski-stadium', 'reviewed'],
+    [PRIORITY_NEXT_SOUTH_20261123_REVIEWS, 'sofia-drive-school-knyazhevo-tsar-boris365', 'reviewed'],
+    [PRIORITY_FRESH_EAST_20261123_REVIEWS, 'sofia-anev-barber-mladost1a-ahmatova532', 'reviewed'],
+    [PRIORITY_FRESH_NORTH_20261123_REVIEWS, 'sofia-one-service-vrabnitsa1-276-13', 'reviewed'],
+    [PRIORITY_FRESH_SOUTH_20261123_REVIEWS, 'sofia-magazinche-za-znanie-lyulin2', 'reviewed'],
+    [PRIORITY_FOUND_CORE_20261123_REVIEWS, 'sofia-sparklab-mladost3-block304-3', 'reviewed'],
+    [PRIORITY_FOUND_EAST_20261123_REVIEWS, 'sofia-little-smiles-mladost1-nikola-genadiev5g', 'reviewed'],
+    [PRIORITY_FOUND_SOUTH_20261123_REVIEWS, 'sofia-jolly-kids-pavlovo-duychev12v', 'reviewed'],
+    [PRIORITY_SPARSE2_NORTH_20261123_REVIEWS, 'sofia-lokomotiv-tennis-voenna-rampa-rozhen23', 'reviewed'],
+    [PRIORITY_SPARSE2_SOUTH_20261123_REVIEWS, 'sofia-kindyroo-lyulin8-tsaritsa-yoanna68', 'reviewed'],
+  ]) {
+    assert.deepEqual(reviews.map(row => row.id), [id])
+    assert.equal(auditedIds.has(id), false)
+    auditedIds.add(id)
+    const [review] = reviews
+    assert.ok(BOOKING_PRICE_REVIEWS.includes(review))
+    const business = SOFIA_CATALOGUE.find(row => row.id === id)
+    assert.equal(assessPricingReview(business, review, Date.parse('2026-11-23T12:00:00Z')).state, state, id)
+    assert.equal(assessPricingReview(business, review, now).state, 'pending')
+  }
   assert.equal(auditedIds.size, SOFIA_CATALOGUE.length)
   assert.ok(SOFIA_CATALOGUE.every(row => auditedIds.has(row.id)))
   for (const review of NEIGHBORHOOD_20261111_REVIEWS) {
     const record = SOFIA_CATALOGUE.find(row => row.id === review.id)
-    assert.equal(assessPricingReview(record, review, now).state, 'reviewed', review.id)
+    const [prior] = pricedGrowthPriorCatalogue([record])
+    assert.equal(assessPricingReview(prior, review, now).state, 'reviewed', review.id)
   }
   for (const review of SUHODOL_20261122_REVIEWS) {
     const record = SOFIA_CATALOGUE.find(row => row.id === review.id)

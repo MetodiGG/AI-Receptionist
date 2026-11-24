@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "status": "verified_location_only",
+  "purpose": "Attach the municipal postal-address point to an existing sports business without changing its address, services, booking or price.",
+  "business": {
+    "id": "sofia-pluven-klub-lyulin-33ou",
+    "name": "Плувен клуб Люлин–София",
+    "cityCode": "68134",
+    "category": "fitness",
+    "neighborhood": "Люлин 3",
+    "address": "София, ж.к. Люлин 3, ул. 309 № 8, басейн на 33 ОУ Санкт Петербург",
+    "website": "https://sites.google.com/view/pluvanelyulin/",
+    "booking": "Keep enquiry and advance phone booking via +359885721337. This is not a GoRez booking, a published slot or an availability guarantee.",
+    "inventory": "Keep the existing single children's one-to-one swimming lesson and its 25 EUR tariff for one participant. No new service, price validity window, timetable or opening hours are introduced."
+  },
+  "sources": [
+    {
+      "url": "https://sites.google.com/view/pluvanelyulin/%D0%BA%D0%BE%D0%BD%D1%82%D0%B0%D0%BA%D1%82%D0%B8",
+      "evidence": "The club identifies the 33rd School Saint Petersburg in Lyulin 3 as its public venue and publishes the retained enquiry phone. Its map embed was not used."
+    },
+    {
+      "url": "https://sites.google.com/view/pluvanelyulin/%D0%B1%D0%B0%D1%81%D0%B5%D0%B9%D0%BD",
+      "evidence": "The club's own pool page confirms the swimming pool is at the 33rd School, rather than an office or a generic area served."
+    },
+    {
+      "url": "https://lyulin.sofia.bg/dokumenti/uchilishta-na-teritoriata-na-rayon-lyulin/",
+      "evidence": "The official Lyulin district schools register identifies the host school by name and explicitly gives Lyulin 3, 309 Street No. 8."
+    },
+    {
+      "url": "https://www.sofia.bg/en/municipality-schools-lulin",
+      "evidence": "The city schools directory independently lists the same named school and complete civic address."
+    },
+    {
+      "url": "https://sites.google.com/view/pluvanelyulin/%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D0%BA",
+      "evidence": "The booking instructions say individual lessons are arranged on enquiry and publish the existing phone for booking."
+    },
+    {
+      "url": "https://sites.google.com/view/pluvanelyulin/%D1%86%D0%B5%D0%BD%D0%B8",
+      "evidence": "The owner's tariff lists 25 EUR per one-to-one lesson for one person, distinct from two- and three-person fees. This location attachment does not renew the pricing review."
+    }
+  ],
+  "coordinateReview": {
+    "method": "Manually matched the exact numbered street and house fields against one original municipal CSV row after the operator and two municipal directories matched the same named host. The generic free-text parser does not recognize this numeric street and number-sign spelling; no parser or public address was edited.",
+    "semantics": "Verified address point for the 33rd School postal address, not a verified pool entrance or specific doorway.",
+    "municipalSource": {
+      "url": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+      "sourceSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+      "sourceBytes": 12601716,
+      "licence": "CC-BY-4.0",
+      "attribution": "ГИС София / Столична община"
+    },
+    "uniqueCivicRow": {
+      "rn": "110120",
+      "region": "Люлин",
+      "settlement": "гр. София",
+      "lareaunit": "",
+      "block": "",
+      "street": "ул. 309",
+      "streetnum": "8",
+      "entrance": "",
+      "latitude": 42.719699,
+      "longitude": 23.247158
+    }
+  },
+  "identities": {
+    "baselineCommit": "e8d3e25f4eabd412b29c65816b10abbb670e4c49",
+    "normalizedPriorRowSha256": "0144b2e096ec69bbaa97064d8ed2c6ee628e912797ed0b2fa46924ed4d8e9849",
+    "normalizedAfterRowSha256": "4499a50908380db668e3cd3b21701c6688678dac157083e8530d38023dca79bd",
+    "unchangedPricingIdentitySha256": "66eb9a9c52529700e3fde5ae56cdfe7025de59649796dc4c1843d3ae6b4ed560",
+    "guard": "Attach the point only to the exact reviewed unlocated premises, phone and booking/contact URLs."
+  },
+  "verifiedCoverageProjection": {
+    "neighborhood": "Люлин 3",
+    "category": "fitness",
+    "physicalPremises": [1, 1],
+    "withUsableAddressPoint": [0, 1],
+    "newBusinesses": 0,
+    "newServices": 0
+  },
+  "safeguards": {
+    "pricesServicesBookingExpiryChanged": false,
+    "newBookingOrCustomerDataCollected": false,
+    "mapGeocoderOrPaidProviderRequests": 0,
+    "imageryOrMarketingProseCopied": false,
+    "productionWrites": 0
+  }
+}

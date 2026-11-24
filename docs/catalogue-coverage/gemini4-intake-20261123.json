@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-11-23",
+  "baseline": "3a455cdd510f2a1d31d11e40927e35c5eb7467fd",
+  "status": "prepared_local_not_published",
+  "priority": "30 distinct physical businesses with verified addresses per Sofia quarter and category",
+  "newCatalogueRecordsPrepared": 1,
+  "newPhysicalWorkshopsPrepared": 1,
+  "newDistinctOperatorsPrepared": 1,
+  "newServicesPrepared": 1,
+  "verifiedPublicPriceFacts": 0,
+  "business": {
+    "id": "sofia-gemini4-republika-729-22",
+    "name": "Автосервиз Джемини 4",
+    "category": "auto_repair",
+    "neighborhood": "Република",
+    "address": "София, Република, ул. 729 № 22",
+    "website": "https://www.gemini4.com/",
+    "contact": "https://www.gemini4.com/контакти/",
+    "phone": "+359888147313",
+    "locationKind": "premises",
+    "validUntil": "2026-12-23",
+    "duplicateCheck": "No matching operator name, domain, service telephone or address ID in the existing Sofia catalogue. Do not count older third-party No. 15 references or a second workshop described by the operator as additional venues in this intake. AutoTest is a separate existing provider in the same neighborhood.",
+    "coordinateEvidence": {
+      "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+      "municipalCsvSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+      "method": "verified_official_address",
+      "addressId": "58809",
+      "latitude": 42.737442,
+      "longitude": 23.239042,
+      "municipalRow": {
+        "rn": "58809",
+        "region": "Люлин",
+        "settlement": "гр. София",
+        "lareaunit": "",
+        "block": "",
+        "street": "ул. 729",
+        "streetnum": "22",
+        "entrance": ""
+      },
+      "corroboratingSource": "https://www.bulins.com/contacts",
+      "evidence": "The owner's contact and dedicated transmission-repair pages explicitly locate the workshop at street 729 No. 22 in Republika. An insurer independently identifies the same street number and neighborhood. The user-supplied municipal register has one exact record for No. 22; it supplies the postal point but not the neighborhood, entrance or workshop bay. Old generic third-party No. 15 references were excluded because No. 15 is a different numbered point (rn116136)."
+    },
+    "service": {
+      "name": "Ремонт на автоматична скоростна кутия",
+      "description": "Частичен или основен ремонт на автоматична скоростна кутия, включително демонтаж и монтаж при необходимост. Първоначалната оценка е ориентировъчна; точната оферта се уточнява след преглед.",
+      "bookingSource": "https://www.gemini4.com/контакти/",
+      "serviceSources": [
+        "https://www.gemini4.com/ремонт-на-автоматична-трансмисия/",
+        "https://www.gemini4.com/работно-хале-за-сваляне-и-качване-на-ас/",
+        "https://www.gemini4.com/общи-условия-за-ремонт-на-автомобил/",
+        "https://www.gemini4.com/промоции/"
+      ],
+      "booking": "The business phone is published specifically for automatic-transmission repair and diagnostics. Customers arrange the repair by telephone. The record does not promise live slots, online confirmation, GoRez booking or a price agreed before inspection.",
+      "pricingDecision": "not_publicly_listed",
+      "priceSearch": "The repair contact, dedicated service pages, repair terms and promotions contain no public numeric tariff for this service and no stated duration. Initial estimates are approximate; a precise written estimate can be agreed after assessment, and additional work and price require client approval. The storage-related fee in the general repair terms is not a repair price."
+    },
+    "openingHours": {
+      "source": "https://www.gemini4.com/контакти/",
+      "weekdays": "09:00–18:00",
+      "limit": "Owner-published weekday hours, not appointment availability. No weekend schedule inferred."
+    },
+    "sourcePolicy": "Ordinary public read-only inspection. Content, marketing copy, business images and reviews were not copied; descriptions are original summaries of supported factual information. The actual repair terms and cookie policy are public; the English site-terms link in the cookie overlay did not load.",
+    "image": {
+      "status": "existing_catalogue_illustration",
+      "key": "sx-auto-gearbox-removal",
+      "asset": "/service-photos/sx-auto-gearbox-removal-v1.webp",
+      "sha256": "99ec3a3c28943a54f6717cba0a94df1c0eb5393d06f8971527231265a95f266d",
+      "limit": "The reviewed illustrative image depicts the removal of a gearbox, one documented part of this service. It does not show the business, its employees or real completed work."
+    },
+    "english": {
+      "name": "Automatic transmission repair",
+      "description": "Partial or complete automatic transmission repair, including removal and installation when needed. The initial estimate is indicative; a firm quote is agreed after inspection."
+    },
+    "inventoryIdentity": "43e3aabfc831102ea421d6b2a55b2444537f16cd4548207e2f8e50679c8e624d",
+    "normalizedRecordSha256": "4ca7af30db56a15305c79d2318ce24e7b3fda2dc097b663c09e1a8a7a4aa5711"
+  },
+  "isolatedCoverageDelta": {
+    "targetPerQuarterCategory": 30,
+    "neighborhood": "Република",
+    "category": "auto_repair",
+    "physical": [1, 2],
+    "located": [1, 2]
+  }
+}

@@ -3,7 +3,7 @@ import { execFileSync } from 'node:child_process'
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import receipt from './fixtures/sofia-location-rpc-isolation-20261125-approval.json' with { type: 'json' }
-import { mobileCatalogueAllowsFileChange, mobileCataloguePriorSource } from './mobile-catalogue-hotfix-scope.mjs'
+import { mobileCatalogueAllowsFileChange, mobileCatalogueAllowsNewFile, mobileCataloguePriorSource } from './mobile-catalogue-hotfix-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -14,7 +14,7 @@ function exactFile(path, map, hashFor) {
   catch { return false }
 }
 export const sofiaRpcAllowsFileChange = path => mobileCatalogueAllowsFileChange(path) || exactFile(path, receipt.changed, value => value.after)
-export const sofiaRpcAllowsNewFile = path => exactFile(path, receipt.added, value => value)
+export const sofiaRpcAllowsNewFile = path => mobileCatalogueAllowsNewFile(path) || exactFile(path, receipt.added, value => value)
 export const sofiaRpcMatchesPriorHash = (path, hash) => Boolean(hash && Object.hasOwn(receipt.changed, path)
   && receipt.changed[path].before === hash && sofiaRpcAllowsFileChange(path))
 

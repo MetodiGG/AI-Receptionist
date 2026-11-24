@@ -16,7 +16,7 @@ const changed = {
   ],
   "components/business-cover-photo.js": [
     "19508531dd733473fdf0e766b06cb876ebda576b9987254a9ea67fc366d9c3b2",
-    "38d4f9ad67b456e743bc020855e9f249b70e043593201ff57d705537867eef0c"
+    "d9ff04e1458b47fe346e3a6245bde0d4118843a970cfee264851b7f4ccaa1b07"
   ],
   "components/discovery-business-card.js": [
     "591d94afd7cc51fca5de38900178df026ecf26a8ecd69d1be64c923cb9c72cf7",
@@ -26,18 +26,27 @@ const changed = {
     "db2bd89ab0ed9fa3d740993ce97f0e7134ec11d6ab6cc2b17fbd8ad6193be011",
     "b01cd6415cbe1d636febf411be3f009641faccecc3c3f2c9c6e2b9a1d966380b"
   ],
-  "components/service-thumbnail.js": [
-    "f5f1cec2c118cf47c62f14d587b22ab5699c349f07722079356a334322f701d5",
-    "e98225759a6edb33c233d9b14e23cb45e5db637af1833b3efd4756c5503a4e95"
-  ],
   "lib/discovery-photo-presentation.mjs": [
     "cacf0ae20a6de45affee98b4eaa9b7526ab87e22215675310208dc4b1e43c43a",
-    "323839339978d7cc1bcc388642a648a43867d1b4e6ba1f26ff97d03ad6369393"
+    "07cfea897e142e39e32c43d983f92221cf3b400b9f982488a86fc1d5d1ce7ffa"
   ],
   "lib/discovery/service-description-disclosure.mjs": [
     "58b664cc5a444fc875ff50799903c1c1f0a5ac8a578936a2748d97e13ad3822c",
     "e2f67f3982211f84acf1f0fe2c2040420efcd60fcfaa6d47bc7465f521e7410e"
   ]
+}
+const added = {
+  "public/business-cover-photos/go-nosia-todor-alexandrov-20261125-v1.webp": "ab79938cf823074ac4ec7d7af32520a6e23ce9df2e45924d3ddcd3be7c98da56",
+  "public/business-cover-photos/go-latin-force-centre-20261125-v1.webp": "f16d83622fe22beb0f8ed4216545ed2081a8323f278230fa5e848b1d9cbe9f2d",
+  "public/service-photos/go-nosia-folk-dance-beginners-20261125-v1.webp": "83bd32aee18077ef1b8cfa002dda7f9b46cb72c18fdc05f0c7a413d2d98ee863",
+  "public/service-photos/go-latin-force-individual-dance-20261125-v1.webp": "f99fbe096e8a9f118ff2d7766e71fc9bff78b94971eb50602ea570509c0bb092",
+  "docs/discovery-incident-artwork-20261125.md": "b2f747ee645ef6e1abc1b8d537b7e5fe3bba6d7cdd806d8222af879dd5d6eb59"
+}
+
+export function mobileCatalogueAllowsNewFile(path) {
+  if (!Object.hasOwn(added, path)) return false
+  try { return sha(readFileSync(new URL('../' + path, import.meta.url))) === added[path] }
+  catch { return false }
 }
 
 export function mobileCatalogueAllowsFileChange(path) {

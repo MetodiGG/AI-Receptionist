@@ -82,7 +82,8 @@ export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, 
           const price = detailPriceLabel({ ...service, priceUnit: '' }, locale, { compact: true })
           const unit = price && service.priceUnit ? serviceDisplayUnit(service, locale) : ''
           const { description, conditions } = servicePresentation(service, locale)
-          const { visible, hasConditions } = serviceDescriptionDisclosure(description, { maxVisibleLength: 96 })
+          const { visible, more, hasConditions } = serviceDescriptionDisclosure(description)
+          const compactDescription = visible.filter(paragraph => paragraph.length <= 96)
           return <li key={service.id || `${service.name}-${index}`}>
             <ServiceThumbnail service={service} business={row} locale={locale} size={40}/>
             <div className="home-business-preview-copy">
@@ -90,7 +91,8 @@ export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, 
               {unit && <span className="home-business-preview-unit">{unit}</span>}
               {conditions.map(condition => <span className="home-business-preview-condition" key={condition}>{condition}</span>)}
               {hasConditions && <span className="home-business-preview-condition" data-service-has-conditions>{copy.hasConditions}</span>}
-              {visible.map((paragraph,paragraphIndex) => <p className="home-business-preview-description" key={paragraphIndex}>{paragraph}</p>)}
+              {!hasConditions && (more || compactDescription.length < visible.length) && <span className="home-business-preview-condition" data-service-preview-more>{copy.readMore}</span>}
+              {compactDescription.map((paragraph,paragraphIndex) => <p className="home-business-preview-description" key={paragraphIndex}>{paragraph}</p>)}
             </div>
             {hasDetails && <span className="home-business-preview-chevron"><Icon name="chevronDown"/></span>}
           </li>

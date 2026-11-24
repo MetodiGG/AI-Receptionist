@@ -174,7 +174,7 @@ test('a long public note on an unpriced service is not printed in full on the ca
   assert.equal(nodeClass(f.tree,'home-business-preview-name')[0].props.children,service.name)
   assert.equal(nodeClass(f.tree,'home-business-preview-price').length,0)
   assert.equal(nodeClass(f.tree,'home-business-preview-description').length,0)
-  assert.equal(elements(f.tree,node=>node.props['data-service-has-conditions']===true)[0].props.children,'Има условия')
+  assert.equal(elements(f.tree,node=>node.props['data-service-preview-more']===true)[0].props.children,'Виж повече')
   nodeClass(f.tree,'home-business-open')[0].props.onClick({currentTarget:{}});f.render()
   assert.equal(elements(f.tree,node=>node.type===Details)[0].props.row.services[0].description,description)
 })

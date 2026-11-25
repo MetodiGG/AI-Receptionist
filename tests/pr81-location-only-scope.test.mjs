@@ -5,7 +5,7 @@ import { readFile, lstat, readlink } from 'node:fs/promises'
 import { createHash } from 'node:crypto'
 import { fileURLToPath } from 'node:url'
 import manifest from './fixtures/pr81-location-only-approval.json' with {type:'json'}
-import { pr81LocationAllowsFileChange, pr81LocationAllowsNewFile, pr81LocationPriorSource } from './pr81-location-only-scope.mjs'
+import { calendarCopyPaths, pr81LocationAllowsFileChange, pr81LocationAllowsNewFile, pr81LocationPriorSource } from './pr81-location-only-scope.mjs'
 
 const root = fileURLToPath(new URL('../',import.meta.url))
 const git = (...args) => execFileSync('git',args,{cwd:root,maxBuffer:16*1024*1024})
@@ -13,7 +13,7 @@ const pathUrl = path => new URL('../'+path,import.meta.url)
 const runtime = path => !path.startsWith('tests/') && path !== 'node_modules'
 const oldMigrations = '90ecc8ea7fd74517f2c956ef93269072039f9995'
 
-test('only pinned address/directions files differ from PR #81; original styles, images, catalogue and booking code do not',async()=>{
+test('only pinned address/directions files and later calendar copy differ from PR #81; booking code stays unchanged',async()=>{
   assert.equal(manifest.baseline,'136d99c8fd546f30a42dd0fbbefe1727f3949032')
   const baseline = git('ls-tree','-r','-z',manifest.baseline).toString('utf8').split('\0').filter(Boolean).map(item=>{
     const [meta,path] = item.split('\t'), [mode,type,oid] = meta.split(' ')
@@ -28,6 +28,12 @@ test('only pinned address/directions files differ from PR #81; original styles, 
     assert.equal(pr81LocationAllowsFileChange(path),true,path)
     const source=await readFile(pathUrl(path))
     assert.throws(()=>pr81LocationPriorSource(path,Buffer.concat([source,Buffer.from('\n')])),/Unreviewed PR #81/u)
+  }
+  assert.deepEqual(calendarCopyPaths,['app/dashboard/share/page.js','lib/faq.mjs'])
+  for (const path of calendarCopyPaths) {
+    assert.equal(pr81LocationAllowsFileChange(path),true,path)
+    const source=await readFile(pathUrl(path))
+    assert.throws(()=>pr81LocationPriorSource(path,Buffer.concat([source,Buffer.from('\n')])),/Unreviewed calendar copy delta/u)
   }
   for(const path of Object.keys(manifest.added)) {
     assert.equal(pr81LocationAllowsNewFile(path),true,path)

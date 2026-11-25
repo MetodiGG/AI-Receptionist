@@ -12,7 +12,6 @@ function ShareContent({ business, locale }) {
   const runtimeOrigin = typeof window === 'undefined' ? '' : window.location.origin
   const publicOrigin = resolvePublicOrigin(process.env.NEXT_PUBLIC_APP_URL, runtimeOrigin)
   const bookingUrl = `${buildPublicBookingUrl(publicOrigin, business.slug)}?lang=${locale}`
-  const calendarUrl = business.calendar_feed_token ? `${publicOrigin}/api/calendar/${business.calendar_feed_token}` : ''
   const qrUrl = `${runtimeOrigin}/api/public/${encodeURIComponent(business.slug)}/qr?lang=${locale}`
   const widgetCode = `<script src="${publicOrigin}/ai-receptionist-widget.js" data-business="${business.slug}" data-lang="${locale}" data-label="${en ? 'Book now' : 'Запази час'}" async></script>`
   const shareText = `${en ? 'Book an appointment at' : 'Запази час в'} ${business.name}: ${bookingUrl}`
@@ -88,8 +87,11 @@ function ShareContent({ business, locale }) {
         </section>
 
         <section className="settings-panel calendar-feed-card">
-          <div className="settings-panel-head"><h3>{en ? 'Business calendar' : 'Календар на бизнеса'}</h3><p>{en ? 'Add bookings to Google Calendar, Apple Calendar or Outlook using the private address.' : 'Добави резервациите към Google Calendar, Apple Calendar или Outlook чрез частния адрес.'}</p></div>
-          {calendarUrl ? <><div className="copy-row"><input aria-label={en ? 'Private calendar address' : 'Частен адрес на календара'} readOnly value={calendarUrl} /><button className="secondary-button" type="button" onClick={() => copy(calendarUrl, 'calendar')}>{copied === 'calendar' ? (en ? 'Copied ✓' : 'Копирано ✓') : (en ? 'Copy' : 'Копирай')}</button></div><p className="security-note">{en ? 'This address provides read access to the calendar. Do not publish it or send it to clients.' : 'Този адрес дава достъп за четене на календара. Не го публикувай и не го изпращай на клиенти.'}</p></> : <p className="share-warning">{en ? 'Refresh the page to load the private calendar address.' : 'Обнови страницата, за да се зареди частният календарен адрес.'}</p>}
+          <div className="settings-panel-head">
+            <h3>{en ? 'GoRez calendar stays separate' : 'Календарът на GoRez е отделен'}</h3>
+            <p>{en ? 'GoRez does not create, edit or delete events in Google Calendar, Apple Calendar, Outlook or other external calendars.' : 'GoRez не създава, редактира или изтрива събития в Google Calendar, Apple Calendar, Outlook или други външни календари.'}</p>
+          </div>
+          <p className="security-note">{en ? 'New subscription links are no longer offered here. If you previously subscribed, entries appear in a separate, read-only calendar and are not events in your own calendar.' : 'Тук вече не се предлагат нови линкове за абонамент. Ако вече си добавил такъв, часовете от GoRez се виждат в отделен календар само за четене, а не като събития в собствения ти календар.'}</p>
         </section>
       </div>
     </main>

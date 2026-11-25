@@ -7,6 +7,48 @@ import { serviceDisplayName, serviceDisplayUnit } from '../lib/locale/public-con
 import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
 import styles from './public-service-menu.module.css'
 
+// The reviewed Lingua Lux tariff describes the same billing unit and minimum
+// twice in different words. Only shorten this known pair; do not infer that
+// similar descriptions carry the same conditions or rewrite stored pricing.
+const reviewedLessonRate = {
+  bg: {
+    unit: 'уч. час 45 мин. · минимум 2 на посещение и 10 предплатени',
+    repeated: 'Цена за 45-минутен учебен час, не за посещение.',
+    followedBy: 'Минимум два учебни часа на посещение и 10 предплатени, използвани до един месец.',
+    compactUnit: 'за 45-минутен учебен час',
+    retained: 'Цената не е за цялото посещение.',
+  },
+  en: {
+    unit: 'academic hour of 45 min · minimum 2 per visit and 10 prepaid',
+    repeated: 'Price for 45-a minute class, not a visit.',
+    followedBy: 'A minimum of two study hours per visit and 10 prepaid, used up to a month.',
+    compactUnit: 'per 45-minute class',
+    retained: 'The price is not for the whole visit.',
+  },
+}
+
+const conditionKey = value => value.trim().replace(/\.$/u, '').toLowerCase()
+
+function servicePriceTerms(unit, description, conditions, locale) {
+  const reviewed = reviewedLessonRate[locale] || reviewedLessonRate.bg
+  if (unit === reviewed.unit && description.startsWith(`${reviewed.repeated} ${reviewed.followedBy}`)) {
+    unit = reviewed.compactUnit
+    description = reviewed.retained + description.slice(reviewed.repeated.length)
+  }
+  // Otherwise suppress only literal standalone conditions already in the
+  // details, not words/phrases embedded in different qualifications.
+  const described = new Set(description.split(/(?<=[.!?])\s+|\n+/u).map(conditionKey))
+  const [basis, ...extra] = unit.split(/\s+·\s+/u)
+  const remaining = extra.filter(condition => !described.has(conditionKey(condition)))
+  if (remaining.length !== extra.length) unit = [basis, ...remaining].join(' · ')
+  const distinct = new Map()
+  for (const condition of conditions) {
+    const key = conditionKey(condition)
+    if (!described.has(key) && !distinct.has(key)) distinct.set(key, condition)
+  }
+  return { unit, description, conditions: [...distinct.values()] }
+}
+
 // One source-preserving menu for discovery and catalogue pages. Native
 // business profiles reuse the same cards but provide their own booking action.
 export function PublicServiceMenu({ services, business, locale = 'bg', copy = DISCOVERY_COPY[locale] || DISCOVERY_COPY.bg, serviceAnchors = null, groupHeading: GroupHeading = 'h4', shownBusinessPhoto = null }) {
@@ -26,11 +68,11 @@ export function renderServicePriceGrid({ services, business, locale = 'bg', copy
     <ul className={styles.grid} data-service-single={services.length === 1 ? true : undefined}>{services.map((service, index) => {
       const name = serviceDisplayName(service, locale)
       const price = profilePrice ? profilePrice(service, locale) : detailPriceLabel({ ...service, priceUnit: '' }, locale)
-      const unit = profilePrice ? '' : serviceDisplayUnit(service, locale)
       const duration = Number(service.durationMin ?? service.duration_min)
-      const { description, conditions } = servicePresentation(service, locale)
+      const presentation = servicePresentation(service, locale)
+      const { unit, description, conditions } = servicePriceTerms(price && !profilePrice ? serviceDisplayUnit(service, locale) : '', presentation.description, presentation.conditions, locale)
       const { more, hasConditions } = serviceDescriptionDisclosure(description, { collapseShort: true })
-      const qualified = hasConditions || conditions.length > 0
+      const qualified = hasConditions || presentation.conditions.length > 0
       const openLabel = qualified ? copy.hasConditions : (en ? 'View details' : 'Виж детайли')
       const closeLabel = qualified ? (en ? 'Hide conditions' : 'Скрий условията') : (en ? 'Hide details' : 'Скрий детайлите')
       const priceContent = <><span>{price}</span>{unit && <small className={styles.unit}>{unit}</small>}</>

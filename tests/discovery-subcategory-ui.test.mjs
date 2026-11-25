@@ -219,7 +219,7 @@ test('loading prevents duplicate picks and failed photos never become unrelated 
   const html = renderToStaticMarkup(React.createElement(DiscoverySubcategories, { ...props, loading: true }))
   assert.match(html, /aria-busy="true"/)
   assert.equal((html.match(/ disabled=""/g) || []).length, 5)
-  assert.match(source, /onError=\{\(\) => \{ setFailed\(src\); onUnavailable\?\.\(src\) \}\}/)
+  assert.match(source, /onError=\{\(\) => setFailed\(src\)\}/)
   assert.match(source, /is-unavailable" aria-hidden="true"/)
   assert.doesNotMatch(source, /fetch\(|localStorage|sessionStorage|https?:\/\/|getCurrentPosition|calendar|emoji-/)
 })

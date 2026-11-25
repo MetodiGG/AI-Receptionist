@@ -88,7 +88,7 @@ test('unknown/malformed prices are never displayed as a free service', () => {
   }
 })
 
-test('compact card provides one real distance badge, two relevant service invitations and shared navigation', async () => {
+test('compact card provides one real distance badge, two short name-price previews, and one details control', async () => {
   const card = await read('components/discovery-business-card.js'), badge = await read('components/discovery-distance-badge.js'), css = await read('app/discovery-home.css')
   assert.match(card, /locale=\{locale\} business=\{row\}/)
   assert.doesNotMatch(card, /fallbackKm=/)
@@ -96,15 +96,18 @@ test('compact card provides one real distance badge, two relevant service invita
   assert.match(badge, /<Icon name="pin"\//)
   assert.match(card, /const services = railServiceItems\(row\)/)
   assert.match(card, /className="home-business-service-preview"/)
-  assert.match(card, /detailPriceLabel\(\{ \.\.\.service, priceUnit: '' \}, locale, \{ compact: true \}\)/)
+  assert.match(card, /detailPriceLabel\(\{ \.\.\.service, priceUnit: ''[^}]*\}, locale, \{ compact: true \}\)/)
   assert.match(card, /className="home-business-preview-price">\{price\}/)
-  assert.match(card, /className="home-business-preview-unit">\{unit\}/)
+  assert.match(card, /serviceDisplayUnit\(service, locale\)/)
+  assert.doesNotMatch(card, /<ServiceThumbnail|home-business-preview-(?:unit|condition|description|chevron)/)
   assert.match(card, /business=\{row\} distanceOnly/)
   const details = await read('components/discovery-business-details.js')
   assert.match(details, /ServiceCards|ServiceMenu/)
   assert.doesNotMatch(card, /railServiceDescription|<p className="home-business-services"/)
   assert.match(card, /<PublicAction as="a" variant="secondary"[^\n]+>\{directionsLabel\}<\/PublicAction>/)
   assert.match(card, /directionsLabel = en \? copy.directions : 'Упъти'/)
+  assert.match(card, /hasDetails \? <button[^>]+aria-haspopup="dialog"[^>]*>\{viewDetails\}<\/button> : actions\(\)/)
+  assert.match(details, /status === 'ready' && <footer>\{typeof actions === 'function' \? actions\(business\) : actions\}/)
   assert.doesNotMatch(card,/home-business-inline-details/)
   assert.match(css, /\.home-business-services > li \{[^}]*grid-template-columns: minmax\(0,1fr\) fit-content\(44%\)/)
   assert.match(css, /\.home-service-name \{[^}]*min-width: 0;[^}]*overflow-wrap: anywhere/)

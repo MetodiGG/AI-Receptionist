@@ -7,6 +7,7 @@ const require = createRequire(import.meta.url)
 const { parse } = require('next/dist/compiled/postcss-scss/scss-syntax')
 const read = path => readFile(new URL('../' + path, import.meta.url), 'utf8')
 const css = await read('app/premium-discovery-cards.css'), rules = []
+const baseCss = await read('app/discovery-home.css')
 parse(css).walkRules(rule => rules.push(rule))
 const declarations = rule => Object.fromEntries(rule.nodes.filter(node => node.type === 'decl').map(node => [node.prop, node.value]))
 const find = predicate => rules.find(predicate)
@@ -37,32 +38,30 @@ test('photo distance is small, top-right and tabular; AI disclosure stays readab
   assert.equal(label.border, '0'); assert.equal(label['box-shadow'], 'none')
 })
 
-test('one whole-card target receives non-action clicks while shared action links/forms remain above it', () => {
-  const target = declarations(find(rule => rule.selector.endsWith('> .home-business-open')))
-  assert.equal(target['z-index'], '1')
+test('the centered native Details button provides one large, visible and keyboard-focusable target', () => {
+  assert.match(baseCss, /\.home-business-open \{[^}]*min-height: 44px;[^}]*margin: 12px auto 0;[^}]*text-align: center;[^}]*pointer-events: auto;/u)
+  assert.match(baseCss, /\.home-business-open::after \{[^}]*position: absolute;[^}]*z-index: 1;[^}]*inset: 0;/u)
   const photo = declarations(find(rule => rule.selector.endsWith('.home-business-heading > .home-business-photo')))
   const identity = declarations(find(rule => rule.selector.endsWith('.home-business-identity')))
   assert.equal(photo['pointer-events'], 'none'); assert.equal(identity['pointer-events'], 'none')
   const actions = declarations(find(rule => rule.selector.endsWith('.home-business-actions') && declarations(rule).position === 'relative'))
   assert.equal(actions['pointer-events'], 'auto'); assert.equal(actions['z-index'], '2')
-  const focus = declarations(find(rule => rule.selector.endsWith('> .home-business-open:focus-visible')))
-  assert.match(focus.outline, /^2px solid/); assert.equal(focus['outline-offset'], '3px')
+  assert.match(baseCss, /\.home-business-open:focus-visible \{[^}]*outline: 2px solid[^}]*outline-offset: 3px;/u)
 })
 
-test('service invitation rows have real photo space, complete text, honest separate price/units and quiet directional feedback',()=>{
+test('compact service rows provide all available room for the complete name and price',()=>{
   const row=declarations(find(rule=>rule.selector.endsWith('.home-business-service-preview > li')))
-  assert.equal(row['grid-template-columns'],'40px minmax(0,1fr) 14px')
-  assert.equal(row['min-height'],'60px')
+  assert.equal(row.display,'flex'); assert.equal(row['flex-wrap'],'wrap')
+  assert.equal(row['align-items'],'baseline')
   assert.equal(row['border-radius'],'14px')
-  const main=declarations(find(rule=>rule.selector.endsWith('.home-business-preview-main')))
-  assert.equal(main.display,'flex');assert.equal(main['flex-wrap'],'wrap')
   const name=declarations(find(rule=>rule.selector.endsWith('.home-business-preview-name')))
-  for(const property of ['white-space','word-break','overflow-wrap'])assert.equal(name[property],'normal')
+  for(const property of ['white-space','word-break'])assert.equal(name[property],'normal')
+  assert.equal(name['overflow-wrap'],'anywhere')
   assert.equal(name.overflow,'visible')
   const price=declarations(find(rule=>rule.selector.endsWith('.home-business-preview-price')))
   assert.equal(price['font-variant-numeric'],'tabular-nums');assert.equal(price['margin-inline-start'],'auto')
-  assert.match(css,/prefers-reduced-motion: reduce[\s\S]*home-business-preview-chevron svg \{ transition: none;/u)
-  assert.doesNotMatch(css,/home-business-inline-details|line-clamp:\s*[1-9]|text-overflow: ellipsis/u)
+  assert.match(css,/prefers-reduced-motion: reduce[\s\S]*home-business-open \{ transition: none;/u)
+  assert.doesNotMatch(css,/home-business-preview-(?:description|condition|chevron)|line-clamp:\s*[1-9]|text-overflow: ellipsis/u)
 })
 
 test('card styling stays public-card scoped and does not duplicate shared button presentation or animate under reduced motion', () => {

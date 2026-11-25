@@ -140,6 +140,9 @@ for (const locale of ['bg', 'en']) {
       assert.ok(text(html).includes(service.name))
       assert.ok(text(html).includes(detailData.detailPriceLabel({...service,priceUnit:''},locale,{compact:true})))
       assert.match(html,/home-business-service-preview/)
+      assert.equal((html.match(/<button\b/g) || []).length, 1, 'only the visible details control remains in the compact view')
+      assert.match(html, /class="home-business-open" aria-haspopup="dialog"/)
+      assert.doesNotMatch(html, /home-business-preview-(?:unit|condition|description|chevron)|data-service-thumbnail/)
       assert.doesNotMatch(html,/home-business-inline-details/)
       assert.doesNotMatch(html, /<a\b|<form\b/, 'preview actions are not links; decorative image preload hints are allowed')
     }

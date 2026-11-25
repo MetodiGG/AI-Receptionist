@@ -5,7 +5,8 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { readFile } from 'node:fs/promises'
 import { loadPublicServiceMenu } from './helpers/public-service-menu.mjs'
 import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
-import { detailPriceLabel } from '../lib/discovery/business-details.mjs'
+import { catalogueBusinessDetails, detailPriceLabel } from '../lib/discovery/business-details.mjs'
+import educationCatalogue from '../lib/discovery/catalogue-data/neighborhood-education-owned33-20261111.mjs'
 import { presentPublicService } from '../lib/locale/public-content-server.mjs'
 const { PublicServiceMenu } = await loadPublicServiceMenu({
   ServiceThumbnail: ({ service, size, className, shownBusinessPhoto }) => React.createElement('img', { src: '/service-photos/test.webp', alt: service.name, className, 'data-size': size, 'data-shown-business-photo': shownBusinessPhoto?.src }),
@@ -113,6 +114,53 @@ test('a condition-only card still provides the details control and keeps its exa
   assert.match(html, /<summary data-service-condition-control="true">[\s\S]*Има условия[\s\S]*<li>Тарифа за този обект<\/li>[\s\S]*<\/details>/u)
   assert.doesNotMatch(html, /Виж детайли/u)
   assert.equal((html.match(/Тарифа за този обект/gu) || []).length, 1)
+})
+
+for (const locale of ['bg', 'en']) test(`${locale}: reviewed Lingua Lux Spanish and German tariffs disclose the minimum once and preserve each distinct price term`, () => {
+  const branch = educationCatalogue.records.find(row => row.id === 'sofia-lingua-lux-pirotska20')
+  const sourceBefore = structuredClone(branch)
+  const services = catalogueBusinessDetails(branch, Date.parse('2026-11-26')).services.map(service => presentPublicService(service, branch))
+  assert.equal(services.length, 2)
+  for (const service of services) {
+    const html = render([service], { locale }), visible = withoutDetails(html)
+    const [summary] = summaries(html)
+    const disclosure = html.match(/<details\b[^>]*data-service-more="true"[^>]*>([\s\S]*?)<\/details>/u)?.[1]
+    assert.ok(html.includes(escape(locale === 'en' ? service.presentationEn.name : service.name)))
+    assert.match(visible, locale === 'en' ? /€17\.00/u : /17,00/u)
+    assert.match(visible, locale === 'en' ? />per 45-minute class<\/small>/u : />за 45-минутен учебен час<\/small>/u)
+    assert.match(visible, /href="https:\/\/lingualux\.eu\/"/u)
+    assert.ok(summary.includes(DISCOVERY_COPY[locale].hasConditions))
+    assert.doesNotMatch(visible, /минимум|предплатени|minimum|prepaid/u)
+    assert.doesNotMatch(disclosure, /45-|45 мин|45 min/u)
+    assert.equal((disclosure.match(/минимум|minimum/giu) || []).length, 1)
+    assert.equal((disclosure.match(/10 предплатени|10 prepaid/gu) || []).length, 1)
+    for (const fact of locale === 'en'
+      ? ['not for the whole visit', 'used up to a month', 'agreed in advance', 'less than 12', 'no-show fee is not returned']
+      : ['не е за цялото посещение', 'до един месец', 'уговаря предварително', 'по-малко от 12 часа', 'неявяване таксата не се връща']) assert.ok(disclosure.includes(fact), fact)
+  }
+  assert.deepEqual(branch, sourceBefore)
+})
+
+test('literal duplicate unit conditions are folded only when complete wording remains in the description', () => {
+  const service = {
+    name: 'Qualified visit', price: 17, currency: 'EUR',
+    priceUnit: 'per visit · materials not included · deposit required',
+    description: 'Materials not included. This appointment may be booked without a deposit for established customers.',
+  }
+  const html = render([service], { locale: 'en' }), visible = withoutDetails(html)
+  assert.match(visible, />per visit · deposit required<\/small>/u)
+  assert.equal((html.match(/materials not included/giu) || []).length, 1)
+  assert.ok(html.includes(escape(service.description)))
+  const changed = render([{ ...service, description: 'Travel, but not materials, is included. Deposit not required.' }], { locale: 'en' })
+  assert.match(withoutDetails(changed), /per visit · materials not included · deposit required/u, 'negation or overlapping words never establish equivalence')
+})
+
+test('a reviewed unit is not condensed when the description changes or the price is not shown', () => {
+  const branch = educationCatalogue.records.find(row => row.id === 'sofia-lingua-lux-pirotska20')
+  const [source] = catalogueBusinessDetails(branch, Date.parse('2026-11-26')).services
+  const partiallyChanged = { ...source, description: source.description.replace('и 10 предплатени', 'и 12 предплатени') }
+  assert.ok(withoutDetails(render([partiallyChanged])).includes(source.priceUnit))
+  assert.ok(render([{ ...source, price: null }]).includes(escape(source.description)), 'the complete rate explanation survives if no price can show the compact unit')
 })
 
 test('the gallery gives every nonempty description a disclosure and does not add an empty control', () => {

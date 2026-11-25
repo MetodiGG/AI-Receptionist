@@ -1,21 +1,18 @@
 'use client'
 
 import Link from 'next/link'
-import { publicProse, serviceDisplayName, serviceDisplayUnit } from '../lib/locale/public-content.mjs'
+import { ENGLISH_TRANSLATION_PENDING, publicProse, serviceDisplayName, serviceDisplayUnit } from '../lib/locale/public-content.mjs'
 import { memo, useRef, useState } from 'react'
 import dynamic from 'next/dynamic'
-import { Icon } from './icon'
 import { BrandMark } from './brand-logo'
 import { BusinessCoverPhoto } from './business-cover-photo'
 import { OutboundBookingButton } from './outbound-booking-button'
 import { PublicAction, PublicActionPair } from './public-action'
-import { ServiceThumbnail } from './service-thumbnail'
 import { isOffsiteBooking } from '../lib/booking-mode.mjs'
 import { homeBusinessPhoto } from '../lib/discovery/home.mjs'
 import { railDirections, railExternalAction, railServiceItems } from '../lib/discovery/rail.mjs'
 import { detailPriceLabel } from '../lib/discovery/business-details.mjs'
-import { servicePresentation } from '../lib/discovery/service-presentation.mjs'
-import { serviceDescriptionDisclosure } from '../lib/discovery/service-description-disclosure.mjs'
+import { serviceSourcePresentation } from '../lib/discovery/service-presentation.mjs'
 import { businessPhotoStyle } from '../lib/business-photo-layout.mjs'
 import { businessDirectionsAddress } from '../lib/business-directions.mjs'
 import { DiscoveryDistanceBadge } from './discovery-distance-badge'
@@ -25,9 +22,24 @@ import { trackSearchEvent } from '../lib/search-analytics-client.js'
 
 const DiscoveryBusinessDetails = dynamic(() => import('./discovery-business-details').then(module => module.DiscoveryBusinessDetails))
 
+function previewPrice(service, locale) {
+  const price = detailPriceLabel({ ...service, priceUnit: '', presentationEn: undefined }, locale, { compact: true })
+  if (!price) return null
+  // Keep the tariff basis alongside the amount (e.g. per visit vs per lesson).
+  // The full published unit and terms, not a loose text preview, stay in the menu.
+  const displayUnit = serviceDisplayUnit(service, locale)
+  if (displayUnit === ENGLISH_TRANSLATION_PENDING) return null
+  const [unit, ...qualifiers] = displayUnit.split(/\s+·\s+/u)
+  const tax = qualifiers.find(part => /^(?:без ДДС|с ДДС|excluding VAT|including VAT|VAT (?:excluded|included))$/iu.test(part))
+  const onlineOnly = serviceSourcePresentation(service, 'en').conditions.includes('Online-only discount')
+  const rate = [unit, tax, onlineOnly && (locale === 'en' ? 'online only' : 'само онлайн')].filter(Boolean).join(' · ')
+  return price + (rate ? `${unit ? ' / ' : ' · '}${rate}` : '')
+}
+
 export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, locale = 'bg', preview = false, distanceOrigin = null }) {
   const en = locale === 'en', internal = row.source === 'gorez'
   const copy = DISCOVERY_COPY[locale] || DISCOVERY_COPY.bg
+  const viewDetails = copy.viewDetailsLower.replace(/^./u, letter => letter.toUpperCase())
   const directionsLabel = en ? copy.directions : 'Упъти'
   const locationPending = en ? 'Location is being verified' : 'Локацията се уточнява'
   const services = railServiceItems(row)
@@ -44,7 +56,7 @@ export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, 
     : row.source === 'catalogue' && isCataloguePhotoSource(row.photo?.src)
       ? { ...row.photo, alt: { [locale]: publicProse(row.photo.alt, locale) || row.name } } : null
 
-  // Both the card and its hydrated details reuse these exact trusted routes.
+  // The hydrated details reuse the existing trusted routes.
   // Visual changes never turn phone/external actions into GoRez confirmations.
   const actions = (business = row) => {
     const directions = railDirections(business)
@@ -66,9 +78,6 @@ export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, 
   }
 
   return <article className="home-business-card is-compact-preview" data-source={row.source}>
-    {/* One native details target covers the photo, name, service previews and empty
-        card space. Real action controls sit above it, never inside a button. */}
-    {hasDetails && <button type="button" className="home-business-open" onClick={openDetails} aria-haspopup="dialog" aria-label={`${copy.detailsLabel} · ${row.name}`}/>}
     <div className="home-business-heading">
       <div className={`home-business-photo${photo && photo.src !== failedPhoto ? ' is-real-photo' : ''}`}>
         {photo && photo.src !== failedPhoto
@@ -80,23 +89,15 @@ export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, 
         {internal && <span className="home-business-partner"><BrandMark size={20}/>{en ? 'GoRez Partner' : 'Партньор на GoRez'}</span>}
         <h3 title={row.name}>{row.name}</h3>
         {services.length > 0 && <ul className="home-business-service-preview" aria-label={copy.servicesLabel}>{services.map((service,index) => {
-          const price = detailPriceLabel({ ...service, priceUnit: '' }, locale, { compact: true })
-          const unit = price && service.priceUnit ? serviceDisplayUnit(service, locale) : ''
-          const { description, conditions } = servicePresentation(service, locale)
-          const { visible, hasConditions } = serviceDescriptionDisclosure(description)
+          const price = previewPrice(service, locale)
           return <li key={service.id || `${service.name}-${index}`}>
-            <ServiceThumbnail service={service} business={row} locale={locale} size={40}/>
-            <div className="home-business-preview-copy">
-              <div className="home-business-preview-main"><strong className="home-business-preview-name">{serviceDisplayName(service, locale)}</strong>{price && <span className="home-business-preview-price">{price}</span>}</div>
-              {unit && <span className="home-business-preview-unit">{unit}</span>}
-              {conditions.map(condition => <span className="home-business-preview-condition" key={condition}>{condition}</span>)}
-              {hasConditions && <span className="home-business-preview-condition" data-service-has-conditions>{copy.hasConditions}</span>}
-              {visible.map((paragraph,paragraphIndex) => <p className="home-business-preview-description" key={paragraphIndex}>{paragraph}</p>)}
-            </div>
-            {hasDetails && <span className="home-business-preview-chevron"><Icon name="chevronDown"/></span>}
+            <strong className="home-business-preview-name">{serviceDisplayName(service, locale)}</strong>
+            {price && <span className="home-business-preview-price">{price}</span>}
           </li>
         })}</ul>}
-        {actions()}
+        {/* The visible native button is the only control and its hit area
+            stretches to the card, preserving the existing photo/name click. */}
+        {hasDetails ? <button type="button" className="home-business-open" onClick={openDetails} aria-haspopup="dialog" aria-label={`${viewDetails} · ${row.name}`}>{viewDetails}</button> : actions()}
       </div>
     </div>
     {detailsOpen && <DiscoveryBusinessDetails row={row} locale={locale} preview={preview} onClose={() => setDetailsOpen(false)} triggerRef={detailsTrigger} actions={actions}/>}

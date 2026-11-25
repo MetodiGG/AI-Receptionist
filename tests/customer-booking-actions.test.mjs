@@ -59,7 +59,7 @@ const { BusinessServiceList, BusinessDirectionsLink } = await load('components/b
 })
 const business = { id: 'fictional-business', slug: 'fictional-booking-action', name: 'Fictional CTA fixture', address: 'София, ул. Примерна 7', phone: '+359 (888) 123-456', booking_mode: 'phone' }
 const Link = { __esModule: true, default: ({ children, href, prefetch: _prefetch, ...props }) => React.createElement('a', { ...props, href }, children) }
-const { DiscoveryBusinessCard } = await load('components/discovery-business-card.js', {
+const cardImports = {
   'next/link': Link, 'next/dynamic': { __esModule: true, default: () => Empty }, './icon': { Icon }, './brand-logo': { BrandMark: Empty },
   './business-cover-photo': { BusinessCoverPhoto: Empty }, './service-thumbnail': { ServiceThumbnail: Empty },
   './business-reviews': { useBusinessReviews: () => ({ summary: { count: 0 }, items: [] }), ReviewSummary: Empty, PartnerReviewSummary: Empty },
@@ -68,7 +68,23 @@ const { DiscoveryBusinessCard } = await load('components/discovery-business-card
   '../lib/discovery/business-details.mjs': detailsData, '../lib/discovery/copy.mjs': discoveryCopy,
   '../lib/discovery/service-presentation.mjs': { servicePresentation: () => ({ description: '', conditions: [] }) },
   '../lib/business-photo-layout.mjs': { businessPhotoStyle: () => ({}) }, '../lib/catalogue-photo-view.mjs': { isCataloguePhotoSource: () => false },
+}
+const { DiscoveryBusinessCard } = await load('components/discovery-business-card.js', cardImports)
+const Modal = () => null
+let cardStateIndex = 0
+const { DiscoveryBusinessCard: OpenDiscoveryBusinessCard } = await load('components/discovery-business-card.js', {
+  ...cardImports, 'next/dynamic': { __esModule: true, default: () => Modal },
+  react: { ...React, memo: component => component, useRef: initial => ({ current: initial }), useState: initial =>
+    [cardStateIndex++ === 1 ? true : initial, () => assert.fail('rendering must not change state')] },
 })
+const modalActions = (row, locale, preview = false) => {
+  cardStateIndex = 0
+  const tree = OpenDiscoveryBusinessCard({ row, locale, preview })
+  assert.equal(cardStateIndex, 2)
+  const [modal] = elements(tree, node => node.type === Modal)
+  assert.ok(modal, 'execute the action factory actually passed to the opened details')
+  return renderToStaticMarkup(modal.props.actions(row))
+}
 const { BusinessDirectory } = await load('components/business-directory.js', {
   'next/link': Link, './icon': { Icon }, './directory-filters': { DirectoryFilters: Empty },
   './business-photo-gallery': { BusinessPhotoGallery: Empty }, './business-cover-photo': { BusinessCoverPhoto: Empty },
@@ -202,16 +218,23 @@ test('directions retain the exact folded-map source bytes and current business d
   assert.match(renderToStaticMarkup(pending), /Локацията се уточнява/)
 })
 
-test('actual home partner CTAs show one arrow while retaining native, external, phone and preview destinations', () => {
-  const row = { ...business, source: 'gorez', category: 'beauty', services: [] }
-  const native = render(DiscoveryBusinessCard, { row: { ...row, booking_mode: 'gorez' }, locale: 'bg' })
+test('home preview keeps one visible Details trigger, and the actual modal action factory retains native, external, phone and safe preview behavior', () => {
+  const row = withVerifiedDirections({ ...business, source: 'gorez', category: 'beauty', services: [] })
+  for (const source of ['gorez', 'catalogue']) for (const preview of [false, true]) {
+    const html = render(DiscoveryBusinessCard, { row: { ...row, source }, locale: 'bg', preview })
+    assert.equal((html.match(/<button\b/g) || []).length, 1)
+    assert.match(html, /<button type="button" class="home-business-open" aria-haspopup="dialog" aria-label="Виж детайли · Fictional CTA fixture">Виж детайли<\/button>/)
+    assert.doesNotMatch(html, /<a\b|<form\b|data-public-action|Резервирай|Упъти/)
+  }
+  const native = modalActions({ ...row, booking_mode: 'gorez' }, 'bg')
   assert.equal(arrowCount(native), 1); assert.match(native, /href="\/book\/fictional-booking-action\?lang=bg"/)
   assert.doesNotMatch(native, /<form\b|href="tel:/)
-  const phone = render(DiscoveryBusinessCard, { row, locale: 'bg' })
+  assert.match(native, /href="https:\/\/www\.google\.com\/maps\/dir\/\?api=1&amp;destination=42\.665%2C23\.282"/)
+  const phone = modalActions(row, 'bg')
   assert.equal(arrowCount(phone), 1); assert.match(phone, /href="tel:\+359888123456"/); assert.doesNotMatch(phone, /<form\b/)
-  const external = render(DiscoveryBusinessCard, { row: { ...row, booking_mode: 'external' }, locale: 'en' })
+  const external = modalActions({ ...row, booking_mode: 'external' }, 'en')
   assert.equal(arrowCount(external), 1); assert.match(external, /action="\/out\/business\/fictional-booking-action\?lang=en" method="post"/)
-  const preview = render(DiscoveryBusinessCard, { row, locale: 'bg', preview: true })
+  const preview = modalActions(row, 'bg', true)
   assert.equal(arrowCount(preview), 1); assert.match(preview, /aria-disabled="true"[^>]*data-public-action="primary"/)
   assert.doesNotMatch(preview, /<a\b|<form\b/)
 })
@@ -227,19 +250,22 @@ test('actual directory CTAs retain native links, safe phone links and protected 
   }
 })
 
-test('actual home and directory booking labels are compact in both languages without changing their real destinations', () => {
+test('actual modal and directory booking labels are compact in both languages without changing their real destinations', () => {
   for (const [locale, label, directions] of [['bg', 'Резервирай', 'Упътване'], ['en', 'Book', 'Directions']]) {
     for (const booking_mode of ['gorez', 'external', 'phone']) {
       const row = { ...business, source: 'gorez', category: 'beauty', industry: 'beauty', services: [], booking_mode }
-      const home = render(DiscoveryBusinessCard, { row, locale, quickChoice: true })
-      assert.ok(home.includes(`<span class="public-action-label">${label}</span>`))
-      assert.ok(home.includes(`<span class="public-action-label">${locale==='en'?directions:'Упъти'}</span>`))
+      const preview = render(DiscoveryBusinessCard, { row, locale })
+      assert.ok(preview.includes(`>${locale === 'en' ? 'View details' : 'Виж детайли'}</button>`))
+      assert.doesNotMatch(preview, /<a\b|<form\b|data-public-action/)
+      const modal = modalActions(row, locale)
+      assert.ok(modal.includes(`<span class="public-action-label">${label}</span>`))
+      assert.ok(modal.includes(`<span class="public-action-label">${locale==='en'?directions:'Упъти'}</span>`))
       const directory = render(BusinessDirectory, { locale, data: { status: 'ready', businesses: [row] }, showFilters: false })
       assert.ok(directory.includes(`<span class="public-action-label">${label}</span>`))
-      assert.equal(artCount(home), 0, 'public booking actions no longer use raster calendar artwork')
-      assert.equal(arrowCount(home), 1, 'one shared arrow chip accompanies the home booking label')
+      assert.equal(artCount(modal), 0, 'public booking actions no longer use raster calendar artwork')
+      assert.equal(arrowCount(modal), 1, 'one shared arrow chip accompanies the details booking label')
       assert.equal(arrowCount(directory), 1, 'the directory uses the exact same shared booking action')
-      for (const html of [home, directory]) {
+      for (const html of [modal, directory]) {
         if (booking_mode === 'gorez') assert.ok(html.includes(`href="/book/${business.slug}?lang=${locale}"`))
         if (booking_mode === 'external') assert.ok(html.includes(`action="/out/business/${business.slug}?lang=${locale}" method="post"`))
         if (booking_mode === 'phone') assert.ok(html.includes('href="tel:+359888123456"'))

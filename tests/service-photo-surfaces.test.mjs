@@ -89,15 +89,18 @@ test('public cards and details use the labelled category cover only until a real
   assert.doesNotMatch(directoryHtml(real), /data-category-cover/)
 })
 
-test('compact discovery previews restore up to two original service thumbnails and prices without mutating the full menu', () => {
+test('compact discovery previews keep two service names and genuine prices; original service photos belong to details', () => {
   const row = { ...business, source: 'catalogue', services }
   const before = structuredClone(row)
   const html = render(DiscoveryBusinessCard, { row, locale: 'en', preview: true })
   assert.match(html,/home-business-service-preview/)
   assert.equal((html.match(/class="home-business-preview-name"/g)||[]).length,2)
   assert.equal((html.match(/class="home-business-preview-price"/g)||[]).length,1)
-  assert.equal((html.match(/class="service-thumbnail /g)||[]).length,2)
-  assert.doesNotMatch(html,/home-business-inline-details/)
+  assert.match(html, /class="home-business-preview-price">€25<\/span>/)
+  assert.match(html, /class="home-business-open"[^>]*>View details<\/button>/)
+  assert.doesNotMatch(html,/class="service-thumbnail |home-business-preview-(?:condition|description|chevron)|data-public-action/)
+  const fullMenu = render(DiscoveryBusinessDetails, { row, locale: 'en', preview: true })
+  assert.equal((fullMenu.match(/class="service-thumbnail /g)||[]).length,2)
   assert.deepEqual(row, before)
   assert.doesNotMatch(render(DiscoveryBusinessCard, { row: { ...row, source: 'google' }, locale: 'en', preview: true }), /home-business-services|service-photo-name/)
 })
@@ -115,10 +118,11 @@ test('the full catalogue menu retains the service description, duration, and pub
   assert.doesNotMatch(pedicure, /class="public-service-menu-price"/)
 })
 
-test('G Point logo remains whole and service prices retain compact online-only conditions without audit prose', async () => {
+test('G Point logo remains whole; a preview never advertises the online-only discount as an unconditional tariff', async () => {
   const name = 'Лазерна епилация · Цяло лице · жени'
   const service = { name, category: 'beauty', price: 30, currency: 'EUR', priceUnit: 'процедура',
     description: 'Текуща цена с отстъпка, валидна САМО при онлайн записване, проверена на 10.11.2026. Условията се потвърждават при записване; не е зачеркнатата стара цена.',
+    presentationEn: { name: 'Laser hair removal · Full face · women', unit: 'treatment' },
     priceSourceUrl: 'https://gpoint.bg/запазване-час' }
   const row = { id: 'sofia-gpoint-manastirski-zapad', source: 'catalogue', name: 'G Point · Манастирски ливади – Запад', category: 'beauty',
     services: [service], photo: { src: '/api/catalogue-media/eebc21d3-2f13-42cd-9f81-877eb6bc5736', alt: 'G Point' } }
@@ -126,12 +130,13 @@ test('G Point logo remains whole and service prices retain compact online-only c
   const details = render(DiscoveryBusinessDetails, { row, locale: 'bg', preview: true })
   assert.match(card, /object-fit:contain;object-position:center;background-color:#fff/)
   assert.ok(card.includes(name),'the first two real relevant services invite the visitor to open the complete menu')
-  assert.match(card,/class="home-business-preview-unit">процедура<\/span>/)
-  assert.match(card,/Отстъпка само онлайн/)
-  for (const html of [card,details]) {
-    assert.match(html, /Отстъпка само онлайн/)
-    assert.doesNotMatch(html, /проверена на|зачеркнатата|Условията се потвърждават/)
-  }
+  assert.doesNotMatch(card, /home-business-preview-(?:unit|condition|description)/)
+  const advertisedAmount = card.match(/<span class="home-business-preview-price">([^<]+)<\/span>/)?.[1]
+  assert.match(advertisedAmount, /30[\s\u00a0]+€ \/ процедура · само онлайн/)
+  const english = render(DiscoveryBusinessCard, { row, locale: 'en', preview: true })
+  assert.match(english, /class="home-business-preview-price">€30 \/ treatment · online only<\/span>/)
+  assert.match(details, /Отстъпка само онлайн/)
+  assert.doesNotMatch(card + details, /проверена на|зачеркнатата|Условията се потвърждават/)
   assert.match(details, /class="public-service-menu-unit">процедура<\/small>/)
   assert.match(details, /<div class="business-details-toolbar"><button[^>]+class="business-details-close"/)
   assert.match(details, /https:\/\/gpoint.bg\//)

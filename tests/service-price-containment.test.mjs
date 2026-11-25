@@ -17,7 +17,7 @@ import * as photoLayout from '../lib/business-photo-layout.mjs'
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 import * as bookingButtonContent from './helpers/booking-button-content.mjs'
 import * as publicAction from './helpers/public-action.mjs'
-import { serviceDisplayName, serviceDisplayUnit } from '../lib/locale/public-content.mjs'
+import { ENGLISH_TRANSLATION_PENDING, serviceDisplayName, serviceDisplayUnit } from '../lib/locale/public-content.mjs'
 
 // Existing SWC/SSR convention: actual client components and price/data helpers,
 // inert visual/third-party stubs, no browser, fetch, booking or effect execution.
@@ -155,10 +155,20 @@ function assertRenderedService(service, locale) {
   const row = fixture(service)
   const card = render(DiscoveryBusinessCard, { row, locale, preview: true })
   assert.ok(card.includes(escape(serviceDisplayName(service,locale))))
-  assert.ok(card.includes(escape(detailsData.detailPriceLabel({...service,priceUnit:''},locale,{compact:true}))))
-  assert.ok(card.includes(escape(serviceDisplayUnit(service,locale))))
-  assert.match(card,/data-service-thumbnail-size="40"/)
-  assert.doesNotMatch(card,/home-business-inline-details/)
+  const compact = card.match(/<span class="home-business-preview-price">([^<]*)<\/span>/)?.[1]
+  const fullUnit = serviceDisplayUnit(service, locale)
+  if (fullUnit === ENGLISH_TRANSLATION_PENDING) {
+    assert.equal(compact, undefined, 'do not present a known value as a flat price if its unit is untranslated')
+    assert.ok(!card.includes(ENGLISH_TRANSLATION_PENDING), 'open details for the honest pending qualification')
+  } else {
+    assert.ok(compact, 'a known non-exclusive price has a compact inline label')
+    assert.ok(textContent(compact).startsWith(detailsData.detailPriceLabel({ ...service, priceUnit: '', presentationEn: undefined }, locale, { compact: true })),
+      'the compact preview preserves the exact amount and currency rather than masking meaningful digits')
+    assert.doesNotMatch(textContent(compact), /…|\.\.\./)
+    if (service.priceUnit === longUnit) assert.match(compact, /пакет 10 посещения по 90 минути/)
+  }
+  assert.doesNotMatch(card,/data-service-thumbnail-size|home-business-preview-(?:unit|condition|description)|<a\b|<form\b/)
+  if (service.priceUnit === longUnit) assert.doesNotMatch(card, /минимална заявка и допълнителни материали по уговорка/)
   let renderedText
   for (const linked of [true, false]) {
     const menuService = { ...service, priceSourceUrl: linked ? sourceUrl : null }
@@ -166,12 +176,12 @@ function assertRenderedService(service, locale) {
     const actual = renderedPrice(html, 'public-service-menu-price')
     renderedText = actual.text
     const full = detailsData.detailPriceLabel({ ...service, priceUnit: '' }, locale)
-    assert.equal(actual.text, full + serviceDisplayUnit(service, locale), `${locale}: both detail markup variants retain full price and qualification`)
+    assert.equal(actual.text, full + fullUnit, `${locale}: both detail markup variants retain full price and qualification`)
     assert.equal(actual.tag, linked ? 'a' : 'strong')
     if (linked) {
       assert.ok(actual.markup.includes(`href="${sourceUrl}"`))
       assert.match(actual.markup, /rel="noopener noreferrer"/)
-      assert.ok(actual.markup.includes(`aria-label="${escape(detailsData.detailPriceLabel(service, locale))}`))
+      assert.ok(actual.markup.includes(`aria-label="${escape(full + (fullUnit ? ` / ${fullUnit}` : '') + ' · ' + copy.DISCOVERY_COPY[locale].publishedPriceSource)}"`))
     }
     assert.ok(html.includes(escape(serviceDisplayName(service, locale))))
     assert.match(html, /data-service-thumbnail-size="128"/)
@@ -238,7 +248,8 @@ test('unknown prices are still absent, never replaced by zero or a truncated fak
     const card = render(DiscoveryBusinessCard, { row, locale, preview: true })
     const details = render(DiscoveryBusinessDetails, { row, locale, preview: true, triggerRef: { current: null }, onClose: Empty })
     assert.doesNotMatch(card, /class="home-business-preview-price"/)
-    assert.doesNotMatch(details, /class="business-details-price"/)
+    assert.doesNotMatch(details, /class="public-service-menu-price"/)
+    assert.match(details, /class="public-service-menu-unpriced"/)
     assert.ok(card.includes(escape(serviceDisplayName(row.services[0],locale))))
     assert.ok(details.includes(escape(serviceDisplayName(row.services[0], locale))))
   }

@@ -232,14 +232,15 @@ test('service grouping retains every service once and all new labels have BG/EN 
   assert.equal(detailPriceLabel({ price: -2, currency: 'EUR' }), null)
 })
 
-test('compact card has one stretched keyboard-accessible details trigger and one shared two-action group', async () => {
+test('compact card has one visible stretched keyboard-accessible trigger; the two-action group belongs to details', async () => {
   const card = await read('components/discovery-business-card.js'), css = await read('app/discovery-home.css')
-  assert.match(card, /className="home-business-open"[^>]+aria-haspopup="dialog"/)
+  assert.match(card, /hasDetails \? <button[^>]+className="home-business-open"[^>]+aria-haspopup="dialog"[^>]+>\{viewDetails\}<\/button> : actions\(\)/)
   assert.match(card, /home-business-service-preview/)
   assert.doesNotMatch(card, /home-business-inline-details/)
   assert.match(card, /<PublicActionPair className="home-business-actions">/)
   assert.doesNotMatch(card, /home-business-details-link|<h3>.*<button/)
-  assert.match(css, /\.home-business-open \{[^}]*inset: 0/)
+  assert.match(css, /\.home-business-open \{[^}]*min-height: 44px;[^}]*margin: 12px auto 0/)
+  assert.match(css, /\.home-business-open::after \{[^}]*inset: 0/)
   assert.match(css, /\.home-business-footer[^}]*z-index: 2/)
   const dialog = await read('components/discovery-business-details.js')
   assert.match(dialog, /\/api\/public\/discovery\/business\//)

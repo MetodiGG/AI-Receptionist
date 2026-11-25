@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url'
 import scope from './fixtures/pr81-location-only-approval.json' with {type:'json'}
 import galleryScope from './fixtures/service-gallery-performance-approval.json' with {type:'json'}
 import mobileScope from './fixtures/mobile-business-details-approval.json' with {type:'json'}
+import condensedScope from './fixtures/condensed-discovery-cards-approval.json' with {type:'json'}
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -30,9 +31,11 @@ export const serviceGalleryPaths = Object.freeze(Object.keys(galleryScope.change
 export const serviceGalleryNewPaths = Object.freeze(Object.keys(galleryScope.added))
 export const mobileDetailsPaths = Object.freeze(Object.keys(mobileScope.changed))
 export const mobileDetailsNewPaths = Object.freeze(Object.keys(mobileScope.added))
+export const condensedDiscoveryPaths = Object.freeze(Object.keys(condensedScope.changed))
 
 export function pr81LocationAllowsFileChange(path) {
-  const receipt = Object.hasOwn(mobileScope.changed, path) ? mobileScope.changed[path]
+  const receipt = Object.hasOwn(condensedScope.changed, path) ? condensedScope.changed[path]
+    : Object.hasOwn(mobileScope.changed, path) ? mobileScope.changed[path]
     : Object.hasOwn(galleryScope.changed, path) ? galleryScope.changed[path]
     : Object.hasOwn(calendarCopy, path) ? calendarCopy[path] : Object.hasOwn(scope.changed, path) ? scope.changed[path] : null
   if (!receipt) return false
@@ -55,6 +58,9 @@ export function pr81LocationMatchesPriorHash(path, hash) {
 // Reconstruct only the exact pinned changes before older release fingerprints.
 // No other tree entries or newer edits are exempted.
 export function pr81LocationPriorSource(path, source) {
+  if (Object.hasOwn(condensedScope.changed, path)) {
+    source = restore(path, source, condensedScope.changed[path], condensedScope.baseline, 'condensed discovery card')
+  }
   if (Object.hasOwn(mobileScope.changed, path)) {
     source = restore(path, source, mobileScope.changed[path], mobileScope.baseline, 'mobile business details')
   }

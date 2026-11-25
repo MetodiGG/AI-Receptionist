@@ -152,23 +152,28 @@ for (const locale of ['bg', 'en']) test(`${locale}: inline children show evidenc
   assert.doesNotMatch(html, /subcategory-more|Show less|More \(|По-малко|Още \(|zero-count|negative-count|missing-count|wrong-parent|wrong-photo/)
 })
 
-for (const locale of ['bg', 'en']) test(`${locale}: only an approved dedicated illustration carries a visible disclosure, and a broken image does not`, () => {
+for (const locale of ['bg', 'en']) test(`${locale}: subcategory photos have no AI overlay or caption in either presentation while provenance and failure handling remain intact`, () => {
   const navigation = subcategoriesForCategory('hair', locale)
   const illustrative = { ...navigation.find(option => option.id === 'hair-children'), count: 2 }
   const historical = { ...navigation.find(option => option.id !== 'hair-children'), count: 3 }
   assert.equal(illustrative.photoSource, 'illustrative')
   assert.equal(illustrative.photo, '/subcategory-photos/hair-children-v1.webp')
   assert.equal(historical.photoSource, undefined)
-  const copy = locale === 'en' ? 'AI illustration' : 'AI илюстрация'
   const rejected = { ...illustrative, id: 'unapproved-fake', photo: 'https://example.test/haircut.webp', [locale]: 'Unapproved offsite photo' }
   const props = { category: 'hair', options: [illustrative, historical, rejected], selected: illustrative.id, locale, inline: true, onSelect() {} }
-  const html = render(DiscoverySubcategories, props)
-  assert.equal((html.match(/class="inline-service-tile"/g) || []).length, 2)
-  assert.equal((html.match(/class="inline-service-ai"/g) || []).length, 1)
-  assert.ok(html.includes(`<span class="inline-service-ai">${copy}</span>`))
-  assert.ok(html.includes(illustrative.photo))
-  assert.ok(html.includes(historical.photo))
-  assert.doesNotMatch(html, /Unapproved offsite photo|https:\/\//)
+  const before = structuredClone(props.options)
+  for (const inline of [true, false]) {
+    const html = render(DiscoverySubcategories, { ...props, inline })
+    assert.equal((html.match(inline ? /class="inline-service-tile"/g : /class="discovery-subcategory-option"/g) || []).length, 2)
+    assert.doesNotMatch(html, /inline-service-ai|legacy-service-ai|legacy-service-photo-frame|AI illustration|AI илюстрация|>AI</u)
+    assert.ok(html.includes(illustrative.photo))
+    assert.ok(html.includes(historical.photo))
+    assert.ok(html.includes(illustrative[locale]))
+    assert.match(html, /width="40" height="40" alt="" loading="lazy" decoding="async"/u)
+    assert.doesNotMatch(html, /Unapproved offsite photo|https:\/\//)
+  }
+  assert.deepEqual(props.options, before, 'removing presentation labels cannot remove or rewrite source provenance')
+  assert.equal(props.options[0].photoSource, 'illustrative')
 
   let stateKey
   const states = new Map()

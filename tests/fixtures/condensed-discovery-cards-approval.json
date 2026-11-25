@@ -1,0 +1,25 @@
+{
+  "baseline": "c2ee73e21ffea12cbd2d9df65389714d9dd96eca",
+  "changed": {
+    "app/discovery-home.css": {
+      "before": "73b0937a56f0dd04986e35f8732038fba78faeb6df80b6155ca5e3cc76b4f41d",
+      "after": "a9f587dc30e98dd4b91e3cb75261e146d45e6c1751ae760824db75ba22ec2960"
+    },
+    "app/premium-discovery-cards.css": {
+      "before": "de94a8d96d413fce2966dd17f2cae3c695499a01706825f2cf6a258bc0d988fc",
+      "after": "b19bcca8f4dc45f29f2f3e0b41408fb447837747b5176be285735dd907bc005a"
+    },
+    "components/discovery-business-card.js": {
+      "before": "55e4ca2a2d66fb946314467b5c6af455a785247089a19d922796fc518f2c8af0",
+      "after": "3c6f6cd3836cc5ec8aed65401f0aba9e10bd2a2a568040b70ef8ff5abab7b793"
+    },
+    "components/discovery-subcategories.js": {
+      "before": "76f2d824e2d245659fa3a7dcd00158c64b49b316dcd160688860d4e96b4d2013",
+      "after": "90e4da4e78ed36953936f3ccf6fd21116614846cdbaa7ee1fedd4886d89c45ec"
+    },
+    "components/public-service-menu.js": {
+      "before": "a0262f3990161fd5c8c445166b03ed95b1db81c61db8881c0d38e9539cf7fabe",
+      "after": "86aca6f625e7b8d8ec12992cc5d466d857932a7db3126bbce8ee64d2b60829fc"
+    }
+  }
+}

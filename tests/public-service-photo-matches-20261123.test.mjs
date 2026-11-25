@@ -12,8 +12,10 @@ import { auditServicePhotoCoverage } from '../scripts/audit-service-photo-covera
 const electricalAssets = ['sx-home-electrical-inspect', 'sx-home-electrical-inspect', 'sx-home-cable-route',
   'sx-home-electrical-panel-equipment', 'sx-home-switch-socket-install', 'sx-home-appliance-repair']
 const src = key => `/service-photos/${key}-v1.webp`
-const assertLocalPhoto = async image => {
-  assert.match(image, /^\/(?:service|category)-photos\/[a-z0-9_-]+\.webp$/u)
+const assertLocalPhoto = async (image, { navigation = false } = {}) => {
+  assert.match(image, navigation
+    ? /^\/subcategory-photos\/[a-z0-9_-]+\.webp$/u
+    : /^\/(?:service|category)-photos\/[a-z0-9_-]+\.webp$/u)
   assert.doesNotMatch(image, /appointment-workspace|notebook/u)
   assert.ok((await stat(new URL(`../public${image}`, import.meta.url))).size > 0, image)
 }
@@ -66,6 +68,11 @@ test('all category and subcategory choices still have their own local artwork', 
   const categories = homeCategories()
   assert.equal(categories.length, 14)
   assert.equal(DISCOVERY_SUBCATEGORIES.length, 113)
-  await Promise.all([...new Set([...categories.flatMap(({ photo, photo2x, photoLarge }) => [photo, photo2x, photoLarge].filter(Boolean)),
-    ...DISCOVERY_SUBCATEGORIES.map(({ photo }) => photo)])].map(assertLocalPhoto))
+  await Promise.all([...new Set(categories.flatMap(({ photo, photo2x, photoLarge }) => [photo, photo2x, photoLarge].filter(Boolean)))]
+    .map(photo => assertLocalPhoto(photo)))
+  await Promise.all(DISCOVERY_SUBCATEGORIES.map(({ id, photo, photoSource }) => {
+    const navigation = photoSource === 'illustrative'
+    if (navigation) assert.equal(photo, `/subcategory-photos/${id}-v1.webp`)
+    return assertLocalPhoto(photo, { navigation })
+  }))
 })

@@ -108,7 +108,7 @@ test('the full catalogue menu retains the service description, duration, and pub
   const [manicure, pedicure] = serviceRows(render(DiscoveryBusinessDetails, { row, locale: 'en', preview: true }))
   assert.match(manicure, /data-service-kind="manicure"[\s\S]*class="public-service-menu-name">Manicure<\/strong>/)
   assert.match(manicure, /class="public-service-menu-duration">35 min<\/span>/)
-  assert.match(manicure, /<p class="public-service-menu-note">Published service terms<\/p>/)
+  assert.match(manicure, /<details[^>]+data-service-more="true">[\s\S]*<p>Published service terms<\/p><\/details>/)
   assert.match(manicure, /<a class="public-service-menu-price" href="https:\/\/example\.com\/prices"[^>]*><span>from €25\.00<\/span><\/a>/)
   assert.match(pedicure, /data-service-kind="pedicure"[\s\S]*class="public-service-menu-name">Pedicure<\/strong>/)
   assert.match(pedicure, /class="public-service-menu-unpriced"/)

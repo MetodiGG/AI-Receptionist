@@ -31,7 +31,7 @@ function elements(node, predicate, found = []) {
   else if (React.isValidElement(node)) { if (predicate(node)) found.push(node); elements(node.props.children, predicate, found) }
   return found
 }
-function harness(component, props) {
+function harness(component, props, commit = () => {}) {
   const slots = [], pending = []
   let index = 0, dirty = false, disposed = false
   const h = {
@@ -41,7 +41,7 @@ function harness(component, props) {
     state(initial) { const slot = h.slot(() => typeof initial === 'function' ? initial() : initial); return [slot.value, next => { const value = typeof next === 'function' ? next(slot.value) : next; if (!Object.is(value, slot.value)) { slot.value = value; dirty = true } }] },
     ref(initial) { return h.slot(() => ({ current: initial })).value },
     effect(effect, deps) { const slot = h.slot(() => ({ deps: undefined, cleanup: undefined })); if (!deps || !slot.value.deps || deps.some((value, at) => !Object.is(value, slot.value.deps[at]))) { slot.value.deps = deps; pending.push(() => { slot.value.cleanup?.(); slot.value.cleanup = effect() }) } },
-    render() { index = 0; dirty = false; activeHarness = h; try { h.tree = component(h.props) } finally { activeHarness = null }; return h.tree },
+    render() { index = 0; dirty = false; activeHarness = h; try { h.tree = component(h.props) } finally { activeHarness = null }; commit(h.tree); return h.tree },
     flush() { if (disposed) return; let turns = 0; while (dirty || pending.length) { assert.ok(++turns < 40); while (pending.length) pending.shift()(); if (dirty) h.render() } },
     dispose() { disposed = true; pending.length = 0; slots.forEach(slot => slot.value?.cleanup?.()) },
   }
@@ -51,8 +51,9 @@ const point = { latitude: 42.66, longitude: 23.28, consent: true }
 const locatedPoint = () => ({ ...point, accuracyMeters: 25, observedAt: Date.now() })
 const response = (id = 'city-row', patch = {}) => ({ results: [{ id, source: 'catalogue', name: 'Local fictional QA result' }], externalStatus: 'catalogue', intent: { cityCode: '68134' }, cataloguePage: { offset: 0, total: 1, nextOffset: null }, ...patch })
 const controls = Object.fromEntries(['Icon', 'BrandMark', 'BrandLoading', 'DiscoveryRouteArt', 'BusinessCategoryIcon', 'DiscoveryHomeBusinesses', 'DiscoverySubcategories', 'InlineCategoryGrid', 'InlineDiscoverySummary', 'DiscoveryFilterSheet', 'DiscoveryAutocomplete'].map(name => [name, Object.defineProperty(() => null, 'name', { value: name })]))
-function fixture(patch = {}, draft = null, { manualFrames = false, initialUrl, reducedMotion = true, presentSubcategories = true } = {}) {
-  const requests = [], permission = [], timers = new Map(), focused = [], navigations = [], drafts = [], listeners = new Map(), analytics = [], historyCalls = []
+function fixture(patch = {}, draft = null, { manualFrames = false, initialUrl, reducedMotion = true } = {}) {
+  const requests = [], permission = [], timers = new Map(), focused = [], focusedCategories = [], navigations = [], drafts = [], listeners = new Map(), analytics = [], historyCalls = []
+  let subcategoryAnimationPanel, previousSectionRef
   let timerId = 0, clears = 0, notifyNavigation = () => {}
   let currentUrl = new URL(initialUrl || `/?lang=${patch.locale || 'bg'}`, 'https://www.gorez.co')
   const historyEntries = [currentUrl.href]; let historyIndex = 0
@@ -70,7 +71,11 @@ function fixture(patch = {}, draft = null, { manualFrames = false, initialUrl, r
   const imports = { react: hooks, 'next/link': () => null, 'next/navigation': { useRouter: () => ({ push: value => navigations.push(value) }) }, '../lib/business-location.mjs': locations, '../lib/discovery/categories.mjs': categories, '../lib/discovery/location-query.mjs': locationQuery, '../lib/discovery/copy.mjs': copy, '../lib/discovery/defaults.mjs': defaults, '../lib/discovery/draft.mjs': { peekDiscoveryDraft: () => draft, clearDiscoveryDraft: () => { clears++ }, setDiscoveryDraft: value => drafts.push(value) }, '../lib/discovery/search-ui.mjs': searchUi, '../lib/discovery/results-navigation.mjs': { focusDiscoveryResults: () => focused.push('focus') }, '../lib/discovery/home.mjs': home, '../lib/discovery/laboratories.mjs': labs, '../lib/discovery/catalogue-pagination.mjs': pagination }
   imports['../lib/discovery/results-navigation.mjs'] = {
     focusDiscoveryResults: () => { focused.push('focus'); return true },
-    focusDiscoverySubcategories: () => { if (!presentSubcategories) return false; focused.push('subcategories'); return true },
+    focusDiscoverySubcategories: (section, _reduced, options) => {
+      if (!section) return false
+      assert.equal(options.stablePanel, true)
+      focused.push('subcategories'); focusedCategories.push(section.category); return true
+    },
     focusFirstDiscoveryBusiness: () => { focused.push('businesses'); return true },
   }
   Object.assign(imports, {
@@ -85,14 +90,24 @@ function fixture(patch = {}, draft = null, { manualFrames = false, initialUrl, r
   new Function('require', 'module', 'exports', 'fetch', 'setTimeout', 'clearTimeout', 'window', 'navigator', 'requestAnimationFrame', 'cancelAnimationFrame', code)(name => name in imports ? imports[name] : name.startsWith('./') ? controls : require(name), module, module.exports,
     (url, init) => { let resolve, reject; const promise = new Promise((yes, no) => { resolve = yes; reject = no }); requests.push({ url, init, body: JSON.parse(init.body), reject, respond(value = response(), status = 200) { resolve({ ok: status >= 200 && status < 300, json: async () => value }) } }); return promise },
     (fn, delay) => { const id = ++timerId; timers.set(id, { fn, delay }); return id }, id => timers.delete(id), browser, { geolocation: {} }, fn => { if (!manualFrames) { fn(); return 1 }; const id = ++frameId; frames.set(id, fn); return id }, id => frames.delete(id))
-  const h = harness(module.exports.DiscoverySearch, { home: true, locale: 'bg', locationProvider: () => { let resolve, reject; const promise = new Promise((yes, no) => { resolve = yes; reject = no }); permission.push({ resolve, reject }); return promise }, ...patch })
+  const h = harness(module.exports.DiscoverySearch, { home: true, locale: 'bg', locationProvider: () => { let resolve, reject; const promise = new Promise((yes, no) => { resolve = yes; reject = no }); permission.push({ resolve, reject }); return promise }, ...patch }, tree => {
+    // Mirror the DOM ref commit: the inline heading exists while pending or
+    // when positive facets render, and is removed on an empty/error response.
+    const child = elements(tree, node => node.type === controls.DiscoverySubcategories)[0]?.props
+    const ref = child?.navigationRef
+    if (previousSectionRef && previousSectionRef !== ref) previousSectionRef.current = null
+    previousSectionRef = ref
+    if (ref) ref.current = child.loading || child.options.length ? {
+      category: child.category, closest(selector) { assert.equal(selector, '.inline-discovery-panel'); return subcategoryAnimationPanel },
+    } : null
+  })
   notifyNavigation = () => h.invalidate()
   const f = {
-    h, requests, permission, focused, navigations, drafts, analytics, historyCalls,
+    h, requests, permission, focused, focusedCategories, navigations, drafts, analytics, historyCalls,
     frames() { const pending = [...frames.values()]; frames.clear(); pending.forEach(callback => callback()); h.flush() },
-    attachPanel(panel) { f.children().props.navigationRef.current = { closest(selector) { assert.equal(selector, '.inline-discovery-panel'); return panel } } },
+    attachPanel(panel) { subcategoryAnimationPanel = panel },
     attachResultPanel(panel) { f.control('DiscoveryHomeBusinesses').props.headingRef.current = { closest(selector) { assert.equal(selector, '.discovery-search'); return { querySelector(selector) { assert.equal(selector, '.inline-discovery-panel'); return panel } } } } },
-    panelTimer() { for (const [id, timer] of [...timers]) if (timer.delay === 220) { timers.delete(id); timer.fn() } h.flush() },
+    panelTimers: () => [...timers.values()].filter(timer => timer.delay === 220).length,
     control: name => elements(h.tree, node => node.type === controls[name])[0],
     grid: () => f.control('InlineCategoryGrid'),
     children: () => f.control('DiscoverySubcategories'),
@@ -157,7 +172,7 @@ test('a fresh inline homepage immediately browses every category without an inve
   } finally { f.close() }
 })
 
-test('inline category reveals its committed children automatically; child selection reveals only its matching results', async () => {
+test('inline category reveals its loading heading immediately; child selection waits for matching businesses', async () => {
   for (const locale of ['bg', 'en']) {
     const f = fixture({ locale })
     try {
@@ -165,10 +180,11 @@ test('inline category reveals its committed children automatically; child select
       assert.equal(f.grid().props.category, 'hair')
       assert.ok(f.control('DiscoveryHomeBusinesses'), 'results remain mounted under the inline choices')
       assert.equal(f.children().props.inline, true)
-      assert.deepEqual(f.focused, [])
+      assert.equal(f.children().props.loading, true)
+      assert.deepEqual(f.focused, ['subcategories'])
       const child = subcategoriesForCategory('hair', locale)[0]
       f.requests[0].respond(response('hair-parent', { subcategoryOptions: [{ ...child, count: 1 }] })); await f.settle()
-      assert.deepEqual(f.focused, ['subcategories'], 'a deliberate category selection reveals its actual children')
+      assert.deepEqual(f.focused, ['subcategories'], 'the successful data response does not scroll again')
       assert.ok(f.children().props.navigationRef)
       assert.deepEqual(f.children().props.options, [{ ...child, count: 1 }])
       f.h.render(); f.h.flush()
@@ -184,73 +200,60 @@ test('inline category reveals its committed children automatically; child select
   }
 })
 
-test('a fast accepted category waits for its actual opening animation before measuring the scroll destination', async () => {
+test('even a fast category response reveals the panel on the next frame without waiting for CSS animations', async () => {
   const f = fixture({}, null, { manualFrames: true, reducedMotion: false })
-  let finish
-  const finished = new Promise(resolve => { finish = resolve })
+  let animationReads = 0
   try {
     f.chooseCategory('hair'); f.entry()
-    f.attachPanel({ getAnimations: () => [{ finished }] })
+    f.attachPanel({ getAnimations: () => { animationReads++; return [{ finished: new Promise(() => {}) }] } })
     const child = subcategoriesForCategory('hair')[0]
     f.requests[0].respond(response('hair-current', { subcategoryOptions: [{ ...child, count: 1 }] })); await f.settle()
-    assert.deepEqual(f.focused, [], 'do not navigate before the current response commits')
+    assert.deepEqual(f.focused, [], 'the next frame has not yet run')
     f.frames()
-    assert.deepEqual(f.focused, [], 'do not align against the temporary animated panel height')
-    finish(); await f.settle()
     assert.deepEqual(f.focused, ['subcategories'])
+    assert.equal(animationReads, 0)
     f.h.render(); f.h.flush(); f.frames(); await f.settle()
     assert.deepEqual(f.focused, ['subcategories'], 'the committed navigation is consumed exactly once')
-  } finally { finish(); f.close() }
+  } finally { f.close() }
 })
 
-test('pending panel completion cannot steal focus after a newer category, typed text, history restore or unmount', async () => {
-  for (const action of ['category', 'typing', 'history', 'unmount']) {
+test('a queued category frame cannot steal focus after switching, clearing, typing, history restore or unmount', async () => {
+  for (const action of ['category', 'clear', 'typing', 'history', 'unmount']) {
     const f = fixture({}, null, { manualFrames: true, reducedMotion: false })
-    let finish
-    const finished = new Promise(resolve => { finish = resolve })
     try {
       f.chooseCategory('hair'); f.entry()
-      f.attachPanel({ getAnimations: () => [{ finished }] })
-      f.requests[0].respond(response('hair-current')); await f.settle(); f.frames()
-      assert.deepEqual(f.focused, [])
       if (action === 'category') f.chooseCategory('nails')
+      if (action === 'clear') f.clearCategory()
       if (action === 'typing') f.edit('ново търсене')
       if (action === 'history') f.restoreUrlContext('/?lang=bg&category=fitness')
       if (action === 'unmount') f.close()
-      finish(); await f.settle()
-      assert.deepEqual(f.focused, [], action)
-    } finally { finish(); f.close() }
+      f.requests[0].respond(response('hair-current')); await f.settle(); f.frames()
+      assert.deepEqual(f.focusedCategories, action === 'category' ? ['nails'] : [], action)
+    } finally { f.close() }
   }
 })
 
-test('older animation APIs get a cancellable settling fallback, while reduced motion never waits for panel animation', async () => {
+test('older browsers and reduced-motion preferences need no fallback animation timer for category navigation', async () => {
   for (const reducedMotion of [false, true]) {
     const f = fixture({}, null, { manualFrames: true, reducedMotion })
     try {
       f.chooseCategory('hair'); f.entry()
       f.attachPanel({})
-      f.requests[0].respond(response('hair-current')); await f.settle(); f.frames()
-      assert.deepEqual(f.focused, reducedMotion ? ['subcategories'] : [])
-      f.panelTimer()
+      f.frames()
+      assert.equal(f.children().props.loading, true)
       assert.deepEqual(f.focused, ['subcategories'])
+      assert.equal(f.panelTimers(), 0)
     } finally { f.close() }
   }
-  const f = fixture({}, null, { manualFrames: true, reducedMotion: false })
-  try {
-    f.chooseCategory('hair'); f.entry(); f.attachPanel({})
-    f.requests[0].respond(response('hair-current')); await f.settle(); f.frames()
-    f.edit('ново търсене'); f.panelTimer()
-    assert.deepEqual(f.focused, [], 'typing cancels even a fallback timer that was already queued')
-  } finally { f.close() }
 })
 
-test('a settled category with no real child panel reveals its result or honest empty heading instead', async () => {
-  const f = fixture({}, null, { presentSubcategories: false })
+test('a loading category that settles with no child panel falls back to the honest results heading once', async () => {
+  const f = fixture()
   try {
     f.chooseCategory('other'); f.entry()
-    assert.deepEqual(f.focused, [], 'pending facets are not a completed destination')
+    assert.deepEqual(f.focused, ['subcategories'], 'show the real loading heading while waiting')
     f.requests[0].respond(response('no-matches', { results: [], subcategoryOptions: [] })); await f.settle()
-    assert.deepEqual(f.focused, ['focus'], 'no invented child destination and no fabricated first business')
+    assert.deepEqual(f.focused, ['subcategories', 'focus'], 'no invented child destination or fabricated first business')
     assert.deepEqual(f.control('DiscoveryHomeBusinesses').props.result.results, [])
   } finally { f.close() }
 })
@@ -271,19 +274,20 @@ test('clearing a category waits for its closing panel so the first committed bus
 })
 
 test('late category responses cannot navigate or overwrite a newer choice; typing cancels queued navigation', async () => {
-  const f = fixture()
+  const f = fixture({}, null, { manualFrames: true })
   try {
     await f.ready()
     f.category('nails'); f.category('fitness')
     assert.equal(f.requests[1].init.signal.aborted, true)
     f.requests[1].respond(response('stale-nails')); await f.settle()
     assert.deepEqual(f.focused, [])
-    f.requests[2].respond(response('current-sport')); await f.settle()
+    const options = subcategoriesForCategory('fitness').map(item => ({ ...item, count: 1 }))
+    f.requests[2].respond(response('current-sport', { subcategoryOptions: options })); await f.settle(); f.frames()
     assert.deepEqual(f.focused, ['subcategories'], 'only the latest category reveals its child choices')
     assert.equal(f.control('DiscoveryHomeBusinesses').props.result.results[0].id, 'current-sport')
     f.focused.length = 0
     f.category('hair'); f.edit('ново търсене')
-    f.requests[3].respond(response('hair-after-typing')); await f.settle()
+    f.requests[3].respond(response('hair-after-typing')); await f.settle(); f.frames()
     assert.deepEqual(f.focused, [], 'do not steal focus while the visitor is typing')
   } finally { f.close() }
 })
@@ -293,7 +297,7 @@ test('category loading failures keep inline choices and truthful retry feedback,
   try {
     await f.ready(); f.chooseCategory('nails')
     f.requests[1].respond({ error: { code: 'SEARCH_UNAVAILABLE' } }, 503); await f.settle()
-    assert.deepEqual(f.focused, ['focus'], 'a failed deliberate category request reveals its real error/retry status')
+    assert.deepEqual(f.focused, ['subcategories', 'focus'], 'a failed deliberate category request leaves the temporary heading for real error/retry status')
     assert.equal(f.control('DiscoveryHomeBusinesses').props.error, 'SEARCH_UNAVAILABLE')
     assert.ok(f.children())
     assert.equal(f.control('DiscoveryHomeBusinesses').props.result, null)
@@ -311,7 +315,8 @@ test('a queued animation frame is cancelled by a newer request, typing or unmoun
       if (action === 'typing') f.edit('ново търсене')
       if (action === 'unmount') f.close()
       f.frames()
-      assert.deepEqual(f.focused, [], action)
+      assert.deepEqual(f.focused, action === 'new-request' ? ['subcategories'] : [], action)
+      f.focused.length = 0
       if (action === 'new-request') {
         f.subcategory(subcategoriesForCategory('fitness')[0].id)
         f.requests[4].respond(response('sport-result', { intent: { cityCode: '68134', subcategory: subcategoriesForCategory('fitness')[0].id } })); await f.settle(); f.frames()
@@ -766,14 +771,14 @@ test('a direct typed search supersedes the automatic all-category browse without
 })
 
 test('clearing a service during parent loading reuses the identical request and retains deliberate result focus', async () => {
-  const f = fixture()
+  const f = fixture({}, null, { manualFrames: true })
   try {
     f.chooseCategory('nails'); f.entry()
     f.clearService()
     assert.equal(f.requests.length, 1, 'the identical parent/All request is deduplicated')
     assert.equal(f.control('DiscoveryHomeBusinesses').props.loading, true)
     assert.deepEqual(f.focused, [])
-    f.requests[0].respond(response('all-nails')); await f.settle()
+    f.requests[0].respond(response('all-nails')); await f.settle(); f.frames()
     assert.deepEqual(f.focused, ['businesses'])
     assert.equal(f.control('DiscoveryHomeBusinesses').props.result.results[0].id, 'all-nails')
   } finally { f.close() }
@@ -986,7 +991,7 @@ test('category tile toggles and removable chips navigate only to their committed
   const f = fixture({}, null, { manualFrames: true })
   try {
     f.chooseCategory('fitness'); f.entry()
-    f.requests[0].respond(response('fitness')); await f.settle(); f.frames()
+    f.requests[0].respond(response('fitness', { subcategoryOptions: subcategoriesForCategory('fitness').map(item => ({ ...item, count: 1 })) })); await f.settle(); f.frames()
     assert.deepEqual(f.focused, ['subcategories'])
     f.focused.length = 0
     f.chooseCategory('fitness')
@@ -995,7 +1000,7 @@ test('category tile toggles and removable chips navigate only to their committed
     assert.deepEqual(f.focused, ['businesses'], 'clearing the category reveals the committed all-category businesses')
     f.focused.length = 0
     f.chooseCategory('nails')
-    f.requests[2].respond(response('nails')); await f.settle(); f.frames()
+    f.requests[2].respond(response('nails', { subcategoryOptions: subcategoriesForCategory('nails').map(item => ({ ...item, count: 1 })) })); await f.settle(); f.frames()
     assert.deepEqual(f.focused, ['subcategories'])
     f.focused.length = 0
     f.clearCategory()

@@ -56,7 +56,9 @@ test('the photographic selection preserves complete localized category/service l
     assert.ok(html.includes(`${copy.INLINE_DISCOVERY_COPY[locale].clearService} · ${child}`))
     assert.equal((html.match(/class="inline-summary-selection-label/g) || []).length, 2)
     assert.equal((html.match(/<svg[^>]*aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/g) || []).length, 2)
-    assert.match(html, new RegExp(`src="${subcategories.subcategoryById(props.subcategory).photo}"`))
+    const parentPhoto = home.homeCategories(locale).find(item => item.id === props.category).photo2x
+    assert.ok(html.includes(`src="${parentPhoto}"`))
+    assert.ok(!html.includes(subcategories.subcategoryById(props.subcategory).photo), 'keep the parent photo without repeating the selected service tile photograph')
     assert.match(html, /class="inline-summary-photo" aria-hidden="true"/)
     assert.match(html, /alt="" width="72" height="72" loading="lazy" decoding="async"/)
     assert.doesNotMatch(html, /aria-haspopup|aria-expanded|×|guide-panel|guide-launch|inline-summary-chip/)
@@ -164,15 +166,25 @@ test('full labels share a single photographic selection group, with one stronger
   assert.ok(elements(disabled, node => node.type === 'button').every(button => button.props.disabled))
 })
 
-test('a failed selection photograph remains a quiet reserved frame and never becomes an unrelated image or emoji', () => {
-  const tree = InlineDiscoverySummary({ ...props })
+test('a failed category photograph remains a quiet reserved frame and never becomes an unrelated image or emoji', async () => {
+  let failed = null
+  const { InlineDiscoverySummary: InteractiveSummary } = await compile('components/inline-discovery-summary.js', {
+    ...imports,
+    react: { ...React, useRef: () => ({ current: null }), useState: () => [failed, value => { failed = value }], useEffect() {} },
+  })
+  const tree = InteractiveSummary({ ...props })
   const photo = elements(tree, node => typeof node.type === 'function' && node.type.name === 'SelectionPhoto')[0]
   assert.ok(photo)
   const frame = photo.type({ source: photo.props.source })
   assert.equal(frame.props['aria-hidden'], 'true')
   const [image] = elements(frame, node => node.type === 'img')
-  assert.equal(image.props.src, subcategories.subcategoryById(props.subcategory).photo)
+  assert.equal(image.props.src, home.homeCategories('bg').find(item => item.id === props.category).photo2x)
   assert.equal(image.props.alt, '')
+  image.props.onError()
+  const unavailable = photo.type({ source: photo.props.source })
+  assert.equal(unavailable.props.className, 'inline-summary-photo')
+  assert.equal(unavailable.props['aria-hidden'], 'true')
+  assert.deepEqual(elements(unavailable, node => node.type === 'img'), [])
   assert.equal(photo.type({ source: undefined }), null)
 })
 

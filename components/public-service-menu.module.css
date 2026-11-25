@@ -1,40 +1,61 @@
 /* Photo-forward service cards; no selectors reach search, native booking
    controls, gallery assets or their existing source/price associations. */
-.menu {
+.menu,.gallery {
   --service-menu-surface: #fffdf9;
   --service-menu-ink: #3a2a21;
   --service-menu-muted: #705b4a;
   --service-menu-line: #e8dccf;
   --service-menu-raised: #f8f0e6;
   --service-menu-accent: #8c3f1b;
+  --service-menu-ai-surface: #fffbf5f2;
+  --service-menu-ai-ink: #463022;
   min-width: 0;
 }
+.gallery { container: service-gallery / inline-size; }
 .group + .group { margin-top: 24px; }
 .menu .groupTitle { margin: 0 0 12px; padding: 0; color: var(--service-menu-accent); font-size: 1rem; font-weight: 700; line-height: 1.4; }
-.grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,14rem),1fr)); align-items: start; gap: 16px; margin: 0; padding: 0; list-style: none; min-width: 0; }
+.grid { display: grid; grid-template-columns: minmax(0,1fr); align-items: start; gap: clamp(8px,2vw,14px); margin: 0; padding: 0; list-style: none; min-width: 0; }
+@container service-gallery (min-width: 16.5rem) { .grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@container service-gallery (min-width: 46rem) {
+  .grid:has(> .card:nth-child(3)) { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .grid:not(:has(> .card:nth-child(3))) { max-width: 43rem; margin-inline: auto; }
+  .grid:has(> .card:only-child) { grid-template-columns: minmax(0,22rem); justify-content: center; }
+}
 .card {
-  display: flex; flex-direction: column; align-items: center; gap: 9px;
-  box-sizing: border-box; min-width: 0; padding: 20px 16px;
-  border: 1px solid var(--service-menu-line); border-radius: 20px;
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  box-sizing: border-box; min-width: 0; padding: 6px 6px 12px;
+  border: 1px solid var(--service-menu-line); border-radius: 15px;
   color: var(--service-menu-ink); background: var(--service-menu-surface);
   box-shadow: inset 0 1px 0 #ffffff80,0 2px 8px #784b2b08;
   text-align: center;
 }
-.card .photo { width: 128px; height: 128px; max-width: 100%; margin: 0 0 5px; border: 1px solid var(--service-menu-line); border-radius: 18px; background: var(--service-menu-raised); }
-.card .photo > :global(.service-thumbnail-image) { object-fit: contain; object-position: center; }
-.name { display: block; max-width: 100%; color: var(--service-menu-ink); font-size: 1rem; font-weight: 700; line-height: 1.4; }
-.price { display: block; max-width: 100%; margin: 0; color: var(--service-menu-accent); font-size: 1.125rem; font-weight: 750; line-height: 1.4; font-variant-numeric: tabular-nums; }
+.card[data-service-selected="true"] { border-color: var(--service-menu-accent); box-shadow: inset 0 0 0 1px var(--service-menu-accent); }
+.card .photo {
+  display: block; position: relative;
+  width: 100%; height: auto; aspect-ratio: 4 / 3; max-width: 100%; margin: 0 0 3px;
+  border: 1px solid var(--service-menu-line); border-radius: 10px; background: var(--service-menu-raised);
+}
+.card .photo > :global(.service-thumbnail-image) { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.card .photo[data-service-gallery-photo="provided"] > :global(.service-thumbnail-image) { object-fit: contain; }
+.photo > :global(.service-gallery-ai) {
+  position: absolute; inset-inline-start: 4px; inset-block-end: 4px;
+  padding: 1px 4px; border-radius: 4px; max-width: calc(100% - 8px);
+  color: var(--service-menu-ai-ink); background: var(--service-menu-ai-surface);
+  font-size: 11px; font-weight: 600; line-height: 1.25; text-align: start;
+}
+.name { display: block; max-width: 100%; padding-inline: 2px; color: var(--service-menu-ink); font-size: 1rem; font-weight: 700; line-height: 1.35; }
+.priceBlock { max-width: 100%; padding: 3px 8px; border-radius: 12px; background: var(--service-menu-raised); }
+.price { display: block; max-width: 100%; margin: 0; color: var(--service-menu-accent); font-size: 1.0625rem; font-weight: 750; line-height: 1.35; font-variant-numeric: tabular-nums; }
 a.price { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; border-radius: 5px; }
-.unit { display: block; margin-top: 3px; color: var(--service-menu-muted); font-size: .9375rem; font-weight: 500; line-height: 1.5; }
+.unit { display: block; margin-top: 2px; color: var(--service-menu-muted); font-size: .875rem; font-weight: 500; line-height: 1.4; }
 .duration,.unpriced { color: var(--service-menu-muted); font-size: .875rem; font-weight: 500; line-height: 1.5; }
 .conditionsFlag { color: var(--service-menu-accent); font-size: .875rem; font-weight: 600; line-height: 1.5; }
-.conditions { display: grid; gap: 6px; width: 100%; }
-.card .conditions > p,.card .note { max-width: 100%; margin: 0; color: var(--service-menu-muted); font-size: .9375rem; font-weight: 400; line-height: 1.55; white-space: pre-line; }
-.name,.price,.unit,.duration,.unpriced,.conditionsFlag,.conditions,.note,.more { min-width: 0; white-space: normal; overflow-wrap: normal; word-break: normal; hyphens: none; }
-.more { max-width: 100%; margin-top: 2px; }
+.card .conditions { display: grid; gap: 4px; margin: 10px 4px 0; padding-inline-start: 18px; color: var(--service-menu-muted); font-size: .875rem; text-align: start; line-height: 1.45; white-space: pre-line; }
+.name,.price,.unit,.duration,.unpriced,.conditionsFlag,.conditions,.more { min-width: 0; white-space: normal; overflow-wrap: break-word; word-break: normal; hyphens: manual; }
+.more { max-width: 100%; margin-top: 2px; align-self: stretch; }
 .more > summary {
   display: inline-flex; align-items: center; justify-content: center; gap: 7px;
-  min-height: 44px; max-width: 100%; padding: 6px 12px;
+  min-height: 44px; max-width: 100%; padding: 4px 8px;
   border: 1px solid var(--service-menu-line); border-radius: 999px;
   color: var(--service-menu-accent); background: var(--service-menu-raised);
   font-size: .875rem; font-weight: 600; line-height: 1.4; list-style: none;
@@ -46,19 +67,19 @@ a.price { text-decoration: underline; text-decoration-thickness: 1px; text-under
 .more[open] > summary .moreLabel { display: none; }
 .more[open] > summary .lessLabel { display: inline; }
 .more[open] > summary > svg { transform: rotate(180deg); }
-.card .more > p { margin: 12px 0 0; color: var(--service-menu-muted); font-size: 1rem; font-weight: 400; line-height: 1.6; text-align: start; white-space: pre-line; }
+.card .more > p { margin: 10px 4px 0; color: var(--service-menu-muted); font-size: .9375rem; font-weight: 400; line-height: 1.55; text-align: start; white-space: pre-line; }
+.booking { max-width: 100%; margin-top: 2px; }
 .more > summary:focus-visible,.price:focus-visible { outline: 2px solid var(--service-menu-accent); outline-offset: 3px; }
 .srOnly { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 @media (hover:hover) and (pointer:fine) { .more > summary:hover { background: var(--service-menu-surface); border-color: var(--service-menu-accent); } }
-:global(html[data-theme="dark"]) .menu {
+:global(html[data-theme="dark"]) :is(.menu,.gallery) {
   --service-menu-surface: #352820;
   --service-menu-ink: #f7eee4;
   --service-menu-muted: #d2bda9;
   --service-menu-line: #715744;
   --service-menu-raised: #443126;
   --service-menu-accent: #ffc49b;
+  --service-menu-ai-surface: #2a1c15f2;
+  --service-menu-ai-ink: #fff0dd;
 }
-/* Reclaim the details section's inset on the narrowest screens. Whole service
-   names still fit when text is enlarged, without shrinking or breaking words. */
-@media (max-width:360px) { .menu { margin-inline: -16px; } .card { padding-inline: 2px; } }
 @media (prefers-reduced-motion:reduce) { .more > summary,.more > summary > svg { transition: none; } }

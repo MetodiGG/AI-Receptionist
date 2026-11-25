@@ -13,7 +13,7 @@ export function IllustrativeServicePhotoNote({ services, business, locale = 'bg'
   return <p className="service-photo-note">{locale === 'en' ? 'Service photos are illustrative.' : 'Снимките на услугите са примерни.'}</p>
 }
 
-export function ServiceThumbnail({ service, business, locale = 'bg', size = 72, trustedServiceImage, className = '' }) {
+export function ServiceThumbnail({ service, business, locale = 'bg', size = 72, trustedServiceImage, className = '', gallery = false }) {
   const [unavailableSources, setUnavailableSources] = useState([])
   const imageRef = useRef(null)
   const thumbnail = serviceThumbnail(service, { business, locale, trustedServiceImage, unavailableSources })
@@ -32,7 +32,9 @@ export function ServiceThumbnail({ service, business, locale = 'bg', size = 72, 
   // Unknown names (or entirely failed artwork) do not justify a notebook,
   // emoji or an unrelated photograph. Preserve the service text and actions.
   if (!src) return null
-  return <span className={`service-thumbnail service-thumbnail--${thumbnail.type} ${className}`.trim()} data-service-kind={thumbnail.kind} data-thumbnail-kind={thumbnail.type} data-photo-match={thumbnail.photoMatch} title={thumbnail.source === 'illustrative' ? thumbnail.alt : undefined} style={{ '--service-thumbnail-size': `${displaySize}px` }}>
-    <img ref={imageRef} key={src} className="service-thumbnail-image" src={src} srcSet={thumbnail.srcSet || undefined} sizes={`${displaySize}px`} width={displaySize} height={displaySize} alt={thumbnail.alt} loading="lazy" decoding="async" onError={() => setUnavailableSources(previous => rememberUnavailableSource(previous, src))}/>
+  const illustrative = thumbnail.source === 'illustrative'
+  const picture = <img ref={imageRef} key={src} className="service-thumbnail-image" src={src} srcSet={thumbnail.srcSet || undefined} sizes={gallery ? '(min-width: 800px) 300px, (min-width: 360px) 45vw, 85vw' : `${displaySize}px`} width={displaySize} height={displaySize} alt={thumbnail.alt} loading="lazy" decoding="async" onError={() => setUnavailableSources(previous => rememberUnavailableSource(previous, src))}/>
+  return <span className={`service-thumbnail service-thumbnail--${thumbnail.type} ${className}`.trim()} data-service-kind={thumbnail.kind} data-thumbnail-kind={thumbnail.type} data-photo-match={thumbnail.photoMatch} data-service-gallery-photo={gallery ? (illustrative ? 'illustration' : 'provided') : undefined} title={illustrative ? thumbnail.alt : undefined} style={{ '--service-thumbnail-size': `${displaySize}px` }}>
+    {gallery && illustrative ? <>{picture}<span className="service-gallery-ai" data-service-gallery-ai>{locale === 'en' ? 'AI illustration' : 'AI илюстрация'}</span></> : picture}
   </span>
 }

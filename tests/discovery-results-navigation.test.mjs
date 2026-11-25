@@ -16,11 +16,12 @@ test('reduced motion jumps directly, and an unmounted result is ignored', () => 
 })
 test('results navigation waits for a committed user search and never jumps on initial automatic browsing', async () => {
   const source = await read('components/discovery-search.js')
-  assert.match(source, /if \(compact \|\| loading \|\| !scrollAfterSearch.current \|\| \(!result && !error\)\) return/)
+  assert.match(source, /const awaitingResponse = loading \|\| \(!result && !error\)/)
+  assert.match(source, /if \(compact \|\| !destination \|\| \(awaitingResponse && destination !== 'subcategories'\)\) return/)
   assert.match(source, /search\(input, \{ navigate: Boolean\(initial\) \}\)/)
   assert.match(source, /focusDiscoveryResults\(resultHeading.current, reduceMotion\)/)
   assert.match(source, /scrollAfterSearch.current = false/)
-  assert.match(source, /\}, \[result, error, loading, compact\]\)/)
+  assert.match(source, /\}, \[result, error, loading, compact, resultKey\]\)/)
   assert.match(source, /cancelAnimationFrame\(frame\)/)
   assert.match(await read('app/solar.css'), /\.discovery-results-title \{ scroll-margin-block-start: 24px;/)
 })
@@ -32,6 +33,21 @@ test('a chosen category focuses and reveals its committed children with reduced-
     assert.deepEqual(calls, [['focus', { preventScroll: true }], ['scroll', { behavior: reduced ? 'instant' : 'smooth', block: 'start', inline: 'nearest' }]])
   }
   assert.equal(focusDiscoverySubcategories(null), false)
+})
+
+test('inline navigation scrolls the stable wrapper smoothly at any distance, unless reduced motion is enabled', () => {
+  for (const [top, reduced, behavior] of [[260, false, 'smooth'], [1850, false, 'smooth'], [260, true, 'instant']]) {
+    const calls = []
+    const panel = { getBoundingClientRect: () => ({ top }), ownerDocument: { defaultView: { innerHeight: 780 } },
+      scrollIntoView: options => calls.push(['panel-scroll', options]) }
+    const section = {
+      closest: selector => { assert.equal(selector, '.inline-discovery-panel'); return panel },
+      focus: options => calls.push(['region-focused', options]),
+      scrollIntoView: () => assert.fail('the clipped shell must not be the scroll target'),
+    }
+    assert.equal(focusDiscoverySubcategories(section, reduced, { stablePanel: true }), true)
+    assert.deepEqual(calls, [['region-focused', { preventScroll: true }], ['panel-scroll', { behavior, block: 'start', inline: 'nearest' }]])
+  }
 })
 
 test('a chosen subcategory scrolls to the first actual business and focuses its real control', () => {

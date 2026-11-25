@@ -54,7 +54,8 @@ test('all fourteen photographic parent choices retain their exact taxonomy IDs, 
         assert.equal(child.category, category.id)
         assert.ok(child.label.trim())
         assert.equal(subcategorySelection('', category.id, child.id, locale).subcategory, child.id)
-        assert.match(child.photo, /^\/service-photos\/[a-z0-9-]+\.webp$/)
+        if (child.photoSource === 'illustrative') assert.equal(child.photo, `/subcategory-photos/${child.id}-v1.webp`)
+        else assert.match(child.photo, /^\/service-photos\/[a-z0-9-]+\.webp$/)
       }
     }
   }

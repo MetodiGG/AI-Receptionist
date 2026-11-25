@@ -129,7 +129,7 @@ test('native canonical uses existing strict public identity matching, never name
 const simpleLink = ({ href, children, prefetch, ...props }) => React.createElement('a', { ...props, href }, children)
 const testedIcons = await compile('../components/icon.js', {})
 const { BusinessDirectionsLink } = await compile('../components/business-profile.js', {
-  './business-photo-gallery': {}, './business-cover-photo': {}, './service-thumbnail': {}, './icon': testedIcons,
+  './business-photo-gallery': {}, './business-cover-photo': {}, './public-service-menu': publicServiceMenu, './icon': testedIcons,
   '../lib/locale/public-content.mjs': publicContent, '../lib/business-profile.mjs': profileData,
   '../lib/business-photos.mjs': {}, '../lib/business-profile-ui.mjs': {},
   '../lib/discovery/service-presentation.mjs': servicePresentation, './public-action': publicAction,

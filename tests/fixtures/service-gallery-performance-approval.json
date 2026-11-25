@@ -1,0 +1,69 @@
+{
+  "baseline": "eb16dffaf8e395de742a3dbc97a14c1c33c8a372",
+  "changed": {
+    "app/inline-discovery.css": {
+      "before": "a14c351450cfaac256facabe5c67faf7f6e46ccdc2878fb16ae5bc044daef9d1",
+      "after": "65ca2277c4b4872dc9b58264de92d4abe493801e4a41817a6b2b0b4b9cac2bda"
+    },
+    "components/business-profile.js": {
+      "before": "d8f0a13a224db9c16ce276e64678f23ffae829ad3ed87e76195bd34ae252fe7e",
+      "after": "7b53e2520c03afc1312c10660be4810c38b8731874e354ed01928250771b859d"
+    },
+    "components/discovery-search.js": {
+      "before": "ef9dc81d6ce93c8152e12680da0a8027324bc93eae5afc942e5006ed74f014c6",
+      "after": "ed2ecf33b273d1d97cb97079ff7841803871ddeb5436a020ab1f2a25c2a017b2"
+    },
+    "components/discovery-subcategories.js": {
+      "before": "7216f83934b19a7be08a7441a2cc47d91934e99f3e312a19c85353921a3d9086",
+      "after": "76f2d824e2d245659fa3a7dcd00158c64b49b316dcd160688860d4e96b4d2013"
+    },
+    "components/inline-category-grid.js": {
+      "before": "77681fb29fe8eaedb51fa7a153330f3f78a899f87fffafe9e70f72e2dc58f474",
+      "after": "030a524c10ed2b588e953536f68750c485e843eff814931ab5171e2181f0854c"
+    },
+    "components/inline-discovery-summary.js": {
+      "before": "02a15bd73dec0f252897e8b29d9755665061c17f1e07caf4b02e8e907606afad",
+      "after": "ff45f7db67031b033b99fa8496ae9f3caba7121a31c20bf8820f090bae09db13"
+    },
+    "components/public-service-menu.js": {
+      "before": "79247ef843886824e704fb098459097b3f23e07bd40a729786e1f1fcaa37fe36",
+      "after": "183cf33419fbac750b156db29d79c8ed8adad23ed520ade05096019ca9c7fcef"
+    },
+    "components/public-service-menu.module.css": {
+      "before": "57a4f1c9e64f98d1a1070f2ac90bf893bb14f2025771b43da5e69a22d6d0e44f",
+      "after": "f0a503ad8c8e402bfcdab3305dcacd87eda92b03dcb8f1eb4b523b296d55c836"
+    },
+    "components/pwa-register.js": {
+      "before": "b6c9fd33d77aecc03fff31aac07de3f8e13ca8cabbe10d4eee88692713fff922",
+      "after": "71e0bdc78d193bae02aec8f2f6d1a91401fa9da78b339bf5267d42f339788e37"
+    },
+    "components/service-thumbnail.js": {
+      "before": "cd17efcb4b9e67799a008f813def31d3930effcb23b31e5b8ce07bd33485262e",
+      "after": "1b7deea64226e6ad02b58fd1babad2e827ede726e1a845d8197164f0b2a84aca"
+    },
+    "lib/discovery/catalogue-search.mjs": {
+      "before": "f194ad6cd89e5fc57528fd5ccf50512fd4871eb166a16d0bba066f3a6f488cf0",
+      "after": "41885a39f5830b1a309d5b4eebcdb98f8ef455937fa07d3f10ab54efbbb5b0db"
+    },
+    "lib/discovery/results-navigation.mjs": {
+      "before": "20fc19f446d35edb01682611aaf7fc69e0211b2cac8798ee7545fdbf34e15aa4",
+      "after": "224fe6cfc6abe1aadd53627eaddbae818f22cd456ddd9c9ca3e42d5afb0287e5"
+    },
+    "lib/discovery/service-description-disclosure.mjs": {
+      "before": "58b664cc5a444fc875ff50799903c1c1f0a5ac8a578936a2748d97e13ad3822c",
+      "after": "24c1a52d76408b980582951e226bfcfbd5fc78f768a1b69330fe108eaa7bdf09"
+    },
+    "lib/discovery/subcategories.mjs": {
+      "before": "d45cdfb973e9f5faf5423a4a5f723c34b82a0f79aac981a674ca80e7e5c336d4",
+      "after": "42dfa89502483907f195b4b249e452229fbbd3e310504b029813b80e971cb8eb"
+    }
+  },
+  "added": {
+    "docs/subcategory-photo-role-separation-20261125.json": "e9fa3a49637a7be83ad3300c5d3fe728adde17fa3b57a0a0ae7cb8a89f42b85f",
+    "public/subcategory-photos/consulting-business-v1.webp": "12a4b2ee1406a0514b17c6b56232aca1a2b945dc625effb42ed6bd57f5a326c8",
+    "public/subcategory-photos/education-exam-preparation-v1.webp": "d454acc109dfa57c0d3683b83e88c37f6b4f8313bd41c74f5d0aee4aa91e6748",
+    "public/subcategory-photos/education-school-v1.webp": "136480a66165d58955dfda51d0705a963c26d0e40ea5d92f4a530cc8b1b85aca",
+    "public/subcategory-photos/hair-children-v1.webp": "e552cd30926b24ae3e55a54619fbcd80ca564bcaf2d4772066bd9cfd79cf4015",
+    "public/subcategory-photos/health-rehabilitation-v1.webp": "dedfb66ad11b0f6fd1e0954228fba662164b5fbe4a84a01da20a889d03ff59f7"
+  }
+}

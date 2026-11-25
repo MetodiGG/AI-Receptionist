@@ -10,6 +10,7 @@ import { publicBusinessLocation } from '../lib/business-directions.mjs'
 import { SITE_ORIGIN } from '../lib/seo.mjs'
 import * as bookingButtonContent from './helpers/booking-button-content.mjs'
 import * as publicAction from './helpers/public-action.mjs'
+import { loadPublicServiceMenu } from './helpers/public-service-menu.mjs'
 
 const { profileShareUrl, shareProfileLink, profileServicePrice, eligibleProfileStaff, profileBookingContextKey, scrollToProfileBooking } = profileUi
 const require = createRequire(import.meta.url)
@@ -34,12 +35,13 @@ function evaluateComponent(code, stubs = {}) {
 
 const { Icon } = evaluateComponent(await compileComponent('../components/icon.js'))
 const profileCode = await compileComponent('../components/business-profile.js')
+const ServiceThumbnail = ({ service }) => React.createElement('span', { 'data-service-thumbnail': service.id, 'aria-hidden': true })
 const stubs = {
   './booking-button-content': bookingButtonContent,
   './icon': { Icon },
   './business-photo-gallery': { BusinessPhotoGallery: ({ businessName }) => React.createElement('div', { 'data-photo-gallery': businessName }) },
   './business-cover-photo': { BusinessCoverPhoto: () => React.createElement('div', { 'data-category-cover': 'beauty' }) },
-  './service-thumbnail': { ServiceThumbnail: ({ service }) => React.createElement('span', { 'data-service-thumbnail': service.id, 'aria-hidden': true }), IllustrativeServicePhotoNote: () => null },
+  './public-service-menu': await loadPublicServiceMenu({ ServiceThumbnail, Icon }),
   '../lib/business-profile.mjs': profileData,
   '../lib/business-profile-ui.mjs': profileUi,
   '../lib/business-photos.mjs': { getStaffPhoto: () => null },

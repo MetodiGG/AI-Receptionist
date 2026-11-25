@@ -68,29 +68,43 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
   const [loadingMore, setLoadingMore] = useState(false), [moreError, setMoreError] = useState(''), [resultKey, setResultKey] = useState(0)
   const pageController = useRef(null), pageInFlight = useRef(false), searchVersion = useRef(0), lastInput = useRef(null)
   const controller = useRef(null), resultHeading = useRef(null), inFlight = useRef(false), locationInFlight = useRef(false), locationVersion = useRef(0), mounted = useRef(true), scrollAfterSearch = useRef(false)
-  const subcategoriesRef = useRef(null)
+  const subcategoriesRef = useRef(null), revealedCategoryVersion = useRef(null)
   useEffect(() => { const timer = setTimeout(() => setSettledQuery(query), 350); return () => clearTimeout(timer) }, [query])
   useEffect(() => { mounted.current = true; return () => { mounted.current = false; controller.current?.abort(); pageController.current?.abort() } }, [])
   useEffect(() => {
-    if (compact || loading || !scrollAfterSearch.current || (!result && !error)) return
-    // Wait for this request's committed content, never a loading shell or a
-    // stale response. Consume navigation once, not on pagination/theme changes.
     const destination = scrollAfterSearch.current, version = searchVersion.current
+    const awaitingResponse = loading || (!result && !error)
+    if (compact || !destination || (awaitingResponse && destination !== 'subcategories')) return
     let active = true, panelTimer = null
     const frame = requestAnimationFrame(() => {
       const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches
+      const isCurrent = () => active && version === searchVersion.current && scrollAfterSearch.current === destination
       const reveal = () => {
-        if (!active || version !== searchVersion.current || scrollAfterSearch.current !== destination) return
+        if (!isCurrent()) return
         scrollAfterSearch.current = false
-        if (!error && destination === 'subcategories' && focusDiscoverySubcategories(subcategoriesRef.current, reduceMotion)) return
         if (!error && destination === 'businesses') { focusFirstDiscoveryBusiness(resultHeading.current, reduceMotion); return }
         focusDiscoveryResults(resultHeading.current, reduceMotion)
       }
-      // A fast response can arrive while the inline panel is growing/closing.
-      // Scroll against its final layout, not the temporary animated height.
-      const panel = !error && !reduceMotion ? destination === 'subcategories'
-        ? subcategoriesRef.current?.closest?.('.inline-discovery-panel')
-        : destination === 'businesses' ? resultHeading.current?.closest?.('.discovery-search')?.querySelector?.('.inline-discovery-panel') : null : null
+      if (!isCurrent()) return
+      if (destination === 'subcategories') {
+        // Its heading already exists while options are loading. It has a
+        // stable top: the grid animation only needs to reveal what is below.
+        const section = subcategoriesRef.current
+        const alreadyRevealed = revealedCategoryVersion.current === version && Boolean(section)
+        if (!error && (alreadyRevealed || focusDiscoverySubcategories(section, reduceMotion, { stablePanel: true }))) {
+          revealedCategoryVersion.current = version
+          if (!awaitingResponse) scrollAfterSearch.current = false
+        } else if (!awaitingResponse) {
+          // A settled empty panel disappears; only then reveal the true
+          // result or error heading instead. A successful panel never jumps twice.
+          reveal()
+        }
+        return
+      }
+      // Only real business navigation waits for an opening/closing grid
+      // above the destination, which changes the first card's position.
+      const panel = !error && !reduceMotion && destination === 'businesses'
+        ? resultHeading.current?.closest?.('.discovery-search')?.querySelector?.('.inline-discovery-panel') : null
       if (!panel) { reveal(); return }
       if (typeof panel.getAnimations === 'function') {
         const animations = panel.getAnimations()
@@ -99,7 +113,7 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
       } else panelTimer = setTimeout(reveal, 220)
     })
     return () => { active = false; cancelAnimationFrame(frame); if (panelTimer !== null) clearTimeout(panelTimer) }
-  }, [result, error, loading, compact])
+  }, [result, error, loading, compact, resultKey])
   useEffect(() => {
     if (compact) return
     // Browse the full supported city inventory immediately, without choosing

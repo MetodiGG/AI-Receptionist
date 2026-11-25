@@ -35,7 +35,7 @@ test('the actual unified menu renders every original service once, including sam
   assert.equal((html.match(/class="public-service-menu-unpriced"/gu) || []).length, 2)
 })
 
-test('price amounts, from/range qualifiers, translated units, source links and short description conditions stay visible outside Read more', () => {
+test('price amounts, range, source and translated units stay visible; short qualifications are behind a labelled disclosure', () => {
   const services = [{
     name: 'Actual full service name', category: 'nails', price: 15, priceMaximum: 25, priceKind: 'range', currency: 'EUR',
     priceUnit: 'пакет 2 посещения', presentationEn: { name: 'Actual full service name', unit: 'package of 2 visits' },
@@ -43,7 +43,11 @@ test('price amounts, from/range qualifiers, translated units, source links and s
     description: 'Materials are not included; excluding VAT. Total package of 2 visits. This price requires advance confirmation.',
   }]
   const html = render(services, { locale: 'en' }), visible = withoutDetails(html)
-  for (const phrase of ['Materials are not included', 'excluding VAT', 'Total package of 2 visits', 'advance confirmation', 'package of 2 visits', '45 min']) assert.ok(visible.includes(phrase), phrase)
+  for (const phrase of ['package of 2 visits', '45 min', 'Conditions apply']) assert.ok(visible.includes(phrase), phrase)
+  for (const phrase of ['Materials are not included', 'excluding VAT', 'Total package of 2 visits', 'advance confirmation']) {
+    assert.ok(html.includes(phrase), phrase)
+    assert.ok(!visible.includes(phrase), phrase)
+  }
   assert.match(html, /href="https:\/\/example\.test\/real-menu" target="_blank" rel="noopener noreferrer"/u)
   assert.ok(html.includes(escape(detailPriceLabel(services[0], 'en'))))
   const sourceLabel = html.match(/<a class="public-service-menu-price"[^>]*aria-label="([^"]+)"/u)?.[1]
@@ -56,11 +60,11 @@ test('the entire long narrative uses a closed native disclosure while complete n
   const narrative = 'Hair styling creates a balanced shape and soft movement. The hairstyle uses flowing layers to frame the face and adds natural texture through careful brushing. Hair colour and styling complement the overall shape.'
   const html = render([{ name: 'A complete unusually long service name without abbreviation or removed words', price: 25, currency: 'EUR', description: narrative }], { locale: 'en' })
   assert.match(html, /<details class="public-service-menu-more" data-service-more="true">/u)
-  assert.match(html, /Read more/u)
-  assert.match(html, /Read less/u)
+  assert.match(html, /View details/u)
+  assert.match(html, /Hide details/u)
   assert.doesNotMatch(html, /<details[^>]*\bopen(?:=|\s|>)/u)
   assert.ok(withoutDetails(html).includes('A complete unusually long service name without abbreviation or removed words'))
-  assert.ok(html.includes(escape(narrative)), 'the full original long description is available contiguously inside Read more')
+  assert.ok(html.includes(escape(narrative)), 'the full original long description is available contiguously inside the disclosure')
   assert.ok(!withoutDetails(html).includes('Hair styling creates a balanced shape'), 'long prose is folded, not repeated above the control')
   assert.doesNotMatch(html, /aria-expanded=|<button|<form|fetch\(/u)
 })
@@ -76,7 +80,8 @@ for (const locale of ['bg', 'en']) test(`${locale}: an approved folded long qual
   assert.ok(original.length > 180)
   assert.match(visible, /data-service-conditions-hidden="true"/u)
   assert.ok(visible.includes(DISCOVERY_COPY[locale].hasConditions))
-  assert.ok(visible.includes(locale === 'en' ? 'Online-only discount' : 'Отстъпка само онлайн'), 'structured conditions stay visible even when the long prose is folded')
+  const onlineCondition = locale === 'en' ? 'Online-only discount' : 'Отстъпка само онлайн'
+  assert.ok(!visible.includes(onlineCondition), 'only the qualification warning is visible before opening the disclosure')
   assert.ok(visible.includes(locale === 'en' ? 'package of 2 visits' : 'пакет 2 посещения'))
   assert.ok(visible.includes(locale === 'en' ? '45 min' : '45 мин'))
   assert.ok(visible.includes(locale === 'en' ? '€15.00' : '15,00'))
@@ -84,18 +89,31 @@ for (const locale of ['bg', 'en']) test(`${locale}: an approved folded long qual
   assert.ok(!visible.includes(locale === 'en' ? 'Materials and additional' : 'Материалите и допълнителните'))
   const disclosure = html.match(/<details\b[^>]*data-service-more="true"[^>]*>([\s\S]*?)<\/details>/u)?.[1]
   assert.ok(disclosure?.includes(escape(original)), 'no qualification clause is truncated, summarized or discarded')
+  assert.ok(disclosure?.includes(onlineCondition), 'the structured qualification stays in the same disclosure')
   assert.doesNotMatch(html, /<details[^>]*\bopen(?:=|\s|>)/u)
 })
 
-test('the exact 180-character disclosure boundary keeps short prose visible and folds the whole longer source without a partial preview', () => {
-  const short = 'A'.repeat(180), long = short + 'B'
-  const visible = render([{ name: 'Boundary service', description: short, price: null }], { locale: 'en' })
-  assert.ok(withoutDetails(visible).includes(short))
-  assert.doesNotMatch(visible, /data-service-more=/u)
-  const folded = render([{ name: 'Boundary service', description: long, price: null }], { locale: 'en' })
-  assert.ok(!withoutDetails(folded).includes(long))
-  assert.ok(folded.includes(escape(long)))
-  assert.match(folded, /data-service-more="true"/u)
+test('a condition-only card still provides the details control and keeps its exact price visible', () => {
+  const original = 'Тарифа само за посочения обект; при записване уточнете правилния салон.'
+  const html = render([{ name: 'Услуга с цена за обекта', price: 12, currency: 'EUR', description: original }])
+  const visible = withoutDetails(html)
+  assert.match(visible, /12,00[\s\S]*Има условия/u)
+  assert.doesNotMatch(visible, /Тарифа за този обект/u)
+  assert.match(html, /<summary>[\s\S]*Виж детайли[\s\S]*<li>Тарифа за този обект<\/li>[\s\S]*<\/details>/u)
+  assert.equal((html.match(/Тарифа за този обект/gu) || []).length, 1)
+})
+
+test('the gallery gives every nonempty description a disclosure and does not add an empty control', () => {
+  for (const [locale, label] of [['bg', 'Виж детайли'], ['en', 'View details']]) {
+    for (const description of ['Short detail.', 'A'.repeat(180), 'A'.repeat(181)]) {
+      const html = render([{ name: 'Boundary service', description, price: null }], { locale })
+      assert.ok(!withoutDetails(html).includes(description))
+      assert.ok(html.includes('<p>' + escape(description) + '</p>'))
+      assert.ok(html.includes(label))
+      assert.match(html, /<summary>[\s\S]*Boundary service.*<\/summary>/u)
+    }
+    assert.doesNotMatch(render([{name: 'No details', description: ' ', price: 12}], { locale }), /data-service-more=/u)
+  }
 })
 
 test('existing service fragments and source order survive grouping; Bulgarian and English headings/names retain the same services', () => {
@@ -116,18 +134,18 @@ test('existing service fragments and source order survive grouping; Bulgarian an
 
 test('photo/card typography and native disclosures remain contained, accessible, dark-theme aware and reduced-motion safe without clipping names/prices', async () => {
   const css = await readFile(new URL('../components/public-service-menu.module.css', import.meta.url), 'utf8')
-  assert.match(css, /width: 128px; height: 128px/u)
-  assert.match(css, /object-fit: contain; object-position: center/u)
-  assert.match(css, /grid-template-columns: repeat\(auto-fit,minmax\(min\(100%,14rem\),1fr\)\)/u)
+  assert.match(css, /width: 100%; height: auto; aspect-ratio: 4 \/ 3/u)
+  assert.match(css, /object-fit: cover; object-position: center/u)
+  assert.match(css, /data-service-gallery-photo="provided"[^\n]+object-fit: contain/u)
+  assert.match(css, /@container service-gallery \(min-width: 16\.5rem\).*repeat\(2,minmax\(0,1fr\)\)/u)
+  assert.match(css, /@container service-gallery \(min-width: 46rem\)\s*\{\s*\.grid:has\(> \.card:nth-child\(3\)\)\s*\{\s*grid-template-columns: repeat\(3,minmax\(0,1fr\)\)/u)
+  assert.match(css, /\.grid:not\(:has\(> \.card:nth-child\(3\)\)\)\s*\{\s*max-width: 43rem; margin-inline: auto/u)
+  assert.match(css, /inset-inline-start: 4px; inset-block-end: 4px;[\s\S]*font-size: 11px/u)
   assert.match(css, /\.more > summary[\s\S]*min-height: 44px/u)
   assert.match(css, /summary:focus-visible[\s\S]*outline: 2px/u)
   assert.match(css, /html\[data-theme="dark"\]/u)
   assert.match(css, /prefers-reduced-motion:reduce/u)
-  const narrow = css.match(/@media \(max-width:360px\) \{([^\n]+)\}/u)?.[1]
-  assert.ok(narrow, 'narrow-screen enlarged-text layout has an explicit local fit rule')
-  assert.match(narrow, /\.menu \{ margin-inline: -16px; \}/u)
-  assert.match(narrow, /\.card \{ padding-inline: 2px; \}/u)
-  assert.doesNotMatch(narrow, /font-size|word-break|overflow-wrap|overflow:/u, 'reclaim gutter space, never shrink text, split words or hide overflow')
+  assert.match(css, /\.grid \{[^\n]+grid-template-columns: minmax\(0,1fr\)/u, 'cards fall back to one column when the container is narrow')
   assert.doesNotMatch(css, /text-overflow:\s*ellipsis|line-clamp|word-break:\s*break-all/u)
   for (const [foreground, background] of [['705b4a', 'fffdf9'], ['8c3f1b', 'fffdf9'], ['d2bda9', '352820'], ['ffc49b', '352820']]) {
     const lum = hex => {
@@ -137,4 +155,22 @@ test('photo/card typography and native disclosures remain contained, accessible,
     const levels = [lum(foreground), lum(background)].sort((a, b) => b - a)
     assert.ok((levels[0] + .05) / (levels[1] + .05) >= 4.5, foreground + '/' + background)
   }
+})
+
+test('the real gallery labels generated photos only, keeps business-provided art unlabelled and never invents an unrelated image', async () => {
+  const { PublicServiceMenu: actualMenu } = await loadPublicServiceMenu()
+  const business = { id: 'e5b029ba-3586-485b-ac19-978a8386922d', category: 'beauty' }
+  const services = [
+    { id: 'ddb089f1-4fb3-422f-8fae-5b1689c1a0da', name: 'Апарат за лице “Меган”', price: 10 },
+    { name: 'Почистване на лице', price: 30, category: 'beauty' },
+    { name: 'Неописана бъдеща услуга', price: 40 },
+  ]
+  const html = renderToStaticMarkup(React.createElement(actualMenu, { services, business }))
+  const cards = [...html.matchAll(/<li\b[^>]*data-service-price-card[^>]*>([\s\S]*?)<\/li>/gu)].map(match => match[1])
+  assert.equal(cards.length, 3)
+  const [real, generated, unknown] = services.map(service => cards.find(card => card.includes(escape(service.name))))
+  assert.match(real, /data-service-gallery-photo="provided".*partner-megan-supplied-v1\.webp/u)
+  assert.doesNotMatch(real, /data-service-gallery-ai|AI илюстрация/u)
+  assert.match(generated, /data-service-gallery-photo="illustration".*data-service-gallery-ai="true">AI илюстрация/u)
+  assert.doesNotMatch(unknown, /<img|data-service-gallery-ai|appointment-workspace/u)
 })

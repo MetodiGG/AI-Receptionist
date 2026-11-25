@@ -7,7 +7,7 @@ import { azisCatalogueAllowsFileChange, azisCatalogueAllowsNewFile, azisCatalogu
 import { regionalCatalogueAllowsFileChange, regionalCatalogueAllowsNewFile, regionalCataloguePriorSource } from './regional-catalogue-20261122-scope.mjs'
 import { catalogueRevalidationAllowsFileChange } from './catalogue-revalidation-20261122-scope.mjs'
 import { sportsMobilePhotoFitPriorCss } from './sports-mobile-photo-fit-scope.mjs'
-import { servicePriceCardsAllowsFileChange, servicePriceCardsAllowsNewFile } from './services-price-cards-scope.mjs'
+import { SERVICE_PRICE_CARDS_NEW_HASHES, servicePriceCardsAllowsFileChange, servicePriceCardsAllowsNewFile } from './services-price-cards-scope.mjs'
 import assert from 'node:assert/strict'
 import test from 'node:test'
 import { PUBLIC_ENGLISH_NEW_HASHES, publicEnglishAllowsFileChange, publicEnglishAllowsNewFile, publicEnglishSearchSource } from './public-english-scope.mjs'
@@ -45,7 +45,10 @@ test('the desktop fit baseline freezes production outside the explicitly authori
   const belongs = path => roots.some(prefix => path.startsWith(prefix + '/'))
   const expected = baseline.filter(record => belongs(record.path)).map(record => record.path).sort()
   const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z', '--', ...roots).split('\0').filter(path => !pr81LocationAllowsNewFile(path) && path && !suhodolIntakeAllowsNewFile(path) && !nearbyPointsAllowsNewFile(path) && !locationRecoveryAllowsNewFile(path) && !priority30ReportAllowsNewFile(path) && !regionalCatalogueAllowsNewFile(path) && !azisCatalogueAllowsNewFile(path) && !(path === 'lib/discovery/public-catalogue.mjs' && azisCatalogueAllowsFileChange(path)) && frozenPath(path) && !(publicActionAllowsNewFile(path) || path === 'components/public-action.module.css' && publicEnglishAllowsFileChange(path)) && !publicEnglishAllowsNewFile(path) && !pr81LocationMatchesPriorHash(path, PUBLIC_ENGLISH_NEW_HASHES[path]) && !(path === 'scripts/check-public-english.mjs' && (regionalCatalogueAllowsFileChange(path) || azisCatalogueAllowsFileChange(path))) && !(path === 'lib/locale/service-english.json' && (suhodolIntakeAllowsFileChange(path) || catalogueRevalidationAllowsFileChange(path) || (regionalCatalogueAllowsFileChange(path) || azisCatalogueAllowsFileChange(path)))) && !servicePriceCardsAllowsNewFile(path) && !refinementAllowsNewMedia(path) && !responsivePreviewAllowsNewFile(path) && !(stationaryDiscoveryAllowsNewFile(path) || path === 'scripts/inventory-public-english.mjs' && (publicEnglishAllowsFileChange(path) || (regionalCatalogueAllowsFileChange(path) || azisCatalogueAllowsFileChange(path)))))
-  assert.deepEqual([...new Set(actual)].sort(), expected, 'Only the fifteen explicitly named versioned media siblings and three dev-only wrapper files may be new; every historical production path remains present')
+  // Preserve the original inventory exemption only when the later exact
+  // gallery receipt reconstructs the originally approved service-menu bytes.
+  const historicalFiles = actual.filter(path => !pr81LocationMatchesPriorHash(path, SERVICE_PRICE_CARDS_NEW_HASHES[path]))
+  assert.deepEqual([...new Set(historicalFiles)].sort(), expected, 'Only the fifteen explicitly named versioned media siblings and three dev-only wrapper files may be new; every historical production path remains present')
 })
 
 const require = createRequire(import.meta.url)

@@ -6,7 +6,7 @@ import { priority30ReportAllowsFileChange, priority30ReportAllowsNewFile, priori
 import { azisCatalogueAllowsFileChange, azisCatalogueAllowsNewFile, azisCataloguePriorSource } from './azis-style-catalogue-20261122-scope.mjs'
 import { regionalCatalogueAllowsFileChange, regionalCatalogueAllowsNewFile, regionalCataloguePriorSource } from './regional-catalogue-20261122-scope.mjs'
 import { catalogueRevalidationAllowsFileChange } from './catalogue-revalidation-20261122-scope.mjs'
-import { servicePriceCardsAllowsFileChange, servicePriceCardsAllowsNewFile } from './services-price-cards-scope.mjs'
+import { SERVICE_PRICE_CARDS_NEW_HASHES, servicePriceCardsAllowsFileChange, servicePriceCardsAllowsNewFile } from './services-price-cards-scope.mjs'
 import test from 'node:test'
 import { PUBLIC_ENGLISH_NEW_HASHES, publicEnglishAllowsFileChange, publicEnglishAllowsNewFile, publicEnglishSearchSource } from './public-english-scope.mjs'
 import assert from 'node:assert/strict'
@@ -41,7 +41,10 @@ test('the responsive wrapper and later approved compact selection add only exact
     assert.equal(createHash('sha1').update(`blob ${bytes.length}\0`).update(bytes).digest('hex'), record.oid, `${record.path} must stay byte-identical to ${BASE}`)
   }))
   const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => !pr81LocationAllowsNewFile(path) && path && !suhodolIntakeAllowsNewFile(path) && !nearbyPointsAllowsNewFile(path) && !locationRecoveryAllowsNewFile(path) && !priority30ReportAllowsNewFile(path) && !regionalCatalogueAllowsNewFile(path) && !azisCatalogueAllowsNewFile(path) && !(path === 'lib/discovery/public-catalogue.mjs' && azisCatalogueAllowsFileChange(path)) && productionPath(path) && !(publicActionAllowsNewFile(path) || path === 'components/public-action.module.css' && publicEnglishAllowsFileChange(path)) && !publicEnglishAllowsNewFile(path) && !pr81LocationMatchesPriorHash(path, PUBLIC_ENGLISH_NEW_HASHES[path]) && !(path === 'scripts/check-public-english.mjs' && (regionalCatalogueAllowsFileChange(path) || azisCatalogueAllowsFileChange(path))) && !(path === 'lib/locale/service-english.json' && (suhodolIntakeAllowsFileChange(path) || catalogueRevalidationAllowsFileChange(path) || (regionalCatalogueAllowsFileChange(path) || azisCatalogueAllowsFileChange(path)))) && !servicePriceCardsAllowsNewFile(path) && !(stationaryDiscoveryAllowsNewFile(path) || path === 'scripts/inventory-public-english.mjs' && (publicEnglishAllowsFileChange(path) || (regionalCatalogueAllowsFileChange(path) || azisCatalogueAllowsFileChange(path)))))
-  assert.deepEqual([...new Set(actual)].sort(), [...baseline.map(record => record.path), ...RESPONSIVE_PREVIEW_FILES, ...CAR_WASH_REFINEMENT_NEW_MEDIA].sort(), 'only the three reviewed dev wrapper files and three car-wash media siblings can enter the inventory')
+  // The old service-menu additions remain exempt only through their exact
+  // original hashes and the independently pinned gallery follow-up.
+  const historicalFiles = actual.filter(path => !pr81LocationMatchesPriorHash(path, SERVICE_PRICE_CARDS_NEW_HASHES[path]))
+  assert.deepEqual([...new Set(historicalFiles)].sort(), [...baseline.map(record => record.path), ...RESPONSIVE_PREVIEW_FILES, ...CAR_WASH_REFINEMENT_NEW_MEDIA].sort(), 'only the three reviewed dev wrapper files and three car-wash media siblings can enter the inventory')
 })
 
 const require = createRequire(import.meta.url), { loadBindings, transform } = require('next/dist/build/swc')

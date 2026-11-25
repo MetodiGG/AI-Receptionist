@@ -24,6 +24,7 @@ const historicalCatalogue = quarterRefreshPriorCatalogue(SOFIA_CATALOGUE).map(ro
   ? { ...oldEducation.find(item => item.id === row.id), coordinates: row.coordinates } : row)
 const approved = historicalCatalogue.map(row => approvedCatalogueRecord(row, now.toMillis())).filter(Boolean)
 const addedIds = audit.additions.map(item => item.id)
+const dedicatedNavigation = new Set(['hair-children', 'education-exam-preparation'])
 const noProvider = () => assert.fail('Taxonomy filtering must not contact a metered provider, Maps, availability or booking endpoint')
 const deps = {
   config: discoveryConfig({ DISCOVERY_ENABLED: 'true' }), now,
@@ -44,17 +45,25 @@ test('guided taxonomy keeps all104 legacy IDs in their order, all14 category rel
 })
 
 for (const addition of audit.additions) {
-  test(`new ${addition.id} has real approved service support, a correct parent and unchanged bilingual existing photo`, async () => {
+  test(`new ${addition.id} keeps its audited service evidence, parent, bilingual names and approved photographs`, async () => {
     const definition = subcategoryById(addition.id)
-    assert.deepEqual(definition, Object.fromEntries(Object.entries(addition).filter(([key]) => !['businessCount', 'serviceCount', 'examples'].includes(key))))
+    const historical = Object.fromEntries(Object.entries(addition).filter(([key]) => !['businessCount', 'serviceCount', 'examples'].includes(key)))
+    if (dedicatedNavigation.has(addition.id)) {
+      const { photoSource, ...current } = definition
+      assert.equal(photoSource, 'illustrative')
+      assert.equal(current.photo, `/subcategory-photos/${addition.id}-v1.webp`)
+      assert.deepEqual({ ...current, photo: addition.photo }, historical, 'only the approved navigation role can differ from the immutable 21 Nov audit')
+    } else assert.deepEqual(definition, historical)
     assert.ok(definition.bg && definition.en)
     for (const locale of ['bg', 'en']) {
       assert.equal(subcategoriesForCategory(definition.category, locale).find(item => item.id === addition.id).label, definition[locale])
     }
-    await access(new URL('../public' + definition.photo, import.meta.url))
-    const bytes = await readFile(new URL('../public' + definition.photo, import.meta.url))
-    assert.equal(bytes.subarray(0, 4).toString(), 'RIFF')
-    assert.equal(bytes.subarray(8, 12).toString(), 'WEBP')
+    for (const photo of new Set([addition.photo, definition.photo])) {
+      await access(new URL('../public' + photo, import.meta.url))
+      const bytes = await readFile(new URL('../public' + photo, import.meta.url))
+      assert.equal(bytes.subarray(0, 4).toString(), 'RIFF')
+      assert.equal(bytes.subarray(8, 12).toString(), 'WEBP')
+    }
     const hits = approved.flatMap(row => row.services.filter(service => matchesSubcategory(service, addition.id, row)).map(service => ({ row, service })))
     assert.equal(hits.length, addition.serviceCount)
     assert.equal(new Set(hits.map(item => item.row.id)).size, addition.businessCount)

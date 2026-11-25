@@ -34,6 +34,29 @@ const dependencies = patch => ({
 })
 const browse = patch => ({ query: '', browse: true, category: 'nails', cityCode: '68134', ...patch })
 
+test('optional catalogue photos start alongside native hydration and failure never hides valid results', async () => {
+  const partner = native(1), catalogue = record(), statuses = []
+  let photoRead = false, startedBeforeHydrationCompleted = false
+  const result = await discoverBusinesses(browse(), dependencies({
+    readInternal: async () => [partner], readCatalogue: async () => [catalogue],
+    hydrateInternalCandidates: async () => {
+      await new Promise(resolve => setImmediate(resolve))
+      startedBeforeHydrationCompleted = photoRead
+      return [partner]
+    },
+    readCataloguePhotos: ids => {
+      assert.deepEqual(ids, [catalogue.id])
+      photoRead = true
+      throw Error('Optional metadata unavailable')
+    },
+    log: ({status}) => statuses.push(status),
+  }))
+  assert.equal(startedBeforeHydrationCompleted, true)
+  assert.equal(result.exactTotal, 2)
+  assert.deepEqual(new Set(result.results.map(row => row.source)), new Set(['gorez', 'catalogue']))
+  assert.equal(statuses.filter(status => status === 'catalogue_photos_unavailable').length, 1)
+})
+
 test('the exact number covers the complete current global set before pagination, without rich-hydrating all profiles', async () => {
   const partners = Array.from({ length: 150 }, (_, index) => native(index + 1))
   const reads = [], hydration = []

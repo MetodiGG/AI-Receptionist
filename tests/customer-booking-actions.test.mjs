@@ -18,6 +18,7 @@ import * as publicLocale from '../lib/public-locale.mjs'
 import * as partnerCategories from '../lib/partner-categories.mjs'
 import * as directoryData from '../lib/directory.mjs'
 import { withVerifiedDirections } from './helpers/pr81-verified-directions.mjs'
+import { loadPublicServiceMenu } from './helpers/public-service-menu.mjs'
 
 const require = createRequire(import.meta.url)
 const { loadBindings, transform } = require('next/dist/build/swc')
@@ -52,7 +53,7 @@ const { Icon } = await load('components/icon.js')
 const { OutboundBookingButton } = await load('components/outbound-booking-button.js', { '../lib/booking-mode.mjs': bookingMode })
 const { BusinessServiceList, BusinessDirectionsLink } = await load('components/business-profile.js', {
   './icon': { Icon }, './business-photo-gallery': { BusinessPhotoGallery: Empty }, './business-cover-photo': { BusinessCoverPhoto: Empty },
-  './service-thumbnail': { ServiceThumbnail: Empty }, '../lib/business-profile.mjs': profileData, '../lib/business-profile-ui.mjs': profileUi,
+  './public-service-menu': await loadPublicServiceMenu({ ServiceThumbnail: Empty, Icon }), '../lib/business-profile.mjs': profileData, '../lib/business-profile-ui.mjs': profileUi,
   '../lib/business-photos.mjs': { getStaffPhoto: () => null },
   '../lib/discovery/service-presentation.mjs': { servicePresentation: () => ({ description: '', conditions: [] }) },
 })

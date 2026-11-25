@@ -36,7 +36,13 @@ const render = (Component, props) => renderToStaticMarkup(React.createElement(Co
 const directReact = { ...React, useId: () => 'inline-qa', useState: initial => [initial, () => {}], useEffect() {} }
 function elements(node, predicate, found = []) {
   if (Array.isArray(node)) node.forEach(child => elements(child, predicate, found))
-  else if (React.isValidElement(node)) { if (predicate(node)) found.push(node); elements(node.props.children, predicate, found) }
+  else if (React.isValidElement(node)) {
+    if (predicate(node)) found.push(node)
+    // Expand the stateful inline tile only in this direct-render harness. Its
+    // callbacks still exercise the same native elements as the independently
+    // rendered SSR markup, with no React hook internals needed for clicks.
+    elements(node.type?.name === 'InlineSubcategoryTile' ? node.type(node.props) : node.props.children, predicate, found)
+  }
   return found
 }
 const classed = (tree, className) => elements(tree, node => node.props.className?.split(' ').includes(className))
@@ -65,6 +71,9 @@ for (const locale of ['bg', 'en']) test(`${locale}: fourteen persistent category
   const html = render(InlineCategoryGrid, { locale, category: 'barber', onSelect() {} })
   assert.equal((html.match(/class="inline-category-option"/g) || []).length, 14)
   assert.equal((html.match(/class="inline-category-photo"/g) || []).length, 14)
+  const categoryImages = [...html.matchAll(/<img class="inline-category-photo"[^>]*>/g)].map(match => match[0])
+  assert.match(categoryImages[0], /loading="eager" fetchPriority="high"/i)
+  assert.ok(categoryImages.slice(1).every(image => /loading="lazy"/.test(image) && !/fetchpriority="high"/i.test(image)))
   assert.equal((html.match(/class="inline-category-photo-frame"/g) || []).length, 14)
   assert.equal((html.match(/class="inline-category-caption"/g) || []).length, 14)
   assert.equal((html.match(/data-icon="chevronDown"/g) || []).length, 14)
@@ -141,6 +150,39 @@ for (const locale of ['bg', 'en']) test(`${locale}: inline children show evidenc
   assert.doesNotMatch(html, /inline-selected-parent|inline-parent-photo/)
   assert.ok(html.includes(`<span class="inline-service-count">314 ${copy.businesses}</span>`))
   assert.doesNotMatch(html, /subcategory-more|Show less|More \(|По-малко|Още \(|zero-count|negative-count|missing-count|wrong-parent|wrong-photo/)
+})
+
+for (const locale of ['bg', 'en']) test(`${locale}: only an approved dedicated illustration carries a visible disclosure, and a broken image does not`, () => {
+  const navigation = subcategoriesForCategory('hair', locale)
+  const illustrative = { ...navigation.find(option => option.id === 'hair-children'), count: 2 }
+  const historical = { ...navigation.find(option => option.id !== 'hair-children'), count: 3 }
+  assert.equal(illustrative.photoSource, 'illustrative')
+  assert.equal(illustrative.photo, '/subcategory-photos/hair-children-v1.webp')
+  assert.equal(historical.photoSource, undefined)
+  const copy = locale === 'en' ? 'AI illustration' : 'AI илюстрация'
+  const rejected = { ...illustrative, id: 'unapproved-fake', photo: 'https://example.test/haircut.webp', [locale]: 'Unapproved offsite photo' }
+  const props = { category: 'hair', options: [illustrative, historical, rejected], selected: illustrative.id, locale, inline: true, onSelect() {} }
+  const html = render(DiscoverySubcategories, props)
+  assert.equal((html.match(/class="inline-service-tile"/g) || []).length, 2)
+  assert.equal((html.match(/class="inline-service-ai"/g) || []).length, 1)
+  assert.ok(html.includes(`<span class="inline-service-ai">${copy}</span>`))
+  assert.ok(html.includes(illustrative.photo))
+  assert.ok(html.includes(historical.photo))
+  assert.doesNotMatch(html, /Unapproved offsite photo|https:\/\//)
+
+  let stateKey
+  const states = new Map()
+  const Component = load('discovery-subcategories', { ...directReact, useState(initial) {
+    const key = stateKey
+    return key ? [states.has(key) ? states.get(key) : initial, value => states.set(key, value)] : [initial, () => {}]
+  } }).DiscoverySubcategories
+  const [tile] = elements(Component(props), node => node.type?.name === 'InlineSubcategoryTile')
+  const draw = (item, key) => { stateKey = key; try { return item.type(item.props) } finally { stateKey = undefined } }
+  const initialTile = draw(tile, 'tile')
+  const [photo] = elements(initialTile, node => node.type?.name === 'SubcategoryPhoto')
+  draw(photo, 'photo').props.onError()
+  assert.equal(classed(draw(tile, 'tile'), 'inline-service-ai').length, 0)
+  assert.equal(draw(photo, 'photo').props.className, 'discovery-subcategory-photo is-unavailable')
 })
 
 test('photo focal helpers affect only exact approved source positioning, never image paths or caller data', async () => {

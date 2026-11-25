@@ -5,8 +5,8 @@ import { locationRecoveryAllowsFileChange, locationRecoveryAllowsNewFile, locati
 import { azisCatalogueAllowsFileChange, azisCatalogueAllowsNewFile, azisCataloguePriorSource } from './azis-style-catalogue-20261122-scope.mjs'
 import { regionalCatalogueAllowsFileChange, regionalCatalogueAllowsNewFile, regionalCataloguePriorSource } from './regional-catalogue-20261122-scope.mjs'
 import { catalogueRevalidationAllowsFileChange } from './catalogue-revalidation-20261122-scope.mjs'
-import { sportsMobilePhotoFitAllowsFileChange, sportsMobilePhotoFitPriorCss } from './sports-mobile-photo-fit-scope.mjs'
-import { servicePriceCardsAllowsFileChange, servicePriceCardsAllowsNewFile } from './services-price-cards-scope.mjs'
+import { SPORTS_MOBILE_PHOTO_FIT_HASHES, sportsMobilePhotoFitAllowsFileChange, sportsMobilePhotoFitPriorCss } from './sports-mobile-photo-fit-scope.mjs'
+import { SERVICE_PRICE_CARDS_NEW_HASHES, servicePriceCardsAllowsFileChange, servicePriceCardsAllowsNewFile } from './services-price-cards-scope.mjs'
 import assert from 'node:assert/strict'
 import test from 'node:test'
 import { PUBLIC_ENGLISH_NEW_HASHES, publicEnglishAllowsFileChange, publicEnglishAllowsNewFile, publicEnglishSearchSource } from './public-english-scope.mjs'
@@ -52,7 +52,7 @@ test('the historical photo-forward baseline freezes everything outside the exact
   }
   const expected = baseTree.filter(record => protectedRoot(record.path)).map(record => record.path).sort()
   assert.equal(expected.length, 2492)
-  const actual = git('ls-files', '--cached', '--others', '-z', '--', 'app/api', 'hooks', 'lib', 'public').split('\0').filter(path => !pr81LocationAllowsNewFile(path) && path && !suhodolIntakeAllowsNewFile(path) && !nearbyPointsAllowsNewFile(path) && !locationRecoveryAllowsNewFile(path) && !regionalCatalogueAllowsNewFile(path) && !azisCatalogueAllowsNewFile(path) && !(path === 'lib/discovery/public-catalogue.mjs' && azisCatalogueAllowsFileChange(path)) && !refinementAllowsNewMedia(path) && !publicEnglishAllowsNewFile(path) && !pr81LocationMatchesPriorHash(path, PUBLIC_ENGLISH_NEW_HASHES[path]) && !(path === 'scripts/check-public-english.mjs' && (regionalCatalogueAllowsFileChange(path) || azisCatalogueAllowsFileChange(path))) && !(path === 'lib/locale/service-english.json' && (suhodolIntakeAllowsFileChange(path) || catalogueRevalidationAllowsFileChange(path) || (regionalCatalogueAllowsFileChange(path) || azisCatalogueAllowsFileChange(path)))) && !servicePriceCardsAllowsNewFile(path))
+  const actual = git('ls-files', '--cached', '--others', '-z', '--', 'app/api', 'hooks', 'lib', 'public').split('\0').filter(path => !pr81LocationAllowsNewFile(path) && path && !suhodolIntakeAllowsNewFile(path) && !nearbyPointsAllowsNewFile(path) && !locationRecoveryAllowsNewFile(path) && !regionalCatalogueAllowsNewFile(path) && !azisCatalogueAllowsNewFile(path) && !(path === 'lib/discovery/public-catalogue.mjs' && azisCatalogueAllowsFileChange(path)) && !refinementAllowsNewMedia(path) && !publicEnglishAllowsNewFile(path) && !pr81LocationMatchesPriorHash(path, PUBLIC_ENGLISH_NEW_HASHES[path]) && !(path === 'scripts/check-public-english.mjs' && (regionalCatalogueAllowsFileChange(path) || azisCatalogueAllowsFileChange(path))) && !(path === 'lib/locale/service-english.json' && (suhodolIntakeAllowsFileChange(path) || catalogueRevalidationAllowsFileChange(path) || (regionalCatalogueAllowsFileChange(path) || azisCatalogueAllowsFileChange(path)))) && !servicePriceCardsAllowsNewFile(path) && !pr81LocationMatchesPriorHash(path, SERVICE_PRICE_CARDS_NEW_HASHES[path]))
   assert.deepEqual([...new Set(actual)].sort(), expected, 'Only the exact fifteen authorized versioned category-media siblings may be new; no new or renamed data/API/taxonomy paths')
 })
 
@@ -123,7 +123,8 @@ test('the historical sticky baseline is preserved as evidence, while only the ex
   assert.ok(before.length > 15, 'freeze the actual responsive, dark, sticky, focus and reduced-motion summary rules')
   const stickyRules = rules => rules.filter(rule => rule.selectors.includes('.inline-summary[data-sticky-safe="true"]'))
   assert.equal(stickyRules(before).length, 1)
-  assert.equal(stationaryDiscoveryAllowsFileChange('app/inline-discovery.css') || sportsMobilePhotoFitAllowsFileChange('app/inline-discovery.css'), true)
+  assert.equal(stationaryDiscoveryAllowsFileChange('app/inline-discovery.css') || sportsMobilePhotoFitAllowsFileChange('app/inline-discovery.css')
+    || pr81LocationMatchesPriorHash('app/inline-discovery.css', SPORTS_MOBILE_PHOTO_FIT_HASHES['app/inline-discovery.css']), true)
   const css = await read('app/inline-discovery.css')
   assert.deepEqual(summaryRules(css), summaryRules(sportsMobilePhotoFitPriorCss(css)), 'the exact phone sports delta cannot alter any stationary summary rule')
   assert.deepEqual(stickyRules(summaryRules(css)), [])

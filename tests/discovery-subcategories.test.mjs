@@ -39,9 +39,15 @@ test('every existing public category has stable bilingual photographic subcatego
     for(const item of items){
       assert.equal(item.category,category);assert.equal(item.label,item[locale]);assert.ok(item.bg&&item.en)
       assert.match(item.id,/^[a-z][a-z_-]*-[a-z0-9-]+$/)
-      assert.match(item.photo,/^\/service-photos\/[a-z0-9-]+-v1\.webp$/)
-      const id=item.photo.slice('/service-photos/'.length,-'-v1.webp'.length)
-      assert.ok(approvedPhotoIds.has(id),id)
+      if(item.photo.startsWith('/subcategory-photos/')){
+        assert.equal(item.photo,`/subcategory-photos/${item.id}-v1.webp`)
+        assert.equal(item.photoSource,'illustrative')
+      }else{
+        assert.match(item.photo,/^\/service-photos\/[a-z0-9-]+-v1\.webp$/)
+        const id=item.photo.slice('/service-photos/'.length,-'-v1.webp'.length)
+        assert.ok(approvedPhotoIds.has(id),id)
+        assert.equal(item.photoSource,undefined)
+      }
       await access(new URL('../public'+item.photo,import.meta.url))
       assert.equal(item.pattern,undefined,'do not serialize matching rules')
     }

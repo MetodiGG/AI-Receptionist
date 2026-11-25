@@ -36,7 +36,10 @@ const tree = git('ls-tree', '-r', '-z', SPORTS_MOBILE_PHOTO_FIT_BASE).split('\0'
 test('sports phone framing authorizes one exact CSS path and restores every prior stylesheet byte', async () => {
   assert.deepEqual(Object.keys(SPORTS_MOBILE_PHOTO_FIT_HASHES), [cssPath])
   assert.equal(sha256(css), SPORTS_MOBILE_PHOTO_FIT_HASHES[cssPath])
-  assert.equal(sportsMobilePhotoFitAllowsFileChange(cssPath), true)
+  // The current stylesheet may include the separately hash-pinned gallery
+  // follow-up. Its exact reconstructed predecessor must still be this one
+  // historical sports delta, not a wider CSS exemption or a refreshed receipt.
+  assert.equal(sha256(pr81LocationPriorSource(cssPath, await readFile(new URL('../' + cssPath, import.meta.url), 'utf8'))), SPORTS_MOBILE_PHOTO_FIT_HASHES[cssPath])
   assert.equal(sportsMobilePhotoFitPriorCss(css), before(cssPath))
   assert.equal(sportsMobilePhotoFitPriorCss(before(cssPath)), before(cssPath))
   for (const source of [css + '\n', css.replace('50% 62%', '50% 63%'), css + SPORTS_MOBILE_PHOTO_FIT_DELTA]) {

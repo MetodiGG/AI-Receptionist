@@ -7,7 +7,7 @@ import { azisCatalogueAllowsFileChange, azisCatalogueAllowsNewFile, azisCatalogu
 import { regionalCatalogueAllowsFileChange, regionalCatalogueAllowsNewFile, regionalCataloguePriorSource } from './regional-catalogue-20261122-scope.mjs'
 import { catalogueRevalidationAllowsFileChange } from './catalogue-revalidation-20261122-scope.mjs'
 import { sportsMobilePhotoFitAllowsFileChange } from './sports-mobile-photo-fit-scope.mjs'
-import { servicePriceCardsAllowsFileChange, servicePriceCardsAllowsNewFile } from './services-price-cards-scope.mjs'
+import { SERVICE_PRICE_CARDS_NEW_HASHES, servicePriceCardsAllowsFileChange, servicePriceCardsAllowsNewFile } from './services-price-cards-scope.mjs'
 import test from 'node:test'
 import { PUBLIC_ENGLISH_NEW_HASHES, publicEnglishAllowsFileChange, publicEnglishAllowsNewFile, publicEnglishSearchSource } from './public-english-scope.mjs'
 import assert from 'node:assert/strict'
@@ -17,7 +17,6 @@ import { execFileSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
 import { createRequire } from 'node:module'
 import sharp from 'sharp'
-import { DISCOVERY_SUBCATEGORIES } from '../lib/discovery/subcategories.mjs'
 import { COMPACT_SELECTION_CHANGED_FILES, CAR_WASH_REFINEMENT_NEW_MEDIA } from './discovery-refinement-20261122-scope.mjs'
 import { nextSecurityUpgradeAllowsFileChange } from './next-security-upgrade-scope.mjs'
 import { stationaryDiscoveryAllowsFileChange, stationaryDiscoveryAllowsNewFile } from './stationary-discovery-scope.mjs'
@@ -27,6 +26,13 @@ const BASE = 'eb36f6718141b9e616170a0b3d90bfcc868ad58b'
 const root = fileURLToPath(new URL('../', import.meta.url))
 const git = (...args) => execFileSync('git', args, { cwd: root, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 })
 const read = path => readFile(new URL('../' + path, import.meta.url), 'utf8').then(source => regionalCataloguePriorSource(path, azisCataloguePriorSource(path, priority30ReportPriorSource(path, locationRecoveryPriorSource(path, nearbyPointsPriorSource(path, suhodolIntakePriorSource(path, pr81LocationPriorSource(path, source))))))))
+// This suite audits the old photo release, not the later five navigation-only
+// scenes. Restore only the exact receipt-pinned follow-up before evaluating
+// its metadata; keep the original historical receipt and expected photos.
+const subcategoryPath = 'lib/discovery/subcategories.mjs'
+const priorSubcategories = pr81LocationPriorSource(subcategoryPath, await readFile(new URL('../' + subcategoryPath, import.meta.url), 'utf8'))
+const categoryImport = new URL('../lib/discovery/categories.mjs', import.meta.url).href
+const { DISCOVERY_SUBCATEGORIES } = await import('data:text/javascript;base64,' + Buffer.from(priorSubcategories.replace("from './categories.mjs'", `from '${categoryImport}'`)).toString('base64'))
 const reviewed = {
   'app/inline-discovery.css': '8cabfbed094969cd7d4942d943c5d16afc43de55b0e19546621d8f60fca36706',
   'app/premium-discovery-cards.css': '96ad3432d6d93a083bfd5a5e783972a80d7ed09ad64d7bbc6d90c16be4de109b',
@@ -55,7 +61,10 @@ test('the compact-selection/photo follow-up has exactly ten reviewed source hash
     assert.equal(createHash('sha1').update(`blob ${bytes.length}\0`).update(bytes).digest('hex'), record.oid, `${record.path} stays unchanged from ${BASE}`)
   }))
   const current = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => !pr81LocationAllowsNewFile(path) && path && !suhodolIntakeAllowsNewFile(path) && !nearbyPointsAllowsNewFile(path) && !locationRecoveryAllowsNewFile(path) && !priority30ReportAllowsNewFile(path) && !regionalCatalogueAllowsNewFile(path) && !azisCatalogueAllowsNewFile(path) && !(path === 'lib/discovery/public-catalogue.mjs' && azisCatalogueAllowsFileChange(path)) && productionPath(path) && !(publicActionAllowsNewFile(path) || path === 'components/public-action.module.css' && publicEnglishAllowsFileChange(path)) && !publicEnglishAllowsNewFile(path) && !pr81LocationMatchesPriorHash(path, PUBLIC_ENGLISH_NEW_HASHES[path]) && !(path === 'scripts/check-public-english.mjs' && (regionalCatalogueAllowsFileChange(path) || azisCatalogueAllowsFileChange(path))) && !(path === 'lib/locale/service-english.json' && (suhodolIntakeAllowsFileChange(path) || catalogueRevalidationAllowsFileChange(path) || (regionalCatalogueAllowsFileChange(path) || azisCatalogueAllowsFileChange(path)))) && !servicePriceCardsAllowsNewFile(path) && !(stationaryDiscoveryAllowsNewFile(path) || path === 'scripts/inventory-public-english.mjs' && (publicEnglishAllowsFileChange(path) || (regionalCatalogueAllowsFileChange(path) || azisCatalogueAllowsFileChange(path)))))
-  assert.deepEqual([...new Set(current)].sort(), [...baseline.map(record => record.path), ...CAR_WASH_REFINEMENT_NEW_MEDIA].sort())
+  // A formerly new service-menu file can now have the separately pinned
+  // gallery follow-up. Recognize only its exact reconstructed original hash.
+  const historicalFiles = current.filter(path => !pr81LocationMatchesPriorHash(path, SERVICE_PRICE_CARDS_NEW_HASHES[path]))
+  assert.deepEqual([...new Set(historicalFiles)].sort(), [...baseline.map(record => record.path), ...CAR_WASH_REFINEMENT_NEW_MEDIA].sort())
 })
 
 test('the partner-photo stylesheet change cannot restyle any existing search, booking or business-card rules', async () => {

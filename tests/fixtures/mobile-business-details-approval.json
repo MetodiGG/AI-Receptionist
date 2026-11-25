@@ -1,0 +1,36 @@
+{
+  "baseline": "7bd2e8e9c97218688ccfbe1f3a7ec0494b92ce1f",
+  "changed": {
+    "app/service-photo-surfaces.css": {
+      "before": "4a68b5241fb76ec1b2e04efb33de82467b2d56232554bc5b9179cc0a94dee005",
+      "after": "ffa076fc8dd5265cfc01742427b27b5d7fbcd3e2de6096ccec5264d27bd5cfb6"
+    },
+    "components/business-cover-photo.js": {
+      "before": "531f47ae004d6f95f164b080509852add81efbc19f52a115dbf58a12ebff0ec8",
+      "after": "d9ca715cb8a805e7a64afdb1b82ec996f71d26769bad4a14ca73cf76e7f0b431"
+    },
+    "components/business-photo-gallery.js": {
+      "before": "b0cb2bbef9045a0ad24a4620a6954b1169766695d6a9728e5e069a0649e590bb",
+      "after": "575750bec279755959b5c1f47adbf88d498e4c55cd45c53cc8be25d2719e585f"
+    },
+    "components/discovery-business-details.js": {
+      "before": "db2bd89ab0ed9fa3d740993ce97f0e7134ec11d6ab6cc2b17fbd8ad6193be011",
+      "after": "b1c6774d424141ce6fc8f54a6442478682c55432065607fc08a45889aee36a3b"
+    },
+    "components/public-service-menu.js": {
+      "before": "183cf33419fbac750b156db29d79c8ed8adad23ed520ade05096019ca9c7fcef",
+      "after": "a0262f3990161fd5c8c445166b03ed95b1db81c61db8881c0d38e9539cf7fabe"
+    },
+    "components/public-service-menu.module.css": {
+      "before": "f0a503ad8c8e402bfcdab3305dcacd87eda92b03dcb8f1eb4b523b296d55c836",
+      "after": "c1601f508822037a836d291d59b2545a6558e7fba26664e75cdc243080802f58"
+    },
+    "components/service-thumbnail.js": {
+      "before": "1b7deea64226e6ad02b58fd1babad2e827ede726e1a845d8197164f0b2a84aca",
+      "after": "8b5b36791b30a644a81b450d0252368800660897cca18ab61def97d387935e77"
+    }
+  },
+  "added": {
+    "lib/photo-asset-identity.mjs": "144c24239d010c30d5882a46c4ff37f1c4cef486e6534371c39fdab839981bda"
+  }
+}

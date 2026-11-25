@@ -19,16 +19,19 @@
 @container service-gallery (min-width: 46rem) {
   .grid:has(> .card:nth-child(3)) { grid-template-columns: repeat(3,minmax(0,1fr)); }
   .grid:not(:has(> .card:nth-child(3))) { max-width: 43rem; margin-inline: auto; }
-  .grid:has(> .card:only-child) { grid-template-columns: minmax(0,22rem); justify-content: center; }
 }
+/* A one-service group uses the full available space on phones. The cap keeps
+   the image and text together in the middle of larger modals and profiles. */
+.grid[data-service-single] { grid-template-columns: minmax(0,27rem); justify-content: center; }
 .card {
-  display: flex; flex-direction: column; align-items: center; gap: 6px;
-  box-sizing: border-box; min-width: 0; padding: 6px 6px 12px;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  box-sizing: border-box; min-width: 0; padding: 8px 8px 14px;
   border: 1px solid var(--service-menu-line); border-radius: 15px;
   color: var(--service-menu-ink); background: var(--service-menu-surface);
   box-shadow: inset 0 1px 0 #ffffff80,0 2px 8px #784b2b08;
   text-align: center;
 }
+.grid[data-service-single] > .card { padding: clamp(10px,2.75vw,16px); }
 .card[data-service-selected="true"] { border-color: var(--service-menu-accent); box-shadow: inset 0 0 0 1px var(--service-menu-accent); }
 .card .photo {
   display: block; position: relative;
@@ -43,22 +46,22 @@
   color: var(--service-menu-ai-ink); background: var(--service-menu-ai-surface);
   font-size: 11px; font-weight: 600; line-height: 1.25; text-align: start;
 }
-.name { display: block; max-width: 100%; padding-inline: 2px; color: var(--service-menu-ink); font-size: 1rem; font-weight: 700; line-height: 1.35; }
-.priceBlock { max-width: 100%; padding: 3px 8px; border-radius: 12px; background: var(--service-menu-raised); }
-.price { display: block; max-width: 100%; margin: 0; color: var(--service-menu-accent); font-size: 1.0625rem; font-weight: 750; line-height: 1.35; font-variant-numeric: tabular-nums; }
+.name { display: block; max-width: 100%; padding-inline: 2px; color: var(--service-menu-ink); font-size: 1rem; font-weight: 700; line-height: 1.45; }
+.grid[data-service-single] .name { font-size: 1.125rem; }
+.priceBlock { box-sizing: border-box; max-width: 100%; padding: 4px 10px; border-radius: 12px; background: var(--service-menu-raised); }
+.price { display: block; max-width: 100%; margin: 0; color: var(--service-menu-accent); font-size: 1.125rem; font-weight: 750; line-height: 1.4; font-variant-numeric: tabular-nums; }
 a.price { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; border-radius: 5px; }
-.unit { display: block; margin-top: 2px; color: var(--service-menu-muted); font-size: .875rem; font-weight: 500; line-height: 1.4; }
-.duration,.unpriced { color: var(--service-menu-muted); font-size: .875rem; font-weight: 500; line-height: 1.5; }
-.conditionsFlag { color: var(--service-menu-accent); font-size: .875rem; font-weight: 600; line-height: 1.5; }
+.unit { display: block; margin-top: 2px; color: var(--service-menu-muted); font-size: .9375rem; font-weight: 500; line-height: 1.45; }
+.duration,.unpriced { color: var(--service-menu-muted); font-size: .9375rem; font-weight: 500; line-height: 1.5; }
 .card .conditions { display: grid; gap: 4px; margin: 10px 4px 0; padding-inline-start: 18px; color: var(--service-menu-muted); font-size: .875rem; text-align: start; line-height: 1.45; white-space: pre-line; }
-.name,.price,.unit,.duration,.unpriced,.conditionsFlag,.conditions,.more { min-width: 0; white-space: normal; overflow-wrap: break-word; word-break: normal; hyphens: manual; }
-.more { max-width: 100%; margin-top: 2px; align-self: stretch; }
+.name,.price,.unit,.duration,.unpriced,.conditions,.more { min-width: 0; white-space: normal; overflow-wrap: break-word; word-break: normal; hyphens: manual; }
+.more { max-width: 100%; margin-block-start: 5px; align-self: stretch; }
 .more > summary {
   display: inline-flex; align-items: center; justify-content: center; gap: 7px;
-  min-height: 44px; max-width: 100%; padding: 4px 8px;
+  box-sizing: border-box; min-height: 44px; max-width: 100%; padding: 5px 12px;
   border: 1px solid var(--service-menu-line); border-radius: 999px;
   color: var(--service-menu-accent); background: var(--service-menu-raised);
-  font-size: .875rem; font-weight: 600; line-height: 1.4; list-style: none;
+  font-size: .9375rem; font-weight: 650; line-height: 1.4; list-style: none;
   cursor: pointer; transition: background-color 160ms ease,border-color 160ms ease;
 }
 .more > summary::-webkit-details-marker { display: none; }
@@ -68,6 +71,13 @@ a.price { text-decoration: underline; text-decoration-thickness: 1px; text-under
 .more[open] > summary .lessLabel { display: inline; }
 .more[open] > summary > svg { transform: rotate(180deg); }
 .card .more > p { margin: 10px 4px 0; color: var(--service-menu-muted); font-size: .9375rem; font-weight: 400; line-height: 1.55; text-align: start; white-space: pre-line; }
+@media (max-width: 640px) {
+  :global(.discovery-business-details) .grid { grid-template-columns: minmax(0,27rem); justify-content: center; }
+  :global(.discovery-business-details) .card { padding: clamp(10px,2.75vw,16px); }
+  :global(.discovery-business-details) .card .name { font-size: 1.125rem; }
+  :global(.discovery-business-details) .card :is(.conditions,.more > p) { text-align: center; }
+  :global(.discovery-business-details) .card .conditions { padding-inline: 0; list-style-position: inside; }
+}
 .booking { max-width: 100%; margin-top: 2px; }
 .more > summary:focus-visible,.price:focus-visible { outline: 2px solid var(--service-menu-accent); outline-offset: 3px; }
 .srOnly { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }

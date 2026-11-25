@@ -69,3 +69,22 @@
 .discovery-business-details .business-details-address h3 { margin-bottom: 4px; font-size: 17px; }
 .discovery-business-details .business-details-address > p { margin: 0; line-height: 1.45; }
 .discovery-business-details > footer { margin-top: 14px; padding-block: 10px; }
+
+/* On phones, keep the name, category and services on a single visual axis.
+   Addresses and opening hours are easier to scan as start-aligned facts. */
+@media (max-width: 640px) {
+  .discovery-business-details { text-align: center; }
+  .discovery-business-details > .business-details-identity { display: block; }
+  .discovery-business-details > .business-details-identity h2 {
+    font-size: clamp(1.5rem, 6vw, 1.9rem); line-height: 1.2; text-wrap: balance;
+  }
+  .discovery-business-details .business-details-category { font-size: 1rem; line-height: 1.5; }
+  .discovery-business-details .business-details-address,
+  .discovery-business-details .business-details-hours-section { text-align: start; }
+  .discovery-business-details .business-details-address {
+    max-inline-size: 29rem; margin-inline: auto; padding-block: 8px;
+  }
+  .discovery-business-details .business-details-address > p { font-size: 1rem; line-height: 1.5; }
+  .discovery-business-details .business-details-address > p { color: inherit; font-weight: 500; }
+  .discovery-business-details .business-details-description { text-wrap: pretty; }
+}

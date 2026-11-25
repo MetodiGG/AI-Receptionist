@@ -17,10 +17,12 @@ export function DiscoveryBusinessDetails({ row, locale = 'bg', preview = false, 
   const copy = DISCOVERY_COPY[locale] || DISCOVERY_COPY.bg, dialog = useRef(null), id = useId()
   const needsFetch = !preview || Boolean(row.source === 'catalogue' && row.detailsRef)
   const [full, setFull] = useState(needsFetch ? null : row), [status, setStatus] = useState(needsFetch ? 'loading' : 'ready'), [attempt, setAttempt] = useState(0)
+  const [shownPhotoSource, setShownPhotoSource] = useState(null)
   const business = full ? { ...row, ...full } : row
   const services = businessDetailServices(business), hours = businessDetailHours(business)
   const hasPrices = services.some(service => detailPriceLabel(service, locale) !== null)
   const description = publicProse(business.details?.description, locale, business.presentationEn?.description)
+  const displayAddress = status === 'ready' && business.address ? businessDisplayAddress(business, locale) : ''
   const photos = business.source === 'gorez' ? business.photos || [] : isCataloguePhotoSource(business.photo?.src) ? [{ ...business.photo, alt: { [locale]: publicProse(business.photo.alt, locale) || business.name } }] : []
 
   useEffect(() => {
@@ -48,7 +50,7 @@ export function DiscoveryBusinessDetails({ row, locale = 'bg', preview = false, 
     return () => { node.close(); document.body.style.overflow = overflow; trigger?.focus() }
   }, [triggerRef])
 
-  const photoFallback = <BusinessCoverPhoto business={business} locale={locale} className="business-details-photo-fallback" eager/>
+  const photoFallback = <BusinessCoverPhoto business={business} locale={locale} className="business-details-photo-fallback" eager onDisplayedPhoto={setShownPhotoSource}/>
 
   return <dialog ref={dialog} className="discovery-business-details" aria-labelledby={`${id}-title`} aria-busy={status === 'loading'} onCancel={event => {
     if (event.target !== event.currentTarget) return
@@ -63,9 +65,16 @@ export function DiscoveryBusinessDetails({ row, locale = 'bg', preview = false, 
   }}>
     <div className="business-details-toolbar"><button type="button" className="business-details-close" onClick={onClose} aria-label={copy.closeDetails}><Icon name="close"/></button></div>
     {status !== 'missing' && <div className="business-details-gallery">
-      {photos.length ? <BusinessPhotoGallery key={`${row.id}-${photos[0].src}`} photos={photos} businessName={row.name} locale={locale} variant="details" autoplay={false} fallback={photoFallback}/> : photoFallback}
+      {photos.length ? <BusinessPhotoGallery key={`${row.id}-${photos[0].src}`} photos={photos} businessName={row.name} locale={locale} variant="details" autoplay={false} fallback={photoFallback} onDisplayedPhoto={setShownPhotoSource}/> : photoFallback}
     </div>}
-    <header><div>{row.source === 'gorez' && <p>{copy.partner}</p>}<h2 id={`${id}-title`}>{row.name}</h2><p className="business-details-category">{railCategory(business, locale)}</p></div></header>
+    <header className="business-details-identity">
+      <div>
+        {row.source === 'gorez' && <p>{copy.partner}</p>}
+        <h2 id={`${id}-title`}>{row.name}</h2>
+        <p className="business-details-category">{railCategory(business, locale)}</p>
+        {displayAddress && <section className="business-details-address" aria-labelledby={`${id}-address`}><h3 id={`${id}-address`}>{copy.addressLabel}</h3><p>{displayAddress}</p></section>}
+      </div>
+    </header>
     {status === 'loading' && <div className="business-details-status"><BrandLoading locale={locale} label={copy.loadingDetails}/></div>}
     {status === 'error' && <div className="business-details-status" role="alert"><p>{copy.detailsError}</p><button className="secondary-button" type="button" onClick={() => setAttempt(value => value + 1)}>{copy.retryDetails}</button></div>}
     {status === 'missing' && <p role="status">{copy.detailsUnavailable}</p>}
@@ -73,7 +82,8 @@ export function DiscoveryBusinessDetails({ row, locale = 'bg', preview = false, 
       {business.provenance?.kind === 'platform_owner_confirmed' && <p className="business-details-note">{copy.platformConfirmedSource}</p>}
       {description && <p className="business-details-description">{description}</p>}
       <section aria-labelledby={`${id}-services`}><h3 id={`${id}-services`}>{copy.servicesPrices}</h3>
-        {services.length ? <PublicServiceMenu services={services} business={business} locale={locale} copy={copy}/> : <p>{copy.noServices}</p>}
+        {services.length ? <PublicServiceMenu services={services} business={business} locale={locale} copy={copy}
+          shownBusinessPhoto={shownPhotoSource ? { src: shownPhotoSource } : null}/> : <p>{copy.noServices}</p>}
         {row.source === 'catalogue' && hasPrices && <p className="business-details-note">{copy.pricesNote}</p>}
       </section>
       <section className="business-details-hours-section" aria-labelledby={`${id}-hours`}>
@@ -82,7 +92,6 @@ export function DiscoveryBusinessDetails({ row, locale = 'bg', preview = false, 
           <div className="business-details-hours-body">{hours.length ? <dl className="business-details-hours">{hours.map(day => <div key={day.weekday}><dt>{copy.weekdays[day.weekday - 1]}</dt><dd>{day.byAppointment ? copy.byAppointment : day.periods.join(' / ') || copy.closedDay}</dd></div>)}</dl> : <p>{copy.unpublishedHours}</p>}</div>
         </details>
       </section>
-      {business.address && <section className="business-details-address" aria-labelledby={`${id}-address`}><h3 id={`${id}-address`}>{copy.addressLabel}</h3><p>{businessDisplayAddress(business, locale)}</p></section>}
     </>}
     {status === 'ready' && <footer>{typeof actions === 'function' ? actions(business) : actions}</footer>}
   </dialog>

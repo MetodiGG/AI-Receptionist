@@ -4,6 +4,7 @@ import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import scope from './fixtures/pr81-location-only-approval.json' with {type:'json'}
 import galleryScope from './fixtures/service-gallery-performance-approval.json' with {type:'json'}
+import mobileScope from './fixtures/mobile-business-details-approval.json' with {type:'json'}
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -27,16 +28,20 @@ const calendarCopy = {
 export const calendarCopyPaths = Object.freeze(Object.keys(calendarCopy))
 export const serviceGalleryPaths = Object.freeze(Object.keys(galleryScope.changed))
 export const serviceGalleryNewPaths = Object.freeze(Object.keys(galleryScope.added))
+export const mobileDetailsPaths = Object.freeze(Object.keys(mobileScope.changed))
+export const mobileDetailsNewPaths = Object.freeze(Object.keys(mobileScope.added))
 
 export function pr81LocationAllowsFileChange(path) {
-  const receipt = Object.hasOwn(galleryScope.changed, path) ? galleryScope.changed[path]
+  const receipt = Object.hasOwn(mobileScope.changed, path) ? mobileScope.changed[path]
+    : Object.hasOwn(galleryScope.changed, path) ? galleryScope.changed[path]
     : Object.hasOwn(calendarCopy, path) ? calendarCopy[path] : Object.hasOwn(scope.changed, path) ? scope.changed[path] : null
   if (!receipt) return false
   try { return sha(read(path)) === receipt.after }
   catch { return false }
 }
 export function pr81LocationAllowsNewFile(path) {
-  const approved = Object.hasOwn(galleryScope.added, path) ? galleryScope.added[path] : Object.hasOwn(scope.added, path) ? scope.added[path] : null
+  const approved = Object.hasOwn(mobileScope.added, path) ? mobileScope.added[path]
+    : Object.hasOwn(galleryScope.added, path) ? galleryScope.added[path] : Object.hasOwn(scope.added, path) ? scope.added[path] : null
   if (!approved) return false
   try { return sha(read(path)) === approved }
   catch { return false }
@@ -50,6 +55,9 @@ export function pr81LocationMatchesPriorHash(path, hash) {
 // Reconstruct only the exact pinned changes before older release fingerprints.
 // No other tree entries or newer edits are exempted.
 export function pr81LocationPriorSource(path, source) {
+  if (Object.hasOwn(mobileScope.changed, path)) {
+    source = restore(path, source, mobileScope.changed[path], mobileScope.baseline, 'mobile business details')
+  }
   if (Object.hasOwn(galleryScope.changed, path)) {
     source = restore(path, source, galleryScope.changed[path], galleryScope.baseline, 'service gallery/performance')
   }

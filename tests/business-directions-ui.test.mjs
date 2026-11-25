@@ -30,7 +30,7 @@ const { code } = await transform(source, {
 // browser/fetch lifecycle test, and must never request production data/bookings.
 function renderDetailsState({ row, full = null, status, locale = 'bg', actions }) {
   let stateIndex = 0
-  const states = [full, status, 0]
+  const states = [full, status, 0, null] // details, request status, retry count, displayed photo
   const stubs = {
     react: {
       ...React,

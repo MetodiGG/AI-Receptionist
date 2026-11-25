@@ -91,7 +91,7 @@ test('only partners get a membership badge; category/service/review clutter stay
   assert.doesNotMatch(card, /home-business-address/)
   assert.match(card, /DiscoveryBusinessDetails/)
   const details = await read('components/discovery-business-details.js')
-  assert.match(details, /business.address && <section/)
+  assert.match(details, /displayAddress && <section className="business-details-address"/)
   assert.match(card, /<PublicAction as="a" variant="secondary"/)
   assert.doesNotMatch(card, /copy.external|externalHint|външни места|outside business|Няма снимка/)
 })

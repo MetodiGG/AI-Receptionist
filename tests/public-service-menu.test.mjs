@@ -8,11 +8,12 @@ import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
 import { detailPriceLabel } from '../lib/discovery/business-details.mjs'
 import { presentPublicService } from '../lib/locale/public-content-server.mjs'
 const { PublicServiceMenu } = await loadPublicServiceMenu({
-  ServiceThumbnail: ({ service, size, className }) => React.createElement('img', { src: '/service-photos/test.webp', alt: service.name, className, 'data-size': size }),
+  ServiceThumbnail: ({ service, size, className, shownBusinessPhoto }) => React.createElement('img', { src: '/service-photos/test.webp', alt: service.name, className, 'data-size': size, 'data-shown-business-photo': shownBusinessPhoto?.src }),
 })
 const render = (services, props = {}) => renderToStaticMarkup(React.createElement(PublicServiceMenu, { services, business: { category: 'nails' }, ...props }))
 const escape = value => renderToStaticMarkup(React.createElement(React.Fragment, null, value))
 const withoutDetails = html => html.replace(/<details\b[^>]*>[\s\S]*?<\/details>/gu, '')
+const summaries = html => [...html.matchAll(/<summary\b[^>]*>[\s\S]*?<\/summary>/gu)].map(([match]) => match)
 
 test('the actual unified menu renders every original service once, including same-name distinct prices, zero, unknown and incomplete ranges', () => {
   const services = [
@@ -43,7 +44,12 @@ test('price amounts, range, source and translated units stay visible; short qual
     description: 'Materials are not included; excluding VAT. Total package of 2 visits. This price requires advance confirmation.',
   }]
   const html = render(services, { locale: 'en' }), visible = withoutDetails(html)
-  for (const phrase of ['package of 2 visits', '45 min', 'Conditions apply']) assert.ok(visible.includes(phrase), phrase)
+  for (const phrase of ['package of 2 visits', '45 min']) assert.ok(visible.includes(phrase), phrase)
+  const [summary] = summaries(html)
+  assert.equal(summaries(html).length, 1)
+  assert.match(summary, /data-service-condition-control="true"[^>]*>[\s\S]*Conditions apply/u)
+  assert.doesNotMatch(visible, /Conditions apply/u)
+  assert.doesNotMatch(html, /View details/u)
   for (const phrase of ['Materials are not included', 'excluding VAT', 'Total package of 2 visits', 'advance confirmation']) {
     assert.ok(html.includes(phrase), phrase)
     assert.ok(!visible.includes(phrase), phrase)
@@ -57,11 +63,13 @@ test('price amounts, range, source and translated units stay visible; short qual
 })
 
 test('the entire long narrative uses a closed native disclosure while complete names and structured price facts remain visible', () => {
-  const narrative = 'Hair styling creates a balanced shape and soft movement. The hairstyle uses flowing layers to frame the face and adds natural texture through careful brushing. Hair colour and styling complement the overall shape.'
+  const narrative = 'Hair styling creates a balanced shape and soft movement. The hairstyle uses flowing layers to frame the face and adds natural texture through careful brushing. Colour and styling create a natural shape.'
   const html = render([{ name: 'A complete unusually long service name without abbreviation or removed words', price: 25, currency: 'EUR', description: narrative }], { locale: 'en' })
   assert.match(html, /<details class="public-service-menu-more" data-service-more="true">/u)
   assert.match(html, /View details/u)
   assert.match(html, /Hide details/u)
+  assert.equal(summaries(html).length, 1)
+  assert.doesNotMatch(html, /Conditions apply|data-service-condition-control/u)
   assert.doesNotMatch(html, /<details[^>]*\bopen(?:=|\s|>)/u)
   assert.ok(withoutDetails(html).includes('A complete unusually long service name without abbreviation or removed words'))
   assert.ok(html.includes(escape(narrative)), 'the full original long description is available contiguously inside the disclosure')
@@ -69,7 +77,7 @@ test('the entire long narrative uses a closed native disclosure while complete n
   assert.doesNotMatch(html, /aria-expanded=|<button|<form|fetch\(/u)
 })
 
-for (const locale of ['bg', 'en']) test(`${locale}: an approved folded long qualification retains a visible Conditions apply warning and complete structured pricing`, () => {
+for (const locale of ['bg', 'en']) test(`${locale}: an approved folded long qualification uses a single Conditions apply action and retains complete structured pricing`, () => {
   const bg = 'Материалите и допълнителните консумативи не са включени в тази цена. Общата цена е за пакет от 2 посещения и се потвърждава предварително с бизнеса. При промяна на условията се свържете със специалиста преди посещение. Цената е без ДДС.'
   const en = 'Materials and additional consumables are not included in this price. The total price is for a package of 2 visits and is confirmed with the business in advance. If the conditions change, contact the specialist before the visit. The price excludes VAT.'
   const online = 'Текуща цена с отстъпка, валидна САМО при онлайн записване, проверена на 10.11.2026. Условията се потвърждават при записване; не е зачеркнатата стара цена. '
@@ -78,8 +86,10 @@ for (const locale of ['bg', 'en']) test(`${locale}: an approved folded long qual
     presentationEn: { name: 'Actual qualified service', unit: 'package of 2 visits', description: en } }
   const html = render([service], { locale }), visible = withoutDetails(html), original = locale === 'en' ? en : bg
   assert.ok(original.length > 180)
-  assert.match(visible, /data-service-conditions-hidden="true"/u)
-  assert.ok(visible.includes(DISCOVERY_COPY[locale].hasConditions))
+  assert.equal(summaries(html).length, 1)
+  assert.match(summaries(html)[0], /data-service-condition-control="true"/u)
+  assert.ok(summaries(html)[0].includes(DISCOVERY_COPY[locale].hasConditions))
+  assert.ok(!visible.includes(DISCOVERY_COPY[locale].hasConditions), 'the conditions affordance must not have a duplicate, non-interactive label')
   const onlineCondition = locale === 'en' ? 'Online-only discount' : 'Отстъпка само онлайн'
   assert.ok(!visible.includes(onlineCondition), 'only the qualification warning is visible before opening the disclosure')
   assert.ok(visible.includes(locale === 'en' ? 'package of 2 visits' : 'пакет 2 посещения'))
@@ -97,9 +107,11 @@ test('a condition-only card still provides the details control and keeps its exa
   const original = 'Тарифа само за посочения обект; при записване уточнете правилния салон.'
   const html = render([{ name: 'Услуга с цена за обекта', price: 12, currency: 'EUR', description: original }])
   const visible = withoutDetails(html)
-  assert.match(visible, /12,00[\s\S]*Има условия/u)
-  assert.doesNotMatch(visible, /Тарифа за този обект/u)
-  assert.match(html, /<summary>[\s\S]*Виж детайли[\s\S]*<li>Тарифа за този обект<\/li>[\s\S]*<\/details>/u)
+  assert.match(visible, /12,00/u)
+  assert.doesNotMatch(visible, /Тарифа за този обект|Има условия/u)
+  assert.equal(summaries(html).length, 1)
+  assert.match(html, /<summary data-service-condition-control="true">[\s\S]*Има условия[\s\S]*<li>Тарифа за този обект<\/li>[\s\S]*<\/details>/u)
+  assert.doesNotMatch(html, /Виж детайли/u)
   assert.equal((html.match(/Тарифа за този обект/gu) || []).length, 1)
 })
 
@@ -132,6 +144,18 @@ test('existing service fragments and source order survive grouping; Bulgarian an
   }
 })
 
+test('one-service sizing is applied independently per group, with only the actual cover passed through', () => {
+  const nails = { name: 'Маникюр', category: 'nails', price: 20, currency: 'EUR' }
+  const hair = { name: 'Мъжко подстригване', category: 'hair', price: 40, currency: 'EUR' }
+  const cover = { src: '/business-cover-photos/reviewed-cover.webp' }
+  const html = render([nails, hair, { ...hair, name: 'Дамско подстригване' }], { shownBusinessPhoto: cover })
+  assert.equal((html.match(/data-service-price-gallery="true"/gu) || []).length, 2)
+  assert.equal((html.match(/data-service-single="true"/gu) || []).length, 1)
+  assert.match(html, /data-service-single="true">[\s\S]*?(<\/ul>)/u)
+  assert.equal((html.match(/data-shown-business-photo="\/business-cover-photos\/reviewed-cover\.webp"/gu) || []).length, 3)
+  assert.doesNotMatch(render([nails], { business: { category: 'nails', photo: cover } }), /data-shown-business-photo/u, 'the menu cannot infer the displayed cover from the business object')
+})
+
 test('photo/card typography and native disclosures remain contained, accessible, dark-theme aware and reduced-motion safe without clipping names/prices', async () => {
   const css = await readFile(new URL('../components/public-service-menu.module.css', import.meta.url), 'utf8')
   assert.match(css, /width: 100%; height: auto; aspect-ratio: 4 \/ 3/u)
@@ -140,6 +164,8 @@ test('photo/card typography and native disclosures remain contained, accessible,
   assert.match(css, /@container service-gallery \(min-width: 16\.5rem\).*repeat\(2,minmax\(0,1fr\)\)/u)
   assert.match(css, /@container service-gallery \(min-width: 46rem\)\s*\{\s*\.grid:has\(> \.card:nth-child\(3\)\)\s*\{\s*grid-template-columns: repeat\(3,minmax\(0,1fr\)\)/u)
   assert.match(css, /\.grid:not\(:has\(> \.card:nth-child\(3\)\)\)\s*\{\s*max-width: 43rem; margin-inline: auto/u)
+  assert.match(css, /\n\.grid\[data-service-single\] \{ grid-template-columns: minmax\(0,27rem\); justify-content: center; \}/u, 'a lone card uses a dedicated, capped and centered column even on mobile')
+  assert.match(css, /\.more \{[^}]*margin-block-start: 5px/u, 'the disclosure has room below the price')
   assert.match(css, /inset-inline-start: 4px; inset-block-end: 4px;[\s\S]*font-size: 11px/u)
   assert.match(css, /\.more > summary[\s\S]*min-height: 44px/u)
   assert.match(css, /summary:focus-visible[\s\S]*outline: 2px/u)

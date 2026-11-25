@@ -5,7 +5,7 @@ import { readFile, lstat, readlink } from 'node:fs/promises'
 import { createHash } from 'node:crypto'
 import { fileURLToPath } from 'node:url'
 import manifest from './fixtures/pr81-location-only-approval.json' with {type:'json'}
-import { calendarCopyPaths, serviceGalleryPaths, serviceGalleryNewPaths, pr81LocationAllowsFileChange, pr81LocationAllowsNewFile, pr81LocationPriorSource } from './pr81-location-only-scope.mjs'
+import { calendarCopyPaths, serviceGalleryPaths, serviceGalleryNewPaths, mobileDetailsPaths, mobileDetailsNewPaths, pr81LocationAllowsFileChange, pr81LocationAllowsNewFile, pr81LocationPriorSource } from './pr81-location-only-scope.mjs'
 
 const root = fileURLToPath(new URL('../',import.meta.url))
 const git = (...args) => execFileSync('git',args,{cwd:root,maxBuffer:16*1024*1024})
@@ -13,21 +13,22 @@ const pathUrl = path => new URL('../'+path,import.meta.url)
 const runtime = path => !path.startsWith('tests/') && path !== 'node_modules'
 const oldMigrations = '90ecc8ea7fd74517f2c956ef93269072039f9995'
 
-test('only pinned location, calendar copy and later public gallery/performance files differ from PR #81',async()=>{
+test('only pinned location, calendar copy, public gallery and mobile details files differ from PR #81',async()=>{
   assert.equal(manifest.baseline,'136d99c8fd546f30a42dd0fbbefe1727f3949032')
   const baseline = git('ls-tree','-r','-z',manifest.baseline).toString('utf8').split('\0').filter(Boolean).map(item=>{
     const [meta,path] = item.split('\t'), [mode,type,oid] = meta.split(' ')
     return {mode,type,oid,path}
   }).filter(({path})=>runtime(path))
   const actual = git('ls-files','--cached','--others','--exclude-standard','-z').toString('utf8').split('\0').filter(path=>path && runtime(path))
-  assert.deepEqual([...new Set(actual)].sort(),[...baseline.map(x=>x.path),...Object.keys(manifest.added),...serviceGalleryNewPaths].sort())
+  assert.deepEqual([...new Set(actual)].sort(),[...baseline.map(x=>x.path),...Object.keys(manifest.added),...serviceGalleryNewPaths,...mobileDetailsNewPaths].sort())
   for (const path of [...Object.keys(manifest.changed),...Object.keys(manifest.added)]) {
     assert.doesNotMatch(path,/^public\/|\.css$|^app\/api\/public\/\[slug\]\/bookings\/|^app\/api\/customer\/|^lib\/public-booking\.js$|^lib\/booking-engine\.mjs$|^lib\/discovery\/catalogue-data\//u)
   }
   for (const path of Object.keys(manifest.changed)) {
     assert.equal(pr81LocationAllowsFileChange(path),true,path)
     const source=await readFile(pathUrl(path))
-    const rejection = serviceGalleryPaths.includes(path) ? /Unreviewed service gallery\/performance/u : /Unreviewed PR #81/u
+    const rejection = mobileDetailsPaths.includes(path) ? /Unreviewed mobile business details/u
+      : serviceGalleryPaths.includes(path) ? /Unreviewed service gallery\/performance/u : /Unreviewed PR #81/u
     assert.throws(()=>pr81LocationPriorSource(path,Buffer.concat([source,Buffer.from('\n')])),rejection)
   }
   assert.deepEqual(calendarCopyPaths,['app/dashboard/share/page.js','lib/faq.mjs'])
@@ -39,9 +40,16 @@ test('only pinned location, calendar copy and later public gallery/performance f
   for (const path of serviceGalleryPaths) {
     assert.equal(pr81LocationAllowsFileChange(path),true,path)
     const source=await readFile(pathUrl(path))
-    assert.throws(()=>pr81LocationPriorSource(path,Buffer.concat([source,Buffer.from('\n')])),/Unreviewed service gallery\/performance/u)
+    const rejection = mobileDetailsPaths.includes(path) ? /Unreviewed mobile business details/u : /Unreviewed service gallery\/performance/u
+    assert.throws(()=>pr81LocationPriorSource(path,Buffer.concat([source,Buffer.from('\n')])),rejection)
   }
-  for (const path of serviceGalleryNewPaths) {
+  for (const path of mobileDetailsPaths) {
+    assert.match(path,/^(?:components\/|app\/service-photo-surfaces\.css$)/u)
+    assert.equal(pr81LocationAllowsFileChange(path),true,path)
+    const source=await readFile(pathUrl(path))
+    assert.throws(()=>pr81LocationPriorSource(path,Buffer.concat([source,Buffer.from('\n')])),/Unreviewed mobile business details/u)
+  }
+  for (const path of [...serviceGalleryNewPaths,...mobileDetailsNewPaths]) {
     assert.equal(pr81LocationAllowsNewFile(path),true,path)
     const stat=await lstat(pathUrl(path))
     assert.ok(stat.isFile() && !(stat.mode & 0o111),path)

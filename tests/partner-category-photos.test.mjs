@@ -1,6 +1,8 @@
 import test from 'node:test'
 import { publicActionAllowsFileChange } from './public-action-scope.mjs'
-import { publicEnglishAllowsFileChange } from './public-english-scope.mjs'
+import { PUBLIC_ENGLISH_HASHES, publicEnglishAllowsFileChange } from './public-english-scope.mjs'
+import { pr81LocationPriorSource } from './pr81-location-only-scope.mjs'
+import { createHash } from 'node:crypto'
 import assert from 'node:assert/strict'
 import { access, readFile } from 'node:fs/promises'
 import { createRequire } from 'node:module'
@@ -74,6 +76,9 @@ test('photo frames reserve useful sizes and contain the originals without touchi
   const root = fileURLToPath(new URL('../', import.meta.url))
   for (const path of ['components/business-directory.js', 'components/business-photo-gallery.js', 'components/partners-page.js', 'lib/partner-categories.mjs']) {
     if ((path === 'components/business-directory.js' && publicActionAllowsFileChange(path)) || publicEnglishAllowsFileChange(path)) continue
-    assert.equal(await readFile(new URL('../' + path, import.meta.url), 'utf8'), execFileSync('git', ['show', `eb36f67:${path}`], { cwd: root, encoding: 'utf8' }), `${path} remains byte-identical: no actual partner media, routing, eligibility or booking/analytics change`)
+    const current = await readFile(new URL('../' + path, import.meta.url), 'utf8')
+    const source = path === 'components/business-photo-gallery.js' ? pr81LocationPriorSource(path, current) : current
+    if (path === 'components/business-photo-gallery.js' && createHash('sha256').update(source).digest('hex') === PUBLIC_ENGLISH_HASHES[path]) continue
+    assert.equal(source, execFileSync('git', ['show', `eb36f67:${path}`], { cwd: root, encoding: 'utf8' }), `${path} remains byte-identical: no actual partner media, routing, eligibility or booking/analytics change`)
   }
 })

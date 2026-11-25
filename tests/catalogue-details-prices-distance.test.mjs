@@ -150,5 +150,6 @@ test('a discreet photo label and whole-card trigger open the accessible lazy dia
   assert.doesNotMatch(card, /home-business-services|PartnerRailReviews/)
   const dialog = await source('components/discovery-business-details.js')
   assert.match(dialog, /trigger\?\.focus\(\)/)
-  assert.match(dialog, /business.address && <section/)
+  assert.match(dialog, /status === 'ready' && business\.address \? businessDisplayAddress/)
+  assert.match(dialog, /<header className="business-details-identity">[\s\S]+\{displayAddress && <section className="business-details-address"/)
 })

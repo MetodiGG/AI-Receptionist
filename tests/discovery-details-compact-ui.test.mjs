@@ -29,8 +29,8 @@ const { code } = await transform(source, {
 // Runtime render checks follow the existing business-directions component test.
 // Hooks are explicit; effects never execute, so this test cannot fetch a real
 // profile, contact a provider or create a customer booking.
-function renderDetails({ row, full = null, locale = 'bg', status = 'ready', actions }) {
-  const states = [full, status, 0]
+function renderDetails({ row, full = null, locale = 'bg', status = 'ready', actions, shownPhotoSource = null }) {
+  const states = [full, status, 0, shownPhotoSource]
   let stateIndex = 0, photoNoteCalls = 0
   const stubs = {
     react: {
@@ -160,6 +160,10 @@ for (const locale of ['bg', 'en']) {
     const addresses = elements(tree, node => node.type === 'section' && hasClass(node, 'business-details-address'))
     assert.equal(addresses.length, 1)
     assert.ok(renderToStaticMarkup(addresses[0]).includes(businessDisplayAddress(full, locale)))
+    const identity = elements(tree, node => node.type === 'header' && hasClass(node, 'business-details-identity'))[0]
+    assert.equal(elements(identity, node => node.type === 'h2').length, 1)
+    assert.equal(elements(identity, node => node === addresses[0]).length, 1, 'current address belongs to the business identity')
+    assert.ok(html.indexOf('business-details-address') < html.indexOf('data-service-price-gallery'), 'address is above the service cards')
     const footers = elements(tree, node => node.type === 'footer')
     assert.equal(footers.length, 1)
     const links = elements(footers[0], node => node.type === 'a')
@@ -182,6 +186,16 @@ test('missing published hours remain unknown inside the closed disclosure, not f
     const html = renderToStaticMarkup(disclosure)
     assert.ok(html.includes(DISCOVERY_COPY[locale].unpublishedHours))
     assert.equal(elements(disclosure, node => node.type === 'dl').length, 0)
+  }
+})
+
+test('the selected visible cover source, not a catalogue guess, reaches service photo matching', () => {
+  const row = preview('catalogue'), full = freshDetails(row)
+  const path = '/business-cover-photos/activity-manicure-v1.webp'
+  for (const shownPhotoSource of [null, path]) {
+    const { tree } = renderDetails({ row, full, shownPhotoSource })
+    const [menu] = elements(tree, node => node.type === publicServiceMenu.PublicServiceMenu)
+    assert.deepEqual(menu.props.shownBusinessPhoto, shownPhotoSource ? { src: path } : null)
   }
 })
 

@@ -11,6 +11,7 @@ import { serviceDetailPhotoCoverageAllowsNewFile } from './service-detail-photo-
 import { preServicePhotoMarkerSource } from './service-photo-marker-20261126-scope.mjs'
 import { serviceDetailPhotoExpansionAllowsNewFile } from './service-detail-photo-expansion-20261126-scope.mjs'
 import { dialogPrimaryDarkContrastAllowsFileChange, preDialogPrimaryDarkContrastSource } from './dialog-primary-dark-contrast-20261126-scope.mjs'
+import { discoveryPerformanceAllowsFileChange, discoveryPerformanceAllowsNewFile, discoveryPerformancePriorSource } from './discovery-performance-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -20,14 +21,15 @@ function exactFile(path, map, hashFor) {
   try { return sha(readFileSync(new URL('../' + path, import.meta.url))) === hashFor(map[path]) }
   catch { return false }
 }
-export const sofiaRpcAllowsFileChange = path => dialogPrimaryDarkContrastAllowsFileChange(path) || posterPolishAllowsFileChange(path) || catalogueExpiryAllowsFileChange(path) || posterGlassAllowsFileChange(path) || mobileCatalogueAllowsFileChange(path) || exactFile(path, receipt.changed, value => value.after)
-export const sofiaRpcAllowsNewFile = path => serviceDetailPhotoExpansionAllowsNewFile(path) || serviceDetailPhotoCoverageAllowsNewFile(path) || posterPolishAllowsNewFile(path) || catalogueExpiryAllowsNewFile(path) || mobileCatalogueAllowsNewFile(path) || exactFile(path, receipt.added, value => value)
+export const sofiaRpcAllowsFileChange = path => discoveryPerformanceAllowsFileChange(path) || dialogPrimaryDarkContrastAllowsFileChange(path) || posterPolishAllowsFileChange(path) || catalogueExpiryAllowsFileChange(path) || posterGlassAllowsFileChange(path) || mobileCatalogueAllowsFileChange(path) || exactFile(path, receipt.changed, value => value.after)
+export const sofiaRpcAllowsNewFile = path => discoveryPerformanceAllowsNewFile(path) || serviceDetailPhotoExpansionAllowsNewFile(path) || serviceDetailPhotoCoverageAllowsNewFile(path) || posterPolishAllowsNewFile(path) || catalogueExpiryAllowsNewFile(path) || mobileCatalogueAllowsNewFile(path) || exactFile(path, receipt.added, value => value)
 export const sofiaRpcMatchesPriorHash = (path, hash) => posterPolishMatchesPriorHash(path, hash) || catalogueExpiryMatchesPriorHash(path, hash) || posterGlassMatchesPriorHash(path, hash) || Boolean(hash && Object.hasOwn(receipt.changed, path)
   && receipt.changed[path].before === hash && sofiaRpcAllowsFileChange(path))
 
 // Strip only the exact November 25 release before invoking an older inverse.
 // Never deduce reviewed bytes from the working tree or a mutable branch name.
 export function sofiaRpcPriorSource(path, source) {
+  source = discoveryPerformancePriorSource(path, source)
   source = mobileCataloguePriorSource(path, preServicePhotoMarkerSource(path, preDialogPrimaryDarkContrastSource(path, source)))
   if (!Object.hasOwn(receipt.changed, path)) return source
   const { before, after } = receipt.changed[path], hash = sha(source)

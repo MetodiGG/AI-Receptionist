@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { publicBusinessCoverPhoto } from '../lib/discovery-photo-presentation.mjs'
+import { publicBusinessCoverPhoto } from '../lib/public-business-cover-photo.mjs'
 
 // Standalone example, never passed into the real-photo carousel or metadata.
 export function BusinessCoverPhoto({ business, locale = 'bg', className = '', eager = false, omitIfUnavailable = false, compactDisclosure = business?.source === 'catalogue' }) {

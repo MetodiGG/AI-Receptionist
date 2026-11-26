@@ -1,0 +1,71 @@
+{
+  "baseline": "e720a7e350ebbbde83600210b3325cee3c07d1b9",
+  "changed": {
+    "app/inline-discovery-panel.css": {
+      "before": "5982be44f3705c226a76b0ed9f260d3501b0d90ba28eec7ae038b94c45fb0b60",
+      "after": "f5b31ded1b0f8042c9255db3dc97ad30a678827c1fdf12f295a48e845257d400"
+    },
+    "app/inline-discovery.css": {
+      "before": "a14c351450cfaac256facabe5c67faf7f6e46ccdc2878fb16ae5bc044daef9d1",
+      "after": "90febc09ceccd3107610d8750459efc9b0f8facf56bd32673ff47f6687495a7f"
+    },
+    "components/business-cover-photo.js": {
+      "before": "3f756646d634a9ee1140fe737d5f5742169cbc3e39eaf04310023d34598ad407",
+      "after": "635a8ea7f7524cf661fe042a1e104bb13025d8b0967ecdbc3bc283d81128c090"
+    },
+    "components/discovery-search.js": {
+      "before": "ef9dc81d6ce93c8152e12680da0a8027324bc93eae5afc942e5006ed74f014c6",
+      "after": "65d1670224f3bd7c24b25dce23172050b199060102376f285e5171a7be15a38f"
+    },
+    "components/inline-discovery-panel.js": {
+      "before": "814c7f1d82b28b2743630c86118b7cf184995512921c4a937d922fd63342d6db",
+      "after": "5a97d3b208e5cdf857e1e6b9e7723ed864939d2564f66fdf01e0c6047d8fc427"
+    },
+    "components/marketing-navigation.js": {
+      "before": "0301823fad146b563e5932bc887821e46e131cdb9d6f39ce5e126afc492c8220",
+      "after": "800a299722a970397305d930a4105961ddd95638553c4881c0135141cd8eaea1"
+    },
+    "components/public-action.module.css": {
+      "before": "daf65ce166b53801c02388a6d73359856cf010317f4f19c9bde7c676bdd686a7",
+      "after": "85df4e1edeb0c0759e39a3cd07bfb235c710beb3edba3a41a998abf430a6fe75"
+    },
+    "lib/discovery-photo-presentation.mjs": {
+      "before": "484077e7efa300356555aadddf13d41f54a301010dbb0d1010d7ec42e015a841",
+      "after": "c28bbf746d6c96d6e2af1b0b5809aa5479cbf1df8edd044335a916c3522f1660"
+    },
+    "lib/discovery/catalogue-search.mjs": {
+      "before": "0eeeb35debfd2d2748b3d7735c299a27038d991cb70b7282c3432d5d1784bd8e",
+      "after": "67ed463e29cf9f0c2b86773a28368a06afe177a9c8b977299ebd1e89d8542292"
+    },
+    "lib/public-action-motion.mjs": {
+      "before": "8462bcf0c89bffdfdf2c352474682bff951feec56f4e06dd98de9c211a686a85",
+      "after": "1189e819edd9bdc1f8c008c7d6ff06b2043e4c29d03b4c0d028e2c09ebda4ff5"
+    }
+  },
+  "added": {
+    "lib/discovery-photo-cover-owners.json": "da6eb1fdc961d76443baa8c075202efaf412a87ab63d7eb857a2d904ca6d4fd3",
+    "lib/public-business-cover-photo.mjs": "56a6937b97ddbe09f046c24f04422111c184727ffe7afa9c60180cbd9d6a4a1f"
+  },
+  "adapters": {
+    "tests/catalogue-expiry-20261126-scope.mjs": {
+      "before": "37f0bf3fd3015242cbf48ed2be17682f0e5428f5e44bbe52537038766b80a6fd",
+      "after": "ff4fab5b5d4c2dcc62a5e829a8648bd38622248d999262f6d3a0adef1d030a2c"
+    },
+    "tests/poster-glass-20261126-scope.mjs": {
+      "before": "aefd1748bec69454927082e231a87211ecc80b6a58fb393a2dbc55d7adf84a90",
+      "after": "9bea54e8b105903791684d23e8d568b335a21eae8aaf351368ec0e9942ce5ada"
+    },
+    "tests/poster-polish-20261126-scope.mjs": {
+      "before": "cf8ae1edfd380fd33d0804789cd3e595968f2c941ca4008b5a662e69a60a406b",
+      "after": "3a35d4d5798f19bb20c63b952d23857c6b688cffeb4147d5076123b6e38fdee0"
+    },
+    "tests/sofia-location-rpc-isolation-20261125-scope.mjs": {
+      "before": "4c8b51f2a155652428de1a72bff4ad6866935fda2025c59aa6be93cd30be90d9",
+      "after": "bb96fea31281227c92f828fb94fa7bec364cc94eb461ae8e4d55e9b699f012c9"
+    },
+    "tests/sports-mobile-photo-fit-scope.mjs": {
+      "before": "3b9afc038ed67af130770b58afa91cdd8c939297fea90f50792108dd3728123a",
+      "after": "745ff9a75620edf0a4dacb8e8d1c28ca10bf470d8cf3fd17e17e1e3111e1e036"
+    }
+  }
+}

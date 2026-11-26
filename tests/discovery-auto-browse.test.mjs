@@ -140,7 +140,7 @@ test('frontend starts a single city browse without waiting for permission and do
   assert.match(source, /entryVersion !== searchVersion.current/)
   assert.match(source, /search\(input, \{ navigate: Boolean\(initial\) \}\)/)
   assert.match(source, /browse: home && !next.query.trim\(\)/)
-  assert.match(source, /!scrollAfterSearch.current/)
+  assert.match(source, /const destination = scrollAfterSearch\.current, version = searchVersion\.current\s+if \(compact \|\| !destination/)
   assert.match(source, /inFlight\.current && JSON\.stringify\(input\) === JSON\.stringify\(lastInput\.current\)/)
   assert.doesNotMatch(source, /setInterval|watchPosition|localStorage|sessionStorage/)
   const empty = discoverySearchInput({ browse: true, coordinates: null })

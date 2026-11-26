@@ -1,3 +1,4 @@
+import { discoveryPerformanceAllowsPath, discoveryPerformancePriorSource } from './discovery-performance-scope.mjs'
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { createHash } from 'node:crypto'
@@ -34,13 +35,13 @@ test('the standing expiry policy authorizes exactly its eight current paths and 
   assert.deepEqual(addedPaths, ['lib/discovery/catalogue-expired-offer-holds.mjs'])
   const changed = git('diff', '--name-only', '--no-renames', '-z', receipt.baseline, '--').toString('utf8').split('\0').filter(Boolean)
   const untracked = git('ls-files', '--others', '--exclude-standard', '-z').toString('utf8').split('\0').filter(Boolean)
-  const runtimePaths = [...new Set([...changed, ...untracked])].filter(path => path !== 'node_modules' && !path.startsWith('tests/')
+  const runtimePaths = [...new Set([...changed, ...untracked])].filter(path => path !== 'node_modules' && !path.startsWith('tests/') && (changedPaths.includes(path) || !discoveryPerformanceAllowsPath(path))
     && !subcategoryDisclosureAllowsFileChange(path) && !serviceDetailPhotoCoverageAllowsPath(path) && !servicePhotoMarkerAllowsFileChange(path)
     && !serviceDetailPhotoExpansionAllowsNewFile(path) && !dialogPrimaryDarkContrastAllowsFileChange(path)
     && !posterGlassAllowsFileChange(path) && !posterPolishAllowsFileChange(path) && !posterPolishAllowsNewFile(path))
   assert.deepEqual(runtimePaths.sort(), [...changedPaths, ...addedPaths].sort())
   for (const [path, { before, after }] of Object.entries(receipt.changed)) {
-    const current = await readFile(new URL('../' + path, import.meta.url))
+    const current = discoveryPerformancePriorSource(path, await readFile(new URL('../' + path, import.meta.url)))
     const original = git('show', receipt.baseline + ':' + path)
     assert.notEqual(before, after, path)
     assert.equal(sha(original), before, path)

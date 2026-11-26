@@ -1,3 +1,4 @@
+import { discoveryPerformanceAllowsPath } from './discovery-performance-scope.mjs'
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
@@ -43,7 +44,7 @@ test('only the two public subcategory navigation views lose the AI display, with
   const changed = git('diff', '--name-only', '--no-renames', '-z', subcategoryReceipt.baseline, '--').toString().split('\0')
   const untracked = git('ls-files', '--others', '--exclude-standard', '-z').toString().split('\0')
   assert.deepEqual([...new Set([...changed, ...untracked])].filter(path => path && path !== 'node_modules'
-    && !path.startsWith('tests/') && !serviceDetailPhotoCoverageAllowsPath(path) && !servicePhotoMarkerAllowsFileChange(path)
+    && !path.startsWith('tests/') && !discoveryPerformanceAllowsPath(path) && !serviceDetailPhotoCoverageAllowsPath(path) && !servicePhotoMarkerAllowsFileChange(path)
     && !serviceDetailPhotoExpansionAllowsNewFile(path) && !dialogPrimaryDarkContrastAllowsFileChange(path)).sort(), paths)
   for (const [path, { before, after }] of Object.entries(subcategoryReceipt.changed)) {
     const current = await readFile(new URL('../' + path, import.meta.url))

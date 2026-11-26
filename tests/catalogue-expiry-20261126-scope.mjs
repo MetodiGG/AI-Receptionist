@@ -3,13 +3,14 @@ import { execFileSync } from 'node:child_process'
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import receipt from './fixtures/catalogue-expiry-20261126-approval.json' with { type: 'json' }
+import { discoveryPerformancePriorSource } from './discovery-performance-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
 const prior = new Map()
 
 function exactFile(path, hash) {
-  try { return sha(readFileSync(new URL('../' + path, import.meta.url))) === hash }
+  try { return sha(discoveryPerformancePriorSource(path, readFileSync(new URL('../' + path, import.meta.url)))) === hash }
   catch { return false }
 }
 
@@ -24,6 +25,7 @@ export const catalogueExpiryMatchesPriorHash = (path, hash) => Boolean(hash
 // A future clone can restore the original main bytes even after a squash:
 // the design phase never changes the eight existing paths in this receipt.
 export function catalogueExpiryPriorSource(path, source) {
+  source = discoveryPerformancePriorSource(path, source)
   if (!Object.hasOwn(receipt.changed, path)) return source
   const { before, after } = receipt.changed[path], digest = sha(source)
   if (digest === before) return source

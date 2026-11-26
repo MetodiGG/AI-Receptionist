@@ -72,6 +72,7 @@ test('late catalogue pages expose their actual tail and total while responses/ph
     fetcher: forbidden, claimBudget: forbidden, authorizeGoogle: forbidden, getBusiness: forbidden, getSlots: forbidden,
   }
   for (const offset of [4995, 5000, 5995, CATALOGUE_MAX_SEARCH_ROWS]) {
+    const previousReads = photoReads.length
     const result = await discoverBusinesses({ ...browse, catalogueOffset: offset }, dependencies)
     const count = Math.max(0, Math.min(15, records.length - offset))
     assert.equal(result.cataloguePage.total, 6001)
@@ -80,8 +81,11 @@ test('late catalogue pages expose their actual tail and total while responses/ph
     assert.equal(result.cataloguePage.nextOffset, offset + count < records.length ? offset + count : null)
     if (count) assert.equal(result.results[0].id, `sofia-page-probe-${String(offset).padStart(5, '0')}`)
     if (offset === 5995) assert.equal(result.results.at(-1).id, 'sofia-page-probe-06000')
-    assert.deepEqual(photoReads.at(-1), result.results.map(row => row.id))
-    assert.ok(photoReads.at(-1).length <= 15)
+    if (count) {
+      assert.equal(photoReads.length, previousReads + 1)
+      assert.deepEqual(photoReads.at(-1), result.results.map(row => row.id))
+      assert.ok(photoReads.at(-1).length <= 15)
+    } else assert.equal(photoReads.length, previousReads, 'an empty page needs no photo lookup')
   }
 })
 

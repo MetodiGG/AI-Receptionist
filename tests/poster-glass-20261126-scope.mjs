@@ -4,6 +4,7 @@ import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import receipt from './fixtures/poster-glass-20261126-approval.json' with { type: 'json' }
 import { posterPolishPriorSource } from './poster-polish-20261126-scope.mjs'
+import { discoveryPerformancePriorSource } from './discovery-performance-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -11,7 +12,10 @@ const prior = new Map()
 
 export function posterGlassAllowsFileChange(path) {
   if (!Object.hasOwn(receipt.changed, path)) return false
-  try { return sha(posterPolishPriorSource(path, readFileSync(new URL('../' + path, import.meta.url)))) === receipt.changed[path].after }
+  try {
+    const source = discoveryPerformancePriorSource(path, readFileSync(new URL('../' + path, import.meta.url)))
+    return sha(posterPolishPriorSource(path, source)) === receipt.changed[path].after
+  }
   catch { return false }
 }
 
@@ -22,6 +26,7 @@ export function posterGlassMatchesPriorHash(path, hash) {
 
 // Replay the pre-redesign production bytes only for the exact reviewed patch.
 export function posterGlassPriorSource(path, source) {
+  source = discoveryPerformancePriorSource(path, source)
   if (!Object.hasOwn(receipt.changed, path)) return source
   const { before, after } = receipt.changed[path], digest = sha(source)
   if (digest === before) return source

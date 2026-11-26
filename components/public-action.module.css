@@ -105,7 +105,6 @@
   --discovery-glass-rim: #dabcaa;
   --discovery-glass-warm: #dd986d;
   --discovery-glass-press-rim: #b67552;
-  --discovery-glass-phase: var(--gorez-page-action-phase, 0);
   --discovery-glass-face: linear-gradient(173deg, var(--discovery-glass-top), var(--discovery-glass-base) 49%, var(--discovery-glass-end));
   position: relative;
   isolation: isolate;
@@ -143,7 +142,7 @@
   inset: -14% -18%;
   border-radius: inherit;
   background: linear-gradient(104deg, transparent 15%, var(--discovery-glass-end) 34%, var(--discovery-glass-beam) 49%, var(--discovery-glass-top) 57%, transparent 77%);
-  transform: translateX(calc(-24% + var(--discovery-glass-phase) * 48%));
+  transform: translateX(-24%);
   opacity: .85;
 }
 .pair:global(.home-business-actions) .action::after {
@@ -151,10 +150,37 @@
   border-radius: inherit;
   background: linear-gradient(165deg, #fff4e780, transparent 38%),
     linear-gradient(150deg, transparent 5%, var(--discovery-glass-warm) 100%);
-  opacity: calc(.15 + var(--discovery-glass-phase) * .49);
+  opacity: .15;
 }
-:global(.discovery-business-details) .pair:global(.home-business-actions) .action {
-  --discovery-glass-phase: var(--gorez-dialog-action-phase, 0);
+
+/* Each action gets one sweep as it crosses the viewport. The sticky detail
+   actions use the dialog's own scroll progress, not their viewport position.
+   Animate only the two decorative layers; old browsers keep the static glass. */
+@supports (view-timeline-name: --go-action-view) and (animation-timeline: scroll(nearest block)) {
+  @media (prefers-reduced-motion:no-preference) {
+    .pair:global(.home-business-actions) .action { view-timeline-name: --go-action-view; }
+    .pair:global(.home-business-actions) .action::before,
+    .pair:global(.home-business-actions) .action::after {
+      animation-duration: auto;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: --go-action-view;
+    }
+    .pair:global(.home-business-actions) .action::before { animation-name: glass-reflection; }
+    .pair:global(.home-business-actions) .action::after { animation-name: glass-tint; }
+    :global(.discovery-business-details) .pair:global(.home-business-actions) .action::before,
+    :global(.discovery-business-details) .pair:global(.home-business-actions) .action::after {
+      animation-timeline: scroll(nearest block);
+    }
+  }
+}
+@keyframes glass-reflection {
+  from { transform: translateX(-24%); }
+  to { transform: translateX(24%); }
+}
+@keyframes glass-tint {
+  from, to { opacity: .15; }
+  50% { opacity: .64; }
 }
 .pair:global(.home-business-actions) .content {
   display: grid;
@@ -222,11 +248,10 @@
   transition-duration: 85ms;
 }
 .pair:global(.home-business-actions) .action:not(:disabled):not([aria-disabled="true"]):is(:active,[data-public-action-press])::after {
+  animation: none;
   opacity: .76;
 }
 @media (prefers-reduced-motion:reduce) {
-  .pair:global(.home-business-actions) .action,
-  :global(.discovery-business-details) .pair:global(.home-business-actions) .action { --discovery-glass-phase: 0; }
   .pair:global(.home-business-actions) .action:not(:disabled):not([aria-disabled="true"]):is(:active,[data-public-action-press]) {
     transform: none;
     transition: none;

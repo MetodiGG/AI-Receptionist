@@ -1,3 +1,4 @@
+import { discoveryPerformanceAllowsPath } from './discovery-performance-scope.mjs'
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { createHash } from 'node:crypto'
@@ -30,7 +31,7 @@ test('the additional service artwork changes only the reviewed detail resolver, 
   const changed = split(git('diff', '--no-renames', '--name-only', '-z', receipt.baseline, '--'))
   const untracked = split(git('ls-files', '--others', '--exclude-standard', '-z'))
   const actual = [...new Set([...changed, ...untracked])].filter(path => path !== 'node_modules' &&
-    !path.startsWith('tests/') && !dialogPrimaryDarkContrastAllowsFileChange(path))
+    !path.startsWith('tests/') && !discoveryPerformanceAllowsPath(path) && !dialogPrimaryDarkContrastAllowsFileChange(path))
   assert.deepEqual(actual.sort(), [...Object.keys(receipt.changed), ...additions].sort())
   for (const [path, { before, after }] of Object.entries(receipt.changed)) {
     const current = await readFile(new URL('../' + path, import.meta.url))

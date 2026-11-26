@@ -13,6 +13,7 @@ import { serviceDetailPhotoCoverageAllowsPath } from './service-detail-photo-cov
 import { servicePhotoMarkerAllowsFileChange } from './service-photo-marker-20261126-scope.mjs'
 import { serviceDetailPhotoExpansionAllowsNewFile } from './service-detail-photo-expansion-20261126-scope.mjs'
 import { dialogPrimaryDarkContrastAllowsFileChange } from './dialog-primary-dark-contrast-20261126-scope.mjs'
+import { discoveryPerformanceAllowsPath, discoveryPerformancePriorSource } from './discovery-performance-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -33,10 +34,10 @@ test('poster, glass and the AI marker change only four presentation paths from t
     && !subcategoryDisclosureAllowsFileChange(path) && !serviceDetailPhotoCoverageAllowsPath(path) && !servicePhotoMarkerAllowsFileChange(path)
     && !serviceDetailPhotoExpansionAllowsNewFile(path) && !dialogPrimaryDarkContrastAllowsFileChange(path)
     && !catalogueExpiryAllowsFileChange(path) && !catalogueExpiryAllowsNewFile(path)
-    && (paths.includes(path) || (!posterPolishAllowsFileChange(path) && !posterPolishAllowsNewFile(path))))
+    && (paths.includes(path) || (!posterPolishAllowsFileChange(path) && !posterPolishAllowsNewFile(path) && !discoveryPerformanceAllowsPath(path))))
   assert.deepEqual(runtimePaths.sort(), paths)
   for (const [path, { before, after }] of Object.entries(receipt.changed)) {
-    const current = posterPolishPriorSource(path, await readFile(new URL('../' + path, import.meta.url)))
+    const current = posterPolishPriorSource(path, discoveryPerformancePriorSource(path, await readFile(new URL('../' + path, import.meta.url))))
     const original = git('show', receipt.baseline + ':' + path)
     assert.notEqual(before, after, path)
     assert.equal(sha(original), before, path)

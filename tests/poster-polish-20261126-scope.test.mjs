@@ -1,3 +1,4 @@
+import { discoveryPerformanceAllowsPath, discoveryPerformancePriorSource } from './discovery-performance-scope.mjs'
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { createHash } from 'node:crypto'
@@ -16,7 +17,7 @@ import { dialogPrimaryDarkContrastAllowsFileChange } from './dialog-primary-dark
 const root = fileURLToPath(new URL('../', import.meta.url))
 const hash = bytes => createHash('sha256').update(bytes).digest('hex')
 const git = (...args) => execFileSync('git', args, { cwd: root, maxBuffer: 16 * 1024 * 1024 })
-const read = path => readFile(new URL('../' + path, import.meta.url))
+const read = path => readFile(new URL('../' + path, import.meta.url)).then(bytes => discoveryPerformancePriorSource(path, bytes))
 
 test('poster polish does not alter booking, catalogue data, assets, APIs, or deployment settings', async () => {
   assert.equal(receipt.baseline, '3aad461166534fe2b73492359fa878ec4da033e5')
@@ -24,7 +25,7 @@ test('poster polish does not alter booking, catalogue data, assets, APIs, or dep
   const untracked = git('ls-files', '--others', '--exclude-standard', '-z').toString().split('\0')
   const sourcePaths = [...new Set([...changed, ...untracked])].filter(p => p && p !== 'node_modules' && !p.startsWith('tests/')
     && !subcategoryDisclosureAllowsFileChange(p) && !serviceDetailPhotoCoverageAllowsNewFile(p) && !serviceDetailPhotoExpansionAllowsNewFile(p)
-    && !dialogPrimaryDarkContrastAllowsFileChange(p)
+    && !dialogPrimaryDarkContrastAllowsFileChange(p) && (Object.hasOwn(receipt.changed, p) || Object.hasOwn(receipt.added, p) || !discoveryPerformanceAllowsPath(p))
     && (Object.hasOwn(receipt.changed, p) || !servicePhotoMarkerAllowsFileChange(p))).sort()
   assert.deepEqual(sourcePaths, [...Object.keys(receipt.changed), ...Object.keys(receipt.added)].sort())
   for (const [path, { before, after }] of Object.entries(receipt.changed)) {
@@ -49,7 +50,7 @@ test('the 23px price choice changes only the existing preview price style', asyn
   const untracked = git('ls-files', '--others', '--exclude-standard', '-z').toString().split('\0')
   const sourcePaths = [...new Set([...inventory, ...untracked])].filter(p => p && p !== 'node_modules' && !p.startsWith('tests/')
     && !subcategoryDisclosureAllowsFileChange(p) && !serviceDetailPhotoCoverageAllowsPath(p) && !servicePhotoMarkerAllowsFileChange(p)
-    && !serviceDetailPhotoExpansionAllowsNewFile(p) && !dialogPrimaryDarkContrastAllowsFileChange(p)).sort()
+    && !serviceDetailPhotoExpansionAllowsNewFile(p) && !dialogPrimaryDarkContrastAllowsFileChange(p) && !discoveryPerformanceAllowsPath(p)).sort()
   assert.deepEqual(sourcePaths, [path])
   const current = await read(path), original = git('show', baseline + ':' + path)
   assert.equal(hash(original), before)

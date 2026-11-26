@@ -1,3 +1,4 @@
+import { discoveryPerformanceAllowsPath } from './discovery-performance-scope.mjs'
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { createHash } from 'node:crypto'
@@ -17,7 +18,7 @@ test('dark detail links retain their general accent except the primary booking a
   assert.equal(receipt.path, 'app/dark-mode.css')
   const changed = split(git('diff', '--no-renames', '--name-only', '-z', receipt.baseline, '--'))
   const untracked = split(git('ls-files', '--others', '--exclude-standard', '-z'))
-  const actual = [...new Set([...changed, ...untracked])].filter(path => path !== 'node_modules' && !path.startsWith('tests/'))
+  const actual = [...new Set([...changed, ...untracked])].filter(path => path !== 'node_modules' && !path.startsWith('tests/') && !discoveryPerformanceAllowsPath(path))
   assert.deepEqual(actual, [receipt.path])
 
   const current = await readFile(new URL('../' + receipt.path, import.meta.url))

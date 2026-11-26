@@ -68,6 +68,29 @@ test('the existing cached20/current0 revocation and read-error cases never publi
   }
 })
 
+test('the page photo read starts during native revalidation without exposing a revoked partner', async () => {
+  const partner = native(1), catalogue = record()
+  let checked = false, finishHydration, startPhotos
+  const didStart = new Promise(resolve => { startPhotos = resolve })
+  const hydration = new Promise(resolve => { finishHydration = resolve })
+  const photos = []
+  const result = discoverBusinesses(browse(), dependencies({
+    readCatalogue: async () => [catalogue], readInternal: async () => [partner],
+    hydrateInternalCandidates: ids => { assert.deepEqual(ids, [partner.id]); return hydration },
+    readCataloguePhotos: async ids => { photos.push(ids); startPhotos(); return [] },
+  })).then(value => { checked = true; return value })
+  try {
+    // One event-loop turn suffices for the local stubs. The previous serial
+    // implementation would still be waiting for the withheld hydration.
+    assert.equal(await Promise.race([didStart.then(() => true), new Promise(resolve => setImmediate(() => resolve(false)))]), true)
+    assert.equal(checked, false)
+    assert.deepEqual(photos, [[catalogue.id]])
+  } finally { finishHydration([]) }
+  const value = await result
+  assert.deepEqual(value.results.map(row => row.id), [catalogue.id])
+  assert.equal(value.exactTotal, null)
+})
+
 test('a changed selected child, revoked publication or a removed native row invalidates exact-count confidence', async () => {
   const partners = [native(1), native(2)]
   for (const current of [

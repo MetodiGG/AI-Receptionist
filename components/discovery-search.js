@@ -68,38 +68,34 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
   const [loadingMore, setLoadingMore] = useState(false), [moreError, setMoreError] = useState(''), [resultKey, setResultKey] = useState(0)
   const pageController = useRef(null), pageInFlight = useRef(false), searchVersion = useRef(0), lastInput = useRef(null)
   const controller = useRef(null), resultHeading = useRef(null), inFlight = useRef(false), locationInFlight = useRef(false), locationVersion = useRef(0), mounted = useRef(true), scrollAfterSearch = useRef(false)
-  const subcategoriesRef = useRef(null)
+  const subcategoriesRef = useRef(null), revealedCategoryVersion = useRef(null)
   useEffect(() => { const timer = setTimeout(() => setSettledQuery(query), 350); return () => clearTimeout(timer) }, [query])
   useEffect(() => { mounted.current = true; return () => { mounted.current = false; controller.current?.abort(); pageController.current?.abort() } }, [])
   useEffect(() => {
-    if (compact || loading || !scrollAfterSearch.current || (!result && !error)) return
-    // Wait for this request's committed content, never a loading shell or a
-    // stale response. Consume navigation once, not on pagination/theme changes.
     const destination = scrollAfterSearch.current, version = searchVersion.current
-    let active = true, panelTimer = null
+    if (compact || !destination || (loading
+      ? destination !== 'subcategories' || revealedCategoryVersion.current === version
+      : !result && !error)) return
+    // The category heading stays mounted from its real loading state through
+    // to its counted choices. Scroll there promptly rather than waiting for
+    // the network; first-business navigation still needs matching results.
     const frame = requestAnimationFrame(() => {
+      if (version !== searchVersion.current || scrollAfterSearch.current !== destination) return
       const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches
-      const reveal = () => {
-        if (!active || version !== searchVersion.current || scrollAfterSearch.current !== destination) return
-        scrollAfterSearch.current = false
-        if (!error && destination === 'subcategories' && focusDiscoverySubcategories(subcategoriesRef.current, reduceMotion)) return
-        if (!error && destination === 'businesses') { focusFirstDiscoveryBusiness(resultHeading.current, reduceMotion); return }
-        focusDiscoveryResults(resultHeading.current, reduceMotion)
+      if (loading) {
+        if (focusDiscoverySubcategories(subcategoriesRef.current, reduceMotion)) revealedCategoryVersion.current = version
+        return
       }
-      // A fast response can arrive while the inline panel is growing/closing.
-      // Scroll against its final layout, not the temporary animated height.
-      const panel = !error && !reduceMotion ? destination === 'subcategories'
-        ? subcategoriesRef.current?.closest?.('.inline-discovery-panel')
-        : destination === 'businesses' ? resultHeading.current?.closest?.('.discovery-search')?.querySelector?.('.inline-discovery-panel') : null : null
-      if (!panel) { reveal(); return }
-      if (typeof panel.getAnimations === 'function') {
-        const animations = panel.getAnimations()
-        if (animations.length) { void Promise.allSettled(animations.map(animation => animation.finished)).then(reveal); return }
-        reveal()
-      } else panelTimer = setTimeout(reveal, 220)
+      scrollAfterSearch.current = false
+      if (!error && destination === 'subcategories' && subcategoriesRef.current) {
+        if (revealedCategoryVersion.current !== version) focusDiscoverySubcategories(subcategoriesRef.current, reduceMotion)
+        return
+      }
+      if (!error && destination === 'businesses') { focusFirstDiscoveryBusiness(resultHeading.current, reduceMotion); return }
+      focusDiscoveryResults(resultHeading.current, reduceMotion)
     })
-    return () => { active = false; cancelAnimationFrame(frame); if (panelTimer !== null) clearTimeout(panelTimer) }
-  }, [result, error, loading, compact])
+    return () => cancelAnimationFrame(frame)
+  }, [result, resultKey, error, loading, compact])
   useEffect(() => {
     if (compact) return
     // Browse the full supported city inventory immediately, without choosing

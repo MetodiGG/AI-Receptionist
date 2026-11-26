@@ -1,5 +1,6 @@
 import { createHash } from 'node:crypto'
 import { readFileSync } from 'node:fs'
+import { discoveryPerformancePriorSource } from './discovery-performance-scope.mjs'
 
 // A separate, phone-only forward delta. Historical scope maps stay untouched.
 export const SPORTS_MOBILE_PHOTO_FIT_BASE = 'c29e577c1dce772115446df4bd2bb56375b1eda9'
@@ -21,13 +22,14 @@ const sha256 = source => createHash('sha256').update(source).digest('hex')
 export function sportsMobilePhotoFitAllowsFileChange(path) {
   if (!Object.hasOwn(SPORTS_MOBILE_PHOTO_FIT_HASHES, path)) return false
   try {
-    return sha256(readFileSync(new URL('../' + path, import.meta.url))) === SPORTS_MOBILE_PHOTO_FIT_HASHES[path]
+    return sha256(discoveryPerformancePriorSource(path, readFileSync(new URL('../' + path, import.meta.url)))) === SPORTS_MOBILE_PHOTO_FIT_HASHES[path]
   } catch { return false }
 }
 
 // Reconstruct only the exact prior bytes, not a selector-based exemption.
 // Unknown/duplicated/altered deltas cannot hide unrelated changes from a proof.
 export function sportsMobilePhotoFitPriorCss(source) {
+  source = discoveryPerformancePriorSource('app/inline-discovery.css', source)
   if (sha256(source) === previousCssHash) return source
   if (sha256(source) !== SPORTS_MOBILE_PHOTO_FIT_HASHES['app/inline-discovery.css']
     || source.split(SPORTS_MOBILE_PHOTO_FIT_DELTA).length !== 2) throw new Error('Unreviewed sports mobile CSS delta')

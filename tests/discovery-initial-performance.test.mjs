@@ -41,7 +41,7 @@ function harness(component, props) {
     state(initial) { const slot = h.slot(() => typeof initial === 'function' ? initial() : initial); return [slot.value, next => { const value = typeof next === 'function' ? next(slot.value) : next; if (!Object.is(value, slot.value)) { slot.value = value; dirty = true } }] },
     ref(initial) { return h.slot(() => ({ current: initial })).value },
     effect(effect, deps) { const slot = h.slot(() => ({ deps: undefined, cleanup: undefined })); if (!deps || !slot.value.deps || deps.some((value, at) => !Object.is(value, slot.value.deps[at]))) { slot.value.deps = deps; pending.push(() => { slot.value.cleanup?.(); slot.value.cleanup = effect() }) } },
-    render() { index = 0; dirty = false; activeHarness = h; try { h.tree = component(h.props) } finally { activeHarness = null }; return h.tree },
+    render() { index = 0; dirty = false; activeHarness = h; try { h.tree = component(h.props); h.commitRefs?.() } finally { activeHarness = null }; return h.tree },
     flush() { if (disposed) return; let turns = 0; while (dirty || pending.length) { assert.ok(++turns < 40); while (pending.length) pending.shift()(); if (dirty) h.render() } },
     dispose() { disposed = true; pending.length = 0; slots.forEach(slot => slot.value?.cleanup?.()) },
   }
@@ -90,9 +90,6 @@ function fixture(patch = {}, draft = null, { manualFrames = false, initialUrl, r
   const f = {
     h, requests, permission, focused, navigations, drafts, analytics, historyCalls,
     frames() { const pending = [...frames.values()]; frames.clear(); pending.forEach(callback => callback()); h.flush() },
-    attachPanel(panel) { f.children().props.navigationRef.current = { closest(selector) { assert.equal(selector, '.inline-discovery-panel'); return panel } } },
-    attachResultPanel(panel) { f.control('DiscoveryHomeBusinesses').props.headingRef.current = { closest(selector) { assert.equal(selector, '.discovery-search'); return { querySelector(selector) { assert.equal(selector, '.inline-discovery-panel'); return panel } } } } },
-    panelTimer() { for (const [id, timer] of [...timers]) if (timer.delay === 220) { timers.delete(id); timer.fn() } h.flush() },
     control: name => elements(h.tree, node => node.type === controls[name])[0],
     grid: () => f.control('InlineCategoryGrid'),
     children: () => f.control('DiscoverySubcategories'),
@@ -132,6 +129,12 @@ function fixture(patch = {}, draft = null, { manualFrames = false, initialUrl, r
     clears: () => clears,
     close: () => h.dispose(),
   }
+  const subcategoryHeading = { getAnimations() { assert.fail('focus must not wait for visual animations') } }
+  h.commitRefs = () => {
+    const props = f.children()?.props
+    if (props?.navigationRef) props.navigationRef.current = presentSubcategories ? subcategoryHeading : null
+  }
+  h.commitRefs()
   return f
 }
 
@@ -165,7 +168,7 @@ test('inline category reveals its committed children automatically; child select
       assert.equal(f.grid().props.category, 'hair')
       assert.ok(f.control('DiscoveryHomeBusinesses'), 'results remain mounted under the inline choices')
       assert.equal(f.children().props.inline, true)
-      assert.deepEqual(f.focused, [])
+      assert.deepEqual(f.focused, ['subcategories'], 'take the visitor to the loading panel right away')
       const child = subcategoriesForCategory('hair', locale)[0]
       f.requests[0].respond(response('hair-parent', { subcategoryOptions: [{ ...child, count: 1 }] })); await f.settle()
       assert.deepEqual(f.focused, ['subcategories'], 'a deliberate category selection reveals its actual children')
@@ -184,64 +187,41 @@ test('inline category reveals its committed children automatically; child select
   }
 })
 
-test('a fast accepted category waits for its actual opening animation before measuring the scroll destination', async () => {
-  const f = fixture({}, null, { manualFrames: true, reducedMotion: false })
-  let finish
-  const finished = new Promise(resolve => { finish = resolve })
-  try {
-    f.chooseCategory('hair'); f.entry()
-    f.attachPanel({ getAnimations: () => [{ finished }] })
-    const child = subcategoriesForCategory('hair')[0]
-    f.requests[0].respond(response('hair-current', { subcategoryOptions: [{ ...child, count: 1 }] })); await f.settle()
-    assert.deepEqual(f.focused, [], 'do not navigate before the current response commits')
-    f.frames()
-    assert.deepEqual(f.focused, [], 'do not align against the temporary animated panel height')
-    finish(); await f.settle()
-    assert.deepEqual(f.focused, ['subcategories'])
-    f.h.render(); f.h.flush(); f.frames(); await f.settle()
-    assert.deepEqual(f.focused, ['subcategories'], 'the committed navigation is consumed exactly once')
-  } finally { finish(); f.close() }
-})
-
-test('pending panel completion cannot steal focus after a newer category, typed text, history restore or unmount', async () => {
-  for (const action of ['category', 'typing', 'history', 'unmount']) {
-    const f = fixture({}, null, { manualFrames: true, reducedMotion: false })
-    let finish
-    const finished = new Promise(resolve => { finish = resolve })
+test('a slow category request scrolls to its real loading panel on the first frame, without a second scroll when counts arrive', async () => {
+  for (const reducedMotion of [false, true]) {
+    const f = fixture({}, null, { manualFrames: true, reducedMotion })
     try {
       f.chooseCategory('hair'); f.entry()
-      f.attachPanel({ getAnimations: () => [{ finished }] })
-      f.requests[0].respond(response('hair-current')); await f.settle(); f.frames()
+      assert.deepEqual(f.focused, [])
+      assert.equal(f.children().props.loading, true)
+      assert.deepEqual(f.children().props.options, [], 'never invent clickable services or counts during loading')
+      f.frames()
+      assert.deepEqual(f.focused, ['subcategories'], 'show the pending section without waiting for the response or its animation')
+      const child = subcategoriesForCategory('hair')[0]
+      f.requests[0].respond(response('hair-current', { subcategoryOptions: [{ ...child, count: 1 }] }))
+      await f.settle(); f.frames()
+      assert.equal(f.children().props.loading, false)
+      assert.deepEqual(f.children().props.options, [{ ...child, count: 1 }])
+      assert.deepEqual(f.focused, ['subcategories'])
+    } finally { f.close() }
+  }
+})
+
+test('category, typing, history and unmount cancel old queued category navigation', async () => {
+  for (const action of ['category', 'typing', 'history', 'unmount']) {
+    const f = fixture({}, null, { manualFrames: true, reducedMotion: false })
+    try {
+      f.chooseCategory('hair'); f.entry()
       assert.deepEqual(f.focused, [])
       if (action === 'category') f.chooseCategory('nails')
       if (action === 'typing') f.edit('ново търсене')
       if (action === 'history') f.restoreUrlContext('/?lang=bg&category=fitness')
       if (action === 'unmount') f.close()
-      finish(); await f.settle()
-      assert.deepEqual(f.focused, [], action)
-    } finally { finish(); f.close() }
-  }
-})
-
-test('older animation APIs get a cancellable settling fallback, while reduced motion never waits for panel animation', async () => {
-  for (const reducedMotion of [false, true]) {
-    const f = fixture({}, null, { manualFrames: true, reducedMotion })
-    try {
-      f.chooseCategory('hair'); f.entry()
-      f.attachPanel({})
-      f.requests[0].respond(response('hair-current')); await f.settle(); f.frames()
-      assert.deepEqual(f.focused, reducedMotion ? ['subcategories'] : [])
-      f.panelTimer()
-      assert.deepEqual(f.focused, ['subcategories'])
+      f.requests[0].respond(response('stale-hair'))
+      await f.settle(); f.frames()
+      assert.deepEqual(f.focused, action === 'category' ? ['subcategories'] : [], action)
     } finally { f.close() }
   }
-  const f = fixture({}, null, { manualFrames: true, reducedMotion: false })
-  try {
-    f.chooseCategory('hair'); f.entry(); f.attachPanel({})
-    f.requests[0].respond(response('hair-current')); await f.settle(); f.frames()
-    f.edit('ново търсене'); f.panelTimer()
-    assert.deepEqual(f.focused, [], 'typing cancels even a fallback timer that was already queued')
-  } finally { f.close() }
 })
 
 test('a settled category with no real child panel reveals its result or honest empty heading instead', async () => {
@@ -255,19 +235,16 @@ test('a settled category with no real child panel reveals its result or honest e
   } finally { f.close() }
 })
 
-test('clearing a category waits for its closing panel so the first committed business does not shift after scrolling', async () => {
+test('clearing a category navigates to the first matching business as soon as the committed frame is available', async () => {
   const f = fixture({}, null, { manualFrames: true, reducedMotion: false })
-  let finish
-  const finished = new Promise(resolve => { finish = resolve })
   try {
     await f.ready()
-    f.attachResultPanel({ getAnimations: () => [{ finished }] })
-    f.clearCategory()
-    f.requests[1].respond(response('all-category-current')); await f.settle(); f.frames()
-    assert.deepEqual(f.focused, [])
-    finish(); await f.settle()
+    f.clearCategory(); f.frames()
+    assert.deepEqual(f.focused, [], 'do not navigate to a skeleton')
+    f.requests[1].respond(response('all-category-current'))
+    await f.settle(); f.frames()
     assert.deepEqual(f.focused, ['businesses'])
-  } finally { finish(); f.close() }
+  } finally { f.close() }
 })
 
 test('late category responses cannot navigate or overwrite a newer choice; typing cancels queued navigation', async () => {
@@ -275,14 +252,16 @@ test('late category responses cannot navigate or overwrite a newer choice; typin
   try {
     await f.ready()
     f.category('nails'); f.category('fitness')
+    assert.deepEqual(f.focused, ['subcategories', 'subcategories'], 'each deliberate choice may reveal its loading panel')
+    f.focused.length = 0
     assert.equal(f.requests[1].init.signal.aborted, true)
     f.requests[1].respond(response('stale-nails')); await f.settle()
     assert.deepEqual(f.focused, [])
     f.requests[2].respond(response('current-sport')); await f.settle()
-    assert.deepEqual(f.focused, ['subcategories'], 'only the latest category reveals its child choices')
+    assert.deepEqual(f.focused, [], 'committing counts does not scroll a second time')
     assert.equal(f.control('DiscoveryHomeBusinesses').props.result.results[0].id, 'current-sport')
     f.focused.length = 0
-    f.category('hair'); f.edit('ново търсене')
+    f.category('hair'); f.focused.length = 0; f.edit('ново търсене')
     f.requests[3].respond(response('hair-after-typing')); await f.settle()
     assert.deepEqual(f.focused, [], 'do not steal focus while the visitor is typing')
   } finally { f.close() }
@@ -293,7 +272,7 @@ test('category loading failures keep inline choices and truthful retry feedback,
   try {
     await f.ready(); f.chooseCategory('nails')
     f.requests[1].respond({ error: { code: 'SEARCH_UNAVAILABLE' } }, 503); await f.settle()
-    assert.deepEqual(f.focused, ['focus'], 'a failed deliberate category request reveals its real error/retry status')
+    assert.deepEqual(f.focused, ['subcategories', 'focus'], 'a failed deliberate category request reveals its real error/retry status')
     assert.equal(f.control('DiscoveryHomeBusinesses').props.error, 'SEARCH_UNAVAILABLE')
     assert.ok(f.children())
     assert.equal(f.control('DiscoveryHomeBusinesses').props.result, null)
@@ -311,8 +290,9 @@ test('a queued animation frame is cancelled by a newer request, typing or unmoun
       if (action === 'typing') f.edit('ново търсене')
       if (action === 'unmount') f.close()
       f.frames()
-      assert.deepEqual(f.focused, [], action)
+      assert.deepEqual(f.focused, action === 'new-request' ? ['subcategories'] : [], action)
       if (action === 'new-request') {
+        f.focused.length = 0
         f.subcategory(subcategoriesForCategory('fitness')[0].id)
         f.requests[4].respond(response('sport-result', { intent: { cityCode: '68134', subcategory: subcategoriesForCategory('fitness')[0].id } })); await f.settle(); f.frames()
         assert.deepEqual(f.focused, ['businesses'])
@@ -772,9 +752,9 @@ test('clearing a service during parent loading reuses the identical request and 
     f.clearService()
     assert.equal(f.requests.length, 1, 'the identical parent/All request is deduplicated')
     assert.equal(f.control('DiscoveryHomeBusinesses').props.loading, true)
-    assert.deepEqual(f.focused, [])
+    assert.deepEqual(f.focused, ['subcategories'])
     f.requests[0].respond(response('all-nails')); await f.settle()
-    assert.deepEqual(f.focused, ['businesses'])
+    assert.deepEqual(f.focused, ['subcategories', 'businesses'])
     assert.equal(f.control('DiscoveryHomeBusinesses').props.result.results[0].id, 'all-nails')
   } finally { f.close() }
 })

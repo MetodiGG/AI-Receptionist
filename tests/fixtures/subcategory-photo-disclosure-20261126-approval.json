@@ -1,0 +1,13 @@
+{
+  "baseline": "d4f800cef209d3bc847c32577260bc4b776535df",
+  "changed": {
+    "components/discovery-subcategories.js": {
+      "before": "9cd2b61a4526b67f69701d7b57204895a9e71440ec145da2cfde8091bcc97d0b",
+      "after": "b397a0dac43373d7040376e1b156137e94b9e379a3544702b925133ebeb43ba9"
+    },
+    "components/inline-discovery-summary.js": {
+      "before": "47862c7f7f9ef70443e5e778aa625f10cadb05cf4f87e45a173c43d0c9196b39",
+      "after": "443d4d2c71d5e0d4361b8274da1161019d77c000ec2abf33672f97b4a6f3fafd"
+    }
+  }
+}

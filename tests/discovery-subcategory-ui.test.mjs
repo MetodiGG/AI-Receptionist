@@ -146,6 +146,23 @@ test('photo subcategories render only parent choices with positive evidence in b
     assert.doesNotMatch(html, /example\.com|wrong-parent|remote-image|>empty<|<svg|<canvas/)
   }
 })
+
+test('non-home subcategories keep generated artwork and selection, without an AI annotation', () => {
+  for (const locale of ['bg', 'en']) {
+    const option = subcategoriesForCategory('education', locale).find(item => item.id === 'education-school')
+    assert.equal(option.generatedPhoto, true, 'exercise a real generated taxonomy photo')
+    const configured = { category: option.category, title: locale === 'en' ? 'Lessons' : 'Уроци', locale, selected: option.id, options: [{ ...option, count: 1 }] }
+    const html = renderToStaticMarkup(React.createElement(DiscoverySubcategories, { ...configured, onSelect() {} }))
+    assert.match(html, /class="discovery-subcategory-option" aria-pressed="true"><img class="discovery-subcategory-photo"/)
+    assert.ok(html.includes(`src="${option.photo}"`))
+    assert.ok(html.includes(`<span>${option.label}</span>`))
+    assert.doesNotMatch(html, /AI illustration|AI илюстрация|>AI<|ai-photo-overlay|ai-photo-hint/)
+    const f = interactive(configured)
+    f.click('discovery-subcategory-option')
+    assert.deepEqual(f.calls, [option.id])
+  }
+})
+
 test('More and Less operate locally and selecting a photograph submits its actual stable identifier', () => {
   const f = interactive()
   assert.equal(f.buttons().filter(node => node.props.className === 'discovery-subcategory-option').length, 4)

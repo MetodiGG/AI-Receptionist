@@ -47,19 +47,22 @@ test('compact inline labels preserve matching locale key sets without redundant 
 })
 
 test('the photographic selection preserves complete localized category/service labels with decorative vector crosses', () => {
+  const selected = subcategories.subcategoryById(props.subcategory)
+  assert.equal(selected.generatedPhoto, true, 'exercise a real generated taxonomy photo')
   for (const locale of ['bg', 'en']) {
     const html = render({ locale })
     const parent = categories.categoryById(props.category)[locale]
-    const child = subcategories.subcategoryById(props.subcategory)[locale]
+    const child = selected[locale]
     assert.ok(html.includes(parent)); assert.ok(html.includes(child))
     assert.ok(html.includes(`${copy.INLINE_DISCOVERY_COPY[locale].clearCategory} · ${parent}`))
     assert.ok(html.includes(`${copy.INLINE_DISCOVERY_COPY[locale].clearService} · ${child}`))
     assert.equal((html.match(/class="inline-summary-selection-label/g) || []).length, 2)
     assert.equal((html.match(/<svg[^>]*aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/g) || []).length, 2)
-    assert.match(html, new RegExp(`src="${subcategories.subcategoryById(props.subcategory).photo}"`))
+    assert.ok(html.includes(`src="${selected.photo}"`))
     assert.match(html, /class="inline-summary-photo" aria-hidden="true"/)
     assert.match(html, /alt="" width="72" height="72" loading="lazy" decoding="async"/)
     assert.doesNotMatch(html, /aria-haspopup|aria-expanded|×|guide-panel|guide-launch|inline-summary-chip/)
+    assert.doesNotMatch(html, /AI illustration|AI илюстрация|>AI</, 'taxonomy artwork is not disclosed visually or only to screen readers')
   }
 })
 

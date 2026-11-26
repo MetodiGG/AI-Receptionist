@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url'
 import receipt from './fixtures/sofia-location-rpc-isolation-20261125-approval.json' with { type: 'json' }
 import previous from './fixtures/sofia-location-image-integrity-20261124-approval.json' with { type: 'json' }
 import { sofiaRpcAllowsFileChange, sofiaRpcAllowsNewFile, sofiaRpcPriorSource } from './sofia-location-rpc-isolation-20261125-scope.mjs'
-import { sofiaIntegrityAllowsFileChange, sofiaIntegrityAllowsNewFile, sofiaIntegrityMatchesPriorHash, sofiaIntegrityPriorSource } from './sofia-location-image-integrity-20261124-scope.mjs'
+import { preSubcategoryDisclosureSource, sofiaIntegrityAllowsFileChange, sofiaIntegrityAllowsNewFile, sofiaIntegrityMatchesPriorHash, sofiaIntegrityPriorSource } from './sofia-location-image-integrity-20261124-scope.mjs'
 import { mobileCatalogueAllowsNewFile } from './mobile-catalogue-hotfix-scope.mjs'
 import { catalogueExpiryAllowsNewFile } from './catalogue-expiry-20261126-scope.mjs'
 import { posterPolishAllowsNewFile } from './poster-polish-20261126-scope.mjs'
@@ -87,7 +87,7 @@ test('every operational path, mode and every unrelated byte are identical to the
     const mode = stat.isSymbolicLink() ? '120000' : stat.isFile() ? stat.mode & 0o111 ? '100755' : '100644' : null
     assert.equal(mode, entry.mode, entry.path)
     const current = stat.isSymbolicLink() ? Buffer.from(await readlink(url)) : await readFile(url)
-    const bytes = sofiaRpcPriorSource(entry.path, current)
+    const bytes = sofiaRpcPriorSource(entry.path, preSubcategoryDisclosureSource(entry.path, current))
     assert.equal(createHash('sha1').update('blob ' + bytes.length + '\0').update(bytes).digest('hex'), entry.oid, entry.path)
   }))
   for (const path of [...Object.keys(receipt.added), ...laterApprovedFiles]) {

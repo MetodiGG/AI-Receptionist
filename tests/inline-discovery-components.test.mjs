@@ -144,6 +144,20 @@ for (const locale of ['bg', 'en']) test(`${locale}: inline children show evidenc
   assert.doesNotMatch(html, /subcategory-more|Show less|More \(|По-малко|Още \(|zero-count|negative-count|missing-count|wrong-parent|wrong-photo/)
 })
 
+test('generated subcategory artwork is decorative while the selected localized tile and count remain visible', () => {
+  for (const locale of ['bg', 'en']) {
+    const selected = subcategoriesForCategory('education', locale).find(option => option.id === 'education-school')
+    assert.equal(selected.generatedPhoto, true, 'exercise a real generated taxonomy photo')
+    const html = render(DiscoverySubcategories, { category: selected.category, options: [{ ...selected, count: 2 }], selected: selected.id, locale, inline: true, onSelect() {} })
+    assert.match(html, /class="inline-service-tile" aria-pressed="true"/)
+    assert.match(html, /class="inline-service-photo-frame"[^>]*aria-hidden="true"><img class="discovery-subcategory-photo"/)
+    assert.ok(html.includes(`src="${selected.photo}"`))
+    assert.ok(html.includes(`<span class="inline-service-label">${selected.label}</span>`))
+    assert.ok(html.includes(`<span class="inline-service-count">2 ${inlineCopy.INLINE_DISCOVERY_COPY[locale].businesses}</span>`))
+    assert.doesNotMatch(html, /AI illustration|AI илюстрация|>AI<|ai-photo-overlay|ai-photo-hint/)
+  }
+})
+
 test('photo focal helpers affect only exact approved source positioning, never image paths or caller data', async () => {
   for (const family of ['hair', 'consulting', 'home_services', 'health', 'education', 'other']) {
     const category = home.homeCategories('bg').find(option => option.id === family)

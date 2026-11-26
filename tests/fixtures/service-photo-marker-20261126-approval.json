@@ -1,0 +1,13 @@
+{
+  "baseline": "3ba08bb076a5243752257233b3107af051baa5d4",
+  "changed": {
+    "app/service-thumbnail.css": {
+      "before": "7ad03cf795710935e212aab1d5439bbdc717d212d692978302d3396a4e343824",
+      "after": "e2397e1cb1af8ab02550b9b2756103d91b6062e98f16aff231bfd519d933362e"
+    },
+    "components/service-thumbnail.js": {
+      "before": "fc900fda7e8028f7aaf8759869787f919d0a7db9c427ab10ec455bb03b723fba",
+      "after": "a3ae9837595b673687206cbd4575bca7f613978f1ac42745c12057a91f7732b2"
+    }
+  }
+}

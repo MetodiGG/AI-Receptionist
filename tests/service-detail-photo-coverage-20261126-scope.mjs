@@ -3,6 +3,7 @@ import { execFileSync } from 'node:child_process'
 import { lstatSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import receipt from './fixtures/service-detail-photo-coverage-20261126-approval.json' with { type: 'json' }
+import { preServicePhotoMarkerSource } from './service-photo-marker-20261126-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -21,7 +22,7 @@ function fileMatches(path, hash) {
   try {
     const url = new URL('../' + path, import.meta.url)
     const mode = lstatSync(url)
-    return mode.isFile() && !(mode.mode & 0o111) && sha(readFileSync(url)) === hash
+    return mode.isFile() && !(mode.mode & 0o111) && sha(preServicePhotoMarkerSource(path, readFileSync(url))) === hash
   } catch { return false }
 }
 
@@ -36,6 +37,7 @@ export const serviceDetailPhotoCoverageAllowsPath = path => serviceDetailPhotoCo
 // changes and unlisted paths must still be detected by the older receipts.
 export function preServiceDetailPhotoCoverageSource(path, source) {
   if (!serviceDetailPhotoChangedPath(path) || !Object.hasOwn(receipt.changed, path)) return source
+  source = preServicePhotoMarkerSource(path, source)
   const { before, after } = receipt.changed[path]
   if (typeof after !== 'string' || !digest.test(after) || sha(source) !== after) return source
   if (!prior.has(path)) {

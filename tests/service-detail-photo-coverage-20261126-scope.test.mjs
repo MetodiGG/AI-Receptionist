@@ -9,6 +9,7 @@ import {
   preServiceDetailPhotoCoverageSource, serviceDetailPhotoAddedPath, serviceDetailPhotoChangedPath,
   serviceDetailPhotoCoverageAllowsFileChange, serviceDetailPhotoCoverageAllowsNewFile, serviceDetailPhotoCoverageAllowsPath,
 } from './service-detail-photo-coverage-20261126-scope.mjs'
+import { preServicePhotoMarkerSource, servicePhotoMarkerAllowsFileChange } from './service-photo-marker-20261126-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -21,7 +22,8 @@ test('detail-photo changes cannot alter category, subcategory or business covers
   assert.deepEqual(Object.keys(receipt.changed), ['components/service-thumbnail.js'])
   const changed = split(git('diff', '--no-renames', '--name-only', '-z', receipt.baseline, '--'))
   const untracked = split(git('ls-files', '--others', '--exclude-standard', '-z'))
-  const actual = [...new Set([...changed, ...untracked])].filter(operational).sort()
+  const actual = [...new Set([...changed, ...untracked])].filter(path => operational(path)
+    && (serviceDetailPhotoChangedPath(path) || !servicePhotoMarkerAllowsFileChange(path))).sort()
   const reviewed = [...Object.keys(receipt.changed).filter(path => receipt.changed[path].after !== null), ...Object.keys(receipt.added)]
   assert.deepEqual(actual, reviewed.sort(), 'runtime changes must have independent SHA-256 review evidence')
 
@@ -34,7 +36,7 @@ test('detail-photo changes cannot alter category, subcategory or business covers
       continue
     }
     const current = await readFile(new URL('../' + path, import.meta.url))
-    assert.equal(sha(current), after, path)
+    assert.equal(sha(preServicePhotoMarkerSource(path, current)), after, path)
     assert.notEqual(before, after, path)
     assert.ok(serviceDetailPhotoCoverageAllowsPath(path), path)
     assert.deepEqual(preServiceDetailPhotoCoverageSource(path, current), baseline, path)

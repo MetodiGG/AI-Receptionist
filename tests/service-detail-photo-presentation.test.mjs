@@ -156,7 +156,10 @@ test('the rendered “Виж детайли” service-menu component includes l
     const html = renderToStaticMarkup(createElement(PublicServiceMenu, { services, business, locale }))
     assert.equal((html.match(/class="service-thumbnail-image"/gu) || []).length, 3)
     assert.equal((html.match(/data-image-kind="ai-illustration"/gu) || []).length, 3)
-    assert.equal((html.match(locale === 'en' ? /aria-label="AI illustration"/gu : /aria-label="AI илюстрация"/gu) || []).length, 3)
+    const labels = locale === 'en' ? /<img[^>]*aria-label="AI illustration · [^"]+"/gu : /<img[^>]*aria-label="AI илюстрация · [^"]+"/gu
+    assert.equal((html.match(labels) || []).length, 3, 'the image carries one localized accessible disclosure')
+    assert.equal((html.match(/<small class="service-thumbnail-ai-label" data-compact-disclosure="true" aria-hidden="true">AI<\/small>/gu) || []).length, 3)
+    assert.doesNotMatch(html, /title="AI (?:илюстрация|illustration)|>AI (?:илюстрация|illustration)</u)
     assert.doesNotMatch(html, /(?:gel-manicure|nail-gel-removal)-v1\.webp/u, 'do not print the taxonomy photos')
   }
   const authentic = REVIEWED_PARTNER_SERVICE_PHOTOS.find(item => item.source === 'provided')
@@ -166,4 +169,15 @@ test('the rendered “Виж детайли” service-menu component includes l
   const partnerHtml = renderToStaticMarkup(createElement(PublicServiceMenu, { services: [service], business: partner, locale: 'bg' }))
   assert.ok(partnerHtml.includes(`/service-photos/${authentic.photoId}-v1.webp`))
   assert.doesNotMatch(partnerHtml, /service-thumbnail-ai-label|data-image-kind="ai-illustration"/u)
+})
+
+test('only the compact service-photo marker is small, white and transparent in the top-left corner', async () => {
+  const css = await readFile(new URL('../app/service-thumbnail.css', import.meta.url), 'utf8')
+  const marker = css.match(/\.service-thumbnail-ai-label\[data-compact-disclosure\] \{([^}]+)\}/u)?.[1]
+  assert.ok(marker)
+  assert.match(marker, /inset: 7px auto auto 7px;/u)
+  assert.match(marker, /color: #fff;[\s\S]*-webkit-text-stroke: 1px #2b1e17;/u)
+  assert.match(marker, /background: transparent;/u)
+  assert.match(marker, /font-size: max\(10px,\.625rem\);/u)
+  assert.match(css, /\.service-thumbnail-ai-label \{[^}]*inset:auto auto 2px 2px/u, 'the appearance for unrelated thumbnail views stays unchanged')
 })

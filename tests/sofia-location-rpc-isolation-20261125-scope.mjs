@@ -8,6 +8,7 @@ import { posterGlassAllowsFileChange, posterGlassMatchesPriorHash } from './post
 import { catalogueExpiryAllowsFileChange, catalogueExpiryAllowsNewFile, catalogueExpiryMatchesPriorHash } from './catalogue-expiry-20261126-scope.mjs'
 import { posterPolishAllowsFileChange, posterPolishAllowsNewFile, posterPolishMatchesPriorHash } from './poster-polish-20261126-scope.mjs'
 import { serviceDetailPhotoCoverageAllowsNewFile } from './service-detail-photo-coverage-20261126-scope.mjs'
+import { preServicePhotoMarkerSource } from './service-photo-marker-20261126-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -25,7 +26,7 @@ export const sofiaRpcMatchesPriorHash = (path, hash) => posterPolishMatchesPrior
 // Strip only the exact November 25 release before invoking an older inverse.
 // Never deduce reviewed bytes from the working tree or a mutable branch name.
 export function sofiaRpcPriorSource(path, source) {
-  source = mobileCataloguePriorSource(path, source)
+  source = mobileCataloguePriorSource(path, preServicePhotoMarkerSource(path, source))
   if (!Object.hasOwn(receipt.changed, path)) return source
   const { before, after } = receipt.changed[path], hash = sha(source)
   if (hash === before) return source

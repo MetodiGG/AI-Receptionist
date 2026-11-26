@@ -3,6 +3,20 @@
 .service-thumbnail--photo .service-thumbnail-image { object-fit:cover; }
 .service-thumbnail[data-image-kind="ai-illustration"] { position:relative; }
 .service-thumbnail-ai-label { position:absolute; inset:auto auto 2px 2px; padding:1px 3px; border-radius:3px; color:#fff8ef; background:#32231ef2; font-size:9px; font-weight:600; letter-spacing:0; line-height:1.15; white-space:nowrap; }
+.service-thumbnail-ai-label[data-compact-disclosure] {
+  inset: 7px auto auto 7px;
+  padding: 0;
+  background: transparent;
+  color: #fff;
+  paint-order: stroke fill;
+  -webkit-text-stroke: 1px #2b1e17;
+  text-shadow: 0 1px 2px #28190eab;
+  font-size: max(10px,.625rem);
+  font-weight: 650;
+  line-height: 1;
+  letter-spacing: .025em;
+  pointer-events: none;
+}
 .service-thumbnail-icon { display:grid; place-items:center; width:100%; height:100%; }
 .service-thumbnail-icon svg { width:min(28px, 55%); height:min(28px, 55%); }
 .service-photo-name { display:flex; align-items:center; gap:8px; min-width:0; overflow-wrap:break-word; word-break:normal; hyphens:manual; }

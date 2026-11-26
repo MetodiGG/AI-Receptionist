@@ -9,6 +9,7 @@ import {
   preServiceDetailPhotoExpansionSource, serviceDetailPhotoExpansionAddedPath,
   serviceDetailPhotoExpansionAllowsNewFile, serviceDetailPhotoExpansionAllowsPath,
 } from './service-detail-photo-expansion-20261126-scope.mjs'
+import { dialogPrimaryDarkContrastAllowsFileChange } from './dialog-primary-dark-contrast-20261126-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -28,7 +29,8 @@ test('the additional service artwork changes only the reviewed detail resolver, 
   assert.ok(additions.some(path => path.startsWith('public/service-photos/')), 'new authorized image bytes must be present')
   const changed = split(git('diff', '--no-renames', '--name-only', '-z', receipt.baseline, '--'))
   const untracked = split(git('ls-files', '--others', '--exclude-standard', '-z'))
-  const actual = [...new Set([...changed, ...untracked])].filter(path => path !== 'node_modules' && !path.startsWith('tests/'))
+  const actual = [...new Set([...changed, ...untracked])].filter(path => path !== 'node_modules' &&
+    !path.startsWith('tests/') && !dialogPrimaryDarkContrastAllowsFileChange(path))
   assert.deepEqual(actual.sort(), [...Object.keys(receipt.changed), ...additions].sort())
   for (const [path, { before, after }] of Object.entries(receipt.changed)) {
     const current = await readFile(new URL('../' + path, import.meta.url))

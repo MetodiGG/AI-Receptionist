@@ -11,6 +11,7 @@ import {
 } from './service-detail-photo-coverage-20261126-scope.mjs'
 import { preServicePhotoMarkerSource, servicePhotoMarkerAllowsFileChange } from './service-photo-marker-20261126-scope.mjs'
 import { preServiceDetailPhotoExpansionSource, serviceDetailPhotoExpansionAllowsNewFile } from './service-detail-photo-expansion-20261126-scope.mjs'
+import { dialogPrimaryDarkContrastAllowsFileChange } from './dialog-primary-dark-contrast-20261126-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -24,7 +25,7 @@ test('detail-photo changes cannot alter category, subcategory or business covers
   const changed = split(git('diff', '--no-renames', '--name-only', '-z', receipt.baseline, '--'))
   const untracked = split(git('ls-files', '--others', '--exclude-standard', '-z'))
   const actual = [...new Set([...changed, ...untracked])].filter(path => operational(path)
-    && !serviceDetailPhotoExpansionAllowsNewFile(path)
+    && !serviceDetailPhotoExpansionAllowsNewFile(path) && !dialogPrimaryDarkContrastAllowsFileChange(path)
     && (serviceDetailPhotoChangedPath(path) || !servicePhotoMarkerAllowsFileChange(path))).sort()
   const reviewed = [...Object.keys(receipt.changed).filter(path => receipt.changed[path].after !== null), ...Object.keys(receipt.added)]
   assert.deepEqual(actual, reviewed.sort(), 'runtime changes must have independent SHA-256 review evidence')

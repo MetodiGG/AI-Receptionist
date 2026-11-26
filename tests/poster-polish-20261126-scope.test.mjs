@@ -11,6 +11,7 @@ import { subcategoryDisclosureAllowsFileChange } from './sofia-location-image-in
 import { preServiceDetailPhotoCoverageSource, serviceDetailPhotoCoverageAllowsNewFile, serviceDetailPhotoCoverageAllowsPath } from './service-detail-photo-coverage-20261126-scope.mjs'
 import { servicePhotoMarkerAllowsFileChange } from './service-photo-marker-20261126-scope.mjs'
 import { serviceDetailPhotoExpansionAllowsNewFile } from './service-detail-photo-expansion-20261126-scope.mjs'
+import { dialogPrimaryDarkContrastAllowsFileChange } from './dialog-primary-dark-contrast-20261126-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const hash = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -23,6 +24,7 @@ test('poster polish does not alter booking, catalogue data, assets, APIs, or dep
   const untracked = git('ls-files', '--others', '--exclude-standard', '-z').toString().split('\0')
   const sourcePaths = [...new Set([...changed, ...untracked])].filter(p => p && p !== 'node_modules' && !p.startsWith('tests/')
     && !subcategoryDisclosureAllowsFileChange(p) && !serviceDetailPhotoCoverageAllowsNewFile(p) && !serviceDetailPhotoExpansionAllowsNewFile(p)
+    && !dialogPrimaryDarkContrastAllowsFileChange(p)
     && (Object.hasOwn(receipt.changed, p) || !servicePhotoMarkerAllowsFileChange(p))).sort()
   assert.deepEqual(sourcePaths, [...Object.keys(receipt.changed), ...Object.keys(receipt.added)].sort())
   for (const [path, { before, after }] of Object.entries(receipt.changed)) {
@@ -47,7 +49,7 @@ test('the 23px price choice changes only the existing preview price style', asyn
   const untracked = git('ls-files', '--others', '--exclude-standard', '-z').toString().split('\0')
   const sourcePaths = [...new Set([...inventory, ...untracked])].filter(p => p && p !== 'node_modules' && !p.startsWith('tests/')
     && !subcategoryDisclosureAllowsFileChange(p) && !serviceDetailPhotoCoverageAllowsPath(p) && !servicePhotoMarkerAllowsFileChange(p)
-    && !serviceDetailPhotoExpansionAllowsNewFile(p)).sort()
+    && !serviceDetailPhotoExpansionAllowsNewFile(p) && !dialogPrimaryDarkContrastAllowsFileChange(p)).sort()
   assert.deepEqual(sourcePaths, [path])
   const current = await read(path), original = git('show', baseline + ':' + path)
   assert.equal(hash(original), before)

@@ -160,7 +160,7 @@ html[data-theme="dark"] .marketing-page .business-details-hours-body > p { color
 html[data-theme="dark"] .marketing-page .discovery-business-details .business-details-description,
 html[data-theme="dark"] .marketing-page .discovery-business-details .business-details-services .business-details-service-description,
 html[data-theme="dark"] .marketing-page .discovery-business-details :is(.business-details-service-condition,.service-price-unit,.business-details-hours-source) { color: var(--dm-muted); }
-html[data-theme="dark"] .marketing-page :is(.business-details-price,.business-details-service-group h4,.discovery-business-details a,.discovery-business-details header p,.discovery-suggestion-partner,.discovery-suggestion-status button,.discovery-suggestion-list > li:last-child strong) { color: var(--dm-orange); }
+html[data-theme="dark"] .marketing-page :is(.business-details-price,.business-details-service-group h4,.discovery-business-details a:not(:where([data-public-action="primary"])),.discovery-business-details header p,.discovery-suggestion-partner,.discovery-suggestion-status button,.discovery-suggestion-list > li:last-child strong) { color: var(--dm-orange); }
 html[data-theme="dark"] .marketing-page :is(.business-details-services li,.business-details-hours > div,.business-details-toolbar,.business-details-hours-section,.discovery-suggestion-list > li:last-child) { border-color: var(--dm-line); }
 html[data-theme="dark"] .marketing-page .discovery-suggestion-panel .discovery-suggestion-option { color: var(--dm-ink); }
 html[data-theme="dark"] .marketing-page .discovery-suggestion-panel .discovery-suggestion-option:is(:hover,.is-active,:focus-visible) { background: var(--dm-orange-soft); }

@@ -10,11 +10,12 @@ import { publicDetailServiceThumbnail } from '../lib/service-detail-photo-presen
 import generated from '../lib/service-detail-gap-generated.json' with { type: 'json' }
 import followupGenerated from '../lib/service-detail-gap-followup-generated.json' with { type: 'json' }
 import tailGenerated from '../lib/service-detail-tail-generated.json' with { type: 'json' }
+import finalGenerated from '../lib/service-detail-final-generated.json' with { type: 'json' }
 
 const sourcePath = 'lib/service-detail-photo-presentation.mjs'
 const sourceUrl = new URL('../' + sourcePath, import.meta.url)
-const baselines = { first: '882a71d', followup: 'a62d5c6', tail: '47269b4' }
-const generatedByWave = { first: generated, followup: followupGenerated, tail: tailGenerated }
+const baselines = { first: '882a71d', followup: 'a62d5c6', tail: '47269b4', final: '554f8a6' }
+const generatedByWave = { first: generated, followup: followupGenerated, tail: tailGenerated, final: finalGenerated }
 
 async function readBaseline(wave) {
   const baselineUrl = new URL(sourceUrl)
@@ -67,7 +68,7 @@ export async function auditServiceDetailGapWave({ now = Date.parse('2026-11-26T1
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  const wave = process.argv.includes('--tail') ? 'tail' : process.argv.includes('--followup') ? 'followup' : 'first'
+  const wave = process.argv.includes('--final') ? 'final' : process.argv.includes('--tail') ? 'tail' : process.argv.includes('--followup') ? 'followup' : 'first'
   const result = await auditServiceDetailGapWave({ verbose: process.argv.includes('--verbose'), wave })
   console.log(JSON.stringify(result, null, 2))
   if (result.retained.length || result.repeats.length) process.exitCode = 1

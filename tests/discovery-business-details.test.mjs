@@ -42,7 +42,7 @@ test('catalogue business details retain all published services, real prices and 
   assert.deepEqual(details.hours.find(day => day.weekday === 2).periods, ['12:00–20:00'])
   row.services[0].price.checkedOn = '2026-01-01'; row.openingHours.checkedOn = '2026-01-01'
   const stale = catalogueBusinessDetails(row, now)
-  assert.equal(stale.services[0].price, null); assert.deepEqual(stale.hours, [])
+  assert.ok(!stale.services.some(service => service.name === row.services[0].name)); assert.deepEqual(stale.hours, [])
   delete row.openingHours
   assert.deepEqual(catalogueBusinessDetails(row, now).hours, [])
 })

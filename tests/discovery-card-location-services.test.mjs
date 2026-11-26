@@ -104,7 +104,7 @@ test('compact card provides one real distance badge, two relevant service invita
   assert.match(details, /ServiceCards|ServiceMenu/)
   assert.doesNotMatch(card, /railServiceDescription|<p className="home-business-services"/)
   assert.match(card, /<PublicAction as="a" variant="secondary"[^\n]+>\{directionsLabel\}<\/PublicAction>/)
-  assert.match(card, /directionsLabel = en \? copy.directions : 'Упъти'/)
+  assert.match(card, /directionsLabel = en \? copy.directions : 'Маршрут'/)
   assert.doesNotMatch(card,/home-business-inline-details/)
   assert.match(css, /\.home-business-services > li \{[^}]*grid-template-columns: minmax\(0,1fr\) fit-content\(44%\)/)
   assert.match(css, /\.home-service-name \{[^}]*min-width: 0;[^}]*overflow-wrap: anywhere/)

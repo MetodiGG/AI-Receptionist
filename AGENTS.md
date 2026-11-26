@@ -29,6 +29,13 @@ completed price review, and missing prices must remain absent. A blocked menu
 is not evidence of an unpublished tariff. Respect access limits and
 provider terms, and never submit a booking during a pricing review.
 
+Do not publish an unconfirmed or expired catalogue offer. Withhold the
+entire offer, including its title, amount and terms, until there is new
+evidence for that branch. Do not recast an expired offer as an unpriced
+service or extend confirmation dates without evidence. When no confirmed
+services remain, keep the source record for review but withhold its public
+catalogue profile. This rule never edits native reservations or calendars.
+
 Follow the pricing workflow in README.md. New or changed listings require a
 dated review bound to their exact service inventory. Do not refresh the legacy
 baseline or review fingerprints to bypass that gate. Keep newly reviewed price

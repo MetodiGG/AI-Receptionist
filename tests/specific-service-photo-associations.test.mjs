@@ -29,8 +29,16 @@ test('browser photo keys are finite allowlisted local IDs, never arbitrary paths
 
 test('all approved catalogue services have an activity-specific photo, not the neutral workspace', () => {
   const before = JSON.stringify(SOFIA_CATALOGUE)
+  const gPointReview = Date.parse('2026-11-22T12:00:00Z')
+  // Keep the historical snapshot and the same image audit population. The G
+  // Point promotional rows are not public on that snapshot's earlier date,
+  // so inspect those assets on their actual reviewed date.
+  const reviewedPromotions = originalCatalogue.filter(row => row.id.startsWith('sofia-gpoint-'))
+    .map(row => approvedCatalogueRecord(row, gPointReview)).filter(Boolean)
+    .map(row => ({ ...row, services: row.services.filter(service => service.price?.checkedOn === '2026-11-22') }))
+  assert.equal(reviewedPromotions.reduce((sum, row) => sum + row.services.length, 0), 1772)
   let resolved = 0, total = 0
-  for (const business of approved) for (const service of business.services) {
+  for (const business of [...approved, ...reviewedPromotions]) for (const service of business.services) {
     const previous = serviceThumbnail(service, { business })
     const fields = catalogueServicePhotoFields(service, business)
     const image = serviceThumbnail({ ...service, ...fields }, { business })

@@ -9,7 +9,6 @@ import { BrandMark } from './brand-logo'
 import { BusinessCoverPhoto } from './business-cover-photo'
 import { OutboundBookingButton } from './outbound-booking-button'
 import { PublicAction, PublicActionPair } from './public-action'
-import { ServiceThumbnail } from './service-thumbnail'
 import { isOffsiteBooking } from '../lib/booking-mode.mjs'
 import { homeBusinessPhoto } from '../lib/discovery/home.mjs'
 import { railDirections, railExternalAction, railServiceItems } from '../lib/discovery/rail.mjs'
@@ -25,10 +24,30 @@ import { DirectionsUnavailable } from './directions-unavailable'
 
 const DiscoveryBusinessDetails = dynamic(() => import('./discovery-business-details').then(module => module.DiscoveryBusinessDetails))
 
+// Keep price terms intact unless the exact same scope is already in the
+// displayed name. This only changes copy, never the underlying tariff or menu.
+function compactPosterUnit(unit, name, locale) {
+  const fold = value => value.normalize('NFC').toLowerCase().trim().replace(/\s+/gu, ' ')
+  const title = fold(name)
+  const basis = fold(unit)
+  if (locale === 'en') {
+    const pass = /^(pass for [1-9]\d* training sessions) within ([1-9]\d*) (months?)$/u.exec(basis)
+    if (pass && title.split(/\s+[—–-]\s+/u).at(-1) === pass[1]) return `Valid for ${pass[2]} ${pass[3]}`
+    if (/^(?:one|single) individual visit for (?:1|one) person$/u.test(basis)
+      && /^individual .*\s·\s(?:1|one) person$/u.test(title)) return ''
+  } else {
+    const pass = /^(карта за [1-9]\d* тренировки) в рамките на ([1-9]\d*) (месец[а]?)$/u.exec(basis)
+    if (pass && title.split(/\s+[—–-]\s+/u).at(-1) === pass[1]) return `Валидна ${pass[2]} ${pass[3]}`
+    if (/^едно индивидуално посещение за (?:1|един) човек$/u.test(basis)
+      && /^индивидуалн[аоия] .*\s·\s(?:1|един) човек$/u.test(title)) return ''
+  }
+  return unit
+}
+
 export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, locale = 'bg', preview = false, distanceOrigin = null }) {
   const en = locale === 'en', internal = row.source === 'gorez'
   const copy = DISCOVERY_COPY[locale] || DISCOVERY_COPY.bg
-  const directionsLabel = en ? copy.directions : 'Упъти'
+  const directionsLabel = en ? copy.directions : 'Маршрут'
   const services = railServiceItems(row)
   const [failedPhoto, setFailedPhoto] = useState(null)
   const [detailsOpen, setDetailsOpen] = useState(false), detailsTrigger = useRef(null)
@@ -72,22 +91,25 @@ export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, 
       <div className={`home-business-photo${photo && photo.src !== failedPhoto ? ' is-real-photo' : ''}`}>
         {photo && photo.src !== failedPhoto
           ? <img src={photo.src} width={photo.width || 400} height={photo.height || 300} alt={publicProse(photo.alt, locale) || row.name} loading="lazy" decoding="async" style={businessPhotoStyle(photo, { preview: true })} onError={() => setFailedPhoto(photo.src)}/>
-          : <BusinessCoverPhoto business={row} locale={locale} omitIfUnavailable/>}
+          : <BusinessCoverPhoto business={row} locale={locale} omitIfUnavailable compactDisclosure/>}
         <DiscoveryDistanceBadge origin={distanceOrigin} destination={row.coordinates} locale={locale} business={row} distanceOnly/>
       </div>
       <div className="home-business-identity">
         {internal && <span className="home-business-partner"><BrandMark size={20}/>{en ? 'GoRez Partner' : 'Партньор на GoRez'}</span>}
         <h3 title={row.name}>{row.name}</h3>
         {services.length > 0 && <ul className="home-business-service-preview" aria-label={copy.servicesLabel}>{services.map((service,index) => {
+          const name = serviceDisplayName(service, locale)
           const price = detailPriceLabel({ ...service, priceUnit: '' }, locale, { compact: true })
-          const unit = price && service.priceUnit ? serviceDisplayUnit(service, locale) : ''
+          const unit = price && service.priceUnit ? compactPosterUnit(serviceDisplayUnit(service, locale), name, locale) : ''
           const { description, conditions } = servicePresentation(service, locale)
           const { visible, more, hasConditions } = serviceDescriptionDisclosure(description)
           const compactDescription = visible.filter(paragraph => paragraph.length <= 96)
           return <li key={service.id || `${service.name}-${index}`}>
-            <ServiceThumbnail service={service} business={row} locale={locale} size={40}/>
             <div className="home-business-preview-copy">
-              <div className="home-business-preview-main"><strong className="home-business-preview-name">{serviceDisplayName(service, locale)}</strong>{price && <span className="home-business-preview-price">{price}</span>}</div>
+              <div className="home-business-preview-main">
+                <strong className="home-business-preview-name">{name}</strong>
+                {price && <div className="home-business-preview-amount"><span className="home-business-preview-price">{price}</span></div>}
+              </div>
               {unit && <span className="home-business-preview-unit">{unit}</span>}
               {conditions.map(condition => <span className="home-business-preview-condition" key={condition}>{condition}</span>)}
               {hasConditions && <span className="home-business-preview-condition" data-service-has-conditions>{copy.hasConditions}</span>}

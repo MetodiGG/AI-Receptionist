@@ -14,6 +14,7 @@ import { catalogueBoundCoordinates } from '../lib/discovery/catalogue-coordinate
 import { catalogueCoverageReport, coverageMarkdown, DEFAULT_CATALOGUE_COVERAGE_TARGET } from '../scripts/catalogue-coverage-report.mjs'
 import { PRIORITY30_REPORT_BASE, PRIORITY30_REPORT_HASHES, PRIORITY30_REPORT_NEW_HASHES,
   priority30ReportAllowsFileChange, priority30ReportAllowsNewFile, priority30ReportPriorSource } from './priority30-catalogue-report-scope.mjs'
+import { catalogueExpiryAllowsFileChange } from './catalogue-expiry-20261126-scope.mjs'
 
 // This saved coverage snapshot keeps its original source cohort and all counts.
 const SOFIA_CATALOGUE = suhodolIntakePriorCatalogue(currentCatalogue)
@@ -40,7 +41,7 @@ test('priority30 authorizes exactly one offline report, two existing explanatory
   ].sort())
   for (const [path, hash] of Object.entries({ ...PRIORITY30_REPORT_HASHES, ...PRIORITY30_REPORT_NEW_HASHES })) {
     assert.equal(sha256(await read(path)), hash, path + ': any later delta needs a separate exact review')
-    assert.equal(priority30ReportAllowsFileChange(path) || priority30ReportAllowsNewFile(path), true, path)
+    assert.equal(priority30ReportAllowsFileChange(path) || priority30ReportAllowsNewFile(path) || catalogueExpiryAllowsFileChange(path), true, path)
     assert.ok(!(await read(path)).endsWith('\n\n'), path + ': no extra EOF blank line')
   }
   for (const path of ['AGENTS.md', 'lib/discovery/sofia-catalogue.mjs', 'lib/discovery/public-catalogue.mjs', 'lib/discovery/catalogue-policy.mjs', 'lib/discovery/catalogue-pricing-review.mjs', 'lib/discovery/catalogue-coordinate-binding.mjs', 'lib/discovery/catalogue-search.mjs', 'lib/discovery/catalogue-audit.mjs', 'lib/business-location.mjs', 'lib/discovery/subcategories.mjs', 'lib/locale/service-english.json', 'components/discovery-search.js', 'components/discovery-business-card.js', 'app/inline-discovery.css', 'package.json', 'pnpm-lock.yaml', 'next.config.mjs']) {

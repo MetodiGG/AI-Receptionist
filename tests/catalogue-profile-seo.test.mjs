@@ -73,7 +73,7 @@ test('structured data contains actual services/contact only, never invented rati
   assert.doesNotMatch(seo.safeJsonLd({ name: '</script><script>bad' }), /<script|<\/script/)
 })
 
-test('profile facts preserve price qualifiers/currency conversion and hide genuinely missing or expired prices', () => {
+test('profile facts preserve price qualifications and unpriced services but withhold expired offers', () => {
   const row = clone(real)
   row.services = [
     { ...row.services[0], price: { ...row.services[0].price, kind: 'from', amount: 80, currency: 'BGN', unit: 'посещение' } },
@@ -85,7 +85,8 @@ test('profile facts preserve price qualifiers/currency conversion and hide genui
   assert.match(details.detailPriceLabel(services[0], 'bg'), /^от 40,90/)
   assert.match(details.detailPriceLabel(services[0], 'bg'), /\/ посещение$/)
   assert.match(details.detailPriceLabel(services[1], 'en'), /25\.00.*40\.00/)
-  assert.equal(details.detailPriceLabel(services[2]), null); assert.equal(details.detailPriceLabel(services[3]), null)
+  assert.equal(details.detailPriceLabel(services[2]), null)
+  assert.deepEqual(services.map(service => service.name), row.services.slice(0, 3).map(service => service.name))
   assert.equal(rail.railExternalAction(view, now).href, real.booking.url)
   assert.equal(rail.railDirections(view), rail.railDirections({ ...real, source: 'catalogue' }))
   const byPhone = SOFIA_CATALOGUE.find(row => row.booking.kind === 'phone' && profile.indexableCatalogueRecord(row, now))

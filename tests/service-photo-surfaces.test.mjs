@@ -95,14 +95,14 @@ test('discovery omits unassigned covers without hiding the menu, and preserves g
   assert.doesNotMatch(directoryHtml(real), /data-category-cover/)
 })
 
-test('compact discovery previews restore up to two original service thumbnails and prices without mutating the full menu', () => {
+test('compact discovery previews use the business photo and show up to two services with prices without mutating the full menu', () => {
   const row = { ...business, source: 'catalogue', services }
   const before = structuredClone(row)
   const html = render(DiscoveryBusinessCard, { row, locale: 'en', preview: true })
   assert.match(html,/home-business-service-preview/)
   assert.equal((html.match(/class="home-business-preview-name"/g)||[]).length,2)
   assert.equal((html.match(/class="home-business-preview-price"/g)||[]).length,1)
-  assert.equal((html.match(/data-service-photo-unavailable="true"/g)||[]).length,2)
+  assert.doesNotMatch(html, /data-service-photo-unavailable="true"/)
   assert.doesNotMatch(html,/home-business-inline-details/)
   assert.deepEqual(row, before)
   assert.doesNotMatch(render(DiscoveryBusinessCard, { row: { ...row, source: 'google' }, locale: 'en', preview: true }), /home-business-services|service-photo-name/)

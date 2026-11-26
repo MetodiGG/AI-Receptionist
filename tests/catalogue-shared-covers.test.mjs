@@ -114,18 +114,28 @@ test('the real public catalogue search attaches the shared source from one expan
 
 test('the real public detail handler attaches the same cover without changing actual branch information or booking', async () => {
   const reads = []
-  const handler = createPublicBusinessDetailsHandler({ config: { enabled: true, environment: 'development' }, now: () => now,
+  let clock = now
+  const handler = createPublicBusinessDetailsHandler({ config: { enabled: true, environment: 'development' }, now: () => clock,
     findCatalogue: id => entry(id), allowAttempt: async () => true,
     readCataloguePhotos: async ids => { reads.push(sharedCataloguePhotoIds(ids)); return [sourceRow()] } })
-  const response = await handler(new Request('https://gorez.test/api/public/discovery/business/' + target,
-    { headers: { Origin: 'https://gorez.test' } }), target)
+  const request = () => new Request('https://gorez.test/api/public/discovery/business/' + target, { headers: { Origin: 'https://gorez.test' } })
+  const response = await handler(request(), target)
   assert.equal(response.status, 200)
   const { business } = await response.json()
   assert.deepEqual(reads, [[target, sourceCatalogueId]])
   assert.equal(business.photo.src, sourceUrl); assert.equal(business.photo.alt, 'G Point')
   assert.equal(business.address, entry(target).address)
   assert.deepEqual(business.booking, { ...entry(target).booking, verified: true, checkedOn: entry(target).verification.checkedOn, validUntil: entry(target).verification.validUntil })
-  assert.equal(business.details.services.length, entry(target).services.length)
+  assert.deepEqual(business.details.services.map(service => service.name), entry(target).services.filter(service => !service.price).map(service => service.name))
+  assert.ok(business.details.services.every(service => service.price === null))
+  clock = Date.parse('2026-11-22T00:00:00Z')
+  const verified = await handler(request(), target)
+  assert.equal(verified.status, 200)
+  const { business: reviewed } = await verified.json()
+  assert.deepEqual(reviewed.photo, business.photo)
+  assert.deepEqual(reviewed.booking, business.booking)
+  assert.deepEqual(reviewed.details.services.map(service => service.name), entry(target).services.map(service => service.name))
+  assert.ok(reviewed.details.services.some(service => service.price !== null))
 })
 
 test('all 43 actual public branch details differ only by their cover photo, not prices, addresses, coordinates or booking destinations', async () => {

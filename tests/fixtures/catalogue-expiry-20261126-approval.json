@@ -1,0 +1,40 @@
+{
+  "baseline": "90ecc8ea7fd74517f2c956ef93269072039f9995",
+  "changed": {
+    "AGENTS.md": {
+      "before": "a95f6d36691ec0b85eae0586c78aecf4c2cf8e20b258296e10f2fdd79cd2704e",
+      "after": "3b11a10254d5271512f24f161e608444e0cd52432adea0f819613ccdeb395bcd"
+    },
+    "README.md": {
+      "before": "7e27019a1e012b1aaecdfcfbca98acdfa94686e4c9bb8b0dd7a3a3e9f3a53b9c",
+      "after": "0db8eeed1447ffe2d87db72a8e642c7ca55aa28fbef85db9a26e92cdd2ef14ac"
+    },
+    "lib/discovery/business-details.mjs": {
+      "before": "06f174672c8bbd282a3096c0cf4edc95d7441a61915475e5905206d10c242b5a",
+      "after": "9692b4b02c940f5f6e7a994ec45e88e4670d996fad16b6881575bf094490bba5"
+    },
+    "lib/discovery/catalogue-policy.mjs": {
+      "before": "0d6ba207e8c7e14bf3d801b6c7c4be333d3693ad71cccbf45e83b64f1b016394",
+      "after": "d7f7e77789745b22c4a3dbfd38c70610aa79d6395947867b9a016f7bfd9d5928"
+    },
+    "lib/discovery/catalogue-search.mjs": {
+      "before": "b782ef2fca9355d779bc92234450a701d8a8f8a1beece77dfa762944d876f66a",
+      "after": "0eeeb35debfd2d2748b3d7735c299a27038d991cb70b7282c3432d5d1784bd8e"
+    },
+    "lib/discovery/public-details.mjs": {
+      "before": "c62330956794b1ae825643fe6f19ae2109aa4569e9c6816bfaeb51fffc4473fc",
+      "after": "1f91e71313b520d8ff8f82c6e2f60d8895be1ce531d12732c2bcccac25a5358c"
+    },
+    "scripts/check-catalogue-pricing.mjs": {
+      "before": "42804e6af2197283bcddcbc56017f1e59475f0814bf88d7d58c4393d85a3d363",
+      "after": "f0c08673101d5ceaa14672f79e74ae8766ee5355fc23dc815f9725f97b7efc35"
+    },
+    "scripts/check-sofia-catalogue.mjs": {
+      "before": "38fbc0f27db98fe418924dca654f866656ab21e1e5ced07658e71d0765199467",
+      "after": "483e41d42a78b084aa80560307572b79b9c71779ed5ccbdcd36c2f3c2c003330"
+    }
+  },
+  "added": {
+    "lib/discovery/catalogue-expired-offer-holds.mjs": "4c30bac6f027195bfe6b2dfca2bca66ff9d92cb50918ca4cd2eb9ef6e77652b9"
+  }
+}

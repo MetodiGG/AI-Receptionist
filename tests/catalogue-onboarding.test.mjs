@@ -129,21 +129,26 @@ test('known from, range, BGN, per-unit and conditional fees autofill with their 
   assert.equal(draft.services[6].catalogueHint.description, variants[6].description)
 })
 
-test('current price counts are independent of convertible prices and expired price labels disappear', () => {
+test('onboarding keeps current, literal BGN and genuinely unpriced services but excludes unconfirmed offers', () => {
   const row = record({ services: [
-    service(), service({ price: price({ kind: 'from' }) }), service({ price: price({ currency: 'BGN' }) }),
-    service({ price: price({ checkedOn: '2026-08-01' }) }), service({ price: price({ checkedOn: '2026-11-12' }) }),
-    service({ price: price({ checkedOn: '2026-11-01', validUntil: '2026-11-10' }) }), service({ price: undefined }),
+    service(), service({ name: 'Мъжки маникюр', price: price({ kind: 'from' }) }), service({ name: 'Педикюр', price: price({ currency: 'BGN' }) }),
+    service({ name: 'Стара тарифа', price: price({ checkedOn: '2026-08-01' }) }),
+    service({ name: 'Бъдеща тарифа', price: price({ checkedOn: '2026-11-12' }) }),
+    service({ name: 'Приключила промоция', price: price({ checkedOn: '2026-11-01', validUntil: '2026-11-10' }) }),
+    service({ name: 'Отделна услуга без тарифа', price: undefined }),
   ] })
   const result = searchCatalogueForOnboarding([row], { query: 'Салон' }, { now })[0]
-  assert.equal(result.serviceCount, 7)
+  assert.equal(result.serviceCount, 4)
   assert.equal(result.currentPriceCount, 3)
   const draft = catalogueOnboardingDetail([row], row.id, { now })
-  for (const item of draft.services.slice(3)) {
-    assert.equal(item.price, '')
-    assert.equal(item.catalogueHint.priceLabel, undefined)
-    assert.equal(item.catalogueHint.requiresPriceConfirmation, undefined)
-  }
+  assert.deepEqual(draft.services.map(item => item.name), ['Маникюр', 'Мъжки маникюр', 'Педикюр', 'Отделна услуга без тарифа'])
+  assert.equal(draft.services[2].currency, 'BGN')
+  const unpriced = draft.services[3]
+  assert.equal(unpriced.price, '')
+  assert.equal(unpriced.catalogueHint.priceLabel, undefined)
+  assert.equal(unpriced.catalogueHint.requiresPriceConfirmation, undefined)
+  const reviewed = catalogueOnboardingDetail([row], row.id, { now: Date.parse('2026-11-12T00:00:00Z') })
+  assert.deepEqual(reviewed.services.map(item => item.name), ['Маникюр', 'Мъжки маникюр', 'Педикюр', 'Бъдеща тарифа', 'Отделна услуга без тарифа'])
 })
 
 test('duration needs current real evidence and native-model range; no 45-minute default', () => {

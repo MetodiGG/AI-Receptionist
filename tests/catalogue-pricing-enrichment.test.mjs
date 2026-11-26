@@ -74,11 +74,10 @@ test('ranges, starting prices, units and long menus survive through public detai
   assert.equal(betyna.services.find(service => service.name === 'Масаж на ходила').priceKind, 'from')
 })
 
-test('prices expire independently without concealing the service or fabricating a new price', () => {
+test('expired priced offers are withheld rather than fabricated as unpriced', () => {
   const row = SOFIA_CATALOGUE.find(item => item.id === 'sofia-beauty-betyna-yovcheva')
   const fresh = catalogueBusinessDetails(row, Date.parse('2026-11-10T10:00:00Z'))
   const expired = catalogueBusinessDetails(row, Date.parse('2027-03-01T10:00:00Z'))
   assert.ok(fresh.services.some(service => service.price != null))
-  assert.equal(expired.services.length, fresh.services.length)
-  assert.ok(expired.services.every(service => service.price == null))
+  assert.deepEqual(expired.services, [])
 })

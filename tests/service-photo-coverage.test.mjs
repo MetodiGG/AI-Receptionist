@@ -21,6 +21,7 @@ function listing(id, services, verification = {}) {
 test('audits only approved catalogue services and counts source-bearing photo results, not fallback art', () => {
   const services = [service('Маникюр с гел лак', 'nails', price(22)), service('Педикюр с гел лак', 'nails', price(28)),
     service('Безплатен оглед', 'other', price(0)), service('Оформяне на брада', 'barber', price(15, { checkedOn: '2026-07-01' })),
+    service('Бръснене', 'barber'),
     service('Модел за прическа', 'hair', price(0, { kind: 'range', maximum: 18 })), service('Дамско подстригване', 'hair')]
   const business = listing('active', services)
   const draft = listing('draft', services, { status: 'draft' })
@@ -31,16 +32,17 @@ test('audits only approved catalogue services and counts source-bearing photo re
     return ({ 'Маникюр с гел лак': { kind: 'photo', src: '/service-photos/manicure.webp' },
       'Безплатен оглед': { kind: 'business', src: '/businesses/fixture/inspection.webp' },
       'Модел за прическа': { kind: 'haircut', type: 'photo', src: '/businesses/fixture/hair.webp' },
-      'Оформяне на брада': { kind: 'photo', src: null },
+      'Бръснене': { kind: 'photo', src: null },
       'Дамско подстригване': { type: 'illustration', src: '/category-art/hair-v1.webp' },
     })[item.name] || { type: 'icon' }
   } })
-  assert.deepEqual(seen, services.map(item => [item.name, business.id]))
+  assert.deepEqual(seen, services.filter(item => item.name !== 'Оформяне на брада').map(item => [item.name, business.id]))
   assert.equal(result.approvedBusinesses, 1)
   assert.deepEqual(result.totals, { services: { total: 6, photo: 3, missing: 3 }, priceBearing: { total: 4, photo: 3, missing: 1 }, paid: { total: 3, photo: 2, missing: 1 } })
   assert.equal(result.complete, false)
   assert.equal(result.categories[0].category, 'nails')
   assert.deepEqual(result.categories[0].missing.map(item => item.name), ['Педикюр с гел лак'])
+  assert.deepEqual(result.categories.find(group => group.category === 'barber').missing.map(item => item.name), ['Бръснене'])
   assert.equal(result.categories.find(group => group.category === 'barber').priceBearing.total, 0)
 })
 

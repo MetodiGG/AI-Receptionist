@@ -3,6 +3,7 @@ import { execFileSync } from 'node:child_process'
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { posterGlassPriorSource } from './poster-glass-20261126-scope.mjs'
+import { catalogueExpiryPriorSource } from './catalogue-expiry-20261126-scope.mjs'
 
 const baseline = '2d1977afdb2357d8f8620f44b691d4c3156d9842'
 const root = fileURLToPath(new URL('../', import.meta.url))
@@ -53,7 +54,7 @@ export function mobileCatalogueAllowsFileChange(path) {
 }
 
 export function mobileCataloguePriorSource(path, source) {
-  source = posterGlassPriorSource(path, source)
+  source = posterGlassPriorSource(path, catalogueExpiryPriorSource(path, source))
   if (!Object.hasOwn(changed, path)) return source
   const [before, after] = changed[path], hash = sha(source)
   if (hash === before) return source

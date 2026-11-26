@@ -50,7 +50,8 @@ test('car-wash prices distinguish vehicle types, per-seat costs and from prices,
   assert.equal(upholstery.price.kind, 'from'); assert.match(upholstery.description, /200–340/)
   assert.equal(wash.services.find(row => /Basic/u.test(row.name)).price.kind, 'from')
   assert.equal(wash.openingHours, undefined, '00:00–00:00 is not proof of 24/7')
-  const matches = search('автомивка')
+  assert.ok(!search('автомивка').some(item => item.id === zone.id), 'Zona has no confirmed offer before the replacement tariff review')
+  const matches = normalizeCatalogueBusinesses(SOFIA_CATALOGUE, intent('автомивка'), { now: Date.parse('2026-11-10T12:00:00Z') })
   for (const row of [zone, motor, wash]) assert.ok(matches.some(item => item.id === row.id), row.id)
 })
 

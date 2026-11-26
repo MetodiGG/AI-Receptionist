@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url'
 import receipt from './fixtures/sofia-location-rpc-isolation-20261125-approval.json' with { type: 'json' }
 import { mobileCatalogueAllowsFileChange, mobileCatalogueAllowsNewFile, mobileCataloguePriorSource } from './mobile-catalogue-hotfix-scope.mjs'
 import { posterGlassAllowsFileChange, posterGlassMatchesPriorHash } from './poster-glass-20261126-scope.mjs'
+import { catalogueExpiryAllowsFileChange, catalogueExpiryAllowsNewFile, catalogueExpiryMatchesPriorHash } from './catalogue-expiry-20261126-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -14,9 +15,9 @@ function exactFile(path, map, hashFor) {
   try { return sha(readFileSync(new URL('../' + path, import.meta.url))) === hashFor(map[path]) }
   catch { return false }
 }
-export const sofiaRpcAllowsFileChange = path => posterGlassAllowsFileChange(path) || mobileCatalogueAllowsFileChange(path) || exactFile(path, receipt.changed, value => value.after)
-export const sofiaRpcAllowsNewFile = path => mobileCatalogueAllowsNewFile(path) || exactFile(path, receipt.added, value => value)
-export const sofiaRpcMatchesPriorHash = (path, hash) => posterGlassMatchesPriorHash(path, hash) || Boolean(hash && Object.hasOwn(receipt.changed, path)
+export const sofiaRpcAllowsFileChange = path => catalogueExpiryAllowsFileChange(path) || posterGlassAllowsFileChange(path) || mobileCatalogueAllowsFileChange(path) || exactFile(path, receipt.changed, value => value.after)
+export const sofiaRpcAllowsNewFile = path => catalogueExpiryAllowsNewFile(path) || mobileCatalogueAllowsNewFile(path) || exactFile(path, receipt.added, value => value)
+export const sofiaRpcMatchesPriorHash = (path, hash) => catalogueExpiryMatchesPriorHash(path, hash) || posterGlassMatchesPriorHash(path, hash) || Boolean(hash && Object.hasOwn(receipt.changed, path)
   && receipt.changed[path].before === hash && sofiaRpcAllowsFileChange(path))
 
 // Strip only the exact November 25 release before invoking an older inverse.

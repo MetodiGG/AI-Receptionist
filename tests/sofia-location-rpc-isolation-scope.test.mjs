@@ -9,6 +9,7 @@ import previous from './fixtures/sofia-location-image-integrity-20261124-approva
 import { sofiaRpcAllowsFileChange, sofiaRpcAllowsNewFile, sofiaRpcPriorSource } from './sofia-location-rpc-isolation-20261125-scope.mjs'
 import { sofiaIntegrityAllowsFileChange, sofiaIntegrityAllowsNewFile, sofiaIntegrityMatchesPriorHash, sofiaIntegrityPriorSource } from './sofia-location-image-integrity-20261124-scope.mjs'
 import { mobileCatalogueAllowsNewFile } from './mobile-catalogue-hotfix-scope.mjs'
+import { catalogueExpiryAllowsNewFile } from './catalogue-expiry-20261126-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const pathUrl = path => new URL('../' + path, import.meta.url)
@@ -75,8 +76,9 @@ test('every operational path, mode and every unrelated byte are identical to the
   }).filter(entry => operational(entry.path))
   const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').toString('utf8')
     .split('\0').filter(path => path && operational(path))
-  const laterApprovedFiles = actual.filter(mobileCatalogueAllowsNewFile)
-  assert.deepEqual([...new Set(actual.filter(path => !mobileCatalogueAllowsNewFile(path)))].sort(),
+  const laterApproved = path => mobileCatalogueAllowsNewFile(path) || catalogueExpiryAllowsNewFile(path)
+  const laterApprovedFiles = actual.filter(laterApproved)
+  assert.deepEqual([...new Set(actual.filter(path => !laterApproved(path)))].sort(),
     [...baseline.map(entry => entry.path), ...Object.keys(receipt.added)].sort())
   for (let offset = 0; offset < baseline.length; offset += 32) await Promise.all(baseline.slice(offset, offset + 32).map(async entry => {
     assert.equal(entry.type, 'blob', entry.path)

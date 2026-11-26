@@ -12,7 +12,7 @@ import { discoveryConfig } from '../lib/discovery/config.mjs'
 import { approvedCatalogueRecord, EXCLUDED_GENERAL_CLINIC_IDS } from '../lib/discovery/catalogue-policy.mjs'
 const now = DateTime.fromISO('2026-11-06T12:00:00Z')
 const forbidden = () => assert.fail('Catalogue appointment coverage must not call a provider or create an appointment')
-const dependencies = rows => ({ now, config: discoveryConfig({ DISCOVERY_ENABLED: 'true' }), readInternal: async () => [], readCatalogue: async () => rows,
+const dependencies = (rows, reviewClock = now) => ({ now: reviewClock, config: discoveryConfig({ DISCOVERY_ENABLED: 'true' }), readInternal: async () => [], readCatalogue: async () => rows,
   fetcher: forbidden, claimBudget: forbidden, getSlots: forbidden, getBusiness: forbidden })
 
 test('the latest 41 actual premises have source links without duplicate staff, cities or departments', () => {
@@ -31,8 +31,11 @@ test('the latest 41 actual premises have source links without duplicate staff, c
 
 test('veterinary queries stay veterinary; a sourced grooming menu is separate from a human dentist', async () => {
   const rows = SOFIA_CATALOGUE.filter(row => batch8.some(item => item.id === row.id))
+  const reviewed = DateTime.fromISO('2026-11-10T12:00:00Z')
+  const city = rows.find(row => row.id === 'sofia-vet-city-nishava')
+  assert.equal(approvedCatalogueRecord(city, now.toMillis()), null, 'the replacement inventory is not public before its tariff review')
   for (const query of ['ветеринар', 'ветеринарен преглед', 'vet clinic', 'veterinary clinic']) {
-    const result = await discoverBusinesses({ query, cityCode: '68134' }, dependencies(rows))
+    const result = await discoverBusinesses({ query, cityCode: '68134' }, dependencies(rows, reviewed))
     assert.equal(result.intent.category, 'other')
     assert.equal(result.results.length, 6, query)
     // A reviewed veterinary menu also has contextual labels such as EKG,
@@ -47,11 +50,11 @@ test('veterinary queries stay veterinary; a sourced grooming menu is separate fr
   // City now has an individually reviewed owner grooming tariff. That is
   // real service evidence, not a reason to widen every veterinary listing.
   const groomingIntent = { category: 'pets', service: 'груминг', searchV2: true, cityCode: '68134', requirements: [] }
-  const grooming = normalizeCatalogueBusinesses(vets, groomingIntent, { now: now.toMillis() })
+  const grooming = normalizeCatalogueBusinesses(vets, groomingIntent, { now: reviewed.toMillis() })
   assert.deepEqual(grooming.map(row => row.id), ['sofia-vet-city-nishava'])
   assert.ok(grooming.every(row => row.services.every(service => vets.find(source => source.id === row.id).services.find(source => source.name === service.name)?.category === 'pets')))
-  assert.deepEqual(normalizeCatalogueBusinesses(vets.filter(row => !row.services.some(service => service.category === 'pets')), groomingIntent, { now: now.toMillis() }), [])
-  assert.deepEqual(normalizeCatalogueBusinesses(vets, { category: 'other', service: 'зъболекар', searchV2: true, cityCode: '68134', requirements: [] }, { now: now.toMillis() }), [])
+  assert.deepEqual(normalizeCatalogueBusinesses(vets.filter(row => !row.services.some(service => service.category === 'pets')), groomingIntent, { now: reviewed.toMillis() }), [])
+  assert.deepEqual(normalizeCatalogueBusinesses(vets, { category: 'other', service: 'зъболекар', searchV2: true, cityCode: '68134', requirements: [] }, { now: reviewed.toMillis() }), [])
 })
 
 test('psychiatry vocabulary finds three actual offices, not a record per staff member', async () => {

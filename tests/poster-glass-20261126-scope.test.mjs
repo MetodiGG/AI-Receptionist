@@ -6,6 +6,7 @@ import { readFile } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 import receipt from './fixtures/poster-glass-20261126-approval.json' with { type: 'json' }
 import { posterGlassAllowsFileChange, posterGlassMatchesPriorHash, posterGlassPriorSource } from './poster-glass-20261126-scope.mjs'
+import { catalogueExpiryAllowsFileChange, catalogueExpiryAllowsNewFile } from './catalogue-expiry-20261126-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -22,7 +23,8 @@ test('poster, glass and the AI marker change only four presentation paths from t
   ])
   const changed = git('diff', '--name-only', '--no-renames', '-z', receipt.baseline, '--').toString('utf8').split('\0').filter(Boolean)
   const untracked = git('ls-files', '--others', '--exclude-standard', '-z').toString('utf8').split('\0').filter(Boolean)
-  const runtimePaths = [...new Set([...changed, ...untracked])].filter(path => path !== 'node_modules' && !path.startsWith('tests/'))
+  const runtimePaths = [...new Set([...changed, ...untracked])].filter(path => path !== 'node_modules' && !path.startsWith('tests/')
+    && !catalogueExpiryAllowsFileChange(path) && !catalogueExpiryAllowsNewFile(path))
   assert.deepEqual(runtimePaths.sort(), paths)
   for (const [path, { before, after }] of Object.entries(receipt.changed)) {
     const current = await readFile(new URL('../' + path, import.meta.url))

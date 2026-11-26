@@ -12,10 +12,11 @@ import { businessDetailHours, businessDetailServices, detailPriceLabel } from '.
 import { railCategory, railServiceItems } from '../lib/discovery/rail.mjs'
 import { isCataloguePhotoSource } from '../lib/catalogue-photo-view.mjs'
 import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
+import { needsBusinessDetails, startBusinessDetailsRequest } from '../lib/discovery/detail-request.mjs'
 
-export function DiscoveryBusinessDetails({ row, locale = 'bg', preview = false, onClose, triggerRef, actions }) {
+export function DiscoveryBusinessDetails({ row, locale = 'bg', preview = false, initialRequest = null, onClose, triggerRef, actions }) {
   const copy = DISCOVERY_COPY[locale] || DISCOVERY_COPY.bg, dialog = useRef(null), id = useId()
-  const needsFetch = !preview || Boolean(row.source === 'catalogue' && row.detailsRef)
+  const needsFetch = needsBusinessDetails(row, preview)
   const [full, setFull] = useState(needsFetch ? null : row), [status, setStatus] = useState(needsFetch ? 'loading' : 'ready'), [attempt, setAttempt] = useState(0)
   const business = full ? { ...row, ...full } : row
   const services = businessDetailServices(business), hours = businessDetailHours(business)
@@ -26,21 +27,20 @@ export function DiscoveryBusinessDetails({ row, locale = 'bg', preview = false, 
 
   useEffect(() => {
     if (!needsFetch) return
-    const controller = new AbortController()
     let active = true
-    const timeout = setTimeout(() => { controller.abort(); if (active) setStatus('error') }, 8000)
+    // The card owns its first request until close; this effect owns retries.
+    // Detaching a subscription (including React dev effect replay) must not
+    // cancel the parent's in-flight request.
+    const shared = attempt === 0 && initialRequest
+    const request = shared || startBusinessDetailsRequest(row, { preview })
     setStatus('loading')
-    const path = preview ? `/dev/sofia-catalogue/business/${encodeURIComponent(row.id)}` : `/api/public/discovery/business/${encodeURIComponent(row.id)}`
-    fetch(path, { signal: controller.signal, cache: 'no-store', credentials: 'same-origin' })
-      .then(async response => {
-        if (response.status === 404) { if (active) setStatus('missing'); return }
-        if (!response.ok) throw Error('DETAILS_UNAVAILABLE')
-        const value = await response.json()
-        if (!value.business || value.business.id !== row.id || value.business.source !== row.source) throw Error('DETAILS_UNAVAILABLE')
-        if (active) { setFull(value.business); setStatus('ready') }
-      }).catch(error => { if (active && error.name !== 'AbortError') setStatus('error') }).finally(() => clearTimeout(timeout))
-    return () => { active = false; clearTimeout(timeout); controller.abort() }
-  }, [row.id, row.source, preview, needsFetch, attempt])
+    request.result.then(({ business: next, status: nextStatus }) => {
+      if (!active || nextStatus === 'aborted') return
+      if (nextStatus === 'ready') setFull(next)
+      setStatus(nextStatus)
+    })
+    return () => { active = false; if (!shared) request.cancel() }
+  }, [row.id, row.source, preview, needsFetch, attempt, initialRequest])
 
   useEffect(() => {
     const node = dialog.current, overflow = document.body.style.overflow, trigger = triggerRef.current

@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { publicProse } from '../lib/locale/public-content.mjs'
-import { memo, useRef, useState } from 'react'
+import { memo, useEffect, useRef, useState } from 'react'
 import dynamic from 'next/dynamic'
 import { Icon } from './icon'
 import { BrandMark } from './brand-logo'
@@ -20,6 +20,7 @@ import { isCataloguePhotoSource } from '../lib/catalogue-photo-view.mjs'
 import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
 import { trackSearchEvent } from '../lib/search-analytics-client.js'
 import { DirectionsUnavailable } from './directions-unavailable'
+import { needsBusinessDetails, startBusinessDetailsRequest } from '../lib/discovery/detail-request.mjs'
 
 const DiscoveryBusinessDetails = dynamic(() => import('./discovery-business-details').then(module => module.DiscoveryBusinessDetails))
 
@@ -30,12 +31,25 @@ export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, 
   const services = railServiceItems(row)
   const [failedPhoto, setFailedPhoto] = useState(null)
   const [detailsOpen, setDetailsOpen] = useState(false), detailsTrigger = useRef(null)
+  const detailRequest = useRef(null)
+  useEffect(() => () => {
+    detailRequest.current?.cancel()
+    detailRequest.current = null
+  }, [])
   const hasDetails = internal || row.source === 'catalogue'
   const openDetails = event => {
-    if (detailsOpen) return
+    if (detailsOpen || detailRequest.current) return
     detailsTrigger.current = event.currentTarget
+    // Start the read before rendering the lazily split details bundle. The
+    // first mobile tap no longer has to wait for JavaScript before network IO.
+    if (needsBusinessDetails(row, preview)) detailRequest.current = startBusinessDetailsRequest(row, { preview })
     setDetailsOpen(true)
     if (!preview) trackSearchEvent({ event: 'profile', locale })
+  }
+  const closeDetails = () => {
+    detailRequest.current?.cancel()
+    detailRequest.current = null
+    setDetailsOpen(false)
   }
   const photo = internal ? homeBusinessPhoto(row)
     : row.source === 'catalogue' && isCataloguePhotoSource(row.photo?.src)
@@ -94,7 +108,7 @@ export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, 
         {actions()}
       </div>
     </div>
-    {detailsOpen && <DiscoveryBusinessDetails row={row} locale={locale} preview={preview} onClose={() => setDetailsOpen(false)} triggerRef={detailsTrigger} actions={actions}/>}
+    {detailsOpen && <DiscoveryBusinessDetails row={row} locale={locale} preview={preview} initialRequest={detailRequest.current} onClose={closeDetails} triggerRef={detailsTrigger} actions={actions}/>}
     {row.source === 'google' && <span className="home-google-attribution" translate="no">Google Maps</span>}
     {row.source === 'google' && row.attributions?.length > 0 && <div className="home-provider-attributions">{row.attributions.map((item,index) => item.url ? <a key={index} href={item.url} target="_blank" rel="noopener noreferrer">{item.name}</a> : <span key={index}>{item.name}</span>)}</div>}
   </article>

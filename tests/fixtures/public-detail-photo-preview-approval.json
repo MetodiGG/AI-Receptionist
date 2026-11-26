@@ -1,6 +1,14 @@
 {
   "baseline": "024b9b6dcc2f3998facdde369621d94192629c3b",
   "changed": {
+    "components/discovery-business-card.js": {
+      "before": "85e6e716dcc98003fca0b7061585cbd4449717d41ab08d01841108b393a76f53",
+      "after": "97fc6f3391de382f1f6a3a27e6747490a8bd233d0197670520fc178b2cbcac0f"
+    },
+    "components/discovery-business-details.js": {
+      "before": "b01cd6415cbe1d636febf411be3f009641faccecc3c3f2c9c6e2b9a1d966380b",
+      "after": "19ad3bec867e99c5f67c458a7d9e79170ac8e259da82cd96f2a4b78942d27639"
+    },
     "components/service-thumbnail.js": {
       "before": "a3ae9837595b673687206cbd4575bca7f613978f1ac42745c12057a91f7732b2",
       "after": "ed734463d90bbcd9c75f03778dc1d728df163f6e4e91cfd9535d519524b03817"
@@ -11,6 +19,7 @@
     }
   },
   "added": {
+    "lib/discovery/detail-request.mjs": "a926fc5f02f22d80ddcc4108e811e85f5f706d06e8d52adfefe93427e71ea731",
     "docs/service-detail-photo-exact-gaps-20261126.json": "ee5ff8e4b2e79c8d8c64f888e3f523b37f8701522fda912b5f7451e5b033c126",
     "lib/service-detail-existing-photo-coverage.mjs": "5652632023d5399486bb15da3df39d501b0897279da7d964939dd74aa2065216",
     "lib/service-detail-photo-exact-gaps.json": "6f426b5cae1460e70e49291d54472709ea1f2699b2b17013ac46630733af3c5d",

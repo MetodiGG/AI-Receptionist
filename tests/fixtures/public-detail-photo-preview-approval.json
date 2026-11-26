@@ -1,33 +1,9 @@
 {
   "baseline": "024b9b6dcc2f3998facdde369621d94192629c3b",
   "changed": {
-    "components/business-cover-photo.js": {
-      "before": "635a8ea7f7524cf661fe042a1e104bb13025d8b0967ecdbc3bc283d81128c090",
-      "after": "915193d61fb849a5ccf56eb9b4564bb0c6daaa91ff77b555b1e6b6b22b221d56"
-    },
-    "components/business-directory.js": {
-      "before": "20450d6d3ba0e39b87a9813fbafebe04a5b61622c1eaa82462124ed8e3fd06fa",
-      "after": "7043f0890b6c8089b5af3fa92db37efad462258123e27ad3eff732a490f5ef0b"
-    },
-    "components/business-profile.js": {
-      "before": "5d210abbab9771143c1abd9f53807a0b57b8b8afd281386d83be5dc306430593",
-      "after": "1029acdbd4aed25181c52219d09e931d1f0d76033bbdea4b5acfc34ffdeb6791"
-    },
-    "components/discovery-business-card.js": {
-      "before": "85e6e716dcc98003fca0b7061585cbd4449717d41ab08d01841108b393a76f53",
-      "after": "95bb92c621b8150142c5ab30f426d05cd7edafd829aba7f13420607595f6a758"
-    },
     "components/service-thumbnail.js": {
       "before": "a3ae9837595b673687206cbd4575bca7f613978f1ac42745c12057a91f7732b2",
-      "after": "4c506599869aa0803db794303b065979988ce0eb0272bef82b995b7830cd303b"
-    },
-    "lib/discovery/preview.mjs": {
-      "before": "7fdc5239f89eb192372eb6e0999284291e23dc6ba9dd33d4c038396c7b7be10a",
-      "after": "657dd12fc754cf2ba747411b2524496acc3633130769b89a1c9b34e3c8e31783"
-    },
-    "lib/discovery/rail.mjs": {
-      "before": "740d5b0ea6a948c0aa3cbf9859347ab811131b3c5988cddf7da3c705b0d55552",
-      "after": "def06197ef6f24940f906152d8bc0828554f062e306e9fda1704ec717c83a105"
+      "after": "ed734463d90bbcd9c75f03778dc1d728df163f6e4e91cfd9535d519524b03817"
     },
     "lib/service-detail-photo-presentation.mjs": {
       "before": "cbdaac887973241005e7281c2ca6ecbd766124b3731ea402fc1a67030532ca2a",

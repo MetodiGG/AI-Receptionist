@@ -67,7 +67,7 @@ export const DiscoveryBusinessCard = memo(function DiscoveryBusinessCard({ row, 
       <div className={`home-business-photo${photo && photo.src !== failedPhoto ? ' is-real-photo' : ''}`}>
         {photo && photo.src !== failedPhoto
           ? <img src={photo.src} width={photo.width || 400} height={photo.height || 300} alt={publicProse(photo.alt, locale) || row.name} loading="lazy" decoding="async" style={businessPhotoStyle(photo, { preview: true })} onError={() => setFailedPhoto(photo.src)}/>
-          : <BusinessCoverPhoto business={row} locale={locale} omitIfUnavailable showPreviewBadge/>}
+          : <BusinessCoverPhoto business={row} locale={locale} omitIfUnavailable compactDisclosure/>}
         <DiscoveryDistanceBadge origin={distanceOrigin} destination={row.coordinates} locale={locale} business={row} distanceOnly/>
       </div>
       <div className="home-business-identity">

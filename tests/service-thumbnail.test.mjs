@@ -160,7 +160,8 @@ test('failed photos fall through to honest neutral static and terminal inline ph
 test('component reserves space, lazy-loads matching photos and never displays generic fallback artwork', async () => {
   const source = await read('components/service-thumbnail.js')
   assert.match(source, /^'use client'/); assert.match(source, /useState\(\[\]\)/)
-  assert.match(source, /loading="lazy" decoding="async"/); assert.match(source, /alt=\{illustration \? .* : thumbnail\.alt\}/)
+  assert.match(source, /loading="lazy" decoding="async"/); assert.match(source, /alt=\{isDetail && illustration \? illustratedImageLabel : thumbnail\.alt\}/)
+  assert.match(source, /illustration && !isDetail && <small className="service-thumbnail-ai-label"/)
   assert.match(source, /width=\{displaySize\} height=\{displaySize\}/); assert.match(source, /srcSet=\{thumbnail\.srcSet/)
   assert.match(source, /onError=\{\(\) => setUnavailableSources/)
   assert.match(source, /const thumbnail = businessCoverSources === undefined\s*\? publicServiceThumbnail\(service, options\)\s*: publicDetailServiceThumbnail\(/)

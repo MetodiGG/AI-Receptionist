@@ -1,0 +1,242 @@
+[
+  {
+    "src": "/service-photos/car-fuel-filter-service-v1.webp",
+    "services": [["auto_repair","Смяна горивен филтър"]],
+    "alt": {"bg":"Работа по горивен филтър в автомобил.", "en":"Working on the fuel filter in a car."}
+  },
+  {
+    "src": "/service-photos/car-air-filter-service-v1.webp",
+    "services": [["auto_repair","Смяна на въздушен филтър"]],
+    "alt": {"bg":"Проверка на въздушния филтър на автомобил.", "en":"Checking a car’s engine air filter."}
+  },
+  {
+    "src": "/service-photos/sx-auto-wheel-remount-v1.webp",
+    "services": [["auto_repair","Сваляне и качване на четири колела с готови джанти — лек автомобил"]],
+    "alt": {"bg":"Монтаж на автомобилно колело с джанта.", "en":"Refitting a wheel and rim to a car."}
+  },
+  {
+    "src": "/service-photos/sx-detail-tornador-v1.webp",
+    "services": [["detailing","Мобилен интериорен автодетайлинг"], ["detailing","Мобилна обработка на автомобилен интериор"]],
+    "alt": {"bg":"Почистване на автомобилен интериор със специализиран накрайник.", "en":"Cleaning a car interior with a professional nozzle."}
+  },
+  {
+    "src": "/service-photos/sx-detail-ppf-full-v1.webp",
+    "services": [["detailing","Поставяне на защитно PPF фолио на предница"]],
+    "alt": {"bg":"Полагане на прозрачно защитно фолио върху автомобилен панел.", "en":"Applying clear protective film to a vehicle panel."}
+  },
+  {
+    "src": "/service-photos/sx-home-socket-data-choice-v1.webp",
+    "services": [["home_services","Нова електрическа точка"], ["home_services","Изграждане на нова електрическа точка"], ["home_services","Монтаж и свързване на електрически контакти"]],
+    "alt": {"bg":"Контакт и принадлежности за нова инсталационна точка.", "en":"A socket and components for a new outlet point."}
+  },
+  {
+    "src": "/service-photos/sx-home-heater-drain-v1.webp",
+    "services": [["home_services","Ремонт на течащ бойлер"]],
+    "alt": {"bg":"Сервизна работа по водопроводните връзки на бойлер.", "en":"Service work on a water heater's plumbing connections."}
+  },
+  {
+    "src": "/service-photos/sx-home-washer-inlet-hose-replacement-v1.webp",
+    "services": [["home_services","монтаж на пералня / съдомиялна при съществуващи изводи"]],
+    "alt": {"bg":"Свързване на маркуч при монтаж на пералня.", "en":"Connecting the inlet hose on a washing machine."}
+  },
+  {
+    "src": "/service-photos/go-detail-auto-engine-oil-service-20261126-v2.webp",
+    "services": [["auto_repair","Обслужване на масла и филтри"]],
+    "alt": {"bg":"Сервизно обслужване на двигателното масло и филтъра.", "en":"Workshop engine oil and filter service."}
+  },
+  {
+    "src": "/service-photos/go-detail-auto-computer-diagnostics-20261126-v2.webp",
+    "services": [["auto_repair","Сервизна диагностика и ремонт"], ["auto_repair","Автомобилна диагностика и ремонт"], ["auto_repair","Сервиз и диагностика на Land Rover и Jaguar"]],
+    "alt": {"bg":"Компютърна проверка на автомобил в сервиз.", "en":"Computer diagnostics on a car in a workshop."}
+  },
+  {
+    "src": "/service-photos/go-detail-automotive-shop-maintenance-20261126-v1.webp",
+    "services": [["auto_repair","Автосервиз и ремонт на автомобили"], ["auto_repair","Механична диагностика на автомобил"], ["auto_repair","Сервиз на Audi, Volkswagen, Seat и Škoda"]],
+    "alt": {"bg":"Механик оглежда долната част на повдигнат автомобил.", "en":"A mechanic examines the underside of a raised car."}
+  },
+  {
+    "src": "/service-photos/vehicle-lpg-inspection-v1.webp",
+    "services": [["auto_repair","Първоначален преглед на газова уредба"]],
+    "alt": {"bg":"Проверка на компоненти на автомобилна газова уредба.", "en":"Examining components of an automotive LPG system."}
+  },
+  {
+    "src": "/service-photos/motorcycle-inspection-v1.webp",
+    "services": [["auto_repair","Годишен технически преглед · мотоциклет/мотопед"]],
+    "alt": {"bg":"Проверка на мотоциклет в сервиз.", "en":"A workshop motorcycle inspection."}
+  },
+  {
+    "src": "/service-photos/sx-auto-brake-system-repair-v1.webp",
+    "services": [["auto_repair","Смяна на спирачни дискове"]],
+    "alt": {"bg":"Работа по спирачна система с видим спирачен диск.", "en":"Work on a brake assembly with the brake disc in view."}
+  },
+  {
+    "src": "/service-photos/car-glass-chip-repair-v1.webp",
+    "services": [["auto_repair","Ремонт на спукано автостъкло на адрес"]],
+    "alt": {"bg":"Фина поправка на повредено предно автомобилно стъкло.", "en":"A small-area repair on damaged automotive windscreen glass."}
+  },
+  {
+    "src": "/service-photos/go-detail-staged-car-window-fitting-20261126-v1.webp",
+    "services": [["auto_repair","Презалепване на автомобилно стъкло на адрес"]],
+    "alt": {"bg":"Техник позиционира предно автомобилно стъкло.", "en":"A technician positions an automotive windscreen."}
+  },
+  {
+    "src": "/service-photos/vehicle-dpf-clean-v1.webp",
+    "services": [["auto_repair","Машинно почистване на DPF/FAP филтър"]],
+    "alt": {"bg":"Проверка на свален автомобилен филтър за частици.", "en":"Inspecting a removed vehicle particulate filter."}
+  },
+  {
+    "src": "/service-photos/sx-auto-mobile-ignition-repair-v1.webp",
+    "services": [["auto_repair","Мобилна помощ при непалещ автомобил"]],
+    "alt": {"bg":"Техник преглежда двигателния отсек при посещение на място.", "en":"A technician checks an engine bay during a mobile call-out."}
+  },
+  {
+    "src": "/service-photos/sx-auto-seller-prepurchase-visit-v1.webp",
+    "services": [["auto_repair","Проверка на автомобил преди покупка"]],
+    "alt": {"bg":"Техник оглежда автомобил преди покупка.", "en":"A technician inspects a car before purchase."}
+  },
+  {
+    "src": "/service-photos/sx-detail-console-leather-clean-v1.webp",
+    "services": [["detailing","Интериорно Освежаване – Експрес"]],
+    "alt": {"bg":"Почистване около централната конзола.", "en":"Cleaning around the center console."}
+  },
+  {
+    "src": "/service-photos/sx-detail-mobile-interior-v1.webp",
+    "services": [["detailing","Лукс мобилен детайлинг · автомобил"], ["detailing","Мобилно детайлно почистване на автомобил"], ["detailing","Мобилно комплексно почистване и детайлинг"]],
+    "alt": {"bg":"Почистване на автомобилен интериор при посещение на адрес.", "en":"Car interior detailing on a mobile visit."}
+  },
+  {
+    "src": "/service-photos/sx-detail-auto-refresh-package-v1.webp",
+    "services": [["detailing","Автодетайлинг"], ["detailing","Интериорен и екстериорен детайлинг"]],
+    "alt": {"bg":"Обработка на автомобил в студио за детайлинг.", "en":"A vehicle being treated in a detailing workshop."}
+  },
+  {
+    "src": "/service-photos/sx-detail-polish-detail-v1.webp",
+    "services": [["detailing","Лакова корекция"], ["detailing","Пастиране и полиране на автомобил · седан"]],
+    "alt": {"bg":"Машинно полиране на автомобилния лак.", "en":"Machine polishing the vehicle's paint finish."}
+  },
+  {
+    "src": "/service-photos/sx-detail-polish-ceramic-v1.webp",
+    "services": [["detailing","Корекция на лак и защитни покрития"]],
+    "alt": {"bg":"Полиране и подготовка на лака за покритие.", "en":"Polishing and preparing paint for a protective coating."}
+  },
+  {
+    "src": "/service-photos/sx-detail-headlamp-polish-ppf-v1.webp",
+    "services": [["detailing","Полиране и защитно фолио за два фара"]],
+    "alt": {"bg":"Обработка на фар преди поставяне на фолио.", "en":"Preparing a headlamp for paint-protection film."}
+  },
+  {
+    "src": "/service-photos/sx-detail-headlamp-taillamp-restore-v1.webp",
+    "services": [["detailing","Полиране на фарове и стопове с PPF защита"]],
+    "alt": {"bg":"Полиране и възстановяване на автомобилни светлини.", "en":"Polishing and restoring vehicle lights."}
+  },
+  {
+    "src": "/service-photos/go-detail-vehicle-paint-polish-20261126-v1.webp",
+    "services": [["detailing","Външна детайлна обработка на автомобил"]],
+    "alt": {"bg":"Машинна обработка на външен автомобилен панел.", "en":"Machine polishing an exterior vehicle panel."}
+  },
+  {
+    "src": "/service-photos/sx-home-hardfloor-machine-v1.webp",
+    "services": [["home_services","Почистване на апартамент след ремонт"]],
+    "alt": {"bg":"Машинно почистване на твърд под.", "en":"Machine cleaning a hard floor."}
+  },
+  {
+    "src": "/service-photos/sx-home-window-frame-clean-v1.webp",
+    "services": [["home_services","Почистване на прозорци до 10 м²"]],
+    "alt": {"bg":"Почистване около прозоречна рамка.", "en":"Cleaning a window frame."}
+  },
+  {
+    "src": "/service-photos/sx-home-electrical-panel-equipment-v1.webp",
+    "services": [["home_services","Посещение с диагностика за електроремонт"]],
+    "alt": {"bg":"Сервизна проверка на електрическо табло.", "en":"A service inspection on an electrical panel."}
+  },
+  {
+    "src": "/service-photos/sx-home-breaker-partial-macro-v1.webp",
+    "services": [["home_services","Откриване на електрически проблем"], ["home_services","Посещение с електродиагностика"]],
+    "alt": {"bg":"Техник проверява компоненти на електрическо табло.", "en":"A technician checks components in an electrical panel."}
+  },
+  {
+    "src": "/service-photos/sx-home-shower-mixer-v1.webp",
+    "services": [["home_services","Монтаж на кухненски или банен смесител"]],
+    "alt": {"bg":"Монтаж на смесител в баня.", "en":"Installing a bathroom mixer tap."}
+  },
+  {
+    "src": "/service-photos/sx-home-aircon-diagnose-v1.webp",
+    "services": [["home_services","Профилактика само на вътрешно тяло до 14 000 BTU"]],
+    "alt": {"bg":"Техник проверява вътрешно тяло на климатик.", "en":"A technician checks an indoor air-conditioning unit."}
+  },
+  {
+    "src": "/service-photos/sx-home-aircon-outdoor-clean-v1.webp",
+    "services": [["home_services","Профилактика и почистване на домашен климатик"]],
+    "alt": {"bg":"Почистване на външното тяло на климатик.", "en":"Cleaning an outdoor air-conditioning unit."}
+  },
+  {
+    "src": "/service-photos/sx-home-appliance-diagnose-v1.webp",
+    "services": [["home_services","Стандартен ремонт на битов електроуред"], ["home_services","Посещение и диагностика на пералня, съдомиялна или сушилня"]],
+    "alt": {"bg":"Проверка на домашен електроуред.", "en":"Checking a domestic electrical appliance."}
+  },
+  {
+    "src": "/service-photos/sx-home-heater-electric-v1.webp",
+    "services": [["home_services","Посещение и диагностика на бойлер"]],
+    "alt": {"bg":"Сервизна работа по електрически бойлер.", "en":"Service work on an electric water heater."}
+  },
+  {
+    "src": "/service-photos/sx-home-heater-switchboard-v1.webp",
+    "services": [["home_services","Ремонт на прегряващ бойлер"]],
+    "alt": {"bg":"Електрическа проверка по обслужване на бойлер.", "en":"Electrical checks during water-heater service."}
+  },
+  {
+    "src": "/service-photos/go-detail-sofa-reupholstery-20261126-v1.webp",
+    "services": [["home_services","Претапициране на двуместен диван"]],
+    "alt": {"bg":"Тапицер опъва нов плат по подлакътник.", "en":"An upholsterer stretches new fabric over a sofa arm."}
+  },
+  {
+    "src": "/service-photos/sx-home-basin-cabinet-v1.webp",
+    "services": [["home_services","Сглобяване и монтаж на долен кухненски шкаф"]],
+    "alt": {"bg":"Работа по сглобяване на долен шкаф.", "en":"Assembling a base cabinet."}
+  },
+  {
+    "src": "/service-photos/sx-home-apartment-move-v1.webp",
+    "services": [["home_services","Товаро-разтоварни услуги при преместване"], ["home_services","Товаро-разтоварни хамалски услуги"]],
+    "alt": {"bg":"Пренасяне на домашен багаж при преместване.", "en":"Carrying household items during a move."}
+  },
+  {
+    "src": "/service-photos/sx-home-renovation-inspect-v1.webp",
+    "services": [["home_services","Базова интериорна консултация на адрес в София"], ["home_services","Интериорна консултация с оглед на адрес в София"], ["home_services","Оглед и консултация за интериорно обзавеждане"]],
+    "alt": {"bg":"Оглед в жилище преди обновяване.", "en":"An on-site home renovation survey."}
+  },
+  {
+    "src": "/service-photos/sx-pet-cat-bath-v1.webp",
+    "services": [["pets","Подстригване и къпане на кучета и котки"]],
+    "alt": {"bg":"Къпане на котка при груминг.", "en":"Bathing a cat during grooming."}
+  },
+  {
+    "src": "/service-photos/go-detail-pet-dog-bath-wash-20261126-v2.webp",
+    "services": [["pets","Подстригване и къпане на кучета"]],
+    "alt": {"bg":"Измиване на куче като етап от груминга.", "en":"Washing a dog as one step of a grooming appointment."}
+  },
+  {
+    "src": "/service-photos/sx-pet-dog-sanitary-trim-v1.webp",
+    "services": [["pets","Подстригване с машинка на домашен любимец"]],
+    "alt": {"bg":"Хигиенно оформяне на козина на куче.", "en":"A hygienic trim on a dog."}
+  },
+  {
+    "src": "/service-photos/sx-pet-dog-paw-clean-trim-v1.webp",
+    "services": [["pets","Мини визита на куче · нокти и хигиенно оформяне"]],
+    "alt": {"bg":"Почистване и оформяне около лапа на куче.", "en":"Cleaning and trimming around a dog’s paw."}
+  },
+  {
+    "src": "/service-photos/sx-pet-dog-skinfold-v1.webp",
+    "services": [["pets","Цялостен груминг · Френски булдог / Мопс"]],
+    "alt": {"bg":"Грижа за кожните гънки на куче при груминг.", "en":"Skin-fold care during a dog-grooming appointment."}
+  },
+  {
+    "src": "/service-photos/sx-home-laundry-appliance-diagnose-v1.webp",
+    "services": [["home_services","Посещение и диагностика на битов електроуред"],["home_services","Диагностика и изготвяне на оферта за ремонт на електроуред"]],
+    "alt": {"bg":"Техник прави оглед на битов електроуред.", "en":"A technician inspects a household appliance."}
+  },
+  {
+    "src": "/service-photos/sx-home-rcd-partial-macro-v1.webp",
+    "services": [["home_services","Посещение и първоначална електродиагностика"],["home_services","Посещение и диагностика на адрес в София"],["home_services","Оглед от електротехник"]],
+    "alt": {"bg":"Електротехник извършва проверка на домашно табло.", "en":"An electrician checks a household electrical panel."}
+  }
+]

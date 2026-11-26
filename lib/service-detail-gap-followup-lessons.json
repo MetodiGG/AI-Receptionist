@@ -1,0 +1,262 @@
+[
+  {
+    "src": "/service-photos/sx-school-tutoring-pair-v1.webp",
+    "services": [["education", "Пробен урок за деца"]],
+    "alt": { "bg": "Обяснение на задача на учебна маса.", "en": "Explaining a task at a study table." }
+  },
+  {
+    "src": "/service-photos/go-detail-child-private-language-tutoring-20261126-v2.webp",
+    "services": [["education", "Пробен урок по английски език"], ["education", "Урок по БЕЛ или английски език"], ["education", "Индивидуален урок по БЕЛ · 5.–7. клас"], ["education", "Индивидуално обучение · урок 60 минути"]],
+    "alt": { "bg": "Ученик и преподавател работят заедно на учебна маса.", "en": "A child and a tutor work together at a study table." }
+  },
+  {
+    "src": "/service-photos/sx-music-classical-equipment-v1.webp",
+    "services": [["education", "Пробен урок по музикален инструмент или пеене"], ["education", "Пробен урок по пиано, пеене или китара"]],
+    "alt": { "bg": "Подготвени инструменти и ноти за музикален урок.", "en": "Instruments and sheet music set up for a lesson." }
+  },
+  {
+    "src": "/service-photos/go-detail-voice-coaching-lesson-20261126-v2.webp",
+    "services": [["education", "Комбиниран урок · инструмент и пеене"], ["education", "Първи пробен урок по солфеж"]],
+    "alt": { "bg": "Преподавател води вокално упражнение до пиано.", "en": "A teacher conducts a vocal exercise at the piano." }
+  },
+  {
+    "src": "/service-photos/sx-child-drawing-crafts-v1.webp",
+    "services": [["education", "Рисуване за деца · 1.–6. клас"], ["education", "Детска школа по рисуване · месец с 3 посещения"], ["education", "Групов урок по рисуване за деца · единично посещение"], ["education", "Рисуване за деца · единично групово занятие"], ["education", "Кратка арт работилница за деца"]],
+    "alt": { "bg": "Деца рисуват в творческа работилница.", "en": "Children drawing in an art workshop." }
+  },
+  {
+    "src": "/service-photos/sx-child-art-group-v1.webp",
+    "services": [["education", "Рисуване и приложни изкуства за деца над 6 години"], ["education", "Рисуване за 5. клас · посещение от 2 часа"]],
+    "alt": { "bg": "Деца рисуват с преподавател.", "en": "Children drawing with an instructor." }
+  },
+  {
+    "src": "/service-photos/sx-art-portfolio-consult-v1.webp",
+    "services": [["education", "Урок по рисуване за изпити или любители"], ["education", "Индивидуален урок по рисуване · петък"], ["other", "Индивидуално арт ателие · 60 минути"]],
+    "alt": { "bg": "Художествена работа на учебна маса с насоки от преподавател.", "en": "Guided artwork study at a teaching table." }
+  },
+  {
+    "src": "/service-photos/sx-art-individual-v1.webp",
+    "services": [["education", "Рисуване за 6. клас · посещение от 3 часа"]],
+    "alt": { "bg": "Ученик и преподавател разглеждат рисунка.", "en": "A learner and instructor look at a drawing." }
+  },
+  {
+    "src": "/service-photos/sx-art-group-age-choice-v1.webp",
+    "services": [["education", "Групов урок по рисуване · 1 час"], ["education", "Курс по рисуване за възрастни"]],
+    "alt": { "bg": "Групово рисуване в художествено ателие.", "en": "Group drawing in an art studio." }
+  },
+  {
+    "src": "/service-photos/sx-adult-ceramics-group-v1.webp",
+    "services": [["education", "Занятие по керамика за деца или възрастни"]],
+    "alt": { "bg": "Участници работят с глина на обща маса.", "en": "Participants working with clay around a shared table." }
+  },
+  {
+    "src": "/service-photos/sx-ceramics-age-choice-v1.webp",
+    "services": [["education", "Клас по керамика за възрастни"]],
+    "alt": { "bg": "Ателие за изделия от глина.", "en": "A clay workshop." }
+  },
+  {
+    "src": "/service-photos/sx-music-group-rhythm-theory-v1.webp",
+    "services": [["education", "Солфеж · месечен пакет от 4 урока"], ["education", "Солфеж · абонамент от 5 урока"]],
+    "alt": { "bg": "Занимание по ритъм и музикална грамотност.", "en": "A lesson in rhythm and musical literacy." }
+  },
+  {
+    "src": "/service-photos/go-detail-piano-practice-tutor-20261126-v2.webp",
+    "services": [["education", "Индивидуален урок по хармония"]],
+    "alt": { "bg": "Пиано и ноти по време на учебно занимание.", "en": "Piano and sheet music during a lesson." }
+  },
+  {
+    "src": "/service-photos/sx-teen-art-group-v1.webp",
+    "services": [["education", "Рисуване за деца · месечен пакет 4 занятия"]],
+    "alt": { "bg": "Младежи рисуват в група.", "en": "Young people drawing together." }
+  },
+  {
+    "src": "/service-photos/sx-school-individual-v1.webp",
+    "services": [["education", "Пробен урок с индивидуална консултация"]],
+    "alt": { "bg": "Преподавател и ученик работят с учебни материали.", "en": "A teacher and pupil working with learning materials." }
+  },
+  {
+    "src": "/service-photos/sx-boxing-kickboxing-group-v1.webp",
+    "services": [["fitness", "Групова тренировка по бокс с предварителна резервация"], ["fitness", "Кикбокс · групова тренировка"]],
+    "alt": { "bg": "Групово занимание с боксови ръкавици.", "en": "A group exercise with boxing gloves." }
+  },
+  {
+    "src": "/service-photos/go-detail-one-to-one-boxing-pads-20261126-v2.webp",
+    "services": [["fitness", "Индивидуално занятие по бокс и кикбокс"], ["fitness", "Персонално занятие по бокс или кикбокс"]],
+    "alt": { "bg": "Треньор държи боксови лапи за индивидуална тренировка.", "en": "A coach holding focus mitts for one-to-one training." }
+  },
+  {
+    "src": "/service-photos/go-detail-junior-judo-class-20261126-v1.webp",
+    "services": [["fitness", "Групова тренировка по джудо"]],
+    "alt": { "bg": "Деца и преподавател в зала за джудо.", "en": "Children and their instructor in a judo hall." }
+  },
+  {
+    "src": "/service-photos/sx-aikido-adult-group-v1.webp",
+    "services": [["fitness", "Занятие по бойни изкуства на основата на айкидо · едно посещение"]],
+    "alt": { "bg": "Възрастни тренират айкидо в зала.", "en": "Adults practising aikido in a training hall." }
+  },
+  {
+    "src": "/service-photos/martial-arts-aikido-v1.webp",
+    "services": [["fitness", "Айкидо за възрастни · месечна такса за групови тренировки"]],
+    "alt": { "bg": "Занимание по айкидо в тренировъчна зала.", "en": "An aikido session in a training hall." }
+  },
+  {
+    "src": "/service-photos/go-detail-climbing-coaching-20261126-v1.webp",
+    "services": [["fitness", "Катерене с инструктор · един човек · 60 минути"], ["fitness", "Индивидуално катерене с инструктор · възрастен"]],
+    "alt": { "bg": "Инструктор помага при индивидуално катерене на закрито.", "en": "An instructor coaching one climber indoors." }
+  },
+  {
+    "src": "/service-photos/sx-private-partner-dance-lesson-v1.webp",
+    "services": [["fitness", "Индивидуален урок по танци"], ["fitness", "Индивидуален урок по танци за възрастни · 60 минути"]],
+    "alt": { "bg": "Индивидуален танцов урок в зала.", "en": "A private dance lesson in a studio." }
+  },
+  {
+    "src": "/service-photos/sx-adult-bachata-group-v1.webp",
+    "services": [["fitness", "Салса L.A. и бачата за начинаещи · групово посещение"]],
+    "alt": { "bg": "Възрастни упражняват стъпки по бачата в група.", "en": "Adults practising bachata steps in a group." }
+  },
+  {
+    "src": "/service-photos/sx-group-salsa-bachata-combined-v1.webp",
+    "services": [["fitness", "Bachata Sensual за начинаещи · групово посещение"], ["fitness", "Бачата за начинаещи · редовно групово посещение за възрастен"], ["fitness", "Групов урок по бачата за напълно начинаещи"]],
+    "alt": { "bg": "Група упражнява стъпки на латино танци.", "en": "A group practising Latin dance steps." }
+  },
+  {
+    "src": "/service-photos/sx-crossfit-private-kettlebell-coaching-v1.webp",
+    "services": [["fitness", "Персонална тренировка с треньор"]],
+    "alt": { "bg": "Индивидуална фитнес тренировка с треньор.", "en": "An individual fitness session with a coach." }
+  },
+  {
+    "src": "/service-photos/sx-mobility-group-v1.webp",
+    "services": [["fitness", "Групова тренировка по стречинг"], ["fitness", "Стречинг · групова тренировка"]],
+    "alt": { "bg": "Общо упражнение за разтягане в зала.", "en": "A shared studio stretching exercise." }
+  },
+  {
+    "src": "/service-photos/table-tennis-v1.webp",
+    "services": [["fitness", "Индивидуална тренировка по тенис на маса за възрастен · Цветомир Цонев"], ["fitness", "Индивидуална тренировка по тенис на маса с треньор"]],
+    "alt": { "bg": "Игра с хилка за тенис на маса.", "en": "Practising with a table tennis paddle." }
+  },
+  {
+    "src": "/service-photos/sx-senior-women-yoga-mobility-v1.webp",
+    "services": [["fitness", "Йога · дами над 55 години"]],
+    "alt": { "bg": "Група жени упражняват йога и подвижност.", "en": "A group of women practising yoga and mobility." }
+  },
+  {
+    "src": "/service-photos/go-detail-law-office-in-person-20261126-v2.webp",
+    "services": [["consulting", "Данъчна и правна консултация"]],
+    "alt": { "bg": "Предварително обсъждане на документи в кантора.", "en": "Reviewing documents in an office." }
+  },
+  {
+    "src": "/service-photos/sx-university-admissions-consultation-v1.webp",
+    "services": [["consulting", "Безплатна консултация за средно образование в чужбина"]],
+    "alt": { "bg": "Консултант и кандидат разглеждат документи за прием.", "en": "An adviser and applicant reviewing admissions documents." }
+  },
+  {
+    "src": "/service-photos/sx-dress-fitting-consultation-v1.webp",
+    "services": [["consulting", "Индивидуална проба на булчински рокли"]],
+    "alt": { "bg": "Проба на рокля с консултант.", "en": "A dress fitting with an adviser." }
+  },
+  {
+    "src": "/service-photos/sx-dental-child-first-visit-v1.webp",
+    "services": [["other", "Преглед за установяване на орален статус на дете"]],
+    "alt": { "bg": "Дете в стоматологичен кабинет по време на преглед.", "en": "A child during a dental visit." }
+  },
+  {
+    "src": "/service-photos/sx-dental-exam-photo-plan-v1.webp",
+    "services": [["other", "Комплексен дентален преглед и лечебен план"], ["other", "Изготвяне на подробен дентален лечебен план"]],
+    "alt": { "bg": "Стоматологът обсъжда диагностиката и плана за лечение.", "en": "A dentist discussing diagnostics and a treatment plan." }
+  },
+  {
+    "src": "/service-photos/go-detail-tooth-restoration-model-20261126-v2.webp",
+    "services": [["other", "Възстановяваща стоматология"], ["other", "Дентална консултация и лечение на кариес"]],
+    "alt": { "bg": "Дентален модел за обсъждане на възстановяване на зъб.", "en": "A dental model illustrating tooth restoration." }
+  },
+  {
+    "src": "/service-photos/sx-dental-filling-equipment-v1.webp",
+    "services": [["other", "Лечение на кариес и стоматологична профилактика"]],
+    "alt": { "bg": "Подготвени материали и инструменти за пломба.", "en": "Materials and instruments prepared for a filling." }
+  },
+  {
+    "src": "/service-photos/go-detail-adult-therapy-conversation-20261126-v2.webp",
+    "services": [["other", "Индивидуална сесия"], ["other", "Индивидуална консултация"], ["other", "Индивидуална сесия за възрастни"], ["other", "Индивидуална консултация за възрастен"], ["other", "Индивидуална терапия"]],
+    "alt": { "bg": "Присъствен индивидуален разговор със специалист.", "en": "A one-to-one in-person conversation with a specialist." }
+  },
+  {
+    "src": "/service-photos/sx-psych-teen-v1.webp",
+    "services": [["other", "Детско-юношеска психотерапия"], ["other", "Консултация с детски / юношески психолог"], ["other", "Психотерапевтична сесия за тийнейджъри"], ["other", "Психологическа консултация за тийнейджъри"], ["other", "Психологическа сесия за тийнейджъри"], ["other", "Психологическа сесия · младежи от 13 г."], ["other", "Индивидуална сесия за тийнейджъри над 14 години"]],
+    "alt": { "bg": "Консултация с младеж в кабинет.", "en": "A consultation with a young person in an office." }
+  },
+  {
+    "src": "/service-photos/sx-parent-counselling-v1.webp",
+    "services": [["other", "Индивидуална консултация с родител"]],
+    "alt": { "bg": "Психолог разговаря с родител в кабинет.", "en": "A psychologist speaking with a parent in an office." }
+  },
+  {
+    "src": "/service-photos/child-psychology-v1.webp",
+    "services": [["other", "Консултация с детски психолог"], ["other", "Психологична терапия за деца"]],
+    "alt": { "bg": "Дете разговаря със специалист с помощта на учебни материали.", "en": "A child talking with a specialist with the help of learning materials." }
+  },
+  {
+    "src": "/service-photos/sx-psych-assessment-debrief-v1.webp",
+    "services": [["other", "Психиатрична консултация / преглед"], ["other", "Проследяваща психиатрична консултация"]],
+    "alt": { "bg": "Специалист обсъжда резултати и следващи стъпки.", "en": "A specialist discussing results and next steps." }
+  },
+  {
+    "src": "/service-photos/family-counselling-v1.webp",
+    "services": [["other", "Фамилна и семейна психологическа консултация"]],
+    "alt": { "bg": "Обсъждане на семеен въпрос със специалист.", "en": "Discussing a family issue with a specialist." }
+  },
+  {
+    "src": "/service-photos/sx-home-lab-sample-v1.webp",
+    "services": [["other", "Лабораторни изследвания при домашно посещение в София"]],
+    "alt": { "bg": "Лабораторно вземане на проба в дома.", "en": "Taking a laboratory sample at home." }
+  },
+  {
+    "src": "/service-photos/sx-orofacial-assessment-v1.webp",
+    "services": [["other", "Логопедично обследване и статут"]],
+    "alt": { "bg": "Специалист използва материали за логопедична оценка.", "en": "A specialist using speech and language assessment materials." }
+  },
+  {
+    "src": "/service-photos/sx-newborn-family-photo-v1.webp",
+    "services": [["other", "Фотосесия на новородено · Малки моменти"]],
+    "alt": { "bg": "Фотосесия на новородено с родител.", "en": "A newborn photo session with a parent." }
+  },
+  {
+    "src": "/service-photos/sx-baby-child-photoshoot-v1.webp",
+    "services": [["other", "Фотосесия на седящо бебе · 10 кадъра"], ["other", "Фотосесия за бебета"]],
+    "alt": { "bg": "Седящо бебе по време на фотосесия.", "en": "A sitting baby during a photo shoot." }
+  },
+  {
+    "src": "/service-photos/sx-outdoor-family-photoshoot-v1.webp",
+    "services": [["other", "Фотосесия навън · 10 кадъра"]],
+    "alt": { "bg": "Фотограф по време на снимки на открито.", "en": "A photographer at an outdoor photo shoot." }
+  },
+  {
+    "src": "/service-photos/sx-child-birthday-reportage-v1.webp",
+    "services": [["other", "Детски рожден ден · до 10 деца"], ["other", "Детски рожден ден · пакет за 10 деца"], ["other", "Детско тържество · пакет за 10 деца"]],
+    "alt": { "bg": "Детски празник с торта.", "en": "A child’s celebration with a cake." }
+  },
+  {
+    "src": "/service-photos/sx-child-music-art-party-v1.webp",
+    "services": [["other", "Детски рожден ден с аниматор · до 10 деца"]],
+    "alt": { "bg": "Детска група по време на празнично занимание.", "en": "Children during a party activity." }
+  },
+  {
+    "src": "/service-photos/go-detail-studio-photo-gear-20261126-v2.webp",
+    "services": [["other", "Резервация на фото и видео студио"], ["other", "Фотостудио под наем · SPACE A1 · 1 час"]],
+    "alt": { "bg": "Осветителна и снимачна техника във фотостудио.", "en": "Lighting and camera equipment in a photo studio." }
+  },
+  {
+    "src": "/service-photos/sx-audio-recording-v1.webp",
+    "services": [["other", "Аудио подкаст · запис за един час"], ["other", "Запис на подкаст · до 1,5 часа"]],
+    "alt": { "bg": "Микрофон и слушалки в звукозаписно студио.", "en": "A microphone and headphones in a recording studio." }
+  },
+  {
+    "src": "/service-photos/sx-vocal-recording-coach-v1.webp",
+    "services": [["other", "Студиен звукозапис · вокали или говор"]],
+    "alt": { "bg": "Микрофон за студиен запис на глас.", "en": "A microphone for studio voice recording." }
+  },
+  {
+    "src": "/service-photos/sx-music-group-band-v1.webp",
+    "services": [["other", "Музикални репетиции"]],
+    "alt": { "bg": "Музиканти репетират в студио.", "en": "Musicians rehearsing in a studio." }
+  }
+]

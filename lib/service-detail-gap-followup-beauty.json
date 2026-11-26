@@ -1,0 +1,247 @@
+[
+  {
+    "src": "/service-photos/go-detail-tweezer-brow-shape-20261126-v2.webp",
+    "services": [["beauty","Оформяне на вежди"]],
+    "alt": {"bg":"Оформяне на вежди с пинсета.","en":"Shaping eyebrows with tweezers."}
+  },
+  {
+    "src": "/service-photos/sx-neck-shoulder-massage-v1.webp",
+    "services": [["beauty","Частичен масаж"],["health","Частичен масаж · жени"],["health","Частичен масаж"],["health","Комбиниран масаж Bliss · 90 мин."]],
+    "alt": {"bg":"Частичен масаж на врата и раменете.","en":"A targeted massage of the neck and shoulders."}
+  },
+  {
+    "src": "/service-photos/sx-nails-single-extension-v1.webp",
+    "services": [["nails","Изграждане с гел / полигел и гел лак · S"]],
+    "alt": {"bg":"Изграждане на отделен нокът.","en":"Sculpting an individual nail extension."}
+  },
+  {
+    "src": "/service-photos/go-detail-sculpted-gel-extension-20261126-v2.webp",
+    "services": [["nails","Изграждане с гел / полигел и гел лак · L"]],
+    "alt": {"bg":"Изграждане на нокът с гел и форма.","en":"Sculpting a gel nail extension using a form."}
+  },
+  {
+    "src": "/service-photos/sx-massage-manual-covered-alternatives-v1.webp",
+    "services": [["health","Комплексна мануална терапия"]],
+    "alt": {"bg":"Ръчна работа по напрегнат мускул.","en":"Hands-on work on a tense muscle."}
+  },
+  {
+    "src": "/service-photos/go-detail-manual-physiotherapy-20261126-v1.webp",
+    "services": [["health","Консултация и кинезитерапия"]],
+    "alt": {"bg":"Терапевт подпомага упражнение за подвижност.","en":"A therapist assists with a mobility exercise."}
+  },
+  {
+    "src": "/service-photos/sx-physio-assessment-v1.webp",
+    "services": [["health","Първична консултация и терапия"]],
+    "alt": {"bg":"Физиотерапевтична консултация и преглед на подвижността.","en":"A physiotherapy consultation and mobility assessment."}
+  },
+  {
+    "src": "/service-photos/gel-natural-nail-overlay-v1.webp",
+    "services": [["nails","Маникюр с гел лак, укрепване и терапия Magnetic"]],
+    "alt": {"bg":"Укрепващ слой върху естествените нокти.","en":"A strengthening layer applied to natural nails."}
+  },
+  {
+    "src": "/service-photos/sx-beauty-heated-cleansing-electrode-v1.webp",
+    "services": [["beauty","Почистване на лице · апаратно"],["beauty","Апаратно почистване на лице"]],
+    "alt": {"bg":"Специализиран накрайник при апаратна грижа за лице.","en":"A dedicated applicator used in machine-assisted face care."}
+  },
+  {
+    "src": "/service-photos/sx-nails-manicure-paraffin-v1.webp",
+    "services": [["nails","Парафинова терапия на ръце · Adelina"]],
+    "alt": {"bg":"Парафинова грижа за ръцете.","en":"Paraffin hand treatment."}
+  },
+  {
+    "src": "/service-photos/sx-hair-scalp-care-v1.webp",
+    "services": [["hair","Поставяне на ампула"]],
+    "alt": {"bg":"Нанасяне на малко количество продукт в косата.","en":"Applying a small amount of treatment to the hair."}
+  },
+  {
+    "src": "/service-photos/sx-hair-nourishing-treatment-v1.webp",
+    "services": [["hair","Емулсия System Professional"],["hair","Davines OI"]],
+    "alt": {"bg":"Подхранваща грижа по дължината на косата.","en":"Nourishing treatment applied to the lengths of the hair."}
+  },
+  {
+    "src": "/service-photos/sx-hair-zero-guard-cut-v1.webp",
+    "services": [["barber","Подстригване · Кристиан"]],
+    "alt": {"bg":"Бръснар оформя точно линия на косата с машинка.","en":"A barber carefully shapes the hairline using a clipper."}
+  },
+  {
+    "src": "/service-photos/sx-barber-scissor-wash-v1.webp",
+    "services": [["barber","Подстригване и измиване"]],
+    "alt": {"bg":"Измиване и подстригване в бръснарски салон.","en":"Hair washing and cutting at a barber's."}
+  },
+  {
+    "src": "/service-photos/sx-hair-updo-ponytail-options-v1.webp",
+    "services": [["hair","Casual кок · мастър фризьор"]],
+    "alt": {"bg":"Прибрана коса, подредена в кок.","en":"Hair pinned up into a bun."}
+  },
+  {
+    "src": "/service-photos/sx-hair-keratin-conditioning-v1.webp",
+    "services": [["hair","Davines Nourishing Keratin Sealer"]],
+    "alt": {"bg":"Нанасяне на подхранваща кератинова грижа за коса.","en":"Application of a nourishing keratin hair treatment."}
+  },
+  {
+    "src": "/service-photos/sx-beauty-brow-lamination-tint-v1.webp",
+    "services": [["beauty","Ламиниране на вежди + боядисване"]],
+    "alt": {"bg":"Работа по веждите при ламиниране и тониране.","en":"Brow work during lamination and tinting."}
+  },
+  {
+    "src": "/service-photos/sx-hair-senegalese-twists-v1.webp",
+    "services": [["hair","Прави туистъри"]],
+    "alt": {"bg":"Прави двуконечни усуквания на отделени кичури.","en":"Straight two-strand twists made from sectioned hair."}
+  },
+  {
+    "src": "/service-photos/sx-nails-russian-manicure-v1.webp",
+    "services": [["nails","Оформяне и почистване на нокти, почистване на кутикули"]],
+    "alt": {"bg":"Оформяне на ноктите и кожичките.","en":"Cleaning up nails and cuticles."}
+  },
+  {
+    "src": "/service-photos/sx-nails-tip-fitting-v1.webp",
+    "services": [["nails","Изграждане с гел и гелови типси"]],
+    "alt": {"bg":"Поставяне на оформен типс върху нокът.","en":"Fitting a formed nail tip."}
+  },
+  {
+    "src": "/service-photos/head-shave-beard-trim-v1.webp",
+    "services": [["barber","Бръснене и стайлинг на брада"]],
+    "alt": {"bg":"Бръснар с бръснач при оформяне.","en":"Barber using a razor during grooming."}
+  },
+  {
+    "src": "/service-photos/sx-nails-male-wet-pedicure-v1.webp",
+    "services": [["nails","Спа педикюр"]],
+    "alt": {"bg":"Потапяне на стъпалото при спа грижа.","en":"Soaking a foot during a spa treatment."}
+  },
+  {
+    "src": "/service-photos/sx-beauty-oxygen-peel-massage-mask-v1.webp",
+    "services": [["beauty","Класическо почистване и кислороден душ"]],
+    "alt": {"bg":"Апаратна грижа за лице с кислороден накрайник.","en":"Device-assisted facial care with an oxygen tip."}
+  },
+  {
+    "src": "/service-photos/sx-beauty-brow-machine-hairstrokes-v1.webp",
+    "services": [["beauty","Ретуш на микропигментация · вторична процедура"]],
+    "alt": {"bg":"Ръчен електрически апликатор за прецизно очертаване на веждите.","en":"A powered handpiece for precise eyebrow detailing."}
+  },
+  {
+    "src": "/service-photos/sx-beauty-microblading-retouch-v1.webp",
+    "services": [["beauty","Микроблейдинг"],["beauty","Микроблейдинг на вежди"]],
+    "alt": {"bg":"Фина работа по веждите при микроблейдинг.","en":"Fine detail work on eyebrows during microblading."}
+  },
+  {
+    "src": "/service-photos/sx-beauty-pressotherapy-legs-abdomen-v1.webp",
+    "services": [["beauty","Пресотерапия — пакет20процедури"],["beauty","Пресотерапия · долна част · 60 мин."]],
+    "alt": {"bg":"Компресионни маншети за пресотерапия.","en":"Pneumatic compression garments for pressotherapy."}
+  },
+  {
+    "src": "/service-photos/sx-hair-extensions-wash-heat-v1.webp",
+    "services": [["hair","Сешоар на коса с екстеншъни"]],
+    "alt": {"bg":"Оформяне със сешоар на коса с екстеншъни.","en":"Blow-dry styling with hair extensions."}
+  },
+  {
+    "src": "/service-photos/sx-nails-base-gel-polish-v1.webp",
+    "services": [["nails","Маникюр с гел лак, укрепване и изравняване · дълги нокти"]],
+    "alt": {"bg":"Нанасяне на основа и гел лак.","en":"Applying a base layer and gel polish."}
+  },
+  {
+    "src": "/service-photos/sx-womens-long-cut-blowdry-v1.webp",
+    "services": [["hair","Форма и стайлинг · жени · EXPERT"]],
+    "alt": {"bg":"Форма и завършващо оформяне при подстригване.","en":"Shaping a haircut and finishing the style."}
+  },
+  {
+    "src": "/service-photos/sx-beauty-hydro-dermabrasion-serum-v1.webp",
+    "services": [["beauty","Воднодермабразио 6в1 Glow"],["beauty","Hydrafacial · Platinum"]],
+    "alt": {"bg":"Апаратно водно почистване на лицето с накрайник.","en":"Water-assisted facial treatment with an applicator tip."}
+  },
+  {
+    "src": "/service-photos/sx-beauty-steam-mask-toner-v1.webp",
+    "services": [["barber","Почистване на лице с пара"]],
+    "alt": {"bg":"Парен апарат за грижа за лицето.","en":"A steam device used in face care."}
+  },
+  {
+    "src": "/service-photos/sx-hair-male-scissor-cut-v1.webp",
+    "services": [["barber","Освежаване на подстригване · редовни клиенти · Йордан"]],
+    "alt": {"bg":"Бръснар оформя мъжка коса с ножица.","en":"Barber shaping men's hair with scissors."}
+  },
+  {
+    "src": "/service-photos/sx-hair-seq-male-cut-style-v1.webp",
+    "services": [["barber","Освежаване на подстригване · редовни клиенти · Ива"]],
+    "alt": {"bg":"Бръснарско подстригване и оформяне на коса.","en":"A men's hair cut and style at a barber's."}
+  },
+  {
+    "src": "/service-photos/sx-beauty-ultrasound-manual-cleansing-v1.webp",
+    "services": [["beauty","Комбинирано ръчно и апаратно почистване на лице"]],
+    "alt": {"bg":"Ръчна и апаратна грижа за лице.","en":"Manual and machine-assisted facial care."}
+  },
+  {
+    "src": "/service-photos/sx-candle-massage-v1.webp",
+    "services": [["health","Масаж на цяло тяло с топла масажна свещ"]],
+    "alt": {"bg":"Масажна свещ и кушетка, подготвени за масаж.","en":"A massage candle and treatment table ready for the session."}
+  },
+  {
+    "src": "/service-photos/sx-beauty-bespoke-facial-massage-v1.webp",
+    "services": [["beauty","Лифтинг масаж на лице"],["health","Балийска техника · масаж на лице"]],
+    "alt": {"bg":"Ръчен масаж на лице.","en":"Hands-on facial massage."}
+  },
+  {
+    "src": "/service-photos/sx-beauty-manual-massage-face-scalp-v1.webp",
+    "services": [["health","Масаж на лице и скалп · 40 мин."]],
+    "alt": {"bg":"Ръчен масаж на лице и скалп.","en":"Hands-on massage of the face and scalp."}
+  },
+  {
+    "src": "/service-photos/sx-lower-back-massage-v1.webp",
+    "services": [["health","Комбиниран масаж Bliss · 60 мин."]],
+    "alt": {"bg":"Ръчен масаж върху кушетка.","en":"Hands-on massage on a treatment table."}
+  },
+  {
+    "src": "/service-photos/sx-home-classical-massage-v1.webp",
+    "services": [["health","Номад масаж у дома · 60 мин."]],
+    "alt": {"bg":"Масаж на преносима кушетка в домашна обстановка.","en":"A massage on a portable table in a home setting."}
+  },
+  {
+    "src": "/service-photos/sx-brow-tint-only-v1.webp",
+    "services": [["beauty","Ламиниране и боядисване на вежди"]],
+    "alt": {"bg":"Нанасяне на цвят по веждите.","en":"Applying tint to the eyebrows."}
+  },
+  {
+    "src": "/service-photos/sx-aroma-oil-massage-v1.webp",
+    "services": [["health","Аромамасаж с масла"]],
+    "alt": {"bg":"Масаж с ароматно масло.","en":"Massage using an aromatic oil."}
+  },
+  {
+    "src": "/service-photos/sx-rose-oil-massage-preparation-v1.webp",
+    "services": [["health","Ароматерапевтичен масаж"]],
+    "alt": {"bg":"Масло и подготвена масажна кушетка.","en":"A massage oil and prepared treatment couch."}
+  },
+  {
+    "src": "/service-photos/sx-beauty-covered-body-face-massage-v1.webp",
+    "services": [["health","Антистрес и релакс масаж"]],
+    "alt": {"bg":"Релаксиращ масаж върху кушетка.","en":"Relaxation massage on a treatment couch."}
+  },
+  {
+    "src": "/service-photos/go-detail-classical-massage-table-20261126-v2.webp",
+    "services": [["beauty","Антистрес масаж · 60 минути"]],
+    "alt": {"bg":"Релаксиращ масаж на масажна кушетка.","en":"A relaxing massage on a treatment table."}
+  },
+  {
+    "src": "/service-photos/sx-beauty-manual-massage-face-v1.webp",
+    "services": [["beauty","Масаж на лице по Ахабадзе"]],
+    "alt": {"bg":"Масаж на лицето с ръце.","en":"Manual facial massage."}
+  },
+  {
+    "src": "/service-photos/sx-face-scalp-massage-v1.webp",
+    "services": [["beauty","Релаксиращ масаж на лице и глава"]],
+    "alt": {"bg":"Релаксиращ масаж на лице и скалп.","en":"Relaxing face and scalp massage."}
+  },
+  {
+    "src": "/service-photos/go-detail-mens-haircut-20261126-v1.webp",
+    "services": [["barber","Мъжко подстригване с машинка и ножица"]],
+    "alt": {"bg":"Подстригване на мъжка коса с машинка.","en":"A clipper used during a men's haircut."}
+  },
+  {
+    "src": "/service-photos/sx-hair-seq-adult-wash-cut-v1.webp",
+    "services": [["hair","Подстригване"]],
+    "alt": {"bg":"Фризьор подстригва коса с ножица.","en":"Stylist cutting hair with scissors."}
+  },
+  {
+    "src": "/service-photos/go-detail-classic-natural-manicure-20261126-v2.webp",
+    "services": [["nails","Класически маникюр без гел лак"]],
+    "alt": {"bg":"Оформяне на естествените нокти при класически маникюр.","en":"Shaping natural nails during a classic manicure."}
+  }
+]

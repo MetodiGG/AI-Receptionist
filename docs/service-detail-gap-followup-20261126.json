@@ -1,0 +1,474 @@
+{
+  "checkedOn": "2026-11-26",
+  "generation": "Built-in OpenAI ImageGen. Each photograph depicts an example procedure or lesson, not an actual provider, customer, venue, or claimed outcome. Source originals were left in place; project assets are optimized 256×256 WebP.",
+  "assets": [
+    {
+      "file": "public/service-photos/go-detail-abacus-child-class-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: An elementary-age child and instructor learning mental arithmetic with a handheld Japanese-style small abacus in wood, 1 upper bead and 4 lower beads per rod separated by a horizontal bar. Tight three-quarter shot of one hand moving beads naturally, a single abacus is clearly central, comfortable ordinary classroom. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "cc6fb701217ad5acf005226bbe6a0951777e87d3a00dabb0d8c4b6972743754f",
+      "optimizedSha256": "0763bf2517df66cb7bbd93bcc5025a5c8e758e6deff2c578cb30cba3c6190f2e",
+      "width": 256,
+      "height": 256,
+      "size": 10618
+    },
+    {
+      "file": "public/service-photos/go-detail-acupuncture-visit-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: Low oblique clinic photo depicting a routine professional acupuncture appointment: adult draped comfortably face down on a clean table, therapist in simple charcoal scrubs visible at edge, one or two small slender sterile acupuncture needle handles already placed in a limited shoulder area, no blood, directions or technique instructions. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "b54b9ab953467df6dd622255644a919459a715a6d77ab9ca6dd5815f2a5bd5ae",
+      "optimizedSha256": "bbbac72426a87b110dfb0b2e675f69a2eec014feae4b49c948f2c1e73a4924ce",
+      "width": 256,
+      "height": 256,
+      "size": 8764
+    },
+    {
+      "file": "public/service-photos/go-detail-adult-male-shoulder-massage-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: An adult male client in a fully opaque pale grey athletic T-shirt lies face down on a covered treatment table while a professional therapist attends to one shoulder with both hands. Wide close photo from slightly behind the therapist, natural posture, no exposed torso, oils, branding, watermark or text.",
+      "sourceSha256": "fdadcc20ce8108073573d4f60da3f2dce48ff4aa06c7a4835dbae09a85450196",
+      "optimizedSha256": "1dd9ae3d14eb06428b7b8201e59d85d9f1a8a62921aa1235d760651e334965e0",
+      "width": 256,
+      "height": 256,
+      "size": 6272
+    },
+    {
+      "file": "public/service-photos/go-detail-aromatic-oil-massage-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: Adult client on a padded massage table draped below the shoulders, an adult professional works gently with hands on upper back, one small unbranded glass bowl of oil near the edge of composition. Candid with warm towel tones, no chemical instructions or flammable props, no medical claims. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "26f9b56208fe532ba57c58956eb05723a56444acd640c2a6fa858807d522b708",
+      "optimizedSha256": "08b37c1466f29243827c8ab76f2f68569fd82a75d279c0d8674b9a7a39739e7c",
+      "width": 256,
+      "height": 256,
+      "size": 10442
+    },
+    {
+      "file": "public/service-photos/go-detail-bjj-beginner-class-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: Beginner adult Brazilian jiu-jitsu class in a bright ordinary dojo. A teacher in plain training gi speaks with two seated adults in gi at the edge of the mat before practice starts. Friendly cooperative atmosphere; no hold, submission or depiction of violence, competition branding or instruction details. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "139a24014e6b0063ee867dd42edc6ecac1a9eb67f7abc6b0e567e7bebd13e171",
+      "optimizedSha256": "052f81607d319ebb2f065506d3be491647169b9d00f865d1349ae64a680bf369",
+      "width": 256,
+      "height": 256,
+      "size": 10606
+    },
+    {
+      "file": "public/service-photos/go-detail-brow-micro-pigmentation-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: Professional cosmetic brow micropigmentation for an adult. Gloved practitioner holds a real-looking slender PMU pen near the carefully mapped outer eyebrow of a reclining adult client, single close composition showing the brow and shading process. No blood, medical claim or permanent result, no logos or text. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "5ac7e9506fdfe7ddc6a45ca06ce6f91868f1c4538ea8abeae8ff4a69273cbc42",
+      "optimizedSha256": "ad13305e81ab0c252ad03d915e86b635636e5041eb34fc5fcb3125ce21d13e3a",
+      "width": 256,
+      "height": 256,
+      "size": 5866
+    },
+    {
+      "file": "public/service-photos/go-detail-bulgarian-dance-one-on-one-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: A Bulgarian folk dance instructor in everyday dance clothing and one adult learner side by side on a bright wooden practice floor, mirroring a traditional horo step, concentrate visually on realistic footwork and joined hands, no audience, no costume claims or stage branding. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "99a55077eed851d502cd15fd12c0a0225bc853b9048341fc6dfba42767f184ea",
+      "optimizedSha256": "03ac0cfe7f61de4c3fd8bb6acaf39d3f0abd09194d090f0897f3744af08087a7",
+      "width": 256,
+      "height": 256,
+      "size": 9384
+    },
+    {
+      "file": "public/service-photos/go-detail-bulgarian-literature-tutor-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: An adolescent and private tutor seated across a bright home-study table, reading and discussing a single printed schoolbook with dense softly out-of-focus body text and a simple theatre illustration. Open notebook without legible writing, daylight, no recognisable branding. Editorial small classroom, book-discussion focus. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "97a93fb90e08052c13390ba1d1e50115db5780b6401a44c1525358f037e7819c",
+      "optimizedSha256": "217c84478ac8445b4f13e81d8c97ab8e3e0166c7f6cbc09bb7a0cff03afe79cd",
+      "width": 256,
+      "height": 256,
+      "size": 10962
+    },
+    {
+      "file": "public/service-photos/go-detail-car-headlight-polish-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: Automotive detailer uses a small foam polishing pad gently against the rounded clear lens of an unbranded vehicle headlight. Close lit workshop view with the entire headlight outline distinct and protected paint edges, no film application or tint. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "ebae629c3166d2ceaa87caf2554b7dea343c1a286c6a088b95da66c6be5ef195",
+      "optimizedSha256": "08a1a7b242e0f2d4936dae911b7867e459e2cb33f21edf69e89a4d2796fb3b15",
+      "width": 256,
+      "height": 256,
+      "size": 12268
+    },
+    {
+      "file": "public/service-photos/go-detail-car-interior-refresh-steam-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: Car interior detailer carefully wipes a dark cloth car seat and center console with a clean soft microfibre while kneeling just outside the open front passenger door. Distinct medium angle above seat level with clear location, no vacuum nozzle or extraction, no outside vehicle wash. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "8335702946eb0a3e8ba1367b602db2e162d3af7defc443bcdcafd65463bd1bdf",
+      "optimizedSha256": "cd23b01c72d8b77fe630395ccf1bafb6f2624feb76120bd1a9ca3cfc73c2bcaf",
+      "width": 256,
+      "height": 256,
+      "size": 12976
+    },
+    {
+      "file": "public/service-photos/go-detail-car-purchase-inspection-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: At an independent unbranded automotive workshop, an experienced mechanic examines a used car’s open engine bay as part of a pre-purchase condition check, with a small inspection flashlight and a clipboard held by the second person. Candid three-quarter shot, full open hood clearly visible; not performing repairs or showing a dealership. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "162dab1f83601f345a5d5b89c6ae48f2d329a855c7990a400f412cbc36d79c5e",
+      "optimizedSha256": "7f56f8bb03808e2d9f7f8c236a48135119037566fff6a5bbd6273872e6e3846d",
+      "width": 256,
+      "height": 256,
+      "size": 14548
+    },
+    {
+      "file": "public/service-photos/go-detail-carwash-pickup-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: Car wash pickup handover: close everyday editorial photo of a customer handing an unbranded key fob to a worker in a slate-grey service uniform next to a compact blue car parked by a clean urban curb. Show key and both hands clearly and front door of real-looking car. No self service tools, branding or uniforms with lettering. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "9e744e4a3eb489c1a8c7c04faf4c8622e4dc4ba2041144f6c8aa7aec4d8fc85e",
+      "optimizedSha256": "8797a648be5581d53743a3e455f24e230d128f1f12c997849468a425e9ddb9b3",
+      "width": 256,
+      "height": 256,
+      "size": 11592
+    },
+    {
+      "file": "public/service-photos/go-detail-cat-grooming-coat-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: A calm fluffy grey adult cat on a muted rose grooming table is being brushed gently with a soft brush, body supported naturally by adult groomer. Wide enough to show whole cat head and front paws, no scissors, bathing, shaving, restraint or labels. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "69090c918ae52f30b44224fa5956c25baef594e2850ae5167455be23cc050153",
+      "optimizedSha256": "f4ecbe2d0c0450cca46766e27848da60a762bd20fd35b63d8658286b7a2a3d90",
+      "width": 256,
+      "height": 256,
+      "size": 9478
+    },
+    {
+      "file": "public/service-photos/go-detail-child-block-programming-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: A supervised beginner visual coding lesson with a school-age student and adult tutor in an everyday classroom. Show a clean laptop and a plausible colorful block-style coding workspace without legible text, brand marks or named platform. Center the child's hand on a trackpad and the tutor pointing, side angle. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "e2b1a7e68c8b3ba2537544693a78991ef1fc6c6a1a37f36e87532e06c402498f",
+      "optimizedSha256": "0d9d6e28ce16448d2d72f0c6689a7780b9ecc82febe356b57f07d4806342cdca",
+      "width": 256,
+      "height": 256,
+      "size": 14014
+    },
+    {
+      "file": "public/service-photos/go-detail-child-online-speech-session-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: Home computer video call for a child's speech-language practice, child and adult caregiver fully dressed together at a desk following a visual exercise on screen from a remote adult therapist, slightly elevated over-shoulder angle. Simple picture cards, no obvious app or brand, no personal records. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "a9aaee1722087ba326038879c7f2e8b6b02dc5cedfcd457639d9cf0589ad51d6",
+      "optimizedSha256": "9c0d4a2bc4ed705fb59783aa50375ed4063d4a93083e63b4e62c809aefebb1ec",
+      "width": 256,
+      "height": 256,
+      "size": 12958
+    },
+    {
+      "file": "public/service-photos/go-detail-child-psychology-visit-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: Calm child psychology consultation: school-age child in everyday clothes, adult caregiver and psychologist talk at a comfortable small table in a bright ordinary consultation room. Quiet unscripted moment, child drawing with coloured pencils or pointing to a block; no medical examination or readable text. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "3f5e1fc2391d4bd3039d5cdf848672d763048a46696e56bed2fac7d79ea23328",
+      "optimizedSha256": "c7679ba275932d2277877b8aac3000cbada318a31c31169e3e6c97ad1b485dc0",
+      "width": 256,
+      "height": 256,
+      "size": 13028
+    },
+    {
+      "file": "public/service-photos/go-detail-cleaning-car-interior-suction-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: A car wash professional vacuuming the front footwell of a grey passenger car with its front door open, simple black narrow nozzle and real textured floor mat. Camera just outside the open door, centered vacuuming action and useful interior view. No split frames, exterior washing, extraction or branding. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "24b8ff66fd8a39db87e7f364d74306727b2a6a92099c152f8e3611468ea415dc",
+      "optimizedSha256": "0c616d3b577e757cbc713ff0902999ad75126917e65f4a0f0c5bc2a2a226e75e",
+      "width": 256,
+      "height": 256,
+      "size": 10140
+    },
+    {
+      "file": "public/service-photos/go-detail-clinical-child-consultation-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: A respectful child psychiatrist's scheduled consultation, school-age child and parent speak with a calm clinician in a neutral furnished medical consultation room. Doctor uses a simple paper record pad with pages blank or unreadable, no therapy tools or medication, family seated comfortably and fully clothed. Quiet empathetic eye-level framing. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "5646e1ed6b3407eca43d23b381e9eae30633297073df2884388b6061ac14c19e",
+      "optimizedSha256": "8f6f63f6c4c665d080d0db44c45ae88f50a531ad9cd8d776d6447204e40aa2dc",
+      "width": 256,
+      "height": 256,
+      "size": 11158
+    },
+    {
+      "file": "public/service-photos/go-detail-deep-tissue-massage-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: A physiotherapy-style deep-tissue massage appointment in a quiet treatment room, adult client face down in a soft opaque dark green athletic top on a padded table. Practitioner with charcoal uniform has one supported forearm in contact with the upper back through the athletic top. No exposed skin except heads and hands. Natural side daylight, real anatomy and a distinct three-quarter side view, no claims, instructions, watermark, logo, or text.",
+      "sourceSha256": "2e3e0c5c53919a259561f155342524b2cbafd5cd45b53a70b443ff0819d54d14",
+      "optimizedSha256": "9b35bfc1d9b650f829ec53a0746213718d082f93b0732dc7ccce1f2592dee2c6",
+      "width": 256,
+      "height": 256,
+      "size": 10456
+    },
+    {
+      "file": "public/service-photos/go-detail-dental-caries-visit-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: Calm adult dental appointment, clinician checks an adult patient's teeth using a small rounded dental mirror, bright modest room, no active drilling, no blood, no close-up cavity or promises, focus on everyday exam orientation. Clearly distinct from discussing braces or holding a tablet. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "7ccbb88239351b8653510ad6d9480c2eb1540dc0faa25424da65eda50f714c3c",
+      "optimizedSha256": "77a48ffbcfa0123a7bdcfd767779c92b5dbbea0aa934ae39fd5d0746198535ff",
+      "width": 256,
+      "height": 256,
+      "size": 9148
+    },
+    {
+      "file": "public/service-photos/go-detail-dog-full-groom-bath-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: An adult professional rinses a relaxed medium-sized dog in a raised quiet pet grooming bath with a handheld rinsing attachment, optional nozzles in the background not in use. The dog's wet coat and full head are clearly visible, no distress, no human hair styling or logos. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "068113c9e21a23a97932003f525397096e32d96168bd648cdd4e83949b15bf16",
+      "optimizedSha256": "e95f851d582de4d02fbc4e6cfbddfa6a6ea804da8908fb3ece67660f29039fe6",
+      "width": 256,
+      "height": 256,
+      "size": 12006
+    },
+    {
+      "file": "public/service-photos/go-detail-front-body-ceramic-detail-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: Close of a gloved hand bringing a rectangular paint coating application pad across a warm burgundy front fender with a clean headlight softly at the edge. Dark professional workshop, a different subject perspective than a pale-blue top-down hood; no abrasive polishing wheel. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "e7085f293e39c4458ef34115e9e72c9f4001ff5c03ac736c04cf629f3ee87c98",
+      "optimizedSha256": "97e6f22583f42652c8c5b8ded34810ae6b6a00bff949af3f0deee50e3b291811",
+      "width": 256,
+      "height": 256,
+      "size": 9480
+    },
+    {
+      "file": "public/service-photos/go-detail-hiphop-youth-group-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: A group hip-hop class with three middle-school-age dancers in loose everyday athletic clothes following an adult instructor in a clean rehearsal studio. Square wide shot at eye level with each dancer clearly visible doing a simple relaxed step in training, no show costume or text. Mirrors are secondary. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "6eea59ed8b09c65e8e8f55fc672d99a3cce177d602235c01f3649f7d90104651",
+      "optimizedSha256": "c150350b5597a9bf2fd42361e79c3c19b365fc185f342fa61d69c2e95cacc8d8",
+      "width": 256,
+      "height": 256,
+      "size": 11040
+    },
+    {
+      "file": "public/service-photos/go-detail-home-cleaning-appointment-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: An adult professional cleaner wipes a wooden table in a sunlit everyday living room using a microfiber cloth, with a plain basket of general supplies nearby. Side-on medium environmental photograph centered on the work, natural posture, no labeled containers or promise about scope. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "8ddac0f029cc39049bffde34a254510be9f80fe8afe386eb0dd5a47a424ddec4",
+      "optimizedSha256": "fc71ce56e097ce286820725a384507dfa067eb3b27dba92b4b04181db22ced06",
+      "width": 256,
+      "height": 256,
+      "size": 12746
+    },
+    {
+      "file": "public/service-photos/go-detail-home-duct-airflow-service-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: Technician confirms routine cleaning of a wall-mounted residential split AC with a removed mesh filter held outward in gloved hands next to the indoor unit, plain daylight, existing unit above a living room cabinet, no tools for electrical work or repair. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "6ac76942a6026b46aaeffd113a70d835cbefb5171753f3fec39526e4363668cf",
+      "optimizedSha256": "496b764f57fd215600ae47e6f6cbfda50c708fa4e8e1b06acfcebee6d761172c",
+      "width": 256,
+      "height": 256,
+      "size": 8660
+    },
+    {
+      "file": "public/service-photos/go-detail-home-it-support-visit-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: A skilled computer technician at a residential visit inspecting a real desktop computer at an ordinary home desk, clean unbranded interior panels and small tool in view, turned off and safe, calm side angle, hands and computer recognisable. No cybersecurity, identifiable data on screens, branding, lettering, or watermark.",
+      "sourceSha256": "66a8077a087bd12c29142e59f8366788f5c406716fe9e621fadce537e39b0ba7",
+      "optimizedSha256": "f21275aa7e44cf15953a2c98b5c4e653c232bb406641ce30f9322afb3c8de693",
+      "width": 256,
+      "height": 256,
+      "size": 11042
+    },
+    {
+      "file": "public/service-photos/go-detail-home-roach-inspection-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: A professional pest service technician in a neutral uniform and protective gloves inspecting inside a clean residential kitchen cabinet with a small flashlight. Close eye-level view of the cabinet base and a plain unobtrusive monitoring trap; no visible pesticide, pouring, spraying or large insects. Everyday residential setting. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "7c3dfa27e48937a93743f6b7fb5777c2439e38b99a595f595eb319dca7393102",
+      "optimizedSha256": "704ffd249e85a4b3a68e70583e868a36ac754bd1e51b4ec2e8347c7f7be2dba5",
+      "width": 256,
+      "height": 256,
+      "size": 8910
+    },
+    {
+      "file": "public/service-photos/go-detail-home-rodent-inspection-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: A professional pest manager checks the position of a closed black rodent monitoring station on the floor against a utility room wall. Ordinary clean workspace, fully closed device, no rodent, poison, chemical labels or treatment instructions. Low angle from the side. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "03ebbd424c1eef9b604b3762323ed04d1ab4fc62dd68635584395ff19f0f72a7",
+      "optimizedSha256": "77f4dcbc9ae608541074ffbb586cc7590731776e818ad0aadfb1648904e5be25",
+      "width": 256,
+      "height": 256,
+      "size": 7890
+    },
+    {
+      "file": "public/service-photos/go-detail-indoor-split-ac-check-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: A service technician in an ordinary bright apartment inspects an open wall-mounted white split AC indoor unit, standing on a stable low step ladder while supporting the casing, no visible electrical connections, no spray or refrigerant servicing. Wider three-quarter composed photo; appliance clearly an indoor split unit. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "61bd9450cc0161ab3d2e2305026fa177f654783c1145bfbe4acd452be8008a23",
+      "optimizedSha256": "2ccf32eb8811456dbf7c6844e2925988458f06efbb3e28755064e2ac85951e20",
+      "width": 256,
+      "height": 256,
+      "size": 9388
+    },
+    {
+      "file": "public/service-photos/go-detail-kids-badminton-school-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: A school-age beginner at a clean sports court and adult coach in modest clothing; low side-on view as the instructor calmly tosses an unmistakable feather badminton shuttlecock toward the student’s racket during a slow drill, net in background, no signs or tournament. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "55c517223bd432cabe977b0c2473ac2df7d24e3852a130195e4c4c91c1ef3e20",
+      "optimizedSha256": "797d81cabe6b932893d57159f46b40f38a691ae39932e0d17ecde2986a1ab35d",
+      "width": 256,
+      "height": 256,
+      "size": 14342
+    },
+    {
+      "file": "public/service-photos/go-detail-kids-group-drawing-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: Two school-age children at a generous atelier table drawing simple coloured shapes with pencil under the attentive supervision of an adult art teacher. Oblique wider shot with hands and papers centered; pencils, dry colour, no clay, needles or paint spills, no branding. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "1bcbe45ff65ecc813ffa45a489c30ddb59ad2308b849c92bc7bae7eb2db3e31e",
+      "optimizedSha256": "3ff85a712d9df45ec894103098269eea4e0addc82cbb0d6f1224e6e838239f89",
+      "width": 256,
+      "height": 256,
+      "size": 15580
+    },
+    {
+      "file": "public/service-photos/go-detail-kindergarten-tile-robot-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: A simple educational robotics lesson for five-year-olds focusing on a very small white and light blue two-wheel programmable learning robot following openly visible physical square interlocking direction tiles on a low table. Adult tutor and two child's hands in soft focus, no laptop, no LEGO shapes, no wires, no product wordmarks. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "e89daf85312bb6d2823adb7f1da538e3cb38035c5e81d0151f9d048ebf3a81f7",
+      "optimizedSha256": "baee74f9af7692d71460ee72e32f21c5c994e6555bffab6fb0c507ef5bbf3ba7",
+      "width": 256,
+      "height": 256,
+      "size": 7970
+    },
+    {
+      "file": "public/service-photos/go-detail-kinesiology-tape-review-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: A physiotherapist in a simple clinic holding an end of a visible blue kinesiology tape strip against the side of one patient's knee. Adult patient seated in plain exercise shorts, other joints out of the frame, real thigh and calf anatomy. Editorial illustrative snapshot, no tutorial, no diagnosis claim or printed product name. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "698553b6e30fa1b803fbdc7e8c7e116edc4734cb85236a4addaffbbc7826cf19",
+      "optimizedSha256": "3e73937304d479d6fd3ab7d5985f96b4d9e26a5750791d4e621da2e23681987e",
+      "width": 256,
+      "height": 256,
+      "size": 8234
+    },
+    {
+      "file": "public/service-photos/go-detail-kitchen-design-review-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: A kitchen designer and customer compare unbranded warm wood cabinet and stone swatches over a simple kitchen layout drawing at a table. Relaxed candid photo from slightly above and to one side, sample doors and countertop swatches clearly visible, no readable text or luxury brand. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "0e85b14d98b45fd5c1249dd348f3429c66b07d3482ba2a0c5cb926e7c5b1cc7c",
+      "optimizedSha256": "f0ba3f6233b0b8b90a5722eca97d023fd33bec0584b449d9f1fc75f9fc0aaec4",
+      "width": 256,
+      "height": 256,
+      "size": 12522
+    },
+    {
+      "file": "public/service-photos/go-detail-large-dog-haircut-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: Adult groomer trims a relaxed large Standard Poodle at the shoulder with blunt-tip grooming shears, whole head and proportionally large body visible in side view on a professional table. Warm natural grooming room, visible coat and calm posture; no bath, no scissors close to face or hands obscuring head. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "158ff16acb7a03909caa89f3f8e62822aeae16804b365852fbe631bf23f5b04f",
+      "optimizedSha256": "2b6ae90e923ef466db9c076d9b3accac0f3e7ba4cd4a8e361d961676396bc5f9",
+      "width": 256,
+      "height": 256,
+      "size": 12710
+    },
+    {
+      "file": "public/service-photos/go-detail-medical-pedicure-clean-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: A clinical foot-care consultation with an adult using a padded pedicure chair. Tight frame of a professional in clean gloves inspecting a healthy-looking bare adult foot with a small professional hand tool or pad on a sterile tray, no polish or aesthetic nail product, no wounds, PPE appropriate. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "d21420faafed6781aeba5f3a2db406b545af9a81520de52448ecb88e255a571d",
+      "optimizedSha256": "d17dad6a6d700d37354eb7e044e21cef7dac68748abbe8fec52299df9706a628",
+      "width": 256,
+      "height": 256,
+      "size": 8616
+    },
+    {
+      "file": "public/service-photos/go-detail-outlet-fitting-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: A qualified electrician in a simple home interior aligns a plain white European recessed outlet cover on a clean wall, with gloved hands, power already isolated, no exposed or energized wiring. Close side angle, tidy tool pouch in soft focus, one discrete work action, no technical directions or completion claim. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "b82efb5bb4eded95eac56f9a1eb13c67a104d9aafcbd6d8b32ade74bde4114d8",
+      "optimizedSha256": "739a6b808c538590cde92ce6764d8f32a6354d65accc8e2723bfa44738211586",
+      "width": 256,
+      "height": 256,
+      "size": 7930
+    },
+    {
+      "file": "public/service-photos/go-detail-partial-shoulder-massage-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: An ordinary spa therapist works on a small area of an adult customer's upper back and shoulder, with the customer face down on a massage table and draped fully except one shoulder. Overhead side orientation with the therapist's two credible hands focusing on one shoulder. Calm warm diffused light, no stones, oil bottle or claims. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "a1ebbc49922f76f5c2d75cdbcc40eab24e519ef9e61c4e9c34ee69c94da17088",
+      "optimizedSha256": "95dc7224bc9d441fa355e949c3bff0859718a1e62a04c6a361413649e765fca7",
+      "width": 256,
+      "height": 256,
+      "size": 8314
+    },
+    {
+      "file": "public/service-photos/go-detail-preliminary-interior-design-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: An interior designer visits an ordinary living room that is not staged as finished; an adult client and designer compare a few unbranded fabric and wood samples on a table and an abstract room drawing with no text. Side angle, existing apartment visible, both people are plainly consulting, no facade, kitchen cabinetry or construction. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "230e037b7d19a91eba942ddb838b9f2b015b60cbefc808e4adc8251579d78b7e",
+      "optimizedSha256": "191959fec0b939dd88de842211b5a5823cb55818d7aec6ff67e2eff4030aca84",
+      "width": 256,
+      "height": 256,
+      "size": 10594
+    },
+    {
+      "file": "public/service-photos/go-detail-rhythmic-gymnastics-group-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: Two school-age students in loose standard athletic shirts and leggings practise a beginner group rhythmic gymnastics class in a modest naturally lit sports hall. The foreground student raises a real rhythmic gymnastics hoop beside her as a coach demonstrates with a second hoop. Show the recognizable hoop and movement, healthy posture, no performance costume. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "5353b56cdb286152c22cf542e9d9c90a5e29f6873ae5a4ff9dd0321cda2f0d99",
+      "optimizedSha256": "44fc7c5b0b44af229370dd6e543eade5485112aeee6ca388a6e1ae566ec71763",
+      "width": 256,
+      "height": 256,
+      "size": 9974
+    },
+    {
+      "file": "public/service-photos/go-detail-spoken-language-placement-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: In-person adult language placement conversation in an ordinary quiet classroom. One adult learner and tutor face each other over a small table, the tutor gestures to a simple picture card with no visible lettering. Shot from across the room, candid, no devices, no writing lesson or school branding. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "c5b04fa3516f050e94c6359c812ae57ce5f2607839d04a9a6d9c137602dcb460",
+      "optimizedSha256": "cd9664dbe3b78448db29e9c89a60c832b54a9e29051342af4bc9ef811c233adb",
+      "width": 256,
+      "height": 256,
+      "size": 10496
+    },
+    {
+      "file": "public/service-photos/go-detail-spring-twist-hair-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: Hair stylist working on thin two-strand rope twists with visibly spring-curled ends, for a grown Black client with natural dark hair seated in a modest salon. Oblique rear angle shows some finished sections with clearly distinct twisted two-strand structure, not braided-in curls or heat curls, believable hands and no non-consensual framing. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "c417dd5ed4951c961a670923c2b5494ea7ca6560301ccc6ffc3f61c86295b8e0",
+      "optimizedSha256": "0bcd54280af944b5bfdd9f0de7914bc01a8e95657f9921c30e869bd8bf61d1ad",
+      "width": 256,
+      "height": 256,
+      "size": 9342
+    },
+    {
+      "file": "public/service-photos/go-detail-straight-rope-twists-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: A natural hair stylist in a modest salon makes smooth straight-falling two-strand Senegalese rope twists for a grown Black client. The narrow finished tension-free twists are distinctly rope-like and reach midway down her back with no curled ends. Close three-quarter view with comfortable posture and clear geometry, not box braids. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "ea0b8a667f0d86c62eb3342379686c9569ad549ab107072a2825ac3aea640dbd",
+      "optimizedSha256": "e9258d4a7640e464c3f679262969054af9165a18f1af9ef64803877f85da4dd2",
+      "width": 256,
+      "height": 256,
+      "size": 10260
+    },
+    {
+      "file": "public/service-photos/go-detail-study-abroad-advice-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: An adult educational advisor and a late-teen student review study abroad application options in a calm office, abstract small world map on the wall and an unmarked stack of admission papers on the table. Neither passport nor document readable. No university logos, scholarships or promises. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "ed8c960510975ffe53da1c56134994954c2ebe5d1bbaa15f7f6a8979df26ad56",
+      "optimizedSha256": "4104d269cf7b2eee15fca53c18ea9599cfe78ef29c804a5bf20863469d9fed1f",
+      "width": 256,
+      "height": 256,
+      "size": 10982
+    },
+    {
+      "file": "public/service-photos/go-detail-tattoo-design-consult-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: Two adults discuss a bespoke tattoo at a clean studio table, angled tabletop shot showing the artist drawing a simple unbranded leaf outline in a sketchbook while live conversation is implied by hands and seated silhouettes. No tattoo needle, no skin being inked, no existing artwork copied or legible writing. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "1bef91a5805bbe1c0ba24a91eba30ddb6fdbe9ae6f2efb4cd86bd0852e439389",
+      "optimizedSha256": "4e1f317fcd16bcffd01dfebe2089dfbe88a0a13949a531ef0e1d484e65fb0b6c",
+      "width": 256,
+      "height": 256,
+      "size": 13890
+    },
+    {
+      "file": "public/service-photos/go-detail-trial-class-child-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: A supervised informal trial lesson in a bright learning room. A fully dressed school-age pupil and adult tutor review a small educational picture card together, a second blank notebook naturally on the desk. Focus on attentive conversation, no visible subject-specific instruments and no identifiable words or logos. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "ee669e013b3f0d617d309b33cfa6131eecb03dbdb5b31e3d8c721fa4e56b1c85",
+      "optimizedSha256": "0717b8cdcc61f4c8faf644d017b5bff1bd371c2a2a2666938e9755fb6b5b5319",
+      "width": 256,
+      "height": 256,
+      "size": 9964
+    },
+    {
+      "file": "public/service-photos/go-detail-trial-music-overview-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: An adult music teacher and a school-age student in a modest music room discuss starting lessons. The adult gestures toward a clean digital piano, with one acoustic guitar resting on a stand and a music stand with blank or indistinct sheet in the scene. Candid conversation and no instrument being taught, no logos or notated text. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "875fb8156f1adf34716e91d0a28860290c53b54352d8d482fe34ab2cb1ea6340",
+      "optimizedSha256": "89143d7aeae8e7ff8ab920dbe81b80db6de7d957088d14b71dbe4892f3c55f68",
+      "width": 256,
+      "height": 256,
+      "size": 12424
+    },
+    {
+      "file": "public/service-photos/go-detail-wedding-photographer-documentary-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: Over-the-shoulder view of a professional wedding photographer capturing a newly married adult couple walking through a simple warmly lit outdoor courtyard, respectful everyday wedding clothing and foliage. The photographer's camera is clearly separate from the couple, no identifiable actual venue, no copyright logos. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "d6c70472bca475f6fb810527086a64a226119676b2b3fe670d96fe6e6b28054f",
+      "optimizedSha256": "08ba83f108de4b7b2e66d5bfa8c12700dac292cccc9772c25ad9ca4f8bdd0dec",
+      "width": 256,
+      "height": 256,
+      "size": 14574
+    },
+    {
+      "file": "public/service-photos/go-detail-wing-chun-wooden-dummy-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: An adult Wing Chun student in plain modest training clothes listens as an adult instructor demonstrates stance from a safe distance from an unmistakable traditional wooden dummy with wooden arms, a simple bright training hall in background. Single editorial frame, no contact, instructions or demonstrations against a person. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "a8a126e61ea3a3d37eca473a824dc2973e8fcfdca2e4078e6f5c342da5e3bfeb",
+      "optimizedSha256": "10547393b871920202c0496e2c16a3d36d98124def3babb7c58816c4565c3a8b",
+      "width": 256,
+      "height": 256,
+      "size": 10128
+    },
+    {
+      "file": "public/service-photos/go-detail-yoga-older-women-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: Three women around 60 in comfortable modest activewear in a calm beginner group yoga class on separate mats, seated and following a gentle side reach from an instructor. Candid wide side angle, daylight, no exaggerated flexibility or medical outcomes. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "a3fda1902aad7e81bfb0d9c2da65daf55b29c287d5169e1bcc49359df8124032",
+      "optimizedSha256": "3b1f5f4ec98d0d563b04e9a6e681e88074db008237118a9a2839f9beab56b9f8",
+      "width": 256,
+      "height": 256,
+      "size": 11018
+    },
+    {
+      "file": "public/service-photos/go-detail-youth-karate-introduction-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: Beginner karate for elementary-age children in an ordinary dojo, with an adult instructor alongside a row of three fully dressed students in white gi and simple belts. Eye-level shot of them in ready stance facing the teacher, no striking, contact, gear branding or performance. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "3ca4fcdb35e8b60553ad6f1fd990842d67c85986602fd88b704c650188d11a7a",
+      "optimizedSha256": "ba4a46ee052dfd2de687a5650de8cfc9027d46e9a87a277b414dc0732e4295b4",
+      "width": 256,
+      "height": 256,
+      "size": 9726
+    },
+    {
+      "file": "public/service-photos/go-detail-youth-tennis-group-20261126-v2.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square editorial example photograph for a GoRez service detail, not a real provider or customer. Primary request: A beginner group tennis lesson on a community court. A coach and two school-age students in ordinary modest athletic clothing hold real tennis racquets near the net, one gently follows through a forehand while a visible yellow tennis ball is in front of the court. Side medium wide, no heavy motion blur. Natural believable light, accurate anatomy and equipment, recognizable action near the center at 128px, a single frame, no logo, text, watermark or montage.",
+      "sourceSha256": "4e3db1eb5d30881e8a5467ec95b85aaa313becc378b8463a4cc562582a15c131",
+      "optimizedSha256": "3d3d81f2c0636092b2407fe2d42007f0fedab5af28979a30225921cba2fd27cd",
+      "width": 256,
+      "height": 256,
+      "size": 13784
+    }
+  ]
+}

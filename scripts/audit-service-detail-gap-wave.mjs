@@ -8,16 +8,16 @@ import { businessActivityPhotoKey } from '../lib/business-cover-photo.mjs'
 import { staticDiscoveryPhotoPath } from '../lib/discovery-photo-identity.mjs'
 import { publicDetailServiceThumbnail } from '../lib/service-detail-photo-presentation.mjs'
 import generated from '../lib/service-detail-gap-generated.json' with { type: 'json' }
+import followupGenerated from '../lib/service-detail-gap-followup-generated.json' with { type: 'json' }
 
 const sourcePath = 'lib/service-detail-photo-presentation.mjs'
 const sourceUrl = new URL('../' + sourcePath, import.meta.url)
-const baselineUrl = new URL(sourceUrl)
-baselineUrl.search = '?before-remaining-service-detail-wave'
-const origin = '882a71d'
-const generatedSources = new Set(generated.map(photo => photo.src))
+const baselines = { first: '882a71d', followup: 'a62d5c6' }
 
-async function readBaseline() {
-  const source = execFileSync('git', ['show', origin + ':' + sourcePath], { cwd: new URL('../', import.meta.url), encoding: 'utf8' })
+async function readBaseline(wave) {
+  const baselineUrl = new URL(sourceUrl)
+  baselineUrl.searchParams.set('before-detail-wave', wave)
+  const source = execFileSync('git', ['show', baselines[wave] + ':' + sourcePath], { cwd: new URL('../', import.meta.url), encoding: 'utf8' })
   const registration = registerHooks({
     load(url, context, nextLoad) {
       return url === baselineUrl.href ? { format: 'module', source, shortCircuit: true } : nextLoad(url, context)
@@ -28,8 +28,10 @@ async function readBaseline() {
   } finally { registration.deregister() }
 }
 
-export async function auditServiceDetailGapWave({ now = Date.parse('2026-11-26T12:00:00Z'), verbose = false } = {}) {
-  const before = await readBaseline()
+export async function auditServiceDetailGapWave({ now = Date.parse('2026-11-26T12:00:00Z'), verbose = false, wave = 'first' } = {}) {
+  if (!Object.hasOwn(baselines, wave)) throw Error('Unknown service-photo wave: ' + wave)
+  const before = await readBaseline(wave)
+  const generatedSources = new Set((wave === 'followup' ? followupGenerated : generated).map(photo => photo.src))
   const byCategory = {}, bySource = {}
   const retained = [], repeats = [], newRows = []
   let withoutPhoto = 0, gained = 0, gainedFromGenerated = 0
@@ -63,7 +65,7 @@ export async function auditServiceDetailGapWave({ now = Date.parse('2026-11-26T1
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  const result = await auditServiceDetailGapWave({ verbose: process.argv.includes('--verbose') })
+  const result = await auditServiceDetailGapWave({ verbose: process.argv.includes('--verbose'), wave: process.argv.includes('--followup') ? 'followup' : 'first' })
   console.log(JSON.stringify(result, null, 2))
   if (result.retained.length || result.repeats.length) process.exitCode = 1
 }

@@ -44,7 +44,7 @@ function detailsActions(row, locale) {
   const stubs = {
     './booking-button-content': bookingButtonContent,
     './directions-unavailable': { DirectionsUnavailable },
-    react: { ...React, memo: component => component, useRef: value => ({ current: value }), useState: () => {
+    react: { ...React, memo: component => component, useRef: value => ({ current: value }), useEffect: () => {}, useState: () => {
       assert.ok(stateIndex < states.length, 'unexpected state; update the explicit card harness')
       return [states[stateIndex++], () => assert.fail('render must not update state')]
     } },

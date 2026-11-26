@@ -9,6 +9,7 @@ import * as bookingMode from '../lib/booking-mode.mjs'
 import * as photoLayout from '../lib/business-photo-layout.mjs'
 import * as cataloguePhotos from '../lib/catalogue-photo-view.mjs'
 import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
+import { needsBusinessDetails } from '../lib/discovery/detail-request.mjs'
 import { DirectionsUnavailable, withVerifiedFixtureDirections } from './helpers/verified-directions.mjs'
 
 const require = createRequire(import.meta.url), { loadBindings, transform } = require('next/dist/build/swc')
@@ -25,10 +26,10 @@ function elements(node, predicate, found = []) {
 const nodeClass = (tree, className) => elements(tree, node => node.props.className === className)
 const business = patch => withVerifiedFixtureDirections({ id: 'real-business-id', source: 'gorez', name: 'Дълго име на реален партньор', slug: 'real/branch', industry: 'beauty', category: 'hair', neighborhood: 'Манастирски ливади', address: 'София, ул. Пирин 83', services: [{ id: 'service-id', name: 'Мъжко подстригване', price: 18, currency: 'EUR' }], ...patch }, { latitude: 42.657, longitude: 23.292 })
 function fixture(patch = {}) {
-  const values = [null, false], refs = [], events = [], props = { row: business(), locale: 'bg', quickChoice: true, ...patch }
+  const values = [null, false], refs = [], events = [], requests = [], props = { row: business(), locale: 'bg', quickChoice: true, ...patch }
   let index = 0, tree
   const stubs = {
-    react: { ...React, memo: component => component, useState() { const at = index++; return [values[at], value => { values[at] = value }] }, useRef(value) { const at = index++; return refs[at] ||= { current: value } } },
+    react: { ...React, memo: component => component, useEffect() {}, useState() { const at = index++; return [values[at], value => { values[at] = value }] }, useRef(value) { const at = index++; return refs[at] ||= { current: value } } },
     'next/link': { __esModule: true, default: Link }, 'next/dynamic': { __esModule: true, default: () => Details },
     './icon': { Icon: Empty }, './brand-logo': { BrandMark: Empty }, './business-cover-photo': { BusinessCoverPhoto: Cover },
     './outbound-booking-button': { OutboundBookingButton: Outbound }, './public-action': { PublicAction: Action, PublicActionPair: Pair },
@@ -38,12 +39,20 @@ function fixture(patch = {}) {
     '../lib/business-photo-layout.mjs': photoLayout, './discovery-distance-badge': { DiscoveryDistanceBadge: Badge },
     '../lib/catalogue-photo-view.mjs': cataloguePhotos, '../lib/discovery/copy.mjs': { DISCOVERY_COPY },
     '../lib/search-analytics-client.js': { trackSearchEvent: event => events.push(event) },
+    '../lib/discovery/detail-request.mjs': {
+      needsBusinessDetails,
+      startBusinessDetailsRequest(row, options) {
+        const request = { row, options, cancelled: false, cancel() { this.cancelled = true } }
+        requests.push(request)
+        return request
+      },
+    },
   }
   const module = { exports: {} }
   new Function('require', 'module', 'exports', code)(name => name in stubs ? stubs[name] : require(name), module, module.exports)
   const render = () => { index = 0; return tree = module.exports.DiscoveryBusinessCard(props) }
   render()
-  return { get tree() { return tree }, events, props, render }
+  return { get tree() { return tree }, events, props, render, requests }
 }
 
 for (const locale of ['bg', 'en']) test(`${locale}: compact card shows identity, two relevant service previews and two actions, with a true photo-overlay distance`, () => {
@@ -73,19 +82,25 @@ for (const locale of ['bg', 'en']) test(`${locale}: one native whole-card detail
   assert.equal(triggers[0].props['aria-label'], `${DISCOVERY_COPY[locale].viewDetailsAction} · ${f.props.row.name}`)
   assert.equal(elements(triggers[0], node => node.type === Action || node.type === Outbound).length, 0, 'links/forms are never nested inside a button')
   assert.deepEqual(f.events, [])
+  assert.deepEqual(f.requests, [], 'no background detail read is made for an unopened card')
   const trigger = { focus() {} }
   triggers[0].props.onClick({ currentTarget: trigger }); f.render()
   const details = elements(f.tree, node => node.type === Details)[0]
   assert.equal(details.props.row, f.props.row); assert.equal(details.props.locale, locale)
   assert.equal(details.props.triggerRef.current, trigger)
+  assert.equal(f.requests.length, 1)
+  assert.equal(details.props.initialRequest, f.requests[0], 'the dialog receives the already-started request')
   assert.deepEqual(f.events, [{ event: 'profile', locale }])
   nodeClass(f.tree, 'home-business-open')[0].props.onClick({ currentTarget: trigger }); f.render()
   assert.equal(f.events.length, 1, 'an already open card cannot create duplicate profile events')
+  assert.equal(f.requests.length, 1, 'an already open card cannot repeat the details request')
   details.props.onClose(); f.render()
+  assert.equal(f.requests[0].cancelled, true)
   assert.equal(elements(f.tree, node => node.type === Details).length, 0)
   const inert = fixture({ locale, preview: true })
   nodeClass(inert.tree, 'home-business-open')[0].props.onClick({ currentTarget: trigger }); inert.render()
   assert.deepEqual(inert.events, [], 'local preview never records real profile or booking activity')
+  assert.deepEqual(inert.requests, [], 'already available preview data is never fetched')
 })
 
 test('real portrait, landscape and logo previews retain original image metadata and use full contain', () => {

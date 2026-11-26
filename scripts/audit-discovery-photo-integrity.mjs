@@ -74,7 +74,7 @@ export function discoveryPhotoInventory({now=Date.now(),records=PUBLIC_CATALOGUE
     const coverSelection=selectCover || businessCoverPhoto
     const cover=coverSelection({...business,details})
     covers.push({entity:'business:'+business.id,businessId:business.id,src:cover.src,fallback:cover.fallbackSrc??null,
-      activity:cover.activityPhotoKey??null})
+      activity:cover.activityPhotoKey??null,...(cover.representativeActivity?{representativeActivity:true}:{})})
     add(cover.src,'business:'+business.id,'business-cover','primary')
     add(cover.fallbackSrc,'business:'+business.id,'business-cover','same-image-derivative')
   }
@@ -225,7 +225,7 @@ if (process.argv[1] && pathToFileURL(process.argv[1]).href===import.meta.url) {
   const presentation=values.public?await import('../lib/discovery-photo-presentation.mjs'):null
   const inventory=discoveryPhotoInventory({now,baseline:values.baseline,...(presentation&&{
     selectService:(service,business)=>presentation.publicServiceThumbnail(service,{business}),
-    selectCover: business=>presentation.publicBusinessCoverPhoto(business),
+    selectCover: business=>presentation.publicBusinessCoverPhoto({...business,source:'catalogue'}),
   })})
   if (values['generation-queue']) {
     if (!values.public) throw Error('The queue needs the current public rendering mode')
@@ -244,6 +244,7 @@ if (process.argv[1] && pathToFileURL(process.argv[1]).href===import.meta.url) {
     }
     const result={scope:'local checked-in public catalogue, taxonomy and curated service overrides; production uploads are not included',asOf:new Date(now).toISOString(),
       inventory,tally:{navigation:inventory.navigations.length, rows:inventory.rows.length,
+        representativeActivityCovers:inventory.covers.filter(cover=>cover.representativeActivity).length,
         selectedServicePhotos:inventory.rows.length-(recordsBySource.get('no-photo')||0),
         distinctServiceIdentities:new Set(inventory.rows.map(r=>r.entity)).size,
         assignedServiceIdentities:Object.keys(allocation.owners).length,assetFiles:Object.keys(audit.verified).length,

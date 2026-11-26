@@ -1,6 +1,6 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { servicePresentation } from '../lib/discovery/service-presentation.mjs'
+import { serviceDisplayFacts, servicePresentation } from '../lib/discovery/service-presentation.mjs'
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 import { catalogueBusinessDetails } from '../lib/discovery/business-details.mjs'
 
@@ -95,4 +95,49 @@ test('malformed input stays empty, never becomes text from an object or an inven
     assert.deepEqual(servicePresentation(service), { description: '', conditions: [] })
   }
   assert.deepEqual(servicePresentation({ description: '  Услуга\nс  реално описание. ' }), { description: 'Услуга с реално описание.', conditions: [] })
+})
+
+test('compact public facts only remove a duplicate duration/scope or extract the distinct pass validity', () => {
+  const name = 'Индивидуална йога практика — 60 минути'
+  const facts = { name, price: 35.79, priceUnit: 'индивидуална практика, 60 минути', durationMin: 60,
+    presentationEn: { name: 'Individual Yoga Practice — 60 minutes', unit: 'individual practice, 60 minutes' } }
+  assert.deepEqual(serviceDisplayFacts(facts), { name, unit: '', durationMin: 0 })
+  assert.deepEqual(serviceDisplayFacts(facts, 'en'), { name: facts.presentationEn.name, unit: '', durationMin: 0 })
+  assert.deepEqual(serviceDisplayFacts({ ...facts, name: 'Практика 30–60 минути', priceUnit: 'до 60 минути на човек' }),
+    { name: 'Практика 30–60 минути', unit: 'до 60 минути на човек', durationMin: 60 })
+  assert.equal(serviceDisplayFacts({ ...facts, priceUnit: 'само за двама' }).unit, 'само за двама')
+  assert.equal(serviceDisplayFacts({ ...facts, name: 'Индивидуален пилатес реформър – карта за 7 тренировки',
+    priceUnit: 'карта за 7 тренировки в рамките на 2 месеца' }).unit, 'Валидна 2 месеца')
+  assert.equal(serviceDisplayFacts({ ...facts, name: 'Индивидуална тренировка по пилатес на постелка · 1 човек',
+    priceUnit: 'едно индивидуално посещение за 1 човек' }).unit, '')
+})
+
+test('only the detailed menu can remove a fully restated equivalent published price and duration in BG and EN', () => {
+  const description = 'Предварително записване. Публикувана цена 35,79 € / 70 лв. за 60 минути; не включва материали.'
+  const translated = 'Advance booking. Published price 35.79 € / 70 BGN for 60 minutes; materials are not included.'
+  const service = Object.freeze({ name: 'Йога 60 минути', price: 35.79, currency: 'EUR', priceKind: 'fixed',
+    description, presentationEn: { name: 'Yoga 60 minutes', description: translated } })
+  const before = JSON.stringify(service)
+  assert.equal(servicePresentation(service, 'bg').description, description)
+  assert.equal(servicePresentation(service, 'en').description, translated)
+  const menu = (row, locale) => servicePresentation(row, locale, { displayedTariff: serviceDisplayFacts(row, locale) }).description
+  assert.equal(menu(service, 'bg'), 'Предварително записване. Не включва материали.')
+  assert.equal(menu(service, 'en'), 'Advance booking. Materials are not included.')
+  assert.equal(menu({ ...service, currency: 'BGN', price: 70 }, 'bg'), 'Предварително записване. Не включва материали.')
+  assert.equal(menu({ ...service, description: 'Публикувана цена 35,79 € / 70 лв. за 60 минути. Не включва материали.' }, 'bg'), 'Не включва материали.')
+  for (const row of [
+    { ...service, price: 34.79 },
+    { ...service, price: null },
+    { ...service, priceKind: 'from' },
+    { ...service, priceKind: 'range', priceMaximum: 60 },
+    { ...service, name: 'Йога 45 минути' },
+    { ...service, name: 'Йога от 30 до 60 минути' },
+    { ...service, description: description.replace('70 лв.', '71 лв.') },
+    { ...service, description: description.replace('35,79 €', '32,79 €') },
+    { ...service, description: description.replace('35,79 €', '35,79 USD') },
+    { ...service, description: description.replace('60 минути;', '60 минути само с ваучер;') },
+    { ...service, description: description.replace('Публикувана цена', 'Допълнителна такса') },
+  ]) assert.equal(menu(row, 'bg'), row.description)
+  assert.equal(menu({ ...service, presentationEn: { ...service.presentationEn, description: translated.replace('70 BGN', '72 BGN') } }, 'en'), translated.replace('70 BGN', '72 BGN'))
+  assert.equal(JSON.stringify(service), before)
 })

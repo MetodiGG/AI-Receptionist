@@ -1,0 +1,68 @@
+{
+  "baseline": "3aad461166534fe2b73492359fa878ec4da033e5",
+  "changed": {
+    "app/businesses/catalogue/[id]/page.js": {
+      "before": "eb005dd991603f15c7a335e824572cd8ed1db2cfae8263662c8fd7c82e2f22eb",
+      "after": "afaade2f4142a6ca2bf3718c1b7844a7a57c31122994f9a95271aceb7993c916"
+    },
+    "app/discovery-photo-refinement.css": {
+      "before": "4c02c09a5be0de3f8001912a865fee8d4c645b619d02917ca331574534136caa",
+      "after": "073c26cff61b486b0b6cecacd865e46b59b30ba1e7d3dbfea31a8c3f45046b87"
+    },
+    "app/premium-discovery-cards.css": {
+      "before": "91eff0c1ad58b1728757b9a7fca5a848c26705ef0a278cff7dbed7568a49d237",
+      "after": "f87a3799932e419a124aeb510af4b4da31a66eedcb1a64c6c1f04d45b6b37e34"
+    },
+    "components/business-cover-photo.js": {
+      "before": "73d92c9b9853e72d78296380419854c9e74eb35cbc5b83cd451758b3e8a2afa5",
+      "after": "3f756646d634a9ee1140fe737d5f5742169cbc3e39eaf04310023d34598ad407"
+    },
+    "components/discovery-business-card.js": {
+      "before": "522bd70fffa8e0ff4e49a2b57368b62f4d521eb36908aed2e3b708042fa14c40",
+      "after": "85e6e716dcc98003fca0b7061585cbd4449717d41ab08d01841108b393a76f53"
+    },
+    "components/go-rez-scroll-top.js": {
+      "before": "6a47aa5141aee32906704e7a61c52a486856ad248658de7af44dd77ccaaad79c",
+      "after": "8761aecf384fee6464564882e83da406b81f57e16688c4c6b356c4d3fc18db5f"
+    },
+    "components/public-action.module.css": {
+      "before": "c99a724212e19d06f4c00f6bae25570251803816e9e05c3c2f6fd249947ab1b5",
+      "after": "daf65ce166b53801c02388a6d73359856cf010317f4f19c9bde7c676bdd686a7"
+    },
+    "components/public-service-menu.js": {
+      "before": "79247ef843886824e704fb098459097b3f23e07bd40a729786e1f1fcaa37fe36",
+      "after": "6d60ec86da4f76d3ba9edca18c1c334c8c10d00080333f99565a1c90f7c07abf"
+    },
+    "components/public-service-menu.module.css": {
+      "before": "57a4f1c9e64f98d1a1070f2ac90bf893bb14f2025771b43da5e69a22d6d0e44f",
+      "after": "387079a95402981e7aff71c5dce4c146c18a451b2a7e9faa69ebc0c77a4891ff"
+    },
+    "components/service-thumbnail.js": {
+      "before": "f5f1cec2c118cf47c62f14d587b22ab5699c349f07722079356a334322f701d5",
+      "after": "2138837a8d6b7df1a2c830f3fd9b7df97e2b12c959a4eb26fe6c22822c6c0dda"
+    },
+    "lib/discovery-photo-presentation.mjs": {
+      "before": "07cfea897e142e39e32c43d983f92221cf3b400b9f982488a86fc1d5d1ce7ffa",
+      "after": "484077e7efa300356555aadddf13d41f54a301010dbb0d1010d7ec42e015a841"
+    },
+    "lib/discovery/copy.mjs": {
+      "before": "79a8c3607a0d65ed3e29323723a3e7dbcb0ab3ed44c5f4f6e55f8a72e09eab65",
+      "after": "3ade6b0ac3c62e5d04dc661435036d460eb7c188e2edf4c19b7f8b6178d7fa12"
+    },
+    "lib/discovery/service-description-disclosure.mjs": {
+      "before": "58b664cc5a444fc875ff50799903c1c1f0a5ac8a578936a2748d97e13ad3822c",
+      "after": "9c2f21421c7249258ed8512745f85c2bdacf981ee9473f9112f1431f3df52565"
+    },
+    "lib/discovery/service-presentation.mjs": {
+      "before": "4e8144a3de11caa299d211d09c859563a9100bafb0c8c71f344620a22b7c0dbb",
+      "after": "4e72d61e0c3ad8a13b530ff2dff2b400d0c065847c71cb1301f9677bbcb1b245"
+    },
+    "scripts/audit-discovery-photo-integrity.mjs": {
+      "before": "304f9eec7146325fd0e2991ded2a703a1863bc579853f087c7c02604364528dd",
+      "after": "c7be934af44d2d3795b04410a960be7dd87a10d8d131d43db99bc6e33dfdd3a5"
+    }
+  },
+  "added": {
+    "lib/public-action-motion.mjs": "8462bcf0c89bffdfdf2c352474682bff951feec56f4e06dd98de9c211a686a85"
+  }
+}

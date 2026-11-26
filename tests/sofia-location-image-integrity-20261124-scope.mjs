@@ -4,6 +4,7 @@ import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import receipt from './fixtures/sofia-location-image-integrity-20261124-approval.json' with { type: 'json' }
 import { sofiaRpcAllowsFileChange, sofiaRpcAllowsNewFile, sofiaRpcMatchesPriorHash, sofiaRpcPriorSource } from './sofia-location-rpc-isolation-20261125-scope.mjs'
+import { posterPolishKeepsEarlierAddedMenuFile } from './poster-polish-20261126-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = content => createHash('sha256').update(content).digest('hex')
@@ -16,7 +17,7 @@ function exactFile(path, map, pick) {
 export const sofiaIntegrityAllowsFileChange = path => Object.hasOwn(receipt.changed, path)
   ? exactFile(path, receipt.changed, value => value.after) : sofiaRpcAllowsFileChange(path)
 export const sofiaIntegrityAllowsNewFile = path => Object.hasOwn(receipt.added, path)
-  ? exactFile(path, receipt.added, value => value) : sofiaRpcAllowsNewFile(path)
+  ? exactFile(path, receipt.added, value => value) : sofiaRpcAllowsNewFile(path) || posterPolishKeepsEarlierAddedMenuFile(path)
 export const sofiaIntegrityMatchesPriorHash = (path, hash) => Object.hasOwn(receipt.changed, path)
   ? Boolean(hash && receipt.changed[path].before === hash && sofiaIntegrityAllowsFileChange(path))
   : sofiaRpcMatchesPriorHash(path, hash)

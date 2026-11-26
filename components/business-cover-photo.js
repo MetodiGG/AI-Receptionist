@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import { publicBusinessCoverPhoto } from '../lib/discovery-photo-presentation.mjs'
 
 // Standalone example, never passed into the real-photo carousel or metadata.
-export function BusinessCoverPhoto({ business, locale = 'bg', className = '', eager = false, omitIfUnavailable = false, compactDisclosure = false }) {
+export function BusinessCoverPhoto({ business, locale = 'bg', className = '', eager = false, omitIfUnavailable = false, compactDisclosure = business?.source === 'catalogue' }) {
   const [unavailableSources, setUnavailableSources] = useState([]), imageRef = useRef(null)
   const { category, src, size, height = size, activityPhotoKey } = publicBusinessCoverPhoto(business, { unavailableSources })
   const remember = failed => setUnavailableSources(previous => previous.includes(failed) ? previous : [...previous.slice(-3), failed])

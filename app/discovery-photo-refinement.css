@@ -81,6 +81,21 @@
 }
 html[data-theme="dark"] .business-category-cover[data-image-kind="ai-illustration"] > .business-category-cover-label { background: #30241ded; color: #f8e3ce; }
 
+html .business-category-cover[data-image-kind="ai-illustration"] > .business-category-cover-label[data-compact-disclosure] {
+  inset: 7px auto auto 7px;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #fff;
+  paint-order: stroke fill;
+  -webkit-text-stroke: 1.2px #2b1e17;
+  text-shadow: 0 1px 2px #28190eab;
+  font-size: max(11px,.6875rem);
+  font-weight: 650;
+  line-height: 1;
+  letter-spacing: .025em;
+}
+
 @media (max-width: 759px) {
   .customer-home.quick-choice .home-business-heading:has(> .home-business-photo.is-real-photo) { grid-template-columns: 96px minmax(0,1fr); }
   .customer-home.quick-choice .home-business-heading > .home-business-photo.is-real-photo { width: 96px; height: 112px; }

@@ -44,7 +44,7 @@ test('all other production bytes and paths stay frozen, including real photos, p
     const bytes = record.mode === '120000' ? Buffer.from(await readlink(path)) : await readFile(path)
     assert.equal(createHash('sha1').update('blob ' + bytes.length + '\0').update(bytes).digest('hex'), record.oid, record.path + ' stays unchanged from ' + SERVICE_PRICE_CARDS_BASE)
   }))
-  const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => !sofiaIntegrityAllowsNewFile(path) && path && !suhodolIntakeAllowsNewFile(path) && !nearbyPointsAllowsNewFile(path) && !locationRecoveryAllowsNewFile(path) && !priority30ReportAllowsNewFile(path) && !regionalCatalogueAllowsNewFile(path) && !azisCatalogueAllowsNewFile(path) && !(path === 'lib/discovery/public-catalogue.mjs' && azisCatalogueAllowsFileChange(path)) && productionPath(path))
+  const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').split('\0').filter(path => (!sofiaIntegrityAllowsNewFile(path) || Object.hasOwn(SERVICE_PRICE_CARDS_NEW_HASHES, path)) && path && !suhodolIntakeAllowsNewFile(path) && !nearbyPointsAllowsNewFile(path) && !locationRecoveryAllowsNewFile(path) && !priority30ReportAllowsNewFile(path) && !regionalCatalogueAllowsNewFile(path) && !azisCatalogueAllowsNewFile(path) && !(path === 'lib/discovery/public-catalogue.mjs' && azisCatalogueAllowsFileChange(path)) && productionPath(path))
   assert.deepEqual([...new Set(actual)].sort(), [...tree.map(record => record.path), ...Object.keys(SERVICE_PRICE_CARDS_NEW_HASHES)].sort(), 'no unreviewed source/data/image/API path is added')
 })
 

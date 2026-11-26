@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { publicServiceThumbnail } from '../lib/discovery-photo-presentation.mjs'
+import { matchesBusinessCoverPhoto, publicServiceThumbnail } from '../lib/discovery-photo-presentation.mjs'
 
 const rememberUnavailableSource = (previous, src) => previous.includes(src) ? previous : [...previous.slice(-7), src]
 
@@ -13,11 +13,12 @@ export function IllustrativeServicePhotoNote({ services, business, locale = 'bg'
   return <p className="service-photo-note">{locale === 'en' ? 'Service photos are illustrative.' : 'Снимките на услугите са примерни.'}</p>
 }
 
-export function ServiceThumbnail({ service, business, locale = 'bg', size = 72, trustedServiceImage, className = '' }) {
+export function ServiceThumbnail({ service, business, locale = 'bg', size = 72, trustedServiceImage, className = '', businessCoverSources }) {
   const [unavailableSources, setUnavailableSources] = useState([])
   const imageRef = useRef(null)
   const thumbnail = publicServiceThumbnail(service, { business, locale, trustedServiceImage, unavailableSources })
-  const src = thumbnail.src
+  const repeatsCover = matchesBusinessCoverPhoto(thumbnail.src, businessCoverSources)
+  const src = repeatsCover ? null : thumbnail.src
   const displaySize = Number.isFinite(size) ? Math.min(160, Math.max(32, size)) : 72
 
   useEffect(() => {
@@ -29,6 +30,8 @@ export function ServiceThumbnail({ service, business, locale = 'bg', size = 72, 
     }
   }, [src])
 
+  // The hero already shows this exact image, including its small derivative.
+  if (repeatsCover) return null
   // Unknown names (or entirely failed artwork) do not justify a notebook,
   // emoji or an unrelated photograph. Preserve the service text and actions.
   if (!src) return <span className="sr-only" data-service-photo-unavailable>{locale === 'en' ? 'No distinct service photo' : 'Няма отделна снимка за услугата'}</span>

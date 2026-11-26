@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { normalizeLocale } from '../lib/public-locale.mjs'
 import { scrollTopDockInset, scrollTopOptions, shouldShowScrollTop } from '../lib/scroll-top.mjs'
+import { installPublicActionMotion } from '../lib/public-action-motion.mjs'
 import { Icon } from './icon'
 import styles from './go-rez-scroll-top.module.css'
 
@@ -27,6 +28,12 @@ export function GoRezScrollTop() {
   const [visible, setVisible] = useState(false)
   const [locale, setLocale] = useState('bg')
   const [dockInset, setDockInset] = useState(null)
+
+  useEffect(() => {
+    if (pathname === '/' || pathname === '/search' || pathname?.startsWith('/dev/')) {
+      return installPublicActionMotion(window, document)
+    }
+  }, [pathname])
 
   useEffect(() => {
     const root = document.documentElement

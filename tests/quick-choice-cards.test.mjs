@@ -52,7 +52,11 @@ for (const locale of ['bg', 'en']) test(`${locale}: compact card shows identity,
   const identity = nodeClass(f.tree, 'home-business-identity')[0]
   assert.equal(elements(identity, node => node.type === 'h3')[0].props.children, row.name)
   for (const removed of ['home-business-category', 'home-business-neighborhood', 'home-business-services', 'home-business-reviews', 'home-business-booking-hint']) assert.equal(nodeClass(f.tree, removed).length, 0)
-  assert.equal(nodeClass(f.tree, 'home-business-inline-details').length,0,'service previews replace the redundant visible details cue')
+  const children = React.Children.toArray(identity.props.children)
+  const detailsAt = children.findIndex(node => node.props.className === 'home-business-open')
+  assert.equal(children[detailsAt].props.children[0].props.children, DISCOVERY_COPY[locale].viewDetailsAction)
+  assert.equal(children[detailsAt - 1].props.className, 'home-business-service-preview')
+  assert.equal(children[detailsAt + 1].type, Pair)
   assert.equal(nodeClass(f.tree,'home-business-service-preview').length,1)
   assert.equal(elements(identity,node=>node.type===Thumbnail).length,0,'the poster uses the main card photo; service thumbnails remain in details')
   assert.equal(elements(identity, node => node.type === Pair).length, 1)
@@ -66,7 +70,7 @@ for (const locale of ['bg', 'en']) test(`${locale}: compact card shows identity,
 for (const locale of ['bg', 'en']) test(`${locale}: one native whole-card details target opens once, preserves focus and does not emit booking analytics`, () => {
   const f = fixture({ locale }), triggers = elements(f.tree, node => node.type === 'button' && node.props['aria-haspopup'] === 'dialog')
   assert.equal(triggers.length, 1); assert.equal(triggers[0].props.className, 'home-business-open')
-  assert.ok(triggers[0].props['aria-label'].includes(f.props.row.name))
+  assert.equal(triggers[0].props['aria-label'], `${DISCOVERY_COPY[locale].viewDetailsAction} · ${f.props.row.name}`)
   assert.equal(elements(triggers[0], node => node.type === Action || node.type === Outbound).length, 0, 'links/forms are never nested inside a button')
   assert.deepEqual(f.events, [])
   const trigger = { focus() {} }
@@ -127,7 +131,7 @@ for (const locale of ['bg', 'en']) test(`${locale}: native, external, phone and 
   for (const item of elements(preview.tree, node => node.type === Action)) { assert.equal(item.props.as, 'span'); assert.equal(item.props['aria-disabled'], 'true'); assert.equal(item.props.href, undefined) }
 })
 
-for(const locale of ['bg','en'])test(`${locale}: real service names, ranges, from prices, units and price qualifications stay paired and visible`,()=>{
+for(const locale of ['bg','en'])test(`${locale}: preview shows real service names, qualified amounts and distinct units without narrative`,()=>{
   const services=[
     {name:'Гел лак с укрепване и сваляне на материал',price:25,currency:'EUR',priceKind:'from',priceUnit:'пакет 2 посещения',
       description:'Материалите не са включени.',presentationEn:{name:'Gel polish with strengthening and product removal',unit:'package of 2 visits',description:'Materials are not included.'}},
@@ -143,10 +147,10 @@ for(const locale of ['bg','en'])test(`${locale}: real service names, ranges, fro
   assert.match(prices[1].props.children,/30.*50/u)
   assert.doesNotMatch(prices.map(node=>node.props.children).join(' '),/999|пакет|package/u,'units have their own visible line and are not duplicated')
   assert.equal(nodeClass(f.tree,'home-business-preview-unit')[0].props.children,locale==='en'?'package of 2 visits':'пакет 2 посещения')
-  assert.equal(nodeClass(f.tree,'home-business-preview-description')[0].props.children,locale==='en'?'Materials are not included.':'Материалите не са включени.')
-  assert.equal(nodeClass(f.tree,'home-business-preview-condition')[0].props.children,locale==='en'?'Varies by option and specialist':'Според варианта и специалиста')
+  assert.equal(nodeClass(f.tree,'home-business-preview-description').length,0)
+  assert.equal(nodeClass(f.tree,'home-business-preview-condition').length,0)
   assert.equal(elements(nodeClass(f.tree,'home-business-service-preview'),node=>['a','button','form'].includes(node.type)).length,0,'preview rows open only the existing whole-card details target')
-  assert.equal(nodeClass(f.tree,'home-business-preview-chevron').length,2)
+  assert.equal(nodeClass(f.tree,'home-business-open').length,1)
   assert.deepEqual(row,before)
 })
 
@@ -160,7 +164,7 @@ test('strict subcategory preview never fills its second row with a different ser
   assert.deepEqual(f.events,[])
   const empty=fixture({row:business({services:[]})})
   assert.equal(nodeClass(empty.tree,'home-business-service-preview').length,0)
-  assert.equal(nodeClass(empty.tree,'home-business-inline-details').length,0)
+  assert.equal(nodeClass(empty.tree,'home-business-open').length,1,'the details action does not depend on a price')
 })
 
 test('a long public note on an unpriced service is not printed in full on the card',()=>{
@@ -171,7 +175,7 @@ test('a long public note on an unpriced service is not printed in full on the ca
   assert.equal(nodeClass(f.tree,'home-business-preview-name')[0].props.children,service.name)
   assert.equal(nodeClass(f.tree,'home-business-preview-price').length,0)
   assert.equal(nodeClass(f.tree,'home-business-preview-description').length,0)
-  assert.equal(elements(f.tree,node=>node.props['data-service-preview-more']===true)[0].props.children,'Виж повече')
+  assert.equal(nodeClass(f.tree,'home-business-open')[0].props.children[0].props.children,'Виж детайли')
   nodeClass(f.tree,'home-business-open')[0].props.onClick({currentTarget:{}});f.render()
   assert.equal(elements(f.tree,node=>node.type===Details)[0].props.row.services[0].description,description)
 })
@@ -190,7 +194,7 @@ test('the type poster removes an already stated package size but preserves its e
   assert.deepEqual(row,before)
 })
 
-for(const locale of ['bg','en'])test(`${locale}: approved compact preview folds long descriptions with a visible conditions warning and preserves the complete original details`,()=>{
+for(const locale of ['bg','en'])test(`${locale}: only the details CTA appears on the preview, and the original terms stay intact for the full menu`,()=>{
   const prose={
     bg:'Оформяме косата с плавни линии и меко движение, като съчетаваме естествения цвят с фин завършек. Прическата подчертава индивидуалния стил и създава лекота, а внимателното измиване и подсушаване допълват усещането за свежа коса.',
     en:'We shape the hair with flowing lines and soft movement, combining its natural colour with a refined finish. The hairstyle expresses individual style and creates a light feel, while careful washing and drying complete the fresh look.',
@@ -202,8 +206,8 @@ for(const locale of ['bg','en'])test(`${locale}: approved compact preview folds 
   const paragraphs=nodeClass(f.tree,'home-business-preview-description').map(node=>node.props.children)
   assert.deepEqual(paragraphs,[],'long source prose is opened through the existing whole-card details action')
   const warnings=elements(f.tree,node=>node.props['data-service-has-conditions']===true)
-  assert.equal(warnings.length,1)
-  assert.equal(warnings[0].props.children,locale==='en'?'Conditions apply':'Има условия')
+  assert.equal(warnings.length,0)
+  assert.equal(nodeClass(f.tree,'home-business-open')[0].props.children[0].props.children,DISCOVERY_COPY[locale].viewDetailsAction)
   assert.equal(nodeClass(f.tree,'home-business-preview-unit')[0].props.children,locale==='en'?'package of 2 visits':'пакет 2 посещения')
   assert.equal(elements(nodeClass(f.tree,'home-business-service-preview'),node=>['button','details','a','summary'].includes(node.type)).length,0,'the existing card click is the only preview disclosure action')
   nodeClass(f.tree,'home-business-open')[0].props.onClick({currentTarget:{}});f.render()
@@ -222,7 +226,19 @@ test('compact preview CSS reserves contained media, puts distance top-right, kee
   assert.match(css, /aspect-ratio: 4 \/ 3/); assert.match(css, /object-fit: contain/)
   assert.match(css, /\.home-business-photo > \.home-distance-badge \{[^}]*right: 10px;[^}]*left: auto/s)
   assert.match(css, /\.home-business-actions \{[^}]*z-index: 2;[^}]*pointer-events: auto/s)
-  assert.match(css, /> \.home-business-open \{ z-index: 1/)
-  assert.match(css, /\.business-category-cover-label \{[^}]*font-size: 11px;[^}]*opacity: 1/s)
+  assert.match(css, /\.home-business-open::after \{[^}]*z-index: 1;[^}]*inset: 0;/s)
+  const photoCss = await readFile(new URL('../app/discovery-photo-refinement.css', import.meta.url), 'utf8')
+  assert.match(photoCss, /\.business-category-cover-label\[data-compact-disclosure\] \{[^}]*background: transparent;[^}]*color: #fff;[^}]*font-size: max\(11px/s)
   assert.doesNotMatch(css, /home-reserve|home-directions|booking-button-content|text-overflow: ellipsis/)
+})
+
+for (const locale of ['bg', 'en']) test(`${locale}: Alyoga repeats neither its name-based duration nor its price unit`, () => {
+  const service = { name: 'Индивидуална йога практика – 60 минути', durationMin: 60, price: 35.79, currency: 'EUR',
+    priceUnit: 'индивидуална практика, 60 минути', description: 'Потвърдете подходящ час предварително.',
+    presentationEn: { name: 'Individual yoga practice – 60 minutes', unit: 'individual practice, 60 minutes', description: 'Confirm an appointment time in advance.' } }
+  const f = fixture({ row: business({ services: [service] }), locale })
+  assert.equal(nodeClass(f.tree, 'home-business-preview-name')[0].props.children, locale === 'bg' ? service.name : service.presentationEn.name)
+  assert.match(nodeClass(f.tree, 'home-business-preview-price')[0].props.children, /35[.,]79/)
+  assert.equal(nodeClass(f.tree, 'home-business-preview-unit').length, 0)
+  assert.equal(nodeClass(f.tree, 'home-business-open')[0].props.children[0].props.children, DISCOVERY_COPY[locale].viewDetailsAction)
 })

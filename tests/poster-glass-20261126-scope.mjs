@@ -3,6 +3,7 @@ import { execFileSync } from 'node:child_process'
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import receipt from './fixtures/poster-glass-20261126-approval.json' with { type: 'json' }
+import { posterPolishPriorSource } from './poster-polish-20261126-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -10,7 +11,7 @@ const prior = new Map()
 
 export function posterGlassAllowsFileChange(path) {
   if (!Object.hasOwn(receipt.changed, path)) return false
-  try { return sha(readFileSync(new URL('../' + path, import.meta.url))) === receipt.changed[path].after }
+  try { return sha(posterPolishPriorSource(path, readFileSync(new URL('../' + path, import.meta.url)))) === receipt.changed[path].after }
   catch { return false }
 }
 

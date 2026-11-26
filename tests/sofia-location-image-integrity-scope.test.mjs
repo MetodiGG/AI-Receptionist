@@ -7,6 +7,7 @@ import { sofiaIntegrityAllowsFileChange, sofiaIntegrityAllowsNewFile, sofiaInteg
 import { sofiaRpcPriorSource } from './sofia-location-rpc-isolation-20261125-scope.mjs'
 import { posterGlassAllowsFileChange } from './poster-glass-20261126-scope.mjs'
 import { catalogueExpiryAllowsFileChange } from './catalogue-expiry-20261126-scope.mjs'
+import { posterPolishAllowsFileChange } from './poster-polish-20261126-scope.mjs'
 
 test('the 24 Nov scope seals only explicitly reviewed Sofia and image files with their prior bytes', async () => {
   const hash = value => createHash('sha256').update(value).digest('hex')
@@ -15,7 +16,7 @@ test('the 24 Nov scope seals only explicitly reviewed Sofia and image files with
     assert.equal(hash(sofiaRpcPriorSource(path, current)), after, path)
     assert.equal(sofiaIntegrityAllowsFileChange(path), true, path)
     assert.equal(hash(sofiaIntegrityPriorSource(path, current)), before, path)
-    const expected = catalogueExpiryAllowsFileChange(path) ? /Unreviewed 26 Nov catalogue expiry/u
+    const expected = posterPolishAllowsFileChange(path) ? /Unreviewed 26 Nov poster polish/u : catalogueExpiryAllowsFileChange(path) ? /Unreviewed 26 Nov catalogue expiry/u
       : posterGlassAllowsFileChange(path) ? /Unreviewed 26 Nov poster\/glass/u : /Unreviewed (?:24|25) Nov/u
     assert.throws(() => sofiaIntegrityPriorSource(path, Buffer.concat([current, Buffer.from('\n')])), expected)
   }

@@ -73,7 +73,16 @@ test('Variant A uses 50px natural-growing pills, 36px chips, 18px outline icons 
   assert.ok(rules.some(rule => rule.selector.includes(':hover .chip svg') && declarations(rule).transform === 'translate(2px,-2px)'))
   assert.match(action.transition, /180ms ease-out/)
   assert.equal(label['white-space'], 'normal'); assert.equal(label['word-break'], 'normal'); assert.equal(label['overflow-wrap'], 'normal')
-  for (const rule of rules.filter(rule => rule.selector !== '.iconOnlyContent .label')) assert.doesNotMatch(rule.toString(), /line-clamp|ellipsis|break-all|overflow:\s*hidden|(?:home-reserve|home-directions|profile-external-reserve)/)
+  const glassFace = '.pair:global(.home-business-actions) .action'
+  for (const rule of rules) {
+    assert.doesNotMatch(rule.toString(), /line-clamp|ellipsis|break-all|(?:home-reserve|home-directions|profile-external-reserve)/)
+    if (rule.selector !== '.iconOnlyContent .label' && rule.selector !== glassFace) assert.doesNotMatch(rule.toString(), /overflow:\s*hidden/)
+  }
+  // The painted sheen needs clipping to the pill, but the shared label and
+  // both button containers still have no cap on their natural height.
+  assert.equal(style(glassFace).overflow, 'clip')
+  assert.equal(style(glassFace)['max-height'], undefined)
+  assert.equal(style(glassFace).height, undefined)
 })
 
 function rgb(value) { return value.slice(1).match(/../g).map(channel => parseInt(channel,16)) }

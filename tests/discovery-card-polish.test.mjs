@@ -27,11 +27,14 @@ test('compact cards reserve a 4:3 frame while preserving entire original partner
   for (const rule of headingRows) assert.match(rule.selector, /article\.home-business-card\.is-compact-preview >/, 'both desktop and mobile override the older real-photo :has() thumbnail layout, not only generated covers')
 })
 
-test('photo distance stays top-right; the compact white AI disclosure is outlined at top-left', () => {
+test('photo distance stays top-right; the shared compact white AI disclosure is outlined at top-left', async () => {
   const badge = declarations(find(rule => rule.selector.endsWith('.home-business-photo > .home-distance-badge')))
   assert.equal(badge.top, '10px'); assert.equal(badge.right, '10px'); assert.equal(badge.left, 'auto')
   assert.equal(badge['font-size'], '.75rem'); assert.equal(badge['font-variant-numeric'], 'tabular-nums')
-  const label = declarations(find(rule => rule.selector.endsWith('.business-category-cover-label[data-compact-disclosure]')))
+  let label
+  parse(await read('app/discovery-photo-refinement.css')).walkRules(rule => {
+    if (rule.selector.endsWith('.business-category-cover-label[data-compact-disclosure]')) label = declarations(rule)
+  })
   assert.equal(label.inset, '7px auto auto 7px'); assert.equal(label['font-size'], 'max(11px,.6875rem)')
   assert.equal(label.background,'transparent'); assert.equal(label.color,'#fff')
   assert.match(label['-webkit-text-stroke'], /#2b1e17/)
@@ -39,13 +42,15 @@ test('photo distance stays top-right; the compact white AI disclosure is outline
 
 test('one whole-card target receives non-action clicks while shared action links/forms remain above it', () => {
   const target = declarations(find(rule => rule.selector.endsWith('> .home-business-open')))
-  assert.equal(target['z-index'], '1')
+  assert.equal(target.position, 'static'); assert.equal(target['min-height'], '44px'); assert.equal(target['pointer-events'], 'auto')
+  const stretch = declarations(find(rule => rule.selector.endsWith('.home-business-open::after')))
+  assert.equal(stretch.position, 'absolute'); assert.equal(stretch.inset, '0'); assert.equal(stretch['z-index'], '1')
   const photo = declarations(find(rule => rule.selector.endsWith('.home-business-heading > .home-business-photo')))
   const identity = declarations(find(rule => rule.selector.endsWith('.home-business-identity')))
   assert.equal(photo['pointer-events'], 'none'); assert.equal(identity['pointer-events'], 'none')
   const actions = declarations(find(rule => rule.selector.endsWith('.home-business-actions') && declarations(rule).position === 'relative'))
   assert.equal(actions['pointer-events'], 'auto'); assert.equal(actions['z-index'], '2')
-  const focus = declarations(find(rule => rule.selector.endsWith('> .home-business-open:focus-visible')))
+  const focus = declarations(find(rule => rule.selector.endsWith('.home-business-open:focus-visible')))
   assert.match(focus.outline, /^2px solid/); assert.equal(focus['outline-offset'], '3px')
 })
 
@@ -55,9 +60,7 @@ test('the type poster centers the complete name, prominent price and remaining p
   assert.equal(row.position,'relative')
   assert.equal(find(rule=>rule.selector.endsWith('.home-business-service-preview .service-thumbnail')),undefined)
   const copy=declarations(find(rule=>rule.selector.endsWith('.home-business-preview-copy')))
-  const chevron=declarations(find(rule=>rule.selector.endsWith('.home-business-preview-chevron')))
   assert.equal(copy['min-width'],'0')
-  assert.equal(chevron.position,'absolute')
   assert.equal(row.height,undefined)
   assert.equal(row['border-radius'],'14px')
   const main=declarations(find(rule=>rule.selector.endsWith('.home-business-preview-main')))
@@ -73,7 +76,7 @@ test('the type poster centers the complete name, prominent price and remaining p
   assert.equal(price['font-variant-numeric'],'lining-nums tabular-nums')
   assert.equal(price['text-align'],'center')
   assert.match(price.font,/ui-serif/)
-  assert.match(css,/prefers-reduced-motion: reduce[\s\S]*home-business-preview-chevron svg \{ transition: none;/u)
+  assert.match(css,/prefers-reduced-motion: reduce[\s\S]*home-business-open svg \{ transition: none;/u)
   assert.doesNotMatch(css,/home-business-inline-details|line-clamp:\s*[1-9]|text-overflow: ellipsis/u)
 })
 

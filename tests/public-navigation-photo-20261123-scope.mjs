@@ -2,6 +2,7 @@ import { execFileSync } from 'node:child_process'
 import { createHash } from 'node:crypto'
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
+import { posterPolishPriorSource } from './poster-polish-20261126-scope.mjs'
 
 const base = '8f145b4edb6c076af614d644117e10257df12df0'
 const root = fileURLToPath(new URL('../', import.meta.url))
@@ -18,7 +19,7 @@ const newFiles = {
 }
 const digest = bytes => createHash('sha256').update(bytes).digest('hex')
 const allowed = (path, hash) => {
-  try { return digest(readFileSync(new URL('../' + path, import.meta.url))) === hash } catch { return false }
+  try { return digest(posterPolishPriorSource(path, readFileSync(new URL('../' + path, import.meta.url)))) === hash } catch { return false }
 }
 export const navigationPhotosAllowsFileChange = path => Object.hasOwn(changed, path) && allowed(path, changed[path][1])
 export const navigationPhotosAllowsNewFile = path => Object.hasOwn(newFiles, path) && allowed(path, newFiles[path])

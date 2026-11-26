@@ -103,9 +103,13 @@
   --discovery-glass-end: #f3d8c2;
   --discovery-glass-beam: #fffdf7da;
   --discovery-glass-rim: #dabcaa;
+  --discovery-glass-warm: #dd986d;
+  --discovery-glass-press-rim: #b67552;
+  --discovery-glass-phase: var(--gorez-page-action-phase, 0);
   --discovery-glass-face: linear-gradient(173deg, var(--discovery-glass-top), var(--discovery-glass-base) 49%, var(--discovery-glass-end));
   position: relative;
   isolation: isolate;
+  overflow: hidden;
   overflow: clip;
   min-height: 50px;
   padding: 3px clamp(3px, 1.1cqi, 5px);
@@ -123,6 +127,8 @@
   --discovery-glass-end: #e89a68;
   --discovery-glass-beam: #fff4deaa;
   --discovery-glass-rim: #cb906e;
+  --discovery-glass-warm: #ce764e;
+  --discovery-glass-press-rim: #a85b3a;
   color: #3d2217;
   font-weight: 720;
 }
@@ -134,17 +140,21 @@
   z-index: -1;
 }
 .pair:global(.home-business-actions) .action::before {
-  inset: 1px;
+  inset: -14% -18%;
   border-radius: inherit;
-  background: linear-gradient(106deg, transparent 15%, var(--discovery-glass-end) 34%, var(--discovery-glass-beam) 49%, var(--discovery-glass-top) 57%, transparent 77%);
-  opacity: .82;
+  background: linear-gradient(104deg, transparent 15%, var(--discovery-glass-end) 34%, var(--discovery-glass-beam) 49%, var(--discovery-glass-top) 57%, transparent 77%);
+  transform: translateX(calc(-24% + var(--discovery-glass-phase) * 48%));
+  opacity: .85;
 }
 .pair:global(.home-business-actions) .action::after {
-  inset: 1px 4% auto;
-  height: 43%;
-  border-radius: 999px 999px 52% 38%;
-  background: linear-gradient(180deg, #fff4e790, transparent);
-  opacity: .46;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(165deg, #fff4e780, transparent 38%),
+    linear-gradient(150deg, transparent 5%, var(--discovery-glass-warm) 100%);
+  opacity: calc(.15 + var(--discovery-glass-phase) * .49);
+}
+:global(.discovery-business-details) .pair:global(.home-business-actions) .action {
+  --discovery-glass-phase: var(--gorez-dialog-action-phase, 0);
 }
 .pair:global(.home-business-actions) .content {
   display: grid;
@@ -185,6 +195,8 @@
   --discovery-glass-end: #6a4835;
   --discovery-glass-beam: #f6b88736;
   --discovery-glass-rim: #9b7053;
+  --discovery-glass-warm: #ac6637;
+  --discovery-glass-press-rim: #d59064;
   color: #ffe9d5;
 }
 :global(html[data-theme="dark"]) .pair:global(.home-business-actions) .secondaryContent .chip {
@@ -203,24 +215,20 @@
      whether the two flex items fit together or wrap to full-width rows. */
   .pair:global(.home-business-actions) .action { --discovery-glass-slot: clamp(16px, calc(18cqi - 28px), 20px); }
 }
-@supports (overflow: clip) {
-  .pair:global(.home-business-actions) .action::before {
-    inset: -14% -15%;
-    transform: translate3d(-14%, 0, 0);
-  }
+.pair:global(.home-business-actions) .action:not(:disabled):not([aria-disabled="true"]):is(:active,[data-public-action-press]) {
+  border-color: var(--discovery-glass-press-rim);
+  box-shadow: inset 0 2px 5px #683b3540, inset 0 0 0 1px #fff8eb5e;
+  transform: translateY(1px) scale(.96);
+  transition-duration: 85ms;
 }
-@supports ((animation-timeline: scroll(nearest block)) and (overflow: clip)) {
-  @media (prefers-reduced-motion:no-preference) {
-    .pair:global(.home-business-actions) .action::before {
-      animation: discovery-glass-reflection 1ms linear both;
-      animation-timeline: scroll(root block);
-    }
-    :global(.discovery-business-details) .pair:global(.home-business-actions) .action::before {
-      animation-timeline: scroll(nearest block);
-    }
-  }
+.pair:global(.home-business-actions) .action:not(:disabled):not([aria-disabled="true"]):is(:active,[data-public-action-press])::after {
+  opacity: .76;
 }
-@keyframes discovery-glass-reflection {
-  from { transform: translate3d(-34%, 0, 0); }
-  to { transform: translate3d(34%, 0, 0); }
+@media (prefers-reduced-motion:reduce) {
+  .pair:global(.home-business-actions) .action,
+  :global(.discovery-business-details) .pair:global(.home-business-actions) .action { --discovery-glass-phase: 0; }
+  .pair:global(.home-business-actions) .action:not(:disabled):not([aria-disabled="true"]):is(:active,[data-public-action-press]) {
+    transform: none;
+    transition: none;
+  }
 }

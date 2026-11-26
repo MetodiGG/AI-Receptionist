@@ -121,7 +121,7 @@ test('the full catalogue menu retains the service description, duration, and pub
   assert.doesNotMatch(pedicure, /class="public-service-menu-price"/)
 })
 
-test('G Point logo remains whole and service prices retain compact online-only conditions without audit prose', async () => {
+test('G Point logo remains whole, and the true online-only condition is under the single detail disclosure', async () => {
   const name = 'Лазерна епилация · Цяло лице · жени'
   const service = { name, category: 'beauty', price: 30, currency: 'EUR', priceUnit: 'процедура',
     description: 'Текуща цена с отстъпка, валидна САМО при онлайн записване, проверена на 10.11.2026. Условията се потвърждават при записване; не е зачеркнатата стара цена.',
@@ -133,11 +133,12 @@ test('G Point logo remains whole and service prices retain compact online-only c
   assert.match(card, /object-fit:contain;object-position:center;background-color:#fff/)
   assert.ok(card.includes(name),'the first two real relevant services invite the visitor to open the complete menu')
   assert.match(card,/class="home-business-preview-unit">процедура<\/span>/)
-  assert.match(card,/Отстъпка само онлайн/)
-  for (const html of [card,details]) {
-    assert.match(html, /Отстъпка само онлайн/)
-    assert.doesNotMatch(html, /проверена на|зачеркнатата|Условията се потвърждават/)
-  }
+  assert.match(card, /Виж детайли/)
+  assert.doesNotMatch(card, /Отстъпка само онлайн|Има условия/)
+  const conditions = details.match(/<details\b[^>]*data-service-more="true"[^>]*>([\s\S]*?)<\/details>/u)?.[1]
+  assert.match(conditions, /<summary><span>Има условия<\/span>/)
+  assert.match(conditions, /Отстъпка само онлайн/)
+  for (const html of [card,details]) assert.doesNotMatch(html, /проверена на|зачеркнатата|Условията се потвърждават/)
   assert.match(details, /class="public-service-menu-unit">процедура<\/small>/)
   assert.match(details, /<div class="business-details-toolbar"><button[^>]+class="business-details-close"/)
   assert.match(details, /https:\/\/gpoint.bg\//)

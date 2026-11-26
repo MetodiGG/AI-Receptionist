@@ -30,6 +30,14 @@ test('up to 180 trimmed characters stay wholly visible even when they contain co
   }
 })
 
+test('the detailed menu can fold short substantive conditions without folding ordinary short prose', () => {
+  const options = { foldConditions: true }
+  for (const text of ['Не включва материали.', 'Materials are not included.', 'Only with advance booking.']) {
+    assert.deepEqual(serviceDescriptionDisclosure(text, options), folded(text, true))
+  }
+  assert.deepEqual(serviceDescriptionDisclosure('Shape with soft waves.', options), { visible: ['Shape with soft waves.'], more: '', hasConditions: false })
+})
+
 test('181 characters fold in their entirety without keeping a partial intro', () => {
   const source = 'x'.repeat(181)
   assert.deepEqual(serviceDescriptionDisclosure(source), folded(source, false))
@@ -127,6 +135,6 @@ test('condition detection is deterministic and conservative, not a semantic vali
 test('helper stays pure and UI-only without API, truncation, sentence selection, mutation or translation machinery', async () => {
   const source = await readFile(new URL('../lib/discovery/service-description-disclosure.mjs', import.meta.url), 'utf8')
   assert.doesNotMatch(source, /fetch\(|supabase|process\.env|node:fs|writeFile|\.slice\(0|substring\(|JSON\.parse|price\s*=|function sentences|clearlyNarrative|dependentStart|narrativeTerms/u)
-  assert.match(source, /retain every long description verbatim/)
-  assert.match(source, /hasConditions: isCritical\(source\)/)
+  assert.match(source, /retain the original text verbatim/)
+  assert.match(source, /const hasConditions = isCritical\(source\)/)
 })

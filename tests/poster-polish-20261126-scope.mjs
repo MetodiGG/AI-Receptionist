@@ -3,14 +3,26 @@ import { execFileSync } from 'node:child_process'
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import receipt from './fixtures/poster-polish-20261126-approval.json' with { type: 'json' }
+import priceReceipt from './fixtures/discovery-price-23px-20261126-approval.json' with { type: 'json' }
 import { SERVICE_PRICE_CARDS_NEW_HASHES } from './services-price-cards-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
 const prior = new Map()
+let priorPrice
+
+export function prePriceTypographySource(path, source) {
+  if (path !== priceReceipt.path || sha(source) !== priceReceipt.after) return source
+  if (!priorPrice) {
+    const original = execFileSync('git', ['show', priceReceipt.baseline + ':' + path], { cwd: root })
+    if (sha(original) !== priceReceipt.before) throw Error('Price typography baseline does not match pinned source: ' + path)
+    priorPrice = original
+  }
+  return typeof source === 'string' ? priorPrice.toString('utf8') : Buffer.from(priorPrice)
+}
 
 function exactFile(path, expected) {
-  try { return sha(readFileSync(new URL('../' + path, import.meta.url))) === expected }
+  try { return sha(prePriceTypographySource(path, readFileSync(new URL('../' + path, import.meta.url)))) === expected }
   catch { return false }
 }
 
@@ -23,6 +35,7 @@ export const posterPolishKeepsEarlierAddedMenuFile = path => posterPolishMatches
 // Retain original receipts. Only replay reviewed bytes for this UI layer.
 export function posterPolishPriorSource(path, source) {
   if (!Object.hasOwn(receipt.changed, path)) return source
+  source = prePriceTypographySource(path, source)
   const { before, after } = receipt.changed[path], digest = sha(source)
   if (digest === before) return source
   if (digest !== after) throw Error('Unreviewed 26 Nov poster polish source delta: ' + path)

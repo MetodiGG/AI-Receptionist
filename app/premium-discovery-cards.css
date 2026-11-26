@@ -154,8 +154,12 @@
   min-width: 0;
   max-width: 100%;
   color: var(--preview-accent);
-  font: 700 clamp(1.92rem,1.62rem + 1vw,2.45rem)/1.08 ui-serif,Georgia,serif;
-  letter-spacing: -.04em;
+  font-family: inherit;
+  font-size: 1.4375rem;
+  font-weight: 700;
+  /* Retain the price lane's previous height so the card layout stays put. */
+  line-height: clamp(2.0736rem,1.7496rem + 1.08vw,2.646rem);
+  letter-spacing: -.02em;
   text-align: center;
   font-variant-numeric: lining-nums tabular-nums;
   white-space: normal;

@@ -1,0 +1,320 @@
+{
+  "date": "2026-11-26",
+  "generator": "OpenAI built-in image generation",
+  "assets": [
+    {
+      "slug": "beard-shaping",
+      "file": "public/service-photos/go-detail-beard-shaping-20261126-v2.webp",
+      "sourceSha256": "359dda2d41749adce31977660ebecc4817ad25886c44657b2c06f638f210b16c",
+      "optimizedSha256": "3c9f3897a9ae901db03c726e0da047e8ca42104c423475c53af2a197c0158b8a",
+      "width": 256,
+      "height": 256,
+      "bytes": 12412,
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service detail illustration, legible at 128px, not a photograph of an actual business. Side close-up at a generic barbershop: cordless detail trimmer actually shaping the lower outline of an adult client's short dark beard; cream towel, muted charcoal background, clean edge at the neck, head comfortably upright. No blade or shaving foam; this is trimming and shaping, not dye or shaving. It is one coherent photograph only, no graphic overlay, no imitation of a known salon or people, no text, no logo or watermark. Natural anatomy and textures.",
+      "visualReview": "One cordless trimmer defines the perimeter of an adult beard; no razor, shaving foam or dye.",
+      "primaryKeys": [
+        "beard-trim"
+      ],
+      "only": "(?:брада|beard)",
+      "skip": "(?:боядис|цвят|бръснен|само муста|colour|dye|shav)"
+    },
+    {
+      "slug": "round-brush-blowdry",
+      "file": "public/service-photos/go-detail-round-brush-blowdry-20261126-v2.webp",
+      "sourceSha256": "f3ca7f6cffe6e2cca17de9361f0f18fd1f669d207e659608942bdf6544ab5886",
+      "optimizedSha256": "c7f587851a9d89a38ded2483e3683817aac9a7fe8e244d2cc58b0fe3101f2733",
+      "width": 256,
+      "height": 256,
+      "bytes": 12164,
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service detail illustration, legible at 128px, not a photograph of an actual business. Tight side shot of a stylist blow-drying damp shoulder-length brunette hair with a clearly visible round brush and ordinary black dryer with concentrator, stylist controlling the section naturally, blue-gray salon backdrop and diffused daylight. No straightening iron, cutting, dyes or hairstyles requiring pins. It is one coherent photograph only, no graphic overlay, no imitation of a known salon or people, no text, no logo or watermark. Natural anatomy and textures.",
+      "visualReview": "Dryer and round brush visibly work on damp hair; no cut or chemical treatment.",
+      "primaryKeys": [
+        "hair-blowdry"
+      ],
+      "only": "(?:сешоар|blow.?dry|blowout)",
+      "skip": "(?:булк|плитк|деца|детск|перманент|bridal|braid|child)"
+    },
+    {
+      "slug": "classic-natural-manicure",
+      "file": "public/service-photos/go-detail-classic-natural-manicure-20261126-v2.webp",
+      "sourceSha256": "82295ce60391e194d3daad1e85e098f470023248a5a27690ee78092b040df726",
+      "optimizedSha256": "65c67d77e49fb519c5c6264a012de18f30c4fdb8837272c3c5a4f46978239a2a",
+      "width": 256,
+      "height": 256,
+      "bytes": 13796,
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service detail illustration, legible at 128px, not a photograph of an actual business. Natural unpainted fingernails: a nail technician is delicately shaping the edge of a short bare fingernail with a fine hand file, client's hand over a linen oatmeal towel. Off-axis close shot in natural window light, nail outlines and short bare nails clearly visible. No nail polish brush, coloured nails, lamp, acrylic, blood or abrasions. It is one coherent photograph only, no graphic overlay, no imitation of a known salon or people, no text, no logo or watermark. Natural anatomy and textures.",
+      "visualReview": "A file shapes short bare natural fingernails. No nail polish, tips or lamps.",
+      "primaryKeys": [
+        "classic-manicure"
+      ],
+      "only": "(?:маникюр|manicure)",
+      "skip": "(?:гел|изграждан|типс|ноктопласт|педикюр|гелиш|сваля|комбинац|френск|декорац|(?:с )обикновен лак|gel|extension|acrylic|nail art|polish removal|french)"
+    },
+    {
+      "slug": "classic-unpolished-pedicure",
+      "file": "public/service-photos/go-detail-classic-unpolished-pedicure-20261126-v2.webp",
+      "sourceSha256": "528e7ff385154b33410126a01b67597b0df5d22b803b321ef8a8aaedd50ce829",
+      "optimizedSha256": "5cf76c9087a75ea182afce71834384a62f6322aea8b9558f8aa788549aeb098a",
+      "width": 256,
+      "height": 256,
+      "bytes": 14010,
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service detail illustration, legible at 128px, not a photograph of an actual business. A simple nonmedical pedicure in progress, neutral professional room: close view of an adult unpolished foot, toes naturally arranged, a technician tidying the edge of an ordinary toenail with a slim non-powered manicure file, hands partially visible. Clean textured blue towel, no nail lacquer, machine, medical pathology or blood. It is one coherent photograph only, no graphic overlay, no imitation of a known salon or people, no text, no logo or watermark. Natural anatomy and textures.",
+      "visualReview": "The frame shows ordinary toenail filing, no polish or clinical treatment.",
+      "primaryKeys": [
+        "classic-pedicure"
+      ],
+      "only": "(?:педикюр|ноктите на крака|pedicure|toenail)",
+      "skip": "(?:гел|апарат|лечеб|медицин|с лак|френск|гъб|враснал|gel|medical|electric|with polish|french|ingrown)"
+    },
+    {
+      "slug": "sculpted-gel-extension",
+      "file": "public/service-photos/go-detail-sculpted-gel-extension-20261126-v2.webp",
+      "sourceSha256": "7d716bc6f535a538d8360ca6e2d31c42679f4cd0baff687a8722c60f40034ecc",
+      "optimizedSha256": "05bd2924878037b9c523bd5922c45940cb01a5f3ac7752ef5d3dd0142be221ed",
+      "width": 256,
+      "height": 256,
+      "bytes": 9156,
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service detail illustration, legible at 128px, not a photograph of an actual business. Close tabletop detail of one professional sculpting a single nude hard-gel nail extension over a curved gold paper form beneath the natural nail's free edge. The form is clearly temporary and aligned with the finger, small flat gel brush, no polish bottle, no machine. Resting fingers remain naturally attached, with realistic skin and subdued sunlight. It is one coherent photograph only, no graphic overlay, no imitation of a known salon or people, no text, no logo or watermark. Natural anatomy and textures.",
+      "visualReview": "Hard gel is placed over the gold sculpting form; it is not an acrylic or tip application.",
+      "primaryKeys": [
+        "nail-extension"
+      ],
+      "only": "(?:изграждан|ноктопласт|удължаван|extension|sculpt)",
+      "skip": "(?:полигел|акрил|типс|акригел|acrylic|tips|polygel)"
+    },
+    {
+      "slug": "full-length-hair-tint",
+      "file": "public/service-photos/go-detail-full-length-hair-tint-20261126-v2.webp",
+      "sourceSha256": "b0ad272ed79f7e6d19b1cb4844206f99503f732fa4ba0b01c3cd92661580e456",
+      "optimizedSha256": "5b0f5cd79a2a574b83d7f54cae30df8a27178a50fd1283386be310424a31e663",
+      "width": 256,
+      "height": 256,
+      "bytes": 14394,
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service detail illustration, legible at 128px, not a photograph of an actual business. From behind the shoulder, a client with long warm brown hair in a dark cape. A colourist draws a small tint brush along a separated mid-length strand over a reusable neutral board, colours medium warm chestnut, several lengths neatly sectioned. Natural salon daylight, no foil, no root retouch, no hair bleach, no packaging labels. It is one coherent photograph only, no graphic overlay, no imitation of a known salon or people, no text, no logo or watermark. Natural anatomy and textures.",
+      "visualReview": "Tint is painted along the lengths of separated chestnut hair, not onto a root line.",
+      "primaryKeys": [
+        "full-hair-color",
+        "hair-color"
+      ],
+      "only": "(?:боядис|боя|оцвет|hair colo[u]?r|dye)",
+      "skip": "(?:корен|балеаж|кичур|омбре|изрус|мелиран|камуфл|корекция|root|balayage|highlight|bleach|ombre|colour correction)"
+    },
+    {
+      "slug": "hair-root-retouch",
+      "file": "public/service-photos/go-detail-hair-root-retouch-20261126-v2.webp",
+      "sourceSha256": "1ce44f2fae79e62dd35068e0d92b7a86c813388393b2d93315a83c2f602a0822",
+      "optimizedSha256": "401ec331b229a80acbd01be1bd5c616aa93efcc1d2292c6b5b3d5a3411bffca9",
+      "width": 256,
+      "height": 256,
+      "bytes": 15162,
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service detail illustration, legible at 128px, not a photograph of an actual business. Overhead macro at a parted hairline: a colourist's dark gloved hand paints brown tint onto a narrow root line near the scalp with a small flat tint brush. The established chestnut lengths stay clean; realistic scalp and tight part. The visual centre is dye at the roots. No glowing effect, no face or text, no foil. It is one coherent photograph only, no graphic overlay, no imitation of a known salon or people, no text, no logo or watermark. Natural anatomy and textures.",
+      "visualReview": "The narrow darkened part and small tint brush show root-only colour application.",
+      "primaryKeys": [
+        "full-hair-color",
+        "hair-color",
+        "sx-hair-root-colour-rough-dry"
+      ],
+      "only": "(?:корен|root)",
+      "skip": "(?:балеаж|кичур|изрус|balayage|highlight|bleach)"
+    },
+    {
+      "slug": "occasion-makeup",
+      "file": "public/service-photos/go-detail-occasion-makeup-20261126-v2.webp",
+      "sourceSha256": "fb0649ab30e4379b02b52cb6d6fd9c9450a27bb260e2d73820c95fd4178c1c8d",
+      "optimizedSha256": "5e22d87485c4812c405180ad01293dec286cb7b4dcf40c1ac4a10436149e6101",
+      "width": 256,
+      "height": 256,
+      "bytes": 10508,
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service detail illustration, legible at 128px, not a photograph of an actual business. Candid three-quarter medium close-up of an adult client seated with relaxed eyelids looking slightly off-camera, a professional softly applying neutral eye shadow with a short makeup brush. Natural-looking skin and ordinary makeup, cream daylight backdrop, small palette barely visible. No theatrical makeup, false eyelash application or unnatural gaze. It is one coherent photograph only, no graphic overlay, no imitation of a known salon or people, no text, no logo or watermark. Natural anatomy and textures.",
+      "visualReview": "Natural eye-makeup application with a short brush, restrained neutral palette.",
+      "primaryKeys": [
+        "makeup"
+      ],
+      "only": "(?:грим|make.?up)",
+      "skip": "(?:перманент|микроблейд|мигл|свалян|специалн.*ефект|уро[кц]|курс|permanent|microblad|remov|special effect|lesson)"
+    },
+    {
+      "slug": "waxing-supplies",
+      "file": "public/service-photos/go-detail-waxing-supplies-20261126-v2.webp",
+      "sourceSha256": "a195143f6c99fc4b8f5a13334efaf905e6482b3e4cc8af022d1a109f4a8ce1ab",
+      "optimizedSha256": "20bd78503c4c94e2b08e9da89cbe164d5278b0e0dcf229428fc82048a80e2e5e",
+      "width": 256,
+      "height": 256,
+      "bytes": 11012,
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service detail illustration, legible at 128px, not a photograph of an actual business. Small intimate still life of a generic wax-hair-removal kit: open clean wax warmer in a simple cream bowl, two unbranded wooden applicators (one bearing amber wax) and clean folded cloth strips, viewed diagonally on a pale linen work surface. No person or body zone shown, no sugar wax pearls nor laser machine, no label or clinical claims. It is one coherent photograph only, no graphic overlay, no imitation of a known salon or people, no text, no logo or watermark. Natural anatomy and textures.",
+      "visualReview": "The wax warmer, wooden spatulas and cloth strips depict the equipment, not a person or location.",
+      "primaryKeys": [
+        "sx-beauty-wax-equipment",
+        "waxing"
+      ],
+      "only": "(?:кола маска|епилация с восък|wax(?:ing)?)",
+      "skip": "(?:захар|шугар|лазер|ipl|sugar|laser)",
+      "alt": {
+        "bg": "Примерна снимка на оборудване за кола маска, не е оборудването на бизнеса",
+        "en": "Illustrative waxing equipment, not the business's own equipment"
+      }
+    },
+    {
+      "slug": "french-gel-tip",
+      "file": "public/service-photos/go-detail-french-gel-tip-20261126-v2.webp",
+      "sourceSha256": "7deb1c62c6d24143c9f98ea4de9222b554eff5e77b953aa140196aa4011ac5da",
+      "optimizedSha256": "9d649707f457585b1e130c403c012c16de6884a69e2c632826eea8ec14ea9865",
+      "width": 256,
+      "height": 256,
+      "bytes": 9270,
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service detail illustration, legible at 128px, not a photograph of an actual business. Macro on one natural fingernail being finished with a crisp thin white French gel tip and translucent blush base; a narrow detail brush carefully touches only the white tip. At thumbnail size the white arc and real curved nail are unmistakable. Warm ivory cloth, modest diffused sunlight, no extensions or glitter. It is one coherent photograph only, no graphic overlay, no imitation of a known salon or people, no text, no logo or watermark. Natural anatomy and textures.",
+      "visualReview": "The thin opaque white smile line over a light base unmistakably shows French tips.",
+      "primaryKeys": [
+        "gel-manicure",
+        "gel-manicure-with-removal"
+      ],
+      "only": "(?:френск|french)",
+      "skip": "(?:педикюр|свалян|ноктопласт|pedicure|removal|extension)"
+    },
+    {
+      "slug": "manual-face-cleansing",
+      "file": "public/service-photos/go-detail-manual-face-cleansing-20261126-v2.webp",
+      "sourceSha256": "f3ffc2181f909c44e3cb34895ff7e8d3302a288161408d15ddd30a8cc7425475",
+      "optimizedSha256": "9416f950d10257223a538ca22079549872119d4568053e733f47c46a724a19ed",
+      "width": 256,
+      "height": 256,
+      "bytes": 11234,
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service detail illustration, legible at 128px, not a photograph of an actual business. Unbranded treatment room. An adult esthetician gently wipes cleanser from an adult client's cheek using a soft slightly damp white cotton pad. Natural pores, calm closed eyes, realistic anatomy, airy neutral linen and light terracotta. No steam, powered devices, injection, harsh blemish treatment or massage technique. It is one coherent photograph only, no graphic overlay, no imitation of a known salon or people, no text, no logo or watermark. Natural anatomy and textures.",
+      "visualReview": "A damp cotton pad wipes a cheek; no machine, extraction or medical procedure appears.",
+      "primaryKeys": [
+        "facial-cleansing"
+      ],
+      "only": "(?:почистване.*лице|лице.*почистване|facial cleans)",
+      "skip": "(?:апарат|ултразв|екстракц|водород|дермабраз|карбокси|с пара|hydra|ultra|device|steam|extraction|dermabrasion)"
+    },
+    {
+      "slug": "classic-eyelash-placement",
+      "file": "public/service-photos/go-detail-classic-eyelash-placement-20261126-v2.webp",
+      "sourceSha256": "f4bcb54c517721dfdf4515815a0ac17297ab327576c64424e670bc4c0dd0dcd9",
+      "optimizedSha256": "92b56e6c8cc1f16fecb4e798ded1d360b23f3fa7cd8a4e47d3a938add86be1ba",
+      "width": 256,
+      "height": 256,
+      "bytes": 11740,
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service detail illustration, legible at 128px, not a photograph of an actual business. Photorealistic side macro of closed adult eyelid during classic single individual-lash extension; technician uses two fine tweezers, one isolating a real lash and the other holding one clearly separate extension hair, tools near lashes without touching eyeball, soft under-eye pad and clean natural skin. No dramatic volume fans, no mascara brush or injury. It is one coherent photograph only, no graphic overlay, no imitation of a known salon or people, no text, no logo or watermark. Natural anatomy and textures.",
+      "visualReview": "Two precision tweezers and isolated lashes show an ordinary single-lash placement.",
+      "primaryKeys": [
+        "lash-extensions"
+      ],
+      "only": "(?:миглопласт|(?:косъм|косъмче) по|поставян.*мигл|удължав.*мигл|lashes|lash extensions)",
+      "skip": "(?:[2-9]d|мега|обем|ламинир|свалян|volume|removal|lamination)"
+    },
+    {
+      "slug": "freehand-balayage",
+      "file": "public/service-photos/go-detail-freehand-balayage-20261126-v2.webp",
+      "sourceSha256": "25692f072906049e6159181dda5d7a1370a2a9ee2d2ecdccbdbbe73bf8f3f706",
+      "optimizedSha256": "017fac405288af37aad580121ef337527fbf6d01fa4de45d72199d2970f33359",
+      "width": 256,
+      "height": 256,
+      "bytes": 10018,
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service detail illustration, legible at 128px, not a photograph of an actual business. Colourist painting a narrow sheet of brunette hair using a tint brush in a visible freehand balayage technique over a matte neutral backing board, medium close-up from the side showing transition on the lengths. No all-over dye application or colour at the roots. Natural understated salon photo, no invented brands. It is one coherent photograph only, no graphic overlay, no imitation of a known salon or people, no text, no logo or watermark. Natural anatomy and textures.",
+      "visualReview": "A freehand colour brush and blonde painted section are framed without foils.",
+      "primaryKeys": [
+        "hair-balayage"
+      ],
+      "only": "(?:балеаж|баляж|balayage)",
+      "skip": "(?:омбре|кичури с шапка|ombre|cap highlights)"
+    },
+    {
+      "slug": "tweezer-brow-shape",
+      "file": "public/service-photos/go-detail-tweezer-brow-shape-20261126-v2.webp",
+      "sourceSha256": "e1c6fa29deb2dd04f7df39e95d755833102085f47b07e4570c35524c6f412888",
+      "optimizedSha256": "538610712fc4df204e885cbbfccea8b5e4f45d656a0b61c2d790e1a1dbe26147",
+      "width": 256,
+      "height": 256,
+      "bytes": 10874,
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service detail illustration, legible at 128px, not a photograph of an actual business. A clean close-up of a technician using plain slanted tweezers to remove a stray eyebrow hair below one naturally shaped eyebrow on an adult client with eyes softly closed. Focus is the brow and one tool, no threading, tint, machine, tattoo or text. Subtle warm natural colour, real pores and hairs. It is one coherent photograph only, no graphic overlay, no imitation of a known salon or people, no text, no logo or watermark. Natural anatomy and textures.",
+      "visualReview": "Slanted tweezers under a natural eyebrow, distinct from threading, tint and lamination.",
+      "primaryKeys": [
+        "brow-shaping"
+      ],
+      "only": "(?:вежд|brow)",
+      "skip": "(?:конец|ламиниран|перманент|микро|боядис|кола маска|thread|laminat|tattoo|microblad|dye|wax)"
+    },
+    {
+      "slug": "child-haircut",
+      "file": "public/service-photos/go-detail-child-haircut-20261126-v2.webp",
+      "sourceSha256": "488886cbeb8f53dc99e4dc07aa309e5df604784332c8b2466034410ecb036c40",
+      "optimizedSha256": "a7015bfa8786406bc855fb61cf32c3dd26f4b47a3da9f6fe76d841aa23c620a8",
+      "width": 256,
+      "height": 256,
+      "bytes": 12338,
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service detail illustration, legible at 128px, not a photograph of an actual business. Documentary close side view of a calm school-age child, about six, in a salon cape while a hairstylist uses comb and blunt-ended haircutting scissors on a hair section above the ear. Adult hand and hair control look realistic, child seated safely and looking elsewhere, no brand signs, slightly blue natural salon lighting. It is one coherent photograph only, no graphic overlay, no imitation of a known salon or people, no text, no logo or watermark. Natural anatomy and textures.",
+      "visualReview": "A school-age child receives a simple comb-and-scissors trim; no baby or brand is shown.",
+      "primaryKeys": [
+        "kids-haircut"
+      ],
+      "only": "(?:детск|дете|момче|момич|children|child|kid)",
+      "skip": "(?:беб|под 2 г|baby|infant|под 1 г)"
+    },
+    {
+      "slug": "brow-threading",
+      "file": "public/service-photos/go-detail-brow-threading-20261126-v2.webp",
+      "sourceSha256": "8cad12779971cacfcd0ceea28fcfa2589e99b5392509c3f36c6f6bbfbbc3893a",
+      "optimizedSha256": "81546ae80288312f61a22c36170f0dbab455cfcf7ea666c426f87aee391333cd",
+      "width": 256,
+      "height": 256,
+      "bytes": 9242,
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service detail illustration, legible at 128px, not a photograph of an actual business. Close studio grooming detail: a practitioner's hands hold a fine plain twisted cotton thread taut over one adult eyebrow. Show the threading loop and textured eyebrow hair clearly, facing slightly sideways and relaxed with eyes closed. No scissors, tweezers, wax, colour, medical device or signage. It is one coherent photograph only, no graphic overlay, no imitation of a known salon or people, no text, no logo or watermark. Natural anatomy and textures.",
+      "visualReview": "Visible cotton thread crosses a naturally shaped eyebrow; no tweezer or colouring technique.",
+      "primaryKeys": [
+        "barber-brow-threading"
+      ],
+      "only": "(?:вежд.*конец|конец.*вежд|threading)",
+      "skip": "(?:боядис|перманент|ламиниран|tint|permanent|laminat)"
+    },
+    {
+      "slug": "hand-nail-art",
+      "file": "public/service-photos/go-detail-hand-nail-art-20261126-v2.webp",
+      "sourceSha256": "c468beff6cb41b54c94d10e51f4b7c644995c95c018b487f15becd035b00a5f3",
+      "optimizedSha256": "b578076ac7ace9b5e32904fce083e5ee2a92ef3106f15f0070189d32a03a5dff",
+      "width": 256,
+      "height": 256,
+      "bytes": 9552,
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service detail illustration, legible at 128px, not a photograph of an actual business. Macro of a nail artist using a very fine brush to paint a tiny single ochre botanical motif on a short neutral nail with a blush base. Other fingernails remain plain. Clear visible painting action on a soft eggshell cotton workcloth. No decals, text, bizarre nails or jewel clutter. It is one coherent photograph only, no graphic overlay, no imitation of a known salon or people, no text, no logo or watermark. Natural anatomy and textures.",
+      "visualReview": "A fine brush paints a small botanical motif on a single natural nail, not a sticker.",
+      "primaryKeys": [
+        "nail-art",
+        "gel-manicure"
+      ],
+      "only": "(?:декорац|рисунк|рисуван|nail art|hand.paint)",
+      "skip": "(?:без декорац|свалян|педикюр|френск|no nail art|pedicure|french|removal)"
+    },
+    {
+      "slug": "simple-hair-braid",
+      "file": "public/service-photos/go-detail-simple-hair-braid-20261126-v2.webp",
+      "sourceSha256": "d80993aa251974e2b36aa8a916c60af99151bb54808891804652301de2dffc3b",
+      "optimizedSha256": "652e1e625f09af7053522871624cce6f8d89d47da0d44fbefa67f48ffded731b",
+      "width": 256,
+      "height": 256,
+      "bytes": 10988,
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service detail illustration, legible at 128px, not a photograph of an actual business. Tight side-and-back detail of a hairstylist's hands interweaving three strands of naturally chestnut medium-long hair into one everyday braid. A recognizable simple plait emerges in frame. Not an artificial extension, cornrow pattern, wig or special event styling. Neutral cloth backdrop, soft skylight. It is one coherent photograph only, no graphic overlay, no imitation of a known salon or people, no text, no logo or watermark. Natural anatomy and textures.",
+      "visualReview": "Three sections of natural hair form an everyday braid; no extension, cornrow or event styling.",
+      "primaryKeys": [
+        "hair-braiding"
+      ],
+      "only": "(?:плитк|braid)",
+      "skip": "(?:афро|екстенш|канекалон|косопад|африкан|afro|extension|kanekalon|cornrow)"
+    },
+    {
+      "slug": "lash-lift-shield",
+      "file": "public/service-photos/go-detail-lash-lift-shield-20261126-v2.webp",
+      "sourceSha256": "d323b8fdcbb5d135900dc51d6e44fba693f5c7813fa483a69881a2680a61cbb4",
+      "optimizedSha256": "bc7d4794f1b0be9381f638e7d9a50a1f17be44ff294db264b61924a1ea2d73e0",
+      "width": 256,
+      "height": 256,
+      "bytes": 11920,
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service detail illustration, legible at 128px, not a photograph of an actual business. Photorealistic macro from the side: adult client's eye closed at a lash lift treatment, natural lashes softly arranged against a pale curved silicone shield by a tiny plain applicator; skin detail realistic and no instrument beside eyeball. No eyelash extensions and no branding, text or watermark. It is one coherent photograph only, no graphic overlay, no imitation of a known salon or people, no text, no logo or watermark. Natural anatomy and textures.",
+      "visualReview": "A curved silicone lash-lift shield holds the natural lashes; no lash extensions are shown.",
+      "primaryKeys": [
+        "lash-lift"
+      ],
+      "only": "(?:ламиниран.*мигл|мигл.*ламиниран|lash lift|lash laminat)",
+      "skip": "(?:миглопласт|свалян|изкуствен|extensions|removal)"
+    }
+  ]
+}

@@ -13,6 +13,7 @@ import { catalogueExpiryAllowsFileChange } from './catalogue-expiry-20261126-sco
 import { posterPolishAllowsFileChange } from './poster-polish-20261126-scope.mjs'
 import { serviceDetailPhotoCoverageAllowsPath } from './service-detail-photo-coverage-20261126-scope.mjs'
 import { servicePhotoMarkerAllowsFileChange } from './service-photo-marker-20261126-scope.mjs'
+import { serviceDetailPhotoExpansionAllowsNewFile } from './service-detail-photo-expansion-20261126-scope.mjs'
 
 test('the 24 Nov scope seals only explicitly reviewed Sofia and image files with their prior bytes', async () => {
   const hash = value => createHash('sha256').update(value).digest('hex')
@@ -41,7 +42,8 @@ test('only the two public subcategory navigation views lose the AI display, with
   const changed = git('diff', '--name-only', '--no-renames', '-z', subcategoryReceipt.baseline, '--').toString().split('\0')
   const untracked = git('ls-files', '--others', '--exclude-standard', '-z').toString().split('\0')
   assert.deepEqual([...new Set([...changed, ...untracked])].filter(path => path && path !== 'node_modules'
-    && !path.startsWith('tests/') && !serviceDetailPhotoCoverageAllowsPath(path) && !servicePhotoMarkerAllowsFileChange(path)).sort(), paths)
+    && !path.startsWith('tests/') && !serviceDetailPhotoCoverageAllowsPath(path) && !servicePhotoMarkerAllowsFileChange(path)
+    && !serviceDetailPhotoExpansionAllowsNewFile(path)).sort(), paths)
   for (const [path, { before, after }] of Object.entries(subcategoryReceipt.changed)) {
     const current = await readFile(new URL('../' + path, import.meta.url))
     const original = git('show', subcategoryReceipt.baseline + ':' + path)

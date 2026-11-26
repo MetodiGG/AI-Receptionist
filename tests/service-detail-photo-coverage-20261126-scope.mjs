@@ -4,6 +4,7 @@ import { lstatSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import receipt from './fixtures/service-detail-photo-coverage-20261126-approval.json' with { type: 'json' }
 import { preServicePhotoMarkerSource } from './service-photo-marker-20261126-scope.mjs'
+import { preServiceDetailPhotoExpansionSource } from './service-detail-photo-expansion-20261126-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -22,7 +23,8 @@ function fileMatches(path, hash) {
   try {
     const url = new URL('../' + path, import.meta.url)
     const mode = lstatSync(url)
-    return mode.isFile() && !(mode.mode & 0o111) && sha(preServicePhotoMarkerSource(path, readFileSync(url))) === hash
+    const source = preServiceDetailPhotoExpansionSource(path, readFileSync(url))
+    return mode.isFile() && !(mode.mode & 0o111) && sha(preServicePhotoMarkerSource(path, source)) === hash
   } catch { return false }
 }
 

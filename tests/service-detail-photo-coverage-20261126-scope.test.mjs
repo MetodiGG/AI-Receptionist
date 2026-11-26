@@ -10,6 +10,7 @@ import {
   serviceDetailPhotoCoverageAllowsFileChange, serviceDetailPhotoCoverageAllowsNewFile, serviceDetailPhotoCoverageAllowsPath,
 } from './service-detail-photo-coverage-20261126-scope.mjs'
 import { preServicePhotoMarkerSource, servicePhotoMarkerAllowsFileChange } from './service-photo-marker-20261126-scope.mjs'
+import { preServiceDetailPhotoExpansionSource, serviceDetailPhotoExpansionAllowsNewFile } from './service-detail-photo-expansion-20261126-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -23,6 +24,7 @@ test('detail-photo changes cannot alter category, subcategory or business covers
   const changed = split(git('diff', '--no-renames', '--name-only', '-z', receipt.baseline, '--'))
   const untracked = split(git('ls-files', '--others', '--exclude-standard', '-z'))
   const actual = [...new Set([...changed, ...untracked])].filter(path => operational(path)
+    && !serviceDetailPhotoExpansionAllowsNewFile(path)
     && (serviceDetailPhotoChangedPath(path) || !servicePhotoMarkerAllowsFileChange(path))).sort()
   const reviewed = [...Object.keys(receipt.changed).filter(path => receipt.changed[path].after !== null), ...Object.keys(receipt.added)]
   assert.deepEqual(actual, reviewed.sort(), 'runtime changes must have independent SHA-256 review evidence')
@@ -46,7 +48,8 @@ test('detail-photo changes cannot alter category, subcategory or business covers
   }
   for (const [path, hash] of Object.entries(receipt.added)) {
     assert.ok(serviceDetailPhotoAddedPath(path), path)
-    assert.equal(sha(await readFile(new URL('../' + path, import.meta.url))), hash, path)
+    const source = preServiceDetailPhotoExpansionSource(path, await readFile(new URL('../' + path, import.meta.url)))
+    assert.equal(sha(source), hash, path)
     assert.ok(serviceDetailPhotoCoverageAllowsNewFile(path), path)
     const baseline = split(git('ls-tree', '--name-only', '-r', '-z', receipt.baseline, '--', path))
     assert.deepEqual(baseline, [], path + ' must be a new path')

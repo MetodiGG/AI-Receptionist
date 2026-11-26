@@ -12,6 +12,7 @@ import { mobileCatalogueAllowsNewFile } from './mobile-catalogue-hotfix-scope.mj
 import { catalogueExpiryAllowsNewFile } from './catalogue-expiry-20261126-scope.mjs'
 import { posterPolishAllowsNewFile } from './poster-polish-20261126-scope.mjs'
 import { serviceDetailPhotoCoverageAllowsNewFile } from './service-detail-photo-coverage-20261126-scope.mjs'
+import { serviceDetailPhotoExpansionAllowsNewFile } from './service-detail-photo-expansion-20261126-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const pathUrl = path => new URL('../' + path, import.meta.url)
@@ -78,7 +79,7 @@ test('every operational path, mode and every unrelated byte are identical to the
   }).filter(entry => operational(entry.path))
   const actual = git('ls-files', '--cached', '--others', '--exclude-standard', '-z').toString('utf8')
     .split('\0').filter(path => path && operational(path))
-  const laterApproved = path => serviceDetailPhotoCoverageAllowsNewFile(path) || mobileCatalogueAllowsNewFile(path) || catalogueExpiryAllowsNewFile(path) || posterPolishAllowsNewFile(path)
+  const laterApproved = path => serviceDetailPhotoExpansionAllowsNewFile(path) || serviceDetailPhotoCoverageAllowsNewFile(path) || mobileCatalogueAllowsNewFile(path) || catalogueExpiryAllowsNewFile(path) || posterPolishAllowsNewFile(path)
   const laterApprovedFiles = actual.filter(laterApproved)
   assert.deepEqual([...new Set(actual.filter(path => !laterApproved(path)))].sort(),
     [...baseline.map(entry => entry.path), ...Object.keys(receipt.added)].sort())

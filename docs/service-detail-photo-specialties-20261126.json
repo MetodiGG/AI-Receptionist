@@ -1,0 +1,268 @@
+{
+  "date": "2026-11-26",
+  "generator": "OpenAI built-in image generation",
+  "assets": [
+    {
+      "slug": "photo-studio-rental",
+      "file": "public/service-photos/go-detail-photo-studio-rental-20261126-v2.webp",
+      "sourceSha256": "92c5a47f6bde292a924744fde22acd5ee86ebb144d98ca175abfed479cf8d3ca",
+      "optimizedSha256": "fa4be3bb38f121d22ef2c13040d99c5f89287940475fae9d38a90b8996a07d1d",
+      "width": 256,
+      "height": 256,
+      "bytes": 7486,
+      "prompt": "Use case: photorealistic-natural. A square GoRez service-detail image, subject legible at 128px; generic fictional business, no authenticity claim. Empty clean photography rental studio, one blank mist-blue seamless paper sweep visibly curves onto the floor, two compact softboxes on stands, a single simple posing cube off centre, perspective from doorway. No people, video podcast equipment or signage. Medium-wide real estate photo, crisp recognizable arrangement. A single realistic editorial photograph. Natural geometry, restrained colour, no captions, text, logos, watermark, mirrored hands or collage.",
+      "visualReview": "Empty sweep, softboxes and posing block convey studio rental without a real venue or booked photographer.",
+      "primaryKeys": [
+        "photography-session"
+      ],
+      "only": "(?:студио.*под наем|наем.*студи|studio.*rent|rent.*studio)",
+      "skip": "(?:на открито|с фотограф|outdoor|with photographer)"
+    },
+    {
+      "slug": "studio-portrait-session",
+      "file": "public/service-photos/go-detail-studio-portrait-session-20261126-v2.webp",
+      "sourceSha256": "794539b9f931f1184d02c4526e4525177c5114731972df26b5d7e5de997ba6dc",
+      "optimizedSha256": "ab2183499beb86a2a49c0b556865c7cac2030e1288bae13f4517bd2607536926",
+      "width": 256,
+      "height": 256,
+      "bytes": 5990,
+      "prompt": "Use case: photorealistic-natural. A square GoRez service-detail image, subject legible at 128px; generic fictional business, no authenticity claim. Candid side view of a photographer holding a camera to their eye, photographing a single adult from chest up in an ordinary portrait studio, blank muted slate backdrop and one soft light. The arrangement, not a glamorized model, is the focus. No families, products, house or wedding. Shot from behind the photographer. A single realistic editorial photograph. Natural geometry, restrained colour, no captions, text, logos, watermark, mirrored hands or collage.",
+      "visualReview": "One adult and one photographer in a plain backdrop studio, no wedding, family, or child shoot.",
+      "primaryKeys": [
+        "photography-session"
+      ],
+      "only": "(?:портрет|студийн.*фотосес|фотосес.*студи|бизнес.*портрет|професионалн.*профил|portrait|headshot|studio photo)",
+      "skip": "(?:под наем|наем на|семейн|новороден|беб|сватб|продукт|детск|колед|открито|семейств|rent|family|newborn|child|wedding|product|outdoor|christmas)"
+    },
+    {
+      "slug": "family-portrait-photo-session",
+      "file": "public/service-photos/go-detail-family-portrait-photo-session-20261126-v2.webp",
+      "sourceSha256": "b5d0453ef65694b64426ee6d70adfcd47c0e2952a854bf65d96a4a88842a58b8",
+      "optimizedSha256": "5c6e21a99b6178cc261c15c415e1e88d42f5b16a80e1936a7c5e56ea9af35934",
+      "width": 256,
+      "height": 256,
+      "bytes": 12952,
+      "prompt": "Use case: photorealistic-natural. A square GoRez service-detail image, subject legible at 128px; generic fictional business, no authenticity claim. Inside a neutral daylight portrait studio, a professional photographer seated side-on with a small camera captures a family consisting of two casually dressed adults and one school-age child sitting together. Subjects comfortable and not posed at camera to viewer, no Christmas props or wedding clothes. Readable at thumbnail scale. A single realistic editorial photograph. Natural geometry, restrained colour, no captions, text, logos, watermark, mirrored hands or collage.",
+      "visualReview": "An adult family portrait shoot with a school-age child, no pregnancy, newborn or seasonal scene.",
+      "primaryKeys": [
+        "photography-session"
+      ],
+      "only": "(?:семейн.*фотосес|фотосес.*семейн|family.*photo)",
+      "skip": "(?:на открито|новороден|бремен|колед|outdoor|newborn|maternity|christmas)"
+    },
+    {
+      "slug": "studio-photo-gear",
+      "file": "public/service-photos/go-detail-studio-photo-gear-20261126-v2.webp",
+      "sourceSha256": "1493f8f9c101d126c3d68e3917cc8522f16ea9d236909c6ffb362b728c1f1586",
+      "optimizedSha256": "d392580b782fe9656ccd3d07ce93027127db907516ce1f96d30bd1fb0055ff48",
+      "width": 256,
+      "height": 256,
+      "bytes": 5946,
+      "prompt": "Use case: photorealistic-natural. A square GoRez service-detail image, subject legible at 128px; generic fictional business, no authenticity claim. Documentary detail of a generic mirrorless camera attached to a compact tripod, in front of a blurred off-white photography backdrop with a softbox, no people or props. Wide enough to recognize photo session gear without asserting subject or studio ownership. No unrelated interior or promotional material. A single realistic editorial photograph. Natural geometry, restrained colour, no captions, text, logos, watermark, mirrored hands or collage.",
+      "visualReview": "Tripod camera and softbox illustrate a photography session without claiming a specific person or venue.",
+      "primaryKeys": [
+        "photography-session"
+      ],
+      "only": "(?:фотосес|photoshoot|photo session)",
+      "skip": "(?:под наем|наем на|навън|открито|екстериор|сватб|колед|новороден|беб|бремен|грим|причес|ретуш|on location|outdoor|rent|newborn|maternity|christmas|wedding|makeup|make-up|hairstyl|retouch|photo editing)"
+    },
+    {
+      "slug": "tooth-restoration-model",
+      "file": "public/service-photos/go-detail-tooth-restoration-model-20261126-v2.webp",
+      "sourceSha256": "a36a9a254c56df649dcb24a25c618b9f9bee8da97f379e0a5d86accddadae84b",
+      "optimizedSha256": "eef94f049098ba0a336cebf78126c4780ded697658b7f95a62f65e4ad88275ed",
+      "width": 256,
+      "height": 256,
+      "bytes": 11304,
+      "prompt": "Use case: photorealistic-natural. A square GoRez service-detail image, subject legible at 128px; generic fictional business, no authenticity claim. A dentist's office training tooth model on a blue sterile pad, gloved hand showing a small unmarked white tooth-coloured composite sample in a shallow cup next to the model and a tiny dental mirror. Explicitly a demonstration model outside a patient's mouth. No drilling, injury, needles or procedure steps. A single realistic editorial photograph. Natural geometry, restrained colour, no captions, text, logos, watermark, mirrored hands or collage.",
+      "visualReview": "Composite sample cup, mirror and teaching jaw, with no real procedure or patient.",
+      "primaryKeys": [
+        "dental-filling"
+      ],
+      "only": "(?:пломб|кариес|обтурац|композит|фотополимер|filling|caries|restoration)",
+      "skip": "(?:коренов|мост|корон|избел|root canal|whiten|crown)"
+    },
+    {
+      "slug": "endodontic-demonstration-model",
+      "file": "public/service-photos/go-detail-endodontic-demonstration-model-20261126-v2.webp",
+      "sourceSha256": "003ef50468b20ff0dc9ed815c96c3ada84ce45d47c99fc204404a7293f7d4c0d",
+      "optimizedSha256": "32030b3a626675c72748a95cc86c8197d81156c8a372942a222caf96e5c75de4",
+      "width": 256,
+      "height": 256,
+      "bytes": 9722,
+      "prompt": "Use case: photorealistic-natural. A square GoRez service-detail image, subject legible at 128px; generic fictional business, no authenticity claim. Dental education display on a muted lavender-gray clinical tray: a physical cross-section teaching model of a single molar with transparent cutaway showing its roots, with a dentist's blue gloved hand pointing toward it using a plain mirror. Not a patient, no surgery, blood or demonstrated instrumentation. Macro angle with unmistakable tooth and roots. A single realistic editorial photograph. Natural geometry, restrained colour, no captions, text, logos, watermark, mirrored hands or collage.",
+      "visualReview": "A training cutaway molar shows the visible roots; no tools entering a patient or treatment demonstration.",
+      "primaryKeys": [
+        "dental-root-canal"
+      ],
+      "only": "(?:коренов|пулпит|канал|endodont|root canal)",
+      "skip": "(?:избел|белота|ортодонт|мост|whiten|orthodont|bridge)"
+    },
+    {
+      "slug": "adult-therapy-conversation",
+      "file": "public/service-photos/go-detail-adult-therapy-conversation-20261126-v2.webp",
+      "sourceSha256": "73035c4bdf27d99d72e826f1f3a27b5293eaa6bbc596087ee35cd73925db77a1",
+      "optimizedSha256": "7196cd5ea5902b01d22f79703b010faa9a86345ccc9340edd6fb40e3c0cfeeb5",
+      "width": 256,
+      "height": 256,
+      "bytes": 6946,
+      "prompt": "Use case: photorealistic-natural. A square GoRez service-detail image, subject legible at 128px; generic fictional business, no authenticity claim. Anonymous one-to-one adult mental health consultation viewed from behind one adult visitor's shoulder, the listening professional seated opposite in softly lit unidentifiable modern room. relaxed, fully clothed, no posed smiles, no health claims, no symbols or notebook as main object. Simple mid-shot, out-of-focus backdrop in muted olive and stone. A single realistic editorial photograph. Natural geometry, restrained colour, no captions, text, logos, watermark, mirrored hands or collage.",
+      "visualReview": "Adult client and a single professional in a calm in-person consultation, no specific diagnosis.",
+      "primaryKeys": [
+        "psychology-consultation"
+      ],
+      "only": "(?:психотерап|психолог|therapy session|psycholog)",
+      "skip": "(?:детск|деца|дете|младеж|юнош|родител|семей|двойк|партньор|групов|онлайн|дистанц|психиат|child|teen|famil|group|couple|remote|online|psychiatr)"
+    },
+    {
+      "slug": "adult-private-language-tutoring",
+      "file": "public/service-photos/go-detail-adult-private-language-tutoring-20261126-v2.webp",
+      "sourceSha256": "f493558080c4c7277b8d281bfe7716dd74c6210e0db552e46808aa0fa35901cb",
+      "optimizedSha256": "12df1cf5ce944f6efed7f37065032544538d9e2b41d396f16ea68b3369dcc1e9",
+      "width": 256,
+      "height": 256,
+      "bytes": 14198,
+      "prompt": "Use case: photorealistic-natural. A square GoRez service-detail image, subject legible at 128px; generic fictional business, no authenticity claim. One adult foreign-language tutor demonstrating pronunciation with coloured, completely non-lettered picture cards to one adult across a small birch desk. Eye-level side view and gesture visible; no screens, academic flags or identifiable language. Natural daylight, muted steel blue and honey wood. A single realistic editorial photograph. Natural geometry, restrained colour, no captions, text, logos, watermark, mirrored hands or collage.",
+      "visualReview": "Two adults working one-to-one with picture cards, no named language or school.",
+      "primaryKeys": [
+        "language-lesson"
+      ],
+      "only": "(?:индивидуал|частен|частни|private|one.to.one|individual)",
+      "skip": "(?:детск|дете|деца|учени(?:к|ци|чка|чески)|юнош|тийнейдж|музик|пеен|пиано|актьор|математ|спорт|груп|онлайн|дистанц|child|teenager|group|online|music|singing|piano|acting|math)"
+    },
+    {
+      "slug": "child-private-language-tutoring",
+      "file": "public/service-photos/go-detail-child-private-language-tutoring-20261126-v2.webp",
+      "sourceSha256": "3103dbf241ae16209ba003372e8a37b8bd8e62653c36091789e6fc2d3a23c4ba",
+      "optimizedSha256": "aa9354d8fc070cc665a614c00c412e19357ab73a94b1374934ec0a1e76b7cc03",
+      "width": 256,
+      "height": 256,
+      "bytes": 15342,
+      "prompt": "Use case: photorealistic-natural. A square GoRez service-detail image, subject legible at 128px; generic fictional business, no authenticity claim. One school-age learner and one fully clothed adult language teacher seated side-on at a modest daylight teaching table, pointing to a set of picture cards depicting an apple and a boat, no text or flags, relaxed attentive expression. No other pupils, screens or school logos. Candid recognizable private language lesson. A single realistic editorial photograph. Natural geometry, restrained colour, no captions, text, logos, watermark, mirrored hands or collage.",
+      "visualReview": "One child and a single tutor with language picture cards, not a classroom or an advertised business.",
+      "primaryKeys": [
+        "language-lesson",
+        "sx-child-language-individual"
+      ],
+      "only": "(?:индивидуал.*(?:дете|деца|детск|учени(?:к|ци|чка|чески)|юнош|тийнейдж)|(?:дете|деца|детск|учени(?:к|ци|чка|чески)|юнош|тийнейдж).*индивидуал|private.*(?:child|kid|teenager)|one.to.one.*(?:child|kid|teenager))",
+      "skip": "(?:музик|пиано|актьор|математ|литератур|групов|онлайн|дистанц|music|piano|acting|math|literature|group|online|remote)"
+    },
+    {
+      "slug": "passenger-car-driving-lesson",
+      "file": "public/service-photos/go-detail-passenger-car-driving-lesson-20261126-v2.webp",
+      "sourceSha256": "30a478cbe02f13fefb6ef3083aeda1f92acea08afac486f12c3869bb3a5b0382",
+      "optimizedSha256": "341fef964b0cbd5a767379f6060d1ae7b4586e21637560f2c859118c56324377",
+      "width": 256,
+      "height": 256,
+      "bytes": 10206,
+      "prompt": "Use case: photorealistic-natural. A square GoRez service-detail image, subject legible at 128px; generic fictional business, no authenticity claim. Documentary photograph from back seat of stationary left-hand-drive compact car in an empty practice pull-in, one adult learner in driver seat with hands naturally on wheel and one adult instructor in front passenger seat gesturing in direction of front windshield. Normal seatbelts, no moving traffic, plates, company branding or dashboard text. A single realistic editorial photograph. Natural geometry, restrained colour, no captions, text, logos, watermark, mirrored hands or collage.",
+      "visualReview": "Learner and instructor inside the stationary left-hand-drive car with a daylight empty practice pull-in.",
+      "primaryKeys": [
+        "driving-lesson"
+      ],
+      "only": "(?:кормуван|шофьорск.*(?:курс|категор)|опреснител.*(?:курс|обучен)|driving.*(?:lesson|course)|refresher.*driv)",
+      "skip": "(?:категория (?:C|D|A)|category (?:C|D|A)|мотоцик|камион|автобус|truck|motorcycle|bus|теория|theory)"
+    },
+    {
+      "slug": "general-music-lesson-setup",
+      "file": "public/service-photos/go-detail-general-music-lesson-setup-20261126-v2.webp",
+      "sourceSha256": "53d8a5623e114f844581acd496f59c148d468c20bd9a54ad69a5731bb2e4f947",
+      "optimizedSha256": "58b6035330a57fccef7a22dfbe3283d6917ed5f5aa8e7dcc58c8995833b223d8",
+      "width": 256,
+      "height": 256,
+      "bytes": 19670,
+      "prompt": "Use case: photorealistic-natural. A square GoRez service-detail image, subject legible at 128px; generic fictional business, no authenticity claim. An unoccupied generic music tuition corner with an adjustable music stand carrying indistinct line markings facing two ordinary stools; several unobtrusive choices of instrument at edges, not an instrument-centred product photo. Natural afternoon daylight and warm lived-in acoustical surface. Do not imply a specific instrument, band, school or examination. A single realistic editorial photograph. Natural geometry, restrained colour, no captions, text, logos, watermark, mirrored hands or collage.",
+      "visualReview": "Unoccupied practice space with a stand and instruments at the edge, not a commitment to one instrument.",
+      "primaryKeys": [
+        "music-lesson-choice"
+      ],
+      "only": "(?:музикал.*(?:урок|обучен)|(?:урок|обучен).*музикал|music lesson)",
+      "skip": "(?:онлайн|пиано|китар|пеен|барабан|цигул|online|guitar|piano|singing|drum|violin)"
+    },
+    {
+      "slug": "conditioning-hair-mask-application",
+      "file": "public/service-photos/go-detail-conditioning-hair-mask-application-20261126-v2.webp",
+      "sourceSha256": "60bf6a4eeacb5be96b0014bb90f3ea05cccf01c3ca722cb84f9f7fe6fd557a7f",
+      "optimizedSha256": "6e92eaffbe331186adb3cb730e07ed3ccb07ec01d9975ac893ff22b790f4df82",
+      "width": 256,
+      "height": 256,
+      "bytes": 11810,
+      "prompt": "Use case: photorealistic-natural. A square GoRez service-detail image, subject legible at 128px; generic fictional business, no authenticity claim. A gloved hair-care professional gently smooths a light conditioner or treatment cream along the mid-lengths of separated damp hair at a salon wash station, arms and bare hair only, no visible substance brand. Generic cosmetic conditioning, not hair dye or any injection; no scalp disease, equipment labels, syringes or medical imagery. A single realistic editorial photograph. Natural geometry, restrained colour, no captions, text, logos, watermark, mirrored hands or collage.",
+      "visualReview": "Cosmetic conditioning cream applied to wet lengths at the wash station, no injections or scalp claims.",
+      "primaryKeys": [
+        "sx-hair-treatment"
+      ],
+      "only": "(?:терапия|пластия|bioplast|хидратац|възстанов|ботокс|hair treatment|conditioning)",
+      "skip": "(?:инжек|косопад|дермат|scalp medical|inject|alopecia)"
+    },
+    {
+      "slug": "car-wheel-alignment-measurement",
+      "file": "public/service-photos/go-detail-car-wheel-alignment-measurement-20261126-v2.webp",
+      "sourceSha256": "22a87a72f24f74ae76f30cefbdb01a5eb70193ed6c8477be068c04df0b464f70",
+      "optimizedSha256": "cd790f2997d1af26b64c848719627ef1d51f38af948e123694e8e039e72bcb07",
+      "width": 256,
+      "height": 256,
+      "bytes": 15744,
+      "prompt": "Use case: photorealistic-natural. A square GoRez service-detail image, subject legible at 128px; generic fictional business, no authenticity claim. Side low close workshop photo of a passenger-car front wheel at a level alignment rack, a plain rectangular optical alignment target clamped squarely onto the fitted alloy rim with believable rim-grip contact, vehicle remains installed, simple garage lighting. No loose wheel on bench, balancing hood or mechanics under unsupported vehicle. Generic actual alignment scene. A single realistic editorial photograph. Natural geometry, restrained colour, no captions, text, logos, watermark, mirrored hands or collage.",
+      "visualReview": "An optical target clamps onto a wheel that remains installed, clearly not off-car balancing.",
+      "primaryKeys": [
+        "wheel-alignment"
+      ],
+      "only": "(?:реглаж|геометрия|сходимост|alignment|tracking)",
+      "skip": "(?:мотоцик|камион|motorcycle|lorry|truck)"
+    },
+    {
+      "slug": "vehicle-ac-service-station",
+      "file": "public/service-photos/go-detail-vehicle-ac-service-station-20261126-v2.webp",
+      "sourceSha256": "f3df1ae2d1d1b6fa4d382a8428fd017a1b5d968cb6c3732c680901995181855b",
+      "optimizedSha256": "83fd7dadf76380efdf2fae3341a420a4ebf81626a8bdb557cd2e9d47a0d22ae5",
+      "width": 256,
+      "height": 256,
+      "bytes": 14570,
+      "prompt": "Use case: photorealistic-natural. A square GoRez service-detail image, subject legible at 128px; generic fictional business, no authenticity claim. Unbranded automotive AC service trolley next to an open passenger-car bonnet, a red hose and a blue hose clearly leading into the service bay, no person or recognizable vehicle badge. Plausible ordinary workshop, understated display turned away and no visible refrigerant type or instructions. Illustrative equipment only, not a home climate unit. A single realistic editorial photograph. Natural geometry, restrained colour, no captions, text, logos, watermark, mirrored hands or collage.",
+      "visualReview": "Unbranded automotive A/C equipment and hoses beside a passenger-car engine bay, no refrigerant specification.",
+      "primaryKeys": [
+        "car-aircon-service"
+      ],
+      "only": "(?:климатик|фреон|ac service|air.condition)",
+      "skip": "(?:домашен|на стена|split.system|home air)",
+      "alt": {
+        "bg": "Примерна снимка на апарат за обслужване на автомобилен климатик",
+        "en": "Illustrative car air-conditioning service equipment"
+      }
+    },
+    {
+      "slug": "volume-lash-fan-placement",
+      "file": "public/service-photos/go-detail-volume-lash-fan-placement-20261126-v2.webp",
+      "sourceSha256": "50a2b888315663e71f9b3284551cfce7132bb9375fda03c6aba8c9548ff48053",
+      "optimizedSha256": "b1aa92b6c425ea1b4007a4efa7908ba0e0f1f80ce00fffb9438a39e26b31a854",
+      "width": 256,
+      "height": 256,
+      "bytes": 11296,
+      "prompt": "Use case: photorealistic-natural. A square GoRez service-detail image, subject legible at 128px; generic fictional business, no authenticity claim. Macro of a closed adult eyelid during volume lash placement, a single thin small fan of several separated lash fibres visibly held by precision tweezers beside the lash line, eye securely closed and unstressed, clean cotton under-eye pad, authentic salon texture and soft neutral lighting. No single-strand lashes as the main action, no contact with open eye. A single realistic editorial photograph. Natural geometry, restrained colour, no captions, text, logos, watermark, mirrored hands or collage.",
+      "visualReview": "A small visible fan of fibres is held by tweezers at a closed adult eyelid with a protective pad.",
+      "primaryKeys": [
+        "lash-extensions"
+      ],
+      "only": "(?:обем|мега|[2-6]d|volume|fan lashes)",
+      "skip": "(?:свалян|ламиниран|ремув|removal|lamination)"
+    },
+    {
+      "slug": "passenger-tyre-mounting",
+      "file": "public/service-photos/go-detail-passenger-tyre-mounting-20261126-v2.webp",
+      "sourceSha256": "06f2984b7a791cfcb91bbb34c9d1e6aaa9752a428ee7867a0ac7ea84e7c04b75",
+      "optimizedSha256": "adb85e04c224e6fcc66a1ac61ea882fa1d1c97823684e3c268c9c8f2da5f5c40",
+      "width": 256,
+      "height": 256,
+      "bytes": 16158,
+      "prompt": "Use case: photorealistic-natural. A square GoRez service-detail image, subject legible at 128px; generic fictional business, no authenticity claim. Side close workshop photograph showing a passenger car tyre being fitted onto an alloy rim lying horizontally on a plausible ordinary tyre-changing machine turntable, with the demount head over the bead and a mechanic's gloved hands resting at a safe edge. No wheel balancing spindle, no printed logo, no injuries. A single realistic editorial photograph. Natural geometry, restrained colour, no captions, text, logos, watermark, mirrored hands or collage.",
+      "visualReview": "The off-car wheel lies horizontally in the mounting machine, not a horizontal spindle balancer.",
+      "primaryKeys": [
+        "tyre-change",
+        "sx-auto-workshop-tyre-fit-balance"
+      ],
+      "only": "(?:(?:смяна|монтаж|демонтаж).*гум|гум.*(?:смяна|монтаж|демонтаж)|tyre.*(?:change|fit)|tire.*(?:change|mount))",
+      "skip": "(?:само баланс|камьон|камион|мото|balance only|truck|motorcycle)"
+    }
+  ]
+}

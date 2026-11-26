@@ -1,0 +1,651 @@
+[
+  {
+    "src": "/service-photos/go-detail-beard-shaping-20261126-v2.webp",
+    "primaryKeys": [
+      "beard-trim"
+    ],
+    "only": "(?:брада|beard)",
+    "skip": "(?:боядис|цвят|бръснен|само муста|colour|dye|shav)"
+  },
+  {
+    "src": "/service-photos/go-detail-round-brush-blowdry-20261126-v2.webp",
+    "primaryKeys": [
+      "hair-blowdry"
+    ],
+    "only": "(?:сешоар|blow.?dry|blowout)",
+    "skip": "(?:булк|плитк|деца|детск|перманент|bridal|braid|child)"
+  },
+  {
+    "src": "/service-photos/go-detail-classic-natural-manicure-20261126-v2.webp",
+    "primaryKeys": [
+      "classic-manicure"
+    ],
+    "only": "(?:маникюр|manicure)",
+    "skip": "(?:гел|изграждан|типс|ноктопласт|педикюр|гелиш|сваля|комбинац|френск|декорац|(?:с )обикновен лак|gel|extension|acrylic|nail art|polish removal|french)"
+  },
+  {
+    "src": "/service-photos/go-detail-classic-unpolished-pedicure-20261126-v2.webp",
+    "primaryKeys": [
+      "classic-pedicure"
+    ],
+    "only": "(?:педикюр|ноктите на крака|pedicure|toenail)",
+    "skip": "(?:гел|апарат|лечеб|медицин|с лак|френск|гъб|враснал|gel|medical|electric|with polish|french|ingrown)"
+  },
+  {
+    "src": "/service-photos/go-detail-sculpted-gel-extension-20261126-v2.webp",
+    "primaryKeys": [
+      "nail-extension"
+    ],
+    "only": "(?:изграждан|ноктопласт|удължаван|extension|sculpt)",
+    "skip": "(?:полигел|акрил|типс|акригел|acrylic|tips|polygel)"
+  },
+  {
+    "src": "/service-photos/go-detail-full-length-hair-tint-20261126-v2.webp",
+    "primaryKeys": [
+      "full-hair-color",
+      "hair-color"
+    ],
+    "only": "(?:боядис|боя|оцвет|hair colo[u]?r|dye)",
+    "skip": "(?:корен|балеаж|кичур|омбре|изрус|мелиран|камуфл|корекция|root|balayage|highlight|bleach|ombre|colour correction)"
+  },
+  {
+    "src": "/service-photos/go-detail-hair-root-retouch-20261126-v2.webp",
+    "primaryKeys": [
+      "full-hair-color",
+      "hair-color",
+      "sx-hair-root-colour-rough-dry"
+    ],
+    "only": "(?:корен|root)",
+    "skip": "(?:балеаж|кичур|изрус|balayage|highlight|bleach)"
+  },
+  {
+    "src": "/service-photos/go-detail-occasion-makeup-20261126-v2.webp",
+    "primaryKeys": [
+      "makeup"
+    ],
+    "only": "(?:грим|make.?up)",
+    "skip": "(?:перманент|микроблейд|мигл|свалян|специалн.*ефект|уро[кц]|курс|permanent|microblad|remov|special effect|lesson)"
+  },
+  {
+    "src": "/service-photos/go-detail-waxing-supplies-20261126-v2.webp",
+    "primaryKeys": [
+      "sx-beauty-wax-equipment",
+      "waxing"
+    ],
+    "only": "(?:кола маска|епилация с восък|wax(?:ing)?)",
+    "skip": "(?:захар|шугар|лазер|ipl|sugar|laser)",
+    "alt": {
+      "bg": "Примерна снимка на оборудване за кола маска, не е оборудването на бизнеса",
+      "en": "Illustrative waxing equipment, not the business's own equipment"
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-french-gel-tip-20261126-v2.webp",
+    "primaryKeys": [
+      "gel-manicure",
+      "gel-manicure-with-removal"
+    ],
+    "only": "(?:френск|french)",
+    "skip": "(?:педикюр|свалян|ноктопласт|pedicure|removal|extension)"
+  },
+  {
+    "src": "/service-photos/go-detail-manual-face-cleansing-20261126-v2.webp",
+    "primaryKeys": [
+      "facial-cleansing"
+    ],
+    "only": "(?:почистване.*лице|лице.*почистване|facial cleans)",
+    "skip": "(?:апарат|ултразв|екстракц|водород|дермабраз|карбокси|с пара|hydra|ultra|device|steam|extraction|dermabrasion)"
+  },
+  {
+    "src": "/service-photos/go-detail-classic-eyelash-placement-20261126-v2.webp",
+    "primaryKeys": [
+      "lash-extensions"
+    ],
+    "only": "(?:миглопласт|(?:косъм|косъмче) по|поставян.*мигл|удължав.*мигл|lashes|lash extensions)",
+    "skip": "(?:[2-9]d|мега|обем|ламинир|свалян|volume|removal|lamination)"
+  },
+  {
+    "src": "/service-photos/go-detail-freehand-balayage-20261126-v2.webp",
+    "primaryKeys": [
+      "hair-balayage"
+    ],
+    "only": "(?:балеаж|баляж|balayage)",
+    "skip": "(?:омбре|кичури с шапка|ombre|cap highlights)"
+  },
+  {
+    "src": "/service-photos/go-detail-tweezer-brow-shape-20261126-v2.webp",
+    "primaryKeys": [
+      "brow-shaping"
+    ],
+    "only": "(?:вежд|brow)",
+    "skip": "(?:конец|ламиниран|перманент|микро|боядис|кола маска|thread|laminat|tattoo|microblad|dye|wax)"
+  },
+  {
+    "src": "/service-photos/go-detail-child-haircut-20261126-v2.webp",
+    "primaryKeys": [
+      "kids-haircut"
+    ],
+    "only": "(?:детск|дете|момче|момич|children|child|kid)",
+    "skip": "(?:беб|под 2 г|baby|infant|под 1 г)"
+  },
+  {
+    "src": "/service-photos/go-detail-brow-threading-20261126-v2.webp",
+    "primaryKeys": [
+      "barber-brow-threading"
+    ],
+    "only": "(?:вежд.*конец|конец.*вежд|threading)",
+    "skip": "(?:боядис|перманент|ламиниран|tint|permanent|laminat)"
+  },
+  {
+    "src": "/service-photos/go-detail-hand-nail-art-20261126-v2.webp",
+    "primaryKeys": [
+      "nail-art",
+      "gel-manicure"
+    ],
+    "only": "(?:декорац|рисунк|рисуван|nail art|hand.paint)",
+    "skip": "(?:без декорац|свалян|педикюр|френск|no nail art|pedicure|french|removal)"
+  },
+  {
+    "src": "/service-photos/go-detail-simple-hair-braid-20261126-v2.webp",
+    "primaryKeys": [
+      "hair-braiding"
+    ],
+    "only": "(?:плитк|braid)",
+    "skip": "(?:афро|екстенш|канекалон|косопад|африкан|afro|extension|kanekalon|cornrow)"
+  },
+  {
+    "src": "/service-photos/go-detail-lash-lift-shield-20261126-v2.webp",
+    "primaryKeys": [
+      "lash-lift"
+    ],
+    "only": "(?:ламиниран.*мигл|мигл.*ламиниран|lash lift|lash laminat)",
+    "skip": "(?:миглопласт|свалян|изкуствен|extensions|removal)"
+  },
+  {
+    "src": "/service-photos/go-detail-auto-computer-diagnostics-20261126-v2.webp",
+    "primaryKeys": [
+      "auto-diagnostics"
+    ],
+    "only": "диагност|грешк|сканиран|диагноза|diagnos|scan",
+    "skip": "климатик|фреон|гуми|бойлер|охлаждане|air.condition|механичн",
+    "alt": {
+      "bg": "Примерна снимка на диагностичен уред, свързан към автомобил",
+      "en": "Illustrative photograph of a scan tool connected to a vehicle"
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-auto-tyre-service-20261126-v2.webp",
+    "primaryKeys": [
+      "tyre-change",
+      "sx-auto-workshop-tyre-fit-balance"
+    ],
+    "only": "баланс|balanc",
+    "skip": "мотоцикл|моторн|велосипед|изправяне|боядисване|ъгъл|реглаж",
+    "alt": {
+      "bg": "Примерна снимка на баланс на автомобилна гума",
+      "en": "Illustrative photograph of a car wheel being balanced"
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-auto-roadworthiness-check-20261126-v2.webp",
+    "primaryKeys": [
+      "vehicle-technical-inspection"
+    ],
+    "only": "технически преглед|годишен.*преглед|roadworthiness|technical inspection",
+    "skip": "мотоциклет|ремарке|камион|автобус|газова уредба|LPG|trailer|motorcycle|бус|кемпер|4[хx×]4|товарн|джип|SUV|van|camper|commercial",
+    "alt": {
+      "bg": "Примерна снимка на автомобил в линия за технически преглед",
+      "en": "Illustrative photograph of a vehicle in a roadworthiness inspection lane"
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-auto-engine-oil-service-20261126-v2.webp",
+    "primaryKeys": [
+      "oil-change"
+    ],
+    "only": "двигател|масло|oil",
+    "skip": "скоростн|диференциал|автоматична|гред|transmission|gearbox",
+    "alt": {
+      "bg": "Примерна снимка на наливане на двигателно масло",
+      "en": "Illustrative photograph of engine oil being poured"
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-auto-suspension-components-20261126-v2.webp",
+    "primaryKeys": [
+      "suspension-repair"
+    ],
+    "only": "окачван|шарнир|носач|биалет|тампон|suspension|control arm|ball joint",
+    "skip": "кормилна рейка|реглаж|мотоциклет|пневматичн|въздушн",
+    "alt": {
+      "bg": "Примерна снимка на елементи от автомобилното окачване",
+      "en": "Illustrative photograph of automotive suspension work"
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-auto-brake-pads-20261126-v2.webp",
+    "primaryKeys": [
+      "brake-service"
+    ],
+    "only": "накладк|спирач|дисков|brake",
+    "skip": "барабан|маркуч|течност|обезвъздуш|ABS|drum|bleed",
+    "alt": {
+      "bg": "Примерна снимка на автомобилен спирачен диск и накладка",
+      "en": "Illustrative photograph of a brake rotor and pad"
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-car-exterior-mitt-wash-20261126-v2.webp",
+    "primaryKeys": [
+      "car-exterior-hand-wash",
+      "sx-wash-mobile-exterior"
+    ],
+    "only": "измиван|екстериор|външн|автомивк|wash",
+    "skip": "самообслуж|автоматичн|салон|керами|робот|градушк",
+    "alt": {
+      "bg": "Примерна снимка на ръчно измиване на външната част на автомобил",
+      "en": "Illustrative photograph of a vehicle exterior being hand-washed"
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-car-textile-extraction-20261126-v2.webp",
+    "primaryKeys": [
+      "interior-car-clean"
+    ],
+    "only": "пране|текстил|алкантара|изпира|extract|upholstery",
+    "skip": "кожен|кожа|перфорирана кожа|керами|leather|озон|сухо|dry",
+    "alt": {
+      "bg": "Примерна снимка на пране на текстилна автомобилна седалка",
+      "en": "Illustrative photograph of extraction cleaning on a fabric car seat"
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-car-window-tint-install-20261126-v2.webp",
+    "primaryKeys": [
+      "vehicle-window-tint"
+    ],
+    "only": "затъмняван|стъкл|window tint",
+    "skip": "фолио на фар|челно|предно челно|полиране|стоп|облепяне на каросерия|windscreen",
+    "alt": {
+      "bg": "Примерна снимка на поставяне на фолио върху странично автомобилно стъкло",
+      "en": "Illustrative photograph of tint film application on a side window"
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-car-headlamp-restoration-20261126-v2.webp",
+    "primaryKeys": [
+      "headlight-restoration"
+    ],
+    "only": "фар|headlight|headlamp",
+    "skip": "смяна.*круш|подмяна на фар|затъмняван|фолиране|диагност|bulb replacement",
+    "alt": {
+      "bg": "Примерна снимка на полиране на автомобилен фар",
+      "en": "Illustrative photograph of polishing a car headlamp"
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-home-routine-room-cleaning-20261126-v2.webp",
+    "primaryKeys": [
+      "home-deep-clean"
+    ],
+    "only": "почистван|чистен|clean",
+    "skip": "след ремонт|след строителство|след наводнение|след пожар|офис|промишлен|след боядисване|carpet|пране на мебел|пране на диван",
+    "alt": {
+      "bg": "Примерна снимка на почистване на маса в жилище",
+      "en": "Illustrative photograph of a table being cleaned in a home"
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-pet-grooming-tool-station-20261126-v2.webp",
+    "primaryKeys": [
+      "sx-pet-full-grooming-equipment",
+      "dog-full-grooming",
+      "sx-groom-small-shortcoat"
+    ],
+    "only": "грум|groom",
+    "skip": "операция|ветеринар|медицин|само къпане|само нокти|само ушите|масаж",
+    "alt": {
+      "bg": "Примерна снимка на подготвени инструменти за груминг",
+      "en": "Illustrative photograph of pet-grooming tools laid out for use"
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-pet-dog-bath-wash-20261126-v2.webp",
+    "primaryKeys": [
+      "pet-bath"
+    ],
+    "only": "къп|баня|bath|wash",
+    "skip": "котк|сухо|котарак|грим|парфюм|cat|dry shampoo",
+    "alt": {
+      "bg": "Примерна снимка на спокойно куче по време на къпане",
+      "en": "Illustrative photograph of a calm dog being rinsed in a grooming bath"
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-pet-cat-coat-brushing-20261126-v2.webp",
+    "primaryKeys": [
+      "cat-grooming"
+    ],
+    "only": "котк|котарак|cat",
+    "skip": "къп|подстриг|бръсн|медицин|ветеринар|ужас|sedat|bath|clipper|късокосмест|short.hair",
+    "alt": {
+      "bg": "Примерна снимка на внимателно разресване на котешка козина",
+      "en": "Illustrative photograph of a cat's coat being gently brushed"
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-reformer-studio-equipment-20261126-v2.webp",
+    "primaryKeys": [
+      "reformer-pilates",
+      "sx-reformer-group"
+    ],
+    "skip": "подложк|постелк|\\bmat\\b|онлайн|online|люлк|aerial|cadillac|босу|bosu|barre|баре|chair",
+    "alt": {
+      "bg": "Пилатес реформър с подвижна платформа в примерна зала",
+      "en": "An illustrative Pilates reformer with a sliding carriage in a generic studio"
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-group-yoga-mats-20261126-v2.webp",
+    "primaryKeys": [
+      "yoga-class"
+    ],
+    "skip": "детск|деца|дете|teen|child|prenatal|бремен|гравид|индивидуал|персонал|частен|private|one.to.one|\\bonline\\b|онлайн|дистанцион|aerial|въздуш|люлк|йога нидра|yin|ин йога|детск|дами над|за жени|само жени|women.only|сениор|senior|солна|солен|salt room|стол|chair|в басейн|aquatic|кундалини|kundalini|йога нидра|nidra",
+    "alt": {
+      "bg": "Групово занимание по йога на постелки",
+      "en": "An adult group yoga class on mats"
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-bulgarian-folk-dance-rehearsal-20261126-v2.webp",
+    "primaryKeys": [
+      "sx-bulgarian-folk-group"
+    ],
+    "skip": "детск|деца|дете|child|teen|индивидуал|частен|private|\\bonline\\b|онлайн|дистанцион",
+    "alt": {
+      "bg": "Репетиция на пълнолетна група за български народни танци",
+      "en": "Adults rehearsing Bulgarian folk line dancing"
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-law-office-in-person-20261126-v2.webp",
+    "primaryKeys": [
+      "legal-consultation"
+    ],
+    "skip": "онлайн|дистанцион|по телефон|чрез телефон|видеовръзка|писмен|\\bonline\\b|video|written consultation|phone|имейл|имейл|мейл|email|чат|chat|asynchronous",
+    "alt": {
+      "bg": "Примерна среща с адвокат в кантора",
+      "en": "An illustrative in-person consultation at a law office"
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-classical-massage-table-20261126-v2.webp",
+    "primaryKeys": [
+      "massage"
+    ],
+    "skip": "лечеб|терапевтичен|физиотерап|тайланд|дълбокотъкан|тайски|спортен|лимф|горещ|вакуум|чашк|бремен|детск|деца|детето|online|therapeutic|deep tissue|thai|sports massage|lymph|hot stone|cupping|child|свещ|спортн|аромат|bliss|комбиниран|рефлексотерап|стъпал|foot|лoми",
+    "alt": {
+      "bg": "Класически масаж в примерна масажна зала",
+      "en": "Illustration of a classic massage on a treatment table"
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-children-language-classroom-20261126-v2.webp",
+    "primaryKeys": [
+      "sx-child-language-group"
+    ],
+    "skip": "на 4 г|4–5|4-5|от 4|на 5 г|5–6|5-6|предучилищ|първа група|тийн|teen|за възрастни|adult|онлайн|дистанцион|online|индивидуал|частен|private|one.to.one|на 4–7|на 4-7|на 4–6|на 4-6|4\\s*[\\-–]\\s*7|4\\s*[\\-–]\\s*6|прогимнази|middle.school",
+    "alt": {
+      "bg": "Групов присъствен езиков час за деца в начална училищна възраст",
+      "en": "An in-person group language lesson for primary-school children"
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-kinesitherapy-tools-room-20261126-v2.webp",
+    "primaryKeys": [
+      "sx-kinesitherapy-equipment",
+      "physiotherapy"
+    ],
+    "only": "кинезитерап|рехабилит|гимнастик|упражнен|двигател|превантивна терапия|kinesi|rehab|exercise",
+    "skip": "домашн|у дома|онлайн|дистанцион|лазер|електро|магнит|ударно.?вълн|shock|ultrasound|home visit|online|laser|magnet",
+    "alt": {
+      "bg": "Оборудване за двигателна рехабилитация в примерна зала",
+      "en": "Illustrative equipment for movement rehabilitation in a typical clinic"
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-mathematics-tutoring-table-20261126-v2.webp",
+    "primaryKeys": [
+      "math-lesson",
+      "sx-child-math-group"
+    ],
+    "skip": "онлайн|дистанцион|видеовръзка|online|програмир|роботик|абакус|abacus",
+    "alt": {
+      "bg": "Математическо упражнение по време на урок",
+      "en": "A mathematics exercise during a lesson"
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-piano-practice-tutor-20261126-v2.webp",
+    "primaryKeys": [
+      "piano-lesson"
+    ],
+    "skip": "теория|солфеж|онлайн|дистанцион|\\bonline\\b|theory|групов|group|синтезатор|organ",
+    "alt": {
+      "bg": "Урок по пиано на клавиатура на акустично пиано",
+      "en": "A piano lesson at an acoustic piano"
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-voice-coaching-lesson-20261126-v2.webp",
+    "primaryKeys": [
+      "vocal-lesson"
+    ],
+    "skip": "детск|деца|дете|child|групов|group|хор|choir|онлайн|дистанцион|online|караоке|karaoke|подготовк\\S*\\s+(?:за)?\\s*запис|студиен запис|recording session",
+    "alt": {
+      "bg": "Индивидуален урок по пеене в музикална стая",
+      "en": "An illustrative individual singing lesson in a music classroom"
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-guitar-coaching-lesson-20261126-v2.webp",
+    "primaryKeys": [
+      "guitar-lesson"
+    ],
+    "skip": "онлайн|дистанцион|online|групов|group|бас китара|bass guitar|електрическа китара|electric guitar",
+    "alt": {
+      "bg": "Индивидуално упражнение на акустична китара",
+      "en": "An illustrative one-to-one acoustic guitar exercise"
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-veterinary-checkup-table-20261126-v2.webp",
+    "primaryKeys": [
+      "veterinary-exam"
+    ],
+    "skip": "онлайн|по телефон|дистанцион|video|online|у дома|home visit|хирург|операц|кръв|ваксин|имуниз|рентген|разчитане|exotic|за птиц|за влечуг|заек|hamster|bird|reptil|rabbit|катетър|ambulance|кот|feline|\\bcats?\\b|папагал|таралеж|морск\\S* свин|pig|cavy|кози|птиц|hamster|bird|rabbits?",
+    "alt": {
+      "bg": "Примерен ветеринарен преглед на куче",
+      "en": "An illustrative veterinary checkup for a dog"
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-therapeutic-massage-shoulder-20261126-v2.webp",
+    "primaryKeys": [
+      "therapeutic-massage"
+    ],
+    "skip": "тайланд|тайски|горещ|вендуз|вакуум|лимф|бремен|детск|деца|child|thai|hot stone|cupping|lymph|lomi|у дома|home visit|стъпал|подбедр|крака|бедра|зона на крак|foot|feet|leg|calf",
+    "alt": {
+      "bg": "Лечебен масаж на рамото в примерна терапевтична зала",
+      "en": "An illustrative therapeutic shoulder massage in a clinic"
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-adult-language-group-classroom-20261126-v2.webp",
+    "primaryKeys": [
+      "sx-adult-language-group"
+    ],
+    "skip": "детск|деца|дете|ученик|учениц|тийн|child|student aged|teen|онлайн|дистанцион|online|индивидуал|частен|one.to.one|private",
+    "alt": {
+      "bg": "Присъствен групов езиков урок за възрастни",
+      "en": "An in-person group language lesson for adults"
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-accountancy-meeting-in-person-20261126-v2.webp",
+    "primaryKeys": [
+      "accounting-consultation"
+    ],
+    "skip": "онлайн|дистанцион|по телефон|чрез телефон|video|online|written|писмен|уебинар|webinar",
+    "alt": {
+      "bg": "Примерна счетоводна консултация на среща",
+      "en": "An illustrative in-person accountancy consultation"
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-one-to-one-boxing-pads-20261126-v2.webp",
+    "primaryKeys": [
+      "boxing"
+    ],
+    "only": "индивидуал|персонал|one.to.one|private|personal",
+    "skip": "детск|деца|дете|teen|child|групов|group|кикбокс|kickbox|онлайн|дистанцион|online",
+    "alt": {
+      "bg": "Индивидуално занятие по бокс с треньор и лапи",
+      "en": "An illustration of individual boxing practice with a coach and focus pads"
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-photo-studio-rental-20261126-v2.webp",
+    "primaryKeys": [
+      "photography-session"
+    ],
+    "only": "(?:студио.*под наем|наем.*студи|studio.*rent|rent.*studio)",
+    "skip": "(?:на открито|с фотограф|outdoor|with photographer)"
+  },
+  {
+    "src": "/service-photos/go-detail-studio-portrait-session-20261126-v2.webp",
+    "primaryKeys": [
+      "photography-session"
+    ],
+    "only": "(?:портрет|студийн.*фотосес|фотосес.*студи|бизнес.*портрет|професионалн.*профил|portrait|headshot|studio photo)",
+    "skip": "(?:под наем|наем на|семейн|новороден|беб|сватб|продукт|детск|колед|открито|семейств|rent|family|newborn|child|wedding|product|outdoor|christmas)"
+  },
+  {
+    "src": "/service-photos/go-detail-family-portrait-photo-session-20261126-v2.webp",
+    "primaryKeys": [
+      "photography-session"
+    ],
+    "only": "(?:семейн.*фотосес|фотосес.*семейн|family.*photo)",
+    "skip": "(?:на открито|новороден|бремен|колед|outdoor|newborn|maternity|christmas)"
+  },
+  {
+    "src": "/service-photos/go-detail-studio-photo-gear-20261126-v2.webp",
+    "primaryKeys": [
+      "photography-session"
+    ],
+    "only": "(?:фотосес|photoshoot|photo session)",
+    "skip": "(?:под наем|наем на|навън|открито|екстериор|сватб|колед|новороден|беб|бремен|грим|причес|ретуш|on location|outdoor|rent|newborn|maternity|christmas|wedding|makeup|make-up|hairstyl|retouch|photo editing)"
+  },
+  {
+    "src": "/service-photos/go-detail-tooth-restoration-model-20261126-v2.webp",
+    "primaryKeys": [
+      "dental-filling"
+    ],
+    "only": "(?:пломб|кариес|обтурац|композит|фотополимер|filling|caries|restoration)",
+    "skip": "(?:коренов|мост|корон|избел|root canal|whiten|crown)"
+  },
+  {
+    "src": "/service-photos/go-detail-endodontic-demonstration-model-20261126-v2.webp",
+    "primaryKeys": [
+      "dental-root-canal"
+    ],
+    "only": "(?:коренов|пулпит|канал|endodont|root canal)",
+    "skip": "(?:избел|белота|ортодонт|мост|whiten|orthodont|bridge)"
+  },
+  {
+    "src": "/service-photos/go-detail-adult-therapy-conversation-20261126-v2.webp",
+    "primaryKeys": [
+      "psychology-consultation"
+    ],
+    "only": "(?:психотерап|психолог|therapy session|psycholog)",
+    "skip": "(?:детск|деца|дете|младеж|юнош|родител|семей|двойк|партньор|групов|онлайн|дистанц|психиат|child|teen|famil|group|couple|remote|online|psychiatr)"
+  },
+  {
+    "src": "/service-photos/go-detail-adult-private-language-tutoring-20261126-v2.webp",
+    "primaryKeys": [
+      "language-lesson"
+    ],
+    "only": "(?:индивидуал|частен|частни|private|one.to.one|individual)",
+    "skip": "(?:детск|дете|деца|учени(?:к|ци|чка|чески)|юнош|тийнейдж|музик|пеен|пиано|актьор|математ|спорт|груп|онлайн|дистанц|child|teenager|group|online|music|singing|piano|acting|math)"
+  },
+  {
+    "src": "/service-photos/go-detail-child-private-language-tutoring-20261126-v2.webp",
+    "primaryKeys": [
+      "language-lesson",
+      "sx-child-language-individual"
+    ],
+    "only": "(?:индивидуал.*(?:дете|деца|детск|учени(?:к|ци|чка|чески)|юнош|тийнейдж)|(?:дете|деца|детск|учени(?:к|ци|чка|чески)|юнош|тийнейдж).*индивидуал|private.*(?:child|kid|teenager)|one.to.one.*(?:child|kid|teenager))",
+    "skip": "(?:музик|пиано|актьор|математ|литератур|групов|онлайн|дистанц|music|piano|acting|math|literature|group|online|remote)"
+  },
+  {
+    "src": "/service-photos/go-detail-passenger-car-driving-lesson-20261126-v2.webp",
+    "primaryKeys": [
+      "driving-lesson"
+    ],
+    "only": "(?:кормуван|шофьорск.*(?:курс|категор)|опреснител.*(?:курс|обучен)|driving.*(?:lesson|course)|refresher.*driv)",
+    "skip": "(?:категория (?:C|D|A)|category (?:C|D|A)|мотоцик|камион|автобус|truck|motorcycle|bus|теория|theory)"
+  },
+  {
+    "src": "/service-photos/go-detail-general-music-lesson-setup-20261126-v2.webp",
+    "primaryKeys": [
+      "music-lesson-choice"
+    ],
+    "only": "(?:музикал.*(?:урок|обучен)|(?:урок|обучен).*музикал|music lesson)",
+    "skip": "(?:онлайн|пиано|китар|пеен|барабан|цигул|online|guitar|piano|singing|drum|violin)"
+  },
+  {
+    "src": "/service-photos/go-detail-conditioning-hair-mask-application-20261126-v2.webp",
+    "primaryKeys": [
+      "sx-hair-treatment"
+    ],
+    "only": "(?:терапия|пластия|bioplast|хидратац|възстанов|ботокс|hair treatment|conditioning)",
+    "skip": "(?:инжек|косопад|дермат|scalp medical|inject|alopecia)"
+  },
+  {
+    "src": "/service-photos/go-detail-car-wheel-alignment-measurement-20261126-v2.webp",
+    "primaryKeys": [
+      "wheel-alignment"
+    ],
+    "only": "(?:реглаж|геометрия|сходимост|alignment|tracking)",
+    "skip": "(?:мотоцик|камион|motorcycle|lorry|truck)"
+  },
+  {
+    "src": "/service-photos/go-detail-vehicle-ac-service-station-20261126-v2.webp",
+    "primaryKeys": [
+      "car-aircon-service"
+    ],
+    "only": "(?:климатик|фреон|ac service|air.condition)",
+    "skip": "(?:домашен|на стена|split.system|home air)",
+    "alt": {
+      "bg": "Примерна снимка на апарат за обслужване на автомобилен климатик",
+      "en": "Illustrative car air-conditioning service equipment"
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-volume-lash-fan-placement-20261126-v2.webp",
+    "primaryKeys": [
+      "lash-extensions"
+    ],
+    "only": "(?:обем|мега|[2-6]d|volume|fan lashes)",
+    "skip": "(?:свалян|ламиниран|ремув|removal|lamination)"
+  },
+  {
+    "src": "/service-photos/go-detail-passenger-tyre-mounting-20261126-v2.webp",
+    "primaryKeys": [
+      "tyre-change",
+      "sx-auto-workshop-tyre-fit-balance"
+    ],
+    "only": "(?:(?:смяна|монтаж|демонтаж).*гум|гум.*(?:смяна|монтаж|демонтаж)|tyre.*(?:change|fit)|tire.*(?:change|mount))",
+    "skip": "(?:само баланс|камьон|камион|мото|balance only|truck|motorcycle)"
+  }
+]

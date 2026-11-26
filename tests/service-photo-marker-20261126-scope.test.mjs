@@ -6,6 +6,7 @@ import { readFile } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 import receipt from './fixtures/service-photo-marker-20261126-approval.json' with { type: 'json' }
 import { preServicePhotoMarkerSource, servicePhotoMarkerAllowsFileChange } from './service-photo-marker-20261126-scope.mjs'
+import { serviceDetailPhotoExpansionAllowsPath } from './service-detail-photo-expansion-20261126-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -18,7 +19,8 @@ test('only the service-photo component and its own stylesheet change for the com
   assert.deepEqual(paths, ['app/service-thumbnail.css', 'components/service-thumbnail.js'])
   const changed = split(git('diff', '--no-renames', '--name-only', '-z', receipt.baseline, '--'))
   const untracked = split(git('ls-files', '--others', '--exclude-standard', '-z'))
-  const actual = [...new Set([...changed, ...untracked])].filter(path => path !== 'node_modules' && !path.startsWith('tests/'))
+  const actual = [...new Set([...changed, ...untracked])].filter(path => path !== 'node_modules' &&
+    !path.startsWith('tests/') && !serviceDetailPhotoExpansionAllowsPath(path))
   assert.deepEqual(actual.sort(), paths)
   for (const [path, { before, after }] of Object.entries(receipt.changed)) {
     const current = await readFile(new URL('../' + path, import.meta.url))

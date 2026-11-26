@@ -1,0 +1,291 @@
+{
+  "date": "2026-11-26",
+  "generator": "OpenAI built-in image generation",
+  "scope": "Generic operation illustrations for public service details, not actual businesses or partners.",
+  "assets": [
+    {
+      "slug": "auto-computer-diagnostics",
+      "file": "public/service-photos/go-detail-auto-computer-diagnostics-20261126-v2.webp",
+      "sourceSha256": "622aace2e43888a6e3b2f59ebac4f118cc587689ee2e6692f92c47ac4fbd4c47",
+      "optimizedSha256": "e58bb32473a093e4c6181325f13a892dabf3d90e3f6b0f9a65f4d84c1a8d67a5",
+      "width": 256,
+      "height": 256,
+      "bytes": 10324,
+      "prompt": "Use case: photorealistic-natural. Asset: one square GoRez detail-only editorial service illustration, readable at 128 px. Scene and subject: Inside the open driver door, tight shoulder-height view of a technician's hand holding a small automotive diagnostic scan tool, its plain screen deliberately indistinct. A single visible black data cable leads toward the under-dash socket. Neutral cloth interior and steering wheel only as background, no engine compartment or car badge. Authentic, physically plausible details. This is a generic fictional scene, not a photo from any real business. No embedded text, watermark, logo, UI, collage or artificial glow.",
+      "visualReview": "Cabled vehicle diagnostic scanner and dashboard depict electronic fault checking without claiming a diagnostic brand or repair.",
+      "primaryKeys": [
+        "auto-diagnostics"
+      ],
+      "only": "диагност|грешк|сканиран|диагноза|diagnos|scan",
+      "skip": "климатик|фреон|гуми|бойлер|охлаждане|air.condition|механичн",
+      "alt": {
+        "bg": "Примерна снимка на диагностичен уред, свързан към автомобил",
+        "en": "Illustrative photograph of a scan tool connected to a vehicle"
+      }
+    },
+    {
+      "slug": "auto-tyre-service",
+      "file": "public/service-photos/go-detail-auto-tyre-service-20261126-v2.webp",
+      "sourceSha256": "432aa4a2c5a03ed7c46a568591544f46aa673e58e7e2a04a7088cd71fd689b7a",
+      "optimizedSha256": "7ee86ffa5f151c5fad894a4d037e39928419171f497d2ab9938508ba6c5db3ca",
+      "width": 256,
+      "height": 256,
+      "bytes": 12518,
+      "prompt": "Use case: photorealistic-natural. Asset: one square GoRez detail-only editorial service illustration, readable at 128 px. Scene and subject: Close workshop photograph of a passenger-car black tyre and silver alloy wheel removed from the car on an enclosed wheel-service machine with the hood open. A technician in work gloves steadies it naturally. Out-of-focus used-looking unbranded workshop behind. Focus on the horizontal spindle, wheel and plain workshop equipment; no vehicle hood, logos or printed screen. Authentic, physically plausible details. This is a generic fictional scene, not a photo from any real business. No embedded text, watermark, logo, UI, collage or artificial glow.",
+      "visualReview": "The off-car wheel is mounted on a horizontal balancing spindle with raised protective hood; restricted to explicitly named balancing, not stand-alone tyre mounting or alignment.",
+      "primaryKeys": [
+        "tyre-change",
+        "sx-auto-workshop-tyre-fit-balance"
+      ],
+      "only": "баланс|balanc",
+      "skip": "мотоцикл|моторн|велосипед|изправяне|боядисване|ъгъл|реглаж",
+      "alt": {
+        "bg": "Примерна снимка на баланс на автомобилна гума",
+        "en": "Illustrative photograph of a car wheel being balanced"
+      }
+    },
+    {
+      "slug": "auto-roadworthiness-check",
+      "file": "public/service-photos/go-detail-auto-roadworthiness-check-20261126-v2.webp",
+      "sourceSha256": "16f989286c4c38993731f5970a3f1e24f243047e83d0d20e6912b9f3a3dfa142",
+      "optimizedSha256": "2fe91439b6188b99db22f9ffb27037f6f5078f6df072442363cf65b4be19c35d",
+      "width": 256,
+      "height": 256,
+      "bytes": 17032,
+      "prompt": "Use case: photorealistic-natural. Asset: one square GoRez detail-only editorial service illustration, readable at 128 px. Scene and subject: Modern vehicle roadworthiness inspection lane, wide squat back-three-quarter view of a plain silver passenger car stationary over a low flush inspection floor pit and test rollers. Technician wearing dark work trousers safely stands beside rear wheel observing, hands away from vehicle. Warm muted grey concrete and natural overhead light; no lift, no open hood, no dangerous action, no readable registration plate or signage. Authentic, physically plausible details. This is a generic fictional scene, not a photo from any real business. No embedded text, watermark, logo, UI, collage or artificial glow.",
+      "visualReview": "Visible roller lane and vehicle represent standard passenger vehicle technical inspection, not diagnostics or repair.",
+      "primaryKeys": [
+        "vehicle-technical-inspection"
+      ],
+      "only": "технически преглед|годишен.*преглед|roadworthiness|technical inspection",
+      "skip": "мотоциклет|ремарке|камион|автобус|газова уредба|LPG|trailer|motorcycle|бус|кемпер|4[хx×]4|товарн|джип|SUV|van|camper|commercial",
+      "alt": {
+        "bg": "Примерна снимка на автомобил в линия за технически преглед",
+        "en": "Illustrative photograph of a vehicle in a roadworthiness inspection lane"
+      }
+    },
+    {
+      "slug": "auto-engine-oil-service",
+      "file": "public/service-photos/go-detail-auto-engine-oil-service-20261126-v2.webp",
+      "sourceSha256": "35f131657790c8f5dae6b690f14ed85e63711cb527aa4048a40f85c0a2ed5bdd",
+      "optimizedSha256": "236f8a925b395b5b524bff7ffe92d0dae1ee96e5ef97fd740bb9971a69b3dfd3",
+      "width": 256,
+      "height": 256,
+      "bytes": 16914,
+      "prompt": "Use case: photorealistic-natural. Asset: one square GoRez detail-only editorial service illustration, readable at 128 px. Scene and subject: Tight downward photograph of mechanic pouring fresh amber motor oil from plain small oil jug into a funnel seated in the filler opening of a cool switched-off automobile engine, dipped low over engine bay. An unmarked clean spin-on oil filter sits on a nearby small work tray. Warm cloth work glove, soft atelier lighting, no front grille or printed containers in view. Authentic, physically plausible details. This is a generic fictional scene, not a photo from any real business. No embedded text, watermark, logo, UI, collage or artificial glow.",
+      "visualReview": "Visibly fills engine oil; filter is a secondary cue, with no indication of transmission or speciality fluid.",
+      "primaryKeys": [
+        "oil-change"
+      ],
+      "only": "двигател|масло|oil",
+      "skip": "скоростн|диференциал|автоматична|гред|transmission|gearbox",
+      "alt": {
+        "bg": "Примерна снимка на наливане на двигателно масло",
+        "en": "Illustrative photograph of engine oil being poured"
+      }
+    },
+    {
+      "slug": "auto-suspension-components",
+      "file": "public/service-photos/go-detail-auto-suspension-components-20261126-v2.webp",
+      "sourceSha256": "cb348c2f48084b892ef0c418f3753338697fd185bea6ac25fb7331837fc25af3",
+      "optimizedSha256": "60bbcea21e4e3f4074dc7926d2230df15f0ac366ca7bc5f32db7d672eebac3a5",
+      "width": 256,
+      "height": 256,
+      "bytes": 12334,
+      "prompt": "Use case: photorealistic-natural. Asset: one square GoRez detail-only editorial service illustration, readable at 128 px. Scene and subject: Close low angle on the side of a safely supported compact car with its wheel removed in a muted service garage, showing an authentic lower control arm, black rubber bushings and vertical sway bar link below coil spring. Technician's gloved hand holds a simple socket tool against one mounting bolt. Avoid caliper or brake disc dominating the crop; focus on structural suspension arms. No text, brands or workshop marks. Authentic, physically plausible details. This is a generic fictional scene, not a photo from any real business. No embedded text, watermark, logo, UI, collage or artificial glow.",
+      "visualReview": "Control arm, link and bushing indicate mechanical suspension work rather than tyres or brakes.",
+      "primaryKeys": [
+        "suspension-repair"
+      ],
+      "only": "окачван|шарнир|носач|биалет|тампон|suspension|control arm|ball joint",
+      "skip": "кормилна рейка|реглаж|мотоциклет|пневматичн|въздушн",
+      "alt": {
+        "bg": "Примерна снимка на елементи от автомобилното окачване",
+        "en": "Illustrative photograph of automotive suspension work"
+      }
+    },
+    {
+      "slug": "auto-brake-pads",
+      "file": "public/service-photos/go-detail-auto-brake-pads-20261126-v2.webp",
+      "sourceSha256": "96d699b16e00a04022e21ca12b5dee13dec5755edfc2b0fa3b0180e3df506efd",
+      "optimizedSha256": "648bfeb77a59d0344b9082f9e4293d46f6142276e08f7ad11b465e5ecbf12b2b",
+      "width": 256,
+      "height": 256,
+      "bytes": 13632,
+      "prompt": "Use case: photorealistic-natural. Asset: one square GoRez detail-only editorial service illustration, readable at 128 px. Scene and subject: Real workshop close-up of a stationary exposed silver disc-brake rotor and its caliper on the wheel hub of a secured passenger car. A single dark mechanic glove holds a separate new black brake pad clearly beside the rotor without hiding it. Charcoal grey concrete workshop, naturally worn metal patina, clean spare pad, no lettering or branding. Authentic, physically plausible details. This is a generic fictional scene, not a photo from any real business. No embedded text, watermark, logo, UI, collage or artificial glow.",
+      "visualReview": "Disc rotor and held replacement pad identify disc brake work, not drums, hydraulic bleeding, ABS or fluid.",
+      "primaryKeys": [
+        "brake-service"
+      ],
+      "only": "накладк|спирач|дисков|brake",
+      "skip": "барабан|маркуч|течност|обезвъздуш|ABS|drum|bleed",
+      "alt": {
+        "bg": "Примерна снимка на автомобилен спирачен диск и накладка",
+        "en": "Illustrative photograph of a brake rotor and pad"
+      }
+    },
+    {
+      "slug": "car-exterior-mitt-wash",
+      "file": "public/service-photos/go-detail-car-exterior-mitt-wash-20261126-v2.webp",
+      "sourceSha256": "701c0fc05df6aed59cdda91422f8bef75e74c6ce8548257d9e70bd32a68ae18f",
+      "optimizedSha256": "37dec5137ff14f607363cbe25aba1b03dbc7b7879b4c63f503dea9f0258bb239",
+      "width": 256,
+      "height": 256,
+      "bytes": 20180,
+      "prompt": "Use case: photorealistic-natural. Asset: one square GoRez detail-only editorial service illustration, readable at 128 px. Scene and subject: Professional vehicle exterior hand-wash, scene at an open garage threshold in muted daylight. Close diagonal angle of a real black vehicle side panel and mirror, light soap on lower door, worker rubbing it with a teal chenille wash mitt. Only torso and forearm, no power jet, no polish machine or interior work. No signage, wheel badge, readable plate or brands. Authentic, physically plausible details. This is a generic fictional scene, not a photo from any real business. No embedded text, watermark, logo, UI, collage or artificial glow.",
+      "visualReview": "Soap and wash mitt on the outer door show manual exterior cleaning without asserting a provider's premises or equipment brand.",
+      "primaryKeys": [
+        "car-exterior-hand-wash",
+        "sx-wash-mobile-exterior"
+      ],
+      "only": "измиван|екстериор|външн|автомивк|wash",
+      "skip": "самообслуж|автоматичн|салон|керами|робот|градушк",
+      "alt": {
+        "bg": "Примерна снимка на ръчно измиване на външната част на автомобил",
+        "en": "Illustrative photograph of a vehicle exterior being hand-washed"
+      }
+    },
+    {
+      "slug": "car-textile-extraction",
+      "file": "public/service-photos/go-detail-car-textile-extraction-20261126-v2.webp",
+      "sourceSha256": "7c34db7c3601463e4bac3908d30026f87a1daf72e4ffdd2c28c6521f5b6fa136",
+      "optimizedSha256": "13e71adb98b38be36569adaeafa52d7459ff1be3eef398fe1d9c70cd1e0f5639",
+      "width": 256,
+      "height": 256,
+      "bytes": 14384,
+      "prompt": "Use case: photorealistic-natural. Asset: one square GoRez detail-only editorial service illustration, readable at 128 px. Scene and subject: Photoreal close shot from an open rear car door of a person guiding a small clear spray-extraction hand nozzle on a charcoal woven automotive seat. See damp dark stripe in the fabric, small amount of water visible in clear nozzle, rectangular seat stitching, seat-belt clasp nearby; no leather, suds everywhere, dashboard polishing or studio claims. Natural afternoon daylight, no texts or logos. Authentic, physically plausible details. This is a generic fictional scene, not a photo from any real business. No embedded text, watermark, logo, UI, collage or artificial glow.",
+      "visualReview": "Extraction nozzle and fabric seat give a distinct cue for car textile upholstery washing, not leather treatment or vacuum-only care.",
+      "primaryKeys": [
+        "interior-car-clean"
+      ],
+      "only": "пране|текстил|алкантара|изпира|extract|upholstery",
+      "skip": "кожен|кожа|перфорирана кожа|керами|leather|озон|сухо|dry",
+      "alt": {
+        "bg": "Примерна снимка на пране на текстилна автомобилна седалка",
+        "en": "Illustrative photograph of extraction cleaning on a fabric car seat"
+      }
+    },
+    {
+      "slug": "car-window-tint-install",
+      "file": "public/service-photos/go-detail-car-window-tint-install-20261126-v2.webp",
+      "sourceSha256": "ad6611eb0c358db8abfd105fd1a45a149c31ed724e6ce1c2d054822623cc4ba9",
+      "optimizedSha256": "ed27325816e897568c7d4e2a0fb1b2457f8cdda3c3e17da531000f03700b0966",
+      "width": 256,
+      "height": 256,
+      "bytes": 11680,
+      "prompt": "Use case: photorealistic-natural. Asset: one square GoRez detail-only editorial service illustration, readable at 128 px. Scene and subject: Realistic workshop side view from outside an opened vehicle rear passenger door. Technician smoothing a thin charcoal tint film already placed against the inside surface of its slightly wound-down frameless-looking flat side glass, one small unbranded blue soft squeegee at centre, natural reflections through darkening film. No windshield, no adhesive to metal paint, no writing or car logos. Authentic, physically plausible details. This is a generic fictional scene, not a photo from any real business. No embedded text, watermark, logo, UI, collage or artificial glow.",
+      "visualReview": "Film and soft squeegee clearly on side glass, not paint-protection film or light tints.",
+      "primaryKeys": [
+        "vehicle-window-tint"
+      ],
+      "only": "затъмняван|стъкл|window tint",
+      "skip": "фолио на фар|челно|предно челно|полиране|стоп|облепяне на каросерия|windscreen",
+      "alt": {
+        "bg": "Примерна снимка на поставяне на фолио върху странично автомобилно стъкло",
+        "en": "Illustrative photograph of tint film application on a side window"
+      }
+    },
+    {
+      "slug": "car-headlamp-restoration",
+      "file": "public/service-photos/go-detail-car-headlamp-restoration-20261126-v2.webp",
+      "sourceSha256": "6623e889b82aae031e39d2a6213a457e2d1976b1c13d96c674b180f257a6a8f7",
+      "optimizedSha256": "40c975eb4909be3dfdbec9bfe94ac2211c5c623fd066adf14b9ff1087b361801",
+      "width": 256,
+      "height": 256,
+      "bytes": 13502,
+      "prompt": "Use case: photorealistic-natural. Asset: one square GoRez detail-only editorial service illustration, readable at 128 px. Scene and subject: From above the front corner of a used silver passenger car, tightly composed restoration of a slightly hazed clear headlamp lens by a gloved technician with a compact white round polishing pad pressed flat gently against the lens. A short strip of protective blue masking tape precisely follows the adjacent painted edge. Warm daylight, authentic plastics, no body-panel polish pose, no logos, no labels. Authentic, physically plausible details. This is a generic fictional scene, not a photo from any real business. No embedded text, watermark, logo, UI, collage or artificial glow.",
+      "visualReview": "Polishing pad contacts the clear headlamp lens; tape protects the body so the activity is unambiguously headlamp restoration.",
+      "primaryKeys": [
+        "headlight-restoration"
+      ],
+      "only": "фар|headlight|headlamp",
+      "skip": "смяна.*круш|подмяна на фар|затъмняван|фолиране|диагност|bulb replacement",
+      "alt": {
+        "bg": "Примерна снимка на полиране на автомобилен фар",
+        "en": "Illustrative photograph of polishing a car headlamp"
+      }
+    },
+    {
+      "slug": "home-routine-room-cleaning",
+      "file": "public/service-photos/go-detail-home-routine-room-cleaning-20261126-v2.webp",
+      "sourceSha256": "3a883e83ec269d6d64cbfade99d7ee4dd16397fbcc960f2d64cb8f52fab6930d",
+      "optimizedSha256": "8089698f04f36a92132a20d2087299cbb412f2257c4fa1d99723c86f4a9d8683",
+      "width": 256,
+      "height": 256,
+      "bytes": 12934,
+      "prompt": "Use case: photorealistic-natural. Asset: one square GoRez detail-only editorial service illustration, readable at 128 px. Scene and subject: A professional cleaner in plain apricot work shirt wiping a light living-room tabletop with a folded blue microfibre cloth, glass and wood textures, softly blurred neutral sofa and window so the setting reads as a dwelling. Keep cloth, hand and cleared front of table in focus, no bare hands in chemicals, no brands or instructions on any objects. Ordinary apartment, not luxury stock photo. Authentic, physically plausible details. This is a generic fictional scene, not a photo from any real business. No embedded text, watermark, logo, UI, collage or artificial glow.",
+      "visualReview": "Cleaner and folded cloth in a recognisable flat depict home cleaning in progress, not specialty post-construction or upholstery cleaning.",
+      "primaryKeys": [
+        "home-deep-clean"
+      ],
+      "only": "почистван|чистен|clean",
+      "skip": "след ремонт|след строителство|след наводнение|след пожар|офис|промишлен|след боядисване|carpet|пране на мебел|пране на диван",
+      "alt": {
+        "bg": "Примерна снимка на почистване на маса в жилище",
+        "en": "Illustrative photograph of a table being cleaned in a home"
+      }
+    },
+    {
+      "slug": "pet-grooming-tool-station",
+      "file": "public/service-photos/go-detail-pet-grooming-tool-station-20261126-v2.webp",
+      "sourceSha256": "6062b94aa04d9fafe744acc227a7db000f17f15f3eca6adc791081bf1da3b862",
+      "optimizedSha256": "c44ea0f49c4525ccb35a64e5a55ba222ab4b96948a246eb80e428d8813c748dd",
+      "width": 256,
+      "height": 256,
+      "bytes": 17540,
+      "prompt": "Use case: photorealistic-natural. Asset: one square GoRez detail-only editorial service illustration, readable at 128 px. Scene and subject: Documentary still life in a small pet grooming preparation area, camera close at a shallow three-quarter angle. On a slate ribbed non-slip grooming mat rest a single clean curved steel grooming comb, rubber curry brush, ordinary compact clipper left safely unplugged, and stacked deep green towels. No animals or identifiable humans, neutral background, no scissors dominating, no labels. A different scene from an overhead tool flatlay; strongly side-lit. Authentic, physically plausible details. This is a generic fictional scene, not a photo from any real business. No embedded text, watermark, logo, UI, collage or artificial glow.",
+      "visualReview": "Breed- and species-neutral pet-grooming equipment. No claim that a named breed receives a particular procedure; no animal photographed.",
+      "primaryKeys": [
+        "sx-pet-full-grooming-equipment",
+        "dog-full-grooming",
+        "sx-groom-small-shortcoat"
+      ],
+      "only": "грум|groom",
+      "skip": "операция|ветеринар|медицин|само къпане|само нокти|само ушите|масаж",
+      "alt": {
+        "bg": "Примерна снимка на подготвени инструменти за груминг",
+        "en": "Illustrative photograph of pet-grooming tools laid out for use"
+      }
+    },
+    {
+      "slug": "pet-dog-bath-wash",
+      "file": "public/service-photos/go-detail-pet-dog-bath-wash-20261126-v2.webp",
+      "sourceSha256": "11482c851d41dc4706e57b009774782828efb5d9b4a1770b395d0c9d51ca098f",
+      "optimizedSha256": "6062134ccfb2164b3335f82f752c0b5e25f6b50bc111b851806ea18dd8d95b57",
+      "width": 256,
+      "height": 256,
+      "bytes": 16050,
+      "prompt": "Use case: photorealistic-natural. Asset: one square GoRez detail-only editorial service illustration, readable at 128 px. Scene and subject: A calm adult short-haired small-to-medium mixed-breed dog standing securely in a low professional pet wash bath, groomer gently rinsing the wet forelegs and shoulder with a short, soft-spray low hose, avoiding face; cropped forearm only. Face relaxed, ears naturally positioned, dog body supported on non-slip base, warm neutral bathing area, no tight restraint visible. No text or logos. Authentic, physically plausible details. This is a generic fictional scene, not a photo from any real business. No embedded text, watermark, logo, UI, collage or artificial glow.",
+      "visualReview": "Calm dog being rinsed shows dog bathing; avoid assigning to cat, dry cleansing, styling or veterinary care.",
+      "primaryKeys": [
+        "pet-bath"
+      ],
+      "only": "къп|баня|bath|wash",
+      "skip": "котк|сухо|котарак|грим|парфюм|cat|dry shampoo",
+      "alt": {
+        "bg": "Примерна снимка на спокойно куче по време на къпане",
+        "en": "Illustrative photograph of a calm dog being rinsed in a grooming bath"
+      }
+    },
+    {
+      "slug": "pet-cat-coat-brushing",
+      "file": "public/service-photos/go-detail-pet-cat-coat-brushing-20261126-v2.webp",
+      "sourceSha256": "fcd3c43a893f7ce84fab92f3f5d424dacbc18c01c6309ae0b8b6f150b83d74ea",
+      "optimizedSha256": "bdb0d41a42feb4abba0b9bed893905fb2421e357d7669763f11de67efd091883",
+      "width": 256,
+      "height": 256,
+      "bytes": 11164,
+      "prompt": "Use case: photorealistic-natural. Asset: one square GoRez detail-only editorial service illustration, readable at 128 px. Scene and subject: Natural side view of a relaxed adult long-haired gray tabby sitting on a clean muted taupe non-slip grooming table. A human hand gently brushes the shoulder coat with a broad soft-bristle grooming brush, body naturally upright, other hand lightly resting beside without restraint. Quiet diffused light, no clippers, scissors, water, signs or brand identity. Authentic, physically plausible details. This is a generic fictional scene, not a photo from any real business. No embedded text, watermark, logo, UI, collage or artificial glow.",
+      "visualReview": "Long-haired cat is visibly brushed. Use as a coat care or grooming illustration, not for bathing, clipping or veterinary work.",
+      "primaryKeys": [
+        "cat-grooming"
+      ],
+      "only": "котк|котарак|cat",
+      "skip": "къп|подстриг|бръсн|медицин|ветеринар|ужас|sedat|bath|clipper|късокосмест|short.hair",
+      "alt": {
+        "bg": "Примерна снимка на внимателно разресване на котешка козина",
+        "en": "Illustrative photograph of a cat's coat being gently brushed"
+      }
+    }
+  ]
+}

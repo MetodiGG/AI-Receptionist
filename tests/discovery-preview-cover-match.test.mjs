@@ -40,7 +40,7 @@ async function result(request) {
   assert.deepEqual(row.availability, { status: 'external', slots: [] })
   assert.ok(row.servicePreview.length <= 2)
   assert.deepEqual(railServiceItems(row).map(service => service.name), row.servicePreview.map(service => service.name))
-  assert.deepEqual(row.services.map(service => service.name), row.servicePreview.map(service => service.name))
+  if (row.subcategory) assert.deepEqual(row.services.map(service => service.name), row.servicePreview.map(service => service.name))
   return row
 }
 

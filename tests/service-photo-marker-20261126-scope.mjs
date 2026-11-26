@@ -3,6 +3,7 @@ import { execFileSync } from 'node:child_process'
 import { lstatSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import receipt from './fixtures/service-photo-marker-20261126-approval.json' with { type: 'json' }
+import { detailPreviewPriorSource } from './public-detail-photo-preview-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -16,13 +17,14 @@ export function servicePhotoMarkerAllowsFileChange(path) {
   if (!entry) return false
   try {
     const file = new URL('../' + path, import.meta.url), mode = lstatSync(file)
-    return mode.isFile() && !(mode.mode & 0o111) && sha(readFileSync(file)) === entry.after
+    return mode.isFile() && !(mode.mode & 0o111) && sha(detailPreviewPriorSource(path, readFileSync(file))) === entry.after
   } catch { return false }
 }
 
 // Invert only the two exact marker edits. Unreviewed or tampered source is
 // deliberately passed through to the earlier scope's original enforcement.
 export function preServicePhotoMarkerSource(path, source) {
+  source = detailPreviewPriorSource(path, source)
   const entry = review(path)
   if (!entry || sha(source) !== entry.after) return source
   if (!prior.has(path)) {

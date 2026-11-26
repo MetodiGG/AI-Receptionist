@@ -1,0 +1,48 @@
+{
+  "baseline": "024b9b6dcc2f3998facdde369621d94192629c3b",
+  "changed": {
+    "components/business-cover-photo.js": {
+      "before": "635a8ea7f7524cf661fe042a1e104bb13025d8b0967ecdbc3bc283d81128c090",
+      "after": "915193d61fb849a5ccf56eb9b4564bb0c6daaa91ff77b555b1e6b6b22b221d56"
+    },
+    "components/business-directory.js": {
+      "before": "20450d6d3ba0e39b87a9813fbafebe04a5b61622c1eaa82462124ed8e3fd06fa",
+      "after": "7043f0890b6c8089b5af3fa92db37efad462258123e27ad3eff732a490f5ef0b"
+    },
+    "components/business-profile.js": {
+      "before": "5d210abbab9771143c1abd9f53807a0b57b8b8afd281386d83be5dc306430593",
+      "after": "1029acdbd4aed25181c52219d09e931d1f0d76033bbdea4b5acfc34ffdeb6791"
+    },
+    "components/discovery-business-card.js": {
+      "before": "85e6e716dcc98003fca0b7061585cbd4449717d41ab08d01841108b393a76f53",
+      "after": "95bb92c621b8150142c5ab30f426d05cd7edafd829aba7f13420607595f6a758"
+    },
+    "components/service-thumbnail.js": {
+      "before": "a3ae9837595b673687206cbd4575bca7f613978f1ac42745c12057a91f7732b2",
+      "after": "4c506599869aa0803db794303b065979988ce0eb0272bef82b995b7830cd303b"
+    },
+    "lib/discovery/preview.mjs": {
+      "before": "7fdc5239f89eb192372eb6e0999284291e23dc6ba9dd33d4c038396c7b7be10a",
+      "after": "3c6ae939636f96403d506e3cf36ff48ea2a0db0193a16de6f12e7021a62d9a64"
+    },
+    "lib/discovery/rail.mjs": {
+      "before": "740d5b0ea6a948c0aa3cbf9859347ab811131b3c5988cddf7da3c705b0d55552",
+      "after": "def06197ef6f24940f906152d8bc0828554f062e306e9fda1704ec717c83a105"
+    },
+    "lib/service-detail-photo-presentation.mjs": {
+      "before": "cbdaac887973241005e7281c2ca6ecbd766124b3731ea402fc1a67030532ca2a",
+      "after": "862b2a44b299deb805f9eb087be2ee5ebceade1cd0eae0cf40f18cc871f50af1"
+    }
+  },
+  "added": {
+    "docs/service-detail-photo-exact-gaps-20261126.json": "ee5ff8e4b2e79c8d8c64f888e3f523b37f8701522fda912b5f7451e5b033c126",
+    "lib/service-detail-existing-photo-coverage.mjs": "5652632023d5399486bb15da3df39d501b0897279da7d964939dd74aa2065216",
+    "lib/service-detail-photo-exact-gaps.json": "6f426b5cae1460e70e49291d54472709ea1f2699b2b17013ac46630733af3c5d",
+    "public/service-photos/go-detail-manual-face-massage-20261126-v3.webp": "cf40c6fd581af01dd82eb5625100ff6287ace64363a6e698f4fb6f54410d15e4",
+    "public/service-photos/go-detail-men-brows-thread-20261126-v3.webp": "3faaa824d031175cc581cf37e0800f1f242c9a695af8949bc7e9e6e1d51209a1",
+    "public/service-photos/go-detail-men-hair-beard-brow-20261126-v3.webp": "ef278bc94f765612483842a9459fa221b5381a2acea32869694969e2c225cbc0",
+    "public/service-photos/go-detail-natural-nail-builder-gel-20261126-v3.webp": "f06b4e6c96da022ab7bdddcc36da3b2d77417cea23fff4b3f09c67d528585c5a",
+    "public/service-photos/go-detail-sculpted-gel-nail-extension-20261126-v3.webp": "01dd1187a149bae54f2e7e6a39790af3be881197d64baf3a0def22d2778ac430",
+    "scripts/audit-public-detail-service-photos.mjs": "2bcdb54466686b8c67ba98429cb29da7199ad36f59436ea6a8d5ad727b6cc74e"
+  }
+}

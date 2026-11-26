@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import { publicBusinessCoverPhoto } from '../lib/public-business-cover-photo.mjs'
 
 // Standalone example, never passed into the real-photo carousel or metadata.
-export function BusinessCoverPhoto({ business, locale = 'bg', className = '', eager = false, omitIfUnavailable = false, compactDisclosure = business?.source === 'catalogue' }) {
+export function BusinessCoverPhoto({ business, locale = 'bg', className = '', eager = false, omitIfUnavailable = false, showPreviewBadge = false }) {
   const [unavailableSources, setUnavailableSources] = useState([]), imageRef = useRef(null)
   const { category, src, size, height = size, activityPhotoKey } = publicBusinessCoverPhoto(business, { unavailableSources })
   const remember = failed => setUnavailableSources(previous => previous.includes(failed) ? previous : [...previous.slice(-3), failed])
@@ -17,8 +17,8 @@ export function BusinessCoverPhoto({ business, locale = 'bg', className = '', ea
   const disclosure = locale === 'en' ? 'AI illustration' : 'AI илюстрация'
   const photoAlt = locale === 'en' ? 'Illustrative activity photo, not the business’s own premises or work' : 'Илюстративна снимка на дейността, не е собствена снимка на бизнеса'
   return <div className={`business-category-cover ${className}`.trim()} data-category-cover={category} data-activity-cover={activityPhotoKey || undefined} data-image-kind={src ? 'ai-illustration' : undefined}>
-    {src ? <><img ref={imageRef} key={src} src={src} width={size} height={height} alt={compactDisclosure ? `${disclosure}. ${photoAlt}` : photoAlt} loading={eager ? 'eager' : 'lazy'} decoding="async" onError={() => remember(src)}/>
-      <span className="business-category-cover-label" data-compact-disclosure={compactDisclosure || undefined} aria-hidden={compactDisclosure || undefined}>{compactDisclosure ? 'AI' : disclosure}</span></> :
+    {src ? <><img ref={imageRef} key={src} src={src} width={size} height={height} alt={`${disclosure}. ${photoAlt}`} loading={eager ? 'eager' : 'lazy'} decoding="async" onError={() => remember(src)}/>
+      {showPreviewBadge && <span className="business-category-cover-label" data-compact-disclosure="true" aria-hidden="true">AI</span>}</> :
       <span role="img" aria-label={missing} style={{ display: 'grid', placeItems: 'center', minHeight: '100%', padding: 16 }}>{missing}</span>}
   </div>
 }

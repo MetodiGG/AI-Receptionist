@@ -25,7 +25,7 @@ test('detail-photo changes cannot alter category, subcategory or business covers
   assert.deepEqual(Object.keys(receipt.changed), ['components/service-thumbnail.js'])
   const changed = split(git('diff', '--no-renames', '--name-only', '-z', receipt.baseline, '--'))
   const untracked = split(git('ls-files', '--others', '--exclude-standard', '-z'))
-  const actual = [...new Set([...changed, ...untracked])].filter(path => operational(path) && (Object.hasOwn(receipt.changed, path) || !discoveryPerformanceAllowsPath(path))
+  const actual = [...new Set([...changed, ...untracked])].filter(path => operational(path) && (Object.hasOwn(receipt.changed, path) || Object.hasOwn(receipt.added, path) || !discoveryPerformanceAllowsPath(path))
     && !serviceDetailPhotoExpansionAllowsNewFile(path) && !dialogPrimaryDarkContrastAllowsFileChange(path)
     && (serviceDetailPhotoChangedPath(path) || !servicePhotoMarkerAllowsFileChange(path))).sort()
   const reviewed = [...Object.keys(receipt.changed).filter(path => receipt.changed[path].after !== null), ...Object.keys(receipt.added)]

@@ -6,6 +6,7 @@ import { BusinessPhotoGallery } from './business-photo-gallery'
 import { Icon } from './icon'
 import { businessDirectionsUrl, businessMapUrl, businessWeeklyHours, groupBusinessServices, publicProfileDetails, businessLocationAttribution } from '../lib/business-profile.mjs'
 import { getStaffPhoto } from '../lib/business-photos.mjs'
+import { businessCoverPhotoSources } from '../lib/public-business-cover-photo.mjs'
 import { BusinessCoverPhoto } from './business-cover-photo'
 import { ServiceThumbnail } from './service-thumbnail'
 import { profileServicePrice, profileShareUrl, shareProfileLink } from '../lib/business-profile-ui.mjs'
@@ -46,12 +47,13 @@ export function BusinessProfileHeader({ business, locale, shareUrl }) {
 
 export function BusinessServiceList({ business, locale = 'bg', selectedServiceId = '', onChoose, disabled = false }) {
   const en = locale === 'en'
+  const coverSources = businessCoverPhotoSources(business)
   return <section className="profile-services business-profile-section" id="business-services" aria-labelledby="business-services-heading">
     <h2 id="business-services-heading">{en ? 'Services' : 'Услуги'}</h2>
     <div className="profile-service-groups">{groupBusinessServices(business.services, locale).map(group => <div className="profile-service-group" key={group.name}>
       {group.name !== (en ? 'Services' : 'Услуги') && <h3>{group.name}</h3>}
       <ul className="profile-service-list">{group.services.map(service => { const { description, conditions } = servicePresentation(service, locale); return <li key={service.id} className={`profile-service-row${selectedServiceId === service.id ? ' is-selected' : ''}`}>
-        <ServiceThumbnail service={service} business={business} locale={locale} size={60}/>
+        <ServiceThumbnail service={service} business={business} locale={locale} size={60} businessCoverSources={coverSources}/>
         <div className="profile-service-copy"><strong>{serviceDisplayName(service, locale)}</strong>{Number(service.duration_min) > 0 && <span>{service.duration_min} {en ? 'min' : 'мин'}</span>}{(description || conditions.length > 0) && <details className="profile-service-description"><summary>{en ? 'Details' : 'Детайли'}</summary><p>{[...conditions, description].filter(Boolean).join('\n')}</p></details>}</div>
         <div className="profile-service-actions"><strong className="profile-service-price">{profileServicePrice(service, locale)}</strong><PublicAction iconOnly type="button" disabled={disabled} onClick={() => onChoose(service.id)} aria-label={`${en ? 'Book' : 'Резервирай'} · ${serviceDisplayName(service, locale)}`} aria-pressed={selectedServiceId === service.id} aria-controls="booking-experience">{en ? 'Book' : 'Резервирай'}</PublicAction></div>
       </li>})}</ul>

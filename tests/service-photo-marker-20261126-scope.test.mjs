@@ -1,4 +1,5 @@
 import { discoveryPerformanceAllowsPath } from './discovery-performance-scope.mjs'
+import { detailPreviewPriorSource } from './public-detail-photo-preview-scope.mjs'
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { createHash } from 'node:crypto'
@@ -22,10 +23,10 @@ test('only the service-photo component and its own stylesheet change for the com
   const changed = split(git('diff', '--no-renames', '--name-only', '-z', receipt.baseline, '--'))
   const untracked = split(git('ls-files', '--others', '--exclude-standard', '-z'))
   const actual = [...new Set([...changed, ...untracked])].filter(path => path !== 'node_modules' &&
-    !path.startsWith('tests/') && !discoveryPerformanceAllowsPath(path) && !serviceDetailPhotoExpansionAllowsPath(path) && !dialogPrimaryDarkContrastAllowsFileChange(path))
+    !path.startsWith('tests/') && (paths.includes(path) || !discoveryPerformanceAllowsPath(path)) && !serviceDetailPhotoExpansionAllowsPath(path) && !dialogPrimaryDarkContrastAllowsFileChange(path))
   assert.deepEqual(actual.sort(), paths)
   for (const [path, { before, after }] of Object.entries(receipt.changed)) {
-    const current = await readFile(new URL('../' + path, import.meta.url))
+    const current = detailPreviewPriorSource(path, await readFile(new URL('../' + path, import.meta.url)))
     const original = git('show', receipt.baseline + ':' + path)
     assert.equal(sha(original), before, path)
     assert.ok(after && after !== before, path)

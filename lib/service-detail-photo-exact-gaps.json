@@ -1,0 +1,81 @@
+[
+  {
+    "src": "/service-photos/go-detail-manual-face-massage-20261126-v3.webp",
+    "services": [
+      [
+        "beauty",
+        "Масаж на лице"
+      ],
+      [
+        "beauty",
+        "Класически масаж на лице"
+      ],
+      [
+        "beauty",
+        "Масаж на лице · 30 минути"
+      ],
+      [
+        "health",
+        "Масаж на лице"
+      ]
+    ],
+    "alt": {
+      "bg": "Близък страничен кадър на ръчен масаж на лице, без апарат, маска или пилинг.",
+      "en": "Close side view of manual facial massage, without a machine, mask or peel."
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-natural-nail-builder-gel-20261126-v3.webp",
+    "services": [
+      [
+        "nails",
+        "Маникюр с гел лак и изграждащ гел"
+      ]
+    ],
+    "alt": {
+      "bg": "Изграждащ гел с четка върху къс естествен нокът, без удължител.",
+      "en": "Builder gel brushed onto a short natural nail, without an extension."
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-sculpted-gel-nail-extension-20261126-v3.webp",
+    "services": [
+      [
+        "nails",
+        "Ноктопластика с гел/акригел и гел лак"
+      ]
+    ],
+    "alt": {
+      "bg": "Удължаване на нокът с гел върху форма, без да се показва готов дизайн.",
+      "en": "A nail extension sculpted with gel on a form, without suggesting a finished design."
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-men-brows-thread-20261126-v3.webp",
+    "partnerServices": [
+      [
+        "09f6d770-cdd5-40d2-8e82-d7e2cc9e263a",
+        "1e61199f-4ad5-4874-a6d2-aab90ad19cc4",
+        "Оформяне на вежди с конец"
+      ]
+    ],
+    "alt": {
+      "bg": "Оформяне на мъжка вежда с памучен конец.",
+      "en": "Shaping a man's eyebrow with cotton threading."
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-men-hair-beard-brow-20261126-v3.webp",
+    "partnerServices": [
+      [
+        "09f6d770-cdd5-40d2-8e82-d7e2cc9e263a",
+        "ef28ff51-cf90-49dc-9e1d-674713f604a2",
+        "Подстригване на коса и брада и оформяне на вежди"
+      ]
+    ],
+    "alt": {
+      "bg": "Завършване на веждите след оформяне на коса и брада.",
+      "en": "Finishing the brows in a haircut and beard grooming package."
+    }
+  }
+]

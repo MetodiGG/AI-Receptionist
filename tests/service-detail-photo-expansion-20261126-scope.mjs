@@ -3,6 +3,7 @@ import { execFileSync } from 'node:child_process'
 import { lstatSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import receipt from './fixtures/service-detail-photo-expansion-20261126-approval.json' with { type: 'json' }
+import { detailPreviewPriorSource } from './public-detail-photo-preview-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -22,7 +23,7 @@ function fileMatches(path, expected) {
   if (typeof expected !== 'string' || !digest.test(expected)) return false
   try {
     const file = new URL('../' + path, import.meta.url), mode = lstatSync(file)
-    return mode.isFile() && !(mode.mode & 0o111) && sha(readFileSync(file)) === expected
+    return mode.isFile() && !(mode.mode & 0o111) && sha(detailPreviewPriorSource(path, readFileSync(file))) === expected
   } catch { return false }
 }
 
@@ -36,6 +37,7 @@ export const serviceDetailPhotoExpansionAllowsPath = path => serviceDetailPhotoE
 // Model the older detail-photo layer from the exact reviewed expansion bytes,
 // without treating later unlisted edits as part of either approval.
 export function preServiceDetailPhotoExpansionSource(path, source) {
+  source = detailPreviewPriorSource(path, source)
   if (!changedPath(path) || !Object.hasOwn(receipt.changed, path)) return source
   const { before, after } = receipt.changed[path]
   if (typeof after !== 'string' || !digest.test(after) || sha(source) !== after) return source

@@ -41,12 +41,7 @@ export function ServiceThumbnail({ service, business, locale = 'bg', size = 72, 
   if (!src) return <span className="sr-only" data-service-photo-unavailable>{locale === 'en' ? 'No distinct service photo' : 'Няма отделна снимка за услугата'}</span>
   const illustration = thumbnail.source === 'illustrative'
   const disclosure = locale === 'en' ? 'AI illustration' : 'AI илюстрация'
-  const compactDisclosure = illustration && businessCoverSources !== undefined
-  const illustratedImageLabel = illustration ? `${disclosure} · ${thumbnail.alt}` : undefined
-  return <span className={`service-thumbnail service-thumbnail--${thumbnail.type} ${className}`.trim()} data-service-kind={thumbnail.kind} data-thumbnail-kind={thumbnail.type} data-photo-match={thumbnail.photoMatch} data-image-kind={illustration ? 'ai-illustration' : undefined} title={compactDisclosure ? undefined : illustratedImageLabel} style={{ '--service-thumbnail-size': `${displaySize}px` }}>
-    <img ref={imageRef} key={src} className="service-thumbnail-image" src={src} srcSet={thumbnail.srcSet || undefined} sizes={`${displaySize}px`} width={displaySize} height={displaySize} alt={thumbnail.alt} aria-label={compactDisclosure ? illustratedImageLabel : undefined} loading="lazy" decoding="async" onError={() => setUnavailableSources(previous => rememberUnavailableSource(previous, src))}/>
-    {illustration && (compactDisclosure
-      ? <small className="service-thumbnail-ai-label" data-compact-disclosure="true" aria-hidden="true">AI</small>
-      : <small className="service-thumbnail-ai-label" aria-label={disclosure}>{displaySize >= 96 ? disclosure : 'AI'}</small>)}
+  return <span className={`service-thumbnail service-thumbnail--${thumbnail.type} ${className}`.trim()} data-service-kind={thumbnail.kind} data-thumbnail-kind={thumbnail.type} data-photo-match={thumbnail.photoMatch} data-image-kind={illustration ? 'ai-illustration' : undefined} style={{ '--service-thumbnail-size': `${displaySize}px` }}>
+    <img ref={imageRef} key={src} className="service-thumbnail-image" src={src} srcSet={thumbnail.srcSet || undefined} sizes={`${displaySize}px`} width={displaySize} height={displaySize} alt={illustration ? `${disclosure} · ${thumbnail.alt}` : thumbnail.alt} loading="lazy" decoding="async" onError={() => setUnavailableSources(previous => rememberUnavailableSource(previous, src))}/>
   </span>
 }

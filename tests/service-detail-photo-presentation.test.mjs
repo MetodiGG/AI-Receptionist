@@ -147,7 +147,7 @@ test('the detail resolver never decorates unknown or mismatched services with ta
   for (const [service, business] of cases) assert.equal(distinctPhoto(service, business).src, null, service.name)
 })
 
-test('the rendered “Виж детайли” service-menu component includes localized disclosures only next to generated pictures', async () => {
+test('the rendered service menu keeps illustrative provenance in accessible image text without a visible label', async () => {
   const { PublicServiceMenu } = await loadPublicServiceMenu()
   const business = asPublicBranch('sofia-abi-beauty-serdika')
   const services = business.details.services.filter(service => service.category === 'nails')
@@ -156,10 +156,9 @@ test('the rendered “Виж детайли” service-menu component includes l
     const html = renderToStaticMarkup(createElement(PublicServiceMenu, { services, business, locale }))
     assert.equal((html.match(/class="service-thumbnail-image"/gu) || []).length, 3)
     assert.equal((html.match(/data-image-kind="ai-illustration"/gu) || []).length, 3)
-    const labels = locale === 'en' ? /<img[^>]*aria-label="AI illustration · [^"]+"/gu : /<img[^>]*aria-label="AI илюстрация · [^"]+"/gu
+    const labels = locale === 'en' ? /<img[^>]*alt="AI illustration · [^"]+"/gu : /<img[^>]*alt="AI илюстрация · [^"]+"/gu
     assert.equal((html.match(labels) || []).length, 3, 'the image carries one localized accessible disclosure')
-    assert.equal((html.match(/<small class="service-thumbnail-ai-label" data-compact-disclosure="true" aria-hidden="true">AI<\/small>/gu) || []).length, 3)
-    assert.doesNotMatch(html, /title="AI (?:илюстрация|illustration)|>AI (?:илюстрация|illustration)</u)
+    assert.doesNotMatch(html, /service-thumbnail-ai-label|data-compact-disclosure|title="AI|>AI(?: илюстрация| illustration)?</u)
     assert.doesNotMatch(html, /(?:gel-manicure|nail-gel-removal)-v1\.webp/u, 'do not print the taxonomy photos')
   }
   const authentic = REVIEWED_PARTNER_SERVICE_PHOTOS.find(item => item.source === 'provided')

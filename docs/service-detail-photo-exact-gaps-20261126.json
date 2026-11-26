@@ -1,0 +1,56 @@
+{
+  "checkedOn": "2026-11-26",
+  "generation": "Built-in OpenAI ImageGen; original project covers and business-supplied material were not used as image inputs. The new files are photo illustrations, not photographs of Beauty Studio 99 or any other provider.",
+  "assets": [
+    {
+      "file": "public/service-photos/go-detail-manual-face-massage-20261126-v3.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: square GoRez public service-detail thumbnail, illustrative only, no actual business depicted. Primary request: a very natural professional facial massage, two anatomically correct bare hands gently massaging the adult client's upper cheek and temple, eyes peacefully closed, face framed obliquely from the client's side. A simple folded terracotta towel below the head, calm oat-cream spa treatment room softly blurred. Adult client fully covered at neckline, candid and respectful. Tight square photograph, with both touch and facial contours clearly legible even at 128px. Soft window daylight, believable real skin texture, warm understated editorial photography. No bottles, gua sha, gloves, machines, peel, mask, signage, text, logos or labels. Do not recreate a stock head-on photo.",
+      "sourceSha256": "d630c99f6bb0103d4ff3637f1791a0b4e9234a81bc44f95162cf30c6bdc2891e",
+      "optimizedSha256": "cf40c6fd581af01dd82eb5625100ff6287ace64363a6e698f4fb6f54410d15e4",
+      "size": 7702,
+      "width": 256,
+      "height": 256,
+      "visualReview": "Близък страничен кадър на ръчен масаж на лице, без апарат, маска или пилинг."
+    },
+    {
+      "file": "public/service-photos/go-detail-natural-nail-builder-gel-20261126-v3.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: square GoRez public service-detail thumbnail, illustrative only. Primary request: professional builder-gel reinforcement over short natural nails before gel polish, photographed top-down at very close range. One beige-nitrile-gloved hand steadies a client's adult finger while a fine flat brush visibly smooths a glassy thin layer of clear rosy builder gel onto the short natural nail; three of the client's short nails visibly rest on an off-white textured manicure cushion. Warm clay tabletop in one corner. Carefully natural hand anatomy, plausible tools, realistic gel highlights, concentrated daylight from a window, visually readable at thumbnail scale. One single photograph, no finished long extensions, no sculpting form, no text or logos.",
+      "sourceSha256": "33a58f3f334a0a473e4d68d51cd91d1fb67d921cb8ee51de5793a764cd9589d9",
+      "optimizedSha256": "f06b4e6c96da022ab7bdddcc36da3b2d77417cea23fff4b3f09c67d528585c5a",
+      "size": 9154,
+      "width": 256,
+      "height": 256,
+      "visualReview": "Изграждащ гел с четка върху къс естествен нокът, без удължител."
+    },
+    {
+      "file": "public/service-photos/go-detail-sculpted-gel-nail-extension-20261126-v3.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: square GoRez public service-detail thumbnail, illustrative only. Primary request: a nail artist sculpting a gel nail extension over a reusable gold-backed nail form, close side-on editorial photograph. Composition: thumb and forefinger of a charcoal-nitrile-gloved hand support one adult client's finger, and a small flat brush smooths cool ivory modelling gel over the correctly positioned form just under the natural free edge. A different cool taupe stone countertop, with soft daylight and quiet dark-sage accents, no clutter. Realistic hand anatomy, plausible nail technique, the form and new extended shape are the focal point, sharp enough for 128px. A single photograph. No text overlay, logos, copy, extra fingers, palette of finished swatches, or other unrelated procedure.",
+      "sourceSha256": "0fcdd3f117b0bfc15392a421b37275ba01ac68f453087a682ad0195e69a6fcff",
+      "optimizedSha256": "01dd1187a149bae54f2e7e6a39790af3be881197d64baf3a0def22d2778ac430",
+      "size": 7006,
+      "width": 256,
+      "height": 256,
+      "visualReview": "Удължаване на нокът с гел върху форма, без да се показва готов дизайн."
+    },
+    {
+      "file": "public/service-photos/go-detail-men-brows-thread-20261126-v3.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: square thumbnail for GoRez public service details. Primary request: A professional carefully shaping one brow of an adult man with actual thin white cotton threading thread in a warm modest barbershop. Tight side angle with a clearly male adult face (short brown hair and natural short stubble) reclining eyes gently closed. A small clean triangle of taut cotton thread is visibly held by two realistic hands just at the upper outer edge of his brow; no spoolie, razor or wax, no blood. Clean restrained warm daylight with dark blue smock in blurred background. Human skin texture, no branding, no words or labels, no watermark, readable at 128 pixels. Illustrative editorial image, not of any actual barbershop or person.",
+      "sourceSha256": "fd024e08c20ec1ec0f1b6c25e40cf4e2ab449841dcae0ee046d1945cf3b30b8e",
+      "optimizedSha256": "3faaa824d031175cc581cf37e0800f1f242c9a695af8949bc7e9e6e1d51209a1",
+      "size": 9258,
+      "width": 256,
+      "height": 256,
+      "visualReview": "Оформяне на мъжка вежда с памучен конец."
+    },
+    {
+      "file": "public/service-photos/go-detail-men-hair-beard-brow-20261126-v3.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: square thumbnail for GoRez public service details. Primary request: a single believable editorial photograph for an adult male barber grooming package including haircut, beard and brows. Focus on the brow finishing step: adult male customer in a barber chair, recently tapered neat dark haircut and clearly groomed full short beard seen in three-quarter profile. A professional with believable steady hands uses a small brow comb at one eyebrow, with the client's eyes relaxed. Upper shoulders covered by a warm beige barber cape, background is a softly blurred cream mirror and dark wood, no assistant or other people. Natural window light touching the customer's cheek, coherent anatomy, accurate simple tools, no blade near eyes. No copy, logo, shop sign, watermark or collage. This is an illustration, not a specific barber or partner.",
+      "sourceSha256": "d2f1f8a3e52ed05cd7548b6b77e959c0d9df21e01a1d450c45238b8d04646fc3",
+      "optimizedSha256": "ef278bc94f765612483842a9459fa221b5381a2acea32869694969e2c225cbc0",
+      "size": 9336,
+      "width": 256,
+      "height": 256,
+      "visualReview": "Завършване на веждите след оформяне на коса и брада."
+    }
+  ]
+}

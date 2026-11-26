@@ -1,0 +1,205 @@
+[
+  {
+    "src": "/service-photos/go-detail-children-language-classroom-20261126-v2.webp",
+    "services": [
+      ["education", "Английски за 5–6-годишни · Greenman · учебна 2026/27"],
+      ["education", "Английски за деца на 4–7 г. · Jolly Phonics"]
+    ],
+    "alt": { "bg": "Детски урок по език с учител и карти с картинки.", "en": "Children learning a language with a teacher and picture cards." }
+  },
+  {
+    "src": "/service-photos/go-detail-adult-language-group-classroom-20261126-v2.webp",
+    "services": [["education", "Английски език за възрастни"]],
+    "alt": { "bg": "Възрастни в езиково занятие с преподавател.", "en": "Adults taking part in a language class with a teacher." }
+  },
+  {
+    "src": "/service-photos/go-detail-adult-private-language-tutoring-20261126-v2.webp",
+    "services": [["education", "Първоначална езикова среща-събеседване за възрастни"]],
+    "alt": { "bg": "Разговор на възрастен учащ с преподавател по език.", "en": "An adult learner speaking with a language teacher." }
+  },
+  {
+    "src": "/service-photos/drums-lesson-v1.webp",
+    "services": [["education", "Уроци по барабани"]],
+    "alt": { "bg": "Преподавател показва упражнение върху барабан.", "en": "A teacher demonstrating a drum exercise." }
+  },
+  {
+    "src": "/service-photos/violin-lesson-v1.webp",
+    "services": [
+      ["education", "Уроци по цигулка"],
+      ["education", "Индивидуален урок по цигулка · 20 минути"],
+      ["education", "Цигулка · индивидуален урок"]
+    ],
+    "alt": { "bg": "Урок по цигулка с преподавател.", "en": "A violin lesson with an instructor." }
+  },
+  {
+    "src": "/service-photos/go-detail-guitar-coaching-lesson-20261126-v2.webp",
+    "services": [["education", "Индивидуален урок по китара · възрастни и деца над 8 години"]],
+    "alt": { "bg": "Преподавател показва позиция на пръстите върху китара.", "en": "A teacher showing finger placement on a guitar." }
+  },
+  {
+    "src": "/service-photos/guitar-lesson-v1.webp",
+    "services": [["education", "Китара за възрастни и деца над 8 години · пакет 4 урока"]],
+    "alt": { "bg": "Урок по китара с преподавател.", "en": "A guitar lesson with a teacher." }
+  },
+  {
+    "src": "/service-photos/music-theory-lesson-v1.webp",
+    "services": [
+      ["education", "Уроци по музикална теория"],
+      ["education", "Солфеж · месечен пакет от 4 урока"],
+      ["education", "Музикална теория · индивидуален урок"],
+      ["education", "Първи пробен урок по солфеж"],
+      ["education", "Солфеж · индивидуална програма · 4 урока месечно"]
+    ],
+    "alt": { "bg": "Преподавател и ученик разглеждат нотен текст.", "en": "A music teacher and student looking at sheet music." }
+  },
+  {
+    "src": "/service-photos/go-detail-general-music-lesson-setup-20261126-v2.webp",
+    "services": [
+      ["education", "Пробен първи музикален урок"],
+      ["education", "Индивидуален музикален урок на английски"]
+    ],
+    "alt": { "bg": "Място за музикален урок с нотен пулт и инструменти.", "en": "A prepared music lesson space with instruments and a music stand." }
+  },
+  {
+    "src": "/service-photos/music-lesson-choice-v1.webp",
+    "services": [["education", "Индивидуален музикален урок · без абонамент"]],
+    "alt": { "bg": "Индивидуален музикален урок с ноти и клавишен инструмент.", "en": "An individual music lesson with sheet music and a keyboard." }
+  },
+  {
+    "src": "/service-photos/sx-group-pilates-standing-control-v1.webp",
+    "services": [
+      ["fitness", "Пилатес · групово занимание"],
+      ["fitness", "Групов пилатес — еднократно посещение"]
+    ],
+    "alt": { "bg": "Група изпълнява упражнение по пилатес в изправено положение.", "en": "A group performing a standing Pilates exercise." }
+  },
+  {
+    "src": "/service-photos/sx-mat-pilates-group-v1.webp",
+    "services": [["fitness", "Пилатес · групова тренировка"]],
+    "alt": { "bg": "Групова тренировка по пилатес на постелки.", "en": "A group Pilates class on mats." }
+  },
+  {
+    "src": "/service-photos/go-detail-one-to-one-boxing-pads-20261126-v2.webp",
+    "services": [["fitness", "Първа тренировка по бокс за начинаещи"]],
+    "alt": { "bg": "Боксова тренировка с ръкавици и лапи.", "en": "Boxing practice with gloves and focus mitts." }
+  },
+  {
+    "src": "/service-photos/sx-beauty-manual-lymphatic-body-v1.webp",
+    "services": [
+      ["health", "Лимфен дренаж"],
+      ["health", "Лимфодренажен масаж · до 3 зони"],
+      ["health", "Лимфодренажен масаж · 30 мин."]
+    ],
+    "alt": { "bg": "Лек ръчен натиск при лимфодренажен масаж.", "en": "Gentle hands-on pressure during manual lymphatic drainage massage." }
+  },
+  {
+    "src": "/service-photos/sx-hot-stone-back-massage-v1.webp",
+    "services": [
+      ["health", "Масаж с горещи камъни · 90 мин."],
+      ["health", "Масаж с топли вулканични камъни на цяло тяло · 50 мин."],
+      ["health", "Масаж с топли вулканични камъни · 90 мин."],
+      ["health", "Масаж с топли камъни · 60 мин."]
+    ],
+    "alt": { "bg": "Подготовка на нагрети камъни за масаж.", "en": "Heated stones being prepared for a massage." }
+  },
+  {
+    "src": "/service-photos/hot-stone-massage-v1.webp",
+    "services": [["health", "Масаж с топли камъни · 90 мин."]],
+    "alt": { "bg": "Терапевт поставя топъл камък върху гърба за масаж.", "en": "A therapist placing a hot stone on the back for a massage." }
+  },
+  {
+    "src": "/service-photos/child-dental-exam-v1.webp",
+    "services": [
+      ["other", "Детски стоматологичен преглед"],
+      ["other", "Преглед за установяване на орален статус на дете"],
+      ["other", "Първичен дентален преглед · дете"],
+      ["other", "Детска стоматологична консултация и профилактика"],
+      ["other", "Подробна детска дентална консултация със зъбен статус"]
+    ],
+    "alt": { "bg": "Стоматолог преглежда дете в присъствието на родител.", "en": "A dentist examining a child with a parent present." }
+  },
+  {
+    "src": "/service-photos/sx-dental-exam-age-equipment-v1.webp",
+    "services": [["other", "Консултация с детски зъболекар"]],
+    "alt": { "bg": "Дентални модели и инструменти за стоматологичен преглед.", "en": "Dental models and examination instruments." }
+  },
+  {
+    "src": "/service-photos/go-detail-dental-exam-20261126-v1.webp",
+    "services": [
+      ["other", "Преглед, консултация и лечебен план"],
+      ["other", "Комплексен дентален преглед и лечебен план"],
+      ["other", "Консултация, обстоен преглед и зъбен статус"],
+      ["other", "Дентален преглед, консултация и план на лечение"],
+      ["other", "Стоматологичен преглед, статус и план за лечение"],
+      ["other", "Диагностичен стоматологичен преглед и план за лечение"]
+    ],
+    "alt": { "bg": "Стоматологичен преглед с дентално огледало.", "en": "A dental examination with a dental mirror." }
+  },
+  {
+    "src": "/service-photos/dental-cleaning-v1.webp",
+    "services": [
+      ["other", "Почистване на зъбен камък"],
+      ["other", "Професионално почистване на зъбен камък и плака"]
+    ],
+    "alt": { "bg": "Професионално почистване на зъби.", "en": "Professional dental cleaning." }
+  },
+  {
+    "src": "/service-photos/sx-dental-scale-airflow-v1.webp",
+    "services": [["other", "Професионално почистване на плака и зъбен камък"]],
+    "alt": { "bg": "Инструменти за отстраняване на зъбен камък и плака.", "en": "Dental instruments removing tartar and plaque." }
+  },
+  {
+    "src": "/service-photos/couples-counselling-v1.webp",
+    "services": [
+      ["other", "Семейно-брачна консултация · двама партньори"],
+      ["other", "Психологическа сесия за двойки"],
+      ["other", "Терапия за двойки"],
+      ["other", "Терапевтична сесия за двойка"],
+      ["other", "Психотерапевтична сесия за двойка"],
+      ["other", "Психологическа терапия за двойки"]
+    ],
+    "alt": { "bg": "Двама партньори разговарят с консултант.", "en": "Two partners speaking with a counsellor." }
+  },
+  {
+    "src": "/service-photos/family-counselling-v1.webp",
+    "services": [["consulting", "Семейна консултация"]],
+    "alt": { "bg": "Семейство разговаря с консултант.", "en": "A family talking to a counsellor." }
+  },
+  {
+    "src": "/service-photos/go-detail-psychology-20261126-v1.webp",
+    "services": [["other", "Семейно-брачна консултация · един партньор"]],
+    "alt": { "bg": "Индивидуален разговор с консултант.", "en": "An individual conversation with a counsellor." }
+  },
+  {
+    "src": "/service-photos/sx-bridal-dress-fitting-consultation-v1.webp",
+    "services": [
+      ["other", "Първа консултация и проба на булчински рокли"],
+      ["other", "Персонална консултация и проба на рокли"],
+      ["other", "Персонална консултация и проба на сватбени рокли"],
+      ["other", "Проба на булчински рокли с цена над 1500 EUR"],
+      ["other", "Първоначална консултация и проба на булчинска рокля"]
+    ],
+    "alt": { "bg": "Булчинска рокля се пробва с помощ от консултант.", "en": "A bridal gown fitting with assistance from a consultant." }
+  },
+  {
+    "src": "/service-photos/go-detail-photo-studio-rental-20261126-v2.webp",
+    "services": [
+      ["other", "Наем на фотостудио · един делничен снимачен час"],
+      ["other", "Наем на снимачно студио · етаж 1"]
+    ],
+    "alt": { "bg": "Примерно фотостудио с фон и осветление.", "en": "Example of a photo studio with a backdrop and lighting." }
+  },
+  {
+    "src": "/service-photos/go-detail-family-portrait-photo-session-20261126-v2.webp",
+    "services": [
+      ["other", "Детска и семейна фотосесия · Mini · 15 кадъра"],
+      ["other", "Детска и семейна фотосесия"]
+    ],
+    "alt": { "bg": "Фотограф снима семеен портрет.", "en": "A photographer taking a family portrait." }
+  },
+  {
+    "src": "/service-photos/sx-outdoor-family-photoshoot-v1.webp",
+    "services": [["other", "Семейна фотосесия на открито"]],
+    "alt": { "bg": "Фотограф снима семейство на открито.", "en": "A photographer taking a family portrait outdoors." }
+  }
+]

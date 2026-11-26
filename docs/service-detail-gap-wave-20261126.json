@@ -1,0 +1,312 @@
+{
+  "checkedOn": "2026-11-26",
+  "generation": "Built-in OpenAI ImageGen. Each scene was generated separately and inspected at thumbnail size. Illustrations depict a service, not a real provider, customer, or result. Source originals were left in place; project delivery is 256×256 WebP.",
+  "assets": [
+    {
+      "file": "public/service-photos/go-detail-hair-gloss-basin-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail editorial photograph, illustrative only, not a real listing. Primary request: Close three-quarter side view beside a white shampoo basin. A salon professional in cream apron and dark nitrile gloves works a translucent neutral gloss through damp medium-brown midlength hair, with a fine soft sheen on the strands. Hair roots are not the focus; no dye bowl, foil, dryer or hair cut. The adult customer reclines comfortably, face mostly out of frame; pale olive tiles and warm furniture. Natural daylight or believable practical light; warm neutral visual treatment; distinct composition, authentic tools/textures and realistic anatomy. Center the visible action for 128 px thumbnails. A single actual-looking photo, no montage, no watermarks, no logos and no text.",
+      "sourceSha256": "d8ded4f9b91d7dcd54ad645e797c10d3b2c0f38b7a1f30254be21f78af03d181",
+      "optimizedSha256": "7f7607b02e4403c62b8f9b657820f44ad2eb0e9db4c33b18034261e58232a7c6",
+      "size": 11536,
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "public/service-photos/go-detail-karate-beginner-lesson-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail editorial photograph, illustrative only, not a real listing. Primary request: Beginner karate class in a modest naturally lit dojo. In a grounded eye-level side view, an adult instructor with a plain white karate gi and dark belt calmly demonstrates a controlled stepping straight punch into empty air alongside two young adult beginners in white gi and plain white belts, one in the foreground. No competition, no contact, no weapon, no text or identifiable club. Visible stance, hands and belts, floor mats and cream wall. Natural daylight or believable practical light; warm neutral visual treatment; distinct composition, authentic tools/textures and realistic anatomy. Center the visible action for 128 px thumbnails. A single actual-looking photo, no montage, no watermarks, no logos and no text.",
+      "sourceSha256": "fcf2761fa83ff61e77105fd475e70d2af6795da86558d7afd01a0c722f09c901",
+      "optimizedSha256": "b81d3810319e0fd17152c05eb9cf7ef15a1a2f38392d8b900ffe526a92316dc1",
+      "size": 9034,
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "public/service-photos/go-detail-refresher-driving-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail editorial photograph, illustrative only, not a real listing. Primary request: Refresher driving lesson in a compact left-hand-drive car, parked by a quiet ordinary European city street. Viewed from the back seat across the central console, an adult woman in the left driver seat has both hands naturally on the wheel and looks through the windshield, while a calm adult instructor in the right front seat points ahead without touching the wheel. Early daylight, car and street unbranded, no lettering, plates unreadable. Natural anatomy and realistic dashboard. Natural daylight or believable practical light; warm neutral visual treatment; distinct composition, authentic tools/textures and realistic anatomy. Center the visible action for 128 px thumbnails. A single actual-looking photo, no montage, no watermarks, no logos and no text.",
+      "sourceSha256": "f51b1f06d599c46e2d7d5a1ea2776d18eab81dbdb93d2703c8ce108bff1f520d",
+      "optimizedSha256": "ed1bf856f81b66d0504cedad0c77294ce0866d9aab77e648d3b0cb55fd98427c",
+      "size": 10764,
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "public/service-photos/go-detail-staged-car-window-fitting-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail editorial photograph, illustrative only, not a real listing. Primary request: Auto shop glass replacement, tightly framed at the front corner of a maroon passenger car. An adult auto-glass technician in dark grey workwear steadies a detached curved front windshield by two clearly visible glass suction handles while guiding it directly toward the open EMPTY windshield frame. Glass transmits light and reflects the workshop softly. Distinctive windscreen perimeter visible; not polishing, not tinting or repairing a tiny chip. No branding, adhesive application or lettering. Natural daylight or believable practical light; warm neutral visual treatment; distinct composition, authentic tools/textures and realistic anatomy. Center the visible action for 128 px thumbnails. A single actual-looking photo, no montage, no watermarks, no logos and no text.",
+      "sourceSha256": "53c83e1ea41d66acb048a7f8afb87451833a4b1d5367f595b88d47e51ca47b00",
+      "optimizedSha256": "826faf2922ef2ae5d4561e9f436b928bf617e17113729d93ab4a3af2e883472f",
+      "size": 12404,
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "public/service-photos/go-detail-washing-machine-service-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail editorial photograph, illustrative only, not a real listing. Primary request: Household washing machine diagnosis and repair in a real residential laundry nook. A technician kneels in profile next to a white front-loader with the lower front service panel safely dismounted and visible beside it, examining the real pump housing with a handheld task light, not running the appliance. Work mat, muted green wall; no identifiable manufacturer. Natural daylight or believable practical light; warm neutral treatment; distinct composition, authentic tools/textures and realistic anatomy. Compose the recognizable action near the center at 128px. One single photo, no montage, no watermarks, no logos and no text.",
+      "sourceSha256": "395da43025ae09fa32f1f5cd4dbc3a73e8fb036ce47ac34b051da004942e7092",
+      "optimizedSha256": "88516f73da69abb448bf763eae36a9241612ae2d6ebea4e314bca4d1deafa516",
+      "size": 13434,
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "public/service-photos/go-detail-mattress-wet-extraction-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail editorial photograph, illustrative only, not a real listing. Primary request: Professional mattress upholstery extraction, a close low side view of a clear triangular extractor head making a single neat pass over actual raised quilted mattress fabric on a low upholstered bed. A dark hose runs out of frame, an indistinct technician’s hand guides the tool. Clear construction and subtle evidence of wet extraction. No sofa, steam clouds, foam bath or household upright vacuum. Natural daylight or believable practical light; warm neutral treatment; distinct composition, authentic tools/textures and realistic anatomy. Compose the recognizable action near the center at 128px. One single photo, no montage, no watermarks, no logos and no text.",
+      "sourceSha256": "ec79b931bc8181ce0944161e946e06fb95e691ca7d9afb5813d882f49a00690e",
+      "optimizedSha256": "65b314d4b54b57a0a91271236494f4bc1e64d41cd3f7a636157d6e57aa32862b",
+      "size": 9740,
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "public/service-photos/go-detail-vehicle-paint-polish-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail editorial photograph, illustrative only, not a real listing. Primary request: Machine polishing of automotive clear coat. A detailer uses a compact dual-action polisher with one flat foam pad on the side of a dark olive vehicle door in a quiet shop. Close angled side shot with the pad making realistic flat contact and the glossy door showing one soft reflected overhead strip. Keep headlights and wheels out; no sanding dust, no wax bottles, no brands. Natural daylight or believable practical light; warm neutral treatment; distinct composition, authentic tools/textures and realistic anatomy. Compose the recognizable action near the center at 128px. One single photo, no montage, no watermarks, no logos and no text.",
+      "sourceSha256": "a59b8838dbe0b62217612df5ff472e6e7a47b38c15a366e9bc61282cf895ba1b",
+      "optimizedSha256": "1e76f09696b5a91de95a12caaa36babf1b204e6c7c2ece538c9414ae6febed8f",
+      "size": 8626,
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "public/service-photos/go-detail-car-ceramic-coating-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail editorial photograph, illustrative only, not a real listing. Primary request: Hand application of a ceramic protective coating to automotive paint. A close top-oblique view shows a nitrile-gloved hand using a small rectangular microfiber-wrapped ceramic coating applicator block in straight passes across the metallic pale-blue car hood. Glints along the paint curvature, boutique detailing workshop, no machine polisher, no film or squeegee. Natural daylight or believable practical light; warm neutral treatment; distinct composition, authentic tools/textures and realistic anatomy. Compose the recognizable action near the center at 128px. One single photo, no montage, no watermarks, no logos and no text.",
+      "sourceSha256": "0b912a7faf05faadfebd60310f1fadbc2397339fb3248b1248085e65e6b0c54d",
+      "optimizedSha256": "9b11810192defb08d0196a7a252121b953129d8ba9b0c7694c5404c374ef0865",
+      "size": 9692,
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "public/service-photos/go-detail-dog-scissor-groom-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail editorial photograph, illustrative only, not a real listing. Primary request: Dog haircut and shaping in a pet salon. A calm apricot toy poodle is upright on a teal grooming table, head fully visible in three-quarter profile. An adult groomer subtly uses small blunt-tipped grooming scissors at the outside outline of the dog’s shoulder; keep the scissors safely away from eyes and nose. Soft texture, believable paws and fur, no bath, no pet shop branding. Natural daylight or believable practical light; warm neutral treatment; distinct composition, authentic tools/textures and realistic anatomy. Compose the recognizable action near the center at 128px. One single photo, no montage, no watermarks, no logos and no text.",
+      "sourceSha256": "2a5ba5b0186878bee9988f2fc95c0f9489383f8ca67c8fa5b44648014fc7a4ba",
+      "optimizedSha256": "4361c0a1884fab90c01d929c85a97ffb52f4bda650da26153b86c1f26c93cf93",
+      "size": 11072,
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "public/service-photos/go-detail-manual-physiotherapy-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail editorial photograph, illustrative only, not a real listing. Primary request: Ordinary physiotherapy appointment. Close oblique view of the therapist in a muted sage uniform supporting the forearm and upper arm of an adult patient for careful assisted shoulder movement on a clean treatment couch. The patient wears a simple grey top, lies comfortably and looks relaxed. Use credible joint alignment; no force, pressure points, medical claim, technology, needles, tape or exercise bands. Natural perceptual lighting, warm-neutral palette, authentic tools/textures and realistic anatomy. Compose the recognizable action near the center at 128px. One single photo, no montage, no watermarks, no logos and no text.",
+      "sourceSha256": "8f7ff3bc58a5ed0a1823ea4e73f0d540af86f13aaaa87591147bde4287d7d83a",
+      "optimizedSha256": "0d471fe2e0702fe67da665bd69dac87b3ceb080f5abf1f6c0d2f8a37aaded036",
+      "size": 9698,
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "public/service-photos/go-detail-traditional-thai-massage-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail editorial photograph, illustrative only, not a real listing. Primary request: Traditional clothed Thai massage in a clean studio. A therapist guides a gentle assisted knee-to-chest stretch of a fully clothed adult client on a padded floor mat, both wearing plain loose cotton clothing. Low side view emphasizing natural posture and cloth, warm diffused window, no oil, no massage table, no towels covering bare skin, no medical claims. Natural perceptual lighting, warm-neutral palette, authentic tools/textures and realistic anatomy. Compose the recognizable action near the center at 128px. One single photo, no montage, no watermarks, no logos and no text.",
+      "sourceSha256": "f822233e5e28d0f3c66421c6f8411ade784dc9dad6719a6c5cd7a59c01d90518",
+      "optimizedSha256": "be055b44a0bee4f078fbe5bbcd3eaaef3b655de53bda665526d33c59db5027b6",
+      "size": 11238,
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "public/service-photos/go-detail-tattoo-ink-process-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail editorial photograph, illustrative only, not a real listing. Primary request: Professional custom tattoo session. Tight macro diagonal view over forearm on hygienically wrapped armrest: tattoo artist wearing black nitrile gloves makes a single fine botanical line with a wrapped modern pen-style tattoo machine, with the other hand steadying the adult client’s skin. No blood, visible injury or prominent finished art; no copying known artwork or words, no brand, clean workspace. Natural perceptual lighting, warm-neutral palette, authentic tools/textures and realistic anatomy. Compose the recognizable action near the center at 128px. One single photo, no montage, no watermarks, no logos and no text.",
+      "sourceSha256": "207ce26f58dc829c663c8a90d7e26a5125abfed553553a7cd560bd65155abf96",
+      "optimizedSha256": "4cbafd7e6c6b8371334f510d04c9607ee1d75e6eb6c410363478fab5e72fc286",
+      "size": 10224,
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "public/service-photos/go-detail-speech-therapy-child-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail editorial photograph, illustrative only, not a real listing. Primary request: In-person child speech-and-language session in an ordinary sunlit practice room. In a medium side-view a fully clothed school-age child works with an adult speech therapist face-to-face at a small table, pointing to one colorful picture card depicting familiar everyday objects, while the therapist offers a calm attentive expression. No printed words, no charts, no medical uniforms, no computer or implied actual provider. Natural perceptual lighting, warm-neutral palette, authentic tools/textures and realistic anatomy. Compose the recognizable action near the center at 128px. One single photo, no montage, no watermarks, no logos and no text.",
+      "sourceSha256": "4d4ccd1d67923bbd9c335f43282a46f2e84f52d5167e16e129e1e0a9b42a005d",
+      "optimizedSha256": "5c32c708513acf63e0036fa70baab5cd437b33ad59c83fb89e6149cf2a16eced",
+      "size": 12808,
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "public/service-photos/go-detail-haircut-and-finish-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail editorial photograph, illustrative only, not a real listing. Primary request: Women’s salon haircut and styling service, finishing stage. A stylist in warm charcoal shirt blow-dries the ends of a neatly trimmed warm chestnut collarbone-length cut with a round brush. The freshly trimmed even edge is visible, camera from behind and slightly to the side, warm natural sidelight, clean cream station, no foils, no color application. Natural perceptual lighting, warm-neutral palette, authentic tools/textures and realistic anatomy. Compose the recognizable action near the center at 128px. One single photo, no montage, no watermarks, no logos and no text.",
+      "sourceSha256": "6dc416ab8003b283f1ce2695ec72a3e18ed532609156832389f5c03455b95704",
+      "optimizedSha256": "f2312d5f53da92568ba8923c38f54f8b7843221f32a4da3c12b28ea61273c3d8",
+      "size": 9816,
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "public/service-photos/go-detail-gray-hair-blend-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail editorial photograph, illustrative only, not a real listing. Primary request: Men’s salon grey blending / camouflage. Tight three-quarter view of an adult male with natural salt-and-pepper short hair. A gloved barber carefully places lightly tinted colour with a small flat brush at the short graying temple, focusing on hair, not beard. Warm morning workshop light on hair texture, plain matte towel, no haircut in progress, no dramatic black dye finish. Natural perceptual lighting, warm-neutral palette, authentic tools/textures and realistic anatomy. Compose the recognizable action near the center at 128px. One single photo, no montage, no watermarks, no logos and no text.",
+      "sourceSha256": "22f0ef93b3da2859aaff8f265af1a29b3ef86069f1e38cc11407c13c5bf7c85d",
+      "optimizedSha256": "048703b8632eb7a61432a3a0cb82e044645edaee91ce4e710533b2a7fba0d4f6",
+      "size": 11130,
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "public/service-photos/go-detail-builder-plus-color-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail editorial photograph, illustrative only, not a real listing. Primary request: Nail strengthening overlay plus colored gel polish. Close oblique angle over two hands, adult client fingers held neatly in a warm salon; professional with muted plum gloves brushes a translucent rose builder layer onto one natural nail, while neighboring completed nails clearly display a soft opaque mauve gel color. Frame most free edges softly and use intermediate nail lengths; no artificial tips or sculpting forms. Authentic hand anatomy and clear stage distinction. Natural believable lighting, warm-neutral palette, authentic tools and textures. Center the recognizable action for a 128px square. One single photo, no montage, no watermarks, no logos and no text.",
+      "sourceSha256": "86116a4882ef9e0681c6205d9f7f1e30b5c32af354ce18f8f495766ecd93af7f",
+      "optimizedSha256": "f9c1305dc082f747d73a55c855efbd939550dcfe466988d6261dd07316eb3a04",
+      "size": 9320,
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "public/service-photos/go-detail-hydrafacial-vortex-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail editorial photograph, illustrative only, not a real listing. Primary request: Water-based hydradermabrasion HydraFacial-style service, ultra-close side three-quarter angle across the cheek of a relaxed adult woman. A trained aesthetician in clean gloves holds a plausible hydradermabrasion pen with a short transparent circular fluid-vortex suction tip at the center of the cheek. A translucent fluid line is visible in soft focus, warm diffused spa light, no results promised, no distinct brand marks, no separate product logos. Not a metal ultrasonic spatula, no visible grain or rough abrasion, no needles or colored light. Natural believable lighting, warm-neutral palette, authentic tools and textures. Center the recognizable action for a 128px square. One single photo, no montage, no watermarks, no logos and no text.",
+      "sourceSha256": "a537267a7f072650bf6314a7b1d899f155cf16e8280da021222417a832cebba5",
+      "optimizedSha256": "d32a87b18d5316f7d88ea6a984d45f7823a725d34d8677f141adcb24f2f37fa0",
+      "size": 6824,
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "public/service-photos/go-detail-childrens-chess-class-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail editorial photograph, illustrative only, not a real listing. Primary request: Group chess lesson for elementary-age children in a relaxed classroom. Warm window light viewed from just above chessboard level: two children sit on opposite sides of a real wooden chessboard while a seated teacher in the background observes. The game is the center, with clear standard chess pieces in a believable midgame and one child considering a move. No branded equipment, no visible school information or writing. Natural believable lighting, warm-neutral palette, authentic tools and textures. Center the recognizable action for a 128px square. One single photo, no montage, no watermarks, no logos and no text.",
+      "sourceSha256": "bcd37a4e8ed21860f26ba94af944d072b8a0d981feb074196dfec2912aeb288d",
+      "optimizedSha256": "5badffa0725325e416c8fa2ca7cb59daff113d6269e6b21dd70f2e6e41f0cc69",
+      "size": 13136,
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "public/service-photos/go-detail-orthodontist-consult-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail editorial photograph, illustrative only, not a real listing. Primary request: A calm orthodontic consultation in a clean warm modern dental room, adult patient sitting upright and a clinician nearby demonstrating fixed braces on a dental teaching model held at chest height. Look from the side, focus on the model with its rows of teeth and one clear metal bracket wire; unobtrusive treatment chair, daylight. No active dental procedure, no sharp metal instruments, no blood, no brands, no claims. Natural believable lighting, warm-neutral palette, authentic tools and textures. Center the recognizable action for a 128px square. One single photo, no montage, no watermarks, no logos and no text.",
+      "sourceSha256": "7ebfa79212d70b40eb8426c9beb4ecb2ece3c64f6da19942085af8c6adaf8449",
+      "optimizedSha256": "1c51fe09a87a23d679ad12d9dcff4c47c7319c40c4862073772a3d19574c1631",
+      "size": 9830,
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "public/service-photos/go-detail-automotive-shop-maintenance-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail editorial photograph, illustrative only, not a real listing. Primary request: A general car repair and scheduled service in an ordinary automotive workshop. Clear over-shoulder view from beside a raised navy family car: an experienced mechanic in slate work clothes checks the undercarriage with a small inspection lamp; realistic large lift posts and service bay, tires and underside visible. No dominant individual subsystem, no diagnostic screen, no dealer logo, no readable vehicle plates, no superhero posing. Natural believable lighting, warm-neutral palette, authentic tools and textures. Center the recognizable action for a 128px square. One single photo, no montage, no watermarks, no logos and no text.",
+      "sourceSha256": "c627cfd24e07d3bf7865517d5d9410fe9ace5c0676415298aa0e0aa8b8bc4ceb",
+      "optimizedSha256": "dffc0e1967c25bb3f9b328bc044244c2240fd325711fc9290ac56374a9748838",
+      "size": 14794,
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "public/service-photos/go-detail-staffed-complete-car-wash-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail editorial photograph, illustrative only, not a real listing. Primary request: Hand wash at a staffed professional car wash. In an open service bay two adult workers in simple plain dark uniforms tend to a light grey sedan: one uses a soft microfiber wash mitt on the wet hood; the other cleans the interior through an open rear door. Full side/front three-quarter view of the car with water on panels. No self-serve pressure lance, no brand, no readable plates. Natural believable lighting, warm-neutral palette, authentic tools and textures. Center the recognizable action for a 128px square. One single photo, no montage, no watermarks, no logos and no text.",
+      "sourceSha256": "9f62302385a6dfe98015964e302108675222e9049b2558378ebf9a6384b0d7fe",
+      "optimizedSha256": "6208f657950ce74df2e2fd364de13229ff73e2a09d086ed9a1b002e74b5b04f4",
+      "size": 18746,
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "public/service-photos/go-detail-mens-brow-grooming-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail editorial photograph, illustrative only, not a real listing. Primary request: Barber eyebrow shaping service. A close oblique side photograph of a stylist with a tiny clean brow comb, gently brushing an adult man’s natural eyebrow and checking its shape with a plain mapping pencil away from his eyes. The man has subtle stubble, is seated in a barber chair and wears a simple dark neutral cape. No razor, blade, thread, plucking or dye; clearly a man’s brow, not lash care. Natural soft light. Natural believable lighting, warm-neutral palette, authentic tools and textures. Center the recognizable action for a 128px square. One single photo, no montage, no watermarks, no logos and no text.",
+      "sourceSha256": "6196d7df176a640b51477a3fc583228123889ed59f8cac05c462dc6f348e545e",
+      "optimizedSha256": "fb653e8d081a7ac1a73453e4ed2eae9fff795cb70b242cdee96d3dc7926257cb",
+      "size": 8268,
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "public/service-photos/go-detail-hairdressing-tools-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail editorial photograph, illustrative only, not a real listing. Primary request: An editorial still life representing non-specific hairdressing services, not a single procedure. Real hairdresser’s station with slim haircutting shears, a curved round styling brush, two simple sectioning clips and a black comb tastefully arranged on a muted clay-coloured counter; the edge of a porcelain basin, blurred at the rear, identifies a salon. No scissors floating, no branding, no people, no fake text. Natural believable lighting, warm-neutral palette, authentic tools and textures. Center the recognizable action for a 128px square. One single photo, no montage, no watermarks, no logos and no text.",
+      "sourceSha256": "4dda52471a4909224cf041f8a1a814d17564a167b9c64ed4f86ace8a0080a8b4",
+      "optimizedSha256": "68b37de79f826427ebb4f8ad87235138d8f12c1d77f5fae88e22a3e281eaca6f",
+      "size": 12260,
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "public/service-photos/go-detail-ultrasonic-facial-spatula-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail editorial photograph, illustrative only, not a real listing. Primary request: Simple ultrasonic facial cleansing in a skincare studio. In a side close-up, a gloved professional lightly passes a stainless-steel ultrasonic skin spatula, accurate thin flat metal rounded scraper blade at a shallow angle, across the upper cheek of a relaxed adult. The flat spatula is prominent, no circular suction chamber, no laser effects or needles. Natural skin and calm warm daylight. Natural believable lighting, warm-neutral palette, authentic tools and textures. Center the recognizable action for a 128px square. One single photo, no montage, no watermarks, no logos and no text.",
+      "sourceSha256": "04fbf6027353cfe88f6c5be1fe42271bb0918dc1704b7ae75004f147031ed197",
+      "optimizedSha256": "dde907bf7b1e6aa084d543b215addb8712c0ae916b36b3371e0aac3a79b08f34",
+      "size": 7126,
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "public/service-photos/go-detail-alloy-rim-refinish-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail editorial photograph, illustrative only, not a real listing. Primary request: Workshop spray refinishing of an automobile alloy wheel. A technician in a full appropriate workshop respirator, gloves and protective suit uses an automotive paint spray gun next to a bare, removed unbranded alloy rim on a low turntable in a real paint booth. View from a high three-quarter angle with the distinct concentric rim and modest paint haze, practical booth light. No tire fitting or car body painting. Natural believable lighting, warm-neutral palette, authentic tools and textures. Center the recognizable action for a 128px square. One single photo, no montage, no watermarks, no logos and no text.",
+      "sourceSha256": "1f8ea8e9e565c56a1529e4283d98c790f5b13691604fdcfeac158bbb00d03ca4",
+      "optimizedSha256": "4520edd7e6f6b1a45138b8aaf10b0653d45f6a60fa6de2c0c92848d38dcd3736",
+      "size": 12866,
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "public/service-photos/go-detail-ppf-front-body-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail editorial photograph, illustrative only, not a real listing. Primary request: Installation of transparent paint-protection film (PPF) on a silver car hood and the front fender in a bright neutral detailing bay. A technician uses a soft squeegee to lay down the clear wet film across the hood; show the edge of the transparent sheet under the hand and the distinctive front bodywork. No black tint, coloured wrap, writing or heat gun. Natural believable lighting, warm-neutral palette, authentic tools and textures. Center the recognizable action for a 128px square. One single photo, no montage, no watermarks, no logos and no text.",
+      "sourceSha256": "61c8e97875d09aaf88c24cd5904dea4f19594121514dfc3989d4eaeb361e40b3",
+      "optimizedSha256": "542be65ad328859543ed01e9810d8ad54d4f68d656c2391d7a400f5211eaf156",
+      "size": 14432,
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "public/service-photos/go-detail-physio-back-hands-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail editorial photograph, illustrative only, not a real listing. Primary request: Manual physiotherapy check, distinct from an assisted arm stretch. Top-oblique view over a professional in a charcoal clinic top with well-positioned hands observing gentle upper back and shoulder mobility through the olive fabric of an adult patient’s T-shirt while the adult lies face down, supported by a clean padded plinth. Calm clinic, no exposed body or force, no device or oil. Natural believable lighting, warm-neutral palette, authentic tools and textures. Center the recognizable action for a 128px square. One single photo, no montage, no watermarks, no logos and no text.",
+      "sourceSha256": "bd603187482a42e055942b145430cb80375110c3c98e450b26c605d8b3fa356e",
+      "optimizedSha256": "eb1aeed249d172d635f5f9137fa5422003e778478c8a0663d6cde527e42c913f",
+      "size": 10028,
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "public/service-photos/go-detail-pressure-therapy-boots-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail editorial photograph, illustrative only, not a real listing. Primary request: Pressotherapy session in a real spa. The view from near the foot of the beige reclining chair centers a pair of two segmented calf-to-thigh pneumatic compression sleeves over an adult client’s fully covered legs, with narrow hoses leading neatly away; client relaxed with only lower body visible. Equipment has correct padded cuffs, nothing looks like a cast or wearable exercise machine. No claims or logos. Natural believable lighting, warm-neutral palette, authentic tools and textures. Center the recognizable action for a 128px square. One single photo, no montage, no watermarks, no logos and no text.",
+      "sourceSha256": "c77a2d5e59203ef7612600b636cbcf5301c87873b11b282af2e9ac331e6d928f",
+      "optimizedSha256": "62896bf7941627ded829ea619c9535bead21a0d5aabbdd6928ec3b86e6ea8883",
+      "size": 9692,
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "public/service-photos/go-detail-beginner-swim-class-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail editorial photograph, illustrative only, not a real listing. Primary request: A small group beginner swimming lesson for children. Adult instructor and two children in ordinary modest swim attire and swim caps practise with colourful foam kickboards in a shallow indoor pool, supportive and supervised. Camera just above the water, heads and kickboards easily identifiable, natural reflected pool lighting. No diving or underwater shots, no resort branding. Natural believable lighting, warm-neutral palette, authentic tools and textures. Center the recognizable action for a 128px square. One single photo, no montage, no watermarks, no logos and no text.",
+      "sourceSha256": "381fa70345fa66cd458138e23d9a1bcdf524ab457fb5ab1bff3c06494c5cbb00",
+      "optimizedSha256": "42502e96900f56d43e9a410b857069ed8ffe9ed26828d50c5ad717fbc2512018",
+      "size": 15734,
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "public/service-photos/go-detail-climbing-coaching-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail editorial photograph, illustrative only, not a real listing. Primary request: Individual lesson with a climbing instructor on a low indoor bouldering wall. Side-on view of a fully clothed adult beginner reaching for a large low hold with feet still close to the padded floor. Instructor coaches from the side, not pulling on the climber. Show coloured holds, padded flooring and intended safe low position. No claims, no unsupported equipment hacks, no logos. Natural believable lighting, warm-neutral palette, authentic tools and textures. Center the recognizable action for a 128px square. One single photo, no montage, no watermarks, no logos and no text.",
+      "sourceSha256": "6f2a5f921d1cd85ab012232d7416c36d47a0a6391e336199e3fa9536416803e9",
+      "optimizedSha256": "874bf5d97cf6582aaaf1a820046f8fc9dd4ea9a901a6cab5fb92dab39ad5a8c7",
+      "size": 13020,
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "public/service-photos/go-detail-sofa-reupholstery-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail editorial photograph, illustrative only, not a real listing. Primary request: Artisan reupholstering the side of a sofa in a modest daylight workshop. Slightly high close view of a worker wearing work clothes stretching warm oatmeal woven upholstery over the exposed padded arm of a single sofa; pinned fabric and upholstery hand tools clearly visible on a plain bench. No cleaning wand, no steam, no misleading showroom finished product. Natural believable lighting, warm-neutral palette, authentic tools and textures. Center the recognizable action for a 128px square. One single photo, no montage, no watermarks, no logos and no text.",
+      "sourceSha256": "33ffa0b6ac330acaf9d5103caa219b5f0193dc2deca2e1acc0b8bba6dac2d49d",
+      "optimizedSha256": "dd3ae569f4f6c306ca63c13446963279fe21fc585ac6c1d963b6277c468cb190",
+      "size": 13640,
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "public/service-photos/go-detail-junior-judo-class-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail editorial photograph, illustrative only, not a real listing. Primary request: Small children’s judo class in a respectful real community dojo. One pair of fully dressed school-age children in clean white judo gi practice a supervised, non-contact bow across from one another on tatami as an adult instructor in a similar plain gi watches. Camera from a kneeling unobstructed height, entire action readable. No strikes, violence, grappling technique instructions, logos or competition. Natural believable lighting, warm-neutral palette, authentic tools and textures. Center the recognizable action for a 128px square. One single photo, no montage, no watermarks, no logos and no text.",
+      "sourceSha256": "333c405e0500597ed3003c505f267f06a41a7a9cb2e5a7000504f3a23d6cadd3",
+      "optimizedSha256": "db87af2b19e9db72ca31f653495a1721aac37b56418ecb664404fd364eaf2db4",
+      "size": 9640,
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "public/service-photos/go-detail-facial-water-angle-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail editorial photograph, illustrative only, not a real listing. Primary request: Water-based hydradermabrasion with a different scene from a tight side portrait. View near the practitioner’s shoulder: client lies diagonally away, face mostly seen in three-quarter top view, sea-green towel around neck, practitioner in navy shows a small transparent suction tip touching the outer cheek. White salon bed and dark sand head wrap; realistic fluid suction tool, no products or branding. Natural believable lighting, warm-neutral palette, authentic tools and textures. Center the recognizable action for a 128px square. One single photo, no montage, no watermarks, no logos and no text.",
+      "sourceSha256": "4645646ec17289ccd072e7b7c477566f2122b6dd2c5dd5f0fae5c976ecc19412",
+      "optimizedSha256": "afbdd8470a6ef93064fd2264d2983448711b6f7f1e3f82bd5962f34c37d5f02a",
+      "size": 9032,
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "public/service-photos/go-detail-dental-exam-conversation-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail editorial photograph, illustrative only, not a real listing. Primary request: Routine dental examination consultation, without implying a specific clinic. Friendly clinician wearing slate blue in a contemporary dental room sits beside a patient in a dental chair, discussing an examination with a small dental mirror visible in a sterile tray. Natural posture, no active procedure or exposed cavity. Warm calm natural light, no visuals suggesting braces, remote consultation or medical claims. Natural believable lighting, warm-neutral palette, authentic tools and textures. Center the recognizable action for a 128px square. One single photo, no montage, no watermarks, no logos and no text.",
+      "sourceSha256": "99290ef1116a7cb7d3101a82c53d8b60241809b90c616bf7deddef8f5af01562",
+      "optimizedSha256": "e631654bf344a427b6f5df196c36f76b5f21117e52f0a2ccac616693b0d13feb",
+      "size": 11018,
+      "width": 256,
+      "height": 256
+    }
+  ]
+}

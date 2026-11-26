@@ -1,0 +1,259 @@
+[
+  {
+    "src": "/service-photos/go-detail-hair-gloss-basin-20261126-v1.webp",
+    "services": [["hair", "Гланциране"], ["hair", "Гланциране · без сешоар"]],
+    "alt": {"bg": "Нанасяне на прозрачен гланц по дължината на косата.", "en": "Applying a translucent gloss along the length of the hair."}
+  },
+  {
+    "src": "/service-photos/go-detail-karate-beginner-lesson-20261126-v1.webp",
+    "services": [["fitness", "Резервирана пробна тренировка по карате"]],
+    "alt": {"bg": "Инструктор показва движение на начинаещи в зала по карате.", "en": "A karate instructor shows a movement to beginners in a training hall."}
+  },
+  {
+    "src": "/service-photos/go-detail-refresher-driving-20261126-v1.webp",
+    "services": [
+      ["education", "Опреснителен шофьорски урок"], ["education", "Опреснителен шофьорски урок · 1–8 учебни часа"],
+      ["education", "Опреснителен шофьорски час"]
+    ],
+    "alt": {"bg": "Опреснителен урок с курсист и инструктор в лек автомобил.", "en": "Refresher driving lesson with a learner and instructor in a passenger car."}
+  },
+  {
+    "src": "/service-photos/go-detail-staged-car-window-fitting-20261126-v1.webp",
+    "services": [
+      ["auto_repair", "Смяна и монтаж на автомобилно стъкло"], ["auto_repair", "Демонтаж и монтаж на автомобилно стъкло"],
+      ["auto_repair", "Смяна на автомобилно стъкло в сервиза"], ["auto_repair", "Монтаж на автостъкло · съботен час с предварително записване"]
+    ],
+    "alt": {"bg": "Техник позиционира предно стъкло с вакуумни дръжки.", "en": "A technician positions a windscreen using suction handles."}
+  },
+  {
+    "src": "/service-photos/go-detail-washing-machine-service-20261126-v1.webp",
+    "services": [
+      ["home_services", "Диагностика и ремонт на пералня на адрес"], ["home_services", "Диагностика и ремонт на пералня у дома"],
+      ["home_services", "Диагностика на пералня на адрес"], ["home_services", "Посещение, диагностика и лек ремонт на пералня"],
+      ["home_services", "Отпушване на водна помпа на пералня"], ["home_services", "Смяна на водна помпа на пералня"]
+    ],
+    "alt": {"bg": "Техник оглежда долната сервизна част на пералня в дома.", "en": "A technician inspects the lower service compartment of a washing machine at home."}
+  },
+  {
+    "src": "/service-photos/go-detail-mattress-wet-extraction-20261126-v1.webp",
+    "services": [
+      ["home_services", "Двустранно пране на матрак"], ["home_services", "Дълбоко почистване на матрак"],
+      ["home_services", "Екстракционно пране на матрак на адрес"], ["home_services", "Пране на голям/нестандартен матрак над 180 см"],
+      ["home_services", "Пране на двоен матрак · двустранно"], ["home_services", "Пране на двоен матрак · едностранно"],
+      ["home_services", "Пране на единичен матрак · двустранно"], ["home_services", "Пране на единичен матрак · едностранно"],
+      ["home_services", "Пране на матрак от мемори пяна"], ["home_services", "Пране на топ матрак"],
+      ["home_services", "Пране на детски матрак"]
+    ],
+    "alt": {"bg": "Мокро почистване на повърхността на матрак с екстрактор.", "en": "Wet extraction cleaning across the surface of a mattress."}
+  },
+  {
+    "src": "/service-photos/go-detail-vehicle-paint-polish-20261126-v1.webp",
+    "services": [
+      ["detailing", "Автодетайлинг и полиране"], ["detailing", "Корекция на лак чрез пастиране и полиране"],
+      ["detailing", "Пастиране и полиране на автомобил · джип"], ["detailing", "Пастиране и полиране на автомобил · комби"],
+      ["detailing", "Пастиране и полиране на автомобил · седан"], ["detailing", "Пастиране и полиране на автомобил · хечбек"],
+      ["detailing", "Полиране в една стъпка"], ["detailing", "Възстановяване на лаково покритие"],
+      ["detailing", "Корекция на автомобилен лак"], ["detailing", "Лакова корекция"]
+    ],
+    "alt": {"bg": "Машинно полиране на лаково покритие на автомобилен панел.", "en": "Machine polishing the clear coat on a vehicle body panel."}
+  },
+  {
+    "src": "/service-photos/go-detail-car-ceramic-coating-20261126-v1.webp",
+    "services": [
+      ["detailing", "Защитно керамично покритие"], ["detailing", "Керамично защитно покритие"],
+      ["detailing", "Керамично покритие"], ["detailing", "Керамично покритие на автомобил"],
+      ["detailing", "Перманентно керамично покритие"], ["detailing", "Поставяне на керамично покритие на автомобил"],
+      ["detailing", "Керамика – 1 година"], ["detailing", "Керамика – 3 години"], ["detailing", "Керамика – 5 години"]
+    ],
+    "alt": {"bg": "Ръчно нанасяне на керамично покритие върху автомобилен лак.", "en": "Applying a ceramic coating to vehicle paint by hand."}
+  },
+  {
+    "src": "/service-photos/go-detail-dog-scissor-groom-20261126-v1.webp",
+    "services": [
+      ["pets", "Груминг и подстригване на кучета"], ["pets", "Подстригване и оформяне на куче"],
+      ["pets", "Подстригване и оформяне на куче · малка порода"], ["pets", "Подстригване на куче до 10 кг"]
+    ],
+    "alt": {"bg": "Грумър оформя с ножица козината на малко куче.", "en": "A groomer shapes a small dog's coat with scissors."}
+  },
+  {
+    "src": "/service-photos/go-detail-manual-physiotherapy-20261126-v1.webp",
+    "services": [
+      ["health", "Мануална терапия"], ["health", "Профилактична мануална терапия"],
+      ["health", "Физиотерапевтична и мануална терапия"], ["health", "Комплексна мануална терапия"]
+    ],
+    "alt": {"bg": "Терапевт подпомага внимателно движение на ръката.", "en": "A therapist supports gentle assisted arm movement."}
+  },
+  {
+    "src": "/service-photos/go-detail-traditional-thai-massage-20261126-v1.webp",
+    "services": [["health", "Тайландски масаж"], ["health", "Традиционен тайландски масаж"]],
+    "alt": {"bg": "Подпомогнато разтягане на постелка при традиционен тайландски масаж.", "en": "Assisted stretching on a mat during traditional Thai massage."}
+  },
+  {
+    "src": "/service-photos/go-detail-tattoo-ink-process-20261126-v1.webp",
+    "services": [
+      ["other", "Авторска татуировка"], ["other", "Персонализирана татуировка"],
+      ["other", "Татуировка по индивидуален проект"], ["other", "Татуировка по индивидуален дизайн"],
+      ["other", "Татуировка по индивидуален проект — за пълнолетни"]
+    ],
+    "alt": {"bg": "Татуист работи с машинка върху персонализиран мотив.", "en": "A tattoo artist works on a custom design with a tattoo pen."}
+  },
+  {
+    "src": "/service-photos/go-detail-speech-therapy-child-20261126-v1.webp",
+    "services": [
+      ["other", "Първична логопедична консултация"], ["other", "Логопедична консултация"], ["other", "Логопедична терапия"],
+      ["other", "Логопедична терапия · 1 посещения седмично"], ["other", "Логопедична терапия · 2 посещения седмично"],
+      ["other", "Логопедична терапия · 3 посещения седмично"], ["other", "Логопедична терапия · 4 посещения седмично"],
+      ["other", "Логопедична терапия · до 3 посещения седмично"], ["other", "Логопедична терапия · над 3 посещения седмично"],
+      ["other", "Логопедична диагностика"], ["other", "Логопедично обследване и статут"]
+    ],
+    "alt": {"bg": "Логопед и дете работят с илюстровани карти на присъствена среща.", "en": "A speech therapist and child use illustrated cards in an in-person session."}
+  },
+  {
+    "src": "/service-photos/go-detail-haircut-and-finish-20261126-v1.webp",
+    "services": [["hair", "Подстригване и стайлинг"], ["hair", "Форма и стайлинг · жени · SPECIALISTE"], ["hair", "Форма и стайлинг · жени · EXPERT"]],
+    "alt": {"bg": "Фризьор оформя със сешоар и четка прясно подстригана коса.", "en": "A stylist finishes a freshly trimmed haircut with a dryer and brush."}
+  },
+  {
+    "src": "/service-photos/go-detail-gray-hair-blend-20261126-v1.webp",
+    "services": [["barber", "Камуфлиране на коса"]],
+    "alt": {"bg": "Дискретно тониране на побеляла коса в областта на слепоочието.", "en": "Subtle grey blending at the temple of a short haircut."}
+  },
+  {
+    "src": "/service-photos/go-detail-builder-plus-color-20261126-v1.webp",
+    "services": [
+      ["nails", "Маникюр с гел лак и укрепване"], ["nails", "Маникюр с гел лак и укрепване · без декорация"],
+      ["nails", "Маникюр с гел лак и укрепване на къси нокти"], ["nails", "Маникюр с гел лак и укрепване с гел"],
+      ["nails", "Маникюр с гел лак с укрепване"], ["nails", "Маникюр с гел лак, укрепване и изравняване · къси нокти"],
+      ["nails", "Маникюр с гел лак, укрепване и изравняване · средно дълги нокти"]
+    ],
+    "alt": {"bg": "Укрепващ слой и цветен гел лак върху естествени нокти.", "en": "A strengthening overlay and coloured gel polish on natural nails."}
+  },
+  {
+    "src": "/service-photos/go-detail-hydrafacial-vortex-20261126-v1.webp",
+    "services": [["beauty", "Hydrafacial"], ["beauty", "Hydrafacial · Deluxe"], ["beauty", "Hydrafacial · Platinum"], ["beauty", "Hydrafacial · Signature"]],
+    "alt": {"bg": "Водно почистване на лице с прозрачен вакуумен накрайник.", "en": "Water-based facial cleansing with a clear suction tip."}
+  },
+  {
+    "src": "/service-photos/go-detail-childrens-chess-class-20261126-v1.webp",
+    "services": [
+      ["education", "Групов курс по шах за деца"], ["education", "Шахмат за деца · едно посещение"],
+      ["education", "Шахмат за деца · едно посещение седмично"], ["education", "Шахмат за деца · две посещения седмично"]
+    ],
+    "alt": {"bg": "Деца упражняват шах с инструктор.", "en": "Children practise chess with an instructor."}
+  },
+  {
+    "src": "/service-photos/go-detail-orthodontist-consult-20261126-v1.webp",
+    "services": [
+      ["other", "Ортодонтска консултация"], ["other", "Първичен ортодонтски преглед и консултация"],
+      ["other", "Първичен ортодонтски преглед"], ["other", "Вторичен ортодонтски преглед · проследяване"],
+      ["other", "Първичен преглед при ортодонт"], ["other", "Първоначален ортодонтски преглед"]
+    ],
+    "alt": {"bg": "Ортодонт обяснява брекети с учебен модел.", "en": "An orthodontist explains braces using a teaching model."}
+  },
+  {
+    "src": "/service-photos/go-detail-automotive-shop-maintenance-20261126-v1.webp",
+    "services": [
+      ["auto_repair", "Сервизен ремонт на автомобил"], ["auto_repair", "Сервизно обслужване на автомобил"],
+      ["auto_repair", "Сервизно обслужване на BMW"], ["auto_repair", "Сервизно обслужване на Toyota"],
+      ["auto_repair", "Сервизно обслужване на автомобил Honda"], ["auto_repair", "Периодично сервизно обслужване"],
+      ["auto_repair", "Техническо обслужване на автомобил"], ["auto_repair", "Сервизно обслужване на Jaguar и Land Rover"],
+      ["auto_repair", "Сервизно обслужване на Ford"], ["auto_repair", "Сервизно обслужване на Nissan"],
+      ["auto_repair", "Сервизно обслужване на Volkswagen"], ["auto_repair", "Сервизно обслужване на Audi"],
+      ["auto_repair", "Сервизно обслужване на Porsche"], ["auto_repair", "Сервизно обслужване на Mercedes-Benz"]
+    ],
+    "alt": {"bg": "Механик извършва общ сервизен оглед на повдигнат автомобил.", "en": "A mechanic carries out a general workshop inspection of a raised vehicle."}
+  },
+  {
+    "src": "/service-photos/go-detail-staffed-complete-car-wash-20261126-v1.webp",
+    "services": [
+      ["car_wash", "Комплексно измиване · лек автомобил"], ["car_wash", "Комплексно измиване на автомобил с уговорен час"],
+      ["car_wash", "Комплексно почистване · лек автомобил"], ["car_wash", "Външно и вътрешно почистване на автомобил · зимна оферта"]
+    ],
+    "alt": {"bg": "Екип на автомивка почиства автомобила отвън и отвътре.", "en": "A staffed car wash cleans the exterior and interior of a vehicle."}
+  },
+  {
+    "src": "/service-photos/go-detail-mens-brow-grooming-20261126-v1.webp",
+    "services": [
+      ["barber", "Оформяне на вежди"], ["barber", "Оформяне на вежди · Abudi"], ["barber", "Оформяне на вежди · Aws"],
+      ["barber", "Оформяне на вежди · Royal Barber"], ["barber", "Оформяне на вежди · Senan"],
+      ["barber", "Оформяне на вежди · Teodor"], ["barber", "Оформяне на вежди · Wessam"],
+      ["barber", "Оформяне на вежди · Алекс"], ["barber", "Оформяне на вежди · Еди"], ["barber", "Оформяне на вежди · Емо"]
+    ],
+    "alt": {"bg": "Барбър оформя мъжка вежда с малък гребен.", "en": "A barber shapes a man's eyebrow with a small comb."}
+  },
+  {
+    "src": "/service-photos/go-detail-hairdressing-tools-20261126-v1.webp",
+    "services": [["hair", "Фризьорски услуги"], ["hair", "Фризьорство"]],
+    "alt": {"bg": "Фризьорски ножици, гребен и четка на работна станция.", "en": "Hairdressing shears, a comb and a brush at a salon station."}
+  },
+  {
+    "src": "/service-photos/go-detail-ultrasonic-facial-spatula-20261126-v1.webp",
+    "services": [
+      ["beauty", "Ултразвуково почистване на лице"], ["beauty", "Почистване на лице с ултразвук"],
+      ["beauty", "Почистване с ултразвукова шпатула"],
+      ["beauty", "Комбинирано почистване на лице с ултразвукова шпатула"], ["beauty", "Почистване на лице · ултразвук и мануално"]
+    ],
+    "alt": {"bg": "Почистване на лице с плоска ултразвукова шпатула.", "en": "Facial cleansing using a flat ultrasonic skin spatula."}
+  },
+  {
+    "src": "/service-photos/go-detail-alloy-rim-refinish-20261126-v1.webp",
+    "services": [
+      ["auto_repair", "Боядисване и възстановяване на джанта 15–16″ · лице"], ["auto_repair", "Боядисване и възстановяване на джанта 17″ · лице"],
+      ["auto_repair", "Боядисване и възстановяване на джанта 18″ · лице"], ["auto_repair", "Боядисване и възстановяване на джанта 19″ · лице"],
+      ["auto_repair", "Боядисване и възстановяване на джанта 20″ · лице"], ["auto_repair", "Боядисване и възстановяване на джанта 21″ · лице"],
+      ["auto_repair", "Боядисване и възстановяване на джанта 22″ · лице"], ["auto_repair", "Боядисване и възстановяване на джанта 23″ · лице"]
+    ],
+    "alt": {"bg": "Техник боядисва демонтирана алуминиева джанта в камера.", "en": "A technician repaints a detached alloy wheel in a spray booth."}
+  },
+  {
+    "src": "/service-photos/go-detail-ppf-front-body-20261126-v1.webp",
+    "services": [["detailing", "PPF защитно фолио · предна част"], ["detailing", "PPF – предна част"]],
+    "alt": {"bg": "Полагане на прозрачно защитно фолио върху предната част на автомобил.", "en": "Applying clear paint-protection film to the front of a vehicle."}
+  },
+  {
+    "src": "/service-photos/go-detail-physio-back-hands-20261126-v1.webp",
+    "services": [["health", "Мануална терапия"], ["health", "Профилактична мануална терапия"], ["health", "Комплексна мануална терапия"]],
+    "alt": {"bg": "Терапевт проверява подвижността в горната част на гърба.", "en": "A therapist assesses mobility in the upper back."}
+  },
+  {
+    "src": "/service-photos/go-detail-pressure-therapy-boots-20261126-v1.webp",
+    "services": [
+      ["beauty", "Пресотерапия"], ["beauty", "Пресотерапия · долна част · 30 мин."], ["beauty", "Пресотерапия · долна част · 60 мин."],
+      ["beauty", "Пресотерапия — пакет20процедури"], ["beauty", "Пресотерапия — пакет8процедури"]
+    ],
+    "alt": {"bg": "Пневматични маншети за пресотерапия на крака.", "en": "Pneumatic compression sleeves for leg pressotherapy."}
+  },
+  {
+    "src": "/service-photos/go-detail-beginner-swim-class-20261126-v1.webp",
+    "services": [["fitness", "Групов урок по плуване за начинаещо дете"]],
+    "alt": {"bg": "Деца използват плувни дъски с инструктор в плитък басейн.", "en": "Children practise with kickboards and an instructor in a shallow pool."}
+  },
+  {
+    "src": "/service-photos/go-detail-climbing-coaching-20261126-v1.webp",
+    "services": [["fitness", "Индивидуална тренировка по катерене с инструктор"]],
+    "alt": {"bg": "Инструктор наблюдава начинаещ на закрита стена за катерене.", "en": "An instructor coaches a beginner on an indoor climbing wall."}
+  },
+  {
+    "src": "/service-photos/go-detail-sofa-reupholstery-20261126-v1.webp",
+    "services": [["other", "Претапициране на диван · уговорено посещение в ателието"]],
+    "alt": {"bg": "Тапицер опъва нов плат върху подлакътник на диван.", "en": "An upholsterer stretches new fabric over a sofa arm."}
+  },
+  {
+    "src": "/service-photos/go-detail-junior-judo-class-20261126-v1.webp",
+    "services": [["fitness", "Групова тренировка по джудо за деца"]],
+    "alt": {"bg": "Деца се покланят преди упражнение по джудо под наблюдение на инструктор.", "en": "Children bow before a judo drill under an instructor's supervision."}
+  },
+  {
+    "src": "/service-photos/go-detail-facial-water-angle-20261126-v1.webp",
+    "services": [
+      ["beauty", "Водно дермабразио"], ["beauty", "Водно дермабразио и маска"],
+      ["beauty", "Hydrafacial · Deluxe"], ["beauty", "Hydrafacial · Platinum"]
+    ],
+    "alt": {"bg": "Козметик извършва водно дермабразио с прозрачен накрайник.", "en": "An aesthetician uses a clear tip for water-based hydradermabrasion."}
+  },
+  {
+    "src": "/service-photos/go-detail-dental-exam-conversation-20261126-v1.webp",
+    "services": [["other", "Обстоен дентален преглед за деца и възрастни"]],
+    "alt": {"bg": "Стоматолог разговаря с пациент в кабинета преди преглед.", "en": "A dentist speaks with a patient in the examination room."}
+  }
+]

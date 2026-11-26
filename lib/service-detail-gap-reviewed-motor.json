@@ -1,0 +1,331 @@
+[
+  {
+    "src": "/service-photos/sx-pet-ear-hygiene-close-v1.webp",
+    "services": [
+      ["pets","Почистване на уши"]
+    ],
+    "alt": {
+      "bg": "Нежно почистване на ухото на домашен любимец.",
+      "en": "Gentle cleaning of a pet's ear."
+    }
+  },
+  {
+    "src": "/service-photos/sx-detail-mobile-interior-v1.webp",
+    "services": [
+      ["detailing","Интериорен детайлинг"],
+      ["car_wash","Мобилно вътрешно почистване на автомобил"]
+    ],
+    "alt": {
+      "bg": "Детайлно почистване на автомобилния салон.",
+      "en": "Detailed cleaning of a car interior."
+    }
+  },
+  {
+    "src": "/service-photos/sx-detail-interior-coat-v1.webp",
+    "services": [
+      ["detailing","Керамика на кожен салон"],
+      ["detailing","Керамична защита на седалки · пет места"]
+    ],
+    "alt": {
+      "bg": "Нанасяне на защитно покритие в автомобилния салон.",
+      "en": "Applying a protective coating inside a vehicle."
+    }
+  },
+  {
+    "src": "/service-photos/sx-detail-body-clear-protect-v1.webp",
+    "services": [
+      ["detailing","Защитно покритие · лек автомобил"]
+    ],
+    "alt": {
+      "bg": "Нанасяне на защитно покритие върху автомобилна боя.",
+      "en": "Applying a protective coating to vehicle paint."
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-auto-computer-diagnostics-20261126-v2.webp",
+    "services": [
+      ["auto_repair","Диагностика и ремонт на автомобилна електроника"]
+    ],
+    "alt": {
+      "bg": "Диагностичен уред за автомобилната електроника.",
+      "en": "A diagnostic scanner for vehicle electronics."
+    }
+  },
+  {
+    "src": "/service-photos/sx-auto-seller-prepurchase-visit-v1.webp",
+    "services": [
+      ["auto_repair","Посещение с първоначален оглед на автомобил"],
+      ["auto_repair","Многокомпонентна проверка на автомобил преди покупка"]
+    ],
+    "alt": {
+      "bg": "Механик проверява автомобил с отворен капак.",
+      "en": "A mechanic inspecting a car with its bonnet open."
+    }
+  },
+  {
+    "src": "/service-photos/sx-home-mattress-spot-v1.webp",
+    "services": [
+      ["home_services","Екстракционно пране на матрак на адрес"]
+    ],
+    "alt": {
+      "bg": "Екстрактор почиства текстилната повърхност на матрак.",
+      "en": "A wet-extraction nozzle cleaning the fabric surface of a mattress."
+    }
+  },
+  {
+    "src": "/service-photos/sx-home-hardfloor-machine-v1.webp",
+    "services": [
+      ["home_services","Почистване след ремонт на жилище"]
+    ],
+    "alt": {
+      "bg": "Почистване на настилка с машина след ремонт.",
+      "en": "Machine-cleaning a floor after renovation."
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-home-routine-room-cleaning-20261126-v2.webp",
+    "services": [
+      ["home_services","Домашна помощница · еднократно 3 часа"]
+    ],
+    "alt": {
+      "bg": "Домашно почистване на повърхности.",
+      "en": "Routine household surface cleaning."
+    }
+  },
+  {
+    "src": "/service-photos/sx-home-renovation-onsite-survey-v1.webp",
+    "services": [
+      ["home_services","Оглед за ремонт на апартамент"],
+      ["home_services","Оглед за ремонт на дома"],
+      ["home_services","Оглед за ремонт на жилище"],
+      ["home_services","Оглед на жилище и подробна оферта"]
+    ],
+    "alt": {
+      "bg": "Оглед на помещение преди жилищен ремонт.",
+      "en": "Inspecting a room before home renovation."
+    }
+  },
+  {
+    "src": "/service-photos/sx-home-renovation-inspect-v1.webp",
+    "services": [
+      ["home_services","Безплатен оглед за цялостен ремонт на жилище"]
+    ],
+    "alt": {
+      "bg": "Оглед на жилище преди цялостен ремонт.",
+      "en": "Surveying a home before renovation."
+    }
+  },
+  {
+    "src": "/service-photos/sx-home-upholstery-washing-detail-v1.webp",
+    "services": [
+      ["home_services","Пране на мека мебел"],
+      ["home_services","Екстракционно почистване на диван"],
+      ["home_services","Екстракционно пране на фотьойл или кресло"],
+      ["home_services","Пране на фотьойл на адрес"],
+      ["home_services","Машинно изпиране на мека мебел"]
+    ],
+    "alt": {
+      "bg": "Почистване на мебелна тапицерия с екстрактор.",
+      "en": "Cleaning furniture upholstery with an extractor."
+    }
+  },
+  {
+    "src": "/service-photos/sx-home-electrical-inspect-v1.webp",
+    "services": [
+      ["home_services","Електрически ремонт на адрес"]
+    ],
+    "alt": {
+      "bg": "Електротехник проверява електрическа точка.",
+      "en": "An electrician testing an electrical outlet."
+    }
+  },
+  {
+    "src": "/service-photos/sx-home-heater-diagnose-v1.webp",
+    "services": [
+      ["home_services","Оглед и монтаж на домашен бойлер"],
+      ["home_services","Монтаж на бойлер"]
+    ],
+    "alt": {
+      "bg": "Техник работи по стенен бойлер.",
+      "en": "A technician working on a wall-mounted water heater."
+    }
+  },
+  {
+    "src": "/service-photos/sx-home-aircon-mounts-v1.webp",
+    "services": [
+      ["home_services","Монтаж на климатик · пакет Старт"],
+      ["home_services","Стандартен монтаж на климатик до 14 000 BTU"]
+    ],
+    "alt": {
+      "bg": "Техник монтира външно тяло на климатик.",
+      "en": "A technician fitting the outdoor unit of an air conditioner."
+    }
+  },
+  {
+    "src": "/service-photos/sx-home-aircon-outdoor-clean-v1.webp",
+    "services": [
+      ["home_services","Профилактика на стенен климатик 9 000–12 000 BTU"],
+      ["home_services","Профилактика на климатик · пакет Смарт"],
+      ["home_services","Профилактика на климатик до 14 000 BTU"]
+    ],
+    "alt": {
+      "bg": "Техник почиства тялото на климатик.",
+      "en": "A technician cleaning an air-conditioning unit."
+    }
+  },
+  {
+    "src": "/service-photos/sx-home-waste-flex-v1.webp",
+    "services": [
+      ["home_services","Отпушване на мивка в кухня или баня"]
+    ],
+    "alt": {
+      "bg": "Работа по сифона под мивка.",
+      "en": "Working on the drain trap under a sink."
+    }
+  },
+  {
+    "src": "/service-photos/sx-home-water-flex-v1.webp",
+    "services": [
+      ["home_services","Водопроводен ремонт с посещение на адрес"],
+      ["home_services","Посещение и диагностика на ВиК проблем"]
+    ],
+    "alt": {
+      "bg": "Водопроводчик работи по свързване под мивка.",
+      "en": "A plumber working on a connection under a sink."
+    }
+  },
+  {
+    "src": "/service-photos/sx-home-appliance-pipe-points-v1.webp",
+    "services": [
+      ["home_services","Пералня · Монтаж"],
+      ["home_services","Монтаж на пералня при съществуващи изводи"],
+      ["home_services","Монтаж на пералня на адрес"]
+    ],
+    "alt": {
+      "bg": "Работа по водните изводи за свързване на домашен уред.",
+      "en": "Working on the water connections for a household appliance."
+    }
+  },
+  {
+    "src": "/service-photos/sx-home-washer-inlet-hose-replacement-v1.webp",
+    "services": [
+      ["home_services","Пералня · Демонтаж"]
+    ],
+    "alt": {
+      "bg": "Достъп до водното свързване на пералня.",
+      "en": "Accessing the water connection of a washing machine."
+    }
+  },
+  {
+    "src": "/service-photos/sx-home-heater-safety-valve-v1.webp",
+    "services": [
+      ["home_services","Монтаж на обемен бойлер на готови изводи"]
+    ],
+    "alt": {
+      "bg": "Свързване на фитинги под стенен бойлер.",
+      "en": "Connecting fittings beneath a wall-mounted water heater."
+    }
+  },
+  {
+    "src": "/service-photos/sx-home-moving-labour-no-vehicle-v1.webp",
+    "services": [
+      ["home_services","Преместване на мебели"]
+    ],
+    "alt": {
+      "bg": "Двама хамали преместват диван в жилище.",
+      "en": "Two movers carry a sofa inside a home."
+    }
+  },
+  {
+    "src": "/service-photos/sx-home-luggage-move-v1.webp",
+    "services": [
+      ["home_services","Разчистване на мазе с извозване"]
+    ],
+    "alt": {
+      "bg": "Товарене на вещи за извозване.",
+      "en": "Loading belongings for transport."
+    }
+  },
+  {
+    "src": "/service-photos/sx-home-plaster-level-v1.webp",
+    "services": [
+      ["home_services","Шпакловане и боядисване"]
+    ],
+    "alt": {
+      "bg": "Шпакловане на стена преди боядисване.",
+      "en": "Applying wall filler before painting."
+    }
+  },
+  {
+    "src": "/service-photos/sx-home-cooker-connect-v1.webp",
+    "services": [
+      ["home_services","Монтаж на фурна"]
+    ],
+    "alt": {
+      "bg": "Техник подготвя електрическото свързване на фурна.",
+      "en": "A technician prepares an oven's electrical connection."
+    }
+  },
+  {
+    "src": "/service-photos/sx-home-floor-drain-unblock-v1.webp",
+    "services": [
+      ["home_services","Отпушване на канал в баня или кухня"]
+    ],
+    "alt": {
+      "bg": "Водопроводчик отпушва подов сифон.",
+      "en": "A plumber clears a floor drain."
+    }
+  },
+  {
+    "src": "/service-photos/sx-detail-door-leather-clean-v1.webp",
+    "services": [
+      ["detailing","Защита на кожен салон"]
+    ],
+    "alt": {
+      "bg": "Обработка на кожена повърхност на автомобилна врата.",
+      "en": "Treating a leather surface inside a car."
+    }
+  },
+  {
+    "src": "/service-photos/sx-auto-routine-service-v1.webp",
+    "services": [
+      ["auto_repair","Сервизно обслужване на автомобил Honda"],
+      ["auto_repair","Техническо обслужване на автомобил"]
+    ],
+    "alt": {
+      "bg": "Механик обслужва автомобил в сервиз, без да се вижда марка.",
+      "en": "A mechanic servicing an unbranded vehicle in a workshop."
+    }
+  },
+  {
+    "src": "/service-photos/sx-auto-general-service-repair-v1.webp",
+    "services": [
+      ["auto_repair","Периодично сервизно обслужване"],
+      ["auto_repair","Сервизно обслужване на автомобил"]
+    ],
+    "alt": {
+      "bg": "Обслужване на автомобил с отворен капак в сервиз.",
+      "en": "Servicing a vehicle with its bonnet open in a workshop."
+    }
+  },
+  {
+    "src": "/service-photos/sx-auto-suspension-inspect-v1.webp",
+    "services": [
+      ["auto_repair","Диагностика и ремонт на ходова част"]
+    ],
+    "alt": {
+      "bg": "Механик проверява компоненти на ходовата част.",
+      "en": "A mechanic inspects vehicle suspension components."
+    }
+  },
+  {
+    "src": "/service-photos/sx-auto-brake-disc-v1.webp",
+    "services": [
+      ["auto_repair","Ремонт на автомобилна спирачна система"]
+    ],
+    "alt": {
+      "bg": "Работа по спирачен апарат и диск в автосервиз.",
+      "en": "Working on a brake caliper and disc in an automotive workshop."
+    }
+  }
+]

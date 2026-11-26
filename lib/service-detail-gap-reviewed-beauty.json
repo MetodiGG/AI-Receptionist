@@ -1,0 +1,146 @@
+[
+  {
+    "src": "/service-photos/sx-barber-beard-shape-colour-v1.webp",
+    "services": [
+      ["barber","Оформяне на брада + боядисване"]
+    ],
+    "alt": {"bg":"Оформяне на брада и нанасяне на боя в два кадъра.","en":"Two views of beard shaping and application of colour."}
+  },
+  {
+    "src": "/service-photos/haircut-beard-combo-v1.webp",
+    "services": [
+      ["barber","Коса и брада"],
+      ["barber","Коса и брада · Wessam"],
+      ["barber","Коса и брада · Алекс"],
+      ["barber","Коса и брада · Aws"],
+      ["barber","Коса и брада · Abudi"],
+      ["barber","Коса и брада · Teodor"],
+      ["barber","Коса и брада · Senan"]
+    ],
+    "alt": {"bg":"Подравняване на брадата след оформяне на косата.","en":"Beard trimming after the haircut."}
+  },
+  {
+    "src": "/service-photos/go-detail-mens-haircut-20261126-v1.webp",
+    "services": [
+      ["barber","Подстригване · Petar или Dimitar"],
+      ["barber","Подстригване · Иво Табаков"],
+      ["barber","Подстригване · Антон Ангелов"]
+    ],
+    "alt": {"bg":"Оформяне на къса мъжка прическа с машинка.","en":"A barber clipping a short men's haircut."}
+  },
+  {
+    "src": "/service-photos/sx-hair-male-scissor-cut-v1.webp",
+    "services": [
+      ["barber","Подстригване"],
+      ["barber","Подстригване · Wessam"],
+      ["barber","Подстригване · Алекс"],
+      ["barber","Подстригване · Aws"],
+      ["barber","Подстригване · Abudi"],
+      ["barber","Подстригване · Teodor"],
+      ["barber","Подстригване · Senan"],
+      ["barber","Подстригване · Стойчо"]
+    ],
+    "alt": {"bg":"Мъжко подстригване с ножица и гребен.","en":"A men’s haircut with scissors and comb."}
+  },
+  {
+    "src": "/service-photos/sx-hair-seq-male-cut-style-v1.webp",
+    "services": [
+      ["barber","Подстригване · Константин"]
+    ],
+    "alt": {"bg":"Подстригване и финално оформяне на мъжка прическа.","en":"Cutting and finishing a men’s hairstyle."}
+  },
+  {
+    "src": "/service-photos/sx-barber-senior-haircut-v1.webp",
+    "services": [
+      ["barber","Подстригване · възраст 65+"]
+    ],
+    "alt": {"bg":"Бръснар подстригва възрастен мъж.","en":"A barber cutting an older man's hair."}
+  },
+  {
+    "src": "/service-photos/microdermabrasion-v1.webp",
+    "services": [
+      ["beauty","Микродермабразио"]
+    ],
+    "alt": {"bg":"Козметична грижа за лице с накрайник за микродермабразио.","en":"A microdermabrasion tip in use for a facial."}
+  },
+  {
+    "src": "/service-photos/sx-beauty-brow-shape-tint-v1.webp",
+    "services": [
+      ["beauty","Оформяне и боядисване на вежди"]
+    ],
+    "alt": {"bg":"Оформяне на вежда с пинсета и нанасяне на боя.","en":"Eyebrow shaping with tweezers and application of tint."}
+  },
+  {
+    "src": "/service-photos/go-detail-brow-threading-20261126-v2.webp",
+    "services": [
+      ["beauty","Оформяне на вежди с конец"]
+    ],
+    "alt": {"bg":"Оформяне на вежда с опънат памучен конец.","en":"An eyebrow being shaped with taut cotton thread."}
+  },
+  {
+    "src": "/service-photos/go-detail-laser-equipment-20261126-v1.webp",
+    "services": [
+      ["beauty","Лазерна епилация · подмишници · жени"]
+    ],
+    "alt": {"bg":"Илюстративен апарат за лазерна епилация и защитни очила.","en":"Example of laser hair removal equipment with protective eyewear."}
+  },
+  {
+    "src": "/service-photos/lash-removal-v1.webp",
+    "services": [
+      ["beauty","Сваляне на миглопластика"]
+    ],
+    "alt": {"bg":"Внимателно сваляне на изкуствени мигли с апликатори.","en":"Eyelash extensions being gently removed with applicators."}
+  },
+  {
+    "src": "/service-photos/sx-beauty-ultrasound-serum-infusion-v1.webp",
+    "services": [
+      ["beauty","Почистване на лице · с ултразвуково втриване на хиалурон"]
+    ],
+    "alt": {"bg":"Козметичен ултразвуков накрайник за нанасяне на серум върху лице.","en":"A cosmetic ultrasound applicator used to apply facial serum."}
+  },
+  {
+    "src": "/service-photos/sx-nails-file-regular-polish-v1.webp",
+    "services": [
+      ["nails","Класически маникюр с обикновен лак"],
+      ["nails","Класически маникюр с CND Vinylux"],
+      ["nails","Маникюр с обикновен лак"],
+      ["nails","Маникюр с лак — Майстор"]
+    ],
+    "alt": {"bg":"Пилене на ноктите и нанасяне на обикновен лак.","en":"Filing fingernails and applying regular nail polish."}
+  },
+  {
+    "src": "/service-photos/paraffin-hand-treatment-v1.webp",
+    "services": [
+      ["nails","Парафинова терапия на ръце · Евдокия Кирилова"]
+    ],
+    "alt": {"bg":"Парафинова терапия на ръка до ваничка с разтопен парафин.","en":"A paraffin hand treatment beside the melted wax bath."}
+  },
+  {
+    "src": "/service-photos/go-detail-classic-natural-manicure-20261126-v2.webp",
+    "services": [
+      ["nails","Оформяне на нокти на ръце"]
+    ],
+    "alt": {"bg":"Оформяне на естествен нокът на ръка с пила.","en":"Shaping a natural fingernail with a file."}
+  },
+  {
+    "src": "/service-photos/go-detail-classic-unpolished-pedicure-20261126-v2.webp",
+    "services": [
+      ["nails","Оформяне на нокти на крака"]
+    ],
+    "alt": {"bg":"Оформяне на естествен нокът на крак с пила.","en":"Shaping a natural toenail with a file."}
+  },
+  {
+    "src": "/service-photos/sx-hair-nourishing-treatment-v1.webp",
+    "services": [
+      ["hair","Подхранваща маска"]
+    ],
+    "alt": {"bg":"Фризьор нанася подхранващ продукт по дължината на косата.","en":"A stylist applying a conditioning treatment through the lengths of the hair."}
+  },
+  {
+    "src": "/service-photos/sx-hair-seq-adult-root-colour-cut-v1.webp",
+    "services": [
+      ["hair","Дамско подстригване и боядисване"]
+    ],
+    "alt": {"bg":"Нанасяне на боя в корените и подстригване с ножица.","en":"Hair colour application at the roots followed by scissor cutting."}
+  }
+]

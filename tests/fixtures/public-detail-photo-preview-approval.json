@@ -31,7 +31,7 @@
     },
     "lib/service-detail-photo-presentation.mjs": {
       "before": "cbdaac887973241005e7281c2ca6ecbd766124b3731ea402fc1a67030532ca2a",
-      "after": "862b2a44b299deb805f9eb087be2ee5ebceade1cd0eae0cf40f18cc871f50af1"
+      "after": "efd180ecfdcd7d2628b51cac3acb58c58f9404bac195af917c6d710ac9a75b93"
     }
   },
   "added": {
@@ -43,6 +43,48 @@
     "public/service-photos/go-detail-men-hair-beard-brow-20261126-v3.webp": "ef278bc94f765612483842a9459fa221b5381a2acea32869694969e2c225cbc0",
     "public/service-photos/go-detail-natural-nail-builder-gel-20261126-v3.webp": "f06b4e6c96da022ab7bdddcc36da3b2d77417cea23fff4b3f09c67d528585c5a",
     "public/service-photos/go-detail-sculpted-gel-nail-extension-20261126-v3.webp": "01dd1187a149bae54f2e7e6a39790af3be881197d64baf3a0def22d2778ac430",
-    "scripts/audit-public-detail-service-photos.mjs": "2bcdb54466686b8c67ba98429cb29da7199ad36f59436ea6a8d5ad727b6cc74e"
+    "scripts/audit-public-detail-service-photos.mjs": "2bcdb54466686b8c67ba98429cb29da7199ad36f59436ea6a8d5ad727b6cc74e",
+    "docs/service-detail-gap-wave-20261126.json": "fbe238985ba4e635568fc13e4856cf086a050604720077beaf0b6710702f6eac",
+    "lib/service-detail-gap-generated.json": "d5246f334c6219def4cdae45c640417e739027915922895746c6df73b5278883",
+    "lib/service-detail-gap-reviewed-activity.json": "014bab800749ea1c758b681c79a61521dd7964cb3f6b0673c3fbe166cf0160e1",
+    "lib/service-detail-gap-reviewed-beauty.json": "6596a8166911fa76d79a2d8bc53f7e0b6b97a82a59947e9221a140dbfcefec25",
+    "lib/service-detail-gap-reviewed-motor.json": "adb2d61e3ee24c442bd392ae47b0dc6197907e1ac56aca9a79b846e541d34e56",
+    "lib/service-detail-gap-wave-exclusions.json": "03beadb0767aed8d4adbf4e29cbfab6094656cac15605d3c6a51d905e4ae55e1",
+    "lib/service-detail-gap-wave.mjs": "2947e2358eac774495d49a1f0ac2d1632c15ffd93be1dd4b9dc02e8789bee1d4",
+    "public/service-photos/go-detail-alloy-rim-refinish-20261126-v1.webp": "4520edd7e6f6b1a45138b8aaf10b0653d45f6a60fa6de2c0c92848d38dcd3736",
+    "public/service-photos/go-detail-automotive-shop-maintenance-20261126-v1.webp": "dffc0e1967c25bb3f9b328bc044244c2240fd325711fc9290ac56374a9748838",
+    "public/service-photos/go-detail-beginner-swim-class-20261126-v1.webp": "42502e96900f56d43e9a410b857069ed8ffe9ed26828d50c5ad717fbc2512018",
+    "public/service-photos/go-detail-builder-plus-color-20261126-v1.webp": "f9c1305dc082f747d73a55c855efbd939550dcfe466988d6261dd07316eb3a04",
+    "public/service-photos/go-detail-car-ceramic-coating-20261126-v1.webp": "9b11810192defb08d0196a7a252121b953129d8ba9b0c7694c5404c374ef0865",
+    "public/service-photos/go-detail-childrens-chess-class-20261126-v1.webp": "5badffa0725325e416c8fa2ca7cb59daff113d6269e6b21dd70f2e6e41f0cc69",
+    "public/service-photos/go-detail-climbing-coaching-20261126-v1.webp": "874bf5d97cf6582aaaf1a820046f8fc9dd4ea9a901a6cab5fb92dab39ad5a8c7",
+    "public/service-photos/go-detail-dental-exam-conversation-20261126-v1.webp": "e631654bf344a427b6f5df196c36f76b5f21117e52f0a2ccac616693b0d13feb",
+    "public/service-photos/go-detail-dog-scissor-groom-20261126-v1.webp": "4361c0a1884fab90c01d929c85a97ffb52f4bda650da26153b86c1f26c93cf93",
+    "public/service-photos/go-detail-facial-water-angle-20261126-v1.webp": "afbdd8470a6ef93064fd2264d2983448711b6f7f1e3f82bd5962f34c37d5f02a",
+    "public/service-photos/go-detail-gray-hair-blend-20261126-v1.webp": "048703b8632eb7a61432a3a0cb82e044645edaee91ce4e710533b2a7fba0d4f6",
+    "public/service-photos/go-detail-hair-gloss-basin-20261126-v1.webp": "7f7607b02e4403c62b8f9b657820f44ad2eb0e9db4c33b18034261e58232a7c6",
+    "public/service-photos/go-detail-haircut-and-finish-20261126-v1.webp": "f2312d5f53da92568ba8923c38f54f8b7843221f32a4da3c12b28ea61273c3d8",
+    "public/service-photos/go-detail-hairdressing-tools-20261126-v1.webp": "68b37de79f826427ebb4f8ad87235138d8f12c1d77f5fae88e22a3e281eaca6f",
+    "public/service-photos/go-detail-hydrafacial-vortex-20261126-v1.webp": "d32a87b18d5316f7d88ea6a984d45f7823a725d34d8677f141adcb24f2f37fa0",
+    "public/service-photos/go-detail-junior-judo-class-20261126-v1.webp": "db87af2b19e9db72ca31f653495a1721aac37b56418ecb664404fd364eaf2db4",
+    "public/service-photos/go-detail-karate-beginner-lesson-20261126-v1.webp": "b81d3810319e0fd17152c05eb9cf7ef15a1a2f38392d8b900ffe526a92316dc1",
+    "public/service-photos/go-detail-manual-physiotherapy-20261126-v1.webp": "0d471fe2e0702fe67da665bd69dac87b3ceb080f5abf1f6c0d2f8a37aaded036",
+    "public/service-photos/go-detail-mattress-wet-extraction-20261126-v1.webp": "65b314d4b54b57a0a91271236494f4bc1e64d41cd3f7a636157d6e57aa32862b",
+    "public/service-photos/go-detail-mens-brow-grooming-20261126-v1.webp": "fb653e8d081a7ac1a73453e4ed2eae9fff795cb70b242cdee96d3dc7926257cb",
+    "public/service-photos/go-detail-orthodontist-consult-20261126-v1.webp": "1c51fe09a87a23d679ad12d9dcff4c47c7319c40c4862073772a3d19574c1631",
+    "public/service-photos/go-detail-physio-back-hands-20261126-v1.webp": "eb1aeed249d172d635f5f9137fa5422003e778478c8a0663d6cde527e42c913f",
+    "public/service-photos/go-detail-ppf-front-body-20261126-v1.webp": "542be65ad328859543ed01e9810d8ad54d4f68d656c2391d7a400f5211eaf156",
+    "public/service-photos/go-detail-pressure-therapy-boots-20261126-v1.webp": "62896bf7941627ded829ea619c9535bead21a0d5aabbdd6928ec3b86e6ea8883",
+    "public/service-photos/go-detail-refresher-driving-20261126-v1.webp": "ed1bf856f81b66d0504cedad0c77294ce0866d9aab77e648d3b0cb55fd98427c",
+    "public/service-photos/go-detail-sofa-reupholstery-20261126-v1.webp": "dd3ae569f4f6c306ca63c13446963279fe21fc585ac6c1d963b6277c468cb190",
+    "public/service-photos/go-detail-speech-therapy-child-20261126-v1.webp": "5c32c708513acf63e0036fa70baab5cd437b33ad59c83fb89e6149cf2a16eced",
+    "public/service-photos/go-detail-staffed-complete-car-wash-20261126-v1.webp": "6208f657950ce74df2e2fd364de13229ff73e2a09d086ed9a1b002e74b5b04f4",
+    "public/service-photos/go-detail-staged-car-window-fitting-20261126-v1.webp": "826faf2922ef2ae5d4561e9f436b928bf617e17113729d93ab4a3af2e883472f",
+    "public/service-photos/go-detail-tattoo-ink-process-20261126-v1.webp": "4cbafd7e6c6b8371334f510d04c9607ee1d75e6eb6c410363478fab5e72fc286",
+    "public/service-photos/go-detail-traditional-thai-massage-20261126-v1.webp": "be055b44a0bee4f078fbe5bbcd3eaaef3b655de53bda665526d33c59db5027b6",
+    "public/service-photos/go-detail-ultrasonic-facial-spatula-20261126-v1.webp": "dde907bf7b1e6aa084d543b215addb8712c0ae916b36b3371e0aac3a79b08f34",
+    "public/service-photos/go-detail-vehicle-paint-polish-20261126-v1.webp": "1e76f09696b5a91de95a12caaa36babf1b204e6c7c2ece538c9414ae6febed8f",
+    "public/service-photos/go-detail-washing-machine-service-20261126-v1.webp": "88516f73da69abb448bf763eae36a9241612ae2d6ebea4e314bca4d1deafa516",
+    "scripts/audit-service-detail-gap-wave.mjs": "ed68ca7e14459a7400c476b396ef101baca43ca30b0e0b8553533febd552ac0c"
   }
 }

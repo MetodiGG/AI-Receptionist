@@ -7,6 +7,7 @@ import { mobileCatalogueAllowsFileChange, mobileCatalogueAllowsNewFile, mobileCa
 import { posterGlassAllowsFileChange, posterGlassMatchesPriorHash } from './poster-glass-20261126-scope.mjs'
 import { catalogueExpiryAllowsFileChange, catalogueExpiryAllowsNewFile, catalogueExpiryMatchesPriorHash } from './catalogue-expiry-20261126-scope.mjs'
 import { posterPolishAllowsFileChange, posterPolishAllowsNewFile, posterPolishMatchesPriorHash } from './poster-polish-20261126-scope.mjs'
+import { serviceDetailPhotoCoverageAllowsNewFile } from './service-detail-photo-coverage-20261126-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -17,7 +18,7 @@ function exactFile(path, map, hashFor) {
   catch { return false }
 }
 export const sofiaRpcAllowsFileChange = path => posterPolishAllowsFileChange(path) || catalogueExpiryAllowsFileChange(path) || posterGlassAllowsFileChange(path) || mobileCatalogueAllowsFileChange(path) || exactFile(path, receipt.changed, value => value.after)
-export const sofiaRpcAllowsNewFile = path => posterPolishAllowsNewFile(path) || catalogueExpiryAllowsNewFile(path) || mobileCatalogueAllowsNewFile(path) || exactFile(path, receipt.added, value => value)
+export const sofiaRpcAllowsNewFile = path => serviceDetailPhotoCoverageAllowsNewFile(path) || posterPolishAllowsNewFile(path) || catalogueExpiryAllowsNewFile(path) || mobileCatalogueAllowsNewFile(path) || exactFile(path, receipt.added, value => value)
 export const sofiaRpcMatchesPriorHash = (path, hash) => posterPolishMatchesPriorHash(path, hash) || catalogueExpiryMatchesPriorHash(path, hash) || posterGlassMatchesPriorHash(path, hash) || Boolean(hash && Object.hasOwn(receipt.changed, path)
   && receipt.changed[path].before === hash && sofiaRpcAllowsFileChange(path))
 

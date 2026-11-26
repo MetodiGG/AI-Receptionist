@@ -163,7 +163,7 @@ test('component reserves space, lazy-loads matching photos and never displays ge
   assert.match(source, /loading="lazy" decoding="async"/); assert.match(source, /alt=\{thumbnail\.alt\}/)
   assert.match(source, /width=\{displaySize\} height=\{displaySize\}/); assert.match(source, /srcSet=\{thumbnail\.srcSet/)
   assert.match(source, /onError=\{\(\) => setUnavailableSources/)
-  assert.match(source, /const thumbnail = publicServiceThumbnail\(/)
+  assert.match(source, /const thumbnail = businessCoverSources === undefined\s*\? publicServiceThumbnail\(service, options\)\s*: publicDetailServiceThumbnail\(/)
   assert.match(source, /if \(!src\) return <span[^>]+data-service-photo-unavailable/)
   assert.doesNotMatch(source, /import.*Icon|<Icon|service-thumbnail-icon/)
   assert.match(source, /data-service-kind=\{thumbnail\.kind\}/); assert.match(source, /data-thumbnail-kind=\{thumbnail\.type\}/)

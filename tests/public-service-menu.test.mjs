@@ -7,6 +7,7 @@ import { loadPublicServiceMenu } from './helpers/public-service-menu.mjs'
 import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
 import { catalogueBusinessDetails, detailPriceLabel } from '../lib/discovery/business-details.mjs'
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { catalogueDetailsWithServicePhotos } from '../lib/catalogue-service-photo-keys.mjs'
 import { presentPublicService } from '../lib/locale/public-content-server.mjs'
 const { PublicServiceMenu } = await loadPublicServiceMenu({
   ServiceThumbnail: ({ service, size, className }) => React.createElement('img', { src: '/service-photos/test.webp', alt: service.name, className, 'data-size': size }),
@@ -123,11 +124,15 @@ test('real service thumbnails omit the active hero and retain a distinct local i
   const date = Date.parse('2026-11-26T12:00:00Z')
   const renderBranch = id => {
     const record = SOFIA_CATALOGUE.find(row => row.id === id)
+    const details = catalogueDetailsWithServicePhotos(record, date)
     return renderToStaticMarkup(React.createElement(RealMenu, {
-      services: catalogueBusinessDetails(record, date).services.map(service => presentPublicService(service, record)), business: { ...record, source: 'catalogue' },
+      services: details.services.map(service => presentPublicService(service, record)),
+      business: { ...record, details, source: 'catalogue' },
     }))
   }
-  assert.doesNotMatch(renderBranch('sofia-alyoga-benkovski'), /service-thumbnail-image/u)
+  const alyoga = renderBranch('sofia-alyoga-benkovski')
+  assert.match(alyoga, /go-detail-individual-yoga-20261126-v1\.webp/u)
+  assert.doesNotMatch(alyoga, /\/service-photos\/one-to-one-yoga-v1\.webp/u)
   assert.match(renderBranch('sofia-nosia-todor-alexandrov17'), /go-nosia-folk-dance-beginners-20261125-v1\.webp/u)
 })
 

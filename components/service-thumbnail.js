@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { matchesBusinessCoverPhoto, publicServiceThumbnail } from '../lib/discovery-photo-presentation.mjs'
+import { publicDetailServiceThumbnail } from '../lib/service-detail-photo-presentation.mjs'
 
 const rememberUnavailableSource = (previous, src) => previous.includes(src) ? previous : [...previous.slice(-7), src]
 
@@ -16,7 +17,10 @@ export function IllustrativeServicePhotoNote({ services, business, locale = 'bg'
 export function ServiceThumbnail({ service, business, locale = 'bg', size = 72, trustedServiceImage, className = '', businessCoverSources }) {
   const [unavailableSources, setUnavailableSources] = useState([])
   const imageRef = useRef(null)
-  const thumbnail = publicServiceThumbnail(service, { business, locale, trustedServiceImage, unavailableSources })
+  const options = { business, locale, trustedServiceImage, unavailableSources }
+  const thumbnail = businessCoverSources === undefined
+    ? publicServiceThumbnail(service, options)
+    : publicDetailServiceThumbnail(service, { ...options, coverSources: businessCoverSources })
   const repeatsCover = matchesBusinessCoverPhoto(thumbnail.src, businessCoverSources)
   const src = repeatsCover ? null : thumbnail.src
   const displaySize = Number.isFinite(size) ? Math.min(160, Math.max(32, size)) : 72

@@ -9,6 +9,7 @@ import { posterGlassAllowsFileChange } from './poster-glass-20261126-scope.mjs'
 import { catalogueExpiryAllowsFileChange, catalogueExpiryAllowsNewFile, catalogueExpiryMatchesPriorHash, catalogueExpiryPriorSource } from './catalogue-expiry-20261126-scope.mjs'
 import { posterPolishAllowsFileChange, posterPolishAllowsNewFile } from './poster-polish-20261126-scope.mjs'
 import { subcategoryDisclosureAllowsFileChange } from './sofia-location-image-integrity-20261124-scope.mjs'
+import { serviceDetailPhotoCoverageAllowsPath } from './service-detail-photo-coverage-20261126-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -31,7 +32,7 @@ test('the standing expiry policy authorizes exactly its eight current paths and 
   const changed = git('diff', '--name-only', '--no-renames', '-z', receipt.baseline, '--').toString('utf8').split('\0').filter(Boolean)
   const untracked = git('ls-files', '--others', '--exclude-standard', '-z').toString('utf8').split('\0').filter(Boolean)
   const runtimePaths = [...new Set([...changed, ...untracked])].filter(path => path !== 'node_modules' && !path.startsWith('tests/')
-    && !subcategoryDisclosureAllowsFileChange(path)
+    && !subcategoryDisclosureAllowsFileChange(path) && !serviceDetailPhotoCoverageAllowsPath(path)
     && !posterGlassAllowsFileChange(path) && !posterPolishAllowsFileChange(path) && !posterPolishAllowsNewFile(path))
   assert.deepEqual(runtimePaths.sort(), [...changedPaths, ...addedPaths].sort())
   for (const [path, { before, after }] of Object.entries(receipt.changed)) {

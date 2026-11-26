@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url'
 import receipt from './fixtures/poster-polish-20261126-approval.json' with { type: 'json' }
 import priceReceipt from './fixtures/discovery-price-23px-20261126-approval.json' with { type: 'json' }
 import { SERVICE_PRICE_CARDS_NEW_HASHES } from './services-price-cards-scope.mjs'
+import { preServiceDetailPhotoCoverageSource } from './service-detail-photo-coverage-20261126-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -22,7 +23,10 @@ export function prePriceTypographySource(path, source) {
 }
 
 function exactFile(path, expected) {
-  try { return sha(prePriceTypographySource(path, readFileSync(new URL('../' + path, import.meta.url)))) === expected }
+  try {
+    const source = readFileSync(new URL('../' + path, import.meta.url))
+    return sha(prePriceTypographySource(path, preServiceDetailPhotoCoverageSource(path, source))) === expected
+  }
   catch { return false }
 }
 
@@ -35,7 +39,7 @@ export const posterPolishKeepsEarlierAddedMenuFile = path => posterPolishMatches
 // Retain original receipts. Only replay reviewed bytes for this UI layer.
 export function posterPolishPriorSource(path, source) {
   if (!Object.hasOwn(receipt.changed, path)) return source
-  source = prePriceTypographySource(path, source)
+  source = prePriceTypographySource(path, preServiceDetailPhotoCoverageSource(path, source))
   const { before, after } = receipt.changed[path], digest = sha(source)
   if (digest === before) return source
   if (digest !== after) throw Error('Unreviewed 26 Nov poster polish source delta: ' + path)

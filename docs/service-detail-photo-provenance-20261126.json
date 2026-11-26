@@ -1,0 +1,107 @@
+{
+  "date": "2026-11-26",
+  "generator": "OpenAI built-in image generation",
+  "licenseScope": "New GoRez generic AI illustrations. No business, employees, customers or location are represented as authentic.",
+  "usage": "Service images only inside the public detail menu. Not business covers, search thumbnails, category tiles or subcategory tiles.",
+  "assets": [
+    {
+      "activity": "dental-exam",
+      "file": "public/service-photos/go-detail-dental-exam-20261126-v1.webp",
+      "sourceSha256": "00954546ae199077759a74e3cf3563191d585a83bbf8539f501b75c5fc9393db",
+      "optimizedSha256": "8088c855b63f1d7d6b5b96fa042da0ceebe7ad123a0975192654f1ff336e5a0d",
+      "width": 256,
+      "height": 256,
+      "bytes": 9766,
+      "prompt": "Use case: photorealistic-natural. Square thumbnail illustration for a simple dental checkup, no implication of real clinic. Over-the-shoulder close-view from a dentist in clean teal scrub sleeve at a neutral dental chair holding a small round dental mirror, looking inside an adult client's mouth, another gloved hand lightly stabilizes, no drilling, no blood, no needle, general oral exam only. Natural clinical daylight, correct dental mirror and hands, person identifiable only generally, no signage, text, logos or watermark.",
+      "visualReview": "Adult examination with mirror, not a child procedure, surgery, drilling, whitening or plaque removal."
+    },
+    {
+      "activity": "gel-manicure",
+      "file": "public/service-photos/go-detail-gel-manicure-20261126-v1.webp",
+      "sourceSha256": "2c7ab6306d54166140cfffae3168b37481aeea43ef2f47ef861e19fa532b4625",
+      "optimizedSha256": "0c6773aeeb57b4251e7d4f99691f65a6b602d8c57eb881daead93f16ac2e1768",
+      "width": 256,
+      "height": 256,
+      "bytes": 11956,
+      "prompt": "Use case: photorealistic-natural. Asset type: square GoRez service-card illustration, no authentic business represented. Primary request: an accurate professional gel-polish MANICURE, applying muted aubergine gel colour to short natural fingernails. Tight three-quarter overhead macro: an adult client's four relaxed visible fingers on a folded muted sage cloth, nail technician steadying one finger with left hand and painting just that nail using a thin flat polish brush, open unbranded opaque gel polish bottle and discreet white curing lamp to the rear, lamp not in active use. Subject centered at thumbnail scale, a clearly painted glossy nail, real skin texture, anatomically correct hands, natural diffused side daylight. One coherent full-bleed photo, no montage, no letters, no text, no logos, no watermark, no exaggerated nail extensions.",
+      "visualReview": "Visible polish brush applying colour to natural fingernails and separate curing equipment; not the current gel navigation scene."
+    },
+    {
+      "activity": "gel-removal",
+      "file": "public/service-photos/go-detail-gel-removal-20261126-v1.webp",
+      "sourceSha256": "edc36a2a60f34340f94ab2a7dd3dc4f0177035197c27929b21dd0f93804d811a",
+      "optimizedSha256": "fad96b994de3cda7173b2810caf6781622896fc6d2b2f6baf7c06933e9efbbee",
+      "width": 256,
+      "height": 256,
+      "bytes": 19572,
+      "prompt": "Use case: photorealistic-natural. Asset type: square GoRez service-card illustration, no authentic business represented. Primary request: professional soak-off GEL POLISH REMOVAL from natural fingernails, clearly not applying polish. Tight near-overhead photograph of an adult client's hand on a folded warm rust-brown towel; two fingertips neatly wrapped in small silver foil tabs around cotton, nail technician peeling one partly-open foil tab from a third naturally attached finger, revealing partially lifted dark berry gel. Hands realistic and centered for 128px card, clean bright directional light, subtle everyday textures. A single photographic scene, natural nail lengths; no manicure painting brush, no spills, no letters, no logos, no watermark.",
+      "visualReview": "Distinct foil soak-off action, not painting or filing; do not use for services explicitly promising electric file removal."
+    },
+    {
+      "activity": "individual-yoga",
+      "file": "public/service-photos/go-detail-individual-yoga-20261126-v1.webp",
+      "sourceSha256": "ddaab49359ba5b3e8f50760f4b57b4354c4907a2c28e0feae8418061d829a6ad",
+      "optimizedSha256": "fdc0e315be8edf1987a75041e16eaf06fcb1d5167dde2ac3bdf3a87a23380567",
+      "width": 256,
+      "height": 256,
+      "bytes": 9068,
+      "prompt": "Use case: photorealistic-natural. Asset type: square GoRez service-card illustration, not a photograph of any actual business. Primary request: one-to-one adult YOGA lesson, clearly individualized, with only one student and one instructor. Natural side view in a quiet generic daylight studio with pale warm wall. Student centered kneeling low in a clearly readable tabletop yoga pose on a rust-coloured yoga mat, wearing dark graphite athletic clothes. Instructor in muted teal athletic clothes crouches next to them and demonstrates alignment with an open non-contact hand. Medium-wide documentary framing, both adult subjects visible, bodies and flooring realistic. No side bend, no group, no mirrors, no reformer machine, no signage, no words, no logos or watermark.",
+      "visualReview": "One instructor and one participant in a different mat pose and framing from the business hero."
+    },
+    {
+      "activity": "language-lesson",
+      "file": "public/service-photos/go-detail-language-lesson-20261126-v1.webp",
+      "sourceSha256": "45b11576a07849a01961eac179909bc8b339d36c65aedb81bac1f8b39634fad0",
+      "optimizedSha256": "87e168ecb974db16b9e69e3a1f6f103edf7f6505d4ec955871e36843420a341c",
+      "width": 256,
+      "height": 256,
+      "bytes": 15070,
+      "prompt": "Use case: photorealistic-natural. Square editorial service card illustration of a one-to-one in-person foreign-language lesson with two adults, seen from one side at small round table. Tutor indicating a page with understated blank-looking lines to adult learner who listens; both faces in three-quarter profile, neutral wool or cotton, mild warm window light, no school or flag identity, no children, no legible letters on paper, no screens, no subject-specific flags, no logos or watermark. Actual action and two people centered for a small card.",
+      "visualReview": "Two adults in a one-to-one in-person lesson, not an online or group course."
+    },
+    {
+      "activity": "laser-equipment",
+      "file": "public/service-photos/go-detail-laser-equipment-20261126-v1.webp",
+      "sourceSha256": "fb0c487477076c5257178d697cd51e850d7cfb0274877ac209fcd80276f469ad",
+      "optimizedSha256": "03f862903e4f8abc33c62d311ac5d5f1d5017b8168dcbf36aa5a314930ad8788",
+      "width": 256,
+      "height": 256,
+      "bytes": 8288,
+      "prompt": "Use case: photorealistic-natural. Asset type: square service-detail card illustration, not a real clinic or vendor. Scene: clean neutral treatment room, greige background. Close view of an unbranded professional laser HAIR REMOVAL handset resting in its holder on a white console with a coiled grey cable, dark unlit screen out of focus, folded plain safety eyewear off to the edge. Clear silhouette, affordance and textures at 128px. No person/body, no beam or light effects, no tattoo-removal scene, no text, symbols, logos or watermark. Anatomically plausible equipment, generic non-branded.",
+      "visualReview": "Generic hair removal console without people, treatment zone, brand or operator."
+    },
+    {
+      "activity": "mens-haircut",
+      "file": "public/service-photos/go-detail-mens-haircut-20261126-v1.webp",
+      "sourceSha256": "4bb7b875b1ba0f66980cf101f532e1233455122548db1f888af737ce3a7bae2e",
+      "optimizedSha256": "d3034e1f230ead973a87e8cb14a2e114c4337aeba700564ae0fdae05092e4aaa",
+      "width": 256,
+      "height": 256,
+      "bytes": 9698,
+      "prompt": "Use case: photorealistic-natural. Square generic barbershop service illustration. View from behind three-quarter at head height of tidy short adult men's haircut underway, barber in natural rolled neutral sleeve using a cordless clipper along the side near the ear, no beard work, no skin fade claim, olive cloth cape and out-of-focus wood at background, no mirrors or shop branding. Readable at 128px, anatomically correct hands, natural lighting and hair texture, one scene. No text, logos, watermark, collage.",
+      "visualReview": "Adult clipper haircut seen from behind; no shave, beard or scissor-only work."
+    },
+    {
+      "activity": "psychology",
+      "file": "public/service-photos/go-detail-psychology-20261126-v1.webp",
+      "sourceSha256": "0cd151b620a6413f73a26d28fd87bc36851b5759e2d423d211b67f2bc2a5c95f",
+      "optimizedSha256": "84d8b85414d6fc11ec24ec01eb6d5fd63d8d49f488360ad4ae7be41de09e8d7b",
+      "width": 256,
+      "height": 256,
+      "bytes": 11332,
+      "prompt": "Use case: photorealistic-natural. Square generic illustration of an adult in-person individual psychology consultation. Soft late-afternoon light in plain room, a therapist in muted blue seated facing one adult visitor in brown cardigan, seen from side at a small comfortable distance, attentive listening with hands relaxed, no medical equipment, no notebook as dominant subject, no obvious distress, no diagnostic or wellness claims. Faces natural and composition centered for a service tile, no real clinic, no signs, text, logos, watermark.",
+      "visualReview": "A one-to-one in-person adult conversation, no online, children, couples, or medical diagnosis."
+    },
+    {
+      "activity": "womens-haircut",
+      "file": "public/service-photos/go-detail-womens-haircut-20261126-v1.webp",
+      "sourceSha256": "0cbdb71522334e2a865106829e1d1f021ebad6b024e4c2e8628069ded66dc733",
+      "optimizedSha256": "edfdbb8b0a3935715f16d14eb195f52b99ed654ae13f5a600ae79c14f33ee722",
+      "width": 256,
+      "height": 256,
+      "bytes": 9106,
+      "prompt": "Use case: photorealistic-natural, square GoRez service illustration. A hairstylist is actually cutting the ends of an adult woman's shoulder-length dark auburn hair using professional scissors and black comb; camera close diagonally behind, hands and hair take visual precedence, charcoal salon cape, blurred pale blue-grey wall behind, natural matte light and realistic texture. Do not show washing, colouring or blowdry. This is a made-up nonspecific salon, not a partner. No logos, text, watermark, mirrors or collage.",
+      "visualReview": "Actual scissors and ends of the hair in frame; no colour, fringe-only or children's work."
+    }
+  ]
+}

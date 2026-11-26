@@ -8,6 +8,7 @@ import receipt from './fixtures/poster-polish-20261126-approval.json' with { typ
 import priceReceipt from './fixtures/discovery-price-23px-20261126-approval.json' with { type: 'json' }
 import { posterPolishAllowsFileChange, posterPolishAllowsNewFile, posterPolishPriorSource, prePriceTypographySource } from './poster-polish-20261126-scope.mjs'
 import { subcategoryDisclosureAllowsFileChange } from './sofia-location-image-integrity-20261124-scope.mjs'
+import { preServiceDetailPhotoCoverageSource, serviceDetailPhotoCoverageAllowsNewFile, serviceDetailPhotoCoverageAllowsPath } from './service-detail-photo-coverage-20261126-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const hash = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -18,11 +19,12 @@ test('poster polish does not alter booking, catalogue data, assets, APIs, or dep
   assert.equal(receipt.baseline, '3aad461166534fe2b73492359fa878ec4da033e5')
   const changed = git('diff', '--name-only', '--no-renames', '-z', receipt.baseline, '--').toString().split('\0')
   const untracked = git('ls-files', '--others', '--exclude-standard', '-z').toString().split('\0')
-  const sourcePaths = [...new Set([...changed, ...untracked])].filter(p => p && p !== 'node_modules' && !p.startsWith('tests/') && !subcategoryDisclosureAllowsFileChange(p)).sort()
+  const sourcePaths = [...new Set([...changed, ...untracked])].filter(p => p && p !== 'node_modules' && !p.startsWith('tests/')
+    && !subcategoryDisclosureAllowsFileChange(p) && !serviceDetailPhotoCoverageAllowsNewFile(p)).sort()
   assert.deepEqual(sourcePaths, [...Object.keys(receipt.changed), ...Object.keys(receipt.added)].sort())
   for (const [path, { before, after }] of Object.entries(receipt.changed)) {
     const bytes = await read(path), original = git('show', `${receipt.baseline}:${path}`)
-    assert.equal(hash(prePriceTypographySource(path, bytes)), after, path)
+    assert.equal(hash(prePriceTypographySource(path, preServiceDetailPhotoCoverageSource(path, bytes))), after, path)
     assert.equal(hash(original), before, path)
     assert.notEqual(before, after, path)
     assert.ok(posterPolishAllowsFileChange(path), path)
@@ -40,7 +42,8 @@ test('the 23px price choice changes only the existing preview price style', asyn
   assert.equal(path, 'app/premium-discovery-cards.css')
   const inventory = git('diff', '--name-only', '--no-renames', '-z', baseline, '--').toString().split('\0')
   const untracked = git('ls-files', '--others', '--exclude-standard', '-z').toString().split('\0')
-  const sourcePaths = [...new Set([...inventory, ...untracked])].filter(p => p && p !== 'node_modules' && !p.startsWith('tests/') && !subcategoryDisclosureAllowsFileChange(p)).sort()
+  const sourcePaths = [...new Set([...inventory, ...untracked])].filter(p => p && p !== 'node_modules' && !p.startsWith('tests/')
+    && !subcategoryDisclosureAllowsFileChange(p) && !serviceDetailPhotoCoverageAllowsPath(p)).sort()
   assert.deepEqual(sourcePaths, [path])
   const current = await read(path), original = git('show', baseline + ':' + path)
   assert.equal(hash(original), before)

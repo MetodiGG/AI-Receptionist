@@ -1,0 +1,25 @@
+{
+  "baseline": "58ca84d772d238ff85af67ae7fc45735a6c9c37f",
+  "changed": {
+    "components/service-thumbnail.js": {
+      "before": "2138837a8d6b7df1a2c830f3fd9b7df97e2b12c959a4eb26fe6c22822c6c0dda",
+      "after": "fc900fda7e8028f7aaf8759869787f919d0a7db9c427ab10ec455bb03b723fba"
+    }
+  },
+  "added": {
+    "docs/service-detail-photo-coverage-20261126.md": "2cb7cf0e54a6604f58618915318c122f2e65e4fff0a6e2ec3e696e6f8fa67c3f",
+    "docs/service-detail-photo-provenance-20261126.json": "8967972d6b2e83590eae778d723d958b3e2fe7347e3bc752066a21755394cc4a",
+    "lib/service-detail-photo-presentation.mjs": "3b76b8d87e767bb0920795018bde50070ad78d1b889208cb4795bb812d131c77",
+    "lib/service-detail-photo-variants.mjs": "13e4087bf671cd63c23c5553e60cacad36905ee15975e4b4f121a9862ef8922b",
+    "public/service-photos/go-detail-dental-exam-20261126-v1.webp": "8088c855b63f1d7d6b5b96fa042da0ceebe7ad123a0975192654f1ff336e5a0d",
+    "public/service-photos/go-detail-gel-manicure-20261126-v1.webp": "0c6773aeeb57b4251e7d4f99691f65a6b602d8c57eb881daead93f16ac2e1768",
+    "public/service-photos/go-detail-gel-removal-20261126-v1.webp": "fad96b994de3cda7173b2810caf6781622896fc6d2b2f6baf7c06933e9efbbee",
+    "public/service-photos/go-detail-individual-yoga-20261126-v1.webp": "fdc0e315be8edf1987a75041e16eaf06fcb1d5167dde2ac3bdf3a87a23380567",
+    "public/service-photos/go-detail-language-lesson-20261126-v1.webp": "87e168ecb974db16b9e69e3a1f6f103edf7f6505d4ec955871e36843420a341c",
+    "public/service-photos/go-detail-laser-equipment-20261126-v1.webp": "03f862903e4f8abc33c62d311ac5d5f1d5017b8168dcbf36aa5a314930ad8788",
+    "public/service-photos/go-detail-mens-haircut-20261126-v1.webp": "d3034e1f230ead973a87e8cb14a2e114c4337aeba700564ae0fdae05092e4aaa",
+    "public/service-photos/go-detail-psychology-20261126-v1.webp": "84d8b85414d6fc11ec24ec01eb6d5fd63d8d49f488360ad4ae7be41de09e8d7b",
+    "public/service-photos/go-detail-womens-haircut-20261126-v1.webp": "edfdbb8b0a3935715f16d14eb195f52b99ed654ae13f5a600ae79c14f33ee722",
+    "scripts/audit-detail-service-photos.mjs": "daf2e144aed7b5b6c78857de7cc9964854d8be6a03a9b6a6f06478ca4fc4654b"
+  }
+}

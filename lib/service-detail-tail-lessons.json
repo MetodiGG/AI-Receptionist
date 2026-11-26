@@ -1,0 +1,653 @@
+[
+  {
+    "src": "/service-photos/child-psychology-v1.webp",
+    "services": [
+      [
+        "other",
+        "Детска психологическа терапия"
+      ]
+    ],
+    "alt": {
+      "bg": "Детска психологическа сесия в кабинет.",
+      "en": "A child psychology session in a consulting room."
+    }
+  },
+  {
+    "src": "/service-photos/dental-cleaning-v1.webp",
+    "services": [
+      [
+        "other",
+        "Почистване с ултразвук и Airflow"
+      ]
+    ],
+    "alt": {
+      "bg": "Стоматологично почистване в кабинет.",
+      "en": "Professional dental cleaning in an office."
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-adult-therapy-conversation-20261126-v2.webp",
+    "services": [
+      [
+        "other",
+        "Психологическо консултиране за родители"
+      ],
+      [
+        "other",
+        "Психиатрична консултация"
+      ],
+      [
+        "other",
+        "Платен преглед от психиатър · стандартен прием"
+      ],
+      [
+        "other",
+        "Първична психиатрична консултация"
+      ]
+    ],
+    "alt": {
+      "bg": "Разговор между специалист и родител.",
+      "en": "A conversation between a specialist and a parent."
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-bulgarian-literature-tutor-20261126-v2.webp",
+    "services": [
+      [
+        "education",
+        "Индивидуално обучение · месечен пакет 4 × 60 минути"
+      ],
+      [
+        "education",
+        "Индивидуален урок за кандидатстване в НГДЕК"
+      ]
+    ],
+    "alt": {
+      "bg": "Ученик работи с преподавател в индивидуален учебен час.",
+      "en": "A pupil studies with a teacher in a one-to-one lesson."
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-hiphop-youth-group-20261126-v2.webp",
+    "services": [
+      [
+        "fitness",
+        "Модерни танци за деца 5–13 г. · групово посещение"
+      ]
+    ],
+    "alt": {
+      "bg": "Деца упражняват съвременен танцов стил в студио.",
+      "en": "Children practise a modern dance style in a studio."
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-mathematics-tutoring-table-20261126-v2.webp",
+    "services": [
+      [
+        "education",
+        "Индивидуално обучение · урок 90 минути"
+      ],
+      [
+        "education",
+        "Индивидуални уроци · пакет 4 астрономически часа"
+      ]
+    ],
+    "alt": {
+      "bg": "Преподавател помага на ученик със задача на учебна маса.",
+      "en": "A teacher helps a pupil with an exercise at a study table."
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-preliminary-interior-design-20261126-v2.webp",
+    "services": [
+      [
+        "consulting",
+        "Безплатна първоначална консултация за интериорен проект"
+      ]
+    ],
+    "alt": {
+      "bg": "Дизайнер и клиент преглеждат проект за интериор.",
+      "en": "A designer and client review an interior project."
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-study-abroad-advice-20261126-v2.webp",
+    "services": [
+      [
+        "consulting",
+        "Първа безплатна консултация за университет в чужбина"
+      ]
+    ],
+    "alt": {
+      "bg": "Образователна консултация за кандидатстване.",
+      "en": "An educational consultation about applications."
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-trial-class-child-20261126-v2.webp",
+    "services": [
+      [
+        "education",
+        "Индивидуално обучение · месечен пакет 8 × 60 минути"
+      ]
+    ],
+    "alt": {
+      "bg": "Ученик работи с преподавател в индивидуален учебен час.",
+      "en": "A pupil studies with a teacher in a one-to-one lesson."
+    }
+  },
+  {
+    "src": "/service-photos/go-detail-yoga-older-women-20261126-v2.webp",
+    "services": [
+      [
+        "fitness",
+        "Йога, мобилност и сила за жени 55+"
+      ]
+    ],
+    "alt": {
+      "bg": "По-възрастни участнички упражняват движение на постелки.",
+      "en": "Older women practise movement on mats."
+    }
+  },
+  {
+    "src": "/service-photos/lab-tests-v1.webp",
+    "services": [
+      [
+        "other",
+        "Лабораторно изследване NIFTY Pro с предварително записване"
+      ]
+    ],
+    "alt": {
+      "bg": "Лабораторен специалист работи с епруветки за проби.",
+      "en": "A lab specialist handles sample tubes."
+    }
+  },
+  {
+    "src": "/service-photos/sx-art-group-age-choice-v1.webp",
+    "services": [
+      [
+        "other",
+        "Групово арт ателие · месечен абонамент"
+      ]
+    ],
+    "alt": {
+      "bg": "Групова работа с художествени материали в ателие.",
+      "en": "Group artwork with art materials in a studio."
+    }
+  },
+  {
+    "src": "/service-photos/sx-art-portfolio-consult-v1.webp",
+    "services": [
+      [
+        "education",
+        "Рисуване за 7.–8. клас · посещение от 4 часа"
+      ]
+    ],
+    "alt": {
+      "bg": "Учебно рисуване с пособия в ателие.",
+      "en": "A drawing lesson with art materials in a studio."
+    }
+  },
+  {
+    "src": "/service-photos/sx-band-rehearsal-v1.webp",
+    "services": [
+      [
+        "other",
+        "Резервация на репетиционна"
+      ]
+    ],
+    "alt": {
+      "bg": "Музиканти репетират в зала с инструменти.",
+      "en": "Musicians rehearse in a room with instruments."
+    }
+  },
+  {
+    "src": "/service-photos/sx-birthday-age-choice-square-v1.webp",
+    "services": [
+      [
+        "other",
+        "Тематично детско парти"
+      ],
+      [
+        "other",
+        "Семеен рожден ден · до 10 деца и 10 възрастни"
+      ]
+    ],
+    "alt": {
+      "bg": "Детско празненство с украса и забавления.",
+      "en": "A children’s celebration with decorations and activities."
+    }
+  },
+  {
+    "src": "/service-photos/sx-boys-basketball-school-group-v1.webp",
+    "services": [
+      [
+        "fitness",
+        "Групова баскетболна тренировка за деца на 5–12 години"
+      ]
+    ],
+    "alt": {
+      "bg": "Баскетболно упражнение с детска група.",
+      "en": "Children practise basketball in a group."
+    }
+  },
+  {
+    "src": "/service-photos/sx-bridal-dress-fitting-consultation-v1.webp",
+    "services": [
+      [
+        "other",
+        "Лична проба на рокли с модна консултация"
+      ]
+    ],
+    "alt": {
+      "bg": "Проба на официални рокли с консултант.",
+      "en": "Trying on formal dresses with a stylist."
+    }
+  },
+  {
+    "src": "/service-photos/sx-business-portrait-v1.webp",
+    "services": [
+      [
+        "other",
+        "Бизнес портрети при клиента · Малък екип (1–20 души)"
+      ]
+    ],
+    "alt": {
+      "bg": "Фотограф прави професионален портрет.",
+      "en": "A photographer takes a professional portrait."
+    }
+  },
+  {
+    "src": "/service-photos/sx-child-art-group-v1.webp",
+    "services": [
+      [
+        "education",
+        "Групов урок по рисуване за възрастни или деца"
+      ]
+    ],
+    "alt": {
+      "bg": "Групово рисуване в ателие.",
+      "en": "A group drawing session in an art studio."
+    }
+  },
+  {
+    "src": "/service-photos/sx-child-birthday-reportage-v1.webp",
+    "services": [
+      [
+        "other",
+        "Рожден ден на открито – половин ден"
+      ]
+    ],
+    "alt": {
+      "bg": "Детски рожден ден на открито.",
+      "en": "An outdoor children’s birthday gathering."
+    }
+  },
+  {
+    "src": "/service-photos/sx-child-development-assessment-v1.webp",
+    "services": [
+      [
+        "other",
+        "Тест за училищна готовност · ТУГ"
+      ]
+    ],
+    "alt": {
+      "bg": "Дете изпълнява задачи за оценка на училищна готовност.",
+      "en": "A child completes school readiness tasks."
+    }
+  },
+  {
+    "src": "/service-photos/sx-child-drawing-ceramics-v1.webp",
+    "services": [
+      [
+        "education",
+        "Дълга арт работилница за деца"
+      ]
+    ],
+    "alt": {
+      "bg": "Художествени занимания в детска група.",
+      "en": "Children take part in a group art workshop."
+    }
+  },
+  {
+    "src": "/service-photos/sx-child-drawing-crafts-v1.webp",
+    "services": [
+      [
+        "education",
+        "Детска школа по рисуване · месец с 4 посещения"
+      ]
+    ],
+    "alt": {
+      "bg": "Деца рисуват в ателие под ръководство.",
+      "en": "Children draw in a studio with guidance."
+    }
+  },
+  {
+    "src": "/service-photos/sx-child-language-group-v1.webp",
+    "services": [
+      [
+        "education",
+        "Японски език и култура за деца · Хана · учебна 2026/27"
+      ]
+    ],
+    "alt": {
+      "bg": "Детски урок по чужд език в класна стая.",
+      "en": "A foreign-language class for children."
+    }
+  },
+  {
+    "src": "/service-photos/sx-child-music-art-party-v1.webp",
+    "services": [
+      [
+        "other",
+        "Класическо детско парти"
+      ]
+    ],
+    "alt": {
+      "bg": "Детска група по време на празник.",
+      "en": "Children gathered for a celebration."
+    }
+  },
+  {
+    "src": "/service-photos/sx-child-psychomotor-group-v1.webp",
+    "services": [
+      [
+        "education",
+        "Групови занимания за деца на 3–4 г. · Опосум"
+      ]
+    ],
+    "alt": {
+      "bg": "Групово учебно занимание за малки деца.",
+      "en": "A group learning activity for young children."
+    }
+  },
+  {
+    "src": "/service-photos/sx-child-swimming-individual-v1.webp",
+    "services": [
+      [
+        "fitness",
+        "Индивидуален урок по плуване"
+      ]
+    ],
+    "alt": {
+      "bg": "Индивидуален урок по плуване с инструктор.",
+      "en": "An individual swimming lesson with an instructor."
+    }
+  },
+  {
+    "src": "/service-photos/sx-child-taekwondo-group-v1.webp",
+    "services": [
+      [
+        "fitness",
+        "Пробно занятие по таекуондо"
+      ]
+    ],
+    "alt": {
+      "bg": "Упражнение по таекуондо с инструктор.",
+      "en": "Taekwondo practice with an instructor."
+    }
+  },
+  {
+    "src": "/service-photos/sx-civil-marriage-photography-v1.webp",
+    "services": [
+      [
+        "other",
+        "Сватбен фотограф · Злато"
+      ]
+    ],
+    "alt": {
+      "bg": "Двойка пред фотограф при сватбена фотосесия.",
+      "en": "A couple poses for a wedding photographer."
+    }
+  },
+  {
+    "src": "/service-photos/sx-family-child-photoshoot-v1.webp",
+    "services": [
+      [
+        "other",
+        "Мини фотосесия за самостоятелно седящи бебета и деца — 10 кадъра"
+      ]
+    ],
+    "alt": {
+      "bg": "Подготовка за портрет на дете в студио.",
+      "en": "Preparing a child’s studio portrait."
+    }
+  },
+  {
+    "src": "/service-photos/sx-group-workout-choice-v1.webp",
+    "services": [
+      [
+        "fitness",
+        "Пакет 7 групови тренировки — пилатес мат, люлка или функционална"
+      ]
+    ],
+    "alt": {
+      "bg": "Групово упражнение в тренировъчно студио.",
+      "en": "A group exercise in a training studio."
+    }
+  },
+  {
+    "src": "/service-photos/sx-indoor-clay-tennis-court-v1.webp",
+    "services": [
+      [
+        "fitness",
+        "Тенис корт · един час през зимния сезон"
+      ]
+    ],
+    "alt": {
+      "bg": "Покрит тенис корт с мрежа.",
+      "en": "A covered tennis court with its net."
+    }
+  },
+  {
+    "src": "/service-photos/sx-indoor-tennis-court-rental-v1.webp",
+    "services": [
+      [
+        "fitness",
+        "Резервация на тенис корт"
+      ],
+      [
+        "fitness",
+        "Тенис корт с резервация"
+      ]
+    ],
+    "alt": {
+      "bg": "Тенис корт с мрежа и очертания за игра.",
+      "en": "A tennis court with a net and court markings."
+    }
+  },
+  {
+    "src": "/service-photos/sx-judo-private-v1.webp",
+    "services": [
+      [
+        "fitness",
+        "Групова тренировка по джудо за любители"
+      ]
+    ],
+    "alt": {
+      "bg": "Участници упражняват джудо на татами.",
+      "en": "Participants practise judo on tatami mats."
+    }
+  },
+  {
+    "src": "/service-photos/sx-mobility-group-v1.webp",
+    "services": [
+      [
+        "fitness",
+        "Резервирана групова гимнастика"
+      ]
+    ],
+    "alt": {
+      "bg": "Групови упражнения на постелки в зала.",
+      "en": "Group mat exercise in a studio."
+    }
+  },
+  {
+    "src": "/service-photos/sx-music-classical-equipment-v1.webp",
+    "services": [
+      [
+        "education",
+        "Индивидуален урок по цигулка · 20 минути"
+      ]
+    ],
+    "alt": {
+      "bg": "Цигулка и пособия за индивидуален урок.",
+      "en": "A violin and individual lesson materials."
+    }
+  },
+  {
+    "src": "/service-photos/sx-preschool-drawing-ceramics-v1.webp",
+    "services": [
+      [
+        "education",
+        "Рисуване, приложни техники и керамика за деца 6–8 години"
+      ]
+    ],
+    "alt": {
+      "bg": "Деца работят с художествени материали и глина.",
+      "en": "Children work with art supplies and clay."
+    }
+  },
+  {
+    "src": "/service-photos/sx-private-partner-dance-lesson-v1.webp",
+    "services": [
+      [
+        "fitness",
+        "Сватбен танц · пакет от 5 индивидуални урока по 45 минути"
+      ]
+    ],
+    "alt": {
+      "bg": "Двойка репетира танц в студио.",
+      "en": "A couple rehearses a dance in a studio."
+    }
+  },
+  {
+    "src": "/service-photos/sx-psych-child-teen-choice-square-v1.webp",
+    "services": [
+      [
+        "other",
+        "Индивидуална консултация за деца, тийнейджъри и родители"
+      ]
+    ],
+    "alt": {
+      "bg": "Семейно консултиране с внимание към детето.",
+      "en": "Family consultation with a focus on the child."
+    }
+  },
+  {
+    "src": "/service-photos/sx-psych-family-couple-choice-square-v1.webp",
+    "services": [
+      [
+        "consulting",
+        "Пакет 4 семейни консултации"
+      ]
+    ],
+    "alt": {
+      "bg": "Семейна консултация с участие на специалист.",
+      "en": "A family consultation with a specialist."
+    }
+  },
+  {
+    "src": "/service-photos/sx-psych-teen-v1.webp",
+    "services": [
+      [
+        "other",
+        "Индивидуално консултиране за юноши и възрастни"
+      ],
+      [
+        "other",
+        "Индивидуална терапевтична сесия · над 14 години"
+      ]
+    ],
+    "alt": {
+      "bg": "Лична консултация в кабинет.",
+      "en": "An individual consultation in an office."
+    }
+  },
+  {
+    "src": "/service-photos/sx-school-literature-individual-v1.webp",
+    "services": [
+      [
+        "education",
+        "Индивидуално обучение · месечен пакет 8 × 90 минути"
+      ]
+    ],
+    "alt": {
+      "bg": "Ученик работи с преподавател в индивидуален учебен час.",
+      "en": "A pupil studies with a teacher in a one-to-one lesson."
+    }
+  },
+  {
+    "src": "/service-photos/sx-secondary-study-abroad-consultation-v1.webp",
+    "services": [
+      [
+        "consulting",
+        "Специализирана образователна консултация след първа среща"
+      ],
+      [
+        "consulting",
+        "Допълнителна специализирана консултация за университет"
+      ]
+    ],
+    "alt": {
+      "bg": "Образователна консултация за кандидатстване.",
+      "en": "An educational consultation about applications."
+    }
+  },
+  {
+    "src": "/service-photos/sx-training-programme-v1.webp",
+    "services": [
+      [
+        "fitness",
+        "Пакет 4 персонални тренировки месечно"
+      ]
+    ],
+    "alt": {
+      "bg": "Треньор и участничка разглеждат план за персонални тренировки.",
+      "en": "A trainer and participant review a personal training plan."
+    }
+  },
+  {
+    "src": "/service-photos/sx-wedding-photography-v1.webp",
+    "services": [
+      [
+        "other",
+        "Арт фотосесия за бал или сватба · 10 кадъра"
+      ]
+    ],
+    "alt": {
+      "bg": "Фотограф заснема портрет за официален повод.",
+      "en": "A photographer takes a portrait for a formal occasion."
+    }
+  },
+  {
+    "src": "/service-photos/sx-women-mat-strength-v1.webp",
+    "services": [
+      [
+        "fitness",
+        "Групова гимнастика · единично посещение"
+      ],
+      [
+        "fitness",
+        "Full Body Strength · групова тренировка"
+      ]
+    ],
+    "alt": {
+      "bg": "Групови упражнения на постелки в зала.",
+      "en": "Group mat exercise in a studio."
+    }
+  },
+  {
+    "src": "/service-photos/sx-yoga-salt-choice-v1.webp",
+    "services": [
+      [
+        "fitness",
+        "Йога в солна стая · групова практика"
+      ]
+    ],
+    "alt": {
+      "bg": "Йога на постелки и примерен интериор на солна стая.",
+      "en": "Mat yoga and an illustrative salt-room interior."
+    }
+  }
+]

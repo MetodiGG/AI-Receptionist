@@ -1,0 +1,897 @@
+{
+  "checkedOn": "2026-11-26",
+  "generation": "Built-in OpenAI ImageGen. Reviewed square service illustrations, not actual providers, venues, clients or results. Original generated PNGs were left in place; project versions are 256×256 WebP.",
+  "assets": [
+    {
+      "file": "public/service-photos/go-tail-adult-ballet-barre-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: single square GoRez thumbnail, illustrative, not an actual provider or venue. Primary request: Fully clothed adults in plain rehearsal athletic clothes stand at a horizontal wooden ballet barre in a bright simple dance studio. They follow one teacher, all in profile, neutral stance and feet in view, no leotard closeups or audience. Real editorial light, believable quiet scene, no watermarks, instructions, logos, or collage.",
+      "sourceSha256": "89ce97058fb8a2c47231b6e774c45803f8886e95adf3c0c9bb0c4bbf69a2e06a",
+      "optimizedSha256": "ee258ca73eb2d2e67c028bf38fab5df348e44f143cd5fda7004fcd9771cd6b1f",
+      "width": 256,
+      "height": 256,
+      "size": 7378
+    },
+    {
+      "file": "public/service-photos/go-tail-auto-dpf-workbench-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service detail example, not an actual listing. Primary request: Detail in a clean auto workshop of a detached cylindrical diesel particulate filter secured in a dedicated enclosed aqueous-cleaning workstation, vehicle component unmistakable, green workshop surfaces. No sparks, no cutting, no method instructions. Natural documentary lighting, accurate equipment, no logos, text, watermarks, instruction panels or collage. Main subject legible in a small central square.",
+      "sourceSha256": "85d6d408f408e9d5e22dadf00fdd7152d16202d33662694711458c81c957fe95",
+      "optimizedSha256": "0baae314db0e7d63838a93383cc9f996fe439228b2dba4dbc4bdb967be9eab7b",
+      "width": 256,
+      "height": 256,
+      "size": 11264
+    },
+    {
+      "file": "public/service-photos/go-tail-balinese-forearm-session-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail illustration, not a real provider, venue or outcome. Primary request: Close face-free example of a traditional Balinese-inspired oil massage, a professional gently supporting and massaging the forearm of a fully dressed adult resting in a padded chair; small oil vessel and folded indigo towel, blend of dark materials and daylight, no method instructions. Respectful, natural documentary lighting, accurate anatomy, no text, watermarks, logos or collage. Main action stays legible at thumbnail size.",
+      "sourceSha256": "6f9dd138286ffa56a987c3e1ec2d6e3ac7cf069f2d1534133297b43aef6b08af",
+      "optimizedSha256": "16fb470df172bac5d32ae7f6e97e61cce6ed6013174b5950c3a8c4880b2ed906",
+      "width": 256,
+      "height": 256,
+      "size": 13850
+    },
+    {
+      "file": "public/service-photos/go-tail-brow-laminate-clear-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square service-detail example for GoRez, not an actual provider, venue or outcome. Primary request: A professional aesthetician in grey gloves uses a clean spoolie on one adult client's brow in a natural softly lit treatment room, eyebrow, hand and clear wand visible in a close overhead angle. No branding, permanent makeup pen or advertised outcome. Respectful believable editorial photograph, no instructions, logos, text, watermarks or collage. Action legible at thumbnail size.",
+      "sourceSha256": "c29088eee98d6308e09eb5f573c11955287e158c33a21820a9a59664f5204c0a",
+      "optimizedSha256": "71985a9e80acf1360488ccfcbfe92989f1f35de9b29b0b56b009bfcf6c446ad7",
+      "width": 256,
+      "height": 256,
+      "size": 6058
+    },
+    {
+      "file": "public/service-photos/go-tail-brow-shape-laminate-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square service-detail example for GoRez, not an actual provider, venue or outcome. Primary request: Close side view in a clean salon: a cosmetic practitioner finishes shaping an adult's eyebrow with a small clean brow comb and tweezers held well above the closed eye; blur a small spoolie beside a kit on the table. No instruments touching eyes. Respectful believable editorial photograph, no instructions, logos, text, watermarks or collage. Action legible at thumbnail size.",
+      "sourceSha256": "9a82ac1c271d952cd48e56d9f05a6e638caadbaf47dd7f50170ad54b87f193f9",
+      "optimizedSha256": "95620b83ec6b2b0b65b0b4db4a7352492abbbdcd1098096afcf0490b3712c2d8",
+      "width": 256,
+      "height": 256,
+      "size": 7790
+    },
+    {
+      "file": "public/service-photos/go-tail-carpet-plant-brush-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service detail example, not an actual listing. Primary request: Seen through the opening of an industrial carpet-washer at a normal distance, a rotating brush cleans an unfolded beige patterned floor rug, worker out of frame, wet texture and machine housing clear, no water danger. Natural documentary lighting, accurate equipment, no logos, text, watermarks, instruction panels or collage. Main subject legible in a small central square.",
+      "sourceSha256": "a56e906100fb5c51d06c95430ed2dfca5ee8e86b99a1221ab0cf72d28f410e00",
+      "optimizedSha256": "4fb262c4a0decbfdad2fdad778e13d76863e6d1ec96592dac1d0a310c83eb56f",
+      "width": 256,
+      "height": 256,
+      "size": 14060
+    },
+    {
+      "file": "public/service-photos/go-tail-carpet-plant-dry-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: single square GoRez thumbnail, illustrative, no actual provider. Primary request: A very large green floor rug hanging from the professional drying rail in a bright commercial rug-cleaning workshop. A cleaner checks its alignment while the room shows two empty racks at distance. Real equipment, natural light, no text, logos, instructions or collage.",
+      "sourceSha256": "d1f03022ebcf1881fec13ab7af281ef43c8e0c9daeffcc0f237134f523eae47d",
+      "optimizedSha256": "2f8cea70b08ab06eca26a5d125733e88dc4e863a645e1b89102b877b159593d1",
+      "width": 256,
+      "height": 256,
+      "size": 14188
+    },
+    {
+      "file": "public/service-photos/go-tail-carpet-plant-rinse-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service detail example, not an actual listing. Primary request: Industrial carpet cleaning process in a bright service hall, one staff member wearing proper work gear rinses a plain terracotta rug on a large flat wash platform using suitable commercial washing equipment, visually distinct wide diagonal framing. Natural documentary lighting, accurate equipment, no logos, text, watermarks, instruction panels or collage. Main subject legible in a small central square.",
+      "sourceSha256": "1524ea84201a789695e6a459884473998100cbcc8f270412d41921ed1bc725df",
+      "optimizedSha256": "72d5124b623999a884c1dcf5b9b7837ebcea845c82cc7cf49a9eff076d9923b9",
+      "width": 256,
+      "height": 256,
+      "size": 18124
+    },
+    {
+      "file": "public/service-photos/go-tail-carpet-plant-unroll-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service detail example, not an actual listing. Primary request: Worker in a bright professional carpet-cleaning facility unrolls a blue patterned carpet onto the feed table of a large professional washing machine. Wide square perspective with carpet size and rollers visible. No household mop. Natural documentary lighting, accurate equipment, no logos, text, watermarks, instruction panels or collage. Main subject legible in a small central square.",
+      "sourceSha256": "9937c4063d76611562852869e2d8ac38014b307e7a931b864267bf63aae712e7",
+      "optimizedSha256": "febe62ae357769231a059b7f55466dce7735069524d9ee0775a73fefd9e6d5ee",
+      "width": 256,
+      "height": 256,
+      "size": 17042
+    },
+    {
+      "file": "public/service-photos/go-tail-ceramic-birthday-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez public detail illustration; not a real provider, facility or outcome. Primary request: Two fully clothed school-age children and a supervising adult making bowls from soft clay at an ordinary ceramics studio with small plain balloons in the distant background. Calm and age-appropriate, no band or logos. Responsible documentary photography, believable daylight, accurate anatomy, no text, watermarks, logos or collage. Main subject in center at thumbnail size.",
+      "sourceSha256": "c1e7119e48a789d60ecf3bc67b235417d447b31abbe8ab09a1f73f0340a4e560",
+      "optimizedSha256": "b8c182f845911552b30730dc354237b19b76b1d25568f34365f84f5ccdc29d80",
+      "width": 256,
+      "height": 256,
+      "size": 16084
+    },
+    {
+      "file": "public/service-photos/go-tail-ceramic-clay-cup-hand-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez public detail illustration; not a real provider, facility or outcome. Primary request: Close natural workshop view of an adult's hands carefully attaching a clay loop handle to a newly formed unglazed cylindrical clay cup. Authentic damp stoneware and simple textured plaster worktable. Responsible documentary photography, believable daylight, accurate anatomy, no text, watermarks, logos or collage. Main subject in center at thumbnail size.",
+      "sourceSha256": "0810d05a5dcb61af73667671d1c6aed03e63218a4ef4e760afe3b7163c937106",
+      "optimizedSha256": "e11298e7baf5d593e89026cc63333143252ab2c132b7d173fb2ff1a138c5c48f",
+      "width": 256,
+      "height": 256,
+      "size": 8998
+    },
+    {
+      "file": "public/service-photos/go-tail-ceramic-hen-session-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez public detail illustration; not a real provider, facility or outcome. Primary request: Adult friends at a ceramics workshop, candid group scene, chatting while brushing glaze on small clay bowls, therapist-free creative leisure, modest everyday clothing, no alcohol or labels, daylight oak workbench. Responsible documentary photography, believable daylight, accurate anatomy, no text, watermarks, logos or collage. Main subject in center at thumbnail size.",
+      "sourceSha256": "48b7723b4629fbbcaa54f14428420516672c27d1acc673ef66c09e436512cb80",
+      "optimizedSha256": "721094030a360a95b149bd58745c74dc640bac57a874929b731637d66122cb49",
+      "width": 256,
+      "height": 256,
+      "size": 13508
+    },
+    {
+      "file": "public/service-photos/go-tail-ceramic-team-group-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez public detail illustration; not a real provider, facility or outcome. Primary request: Small adult coworker group in an independent pottery studio hands modelling different unglazed earthenware pieces together on a shared large table. Clean natural workshop, tools and bowls clearly visible, no shirts or workplace logos. Responsible documentary photography, believable daylight, accurate anatomy, no text, watermarks, logos or collage. Main subject in center at thumbnail size.",
+      "sourceSha256": "de732c9ba96dd6b3f6c290aa674891d4020bd6ec645b5059e31bfe58c866984b",
+      "optimizedSha256": "1867d569299c147bb6bab12648a2ebf52920f34b793ec1305e589039554fdd36",
+      "width": 256,
+      "height": 256,
+      "size": 15894
+    },
+    {
+      "file": "public/service-photos/go-tail-child-mattress-clean-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service detail example, not an actual listing. Primary request: A small child-size mattress with a simple plain removable cover on a low platform next to a wooden toddler bed. An adult technician cleans the cover with a small wet-extraction upholstery head. No child in the room. Realistic editorial photograph with accurate equipment, no written measurements, logos, text, watermark, composite panels or harm. Clear subject inside the central square at thumbnail size.",
+      "sourceSha256": "1a1429ac31f2b7ea4d963b2a1d1a2989685f094d23656b62a7ebe14b4a1219f8",
+      "optimizedSha256": "b2247e976fa2465a355670aa5d9cf21870a330f5f620bd9adc18a529e715a004",
+      "width": 256,
+      "height": 256,
+      "size": 12674
+    },
+    {
+      "file": "public/service-photos/go-tail-children-volleyball-intro-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail illustration, not an actual provider, venue or outcome. Primary request: Modest ordinary volleyball sport hall where fully clothed girls of elementary-school age follow an adult coach for a basic session. A volleyball and net clearly visible, documentary wide square view, no stereotyped elite costumes. Respectful and believable editorial photograph, no instructions, logos, text, watermarks or collage. Keep action readable at thumbnail size.",
+      "sourceSha256": "aba18e496935ec470b0d66fa42985fd9490cb617b2a16fce2c14fbae171f3d0b",
+      "optimizedSha256": "7368ea53d361ade8f9e1d4b5a06b74ca61be3718ff8dc463627256957a023bef",
+      "width": 256,
+      "height": 256,
+      "size": 11728
+    },
+    {
+      "file": "public/service-photos/go-tail-computation-python-course-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez public detail illustration; not a real provider, facility or outcome. Primary request: An adult learner taking an in-person coding course using a laptop and an adult tutor nearby, dark code-editor with intentionally indistinct text, candid side shot in modern desk room. No security tools, logos, readable code or exploit context. Responsible documentary photography, believable daylight, accurate anatomy, no text, watermarks, logos or collage. Main subject in center at thumbnail size.",
+      "sourceSha256": "7c2f1cc18fe90fd24621a30dffc321a8849e205622807f9bf246aed37207fe43",
+      "optimizedSha256": "95f6f70032a1c8e24110e1476d2eda3de8d70d2efcf4502eec0b568e8aae3054",
+      "width": 256,
+      "height": 256,
+      "size": 12970
+    },
+    {
+      "file": "public/service-photos/go-tail-cornrow-natural-braiding-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail illustration, not an actual provider, venue or outcome. Primary request: Adult professional braids the client's natural hair into evenly spaced cornrows close to the scalp, three distinct strands and deliberate curved rows visible from an overhead side angle. No extension bundles, straight twists or labels. Respectful and believable editorial photograph, no instructions, logos, text, watermarks or collage. Keep action readable at thumbnail size.",
+      "sourceSha256": "2faa7e7152549968311bede076cac7760b6a7741bebdb027ce2ef3c6f1138a77",
+      "optimizedSha256": "b3927d500b4b563302e481b43738cf896e83654e06b562b795b0e5f0efc5d69b",
+      "width": 256,
+      "height": 256,
+      "size": 8522
+    },
+    {
+      "file": "public/service-photos/go-tail-corporate-mid-photo-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail illustration, not a real provider, venue or outcome. Primary request: A professional photographer sets up a compact portable portrait stand at a neutral office, two adults wait their turn in distant background. Three-quarter angle from camera-side with workplace and lighting kit legible. No actual provider implied, no logos. Respectful, natural documentary lighting, accurate anatomy, no text, watermarks, logos or collage. Main action stays legible at thumbnail size.",
+      "sourceSha256": "8de5a108cc396e0110c54aa4b83eca35b13bd80ce894dd0ec56e4a5c34caf2fb",
+      "optimizedSha256": "17a5307af89bca3ca501a32068ef7b4316e5413579b511068e76a38e1043d900",
+      "width": 256,
+      "height": 256,
+      "size": 11608
+    },
+    {
+      "file": "public/service-photos/go-tail-corporate-small-photo-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail illustration, not a real provider, venue or outcome. Primary request: Professional portrait photographer at a plain client's modern office, adjusting camera on tripod while one business-casual adult and a second colleague wait beside a small portable softbox. No original business logos or identifiable premises, tight candid photo. Respectful, natural documentary lighting, accurate anatomy, no text, watermarks, logos or collage. Main action stays legible at thumbnail size.",
+      "sourceSha256": "8c5f2199c8f2e942bec2ce58c633d1ef53343ce2a1f87257ecf083cd1e810025",
+      "optimizedSha256": "71be7e1b61472c2cf38b56913924f517335c8cd37df80a4de3a34eef8e2743bd",
+      "width": 256,
+      "height": 256,
+      "size": 10084
+    },
+    {
+      "file": "public/service-photos/go-tail-corporate-team-photo-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail illustration, not a real provider, venue or outcome. Primary request: Wide side shot of a mobile professional headshot session in a neutral open office atrium. Camera on modest tripod, portable backdrop and two tidy LED soft lights, a few adult workers waiting well behind the current seated subject. No client sign or implication of group picture. Respectful, natural documentary lighting, accurate anatomy, no text, watermarks, logos or collage. Main action stays legible at thumbnail size.",
+      "sourceSha256": "fd96d1df4ae5aac122b202fab3c69099949f89709ba0c0cfdd97bce00e21ed3d",
+      "optimizedSha256": "d13d750bf6f0435b625889431cd7d0fb8a312d957561ab678b21d3ed5e1ee22e",
+      "width": 256,
+      "height": 256,
+      "size": 12648
+    },
+    {
+      "file": "public/service-photos/go-tail-cozy-salt-room-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square service-detail example for GoRez, not an actual provider, venue or outcome. Primary request: Neutral photoreal example of a salt-room wellness appointment, unbranded softly illuminated coarse rough salt brick and one clothed adult resting in an upright leisure chair, no identifiable actual facility, no claim about treatment effect. Respectful believable editorial photograph, no instructions, logos, text, watermarks or collage. Action legible at thumbnail size.",
+      "sourceSha256": "d0227e39142ea8be4111f0cf66735bf3c76f330fb8f013651f02b889cbe25b8b",
+      "optimizedSha256": "ac339c349b15afa3a148d781dcd17670f7b5ae72ad20ad553912d01722e39007",
+      "width": 256,
+      "height": 256,
+      "size": 11560
+    },
+    {
+      "file": "public/service-photos/go-tail-drums-lesson-one-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: single square GoRez thumbnail, an illustrative professional context rather than a real provider. Primary request: One tutor and one adult beginner at a full acoustic drum kit, the student seated behind it holding normal drumsticks, a friendly informal drum studio, naturally lit, no instruments with logos. Realistic framing, no instructions, lettering, watermarks, or collage.",
+      "sourceSha256": "63c7588ff520c74f0619f3969d74c1fe20dc45de5dee434989ff9051578334ac",
+      "optimizedSha256": "9f7822e7756c734be877f6630db4664f14a9520827434b7d293038b2aef218fa",
+      "width": 256,
+      "height": 256,
+      "size": 15870
+    },
+    {
+      "file": "public/service-photos/go-tail-drums-lesson-three-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez thumbnail, illustrative and not a real provider. Primary request: A prospective adult student and a friendly adult music instructor are having a short conversation while standing beside a full acoustic drum kit in a small naturally lit rehearsal room. Wide setup and readable bass drum, no one playing yet and no logos. Documentary framing, no text, logo or watermark.",
+      "sourceSha256": "305dcec6a7efda35a5638ab087b10aba8e4878f6b1f2ae397abb1ac8fae7f6c9",
+      "optimizedSha256": "52f70565d0cd568ab99b1f118ee90972b6be7ca1896e12a0d9323fa87bcd5f0c",
+      "width": 256,
+      "height": 256,
+      "size": 15450
+    },
+    {
+      "file": "public/service-photos/go-tail-drums-lesson-two-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez thumbnail, illustrative and not a real provider. Primary request: In a soft warmly lit rehearsal room an adult drummer rehearses on a wooden acoustic kit while an instructor is seen only out of focus. Side shot focuses on real snare, one cymbal and the hands holding drumsticks naturally. Distinct from a chat before class. Documentary framing, no text, logo or watermark.",
+      "sourceSha256": "68b9a53858a8ab46c4233855983a8e41e6e140511f22d42f09b05ab968ba3984",
+      "optimizedSha256": "b76f2c48d0757f6e4de16f26a002ec0de090f1dff6c5d80a66ad4d15ff6c09fd",
+      "width": 256,
+      "height": 256,
+      "size": 9436
+    },
+    {
+      "file": "public/service-photos/go-tail-face-skin-inspection-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail illustration, not an actual provider, venue or outcome. Primary request: An adult aesthetician assesses the face of a reclining adult client under soft diffuse light in a modest treatment room, clean gloves and a plain handheld magnifier, no device-specific claims, injected substance or implied outcome. Respectful and believable editorial photograph, no instructions, logos, text, watermarks or collage. Keep action readable at thumbnail size.",
+      "sourceSha256": "25f0b5cccbd18cb27d6cd75cb9ea6250c753a0bf4252b2d6f3282c814ff4dc4c",
+      "optimizedSha256": "9a151375a2ba4428bcadea853fa7fc58d3ab760e037e77bcb47f000df3ff94b8",
+      "width": 256,
+      "height": 256,
+      "size": 7750
+    },
+    {
+      "file": "public/service-photos/go-tail-fitness-kids-track-field-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square service-detail example for GoRez, not an actual provider, venue or outcome. Primary request: Small group of fully clothed children and an adult instructor practice running a short distance on a regular red outdoor track. Side perspective with lanes and child-safe scale, all faces unidentifiable except stylized generic, no labels or competition. Respectful believable editorial photograph, no instructions, logos, text, watermarks or collage. Action legible at thumbnail size.",
+      "sourceSha256": "7ac2e5f17f69c5969209ebddddc25ce5a16fb04a140deeed4264ef72b141855b",
+      "optimizedSha256": "1948bbf14df8e7137e56fa6f603bdbf4114c6df9bb355f7f93005f8ac40f5bbc",
+      "width": 256,
+      "height": 256,
+      "size": 14098
+    },
+    {
+      "file": "public/service-photos/go-tail-foam-mattress-extraction-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service detail example, not an actual listing. Primary request: Overhead medium shot: a technician guides the clear head of a fabric extraction tool in a single pass on a bare grey memory-foam mattress with a close-fitting thin zippered cover, only the corner of a muted olive bedroom visible. Realistic editorial photograph with accurate equipment, no written measurements, logos, text, watermark, composite panels or harm. Clear subject inside the central square at thumbnail size.",
+      "sourceSha256": "172e65c563e3074dddb6fec7839af57ece9361dec1dd490b6dadbc3a95c809b9",
+      "optimizedSha256": "b9d486fc6cc961b3f2dd0f6c14fea408511217f5dfabf8db69c3060a6b5ca00c",
+      "width": 256,
+      "height": 256,
+      "size": 6380
+    },
+    {
+      "file": "public/service-photos/go-tail-football-individual-tutorial-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez public detail illustration; not a real provider, facility or outcome. Primary request: One young adult football player in plain team-free practice clothes concentrates on a stationary football on turf while a single coach supervises from the side. Both people and ball fully visible, simple outdoor recreational pitch, no logos. Responsible documentary photography, believable daylight, accurate anatomy, no text, watermarks, logos or collage. Main subject in center at thumbnail size.",
+      "sourceSha256": "9cc0aef08e0b96423c969d237438bdd098db30f6add3791adb38968ab28bb5eb",
+      "optimizedSha256": "cae3848a7980a535812cf2223d3036205847e958de810a6b8621dd7ca517883a",
+      "width": 256,
+      "height": 256,
+      "size": 14498
+    },
+    {
+      "file": "public/service-photos/go-tail-formal-updo-salon-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail illustration, not an actual provider, venue or outcome. Primary request: Back three-quarter view of adult hairstylist pinning a neatly structured low formal bun for an adult client. Clean salon, realistic thin bobby pin, both hands clear, moderately soft daylight, no hairpiece, product label or logos. Respectful and believable editorial photograph, no instructions, logos, text, watermarks or collage. Keep action readable at thumbnail size.",
+      "sourceSha256": "7083dba7bf50235920dcef1a44c1618b90a2fd52aed2ff599dcd0bd269e29045",
+      "optimizedSha256": "42d7e718b2f63bf8c1e6e496ba17cc85745e6e7869edd6b51bfc03bc0eecfe3c",
+      "width": 256,
+      "height": 256,
+      "size": 6820
+    },
+    {
+      "file": "public/service-photos/go-tail-gel-toenail-color-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square service-detail example for GoRez, not an actual provider, venue or outcome. Primary request: A professional applies a thin coloured gel polish coat to one healthy-looking adult toenail with a short small brush in a clean pedicure chair. Camera on top of toes and brush, natural anatomy, no polishing machinery or medical treatment. Respectful believable editorial photograph, no instructions, logos, text, watermarks or collage. Action legible at thumbnail size.",
+      "sourceSha256": "8de9d9b6761e9266a170c2e500b2aff0d9bd676f299af49635ac720cb79c0c29",
+      "optimizedSha256": "2ebfeb385c8357f1dd5aa17b62186eb47ae55632dca9489714a32a2d80baced9",
+      "width": 256,
+      "height": 256,
+      "size": 6788
+    },
+    {
+      "file": "public/service-photos/go-tail-group-stretching-side-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail illustration, not an actual provider, venue or outcome. Primary request: A small adult group following a teacher in a standing calf stretch at a rail in a clean studio. Side view, loose neutral clothes, not yoga or a physiotherapy session, natural posture and no claims. Respectful and believable editorial photograph, no instructions, logos, text, watermarks or collage. Keep action readable at thumbnail size.",
+      "sourceSha256": "eeb165562752be7a9d11c434396a91b3b15bb2af888359657534912c0b2d133e",
+      "optimizedSha256": "849de2cdd10e6230109cbdaeffcf8159eb5acd37a1073fd724de32fec9c0ca06",
+      "width": 256,
+      "height": 256,
+      "size": 10934
+    },
+    {
+      "file": "public/service-photos/go-tail-home-plumbing-pvc-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail illustration, not an actual provider, venue or outcome. Primary request: A plumber kneels in a bright clean household utility space and inspects a white plastic PVC waste pipe joint under a sink with a small work light, a drip tray below. Real pipes clearly visible, no risky instructions. Respectful and believable editorial photograph, no instructions, logos, text, watermarks or collage. Keep action readable at thumbnail size.",
+      "sourceSha256": "51cce83dc20eaa8f25b94e51f15dac9621a1a433582d08329a4dde601f32cc51",
+      "optimizedSha256": "d2ee13bbef5d48c2dc21c2f72a90c02a7b1e6d371f9b2bcd36cf3eb410b5bb41",
+      "width": 256,
+      "height": 256,
+      "size": 10580
+    },
+    {
+      "file": "public/service-photos/go-tail-home-rehab-balance-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: single square GoRez thumbnail, an illustrative professional context rather than a real provider. Primary request: Home-visiting therapist observes an adult checking comfortable standing balance beside a sturdy domestic worktop in a daylight flat. Glimpse of knees and feet, a practical rehab scene, all fully clothed. Realistic framing, no instructions, lettering, watermarks, or collage.",
+      "sourceSha256": "24536d88715444b41e5f6b16b4862b9d6fd21f2118022e82160f7cb38a8487a8",
+      "optimizedSha256": "a08ea018ec82cc748d2d10e24e7e712bec1ef0e6e0683a0ceafeee6c988e56b0",
+      "width": 256,
+      "height": 256,
+      "size": 9852
+    },
+    {
+      "file": "public/service-photos/go-tail-home-rehab-chair-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: single square GoRez thumbnail, an illustrative professional context rather than a real provider. Primary request: An adult rises partway from a solid chair while an adult physiotherapist nearby observes; everyday living room, warm window light and recognizable chairs, supportive visit photographed as an editorial illustration. Realistic framing, no instructions, lettering, watermarks, or collage.",
+      "sourceSha256": "8b3f30a5acead0cda42780d8809ddb09d1cea5e74fd2186d4b3016cf82371d13",
+      "optimizedSha256": "f0f922965fb6d7b2e1ed8454ce349aaaafbcae6675ee731e068c5a3c840a0662",
+      "width": 256,
+      "height": 256,
+      "size": 14480
+    },
+    {
+      "file": "public/service-photos/go-tail-home-rehab-mobility-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: single square GoRez thumbnail, an illustrative professional context rather than a real provider. Primary request: An elderly adult and a visiting physical therapist discuss mobility while seated beside one another in a normal sunlit living room. One adult casually raises a forearm; supportive home visit, no action instructions. Realistic framing, no instructions, lettering, watermarks, or collage.",
+      "sourceSha256": "4b1a485dc97bab10fafeff67feef956af83e454779e122e550b534241855cb95",
+      "optimizedSha256": "9237a6509126be04550da93c5eae8ccb46a0ffdcf2df67dbdde8f513dde87c33",
+      "width": 256,
+      "height": 256,
+      "size": 14086
+    },
+    {
+      "file": "public/service-photos/go-tail-home-rehab-walk-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: single square GoRez thumbnail, an illustrative professional context rather than a real provider. Primary request: A fully dressed adult and a home-visiting therapist wearing olive medical workwear are walking together in an ordinary apartment corridor. From normal eye height, both standing safely, neutral instructional-free exercise scene. Realistic framing, no instructions, lettering, watermarks, or collage.",
+      "sourceSha256": "3e44e6a1b9ae9ca4aaaecfdf34fb0daac60ccc62ac61646ee29fbb1224cb14b4",
+      "optimizedSha256": "ff507f4cada750c520e6b0e8d3f1b358048a2383dcbc759f2e4004bb1dc155e4",
+      "width": 256,
+      "height": 256,
+      "size": 8688
+    },
+    {
+      "file": "public/service-photos/go-tail-individual-swimming-adult-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service detail example, not an actual listing. Primary request: Fully clothed swim instructor stays poolside speaking with one adult learner wearing plain competitive swimwear and a normal swim cap at the shallow lane wall. At water height, lane rope and wall visible, an educational calm session not a competition. Natural documentary lighting, accurate anatomy and equipment, no text, watermarks or collage. Main subject legible in a small central square.",
+      "sourceSha256": "9a40394c09923d437cbe63575b6fafd2b7f90639b864368a8fdbbfa52ce7cc4a",
+      "optimizedSha256": "2e6e6da1eaa3645be37e63871db51c58567f4f408845042ef54462592753df85",
+      "width": 256,
+      "height": 256,
+      "size": 11218
+    },
+    {
+      "file": "public/service-photos/go-tail-inspection-camper-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: single square GoRez thumbnail, illustrative, no actual provider. Primary request: A compact unbranded camper with characteristic elevated habitation area in a high-ceiling vehicle inspection hall, a technician looks at front lamps. Side view, whole vehicle visible. Believable workshop lighting and equipment, no text, signs, watermarks or collage.",
+      "sourceSha256": "718a4bc6c2076dd52754ee83519a805d93c78112654e80b9d0269d04ed952f1e",
+      "optimizedSha256": "a31b22d5922c7ffd30c4ba323a19860f12ead630c8cdeaca6bb7f66acda0ebf4",
+      "width": 256,
+      "height": 256,
+      "size": 12404
+    },
+    {
+      "file": "public/service-photos/go-tail-inspection-four-by-four-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: single square GoRez thumbnail, illustrative, no actual provider. Primary request: An unbranded tall 4×4 vehicle on a standard technical inspection lane; mechanic in grey work clothes inspects underbody from safely beside it, wide front diagonal showing clearance. Believable workshop lighting and equipment, no text, signs, watermarks or collage.",
+      "sourceSha256": "b88eb99b50ce0287861a1925b4e6319a9f57b00fefaa8199e0dfe0e84b6b6715",
+      "optimizedSha256": "be699788d8b89253c9a3d135497d9d86747ad6e9b3dbae8b7d977c07b8deb6bf",
+      "width": 256,
+      "height": 256,
+      "size": 14404
+    },
+    {
+      "file": "public/service-photos/go-tail-inspection-lpg-car-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: single square GoRez thumbnail, illustrative, no actual provider. Primary request: A technician checks an installed spare-wheel-well LPG cylinder in the open trunk of a compact passenger car during a routine workshop inspection. Routine condition control only. Believable workshop lighting and equipment, no text, signs, watermarks or collage.",
+      "sourceSha256": "d8e8fa9b787bc852534b827aba8a582c62fae173777966b6a7545450ed79ae42",
+      "optimizedSha256": "8a4b3cec1c2803454e8755ca2de1363bcfca38b0ca2c82172b40c5122dc9620f",
+      "width": 256,
+      "height": 256,
+      "size": 12244
+    },
+    {
+      "file": "public/service-photos/go-tail-inspection-lpg-suv-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: single square GoRez thumbnail, illustrative, no actual provider. Primary request: In a workshop inspection lane a technician inspects an existing fitted LPG vessel in a raised four-wheel-drive vehicle cargo floor. Wide view from rear side, no components disassembled, no instructions. Believable workshop lighting and equipment, no text, signs, watermarks or collage.",
+      "sourceSha256": "09e8d40bb488724860de9cc54d190f699a4286d8973340202deec63fdea3e31b",
+      "optimizedSha256": "31751e7431ecd4c11d8f49514a56b4a2b07856c262e5546e76753ea1485a48a4",
+      "width": 256,
+      "height": 256,
+      "size": 13488
+    },
+    {
+      "file": "public/service-photos/go-tail-inspection-van-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: single square GoRez thumbnail, illustrative, no actual provider. Primary request: A tall plain commercial van in a bright generic vehicle inspection hall during a routine safety check, mechanic and inspection lane clear, from a low side view. Believable workshop lighting and equipment, no text, signs, watermarks or collage.",
+      "sourceSha256": "2e3ad30ebadf15ffa00ecce50265999344a446cbc2cd4f957f8ef2f41d614555",
+      "optimizedSha256": "90268a00dc90d8cd14ac642f4ee37d998d8f8160f0b01acf659f783995013073",
+      "width": 256,
+      "height": 256,
+      "size": 11994
+    },
+    {
+      "file": "public/service-photos/go-tail-large-dog-dark-groom-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: square GoRez service-detail illustration, not a real provider, facility, or outcome. Primary request: A full-grown black Newfoundland-type dog over twenty kilograms calmly stands on a low grooming platform. One professional uses rounded grooming scissors to trim at the outer edge of its thick lower shoulder fur, safely far from its face. Full adult dog profile, animal is calm and unharmed. Soft natural documentary light and accurate anatomy; no instructions, text, logos, watermarks or montage.",
+      "sourceSha256": "eb5286bdbd72a374597e70d8c5b5bc2897c132ecf9fc3815812598881e14f998",
+      "optimizedSha256": "890c28dc575fcdab65bd70657d397140abb967808d100dc57a30599aa9f7911c",
+      "width": 256,
+      "height": 256,
+      "size": 9672
+    },
+    {
+      "file": "public/service-photos/go-tail-latin-ballroom-private-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: single square GoRez thumbnail, illustrative, not an actual provider or venue. Primary request: Ordinary adult dance studio, two adults in unbranded casual practice clothes rehearse a Latin ballroom dance hold. Shot as one wider scene that shows upper body and shoes, no performance styling. Real editorial light, believable quiet scene, no watermarks, instructions, logos, or collage.",
+      "sourceSha256": "dfdbca56cc0c9a30acdd5aff68480988b5b92ed89a5805105495d60db9d5319c",
+      "optimizedSha256": "28c4351ab2a5b54726e4244cc764d4b8ea5960008fac0fb1c3c49f447c76df05",
+      "width": 256,
+      "height": 256,
+      "size": 9102
+    },
+    {
+      "file": "public/service-photos/go-tail-lymph-drainage-arm-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square service-detail example for GoRez, not an actual provider, venue or outcome. Primary request: A calm wellness therapist supports the forearm of a fully dressed adult resting on a treatment couch, illustrative gentle manual lymphatic massage on visible forearm only. Soft window light and neutral charcoal towel, no technique instructions, machines or outcome claims. Respectful believable editorial photograph, no instructions, logos, text, watermarks or collage. Action legible at thumbnail size.",
+      "sourceSha256": "924cbb55eea3798fd3615e58e5ca294c413db875ce0ffb3dc441333e0d059cb4",
+      "optimizedSha256": "cb7fdc1702663016f24eb7fbb247ecee623cc0f67580b6b4d28939b6b029daa3",
+      "width": 256,
+      "height": 256,
+      "size": 8916
+    },
+    {
+      "file": "public/service-photos/go-tail-lymph-drainage-calf-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square service-detail example for GoRez, not an actual provider, venue or outcome. Primary request: An adult therapist supports the lower leg of a fully clothed adult client over a neutral folded towel; lower calf and the hands are shown in a side close view illustrating light manual lymphatic massage, rest of body not visible, no compression device. Respectful believable editorial photograph, no instructions, logos, text, watermarks or collage. Action legible at thumbnail size.",
+      "sourceSha256": "e65cf1a1b5fecedf4fa70d68b1954427d39b5bd1e97fc22e6f3f6e788c570c9b",
+      "optimizedSha256": "f8a2832dc4ba205a5235b7e5efdb80f4c3146951f57692f5bd9ce61285091a79",
+      "width": 256,
+      "height": 256,
+      "size": 6454
+    },
+    {
+      "file": "public/service-photos/go-tail-lymph-drainage-calf-top-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square service-detail example for GoRez, not an actual provider, venue or outcome. Primary request: Wide overhead image of an adult clinician in green scrubs working gently around an adult's calf through thin fabric on a clean padded couch during an illustrative manual drainage appointment. Only the gloved hands and lower leg in focus; no medical claims. Respectful believable editorial photograph, no instructions, logos, text, watermarks or collage. Action legible at thumbnail size.",
+      "sourceSha256": "d1cf9448df70d571116911aff288d6fd36adecfba18d5e047fc117b03feec140",
+      "optimizedSha256": "a6f1cd02c967a7033585651589dc3836d1058c4f6abd46e50757adce1c3e1420",
+      "width": 256,
+      "height": 256,
+      "size": 6148
+    },
+    {
+      "file": "public/service-photos/go-tail-lymph-drainage-hand-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square service-detail example for GoRez, not an actual provider, venue or outcome. Primary request: Tight low angle of therapist holding and gently supporting the hand and exposed forearm of an otherwise fully clothed adult at rest on a clean massage table in a brown wood wellness studio; no leg or machine, realistic hand anatomy, no medical claim. Respectful believable editorial photograph, no instructions, logos, text, watermarks or collage. Action legible at thumbnail size.",
+      "sourceSha256": "888ead39033bfe0721c8ff593ee066c59ffcca1786faee6e4c48260f3d313c6a",
+      "optimizedSha256": "b51fbd4eab69deaf491f31d564b9b0e545d194641caed90f91cb33c59779b454",
+      "width": 256,
+      "height": 256,
+      "size": 8524
+    },
+    {
+      "file": "public/service-photos/go-tail-lymph-drainage-neutral-table-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square service-detail example for GoRez, not an actual provider, venue or outcome. Primary request: Side studio shot of a therapist attending the right wrist and forearm of a fully dressed adult client resting on a raised table. Warm taupe studio and a pale pad, gentle manual drainage as an illustrative scene, distinguishable by widened over-the-side framing. Respectful believable editorial photograph, no instructions, logos, text, watermarks or collage. Action legible at thumbnail size.",
+      "sourceSha256": "6bc9ca0100724e843b28a19041df7c7278a9886043c8106c03f0859760b535aa",
+      "optimizedSha256": "511075d425504dbb003b5ca727710b5a353f80e75f0bbd805b2313ee3876700c",
+      "width": 256,
+      "height": 256,
+      "size": 6010
+    },
+    {
+      "file": "public/service-photos/go-tail-made-to-measure-curtains-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square service-detail example for GoRez, not an actual provider, venue or outcome. Primary request: Two adults in a regular residential room, one professional measures the inside of a window frame with a handheld tape while a plain curtain fabric swatch rests on the nearby sill. Clearly a visit for blinds or curtains, no logos or readable dimensions. Respectful believable editorial photograph, no instructions, logos, text, watermarks or collage. Action legible at thumbnail size.",
+      "sourceSha256": "0189071b91508233f8019b4b2f069671bfa62751a11df3bc9fe60daf4b14c92d",
+      "optimizedSha256": "836ffe54f061fe39b9b60a6c62547d700245ed2c4e6f25bb79308c885d0c38e8",
+      "width": 256,
+      "height": 256,
+      "size": 9182
+    },
+    {
+      "file": "public/service-photos/go-tail-makeup-editorial-prep-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail illustration, not an actual provider, venue or outcome. Primary request: Professional makeup artist carefully applies a bold colored makeup accent to the cheekbone of a fully dressed adult model, near plain studio light and photography backdrop. Distinct editorial intent, no effects or overlay. Respectful and believable editorial photograph, no instructions, logos, text, watermarks or collage. Keep action readable at thumbnail size.",
+      "sourceSha256": "72d9a384f857bfc2cc418f5f003dad374ddc7a4d2d171403012a0adb71bc4399",
+      "optimizedSha256": "e362125238fd9523b0177c4f3c9c1503590c9b71ccc9b999d127756f050238a9",
+      "width": 256,
+      "height": 256,
+      "size": 7236
+    },
+    {
+      "file": "public/service-photos/go-tail-mattress-seam-deep-clean-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service detail example, not an actual listing. Primary request: Side-on close-up focused on mattress edge and piping. A gloved professional works along a visibly upholstered bed mattress seam with a narrow extraction attachment. Quiet beige interior, texture clearly distinct from a smooth top cleaning shot. Realistic editorial photograph with accurate equipment, no written measurements, logos, text, watermark, composite panels or harm. Clear subject inside the central square at thumbnail size.",
+      "sourceSha256": "7e219904dfaa3f9fca66a3eef6d8bf7b41f3c461dd3ec4d414d4d708cb0cf91d",
+      "optimizedSha256": "6471a91b10ad8931da02eac070f4658945f49dc5f675bb1058299c818e125c8b",
+      "width": 256,
+      "height": 256,
+      "size": 9382
+    },
+    {
+      "file": "public/service-photos/go-tail-monthly-stretching-group-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail illustration, not an actual provider, venue or outcome. Primary request: Adults doing a modest group stretch in a light community studio, seated apart on separate mats, practising controlled upper-body reach with fully covered athletic clothing, teacher out of focus. Clear group scene. Respectful and believable editorial photograph, no instructions, logos, text, watermarks or collage. Keep action readable at thumbnail size.",
+      "sourceSha256": "59e10e2a183a3a7a618a9bbdca467acbdd00118afcb8c794666e482d6c1fa095",
+      "optimizedSha256": "de0c52ea8c0dbd471edcc17fbe89fb51a283f63c082d732c849fc2321e551b6f",
+      "width": 256,
+      "height": 256,
+      "size": 10526
+    },
+    {
+      "file": "public/service-photos/go-tail-nail-clear-tips-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail illustration, not an actual provider, venue or outcome. Primary request: Close photograph in a manicure studio of an adult professional checking the fit of a clear unpainted full-cover gel nail tip over an adult natural fingernail. Short practical tray with two other transparent tips, real hand anatomy and nail proportions. Respectful and believable editorial photograph, no instructions, logos, text, watermarks or collage. Keep action readable at thumbnail size.",
+      "sourceSha256": "4eff8959d3b7f6f1c99540c03790451da07659c3d6fb89a5b4148b0175747a70",
+      "optimizedSha256": "fb4e7e64c0872b32058bc052ffaf5d18b5d699ea6c6c5e96b769188a26de003e",
+      "width": 256,
+      "height": 256,
+      "size": 7090
+    },
+    {
+      "file": "public/service-photos/go-tail-ozone-cabin-service-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: single square GoRez thumbnail, illustrative, no actual provider. Primary request: An enclosed professional odor-removal device positioned outside a parked car window in an empty ventilated automotive detailing space. Plain portable equipment and soft conduit visible, no people, methods, labels, or colored fumes. Believable workshop lighting and equipment, no text, signs, watermarks or collage.",
+      "sourceSha256": "9d3fc39e92dae569bef9fdad3b2094240a8c31d6f2a1154bdacc2fcf3d0157d6",
+      "optimizedSha256": "4f132a0437ba40fc08759325a3612c42241ad5e0d5a23c1fb3d624120035dad4",
+      "width": 256,
+      "height": 256,
+      "size": 9654
+    },
+    {
+      "file": "public/service-photos/go-tail-phone-legal-consultation-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square service-detail example for GoRez, not an actual provider, venue or outcome. Primary request: An adult legal consultant taking a phone call at a plain desk in a neutral office, with clean unmarked paperwork and shelves, candid side shot. No client data, legal advice, government seals, words or logo. Respectful believable editorial photograph, no instructions, logos, text, watermarks or collage. Action legible at thumbnail size.",
+      "sourceSha256": "11b6a1a2966d69a364d1b50673f236dc1eab74140047d0db7735a64accd9f059",
+      "optimizedSha256": "4da857b3562564f745ac1fbf526be67d9ee0de92b4cc6b195e58194afe76c8fa",
+      "width": 256,
+      "height": 256,
+      "size": 8582
+    },
+    {
+      "file": "public/service-photos/go-tail-post-reno-floor-vac-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail illustration, not an actual provider, venue or outcome. Primary request: Adult professional with appropriate dust protection guides a commercial vacuum across a visibly dusty hard floor in an otherwise empty newly renovated room, wide bright square photo with equipment and floor as main focus, no airborne dust or demolition. Respectful and believable editorial photograph, no instructions, logos, text, watermarks or collage. Keep action readable at thumbnail size.",
+      "sourceSha256": "89ef7f229eaf0eff0195c571df2d5d68875de9fa573493103339377bfa61613f",
+      "optimizedSha256": "74d76f15644a1a61b19241534dd9630db06eb6ce27fa60574c461c42db2bfda4",
+      "width": 256,
+      "height": 256,
+      "size": 7052
+    },
+    {
+      "file": "public/service-photos/go-tail-post-reno-window-frame-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail illustration, not an actual provider, venue or outcome. Primary request: Face-free medium view of a professional removing small traces of dust from a new window frame in an empty refurbished apartment, small handheld soft brush and bucket, distinctly different framing from a cabinet dusting scene. Respectful and believable editorial photograph, no instructions, logos, text, watermarks or collage. Keep action readable at thumbnail size.",
+      "sourceSha256": "5fc2994a3de1be579f254f4215b37caa1bf7b6a2744d7e2db674a1cb336ad04e",
+      "optimizedSha256": "872415e68785ac0ae9d27184a7ea458bb066fb3107eb363efdbafea44becc2a2",
+      "width": 256,
+      "height": 256,
+      "size": 6202
+    },
+    {
+      "file": "public/service-photos/go-tail-post-renovation-dusting-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail illustration, not an actual provider, venue or outcome. Primary request: A cleaner wipes fine construction dust from the top of an empty wooden cabinet in a newly renovated apartment using a cloth. Open door and protective disposable drop sheet indicate the context, no respirator-dependent dust clouds. Respectful and believable editorial photograph, no instructions, logos, text, watermarks or collage. Keep action readable at thumbnail size.",
+      "sourceSha256": "d93774d105fd9dc30cf90f5cf59ee8fe34e268ba0304dae8fe2bf0948607ac6c",
+      "optimizedSha256": "dd31e0a1d818644eedb5ea463b85c2eb27c229001e471ec0ed1e4f5849cace5c",
+      "width": 256,
+      "height": 256,
+      "size": 7782
+    },
+    {
+      "file": "public/service-photos/go-tail-pottery-wheel-private-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez public detail illustration; not a real provider, facility or outcome. Primary request: Private ceramics lesson, an adult potter demonstrates shaping a low clay bowl on a genuine pottery wheel beside an adult pupil, both modestly dressed, medium oblique framing with wheel and natural hands visible. Responsible documentary photography, believable daylight, accurate anatomy, no text, watermarks, logos or collage. Main subject in center at thumbnail size.",
+      "sourceSha256": "55f9f823221f33b4d008dd53ebcc5ea5555e54942e95b2879cab20b1a7a2a860",
+      "optimizedSha256": "6c2eae011b41b4218f96af3b7504b25e3694f2b58c0c65d17b297d013f1f9bf4",
+      "width": 256,
+      "height": 256,
+      "size": 13388
+    },
+    {
+      "file": "public/service-photos/go-tail-powder-brow-touchup-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail illustration, not an actual provider, venue or outcome. Primary request: Close calm beauty appointment: an adult aesthetician in gloves inspects the outer part of an adult client's softly shaded powder-effect brow and holds a slender professional permanent-makeup pen nearby. No blood or exaggerated before/after result. Respectful and believable editorial photograph, no instructions, logos, text, watermarks or collage. Keep action readable at thumbnail size.",
+      "sourceSha256": "eb072fb00f5d77321f8eb37b50a3033b2d2a34dcd19ff45c4c119e8631025a17",
+      "optimizedSha256": "64ead84364904886b2934954b5455d6e3efa7c803971828232684d894df0da27",
+      "width": 256,
+      "height": 256,
+      "size": 6624
+    },
+    {
+      "file": "public/service-photos/go-tail-pressotherapy-arm-low-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square service-detail example for GoRez, not an actual provider, venue or outcome. Primary request: Thick segmented pneumatic arm cuffs fitted around two clothed arms of an adult reclining in a therapy chair in a clean spa, cropped from above side, narrow hoses leading away from elbow. No leg boots, bare torso, technical instructions or branding. Respectful believable editorial photograph, no instructions, logos, text, watermarks or collage. Action legible at thumbnail size.",
+      "sourceSha256": "9ea884f275ed7e67f07668cc32677b53ced0d7ca7654975d69b55591fbd8e73c",
+      "optimizedSha256": "51102008a50e8e23e9a0735edb25e21305e9e8b286859a015453e7bead59a7cd",
+      "width": 256,
+      "height": 256,
+      "size": 8426
+    },
+    {
+      "file": "public/service-photos/go-tail-pressotherapy-arm-side-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square service-detail example for GoRez, not an actual provider, venue or outcome. Primary request: A dark segmented air-compression arm sleeve encircles a fully clothed adult arm resting on the wide armrest of a spa recliner. Side close shot includes small control unit with no visible writing and avoids the lower body, equipment looks plausible. Respectful believable editorial photograph, no instructions, logos, text, watermarks or collage. Action legible at thumbnail size.",
+      "sourceSha256": "14cc12451d72c57aef5a905de00a3ecd057aa8a5014ecd859131f0e615496b1a",
+      "optimizedSha256": "57425c9242acdfef3d3e18213e781837e60ae9267834bf92ede3638955b540eb",
+      "width": 256,
+      "height": 256,
+      "size": 7500
+    },
+    {
+      "file": "public/service-photos/go-tail-rehearsal-music-room-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: square GoRez service-detail illustration, not a real provider, facility, or outcome. Primary request: An illustrative empty, unbranded rehearsal room for a band, visible drum kit, one microphone on a stand and modest small guitar amp, acoustic panels, relaxed natural editorial framing. Not any actual rental room. Soft natural documentary light and accurate anatomy; no instructions, text, logos, watermarks or montage.",
+      "sourceSha256": "7ba4dea488b4ace1183769dfde0c6d41fd7ee67c66c0a61b2bfe7205b470acb7",
+      "optimizedSha256": "daa853303a2362a2b1b3e7968fcfa6da476c167a66575d8281b1ae385efd5e98",
+      "width": 256,
+      "height": 256,
+      "size": 10208
+    },
+    {
+      "file": "public/service-photos/go-tail-retaining-rim-17-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service detail example, not an actual listing. Primary request: Automotive wheel refinishing: an alloy rim shown upright on a low holder from the side in a real workshop, a masked professional sprays the front spokes with a properly held paint gun in a contained booth. Compact curved spoke design. Realistic editorial photograph with accurate equipment, no written measurements, logos, text, watermark, composite panels or harm. Clear subject inside the central square at thumbnail size.",
+      "sourceSha256": "a1aef4de136577f5b990e097f9cdc73a7b3227cb888eb39fb6eb65cc8ad6f7a7",
+      "optimizedSha256": "4d5218b26af254dfe462156379357f41512adf07a9b33f59084044638c7058c6",
+      "width": 256,
+      "height": 256,
+      "size": 11702
+    },
+    {
+      "file": "public/service-photos/go-tail-retaining-rim-18-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service detail example, not an actual listing. Primary request: Automotive rim refinishing: overhead view of a detached dark silver split-five-spoke wheel whose front edge is being carefully masked by a gloved technician before re-painting, crisp walnut workshop table. Realistic editorial photograph with accurate equipment, no written measurements, logos, text, watermark, composite panels or harm. Clear subject inside the central square at thumbnail size.",
+      "sourceSha256": "a8a338f5d47c60a2cfee5c92bb4a8f4533308466721b0c6ff0d3710b42ce0e6a",
+      "optimizedSha256": "4c16e55191fca1dd882e04dbd72a8ff82b9bd1c8f0fd5478fb44410c80db2aaf",
+      "width": 256,
+      "height": 256,
+      "size": 14150
+    },
+    {
+      "file": "public/service-photos/go-tail-retaining-rim-19-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: single square GoRez thumbnail, illustrative, no actual provider. Primary request: A detached angular alloy wheel on a padded rim refinishing stand. Technician inspects the front rim surface with an overhead light before repainting. Dark steel workshop and strong side view. Real equipment, natural light, no text, logos, instructions or collage.",
+      "sourceSha256": "74ad26c6a93db94b5aacb6c0697832891a109112a4957586239dc1c56d862baf",
+      "optimizedSha256": "4b0fbfe8b45e080d5e4b8b7a9993f805579f3c4b049e846f4c0eacc537ba2f8b",
+      "width": 256,
+      "height": 256,
+      "size": 10100
+    },
+    {
+      "file": "public/service-photos/go-tail-retaining-rim-20-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service detail example, not an actual listing. Primary request: Automotive rim refinishing: close three-quarter view of a broad silver turbine-style alloy wheel against a plain navy workshop wall. A technician checks the finish on the front lip under a task light after paint has cured; no decals. Realistic editorial photograph with accurate equipment, no written measurements, logos, text, watermark, composite panels or harm. Clear subject inside the central square at thumbnail size.",
+      "sourceSha256": "966d4c7d3eba73171dbca5e6980fb72db348354aa09c9ea644d17eb92d50f6cd",
+      "optimizedSha256": "dc9b0abec8aaefe017866b0e069fd340a00593c81eca5e6a53f56b0e6b496460",
+      "width": 256,
+      "height": 256,
+      "size": 11014
+    },
+    {
+      "file": "public/service-photos/go-tail-retaining-rim-21-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: single square GoRez thumbnail, illustrative, no actual provider. Primary request: Rim restoration artisan uses a small sanding pad by hand to prepare the front face of a detached unbranded graphite multi-spoke alloy wheel, in a pale woodworking-style auto studio. Real equipment, natural light, no text, logos, instructions or collage.",
+      "sourceSha256": "49080f68d539aad5f31f7c9e5f656883b480744360f54e04e5a9ee32161b71ff",
+      "optimizedSha256": "a90e41082011ee2307e9e595fa6b0043462954856d6e6a0ef19ec91f56400c9f",
+      "width": 256,
+      "height": 256,
+      "size": 15068
+    },
+    {
+      "file": "public/service-photos/go-tail-retaining-rim-22-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: single square GoRez thumbnail, illustrative, no actual provider. Primary request: A wheel refinisher in clean protective clothing checks the fresh front surface of a polished multi-spoke alloy rim lying face-up on a metal turntable. Bright spray booth side viewpoint. Real equipment, natural light, no text, logos, instructions or collage.",
+      "sourceSha256": "789b8d0628d908af59d64c1217899268ccec38cd5526c1e862a58ec19827b110",
+      "optimizedSha256": "957deebdb98f3137c6d1e75e727b9fb89223ea1ba88c1b871a58aa07f93ad2b9",
+      "width": 256,
+      "height": 256,
+      "size": 12650
+    },
+    {
+      "file": "public/service-photos/go-tail-retaining-rim-23-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: single square GoRez thumbnail, illustrative, no actual provider. Primary request: Wheel refurbishing professional seen from behind examining the newly painted face of a huge silver alloy rim mounted vertically on a stand. Large circular object and eight wide spokes, neutral work area. Real equipment, natural light, no text, logos, instructions or collage.",
+      "sourceSha256": "9bc84a3f9955d0876f9fa37c0fa45c6fc1a73a5abbecd332fe09a0fd8254acdb",
+      "optimizedSha256": "7155360827078b8204ec03789984d3c272fe0e2f910751b5f8ab29b2bb1c1788",
+      "width": 256,
+      "height": 256,
+      "size": 8760
+    },
+    {
+      "file": "public/service-photos/go-tail-short-coat-cat-brush-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: square GoRez service-detail illustration, not a real provider, facility, or outcome. Primary request: An adult short-haired ginger domestic cat in profile on a professional grooming mat. A groomer uses a gentle small rubber brush across the clearly short, smooth hair; whole head and whiskers fully visible, no restraint or clothing. Soft natural documentary light and accurate anatomy; no instructions, text, logos, watermarks or montage.",
+      "sourceSha256": "7d2e0c8c1e56fd681a71a6b31de9d43dfed725ad3cec0042012f8ea92569949e",
+      "optimizedSha256": "4aa684f9d23a628ec5a9798a5eb29d0b64394afbb2ba7b9675666bb7adf078a1",
+      "width": 256,
+      "height": 256,
+      "size": 9050
+    },
+    {
+      "file": "public/service-photos/go-tail-single-hinged-wardrobe-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: square GoRez service-detail illustration, not a real provider, facility, or outcome. Primary request: A worker in a tidy home room checks the alignment of the single tall hinged door of a narrow natural-wood wardrobe. Show a clear full-height straight-on view with unmistakably only one cabinet door. Soft natural documentary light and accurate anatomy; no instructions, text, logos, watermarks or montage.",
+      "sourceSha256": "185d081a64c231fa3a431ef6d15a454c9457a999434e60c9881b1fe8051cb408",
+      "optimizedSha256": "e20aa382b90c064f71da92d933dcddb7daa03967389d74bdf4696fbd76f5181e",
+      "width": 256,
+      "height": 256,
+      "size": 7160
+    },
+    {
+      "file": "public/service-photos/go-tail-sink-trap-fitting-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail illustration, not an actual provider, venue or outcome. Primary request: Side tight home plumbing shot beneath a hand basin. A gloved professional holds a clean white U-shaped sink drain trap with a genuine visible threaded union while checking position. No exposed electrical components, no readable packaging. Respectful and believable editorial photograph, no instructions, logos, text, watermarks or collage. Keep action readable at thumbnail size.",
+      "sourceSha256": "14b763d23905fbcd540f96ab8d6964c35bdd0d9a8648b49cdbcdf7e3977c3d79",
+      "optimizedSha256": "e203ae5c83a643b77dbd087925202e516dd3706380f2e5f67eaa65ce7c7f47f0",
+      "width": 256,
+      "height": 256,
+      "size": 6542
+    },
+    {
+      "file": "public/service-photos/go-tail-softball-fields-mini-football-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez public detail illustration; not a real provider, facility or outcome. Primary request: A generic empty outdoor small-sided football pitch, recognizable futsal-sized white goal and markings on tidy green artificial turf, a plain football in frame. Broad square photo in soft morning light, no commercial site or logos. Responsible documentary photography, believable daylight, accurate anatomy, no text, watermarks, logos or collage. Main subject in center at thumbnail size.",
+      "sourceSha256": "600ebeb60622c37de0f9aa74af94edcbde757885158d99fcfac0a16e7c9fd8e4",
+      "optimizedSha256": "65eae087f94e6f7356f7cba5915f0ccc053c5d04d0418a9700acee4e9243e66a",
+      "width": 256,
+      "height": 256,
+      "size": 16572
+    },
+    {
+      "file": "public/service-photos/go-tail-speech-video-card-table-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service detail example, not an actual listing. Primary request: Overhead oblique photograph focused on a child's and caregiver's hands matching simple illustrated animal cards at a table, laptop at the side shows a distant remote instructor. Comfortable clean home workspace, no words or app logo. Natural documentary lighting, accurate anatomy and equipment, no text, watermarks or collage. Main subject legible in a small central square.",
+      "sourceSha256": "370ecdb9514f914473e9c252fa39dfb6b5434d77cfa54119053c04ce320e44cb",
+      "optimizedSha256": "2b3d6ce6b4150496f0460688cf51bf3bd1ef61c5d3f3b167a5b766333b33e38e",
+      "width": 256,
+      "height": 256,
+      "size": 11616
+    },
+    {
+      "file": "public/service-photos/go-tail-speech-video-coach-front-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service detail example, not an actual listing. Primary request: Shot from behind a laptop screen edge at smaller scale: fully dressed adult caregiver and a child in a household foreground facing a remote speech professional on the display. A plain picture card on table, child's face only in soft profile, no visible personal info. Natural documentary lighting, accurate anatomy and equipment, no text, watermarks or collage. Main subject legible in a small central square.",
+      "sourceSha256": "8e66b5b1b4ed2e67330de4d52c7da014f3d1795efbee5552babf3bbdfcd72b1f",
+      "optimizedSha256": "27a7765d910d5f1a58f2bf8a63bc0f9a0b262554cb71dbf897c9125118a40ddd",
+      "width": 256,
+      "height": 256,
+      "size": 11702
+    },
+    {
+      "file": "public/service-photos/go-tail-speech-video-neutral-remote-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: single square GoRez thumbnail, illustrative, not an actual provider or venue. Primary request: From behind and to one side of a speech therapist working at a neutral bright desk, a laptop screen shows a generic fully clothed adult and school-age child in a video session, one animal picture card near the keyboard. No app name or identifiable records. Real editorial light, believable quiet scene, no watermarks, instructions, logos, or collage.",
+      "sourceSha256": "cf166579543025535639024c9af37ba6eaa721331d2587a6ac7a2c27ae5487d2",
+      "optimizedSha256": "06d6ac1179fe435622b3a660d1337008a46bf5868832d816b3944e06bc619d81",
+      "width": 256,
+      "height": 256,
+      "size": 10634
+    },
+    {
+      "file": "public/service-photos/go-tail-spreadsheet-training-advanced-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez public detail illustration; not a real provider, facility or outcome. Primary request: An adult in a plain study room learns advanced spreadsheet work on a desktop display with indistinct compact pivot-table-style columns and a small bar chart, from wide side orientation, no readable numbers or confidential data. Responsible documentary photography, believable daylight, accurate anatomy, no text, watermarks, logos or collage. Main subject in center at thumbnail size.",
+      "sourceSha256": "70f3d66347d416a0cbf8c0092279140cd3647467f33932dcceb99cfe83f7727a",
+      "optimizedSha256": "cac6afbfa6c79e551986c1d761999476b0f30c2808478bc2624be42c7fba5595",
+      "width": 256,
+      "height": 256,
+      "size": 11472
+    },
+    {
+      "file": "public/service-photos/go-tail-spreadsheet-training-basics-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez public detail illustration; not a real provider, facility or outcome. Primary request: An adult beginner spreadsheet lesson, over-the-shoulder desk photograph showing a clean generic recognizable simple grid of cells and several quiet highlighted fields on laptop, a tutor's hand gesturing at trackpad. No branding or readable personal values. Responsible documentary photography, believable daylight, accurate anatomy, no text, watermarks, logos or collage. Main subject in center at thumbnail size.",
+      "sourceSha256": "b8d001ab9c18f65f9f29c1e1e2c94c8821b43b24339c5daf22b5d10a4a922ae4",
+      "optimizedSha256": "4e4fdea1b2b6807d2aace6d36df296fc6fe6c64a9b808e8820ade78ebb5b48b1",
+      "width": 256,
+      "height": 256,
+      "size": 8452
+    },
+    {
+      "file": "public/service-photos/go-tail-squash-court-interior-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez public detail illustration; not a real provider, facility or outcome. Primary request: Photoreal clean generic indoor squash court from its rear glass side, correct plain walls, horizontal red service lines, pale timber floor, a squash racket resting beside a small dark ball. Empty, neutral and not any real rental venue. Responsible documentary photography, believable daylight, accurate anatomy, no text, watermarks, logos or collage. Main subject in center at thumbnail size.",
+      "sourceSha256": "9ad3dfe4bc8de2915640d3572e9909a756af78a9242469c40bb4952ef859f183",
+      "optimizedSha256": "04f0214c15ec2a67ad4a10282a76080d0292e6513bedc0c58216587b747d9324",
+      "width": 256,
+      "height": 256,
+      "size": 5028
+    },
+    {
+      "file": "public/service-photos/go-tail-steering-wheel-trim-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: single square GoRez thumbnail, an illustrative professional context rather than a real provider. Primary request: An artisan is hand-stitching upholstery trim onto a detached unbranded steering wheel at a low bench with soft daylight, close focus on seam and steering wheel geometry, no vehicle manufacturer marks. Realistic framing, no instructions, lettering, watermarks, or collage.",
+      "sourceSha256": "a469a54e0631dcb8f8e65de1ba1a85f6dad3278ae374c9364e9229c46ef3497c",
+      "optimizedSha256": "da65eaacdf311404de9e472b153e88f46f06bb2dd81af9ef0449ff9ba7933085",
+      "width": 256,
+      "height": 256,
+      "size": 12272
+    },
+    {
+      "file": "public/service-photos/go-tail-taekwondo-intro-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: single square GoRez thumbnail, illustrative, not an actual provider or venue. Primary request: An instructor in a traditional white v-neck dobok talks to two beginners fully dressed in ordinary taekwondo uniforms in a simple bright gym. Training mat, calm stance and no fighting, contact or technique instructions. Real editorial light, believable quiet scene, no watermarks, instructions, logos, or collage.",
+      "sourceSha256": "a1ac82db5c826e0102c7116b55f8331ce99457955cfef7e7647af81d754f1731",
+      "optimizedSha256": "27a0f1844abf1144387b0999f370f10b108941edbdb16afa7708eb43b90f7a20",
+      "width": 256,
+      "height": 256,
+      "size": 8754
+    },
+    {
+      "file": "public/service-photos/go-tail-tail-adult-swimming-second-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez public detail illustration; not a real provider, facility or outcome. Primary request: At an indoor pool a swim coach stands behind the shallow lane line supervising one adult taking a few front-crawl strokes. Camera near pool tiles at the end of lane, full silhouette and goggles clear, no marking or timing claim. Responsible documentary photography, believable daylight, accurate anatomy, no text, watermarks, logos or collage. Main subject in center at thumbnail size.",
+      "sourceSha256": "2c9f10ebfba17196ef234fdd8d4608cca051b8320b7000bb917933fe1fc89341",
+      "optimizedSha256": "f60ba63cdff6207d046116cdf3e7851233b38fd4b8c142b1fdb2c0bcf43098fb",
+      "width": 256,
+      "height": 256,
+      "size": 15438
+    },
+    {
+      "file": "public/service-photos/go-tail-tail-child-swimming-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez public detail illustration; not a real provider, facility or outcome. Primary request: Single child in conventional modest swimwear and cap practices with a single adult instructor and one foam kickboard next to the shallow tiled wall. Friendly supervised session, equipment and one-to-one composition clear. Responsible documentary photography, believable daylight, accurate anatomy, no text, watermarks, logos or collage. Main subject in center at thumbnail size.",
+      "sourceSha256": "74696ff229c0f1ecd2b58bff0a1ebe5f10ff4de3e58a8a518eabc9f37e62710c",
+      "optimizedSha256": "992f0fcad7c484ec24358a678c3e16c057e7c2d07c1fd757985805e91310f808",
+      "width": 256,
+      "height": 256,
+      "size": 13630
+    },
+    {
+      "file": "public/service-photos/go-tail-tennis-court-clay-indoor-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service detail example, not an actual listing. Primary request: Wide establishing photo of a generic indoor red clay tennis court, visible net and genuine markings, daylight diffused through a domed roof, just one ball near doubles line, no people, no branding. A neutral illustrative facility, not an actual court for rent. Natural documentary lighting, accurate anatomy and equipment, no text, watermarks or collage. Main subject legible in a small central square.",
+      "sourceSha256": "1d4c047dac5d126cfb9d186ad78715792c6a601c5293d7ea2d127fe52f4cdb11",
+      "optimizedSha256": "0c553b08f7bfb0720a22d6eb43f64ab76ee368ac5bb28a49fb24b7bb3bf7666e",
+      "width": 256,
+      "height": 256,
+      "size": 8104
+    },
+    {
+      "file": "public/service-photos/go-tail-thai-oil-forearm-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail illustration, not a real provider, venue or outcome. Primary request: Overhead in a quiet massage studio: a professional therapist's hands gently cradle a fully clothed adult client's forearm resting on a linen treatment table, a small unbranded oil dish adjacent. Distinct from shoulders and backs, no nudity, method steps or medical claims. Respectful, natural documentary lighting, accurate anatomy, no text, watermarks, logos or collage. Main action stays legible at thumbnail size.",
+      "sourceSha256": "9d982b49d00493f388b95c0c28500d8fd4f293455444fb9d6bce0e10be650440",
+      "optimizedSha256": "532449958a3c33067d4b137d85e5d2b44484783d2b6fc7e41a10c7695148658e",
+      "width": 256,
+      "height": 256,
+      "size": 10372
+    },
+    {
+      "file": "public/service-photos/go-tail-topper-cleaning-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service detail example, not an actual listing. Primary request: Close side view of a clearly separate slim light-grey mattress topper laid on a flat cleaning bench; a technician works on the fabric with an upholstery extractor with a translucent head, subdued workshop lighting. Realistic editorial photograph with accurate equipment, no written measurements, logos, text, watermark, composite panels or harm. Clear subject inside the central square at thumbnail size.",
+      "sourceSha256": "7601d227ad982c6f07fca53c3518d6d50ed72f6b968364b6a20e4675de4db272",
+      "optimizedSha256": "acfe5b67b8b351bce9e9ee49fc32cf950db803b42e27920b099e97f5985b34e5",
+      "width": 256,
+      "height": 256,
+      "size": 7902
+    },
+    {
+      "file": "public/service-photos/go-tail-twin-sided-mattress-clean-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service detail example, not an actual listing. Primary request: Side angle inside an empty bedroom: a double mattress stands supported on its long edge, an upholstery-care worker holds a clear extraction nozzle to the visible quilted surface. Entire mattress thickness and width legible. Realistic editorial photograph with accurate equipment, no written measurements, logos, text, watermark, composite panels or harm. Clear subject inside the central square at thumbnail size.",
+      "sourceSha256": "2798ca24cddea2fd9827d6c8a110c9cadb9853cc1d78eb5dcd1758dce68d5c77",
+      "optimizedSha256": "27947bb32103efc50d73618d2a1ba9ea0f21adb14eded7ad1eb578570fb38f63",
+      "width": 256,
+      "height": 256,
+      "size": 9386
+    },
+    {
+      "file": "public/service-photos/go-tail-ultrasonic-dental-hygiene-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: square GoRez service-detail illustration, not a real provider, facility, or outcome. Primary request: Ordinary dental hygiene procedure showing a professional dental hygienist in appropriate PPE holding an ultrasonic scaler safely near an adult patient in a dental chair. Medium angle showing overall appointment rather than inside mouth, no blood, technique directions, or outcome promises. Soft natural documentary light and accurate anatomy; no instructions, text, logos, watermarks or montage.",
+      "sourceSha256": "346526194e6c0b1b7320f0b5550c37beb1721618fa6efc1484855091ad1ef6cd",
+      "optimizedSha256": "c679efb2a8b705744072c2b4e875dd832153751e3a6aaf28bde1e4a1f45442f3",
+      "width": 256,
+      "height": 256,
+      "size": 8748
+    },
+    {
+      "file": "public/service-photos/go-tail-vr-group-arena-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: square GoRez service-detail illustration, not a real provider, facility, or outcome. Primary request: Participants wearing modern standalone VR headsets in simple casual clothes, separately spaced in a generic organized indoor arena and holding plain controllers. No violence, no headset manufacturer, no real venue implied. Soft natural documentary light and accurate anatomy; no instructions, text, logos, watermarks or montage.",
+      "sourceSha256": "666d71c0828107378548d057c902f9bbc0c79c327b9ad731c38d9c33612ce90b",
+      "optimizedSha256": "906bf0548118ee1c31f1d521e47ffc69aa844fce4bef9919e91cfb7e6c7a6d62",
+      "width": 256,
+      "height": 256,
+      "size": 9684
+    },
+    {
+      "file": "public/service-photos/go-tail-wardrobe-hinges-dual-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail illustration, not an actual provider, venue or outcome. Primary request: Close oblique view of a home carpenter adjusting a steel hinge inside a modern double-door wardrobe, both hinged door leaves visible, no sliding rail. Realistic gently worn screwdriver and warm oak surfaces. Respectful and believable editorial photograph, no instructions, logos, text, watermarks or collage. Keep action readable at thumbnail size.",
+      "sourceSha256": "a50602782bacbdde491a580e7b3f9ca0b907c73302c32c1a98943e0abc3cc549",
+      "optimizedSha256": "86d7c1eb24b734528d3e78723450c3b487cc8d44e08d2f2ced417ade104c16f3",
+      "width": 256,
+      "height": 256,
+      "size": 10410
+    },
+    {
+      "file": "public/service-photos/go-tail-wardrobe-sliding-three-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail illustration, not an actual provider, venue or outcome. Primary request: Adult assembler reviews alignment at the base of an unfinished wardrobe with three tall sliding panels in a spacious domestic room. Straight-on view to distinguish three panels and their bottom track, no company mark. Respectful and believable editorial photograph, no instructions, logos, text, watermarks or collage. Keep action readable at thumbnail size.",
+      "sourceSha256": "0d50e2c8b5120f6a3210534ef14c5483bd58005f2f5f1985d4d10dd27b46b787",
+      "optimizedSha256": "a087b19550b787bb3266ca5c790e6ebd242388d7709d561cd10143de15d997e5",
+      "width": 256,
+      "height": 256,
+      "size": 6214
+    },
+    {
+      "file": "public/service-photos/go-tail-wardrobe-sliding-two-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail illustration, not an actual provider, venue or outcome. Primary request: Interior assembly with a finish carpenter and a tall unfinished two-panel sliding-door wardrobe. Clear top track and two broad panels, natural workshop tools and safe quiet still framing, the measured door count visible. Respectful and believable editorial photograph, no instructions, logos, text, watermarks or collage. Keep action readable at thumbnail size.",
+      "sourceSha256": "e6788bc9ce935a92943e2d62f2430a49d74215d0c2bd37b25de0ff84a4270947",
+      "optimizedSha256": "5ceae6149f4e545e51827757dd357d59aac9824479855a5a515dc4c04ac03e1e",
+      "width": 256,
+      "height": 256,
+      "size": 6676
+    },
+    {
+      "file": "public/service-photos/go-tail-wheel-platter-slip-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez public detail illustration; not a real provider, facility or outcome. Primary request: Overhead still life at a craft table: a handmade oval shallow stoneware serving platter with gently shaped lip and a hand adding glaze with a broad pottery brush; subtle gray ceramic and pale walnut worktop, no food or markers. Responsible documentary photography, believable daylight, accurate anatomy, no text, watermarks, logos or collage. Main subject in center at thumbnail size.",
+      "sourceSha256": "3fc56fb29ffc449dd2c2304267c130f88fabc01cfa24021c243148e8d9f69491",
+      "optimizedSha256": "94b259daf314cf2ef93994697526ec918bd40d4c123622df69405a2713c7c11a",
+      "width": 256,
+      "height": 256,
+      "size": 7904
+    },
+    {
+      "file": "public/service-photos/go-tail-wheel-tpms-bench-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service detail example, not an actual listing. Primary request: A technician holds a small handheld vehicle tire pressure sensor service reader at a wheel valve beside a real automotive wheel at tire height. The scene shows service identification, not any readable digits, brands, or tutorial. Warm workshop light. Natural documentary lighting, accurate equipment, no logos, text, watermarks, instruction panels or collage. Main subject legible in a small central square.",
+      "sourceSha256": "7b4dfddd95975096b61b7a5c025a113212c5a5e704441d6ab49fa52c5828fe61",
+      "optimizedSha256": "9db505e1ce4a0cc73ac80379879f9352e8e8582752b087c4fa03133931bf3616",
+      "width": 256,
+      "height": 256,
+      "size": 10814
+    },
+    {
+      "file": "public/service-photos/go-tail-wide-mattress-clean-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service detail example, not an actual listing. Primary request: Wide square shot from the foot of a plain extra-wide bed: the visible large white mattress is being professionally extraction-cleaned by a worker standing on only one side, with a raised charcoal headboard and morning light. Realistic editorial photograph with accurate equipment, no written measurements, logos, text, watermark, composite panels or harm. Clear subject inside the central square at thumbnail size.",
+      "sourceSha256": "1ed2e93e5e2d3d1e9ad2c4e0e59bfa6c60dd13cda03a5279567e2e8bd4b27bc9",
+      "optimizedSha256": "eec72fa571a69f245bc535ba3edbc5f2c17949c349cdf7325228482ccb9bb3db",
+      "width": 256,
+      "height": 256,
+      "size": 7380
+    },
+    {
+      "file": "public/service-photos/go-tail-young-basketball-practice-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: one square GoRez service-detail illustration, not an actual provider, venue or outcome. Primary request: Coach watches two fully clothed school-age players at a regular indoor basketball court, one calmly dribbles a clearly visible normal orange basketball with basket and court lines in the background. Wide clean candid photography. Respectful and believable editorial photograph, no instructions, logos, text, watermarks or collage. Keep action readable at thumbnail size.",
+      "sourceSha256": "78e6befb69b25e7034f68bc7d93a60ce21c9d4ae4799f8ec5c3d69386ec041d8",
+      "optimizedSha256": "e43d877df3b46862435ae7e319feeee08bc43d495b38fd4791da4a75c0e556df",
+      "width": 256,
+      "height": 256,
+      "size": 10002
+    },
+    {
+      "file": "public/service-photos/go-tail-youth-ballet-barre-20261126-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Asset type: single square GoRez thumbnail, illustrative, not an actual provider or venue. Primary request: Fully dressed school-age learners in comfortable modest T-shirts and leggings follow the adult teacher at a training barre. Candid distant daylight photo with the entire supervised lesson clearly visible, no performance costume or close-up of bodies. Real editorial light, believable quiet scene, no watermarks, instructions, logos, or collage.",
+      "sourceSha256": "4d0cb1be8ad9d894e7323cb3cedc2a195a8f2de5d90870011f2bc01bc2cbf2ec",
+      "optimizedSha256": "9ff8b357fe8e4027125335ad17944a11d33c8cf32beee8419c0bdbac71a6115d",
+      "width": 256,
+      "height": 256,
+      "size": 9150
+    }
+  ]
+}

@@ -9,10 +9,12 @@ import { staticDiscoveryPhotoPath } from '../lib/discovery-photo-identity.mjs'
 import { publicDetailServiceThumbnail } from '../lib/service-detail-photo-presentation.mjs'
 import generated from '../lib/service-detail-gap-generated.json' with { type: 'json' }
 import followupGenerated from '../lib/service-detail-gap-followup-generated.json' with { type: 'json' }
+import tailGenerated from '../lib/service-detail-tail-generated.json' with { type: 'json' }
 
 const sourcePath = 'lib/service-detail-photo-presentation.mjs'
 const sourceUrl = new URL('../' + sourcePath, import.meta.url)
-const baselines = { first: '882a71d', followup: 'a62d5c6' }
+const baselines = { first: '882a71d', followup: 'a62d5c6', tail: '47269b4' }
+const generatedByWave = { first: generated, followup: followupGenerated, tail: tailGenerated }
 
 async function readBaseline(wave) {
   const baselineUrl = new URL(sourceUrl)
@@ -31,7 +33,7 @@ async function readBaseline(wave) {
 export async function auditServiceDetailGapWave({ now = Date.parse('2026-11-26T12:00:00Z'), verbose = false, wave = 'first' } = {}) {
   if (!Object.hasOwn(baselines, wave)) throw Error('Unknown service-photo wave: ' + wave)
   const before = await readBaseline(wave)
-  const generatedSources = new Set((wave === 'followup' ? followupGenerated : generated).map(photo => photo.src))
+  const generatedSources = new Set(generatedByWave[wave].map(photo => photo.src))
   const byCategory = {}, bySource = {}
   const retained = [], repeats = [], newRows = []
   let withoutPhoto = 0, gained = 0, gainedFromGenerated = 0
@@ -65,7 +67,8 @@ export async function auditServiceDetailGapWave({ now = Date.parse('2026-11-26T1
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  const result = await auditServiceDetailGapWave({ verbose: process.argv.includes('--verbose'), wave: process.argv.includes('--followup') ? 'followup' : 'first' })
+  const wave = process.argv.includes('--tail') ? 'tail' : process.argv.includes('--followup') ? 'followup' : 'first'
+  const result = await auditServiceDetailGapWave({ verbose: process.argv.includes('--verbose'), wave })
   console.log(JSON.stringify(result, null, 2))
   if (result.retained.length || result.repeats.length) process.exitCode = 1
 }

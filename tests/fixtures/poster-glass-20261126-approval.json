@@ -1,0 +1,21 @@
+{
+  "baseline": "90ecc8ea7fd74517f2c956ef93269072039f9995",
+  "changed": {
+    "app/premium-discovery-cards.css": {
+      "before": "2168d84e0babdd8889737d803edc9b5f135539f229205e65ab23b9c62cf88da3",
+      "after": "91eff0c1ad58b1728757b9a7fca5a848c26705ef0a278cff7dbed7568a49d237"
+    },
+    "components/business-cover-photo.js": {
+      "before": "d9ff04e1458b47fe346e3a6245bde0d4118843a970cfee264851b7f4ccaa1b07",
+      "after": "73d92c9b9853e72d78296380419854c9e74eb35cbc5b83cd451758b3e8a2afa5"
+    },
+    "components/discovery-business-card.js": {
+      "before": "c40282e90612bba20d15d24fba5dfd7f7351925a3a4b49c6e44adb0da498d60f",
+      "after": "522bd70fffa8e0ff4e49a2b57368b62f4d521eb36908aed2e3b708042fa14c40"
+    },
+    "components/public-action.module.css": {
+      "before": "63ac064c1096794f1424d06656f3c3a4e52d20f047466416901482da1755826e",
+      "after": "c99a724212e19d06f4c00f6bae25570251803816e9e05c3c2f6fd249947ab1b5"
+    }
+  }
+}

@@ -54,10 +54,7 @@ for (const locale of ['bg', 'en']) test(`${locale}: compact card shows identity,
   for (const removed of ['home-business-category', 'home-business-neighborhood', 'home-business-services', 'home-business-reviews', 'home-business-booking-hint']) assert.equal(nodeClass(f.tree, removed).length, 0)
   assert.equal(nodeClass(f.tree, 'home-business-inline-details').length,0,'service previews replace the redundant visible details cue')
   assert.equal(nodeClass(f.tree,'home-business-service-preview').length,1)
-  const thumbnails=elements(identity,node=>node.type===Thumbnail)
-  assert.equal(thumbnails.length,1)
-  assert.equal(thumbnails[0].props.service.name,row.services[0].name)
-  assert.equal(thumbnails[0].props.size,40)
+  assert.equal(elements(identity,node=>node.type===Thumbnail).length,0,'the poster uses the main card photo; service thumbnails remain in details')
   assert.equal(elements(identity, node => node.type === Pair).length, 1)
   assert.equal(elements(identity, node => node.type === Badge).length, 0)
   const badge = elements(nodeClass(f.tree, 'home-business-photo'), node => node.type === Badge)[0]
@@ -107,7 +104,7 @@ for (const locale of ['bg', 'en']) test(`${locale}: native, external, phone and 
     const row = business({ booking_mode, phone: '+359888000001' }), f = fixture({ row, locale })
     const map = elements(f.tree, node => node.type === Action && node.props.variant === 'secondary')[0]
     assert.equal(map.props.href, rail.railDirections(row)); assert.equal(map.props.rel, 'noopener noreferrer')
-    assert.equal(map.props.children, locale==='en'?DISCOVERY_COPY[locale].directions:'Упъти')
+    assert.equal(map.props.children, locale==='en'?DISCOVERY_COPY[locale].directions:'Маршрут')
     if (booking_mode === 'gorez') {
       const book = elements(f.tree, node => node.type === Action && node.props.variant === 'primary')[0]
       assert.equal(book.props.as, Link); assert.equal(book.props.href, `/book/real%2Fbranch?lang=${locale}`)
@@ -159,7 +156,7 @@ test('strict subcategory preview never fills its second row with a different ser
   const f=fixture({row})
   assert.deepEqual(nodeClass(f.tree,'home-business-preview-name').map(node=>node.props.children),[match.name])
   assert.equal(nodeClass(f.tree,'home-business-preview-price').length,0)
-  assert.equal(elements(f.tree,node=>node.type===Thumbnail).length,1)
+  assert.equal(elements(f.tree,node=>node.type===Thumbnail).length,0)
   assert.deepEqual(f.events,[])
   const empty=fixture({row:business({services:[]})})
   assert.equal(nodeClass(empty.tree,'home-business-service-preview').length,0)
@@ -177,6 +174,20 @@ test('a long public note on an unpriced service is not printed in full on the ca
   assert.equal(elements(f.tree,node=>node.props['data-service-preview-more']===true)[0].props.children,'Виж повече')
   nodeClass(f.tree,'home-business-open')[0].props.onClick({currentTarget:{}});f.render()
   assert.equal(elements(f.tree,node=>node.type===Details)[0].props.row.services[0].description,description)
+})
+
+test('the type poster removes an already stated package size but preserves its expiry and any different unit',()=>{
+  const pass={name:'Индивидуален пилатес реформър — карта за 7 тренировки',price:210,currency:'EUR',priceUnit:'карта за 7 тренировки в рамките на 2 месеца'}
+  const visit={name:'Индивидуална тренировка по пилатес на постелка · 1 човек',price:36,currency:'EUR',priceUnit:'едно индивидуално посещение за 1 човек'}
+  const row=business({services:[pass,visit]}),before=structuredClone(row)
+  const f=fixture({row})
+  assert.deepEqual(nodeClass(f.tree,'home-business-preview-unit').map(node=>node.props.children),['Валидна 2 месеца'])
+  const amounts=nodeClass(f.tree,'home-business-preview-amount')
+  assert.equal(amounts.length,2)
+  assert.deepEqual(amounts.map(node=>node.props.children.props.children.replace(/\s/gu,'')),['210€','36€'])
+  const different=fixture({row:business({services:[{...pass,name:'Индивидуален пилатес реформър — карта за 9 тренировки'}]})})
+  assert.equal(nodeClass(different.tree,'home-business-preview-unit')[0].props.children,pass.priceUnit)
+  assert.deepEqual(row,before)
 })
 
 for(const locale of ['bg','en'])test(`${locale}: approved compact preview folds long descriptions with a visible conditions warning and preserves the complete original details`,()=>{

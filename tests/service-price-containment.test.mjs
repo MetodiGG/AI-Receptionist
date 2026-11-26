@@ -159,7 +159,8 @@ function assertRenderedService(service, locale) {
   assert.ok(card.includes(escape(serviceDisplayName(service,locale))))
   assert.ok(card.includes(escape(detailsData.detailPriceLabel({...service,priceUnit:''},locale,{compact:true}))))
   assert.ok(card.includes(escape(serviceDisplayUnit(service,locale))))
-  assert.match(card,/data-service-thumbnail-size="40"/)
+  assert.match(card,/class="home-business-preview-amount"/)
+  assert.doesNotMatch(card,/data-service-thumbnail-size="40"/)
   assert.doesNotMatch(card,/home-business-inline-details/)
   let renderedText
   for (const linked of [true, false]) {

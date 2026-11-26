@@ -118,7 +118,7 @@ test('Maps navigation is bold only for GoRez-owned cards, leaving Google provide
   assert.match(css, /\.home-maps-label, \.home-google-attribution \{[^}]*font-weight: 400;[^}]*white-space: nowrap;/)
   assert.match(css, /\.home-business-actions \.home-maps-label \{ width: 100%; font-size: 15px; line-height: 1\.2; text-align: center; white-space: normal; \}/)
   assert.match(card, /<PublicAction as="a" variant="secondary"[^\n]+>\{directionsLabel\}<\/PublicAction>/)
-  assert.match(card, /directionsLabel = en \? copy.directions : 'Упъти'/)
+  assert.match(card, /directionsLabel = en \? copy.directions : 'Маршрут'/)
   assert.match(kit, /document.createElement\('gmp-place-attribution'\)/)
   assert.doesNotMatch(css, /\[data-source="google"\][^{]*\{[^}]*font-weight: 700|gmp-place-attribution[^}]*font-weight/)
 })

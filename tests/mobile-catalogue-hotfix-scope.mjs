@@ -2,6 +2,7 @@ import { createHash } from 'node:crypto'
 import { execFileSync } from 'node:child_process'
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
+import { posterGlassPriorSource } from './poster-glass-20261126-scope.mjs'
 
 const baseline = '2d1977afdb2357d8f8620f44b691d4c3156d9842'
 const root = fileURLToPath(new URL('../', import.meta.url))
@@ -47,11 +48,12 @@ export function mobileCatalogueAllowsNewFile(path) {
 
 export function mobileCatalogueAllowsFileChange(path) {
   if (!Object.hasOwn(changed, path)) return false
-  try { return sha(readFileSync(new URL('../' + path, import.meta.url))) === changed[path][1] }
+  try { return sha(posterGlassPriorSource(path, readFileSync(new URL('../' + path, import.meta.url)))) === changed[path][1] }
   catch { return false }
 }
 
 export function mobileCataloguePriorSource(path, source) {
+  source = posterGlassPriorSource(path, source)
   if (!Object.hasOwn(changed, path)) return source
   const [before, after] = changed[path], hash = sha(source)
   if (hash === before) return source

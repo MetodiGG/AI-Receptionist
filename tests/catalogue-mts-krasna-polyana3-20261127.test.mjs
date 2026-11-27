@@ -12,7 +12,7 @@ import { VERIFIED_MTS_KRASNA_POLYANA3_20261127_REVIEWS } from '../lib/discovery/
 import { catalogueBoundCoordinates } from '../lib/discovery/catalogue-coordinate-binding.mjs'
 import { approvedCatalogueRecord } from '../lib/discovery/catalogue-policy.mjs'
 import { assessPricingReview } from '../lib/discovery/catalogue-pricing-review.mjs'
-import { RAW_SOFIA_CATALOGUE, SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { RAW_SOFIA_CATALOGUE as liveRaw, SOFIA_CATALOGUE as live } from '../lib/discovery/sofia-catalogue.mjs'
 import { PUBLIC_CATALOGUE } from '../lib/discovery/public-catalogue.mjs'
 import { createPublicBusinessDetailsHandler } from '../lib/discovery/public-details.mjs'
 import { createDiscoveryHandler } from '../lib/discovery/handler.mjs'
@@ -24,6 +24,8 @@ import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mj
 import { catalogueIntakeAllowsPath, catalogueIntakePriorCatalogue, catalogueIntakePriorSource } from './catalogue-mopart-20261127-scope.mjs'
 import { mtsIntakeAllowsFileChange, mtsIntakeAllowsNewFile, mtsIntakeAllowsPath,
   mtsIntakePriorCatalogue, mtsIntakePriorSource } from './catalogue-mts-krasna-polyana3-20261127-scope.mjs'
+import { northDogAllowsPath, northDogPriorCatalogue,
+  northDogPriorSource } from './catalogue-north-dog-branch-point-20261127-scope.mjs'
 import receipt from './fixtures/catalogue-mts-krasna-polyana3-20261127.json' with { type: 'json' }
 
 const cwd = new URL('../', import.meta.url)
@@ -42,6 +44,7 @@ const tariffs = [
   [70, 60, 'services/avtorski-masazh-milena-tsvetkova/', 'Signature full-body massage with Milena Tsvetkova', 'sx-massage-manual-covered-alternatives'],
   [50, 30, 'services/chastichen-masazh-milena-tsvetkova/', 'Targeted massage with Milena Tsvetkova · back or anti-cellulite', 'sx-neck-shoulder-massage'],
 ]
+const [RAW_SOFIA_CATALOGUE, SOFIA_CATALOGUE] = [liveRaw, live].map(northDogPriorCatalogue)
 const branch = SOFIA_CATALOGUE.find(row => row.id === id)
 const beforeCatalogue = mtsIntakePriorCatalogue(SOFIA_CATALOGUE)
 
@@ -49,11 +52,14 @@ test('the MTs receipt permits only the exact reviewed intake and leaves every ea
   assert.equal(receipt.baseline, '65ceafe141aef59864ac5fe6f122cfed582d9bf8')
   assert.deepEqual(receipt.records.map(row => row.id), [id])
   const changed = Object.keys(receipt.changed), added = Object.keys(receipt.added)
+  const stagePaths = new Set([...changed, ...added])
   const observed = new Set([...paths(git('diff', '--name-only', '--no-renames', '-z', receipt.baseline, '--')),
     ...paths(git('ls-files', '--others', '--exclude-standard', '-z'))])
-  assert.deepEqual([...observed].filter(path => path !== 'node_modules' && !path.startsWith('tests/')).sort(), [...changed, ...added].sort())
+  assert.deepEqual([...observed].filter(path => path !== 'node_modules' && !path.startsWith('tests/') &&
+    (stagePaths.has(path) || !northDogAllowsPath(path))).sort(), [...stagePaths].sort())
   for (const path of changed) {
-    const before = git('show', receipt.baseline + ':' + path), after = readFileSync(new URL(path, cwd))
+    const before = git('show', receipt.baseline + ':' + path)
+    const after = northDogPriorSource(path, readFileSync(new URL(path, cwd)))
     assert.deepEqual([sha(before), sha(after)], [receipt.changed[path].before, receipt.changed[path].after], path)
     assert.ok(mtsIntakeAllowsFileChange(path) && catalogueIntakeAllowsPath(path), path)
     assert.deepEqual(mtsIntakePriorSource(path, after), before, path)

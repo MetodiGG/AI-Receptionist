@@ -36,6 +36,28 @@ test('pricing gate reports these expired offers separately without counting them
   }
 })
 
+test('the 26 November ART Izba event passes the deployment check only as already withheld after expiry', () => {
+  const id = 'sofia-artizba-cherni-vrah33e'
+  const old = PUBLIC_CATALOGUE.find(row => row.id === id)
+  const review = BOOKING_PRICE_REVIEWS.find(entry => entry.id === id)
+  const lastDay = Date.parse('2026-11-26T23:59:59Z')
+  const after = Date.parse('2026-11-27T00:00:00Z')
+  assert.equal(expiredCatalogueOfferHold(old, lastDay), null)
+  assert.equal(pricingReport([old], [review], lastDay).summary.sourceReviewed, 1)
+  assert.deepEqual(cataloguePublicationState([old], after).current, [])
+  assert.deepEqual(expiredCatalogueOfferHold(old, after), {
+    id, validThrough: '2026-11-26', reason: 'single_dated_painting_event_expired',
+  })
+  const report = pricingReport([old], [review], after)
+  assert.equal(report.summary.withheldExpiredOffers, 1)
+  assert.equal(report.summary.sourceReviewed, 0)
+  assert.deepEqual(report.blocking, [])
+  assert.equal(pricingReport([old], [], after).blocking.length, 1)
+  const changed = { ...old, services: old.services.map(s => ({ ...s, name: s.name + ' · нова дата' })) }
+  assert.equal(expiredCatalogueOfferHold(changed, after), null)
+  assert.equal(pricingReport([changed], [review], after).blocking.length, 1)
+})
+
 test('a changed record or missing/conflicting pricing receipt cannot be excused by a historical hold', () => {
   const [original] = records
   const review = receipts.find(row => row.id === original.id)

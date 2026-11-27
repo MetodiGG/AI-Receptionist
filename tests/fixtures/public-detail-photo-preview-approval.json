@@ -1,6 +1,10 @@
 {
   "baseline": "024b9b6dcc2f3998facdde369621d94192629c3b",
   "changed": {
+    "lib/discovery/catalogue-expired-offer-holds.mjs": {
+      "before": "4c30bac6f027195bfe6b2dfca2bca66ff9d92cb50918ca4cd2eb9ef6e77652b9",
+      "after": "809994b0a98cef171bf440e29b09b6c83fd37e192e5e34b2bc5425685056ccb9"
+    },
     "components/discovery-business-card.js": {
       "before": "85e6e716dcc98003fca0b7061585cbd4449717d41ab08d01841108b393a76f53",
       "after": "97fc6f3391de382f1f6a3a27e6747490a8bd233d0197670520fc178b2cbcac0f"

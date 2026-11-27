@@ -35,7 +35,7 @@ test('the standing expiry policy authorizes exactly its eight current paths and 
   assert.deepEqual(addedPaths, ['lib/discovery/catalogue-expired-offer-holds.mjs'])
   const changed = git('diff', '--name-only', '--no-renames', '-z', receipt.baseline, '--').toString('utf8').split('\0').filter(Boolean)
   const untracked = git('ls-files', '--others', '--exclude-standard', '-z').toString('utf8').split('\0').filter(Boolean)
-  const runtimePaths = [...new Set([...changed, ...untracked])].filter(path => path !== 'node_modules' && !path.startsWith('tests/') && (changedPaths.includes(path) || !discoveryPerformanceAllowsPath(path))
+  const runtimePaths = [...new Set([...changed, ...untracked])].filter(path => path !== 'node_modules' && !path.startsWith('tests/') && (changedPaths.includes(path) || addedPaths.includes(path) || !discoveryPerformanceAllowsPath(path))
     && !subcategoryDisclosureAllowsFileChange(path) && !serviceDetailPhotoCoverageAllowsPath(path) && !servicePhotoMarkerAllowsFileChange(path)
     && !serviceDetailPhotoExpansionAllowsNewFile(path) && !dialogPrimaryDarkContrastAllowsFileChange(path)
     && !posterGlassAllowsFileChange(path) && !posterPolishAllowsFileChange(path) && !posterPolishAllowsNewFile(path))
@@ -58,7 +58,7 @@ test('the standing expiry policy authorizes exactly its eight current paths and 
   for (const [path, hash] of Object.entries(receipt.added)) {
     const url = new URL('../' + path, import.meta.url), stat = await lstat(url)
     assert.ok(stat.isFile() && !(stat.mode & 0o111), path)
-    assert.equal(sha(await readFile(url)), hash, path)
+    assert.equal(sha(discoveryPerformancePriorSource(path, await readFile(url))), hash, path)
     assert.equal(catalogueExpiryAllowsNewFile(path), true, path)
     assert.equal(catalogueExpiryAllowsFileChange(path), false, path)
   }

@@ -171,16 +171,10 @@ test('the total reuses native/catalogue identity suppression rather than adding 
 })
 
 test('current public metadata refresh replaces the full-search cached snapshot while ordinary autocomplete stays cached', async () => {
-  let rows = [native(1)], calls = 0, proofReads = 0
+  let rows = [native(1)], calls = 0
   const selections = []
   const db = createClient('https://count-fixture.supabase.invalid', 'test-public-placeholder', { global: { fetch: async url => {
     const params = new URL(url).searchParams
-    if (params.get('select').includes('location_source:registration_location_sources')) {
-      proofReads++
-      assert.match(params.get('id'), /^in\./)
-      assert.doesNotMatch(params.get('select'), /business_media|staff|workingHours|owner_id|contact_email|customers|appointments/)
-      return Response.json(rows)
-    }
     calls++
     selections.push(params.get('select'))
     return Response.json(rows)
@@ -194,16 +188,16 @@ test('current public metadata refresh replaces the full-search cached snapshot w
   assert.equal(calls, 2, 'one current metadata read replaces rather than supplements a rich global scan')
   assert.deepEqual((await readPublishedSearchInventory(db, { cityCode: '68134' })).map(row => row.id), [id(2), id(3)])
   assert.equal(calls, 2)
-  assert.equal(proofReads, 2, 'one batched branch-proof lookup per changed snapshot, none on cache hits')
-  assert.ok(selections.every(fields => fields === PUBLIC_SEARCH_INDEX_FIELDS))
-  assert.doesNotMatch(PUBLIC_SEARCH_INDEX_FIELDS, /owner_id|contact_email|staff|workingHours|business_media|customers|appointments|token/)
+  const withEvidence = PUBLIC_SEARCH_INDEX_FIELDS + ',location_revision,location_source:registration_location_sources(latitude,longitude,source_url,licence,attribution,match_version,location_revision)'
+  assert.deepEqual(selections, [withEvidence, withEvidence], 'an embedded branch proof shares both observed metadata snapshots')
+  assert.doesNotMatch(withEvidence, /owner_id|contact_email|staff|workingHours|business_media|customers|appointments|token/)
 })
 
 test('simultaneous current refreshes share one in-flight public metadata load, with no query or GPS cache key', async () => {
   let calls = 0, release
   const pending = new Promise(resolve => { release = resolve })
   const db = createClient('https://count-coalescing.supabase.invalid', 'test-public-placeholder', { global: { fetch: async url => {
-    if (new URL(url).searchParams.get('select').includes('location_source:registration_location_sources')) return Response.json([native(1)])
+    assert.match(new URL(url).searchParams.get('select'), /^id,name,slug,[\s\S]+,location_source:registration_location_sources\(/u)
     calls++
     if (calls > 1) await pending
     return Response.json([native(1)])

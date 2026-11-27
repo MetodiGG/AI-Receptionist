@@ -34,7 +34,7 @@ function load(name, react = React) {
 const { InlineCategoryGrid } = load('inline-category-grid')
 const { DiscoverySubcategories } = load('discovery-subcategories')
 const render = (Component, props) => renderToStaticMarkup(React.createElement(Component, props))
-const directReact = { ...React, useId: () => 'inline-qa', useState: initial => [initial, () => {}], useEffect() {} }
+const directReact = { ...React, useId: () => 'inline-qa', useRef: initial => ({ current: initial }), useState: initial => [initial, () => {}], useEffect() {} }
 function elements(node, predicate, found = []) {
   if (Array.isArray(node)) node.forEach(child => elements(child, predicate, found))
   else if (React.isValidElement(node)) { if (predicate(node)) found.push(node); elements(node.props.children, predicate, found) }
@@ -116,13 +116,25 @@ test('only the first mobile row sends an eager, high-priority responsive image i
     assert.equal(actualImages.length, tiles.length, locale)
     for (const [index, tile] of tiles.entries()) {
       const eager = index < 2
-      const image = tile.type(tile.props)
+      const rendered = tile.type(tile.props)
+      const [image] = elements(rendered, node => node.type === 'img')
       assert.equal(image.props.loading, eager ? 'eager' : 'lazy', tile.props.category.id)
       assert.equal(image.props.fetchPriority, eager ? 'high' : undefined, tile.props.category.id)
       assert.equal(image.props.decoding, 'async')
       assert.ok(actualImages[index].includes(`loading="${eager ? 'eager' : 'lazy'}"`), tile.props.category.id)
       assert.equal(/fetchpriority="high"/iu.test(actualImages[index]), eager, tile.props.category.id)
+      assert.equal(rendered.type === 'picture', index >= 8, tile.props.category.id)
+      const placeholder = elements(rendered, node => node.type === 'source')
+      assert.equal(placeholder.length, index >= 8 ? 1 : 0, tile.props.category.id)
+      if (placeholder.length) {
+        assert.equal(placeholder[0].props.media, '(max-width:699px) and (scripting: enabled)')
+        assert.match(placeholder[0].props.srcSet, /^data:image\/gif;base64,/)
+        assert.match(image.props.srcSet, / 240w/)
+      }
     }
+    const linked = tiles[8].type({ ...tiles[8].props, selected: true })
+    assert.equal(elements(linked, node => node.type === 'source').length, 0, 'selected lower tile is not delayed')
+    assert.equal(elements(linked, node => node.type === 'img').length, 1)
   }
 })
 

@@ -1,0 +1,17 @@
+{
+  "baseline": "f6b09ae2e93a866f08b34848a49d81dcb7533d84",
+  "changed": {
+    "components/inline-category-grid.js": {
+      "before": "3af434484844f48ec9f4b48ca6234f9e4f52632b8a47a125ab6b1ec8692ff912",
+      "after": "47ce9e67e238dcf816248e9d3187bed9e7e9a8a7e669d34c0b24dc85b2f3e3cb"
+    },
+    "lib/discovery/internal-search.mjs": {
+      "before": "0c407766c0a7f326a66949ae0c7fb649060d8cb374034827639997dcecd03a13",
+      "after": "7bd6ff7246fe66bfbc4f272b5eec01247eeb1bb0c960330d499a812047283ad3"
+    },
+    "lib/discovery/public-search-inventory.mjs": {
+      "before": "911e1cd0f323e1988cd40d69f8aa91416e4fc0de8fbe3513dc244733204c5ab4",
+      "after": "4e9a488e50e62cab0c33a0ea3dc58537692adf04d5fbe006a2b5bbd147bfe072"
+    }
+  }
+}

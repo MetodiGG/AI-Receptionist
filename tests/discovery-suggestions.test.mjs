@@ -140,8 +140,9 @@ test('shared public index uses narrow keyset pages and a bounded short city cach
   assert.equal(values[0].length, 500); assert.equal(calls, 2, 'two pages shared by simultaneous callers')
   assert.equal(seen[0].get('active'), 'eq.true'); assert.equal(seen[0].get('platform_status'), 'eq.enabled')
   assert.equal(seen[0].get('city_ekatte'), 'eq.68134'); assert.match(seen[1].get('id'), /^gt\./)
-  assert.equal(seen[0].get('select'), PUBLIC_SEARCH_INDEX_FIELDS)
-  assert.doesNotMatch(PUBLIC_SEARCH_INDEX_FIELDS, /owner_id|contact_email|staff|workingHours|business_media|customers|appointments|token/)
+  const withEvidence = PUBLIC_SEARCH_INDEX_FIELDS + ',location_revision,location_source:registration_location_sources(latitude,longitude,source_url,licence,attribution,match_version,location_revision)'
+  assert.deepEqual(seen.map(params => params.get('select')), [withEvidence, withEvidence])
+  assert.doesNotMatch(withEvidence, /owner_id|contact_email|staff|workingHours|business_media|customers|appointments|token/)
   assert.match(PUBLIC_SEARCH_INDEX_FIELDS, /location_kind:public_profile->>location_kind/)
   assert.doesNotMatch(PUBLIC_SEARCH_INDEX_FIELDS.replace(/\w+:public_profile->\w+|location_kind:public_profile->>location_kind/g, ''), /public_profile/)
   await readPublishedSearchInventory(db, { cityCode: '68134', now: () => time }); assert.equal(calls, 2)

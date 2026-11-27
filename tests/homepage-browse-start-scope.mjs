@@ -3,6 +3,7 @@ import { execFileSync } from 'node:child_process'
 import { lstatSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import receipt from './fixtures/homepage-browse-start-approval.json' with { type: 'json' }
+import { publicFirstLoadAllowsFileChange } from './public-first-load-optimization-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -18,7 +19,7 @@ function reviewedFile(path, digest) {
 
 export const homepageBrowseStartAllowsFileChange = path => Object.hasOwn(receipt.changed, path) && reviewedFile(path, receipt.changed[path].after)
 export const homepageBrowseStartAllowsNewFile = path => Object.hasOwn(receipt.added, path) && reviewedFile(path, receipt.added[path])
-export const homepageBrowseStartAllowsPath = path => homepageBrowseStartAllowsFileChange(path) || homepageBrowseStartAllowsNewFile(path)
+export const homepageBrowseStartAllowsPath = path => homepageBrowseStartAllowsFileChange(path) || homepageBrowseStartAllowsNewFile(path) || publicFirstLoadAllowsFileChange(path)
 
 // Historical checks still compare their own original, exact source bytes.
 // Only the reviewed whole-file digest can be rewound; unrelated edits stay visible.

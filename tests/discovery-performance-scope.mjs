@@ -8,6 +8,7 @@ import { preparedPhotosAllowsFileChange, preparedPhotosAllowsNewFile } from './m
 import { staticWebpCacheCpuAllowsFileChange, staticWebpCacheCpuPriorSource } from './discovery-static-webp-cache-cpu-scope.mjs'
 import { mobileDiscoveryFirstPaintAllowsFileChange, mobileDiscoveryFirstPaintPriorSource } from './mobile-discovery-first-paint-scope.mjs'
 import { homepageBrowseStartAllowsFileChange, homepageBrowseStartAllowsNewFile, homepageBrowseStartPriorSource } from './homepage-browse-start-scope.mjs'
+import { publicFirstLoadAllowsFileChange } from './public-first-load-optimization-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -21,7 +22,7 @@ function currentHash(path, digest) {
   } catch { return false }
 }
 
-export const discoveryPerformanceAllowsFileChange = path => homepageBrowseStartAllowsFileChange(path) || mobileDiscoveryFirstPaintAllowsFileChange(path) || staticWebpCacheCpuAllowsFileChange(path) || preparedPhotosAllowsFileChange(path) || detailPreviewAllowsFileChange(path) || currentHash(path, receipt.changed[path]?.after)
+export const discoveryPerformanceAllowsFileChange = path => publicFirstLoadAllowsFileChange(path) || homepageBrowseStartAllowsFileChange(path) || mobileDiscoveryFirstPaintAllowsFileChange(path) || staticWebpCacheCpuAllowsFileChange(path) || preparedPhotosAllowsFileChange(path) || detailPreviewAllowsFileChange(path) || currentHash(path, receipt.changed[path]?.after)
 export const discoveryPerformanceAllowsNewFile = path => homepageBrowseStartAllowsNewFile(path) || preparedPhotosAllowsNewFile(path) || detailPreviewAllowsNewFile(path) || currentHash(path, receipt.added[path])
 export const discoveryPerformanceAllowsPath = path => discoveryPerformanceAllowsFileChange(path) || discoveryPerformanceAllowsNewFile(path)
 

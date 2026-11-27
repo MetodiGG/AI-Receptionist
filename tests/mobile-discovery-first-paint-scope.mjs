@@ -3,6 +3,7 @@ import { execFileSync } from 'node:child_process'
 import { lstatSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import receipt from './fixtures/mobile-discovery-first-paint-approval.json' with { type: 'json' }
+import { publicFirstLoadPriorSource } from './public-first-load-optimization-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -13,13 +14,14 @@ export function mobileDiscoveryFirstPaintAllowsFileChange(path) {
   try {
     const file = new URL('../' + path, import.meta.url)
     const stat = lstatSync(file)
-    return stat.isFile() && !(stat.mode & 0o111) && sha(readFileSync(file)) === receipt.changed[path].after
+    return stat.isFile() && !(stat.mode & 0o111) && sha(publicFirstLoadPriorSource(path, readFileSync(file))) === receipt.changed[path].after
   } catch { return false }
 }
 
 // Each historical scope receives the exact bytes of the release it protects.
 // Never mask a future change to either runtime file merely by its pathname.
 export function mobileDiscoveryFirstPaintPriorSource(path, source) {
+  source = publicFirstLoadPriorSource(path, source)
   if (!Object.hasOwn(receipt.changed, path)) return source
   const { before, after } = receipt.changed[path]
   if (sha(source) !== after) return source

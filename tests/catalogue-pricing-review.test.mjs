@@ -3,6 +3,9 @@ import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 import { BOOKING_PRICE_REVIEWS } from '../lib/discovery/catalogue-data/pricing-booking-review-v1.mjs'
+import { VERIFIED_EDUCATION_GROWTH_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-education-growth-20261127.mjs'
+import { VERIFIED_CONSULTATIONS_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-consultations-20261127.mjs'
+import { VERIFIED_BANISHA_SALON_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-banisha-salon-20261127.mjs'
 import { pricingIdentity, assessPricingReview, auditCataloguePricing } from '../lib/discovery/catalogue-pricing-review.mjs'
 import report from '../docs/catalogue-pricing/booking-flow-audit-20261110.json' with { type: 'json' }
 import { NEIGHBORHOOD_20261111_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-expansion-20261111.mjs'
@@ -238,6 +241,10 @@ test('dated audit receipts cover every current ID without rewriting the historic
     [[VERIFIED_SOFIA_CROSS_QUARTER_20261127_REVIEWS[0]], 'sofia-bs-wrap-studio-studentski-stranski3b', 'service_reviewed', '2026-11-27T12:00:00Z'],
     [[VERIFIED_SOFIA_CROSS_QUARTER_20261127_REVIEWS[1]], 'sofia-as-vavilon-vrabnitsa2-block632d', 'service_reviewed', '2026-11-27T12:00:00Z'],
     [[VERIFIED_SOFIA_CROSS_QUARTER_20261127_REVIEWS[2]], 'sofia-best-moments-photography-lyulin6-block641', 'reviewed', '2026-11-27T12:00:00Z'],
+    [[VERIFIED_EDUCATION_GROWTH_20261127_REVIEWS[0]], 'sofia-reya-kids-ovcha-kupel2-ivan-hadzhiyski3', 'service_reviewed', '2026-11-27T12:00:00Z'],
+    [[VERIFIED_EDUCATION_GROWTH_20261127_REVIEWS[1]], 'sofia-art-academy-banishora-kozloduy128', 'service_reviewed', '2026-11-27T12:00:00Z'],
+    [VERIFIED_CONSULTATIONS_20261127_REVIEWS, 'sofia-va-consulting-lyulin10-block135', 'service_reviewed', '2026-11-27T12:00:00Z'],
+    [VERIFIED_BANISHA_SALON_20261127_REVIEWS, 'sofia-essentisimo-banishora-karlovo7', 'reviewed', '2026-11-27T12:00:00Z'],
   ]) {
     assert.deepEqual(reviews.map(row => row.id), [id])
     assert.equal(auditedIds.has(id), false)

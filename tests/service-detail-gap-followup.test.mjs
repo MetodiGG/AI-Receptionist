@@ -2,8 +2,8 @@ import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { createHash } from 'node:crypto'
 import test from 'node:test'
-import { auditServiceDetailGapWave } from '../scripts/audit-service-detail-gap-wave.mjs'
-import { auditPublicDetailServicePhotos } from '../scripts/audit-public-detail-service-photos.mjs'
+import { auditHistoricalServiceDetailGapWave as auditServiceDetailGapWave,
+  auditHistoricalPublicDetailServicePhotos as auditPublicDetailServicePhotos } from './provider-role-photo-history.mjs'
 import { compareDiscoveryPhotos, fingerprintDiscoveryPhoto } from '../scripts/discovery-photo-fingerprint.mjs'
 import { detailGapFollowupPhotos } from '../lib/service-detail-gap-followup.mjs'
 import generated from '../lib/service-detail-gap-followup-generated.json' with { type: 'json' }

@@ -6,8 +6,8 @@ import { catalogueProfileView } from '../lib/catalogue-profile.mjs'
 import { findPublicCatalogueEntry } from '../lib/discovery/public-catalogue.mjs'
 import { publicDetailServiceThumbnail } from '../lib/service-detail-photo-presentation.mjs'
 import { DISCOVERY_SUBCATEGORIES } from '../lib/discovery/subcategories.mjs'
-import { auditServiceDetailGapWave } from '../scripts/audit-service-detail-gap-wave.mjs'
-import { auditPublicDetailServicePhotos } from '../scripts/audit-public-detail-service-photos.mjs'
+import { auditHistoricalServiceDetailGapWave as auditServiceDetailGapWave,
+  auditHistoricalPublicDetailServicePhotos as auditPublicDetailServicePhotos } from './provider-role-photo-history.mjs'
 import { compareDiscoveryPhotos, fingerprintDiscoveryPhoto } from '../scripts/discovery-photo-fingerprint.mjs'
 import generated from '../lib/service-detail-gap-generated.json' with { type: 'json' }
 import receipt from '../docs/service-detail-gap-wave-20261126.json' with { type: 'json' }

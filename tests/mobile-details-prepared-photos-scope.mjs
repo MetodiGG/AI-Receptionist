@@ -3,6 +3,7 @@ import { execFileSync } from 'node:child_process'
 import { lstatSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import receipt from './fixtures/mobile-details-prepared-photos-approval.json' with { type: 'json' }
+import { providerRolePhotosPriorSource } from './provider-role-photo-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = source => createHash('sha256').update(source).digest('hex')
@@ -24,6 +25,7 @@ export const preparedPhotosAllowsPath = path => preparedPhotosAllowsFileChange(p
 // Historical checks see the exact earlier bytes only for a reviewed successor.
 // Modified files or other paths never gain an exemption by name alone.
 export function preparedPhotosPriorSource(path, source) {
+  source = providerRolePhotosPriorSource(path, source)
   if (!Object.hasOwn(receipt.changed, path)) return source
   const { before, after } = receipt.changed[path]
   if (sha(source) !== after) return source

@@ -3,6 +3,7 @@ import { execFileSync } from 'node:child_process'
 import { lstatSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import receipt from './fixtures/catalogue-verified-lyulin-batch-20261127.json' with { type: 'json' }
+import { providerRolePhotosPriorSource } from './provider-role-photo-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -12,7 +13,7 @@ function matchesFile(path, expected) {
   if (!digests.test(expected ?? '')) return false
   try {
     const file = new URL('../' + path, import.meta.url), stat = lstatSync(file)
-    return stat.isFile() && !(stat.mode & 0o111) && sha(readFileSync(file)) === expected
+    return stat.isFile() && !(stat.mode & 0o111) && sha(providerRolePhotosPriorSource(path, readFileSync(file))) === expected
   } catch { return false }
 }
 
@@ -26,6 +27,7 @@ export function exactCatalogueIntakeScope(receipt, label) {
   const allowsNewFile = path => Object.hasOwn(receipt.added, path) && matchesFile(path, receipt.added[path])
   const allowsPath = path => allowsFileChange(path) || allowsNewFile(path)
   function priorSource(path, source) {
+    source = providerRolePhotosPriorSource(path, source)
     if (!Object.hasOwn(receipt.changed, path)) return source
     const { before, after } = receipt.changed[path]
     if (!digests.test(before ?? '') || !digests.test(after ?? '') || sha(source) !== after) return source

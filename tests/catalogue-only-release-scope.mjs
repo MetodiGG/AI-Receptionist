@@ -2,6 +2,7 @@ import { createHash } from 'node:crypto'
 import { execFileSync } from 'node:child_process'
 import { lstatSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
+import { providerRolePhotosAllowsFileChange, providerRolePhotosAllowsNewFile, providerRolePhotosPriorSource } from './provider-role-photo-scope.mjs'
 
 // Immutable verification anchors for the two independent, tested histories.
 // A historical test may ignore only the exact unchanged blob from the other
@@ -38,7 +39,7 @@ function matches(path, hash, mode) {
   try {
     const st = lstatSync(file)
     if (!st.isFile() || (st.mode & 0o111 ? '100755' : '100644') !== mode) return false
-    const bytes = readFileSync(file)
+    const bytes = providerRolePhotosPriorSource(path, readFileSync(file))
     return createHash('sha1').update('blob ' + bytes.length + '\0').update(bytes).digest('hex') === hash
   } catch {
     return false
@@ -69,11 +70,25 @@ export function standingRuleHistoryPriorSource(path, source) {
   }
   return typeof source === 'string' ? published.toString('utf8') : Buffer.from(published)
 }
+// A file unchanged in an earlier publication may be absent from its diff map.
+// Accept only the exact independently sealed successor whose restored bytes
+// equal that publication's actual immutable snapshot, not a path exemption.
+function roleMatchedPreimageMatchesSnapshot(path, commit) {
+  if (!providerRolePhotosAllowsFileChange(path)) return false
+  try {
+    const current = readFileSync(new URL('../' + path, import.meta.url))
+    const original = providerRolePhotosPriorSource(path, current)
+    return !original.equals(current) && original.equals(git('show', commit + ':' + path))
+  } catch { return false }
+}
+
 export const publishedBaselineMatches = path => {
   const snapshot = publishedRuntime.get(path)
-  return releaseRuleMatches(path) || Boolean(snapshot && matches(path, snapshot.hash, snapshot.mode))
+  return providerRolePhotosAllowsNewFile(path) || releaseRuleMatches(path) ||
+    Boolean(snapshot && matches(path, snapshot.hash, snapshot.mode)) || roleMatchedPreimageMatchesSnapshot(path, publishedBaseline)
 }
 export const approvedCatalogueMatches = path => {
   const snapshot = approvedCatalogueRuntime.get(path)
-  return releaseRuleMatches(path) || Boolean(snapshot && matches(path, snapshot.hash, snapshot.mode))
+  return providerRolePhotosAllowsNewFile(path) || releaseRuleMatches(path) ||
+    Boolean(snapshot && matches(path, snapshot.hash, snapshot.mode)) || roleMatchedPreimageMatchesSnapshot(path, verifiedCatalogueTip)
 }

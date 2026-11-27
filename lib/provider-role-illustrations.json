@@ -1,0 +1,862 @@
+{
+  "cover": [
+    {
+      "replaces": [
+        "/business-cover-photos/other-v1.webp",
+        "/service-photos/legal-consultation-v1.webp"
+      ],
+      "src": "/business-cover-photos/role-matched-lawyer-man-cover-20261127-v1.webp",
+      "providers": [
+        "sofia-bogomil-yordanov-sveti-naum55",
+        "sofia-georgi-gochev-law",
+        "sofia-georgi-malchev-law",
+        "sofia-ivaylo-ivanov-law-ovcha-kupel",
+        "sofia-krasimir-belezhkov-hubcha2",
+        "sofia-lazar-belev-tundzha3",
+        "sofia-nikolay-dimitrov-insurance-law",
+        "sofia-nikolay-gyoshev-pozitano39",
+        "sofia-nikolay-nikolaev-law",
+        "sofia-nikolay-vivianov-vasilev-lavele16",
+        "sofia-petar-nikolov-law-alabin",
+        "sofia-petyo-dankov-deliyska-vodenitsa330",
+        "sofia-radoslav-valev-law",
+        "sofia-sokol-nedkov",
+        "sofia-svetoslav-grigorov-law",
+        "sofia-toni-chakarov-law"
+      ]
+    },
+    {
+      "replaces": [
+        "/business-cover-photos/consulting-v1.webp",
+        "/service-photos/psychology-consultation-v1.webp"
+      ],
+      "src": "/business-cover-photos/role-matched-therapist-man-cover-20261127-v1.webp",
+      "providers": [
+        "sofia-angel-nakov-petyofi",
+        "sofia-anton-kolev-calma",
+        "sofia-anton-kolev-pirin",
+        "sofia-georgi-baldzhiev-buxton",
+        "sofia-georgi-radev-stamboliyski",
+        "sofia-hristo-teodosiev-budapeshta",
+        "sofia-ivan-kalev-preslavska-planina2",
+        "sofia-ivan-simeonov-yuzhen-park",
+        "sofia-kiril-grozdanov-triaditsa5b",
+        "sofia-krasimir-zhivkov-az-moga-reduta",
+        "sofia-mladen-penchev-private-goce-delchev",
+        "sofia-novainsight-ivan-penchev-kableshkov53",
+        "sofia-orlin-baev-estestvena-akademia",
+        "sofia-petar-kralev-gurko",
+        "sofia-slav-slavov-dyakon-ignatiy19",
+        "sofia-yancho-yanchev-galichitsa37",
+        "sofia-zdravko-asparuhov-bogdan21"
+      ]
+    },
+    {
+      "replaces": [
+        "/business-cover-photos/activity-sx-psych-teen-adult-choice-v1.webp",
+        "/service-photos/sx-psych-teen-adult-choice-v1.webp"
+      ],
+      "src": "/business-cover-photos/role-matched-adolescent-adult-psychologist-man-cover-20261127-v1.webp",
+      "providers": [
+        "sofia-stoyan-kuzmanov-slavyanska22"
+      ]
+    },
+    {
+      "replaces": [
+        "/business-cover-photos/activity-womens-haircut-v1.webp",
+        "/service-photos/womens-haircut-v1.webp"
+      ],
+      "src": "/business-cover-photos/role-matched-haircut-woman-client-man-stylist-cover-20261127-v1.webp",
+      "providers": [
+        "sofia-bobi-yarchev",
+        "sofia-life-hair-design-neofit"
+      ]
+    },
+    {
+      "replaces": [
+        "/business-cover-photos/activity-sx-hair-professional-service-v1.webp",
+        "/service-photos/sx-hair-professional-service-v1.webp"
+      ],
+      "src": "/business-cover-photos/role-matched-hair-professional-man-cover-20261127-v1.webp",
+      "providers": [
+        "sofia-md-hairclub"
+      ]
+    },
+    {
+      "replaces": [
+        "/business-cover-photos/beauty-v1.webp",
+        "/service-photos/makeup-v1.webp"
+      ],
+      "src": "/business-cover-photos/role-matched-makeup-man-cover-20261127-v1.webp",
+      "providers": [
+        "sofia-sabin-milanov-lomsko"
+      ]
+    },
+    {
+      "replaces": [
+        "/business-cover-photos/hair-v1.webp",
+        "/service-photos/hair-blowdry-v1.webp"
+      ],
+      "src": "/business-cover-photos/role-matched-hair-man-cover-20261127-v1.webp",
+      "providers": [
+        "sofia-lale-lazar-bozukov-strelbishte"
+      ]
+    },
+    {
+      "replaces": [
+        "/business-cover-photos/activity-photography-session-v1.webp",
+        "/service-photos/photography-session-v1.webp"
+      ],
+      "src": "/business-cover-photos/role-matched-photo-woman-session-cover-20261127-v1.webp",
+      "providers": [
+        "sofia-bellas-photography-manastirski",
+        "sofia-diana-strumin-strelbishte",
+        "sofia-elitsa-vasileva-photography",
+        "sofia-ivana-todorova-photography",
+        "sofia-jiji-dilyana-foteva-ivan-vazov",
+        "sofia-kass-photography-zona-b5",
+        "sofia-photofactory",
+        "sofia-renita-kostadinova-photography",
+        "sofia-yana-moyseeva-photography-stamboliyski",
+        "sofia-yordanka-atanasova-portrait-lagera"
+      ]
+    },
+    {
+      "replaces": [
+        "/business-cover-photos/education-v1.webp",
+        "/service-photos/math-lesson-v1.webp"
+      ],
+      "src": "/business-cover-photos/role-matched-tutor-woman-math-home-cover-20261127-v1.webp",
+      "providers": [
+        "sofia-inacademy-home-lessons"
+      ]
+    },
+    {
+      "replaces": [
+        "/business-cover-photos/activity-piano-lesson-v1.webp",
+        "/service-photos/piano-lesson-v1.webp"
+      ],
+      "src": "/business-cover-photos/role-matched-teacher-woman-piano-cover-20261127-v1.webp",
+      "providers": [
+        "sofia-voice-lab-karpuzitsa"
+      ]
+    },
+    {
+      "replaces": [
+        "/business-cover-photos/activity-sx-art-individual-v1.webp",
+        "/service-photos/sx-art-individual-v1.webp"
+      ],
+      "src": "/business-cover-photos/role-matched-teacher-woman-art-cover-20261127-v1.webp",
+      "providers": [
+        "sofia-art-uroci-zhanet-zhecheva"
+      ]
+    },
+    {
+      "replaces": [
+        "/business-cover-photos/activity-sx-business-portrait-v1.webp",
+        "/service-photos/sx-business-portrait-v1.webp"
+      ],
+      "src": "/business-cover-photos/role-matched-photo-man-portrait-cover-20261127-v1.webp",
+      "providers": [
+        "sofia-studiolife-dimitar-dobrev8"
+      ]
+    },
+    {
+      "replaces": [
+        "/business-cover-photos/dental-v1.webp",
+        "/service-photos/dental-exam-v1.webp"
+      ],
+      "src": "/business-cover-photos/role-matched-dentist-man-cover-20261127-v1.webp",
+      "providers": [
+        "sofia-nestor-notov-neru28",
+        "sofia-nikolay-frantsov-druzhba1-block18v",
+        "sofia-stanimir-batovski-zona-b19",
+        "sofia-stoyan-tsonev-chavdar-mutafov22"
+      ]
+    },
+    {
+      "replaces": [
+        "/business-cover-photos/activity-oral-hygiene-v1.webp",
+        "/service-photos/oral-hygiene-v1.webp"
+      ],
+      "src": "/business-cover-photos/role-matched-dentist-man-cleaning-cover-20261127-v1.webp",
+      "providers": [
+        "sofia-lyudmil-kiskimov-lyulin7"
+      ]
+    }
+  ],
+  "service": [
+    {
+      "replaces": [
+        "/service-photos/sx-hypnotherapy-v1.webp"
+      ],
+      "src": "/service-photos/role-matched-hypnotherapy-woman-detail-20261127-v1.webp",
+      "offers": {
+        "sofia-hrisiyana-varbanska": [
+          "Хипнотерапия за възрастни"
+        ]
+      },
+      "alt": {
+        "bg": "Илюстрация: жена специалист води сесия по хипнотерапия",
+        "en": "Illustration: woman practitioner guiding a hypnotherapy session"
+      }
+    },
+    {
+      "replaces": [
+        "/service-photos/go-detail-law-office-in-person-20261126-v2.webp"
+      ],
+      "src": "/service-photos/role-matched-lawyer-woman-detail-20261127-v1.webp",
+      "offers": {
+        "sofia-evgenia-gancheva-alabin8": [
+          "Правна консултация по интернет право"
+        ],
+        "sofia-galina-chankova-tri-ushi1": [
+          "Правна консултация"
+        ],
+        "sofia-ilona-petrova-pozitano": [
+          "Първоначална правна консултация в кантората"
+        ],
+        "sofia-iskra-iskrenova-hubavka8": [
+          "Консултация за нотариални документи и удостоверявания"
+        ],
+        "sofia-iva-todorova-dondukov93": [
+          "Присъствена правна консултация по семейно право"
+        ],
+        "sofia-krasimira-bakoeva-law-botev": [
+          "Устен правен съвет",
+          "Почасова правна консултантска дейност"
+        ],
+        "sofia-lidia-manova": [
+          "Правна консултация с адвокат"
+        ],
+        "sofia-preslava-yordanova-hristo-botev21": [
+          "Първоначална правна консултация в кантората"
+        ],
+        "sofia-violeta-angelova-james-bourchier95-97": [
+          "Предварителна нотариална консултация по имотни документи"
+        ],
+        "sofia-yana-bogdanova-vashington13": [
+          "Правна консултация за недвижим имот"
+        ]
+      },
+      "alt": {
+        "bg": "Илюстрация: жена специалист по време на правна консултация",
+        "en": "Illustration: woman practitioner giving a legal consultation"
+      }
+    },
+    {
+      "replaces": [
+        "/service-photos/go-detail-psychology-20261126-v1.webp"
+      ],
+      "src": "/service-photos/role-matched-psychology-man-detail-20261127-v1.webp",
+      "offers": {
+        "sofia-anton-kolev-calma": [
+          "Психотерапия / консултиране · първа среща",
+          "Психотерапия / консултиране · следваща среща"
+        ],
+        "sofia-anton-kolev-pirin": [
+          "Психотерапия / консултиране · първа среща",
+          "Психотерапия / консултиране · следваща среща"
+        ],
+        "sofia-georgi-radev-stamboliyski": [
+          "Индивидуална и първична консултация",
+          "Психологическо консултиране"
+        ],
+        "sofia-ivan-simeonov-yuzhen-park": [
+          "Индивидуална сесия"
+        ],
+        "sofia-kiril-grozdanov-triaditsa5b": [
+          "Индивидуална психологическа консултация"
+        ],
+        "sofia-krasimir-zhivkov-az-moga-reduta": [
+          "Индивидуална психологическа консултация"
+        ],
+        "sofia-novainsight-ivan-penchev-kableshkov53": [
+          "Психологическа консултация в кабинет"
+        ],
+        "sofia-orlin-baev-estestvena-akademia": [
+          "Прием при Орлин Баев"
+        ],
+        "sofia-petar-kralev-gurko": [
+          "Еднократна консултация",
+          "Системно провеждана терапия"
+        ],
+        "sofia-slav-slavov-dyakon-ignatiy19": [
+          "Първо посещение · психологичен или терапевтичен прием"
+        ],
+        "sofia-yancho-yanchev-galichitsa37": [
+          "Индивидуална психоаналитична психотерапия"
+        ]
+      },
+      "alt": {
+        "bg": "Илюстрация: мъж психолог по време на индивидуална консултация",
+        "en": "Illustration: male psychologist giving an individual consultation"
+      }
+    },
+    {
+      "replaces": [
+        "/service-photos/go-detail-adult-therapy-conversation-20261126-v2.webp"
+      ],
+      "src": "/service-photos/role-matched-psychotherapy-man-detail-20261127-v1.webp",
+      "offers": {
+        "sofia-angel-nakov-petyofi": [
+          "Индивидуална сесия за възрастни"
+        ],
+        "sofia-anton-kolev-calma": [
+          "Психотерапия / консултиране · първа среща",
+          "Психотерапия / консултиране · следваща среща"
+        ],
+        "sofia-anton-kolev-pirin": [
+          "Психотерапия / консултиране · първа среща",
+          "Психотерапия / консултиране · следваща среща"
+        ],
+        "sofia-georgi-baldzhiev-buxton": [
+          "Психотерапия · индивидуална сесия"
+        ],
+        "sofia-georgi-radev-stamboliyski": [
+          "Психологическо консултиране",
+          "Психотерапия"
+        ],
+        "sofia-hristo-teodosiev-budapeshta": [
+          "Психиатрична консултация"
+        ],
+        "sofia-ivan-kalev-preslavska-planina2": [
+          "Индивидуална психологическа сесия"
+        ],
+        "sofia-ivan-simeonov-yuzhen-park": [
+          "Индивидуална сесия"
+        ],
+        "sofia-kiril-grozdanov-triaditsa5b": [
+          "Индивидуална психологическа консултация"
+        ],
+        "sofia-krasimir-zhivkov-az-moga-reduta": [
+          "Индивидуална психологическа консултация"
+        ],
+        "sofia-novainsight-ivan-penchev-kableshkov53": [
+          "Психологическа консултация в кабинет"
+        ],
+        "sofia-slav-slavov-dyakon-ignatiy19": [
+          "Първо посещение · психологичен или терапевтичен прием"
+        ],
+        "sofia-yancho-yanchev-galichitsa37": [
+          "Индивидуална психоаналитична психотерапия"
+        ],
+        "sofia-zdravko-asparuhov-bogdan21": [
+          "Индивидуална психотерапия"
+        ]
+      },
+      "alt": {
+        "bg": "Илюстрация: мъж терапевт разговаря с клиент",
+        "en": "Illustration: male therapist speaking with a client"
+      }
+    },
+    {
+      "replaces": [
+        "/service-photos/sx-psych-assessment-debrief-v1.webp"
+      ],
+      "src": "/service-photos/role-matched-psychiatric-assessment-man-detail-20261127-v1.webp",
+      "offers": {
+        "sofia-mladen-penchev-private-goce-delchev": [
+          "Психиатрична консултация / преглед"
+        ]
+      },
+      "alt": {
+        "bg": "Илюстрация: мъж психиатър по време на консултация",
+        "en": "Illustration: male psychiatrist giving a consultation"
+      }
+    },
+    {
+      "replaces": [
+        "/service-photos/family-counselling-v1.webp"
+      ],
+      "src": "/service-photos/role-matched-family-counselling-man-detail-20261127-v1.webp",
+      "offers": {
+        "sofia-georgi-baldzhiev-buxton": [
+          "Семейна сесия"
+        ],
+        "sofia-georgi-radev-stamboliyski": [
+          "Семейна консултация"
+        ]
+      },
+      "alt": {
+        "bg": "Илюстрация: мъж терапевт води семейна консултация",
+        "en": "Illustration: male therapist leading a family session"
+      }
+    },
+    {
+      "replaces": [
+        "/service-photos/sx-psych-child-teen-choice-square-v1.webp"
+      ],
+      "src": "/service-photos/role-matched-child-teen-psychology-man-detail-20261127-v1.webp",
+      "offers": {
+        "sofia-georgi-radev-stamboliyski": [
+          "Психологическа работа с деца и юноши"
+        ],
+        "sofia-ivan-simeonov-yuzhen-park": [
+          "Индивидуална сесия за деца 7–14 години"
+        ]
+      },
+      "alt": {
+        "bg": "Илюстрация: мъж психолог по време на детска консултация",
+        "en": "Illustration: male psychologist in a child consultation"
+      }
+    },
+    {
+      "replaces": [
+        "/service-photos/sx-emdr-v1.webp"
+      ],
+      "src": "/service-photos/role-matched-emdr-man-detail-20261127-v1.webp",
+      "offers": {
+        "sofia-georgi-radev-stamboliyski": [
+          "EMDR терапия"
+        ]
+      },
+      "alt": {
+        "bg": "Илюстрация: мъж терапевт по време на emdr сесия",
+        "en": "Illustration: male therapist during an emdr session"
+      }
+    },
+    {
+      "replaces": [
+        "/service-photos/sx-psych-teen-v1.webp"
+      ],
+      "src": "/service-photos/role-matched-teen-psychotherapy-man-detail-20261127-v1.webp",
+      "offers": {
+        "sofia-angel-nakov-petyofi": [
+          "Индивидуална сесия за тийнейджъри над 14 години"
+        ],
+        "sofia-stoyan-kuzmanov-slavyanska22": [
+          "Индивидуална терапевтична сесия · над 14 години"
+        ]
+      },
+      "alt": {
+        "bg": "Илюстрация: мъж терапевт разговаря с тийнейджър",
+        "en": "Illustration: male therapist speaking with a teenager"
+      }
+    },
+    {
+      "replaces": [
+        "/service-photos/sx-parent-counselling-v1.webp"
+      ],
+      "src": "/service-photos/role-matched-parent-counselling-man-detail-20261127-v1.webp",
+      "offers": {
+        "sofia-angel-nakov-petyofi": [
+          "Консултация за родители"
+        ]
+      },
+      "alt": {
+        "bg": "Илюстрация: мъж специалист по време на консултация за родители",
+        "en": "Illustration: male practitioner during a parenting consultation"
+      }
+    },
+    {
+      "replaces": [
+        "/service-photos/sx-therapy-group-v1.webp"
+      ],
+      "src": "/service-photos/role-matched-group-therapy-man-detail-20261127-v1.webp",
+      "offers": {
+        "sofia-ivan-simeonov-yuzhen-park": [
+          "Участие в групова сесия"
+        ]
+      },
+      "alt": {
+        "bg": "Илюстрация: мъж терапевт води групова сесия",
+        "en": "Illustration: male therapist facilitating a group session"
+      }
+    },
+    {
+      "replaces": [
+        "/service-photos/couples-counselling-v1.webp"
+      ],
+      "src": "/service-photos/role-matched-couples-counselling-man-detail-20261127-v1.webp",
+      "offers": {
+        "sofia-ivan-kalev-preslavska-planina2": [
+          "Психологическа терапия за двойки"
+        ],
+        "sofia-ivan-simeonov-yuzhen-park": [
+          "Сесия за двойки"
+        ]
+      },
+      "alt": {
+        "bg": "Илюстрация: мъж терапевт води сесия за двойки",
+        "en": "Illustration: male therapist during a couples session"
+      }
+    },
+    {
+      "replaces": [
+        "/service-photos/sx-child-psychomotor-group-v1.webp"
+      ],
+      "src": "/service-photos/role-matched-child-movement-therapy-man-detail-20261127-v1.webp",
+      "offers": {
+        "sofia-ivan-simeonov-yuzhen-park": [
+          "Детска група · психотерапия чрез движение"
+        ]
+      },
+      "alt": {
+        "bg": "Илюстрация: мъж терапевт води детска двигателна група",
+        "en": "Illustration: male therapist leading a children’s movement group"
+      }
+    },
+    {
+      "replaces": [
+        "/service-photos/sx-psych-written-opinion-v1.webp"
+      ],
+      "src": "/service-photos/role-matched-psychiatrist-letter-man-detail-20261127-v1.webp",
+      "offers": {
+        "sofia-hristo-teodosiev-budapeshta": [
+          "Удостоверение от психиатър за работа като педагог",
+          "Удостоверение от психиатър за ВУЗ",
+          "Удостоверение от психиатър за брак"
+        ]
+      },
+      "alt": {
+        "bg": "Илюстрация: мъж психиатър подготвя писмено становище",
+        "en": "Illustration: male psychiatrist preparing a written opinion"
+      }
+    },
+    {
+      "replaces": [
+        "/service-photos/sx-hair-styling-finish-v1.webp"
+      ],
+      "src": "/service-photos/role-matched-hair-updo-man-detail-20261127-v1.webp",
+      "offers": {
+        "sofia-bobi-yarchev": [
+          "Официална/Сватбена прическа",
+          "Прическа",
+          "Пробна прическа"
+        ]
+      },
+      "alt": {
+        "bg": "Илюстрация: мъж фризьор оформя прическа",
+        "en": "Illustration: male hairstylist finishing a formal hairstyle"
+      }
+    },
+    {
+      "replaces": [
+        "/service-photos/full-hair-color-v1.webp"
+      ],
+      "src": "/service-photos/role-matched-hair-full-colour-man-detail-20261127-v1.webp",
+      "offers": {
+        "sofia-bobi-yarchev": [
+          "Боядисване - Средна дължина",
+          "Боядисване - Дълга коса",
+          "Боядисване с Balmain - Средна дължина",
+          "Боядисване с Balmain - Дълга коса"
+        ]
+      },
+      "alt": {
+        "bg": "Илюстрация: мъж колорист боядисва коса",
+        "en": "Illustration: male colourist applying hair colour"
+      }
+    },
+    {
+      "replaces": [
+        "/service-photos/sx-hair-bleach-full-v1.webp"
+      ],
+      "src": "/service-photos/role-matched-hair-bleaching-man-detail-20261127-v1.webp",
+      "offers": {
+        "sofia-bobi-yarchev": [
+          "Блондиране"
+        ]
+      },
+      "alt": {
+        "bg": "Илюстрация: мъж колорист работи по изсветляване на коса",
+        "en": "Illustration: male colourist lightening hair"
+      }
+    },
+    {
+      "replaces": [
+        "/service-photos/sx-hair-keratin-bond-maintenance-v1.webp"
+      ],
+      "src": "/service-photos/role-matched-hair-extension-maintenance-man-detail-20261127-v1.webp",
+      "offers": {
+        "sofia-bobi-yarchev": [
+          "Поддръжка на кератинови кичури коса - 100 бр.",
+          "Поддръжка на кератинови кичури коса - 150 бр.",
+          "Поддръжка на кератинови кичури коса - 200 бр."
+        ]
+      },
+      "alt": {
+        "bg": "Илюстрация: мъж фризьор поддържа кератинови екстеншъни",
+        "en": "Illustration: male hairstylist maintaining keratin-bond hair extensions"
+      }
+    },
+    {
+      "replaces": [
+        "/service-photos/sx-hair-relaxer-v1.webp"
+      ],
+      "src": "/service-photos/role-matched-hair-relaxer-man-detail-20261127-v1.webp",
+      "offers": {
+        "sofia-bobi-yarchev": [
+          "Трайно изправяне с релаксант",
+          "Релаксиране на къдрици"
+        ]
+      },
+      "alt": {
+        "bg": "Илюстрация: мъж фризьор нанася релаксант",
+        "en": "Illustration: male hairstylist applying a chemical relaxer"
+      }
+    },
+    {
+      "replaces": [
+        "/service-photos/sx-hair-seq-adult-cut-style-v1.webp"
+      ],
+      "src": "/service-photos/role-matched-hair-cut-and-style-man-detail-20261127-v1.webp",
+      "offers": {
+        "sofia-bobi-yarchev": [
+          "Дамско - Подстригване+сешоар/стайлинг на коса над раменете",
+          "Дамско - Подстригване+сешоар/стайлинг на коса под раменете"
+        ],
+        "sofia-lale-lazar-bozukov-strelbishte": [
+          "Дамско подстригване и стайлинг със сешоар"
+        ]
+      },
+      "alt": {
+        "bg": "Илюстрация: мъж фризьор подстригва и оформя коса",
+        "en": "Illustration: male hairstylist cutting and styling hair"
+      }
+    },
+    {
+      "replaces": [
+        "/service-photos/go-detail-round-brush-blowdry-20261126-v2.webp"
+      ],
+      "src": "/service-photos/role-matched-hair-round-brush-man-detail-20261127-v1.webp",
+      "offers": {
+        "sofia-bobi-yarchev": [
+          "Стайлинг със сешоар - Къса коса",
+          "Стайлинг със сешоар - Средна коса",
+          "Стайлинг със сешоар - Дълга коса"
+        ],
+        "sofia-lale-lazar-bozukov-strelbishte": [
+          "Сешоар"
+        ]
+      },
+      "alt": {
+        "bg": "Илюстрация: мъж фризьор оформя коса със сешоар",
+        "en": "Illustration: male hairstylist blow-drying hair with a round brush"
+      }
+    },
+    {
+      "replaces": [
+        "/service-photos/sx-hair-extension-blowdry-v1.webp"
+      ],
+      "src": "/service-photos/role-matched-hair-extension-blowdry-man-detail-20261127-v1.webp",
+      "offers": {
+        "sofia-bobi-yarchev": [
+          "Стайлинг със сешоар на коса с екстеншъни над 3 реда"
+        ]
+      },
+      "alt": {
+        "bg": "Илюстрация: мъж фризьор оформя коса с екстеншъни",
+        "en": "Illustration: male hairstylist blow-drying hair with extensions"
+      }
+    },
+    {
+      "replaces": [
+        "/service-photos/hair-heat-styling-v1.webp"
+      ],
+      "src": "/service-photos/role-matched-hair-heat-style-man-detail-20261127-v1.webp",
+      "offers": {
+        "sofia-bobi-yarchev": [
+          "Стайлинг с маша/преса"
+        ]
+      },
+      "alt": {
+        "bg": "Илюстрация: мъж фризьор оформя коса с топлинен уред",
+        "en": "Illustration: male hairstylist heat-styling hair"
+      }
+    },
+    {
+      "replaces": [
+        "/service-photos/sx-hair-styling-finish-v1.webp",
+        "/service-photos/hair-curling-v1.webp"
+      ],
+      "src": "/service-photos/role-matched-hair-curling-man-detail-20261127-v1.webp",
+      "offers": {
+        "sofia-bobi-yarchev": [
+          "Дефиниране на къдрици"
+        ],
+        "sofia-sabin-milanov-lomsko": [
+          "Прическа с маша"
+        ]
+      },
+      "alt": {
+        "bg": "Илюстрация: мъж фризьор оформя къдрици",
+        "en": "Illustration: male hairstylist creating curls"
+      }
+    },
+    {
+      "replaces": [
+        "/service-photos/go-detail-occasion-makeup-20261126-v2.webp"
+      ],
+      "src": "/service-photos/role-matched-makeup-man-detail-20261127-v1.webp",
+      "offers": {
+        "sofia-sabin-milanov-lomsko": [
+          "Дневен грим"
+        ]
+      },
+      "alt": {
+        "bg": "Илюстрация: мъж гримьор нанася дневен грим",
+        "en": "Illustration: male makeup artist applying daytime makeup"
+      }
+    },
+    {
+      "replaces": [
+        "/service-photos/go-detail-occasion-makeup-20261126-v2.webp"
+      ],
+      "src": "/service-photos/role-matched-makeup-occasion-man-detail-20261127-v1.webp",
+      "offers": {
+        "sofia-sabin-milanov-lomsko": [
+          "Вечерен грим",
+          "Грим за фотосесия",
+          "Сватбен грим",
+          "Пробен грим"
+        ]
+      },
+      "alt": {
+        "bg": "Илюстрация: мъж гримьор нанася грим",
+        "en": "Illustration: male makeup artist applying makeup"
+      }
+    },
+    {
+      "replaces": [
+        "/service-photos/sx-beauty-editorial-makeup-v1.webp"
+      ],
+      "src": "/service-photos/role-matched-makeup-editorial-man-detail-20261127-v1.webp",
+      "offers": {
+        "sofia-sabin-milanov-lomsko": [
+          "Арт грим"
+        ]
+      },
+      "alt": {
+        "bg": "Илюстрация: мъж гримьор нанася артистичен грим",
+        "en": "Illustration: male makeup artist applying editorial makeup"
+      }
+    },
+    {
+      "replaces": [
+        "/service-photos/sx-beauty-makeup-hairstyle-v1.webp"
+      ],
+      "src": "/service-photos/role-matched-makeup-and-hair-man-detail-20261127-v1.webp",
+      "offers": {
+        "sofia-sabin-milanov-lomsko": [
+          "Грим и прическа с маша"
+        ]
+      },
+      "alt": {
+        "bg": "Илюстрация: мъж специалист оформя прическа след грим",
+        "en": "Illustration: male stylist curling hair to finish a makeup and styling appointment"
+      }
+    },
+    {
+      "replaces": [
+        "/service-photos/hair-straightening-v1.webp"
+      ],
+      "src": "/service-photos/role-matched-hair-straightening-man-detail-20261127-v1.webp",
+      "offers": {
+        "sofia-sabin-milanov-lomsko": [
+          "Прическа с преса"
+        ]
+      },
+      "alt": {
+        "bg": "Илюстрация: мъж фризьор изправя коса с преса",
+        "en": "Illustration: male hairstylist straightening hair with a flat iron"
+      }
+    },
+    {
+      "replaces": [
+        "/service-photos/sx-hair-hollywood-waves-v1.webp"
+      ],
+      "src": "/service-photos/role-matched-hair-hollywood-waves-man-detail-20261127-v1.webp",
+      "offers": {
+        "sofia-sabin-milanov-lomsko": [
+          "Холивудски вълни"
+        ]
+      },
+      "alt": {
+        "bg": "Илюстрация: мъж фризьор оформя холивудски вълни",
+        "en": "Illustration: male hairstylist setting hollywood waves"
+      }
+    },
+    {
+      "replaces": [
+        "/service-photos/sx-beauty-soothing-face-mask-v1.webp"
+      ],
+      "src": "/service-photos/role-matched-facial-mask-man-detail-20261127-v1.webp",
+      "offers": {
+        "sofia-sabin-milanov-lomsko": [
+          "Колагенова маска за лице",
+          "Успокояваща маска за лице"
+        ]
+      },
+      "alt": {
+        "bg": "Илюстрация: мъж специалист нанася маска за лице",
+        "en": "Illustration: male facial-care specialist applying a face mask"
+      }
+    },
+    {
+      "replaces": [
+        "/service-photos/dental-extraction-v1.webp"
+      ],
+      "src": "/service-photos/role-matched-dentist-man-extraction-detail-20261127-v1.webp",
+      "offers": {
+        "sofia-stanimir-batovski-zona-b19": [
+          "Екстракция на еднокоренов зъб",
+          "Екстракция на многокоренов зъб"
+        ]
+      },
+      "alt": {
+        "bg": "Илюстрация: мъж зъболекар обяснява предстояща екстракция",
+        "en": "Illustration: male dentist explaining an upcoming extraction"
+      }
+    },
+    {
+      "replaces": [
+        "/service-photos/oral-hygiene-v1.webp"
+      ],
+      "src": "/service-photos/role-matched-dentist-man-cleaning-detail-20261127-v1.webp",
+      "offers": {
+        "sofia-stanimir-batovski-zona-b19": [
+          "Почистване на зъбен камък"
+        ]
+      },
+      "alt": {
+        "bg": "Илюстрация: мъж зъболекар почиства зъбен камък",
+        "en": "Illustration: male dentist performing professional scaling"
+      }
+    },
+    {
+      "replaces": [
+        "/service-photos/dental-cleaning-v1.webp"
+      ],
+      "src": "/service-photos/role-matched-dentist-man-scaling-detail-20261127-v1.webp",
+      "offers": {
+        "sofia-lyudmil-kiskimov-lyulin7": [
+          "Почистване на зъбен камък"
+        ],
+        "sofia-stanimir-batovski-zona-b19": [
+          "Почистване на зъбен камък"
+        ]
+      },
+      "alt": {
+        "bg": "Илюстрация: мъж зъболекар почиства зъбен камък",
+        "en": "Illustration: male dentist performing professional scaling"
+      }
+    },
+    {
+      "replaces": [
+        "/service-photos/sx-barber-cut-wash-style-v1.webp"
+      ],
+      "src": "/service-photos/role-matched-barber-cut-wash-style-woman-detail-20261127-v1.webp",
+      "offers": {
+        "sofia-emotion-teodora-bulgaria106": [
+          "Мъжко подстригване с измиване и стайлинг"
+        ]
+      },
+      "alt": {
+        "bg": "Илюстрация: жена фризьор оформя мъжко подстригване",
+        "en": "Illustration: woman hairstylist finishing a men’s haircut"
+      }
+    }
+  ]
+}

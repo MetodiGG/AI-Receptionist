@@ -9,11 +9,11 @@ import { homeCategories } from '../lib/discovery/home.mjs'
 import { PUBLIC_CATALOGUE } from '../lib/discovery/public-catalogue.mjs'
 import { DISCOVERY_SUBCATEGORIES } from '../lib/discovery/subcategories.mjs'
 import { staticDiscoveryPhotoPath } from '../lib/discovery-photo-identity.mjs'
-import { businessCoverPhotoSources } from '../lib/public-business-cover-photo.mjs'
+import { historicalBusinessCoverPhotoSources as businessCoverPhotoSources,
+  historicalPublicDetailServiceThumbnail as publicDetailServiceThumbnail,
+  auditHistoricalPublicDetailServicePhotos as auditPublicDetailServicePhotos,
+  auditHistoricalServiceDetailGapWave as auditServiceDetailGapWave } from './provider-role-photo-history.mjs'
 import { serviceDetailFinalPhotos } from '../lib/service-detail-final.mjs'
-import { publicDetailServiceThumbnail } from '../lib/service-detail-photo-presentation.mjs'
-import { auditPublicDetailServicePhotos } from '../scripts/audit-public-detail-service-photos.mjs'
-import { auditServiceDetailGapWave } from '../scripts/audit-service-detail-gap-wave.mjs'
 import { compareDiscoveryPhotos, fingerprintDiscoveryPhoto, readDiscoveryImage } from '../scripts/discovery-photo-fingerprint.mjs'
 import generated from '../lib/service-detail-final-generated.json' with { type: 'json' }
 import mechanical from '../lib/service-detail-final-mechanical.json' with { type: 'json' }

@@ -12,6 +12,7 @@ import { publicFirstLoadAllowsFileChange } from './public-first-load-optimizatio
 import { catalogueIntakeAllowsFileChange, catalogueIntakeAllowsNewFile, catalogueIntakePriorSource } from './catalogue-mopart-20261127-scope.mjs'
 import { garage46PriorSource } from './catalogue-garage46-serdika-20261127-scope.mjs'
 import { releaseRuleMatches, standingRuleHistoryPriorSource } from './catalogue-only-release-scope.mjs'
+import { providerRolePhotosAllowsNewFile } from './provider-role-photo-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -28,7 +29,7 @@ function currentHash(path, digest, priorSource = (_, source) => source) {
 export const discoveryPerformanceAllowsFileChange = path => releaseRuleMatches(path) || catalogueIntakeAllowsFileChange(path) || publicFirstLoadAllowsFileChange(path) || homepageBrowseStartAllowsFileChange(path) || mobileDiscoveryFirstPaintAllowsFileChange(path) || staticWebpCacheCpuAllowsFileChange(path) || preparedPhotosAllowsFileChange(path) || detailPreviewAllowsFileChange(path) || currentHash(path, receipt.changed[path]?.after)
 // The original cover-only module was NEW here and later acquired one sealed
 // branch illustration. Verify its exact preimage, not just a known pathname.
-export const discoveryPerformanceAllowsNewFile = path => catalogueIntakeAllowsNewFile(path) || homepageBrowseStartAllowsNewFile(path) || preparedPhotosAllowsNewFile(path) || detailPreviewAllowsNewFile(path) ||
+export const discoveryPerformanceAllowsNewFile = path => providerRolePhotosAllowsNewFile(path) || catalogueIntakeAllowsNewFile(path) || homepageBrowseStartAllowsNewFile(path) || preparedPhotosAllowsNewFile(path) || detailPreviewAllowsNewFile(path) ||
   currentHash(path, receipt.added[path], garage46PriorSource)
 export const discoveryPerformanceAllowsPath = path => discoveryPerformanceAllowsFileChange(path) || discoveryPerformanceAllowsNewFile(path)
 

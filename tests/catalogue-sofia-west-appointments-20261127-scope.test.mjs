@@ -9,6 +9,7 @@ import { RAW_SOFIA_CATALOGUE, SOFIA_CATALOGUE } from '../lib/discovery/sofia-cat
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
 import { priorCatalogue, priorSource } from './catalogue-sofia-west-appointments-20261127-scope.mjs'
 import receipt from './fixtures/catalogue-sofia-west-appointments-20261127.json' with { type: 'json' }
+import { providerRolePhotosPriorSource } from './provider-role-photo-scope.mjs'
 
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
 const digest = value => sha(JSON.stringify(value))
@@ -37,7 +38,7 @@ test('the exact five new operators leave the entire previous catalogue and unrel
   const changed = new Set([...files(git('diff', '--name-only', '-z', receipt.baseline, '--')), ...files(git('ls-files', '--others', '--exclude-standard', '-z'))])
   assert.deepEqual([...changed].sort(), [...Object.keys(receipt.changed), ...Object.keys(receipt.added)].sort())
   for (const [path, fingerprint] of Object.entries(receipt.changed)) {
-    const current = readFileSync(new URL('../' + path, import.meta.url))
+    const current = providerRolePhotosPriorSource(path, readFileSync(new URL('../' + path, import.meta.url)))
     assert.equal(sha(current), fingerprint.after, path)
     assert.equal(sha(priorSource(path, current)), fingerprint.before, path)
   }

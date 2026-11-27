@@ -26,6 +26,8 @@ import { catalogueIntakeAllowsPath, catalogueIntakePriorCatalogue, catalogueInta
 import { auraGrowthAllowsFileChange, auraGrowthAllowsNewFile, auraGrowthAllowsPath,
   auraGrowthPriorCatalogue, auraGrowthPriorSource } from './catalogue-aura-b19-growth-20261127-scope.mjs'
 import receipt from './fixtures/catalogue-aura-b19-growth-20261127.json' with { type: 'json' }
+import { arhollPriceAllowsNewFile, arhollPricePriorCatalogue,
+  arhollPricePriorSource } from './catalogue-arholl-reformer-price-refresh-20261127-scope.mjs'
 
 const cwd = new URL('../', import.meta.url)
 const git = (...args) => execFileSync('git', args, { cwd, maxBuffer: 8 * 1024 * 1024 })
@@ -49,9 +51,10 @@ test('Aura B19 history gate restores only the reviewed add and any explicitly re
   const changed = Object.keys(receipt.changed), added = Object.keys(receipt.added)
   const observed = new Set([...files(git('diff', '--name-only', '--no-renames', '-z', receipt.baseline, '--')),
     ...files(git('ls-files', '--others', '--exclude-standard', '-z'))])
-  assert.deepEqual([...observed].filter(path => path !== 'node_modules' && !path.startsWith('tests/')).sort(), [...changed, ...added].sort())
+  assert.deepEqual([...observed].filter(path => path !== 'node_modules' && !path.startsWith('tests/') &&
+    !arhollPriceAllowsNewFile(path)).sort(), [...changed, ...added].sort())
   for (const path of changed) {
-    const before = git('show', receipt.baseline + ':' + path), after = readFileSync(new URL(path, cwd))
+    const before = git('show', receipt.baseline + ':' + path), after = arhollPricePriorSource(path, readFileSync(new URL(path, cwd)))
     assert.equal(sha(before), receipt.changed[path].before, path)
     assert.equal(sha(after), receipt.changed[path].after, path)
     assert.ok(auraGrowthAllowsFileChange(path) && catalogueIntakeAllowsPath(path), path)
@@ -68,7 +71,7 @@ test('Aura B19 history gate restores only the reviewed add and any explicitly re
   }
   for (const path of ['lib/booking-engine.mjs', 'lib/discovery/catalogue-policy.mjs', 'app/layout.js',
     'public/logo.svg', 'package.json', 'supabase/config.toml']) assert.equal(auraGrowthAllowsPath(path), false, path)
-  for (const rows of [RAW_SOFIA_CATALOGUE, SOFIA_CATALOGUE]) {
+  for (const rows of [RAW_SOFIA_CATALOGUE, SOFIA_CATALOGUE].map(arhollPricePriorCatalogue)) {
     const earlier = auraGrowthPriorCatalogue(rows)
     const row = rows.find(row => row.id === id)
     assert.equal(earlier.length, rows.length - 1)

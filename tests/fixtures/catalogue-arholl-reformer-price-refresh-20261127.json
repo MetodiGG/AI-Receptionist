@@ -1,0 +1,25 @@
+{
+  "baseline": "86b4b3d8b032ab8d1fc63442871ff72c512a66b2",
+  "changed": {
+    "lib/discovery/sofia-catalogue.mjs": {
+      "before": "20bb00e960ecd03c8b6df16ecdde6ad2053dd9c2336902fa450b15914a02822d",
+      "after": "e143a0ee74da58270b734698fa5119f3658e2b6fee2fd7eb15f2295cf496e838"
+    },
+    "lib/discovery/catalogue-data/pricing-booking-review-v1.mjs": {
+      "before": "da01c57d5c9803bc7da31a7e27e9cfb1ff2faf528b28694a8ea3f5b5421cc5f4",
+      "after": "8e42afef1c7e4338a2e953499056def345d318e6fea350fda6af93a182f5c377"
+    }
+  },
+  "added": {
+    "docs/catalogue-coverage/arholl-reformer-price-refresh-20261127.json": "39e3d554d6cd3d6918679c4313e1cce6419d4002e4ab443f3ffa40011ecc798a",
+    "lib/discovery/catalogue-data/arholl-reformer-price-refresh-20261127.mjs": "8e4ed9fbf43b69ecd012143dcc992adf0fbf13f054f11fad8fffa088ea5696ca"
+  },
+  "records": [],
+  "refresh": {
+    "id": "sofia-arholl-arena-obelya1-124-reformer",
+    "before": "07dc2f1a7948761e60f7272caee4fa5755a0ba126dae68104e78a2b16cc3eb7f",
+    "after": "157a4c517611454045fa4d40e42fca4fa40286dd8145dbe0e1085fd58b27bb18"
+  },
+  "baselineCatalogueSha256": "525f89e0b9e22db578a5f041ffcd1d489e81a1eae1f7a8e5094b7356c1c91d7f",
+  "currentCatalogueSha256": "146d63ac42b2cde6742f10904a595e5fd08d52da6ba0f372c1b42ba64a611705"
+}

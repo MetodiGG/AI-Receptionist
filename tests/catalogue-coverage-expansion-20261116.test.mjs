@@ -3,7 +3,7 @@ import assert from 'node:assert/strict'
 import { createHash } from 'node:crypto'
 import { readFile, stat } from 'node:fs/promises'
 import { DateTime } from 'luxon'
-import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { SOFIA_CATALOGUE as liveCatalogue } from '../lib/discovery/sofia-catalogue.mjs'
 import { COVERAGE_20261116_RECORDS as additions, COVERAGE_20261116_REVIEWS as reviews } from '../lib/discovery/catalogue-data/neighborhood-coverage-20261116.mjs'
 import { approvedCatalogueRecord, validateCatalogue } from '../lib/discovery/catalogue-policy.mjs'
 import { auditCatalogueBatch } from '../lib/discovery/catalogue-audit.mjs'
@@ -17,8 +17,10 @@ import { discoveryConfig } from '../lib/discovery/config.mjs'
 import { discoverySearchInput } from '../lib/discovery/search-ui.mjs'
 import { catalogueServicePhotoFields } from '../lib/catalogue-service-photo-keys.mjs'
 import { serviceThumbnail } from '../lib/service-thumbnail.mjs'
+import { arhollPricePriorCatalogue } from './catalogue-arholl-reformer-price-refresh-20261127-scope.mjs'
 
 const now = Date.parse('2026-11-16T12:00:00Z')
+const SOFIA_CATALOGUE = arhollPricePriorCatalogue(liveCatalogue)
 const ids = new Set(additions.map(row => row.id))
 const record = id => SOFIA_CATALOGUE.find(row => row.id === id)
 const receipt = id => reviews.find(row => row.id === id)

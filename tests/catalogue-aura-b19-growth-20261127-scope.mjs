@@ -1,16 +1,16 @@
 import { createHash } from 'node:crypto'
 import { exactCatalogueIntakeScope } from './catalogue-verified-lyulin-batch-20261127-scope.mjs'
 import receipt from './fixtures/catalogue-aura-b19-growth-20261127.json' with { type: 'json' }
+import { arhollPriceAllowsFileChange, arhollPriceAllowsNewFile, arhollPricePriorCatalogue,
+  arhollPricePriorSource } from './catalogue-arholl-reformer-price-refresh-20261127-scope.mjs'
 
-const {
-  allowsFileChange: auraGrowthAllowsFileChange,
-  allowsNewFile: auraGrowthAllowsNewFile,
-  allowsPath: auraGrowthAllowsPath,
-  priorSource: auraGrowthPriorSource,
-  priorCatalogue,
-} = exactCatalogueIntakeScope(receipt, 'Verified Aura B19 growth')
+const { allowsFileChange, allowsNewFile, priorSource, priorCatalogue } =
+  exactCatalogueIntakeScope(receipt, 'Verified Aura B19 growth')
 
-export { auraGrowthAllowsFileChange, auraGrowthAllowsNewFile, auraGrowthAllowsPath, auraGrowthPriorSource }
+export const auraGrowthAllowsFileChange = path => allowsFileChange(path) || arhollPriceAllowsFileChange(path)
+export const auraGrowthAllowsNewFile = path => allowsNewFile(path) || arhollPriceAllowsNewFile(path)
+export const auraGrowthAllowsPath = path => auraGrowthAllowsFileChange(path) || auraGrowthAllowsNewFile(path)
+export const auraGrowthPriorSource = (path, source) => priorSource(path, arhollPricePriorSource(path, source))
 
 const sha = row => createHash('sha256').update(JSON.stringify(row)).digest('hex')
 const digest = /^[a-f0-9]{64}$/u
@@ -26,7 +26,7 @@ for (const { id, before, after } of rebindings.values()) {
 // coordinates for the pinned existing branch, and never forgive other edits.
 export function auraGrowthPriorCatalogue(rows) {
   const seen = new Set()
-  return priorCatalogue(rows).map(row => {
+  return priorCatalogue(arhollPricePriorCatalogue(rows)).map(row => {
     const approval = rebindings.get(row?.id)
     if (!approval) return row
     if (seen.has(row.id)) throw Error('Duplicate Aura B19 growth location record: ' + row.id)

@@ -15,6 +15,8 @@ import { OFFICIAL_SOFIA_CSV_SHA256 } from '../lib/discovery/official-sofia-addre
 import { businessCoverPhoto } from '../lib/business-cover-photo.mjs'
 import { publicDetailServiceThumbnail } from '../lib/service-detail-photo-presentation.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
+import { appointmentGrowthPriorCatalogue } from './catalogue-verified-sofia-appointment-growth-20261127-scope.mjs'
+import { nearbyAddressReviewPriorCatalogue } from './catalogue-verified-nearby-addresses-20261127-scope.mjs'
 
 const now = Date.parse('2026-11-27T12:00:00Z')
 const ids = new Set(report.newBranches.map(row => row.id))
@@ -26,8 +28,9 @@ test('three distinct verified premises fill the zero Връбница 2 educatio
   assert.equal(source.length, 3)
   assert.equal(new Set(source.map(row => host(row.website))).size, source.length)
   assert.equal(report.addressSource.csvSha256, OFFICIAL_SOFIA_CSV_SHA256)
-  const before = catalogueCoverageReport(SOFIA_CATALOGUE.filter(row => !ids.has(row.id)), { now, target: 30 })
-  const after = catalogueCoverageReport(SOFIA_CATALOGUE, { now, target: 30 })
+  const reviewedSnapshot = nearbyAddressReviewPriorCatalogue(appointmentGrowthPriorCatalogue(SOFIA_CATALOGUE))
+  const before = catalogueCoverageReport(reviewedSnapshot.filter(row => !ids.has(row.id)), { now, target: 30 })
+  const after = catalogueCoverageReport(reviewedSnapshot, { now, target: 30 })
   assert.deepEqual([before.counts.approvedBusinesses, after.counts.approvedBusinesses], report.beforeAfter.approvedSofiaBusinesses)
   assert.deepEqual([before.counts.zeroCells, after.counts.zeroCells], report.beforeAfter.emptyCells)
   for (const evidence of report.newBranches) {

@@ -10,6 +10,7 @@ import receipt from './fixtures/catalogue-verified-sofia-cross-quarter-20261127.
 import { catalogueIntakeAllowsPath, catalogueIntakePriorCatalogue, catalogueIntakePriorSource } from './catalogue-mopart-20261127-scope.mjs'
 import { crossQuarterAllowsFileChange, crossQuarterAllowsNewFile, crossQuarterAllowsPath, crossQuarterPriorSource, crossQuarterPriorCatalogue } from './catalogue-verified-sofia-cross-quarter-20261127-scope.mjs'
 import { nearbyAddressReviewAllowsNewFile, nearbyAddressReviewPriorSource } from './catalogue-verified-nearby-addresses-20261127-scope.mjs'
+import { appointmentGrowthAllowsFileChange, appointmentGrowthAllowsNewFile, appointmentGrowthPriorSource } from './catalogue-verified-sofia-appointment-growth-20261127-scope.mjs'
 
 const cwd = new URL('../', import.meta.url)
 const git = (...args) => execFileSync('git', args, { cwd, maxBuffer: 8 * 1024 * 1024 })
@@ -38,11 +39,12 @@ test('the latest intake seals only its six catalogue paths and restores both ear
   const actual = [...new Set([
     ...split(git('diff', '--name-only', '--no-renames', '-z', receipt.baseline, '--')),
     ...split(git('ls-files', '--others', '--exclude-standard', '-z')),
-  ])].filter(path => path !== 'node_modules' && !path.startsWith('tests/') && !nearbyAddressReviewAllowsNewFile(path)).sort()
+  ])].filter(path => path !== 'node_modules' && !path.startsWith('tests/') && !nearbyAddressReviewAllowsNewFile(path) &&
+    !appointmentGrowthAllowsNewFile(path) && (changed.includes(path) || !appointmentGrowthAllowsFileChange(path))).sort()
   assert.deepEqual(actual, [...changed, ...added].sort())
   for (const path of changed) {
     const actual = readFileSync(new URL(path, cwd))
-    const current = nearbyAddressReviewPriorSource(path, actual)
+    const current = nearbyAddressReviewPriorSource(path, appointmentGrowthPriorSource(path, actual))
     const preBatch = git('show', receipt.baseline + ':' + path)
     const preMopart = git('show', priorMopart.baseline + ':' + path)
     const { before, after } = receipt.changed[path]

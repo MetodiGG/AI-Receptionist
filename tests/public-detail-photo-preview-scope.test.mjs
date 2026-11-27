@@ -12,7 +12,8 @@ test('the detail image and preview update leaves catalogue data, booking, calend
   const git = (...args) => execFileSync('git', args, { cwd, maxBuffer: 8 * 1024 * 1024 })
   const split = bytes => bytes.toString('utf8').split('\0').filter(Boolean)
   const runtime = [...new Set([...split(git('diff', '--name-only', '-z', receipt.baseline, '--')), ...split(git('ls-files', '--others', '--exclude-standard', '-z'))])]
-    .filter(path => path !== 'node_modules' && !path.startsWith('tests/') && !catalogueIntakeAllowsPath(path)).sort()
+    .filter(path => path !== 'node_modules' && !path.startsWith('tests/')
+      && (Object.hasOwn(receipt.added, path) || Object.hasOwn(receipt.changed, path) || !catalogueIntakeAllowsPath(path))).sort()
   assert.deepEqual(runtime, [...Object.keys(receipt.changed), ...Object.keys(receipt.added)].sort())
   for (const path of runtime) {
     assert.ok(detailPreviewAllowsPath(path), path)

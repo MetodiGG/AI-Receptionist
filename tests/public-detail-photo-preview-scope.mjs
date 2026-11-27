@@ -3,6 +3,7 @@ import { execFileSync } from 'node:child_process'
 import { lstatSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import receipt from './fixtures/public-detail-photo-preview-approval.json' with { type: 'json' }
+import { appointmentGrowthPriorSource } from './catalogue-verified-sofia-appointment-growth-20261127-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -12,7 +13,7 @@ function exactCurrent(path, hash) {
   if (!hash) return false
   try {
     const file = new URL('../' + path, import.meta.url), mode = lstatSync(file)
-    return mode.isFile() && !(mode.mode & 0o111) && sha(readFileSync(file)) === hash
+    return mode.isFile() && !(mode.mode & 0o111) && sha(appointmentGrowthPriorSource(path, readFileSync(file))) === hash
   } catch { return false }
 }
 

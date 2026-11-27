@@ -13,17 +13,19 @@ import { distanceKm } from '../lib/discovery/distance.mjs'
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 import { OFFICIAL_SOFIA_CSV_SHA256 } from '../lib/discovery/official-sofia-address-source.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
+import { appointmentGrowthPriorCatalogue } from './catalogue-verified-sofia-appointment-growth-20261127-scope.mjs'
 import { nearbyAddressReviewPriorCatalogue } from './catalogue-verified-nearby-addresses-20261127-scope.mjs'
 
 const now = Date.parse('2026-11-27T12:00:00Z')
-const previous = nearbyAddressReviewPriorCatalogue(SOFIA_CATALOGUE)
+const reviewedSnapshot = appointmentGrowthPriorCatalogue(SOFIA_CATALOGUE)
+const previous = nearbyAddressReviewPriorCatalogue(reviewedSnapshot)
 const entry = id => SOFIA_CATALOGUE.find(row => row.id === id)
 const oldEntry = id => previous.find(row => row.id === id)
 
 test('verified points improve located coverage without adding businesses or changing reviewed services and bookings', () => {
   const { coverage } = report
   const inspect = rows => catalogueCoverageReport(rows, { now, target: coverage.targetPerQuarterCategory })
-  const earlier = inspect(previous), current = inspect(SOFIA_CATALOGUE)
+  const earlier = inspect(previous), current = inspect(reviewedSnapshot)
   const both = f => [f(earlier), f(current)]
   assert.equal(report.newDistinctBusinesses, 0)
   assert.equal(report.municipalSource.csvSha256, OFFICIAL_SOFIA_CSV_SHA256)

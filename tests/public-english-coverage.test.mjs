@@ -8,6 +8,7 @@ import { PUBLIC_CATALOGUE } from '../lib/discovery/public-catalogue.mjs'
 import { SERVICE_SUGGESTION_DATA } from '../lib/service-suggestion-data.mjs'
 import { verifiedLyulinBatchPriorCatalogue } from './catalogue-verified-lyulin-batch-20261127-scope.mjs'
 import { crossQuarterPriorCatalogue } from './catalogue-verified-sofia-cross-quarter-20261127-scope.mjs'
+import { appointmentGrowthPriorCatalogue } from './catalogue-verified-sofia-appointment-growth-20261127-scope.mjs'
 import snapshot from './fixtures/guided-public-partners-20261121.json' with { type: 'json' }
 
 const entry = (text, categories = []) => ({ text, categories })
@@ -83,7 +84,7 @@ test('the actual static cache covers every checked-in public/all source name, re
   const mopartDelta = { names: 2, descriptions: 3, units: 0 }
   // New source strings are checked above. Strip only the later receipt's
   // exact rows for this historical cohort count, not for coverage checks.
-  const earlier = buildPublicEnglishInventory({ catalogue: verifiedLyulinBatchPriorCatalogue(crossQuarterPriorCatalogue(PUBLIC_CATALOGUE)),
+  const earlier = buildPublicEnglishInventory({ catalogue: verifiedLyulinBatchPriorCatalogue(crossQuarterPriorCatalogue(appointmentGrowthPriorCatalogue(PUBLIC_CATALOGUE))),
     partners: snapshot.businesses, suggestions: SERVICE_SUGGESTION_DATA, checkedOn: '2026-11-22', scope: 'all' })
   assert.deepEqual(Object.fromEntries(Object.keys(priorCohorts).map(key => [key, earlier.totals[key].unique - mopartDelta[key]])), priorCohorts)
   for (const result of [all, published]) for (const key of ['missing', 'invalid', 'quantityChanges', 'qualificationChanges']) assert.equal(result[key].length, 0, key)

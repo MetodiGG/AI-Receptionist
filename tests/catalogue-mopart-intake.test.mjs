@@ -23,6 +23,7 @@ import { mopartIntakeAllowsPath, mopartIntakePriorCatalogue, mopartIntakePriorSo
 import { verifiedLyulinBatchPriorSource } from './catalogue-verified-lyulin-batch-20261127-scope.mjs'
 import { crossQuarterPriorSource } from './catalogue-verified-sofia-cross-quarter-20261127-scope.mjs'
 import { nearbyAddressReviewPriorSource } from './catalogue-verified-nearby-addresses-20261127-scope.mjs'
+import { appointmentGrowthPriorSource } from './catalogue-verified-sofia-appointment-growth-20261127-scope.mjs'
 
 const now = Date.parse('2026-11-27T00:00:00Z')
 const [draft] = MOPART_INTAKE_20261127_RECORDS
@@ -37,7 +38,7 @@ test('Mopart historical scope recognizes only the reviewed data, bytes, and one 
   }
   for (const path of Object.keys(approval.changed)) {
     const actual = readFileSync(new URL(path, cwd))
-    const bytes = verifiedLyulinBatchPriorSource(path, crossQuarterPriorSource(path, nearbyAddressReviewPriorSource(path, actual)))
+    const bytes = verifiedLyulinBatchPriorSource(path, crossQuarterPriorSource(path, nearbyAddressReviewPriorSource(path, appointmentGrowthPriorSource(path, actual))))
     assert.equal(createHash('sha256').update(bytes).digest('hex'), approval.changed[path].after, path)
     assert.deepEqual(mopartIntakePriorSource(path, bytes), execFileSync('git', ['show', approval.baseline + ':' + path], { cwd, maxBuffer: 5 * 1024 * 1024 }))
     const tampered = Buffer.concat([bytes, Buffer.from('\n')])

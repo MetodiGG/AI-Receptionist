@@ -10,6 +10,8 @@ import { catalogueIntakeAllowsPath, catalogueIntakePriorCatalogue, catalogueInta
 import { crossQuarterAllowsFileChange } from './catalogue-verified-sofia-cross-quarter-20261127-scope.mjs'
 import { nearbyAddressReviewAllowsFileChange, nearbyAddressReviewAllowsNewFile, nearbyAddressReviewAllowsPath, nearbyAddressReviewPriorSource,
   nearbyAddressReviewPriorCatalogue } from './catalogue-verified-nearby-addresses-20261127-scope.mjs'
+import { appointmentGrowthAllowsFileChange, appointmentGrowthAllowsNewFile, appointmentGrowthPriorCatalogue, appointmentGrowthPriorSource }
+  from './catalogue-verified-sofia-appointment-growth-20261127-scope.mjs'
 import prior from './fixtures/catalogue-verified-sofia-cross-quarter-20261127.json' with { type: 'json' }
 import receipt from './fixtures/catalogue-verified-nearby-addresses-20261127.json' with { type: 'json' }
 
@@ -31,18 +33,21 @@ test('nearby review seals only exact location source paths and preserves the pre
   const actual = [...new Set([
     ...split(git('diff', '--name-only', '--no-renames', '-z', receipt.baseline, '--')),
     ...split(git('ls-files', '--others', '--exclude-standard', '-z')),
-  ])].filter(path => path !== 'node_modules' && !path.startsWith('tests/')).sort()
+  ])].filter(path => path !== 'node_modules' && !path.startsWith('tests/') && !appointmentGrowthAllowsNewFile(path) &&
+    (path === cataloguePath || !appointmentGrowthAllowsFileChange(path))).sort()
   assert.deepEqual(actual, [...added, cataloguePath].sort())
-  const current = readFileSync(new URL(cataloguePath, cwd))
+  const live = readFileSync(new URL(cataloguePath, cwd))
+  const current = appointmentGrowthPriorSource(cataloguePath, live)
   const original = git('show', receipt.baseline + ':' + cataloguePath)
   assert.equal(sha(original), prior.changed[cataloguePath].after)
   assert.equal(sha(original), receipt.changed[cataloguePath].before)
   assert.equal(sha(current), receipt.changed[cataloguePath].after)
   assert.notEqual(sha(current), sha(original))
-  assert.ok(nearbyAddressReviewAllowsFileChange(cataloguePath) && catalogueIntakeAllowsPath(cataloguePath))
+  assert.equal(nearbyAddressReviewAllowsFileChange(cataloguePath), sha(live) === receipt.changed[cataloguePath].after)
+  assert.ok(catalogueIntakeAllowsPath(cataloguePath))
   assert.equal(crossQuarterAllowsFileChange(cataloguePath), false)
   assert.deepEqual(nearbyAddressReviewPriorSource(cataloguePath, current), original)
-  const tampered = Buffer.concat([current, Buffer.from('\n')])
+  const tampered = Buffer.concat([live, Buffer.from('\n')])
   assert.equal(nearbyAddressReviewPriorSource(cataloguePath, tampered), tampered)
   assert.equal(catalogueIntakePriorSource(cataloguePath, tampered), tampered)
   for (const path of added) {
@@ -60,7 +65,8 @@ test('only approved address fields change and every previous effective and raw r
   const approvedIds = receipt.records.map(row => row.id).sort()
   assert.ok(approvedIds.length)
   assert.deepEqual(manifest.verified.map(row => row.id).sort(), approvedIds)
-  for (const catalogue of [RAW_SOFIA_CATALOGUE, SOFIA_CATALOGUE]) {
+  for (const live of [RAW_SOFIA_CATALOGUE, SOFIA_CATALOGUE]) {
+    const catalogue = appointmentGrowthPriorCatalogue(live)
     const matched = catalogue.filter(row => approvedIds.includes(row.id))
     assert.deepEqual(matched.map(row => row.id).sort(), approvedIds)
     const previous = nearbyAddressReviewPriorCatalogue(catalogue)

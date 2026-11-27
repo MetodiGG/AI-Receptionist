@@ -13,6 +13,7 @@ import { OFFICIAL_SOFIA_CSV_SHA256 } from '../lib/discovery/official-sofia-addre
 import { businessCoverPhoto } from '../lib/business-cover-photo.mjs'
 import { publicDetailServiceThumbnail } from '../lib/service-detail-photo-presentation.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
+import { appointmentGrowthPriorCatalogue } from './catalogue-verified-sofia-appointment-growth-20261127-scope.mjs'
 import { nearbyAddressReviewPriorCatalogue } from './catalogue-verified-nearby-addresses-20261127-scope.mjs'
 
 const now = Date.parse('2026-11-27T12:00:00Z')
@@ -37,7 +38,7 @@ test('the two independent Lyulin classrooms improve exact located coverage, not 
     .find(area => area.name === 'Люлин 3').cells.find(entry => entry.categoryId === 'education')
   // Replay the exact approved location edits from later that day: the
   // addition report does not attribute a subsequent recovery to these schools.
-  const reviewedSnapshot = nearbyAddressReviewPriorCatalogue(SOFIA_CATALOGUE)
+  const reviewedSnapshot = nearbyAddressReviewPriorCatalogue(appointmentGrowthPriorCatalogue(SOFIA_CATALOGUE))
   const before = cell(reviewedSnapshot.filter(row => !ids.includes(row.id))), after = cell(reviewedSnapshot)
   assert.deepEqual([before.count, after.count], report.coverageDelta.premises)
   assert.deepEqual([before.locatedCount, after.locatedCount], report.coverageDelta.locatedPremises)

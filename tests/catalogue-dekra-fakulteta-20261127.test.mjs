@@ -12,14 +12,17 @@ import { approvedCatalogueRecord } from '../lib/discovery/catalogue-policy.mjs'
 import { assessPricingReview } from '../lib/discovery/catalogue-pricing-review.mjs'
 import { VERIFIED_DEKRA_FAKULTETA_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-dekra-fakulteta-20261127.mjs'
 import { railExternalAction } from '../lib/discovery/rail.mjs'
-import { RAW_SOFIA_CATALOGUE, SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { RAW_SOFIA_CATALOGUE as currentRaw, SOFIA_CATALOGUE as current } from '../lib/discovery/sofia-catalogue.mjs'
 import { businessCoverPhotoSources } from '../lib/public-business-cover-photo.mjs'
 import { publicDetailServiceThumbnail } from '../lib/service-detail-photo-presentation.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
 import { compareDiscoveryPhotos, fingerprintDiscoveryPhoto } from '../scripts/discovery-photo-fingerprint.mjs'
 import { priorCatalogue, priorSource } from './catalogue-dekra-fakulteta-20261127-scope.mjs'
 import receipt from './fixtures/catalogue-dekra-fakulteta-20261127.json' with { type: 'json' }
+import * as later from './catalogue-sofia-west-appointments-20261127-scope.mjs'
 
+const RAW_SOFIA_CATALOGUE = later.priorCatalogue(currentRaw)
+const SOFIA_CATALOGUE = later.priorCatalogue(current)
 const now = Date.parse('2026-11-27T12:00:00Z')
 const id = 'sofia-dekra-automotive-fakulteta-suhodolska102'
 const row = SOFIA_CATALOGUE.find(row => row.id === id)
@@ -37,9 +40,10 @@ test('one precise new Sofia entry is added without altering existing catalogue r
   const files = bytes => bytes.toString('utf8').split('\0').filter(path => path && path !== 'node_modules' && !path.startsWith('tests/'))
   const changed = new Set([...files(git('diff', '--name-only', '-z', receipt.baseline, '--')),
     ...files(git('ls-files', '--others', '--exclude-standard', '-z'))])
+  for (const path of changed) if (later.allowsNewFile(path)) changed.delete(path)
   assert.deepEqual([...changed].sort(), [...Object.keys(receipt.changed), ...Object.keys(receipt.added)].sort())
   for (const [path, hashes] of Object.entries(receipt.changed)) {
-    const current = readFileSync(new URL('../' + path, import.meta.url))
+    const current = later.priorSource(path, readFileSync(new URL('../' + path, import.meta.url)))
     assert.equal(sha(current), hashes.after, path)
     assert.equal(sha(priorSource(path, current)), hashes.before, path)
   }

@@ -428,6 +428,11 @@
   },
   "names": {
     "Годишен технически преглед на лек автомобил · М1/M1G": "Annual roadworthiness test for a passenger car · M1/M1G",
+    "Полудневна учебна занималня · 1.–4. клас": "Half-day after-school study programme · Grades 1–4",
+    "Смяна и баланс на 4 гуми · лек автомобил, 16–17″": "Fitting and balancing 4 tyres · passenger car, 16–17″",
+    "Боядисване на автомобилен детайл": "Car body panel painting",
+    "Индивидуален урок по конна езда · 30 минути": "One-to-one riding lesson · 30 minutes",
+    "Индивидуален урок по плуване · 1 участник": "One-to-one swimming lesson · 1 participant",
     "Индивидуален урок по изобразително изкуство": "One-to-one visual arts lesson",
     "Групово ателие по рисуване за деца": "Group drawing workshop for children",
     "Възстановителен масаж · 60 минути": "Relaxation massage · 60 minutes",
@@ -6608,6 +6613,11 @@
   "descriptions": {
     "Присъствен урок по рисуване и приложно изкуство за деца и възрастни. Занятието е индивидуално; записването е по телефона.": "An in-person drawing and applied art lesson for children and adults. The lesson is one-to-one; book by phone.",
     "Цената е с ДДС. За допълнително монтирана газова или метанова уредба се доплащат 5 €. Онлайн записването е за следващия работен ден; заявка за същия ден може да бъде отказана.": "VAT is included. An aftermarket LPG or CNG system costs €5 extra. Online booking applies to the next working day; same-day requests may be declined.",
+    "Месечна такса. Включва подготовка на домашни, дигитална математика и 2 учебни часа английски или немски седмично. Отстъпки: 5% за второ дете или 5% при предплащане на срок; сайтът не уточнява дали се комбинират. Формата е за пробно посещение, не за плащане или прием.": "Monthly fee. Includes homework support, digital maths and 2 weekly academic hours of English or German. A 5% discount is listed for a second child and a 5% discount for prepaying a school term; the site does not say whether they combine. The form requests a trial visit, not payment or enrolment.",
+    "За четири стандартни гуми на лек автомобил: сваляне и качване на колелата, демонтаж и монтаж на гумите и баланс. За Run Flat, SUV, 4×4 и микробус има отделни тарифи. Заявеният час се уточнява със сервиза.": "For four standard passenger-car tyres. Includes removing and refitting the wheels, unmounting and mounting the tyres, and balancing. Run-flat tyres, SUVs, 4×4s and vans have separate rates. Arrange the requested time with the workshop.",
+    "Подготовка и боядисване на автомобилен детайл с подбор на цвета. Онлайн формата е заявка за оглед или ремонт, не потвърден час.": "Preparation and painting of a car body panel with colour matching. The online form requests an inspection or repair; it does not confirm an appointment.",
+    "Еднократен урок за един човек с инструктор. За час в делничен ден извън 10:00–18:00 се изисква авансово плащане. По-удобният вход за посетители е откъм ул. Славия.": "One lesson for one person with an instructor. Weekday bookings outside 10:00–18:00 require advance payment. The easier visitor entrance is on Slavia Street.",
+    "За едно дете или възрастен, в самостоятелен коридор. Часът се уговаря по телефона и се потвърждава след пълно плащане. Отмяна за делничен урок — до 12:00 предходния ден, за уикенд — до 12:00 в петък. При по-късна отмяна сумата не се връща.": "For one child or adult in a private lane. Arrange the lesson by phone; full payment confirms it. Cancel a weekday lesson by 12:00 the day before, or a weekend lesson by 12:00 on Friday. Late cancellations are non-refundable.",
     "Стандартна цена 50 €. В сряда цената в ценоразписа е 40 €. Записването е през сайта на салона и е достъпно и като гост.": "The standard price is €50. The published Wednesday price is €40. You can book on the salon’s website as a guest.",
     "Присъствено групово занимание за деца от 5 до 12 години. Материалите са включени. Мястото се потвърждава по телефона.": "In-person group workshop for children aged 5 to 12. Materials are included. Confirm a place with the gallery by phone.",
     "Стандартна цена 40 €. В сряда цената в ценоразписа е 30 €. Записването е през сайта на салона и е достъпно и като гост.": "The standard price is €40. The published Wednesday price is €30. You can book on the salon’s website as a guest.",

@@ -6,6 +6,7 @@ import { lstat, readFile } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 import receipt from './fixtures/public-first-load-optimization-approval.json' with { type: 'json' }
 import { publicFirstLoadAllowsFileChange, publicFirstLoadPriorSource } from './public-first-load-optimization-scope.mjs'
+import { locationActionFitAllowsFileChange } from './public-location-action-fit-scope.mjs'
 
 test('only image scheduling and native discovery reads change; no new production file, setting, data, design or booking files', async () => {
   const root = fileURLToPath(new URL('../', import.meta.url))
@@ -16,7 +17,8 @@ test('only image scheduling and native discovery reads change; no new production
   assert.equal(receipt.baseline, 'f6b09ae2e93a866f08b34848a49d81dcb7533d84')
   assert.deepEqual(Object.keys(receipt.changed), expected)
   const actual = [...new Set([...paths(git('diff', '--name-only', '--no-renames', '-z', receipt.baseline, '--')),
-    ...paths(git('ls-files', '--others', '--exclude-standard', '-z'))])].sort()
+    ...paths(git('ls-files', '--others', '--exclude-standard', '-z'))])].filter(path =>
+      expected.includes(path) || !locationActionFitAllowsFileChange(path)).sort()
   assert.deepEqual(actual, expected)
   for (const [path, { before, after }] of Object.entries(receipt.changed)) {
     const url = new URL('../' + path, import.meta.url), stat = await lstat(url)

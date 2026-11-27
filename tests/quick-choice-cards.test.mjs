@@ -3,6 +3,7 @@ import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { createRequire } from 'node:module'
 import * as React from 'react'
+import { renderToStaticMarkup } from 'react-dom/server'
 import * as rail from '../lib/discovery/rail.mjs'
 import * as home from '../lib/discovery/home.mjs'
 import * as bookingMode from '../lib/booking-mode.mjs'
@@ -10,6 +11,8 @@ import * as photoLayout from '../lib/business-photo-layout.mjs'
 import * as cataloguePhotos from '../lib/catalogue-photo-view.mjs'
 import { DISCOVERY_COPY } from '../lib/discovery/copy.mjs'
 import { needsBusinessDetails } from '../lib/discovery/detail-request.mjs'
+import { normalizeCatalogueBusinesses } from '../lib/discovery/catalogue-search.mjs'
+import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 import { DirectionsUnavailable, withVerifiedFixtureDirections } from './helpers/verified-directions.mjs'
 
 const require = createRequire(import.meta.url), { loadBindings, transform } = require('next/dist/build/swc')
@@ -144,6 +147,46 @@ for (const locale of ['bg', 'en']) test(`${locale}: native, external, phone and 
   const preview = fixture({ locale, preview: true })
   assert.equal(elements(preview.tree, node => node.type === Outbound).length, 0)
   for (const item of elements(preview.tree, node => node.type === Action)) { assert.equal(item.props.as, 'span'); assert.equal(item.props['aria-disabled'], 'true'); assert.equal(item.props.href, undefined) }
+})
+
+test('Salt&Art Iztok retains its copyable unresolved location and separate real booking action in discovery and details', t => {
+  // Reproduce the approved, as-of-date card from the report, not an invented
+  // booking or directions fixture. A future offer expiry cannot invalidate it.
+  const now = Date.parse('2026-11-27T12:00:00Z')
+  t.mock.timers.enable({ apis: ['Date'], now })
+  const original = SOFIA_CATALOGUE.find(row => row.id === 'sofia-salt-art-iztok')
+  assert.ok(original)
+  const [row] = normalizeCatalogueBusinesses([original], {
+    searchV2: true, sofiaOnly: true, browse: true, category: 'fitness', requirements: [],
+  }, { now })
+  assert.equal(row.locationStatus, 'unverified')
+  assert.equal(row.coordinates, null)
+  assert.equal(row.address, 'София, ж.к. Изток, ул. Академик Методи Попов 1')
+  for (const locale of ['bg', 'en']) {
+    const f = fixture({ row, locale })
+    const cardActions = elements(f.tree, node => node.type === Pair)[0]
+    nodeClass(f.tree, 'home-business-open')[0].props.onClick({ currentTarget: {} })
+    f.render()
+    const detailsActions = elements(f.tree, node => node.type === Details)[0].props.actions(row)
+    for (const pair of [cardActions, detailsActions]) {
+      assert.equal(pair.props.className, 'home-business-actions')
+      const children = React.Children.toArray(pair.props.children)
+      assert.equal(children.length, 2)
+      assert.equal(children[0].type, DirectionsUnavailable, 'the location notice is an independent direct sibling')
+      const notice = renderToStaticMarkup(children[0])
+      assert.match(notice, /data-location-status="unverified"/)
+      assert.ok(notice.includes(locale === 'bg' ? 'Локацията се уточнява' : 'Location is being verified'))
+      assert.match(notice, /<button[^>]+type="button"/)
+      assert.ok(notice.includes(locale === 'bg' ? 'Копирай адреса' : 'Copy address'))
+      assert.doesNotMatch(notice, /<a\s|href=/u, 'unverified location never creates a map link')
+      assert.equal(children[1].type, Action)
+      assert.equal(children[1].props.variant, 'primary')
+      assert.equal(children[1].props.href, 'https://saltart.bg/grafik/')
+      assert.equal(children[1].props.target, '_blank')
+      assert.equal(children[1].props.children, DISCOVERY_COPY[locale].reserveAppointment)
+    }
+    assert.deepEqual(f.events, [{ event: 'profile', locale }], 'only opening details records a profile view')
+  }
 })
 
 for(const locale of ['bg','en'])test(`${locale}: preview shows real service names, qualified amounts and distinct units without narrative`,()=>{

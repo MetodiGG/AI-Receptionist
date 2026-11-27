@@ -97,6 +97,14 @@
 .pair:global(.home-business-actions) > :is(.primary, .outboundForm) {
   flex-grow: 54;
 }
+/* The location notice and its copy control share one item. Keep the booking
+   control aligned with the copy control without stretching to the notice. */
+.pair:global(.home-business-actions) > [data-location-status] > button { min-height: 50px; }
+@media (min-width:320px) {
+  .pair:global(.home-business-actions) > [data-location-status] ~ :is(.primary, .outboundForm) {
+    align-self: end;
+  }
+}
 .pair:global(.home-business-actions) .action {
   --discovery-glass-top: #fffdfa;
   --discovery-glass-base: #f8ebe0;

@@ -3,12 +3,14 @@ import { execFileSync } from 'node:child_process'
 import { lstatSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import receipt from './fixtures/public-first-load-optimization-approval.json' with { type: 'json' }
+import { locationActionFitAllowsFileChange, locationActionFitPriorSource } from './public-location-action-fit-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = value => createHash('sha256').update(value).digest('hex')
 const prior = new Map()
 
 export function publicFirstLoadAllowsFileChange(path) {
+  if (locationActionFitAllowsFileChange(path)) return true
   if (!Object.hasOwn(receipt.changed, path)) return false
   try {
     const file = new URL('../' + path, import.meta.url), stat = lstatSync(file)
@@ -17,6 +19,7 @@ export function publicFirstLoadAllowsFileChange(path) {
 }
 
 export function publicFirstLoadPriorSource(path, source) {
+  source = locationActionFitPriorSource(path, source)
   if (!Object.hasOwn(receipt.changed, path)) return source
   const { before, after } = receipt.changed[path]
   if (sha(source) !== after) return source

@@ -124,6 +124,22 @@ test('pairs fit actual narrow containers, stack below 320px or for enlarged whol
   assert.ok(motion.filter(rule => declarations(rule).transform).every(rule => declarations(rule).transform === 'none'))
 })
 
+test('the unresolved discovery location cannot stretch either a direct booking pill or its tracked form wrapper', () => {
+  const discoveryPair = '.pair:global(.home-business-actions)'
+  const withLocationNotice = `${discoveryPair} > [data-location-status] ~ :is(.primary, .outboundForm)`
+  const contextualRule = rules.find(rule => rule.selector === withLocationNotice)
+  assert.ok(contextualRule, 'the protection targets only discovery pairs with a direct fallback notice')
+  assert.ok(['center', 'end', 'flex-end', 'start', 'flex-start'].includes(declarations(contextualRule)['align-self']),
+    'booking action must opt out of height stretching when the location notice can take multiple lines')
+  assert.equal(contextualRule.parent.params, '(min-width:320px)', 'narrow stacked controls keep the existing full-width treatment')
+  assert.equal(style('.pair')['align-items'], 'stretch', 'the normal verified direction / booking pair remains the same height')
+  const glassAction = style(`${discoveryPair} .action`)
+  assert.equal(glassAction['min-height'], '50px', 'the normal tap target remains intact')
+  assert.equal(style(`${discoveryPair} > [data-location-status] > button`)['min-height'], glassAction['min-height'],
+    'copy-address and booking have the same natural tap target')
+  assert.equal(glassAction.height, undefined, 'do not clip enlarged booking labels with a fixed height')
+})
+
 test('the icon system adds only two vector entries; every pre-existing glyph/default and all legacy artwork bytes remain unchanged', async () => {
   const root = fileURLToPath(new URL('../',import.meta.url))
   const baseline = execFileSync('git',['show','49ecbc6:components/icon.js'],{cwd:root,encoding:'utf8'})

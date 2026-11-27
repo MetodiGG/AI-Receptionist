@@ -14,11 +14,41 @@ import { serviceDetailPhotoCoverageAllowsPath } from './service-detail-photo-cov
 import { servicePhotoMarkerAllowsFileChange } from './service-photo-marker-20261126-scope.mjs'
 import { serviceDetailPhotoExpansionAllowsNewFile } from './service-detail-photo-expansion-20261126-scope.mjs'
 import { dialogPrimaryDarkContrastAllowsFileChange } from './dialog-primary-dark-contrast-20261126-scope.mjs'
-import { publishedBaseline, releaseRuleMatches } from './catalogue-only-release-scope.mjs'
+import { publishedBaseline, releaseRuleMatches, standingRuleHistoryPriorSource } from './catalogue-only-release-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
 const git = (...args) => execFileSync('git', args, { cwd: root, maxBuffer: 16 * 1024 * 1024 })
+
+test('the standing-rule test helper keeps its exact published predecessor and rejects tampered inputs', async () => {
+  const path = 'tests/catalogue-expiry-20261126-scope.mjs'
+  const current = await readFile(new URL('../' + path, import.meta.url))
+  const published = git('show', publishedBaseline + ':' + path)
+  assert.deepEqual(standingRuleHistoryPriorSource(path, current), published)
+  assert.equal(standingRuleHistoryPriorSource(path, current.toString('utf8')), published.toString('utf8'))
+  for (const tampered of [Buffer.concat([current, Buffer.from('\n')]), current.toString('utf8') + '\n']) {
+    assert.equal(standingRuleHistoryPriorSource(path, tampered), tampered)
+  }
+  assert.equal(standingRuleHistoryPriorSource('AGENTS.md', current), current)
+})
+
+test('only exact reviewed standing-rule source bytes replay through the historical expiry approval', async () => {
+  const path = 'AGENTS.md'
+  const current = await readFile(new URL('../' + path, import.meta.url))
+  const published = git('show', publishedBaseline + ':' + path)
+  const original = git('show', receipt.baseline + ':' + path)
+  assert.equal(sha(published), receipt.changed[path].after)
+  assert.equal(releaseRuleMatches(path, current), true)
+  assert.equal(releaseRuleMatches(path, current.toString('utf8')), true)
+  assert.deepEqual(catalogueExpiryPriorSource(path, current), original)
+  assert.equal(catalogueExpiryPriorSource(path, current.toString('utf8')), original.toString('utf8'))
+  for (const tampered of [Buffer.concat([current, Buffer.from('\n')]), current.toString('utf8') + '\n', Buffer.from('unreviewed rules')]) {
+    assert.equal(releaseRuleMatches(path, tampered), false)
+    assert.throws(() => catalogueExpiryPriorSource(path, tampered), /Unreviewed 26 Nov catalogue expiry/u)
+  }
+  assert.equal(releaseRuleMatches('README.md', current), false)
+  assert.equal(catalogueExpiryAllowsFileChange(path), false)
+})
 
 test('the standing expiry policy authorizes exactly its eight current paths and one new operational file', async () => {
   assert.equal(receipt.baseline, '90ecc8ea7fd74517f2c956ef93269072039f9995')

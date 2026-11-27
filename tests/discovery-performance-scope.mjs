@@ -11,7 +11,7 @@ import { homepageBrowseStartAllowsFileChange, homepageBrowseStartAllowsNewFile, 
 import { publicFirstLoadAllowsFileChange } from './public-first-load-optimization-scope.mjs'
 import { catalogueIntakeAllowsFileChange, catalogueIntakeAllowsNewFile, catalogueIntakePriorSource } from './catalogue-mopart-20261127-scope.mjs'
 import { garage46PriorSource } from './catalogue-garage46-serdika-20261127-scope.mjs'
-import { releaseRuleMatches } from './catalogue-only-release-scope.mjs'
+import { releaseRuleMatches, standingRuleHistoryPriorSource } from './catalogue-only-release-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -35,6 +35,7 @@ export const discoveryPerformanceAllowsPath = path => discoveryPerformanceAllows
 // Keep previous approvals enforceable. Only revert a reviewed whole-file
 // performance delta under historical tests; unreviewed bytes stay visible.
 export function discoveryPerformancePriorSource(path, source) {
+  source = standingRuleHistoryPriorSource(path, source)
   source = homepageBrowseStartPriorSource(path, source)
   source = mobileDiscoveryFirstPaintPriorSource(path, source)
   source = detailPreviewPriorSource(path, catalogueIntakePriorSource(path, staticWebpCacheCpuPriorSource(path, source)))

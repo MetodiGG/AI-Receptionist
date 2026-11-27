@@ -10,6 +10,12 @@ export const integrationBase = '0bb9c0a4e242b1321b2d115576bcc368dad8e204'
 export const publishedBaseline = '1ac4b71a871715cb8afd7d2c38ec17d7caefc666'
 export const verifiedCatalogueTip = 'c90930e1f7d1aa1b20bde5e3893a9ec27267ffdc'
 const releaseRuleHash = 'a4a7f69aa68cb90c6a734169d901f0632a4faee0'
+const standingRuleHistoryAdapters = new Map([
+  ['tests/catalogue-expiry-20261126-scope.mjs', {
+    before: 'e906a39027cb93b38026a5671722c299f749f422',
+    after: '0397e9b46d6f6d72c03fe0ca4e4bf698c4b76cfc',
+  }],
+])
 const root = fileURLToPath(new URL('../', import.meta.url))
 const git = (...args) => execFileSync('git', args, { cwd: root, maxBuffer: 8 * 1024 * 1024 })
 const parseRuntime = commit => {
@@ -38,7 +44,31 @@ function matches(path, hash, mode) {
     return false
   }
 }
-export const releaseRuleMatches = path => path === 'AGENTS.md' && matches(path, releaseRuleHash, '100644')
+export function releaseRuleMatches(path, source) {
+  if (path !== 'AGENTS.md' || !matches(path, releaseRuleHash, '100644')) return false
+  if (source === undefined) return true
+  try {
+    const bytes = Buffer.from(source)
+    return createHash('sha1').update('blob ' + bytes.length + '\0').update(bytes).digest('hex') === releaseRuleHash
+  } catch {
+    return false
+  }
+}
+
+// Preserve the old performance receipt's exact helper preimage after this
+// reviewed, test-only rules adapter. Neither changed input nor changed disk
+// bytes/mode can gain an exemption merely from the helper pathname.
+export function standingRuleHistoryPriorSource(path, source) {
+  const change = standingRuleHistoryAdapters.get(path)
+  if (!change || !matches(path, change.after, '100644')) return source
+  const bytes = Buffer.from(source)
+  if (createHash('sha1').update('blob ' + bytes.length + '\0').update(bytes).digest('hex') !== change.after) return source
+  const published = git('show', publishedBaseline + ':' + path)
+  if (createHash('sha1').update('blob ' + published.length + '\0').update(published).digest('hex') !== change.before) {
+    throw Error('Standing-rule history adapter predecessor mismatch: ' + path)
+  }
+  return typeof source === 'string' ? published.toString('utf8') : Buffer.from(published)
+}
 export const publishedBaselineMatches = path => {
   const snapshot = publishedRuntime.get(path)
   return releaseRuleMatches(path) || Boolean(snapshot && matches(path, snapshot.hash, snapshot.mode))

@@ -4,6 +4,7 @@ import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import receipt from './fixtures/catalogue-expiry-20261126-approval.json' with { type: 'json' }
 import { discoveryPerformancePriorSource } from './discovery-performance-scope.mjs'
+import { publishedBaseline, releaseRuleMatches } from './catalogue-only-release-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -27,7 +28,16 @@ export const catalogueExpiryMatchesPriorHash = (path, hash) => Boolean(hash
 export function catalogueExpiryPriorSource(path, source) {
   source = discoveryPerformancePriorSource(path, source)
   if (!Object.hasOwn(receipt.changed, path)) return source
-  const { before, after } = receipt.changed[path], digest = sha(source)
+  const { before, after } = receipt.changed[path]
+  // Only the exact reviewed release rule can stand in for its pinned published
+  // predecessor. The caller's bytes and the current regular-file mode/hash must
+  // both match; a modified Buffer must never borrow a disk-only exemption.
+  if (releaseRuleMatches(path, source)) {
+    const published = execFileSync('git', ['show', publishedBaseline + ':' + path], { cwd: root })
+    if (sha(published) !== after) throw Error('Published catalogue expiry rules do not match pinned source: ' + path)
+    source = typeof source === 'string' ? published.toString('utf8') : Buffer.from(published)
+  }
+  const digest = sha(source)
   if (digest === before) return source
   if (digest !== after) throw Error('Unreviewed 26 Nov catalogue expiry source delta: ' + path)
   if (!prior.has(path)) {

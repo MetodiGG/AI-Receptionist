@@ -12,6 +12,7 @@ import { businessCoverPhotoSources } from '../lib/public-business-cover-photo.mj
 import { compareDiscoveryPhotos, fingerprintDiscoveryPhoto, readDiscoveryImage } from '../scripts/discovery-photo-fingerprint.mjs'
 import { allowsFileChange, allowsNewFile, priorCatalogue, priorSource } from './catalogue-robotika-krastova-vada-20261127-scope.mjs'
 import receipt from './fixtures/catalogue-robotika-krastova-vada-20261127.json' with { type: 'json' }
+import { allowsFileChange as laterChange, allowsNewFile as laterNew, priorCatalogue as earlierRows } from './catalogue-levski-karpuzitsa-20261127-scope.mjs'
 
 const root = new URL('../', import.meta.url)
 const git = (...args) => execFileSync('git', args, { cwd: root, maxBuffer: 8 * 1024 * 1024 })
@@ -22,7 +23,8 @@ test('the exact Robotika approval changes one physical branch and its scoped ser
   const touched = new Set([git('diff', '--name-only', '--no-renames', '-z', receipt.baseline, '--'),
     git('ls-files', '--others', '--exclude-standard', '-z')].flatMap(x => x.toString().split('\0').filter(Boolean)))
   const changed = Object.keys(receipt.changed), added = Object.keys(receipt.added)
-  assert.deepEqual([...touched].filter(p => p !== 'node_modules' && !p.startsWith('tests/')).sort(), [...changed, ...added].sort())
+  assert.deepEqual([...touched].filter(p => p !== 'node_modules' && !p.startsWith('tests/') &&
+    (changed.includes(p) || added.includes(p) || !(laterChange(p) || laterNew(p)))).sort(), [...changed, ...added].sort())
   for (const path of changed) {
     const baselineBytes = git('show', receipt.baseline + ':' + path)
     const bytes = readFileSync(new URL(path, root))
@@ -35,7 +37,7 @@ test('the exact Robotika approval changes one physical branch and its scoped ser
   for (const path of added) assert.equal(allowsNewFile(path), true, path)
   assert.equal(allowsFileChange('app/page.tsx'), false)
   assert.equal(allowsFileChange('lib/booking-engine.mjs'), false)
-  for (const rows of [RAW_SOFIA_CATALOGUE, SOFIA_CATALOGUE]) {
+  for (const rows of [RAW_SOFIA_CATALOGUE, SOFIA_CATALOGUE].map(earlierRows)) {
     assert.equal(sha(JSON.stringify(rows)), receipt.currentCatalogueSha256)
     assert.equal(sha(JSON.stringify(priorCatalogue(rows))), receipt.baselineCatalogueSha256)
     assert.equal(priorCatalogue(rows).length, rows.length - 1)

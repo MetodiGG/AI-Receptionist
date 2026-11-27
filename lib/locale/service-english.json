@@ -427,6 +427,8 @@
     ]
   },
   "names": {
+    "Компютърна диагностика на двигател (ДВГ)": "Computer diagnostics for an internal combustion engine",
+    "Индивидуална консултация с психолог за родители": "Individual psychology consultation for parents",
     "Шофьорски курс категория B · ръчна скоростна кутия": "Category B driving course · manual transmission",
     "Консултация за керамична корона": "Consultation for a ceramic crown",
     "Машинно пране на килими · вземане от адрес": "Machine rug washing · home pickup",
@@ -6593,6 +6595,8 @@
     "смяна на предпазен клапан на бойлер": "change of boiler safety valve"
   },
   "descriptions": {
+    "Във формата избери диагностика на двигателя. Заявката не е потвърден час; уточни деня и цената със сервиза.": "Select engine diagnostics in the form. This request is not a confirmed appointment; confirm the date and price with the workshop.",
+    "Присъствена индивидуална среща за родител. Час се уговаря предварително по телефона.": "An in-person, one-to-one meeting for a parent. Arrange an appointment in advance by phone.",
     "Заяви предпочитан час през сайта. Салонът ще потвърди часа или ще предложи друг според графика си.": "Request your preferred time online. The salon will confirm it or suggest another time, depending on its schedule.",
     "Обща цена за подстригване и оформяне на брада. Заяви предпочитан час през сайта; салонът ще потвърди часа или ще предложи друг.": "Total for the haircut and beard shaping. Request a time online; the salon will confirm it or suggest another.",
     "Цената с ДДС е за целия курс, с вътрешни изпити, онлайн материали и първия държавен изпит по теория. Държавният изпит по практика, допълнителните часове и повторната теория са отделно. Записване с договор и плащане; договорената цена важи 3 месеца. Таксата за взети часове не се връща.": "The VAT-inclusive fee covers the full course, internal exams, online materials and the first state theory exam. The state practical exam, extra lessons and theory retakes cost extra. Enrollment requires a contract and payment. The agreed price is valid for 3 months. Fees for lessons already taken are non-refundable.",

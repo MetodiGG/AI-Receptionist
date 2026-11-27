@@ -29,6 +29,8 @@ import { ORLYAK_BANISHORA_20261127_REVIEWS } from '../lib/discovery/catalogue-da
 import { ASLAN_POLIGONA_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-aslan-poligona-20261127.mjs'
 import { ATUES_LYULIN3_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-atues-lyulin3-20261127.mjs'
 import { ROBOTIKA_KRASTOVA_VADA_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-robotika-krastova-vada-20261127.mjs'
+import { VERIFIED_CARPAINT_LEVSKI_G_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-carpaint-levski-g-20261127.mjs'
+import { VERIFIED_SENSE_CENTER_KARPUZITSA_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-sense-center-karpuzitsa-20261127.mjs'
 import { pricingIdentity, assessPricingReview, auditCataloguePricing } from '../lib/discovery/catalogue-pricing-review.mjs'
 import report from '../docs/catalogue-pricing/booking-flow-audit-20261110.json' with { type: 'json' }
 import { NEIGHBORHOOD_20261111_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-expansion-20261111.mjs'
@@ -292,6 +294,8 @@ test('dated audit receipts cover every current ID without rewriting the historic
     [ASLAN_POLIGONA_20261127_REVIEWS, 'sofia-aslan-poligona-block44', 'reviewed', '2026-11-27T12:00:00Z'],
     [ATUES_LYULIN3_20261127_REVIEWS, 'sofia-a-tu-estilo-lyulin3-block386', 'reviewed', '2026-11-27T12:00:00Z'],
     [ROBOTIKA_KRASTOVA_VADA_20261127_REVIEWS, 'sofia-robotika-krastova-vada-sasho-nikolov7', 'reviewed', '2026-11-27T12:00:00Z'],
+    [VERIFIED_CARPAINT_LEVSKI_G_20261127_REVIEWS, 'sofia-car-paint-service-levski-g-kyumyurdzhiev22', 'service_reviewed', '2026-11-27T12:00:00Z'],
+    [VERIFIED_SENSE_CENTER_KARPUZITSA_20261127_REVIEWS, 'sofia-sense-center-karpuzitsa-nikola-petkov95a', 'service_reviewed', '2026-11-27T12:00:00Z'],
   ]) {
     assert.deepEqual(reviews.map(row => row.id), [id])
     assert.equal(auditedIds.has(id), false)

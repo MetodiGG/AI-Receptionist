@@ -16,13 +16,14 @@ import { discoveryConfig } from '../lib/discovery/config.mjs'
 import { createDiscoveryHandler } from '../lib/discovery/handler.mjs'
 import { createPublicBusinessDetailsHandler } from '../lib/discovery/public-details.mjs'
 import { railExternalAction } from '../lib/discovery/rail.mjs'
-import { RAW_SOFIA_CATALOGUE, SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { RAW_SOFIA_CATALOGUE as liveRaw, SOFIA_CATALOGUE as live } from '../lib/discovery/sofia-catalogue.mjs'
 import { matchesSubcategory } from '../lib/discovery/subcategories.mjs'
 import { businessCoverPhotoSources } from '../lib/public-business-cover-photo.mjs'
 import { publicDetailServiceThumbnail } from '../lib/service-detail-photo-presentation.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
 import { compareDiscoveryPhotos, fingerprintDiscoveryPhoto, readDiscoveryImage } from '../scripts/discovery-photo-fingerprint.mjs'
 import { ivonAllowsPath, ivonPriorCatalogue, ivonPriorSource } from './catalogue-ivon-gorna-banya-mladost3-20261127-scope.mjs'
+import { nadezhdaAllowsPath, nadezhdaPriorCatalogue, nadezhdaPriorSource } from './catalogue-nadezhda-fitness-20261127-scope.mjs'
 import proof from '../docs/catalogue-coverage/ivon-gorna-banya-mladost3-20261127.json' with { type: 'json' }
 import receipt from './fixtures/catalogue-ivon-gorna-banya-mladost3-20261127.json' with { type: 'json' }
 
@@ -32,6 +33,7 @@ const digest = value => sha(JSON.stringify(value))
 const git = (...args) => execFileSync('git', args, { cwd, maxBuffer: 8 * 1024 * 1024 })
 const paths = bytes => bytes.toString().split('\0').filter(Boolean)
 const now = Date.parse('2026-11-27T12:00:00Z')
+const [RAW_SOFIA_CATALOGUE, SOFIA_CATALOGUE] = [liveRaw, live].map(nadezhdaPriorCatalogue)
 const id = 'sofia-ivon-service-gorna-banya-eho1', neliId = 'sofia-neli-slavova-mladost-3'
 const ivon = SOFIA_CATALOGUE.find(row => row.id === id), neli = SOFIA_CATALOGUE.find(row => row.id === neliId)
 const earlier = ivonPriorCatalogue(SOFIA_CATALOGUE), neliBefore = earlier.find(row => row.id === neliId)
@@ -40,11 +42,13 @@ const forbidden = () => assert.fail('A public catalogue read must not contact pr
 test('the exact branch intake and coordinate-only patch restore every earlier catalogue row and file byte', () => {
   assert.equal(proof.baseCommit, receipt.baseline)
   const changed = Object.keys(receipt.changed), added = Object.keys(receipt.added)
+  const reviewedPaths = new Set([...changed, ...added])
   const observed = new Set([...paths(git('diff', '--name-only', '--no-renames', '-z', receipt.baseline, '--')),
     ...paths(git('ls-files', '--others', '--exclude-standard', '-z'))])
-  assert.deepEqual([...observed].filter(path => path !== 'node_modules' && !path.startsWith('tests/')).sort(), [...changed, ...added].sort())
+  assert.deepEqual([...observed].filter(path => path !== 'node_modules' && !path.startsWith('tests/') &&
+    (reviewedPaths.has(path) || !nadezhdaAllowsPath(path))).sort(), [...changed, ...added].sort())
   for (const path of changed) {
-    const before = git('show', receipt.baseline + ':' + path), after = readFileSync(new URL(path, cwd))
+    const before = git('show', receipt.baseline + ':' + path), after = nadezhdaPriorSource(path, readFileSync(new URL(path, cwd)))
     assert.deepEqual([sha(before), sha(after)], [receipt.changed[path].before, receipt.changed[path].after], path)
     assert.deepEqual(ivonPriorSource(path, after), before, path)
     const tampered = Buffer.concat([after, Buffer.from('\n')])

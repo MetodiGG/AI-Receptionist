@@ -1,11 +1,16 @@
 import { createHash } from 'node:crypto'
 import { exactCatalogueIntakeScope } from './catalogue-verified-lyulin-batch-20261127-scope.mjs'
 import receipt from './fixtures/catalogue-ivon-gorna-banya-mladost3-20261127.json' with { type: 'json' }
+import { nadezhdaAllowsFileChange, nadezhdaAllowsNewFile,
+  nadezhdaPriorCatalogue, nadezhdaPriorSource } from './catalogue-nadezhda-fitness-20261127-scope.mjs'
 
-const { allowsFileChange, allowsNewFile, allowsPath, priorSource, priorCatalogue } =
+const { allowsFileChange, allowsNewFile, priorSource, priorCatalogue } =
   exactCatalogueIntakeScope(receipt, 'Verified IVON Gorna Banya intake')
 
-export { allowsFileChange as ivonAllowsFileChange, allowsNewFile as ivonAllowsNewFile, allowsPath as ivonAllowsPath, priorSource as ivonPriorSource }
+export const ivonAllowsFileChange = path => allowsFileChange(path) || nadezhdaAllowsFileChange(path)
+export const ivonAllowsNewFile = path => allowsNewFile(path) || nadezhdaAllowsNewFile(path)
+export const ivonAllowsPath = path => ivonAllowsFileChange(path) || ivonAllowsNewFile(path)
+export const ivonPriorSource = (path, source) => priorSource(path, nadezhdaPriorSource(path, source))
 
 const digest = row => createHash('sha256').update(JSON.stringify(row)).digest('hex')
 const point = receipt.rebound
@@ -16,7 +21,7 @@ if (point.id !== 'sofia-neli-slavova-mladost-3' || !hash.test(point.before) || !
 
 export function ivonPriorCatalogue(rows) {
   let seen = false
-  return priorCatalogue(rows).map(row => {
+  return priorCatalogue(nadezhdaPriorCatalogue(rows)).map(row => {
     if (row?.id !== point.id) return row
     if (seen) throw Error('Duplicate reviewed Neli Slavova branch: ' + row.id)
     seen = true

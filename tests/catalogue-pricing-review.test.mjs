@@ -15,6 +15,8 @@ import { AURA_B19_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neigh
 import { VERIFIED_MTS_KRASNA_POLYANA3_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-mts-krasna-polyana3-20261127.mjs'
 import { YAVOROV_GEO_MILEV_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-yavorov-geo-milev-20261127.mjs'
 import { IVON_GORNA_BANYA_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-ivon-gorna-banya-20261127.mjs'
+import { FLAIS_NADEZHDA1_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-flais-nadezhda1-20261127.mjs'
+import { SIHIA_NADEZHDA2_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-sihia-nadezhda2-20261127.mjs'
 import { pricingIdentity, assessPricingReview, auditCataloguePricing } from '../lib/discovery/catalogue-pricing-review.mjs'
 import report from '../docs/catalogue-pricing/booking-flow-audit-20261110.json' with { type: 'json' }
 import { NEIGHBORHOOD_20261111_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-expansion-20261111.mjs'
@@ -263,6 +265,8 @@ test('dated audit receipts cover every current ID without rewriting the historic
     [VERIFIED_MTS_KRASNA_POLYANA3_20261127_REVIEWS, 'sofia-mts-massage-pchinya31b', 'reviewed', '2026-11-27T12:00:00Z'],
     [YAVOROV_GEO_MILEV_20261127_REVIEWS, 'sofia-yavorov1920-geo-milev24', 'service_reviewed', '2026-11-27T12:00:00Z'],
     [IVON_GORNA_BANYA_20261127_REVIEWS, 'sofia-ivon-service-gorna-banya-eho1', 'service_reviewed', '2026-11-27T12:00:00Z'],
+    [FLAIS_NADEZHDA1_20261127_REVIEWS, 'sofia-flais-nadezhda1-lyuborodie2', 'reviewed', '2026-11-27T12:00:00Z'],
+    [SIHIA_NADEZHDA2_20261127_REVIEWS, 'sofia-sihia-nadezhda2-velezhki49g', 'reviewed', '2026-11-27T12:00:00Z'],
   ]) {
     assert.deepEqual(reviews.map(row => row.id), [id])
     assert.equal(auditedIds.has(id), false)

@@ -1,0 +1,65 @@
+{
+  "baseline": "fbe5806753bb31f49fe0727549a88536ceeb01ed",
+  "changed": {
+    "lib/catalogue-service-photo-keys.mjs": {
+      "before": "8c59d617586ae5325a66fdae90aef7d255208e5187680543ab1305231cac1a4e",
+      "after": "bf3d660c34709b7a989e662aa5391b7fe7b6a465bf1fbdc0de9ef12c2616253b"
+    },
+    "lib/discovery-photo-ownership.json": {
+      "before": "7972360ad947b17c775958733306256c11e7374bac984cb470cfe9a30ccf7434",
+      "after": "7106155f21d8ecf1cbc9b1ceab747bb05ebceb940e6fdac52eb981393a68418f"
+    },
+    "lib/discovery/catalogue-data/pricing-booking-review-v1.mjs": {
+      "before": "962639211e7987858bb7bd315a33378890513f9d47473f89870426834dfc503b",
+      "after": "6ff9a9a05240dfddef8615dbf25cbc151ff5ef036870ae283b7675d030df6861"
+    },
+    "lib/discovery/sofia-catalogue.mjs": {
+      "before": "e093d4a18f8af244e4c2428b117d47d14aa5b0a864bda1f01500f38fa5634d4a",
+      "after": "bf507d50b56935fd8481f391929b72db427f702aca0b59cf6d015c87e2696bb7"
+    },
+    "lib/locale/service-english.json": {
+      "before": "54bc12f90b9d09c8e1f90eb4399636211a1d4a72b1d9a122b4e2fbaa2143c91c",
+      "after": "afcf4722a9892a2b166f13256ff8f1bd326cdbbd03706e3cd202a6e55d937da6"
+    },
+    "lib/public-business-cover-photo.mjs": {
+      "before": "effddf9c2ab3d45033440b598ebba86fd4dd11a4b00ab4596908f85765f344f6",
+      "after": "087d28e29cd2087ef9850ceb4519f46be043a75ea04739ab373cfea77c43fbe0"
+    },
+    "lib/specific-service-photo-ids.mjs": {
+      "before": "3a7da01d291a9b85da6689a8739ea2edbbbb3bdeb0dec13fafdae8ee5cfbda69",
+      "after": "97ffd47412588d26531b730b3a1aeab101a29cdf9614acf149473ab94c2f4990"
+    }
+  },
+  "added": {
+    "docs/catalogue-coverage/clean-carpet-smirnenski-20261127.json": "ebd039d6153f57c3637c0f8420974442cdb7880671d64878a60fb0e01ba2c8bd",
+    "docs/catalogue-coverage/kotev-mladost1a-20261127.json": "56a1aa89701b2d9fd0e4ff932b1b18a409ae81c302103d7e2c082192a262b8f3",
+    "docs/catalogue-coverage/veda-junior-stefan-karadzha-20261127.json": "af7c421500dad926c2ef211b82c98dbb18399d434a7b6d857e4b3f6946ece263",
+    "docs/catalogue-coverage/verified-smirnenski-karadzha-mladost-images-20261127.json": "3d735924c9fa3929970c52e936d0e339dba5ff35999872a0ee14ca13b093aec7",
+    "lib/discovery/catalogue-data/neighborhood-verified-clean-carpet-smirnenski-20261127.mjs": "ccbd25e01c41c39bcf12c43e705ba6f8db658b8d7cf2256d091a1d868f1126cc",
+    "lib/discovery/catalogue-data/neighborhood-verified-kotev-mladost1a-20261127.mjs": "2a4c35db24233ac7df37518813df9e18b44a143893bbf8bea71adad7ff09cd91",
+    "lib/discovery/catalogue-data/neighborhood-verified-veda-junior-20261127.mjs": "26ee08d1dc2ca30e9ea4f81aed8542e3a78dbd0289421d85f7ae39ec753b8886",
+    "public/business-cover-photos/go-clean-carpet-smirnenski-20261127-v1.webp": "06165de0b690c26c7e703a3f8b559e1da9c697456855a544cf8a21f15fc92d8d",
+    "public/service-photos/go-clean-carpet-washing-20261127-v1.webp": "15f5040845a0572a3f0d373a2105fc91413bbb3875f66821f4132bf979bd37f6",
+    "public/business-cover-photos/go-veda-junior-stefan-karadzha-20261127-v1.webp": "37f5a3c7f9fa8695a66b51449c892dd89d07eb0d8441d5a59a6faa4d4d538cb3",
+    "public/service-photos/go-veda-junior-modern-ballet-20261127-v1.webp": "771dda8d5164163faf63f722c9f0bcdd45594148eae7f665907b75809e681862",
+    "public/business-cover-photos/go-kotev-dental-mladost1a-20261127-v1.webp": "6499b95f4b88f15bfdc693722846d9db6403d6614788cdb7c46ead776c6f34bd",
+    "public/service-photos/go-kotev-dental-exam-20261127-v1.webp": "45916b6b69f4f8951ad7dac37ec269a643bcc9442f12dd0e1d342098c7e45917",
+    "public/service-photos/go-kotev-dental-filling-20261127-v1.webp": "b4f8643c96b7b8989cbd123c610edb0a343ea37ab83dc698e71928d450e4abba"
+  },
+  "baselineCatalogueSha256": "d8288498002e4b77192a8b60749e3c71d24061f0ba898b4b09e57ac6b9bb44ea",
+  "currentCatalogueSha256": "23e4b46fbe1bac5e01dd7527e733c2f0df20e831000081fb3c836bae904f13ac",
+  "records": [
+    {
+      "id": "sofia-clean-carpet-smirnenski-marko-bochar1",
+      "sha256": "06234f61a263cbc8d97291fdb5405cd71fa47713a2723ae3541e60782274229d"
+    },
+    {
+      "id": "sofia-veda-junior-stefan-karadzha-gintsi11",
+      "sha256": "4572b777589cf1f1279e326068f9ffd3accd4406f973dc2e44290a48916bb4dd"
+    },
+    {
+      "id": "sofia-kotev-dental-mladost1a-564",
+      "sha256": "1fff867e298e6301c1671071fa1c70a6bebcf0c86da07835fbe0745d17932f82"
+    }
+  ]
+}

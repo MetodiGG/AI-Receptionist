@@ -16,7 +16,7 @@ import { discoveryConfig } from '../lib/discovery/config.mjs'
 import { createDiscoveryHandler } from '../lib/discovery/handler.mjs'
 import { createPublicBusinessDetailsHandler } from '../lib/discovery/public-details.mjs'
 import { railExternalAction } from '../lib/discovery/rail.mjs'
-import { RAW_SOFIA_CATALOGUE, SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { RAW_SOFIA_CATALOGUE as RAW_LIVE, SOFIA_CATALOGUE as LIVE } from '../lib/discovery/sofia-catalogue.mjs'
 import { matchesSubcategory } from '../lib/discovery/subcategories.mjs'
 import { businessCoverPhotoSources } from '../lib/public-business-cover-photo.mjs'
 import { publicDetailServiceThumbnail } from '../lib/service-detail-photo-presentation.mjs'
@@ -26,7 +26,10 @@ import pointsProof from '../docs/catalogue-coverage/lyulin9-10-verified-points-2
 import schoolProof from '../docs/catalogue-coverage/ramirus-levski-v-20261127.json' with { type:'json' }
 import receipt from './fixtures/catalogue-levski-lyulin-20261127.json' with { type:'json' }
 import { levskiLyulinAllowsPath, levskiLyulinPriorCatalogue, levskiLyulinPriorSource } from './catalogue-levski-lyulin-20261127-scope.mjs'
+import { allowsNewFile as nextNew, priorCatalogue as nextPriorCatalogue, priorSource as nextPriorSource }
+  from './catalogue-smirnenski-karadzha-mladost-20261127-scope.mjs'
 
+const RAW_SOFIA_CATALOGUE = nextPriorCatalogue(RAW_LIVE), SOFIA_CATALOGUE = nextPriorCatalogue(LIVE)
 const cwd = new URL('../', import.meta.url), now = Date.parse('2026-11-27T12:00:00Z')
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
 const digest = row => sha(JSON.stringify(row))
@@ -45,9 +48,9 @@ test('independently pinned changes do not replace any other source bytes or earl
   const changed = Object.keys(receipt.changed), added = Object.keys(receipt.added)
   const observed = [...new Set([...paths(git('diff','--name-only','--no-renames','-z',receipt.baseline,'--')),
     ...paths(git('ls-files','--others','--exclude-standard','-z'))])]
-  assert.deepEqual(observed.filter(path=>path!=='node_modules' && !path.startsWith('tests/')).sort(),[...changed,...added].sort())
+  assert.deepEqual(observed.filter(path=>path!=='node_modules' && !path.startsWith('tests/') && !nextNew(path)).sort(),[...changed,...added].sort())
   for (const path of changed) {
-    const oldBytes = git('show', receipt.baseline + ':' + path), newBytes = readFileSync(new URL(path, cwd))
+    const oldBytes = git('show', receipt.baseline + ':' + path), newBytes = nextPriorSource(path, readFileSync(new URL(path, cwd)))
     assert.deepEqual([sha(oldBytes),sha(newBytes)], [receipt.changed[path].before,receipt.changed[path].after],path)
     assert.deepEqual(levskiLyulinPriorSource(path,newBytes),oldBytes)
     assert.ok(levskiLyulinAllowsPath(path))

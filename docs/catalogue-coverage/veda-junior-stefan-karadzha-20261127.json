@@ -1,0 +1,57 @@
+{
+  "checkedOn": "2026-11-27",
+  "status": "reviewed_local_branch_not_published",
+  "recordId": "sofia-veda-junior-stefan-karadzha-gintsi11",
+  "inventoryIdentity": "e91dba45b42b6910b514c36003d2aa654de453ed10e5abe28628e8b2f697f7b8",
+  "business": "Veda Junior · Стефан Караджа",
+  "cell": {
+    "city": "София",
+    "neighborhood": "Стефан Караджа",
+    "category": "fitness",
+    "verifiedPremisesBefore": 0,
+    "expectedVerifiedPremisesAfterIntegration": 1
+  },
+  "sources": {
+    "ownerHomepageAndContact": "https://vedajunior.com/#contact",
+    "ownerEnrollment": "https://vedajunior.com/grupi-i-zapisvane.html",
+    "ownerKidsServiceMenu": "https://vedajunior.com/detska-shkola.html",
+    "ownerCurrentVenues": "https://vedajunior.com/zali-sofia.html",
+    "ownerSelectedVenueMap": "https://maps.app.goo.gl/p6iGBaYjC9usDvsx8",
+    "ownerRobots": "https://vedajunior.com/robots.txt",
+    "ownerSitemap": "https://vedajunior.com/sitemap.xml",
+    "officialSofiaCivicDataset": "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+  },
+  "location": {
+    "displayAddress": "София, кв. Стефан Караджа, ул. Гинци 11",
+    "telephone": "+359888769027",
+    "alternateOwnerEnrollmentTelephone": "+359888581430",
+    "municipalCsvRow": "51672;Подуяне;гр. София;\"\";\"\";ул. Гинци;11;\"\";42.708325;23.360837",
+    "addressId": "51672",
+    "latitude": 42.708325,
+    "longitude": 23.360837,
+    "licence": "CC-BY-4.0",
+    "attribution": "ГИС София / Столична община",
+    "ownerLinkedPlace": { "latitude": 42.7083022, "longitude": 23.3608645, "address": "Стефан Караджа, ул. Гинци 11, София" },
+    "evidenceLimits": "The current owner site lists the actual hall under Стефан Караджа and links that particular hall to its map, whose public redirect target yields the named building and the exact pin from the !3d/!4d fields. The homepage map text identifies Читалище Стефан Караджа at ул. Гинци 11. The authoritative civic row verifies that address and point; its administrative district is Подуяне, not a substitution for the owner-named neighborhood. Do not reuse the viewport, an archived venue, an office, or infer an entrance. Only this branch is in scope."
+  },
+  "selectedOffers": [{
+    "name": "Модерен балет и съвременни танци за деца",
+    "englishName": "Modern ballet and contemporary dance for children",
+    "englishDescription": "Group classes for children. When calling to enroll, specify the Stefan Karadzha venue. Ask the school which group suits your child's age and experience and confirm places, the timetable, and the fee.",
+    "appointmentModel": "group_reservation",
+    "source": "https://vedajunior.com/detska-shkola.html",
+    "evidence": "One combined group programme. The current owner venue page says groups and hours are not necessarily the same at every venue; the younger and older group labels are not listed as separate offers at this specific hall. No age threshold, level prerequisite, fixed duration, date, calendar slot or tuition is imported."
+  }],
+  "bookingReview": {
+    "kind": "phone",
+    "url": "tel:+359888769027",
+    "state": "phone_booking_reviewed",
+    "evidence": "The actual owner enrolment menu instructs families to select their location and exposes two ordinary tel links. The school then confirms group, schedule, places, and conditions based on age, experience and selected venue. This is the owner enrollment path, not a generic phone listing, contact made by GoRez, or guaranteed reservation. No call or enrollment performed."
+  },
+  "pricing": {
+    "decision": "not_publicly_listed",
+    "outcome": "not_published",
+    "evidence": "Public current owner home/contact, service, venues and actual enrollment pages all returned HTTP 200 through their normal links. The enrollment FAQ directly answers the question about current times and fees by referring families to the phones; no amount or separate public tariff is listed in those pages or sitemap. No market estimate, historical fee, currency conversion or other branch rate was used."
+  },
+  "scopeAndSourceUse": "The directory, handover receipts and catalogue data were checked for the owner name, controlled website, full telephone values and exact address; no current matching owner record was found. The source robots file permits ordinary pages and lists the public sitemap, whose navigation/sections show no separate usage terms or price page. No legal license for creative assets is assumed. No source prose, school children photographs, logo, marketing claims, or private data were copied. No partner relationship, booking, notification, calendar, or production state changed."
+}

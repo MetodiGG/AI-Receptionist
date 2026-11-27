@@ -1,5 +1,9 @@
 {
   "owners": {
+    "/service-photos/go-clean-carpet-washing-20261127-v1.webp": "[\"home_services\",\"машинно пране на килими · вземане от адрес\"]",
+    "/service-photos/go-veda-junior-modern-ballet-20261127-v1.webp": "[\"fitness\",\"модерен балет и съвременни танци за деца\"]",
+    "/service-photos/go-kotev-dental-exam-20261127-v1.webp": "[\"other\",\"стоматологичен преглед\"]",
+    "/service-photos/go-kotev-dental-filling-20261127-v1.webp": "[\"other\",\"лечение на зъбен кариес\"]",
     "/service-photos/go-ramirus-manual-driving-20261127-v1.webp": "[\"education\",\"шофьорски курс категория b · ръчни скорости\"]",
     "/service-photos/go-ramirus-automatic-driving-20261127-v1.webp": "[\"education\",\"шофьорски курс категория b78 · автоматик\"]",
     "/service-photos/go-ramirus-refresher-driving-20261127-v1.webp": "[\"education\",\"индивидуални опреснителни часове по кормуване\"]",

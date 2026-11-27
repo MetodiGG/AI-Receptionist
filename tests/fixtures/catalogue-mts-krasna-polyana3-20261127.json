@@ -1,0 +1,37 @@
+{
+  "baseline": "65ceafe141aef59864ac5fe6f122cfed582d9bf8",
+  "changed": {
+    "lib/catalogue-service-photo-keys.mjs": {
+      "before": "908d702f6cc80b4030da88fb78301f9e5146316ce5bedca34cb926dd7ebc278f",
+      "after": "46f5038c3c772e2844640e16979f976bf185cdbf7a0f233692cacce42dfe8bc5"
+    },
+    "lib/discovery/catalogue-data/pricing-booking-review-v1.mjs": {
+      "before": "8e42afef1c7e4338a2e953499056def345d318e6fea350fda6af93a182f5c377",
+      "after": "ee6e05af7176a3bb714c11352a1d0b273feaf03121baf9791da121e1346c46f9"
+    },
+    "lib/discovery/sofia-catalogue.mjs": {
+      "before": "e143a0ee74da58270b734698fa5119f3658e2b6fee2fd7eb15f2295cf496e838",
+      "after": "32897196245b197fdaf3aa43f32ad48980f81180365fbf3be0e87fee6b26f793"
+    },
+    "lib/locale/service-english.json": {
+      "before": "4e30aaddce4f7e0a2da9e6abde396910231006c293d5bf518aef3a4196d29235",
+      "after": "f1ef2f47bf9f574ee1ca8e05c7add9dbe51e4b759b1a51d431d1e452fcb3ff04"
+    },
+    "lib/public-business-cover-photo.mjs": {
+      "before": "6a5f233cadccfc47067226036b72934ee678c91b406e0d8ed533d7dd510280c5",
+      "after": "7fe860636c331ee336e1e468c0b8717e2daac03cb57d1dc1380477bf14b19d43"
+    }
+  },
+  "added": {
+    "docs/catalogue-coverage/mts-krasna-polyana3-20261127.json": "d1031f25b61b2ef470c490b45a87b251f077b3ad79b2f34b8079c0102b9739d5",
+    "lib/discovery/catalogue-data/neighborhood-verified-mts-krasna-polyana3-20261127.mjs": "9455c7c0cbbd15b08670f99dcc9657d69b707cd89c796a6cfb655ea5e2388f52"
+  },
+  "records": [
+    {
+      "id": "sofia-mts-massage-pchinya31b",
+      "sha256": "90c05cc7c7e32273f677dbfdfaec09dc5e2268e916d1822d9189969a3883b5c5"
+    }
+  ],
+  "baselineCatalogueSha256": "146d63ac42b2cde6742f10904a595e5fd08d52da6ba0f372c1b42ba64a611705",
+  "currentCatalogueSha256": "ee264dfc7826f26acfe773e41857b9970a3d8c9085c9babd3dcd0aa8fb1c7757"
+}

@@ -12,6 +12,7 @@ import { VERIFIED_HIPODRUMA_HAIRLESS_20261127_REVIEWS } from '../lib/discovery/c
 import { VERIFIED_REDUTA_ABV_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-reduta-abv-20261127.mjs'
 import { GARAGE46_SERDIKA_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-garage46-serdika-20261127.mjs'
 import { AURA_B19_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-aura-b19-20261127.mjs'
+import { VERIFIED_MTS_KRASNA_POLYANA3_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-mts-krasna-polyana3-20261127.mjs'
 import { pricingIdentity, assessPricingReview, auditCataloguePricing } from '../lib/discovery/catalogue-pricing-review.mjs'
 import report from '../docs/catalogue-pricing/booking-flow-audit-20261110.json' with { type: 'json' }
 import { NEIGHBORHOOD_20261111_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-expansion-20261111.mjs'
@@ -257,6 +258,7 @@ test('dated audit receipts cover every current ID without rewriting the historic
     [VERIFIED_REDUTA_ABV_20261127_REVIEWS, 'sofia-abv-academy-reduta-velcho-atanasov53', 'service_reviewed', '2026-11-27T12:00:00Z'],
     [GARAGE46_SERDIKA_20261127_REVIEWS, 'sofia-garage46-serdika-ivanivanov67', 'reviewed', '2026-11-27T12:00:00Z'],
     [AURA_B19_20261127_REVIEWS, 'sofia-aura-music-stamboliyski175', 'reviewed', '2026-11-27T12:00:00Z'],
+    [VERIFIED_MTS_KRASNA_POLYANA3_20261127_REVIEWS, 'sofia-mts-massage-pchinya31b', 'reviewed', '2026-11-27T12:00:00Z'],
   ]) {
     assert.deepEqual(reviews.map(row => row.id), [id])
     assert.equal(auditedIds.has(id), false)

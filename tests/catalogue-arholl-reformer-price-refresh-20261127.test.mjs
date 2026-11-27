@@ -16,6 +16,8 @@ import { railExternalAction } from '../lib/discovery/rail.mjs'
 import { arhollPriceAllowsFileChange, arhollPriceAllowsNewFile, arhollPriceAllowsPath,
   arhollPricePriorSource, arhollPricePriorCatalogue } from './catalogue-arholl-reformer-price-refresh-20261127-scope.mjs'
 import receipt from './fixtures/catalogue-arholl-reformer-price-refresh-20261127.json' with { type: 'json' }
+import { mtsIntakeAllowsFileChange, mtsIntakeAllowsNewFile, mtsIntakePriorCatalogue,
+  mtsIntakePriorSource } from './catalogue-mts-krasna-polyana3-20261127-scope.mjs'
 
 const id = 'sofia-arholl-arena-obelya1-124-reformer'
 const phone = '+359889758011'
@@ -31,11 +33,12 @@ test('the dated refresh seals only exact price-review source changes and keeps e
   const paths = bytes => bytes.toString('utf8').split('\0').filter(Boolean)
   const observed = new Set([...paths(git('diff', '--name-only', '--no-renames', '-z', receipt.baseline, '--')),
     ...paths(git('ls-files', '--others', '--exclude-standard', '-z'))])
-  assert.deepEqual([...observed].filter(path => path !== 'node_modules' && !path.startsWith('tests/')).sort(),
+  assert.deepEqual([...observed].filter(path => path !== 'node_modules' && !path.startsWith('tests/') &&
+    !mtsIntakeAllowsNewFile(path) && (Object.hasOwn(receipt.changed, path) || !mtsIntakeAllowsFileChange(path))).sort(),
     [...Object.keys(receipt.changed), ...Object.keys(receipt.added)].sort())
   for (const [path, proof] of Object.entries(receipt.changed)) {
     const before = git('show', receipt.baseline + ':' + path)
-    const after = readFileSync(new URL(path, cwd))
+    const after = mtsIntakePriorSource(path, readFileSync(new URL(path, cwd)))
     assert.deepEqual([sha(before), sha(after)], [proof.before, proof.after], path)
     assert.ok(arhollPriceAllowsFileChange(path), path)
     assert.deepEqual(arhollPricePriorSource(path, after), before, path)
@@ -49,7 +52,7 @@ test('the dated refresh seals only exact price-review source changes and keeps e
   }
   for (const path of ['lib/booking-engine.mjs', 'lib/discovery/catalogue-policy.mjs', 'app/layout.js',
     'public/logo.svg', 'package.json', 'supabase/config.toml']) assert.equal(arhollPriceAllowsPath(path), false, path)
-  for (const rows of [RAW_SOFIA_CATALOGUE, SOFIA_CATALOGUE]) {
+  for (const rows of [RAW_SOFIA_CATALOGUE, SOFIA_CATALOGUE].map(mtsIntakePriorCatalogue)) {
     const earlier = arhollPricePriorCatalogue(rows)
     assert.equal(earlier.length, rows.length)
     assert.equal(sha(JSON.stringify(earlier)), receipt.baselineCatalogueSha256)

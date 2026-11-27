@@ -102,7 +102,7 @@ test('the exact Aura premises fills one physical and GPS education gap without d
   assert.equal(branch.locationKind, 'premises')
   assert.equal(branch.verification.booking.url, booking)
   assert.equal(branch.verification.contact, contact)
-  const audit = [beforeCatalogue, SOFIA_CATALOGUE].map(rows => catalogueCoverageReport(rows, { now, target: 30 }))
+  const audit = [beforeCatalogue, arhollPricePriorCatalogue(SOFIA_CATALOGUE)].map(rows => catalogueCoverageReport(rows, { now, target: 30 }))
   const cell = summary => [...summary.neighborhoods, ...summary.additionalNamedAreas].find(area => area.name === quarter)
     .cells.find(item => item.categoryId === 'education')
   assert.deepEqual(audit.map(summary => [cell(summary).count, cell(summary).locatedCount]), [[0, 0], [1, 1]])

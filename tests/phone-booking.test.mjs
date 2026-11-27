@@ -24,7 +24,7 @@ const business={id:'phone-business',slug:'actual-phone-business',booking_mode:'p
 const input=()=>({business:{name:business.name,slug:business.slug,booking_mode:'phone',phone:business.phone,contact_email:'owner@example.com',address:'Local QA address 1',timezone:'Europe/Sofia',industry:'beauty',city_ekatte:'68134',neighborhood:'Център',location_confirmed:true,public_profile:{latitude:42.665,longitude:23.286}},services:[{name:'Actual published price',price:20,currency:'BGN',price_details:{kind:'range',maximum:40},description:'Actual conditions'}],account:{email:'owner@example.com',password:'offline-example-only'},locale:'bg',consent:true,company:''})
 const render=(Component,props)=>renderToStaticMarkup(React.createElement(Component,props))
 const {OutboundBookingButton}=await component('components/outbound-booking-button.js',{'../lib/booking-mode.mjs':bookingMode,'./booking-button-content':bookingButtonContent})
-const {BookingModeFields}=await component('components/booking-mode-fields.js',{'../lib/booking-mode.mjs':bookingMode})
+const {BookingModeFields}=await component('components/booking-mode-fields.js',{'../lib/booking-mode.mjs':bookingMode,'./icon':{Icon:()=>null}})
 test('safe phone links normalize permitted formatting only and never accept dial controls or arbitrary navigation',()=>{
  assert.equal(safeBookingPhone(business.phone),'tel:+359888123456');assert.equal(safeBookingPhone('0888 123 456'),'tel:0888123456')
  for(const value of ['+359888123456;ext=1','+359888123456,12','*1234567#','tel:0888123456','javascript:alert(1)','https://example.com','12345','+1234567890123456','1234567\n','12+34567',undefined,123456789])assert.equal(safeBookingPhone(value),null)
@@ -39,6 +39,16 @@ test('phone application preserves known prices/conditions and needs no invented 
 test('registration exposes the exact bilingual choice and phone/external checkboxes are mutually exclusive',()=>{
  const bg=render(BookingModeFields,{mode:'phone',url:'',consent:false,onChange(){},locale:'bg'}),en=render(BookingModeFields,{mode:'phone',url:'',consent:false,onChange(){},locale:'en'})
  assert.match(bg,/Желая да получавам резервации само по телефонен номер/);assert.match(en,/I want to receive bookings only by phone/);assert.equal((bg.match(/checked=""/g)||[]).length,1);assert.doesNotMatch(bg,/type="url"/)
+})
+test('the new registration offers mutually exclusive booking cards and asks for a direct URL only for external booking',()=>{
+ const options={url:'https://example.com/book',consent:false,onChange(){},presentation:'cards'}
+ const phone=render(BookingModeFields,{...options,mode:'phone',locale:'bg'})
+ const external=render(BookingModeFields,{...options,mode:'external',locale:'en'})
+ assert.match(phone,/Как приемаш резервации/);assert.match(phone,/По телефон/);assert.match(phone,/През GoRez/)
+ assert.equal((phone.match(/type="radio"/g)||[]).length,3)
+ assert.equal((phone.match(/checked=""/g)||[]).length,1);assert.doesNotMatch(phone,/type="url"/)
+ assert.match(external,/Direct booking page URL/);assert.match(external,/does not sync/)
+ assert.equal((external.match(/checked=""/g)||[]).length,1)
 })
 test('phone public booking action is one safe tel anchor, never a POST/form or fabricated confirmation; preview and bad numbers fail closed',()=>{
  const html=render(OutboundBookingButton,{business,locale:'bg'});assert.match(html,/href="tel:\+359888123456"/);assert.match(html,/<span class="public-action-label">Резервирай<\/span>/);assert.doesNotMatch(html,/<form|<button|method=|eventId|confirmed|потвърден/)

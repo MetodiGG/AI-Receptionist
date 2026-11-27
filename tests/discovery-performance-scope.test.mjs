@@ -13,6 +13,7 @@ import { homepageBrowseStartAllowsPath } from './homepage-browse-start-scope.mjs
 import { catalogueIntakeAllowsPath } from './catalogue-mopart-20261127-scope.mjs'
 import { releaseRuleMatches } from './catalogue-only-release-scope.mjs'
 import { providerRolePhotosAllowsNewFile } from './provider-role-photo-scope.mjs'
+import { businessOnboardingSofiaAllowsPath } from './business-onboarding-sofia-scope.mjs'
 
 test('the performance patch does not change booking, settings, catalogue records or original photography', async () => {
   const cwd = fileURLToPath(new URL('../', import.meta.url))
@@ -27,7 +28,7 @@ test('the performance patch does not change booking, settings, catalogue records
   assert.deepEqual([...Object.keys(receipt.changed), ...Object.keys(receipt.added)].sort(), expected)
   const paths = new Set([...split(git('diff', '--name-only', '-z', receipt.baseline, '--')),
     ...split(git('ls-files', '--others', '--exclude-standard', '-z'))])
-  assert.deepEqual([...paths].filter(path => path !== 'node_modules' && !path.startsWith('tests/') && !providerRolePhotosAllowsNewFile(path) && !releaseRuleMatches(path) && (expected.includes(path) || (!catalogueIntakeAllowsPath(path) && !detailPreviewAllowsPath(path) && !preparedPhotosAllowsPath(path) && !staticWebpCacheCpuAllowsFileChange(path) && !mobileDiscoveryFirstPaintAllowsFileChange(path) && !homepageBrowseStartAllowsPath(path)))).sort(), expected)
+  assert.deepEqual([...paths].filter(path => path !== 'node_modules' && !path.startsWith('tests/') && !businessOnboardingSofiaAllowsPath(path) && !providerRolePhotosAllowsNewFile(path) && !releaseRuleMatches(path) && (expected.includes(path) || (!catalogueIntakeAllowsPath(path) && !detailPreviewAllowsPath(path) && !preparedPhotosAllowsPath(path) && !staticWebpCacheCpuAllowsFileChange(path) && !mobileDiscoveryFirstPaintAllowsFileChange(path) && !homepageBrowseStartAllowsPath(path)))).sort(), expected)
   for (const path of expected) assert.ok(discoveryPerformanceAllowsPath(path), path)
   for (const path of [...Object.keys(receipt.changed), ...Object.keys(receipt.adapters)]) {
     const current = await readFile(new URL('../' + path, import.meta.url))

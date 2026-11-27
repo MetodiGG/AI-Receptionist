@@ -1,0 +1,135 @@
+.page {
+  --owner-canvas:#f8f1e8;
+  --owner-surface:#fffaf4;
+  --owner-accent-surface:#f5e7d9;
+  --owner-line:#e4d2c3;
+  --owner-ink:#2b1d16;
+  --owner-muted:#6d5344;
+  --owner-accent:#934326;
+  --owner-strong:#8e3b23;
+  --owner-on-strong:#fff8f2;
+  --owner-shadow:#6a3e2617;
+  container-type:inline-size;
+  color:var(--owner-ink);
+}
+:global(html[data-theme=dark]) .page {
+  --owner-canvas:#261a14;
+  --owner-surface:#30221a;
+  --owner-accent-surface:#412f24;
+  --owner-line:#664839;
+  --owner-ink:#fcf0e6;
+  --owner-muted:#d5b8a7;
+  --owner-accent:#ffbe9a;
+  --owner-strong:#f6ae83;
+  --owner-on-strong:#2c1b12;
+  --owner-shadow:#170b0670;
+  background:var(--owner-canvas);
+  color-scheme:dark;
+}
+.page :is(button,a,input,select,textarea,summary):focus-visible { outline:2px solid var(--owner-accent);outline-offset:3px; }
+.page svg { flex:none; }
+.header {
+  display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:1rem;
+  margin-bottom:clamp(1rem,2.6cqi,1.65rem); padding:clamp(.85rem,2.6cqi,1.6rem);
+  background:radial-gradient(ellipse at 0 0,var(--owner-accent-surface),transparent 72%),var(--owner-canvas);
+  border:1px solid var(--owner-line);border-radius:1.35rem;
+}
+.identity { min-width:0; }
+.identity h2 { color:var(--owner-ink); margin:.25rem 0 .4rem; font-size:clamp(1.65rem,4.8cqi,3.05rem);font-weight:780;line-height:1.11;letter-spacing:-.052em;overflow-wrap:anywhere; }
+.overline { display:flex; align-items:center; gap:.55rem; flex-wrap:wrap; margin:0;color:var(--owner-accent);font-size:.77rem;font-weight:775;letter-spacing:.075em;text-transform:uppercase; }
+.overline span { padding:.2rem .42rem;font-size:.69rem; background:var(--owner-surface); color:var(--owner-ink); border-radius:1rem;letter-spacing:0;text-transform:none; }
+.place { display:flex; align-items:center; gap:.35rem; margin:0; color:var(--owner-muted);font-size:.9rem;overflow-wrap:anywhere; }
+.place svg { width:.95rem;height:.95rem; }
+.viewControls,.innerNav { display:flex;align-items:center;gap:.28rem;flex-wrap:wrap; }
+.viewControls { padding:.24rem;background:var(--owner-accent-surface);border:1px solid var(--owner-line);border-radius:1rem; }
+.viewControls button,.innerNav button,.primaryNav button,.advancedNav button,.advanced summary,.bookingPreferences summary {
+  color:var(--owner-ink);font:inherit;border:0;background:transparent;cursor:pointer;
+}
+.viewControls button,.innerNav button { min-height:44px;padding:.36rem .73rem;border-radius:.73rem;font-size:.84rem;font-weight:680;text-align:left; }
+.viewControls button[aria-pressed=true] { background:var(--owner-surface);color:var(--owner-accent);box-shadow:0 2px 5px var(--owner-shadow); }
+.innerNav { gap:.38rem;margin:0 0 .85rem; }
+.innerNav button { border:1px solid var(--owner-line);background:var(--owner-surface); }
+.innerNav button[aria-pressed=true] { background:var(--owner-accent-surface);color:var(--owner-accent); }
+.manage { display:grid;grid-template-columns:minmax(9.25rem,14.5rem) minmax(0,1fr);gap:clamp(.9rem,2cqi,1.6rem);align-items:start; }
+.manage[hidden] { display:none; }
+.sidebar,.panel { min-width:0; }
+.primaryNav,.advancedNav { display:grid;gap:.4rem; }
+.primaryNav button,.advancedNav button { display:flex;align-items:center;gap:.55rem;min-height:44px;padding:.45rem .66rem;border:1px solid transparent;border-radius:.78rem;font-size:.9rem;font-weight:720;text-align:left; }
+.primaryNav svg,.advanced summary svg,.bookingPreferences summary svg { width:1.1rem;height:1.1rem; }
+.primaryNav button:where(:hover,[aria-pressed=true]),.advancedNav button:where(:hover,[aria-pressed=true]) { background:var(--owner-accent-surface);color:var(--owner-accent); }
+.primaryNav button[aria-pressed=true],.advancedNav button[aria-pressed=true] { border-color:var(--owner-line); }
+.advanced { margin-top:.82rem;border-top:1px solid var(--owner-line); }
+.advanced summary,.bookingPreferences summary { display:flex;align-items:center;gap:.45rem;min-height:44px;padding:.5rem .62rem;list-style:none;font-weight:700;font-size:.875rem;color:var(--owner-muted); }
+.advanced summary::-webkit-details-marker,.bookingPreferences summary::-webkit-details-marker { display:none; }
+.advanced summary svg:last-child,.bookingPreferences summary svg { margin-left:auto; }
+.advanced[open] summary svg:last-child,.bookingPreferences[open] summary svg { transform:rotate(180deg); }
+.advancedNav { padding-inline:.3rem; }
+.page :is(button:disabled) { cursor:not-allowed;opacity:.65; }
+.panel :global(.settings-panel) {
+  color:var(--owner-ink);background:var(--owner-surface);border-color:var(--owner-line);
+  border-radius:1.2rem;box-shadow:0 8px 22px -16px var(--owner-shadow);min-width:0;
+}
+.panel :is(:global(.settings-panel-head h3),:global(.settings-form-grid label>span),:global(.settings-field>span)) { color:var(--owner-ink); }
+.panel :is(:global(.settings-panel-head p),:global(.helper-text),:global(.settings-form-grid label small)) { color:var(--owner-muted); }
+.panel :is(input:not([type=checkbox]):not([type=radio]),select,textarea) { color:var(--owner-ink);background:var(--owner-surface);border-color:var(--owner-line);min-width:0; }
+.panel :is(:global(.guided-assistant-note),:global(.settings-intake-preview),:global(.editable-card)) { background:var(--owner-accent-surface); color:var(--owner-ink);border-color:var(--owner-line); }
+.panel :is(:global(.guided-assistant-note p),:global(.settings-intake-preview p)) { color:var(--owner-muted); }
+.panel :global(.settings-intake-preview li) { background:var(--owner-surface);border-color:var(--owner-line);color:var(--owner-ink); }
+.panel :global(.settings-actions) { background:var(--owner-surface);border-color:var(--owner-line); }
+.panel :global(.primary-button) { color:var(--owner-on-strong);background:var(--owner-strong);border-color:var(--owner-strong);box-shadow:0 6px 12px -7px var(--owner-shadow); }
+.panel :global(.secondary-button) { color:var(--owner-ink);background:var(--owner-surface);border-color:var(--owner-line); }
+.panel :global(.settings-quick-save) { display:none; }
+.panel :global(.settings-unsaved) { color:var(--owner-ink);background:var(--owner-accent-surface);border-color:var(--owner-strong); }
+:global(html[data-theme=dark]) .panel :is(:global(.checked-select-control),:global(.checked-select-panel)) { background:var(--owner-surface);border-color:var(--owner-line);color:var(--owner-ink); }
+:global(html[data-theme=dark]) .panel :is(:global(.checked-select-toggle),:global(.checked-select-search-icon),:global(.checked-option)) { color:var(--owner-ink); }
+:global(html[data-theme=dark]) .panel :is(:global(.checked-option.active),:global(.checked-option.chosen)) { background:var(--owner-accent-surface);color:var(--owner-accent); }
+.websiteField { padding:.8rem; border:1px solid var(--owner-line);border-radius:.88rem;background:var(--owner-accent-surface); }
+.websiteField > span { display:flex; align-items:center; gap:.38rem; flex-wrap:wrap; }
+.websiteField > span svg { width:.95rem;height:.95rem;color:var(--owner-accent); }
+.websiteField > span small { margin-left:auto; }
+.bookingPreferences { border-top:1px solid var(--owner-line); }
+.bookingPreferences summary { color:var(--owner-ink);padding-inline:0; }
+.bookingPreferences[open] summary { margin-bottom:.65rem; }
+.clientPreview {
+  display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.15fr); overflow:hidden;
+  background:var(--owner-surface);border:1px solid var(--owner-line);border-radius:1.3rem;
+  box-shadow:0 12px 27px -18px var(--owner-shadow);
+}
+.clientPhoto { position:relative;min-height:15rem;background:var(--owner-accent-surface); }
+.clientPhoto img { position:absolute;inset:0;width:100%;height:100%;object-fit:cover; }
+.photoPlaceholder { position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:.6rem;padding:1rem;text-align:center;color:var(--owner-muted);font-size:.875rem; }
+.photoPlaceholder svg { color:var(--owner-accent);width:1.6rem;height:1.6rem; }
+.clientBody { display:grid;align-content:start;gap:.68rem;min-width:0;padding:clamp(1rem,3.2cqi,1.7rem); }
+.clientBody :is(h3,h4,p,ul) { margin:0;overflow-wrap:anywhere; }
+.clientBody h3 { font-size:clamp(1.4rem,3.2cqi,2rem);line-height:1.14;letter-spacing:-.036em;color:var(--owner-ink); }
+.clientBody h4 { color:var(--owner-ink);font-size:1.07rem;letter-spacing:-.018em; }
+.clientDescription { color:var(--owner-ink);white-space:pre-wrap; }
+.clientButtons,.previewFooter { display:flex;align-items:center;flex-wrap:wrap;gap:.6rem; }
+.quietButton,.accentButton {
+  display:inline-flex;align-items:center;justify-content:center;gap:.42rem;min-height:44px;padding:.55rem .75rem;
+  border:1px solid var(--owner-line);border-radius:.75rem;background:var(--owner-surface);color:var(--owner-ink);text-align:center;
+  font:inherit;font-weight:720;text-decoration:none;cursor:pointer;
+}
+.accentButton { border-color:var(--owner-strong);background:var(--owner-strong);color:var(--owner-on-strong); }
+.quietButton svg,.accentButton svg { width:.95rem;height:.95rem; }
+.previewNote { color:var(--owner-accent);font-size:.82rem; }
+.clientHint,.previewFooter p { color:var(--owner-muted);font-size:.86rem; }
+.previewFooter { justify-content:space-between;margin-top:.5rem; }
+.previewFooter p { margin:0; }
+.previewServices { padding:0;list-style:none; }
+.previewServices li { display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.7rem;padding:.55rem 0;border-top:1px solid var(--owner-line);font-size:.91rem; }
+.previewServices strong { color:var(--owner-accent);text-align:right;max-width:11ch;font-variant-numeric:tabular-nums; }
+@container (max-width:650px) {
+  .manage,.clientPreview { grid-template-columns:minmax(0,1fr); }
+  .primaryNav,.advancedNav { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .primaryNav button,.advancedNav button { padding-inline:.46rem; }
+  .clientPhoto { min-height:0;aspect-ratio:2/1; }
+  .panel :global(.settings-quick-save) { display:flex; }
+}
+@container (max-width:340px) {
+  .primaryNav button { font-size:.81rem; }
+  .primaryNav svg { width:.95rem;height:.95rem; }
+  .viewControls { width:100%; }
+  .viewControls button { flex:1 1 auto;padding-inline:.4rem;text-align:center; }
+  .clientButtons :is(.quietButton,.accentButton) { flex:1 1 auto; }
+}

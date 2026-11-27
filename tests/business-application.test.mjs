@@ -44,6 +44,23 @@ test('a missing or whitespace-only quarter is rejected server-side before accoun
   assert.equal(parsed.business.neighborhood,'Моят квартал','custom quarters need not belong to a finite suggestion list')
   assert.equal(parsed.business.address,application.business.address,'street and number are not changed')
 })
+test('new registrations outside Sofia city are rejected before rate limiting, photo preparation, accounts or writes',async()=>{
+  const rejectCall=()=>assert.fail('Out-of-area signup reached a downstream dependency')
+  const handler=createBusinessApplicationHandler({readSubmission:readApplicationPhotos,prepareImages:rejectCall,allowAttempt:rejectCall,authenticate:rejectCall,reserved:rejectCall,createAccount:rejectCall,deleteAccount:rejectCall,save:rejectCall,notify:rejectCall})
+  for(const city_ekatte of ['44238','06570','56784']) {
+    const applicationOutsideSofia={...application,business:{...application.business,city_ekatte}}
+    assert.equal(businessApplicationSchema.safeParse(applicationOutsideSofia).success,true,'a recognized city is not necessarily an eligible signup city')
+    for(const submitted of [request(applicationOutsideSofia),request(applicationOutsideSofia,{authorization:'Bearer fixture-only'}),request(JSON.stringify(applicationOutsideSofia))]) {
+      const result=await handler(submitted)
+      assert.equal(result.status,422)
+      assert.deepEqual(await result.json(),{error:{code:'REGISTRATION_SOFIA_ONLY'}})
+      assert.match(result.headers.get('cache-control'),/no-store/)
+    }
+  }
+  const rejectedUnknown=await handler(request({...application,business:{...application.business,city_ekatte:'00000'}}))
+  assert.equal(rejectedUnknown.status,422)
+  assert.deepEqual(await rejectedUnknown.json(),{error:{code:'VALIDATION_ERROR'}})
+})
 test('verified signed-in owners can submit without another password; caller email cannot take over another account',async()=>{
   const user={id:'existing-owner',email:'owner@example.com',email_confirmed_at:'2026-10-25'}
   const h=harness({user}),response=await h.handler(request({...application,account:{email:user.email,password:''}}))

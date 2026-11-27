@@ -23,8 +23,11 @@ export function BusinessDirectionsLink({ business, locale = 'bg', address = fals
     : <PublicAction as="a" variant="secondary" href={href} target="_blank" rel="noopener noreferrer" aria-label={`${accessibleLabel} · ${business.name}`}>{label}</PublicAction>
 }
 
-export function BusinessProfileHeader({ business, locale, shareUrl }) {
+export function BusinessProfileHeader({ business, locale, shareUrl, bookingAction, websiteLabel }) {
   const en = locale === 'en'
+  const website = business.website_url || business.website
+  const websiteUrl = typeof website === 'string' && /^https?:\/\//i.test(website) ? website : null
+  const description = publicProse(publicProfileDetails(business).description, locale, business.presentationEn?.description)
   const [shared, setShared] = useState(false)
   const [manualShare, setManualShare] = useState('')
   async function share() {
@@ -39,6 +42,11 @@ export function BusinessProfileHeader({ business, locale, shareUrl }) {
     <div className="business-profile-identity">
       <div className="business-profile-name-row"><h1 id="business-profile-name">{business.name}</h1><button type="button" className="profile-share-button" aria-label={shared ? (en ? 'Link copied' : 'Линкът е копиран') : (en ? 'Share' : 'Сподели')} onClick={share}><Icon name="external" /><span role="status">{shared ? (en ? 'Copied' : 'Копирано') : (en ? 'Share' : 'Сподели')}</span></button></div>
       {business.address && <BusinessDirectionsLink business={business} locale={locale} address/>}
+      {description&&<p className="business-about-description profile-hero-description">{description}</p>}
+      {(websiteUrl||bookingAction)&&<div className="profile-hero-actions">
+        {websiteUrl&&<a className="profile-business-website" href={websiteUrl} target="_blank" rel="noopener noreferrer"><Icon name="external"/>{websiteLabel||(en?'Business website':'Сайт на бизнеса')}</a>}
+        {bookingAction}
+      </div>}
       {manualShare && <label className="profile-share-fallback"><span>{en ? 'Copy this link' : 'Копирай този линк'}</span><input readOnly value={manualShare} onFocus={event => event.currentTarget.select()}/></label>}
     </div>
   </section>
@@ -47,7 +55,7 @@ export function BusinessProfileHeader({ business, locale, shareUrl }) {
 export function BusinessServiceList({ business, locale = 'bg', selectedServiceId = '', onChoose, disabled = false }) {
   const en = locale === 'en'
   return <section className="profile-services business-profile-section" id="business-services" aria-labelledby="business-services-heading">
-    <h2 id="business-services-heading">{en ? 'Services' : 'Услуги'}</h2>
+    <h2 id="business-services-heading">{en ? 'Services and prices' : 'Услуги и цени'}</h2>
     <div className="profile-service-groups">{groupBusinessServices(business.services, locale).map(group => <div className="profile-service-group" key={group.name}>
       {group.name !== (en ? 'Services' : 'Услуги') && <h3>{group.name}</h3>}
       <ul className="profile-service-list">{group.services.map(service => { const { description, conditions } = servicePresentation(service, locale); return <li key={service.id} className={`profile-service-row${selectedServiceId === service.id ? ' is-selected' : ''}`}>
@@ -62,7 +70,6 @@ export function BusinessServiceList({ business, locale = 'bg', selectedServiceId
 
 export function BusinessProfileInformation({ business, locale }) {
   const en = locale === 'en', profile = publicProfileDetails(business), hours = businessWeeklyHours(business)
-  const description = publicProse(profile.description, locale, business.presentationEn?.description)
   const [mapLoaded, setMapLoaded] = useState(false)
   const map = businessMapUrl(business), locationCredit = businessLocationAttribution(business)
   const weekdays = en ? ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] : ['Понеделник', 'Вторник', 'Сряда', 'Четвъртък', 'Петък', 'Събота', 'Неделя']
@@ -71,9 +78,8 @@ export function BusinessProfileInformation({ business, locale }) {
     {business.staff?.length > 0 && <section className="business-profile-section" id="business-team" aria-labelledby="business-team-heading"><h2 id="business-team-heading">{en ? 'Our team' : 'Нашият екип'}</h2><div className="business-team-list">{business.staff.map(person => { const photo = getStaffPhoto(business, person.id); return <article key={person.id}>{photo ? <img className="business-team-photo" src={photo.src} alt={person.name} width="56" height="56" loading="lazy"/> : <span className="business-team-initial" aria-hidden="true">{person.name.slice(0, 1).toUpperCase()}</span>}<div><h3>{person.name}</h3>{person.bio && <p>{publicProse(person.bio, locale, person.bioEn)}</p>}</div></article> })}</div></section>}
     <section className="business-profile-section profile-contacts" id="business-location" aria-labelledby="business-location-heading">
       <h2 id="business-location-heading">{en ? 'Address & contacts' : 'Адрес и контакти'}</h2>
-      {description && <p className="business-about-description">{description}</p>}
       {business.address && <BusinessDirectionsLink business={business} locale={locale} address/>}
-      <div className="business-contact-links">{business.phone && <a href={`tel:${business.phone}`}><Icon name="phone" />{business.phone}</a>}{business.website_url && /^https?:\/\//i.test(business.website_url) && <a href={business.website_url} target="_blank" rel="noopener noreferrer"><Icon name="external" />{en ? 'Business website' : 'Сайт на бизнеса'}</a>}</div>
+      {business.phone && <div className="business-contact-links"><a href={`tel:${business.phone}`}><Icon name="phone" />{business.phone}</a></div>}
       {(business.opening_hours?.length === 7 || hours.some(day => day.periods.length)) && <details className="business-weekly-hours profile-hours"><summary><Icon name="clock"/><span>{en ? 'Working hours' : 'Работно време'}</span><Icon name="chevronDown"/></summary><dl>{hours.map(day => <div key={day.weekday}><dt>{weekdays[day.weekday - 1]}</dt><dd>{day.periods.length ? day.periods.map(period => <span key={period}>{period}</span>) : (en ? 'Closed' : 'Почивен ден')}</dd></div>)}</dl></details>}
       {profile.payments.length > 0 && <div className="business-payment-methods"><h3>{en ? 'Payment methods' : 'Начини на плащане'}</h3><div>{[...new Set(profile.payments)].map(method => <span key={method}>{paymentNames[method]}</span>)}</div></div>}
       {profile.brands.length > 0 && <div className="profile-contact-brands"><h3>{en ? 'Brands' : 'Марки'}</h3><p>{[...new Set(profile.brands)].join(' · ')}</p></div>}

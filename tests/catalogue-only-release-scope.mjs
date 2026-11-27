@@ -3,6 +3,7 @@ import { execFileSync } from 'node:child_process'
 import { lstatSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { providerRolePhotosAllowsFileChange, providerRolePhotosAllowsNewFile, providerRolePhotosPriorSource } from './provider-role-photo-scope.mjs'
+import { businessOnboardingSofiaAllowsFileChange, businessOnboardingSofiaAllowsNewFile, businessOnboardingSofiaPriorSource } from './business-onboarding-sofia-scope.mjs'
 
 // Immutable verification anchors for the two independent, tested histories.
 // A historical test may ignore only the exact unchanged blob from the other
@@ -39,7 +40,7 @@ function matches(path, hash, mode) {
   try {
     const st = lstatSync(file)
     if (!st.isFile() || (st.mode & 0o111 ? '100755' : '100644') !== mode) return false
-    const bytes = providerRolePhotosPriorSource(path, readFileSync(file))
+    const bytes = providerRolePhotosPriorSource(path, businessOnboardingSofiaPriorSource(path, readFileSync(file)))
     return createHash('sha1').update('blob ' + bytes.length + '\0').update(bytes).digest('hex') === hash
   } catch {
     return false
@@ -82,13 +83,22 @@ function roleMatchedPreimageMatchesSnapshot(path, commit) {
   } catch { return false }
 }
 
+function onboardingPreimageMatchesSnapshot(path, commit) {
+  if (!businessOnboardingSofiaAllowsFileChange(path)) return false
+  try {
+    const current = readFileSync(new URL('../' + path, import.meta.url))
+    const original = businessOnboardingSofiaPriorSource(path, current)
+    return !original.equals(current) && original.equals(git('show', commit + ':' + path))
+  } catch { return false }
+}
+
 export const publishedBaselineMatches = path => {
   const snapshot = publishedRuntime.get(path)
-  return providerRolePhotosAllowsNewFile(path) || releaseRuleMatches(path) ||
-    Boolean(snapshot && matches(path, snapshot.hash, snapshot.mode)) || roleMatchedPreimageMatchesSnapshot(path, publishedBaseline)
+  return businessOnboardingSofiaAllowsNewFile(path) || providerRolePhotosAllowsNewFile(path) || releaseRuleMatches(path) ||
+    Boolean(snapshot && matches(path, snapshot.hash, snapshot.mode)) || roleMatchedPreimageMatchesSnapshot(path, publishedBaseline) || onboardingPreimageMatchesSnapshot(path, publishedBaseline)
 }
 export const approvedCatalogueMatches = path => {
   const snapshot = approvedCatalogueRuntime.get(path)
-  return providerRolePhotosAllowsNewFile(path) || releaseRuleMatches(path) ||
-    Boolean(snapshot && matches(path, snapshot.hash, snapshot.mode)) || roleMatchedPreimageMatchesSnapshot(path, verifiedCatalogueTip)
+  return businessOnboardingSofiaAllowsNewFile(path) || providerRolePhotosAllowsNewFile(path) || releaseRuleMatches(path) ||
+    Boolean(snapshot && matches(path, snapshot.hash, snapshot.mode)) || roleMatchedPreimageMatchesSnapshot(path, verifiedCatalogueTip) || onboardingPreimageMatchesSnapshot(path, verifiedCatalogueTip)
 }

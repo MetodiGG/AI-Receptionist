@@ -13,6 +13,7 @@ import * as media from '../lib/business-media.mjs'
 import * as servicePricing from '../lib/service-pricing.mjs'
 import * as profileUi from '../lib/business-profile-ui.mjs'
 import { businessApplicationSchema } from '../lib/business-application.mjs'
+import { SOFIA_CITY_CODE } from '../lib/sofia-location-scope.mjs'
 
 const require = createRequire(import.meta.url)
 const { loadBindings, transform } = require('next/dist/build/swc')
@@ -66,6 +67,7 @@ const stubs = {
   '../lib/industry-templates.mjs': templates,
   '../lib/business-media.mjs': media,
   '../lib/photo-selection': { fitPhotoFilesToBudget: async files => files },
+  '../app/business-signup-refresh.css': {},
 }
 const compiled = { exports: {} }
 new Function('require', 'module', 'exports', code)(name => name in stubs ? stubs[name] : require(name), compiled, compiled.exports)
@@ -133,17 +135,27 @@ function addRequiredBusinessFields(h) {
   if (!lookup.props.value) { lookup.props.onChange('Owner studio'); h.render() }
   h.edit('business-phone', '+359881111111')
   h.edit('business-address', 'Owner street 8')
-  h.control('BusinessLocationFields').props.onChange({ city_ekatte: '68134', neighborhood: 'Борово' }); h.render()
-  h.control('PhotoPicker').props.onChange([new File(['local-ui-fixture'], 'owner-photo.png', { type: 'image/png' })]); h.render()
+  h.control('BusinessLocationFields').props.onChange({ ...(h.props.application?{}:{city_ekatte:SOFIA_CITY_CODE}), neighborhood: 'Борово' }); h.render()
+  if (!h.props.application) addRequiredPhoto(h)
 }
-function external(h) {
-  h.control('BookingModeFields').props.onChange({ mode: 'external', url: 'https://owner.example.com/book', consent: true }); h.render()
+function addRequiredPhoto(h) {
+  const picker=h.control('PhotoPicker')
+  assert.ok(picker?.props.required,'the business gallery control must appear in this step')
+  picker.props.onChange([new File(['local-ui-fixture'],'owner-photo.png',{type:'image/png'})]); h.render()
 }
-function advanceToReview(h) {
-  h.next(); assert.ok(h.field('service-0'), 'services step')
-  h.next(); assert.ok(h.find(node => node.props.className === 'staff-row' || node.props.className === 'repeat-row staff-row').length === 0, 'empty staff remains optional in external mode')
-  h.next(); assert.ok(h.control('OpeningHoursEditor'), 'external opening hours remain separate')
-  h.next(); assert.ok(h.find(node => node.props.className === 'review-grid').length, 'review step')
+function chooseBookingMode(h,mode) {
+  const booking=h.control('BookingModeFields')
+  assert.ok(booking,'the booking mode control must appear in this step')
+  booking.props.onChange({mode,...(mode==='external'?{url:'https://owner.example.com/book',consent:true}:{consent:false})}); h.render()
+}
+function advanceToReview(h,{alreadyOnServices=false}={}) {
+  if (!alreadyOnServices) h.next()
+  assert.ok(h.field('service-0'), 'services step')
+  assert.ok(h.find(node => node.props.className === 'staff-row' || node.props.className === 'repeat-row staff-row').length === 0, 'empty staff remains optional in external mode')
+  assert.ok(h.control('OpeningHoursEditor'),'external opening hours remain separate from the native schedule')
+  assert.equal(h.control('WeeklyScheduleFields'),undefined)
+  h.next()
+  assert.ok(h.find(node => node.props.className === 'review-grid').length, 'review follows services directly')
 }
 function checkConsents(h, { photos = true, account = true } = {}) {
   const checkboxes = h.find(node => node.type === 'input' && node.props.type === 'checkbox')
@@ -161,7 +173,7 @@ async function save(h) {
 for (const locale of ['bg', 'en']) test(`${locale}: choosing a suggested service name preserves the entire imported pricing/duration draft`, () => {
   const h = harness({ locale })
   accept(h, candidate('QA name suggestion studio', {}, [{ name: 'Existing service', price: '25.00', currency: 'EUR', duration_min: '45', description: 'Actual owner conditions', price_details: { kind: 'from', unit: 'visit' } }]))
-  addRequiredBusinessFields(h); external(h); h.next()
+  addRequiredBusinessFields(h); h.next(); chooseBookingMode(h,'external')
   const field = h.field('service-0'), before = h.control('ServicePricingFields').props.value
   assert.equal(field.type, controls.ServiceNameInput)
   assert.equal(field.props.industry, 'beauty'); assert.equal(field.props.locale, locale)
@@ -170,6 +182,47 @@ for (const locale of ['bg', 'en']) test(`${locale}: choosing a suggested service
   const after = h.control('ServicePricingFields').props.value
   assert.deepEqual({ ...after, name: before.name }, before, 'only the name changes; imported fields and real amounts are not reset')
   assert.equal(h.field('price-0').props.value, '25.00'); assert.equal(h.field('duration-0').props.value, '45')
+  h.dispose()
+})
+
+for (const locale of ['bg','en']) test(`${locale}: public signup starts with the website and fixed Sofia scope, and rejects stale out-of-area catalogue selections`,()=>{
+  const h=harness({locale})
+  const tabs=h.find(node=>node.props.className?.startsWith('step-item'))
+  assert.equal(tabs.length,3)
+  assert.equal(tabs[0].props['aria-current'],'step')
+  const initialControls=h.find(node=>node.type===controls.CatalogueBusinessLookup||node.props.className?.includes('signup-website-field'))
+  assert.match(initialControls[0].props.className,/signup-website-field/)
+  assert.equal(initialControls[1].type,controls.CatalogueBusinessLookup)
+  assert.equal(h.control('BusinessLocationFields').props.fixedCityCode,SOFIA_CITY_CODE)
+  assert.equal(h.control('BusinessLocationFields').props.cityCode,SOFIA_CITY_CODE)
+  assert.equal(h.control('CatalogueBusinessLookup').props.cityCode,SOFIA_CITY_CODE)
+  assert.equal(h.control('PhotoPicker'),undefined)
+  assert.equal(h.control('BookingModeFields'),undefined)
+
+  accept(h,candidate('Allowed Sofia studio'))
+  for(const city of ['44238','06570','10135']){
+    h.choose(candidate('Out-of-area studio',{cityCode:city,neighborhood:'Not Sofia'}))
+    const messages=h.find(node=>node.props.role==='alert')
+    assert.equal(messages.length,1)
+    assert.match(messages[0].props.children,locale==='bg'?/само за бизнеси в София/:/only in Sofia/)
+    assert.equal(h.control('CatalogueBusinessLookup').props.value,'Allowed Sofia studio')
+    assert.equal(h.control('CatalogueImportReview'),undefined)
+    assert.equal(h.control('BusinessLocationFields').props.cityCode,SOFIA_CITY_CODE)
+    assert.equal(h.control('BusinessLocationFields').props.neighborhood,'Борово')
+  }
+  h.dispose()
+})
+
+for(const mode of ['external','phone'])test(`public ${mode}: services step requires a genuine gallery choice before review`,()=>{
+  const h=harness()
+  accept(h,candidate())
+  addRequiredBusinessFields(h);h.next()
+  chooseBookingMode(h,mode);h.next()
+  assert.ok(h.field('service-0'))
+  assert.equal(h.find(node=>node.props.className==='review-grid').length,0)
+  assert.match(h.find(node=>node.props.role==='alert')[0].props.children,/at least one photo/i)
+  addRequiredPhoto(h);h.next()
+  assert.equal(h.find(node=>node.props.className==='review-grid').length,1)
   h.dispose()
 })
 function chooseAccount(h, mode) {
@@ -182,13 +235,16 @@ for (const application of [true, false]) for (const mode of ['gorez', 'external'
   test(`${application ? 'public application' : 'legacy authenticated registration'} ${mode}: city, quarter and street continue without a map pin or confirmation step`, () => {
     const h = harness({ application })
     addRequiredBusinessFields(h)
-    if (mode === 'external') external(h)
-    else if (mode === 'phone') { h.control('BookingModeFields').props.onChange({ mode: 'phone', consent: false }); h.render() }
+    if (!application) chooseBookingMode(h,mode)
     assert.equal(h.control('BusinessCoordinatesFields'), undefined)
     assert.doesNotMatch(source,/location_confirmed|locationConfirmation|registrationLocationConfirmed/,'no extra address confirmation flag or state')
     assert.equal(h.field('business-address').props.required, true)
     h.next()
     assert.ok(h.field('service-0'), 'all booking modes proceed with ordinary address fields')
+    if (application) {
+      chooseBookingMode(h,mode)
+      assert.equal(h.control('BookingModeFields').props.mode,mode)
+    }
     assert.equal(h.completed.length, 0, 'local flow test does not submit or create an account')
     h.dispose()
   })
@@ -206,20 +262,23 @@ for (const locale of ['bg','en']) test(`${locale}: street label is concise and o
 })
 
 for (const application of [true, false]) for (const mode of ['gorez', 'external', 'phone']) for (const locale of ['bg', 'en']) {
-  test(`${locale}/${application ? 'public' : 'authenticated'}/${mode}: quarter is mandatory and changing city cannot retain an old quarter`, () => {
+  test(`${locale}/${application ? 'public' : 'authenticated'}/${mode}: quarter is mandatory, with editable city changes limited to the legacy setup`, () => {
     const h = harness({ application, locale }); addRequiredBusinessFields(h)
-    if (mode === 'external') external(h)
-    else if (mode === 'phone') { h.control('BookingModeFields').props.onChange({ mode: 'phone' }); h.render() }
+    if (!application) chooseBookingMode(h,mode)
     assert.equal(h.control('BusinessLocationFields').props.neighborhoodRequired, true)
+    const city=application?SOFIA_CITY_CODE:'10135'
+    assert.equal(h.control('BusinessLocationFields').props.fixedCityCode, application?SOFIA_CITY_CODE:'')
     const street = h.field('business-address').props.value
     for (const quarter of ['', '  \t ']) {
-      h.control('BusinessLocationFields').props.onChange({ city_ekatte: '10135', neighborhood: quarter }); h.render(); h.next()
+      h.control('BusinessLocationFields').props.onChange({ ...(application?{}:{city_ekatte:city}), neighborhood: quarter }); h.render(); h.next()
+      assert.equal(h.control('BusinessLocationFields').props.cityCode,city)
       assert.equal(h.field('service-0'), undefined)
       assert.match(h.find(node => node.props.role === 'alert')[0].props.children, locale === 'bg' ? /квартала/ : /neighbourhood/)
       assert.equal(h.field('business-address').props.value, street, 'street and number stay unchanged')
     }
     h.control('BusinessLocationFields').props.onChange({ neighborhood: 'Моят липсващ квартал' }); h.render(); h.next()
     assert.ok(h.field('service-0'), 'a real custom quarter is allowed without an extra step or map pin')
+    if (application) chooseBookingMode(h,mode)
     assert.equal(h.completed.length, 0); h.dispose()
   })
 }
@@ -245,7 +304,7 @@ test('three explicit imports never overwrite manually entered phone/address/webs
 })
 
 test('LocationFields manual patch provenance survives three source imports, including coincident city and quarter', () => {
-  const h = harness()
+  const h = harness({application:false})
   h.control('BusinessLocationFields').props.onChange({ city_ekatte: '10135', neighborhood: 'My manually entered quarter' }); h.render()
   for (const draft of [candidate('First'), candidate('Coincident', { cityCode: '10135', neighborhood: 'My manually entered quarter' }), candidate('Third')]) {
     accept(h, draft)
@@ -266,7 +325,7 @@ test('untouched source fields refresh on a later explicit choice; manually edite
 })
 
 test('a manually selected city with an empty quarter does not permanently mark future imported quarters as manual', () => {
-  const h = harness()
+  const h = harness({application:false})
   h.control('BusinessLocationFields').props.onChange({ city_ekatte: '68134', neighborhood: '' }); h.render()
   accept(h, candidate('First', { neighborhood: 'Борово' }))
   assert.equal(h.control('BusinessLocationFields').props.neighborhood, 'Борово')
@@ -346,8 +405,11 @@ for(const locale of ['bg','en'])test(`${locale}: known native prices move straig
   addRequiredBusinessFields(h);h.next()
   assert.deepEqual([0,1,2].map(index=>h.field(`price-${index}`).props.value),['25','35','20'])
   assert.equal(h.find(node=>node.props.role==='alert').length,0)
+  assert.ok(h.field('staff-0'),'native team is grouped with services')
+  assert.ok(h.control('WeeklyScheduleFields'),'native hours are still configured')
+  addRequiredPhoto(h);h.edit('staff-0','Test team member')
   h.next()
-  assert.ok(h.field('staff-0'),'valid imported prices do not force an extra review step')
+  assert.ok(h.find(node=>node.props.className==='review-grid').length,'valid imported prices do not force another setup step')
 })
 
 test('registration removes per-price confirmation instructions and keeps imported fields editable',()=>{
@@ -364,7 +426,8 @@ function qualifiedExternalDraft() {
   ])
 }
 function readyExternal(h) {
-  external(h); accept(h, qualifiedExternalDraft()); addRequiredBusinessFields(h); advanceToReview(h)
+  accept(h,qualifiedExternalDraft());addRequiredBusinessFields(h);h.next()
+  chooseBookingMode(h,'external');addRequiredPhoto(h);advanceToReview(h,{alreadyOnServices:true})
 }
 
 for (const locale of ['bg', 'en']) test(`${locale}: signed-in owners have an explicit current or separate account choice without changing their identity`, () => {
@@ -400,9 +463,12 @@ test('separate owner credentials survive session refresh, contact edits and all 
   h.backToBusiness(); h.edit('business-email', 'booking-contact@example.com')
   assert.equal(h.control('CatalogueBusinessLookup').props.value, 'Public catalogue name')
   assert.equal(h.control('BusinessLocationFields').props.neighborhood, 'Борово')
+  assert.equal(h.control('PhotoPicker'),undefined,'gallery remains on the services screen')
+  assert.equal(h.control('BookingModeFields'),undefined,'booking choices remain on the services screen')
+  h.next()
   assert.equal(h.control('PhotoPicker').props.files[0].name, 'owner-photo.png')
   assert.equal(h.control('BookingModeFields').props.url, 'https://owner.example.com/book')
-  advanceToReview(h)
+  advanceToReview(h,{alreadyOnServices:true})
   assert.equal(h.field('setup-account-email').props.value, 'typed-owner@example.com', 'contact changes cannot replace typed credentials')
   assert.equal(h.field('setup-account-password').props.value, 'typed-password-only')
   assert.equal(h.find(node => node.type === 'input' && node.props.type === 'checkbox').every(node => node.props.checked), true, 'both consents survive account and step changes')
@@ -531,7 +597,7 @@ test('phone registration skips staff/calendar setup and posts actual imported pr
  globalThis.fetch=async(url,init)=>{assert.equal(url,'/api/public/business-applications');calls.push(init);return{ok:true,json:async()=>({photos:{requested:1,saved:1}})}}
  try{
   const h=harness({preview:false});accept(h,candidate('Phone catalogue fixture',{},[{name:'Known price service',price:'25.00',duration_min:'',currency:'EUR',price_details:{kind:'from'},description:'Actual price conditions.'}]));addRequiredBusinessFields(h)
-  h.control('BookingModeFields').props.onChange({mode:'phone',consent:false});h.render();h.next();assert.ok(h.field('service-0'));assert.equal(h.field('price-0').props.value,'25.00')
+  h.next();chooseBookingMode(h,'phone');addRequiredPhoto(h);assert.ok(h.field('service-0'));assert.equal(h.field('price-0').props.value,'25.00')
   assert.equal(h.control('DurationInput').props.required,false);h.next();assert.ok(h.find(node=>node.props.className==='review-grid').length,'go directly from services to review');assert.equal(h.control('WeeklyScheduleFields'),undefined);assert.equal(h.control('OpeningHoursEditor'),undefined)
   checkConsents(h);await save(h);assert.equal(calls.length,1);const payload=JSON.parse(calls[0].body.get('payload'));assert.equal(payload.business.booking_mode,'phone');assert.deepEqual(payload.staff,[]);assert.deepEqual(payload.schedule,[]);assert.equal(payload.services[0].price,'25.00');assert.equal(payload.services[0].duration_min,null);assert.deepEqual(payload.services[0].price_details,{kind:'from'});assert.equal(businessApplicationSchema.safeParse(payload).success,true)
  }finally{globalThis.fetch=previousFetch}

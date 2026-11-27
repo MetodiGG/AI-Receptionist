@@ -117,18 +117,20 @@ function CheckedSelect({ label, value, options, onChange, placeholder, searchLab
   </div>
 }
 
-export function BusinessLocationFields({ cityCode = '', neighborhood = '', onChange, locale = 'bg', required = false, neighborhoodRequired = false }) {
+export function BusinessLocationFields({ cityCode = '', neighborhood = '', onChange, locale = 'bg', required = false, neighborhoodRequired = false, fixedCityCode = '' }) {
   const en = locale === 'en'
+  const effectiveCityCode = fixedCityCode || cityCode
   const [custom, setCustom] = useState(false)
-  const city = findCity(cityCode)
-  const areas = NEIGHBOURHOODS[cityCode] || []
+  const city = findCity(effectiveCityCode)
+  const areas = NEIGHBOURHOODS[effectiveCityCode] || []
   const known = areas.includes(neighborhood)
   const customArea = custom || Boolean(neighborhood && !known)
-  const cityOptions = useMemo(() => searchCities('', locale).map((item) => ({ value: item.code, label: cityLabel(item, locale) })), [locale])
+  const cityOptions = useMemo(() => fixedCityCode ? [] : searchCities('', locale).map((item) => ({ value: item.code, label: cityLabel(item, locale) })), [locale, fixedCityCode])
   const searchCityOptions = useCallback((query) => searchCities(query, locale).map((item) => ({ value: item.code, label: cityLabel(item, locale) })), [locale])
   const areaOptions = [...(neighborhoodRequired ? [] : [{ value: '', label: en ? 'No neighbourhood specified' : 'Без избран квартал' }]), ...areas.map((area) => ({ value: area, label: en ? transliterate(area) : area, search: area })), { value: '__custom__', label: en ? 'Other — enter a neighbourhood' : 'Друг — въведи квартал' }]
   return <div className="business-location-fields">
-    <CheckedSelect label={en ? 'City in Bulgaria' : 'Град в България'} value={cityCode} options={cityOptions} searchOptions={searchCityOptions} required={required} placeholder={en ? 'Choose a city' : 'Избери град'} searchLabel={en ? 'Search all 257 cities…' : 'Търси сред всички 257 града…'} empty={en ? 'No matching city.' : 'Няма намерен град.'} onChange={(value) => { if (!findCity(value)) return; setCustom(false); onChange({ city_ekatte: value, neighborhood: '' }) }} />
+    {fixedCityCode && city ? <label className="location-field business-signup-fixed-city"><span className="location-label">{en ? 'City' : 'Град'}</span><input className="text-input" value={en?city.nameEn:city.name} readOnly/><small>{en?'Registration is currently open in Sofia.':'Засега регистрацията е отворена за София.'}</small></label>
+      : <CheckedSelect label={en ? 'City in Bulgaria' : 'Град в България'} value={cityCode} options={cityOptions} searchOptions={searchCityOptions} required={required} placeholder={en ? 'Choose a city' : 'Избери град'} searchLabel={en ? 'Search all 257 cities…' : 'Търси сред всички 257 града…'} empty={en ? 'No matching city.' : 'Няма намерен град.'} onChange={(value) => { if (!findCity(value)) return; setCustom(false); onChange({ city_ekatte: value, neighborhood: '' }) }} />}
     {city && <CheckedSelect required={neighborhoodRequired} label={neighborhoodRequired ? (en ? 'Neighbourhood / area' : 'Квартал / район') : (en ? 'Neighbourhood / area (optional)' : 'Квартал / район (незадължително)')} value={customArea ? '__custom__' : neighborhood} options={areaOptions} placeholder={en ? 'Choose a neighbourhood' : 'Избери квартал'} searchLabel={en ? 'Search neighbourhoods…' : 'Търси квартал…'} empty={en ? 'Choose Other to enter a missing neighbourhood.' : 'Избери „Друг“, за да въведеш липсващ квартал.'} onChange={(value) => { setCustom(value === '__custom__'); onChange({ neighborhood: value === '__custom__' ? '' : value }) }} />}
     {city && customArea && <label className="location-field"><span>{en ? 'Neighbourhood name' : 'Име на квартала'}{neighborhoodRequired ? ' *' : ''}</span><input required={neighborhoodRequired} aria-required={neighborhoodRequired || undefined} value={neighborhood} maxLength={120} onChange={(event) => onChange({ neighborhood: event.target.value })} placeholder={en ? 'Enter your neighbourhood' : 'Въведи своя квартал'} /></label>}
   </div>

@@ -267,7 +267,13 @@ test('service calendar actions carry actual service identifiers and selection se
 
 test('contact details preserve real information with working hours initially collapsed and no loaded map', () => {
   const html = render(BusinessProfileInformation, { business, locale: 'bg' })
-  for (const content of ['Actual Person', 'Публикувана биография', 'Реално описание', 'tel:+359888123456', 'https://studio.example.com', 'Actual Brand', '09:00–18:00', 'Почивен ден']) assert.ok(html.includes(content), content)
+  for (const content of ['Actual Person', 'Публикувана биография', 'tel:+359888123456', 'Actual Brand', '09:00–18:00', 'Почивен ден']) assert.ok(html.includes(content), content)
+  const hero = render(BusinessProfileHeader, { business, locale: 'bg' })
+  assert.match(hero, /class="profile-hero-actions"/)
+  assert.match(hero, /href="https:\/\/studio\.example\.com"/)
+  assert.match(hero, /Сайт на бизнеса/)
+  assert.match(hero, /Реално описание/)
+  assert.doesNotMatch(html, /https:\/\/studio\.example\.com|Реално описание/)
   assert.match(html, /<details class="business-weekly-hours profile-hours"><summary>/)
   assert.doesNotMatch(html, /<details[^>]*\bopen(?:=|\s|>)/)
   assert.match(html, /class="profile-map-toggle"/)

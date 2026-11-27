@@ -1,0 +1,149 @@
+/* The public, three-step partner signup. All booking settings run through the existing form. */
+.business-onboarding.business-signup,
+.signup-flow {
+  --signup-ink: #2e2018;
+  --signup-quiet: #6e5546;
+  --signup-edge: #e5d3c3;
+  --signup-surface: #fffbf6;
+  --signup-tint: #f8ebde;
+  --signup-accent: #963d23;
+  --signup-cta: #a6462b;
+  --signup-cta-end: #803017;
+  --signup-on-cta: #fff9f4;
+  --signup-shadow: #63341422;
+}
+html[data-theme="dark"] :is(.business-onboarding.business-signup,.signup-flow) {
+  --signup-ink: #f8ebe0;
+  --signup-quiet: #d8bcaa;
+  --signup-edge: #654a3c;
+  --signup-surface: #2c211a;
+  --signup-tint: #3c2a20;
+  --signup-accent: #ffc09d;
+  --signup-cta: #ffca9f;
+  --signup-cta-end: #efa67b;
+  --signup-on-cta: #321d12;
+  --signup-shadow: #160b065c;
+}
+.business-onboarding.business-signup {
+  max-width: 1180px;
+  display: grid;
+  grid-template-columns: minmax(0,.84fr) minmax(0,1.16fr);
+  gap: clamp(24px,5vw,72px);
+  align-items: start;
+  padding: clamp(25px,5vw,64px) clamp(16px,4vw,48px) 62px;
+  color: var(--signup-ink);
+  background: radial-gradient(ellipse at 2% 8%, color-mix(in srgb,var(--signup-tint) 88%,transparent),transparent 56%);
+}
+.business-signup:has(.onboarding-success) { grid-template-columns: minmax(0,1fr); }
+.business-signup-intro { min-width:0; display:grid; align-content:start; justify-items:start; gap:16px; padding-top:12px; }
+.business-signup-intro .signup-eyebrow { display:inline-flex; gap:7px; align-items:center; padding:6px 11px; border:1px solid var(--signup-edge); border-radius:999px; background:var(--signup-surface); color:var(--signup-accent); font-size:13px; font-weight:690; }
+.business-signup-intro .signup-eyebrow svg,.business-signup-intro .onboarding-help svg { width:16px; height:16px; flex:none; }
+.business-signup-intro h1 { margin:0; max-width:14ch; color:var(--signup-ink); font-size:clamp(35px,4.2vw,62px); line-height:1.04; font-weight:790; letter-spacing:-.055em; }
+.business-signup-intro h1 span { color:var(--signup-accent); }
+.business-signup-intro > p { max-width:34ch; margin:0; color:var(--signup-quiet); font-size:17px; line-height:1.55; }
+.business-signup-intro .signup-benefits { width:100%; list-style:none; margin:9px 0 0; padding:13px 15px; border:1px solid var(--signup-edge); border-radius:17px; background:var(--signup-surface); }
+.signup-benefits li { display:flex; align-items:center; gap:12px; }
+.signup-benefits li + li { border-top:1px solid var(--signup-edge); margin-top:12px; padding-top:12px; }
+.signup-benefits li > span { display:grid; place-items:center; flex:0 0 38px; height:38px; border-radius:12px; background:var(--signup-tint); color:var(--signup-accent); }
+.signup-benefits li svg { width:18px; height:18px; }
+.signup-benefits li > div { display:grid; gap:2px; }
+.signup-benefits strong { font-size:14px; }
+.signup-benefits small { color:var(--signup-quiet); font-size:13px; }
+.business-signup-intro .onboarding-help { min-height:44px; display:inline-flex; align-items:center; gap:8px; color:var(--signup-accent); }
+
+.signup-flow.setup-layout { max-width:100%; margin:0; }
+.signup-flow .wizard-card,
+.business-onboarding.business-signup .signup-flow .wizard-card {
+  min-width:0; background:var(--signup-surface); border:1px solid var(--signup-edge); border-radius:22px;
+  box-shadow:0 18px 35px -22px var(--signup-shadow); color:var(--signup-ink);
+}
+.signup-flow .wizard-head,
+.business-onboarding.business-signup .signup-flow .wizard-head {
+  padding:clamp(17px,3vw,27px) clamp(16px,3vw,28px) 12px; border-radius:22px 22px 0 0; background:var(--signup-surface);
+}
+.signup-flow .wizard-head > small,
+.business-onboarding.business-signup .signup-flow .wizard-head > small { font-size:13px; font-weight:740; color:var(--signup-accent); }
+.signup-flow .wizard-head h2 { margin:14px 0 0; color:var(--signup-ink); font-size:clamp(23px,2.5vw,32px); line-height:1.18; letter-spacing:-.035em; }
+.signup-flow .wizard-head h2:focus { outline:none; }
+.signup-flow .wizard-head > p,
+.business-onboarding.business-signup .signup-flow .wizard-head > p { margin:7px 0 0; color:var(--signup-quiet); font-size:14px; }
+.signup-flow .wizard-head .steps-card,
+.business-onboarding.business-signup .signup-flow .wizard-head .steps-card {
+  display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); grid-auto-flow:column; gap:8px; padding:0; margin:8px 0 0; background:none; border:0;
+}
+.signup-flow .wizard-head .step-item,
+.business-onboarding.business-signup .signup-flow .wizard-head .step-item {
+  min-height:44px; display:flex; justify-content:flex-start; align-items:flex-start; padding:6px 2px 0; margin:0;
+  border:0; border-top:4px solid var(--signup-edge); border-radius:4px 4px 0 0; background:none; color:var(--signup-quiet);
+}
+.signup-flow .wizard-head .step-item:is(.active,.done),
+.business-onboarding.business-signup .signup-flow .wizard-head .step-item:is(.active,.done) { border-top-color:var(--signup-accent); color:var(--signup-ink); }
+.signup-flow .wizard-head .step-number { display:none; }
+.signup-flow .wizard-head .step-label,
+.business-onboarding.business-signup .signup-flow .wizard-head .step-label { font-size:13px; text-align:left; }
+.signup-flow .signup-website-field {
+  display:grid; gap:7px; padding:12px; border:1px solid var(--signup-edge); border-radius:15px; background:var(--signup-tint); color:var(--signup-ink);
+}
+.signup-flow .signup-website-field > span { display:flex; align-items:center; flex-wrap:wrap; gap:6px; font-size:14px; font-weight:710; }
+.signup-flow .signup-website-field svg { width:16px; height:16px; color:var(--signup-accent); }
+.signup-flow .signup-website-field > span small { margin-left:auto; font-weight:520; }
+.signup-flow :is(.signup-website-field small,.business-signup-fixed-city small) { font-size:12px; color:var(--signup-quiet); line-height:1.4; }
+.signup-flow .business-signup-fixed-city input[readonly] { color:var(--signup-ink); background:var(--signup-tint); }
+.signup-flow .booking-mode-cards .booking-mode-options { display:grid; gap:8px; }
+.signup-flow .booking-mode-cards .booking-mode-option {
+  display:grid; grid-template-columns:auto minmax(0,1fr) auto; align-items:center; gap:10px; min-height:60px; padding:9px 11px;
+  border:1px solid var(--signup-edge); border-radius:12px; background:var(--signup-surface); cursor:pointer;
+}
+.signup-flow .booking-mode-option:has(input:checked) { border-color:var(--signup-accent); background:var(--signup-tint); }
+.signup-flow .booking-mode-option span { display:grid; gap:3px; }
+.signup-flow :is(.booking-mode-option small,.booking-mode-destination p) { color:var(--signup-quiet); font-size:13px; line-height:1.4; }
+.signup-flow .booking-mode-option svg { width:17px; height:17px; color:var(--signup-accent); }
+.signup-flow .booking-mode-option input { accent-color:var(--signup-accent); margin:0; }
+.signup-flow .booking-mode-cards .booking-mode-destination { display:grid; gap:5px; margin-top:10px; }
+.signup-flow .booking-mode-cards { margin-bottom:18px; }
+.signup-flow .business-signup-photo { margin-top:16px; }
+.signup-flow .signup-optional-section {
+  margin-top:14px; min-width:0; padding:0 12px; border:1px solid var(--signup-edge); border-radius:13px; background:var(--signup-surface);
+}
+.signup-flow .signup-optional-section[open] { padding-bottom:12px; }
+.signup-flow .signup-optional-section > summary {
+  display:flex; align-items:center; justify-content:space-between; gap:9px; min-height:44px; color:var(--signup-ink); font-weight:700; cursor:pointer; list-style:none;
+}
+.signup-flow .signup-optional-section > summary::-webkit-details-marker { display:none; }
+.signup-flow .signup-optional-section > summary svg { flex:none; width:15px; height:15px; }
+.signup-flow .signup-optional-section[open] > summary svg { transform:rotate(180deg); }
+.signup-flow .review-card strong { overflow-wrap:anywhere; }
+.signup-flow .wizard-actions,
+.business-onboarding.business-signup .signup-flow .wizard-actions { border-color:var(--signup-edge); border-radius:0 0 22px 22px; background:var(--signup-surface); }
+.signup-flow .wizard-actions .primary-button,
+.business-onboarding.business-signup .signup-flow .wizard-actions .primary-button {
+  margin-left:auto; background:linear-gradient(145deg,var(--signup-cta),var(--signup-cta-end)); color:var(--signup-on-cta); border-color:transparent; box-shadow:0 8px 16px -10px var(--signup-cta-end);
+}
+.signup-flow .wizard-actions [hidden] { display:none; }
+.signup-flow :is(.text-input,.select-input,.compact-input):focus-visible { outline-color:var(--signup-accent); }
+html[data-theme="dark"] .signup-flow .booking-mode-cards .booking-mode-option,
+html[data-theme="dark"] .signup-flow .booking-mode-cards .booking-mode-option strong { color:var(--signup-ink); }
+@media (hover:hover) {
+  .signup-flow .wizard-actions .primary-button:not(:disabled):hover,
+  .business-onboarding.business-signup .signup-flow .wizard-actions .primary-button:not(:disabled):hover { filter:brightness(1.08); }
+}
+@media (max-width:940px) {
+  .business-onboarding.business-signup { gap:24px; }
+  .business-signup .signup-flow .onboarding-service-row { grid-template-columns:minmax(0,1fr) minmax(0,1fr) 40px; gap:8px; }
+  .business-signup .signup-flow .onboarding-service-row > .onboarding-service-name { grid-column:1/3; }
+  .business-signup .signup-flow .onboarding-service-row > .icon-button { grid-column:3; grid-row:1; margin-top:19px; }
+  .business-signup .signup-flow .onboarding-service-row > div:nth-child(2) { grid-column:1; }
+  .business-signup .signup-flow .onboarding-service-row > div:nth-child(3) { grid-column:2/4; }
+}
+@media (max-width:720px) {
+  .business-onboarding.business-signup { grid-template-columns:minmax(0,1fr); gap:16px; }
+  .business-signup-intro { padding-top:0; gap:10px; }
+  .business-signup-intro h1 { max-width:19ch; font-size:clamp(32px,7vw,46px); }
+  .business-signup-intro > p { max-width:45ch; font-size:15px; }
+  .business-signup-intro .signup-benefits { display:none; }
+  .business-signup-intro .onboarding-help { margin-block:-4px; font-size:13px; }
+}
+@media (max-width:420px) {
+  .business-onboarding.business-signup .signup-flow .form-grid { grid-template-columns:minmax(0,1fr); }
+  .business-onboarding.business-signup .signup-flow .business-location-fields { grid-template-columns:minmax(0,1fr); }
+}

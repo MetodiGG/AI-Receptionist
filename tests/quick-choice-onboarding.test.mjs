@@ -8,25 +8,31 @@ test('quick-choice registration is scoped to the actual application, not dashboa
   const css = await read('app/quick-choice-onboarding.css')
   const onboarding = await read('components/business-onboarding.js')
   const setup = await read('components/business-setup.js')
-  assert.match(onboarding, /className="business-onboarding"/)
+  assert.match(onboarding, /className="business-onboarding business-signup"/)
   assert.match(onboarding, /<BusinessSetup application session=/)
-  assert.match(setup, /className="setup-layout compact-business-setup"/)
+  assert.match(setup, /className=\{`setup-layout compact-business-setup\$\{application\?' signup-flow':''\}/)
   for (const line of css.split('\n')) {
     if (line.startsWith('.') || line.startsWith('  .')) assert.match(line.trimStart(), /^\.business-onboarding(?:[\s.{>])/)
   }
   assert.doesNotMatch(css, /\.launch-navigation|\.language-switch|\.country-flag|\.launch-menu|\.dashboard|\.admin|^body\s*\{|^:root/m)
 })
 
-test('segmented progress supports the actual five-step and telephone three-step flows without replacing their controls', async () => {
+test('new applications group the existing service, team, and schedule controls into their three visible steps', async () => {
   const css = await read('app/quick-choice-onboarding.css')
+  const refresh = await read('app/business-signup-refresh.css')
   const setup = await read('components/business-setup.js')
   assert.match(css, /\.steps-card \{[^}]*grid-auto-flow: column; grid-auto-columns: minmax\(0,1fr\)/)
   assert.match(css, /\.step-item\.active \{[^}]*border-top-color: #a44f24/)
   assert.match(css, /\.step-item\.done \{[^}]*border-top-color: #658460/)
   assert.match(css, /\.step-label \{[^}]*font-size: 15px/)
-  assert.match(setup, /phoneOnly&&\(index===2\|\|index===3\)\?null/)
+  assert.match(setup, /const APPLICATION_STEPS = \[0, 1, 4\]/)
+  assert.match(setup, /visibleSteps=application\?APPLICATION_STEPS:phoneOnly\?\[0,1,4\]:\[0,1,2,3,4\]/)
+  assert.match(setup, /application&&step===1\?\[1,2,3\]:\[step\]/)
+  assert.match(setup, /\(step === 2 \|\| application&&step===1\)/)
+  assert.match(setup, /\(step === 3 \|\| application&&step===1\)/)
   assert.match(setup, /aria-current=\{index===step\?'step':undefined\}/)
-  assert.match(setup, /phoneOnly\?3:steps.length/)
+  assert.match(setup, /fixedCityCode=\{application\?SOFIA_CITY_CODE:''\}/)
+  assert.match(refresh, /\.wizard-head \.steps-card[\s\S]*grid-template-columns:repeat\(3,minmax\(0,1fr\)\)/)
   assert.doesNotMatch(css, /\.step-item[^}]*display:\s*none/)
 })
 

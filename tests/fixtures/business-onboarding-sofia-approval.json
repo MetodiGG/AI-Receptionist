@@ -1,0 +1,54 @@
+{
+  "baseline": "5c118d4f000b6a9bfdb11c581174f7839bc15ab6",
+  "changed": {
+    "components/business-onboarding.js": {
+      "before": "dd139285987c0c4a6092bcefe26b83ae0bc9360dd80a444078845e087b411556",
+      "after": "5f626e0812fb77e13c6b1b3c991b53db5ab21ee5ed91ec3c5af0c231e77c75e4"
+    },
+    "components/business-setup.js": {
+      "before": "5005ba51c6b862c0e9f9b89715444825a46403583f85a6ff0411c9231c89a0c8",
+      "after": "4e9ae874da8a66f1a2d14ebc943c8999e406d6e40d52f1e3a0581b5d0e82c163"
+    },
+    "components/business-location-fields.js": {
+      "before": "7a2b2b737fde35d4ac459229fe13dbc583504243433ec5d9f833bc60f1bfaf95",
+      "after": "a484312f210bb24bb3f225032b2b4564b2c7b79355946d90dc6baeb2f5c6a42a"
+    },
+    "components/booking-mode-fields.js": {
+      "before": "389923cb8250ba464d92d0570ddd5d67ae5545a834c91407042f33671d8fc184",
+      "after": "2f554bbee82b8146e581012c149f27019288158a5b52b24899b6f34f944f1d7a"
+    },
+    "components/catalogue-business-lookup.js": {
+      "before": "b3141210f46a5747c989add4f2f7e4fa723f967b9f60999b55ebb48c85fb3da6",
+      "after": "4073bcef6e74511a5d9671dfd72a582d748f6705788933e8eb49f8f5009fcfd8"
+    },
+    "components/business-profile.js": {
+      "before": "5d210abbab9771143c1abd9f53807a0b57b8b8afd281386d83be5dc306430593",
+      "after": "e036fbd78c73acbd340d613f22d7a40c904f9d948e0d4eacaa2b28db2664d7bb"
+    },
+    "components/public-booking-page.js": {
+      "before": "03430e044c63829506f3e9e64c7216232bc0282b02b17e90febc17557c9fd48a",
+      "after": "d5c81987bfc961a3d9013608a1cefba194413643ba5ebc5801f69d06f7d10ae6"
+    },
+    "app/businesses/catalogue/[id]/page.js": {
+      "before": "2caadbb7b74da27df3c86f4bbb211095bcdd0440e2848601f62d2f00f950f9cc",
+      "after": "8423a2ddb63b56b886375e7a8885194b3cc64308a7bb150a81fe1060493361b7"
+    },
+    "app/business-profile.css": {
+      "before": "c900d6a09b2f773c8d4895a731831c8a27a3dda2cc36560f97168d451208dda2",
+      "after": "61562ad8690028e603760d9e73d7b1e58fbe15d3d72736a6fcf1171228648d33"
+    },
+    "lib/business-application.mjs": {
+      "before": "57d09d25e260cd70acdc7286e62ea6792870bfb00c6814c7c0754a96e02204c4",
+      "after": "cf5948e5b4bc11b30e433e25b1989dbe2a46879e42f6d70f43e067aa3933d111"
+    },
+    "app/dashboard/settings/page.js": {
+      "before": "8c1504c7577288d11b8b2777135c28363290b827cebd6dbb75db525f4e6c3ac7",
+      "after": "cf2c945d29f66d9af454596ca48b6df44ee7e88288602a9572ddc763ff8ce31d"
+    }
+  },
+  "added": {
+    "app/business-signup-refresh.css": "a2cc53ed4b19243c41c93f41a74466120410ea203a77be4fbd337f1b2d20bc41",
+    "components/owner-business-client-preview.js": "d51dfca68a7bc561d00062ec0576911d060f120ae29e7beb1d0fe62fb7007b79",
+    "app/dashboard/settings/settings-profile.module.css": "ba312401f56936145a55017e945d0da931a739082358ffb8e154d2e749106a08"
+  }
+}

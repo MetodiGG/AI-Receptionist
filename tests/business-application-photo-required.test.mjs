@@ -83,7 +83,9 @@ test('normalization cannot silently discard the only gallery photo and still cre
 test('registration marks the gallery required, keeps team portraits optional and rechecks before final submission', async () => {
   const setup = await readFile(new URL('../components/business-setup.js', import.meta.url), 'utf8')
   const picker = await readFile(new URL('../components/photo-picker.js', import.meta.url), 'utf8')
-  assert.match(setup, /if\(currentStep===0&&!businessPhotos\.length\)/)
+  assert.match(setup, /const bookingStep=application\?1:0/)
+  assert.match(setup, /if\(currentStep===bookingStep&&!businessPhotos\.length\)/)
+  assert.match(setup, /\{application&&photoPicker\}/)
   assert.match(setup, /<PhotoPicker files=\{businessPhotos\}[^>]* required label=/)
   assert.match(setup, /Team photo \(optional\)/)
   assert.match(setup, /validateCurrentStep\(index\)/)

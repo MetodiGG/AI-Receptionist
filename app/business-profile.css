@@ -267,3 +267,41 @@
 @media(prefers-reduced-motion:reduce) {
   .profile-redesign * { scroll-behavior:auto!important; animation:none!important; transition:none!important; }
 }
+
+/* Public profile only: official website and the existing booking action are distinct. */
+.profile-redesign .business-profile-hero {
+  --profile-site-ink:#573522;
+  --profile-site-edge:#e2cdbc;
+  --profile-site-surface:#fffaf4;
+  --profile-site-tint:#f8ecdf;
+  box-shadow:0 14px 36px -28px #6d3b1f44;
+}
+html[data-theme="dark"] .profile-redesign .business-profile-hero {
+  --profile-site-ink:#ffddc3;
+  --profile-site-edge:#70503e;
+  --profile-site-surface:#2d231b;
+  --profile-site-tint:#3e2b20;
+}
+.profile-redesign .profile-hero-description { max-width:64ch; margin:2px 0; color:var(--profile-site-ink); font-size:15px; line-height:1.55; }
+.profile-redesign .profile-hero-actions { display:flex; gap:9px; flex-wrap:wrap; align-items:center; }
+.profile-redesign .profile-hero-actions > * { min-width:0; max-width:100%; }
+.profile-redesign .profile-business-website {
+  display:inline-flex; gap:7px; align-items:center; justify-content:center; min-height:44px; padding:8px 12px;
+  border:1px solid var(--profile-site-edge); border-radius:12px; text-decoration:none; text-align:center;
+  font-size:14px; font-weight:700; color:var(--profile-site-ink); background:var(--profile-site-surface);
+}
+.profile-redesign .profile-business-website svg { flex:none; width:16px; height:16px; }
+.profile-redesign .profile-business-website:hover { background:var(--profile-site-tint); }
+.profile-redesign .profile-hero-book { min-height:44px; }
+@media (min-width:840px) {
+  .profile-redesign .business-profile-hero:has(> :is(.business-photo-gallery,.business-profile-no-photo)) {
+    display:grid; grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr); align-items:stretch;
+  }
+  .profile-redesign .business-profile-hero > :is(.business-photo-gallery,.business-profile-no-photo) {
+    min-width:0; min-height:264px; height:auto; align-self:stretch;
+  }
+  .profile-redesign .business-profile-identity { align-content:center; gap:14px; padding:26px 28px; }
+}
+@media (max-width:360px) {
+  .profile-redesign .profile-hero-actions > * { flex:1 1 100%; }
+}

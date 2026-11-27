@@ -362,7 +362,11 @@ export default function PublicBookingPage({ initialLocale = 'bg', previewBusines
         <HomeLink locale={locale}/>
       </header>
       {previewBusiness && <p className="local-profile-qa-label">LOCAL QA · fictional profile and reviews · not a real business</p>}
-      {!embedded && <BusinessProfileHeader business={business} locale={locale}/>}
+      {!embedded && <BusinessProfileHeader business={business} locale={locale} bookingAction={
+        isExternalBooking(business)||isPhoneBooking(business)
+          ? <OutboundBookingButton business={business} locale={locale} className="profile-hero-book" disabled={Boolean(previewBusiness)}>{isPhoneBooking(business)?(en?'Book by phone':'Резервирай по телефон'):(en?'Book on the website':'Резервирай в сайта')}</OutboundBookingButton>
+          : <PublicAction as="a" className="profile-hero-book" href="#booking-experience">{en?'Book with GoRez':'Резервирай в GoRez'}</PublicAction>
+      }/>}
       <BusinessBookingExperience business={business} locale={locale} preview={Boolean(previewBusiness)} previewCalendarScenario={previewCalendarScenario} key={profileBookingContextKey(business)}/>
       {!embedded && <div className="business-profile-bottom"><BusinessProfileInformation business={business} locale={locale} /><BusinessReviews reviews={reviews} locale={locale} /></div>}
       <footer className="booking-footer"><span>{copy.secure}</span><span><Link href={`/privacy?lang=${locale}`}>{copy.privacy}</Link> · <Link href={`/terms?lang=${locale}`}>{copy.legalTerms}</Link></span><span>{copy.powered}</span></footer>

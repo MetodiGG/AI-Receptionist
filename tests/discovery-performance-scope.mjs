@@ -13,6 +13,7 @@ import { catalogueIntakeAllowsFileChange, catalogueIntakeAllowsNewFile, catalogu
 import { garage46PriorSource } from './catalogue-garage46-serdika-20261127-scope.mjs'
 import { releaseRuleMatches, standingRuleHistoryPriorSource } from './catalogue-only-release-scope.mjs'
 import { providerRolePhotosAllowsNewFile } from './provider-role-photo-scope.mjs'
+import { businessOnboardingSofiaAllowsFileChange, businessOnboardingSofiaAllowsNewFile, businessOnboardingSofiaPriorSource } from './business-onboarding-sofia-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -26,16 +27,17 @@ function currentHash(path, digest, priorSource = (_, source) => source) {
   } catch { return false }
 }
 
-export const discoveryPerformanceAllowsFileChange = path => releaseRuleMatches(path) || catalogueIntakeAllowsFileChange(path) || publicFirstLoadAllowsFileChange(path) || homepageBrowseStartAllowsFileChange(path) || mobileDiscoveryFirstPaintAllowsFileChange(path) || staticWebpCacheCpuAllowsFileChange(path) || preparedPhotosAllowsFileChange(path) || detailPreviewAllowsFileChange(path) || currentHash(path, receipt.changed[path]?.after)
+export const discoveryPerformanceAllowsFileChange = path => businessOnboardingSofiaAllowsFileChange(path) || releaseRuleMatches(path) || catalogueIntakeAllowsFileChange(path) || publicFirstLoadAllowsFileChange(path) || homepageBrowseStartAllowsFileChange(path) || mobileDiscoveryFirstPaintAllowsFileChange(path) || staticWebpCacheCpuAllowsFileChange(path) || preparedPhotosAllowsFileChange(path) || detailPreviewAllowsFileChange(path) || currentHash(path, receipt.changed[path]?.after)
 // The original cover-only module was NEW here and later acquired one sealed
 // branch illustration. Verify its exact preimage, not just a known pathname.
-export const discoveryPerformanceAllowsNewFile = path => providerRolePhotosAllowsNewFile(path) || catalogueIntakeAllowsNewFile(path) || homepageBrowseStartAllowsNewFile(path) || preparedPhotosAllowsNewFile(path) || detailPreviewAllowsNewFile(path) ||
+export const discoveryPerformanceAllowsNewFile = path => businessOnboardingSofiaAllowsNewFile(path) || providerRolePhotosAllowsNewFile(path) || catalogueIntakeAllowsNewFile(path) || homepageBrowseStartAllowsNewFile(path) || preparedPhotosAllowsNewFile(path) || detailPreviewAllowsNewFile(path) ||
   currentHash(path, receipt.added[path], garage46PriorSource)
 export const discoveryPerformanceAllowsPath = path => discoveryPerformanceAllowsFileChange(path) || discoveryPerformanceAllowsNewFile(path)
 
 // Keep previous approvals enforceable. Only revert a reviewed whole-file
 // performance delta under historical tests; unreviewed bytes stay visible.
 export function discoveryPerformancePriorSource(path, source) {
+  source = businessOnboardingSofiaPriorSource(path, source)
   source = standingRuleHistoryPriorSource(path, source)
   source = homepageBrowseStartPriorSource(path, source)
   source = mobileDiscoveryFirstPaintPriorSource(path, source)

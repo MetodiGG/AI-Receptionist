@@ -13,11 +13,14 @@ import { BusinessPublicProfileEditor } from '../../../components/business-public
 import { BusinessMediaEditor } from '../../../components/business-media-editor'
 import { useUnsavedChanges } from '../../../hooks/use-unsaved-changes'
 import { BusinessBookingSettings } from '../../../components/business-booking-settings'
+import { OwnerBusinessClientPreview } from '../../../components/owner-business-client-preview'
+import { Icon } from '../../../components/icon'
 import { ServicePricingFields } from '../../../components/service-pricing-fields'
 import { ServiceNameInput } from '../../../components/service-name-input'
 import { editableServiceSchema } from '../../../lib/service-pricing.mjs'
-import { findCity } from '../../../lib/business-location.mjs'
+import { findCity, transliterate } from '../../../lib/business-location.mjs'
 import { DURATION_OPTIONS, validDuration, scheduleFromHours, scheduleProblem, scheduleRows, scheduleErrorText, scheduleWriteError } from '../../../lib/business-schedule.mjs'
+import styles from './settings-profile.module.css'
 
 const WEEK = {
   bg: [[1, 'Понеделник'], [2, 'Вторник'], [3, 'Сряда'], [4, 'Четвъртък'], [5, 'Петък'], [6, 'Събота'], [7, 'Неделя']],
@@ -28,9 +31,8 @@ function defaultSchedule(locale) {
   return WEEK[locale].map(([weekday, label]) => ({ weekday, label, enabled: weekday <= 5, open: '09:00', close: '18:00' }))
 }
 
-export function SettingsContent({ business, refreshBusiness, locale, preview = false, previewCollections = {} }) {
-  const en = locale === 'en'
-  const [profile, setProfile] = useState({
+function savedProfileFields(business, locale) {
+  return {
     name: business.name || '', phone: business.phone || '', address: business.address || '', timezone: business.timezone || 'Europe/Sofia',
     welcome_message: business.welcome_message || '', bot_instructions: business.bot_instructions || '', booking_window_days: business.booking_window_days || 60,
     minimum_notice_minutes: business.minimum_notice_minutes ?? 60, cancellation_notice_hours: business.cancellation_notice_hours ?? 12,
@@ -40,7 +42,12 @@ export function SettingsContent({ business, refreshBusiness, locale, preview = f
     notification_locale: business.notification_locale || locale,
     city_ekatte: business.city_ekatte || '', neighborhood: business.neighborhood || '',
     default_duration_min: business.default_duration_min ?? 45, booking_slot_minutes: business.booking_slot_minutes ?? 15,
-  })
+  }
+}
+
+export function SettingsContent({ business, refreshBusiness, locale, preview = false, previewCollections = {} }) {
+  const en = locale === 'en'
+  const [profile, setProfile] = useState(() => savedProfileFields(business, locale))
   const [services, setServices] = useState(preview ? previewCollections.services || [] : [])
   const [staff, setStaff] = useState(preview ? previewCollections.staff || [] : [])
   const [hours, setHours] = useState(preview ? previewCollections.hours || [] : [])
@@ -54,10 +61,31 @@ export function SettingsContent({ business, refreshBusiness, locale, preview = f
   const [notificationStatus, setNotificationStatus] = useState(null)
   const [dirtySections,setDirtySections] = useState({})
   const [profileVersion, setProfileVersion] = useState(() => ({ businessId: business.id, revision: business.content_revision }))
+  const [clientView, setClientView] = useState(false)
+  const [savedServices, setSavedServices] = useState(preview ? (previewCollections.services || []).filter(service => service.active !== false) : [])
+  const [collectionState, setCollectionState] = useState(preview ? 'ready' : 'loading')
   useUnsavedChanges(Object.values(dirtySections).some(Boolean),locale)
-  const sections=[['business',en?'Business information':'Данни за бизнеса'],['public',en?'Public profile & reviews':'Публична страница и отзиви'],['photos',en?'Photos':'Снимки'],['services',en?'Services':'Услуги'],['staff',en?'Team':'Екип'],['booking',en?'Booking method':'Начин на резервация'],['hours',en?'Opening hours & schedule':'Работно време и график'],['timeoff',en?'Time off':'Отсъствия'],['assistant',en?'Assistant':'Асистент'],['data',en?'Data':'Данни'],['account',en?'Account':'Акаунт']]
+  const mainSections = [
+    ['business', en ? 'Public profile' : 'Публичен профил', 'store', ['business', 'public']],
+    ['services', en ? 'Services and prices' : 'Услуги и цени', 'scissors', ['services']],
+    ['photos', en ? 'Photos' : 'Снимки', 'grid', ['photos']],
+    ['booking', en ? 'Bookings' : 'Резервации', 'calendar', ['booking', 'hours', 'timeoff']],
+  ]
+  const advancedSections = [
+    ['staff', en ? 'Team' : 'Екип'],
+    ['assistant', en ? 'Assistant' : 'Асистент'],
+    ['data', en ? 'Data' : 'Данни'],
+    ['account', en ? 'Account' : 'Акаунт'],
+  ]
+  const publicSections = [['business', en ? 'Details and website' : 'Данни и уебсайт'], ['public', en ? 'About, payments and reviews' : 'Описание, плащания и отзиви']]
+  const bookingSections = [['booking', en ? 'Booking method' : 'Начин на резервация'], ['hours', en ? 'Working hours and schedule' : 'Работно време и график'], ['timeoff', en ? 'Time off' : 'Отсъствия']]
+  const innerSections = publicSections.some(([value]) => value === section) ? publicSections : bookingSections.some(([value]) => value === section) ? bookingSections : null
+  const city = findCity(business.city_ekatte)
+  const footerCity = en ? city?.nameEn || business.city : city?.name || business.city
+  const neighbourhoodOrCity = [footerCity, en ? transliterate(business.neighborhood || '') : business.neighborhood].filter(Boolean).join(' · ')
+  const isPublished = business.platform_status === 'enabled' && business.active !== false
   function changeSection(next) {
-    if(saving)return
+    if(saving||next===section)return
     if(['public','photos','booking'].includes(section)&&dirtySections[section]) {
       if(!window.confirm(en?'Leave this editor? Unsaved edits in it will be lost.':'Да напуснеш ли редактора? Незапазените промени в него ще се загубят.'))return
       setDirtySections(current=>({...current,[section]:false}))
@@ -87,6 +115,11 @@ export function SettingsContent({ business, refreshBusiness, locale, preview = f
       supabase.from('working_hours').select('*').eq('business_id', business.id).order('weekday'),
       supabase.from('time_off').select('*').eq('business_id', business.id).gte('ends_at', new Date().toISOString()).order('starts_at'),
     ])
+    if (servicesResult.error) setCollectionState('unavailable')
+    else {
+      setSavedServices(servicesResult.data || [])
+      setCollectionState('ready')
+    }
     const error = servicesResult.error || staffResult.error || hoursResult.error || timeOffResult.error
     if (error) { setMessage({ type: 'error', text: error.message }); return }
     setServices(servicesResult.data || [])
@@ -97,7 +130,18 @@ export function SettingsContent({ business, refreshBusiness, locale, preview = f
   }, [business.id])
 
   useEffect(() => { loadCollections() }, [loadCollections])
-  useEffect(() => { const requested=new URLSearchParams(window.location.search).get('section'); if (['timeoff','account','booking'].includes(requested)) setSection(requested) }, [])
+  useEffect(() => {
+    const requested = new URLSearchParams(window.location.search).get('section')
+    if (['business','public','photos','services','staff','booking','hours','timeoff','assistant','data','account'].includes(requested)) setSection(requested)
+  }, [])
+  useEffect(() => {
+    // An editor opened after another section saved can use that new revision.
+    // Never rebase a dirty form on someone else's concurrent changes.
+    if (dirtySections.business || dirtySections.assistant || !Number.isSafeInteger(business.content_revision) ||
+      profileVersion.businessId === business.id && Number.isSafeInteger(profileVersion.revision) && profileVersion.revision >= business.content_revision) return
+    setProfile(savedProfileFields(business, locale))
+    setProfileVersion({ businessId: business.id, revision: business.content_revision })
+  }, [business, locale, profileVersion, dirtySections.business, dirtySections.assistant])
   useEffect(() => {
     if (!selectedStaff) return
     setSchedule(scheduleFromHours(WEEK[locale], hours, selectedStaff))
@@ -142,6 +186,7 @@ export function SettingsContent({ business, refreshBusiness, locale, preview = f
     const { data, error } = await supabase.from('services').insert({ business_id: business.id, name: en ? 'New service' : 'Нова услуга', price: external?null:0, currency: 'EUR', duration_min: external?null:business.default_duration_min ?? 45, sort_order: services.length }).select().single()
     if (error) { setMessage({ type: 'error', text: error.message }); return }
     setServices((current) => [...current, data])
+    setSavedServices(current => [...current, data])
   }
 
   async function saveService(service) {
@@ -151,9 +196,11 @@ export function SettingsContent({ business, refreshBusiness, locale, preview = f
     const parsed=editableServiceSchema.safeParse({name:service.name,price:service.price,currency:service.currency||'EUR',description:service.description||'',price_details:service.price_details||{},duration_min:service.duration_min})
     if(!parsed.success){setMessage({type:'error',text:en?'Check the price type, currency, maximum and units. A range needs a maximum at least equal to the starting price.':'Провери вида цена, валутата, максимума и единицата. Максималната цена в диапазона трябва да е поне колкото началната.'});return}
     setSaving(true)
-    const { error } = await supabase.from('services').update({ ...parsed.data, description:parsed.data.description||null,category:service.category?.trim().slice(0,80)||null }).eq('id', service.id).eq('business_id', business.id)
+    const saved = { ...parsed.data, description:parsed.data.description||null,category:service.category?.trim().slice(0,80)||null }
+    const { error } = await supabase.from('services').update(saved).eq('id', service.id).eq('business_id', business.id)
     setSaving(false)
     if (error) { setMessage({ type: 'error', text: error.message }); return }
+    setSavedServices(current => current.map(item => item.id === service.id ? { ...item, ...saved } : item))
     showSuccess(en ? 'Service saved.' : 'Услугата е запазена.')
   }
 
@@ -162,6 +209,7 @@ export function SettingsContent({ business, refreshBusiness, locale, preview = f
     const { error } = await supabase.from('services').update({ active: false }).eq('id', id).eq('business_id', business.id)
     if (error) { setMessage({ type: 'error', text: error.message }); return }
     setServices((current) => current.filter((item) => item.id !== id))
+    setSavedServices(current => current.filter(item => item.id !== id))
   }
 
   async function addStaff() {
@@ -254,12 +302,39 @@ export function SettingsContent({ business, refreshBusiness, locale, preview = f
   }
 
   return (
-    <main className="dashboard-content admin-page settings-page" onChangeCapture={event=>{if(!event.target.closest('.settings-section-selector'))setDirtySections(current=>({...current,[section]:true}))}}>
-      <div className="admin-page-head"><div><p className="auth-kicker">{en ? 'Configuration' : 'Конфигурация'}</p><h2>{en ? 'Settings' : 'Настройки'}</h2><p>{en ? 'Changes appear immediately on the public page and in the online assistant.' : 'Промените се отразяват веднага в публичната страница и онлайн асистента.'}</p></div><Link className="secondary-button" href={`/book/${business.slug}?lang=${locale}`} target="_blank">{en ? 'Open public page' : 'Преглед на страницата'} ↗</Link></div>
-      <div className="settings-section-selector"><label>{en?'Settings section':'Раздел с настройки'}<select value={section} onChange={event=>changeSection(event.target.value)} disabled={saving}>{sections.map(([value,label])=><option key={value} value={value}>{label}{dirtySections[value]?' •':''}</option>)}</select></label></div>
-      <div className="settings-tabs" aria-label={en?'Settings sections':'Раздели с настройки'}>
-        {sections.map(([value,label]) => <button type="button" disabled={saving} aria-pressed={section===value} className={section===value?'active':''} onClick={()=>changeSection(value)} key={value}>{label}{dirtySections[value]?' •':''}</button>)}
-      </div>
+    <main className={`dashboard-content admin-page settings-page ${styles.page}`}>
+      <header className={styles.header}>
+        <div className={styles.identity}>
+          <p className={styles.overline}>{en ? 'Your business' : 'Твоят бизнес'}{isPublished && <span>{en ? 'Public profile' : 'Публичен профил'}</span>}</p>
+          <h2>{business.name}</h2>
+          {neighbourhoodOrCity && <p className={styles.place}><Icon name="pin"/>{neighbourhoodOrCity}</p>}
+        </div>
+        <div className={styles.viewControls} role="group" aria-label={en ? 'Profile view' : 'Изглед на профила'}>
+          <button type="button" disabled={saving} aria-pressed={!clientView} onClick={() => setClientView(false)}>{en ? 'Manage' : 'Управление'}</button>
+          <button type="button" disabled={saving} aria-pressed={clientView} onClick={() => setClientView(true)}>{en ? 'Customer view' : 'Клиентски изглед'}</button>
+        </div>
+      </header>
+      {clientView && <>
+        <OwnerBusinessClientPreview business={business} savedServices={savedServices} locale={locale} fixture={preview} loading={collectionState === 'loading'} unavailable={collectionState === 'unavailable'}/>
+        <div className={styles.previewFooter}>
+          <p>{en ? 'This preview uses saved information. Its buttons do not start a booking.' : 'Виждаш запазените данни. Бутоните в прегледа не започват резервация.'}</p>
+          {isPublished && <Link className={styles.quietButton} href={`/book/${encodeURIComponent(business.slug)}?lang=${locale}`} target="_blank" rel="noopener noreferrer" prefetch={false}>{en ? 'Open public page' : 'Отвори публичната страница'} <Icon name="external"/></Link>}
+        </div>
+      </>}
+      <div className={styles.manage} hidden={clientView}>
+        <aside className={styles.sidebar}>
+          <nav className={styles.primaryNav} aria-label={en ? 'Main business sections' : 'Основни раздели за бизнеса'}>
+            {mainSections.map(([value,label,icon,members]) => <button type="button" disabled={saving} aria-pressed={members.includes(section)} onClick={()=>{if(!members.includes(section))changeSection(value)}} key={value}><Icon name={icon}/><span>{label}{members.some(item => dirtySections[item]) && <span aria-hidden="true"> •</span>}</span></button>)}
+          </nav>
+          <details className={styles.advanced} open={advancedSections.some(([value]) => value === section) || undefined}>
+            <summary><Icon name="settings"/>{en ? 'More settings' : 'Други настройки'}<Icon name="chevronDown"/></summary>
+            <nav className={styles.advancedNav} aria-label={en ? 'Other settings' : 'Други настройки'}>
+              {advancedSections.map(([value,label]) => <button type="button" disabled={saving} aria-pressed={section===value} onClick={()=>changeSection(value)} key={value}>{label}{dirtySections[value] && <span aria-hidden="true"> •</span>}</button>)}
+            </nav>
+          </details>
+        </aside>
+        <div className={styles.panel} onChangeCapture={()=>setDirtySections(current=>current[section]?current:{...current,[section]:true})}>
+      {innerSections && <nav className={styles.innerNav} aria-label={en ? 'Section options' : 'Подраздели'}>{innerSections.map(([value,label]) => <button type="button" disabled={saving} aria-pressed={section===value} onClick={()=>changeSection(value)} key={value}>{label}{dirtySections[value] && <span aria-hidden="true"> •</span>}</button>)}</nav>}
       {dirtySections[section]&&<p className="settings-unsaved" role="status">{en?'Unsaved changes in this section':'Има незапазени промени в този раздел'}</p>}
       {['business','public','booking','assistant'].includes(section)&&<button type="submit" form="owner-settings-form" className="primary-button settings-quick-save" disabled={saving}>{saving?(en?'Saving…':'Запазване…'):(en?'Save changes':'Запази промените')}</button>}
       {section==='hours'&&<button type="button" className="primary-button settings-quick-save" disabled={saving} onClick={saveSchedule}>{en?'Save hours and breaks':'Запази графика и почивките'}</button>}
@@ -269,10 +344,11 @@ export function SettingsContent({ business, refreshBusiness, locale, preview = f
       {section === 'public' && <BusinessPublicProfileEditor formId="owner-settings-form" onBusy={setSaving} key={business.id} business={business} locale={locale} preview={preview} onSaved={()=>{setDirtySections(current=>({...current,public:false}));refreshBusiness()}} />}
       {section === 'photos' && <BusinessMediaEditor onBusy={setSaving} key={business.id} businessId={business.id} locale={locale} preview={preview?{business,staff,media:[]}:null} onSaved={()=>{setDirtySections(current=>({...current,photos:false}));refreshBusiness()}}/>}
 
-      {(section === 'business' || section === 'assistant') && <form id="owner-settings-form" className="settings-panel" onSubmit={saveProfile}>
+      {(section === 'business' || section === 'assistant') && <form id="owner-settings-form" className="settings-panel" onSubmit={saveProfile} onInvalidCapture={event=>{const disclosure=event.target.closest('details');if(disclosure)disclosure.open=true}}>
         {section === 'business' ? <>
-          <div className="settings-panel-head"><h3>{en ? 'Business profile' : 'Бизнес профил'}</h3><p>{en ? 'Main information and online booking rules.' : 'Основна информация и правила за онлайн записване.'}</p></div>
+          <div className="settings-panel-head"><h3>{en ? 'Public profile' : 'Публичен профил'}</h3><p>{en ? 'The information customers see when they open your business.' : 'Данните, които клиентите виждат, когато отворят бизнеса ти.'}</p></div>
           <div className="settings-form-grid">
+            <label className={`full ${styles.websiteField}`}><span><Icon name="external"/>{en ? 'Business website' : 'Уебсайт на бизнеса'} <small>{en ? 'Optional' : 'По желание'}</small></span><input type="url" value={profile.website_url} onChange={(event) => setProfile({ ...profile, website_url: event.target.value })} placeholder="https://business.com" /><small>{en ? 'Shown as a separate Business website link. Change the direct booking link under Bookings.' : 'Показва се като отделен линк „Сайт на бизнеса“. За директния линк към записване използвай „Резервации“.'}</small></label>
             <label><span>{en ? 'Name' : 'Име'}</span><input required value={profile.name} onChange={(event) => setProfile({ ...profile, name: event.target.value })} /></label>
             <label><span>{en ? 'Business type' : 'Тип бизнес'}</span><select value={profile.industry} onChange={(event) => setProfile({ ...profile, industry: event.target.value })}><option value="beauty">{en ? 'Beauty & salons' : 'Красота и салони'}</option><option value="auto">{en ? 'Auto services & repair shops' : 'Авто услуги и сервизи'}</option><option value="fitness">{en ? 'Sports' : 'Спорт'}</option><option value="education">{en ? 'Education' : 'Обучение'}</option><option value="consulting">{en ? 'Consulting' : 'Консултации'}</option><option value="home_services">{en ? 'Home services' : 'Услуги на адрес'}</option><option value="pets">{en ? 'Pet services' : 'Домашни любимци'}</option><option value="health">{en ? 'Health services' : 'Здравни услуги'}</option><option value="other">{en ? 'Other appointment business' : 'Друг бизнес с часове'}</option></select></label>
             <label><span>{en ? 'Phone' : 'Телефон'}</span><input value={profile.phone} onChange={(event) => setProfile({ ...profile, phone: event.target.value })} /></label>
@@ -280,8 +356,9 @@ export function SettingsContent({ business, refreshBusiness, locale, preview = f
             <div className="full"><BusinessLocationFields required cityCode={profile.city_ekatte} neighborhood={profile.neighborhood} onChange={(patch) => setProfile((current) => ({ ...current, ...patch }))} locale={locale} /></div>
             <label className="full"><span>{en ? 'Address' : 'Адрес'}</span><input value={profile.address} onChange={(event) => setProfile({ ...profile, address: event.target.value })} /></label>
             {bookingIntake.fields.length > 0 && <div className="settings-intake-preview full"><strong>{en ? 'Client booking questions' : 'Въпроси при резервация'}</strong><p>{en ? 'Saving this business type adds these questions to your booking form and assistant. Answers appear in each appointment.' : 'След запазване на типа бизнес тези въпроси се показват във формата и асистента. Отговорите се виждат при съответната резервация.'}</p><ul>{bookingIntake.fields.map((field) => <li key={field.key}>{field.label}{field.required ? ' *' : ''}</li>)}</ul><small>{en ? '* Required for booking' : '* Задължително за резервация'}</small></div>}
-            <label className="full"><span>{en ? 'Website' : 'Уебсайт'}</span><input type="url" value={profile.website_url} onChange={(event) => setProfile({ ...profile, website_url: event.target.value })} placeholder="https://business.com" /></label>
-            <button type="button" className="secondary-button full" onClick={()=>changeSection('booking')}>{en?'I already use my own booking calendar':'Вече използвам собствен календар за резервации'} →</button>
+            <details className={`full ${styles.bookingPreferences}`}>
+            <summary>{en ? 'Booking preferences and notifications' : 'Предпочитания за резервации и известия'} <Icon name="chevronDown"/></summary>
+            <div className="settings-form-grid">
 {!['external','phone'].includes(business.booking_mode)&&<>
             <label><span>{en ? 'Booking window (days)' : 'Резервации до (дни)'}</span><input type="number" min="1" max="365" value={profile.booking_window_days} onChange={(event) => setProfile({ ...profile, booking_window_days: event.target.value })} /></label>
             <label><span>{en ? 'Usual duration for new services (min)' : 'Обичайна продължителност за нови услуги (мин)'}</span><input type="number" required min="5" max="1440" step="1" list="duration-suggestions" value={profile.default_duration_min} onChange={(event) => setProfile({ ...profile, default_duration_min: event.target.value })} /><datalist id="duration-suggestions">{DURATION_OPTIONS.map((duration) => <option key={duration} value={duration} />)}</datalist><small>{en ? 'A starting value only. Existing services keep their individual durations.' : 'Само начална стойност. Съществуващите услуги запазват своите отделни продължителности.'}</small></label>
@@ -295,6 +372,8 @@ export function SettingsContent({ business, refreshBusiness, locale, preview = f
             <label className="full notification-preference"><span><input type="checkbox" checked={profile.email_notifications_enabled} onChange={(event) => setProfile({ ...profile, email_notifications_enabled: event.target.checked })} /> {en ? 'Email notifications for new bookings' : 'Имейл известия за нови резервации'}</span><small>{en ? 'Customers receive confirmations; the business contact email receives new-booking alerts. This preference works only when platform sending is enabled.' : 'Клиентите получават потвърждения; имейлът за контакт с бизнеса получава известия за нови часове. Настройката работи само при включено изпращане в платформата.'}</small></label>
             <label><span>{en ? 'Business notification language' : 'Език на известията към бизнеса'}</span><select value={profile.notification_locale} onChange={(event) => setProfile({ ...profile, notification_locale: event.target.value })}><option value="bg">Български</option><option value="en">English</option></select><small>{en ? 'Customer emails use the language selected when booking.' : 'Имейлите към клиента използват избрания език при резервацията.'}</small></label>
             <div className="guided-assistant-note full"><strong>{!notificationStatus ? (en ? 'Checking email availability…' : 'Проверяваме имейл известията…') : notificationStatus.unavailable ? (en ? 'Email status could not be checked' : 'Не успяхме да проверим имейл известията') : notificationStatus.email ? (en ? 'Booking emails are enabled' : 'Имейлите за резервации са включени') : (en ? 'Booking emails are not enabled' : 'Имейлите за резервации не са включени')}</strong><p>{notificationStatus?.email ? (en ? 'Confirmation, reschedule and cancellation messages are attempted automatically. Delivery can be delayed or fail; continue checking the calendar.' : 'Автоматично се прави опит за изпращане на потвърждения, премествания и откази. Доставката може да се забави или провали; проверявай и календара.') : (en ? 'Changing the preference above does not activate platform sending. Clients can save their private confirmation link and calendar file.' : 'Настройката по-горе не активира изпращането в платформата. Клиентите могат да запазят личния линк и файла за календар.')}</p><p>{notificationStatus?.reminders ? (en ? 'Reminders are scheduled around 24 hours before appointments booked more than 24 hours ahead.' : 'Напомняния се планират около 24 часа преди посещенията, резервирани повече от 24 часа предварително.') : (en ? 'Automatic reminders are not enabled.' : 'Автоматичните напомняния не са включени.')}{' '}{en ? 'No SMS or Viber messages are sent.' : 'Не се изпращат SMS или Viber съобщения.'}</p>{!profile.contact_email && <p>{en ? 'Enter a business contact email above to receive owner alerts.' : 'Въведи имейл за контакт с бизнеса по-горе, за да получаваш известия като собственик.'}</p>}</div>
+            </div>
+            </details>
           </div>
         </> : <>
           <div className="settings-panel-head"><h3>{en ? 'Online assistant' : 'Онлайн асистент'}</h3><p>{en ? 'Set the welcome message and rules clients can open in the conversation.' : 'Настрой приветствието и правилата, които клиентите могат да отварят в разговора.'}</p></div>
@@ -345,6 +424,8 @@ export function SettingsContent({ business, refreshBusiness, locale, preview = f
 
       {section === 'data' && <section className="settings-panel data-control-card"><div className="settings-panel-head"><h3>{en ? 'Data controls' : 'Контрол върху данните'}</h3><p>{en ? 'Download a machine-readable archive of the business profile, settings, clients, bookings, conversations and operational events.' : 'Изтегли машинно четим архив на бизнес профила, настройките, клиентите, резервациите, разговорите и оперативните събития.'}</p></div><div className="data-export-box"><div><strong>{en ? 'Complete JSON archive' : 'Пълен JSON архив'}</strong><span>{en ? 'The file may contain personal data. Store it securely.' : 'Файлът може да съдържа лични данни. Съхранявай го защитено.'}</span></div><button className="primary-button" type="button" onClick={exportBusinessData} disabled={saving}>{saving ? (en ? 'Preparing...' : 'Подготвяне...') : (en ? 'Download archive' : 'Изтегли архив')}</button></div><p className="security-note">{en ? 'Individual client deletion requests are handled from the Clients section. Booking history remains without identifying data so the calendar stays intact.' : 'Заявките за изтриване на отделен клиент се изпълняват от секция „Клиенти“. Историята на часа остава без идентифициращи данни, за да не се наруши календарът.'}</p></section>}
       {section === 'account' && <AccountDeletionPanel businessId={business.id} locale={locale} onExport={() => setSection('data')} />}
+        </div>
+      </div>
     </main>
   )
 }

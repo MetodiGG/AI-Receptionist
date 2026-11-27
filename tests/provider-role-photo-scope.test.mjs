@@ -6,6 +6,7 @@ import test from 'node:test'
 import receipt from './fixtures/provider-role-photo-approval.json' with { type: 'json' }
 import { providerRolePhotosAllowsFileChange, providerRolePhotosAllowsNewFile,
   providerRolePhotosAllowsPath, providerRolePhotosPriorSource } from './provider-role-photo-scope.mjs'
+import { businessOnboardingSofiaAllowsPath } from './business-onboarding-sofia-scope.mjs'
 
 const cwd = new URL('../', import.meta.url)
 const git = (...args) => execFileSync('git', args, { cwd, maxBuffer: 8 * 1024 * 1024 })
@@ -26,7 +27,7 @@ test('the independently sealed role-matching release changes only the two exact 
   assert.deepEqual(added.sort(), [...fixedAdded, ...media].sort(), 'only individually sealed role-assigned art, policy and its documentation belong to this successor')
   const observed = [...new Set([...files(git('diff', '--name-only', '--no-renames', '-z', receipt.baseline, '--')),
     ...files(git('ls-files', '--others', '--exclude-standard', '-z'))])]
-    .filter(path => path !== 'node_modules' && !path.startsWith('tests/')).sort()
+    .filter(path => path !== 'node_modules' && !path.startsWith('tests/') && !businessOnboardingSofiaAllowsPath(path)).sort()
   assert.deepEqual(observed, [...changed, ...added].sort(), 'business facts, original media, layout, booking and all settings remain frozen')
   for (const [index, path] of changed.entries()) {
     const current = readFileSync(new URL(path, cwd)), original = git('show', receipt.baseline + ':' + path)

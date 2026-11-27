@@ -5,7 +5,7 @@ import { useEffect, useId, useRef, useState } from 'react'
 import { Icon } from './icon'
 
 // Suggestions only: selecting a public catalogue entry is not proof of ownership.
-export function CatalogueBusinessLookup({value,onChange,cityCode='',locale='bg',onSelect,disabled=false,loadedName=''}) {
+export function CatalogueBusinessLookup({value,onChange,cityCode='',locale='bg',onSelect,disabled=false,loadedName='',autoFocus=true}) {
   const en=locale==='en',id=useId(),root=useRef(null),request=useRef(null),detailRequest=useRef(null),version=useRef(0),chosenNames=useRef(new Set()),selectCallback=useRef(onSelect)
   const [matches,setMatches]=useState([]),[open,setOpen]=useState(false),[loading,setLoading]=useState(false),[loadingId,setLoadingId]=useState(''),[error,setError]=useState(''),[active,setActive]=useState(-1),[retry,setRetry]=useState(0)
   const listId=`${id}-matches`
@@ -42,7 +42,7 @@ export function CatalogueBusinessLookup({value,onChange,cityCode='',locale='bg',
     const generation=++version.current,controller=new AbortController();detailRequest.current=controller
     setLoading(false);setLoadingId(match.id);setError('')
     try{
-      const params=new URLSearchParams({id:match.id,lang:locale})
+      const params=new URLSearchParams({id:match.id,lang:locale,...(cityCode?{city:cityCode}:{})})
       const response=await fetch(`/api/public/catalogue-onboarding?${params}`,{signal:controller.signal,cache:'no-store'})
       if(!response.ok)throw Error('CATALOGUE_LOOKUP_UNAVAILABLE')
       const result=await response.json()
@@ -67,7 +67,7 @@ export function CatalogueBusinessLookup({value,onChange,cityCode='',locale='bg',
   }
   return <div className="field full catalogue-lookup" ref={root}>
     <label htmlFor="business-name">{en?'Business name':'Име на бизнеса'} *</label>
-    <div className="catalogue-name-control"><Icon name="search"/><input id="business-name" className="text-input" value={value} maxLength={120} onChange={event=>change(event.target.value)} onFocus={()=>{if(matches.length)setOpen(true)}} onKeyDown={keyboard} placeholder={en?'Enter your business name':'Напиши името на бизнеса'} autoComplete="organization" autoFocus disabled={disabled} role="combobox" aria-autocomplete="list" aria-expanded={open&&matches.length>0} aria-controls={listId} aria-activedescendant={open&&active>=0?`${id}-match-${active}`:undefined} aria-describedby={loading||loadingId||error?`${id}-status`:undefined}/></div>
+    <div className="catalogue-name-control"><Icon name="search"/><input id="business-name" className="text-input" value={value} maxLength={120} onChange={event=>change(event.target.value)} onFocus={()=>{if(matches.length)setOpen(true)}} onKeyDown={keyboard} placeholder={en?'Enter your business name':'Напиши името на бизнеса'} autoComplete="organization" autoFocus={autoFocus} disabled={disabled} role="combobox" aria-autocomplete="list" aria-expanded={open&&matches.length>0} aria-controls={listId} aria-activedescendant={open&&active>=0?`${id}-match-${active}`:undefined} aria-describedby={loading||loadingId||error?`${id}-status`:undefined}/></div>
     {open&&matches.length>0&&<div className="catalogue-match-panel"><p>{en?'Already listed? Load your details.':'Вече си в каталога? Зареди данните си.'}</p><ul id={listId} role="listbox" aria-label={en?'Businesses in the catalogue':'Бизнеси в каталога'}>{matches.map((match,index)=><li key={match.id} role="presentation"><button id={`${id}-match-${index}`} type="button" role="option" aria-selected={active===index} className={active===index?'active':''} disabled={disabled||Boolean(loadingId)} onClick={()=>select(match)}><span><strong>{match.name}</strong><small>{match.address}</small></span><span className="catalogue-match-count">{match.serviceCount} {en?'services':'услуги'}<Icon name="arrow"/></span></button></li>)}</ul><button type="button" className="catalogue-manual-entry" onClick={manual}>{en?'Continue with this name':'Продължи с въведеното име'}</button></div>}
     {(loading||loadingId||error)&&<div id={`${id}-status`} className="catalogue-lookup-status" role="status">{error?<>{error} <button type="button" onClick={()=>{chosenNames.current.clear();setRetry(current=>current+1)}}>{en?'Retry':'Опитай пак'}</button></>:<BrandLoading locale={locale} announce={false} size={24} label={loadingId?(en?'Loading services and prices…':'Зареждаме услугите и цените…'):(en?'Searching the catalogue…':'Търсим в каталога…')}/>}</div>}
   </div>

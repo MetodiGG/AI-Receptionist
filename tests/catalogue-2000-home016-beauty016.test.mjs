@@ -9,6 +9,7 @@ import { assessPricingReview } from '../lib/discovery/catalogue-pricing-review.m
 import { catalogueOnboardingDetail, searchCatalogueForOnboarding } from '../lib/catalogue-onboarding.mjs'
 import { catalogueServicePhotoFields } from '../lib/catalogue-service-photo-keys.mjs'
 import { serviceThumbnail } from '../lib/service-thumbnail.mjs'
+import { priorCatalogue as beforeNovember27AddressReview } from './catalogue-zapaden-iztok-20261127-scope.mjs'
 
 const now = Date.parse('2026-11-14T12:00:00Z')
 const sources = validateCatalogue([...home.records, ...beauty.records])
@@ -28,7 +29,13 @@ test('home016 and beauty016 expose six independent businesses and eleven literal
     assert.ok(searchCatalogueForOnboarding(SOFIA_CATALOGUE, { query: business.name, cityCode: '68134' }, { now })
       .some(result => result.id === source.id), source.id)
     const detail = catalogueOnboardingDetail(SOFIA_CATALOGUE, source.id, { now })
-    assert.equal(detail.business.address, source.address)
+    const [beforeReview] = beforeNovember27AddressReview([business])
+    assert.equal(beforeReview.address, source.address, source.id)
+    assert.equal(detail.business.address, business.address, source.id)
+    if (source.id === 'sofia-university-champions-hadzhi-dimitar135a') {
+      assert.equal(detail.business.address, 'София, ж.к. Хаджи Димитър, бл. 135, вх. А')
+      assert.equal(business.coordinates.addressId, '50533')
+    }
     assert.deepEqual(detail.services.map(service => service.name), source.services.map(service => service.name))
     for (const [index, service] of source.services.entries()) {
       const imported = detail.services[index]

@@ -16,6 +16,7 @@ import { serviceDetailPhotoCoverageAllowsPath } from './service-detail-photo-cov
 import { servicePhotoMarkerAllowsFileChange } from './service-photo-marker-20261126-scope.mjs'
 import { serviceDetailPhotoExpansionAllowsNewFile } from './service-detail-photo-expansion-20261126-scope.mjs'
 import { dialogPrimaryDarkContrastAllowsFileChange } from './dialog-primary-dark-contrast-20261126-scope.mjs'
+import { mopartIntakeAllowsFileChange } from './catalogue-mopart-20261127-scope.mjs'
 
 test('the 24 Nov scope seals only explicitly reviewed Sofia and image files with their prior bytes', async () => {
   const hash = value => createHash('sha256').update(value).digest('hex')
@@ -30,7 +31,12 @@ test('the 24 Nov scope seals only explicitly reviewed Sofia and image files with
   }
   for (const path of Object.keys(receipt.added)) assert.equal(sofiaIntegrityAllowsNewFile(path), true, path)
   for (const path of ['package.json', 'next.config.mjs', 'pnpm-lock.yaml', 'lib/booking-engine.mjs', 'lib/discovery/sofia-catalogue.mjs']) {
-    assert.equal(sofiaIntegrityAllowsFileChange(path), false, path)
+    assert.equal(Object.hasOwn(receipt.changed, path), false, path)
+    assert.equal(Object.hasOwn(receipt.added, path), false, path)
+    // The composed matcher can also recognize the later, separately scoped
+    // Mopart bytes; that must not become a 24 November authorization.
+    const laterMopartReceipt = path === 'lib/discovery/sofia-catalogue.mjs' && mopartIntakeAllowsFileChange(path)
+    assert.equal(sofiaIntegrityAllowsFileChange(path), laterMopartReceipt, path)
     assert.equal(sofiaIntegrityAllowsNewFile(path), false, path)
   }
 })

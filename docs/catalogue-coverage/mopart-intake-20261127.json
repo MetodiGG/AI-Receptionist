@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "status": "prepared_locally_not_published",
+  "checkedOn": "2026-11-27",
+  "targetPerQuarterCategory": 30,
+  "newDistinctOperators": 1,
+  "newPremises": 1,
+  "newActualServices": 3,
+  "verifiedPublicPriceFacts": 0,
+  "existingRecordsChanged": 0,
+  "business": {
+    "id": "sofia-mopart-lyulin3-okolovrasten803",
+    "name": "Mopart Service",
+    "neighborhood": "Люлин 3",
+    "address": "София, ж.к. Люлин 3, ул. Околовръстен път 803",
+    "category": "auto_repair",
+    "owner": "https://mopart.bg/",
+    "phone": "+359893565812",
+    "booking": "The owner’s public Book CTA leads to its telephone appointment section, which identifies the same branch and published number. No calendar or live availability is asserted.",
+    "openingHours": "Mon–Fri 09:00–18:00; Saturday and Sunday closed. Public workshop hours, not appointment availability.",
+    "services": ["Компютърна диагностика на двигател", "Обслужване на спирачки", "Машинна смяна на масло на автоматична скоростна кутия"],
+    "review": "Followed the actual first-party booking link and then the complete public service menu and transmission fluid section. No amounts or booked durations are published for these three services. Do not use reseller estimates, third-party hours, technical procedure timings or prices from other businesses. Reviewed minimal facts only, not an affiliation endorsement or asset reuse. robots.txt was unavailable through the public reader; no crawler was used.",
+    "inventoryIdentity": "b0a5d66384c454f32eeeaf49fc8fdce2767d8e98afa7148f18a35a75cee9e6dd",
+    "normalizedRecordSha256": "9ff3a740f17290bd2afcf6bfdc6615d62faf893a5bd853186ddbac76ad94227a",
+    "validUntil": "2026-12-27",
+    "deduplication": "Checked public static catalogue names, IDs, normalized phone numbers, domains and branch addresses; no existing matching operator/location. A directory calls this Филиповци, but the precise branch on the owner's site explicitly states Люлин 3. No private account or partner data was accessed."
+  },
+  "pointEvidence": {
+    "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "attribution": "ГИС София / Столична община",
+    "licence": "CC-BY-4.0",
+    "csvSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+    "rn": "112354",
+    "settlement": "гр. София",
+    "region": "Люлин",
+    "street": "ул. Околовръстен път",
+    "house": "803",
+    "latitude": 42.722657,
+    "longitude": 23.238698,
+    "limit": "Exactly one Sofia postal record matched the full civic street/house. The source does not name the numbered quarter or the customer entrance; the owner's website establishes Люлин 3. Do not use coordinates from the map viewport or treat this as a partner-attested pin."
+  },
+  "imageEvidence": {
+    "representativeOnly": true,
+    "coverKey": "auto-diagnostics",
+    "detailScenes": [
+      "/service-photos/go-detail-auto-computer-diagnostics-20261126-v2.webp",
+      "/service-photos/sx-auto-brake-disc-v1.webp",
+      "/service-photos/sx-auto-auto-gear-oil-filter-v1.webp"
+    ],
+    "limit": "The existing approved diagnostic alternate avoids repeating the cover; the other two are distinct specific illustrations. The ATF scene shows tools/fluid and is not a promise to change the depicted filter. No genuine business photograph or original asset was copied or edited."
+  },
+  "isolatedCoverageDelta": {
+    "neighborhood": "Люлин 3",
+    "category": "auto_repair",
+    "physical": [0, 1],
+    "located": [0, 1],
+    "remainingToTarget": 29
+  },
+  "productionWrites": 0,
+  "partnerContactsBookingsNotificationsOrPayments": 0
+}

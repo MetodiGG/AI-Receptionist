@@ -71,9 +71,15 @@ test('the actual static cache covers every checked-in public/all source name, re
   // Anev, ONE SERVICE and the English school use three new descriptions, one title and one unit.
   // The three additional operators add eight titles, seven qualified descriptions and one course unit.
   // Lokomotiv and KindyROO add two names, two qualified descriptions and one lesson-term unit.
-  assert.deepEqual(Object.fromEntries(Object.entries(all.totals).map(([key, value]) => [key, value.unique])), { names: 6051 + 4 + 2 + 1 + 2 + 2 + 2 + 3 + 1 + 5 + 2 + 2 + 18 + 4 + 5 + 8 + 1 + 1 + 1 + 1 + 8 + 2, descriptions: 1804 + 3 + 2 + 1 + 2 + 3 + 3 + 4 + 2 + 5 + 5 + 3 + 11 + 4 + 1 + 7 + 1 + 1 + 1 + 3 + 7 + 2, units: 661 + 2 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 })
+  const priorCohorts = { names: 6051 + 4 + 2 + 1 + 2 + 2 + 2 + 3 + 1 + 5 + 2 + 2 + 18 + 4 + 5 + 8 + 1 + 1 + 1 + 1 + 8 + 2, descriptions: 1804 + 3 + 2 + 1 + 2 + 3 + 3 + 4 + 2 + 5 + 5 + 3 + 11 + 4 + 1 + 7 + 1 + 1 + 1 + 3 + 7 + 2, units: 661 + 2 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 }
+  // Mopart reuses the engine-diagnostics name and supplies two exact names
+  // and three descriptions, with no fabricated price units.
+  const mopartDelta = { names: 2, descriptions: 3, units: 0 }
+  assert.deepEqual(Object.fromEntries(Object.entries(all.totals).map(([key, value]) => [key, value.unique - mopartDelta[key]])), priorCohorts)
   for (const result of [all, published]) for (const key of ['missing', 'invalid', 'quantityChanges', 'qualificationChanges']) assert.equal(result[key].length, 0, key)
   const cache = JSON.parse(await readFile(new URL('../lib/locale/service-english.json', import.meta.url), 'utf8'))
+  const mopart = cache.metadata.manualRevalidations.find(item => item.businessId === 'sofia-mopart-lyulin3-okolovrasten803')
+  assert.deepEqual(mopart?.entriesAdded, mopartDelta)
   assert.equal(cache.metadata.review.nameSourcesIndividuallyAgentReviewed, 6040)
   assert.equal(cache.metadata.review.unitSourcesIndividuallyAgentReviewed, 660)
   assert.equal(cache.metadata.review.descriptionSourcesIndividuallyAgentReviewed, 495)

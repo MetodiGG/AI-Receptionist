@@ -16,6 +16,14 @@
     },
     "manualRevalidations": [
       {
+        "checkedOn": "2026-11-27",
+        "businessId": "sofia-mopart-lyulin3-okolovrasten803",
+        "inventoryIdentity": "b0a5d66384c454f32eeeaf49fc8fdce2767d8e98afa7148f18a35a75cee9e6dd",
+        "reason": "Preserves the supported vehicle brands and distinguishes engine diagnostics, brake servicing and machine fluid exchange.",
+        "entriesAdded": { "names": 2, "descriptions": 3, "units": 0 },
+        "certifiedHumanTranslation": false
+      },
+      {
         "checkedOn": "2026-11-23",
         "businessId": "sofia-koba-auto-paris14",
         "inventoryIdentity": "e0119e48482448760a515a25754f418d7aa07f66b50588512f5335b9cd749a6a",
@@ -419,6 +427,8 @@
     ]
   },
   "names": {
+    "Обслужване на спирачки": "Brake system servicing",
+    "Машинна смяна на масло на автоматична скоростна кутия": "Machine-assisted automatic transmission fluid change",
     "Групови занимания за деца на 3–4 г. · Опосум": "Group activities for ages 3–4 · Possum",
     "Наем на закрит тенис корт с клей": "Indoor clay tennis court rental",
     "Наем на открит тенис корт": "Outdoor tennis court rental",
@@ -6548,6 +6558,9 @@
     "смяна на предпазен клапан на бойлер": "change of boiler safety valve"
   },
   "descriptions": {
+    "Проверка на двигателя с диагностична апаратура за автомобили BMW, MINI и Rolls-Royce.": "Engine checks with diagnostic equipment for BMW, MINI and Rolls-Royce vehicles.",
+    "Обслужване на спирачната система, включително накладки и дискове, за автомобили BMW, MINI и Rolls-Royce.": "Brake system servicing, including pads and discs, for BMW, MINI and Rolls-Royce vehicles.",
+    "Динамична смяна на трансмисионната течност с машина за автомобили BMW, MINI и Rolls-Royce.": "Dynamic transmission fluid exchange with a machine for BMW, MINI and Rolls-Royce vehicles.",
     "Присъствени занимания с игри и упражнения за движение и координация. Цената е за един урок при записване за срок от 11 урока, не за единично посещение. При записване след началото на срока се заплащат оставащите уроци.": "In-person games and exercises for movement and coordination. The price is per lesson when enrolling in an 11-lesson term, not a drop-in price. After the term starts, you pay for the remaining lessons.",
     "Онлайн цената е за 60 минути на един осветен закрит клей корт, без треньор. Проверете цената за избрания час в графика; плащане на място.": "The displayed online rate is for 60 minutes on one floodlit indoor clay court, without a coach. Check the price for your selected time in the schedule; pay at the venue.",
     "Открит корт с изкуствена трева. Посочената онлайн цена е за 60 минути на един корт, без треньор. Проверете цената за избрания час в графика; плащане на място.": "Outdoor artificial-grass court. The listed online rate is for 60 minutes on one court, without a coach. Check the price for your chosen time in the schedule; pay at the venue.",

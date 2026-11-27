@@ -47,7 +47,7 @@
     }
   },
   "added": {
-    "app/business-signup-refresh.css": "a2cc53ed4b19243c41c93f41a74466120410ea203a77be4fbd337f1b2d20bc41",
+    "app/business-signup-refresh.css": "5c65b9e7435b2a564179c09af4ad7ad72392cc36bf474227d79753c546ba80b3",
     "components/owner-business-client-preview.js": "d51dfca68a7bc561d00062ec0576911d060f120ae29e7beb1d0fe62fb7007b79",
     "app/dashboard/settings/settings-profile.module.css": "ba312401f56936145a55017e945d0da931a739082358ffb8e154d2e749106a08"
   }

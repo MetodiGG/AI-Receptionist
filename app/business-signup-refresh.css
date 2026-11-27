@@ -123,6 +123,9 @@ html[data-theme="dark"] :is(.business-onboarding.business-signup,.signup-flow) {
 .signup-flow :is(.text-input,.select-input,.compact-input):focus-visible { outline-color:var(--signup-accent); }
 html[data-theme="dark"] .signup-flow .booking-mode-cards .booking-mode-option,
 html[data-theme="dark"] .signup-flow .booking-mode-cards .booking-mode-option strong { color:var(--signup-ink); }
+html[data-theme="dark"] .signup-flow :is(.onboarding-extra > summary,.service-pricing-options > summary,.onboarding-service-conditions > summary,.booking-mode-destination > a) {
+  color:var(--signup-accent);
+}
 @media (hover:hover) {
   .signup-flow .wizard-actions .primary-button:not(:disabled):hover,
   .business-onboarding.business-signup .signup-flow .wizard-actions .primary-button:not(:disabled):hover { filter:brightness(1.08); }

@@ -427,6 +427,9 @@
     ]
   },
   "names": {
+    "Първоначална правна консултация": "Initial legal consultation",
+    "Групови тренировки по карате и джу джицу": "Group karate and jujitsu training",
+    "Компютърна диагностика и четене на грешки": "Computer diagnostics and fault-code reading",
     "Компютърна диагностика на двигател (ДВГ)": "Computer diagnostics for an internal combustion engine",
     "Индивидуална консултация с психолог за родители": "Individual psychology consultation for parents",
     "Шофьорски курс категория B · ръчна скоростна кутия": "Category B driving course · manual transmission",
@@ -6595,6 +6598,9 @@
     "смяна на предпазен клапан на бойлер": "change of boiler safety valve"
   },
   "descriptions": {
+    "Първата консултация е безплатна. Изпрати запитване до кантората, за да уточниш час и начин на провеждане. Последващи услуги не са включени.": "The initial consultation is free. Send the law office a request to arrange a time and how to meet. Further services are not included.",
+    "Месечна такса за един участник. За всеки следващ член на семейството таксата е 40 €. Тренировките се провеждат в НЧ „Васил Левски 1928“; групата се уточнява при записване по телефона.": "Monthly fee for one participant. Each additional family member pays €40. Training takes place at Vasil Levski 1928 Community Centre; the club arranges your group by phone.",
+    "Цената е само за посочения диагностичен труд и включва ДДС. Допълнителна проверка, части и ремонт се уговарят отделно след оглед.": "The price covers only the stated diagnostic labour and includes VAT. Additional checks, parts and repairs are agreed separately after inspection.",
     "Във формата избери диагностика на двигателя. Заявката не е потвърден час; уточни деня и цената със сервиза.": "Select engine diagnostics in the form. This request is not a confirmed appointment; confirm the date and price with the workshop.",
     "Присъствена индивидуална среща за родител. Час се уговаря предварително по телефона.": "An in-person, one-to-one meeting for a parent. Arrange an appointment in advance by phone.",
     "Заяви предпочитан час през сайта. Салонът ще потвърди часа или ще предложи друг според графика си.": "Request your preferred time online. The salon will confirm it or suggest another time, depending on its schedule.",
@@ -8522,6 +8528,8 @@
     "Часът се уговаря с преподавателя; първоначално се изготвя индивидуален график.": "The class is arranged with the lecturer; an individual schedule is initially drawn up."
   },
   "units": {
+    "само първоначална консултация": "initial consultation only",
+    "труд с ДДС": "labour including VAT",
     "подстригване": "haircut",
     "общо за подстригване и брада": "total for haircut and beard shaping",
     "един изпит": "one exam",

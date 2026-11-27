@@ -11,10 +11,12 @@ import { discoveryConfig } from '../lib/discovery/config.mjs'
 import { createDiscoveryHandler } from '../lib/discovery/handler.mjs'
 import { createPublicBusinessDetailsHandler } from '../lib/discovery/public-details.mjs'
 import { railExternalAction } from '../lib/discovery/rail.mjs'
-import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { SOFIA_CATALOGUE as LIVE } from '../lib/discovery/sofia-catalogue.mjs'
 import { serviceDisplayName } from '../lib/locale/public-content.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
+import { priorCatalogue as nextPriorCatalogue } from './catalogue-orlyak-banishora-20261127-scope.mjs'
 
+const SOFIA_CATALOGUE = nextPriorCatalogue(LIVE)
 const now = Date.parse('2026-11-27T12:00:00Z')
 const cityCode = '68134', samaId = 'sofia-sama-pilates'
 const expected = [

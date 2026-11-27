@@ -12,13 +12,16 @@ import { applyVerifiedTinoNails20261127, VERIFIED_TINO_NAILS_20261127_REVIEWS } 
 import { applyVerifiedVitoshaFishPoolPoint20261127 } from '../lib/discovery/catalogue-data/verified-vitosha-fish-pool-point-20261127.mjs'
 import { OFFICIAL_SOFIA_SOURCE_URL } from '../lib/discovery/official-sofia-address-source.mjs'
 import { railExternalAction } from '../lib/discovery/rail.mjs'
-import { RAW_SOFIA_CATALOGUE, SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { RAW_SOFIA_CATALOGUE as currentRaw, SOFIA_CATALOGUE as current } from '../lib/discovery/sofia-catalogue.mjs'
 import { businessCoverPhotoSources } from '../lib/public-business-cover-photo.mjs'
 import { publicDetailServiceThumbnail } from '../lib/service-detail-photo-presentation.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
 import { compareDiscoveryPhotos, fingerprintDiscoveryPhoto } from '../scripts/discovery-photo-fingerprint.mjs'
 import { priorCatalogue } from './catalogue-mitoart-nails-nadezhda-20261127-scope.mjs'
+import { priorCatalogue as withoutLaterCatalogues } from './catalogue-bratya-miladinovi-kniazhevo-20261127-scope.mjs'
 
+const SOFIA_CATALOGUE = withoutLaterCatalogues(current)
+const RAW_SOFIA_CATALOGUE = withoutLaterCatalogues(currentRaw)
 const now = Date.parse('2026-11-27T12:00:00Z')
 const expired = Date.parse('2026-12-28T00:00:00Z')
 const mito = 'sofia-mitoart-hadzhi-dimitar-albert-long11-15'

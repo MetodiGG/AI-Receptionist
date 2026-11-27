@@ -1,11 +1,13 @@
 import { createHash } from 'node:crypto'
 import { exactCatalogueIntakeScope } from './catalogue-verified-lyulin-batch-20261127-scope.mjs'
 import receipt from './fixtures/catalogue-verified-owner-civic-points-20261127.json' with { type: 'json' }
+import { neighborhoodAdditionsPriorCatalogue, neighborhoodAdditionsPriorSource } from './catalogue-verified-neighborhood-additions-20261127-scope.mjs'
 
 export const {
   allowsFileChange: lateOwnerPointsAllowsFileChange, allowsNewFile: lateOwnerPointsAllowsNewFile,
-  allowsPath: lateOwnerPointsAllowsPath, priorSource: lateOwnerPointsPriorSource,
+  allowsPath: lateOwnerPointsAllowsPath, priorSource,
 } = exactCatalogueIntakeScope({ ...receipt, records: [] }, 'Verified owner and civic points')
+export const lateOwnerPointsPriorSource = (path, source) => priorSource(path, neighborhoodAdditionsPriorSource(path, source))
 
 const sha = row => createHash('sha256').update(JSON.stringify(row)).digest('hex')
 const digest = /^[a-f0-9]{64}$/u
@@ -22,7 +24,7 @@ for (const { id, before, after, previous } of receipt.records) {
 // each exact successor row, then verify the entire predecessor identity.
 export function lateOwnerPointsPriorCatalogue(rows) {
   const seen = new Set()
-  return rows.map(row => {
+  return neighborhoodAdditionsPriorCatalogue(rows).map(row => {
     const approved = records.get(row?.id)
     if (!approved) return row
     if (seen.has(row.id)) throw Error('Duplicate owner/civic coordinate record: ' + row.id)

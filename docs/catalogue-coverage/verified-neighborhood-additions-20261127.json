@@ -1,0 +1,89 @@
+{
+  "checkedOn": "2026-11-27",
+  "baseCommit": "b486208743cbaa361ff0441fe3012cb6dc080f2c",
+  "newDistinctBusinesses": 4,
+  "scope": "Four distinct customer-facing businesses, each in a different previously empty Sofia quarter/category cell. All exact points and appointment routes were reviewed read-only; no booking, account change, provider API or production publication.",
+  "coverage": {
+    "targetPerQuarterCategory": 30,
+    "checkedCells": 1750,
+    "approvedSofiaBusinesses": [1780, 1784],
+    "premisesWithBoundPoint": [1033, 1037],
+    "emptyPhysicalCells": [1245, 1241],
+    "emptyLocatedCells": [1330, 1326],
+    "locatedCellsAtTarget": [0, 0]
+  },
+  "municipalAddresses": {
+    "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "licence": "CC-BY-4.0",
+    "csvSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef"
+  },
+  "verified": [
+    {
+      "id": "sofia-avtokontrol-plus-dianabad",
+      "neighborhood": "Дианабад",
+      "category": "auto_repair",
+      "subcategory": "auto_repair-inspection",
+      "address": "София, ж.к. Дианабад, ул. Крум Кюлявков, срещу бл. 31А",
+      "point": {"method": "first_party_coordinates", "latitude": 42.660764, "longitude": 23.347556},
+      "booking": "https://myve.bg/avtokontrol-plyus-ood-obekt14366.html?tab=schedule",
+      "pricingState": "service_reviewed",
+      "sources": ["https://gtpdianabad.bg/", "https://myve.bg/avtokontrol-plyus-ood-obekt14366.html?tab=schedule", "https://www.sba.bg/snews/view/2370"],
+      "facts": "The owner publishes the exact navigation destination across from the apartment block. The station's own site opens the same named appointment calendar with the passenger-car inspection. No amount is published in the applicable schedule/menu; no promotion, traffic fine, tire advertisement or fee for other vehicle classes is carried over.",
+      "services": [
+        {"name": "Годишен технически преглед · лек автомобил", "en": "Annual roadworthiness inspection · passenger car", "amount": null, "photo": "/service-photos/go-detail-auto-roadworthiness-check-20261126-v2.webp"}
+      ]
+    },
+    {
+      "id": "sofia-nn-architecture-hladilnika-banat34",
+      "neighborhood": "Хладилника",
+      "category": "consulting",
+      "subcategory": "consulting-architecture",
+      "address": "София, кв. Хладилника, ул. Банат 34, партер",
+      "point": {"method": "verified_official_address", "addressId": "727", "latitude": 42.659292, "longitude": 23.314247},
+      "booking": "https://easybook.bg/nn-architecture-or-interior-design-sofiya-hladilnika",
+      "pricingState": "reviewed",
+      "sources": ["https://nn-interiordesign.com/", "https://easybook.bg/nn-architecture-or-interior-design-sofiya-hladilnika", "https://easybook.bg/nn-architecture-or-interior-design-sofiya-hladilnika/employee-neli-nikolova713100"],
+      "facts": "Two exact owner-linked bookable offers for Neli Nikolova. The single quoted fee for each displayed menu item covers the appointment choice of in-studio or online: EUR 35.79 and EUR 61.36 as displayed; the underlying published BGN values are 70 and 120. No unconfirmed visit length, alternate staff tariff or presumed slot. Municipal point for civic No. 34, not a door survey.",
+      "services": [
+        {"name": "Интериорна консултация · пакет „Бърз съвет“ при Нели Николова", "en": "Interior design consultation · Quick Advice package with Neli Nikolova", "amount": 35.79, "priceSource": "https://easybook.bg/nn-architecture-or-interior-design-sofiya-hladilnika", "photo": "/service-photos/go-detail-preliminary-interior-design-20261126-v2.webp"},
+        {"name": "Цялостна интериорна консултация при Нели Николова", "en": "Full interior design consultation with Neli Nikolova", "amount": 61.36, "priceSource": "https://easybook.bg/nn-architecture-or-interior-design-sofiya-hladilnika", "photo": "/service-photos/go-detail-kitchen-design-review-20261126-v2.webp"}
+      ]
+    },
+    {
+      "id": "sofia-hairless-hipodruma-hanpresiyan15",
+      "neighborhood": "Хиподрума",
+      "category": "beauty",
+      "subcategory": "beauty-face",
+      "address": "София, кв. Хиподрума, ул. Хан Пресиян 15",
+      "point": {"method": "first_party_coordinates", "latitude": 42.6798792, "longitude": 23.3010377},
+      "booking": "tel:+359894843831",
+      "pricingState": "service_reviewed",
+      "sources": ["https://hairless.bg/контакти/", "https://hairless.bg/процедури-за-лице/", "https://hairless.bg/цени-и-пакети/"],
+      "facts": "Only the separate ordinary cosmetic Express Skin Reset facial and its 40 minutes. Call the number on that menu, matched to the current Sofia branch. No published facial fee, no laser rates or medical claim; avoid conflicting prices or old premises from other site versions.",
+      "services": [
+        {"name": "Козметична грижа за лице · Express Skin Reset", "en": "Cosmetic facial · Express Skin Reset", "amount": null, "durationMin": 40, "photo": "/service-photos/sx-beauty-hydrating-serum-v1.webp"}
+      ]
+    },
+    {
+      "id": "sofia-abv-academy-reduta-velcho-atanasov53",
+      "neighborhood": "Редута",
+      "category": "education",
+      "subcategory": "education-mathematics",
+      "address": "София, кв. Редута, ул. Велчо Атанасов 53, в зала StemY",
+      "point": {"method": "verified_official_address", "addressId": "96434", "latitude": 42.689307, "longitude": 23.358176},
+      "booking": "tel:+359882035343",
+      "pricingState": "service_reviewed",
+      "sources": ["https://abvacademy.com/robo-schedule-geomilev/", "https://abvacademy.com/matematika-2/", "https://www.stem-y.com/bg/contacts"],
+      "facts": "Active in-person competition-maths course for grades 1–4, including single registered 90-minute lessons and entry during the 2026–27 school year. Use the operator's exact Reduta course phone, not the host's reception. Operator sends payment instructions after registration; no exact fee is posted. The civic point covers the building, not a specific door.",
+      "services": [
+        {"name": "Състезателна математика · 1.–4. клас", "en": "Competition Maths · Grades 1–4", "amount": null, "durationMin": 90, "photo": "/service-photos/go-detail-mathematics-tutoring-table-20261126-v2.webp"}
+      ]
+    }
+  ],
+  "held": [
+    {"name": "PrepClass · Хиподрума", "reason": "Current school-year program and booking route, but no independent proof that its published block 122Е refers to civic block 122 entrance Е. Do not infer that entrance."},
+    {"name": "Фесток Дент · Фондови жилища", "reason": "Exact civic entrance and registered dental practice, but its old contact page names a specialist now practicing at a separate actual branch. No current matching owner-published appointment menu by the treating dentist; do not infer the visit from contact or registration alone."},
+    {"name": "ULTRA · Дружба 2", "reason": "Current owner tariff and precise physical branch. Booking form is for citywide home pickup rather than a verified branch appointment; do not assign its price/booking conditions to a scheduled branch visit."},
+    {"name": "Арт улица · Сердика", "reason": "Archived event offers with different prices and a listing pin labeled No. 48 where the event text says No. 50. No verified current standing service tariff and branch destination."}
+  ]
+}

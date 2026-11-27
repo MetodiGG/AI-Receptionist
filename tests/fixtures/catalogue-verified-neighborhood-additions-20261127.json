@@ -1,0 +1,39 @@
+{
+  "baseline": "b486208743cbaa361ff0441fe3012cb6dc080f2c",
+  "baselineCatalogueSha256": "0b3c74dcb16bd7648f5e7b0ce993d7acd478e8cc539734461395512cb5f0bfb7",
+  "records": [
+    {"id": "sofia-avtokontrol-plus-dianabad", "sha256": "fc1290efd80987547f9b8ecd633560bd7e3ff941a1a2b134362d55329388a2fb"},
+    {"id": "sofia-nn-architecture-hladilnika-banat34", "sha256": "9162418357c00b1c208a35af2fa01262da0e5706e3e11feff13e36cfac883a34"},
+    {"id": "sofia-hairless-hipodruma-hanpresiyan15", "sha256": "b671d4e084d3737ab7b6a99cd5c6eebc1936d32ebeb812aaabf42d70579677c7"},
+    {"id": "sofia-abv-academy-reduta-velcho-atanasov53", "sha256": "1d2b439f722ef8d2e1a28759c6bad4b436a2befcf61bb6ca2124e5831371d8d3"}
+  ],
+  "changed": {
+    "lib/catalogue-service-photo-keys.mjs": {
+      "before": "e6810df41ebba37faee023e3b28da8dde75ba38c019289c0c049303c39fa0b1a",
+      "after": "7d00b6ae4aa18126e543ed0a3b55b6eff38d0212cabb9ee2a9ef277bc38057de"
+    },
+    "lib/discovery/catalogue-data/pricing-booking-review-v1.mjs": {
+      "before": "92e4cb6d8818c56120ab58b356e26fd07b5118e41ac2a0b8a9d5d5553db2f4b2",
+      "after": "842df321f8056ffdc118e5480d7a2039f76a4413f54e477b026992816e7824e8"
+    },
+    "lib/discovery/sofia-catalogue.mjs": {
+      "before": "e147c0e84572f897f513e8bec0cf5b104f1af09e0f5b79896ca61a79afa00a5b",
+      "after": "c2d2cee0d10b31c1eb26e6b8cfb79fcd7fc6b9126dfa72c84f45f6fbdf64d00a"
+    },
+    "lib/locale/service-english.json": {
+      "before": "1c0a88a8ef0bd20dccb38e47761f306dc5a4b19fba0fd79918dfcf85e5d227ca",
+      "after": "c9268101523acf9cd35206a8ca76c55e7c5607203c55861675fd19fe73ac40bb"
+    },
+    "lib/service-detail-existing-photo-coverage.mjs": {
+      "before": "5bff32c773c46afadb9f86e4378fd718c0e5a5e061ad56be9c5bfcf7598f6318",
+      "after": "b6d7d41bebb4bc9860e210e106ead21dbbbea720ef4f68ca619c4a145dfd3323"
+    }
+  },
+  "added": {
+    "docs/catalogue-coverage/verified-neighborhood-additions-20261127.json": "00a258796612a741f3a56b3cc2f79dbe58214d7ee1d73e3a02e066e4c09cec61",
+    "lib/discovery/catalogue-data/neighborhood-verified-dianabad-inspection-20261127.mjs": "23700d1400bd667adff698d91d0e2f21f29bbab26c9f527bd475c8533891d68d",
+    "lib/discovery/catalogue-data/neighborhood-verified-hipodruma-hairless-20261127.mjs": "bd7a8a297f9da46a282eb15cb2063fe23a4d90558d62c6f635422ae04cec5682",
+    "lib/discovery/catalogue-data/neighborhood-verified-hladilnika-nn-20261127.mjs": "b851dcb5d74aa8edc091af060f272c2ffa7b8ca4f0b62a4df3c898f8154ff846",
+    "lib/discovery/catalogue-data/neighborhood-verified-reduta-abv-20261127.mjs": "b4cb7fdb2eff14b3a4abfb1d2c5d3b00342781c3f284f5945921b3c064a3642c"
+  }
+}

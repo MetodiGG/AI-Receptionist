@@ -14,6 +14,7 @@ import earlierIntake from './fixtures/catalogue-verified-sofia-cross-quarter-202
 import earlierPhotos from './fixtures/public-detail-photo-preview-approval.json' with { type: 'json' }
 import receipt from './fixtures/catalogue-verified-sofia-appointment-growth-20261127.json' with { type: 'json' }
 import { lateOwnerPointsAllowsNewFile, lateOwnerPointsPriorCatalogue, lateOwnerPointsPriorSource } from './catalogue-verified-owner-civic-points-20261127-scope.mjs'
+import { neighborhoodAdditionsAllowsFileChange, neighborhoodAdditionsAllowsNewFile } from './catalogue-verified-neighborhood-additions-20261127-scope.mjs'
 
 const cwd = new URL('../', import.meta.url), cataloguePath = 'lib/discovery/sofia-catalogue.mjs'
 const photoPath = 'lib/service-detail-existing-photo-coverage.mjs'
@@ -49,7 +50,8 @@ test('appointment growth authorizes only exact catalogue paths while preserving 
   const actual = [...new Set([
     ...split(git('diff', '--name-only', '--no-renames', '-z', receipt.baseline, '--')),
     ...split(git('ls-files', '--others', '--exclude-standard', '-z')),
-  ])].filter(path => path !== 'node_modules' && !path.startsWith('tests/') && !lateOwnerPointsAllowsNewFile(path)).sort()
+  ])].filter(path => path !== 'node_modules' && !path.startsWith('tests/') && !lateOwnerPointsAllowsNewFile(path) &&
+    !neighborhoodAdditionsAllowsNewFile(path) && (changed.includes(path) || !neighborhoodAdditionsAllowsFileChange(path))).sort()
   assert.deepEqual(actual, [...added, ...changed].sort())
   for (const path of changed) {
     const live = readFileSync(new URL(path, cwd)), current = lateOwnerPointsPriorSource(path, live)

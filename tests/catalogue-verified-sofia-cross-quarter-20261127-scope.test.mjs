@@ -12,6 +12,7 @@ import { crossQuarterAllowsFileChange, crossQuarterAllowsNewFile, crossQuarterAl
 import { nearbyAddressReviewAllowsNewFile, nearbyAddressReviewPriorSource } from './catalogue-verified-nearby-addresses-20261127-scope.mjs'
 import { appointmentGrowthAllowsFileChange, appointmentGrowthAllowsNewFile, appointmentGrowthPriorSource } from './catalogue-verified-sofia-appointment-growth-20261127-scope.mjs'
 import { lateOwnerPointsAllowsNewFile } from './catalogue-verified-owner-civic-points-20261127-scope.mjs'
+import { neighborhoodAdditionsAllowsFileChange, neighborhoodAdditionsAllowsNewFile } from './catalogue-verified-neighborhood-additions-20261127-scope.mjs'
 
 const cwd = new URL('../', import.meta.url)
 const git = (...args) => execFileSync('git', args, { cwd, maxBuffer: 8 * 1024 * 1024 })
@@ -42,7 +43,8 @@ test('the latest intake seals only its six catalogue paths and restores both ear
     ...split(git('ls-files', '--others', '--exclude-standard', '-z')),
   ])].filter(path => path !== 'node_modules' && !path.startsWith('tests/') && !nearbyAddressReviewAllowsNewFile(path) &&
     !appointmentGrowthAllowsNewFile(path) && !lateOwnerPointsAllowsNewFile(path) &&
-    (changed.includes(path) || !appointmentGrowthAllowsFileChange(path))).sort()
+    !neighborhoodAdditionsAllowsNewFile(path) &&
+    (changed.includes(path) || !(appointmentGrowthAllowsFileChange(path) || neighborhoodAdditionsAllowsFileChange(path)))).sort()
   assert.deepEqual(actual, [...changed, ...added].sort())
   for (const path of changed) {
     const actual = readFileSync(new URL(path, cwd))

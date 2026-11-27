@@ -8,6 +8,7 @@ import { crossQuarterAllowsFileChange, crossQuarterAllowsNewFile, crossQuarterPr
 import { nearbyAddressReviewAllowsFileChange, nearbyAddressReviewAllowsNewFile, nearbyAddressReviewPriorCatalogue, nearbyAddressReviewPriorSource } from './catalogue-verified-nearby-addresses-20261127-scope.mjs'
 import { appointmentGrowthAllowsFileChange, appointmentGrowthAllowsNewFile, appointmentGrowthPriorCatalogue, appointmentGrowthPriorSource } from './catalogue-verified-sofia-appointment-growth-20261127-scope.mjs'
 import { lateOwnerPointsAllowsFileChange, lateOwnerPointsAllowsNewFile } from './catalogue-verified-owner-civic-points-20261127-scope.mjs'
+import { neighborhoodAdditionsAllowsFileChange, neighborhoodAdditionsAllowsNewFile } from './catalogue-verified-neighborhood-additions-20261127-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha256 = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -53,8 +54,8 @@ export function mopartIntakePriorCatalogue(rows) {
 
 // Historical consumers unwind the most recent exact receipt first; the
 // individual checks above still recognize only the original Mopart bytes.
-export const catalogueIntakeAllowsFileChange = path => lateOwnerPointsAllowsFileChange(path) || appointmentGrowthAllowsFileChange(path) || nearbyAddressReviewAllowsFileChange(path) || crossQuarterAllowsFileChange(path) || verifiedLyulinBatchAllowsFileChange(path) || mopartIntakeAllowsFileChange(path)
-export const catalogueIntakeAllowsNewFile = path => lateOwnerPointsAllowsNewFile(path) || appointmentGrowthAllowsNewFile(path) || nearbyAddressReviewAllowsNewFile(path) || crossQuarterAllowsNewFile(path) || verifiedLyulinBatchAllowsNewFile(path) || mopartIntakeAllowsNewFile(path)
+export const catalogueIntakeAllowsFileChange = path => neighborhoodAdditionsAllowsFileChange(path) || lateOwnerPointsAllowsFileChange(path) || appointmentGrowthAllowsFileChange(path) || nearbyAddressReviewAllowsFileChange(path) || crossQuarterAllowsFileChange(path) || verifiedLyulinBatchAllowsFileChange(path) || mopartIntakeAllowsFileChange(path)
+export const catalogueIntakeAllowsNewFile = path => neighborhoodAdditionsAllowsNewFile(path) || lateOwnerPointsAllowsNewFile(path) || appointmentGrowthAllowsNewFile(path) || nearbyAddressReviewAllowsNewFile(path) || crossQuarterAllowsNewFile(path) || verifiedLyulinBatchAllowsNewFile(path) || mopartIntakeAllowsNewFile(path)
 export const catalogueIntakeAllowsPath = path => catalogueIntakeAllowsFileChange(path) || catalogueIntakeAllowsNewFile(path)
 export const catalogueIntakePriorSource = (path, source) => mopartIntakePriorSource(path,
   verifiedLyulinBatchPriorSource(path, crossQuarterPriorSource(path, nearbyAddressReviewPriorSource(path, appointmentGrowthPriorSource(path, source)))))

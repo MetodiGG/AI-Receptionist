@@ -21,6 +21,7 @@ import { lateOwnerPointsAllowsFileChange, lateOwnerPointsAllowsNewFile, lateOwne
   lateOwnerPointsPriorCatalogue, lateOwnerPointsPriorSource } from './catalogue-verified-owner-civic-points-20261127-scope.mjs'
 import prior from './fixtures/catalogue-verified-sofia-appointment-growth-20261127.json' with { type: 'json' }
 import receipt from './fixtures/catalogue-verified-owner-civic-points-20261127.json' with { type: 'json' }
+import { neighborhoodAdditionsAllowsFileChange, neighborhoodAdditionsAllowsNewFile, neighborhoodAdditionsPriorCatalogue, neighborhoodAdditionsPriorSource } from './catalogue-verified-neighborhood-additions-20261127-scope.mjs'
 
 const cwd = new URL('../', import.meta.url)
 const cataloguePath = 'lib/discovery/sofia-catalogue.mjs'
@@ -39,15 +40,18 @@ test('owner/civic location-only receipt recognizes exactly one modified and two 
   assert.deepEqual(Object.keys(receipt.added).sort(), added)
   const inventory = new Set([...paths(git('diff', '--name-only', '--no-renames', '-z', receipt.baseline, '--')),
     ...paths(git('ls-files', '--others', '--exclude-standard', '-z'))])
-  assert.deepEqual([...inventory].filter(path => path !== 'node_modules' && !path.startsWith('tests/')).sort(), [...added, cataloguePath].sort())
+  assert.deepEqual([...inventory].filter(path => path !== 'node_modules' && !path.startsWith('tests/') &&
+    !neighborhoodAdditionsAllowsNewFile(path) && (path === cataloguePath || !neighborhoodAdditionsAllowsFileChange(path))).sort(), [...added, cataloguePath].sort())
   const baseline = git('show', receipt.baseline + ':' + cataloguePath)
-  const current = readFileSync(new URL(cataloguePath, cwd))
+  const live = readFileSync(new URL(cataloguePath, cwd))
+  const current = neighborhoodAdditionsPriorSource(cataloguePath, live)
   assert.equal(sha(baseline), prior.changed[cataloguePath].after)
   assert.equal(sha(baseline), receipt.changed[cataloguePath].before)
   assert.equal(sha(current), receipt.changed[cataloguePath].after)
-  assert.ok(lateOwnerPointsAllowsFileChange(cataloguePath) && catalogueIntakeAllowsPath(cataloguePath))
+  assert.equal(lateOwnerPointsAllowsFileChange(cataloguePath), sha(live) === receipt.changed[cataloguePath].after)
+  assert.ok(catalogueIntakeAllowsPath(cataloguePath))
   assert.deepEqual(lateOwnerPointsPriorSource(cataloguePath, current), baseline)
-  const changedBeyondReceipt = Buffer.concat([current, Buffer.from('\n')])
+  const changedBeyondReceipt = Buffer.concat([live, Buffer.from('\n')])
   assert.equal(lateOwnerPointsPriorSource(cataloguePath, changedBeyondReceipt), changedBeyondReceipt)
   assert.equal(catalogueIntakePriorSource(cataloguePath, changedBeyondReceipt), changedBeyondReceipt)
   for (const path of added) {
@@ -66,7 +70,7 @@ test('raw and visible inventory change only the individually approved branch loc
   const approvals = new Map(receipt.records.map(row => [row.id, row]))
   assert.equal(approvals.size, 3)
   assert.deepEqual(report.verified.map(row => row.id).sort(), [...approvals.keys()].sort())
-  for (const actual of [RAW_SOFIA_CATALOGUE, SOFIA_CATALOGUE]) {
+  for (const actual of [RAW_SOFIA_CATALOGUE, SOFIA_CATALOGUE].map(neighborhoodAdditionsPriorCatalogue)) {
     const before = lateOwnerPointsPriorCatalogue(actual)
     assert.equal(rowHash(before), receipt.baselineCatalogueSha256)
     assert.equal(rowHash(actual), receipt.currentCatalogueSha256)
@@ -108,7 +112,7 @@ test('raw and visible inventory change only the individually approved branch loc
 
 test('dated 30-business snapshot separates recoveries in precise-nearby and physical coverage', () => {
   const c = report.coverage
-  const rows = [original, SOFIA_CATALOGUE]
+  const rows = [original, neighborhoodAdditionsPriorCatalogue(SOFIA_CATALOGUE)]
   const coverage = rows.map(items => catalogueCoverageReport(items, { now, target: c.targetPerQuarterCategory }))
   const map = fn => coverage.map(fn)
   const cells = audit => [...audit.neighborhoods, ...audit.additionalNamedAreas].flatMap(area => area.cells)

@@ -37,7 +37,7 @@ test('four distinct premises fill five formerly empty Sofia quarter/category cel
   const expected = report.coverage
   const [before, after] = [previous, reviewedSnapshot].map(rows => catalogueCoverageReport(rows, { now, target: expected.targetPerQuarterCategory }))
   const both = get => [get(before), get(after)]
-  assert.equal(SOFIA_CATALOGUE.length - previous.length, 4)
+  assert.equal(reviewedSnapshot.length - previous.length, 4)
   assert.deepEqual(both(audit => audit.counts.approvedBusinesses), expected.approvedSofiaBusinesses)
   assert.deepEqual(both(audit => audit.counts.premisesWithBoundCoordinates), expected.premisesWithBoundPoint)
   assert.deepEqual(both(audit => audit.counts.zeroCells), expected.emptyPhysicalCells)

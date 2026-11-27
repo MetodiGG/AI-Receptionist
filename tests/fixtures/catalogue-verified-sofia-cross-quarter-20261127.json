@@ -1,0 +1,39 @@
+{
+  "baseline": "2e02e5bd7f00e549231799c5df0a76079da606d0",
+  "records": [
+    {
+      "id": "sofia-bs-wrap-studio-studentski-stranski3b",
+      "sha256": "155f83931ca5a65ccff1c8c9d6588dbcbc66061ae2cc98bb64c3c5aca67f9a79"
+    },
+    {
+      "id": "sofia-as-vavilon-vrabnitsa2-block632d",
+      "sha256": "552d96c182a300e5e20e9254d333abb9470e97949ef09dd2981d6c5a9e5c475b"
+    },
+    {
+      "id": "sofia-best-moments-photography-lyulin6-block641",
+      "sha256": "515df0bebf6e53424eab5f04a9b74963466646797b571e025d29cf3e23f50b14"
+    }
+  ],
+  "changed": {
+    "lib/catalogue-service-photo-keys.mjs": {
+      "before": "fe7ff357d070968d289c416ac13b3efa58c120981033477a84b99a2ca02a8218",
+      "after": "58e0b304a6c76d7f5735b7746571ac5e6d162a9bfec104d5fc496973ee409225"
+    },
+    "lib/discovery/catalogue-data/pricing-booking-review-v1.mjs": {
+      "before": "c62c08b2901597e10c70f20125c1d673d8009ed66fd65123e5b7487daa93f1f0",
+      "after": "0aae7840650c96e624c1d983910d8e42fb0c8b6d5b98e3a504162e67c8e2853b"
+    },
+    "lib/discovery/sofia-catalogue.mjs": {
+      "before": "409f57ee20bd31e18de852cd673a9eb29d16d26392f6b12b1921bf371707e550",
+      "after": "dda48c2cc151e6d53a15b3cf447850debc8cc1b1e6aa22bc95f6b94b30c2a187"
+    },
+    "lib/locale/service-english.json": {
+      "before": "5fa41559e7e352b15e45b6321ccd51599e0df1be9ed50af82c54651c929f18ad",
+      "after": "b0cf41b942a84226cc6911d09126691cc23bd69e92d4888fc10a67ea5e2d4d3a"
+    }
+  },
+  "added": {
+    "docs/catalogue-coverage/verified-sofia-cross-quarter-20261127.json": "fa1712d3bc395b4d940515dc8b019fc6c6e6c20cb6b09af2f5a40497bb96a847",
+    "lib/discovery/catalogue-data/neighborhood-verified-sofia-cross-quarter-20261127.mjs": "d244f08710e795d249b29c361514e07b1009bd19da8fe65b80c0760799b283fb"
+  }
+}

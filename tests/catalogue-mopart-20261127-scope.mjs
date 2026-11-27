@@ -4,6 +4,7 @@ import { lstatSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import receipt from './fixtures/catalogue-mopart-20261127-approval.json' with { type: 'json' }
 import { verifiedLyulinBatchAllowsFileChange, verifiedLyulinBatchAllowsNewFile, verifiedLyulinBatchPriorCatalogue, verifiedLyulinBatchPriorSource } from './catalogue-verified-lyulin-batch-20261127-scope.mjs'
+import { crossQuarterAllowsFileChange, crossQuarterAllowsNewFile, crossQuarterPriorCatalogue, crossQuarterPriorSource } from './catalogue-verified-sofia-cross-quarter-20261127-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha256 = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -49,8 +50,8 @@ export function mopartIntakePriorCatalogue(rows) {
 
 // Historical consumers unwind the most recent exact receipt first; the
 // individual checks above still recognize only the original Mopart bytes.
-export const catalogueIntakeAllowsFileChange = path => verifiedLyulinBatchAllowsFileChange(path) || mopartIntakeAllowsFileChange(path)
-export const catalogueIntakeAllowsNewFile = path => verifiedLyulinBatchAllowsNewFile(path) || mopartIntakeAllowsNewFile(path)
+export const catalogueIntakeAllowsFileChange = path => crossQuarterAllowsFileChange(path) || verifiedLyulinBatchAllowsFileChange(path) || mopartIntakeAllowsFileChange(path)
+export const catalogueIntakeAllowsNewFile = path => crossQuarterAllowsNewFile(path) || verifiedLyulinBatchAllowsNewFile(path) || mopartIntakeAllowsNewFile(path)
 export const catalogueIntakeAllowsPath = path => catalogueIntakeAllowsFileChange(path) || catalogueIntakeAllowsNewFile(path)
-export const catalogueIntakePriorSource = (path, source) => mopartIntakePriorSource(path, verifiedLyulinBatchPriorSource(path, source))
-export const catalogueIntakePriorCatalogue = rows => mopartIntakePriorCatalogue(verifiedLyulinBatchPriorCatalogue(rows))
+export const catalogueIntakePriorSource = (path, source) => mopartIntakePriorSource(path, verifiedLyulinBatchPriorSource(path, crossQuarterPriorSource(path, source)))
+export const catalogueIntakePriorCatalogue = rows => mopartIntakePriorCatalogue(verifiedLyulinBatchPriorCatalogue(crossQuarterPriorCatalogue(rows)))

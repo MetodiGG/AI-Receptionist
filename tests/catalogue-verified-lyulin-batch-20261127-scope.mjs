@@ -7,8 +7,6 @@ import receipt from './fixtures/catalogue-verified-lyulin-batch-20261127.json' w
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
 const digests = /^[a-f0-9]{64}$/u
-const records = new Map(receipt.records.map(row => [row.id, row.sha256]))
-const baseline = new Map()
 
 function matchesFile(path, expected) {
   if (!digests.test(expected ?? '')) return false
@@ -18,32 +16,42 @@ function matchesFile(path, expected) {
   } catch { return false }
 }
 
-export const verifiedLyulinBatchAllowsFileChange = path => Object.hasOwn(receipt.changed, path) && matchesFile(path, receipt.changed[path].after)
-export const verifiedLyulinBatchAllowsNewFile = path => Object.hasOwn(receipt.added, path) && matchesFile(path, receipt.added[path])
-export const verifiedLyulinBatchAllowsPath = path => verifiedLyulinBatchAllowsFileChange(path) || verifiedLyulinBatchAllowsNewFile(path)
-
-export function verifiedLyulinBatchPriorSource(path, source) {
-  if (!Object.hasOwn(receipt.changed, path)) return source
-  const { before, after } = receipt.changed[path]
-  if (!digests.test(before ?? '') || !digests.test(after ?? '') || sha(source) !== after) return source
-  if (!baseline.has(path)) {
-    const original = execFileSync('git', ['show', receipt.baseline + ':' + path], { cwd: root, maxBuffer: 5 * 1024 * 1024 })
-    if (sha(original) !== before) throw Error('Verified Lyulin batch cannot restore pinned source: ' + path)
-    baseline.set(path, original)
+// Test-only helper for exact, independently reviewed and additive intakes.
+// File and row hashes never excuse changes they did not specifically seal.
+export function exactCatalogueIntakeScope(receipt, label) {
+  const records = new Map(receipt.records.map(row => [row.id, row.sha256]))
+  const baseline = new Map()
+  const recordLabel = label.charAt(0).toLowerCase() + label.slice(1)
+  const allowsFileChange = path => Object.hasOwn(receipt.changed, path) && matchesFile(path, receipt.changed[path].after)
+  const allowsNewFile = path => Object.hasOwn(receipt.added, path) && matchesFile(path, receipt.added[path])
+  const allowsPath = path => allowsFileChange(path) || allowsNewFile(path)
+  function priorSource(path, source) {
+    if (!Object.hasOwn(receipt.changed, path)) return source
+    const { before, after } = receipt.changed[path]
+    if (!digests.test(before ?? '') || !digests.test(after ?? '') || sha(source) !== after) return source
+    if (!baseline.has(path)) {
+      const original = execFileSync('git', ['show', receipt.baseline + ':' + path], { cwd: root, maxBuffer: 5 * 1024 * 1024 })
+      if (sha(original) !== before) throw Error(label + ' cannot restore pinned source: ' + path)
+      baseline.set(path, original)
+    }
+    const original = baseline.get(path)
+    return typeof source === 'string' ? original.toString('utf8') : Buffer.from(original)
   }
-  const original = baseline.get(path)
-  return typeof source === 'string' ? original.toString('utf8') : Buffer.from(original)
+  function priorCatalogue(rows) {
+    const seen = new Set()
+    return rows.filter(row => {
+      if (!records.has(row?.id)) return true
+      if (seen.has(row.id)) throw Error('Duplicate ' + recordLabel + ' record: ' + row.id)
+      seen.add(row.id)
+      if (sha(JSON.stringify(row)) !== records.get(row.id)) throw Error('Unreviewed ' + recordLabel + ' record: ' + row.id)
+      return false
+    })
+  }
+  return { allowsFileChange, allowsNewFile, allowsPath, priorSource, priorCatalogue }
 }
 
-// Historical catalogue assertions may strip only the exact normalized rows.
-// An edited row with one of their IDs must not disappear from an audit.
-export function verifiedLyulinBatchPriorCatalogue(rows) {
-  const seen = new Set()
-  return rows.filter(row => {
-    if (!records.has(row?.id)) return true
-    if (seen.has(row.id)) throw Error('Duplicate verified Lyulin batch record: ' + row.id)
-    seen.add(row.id)
-    if (sha(JSON.stringify(row)) !== records.get(row.id)) throw Error('Unreviewed verified Lyulin batch record: ' + row.id)
-    return false
-  })
-}
+export const {
+  allowsFileChange: verifiedLyulinBatchAllowsFileChange, allowsNewFile: verifiedLyulinBatchAllowsNewFile,
+  allowsPath: verifiedLyulinBatchAllowsPath, priorSource: verifiedLyulinBatchPriorSource,
+  priorCatalogue: verifiedLyulinBatchPriorCatalogue,
+} = exactCatalogueIntakeScope(receipt, 'Verified Lyulin batch')

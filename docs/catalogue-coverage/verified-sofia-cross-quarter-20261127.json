@@ -1,0 +1,56 @@
+{
+  "checkedOn": "2026-11-27",
+  "scope": "Three independently checked premises from previously isolated research, added to the current staging branch only. No unrelated address corrections or production operations.",
+  "baseCommit": "2e02e5bd7f00e549231799c5df0a76079da606d0",
+  "priorResearchCommit": "acf218f23d6ae0564fbfdf2ae77b9f8eb24e6fcf",
+  "addressSource": {
+    "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "attribution": "ГИС София / Столична община",
+    "licence": "CC-BY-4.0",
+    "csvSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef"
+  },
+  "targetPerQuarterCategory": 30,
+  "beforeAfter": { "approvedSofiaBusinesses": [1773, 1776], "emptyCells": [1252, 1251] },
+  "newBranches": [
+    {
+      "id": "sofia-bs-wrap-studio-studentski-stranski3b",
+      "neighborhood": "Студентски град",
+      "category": "detailing",
+      "address": "София, Студентски град, ул. Проф. д-р Иван Странски 3Б",
+      "point": { "addressId": "95055", "latitude": 42.643543, "longitude": 23.341124 },
+      "ownedSources": ["https://bswrapstudio.bg/kontakti/", "https://bswrapstudio.bg/ppf/", "https://bswrapstudio.bg/smyana-na-cveta/", "https://bswrapstudio.bg/obshti-usloviya/", "https://bsprint.bg/kontakti/"],
+      "terms": "Form requests an inspection. Final quote and timing follow inspection. Front paint-protection film is a documented PPF option; colour wrapping concerns the exterior and door openings are priced separately by request. Do not describe an enquiry as a reserved or confirmed time.",
+      "price": null,
+      "locatedInCell": [1, 2],
+      "pricingIdentity": "c2f7f50fba811a8c518087f53858f80c4bdbdfcde4b82c44c51e155b9a825a53"
+    },
+    {
+      "id": "sofia-as-vavilon-vrabnitsa2-block632d",
+      "neighborhood": "Връбница 2",
+      "category": "education",
+      "address": "София, ж.к. Връбница 2, бл. 632, партер до вх. Д",
+      "point": { "addressId": "18016", "latitude": 42.736604, "longitude": 23.292357 },
+      "ownedSources": ["https://as-vavilon.com/all-inclusive-price-driving-lesson-957860", "https://as-vavilon.com/all-inclusive-price-driving-lesson-961073"],
+      "independentSource": "https://rta.government.bg/upload/18444/uchebni_centrove.html",
+      "terms": "The primary CTA leads to consultation, not enrolment or a promoted add-on. The owner directs price enquiries to the office. Official licence entry 3447 confirms the branch and category B. Use the civic entrance point, not a guessed office door. Conflicting phone numbers omitted.",
+      "price": null,
+      "locatedInCell": [0, 1],
+      "pricingIdentity": "4a4c9e1fe0dff4545c79ad915e36388b694cd64bde53f159a0f7ff8c5c484e6d"
+    },
+    {
+      "id": "sofia-best-moments-photography-lyulin6-block641",
+      "neighborhood": "Люлин 6",
+      "category": "other",
+      "address": "София, ж.к. Люлин 6, блок 641",
+      "point": { "addressId": "118132", "latitude": 42.710241, "longitude": 23.252639 },
+      "ownedSources": ["https://bestmphoto.com/robots.txt", "https://bestmphoto.com/family-photography/", "https://bestmphoto.com/контакти/"],
+      "independentSource": "https://call.sofia.bg/signals/765552",
+      "terms": "The current family menu and canonical enquiry form agree on Mini: seven images, one set, parents and one child, an online gallery and digital card. Deposit is required and not the package amount. Extra images and photos with grandparents are separate. No slot or process was completed. The civic point is for the block, not a door. Other packages were not imported.",
+      "price": { "amount": 130, "currency": "EUR", "unit": "за пакет", "source": "https://bestmphoto.com/family-photography/" },
+      "locatedInCell": [1, 2],
+      "pricingIdentity": "513902719125422e44babfd22953789dabec529e242b3cc21c6cabfba9c1d13a"
+    }
+  ],
+  "publicSubmissions": 0,
+  "productionWrites": 0
+}

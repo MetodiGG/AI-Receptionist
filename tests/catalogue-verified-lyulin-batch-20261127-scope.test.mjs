@@ -8,6 +8,7 @@ import prior from './fixtures/catalogue-mopart-20261127-approval.json' with { ty
 import receipt from './fixtures/catalogue-verified-lyulin-batch-20261127.json' with { type: 'json' }
 import { catalogueIntakeAllowsPath, catalogueIntakePriorCatalogue, catalogueIntakePriorSource } from './catalogue-mopart-20261127-scope.mjs'
 import { verifiedLyulinBatchAllowsFileChange, verifiedLyulinBatchAllowsNewFile, verifiedLyulinBatchAllowsPath, verifiedLyulinBatchPriorCatalogue, verifiedLyulinBatchPriorSource } from './catalogue-verified-lyulin-batch-20261127-scope.mjs'
+import { crossQuarterAllowsNewFile, crossQuarterPriorSource } from './catalogue-verified-sofia-cross-quarter-20261127-scope.mjs'
 
 const cwd = new URL('../', import.meta.url)
 const git = (...args) => execFileSync('git', args, { cwd, maxBuffer: 8 * 1024 * 1024 })
@@ -31,21 +32,22 @@ test('the verified Lyulin batch seals exactly its six catalogue paths before nor
   const actual = [...new Set([
     ...asPaths(git('diff', '--name-only', '--no-renames', '-z', receipt.baseline, '--')),
     ...asPaths(git('ls-files', '--others', '--exclude-standard', '-z')),
-  ])].filter(path => path !== 'node_modules' && !path.startsWith('tests/')).sort()
+  ])].filter(path => path !== 'node_modules' && !path.startsWith('tests/') && !crossQuarterAllowsNewFile(path)).sort()
   assert.deepEqual(actual, [...changed, ...added].sort())
   for (const path of changed) {
-    const current = readFileSync(new URL(path, cwd))
+    const actual = readFileSync(new URL(path, cwd))
+    const current = crossQuarterPriorSource(path, actual)
     const preBatch = git('show', receipt.baseline + ':' + path)
     const preMopart = git('show', prior.baseline + ':' + path)
     const { before, after } = receipt.changed[path]
     assert.notEqual(before, after, path)
     assert.equal(before, prior.changed[path].after, path)
     assert.equal(sha(current), after, path)
-    assert.ok(verifiedLyulinBatchAllowsFileChange(path), path)
+    assert.equal(verifiedLyulinBatchAllowsFileChange(path), sha(actual) === after, path)
     assert.equal(verifiedLyulinBatchAllowsNewFile(path), false, path)
     assert.deepEqual(verifiedLyulinBatchPriorSource(path, current), preBatch, path)
-    assert.deepEqual(catalogueIntakePriorSource(path, current), preMopart, path)
-    const tampered = Buffer.concat([current, Buffer.from('\n')])
+    assert.deepEqual(catalogueIntakePriorSource(path, actual), preMopart, path)
+    const tampered = Buffer.concat([actual, Buffer.from('\n')])
     assert.equal(catalogueIntakePriorSource(path, tampered), tampered, path)
   }
   for (const path of added) {

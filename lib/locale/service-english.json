@@ -5436,6 +5436,7 @@
     "Семейна фотосесия · МИНИ · 10 обработени кадъра": "Family photo shoot · MINI · 10 processed photos",
     "Семейна фотосесия · Макси · 35 кадъра": "Family photo shoot · Maxi · 35 photos",
     "Семейна фотосесия · Мини · 15 кадъра": "Family photo shoot · Mini · 15 photos",
+    "Семейна фотосесия · Мини · 7 кадъра": "Family photoshoot · Mini · 7 images",
     "Семейна фотосесия · Стандарт · 25 кадъра": "Family photo shoot · Standard · 25 photos",
     "Семейна фотосесия в София": "Family photo shoot in Sofia",
     "Семейна фотосесия в студио": "Family photo shoot in studio",
@@ -6560,6 +6561,10 @@
     "смяна на предпазен клапан на бойлер": "change of boiler safety valve"
   },
   "descriptions": {
+    "За родители и едно дете: един декор, онлайн галерия и дигитална картичка. Цената е за целия пакет; допълнителните кадри и снимките с баба и дядо се заплащат отделно. Формулярът е заявка, а час се запазва с капаро.": "For parents and one child: one set, an online gallery and a digital card. This is the total package price; extra images and photos with grandparents are charged separately. The form is a request, and a deposit secures the appointment.",
+    "Теоретично и практическо обучение за категория B. Записването за консултация е отделно от записването за курса. Цената и графикът за курса се уточняват с автошколата.": "Theory and practical training for a category B driving licence. Consultation bookings are separate from course enrolment. The driving school confirms the fee and course schedule.",
+    "Формулярът е заявка за оглед, не потвърден час. Студиото уточнява цената и часа след оглед според избраните зони. Автомобилът се предоставя измит, освен ако не е уговорено друго.": "The form requests an inspection, not a confirmed appointment. The studio confirms the price and time after inspecting the selected areas. Please bring the vehicle washed unless agreed otherwise.",
+    "Формулярът е заявка за оглед, не потвърден час. Офертата е за външните панели; зоните около отворите на вратите се калкулират отделно по заявка. Автомобилът се предоставя измит, освен ако не е уговорено друго.": "The form requests an inspection, not a confirmed appointment. The estimate covers exterior panels; door jambs are quoted separately on request. Please bring the vehicle washed unless agreed otherwise.",
     "Присъствен курс за 7. клас, матура или кандидатстване. Посочената цена е за един 40-минутен учебен час, не за целия курс или за самостоятелно посещение. Заплаща се на две вноски – в началото на курса и в началото на февруари.": "In-person course for grade 7, final exams or admissions. The amount covers one 40-minute teaching period, not the whole course or a drop-in visit. Payment is in two instalments, at the start of the course and at the beginning of February.",
     "Предварителен тест с преподавател за избор на подходящ курс по английски за възрастни. Уговаря се отделно; безплатният тест не включва самия курс.": "An initial assessment with a teacher to choose a suitable English course for adults. It is arranged separately and in advance; the course itself is not included in the free assessment.",
     "Проверка на двигателя с диагностична апаратура за автомобили BMW, MINI и Rolls-Royce.": "Engine checks with diagnostic equipment for BMW, MINI and Rolls-Royce vehicles.",
@@ -8443,6 +8448,7 @@
     "Часът се уговаря с преподавателя; първоначално се изготвя индивидуален график.": "The class is arranged with the lecturer; an individual schedule is initially drawn up."
   },
   "units": {
+    "за пакет": "per package",
     "за теста": "for the assessment",
     "на урок при срок от 11 урока": "per lesson in an 11-lesson term",
     "корт · час": "court · hour",

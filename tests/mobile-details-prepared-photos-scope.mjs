@@ -15,7 +15,7 @@ function exactCurrent(path, expected) {
   try {
     const file = new URL('../' + path, import.meta.url)
     const mode = lstatSync(file)
-    return mode.isFile() && !(mode.mode & 0o111) && sha(readFileSync(file)) === expected
+    return mode.isFile() && !(mode.mode & 0o111) && sha(businessOnboardingSofiaPriorSource(path, readFileSync(file))) === expected
   } catch { return false }
 }
 

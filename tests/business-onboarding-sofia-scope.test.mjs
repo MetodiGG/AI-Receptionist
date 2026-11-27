@@ -6,6 +6,8 @@ import test from 'node:test'
 import receipt from './fixtures/business-onboarding-sofia-approval.json' with { type: 'json' }
 import { businessOnboardingSofiaAllowsFileChange, businessOnboardingSofiaAllowsNewFile,
   businessOnboardingSofiaAllowsPath, businessOnboardingSofiaPriorSource } from './business-onboarding-sofia-scope.mjs'
+import { approvedCatalogueMatches, publishedBaselineMatches, verifiedCatalogueTip, publishedBaseline } from './catalogue-only-release-scope.mjs'
+import { preparedPhotosAllowsFileChange, preparedPhotosPriorSource } from './mobile-details-prepared-photos-scope.mjs'
 
 const cwd = new URL('../', import.meta.url)
 const git = (...args) => execFileSync('git', args, { cwd, maxBuffer: 8 * 1024 * 1024 })
@@ -65,4 +67,21 @@ test('the successor cannot authorize original/generated photos, calendars, booki
     assert.equal(businessOnboardingSofiaAllowsPath(path), false, path)
     assert.equal(businessOnboardingSofiaPriorSource(path, source), source, path)
   }
+})
+
+test('the catalogue profile reconstructs both independently approved page histories through exact successive preimages', () => {
+  const path = 'app/businesses/catalogue/[id]/page.js'
+  const current = readFileSync(new URL(path, cwd))
+  const beforeOnboarding = businessOnboardingSofiaPriorSource(path, current)
+  assert.deepEqual(beforeOnboarding, git('show', receipt.baseline + ':' + path))
+  assert.deepEqual(beforeOnboarding, git('show', publishedBaseline + ':' + path))
+  const beforePreparedPhotos = preparedPhotosPriorSource(path, beforeOnboarding)
+  assert.deepEqual(beforePreparedPhotos, git('show', verifiedCatalogueTip + ':' + path))
+  assert.notDeepEqual(beforePreparedPhotos, beforeOnboarding, 'the two real branch histories are not conflated')
+  assert.equal(preparedPhotosAllowsFileChange(path), true)
+  assert.equal(approvedCatalogueMatches(path), true)
+  assert.equal(publishedBaselineMatches(path), true)
+  const tampered = Buffer.concat([current, Buffer.from('\n')])
+  assert.equal(businessOnboardingSofiaPriorSource(path, tampered), tampered)
+  assert.equal(preparedPhotosPriorSource(path, tampered), tampered)
 })

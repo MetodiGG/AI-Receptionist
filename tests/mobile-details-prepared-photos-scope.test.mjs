@@ -10,6 +10,7 @@ import { staticWebpCacheCpuAllowsFileChange } from './discovery-static-webp-cach
 import { mobileDiscoveryFirstPaintAllowsFileChange } from './mobile-discovery-first-paint-scope.mjs'
 import { homepageBrowseStartAllowsPath } from './homepage-browse-start-scope.mjs'
 import { approvedCatalogueMatches } from './catalogue-only-release-scope.mjs'
+import { businessOnboardingSofiaPriorSource } from './business-onboarding-sofia-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const git = (...args) => execFileSync('git', args, { cwd: root })
@@ -37,7 +38,7 @@ test('the prepared-photo latency patch changes only the public details read and 
   for (const [path, { before, after }] of Object.entries(changed)) {
     const current = await readFile(new URL('../' + path, import.meta.url)), original = git('show', baseline + ':' + path)
     assert.equal(sha(original), before, path)
-    assert.equal(sha(current), after, path)
+    assert.equal(sha(businessOnboardingSofiaPriorSource(path, current)), after, path)
     assert.notEqual(before, after, path)
     assert.equal(preparedPhotosAllowsFileChange(path), true, path)
     assert.equal(preparedPhotosAllowsNewFile(path), false, path)

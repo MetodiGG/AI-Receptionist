@@ -4,6 +4,7 @@ import { lstatSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { providerRolePhotosAllowsFileChange, providerRolePhotosAllowsNewFile, providerRolePhotosPriorSource } from './provider-role-photo-scope.mjs'
 import { businessOnboardingSofiaAllowsFileChange, businessOnboardingSofiaAllowsNewFile, businessOnboardingSofiaPriorSource } from './business-onboarding-sofia-scope.mjs'
+import { preparedPhotosPriorSource } from './mobile-details-prepared-photos-scope.mjs'
 
 // Immutable verification anchors for the two independent, tested histories.
 // A historical test may ignore only the exact unchanged blob from the other
@@ -88,7 +89,11 @@ function onboardingPreimageMatchesSnapshot(path, commit) {
   try {
     const current = readFileSync(new URL('../' + path, import.meta.url))
     const original = businessOnboardingSofiaPriorSource(path, current)
-    return !original.equals(current) && original.equals(git('show', commit + ':' + path))
+    const snapshot = git('show', commit + ':' + path)
+    // The independently tested catalogue branch predates the prepared-photo
+    // presentation branch. Replay that exact older approval too, rather than
+    // treating its unchanged baseline page as an authorized onboarding change.
+    return !original.equals(current) && (original.equals(snapshot) || preparedPhotosPriorSource(path, original).equals(snapshot))
   } catch { return false }
 }
 

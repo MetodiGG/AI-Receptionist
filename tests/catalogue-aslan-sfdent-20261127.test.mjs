@@ -10,7 +10,9 @@ import { allowsFileChange, allowsNewFile, priorCatalogue, priorSource } from './
 import { catalogueProfileView } from '../lib/catalogue-profile.mjs'
 import { classifyExpiredCatalogueOffers } from '../lib/discovery/catalogue-expired-offer-holds.mjs'
 import { auditCataloguePricing } from '../lib/discovery/catalogue-pricing-review.mjs'
-import { RAW_SOFIA_CATALOGUE, SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { RAW_SOFIA_CATALOGUE as RAW_LIVE, SOFIA_CATALOGUE as LIVE } from '../lib/discovery/sofia-catalogue.mjs'
+import { allowsFileChange as nextChange, allowsNewFile as nextNew, priorSource as nextPriorSource,
+  priorCatalogue as nextPriorCatalogue } from './catalogue-atues-visit-points-20261127-scope.mjs'
 import { ASLAN_POLIGONA_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-aslan-poligona-20261127.mjs'
 import { businessCoverPhotoSources } from '../lib/public-business-cover-photo.mjs'
 import { publicDetailServiceThumbnail } from '../lib/service-detail-photo-presentation.mjs'
@@ -19,6 +21,7 @@ import { compareDiscoveryPhotos, fingerprintDiscoveryPhoto, readDiscoveryImage }
 const root = new URL('../', import.meta.url)
 const day = iso => Date.parse(iso + 'T12:00:00Z')
 const now = day('2026-11-27')
+const RAW_SOFIA_CATALOGUE = nextPriorCatalogue(RAW_LIVE), SOFIA_CATALOGUE = nextPriorCatalogue(LIVE)
 const git = (...args) => execFileSync('git', args, { cwd: root, maxBuffer: 8 * 1024 * 1024 })
 const sha = value => createHash('sha256').update(value).digest('hex')
 const aslan = SOFIA_CATALOGUE.find(x => x.id === receipt.records[0].id)
@@ -28,9 +31,11 @@ test('exact scope permits one new school and a coordinate-only fix without other
   const changed = Object.keys(receipt.changed), added = Object.keys(receipt.added)
   const touched = new Set([git('diff','--name-only','--no-renames','-z',receipt.baseline,'--'),
     git('ls-files','--others','--exclude-standard','-z')].flatMap(x=>x.toString().split('\0').filter(Boolean)))
-  assert.deepEqual([...touched].filter(p=>p!=='node_modules'&&!p.startsWith('tests/')).sort(),[...changed,...added].sort())
+  const reviewedPaths = new Set([...changed,...added])
+  assert.deepEqual([...touched].filter(path=>path!=='node_modules'&&!path.startsWith('tests/') &&
+    (reviewedPaths.has(path)||!(nextChange(path)||nextNew(path)))).sort(),[...reviewedPaths].sort())
   for (const path of changed) {
-    const before = git('show',receipt.baseline+':'+path), bytes=readFileSync(new URL(path,root))
+    const before = git('show',receipt.baseline+':'+path), bytes=nextPriorSource(path,readFileSync(new URL(path,root)))
     assert.equal(sha(before),receipt.changed[path].before,path)
     assert.equal(allowsFileChange(path),true,path)
     assert.deepEqual(priorSource(path,bytes),before,path)

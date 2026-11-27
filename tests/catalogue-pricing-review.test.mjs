@@ -27,6 +27,7 @@ import { DENTAART_HLADILNIKA_20261127_REVIEWS } from '../lib/discovery/catalogue
 import { VERIFIED_KRIVA_REKA_DARVENITSA_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-kriva-reka-darvenitsa-20261127.mjs'
 import { ORLYAK_BANISHORA_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-orlyak-banishora-20261127.mjs'
 import { ASLAN_POLIGONA_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-aslan-poligona-20261127.mjs'
+import { ATUES_LYULIN3_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-atues-lyulin3-20261127.mjs'
 import { pricingIdentity, assessPricingReview, auditCataloguePricing } from '../lib/discovery/catalogue-pricing-review.mjs'
 import report from '../docs/catalogue-pricing/booking-flow-audit-20261110.json' with { type: 'json' }
 import { NEIGHBORHOOD_20261111_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-expansion-20261111.mjs'
@@ -288,6 +289,7 @@ test('dated audit receipts cover every current ID without rewriting the historic
     [[VERIFIED_KRIVA_REKA_DARVENITSA_20261127_REVIEWS[1]], 'sofia-stamovident-darvenitsa-plovdivsko11', 'service_reviewed', '2026-11-27T12:00:00Z'],
     [ORLYAK_BANISHORA_20261127_REVIEWS, 'sofia-orlyak-sport-banishora-orlyak24a', 'service_reviewed', '2026-11-27T12:00:00Z'],
     [ASLAN_POLIGONA_20261127_REVIEWS, 'sofia-aslan-poligona-block44', 'reviewed', '2026-11-27T12:00:00Z'],
+    [ATUES_LYULIN3_20261127_REVIEWS, 'sofia-a-tu-estilo-lyulin3-block386', 'reviewed', '2026-11-27T12:00:00Z'],
   ]) {
     assert.deepEqual(reviews.map(row => row.id), [id])
     assert.equal(auditedIds.has(id), false)

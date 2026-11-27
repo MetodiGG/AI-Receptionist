@@ -10,7 +10,7 @@ import { catalogueBoundCoordinates } from '../lib/discovery/catalogue-coordinate
 import { approvedCatalogueRecord } from '../lib/discovery/catalogue-policy.mjs'
 import { assessPricingReview, pricingIdentity } from '../lib/discovery/catalogue-pricing-review.mjs'
 import { BOOKING_PRICE_REVIEWS } from '../lib/discovery/catalogue-data/pricing-booking-review-v1.mjs'
-import { RAW_SOFIA_CATALOGUE, SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { RAW_SOFIA_CATALOGUE as liveRaw, SOFIA_CATALOGUE as live } from '../lib/discovery/sofia-catalogue.mjs'
 import { PUBLIC_CATALOGUE } from '../lib/discovery/public-catalogue.mjs'
 import { createPublicBusinessDetailsHandler } from '../lib/discovery/public-details.mjs'
 import { createDiscoveryHandler } from '../lib/discovery/handler.mjs'
@@ -24,6 +24,7 @@ import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mj
 import { compareDiscoveryPhotos, fingerprintDiscoveryPhoto } from '../scripts/discovery-photo-fingerprint.mjs'
 import { catalogueIntakeAllowsPath, catalogueIntakePriorCatalogue, catalogueIntakePriorSource } from './catalogue-mopart-20261127-scope.mjs'
 import { garage46AllowsFileChange, garage46AllowsNewFile, garage46AllowsPath, garage46PriorCatalogue, garage46PriorSource } from './catalogue-garage46-serdika-20261127-scope.mjs'
+import { auraGrowthAllowsPath, auraGrowthPriorCatalogue, auraGrowthPriorSource } from './catalogue-aura-b19-growth-20261127-scope.mjs'
 import receipt from './fixtures/catalogue-garage46-serdika-20261127.json' with { type: 'json' }
 import report from '../docs/catalogue-coverage/garage46-serdika-20261127.json' with { type: 'json' }
 
@@ -45,6 +46,7 @@ const changed = ['docs/specific-service-photo-generation-2026-11-12.json', 'lib/
   'lib/public-business-cover-photo.mjs', 'lib/specific-service-photo-ids.mjs']
 const added = ['docs/catalogue-coverage/garage46-serdika-20261127.json', 'lib/discovery/catalogue-data/neighborhood-verified-garage46-serdika-20261127.mjs',
   'public' + coverSrc, 'public' + servicePhotos[2]]
+const [RAW_SOFIA_CATALOGUE, SOFIA_CATALOGUE] = [liveRaw, live].map(auraGrowthPriorCatalogue)
 const prior = garage46PriorCatalogue(SOFIA_CATALOGUE)
 const branch = SOFIA_CATALOGUE.find(row => row.id === id)
 
@@ -56,9 +58,11 @@ test('the read-only scope restores exactly one approved Garage46 row and its sea
   assert.deepEqual(receipt.records.map(record => record.id), [id])
   const observed = new Set([...files(git('diff', '--name-only', '--no-renames', '-z', receipt.baseline, '--')),
     ...files(git('ls-files', '--others', '--exclude-standard', '-z'))])
-  assert.deepEqual([...observed].filter(path => path !== 'node_modules' && !path.startsWith('tests/')).sort(), [...changed, ...added].sort())
+  const garagePaths = new Set([...changed, ...added])
+  assert.deepEqual([...observed].filter(path => path !== 'node_modules' && !path.startsWith('tests/') &&
+    (garagePaths.has(path) || !auraGrowthAllowsPath(path))).sort(), [...garagePaths].sort())
   for (const path of changed) {
-    const before = git('show', receipt.baseline + ':' + path), after = readFileSync(new URL(path, cwd))
+    const before = git('show', receipt.baseline + ':' + path), after = auraGrowthPriorSource(path, readFileSync(new URL(path, cwd)))
     assert.equal(sha(before), receipt.changed[path].before, path)
     assert.equal(sha(after), receipt.changed[path].after, path)
     assert.ok(garage46AllowsFileChange(path) && catalogueIntakeAllowsPath(path), path)

@@ -1,0 +1,58 @@
+{
+  "baseline": "a75cdda2ddb4d04669141997df7eda7b2cf16612",
+  "changed": {
+    "lib/catalogue-service-photo-keys.mjs": {
+      "before": "9ad846cc116802e7a96ec35d593bbec129bf0c3521a00dd385afeb121ab8042b",
+      "after": "027b9947d921a50022b7bf47ac874f99f3cb8e4479f4158b655b046a69598243"
+    },
+    "lib/discovery-photo-ownership.json": {
+      "before": "e7d9837719326d0a9ba28979ec42ed94b79e5a5caa9f5efb5851a25a99515c7a",
+      "after": "c9c659851e4246801d638719c5dfed1deebad1c55f1bb17b1b94473d2d6cb724"
+    },
+    "lib/discovery/catalogue-data/pricing-booking-review-v1.mjs": {
+      "before": "08e783fe9991d441c9e404e26be22420b701af508801c170becba3920ffe135b",
+      "after": "1d9450f93892200c8a7da6678a5c015dfdeb88b9ccae93d06f87f3a9425d41ba"
+    },
+    "lib/discovery/sofia-catalogue.mjs": {
+      "before": "16ba5e5b3cec0c40d0806557e30ec33132bdf963edf1d46f86c8c003508e4180",
+      "after": "f17152e97fe70667f9dab3b065d5c1fadaeda316a8f51d2b8ecb72f2e2b33d19"
+    },
+    "lib/locale/service-english.json": {
+      "before": "decc378fde4f5bc63674f02ce7578dafef0320c3e059deb50d4f71fbc1c302ea",
+      "after": "21254d13e645718b5d87ff5fd4b18d4dbe89f4903092c635830fde6fb129da72"
+    },
+    "lib/public-business-cover-photo.mjs": {
+      "before": "a8be4b8c80767f884c50330e160edbb35b8800482f81a919cd3d468485f9d5bf",
+      "after": "b7bfb9f092d26109bb2e1aa58b88f932966204f98c431a3b8adcd8a80ca185ed"
+    },
+    "lib/specific-service-photo-ids.mjs": {
+      "before": "0bbe8bdb052a9dfe67c733a402b85f895541739e6311bcff114c68dab9d295cb",
+      "after": "344623049f80d00ddc7158ce0d6b9f5bbcf1c66aac5184b97b04f36f00df8904"
+    }
+  },
+  "added": {
+    "docs/catalogue-coverage/kriva-reka-darvenitsa-izgrev-20261127.md": "85b96442c8ff706273a3ebcd4a0fe4642dfca2045921898b21a457f9635e3482",
+    "lib/discovery/catalogue-data/neighborhood-verified-kriva-reka-darvenitsa-20261127.mjs": "91be11b5e52c4b3b7e4592f970284f84cb1b1d0b1670b73755595d18a668cda8",
+    "public/business-cover-photos/go-divna-kriva-reka-20261127-v1.webp": "ab2da2decbc12bc26823238ed6dcb4ff724359b3226dc39551f11b637e1fcb72",
+    "public/business-cover-photos/go-stamovident-darvenitsa-20261127-v1.webp": "d9ddf629e163c45579b427eae17862da29252cd0af1a15e55162a0dee5fc29dc",
+    "public/service-photos/go-divna-psychology-consult-20261127-v1.webp": "b769c3d9f2a54b9a35e97242605108abe10201d420f4cc73d38c798c476b4cfa",
+    "public/service-photos/go-stamovident-first-dental-visit-20261127-v1.webp": "66245840dd0b592f56459e86cf2a547aae07a60cb29be640c71c5f9d7c4f122c"
+  },
+  "baselineCatalogueSha256": "744418c1c843b4a7d32c0d02b38986541d94c7a227e4dc7b0f4a28115489921c",
+  "currentCatalogueSha256": "795436dead9347e56e9cc9ff1136abd8e76a8b093975cc2d4fbf0578f82704ac",
+  "records": [
+    {
+      "id": "sofia-divna-stoyanova-geyamed-kriva-reka-bogdanovets6",
+      "sha256": "d3bd70f0fcec806ce24089fc3f88a6a7d00e22045ce6a7642ca52f78ca1b154b"
+    },
+    {
+      "id": "sofia-stamovident-darvenitsa-plovdivsko11",
+      "sha256": "870d804895332a8f27216f098b4705888c188749d5b6e8460d38d1a65bba2983"
+    }
+  ],
+  "location": {
+    "id": "sofia-sama-pilates",
+    "before": "64052f6f7b26a19e9076693b693f35cbdc3c8a8517af0479baa384a0fc378e2d",
+    "after": "065665c96715b930c04f78bade7bd08213b2290629a4a375f8e2e8390f40407f"
+  }
+}

@@ -7,6 +7,8 @@ import test from 'node:test'
 import sharp from 'sharp'
 import receipt from './fixtures/catalogue-atues-visit-points-20261127.json' with { type: 'json' }
 import { allowsFileChange, allowsNewFile, priorCatalogue, priorSource } from './catalogue-atues-visit-points-20261127-scope.mjs'
+import { allowsFileChange as nextChange, allowsNewFile as nextNew, priorSource as nextPriorSource,
+  priorCatalogue as nextPriorCatalogue } from './catalogue-robotika-krastova-vada-20261127-scope.mjs'
 import { businessDirectionsUrl } from '../lib/business-profile.mjs'
 import { catalogueProfileView } from '../lib/catalogue-profile.mjs'
 import { RAW_SOFIA_CATALOGUE, SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
@@ -23,7 +25,7 @@ import { compareDiscoveryPhotos, fingerprintDiscoveryPhoto, readDiscoveryImage }
 const root=new URL('../',import.meta.url), now=Date.parse('2026-11-27T12:00:00Z')
 const git=(...args)=>execFileSync('git',args,{cwd:root,maxBuffer:8*1024*1024})
 const sha=x=>createHash('sha256').update(x).digest('hex')
-const current=SOFIA_CATALOGUE, original=priorCatalogue(current)
+const current=nextPriorCatalogue(SOFIA_CATALOGUE), original=priorCatalogue(current)
 const get=(id,rows=current)=>rows.find(x=>x.id===id)
 const atues=get(receipt.records[0].id), mall=get('sofia-thai-spa-the-mall')
 
@@ -31,16 +33,18 @@ test('only one business and three independently reviewed locations are changed',
   const changed=Object.keys(receipt.changed),added=Object.keys(receipt.added)
   const touched=new Set([git('diff','--name-only','--no-renames','-z',receipt.baseline,'--'),
     git('ls-files','--others','--exclude-standard','-z')].flatMap(x=>x.toString().split('\0').filter(Boolean)))
-  assert.deepEqual([...touched].filter(p=>p!=='node_modules'&&!p.startsWith('tests/')).sort(),[...changed,...added].sort())
+  const reviewed = new Set([...changed, ...added])
+  assert.deepEqual([...touched].filter(p=>p!=='node_modules'&&!p.startsWith('tests/') &&
+    (reviewed.has(p) || !(nextChange(p) || nextNew(p)))).sort(), [...reviewed].sort())
   for(const path of changed){
-    const before=git('show',receipt.baseline+':'+path),now=readFileSync(new URL(path,root))
+    const before=git('show',receipt.baseline+':'+path),now=nextPriorSource(path,readFileSync(new URL(path,root)))
     assert.equal(sha(before),receipt.changed[path].before,path)
     assert.ok(allowsFileChange(path),path)
     assert.deepEqual(priorSource(path,now),before,path)
   }
   for(const path of added)assert.ok(allowsNewFile(path),path)
   assert.equal(allowsFileChange('app/page.tsx'),false)
-  for(const rows of [RAW_SOFIA_CATALOGUE,SOFIA_CATALOGUE]){
+  for(const rows of [nextPriorCatalogue(RAW_SOFIA_CATALOGUE),current]){
     assert.equal(sha(JSON.stringify(rows)),receipt.currentCatalogueSha256)
     assert.equal(sha(JSON.stringify(priorCatalogue(rows))),receipt.baselineCatalogueSha256)
   }

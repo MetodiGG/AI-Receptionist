@@ -1,0 +1,51 @@
+{
+  "baseline": "b2991d84d9126c0993f964d897e53182e4407be3",
+  "changed": {
+    "lib/catalogue-service-photo-keys.mjs": {
+      "before": "500692ef4694e213226407510e07819fde675e19e16af345e3ce0c4b1d7a3c7b",
+      "after": "bc6a9018a5981bccc35a1a230586ac6d69436e969d4510ae662c2d7e9cd708d2"
+    },
+    "lib/discovery-photo-ownership.json": {
+      "before": "1a4afa6c2ffcdc8acc5744091a3eff190b17e90c9c424b75b9f432f7cd014b85",
+      "after": "a8dad0a002ca71e02b7d3c22690ab10a4625fe5f9e38152bac9060167e509da9"
+    },
+    "lib/discovery/catalogue-data/pricing-booking-review-v1.mjs": {
+      "before": "2f1741da3addbcc48077c494e23953d798b27b3b019741e11e20259554615775",
+      "after": "9adc5f74a82266a1d9e1fe7f237829f2030114054f451e8ae4022c10048a6730"
+    },
+    "lib/discovery/catalogue-expired-offer-holds.mjs": {
+      "before": "500c15b1cd5436f3e2bf99b2056da1e64d5f1b1a518ee683dee52660de48bbbb",
+      "after": "402abc4003a00f6d96276f94b5cb2154f4c8fe109302c9d5c3231a069006f6d7"
+    },
+    "lib/discovery/sofia-catalogue.mjs": {
+      "before": "6553dcec1efe6c62c302a45e9ed7b43cdde7b57ba551e75f702b1f6df4501e75",
+      "after": "3207d8bc8b6343e7504a266cdc90e423570457aa98e6b493c601d219f7b6e43c"
+    },
+    "lib/locale/service-english.json": {
+      "before": "a0a588514252697ac2648c610f940b0036770a83c00d57e1d7294493f732849b",
+      "after": "a1c1ed417a55724f16a09438768b9ce83dc8800c888629e8d9c50ba1b29272f5"
+    },
+    "lib/public-business-cover-photo.mjs": {
+      "before": "9c53ced6f74989d0510596358687bea155be29c57556a886d556c854a33a35d5",
+      "after": "526db964e103d22090e63fc987e30f51f531a0c57788ab0bc231e4641034dea6"
+    },
+    "lib/specific-service-photo-ids.mjs": {
+      "before": "e93c35cea58d0666f16925db18ebe8de37be62417ddb593e0a6694e7354defe3",
+      "after": "e1110237e6bce09b58232f2e8e34d8132cc596b3fb117cc4470d1de8be04accc"
+    }
+  },
+  "added": {
+    "docs/catalogue-coverage/robotika-krastova-vada-20261127.md": "ed9d9aa0114fdd901b1f05640c7e59d5f585804642c91945ed4525aac8196cd5",
+    "lib/discovery/catalogue-data/neighborhood-verified-robotika-krastova-vada-20261127.mjs": "81af813761bf778761d7241658065b2d70d4111f5582e26e11ae826e045fb433",
+    "public/business-cover-photos/go-nov27-robotika-kubo-cover-v1.webp": "101582c45b4402ebc145bfb41bf576650b517bf4ddcf554b67c576c10fdae235",
+    "public/service-photos/go-nov27-robotika-kubo-service-v1.webp": "63d94d8d7d17d8ef37bc4841eb5fba34908cddc0acd2249d1f24ddca47a6ee6e"
+  },
+  "baselineCatalogueSha256": "b8c412e9c5fba72d22d0762c50c19943757e581c730b99659802dc1a089243ea",
+  "currentCatalogueSha256": "e1bb77f7d91fbb7e0fe582f77c27ab17040e92b298f237db0ba66ce035c3f10e",
+  "records": [
+    {
+      "id": "sofia-robotika-krastova-vada-sasho-nikolov7",
+      "sha256": "669b1885a1d3901670215be86f6b2d762ddbe745fe9fe942a4328007c2befc44"
+    }
+  ]
+}

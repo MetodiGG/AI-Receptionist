@@ -305,8 +305,8 @@ test('legacy carousels retain accessible controls while the homepage mounts the 
   assert.match(css, /\.home-discovery-rail > li \{[^}]*scroll-snap-align: start/)
   assert.match(search, /home && !compact && <InlineCategoryGrid/)
   assert.doesNotMatch(search, /<DiscoveryHomeRail/)
-  assert.match(grid, /homeCategories\(language\)\.map\(item =>/)
-  assert.match(grid, /<img className="inline-category-photo"[^\n]*loading="lazy"/)
+  assert.match(grid, /homeCategories\(language\)\.map\(\(item, index\) =>/)
+  assert.match(grid, /<img className="inline-category-photo"[^\n]*loading=\{priority \? 'eager' : 'lazy'\}/)
   assert.doesNotMatch(grid, /\.slice\(|overflow|showMore|fetch\(|requestDiscoveryLocation/)
 })
 test('the single browse rail uses actual photos and only server-budgeted Google plans; compact previews omit reviews', async () => {

@@ -120,7 +120,7 @@ test('homepage category navigation mounts native inline photo choices and preser
   assert.match(grid, /type="button" className="inline-category-option"/)
   assert.match(grid, /aria-pressed=\{category === item.id\} onClick=\{\(\) => onSelect\(item.id\)\}/)
   assert.match(grid, /<CategoryPhoto category=\{item\}/)
-  assert.match(grid, /homeCategories\(language\)\.map\(item =>/)
+  assert.match(grid, /homeCategories\(language\)\.map\(\(item, index\) =>/)
   assert.match(search, /requestAnimationFrame/)
   assert.match(search, /focusFirstDiscoveryBusiness\(resultHeading.current, reduceMotion\)/)
   assert.match(search, /prefers-reduced-motion: reduce/)

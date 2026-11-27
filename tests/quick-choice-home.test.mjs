@@ -32,7 +32,7 @@ test('homepage photographic choices keep every category and active service visib
   assert.match(search, /!compact && <DiscoveryHomeBusinesses/)
   assert.match(search, /!compact && !home && <DiscoverySubcategories/)
   assert.doesNotMatch(search, /<DiscoveryHomeRail/)
-  assert.match(grid, /homeCategories\(language\)\.map\(item =>/)
+  assert.match(grid, /homeCategories\(language\)\.map\(\(item, index\) =>/)
   assert.match(grid, /<CategoryPhoto category=\{item\}/)
   assert.match(grid, /aria-pressed=\{category === item.id\}/)
   assert.doesNotMatch(grid, /\.slice\(|showMore/)

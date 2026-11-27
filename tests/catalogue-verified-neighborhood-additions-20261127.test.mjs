@@ -14,8 +14,8 @@ import { BOOKING_PRICE_REVIEWS } from '../lib/discovery/catalogue-data/pricing-b
 import { catalogueBoundCoordinates } from '../lib/discovery/catalogue-coordinate-binding.mjs'
 import { approvedCatalogueRecord } from '../lib/discovery/catalogue-policy.mjs'
 import { assessPricingReview, pricingIdentity } from '../lib/discovery/catalogue-pricing-review.mjs'
-import { SOFIA_CATALOGUE, RAW_SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
-import { PUBLIC_CATALOGUE } from '../lib/discovery/public-catalogue.mjs'
+import { SOFIA_CATALOGUE as live, RAW_SOFIA_CATALOGUE as liveRaw } from '../lib/discovery/sofia-catalogue.mjs'
+import { PUBLIC_CATALOGUE as livePublic } from '../lib/discovery/public-catalogue.mjs'
 import { createPublicBusinessDetailsHandler } from '../lib/discovery/public-details.mjs'
 import { createDiscoveryHandler } from '../lib/discovery/handler.mjs'
 import { discoveryConfig } from '../lib/discovery/config.mjs'
@@ -23,6 +23,8 @@ import { railExternalAction } from '../lib/discovery/rail.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
 import { neighborhoodAdditionsAllowsFileChange, neighborhoodAdditionsAllowsNewFile,
   neighborhoodAdditionsPriorCatalogue, neighborhoodAdditionsPriorSource } from './catalogue-verified-neighborhood-additions-20261127-scope.mjs'
+import { branchLocationFollowupAllowsNewFile, branchLocationFollowupPriorCatalogue,
+  branchLocationFollowupPriorSource } from './catalogue-branch-location-followup-20261127-scope.mjs'
 
 const root = new URL('../', import.meta.url)
 const git = (...args) => execFileSync('git', args, { cwd: root, maxBuffer: 8 * 1024 * 1024 })
@@ -31,6 +33,7 @@ const hash = row => sha(JSON.stringify(row))
 const paths = bytes => bytes.toString('utf8').split('\0').filter(Boolean)
 const now = Date.parse('2026-11-27T12:00:00Z')
 const ids = new Set(report.verified.map(row => row.id))
+const [SOFIA_CATALOGUE, RAW_SOFIA_CATALOGUE, PUBLIC_CATALOGUE] = [live, liveRaw, livePublic].map(branchLocationFollowupPriorCatalogue)
 const preceding = neighborhoodAdditionsPriorCatalogue(SOFIA_CATALOGUE)
 const findCatalogue = id => SOFIA_CATALOGUE.find(row => row.id === id)
 
@@ -38,11 +41,12 @@ test('the wave adds only sealed profiles, receipt entries, translations and matc
   assert.equal(seal.baseline, report.baseCommit)
   const { changed, added } = seal
   const observed = [...new Set([...paths(git('diff', '--name-only', '--no-renames', '-z', seal.baseline, '--')),
-    ...paths(git('ls-files', '--others', '--exclude-standard', '-z'))])].filter(path => path !== 'node_modules' && !path.startsWith('tests/')).sort()
+    ...paths(git('ls-files', '--others', '--exclude-standard', '-z'))])].filter(path => path !== 'node_modules' && !path.startsWith('tests/') &&
+      !branchLocationFollowupAllowsNewFile(path)).sort()
   assert.deepEqual(observed, [...Object.keys(changed), ...Object.keys(added)].sort())
   assert.ok(!observed.some(path => /^(?:app|components|public|supabase)\//u.test(path)))
   for (const [path, approval] of Object.entries(changed)) {
-    const current = readFileSync(new URL(path, root)), original = git('show', seal.baseline + ':' + path)
+    const current = branchLocationFollowupPriorSource(path, readFileSync(new URL(path, root))), original = git('show', seal.baseline + ':' + path)
     assert.equal(sha(original), approval.before, path)
     assert.equal(sha(current), approval.after, path)
     assert.ok(neighborhoodAdditionsAllowsFileChange(path), path)

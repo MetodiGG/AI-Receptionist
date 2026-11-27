@@ -1,0 +1,43 @@
+{
+  "baseline": "9a96f24c5ad4c6b53d5a63de1a7c8858d0b0e68a",
+  "changed": {
+    "lib/catalogue-service-photo-keys.mjs": {
+      "before": "49a003509e648625159a945249883bf482f4109e0821606468c8ae0bc837ba5f",
+      "after": "2fa0501a84ea5a6a06e92572da714953b2e4adee819900dded9150a62109e57b"
+    },
+    "lib/discovery/catalogue-data/pricing-booking-review-v1.mjs": {
+      "before": "e21db9a2a3d8071345b401808e25b32ee862784a352659276c266d03bd3d3d5e",
+      "after": "e3c6e484b3cc287d59f47fbe966ec743b4af492c683ad009e10d1c6208bbf849"
+    },
+    "lib/discovery/sofia-catalogue.mjs": {
+      "before": "2b188e2c40ec187b41e38881fea598fd3d739ae643b9a49c98687bb4916e37d8",
+      "after": "339deef2b16180397a66cfb810f6ded4b567cd6de86a4c209ace67f0847345d9"
+    },
+    "lib/locale/service-english.json": {
+      "before": "1a6055d362e28917be182a41160128de9762385515cabf75b805c914d972b897",
+      "after": "fe61d142dc0938ef817f356d04aebccb801d3ae70114b33505460e29e617ee11"
+    },
+    "lib/public-business-cover-photo.mjs": {
+      "before": "41ede21b8ca9f5e6a71b839925883e9a72d1e3400f0360f3d931b47695753b08",
+      "after": "5c109ea419066c84561cb0a77dc8f80db29edadf26857c811407ca9567e7b960"
+    }
+  },
+  "added": {
+    "docs/catalogue-coverage/ivon-gorna-banya-mladost3-20261127.json": "7cf7b918bb0e942d802f88e6a10468785698948531c9d62d764c006d4ee4af1d",
+    "lib/discovery/catalogue-data/neighborhood-verified-ivon-gorna-banya-20261127.mjs": "635d9c64a6aaf458cdbf56dfdd6867cbf1b106f3169368719ae45364c16c0a90",
+    "lib/discovery/catalogue-data/sofia-neli-slavova-branch-point-nov27.mjs": "d598243fec3ddcca47f94a54816226da9f68b8695b5a9c2de3fa4f8093d6418a"
+  },
+  "baselineCatalogueSha256": "d78a2b53d13785b0df9820b04497fbb4dfb59c644dfb3ecf083b040ac16d3857",
+  "currentCatalogueSha256": "0f461d2f62b165319500c348270dfbed5630511c88ae9d1fe7cad0f953dd2182",
+  "records": [
+    {
+      "id": "sofia-ivon-service-gorna-banya-eho1",
+      "sha256": "82e7e8e02f4586fb5d786186746854abccfc07f7722544f9efffaf61bf9025d3"
+    }
+  ],
+  "rebound": {
+    "id": "sofia-neli-slavova-mladost-3",
+    "before": "02b0f299833d718d9d36820c64de078c2dc05f219bc63e14aa95bc22829deb3b",
+    "after": "c3c68b59bc6c53ede96cf2b05885b3bfa705138c841c35560718a01d10a3831b"
+  }
+}

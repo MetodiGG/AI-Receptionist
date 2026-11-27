@@ -12,7 +12,7 @@ import { assessPricingReview } from '../lib/discovery/catalogue-pricing-review.m
 import { discoveryConfig } from '../lib/discovery/config.mjs'
 import { createDiscoveryHandler } from '../lib/discovery/handler.mjs'
 import { railExternalAction } from '../lib/discovery/rail.mjs'
-import { RAW_SOFIA_CATALOGUE, SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { RAW_SOFIA_CATALOGUE as raw, SOFIA_CATALOGUE as current } from '../lib/discovery/sofia-catalogue.mjs'
 import { createPublicBusinessDetailsHandler } from '../lib/discovery/public-details.mjs'
 import { matchesSubcategory } from '../lib/discovery/subcategories.mjs'
 import { businessCoverPhotoSources } from '../lib/public-business-cover-photo.mjs'
@@ -20,6 +20,7 @@ import { publicDetailServiceThumbnail } from '../lib/service-detail-photo-presen
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
 import { compareDiscoveryPhotos, fingerprintDiscoveryPhoto, readDiscoveryImage } from '../scripts/discovery-photo-fingerprint.mjs'
 import { yavorovAllowsPath, yavorovPriorCatalogue, yavorovPriorSource } from './catalogue-yavorov-geo-milev-20261127-scope.mjs'
+import { ivonAllowsPath, ivonPriorCatalogue, ivonPriorSource } from './catalogue-ivon-gorna-banya-mladost3-20261127-scope.mjs'
 import review from '../docs/catalogue-coverage/yavorov-geo-milev-20261127.json' with { type: 'json' }
 import receipt from './fixtures/catalogue-yavorov-geo-milev-20261127.json' with { type: 'json' }
 
@@ -28,18 +29,21 @@ const git = (...args) => execFileSync('git', args, { cwd, maxBuffer: 8 * 1024 * 
 const paths = bytes => bytes.toString('utf8').split('\0').filter(Boolean)
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
 const digest = rows => sha(JSON.stringify(rows))
+const [RAW_SOFIA_CATALOGUE, SOFIA_CATALOGUE] = [raw, current].map(ivonPriorCatalogue)
 const id = review.business.id, phone = review.business.phone
 const row = SOFIA_CATALOGUE.find(record => record.id === id)
 const { latitude, longitude } = review.business.firstPartyEntrance
 
 test('the only scope is the exact Yavorov row, exact asset bytes and reviewed catalogue sources', () => {
   const changed = Object.keys(receipt.changed), added = Object.keys(receipt.added)
+  const stagePaths = new Set([...changed, ...added])
   const observed = new Set([...paths(git('diff', '--name-only', '--no-renames', '-z', receipt.baseline, '--')),
     ...paths(git('ls-files', '--others', '--exclude-standard', '-z'))])
-  assert.deepEqual([...observed].filter(path => path !== 'node_modules' && !path.startsWith('tests/')).sort(),
+  assert.deepEqual([...observed].filter(path => path !== 'node_modules' && !path.startsWith('tests/') &&
+    (stagePaths.has(path) || !ivonAllowsPath(path))).sort(),
     [...changed, ...added].sort())
   for (const path of changed) {
-    const before = git('show', receipt.baseline + ':' + path), after = readFileSync(new URL(path, cwd))
+    const before = git('show', receipt.baseline + ':' + path), after = ivonPriorSource(path, readFileSync(new URL(path, cwd)))
     assert.deepEqual([sha(before), sha(after)], [receipt.changed[path].before, receipt.changed[path].after], path)
     assert.deepEqual(yavorovPriorSource(path, after), before, path)
     const tampered = Buffer.concat([after, Buffer.from('\n')])

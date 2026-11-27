@@ -427,6 +427,7 @@
     ]
   },
   "names": {
+    "Смяна на масло": "Oil change",
     "Детска вокална група": "Children’s singing group",
     "Уроци по музикален инструмент · синтезатор": "Musical instrument lessons · synthesizer",
     "Авторски масаж на цяло тяло при Милена Цветкова": "Signature full-body massage with Milena Tsvetkova",
@@ -6579,6 +6580,8 @@
     "Записване по телефона поне 3 дни предварително. Плащане преди процедурата. При отлагане с по-малко от 24 часа таксата е дължима.": "Book by phone at least 3 days in advance. Payment is due before the session. The fee is still due if you reschedule with less than 24 hours’ notice.",
     "Групови занимания по пеене за деца. Записването е по телефона; графикът и таксата се уточняват с читалището.": "Group singing classes for children. Call the community centre to enrol and confirm the timetable and fee.",
     "Записването за школата по синтезатор е по телефона. Попитай читалището за свободни места, график и такса.": "Enrol in synthesizer classes by phone. Ask the community centre about places, times and fees.",
+    "Изпрати заявка за предпочитан ден и час. Сервизът потвърждава часа или предлага друг.": "Request a preferred date and time. The workshop will confirm or propose another time.",
+    "При покупка на масло от сервиза трудът за смяната е безплатен. Цената на маслото и таксата за труд в останалите случаи се уточняват със сервиза.": "Oil-change labour is free when the oil is purchased from the workshop. Ask the workshop about the price of the oil and labour charges in other cases.",
     "Месечната такса включва индивидуални занятия по избраната дисциплина и един групов час по солфеж и музикална теория седмично. Индивидуалният урок е 30 минути за по-малките деца и 45 минути за по-големите. Записването е по телефона през учебната година.": "The monthly fee includes private lessons in the chosen subject and one group class in solfège and music theory each week. Private lessons last 30 minutes for younger children and 45 minutes for older children. Enrol by phone during the school year.",
     "Начална цена за монтаж; крушките се заплащат отделно (от 60 € за фарове). Реглажът е включен. Крайната цена зависи от модела и сложността на монтажа и се уточнява предварително.": "Starting fitting price. Bulbs are extra (headlight bulbs from €60). Headlight alignment is included. The final quote depends on the vehicle model and complexity, and is agreed before work starts.",
     "Начална цена за самостоятелно регулиране на светлинния сноп. При монтаж на LED крушки в този център реглажът е включен и не се таксува отделно.": "Starting price for standalone headlight alignment. Alignment is included with LED bulb fitting at this branch and is not charged separately in that case.",

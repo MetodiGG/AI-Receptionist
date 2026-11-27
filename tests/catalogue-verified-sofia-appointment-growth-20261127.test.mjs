@@ -20,12 +20,14 @@ import { createPublicBusinessDetailsHandler } from '../lib/discovery/public-deta
 import { PUBLIC_CATALOGUE } from '../lib/discovery/public-catalogue.mjs'
 import { railDirections, railExternalAction } from '../lib/discovery/rail.mjs'
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { lateOwnerPointsPriorCatalogue } from './catalogue-verified-owner-civic-points-20261127-scope.mjs'
 
 const now = Date.parse('2026-11-27T12:00:00Z')
+const reviewedSnapshot = lateOwnerPointsPriorCatalogue(SOFIA_CATALOGUE)
 const ids = new Set(report.verified.map(row => row.id))
 const entry = id => SOFIA_CATALOGUE.find(row => row.id === id)
 const host = url => new URL(url).hostname.replace(/^www\./u, '')
-const previous = SOFIA_CATALOGUE.filter(row => !ids.has(row.id))
+const previous = reviewedSnapshot.filter(row => !ids.has(row.id))
 const otherBusinesses = PUBLIC_CATALOGUE.filter(row => !ids.has(row.id))
 const catalogueCells = audit => [...audit.neighborhoods, ...audit.additionalNamedAreas].flatMap(area => area.cells)
 
@@ -33,7 +35,7 @@ test('four distinct premises fill five formerly empty Sofia quarter/category cel
   assert.equal(ids.size, 4)
   assert.equal(report.addressSource.csvSha256, OFFICIAL_SOFIA_CSV_SHA256)
   const expected = report.coverage
-  const [before, after] = [previous, SOFIA_CATALOGUE].map(rows => catalogueCoverageReport(rows, { now, target: expected.targetPerQuarterCategory }))
+  const [before, after] = [previous, reviewedSnapshot].map(rows => catalogueCoverageReport(rows, { now, target: expected.targetPerQuarterCategory }))
   const both = get => [get(before), get(after)]
   assert.equal(SOFIA_CATALOGUE.length - previous.length, 4)
   assert.deepEqual(both(audit => audit.counts.approvedBusinesses), expected.approvedSofiaBusinesses)

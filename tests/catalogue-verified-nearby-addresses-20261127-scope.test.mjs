@@ -12,6 +12,7 @@ import { nearbyAddressReviewAllowsFileChange, nearbyAddressReviewAllowsNewFile, 
   nearbyAddressReviewPriorCatalogue } from './catalogue-verified-nearby-addresses-20261127-scope.mjs'
 import { appointmentGrowthAllowsFileChange, appointmentGrowthAllowsNewFile, appointmentGrowthPriorCatalogue, appointmentGrowthPriorSource }
   from './catalogue-verified-sofia-appointment-growth-20261127-scope.mjs'
+import { lateOwnerPointsAllowsNewFile } from './catalogue-verified-owner-civic-points-20261127-scope.mjs'
 import prior from './fixtures/catalogue-verified-sofia-cross-quarter-20261127.json' with { type: 'json' }
 import receipt from './fixtures/catalogue-verified-nearby-addresses-20261127.json' with { type: 'json' }
 
@@ -34,6 +35,7 @@ test('nearby review seals only exact location source paths and preserves the pre
     ...split(git('diff', '--name-only', '--no-renames', '-z', receipt.baseline, '--')),
     ...split(git('ls-files', '--others', '--exclude-standard', '-z')),
   ])].filter(path => path !== 'node_modules' && !path.startsWith('tests/') && !appointmentGrowthAllowsNewFile(path) &&
+    !lateOwnerPointsAllowsNewFile(path) &&
     (path === cataloguePath || !appointmentGrowthAllowsFileChange(path))).sort()
   assert.deepEqual(actual, [...added, cataloguePath].sort())
   const live = readFileSync(new URL(cataloguePath, cwd))

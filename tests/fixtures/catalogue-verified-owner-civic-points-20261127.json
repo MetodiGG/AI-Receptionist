@@ -1,0 +1,35 @@
+{
+  "baseline": "807121713ee452a2a4fdd100b32a0d9a87653ad4",
+  "baselineCatalogueSha256": "3303c2861623f58292ba40b39e81a0062f9f53bdba2cbda25c8763a0da5cc1eb",
+  "currentCatalogueSha256": "0b3c74dcb16bd7648f5e7b0ce993d7acd478e8cc539734461395512cb5f0bfb7",
+  "records": [
+    {
+      "id": "sofia-vayasport",
+      "before": "95aa597f151c666f285700e4bd4afac0b2b956df9ea99eeeb2977ab815c4bd16",
+      "after": "0ff99f82d399faadcad2c1886ac9e298ff759591372586db28b7089d110d3c8a",
+      "previous": { "coordinates": null }
+    },
+    {
+      "id": "sofia-prestige-motopista-vaccarini7a",
+      "before": "924747faec4ca724880a153ad7e676b60d40dd509fc056a87500938b85eb8181",
+      "after": "2a23db92eae0ee3cb4d9461151f7fb6e54e2479bc5f6a73123e3d74d3d482ad4",
+      "previous": { "coordinates": null }
+    },
+    {
+      "id": "sofia-kuhnia-bg-geshov2e",
+      "before": "03f94d0a99510d773a5668fae59fbb48492893912b344024b3d3c15f0f0f47ce",
+      "after": "961cff3e510cc510fae5db79e611ebf29d583f47d6d4f919f9c1f88148d9b2bc",
+      "previous": { "coordinates": null, "neighborhood": null }
+    }
+  ],
+  "changed": {
+    "lib/discovery/sofia-catalogue.mjs": {
+      "before": "eefd0aff1796a6a85cc91abe0ca1f2dde47a15e15309a47c9066f06fe3f7b9bc",
+      "after": "e147c0e84572f897f513e8bec0cf5b104f1af09e0f5b79896ca61a79afa00a5b"
+    }
+  },
+  "added": {
+    "docs/catalogue-coverage/verified-owner-civic-points-20261127.json": "f70ba01d55b07f0b7dcc9d14b6e0302e7310882f99578072aae20eefd431399f",
+    "lib/discovery/catalogue-data/sofia-owner-points-late-nov27.mjs": "c227fb74605ad98b7dbfbfd518663231af5e0fea29948930cac41597dfc9e75b"
+  }
+}

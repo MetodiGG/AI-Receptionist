@@ -13,6 +13,7 @@ import earlierAddresses from './fixtures/catalogue-verified-nearby-addresses-202
 import earlierIntake from './fixtures/catalogue-verified-sofia-cross-quarter-20261127.json' with { type: 'json' }
 import earlierPhotos from './fixtures/public-detail-photo-preview-approval.json' with { type: 'json' }
 import receipt from './fixtures/catalogue-verified-sofia-appointment-growth-20261127.json' with { type: 'json' }
+import { lateOwnerPointsAllowsNewFile, lateOwnerPointsPriorCatalogue, lateOwnerPointsPriorSource } from './catalogue-verified-owner-civic-points-20261127-scope.mjs'
 
 const cwd = new URL('../', import.meta.url), cataloguePath = 'lib/discovery/sofia-catalogue.mjs'
 const photoPath = 'lib/service-detail-existing-photo-coverage.mjs'
@@ -48,10 +49,10 @@ test('appointment growth authorizes only exact catalogue paths while preserving 
   const actual = [...new Set([
     ...split(git('diff', '--name-only', '--no-renames', '-z', receipt.baseline, '--')),
     ...split(git('ls-files', '--others', '--exclude-standard', '-z')),
-  ])].filter(path => path !== 'node_modules' && !path.startsWith('tests/')).sort()
+  ])].filter(path => path !== 'node_modules' && !path.startsWith('tests/') && !lateOwnerPointsAllowsNewFile(path)).sort()
   assert.deepEqual(actual, [...added, ...changed].sort())
   for (const path of changed) {
-    const current = readFileSync(new URL(path, cwd))
+    const live = readFileSync(new URL(path, cwd)), current = lateOwnerPointsPriorSource(path, live)
     const original = git('show', receipt.baseline + ':' + path)
     const predecessor = path === cataloguePath ? earlierAddresses.changed[path].after
       : path === photoPath ? earlierPhotos.added[path] : earlierIntake.changed[path].after
@@ -59,10 +60,11 @@ test('appointment growth authorizes only exact catalogue paths while preserving 
     assert.equal(sha(original), receipt.changed[path].before, path)
     assert.equal(sha(current), receipt.changed[path].after, path)
     assert.notEqual(sha(current), sha(original), path)
-    assert.ok(appointmentGrowthAllowsFileChange(path) && catalogueIntakeAllowsPath(path), path)
+    assert.equal(appointmentGrowthAllowsFileChange(path), sha(live) === receipt.changed[path].after, path)
+    assert.ok(catalogueIntakeAllowsPath(path), path)
     assert.equal(appointmentGrowthAllowsNewFile(path), false, path)
     assert.deepEqual(appointmentGrowthPriorSource(path, current), original, path)
-    const tampered = Buffer.concat([current, Buffer.from('\n')])
+    const tampered = Buffer.concat([live, Buffer.from('\n')])
     assert.equal(appointmentGrowthPriorSource(path, tampered), tampered, path)
     assert.equal(catalogueIntakePriorSource(path, tampered), tampered, path)
   }
@@ -80,7 +82,7 @@ test('only the exact verified new premises can be omitted; all earlier rows are 
   const ids = receipt.records.map(row => row.id).sort()
   assert.deepEqual(ids, verifiedIds)
   assert.deepEqual(manifest.verified.map(row => row.id).sort(), ids)
-  for (const catalogue of [RAW_SOFIA_CATALOGUE, SOFIA_CATALOGUE]) {
+  for (const catalogue of [RAW_SOFIA_CATALOGUE, SOFIA_CATALOGUE].map(lateOwnerPointsPriorCatalogue)) {
     const matched = catalogue.filter(row => ids.includes(row.id))
     assert.deepEqual(matched.map(row => row.id).sort(), ids)
     const previous = appointmentGrowthPriorCatalogue(catalogue)

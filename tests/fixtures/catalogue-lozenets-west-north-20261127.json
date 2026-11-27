@@ -1,0 +1,84 @@
+{
+  "baseline": "47af366b3699b1f540878f363be61841962084f8",
+  "changed": {
+    "lib/catalogue-service-photo-keys.mjs": {
+      "before": "589e2659af2f54efcb47c9357a55e21448782b8ae545c969d68a00776e80ae4f",
+      "after": "caba3080482073f6b8e1757d1abb7e210f2495b7004041f869afde696f022160"
+    },
+    "lib/discovery-photo-ownership.json": {
+      "before": "5f4d2e435cac81bd3e8c66cb9e0cfd7d545b54205e468fe52574824ceec87400",
+      "after": "f47cc38bca078618d99cb4f6a88f3f903f23742bd1bb0036e78ae1a4b1c4fb24"
+    },
+    "lib/discovery/catalogue-data/pricing-booking-review-v1.mjs": {
+      "before": "c6c0a10254860b0b0b5bd31ee109b0cad5ccd3d353849d4a32a7891b7a78318e",
+      "after": "c67ec922b0efbcb5ae85ee22f1d4c3360c310f00491d62bd9ac28153b8cfe262"
+    },
+    "lib/discovery/sofia-catalogue.mjs": {
+      "before": "6dd40255ee96d0e2917d7d21317b33ea6002fe371da2095760697bc4fe1a76f6",
+      "after": "c35b7cd4083cf29a10461b985ce14b09c1a0b4b19653fa3d6b9271a43cf3c988"
+    },
+    "lib/locale/service-english.json": {
+      "before": "0fee477070e51597366df0582c3aa3e4f2355477ea021e214aeeac25244d4f89",
+      "after": "8e3faaaab7d0294937751807452d17e48d01c1a7219a801c795aa3342b8ca764"
+    },
+    "lib/public-business-cover-photo.mjs": {
+      "before": "5d6e7f5395c8103732d1bb87421a8a9b57ad71abc504513648451bc39706dd0f",
+      "after": "3c0282fe93f871fe94cbb4c77f7660208b3eede8594f03673a80fc435234fb0e"
+    },
+    "lib/specific-service-photo-ids.mjs": {
+      "before": "86acf7981c805723c3d42db7b909d9374f7c3c5da92606a049c584e78e02c8fd",
+      "after": "492b8d85184f035f9f0eff0c2950e7085108e7b0e3d4df6cfb56f1b8d7391206"
+    }
+  },
+  "added": {
+    "docs/catalogue-coverage/nadezhda-puzzle-visit-point-20261127.md": "5d4a2fe2ed9360fe0907ad64cba9bf38efcb4cff5b2534f95391df985e1f4eae",
+    "docs/catalogue-coverage/sisters-of-dogs-lozenets-20261127.md": "3101dffaa52811c13de34bbfb74586299cd7f6df55df11d3ea30792c7d32123d",
+    "docs/catalogue-coverage/west-school-salon-points-20261127.md": "62e7d46d4065d60c00f0c15dabb3abaf21f6e8cfd67180406068c81b13f8793a",
+    "lib/discovery/catalogue-data/neighborhood-verified-sisters-dogs-lozenets-20261127.mjs": "758b24ca0d06df0352713ae218490faa267ffee1404d04207bd2efde8deceb2d",
+    "lib/discovery/catalogue-data/verified-nadezhda-puzzle-visit-point-20261127.mjs": "0c7263e38ace15442af7df89d727d2e5b6f17aa18e5e04fe804d8624dbf92043",
+    "lib/discovery/catalogue-data/verified-west-school-salon-points-20261127.mjs": "e67a051baeef2033f7dccee20dace9056fd3f40f54d3212b1663731d057a2f84",
+    "public/business-cover-photos/go-sisters-dogs-lozenets-20261127-v1.webp": "7b3c8f13feaaac523ac738f4bedbeff435c70f1d254d585f9b3b9dfc23f94d60",
+    "public/service-photos/go-sisters-dogs-nail-trim-20261127-v1.webp": "b2bfc9b78f0f434384ef6bbfa89290f45bc03cf278ccecdbe21ef15bddd6dcb2",
+    "public/service-photos/go-sisters-dogs-short-coat-groom-20261127-v1.webp": "62a876dec731905528b9d30c8ff93e72ef94fa36cf5af06ef65636b672ab32b1"
+  },
+  "records": [
+    {
+      "id": "sofia-sisters-of-dogs-lozenets-tachev18",
+      "sha256": "2ae811efc8153641035c5531adc797fb5500bb33ea5c05f39df8e3c2b3362f3b"
+    }
+  ],
+  "locations": [
+    {
+      "id": "sofia-malta-ovcha-kupel426",
+      "before": "60f8f36cfd48e25fce5cecad64788a75889e891e4e5ef1ab8fe1062a190dfdd5",
+      "after": "ee513d5e6ffbf061569caf9d2d2f00ce6b49208cb579215ad3b9b559b52d4912",
+      "original": {
+        "coordinates": null
+      }
+    },
+    {
+      "id": "sofia-puzzle-kids-nadezhda",
+      "before": "ab31255aa9ba31aadb2fc95aa7fc5fac21f70a6dd7af2249756aac4f885da278",
+      "after": "ec6e5004f352224ee336c00acce5afadfbbaf4de08da1188931b7f76e0f47677",
+      "original": {
+        "neighborhood": "Надежда",
+        "coordinates": {
+          "latitude": 42.72814392455476,
+          "longitude": 23.295603060361113,
+          "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+          "method": "verified_official_address",
+          "sourceAddress": "София, ул. „Жорж Дантон“ 35",
+          "sourceCityCode": "68134",
+          "sourceNeighborhood": "Надежда",
+          "sourceWebsite": "https://puzzlekids.biz/blagoevgrad/",
+          "checkedOn": "2026-11-13",
+          "addressId": "56926",
+          "licence": "CC-BY-4.0",
+          "attribution": "ГИС София / Столична община"
+        }
+      }
+    }
+  ],
+  "baselineCatalogueSha256": "476bb157de97abe394041b870ea65391469bd76c1e67bb2d5b4fd7d3ffa8bf30",
+  "currentCatalogueSha256": "f4b809cac10329998ccb46f8814ee9d3c71427a58304feddbef2e6f1f197586a"
+}

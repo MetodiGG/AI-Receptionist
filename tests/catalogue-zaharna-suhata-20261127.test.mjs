@@ -22,6 +22,7 @@ import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mj
 import { compareDiscoveryPhotos, fingerprintDiscoveryPhoto } from '../scripts/discovery-photo-fingerprint.mjs'
 import { allowsFileChange, allowsNewFile, priorCatalogue, priorSource } from './catalogue-zaharna-suhata-20261127-scope.mjs'
 import receipt from './fixtures/catalogue-zaharna-suhata-20261127.json' with { type: 'json' }
+import { allowsFileChange as nextChange, allowsNewFile as nextNew, priorCatalogue as nextPriorCatalogue } from './catalogue-lozenets-west-north-20261127-scope.mjs'
 
 const root = new URL('../', import.meta.url)
 const git = (...args) => execFileSync('git', args, { cwd: root, maxBuffer: 8 * 1024 * 1024 })
@@ -51,7 +52,8 @@ test('review receipts cover only two new rows, two documented corrections, and e
     git('diff', '--name-only', '--no-renames', '-z', receipt.baseline, '--'),
     git('ls-files', '--others', '--exclude-standard', '-z'),
   ].flatMap(bytes => bytes.toString().split('\0').filter(Boolean)))
-  assert.deepEqual([...changed].filter(path => path !== 'node_modules' && !path.startsWith('tests/')).sort(), expected)
+  assert.deepEqual([...changed].filter(path => path !== 'node_modules' && !path.startsWith('tests/') &&
+    (Object.hasOwn(receipt.changed, path) || Object.hasOwn(receipt.added, path) || !(nextChange(path) || nextNew(path)))).sort(), expected)
   for (const path of Object.keys(receipt.changed)) {
     const before = git('show', receipt.baseline + ':' + path)
     assert.equal(sha(before), receipt.changed[path].before, path)
@@ -60,17 +62,18 @@ test('review receipts cover only two new rows, two documented corrections, and e
   }
   for (const path of Object.keys(receipt.added)) assert.equal(allowsNewFile(path), true, path)
   for (const catalogue of [RAW_SOFIA_CATALOGUE, SOFIA_CATALOGUE]) {
-    assert.equal(sha(JSON.stringify(catalogue)), receipt.currentCatalogueSha256)
+    const atIntake = nextPriorCatalogue(catalogue)
+    assert.equal(sha(JSON.stringify(atIntake)), receipt.currentCatalogueSha256)
     const previous = priorCatalogue(catalogue)
     assert.equal(sha(JSON.stringify(previous)), receipt.baselineCatalogueSha256)
-    assert.equal(previous.length, catalogue.length - 2)
+    assert.equal(previous.length, atIntake.length - 2)
   }
   assert.throws(() => priorCatalogue([{ ...businessById('sofia-serviz-petkov'), website: 'https://example.org/' }]), /Unreviewed Sofia auto/u)
 })
 
 test('new exact premises cover two previously empty category cells, with a separate correction for an existing auto centre', () => {
   const options = { now, target: 30 }
-  const reports = [priorCatalogue(SOFIA_CATALOGUE), SOFIA_CATALOGUE].map(rows => catalogueCoverageReport(rows, options))
+  const reports = [priorCatalogue(SOFIA_CATALOGUE), nextPriorCatalogue(SOFIA_CATALOGUE)].map(rows => catalogueCoverageReport(rows, options))
   for (const [area, category] of [...cases.map(c => [c.area, c.category]), ['Карпузица', 'auto_repair']]) {
     assert.deepEqual(reports.map(report => {
       const row = [...report.neighborhoods, ...report.additionalNamedAreas].find(x => x.name === area)

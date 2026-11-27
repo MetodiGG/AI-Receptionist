@@ -33,6 +33,7 @@ import { VERIFIED_CARPAINT_LEVSKI_G_20261127_REVIEWS } from '../lib/discovery/ca
 import { VERIFIED_SENSE_CENTER_KARPUZITSA_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-sense-center-karpuzitsa-20261127.mjs'
 import { VERIFIED_GALABOV_ZAHARNA_FABRIKA_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-galabov-zaharna-fabrika-20261127.mjs'
 import { VERIFIED_KIHON_SUHATA_REKA_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-kihon-suhata-reka-20261127.mjs'
+import { VERIFIED_SISTERS_DOGS_LOZENETS_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-sisters-dogs-lozenets-20261127.mjs'
 import { pricingIdentity, assessPricingReview, auditCataloguePricing } from '../lib/discovery/catalogue-pricing-review.mjs'
 import report from '../docs/catalogue-pricing/booking-flow-audit-20261110.json' with { type: 'json' }
 import { NEIGHBORHOOD_20261111_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-expansion-20261111.mjs'
@@ -300,6 +301,7 @@ test('dated audit receipts cover every current ID without rewriting the historic
     [VERIFIED_SENSE_CENTER_KARPUZITSA_20261127_REVIEWS, 'sofia-sense-center-karpuzitsa-nikola-petkov95a', 'service_reviewed', '2026-11-27T12:00:00Z'],
     [VERIFIED_GALABOV_ZAHARNA_FABRIKA_20261127_REVIEWS, 'sofia-galabov-legal-zaharna-fabrika-block31a', 'reviewed', '2026-11-27T12:00:00Z'],
     [VERIFIED_KIHON_SUHATA_REKA_20261127_REVIEWS, 'sofia-kihon-suhata-reka-botevgradsko50', 'reviewed', '2026-11-27T12:00:00Z'],
+    [VERIFIED_SISTERS_DOGS_LOZENETS_20261127_REVIEWS, 'sofia-sisters-of-dogs-lozenets-tachev18', 'reviewed', '2026-11-27T12:00:00Z'],
   ]) {
     assert.deepEqual(reviews.map(row => row.id), [id])
     assert.equal(auditedIds.has(id), false)

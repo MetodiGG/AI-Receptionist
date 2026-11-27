@@ -3,6 +3,11 @@ import assert from 'node:assert/strict'
 import { auditEnglishInventory, englishQualificationIssues } from '../lib/locale/english-coverage.mjs'
 import { readFile } from 'node:fs/promises'
 import { checkPublicEnglish } from '../scripts/check-public-english.mjs'
+import { buildPublicEnglishInventory } from '../scripts/inventory-public-english.mjs'
+import { PUBLIC_CATALOGUE } from '../lib/discovery/public-catalogue.mjs'
+import { SERVICE_SUGGESTION_DATA } from '../lib/service-suggestion-data.mjs'
+import { verifiedLyulinBatchPriorCatalogue } from './catalogue-verified-lyulin-batch-20261127-scope.mjs'
+import snapshot from './fixtures/guided-public-partners-20261121.json' with { type: 'json' }
 
 const entry = (text, categories = []) => ({ text, categories })
 const inventory = { entries: { names: [entry('Боя', ['barber', 'auto_repair']), entry('MEGAN')],
@@ -75,7 +80,11 @@ test('the actual static cache covers every checked-in public/all source name, re
   // Mopart reuses the engine-diagnostics name and supplies two exact names
   // and three descriptions, with no fabricated price units.
   const mopartDelta = { names: 2, descriptions: 3, units: 0 }
-  assert.deepEqual(Object.fromEntries(Object.entries(all.totals).map(([key, value]) => [key, value.unique - mopartDelta[key]])), priorCohorts)
+  // New source strings are checked above. Strip only the later receipt's
+  // exact rows for this historical cohort count, not for coverage checks.
+  const earlier = buildPublicEnglishInventory({ catalogue: verifiedLyulinBatchPriorCatalogue(PUBLIC_CATALOGUE),
+    partners: snapshot.businesses, suggestions: SERVICE_SUGGESTION_DATA, checkedOn: '2026-11-22', scope: 'all' })
+  assert.deepEqual(Object.fromEntries(Object.keys(priorCohorts).map(key => [key, earlier.totals[key].unique - mopartDelta[key]])), priorCohorts)
   for (const result of [all, published]) for (const key of ['missing', 'invalid', 'quantityChanges', 'qualificationChanges']) assert.equal(result[key].length, 0, key)
   const cache = JSON.parse(await readFile(new URL('../lib/locale/service-english.json', import.meta.url), 'utf8'))
   const mopart = cache.metadata.manualRevalidations.find(item => item.businessId === 'sofia-mopart-lyulin3-okolovrasten803')

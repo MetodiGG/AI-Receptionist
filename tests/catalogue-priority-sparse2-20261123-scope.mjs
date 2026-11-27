@@ -3,7 +3,7 @@ import { execFileSync } from 'node:child_process'
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import batch from '../docs/catalogue-coverage/priority-sparse2-20261123.json' with { type: 'json' }
-import { mopartIntakeAllowsFileChange, mopartIntakeAllowsNewFile, mopartIntakePriorCatalogue, mopartIntakePriorSource } from './catalogue-mopart-20261127-scope.mjs'
+import { catalogueIntakeAllowsFileChange, catalogueIntakeAllowsNewFile, catalogueIntakePriorCatalogue, catalogueIntakePriorSource } from './catalogue-mopart-20261127-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = input => createHash('sha256').update(input).digest('hex')
@@ -35,11 +35,11 @@ const recoveries = new Map(batch.recoveredRows.map(row => [row.id, row]))
 const evidence = /PRIORITY_SPARSE2_(?:NORTH|SOUTH)_20261123_|applyStephanLageraOwnerPoint20261123|sx-indoor-clay-tennis-court|Групови занимания за деца на 3–4 г\. · Опосум/u
 
 const fileMatches = (path, digest) => !!digest && sha(readFileSync(new URL('../' + path, import.meta.url))) === digest
-export const prioritySparse2AllowsFileChange = path => mopartIntakeAllowsFileChange(path) || (Object.hasOwn(changed, path) && fileMatches(path, changed[path][1]))
-export const prioritySparse2AllowsNewFile = path => mopartIntakeAllowsNewFile(path) || (Object.hasOwn(added, path) && fileMatches(path, added[path]))
+export const prioritySparse2AllowsFileChange = path => catalogueIntakeAllowsFileChange(path) || (Object.hasOwn(changed, path) && fileMatches(path, changed[path][1]))
+export const prioritySparse2AllowsNewFile = path => catalogueIntakeAllowsNewFile(path) || (Object.hasOwn(added, path) && fileMatches(path, added[path]))
 
 export function prioritySparse2PriorSource(path, source) {
-  source = mopartIntakePriorSource(path, source)
+  source = catalogueIntakePriorSource(path, source)
   if (!Object.hasOwn(changed, path) || !evidence.test(source)) return source
   const [before, after] = changed[path]
   if (sha(source) !== after) throw Error('Unreviewed 23 Nov sparse2 priority source delta: ' + path)
@@ -53,7 +53,7 @@ export function prioritySparse2PriorSource(path, source) {
 
 export function prioritySparse2PriorCatalogue(rows) {
   const seen = new Set()
-  return mopartIntakePriorCatalogue(rows).flatMap(row => {
+  return catalogueIntakePriorCatalogue(rows).flatMap(row => {
     const added = additions.get(row.id), recovered = recoveries.get(row.id)
     if (!added && !recovered) return [row]
     if (seen.has(row.id)) throw Error('Duplicate sparse2 priority row: ' + row.id)

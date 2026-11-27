@@ -4,7 +4,7 @@ import { lstatSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import receipt from './fixtures/discovery-performance-approval.json' with { type: 'json' }
 import { detailPreviewAllowsFileChange, detailPreviewAllowsNewFile, detailPreviewPriorSource } from './public-detail-photo-preview-scope.mjs'
-import { mopartIntakeAllowsFileChange, mopartIntakeAllowsNewFile, mopartIntakePriorSource } from './catalogue-mopart-20261127-scope.mjs'
+import { catalogueIntakeAllowsFileChange, catalogueIntakeAllowsNewFile, catalogueIntakePriorSource } from './catalogue-mopart-20261127-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -18,14 +18,14 @@ function currentHash(path, digest) {
   } catch { return false }
 }
 
-export const discoveryPerformanceAllowsFileChange = path => mopartIntakeAllowsFileChange(path) || detailPreviewAllowsFileChange(path) || currentHash(path, receipt.changed[path]?.after)
-export const discoveryPerformanceAllowsNewFile = path => mopartIntakeAllowsNewFile(path) || detailPreviewAllowsNewFile(path) || currentHash(path, receipt.added[path])
+export const discoveryPerformanceAllowsFileChange = path => catalogueIntakeAllowsFileChange(path) || detailPreviewAllowsFileChange(path) || currentHash(path, receipt.changed[path]?.after)
+export const discoveryPerformanceAllowsNewFile = path => catalogueIntakeAllowsNewFile(path) || detailPreviewAllowsNewFile(path) || currentHash(path, receipt.added[path])
 export const discoveryPerformanceAllowsPath = path => discoveryPerformanceAllowsFileChange(path) || discoveryPerformanceAllowsNewFile(path)
 
 // Keep previous approvals enforceable. Only revert a reviewed whole-file
 // performance delta under historical tests; unreviewed bytes stay visible.
 export function discoveryPerformancePriorSource(path, source) {
-  source = detailPreviewPriorSource(path, mopartIntakePriorSource(path, source))
+  source = detailPreviewPriorSource(path, catalogueIntakePriorSource(path, source))
   const change = receipt.changed[path] ?? receipt.adapters[path]
   if (!change || sha(source) !== change.after) return source
   if (!prior.has(path)) {

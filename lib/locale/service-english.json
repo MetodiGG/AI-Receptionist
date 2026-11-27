@@ -427,6 +427,8 @@
     ]
   },
   "names": {
+    "Групова подготовка по математика · двама ученици": "Group mathematics preparation · two students",
+    "Индивидуален тест за ниво по английски · за възрастни": "One-to-one English placement assessment · adults",
     "Обслужване на спирачки": "Brake system servicing",
     "Машинна смяна на масло на автоматична скоростна кутия": "Machine-assisted automatic transmission fluid change",
     "Групови занимания за деца на 3–4 г. · Опосум": "Group activities for ages 3–4 · Possum",
@@ -6558,6 +6560,8 @@
     "смяна на предпазен клапан на бойлер": "change of boiler safety valve"
   },
   "descriptions": {
+    "Присъствен курс за 7. клас, матура или кандидатстване. Посочената цена е за един 40-минутен учебен час, не за целия курс или за самостоятелно посещение. Заплаща се на две вноски – в началото на курса и в началото на февруари.": "In-person course for grade 7, final exams or admissions. The amount covers one 40-minute teaching period, not the whole course or a drop-in visit. Payment is in two instalments, at the start of the course and at the beginning of February.",
+    "Предварителен тест с преподавател за избор на подходящ курс по английски за възрастни. Уговаря се отделно; безплатният тест не включва самия курс.": "An initial assessment with a teacher to choose a suitable English course for adults. It is arranged separately and in advance; the course itself is not included in the free assessment.",
     "Проверка на двигателя с диагностична апаратура за автомобили BMW, MINI и Rolls-Royce.": "Engine checks with diagnostic equipment for BMW, MINI and Rolls-Royce vehicles.",
     "Обслужване на спирачната система, включително накладки и дискове, за автомобили BMW, MINI и Rolls-Royce.": "Brake system servicing, including pads and discs, for BMW, MINI and Rolls-Royce vehicles.",
     "Динамична смяна на трансмисионната течност с машина за автомобили BMW, MINI и Rolls-Royce.": "Dynamic transmission fluid exchange with a machine for BMW, MINI and Rolls-Royce vehicles.",
@@ -8439,6 +8443,7 @@
     "Часът се уговаря с преподавателя; първоначално се изготвя индивидуален график.": "The class is arranged with the lecturer; an individual schedule is initially drawn up."
   },
   "units": {
+    "за теста": "for the assessment",
     "на урок при срок от 11 урока": "per lesson in an 11-lesson term",
     "корт · час": "court · hour",
     "за курса, без изпитни такси": "per course, excluding exam fees",

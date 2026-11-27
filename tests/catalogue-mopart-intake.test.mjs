@@ -2,6 +2,7 @@ import assert from 'node:assert/strict'
 import test from 'node:test'
 import { existsSync, readFileSync } from 'node:fs'
 import { execFileSync } from 'node:child_process'
+import { createHash } from 'node:crypto'
 import receipt from '../docs/catalogue-coverage/mopart-intake-20261127.json' with { type: 'json' }
 import english from '../lib/locale/service-english.json' with { type: 'json' }
 import { MOPART_INTAKE_20261127_RECORDS, MOPART_INTAKE_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-mopart-intake-20261127.mjs'
@@ -19,6 +20,7 @@ import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mj
 import { manualIntakeIdentity } from '../scripts/catalogue-manual-intake-review.mjs'
 import approval from './fixtures/catalogue-mopart-20261127-approval.json' with { type: 'json' }
 import { mopartIntakeAllowsPath, mopartIntakePriorCatalogue, mopartIntakePriorSource } from './catalogue-mopart-20261127-scope.mjs'
+import { verifiedLyulinBatchPriorSource } from './catalogue-verified-lyulin-batch-20261127-scope.mjs'
 
 const now = Date.parse('2026-11-27T00:00:00Z')
 const [draft] = MOPART_INTAKE_20261127_RECORDS
@@ -27,14 +29,13 @@ const rows = SOFIA_CATALOGUE.filter(row => row.id === draft.id)
 
 test('Mopart historical scope recognizes only the reviewed data, bytes, and one unmodified branch', () => {
   const cwd = new URL('../', import.meta.url)
-  for (const path of [...Object.keys(approval.changed), ...Object.keys(approval.added)]) {
-    assert.ok(mopartIntakeAllowsPath(path), path)
-  }
+  for (const path of Object.keys(approval.added)) assert.ok(mopartIntakeAllowsPath(path), path)
   for (const path of ['lib/booking-engine.mjs', 'lib/discovery/catalogue-policy.mjs', 'public/service-photos/mopart.webp']) {
     assert.equal(mopartIntakeAllowsPath(path), false, path)
   }
   for (const path of Object.keys(approval.changed)) {
-    const bytes = readFileSync(new URL(path, cwd))
+    const bytes = verifiedLyulinBatchPriorSource(path, readFileSync(new URL(path, cwd)))
+    assert.equal(createHash('sha256').update(bytes).digest('hex'), approval.changed[path].after, path)
     assert.deepEqual(mopartIntakePriorSource(path, bytes), execFileSync('git', ['show', approval.baseline + ':' + path], { cwd, maxBuffer: 5 * 1024 * 1024 }))
     const tampered = Buffer.concat([bytes, Buffer.from('\n')])
     assert.equal(mopartIntakePriorSource(path, tampered), tampered)

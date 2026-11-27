@@ -11,10 +11,10 @@ import { serviceThumbnail } from '../lib/service-thumbnail.mjs'
 import { businessCoverPhoto } from '../lib/business-cover-photo.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
 import { prioritySparse2PriorCatalogue } from './catalogue-priority-sparse2-20261123-scope.mjs'
-import { mopartIntakePriorCatalogue } from './catalogue-mopart-20261127-scope.mjs'
+import { catalogueIntakePriorCatalogue } from './catalogue-mopart-20261127-scope.mjs'
 
 const now = Date.parse(batch.checkedAt)
-const SOFIA_CATALOGUE = mopartIntakePriorCatalogue(currentCatalogue)
+const SOFIA_CATALOGUE = catalogueIntakePriorCatalogue(currentCatalogue)
 const before = prioritySparse2PriorCatalogue(SOFIA_CATALOGUE)
 const rows = new Map(SOFIA_CATALOGUE.map(row => [row.id, row]))
 const previousRows = new Map(before.map(row => [row.id, row]))

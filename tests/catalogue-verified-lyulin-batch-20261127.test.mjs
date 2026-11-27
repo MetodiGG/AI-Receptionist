@@ -13,6 +13,7 @@ import { OFFICIAL_SOFIA_CSV_SHA256 } from '../lib/discovery/official-sofia-addre
 import { businessCoverPhoto } from '../lib/business-cover-photo.mjs'
 import { publicDetailServiceThumbnail } from '../lib/service-detail-photo-presentation.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
+import { nearbyAddressReviewPriorCatalogue } from './catalogue-verified-nearby-addresses-20261127-scope.mjs'
 
 const now = Date.parse('2026-11-27T12:00:00Z')
 const ids = report.listings.map(record => record.id)
@@ -34,7 +35,10 @@ test('the two independent Lyulin classrooms improve exact located coverage, not 
   }
   const cell = rows => catalogueCoverageReport(rows, { now, target: 30 }).neighborhoods
     .find(area => area.name === 'Люлин 3').cells.find(entry => entry.categoryId === 'education')
-  const before = cell(SOFIA_CATALOGUE.filter(row => !ids.includes(row.id))), after = cell(SOFIA_CATALOGUE)
+  // Replay the exact approved location edits from later that day: the
+  // addition report does not attribute a subsequent recovery to these schools.
+  const reviewedSnapshot = nearbyAddressReviewPriorCatalogue(SOFIA_CATALOGUE)
+  const before = cell(reviewedSnapshot.filter(row => !ids.includes(row.id))), after = cell(reviewedSnapshot)
   assert.deepEqual([before.count, after.count], report.coverageDelta.premises)
   assert.deepEqual([before.locatedCount, after.locatedCount], report.coverageDelta.locatedPremises)
   assert.equal(after.locatedGap, report.coverageDelta.remainingLocatedToTarget)

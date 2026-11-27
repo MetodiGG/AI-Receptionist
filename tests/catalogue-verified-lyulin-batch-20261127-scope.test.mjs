@@ -9,6 +9,7 @@ import receipt from './fixtures/catalogue-verified-lyulin-batch-20261127.json' w
 import { catalogueIntakeAllowsPath, catalogueIntakePriorCatalogue, catalogueIntakePriorSource } from './catalogue-mopart-20261127-scope.mjs'
 import { verifiedLyulinBatchAllowsFileChange, verifiedLyulinBatchAllowsNewFile, verifiedLyulinBatchAllowsPath, verifiedLyulinBatchPriorCatalogue, verifiedLyulinBatchPriorSource } from './catalogue-verified-lyulin-batch-20261127-scope.mjs'
 import { crossQuarterAllowsNewFile, crossQuarterPriorSource } from './catalogue-verified-sofia-cross-quarter-20261127-scope.mjs'
+import { nearbyAddressReviewAllowsNewFile, nearbyAddressReviewPriorSource } from './catalogue-verified-nearby-addresses-20261127-scope.mjs'
 
 const cwd = new URL('../', import.meta.url)
 const git = (...args) => execFileSync('git', args, { cwd, maxBuffer: 8 * 1024 * 1024 })
@@ -32,11 +33,12 @@ test('the verified Lyulin batch seals exactly its six catalogue paths before nor
   const actual = [...new Set([
     ...asPaths(git('diff', '--name-only', '--no-renames', '-z', receipt.baseline, '--')),
     ...asPaths(git('ls-files', '--others', '--exclude-standard', '-z')),
-  ])].filter(path => path !== 'node_modules' && !path.startsWith('tests/') && !crossQuarterAllowsNewFile(path)).sort()
+  ])].filter(path => path !== 'node_modules' && !path.startsWith('tests/') && !crossQuarterAllowsNewFile(path) &&
+    !nearbyAddressReviewAllowsNewFile(path)).sort()
   assert.deepEqual(actual, [...changed, ...added].sort())
   for (const path of changed) {
     const actual = readFileSync(new URL(path, cwd))
-    const current = crossQuarterPriorSource(path, actual)
+    const current = crossQuarterPriorSource(path, nearbyAddressReviewPriorSource(path, actual))
     const preBatch = git('show', receipt.baseline + ':' + path)
     const preMopart = git('show', prior.baseline + ':' + path)
     const { before, after } = receipt.changed[path]

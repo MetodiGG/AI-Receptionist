@@ -9,6 +9,7 @@ import priorMopart from './fixtures/catalogue-mopart-20261127-approval.json' wit
 import receipt from './fixtures/catalogue-verified-sofia-cross-quarter-20261127.json' with { type: 'json' }
 import { catalogueIntakeAllowsPath, catalogueIntakePriorCatalogue, catalogueIntakePriorSource } from './catalogue-mopart-20261127-scope.mjs'
 import { crossQuarterAllowsFileChange, crossQuarterAllowsNewFile, crossQuarterAllowsPath, crossQuarterPriorSource, crossQuarterPriorCatalogue } from './catalogue-verified-sofia-cross-quarter-20261127-scope.mjs'
+import { nearbyAddressReviewAllowsNewFile, nearbyAddressReviewPriorSource } from './catalogue-verified-nearby-addresses-20261127-scope.mjs'
 
 const cwd = new URL('../', import.meta.url)
 const git = (...args) => execFileSync('git', args, { cwd, maxBuffer: 8 * 1024 * 1024 })
@@ -37,21 +38,22 @@ test('the latest intake seals only its six catalogue paths and restores both ear
   const actual = [...new Set([
     ...split(git('diff', '--name-only', '--no-renames', '-z', receipt.baseline, '--')),
     ...split(git('ls-files', '--others', '--exclude-standard', '-z')),
-  ])].filter(path => path !== 'node_modules' && !path.startsWith('tests/')).sort()
+  ])].filter(path => path !== 'node_modules' && !path.startsWith('tests/') && !nearbyAddressReviewAllowsNewFile(path)).sort()
   assert.deepEqual(actual, [...changed, ...added].sort())
   for (const path of changed) {
-    const current = readFileSync(new URL(path, cwd))
+    const actual = readFileSync(new URL(path, cwd))
+    const current = nearbyAddressReviewPriorSource(path, actual)
     const preBatch = git('show', receipt.baseline + ':' + path)
     const preMopart = git('show', priorMopart.baseline + ':' + path)
     const { before, after } = receipt.changed[path]
     assert.notEqual(before, after, path)
     assert.equal(before, priorLyulin.changed[path].after, path)
     assert.equal(sha(current), after, path)
-    assert.ok(crossQuarterAllowsFileChange(path), path)
+    assert.equal(crossQuarterAllowsFileChange(path), sha(actual) === after, path)
     assert.equal(crossQuarterAllowsNewFile(path), false, path)
     assert.deepEqual(crossQuarterPriorSource(path, current), preBatch, path)
-    assert.deepEqual(catalogueIntakePriorSource(path, current), preMopart, path)
-    const tampered = Buffer.concat([current, Buffer.from('\n')])
+    assert.deepEqual(catalogueIntakePriorSource(path, actual), preMopart, path)
+    const tampered = Buffer.concat([actual, Buffer.from('\n')])
     assert.equal(catalogueIntakePriorSource(path, tampered), tampered, path)
   }
   for (const path of added) {

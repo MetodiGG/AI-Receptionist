@@ -14,7 +14,7 @@ import { discoveryConfig } from '../lib/discovery/config.mjs'
 import { createDiscoveryHandler } from '../lib/discovery/handler.mjs'
 import { createPublicBusinessDetailsHandler } from '../lib/discovery/public-details.mjs'
 import { railExternalAction } from '../lib/discovery/rail.mjs'
-import { RAW_SOFIA_CATALOGUE, SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { RAW_SOFIA_CATALOGUE as RAW_LIVE, SOFIA_CATALOGUE as LIVE } from '../lib/discovery/sofia-catalogue.mjs'
 import { businessCoverPhotoSources } from '../lib/public-business-cover-photo.mjs'
 import { publicDetailServiceThumbnail } from '../lib/service-detail-photo-presentation.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
@@ -22,7 +22,9 @@ import { compareDiscoveryPhotos, fingerprintDiscoveryPhoto, readDiscoveryImage }
 import assets from '../docs/catalogue-coverage/verified-smirnenski-karadzha-mladost-images-20261127.json' with { type:'json' }
 import receipt from './fixtures/catalogue-smirnenski-karadzha-mladost-20261127.json' with { type:'json' }
 import { allowsFileChange, allowsNewFile, priorCatalogue, priorSource } from './catalogue-smirnenski-karadzha-mladost-20261127-scope.mjs'
+import { allowsNewFile as nextNew, priorCatalogue as nextPriorCatalogue, priorSource as nextPriorSource } from './catalogue-izgrev-hladilnika-20261127-scope.mjs'
 
+const RAW_SOFIA_CATALOGUE = nextPriorCatalogue(RAW_LIVE), SOFIA_CATALOGUE = nextPriorCatalogue(LIVE)
 const now = Date.parse('2026-11-27T12:00:00Z')
 const cwd = new URL('../', import.meta.url)
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -39,9 +41,10 @@ test('intake preserves all previous non-test bytes and listings except the signp
   const changed = Object.keys(receipt.changed), added = Object.keys(receipt.added)
   const touched = [...new Set([...paths(git('diff','--name-only','--no-renames','-z',receipt.baseline,'--')),
     ...paths(git('ls-files','--others','--exclude-standard','-z'))])]
-  assert.deepEqual(touched.filter(p=>p!=='node_modules'&&!p.startsWith('tests/')).sort(),[...changed,...added].sort())
+  assert.deepEqual(touched.filter(p=>p!=='node_modules'&&!p.startsWith('tests/')&&!nextNew(p)).sort(),[...changed,...added].sort())
   for (const path of changed) {
-    const original = git('show',receipt.baseline+':'+path), current = readFileSync(new URL(path,cwd))
+    const original = git('show',receipt.baseline+':'+path), latest = readFileSync(new URL(path,cwd))
+    const current = nextPriorSource(path,latest)
     assert.deepEqual([sha(original),sha(current)],[receipt.changed[path].before,receipt.changed[path].after],path)
     assert.deepEqual(priorSource(path,current),original,path)
     assert.equal(allowsFileChange(path),true,path)

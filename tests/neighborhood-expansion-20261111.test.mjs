@@ -268,7 +268,7 @@ test('northern and eastern school additions retain true premises, per-lesson and
   assert.ok(busy.services.every(service => service.price.amount === 24 && service.durationMin === 40))
   assert.equal(SOFIA_CATALOGUE.filter(row => row.website === 'https://busy-bg.com/').length, 1, 'unconfirmed branch-specific inventories are not cloned')
   const intel = SOFIA_CATALOGUE.find(row => row.id === 'sofia-intelia-bel-metro-city')
-  assert.equal(intel.neighborhood, 'Младост')
+  assert.equal(intel.neighborhood, 'Младост 3', 'the Metro City teaching location is in the verified numbered neighborhood')
   assert.equal(intel.services[0].price.amount, 35)
   assert.equal(intel.services[0].durationMin, 90)
   assert.equal(intel.services[1].price.amount, 135)

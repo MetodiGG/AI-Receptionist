@@ -1,0 +1,22 @@
+{
+  "checkedOn": "2026-11-27",
+  "kind": "six existing listings; location-only corrections, not net-new businesses",
+  "metroCity": {
+    "city": "София",
+    "neighborhood": "Младост 3",
+    "address": "бул. Александър Малинов 51, Метро Сити",
+    "municipalPlanningEvidence": "https://nag.sofia.bg/ServerFiles/DownloadDocumentFile?filename=24_28-08-2025_237_19.pdf&url=GeAf13qGnPI%3D",
+    "municipalAddressSource": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "municipalAddressIdsByEntrance": ["100882", "100883", "100884", "100885", "100886", "100887"],
+    "note": "The 2025 municipal permit identifies the exact building 51, parcel 68134.4089.558 and territory Младост 3. These are six civic entrance rows for one building, not interchangeable exact business entrances. The map target is the public building or operator-selected point; no change to office/floor or booking information."
+  },
+  "records": [
+    { "id": "sofia-head-hunters-mladost", "source": "https://head-hunters.net/kontakti", "beforeNeighborhood": "Младост", "afterNeighborhood": "Младост 3", "point": [42.6458737, 23.3764025], "decision": "Retain existing verified OSM Metro City building point and same named branch, confirmed by official site address and matching branch phone." },
+    { "id": "sofia-music-box-mladost", "source": "https://www.music-box.bg/контакти", "beforeNeighborhood": "Младост", "afterNeighborhood": "Младост 3", "point": [42.6459484, 23.3761393], "decision": "Owner names the Metro City branch in Младост 3. Use the second owner-published marker positioned at number 51, not the distinct Manastirski Livadi marker. The ground-level marker is not a claim of a mapped classroom." },
+    { "id": "sofia-x-academy-mladost", "source": "https://x-academy.bg/contact-us", "beforeNeighborhood": "Младост", "afterNeighborhood": "Младост 3", "point": null, "decision": "Owner and municipal permit confirm exact number and neighborhood. Owner's current link is an address search, not a distinct precise pin; leave coordinates absent." },
+    { "id": "sofia-intelia-bel-metro-city", "source": "https://intelia-bg.com/", "beforeNeighborhood": "Младост", "afterNeighborhood": "Младост 3", "point": [42.646065, 23.376333], "decision": "Visit section and exact named coordinate in first-party embed agree with Metro City, number 51, floor 1 and the same business phone. The point is for reaching the building, not indoor routing." },
+    { "id": "sofia-venera-music-mladost3", "source": "https://www.veneramusic.bg/kontakti", "beforeNeighborhood": "Младост 3", "afterNeighborhood": "Младост 3", "point": [42.6460855, 23.3760209], "ownerMapLink": "https://goo.gl/maps/3HaopSkJ5yEWWHC8A", "decision": "Owner expressly links the Sofia branch address to a named Metro City public visit point. Use actual destination parameters rather than the map viewport or the separate Veliko Tarnovo branch." },
+    { "id": "sofia-lea-dental-lyulin10", "source": "https://leadental.bg/contact-us/", "pointSource": "https://leadental.bg/", "beforeNeighborhood": "Люлин 10", "afterNeighborhood": "Люлин 10", "point": [42.7138885, 23.266288], "ownerMapLink": "https://maps.google.com/?cid=1061278734933622910", "municipalAddressId": "115872", "decision": "Owner still publishes the exact branch marker for LEA Dental in block 160. Civic building point approximately 14 metres away corroborates it. This is not the distinct nearby Dentel clinic." }
+  ],
+  "sideEffects": "No offers, evidence dates, hours, display address, branch contacts, bookings, partner approvals, calendars or production state changed."
+}

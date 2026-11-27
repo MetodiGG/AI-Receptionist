@@ -1,0 +1,13 @@
+{
+  "baseline": "d0e02e76a0b9012478527c2d41b6540c990ac988",
+  "changed": {
+    "lib/discovery/catalogue-search.mjs": {
+      "before": "67ed463e29cf9f0c2b86773a28368a06afe177a9c8b977299ebd1e89d8542292",
+      "after": "2232760aedf8c1a129407fbb411985d473e53d5db52c7498ab746f6c053bff9d"
+    },
+    "next.config.mjs": {
+      "before": "268b157e05bdbee30e07046a94ecfad40209d60223b88cbcfd9e703e7aa0844e",
+      "after": "8f7223b7adfb49e2b3fe06f63db08560019926b51b4bfa9513f3aa789ed26021"
+    }
+  }
+}

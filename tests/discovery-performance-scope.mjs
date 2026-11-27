@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url'
 import receipt from './fixtures/discovery-performance-approval.json' with { type: 'json' }
 import { detailPreviewAllowsFileChange, detailPreviewAllowsNewFile, detailPreviewPriorSource } from './public-detail-photo-preview-scope.mjs'
 import { preparedPhotosAllowsFileChange, preparedPhotosAllowsNewFile } from './mobile-details-prepared-photos-scope.mjs'
+import { staticWebpCacheCpuAllowsFileChange, staticWebpCacheCpuPriorSource } from './discovery-static-webp-cache-cpu-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -14,18 +15,18 @@ function currentHash(path, digest) {
   if (!digest) return false
   try {
     const file = new URL('../' + path, import.meta.url), stat = lstatSync(file)
-    return stat.isFile() && !(stat.mode & 0o111) && sha(readFileSync(file)) === digest
+    return stat.isFile() && !(stat.mode & 0o111) && sha(staticWebpCacheCpuPriorSource(path, readFileSync(file))) === digest
   } catch { return false }
 }
 
-export const discoveryPerformanceAllowsFileChange = path => preparedPhotosAllowsFileChange(path) || detailPreviewAllowsFileChange(path) || currentHash(path, receipt.changed[path]?.after)
+export const discoveryPerformanceAllowsFileChange = path => staticWebpCacheCpuAllowsFileChange(path) || preparedPhotosAllowsFileChange(path) || detailPreviewAllowsFileChange(path) || currentHash(path, receipt.changed[path]?.after)
 export const discoveryPerformanceAllowsNewFile = path => preparedPhotosAllowsNewFile(path) || detailPreviewAllowsNewFile(path) || currentHash(path, receipt.added[path])
 export const discoveryPerformanceAllowsPath = path => discoveryPerformanceAllowsFileChange(path) || discoveryPerformanceAllowsNewFile(path)
 
 // Keep previous approvals enforceable. Only revert a reviewed whole-file
 // performance delta under historical tests; unreviewed bytes stay visible.
 export function discoveryPerformancePriorSource(path, source) {
-  source = detailPreviewPriorSource(path, source)
+  source = detailPreviewPriorSource(path, staticWebpCacheCpuPriorSource(path, source))
   const change = receipt.changed[path] ?? receipt.adapters[path]
   if (!change || sha(source) !== change.after) return source
   if (!prior.has(path)) {

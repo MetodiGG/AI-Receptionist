@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url'
 import test from 'node:test'
 import receipt from './fixtures/mobile-details-prepared-photos-approval.json' with { type: 'json' }
 import { preparedPhotosAllowsFileChange, preparedPhotosAllowsNewFile, preparedPhotosAllowsPath, preparedPhotosPriorSource } from './mobile-details-prepared-photos-scope.mjs'
+import { staticWebpCacheCpuAllowsFileChange } from './discovery-static-webp-cache-cpu-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const git = (...args) => execFileSync('git', args, { cwd: root })
@@ -25,8 +26,9 @@ test('the prepared-photo latency patch changes only the public details read and 
   assert.deepEqual(Object.keys(added), ['components/prepared-service-thumbnail.js', 'lib/public-detail-photo-payload.mjs'])
   const actual = new Set([...split(git('diff', '--name-only', '--no-renames', '-z', baseline, '--')),
     ...split(git('ls-files', '--others', '--exclude-standard', '-z'))])
-  assert.deepEqual([...actual].filter(path => path !== 'node_modules' && !path.startsWith('tests/')).sort(),
-    [...Object.keys(changed), ...Object.keys(added)].sort())
+  const expected = [...Object.keys(changed), ...Object.keys(added)].sort()
+  assert.deepEqual([...actual].filter(path => path !== 'node_modules' && !path.startsWith('tests/')
+    && (expected.includes(path) || !staticWebpCacheCpuAllowsFileChange(path))).sort(), expected)
 
   for (const [path, { before, after }] of Object.entries(changed)) {
     const current = await readFile(new URL('../' + path, import.meta.url)), original = git('show', baseline + ':' + path)

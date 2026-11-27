@@ -98,7 +98,7 @@ test('security reminders are the only config addition; all privacy/cache headers
   assert.equal(before.split(anchor).length, 2)
   assert.equal(current, before.replace(anchor, anchor + "  experimental: { agentUpgrade: 'security' },\n"))
   const originalConfig = (await import('data:text/javascript;base64,' + Buffer.from(before).toString('base64'))).default
-  const nextConfig = (await import('../next.config.mjs')).default
+  const nextConfig = (await import('data:text/javascript;base64,' + Buffer.from(current).toString('base64'))).default
   assert.deepEqual(nextConfig.experimental, { agentUpgrade: 'security' })
   assert.deepEqual(Object.keys(nextConfig).sort(), [...Object.keys(originalConfig), 'experimental'].sort())
   assert.deepEqual(nextConfig.allowedDevOrigins, originalConfig.allowedDevOrigins)

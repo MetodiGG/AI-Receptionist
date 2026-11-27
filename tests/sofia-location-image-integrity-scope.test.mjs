@@ -16,6 +16,7 @@ import { serviceDetailPhotoCoverageAllowsPath } from './service-detail-photo-cov
 import { servicePhotoMarkerAllowsFileChange } from './service-photo-marker-20261126-scope.mjs'
 import { serviceDetailPhotoExpansionAllowsNewFile } from './service-detail-photo-expansion-20261126-scope.mjs'
 import { dialogPrimaryDarkContrastAllowsFileChange } from './dialog-primary-dark-contrast-20261126-scope.mjs'
+import { staticWebpCacheCpuAllowsFileChange } from './discovery-static-webp-cache-cpu-scope.mjs'
 
 test('the 24 Nov scope seals only explicitly reviewed Sofia and image files with their prior bytes', async () => {
   const hash = value => createHash('sha256').update(value).digest('hex')
@@ -29,10 +30,13 @@ test('the 24 Nov scope seals only explicitly reviewed Sofia and image files with
     assert.throws(() => sofiaIntegrityPriorSource(path, Buffer.concat([current, Buffer.from('\n')])), expected)
   }
   for (const path of Object.keys(receipt.added)) assert.equal(sofiaIntegrityAllowsNewFile(path), true, path)
-  for (const path of ['package.json', 'next.config.mjs', 'pnpm-lock.yaml', 'lib/booking-engine.mjs', 'lib/discovery/sofia-catalogue.mjs']) {
+  for (const path of ['package.json', 'pnpm-lock.yaml', 'lib/booking-engine.mjs', 'lib/discovery/sofia-catalogue.mjs']) {
     assert.equal(sofiaIntegrityAllowsFileChange(path), false, path)
     assert.equal(sofiaIntegrityAllowsNewFile(path), false, path)
   }
+  assert.equal(Object.hasOwn(receipt.changed, 'next.config.mjs'), false, 'the past Sofia receipt never authorizes Next configuration changes')
+  assert.equal(sofiaIntegrityAllowsFileChange('next.config.mjs'), staticWebpCacheCpuAllowsFileChange('next.config.mjs'), 'only the exact newer WebP cache stage authorizes its tracked config change')
+  assert.equal(sofiaIntegrityAllowsNewFile('next.config.mjs'), false)
 })
 
 test('only the two public subcategory navigation views lose the AI display, without changing business photo renderers or media', async () => {

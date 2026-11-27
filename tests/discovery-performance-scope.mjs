@@ -7,6 +7,7 @@ import { detailPreviewAllowsFileChange, detailPreviewAllowsNewFile, detailPrevie
 import { preparedPhotosAllowsFileChange, preparedPhotosAllowsNewFile } from './mobile-details-prepared-photos-scope.mjs'
 import { staticWebpCacheCpuAllowsFileChange, staticWebpCacheCpuPriorSource } from './discovery-static-webp-cache-cpu-scope.mjs'
 import { mobileDiscoveryFirstPaintAllowsFileChange, mobileDiscoveryFirstPaintPriorSource } from './mobile-discovery-first-paint-scope.mjs'
+import { homepageBrowseStartAllowsFileChange, homepageBrowseStartAllowsNewFile, homepageBrowseStartPriorSource } from './homepage-browse-start-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -20,13 +21,14 @@ function currentHash(path, digest) {
   } catch { return false }
 }
 
-export const discoveryPerformanceAllowsFileChange = path => mobileDiscoveryFirstPaintAllowsFileChange(path) || staticWebpCacheCpuAllowsFileChange(path) || preparedPhotosAllowsFileChange(path) || detailPreviewAllowsFileChange(path) || currentHash(path, receipt.changed[path]?.after)
-export const discoveryPerformanceAllowsNewFile = path => preparedPhotosAllowsNewFile(path) || detailPreviewAllowsNewFile(path) || currentHash(path, receipt.added[path])
+export const discoveryPerformanceAllowsFileChange = path => homepageBrowseStartAllowsFileChange(path) || mobileDiscoveryFirstPaintAllowsFileChange(path) || staticWebpCacheCpuAllowsFileChange(path) || preparedPhotosAllowsFileChange(path) || detailPreviewAllowsFileChange(path) || currentHash(path, receipt.changed[path]?.after)
+export const discoveryPerformanceAllowsNewFile = path => homepageBrowseStartAllowsNewFile(path) || preparedPhotosAllowsNewFile(path) || detailPreviewAllowsNewFile(path) || currentHash(path, receipt.added[path])
 export const discoveryPerformanceAllowsPath = path => discoveryPerformanceAllowsFileChange(path) || discoveryPerformanceAllowsNewFile(path)
 
 // Keep previous approvals enforceable. Only revert a reviewed whole-file
 // performance delta under historical tests; unreviewed bytes stay visible.
 export function discoveryPerformancePriorSource(path, source) {
+  source = homepageBrowseStartPriorSource(path, source)
   source = mobileDiscoveryFirstPaintPriorSource(path, source)
   source = detailPreviewPriorSource(path, staticWebpCacheCpuPriorSource(path, source))
   const change = receipt.changed[path] ?? receipt.adapters[path]

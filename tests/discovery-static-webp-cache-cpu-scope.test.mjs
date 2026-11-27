@@ -8,6 +8,7 @@ import test from 'node:test'
 import receipt from './fixtures/discovery-static-webp-cache-cpu-approval.json' with { type: 'json' }
 import { staticWebpCacheCpuAllowsFileChange, staticWebpCacheCpuPriorSource } from './discovery-static-webp-cache-cpu-scope.mjs'
 import { mobileDiscoveryFirstPaintAllowsFileChange, mobileDiscoveryFirstPaintPriorSource } from './mobile-discovery-first-paint-scope.mjs'
+import { homepageBrowseStartAllowsPath } from './homepage-browse-start-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const git = (...args) => execFileSync('git', args, { cwd: root })
@@ -23,7 +24,7 @@ test('only the reviewed public WebP cache config and catalogue search CPU source
   const actual = new Set([...split(git('diff', '--name-only', '--no-renames', '-z', baseline, '--')),
     ...split(git('ls-files', '--others', '--exclude-standard', '-z'))])
   assert.deepEqual([...actual].filter(path => path !== 'node_modules' && !path.startsWith('tests/')
-    && (expected.includes(path) || !mobileDiscoveryFirstPaintAllowsFileChange(path))).sort(), expected)
+    && (expected.includes(path) || (!mobileDiscoveryFirstPaintAllowsFileChange(path) && !homepageBrowseStartAllowsPath(path)))).sort(), expected)
   for (const [path, { before, after }] of Object.entries(changed)) {
     const current = await readFile(new URL('../' + path, import.meta.url)), original = git('show', baseline + ':' + path)
     assert.equal(sha(original), before, path)

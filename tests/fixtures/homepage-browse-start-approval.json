@@ -1,0 +1,16 @@
+{
+  "baseline": "3f276e1229249a5fe8a3c2b9ea95772d0c93a4d9",
+  "changed": {
+    "app/page.js": {
+      "before": "93e737e7c203df543748bbdd7c62a77678259f57934e958472fd528e91880bd8",
+      "after": "df799445000d49b22554c69effc4cf778d5101733e60a18ed712d816d4357f95"
+    },
+    "components/discovery-search.js": {
+      "before": "65d1670224f3bd7c24b25dce23172050b199060102376f285e5171a7be15a38f",
+      "after": "95a469a166287ed4123180a902a75494f9feaa1fb1d0cb3c65c23062f7571dbc"
+    }
+  },
+  "added": {
+    "lib/discovery/homepage-browse-start.mjs": "6e4448ee5c5e88975d3f34b04daf5dfbf8c70fb33660b4879107f5818377ab4b"
+  }
+}

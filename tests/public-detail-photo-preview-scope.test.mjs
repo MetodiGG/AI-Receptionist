@@ -8,6 +8,7 @@ import { detailPreviewAllowsPath, detailPreviewPriorSource } from './public-deta
 import { preparedPhotosAllowsPath } from './mobile-details-prepared-photos-scope.mjs'
 import { staticWebpCacheCpuAllowsFileChange } from './discovery-static-webp-cache-cpu-scope.mjs'
 import { mobileDiscoveryFirstPaintAllowsFileChange } from './mobile-discovery-first-paint-scope.mjs'
+import { homepageBrowseStartAllowsPath } from './homepage-browse-start-scope.mjs'
 
 test('the detail image and preview update leaves catalogue data, booking, calendars and existing assets unchanged', async () => {
   const cwd = fileURLToPath(new URL('../', import.meta.url))
@@ -15,7 +16,7 @@ test('the detail image and preview update leaves catalogue data, booking, calend
   const split = bytes => bytes.toString('utf8').split('\0').filter(Boolean)
   const expected = [...Object.keys(receipt.changed), ...Object.keys(receipt.added)].sort()
   const runtime = [...new Set([...split(git('diff', '--name-only', '-z', receipt.baseline, '--')), ...split(git('ls-files', '--others', '--exclude-standard', '-z'))])]
-    .filter(path => path !== 'node_modules' && !path.startsWith('tests/') && (expected.includes(path) || (!preparedPhotosAllowsPath(path) && !staticWebpCacheCpuAllowsFileChange(path) && !mobileDiscoveryFirstPaintAllowsFileChange(path)))).sort()
+    .filter(path => path !== 'node_modules' && !path.startsWith('tests/') && (expected.includes(path) || (!preparedPhotosAllowsPath(path) && !staticWebpCacheCpuAllowsFileChange(path) && !mobileDiscoveryFirstPaintAllowsFileChange(path) && !homepageBrowseStartAllowsPath(path)))).sort()
   assert.deepEqual(runtime, expected)
   for (const path of runtime) {
     assert.ok(detailPreviewAllowsPath(path), path)

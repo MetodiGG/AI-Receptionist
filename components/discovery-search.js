@@ -26,6 +26,7 @@ import { GUIDED_DISCOVERY_COPY } from '../lib/discovery/guided-copy.mjs'
 import { DiscoveryFilterSheet } from './discovery-filter-sheet'
 import { applyHomeFilters, homeFilterCount, HOME_DISCOVERY_COPY } from '../lib/discovery/home.mjs'
 import { mergeCataloguePage } from '../lib/discovery/catalogue-pagination.mjs'
+import { takeHomepageBrowse } from '../lib/discovery/homepage-browse-start.mjs'
 import { DISCOVERY_LOCATION_MAX_AGE_MS, discoveryLocationError, discoveryLocationRetryMessage, freshDiscoveryLocation, sameDiscoveryOrigin } from '../lib/discovery/geolocation.mjs'
 import { DiscoveryAutocomplete } from './discovery-autocomplete'
 import { trackSearchEvent } from '../lib/search-analytics-client'
@@ -108,7 +109,7 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
       if (!initial && !home) return
       if (initial) clearDiscoveryDraft()
       const input = payload({ ...initialInput, coordinates: coordinates || null, ...(coordinates ? { neighborhood: '' } : {}), ...(!initial && home ? { expandNearby: false } : {}) })
-      void search(input, { navigate: Boolean(initial) })
+      void search(input, { navigate: Boolean(initial), earlyHomepageBrowse: !initial && home })
     }, 0)
     return () => clearTimeout(timer)
     // Initial navigation is consumed once, not every locale/filter change.
@@ -250,7 +251,7 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
       void search(input, options)
     }
   }
-  async function search(input = payload(), { navigate = true } = {}) {
+  async function search(input = payload(), { navigate = true, earlyHomepageBrowse = false } = {}) {
     if (input.coordinates && (!freshDiscoveryLocation(coordinatesRef.current) || !sameDiscoveryOrigin(input, { coordinates: coordinatesRef.current }))) { expireLocation(); return }
     if (inFlight.current && JSON.stringify(input) === JSON.stringify(lastInput.current)) {
       // Selecting All while the parent is loading reuses its request, but is
@@ -273,9 +274,18 @@ export function DiscoverySearch({ locale = 'bg', compact = false, preview = fals
     let timedOut = false
     const timer = setTimeout(() => { timedOut = true; abort.abort() }, 20000)
     try {
-      const response = await fetch(preview ? previewSearchEndpoint || (cataloguePreview ? '/dev/sofia-catalogue/search' : '/dev/discovery/search') : '/api/public/discovery', { method: 'POST', headers: { 'Content-Type': 'application/json' }, cache: 'no-store', signal: abort.signal, body: JSON.stringify(input) })
-      const data = await response.json()
-      if (!response.ok) throw new Error(data.error?.code || 'SEARCH_UNAVAILABLE')
+      const body = JSON.stringify(input)
+      const pending = home && !preview && takeHomepageBrowse(window, body, abort.signal, earlyHomepageBrowse)
+      let ok, data
+      if (pending) {
+        const early = await pending
+        if (early.error) throw early.error
+        ok = early.ok; data = early.data
+      } else {
+        const response = await fetch(preview ? previewSearchEndpoint || (cataloguePreview ? '/dev/sofia-catalogue/search' : '/dev/discovery/search') : '/api/public/discovery', { method: 'POST', headers: { 'Content-Type': 'application/json' }, cache: 'no-store', signal: abort.signal, body })
+        ok = response.ok; data = await response.json()
+      }
+      if (!ok) throw new Error(data.error?.code || 'SEARCH_UNAVAILABLE')
       if (!Array.isArray(data.results) || typeof data.externalStatus !== 'string') throw new Error('SEARCH_UNAVAILABLE')
       if (!sameDiscoveryOrigin(input, data.intent)) throw new Error('SEARCH_UNAVAILABLE')
       if (input.subcategory && input.subcategory !== data.intent?.subcategory) throw new Error('SEARCH_UNAVAILABLE')

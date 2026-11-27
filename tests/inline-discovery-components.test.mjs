@@ -105,6 +105,27 @@ test('category photos keep 160w/240w variants, opt only the five approved scenes
   }
 })
 
+test('only the first mobile row sends an eager, high-priority responsive image in BG and EN', () => {
+  for (const locale of ['bg', 'en']) {
+    const Component = load('inline-category-grid', directReact).InlineCategoryGrid
+    const tree = Component({ locale, category: 'fitness', onSelect() {} })
+    const tiles = elements(tree, node => typeof node.type === 'function' && node.type.name === 'CategoryPhoto')
+    assert.deepEqual(tiles.map(tile => tile.props.category.id), home.HOME_CATEGORY_IDS)
+    const html = render(InlineCategoryGrid, { locale, category: 'fitness', onSelect() {} })
+    const actualImages = [...html.matchAll(/<img[^>]+class="inline-category-photo"[^>]+>/gu)].map(match => match[0])
+    assert.equal(actualImages.length, tiles.length, locale)
+    for (const [index, tile] of tiles.entries()) {
+      const eager = index < 2
+      const image = tile.type(tile.props)
+      assert.equal(image.props.loading, eager ? 'eager' : 'lazy', tile.props.category.id)
+      assert.equal(image.props.fetchPriority, eager ? 'high' : undefined, tile.props.category.id)
+      assert.equal(image.props.decoding, 'async')
+      assert.ok(actualImages[index].includes(`loading="${eager ? 'eager' : 'lazy'}"`), tile.props.category.id)
+      assert.equal(/fetchpriority="high"/iu.test(actualImages[index]), eager, tile.props.category.id)
+    }
+  }
+})
+
 for (const locale of ['bg', 'en']) test(`${locale}: inline children show evidence-backed tiles without a repeated parent chip or redundant All row`, () => {
   const calls = [], cleared = [], Component = load('discovery-subcategories', directReact).DiscoverySubcategories
   const supplied = [...options,

@@ -3,6 +3,7 @@ import { execFileSync } from 'node:child_process'
 import { lstatSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import receipt from './fixtures/discovery-static-webp-cache-cpu-approval.json' with { type: 'json' }
+import { mobileDiscoveryFirstPaintPriorSource } from './mobile-discovery-first-paint-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -13,7 +14,7 @@ export function staticWebpCacheCpuAllowsFileChange(path) {
   try {
     const file = new URL('../' + path, import.meta.url)
     const stat = lstatSync(file)
-    return stat.isFile() && !(stat.mode & 0o111) && sha(readFileSync(file)) === receipt.changed[path].after
+    return stat.isFile() && !(stat.mode & 0o111) && sha(mobileDiscoveryFirstPaintPriorSource(path, readFileSync(file))) === receipt.changed[path].after
   } catch { return false }
 }
 
@@ -21,6 +22,7 @@ export function staticWebpCacheCpuAllowsFileChange(path) {
 // outside this receipt and any unreviewed edit remain unchanged inputs.
 export function staticWebpCacheCpuPriorSource(path, source) {
   if (!Object.hasOwn(receipt.changed, path)) return source
+  source = mobileDiscoveryFirstPaintPriorSource(path, source)
   const { before, after } = receipt.changed[path]
   if (sha(source) !== after) return source
   if (!prior.has(path)) {

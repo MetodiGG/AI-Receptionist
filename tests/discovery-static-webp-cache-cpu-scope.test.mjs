@@ -7,6 +7,7 @@ import { fileURLToPath } from 'node:url'
 import test from 'node:test'
 import receipt from './fixtures/discovery-static-webp-cache-cpu-approval.json' with { type: 'json' }
 import { staticWebpCacheCpuAllowsFileChange, staticWebpCacheCpuPriorSource } from './discovery-static-webp-cache-cpu-scope.mjs'
+import { mobileDiscoveryFirstPaintAllowsFileChange, mobileDiscoveryFirstPaintPriorSource } from './mobile-discovery-first-paint-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const git = (...args) => execFileSync('git', args, { cwd: root })
@@ -21,11 +22,12 @@ test('only the reviewed public WebP cache config and catalogue search CPU source
   assert.deepEqual(Object.keys(changed), expected)
   const actual = new Set([...split(git('diff', '--name-only', '--no-renames', '-z', baseline, '--')),
     ...split(git('ls-files', '--others', '--exclude-standard', '-z'))])
-  assert.deepEqual([...actual].filter(path => path !== 'node_modules' && !path.startsWith('tests/')).sort(), expected)
+  assert.deepEqual([...actual].filter(path => path !== 'node_modules' && !path.startsWith('tests/')
+    && (expected.includes(path) || !mobileDiscoveryFirstPaintAllowsFileChange(path))).sort(), expected)
   for (const [path, { before, after }] of Object.entries(changed)) {
     const current = await readFile(new URL('../' + path, import.meta.url)), original = git('show', baseline + ':' + path)
     assert.equal(sha(original), before, path)
-    assert.equal(sha(current), after, path)
+    assert.equal(sha(mobileDiscoveryFirstPaintPriorSource(path, current)), after, path)
     assert.notEqual(before, after, path)
     assert.equal(staticWebpCacheCpuAllowsFileChange(path), true, path)
     assert.deepEqual(staticWebpCacheCpuPriorSource(path, current), original, path)

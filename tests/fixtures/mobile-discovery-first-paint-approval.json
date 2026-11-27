@@ -1,0 +1,13 @@
+{
+  "baseline": "773df2ad6657a54b0525c0751fe8e4318b20029f",
+  "changed": {
+    "components/inline-category-grid.js": {
+      "before": "77681fb29fe8eaedb51fa7a153330f3f78a899f87fffafe9e70f72e2dc58f474",
+      "after": "3af434484844f48ec9f4b48ca6234f9e4f52632b8a47a125ab6b1ec8692ff912"
+    },
+    "lib/discovery/catalogue-search.mjs": {
+      "before": "2232760aedf8c1a129407fbb411985d473e53d5db52c7498ab746f6c053bff9d",
+      "after": "2d95ef292f82bdbfac6ce1126eaa7033a2a64a4328de3c0fccae29f4394d96fb"
+    }
+  }
+}

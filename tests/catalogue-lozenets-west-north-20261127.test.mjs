@@ -23,6 +23,7 @@ import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mj
 import { compareDiscoveryPhotos, fingerprintDiscoveryPhoto } from '../scripts/discovery-photo-fingerprint.mjs'
 import { allowsFileChange, allowsNewFile, priorCatalogue, priorSource } from './catalogue-lozenets-west-north-20261127-scope.mjs'
 import receipt from './fixtures/catalogue-lozenets-west-north-20261127.json' with { type: 'json' }
+import { allowsFileChange as nextChange, allowsNewFile as nextNew, priorCatalogue as nextPriorCatalogue } from './catalogue-zapaden-iztok-20261127-scope.mjs'
 
 const root = new URL('../', import.meta.url)
 const git = (...args) => execFileSync('git', args, { cwd: root, maxBuffer: 8 * 1024 * 1024 })
@@ -41,7 +42,8 @@ test('the intake is restricted to the exact new inventory, source and media; onl
     git('ls-files', '--others', '--exclude-standard', '-z'),
   ].flatMap(bytes => bytes.toString().split('\0').filter(Boolean)))
   const expected = [...Object.keys(receipt.changed), ...Object.keys(receipt.added)].sort()
-  assert.deepEqual([...changed].filter(path => path !== 'node_modules' && !path.startsWith('tests/')).sort(), expected)
+  assert.deepEqual([...changed].filter(path => path !== 'node_modules' && !path.startsWith('tests/') &&
+    (Object.hasOwn(receipt.changed, path) || Object.hasOwn(receipt.added, path) || !(nextChange(path) || nextNew(path)))).sort(), expected)
   for (const path of Object.keys(receipt.changed)) {
     const before = git('show', receipt.baseline + ':' + path)
     assert.equal(sha(before), receipt.changed[path].before)
@@ -50,14 +52,15 @@ test('the intake is restricted to the exact new inventory, source and media; onl
   }
   for (const path of Object.keys(receipt.added)) assert.equal(allowsNewFile(path), true, path)
   for (const catalogue of [RAW_SOFIA_CATALOGUE, SOFIA_CATALOGUE]) {
-    assert.equal(sha(JSON.stringify(catalogue)), receipt.currentCatalogueSha256)
+    const atIntake = nextPriorCatalogue(catalogue)
+    assert.equal(sha(JSON.stringify(atIntake)), receipt.currentCatalogueSha256)
     assert.equal(sha(JSON.stringify(priorCatalogue(catalogue))), receipt.baselineCatalogueSha256)
-    assert.equal(priorCatalogue(catalogue).length, catalogue.length - receipt.records.length)
+    assert.equal(priorCatalogue(catalogue).length, atIntake.length - receipt.records.length)
   }
 })
 
 test('the new salon and the existing Malta point improve distinct category cells without counting an unchanged business as new', () => {
-  const reports = [priorCatalogue(SOFIA_CATALOGUE), SOFIA_CATALOGUE].map(rows => catalogueCoverageReport(rows, { now, target: 30 }))
+  const reports = [priorCatalogue(SOFIA_CATALOGUE), nextPriorCatalogue(SOFIA_CATALOGUE)].map(rows => catalogueCoverageReport(rows, { now, target: 30 }))
   for (const [name, category, counts] of [
     ['Лозенец', 'pets', [[2, 2], [3, 3]]],
     ['Овча купел 1', 'hair', [[1, 0], [1, 1]]],

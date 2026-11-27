@@ -427,6 +427,9 @@
     ]
   },
   "names": {
+    "Възстановителен масаж · 60 минути": "Relaxation massage · 60 minutes",
+    "Групов урок по рисуване за деца": "Group drawing lesson for children",
+    "Индивидуален урок по рисуване за деца": "One-to-one drawing lesson for children",
     "Цялостен груминг за късокосместо куче до 4 кг": "Full grooming for a short-haired dog up to 4 kg",
     "Подрязване на нокти на куче": "Dog nail trimming",
     "Първоначална правна консултация": "Initial legal consultation",
@@ -6600,6 +6603,10 @@
     "смяна на предпазен клапан на бойлер": "change of boiler safety valve"
   },
   "descriptions": {
+    "Стандартна цена 40 €. В сряда цената в ценоразписа е 30 €. Записването е през сайта на салона и е достъпно и като гост.": "The standard price is €40. The published Wednesday price is €30. You can book on the salon’s website as a guest.",
+    "Масаж за отпускане и общ тонус. Техниката се уточнява при посещението; тарифата е за продължителността на сесията.": "Massage for relaxation and general wellbeing. The technique is agreed during the visit; the rate is based on the length of the session.",
+    "Цената е за едно посещение в група (2 учебни часа). Денят и мястото в групата се уточняват по телефона.": "The fee covers one group visit of 2 school periods. Arrange the day and a place in the group by phone.",
+    "Цената е за индивидуален урок от 2 учебни часа. Часът се уговаря предварително по телефона.": "The fee covers an individual lesson of 2 school periods. Arrange the time in advance by phone.",
     "Цялостното разресване се заплаща отделно. При сплъстена козина, ако разресването е възможно, тарифата за него е 25 € на час.": "Full brushing costs extra. If a matted coat can be detangled, it costs €25 per hour.",
     "За кучета от всички размери.": "For dogs of all sizes.",
     "Първата консултация е безплатна. Изпрати запитване до кантората, за да уточниш час и начин на провеждане. Последващи услуги не са включени.": "The initial consultation is free. Send the law office a request to arrange a time and how to meet. Further services are not included.",
@@ -8532,6 +8539,9 @@
     "Часът се уговаря с преподавателя; първоначално се изготвя индивидуален график.": "The class is arranged with the lecturer; an individual schedule is initially drawn up."
   },
   "units": {
+    "30 € в сряда": "€30 on Wednesdays",
+    "едно посещение · 2 учебни часа": "one visit · 2 school periods",
+    "един урок · 2 учебни часа": "one lesson · 2 school periods",
     "с ДДС": "including VAT",
     "само първоначална консултация": "initial consultation only",
     "труд с ДДС": "labour including VAT",

@@ -23,7 +23,9 @@ export const detailPreviewAllowsPath = path => detailPreviewAllowsFileChange(pat
 
 export function detailPreviewPriorSource(path, source) {
   const revision = receipt.changed[path] ?? receipt.adapters?.[path]
-  if (!revision || sha(source) !== revision.after) return source
+  if (!revision) return source
+  const atPreview = sha(source) === revision.after ? source : appointmentGrowthPriorSource(path, source)
+  if (sha(atPreview) !== revision.after) return source
   if (!prior.has(path)) {
     const original = execFileSync('git', ['show', receipt.baseline + ':' + path], { cwd: root })
     if (sha(original) !== revision.before) throw Error('Public detail baseline does not match pinned source: ' + path)

@@ -26,7 +26,7 @@ import { catalogueIntakeAllowsPath, catalogueIntakePriorCatalogue, catalogueInta
 import { auraGrowthAllowsFileChange, auraGrowthAllowsNewFile, auraGrowthAllowsPath,
   auraGrowthPriorCatalogue, auraGrowthPriorSource } from './catalogue-aura-b19-growth-20261127-scope.mjs'
 import receipt from './fixtures/catalogue-aura-b19-growth-20261127.json' with { type: 'json' }
-import { arhollPriceAllowsNewFile, arhollPricePriorCatalogue,
+import { arhollPriceAllowsPath, arhollPricePriorCatalogue,
   arhollPricePriorSource } from './catalogue-arholl-reformer-price-refresh-20261127-scope.mjs'
 
 const cwd = new URL('../', import.meta.url)
@@ -49,10 +49,11 @@ test('Aura B19 history gate restores only the reviewed add and any explicitly re
   assert.equal(receipt.baseline, '5377802e2318c1df76d792a6c5a9fbc68a28c614')
   assert.deepEqual(receipt.records.map(row => row.id), [id])
   const changed = Object.keys(receipt.changed), added = Object.keys(receipt.added)
+  const reviewedPaths = new Set([...changed, ...added])
   const observed = new Set([...files(git('diff', '--name-only', '--no-renames', '-z', receipt.baseline, '--')),
     ...files(git('ls-files', '--others', '--exclude-standard', '-z'))])
   assert.deepEqual([...observed].filter(path => path !== 'node_modules' && !path.startsWith('tests/') &&
-    !arhollPriceAllowsNewFile(path)).sort(), [...changed, ...added].sort())
+    (reviewedPaths.has(path) || !arhollPriceAllowsPath(path))).sort(), [...changed, ...added].sort())
   for (const path of changed) {
     const before = git('show', receipt.baseline + ':' + path), after = arhollPricePriorSource(path, readFileSync(new URL(path, cwd)))
     assert.equal(sha(before), receipt.changed[path].before, path)

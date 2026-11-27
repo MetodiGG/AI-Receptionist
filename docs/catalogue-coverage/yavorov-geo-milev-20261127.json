@@ -1,0 +1,112 @@
+{
+  "reviewedOn": "2026-11-27",
+  "baseCommit": "d76e92da2ad20f16b45b4ae36928853176dbc3bf",
+  "scope": "One education provider, two school programmes, one premises. No production writes, bookings, calls, payments or notifications.",
+  "business": {
+    "id": "sofia-yavorov1920-geo-milev24",
+    "publicName": "НЧ „П. К. Яворов – 1920“",
+    "operatorRegistration": "000671679",
+    "neighborhood": "Гео Милев",
+    "street": "София, кв. Гео Милев, ул. Гео Милев 24",
+    "phone": "+359889358991",
+    "officialContact": "https://artfabrika.org/contact/",
+    "districtEvidence": "https://so-slatina.org/2014/11/yavorov/",
+    "councilEvidence": "https://council.sofia.bg/documents/d/guest/soa25-vk66-5055-takov-savov-mladenov",
+    "firstPartyEntrance": {
+      "latitude": 42.684178402776,
+      "longitude": 23.358875631151,
+      "mapCentreRejected": [
+        42.6841468556202,
+        23.359272248996902
+      ],
+      "notes": "Named side entrance from the contact page map, not civic RNs 38407/38426 for two block entrances or the maps viewport."
+    },
+    "booking": {
+      "kind": "phone",
+      "availability": "not claimed",
+      "pricing": "not_publicly_listed",
+      "sourceUrls": [
+        "https://artfabrika.org/2026/08/нова-дейност-детска-вокална-група/autors/",
+        "https://artfabrika.org/2026/08/нова-дейност-синтезатор/autors/",
+        "https://artfabrika.org/2026/08/нова-учебна-година-и-дейности/autors/"
+      ]
+    },
+    "coverage": {
+      "target": 30,
+      "physical": [
+        5,
+        6
+      ],
+      "located": [
+        1,
+        2
+      ],
+      "approvedSofia": [
+        1787,
+        1788
+      ],
+      "boundPremises": [
+        1045,
+        1046
+      ],
+      "emptyGpsCells": [
+        1319,
+        1319
+      ],
+      "gpsCellsAtTarget": [
+        0,
+        0
+      ]
+    }
+  },
+  "held": [
+    {
+      "name": "НЧ „Димитър Динев – 1937“",
+      "reason": "The owner quotes 224 EUR/month for a Saturday course, but specifies only the institution, not the classroom. The named Sunday art school has a separate address from the contact office. Do not assign the published Saturday course to either without further confirmation.",
+      "sources": [
+        "https://chitalishteddinev.com/otlichie-za-filip-chichov-v-vii-onlajn-konkurs-za-detska-risunka-prikazniyat-svyat-na-prirodata-duplicate-17362/",
+        "https://chitalishteddinev.com/art-shkola/",
+        "https://council.sofia.bg/documents/d/guest/soa26-vk08-247-bozilov-vasileva"
+      ]
+    },
+    {
+      "name": "Тир Автомивка Блясък",
+      "reason": "Owner price list describes walk-ins rather than appointments. Not admitted or counted.",
+      "sources": [
+        "https://tiravtomivka.com/ceni-koli.html"
+      ]
+    }
+  ],
+  "provenance": {
+    "method": "Built-in ImageGen, three separate images with separate camera angles and subjects. Manually inspected. Converted to local WebP; no provider, partner, category or subcategory photos changed.",
+    "assets": [
+      {
+        "file": "public/business-cover-photos/go-yavorov-geo-milev-choir-20261127-v1.webp",
+        "prompt": "Use case: photorealistic-natural. Asset: 4:3 editorial activity illustration for a Bulgarian marketplace provider card, clearly not a real provider photograph. A small children's choir rehearsal, candid over-shoulder view from behind a row of four distinct primary school-age children seated in a semicircle, warmly dressed in normal casual clothes, a conductor cues them in the middle distance; two understated music stands and no instruments. Focus on natural child posture and the rehearsal activity; the room is anonymous and softly blurred, with natural window light, cream walls, walnut and muted sage. Full-width documentary horizontal still, keep the main group well inside the central frame for mobile cropping. No signs, school uniforms, text, logos, sheet-music writing readable, branding or watermarks.",
+        "sourceSha256": "a47c8e2f185c0fec33b295a76be760a77fcdb6761c8ae1bc6415ef446b544135",
+        "optimizedSha256": "2318938e4683615f43f34e6e500548d44365cebcf27d76a37a95ddcbe01f6319",
+        "width": 720,
+        "height": 540,
+        "size": 40676
+      },
+      {
+        "file": "public/service-photos/go-yavorov-geo-milev-synthesizer-20261127-v1.webp",
+        "prompt": "Use case: photorealistic-natural. Asset: centered square-friendly detail image for one synthesizer lesson in a booking marketplace. Tight three-quarter overhead crop of a single learner's hands correctly playing the black and white keys of a compact real electronic music synthesizer; single unbranded instrument with pitch and modulation wheels, analog control knobs on the black panel, realistic plugged-in cable and the stand just visible. A tutor's hand outside the keybed demonstrates one knob; modest oatmeal sleeve and soft daylight. Exactly one instrument. No acoustic piano, no choir, no performance stage, no visible faces or identifiable room; distinct graphic diagonal composition that reads at 150 pixels. Natural tones and credible keyboard anatomy, no legible text, brands, watermarks, added UI or AI badges.",
+        "sourceSha256": "68c990c29f37710c7f6f768b3b9b39f3c6fef68709869c860700cf686dd88e1a",
+        "optimizedSha256": "b69a0eb372a8cd92483726c21c2719af617f6cbc2db373de6243c97a5212b11d",
+        "width": 256,
+        "height": 256,
+        "size": 10804
+      },
+      {
+        "file": "public/service-photos/go-yavorov-geo-milev-child-singing-20261127-v1.webp",
+        "prompt": "Use case: photorealistic-natural. Asset: a square service-menu illustration specifically for a children's group singing lesson, not a documentary image of any actual venue. Very tight profile photograph at eye-level of three school-age children singing in an informal rehearsal, looking to the right at an off-frame teacher. Frame only their faces and shoulders in an angled line, one child closest in dusty-blue top and one in burgundy, breathing naturally with relaxed expressions. Cool-neutral window light from the right, soft plain blue-grey backdrop, no classroom furniture or music stands or conductor in frame. A candid editorial detail, distinctly different from a wide rehearsal-room cover seen from behind. Realistic proportions, no text, no logos, no watermarks.",
+        "sourceSha256": "f025641239d3b9a75e050dffec5fe8f8dbdd4622265566b797681116181bdd1a",
+        "optimizedSha256": "ac6d8fbfe558851c8ac6c81700d2f29f5bc331a2a210b9394dd61ab53f132989",
+        "width": 256,
+        "height": 256,
+        "size": 6712
+      }
+    ]
+  }
+}

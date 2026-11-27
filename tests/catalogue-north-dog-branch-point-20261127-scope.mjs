@@ -1,11 +1,14 @@
 import { createHash } from 'node:crypto'
 import { exactCatalogueIntakeScope } from './catalogue-verified-lyulin-batch-20261127-scope.mjs'
 import receipt from './fixtures/catalogue-north-dog-branch-point-20261127.json' with { type: 'json' }
+import { yavorovAllowsFileChange, yavorovAllowsNewFile, yavorovPriorCatalogue,
+  yavorovPriorSource } from './catalogue-yavorov-geo-milev-20261127-scope.mjs'
 
-export const {
-  allowsFileChange: northDogAllowsFileChange, allowsNewFile: northDogAllowsNewFile,
-  allowsPath: northDogAllowsPath, priorSource: northDogPriorSource,
-} = exactCatalogueIntakeScope(receipt, 'Verified North Dog branch point')
+const { allowsFileChange, allowsNewFile, priorSource } = exactCatalogueIntakeScope(receipt, 'Verified North Dog branch point')
+export const northDogAllowsFileChange = path => allowsFileChange(path) || yavorovAllowsFileChange(path)
+export const northDogAllowsNewFile = path => allowsNewFile(path) || yavorovAllowsNewFile(path)
+export const northDogAllowsPath = path => northDogAllowsFileChange(path) || northDogAllowsNewFile(path)
+export const northDogPriorSource = (path, source) => priorSource(path, yavorovPriorSource(path, source))
 
 const sha = row => createHash('sha256').update(JSON.stringify(row)).digest('hex')
 const location = receipt.location
@@ -19,7 +22,7 @@ if (location.id !== 'sofia-north-dog-grooming-vrabnitsa637' || !digest.test(loca
 // disappear from an earlier scope, never an unrelated edit or a new row.
 export function northDogPriorCatalogue(rows) {
   let seen = false
-  return rows.map(row => {
+  return yavorovPriorCatalogue(rows).map(row => {
     if (row?.id !== location.id) return row
     if (seen) throw Error('Duplicate North Dog branch point record: ' + row.id)
     seen = true

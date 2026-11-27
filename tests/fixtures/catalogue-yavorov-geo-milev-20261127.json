@@ -1,0 +1,48 @@
+{
+  "baseline": "d76e92da2ad20f16b45b4ae36928853176dbc3bf",
+  "baselineCatalogueSha256": "779de8dd9d832b70546ea43b0b0d4739bad8c4d1a14864eeed3d46c204d1ae2b",
+  "currentCatalogueSha256": "d78a2b53d13785b0df9820b04497fbb4dfb59c644dfb3ecf083b040ac16d3857",
+  "records": [
+    {
+      "id": "sofia-yavorov1920-geo-milev24",
+      "sha256": "57df250fd552cd7a53e2a251111edfe00b29a1af984a7722789b30e498807b32"
+    }
+  ],
+  "changed": {
+    "lib/catalogue-service-photo-keys.mjs": {
+      "before": "46f5038c3c772e2844640e16979f976bf185cdbf7a0f233692cacce42dfe8bc5",
+      "after": "49a003509e648625159a945249883bf482f4109e0821606468c8ae0bc837ba5f"
+    },
+    "lib/discovery-photo-ownership.json": {
+      "before": "e279b021fdb4d6f4ef44f7aaca96113b015f73aca0746e999533e7cde96acc89",
+      "after": "6ab50ced53aab5ff39e1a31982929bb909fbe197244d5db95949016af9cb0f96"
+    },
+    "lib/discovery/catalogue-data/pricing-booking-review-v1.mjs": {
+      "before": "ee6e05af7176a3bb714c11352a1d0b273feaf03121baf9791da121e1346c46f9",
+      "after": "e21db9a2a3d8071345b401808e25b32ee862784a352659276c266d03bd3d3d5e"
+    },
+    "lib/discovery/sofia-catalogue.mjs": {
+      "before": "0ea1216060dbe96cd6329d7de698826a2da34bc5ee81cc10f003bacb5c743926",
+      "after": "2b188e2c40ec187b41e38881fea598fd3d739ae643b9a49c98687bb4916e37d8"
+    },
+    "lib/locale/service-english.json": {
+      "before": "f1ef2f47bf9f574ee1ca8e05c7add9dbe51e4b759b1a51d431d1e452fcb3ff04",
+      "after": "1a6055d362e28917be182a41160128de9762385515cabf75b805c914d972b897"
+    },
+    "lib/public-business-cover-photo.mjs": {
+      "before": "7fe860636c331ee336e1e468c0b8717e2daac03cb57d1dc1380477bf14b19d43",
+      "after": "41ede21b8ca9f5e6a71b839925883e9a72d1e3400f0360f3d931b47695753b08"
+    },
+    "lib/specific-service-photo-ids.mjs": {
+      "before": "f7360c32d3698846f864a62ca2961d5d188da3023eeeb8564f9f34f7ea3c38f2",
+      "after": "b936807358b15c83069578a2e40e867f539696ce8673b6c7af6e63989e9c1f23"
+    }
+  },
+  "added": {
+    "docs/catalogue-coverage/yavorov-geo-milev-20261127.json": "fd81020b46781ea3963c112d97010d071fc1b1a017f842281aaa0eda7178655d",
+    "lib/discovery/catalogue-data/neighborhood-verified-yavorov-geo-milev-20261127.mjs": "89681aca14802464d2fcac5b3f1787169ab5ccac0e48e599aec6a0c6a72eb1f5",
+    "public/business-cover-photos/go-yavorov-geo-milev-choir-20261127-v1.webp": "2318938e4683615f43f34e6e500548d44365cebcf27d76a37a95ddcbe01f6319",
+    "public/service-photos/go-yavorov-geo-milev-child-singing-20261127-v1.webp": "ac6d8fbfe558851c8ac6c81700d2f29f5bc331a2a210b9394dd61ab53f132989",
+    "public/service-photos/go-yavorov-geo-milev-synthesizer-20261127-v1.webp": "b69a0eb372a8cd92483726c21c2719af617f6cbc2db373de6243c97a5212b11d"
+  }
+}

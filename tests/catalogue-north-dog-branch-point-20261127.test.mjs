@@ -9,7 +9,7 @@ import { applySofiaNorthDogBranchPointNov27 } from '../lib/discovery/catalogue-d
 import { catalogueBoundCoordinates } from '../lib/discovery/catalogue-coordinate-binding.mjs'
 import { pricingIdentity } from '../lib/discovery/catalogue-pricing-review.mjs'
 import { normalizeCatalogueBusinesses } from '../lib/discovery/catalogue-search.mjs'
-import { RAW_SOFIA_CATALOGUE, SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { RAW_SOFIA_CATALOGUE as liveRaw, SOFIA_CATALOGUE as live } from '../lib/discovery/sofia-catalogue.mjs'
 import { createPublicBusinessDetailsHandler } from '../lib/discovery/public-details.mjs'
 import { railDirections, railExternalAction } from '../lib/discovery/rail.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
@@ -18,11 +18,13 @@ import receipt from './fixtures/catalogue-north-dog-branch-point-20261127.json' 
 import { northDogAllowsFileChange, northDogAllowsNewFile, northDogAllowsPath,
   northDogPriorCatalogue, northDogPriorSource } from './catalogue-north-dog-branch-point-20261127-scope.mjs'
 import { catalogueIntakeAllowsPath, catalogueIntakePriorSource } from './catalogue-mopart-20261127-scope.mjs'
+import { yavorovAllowsPath, yavorovPriorCatalogue, yavorovPriorSource } from './catalogue-yavorov-geo-milev-20261127-scope.mjs'
 
 const cwd = new URL('../', import.meta.url)
 const git = (...args) => execFileSync('git', args, { cwd, maxBuffer: 8 * 1024 * 1024 })
 const sha = data => createHash('sha256').update(data).digest('hex')
 const rowSha = row => sha(JSON.stringify(row))
+const ownsNorthDogPath = path => Object.hasOwn(receipt.changed, path) || Object.hasOwn(receipt.added, path)
 const paths = bytes => bytes.toString('utf8').split('\0').filter(Boolean)
 const id = 'sofia-north-dog-grooming-vrabnitsa637', neighborhood = 'Връбница 2'
 const phone = '+359898776598'
@@ -31,6 +33,7 @@ const address = 'София, ж.к. Връбница 2, бл. 637, до парк
 const website = 'https://sites.google.com/view/northdoggrooming'
 const contact = website + '/контакти'
 const now = Date.parse('2026-11-27T12:00:00Z')
+const [RAW_SOFIA_CATALOGUE, SOFIA_CATALOGUE] = [liveRaw, live].map(yavorovPriorCatalogue)
 const prior = northDogPriorCatalogue(SOFIA_CATALOGUE)
 const [before, after] = [prior, SOFIA_CATALOGUE].map(rows => rows.find(row => row.id === id))
 
@@ -41,11 +44,13 @@ test('the North Dog receipt pins only exact coordinate-related production paths 
   const changed = Object.keys(receipt.changed), added = Object.keys(receipt.added)
   const observed = new Set([...paths(git('diff', '--name-only', '--no-renames', '-z', receipt.baseline, '--')),
     ...paths(git('ls-files', '--others', '--exclude-standard', '-z'))])
-  assert.deepEqual([...observed].filter(path => path !== 'node_modules' && !path.startsWith('tests/')).sort(),
+  const reviewedPaths = new Set([...changed, ...added])
+  assert.deepEqual([...observed].filter(path => path !== 'node_modules' && !path.startsWith('tests/') &&
+    (reviewedPaths.has(path) || !yavorovAllowsPath(path))).sort(),
     [...changed, ...added].sort())
   for (const path of changed) {
     const earlier = git('show', receipt.baseline + ':' + path)
-    const latest = readFileSync(new URL(path, cwd))
+    const latest = yavorovPriorSource(path, readFileSync(new URL(path, cwd)))
     assert.deepEqual([sha(earlier), sha(latest)], [receipt.changed[path].before, receipt.changed[path].after], path)
     assert.ok(northDogAllowsFileChange(path) && catalogueIntakeAllowsPath(path), path)
     assert.deepEqual(northDogPriorSource(path, latest), earlier, path)
@@ -61,7 +66,8 @@ test('the North Dog receipt pins only exact coordinate-related production paths 
   }
   for (const path of ['lib/booking-engine.mjs', 'lib/discovery/catalogue-data/pricing-booking-review-v1.mjs',
     'lib/discovery/catalogue-search.mjs', 'app/layout.js', 'public/logo.svg', 'package.json', 'supabase/config.toml']) {
-    assert.equal(northDogAllowsPath(path), false, path)
+    assert.equal(ownsNorthDogPath(path), false, path)
+    assert.equal(northDogAllowsPath(path), yavorovAllowsPath(path), path)
   }
   for (const rows of [RAW_SOFIA_CATALOGUE, SOFIA_CATALOGUE]) {
     assert.equal(rows.length, northDogPriorCatalogue(rows).length)

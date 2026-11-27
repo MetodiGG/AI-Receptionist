@@ -1,0 +1,70 @@
+{
+  "reviewedOn": "2026-11-27",
+  "baseCommit": "920f651930ab01bcfb80d4fadbb0ae081e752866",
+  "branches": [{
+    "id": "sofia-via-dental-obelya",
+    "name": "VIA Dental Studio · Обеля 2",
+    "cityCode": "68134",
+    "neighborhood": "Обеля 2",
+    "category": "other",
+    "address": "София, ж.к. Обеля 2, ул. Кривините, ДКЦ 30, кабинети 317 и 318",
+    "phone": "+359888557577",
+    "ownerLocationUrl": "https://viadentalstudio.com/",
+    "ownerDirectionsUrl": "https://g.page/r/CXsZPM4cuGX9EBM",
+    "namedPublicMapUrl": "https://www.google.com/maps?cid=18259202698102184315",
+    "before": null,
+    "after": { "latitude": 42.7438417, "longitude": 23.2764125 },
+    "verification": "The footer branch block identifies Обеля 2, ул. Кривините, ДКЦ 30 and rooms 317/318. Its own directions link resolves to the separately named VIA Обеля place. The explicit public marker and matching address were checked, rather than taking a map viewport, nearby street or the general DKC 30 pin. This is a destination for the named branch, not a surveyed entrance or an interior room location.",
+    "unchangedBooking": { "kind": "form", "url": "https://viadentalstudio.com/" },
+    "unchangedPricingIdentitySha256": "0c18facb34d8060672a166a9cde0714bceb0db4e5b689db0b9bad8e52067dfc2"
+  }, {
+    "id": "sofia-stanimir-batovski-zona-b19",
+    "name": "Д-р Станимир Бътовски · дентален кабинет",
+    "cityCode": "68134",
+    "neighborhood": "Зона Б19",
+    "category": "other",
+    "address": "София, Зона Б19, бл. 15–16, вх. А",
+    "phone": "+359879962124",
+    "ownerLocationUrl": "https://drbatovski.com/contact/",
+    "namedPublicMapUrl": "https://www.google.com/maps?cid=12697060022712498706",
+    "before": null,
+    "after": { "latitude": 42.6969906, "longitude": 23.2989607 },
+    "verification": "The owner publishes block 15–16, entrance А, and embeds the named dental practice map. The public marker for that practice reports the same block and entrance; the coordinates are the named marker, not the generic block or street center.",
+    "unchangedBooking": { "kind": "phone", "phone": "+359879962124" },
+    "unchangedPricingIdentitySha256": "54a271e986ce8b588b77c7a091fd3e1219f94400bf4d2de52ba8b1eb56da77a3"
+  }, {
+    "id": "sofia-dentica-levski-v",
+    "name": "Dentica Dental Clinic · Левски В",
+    "cityCode": "68134",
+    "neighborhood": "Левски В",
+    "category": "other",
+    "address": "София, ж.к. Левски В, ул. Княгиня Тамара 56, срещу ДГ 92 Мечта – филиал",
+    "phone": "+359893440054",
+    "ownerLocationUrl": "https://www.dentica-clinic.com/index.php/contact-us/",
+    "namedPublicMapUrl": "https://www.google.com/maps?cid=16753459195157297301",
+    "before": null,
+    "after": { "latitude": 42.7073649, "longitude": 23.3852583 },
+    "verification": "The current contact page and its public map embed both identify the clinic on ул. Княгиня Тамара 56. The explicitly named clinic marker is used; the nearby municipal block-30 entries Б and В are not proof of a clinic door. No attempt is made to reconcile differences in the hours listed by the owner and the external booking platform.",
+    "unchangedBooking": { "kind": "form", "url": "https://superdoc.bg/klinika/dentica-dental-clinic" },
+    "unchangedPricingIdentitySha256": "c529686963c2bb939511ec0fbb762152b321022cbb1c0490022661100289e33c"
+  }],
+  "coordinateOnlyCounterfactual": {
+    "approvedSofiaBusinesses": [1791, 1791],
+    "boundSofiaPremises": [1050, 1053],
+    "neighborhoodCategoryCellsWithZeroLocatedBusinesses": [1316, 1313],
+    "obelya2OtherPremises": [2, 2],
+    "obelya2OtherLocated": [0, 1],
+    "zonaB19OtherPremises": [1, 1],
+    "zonaB19OtherLocated": [0, 1],
+    "levskiVOtherPremises": [1, 1],
+    "levskiVOtherLocated": [0, 1],
+    "neighborhoodCategoryTarget": 30
+  },
+  "held": [{
+    "name": "Д-р Станимира Миткова",
+    "ownerLocation": "https://www.drmitkova.com/",
+    "ownerTariff": "https://www.drmitkova.com/cenorazpis",
+    "reason": "The exact civic address and owner branch marker identify the premises, but the owner tariff says it is indicative and the publicly rendered embedded price table showed no rows. Neither prices nor 'not publicly listed' can be certified, and the catalogue neighborhood label was not independently fixed."
+  }],
+  "scope": "Three existing catalogue branches; only coordinates changed. No booking request, tariff change, customer data, partnership change or production write."
+}

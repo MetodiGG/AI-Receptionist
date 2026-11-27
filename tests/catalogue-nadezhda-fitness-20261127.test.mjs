@@ -13,13 +13,14 @@ import { assessPricingReview } from '../lib/discovery/catalogue-pricing-review.m
 import { discoveryConfig } from '../lib/discovery/config.mjs'
 import { createDiscoveryHandler } from '../lib/discovery/handler.mjs'
 import { railExternalAction } from '../lib/discovery/rail.mjs'
-import { RAW_SOFIA_CATALOGUE, SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { RAW_SOFIA_CATALOGUE as liveRaw, SOFIA_CATALOGUE as live } from '../lib/discovery/sofia-catalogue.mjs'
 import { matchesSubcategory } from '../lib/discovery/subcategories.mjs'
 import { businessCoverPhotoSources } from '../lib/public-business-cover-photo.mjs'
 import { publicDetailServiceThumbnail } from '../lib/service-detail-photo-presentation.mjs'
 import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mjs'
 import { compareDiscoveryPhotos, fingerprintDiscoveryPhoto, readDiscoveryImage } from '../scripts/discovery-photo-fingerprint.mjs'
 import { nadezhdaAllowsPath, nadezhdaPriorCatalogue, nadezhdaPriorSource } from './catalogue-nadezhda-fitness-20261127-scope.mjs'
+import { lyulin5DentalAllowsPath, lyulin5DentalPriorCatalogue, lyulin5DentalPriorSource } from './catalogue-lyulin5-dental-20261127-scope.mjs'
 import evidence from '../docs/catalogue-coverage/nadezhda1-2-fitness-20261127.json' with { type: 'json' }
 import receipt from './fixtures/catalogue-nadezhda-fitness-20261127.json' with { type: 'json' }
 
@@ -29,6 +30,7 @@ const rowHash = rows => sha(JSON.stringify(rows))
 const git = (...args) => execFileSync('git', args, { cwd, maxBuffer: 8 * 1024 * 1024 })
 const paths = bytes => bytes.toString().split('\0').filter(Boolean)
 const ids = ['sofia-flais-nadezhda1-lyuborodie2','sofia-sihia-nadezhda2-velezhki49g']
+const [RAW_SOFIA_CATALOGUE, SOFIA_CATALOGUE] = [liveRaw, live].map(lyulin5DentalPriorCatalogue)
 const [flais, sihia] = ids.map(id => SOFIA_CATALOGUE.find(x => x.id === id))
 const earlier = nadezhdaPriorCatalogue(SOFIA_CATALOGUE)
 
@@ -36,11 +38,13 @@ test('two reviewed additions, exact bytes, and untouched previous catalogue', ()
   assert.deepEqual(receipt.records.map(x => x.id), ids)
   assert.equal(receipt.baseline, evidence.baseCommit)
   const changed = Object.keys(receipt.changed), added = Object.keys(receipt.added)
+  const reviewedPaths = new Set([...changed, ...added])
   const observed = new Set([...paths(git('diff', '--name-only', '--no-renames', '-z', receipt.baseline, '--')),
     ...paths(git('ls-files', '--others', '--exclude-standard', '-z'))])
-  assert.deepEqual([...observed].filter(path => path !== 'node_modules' && !path.startsWith('tests/')).sort(), [...changed, ...added].sort())
+  assert.deepEqual([...observed].filter(path => path !== 'node_modules' && !path.startsWith('tests/') &&
+    (reviewedPaths.has(path) || !lyulin5DentalAllowsPath(path))).sort(), [...changed, ...added].sort())
   for (const path of changed) {
-    const before = git('show', receipt.baseline + ':' + path), after = readFileSync(new URL(path, cwd))
+    const before = git('show', receipt.baseline + ':' + path), after = lyulin5DentalPriorSource(path, readFileSync(new URL(path, cwd)))
     assert.deepEqual([sha(before), sha(after)], [receipt.changed[path].before, receipt.changed[path].after], path)
     assert.deepEqual(nadezhdaPriorSource(path, after), before, path)
     assert.ok(nadezhdaAllowsPath(path))

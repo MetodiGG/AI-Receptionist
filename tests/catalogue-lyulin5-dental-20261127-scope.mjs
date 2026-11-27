@@ -1,15 +1,15 @@
 import { createHash } from 'node:crypto'
 import { exactCatalogueIntakeScope } from './catalogue-verified-lyulin-batch-20261127-scope.mjs'
 import receipt from './fixtures/catalogue-lyulin5-dental-20261127.json' with { type: 'json' }
+import { levskiLyulinAllowsFileChange, levskiLyulinAllowsNewFile,
+  levskiLyulinPriorCatalogue, levskiLyulinPriorSource } from './catalogue-levski-lyulin-20261127-scope.mjs'
 
-const { allowsFileChange, allowsNewFile, allowsPath, priorSource, priorCatalogue } =
+const { allowsFileChange, allowsNewFile, priorSource, priorCatalogue } =
   exactCatalogueIntakeScope(receipt, 'Verified Lyulin 5 intake')
-export {
-  allowsFileChange as lyulin5DentalAllowsFileChange,
-  allowsNewFile as lyulin5DentalAllowsNewFile,
-  allowsPath as lyulin5DentalAllowsPath,
-  priorSource as lyulin5DentalPriorSource,
-}
+export const lyulin5DentalAllowsFileChange = path => allowsFileChange(path) || levskiLyulinAllowsFileChange(path)
+export const lyulin5DentalAllowsNewFile = path => allowsNewFile(path) || levskiLyulinAllowsNewFile(path)
+export const lyulin5DentalAllowsPath = path => lyulin5DentalAllowsFileChange(path) || lyulin5DentalAllowsNewFile(path)
+export const lyulin5DentalPriorSource = (path, source) => priorSource(path, levskiLyulinPriorSource(path, source))
 
 const digest = row => createHash('sha256').update(JSON.stringify(row)).digest('hex')
 const points = new Map(receipt.rebound.map(point => [point.id, point]))
@@ -20,7 +20,7 @@ if (points.size !== 3 || [...points.values()].some(({ before, after }) => !hash.
 
 export function lyulin5DentalPriorCatalogue(rows) {
   const seen = new Set()
-  return priorCatalogue(rows).map(row => {
+  return priorCatalogue(levskiLyulinPriorCatalogue(rows)).map(row => {
     const point = points.get(row?.id)
     if (!point) return row
     if (seen.has(row.id)) throw Error('Duplicate reviewed dental branch: ' + row.id)

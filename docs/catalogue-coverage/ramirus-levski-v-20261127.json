@@ -1,0 +1,83 @@
+{
+  "checkedOn": "2026-11-27",
+  "status": "reviewed_local_branch_not_published",
+  "recordId": "sofia-ramirus-levski-v-letostruy91a",
+  "inventoryIdentity": "1a668a2429ca482c8c5b7fa53cd3dd573a97ff18a3b305189ef875b8637a5051",
+  "business": "Автошкола Рамирус",
+  "cell": {
+    "city": "София",
+    "neighborhood": "Левски В",
+    "category": "education",
+    "verifiedPremisesBefore": 0,
+    "verifiedPremisesAfter": 1
+  },
+  "sources": {
+    "ownerEnrollment": "https://ramirus.com/",
+    "ownerCourseMenu": "https://ramirus.com/shofiorski-kursove/",
+    "ownerManualCourse": "https://ramirus.com/kategoria-b/",
+    "ownerAutomaticCourse": "https://ramirus.com/kategoria-b-za-avtomatik/",
+    "ownerRefresherCourse": "https://ramirus.com/opresnitelni-kursove/",
+    "ownerContact": "https://ramirus.com/kontakti/",
+    "ownerPrivacy": "https://ramirus.com/politika-za-poveritelnost/",
+    "ownerRobots": "https://ramirus.com/robots.txt",
+    "governmentSchoolRegister": "https://rta.government.bg/upload/18445/uchebni_centrove.html",
+    "independentNeighborhoodEvidence": "https://www.avtoinstruktorbg.com/uchebnite-centrove-v-sofia/"
+  },
+  "location": {
+    "displayAddress": "София, ул. Летоструй 91А",
+    "phone": "+359896603600",
+    "governmentPermitId": "3831",
+    "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "municipalCsvRow": "28282;Подуяне;гр. София;\"\";\"\";ул. Летоструй;91А;\"\";42.706486;23.383339",
+    "addressId": "28282",
+    "latitude": 42.706486,
+    "longitude": 23.383339,
+    "licence": "CC-BY-4.0",
+    "attribution": "ГИС София / Столична община",
+    "evidenceLimits": "The owner contact lists София, ж.к. Левски, ул. Летоструй 91A and this exact phone. Latest government licence register row 3831 confirms the same address and telephone and separately lists B and B(78). The unique Sofia civic row verifies the exact house-number suffix А; it records the administrative area Подуяне, does not itself name Левски В, and has no entrance code. The independent detailed driving-school locality table assigns the specific №91А to Левски-В, not merely a similarly named street. No entrance, flat or car pickup point inferred. No co-located training company or different legal owner treated as a duplicate or given any of this operator’s services."
+  },
+  "selectedOffers": [
+    {
+      "name": "Шофьорски курс категория B · ръчни скорости",
+      "englishName": "Category B driving course · manual transmission",
+      "selectorLabel": "Категория B",
+      "source": "https://ramirus.com/kategoria-b/",
+      "verification": "Current owner standard B course details theory and practical driving and presents manual transmission separately from the automatic course. B enrolment is available as the owner's exact labelled option."
+    },
+    {
+      "name": "Шофьорски курс категория B78 · автоматик",
+      "englishName": "Driver's Course Category B78 · automatic",
+      "selectorLabel": "Категория B автоматик",
+      "source": "https://ramirus.com/kategoria-b-za-avtomatik/",
+      "verification": "Dedicated owner automatic theory/practical course with matching form option. The official school registry supports the B(78) designation without adding eligibility claims."
+    },
+    {
+      "name": "Индивидуални опреснителни часове по кормуване",
+      "englishName": "Individual refresher driving lessons",
+      "selectorLabel": "Опреснителни часове",
+      "source": "https://ramirus.com/opresnitelni-kursove/",
+      "verification": "Dedicated owner describes individual lessons for people who already hold a licence and displays a dedicated invitation to enrol for additional hours with the same matching explicit refresher selection. Not a substitute for the separate B/B78 course."
+    }
+  ],
+  "bookingReview": {
+    "kind": "form",
+    "url": "https://ramirus.com/",
+    "state": "owned_booking_reviewed",
+    "evidence": "The actual first-party section Запиши се за шофьорски курс on the root and selected service pages shows a real enrolment form with required name, phone and course. The operator promises to contact the customer; no choice of a date or guaranteed place is advertised. Exam or medical/legal requirements, reform course and points recovery were not added. No form fields, agreement, account, time, appointment or price quote were entered or requested. The unrelated generic message form appearing separately is not used as evidence."
+  },
+  "pricing": {
+    "decision": "not_publicly_listed",
+    "outcome": "not_published",
+    "evidence": "Reviewed the actual home enrolment form, full named visible course menu, standalone manual, automatic and refresher pages and the branch contact. All six source-specific public ordinary GETs returned 200. No exact EUR/BGN amount or dedicated current price link appeared in the public menu, actual booking form, applicable service pages or current contacts. Copy advertising classes/promises is not evidence of a tariff. This is a genuine unpublished tariff review, not an inaccessible or conflicting price. All price and duration fields remain absent."
+  },
+  "illustrations": {
+    "method": "Four independent activity illustrations made with the built-in OpenAI image-generation tool; no real car, instructor, staff or premises are represented. Existing category, subcategory, and other business images were not changed.",
+    "cover": "/business-cover-photos/go-ramirus-levski-v-20261127-v1.webp",
+    "services": [
+      "/service-photos/go-ramirus-manual-driving-20261127-v1.webp",
+      "/service-photos/go-ramirus-automatic-driving-20261127-v1.webp",
+      "/service-photos/go-ramirus-refresher-driving-20261127-v1.webp"
+    ]
+  },
+  "scopeAndSourceUse": "Checked current lib/discovery and catalogue receipts by brand, website, full telephone and exact address before drafting; no current catalogue identity. Public robots allows ordinary owner documents and disallows /wp-admin/; no restricted routes were used. Owner privacy explains the contact data purpose; no separate commercial reuse term identified in reviewed navigation/footer and no licence is claimed. Independently worded facts only; no source photos, instructor biographies, reviews, legal advice, claims of exam success, calendar or user data. No live booking or contact performed and no partnership or production state changed."
+}

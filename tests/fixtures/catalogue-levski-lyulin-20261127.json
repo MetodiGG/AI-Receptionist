@@ -1,0 +1,63 @@
+{
+  "baseline": "1ad48638555df24e4394dc3feb49c93af7fe0968",
+  "changed": {
+    "lib/catalogue-service-photo-keys.mjs": {
+      "before": "9513ead07de1b55b09346fd8e56c00a973f3a20b170061b675229d5d71047b2b",
+      "after": "8c59d617586ae5325a66fdae90aef7d255208e5187680543ab1305231cac1a4e"
+    },
+    "lib/discovery-photo-ownership.json": {
+      "before": "4e1820dad571953db9c0958b220274dff68306cdb3518cc6d3f59531a6c119ae",
+      "after": "7972360ad947b17c775958733306256c11e7374bac984cb470cfe9a30ccf7434"
+    },
+    "lib/discovery/catalogue-data/pricing-booking-review-v1.mjs": {
+      "before": "4567b8f6e0c6d746607226068ab1bf96becc1e0960445de94fa42e65e5372d87",
+      "after": "962639211e7987858bb7bd315a33378890513f9d47473f89870426834dfc503b"
+    },
+    "lib/discovery/sofia-catalogue.mjs": {
+      "before": "1c2ee33bebf05d1032769b0c2c26de2d3e7c3ab60ac706af79184bfc0adb487c",
+      "after": "e093d4a18f8af244e4c2428b117d47d14aa5b0a864bda1f01500f38fa5634d4a"
+    },
+    "lib/locale/service-english.json": {
+      "before": "8933a20d80e4caff7c44787402ebd674fc22758f987f9e907a6fabd5f2a9c9ec",
+      "after": "54bc12f90b9d09c8e1f90eb4399636211a1d4a72b1d9a122b4e2fbaa2143c91c"
+    },
+    "lib/public-business-cover-photo.mjs": {
+      "before": "7c262b561e5d4957e0bbebc79e42953a73997fd4bc54229736fa7b19b3d1e88e",
+      "after": "effddf9c2ab3d45033440b598ebba86fd4dd11a4b00ab4596908f85765f344f6"
+    },
+    "lib/specific-service-photo-ids.mjs": {
+      "before": "f2250c524d029d15729056886ba1ca9e854a9620eb00b842c792a72f329d6947",
+      "after": "3a7da01d291a9b85da6689a8739ea2edbbbb3bdeb0dec13fafdae8ee5cfbda69"
+    }
+  },
+  "added": {
+    "docs/catalogue-coverage/lyulin9-10-verified-points-20261127.json": "ab8239d38619d2e31ef9a02f6c2e8684e5f3c7c63eab1355a19fb2247e5d18f6",
+    "docs/catalogue-coverage/ramirus-levski-v-20261127.json": "865f904b4ce56257dbca0c2fa71a3047b634f9b68627a93dafd846103dc82a2a",
+    "lib/discovery/catalogue-data/lyulin-commercial-branch-points-20261127.mjs": "9b16b9f97ebca87a08ef002f2327cd6524f1f23efe7241ed194b67dc058d5e9e",
+    "lib/discovery/catalogue-data/neighborhood-verified-ramirus-levski-v-20261127.mjs": "aa47e939a2ed586c5604e7a713569c43774339f8fe59539457d39c7f97294d8b",
+    "public/business-cover-photos/go-ramirus-levski-v-20261127-v1.webp": "5816fd397170ca3a437a2e1cd04a7cf9d0973cd09895e519b8a7749609ac2694",
+    "public/service-photos/go-ramirus-manual-driving-20261127-v1.webp": "b04466f743b13fc8ea277787fa17b3d6b88ece2e714974f883f052c597fc6e85",
+    "public/service-photos/go-ramirus-automatic-driving-20261127-v1.webp": "7c6eb2a143743a85a24900d1beceb554653a0e728a20a051a4401b1547ca5f4d",
+    "public/service-photos/go-ramirus-refresher-driving-20261127-v1.webp": "eafb5fcb8b9775a4bb8e70b8fc371a9932adf5dd76de905ed6d61a41a3081934"
+  },
+  "baselineCatalogueSha256": "a85bec67780a2d62a13fd76c8363fe04fa6df348dc102e96988f2e5dfc4a602f",
+  "currentCatalogueSha256": "d8288498002e4b77192a8b60749e3c71d24061f0ba898b4b09e57ac6b9bb44ea",
+  "records": [
+    {
+      "id": "sofia-ramirus-levski-v-letostruy91a",
+      "sha256": "310a449d1b35c07b3ae2edab1f614030033c295f64a15dd5308ce1ccceba32ee"
+    }
+  ],
+  "rebound": [
+    {
+      "id": "sofia-fixa-evropa29",
+      "before": "5c1a80cc7bdc62e6f0cc4c3ab307e95757142f24b0ba1e7ad8b277eff4240d8d",
+      "after": "971903b0f53803913b43d76d74276d1b1106638ae77e2ae3f4da8d0a38e77e0d"
+    },
+    {
+      "id": "sofia-gr-pilates",
+      "before": "7f2da1552fde778bb15b5afb23abe3cd792bd28b207a9475ade0d6fdbac6247b",
+      "after": "ea37339ec8fe27bd62491a82a3202c2f34267143d2a2fbb49b73195989d437f8"
+    }
+  ]
+}

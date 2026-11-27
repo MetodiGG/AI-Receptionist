@@ -15,7 +15,7 @@ import { discoveryConfig } from '../lib/discovery/config.mjs'
 import { createDiscoveryHandler } from '../lib/discovery/handler.mjs'
 import { createPublicBusinessDetailsHandler } from '../lib/discovery/public-details.mjs'
 import { railExternalAction } from '../lib/discovery/rail.mjs'
-import { RAW_SOFIA_CATALOGUE, SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { RAW_SOFIA_CATALOGUE as liveRaw, SOFIA_CATALOGUE as live } from '../lib/discovery/sofia-catalogue.mjs'
 import { matchesSubcategory } from '../lib/discovery/subcategories.mjs'
 import { businessCoverPhotoSources } from '../lib/public-business-cover-photo.mjs'
 import { publicDetailServiceThumbnail } from '../lib/service-detail-photo-presentation.mjs'
@@ -25,12 +25,14 @@ import studioProof from '../docs/catalogue-coverage/sedemchakri-lyulin5-20261127
 import dentalProof from '../docs/catalogue-coverage/sofia-dental-verified-points-20261127.json' with { type: 'json' }
 import receipt from './fixtures/catalogue-lyulin5-dental-20261127.json' with { type: 'json' }
 import { lyulin5DentalAllowsPath, lyulin5DentalPriorCatalogue, lyulin5DentalPriorSource } from './catalogue-lyulin5-dental-20261127-scope.mjs'
+import { levskiLyulinAllowsPath, levskiLyulinPriorCatalogue, levskiLyulinPriorSource } from './catalogue-levski-lyulin-20261127-scope.mjs'
 
 const cwd = new URL('../', import.meta.url), now = Date.parse('2026-11-27T12:00:00Z')
 const sha = x => createHash('sha256').update(x).digest('hex')
 const digest = x => sha(JSON.stringify(x))
 const git = (...args) => execFileSync('git', args, { cwd, maxBuffer: 8 * 1024 * 1024 })
 const paths = bytes => bytes.toString().split('\0').filter(Boolean)
+const [RAW_SOFIA_CATALOGUE, SOFIA_CATALOGUE] = [liveRaw, live].map(levskiLyulinPriorCatalogue)
 const find = (id, rows = SOFIA_CATALOGUE) => rows.find(row => row.id === id)
 const studio = find(studioProof.recordId)
 const dental = dentalProof.branches.map(branch => find(branch.id))
@@ -42,11 +44,14 @@ test('the Studio intake and three coordinate-only corrections are the only appro
   assert.deepEqual(receipt.records.map(row => row.id), [studio.id])
   assert.deepEqual(receipt.rebound.map(row => row.id), dental.map(row => row.id))
   const changed = Object.keys(receipt.changed), added = Object.keys(receipt.added)
+  const reviewedPaths = new Set([...changed, ...added])
   const observed = new Set([...paths(git('diff','--name-only','--no-renames','-z',receipt.baseline,'--')),
     ...paths(git('ls-files','--others','--exclude-standard','-z'))])
-  assert.deepEqual([...observed].filter(path => path !== 'node_modules' && !path.startsWith('tests/')).sort(), [...changed,...added].sort())
+  assert.deepEqual([...observed].filter(path => path !== 'node_modules' && !path.startsWith('tests/') &&
+    (reviewedPaths.has(path) || !levskiLyulinAllowsPath(path))).sort(), [...changed,...added].sort())
   for (const path of changed) {
-    const oldBytes = git('show', receipt.baseline + ':' + path), newBytes = readFileSync(new URL(path, cwd))
+    const oldBytes = git('show', receipt.baseline + ':' + path)
+    const newBytes = levskiLyulinPriorSource(path, readFileSync(new URL(path, cwd)))
     assert.deepEqual([sha(oldBytes),sha(newBytes)], [receipt.changed[path].before, receipt.changed[path].after], path)
     assert.deepEqual(lyulin5DentalPriorSource(path, newBytes), oldBytes)
     assert.ok(lyulin5DentalAllowsPath(path))

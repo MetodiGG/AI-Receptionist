@@ -427,6 +427,8 @@
     ]
   },
   "names": {
+    "Шофьорски курс категория B · ръчни скорости": "Category B driving course · manual transmission",
+    "Индивидуални опреснителни часове по кормуване": "Individual refresher driving lessons",
     "Хатха йога · групова практика": "Hatha yoga · group class",
     "Въздушна йога · групова практика": "Aerial yoga · group class",
     "Латино танци · групово занимание": "Latin dance · group class",
@@ -6582,6 +6584,9 @@
     "смяна на предпазен клапан на бойлер": "change of boiler safety valve"
   },
   "descriptions": {
+    "Теоретично обучение и кормуване с автомобил с ръчни скорости. Изпрати заявка през сайта. Автошколата ще се свърже с теб за графика и цената.": "Theory and hands-on driving in a manual car. Send an enquiry on the school’s website; the school will contact you about the schedule and the price.",
+    "Теоретично обучение и кормуване с автомобил с автоматични скорости. Изпрати заявка през сайта. Автошколата ще се свърже с теб за графика и цената.": "Theory and hands-on driving in an automatic car. Send an enquiry on the school’s website; the school will contact you about the schedule and the price.",
+    "Практически часове с инструктор за шофьори с книжка. Изпрати заявка през сайта. Автошколата ще се свърже с теб за графика и цената.": "Practical lessons with an instructor for drivers who already hold a licence. Send an enquiry on the school’s website; the school will contact you about the schedule and the price.",
     "Цената е за едно групово посещение за възрастен. За сутрешни практики се записва до 22:00 ч. предния ден, а за обедни и вечерни — поне 90 минути по-рано. Заниманието се провежда при поне трима записани.": "The price is for one adult group class. Sign up by 22:00 the previous day for morning classes, or at least 90 minutes in advance for midday and evening classes. Classes require at least three participants.",
     "Записване по телефона поне 3 дни предварително. Плащане преди процедурата. При отлагане с по-малко от 24 часа таксата е дължима.": "Book by phone at least 3 days in advance. Payment is due before the session. The fee is still due if you reschedule with less than 24 hours’ notice.",
     "Групови занимания по пеене за деца. Записването е по телефона; графикът и таксата се уточняват с читалището.": "Group singing classes for children. Call the community centre to enrol and confirm the timetable and fee.",

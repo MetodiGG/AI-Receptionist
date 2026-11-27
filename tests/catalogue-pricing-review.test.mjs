@@ -18,6 +18,7 @@ import { IVON_GORNA_BANYA_20261127_REVIEWS } from '../lib/discovery/catalogue-da
 import { FLAIS_NADEZHDA1_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-flais-nadezhda1-20261127.mjs'
 import { SIHIA_NADEZHDA2_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-sihia-nadezhda2-20261127.mjs'
 import { VERIFIED_SEDEMCHAKRI_LYULIN5_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-sedemchakri-lyulin5-20261127.mjs'
+import { VERIFIED_RAMIRUS_LEVSKI_V_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-ramirus-levski-v-20261127.mjs'
 import { pricingIdentity, assessPricingReview, auditCataloguePricing } from '../lib/discovery/catalogue-pricing-review.mjs'
 import report from '../docs/catalogue-pricing/booking-flow-audit-20261110.json' with { type: 'json' }
 import { NEIGHBORHOOD_20261111_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-expansion-20261111.mjs'
@@ -269,6 +270,7 @@ test('dated audit receipts cover every current ID without rewriting the historic
     [FLAIS_NADEZHDA1_20261127_REVIEWS, 'sofia-flais-nadezhda1-lyuborodie2', 'reviewed', '2026-11-27T12:00:00Z'],
     [SIHIA_NADEZHDA2_20261127_REVIEWS, 'sofia-sihia-nadezhda2-velezhki49g', 'reviewed', '2026-11-27T12:00:00Z'],
     [VERIFIED_SEDEMCHAKRI_LYULIN5_20261127_REVIEWS, 'sofia-sedemchakri-lyulin5-dertliev99', 'reviewed', '2026-11-27T12:00:00Z'],
+    [VERIFIED_RAMIRUS_LEVSKI_V_20261127_REVIEWS, 'sofia-ramirus-levski-v-letostruy91a', 'service_reviewed', '2026-11-27T12:00:00Z'],
   ]) {
     assert.deepEqual(reviews.map(row => row.id), [id])
     assert.equal(auditedIds.has(id), false)

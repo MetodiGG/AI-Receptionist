@@ -427,6 +427,7 @@
     ]
   },
   "names": {
+    "Групово ателие по рисуване за деца": "Group drawing workshop for children",
     "Възстановителен масаж · 60 минути": "Relaxation massage · 60 minutes",
     "Групов урок по рисуване за деца": "Group drawing lesson for children",
     "Индивидуален урок по рисуване за деца": "One-to-one drawing lesson for children",
@@ -6603,6 +6604,8 @@
     "смяна на предпазен клапан на бойлер": "change of boiler safety valve"
   },
   "descriptions": {
+    "Стандартна цена 50 €. В сряда цената в ценоразписа е 40 €. Записването е през сайта на салона и е достъпно и като гост.": "The standard price is €50. The published Wednesday price is €40. You can book on the salon’s website as a guest.",
+    "Присъствено групово занимание за деца от 5 до 12 години. Материалите са включени. Мястото се потвърждава по телефона.": "In-person group workshop for children aged 5 to 12. Materials are included. Confirm a place with the gallery by phone.",
     "Стандартна цена 40 €. В сряда цената в ценоразписа е 30 €. Записването е през сайта на салона и е достъпно и като гост.": "The standard price is €40. The published Wednesday price is €30. You can book on the salon’s website as a guest.",
     "Масаж за отпускане и общ тонус. Техниката се уточнява при посещението; тарифата е за продължителността на сесията.": "Massage for relaxation and general wellbeing. The technique is agreed during the visit; the rate is based on the length of the session.",
     "Цената е за едно посещение в група (2 учебни часа). Денят и мястото в групата се уточняват по телефона.": "The fee covers one group visit of 2 school periods. Arrange the day and a place in the group by phone.",
@@ -8539,6 +8542,7 @@
     "Часът се уговаря с преподавателя; първоначално се изготвя индивидуален график.": "The class is arranged with the lecturer; an individual schedule is initially drawn up."
   },
   "units": {
+    "40 € в сряда": "€40 on Wednesdays",
     "30 € в сряда": "€30 on Wednesdays",
     "едно посещение · 2 учебни часа": "one visit · 2 school periods",
     "един урок · 2 учебни часа": "one lesson · 2 school periods",

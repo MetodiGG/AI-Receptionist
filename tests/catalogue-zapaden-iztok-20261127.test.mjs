@@ -10,6 +10,7 @@ import { catalogueProfileView } from '../lib/catalogue-profile.mjs'
 import { catalogueBoundCoordinates } from '../lib/discovery/catalogue-coordinate-binding.mjs'
 import { assessPricingReview } from '../lib/discovery/catalogue-pricing-review.mjs'
 import { BOOKING_PRICE_REVIEWS } from '../lib/discovery/catalogue-data/pricing-booking-review-v1.mjs'
+import { VERIFIED_TINO_HLADILNIKA_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-tino-hladilnika-20261127.mjs'
 import { applyVerifiedHadzhiBakstonVisitPoints20261127 } from '../lib/discovery/catalogue-data/verified-hadzhi-bakston-visit-points-20261127.mjs'
 import { discoveryConfig } from '../lib/discovery/config.mjs'
 import { createDiscoveryHandler } from '../lib/discovery/handler.mjs'
@@ -22,12 +23,13 @@ import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mj
 import { compareDiscoveryPhotos, fingerprintDiscoveryPhoto } from '../scripts/discovery-photo-fingerprint.mjs'
 import { allowsFileChange, allowsNewFile, priorCatalogue, priorSource } from './catalogue-zapaden-iztok-20261127-scope.mjs'
 import receipt from './fixtures/catalogue-zapaden-iztok-20261127.json' with { type: 'json' }
+import { allowsFileChange as nextChange, allowsNewFile as nextNew, priorCatalogue as nextPriorCatalogue } from './catalogue-mitoart-nails-nadezhda-20261127-scope.mjs'
 
 const root = new URL('../', import.meta.url)
 const git = (...args) => execFileSync('git', args, { cwd: root, maxBuffer: 8 * 1024 * 1024 })
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
 const now = Date.parse('2026-11-27T12:00:00Z')
-const byID = id => SOFIA_CATALOGUE.find(row => row.id === id)
+const byID = id => nextPriorCatalogue([SOFIA_CATALOGUE.find(row => row.id === id)])[0]
 const offers = [
   { id: 'sofia-soma-masazhi-zapaden-park-block5b', category: 'health', subcategory: 'health-massage', postalId: '47965',
     point: { latitude: 42.701427, longitude: 23.281222 }, prices: [60], phone: '+359878444025', minutes: [60],
@@ -56,7 +58,8 @@ test('exact dated intake does not modify unrelated items or their booking or des
     git('ls-files', '--others', '--exclude-standard', '-z'),
   ].flatMap(bytes => bytes.toString().split('\0').filter(Boolean)))
   const expected = [...Object.keys(receipt.changed), ...Object.keys(receipt.added)].sort()
-  assert.deepEqual([...changed].filter(path => path !== 'node_modules' && !path.startsWith('tests/')).sort(), expected)
+  assert.deepEqual([...changed].filter(path => path !== 'node_modules' && !path.startsWith('tests/') &&
+    (Object.hasOwn(receipt.changed, path) || Object.hasOwn(receipt.added, path) || !(nextChange(path) || nextNew(path)))).sort(), expected)
   for (const path of Object.keys(receipt.changed)) {
     const before = git('show', receipt.baseline + ':' + path)
     assert.equal(sha(before), receipt.changed[path].before, path)
@@ -65,14 +68,15 @@ test('exact dated intake does not modify unrelated items or their booking or des
   }
   for (const path of Object.keys(receipt.added)) assert.equal(allowsNewFile(path), true, path)
   for (const catalogue of [RAW_SOFIA_CATALOGUE, SOFIA_CATALOGUE]) {
-    assert.equal(sha(JSON.stringify(catalogue)), receipt.currentCatalogueSha256)
+    const atIntake = nextPriorCatalogue(catalogue)
+    assert.equal(sha(JSON.stringify(atIntake)), receipt.currentCatalogueSha256)
     assert.equal(sha(JSON.stringify(priorCatalogue(catalogue))), receipt.baselineCatalogueSha256)
-    assert.equal(priorCatalogue(catalogue).length, catalogue.length - receipt.records.length)
+    assert.equal(priorCatalogue(catalogue).length, atIntake.length - receipt.records.length)
   }
 })
 
 test('priority coverage reports separate newly added businesses from existing addresses', () => {
-  const reports = [priorCatalogue(SOFIA_CATALOGUE), SOFIA_CATALOGUE].map(rows => catalogueCoverageReport(rows, { now, target: 30 }))
+  const reports = [priorCatalogue(SOFIA_CATALOGUE), nextPriorCatalogue(SOFIA_CATALOGUE)].map(rows => catalogueCoverageReport(rows, { now, target: 30 }))
   for (const [area, category, expected] of [
     ['Западен парк', 'health', [[0, 0], [1, 1]]], ['Изток', 'education', [[3, 1], [4, 2]]],
     ['Хаджи Димитър', 'consulting', [[0, 0], [1, 1]]], ['Бъкстон', 'pets', [[1, 0], [2, 1]]],
@@ -100,7 +104,7 @@ test('local API and profile preserve exact geography, localized prices, qualific
     assert.equal(row.coordinates.addressId, offer.postalId)
     assert.strictEqual(catalogueBoundCoordinates(row), row.coordinates)
     assert.equal(catalogueBoundCoordinates({ ...row, address: row.address + 'А' }), null)
-    const review = BOOKING_PRICE_REVIEWS.find(item => item.id === row.id)
+    const review = [...VERIFIED_TINO_HLADILNIKA_20261127_REVIEWS, ...BOOKING_PRICE_REVIEWS].find(item => item.id === row.id)
     assert.equal(assessPricingReview(row, review, now).reviewedPriceCount, offer.prices.length)
     assert.equal(assessPricingReview(row, review, Date.parse('2026-12-28T00:00:00Z')).state, 'pending')
     const detail = await details(new Request('https://example.test/api/public/discovery/business/' + row.id, { headers }), row.id)

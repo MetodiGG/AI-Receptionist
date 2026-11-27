@@ -1,0 +1,106 @@
+{
+  "baseline": "99c4283de0a194a3080c2307f4a67890a581d6a1",
+  "changed": {
+    "lib/catalogue-service-photo-keys.mjs": {
+      "before": "adc4c4a1fec4e2870bdc707c16741830440047df1ec0dac154796a48d75171a7",
+      "after": "b5419c1f7f8e40064765de7bea734a258213d61c0fa92e0c5104793bdc0cef1c"
+    },
+    "lib/discovery-photo-ownership.json": {
+      "before": "b69e040a0f9edc8d4c78ac03f4aa085b80f98c8d7d030b8c15fc0c985e89633c",
+      "after": "1505866eb3bbe547ae5f61a324250620aa574f7f945f1e9eedd0f9796bb4f7a0"
+    },
+    "lib/discovery/catalogue-data/pricing-booking-review-v1.mjs": {
+      "before": "b4abfafc4e43286525ae3a897272d07a3e00a2ed4bc70ff7d20d23c1e8b40055",
+      "after": "ce02eedab83f1c7f9dc321766b859f9390a68fdda0f8162e64dd2420ecef61f5"
+    },
+    "lib/discovery/sofia-catalogue.mjs": {
+      "before": "03f19c8ca5ef5ddbe1d068ac3a5b56ca8c6df5ddca393c4e2e980d1002eb414b",
+      "after": "f66f86f73cffe2c80801508b83afd60b709af6ee5a73f1114221e82bbfdb86aa"
+    },
+    "lib/locale/service-english.json": {
+      "before": "58e24fae091514298fda390a2ec630efe5705350331351d86f42c8db8fa76016",
+      "after": "66d563daf8218da3716d3b6447698affae352bca3b5b1f15f349d744bf90aa30"
+    },
+    "lib/public-business-cover-photo.mjs": {
+      "before": "523dd0b91b50fb22d4858cab82df42ab6e94e479c0948f9fa179f52be3089735",
+      "after": "c68024c40c0ec064603db7aacbcd05c92e2fcecf218b72ae8dc3e304bd39ba54"
+    },
+    "lib/specific-service-photo-ids.mjs": {
+      "before": "5bdeef07b84a733b360c5575288e90f4c3b30edbd5e9aca0f2c912dab82c13eb",
+      "after": "a8b5ddb9b18c1a51d8351410497935875571f1c97f29a28a3ef0760d047136b2"
+    },
+    "scripts/check-sofia-catalogue.mjs": {
+      "before": "483e41d42a78b084aa80560307572b79b9c71779ed5ccbdcd36c2f3c2c003330",
+      "after": "6588be47032cfe477c8b0cde6c3b3cb063d5f89220b9a91bbc010487060f54b2"
+    }
+  },
+  "added": {
+    "docs/catalogue-coverage/mitoart-hadzhi-dimitar-20261127.md": "1959bd5e9824ad60670edf9b8e76f1dba406c2b67b72dd5cfc33f604211a790f",
+    "docs/catalogue-coverage/nadezhda1-art-masters-point-20261127.md": "253e1ae3973c82b7d297b534217eee01666453c8c455b138f5a12d2e60d7bea5",
+    "docs/catalogue-coverage/tino-nails-20261127.md": "5424e8b25c563b65a9ac9c81ca3af9f367c40b51ad9dc61684d8e645b1aa1bdd",
+    "docs/catalogue-coverage/vitosha-fish-pool-point-20261127.md": "6b34b95832588b56c521b9e5cb22f9853d621d791d8240696462fd36bd6d089e",
+    "lib/discovery/catalogue-data/neighborhood-verified-mitoart-hadzhi-dimitar-20261127.mjs": "324084e76eac188d5927955e68ae3966855bc65e196a308f6383d378d9fc9383",
+    "lib/discovery/catalogue-data/verified-nadezhda1-art-masters-point-20261127.mjs": "278a40f0e8f5c9e00fa60c8337739ee698d9a72e053c49910564385ffc56571a",
+    "lib/discovery/catalogue-data/verified-tino-nails-20261127.mjs": "4a2a1e2f745404bbcebb1e39302c4111d406fe81713c94efc21cb7333ea381bb",
+    "lib/discovery/catalogue-data/verified-vitosha-fish-pool-point-20261127.mjs": "d2b6e4db93b3f99850184691de75989de7e61c8f86b940bc36f7e3d5b172f516",
+    "public/business-cover-photos/go-mitoart-hadzhi-dimitar-20261127-v1.webp": "b14799f0191e116eb7eb2009d5850d6ffd45075406971c6b795b199b22c66660",
+    "public/service-photos/go-mitoart-children-drawing-workshop-20261127-v1.webp": "63b1caae7c4d4332990591b3eb4f3f296f694bc053bbb7ed058dfab981e9ca65",
+    "public/service-photos/go-tino-gel-manicure-20261127-v1.webp": "bd78f876c7f61ff91cab43291d9906be6bba41d64c524a127a3b2db9e862dae2",
+    "public/service-photos/go-tino-gel-pedicure-20261127-v1.webp": "d9dabc9e8be5ccfc33f2db39e3cb440dd62c609fd2ad7f6fb2960c8476b0944e"
+  },
+  "records": [
+    {
+      "id": "sofia-mitoart-hadzhi-dimitar-albert-long11-15",
+      "sha256": "209f4597d1d85d747812246c8897827246c84b7807eb32802ef5d5db0921ed1a"
+    }
+  ],
+  "updates": [
+    {
+      "id": "sofia-art-masters-band-nadezhda1-172",
+      "before": "cd7717c1ecdef710c0823391f3fd239fb6151d81ff42cf19aa71063b7a4a0724",
+      "after": "88e988a5f096c099a1a88dddaaa1958fb2122d71a3a86d6ed99e13aa604b41d4",
+      "original": {
+        "coordinates": null
+      }
+    },
+    {
+      "id": "sofia-malkite-ribki-kiril-buyukliyski30",
+      "before": "6b3a2d766cdd112049e36d6d5f76d7c2c31a9da0bc6c779d37bf877887d4e531",
+      "after": "8cba3e4d96f91d0e8ad75fb7607e3ab2b1e9f9ee0286b322b222afae896bdd39",
+      "original": {
+        "coordinates": null
+      }
+    },
+    {
+      "id": "sofia-tino-hair-hladilnika-paradisecenter100",
+      "before": "0d33748a4f3e262011b2c8c1c70c911d28574a0d25bfc790b6402620a5aebcca",
+      "after": "494015aeb88f491bad543109ee37b001326aa8019f83174510bc5b3cf7d06782",
+      "original": {
+        "services": [
+          {
+            "name": "Мъжко подстригване",
+            "category": "hair",
+            "description": "Стандартна цена 40 €. В сряда цената в ценоразписа е 30 €. Записването е през сайта на салона и е достъпно и като гост.",
+            "price": {
+              "amount": 40,
+              "currency": "EUR",
+              "kind": "fixed",
+              "unit": "30 € в сряда",
+              "sourceUrl": "https://www.tinohair.com/",
+              "checkedOn": "2026-11-27",
+              "validUntil": "2026-12-27"
+            },
+            "appointmentModel": "appointment",
+            "durationMin": 30,
+            "durationSourceUrl": "https://www.tinohair.com/",
+            "durationCheckedOn": "2026-11-27"
+          }
+        ]
+      }
+    }
+  ],
+  "catalogue": {
+    "before": "d3cfc47641e7e34fabbecfe4e1aa18ef0945e99db58936acc4bc53d29def9f43",
+    "after": "a1fc65ab84c6a7c82680b9011a3077e201eb885a264787c002765ecc76dda539"
+  }
+}

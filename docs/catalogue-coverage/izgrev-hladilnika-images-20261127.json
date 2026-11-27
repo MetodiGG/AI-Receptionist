@@ -1,0 +1,22 @@
+{
+  "checkedOn": "2026-11-27",
+  "source": "Built-in image generation; four separately generated generic illustrations, not photographs of the businesses. Center-cropped and encoded to WebP after visual review.",
+  "assets": [
+    {
+      "path": "public/business-cover-photos/go-avtostart-izgrev-20261127-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Landscape 4:3 editorial stock photograph as an illustration for a driving school listing in Bulgaria, not an actual school branch. Ordinary pale silver compact hatchback from the rear-three-quarter view, parked inside a quiet open asphalt learner practice area with two or three muted orange cones, out-of-focus low greenery and unobtrusive buildings, cool early daylight. Car large and centered for cropping, license plate blank unlettered, no logo, no people, no signage, no text or watermark. Candid natural lighting, no slick advertising look."
+    },
+    {
+      "path": "public/service-photos/go-avtostart-manual-driving-20261127-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Square editorial service illustration for a manual-transmission category B driving lesson. Tight passenger-side view focusing on a driver's left foot in a simple dark everyday sneaker over the far-left clutch pedal, all three realistic pedals visibly aligned in a tasteful simple compact-car footwell, no accelerator pressed. Subtle sun from open side sill, real material textures and sharp subject, modest black and denim tones, no dashboard, no logo, no text, no watermark, no identifiable person; simple readable thumbnail. An entirely generic invented car, not a provider’s vehicle."
+    },
+    {
+      "path": "public/business-cover-photos/go-dentaart-hladilnika-20261127-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Landscape 4:3 editorial stock illustration for a dental prosthetics consultation (not an actual clinic). A small dark carrying case open on a warm oak consultation table with four smooth ceramic tooth shade tabs resting on beige microfiber. Far background is a soft abstract cool mint wall and side daylight, no chair or identifiable room, no people or patient. Objects clear at preview size, subtle realistic microtexture, no printed labels, no logos, no text, no watermark."
+    },
+    {
+      "path": "public/service-photos/go-dentaart-ceramic-crown-consult-20261127-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Square image for a consultation about a ceramic dental crown. Macro front-side daylight view of one warm ivory ceramic crown on a compact matte plum silicone block, a small blurred gold-toned lab caliper at the rear, off-white paper on a clean studio tray. Crown large centered, opaque and natural, just material and instrument; no dentures, artificial gums, mouth, needles, tools touching the tooth, people, signage, logo, text or watermark. Generic illustrative photograph, not an actual business or procedure."
+    }
+  ]
+}

@@ -42,7 +42,12 @@ test('quarter and floor suffixes cannot disguise an existing Music Box venue as 
     ['sofia-music-box-mladost', 'София, кв. Младост 3, бул. Александър Малинов 51, Метро Сити Център, ет. -1'],
   ]) {
     const existing = SOFIA_CATALOGUE.find(row => row.id === id)
-    const duplicate = { ...structuredClone(existing), id: `${id}-duplicate-test`, address }
+    const duplicate = { ...structuredClone(existing), id: `${id}-duplicate-test`, address, coordinates: null }
+    if (existing.coordinates) {
+      const copiedPoint = { ...duplicate, coordinates: existing.coordinates }
+      assert.deepEqual(auditCatalogueBatch([existing], [copiedPoint], now).rejected,
+        [{ id: duplicate.id, reason: 'invalid_schema', fields: ['coordinates'] }])
+    }
     assert.deepEqual(auditCatalogueBatch([existing], [duplicate], now).rejected,
       [{ id: duplicate.id, reason: 'duplicate_identity' }])
   }

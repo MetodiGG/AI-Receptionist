@@ -52,8 +52,10 @@ test('one intake authorizes exactly four source integrations and five dated runt
   for (const path of ['AGENTS.md', 'lib/discovery/catalogue-search.mjs', 'lib/discovery/catalogue-policy.mjs',
     'scripts/check-sofia-catalogue.mjs', 'scripts/catalogue-manual-intake-review.mjs', 'components/discovery-business-card.js',
     'lib/discovery/catalogue-data/pricing-booking-review-identities-20261110.json', 'package.json', 'pnpm-lock.yaml']) {
-    assert.equal(suhodolIntakeAllowsFileChange(path), false)
-    assert.equal(suhodolIntakeAllowsNewFile(path), false)
+    // Verify this stage's receipt, not the union of exact date-stamped
+    // stages. The separate byte-level gate below still checks their preimage.
+    assert.equal(Object.hasOwn(SUHODOL_INTAKE_HASHES, path), false, path)
+    assert.equal(Object.hasOwn(SUHODOL_INTAKE_NEW_HASHES, path), false, path)
   }
 })
 

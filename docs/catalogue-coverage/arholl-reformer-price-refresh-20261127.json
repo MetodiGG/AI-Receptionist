@@ -1,0 +1,32 @@
+{
+  "checkedOn": "2026-11-27",
+  "baseCommit": "86b4b3d8b032ab8d1fc63442871ff72c512a66b2",
+  "scope": "Price correction of one already admitted appointment. No new business, new service, or location change.",
+  "businessId": "sofia-arholl-arena-obelya1-124-reformer",
+  "business": "Arholl Arena · Обеля 1",
+  "tariff": {
+    "service": "Reformer Pilates · еднократно посещение с инструктор",
+    "currency": "EUR",
+    "kind": "fixed",
+    "unit": "еднократно посещение за един човек",
+    "previous": { "amount": 20, "checkedOn": "2026-11-16" },
+    "reviewed": { "amount": 35, "checkedOn": "2026-11-27", "validUntil": "2027-02-14" },
+    "source": "https://arholl-arena.bg/prices",
+    "corroboration": "https://arholl-arena.bg/",
+    "finding": "The current price list and homepage independently display the same EUR 35 price card for one visit with instructor work. The EUR 50 visit for two and the 4-, 8-, and 10-visit memberships are separate offers. The price review did not establish a fixed duration or exclusive 1:1 instruction."
+  },
+  "appointment": {
+    "channel": "phone",
+    "phone": "+359889758011",
+    "source": "https://arholl-arena.bg/service/reformer-pilates",
+    "contact": "https://arholl-arena.bg/contacts",
+    "purchaseSelector": "https://shop.arholl-arena.bg/membership/PurchaseV2?&Namespace=ARHOLL&gymId=75",
+    "finding": "The owner explicitly lists the phone for arranging a session with an instructor. The linked public membership page was rendered in an isolated Chromium profile; the only Reformer options it displayed were eight-visit packages for one or two. The same-address third-party 45-minute offer under the physiotherapy listing is not the direct club tariff and supplied no facts to the catalogue."
+  },
+  "policiesReviewed": [
+    "https://arholl-arena.bg/page/obshchi-usloviya",
+    "https://arholl-arena.bg/page/politika-za-poveritelnost",
+    "https://arholl-arena.bg/page/usloviya-za-vzstanovyavane-na-sredstva"
+  ],
+  "safeguards": "No selector choices, calls, account, terms acceptance, slots, bookings, payments or external writes. The original November 16 source module and receipt are untouched. Address, unbound coordinates, booking destination, opening hours and prior expiration are unchanged. No photos, customer data or protected prose were copied."
+}

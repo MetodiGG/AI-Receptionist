@@ -1,0 +1,49 @@
+{
+  "baseline": "5648815d6d7f73dad5ebdb6702f75530073ac967",
+  "records": [
+    {
+      "id": "sofia-art-academy-banishora-kozloduy128",
+      "sha256": "ae471051b85e1311f2c44f6b3c48f112f904d313c113fe03ee2cbc64c2e8b876"
+    },
+    {
+      "id": "sofia-essentisimo-banishora-karlovo7",
+      "sha256": "b60e19d12fd53317abb0d49345daa436e2ade564a1040b1e80fcb54e74341209"
+    },
+    {
+      "id": "sofia-reya-kids-ovcha-kupel2-ivan-hadzhiyski3",
+      "sha256": "256a5e34ae3075d74991ea8a2844857906f841ed6dcd8a7567ee026c75b92dbf"
+    },
+    {
+      "id": "sofia-va-consulting-lyulin10-block135",
+      "sha256": "96a07e53bd4e04b7c4fda78b57760f34ba54714939fc8613477f53613fc73e77"
+    }
+  ],
+  "changed": {
+    "lib/catalogue-service-photo-keys.mjs": {
+      "before": "58e0b304a6c76d7f5735b7746571ac5e6d162a9bfec104d5fc496973ee409225",
+      "after": "e6810df41ebba37faee023e3b28da8dde75ba38c019289c0c049303c39fa0b1a"
+    },
+    "lib/discovery/catalogue-data/pricing-booking-review-v1.mjs": {
+      "before": "0aae7840650c96e624c1d983910d8e42fb0c8b6d5b98e3a504162e67c8e2853b",
+      "after": "92e4cb6d8818c56120ab58b356e26fd07b5118e41ac2a0b8a9d5d5553db2f4b2"
+    },
+    "lib/discovery/sofia-catalogue.mjs": {
+      "before": "4d262296d96a46840b36055b9a496d069de338256faf5564f70bc79cfa1f193e",
+      "after": "eefd0aff1796a6a85cc91abe0ca1f2dde47a15e15309a47c9066f06fe3f7b9bc"
+    },
+    "lib/locale/service-english.json": {
+      "before": "b0cf41b942a84226cc6911d09126691cc23bd69e92d4888fc10a67ea5e2d4d3a",
+      "after": "1c0a88a8ef0bd20dccb38e47761f306dc5a4b19fba0fd79918dfcf85e5d227ca"
+    },
+    "lib/service-detail-existing-photo-coverage.mjs": {
+      "before": "5652632023d5399486bb15da3df39d501b0897279da7d964939dd74aa2065216",
+      "after": "5bff32c773c46afadb9f86e4378fd718c0e5a5e061ad56be9c5bfcf7598f6318"
+    }
+  },
+  "added": {
+    "docs/catalogue-coverage/verified-sofia-appointment-growth-20261127.json": "6db4ace8b39d2f9e59761ee2e021aac84f3078f3896f86d1ae9b9b07dd6f5552",
+    "lib/discovery/catalogue-data/neighborhood-verified-banisha-salon-20261127.mjs": "f8f1ac34976efdfeea3888da8686f7c14982c5e3ae7a62762e008495ab46a94d",
+    "lib/discovery/catalogue-data/neighborhood-verified-consultations-20261127.mjs": "48b19fac012a1e5325b09f1f4bd11d230dcfe2d3e68fb82dab219c3c8415623a",
+    "lib/discovery/catalogue-data/neighborhood-verified-education-growth-20261127.mjs": "55e50b4aef06dfde4b574b028105e4b28204811cf44c87ced00aa3f7aaec3a07"
+  }
+}

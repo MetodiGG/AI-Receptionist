@@ -1,0 +1,29 @@
+{
+  "baseline": "0bb9c0a4e242b1321b2d115576bcc368dad8e204",
+  "record": {
+    "id": "sofia-mopart-lyulin3-okolovrasten803",
+    "sha256": "9ff3a740f17290bd2afcf6bfdc6615d62faf893a5bd853186ddbac76ad94227a"
+  },
+  "changed": {
+    "lib/discovery/sofia-catalogue.mjs": {
+      "before": "a03319986981aa6723600b5805249b290f16c10231b5a246e1519580fdb5936c",
+      "after": "30330949e249a8cb26cda240a8d24cc6a427ceefdc6d864508b463505724c26a"
+    },
+    "lib/discovery/catalogue-data/pricing-booking-review-v1.mjs": {
+      "before": "75088e3c77d272e7066568e29eb96bdbb9e73ccaa2d5ee55eec4066344d42bbb",
+      "after": "c187a03f9d94200dfc188869e1e5c96791bf583f8b2bcc12539144a2b8d4e1cd"
+    },
+    "lib/catalogue-service-photo-keys.mjs": {
+      "before": "ee91d89da48ba50021e8193b31a63d4d82290e35f650cd4a7936a8a3cb25554b",
+      "after": "9982ee44e19e16d38292e29c13f0985aca1f357d344146105a2b48a63be48b02"
+    },
+    "lib/locale/service-english.json": {
+      "before": "ad40690ae818849c0de36171926e5fc1b313a34cc70555ed767043345b475be6",
+      "after": "d6d79aa3956cebd436fed1a59e075627dcc265619955b40029aaa660216c4c67"
+    }
+  },
+  "added": {
+    "docs/catalogue-coverage/mopart-intake-20261127.json": "a4bae6462d9be72981890a8940d2a308a3a06763a1c2bc3438681be937db1ebe",
+    "lib/discovery/catalogue-data/neighborhood-mopart-intake-20261127.mjs": "4db4b9d47a11969ba5905d8cdfc5fc77198a1aaa58002295ad31599a295f2ecb"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "checkedOn": "2026-11-27",
+  "status": "reviewed_local_branch_not_published",
+  "recordId": "sofia-avtostart-izgrev-joliot-curie20",
+  "inventoryIdentity": "0e252933b529f7a2e8e2fdaabb065e5c57fc860ad4d9a0b2e613ff074ce9d191",
+  "business": "Учебен център Авто Старт",
+  "cell": {
+    "city": "София",
+    "neighborhood": "Изгрев",
+    "category": "education",
+    "verifiedPremisesBefore": 0,
+    "expectedVerifiedPremisesAfterIntegration": 1
+  },
+  "sources": {
+    "ownerHomepage": "https://avtostart.bg/",
+    "ownerCourseMenuAndEnrollment": "https://avtostart.bg/kurs/shofyorski-kurs",
+    "ownerCurrentCheckout": "https://avtostart.bg/plashtane?course_id=18",
+    "ownerDecemberCheckout": "https://avtostart.bg/plashtane?course_id=18&date_id=93",
+    "ownerJanuaryCheckout": "https://avtostart.bg/plashtane?course_id=18&date_id=98",
+    "ownerContact": "https://avtostart.bg/kontakti",
+    "ownerTerms": "https://avtostart.bg/obshti-usloviya",
+    "ownerRobots": "https://avtostart.bg/robots.txt",
+    "officialSchoolPermitRegister": "https://rta.government.bg/upload/18445/uchebni_centrove.html",
+    "officialSofiaCivicDataset": "https://urbandata.sofia.bg/dataset/address_sofia-zip"
+  },
+  "location": {
+    "displayAddress": "София, ж.к. Изгрев, ул. Фредерик Жолио Кюри 20, ет. 14, офис 1405",
+    "operator": "АВТОСТАРТ.БГ ЕООД",
+    "telephone": "+359988917771",
+    "governmentPermitId": "4557",
+    "municipalCsvRow": "22859;Изгрев;гр. София;\"\";\"\";ул. Фредерик Жолио Кюри;20;\"\";42.670998;23.350277",
+    "addressId": "22859",
+    "latitude": 42.670998,
+    "longitude": 23.350277,
+    "licence": "CC-BY-4.0",
+    "attribution": "ГИС София / Столична община",
+    "evidenceLimits": "Current owner contact expressly identifies the staffed teaching room in Изгрев, office 1405. IAAA permit 4557 independently matches the same operator, phone, number, floor and office and shows B. The municipal row corroborates the exact building; the point cannot identify an indoor classroom or car pickup. Terms office 1406 is the legal contact, not the classroom. Historic indexing results for Todorini Kukli and Gotse Delchev were not used as current venues; owner contact's direct HTTP 200 body advertises the current Izgrev room."
+  },
+  "selectedOffer": {
+    "name": "Шофьорски курс категория B · ръчна скоростна кутия",
+    "englishName": "Category B driving course · manual transmission",
+    "englishDescription": "The VAT-inclusive fee covers the full course, internal exams, online materials and the first state theory exam. The state practical exam, extra lessons and theory retakes cost extra. Enrollment requires a contract and payment. The agreed price is valid for 3 months. Fees for lessons already taken are non-refundable.",
+    "agreedPriceValidity": "3 months from signing the training contract; the owner can adjust the price afterward, as stated on the course page",
+    "amount": 1270,
+    "currency": "EUR",
+    "kind": "fixed",
+    "unit": "whole course",
+    "source": "https://avtostart.bg/kurs/shofyorski-kurs",
+    "evidence": "Dedicated owner course explicitly separates the manual tuition from the automatic programme. The actual linked owner checkout confirms the manual amount inclusive of VAT. Tuition covers theory and practical teaching, internal exams, online materials and the first state theory exam. The state practical exam, add-on lessons and theory retakes are billed separately; no supplementary or mandatory-outside rate was guessed. Terms say charges for lessons delivered and taken are non-refundable once training has started. No automatic B variant, expired sale, retake package, financed installment, or state exam price was imported."
+  },
+  "bookingReview": {
+    "kind": "form",
+    "url": "https://avtostart.bg/kurs/shofyorski-kurs",
+    "state": "owned_booking_reviewed",
+    "displayedStartDatesIndependentlyVerified": ["2026-11-28", "2026-12-05", "2027-01-04"],
+    "evidence": "The public course enrolment menu carries course_id 18 and an enabled date selector exposing multiple dates through February 2027. The standard owner navigation leads to an actual enrolment and payment page, which offers payment methods and document fields. Normal public GETs with the already displayed December and January option values corroborate the same fee, classroom and selected dates. This is not a single November-only cohort; the GoRez link opens the current owner selector, not a fixed cohort or checkout. A date in the selector proves neither capacity nor a held slot. Owner terms and course require a study contract and cleared payment/confirmation; selecting a date does not enroll the client and GoRez does not collect payment or ID. No POST, consent, personal information, file upload, charge, slot hold or form submission occurred."
+  },
+  "scopeAndSourceUse": "Deduped brand, domain, full telephone and permit against the current data and prior receipts. Only this exact teaching branch and the one reviewed Category B course are included. The owner entry, course, current and future checkout previews, public contact, terms and robots returned ordinary HTTP 200. Terms prohibit copying or distributing creative text/graphic materials; the record uses independently worded facts, no source photographs, creative prose, documents or marketing claims and no new permissions are assumed. No account, production write, booking, partnership, calendar or notification change."
+}

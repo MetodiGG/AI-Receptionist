@@ -1,0 +1,88 @@
+{
+  "reviewedOn": "2026-11-27",
+  "baseCommit": "2f573e762bfad5cdbb3bec7696d62751041bf0fe",
+  "scope": "Existing Sofia listing only. Review the exact customer visit point without changing service, tariffs, business hours, telephone booking, verification freshness, identity or partner state.",
+  "newDistinctBusinesses": 0,
+  "coverage": {
+    "targetPerQuarterCategory": 30,
+    "checkedCells": 1750,
+    "sourceRecords": [
+      1813,
+      1813
+    ],
+    "approvedSofiaBusinesses": [
+      1787,
+      1787
+    ],
+    "premisesWithBoundPoint": [
+      1044,
+      1045
+    ],
+    "emptyPhysicalCells": [
+      1239,
+      1239
+    ],
+    "emptyLocatedCells": [
+      1320,
+      1319
+    ],
+    "locatedCellsAtTarget": [
+      0,
+      0
+    ],
+    "selectedCell": {
+      "neighborhood": "Връбница 2",
+      "category": "pets",
+      "physical": [
+        1,
+        1
+      ],
+      "located": [
+        0,
+        1
+      ]
+    }
+  },
+  "verified": [
+    {
+      "id": "sofia-north-dog-grooming-vrabnitsa637",
+      "name": "North Dog Grooming",
+      "kind": "existing_point_only",
+      "neighborhood": "Връбница 2",
+      "category": "pets",
+      "address": "София, ж.к. Връбница 2, бл. 637, до паркинга на Северен парк",
+      "website": "https://sites.google.com/view/northdoggrooming",
+      "contact": "https://sites.google.com/view/northdoggrooming/контакти",
+      "booking": {
+        "kind": "phone",
+        "phone": "+359898776598"
+      },
+      "point": {
+        "method": "first_party_coordinates",
+        "latitude": 42.738087,
+        "longitude": 23.297335
+      },
+      "mapIdentityEvidence": {
+        "ownerEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d93772.09102353854!2d23.214934255276205!3d42.738057465836285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa91005f3da6d3%3A0xea9cf2af8944741c!2sNorth%20Dog%20Grooming!5e0!3m2!1sen!2sbg!4v1757277123943!5m2!1sen!2sbg",
+        "markerRecord": "North Dog Grooming, непосредствено преди Северен парк, g.k. Vrabnitsa 2, ж.к. Връбница 2 637 партер, 1231 Sofia",
+        "mapCid": "16905653936978162716",
+        "viewportNotUsed": {
+          "latitude": 42.738057465836285,
+          "longitude": 23.214934255276205
+        },
+        "municipalContextOnly": [
+          "17990",
+          "17991"
+        ],
+        "notes": "The normal unauthenticated public embed returns a separately named marker with the same operator, quarter, complete block and ground-floor premises. Two civic entrance rows corroborate the block only; neither is assigned as the customer entrance. Neither a Google CID nor a place ID is used as a routing target."
+      },
+      "identity": {
+        "beforeRowSha256": "5ec4926af70cc78737c1c8c52a700dda5479a608e98a700cedbcf252ec91d9bf",
+        "afterRowSha256": "e90011a4f4e873f4f7a5d71a24e88ea9b20cc5fe90d89548967a53916bef13b3",
+        "unchangedPricingSha256": "1f00b02f72446764423d6d3f372bf3015ae96b030dd190bb4b9a91448a23096f"
+      }
+    }
+  ],
+  "submittedBookings": 0,
+  "productionWrites": 0
+}

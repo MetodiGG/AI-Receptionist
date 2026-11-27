@@ -7,6 +7,7 @@ import { fileURLToPath } from 'node:url'
 import receipt from './fixtures/public-first-load-optimization-approval.json' with { type: 'json' }
 import { publicFirstLoadAllowsFileChange, publicFirstLoadPriorSource } from './public-first-load-optimization-scope.mjs'
 import { locationActionFitAllowsFileChange } from './public-location-action-fit-scope.mjs'
+import { approvedCatalogueMatches } from './catalogue-only-release-scope.mjs'
 
 test('only image scheduling and native discovery reads change; no new production file, setting, data, design or booking files', async () => {
   const root = fileURLToPath(new URL('../', import.meta.url))
@@ -18,7 +19,7 @@ test('only image scheduling and native discovery reads change; no new production
   assert.deepEqual(Object.keys(receipt.changed), expected)
   const actual = [...new Set([...paths(git('diff', '--name-only', '--no-renames', '-z', receipt.baseline, '--')),
     ...paths(git('ls-files', '--others', '--exclude-standard', '-z'))])].filter(path =>
-      expected.includes(path) || !locationActionFitAllowsFileChange(path)).sort()
+      expected.includes(path) || (!locationActionFitAllowsFileChange(path) && !approvedCatalogueMatches(path))).sort()
   assert.deepEqual(actual, expected)
   for (const [path, { before, after }] of Object.entries(receipt.changed)) {
     const url = new URL('../' + path, import.meta.url), stat = await lstat(url)

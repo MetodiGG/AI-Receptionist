@@ -1,0 +1,34 @@
+{
+  "checkedOn": "2026-11-27",
+  "source": "Built-in image generation; generated illustrations, not source photography or images of actual premises. Visually checked all seven, including crops; no source media or business logos.",
+  "assets": [
+    {
+      "path": "public/business-cover-photos/go-clean-carpet-smirnenski-20261127-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Landscape 4:3 illustrative cover for a home-services marketplace. A rolled rust and cream woven rug across the center of a clean receiving counter, with two more subtly visible rolled carpets behind it. Low side angle; fiber texture and fringed edge, a softly lit simple flooring workshop suggested through a shallow depth of field, warm realistic daylight. Generic invented scene, not a particular storefront. No people, lettering, signage, logos, AI watermark or graphics. Natural colors, no gloss."
+    },
+    {
+      "path": "public/service-photos/go-clean-carpet-washing-20261127-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Square generic service illustration for machine washing rugs, clear at 180 px: from overhead a black and blue commercial extraction tool with clear nozzle lifts a narrow line of suds on a sage and graphite geometric flat rug; a small natural wet/dry boundary, clean light gray washable work floor visible. Authentic fiber and hardware, realistic working daylight; no people, text, signage, logos or watermark. Imaginary workspace, no implication of real provider photo."
+    },
+    {
+      "path": "public/business-cover-photos/go-veda-junior-stefan-karadzha-20261127-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Landscape 4:3 stock-style concept image for children learning contemporary dance, an anonymous small primary-age group in regular loose warm-colored class clothes, all backs to camera, seen from rear corner in a simple daylight dance studio, with space between children, reaching naturally in one direction following an adult instructor seen from back. Full bodies grounded on hardwood, understated natural color, candid action. Made-up room and people, no recognizable faces, signage, logos, text, graphics, pointe shoes or watermark."
+    },
+    {
+      "path": "public/service-photos/go-veda-junior-modern-ballet-20261127-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Square service picture for a children's modern ballet and contemporary dance class. Low eye height from knee level, close focus on two pairs of moving feet and lower legs in simple practice leggings and flat soft dance slippers, a graceful grounded modern-dance weight transfer, subtly scuffed honey wood floor, side window daylight and soft cream background well out of focus. Generic invented scene no faces, pointe shoes, tutu, name, signage, text, logo, graphics or watermark. Sharp enough for a small service tile."
+    },
+    {
+      "path": "public/business-cover-photos/go-kotev-dental-mladost1a-20261127-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Landscape 4:3 editorial illustration for a dentist listing, generic not a known clinic. Close still life of an enamel anatomy display and the edge of a softly defocused warm dark gray dentist chair, with daylight wash from the side. Center the distinctive cream tooth model on clear stand against a muted olive accent; quiet intentional framing and honest materials. No people, text, logo, signage or watermark. Should read in the marketplace thumbnail."
+    },
+    {
+      "path": "public/service-photos/go-kotev-dental-exam-20261127-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Square illustration for a routine dental checkup. Side view of an opened hygienic instrument tray, with a steel dentist mirror and angled examination probe in crisp focus on a pale blue textured wrap; a sleeve cuff at the far edge, window highlights, no patient. Subject large near center, recognizable at 180px. Clinical but warm natural light. Generic not a real dentist or real clinic; no text, labels, brands or watermark."
+    },
+    {
+      "path": "public/service-photos/go-kotev-dental-filling-20261127-v1.webp",
+      "prompt": "Use case: photorealistic-natural. Square illustrative photograph for a simple tooth-colored filling, not a real patient. Authentically shaped white training molar on a dental typodont with neighboring smooth teeth; focused close-up of a dental blue curing light tip next to the occlusal surface, blue light understated, warm gray background, no mouth or person, no gore. Distinguish from a white mirror or routine checkup photo. Photographic depth and real material texture. No brands, text, watermark or invented clinic identity."
+    }
+  ]
+}

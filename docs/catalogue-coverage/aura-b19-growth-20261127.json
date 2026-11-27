@@ -1,0 +1,81 @@
+{
+  "reviewedOn": "2026-11-27",
+  "baseCommit": "5377802e2318c1df76d792a6c5a9fbc68a28c614",
+  "scope": "Local catalogue only: one new verified Sofia educational venue and the precise public visit point of one existing grooming salon. No native booking, calendar, customer data, production change or new image file.",
+  "newDistinctBusinesses": 1,
+  "coverage": {
+    "targetPerQuarterCategory": 30,
+    "checkedCells": 1750,
+    "sourceRecords": [1811, 1812],
+    "approvedSofiaBusinesses": [1785, 1786],
+    "premisesWithBoundPoint": [1041, 1043],
+    "emptyPhysicalCells": [1241, 1240],
+    "emptyLocatedCells": [1323, 1321],
+    "locatedCellsAtTarget": [0, 0],
+    "deltas": [
+      { "neighborhood": "Зона Б-19", "category": "education", "physical": [0, 1], "located": [0, 1] },
+      { "neighborhood": "Бояна", "category": "pets", "physical": [1, 1], "located": [0, 1] }
+    ]
+  },
+  "verified": [
+    {
+      "id": "sofia-aura-music-stamboliyski175",
+      "name": "Детска музикална школа · НЧ „Аура“",
+      "neighborhood": "Зона Б-19",
+      "category": "education",
+      "kind": "new_entity",
+      "address": "София, ж.к. Зона Б-19, бул. Александър Стамболийски 175",
+      "phone": "+359887606886",
+      "booking": "https://aura-bg.com/novina/zapisvane-za-novata-2026-2027-uchebna-godina",
+      "contact": "https://aura-bg.com/kontakti",
+      "tariff": "https://aura-bg.com/detska-muzikalna-shkola",
+      "publicRegistry": "https://chitalishta.com/community/2919/863",
+      "publicRegistryId": "000671330",
+      "price": { "amount": 90, "currency": "EUR", "unit": "месечна такса" },
+      "conditions": "Piano, violin, or singing as the chosen individual discipline; the monthly tuition also includes weekly group solfège and basic music theory. The private lesson duration depends on age (30 or 45 minutes). School year is 15 September to 15 June and the school publishes an enrolment contact. No individual appointment, availability or separate price for private solfège was claimed.",
+      "point": { "latitude": 42.7000719, "longitude": 23.2988115, "method": "first_party_coordinates" },
+      "locationEvidence": "The actual named destination in the public map linked by the owner, with the same venue, postcode and complete №175 address; map centre is 42.70025597916548,23.296615415644986 and was not used. The municipal civic export corroborates №175 at four different entrances (RN46881, RN47026, RN47035, RN47068). No municipal entrance letter was assigned to the school.",
+      "illustrations": {
+        "cover": "/business-cover-photos/activity-piano-lesson-v1.webp",
+        "service": "/service-photos/sx-music-classical-equipment-v1.webp",
+        "disclosure": "Approved general illustrations with distinct scenes, not photographs of the venue or enrolled children."
+      }
+    },
+    {
+      "id": "sofia-bo-bella-grooming",
+      "name": "Bo & Bella",
+      "neighborhood": "Бояна",
+      "category": "pets",
+      "kind": "existing_point_only",
+      "address": "София, кв. Бояна, ул. Маринковица 29",
+      "contact": "https://groomingsofia.com/контакт/",
+      "point": { "latitude": 42.6580355, "longitude": 23.2688201, "method": "first_party_coordinates" },
+      "locationEvidence": "The owner's contact page links the business's named map record with street No. 29. Its actual marker differs from the map viewport and both municipal entrance points (RN8627 and RN101059). The unchanged owner address is not assigned an entrance or unit number. The update only applies to the existing unbound, matching address, phone and booking record."
+    }
+  ],
+  "held": [
+    {
+      "neighborhood": "Бояна",
+      "category": "education",
+      "name": "Езиков център АТИКА",
+      "evidence": ["https://attica.bg/contact", "https://attica.bg/learn-greek/prices", "https://attica.bg/website-terms-conditions"],
+      "reason": "The branch and enquiry path match the school, but the site's explicit prior-consent condition is unresolved. No price, service copy, asset or record imported."
+    },
+    {
+      "neighborhood": "Левски В",
+      "category": "auto_repair",
+      "name": "Комплекс Летоструй",
+      "evidence": ["https://rta.government.bg/upload/18637/all-valid-permits.html", "https://business.google.com/v/_/013786892921714770715/8a2b/_/lp/"],
+      "reason": "Active inspection permit №1573 and operator identity at full street No. 73 corroborated. The available third-party offer is a prepaid voucher; a reusable direct tariff or complete verified direct service menu was not established. Still an empty cell."
+    },
+    {
+      "neighborhood": "Зона Б-5",
+      "category": "car_wash",
+      "name": "Wash Depot · Mall of Sofia",
+      "evidence": ["https://washdepot.bg/", "https://mallofsofia.bg/store/wash-depot/"],
+      "reason": "The venue and floor match, but branch service prices and date/time flow require an app account. No public price or independently verified direct appointment fallback; not treated as an unpublished tariff."
+    }
+  ],
+  "submittedBookings": 0,
+  "productionWrites": 0
+}

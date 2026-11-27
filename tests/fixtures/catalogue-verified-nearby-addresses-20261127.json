@@ -1,0 +1,73 @@
+{
+  "baseline": "7030fa84dbb46ad1dc75be00c0373b6fa22593be",
+  "records": [
+    {
+      "id": "sofia-noxic-beauty",
+      "before": "bd8b26e9bcc2b6c48726d473ebd0ba846fb8e1d140f8144e5d6105a262dde13f",
+      "after": "49943723de6587a230392dcead1d62a3fa3a89163d1fb21514d706ac6f60037f",
+      "previous": {
+        "coordinates": null
+      }
+    },
+    {
+      "id": "sofia-new-dental-solutions",
+      "before": "9f0fe678092c14cfa5613545901b5becec1c810b129fa9c31daaa41579399706",
+      "after": "d7d15818d43b4d8bdde741349c2f065209e2ff28329e8c21eda318302c9c3888",
+      "previous": {
+        "coordinates": null
+      }
+    },
+    {
+      "id": "sofia-vasilevi-nadezhda3-driving",
+      "before": "4c7adcf8ebda6b8607fa1ceb70f90fe95856f6ac962b8b9bcbf20bb31e41420d",
+      "after": "6b2268e4ff5ba82c94896ecbb7057af495859bcace0115a4f1dd070144881d3f",
+      "previous": {
+        "coordinates": null
+      }
+    },
+    {
+      "id": "sofia-hairstyle-maya-nguen-druzhba194g",
+      "before": "c10d8918ab798c55b6f8a1fd185e48d5ab624019e73a3fd3540c92fed25e521f",
+      "after": "c7334ae61073a6e6c55e5d25d77ed211d3c7c330f54d7ec94188685ec92c9d89",
+      "previous": {
+        "coordinates": null
+      }
+    },
+    {
+      "id": "sofia-beauty-hub35-poligona",
+      "before": "dfa6d2548b5d6b574ff9f27a37a8a3aa10fa3b3e1e56facb543eeff852405b9c",
+      "after": "23e631e02c542544787520afe4686e9fd4f4987f1cfb33a0811fe336049fb2a7",
+      "previous": {
+        "coordinates": null
+      }
+    },
+    {
+      "id": "sofia-miracle-barber-obikolna275",
+      "before": "6743dfa9db7317f84442f3ce36c98de4893d54d51d9f9776827378804b4d1ee8",
+      "after": "e352d2f179a66384f05e17e85a69ce4ab56d197ec94bc8f576217bdf5c2e28da",
+      "previous": {
+        "coordinates": null
+      }
+    },
+    {
+      "id": "sofia-max-international-lyulin-petar-bonev4",
+      "before": "8a38d00837f8a4b512aeebb3eba3bb89a3d59a33b6aa48e05070ac47ee49e05f",
+      "after": "d52e66ba4b2227ebf8067b78175b1fcad95192f1fd233b17bfe2ecc7c33b3a27",
+      "previous": {
+        "coordinates": null,
+        "neighborhood": "Люлин",
+        "address": "София, ж.к. Люлин, ул. Петър Бонев 4, вход откъм ул. 309-та"
+      }
+    }
+  ],
+  "changed": {
+    "lib/discovery/sofia-catalogue.mjs": {
+      "before": "dda48c2cc151e6d53a15b3cf447850debc8cc1b1e6aa22bc95f6b94b30c2a187",
+      "after": "4d262296d96a46840b36055b9a496d069de338256faf5564f70bc79cfa1f193e"
+    }
+  },
+  "added": {
+    "docs/catalogue-coverage/verified-nearby-addresses-20261127.json": "5d78183e41acf3727e13f6eec0e342ee33cf1d24aeae3118ab1c4f05414fa051",
+    "lib/discovery/catalogue-data/sofia-address-points-nov27.mjs": "9949703a68acab62d292b85973a44acf42e3d6d31d527a91ca798d1ab52bb4e0"
+  }
+}

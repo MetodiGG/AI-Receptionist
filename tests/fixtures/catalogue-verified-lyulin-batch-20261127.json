@@ -1,0 +1,35 @@
+{
+  "baseline": "de3e0724cdd111a0b0ac57aaf911624d1b2071bb",
+  "records": [
+    {
+      "id": "sofia-solema-lyulin3-block348",
+      "sha256": "98d965d391de81026240a8a7c66c9758a75e2d0cda8583c10526e9c0c588b759"
+    },
+    {
+      "id": "sofia-alice-academy-lyulin3-block389",
+      "sha256": "928ec20db0105a4706cf939a90e838f78e585cebb90829cf633007ef2395bd16"
+    }
+  ],
+  "changed": {
+    "lib/catalogue-service-photo-keys.mjs": {
+      "before": "9982ee44e19e16d38292e29c13f0985aca1f357d344146105a2b48a63be48b02",
+      "after": "fe7ff357d070968d289c416ac13b3efa58c120981033477a84b99a2ca02a8218"
+    },
+    "lib/discovery/catalogue-data/pricing-booking-review-v1.mjs": {
+      "before": "c187a03f9d94200dfc188869e1e5c96791bf583f8b2bcc12539144a2b8d4e1cd",
+      "after": "c62c08b2901597e10c70f20125c1d673d8009ed66fd65123e5b7487daa93f1f0"
+    },
+    "lib/discovery/sofia-catalogue.mjs": {
+      "before": "30330949e249a8cb26cda240a8d24cc6a427ceefdc6d864508b463505724c26a",
+      "after": "409f57ee20bd31e18de852cd673a9eb29d16d26392f6b12b1921bf371707e550"
+    },
+    "lib/locale/service-english.json": {
+      "before": "d6d79aa3956cebd436fed1a59e075627dcc265619955b40029aaa660216c4c67",
+      "after": "5fa41559e7e352b15e45b6321ccd51599e0df1be9ed50af82c54651c929f18ad"
+    }
+  },
+  "added": {
+    "docs/catalogue-coverage/verified-lyulin-batch-20261127.json": "148d82abf463697fe156c186f412fa8f9592e3f77f8e1daa002ef869e9a0b3af",
+    "lib/discovery/catalogue-data/neighborhood-verified-lyulin-batch-20261127.mjs": "79fac169989cc0dbe8d3738139bfd11260506de63f78a45cedf11584f694ab85"
+  }
+}

@@ -14,6 +14,7 @@ import { serviceDetailPhotoCoverageAllowsPath } from './service-detail-photo-cov
 import { servicePhotoMarkerAllowsFileChange } from './service-photo-marker-20261126-scope.mjs'
 import { serviceDetailPhotoExpansionAllowsNewFile } from './service-detail-photo-expansion-20261126-scope.mjs'
 import { dialogPrimaryDarkContrastAllowsFileChange } from './dialog-primary-dark-contrast-20261126-scope.mjs'
+import { publishedBaseline, releaseRuleMatches } from './catalogue-only-release-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const sha = bytes => createHash('sha256').update(bytes).digest('hex')
@@ -41,14 +42,21 @@ test('the standing expiry policy authorizes exactly its eight current paths and 
     && !posterGlassAllowsFileChange(path) && !posterPolishAllowsFileChange(path) && !posterPolishAllowsNewFile(path))
   assert.deepEqual(runtimePaths.sort(), [...changedPaths, ...addedPaths].sort())
   for (const [path, { before, after }] of Object.entries(receipt.changed)) {
-    const current = discoveryPerformancePriorSource(path, await readFile(new URL('../' + path, import.meta.url)))
+    let current = discoveryPerformancePriorSource(path, await readFile(new URL('../' + path, import.meta.url)))
+    const standingRuleSuccessor = path === 'AGENTS.md' && sha(current) !== after
+    if (standingRuleSuccessor) {
+      // The old receipt does not authorize a later rules file. Verify the exact
+      // new release rule separately, then replay the pinned historical bytes.
+      assert.equal(releaseRuleMatches(path), true, path)
+      current = git('show', publishedBaseline + ':' + path)
+    }
     const original = git('show', receipt.baseline + ':' + path)
     assert.notEqual(before, after, path)
     assert.equal(sha(original), before, path)
     assert.equal(sha(current), after, path)
-    assert.equal(catalogueExpiryAllowsFileChange(path), true, path)
+    assert.equal(catalogueExpiryAllowsFileChange(path), !standingRuleSuccessor, path)
     assert.equal(catalogueExpiryAllowsNewFile(path), false, path)
-    assert.equal(catalogueExpiryMatchesPriorHash(path, before), true, path)
+    assert.equal(catalogueExpiryMatchesPriorHash(path, before), !standingRuleSuccessor, path)
     assert.equal(catalogueExpiryMatchesPriorHash(path, after), false, path)
     assert.deepEqual(catalogueExpiryPriorSource(path, current), original, path)
     assert.equal(catalogueExpiryPriorSource(path, current.toString('utf8')), original.toString('utf8'), path)

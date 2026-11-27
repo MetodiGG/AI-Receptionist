@@ -5,7 +5,7 @@ import { readFile } from 'node:fs/promises'
 import supplemental from '../lib/discovery/catalogue-data/supplemental-expansion-v2.mjs'
 import originalSport from '../lib/discovery/catalogue-data/auto-sport-home-expansion.json' with { type: 'json' }
 import legacyPrices from '../lib/discovery/catalogue-data/pricing-review-baseline-20261110.json' with { type: 'json' }
-import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
+import { SOFIA_CATALOGUE as liveCatalogue } from '../lib/discovery/sofia-catalogue.mjs'
 import { BOOKING_PRICE_REVIEWS } from '../lib/discovery/catalogue-data/pricing-booking-review-v1.mjs'
 import { catalogueRecordSchema, approvedCatalogueRecord } from '../lib/discovery/catalogue-policy.mjs'
 import { catalogueBoundCoordinates, applyCatalogueCoordinateBindings } from '../lib/discovery/catalogue-coordinate-binding.mjs'
@@ -16,9 +16,13 @@ import { catalogueCoverageReport } from '../scripts/catalogue-coverage-report.mj
 import { businessMapsDirectionsUrl } from '../lib/business-directions.mjs'
 import { cataloguePublicLocation } from '../lib/discovery/catalogue-public-location.mjs'
 import { OFFICIAL_SOFIA_SOURCE_URL, OFFICIAL_SOFIA_ATTRIBUTION } from '../lib/discovery/official-sofia-address-source.mjs'
+import { lateOwnerPointsPriorCatalogue } from './catalogue-verified-owner-civic-points-20261127-scope.mjs'
 
 const now = Date.parse('2026-11-16T12:00:00Z')
 const hash = value => createHash('sha256').update(JSON.stringify(value)).digest('hex')
+// This receipt predates the independently sealed Vayasport branch point.
+// Undo the later exact receipts, not unknown edits or altered address fields.
+const SOFIA_CATALOGUE = lateOwnerPointsPriorCatalogue(liveCatalogue)
 const record = id => SOFIA_CATALOGUE.find(row => row.id === id)
 // Captured before the two source changes in research-quarter-recovery-016.
 // Restoring only the old quarter fields must reproduce the entire old record.

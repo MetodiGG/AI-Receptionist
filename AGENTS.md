@@ -41,3 +41,18 @@ dated review bound to their exact service inventory. Do not refresh the legacy
 baseline or review fingerprints to bypass that gate. Keep newly reviewed price
 qualifications in the public service description. Run `pnpm catalogue:check`,
 the pricing Python tests, `pnpm test` and `pnpm build` before handoff.
+
+## Production publishing
+
+Owner's standing instruction: „Публикувай промените дотук, внимавай да не
+промениш дизайна, функционалността и настройките на сайта.“ Apply it to every
+production release. Publishing authorizes only the changes the owner approved
+for that release. Use the actual deployed revision as the base, review the
+complete release diff against that revision, and keep unrelated local work out.
+
+Do not change the design, existing features, configuration, reservations,
+calendars or credentials unless the owner separately and explicitly asks.
+Verify the exact release with the relevant tests and a preview before moving
+the production branch. After deploy, check the public domain without creating
+bookings, payments, notifications or edits. If the live or release base moved,
+recheck the full diff instead of overwriting it.

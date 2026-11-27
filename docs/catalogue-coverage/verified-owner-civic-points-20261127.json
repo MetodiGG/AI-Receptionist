@@ -1,0 +1,64 @@
+{
+  "checkedOn": "2026-11-27",
+  "baseCommit": "807121713ee452a2a4fdd100b32a0d9a87653ad4",
+  "scope": "Location-only corrections for three existing currently approved Sofia premises. Two owner-published Motopista points and the municipal civic point and corroborated Serdika neighborhood of Kuhnia.bg. Display addresses, identity, services, prices, verification, external booking links, booking and calendar logic, and photographs are unchanged.",
+  "newDistinctBusinesses": 0,
+  "municipalSource": {
+    "url": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "attribution": "ГИС София / Столична община",
+    "licence": "CC-BY-4.0",
+    "csvSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+    "use": "Exact civic address point for Kuhnia.bg and geographic comparison for the two owner-published Motopista points. No unrelated civic point, map viewport, or inferred entrance is used."
+  },
+  "coverage": {
+    "targetPerQuarterCategory": 30,
+    "checkedCells": 1750,
+    "sourceRecords": [1806, 1806],
+    "approvedSofiaBusinesses": [1780, 1780],
+    "premisesWithBoundPoint": [1030, 1033],
+    "emptyPhysicalCells": [1246, 1245],
+    "emptyLocatedCells": [1333, 1330],
+    "physicalDeltas": [["Сердика", "consulting", 0, 1]],
+    "locatedDeltas": [
+      ["Мотописта", "fitness", 0, 1],
+      ["Мотописта", "education", 0, 1],
+      ["Сердика", "consulting", 0, 1]
+    ]
+  },
+  "verified": [
+    {
+      "id": "sofia-vayasport",
+      "neighborhood": "Мотописта",
+      "address": "София, бул. Гоце Делчев 98, Бизнес Център АЗИМУТ",
+      "evidenceUrls": ["https://vayasport.bg/kontakti/", "https://vayasport.bg/grafik/", "https://vayasport.bg/pilates-reformar-lagera/", "https://portal.registryagency.bg/CR/api/Documents/010b01b92f034676a4d1955d91b580dd"],
+      "method": "first_party_coordinates",
+      "point": { "latitude": 42.6713439, "longitude": 23.2948807 },
+      "basis": "The owner contact page publishes its explicit GeoCoordinates and the owner schedule agrees on the named Azimut Business Centre, Motopista and boulevard No. 98, matching the public building address. The owner also indicates floor 9. The municipal CSV's similarly named street No. 98 is in a different neighborhood and is not used. Neither a door point nor a floor-specific route is claimed."
+    },
+    {
+      "id": "sofia-prestige-motopista-vaccarini7a",
+      "neighborhood": "Мотописта",
+      "address": "София, кв. Мотописта, ул. Риккардо Ваккарини 7А, вход откъм ул. Славовица",
+      "evidenceUrls": ["https://www.prestige.bg/contacts", "https://www.prestige.bg/zapisvane-deca-angliiski", "https://www.prestige.bg/angliiski-1-3-klas"],
+      "method": "first_party_coordinates",
+      "point": { "latitude": 42.6659471, "longitude": 23.2958447 },
+      "basis": "The Motopista branch line on the owner contact page gives 7А and access from Slavovitsa and selects a named Prestige school map destination. The route uses that destination, not the map viewport or a place identifier. Municipal rows RN102255–RN102257 independently place civic No. 7 and describe three distinct entrances. The operator's route does not establish which municipal entrance letter to assign, so the original display address is preserved."
+    },
+    {
+      "id": "sofia-kuhnia-bg-geshov2e",
+      "neighborhood": "Сердика",
+      "address": "София, бул. Акад. Иван Гешов 2Е, Бизнес център Сердика, сграда 3.2, ет. 1, офис 112-А",
+      "evidenceUrls": ["https://kuhnia.bg/contacts/", "https://kuhnia.bg/enquiry/meeting/", "https://www.bcserdika.bg/index.php/bg/lokatziya", "https://services.speedy.bg/officesmap_v2/?id=65&lang=bg", "https://gtr.bg/bg/contacts/"],
+      "method": "verified_official_address",
+      "point": { "addressId": "99208", "latitude": 42.691566, "longitude": 23.295101 },
+      "basis": "The studio supplies the full visit address including suffix 2Е, building 3.2, floor 1 and office 112-А. The centre confirms civic No. 2Е; independent tenant office pages at the same complex identify neighborhood Сердика. Administrative district Възраждане in municipal RN99208 is compatible with that neighborhood, not its replacement. The point serves the civic complex, not the studio door or alternate parking entrance. The existing phone booking remains unchanged."
+    }
+  ],
+  "held": [
+    { "id": "sofia-cultural-language-centre-kiril-botev3a", "reason": "Owner confirms its address ending in 3А; its map embed supplies an address identifier and a viewport, not a precise branch point. The public civic data separates No. 3 by entrances. Do not infer that entering municipal entrance А is the same as the owner's 3А." },
+    { "id": "sofia-tsg-accounting-kriva-reka", "reason": "Owner confirms boulevard 53–55, office 213. The public civic export has distinct points for 53 and 55 and no verified visitor entry to the office. The embedded viewport is not a replacement." }
+  ],
+  "providerApiRequests": 0,
+  "submittedBookings": 0,
+  "productionWrites": 0
+}

@@ -1,0 +1,100 @@
+{
+  "baseline": "73679f1c49ba303abc310f6d85e3f8f138bc95e8",
+  "changed": {
+    "lib/catalogue-service-photo-keys.mjs": {
+      "before": "caba3080482073f6b8e1757d1abb7e210f2495b7004041f869afde696f022160",
+      "after": "adc4c4a1fec4e2870bdc707c16741830440047df1ec0dac154796a48d75171a7"
+    },
+    "lib/discovery-photo-ownership.json": {
+      "before": "f47cc38bca078618d99cb4f6a88f3f903f23742bd1bb0036e78ae1a4b1c4fb24",
+      "after": "b69e040a0f9edc8d4c78ac03f4aa085b80f98c8d7d030b8c15fc0c985e89633c"
+    },
+    "lib/discovery/catalogue-data/pricing-booking-review-v1.mjs": {
+      "before": "c67ec922b0efbcb5ae85ee22f1d4c3360c310f00491d62bd9ac28153b8cfe262",
+      "after": "b4abfafc4e43286525ae3a897272d07a3e00a2ed4bc70ff7d20d23c1e8b40055"
+    },
+    "lib/discovery/sofia-catalogue.mjs": {
+      "before": "c35b7cd4083cf29a10461b985ce14b09c1a0b4b19653fa3d6b9271a43cf3c988",
+      "after": "03f19c8ca5ef5ddbe1d068ac3a5b56ca8c6df5ddca393c4e2e980d1002eb414b"
+    },
+    "lib/locale/service-english.json": {
+      "before": "8e3faaaab7d0294937751807452d17e48d01c1a7219a801c795aa3342b8ca764",
+      "after": "58e24fae091514298fda390a2ec630efe5705350331351d86f42c8db8fa76016"
+    },
+    "lib/public-business-cover-photo.mjs": {
+      "before": "3c0282fe93f871fe94cbb4c77f7660208b3eede8594f03673a80fc435234fb0e",
+      "after": "523dd0b91b50fb22d4858cab82df42ab6e94e479c0948f9fa179f52be3089735"
+    },
+    "lib/specific-service-photo-ids.mjs": {
+      "before": "492b8d85184f035f9f0eff0c2950e7085108e7b0e3d4df6cfb56f1b8d7391206",
+      "after": "5bdeef07b84a733b360c5575288e90f4c3b30edbd5e9aca0f2c912dab82c13eb"
+    }
+  },
+  "added": {
+    "docs/catalogue-coverage/darita-iztok-20261127.md": "b22b2e15db3b13f37485f50072b9fc0bedb1502be91239997a154af095954d04",
+    "docs/catalogue-coverage/hadzhi-bakston-visit-points-20261127.md": "d64b91e809cbda511e6467a8d6bf8e25ae443892009476c4ac586033ac677136",
+    "docs/catalogue-coverage/soma-zapaden-park-20261127.md": "de83eb3a582cf08519d077223f02f17c3182d2564723da6d895e10da2e8bca20",
+    "docs/catalogue-coverage/tino-hladilnika-20261127.md": "1de40976a5a388304b864c6273fb18a70e6b93e5af3dba4cbf88d8c700d70b5c",
+    "lib/discovery/catalogue-data/neighborhood-verified-darita-iztok-20261127.mjs": "20b7a3266d2c7412e33a58d3928655446611e0183ff6b07d52c6d4d687c9b858",
+    "lib/discovery/catalogue-data/neighborhood-verified-soma-zapaden-park-20261127.mjs": "01f6d9d826e607ebce71a190a0795252043ab7179eb8e6b72a69e9e29c67be3b",
+    "lib/discovery/catalogue-data/neighborhood-verified-tino-hladilnika-20261127.mjs": "44c2f6eec60d604a6c7898a13e54b088cf39c93dd620b33d040d22eb7ec21773",
+    "lib/discovery/catalogue-data/verified-hadzhi-bakston-visit-points-20261127.mjs": "160cdbd702685e331945dd1fdcd125992feebbde1355a0ed36412ec030057645",
+    "public/business-cover-photos/go-darita-iztok-20261127-v1.webp": "149d62d19bfa602f7cfc8b17cc38ad233548618e5f6e7331499f4f1f92195581",
+    "public/business-cover-photos/go-soma-zapaden-park-20261127-v1.webp": "7a4b2a87601d5f9084cf657f8ea00faf5b65f01032b2fec6d724b6fd377e3fee",
+    "public/business-cover-photos/go-tino-hair-hladilnika-20261127-v1.webp": "514678b3e5afbc5d7bba8077a77e177eba3c247313066971d2d525d43123098e",
+    "public/service-photos/go-darita-children-group-drawing-20261127-v1.webp": "be3fa082e3a6d780135255e5712447d85bb317473c00e4249b5f7a6a55c4a58b",
+    "public/service-photos/go-darita-children-private-drawing-20261127-v1.webp": "993193da8c68a267192426cd4a1b55f04abd1668ad214f644ce63c0fdce5b00a",
+    "public/service-photos/go-soma-relaxation-massage-20261127-v1.webp": "d8a363a7698db2af04e0b6b7013f4615c65601ad8fd9a51217dceec2f5018b79",
+    "public/service-photos/go-tino-mens-haircut-20261127-v1.webp": "ba8482ad98e6088a8baeb07f105f4a20dc6ea7e10ed8fd8277f76c9342483e6d"
+  },
+  "records": [
+    {
+      "id": "sofia-soma-masazhi-zapaden-park-block5b",
+      "sha256": "fde2c1c4e04180a9ec6a1bc86779110d74274088017cb9320741596c7cbe955f"
+    },
+    {
+      "id": "sofia-darita-iztok-lachezar-stanchev5",
+      "sha256": "63f5cd233948f5fe692963d0a19612770a35dde21b9f6b712ad23c08cae42caf"
+    },
+    {
+      "id": "sofia-tino-hair-hladilnika-paradisecenter100",
+      "sha256": "0d33748a4f3e262011b2c8c1c70c911d28574a0d25bfc790b6402620a5aebcca"
+    }
+  ],
+  "updates": [
+    {
+      "id": "sofia-university-champions-hadzhi-dimitar135a",
+      "before": "db3110ea726b16ed732939833a908a2f4de4d72aea55bb0775eaa4655aa7c8d7",
+      "after": "d8ddcd2039d4668053267c9f3557aa1208eebcbf7be9553dc2dafa67ca934dfb",
+      "original": {
+        "address": "София, ж.к. „Хаджи Димитър“ 135А",
+        "neighborhood": null,
+        "coordinates": null
+      }
+    },
+    {
+      "id": "sofia-tobbys-grooming",
+      "before": "889bf23100c943acb926c5667d7bbd061985ed7c8a581298aa12f1c9d1ff62dd",
+      "after": "0083f70ef331e7b6d40cffa1cae95cc158887afff7e8232c89894208eac53d0d",
+      "original": {
+        "neighborhood": null,
+        "coordinates": {
+          "latitude": 42.669243432355024,
+          "longitude": 23.269613362633972,
+          "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+          "method": "verified_official_address",
+          "sourceAddress": "София, ул. Белмекен 8",
+          "sourceCityCode": "68134",
+          "sourceNeighborhood": null,
+          "sourceWebsite": "https://tobby.bg/",
+          "checkedOn": "2026-11-13",
+          "addressId": "101197",
+          "licence": "CC-BY-4.0",
+          "attribution": "ГИС София / Столична община"
+        }
+      }
+    }
+  ],
+  "baselineCatalogueSha256": "f4b809cac10329998ccb46f8814ee9d3c71427a58304feddbef2e6f1f197586a",
+  "currentCatalogueSha256": "d3cfc47641e7e34fabbecfe4e1aa18ef0945e99db58936acc4bc53d29def9f43"
+}

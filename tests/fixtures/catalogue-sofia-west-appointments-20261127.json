@@ -1,0 +1,73 @@
+{
+  "baseline": "3f54c4c95597b239e6c862c6f010c9b5d662a41e",
+  "changed": {
+    "lib/catalogue-service-photo-keys.mjs": {
+      "before": "59627e1970420aa9db6dd99c7bd49134de74614475f407b76e6e1524b78f77d1",
+      "after": "efe531d1dd789b7af0d34c84306a09e4a0af63bc12b30fe0744fb5e44c7c07fd"
+    },
+    "lib/discovery-photo-ownership.json": {
+      "before": "bd18e2df966acd394ca651d16c619df24fb522d4d3f1dab65eecc26beecd0fcd",
+      "after": "a5de070427261688983cc7513c6229b7c4868add687b564fc4ce49e4a2a79646"
+    },
+    "lib/discovery/catalogue-data/pricing-booking-review-v1.mjs": {
+      "before": "a31ce36df5a298d15f5fe43080eb707ff21800deffaeae45fffcf96e30ce486c",
+      "after": "19a3fb61135c0df20eac080f27a4e99b1d839a8015d1c8ccee78bd13a8754d62"
+    },
+    "lib/discovery/sofia-catalogue.mjs": {
+      "before": "6b84140e290178a21cf6bffcae8a3fb5acb6d00f1a9b8140addbfdf1a0b8e015",
+      "after": "9faf1ec78d415d85490d2d18a8f77ae0857394f23913b808e42f4cf15b0719f0"
+    },
+    "lib/locale/service-english.json": {
+      "before": "919c50cb1150e02772a8cd255e0c74d02e76dff9a25c79ca652b5153f424cd61",
+      "after": "fa550ad244bd4f2a3e9151b4e9a45653b2a420f2c8ce05805250be39b1f79ce6"
+    },
+    "lib/public-business-cover-photo.mjs": {
+      "before": "5d9b83b80e498991040ec5ddea58c9e3997d6f68226141a906881085e8c6ecac",
+      "after": "862b0b040d92bf2aa8ba6f1a7fbc373f5b9c01f2843e358a5e6107edf01ed7fc"
+    },
+    "lib/specific-service-photo-ids.mjs": {
+      "before": "f3aaa25d9b3ad7c7c7372a470bc5eee533f07414e8aeae428359bc1bf7268c7a",
+      "after": "df4d873f3cb444460aebc94ad7a39ef0422f0b8df23faeedb82e7705c92f9c48"
+    }
+  },
+  "added": {
+    "docs/catalogue-coverage/sofia-west-appointments-20261127.md": "1c004c5a98ff36a7067e382d28700270bf14e743d8181a15a047ec9834176b9f",
+    "lib/discovery/catalogue-data/neighborhood-verified-sofia-west-appointments-20261127.mjs": "2b1a478a3dc1ac9de857cd31e19f24cfec5a2cd59a17a114c6ec92a62836611d",
+    "public/business-cover-photos/go-abv-sporten-svyat-mladost1-20261127-v1.webp": "ee9216ed30b3cee39676c606e47d288eae489042caae89d9d0f7eefc8d1730a4",
+    "public/business-cover-photos/go-autolakir-center-moderno-predgradie-20261127-v1.webp": "a9090faca89cc131063b4d4555471918e8f68fa471d8fcd6d76b0615ccee8a04",
+    "public/business-cover-photos/go-boantika-borovo-20261127-v1.webp": "2f292afe4c0e5081667d497479a6c621fb61e78a46128ec420045c416fb28947",
+    "public/business-cover-photos/go-ezdasofia-slavia-20261127-v1.webp": "b0018d484985fb6b1548857f4c93ffc18193516bfe2bee2377466441f8d020e6",
+    "public/business-cover-photos/go-vizio-works-gorna-banya-20261127-v1.webp": "4d3e0d25e53afce58cb2182251610e430d7733f24065eb368dcd351b1ea510ab",
+    "public/service-photos/go-abv-sporten-svyat-mladost1-private-swimming-20261127-v1.webp": "9056000ccf6c4148993027e2bbd29003e8736e58f04dcc1f7141e59bfd1a87f8",
+    "public/service-photos/go-autolakir-center-moderno-predgradie-panel-paint-20261127-v1.webp": "28074d7cd31372587bd743645652d4d4c987557379a7027e05a557f2f13aa930",
+    "public/service-photos/go-boantika-borovo-study-room-20261127-v1.webp": "a405878b2e7a54ec727bc059b03dbc0acc61282914a0e5ec49f02d16278e9a73",
+    "public/service-photos/go-ezdasofia-slavia-private-lesson-20261127-v1.webp": "93f8b6140b77b1a66e29daf67e437730c1769125be0421e9dd6963a075d169ad",
+    "public/service-photos/go-vizio-works-gorna-banya-tyres-16-17-20261127-v1.webp": "6ff21d5bd4869b885e21cd76de37d95210ccf329879a39f38844240596135bf2"
+  },
+  "records": [
+    {
+      "id": "sofia-boantika-borovo-sveta-marina46",
+      "sha256": "489f6eb4d060659c9889c52b1c778528890e7ac32fea7ffc8f6f79f2582aed14"
+    },
+    {
+      "id": "sofia-vizio-works-gorna-banya-boycho-boychev81",
+      "sha256": "37377364d787c93513590390ef8ec691f7c5e5547890ae29ca16465ceec0d8d9"
+    },
+    {
+      "id": "sofia-autolakir-center-moderno-predgradie-mickevich61",
+      "sha256": "4ac9248d49110bcb52bb2320dc2cc643cb8976e4d3e158c44c77d33f37ca5073"
+    },
+    {
+      "id": "sofia-ezdasofia-slavia-haydushko-izvorche28",
+      "sha256": "c5787f14e25691f795a5f61118f4c340108c0603ab731681d41d135eb91e1336"
+    },
+    {
+      "id": "sofia-abv-sporten-svyat-mladost1-dospevski9",
+      "sha256": "cf8f0777684a61ed9dce7e04f1bcf96ac21b4c884611ffc89a3f359452362a38"
+    }
+  ],
+  "catalogue": {
+    "before": "53906bb8cf3ccaca84ec560111e2492ddd280fc356f069d170781bbbb8018b63",
+    "after": "007da05a46c960493cb974ac3c1ccd0f19e5484807a10c56e87197ffded94cf4"
+  }
+}

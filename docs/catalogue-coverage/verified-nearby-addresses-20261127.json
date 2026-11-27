@@ -1,0 +1,107 @@
+{
+  "checkedOn": "2026-11-27",
+  "baseCommit": "7030fa84dbb46ad1dc75be00c0373b6fa22593be",
+  "newDistinctBusinesses": 0,
+  "scope": "Location-only changes for seven existing approved Sofia premises. No approval, expiry, booking, service, pricing or photo data changed. Nothing published.",
+  "municipalSource": {
+    "url": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "attribution": "ГИС София / Столична община",
+    "licence": "CC-BY-4.0",
+    "csvSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef"
+  },
+  "coverage": {
+    "targetPerQuarterCategory": 30,
+    "checkedCells": 1750,
+    "approvedSofiaBusinesses": [1776, 1776],
+    "premisesWithBoundPoint": [1019, 1026],
+    "emptyLocatedCells": [1346, 1338],
+    "emptyPhysicalCells": [1251, 1251],
+    "locatedDeltas": [
+      ["Дружба 1", "hair", 0, 1],
+      ["Дружба 2", "barber", 0, 1],
+      ["Дружба 2", "hair", 0, 1],
+      ["Дружба 2", "nails", 0, 1],
+      ["Люлин 3", "education", 3, 4],
+      ["Надежда 3", "education", 0, 1],
+      ["Надежда 3", "other", 0, 1],
+      ["Полигона", "barber", 0, 1],
+      ["Полигона", "hair", 0, 1]
+    ]
+  },
+  "verified": [
+    {
+      "id": "sofia-hairstyle-maya-nguen-druzhba194g",
+      "neighborhood": "Дружба 1",
+      "address": "София, ж.к. Дружба 1, бл. 194, до вх. Г",
+      "evidenceUrls": ["https://hairstyle-by-maya-nguen.com/kontakti/", "https://hairstyle-by-maya-nguen.com/frizyorski-uslugi-druzhba-sofia/"],
+      "method": "verified_official_address",
+      "point": { "addressId": "102664", "latitude": 42.663106, "longitude": 23.404003 },
+      "basis": "Owner distinguishes two branches in block 194; existing row is the first, entrance Г, not second at Д. Municipal point is the explicitly named entrance next to the shop, not a surveyed shop door."
+    },
+    {
+      "id": "sofia-max-international-lyulin-petar-bonev4",
+      "neighborhood": "Люлин 3",
+      "address": "София, ж.к. Люлин 3, ул. Петър Бонев 4, вход откъм ул. 309-та",
+      "evidenceUrls": ["https://maxinternational.bg/kontakti/", "https://maxinternational.bg/ezikovo-obuchenie/ezikovo-obuchenie-za-vuzrastni/angliiski-ezik/akademia-za-vuzrastni/", "https://council.sofia.bg/documents/20182/163489/R46_2008.pdf/044cf87a-dec6-4fa6-997b-59aae34acba9"],
+      "method": "verified_official_address",
+      "point": { "addressId": "96339", "latitude": 42.720646, "longitude": 23.243325 },
+      "basis": "Owned course text names numbered Люлин 3 and the contact page identifies the same house and entrance street. Only the broad quarter token and its display address changed; unique municipal house point, not a door survey."
+    },
+    {
+      "id": "sofia-vasilevi-nadezhda3-driving",
+      "neighborhood": "Надежда 3",
+      "address": "София, ж.к. Надежда 3, ул. „Подпоручик Футеков“ 1",
+      "evidenceUrls": ["https://vasilevi.com/forma-za-zapisvane/"],
+      "method": "first_party_coordinates",
+      "point": { "latitude": 42.7345224, "longitude": 23.2931652 },
+      "basis": "The owner registration page explicitly names Centre II at this address and publishes a separate map destination for it. Use the named Centre II destination, not the link viewport, generic map embeds or the polygon venue. Civic entries 109991/109992 corroborate No. 1 but do not establish which door to use."
+    },
+    {
+      "id": "sofia-new-dental-solutions",
+      "neighborhood": "Надежда 3",
+      "address": "София, ж.к. Надежда 3, ул. Кумановски бой 7, бл. 321, партер",
+      "evidenceUrls": ["https://www.newdental.bg/kontakti/", "https://www.newdental.bg/zapishi-chas/"],
+      "method": "first_party_coordinates",
+      "point": { "latitude": 42.7325734, "longitude": 23.2945112 },
+      "basis": "Existing dentistry-only premises. Owner contact and appointment pages repeat the exact address and select the named New Dental Solutions destination. Municipal entries 105199 and 105200 independently place block 321; no entrance letter is inferred, and no promotional cosmetic offer was added."
+    },
+    {
+      "id": "sofia-beauty-hub35-poligona",
+      "neighborhood": "Полигона",
+      "address": "София, кв. Полигона, бл. 35",
+      "evidenceUrls": ["https://beautyhub35.com/", "https://beautyhub35.com/kontakti", "https://beautyhub35.com/rezervaciya"],
+      "method": "first_party_coordinates",
+      "point": { "latitude": 42.663166, "longitude": 23.3821832 },
+      "basis": "Owner page publishes an explicit named Beauty Hub 35 destination, separate from the embed viewport. Civic entries 101528 and 101529 corroborate the block. No building entrance is inferred. Existing booking target is unchanged; no external provider request was needed."
+    },
+    {
+      "id": "sofia-noxic-beauty",
+      "neighborhood": "Дружба 2",
+      "address": "София, бул. Копенхаген 278",
+      "evidenceUrls": ["https://noxicbeauty.com/contacts/", "https://noxicbeauty.com/services/manicure/"],
+      "method": "first_party_coordinates",
+      "point": { "latitude": 42.6480615, "longitude": 23.4029499 },
+      "basis": "Owner contact page includes the exact branch text and publishing widget point for this address. Civic 96583 and 96584 independently confirm block 278 in Дружба; did not use embed viewport or infer an entrance from proximity."
+    },
+    {
+      "id": "sofia-miracle-barber-obikolna275",
+      "neighborhood": "Дружба 2",
+      "address": "София, ул. Обиколна 275",
+      "evidenceUrls": ["https://miraclebarber.com/"],
+      "method": "first_party_coordinates",
+      "point": { "latitude": 42.6482314, "longitude": 23.40101 },
+      "basis": "Operator page labels the same shop and district and links the named MIRACLE BARBER STUDIO destination next to its telephone booking. Civic entries 94927 and 94928 corroborate block 275. No civic entrance assigned and no external booking integration added."
+    }
+  ],
+  "held": [
+    { "id": "sofia-pharos-razsadnika-hashove21a", "reason": "Owner branch confirms block 21А; the named map destination is a building, not a business pin, and civic entrances А, Б, В and Г have no owner entrance match." },
+    { "id": "sofia-arnica-accounting", "reason": "Address is verified, but the explicit booking invitation applies to an online accounting consultation. The catalogued rate is for a different legal consultation without current confirmed on-site appointment details." },
+    { "id": "sofia-puzzle-kids-druzhba2", "reason": "The owner prints civic number 602 while the existing record says 602Б. Do not normalize a letter suffix away without exact branch evidence." },
+    { "id": "sofia-petyo-dankov-deliyska-vodenitsa330", "reason": "Pricing and booking after request are documented, but the civic registry has two distinct block 330 entrances, and no verified office entrance or owner pin." },
+    { "id": "sofia-studio617-vrabnitsa-zlatenklas27", "reason": "Owner confirms booking and labels house 27; no exact current street point was found in the municipal export or on the owner page." },
+    { "lead": "G.H. Tint Garage, Дружба 1", "reason": "Potential new business but owner lists the quarter without a civic number, with two different branches and uncertain tariff scope. No guessed address or catalogue row." }
+  ],
+  "providerApiRequests": 0,
+  "submittedBookings": 0,
+  "productionWrites": 0
+}

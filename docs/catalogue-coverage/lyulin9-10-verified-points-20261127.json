@@ -1,0 +1,47 @@
+{
+  "checkedOn": "2026-11-27",
+  "baseCommit": "1ad48638555df24e4394dc3feb49c93af7fe0968",
+  "scope": "Exact point recovery for two existing walk-in premises with appointment services. No new listing, changes to eligibility, confirmation dates, rates, reservation method, business hours, partner data, calendar or production.",
+  "records": [
+    {
+      "id": "sofia-fixa-evropa29",
+      "categoryId": "auto_repair",
+      "neighborhood": "Люлин 10",
+      "address": "София, Люлин 10, бул. Европа 29",
+      "phone": "+359884065605",
+      "ownerContact": "https://fixa.bg/kontakti/",
+      "ownerBranch": "https://fixa.bg/serviz-fixa-sofiya/",
+      "namedPublicMap": "https://www.google.com/maps?cid=9617629968753291728",
+      "before": null,
+      "after": { "latitude": 42.7198337, "longitude": 23.2744038 },
+      "proof": "The owner lists Sofia, Lyulin 10, Europe boulevard 29 opposite the EKO station and the same branch phone on both own pages. The embed on Contacts explicitly names the Sofia Fixa shop by its own map identifier; its public named marker provides the point. The offset map viewport and the petrol station were not used. The municipal CSV does not have a matching street number; no nearby civic row is substituted. Saturday access remains by appointment only and no glass price is invented.",
+      "unchangedPricingIdentitySha256": "1f20a5ea1f91ecce6fab687a46e9bf27ea40568238b8032b56c9464fc534b34d",
+      "cellBefore": { "physical": 1, "gps": 0 },
+      "cellAfter": { "physical": 1, "gps": 1 }
+    },
+    {
+      "id": "sofia-gr-pilates",
+      "categoryId": "fitness",
+      "neighborhood": "Люлин 9",
+      "address": "София, ж.к. Люлин 9, ул. Тодор Влайков 27",
+      "phone": "+359889332309",
+      "ownerContact": "https://gr-pilates.com/",
+      "namedPublicMap": "https://www.google.com/maps?cid=11621316250007354483",
+      "before": null,
+      "after": { "latitude": 42.7224129, "longitude": 23.2664624 },
+      "proof": "The studio publishes Lyulin 9, number 27 and the branch booking telephone. Its own map iframe explicitly identifies the GR Pilates Reformer destination; the named marker is used, not the viewport. Civic Sofia address numbers 30539, 30555 and 55487 verify the building but not an individual studio entrance; none of those entrance points is used. The existing EUR 36 individual-visit offer and booking method remain unchanged.",
+      "unchangedPricingIdentitySha256": "385c42c085ffb821d17e217e598a1feb430e8110e78ffd929d1cc94797e623ab",
+      "cellBefore": { "physical": 2, "gps": 0 },
+      "cellAfter": { "physical": 2, "gps": 1 }
+    }
+  ],
+  "reviewHolds": [
+    { "candidate": "Студио 617", "owner": "https://www.617.studio/contact.html", "reason": "The exact owner hairdressing address and current booking telephone are published. No owner-specified precise marker or municipal row for Sofia ул. Златен клас 27 was found; smaller numbers and the same street name in Житен are not substitutes." },
+    { "candidate": "D&D Cosmetics", "owner": "https://dd-cosmetics.eu/", "reason": "The owner map is an address-only search for block 410Б. The municipal export labels block 410 entrance Б; do not silently equate them without a named studio point or entrance confirmation." },
+    { "candidate": "D.G. Автосервиз", "owner": "https://dgavtoservice.com/booking/", "reason": "The official address and an exact civic row exist. The owner exposes service prices on its own site, but the actual bookable diagnostic listing is via Setmore. Setmore terms restrict systematic directory reuse; the named menu was not used as a catalogue source. A confirmed direct owner route matching one exact tariff remains needed." },
+    { "candidate": "Пух и Прах Grooming salon", "reason": "The first-party tariff and another direct appointment route were not found; MyLink restricts scraping and automated extraction. No platform prices, media or published durations were imported." },
+    { "candidate": "Pup Hub Dog Salon", "reason": "The merchant gallery is on Linktree, where the terms restrict automated access even for a profile visitor. The online booking landing did not render a verifiable service menu in the approved check. Do not import rates, gallery files or booking data." },
+    { "candidate": "Pink Dolls Aesthetic", "owner": "https://pinkdollsaesthetic.com/", "reason": "Confirmed branch location and actual manicure booking choices in Разсадника; the owner terms state written permission is required for use of site content. Hold until permissible price/offer evidence. Do not import medical aesthetics." },
+    { "candidate": "Преиз Гараж", "owner": "https://preiz-avto.com/", "reason": "The written owner address (НПЗ Военна рампа, ул. Първа българска армия 5) conflicts with the owner directions marker (Орландовци, ул. Старата воденица 16). No exact civic point for the written number was found, and no point gets inferred from the other address." }
+  ]
+}

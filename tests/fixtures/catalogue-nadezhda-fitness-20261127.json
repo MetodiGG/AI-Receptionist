@@ -1,0 +1,42 @@
+{
+  "baseline": "e0017581df3f26027b247806083fd830050d1e7d",
+  "changed": {
+    "lib/catalogue-service-photo-keys.mjs": {
+      "before": "2fa0501a84ea5a6a06e92572da714953b2e4adee819900dded9150a62109e57b",
+      "after": "d291666ae9ee03ead48d0f81acacccd2829e9a400918431e42798644771d1db3"
+    },
+    "lib/discovery/catalogue-data/pricing-booking-review-v1.mjs": {
+      "before": "e3c6e484b3cc287d59f47fbe966ec743b4af492c683ad009e10d1c6208bbf849",
+      "after": "a35836234b2a03404ebdd30147a5287d2cad1bd55d8a08e4972e9d43a0d3aa78"
+    },
+    "lib/discovery/sofia-catalogue.mjs": {
+      "before": "339deef2b16180397a66cfb810f6ded4b567cd6de86a4c209ace67f0847345d9",
+      "after": "b804b5f097f8859564fbf366d5a2819ad2606f32f368033bc5220c01aef97eb8"
+    },
+    "lib/locale/service-english.json": {
+      "before": "fe61d142dc0938ef817f356d04aebccb801d3ae70114b33505460e29e617ee11",
+      "after": "48a807410f63df5f18cfa05e218e9d55a19a95d72e87ecb782d7e1b07fc2b40f"
+    },
+    "lib/public-business-cover-photo.mjs": {
+      "before": "5c109ea419066c84561cb0a77dc8f80db29edadf26857c811407ca9567e7b960",
+      "after": "9a9401bf551f59a70824ff43696f65c39c7f4892111db6904d88b12e8381e580"
+    }
+  },
+  "added": {
+    "docs/catalogue-coverage/nadezhda1-2-fitness-20261127.json": "92b532d19599132d8799e13546e095f1572e6c0a6940c3d7c2883bb6ce1f9e9c",
+    "lib/discovery/catalogue-data/neighborhood-verified-flais-nadezhda1-20261127.mjs": "598b462f5fc02f457baf656306689fc34acf471d5df7d9819d6928bcf89600f6",
+    "lib/discovery/catalogue-data/neighborhood-verified-sihia-nadezhda2-20261127.mjs": "750b91b6881bb814dd592ba0249eb824d72afacb7753223af838a3f177f72c37"
+  },
+  "baselineCatalogueSha256": "0f461d2f62b165319500c348270dfbed5630511c88ae9d1fe7cad0f953dd2182",
+  "currentCatalogueSha256": "d13d77dd79d4258d7f5a0114fbf5ec23a252e75cfd5fd920c3cd5bee81c4c3d6",
+  "records": [
+    {
+      "id": "sofia-flais-nadezhda1-lyuborodie2",
+      "sha256": "28f6cba732b0dc34fcaa08cd75e2f5a36a18e26bf22fa467e9fc53d44455e9e6"
+    },
+    {
+      "id": "sofia-sihia-nadezhda2-velezhki49g",
+      "sha256": "dd91aae1afcb85b9023c475733199d6faed7edf639e4169fa4d6dcc5ed2da2fd"
+    }
+  ]
+}

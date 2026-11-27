@@ -1,0 +1,49 @@
+{
+  "checkedOn": "2026-11-27",
+  "validThrough": "2026-12-18",
+  "scope": "Two distinct education operators with independent owned websites and customer-contact channels. Prepared locally; no production changes.",
+  "targetPerQuarterCategory": 30,
+  "municipalExport": {
+    "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "sha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+    "licence": "CC-BY-4.0",
+    "attribution": "ГИС София / Столична община"
+  },
+  "coverageDelta": {
+    "neighborhood": "Люлин 3",
+    "category": "education",
+    "premises": [2, 4],
+    "locatedPremises": [1, 3],
+    "remainingLocatedToTarget": 27
+  },
+  "listings": [
+    {
+      "id": "sofia-solema-lyulin3-block348",
+      "address": "София, ж.к. Люлин 3, бл. 348, учебна зала",
+      "point": { "addressId": "30865", "latitude": 42.724474, "longitude": 23.245073 },
+      "sources": ["https://solemabg.com/", "https://solemabg.com/Page6.htm"],
+      "locationEvidence": "The owner explicitly differentiates the customer classroom from its Надежда office. The verified municipal block point is not a surveyed classroom entrance.",
+      "bookingMeaning": "Direct telephone enquiry with the teaching centre. The reviewed published group tariff is €8.20 for a single 40-minute academic period in a two-person group, not a drop-in offer or a total course cost. The tariff does not state a validity date; this review holds it for a short interval. No old promotion, advertised percentage or individual home lesson admitted.",
+      "pricingIdentity": "b21ee1a32f2eedfcb294dc006743598da5ad12f41820b38073873f7a225ab808"
+    },
+    {
+      "id": "sofia-alice-academy-lyulin3-block389",
+      "address": "София, ж.к. Люлин 3, ул. Георги Дражев, бл. 389",
+      "point": { "addressId": "102604", "latitude": 42.719985, "longitude": 23.252379 },
+      "sources": ["https://alice-academy.bg/", "https://alice-academy.bg/courses/", "https://alice-academy.bg/contact/", "https://abvacademy.com/robo-schedule-lyulin/"],
+      "locationEvidence": "The owner displays Георги Дражев 389; the separately operated visiting academy explicitly says this Alice Academy building is Lyulin 3 block 389. The block row is distinct from street number 6 and no entrance was assumed.",
+      "bookingMeaning": "Followed the booking link on the course page and read the destination request form through the owner’s same-host redirect, without submitting it. The site explicitly calls the test free. The class itself is not free or included, and there is no public live slot claim.",
+      "pricingIdentity": "2275a635b62c2657c4c2d4dda4b6689eef6e101f02fbe17c2a79741948149a65"
+    }
+  ],
+  "held": [
+    { "lead": "АБВ Академия, Люлин 3", "reason": "Independent operator with a dated course and named host, but no branch-specific public booking tariff could be read. Do not treat inaccessible embedded pricing as unpublished." },
+    { "lead": "Студио ВИПО, Люлин 3", "reason": "Municipal block verified. Cross-channel service and price differences remain; no conflicting offer is used." },
+    { "lead": "СБА, Люлин 3", "reason": "Existing source-use restriction and divergent booking-widget label. Do not admit or infer tariff from either page." },
+    { "lead": "Арaя Ауто and DeadLine, Люлин 3", "reason": "Address leads from historic offers are not a verified current ordinary direct booking path." },
+    { "lead": "S&R beauty, Орландовци", "reason": "Civic address verified but direct owner channel unavailable and provider-reuse hold remains." },
+    { "lead": "Спортен клуб Сердика, Орландовци", "reason": "Verified civic venue; independent owned registration route and current terms need confirmation." }
+  ],
+  "reservationsOrRequestsSubmitted": 0,
+  "paidProviderRequests": 0
+}

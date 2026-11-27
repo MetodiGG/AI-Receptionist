@@ -1,0 +1,49 @@
+{
+  "baseline": "bc48b8142c93e8b01db3c86719f5dd3c636fbb9d",
+  "changed": {
+    "lib/catalogue-service-photo-keys.mjs": {
+      "before": "b5419c1f7f8e40064765de7bea734a258213d61c0fa92e0c5104793bdc0cef1c",
+      "after": "7e2351aa9afb0cea81beca16392c54ab5661b2589f85926bf6c87fa2057897fc"
+    },
+    "lib/discovery-photo-ownership.json": {
+      "before": "1505866eb3bbe547ae5f61a324250620aa574f7f945f1e9eedd0f9796bb4f7a0",
+      "after": "ee49a410410b6206bd5b50bf43de6d41071de1dab7fa416dffc477eac9846366"
+    },
+    "lib/discovery/catalogue-data/pricing-booking-review-v1.mjs": {
+      "before": "ce02eedab83f1c7f9dc321766b859f9390a68fdda0f8162e64dd2420ecef61f5",
+      "after": "b67a9c80205d85492acd4e59669fdd4ab7a6c90ce5e3a1bad9c49e24c3b978ad"
+    },
+    "lib/discovery/sofia-catalogue.mjs": {
+      "before": "f66f86f73cffe2c80801508b83afd60b709af6ee5a73f1114221e82bbfdb86aa",
+      "after": "17c7c4967a98aa5e1549508fc305300d68dd1ef307f4ef5f7fceb40e8dfc9f4d"
+    },
+    "lib/locale/service-english.json": {
+      "before": "66d563daf8218da3716d3b6447698affae352bca3b5b1f15f349d744bf90aa30",
+      "after": "3bda3afeaeb92cb45b9f86d806eb0187e7adb70178c1b818ffb5188fee329edd"
+    },
+    "lib/public-business-cover-photo.mjs": {
+      "before": "c68024c40c0ec064603db7aacbcd05c92e2fcecf218b72ae8dc3e304bd39ba54",
+      "after": "8d65ed8a26f0d4418c46745f1e17fb2ff6e888542ebc20a7044773213d6d4bac"
+    },
+    "lib/specific-service-photo-ids.mjs": {
+      "before": "a8b5ddb9b18c1a51d8351410497935875571f1c97f29a28a3ef0760d047136b2",
+      "after": "fc62c3ca12343d9a8216fdc83b336f29f6447244b522b4648dc5778830814205"
+    }
+  },
+  "added": {
+    "docs/catalogue-coverage/bratya-miladinovi-kniazhevo-20261127.md": "8fdb7479052b17ccfd9cfe2342a37f43c0de8455b6888da47864fc4f8ebd87af",
+    "lib/discovery/catalogue-data/neighborhood-verified-bratya-miladinovi-kniazhevo-20261127.mjs": "7059e26c1bf4c6fdd1f8438b62756e0d6b8fc3f155d0df3444526067cff560de",
+    "public/business-cover-photos/go-bratya-miladinovi-kniazhevo-20261127-v1.webp": "21a9e5cb1ddc28fe0539a225c06e77d50c89b608250e89ee20c41cd17d6ba409",
+    "public/service-photos/go-bratya-miladinovi-kniazhevo-art-lesson-20261127-v1.webp": "d14eb91e9dc8188e3a3a6b08071d3e55e360782c8c84bef999b2ae70f4d6283a"
+  },
+  "records": [
+    {
+      "id": "sofia-bratya-miladinovi-kniazhevo-tsar-boris375",
+      "sha256": "05b432a86240384bd327d298fb62eeef6ed6cbe75fa59742d35ea1dce7041240"
+    }
+  ],
+  "catalogue": {
+    "before": "a1fc65ab84c6a7c82680b9011a3077e201eb885a264787c002765ecc76dda539",
+    "after": "c75eface20cd067da0b337727fed2f4277a221d5f4dd1114b55f2b9bc44bd428"
+  }
+}

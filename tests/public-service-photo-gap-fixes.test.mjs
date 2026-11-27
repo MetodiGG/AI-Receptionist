@@ -5,13 +5,14 @@ import test from 'node:test'
 import { catalogueProfileView } from '../lib/catalogue-profile.mjs'
 import { publicDetailServiceThumbnail } from '../lib/service-detail-photo-presentation.mjs'
 import { businessCoverPhotoSources } from '../lib/public-business-cover-photo.mjs'
-import { findPublicCatalogueEntry } from '../lib/discovery/public-catalogue.mjs'
+import { PUBLIC_CATALOGUE, findPublicCatalogueEntry } from '../lib/discovery/public-catalogue.mjs'
 import { auditPublicDetailServicePhotos } from '../scripts/audit-public-detail-service-photos.mjs'
 import exact from '../lib/service-detail-photo-exact-gaps.json' with { type: 'json' }
 import receipt from '../docs/service-detail-photo-exact-gaps-20261126.json' with { type: 'json' }
 import nativeSamples from './fixtures/native-partner-services-20261113.json' with { type: 'json' }
 import { visiblePublicServices } from '../lib/public-service-eligibility.mjs'
 import { compareDiscoveryPhotos, fingerprintDiscoveryPhoto } from '../scripts/discovery-photo-fingerprint.mjs'
+import { arhollPricePriorCatalogue } from './catalogue-arholl-reformer-price-refresh-20261127-scope.mjs'
 
 const now = Date.parse('2026-11-26T12:00:00Z')
 
@@ -66,8 +67,15 @@ test('the five new photos have checked build-size provenance and are not duplica
 })
 
 test('an inventory-wide check covers final static detail output, never the business covers or subcategory tiles', () => {
-  const result = auditPublicDetailServicePhotos(undefined, { now })
+  // Compare the original threshold against its dated tariff snapshot. The
+  // refreshed price is future-dated relative to that audit; fail-closed
+  // eligibility correctly withholds it until the date it was reviewed.
+  const result = auditPublicDetailServicePhotos(arhollPricePriorCatalogue(PUBLIC_CATALOGUE), { now })
   assert.ok(result.services >= 10_284)
   assert.ok(result.withPhoto >= 9_169, 'keep the new audited coverage of actual service details')
   assert.deepEqual(result.unsafe, [])
+  const current = auditPublicDetailServicePhotos(undefined, { now: Date.parse('2026-11-27T12:00:00Z') })
+  assert.ok(current.services >= result.services)
+  assert.ok(current.withPhoto >= result.withPhoto)
+  assert.deepEqual(current.unsafe, [])
 })

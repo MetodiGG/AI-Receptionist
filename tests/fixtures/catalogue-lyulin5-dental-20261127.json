@@ -1,0 +1,68 @@
+{
+  "baseline": "920f651930ab01bcfb80d4fadbb0ae081e752866",
+  "changed": {
+    "lib/catalogue-service-photo-keys.mjs": {
+      "before": "d291666ae9ee03ead48d0f81acacccd2829e9a400918431e42798644771d1db3",
+      "after": "9513ead07de1b55b09346fd8e56c00a973f3a20b170061b675229d5d71047b2b"
+    },
+    "lib/discovery-photo-ownership.json": {
+      "before": "6ab50ced53aab5ff39e1a31982929bb909fbe197244d5db95949016af9cb0f96",
+      "after": "4e1820dad571953db9c0958b220274dff68306cdb3518cc6d3f59531a6c119ae"
+    },
+    "lib/discovery/catalogue-data/pricing-booking-review-v1.mjs": {
+      "before": "a35836234b2a03404ebdd30147a5287d2cad1bd55d8a08e4972e9d43a0d3aa78",
+      "after": "4567b8f6e0c6d746607226068ab1bf96becc1e0960445de94fa42e65e5372d87"
+    },
+    "lib/discovery/sofia-catalogue.mjs": {
+      "before": "b804b5f097f8859564fbf366d5a2819ad2606f32f368033bc5220c01aef97eb8",
+      "after": "1c2ee33bebf05d1032769b0c2c26de2d3e7c3ab60ac706af79184bfc0adb487c"
+    },
+    "lib/locale/service-english.json": {
+      "before": "48a807410f63df5f18cfa05e218e9d55a19a95d72e87ecb782d7e1b07fc2b40f",
+      "after": "8933a20d80e4caff7c44787402ebd674fc22758f987f9e907a6fabd5f2a9c9ec"
+    },
+    "lib/public-business-cover-photo.mjs": {
+      "before": "9a9401bf551f59a70824ff43696f65c39c7f4892111db6904d88b12e8381e580",
+      "after": "7c262b561e5d4957e0bbebc79e42953a73997fd4bc54229736fa7b19b3d1e88e"
+    },
+    "lib/specific-service-photo-ids.mjs": {
+      "before": "b936807358b15c83069578a2e40e867f539696ce8673b6c7af6e63989e9c1f23",
+      "after": "f2250c524d029d15729056886ba1ca9e854a9620eb00b842c792a72f329d6947"
+    }
+  },
+  "added": {
+    "docs/catalogue-coverage/sedemchakri-lyulin5-20261127.json": "83c330c65d583b65cf8a53c7f8e324d49163c282a9db378f00a8263d087efe5a",
+    "docs/catalogue-coverage/sofia-dental-verified-points-20261127.json": "70b7da631eb1373923bfa0c89d3616cb2f9336dbd0ce54b8a15fa022af835ce4",
+    "lib/discovery/catalogue-data/neighborhood-verified-sedemchakri-lyulin5-20261127.mjs": "f1c15ee8a1673692efa6bfec222a12570009cf4878ed94526457aa00dfa1da4c",
+    "lib/discovery/catalogue-data/sofia-dental-branch-points-nov27.mjs": "170adb6ceb516e1d02272092d9e3299a23caad3c3cd0c2bbd0a22295f6340662",
+    "public/business-cover-photos/go-sedemchakri-lyulin5-20261127-v1.webp": "65c765d7118c8caae0726d9ddec15f94aa1337c1eb835d017376f4024f82273e",
+    "public/service-photos/go-sedemchakri-hatha-20261127-v1.webp": "0a1db8d6497a96368db38b05a42f507b8122e4b64a0b7b48fffd1debe5ebe549",
+    "public/service-photos/go-sedemchakri-aerial-20261127-v1.webp": "76cf65947c977109bccc4621370857353f0122398d751b853bde61415d73c291",
+    "public/service-photos/go-sedemchakri-latin-20261127-v1.webp": "8ef3cd4a2a5b5563c90c31ecbb1e887c3a1fca7631ef86b19200aa92fc26a01f"
+  },
+  "baselineCatalogueSha256": "d13d77dd79d4258d7f5a0114fbf5ec23a252e75cfd5fd920c3cd5bee81c4c3d6",
+  "currentCatalogueSha256": "a85bec67780a2d62a13fd76c8363fe04fa6df348dc102e96988f2e5dfc4a602f",
+  "records": [
+    {
+      "id": "sofia-sedemchakri-lyulin5-dertliev99",
+      "sha256": "f605ee2c8dd4fe3d3c44836a4d7c6dd3051b17d7cbda4a4745992de3a756e6d2"
+    }
+  ],
+  "rebound": [
+    {
+      "id": "sofia-via-dental-obelya",
+      "before": "fa8cfa0503a595c07a407d252d5000a17872d6d0a797746efa91b6ae75bddeb6",
+      "after": "877f8c517d3c2f71702ac4c7574dd4ec683c603c1e7817267a965c0e60e4d5f7"
+    },
+    {
+      "id": "sofia-stanimir-batovski-zona-b19",
+      "before": "366190ed184dae9cc55ebbe160963ff59b5dbbf6e22a9089be538a7c908bbd07",
+      "after": "37923cc9b4bd1dfddfaabbcb59fd5e862e9f7aed556aeaaf11d5679d2c5ad4a0"
+    },
+    {
+      "id": "sofia-dentica-levski-v",
+      "before": "7a3d12e2f40f539e5c0fe1ec35e5c5125b062b631bf993572c729ea03633af83",
+      "after": "74c2b90d3f4df3a757facab0b3c36b272429e5f02fd334aa1a7527ab19478e1e"
+    }
+  ]
+}

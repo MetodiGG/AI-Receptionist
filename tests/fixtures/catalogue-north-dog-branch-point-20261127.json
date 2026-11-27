@@ -1,0 +1,21 @@
+{
+  "baseline": "2f573e762bfad5cdbb3bec7696d62751041bf0fe",
+  "baselineCatalogueSha256": "ee264dfc7826f26acfe773e41857b9970a3d8c9085c9babd3dcd0aa8fb1c7757",
+  "currentCatalogueSha256": "779de8dd9d832b70546ea43b0b0d4739bad8c4d1a14864eeed3d46c204d1ae2b",
+  "changed": {
+    "lib/discovery/sofia-catalogue.mjs": {
+      "before": "32897196245b197fdaf3aa43f32ad48980f81180365fbf3be0e87fee6b26f793",
+      "after": "0ea1216060dbe96cd6329d7de698826a2da34bc5ee81cc10f003bacb5c743926"
+    }
+  },
+  "added": {
+    "docs/catalogue-coverage/north-dog-branch-point-20261127.json": "a79e95cf7d4bf6a38a8a108ecf08236d966479eb4a10f52c44f45bcbda50d3cf",
+    "lib/discovery/catalogue-data/sofia-north-dog-branch-point-nov27.mjs": "d886281834b0199f27121c7924f926523e836f7f3405179049caedcda6d54016"
+  },
+  "records": [],
+  "location": {
+    "id": "sofia-north-dog-grooming-vrabnitsa637",
+    "before": "5ec4926af70cc78737c1c8c52a700dda5479a608e98a700cedbcf252ec91d9bf",
+    "after": "e90011a4f4e873f4f7a5d71a24e88ea9b20cc5fe90d89548967a53916bef13b3"
+  }
+}

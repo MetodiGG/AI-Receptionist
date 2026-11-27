@@ -6,6 +6,8 @@ import { PUBLIC_CATALOGUE } from '../lib/discovery/public-catalogue.mjs'
 import { normalizeCatalogueBusinesses } from '../lib/discovery/catalogue-search.mjs'
 import { catalogueDetailsWithServicePhotos } from '../lib/catalogue-service-photo-keys.mjs'
 import { businessCoverPhotoSources, matchesBusinessCoverPhoto, publicBusinessCoverPhoto, publicServiceThumbnail } from '../lib/discovery-photo-presentation.mjs'
+import { crossQuarterPriorCatalogue } from './catalogue-verified-sofia-cross-quarter-20261127-scope.mjs'
+import { appointmentGrowthPriorCatalogue } from './catalogue-verified-sofia-appointment-growth-20261127-scope.mjs'
 
 const now = Date.parse('2026-11-26T12:00:00Z')
 const posterExamples = [
@@ -36,7 +38,7 @@ test('the public search card and the details of each reported business recover t
 
 test('activity covers recover the current catalogue without overriding authentic pictures or inventing unknown activity', async () => {
   const catalogue = PUBLIC_CATALOGUE.map(row => approvedCatalogueRecord(row, now)).filter(Boolean)
-  assert.equal(catalogue.length, 1776)
+  assert.equal(crossQuarterPriorCatalogue(appointmentGrowthPriorCatalogue(PUBLIC_CATALOGUE)).map(row => approvedCatalogueRecord(row, now)).filter(Boolean).length, 1776)
   const art = catalogue.map(row => publicBusinessCoverPhoto({ ...row, source: 'catalogue', details: catalogueDetailsWithServicePhotos(row, now) }))
   assert.equal(art.filter(cover => cover.src).length, catalogue.length)
   const sources = [...new Set(art.flatMap(cover => [cover.src, cover.fallbackSrc]).filter(Boolean))]

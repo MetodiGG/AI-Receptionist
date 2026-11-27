@@ -1,0 +1,72 @@
+{
+  "reviewedOn": "2026-11-27",
+  "baseCommit": "1aa472c77c820030f8a3c73748f3238e8e630dc6",
+  "scope": "Local Sofia catalogue only. Three existing entries; no booking, price, publication receipt or production changes.",
+  "newDistinctBusinesses": 0,
+  "municipalSource": {
+    "url": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "file": "address_sofia-20261113.csv",
+    "csvSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef",
+    "licence": "CC-BY-4.0"
+  },
+  "verified": [
+    {
+      "id": "sofia-pharos-razsadnika-hashove21a",
+      "branch": "Училища Фарос · Стамболийски",
+      "category": "education",
+      "neighborhood": "Разсадника",
+      "address": "София, ж.к. Разсадника, ул. Хъшове, бл.21А",
+      "owner": "https://pharos.bg/kontakti-pharos/",
+      "ownerMap": "https://www.google.com/maps/place/%D0%91%D0%BB.%2B21%D0%90/@42.6999201,23.2874879,17z/data=!4m5!3m4!1s0x40aa85413f7c0efb:0x8ca08a8c3cf8cc1b!8m2!3d42.7000931!4d23.2887158",
+      "coordinates": { "latitude": 42.7000931, "longitude": 23.2887158, "method": "first_party_coordinates", "addressId": null },
+      "civicCorroboration": "RN47044, ж.к. Разсадник Коньовица, бл. 21А, вх. А. Roughly 4 m from the owner’s marker. The marker is the named block, not the map viewport or an independently verified school door."
+    },
+    {
+      "id": "sofia-busy-school-nadezhda6-634",
+      "branch": "Учебен център Бизи · Надежда 6",
+      "category": "education",
+      "neighborhood": "Надежда 6",
+      "address": "София, ж.к. Надежда 6, бл. 634, до вход Д, партер",
+      "owner": "https://busy-bg.com/контакти/",
+      "cityCouncilAlias": "https://council.sofia.bg/documents/20182/202167/R127_2008.pdf/eddf028f-c163-4caf-8680-358ae8f6fb6d",
+      "cityCouncilBlock": "https://council.sofia.bg/documents/20182/817425/Pril-R.60.pdf/26c542fa-85d1-4bd4-809b-39377296279c",
+      "coordinates": { "latitude": 42.736405, "longitude": 23.29369, "method": "verified_official_address", "addressId": "18018" },
+      "civicCorroboration": "RN18018 is the stated block 634, entrance Д; the city uses Връбница-2 and council documents tie it to Надежда-6. Other entrances are separate points. The point is the named civic landmark, not the school’s door. Retain the owner’s public neighborhood label and do not count both names."
+    },
+    {
+      "id": "sofia-clean-ride-autoservice",
+      "branch": "Clean Ride · автосервиз",
+      "category": "auto_repair",
+      "oldNeighborhood": "Левски В",
+      "oldAddress": "София, Левски В, ул. Селимица 23",
+      "neighborhood": "Малинова долина",
+      "address": "София, ул. Георги Русев 2",
+      "owner": "https://carsrepair.bg/contact/",
+      "bookingTerms": "https://carsrepair.bg/terms/",
+      "cityNeighborhoodEvidence": "https://www.sofia.bg/documents/d/guest/zapoved-studentski-2025",
+      "coordinates": { "latitude": 42.637371, "longitude": 23.335133, "method": "verified_official_address", "addressId": "113648" },
+      "civicCorroboration": "RN113648 matches street and full building number. The operator, domain and appointment number match the existing listing. The existing service types are still on the site; general Sofia price ranges are not treated as branch tariffs. The civic point is not a surveyed workshop entrance."
+    }
+  ],
+  "deferred": [
+    {
+      "id": "sofia-tl-autoservice",
+      "reason": "The published №1, civic №1А/1Б, and the provider map viewport do not establish an exact shared branch point. No update."
+    }
+  ],
+  "coverage": {
+    "checkedCells": 1750,
+    "targetPerQuarterCategory": 30,
+    "approvedSofiaBusinesses": [1784, 1784],
+    "premisesWithBoundPoint": [1037, 1040],
+    "emptyPhysicalCells": [1241, 1242],
+    "emptyLocatedCells": [1326, 1324],
+    "locatedCellsAtTarget": [0, 0],
+    "deltas": [
+      { "neighborhood": "Разсадника", "category": "education", "physical": [1, 1], "located": [0, 1] },
+      { "neighborhood": "Надежда 6", "category": "education", "physical": [1, 1], "located": [0, 1] },
+      { "neighborhood": "Левски В", "category": "auto_repair", "physical": [1, 0], "located": [0, 0] },
+      { "neighborhood": "Малинова долина", "category": "auto_repair", "physical": [2, 3], "located": [1, 2] }
+    ]
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "baseline": "5377802e2318c1df76d792a6c5a9fbc68a28c614",
+  "baselineCatalogueSha256": "d967a562730e5384f7872a42fc82555e71f012a06215a001533c1b1c7e87553f",
+  "currentCatalogueSha256": "525f89e0b9e22db578a5f041ffcd1d489e81a1eae1f7a8e5094b7356c1c91d7f",
+  "changed": {
+    "lib/catalogue-service-photo-keys.mjs": {
+      "before": "f8eb3efca2725af2d2e4039f24fa0023bfb35f159960d512a27e03e9539e48e6",
+      "after": "908d702f6cc80b4030da88fb78301f9e5146316ce5bedca34cb926dd7ebc278f"
+    },
+    "lib/discovery/catalogue-data/pricing-booking-review-v1.mjs": {
+      "before": "edca4d786f7c5c110c80f5da327e68317f0d7408febd9bdbfecc70f5167e4c65",
+      "after": "da01c57d5c9803bc7da31a7e27e9cfb1ff2faf528b28694a8ea3f5b5421cc5f4"
+    },
+    "lib/discovery/sofia-catalogue.mjs": {
+      "before": "2e5c2c4a5da15277a3425c9b6142d513879e7c1488700009681d77bbddad602b",
+      "after": "20bb00e960ecd03c8b6df16ecdde6ad2053dd9c2336902fa450b15914a02822d"
+    },
+    "lib/locale/service-english.json": {
+      "before": "3fafc7470f98ffa2338eaaecc70a6c30a3df1f11c4527b15f780fc8cec5021b7",
+      "after": "4e30aaddce4f7e0a2da9e6abde396910231006c293d5bf518aef3a4196d29235"
+    },
+    "lib/public-business-cover-photo.mjs": {
+      "before": "177bf0ad84ebb4f1f8a20b8bd4f783f9cd3a9b724eda97d4de56a311ac945eef",
+      "after": "6a5f233cadccfc47067226036b72934ee678c91b406e0d8ed533d7dd510280c5"
+    }
+  },
+  "added": {
+    "docs/catalogue-coverage/aura-b19-growth-20261127.json": "517f2308b32440adeb01eb31d59739836ccb3f2008794b18bafa08271baa5013",
+    "lib/discovery/catalogue-data/neighborhood-verified-aura-b19-20261127.mjs": "06355251cef3667ecbfb15d1000a98f6516065c7d62701eee8fb7cff9e0643f8"
+  },
+  "records": [
+    {
+      "id": "sofia-aura-music-stamboliyski175",
+      "sha256": "32fa5904767b8eb8c6710089f2e81d2be460e4c0aec84a74dd6defbfecd19dfc"
+    }
+  ],
+  "rebindings": [
+    {
+      "id": "sofia-bo-bella-grooming",
+      "before": "894853e8d14a328074a2ca374b1ee3f6a617d4f69ff369f22fc7f05b3648afa9",
+      "after": "84eda0bbd174cb9c9e738b5629fed7adb65cc0fe75245f1a5a75e46229df6db2"
+    }
+  ]
+}

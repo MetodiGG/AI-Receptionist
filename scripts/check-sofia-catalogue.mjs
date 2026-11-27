@@ -1,5 +1,6 @@
 import { access } from 'node:fs/promises'
 import { fileURLToPath, pathToFileURL } from 'node:url'
+import { isDeepStrictEqual } from 'node:util'
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 import { approvedCatalogueRecord, validateCatalogue, EXCLUDED_GENERAL_CLINIC_IDS } from '../lib/discovery/catalogue-policy.mjs'
 import { categoryById } from '../lib/discovery/categories.mjs'
@@ -7,6 +8,20 @@ import { auditCatalogueBatch } from '../lib/discovery/catalogue-audit.mjs'
 import { COVERAGE_20261116_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-coverage-20261116.mjs'
 import { assessManualIntakeReview } from './catalogue-manual-intake-review.mjs'
 import { expiredCatalogueOfferHold } from '../lib/discovery/catalogue-expired-offer-holds.mjs'
+import { applyVerifiedNadezhda1ArtMastersPoint20261127 } from '../lib/discovery/catalogue-data/verified-nadezhda1-art-masters-point-20261127.mjs'
+
+function assessManualIntakeWithReviewedVisitPoint(row, review, now) {
+  const direct = assessManualIntakeReview(row, review, now)
+  if (direct || row?.id !== 'sofia-art-masters-band-nadezhda1-172' || !row.coordinates ||
+    !(Date.parse(row.coordinates.checkedOn) <= now)) return direct
+  // The original cross-host booking review seals the entire old record. The
+  // newer, separately sourced civic point may supplement it for this exact
+  // record only. Rebuilding the point also checks all branch and source guards.
+  const withoutPoint = { ...row, coordinates: null }
+  const [reconstructed] = applyVerifiedNadezhda1ArtMastersPoint20261127([withoutPoint])
+  if (reconstructed === withoutPoint || !isDeepStrictEqual(reconstructed, row)) return null
+  return assessManualIntakeReview(withoutPoint, review, now)
+}
 
 export function cataloguePointCounts(records) {
   return {
@@ -58,7 +73,7 @@ export function cataloguePublicationState(records, now = Date.now(), { manualRev
         rejected.push(...duplicateAudit.rejected)
         return true
       }
-      const resolution = assessManualIntakeReview(sourceById.get(item.id), sourceReviews.get(item.id), now)
+      const resolution = assessManualIntakeWithReviewedVisitPoint(sourceById.get(item.id), sourceReviews.get(item.id), now)
       if (!resolution) return true
       manualIntakeResolutions.push(resolution)
       return false

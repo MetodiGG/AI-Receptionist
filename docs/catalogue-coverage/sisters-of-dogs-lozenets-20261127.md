@@ -1,0 +1,9 @@
+# Sisters of Dogs: verified Sofia catalogue intake · 27 November 2026
+
+One new independent studio. The [operator's site](https://sistersofdogs.com/) uses “Sisters of Dogs” and “Kingdom of Grooming” for the same location; not two businesses. Both phone numbers, the full street address and the official website were checked against the local catalogue. Lozenets × pet grooming grows **2 → 3** physical businesses and **2 → 3** address-bound points.
+
+- [Owner contact and call action](https://sistersofdogs.com/kontakti): София, кв. Лозенец, ул. „Проф. Хараламби Тачев“ 18, studio number +359 88 990 1096. Customers arrange a visit with the studio by phone; no native slots or guaranteed booking. The owner map link specifies the same street number. [Municipal Sofia dataset](https://urbandata.sofia.bg/dataset/address_sofia-zip), RN2678, locates the address at **42.672174, 23.334015** (civic point, not a verified entrance survey). Source: ГИС София / Столична община, CC-BY-4.0.
+- [Owner tariff](https://sistersofdogs.com/uslugi-i-ceni): **€30** only for full grooming of a short-haired dog up to 4 kg; complete brushing is separate, and detangling a matted coat (if feasible) is **€25/hour**. Dog nail trimming is **€7** for all sizes. Both listed rates include VAT. No other fees or veterinary services were imported. Conditions were rewritten as factual public copy, not copied in full.
+- The operator gives business hours of Wednesday–Sunday, 11:00–20:00, and lists Monday and Tuesday as closed. This is not slot availability. Read the public home, contact and tariff pages (HTTP 200); the [robots policy](https://sistersofdogs.com/robots.txt) allows these routes. There was no call, consultation, appointment, calendar operation, data submission, or account change.
+
+The cover and the two service photographs are independent GoRez illustrations, not images of the studio or its customers. The studio's assets and branding were not copied.

@@ -12,6 +12,7 @@ import receipt from './fixtures/mobile-discovery-first-paint-approval.json' with
 import { mobileDiscoveryFirstPaintAllowsFileChange, mobileDiscoveryFirstPaintPriorSource } from './mobile-discovery-first-paint-scope.mjs'
 import { homepageBrowseStartAllowsPath } from './homepage-browse-start-scope.mjs'
 import { publicFirstLoadPriorSource } from './public-first-load-optimization-scope.mjs'
+import { approvedCatalogueMatches } from './catalogue-only-release-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const git = (...args) => execFileSync('git', args, { cwd: root })
@@ -32,7 +33,7 @@ test('the release changes only catalogue search presentation work and first-row 
   const actual = new Set([...split(git('diff', '--name-only', '--no-renames', '-z', baseline, '--')),
     ...split(git('ls-files', '--others', '--exclude-standard', '-z'))])
   assert.deepEqual([...actual].filter(path => path !== 'node_modules' && !path.startsWith('tests/')
-    && (expected.includes(path) || !homepageBrowseStartAllowsPath(path))).sort(), expected)
+    && (expected.includes(path) || (!homepageBrowseStartAllowsPath(path) && !approvedCatalogueMatches(path)))).sort(), expected)
   for (const [path, { before, after }] of Object.entries(changed)) {
     const current = publicFirstLoadPriorSource(path, await readFile(new URL('../' + path, import.meta.url))), original = git('show', baseline + ':' + path)
     assert.equal(sha(original), before, path)

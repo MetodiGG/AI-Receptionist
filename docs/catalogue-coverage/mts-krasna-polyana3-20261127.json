@@ -1,0 +1,56 @@
+{
+  "reviewedOn": "2026-11-27",
+  "baseCommit": "65ceafe141aef59864ac5fe6f122cfed582d9bf8",
+  "scope": "One new distinct Sofia business with public phone appointments, literal published tariffs, and an exact opened entrance point. No booking, external write, live configuration or new asset.",
+  "newDistinctBusinesses": 1,
+  "coverage": {
+    "targetPerQuarterCategory": 30,
+    "checkedCells": 1750,
+    "sourceRecords": [1812, 1813],
+    "approvedSofiaBusinesses": [1786, 1787],
+    "premisesWithBoundPoint": [1043, 1044],
+    "emptyPhysicalCells": [1240, 1239],
+    "emptyLocatedCells": [1321, 1320],
+    "locatedCellsAtTarget": [0, 0],
+    "deltas": [
+      { "neighborhood": "Красна поляна 3", "category": "health", "physical": [0, 1], "located": [0, 1] }
+    ]
+  },
+  "verified": [{
+    "id": "sofia-mts-massage-pchinya31b",
+    "name": "MTs · Милена Цветкова · масажно студио",
+    "legalOperator": { "name": "ЛЕЙДИ БОС 83 ЕООД", "eik": "204480285" },
+    "category": "health",
+    "neighborhood": "Красна поляна 3",
+    "address": "София, ж.к. Красна поляна 3, бл. 31, вх. Б откъм ул. Пчиня",
+    "sources": {
+      "website": "https://milenatsvetkova.bg/",
+      "contact": "https://milenatsvetkova.bg/kontakti/",
+      "appointmentsAndTerms": "https://milenatsvetkova.bg/pravila-poseshtenie/",
+      "priceList": "https://milenatsvetkova.bg/tseni/"
+    },
+    "booking": "tel:+359877776703",
+    "bookingMethod": "All three direct service pages expose the same public tel link. Advance phone appointment, not an availability guarantee. Cancellation/payment conditions were separately verified and paraphrased.",
+    "conditions": {
+      "requestAtLeastDaysBefore": 3,
+      "rescheduleNoticeHours": 24,
+      "feeDueForLateReschedule": true,
+      "singleVisitPayment": "Pay before the session."
+    },
+    "point": {
+      "latitude": 42.694690, "longitude": 23.284973,
+      "addressId": "43181", "licence": "CC-BY-4.0",
+      "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+      "evidence": "Sofia's official civic export has separate entrance records for A, Б, В and Г at block 31, Красна поляна III част. The owner lists the Б entrance specifically, with access from Pchinya Street. The published customer address, not the company's registered office, is the route destination. The separate map viewport was not used. Civic point is that entrance, not a surveyed door within it."
+    },
+    "cover": "/business-cover-photos/activity-massage-v1.webp",
+    "services": [
+      { "name": "Класически масаж на цяло тяло", "amount": 65, "currency": "EUR", "minutes": 60, "source": "https://milenatsvetkova.bg/services/klasicheski-relaksirasht-masazh-tsyalo-tyalo/", "detailPhoto": "/service-photos/sx-male-massage-v1.webp" },
+      { "name": "Авторски масаж на цяло тяло при Милена Цветкова", "amount": 70, "currency": "EUR", "minutes": 60, "source": "https://milenatsvetkova.bg/services/avtorski-masazh-milena-tsvetkova/", "detailPhoto": "/service-photos/sx-massage-manual-covered-alternatives-v1.webp" },
+      { "name": "Частичен масаж при Милена Цветкова · гръб или антицелулитен", "amount": 50, "currency": "EUR", "minutes": 30, "source": "https://milenatsvetkova.bg/services/chastichen-masazh-milena-tsvetkova/", "detailPhoto": "/service-photos/sx-neck-shoulder-massage-v1.webp" }
+    ],
+    "notes": "Only three direct single-visit services were admitted. A separate 90-minute classical visit, packages, training, dated events, and medical/health outcome claims were not imported. Media come from GoRez's existing approved illustrative library, not from the studio. Host/name/operator EIK/phone/street+block preflight against the catalogue returned no existing entity."
+  }],
+  "productionWrites": 0,
+  "submittedBookings": 0
+}

@@ -1,0 +1,35 @@
+{
+  "baseline": "1aa472c77c820030f8a3c73748f3238e8e630dc6",
+  "baselineCatalogueSha256": "c6be1210ba809d310c842d671acd28ce79ca9d9d2164255a6a88d3f82cc106df",
+  "currentCatalogueSha256": "e1e750692c6d8de074dcbe6f2ac01a57b9da82b7886dd5f19ed2cf3697806bbd",
+  "changed": {
+    "lib/discovery/sofia-catalogue.mjs": {
+      "before": "c2d2cee0d10b31c1eb26e6b8cfb79fcd7fc6b9126dfa72c84f45f6fbdf64d00a",
+      "after": "0d9e5d97b37358295f2d873c4e1c6fed6210fa0689df5d758fdfd32afcad6c22"
+    }
+  },
+  "added": {
+    "docs/catalogue-coverage/branch-location-followup-20261127.json": "8160da72e9eb225556412d70c29e19e9e6ac81848e61586c456ec1a5d82f1eed",
+    "lib/discovery/catalogue-data/sofia-branch-location-followup-nov27.mjs": "c6cd1298ef9452d3e23eb6cfe2b1afad809781b5e1b2af54000667638ffce946"
+  },
+  "records": [
+    {
+      "id": "sofia-busy-school-nadezhda6-634",
+      "before": "fcb67c7f9e6155cb3391dbd1e1f29660c14aeee64b170231664885fb8185e033",
+      "after": "a9e52f8a3e0f27b32733eaac0063c79d791a7263acbd512ca127566a6c1a2dc5",
+      "previous": { "coordinates": null }
+    },
+    {
+      "id": "sofia-clean-ride-autoservice",
+      "before": "dc93df061982bc484c92491193ed3d6420682fad68ebeb6b804e1e1118b238a6",
+      "after": "b2f67dbf7671157cefbf18935660edec9640a39df108b03c6bc7e4c5dbc23ef1",
+      "previous": { "address": "София, Левски В, ул. Селимица 23", "neighborhood": "Левски В", "coordinates": null }
+    },
+    {
+      "id": "sofia-pharos-razsadnika-hashove21a",
+      "before": "d4af773424c948d9de5f8f483e7812c1816a70fb2857e02241bd313c53b82e15",
+      "after": "fa43b92c18e0e50410cf691f296a8bceff69ab22ab4d6f5b47f575a47902c5fc",
+      "previous": { "coordinates": null }
+    }
+  ]
+}

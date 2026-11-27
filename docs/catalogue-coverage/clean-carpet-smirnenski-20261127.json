@@ -1,0 +1,36 @@
+{
+  "checkedOn": "2026-11-27",
+  "id": "sofia-clean-carpet-smirnenski-marko-bochar1",
+  "business": "Clean Carpet",
+  "neighborhood": "Христо Смирненски",
+  "category": "home_services",
+  "decision": "one distinct public base for a scheduled home-pickup rug-washing service; no listing for walk-in-only services, rotating CleanPoint or a second business at the same workshop",
+  "branch": {
+    "address": "София, ж.к. Христо Смирненски, ул. Марко Бочар 1",
+    "source": "https://clean-carpet.net/",
+    "sourceLabel": "Предай килима на място → Виж локация",
+    "ownerMapLink": "https://maps.app.goo.gl/2QGMxpUYN8vHEZP46",
+    "visitedMarker": [42.6929345, 23.3675524],
+    "sourceNote": "Used the destination lat/lng in the owner-linked pin, not the earlier map viewport. No claim that coordinates denote an exact doorway. The unnumbered Надежда contact footer does not describe the identified fixed drop-off.",
+    "municipalAddress": { "id": "111283", "district": "Слатина", "latitude": 42.692665, "longitude": 23.367506, "licence": "CC-BY-4.0" },
+    "neighborhoodCorroboration": "https://so-slatina.org/wp-content/uploads/2018/05/RSL18-RD09-131-ot-18.04.2018-g.pdf"
+  },
+  "appointment": {
+    "source": "https://clean-carpet.net/ceni/",
+    "href": "tel:+359883741777",
+    "terms": "https://clean-carpet.net/obshti-usloviya/",
+    "checked": "Literal scheduled home-pickup service call-to-action points to the same number in owner contacts. Terms explicitly require an agreed time for home pickup. No call, form submission, account, notification or reservation."
+  },
+  "offer": {
+    "amount": 3.99,
+    "currency": "EUR",
+    "unit": "square metre",
+    "scope": "Standard machine rug wash with scheduled pickup and return in Sofia. Transport is included.",
+    "exactConditions": "No minimum order. Excess soil treatment may cost EUR 2 per square metre; amount confirmed as applicable after inspection. No promise of a turnaround time.",
+    "omitted": "The EUR 2.99 walk-in drop-off is not counted under the current scheduled service policy; mobile CleanPoint, special materials, optional/special delivery fees, express service and conflicting/general timing are not included."
+  },
+  "deduplication": "Checked live catalogue for name, domains clean-carpet.net and wash4car.com, telephone and address; no matching operator. Existing Kanev Carpet is a different company with a different first-party domain, address and telephone.",
+  "localCoverageBefore": { "premises": 0, "boundCoordinates": 0 },
+  "localCoverageAfter": { "premises": 1, "boundCoordinates": 1 },
+  "published": false
+}

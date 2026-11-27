@@ -1,0 +1,47 @@
+{
+  "baseline": "fe5523a954425965e2760026e2118541d2fb7463",
+  "changed": {
+    "lib/catalogue-service-photo-keys.mjs": {
+      "before": "027b9947d921a50022b7bf47ac874f99f3cb8e4479f4158b655b046a69598243",
+      "after": "70cd650c7aee882811dbe7432c8fd6d7cfbe84414b7431dc43cb0e4cfb115d7c"
+    },
+    "lib/discovery-photo-ownership.json": {
+      "before": "c9c659851e4246801d638719c5dfed1deebad1c55f1bb17b1b94473d2d6cb724",
+      "after": "342904ed3dcfeb6a4f481a9e0524716d162d9f27243671bae489c7867765a8e7"
+    },
+    "lib/discovery/catalogue-data/pricing-booking-review-v1.mjs": {
+      "before": "1d9450f93892200c8a7da6678a5c015dfdeb88b9ccae93d06f87f3a9425d41ba",
+      "after": "54297982a5439a59b687304bf4d33c50a4e9d3db9fb3aaa8c35f13c89dce379c"
+    },
+    "lib/discovery/sofia-catalogue.mjs": {
+      "before": "f17152e97fe70667f9dab3b065d5c1fadaeda316a8f51d2b8ecb72f2e2b33d19",
+      "after": "6e1313920ec646e1376d665f179c34a74df0c80fc32af5779d9e0d3c38cb21ba"
+    },
+    "lib/locale/service-english.json": {
+      "before": "21254d13e645718b5d87ff5fd4b18d4dbe89f4903092c635830fde6fb129da72",
+      "after": "cedfbc37ccb4c618b7365141d19122b9853202be18c1cea34b8d272f8e62a223"
+    },
+    "lib/public-business-cover-photo.mjs": {
+      "before": "b7bfb9f092d26109bb2e1aa58b88f932966204f98c431a3b8adcd8a80ca185ed",
+      "after": "ec8e65ac96ccae027ff3105d2cef04ce6d67cfd457f154b084dbee9833433f9f"
+    },
+    "lib/specific-service-photo-ids.mjs": {
+      "before": "344623049f80d00ddc7158ce0d6b9f5bbcf1c66aac5184b97b04f36f00df8904",
+      "after": "4a13b7f72cb4f149aa418ec97c73a2a82ca47ed3d5677635e502fa9906fd4385"
+    }
+  },
+  "added": {
+    "docs/catalogue-coverage/orlyak-banishora-20261127.md": "de0c788a7abcefa90af070c6a13c649438a43767c45e6f20e6db8fa39684b2fb",
+    "lib/discovery/catalogue-data/neighborhood-verified-orlyak-banishora-20261127.mjs": "6aa4d32da850b2f0a95423a4c389c73ace259a9b29e3bd720fa7d836c646754f",
+    "public/business-cover-photos/go-orlyak-banishora-20261127-v1.webp": "944bc06412275b621d68ea30a445492d8de734dd8070d806715f38d2139b6a69",
+    "public/service-photos/go-orlyak-childrens-group-20261127-v1.webp": "f51d7085d64921a9f76c642d075b4a0d96fa36c70cabbad83b25f27a95add33e"
+  },
+  "baselineCatalogueSha256": "795436dead9347e56e9cc9ff1136abd8e76a8b093975cc2d4fbf0578f82704ac",
+  "currentCatalogueSha256": "4bb13333c9259148e9c499f529818db90c42ea7efcc61db5649462f3ff8ecce2",
+  "records": [
+    {
+      "id": "sofia-orlyak-sport-banishora-orlyak24a",
+      "sha256": "3560f4c99a45832711084856360aa23c74d82cbabf054cb9316de9a232f7dc79"
+    }
+  ]
+}

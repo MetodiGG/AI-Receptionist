@@ -1,0 +1,121 @@
+{
+  "reviewedOn": "2026-11-27",
+  "scope": "Two currently operating Sofia sports venues in two previously empty built-in catalogue cells. No partnership claim, borrowed photos, availability/slot import, booking, payment, notifications, database or production write.",
+  "baseCommit": "e0017581df3f26027b247806083fd830050d1e7d",
+  "sources": {
+    "flais": {
+      "website": "https://www.flaisfitness.bg/premium-fitness-nadezhda/",
+      "booking": "https://nadezhda.flaisfitness.bg/calendar",
+      "tariff": "https://www.flaisfitness.bg/ceni-premium-flais-nadezhda/",
+      "products": "https://nadezhda.flaisfitness.bg/buy-membership?club=true",
+      "terms": "https://www.flaisfitness.bg/pravila/",
+      "identification": "The owner-embedded place response binds address and CID 17509788786813138374 to 42.7314339,23.2967566. Rejected map viewport and nearby civic numbers.",
+      "exactProducts": [
+        {
+          "key": "99997",
+          "amountEUR": 25,
+          "unit": "total for 7 days",
+          "terms": "Unlimited gym and up to 1 group booking per day; owner account and availability."
+        },
+        {
+          "key": "96054",
+          "amountEUR": 153,
+          "unit": "total for 3 months",
+          "terms": "Up to 1 group booking per day; not gym access at the Надежда club, not children's classes, no freeze."
+        }
+      ],
+      "excluded": [
+        {
+          "offer": "Dedicated children's yoga pass",
+          "why": "Current owner rules §14.15 stop new sales from 31 March 2026. A displayed tariff is not current eligibility."
+        },
+        {
+          "offer": "Children’s boxing pass",
+          "why": "Branch page and currently listed group ages do not agree."
+        }
+      ]
+    },
+    "sihia": {
+      "website": "https://yogasihir.com/",
+      "booking": "https://yogasihir.com/schedule-reformer/",
+      "tariff": "https://yogasihir.com/prices/",
+      "terms": "https://yogasihir.com/rules/",
+      "contact": "https://yogasihir.com/contacts/",
+      "civicSource": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+      "identification": "Exact business-published entrance Г matches civic RN99282 (42.729507,23.302035; CC BY 4.0). Other entrance letters and the general owner Maps search point were not substituted.",
+      "amountEUR": 21,
+      "unit": "one regular group Reformer visit without MultiSport",
+      "conditions": "Advance booking; cancel at least 4 hours before the class. Late cancellation or absence costs EUR 21. An unpaid absence charge prevents new reservations. The owner rules and actual branch scheduler agree; the archived search result with EUR 6 was not used.",
+      "sourcing": "Only studio-owned public facts recorded. The owned link hands off to the provider; no automated provider extraction, private content or third-party photos."
+    }
+  },
+  "photos": {
+    "flais": {
+      "cover": "/business-cover-photos/activity-sx-strength-group-v1.webp",
+      "services": [
+        "/service-photos/sx-women-mat-strength-v1.webp",
+        "/service-photos/sx-kangoo-jumps-v1.webp"
+      ]
+    },
+    "sihia": {
+      "cover": "/business-cover-photos/activity-sx-reformer-group-v1.webp",
+      "services": [
+        "/service-photos/sx-reformer-intense-equipment-v1.webp"
+      ],
+      "rejected": "The similarly named sx-reformer-group detail is the same underlying scene as the cover. An independently reviewed close-up of a different Reformer is used by this exact entry."
+    }
+  },
+  "coverage": {
+    "target": 30,
+    "before": {
+      "hash": "0f461d2f62b165319500c348270dfbed5630511c88ae9d1fe7cad0f953dd2182",
+      "approved": 1789,
+      "bound": 1048,
+      "emptyPhysical": 1239,
+      "emptyGps": 1318,
+      "atTarget": 0,
+      "count": 1750,
+      "selected": [
+        {
+          "name": "Надежда 1",
+          "count": 0,
+          "locatedCount": 0,
+          "locatedBusinessIds": []
+        },
+        {
+          "name": "Надежда 2",
+          "count": 0,
+          "locatedCount": 0,
+          "locatedBusinessIds": []
+        }
+      ]
+    },
+    "after": {
+      "hash": "d13d77dd79d4258d7f5a0114fbf5ec23a252e75cfd5fd920c3cd5bee81c4c3d6",
+      "approved": 1791,
+      "bound": 1050,
+      "emptyPhysical": 1237,
+      "emptyGps": 1316,
+      "atTarget": 0,
+      "count": 1750,
+      "selected": [
+        {
+          "name": "Надежда 1",
+          "count": 1,
+          "locatedCount": 1,
+          "locatedBusinessIds": [
+            "sofia-flais-nadezhda1-lyuborodie2"
+          ]
+        },
+        {
+          "name": "Надежда 2",
+          "count": 1,
+          "locatedCount": 1,
+          "locatedBusinessIds": [
+            "sofia-sihia-nadezhda2-velezhki49g"
+          ]
+        }
+      ]
+    }
+  }
+}

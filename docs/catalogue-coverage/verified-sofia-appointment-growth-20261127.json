@@ -1,0 +1,68 @@
+{
+  "checkedOn": "2026-11-27",
+  "baseCommit": "5648815d6d7f73dad5ebdb6702f75530073ac967",
+  "scope": "Four distinct client-facing premises in Sofia. Exact first-party appointment route and independent civic point for each branch. An appointment request is not a confirmed booking. No provider request, live booking or publication.",
+  "addressSource": {
+    "url": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "licence": "CC-BY-4.0",
+    "csvSha256": "0cd8c9d19996c0654707f711cb8d559a23e0a95148d4b8c6016aad76de2140ef"
+  },
+  "coverage": {
+    "targetPerQuarterCategory": 30,
+    "approvedSofiaBusinesses": [1776, 1780],
+    "premisesWithBoundPoint": [1026, 1030],
+    "emptyPhysicalCells": [1251, 1246],
+    "emptyLocatedCells": [1338, 1333],
+    "physicalAndLocatedCellDeltas": [
+      ["Овча купел 2", "education", 0, 1],
+      ["Люлин 10", "consulting", 0, 1],
+      ["Банишора", "education", 0, 1],
+      ["Банишора", "hair", 0, 1],
+      ["Банишора", "nails", 0, 1]
+    ]
+  },
+  "verified": [
+    {
+      "id": "sofia-reya-kids-ovcha-kupel2-ivan-hadzhiyski3",
+      "address": "София, ж.к. Овча купел 2, ул. Иван Хаджийски 3, партер",
+      "neighborhood": "Овча купел 2",
+      "point": { "addressId": "111474", "latitude": 42.688667, "longitude": 23.24479 },
+      "sources": ["https://reya-kids.com/zapisvane-na-deca/", "https://reya-kids.com/nashite-uslugi/angliyski-ezik.html"],
+      "pricingState": "service_reviewed",
+      "facts": "Sunday in-person English course. First-party phone enrolment; primary-school pupils, groups of up to six. No published tuition; other/clinical fees and enrolment routes do not apply."
+    },
+    {
+      "id": "sofia-art-academy-banishora-kozloduy128",
+      "address": "София, Банишора, ул. Козлодуй 128, партер",
+      "neighborhood": "Банишора",
+      "point": { "addressId": "28880", "latitude": 42.708012, "longitude": 23.311259 },
+      "sources": ["https://azrisuvam.com/teambuilding/", "https://azrisuvam.com/"],
+      "pricingState": "service_reviewed",
+      "facts": "Private guided painting workshop for five to ten participants; by phone and by quotation. The dated November/December calendar and its promotional/cohort prices do not apply."
+    },
+    {
+      "id": "sofia-va-consulting-lyulin10-block135",
+      "address": "София, ж.к. Люлин 10, бл. 135, партер",
+      "neighborhood": "Люлин 10",
+      "point": { "addressId": "53075", "latitude": 42.714959, "longitude": 23.275854 },
+      "sources": ["https://vaconsulting.bg/pages-1-danachni-konsultacii", "https://vaconsulting.bg/contacts", "https://vaconsulting.bg/pages-10-obshti-usloviia"],
+      "pricingState": "service_reviewed",
+      "facts": "Public client premises are on the ground floor of block 135, unlike the legal address in the terms. Verified read-only service enquiry page pre-fills Данъчни консултации; owner quotes after contact."
+    },
+    {
+      "id": "sofia-essentisimo-banishora-karlovo7",
+      "address": "София, ж.к. Банишора, ул. Карлово 7",
+      "neighborhood": "Банишора",
+      "point": { "addressId": "98744", "latitude": 42.707462, "longitude": 23.309666 },
+      "sources": ["https://beautyhouse.bg/", "https://beautyhouse.bg/ceni/"],
+      "pricingState": "reviewed",
+      "prices": { "Дамско подстригване": 15, "Маникюр с гел лак": 20 },
+      "facts": "One business in hair and nails; no duplicate branch. EUR 15 includes washing and drying, not the differently priced styling/blow-dry service; EUR 20 is gel manicure, not levelling or separately listed extras. Use the owner's reachable appointment-enquiry section, not the separately hosted widget that could not be independently read."
+    }
+  ],
+  "held": [
+    { "name": "BarberHood Classic · Банишора", "reason": "Generic brand tariff and chosen branch/staff tariffs disagree; direct appointment terms not independently confirmed." },
+    { "name": "Fit&Fabulous · Зона Б-18", "reason": "Published service tariff and address, but no exact civic point or verified owner-published destination found for the house number." },
+    { "name": "Ford Express · Триъгълника", "reason": "Exact civic address, but only general contact verified and stale tariff; no confirmed service-specific appointment route." }
+  ]
+}

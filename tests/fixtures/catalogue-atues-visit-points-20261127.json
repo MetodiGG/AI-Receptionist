@@ -1,0 +1,90 @@
+{
+  "baseline": "d99ec12067b2c2ccd2be189e08404359bc1c73d2",
+  "changed": {
+    "lib/catalogue-service-photo-keys.mjs": {
+      "before": "c62fadcfb8e35f991b16b51838018505f7f22402e2e791d54df8a50ce1181c64",
+      "after": "500692ef4694e213226407510e07819fde675e19e16af345e3ce0c4b1d7a3c7b"
+    },
+    "lib/discovery-photo-ownership.json": {
+      "before": "62d4b80717de9fa64d642acda25d1474a91d863d8e5b2d84c59cf4d4c0d67ab5",
+      "after": "1a4afa6c2ffcdc8acc5744091a3eff190b17e90c9c424b75b9f432f7cd014b85"
+    },
+    "lib/discovery/catalogue-data/pricing-booking-review-v1.mjs": {
+      "before": "65271448ba07dcf7ab038e8dd22e797e0142b0a8585a37d337873e03e859ef23",
+      "after": "2f1741da3addbcc48077c494e23953d798b27b3b019741e11e20259554615775"
+    },
+    "lib/discovery/sofia-catalogue.mjs": {
+      "before": "9879fe7677f9a0d7c48f43b78a9cc0c69701df8f563133f175ea769c449cbd84",
+      "after": "6553dcec1efe6c62c302a45e9ed7b43cdde7b57ba551e75f702b1f6df4501e75"
+    },
+    "lib/locale/service-english.json": {
+      "before": "ceae41eabb89af4dbadcfd1dc19335288d429467d513162339e8189376cb436b",
+      "after": "a0a588514252697ac2648c610f940b0036770a83c00d57e1d7294493f732849b"
+    },
+    "lib/public-business-cover-photo.mjs": {
+      "before": "72c5713acd89d4470133cba9eb60b09e89182ba2f7dc860b1a4cb0e3edf5e1a2",
+      "after": "9c53ced6f74989d0510596358687bea155be29c57556a886d556c854a33a35d5"
+    },
+    "lib/specific-service-photo-ids.mjs": {
+      "before": "8382d736d4ec2b64ba6f065ff3dcae9692361b2b15d93cf8358597ec548b7040",
+      "after": "e93c35cea58d0666f16925db18ebe8de37be62417ddb593e0a6694e7354defe3"
+    }
+  },
+  "added": {
+    "docs/catalogue-coverage/atues-and-visit-points-20261127.md": "7e3f0685aee48fa901bed9254c603798e0784b09f390c5420623a6f69658d504",
+    "lib/discovery/catalogue-data/gotse-mladost-visit-points-20261127.mjs": "40f95b5288bdc7a0dddec99a5dee1e4eef1d774c7f01854030c41d3a91262f64",
+    "lib/discovery/catalogue-data/neighborhood-verified-atues-lyulin3-20261127.mjs": "4a0d3168966b5c91d1c8292d930a9dedeaab537de4b48be95ddbbe49d3a2dac2",
+    "public/business-cover-photos/go-atues-lyulin3-20261127-v1.webp": "654a66e606cd512e1887fde01804bd74679907b667cb4c82404bf00a3928c87a",
+    "public/service-photos/go-atues-haircut-beard-20261127-v1.webp": "30c25454af3e84d4786c101141f29818f09f8dbb66a14441f8691289e50da908",
+    "public/service-photos/go-atues-mens-haircut-20261127-v1.webp": "d09657ca95526c1ce5863abd9c0dc75d2649e8cc387e8cb6c5c1b5519299725e"
+  },
+  "baselineCatalogueSha256": "db0fb2eb2b51c104227b7fded70d394bcaa3732f98ed3da6617d175d52f67938",
+  "currentCatalogueSha256": "b8c412e9c5fba72d22d0762c50c19943757e581c730b99659802dc1a089243ea",
+  "records": [
+    {
+      "id": "sofia-a-tu-estilo-lyulin3-block386",
+      "sha256": "dc99fcffbeac9ac9bcc516c5fa28985cdde63cf439d2efea95bd4f153c7aac05"
+    }
+  ],
+  "locations": [
+    {
+      "id": "sofia-thai-spa-the-mall",
+      "original": {
+        "neighborhood": null,
+        "address": "София, бул. Цариградско шосе 115, ет. -2, The Mall",
+        "coordinates": {
+          "latitude": 42.663956435978896,
+          "longitude": 23.37883487997901,
+          "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+          "method": "verified_official_address",
+          "sourceAddress": "София, бул. Цариградско шосе 115, ет. -2, The Mall",
+          "sourceCityCode": "68134",
+          "sourceNeighborhood": null,
+          "sourceWebsite": "https://thaispa.bg/",
+          "checkedOn": "2026-11-13",
+          "addressId": "125239",
+          "licence": "CC-BY-4.0",
+          "attribution": "ГИС София / Столична община"
+        }
+      },
+      "before": "f1b2baf83f5daffcfc13b1fcea99f9d398f95e9ba4ba5bba226acc00679ae8dd",
+      "after": "b4318a8d23c212421395ef707c5b5e0b6920c3e01b47b14f5e2fddfe10145d7e"
+    },
+    {
+      "id": "sofia-21-cutz-gotse-delchev",
+      "original": {
+        "coordinates": null
+      },
+      "before": "b904116ee9f2c55f3e15930f54dac91eeac65acf98db21e9113a3dff1480321b",
+      "after": "c7e6d11eeadd160265190f76e038cc295e874933591d26c7118d52e952000873"
+    },
+    {
+      "id": "sofia-dirty-garage-mladost2-block272b",
+      "original": {
+        "coordinates": null
+      },
+      "before": "8d5285e74e9fa1775d49d55b0d03f444120be7034cc94762393f89055f1aa1d9",
+      "after": "881a9024111224712f1651502f85efca2e0771083bb2dce38355687f2cb1e585"
+    }
+  ]
+}

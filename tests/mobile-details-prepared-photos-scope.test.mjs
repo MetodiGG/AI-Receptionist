@@ -9,6 +9,7 @@ import { preparedPhotosAllowsFileChange, preparedPhotosAllowsNewFile, preparedPh
 import { staticWebpCacheCpuAllowsFileChange } from './discovery-static-webp-cache-cpu-scope.mjs'
 import { mobileDiscoveryFirstPaintAllowsFileChange } from './mobile-discovery-first-paint-scope.mjs'
 import { homepageBrowseStartAllowsPath } from './homepage-browse-start-scope.mjs'
+import { approvedCatalogueMatches } from './catalogue-only-release-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const git = (...args) => execFileSync('git', args, { cwd: root })
@@ -30,7 +31,8 @@ test('the prepared-photo latency patch changes only the public details read and 
     ...split(git('ls-files', '--others', '--exclude-standard', '-z'))])
   const expected = [...Object.keys(changed), ...Object.keys(added)].sort()
   assert.deepEqual([...actual].filter(path => path !== 'node_modules' && !path.startsWith('tests/')
-    && (expected.includes(path) || (!staticWebpCacheCpuAllowsFileChange(path) && !mobileDiscoveryFirstPaintAllowsFileChange(path) && !homepageBrowseStartAllowsPath(path)))).sort(), expected)
+    && (expected.includes(path) || (!staticWebpCacheCpuAllowsFileChange(path) && !mobileDiscoveryFirstPaintAllowsFileChange(path)
+      && !homepageBrowseStartAllowsPath(path) && !approvedCatalogueMatches(path)))).sort(), expected)
 
   for (const [path, { before, after }] of Object.entries(changed)) {
     const current = await readFile(new URL('../' + path, import.meta.url)), original = git('show', baseline + ':' + path)

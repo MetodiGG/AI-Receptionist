@@ -1,0 +1,49 @@
+{
+  "baseline": "884e263801805c7d26587420eaad17f166e2bc65",
+  "changed": {
+    "lib/catalogue-service-photo-keys.mjs": {
+      "before": "7e2351aa9afb0cea81beca16392c54ab5661b2589f85926bf6c87fa2057897fc",
+      "after": "59627e1970420aa9db6dd99c7bd49134de74614475f407b76e6e1524b78f77d1"
+    },
+    "lib/discovery-photo-ownership.json": {
+      "before": "ee49a410410b6206bd5b50bf43de6d41071de1dab7fa416dffc477eac9846366",
+      "after": "bd18e2df966acd394ca651d16c619df24fb522d4d3f1dab65eecc26beecd0fcd"
+    },
+    "lib/discovery/catalogue-data/pricing-booking-review-v1.mjs": {
+      "before": "b67a9c80205d85492acd4e59669fdd4ab7a6c90ce5e3a1bad9c49e24c3b978ad",
+      "after": "a31ce36df5a298d15f5fe43080eb707ff21800deffaeae45fffcf96e30ce486c"
+    },
+    "lib/discovery/sofia-catalogue.mjs": {
+      "before": "17c7c4967a98aa5e1549508fc305300d68dd1ef307f4ef5f7fceb40e8dfc9f4d",
+      "after": "6b84140e290178a21cf6bffcae8a3fb5acb6d00f1a9b8140addbfdf1a0b8e015"
+    },
+    "lib/locale/service-english.json": {
+      "before": "3bda3afeaeb92cb45b9f86d806eb0187e7adb70178c1b818ffb5188fee329edd",
+      "after": "919c50cb1150e02772a8cd255e0c74d02e76dff9a25c79ca652b5153f424cd61"
+    },
+    "lib/public-business-cover-photo.mjs": {
+      "before": "8d65ed8a26f0d4418c46745f1e17fb2ff6e888542ebc20a7044773213d6d4bac",
+      "after": "5d9b83b80e498991040ec5ddea58c9e3997d6f68226141a906881085e8c6ecac"
+    },
+    "lib/specific-service-photo-ids.mjs": {
+      "before": "fc62c3ca12343d9a8216fdc83b336f29f6447244b522b4648dc5778830814205",
+      "after": "f3aaa25d9b3ad7c7c7372a470bc5eee533f07414e8aeae428359bc1bf7268c7a"
+    }
+  },
+  "added": {
+    "docs/catalogue-coverage/dekra-fakulteta-20261127.md": "6d6d6f3ba1b7b8473fbe4628995cc18914c8266397285714a8f34e9bae8f77af",
+    "lib/discovery/catalogue-data/neighborhood-verified-dekra-fakulteta-20261127.mjs": "8c5fd0ff00bc0667fb754fc627f3fea9281534885c8a244bf97bde498ef8d7b6",
+    "public/business-cover-photos/go-dekra-fakulteta-20261127-v1.webp": "be75bcaa94bbe995c61677a23f12aef434c644c8e63780cd7c8321c93935f8c2",
+    "public/service-photos/go-dekra-fakulteta-m1-inspection-20261127-v1.webp": "d440e429595c27411bb8b78b45a45fee3874c0827c188a30c957bf2afb82c01b"
+  },
+  "records": [
+    {
+      "id": "sofia-dekra-automotive-fakulteta-suhodolska102",
+      "sha256": "2e3642a71713459a9a83a4e060be8ec8b6a9dfd126c2326cb967f4ab6bea6b80"
+    }
+  ],
+  "catalogue": {
+    "before": "c75eface20cd067da0b337727fed2f4277a221d5f4dd1114b55f2b9bc44bd428",
+    "after": "53906bb8cf3ccaca84ec560111e2492ddd280fc356f069d170781bbbb8018b63"
+  }
+}

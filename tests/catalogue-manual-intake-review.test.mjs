@@ -6,13 +6,15 @@ import { auditCatalogueBatch } from '../lib/discovery/catalogue-audit.mjs'
 import { pricingIdentity } from '../lib/discovery/catalogue-pricing-review.mjs'
 import { assessManualIntakeReview, manualIntakeIdentity } from '../scripts/catalogue-manual-intake-review.mjs'
 import { cataloguePublicationState } from '../scripts/check-sofia-catalogue.mjs'
+import { priorCatalogue } from './catalogue-mitoart-nails-nadezhda-20261127-scope.mjs'
 
 const now = Date.parse('2026-11-16T12:00:00Z')
 const providerId = 'sofia-diamant-dental-pashovi-obelya316'
 const ownerId = 'sofia-art-masters-band-nadezhda1-172'
 const ids = [providerId, ownerId]
+const historicalRows = priorCatalogue(SOFIA_CATALOGUE)
 function pair(id = providerId) {
-  const row = structuredClone(SOFIA_CATALOGUE.find(item => item.id === id))
+  const row = structuredClone(historicalRows.find(item => item.id === id))
   const review = structuredClone(COVERAGE_20261116_REVIEWS.find(item => item.id === id))
   // Only a test fixture: root separately records the real attestation after
   // actual source review. No persisted proof or historical baseline is edited.
@@ -215,7 +217,7 @@ test('assessment is read-only and malformed arguments do not throw or create an 
 })
 
 test('the actual publication gate reports the two persisted reviewed resolutions without changing ordinary intake', () => {
-  const rows = ids.map(id => SOFIA_CATALOGUE.find(row => row.id === id))
+  const rows = ids.map(id => historicalRows.find(row => row.id === id))
   const state = cataloguePublicationState(rows, now)
   assert.deepEqual(state.current.map(row => row.id), ids)
   assert.deepEqual(state.manualIntakeResolutions.map(row => row.id), ids)
@@ -226,6 +228,30 @@ test('the actual publication gate reports the two persisted reviewed resolutions
     assert.ok(assessManualIntakeReview(row, review, now))
     assert.deepEqual(auditCatalogueBatch([], [row], now).pending,
       [{ id: row.id, reason: 'first_party_appointment_evidence_required' }])
+  }
+})
+
+test('the later official entrance supplements, but does not replace, the exact historical school review', () => {
+  const school = SOFIA_CATALOGUE.find(row => row.id === ownerId)
+  const review = COVERAGE_20261116_REVIEWS.find(item => item.id === ownerId)
+  const checked = Date.parse('2026-11-27T12:00:00Z')
+  assert.equal(assessManualIntakeReview(school, review, checked), null)
+  assert.deepEqual(auditCatalogueBatch([], [school], checked).pending,
+    [{ id: ownerId, reason: 'first_party_appointment_evidence_required' }])
+  const state = cataloguePublicationState([school], checked)
+  assert.deepEqual(state.manualIntakeResolutions.map(result => result.id), [ownerId])
+  assert.deepEqual(state.current[0].coordinates, school.coordinates)
+  assert.throws(() => cataloguePublicationState([school], now), /first_party_appointment_evidence_required/u)
+  assert.throws(() => cataloguePublicationState([school], checked, { manualReviews: [] }), /first_party_appointment_evidence_required/u)
+  for (const change of [
+    row => { row.coordinates.longitude += 0.001 },
+    row => { row.coordinates.addressId = '56743' },
+    row => { row.services[0].description += ' Променено описание.' },
+    row => { row.address += ', друг вход'; row.coordinates.sourceAddress = row.address },
+  ]) {
+    const edited = structuredClone(school)
+    change(edited)
+    assert.throws(() => cataloguePublicationState([edited], checked), /first_party_appointment_evidence_required/u)
   }
 })
 

@@ -7,6 +7,7 @@ import test from 'node:test'
 import receipt from './fixtures/homepage-browse-start-approval.json' with { type: 'json' }
 import { homepageBrowseStartAllowsFileChange, homepageBrowseStartAllowsNewFile, homepageBrowseStartAllowsPath, homepageBrowseStartPriorSource } from './homepage-browse-start-scope.mjs'
 import { publicFirstLoadAllowsFileChange } from './public-first-load-optimization-scope.mjs'
+import { approvedCatalogueMatches } from './catalogue-only-release-scope.mjs'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
 const git = (...args) => execFileSync('git', args, { cwd: root })
@@ -23,7 +24,7 @@ test('the early homepage browse release can modify only its entry page, client h
     ...split(git('ls-files', '--others', '--exclude-standard', '-z'))])
   const expected = [...Object.keys(changed), ...Object.keys(added)].sort()
   assert.deepEqual([...paths].filter(path => path !== 'node_modules' && !path.startsWith('tests/') &&
-    (expected.includes(path) || !publicFirstLoadAllowsFileChange(path))).sort(), expected)
+    (expected.includes(path) || (!publicFirstLoadAllowsFileChange(path) && !approvedCatalogueMatches(path)))).sort(), expected)
   for (const path of expected) {
     const stat = await lstat(new URL('../' + path, import.meta.url))
     assert.ok(stat.isFile() && !(stat.mode & 0o111), path)

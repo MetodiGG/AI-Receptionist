@@ -1,0 +1,55 @@
+{
+  "baseline": "c804e15003de0bcf7289c1bf43e2ed05647a4f27",
+  "changed": {
+    "lib/catalogue-service-photo-keys.mjs": {
+      "before": "bc6a9018a5981bccc35a1a230586ac6d69436e969d4510ae662c2d7e9cd708d2",
+      "after": "762db44657564151c78cb6b40269db8c387681776d76bd88b6b503a6b117968d"
+    },
+    "lib/discovery-photo-ownership.json": {
+      "before": "a8dad0a002ca71e02b7d3c22690ab10a4625fe5f9e38152bac9060167e509da9",
+      "after": "a7b83e5c15e6e2b1f916d4a0b10bf976d33bcf0064efc889d440cfec446573ae"
+    },
+    "lib/discovery/catalogue-data/pricing-booking-review-v1.mjs": {
+      "before": "9adc5f74a82266a1d9e1fe7f237829f2030114054f451e8ae4022c10048a6730",
+      "after": "89e73556c76d71035c3d0fb56aeb755216bab881e320f59dfee98992b18ccf8c"
+    },
+    "lib/discovery/sofia-catalogue.mjs": {
+      "before": "3207d8bc8b6343e7504a266cdc90e423570457aa98e6b493c601d219f7b6e43c",
+      "after": "48e54b016d30b1c35806c7a1cad9af785de8374d7656b4ddbff78a3acdef0935"
+    },
+    "lib/locale/service-english.json": {
+      "before": "a1c1ed417a55724f16a09438768b9ce83dc8800c888629e8d9c50ba1b29272f5",
+      "after": "2c88c170c73da1338143f7fc365c285b2ab99cc3c96217d3cbfd1f84147d1273"
+    },
+    "lib/public-business-cover-photo.mjs": {
+      "before": "526db964e103d22090e63fc987e30f51f531a0c57788ab0bc231e4641034dea6",
+      "after": "1be59c7d2416fa8e97a28ea78f3af76159b06ed6b7246727abd3dd5fd5e9a3b1"
+    },
+    "lib/specific-service-photo-ids.mjs": {
+      "before": "e1110237e6bce09b58232f2e8e34d8132cc596b3fb117cc4470d1de8be04accc",
+      "after": "2557f29f9f18092f3ea41d8cfe2c8ede7683d26795fb49ba6f94e24c5ed23ef3"
+    }
+  },
+  "added": {
+    "docs/catalogue-coverage/carpaint-levski-g-20261127.md": "0b8f4937909943402fded0f87b2b5033c2f658612ecf971385d88051cf6db760",
+    "docs/catalogue-coverage/sense-center-karpuzitsa-20261127.md": "12ca912ba29f55ca9daa108ca5d4e659fba8d39ae4a39d5e63354b8089931f3c",
+    "lib/discovery/catalogue-data/neighborhood-verified-carpaint-levski-g-20261127.mjs": "2aae3b9ae404592cb8d1350b67b618b1a0a3c888b4997e2e04ce1fd90bf8d5d5",
+    "lib/discovery/catalogue-data/neighborhood-verified-sense-center-karpuzitsa-20261127.mjs": "caea774118b1f7e8efaf60da9ecaab32ddbe1b69df9225638f6f7e5d7bbbb684",
+    "public/business-cover-photos/go-carpaint-levski-g-20261127-v1.webp": "5878ddd8805aa6b6deeb70a5c540d1f482e0ff0d2d93675ae1983c5fbc390664",
+    "public/business-cover-photos/go-sense-center-karpuzitsa-20261127-v1.webp": "b7322794e1e569d22ece89a634f057559b81845df8ac632c34842619f8937ea1",
+    "public/service-photos/go-carpaint-levski-g-engine-diagnostics-20261127-v1.webp": "536eec0fd7db1da2e4b53efb5c4a2288af0058f8d6fcd1822a0cafcd032fc592",
+    "public/service-photos/go-sense-center-karpuzitsa-parents-consult-20261127-v1.webp": "39c25fb9c9f2a32b29f49375c36604ec7177e129623d606e5a97e262a7076ace"
+  },
+  "baselineCatalogueSha256": "e1bb77f7d91fbb7e0fe582f77c27ab17040e92b298f237db0ba66ce035c3f10e",
+  "currentCatalogueSha256": "83b497dac7766394ce054044f13d4e8a955fb81e400a99567c5d0557d71ac31f",
+  "records": [
+    {
+      "id": "sofia-car-paint-service-levski-g-kyumyurdzhiev22",
+      "sha256": "ecdcb005c1007cb0a29918e6caa46b5c1cf02fcea3a9b9d6751da800da0722b2"
+    },
+    {
+      "id": "sofia-sense-center-karpuzitsa-nikola-petkov95a",
+      "sha256": "14d6b3fbdf797a3fdc9f9fcc72f9d7d4e497e3eb95b753eef42b7f33b1143ced"
+    }
+  ]
+}

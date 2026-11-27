@@ -1,0 +1,56 @@
+{
+  "checkedOn": "2026-11-27",
+  "status": "reviewed_local_candidate_not_published",
+  "dedupeAndCoverageBaseline": "93af6a648c1e7d5de02bd4719437d6116fd27b2d",
+  "recordId": "sofia-dentaart-hladilnika-filipkutev14",
+  "inventoryIdentity": "f95a31f99d61847e80f632bd6c79accef47dd982548db61ee14d94f575c0e248",
+  "business": "Дентално студио Denta Art",
+  "cell": {
+    "city": "София",
+    "neighborhood": "Хладилника",
+    "category": "other",
+    "physicalBefore": 0,
+    "physicalIfIntegrated": 1,
+    "locatedBefore": 0,
+    "locatedIfIntegrated": 1
+  },
+  "sources": {
+    "ownerWebsite": "https://dentaart.com/",
+    "ownerContact": "https://dentaart.com/kontakti/",
+    "secondOwnerContact": "https://dentaart.com/contacts/",
+    "ownerServiceMenu": "https://dentaart.com/uslugi/",
+    "ownerConsultation": "https://dentaart.com/uslugi/keramichni-koroni/",
+    "ownerPageSitemap": "https://dentaart.com/wp-sitemap-posts-page-1.xml",
+    "ownerServiceSitemap": "https://dentaart.com/wp-sitemap-posts-droow-portfolio-1.xml",
+    "ownerRobots": "https://dentaart.com/robots.txt",
+    "clinicalRegister": "https://iamn.bg/wp-content/uploads/registers/22_REGISTER_LZ_dejstvashti.pdf"
+  },
+  "location": {
+    "displayAddress": "София, кв. Хладилника, ул. Филип Кутев 14",
+    "phone": "+359878838242",
+    "registerId": "2209114527",
+    "basis": "owner_linked_named_place",
+    "ownerNavigationLink": "https://maps.app.goo.gl/tE7QFPMjCuUKSmhXA",
+    "directionsEvidence": "https://www.google.com/maps?cid=15772185934106106537",
+    "latitude": 42.6563887,
+    "longitude": 23.3230776,
+    "evidenceLimits": "The live official contact identifies Хладилника and bare number 14; ИАМН independently matches the dental practice and number, and also lists ground floor. The owner's own direction URL redirects to the named DentaArt destination. Its exact point record matches the owner brand and number 14, and the owner's published secondary footer phone. The primary contact’s +359878838242, repeated on its alternative contact page, is the appointment number used. The point is not the map viewport; the civic export has nearby suffixed addresses but no exact bare number 14. No building suffix or separate entrance is inferred."
+  },
+  "selectedOffer": {
+    "name": "Консултация за керамична корона",
+    "englishName": "Ceramic crown consultation",
+    "source": "https://dentaart.com/uslugi/keramichni-koroni/",
+    "evidence": "Consultation is the appointment explicitly offered on the owner service page. This is not a guarantee of obtaining a crown, a package including it, or proceeding with the treatment at the first visit. Clinical claims, fabrication turnaround and brand-specific conditions were excluded."
+  },
+  "bookingReview": {
+    "kind": "phone",
+    "state": "phone_booking_reviewed",
+    "evidence": "The actual consultation CTA links to the contact page, where the main branch phone is an explicit tel link. A generic online contact form is broken and is not included. The matching independent owner contact route confirms the venue and primary appointment phone. No form, call, payment, time or appointment was made."
+  },
+  "pricing": {
+    "decision": "not_publicly_listed",
+    "outcome": "not_published",
+    "evidence": "The directly selected service, its booking reference and owner telephone contact, the services index and related bridge/veneer pages were readable with HTTP 200. They show no public fee or consultation duration. The public owner navigation and page/service sitemaps did not expose a price page. The recorded absence is based on readable service and contact pages, not the broken optional contact form. No price or duration is inferred."
+  },
+  "scopeAndSourceUse": "No matching runtime operator or prior source hold by full name, exact domain, either telephone or exact branch address. The ordinary owner pages are allowed by robots, which only restricts WordPress administration. Owner navigation, footer and public page/service sitemaps did not expose an applicable use-terms or service-tariff restriction; the ordinary copyright notice is not a licence. No source media or expressive text, ratings, patient information or map payload is retained. No production, reservation, calendar or partnership change."
+}

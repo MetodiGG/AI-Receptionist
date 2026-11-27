@@ -1,0 +1,89 @@
+{
+  "checkedOn": "2026-11-27",
+  "status": "reviewed_local_branch_not_published",
+  "recordId": "sofia-sedemchakri-lyulin5-dertliev99",
+  "inventoryIdentity": "4e001c4896f0d8c9e547157e7f00b09f49e80c62d4e0d0a884c5d2fe855d8977",
+  "business": "Седем чакри студио",
+  "cell": {
+    "city": "София",
+    "neighborhood": "Люлин 5",
+    "category": "fitness",
+    "verifiedPremisesBefore": 1,
+    "verifiedPremisesAfter": 2
+  },
+  "sources": {
+    "ownerContactAndBookingCta": "https://www.sedemchakri.com/",
+    "ownerSchedule": "https://www.sedemchakri.com/schedule",
+    "ownerPublishedCalendarEmbed": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTezmWZHt3hOUmvsQ0XGaB212au9QoqzVd-tXB1NOfwMAWZwRpsDfP7Lyh59-JIFSPP8EAij4VWgFiy/pubhtml?gid=0&single=true&widget=true&headers=false",
+    "visiblePublishedScheduleSheet": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTezmWZHt3hOUmvsQ0XGaB212au9QoqzVd-tXB1NOfwMAWZwRpsDfP7Lyh59-JIFSPP8EAij4VWgFiy/pubhtml/sheet?headers=false&gid=0",
+    "ownerPriceList": "https://www.sedemchakri.com/prices",
+    "ownerTerms": "https://www.sedemchakri.com/terms-and-conditions",
+    "ownerRobots": "https://www.sedemchakri.com/robots.txt",
+    "benefitNetworkLocation": "https://locations.mymultisport.bg/location/sedem-chakri-studio",
+    "alternateBenefitNetworkLocation": "https://coolfit.bg/locations/sedem-chakri-studio/"
+  },
+  "location": {
+    "displayAddress": "София, ж.к. Люлин 5, бул. Д-р Петър Дертлиев 99",
+    "phone": "+359988878665",
+    "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+    "municipalCsvRow": "122659;Люлин;гр. София;\"\";\"\";бул. Д-р Петър Дертлиев;99;\"\";42.709580;23.244212",
+    "addressId": "122659",
+    "latitude": 42.709580,
+    "longitude": 23.244212,
+    "licence": "CC-BY-4.0",
+    "attribution": "ГИС София / Столична община",
+    "qualification": "The owner contact section independently names Люлин 5, boulevard and number 99, and describes the building at the intersection with бул. Панчо Владигеров. A benefit-network partner confirms the public telephone and this same location. The unique civic row supplies the building point, not a verified door pin. Sofia municipality administrative area Люлин is not an alternate neighborhood label."
+  },
+  "verifiedServices": [
+    {
+      "name": "Хатха йога · групова практика",
+      "englishName": "Hatha yoga · group class",
+      "actualClassPage": "https://calendly.com/sedemchakri/yoga_desi",
+      "tariffHeading": "Йога практики",
+      "price": 10,
+      "currency": "EUR",
+      "unit": "adult single visit"
+    },
+    {
+      "name": "Въздушна йога · групова практика",
+      "englishName": "Aerial yoga · group class",
+      "actualClassPage": "https://calendly.com/sedemchakri/aerial-yoga-zora",
+      "tariffHeading": "Йога практики",
+      "price": 10,
+      "currency": "EUR",
+      "unit": "adult single visit"
+    },
+    {
+      "name": "Латино танци · групово занимание",
+      "englishName": "Latin dance · group class",
+      "actualClassPage": "https://calendly.com/sedemchakri/dance-with-yusi",
+      "tariffHeading": "Танци",
+      "price": 10,
+      "currency": "EUR",
+      "unit": "adult single visit"
+    }
+  ],
+  "bookingEvidence": {
+    "kind": "form",
+    "bookingUrl": "https://www.sedemchakri.com/schedule",
+    "publicRead": "The owner’s actual booking CTA points to its published schedule. The schedule iframe serves the ordinary public Google published document shell; its exposed initialSheet link renders the public worksheet. The visible worksheet rows for Хатха йога, Въздушна йога and Latino танци contain the exact action to their own named Calendly event pages. Each consumer route was followed with a normal HTTPS GET and responded HTTP 200 with the matching type of class and the studio identity. This is the natural public source chain, inspected through the HTML response; no impersonation of a browser session, private API, hidden route, runtime import or real click test to choose a class or time.",
+    "conditions": "The owner schedule calls for advance booking before 22:00 the previous day for morning classes, at least 90 minutes in advance for afternoon and evening classes, and at least three participants for a class to take place. The current price list gives only a general group tariff for the selected Yoga and Dance sections. No data for availability, specific weekly slot, fixed duration, prepaid membership, children's price, promotion, deposit, private lessons, public hours or no-show charge is asserted.",
+    "excluded": "The homepage inquiry form and separately loaded newsletter form are not the booking route. Monthly packages and claims of discounted or no-charge MultiSport classes are not included. The flexible instructor-specific times in the schedule are not product durations."
+  },
+  "sourceUseAndSafety": "The current owner site is the source for regular literal EUR prices, contact, wayfinding and class rules. Provider pages corroborate appointment existence and are not imported. Owner robots disallows /frontend/ and allows the inspected public routes; restricted paths were not requested. The owner terms route serves a generic unfinished template, not evidence of a particular right to republish. Independently expressed minimal facts only. No seller media, biographies, site prose, reviews, ratings, identifiable people or provider state copied into the catalogue. No account login, date or slot selection, customer-data entry, phone call, submission, consent, booking, notification, payment, production or native calendars touched.",
+  "illustrations": {
+    "method": "Built-in OpenAI image generation; four independently generated editorial activity illustrations. They do not show the real premises, instructors or clientele. No existing image or AI-disclosure rule changed.",
+    "cover": "/business-cover-photos/go-sedemchakri-lyulin5-20261127-v1.webp",
+    "services": [
+      "/service-photos/go-sedemchakri-hatha-20261127-v1.webp",
+      "/service-photos/go-sedemchakri-aerial-20261127-v1.webp",
+      "/service-photos/go-sedemchakri-latin-20261127-v1.webp"
+    ],
+    "promptSet": [
+      "Landscape 4:3 generic studio, two adults in standing Hatha triangle pose, wide angle from behind, natural late sunlight, pale walls, warm wood, no logos or text.",
+      "Square group Hatha class, three adults in seated side bend, low camera from the front, charcoal mats and natural plaster, no logos or text.",
+      "Square aerial yoga class, seated adult in green fabric hammock, second adult behind, exposed safe fabric support, neutral daylight, no logos or text.",
+      "Square group Latin dance class, two pairs practising basic footwork in casual clothing, wide editorial view, honey wood, no logos or text."
+    ]
+  }
+}

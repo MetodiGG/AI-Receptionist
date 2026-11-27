@@ -1,0 +1,173 @@
+{
+  "reviewedOn": "2026-11-27",
+  "baseCommit": "9a96f24c5ad4c6b53d5a63de1a7c8858d0b0e68a",
+  "scope": "One new business and one exact branch-map correction; no publication, price estimate, booking, notification, customer data, calendar or partnership change.",
+  "newBusiness": {
+    "suggestedId": "sofia-ivon-service-gorna-banya-eho1",
+    "name": "IVON Service · Горна баня",
+    "category": "auto_repair",
+    "neighborhood": "Горна баня",
+    "cityCode": "68134",
+    "locationKind": "premises",
+    "displayAddress": "София, кв. Горна баня, ул. Ехо 1",
+    "phone": "+359895701048",
+    "hours": {
+      "Monday–Friday": "09:00–19:00",
+      "Saturday–Sunday": "closed",
+      "sourceUrl": "https://ivonservice.com/contacts/"
+    },
+    "scope": "Only the Горна баня workshop. Booking and tariffs at IVON TYRES branches not inferred.",
+    "booking": {
+      "kind": "form",
+      "entry": "https://ivonservice.com/booking/",
+      "confirm": "A preferred time is requested; the workshop contacts the customer to confirm or suggest another time. No instant confirmation or slots asserted."
+    },
+    "sources": {
+      "website": "https://ivonservice.com/ivon-service-gorna-bania/",
+      "contact": "https://ivonservice.com/contacts/",
+      "serviceMenu": "https://ivonservice.com/services/",
+      "booking": "https://ivonservice.com/booking/",
+      "linkedTyreTariff": "https://ivonservice.com/prices/",
+      "robots": "https://ivonservice.com/robots.txt",
+      "ownerLinkedMap": "https://goo.gl/maps/fEGxYyeYwJu1c9SK9",
+      "resolvedNamedMap": "https://www.google.com/maps/place/IVON+Service+-+%D0%90%D0%B2%D1%82%D0%BE%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D0%B7/@42.6713158,23.2237021,15z/data=!4m7!3m6!1s0x40aa9b452eba0c37:0x4153894c60c686b8!8m2!3d42.6713158!4d23.2412116"
+    },
+    "namedVenuePoint": {
+      "latitude": 42.6713158,
+      "longitude": 23.2412116,
+      "proof": "Owner links to named IVON workshop in encoded !3d/!4d components. Different viewport longitude (23.2237021) and the municipal point for neighbouring number 2 were rejected.",
+      "granularity": "business map destination, not a surveyed doorway"
+    },
+    "services": [
+      {
+        "name": "Компютърна диагностика",
+        "formOption": "Диагностика",
+        "price": null,
+        "duration": null,
+        "image": "/service-photos/go-detail-auto-computer-diagnostics-20261126-v2.webp"
+      },
+      {
+        "name": "Смяна на масло",
+        "formOption": "Смяна на масло",
+        "price": null,
+        "duration": null,
+        "image": "/service-photos/go-detail-auto-engine-oil-service-20261126-v2.webp"
+      },
+      {
+        "name": "Ремонт на ходова част",
+        "formOption": "Ремонт по ходова част",
+        "price": null,
+        "duration": null,
+        "image": "/service-photos/suspension-repair-v1.webp"
+      }
+    ],
+    "cover": "/business-cover-photos/activity-sx-auto-routine-service-v1.webp",
+    "priceEvidence": {
+      "reached": [
+        [
+          "/booking/",
+          200
+        ],
+        [
+          "/services/",
+          200
+        ],
+        [
+          "/prices/",
+          404
+        ],
+        [
+          "/contacts/",
+          200
+        ],
+        [
+          "/ivon-service-gorna-bania/",
+          200
+        ]
+      ],
+      "decision": "No numeric current tariff for the listed three. The owner menu explicitly states that oil-change labour is free only with purchase of oil at this workshop; kept as a qualification, not a 0 EUR total. Oil price and labour otherwise not published. The older 30 BGN seasonal tyre-storage amount is a different, unlisted service. The 404 tyre-price page is not proof of absent rates for those tyre services."
+    },
+    "hoursEvidence": "Exact branch and contact pages show 09–19 on weekdays, closed Sat/Sun. The historical search-cache booking page is not the authority for this branch's hours."
+  },
+  "updatedBranch": {
+    "id": "sofia-neli-slavova-mladost-3",
+    "address": "София, ж.к. Младост 3, бул. Александър Малинов 51, Метро Сити ТБЦ, ет. 1",
+    "contact": "https://nellyslavova.bg/contact/",
+    "firstPartyTariff": "https://nellyslavova.bg/faq/",
+    "point": {
+      "latitude": 42.6461116,
+      "longitude": 23.3763546
+    },
+    "proof": "The owner contact links to Психологически кабинет Нели Славова; place components !3d42.6461116!4d23.3763546 under the venue’s named point. Municipal RNs 100882–100887 independently corroborate number 51, but their numbered entrances and the floor were not assigned map coordinates.",
+    "bookingAndTariffUnchanged": "Published EUR 50 for the 50-minute individual in-office consultation and phone booking preserved exactly. The currently linked canonical provider profile also displays EUR 50; an older affiliate search snapshot is not the active offer, and no external booking channel is substituted.",
+    "before": "02b0f299833d718d9d36820c64de078c2dc05f219bc63e14aa95bc22829deb3b",
+    "after": "c3c68b59bc6c53ede96cf2b05885b3bfa705138c841c35560718a01d10a3831b",
+    "pricingIdentity": "9baa3294d5eba11cbf4538226a8b954771e7bd25b3a89fd8bba756be2449a231"
+  },
+  "held": [
+    {
+      "name": "IVON TYRES / The Dr. Of Tyres · Левски В",
+      "neighborhood": "Левски В",
+      "addressLead": "ж.к. Левски В, бл. 6А",
+      "mapLead": "https://goo.gl/maps/A3QiaVrGtcN4Z6b98",
+      "namedPoint": {
+        "latitude": 42.7098697,
+        "longitude": 23.3796765
+      },
+      "reason": "The owner branch page does identify the distinct IVON TYRES operation in Левски В, and a named map lead corroborates the site near civic block 6, entrance А. Historic social posts quoted by a mirror list appointment phones, but the current owner booking entry and contact reviewed tie to Горна баня; no current first-party appointment invitation, price or telephone for the exact Левски В branch was verified. Do not reuse Горна баня's form/phone or count a separate listing yet."
+    },
+    {
+      "name": "Apex · Слатина",
+      "reason": "Owner address includes the letter suffix 101А; embedded address and municipal civic listing without suffix only verify 101, not the actual practice. No pin added."
+    }
+  ],
+  "assets": "Four existing reviewed GoRez illustrations; no new image bytes, no copying of provider or partner imagery, and no change to the image labels or site design.",
+  "coverage": {
+    "target": 30,
+    "before": {
+      "sha": "d78a2b53d13785b0df9820b04497fbb4dfb59c644dfb3ecf083b040ac16d3857",
+      "approved": 1788,
+      "bound": 1046,
+      "totalCells": 1750,
+      "emptyPhysical": 1239,
+      "emptyGps": 1319,
+      "atTarget": 0,
+      "gornaBanya": {
+        "physical": 1,
+        "gps": 1,
+        "ids": [
+          "sofia-lucky-garage"
+        ]
+      },
+      "mladost3": {
+        "physical": 2,
+        "gps": 0,
+        "ids": []
+      }
+    },
+    "after": {
+      "sha": "0f461d2f62b165319500c348270dfbed5630511c88ae9d1fe7cad0f953dd2182",
+      "approved": 1789,
+      "bound": 1048,
+      "totalCells": 1750,
+      "emptyPhysical": 1239,
+      "emptyGps": 1318,
+      "atTarget": 0,
+      "gornaBanya": {
+        "physical": 2,
+        "gps": 2,
+        "ids": [
+          "sofia-ivon-service-gorna-banya-eho1",
+          "sofia-lucky-garage"
+        ]
+      },
+      "mladost3": {
+        "physical": 2,
+        "gps": 1,
+        "ids": [
+          "sofia-neli-slavova-mladost-3"
+        ]
+      }
+    }
+  }
+}

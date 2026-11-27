@@ -1,0 +1,102 @@
+{
+  "baseline": "93af6a648c1e7d5de02bd4719437d6116fd27b2d",
+  "changed": {
+    "lib/catalogue-service-photo-keys.mjs": {
+      "before": "bf3d660c34709b7a989e662aa5391b7fe7b6a465bf1fbdc0de9ef12c2616253b",
+      "after": "9ad846cc116802e7a96ec35d593bbec129bf0c3521a00dd385afeb121ab8042b"
+    },
+    "lib/discovery-photo-ownership.json": {
+      "before": "7106155f21d8ecf1cbc9b1ceab747bb05ebceb940e6fdac52eb981393a68418f",
+      "after": "e7d9837719326d0a9ba28979ec42ed94b79e5a5caa9f5efb5851a25a99515c7a"
+    },
+    "lib/discovery/catalogue-data/pricing-booking-review-v1.mjs": {
+      "before": "6ff9a9a05240dfddef8615dbf25cbc151ff5ef036870ae283b7675d030df6861",
+      "after": "08e783fe9991d441c9e404e26be22420b701af508801c170becba3920ffe135b"
+    },
+    "lib/discovery/sofia-catalogue.mjs": {
+      "before": "bf507d50b56935fd8481f391929b72db427f702aca0b59cf6d015c87e2696bb7",
+      "after": "16ba5e5b3cec0c40d0806557e30ec33132bdf963edf1d46f86c8c003508e4180"
+    },
+    "lib/locale/service-english.json": {
+      "before": "afcf4722a9892a2b166f13256ff8f1bd326cdbbd03706e3cd202a6e55d937da6",
+      "after": "decc378fde4f5bc63674f02ce7578dafef0320c3e059deb50d4f71fbc1c302ea"
+    },
+    "lib/public-business-cover-photo.mjs": {
+      "before": "087d28e29cd2087ef9850ceb4519f46be043a75ea04739ab373cfea77c43fbe0",
+      "after": "a8be4b8c80767f884c50330e160edbb35b8800482f81a919cd3d468485f9d5bf"
+    },
+    "lib/specific-service-photo-ids.mjs": {
+      "before": "97ffd47412588d26531b730b3a1aeab101a29cdf9614acf149473ab94c2f4990",
+      "after": "0bbe8bdb052a9dfe67c733a402b85f895541739e6311bcff114c68dab9d295cb"
+    }
+  },
+  "added": {
+    "docs/catalogue-coverage/avtostart-izgrev-20261127.json": "617f0995daded013cb8cf8f1dc0d9cbd722b912639df4d3a6ed39519f7e2f2c8",
+    "docs/catalogue-coverage/dentaart-hladilnika-20261127.json": "e55aeb7b06bd3b87208a9c5330d39e81cf5feac4bc7af34a349c70dfd23cefda",
+    "docs/catalogue-coverage/izgrev-hladilnika-images-20261127.json": "e1f00ab89ac4315f17562f26c7e6b70e7bf618522206581c921bb59715b4eee1",
+    "docs/catalogue-coverage/metro-city-and-lea-locations-20261127.json": "a228bc7c1deaedf8556326966f189847f67b23acfebcd37073afe571516d2172",
+    "lib/discovery/catalogue-data/neighborhood-verified-avtostart-izgrev-20261127.mjs": "2cda0c58834b5d503d729d22ab2f9f5e76360744fe9db4df6e3527e599d6f533",
+    "lib/discovery/catalogue-data/neighborhood-verified-dentaart-hladilnika-20261127.mjs": "559f1cb2e3aa7c929829cc1104ac54f725afa638af42282453344d3cb1b9709d",
+    "lib/discovery/catalogue-data/metro-city-and-lea-locations-20261127.mjs": "a8b89eb2ef3f95470bc9d24f9f2cbfd5d621a670bdc892cb1dd4920598fb9a14",
+    "public/business-cover-photos/go-avtostart-izgrev-20261127-v1.webp": "3fe9cd92295d15ed8feace3428a3bab201d274809e8230052fe7d015eca6a184",
+    "public/service-photos/go-avtostart-manual-driving-20261127-v1.webp": "9137edb30560e0c143053a25cd5d6f69c522a9b5baef12a42e401a1197d58f76",
+    "public/business-cover-photos/go-dentaart-hladilnika-20261127-v1.webp": "74cc170c12062b86bf94783e5782354fc5ccaf1a39584b3cbcd307765cb62df4",
+    "public/service-photos/go-dentaart-ceramic-crown-consult-20261127-v1.webp": "a50acef2f40074e19a351fd84afc012dd5dcf967eb5d52c2b7fa0b3ae654c80e"
+  },
+  "baselineCatalogueSha256": "23e4b46fbe1bac5e01dd7527e733c2f0df20e831000081fb3c836bae904f13ac",
+  "currentCatalogueSha256": "744418c1c843b4a7d32c0d02b38986541d94c7a227e4dc7b0f4a28115489921c",
+  "records": [
+    {
+      "id": "sofia-avtostart-izgrev-joliot-curie20",
+      "sha256": "b5805f6507702bce6580fb5daf7235bf7a343f35a33f165ace0c96d70042172d"
+    },
+    {
+      "id": "sofia-dentaart-hladilnika-filipkutev14",
+      "sha256": "494095c99577cd81b9e0c5d99c00cb73cc5bc476b60206ab28642584ef60cc91"
+    }
+  ],
+  "locations": [
+    {
+      "id": "sofia-head-hunters-mladost",
+      "oldNeighborhood": "Младост",
+      "changedPoint": false,
+      "before": "5caa0a97492ccb2fc4c98a55a57469744382c061dba30fa54afe9fc5a14c4f86",
+      "after": "072cce8fa26ffe5b6ddf79fa2d6d79a5d636e1963ca2df82a71239e97b67ea3b"
+    },
+    {
+      "id": "sofia-music-box-mladost",
+      "oldNeighborhood": "Младост",
+      "changedPoint": true,
+      "before": "2040c65222f383b7994c691d2e80e0fc64344606a0f9e521517335218c97d3a6",
+      "after": "d11a843755d47d31f9a9844c1ca474e120f15073d4b499b70acb0ccdabe36b89"
+    },
+    {
+      "id": "sofia-x-academy-mladost",
+      "oldNeighborhood": "Младост",
+      "changedPoint": false,
+      "before": "ebe12f9d3ee2b76bb324f8bdb32144371947bddec3c5cca4a558bf300b092260",
+      "after": "c3afc563e77041f9c863918f336bf3d79cc76ea747f5a8e71caba87c82f2141b"
+    },
+    {
+      "id": "sofia-intelia-bel-metro-city",
+      "oldNeighborhood": "Младост",
+      "changedPoint": true,
+      "before": "e6db96d8f220a0a3fe1e1878a707037236595ceb05c2c7b0b6fa6fdb30f4372a",
+      "after": "22b7012d0e9f159d800136a0c8d6593f618c11ac9bbc5cb4170e8d79b9bdf0e1"
+    },
+    {
+      "id": "sofia-venera-music-mladost3",
+      "oldNeighborhood": "Младост 3",
+      "changedPoint": true,
+      "before": "bad5c01065fe88e9dd8acc7ef62b0728143627743d9a9570c24cfb64071dcb11",
+      "after": "f9dc29543f0174844e82533eb0a1bc93f30c2d6f4a4242b5df6cb42fb7d58431"
+    },
+    {
+      "id": "sofia-lea-dental-lyulin10",
+      "oldNeighborhood": "Люлин 10",
+      "changedPoint": true,
+      "before": "20e9c6b7227c9061764ecc65a85e4d24f723a157a86b09c6314ee1389cf3be6d",
+      "after": "48c82665f9456b365257ab0b7f89fe7e42f08d710cb6ddb6db41f7ff1bb68e16"
+    }
+  ]
+}

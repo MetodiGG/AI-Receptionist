@@ -1,0 +1,106 @@
+{
+  "baseline": "60a63da314922ff51eca8d6d6b9bd87c34055ef5",
+  "changed": {
+    "lib/catalogue-service-photo-keys.mjs": {
+      "before": "762db44657564151c78cb6b40269db8c387681776d76bd88b6b503a6b117968d",
+      "after": "589e2659af2f54efcb47c9357a55e21448782b8ae545c969d68a00776e80ae4f"
+    },
+    "lib/discovery-photo-ownership.json": {
+      "before": "a7b83e5c15e6e2b1f916d4a0b10bf976d33bcf0064efc889d440cfec446573ae",
+      "after": "5f4d2e435cac81bd3e8c66cb9e0cfd7d545b54205e468fe52574824ceec87400"
+    },
+    "lib/discovery/catalogue-data/pricing-booking-review-v1.mjs": {
+      "before": "89e73556c76d71035c3d0fb56aeb755216bab881e320f59dfee98992b18ccf8c",
+      "after": "c6c0a10254860b0b0b5bd31ee109b0cad5ccd3d353849d4a32a7891b7a78318e"
+    },
+    "lib/discovery/sofia-catalogue.mjs": {
+      "before": "48e54b016d30b1c35806c7a1cad9af785de8374d7656b4ddbff78a3acdef0935",
+      "after": "6dd40255ee96d0e2917d7d21317b33ea6002fe371da2095760697bc4fe1a76f6"
+    },
+    "lib/locale/service-english.json": {
+      "before": "2c88c170c73da1338143f7fc365c285b2ab99cc3c96217d3cbfd1f84147d1273",
+      "after": "0fee477070e51597366df0582c3aa3e4f2355477ea021e214aeeac25244d4f89"
+    },
+    "lib/public-business-cover-photo.mjs": {
+      "before": "1be59c7d2416fa8e97a28ea78f3af76159b06ed6b7246727abd3dd5fd5e9a3b1",
+      "after": "5d6e7f5395c8103732d1bb87421a8a9b57ad71abc504513648451bc39706dd0f"
+    },
+    "lib/specific-service-photo-ids.mjs": {
+      "before": "2557f29f9f18092f3ea41d8cfe2c8ede7683d26795fb49ba6f94e24c5ed23ef3",
+      "after": "86acf7981c805723c3d42db7b909d9374f7c3c5da92606a049c584e78e02c8fd"
+    }
+  },
+  "added": {
+    "docs/catalogue-coverage/galabov-zaharna-fabrika-20261127.md": "fa1ac9e5d573fe3e8a5675e82480e85f8842543a6a3fedb94a539446e3c5a376",
+    "docs/catalogue-coverage/kihon-suhata-reka-20261127.md": "7867d6d7d2091294c35d9e9ccc3b82e81832c3dc0d8ef2ab610da396455a0ef6",
+    "docs/catalogue-coverage/sofia-auto-followups-20261127.md": "66612821e1f9e8e6cb26553fcb2499857aad56b313ff9563ea954558b4f29458",
+    "lib/discovery/catalogue-data/neighborhood-verified-galabov-zaharna-fabrika-20261127.mjs": "db3c3a1070265eb987b78386de0df43ba66b4e4d49767e301e316a727cdb63d4",
+    "lib/discovery/catalogue-data/neighborhood-verified-kihon-suhata-reka-20261127.mjs": "c5d5b768c0cf37c02268500376d8e3d5c2bf6af74f432b4d7372990b566bd2cd",
+    "lib/discovery/catalogue-data/verified-sofia-auto-followups-20261127.mjs": "274a859775cb7d205efd39cc200f44a108c738f8495eb263cf8974186397d9af",
+    "public/business-cover-photos/go-galabov-zaharna-fabrika-20261127-v1.webp": "b6605bb1320ab39dc1596732ad72eef8a3d1bfa146bd93646aacf5d0f113ed07",
+    "public/business-cover-photos/go-kihon-suhata-reka-20261127-v1.webp": "36873946f6d43ff8e1d0415bd5c803670bf22734209bf9b46f039f2c4160e0b4",
+    "public/service-photos/go-galabov-initial-legal-consultation-20261127-v1.webp": "d6bef885b4e2845889cf38fca012fe45f3756f65a6331a4ac6263838aedf6ba8",
+    "public/service-photos/go-kihon-group-karate-jujitsu-20261127-v1.webp": "28ace525691406fa5b92c5453c4c2bc6b156c526078cdbff99531e705c3a41ba"
+  },
+  "records": [
+    {
+      "id": "sofia-galabov-legal-zaharna-fabrika-block31a",
+      "sha256": "e067a7b27336962e11bc9afadd58a724a487b9afa2f9450d062ad7bb07cdfdc3"
+    },
+    {
+      "id": "sofia-kihon-suhata-reka-botevgradsko50",
+      "sha256": "517d715be1fed19f1eb20a271792c2a873d25b11a737acc0280552768ee57df5"
+    }
+  ],
+  "corrections": [
+    {
+      "id": "sofia-sarafovi-auto",
+      "before": "f769857e2ece1636eb07be03f4d0a6f812c50988aa6b3d6348a181e2729bf742",
+      "after": "b7b0f96bcc1e32b29c55939bf885034bc753a56fae389f5d885638d207d5bc79",
+      "original": {
+        "neighborhood": null,
+        "coordinates": {
+          "latitude": 42.66648337501564,
+          "longitude": 23.257545172396945,
+          "source": "https://urbandata.sofia.bg/dataset/address_sofia-zip",
+          "method": "verified_official_address",
+          "sourceAddress": "София, бул. Никола Петков 73",
+          "sourceCityCode": "68134",
+          "sourceNeighborhood": null,
+          "sourceWebsite": "https://sarafoviauto.bg/",
+          "checkedOn": "2026-11-13",
+          "addressId": "10878",
+          "licence": "CC-BY-4.0",
+          "attribution": "ГИС София / Столична община"
+        }
+      }
+    },
+    {
+      "id": "sofia-serviz-petkov",
+      "before": "6f923eb3476da2d10e204275ada755fec721731b6f7d5a0de165f85fdcdc84bf",
+      "after": "0dc716745dc2a3b983e7e0289786127dcfbc60e1e87b3530a22eaca827236283",
+      "original": {
+        "coordinates": null,
+        "services": [
+          {
+            "name": "Ремонт на двигатели",
+            "category": "auto_repair",
+            "appointmentModel": "appointment"
+          },
+          {
+            "name": "Автомобилна диагностика",
+            "category": "auto_repair",
+            "appointmentModel": "appointment"
+          },
+          {
+            "name": "Ремонт на ходова част",
+            "category": "auto_repair",
+            "appointmentModel": "appointment"
+          }
+        ]
+      }
+    }
+  ],
+  "baselineCatalogueSha256": "83b497dac7766394ce054044f13d4e8a955fb81e400a99567c5d0557d71ac31f",
+  "currentCatalogueSha256": "476bb157de97abe394041b870ea65391469bd76c1e67bb2d5b4fd7d3ffa8bf30"
+}

@@ -3,6 +3,44 @@ import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { SOFIA_CATALOGUE } from '../lib/discovery/sofia-catalogue.mjs'
 import { BOOKING_PRICE_REVIEWS } from '../lib/discovery/catalogue-data/pricing-booking-review-v1.mjs'
+import { VERIFIED_EDUCATION_GROWTH_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-education-growth-20261127.mjs'
+import { VERIFIED_CONSULTATIONS_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-consultations-20261127.mjs'
+import { VERIFIED_BANISHA_SALON_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-banisha-salon-20261127.mjs'
+import { VERIFIED_DIANABAD_INSPECTION_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-dianabad-inspection-20261127.mjs'
+import { VERIFIED_HLADILNIKA_NN_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-hladilnika-nn-20261127.mjs'
+import { VERIFIED_HIPODRUMA_HAIRLESS_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-hipodruma-hairless-20261127.mjs'
+import { VERIFIED_REDUTA_ABV_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-reduta-abv-20261127.mjs'
+import { GARAGE46_SERDIKA_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-garage46-serdika-20261127.mjs'
+import { AURA_B19_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-aura-b19-20261127.mjs'
+import { VERIFIED_MTS_KRASNA_POLYANA3_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-mts-krasna-polyana3-20261127.mjs'
+import { YAVOROV_GEO_MILEV_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-yavorov-geo-milev-20261127.mjs'
+import { IVON_GORNA_BANYA_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-ivon-gorna-banya-20261127.mjs'
+import { FLAIS_NADEZHDA1_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-flais-nadezhda1-20261127.mjs'
+import { SIHIA_NADEZHDA2_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-sihia-nadezhda2-20261127.mjs'
+import { VERIFIED_SEDEMCHAKRI_LYULIN5_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-sedemchakri-lyulin5-20261127.mjs'
+import { VERIFIED_RAMIRUS_LEVSKI_V_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-ramirus-levski-v-20261127.mjs'
+import { VERIFIED_CLEAN_CARPET_SMIRNENSKI_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-clean-carpet-smirnenski-20261127.mjs'
+import { VERIFIED_VEDA_JUNIOR_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-veda-junior-20261127.mjs'
+import { KOTEV_MLADOST1A_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-kotev-mladost1a-20261127.mjs'
+import { VERIFIED_AVTOSTART_IZGREV_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-avtostart-izgrev-20261127.mjs'
+import { DENTAART_HLADILNIKA_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-dentaart-hladilnika-20261127.mjs'
+import { VERIFIED_KRIVA_REKA_DARVENITSA_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-kriva-reka-darvenitsa-20261127.mjs'
+import { ORLYAK_BANISHORA_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-orlyak-banishora-20261127.mjs'
+import { ASLAN_POLIGONA_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-aslan-poligona-20261127.mjs'
+import { ATUES_LYULIN3_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-atues-lyulin3-20261127.mjs'
+import { ROBOTIKA_KRASTOVA_VADA_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-robotika-krastova-vada-20261127.mjs'
+import { VERIFIED_CARPAINT_LEVSKI_G_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-carpaint-levski-g-20261127.mjs'
+import { VERIFIED_SENSE_CENTER_KARPUZITSA_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-sense-center-karpuzitsa-20261127.mjs'
+import { VERIFIED_GALABOV_ZAHARNA_FABRIKA_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-galabov-zaharna-fabrika-20261127.mjs'
+import { VERIFIED_KIHON_SUHATA_REKA_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-kihon-suhata-reka-20261127.mjs'
+import { VERIFIED_SISTERS_DOGS_LOZENETS_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-sisters-dogs-lozenets-20261127.mjs'
+import { VERIFIED_SOMA_ZAPADEN_PARK_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-soma-zapaden-park-20261127.mjs'
+import { VERIFIED_DARITA_IZTOK_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-darita-iztok-20261127.mjs'
+import { VERIFIED_TINO_NAILS_20261127_REVIEWS } from '../lib/discovery/catalogue-data/verified-tino-nails-20261127.mjs'
+import { VERIFIED_MITOART_HADZHI_DIMITAR_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-mitoart-hadzhi-dimitar-20261127.mjs'
+import { VERIFIED_BRATYA_MILADINOVI_KNIAZHEVO_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-bratya-miladinovi-kniazhevo-20261127.mjs'
+import { VERIFIED_DEKRA_FAKULTETA_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-dekra-fakulteta-20261127.mjs'
+import { VERIFIED_SOFIA_WEST_APPOINTMENTS_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-sofia-west-appointments-20261127.mjs'
 import { pricingIdentity, assessPricingReview, auditCataloguePricing } from '../lib/discovery/catalogue-pricing-review.mjs'
 import report from '../docs/catalogue-pricing/booking-flow-audit-20261110.json' with { type: 'json' }
 import { NEIGHBORHOOD_20261111_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-expansion-20261111.mjs'
@@ -69,6 +107,9 @@ import { PRIORITY_FOUND_EAST_20261123_REVIEWS } from '../lib/discovery/catalogue
 import { PRIORITY_FOUND_SOUTH_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-priority-found-south-20261123.mjs'
 import { PRIORITY_SPARSE2_NORTH_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-priority-sparse2-north-20261123.mjs'
 import { PRIORITY_SPARSE2_SOUTH_20261123_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-priority-sparse2-south-20261123.mjs'
+import { MOPART_INTAKE_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-mopart-intake-20261127.mjs'
+import { VERIFIED_LYULIN_BATCH_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-lyulin-batch-20261127.mjs'
+import { VERIFIED_SOFIA_CROSS_QUARTER_20261127_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-verified-sofia-cross-quarter-20261127.mjs'
 import { pricedGrowthPriorCatalogue } from './catalogue-priced-growth-20261123-scope.mjs'
 const now = Date.parse('2026-11-11T12:00:00Z')
 const record = () => structuredClone(SOFIA_CATALOGUE.find(row => row.id === 'sofia-cut-n-chill'))
@@ -172,7 +213,7 @@ test('dated audit receipts cover every current ID without rewriting the historic
     assert.equal(assessPricingReview(business, review, Date.parse('2026-11-23T12:00:00Z')).state, index === 2 ? 'reviewed' : 'service_reviewed')
     assert.equal(assessPricingReview(business, review, now).state, 'pending')
   }
-  for (const [reviews, id, state] of [
+  for (const [reviews, id, state, reviewedAt = '2026-11-23T12:00:00Z'] of [
     [SPORT_EDUCATION_GAP_20261123_REVIEWS, 'sofia-umni-deca-obelya2-106-3', 'service_reviewed'],
     [DOICHINOVA_INTAKE_20261123_REVIEWS, 'sofia-doichinova-lyulin3-block368', 'reviewed'],
     [DBROS_INTAKE_20261123_REVIEWS, 'sofia-dbros-vrazhdebna-botevgradsko431', 'service_reviewed'],
@@ -229,6 +270,52 @@ test('dated audit receipts cover every current ID without rewriting the historic
     [PRIORITY_FOUND_SOUTH_20261123_REVIEWS, 'sofia-jolly-kids-pavlovo-duychev12v', 'reviewed'],
     [PRIORITY_SPARSE2_NORTH_20261123_REVIEWS, 'sofia-lokomotiv-tennis-voenna-rampa-rozhen23', 'reviewed'],
     [PRIORITY_SPARSE2_SOUTH_20261123_REVIEWS, 'sofia-kindyroo-lyulin8-tsaritsa-yoanna68', 'reviewed'],
+    [MOPART_INTAKE_20261127_REVIEWS, 'sofia-mopart-lyulin3-okolovrasten803', 'service_reviewed', '2026-11-27T12:00:00Z'],
+    [[VERIFIED_LYULIN_BATCH_20261127_REVIEWS[0]], 'sofia-solema-lyulin3-block348', 'reviewed', '2026-11-27T12:00:00Z'],
+    [[VERIFIED_LYULIN_BATCH_20261127_REVIEWS[1]], 'sofia-alice-academy-lyulin3-block389', 'reviewed', '2026-11-27T12:00:00Z'],
+    [[VERIFIED_SOFIA_CROSS_QUARTER_20261127_REVIEWS[0]], 'sofia-bs-wrap-studio-studentski-stranski3b', 'service_reviewed', '2026-11-27T12:00:00Z'],
+    [[VERIFIED_SOFIA_CROSS_QUARTER_20261127_REVIEWS[1]], 'sofia-as-vavilon-vrabnitsa2-block632d', 'service_reviewed', '2026-11-27T12:00:00Z'],
+    [[VERIFIED_SOFIA_CROSS_QUARTER_20261127_REVIEWS[2]], 'sofia-best-moments-photography-lyulin6-block641', 'reviewed', '2026-11-27T12:00:00Z'],
+    [[VERIFIED_EDUCATION_GROWTH_20261127_REVIEWS[0]], 'sofia-reya-kids-ovcha-kupel2-ivan-hadzhiyski3', 'service_reviewed', '2026-11-27T12:00:00Z'],
+    [[VERIFIED_EDUCATION_GROWTH_20261127_REVIEWS[1]], 'sofia-art-academy-banishora-kozloduy128', 'service_reviewed', '2026-11-27T12:00:00Z'],
+    [VERIFIED_CONSULTATIONS_20261127_REVIEWS, 'sofia-va-consulting-lyulin10-block135', 'service_reviewed', '2026-11-27T12:00:00Z'],
+    [VERIFIED_BANISHA_SALON_20261127_REVIEWS, 'sofia-essentisimo-banishora-karlovo7', 'reviewed', '2026-11-27T12:00:00Z'],
+    [VERIFIED_DIANABAD_INSPECTION_20261127_REVIEWS, 'sofia-avtokontrol-plus-dianabad', 'service_reviewed', '2026-11-27T12:00:00Z'],
+    [VERIFIED_HLADILNIKA_NN_20261127_REVIEWS, 'sofia-nn-architecture-hladilnika-banat34', 'reviewed', '2026-11-27T12:00:00Z'],
+    [VERIFIED_HIPODRUMA_HAIRLESS_20261127_REVIEWS, 'sofia-hairless-hipodruma-hanpresiyan15', 'service_reviewed', '2026-11-27T12:00:00Z'],
+    [VERIFIED_REDUTA_ABV_20261127_REVIEWS, 'sofia-abv-academy-reduta-velcho-atanasov53', 'service_reviewed', '2026-11-27T12:00:00Z'],
+    [GARAGE46_SERDIKA_20261127_REVIEWS, 'sofia-garage46-serdika-ivanivanov67', 'reviewed', '2026-11-27T12:00:00Z'],
+    [AURA_B19_20261127_REVIEWS, 'sofia-aura-music-stamboliyski175', 'reviewed', '2026-11-27T12:00:00Z'],
+    [VERIFIED_MTS_KRASNA_POLYANA3_20261127_REVIEWS, 'sofia-mts-massage-pchinya31b', 'reviewed', '2026-11-27T12:00:00Z'],
+    [YAVOROV_GEO_MILEV_20261127_REVIEWS, 'sofia-yavorov1920-geo-milev24', 'service_reviewed', '2026-11-27T12:00:00Z'],
+    [IVON_GORNA_BANYA_20261127_REVIEWS, 'sofia-ivon-service-gorna-banya-eho1', 'service_reviewed', '2026-11-27T12:00:00Z'],
+    [FLAIS_NADEZHDA1_20261127_REVIEWS, 'sofia-flais-nadezhda1-lyuborodie2', 'reviewed', '2026-11-27T12:00:00Z'],
+    [SIHIA_NADEZHDA2_20261127_REVIEWS, 'sofia-sihia-nadezhda2-velezhki49g', 'reviewed', '2026-11-27T12:00:00Z'],
+    [VERIFIED_SEDEMCHAKRI_LYULIN5_20261127_REVIEWS, 'sofia-sedemchakri-lyulin5-dertliev99', 'reviewed', '2026-11-27T12:00:00Z'],
+    [VERIFIED_RAMIRUS_LEVSKI_V_20261127_REVIEWS, 'sofia-ramirus-levski-v-letostruy91a', 'service_reviewed', '2026-11-27T12:00:00Z'],
+    [VERIFIED_CLEAN_CARPET_SMIRNENSKI_20261127_REVIEWS, 'sofia-clean-carpet-smirnenski-marko-bochar1', 'reviewed', '2026-11-27T12:00:00Z'],
+    [VERIFIED_VEDA_JUNIOR_20261127_REVIEWS, 'sofia-veda-junior-stefan-karadzha-gintsi11', 'service_reviewed', '2026-11-27T12:00:00Z'],
+    [KOTEV_MLADOST1A_20261127_REVIEWS, 'sofia-kotev-dental-mladost1a-564', 'service_reviewed', '2026-11-27T12:00:00Z'],
+    [VERIFIED_AVTOSTART_IZGREV_20261127_REVIEWS, 'sofia-avtostart-izgrev-joliot-curie20', 'reviewed', '2026-11-27T12:00:00Z'],
+    [DENTAART_HLADILNIKA_20261127_REVIEWS, 'sofia-dentaart-hladilnika-filipkutev14', 'service_reviewed', '2026-11-27T12:00:00Z'],
+    [[VERIFIED_KRIVA_REKA_DARVENITSA_20261127_REVIEWS[0]], 'sofia-divna-stoyanova-geyamed-kriva-reka-bogdanovets6', 'service_reviewed', '2026-11-27T12:00:00Z'],
+    [[VERIFIED_KRIVA_REKA_DARVENITSA_20261127_REVIEWS[1]], 'sofia-stamovident-darvenitsa-plovdivsko11', 'service_reviewed', '2026-11-27T12:00:00Z'],
+    [ORLYAK_BANISHORA_20261127_REVIEWS, 'sofia-orlyak-sport-banishora-orlyak24a', 'service_reviewed', '2026-11-27T12:00:00Z'],
+    [ASLAN_POLIGONA_20261127_REVIEWS, 'sofia-aslan-poligona-block44', 'reviewed', '2026-11-27T12:00:00Z'],
+    [ATUES_LYULIN3_20261127_REVIEWS, 'sofia-a-tu-estilo-lyulin3-block386', 'reviewed', '2026-11-27T12:00:00Z'],
+    [ROBOTIKA_KRASTOVA_VADA_20261127_REVIEWS, 'sofia-robotika-krastova-vada-sasho-nikolov7', 'reviewed', '2026-11-27T12:00:00Z'],
+    [VERIFIED_CARPAINT_LEVSKI_G_20261127_REVIEWS, 'sofia-car-paint-service-levski-g-kyumyurdzhiev22', 'service_reviewed', '2026-11-27T12:00:00Z'],
+    [VERIFIED_SENSE_CENTER_KARPUZITSA_20261127_REVIEWS, 'sofia-sense-center-karpuzitsa-nikola-petkov95a', 'service_reviewed', '2026-11-27T12:00:00Z'],
+    [VERIFIED_GALABOV_ZAHARNA_FABRIKA_20261127_REVIEWS, 'sofia-galabov-legal-zaharna-fabrika-block31a', 'reviewed', '2026-11-27T12:00:00Z'],
+    [VERIFIED_KIHON_SUHATA_REKA_20261127_REVIEWS, 'sofia-kihon-suhata-reka-botevgradsko50', 'reviewed', '2026-11-27T12:00:00Z'],
+    [VERIFIED_SISTERS_DOGS_LOZENETS_20261127_REVIEWS, 'sofia-sisters-of-dogs-lozenets-tachev18', 'reviewed', '2026-11-27T12:00:00Z'],
+    [VERIFIED_SOMA_ZAPADEN_PARK_20261127_REVIEWS, 'sofia-soma-masazhi-zapaden-park-block5b', 'reviewed', '2026-11-27T12:00:00Z'],
+    [VERIFIED_DARITA_IZTOK_20261127_REVIEWS, 'sofia-darita-iztok-lachezar-stanchev5', 'reviewed', '2026-11-27T12:00:00Z'],
+    [VERIFIED_TINO_NAILS_20261127_REVIEWS, 'sofia-tino-hair-hladilnika-paradisecenter100', 'reviewed', '2026-11-27T12:00:00Z'],
+    [VERIFIED_MITOART_HADZHI_DIMITAR_20261127_REVIEWS, 'sofia-mitoart-hadzhi-dimitar-albert-long11-15', 'reviewed', '2026-11-27T12:00:00Z'],
+    [VERIFIED_BRATYA_MILADINOVI_KNIAZHEVO_20261127_REVIEWS, 'sofia-bratya-miladinovi-kniazhevo-tsar-boris375', 'service_reviewed', '2026-11-27T12:00:00Z'],
+    [VERIFIED_DEKRA_FAKULTETA_20261127_REVIEWS, 'sofia-dekra-automotive-fakulteta-suhodolska102', 'reviewed', '2026-11-27T12:00:00Z'],
+    ...VERIFIED_SOFIA_WEST_APPOINTMENTS_20261127_REVIEWS.map(review => [[review], review.id, review.pricingDecision === 'not_publicly_listed' ? 'service_reviewed' : 'reviewed', '2026-11-27T12:00:00Z']),
   ]) {
     assert.deepEqual(reviews.map(row => row.id), [id])
     assert.equal(auditedIds.has(id), false)
@@ -236,7 +323,7 @@ test('dated audit receipts cover every current ID without rewriting the historic
     const [review] = reviews
     assert.ok(BOOKING_PRICE_REVIEWS.includes(review))
     const business = SOFIA_CATALOGUE.find(row => row.id === id)
-    assert.equal(assessPricingReview(business, review, Date.parse('2026-11-23T12:00:00Z')).state, state, id)
+    assert.equal(assessPricingReview(business, review, Date.parse(reviewedAt)).state, state, id)
     assert.equal(assessPricingReview(business, review, now).state, 'pending')
   }
   assert.equal(auditedIds.size, SOFIA_CATALOGUE.length)

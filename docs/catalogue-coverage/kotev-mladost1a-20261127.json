@@ -1,0 +1,65 @@
+{
+  "checkedOn": "2026-11-27",
+  "status": "reviewed_local_candidate_not_published",
+  "dedupeAndCoverageBaseline": "fbe5806753bb31f49fe0727549a88536ceeb01ed",
+  "recordId": "sofia-kotev-dental-mladost1a-564",
+  "inventoryIdentity": "4bf5db62bcd111d9d4c0fd1493c5c824038b34a01bcc69c73e07fdf7f49b72c6",
+  "business": "Стоматологичен кабинет д-р Ивайло Котев",
+  "cell": {
+    "city": "София",
+    "neighborhood": "Младост 1А",
+    "category": "other",
+    "physicalBefore": 0,
+    "physicalIfIntegrated": 1,
+    "locatedBefore": 0,
+    "locatedIfIntegrated": 1
+  },
+  "sources": {
+    "ownerWebsite": "https://doktorkotev.com/",
+    "ownerContact": "https://doktorkotev.com/contact/",
+    "ownerPhoneAppointment": "https://doktorkotev.com/moga-li-da-doida-bez-zapisan-chas/",
+    "ownerServiceMenu": "https://doktorkotev.com/services/",
+    "ownerTherapeuticService": "https://doktorkotev.com/247-emergency-service/",
+    "ownerSurgicalService": "https://doktorkotev.com/hirurgichna-stomatologia/",
+    "ownerEndodonticService": "https://doktorkotev.com/endodontia/",
+    "ownerProstheticService": "https://doktorkotev.com/protetichna-stomatologia/",
+    "ownerPageSitemap": "https://doktorkotev.com/wp-sitemap-posts-page-1.xml",
+    "ownerRobots": "https://doktorkotev.com/robots.txt",
+    "ownerTerms": "https://doktorkotev.com/terms-and-conditions/",
+    "ownerPrivacy": "https://doktorkotev.com/privacy-policy/"
+  },
+  "location": {
+    "displayAddress": "София, ж.к. Младост 1А, бл. 564, до вх. Б, партер",
+    "phone": "+359894458760",
+    "basis": "owner_linked_named_place",
+    "directionsEvidence": "https://www.google.com/maps?cid=540514720178138846",
+    "latitude": 42.6476201,
+    "longitude": 23.3822048,
+    "evidenceLimits": "The ordinary live owner contact says Mladost 1A, block 564, ground floor beside entrance Б and embeds the exact place identifier, not just a street query. The public named marker returns the same practice name, block, business telephone and shown point; no viewport coordinates are used. The municipal file independently lists block 564 in Младост 1А at references 108586, 112023 and 112024, for numbered entrances 1, 2 and 3. Those separate points do not establish that written Б is any one civic ordinal; none is bound to the practice. The exact named destination is not a physically surveyed door."
+  },
+  "selectedOffers": [
+    {
+      "name": "Стоматологичен преглед",
+      "englishName": "Dental examination",
+      "source": "https://doktorkotev.com/services/",
+      "evidence": "Current therapeutic dentistry menu explicitly lists examination; the owner’s appointment instructions explicitly describe booking an examination by phone."
+    },
+    {
+      "name": "Лечение на зъбен кариес",
+      "englishName": "Tooth decay treatment",
+      "source": "https://doktorkotev.com/247-emergency-service/",
+      "evidence": "Distinct caries treatment is named next to the exam in the menu, with the same offered treatment described separately by the owner. No filling material, medical outcome, consultation fee or insurance coverage is imported."
+    }
+  ],
+  "bookingReview": {
+    "kind": "phone",
+    "state": "phone_booking_reviewed",
+    "evidence": "The owner website explicitly labels one business phone for appointments, and its appointment FAQ and contact page both direct patients to that same number. The optional online modal renders a broken shortcode and is not used or advertised. A generic contact form is not used. No call, form values, payment, slot, customer booking or calendar interaction."
+  },
+  "pricing": {
+    "decision": "not_publicly_listed",
+    "outcome": "not_published",
+    "evidence": "The working owner telephone instructions, service menu, therapeutic page and remaining dental-treatment menu pages were public HTTPS 200 with substantive readable content. None publishes a regular EUR/BGN tariff or duration for the two selected services. The owner page sitemap exposes no separately linked tariff; an optional broken online form is not the basis for the absence finding, and the general insurance FAQ is not a price list. Prices, durations and the date-parity opening-hours schedule are not inferred or represented as standard weekly availability."
+  },
+  "scopeAndSourceUse": "No current catalogue or prior research hold by normalized name, phone, domain or exact branch identity. The similar address of a Cheveux hair salon at the same block has its own contact and operator and is not a duplicate. Public robots only restricts WordPress administration; the live terms page displays contact and phone facts; the inspected privacy text specifically prohibits copying site images. No protected source text, pictures, reviews, ratings, customer information or map response was retained. Not a partnership, production, booking or calendar change."
+}

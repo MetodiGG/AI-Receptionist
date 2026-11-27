@@ -16,8 +16,8 @@ import { createGoogleCardGrantHandler } from '../lib/discovery/google-card-grant
 import { currentPublishedFact } from '../lib/discovery/business-details.mjs'
 import { serviceFitsBudget } from '../lib/discovery/internal-search.mjs'
 import { NEIGHBORHOOD_20261111_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-expansion-20261111.mjs'
-import { COVERAGE_20261116_REVIEWS } from '../lib/discovery/catalogue-data/neighborhood-coverage-20261116.mjs'
-import { assessManualIntakeReview } from '../scripts/catalogue-manual-intake-review.mjs'
+import { cataloguePublicationState } from '../scripts/check-sofia-catalogue.mjs'
+import { expiredCatalogueOfferHold } from '../lib/discovery/catalogue-expired-offer-holds.mjs'
 
 const now = DateTime.fromISO('2026-11-11T12:00:00Z'), clock = now.toMillis()
 const noProvider = () => assert.fail('Free catalogue must never call Google, AI, auth or a paid budget')
@@ -59,17 +59,20 @@ test('the expanded individually sourced catalogue is committed; records are not 
   // Validate the complete current source snapshot on its latest review day;
   // the historical Nov11 search fixtures must still exclude future receipts.
   const publicationClock = Math.max(...SOFIA_CATALOGUE.map(row => Date.parse(`${row.verification.checkedOn}T12:00:00Z`)))
+  const manualSourceReviews = new Set(cataloguePublicationState(SOFIA_CATALOGUE, publicationClock)
+    .manualIntakeResolutions.map(review => review.id))
   for (const row of SOFIA_CATALOGUE) {
-    if (EXCLUDED_GENERAL_CLINIC_IDS.includes(row.id)) assert.equal(approvedCatalogueRecord(row, publicationClock), null, row.id)
+    // A dated hold applies only to the exact source record the policy pins.
+    // Other ineligible or unexpectedly expired entries still fail this audit.
+    if (EXCLUDED_GENERAL_CLINIC_IDS.includes(row.id) || expiredCatalogueOfferHold(row, publicationClock)) assert.equal(approvedCatalogueRecord(row, publicationClock), null, row.id)
     else assert.ok(approvedCatalogueRecord(row, publicationClock), row.id)
     assert.match(row.verification.booking.url, /^https:\/\//)
     const evidenceHost=new URL(row.verification.booking.url).hostname.replace(/^www\./, ''), ownerHost=new URL(row.website).hostname.replace(/^www\./, '')
     const explicitProviderReview = NEIGHBORHOOD_20261111_REVIEWS.find(review => review.id === row.id &&
       review.bookingReview === 'provider_booking_reviewed' && review.bookingEntry === row.verification.booking.url &&
       review.reviewedUrls.includes(row.website) && review.reviewedUrls.includes(row.verification.booking.url))
-    const manualSourceReview = COVERAGE_20261116_REVIEWS.find(review => review.id === row.id)
     assert.ok(evidenceHost===ownerHost || evidenceHost.endsWith(`.${ownerHost}`) || explicitProviderReview ||
-      assessManualIntakeReview(row, manualSourceReview, publicationClock),row.id)
+      manualSourceReviews.has(row.id),row.id)
     assert.doesNotMatch(JSON.stringify(row), forbiddenCatalogueEvidence)
   }
 })

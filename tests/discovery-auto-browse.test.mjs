@@ -138,7 +138,7 @@ test('frontend starts a single city browse without waiting for permission and do
   const source = await readFile(new URL('../components/discovery-search.js', import.meta.url), 'utf8')
   assert.doesNotMatch(source, /await locate\(\{ automatic: true|locate\(\{ automatic: true, searchAfter: false \}\)/)
   assert.match(source, /entryVersion !== searchVersion.current/)
-  assert.match(source, /search\(input, \{ navigate: Boolean\(initial\) \}\)/)
+  assert.match(source, /search\(input, \{ navigate: Boolean\(initial\), earlyHomepageBrowse: !initial && home \}\)/)
   assert.match(source, /browse: home && !next.query.trim\(\)/)
   assert.match(source, /const destination = scrollAfterSearch\.current, version = searchVersion\.current\s+if \(compact \|\| !destination/)
   assert.match(source, /inFlight\.current && JSON\.stringify\(input\) === JSON\.stringify\(lastInput\.current\)/)

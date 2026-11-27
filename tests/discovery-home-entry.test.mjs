@@ -34,7 +34,7 @@ test('explicit choices keep their context while the unselected homepage browses 
   for (const action of ['chooseCategory', 'chooseSubcategory', 'selectSuggestion', 'applyFilters']) {
     assert.match(source, new RegExp(`function ${action}\\([^)]*\\) \\{\\s*cancelPendingLocation\\(\\)\\s*setEntryCategory\\(false\\)`))
   }
-  assert.match(source, /search\(input, \{ navigate: Boolean\(initial\) \}\)/)
+  assert.match(source, /search\(input, \{ navigate: Boolean\(initial\), earlyHomepageBrowse: !initial && home \}\)/)
   assert.match(source, /<DiscoverySubcategories category=\{category\}/)
   assert.match(source, /<DiscoveryHomeBusinesses/)
   assert.match(source, /initialPreview=\{false\}/)

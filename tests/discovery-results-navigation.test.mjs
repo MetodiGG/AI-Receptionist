@@ -17,7 +17,7 @@ test('reduced motion jumps directly, and an unmounted result is ignored', () => 
 test('results navigation waits for a committed user search and never jumps on initial automatic browsing', async () => {
   const source = await read('components/discovery-search.js')
   assert.match(source, /if \(compact \|\| !destination \|\| \(loading\s+\? destination !== 'subcategories' \|\| revealedCategoryVersion.current === version\s+: !result && !error\)\) return/)
-  assert.match(source, /search\(input, \{ navigate: Boolean\(initial\) \}\)/)
+  assert.match(source, /search\(input, \{ navigate: Boolean\(initial\), earlyHomepageBrowse: !initial && home \}\)/)
   assert.match(source, /focusDiscoveryResults\(resultHeading.current, reduceMotion\)/)
   assert.match(source, /scrollAfterSearch.current = false/)
   assert.match(source, /\}, \[result, resultKey, error, loading, compact\]\)/)
